@@ -18,33 +18,16 @@ image: /assets/images/2025-12-24-클라우드_시큐리티_과정_8기_5주차_A
 > **태그**: AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM
 
 > **핵심 내용**: 
-> 이번 포스트에서는 클라우드 보안 과정 8기 5주차에서 다룰 AWS 멀티 계정 거버넌스 및 통합 보안 모니터링에 관련된 내용을 소개하고자 합니다. AWS Control Tower와 Service Control Policies(SCP)를 통한 거버넌스, Datadog SIEM을 활용한 보안 모니터링, 그리고 Cloudflare를 통한 웹 보안에 대해 다룹니다.
+> - 이번 포스트에서는 클라우드 보안 과정 8기 5주차에서 다룰 AWS 멀티 계정 거버넌스 및 통합 보안 모니터링에 관련된 내용을 소개하고자 합니다. AWS Control Tower와 Service Control Policies(SCP)를 통한 거버넌스, Datadog SIEM을 활용한 보안 모니터링, 그리고 Cloudflare를 통한 웹 보안에 대해 다룹니다.
 
-> **주요 기술/도구**: AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM
+> **주요 기술/도구**: AWS, Datadog, Cloudflare, SIEM, cloud
 
-> **대상 독자**: 클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
-> **카테고리**: cloud
-
-> **태그**: AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM
-
-> **핵심 내용**: 
-> - AWS Control Tower는 멀티 계정 환경에서 중앙화된 거버넌스를 제공하는 관리 서비스입니다.
-> - Service Control Policies(SCP)를 통해 계정 레벨에서 정책을 적용하여 보안과 컴플라이언스를 강화할 수 있습니다.
-> - Datadog SIEM을 활용하여 AWS 리소스의 보안 이벤트를 통합 모니터링하고 분석할 수 있습니다.
-> - Cloudflare는 DDoS 방어, WAF, SSL/TLS 관리 등을 통해 웹 애플리케이션 보안을 강화합니다.
-
-> **주요 기술/도구**: AWS Control Tower, SCP, Datadog SIEM, Cloudflare, AWS Organizations
-
-> **대상 독자**: 클라우드 보안 전문가, AWS 관리자, 보안 아키텍트, DevOps 엔지니어
+> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
 
 > ---
 
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 서론
 

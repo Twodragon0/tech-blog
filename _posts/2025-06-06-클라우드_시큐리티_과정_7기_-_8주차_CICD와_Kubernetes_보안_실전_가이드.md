@@ -20,9 +20,9 @@ image: /assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차
 > **태그**: CI/CD, Kubernetes, Security, DevSecOps, GitOps, Pipeline-Security
 
 > **핵심 내용**: 
-> 안녕하세요, **Twodragon**입니다. 이번 주차에서는 DevOps 환경에서 필수적인 **CI/CD 파이프라인 보안**과 **Kubernetes 클러스터 보안**에 대해 알아보겠습니다. 실습과 이론을 병행하여, 실제 서비스 환경에 적용 가능한 보안 전략을 다루었습니다.
+> - 안녕하세요, **Twodragon**입니다. 이번 주차에서는 DevOps 환경에서 필수적인 **CI/CD 파이프라인 보안**과 **Kubernetes 클러스터 보안**에 대해 알아보겠습니다. 실습과 이론을 병행하여, 실제 서비스 환경에 적용 가능한 보안 전략을 다루었습니다.
 
-> **주요 기술/도구**: CI/CD, Kubernetes, Security, DevSecOps, GitOps, Pipeline-Security
+> **주요 기술/도구**: Kubernetes, Security, DevSecOps, Security, kubernetes
 
 > **대상 독자**: 클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자
 
@@ -30,21 +30,6 @@ image: /assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차
 
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
-> **카테고리**: kubernetes
-
-
-
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
-
-
-
-
-
-안녕하세요, **Twodragon**입니다.
-
-이번 주차에서는 DevOps 환경에서 필수적인 **CI/CD 파이프라인 보안**과 **Kubernetes 클러스터 보안**에 대해 알아보겠습니다. 실습과 이론을 병행하여, 실제 서비스 환경에 적용 가능한 보안 전략을 다루었습니다.
 
 ## 1. CI/CD 파이프라인 보안 기초
 

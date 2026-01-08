@@ -13,6 +13,23 @@ image: /assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_�
 
 > **제목**: Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드
 
+> **카테고리**: security
+
+> **태그**: Kandji, macOS, MDM, Endpoint-Security, Compliance
+
+> **핵심 내용**: 
+> - macOS 뿐만 아니라 iOS, iPadOS 등 다양한 Apple 기기를 효율적이고 안전하게 관리하고 싶은 IT 관리자 여러분
+> - 오늘은 Apple 통합 엔드포인트 관리(UEM) 솔루션으로 주목받는 Kandji의 강력한 기능들을 어떻게 실제로 활용하는지, 단계별 상세 가이드 형식으로 알려드리겠습니다
+> - Kandji는 복잡한 Apple 기기 전체(macOS, iOS, iPadOS, tvOS) 관리를 간소..
+
+> **주요 기술/도구**: Security, security
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 서론
 

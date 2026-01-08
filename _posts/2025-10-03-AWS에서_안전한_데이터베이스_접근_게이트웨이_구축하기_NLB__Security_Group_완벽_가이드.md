@@ -18,33 +18,16 @@ image: /assets/images/2025-10-03-AWS에서_안전한_데이터베이스_접근_�
 > **태그**: AWS, NLB, Security-Group, Database, Network
 
 > **핵심 내용**: 
-> 데이터베이스 접근 관리 솔루션을 AWS에 배포하면서 Network Load Balancer와 Security Group을 활용한 Zero Trust 아키텍처를 구축한 경험을 공유합니다. Terraform으로 완전 자동화하고, 보안과 가용성을 모두 확보했습니다.
+> - 데이터베이스 접근 관리 솔루션을 AWS에 배포하면서 Network Load Balancer와 Security Group을 활용한 Zero Trust 아키텍처를 구축한 경험을 공유합니다. Terraform으로 완전 자동화하고, 보안과 가용성을 모두 확보했습니다.
 
-> **주요 기술/도구**: AWS, NLB, Security-Group, Database, Network
+> **주요 기술/도구**: AWS, Security, cloud
 
-> **대상 독자**: 클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
-> **카테고리**: cloud
-
-> **태그**: AWS, NLB, Security-Group, Database, Network
-
-> **핵심 내용**: 
-> - 데이터베이스 접근 게이트웨이는 여러 팀이 수십 개의 데이터베이스를 안전하게 관리하기 위한 필수 아키텍처입니다.
-> - Network Load Balancer(NLB)와 Security Group을 활용한 Zero Trust 아키텍처를 통해 보안과 가용성을 확보할 수 있습니다.
-> - Terraform을 사용한 인프라 자동화로 일관성 있는 배포와 관리가 가능합니다.
-> - Security Group을 통한 세밀한 접근 제어로 최소 권한 원칙을 적용할 수 있습니다.
-
-> **주요 기술/도구**: AWS NLB, Security Group, Terraform, RDS, ElastiCache, Zero Trust Architecture
-
-> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 보안 엔지니어, 인프라 관리자
+> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
 
 > ---
 
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 서론
 
