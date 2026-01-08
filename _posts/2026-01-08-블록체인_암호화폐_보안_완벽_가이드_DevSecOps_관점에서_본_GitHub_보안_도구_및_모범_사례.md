@@ -1088,12 +1088,4 @@ contract SecureContract {
 
 ---
 
-## 관련 포스팅
-
-- [클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리](/클라우드_시큐리티_과정_7기_-_9주차_DevSecOps_통합_정리)
-- [클라우드 시큐리티 과정 7기 - 6주차: Cloudflare 및 GitHub 보안](/클라우드_시큐리티_과정_7기_-_6주차_Cloudflare_및_github_보안)
-- [Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화](/Amazon_Q_Developer와_GitHub_Advanced_Security를_활용한_코드_보안_강화_및_AWS_최적화)
-
----
-
 원본 포스트: [https://twodragon.tistory.com](https://twodragon.tistory.com)
