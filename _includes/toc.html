@@ -1,138 +1,197 @@
 {% if include.content %}
 {% assign headers = include.content | split: '<h' %}
 {% if headers.size > 2 %}
-<div class="table-of-contents-wrapper">
-  <div class="toc-header">
-    <h4 class="toc-title">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="8" y1="6" x2="21" y2="6"/>
-        <line x1="8" y1="12" x2="21" y2="12"/>
-        <line x1="8" y1="18" x2="21" y2="18"/>
-        <line x1="3" y1="6" x2="3.01" y2="6"/>
-        <line x1="3" y1="12" x2="3.01" y2="12"/>
-        <line x1="3" y1="18" x2="3.01" y2="18"/>
-      </svg>
-      목차
-    </h4>
-    <button class="toc-toggle" aria-label="목차 펼치기/접기" id="toc-toggle">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="6 9 12 15 18 9"/>
-      </svg>
-    </button>
-  </div>
-  <nav class="table-of-contents collapsed" id="toc-content" aria-label="Table of Contents">
-    <ul class="toc-list">
-      {% assign item_count = 0 %}
-      {% for header in headers %}
-        {% if header contains 'id="' %}
-          {% assign level = header | slice: 0, 1 %}
-          {% if level == "2" or level == "3" %}
-            {% assign id_start = header | split: 'id="' | last %}
-            {% assign id = id_start | split: '"' | first %}
-            {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
-            {% assign title = title_start | split: '</h' | first | strip_html %}
+<div class="toc-container">
+  <div class="toc-card">
+    <div class="toc-header">
+      <div class="toc-title-section">
+        <div class="toc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </div>
+        <h4 class="toc-title">목차</h4>
+        <span class="toc-count" id="toc-count"></span>
+      </div>
+      <button class="toc-expand-btn" id="toc-toggle" aria-label="목차 펼치기/접기">
+        <span class="btn-text">전체보기</span>
+        <svg class="chevron-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="toc-nav" id="toc-content" aria-label="Table of Contents">
+      <div class="toc-grid">
+        {% assign item_count = 0 %}
+        {% for header in headers %}
+          {% if header contains 'id="' %}
+            {% assign level = header | slice: 0, 1 %}
             {% if level == "2" %}
+              {% assign id_start = header | split: 'id="' | last %}
+              {% assign id = id_start | split: '"' | first %}
+              {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
+              {% assign title = title_start | split: '</h' | first | strip_html %}
               {% assign item_count = item_count | plus: 1 %}
-              <li class="toc-item toc-h2">
-                <a href="#{{ id }}" class="toc-link">
-                  <span class="toc-number">{{ item_count }}</span>
-                  <span class="toc-text">{{ title }}</span>
-                </a>
-              </li>
-            {% else %}
-              <li class="toc-item toc-h3">
-                <a href="#{{ id }}" class="toc-link toc-sub">
-                  <span class="toc-text">{{ title }}</span>
-                </a>
-              </li>
+              <a href="#{{ id }}" class="toc-card-item" data-index="{{ item_count }}">
+                <span class="toc-item-number">{{ item_count }}</span>
+                <span class="toc-item-text">{{ title }}</span>
+                <svg class="toc-item-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
             {% endif %}
           {% endif %}
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </nav>
+        {% endfor %}
+      </div>
+
+      <!-- 하위 목차 (h3) - 펼치면 표시 -->
+      <div class="toc-sublist" id="toc-sublist">
+        {% assign current_h2 = 0 %}
+        {% for header in headers %}
+          {% if header contains 'id="' %}
+            {% assign level = header | slice: 0, 1 %}
+            {% if level == "2" %}
+              {% assign current_h2 = current_h2 | plus: 1 %}
+            {% elsif level == "3" %}
+              {% assign id_start = header | split: 'id="' | last %}
+              {% assign id = id_start | split: '"' | first %}
+              {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
+              {% assign title = title_start | split: '</h' | first | strip_html %}
+              <a href="#{{ id }}" class="toc-sub-item" data-parent="{{ current_h2 }}">
+                <span class="toc-sub-bullet"></span>
+                <span class="toc-sub-text">{{ title }}</span>
+              </a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </nav>
+  </div>
 </div>
 
 <script>
 (function() {
   const tocToggle = document.getElementById('toc-toggle');
   const tocContent = document.getElementById('toc-content');
+  const tocSublist = document.getElementById('toc-sublist');
+  const tocCount = document.getElementById('toc-count');
+  const tocItems = document.querySelectorAll('.toc-card-item');
+  const tocSubItems = document.querySelectorAll('.toc-sub-item');
 
-  if (tocToggle && tocContent) {
-    // 기본적으로 접힌 상태, h2만 미리보기로 3개까지 표시
-    const h2Items = tocContent.querySelectorAll('.toc-h2');
-    const h3Items = tocContent.querySelectorAll('.toc-h3');
+  if (!tocToggle || !tocContent) return;
 
-    // h3 항목 기본 숨김
-    h3Items.forEach(item => {
-      item.style.display = 'none';
-    });
+  // 항목 수 표시
+  if (tocCount && tocItems.length > 0) {
+    tocCount.textContent = tocItems.length + '개 섹션';
+  }
 
-    // h2가 5개 이상이면 처음 3개만 보여주고 나머지 숨김
-    if (h2Items.length > 5) {
-      tocContent.classList.remove('collapsed');
-      h2Items.forEach((item, index) => {
-        if (index >= 3) {
-          item.classList.add('toc-preview-hidden');
-          item.style.display = 'none';
-        }
-      });
-      tocToggle.innerHTML = '<span style="font-size: 12px; margin-right: 4px;">+' + (h2Items.length - 3) + '</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>';
-    } else {
-      // h2가 5개 이하면 전체 표시
-      tocContent.classList.remove('collapsed');
-    }
+  // 기본: h3 숨김, 4개 이상이면 미리보기
+  const maxPreview = 6;
+  let isExpanded = false;
 
-    let isExpanded = false;
+  // 초기 상태: h3 숨김
+  if (tocSublist) {
+    tocSublist.style.display = 'none';
+  }
 
-    tocToggle.addEventListener('click', function() {
-      isExpanded = !isExpanded;
-
-      if (isExpanded) {
-        // 전체 펼치기
-        tocContent.classList.remove('collapsed');
-        h2Items.forEach(item => {
-          item.classList.remove('toc-preview-hidden');
-          item.style.display = '';
-        });
-        h3Items.forEach(item => {
-          item.style.display = '';
-        });
-        tocToggle.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>';
-        tocToggle.setAttribute('aria-label', '목차 접기');
-      } else {
-        // 접기 (h2 3개만, h3 숨김)
-        h3Items.forEach(item => {
-          item.style.display = 'none';
-        });
-
-        if (h2Items.length > 5) {
-          h2Items.forEach((item, index) => {
-            if (index >= 3) {
-              item.classList.add('toc-preview-hidden');
-              item.style.display = 'none';
-            }
-          });
-          tocToggle.innerHTML = '<span style="font-size: 12px; margin-right: 4px;">+' + (h2Items.length - 3) + '</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>';
-        } else {
-          tocToggle.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>';
-        }
-        tocToggle.setAttribute('aria-label', '목차 펼치기');
+  // 6개 초과 시 일부만 표시
+  if (tocItems.length > maxPreview) {
+    tocItems.forEach((item, index) => {
+      if (index >= maxPreview) {
+        item.classList.add('toc-hidden');
       }
     });
+    tocToggle.querySelector('.btn-text').textContent = '+' + (tocItems.length - maxPreview) + ' 더보기';
+  } else {
+    tocToggle.querySelector('.btn-text').textContent = '상세보기';
+  }
 
-    // TOC 링크 클릭 시 스크롤
-    tocContent.querySelectorAll('.toc-link').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href').substring(1);
-        const targetEl = document.getElementById(targetId);
-        if (targetEl) {
-          e.preventDefault();
-          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // URL 해시 업데이트
-          history.pushState(null, null, '#' + targetId);
-        }
+  // 토글 버튼 클릭
+  tocToggle.addEventListener('click', function() {
+    isExpanded = !isExpanded;
+
+    if (isExpanded) {
+      // 전체 펼치기
+      tocItems.forEach(item => item.classList.remove('toc-hidden'));
+      if (tocSublist && tocSubItems.length > 0) {
+        tocSublist.style.display = 'block';
+      }
+      tocToggle.querySelector('.btn-text').textContent = '접기';
+      tocToggle.classList.add('expanded');
+    } else {
+      // 접기
+      if (tocItems.length > maxPreview) {
+        tocItems.forEach((item, index) => {
+          if (index >= maxPreview) {
+            item.classList.add('toc-hidden');
+          }
+        });
+        tocToggle.querySelector('.btn-text').textContent = '+' + (tocItems.length - maxPreview) + ' 더보기';
+      } else {
+        tocToggle.querySelector('.btn-text').textContent = '상세보기';
+      }
+      if (tocSublist) {
+        tocSublist.style.display = 'none';
+      }
+      tocToggle.classList.remove('expanded');
+    }
+  });
+
+  // 스무스 스크롤
+  document.querySelectorAll('.toc-card-item, .toc-sub-item').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
+
+      const targetId = href.substring(1);
+      const targetEl = document.getElementById(targetId);
+
+      if (targetEl) {
+        e.preventDefault();
+        const headerHeight = document.querySelector('.site-header')?.offsetHeight || 70;
+        const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        history.pushState(null, null, '#' + targetId);
+      }
+    });
+  });
+
+  // 스크롤 시 현재 섹션 하이라이트
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        highlightCurrentSection();
+        ticking = false;
       });
+      ticking = true;
+    }
+  });
+
+  function highlightCurrentSection() {
+    const scrollPosition = window.pageYOffset + 100;
+
+    tocItems.forEach(item => {
+      const href = item.getAttribute('href');
+      if (!href) return;
+
+      const targetId = href.substring(1);
+      const section = document.getElementById(targetId);
+
+      if (section) {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          tocItems.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+        }
+      }
     });
   }
 })();
