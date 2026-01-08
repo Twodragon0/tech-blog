@@ -5,10 +5,28 @@ description: 카테고리별로 정리된 포스트를 확인하세요
 permalink: /categories/
 ---
 <div class="categories-page">
-  {% assign categories = site.posts | map: "category" | concat: site.posts | map: "categories" | flatten | compact | uniq | sort %}
-
   <div class="category-grid" style="margin-bottom: 3rem;">
     {% for cat in site.category_list %}
+    {% comment %} Count posts for this category {% endcomment %}
+    {% assign cat_posts = "" | split: "" %}
+    {% assign cat_name_lower = cat.name | downcase %}
+    {% for post in site.posts %}
+      {% assign post_cat = nil %}
+      {% if post.category and post.category != "" %}
+        {% assign post_cat = post.category | downcase %}
+      {% elsif post.categories %}
+        {% assign first_char = post.categories | slice: 0 %}
+        {% assign categories_str = post.categories | join: "," %}
+        {% if categories_str contains "," %}
+          {% assign post_cat = post.categories | first | downcase %}
+        {% else %}
+          {% assign post_cat = post.categories | downcase %}
+        {% endif %}
+      {% endif %}
+      {% if post_cat == cat_name_lower %}
+        {% assign cat_posts = cat_posts | push: post %}
+      {% endif %}
+    {% endfor %}
     <a href="#{{ cat.name }}" class="category-card card">
       <div class="category-icon {{ cat.name }}">
         {% case cat.icon %}
@@ -28,18 +46,28 @@ permalink: /categories/
       </div>
       <h3>{{ cat.title }}</h3>
       <p>{{ cat.description }}</p>
-      {% assign cat_posts = site.posts | where_exp: "post", "post.category == cat.name or post.categories contains cat.name" %}
       <span class="post-count">{{ cat_posts.size }} posts</span>
     </a>
     {% endfor %}
   </div>
 
   {% for cat in site.category_list %}
-  {% assign cat_posts = "" | split: "," %}
+  {% comment %} Get posts for this category {% endcomment %}
+  {% assign cat_posts = "" | split: "" %}
+  {% assign cat_name_lower = cat.name | downcase %}
   {% for post in site.posts %}
-    {% assign post_cats = post.categories | join: "," | downcase %}
-    {% assign cat_name_lower = cat.name | downcase %}
-    {% if post.category == cat.name or post.category == cat.title or post_cats contains cat_name_lower %}
+    {% assign post_cat = nil %}
+    {% if post.category and post.category != "" %}
+      {% assign post_cat = post.category | downcase %}
+    {% elsif post.categories %}
+      {% assign categories_str = post.categories | join: "," %}
+      {% if categories_str contains "," %}
+        {% assign post_cat = post.categories | first | downcase %}
+      {% else %}
+        {% assign post_cat = post.categories | downcase %}
+      {% endif %}
+    {% endif %}
+    {% if post_cat == cat_name_lower %}
       {% assign cat_posts = cat_posts | push: post %}
     {% endif %}
   {% endfor %}
@@ -56,32 +84,5 @@ permalink: /categories/
     </div>
   </section>
   {% endif %}
-  {% endfor %}
-
-  <!-- Other categories not in predefined list -->
-  {% for category in categories %}
-    {% assign is_predefined = false %}
-    {% for cat in site.category_list %}
-      {% if cat.name == category or cat.title == category %}
-        {% assign is_predefined = true %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
-    {% unless is_predefined %}
-    {% assign cat_posts = site.posts | where_exp: "post", "post.category == category or post.categories contains category" %}
-    {% if cat_posts.size > 0 %}
-    <section id="{{ category | slugify }}" style="margin-bottom: 3rem; scroll-margin-top: 80px;">
-      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border);">
-        <h2 style="margin: 0;">{{ category }}</h2>
-        <span style="color: var(--text-secondary); font-size: 0.9rem;">{{ cat_posts.size }} posts</span>
-      </div>
-      <div class="posts-list">
-        {% for post in cat_posts %}
-          {% include post-card.html post=post %}
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-    {% endunless %}
   {% endfor %}
 </div>

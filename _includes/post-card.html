@@ -2,18 +2,16 @@
 <article class="post-card card">
   <a href="{{ post.url | relative_url }}" class="post-card-inner">
     <div class="post-card-meta">
-      {% comment %} Get category - handle both string and array formats {% endcomment %}
+      {% comment %} Get category - prefer post.category, fallback to categories {% endcomment %}
       {% assign display_cat = nil %}
       {% if post.category and post.category != "" %}
         {% assign display_cat = post.category %}
       {% elsif post.categories %}
-        {% assign cat_type = post.categories | first %}
-        {% if cat_type.size == 1 %}
-          {% comment %} It's a string (first returns single char) {% endcomment %}
-          {% assign display_cat = post.categories %}
-        {% else %}
-          {% comment %} It's an array {% endcomment %}
+        {% assign categories_str = post.categories | join: "," %}
+        {% if categories_str contains "," %}
           {% assign display_cat = post.categories | first %}
+        {% else %}
+          {% assign display_cat = post.categories %}
         {% endif %}
       {% endif %}
 

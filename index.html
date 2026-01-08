@@ -64,6 +64,24 @@ title: Home
     <h2>Categories</h2>
     <div class="category-grid">
       {% for cat in site.category_list %}
+      {% assign cat_posts = "" | split: "" %}
+      {% assign cat_name_lower = cat.name | downcase %}
+      {% for post in site.posts %}
+        {% assign post_cat = nil %}
+        {% if post.category and post.category != "" %}
+          {% assign post_cat = post.category | downcase %}
+        {% elsif post.categories %}
+          {% assign categories_str = post.categories | join: "," %}
+          {% if categories_str contains "," %}
+            {% assign post_cat = post.categories | first | downcase %}
+          {% else %}
+            {% assign post_cat = post.categories | downcase %}
+          {% endif %}
+        {% endif %}
+        {% if post_cat == cat_name_lower %}
+          {% assign cat_posts = cat_posts | push: post %}
+        {% endif %}
+      {% endfor %}
       <a href="{{ '/categories/' | relative_url }}#{{ cat.name }}" class="category-card card">
         <div class="category-icon {{ cat.name }}">
           {% case cat.icon %}
@@ -83,14 +101,6 @@ title: Home
         </div>
         <h3>{{ cat.title }}</h3>
         <p>{{ cat.description }}</p>
-        {% assign cat_posts = "" | split: "," %}
-        {% for post in site.posts %}
-          {% assign post_cats = post.categories | join: "," | downcase %}
-          {% assign cat_name_lower = cat.name | downcase %}
-          {% if post.category == cat.name or post.category == cat.title or post_cats contains cat_name_lower %}
-            {% assign cat_posts = cat_posts | push: post %}
-          {% endif %}
-        {% endfor %}
         <span class="post-count">{{ cat_posts.size }} posts</span>
       </a>
       {% endfor %}
