@@ -1,0 +1,87 @@
+---
+layout: page
+title: Categories
+description: 카테고리별로 정리된 포스트를 확인하세요
+permalink: /categories/
+---
+<div class="categories-page">
+  {% assign categories = site.posts | map: "category" | concat: site.posts | map: "categories" | flatten | compact | uniq | sort %}
+
+  <div class="category-grid" style="margin-bottom: 3rem;">
+    {% for cat in site.category_list %}
+    <a href="#{{ cat.name }}" class="category-card card">
+      <div class="category-icon {{ cat.name }}">
+        {% case cat.icon %}
+          {% when 'shield' %}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          {% when 'code' %}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          {% when 'cloud' %}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          {% when 'cube' %}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          {% when 'chart' %}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+          {% when 'alert' %}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        {% endcase %}
+      </div>
+      <h3>{{ cat.title }}</h3>
+      <p>{{ cat.description }}</p>
+      {% assign cat_posts = site.posts | where_exp: "post", "post.category == cat.name or post.categories contains cat.name" %}
+      <span class="post-count">{{ cat_posts.size }} posts</span>
+    </a>
+    {% endfor %}
+  </div>
+
+  {% for cat in site.category_list %}
+  {% assign cat_posts = "" | split: "," %}
+  {% for post in site.posts %}
+    {% if post.category == cat.name or post.categories contains cat.name %}
+      {% assign cat_posts = cat_posts | push: post %}
+    {% elsif post.categories.first == cat.name or post.categories.first == cat.title %}
+      {% assign cat_posts = cat_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+  {% if cat_posts.size > 0 %}
+  <section id="{{ cat.name }}" class="category-section" style="margin-bottom: 3rem; scroll-margin-top: 100px;">
+    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border);">
+      <span class="category-badge {{ cat.name }}" style="font-size: 0.9rem; padding: 4px 12px;">{{ cat.title }}</span>
+      <span style="color: var(--text-secondary); font-size: 0.9rem;">{{ cat_posts.size }} posts</span>
+    </div>
+    <div class="posts-list">
+      {% for post in cat_posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+  {% endfor %}
+
+  <!-- Other categories not in predefined list -->
+  {% for category in categories %}
+    {% assign is_predefined = false %}
+    {% for cat in site.category_list %}
+      {% if cat.name == category or cat.title == category %}
+        {% assign is_predefined = true %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% unless is_predefined %}
+    {% assign cat_posts = site.posts | where_exp: "post", "post.category == category or post.categories contains category" %}
+    {% if cat_posts.size > 0 %}
+    <section id="{{ category | slugify }}" style="margin-bottom: 3rem; scroll-margin-top: 80px;">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border);">
+        <h2 style="margin: 0;">{{ category }}</h2>
+        <span style="color: var(--text-secondary); font-size: 0.9rem;">{{ cat_posts.size }} posts</span>
+      </div>
+      <div class="posts-list">
+        {% for post in cat_posts %}
+          {% include post-card.html post=post %}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+    {% endunless %}
+  {% endfor %}
+</div>

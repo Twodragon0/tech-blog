@@ -1,0 +1,45 @@
+---
+layout: page
+title: Archive
+description: 연도별로 정리된 모든 포스트
+permalink: /archive/
+---
+<div class="archive-page">
+  {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+
+  {% for year in postsByYear %}
+  <section style="margin-bottom: 3rem;">
+    <h2 id="year-{{ year.name }}" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--primary);">
+      {{ year.name }}
+      <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-secondary);">{{ year.items.size }} posts</span>
+    </h2>
+
+    {% assign postsByMonth = year.items | group_by_exp: "post", "post.date | date: '%m'" %}
+    {% for month in postsByMonth %}
+    <div style="margin-bottom: 1.5rem;">
+      <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        {% assign month_num = month.name | plus: 0 %}
+        {% case month_num %}
+          {% when 1 %}January{% when 2 %}February{% when 3 %}March{% when 4 %}April
+          {% when 5 %}May{% when 6 %}June{% when 7 %}July{% when 8 %}August
+          {% when 9 %}September{% when 10 %}October{% when 11 %}November{% when 12 %}December
+        {% endcase %}
+      </h3>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        {% for post in month.items %}
+        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: baseline;">
+          <time style="color: var(--text-secondary); font-size: 0.85rem; min-width: 80px;">{{ post.date | date: "%m. %d" }}</time>
+          {% if post.category %}
+          <span class="category-badge {{ post.category | downcase }}" style="font-size: 0.7rem;">{{ post.category }}</span>
+          {% elsif post.categories.first %}
+          <span class="category-badge {{ post.categories.first | downcase | replace: ' ', '-' }}" style="font-size: 0.7rem;">{{ post.categories.first }}</span>
+          {% endif %}
+          <a href="{{ post.url | relative_url }}" style="flex: 1;">{{ post.title | escape }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </section>
+  {% endfor %}
+</div>

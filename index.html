@@ -83,7 +83,14 @@ title: Home
         </div>
         <h3>{{ cat.title }}</h3>
         <p>{{ cat.description }}</p>
-        {% assign cat_posts = site.posts | where_exp: "post", "post.category == cat.name or post.categories contains cat.name" %}
+        {% assign cat_posts = "" | split: "," %}
+        {% for post in site.posts %}
+          {% if post.category == cat.name or post.categories contains cat.name %}
+            {% assign cat_posts = cat_posts | push: post %}
+          {% elsif post.categories.first == cat.name or post.categories.first == cat.title %}
+            {% assign cat_posts = cat_posts | push: post %}
+          {% endif %}
+        {% endfor %}
         <span class="post-count">{{ cat_posts.size }} posts</span>
       </a>
       {% endfor %}

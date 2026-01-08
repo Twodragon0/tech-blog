@@ -1,0 +1,40 @@
+---
+layout: page
+title: Tags
+description: 태그별로 정리된 포스트를 확인하세요
+permalink: /tags/
+---
+<div class="tags-page">
+  {% assign all_tags = site.posts | map: "tags" | flatten | compact | uniq | sort_natural %}
+
+  <!-- Tag Cloud -->
+  <div class="tag-cloud" style="margin-bottom: 3rem;">
+    {% for tag in all_tags %}
+    {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
+    <a href="#{{ tag | slugify }}" class="tag" style="font-size: {% if tag_posts.size > 5 %}1rem{% elsif tag_posts.size > 2 %}0.9rem{% else %}0.8rem{% endif %};">
+      {{ tag }} ({{ tag_posts.size }})
+    </a>
+    {% endfor %}
+  </div>
+
+  <!-- Posts by Tag -->
+  {% for tag in all_tags %}
+  {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
+  {% if tag_posts.size > 0 %}
+  <section id="{{ tag | slugify }}" style="margin-bottom: 3rem; scroll-margin-top: 80px;">
+    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+      <span class="tag" style="font-size: 1rem; padding: 6px 16px;">{{ tag }}</span>
+      <span style="color: var(--text-secondary); font-size: 0.9rem;">{{ tag_posts.size }} posts</span>
+    </div>
+    <ul style="list-style: none; padding: 0;">
+      {% for post in tag_posts %}
+      <li style="margin-bottom: 0.75rem; display: flex; gap: 1rem; align-items: baseline;">
+        <time style="color: var(--text-secondary); font-size: 0.85rem; min-width: 100px;">{{ post.date | date: "%Y. %m. %d" }}</time>
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  {% endfor %}
+</div>
