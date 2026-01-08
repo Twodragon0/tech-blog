@@ -18,6 +18,42 @@
       </nav>
 
       <div class="nav-actions">
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button class="lang-toggle" id="lang-toggle" aria-label="Change language" title="언어 변경">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </button>
+          <div class="lang-menu" id="lang-menu">
+            <button class="lang-option active" data-lang="ko">
+              <span class="lang-flag">🇰🇷</span>
+              <span>한국어</span>
+            </button>
+            <button class="lang-option" data-lang="en">
+              <span class="lang-flag">🇺🇸</span>
+              <span>English</span>
+            </button>
+            <button class="lang-option" data-lang="ja">
+              <span class="lang-flag">🇯🇵</span>
+              <span>日本語</span>
+            </button>
+            <button class="lang-option" data-lang="zh">
+              <span class="lang-flag">🇨🇳</span>
+              <span>中文</span>
+            </button>
+            <a href="#" class="lang-option google-translate-link" id="header-google-translate" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              <span>Google 번역</span>
+            </a>
+          </div>
+        </div>
+
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
           <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="5"/>

@@ -521,4 +521,334 @@
   }
 
   console.log('Tech Blog UI initialized');
+
+  // ============================================
+  // Language Dropdown and Translation
+  // ============================================
+  (function initLanguageDropdown() {
+    const langToggle = document.getElementById('lang-toggle');
+    const langDropdown = document.getElementById('lang-dropdown');
+    const langMenu = document.getElementById('lang-menu');
+    const langOptions = document.querySelectorAll('.lang-option[data-lang]');
+    const googleTranslateLink = document.getElementById('header-google-translate');
+
+    if (!langToggle || !langDropdown) return;
+
+    // Create toast element for translation status
+    let toast = document.querySelector('.translate-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'translate-toast';
+      document.body.appendChild(toast);
+    }
+
+    // Set Google Translate link
+    if (googleTranslateLink) {
+      googleTranslateLink.href = `https://translate.google.com/translate?sl=ko&tl=en&u=${encodeURIComponent(window.location.href)}`;
+    }
+
+    // Toggle dropdown
+    langToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      langDropdown.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!langDropdown.contains(e.target)) {
+        langDropdown.classList.remove('active');
+      }
+    });
+
+    // Close dropdown on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        langDropdown.classList.remove('active');
+      }
+    });
+
+    // Translation state
+    let currentLang = 'ko';
+    let originalContent = {};
+    let translationCache = {};
+    let isInitialized = false;
+
+    // Save original content
+    function saveOriginalContent() {
+      if (isInitialized) return;
+
+      const postContent = document.querySelector('.post-content');
+      const postTitle = document.querySelector('.post-title');
+      const cardTitles = document.querySelectorAll('.post-card h3, .card h3, .card h4');
+      const cardExcerpts = document.querySelectorAll('.post-card .card-excerpt, .card p');
+
+      if (postContent) originalContent.postContent = postContent.innerHTML;
+      if (postTitle) originalContent.postTitle = postTitle.textContent;
+
+      originalContent.cardTitles = [];
+      cardTitles.forEach((el, i) => {
+        originalContent.cardTitles[i] = el.textContent;
+      });
+
+      originalContent.cardExcerpts = [];
+      cardExcerpts.forEach((el, i) => {
+        originalContent.cardExcerpts[i] = el.textContent;
+      });
+
+      isInitialized = true;
+    }
+
+    // Show toast notification
+    function showToast(message, type) {
+      toast.textContent = message;
+      toast.className = 'translate-toast show ' + type;
+
+      if (type === 'success' || type === 'error') {
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      }
+    }
+
+    // Get language name
+    function getLanguageName(lang) {
+      const names = {
+        'ko': '한국어',
+        'en': 'English',
+        'ja': '日本語',
+        'zh': '中文'
+      };
+      return names[lang] || lang;
+    }
+
+    // Translate text using MyMemory API
+    async function translateText(text, sourceLang, targetLang) {
+      if (!text || text.trim().length === 0) return text;
+
+      const langMap = {
+        'en': 'en-US',
+        'ja': 'ja-JP',
+        'zh': 'zh-CN',
+        'ko': 'ko-KR'
+      };
+
+      const targetLangCode = langMap[targetLang] || targetLang;
+      const sourceLangCode = langMap[sourceLang] || sourceLang;
+
+      try {
+        const response = await fetch(
+          `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLangCode}|${targetLangCode}`
+        );
+
+        if (!response.ok) throw new Error('Translation API error');
+
+        const data = await response.json();
+
+        if (data.responseStatus === 200 && data.responseData) {
+          return data.responseData.translatedText;
+        }
+
+        return text;
+      } catch (error) {
+        console.warn('Translation failed:', error);
+        return text;
+      }
+    }
+
+    // Translate page content
+    async function translatePage(targetLang) {
+      saveOriginalContent();
+
+      // Check cache
+      if (translationCache[targetLang]) {
+        applyTranslation(translationCache[targetLang]);
+        return;
+      }
+
+      const postContent = document.querySelector('.post-content');
+      const postTitle = document.querySelector('.post-title');
+      const cardTitles = document.querySelectorAll('.post-card h3, .card h3, .card h4');
+      const cardExcerpts = document.querySelectorAll('.post-card .card-excerpt, .card p');
+
+      const translation = {};
+      let totalItems = 0;
+      let translatedItems = 0;
+
+      // Count items to translate
+      if (postTitle) totalItems++;
+      if (postContent) {
+        const textElements = postContent.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote');
+        totalItems += textElements.length;
+      }
+      totalItems += cardTitles.length + cardExcerpts.length;
+
+      // Translate title
+      if (postTitle && originalContent.postTitle) {
+        translation.postTitle = await translateText(originalContent.postTitle, 'ko', targetLang);
+        translatedItems++;
+        showToast(`번역 중... ${Math.round((translatedItems / totalItems) * 100)}%`, 'loading');
+      }
+
+      // Translate post content
+      if (postContent && originalContent.postContent) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = originalContent.postContent;
+        const textElements = tempDiv.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote');
+
+        for (const el of textElements) {
+          if (el.children.length === 0 && el.textContent.trim().length > 0 && el.textContent.trim().length < 500) {
+            const translated = await translateText(el.textContent, 'ko', targetLang);
+            if (translated) el.textContent = translated;
+          }
+          translatedItems++;
+          if (translatedItems % 5 === 0) {
+            showToast(`번역 중... ${Math.round((translatedItems / totalItems) * 100)}%`, 'loading');
+          }
+        }
+
+        translation.postContent = tempDiv.innerHTML;
+      }
+
+      // Translate card titles
+      translation.cardTitles = [];
+      for (let i = 0; i < cardTitles.length; i++) {
+        if (originalContent.cardTitles && originalContent.cardTitles[i]) {
+          translation.cardTitles[i] = await translateText(originalContent.cardTitles[i], 'ko', targetLang);
+          translatedItems++;
+        }
+      }
+
+      // Translate card excerpts
+      translation.cardExcerpts = [];
+      for (let i = 0; i < cardExcerpts.length; i++) {
+        if (originalContent.cardExcerpts && originalContent.cardExcerpts[i]) {
+          translation.cardExcerpts[i] = await translateText(originalContent.cardExcerpts[i], 'ko', targetLang);
+          translatedItems++;
+        }
+      }
+
+      // Cache and apply translation
+      translationCache[targetLang] = translation;
+      applyTranslation(translation);
+    }
+
+    // Apply translation to page
+    function applyTranslation(translation) {
+      const postContent = document.querySelector('.post-content');
+      const postTitle = document.querySelector('.post-title');
+      const cardTitles = document.querySelectorAll('.post-card h3, .card h3, .card h4');
+      const cardExcerpts = document.querySelectorAll('.post-card .card-excerpt, .card p');
+
+      if (postTitle && translation.postTitle) {
+        postTitle.textContent = translation.postTitle;
+      }
+
+      if (postContent && translation.postContent) {
+        postContent.innerHTML = translation.postContent;
+      }
+
+      cardTitles.forEach((el, i) => {
+        if (translation.cardTitles && translation.cardTitles[i]) {
+          el.textContent = translation.cardTitles[i];
+        }
+      });
+
+      cardExcerpts.forEach((el, i) => {
+        if (translation.cardExcerpts && translation.cardExcerpts[i]) {
+          el.textContent = translation.cardExcerpts[i];
+        }
+      });
+    }
+
+    // Restore original content
+    function restoreOriginal() {
+      const postContent = document.querySelector('.post-content');
+      const postTitle = document.querySelector('.post-title');
+      const cardTitles = document.querySelectorAll('.post-card h3, .card h3, .card h4');
+      const cardExcerpts = document.querySelectorAll('.post-card .card-excerpt, .card p');
+
+      if (postContent && originalContent.postContent) {
+        postContent.innerHTML = originalContent.postContent;
+      }
+
+      if (postTitle && originalContent.postTitle) {
+        postTitle.textContent = originalContent.postTitle;
+      }
+
+      cardTitles.forEach((el, i) => {
+        if (originalContent.cardTitles && originalContent.cardTitles[i]) {
+          el.textContent = originalContent.cardTitles[i];
+        }
+      });
+
+      cardExcerpts.forEach((el, i) => {
+        if (originalContent.cardExcerpts && originalContent.cardExcerpts[i]) {
+          el.textContent = originalContent.cardExcerpts[i];
+        }
+      });
+    }
+
+    // Language option click handler
+    langOptions.forEach(option => {
+      option.addEventListener('click', async function() {
+        const targetLang = this.dataset.lang;
+
+        if (targetLang === currentLang) {
+          langDropdown.classList.remove('active');
+          return;
+        }
+
+        // Update active state
+        langOptions.forEach(opt => opt.classList.remove('active'));
+        this.classList.add('active');
+
+        // Update post page language selector if exists
+        const postLangBtns = document.querySelectorAll('.language-tools .lang-btn');
+        postLangBtns.forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.dataset.lang === targetLang) {
+            btn.classList.add('active');
+          }
+        });
+
+        // Close dropdown
+        langDropdown.classList.remove('active');
+
+        // Show loading
+        showToast('번역 중...', 'loading');
+
+        try {
+          if (targetLang === 'ko') {
+            restoreOriginal();
+            showToast('원본으로 복원되었습니다', 'success');
+          } else {
+            await translatePage(targetLang);
+            showToast(`${getLanguageName(targetLang)}로 번역되었습니다`, 'success');
+          }
+          currentLang = targetLang;
+        } catch (error) {
+          console.error('Translation error:', error);
+          showToast('번역 실패. 다시 시도해주세요.', 'error');
+        }
+      });
+    });
+
+    // Sync with post page language selector if exists
+    const postLangBtns = document.querySelectorAll('.language-tools .lang-btn');
+    postLangBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const targetLang = this.dataset.lang;
+
+        // Update header dropdown active state
+        langOptions.forEach(opt => {
+          opt.classList.remove('active');
+          if (opt.dataset.lang === targetLang) {
+            opt.classList.add('active');
+          }
+        });
+
+        currentLang = targetLang;
+      });
+    });
+  })();
 })();
