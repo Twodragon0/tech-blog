@@ -79,13 +79,13 @@ category_list:
 # Giscus Comments (GitHub Discussions)
 giscus:
   repo: "Twodragon0/tech-blog"
-  repo_id: "1130153474"  # GitHub 저장소 ID
+  repo_id: "R_kgDOQ1zGAg"  # GitHub GraphQL Repository ID
   category: "Announcements"
-  category_id: ""  # Giscus.app에서 제공된 category_id 입력 필요
+  category_id: "DIC_kwDOQ1zGAs4C0tYD"  # GitHub Discussions Category ID
   mapping: "pathname"
   reactions_enabled: "1"
   emit_metadata: "0"
-  input_position: "top"
+  input_position: "bottom"
   theme: "preferred_color_scheme"
   lang: "ko"
   crossorigin: "anonymous"
