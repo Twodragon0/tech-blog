@@ -1645,6 +1645,19 @@ body {
   border-radius: var(--border-radius-md);
   margin: var(--spacing-lg) auto;
   display: block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.post-content img.post-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* p 태그 안의 이미지도 제대로 표시되도록 */
+.post-content p img {
+  display: block;
+  margin: var(--spacing-lg) auto;
 }
 
 .post-content table {
