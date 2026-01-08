@@ -2816,6 +2816,34 @@ body {
   line-height: var(--line-height-relaxed);
 }
 
+/* TOC h3 하위 항목 스타일 */
+.toc-h3 {
+  margin-left: calc(var(--spacing-md) + 2rem);
+  border-left: 2px solid var(--color-border-light);
+  padding-left: var(--spacing-sm);
+}
+
+.toc-h3 .toc-link {
+  font-size: var(--font-size-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--color-text-secondary);
+}
+
+.toc-h3 .toc-link:hover {
+  color: var(--color-primary);
+  transform: translateX(2px);
+}
+
+.toc-sub {
+  padding-left: var(--spacing-sm);
+}
+
+.toc-sub::before {
+  content: '—';
+  margin-right: var(--spacing-xs);
+  color: var(--color-text-tertiary);
+}
+
 .toc-sublist {
   list-style: none;
   padding: 0;

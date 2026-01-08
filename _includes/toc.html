@@ -1,26 +1,141 @@
 {% if include.content %}
 {% assign headers = include.content | split: '<h' %}
 {% if headers.size > 2 %}
-<nav class="toc" aria-label="Table of Contents">
-  <h4>Table of Contents</h4>
-  <ul>
-    {% for header in headers %}
-      {% if header contains 'id="' %}
-        {% assign level = header | slice: 0, 1 %}
-        {% if level == "2" or level == "3" %}
-          {% assign id_start = header | split: 'id="' | last %}
-          {% assign id = id_start | split: '"' | first %}
-          {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
-          {% assign title = title_start | split: '</h' | first | strip_html %}
-          {% if level == "2" %}
-          <li><a href="#{{ id }}">{{ title }}</a></li>
-          {% else %}
-          <li style="margin-left: 1rem;"><a href="#{{ id }}">{{ title }}</a></li>
+<div class="table-of-contents-wrapper">
+  <div class="toc-header">
+    <h4 class="toc-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="8" y1="6" x2="21" y2="6"/>
+        <line x1="8" y1="12" x2="21" y2="12"/>
+        <line x1="8" y1="18" x2="21" y2="18"/>
+        <line x1="3" y1="6" x2="3.01" y2="6"/>
+        <line x1="3" y1="12" x2="3.01" y2="12"/>
+        <line x1="3" y1="18" x2="3.01" y2="18"/>
+      </svg>
+      목차
+    </h4>
+    <button class="toc-toggle" aria-label="목차 펼치기/접기" id="toc-toggle">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="table-of-contents collapsed" id="toc-content" aria-label="Table of Contents">
+    <ul class="toc-list">
+      {% assign item_count = 0 %}
+      {% for header in headers %}
+        {% if header contains 'id="' %}
+          {% assign level = header | slice: 0, 1 %}
+          {% if level == "2" or level == "3" %}
+            {% assign id_start = header | split: 'id="' | last %}
+            {% assign id = id_start | split: '"' | first %}
+            {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
+            {% assign title = title_start | split: '</h' | first | strip_html %}
+            {% if level == "2" %}
+              {% assign item_count = item_count | plus: 1 %}
+              <li class="toc-item toc-h2">
+                <a href="#{{ id }}" class="toc-link">
+                  <span class="toc-number">{{ item_count }}</span>
+                  <span class="toc-text">{{ title }}</span>
+                </a>
+              </li>
+            {% else %}
+              <li class="toc-item toc-h3">
+                <a href="#{{ id }}" class="toc-link toc-sub">
+                  <span class="toc-text">{{ title }}</span>
+                </a>
+              </li>
+            {% endif %}
           {% endif %}
         {% endif %}
-      {% endif %}
-    {% endfor %}
-  </ul>
-</nav>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+
+<script>
+(function() {
+  const tocToggle = document.getElementById('toc-toggle');
+  const tocContent = document.getElementById('toc-content');
+
+  if (tocToggle && tocContent) {
+    // 기본적으로 접힌 상태, h2만 미리보기로 3개까지 표시
+    const h2Items = tocContent.querySelectorAll('.toc-h2');
+    const h3Items = tocContent.querySelectorAll('.toc-h3');
+
+    // h3 항목 기본 숨김
+    h3Items.forEach(item => {
+      item.style.display = 'none';
+    });
+
+    // h2가 5개 이상이면 처음 3개만 보여주고 나머지 숨김
+    if (h2Items.length > 5) {
+      tocContent.classList.remove('collapsed');
+      h2Items.forEach((item, index) => {
+        if (index >= 3) {
+          item.classList.add('toc-preview-hidden');
+          item.style.display = 'none';
+        }
+      });
+      tocToggle.innerHTML = '<span style="font-size: 12px; margin-right: 4px;">+' + (h2Items.length - 3) + '</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>';
+    } else {
+      // h2가 5개 이하면 전체 표시
+      tocContent.classList.remove('collapsed');
+    }
+
+    let isExpanded = false;
+
+    tocToggle.addEventListener('click', function() {
+      isExpanded = !isExpanded;
+
+      if (isExpanded) {
+        // 전체 펼치기
+        tocContent.classList.remove('collapsed');
+        h2Items.forEach(item => {
+          item.classList.remove('toc-preview-hidden');
+          item.style.display = '';
+        });
+        h3Items.forEach(item => {
+          item.style.display = '';
+        });
+        tocToggle.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>';
+        tocToggle.setAttribute('aria-label', '목차 접기');
+      } else {
+        // 접기 (h2 3개만, h3 숨김)
+        h3Items.forEach(item => {
+          item.style.display = 'none';
+        });
+
+        if (h2Items.length > 5) {
+          h2Items.forEach((item, index) => {
+            if (index >= 3) {
+              item.classList.add('toc-preview-hidden');
+              item.style.display = 'none';
+            }
+          });
+          tocToggle.innerHTML = '<span style="font-size: 12px; margin-right: 4px;">+' + (h2Items.length - 3) + '</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>';
+        } else {
+          tocToggle.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>';
+        }
+        tocToggle.setAttribute('aria-label', '목차 펼치기');
+      }
+    });
+
+    // TOC 링크 클릭 시 스크롤
+    tocContent.querySelectorAll('.toc-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').substring(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // URL 해시 업데이트
+          history.pushState(null, null, '#' + targetId);
+        }
+      });
+    });
+  }
+})();
+</script>
 {% endif %}
 {% endif %}
