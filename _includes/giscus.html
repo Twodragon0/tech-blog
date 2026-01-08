@@ -21,7 +21,7 @@
               data-category="{{ site.giscus.category }}"
               data-category-id="{{ site.giscus.category_id }}"
               data-mapping="{{ site.giscus.mapping }}"
-              data-term="{% assign date_prefix = page.date | date: '%Y-%m-%d-' %}{% assign file_basename = page.id | remove_first: date_prefix %}{% assign term = file_basename | replace: '_', '-' | slugify %}{{ term }}"
+              data-term="{% assign date_prefix = page.date | date: '%Y-%m-%d-' %}{% assign file_path = page.path | split: '/' | last | remove_first: date_prefix | replace: '.md', '' %}{% assign term = file_path | replace: '_', '-' | slugify %}{{ term }}"
               data-strict="0"
               data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
               data-emit-metadata="{{ site.giscus.emit_metadata }}"
