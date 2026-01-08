@@ -10,26 +10,50 @@ comments: true
 original_url: https://twodragon.tistory.com/698
 image: /assets/images/2025-11-04-Zscaler_완벽_가이드_SSL_검사_샌드박스_AI_광고_유해_사이트_완벽_차단.svg
 ---
-## 📋 포스팅 요약
-
-> **제목**: Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단
-
-> **카테고리**: Security, Cloud
-
-> **태그**: Zscaler, ZTNA, SSL-Inspection, Zero-Trust, Cloud-Security
-
-> **핵심 내용**: 
-> - 하이브리드 근무가 보편화되면서, 사용자는 사무실, 집, 카페 등 다양한 장소에서 기업 리소스에 접근합니다
-> - Zscaler는 이러한 분산된 환경에서도 일관된 보안과 생산성을 보장하는 강력한 클라우드 보안 솔루션입니다
-> - 이 가이드에서는 Zscaler 클라이언트 설정(ZCC)부터 트래픽 전달, SSL 검사, 필수 앱 예외 처리(카카오톡), 샌드박스(ATP), 브라우저 제어, 그리고 AI, 광고, 유해 사이트 차단에 이르는 Zscaler의 핵심 정책을..
-
-> **주요 기술/도구**: Zscaler, Security, Security, Cloud
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">Zscaler</span>
+      <span class="tag">ZTNA</span>
+      <span class="tag">SSL-Inspection</span>
+      <span class="tag">Zero-Trust</span>
+      <span class="tag">Cloud-Security</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li>하이브리드 근무 환경에서 사용자가 어디서든 기업 리소스에 안전하게 접근</li>
+      <li>Zscaler의 클라우드 기반 Zero Trust 보안 아키텍처 및 핵심 정책</li>
+      <li>SSL 검사, 샌드박스(ATP), AI/광고/유해 사이트 차단 실무 설정</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">Zscaler ZIA, ZPA, ZCC, SSL Inspection, ATP Sandbox</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">기업 보안 담당자, 보안 엔지니어, CISO</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 
 ## 서론
