@@ -64,6 +64,37 @@ layout: default
       {% endfor %}
     </div>
     {% endif %}
+
+    <!-- Language Selector & Translate Button -->
+    <div class="language-tools">
+      <div class="language-selector">
+        <button class="lang-btn active" data-lang="ko" title="한국어">
+          <span class="lang-flag">🇰🇷</span>
+          <span class="lang-name">한국어</span>
+        </button>
+        <button class="lang-btn" data-lang="en" title="English">
+          <span class="lang-flag">🇺🇸</span>
+          <span class="lang-name">English</span>
+        </button>
+        <button class="lang-btn" data-lang="ja" title="日本語">
+          <span class="lang-flag">🇯🇵</span>
+          <span class="lang-name">日本語</span>
+        </button>
+        <button class="lang-btn" data-lang="zh" title="中文">
+          <span class="lang-flag">🇨🇳</span>
+          <span class="lang-name">中文</span>
+        </button>
+        <a href="#" id="google-translate-link" class="translate-external" title="Google 번역으로 열기" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          <span>Google 번역</span>
+        </a>
+      </div>
+      <div class="translate-status" id="translate-status"></div>
+    </div>
   </header>
 
   {% if page.toc %}
@@ -184,4 +215,208 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
+
+// Translation functionality using Google Translate
+(function() {
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const translateStatus = document.getElementById('translate-status');
+  const postContent = document.querySelector('.post-content');
+  const postTitle = document.querySelector('.post-title');
+  const googleTranslateLink = document.getElementById('google-translate-link');
+
+  let originalContent = null;
+  let originalTitle = null;
+  let currentLang = 'ko';
+  let translationCache = {};
+
+  // Set Google Translate link
+  if (googleTranslateLink) {
+    googleTranslateLink.href = `https://translate.google.com/translate?sl=ko&tl=en&u=${encodeURIComponent(window.location.href)}`;
+  }
+
+  // Save original content
+  if (postContent) {
+    originalContent = postContent.innerHTML;
+  }
+  if (postTitle) {
+    originalTitle = postTitle.textContent;
+  }
+
+  // Language button click handler
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', async function() {
+      const targetLang = this.dataset.lang;
+
+      if (targetLang === currentLang) return;
+
+      // Update active button
+      langButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      // Show loading status
+      showStatus('번역 중...', 'loading');
+
+      try {
+        if (targetLang === 'ko') {
+          // Restore original Korean content
+          if (originalContent) postContent.innerHTML = originalContent;
+          if (originalTitle) postTitle.textContent = originalTitle;
+          currentLang = 'ko';
+          showStatus('원본으로 복원되었습니다', 'success');
+        } else {
+          // Translate to target language
+          await translatePage(targetLang);
+          currentLang = targetLang;
+          showStatus(getLanguageName(targetLang) + '로 번역되었습니다', 'success');
+        }
+      } catch (error) {
+        console.error('Translation error:', error);
+        showStatus('번역 실패. 다시 시도해주세요.', 'error');
+      }
+    });
+  });
+
+  async function translatePage(targetLang) {
+    // Check cache first
+    const cacheKey = targetLang;
+    if (translationCache[cacheKey]) {
+      if (translationCache[cacheKey].content) {
+        postContent.innerHTML = translationCache[cacheKey].content;
+      }
+      if (translationCache[cacheKey].title) {
+        postTitle.textContent = translationCache[cacheKey].title;
+      }
+      return;
+    }
+
+    // Use Google Translate widget approach (free, no API key needed)
+    const translateUrl = `https://translate.google.com/translate?sl=ko&tl=${targetLang}&u=${encodeURIComponent(window.location.href)}`;
+
+    // For inline translation, we'll use a different approach
+    // Create a temporary iframe or use the LibreTranslate API
+
+    // Alternative: Use browser's built-in translation hint
+    // or redirect to Google Translate
+
+    // Simple approach: Open Google Translate in new tab with option
+    const useRedirect = false; // Set to true to redirect to Google Translate
+
+    if (useRedirect) {
+      window.open(translateUrl, '_blank');
+      return;
+    }
+
+    // Inline translation using free API (MyMemory Translation API)
+    await translateInline(targetLang);
+  }
+
+  async function translateInline(targetLang) {
+    // Get text content to translate
+    const textElements = postContent.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote, .summary-value, .summary-list li');
+
+    const langMap = {
+      'en': 'en-US',
+      'ja': 'ja-JP',
+      'zh': 'zh-CN'
+    };
+
+    const targetLangCode = langMap[targetLang] || targetLang;
+
+    // Translate title
+    if (postTitle && originalTitle) {
+      const translatedTitle = await translateText(originalTitle, 'ko', targetLangCode);
+      if (translatedTitle) {
+        postTitle.textContent = translatedTitle;
+      }
+    }
+
+    // Batch translate content
+    const textsToTranslate = [];
+    const elementsMap = [];
+
+    textElements.forEach((el, index) => {
+      const text = el.textContent.trim();
+      if (text && text.length > 0 && text.length < 500) {
+        textsToTranslate.push(text);
+        elementsMap.push({ element: el, index: textsToTranslate.length - 1 });
+      }
+    });
+
+    // Translate in batches
+    const batchSize = 10;
+    for (let i = 0; i < textsToTranslate.length; i += batchSize) {
+      const batch = textsToTranslate.slice(i, i + batchSize);
+      const translations = await Promise.all(
+        batch.map(text => translateText(text, 'ko', targetLangCode))
+      );
+
+      translations.forEach((translated, j) => {
+        const mapIndex = i + j;
+        const item = elementsMap.find(m => m.index === mapIndex);
+        if (item && translated) {
+          // Preserve HTML structure, only replace text
+          if (item.element.children.length === 0) {
+            item.element.textContent = translated;
+          }
+        }
+      });
+
+      // Update progress
+      const progress = Math.min(100, Math.round(((i + batchSize) / textsToTranslate.length) * 100));
+      showStatus(`번역 중... ${progress}%`, 'loading');
+    }
+
+    // Cache the translation
+    translationCache[targetLang] = {
+      content: postContent.innerHTML,
+      title: postTitle ? postTitle.textContent : null
+    };
+  }
+
+  async function translateText(text, sourceLang, targetLang) {
+    try {
+      // Using MyMemory Translation API (free, 1000 words/day limit)
+      const response = await fetch(
+        `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`
+      );
+
+      if (!response.ok) throw new Error('Translation API error');
+
+      const data = await response.json();
+
+      if (data.responseStatus === 200 && data.responseData) {
+        return data.responseData.translatedText;
+      }
+
+      return null;
+    } catch (error) {
+      console.warn('Translation failed for:', text.substring(0, 50));
+      return null;
+    }
+  }
+
+  function showStatus(message, type) {
+    if (!translateStatus) return;
+
+    translateStatus.textContent = message;
+    translateStatus.className = 'translate-status ' + type;
+
+    if (type === 'success' || type === 'error') {
+      setTimeout(() => {
+        translateStatus.textContent = '';
+        translateStatus.className = 'translate-status';
+      }, 3000);
+    }
+  }
+
+  function getLanguageName(lang) {
+    const names = {
+      'ko': '한국어',
+      'en': 'English',
+      'ja': '日本語',
+      'zh': '中文'
+    };
+    return names[lang] || lang;
+  }
+})();
 </script>

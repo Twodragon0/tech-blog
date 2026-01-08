@@ -1133,6 +1133,126 @@ body {
   margin-top: var(--spacing-md);
 }
 
+/* Language Tools - Translation Feature */
+.language-tools {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px dashed var(--color-border);
+}
+
+.language-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.lang-btn:hover {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-devsecops) 100%);
+  border-color: transparent;
+  color: white;
+}
+
+.lang-btn .lang-flag {
+  font-size: 1.1em;
+}
+
+.lang-btn .lang-name {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .lang-btn .lang-name {
+    display: inline;
+  }
+}
+
+.translate-status {
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  min-height: 1.5rem;
+}
+
+.translate-status.loading {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.translate-status.success {
+  color: #16a34a;
+  background: #dcfce7;
+}
+
+.translate-status.error {
+  color: #dc2626;
+  background: #fee2e2;
+}
+
+[data-theme="dark"] .translate-status.loading {
+  background: rgba(99, 102, 241, 0.2);
+}
+
+[data-theme="dark"] .translate-status.success {
+  background: rgba(22, 163, 74, 0.2);
+  color: #86efac;
+}
+
+[data-theme="dark"] .translate-status.error {
+  background: rgba(220, 38, 38, 0.2);
+  color: #fca5a5;
+}
+
+/* Google Translate Alternative Button */
+.translate-external {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.translate-external:hover {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.translate-external svg {
+  width: 16px;
+  height: 16px;
+}
+
 .tag {
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-md);
