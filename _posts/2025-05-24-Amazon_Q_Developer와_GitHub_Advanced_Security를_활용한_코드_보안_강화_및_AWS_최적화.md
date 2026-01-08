@@ -2,8 +2,8 @@
 layout: post
 title: "Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화"
 date: 2025-05-24 00:17:56 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: devsecops
+tags: [Amazon-Q, GitHub-Advanced-Security, Code-Security, AWS]
 comments: true
 original_url: https://twodragon.tistory.com/685
 ---

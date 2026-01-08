@@ -2,8 +2,9 @@
 layout: post
 title: "클라우드 시큐리티 과정 7기 - 7주차 Docker 및 Kubernetes 이해"
 date: 2025-05-30 00:04:58 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+category: kubernetes
+categories: [Kubernetes, DevSecOps]
+tags: [Docker, Kubernetes, Container, K8s, Cloud-Security]
 comments: true
 original_url: https://twodragon.tistory.com/686
 ---

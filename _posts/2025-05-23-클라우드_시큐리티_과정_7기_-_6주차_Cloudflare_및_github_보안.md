@@ -2,8 +2,8 @@
 layout: post
 title: "클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 github 보안"
 date: 2025-05-23 01:07:48 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: security
+tags: [Cloudflare, GitHub, Security]
 comments: true
 original_url: https://twodragon.tistory.com/684
 ---

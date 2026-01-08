@@ -1,0 +1,189 @@
+// Reset & Base
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-sans;
+  line-height: $line-height-base;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color $transition-base, color $transition-base;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// CSS Custom Properties for theming
+:root {
+  --bg: #{$light-bg};
+  --bg-secondary: #{$light-bg-secondary};
+  --bg-tertiary: #{$light-bg-tertiary};
+  --text: #{$light-text};
+  --text-secondary: #{$light-text-secondary};
+  --border: #{$light-border};
+  --primary: #{$primary};
+  --primary-hover: #{$primary-hover};
+  --code-bg: #{$light-bg-tertiary};
+}
+
+[data-theme="dark"] {
+  --bg: #{$dark-bg};
+  --bg-secondary: #{$dark-bg-secondary};
+  --bg-tertiary: #{$dark-bg-tertiary};
+  --text: #{$dark-text};
+  --text-secondary: #{$dark-text-secondary};
+  --border: #{$dark-border};
+  --code-bg: #{$dark-bg-tertiary};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #{$dark-bg};
+    --bg-secondary: #{$dark-bg-secondary};
+    --bg-tertiary: #{$dark-bg-tertiary};
+    --text: #{$dark-text};
+    --text-secondary: #{$dark-text-secondary};
+    --border: #{$dark-border};
+    --code-bg: #{$dark-bg-tertiary};
+  }
+}
+
+// Links
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: var(--primary-hover);
+  }
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: $spacing-md;
+  color: var(--text);
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.125rem; }
+
+// Paragraphs
+p {
+  margin-bottom: $spacing-md;
+}
+
+// Lists
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-xl;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: $radius-md;
+}
+
+// Code
+code {
+  font-family: $font-mono;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: $radius-sm;
+}
+
+pre {
+  font-family: $font-mono;
+  font-size: 0.875rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  overflow-x: auto;
+  margin-bottom: $spacing-md;
+
+  code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
+// Blockquote
+blockquote {
+  border-left: 4px solid var(--primary);
+  padding-left: $spacing-md;
+  margin: $spacing-md 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+// Tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $spacing-md;
+}
+
+th, td {
+  padding: $spacing-sm $spacing-md;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-weight: 600;
+  background-color: var(--bg-secondary);
+}
+
+// Horizontal Rule
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: $spacing-xl 0;
+}
+
+// Selection
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: $radius-full;
+
+  &:hover {
+    background: var(--text);
+  }
+}

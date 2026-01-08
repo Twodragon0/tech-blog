@@ -1,0 +1,275 @@
+// Container
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 0 $spacing-xl;
+  }
+}
+
+.content-wrapper {
+  max-width: $content-max-width;
+  margin: 0 auto;
+}
+
+// Header
+.site-header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text);
+
+  &:hover {
+    color: var(--primary);
+  }
+
+  img {
+    height: 32px;
+    width: auto;
+  }
+}
+
+// Navigation
+.site-nav {
+  display: none;
+
+  @media (min-width: $breakpoint-md) {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+  }
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: $spacing-sm 0;
+  position: relative;
+
+  &:hover,
+  &.active {
+    color: var(--text);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width $transition-base;
+  }
+
+  &:hover::after,
+  &.active::after {
+    width: 100%;
+  }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+// Mobile Menu
+.mobile-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+
+  @media (min-width: $breakpoint-md) {
+    display: none;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg);
+  padding: $spacing-md;
+  z-index: 99;
+
+  &.active {
+    display: block;
+  }
+
+  .nav-link {
+    display: block;
+    padding: $spacing-md;
+    border-bottom: 1px solid var(--border);
+    font-size: 1rem;
+  }
+}
+
+// Theme Toggle
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: $radius-md;
+  cursor: pointer;
+  color: var(--text);
+  transition: background-color $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    background-color: var(--bg-tertiary);
+    border-color: var(--text-secondary);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sun-icon { display: none; }
+  .moon-icon { display: block; }
+
+  [data-theme="dark"] & {
+    .sun-icon { display: block; }
+    .moon-icon { display: none; }
+  }
+}
+
+// Main Content
+.main-content {
+  flex: 1;
+  padding: $spacing-xl 0;
+}
+
+// Footer
+.site-footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: $spacing-xl 0;
+  margin-top: auto;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  @media (min-width: $breakpoint-md) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer-links {
+  display: flex;
+  gap: $spacing-md;
+
+  a {
+    color: var(--text-secondary);
+
+    &:hover {
+      color: var(--text);
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.footer-copyright {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+// Page Header
+.page-header {
+  margin-bottom: $spacing-2xl;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid var(--border);
+
+  h1 {
+    margin-bottom: $spacing-sm;
+  }
+
+  .page-description {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+  }
+}
+
+// Two Column Layout
+.two-column {
+  display: grid;
+  gap: $spacing-xl;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: 1fr 300px;
+  }
+}
+
+// Sidebar
+.sidebar {
+  display: none;
+
+  @media (min-width: $breakpoint-lg) {
+    display: block;
+  }
+}
+
+.sidebar-section {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-lg;
+
+  h3 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: $spacing-md;
+  }
+}

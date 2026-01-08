@@ -2,8 +2,8 @@
 layout: post
 title: "Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드"
 date: 2025-05-02 18:55:13 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: security
+tags: [Kandji, macOS, MDM, Endpoint-Security, Compliance]
 comments: true
 original_url: https://twodragon.tistory.com/680
 ---

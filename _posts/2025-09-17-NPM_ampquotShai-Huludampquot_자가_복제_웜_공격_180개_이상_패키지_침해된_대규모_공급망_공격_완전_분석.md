@@ -2,8 +2,8 @@
 layout: post
 title: "NPM &amp;quot;Shai-Hulud&amp;quot; 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석"
 date: 2025-09-17 16:20:06 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: incident
+tags: [npm, Supply-Chain-Attack, Worm, Security-Incident]
 comments: true
 original_url: https://twodragon.tistory.com/694
 ---

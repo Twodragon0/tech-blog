@@ -2,8 +2,8 @@
 layout: post
 title: "클라우드 시큐리티 과정 7기 - 8주차 CI/CD와 Kubernetes 보안 실전 가이드"
 date: 2025-06-06 19:45:40 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: kubernetes
+tags: [CI/CD, Kubernetes, Security, DevSecOps]
 comments: true
 original_url: https://twodragon.tistory.com/689
 ---

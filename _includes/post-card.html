@@ -2,17 +2,27 @@
 <article class="post-card card">
   <a href="{{ post.url | relative_url }}" class="post-card-inner">
     <div class="post-card-meta">
-      {% if post.category %}
-      <span class="category-badge {{ post.category | downcase }}">{{ post.category }}</span>
-      {% elsif post.categories.first %}
-      <span class="category-badge {{ post.categories.first | downcase | replace: ' ', '-' }}">{{ post.categories.first }}</span>
+      {% comment %} Get category - handle both string and array formats {% endcomment %}
+      {% assign display_cat = nil %}
+      {% if post.category and post.category != "" %}
+        {% assign display_cat = post.category %}
+      {% elsif post.categories %}
+        {% assign cat_type = post.categories | first %}
+        {% if cat_type.size == 1 %}
+          {% comment %} It's a string (first returns single char) {% endcomment %}
+          {% assign display_cat = post.categories %}
+        {% else %}
+          {% comment %} It's an array {% endcomment %}
+          {% assign display_cat = post.categories | first %}
+        {% endif %}
+      {% endif %}
+
+      {% if display_cat and display_cat != "" %}
+      <span class="category-badge {{ display_cat | downcase | replace: ' ', '-' }}">{{ display_cat }}</span>
       {% endif %}
       <time datetime="{{ post.date | date_to_xmlschema }}">
         {{ post.date | date: "%Y. %m. %d" }}
       </time>
-      {% if post.reading_time %}
-      <span>{{ post.reading_time }} min read</span>
-      {% endif %}
     </div>
 
     <h2 class="post-card-title">{{ post.title | escape }}</h2>

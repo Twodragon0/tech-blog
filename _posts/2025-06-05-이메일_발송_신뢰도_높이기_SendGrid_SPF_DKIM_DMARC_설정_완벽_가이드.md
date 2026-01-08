@@ -2,8 +2,8 @@
 layout: post
 title: "이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드"
 date: 2025-06-05 15:04:29 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: security
+tags: [SendGrid, SPF, DKIM, DMARC, Email-Security]
 comments: true
 original_url: https://twodragon.tistory.com/688
 ---

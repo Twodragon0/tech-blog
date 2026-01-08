@@ -2,8 +2,8 @@
 layout: post
 title: "클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA"
 date: 2025-05-16 00:53:10 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: cloud
+tags: [AWS, Control-Tower, ZTNA, Zero-Trust]
 comments: true
 original_url: https://twodragon.tistory.com/683
 ---

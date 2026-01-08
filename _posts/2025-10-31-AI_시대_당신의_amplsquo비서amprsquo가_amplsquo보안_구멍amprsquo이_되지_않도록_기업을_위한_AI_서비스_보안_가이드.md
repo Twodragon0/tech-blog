@@ -2,8 +2,8 @@
 layout: post
 title: "AI 시대, 당신의 &amp;lsquo;비서&amp;rsquo;가 &amp;lsquo;보안 구멍&amp;rsquo;이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드"
 date: 2025-10-31 19:19:44 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: security
+tags: [AI, Enterprise-Security, AI-Security, Governance]
 comments: true
 original_url: https://twodragon.tistory.com/697
 ---

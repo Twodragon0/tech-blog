@@ -2,8 +2,8 @@
 layout: post
 title: "클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!"
 date: 2025-11-21 18:28:12 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: devsecops
+tags: [Cloud-Security, DevSecOps, FinOps, Course]
 comments: true
 original_url: https://twodragon.tistory.com/700
 ---

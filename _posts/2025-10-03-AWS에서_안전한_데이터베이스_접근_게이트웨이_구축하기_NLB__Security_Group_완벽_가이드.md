@@ -2,8 +2,8 @@
 layout: post
 title: "AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드"
 date: 2025-10-03 00:10:37 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: cloud
+tags: [AWS, NLB, Security-Group, Database, Network]
 comments: true
 original_url: https://twodragon.tistory.com/696
 ---

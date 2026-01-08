@@ -2,8 +2,8 @@
 layout: post
 title: "Kubernetes Minikube &amp;amp; K9s 실습 가이드: 문제 해결부터 실전 테스트까지"
 date: 2025-05-30 01:11:00 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: kubernetes
+tags: [Kubernetes, Minikube, K9s, K8s, Troubleshooting]
 comments: true
 original_url: https://twodragon.tistory.com/687
 ---

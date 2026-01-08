@@ -2,8 +2,8 @@
 layout: post
 title: "SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성"
 date: 2025-04-29 15:25:12 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: security
+tags: [SKT, MFA, USIM, Security-Incident]
 comments: true
 original_url: https://twodragon.tistory.com/677
 ---

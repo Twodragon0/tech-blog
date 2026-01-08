@@ -130,7 +130,7 @@ exclude:
   - README.md
   - LICENSE
 
-# Sass
-sass:
-  style: compressed
-  sass_dir: _sass
+# Sass (not used - using CSS directly)
+# sass:
+#   style: compressed
+#   sass_dir: _sass

@@ -2,8 +2,9 @@
 layout: post
 title: "Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단"
 date: 2025-11-04 17:45:38 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+category: security
+categories: [Security, Cloud]
+tags: [Zscaler, ZTNA, SSL-Inspection, Zero-Trust, Cloud-Security]
 comments: true
 original_url: https://twodragon.tistory.com/698
 ---

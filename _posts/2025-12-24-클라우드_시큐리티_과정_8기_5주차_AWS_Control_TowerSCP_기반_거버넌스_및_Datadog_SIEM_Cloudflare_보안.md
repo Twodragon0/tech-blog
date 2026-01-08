@@ -2,8 +2,8 @@
 layout: post
 title: "클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안"
 date: 2025-12-24 19:13:05 +0900
-categories: [IT, DevSecOps, 코딩]
-tags: []
+categories: cloud
+tags: [AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM]
 comments: true
 original_url: https://twodragon.tistory.com/706
 ---
