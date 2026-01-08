@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/700
 image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -61,16 +60,17 @@ image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSec
 
 이 글에서는 클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!에 대해 실무 중심으로 상세히 다룹니다.
 
-
-<img src="{{ '/assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<a href="{{ '/assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라_image.png' | relative_url }}" target="_blank" rel="noopener noreferrer">
+  <img src="{{ '/assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image" style="cursor: pointer;">
+</a>
+*그림: 포스트 이미지 (클릭하여 확대)*
 
 
 ## 1. 개요
 
 ### 1.1 배경 및 필요성
 
-클라우드 시큐리티 8기 OT 안내입니다. DevSecOps, FinOps, 클라우드 보안 실무 역량을 키우고 대체 불가능한 전문가로 성장할 기회를 소개합니다....
+클라우드 환경이 확산되면서 보안과 비용 최적화의 중요성이 더욱 부각되고 있습니다. DevSecOps와 FinOps는 현대 클라우드 운영에서 필수적인 역량으로, 이번 과정을 통해 실무에 바로 적용 가능한 전문 지식을 습득할 수 있습니다.
 
 ### 1.2 주요 개념
 
@@ -143,9 +143,4 @@ image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSec
 
 ---
 
-원본 포스트: https://twodragon.tistory.com/700
-
-
----
-
-원본 포스트: [https://twodragon.tistory.com/700](https://twodragon.tistory.com/700)
+**원본 포스트**: [https://twodragon.tistory.com/700](https://twodragon.tistory.com/700)

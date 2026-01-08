@@ -1,0 +1,25 @@
+# robots.txt for Twodragon's Tech Blog
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /_site/
+Disallow: /_posts/
+Disallow: /_layouts/
+Disallow: /_includes/
+Disallow: /_sass/
+Disallow: /_data/
+Disallow: /scripts/
+Disallow: /vendor/
+Disallow: /node_modules/
+
+# Allow important files
+Allow: /feed.xml
+Allow: /sitemap.xml
+Allow: /assets/
+Allow: /posts/
+
+# Sitemap location
+Sitemap: https://Twodragon0.github.io/tech-blog/sitemap.xml

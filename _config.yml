@@ -26,6 +26,13 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# Feed Settings
+feed:
+  path: feed.xml
+  excerpt_only: false
+  categories: true
+  tags: true
+
 # Permalinks - Clean URL structure
 permalink: /posts/:year/:month/:title/
 
@@ -113,6 +120,13 @@ navigation:
 # SEO & Security
 twitter:
   card: "summary_large_image"
+  username: "@Twodragon0"  # Twitter username (if available)
+
+# Open Graph & Social Sharing
+# 기본 이미지는 SVG로 생성되며, PNG로 변환하려면 scripts/generate_og_image.py 실행
+og_image: "/assets/images/og-default.png"  # Default Open Graph image for social sharing (PNG 권장)
+og_image_width: 1200
+og_image_height: 630
 
 social:
   name: "Twodragon"

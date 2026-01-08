@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kubernetes Minikube &amp;amp; K9s 실습 가이드: 문제 해결부터 실전 테스트까지"
+title: "Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지"
 date: 2025-05-30 01:11:00 +0900
 categories: kubernetes
 tags: [Kubernetes, Minikube, K9s, K8s, Troubleshooting]
@@ -60,7 +60,7 @@ image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드
 
 다음은 Minikube와 K9s 환경에서 실습과 테스트를 진행하면서 겪을 수 있는 상황, 문제 해결 방법, 그리고 테스트 가능한 항목들을 포함한 실습 중심 포스팅입니다. 1. Minikube 시작 시 흔히 겪는 이슈 및 해결 방법 Minikube는 로컬에서 Kubernetes 클러스터를 구성하고 테스트할 수 있는 강력한 도구입니다. 하지만 아래와 같은 시작 실패 및 충돌 문제를 종종 겪을 수 있습니다:
 
-이 글에서는 Kubernetes Minikube &amp;amp; K9s 실습 가이드: 문제 해결부터 실전 테스트까지에 대해 실무 중심으로 상세히 다룹니다.
+이 글에서는 Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지에 대해 실무 중심으로 상세히 다룹니다.
 
 
 <img src="{{ '/assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
@@ -140,7 +140,7 @@ image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드
 
 ## 결론
 
-Kubernetes Minikube &amp;amp; K9s 실습 가이드: 문제 해결부터 실전 테스트까지에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
+Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
 
 ---
 

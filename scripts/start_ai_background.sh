@@ -1,0 +1,47 @@
+#!/bin/bash
+# 백그라운드에서 AI 기반 포스팅 개선 프로세스 시작
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+LOG_FILE="$PROJECT_ROOT/ai_improvement.log"
+PID_FILE="$PROJECT_ROOT/ai_improvement.pid"
+
+cd "$PROJECT_ROOT"
+
+# 환경 변수 확인
+if [ -z "$CLAUDE_API_KEY" ] && [ -z "$GEMINI_API_KEY" ]; then
+    echo "경고: AI API 키가 설정되지 않았습니다."
+    echo "기본 템플릿 기반으로 개선이 진행됩니다."
+    echo ""
+    echo "API 키를 설정하려면:"
+    echo "  ./scripts/setup_ai_keys.sh"
+    echo ""
+fi
+
+# 이미 실행 중인 프로세스 확인
+if [ -f "$PID_FILE" ]; then
+    OLD_PID=$(cat "$PID_FILE")
+    if ps -p "$OLD_PID" > /dev/null 2>&1; then
+        echo "이미 실행 중인 프로세스가 있습니다. (PID: $OLD_PID)"
+        echo "중지하려면: kill $OLD_PID"
+        exit 1
+    else
+        rm "$PID_FILE"
+    fi
+fi
+
+echo "백그라운드에서 AI 기반 포스팅 개선 프로세스 시작..."
+echo "로그 파일: $LOG_FILE"
+echo "PID 파일: $PID_FILE"
+
+# 백그라운드 실행
+nohup python3 "$SCRIPT_DIR/ai_improve_posts.py" > "$LOG_FILE" 2>&1 &
+NEW_PID=$!
+
+# PID 저장
+echo $NEW_PID > "$PID_FILE"
+
+echo "프로세스 시작됨 (PID: $NEW_PID)"
+echo "로그 확인: tail -f $LOG_FILE"
+echo "프로세스 확인: ps -p $NEW_PID"
+echo "중지: kill $NEW_PID"

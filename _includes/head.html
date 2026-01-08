@@ -18,18 +18,51 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
   <meta property="og:locale" content="ko_KR">
-  {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}">{% endif %}
+  {% if page.layout == 'post' %}
+  <meta property="article:author" content="{{ site.author.name }}">
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {% if page.date != page.last_modified_at %}
+  <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">
+  {% endif %}
+  {% if page.category %}
+  <meta property="article:section" content="{{ page.category }}">
+  {% endif %}
+  {% if page.tags %}
+  {% for tag in page.tags %}
+  <meta property="article:tag" content="{{ tag }}">
+  {% endfor %}
+  {% endif %}
+  {% endif %}
+  {% assign og_image = page.image | default: site.og_image | default: site.logo %}
+  {% if og_image %}
+  <meta property="og:image" content="{{ og_image | absolute_url }}">
+  <meta property="og:image:secure_url" content="{{ og_image | absolute_url }}">
+  <meta property="og:image:width" content="{{ site.og_image_width | default: 1200 }}">
+  <meta property="og:image:height" content="{{ site.og_image_height | default: 630 }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
+  {% endif %}
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  {% if page.image %}<meta name="twitter:image" content="{{ page.image | absolute_url }}">{% endif %}
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  {% if site.twitter.username %}
+  <meta name="twitter:site" content="{{ site.twitter.username }}">
+  <meta name="twitter:creator" content="{{ site.twitter.username }}">
+  {% endif %}
+  {% if og_image %}
+  <meta name="twitter:image" content="{{ og_image | absolute_url }}">
+  <meta name="twitter:image:alt" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
+  {% endif %}
+
+  <!-- KakaoTalk Sharing (uses Open Graph) -->
+  <meta name="format-detection" content="telephone=no">
 
   <!-- Feeds -->
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
