@@ -58,7 +58,11 @@ category_list:
     icon: "shield"
   - name: devsecops
     title: "DevSecOps"
-    description: "DevSecOps 및 CI/CD 보안 관련 글"
+    description: "CI/CD 보안 통합, SAST/DAST, 컨테이너 보안, 보안 자동화 파이프라인"
+    icon: "code"
+  - name: devops
+    title: "DevOps"
+    description: "인프라 자동화, Kubernetes, CI/CD, 모니터링 및 관찰성"
     icon: "code"
   - name: cloud
     title: "Cloud"
@@ -70,7 +74,7 @@ category_list:
     icon: "cube"
   - name: finops
     title: "FinOps"
-    description: "클라우드 비용 최적화 및 관리"
+    description: "클라우드 비용 최적화, 리소스 거버넌스, 비용 할당 및 예측"
     icon: "chart"
   - name: incident
     title: "Incident"
