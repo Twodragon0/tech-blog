@@ -34,18 +34,19 @@ image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSec
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>클라우드 시큐리티 8기 OT 안내 및 커리큘럼 소개</li>
-      <li>DevSecOps, FinOps 실무 역량 강화 과정</li>
-      <li>대체 불가능한 클라우드 보안 전문가 성장 기회</li>
+      <li>클라우드 시큐리티 8기 OT 안내 및 9주 커리큘럼 소개</li>
+      <li>DevSecOps, FinOps 실무 역량 강화 과정 (20분 강의 + 5분 휴식)</li>
+      <li>AWS 보안 아키텍처, 비용 최적화, 취약점 점검 등 실전 내용</li>
+      <li>대체 불가능한 클라우드 보안 전문가로 성장하는 기회</li>
     </ul>
   </div>
   <div class="summary-row">
     <span class="summary-label">기술/도구</span>
-    <span class="summary-value">DevSecOps, FinOps, Cloud Security</span>
+    <span class="summary-value">AWS, DevSecOps, FinOps, VPC, IAM, GuardDuty, Control Tower, Datadog, Cloudflare, Docker, Kubernetes</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 보안 엔지니어, 개발자</span>
+    <span class="summary-value">DevSecOps 엔지니어, 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자</span>
   </div>
 </div>
 <div class="ai-summary-footer">
