@@ -101,7 +101,9 @@
   --color-text-tertiary: #94a3b8;
   --color-border: #334155;
   --color-border-light: #1e293b;
-  --color-primary-light: rgba(37, 99, 235, 0.2);
+  --color-primary: #60a5fa;
+  --color-primary-hover: #93c5fd;
+  --color-primary-light: rgba(96, 165, 250, 0.2);
 }
 
 [data-theme="dark"] .site-header {
@@ -843,6 +845,51 @@ body {
 
 .post-content a:hover {
   color: var(--color-primary-hover);
+}
+
+/* Dark mode link improvements */
+[data-theme="dark"] .post-content a {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .post-content a:hover {
+  color: #93c5fd;
+}
+
+/* General links in dark mode */
+[data-theme="dark"] a {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] a:hover {
+  color: #93c5fd;
+}
+
+/* Discussion page links */
+[data-theme="dark"] .discussion-page a {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .discussion-page a:hover {
+  color: #93c5fd;
+}
+
+/* Card links in dark mode */
+[data-theme="dark"] .card a {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .card a:hover {
+  color: #93c5fd;
+}
+
+/* All links in dark mode - ensure visibility */
+[data-theme="dark"] a:not(.btn):not(.nav-link):not(.tag):not(.post-card) {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] a:not(.btn):not(.nav-link):not(.tag):not(.post-card):hover {
+  color: #93c5fd;
 }
 
 .post-content img {

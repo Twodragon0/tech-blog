@@ -26,8 +26,8 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# Permalinks
-permalink: /:categories/:year/:month/:day/:title/
+# Permalinks - Clean URL structure
+permalink: /posts/:year/:month/:title/
 
 # Collections for categories
 collections:

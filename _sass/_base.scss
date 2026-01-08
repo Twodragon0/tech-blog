@@ -43,6 +43,8 @@ body {
   --text-secondary: #{$dark-text-secondary};
   --border: #{$dark-border};
   --code-bg: #{$dark-bg-tertiary};
+  --primary: #60a5fa;
+  --primary-hover: #93c5fd;
 }
 
 @media (prefers-color-scheme: dark) {

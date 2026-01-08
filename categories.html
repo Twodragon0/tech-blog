@@ -11,19 +11,35 @@ permalink: /categories/
     {% assign cat_posts = "" | split: "" %}
     {% assign cat_name_lower = cat.name | downcase %}
     {% for post in site.posts %}
-      {% assign post_cat = nil %}
+      {% assign post_matched = false %}
+      {% comment %} Check post.category (singular) first {% endcomment %}
       {% if post.category and post.category != "" %}
-        {% assign post_cat = post.category | downcase %}
-      {% elsif post.categories %}
-        {% assign first_char = post.categories | slice: 0 %}
-        {% assign categories_str = post.categories | join: "," %}
-        {% if categories_str contains "," %}
-          {% assign post_cat = post.categories | first | downcase %}
-        {% else %}
-          {% assign post_cat = post.categories | downcase %}
+        {% assign post_cat_lower = post.category | downcase | strip %}
+        {% if post_cat_lower == cat_name_lower %}
+          {% assign post_matched = true %}
         {% endif %}
       {% endif %}
-      {% if post_cat == cat_name_lower %}
+      {% comment %} Check post.categories (plural) if not matched yet {% endcomment %}
+      {% unless post_matched %}
+        {% if post.categories %}
+          {% comment %} Try to iterate - works for both arrays and single values {% endcomment %}
+          {% for post_cat in post.categories %}
+            {% assign post_cat_lower = post_cat | downcase | strip %}
+            {% if post_cat_lower == cat_name_lower %}
+              {% assign post_matched = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {% comment %} If iteration didn't work (string case), check directly {% endcomment %}
+          {% unless post_matched %}
+            {% assign post_cat_lower = post.categories | downcase | strip %}
+            {% if post_cat_lower == cat_name_lower %}
+              {% assign post_matched = true %}
+            {% endif %}
+          {% endunless %}
+        {% endif %}
+      {% endunless %}
+      {% if post_matched %}
         {% assign cat_posts = cat_posts | push: post %}
       {% endif %}
     {% endfor %}
@@ -56,18 +72,38 @@ permalink: /categories/
   {% assign cat_posts = "" | split: "" %}
   {% assign cat_name_lower = cat.name | downcase %}
   {% for post in site.posts %}
-    {% assign post_cat = nil %}
+    {% assign post_matched = false %}
+    {% comment %} Check post.category (singular) first {% endcomment %}
     {% if post.category and post.category != "" %}
-      {% assign post_cat = post.category | downcase %}
-    {% elsif post.categories %}
-      {% assign categories_str = post.categories | join: "," %}
-      {% if categories_str contains "," %}
-        {% assign post_cat = post.categories | first | downcase %}
-      {% else %}
-        {% assign post_cat = post.categories | downcase %}
+      {% assign post_cat_lower = post.category | downcase | strip %}
+      {% if post_cat_lower == cat_name_lower %}
+        {% assign post_matched = true %}
       {% endif %}
     {% endif %}
-    {% if post_cat == cat_name_lower %}
+    {% comment %} Check post.categories (plural) if not matched yet {% endcomment %}
+    {% unless post_matched %}
+      {% if post.categories %}
+        {% comment %} Check if categories is an array {% endcomment %}
+        {% assign categories_size = post.categories | size %}
+        {% if categories_size > 0 %}
+          {% comment %} It's an array, check each category {% endcomment %}
+          {% for post_cat in post.categories %}
+            {% assign post_cat_lower = post_cat | downcase | strip %}
+            {% if post_cat_lower == cat_name_lower %}
+              {% assign post_matched = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          {% comment %} It's a string, check directly {% endcomment %}
+          {% assign post_cat_lower = post.categories | downcase | strip %}
+          {% if post_cat_lower == cat_name_lower %}
+            {% assign post_matched = true %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endunless %}
+    {% if post_matched %}
       {% assign cat_posts = cat_posts | push: post %}
     {% endif %}
   {% endfor %}
