@@ -948,6 +948,90 @@ body {
   color: var(--color-primary);
 }
 
+/* Search Results Dropdown */
+.search-results {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.5rem;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.search-result-item {
+  display: block;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-fast);
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: var(--color-bg-secondary);
+}
+
+.search-result-item.no-results {
+  text-align: center;
+  color: var(--color-text-secondary);
+  cursor: default;
+}
+
+.search-result-title {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+.search-result-title mark {
+  background: linear-gradient(120deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+  color: var(--color-primary);
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+.search-result-meta {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-bottom: 0.25rem;
+}
+
+.search-result-excerpt {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Dark mode search results */
+[data-theme="dark"] .search-results {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .search-result-item:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+[data-theme="dark"] .search-result-title mark {
+  background: linear-gradient(120deg, rgba(99, 102, 241, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
+  color: #818cf8;
+}
+
 /* Footer */
 .site-footer {
   margin-top: var(--spacing-3xl);

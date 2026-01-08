@@ -67,6 +67,14 @@
           details: '새로운 댓글을 작성하면 자동으로 토론이 생성됩니다.',
           level: 'info'
         }
+      },
+      {
+        pattern: /giscus\.app.*api\/discussions.*404/i,
+        replacement: {
+          message: 'ℹ️ 댓글 시스템',
+          details: '새로운 댓글을 작성하면 자동으로 토론이 생성됩니다.',
+          level: 'info'
+        }
       }
     ];
 
@@ -229,12 +237,27 @@
   // Search Functionality
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
+  const searchContainer = searchInput?.closest('.search-container');
 
   if (searchInput && searchResults) {
     let searchData = [];
+    let searchDataLoaded = false;
+
+    // Get baseurl dynamically
+    function getBaseUrl() {
+      // Try to detect from current path
+      const pathname = window.location.pathname;
+      if (pathname.startsWith('/tech-blog')) {
+        return '/tech-blog';
+      }
+      return '';
+    }
+
+    const baseUrl = getBaseUrl();
+    const searchJsonUrl = baseUrl + '/search.json';
 
     // Load search data
-    fetch('/tech-blog/search.json')
+    fetch(searchJsonUrl)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -243,50 +266,69 @@
       })
       .then(data => {
         searchData = data;
+        searchDataLoaded = true;
       })
       .catch(err => {
         // 개발 환경에서만 상세 에러 표시
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
           console.warn('검색 데이터를 불러올 수 없습니다:', err.message);
         }
-        // 프로덕션에서는 조용히 실패 (검색 기능만 비활성화)
+        // 프로덕션에서는 조용히 실패하고 사용자에게 알림
+        searchInput.placeholder = '검색 데이터 로드 실패';
       });
 
     searchInput.addEventListener('input', function(e) {
       const query = e.target.value.trim().toLowerCase();
-      
+
       if (query.length < 2) {
         searchResults.innerHTML = '';
         searchResults.style.display = 'none';
         return;
       }
 
+      if (!searchDataLoaded || searchData.length === 0) {
+        searchResults.innerHTML = '<div class="search-result-item">검색 데이터를 로드 중...</div>';
+        searchResults.style.display = 'block';
+        return;
+      }
+
       const results = searchData.filter(item => {
         const title = (item.title || '').toLowerCase();
         const content = (item.content || '').toLowerCase();
-        return title.includes(query) || content.includes(query);
-      }).slice(0, 5);
+        const tags = Array.isArray(item.tags) ? item.tags.join(' ').toLowerCase() : '';
+        return title.includes(query) || content.includes(query) || tags.includes(query);
+      }).slice(0, 8);
 
       if (results.length > 0) {
         searchResults.innerHTML = results.map(item => `
           <a href="${item.url}" class="search-result-item">
-            <div class="search-result-title">${item.title}</div>
-            <div class="search-result-excerpt">${(item.content || '').substring(0, 100)}...</div>
+            <div class="search-result-title">${highlightMatch(item.title, query)}</div>
+            <div class="search-result-meta">${item.date || ''} ${item.category ? '· ' + item.category : ''}</div>
+            <div class="search-result-excerpt">${(item.content || '').substring(0, 80)}...</div>
           </a>
         `).join('');
         searchResults.style.display = 'block';
       } else {
-        searchResults.innerHTML = '<div class="search-result-item">검색 결과가 없습니다.</div>';
+        searchResults.innerHTML = '<div class="search-result-item no-results">검색 결과가 없습니다.</div>';
         searchResults.style.display = 'block';
       }
     });
 
+    // Highlight matching text
+    function highlightMatch(text, query) {
+      if (!text || !query) return text;
+      const regex = new RegExp(`(${query})`, 'gi');
+      return text.replace(regex, '<mark>$1</mark>');
+    }
+
     // Hide search results when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!searchContainer.contains(event.target)) {
-        searchResults.style.display = 'none';
-      }
-    });
+    if (searchContainer) {
+      document.addEventListener('click', function(event) {
+        if (!searchContainer.contains(event.target)) {
+          searchResults.style.display = 'none';
+        }
+      });
+    }
   }
 
   // Intersection Observer for Scroll Animations
