@@ -63,7 +63,7 @@ image: /assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinO
 이 글에서는 클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!에 대해 실무 중심으로 상세히 다룹니다.
 
 
-![포스트 이미지]({{ '/assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략_image.png' | relative_url }})
+<img src="{{ '/assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

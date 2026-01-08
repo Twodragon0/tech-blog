@@ -63,7 +63,7 @@ image: /assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_�
 이 글에서는 Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드에 대해 실무 중심으로 상세히 다룹니다.
 
 
-![포스트 이미지]({{ '/assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_보안_규정_준수까지_올인원_가이드_image.png' | relative_url }})
+<img src="{{ '/assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_보안_규정_준수까지_올인원_가이드_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

@@ -60,7 +60,7 @@ image: /assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차
 
 
 
-![포스트 이미지]({{ '/assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해_image.png' | relative_url }})
+<img src="{{ '/assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

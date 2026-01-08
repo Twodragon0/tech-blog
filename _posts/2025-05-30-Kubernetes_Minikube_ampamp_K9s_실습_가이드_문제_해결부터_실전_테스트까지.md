@@ -63,7 +63,7 @@ image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드
 이 글에서는 Kubernetes Minikube &amp;amp; K9s 실습 가이드: 문제 해결부터 실전 테스트까지에 대해 실무 중심으로 상세히 다룹니다.
 
 
-![포스트 이미지]({{ '/assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지_image.png' | relative_url }})
+<img src="{{ '/assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

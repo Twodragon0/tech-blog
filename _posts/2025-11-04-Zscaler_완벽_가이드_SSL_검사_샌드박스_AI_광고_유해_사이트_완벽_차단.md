@@ -64,7 +64,7 @@ image: /assets/images/2025-11-04-Zscaler_완벽_가이드_SSL_검사_샌드박�
 **Zscaler**는 이러한 문제를 해결하는 클라우드 기반 Zero Trust 네트워크 접근(ZTNA) 솔루션입니다. 이 가이드에서는 Zscaler 클라이언트 설정(ZCC)부터 트래픽 전달, SSL 검사, 필수 앱 예외 처리(카카오톡), 샌드박스(ATP), 브라우저 제어, 그리고 AI, 광고, 유해 사이트 차단에 이르는 Zscaler의 핵심 정책을 상세히 다룹니다.
 
 
-![포스트 이미지]({{ '/assets/images/2025-11-04-Zscaler_완벽_가이드_SSL_검사_샌드박스_AI_광고_유해_사이트_완벽_차단_image.jpg' | relative_url }})
+<img src="{{ '/assets/images/2025-11-04-Zscaler_완벽_가이드_SSL_검사_샌드박스_AI_광고_유해_사이트_완벽_차단_image.jpg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

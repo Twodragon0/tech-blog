@@ -60,7 +60,7 @@ image: /assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글�
 
 
 
-![포스트 이미지]({{ '/assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글로벌_장애_대응_일지_우리는_무엇을_배웠나_image.png' | relative_url }})
+<img src="{{ '/assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글로벌_장애_대응_일지_우리는_무엇을_배웠나_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

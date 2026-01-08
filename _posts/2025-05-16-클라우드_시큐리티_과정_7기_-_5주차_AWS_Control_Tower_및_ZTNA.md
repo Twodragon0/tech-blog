@@ -62,7 +62,7 @@ image: /assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차
 이 글에서는 클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA에 대해 실무 중심으로 상세히 다룹니다.
 
 
-![포스트 이미지]({{ '/assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차_AWS_Control_Tower_및_ZTNA_image.jpg' | relative_url }})
+<img src="{{ '/assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차_AWS_Control_Tower_및_ZTNA_image.jpg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

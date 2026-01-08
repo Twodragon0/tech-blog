@@ -61,7 +61,7 @@ image: /assets/images/2025-05-23-클라우드_시큐리티_과정_7기_-_6주차
 이 글에서는 클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 github 보안에 대해 실무 중심으로 상세히 다룹니다.
 
 
-![포스트 이미지]({{ '/assets/images/2025-05-23-클라우드_시큐리티_과정_7기_-_6주차_Cloudflare_및_github_보안_image.png' | relative_url }})
+<img src="{{ '/assets/images/2025-05-23-클라우드_시큐리티_과정_7기_-_6주차_Cloudflare_및_github_보안_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

@@ -63,7 +63,7 @@ image: /assets/images/2025-06-05-이메일_발송_신뢰도_높이기_SendGrid_S
 이러한 문제를 해결하고 이메일 발송 신뢰도를 높이는 열쇠는 바로 **SPF, DKIM, DMARC**와 같은 이메일 인증 기술에 있습니다. 이번 글에서는 이메일 발송 서비스로 널리 사용되는 SendGrid를 중심으로 이메일 인증 설정 방법을 상세히 다룹니다.
 
 
-![포스트 이미지]({{ '/assets/images/2025-06-05-이메일_발송_신뢰도_높이기_SendGrid_SPF_DKIM_DMARC_설정_완벽_가이드_image.jpg' | relative_url }})
+<img src="{{ '/assets/images/2025-06-05-이메일_발송_신뢰도_높이기_SendGrid_SPF_DKIM_DMARC_설정_완벽_가이드_image.jpg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 
