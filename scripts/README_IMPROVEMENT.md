@@ -2,6 +2,23 @@
 
 이 디렉토리에는 블로그 포스팅을 자동으로 개선하는 스크립트들이 포함되어 있습니다.
 
+## 🚀 AI 기반 개선 (권장)
+
+**Claude, Gemini, Cursor를 활용한 지능형 개선**을 원하시면 [README_AI_IMPROVEMENT.md](README_AI_IMPROVEMENT.md)를 참고하세요.
+
+### 빠른 시작
+```bash
+# 1. API 키 설정
+./scripts/setup_ai_keys.sh
+
+# 2. AI 기반 개선 실행 (1시간)
+./scripts/run_ai_improvement.sh
+```
+
+---
+
+## 기본 개선 스크립트
+
 ## 스크립트 목록
 
 ### 1. `enhance_all_posts.py`
