@@ -1,0 +1,224 @@
+/* Basic Styles for Tech Blog */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  background-color: #24292e;
+  color: #fff;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.site-title {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.site-title:hover {
+  opacity: 0.8;
+}
+
+.site-nav {
+  float: right;
+}
+
+.site-nav .page-link {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.site-nav .page-link:hover {
+  opacity: 0.8;
+}
+
+/* Main Content */
+.page-content {
+  padding: 2rem 0;
+  min-height: calc(100vh - 200px);
+}
+
+/* Post List */
+.post-list {
+  list-style: none;
+}
+
+.post-list li {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-link {
+  color: #0366d6;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.post-link:hover {
+  text-decoration: underline;
+}
+
+/* Post Content */
+.post {
+  margin-bottom: 2rem;
+}
+
+.post-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #24292e;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+}
+
+.post-content {
+  line-height: 1.8;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #24292e;
+}
+
+.post-content h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #e1e4e8;
+  padding-bottom: 0.5rem;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
+}
+
+.post-content code {
+  background-color: #f6f8fa;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.post-content pre {
+  background-color: #f6f8fa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.post-content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #dfe2e5;
+  padding-left: 1rem;
+  color: #6a737d;
+  margin-left: 0;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-content a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.post-content a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #f6f8fa;
+  border-top: 1px solid #e1e4e8;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  color: #6a737d;
+}
+
+/* Home Page */
+.home {
+  padding: 2rem 0;
+}
+
+.page-heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #24292e;
+}
+
+.rss-subscribe {
+  margin-top: 2rem;
+  color: #6a737d;
+}
+
+.rss-subscribe a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+/* Giscus Comments */
+.giscus {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e1e4e8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 0 15px;
+  }
+  
+  .site-nav {
+    float: none;
+    margin-top: 1rem;
+  }
+  
+  .post-title {
+    font-size: 1.5rem;
+  }
+  
+  .post-content h2 {
+    font-size: 1.3rem;
+  }
+}
