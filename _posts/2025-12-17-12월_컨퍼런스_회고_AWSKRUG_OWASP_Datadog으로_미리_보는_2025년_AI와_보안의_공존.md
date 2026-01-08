@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/704
 image: /assets/images/2025-12-17-12월_컨퍼런스_회고_AWSKRUG_OWASP_Datadog으로_미리_보는_2025년_AI와_보안의_공존.svg
 ---
+--
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -60,6 +61,11 @@ image: /assets/images/2025-12-17-12월_컨퍼런스_회고_AWSKRUG_OWASP_Datadog
 12월은 한 해를 마무리하는 시기이자, 내년의 기술 트렌드를 가장 먼저 접할 수 있는 달이기도 합니다. 이번 달에는 AWSKRUG AI IDE Kiro Launch Party, OWASP Seoul Chapter 송년회, 그리고 Datadog Security 101 세미나에 연달아 참석하며, 개발 생산성의 도구인 AI와 이를 지키는 보안 기술이 어떻게 융합되고 있는지 생생하게 느낄 수 있었습니다. 본 포스팅에서는 이 행사들에서..
 
 이 글에서는 [12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존에 대해 실무 중심으로 상세히 다룹니다.
+
+
+![포스트 이미지](/assets/images/2025-12-17-12월_컨퍼런스_회고_AWSKRUG_OWASP_Datadog으로_미리_보는_2025년_AI와_보안의_공존_image.png)
+*그림: 포스트 이미지*
+
 
 ## 1. 개요
 

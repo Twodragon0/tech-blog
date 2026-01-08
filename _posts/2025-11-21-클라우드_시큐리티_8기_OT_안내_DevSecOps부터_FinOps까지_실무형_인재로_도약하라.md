@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/700
 image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라.svg
 ---
+--
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -59,6 +60,11 @@ image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSec
 클라우드 시큐리티 8기 OT 안내입니다. DevSecOps, FinOps, 클라우드 보안 실무 역량을 키우고 대체 불가능한 전문가로 성장할 기회를 소개합니다.
 
 이 글에서는 클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!에 대해 실무 중심으로 상세히 다룹니다.
+
+
+![포스트 이미지](/assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라_image.png)
+*그림: 포스트 이미지*
+
 
 ## 1. 개요
 

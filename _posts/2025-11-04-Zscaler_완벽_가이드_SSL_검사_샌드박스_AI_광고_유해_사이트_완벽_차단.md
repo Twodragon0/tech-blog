@@ -10,6 +10,7 @@ comments: true
 original_url: https://twodragon.tistory.com/698
 image: /assets/images/2025-11-04-Zscaler_완벽_가이드_SSL_검사_샌드박스_AI_광고_유해_사이트_완벽_차단.svg
 ---
+--
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -61,6 +62,11 @@ image: /assets/images/2025-11-04-Zscaler_완벽_가이드_SSL_검사_샌드박�
 하이브리드 근무가 보편화되면서, 사용자는 사무실, 집, 카페 등 다양한 장소에서 기업 리소스에 접근합니다. 이러한 분산된 환경에서 전통적인 VPN 방식은 복잡한 설정, 성능 저하, 보안 취약점 등의 문제를 안고 있습니다. 
 
 **Zscaler**는 이러한 문제를 해결하는 클라우드 기반 Zero Trust 네트워크 접근(ZTNA) 솔루션입니다. 이 가이드에서는 Zscaler 클라이언트 설정(ZCC)부터 트래픽 전달, SSL 검사, 필수 앱 예외 처리(카카오톡), 샌드박스(ATP), 브라우저 제어, 그리고 AI, 광고, 유해 사이트 차단에 이르는 Zscaler의 핵심 정책을 상세히 다룹니다.
+
+
+![포스트 이미지](/assets/images/2025-11-04-Zscaler_완벽_가이드_SSL_검사_샌드박스_AI_광고_유해_사이트_완벽_차단_image.jpg)
+*그림: 포스트 이미지*
+
 
 ## 1. Zscaler 개요
 

@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/703
 image: /assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략.svg
 ---
+--
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -60,6 +61,11 @@ image: /assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinO
 안녕하세요, Twodragon입니다. 어느덧 클라우드 시큐리티 과정 8기도 중반부를 향해 달려가고 있습니다. &zwj;♂️ 이번 3주차 세션 역시 우리만의 온라인 미팅에서 진행되었으며, '20분 몰입 + 5분 휴식'이라는 효율적인 루틴으로 집중도를 최대로 끌어올렸습니다.
 
 이 글에서는 클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!에 대해 실무 중심으로 상세히 다룹니다.
+
+
+![포스트 이미지](/assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략_image.png)
+*그림: 포스트 이미지*
+
 
 ## 1. 개요
 

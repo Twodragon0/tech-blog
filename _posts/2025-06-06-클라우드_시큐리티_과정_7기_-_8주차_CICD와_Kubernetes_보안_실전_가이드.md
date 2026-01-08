@@ -10,6 +10,7 @@ toc: true
 original_url: https://twodragon.tistory.com/689
 image: /assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드.svg
 ---
+--
 
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -56,6 +57,11 @@ image: /assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차
   이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
 </div>
 </div>
+
+
+
+![포스트 이미지](/assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드_image.png)
+*그림: 포스트 이미지*
 
 
 ## 1. CI/CD 파이프라인 보안 기초

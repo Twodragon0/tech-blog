@@ -10,6 +10,7 @@ toc: true
 original_url: https://twodragon.tistory.com/686
 image: /assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해.svg
 ---
+--
 
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -56,6 +57,11 @@ image: /assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차
   이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
 </div>
 </div>
+
+
+
+![포스트 이미지](/assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해_image.png)
+*그림: 포스트 이미지*
 
 
 ## 1. Docker 기초 이해

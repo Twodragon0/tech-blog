@@ -23,7 +23,9 @@
       /cache\.agilebits\.com.*404/i,
       /notification\.js.*\[Notification\]/i,
       /giscus\.app.*404.*discussions/i,
-      /\[giscus\] Discussion not found/i
+      /\[giscus\] Discussion not found/i,
+      /Content Security Policy.*connect-src.*violates/i,
+      /Refused to connect.*violates.*Content Security Policy/i
     ];
 
     // 에러 메시지 개선 매핑
@@ -55,9 +57,17 @@
       {
         pattern: /Content Security Policy directive.*violates/i,
         replacement: {
-          message: '⚠️ 콘텐츠 보안 정책 위반',
-          details: '일부 외부 리소스가 CSP 정책에 의해 차단되었습니다.',
-          level: 'warn'
+          message: 'ℹ️ 콘텐츠 보안 정책',
+          details: 'CSP 정책이 적용되어 있습니다. 이는 정상적인 보안 동작입니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /Refused to connect.*violates.*Content Security Policy/i,
+        replacement: {
+          message: 'ℹ️ 콘텐츠 보안 정책',
+          details: 'CSP 정책에 의해 일부 연결이 차단되었습니다. 이는 정상적인 보안 동작입니다.',
+          level: 'info'
         }
       },
       {
@@ -204,12 +214,40 @@
   }
 
   // Smooth Scroll for Anchor Links
+  // 숫자로 시작하는 ID를 안전하게 처리하는 헬퍼 함수
+  function findElementByHref(href) {
+    if (!href || href === '#') return null;
+    
+    const id = href.substring(1); // '#' 제거
+    if (!id) return null;
+    
+    // getElementById는 숫자로 시작하는 ID도 안전하게 처리
+    let target = document.getElementById(id);
+    
+    // getElementById가 실패한 경우에만 querySelector 시도 (이스케이프 처리)
+    if (!target) {
+      try {
+        // CSS.escape를 사용하여 셀렉터 이스케이프
+        if (typeof CSS !== 'undefined' && CSS.escape) {
+          target = document.querySelector('#' + CSS.escape(id));
+        } else {
+          // CSS.escape가 없는 경우 querySelector 시도 (오류 발생 가능)
+          target = document.querySelector(href);
+        }
+      } catch (err) {
+        // 셀렉터 오류는 무시 (getElementById가 이미 실패했으므로)
+        return null;
+      }
+    }
+    
+    return target;
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
-      if (href === '#') return;
+      const target = findElementByHref(href);
       
-      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         const headerHeight = document.querySelector('.site-header')?.offsetHeight || 70;
@@ -237,7 +275,12 @@
   // Search Functionality
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
-  const searchContainer = searchInput?.closest('.search-container');
+  
+  // searchContainer를 안전하게 찾기 (searchInput이 있을 때만)
+  let searchContainer = null;
+  if (searchInput) {
+    searchContainer = searchInput.closest('.search-container');
+  }
 
   if (searchInput && searchResults) {
     let searchData = [];

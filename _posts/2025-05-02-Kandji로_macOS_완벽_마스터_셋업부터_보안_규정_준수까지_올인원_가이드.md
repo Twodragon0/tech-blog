@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/680
 image: /assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_보안_규정_준수까지_올인원_가이드.svg
 ---
+--
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -60,6 +61,11 @@ image: /assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_�
 안녕하세요! macOS 뿐만 아니라 iOS, iPadOS 등 다양한 Apple 기기를 효율적이고 안전하게 관리하고 싶은 IT 관리자 여러분! 오늘은 Apple 통합 엔드포인트 관리(UEM) 솔루션으로 주목받는 Kandji의 강력한 기능들을 어떻게 실제로 활용하는지, 단계별 상세 가이드 형식으로 알려드리겠습니다. Kandji는 복잡한 Apple 기기 전체(macOS, iOS, iPadOS, tvOS) 관리를 간소..
 
 이 글에서는 Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드에 대해 실무 중심으로 상세히 다룹니다.
+
+
+![포스트 이미지](/assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_보안_규정_준수까지_올인원_가이드_image.png)
+*그림: 포스트 이미지*
+
 
 ## 1. 개요
 

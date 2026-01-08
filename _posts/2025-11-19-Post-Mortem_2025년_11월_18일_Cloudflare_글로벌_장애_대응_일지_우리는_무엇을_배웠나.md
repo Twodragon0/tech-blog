@@ -10,6 +10,7 @@ toc: true
 original_url: https://twodragon.tistory.com/699
 image: /assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글로벌_장애_대응_일지_우리는_무엇을_배웠나.svg
 ---
+--
 
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -56,6 +57,11 @@ image: /assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글�
   이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
 </div>
 </div>
+
+
+
+![포스트 이미지](/assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글로벌_장애_대응_일지_우리는_무엇을_배웠나_image.png)
+*그림: 포스트 이미지*
 
 
 ## 1. 들어가며

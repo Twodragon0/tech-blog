@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/702
 image: /assets/images/2025-12-05-클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복.svg
 ---
+--
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -59,6 +60,11 @@ image: /assets/images/2025-12-05-클라우드_시큐리티_8기_2주차_AWS_보�
 AWS 보안 아키텍처의 핵심 구성요소(VPC, IAM, S3, GuardDuty)를 다룹니다. 네트워크 격리, 접근 제어, 데이터 보호, 위협 탐지까지 실무에 바로 적용 가능한 내용입니다.
 
 이 글에서는 클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!에 대해 실무 중심으로 상세히 다룹니다.
+
+
+![포스트 이미지](/assets/images/2025-12-05-클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복_image.png)
+*그림: 포스트 이미지*
+
 
 ## 1. 개요
 

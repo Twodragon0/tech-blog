@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/683
 image: /assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차_AWS_Control_Tower_및_ZTNA.svg
 ---
+--
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -59,6 +60,11 @@ image: /assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차
 안녕하세요, Twodragon입니다. 이번 포스트에서는 클라우드 보안 과정 7기의 AWS 취약점 점검 및 ISMS 대응 가이드에 관련된 내용을 다루고자 합니다. 이 과정은 게더 타운에서 진행되며, 각 세션은 20분 강의 후 5분 휴식으로 구성되어 있습니다. 이러한 구성은 온라인 강의의 특성 상 눈의 피로를 줄이고, 멘티 분들의 집중력을 최대화하기 위함입니다. 여러분들과 함께 다양한 AWS Control Tower 및 ZTNA 관련 주..
 
 이 글에서는 클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA에 대해 실무 중심으로 상세히 다룹니다.
+
+
+![포스트 이미지](/assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차_AWS_Control_Tower_및_ZTNA_image.jpg)
+*그림: 포스트 이미지*
+
 
 ## 1. 개요
 

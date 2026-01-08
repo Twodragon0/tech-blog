@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/697
 image: /assets/images/2025-10-31-AI_시대_당신의_amplsquo비서amprsquo가_amplsquo보안_구멍amprsquo이_되지_않도록_기업을_위한_AI_서비스_보안_가이드.svg
 ---
+--
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -61,6 +62,11 @@ image: /assets/images/2025-10-31-AI_시대_당신의_amplsquo비서amprsquo가_a
 하지만 이 강력한 생산성 도구는 동시에 새로운 유형의 보안 위협을 동반합니다. 편리함에 가려진 위험을 인지하지 못한다면, 회사의 가장 민감한 정보가 유출되는 통로가 될 수 있습니다.
 
 본 가이드에서는 AI 서비스 사용 시 발생할 수 있는 보안 위험을 분석하고, 기업이 이를 효과적으로 관리하기 위한 실무 가이드를 제공합니다.
+
+
+![포스트 이미지](/assets/images/2025-10-31-AI_시대_당신의_amplsquo비서amprsquo가_amplsquo보안_구멍amprsquo이_되지_않도록_기업을_위한_AI_서비스_보안_가이드_image.png)
+*그림: 포스트 이미지*
+
 
 ## 1. AI 브라우저 에이전트의 등장과 위험
 
