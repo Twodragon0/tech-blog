@@ -3,11 +3,12 @@
   <a href="{{ post.url | relative_url }}" class="post-card-inner">
     {% if post.image %}
     <div class="post-card-image">
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" style="width:100%; height:150px; object-fit:cover; border-radius:8px 8px 0 0;">
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
     </div>
     {% endif %}
 
-    <div class="post-card-meta">
+    <div class="post-card-content">
+      <div class="post-card-meta">
       {% comment %} Get category - prefer post.category, fallback to categories {% endcomment %}
       {% assign display_cat = nil %}
       {% if post.category and post.category != "" %}
@@ -35,12 +36,13 @@
     <p class="post-card-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
     {% endif %}
 
-    {% if post.tags.size > 0 %}
-    <div class="post-card-tags">
-      {% for tag in post.tags limit:3 %}
-      <span class="tag">{{ tag }}</span>
-      {% endfor %}
+      {% if post.tags.size > 0 %}
+      <div class="post-card-tags">
+        {% for tag in post.tags limit:3 %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
   </a>
 </article>

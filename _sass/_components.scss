@@ -64,20 +64,77 @@
   }
 }
 
+// Post Card specific card styling
+.post-card.card {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
 // Post Card
 .post-card {
   display: block;
-  margin-bottom: $spacing-lg;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  overflow: hidden;
+  transition: transform $transition-base, box-shadow $transition-base;
 }
 
 .post-card-inner {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-card-image {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; // 16:9 aspect ratio
+  overflow: hidden;
+  background-color: var(--bg-tertiary);
+  border-radius: $radius-lg $radius-lg 0 0;
+  transition: transform $transition-base;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform $transition-slow;
+  }
+
+  .post-card:hover & {
+    img {
+      transform: scale(1.05);
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding-bottom: 50%; // Slightly taller on mobile
+  }
+}
+
+.post-card-content {
+  display: flex;
+  flex-direction: column;
   gap: $spacing-sm;
+  padding: $spacing-md;
+  flex: 1;
+}
+
+// When post card has no image
+.post-card:not(:has(.post-card-image)) .post-card-content {
+  padding-top: $spacing-lg;
 }
 
 .post-card-meta {
@@ -87,6 +144,7 @@
   gap: $spacing-sm;
   font-size: 0.8rem;
   color: var(--text-secondary);
+  order: 1;
 }
 
 .post-card-title {
@@ -94,10 +152,20 @@
   font-weight: 600;
   color: var(--text);
   margin: 0;
+  line-height: 1.4;
   transition: color $transition-fast;
+  order: 2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 
   .post-card:hover & {
     color: var(--primary);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 1.125rem;
   }
 }
 
@@ -109,6 +177,8 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  order: 3;
+  margin-top: auto;
 }
 
 .post-card-tags {
@@ -116,6 +186,26 @@
   flex-wrap: wrap;
   gap: $spacing-xs;
   margin-top: $spacing-sm;
+  order: 4;
+}
+
+// Posts List Grid
+.posts-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .post-card {
+    margin-bottom: 0;
+  }
 }
 
 // Category Badge
