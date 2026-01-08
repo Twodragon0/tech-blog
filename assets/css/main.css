@@ -1054,6 +1054,226 @@ body {
   margin-top: var(--spacing-3xl);
   padding-top: var(--spacing-2xl);
   border-top: 1px solid var(--color-border);
+  width: 100%;
+}
+
+.comments-section h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+  margin-top: 0;
+}
+
+/* Giscus 위젯 스타일링 */
+.giscus-frame {
+  width: 100%;
+  border: none;
+  min-height: 400px;
+}
+
+/* Giscus 컨테이너 개선 */
+.giscus {
+  background-color: var(--color-bg-primary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+}
+
+/* Dark mode giscus adjustments */
+[data-theme="dark"] .giscus {
+  background-color: var(--color-bg-secondary);
+}
+
+/* Discussion Page */
+.discussion-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+}
+
+.discussion-page h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.discussion-page section {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.discussion-page .card {
+  transition: all var(--transition-base);
+}
+
+.discussion-page .card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.discussion-page ol,
+.discussion-page ul {
+  margin-left: var(--spacing-xl);
+  padding-left: var(--spacing-md);
+}
+
+.discussion-page li {
+  margin-bottom: var(--spacing-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+}
+
+.discussion-page li strong {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Alert Styles */
+.alert {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid;
+  margin-bottom: var(--spacing-lg);
+  background-color: var(--color-bg-secondary);
+}
+
+.alert.info {
+  border-left-color: var(--color-info);
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.alert.warning {
+  border-left-color: var(--color-warning);
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.alert.error {
+  border-left-color: var(--color-error);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.alert.success {
+  border-left-color: var(--color-success);
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.alert p {
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.alert strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Dark mode alert adjustments */
+[data-theme="dark"] .alert.info {
+  background-color: rgba(59, 130, 246, 0.15);
+}
+
+[data-theme="dark"] .alert.warning {
+  background-color: rgba(245, 158, 11, 0.15);
+}
+
+[data-theme="dark"] .alert.error {
+  background-color: rgba(239, 68, 68, 0.15);
+}
+
+[data-theme="dark"] .alert.success {
+  background-color: rgba(16, 185, 129, 0.15);
+}
+
+/* Discussion Page Specific Styles */
+.discussion-category-card {
+  padding: var(--spacing-lg);
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-base);
+}
+
+.discussion-category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.discussion-category-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.discussion-category-header h3 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.discussion-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.discussion-icon.icon-general {
+  color: var(--color-primary);
+}
+
+.discussion-icon.icon-qa {
+  color: var(--color-success);
+}
+
+.discussion-icon.icon-ideas {
+  color: var(--color-warning);
+}
+
+.discussion-icon.icon-show {
+  color: var(--color-devsecops);
+}
+
+.discussion-category-desc {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+.discussion-card {
+  padding: var(--spacing-xl);
+}
+
+.discussion-list {
+  margin: 0;
+  padding-left: var(--spacing-xl);
+  line-height: var(--line-height-relaxed);
+}
+
+.discussion-list li {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+.discussion-list li strong {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.discussion-cta {
+  text-align: center;
+  margin-top: var(--spacing-3xl);
+}
+
+.btn-large {
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-md) var(--spacing-2xl);
+}
+
+.btn-icon {
+  margin-right: var(--spacing-sm);
+  vertical-align: middle;
 }
 
 /* Responsive Design */
@@ -1110,6 +1330,31 @@ body {
 
   .related-grid {
     grid-template-columns: 1fr;
+  }
+
+  .discussion-page {
+    padding: var(--spacing-md) 0;
+  }
+
+  .discussion-category-card {
+    padding: var(--spacing-md);
+  }
+
+  .discussion-card {
+    padding: var(--spacing-lg);
+  }
+
+  .discussion-list {
+    padding-left: var(--spacing-lg);
+  }
+
+  .comments-section {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-xl);
+  }
+
+  .comments-section h3 {
+    font-size: var(--font-size-xl);
   }
 }
 
@@ -1168,6 +1413,232 @@ body {
   }
 }
 
+/* ============================================
+   AI Summary Section Styles
+   ============================================ */
+
+/* Hide the "📋 포스팅 요약" header when it appears at the start */
+.post-content > h2:first-child,
+.post-content > h2#-포스팅-요약 {
+  display: none;
+}
+
+/* AI Summary Box - first blockquote를 카드 스타일로 변환 */
+.post-content > h2:first-child + blockquote,
+.post-content > blockquote:first-child,
+.ai-summary {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-tertiary) 100%);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  padding-top: calc(var(--spacing-xl) + 28px);
+  margin: 0 0 var(--spacing-2xl) 0;
+  font-style: normal;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* AI Summary Header Badge */
+.post-content > h2:first-child + blockquote::before,
+.post-content > blockquote:first-child::before,
+.ai-summary::before {
+  content: "📋 AI 요약";
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-devsecops));
+  color: white;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: 0 0 var(--border-radius-md) 0;
+  letter-spacing: 0.03em;
+}
+
+/* Summary content styling */
+.post-content > h2:first-child + blockquote p,
+.post-content > blockquote:first-child p,
+.ai-summary p {
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+}
+
+/* Summary field styling - 제목, 카테고리 등의 라벨 */
+.post-content > h2:first-child + blockquote strong,
+.post-content > blockquote:first-child strong,
+.ai-summary strong {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  display: inline-block;
+  min-width: 70px;
+  margin-right: var(--spacing-xs);
+}
+
+/* Summary divider - hr tag */
+.post-content > h2:first-child + blockquote hr,
+.post-content > blockquote:first-child hr,
+.ai-summary hr {
+  border: none;
+  border-top: 1px dashed var(--color-border);
+  margin: var(--spacing-md) 0;
+}
+
+/* Summary footer note (italic text at the end) */
+.post-content > h2:first-child + blockquote > p:last-child em,
+.post-content > blockquote:first-child > p:last-child em,
+.ai-summary > p:last-child em {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px dashed var(--color-border);
+  font-style: italic;
+}
+
+/* Dark mode AI Summary */
+[data-theme="dark"] .post-content > h2:first-child + blockquote,
+[data-theme="dark"] .post-content > blockquote:first-child,
+[data-theme="dark"] .ai-summary {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.9) 100%);
+  border-color: var(--color-border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .post-content > h2:first-child + blockquote strong,
+[data-theme="dark"] .post-content > blockquote:first-child strong,
+[data-theme="dark"] .ai-summary strong {
+  color: #60a5fa;
+}
+
+/* Ensure normal blockquotes inside content don't get AI summary styling */
+.post-content > p + blockquote,
+.post-content > h3 + blockquote,
+.post-content > h4 + blockquote,
+.post-content > ul + blockquote,
+.post-content > ol + blockquote,
+.post-content > pre + blockquote,
+.post-content > table + blockquote {
+  position: static;
+  background: var(--color-bg-secondary);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  font-style: italic;
+  box-shadow: none;
+}
+
+.post-content > p + blockquote::before,
+.post-content > h3 + blockquote::before,
+.post-content > h4 + blockquote::before,
+.post-content > ul + blockquote::before,
+.post-content > ol + blockquote::before,
+.post-content > pre + blockquote::before,
+.post-content > table + blockquote::before {
+  display: none;
+}
+
+/* AI Summary Grid Layout for metadata */
+.ai-summary-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-sm) var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.ai-summary-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.ai-summary-value {
+  color: var(--color-text-primary);
+}
+
+/* Tags in AI Summary */
+.ai-summary-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.ai-summary-tag {
+  display: inline-block;
+  padding: 2px var(--spacing-sm);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+[data-theme="dark"] .ai-summary-tag {
+  background-color: rgba(96, 165, 250, 0.2);
+  color: #60a5fa;
+}
+
+/* Responsive AI Summary */
+@media (max-width: 768px) {
+  .post-content > h2:first-child + blockquote,
+  .post-content > blockquote:first-child,
+  .ai-summary {
+    padding: var(--spacing-lg);
+    padding-top: calc(var(--spacing-lg) + 24px);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .post-content > h2:first-child + blockquote::before,
+  .post-content > blockquote:first-child::before,
+  .ai-summary::before {
+    font-size: 11px;
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+
+  .ai-summary-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+  }
+
+  .ai-summary-label {
+    margin-top: var(--spacing-sm);
+  }
+}
+
+/* Giscus Comments Enhancement */
+.giscus-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.giscus-loading.hidden {
+  display: none;
+}
+
+/* Giscus iframe 스타일 개선 */
+.giscus iframe {
+  border: none;
+  width: 100%;
+  min-height: 400px;
+}
+
+/* 다크 모드에서 giscus 컨테이너 개선 */
+[data-theme="dark"] .giscus-wrapper {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .giscus-wrapper:hover {
+  border-color: var(--color-primary);
+}
+
 /* Print Styles */
 @media print {
   .site-header,
@@ -1182,5 +1653,11 @@ body {
 
   .main-content {
     padding: 0;
+  }
+
+  .post-content > blockquote:first-of-type,
+  .ai-summary {
+    border: 1px solid #ccc;
+    box-shadow: none;
   }
 }
