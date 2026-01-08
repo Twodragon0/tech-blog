@@ -63,3 +63,21 @@ GitHub Actions를 통해 자동으로 배포됩니다.
 ## 🤝 기여
 
 버그 리포트나 개선 제안은 [Issues](https://github.com/Twodragon0/tech-blog/issues)를 통해 제안해주세요.
+
+## 🤖 AI 어시스턴트 활용 가이드
+
+이 프로젝트는 Cursor, Claude 등 AI 어시스턴트를 활용한 콘텐츠 작성을 지원합니다.
+
+### 주요 문서
+- **`.cursorrules`**: Cursor AI 설정 및 프로젝트 규칙
+- **`BEST_PRACTICES.md`**: 작업 가이드라인 및 모범 사례
+- **`GEMINI_IMAGE_GUIDE.md`**: 이미지 생성 가이드
+- **`POST_VISUALIZATION_CHECKLIST.md`**: 시각화 체크리스트
+
+### AI 어시스턴트 활용 시
+1. 포스트 작성 요청 시 제목, 카테고리, 태그, 핵심 내용을 명확히 전달
+2. 코드 작성 요청 시 사용 기술 스택 및 보안 요구사항 명시
+3. 이미지 생성 요청 시 `GEMINI_IMAGE_GUIDE.md`의 템플릿 참조
+4. 모든 코드는 보안 모범 사례를 따르고 민감 정보 제거 필수
+
+자세한 내용은 `.cursorrules` 및 `BEST_PRACTICES.md`를 참조하세요.
