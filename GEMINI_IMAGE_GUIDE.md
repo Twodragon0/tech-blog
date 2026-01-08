@@ -343,6 +343,112 @@ Include: Korean labels (악성 패키지, 의존성, 감염 확산, 보안 스�
 
 ---
 
+### 7. 블록체인 및 암호화폐 보안
+
+#### 7-1. 블록체인 암호화폐 보안 완벽 가이드
+**필요한 이미지:**
+- [ ] **블록체인 보안 위협 다이어그램**: 주요 위협 유형 시각화
+- [ ] **스마트 컨트랙트 보안 분석 도구 비교**: Slither, Mythril, Securify 비교
+- [ ] **DevSecOps 파이프라인 통합**: CI/CD에 보안 검사 통합 흐름도
+- [ ] **스마트 컨트랙트 취약점 예시**: Reentrancy, Integer Overflow 등
+- [ ] **지갑 보안 아키텍처**: 콜드/핫 월렛 구조 및 키 관리
+- [ ] **거래소 보안 레이어**: 다중 방어 계층 구조
+
+**Gemini 명령어 예시:**
+
+**블록체인 보안 위협 다이어그램:**
+```
+Create a nano banana style blockchain security threats diagram showing:
+- Blockchain network at the center (chain of blocks)
+- Smart contract vulnerabilities (red warning icons): Reentrancy, Integer Overflow, Access Control
+- Network-level threats (orange icons): 51% Attack, Sybil Attack, DDoS
+- Wallet threats (yellow icons): Private Key Leak, Phishing, Social Engineering
+- Exchange threats (purple icons): Hot Wallet Hacking, Insider Attack, API Key Leak
+- Security tools protecting the network (green shields): Slither, Mythril, Securify
+Style: minimalist blockchain security illustration
+Colors: Red (#CC0000) for vulnerabilities, Orange (#FF6600) for network threats, Yellow (#FFCC00) for wallet threats, Purple (#9966CC) for exchange threats, Green (#00AA44) for security tools
+Layout: central blockchain with threats surrounding it
+Include: Korean labels (블록체인, 스마트 컨트랙트 취약점, 네트워크 위협, 지갑 위협, 거래소 위협, 보안 도구)
+```
+
+**DevSecOps 파이프라인 통합:**
+```
+Create a nano banana style DevSecOps pipeline diagram showing:
+- Step 1: Code Commit (developer icon)
+- Step 2: Static Analysis with Slither (shield with S icon)
+- Step 3: Symbolic Execution with Mythril (shield with M icon)
+- Step 4: Dependency Audit (package icon with checkmark)
+- Step 5: Security Testing (test tube icon)
+- Step 6: Deployment (rocket icon)
+- Security gates at each step (red/green indicators)
+- GitHub Actions workflow integration
+Style: minimalist CI/CD pipeline illustration
+Colors: Blue (#0066CC) for pipeline, Green (#00AA44) for passed checks, Red (#CC0000) for failed checks
+Layout: horizontal flow from left to right
+Include: Korean labels (코드 커밋, 정적 분석, 심볼릭 실행, 의존성 검사, 보안 테스트, 배포)
+```
+
+**스마트 컨트랙트 보안 도구 비교:**
+```
+Create a nano banana style comparison infographic showing three security tools:
+- Slither (left): Static analysis tool, 90+ vulnerability patterns, Fast scanning, CI/CD integration
+- Mythril (center): Symbolic execution, Deep analysis, Reentrancy detection, Gas optimization
+- Securify 2.0 (right): Pattern matching + Data flow, 37+ security patterns, Web interface, High accuracy
+Each tool with its logo, key features, and use cases
+Style: minimalist comparison chart
+Colors: Different colors for each tool (Blue, Green, Orange)
+Layout: three-column comparison
+Include: Korean labels (Slither, Mythril, Securify, 정적 분석, 심볼릭 실행, 패턴 매칭)
+```
+
+**지갑 보안 아키텍처:**
+```
+Create a nano banana style wallet security architecture showing:
+- User at the top (person icon)
+- Hot Wallet (orange wallet icon): Small amount, Multi-signature, Online
+- Cold Wallet (blue wallet icon): Large amount, Hardware wallet, Offline
+- Key Management System (key icon): Encrypted storage, Key splitting, Backup
+- Security Layers: Encryption, Multi-signature, HSM (Hardware Security Module)
+- Connection arrows showing secure paths
+Style: minimalist wallet security illustration
+Colors: Orange (#FF6600) for hot wallet, Blue (#0066CC) for cold wallet, Green (#00AA44) for security
+Layout: vertical hierarchy from user to wallets
+Include: Korean labels (사용자, 핫 월렛, 콜드 월렛, 키 관리, 암호화, 다중 서명)
+```
+
+**스마트 컨트랙트 취약점 예시:**
+```
+Create a nano banana style smart contract vulnerability examples showing:
+- Reentrancy Attack: Function call loop with attacker exploiting reentry
+- Integer Overflow: Number calculation exceeding limit causing wrap-around
+- Access Control: Unauthorized user accessing admin function
+- Oracle Manipulation: External data source being manipulated
+Each vulnerability with visual representation and prevention method
+Style: minimalist security vulnerability illustration
+Colors: Red (#CC0000) for vulnerabilities, Green (#00AA44) for prevention
+Layout: four-panel grid showing each vulnerability
+Include: Korean labels (재진입 공격, 정수 오버플로우, 접근 제어, 오라클 조작)
+```
+
+**거래소 보안 레이어:**
+```
+Create a nano banana style exchange security layers diagram showing:
+- External users/applications at the top
+- Layer 1: DDoS Protection (shield icon)
+- Layer 2: WAF (Web Application Firewall) (firewall icon)
+- Layer 3: Authentication & Authorization (lock icon with key)
+- Layer 4: API Security (API icon with shield)
+- Layer 5: Hot Wallet (small amount, orange)
+- Layer 6: Cold Wallet (large amount, blue, offline)
+- Monitoring and alerting system surrounding all layers
+Style: minimalist layered security architecture
+Colors: Different colors for each layer (Red, Orange, Yellow, Green, Blue, Purple)
+Layout: vertical layers from top (users) to bottom (cold wallet)
+Include: Korean labels (사용자, DDoS 방어, WAF, 인증/인가, API 보안, 핫 월렛, 콜드 월렛, 모니터링)
+```
+
+---
+
 ## 공통 시각화 요소
 
 ### 아키텍처 다이어그램 템플릿
@@ -449,4 +555,4 @@ Include: Korean labels ([한글 라벨])
 
 ---
 
-**마지막 업데이트**: 2025-12-24
+**마지막 업데이트**: 2026-01-08
