@@ -30,10 +30,24 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
 
+      - name: Debug - List posts
+        run: |
+          echo "=== Posts directory ==="
+          ls -la _posts/
+          echo "=== First post content (first 20 lines) ==="
+          head -20 _posts/*.md | head -50
+
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --verbose
         env:
           JEKYLL_ENV: production
+
+      - name: Debug - Check built files
+        run: |
+          echo "=== Built site structure ==="
+          ls -la _site/
+          echo "=== Index.html first 100 lines ==="
+          head -100 _site/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
