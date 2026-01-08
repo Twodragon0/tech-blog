@@ -9,24 +9,50 @@ comments: true
 original_url: https://twodragon.tistory.com/688
 image: /assets/images/2025-06-05-이메일_발송_신뢰도_높이기_SendGrid_SPF_DKIM_DMARC_설정_완벽_가이드.svg
 ---
-## 📋 포스팅 요약
-
-> **제목**: 이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드
-
-> **카테고리**: security
-
-> **태그**: SendGrid, SPF, DKIM, DMARC, Email-Security
-
-> **핵심 내용**: 
-> - 이메일은 비즈니스 커뮤니케이션의 핵심 도구이지만, 스팸 메일함으로 직행하거나 아예 차단되는 경우만큼 답답한 일도 없습니다. 고객에게 중요한 정보가 담긴 메일이 제대로 전달되지 않는다면 비즈니스에 큰 타격을 줄 수 있습니다. 이러한 문제를 해결하고 이메일 발송 신뢰도를 높이는 열쇠는 바로 SPF, DKIM, DMARC와 같은 이메일 인증 기술에 있습니다.
-
-> **주요 기술/도구**: Security, security
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">SendGrid</span>
+      <span class="tag">SPF</span>
+      <span class="tag">DKIM</span>
+      <span class="tag">DMARC</span>
+      <span class="tag">Email-Security</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li>SPF, DKIM, DMARC 이메일 인증 기술 설정 방법</li>
+      <li>SendGrid를 활용한 도메인 인증 및 DNS 레코드 구성</li>
+      <li>이메일 발송 신뢰도 향상 및 스팸 방지 전략</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">SendGrid, SPF, DKIM, DMARC, DNS</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">기업 보안 담당자, 보안 엔지니어, CISO</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 
 ## 서론

@@ -11,24 +11,51 @@ original_url: https://twodragon.tistory.com/699
 image: /assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글로벌_장애_대응_일지_우리는_무엇을_배웠나.svg
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: [Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지
-
-> **카테고리**: incident
-
-> **태그**: Cloudflare, Post-Mortem, Incident-Response, CDN, Network, SRE
-
-> **핵심 내용**: 
-> - 2025년 11월 18일 저녁, 전 세계 수많은 인터넷 서비스를 마비시킨 **Cloudflare의 글로벌 네트워크 장애**가 발생했습니다. 우리 서비스 역시 예외는 아니었습니다. 이 글은 긴박했던 장애 상황에서 우리 팀이 어떻게 문제를 인지하고 대응했는지, 특히 **모바일과 PC 환경에서 나타난 상이한 증상**을 어떻게 분석했는지를 기록합니다.
-
-> **주요 기술/도구**: Cloudflare, incident
-
-> **대상 독자**: SRE, 인시던트 대응 담당자, 운영 엔지니어
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Incident</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">Cloudflare</span>
+      <span class="tag">Post-Mortem</span>
+      <span class="tag">Incident-Response</span>
+      <span class="tag">CDN</span>
+      <span class="tag">Network</span>
+      <span class="tag">SRE</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li>Cloudflare 글로벌 네트워크 장애 대응 및 분석</li>
+      <li>모바일과 PC 환경에서 나타난 상이한 증상 분석</li>
+      <li>Multi-CDN 전략 및 자동 Failover 구현 방안</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">Cloudflare, Multi-CDN, Prometheus, BGP</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">SRE, 인시던트 대응 담당자, 운영 엔지니어</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 
 ## 1. 들어가며

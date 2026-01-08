@@ -11,24 +11,51 @@ original_url: https://twodragon.tistory.com/686
 image: /assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해.svg
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해
-
-> **카테고리**: kubernetes
-
-> **태그**: Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps
-
-> **핵심 내용**: 
-> - 안녕하세요, **Twodragon**입니다. 이번 포스트에서는 클라우드 보안 과정 7기의 **Docker 및 Kubernetes 이해**에 관련된 내용을 다루고자 합니다. 이 과정은 게더 타운(Gather Town)에서 진행되며, 각 세션은 **20분 강의 후 5분 휴식** 패턴으로 구성되어 있습니다.
-
-> **주요 기술/도구**: Docker, Kubernetes, Security, DevSecOps, kubernetes
-
-> **대상 독자**: 클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag devops">Kubernetes</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">Docker</span>
+      <span class="tag">Kubernetes</span>
+      <span class="tag">Container</span>
+      <span class="tag">K8s</span>
+      <span class="tag">Cloud-Security</span>
+      <span class="tag">DevSecOps</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li>Docker 기초 및 핵심 개념 (이미지, 컨테이너, Dockerfile)</li>
+      <li>Kubernetes 아키텍처 및 주요 리소스 (Pod, Deployment, Service)</li>
+      <li>컨테이너 보안 Best Practices 및 런타임 보안</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">Docker, Kubernetes, Minikube, K9s, Trivy</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 
 ## 1. Docker 기초 이해

@@ -9,24 +9,51 @@ comments: true
 original_url: https://twodragon.tistory.com/706
 image: /assets/images/2025-12-24-클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안.svg
 ---
-## 📋 포스팅 요약
-
-> **제목**: 클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안
-
-> **카테고리**: cloud
-
-> **태그**: AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM
-
-> **핵심 내용**: 
-> - 이번 포스트에서는 클라우드 보안 과정 8기 5주차에서 다룰 AWS 멀티 계정 거버넌스 및 통합 보안 모니터링에 관련된 내용을 소개하고자 합니다. AWS Control Tower와 Service Control Policies(SCP)를 통한 거버넌스, Datadog SIEM을 활용한 보안 모니터링, 그리고 Cloudflare를 통한 웹 보안에 대해 다룹니다.
-
-> **주요 기술/도구**: AWS, Datadog, Cloudflare, SIEM, cloud
-
-> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag cloud">Cloud</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">AWS</span>
+      <span class="tag">Control-Tower</span>
+      <span class="tag">SCP</span>
+      <span class="tag">Datadog</span>
+      <span class="tag">Cloudflare</span>
+      <span class="tag">SIEM</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li>AWS Control Tower와 SCP를 통한 멀티 계정 거버넌스</li>
+      <li>Datadog SIEM을 활용한 통합 보안 모니터링</li>
+      <li>Cloudflare를 통한 웹 보안 및 DDoS 방어</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">AWS Control Tower, SCP, Datadog SIEM, Cloudflare</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 
 ## 서론

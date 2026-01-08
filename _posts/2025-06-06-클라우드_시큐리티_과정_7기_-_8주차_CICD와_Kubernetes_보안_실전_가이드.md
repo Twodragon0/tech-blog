@@ -11,24 +11,51 @@ original_url: https://twodragon.tistory.com/689
 image: /assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드.svg
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드
-
-> **카테고리**: kubernetes
-
-> **태그**: CI/CD, Kubernetes, Security, DevSecOps, GitOps, Pipeline-Security
-
-> **핵심 내용**: 
-> - 안녕하세요, **Twodragon**입니다. 이번 주차에서는 DevOps 환경에서 필수적인 **CI/CD 파이프라인 보안**과 **Kubernetes 클러스터 보안**에 대해 알아보겠습니다. 실습과 이론을 병행하여, 실제 서비스 환경에 적용 가능한 보안 전략을 다루었습니다.
-
-> **주요 기술/도구**: Kubernetes, Security, DevSecOps, Security, kubernetes
-
-> **대상 독자**: 클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag devops">Kubernetes</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">CI/CD</span>
+      <span class="tag">Kubernetes</span>
+      <span class="tag">Security</span>
+      <span class="tag">DevSecOps</span>
+      <span class="tag">GitOps</span>
+      <span class="tag">Pipeline-Security</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li>CI/CD 파이프라인 보안 및 GitHub Actions 보안 설정</li>
+      <li>Kubernetes RBAC, Pod Security Standards, Network Policy 구현</li>
+      <li>이미지 서명, Secret 관리, 런타임 보안 모범 사례</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">Kubernetes, GitHub Actions, Kyverno, Falco, Cosign</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 
 ## 1. CI/CD 파이프라인 보안 기초

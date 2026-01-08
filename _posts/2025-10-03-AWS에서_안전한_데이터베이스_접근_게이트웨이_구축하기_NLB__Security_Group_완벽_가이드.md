@@ -9,24 +9,50 @@ comments: true
 original_url: https://twodragon.tistory.com/696
 image: /assets/images/2025-10-03-AWS에서_안전한_데이터베이스_접근_게이트웨이_구축하기_NLB__Security_Group_완벽_가이드.svg
 ---
-## 📋 포스팅 요약
-
-> **제목**: AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드
-
-> **카테고리**: cloud
-
-> **태그**: AWS, NLB, Security-Group, Database, Network
-
-> **핵심 내용**: 
-> - 데이터베이스 접근 관리 솔루션을 AWS에 배포하면서 Network Load Balancer와 Security Group을 활용한 Zero Trust 아키텍처를 구축한 경험을 공유합니다. Terraform으로 완전 자동화하고, 보안과 가용성을 모두 확보했습니다.
-
-> **주요 기술/도구**: AWS, Security, cloud
-
-> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag cloud">Cloud</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">AWS</span>
+      <span class="tag">NLB</span>
+      <span class="tag">Security-Group</span>
+      <span class="tag">Database</span>
+      <span class="tag">Network</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li>Network Load Balancer와 Security Group을 활용한 Zero Trust 아키텍처 구축</li>
+      <li>Terraform을 통한 인프라 자동화 및 보안 설정</li>
+      <li>데이터베이스 접근 관리 솔루션 AWS 배포 경험 공유</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">AWS NLB, Security Group, Terraform, VPC</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 
 ## 서론
