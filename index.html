@@ -1,25 +1,92 @@
 ---
 layout: default
+title: Home
 ---
-
 <div class="home">
-  <h1 class="page-heading">Posts</h1>
-  
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <h2>
-          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h2>
-        {% if post.original_url %}
-          <p class="post-meta">
-            <a href="{{ post.original_url }}" target="_blank">원본 포스트 보기</a>
-          </p>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-  
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  <!-- Hero Section -->
+  <section class="hero" style="text-align: center; padding: 3rem 0; margin-bottom: 2rem;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Twodragon's Tech Blog</h1>
+    <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 700px; margin: 0 auto; line-height: 1.8;">
+      <strong>DevSecOps · DevOps · FinOps</strong> 전문 기술 블로그
+      <br>클라우드 보안, 인프라 자동화, 비용 최적화의 실무 경험과 최신 트렌드를 공유합니다.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+      <span style="background: var(--primary); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">🔒 DevSecOps</span>
+      <span style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">⚙️ DevOps</span>
+      <span style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">💰 FinOps</span>
+    </div>
+  </section>
+
+  <!-- Search -->
+  <div class="search-container" style="max-width: 500px; margin: 0 auto 2rem;">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input type="text" id="search-input" class="search-input" placeholder="Search posts...">
+    <div id="search-results" class="search-results"></div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-card card">
+      <div class="stat-number">{{ site.posts.size }}</div>
+      <div class="stat-label">Posts</div>
+    </div>
+    <div class="stat-card card">
+      {% assign all_categories = site.posts | map: "category" | concat: site.posts | map: "categories" | flatten | compact | uniq %}
+      <div class="stat-number">{{ all_categories.size }}</div>
+      <div class="stat-label">Categories</div>
+    </div>
+    <div class="stat-card card">
+      {% assign all_tags = site.posts | map: "tags" | flatten | compact | uniq %}
+      <div class="stat-number">{{ all_tags.size }}</div>
+      <div class="stat-label">Tags</div>
+    </div>
+  </div>
+
+  <!-- Recent Posts -->
+  <section style="margin-top: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+      <h2 style="margin: 0;">Recent Posts</h2>
+      <a href="{{ '/archive/' | relative_url }}" class="btn btn-secondary">View All</a>
+    </div>
+
+    <div class="posts-list">
+      {% for post in site.posts limit: 10 %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Categories Quick Links -->
+  <section style="margin-top: 3rem;">
+    <h2 style="margin-bottom: 1.5rem;">Categories</h2>
+    <div class="category-grid">
+      {% for cat in site.category_list %}
+      <a href="{{ '/categories/' | relative_url }}#{{ cat.name }}" class="category-card card">
+        <div class="category-icon {{ cat.name }}">
+          {% case cat.icon %}
+            {% when 'shield' %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            {% when 'code' %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            {% when 'cloud' %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            {% when 'cube' %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            {% when 'chart' %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+            {% when 'alert' %}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          {% endcase %}
+        </div>
+        <h3>{{ cat.title }}</h3>
+        <p>{{ cat.description }}</p>
+        {% assign cat_posts = site.posts | where_exp: "post", "post.category == cat.name or post.categories contains cat.name" %}
+        <span class="post-count">{{ cat_posts.size }} posts</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
 </div>
