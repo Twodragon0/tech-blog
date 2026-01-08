@@ -24,10 +24,42 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
 GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent"
 
+def mask_sensitive_info(text: str) -> str:
+    """
+    로그에 기록될 민감한 정보를 마스킹합니다.
+    
+    Args:
+        text: 마스킹할 텍스트
+        
+    Returns:
+        마스킹된 텍스트
+    """
+    if not text:
+        return text
+    
+    # API 키 마스킹 (sk-, sk-ant-, AIza 등으로 시작하는 키)
+    masked = re.sub(r'sk-[a-zA-Z0-9_-]{20,}', 'sk-***MASKED***', text)
+    masked = re.sub(r'sk-ant-[a-zA-Z0-9_-]{20,}', 'sk-ant-***MASKED***', masked)
+    masked = re.sub(r'AIza[0-9A-Za-z_-]{35}', 'AIza***MASKED***', masked)
+    
+    # 환경 변수에서 읽은 실제 API 키 값 마스킹
+    if CLAUDE_API_KEY and len(CLAUDE_API_KEY) > 10:
+        masked = masked.replace(CLAUDE_API_KEY, '***CLAUDE_API_KEY_MASKED***')
+    if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
+        masked = masked.replace(GEMINI_API_KEY, '***GEMINI_API_KEY_MASKED***')
+    
+    # 일반적인 API 키 패턴 마스킹 (긴 알파벳/숫자 조합)
+    masked = re.sub(r'[a-zA-Z0-9_-]{40,}', lambda m: m.group()[:8] + '***MASKED***' if len(m.group()) > 40 else m.group(), masked)
+    
+    return masked
+
 def log_message(message: str):
-    """로그 메시지 기록"""
+    """로그 메시지 기록 (민감 정보 자동 마스킹)"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    log_entry = f"[{timestamp}] {message}\n"
+    # 민감 정보 마스킹
+    safe_message = mask_sensitive_info(message)
+    log_entry = f"[{timestamp}] {safe_message}\n"
+    # 출력 시에도 마스킹된 메시지 사용
     print(log_entry.strip())
     try:
         with open(LOG_FILE, 'a', encoding='utf-8') as f:

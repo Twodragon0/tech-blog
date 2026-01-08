@@ -53,12 +53,37 @@ def extract_images_from_tistory(url: str) -> List[str]:
         image_urls = []
         
         # Tistory 이미지 URL 패턴 찾기
+        # 허용된 호스트 목록
+        ALLOWED_HOSTS = ['blog.kakaocdn.net', 'img1.daumcdn.net']
+        
+        def is_allowed_url(url_str: str) -> bool:
+            """URL의 호스트가 허용된 목록에 있는지 검증"""
+            try:
+                # 상대 경로인 경우 절대 경로로 변환
+                if url_str.startswith('//'):
+                    url_str = 'https:' + url_str
+                elif url_str.startswith('/'):
+                    url_str = urljoin(url, url_str)
+                
+                # URL 파싱하여 호스트 검증
+                parsed = urlparse(url_str)
+                hostname = parsed.hostname
+                
+                # 호스트가 허용된 목록에 있는지 확인
+                if hostname:
+                    # 정확한 호스트 매칭 (서브도메인 포함)
+                    return any(hostname == allowed or hostname.endswith('.' + allowed) 
+                             for allowed in ALLOWED_HOSTS)
+                return False
+            except Exception:
+                return False
+        
         # 1. img 태그의 src 속성
         for img in soup.find_all('img'):
             src = img.get('src') or img.get('data-src')
             if src:
-                # Tistory CDN 이미지 URL 확인
-                if 'blog.kakaocdn.net' in src or 'img1.daumcdn.net' in src:
+                # Tistory CDN 이미지 URL 검증 (호스트 기반)
+                if is_allowed_url(src):
                     # 상대 경로를 절대 경로로 변환
                     if src.startswith('//'):
                         src = 'https:' + src
@@ -69,7 +94,7 @@ def extract_images_from_tistory(url: str) -> List[str]:
         # 2. 메타 태그에서 이미지 찾기 (og:image 등)
         for meta in soup.find_all('meta', property=re.compile(r'og:image')):
             content = meta.get('content')
-            if content and ('blog.kakaocdn.net' in content or 'img1.daumcdn.net' in content):
+            if content and is_allowed_url(content):
                 if content.startswith('//'):
                     content = 'https:' + content
                 elif content.startswith('/'):
