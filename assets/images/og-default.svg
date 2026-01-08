@@ -1,0 +1,65 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f3460;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0f3460" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Shield Icon (Security) -->
+  <g transform="translate(100, 200)">
+    <path d="M 0 0 L 60 0 L 60 40 L 30 60 L 0 40 Z" fill="#00d4ff" opacity="0.8"/>
+    <path d="M 20 20 L 40 20 L 40 30 L 30 35 L 20 30 Z" fill="#ffffff"/>
+    <circle cx="30" cy="25" r="3" fill="#00d4ff"/>
+  </g>
+  
+  <!-- Cloud Icon -->
+  <g transform="translate(200, 180)">
+    <path d="M 0 30 Q 0 20 10 20 Q 20 10 30 10 Q 40 10 50 20 Q 60 20 60 30 L 60 50 L 0 50 Z" fill="#00d4ff" opacity="0.6"/>
+  </g>
+  
+  <!-- Code Icon -->
+  <g transform="translate(320, 200)">
+    <rect x="0" y="0" width="40" height="40" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+    <line x1="10" y1="20" x2="30" y2="20" stroke="#00d4ff" stroke-width="2"/>
+    <line x1="15" y1="15" x2="10" y2="20" x2="15" y2="25" stroke="#00d4ff" stroke-width="2" fill="none"/>
+    <line x1="25" y1="15" x2="30" y2="20" x2="25" y2="25" stroke="#00d4ff" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    Twodragon's Tech Blog
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="340" font-family="Arial, sans-serif" font-size="32" fill="#00d4ff" text-anchor="middle">
+    DevSecOps · DevOps · FinOps
+  </text>
+  
+  <!-- Description -->
+  <text x="600" y="400" font-family="Arial, sans-serif" font-size="24" fill="#b0b0b0" text-anchor="middle">
+    클라우드 보안, 인프라 자동화, 비용 최적화의 실무 경험과 최신 트렌드
+  </text>
+  
+  <!-- Bottom Accent Line -->
+  <rect x="0" y="580" width="1200" height="50" fill="url(#accentGradient)"/>
+  <text x="600" y="610" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" opacity="0.8">
+    https://twodragon0.github.io/tech-blog
+  </text>
+</svg>
