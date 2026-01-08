@@ -1,35 +1,118 @@
 # Site Settings
-title: "Twodragon0's Tech Blog"
-description: "IT, DevSecOps, 코딩 관련 기술 블로그"
+title: "Twodragon's Tech Blog"
+description: "IT, DevSecOps, Cloud Security 기술 블로그 - 보안과 클라우드의 모든 것"
 url: "https://Twodragon0.github.io"
 baseurl: "/tech-blog"
+lang: "ko"
+logo: "/assets/images/logo.png"
 
 # Author
 author:
-  name: "Twodragon0"
+  name: "Twodragon"
   email: "twodragon114@gmail.com"
+  bio: "Security Engineer & DevSecOps Specialist"
+  avatar: "/assets/images/avatar.png"
+  github: "Twodragon0"
+  linkedin: ""
+  twitter: ""
 
 # Build Settings
 markdown: kramdown
 highlighter: rouge
-theme: minima
+theme: null
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
-# Giscus Comments (Discussions 연결)
+# Permalinks
+permalink: /:categories/:year/:month/:day/:title/
+
+# Collections for categories
+collections:
+  categories:
+    output: true
+    permalink: /category/:name/
+
+# Default values
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+      toc: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Categories
+category_list:
+  - name: security
+    title: "Security"
+    description: "보안 관련 글 - 취약점, 인시던트 대응, 보안 아키텍처"
+    icon: "shield"
+  - name: devsecops
+    title: "DevSecOps"
+    description: "DevSecOps 및 CI/CD 보안 관련 글"
+    icon: "code"
+  - name: cloud
+    title: "Cloud"
+    description: "AWS, GCP, Azure 클라우드 보안 및 아키텍처"
+    icon: "cloud"
+  - name: kubernetes
+    title: "Kubernetes"
+    description: "Kubernetes 및 컨테이너 보안"
+    icon: "cube"
+  - name: finops
+    title: "FinOps"
+    description: "클라우드 비용 최적화 및 관리"
+    icon: "chart"
+  - name: incident
+    title: "Incident"
+    description: "보안 사고 분석 및 Post-Mortem"
+    icon: "alert"
+
+# Giscus Comments (GitHub Discussions)
 giscus:
   repo: "Twodragon0/tech-blog"
-  repo_id: ""  # Giscus 설정 후 입력 필요
+  repo_id: "1130153474"  # GitHub 저장소 ID
   category: "Announcements"
-  category_id: ""  # Giscus 설정 후 입력 필요
+  category_id: ""  # Giscus.app에서 제공된 category_id 입력 필요
   mapping: "pathname"
   reactions_enabled: "1"
   emit_metadata: "0"
-  input_position: "bottom"
+  input_position: "top"
   theme: "preferred_color_scheme"
   lang: "ko"
   crossorigin: "anonymous"
+
+# Navigation
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Categories"
+    url: "/categories/"
+  - title: "Tags"
+    url: "/tags/"
+  - title: "Archive"
+    url: "/archive/"
+  - title: "Discussion"
+    url: "/discussion/"
+  - title: "About"
+    url: "/about/"
+
+# SEO & Security
+twitter:
+  card: "summary_large_image"
+
+social:
+  name: "Twodragon"
+  links:
+    - "https://github.com/Twodragon0"
 
 # Exclude
 exclude:
@@ -39,3 +122,10 @@ exclude:
   - vendor
   - .git
   - .gitignore
+  - README.md
+  - LICENSE
+
+# Sass
+sass:
+  style: compressed
+  sass_dir: _sass
