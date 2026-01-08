@@ -9,6 +9,7 @@ excerpt: "블록체인과 암호화폐 생태계가 급속도로 성장하면서
 comments: true
 original_url: https://twodragon.tistory.com
 image: /assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_추가_이미지.png
+toc: false
 ---
 --
 <div class="ai-summary-card">
@@ -60,18 +61,299 @@ image: /assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이�
 </div>
 
 
-## 📑 목차
+<div class="table-of-contents-wrapper">
+  <div class="toc-header">
+    <h2 class="toc-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+        <line x1="9" y1="3" x2="9" y2="21"/>
+        <line x1="9" y1="9" x2="21" y2="9"/>
+      </svg>
+      목차
+    </h2>
+    <button class="toc-toggle" aria-label="목차 접기/펼치기" aria-expanded="true">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="table-of-contents" id="table-of-contents" aria-label="목차">
+    <ul class="toc-list">
+      <li class="toc-item">
+        <a href="#1-블록체인-보안-위협-개요" class="toc-link" data-section="1-블록체인-보안-위협-개요">
+          <span class="toc-number">1</span>
+          <span class="toc-text">블록체인 보안 위협 개요</span>
+        </a>
+        <ul class="toc-sublist">
+          <li class="toc-subitem">
+            <a href="#11-주요-보안-위협-유형" class="toc-link" data-section="11-주요-보안-위협-유형">
+              <span class="toc-number">1.1</span>
+              <span class="toc-text">주요 보안 위협 유형</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#12-보안-사고-통계" class="toc-link" data-section="12-보안-사고-통계">
+              <span class="toc-number">1.2</span>
+              <span class="toc-text">보안 사고 통계</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="toc-item">
+        <a href="#2-github-오픈소스-보안-도구" class="toc-link" data-section="2-github-오픈소스-보안-도구">
+          <span class="toc-number">2</span>
+          <span class="toc-text">GitHub 오픈소스 보안 도구</span>
+        </a>
+        <ul class="toc-sublist">
+          <li class="toc-subitem">
+            <a href="#21-스마트-컨트랙트-보안-분석-도구" class="toc-link" data-section="21-스마트-컨트랙트-보안-분석-도구">
+              <span class="toc-number">2.1</span>
+              <span class="toc-text">스마트 컨트랙트 보안 분석 도구</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#22-기타-유용한-보안-도구" class="toc-link" data-section="22-기타-유용한-보안-도구">
+              <span class="toc-number">2.2</span>
+              <span class="toc-text">기타 유용한 보안 도구</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="toc-item">
+        <a href="#3-devsecops-파이프라인-통합" class="toc-link" data-section="3-devsecops-파이프라인-통합">
+          <span class="toc-number">3</span>
+          <span class="toc-text">DevSecOps 파이프라인 통합</span>
+        </a>
+        <ul class="toc-sublist">
+          <li class="toc-subitem">
+            <a href="#31-cicd-파이프라인에-보안-검사-통합" class="toc-link" data-section="31-cicd-파이프라인에-보안-검사-통합">
+              <span class="toc-number">3.1</span>
+              <span class="toc-text">CI/CD 파이프라인에 보안 검사 통합</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#32-github-advanced-security-통합" class="toc-link" data-section="32-github-advanced-security-통합">
+              <span class="toc-number">3.2</span>
+              <span class="toc-text">GitHub Advanced Security 통합</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="toc-item">
+        <a href="#4-스마트-컨트랙트-보안-모범-사례" class="toc-link" data-section="4-스마트-컨트랙트-보안-모범-사례">
+          <span class="toc-number">4</span>
+          <span class="toc-text">스마트 컨트랙트 보안 모범 사례</span>
+        </a>
+        <ul class="toc-sublist">
+          <li class="toc-subitem">
+            <a href="#41-코드-레벨-보안" class="toc-link" data-section="41-코드-레벨-보안">
+              <span class="toc-number">4.1</span>
+              <span class="toc-text">코드 레벨 보안</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#42-설계-레벨-보안" class="toc-link" data-section="42-설계-레벨-보안">
+              <span class="toc-number">4.2</span>
+              <span class="toc-text">설계 레벨 보안</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#43-보안-체크리스트" class="toc-link" data-section="43-보안-체크리스트">
+              <span class="toc-number">4.3</span>
+              <span class="toc-text">보안 체크리스트</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="toc-item">
+        <a href="#5-블록체인-네트워크-보안" class="toc-link" data-section="5-블록체인-네트워크-보안">
+          <span class="toc-number">5</span>
+          <span class="toc-text">블록체인 네트워크 보안</span>
+        </a>
+        <ul class="toc-sublist">
+          <li class="toc-subitem">
+            <a href="#51-노드-보안" class="toc-link" data-section="51-노드-보안">
+              <span class="toc-number">5.1</span>
+              <span class="toc-text">노드 보안</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#52-합의-알고리즘-보안" class="toc-link" data-section="52-합의-알고리즘-보안">
+              <span class="toc-number">5.2</span>
+              <span class="toc-text">합의 알고리즘 보안</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="toc-item">
+        <a href="#6-지갑-보안-모범-사례" class="toc-link" data-section="6-지갑-보안-모범-사례">
+          <span class="toc-number">6</span>
+          <span class="toc-text">지갑 보안 모범 사례</span>
+        </a>
+        <ul class="toc-sublist">
+          <li class="toc-subitem">
+            <a href="#61-지갑-유형별-보안" class="toc-link" data-section="61-지갑-유형별-보안">
+              <span class="toc-number">6.1</span>
+              <span class="toc-text">지갑 유형별 보안</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#62-키-관리-전략" class="toc-link" data-section="62-키-관리-전략">
+              <span class="toc-number">6.2</span>
+              <span class="toc-text">키 관리 전략</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="toc-item">
+        <a href="#7-거래소-보안" class="toc-link" data-section="7-거래소-보안">
+          <span class="toc-number">7</span>
+          <span class="toc-text">거래소 보안</span>
+        </a>
+        <ul class="toc-sublist">
+          <li class="toc-subitem">
+            <a href="#71-거래소-보안-아키텍처" class="toc-link" data-section="71-거래소-보안-아키텍처">
+              <span class="toc-number">7.1</span>
+              <span class="toc-text">거래소 보안 아키텍처</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#72-api-보안" class="toc-link" data-section="72-api-보안">
+              <span class="toc-number">7.2</span>
+              <span class="toc-text">API 보안</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="toc-item">
+        <a href="#8-기업-환경에서의-암호화폐-보안" class="toc-link" data-section="8-기업-환경에서의-암호화폐-보안">
+          <span class="toc-number">8</span>
+          <span class="toc-text">기업 환경에서의 암호화폐 보안</span>
+        </a>
+        <ul class="toc-sublist">
+          <li class="toc-subitem">
+            <a href="#81-거버넌스-및-정책" class="toc-link" data-section="81-거버넌스-및-정책">
+              <span class="toc-number">8.1</span>
+              <span class="toc-text">거버넌스 및 정책</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#82-기술적-통제" class="toc-link" data-section="82-기술적-통제">
+              <span class="toc-number">8.2</span>
+              <span class="toc-text">기술적 통제</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="toc-item">
+        <a href="#9-보안-감사-프로세스" class="toc-link" data-section="9-보안-감사-프로세스">
+          <span class="toc-number">9</span>
+          <span class="toc-text">보안 감사 프로세스</span>
+        </a>
+        <ul class="toc-sublist">
+          <li class="toc-subitem">
+            <a href="#91-자체-감사" class="toc-link" data-section="91-자체-감사">
+              <span class="toc-number">9.1</span>
+              <span class="toc-text">자체 감사</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#92-외부-감사" class="toc-link" data-section="92-외부-감사">
+              <span class="toc-number">9.2</span>
+              <span class="toc-text">외부 감사</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="toc-item">
+        <a href="#10-사고-대응-계획" class="toc-link" data-section="10-사고-대응-계획">
+          <span class="toc-number">10</span>
+          <span class="toc-text">사고 대응 계획</span>
+        </a>
+        <ul class="toc-sublist">
+          <li class="toc-subitem">
+            <a href="#101-사고-대응-팀-구성" class="toc-link" data-section="101-사고-대응-팀-구성">
+              <span class="toc-number">10.1</span>
+              <span class="toc-text">사고 대응 팀 구성</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#102-사고-대응-프로세스" class="toc-link" data-section="102-사고-대응-프로세스">
+              <span class="toc-number">10.2</span>
+              <span class="toc-text">사고 대응 프로세스</span>
+            </a>
+          </li>
+          <li class="toc-subitem">
+            <a href="#103-커뮤니케이션-전략" class="toc-link" data-section="103-커뮤니케이션-전략">
+              <span class="toc-number">10.3</span>
+              <span class="toc-text">커뮤니케이션 전략</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
 
-1. [블록체인 보안 위협 개요](#1-블록체인-보안-위협-개요)
-2. [GitHub 오픈소스 보안 도구](#2-github-오픈소스-보안-도구)
-3. [DevSecOps 파이프라인 통합](#3-devsecops-파이프라인-통합)
-4. [스마트 컨트랙트 보안 모범 사례](#4-스마트-컨트랙트-보안-모범-사례)
-5. [블록체인 네트워크 보안](#5-블록체인-네트워크-보안)
-6. [지갑 보안 모범 사례](#6-지갑-보안-모범-사례)
-7. [거래소 보안](#7-거래소-보안)
-8. [기업 환경에서의 암호화폐 보안](#8-기업-환경에서의-암호화폐-보안)
-9. [보안 감사 프로세스](#9-보안-감사-프로세스)
-10. [사고 대응 계획](#10-사고-대응-계획)
+<script>
+(function() {
+  // TOC 접기/펼치기 기능
+  const tocToggle = document.querySelector('.toc-toggle');
+  const tocNav = document.getElementById('table-of-contents');
+  
+  if (tocToggle && tocNav) {
+    tocToggle.addEventListener('click', function() {
+      const isExpanded = tocNav.classList.toggle('collapsed');
+      tocToggle.setAttribute('aria-expanded', !isExpanded);
+      tocToggle.querySelector('svg').style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+    });
+  }
+
+  // 현재 섹션 하이라이트 기능
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const sections = Array.from(tocLinks).map(link => {
+    const id = link.getAttribute('href').substring(1);
+    const element = document.getElementById(id);
+    return { link, element, id };
+  }).filter(item => item.element);
+
+  function updateActiveSection() {
+    const scrollPosition = window.scrollY + 100;
+    
+    let currentSection = null;
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = sections[i];
+      if (section.element.offsetTop <= scrollPosition) {
+        currentSection = section;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+    });
+
+    if (currentSection) {
+      currentSection.link.classList.add('active');
+    }
+  }
+
+  // 스크롤 이벤트에 디바운싱 적용
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        updateActiveSection();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // 초기 실행
+  updateActiveSection();
+})();
+</script>
 
 ---
 
@@ -87,11 +369,11 @@ image: /assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이�
 
 이 가이드에서는 **GitHub의 오픈소스 보안 도구들(Slither, Mythril, Securify 등)**을 활용한 블록체인 보안 강화 방법을 실무 중심으로 종합적으로 다룹니다. 특히 스마트 컨트랙트 보안 감사, CI/CD 파이프라인 통합, 그리고 기업 환경에서의 암호화폐 보안 전략에 중점을 둡니다.
 
-![블록체인 암호화폐 보안]({{ '/assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_추가_이미지.png' | relative_url }})
+<img src="{{ '/assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_추가_이미지.png' | relative_url }}" alt="블록체인 암호화폐 보안">
 *그림: 블록체인 암호화폐 보안 관련 이미지*
 
 
-![포스트 이미지]({{ '/assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_DevSecOps_관점에서_본_GitHub_보안_도구_및_모범_사례_image.png' | relative_url }})
+<img src="{{ '/assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_DevSecOps_관점에서_본_GitHub_보안_도구_및_모범_사례_image.png' | relative_url }}" alt="포스트 이미지">
 *그림: 포스트 이미지*
 
 
