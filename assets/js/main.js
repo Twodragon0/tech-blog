@@ -851,4 +851,51 @@
       });
     });
   })();
+
+  // Fix Korean image filename URL encoding
+  // 한글 파일명을 가진 이미지의 URL 인코딩 문제 해결
+  (function() {
+    function fixImageUrls() {
+      const images = document.querySelectorAll('img.post-image, img[src*="assets/images"]');
+      images.forEach(img => {
+        const src = img.getAttribute('src');
+        if (src && /[가-힣]/.test(src)) {
+          // 한글이 포함된 경우 URL 인코딩
+          // 상대 경로인 경우 직접 처리
+          const pathParts = src.split('/');
+          const filename = pathParts[pathParts.length - 1];
+          if (filename && /[가-힣]/.test(filename)) {
+            // 파일명만 URL 인코딩 (경로는 그대로 유지)
+            const encodedFilename = encodeURIComponent(filename);
+            pathParts[pathParts.length - 1] = encodedFilename;
+            const newSrc = pathParts.join('/');
+            // 이미 인코딩된 경우 스킵
+            if (newSrc !== src) {
+              img.src = newSrc;
+            }
+          }
+        }
+      });
+    }
+
+    // DOM 로드 후 실행
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fixImageUrls);
+    } else {
+      fixImageUrls();
+    }
+
+    // 동적으로 추가된 이미지도 처리
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length) {
+          fixImageUrls();
+        }
+      });
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  })();
 })();

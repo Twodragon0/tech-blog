@@ -369,11 +369,11 @@ toc: false
 
 이 가이드에서는 **GitHub의 오픈소스 보안 도구들(Slither, Mythril, Securify 등)**을 활용한 블록체인 보안 강화 방법을 실무 중심으로 종합적으로 다룹니다. 특히 스마트 컨트랙트 보안 감사, CI/CD 파이프라인 통합, 그리고 기업 환경에서의 암호화폐 보안 전략에 중점을 둡니다.
 
-<img src="{{ '/assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_추가_이미지.png' | relative_url }}" alt="블록체인 암호화폐 보안">
+<img src="{{ '/assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_추가_이미지.png' | relative_url }}" alt="블록체인 암호화폐 보안" loading="lazy" class="post-image">
 *그림: 블록체인 암호화폐 보안 관련 이미지*
 
 
-<img src="{{ '/assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_DevSecOps_관점에서_본_GitHub_보안_도구_및_모범_사례_image.png' | relative_url }}" alt="포스트 이미지">
+<img src="{{ '/assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_DevSecOps_관점에서_본_GitHub_보안_도구_및_모범_사례_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 
