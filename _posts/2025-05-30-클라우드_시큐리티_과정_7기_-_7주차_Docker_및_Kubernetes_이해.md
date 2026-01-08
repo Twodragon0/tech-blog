@@ -17,13 +17,15 @@ image: /assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차
 > 
 > **카테고리**: kubernetes
 > 
-> **태그**: Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps
 > 
-> **핵심 내용**: 안녕하세요, **Twodragon**입니다. 이번 포스트에서는 클라우드 보안 과정 7기의 **Docker 및 Kubernetes 이해**에 관련된 내용을 다루고자 합니다. 이 과정은 게더 타운(Gather Town)에서 진행되며, 각 세션은 **20분 강의 후 5분 휴식** 패턴으로 구성되어 있습니다.
 > 
 > ---
 > 
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+
+
 
 
 안녕하세요, **Twodragon**입니다.

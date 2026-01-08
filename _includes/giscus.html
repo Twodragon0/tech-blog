@@ -21,6 +21,7 @@
               data-category="{{ site.giscus.category }}"
               data-category-id="{{ site.giscus.category_id }}"
               data-mapping="{{ site.giscus.mapping }}"
+              data-term="{% assign date_prefix = page.date | date: '%Y-%m-%d-' %}{% assign term = page.id | remove_first: date_prefix | slugify %}{{ term }}"
               data-strict="0"
               data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
               data-emit-metadata="{{ site.giscus.emit_metadata }}"

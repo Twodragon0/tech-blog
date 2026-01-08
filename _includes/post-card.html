@@ -1,7 +1,7 @@
 {% assign post = include.post %}
 <article class="post-card card">
   <a href="{{ post.url | relative_url }}" class="post-card-inner">
-    {% if post.image %}
+    {% if post.image and post.image != "" %}
     <div class="post-card-image">
       <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
     </div>
@@ -9,20 +9,19 @@
 
     <div class="post-card-content">
       <div class="post-card-meta">
-      {% comment %} Get category - prefer post.category, fallback to categories {% endcomment %}
-      {% assign display_cat = nil %}
-      {% if post.category and post.category != "" %}
-        {% assign display_cat = post.category %}
-      {% elsif post.categories %}
-        {% assign categories_str = post.categories | join: "," %}
-        {% if categories_str contains "," %}
-          {% assign display_cat = post.categories | first %}
+      {% comment %} Get category - prefer post.category (singular), fallback to categories (plural) {% endcomment %}
+      {% assign display_cat = "" %}
+      {% if post.category and post.category != "" and post.category != empty %}
+        {% assign display_cat = post.category | strip %}
+      {% elsif post.categories and post.categories != empty %}
+        {% if post.categories.first %}
+          {% assign display_cat = post.categories.first | strip %}
         {% else %}
-          {% assign display_cat = post.categories %}
+          {% assign display_cat = post.categories | strip %}
         {% endif %}
       {% endif %}
 
-      {% if display_cat and display_cat != "" %}
+      {% if display_cat != "" and display_cat != empty %}
       <span class="category-badge {{ display_cat | downcase | replace: ' ', '-' }}">{{ display_cat }}</span>
       {% endif %}
       <time datetime="{{ post.date | date_to_xmlschema }}">
@@ -32,11 +31,11 @@
 
     <h2 class="post-card-title">{{ post.title | escape }}</h2>
 
-    {% if post.excerpt %}
+    {% if post.excerpt and post.excerpt != "" %}
     <p class="post-card-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
     {% endif %}
 
-      {% if post.tags.size > 0 %}
+      {% if post.tags and post.tags.size > 0 %}
       <div class="post-card-tags">
         {% for tag in post.tags limit:3 %}
         <span class="tag">{{ tag }}</span>
