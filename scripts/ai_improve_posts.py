@@ -48,22 +48,34 @@ def mask_sensitive_info(text: str) -> str:
     if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
         masked = masked.replace(GEMINI_API_KEY, '***GEMINI_API_KEY_MASKED***')
     
+    # URL에 포함된 API 키 마스킹 (key= 파라미터)
+    masked = re.sub(r'[?&]key=[a-zA-Z0-9_-]+', '?key=***MASKED***', masked)
+    
     # 일반적인 API 키 패턴 마스킹 (긴 알파벳/숫자 조합)
     masked = re.sub(r'[a-zA-Z0-9_-]{40,}', lambda m: m.group()[:8] + '***MASKED***' if len(m.group()) > 40 else m.group(), masked)
     
     return masked
 
 def log_message(message: str):
-    """로그 메시지 기록 (민감 정보 자동 마스킹)"""
+    """
+    로그 메시지 기록 (민감 정보 자동 마스킹)
+    
+    모든 민감 정보는 기록 전에 자동으로 마스킹됩니다.
+    """
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    # 민감 정보 마스킹
+    # 민감 정보 마스킹 (모든 로깅 전에 수행)
     safe_message = mask_sensitive_info(message)
     log_entry = f"[{timestamp}] {safe_message}\n"
-    # 출력 시에도 마스킹된 메시지 사용
-    print(log_entry.strip())
+    
+    # 콘솔 출력 (이미 마스킹된 메시지만 출력)
+    safe_console_output = mask_sensitive_info(log_entry.strip())
+    print(safe_console_output)
+    
+    # 파일 기록 (이미 마스킹된 메시지만 기록)
     try:
+        safe_file_content = mask_sensitive_info(log_entry)
         with open(LOG_FILE, 'a', encoding='utf-8') as f:
-            f.write(log_entry)
+            f.write(safe_file_content)
     except:
         pass
 
@@ -116,7 +128,9 @@ def extract_post_info(file_path: Path) -> Optional[Dict]:
             'content': content
         }
     except Exception as e:
-        log_message(f"Error extracting info from {file_path.name}: {e}")
+        # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
+        error_msg = mask_sensitive_info(str(e))
+        log_message(f"Error extracting info from {file_path.name}: {error_msg}")
         return None
 
 def needs_improvement(post_info: Dict) -> bool:
@@ -213,10 +227,19 @@ def improve_with_claude(post_info: Dict) -> Optional[str]:
             if content and len(content) > 0:
                 return content[0].get('text', '')
         else:
-            log_message(f"Claude API 오류: {response.status_code} - {response.text}")
+            # API 응답에 민감 정보가 포함될 수 있으므로 상태 코드만 기록
+            error_msg = f"Claude API 오류: HTTP {response.status_code}"
+            # 응답 본문은 민감 정보가 포함될 수 있어 기록하지 않음
+            if response.text:
+                # 응답 본문이 있으면 마스킹 후 최대 200자만 기록
+                masked_response = mask_sensitive_info(response.text[:200])
+                error_msg += f" - 응답: {masked_response}..."
+            log_message(error_msg)
             
     except Exception as e:
-        log_message(f"Claude API 호출 오류: {e}")
+        # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
+        error_msg = mask_sensitive_info(str(e))
+        log_message(f"Claude API 호출 오류: {error_msg}")
     
     return None
 
@@ -274,6 +297,7 @@ def improve_with_gemini(post_info: Dict) -> Optional[str]:
 원본 포스트: {original_url}
 """
         
+        # URL에 API 키가 포함되므로 로그에 기록 시 마스킹 필요
         url = f"{GEMINI_API_URL}?key={GEMINI_API_KEY}"
         
         data = {
@@ -301,10 +325,19 @@ def improve_with_gemini(post_info: Dict) -> Optional[str]:
                 if parts and len(parts) > 0:
                     return parts[0].get('text', '')
         else:
-            log_message(f"Gemini API 오류: {response.status_code} - {response.text}")
+            # API 응답에 민감 정보가 포함될 수 있으므로 상태 코드만 기록
+            error_msg = f"Gemini API 오류: HTTP {response.status_code}"
+            # 응답 본문은 민감 정보가 포함될 수 있어 기록하지 않음
+            if response.text:
+                # 응답 본문이 있으면 마스킹 후 최대 200자만 기록
+                masked_response = mask_sensitive_info(response.text[:200])
+                error_msg += f" - 응답: {masked_response}..."
+            log_message(error_msg)
             
     except Exception as e:
-        log_message(f"Gemini API 호출 오류: {e}")
+        # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
+        error_msg = mask_sensitive_info(str(e))
+        log_message(f"Gemini API 호출 오류: {error_msg}")
     
     return None
 
@@ -332,7 +365,9 @@ def improve_with_cursor_analysis(post_info: Dict) -> Optional[str]:
         return improved_content
         
     except Exception as e:
-        log_message(f"Cursor 분석 오류: {e}")
+        # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
+        error_msg = mask_sensitive_info(str(e))
+        log_message(f"Cursor 분석 오류: {error_msg}")
         return None
 
 def find_similar_posts(post_info: Dict) -> List[Dict]:
@@ -531,7 +566,9 @@ def improve_post_with_ai(post_info: Dict) -> bool:
         return True
         
     except Exception as e:
-        log_message(f"  ✗ 파일 저장 오류: {e}")
+        # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
+        error_msg = mask_sensitive_info(str(e))
+        log_message(f"  ✗ 파일 저장 오류: {error_msg}")
         return False
 
 def main():
@@ -565,7 +602,9 @@ def main():
                 posts_to_improve.append(post_info)
                 log_message(f"  개선 필요: {post_file.name} (본문: {post_info['body_length']}자)")
         except Exception as e:
-            log_message(f"  오류: {post_file.name} - {e}")
+            # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
+            error_msg = mask_sensitive_info(str(e))
+            log_message(f"  오류: {post_file.name} - {error_msg}")
     
     log_message(f"\n총 {len(all_posts)}개 포스팅 중 {len(posts_to_improve)}개 개선 필요")
     log_message(f"개선 프로세스 시작...\n")
