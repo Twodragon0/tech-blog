@@ -1,39 +1,138 @@
 ---
 layout: default
 ---
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="reading-progress" id="reading-progress"></div>
+
+<article class="post-article" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {{ page.date | date: "%b %-d, %Y" }}
-      </time>
-      {% if page.original_url %}
-        | <a href="{{ page.original_url }}" target="_blank">원본 포스트</a>
-      {% endif %}
-    </p>
+    {% if page.category %}
+    <div class="post-category">
+      <a href="{{ '/categories/' | relative_url }}#{{ page.category | downcase }}" class="category-badge {{ page.category | downcase }}">
+        {{ page.category }}
+      </a>
+    </div>
+    {% elsif page.categories.first %}
+    <div class="post-category">
+      <a href="{{ '/categories/' | relative_url }}#{{ page.categories.first | downcase | replace: ' ', '-' }}" class="category-badge {{ page.categories.first | downcase | replace: ' ', '-' }}">
+        {{ page.categories.first }}
+      </a>
+    </div>
+    {% endif %}
+
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+
+    <div class="post-meta">
+      <span class="meta-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ page.date | date: "%Y. %m. %d" }}
+        </time>
+      </span>
+
+      <span class="meta-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span id="reading-time"></span>
+      </span>
+
+      <span class="meta-item" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span itemprop="name">{{ site.author.name }}</span>
+      </span>
+    </div>
+
+    {% if page.tags.size > 0 %}
+    <div class="post-tags">
+      {% for tag in page.tags %}
+      <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
+  {% if page.toc %}
+  {% include toc.html content=content %}
+  {% endif %}
+
+  <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
 
-  {% if site.giscus %}
-    <script src="https://giscus.app/client.js"
-            data-repo="{{ site.giscus.repo }}"
-            data-repo-id="{{ site.giscus.repo_id }}"
-            data-category="{{ site.giscus.category }}"
-            data-category-id="{{ site.giscus.category_id }}"
-            data-mapping="{{ site.giscus.mapping }}"
-            data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
-            data-emit-metadata="{{ site.giscus.emit_metadata }}"
-            data-input-position="{{ site.giscus.input_position }}"
-            data-theme="{{ site.giscus.theme }}"
-            data-lang="{{ site.giscus.lang }}"
-            crossorigin="{{ site.giscus.crossorigin }}"
-            async>
-    </script>
+  <footer class="post-footer">
+    {% if page.original_url %}
+    <a href="{{ page.original_url }}" target="_blank" rel="noopener noreferrer" class="original-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        <polyline points="15 3 21 3 21 9"/>
+        <line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
+      원본 포스트 보기
+    </a>
+    {% endif %}
+
+    {% include share-buttons.html %}
+  </footer>
+
+  {% assign posts = site.posts | where_exp: "post", "post.url != page.url" %}
+  {% if page.category %}
+    {% assign related = posts | where: "category", page.category | limit: 4 %}
+  {% elsif page.categories.first %}
+    {% assign cat = page.categories.first %}
+    {% assign related = posts | where_exp: "post", "post.categories contains cat" | limit: 4 %}
+  {% else %}
+    {% assign related = posts | limit: 4 %}
   {% endif %}
 
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  {% if related.size > 0 %}
+  <section class="related-posts">
+    <h3>Related Posts</h3>
+    <div class="related-grid">
+      {% for post in related limit: 4 %}
+      <a href="{{ post.url | relative_url }}" class="related-item card">
+        <h4>{{ post.title | escape }}</h4>
+        <span class="related-date">{{ post.date | date: "%Y. %m. %d" }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% include giscus.html %}
 </article>
+
+<script>
+// Reading time calculation
+document.addEventListener('DOMContentLoaded', function() {
+  const content = document.querySelector('.post-content');
+  if (content) {
+    const text = content.textContent || content.innerText;
+    const wordCount = text.trim().split(/\s+/).length;
+    const readingTime = Math.ceil(wordCount / 200);
+    document.getElementById('reading-time').textContent = readingTime + ' min read';
+  }
+});
+
+// Reading progress bar
+window.addEventListener('scroll', function() {
+  const article = document.querySelector('.post-article');
+  const progressBar = document.getElementById('reading-progress');
+  if (article && progressBar) {
+    const articleTop = article.offsetTop;
+    const articleHeight = article.offsetHeight;
+    const windowHeight = window.innerHeight;
+    const scrollY = window.scrollY;
+    const progress = Math.min(Math.max((scrollY - articleTop + windowHeight * 0.3) / articleHeight * 100, 0), 100);
+    progressBar.style.width = progress + '%';
+  }
+});
+</script>

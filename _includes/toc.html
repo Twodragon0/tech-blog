@@ -1,0 +1,26 @@
+{% if include.content %}
+{% assign headers = include.content | split: '<h' %}
+{% if headers.size > 2 %}
+<nav class="toc" aria-label="Table of Contents">
+  <h4>Table of Contents</h4>
+  <ul>
+    {% for header in headers %}
+      {% if header contains 'id="' %}
+        {% assign level = header | slice: 0, 1 %}
+        {% if level == "2" or level == "3" %}
+          {% assign id_start = header | split: 'id="' | last %}
+          {% assign id = id_start | split: '"' | first %}
+          {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
+          {% assign title = title_start | split: '</h' | first | strip_html %}
+          {% if level == "2" %}
+          <li><a href="#{{ id }}">{{ title }}</a></li>
+          {% else %}
+          <li style="margin-left: 1rem;"><a href="#{{ id }}">{{ title }}</a></li>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
+{% endif %}
+{% endif %}

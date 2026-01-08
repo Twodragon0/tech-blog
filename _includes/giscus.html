@@ -1,0 +1,27 @@
+{% if site.giscus.repo_id != "" and site.giscus.category_id != "" %}
+<div class="comments-section">
+  <h3>Comments</h3>
+  <script src="https://giscus.app/client.js"
+          data-repo="{{ site.giscus.repo }}"
+          data-repo-id="{{ site.giscus.repo_id }}"
+          data-category="{{ site.giscus.category }}"
+          data-category-id="{{ site.giscus.category_id }}"
+          data-mapping="{{ site.giscus.mapping }}"
+          data-strict="0"
+          data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
+          data-emit-metadata="{{ site.giscus.emit_metadata }}"
+          data-input-position="{{ site.giscus.input_position }}"
+          data-theme="{{ site.giscus.theme }}"
+          data-lang="{{ site.giscus.lang }}"
+          crossorigin="{{ site.giscus.crossorigin }}"
+          async>
+  </script>
+</div>
+{% else %}
+<div class="comments-section">
+  <h3>Comments</h3>
+  <div class="alert info">
+    <p>댓글 기능을 활성화하려면 <a href="https://giscus.app" target="_blank" rel="noopener">Giscus</a>를 설정하세요.</p>
+  </div>
+</div>
+{% endif %}

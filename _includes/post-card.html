@@ -1,0 +1,32 @@
+{% assign post = include.post %}
+<article class="post-card card">
+  <a href="{{ post.url | relative_url }}" class="post-card-inner">
+    <div class="post-card-meta">
+      {% if post.category %}
+      <span class="category-badge {{ post.category | downcase }}">{{ post.category }}</span>
+      {% elsif post.categories.first %}
+      <span class="category-badge {{ post.categories.first | downcase | replace: ' ', '-' }}">{{ post.categories.first }}</span>
+      {% endif %}
+      <time datetime="{{ post.date | date_to_xmlschema }}">
+        {{ post.date | date: "%Y. %m. %d" }}
+      </time>
+      {% if post.reading_time %}
+      <span>{{ post.reading_time }} min read</span>
+      {% endif %}
+    </div>
+
+    <h2 class="post-card-title">{{ post.title | escape }}</h2>
+
+    {% if post.excerpt %}
+    <p class="post-card-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
+    {% endif %}
+
+    {% if post.tags.size > 0 %}
+    <div class="post-card-tags">
+      {% for tag in post.tags limit:3 %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </a>
+</article>
