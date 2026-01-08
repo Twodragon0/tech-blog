@@ -1,6 +1,12 @@
 {% assign post = include.post %}
 <article class="post-card card">
   <a href="{{ post.url | relative_url }}" class="post-card-inner">
+    {% if post.image %}
+    <div class="post-card-image">
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" style="width:100%; height:150px; object-fit:cover; border-radius:8px 8px 0 0;">
+    </div>
+    {% endif %}
+
     <div class="post-card-meta">
       {% comment %} Get category - prefer post.category, fallback to categories {% endcomment %}
       {% assign display_cat = nil %}

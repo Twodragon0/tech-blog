@@ -5,6 +5,12 @@ layout: default
 
 <article class="post-article" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
+    {% if page.image %}
+    <div class="post-image">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px;">
+    </div>
+    {% endif %}
+
     {% if page.category %}
     <div class="post-category">
       <a href="{{ '/categories/' | relative_url }}#{{ page.category | downcase }}" class="category-badge {{ page.category | downcase }}">
@@ -133,6 +139,49 @@ window.addEventListener('scroll', function() {
     const scrollY = window.scrollY;
     const progress = Math.min(Math.max((scrollY - articleTop + windowHeight * 0.3) / articleHeight * 100, 0), 100);
     progressBar.style.width = progress + '%';
+  }
+});
+
+// Giscus loading state management
+document.addEventListener('DOMContentLoaded', function() {
+  const giscusContainer = document.getElementById('giscus-container');
+  const giscusLoading = document.getElementById('giscus-loading');
+  
+  if (giscusContainer && giscusLoading) {
+    // Giscus가 로드되면 로딩 인디케이터 숨기기
+    const observer = new MutationObserver(function(mutations) {
+      const giscusFrame = giscusContainer.querySelector('iframe');
+      if (giscusFrame && giscusFrame.contentDocument) {
+        giscusLoading.classList.add('hidden');
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(giscusContainer, {
+      childList: true,
+      subtree: true
+    });
+
+    // 최대 대기 시간 설정 (10초 후 자동으로 로딩 인디케이터 숨기기)
+    setTimeout(function() {
+      if (!giscusLoading.classList.contains('hidden')) {
+        giscusLoading.classList.add('hidden');
+      }
+    }, 10000);
+
+    // Giscus 스크립트 로드 확인
+    const giscusScript = document.querySelector('script[src*="giscus.app"]');
+    if (giscusScript) {
+      giscusScript.addEventListener('load', function() {
+        // 스크립트 로드 후 짧은 지연을 두고 확인
+        setTimeout(function() {
+          const giscusFrame = giscusContainer.querySelector('iframe');
+          if (giscusFrame) {
+            giscusLoading.classList.add('hidden');
+          }
+        }, 2000);
+      });
+    }
   }
 });
 </script>

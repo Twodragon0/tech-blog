@@ -7,6 +7,7 @@ tags: [SendGrid, SPF, DKIM, DMARC, Email-Security]
 excerpt: "이메일은 비즈니스 커뮤니케이션의 핵심 도구이지만, 스팸 메일함으로 직행하거나 아예 차단되는 경우만큼 답답한 일도 없습니다. 고객에게 중요한 정보가 담긴 메일이 제대로 전달되지 않는다면 비즈니스에 큰 타격을 줄 수 있습니다. 이러한 문제를 해결하고 이메일 발송 신뢰도를 높이는 열쇠는 바로 SPF, DKIM, DMARC와 같은 이메일 인증 기술에 있습니다. 이번 글에서는 이메일 발송 서비스로 널리 사용되는 SendGrid, Google을&.."
 comments: true
 original_url: https://twodragon.tistory.com/688
+image: /assets/images/2025-06-05-이메일_발송_신뢰도_높이기_SendGrid_SPF_DKIM_DMARC_설정_완벽_가이드.svg
 ---
 ## 📋 포스팅 요약
 

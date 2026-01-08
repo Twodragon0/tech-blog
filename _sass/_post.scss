@@ -227,10 +227,146 @@
 .comments-section {
   margin-top: $spacing-2xl;
   padding-top: $spacing-xl;
-  border-top: 1px solid var(--border);
+  border-top: 2px solid var(--border);
+  animation: fadeInUp 0.5s ease-out;
 
-  h3 {
-    margin-bottom: $spacing-lg;
+  .comments-header {
+    margin-bottom: $spacing-xl;
+  }
+
+  .comments-title {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 $spacing-md 0;
+    color: var(--text);
+    transition: color $transition-fast;
+
+    .comments-icon {
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+  }
+
+  .comments-description {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .giscus-wrapper {
+    position: relative;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: $radius-lg;
+    padding: $spacing-xl;
+    box-shadow: $shadow-sm;
+    transition: all $transition-base;
+
+    &:hover {
+      box-shadow: $shadow-md;
+      border-color: var(--primary);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      padding: $spacing-md;
+      border-radius: $radius-md;
+    }
+  }
+
+  .giscus-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-2xl;
+    min-height: 200px;
+    color: var(--text-secondary);
+
+    p {
+      margin-top: $spacing-md;
+      font-size: 0.9rem;
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--bg-tertiary);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  .giscus {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 0.3s forwards;
+    min-height: 200px;
+
+    // Giscus iframe 스타일
+    iframe {
+      border-radius: $radius-md;
+      width: 100%;
+      min-height: 400px;
+    }
+  }
+
+  // 반응형 디자인
+  @media (max-width: $breakpoint-md) {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-lg;
+
+    .comments-title {
+      font-size: 1.25rem;
+    }
+
+    .giscus-wrapper {
+      padding: $spacing-lg;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    .comments-title {
+      font-size: 1.125rem;
+    }
+
+    .comments-description {
+      font-size: 0.85rem;
+    }
+  }
+}
+
+// 애니메이션
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 

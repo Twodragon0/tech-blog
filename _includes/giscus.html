@@ -1,25 +1,88 @@
 {% if site.giscus.repo_id != "" and site.giscus.category_id != "" %}
 <div class="comments-section">
-  <h3>Comments</h3>
-  <script src="https://giscus.app/client.js"
-          data-repo="{{ site.giscus.repo }}"
-          data-repo-id="{{ site.giscus.repo_id }}"
-          data-category="{{ site.giscus.category }}"
-          data-category-id="{{ site.giscus.category_id }}"
-          data-mapping="{{ site.giscus.mapping }}"
-          data-strict="0"
-          data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
-          data-emit-metadata="{{ site.giscus.emit_metadata }}"
-          data-input-position="{{ site.giscus.input_position }}"
-          data-theme="{{ site.giscus.theme }}"
-          data-lang="{{ site.giscus.lang }}"
-          crossorigin="{{ site.giscus.crossorigin }}"
-          async>
+  <div class="comments-header">
+    <h3 class="comments-title">
+      <svg class="comments-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <span>댓글</span>
+    </h3>
+    <p class="comments-description">의견이나 질문을 남겨주세요. GitHub 계정으로 로그인하여 댓글을 작성할 수 있습니다.</p>
+  </div>
+  <div class="giscus-wrapper">
+    <div class="giscus-loading" id="giscus-loading">
+      <div class="loading-spinner"></div>
+      <p>댓글을 불러오는 중...</p>
+    </div>
+    <div class="giscus" id="giscus-container">
+      <script src="https://giscus.app/client.js"
+              data-repo="{{ site.giscus.repo }}"
+              data-repo-id="{{ site.giscus.repo_id }}"
+              data-category="{{ site.giscus.category }}"
+              data-category-id="{{ site.giscus.category_id }}"
+              data-mapping="{{ site.giscus.mapping }}"
+              data-strict="0"
+              data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
+              data-emit-metadata="{{ site.giscus.emit_metadata }}"
+              data-input-position="{{ site.giscus.input_position }}"
+              data-theme="{{ site.giscus.theme }}"
+              data-lang="{{ site.giscus.lang }}"
+              crossorigin="{{ site.giscus.crossorigin }}"
+              async>
+      </script>
+    </div>
+  </div>
+  <script>
+    // Giscus 로딩 상태 관리 및 에러 핸들링
+    (function() {
+      const loadingEl = document.getElementById('giscus-loading');
+      const containerEl = document.getElementById('giscus-container');
+      
+      if (!loadingEl || !containerEl) return;
+
+      // Giscus 로드 완료 감지
+      const checkGiscusLoaded = setInterval(function() {
+        const giscusFrame = containerEl.querySelector('iframe');
+        if (giscusFrame) {
+          clearInterval(checkGiscusLoaded);
+          loadingEl.style.display = 'none';
+          
+          // Giscus 이벤트 리스너 설정
+          window.addEventListener('message', function(event) {
+            if (event.origin !== 'https://giscus.app') return;
+            
+            if (event.data && event.data.giscus) {
+              const { type } = event.data.giscus;
+              
+              // 에러 발생 시 사용자 친화적 메시지 표시
+              if (type === 'error') {
+                console.warn('댓글 시스템 로드 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+              }
+            }
+          });
+        }
+      }, 100);
+
+      // 타임아웃 설정 (10초 후 로딩 표시 제거)
+      setTimeout(function() {
+        clearInterval(checkGiscusLoaded);
+        if (loadingEl && loadingEl.style.display !== 'none') {
+          loadingEl.style.display = 'none';
+        }
+      }, 10000);
+    })();
   </script>
 </div>
 {% else %}
 <div class="comments-section">
-  <h3>Comments</h3>
+  <div class="comments-header">
+    <h3 class="comments-title">
+      <svg class="comments-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <span>댓글</span>
+    </h3>
+  </div>
   <div class="alert info">
     <p>댓글 기능을 활성화하려면 <a href="https://giscus.app" target="_blank" rel="noopener">Giscus</a>를 설정하세요.</p>
   </div>

@@ -7,6 +7,7 @@ tags: [npm, Supply-Chain-Attack, Worm, Security-Incident]
 excerpt: "사건 개요 2025년 9월, NPM 생태계 역사상 최초의 자가 복제 웜 형태의 공급망 공격이 발생했습니다. "Shai-Hulud"(듄의 거대 샌드웜에서 유래)로 명명된 이 공격은 @ctrl/tinycolor를 포함한 180개 이상의 NPM 패키지를 감염시켰으며, 개발자 인증 정보를 탈취하여 자동으로 다른 패키지로 전파되는 특징을 보였습니다. 공격 영향 분석"
 comments: true
 original_url: https://twodragon.tistory.com/694
+image: /assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_자가_복제_웜_공격_180개_이상_패키지_침해된_대규모_공급망_공격_완전_분석.svg
 ---
 ## 📋 포스팅 요약
 

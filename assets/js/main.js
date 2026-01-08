@@ -2,6 +2,163 @@
 (function() {
   'use strict';
 
+  // Console Error Filtering and Enhancement
+  // 보안적으로 안전한 에러 메시지 필터링 및 개선
+  (function() {
+    const originalError = console.error;
+    const originalWarn = console.warn;
+    const originalLog = console.log;
+
+    // 개발 모드 감지 (URL 파라미터 또는 로컬호스트)
+    const isDevelopment = window.location.hostname === 'localhost' || 
+                         window.location.hostname === '127.0.0.1' ||
+                         window.location.search.includes('debug=true');
+
+    // 필터링할 패턴 정의 (보안 확장 프로그램 및 외부 리소스 관련 노이즈)
+    const filterPatterns = [
+      /📥 Received message.*NmLockState/i,
+      /📤 Sending.*NmLockState/i,
+      /Duration:.*ms/i,
+      /X-Frame-Options may only be set via an HTTP header/i,
+      /cache\.agilebits\.com.*404/i,
+      /notification\.js.*\[Notification\]/i,
+      /giscus\.app.*404.*discussions/i,
+      /\[giscus\] Discussion not found/i
+    ];
+
+    // 에러 메시지 개선 매핑
+    const errorMessageMap = [
+      {
+        pattern: /DeviceTrust.*access denied.*missing backoffice permission.*missing admin permission/i,
+        replacement: {
+          message: '⚠️ 보안 확장 프로그램 권한 부족',
+          details: 'DeviceTrust 기능을 사용하려면 관리자 권한이 필요합니다. IT 관리자에게 문의하세요.',
+          level: 'warn'
+        }
+      },
+      {
+        pattern: /DeviceTrust.*access denied/i,
+        replacement: {
+          message: '⚠️ 보안 확장 프로그램 접근 거부',
+          details: '보안 정책에 의해 일부 기능이 제한되었습니다.',
+          level: 'warn'
+        }
+      },
+      {
+        pattern: /X-Frame-Options may only be set via an HTTP header/i,
+        replacement: {
+          message: 'ℹ️ 보안 헤더 설정 안내',
+          details: 'X-Frame-Options는 서버 HTTP 헤더로만 설정 가능합니다. 메타 태그는 무시됩니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /Content Security Policy directive.*violates/i,
+        replacement: {
+          message: '⚠️ 콘텐츠 보안 정책 위반',
+          details: '일부 외부 리소스가 CSP 정책에 의해 차단되었습니다.',
+          level: 'warn'
+        }
+      },
+      {
+        pattern: /\[giscus\] Discussion not found/i,
+        replacement: {
+          message: 'ℹ️ 댓글 시스템',
+          details: '새로운 댓글을 작성하면 자동으로 토론이 생성됩니다.',
+          level: 'info'
+        }
+      }
+    ];
+
+    // 메시지가 필터링되어야 하는지 확인
+    function shouldFilter(message) {
+      if (typeof message !== 'string') return false;
+      return filterPatterns.some(pattern => pattern.test(message));
+    }
+
+    // 에러 메시지 개선
+    function enhanceErrorMessage(message) {
+      if (typeof message !== 'string') return null;
+      
+      for (const { pattern, replacement } of errorMessageMap) {
+        if (pattern.test(message)) {
+          return replacement;
+        }
+      }
+      return null;
+    }
+
+    // 안전한 에러 로깅 (민감 정보 마스킹)
+    function safeLog(originalFn, args, level = 'error') {
+      const filteredArgs = [];
+      let hasEnhancedMessage = false;
+
+      for (const arg of args) {
+        // 문자열이 아닌 경우도 체크 (에러 객체 등)
+        const messageStr = typeof arg === 'string' ? arg : 
+                          (arg?.message || arg?.toString?.() || '');
+
+        if (typeof messageStr === 'string' && messageStr) {
+          // 필터링할 메시지는 건너뛰기
+          if (shouldFilter(messageStr)) {
+            continue;
+          }
+          
+          // 에러 메시지 개선
+          const enhanced = enhanceErrorMessage(messageStr);
+          if (enhanced) {
+            hasEnhancedMessage = true;
+            // 개발 환경에서만 상세 정보 표시
+            if (isDevelopment) {
+              if (enhanced.level === 'info') {
+                originalLog(`[${enhanced.message}]`, enhanced.details);
+              } else {
+                originalWarn(`[${enhanced.message}]`, enhanced.details, '\n원본:', messageStr);
+              }
+            } else {
+              // 프로덕션에서는 중요한 경고만 표시
+              if (enhanced.level === 'warn') {
+                originalWarn(enhanced.message);
+              }
+              // info 레벨은 프로덕션에서 표시하지 않음
+            }
+            continue; // 원본 메시지는 표시하지 않음
+          }
+        }
+        filteredArgs.push(arg);
+      }
+
+      // 필터링된 인자가 있거나 개선된 메시지가 없으면 로깅
+      if (filteredArgs.length > 0 && !hasEnhancedMessage) {
+        originalFn.apply(console, filteredArgs);
+      }
+    }
+
+    // 콘솔 메서드 오버라이드
+    console.error = function(...args) {
+      safeLog(originalError, args, 'error');
+    };
+
+    console.warn = function(...args) {
+      safeLog(originalWarn, args, 'warn');
+    };
+
+    // 프로덕션 환경에서 디버그 로그 필터링
+    if (!isDevelopment) {
+      console.log = function(...args) {
+        const filteredArgs = Array.from(args).filter(arg => {
+          if (typeof arg === 'string') {
+            return !shouldFilter(arg);
+          }
+          return true;
+        });
+        if (filteredArgs.length > 0) {
+          originalLog.apply(console, filteredArgs);
+        }
+      };
+    }
+  })();
+
   // Theme Toggle
   const themeToggle = document.getElementById('theme-toggle');
   const currentTheme = localStorage.getItem('theme') || 
@@ -78,11 +235,22 @@
 
     // Load search data
     fetch('/tech-blog/search.json')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        return response.json();
+      })
       .then(data => {
         searchData = data;
       })
-      .catch(err => console.error('Search data load error:', err));
+      .catch(err => {
+        // 개발 환경에서만 상세 에러 표시
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          console.warn('검색 데이터를 불러올 수 없습니다:', err.message);
+        }
+        // 프로덕션에서는 조용히 실패 (검색 기능만 비활성화)
+      });
 
     searchInput.addEventListener('input', function(e) {
       const query = e.target.value.trim().toLowerCase();

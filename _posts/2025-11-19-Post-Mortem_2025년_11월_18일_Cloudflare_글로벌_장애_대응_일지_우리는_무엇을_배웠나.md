@@ -8,6 +8,7 @@ excerpt: "2025년 11월 18일 저녁, 전 세계 수많은 인터넷 서비스�
 comments: true
 toc: true
 original_url: https://twodragon.tistory.com/699
+image: /assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글로벌_장애_대응_일지_우리는_무엇을_배웠나.svg
 ---
 
 ## 📋 포스팅 요약

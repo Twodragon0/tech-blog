@@ -8,6 +8,7 @@ excerpt: "안녕하세요, **Twodragon**입니다. 이번 포스트에서는 클
 comments: true
 toc: true
 original_url: https://twodragon.tistory.com/686
+image: /assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해.svg
 ---
 
 ## 📋 포스팅 요약
