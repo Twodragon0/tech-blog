@@ -1,0 +1,81 @@
+---
+layout: null
+sitemap:
+  exclude: 'yes'
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Static Pages -->
+  {% for page in site.pages %}
+    {% unless page.sitemap.exclude == 'yes' or page.url == '/feed.xml' or page.url == '/sitemap.xml' %}
+    <url>
+      <loc>{{ site.url }}{{ site.baseurl }}{{ page.url }}</loc>
+      <lastmod>{{ page.last_modified_at | default: page.date | default: site.time | date_to_xmlschema }}</lastmod>
+      <changefreq>{% if page.url == '/' %}daily{% elsif page.url contains '/about' or page.url contains '/archive' %}monthly{% else %}weekly{% endif %}</changefreq>
+      <priority>{% if page.url == '/' %}1.0{% elsif page.url contains '/about' %}0.8{% else %}0.7{% endif %}</priority>
+    </url>
+    {% endunless %}
+  {% endfor %}
+
+  <!-- Blog Posts -->
+  {% for post in site.posts %}
+    {% unless post.sitemap.exclude == 'yes' %}
+    {% assign post_date = post.date | date: '%s' | plus: 0 %}
+    {% assign current_date = site.time | date: '%s' | plus: 0 %}
+    {% assign days_since = current_date | minus: post_date | divided_by: 86400 %}
+    <url>
+      <loc>{{ site.url }}{{ site.baseurl }}{{ post.url }}</loc>
+      <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
+      <changefreq>{% if days_since < 30 %}weekly{% elsif days_since < 180 %}monthly{% else %}yearly{% endif %}</changefreq>
+      <priority>{% if days_since < 30 %}0.9{% elsif days_since < 180 %}0.8{% else %}0.6{% endif %}</priority>
+    </url>
+    {% endunless %}
+  {% endfor %}
+
+  <!-- Category Pages -->
+  {% for category in site.category_list %}
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/categories/#{{ category.name }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  {% endfor %}
+
+  <!-- Archive Page -->
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/archive/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Tags Page -->
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/tags/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Categories Index -->
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/categories/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
