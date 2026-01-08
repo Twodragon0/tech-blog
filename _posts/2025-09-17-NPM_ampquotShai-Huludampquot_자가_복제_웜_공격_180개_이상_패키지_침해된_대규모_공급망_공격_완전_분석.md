@@ -62,7 +62,7 @@ NPM 생태계 역사상 최초의 자가 복제 웜 형태 공급망 공격 분�
 이 글에서는 NPM &amp;quot;Shai-Hulud&amp;quot; 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석에 대해 실무 중심으로 상세히 다룹니다.
 
 
-![포스트 이미지](/assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_자가_복제_웜_공격_180개_이상_패키지_침해된_대규모_공급망_공격_완전_분석_image.webp)
+![포스트 이미지]({{ '/assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_자가_복제_웜_공격_180개_이상_패키지_침해된_대규모_공급망_공격_완전_분석_image.webp' | relative_url }})
 *그림: 포스트 이미지*
 
 

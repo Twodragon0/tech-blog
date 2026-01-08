@@ -64,7 +64,7 @@ image: /assets/images/2025-10-31-AI_시대_당신의_amplsquo비서amprsquo가_a
 본 가이드에서는 AI 서비스 사용 시 발생할 수 있는 보안 위험을 분석하고, 기업이 이를 효과적으로 관리하기 위한 실무 가이드를 제공합니다.
 
 
-![포스트 이미지](/assets/images/2025-10-31-AI_시대_당신의_amplsquo비서amprsquo가_amplsquo보안_구멍amprsquo이_되지_않도록_기업을_위한_AI_서비스_보안_가이드_image.png)
+![포스트 이미지]({{ '/assets/images/2025-10-31-AI_시대_당신의_amplsquo비서amprsquo가_amplsquo보안_구멍amprsquo이_되지_않도록_기업을_위한_AI_서비스_보안_가이드_image.png' | relative_url }})
 *그림: 포스트 이미지*
 
 

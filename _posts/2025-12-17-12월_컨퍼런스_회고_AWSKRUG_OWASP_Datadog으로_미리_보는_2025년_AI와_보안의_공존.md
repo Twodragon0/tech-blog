@@ -63,7 +63,7 @@ image: /assets/images/2025-12-17-12월_컨퍼런스_회고_AWSKRUG_OWASP_Datadog
 이 글에서는 [12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존에 대해 실무 중심으로 상세히 다룹니다.
 
 
-![포스트 이미지](/assets/images/2025-12-17-12월_컨퍼런스_회고_AWSKRUG_OWASP_Datadog으로_미리_보는_2025년_AI와_보안의_공존_image.png)
+![포스트 이미지]({{ '/assets/images/2025-12-17-12월_컨퍼런스_회고_AWSKRUG_OWASP_Datadog으로_미리_보는_2025년_AI와_보안의_공존_image.png' | relative_url }})
 *그림: 포스트 이미지*
 
 

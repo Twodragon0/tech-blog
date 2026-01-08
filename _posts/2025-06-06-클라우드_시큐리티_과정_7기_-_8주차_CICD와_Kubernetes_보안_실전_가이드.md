@@ -60,7 +60,7 @@ image: /assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차
 
 
 
-![포스트 이미지](/assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드_image.png)
+![포스트 이미지]({{ '/assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드_image.png' | relative_url }})
 *그림: 포스트 이미지*
 
 
