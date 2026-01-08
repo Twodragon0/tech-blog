@@ -1,0 +1,41 @@
+# Site Settings
+title: "Twodragon0's Tech Blog"
+description: "IT, DevSecOps, 코딩 관련 기술 블로그"
+url: "https://Twodragon0.github.io"
+baseurl: "/tech-blog"
+
+# Author
+author:
+  name: "Twodragon0"
+  email: "twodragon114@gmail.com"
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Giscus Comments (Discussions 연결)
+giscus:
+  repo: "Twodragon0/tech-blog"
+  repo_id: ""  # Giscus 설정 후 입력 필요
+  category: "Announcements"
+  category_id: ""  # Giscus 설정 후 입력 필요
+  mapping: "pathname"
+  reactions_enabled: "1"
+  emit_metadata: "0"
+  input_position: "bottom"
+  theme: "preferred_color_scheme"
+  lang: "ko"
+  crossorigin: "anonymous"
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .gitignore

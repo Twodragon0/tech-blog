@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%b %-d, %Y" }}
+      </time>
+      {% if page.original_url %}
+        | <a href="{{ page.original_url }}" target="_blank">원본 포스트</a>
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if site.giscus %}
+    <script src="https://giscus.app/client.js"
+            data-repo="{{ site.giscus.repo }}"
+            data-repo-id="{{ site.giscus.repo_id }}"
+            data-category="{{ site.giscus.category }}"
+            data-category-id="{{ site.giscus.category_id }}"
+            data-mapping="{{ site.giscus.mapping }}"
+            data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
+            data-emit-metadata="{{ site.giscus.emit_metadata }}"
+            data-input-position="{{ site.giscus.input_position }}"
+            data-theme="{{ site.giscus.theme }}"
+            data-lang="{{ site.giscus.lang }}"
+            crossorigin="{{ site.giscus.crossorigin }}"
+            async>
+    </script>
+  {% endif %}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
