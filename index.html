@@ -4,21 +4,21 @@ title: Home
 ---
 <div class="home">
   <!-- Hero Section -->
-  <section class="hero" style="text-align: center; padding: 3rem 0; margin-bottom: 2rem;">
-    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Twodragon's Tech Blog</h1>
-    <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 700px; margin: 0 auto; line-height: 1.8;">
+  <section class="hero">
+    <h1>Twodragon's Tech Blog</h1>
+    <p class="hero-description">
       <strong>DevSecOps · DevOps · FinOps</strong> 전문 기술 블로그
       <br>클라우드 보안, 인프라 자동화, 비용 최적화의 실무 경험과 최신 트렌드를 공유합니다.
     </p>
-    <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-      <span style="background: var(--primary); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">🔒 DevSecOps</span>
-      <span style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">⚙️ DevOps</span>
-      <span style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">💰 FinOps</span>
+    <div class="hero-badges">
+      <span class="hero-badge devsecops">🔒 DevSecOps</span>
+      <span class="hero-badge devops">⚙️ DevOps</span>
+      <span class="hero-badge finops">💰 FinOps</span>
     </div>
   </section>
 
   <!-- Search -->
-  <div class="search-container" style="max-width: 500px; margin: 0 auto 2rem;">
+  <div class="search-container">
     <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <circle cx="11" cy="11" r="8"/>
       <line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -46,9 +46,9 @@ title: Home
   </div>
 
   <!-- Recent Posts -->
-  <section style="margin-top: 2rem;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-      <h2 style="margin: 0;">Recent Posts</h2>
+  <section class="recent-posts-section">
+    <div class="section-header">
+      <h2>Recent Posts</h2>
       <a href="{{ '/archive/' | relative_url }}" class="btn btn-secondary">View All</a>
     </div>
 
@@ -60,8 +60,8 @@ title: Home
   </section>
 
   <!-- Categories Quick Links -->
-  <section style="margin-top: 3rem;">
-    <h2 style="margin-bottom: 1.5rem;">Categories</h2>
+  <section class="categories-section">
+    <h2>Categories</h2>
     <div class="category-grid">
       {% for cat in site.category_list %}
       <a href="{{ '/categories/' | relative_url }}#{{ cat.name }}" class="category-card card">
@@ -85,9 +85,9 @@ title: Home
         <p>{{ cat.description }}</p>
         {% assign cat_posts = "" | split: "," %}
         {% for post in site.posts %}
-          {% if post.category == cat.name or post.categories contains cat.name %}
-            {% assign cat_posts = cat_posts | push: post %}
-          {% elsif post.categories.first == cat.name or post.categories.first == cat.title %}
+          {% assign post_cats = post.categories | join: "," | downcase %}
+          {% assign cat_name_lower = cat.name | downcase %}
+          {% if post.category == cat.name or post.category == cat.title or post_cats contains cat_name_lower %}
             {% assign cat_posts = cat_posts | push: post %}
           {% endif %}
         {% endfor %}

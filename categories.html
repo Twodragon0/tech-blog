@@ -37,9 +37,9 @@ permalink: /categories/
   {% for cat in site.category_list %}
   {% assign cat_posts = "" | split: "," %}
   {% for post in site.posts %}
-    {% if post.category == cat.name or post.categories contains cat.name %}
-      {% assign cat_posts = cat_posts | push: post %}
-    {% elsif post.categories.first == cat.name or post.categories.first == cat.title %}
+    {% assign post_cats = post.categories | join: "," | downcase %}
+    {% assign cat_name_lower = cat.name | downcase %}
+    {% if post.category == cat.name or post.category == cat.title or post_cats contains cat_name_lower %}
       {% assign cat_posts = cat_posts | push: post %}
     {% endif %}
   {% endfor %}
