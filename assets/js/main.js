@@ -170,6 +170,35 @@
     });
   }
 
+  // Copy to Clipboard Function
+  window.copyToClipboard = async function(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      // Show toast notification
+      const toast = document.createElement('div');
+      toast.textContent = '링크가 복사되었습니다!';
+      toast.style.cssText = `
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--color-primary);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: var(--shadow-lg);
+        z-index: 10000;
+        animation: slideIn 0.3s ease;
+      `;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
   // Copy Code Block Button
   document.querySelectorAll('pre code').forEach(codeBlock => {
     const pre = codeBlock.parentElement;
