@@ -456,7 +456,3 @@ Network Load Balancer와 Security Group을 활용한 데이터베이스 접근 �
 - **비용 효율**: 사용량 기반 과금으로 비용 최적화
 
 올바른 구성과 지속적인 모니터링을 통해 안전하고 효율적인 데이터베이스 접근 환경을 구축할 수 있습니다.
-
----
-
-원본 포스트: [https://twodragon.tistory.com/696](https://twodragon.tistory.com/696)

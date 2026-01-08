@@ -141,12 +141,3 @@ image: /assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinO
 ## 결론
 
 클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
-
----
-
-원본 포스트: https://twodragon.tistory.com/703
-
-
----
-
-원본 포스트: [https://twodragon.tistory.com/703](https://twodragon.tistory.com/703)

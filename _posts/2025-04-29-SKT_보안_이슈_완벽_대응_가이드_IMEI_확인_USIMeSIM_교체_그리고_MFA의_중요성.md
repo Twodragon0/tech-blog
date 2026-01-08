@@ -140,12 +140,3 @@ image: /assets/images/2025-04-29-SKT_보안_이슈_완벽_대응_가이드_IMEI_
 ## 결론
 
 SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
-
----
-
-원본 포스트: https://twodragon.tistory.com/677
-
-
----
-
-원본 포스트: [https://twodragon.tistory.com/677](https://twodragon.tistory.com/677)

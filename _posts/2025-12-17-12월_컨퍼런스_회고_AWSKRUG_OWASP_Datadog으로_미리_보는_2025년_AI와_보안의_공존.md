@@ -141,12 +141,3 @@ image: /assets/images/2025-12-17-12월_컨퍼런스_회고_AWSKRUG_OWASP_Datadog
 ## 결론
 
 [12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
-
----
-
-원본 포스트: https://twodragon.tistory.com/704
-
-
----
-
-원본 포스트: [https://twodragon.tistory.com/704](https://twodragon.tistory.com/704)

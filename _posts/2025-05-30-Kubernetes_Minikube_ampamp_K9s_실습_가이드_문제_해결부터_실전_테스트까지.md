@@ -141,12 +141,3 @@ image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드
 ## 결론
 
 Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
-
----
-
-원본 포스트: https://twodragon.tistory.com/687
-
-
----
-
-원본 포스트: [https://twodragon.tistory.com/687](https://twodragon.tistory.com/687)

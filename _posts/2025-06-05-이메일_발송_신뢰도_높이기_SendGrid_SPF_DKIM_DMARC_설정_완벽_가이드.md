@@ -376,7 +376,3 @@ mail.yourdomain.com → 별도 SPF, DKIM, DMARC
 SPF, DKIM, DMARC를 올바르게 설정하면 이메일 발송 신뢰도를 크게 향상시킬 수 있습니다. 특히 SendGrid와 같은 이메일 서비스를 사용할 때도 도메인 인증은 필수적입니다.
 
 단계적 적용과 정기적인 모니터링을 통해 이메일 전달률을 개선하고, 고객과의 커뮤니케이션 품질을 향상시킬 수 있습니다.
-
----
-
-원본 포스트: [https://twodragon.tistory.com/688](https://twodragon.tistory.com/688)

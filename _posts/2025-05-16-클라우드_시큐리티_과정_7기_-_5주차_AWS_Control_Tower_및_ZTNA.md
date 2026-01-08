@@ -140,12 +140,3 @@ image: /assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차
 ## 결론
 
 클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
-
----
-
-원본 포스트: https://twodragon.tistory.com/683
-
-
----
-
-원본 포스트: [https://twodragon.tistory.com/683](https://twodragon.tistory.com/683)

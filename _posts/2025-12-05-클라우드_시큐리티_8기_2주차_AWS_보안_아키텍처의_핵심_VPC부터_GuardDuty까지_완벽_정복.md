@@ -140,12 +140,3 @@ AWS 보안 아키텍처의 핵심 구성요소(VPC, IAM, S3, GuardDuty)를 다�
 ## 결론
 
 클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
-
----
-
-원본 포스트: https://twodragon.tistory.com/702
-
-
----
-
-원본 포스트: [https://twodragon.tistory.com/702](https://twodragon.tistory.com/702)

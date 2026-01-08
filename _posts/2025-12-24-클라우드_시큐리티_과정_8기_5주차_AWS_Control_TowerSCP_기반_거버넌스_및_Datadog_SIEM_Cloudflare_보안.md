@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/706
 image: /assets/images/2025-12-24-클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안.svg
 ---
-
 ## 📋 포스팅 요약
 
 > **제목**: 클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안
@@ -391,7 +390,3 @@ Cloudflare는 전 세계에 분산된 CDN 및 보안 서비스를 제공하는 �
 AWS Control Tower와 SCP를 통한 거버넌스, Datadog SIEM을 통한 보안 모니터링, Cloudflare를 통한 웹 보안은 현대적인 클라우드 보안 아키텍처의 핵심 요소입니다.
 
 이러한 도구들을 올바르게 구성하고 운영하면 멀티 계정 환경에서도 일관된 보안과 컴플라이언스를 유지할 수 있으며, 위협을 신속하게 탐지하고 대응할 수 있습니다.
-
----
-
-원본 포스트: [https://twodragon.tistory.com/706](https://twodragon.tistory.com/706)

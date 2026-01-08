@@ -141,12 +141,3 @@ image: /assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_�
 ## 결론
 
 Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
-
----
-
-원본 포스트: https://twodragon.tistory.com/680
-
-
----
-
-원본 포스트: [https://twodragon.tistory.com/680](https://twodragon.tistory.com/680)

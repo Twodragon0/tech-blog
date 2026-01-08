@@ -140,12 +140,3 @@ image: /assets/images/2025-05-24-Amazon_Q_Developer와_GitHub_Advanced_Security�
 ## 결론
 
 Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
-
----
-
-원본 포스트: https://twodragon.tistory.com/685
-
-
----
-
-원본 포스트: [https://twodragon.tistory.com/685](https://twodragon.tistory.com/685)
