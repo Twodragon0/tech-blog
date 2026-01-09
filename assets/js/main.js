@@ -23,6 +23,8 @@
       /cache\.agilebits\.com.*404/i,
       /notification\.js.*\[Notification\]/i,
       /giscus\.app.*404.*discussions/i,
+      /giscus\.app\/api\/discussions.*404/i,
+      /GET.*giscus\.app.*404/i,
       /\[giscus\] Discussion not found/i,
       /Content Security Policy.*connect-src.*violates/i,
       /Refused to connect.*violates.*Content Security Policy/i
@@ -651,9 +653,50 @@
       return names[lang] || lang;
     }
 
-    // Translate text using MyMemory API
-    async function translateText(text, sourceLang, targetLang) {
+    // Check if text is already in target language (simple heuristic)
+    function isAlreadyInTargetLanguage(text, targetLang) {
+      if (targetLang === 'ko') {
+        // Check if text contains Korean characters
+        return /[가-힣]/.test(text);
+      } else if (targetLang === 'en') {
+        // Check if text is mostly English (has English words and few Korean characters)
+        const koreanChars = (text.match(/[가-힣]/g) || []).length;
+        const englishWords = (text.match(/[a-zA-Z]+/g) || []).length;
+        return englishWords > koreanChars * 2 && koreanChars < text.length * 0.1;
+      }
+      return false;
+    }
+
+    // Split long text into chunks for translation
+    function splitTextIntoChunks(text, maxLength = 500) {
+      if (text.length <= maxLength) return [text];
+      
+      const chunks = [];
+      const sentences = text.split(/([.!?]\s+|\.\s+)/);
+      let currentChunk = '';
+      
+      for (let i = 0; i < sentences.length; i++) {
+        const sentence = sentences[i];
+        if ((currentChunk + sentence).length <= maxLength) {
+          currentChunk += sentence;
+        } else {
+          if (currentChunk) chunks.push(currentChunk.trim());
+          currentChunk = sentence;
+        }
+      }
+      if (currentChunk) chunks.push(currentChunk.trim());
+      
+      return chunks.filter(chunk => chunk.length > 0);
+    }
+
+    // Translate text using MyMemory API with retry logic
+    async function translateText(text, sourceLang, targetLang, retries = 2) {
       if (!text || text.trim().length === 0) return text;
+
+      // Skip if already in target language
+      if (isAlreadyInTargetLanguage(text, targetLang)) {
+        return text;
+      }
 
       const langMap = {
         'en': 'en-US',
@@ -665,24 +708,68 @@
       const targetLangCode = langMap[targetLang] || targetLang;
       const sourceLangCode = langMap[sourceLang] || sourceLang;
 
-      try {
-        const response = await fetch(
-          `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLangCode}|${targetLangCode}`
-        );
-
-        if (!response.ok) throw new Error('Translation API error');
-
-        const data = await response.json();
-
-        if (data.responseStatus === 200 && data.responseData) {
-          return data.responseData.translatedText;
+      // Handle long text by splitting into chunks
+      if (text.length > 500) {
+        const chunks = splitTextIntoChunks(text, 500);
+        const translatedChunks = [];
+        
+        for (const chunk of chunks) {
+          const translated = await translateText(chunk, sourceLang, targetLang, retries);
+          translatedChunks.push(translated || chunk);
+          // Small delay to avoid rate limiting
+          await new Promise(resolve => setTimeout(resolve, 100));
         }
-
-        return text;
-      } catch (error) {
-        console.warn('Translation failed:', error);
-        return text;
+        
+        return translatedChunks.join(' ');
       }
+
+      // Translate short text
+      for (let attempt = 0; attempt <= retries; attempt++) {
+        try {
+          const response = await fetch(
+            `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLangCode}|${targetLangCode}`,
+            {
+              method: 'GET',
+              headers: {
+                'Accept': 'application/json'
+              }
+            }
+          );
+
+          if (!response.ok) {
+            if (attempt < retries) {
+              await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+              continue;
+            }
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+          }
+
+          const data = await response.json();
+
+          if (data.responseStatus === 200 && data.responseData && data.responseData.translatedText) {
+            const translated = data.responseData.translatedText;
+            // Check if translation is valid (not same as original for non-English)
+            if (translated && translated !== text) {
+              return translated;
+            }
+          }
+
+          // If translation failed, return original text
+          return text;
+        } catch (error) {
+          if (attempt < retries) {
+            await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+            continue;
+          }
+          // Only log in development mode
+          if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.warn('Translation failed:', error.message, text.substring(0, 50));
+          }
+          return text;
+        }
+      }
+
+      return text;
     }
 
     // Translate page content
@@ -723,17 +810,59 @@
       if (postContent && originalContent.postContent) {
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = originalContent.postContent;
-        const textElements = tempDiv.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote');
+        const textElements = tempDiv.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote, code:not(pre code), span:not(.highlight), div:not(.code-block):not(.highlight)');
 
         for (const el of textElements) {
-          if (el.children.length === 0 && el.textContent.trim().length > 0 && el.textContent.trim().length < 500) {
-            const translated = await translateText(el.textContent, 'ko', targetLang);
-            if (translated) el.textContent = translated;
+          const text = el.textContent.trim();
+          
+          // Skip if empty, code blocks, or already processed
+          if (!text || el.closest('pre') || el.closest('code') || el.querySelector('code')) {
+            translatedItems++;
+            continue;
           }
+
+          // Translate text content (even if element has children)
+          // Only translate if it's mostly text content
+          const hasOnlyTextChildren = Array.from(el.childNodes).every(node => 
+            node.nodeType === Node.TEXT_NODE || 
+            (node.nodeType === Node.ELEMENT_NODE && (node.tagName === 'STRONG' || node.tagName === 'EM' || node.tagName === 'B' || node.tagName === 'I' || node.tagName === 'A'))
+          );
+
+          if (hasOnlyTextChildren && text.length > 0) {
+            try {
+              const translated = await translateText(text, 'ko', targetLang);
+              if (translated && translated !== text) {
+                // Preserve HTML structure if it exists
+                if (el.children.length > 0) {
+                  // If element has children, try to preserve them
+                  const tempEl = document.createElement(el.tagName);
+                  tempEl.innerHTML = translated;
+                  // If translation preserved structure, use it; otherwise replace text
+                  if (tempEl.children.length === el.children.length) {
+                    Array.from(el.children).forEach((child, idx) => {
+                      if (tempEl.children[idx]) {
+                        child.textContent = tempEl.children[idx].textContent;
+                      }
+                    });
+                  } else {
+                    el.textContent = translated;
+                  }
+                } else {
+                  el.textContent = translated;
+                }
+              }
+            } catch (error) {
+              // Continue on error
+            }
+          }
+          
           translatedItems++;
-          if (translatedItems % 5 === 0) {
+          if (translatedItems % 3 === 0) {
             showToast(`번역 중... ${Math.round((translatedItems / totalItems) * 100)}%`, 'loading');
           }
+          
+          // Small delay to avoid rate limiting
+          await new Promise(resolve => setTimeout(resolve, 50));
         }
 
         translation.postContent = tempDiv.innerHTML;
