@@ -5,3 +5,6 @@ _site/
 vendor/
 .bundle/
 Gemfile.lock
+.vercel/
+*.log
+.DS_Store
