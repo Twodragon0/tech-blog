@@ -154,8 +154,8 @@ exclude:
   - LICENSE
   - vercel.json
   - .vercel
-  - "*.md"
   - scripts/
+  - "*.log"
 
 # Build optimization
 keep_files: []
