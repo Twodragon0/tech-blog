@@ -448,6 +448,7 @@ spec:
 
 ### 6.2 취약점이 있는 이미지 차단
 
+{% raw %}
 ```yaml
 # Kyverno 정책: Critical 취약점 차단
 apiVersion: kyverno.io/v1
@@ -472,6 +473,7 @@ spec:
  operator: GreaterThan
  value: 0
 ```
+{% endraw %}
 
 ## 7. 런타임 보안
 
