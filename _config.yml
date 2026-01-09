@@ -121,6 +121,8 @@ navigation:
     url: "/archive/"
   - title: "Discussion"
     url: "/discussion/"
+  - title: "Support"
+    url: "/support/"
   - title: "About"
     url: "/about/"
 
