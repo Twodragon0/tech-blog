@@ -137,6 +137,156 @@ image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드
 - **원인**: 리소스 부족
 - **해결**: 리소스 확장 또는 최적화
 
+## 5. Kubernetes 2025 업데이트
+
+### 5.1 Kubernetes 버전 업데이트
+
+2025년에는 Kubernetes의 중요한 버전 업데이트가 있었습니다:
+
+#### Kubernetes 1.32 "Penelope"
+- **릴리스 날짜**: 2024년 12월
+- **주요 특징**:
+  - 개선된 스케줄링 알고리즘
+  - Pod 라이프사이클 관리 향상
+  - 리소스 할당 최적화
+
+#### Kubernetes 1.35 "Timbernetes"
+- **릴리스 날짜**: 2025년 하반기
+- **주요 특징**:
+  - 강화된 보안 기능
+  - 클러스터 관리 자동화 개선
+  - 대규모 클러스터 성능 최적화
+
+```bash
+# Kubernetes 버전 확인
+kubectl version --short
+
+# Minikube에서 특정 버전으로 클러스터 시작
+minikube start --kubernetes-version=v1.32.0
+```
+
+### 5.2 보안 강화 기능
+
+#### Fine-grained Kubelet API Authorization
+
+Kubelet API에 대한 세분화된 권한 제어가 도입되었습니다:
+
+- **세밀한 접근 제어**: 노드별, 리소스별 권한 설정
+- **RBAC 통합**: 기존 RBAC 시스템과 원활한 통합
+- **감사 로깅**: 모든 Kubelet API 호출 기록
+
+```yaml
+# Fine-grained Kubelet Authorization 설정 예시
+apiVersion: authorization.k8s.io/v1
+kind: SubjectAccessReview
+spec:
+  resourceAttributes:
+    namespace: default
+    verb: get
+    group: ""
+    resource: pods
+    subresource: log
+  user: system:node:worker-1
+```
+
+#### User Namespaces Support
+
+컨테이너 격리를 강화하는 사용자 네임스페이스 지원:
+
+- **루트리스 컨테이너**: 컨테이너 내 루트가 호스트에서는 비권한 사용자로 매핑
+- **보안 강화**: 컨테이너 탈출 공격 위험 감소
+- **호환성**: 대부분의 워크로드와 호환
+
+```yaml
+# User Namespace 활성화 Pod 예시
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-pod
+spec:
+  hostUsers: false  # User Namespace 활성화
+  containers:
+  - name: app
+    image: nginx:latest
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+```
+
+### 5.3 Amazon EKS 1.32 업데이트
+
+#### Anonymous Authentication 제한
+
+EKS 1.32에서는 보안 강화를 위해 익명 인증이 제한되었습니다:
+
+- **기본 비활성화**: Anonymous Authentication이 기본적으로 비활성화
+- **명시적 활성화 필요**: 필요한 경우 명시적으로 활성화해야 함
+- **보안 권고**: 프로덕션 환경에서는 익명 인증 사용 자제
+
+```bash
+# EKS 클러스터의 Anonymous Authentication 상태 확인
+aws eks describe-cluster --name my-cluster \
+  --query "cluster.resourcesVpcConfig"
+
+# kubectl로 인증 상태 확인
+kubectl auth can-i --list --as=system:anonymous
+```
+
+#### EKS 보안 모범 사례
+
+```yaml
+# EKS 클러스터 보안 구성 예시
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: secure-cluster
+  region: ap-northeast-2
+vpc:
+  clusterEndpoints:
+    privateAccess: true
+    publicAccess: false  # 프라이빗 접근만 허용
+managedNodeGroups:
+  - name: managed-ng
+    instanceType: m5.large
+    desiredCapacity: 3
+    privateNetworking: true
+    securityGroups:
+      attachIDs:
+        - sg-xxxxxxxxx
+```
+
+### 5.4 Minikube 업데이트
+
+Minikube도 최신 Kubernetes 버전을 지원하도록 업데이트되었습니다:
+
+```bash
+# Minikube 업데이트
+brew upgrade minikube  # macOS
+# 또는
+minikube update-check
+
+# 최신 Kubernetes 버전으로 클러스터 생성
+minikube start --kubernetes-version=stable
+
+# 특정 버전 지정
+minikube start --kubernetes-version=v1.32.0
+
+# 클러스터 정보 확인
+minikube kubectl -- cluster-info
+```
+
+### 5.5 보안 점검 체크리스트
+
+Kubernetes 2025 업데이트를 적용할 때 확인해야 할 보안 항목:
+
+| 항목 | 설명 | 명령어/확인 방법 |
+|------|------|-----------------|
+| Kubelet API 권한 | Fine-grained 권한 설정 확인 | `kubectl get clusterrolebindings` |
+| User Namespace | hostUsers: false 설정 확인 | Pod spec 검토 |
+| Anonymous Auth | 익명 인증 비활성화 확인 | `kubectl auth can-i --as=system:anonymous` |
+| RBAC | 최소 권한 원칙 준수 | `kubectl get roles,rolebindings -A` |
+| Network Policy | 네트워크 정책 적용 | `kubectl get networkpolicies -A` |
+
 ## 결론
 
-Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
+Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지에 대해 다루었습니다. 2025년 Kubernetes 업데이트에서는 보안이 크게 강화되었으며, 특히 Fine-grained Kubelet API Authorization, User Namespaces Support, 그리고 EKS의 Anonymous Authentication 제한 등이 주요 변화입니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.

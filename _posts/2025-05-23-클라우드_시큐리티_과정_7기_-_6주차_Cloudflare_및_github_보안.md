@@ -135,6 +135,89 @@ image: /assets/images/2025-05-23-클라우드_시큐리티_과정_7기_-_6주차
 - **원인**: 리소스 부족
 - **해결**: 리소스 확장 또는 최적화
 
+## 5. 2025년 Cloudflare 및 GitHub 보안 최신 동향
+
+### 5.1 Cloudflare WAF 2025년 업데이트
+
+2025년 Cloudflare는 WAF에 대한 중요한 보안 업데이트를 지속적으로 제공하고 있습니다:
+
+#### 주요 CVE 대응
+- **CVE-2025-55182/55183/55184**: React 원격 코드 실행 및 서버 측 함수 노출 취약점에 대한 긴급 패치
+- **CVE-2025-64446**: FortiWeb 취약점에 대한 탐지 시그니처 강화
+- **PHP Wrapper Injection**: 새로운 탐지 로직 추가
+
+#### Bot Management 혁신
+```yaml
+# 2025년 Bot Detection ID 활용 예시
+bot_detection_rules:
+  - id: 201326598
+    description: "Zone-level baseline anomaly detection"
+    actions:
+      - challenge_on_suspicious
+      - rate_limit_on_abuse
+      - block_on_credential_stuffing
+
+  features:
+    - zone_level_traffic_baseline
+    - anomalous_login_failure_detection
+    - brute_force_prevention
+    - credential_stuffing_mitigation
+```
+
+**주목할 점**: 2025년 중반 기준, AI 모델 훈련을 위한 크롤링이 Cloudflare 네트워크 전체 AI 봇 활동의 약 **80%**를 차지합니다. 최신 스크래핑 도구는 LLM을 활용한 페이지 컨텐츠의 의미론적 이해와 컴퓨터 비전을 통한 시각적 챌린지 해결 능력을 갖추고 있어, Bot Management의 중요성이 더욱 부각되고 있습니다.
+
+### 5.2 GitHub Advanced Security 2025년 대변화
+
+2025년 4월 1일부터 GitHub Advanced Security(GHAS)가 두 개의 독립 제품으로 분리되었습니다:
+
+#### GitHub Secret Protection ($19/월/커미터)
+```yaml
+# GitHub Secret Protection 주요 기능
+secret_protection:
+  features:
+    - push_protection: "시크릿 노출 전 사전 차단"
+    - secret_scanning: "레포지토리 내 시크릿 탐지"
+    - ai_password_detection: "낮은 오탐률의 AI 기반 비밀번호 탐지"
+    - security_insights: "보안 인사이트 대시보드"
+
+  copilot_integration:
+    - unstructured_credential_detection
+    - custom_pattern_regex_generator
+    - no_copilot_license_required
+```
+
+#### GitHub Code Security ($30/월/커미터)
+- **Code Scanning**: 정적 분석을 통한 취약점 탐지
+- **Copilot Autofix**: AI 기반 취약점 자동 수정 제안
+- **Security Campaigns**: 조직 전체 보안 캠페인 관리
+- **Dependency Review Action**: 의존성 보안 검토 자동화
+
+#### Copilot Autofix 성과
+- 취약점 수정 속도 **3배 이상 향상**
+- PR 알림에서 자동 수정 커밋까지 중간값: **28분** (수동 대비 1.5시간)
+- GitHub Team 플랜에서도 구매 가능 (Enterprise 구독 불필요)
+
+### 5.3 통합 보안 전략
+
+```mermaid
+graph TB
+    A[코드 작성] --> B[GitHub Secret Protection]
+    B --> C{시크릿 탐지?}
+    C -->|Yes| D[Push Protection 차단]
+    C -->|No| E[GitHub Code Security]
+    E --> F[Copilot Autofix 분석]
+    F --> G[자동 수정 제안]
+    G --> H[배포]
+    H --> I[Cloudflare WAF]
+    I --> J[Bot Management]
+    J --> K[실시간 위협 차단]
+
+    style B fill:#238636
+    style E fill:#238636
+    style I fill:#f6821f
+    style J fill:#f6821f
+```
+
 ## 결론
 
-클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 github 보안에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
+클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 github 보안에 대해 다루었습니다. 2025년에는 AI 기반 봇 탐지와 코드 보안 자동화가 핵심 트렌드로 자리잡았습니다. GitHub의 Secret Protection과 Code Security 분리, Cloudflare의 Bot Detection ID를 활용한 맞춤형 보안 정책 수립이 가능해졌습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.

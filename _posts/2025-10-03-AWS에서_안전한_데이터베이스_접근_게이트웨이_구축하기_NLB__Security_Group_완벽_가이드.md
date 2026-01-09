@@ -445,13 +445,135 @@ resource "aws_cloudwatch_metric_alarm" "unhealthy_hosts" {
 }
 ```
 
+## 9. 2025년 AWS 네트워크 보안 최신 동향
+
+### 9.1 Post-Quantum TLS 지원 (2025년 11월)
+
+AWS ALB/NLB가 양자 내성 암호화를 지원합니다:
+
+```hcl
+# 2025년 Post-Quantum TLS 설정
+resource "aws_lb_listener" "quantum_safe" {
+  load_balancer_arn = aws_lb.db_gateway.arn
+  port              = "443"
+  protocol          = "TLS"
+
+  # ML-KEM768 양자 내성 키 교환 지원
+  ssl_policy = "ELBSecurityPolicy-TLS13-1-3-FIPS-2023-04"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.db.arn
+  }
+}
+```
+
+**주요 특징**:
+- **ML-KEM768** 양자 내성 암호화 알고리즘 채택
+- **HNDL/SNDL 공격** 방어 (Harvest Now, Decrypt Later)
+- 미래 양자 컴퓨터 위협에 대한 선제적 대응
+
+### 9.2 VPC Lattice vs NLB 비교 (2025년 업데이트)
+
+2025년 12월 기준, AWS VPC Lattice와 NLB + VPC Endpoint 구성 비교:
+
+| 항목 | VPC Lattice Resource Gateway | NLB + VPC Endpoint Service |
+|------|------------------------------|---------------------------|
+| **IAM 통합** | 세밀한 접근 제어 가능 | Security Group 기반 |
+| **감사 로그** | 통합 감사 로그 제공 | VPC Flow Logs 별도 설정 |
+| **초기 비용** | 사용량 기반 | ~$59.40/월 (고정) |
+| **복잡도** | 단순화된 관리 | 다중 컴포넌트 관리 필요 |
+| **문서화** | 신규 (문서 증가 중) | 풍부한 레퍼런스 |
+
+```hcl
+# VPC Lattice Resource Gateway 예시 (2025)
+resource "aws_vpclattice_service" "db_service" {
+  name = "db-gateway-service"
+
+  auth_type = "AWS_IAM"
+
+  tags = {
+    Environment = "production"
+    Purpose     = "database-access"
+  }
+}
+
+resource "aws_vpclattice_auth_policy" "db_policy" {
+  resource_identifier = aws_vpclattice_service.db_service.arn
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "vpc-lattice-svcs:Invoke"
+        Resource  = "*"
+        Condition = {
+          StringEquals = {
+            "vpc-lattice-svcs:ServiceNetworkArn" = var.service_network_arn
+          }
+        }
+      }
+    ]
+  })
+}
+```
+
+### 9.3 NLB Security Group 모범 사례 (2025)
+
+**중요**: NLB 생성 시 Security Group을 연결하지 않으면 나중에 추가할 수 없습니다.
+
+```hcl
+# NLB Security Group 필수 설정 (2025 권장사항)
+resource "aws_lb" "db_gateway_2025" {
+  name               = "db-gateway-nlb-2025"
+  internal           = true
+  load_balancer_type = "network"
+  subnets            = var.private_subnet_ids
+
+  # 반드시 Security Group 연결 (생성 후 추가 불가)
+  security_groups = [aws_security_group.nlb_sg.id]
+
+  # PrivateLink 트래픽에 대한 인바운드 규칙 적용 여부
+  enable_cross_zone_load_balancing = true
+
+  tags = {
+    Name        = "DB Gateway NLB 2025"
+    Environment = var.environment
+    PostQuantum = "enabled"
+  }
+}
+
+# QUIC/TCP_QUIC 리스너 사용 시 Security Group 미사용
+# 주의: QUIC 프로토콜 사용 시 Security Group 연결 불가
+```
+
+### 9.4 Network Firewall Proxy 통합
+
+AWS Network Firewall Proxy와 NLB 통합 시 고려사항:
+
+```yaml
+# Network Firewall + NLB 통합 아키텍처
+integration_notes:
+  - source_traffic_nated: true
+  - original_client_ip: "not_preserved"
+  - policy_limitation: "client_ip_based_policies_not_evaluated"
+
+recommended_patterns:
+  - vpc_lattice_resource_endpoints
+  - nlb_vpc_endpoint_service
+  - network_firewall_proxy_mode
+```
+
 ## 결론
 
-Network Load Balancer와 Security Group을 활용한 데이터베이스 접근 게이트웨이는 Zero Trust 아키텍처를 구현하는 효과적인 방법입니다. 이 아키텍처를 통해:
+Network Load Balancer와 Security Group을 활용한 데이터베이스 접근 게이트웨이는 Zero Trust 아키텍처를 구현하는 효과적인 방법입니다. 2025년에는 Post-Quantum TLS 지원과 VPC Lattice의 성숙으로 더욱 다양한 선택지가 생겼습니다. 이 아키텍처를 통해:
 
-- **보안 강화**: 중앙화된 접근 제어 및 최소 권한 원칙 적용
+- **보안 강화**: 중앙화된 접근 제어 및 최소 권한 원칙 적용 + 양자 내성 암호화
 - **가용성 향상**: 다중 AZ 및 자동 장애 복구
-- **관리 용이성**: Terraform을 통한 인프라 자동화
+- **관리 용이성**: Terraform을 통한 인프라 자동화, VPC Lattice로 단순화 가능
 - **비용 효율**: 사용량 기반 과금으로 비용 최적화
+- **미래 대비**: Post-Quantum TLS로 양자 컴퓨터 위협 선제 대응
 
 올바른 구성과 지속적인 모니터링을 통해 안전하고 효율적인 데이터베이스 접근 환경을 구축할 수 있습니다.

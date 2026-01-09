@@ -136,6 +136,75 @@ image: /assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차
 - **원인**: 리소스 부족
 - **해결**: 리소스 확장 또는 최적화
 
+## 5. 2025년 AWS 거버넌스 업데이트
+
+2025년에 발표된 AWS 거버넌스 관련 주요 업데이트를 정리합니다.
+
+### 5.1 AWS Organizations 계정 마이그레이션 개선
+
+기존에는 AWS 계정을 다른 조직으로 이동하려면 먼저 standalone 계정으로 분리한 후 다시 새 조직에 가입해야 했습니다. **2025년 업데이트로 이제 계정을 standalone으로 분리하지 않고도 조직 간 직접 이동이 가능**해졌습니다.
+
+**주요 이점:**
+- 계정 이동 과정 단순화
+- 다운타임 최소화
+- M&A 또는 조직 재구성 시 효율성 향상
+
+### 5.2 AgentCore Identity - AI 에이전트 접근 제어
+
+AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도입하여 AI 에이전트에 대한 세밀한 접근 제어를 제공합니다.
+
+**주요 기능:**
+- AI 에이전트별 IAM 역할 및 정책 할당
+- 에이전트 행위 감사 및 추적
+- 최소 권한 원칙을 AI 워크로드에 적용
+- Control Tower와 통합하여 멀티 계정 환경에서 AI 거버넌스 관리
+
+### 5.3 IAM Policy Autopilot
+
+**IAM Policy Autopilot**은 오픈소스 도구로, 애플리케이션 코드를 분석하여 IAM 정책을 자동으로 생성합니다.
+
+**동작 방식:**
+1. 애플리케이션 소스 코드 분석
+2. AWS SDK 호출 패턴 식별
+3. 필요한 최소 권한 IAM 정책 자동 생성
+4. 기존 정책과의 차이 분석 및 권장 사항 제공
+
+**사용 예시:**
+```bash
+# IAM Policy Autopilot 실행
+iam-policy-autopilot analyze --source ./my-app --output policy.json
+```
+
+### 5.4 보안 모니터링 강화
+
+#### AWS Security Hub GA
+
+AWS Security Hub가 GA(General Availability)로 출시되어 **멀티 계정 보안 현황을 통합 관리**할 수 있게 되었습니다.
+
+**주요 기능:**
+- Control Tower와 자동 통합
+- 모든 멤버 계정의 보안 상태 중앙 집중 관리
+- 자동화된 보안 점수 산정
+- 규정 준수 상태 대시보드
+
+#### GuardDuty Extended Threat Detection
+
+GuardDuty가 **Extended Threat Detection** 기능을 추가하여 EC2 및 ECS 환경에서의 위협 시퀀스를 탐지합니다.
+
+**탐지 가능한 위협:**
+- 다단계 공격 시퀀스 식별
+- EC2 인스턴스 내 악성 행위 패턴
+- ECS 컨테이너 런타임 위협
+- 내부자 위협 및 측면 이동 탐지
+
+### 5.5 Control Tower 업데이트 적용 권장 사항
+
+1. **Organizations 계정 이동 기능 활용**: 기존 계정 구조 재편 시 새로운 직접 이동 기능 사용
+2. **AI 워크로드 거버넌스**: AgentCore Identity를 통해 AI 에이전트에 대한 접근 제어 정책 수립
+3. **IAM 정책 자동화**: IAM Policy Autopilot으로 과도한 권한을 가진 정책 식별 및 최적화
+4. **Security Hub 통합**: 멀티 계정 보안 현황을 단일 대시보드에서 모니터링
+5. **GuardDuty 확장 기능 활성화**: EC2/ECS 환경에서의 고급 위협 탐지 활성화
+
 ## 결론
 
-클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA에 대해 다루었습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
+클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA에 대해 다루었습니다. 2025년에 발표된 AWS 거버넌스 업데이트를 통해 더욱 효율적인 멀티 계정 관리와 강화된 보안 모니터링이 가능해졌습니다. 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.

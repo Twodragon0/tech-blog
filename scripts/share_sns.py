@@ -228,7 +228,67 @@ def main():
         print("Usage: python share_sns.py <post_file_path>")
         sys.exit(1)
 
-    post_path = sys.argv[1]
+    post_path_arg = sys.argv[1]
+    
+    # Handle file path issues: decode if needed, resolve relative paths
+    script_dir = Path(__file__).parent.parent
+    posts_dir = script_dir / '_posts'
+    
+    # First, try to use the path as-is
+    if os.path.isabs(post_path_arg):
+        post_path = Path(post_path_arg)
+    else:
+        # Try relative to script directory first
+        post_path = script_dir / post_path_arg
+        if not post_path.exists():
+            # Try relative to current working directory
+            post_path = Path(post_path_arg).resolve()
+    
+    # If file doesn't exist, try to find it by date pattern or partial name
+    if not post_path.exists() and posts_dir.exists():
+        filename_arg = Path(post_path_arg).name
+        
+        # Extract date pattern (YYYY-MM-DD) if present
+        date_match = re.search(r'(\d{4}-\d{2}-\d{2})', filename_arg)
+        if date_match:
+            date_str = date_match.group(1)
+            # Find all files starting with that date
+            matching_files = list(posts_dir.glob(f'{date_str}-*.md'))
+            if len(matching_files) == 1:
+                post_path = matching_files[0]
+                print(f"Found file by date pattern: {post_path.name}")
+            elif len(matching_files) > 1:
+                # If multiple files, try to match by partial name
+                # Remove non-ASCII characters and try to match
+                filename_clean = re.sub(r'[^\w\-]', '', filename_arg.lower())
+                for file in matching_files:
+                    file_clean = re.sub(r'[^\w\-]', '', file.stem.lower())
+                    if filename_clean in file_clean or file_clean in filename_clean:
+                        post_path = file
+                        print(f"Found file by partial match: {post_path.name}")
+                        break
+                else:
+                    # Use the most recent file if no match
+                    post_path = max(matching_files, key=lambda p: p.stat().st_mtime)
+                    print(f"Multiple files found, using most recent: {post_path.name}")
+        else:
+            # No date pattern, try to find by partial name match
+            filename_clean = re.sub(r'[^\w\-]', '', filename_arg.lower())
+            for file in posts_dir.glob('*.md'):
+                file_clean = re.sub(r'[^\w\-]', '', file.stem.lower())
+                if filename_clean in file_clean or file_clean in filename_clean:
+                    post_path = file
+                    print(f"Found file by name match: {post_path.name}")
+                    break
+    
+    # Convert to absolute path string
+    post_path = str(post_path.resolve())
+    
+    if not os.path.exists(post_path):
+        print(f"Error: File not found: {post_path}")
+        print(f"Searched in: {posts_dir}")
+        sys.exit(1)
+    
     site_url = os.environ.get('SITE_URL', 'https://tech.2twodragon.com')
 
     print(f"Processing: {post_path}")

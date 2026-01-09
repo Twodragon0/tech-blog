@@ -502,7 +502,250 @@ spec:
  tags: [filesystem, mitre_persistence]
 ```
 
-## 8. CI/CD 보안 체크리스트
+## 8. 2025년 Kubernetes 보안 업데이트
+
+### 8.1 Kubernetes 1.32~1.35 주요 보안 기능
+
+Kubernetes는 2024년 말 1.32 "Penelope"를 시작으로 2025년 12월 1.35 "Timbernetes"까지 보안 기능을 대폭 강화했습니다.
+
+#### Fine-grained Kubelet API Authorization (KEP-2862)
+
+kubelet API에 대한 세밀한 접근 제어가 가능해졌습니다.
+
+```yaml
+# RBAC을 통한 kubelet API 세밀한 제어
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kubelet-api-reader
+rules:
+# 특정 노드의 Pod 정보만 읽기 허용
+- apiGroups: [""]
+  resources: ["nodes/proxy"]
+  verbs: ["get"]
+  resourceNames: ["node-1", "node-2"]
+# Pod 로그 접근 제한
+- apiGroups: [""]
+  resources: ["pods/log"]
+  verbs: ["get"]
+---
+# kubelet 설정에서 Fine-grained 인가 활성화
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+featureGates:
+  KubeletFineGrainedAuthz: true
+authorization:
+  mode: Webhook
+  webhook:
+    cacheAuthorizedTTL: 5m
+    cacheUnauthorizedTTL: 30s
+```
+
+**보안 이점:**
+- 노드별, Pod별 kubelet API 접근 권한 세밀 제어
+- 측면 이동(Lateral Movement) 공격 방지
+- 침해 발생 시 피해 범위 최소화
+
+#### Credential Tracking for Forensics
+
+인증서 서명 기반 credential ID 생성으로 포렌식 기능이 강화되었습니다.
+
+```yaml
+# Audit Policy에서 credential 추적 활성화
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+- level: RequestResponse
+  users: ["system:serviceaccount:*:*"]
+  resources:
+  - group: ""
+    resources: ["secrets", "configmaps"]
+  omitStages:
+  - RequestReceived
+# 모든 인증 요청에 credential ID 로깅
+- level: Metadata
+  nonResourceURLs:
+  - "/api/*"
+  - "/apis/*"
+```
+
+```bash
+# Audit 로그에서 credential 추적 예시
+{
+  "kind": "Event",
+  "apiVersion": "audit.k8s.io/v1",
+  "user": {
+    "username": "system:serviceaccount:default:my-sa",
+    "uid": "abc-123",
+    "extra": {
+      "authentication.kubernetes.io/credential-id": ["JTI=xyz789"]
+    }
+  }
+}
+```
+
+#### User Namespaces Support (Linux Kernel 6.3+)
+
+워크로드 격리를 크게 강화하는 User Namespaces가 정식 지원됩니다.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: isolated-pod
+spec:
+  hostUsers: false  # User Namespace 활성화 (핵심 설정)
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+  containers:
+  - name: app
+    image: myapp:latest
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      readOnlyRootFilesystem: true
+```
+
+**User Namespace 보안 효과:**
+| 공격 시나리오 | 기존 | User Namespace 적용 |
+|---------------|------|---------------------|
+| 컨테이너 탈출 후 root 권한 | 호스트 root 획득 가능 | 비특권 사용자로 제한 |
+| /proc, /sys 접근 | 민감 정보 노출 | 접근 권한 격리 |
+| 다른 컨테이너 침해 | 가능 | 격리로 차단 |
+
+#### Pod Certificates for mTLS (KEP-4317)
+
+kubelet이 Pod용 인증서를 자동으로 요청하고 마운트합니다.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mtls-enabled-app
+spec:
+  containers:
+  - name: app
+    image: myapp:latest
+    env:
+    - name: TLS_CERT_PATH
+      value: /etc/pod-certs/tls.crt
+    - name: TLS_KEY_PATH
+      value: /etc/pod-certs/tls.key
+    - name: CA_CERT_PATH
+      value: /etc/pod-certs/ca.crt
+    volumeMounts:
+    - name: pod-certs
+      mountPath: /etc/pod-certs
+      readOnly: true
+  volumes:
+  - name: pod-certs
+    projected:
+      defaultMode: 0400
+      sources:
+      - serviceAccountToken:
+          path: token
+          expirationSeconds: 3600
+          audience: my-service
+      - clusterTrustBundle:
+          path: ca.crt
+          name: cluster-trust-bundle
+          optional: false
+```
+
+**자동 인증서 Rotation:**
+```yaml
+# CertificateSigningRequest 자동 생성 및 갱신
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: pod-cert-request
+spec:
+  signerName: kubernetes.io/kubelet-serving
+  usages:
+  - digital signature
+  - key encipherment
+  - server auth
+  - client auth
+  expirationSeconds: 86400  # 24시간 후 자동 갱신
+```
+
+### 8.2 EKS 1.32 Anonymous Authentication 제한
+
+Amazon EKS 1.32부터 익명 인증이 health check endpoint로 제한됩니다.
+
+```yaml
+# EKS 1.32+ 익명 접근 허용 endpoint
+# /healthz, /readyz, /livez 만 익명 접근 가능
+
+# 기존 익명 접근에 의존하던 서비스는 명시적 인증 필요
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: monitoring-access
+subjects:
+- kind: ServiceAccount
+  name: monitoring-sa
+  namespace: monitoring
+roleRef:
+  kind: ClusterRole
+  name: view
+  apiGroup: rbac.authorization.k8s.io
+```
+
+### 8.3 Deprecated 기능 및 마이그레이션
+
+```yaml
+# DEPRECATED: ServiceAccount의 enforce-mountable-secrets annotation
+# 이 방식은 더 이상 권장되지 않음
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: legacy-sa
+  annotations:
+    kubernetes.io/enforce-mountable-secrets: "true"  # Deprecated
+
+---
+# 권장: Pod 레벨에서 직접 제어
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-pod
+spec:
+  serviceAccountName: my-sa
+  automountServiceAccountToken: false  # 권장 방식
+  containers:
+  - name: app
+    image: myapp:latest
+    # 필요한 경우에만 명시적으로 token 마운트
+    volumeMounts:
+    - name: sa-token
+      mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      readOnly: true
+  volumes:
+  - name: sa-token
+    projected:
+      sources:
+      - serviceAccountToken:
+          path: token
+          expirationSeconds: 3600  # 단기 토큰 사용
+```
+
+### 8.4 2025년 보안 강화 체크리스트
+
+| 기능 | 버전 | 상태 | 적용 권장 |
+|------|------|------|-----------|
+| Fine-grained Kubelet AuthZ | 1.32+ | GA | 즉시 적용 |
+| Credential Tracking | 1.32+ | GA | 포렌식 환경 필수 |
+| User Namespaces | 1.32+ | GA | Linux 6.3+ 환경에서 적용 |
+| Pod Certificates (mTLS) | 1.33+ | Beta | Zero Trust 환경 적용 |
+| Anonymous Auth 제한 | EKS 1.32 | 적용됨 | EKS 사용자 필수 검토 |
+
+## 9. CI/CD 보안 체크리스트
 
 | 항목 | 설명 | 도구 |
 |------|------|------|
@@ -514,9 +757,9 @@ spec:
 | **DAST** | 동적 애플리케이션 보안 테스트 | OWASP ZAP |
 | **이미지 서명** | 빌드 아티팩트 무결성 보장 | Cosign, Notary |
 
-## 9. 마무리
+## 10. 마무리
 
-이번 주차에서는 CI/CD 파이프라인과 Kubernetes 환경의 보안을 강화하는 다양한 방법을 학습했습니다. **Shift-Left Security** 원칙에 따라 개발 초기 단계부터 보안을 적용하는 것이 중요합니다.
+이번 주차에서는 CI/CD 파이프라인과 Kubernetes 환경의 보안을 강화하는 다양한 방법을 학습했습니다. 또한 2025년 Kubernetes 보안 업데이트를 통해 Fine-grained Kubelet API Authorization, Credential Tracking, User Namespaces, Pod Certificates 등 최신 보안 기능들을 살펴보았습니다. **Shift-Left Security** 원칙에 따라 개발 초기 단계부터 보안을 적용하는 것이 중요합니다.
 
 > **다음 주차 예고:** DevSecOps 전체 통합 정리 및 실무 적용 가이드
 

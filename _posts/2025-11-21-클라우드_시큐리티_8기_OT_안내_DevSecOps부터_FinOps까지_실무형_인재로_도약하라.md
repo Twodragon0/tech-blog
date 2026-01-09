@@ -63,10 +63,8 @@ image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSec
 
 이번 8기는 **'20분 강의 + 5분 휴식'**이라는 뇌과학적으로 가장 효율적인 학습 루틴으로 진행됩니다. 단순한 이론 주입식 교육이 아닌, 실무의 고민을 함께 나누는 시간이 될 것입니다.
 
-<a href="{{ '/assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라_image.png' | relative_url }}" target="_blank" rel="noopener noreferrer">
-  <img src="{{ '/assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image" style="cursor: pointer;">
-</a>
-*그림: 포스트 이미지 (클릭하여 확대)*
+<img src="{{ '/assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+*그림: 포스트 이미지*
 
 
 ## 1. 과정 개요
@@ -97,22 +95,48 @@ image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSec
 - **실무 중심**: 이론보다 실전 경험과 사례 중심
 - **상호작용**: 실무 고민 공유 및 Q&A 시간
 
-## 2. 커리큘럼 상세
+## 2. 2025년 보안 트렌드와 과정의 방향성
 
-### 2.1 전체 커리큘럼 개요
+### 2.1 왜 지금 클라우드 보안인가?
+
+2025년 보안 환경은 전례 없는 변화를 맞이하고 있습니다:
+
+- **AI 보안의 양면성**: 93%의 보안 리더가 일일 AI 기반 공격을 예상하고 있습니다
+- **Shadow AI 위협**: 조직 승인 없이 사용되는 AI 시스템이 새로운 보안 위험으로 부상
+- **Supply Chain 공격 급증**: npm Shai-Hulud 웜 등 공급망을 노리는 공격이 정교해지고 있습니다
+- **Zero Trust 표준화**: ZTNA가 업계 표준으로 정착하며 "절대 신뢰하지 말고, 항상 검증하라"가 기본 원칙이 되었습니다
+- **Post-quantum 암호화**: Cloudflare가 전체 트래픽의 52%를 Post-quantum 암호화로 보호하는 시대
+
+이러한 환경에서 클라우드 시큐리티 8기는 **실무에서 바로 적용 가능한 최신 보안 역량**을 제공합니다.
+
+### 2.2 AWS re:Invent 2025 발표와 커리큘럼 연계
+
+AWS re:Invent 2025에서 발표된 최신 보안 서비스들을 커리큘럼에 반영했습니다:
+
+| AWS 신규 서비스 | 설명 | 관련 커리큘럼 |
+|---------------|------|-------------|
+| AWS Security Agent | AI 기반 자동 위협 대응 | 2주차 AWS 보안 아키텍처 |
+| Security Hub GA | 통합 보안 관리 허브 정식 출시 | 5주차 보안 도구 |
+| GuardDuty Extended Threat Detection | 확장된 위협 탐지 | 2주차 GuardDuty 심화 |
+| IAM Policy Autopilot | AI 기반 IAM 정책 자동 생성 | 2주차 IAM 보안 |
+| AgentCore Identity | AI 에이전트 전용 신원 관리 | 6주차 DevSecOps 심화 |
+
+## 3. 커리큘럼 상세
+
+### 3.1 전체 커리큘럼 개요
 
 클라우드 시큐리티 8기는 총 9주 과정으로 구성됩니다:
 
 | 주차 | 주제 | 핵심 내용 |
 |------|------|----------|
-| 1주차 | 인프라의 본질부터 보안의 미래까지 | 네트워크, 서버, 가상화 기초, 보안 트렌드 |
-| 2주차 | AWS 보안 아키텍처의 핵심 | VPC, IAM, S3, GuardDuty |
+| 1주차 | 인프라의 본질부터 보안의 미래까지 | 네트워크, 서버, 가상화 기초, 2025 보안 트렌드(AI 보안, Zero Trust) |
+| 2주차 | AWS 보안 아키텍처의 핵심 | VPC, IAM, S3, GuardDuty Extended, Security Agent |
 | 3주차 | AWS FinOps 및 ISMS-P | 비용 최적화, 거버넌스, 보안 감사 |
-| 4주차 | 통합 보안 취약점 점검 | 취약점 스캔, ISMS-P 인증 대응 |
-| 5주차 | AWS Control Tower 및 보안 도구 | Landing Zone, SCP, Datadog SIEM, Cloudflare |
-| 6주차 이후 | DevSecOps 심화 | CI/CD 보안, 컨테이너 보안, 통합 정리 |
+| 4주차 | 통합 보안 취약점 점검 | 취약점 스캔, ISMS-P 인증 대응, Supply Chain 보안 |
+| 5주차 | AWS Control Tower 및 보안 도구 | Landing Zone, SCP, Security Hub, Datadog SIEM, Cloudflare |
+| 6주차 이후 | DevSecOps 심화 | CI/CD 보안, 컨테이너 보안, AgentCore Identity, 통합 정리 |
 
-### 2.2 주요 학습 영역
+### 3.2 주요 학습 영역
 
 #### DevSecOps 영역
 

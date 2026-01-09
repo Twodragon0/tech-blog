@@ -385,8 +385,167 @@ Cloudflare는 전 세계에 분산된 CDN 및 보안 서비스를 제공하는 �
 - **Rate Limiting 조정**: 정상 트래픽에 영향 최소화
 - **캐싱 전략**: 성능과 보안의 균형
 
+## 9. 2025년 AWS 거버넌스 업데이트
+
+2025년에 발표된 AWS 거버넌스 관련 주요 업데이트를 정리합니다. 이 업데이트들은 Control Tower 및 SCP 기반 거버넌스를 더욱 강화합니다.
+
+### 9.1 AWS Organizations 계정 마이그레이션 개선
+
+기존에는 AWS 계정을 다른 조직으로 이동하려면 먼저 standalone 계정으로 분리한 후 다시 새 조직에 가입해야 했습니다. **2025년 업데이트로 이제 계정을 standalone으로 분리하지 않고도 조직 간 직접 이동이 가능**해졌습니다.
+
+**주요 이점:**
+- 계정 이동 과정 단순화
+- 다운타임 최소화
+- M&A 또는 조직 재구성 시 효율성 향상
+
+**Control Tower와의 연계:**
+- Control Tower로 관리되는 계정도 직접 이동 가능
+- 이동 시 기존 Guardrails 및 SCP 자동 재적용 옵션
+
+### 9.2 AgentCore Identity - AI 에이전트 접근 제어
+
+AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도입하여 AI 에이전트에 대한 세밀한 접근 제어를 제공합니다.
+
+**주요 기능:**
+- AI 에이전트별 IAM 역할 및 정책 할당
+- 에이전트 행위 감사 및 추적
+- 최소 권한 원칙을 AI 워크로드에 적용
+- Control Tower와 통합하여 멀티 계정 환경에서 AI 거버넌스 관리
+
+**SCP 적용 예시 - AI 에이전트 리전 제한:**
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": [
+        "bedrock:*",
+        "sagemaker:*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:RequestedRegion": ["ap-northeast-2", "us-east-1"]
+        },
+        "StringLike": {
+          "aws:PrincipalTag/AgentType": "AI-*"
+        }
+      }
+    }
+  ]
+}
+```
+
+### 9.3 IAM Policy Autopilot
+
+**IAM Policy Autopilot**은 오픈소스 도구로, 애플리케이션 코드를 분석하여 IAM 정책을 자동으로 생성합니다.
+
+**동작 방식:**
+1. 애플리케이션 소스 코드 분석
+2. AWS SDK 호출 패턴 식별
+3. 필요한 최소 권한 IAM 정책 자동 생성
+4. 기존 정책과의 차이 분석 및 권장 사항 제공
+
+**사용 예시:**
+```bash
+# IAM Policy Autopilot 실행
+iam-policy-autopilot analyze --source ./my-app --output policy.json
+
+# 기존 정책과 비교
+iam-policy-autopilot diff --current current-policy.json --recommended policy.json
+```
+
+**SCP와의 연계:**
+- Autopilot이 생성한 정책이 SCP와 충돌하는지 자동 검증
+- Control Tower Guardrails와의 호환성 검사
+
+### 9.4 보안 모니터링 강화
+
+#### AWS Security Hub GA
+
+AWS Security Hub가 GA(General Availability)로 출시되어 **멀티 계정 보안 현황을 통합 관리**할 수 있게 되었습니다.
+
+**주요 기능:**
+- Control Tower와 자동 통합
+- 모든 멤버 계정의 보안 상태 중앙 집중 관리
+- 자동화된 보안 점수 산정
+- 규정 준수 상태 대시보드
+
+**Datadog SIEM과의 통합:**
+```yaml
+# Datadog에서 Security Hub 데이터 수집 설정
+security_hub_integration:
+  enabled: true
+  accounts:
+    - management_account
+    - security_tooling_account
+  findings_filter:
+    severity: ["CRITICAL", "HIGH", "MEDIUM"]
+  sync_interval: 5m
+```
+
+#### GuardDuty Extended Threat Detection
+
+GuardDuty가 **Extended Threat Detection** 기능을 추가하여 EC2 및 ECS 환경에서의 위협 시퀀스를 탐지합니다.
+
+**탐지 가능한 위협:**
+- 다단계 공격 시퀀스 식별
+- EC2 인스턴스 내 악성 행위 패턴
+- ECS 컨테이너 런타임 위협
+- 내부자 위협 및 측면 이동 탐지
+
+**Datadog SIEM 연동 탐지 규칙:**
+```yaml
+detection_rule:
+  name: "GuardDuty Extended Threat - Multi-stage Attack"
+  query: |
+    source:aws.guardduty
+    @threat.type:extended_threat_detection
+    @severity:(high OR critical)
+  threshold:
+    count: 1
+    timeframe: 5m
+  notification:
+    - slack
+    - pagerduty
+```
+
+### 9.5 통합 거버넌스 아키텍처 (2025년 업데이트 반영)
+
+```
+[AWS Organizations]
+    ├── Account Migration (직접 이동 지원)
+    └── [Control Tower]
+            ├── Guardrails
+            ├── SCP
+            └── Account Factory
+                    ↓
+        [AgentCore Identity] ← AI 워크로드 거버넌스
+                    ↓
+        [Security Hub GA] ← 통합 보안 현황
+                    ↓
+        [GuardDuty Extended] ← EC2/ECS 위협 시퀀스
+                    ↓
+        [Datadog SIEM] ← 통합 모니터링
+                    ↓
+        [IAM Policy Autopilot] ← 정책 자동화
+```
+
+### 9.6 2025년 업데이트 적용 권장 사항
+
+| 업데이트 | 적용 대상 | 우선순위 | 예상 효과 |
+|---------|----------|---------|----------|
+| 계정 직접 이동 | 조직 재구성 계획 있는 경우 | 중 | 마이그레이션 시간 50% 단축 |
+| AgentCore Identity | AI/ML 워크로드 운영 중인 경우 | 상 | AI 거버넌스 체계 확립 |
+| IAM Policy Autopilot | 모든 환경 | 상 | 과도한 권한 80% 이상 감소 |
+| Security Hub GA | Control Tower 사용 환경 | 상 | 보안 가시성 향상 |
+| GuardDuty Extended | EC2/ECS 운영 환경 | 상 | 고급 위협 탐지 능력 향상 |
+
 ## 결론
 
 AWS Control Tower와 SCP를 통한 거버넌스, Datadog SIEM을 통한 보안 모니터링, Cloudflare를 통한 웹 보안은 현대적인 클라우드 보안 아키텍처의 핵심 요소입니다.
+
+2025년에 발표된 AWS 거버넌스 업데이트(Organizations 계정 직접 이동, AgentCore Identity, IAM Policy Autopilot, Security Hub GA, GuardDuty Extended Threat Detection)를 통해 더욱 효율적인 멀티 계정 관리와 강화된 보안 모니터링이 가능해졌습니다.
 
 이러한 도구들을 올바르게 구성하고 운영하면 멀티 계정 환경에서도 일관된 보안과 컴플라이언스를 유지할 수 있으며, 위협을 신속하게 탐지하고 대응할 수 있습니다.
