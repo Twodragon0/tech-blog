@@ -7,6 +7,7 @@ categories: [DevSecOps, Security]
 tags: [DevSecOps, Automotive-Security, Connected-Car, SAST, DAST, SBOM, Supply-Chain-Security]
 excerpt: "자동차 산업의 디지털화와 커넥티드 카 기술의 발전으로 인해 차량 보안의 중요성이 더욱 부각되고 있습니다. 전통적인 소프트웨어 개발 방식에서는 보안이 개발의 마지막 단계에서 고려되었지만, 이는 빠르게 변화하는 자동차 기술 환경에서 효과적이지 않습니다. DevSecOps는 개발 초기 단계부터 보안을 통합하여 보안 취약점을 조기에 발견하고 해결함으로써, 안전한 소프트웨어를 신속하게 제공할 수 있도록 합니다."
 comments: true
+image: /assets/images/2026-01-06-DevSecOps가_바라보는_자동차_보안_완벽_가이드.svg
 ---
 
 <div class="ai-summary-card">

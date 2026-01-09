@@ -10,6 +10,28 @@
   border-bottom: 1px solid var(--border);
 }
 
+.post-image {
+  position: relative;
+  width: 100%;
+  margin-bottom: $spacing-lg;
+  border-radius: $radius-md;
+  overflow: hidden;
+  
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: $radius-md;
+    box-shadow: $shadow-md;
+    transition: transform $transition-base, box-shadow $transition-base;
+  }
+  
+  &:hover img {
+    transform: scale(1.02);
+    box-shadow: $shadow-lg;
+  }
+}
+
 .post-category {
   margin-bottom: $spacing-md;
 }
