@@ -23,34 +23,19 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
-          bundler-cache: false
-
-      - name: Install dependencies
-        run: bundle install
+          ruby-version: '3.3'
+          bundler-cache: true
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
 
-      - name: Debug - List posts
-        run: |
-          echo "=== Posts directory ==="
-          ls -la _posts/
-          echo "=== First post content (first 20 lines) ==="
-          head -20 _posts/*.md | head -50
-
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --verbose
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-
-      - name: Debug - Check built files
-        run: |
-          echo "=== Built site structure ==="
-          ls -la _site/
-          echo "=== Index.html first 100 lines ==="
-          head -100 _site/index.html
+          LANG: en_US.UTF-8
+          LC_ALL: en_US.UTF-8
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
