@@ -9,7 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/702
 image: /assets/images/2025-12-05-클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복.svg
 ---
---
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

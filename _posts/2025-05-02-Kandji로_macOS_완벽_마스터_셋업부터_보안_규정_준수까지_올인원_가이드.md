@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/680
 image: /assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_보안_규정_준수까지_올인원_가이드.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/704
 image: /assets/images/2025-12-17-12월_컨퍼런스_회고_AWSKRUG_OWASP_Datadog으로_미리_보는_2025년_AI와_보안의_공존.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

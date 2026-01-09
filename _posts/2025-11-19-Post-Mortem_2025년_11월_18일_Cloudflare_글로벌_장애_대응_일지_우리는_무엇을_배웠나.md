@@ -10,7 +10,6 @@ toc: true
 original_url: https://twodragon.tistory.com/699
 image: /assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글로벌_장애_대응_일지_우리는_무엇을_배웠나.svg
 ---
---
 
 <div class="ai-summary-card">
 <div class="ai-summary-header">

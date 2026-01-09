@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/684
 image: /assets/images/2025-05-23-클라우드_시큐리티_과정_7기_-_6주차_Cloudflare_및_github_보안.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

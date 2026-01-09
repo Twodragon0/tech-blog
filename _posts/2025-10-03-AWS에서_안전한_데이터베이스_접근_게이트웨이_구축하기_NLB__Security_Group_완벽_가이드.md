@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/696
 image: /assets/images/2025-10-03-AWS에서_안전한_데이터베이스_접근_게이트웨이_구축하기_NLB__Security_Group_완벽_가이드.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

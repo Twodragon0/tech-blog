@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/687
 image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

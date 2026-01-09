@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/685
 image: /assets/images/2025-05-24-Amazon_Q_Developer와_GitHub_Advanced_Security를_활용한_코드_보안_강화_및_AWS_최적화.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

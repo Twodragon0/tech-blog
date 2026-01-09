@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/688
 image: /assets/images/2025-06-05-이메일_발송_신뢰도_높이기_SendGrid_SPF_DKIM_DMARC_설정_완벽_가이드.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

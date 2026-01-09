@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/683
 image: /assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차_AWS_Control_Tower_및_ZTNA.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

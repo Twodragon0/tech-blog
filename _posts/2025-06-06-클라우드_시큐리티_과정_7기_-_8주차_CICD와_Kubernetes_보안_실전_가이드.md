@@ -10,7 +10,6 @@ toc: true
 original_url: https://twodragon.tistory.com/689
 image: /assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드.svg
 ---
---
 
 <div class="ai-summary-card">
 <div class="ai-summary-header">

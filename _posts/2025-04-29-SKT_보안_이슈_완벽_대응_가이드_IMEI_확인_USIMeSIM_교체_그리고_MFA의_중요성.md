@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/677
 image: /assets/images/2025-04-29-SKT_보안_이슈_완벽_대응_가이드_IMEI_확인_USIMeSIM_교체_그리고_MFA의_중요성.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

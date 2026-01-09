@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/697
 image: /assets/images/2025-10-31-AI_시대_당신의_amplsquo비서amprsquo가_amplsquo보안_구멍amprsquo이_되지_않도록_기업을_위한_AI_서비스_보안_가이드.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

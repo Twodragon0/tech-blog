@@ -10,7 +10,6 @@ comments: true
 original_url: https://twodragon.tistory.com/698
 image: /assets/images/2025-11-04-Zscaler_완벽_가이드_SSL_검사_샌드박스_AI_광고_유해_사이트_완벽_차단.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

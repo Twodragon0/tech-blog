@@ -9,7 +9,6 @@ comments: true
 original_url: https://twodragon.tistory.com/703
 image: /assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략.svg
 ---
---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
