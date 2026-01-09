@@ -1,0 +1,62 @@
+name: Share to SNS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '_posts/**'
+
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check for new posts
+        id: check_posts
+        run: |
+          # Get the list of added/modified posts in this push
+          NEW_POSTS=$(git diff --name-only HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          if [ -z "$NEW_POSTS" ]; then
+            echo "No new posts found"
+            echo "has_new_posts=false" >> $GITHUB_OUTPUT
+          else
+            echo "New posts found: $NEW_POSTS"
+            echo "has_new_posts=true" >> $GITHUB_OUTPUT
+            # Get the most recent new post
+            LATEST_POST=$(echo "$NEW_POSTS" | head -1)
+            echo "latest_post=$LATEST_POST" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set up Python
+        if: steps.check_posts.outputs.has_new_posts == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        if: steps.check_posts.outputs.has_new_posts == 'true'
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Share to SNS
+        if: steps.check_posts.outputs.has_new_posts == 'true'
+        env:
+          # Twitter/X API
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+          # Facebook
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          # LinkedIn
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_ID: ${{ secrets.LINKEDIN_PERSON_ID }}
+          # Site URL
+          SITE_URL: "https://tech.2twodragon.com"
+        run: |
+          python scripts/share_sns.py "${{ steps.check_posts.outputs.latest_post }}"
