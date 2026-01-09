@@ -7,7 +7,7 @@ layout: default
   <header class="post-header">
     {% if page.image %}
     <div class="post-image">
-      <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="clickable-image" data-full-src="{{ page.image | relative_url }}" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in;">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="clickable-image" data-full-src="{{ page.image | relative_url }}" loading="eager" decoding="async" fetchpriority="high" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in;">
     </div>
     {% endif %}
 

@@ -3,7 +3,7 @@
   <a href="{{ post.url | relative_url }}" class="post-card-inner">
     {% if post.image and post.image != "" %}
     <div class="post-card-image">
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy">
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async">
     </div>
     {% endif %}
 

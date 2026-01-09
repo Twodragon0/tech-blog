@@ -22,4 +22,4 @@ Allow: /assets/
 Allow: /posts/
 
 # Sitemap location
-Sitemap: https://Twodragon0.github.io/tech-blog/sitemap.xml
+Sitemap: https://tech.2twodragon.com/sitemap.xml
