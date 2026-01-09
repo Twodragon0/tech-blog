@@ -1,8 +1,15 @@
 {
   "framework": null,
-  "buildCommand": "rm -rf _site .jekyll-cache && LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll build --trace",
+  "buildCommand": "rm -rf _site .jekyll-cache && LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 BUNDLE_SILENCE_ROOT_WARNING=1 bundle exec jekyll build --trace",
   "outputDirectory": "_site",
-  "installCommand": "bundle install",
+  "installCommand": "gem install bundler && bundle config set --local path 'vendor/bundle' && bundle install --jobs 4 --retry 3",
+  "build": {
+    "env": {
+      "LANG": "en_US.UTF-8",
+      "LC_ALL": "en_US.UTF-8",
+      "JEKYLL_ENV": "production"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",

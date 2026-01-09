@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
-ruby "~> 3.3.0"
+# Vercel에서 지원하는 Ruby 버전 사용
+ruby ">= 2.7.0"
 
 gem "jekyll", "~> 4.3"
 
