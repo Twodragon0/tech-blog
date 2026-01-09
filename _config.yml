@@ -156,6 +156,7 @@ exclude:
   - .vercel
   - scripts/
   - "*.log"
+  - build.sh
 
 # Build optimization
 keep_files: []

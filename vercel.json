@@ -1,12 +1,13 @@
 {
   "framework": null,
-  "buildCommand": "LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll build",
+  "buildCommand": "chmod +x build.sh && ./build.sh",
   "outputDirectory": "_site",
   "installCommand": "bundle install",
   "build": {
     "env": {
-      "LANG": "en_US.UTF-8",
-      "LC_ALL": "en_US.UTF-8",
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "LANGUAGE": "C.UTF-8",
       "JEKYLL_ENV": "production"
     }
   },
