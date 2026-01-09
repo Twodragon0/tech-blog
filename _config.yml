@@ -152,6 +152,15 @@ exclude:
   - .gitignore
   - README.md
   - LICENSE
+  - vercel.json
+  - .vercel
+  - "*.md"
+  - scripts/
+
+# Build optimization
+keep_files: []
+incremental: false
+safe: false
 
 # Sass (not used - using CSS directly)
 # sass:

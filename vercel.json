@@ -1,6 +1,30 @@
 {
   "framework": null,
-  "buildCommand": "LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll build",
+  "buildCommand": "rm -rf _site .jekyll-cache && LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 bundle exec jekyll build --trace",
   "outputDirectory": "_site",
-  "installCommand": "bundle install"
+  "installCommand": "bundle install",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*).html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ],
+  "trailingSlash": true,
+  "cleanUrls": true
 }
