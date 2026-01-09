@@ -64,7 +64,7 @@ toc: true
 
 ## 서론
 
-블록체인과 암호화폐 생태계가 급속도로 성장하면서, 보안은 더욱 중요한 이슈로 부상하고 있습니다. **2024년 한 해 동안만도 스마트 컨트랙트 취약점으로 인한 수십억 달러 규모의 자산 손실**이 발생했으며, 프라이빗 키 유출, 거래소 해킹, 랜섬웨어 공격 등 다양한 보안 위협이 지속적으로 증가하고 있습니다.
+블록체인과 암호화폐 생태계가 급속도로 성장하면서, 보안은 더욱 중요한 이슈로 부상하고 있습니다. **2025년에는 약 34억 달러 이상의 암호화폐가 해킹으로 탈취**되었으며, 특히 2025년 2월 Bybit 거래소에서 발생한 **15억 달러 규모의 해킹**은 역대 최대 규모의 암호화폐 해킹 사건으로 기록되었습니다. 북한의 Lazarus 그룹이 배후로 지목된 이 사건은 콜드 월렛까지 침해당할 수 있음을 보여주었습니다.
 
 > **⚠️ 보안 주의사항**
 > 
@@ -116,10 +116,19 @@ toc: true
 | **거래소 해킹** | 약 30% | 핫 월렛 해킹, 내부자 공격 |
 | **지갑 보안** | 약 10% | 프라이빗 키 유출, Phishing |
 
-**2024년 보안 사고 현황:**
-- 총 손실 규모: **약 20억 달러** (주로 DeFi 프로토콜)
-- 평균 사고 규모: 약 1,000만 달러
-- 가장 큰 단일 사고: 약 1억 달러
+**2024-2025년 주요 보안 사고:**
+
+| 사건 | 날짜 | 손실 규모 | 공격 유형 |
+|------|------|----------|----------|
+| **Bybit 해킹** | 2025년 2월 | $15억 | 콜드 월렛 침해 (북한 Lazarus) |
+| **Cetus DEX** | 2025년 | $2.23억 | 스마트 컨트랙트 취약점 |
+| **DMM Bitcoin** | 2024년 | $3.05억 | 거래소 해킹 |
+| **Phemex** | 2025년 | $7,300만 | 거래소 해킹 |
+
+**2025년 보안 사고 현황:**
+- 총 손실 규모: **약 34억 달러** (전년 대비 증가)
+- 북한 해커 관련 손실: **약 20.2억 달러** (전년 대비 51% 증가)
+- 가장 큰 단일 사고: **15억 달러** (Bybit)
 
 > **💡 실무 팁**
 > 
@@ -301,7 +310,7 @@ manticore contracts/MyContract.sol
 
 #### Foundry (Paradigm)
 
-**Foundry**는 빠른 Rust 기반 테스팅 프레임워크로, Fuzz 테스팅을 지원합니다.
+**Foundry**는 빠른 Rust 기반 테스팅 프레임워크로, Fuzz 테스팅을 지원합니다. 테스트 함수에 매개변수를 추가하면 자동으로 속성 기반 퍼즈 테스트로 실행됩니다.
 
 ```bash
 # Foundry 설치
@@ -310,7 +319,31 @@ foundryup
 
 # Fuzz 테스트 실행
 forge test --fuzz-runs 10000
+
+# Invariant 테스트 실행
+forge test --match-test invariant
 ```
+
+#### Medusa (Trail of Bits) - 2025년 신규
+
+**Medusa**는 Trail of Bits에서 2025년에 출시한 차세대 스마트 컨트랙트 퍼저입니다. Echidna의 후속작으로, Go로 작성되어 유지보수가 용이하고 Geth 기반으로 EVM 호환성이 뛰어납니다.
+
+**주요 특징:**
+- **커버리지 기반 퍼징**: 코드 커버리지를 추적하여 더 효과적인 테스트
+- **병렬 퍼징**: 멀티코어를 활용한 고속 테스트
+- **스마트 변이 생성**: Slither와 연동하여 런타임 값 기반 최적화된 입력 생성
+
+```bash
+# Medusa 설치
+go install github.com/crytic/medusa@latest
+
+# 퍼징 실행
+medusa fuzz --target-contracts MyContract
+```
+
+> **💡 2025년 권장사항**
+>
+> Trail of Bits는 Echidna의 유지보수를 최소화하고 **Medusa**에 집중할 예정입니다. 새로운 프로젝트는 Medusa 사용을 권장합니다.
 
 ## 3. DevSecOps 파이프라인 통합
 
@@ -483,38 +516,54 @@ contract SecureContract {
 #### Integer Overflow 방어
 
 ```solidity
-// ✅ SafeMath 사용 (Solidity 0.8.0 이상에서는 자동 체크)
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-
+// ✅ Solidity 0.8.0+ 에서는 기본적으로 오버플로우 체크가 활성화됨
 contract SafeMathExample {
-    using SafeMath for uint256;
-    
     function add(uint256 a, uint256 b) public pure returns (uint256) {
-        return a.add(b); // 자동으로 overflow 체크
+        return a + b; // 0.8.0+ 에서는 자동으로 overflow 체크
+    }
+
+    // 가스 최적화가 필요한 경우 unchecked 블록 사용
+    function unsafeAdd(uint256 a, uint256 b) public pure returns (uint256) {
+        unchecked {
+            return a + b; // 오버플로우 체크 비활성화 (주의 필요)
+        }
     }
 }
+
+// ⚠️ Solidity 0.8.0 미만 버전은 SafeMath 사용 필수
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 ```
+
+> **💡 2025년 권장사항**
+>
+> Solidity 0.8.0 이상 버전을 사용하세요. 내장 오버플로우 체크로 SafeMath 없이도 안전합니다.
 
 #### Access Control 강화
 
 ```solidity
-// ✅ OpenZeppelin의 AccessControl 사용
+// ✅ OpenZeppelin Contracts 5.0+ AccessControl 사용
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 contract SecureContract is AccessControl {
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
     bytes32 public constant OPERATOR_ROLE = keccak256("OPERATOR_ROLE");
-    
-    constructor() {
-        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _grantRole(ADMIN_ROLE, msg.sender);
+
+    // ⚠️ OpenZeppelin 5.0부터는 배포자에게 자동 역할 할당이 제거됨
+    // 명시적으로 역할을 할당해야 함
+    constructor(address admin) {
+        _grantRole(DEFAULT_ADMIN_ROLE, admin);
+        _grantRole(ADMIN_ROLE, admin);
     }
-    
+
     function sensitiveFunction() public onlyRole(ADMIN_ROLE) {
         // 관리자만 실행 가능
     }
 }
 ```
+
+> **⚠️ OpenZeppelin 5.0 변경사항**
+>
+> OpenZeppelin Contracts 5.0부터 배포자에게 역할이 자동 할당되지 않습니다. 생성자에서 **명시적으로 역할을 할당**해야 합니다. 이는 2025년 상반기에만 **16억 달러** 이상의 손실을 초래한 접근 제어 취약점(OWASP Web3 Top 10 1위)을 방지하기 위한 조치입니다.
 
 ### 4.2 설계 레벨 보안
 
@@ -720,6 +769,35 @@ contract SecureContract {
 ## 7. 거래소 보안
 
 거래소 보안은 사용자 자산 보호의 핵심입니다. 자금 분리, 접근 제어, 모니터링, 그리고 API 보안을 종합적으로 고려해야 합니다.
+
+### 7.0 사례 연구: 2025년 Bybit 해킹 ($15억)
+
+2025년 2월 21일, 세계 최대 암호화폐 거래소 중 하나인 Bybit에서 **약 15억 달러(401,000 ETH)** 규모의 해킹이 발생했습니다. 이는 역대 최대 규모의 암호화폐 해킹 사건입니다.
+
+#### 공격 방법
+
+1. **프론트엔드 코드 변조**: 공격자는 악성 JavaScript를 프론트엔드 코드에 주입
+2. **콜드 월렛 트랜잭션 조작**: 정상적인 핫 월렛 이체로 보이도록 위장
+3. **서명 유도**: Bybit이 악성 트랜잭션에 무의식적으로 서명하도록 유도
+4. **자금 탈취**: 약 401,000 ETH를 공격자 주소로 이체
+
+#### 배후 및 영향
+
+- **배후**: FBI는 북한의 **Lazarus 그룹**을 공격자로 지목 (TraderTraitor 캠페인)
+- **시장 영향**: 이더리움 가격 24% 하락, 비트코인 $90,000 이하로 하락
+- **대응**: Bybit은 미공개 파트너로부터 브릿지 론을 확보하여 손실 보전
+
+#### 교훈
+
+| 취약점 | 교훈 | 대응 방안 |
+|-------|------|----------|
+| **프론트엔드 보안** | 서명 UI도 공격 대상 | 코드 무결성 검증, CSP 강화 |
+| **콜드 월렛 과신** | 콜드 월렛도 완벽하지 않음 | 다중 서명, 에어갭 검증 |
+| **공급망 보안** | 의존성 취약점 위험 | SCA 도구 활용, 의존성 최소화 |
+
+> **⚠️ 핵심 교훈**
+>
+> Bybit 해킹은 **콜드 월렛도 프론트엔드 취약점으로 침해될 수 있음**을 보여주었습니다. 트랜잭션 서명 전 독립적인 검증 시스템이 필수입니다.
 
 ### 7.1 거래소 보안 아키텍처
 
@@ -1069,17 +1147,26 @@ contract SecureContract {
 ### GitHub 프로젝트
 - [Bitcoin Core](https://github.com/bitcoin/bitcoin)
 - [Ethereum](https://github.com/ethereum/go-ethereum)
-- [Slither](https://github.com/crytic/slither)
-- [Mythril](https://github.com/ConsenSys/mythril)
-- [Securify 2.0](https://github.com/eth-sri/securify2)
-- [Foundry](https://github.com/foundry-rs/foundry)
+- [Slither](https://github.com/crytic/slither) - 정적 분석 도구
+- [Mythril](https://github.com/ConsenSys/mythril) - 심볼릭 실행 분석
+- [Securify 2.0](https://github.com/eth-sri/securify2) - 패턴 기반 분석
+- [Foundry](https://github.com/foundry-rs/foundry) - Rust 기반 테스팅 프레임워크
+- [Medusa](https://github.com/crytic/medusa) - 차세대 퍼저 (2025년 출시)
+- [Echidna](https://github.com/crytic/echidna) - 속성 기반 테스팅
 
 ### 보안 가이드
 - [Consensys Best Practices](https://consensys.github.io/smart-contract-best-practices/)
-- [OpenZeppelin Security](https://docs.openzeppelin.com/contracts/security)
-- [Trail of Bits Security](https://github.com/trailofbits/publications)
+- [OpenZeppelin Contracts 5.x](https://docs.openzeppelin.com/contracts/5.x/)
+- [Trail of Bits Publications](https://github.com/trailofbits/publications)
+- [Building Secure Contracts](https://secure-contracts.com/)
 
-### 블록체인 보안 뉴스
-- [Rekt News](https://rekt.news/)
-- [DeFi Pulse](https://defipulse.com/)
-- [Blockchain Security](https://www.blockchain.com/security)
+### 블록체인 보안 뉴스 및 분석
+- [Rekt News](https://rekt.news/) - 해킹 사례 분석
+- [Chainalysis Blog](https://www.chainalysis.com/blog/) - 블록체인 분석
+- [TRM Labs Blog](https://www.trmlabs.com/resources/blog) - 위협 인텔리전스
+- [Immunefi](https://immunefi.com/) - 버그 바운티 플랫폼
+
+### 2025년 주요 보안 사고 참고
+- [Bybit Hack Analysis - Chainalysis](https://www.chainalysis.com/blog/bybit-exchange-hack-february-2025-crypto-security-dprk/)
+- [FBI PSA on Bybit Hack](https://www.ic3.gov/psa/2025/psa250226)
+- [2025 Crypto Theft Statistics - TechCrunch](https://techcrunch.com/2025/12/23/hackers-stole-over-2-7-billion-in-crypto-in-2025-data-shows/)
