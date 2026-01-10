@@ -138,6 +138,14 @@ twitter:
   card: "summary_large_image"
   username: "@Twodragon0"  # Twitter username (if available)
 
+# Google Services
+# Google Analytics - GA4 Measurement ID (G-XXXXXXXXXX) or Universal Analytics (UA-XXXXXXXXX-X)
+# google_analytics: "G-XXXXXXXXXX"
+
+# Google AdSense - Publisher ID (ca-pub-XXXXXXXXXX)
+# AdSense 계정에서 발급받은 Publisher ID를 입력하세요
+google_adsense: "ca-pub-6788271437088974"
+
 # Open Graph & Social Sharing
 # 기본 이미지는 SVG로 생성되며, PNG로 변환하려면 scripts/generate_og_image.py 실행
 og_image: "/assets/images/og-default.png"  # Default Open Graph image for social sharing (PNG 권장)
