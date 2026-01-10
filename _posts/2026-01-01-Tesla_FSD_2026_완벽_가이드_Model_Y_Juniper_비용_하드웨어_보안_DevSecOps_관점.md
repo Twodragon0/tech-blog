@@ -244,12 +244,13 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 
 **2026년 1월 1일 가격 인하 적용**:
 - 테슬라는 2026년 1월 1일부터 최대 940만원 가격 인하를 실시했습니다.
-- Model Y Juniper RWD는 기존 5,299만원에서 **4,999만원**으로 300만원 인하되었습니다.
+- Model Y Juniper Premium RWD는 기존 5,299만원에서 **4,999만원**으로 300만원 인하되었습니다.
+- Premium Long Range AWD는 **5,999만원**으로 책정되었습니다.
 
 | 모델 | 가격 (KRW) | 환율 기준 (USD) | 주행거리 | 0-100km/h | 특징 |
 |------|-----------|----------------|---------|-----------|------|
-| RWD | **4,999만원** | 약 $37,000 | 574km | - | 후륜 구동, 기본 모델 |
-| Long Range AWD | 약 6,314만원 | 약 $47,700 | 526km | 4.6초 | 사륜 구동, 향상된 성능 |
+| Premium RWD | **4,999만원** | 약 $37,000 | 574km | - | 후륜 구동, 기본 모델 |
+| Premium Long Range AWD | **5,999만원** | 약 $44,400 | 505km | 4.8초 | 사륜 구동, 향상된 성능 |
 | Performance AWD | 약 8,686만원 | 약 $65,600 | - | 3.5초 | 최고 성능, 510+ 마력 |
 
 **한국 전기차 보조금 정책** (2026년 기준):
@@ -260,8 +261,8 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 - **8,000만원 이상**: 보조금 **지원 제외**
 
 **국고 보조금** (해외 브랜드 기준):
-- Model Y Juniper RWD (4,999만원): 약 **188만원** (100% 지원, 5,000만원 미만)
-- Long Range AWD: 약 94만원 (50% 지원, 가격이 5,000만원 이상 8,000만원 미만인 경우)
+- Model Y Juniper Premium RWD (4,999만원): 약 **188만원** (100% 지원, 5,000만원 미만)
+- Premium Long Range AWD (5,999만원): 약 94만원 (50% 지원, 5,000만원 이상 8,000만원 미만)
 - Performance AWD: 보조금 제외 (8,000만원 이상)
 
 **지자체 보조금** (지역별 상이, 예시):
@@ -274,7 +275,9 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 - 내연기관차 폐차 또는 매각 후 전기차 구매 시: 최대 **100만원** 추가 지원
 - 조건: 3년 이상 된 내연기관차를 폐차/매각한 경우
 
-**실구매 가격 예시** (보조금 적용 후, Model Y Juniper RWD 4,999만원 기준):
+**실구매 가격 예시**:
+
+**Premium RWD (4,999만원 기준)**:
 
 | 지역 | 기본 가격 | 국고 보조금 | 지자체 보조금 | 전환 지원금 | 최종 가격 |
 |------|----------|-----------|-------------|-----------|---------|
@@ -282,7 +285,17 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 | 경기도 안성시 | 4,999만원 | -188만원 | -129만원 | -100만원 (조건부) | 약 4,582만원 |
 | 전라남도 해안 지역 | 4,999만원 | -188만원 | -700만원 | -100만원 (조건부) | 약 4,011만원 |
 
-> **참고**: 전환 지원금은 3년 이상 된 내연기관차 폐차/매각 후 전기차 구매 시에만 적용됩니다.
+**Premium Long Range AWD (5,999만원 기준)**:
+
+| 지역 | 기본 가격 | 국고 보조금 | 지자체 보조금 | 전환 지원금 | 최종 가격 |
+|------|----------|-----------|-------------|-----------|---------|
+| 서울시 | 5,999만원 | -94만원 (50%) | -19만원 | -100만원 (조건부) | 약 5,786만원 |
+| 경기도 안성시 | 5,999만원 | -94만원 (50%) | -129만원 | -100만원 (조건부) | 약 5,676만원 |
+| 전라남도 해안 지역 | 5,999만원 | -94만원 (50%) | -700만원 | -100만원 (조건부) | 약 5,105만원 |
+
+> **참고**: 
+> - 전환 지원금은 3년 이상 된 내연기관차 폐차/매각 후 전기차 구매 시에만 적용됩니다.
+> - Premium Long Range AWD는 5,000만원 이상이므로 국고 보조금이 50%로 감소합니다.
 
 #### 일본 시장 보조금 정책 (2026년 기준)
 
@@ -341,8 +354,8 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 | **미국** | Premium Long Range AWD (19인치) | $59,990 | $59,990 | 약 8,099만원 | 세금 공제 후 $52,490 |
 | **미국** | Premium Long Range AWD (20인치) | $62,561 | $62,561 | 약 8,446만원 | 세금 공제 후 $55,061 |
 | **미국** | Performance AWD | $57,990 | $57,990 | 약 7,829만원 | 세금 공제 후 $50,490 |
-| **한국** | RWD | 4,999만원 | 약 $37,000 | 4,999만원 | 보조금 적용 시 약 4,011만원~4,692만원 |
-| **한국** | Long Range AWD | 약 6,314만원 | 약 $47,700 | 약 6,314만원 | 보조금 50% 지원 가능 |
+| **한국** | Premium RWD | 4,999만원 | 약 $37,000 | 4,999만원 | 보조금 적용 시 약 4,011만원~4,692만원 |
+| **한국** | Premium Long Range AWD | 5,999만원 | 약 $44,400 | 5,999만원 | 보조금 50% 지원 가능 (약 94만원) |
 | **한국** | Performance AWD | 약 8,686만원 | 약 $65,600 | 약 8,686만원 | 보조금 제외 |
 | **일본** | RWD | 595만엔 | 약 $40,200 | 약 5,433만원 | 보조금 적용 시 약 510만엔~595만엔 |
 | **일본** | Long Range AWD | 683.9만엔 | 약 $46,200 | 약 6,233만원 | 보조금 적용 시 약 598.9만엔~683.9만엔 |
@@ -360,7 +373,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 | 모델 | 미국 | 한국 | 일본 | 중국 | 비고 |
 |------|------|------|------|------|------|
 | **RWD** | $49,990<br>(약 6,749만원)<br>세금 공제 후 $42,490 | 4,999만원<br>보조금 적용 시<br>4,011만원~4,692만원 | 595만엔<br>(약 5,433만원)<br>보조금 적용 시<br>510만엔~595만엔 | 26.35만 위안<br>(약 4,944만원)<br>보조금 적용 시<br>22.85만~25.35만 위안 | 한국이 미국 대비 약 25.9% 저렴<br>중국이 가장 저렴 (보조금 포함) |
-| **Long Range AWD** | $59,990~$62,561<br>(약 8,099만원~8,446만원)<br>세금 공제 후 $52,490~$55,061 | 약 6,314만원<br>보조금 50% 지원 가능 | 683.9만엔<br>(약 6,233만원)<br>보조금 적용 시<br>598.9만엔~683.9만엔 | 31.35만 위안<br>(약 5,882만원)<br>보조금 적용 시<br>27.85만~30.35만 위안 | 한국과 일본 가격 유사<br>미국 대비 약 22~28% 저렴 |
+| **Long Range AWD** | $59,990~$62,561<br>(약 8,099만원~8,446만원)<br>세금 공제 후 $52,490~$55,061 | 5,999만원<br>보조금 50% 지원 가능<br>(약 94만원) | 683.9만엔<br>(약 6,233만원)<br>보조금 적용 시<br>598.9만엔~683.9만엔 | 31.35만 위안<br>(약 5,882만원)<br>보조금 적용 시<br>27.85만~30.35만 위안 | 한국이 미국 대비 약 25.8% 저렴<br>일본과 가격 유사 |
 | **Performance AWD** | $57,990<br>(약 7,829만원)<br>세금 공제 후 $50,490 | 약 8,686만원<br>보조금 제외 | - | 36.35만 위안<br>(약 6,907만원)<br>보조금 적용 시<br>32.85만~35.35만 위안 | 한국이 약 11% 비쌈<br>(보조금 제외) |
 
 > **참고**: 각국 가격은 관세, 부가세, 운송비, 현지 세금 등이 포함된 가격입니다.
@@ -491,7 +504,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 | 메모리 보호 | 읽기/쓰기/실행 권한 제어 | 메모리 보호 설정 |
 | 감사 로그 | 메모리 할당 추적 | 모든 메모리 할당 이벤트 기록 |
 
-> **참고**: 실제 구현 예시는 [GitHub - Automotive Security Examples](https://github.com/example/automotive-security) 참조
+> **참고**: 자동차 보안 구현 관련 자세한 내용은 [Tesla Vehicle Command SDK](https://github.com/teslamotors/vehicle-command) 및 [Tesla GitHub](https://github.com/teslamotors) 참조
 
 ### 3.3 센서 시스템
 
@@ -570,7 +583,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 | 성능 저하 (Degraded) | 전환 준비 | 백업 시스템 활성화 준비 |
 | 장애 (Failed) | 즉시 전환 | 백업 시스템으로 자동 전환, 주 시스템 격리 |
 
-> **참고**: 실제 구현 예시는 [GitHub - Redundant System Architecture](https://github.com/example/redundant-systems) 참조
+> **참고**: 시스템 중복성 및 장애 대응 구현 관련 자세한 내용은 [Tesla GitHub](https://github.com/teslamotors) 및 [wolfBoot Secure Bootloader](https://github.com/wolfSSL/wolfBoot) 참조
 
 ## 4. 자동차 보안 취약점 및 DevSecOps 관점
 
@@ -608,7 +621,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 > - 루트 접근 시도는 실시간 모니터링 및 차단
 > - 정기적인 보안 감사 및 침투 테스트 수행
 
-> **참고**: 실제 구현 예시는 [GitHub - Infotainment Security](https://github.com/example/infotainment-security) 참조
+> **참고**: 인포테인먼트 시스템 보안 관련 자세한 내용은 [Tesla Linux Kernel](https://github.com/teslamotors/linux) 및 [Tesla Buildroot](https://github.com/teslamotors/buildroot) 참조
 
 ### 4.2 LTE 텔레매틱스 취약점
 
@@ -638,7 +651,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 - 연결 지연 이상
 - 위치 불일치
 
-> **참고**: 실제 구현 예시는 [GitHub - Telematics Security](https://github.com/example/telematics-security) 참조
+> **참고**: 텔레매틱스 보안 관련 자세한 내용은 [Tesla Vehicle Command SDK](https://github.com/teslamotors/vehicle-command) 참조
 
 ### 4.3 자율주행 시스템 위험
 
@@ -672,7 +685,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 | 불확실 | 센서 불일치 | 안전 모드: 속도 50% 감소, 차선 유지 |
 | 신뢰도 부족 | < 95% | 운전자에게 제어권 반환 요청 |
 
-> **참고**: 실제 구현 예시는 [GitHub - Autonomous Driving Safety](https://github.com/example/autonomous-safety) 참조
+> **참고**: 자율주행 시스템 안전 검증 관련 자세한 내용은 [Tesla Autopilot Open Source](https://www.tesla.com/en_in/legal/additional-resources) 참조
 
 ## 5. DevSecOps 관점에서의 테슬라 시스템 보안
 
@@ -705,7 +718,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 - [ ] 롤백 기능 활성화
 - [ ] 업데이트 실패 시 자동 롤백
 
-> **참고**: 실제 구현 예시는 [GitHub - Secure OTA Updates](https://github.com/example/secure-ota) 참조
+> **참고**: 보안 OTA 업데이트 구현 관련 자세한 내용은 [wolfBoot Secure Bootloader](https://github.com/wolfSSL/wolfBoot) 및 [Infineon OTA Examples](https://github.com/Infineon/mtb-t2g-example-aws-iot-ota-mqtt-ethernet-dualbank) 참조
 
 ### 5.2 소프트웨어 공급망 보안
 
@@ -729,7 +742,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 > **참고**: 
 > - [CycloneDX](https://github.com/CycloneDX/cyclonedx-cli) - SBOM 생성 도구
 > - [Grype](https://github.com/anchore/grype) - 취약점 스캐너
-> - 실제 구현 예시는 [GitHub - SBOM Examples](https://github.com/example/sbom-examples) 참조
+> - [SPDX Specification](https://spdx.dev/) - SBOM 표준 스펙
 
 ### 5.3 실시간 모니터링 및 대응
 
@@ -747,7 +760,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 - 이벤트 타입, 타임스탬프, 차량 ID, 심각도 정보 전송
 - 임계값 초과 시 자동 대응 실행
 
-> **참고**: 실제 구현 예시는 [GitHub - Vehicle Security Monitoring](https://github.com/example/vehicle-monitoring) 참조
+> **참고**: 차량 보안 모니터링 관련 자세한 내용은 [Tesla Vehicle Command SDK](https://github.com/teslamotors/vehicle-command) 참조
 
 ### 5.4 DevSecOps 파이프라인 통합
 
@@ -766,7 +779,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 - `main`, `develop` 브랜치에 push 시
 - `main` 브랜치로의 Pull Request 시
 
-> **참고**: 실제 GitHub Actions 워크플로우 예시는 [GitHub - Vehicle Software CI/CD](https://github.com/example/vehicle-cicd) 참조
+> **참고**: GitHub Actions 워크플로우 예시는 [GitHub Actions Documentation](https://docs.github.com/en/actions) 및 [Tesla GitHub](https://github.com/teslamotors) 참조
 
 ## 6. 2026년 한국 자동차 사이버보안 규제 및 테슬라 대응
 
@@ -858,29 +871,24 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 
 ### 7.1 자동차 보안 체크리스트
 
-**하드웨어 보안**:
-- [ ] Secure Boot 구현
-- [ ] 하드웨어 루트 오브 트러스트 (HWRoT)
-- [ ] 메모리 암호화 (TME, SME)
-- [ ] 물리적 탬퍼 감지
-
-**소프트웨어 보안**:
-- [ ] 코드 서명 및 검증
-- [ ] 애플리케이션 샌드박싱
-- [ ] 최소 권한 원칙 적용
-- [ ] 정기적인 보안 업데이트
-
-**네트워크 보안**:
-- [ ] TLS 1.3 강제
-- [ ] 인증서 고정 (Certificate Pinning)
-- [ ] VPN 지원
-- [ ] 방화벽 규칙 적용
-
-**데이터 보안**:
-- [ ] 저장 데이터 암호화
-- [ ] 전송 데이터 암호화
-- [ ] 키 관리 시스템 (KMS)
-- [ ] 데이터 보존 정책
+| 보안 영역 | 체크리스트 항목 | 설명 |
+|----------|---------------|------|
+| **하드웨어 보안** | Secure Boot 구현 | 부팅 시 펌웨어 무결성 검증 |
+| | 하드웨어 루트 오브 트러스트 (HWRoT) | 신뢰할 수 있는 하드웨어 기반 보안 체인 구축 |
+| | 메모리 암호화 (TME, SME) | Intel TME, AMD SME를 통한 메모리 데이터 보호 |
+| | 물리적 탬퍼 감지 | 하드웨어 변조 시도 탐지 및 대응 |
+| **소프트웨어 보안** | 코드 서명 및 검증 | 모든 소프트웨어 컴포넌트 디지털 서명 검증 |
+| | 애플리케이션 샌드박싱 | 애플리케이션 간 격리 및 권한 제한 |
+| | 최소 권한 원칙 적용 | 필요한 최소한의 권한만 부여 |
+| | 정기적인 보안 업데이트 | 취약점 패치 및 보안 강화 업데이트 |
+| **네트워크 보안** | TLS 1.3 강제 | 최신 암호화 프로토콜 사용 |
+| | 인증서 고정 (Certificate Pinning) | MITM 공격 방지를 위한 인증서 검증 |
+| | VPN 지원 | 안전한 원격 접근을 위한 VPN 통신 |
+| | 방화벽 규칙 적용 | 네트워크 트래픽 필터링 및 제어 |
+| **데이터 보안** | 저장 데이터 암호화 | 저장소 내 데이터 암호화 (AES-256 등) |
+| | 전송 데이터 암호화 | 네트워크 전송 중 데이터 암호화 |
+| | 키 관리 시스템 (KMS) | 암호화 키의 안전한 생성, 저장, 관리 |
+| | 데이터 보존 정책 | 데이터 수명 주기 관리 및 삭제 정책 |
 
 ### 7.2 보안 사고 대응 계획
 
@@ -950,3 +958,10 @@ DevSecOps 엔지니어로서, 자동차가 단순한 운송 수단을 넘어 **�
 | [KISA 자동차 사이버보안 가이드](https://www.kisa.or.kr) | 한국 자동차 사이버보안 가이드라인 | KISA (한국인터넷진흥원) |
 | [OWASP IoT Security Top 10](https://owasp.org/www-project-internet-of-things/) | IoT 보안 취약점 Top 10 | OWASP |
 | [DevSecOps가 바라보는 자동차 보안 완벽 가이드](https://tech.2twodragon.com/posts/2026/01/DevSecOps가_바라보는_자동차_보안_완벽_가이드/) | 자동차 보안 DevSecOps 가이드 | 2twodragon Tech Blog |
+| [Tesla GitHub](https://github.com/teslamotors) | 테슬라 오픈소스 프로젝트 | Tesla |
+| [Tesla Vehicle Command SDK](https://github.com/teslamotors/vehicle-command) | 차량 제어 보안 SDK | Tesla |
+| [Tesla Linux Kernel](https://github.com/teslamotors/linux) | 테슬라 리눅스 커널 소스 | Tesla |
+| [wolfBoot Secure Bootloader](https://github.com/wolfSSL/wolfBoot) | 보안 부트로더 구현 | wolfSSL |
+| [CycloneDX](https://github.com/CycloneDX/cyclonedx-cli) | SBOM 생성 도구 | OWASP |
+| [Grype](https://github.com/anchore/grype) | 취약점 스캐너 | Anchore |
+| [SPDX Specification](https://spdx.dev/) | SBOM 표준 스펙 | Linux Foundation |
