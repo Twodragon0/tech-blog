@@ -46,16 +46,10 @@
   {% comment %}포스트인 경우 자동 생성된 OG 이미지 찾기{% endcomment %}
   {% if page.layout == 'post' and og_image == nil %}
     {% assign post_slug = page.name | replace: '.md', '' | replace: '.html', '' %}
-    {% comment %}날짜 부분 제거 (YYYY-MM-DD- 형식) - Liquid는 정규식을 지원하지 않으므로 수동 처리{% endcomment %}
-    {% assign post_slug_clean = post_slug %}
-    {% if post_slug_clean contains '2026-01-10-' %}
-      {% assign post_slug_clean = post_slug_clean | remove_first: '2026-01-10-' %}
-    {% endif %}
-    {% comment %}한글 파일명 대신 영어 파일명 우선 시도 (보안 및 URL 인코딩 문제 방지){% endcomment %}
-    {% assign auto_og_image_english = '/assets/images/' | append: post_slug | append: '_og.png' %}
-    {% assign auto_og_image = '/assets/images/' | append: post_slug_clean | append: '_og.png' %}
-    {% comment %}영어 파일명 우선 확인, 없으면 한글 파일명 시도{% endcomment %}
-    {% assign og_image = auto_og_image_english %}
+    {% comment %}영어 파일명 우선 시도 (한글 파일명은 URL 인코딩 문제 발생 가능){% endcomment %}
+    {% comment %}실제 파일명 패턴: YYYY-MM-DD-Title_og.png (영어, 언더스코어 사용){% endcomment %}
+    {% assign auto_og_image = '/assets/images/' | append: post_slug | append: '_og.png' %}
+    {% assign og_image = auto_og_image %}
   {% endif %}
   
   {% if og_image == nil %}
@@ -117,18 +111,8 @@
   <!-- Preload Critical Resources -->
   <link rel="preload" href="{{ "/assets/css/main.css" | relative_url }}" as="style">
   <link rel="preload" href="{{ "/assets/js/main.js" | relative_url }}" as="script">
-  {% if og_image %}
-  {% comment %}OG 이미지가 실제로 존재하는 경우에만 preload{% endcomment %}
-  {% assign og_image_exists = false %}
-  {% if og_image_url %}
-    {% comment %}실제 파일 존재 여부는 확인 불가하므로, 일반적인 경우에만 preload{% endcomment %}
-    {% unless og_image contains 'og.png' or og_image contains 'og.jpg' or og_image contains 'og.webp' %}
-      {% comment %}명시적인 OG 이미지가 있는 경우에만 preload{% endcomment %}
-    {% else %}
-      <link rel="preload" href="{{ og_image_url }}" as="image" crossorigin="anonymous">
-    {% endunless %}
-  {% endif %}
-  {% endif %}
+  {% comment %}OG 이미지 preload는 제거 (404 오류 및 성능 문제 방지){% endcomment %}
+  {% comment %}OG 이미지는 메타 태그로만 사용하고, preload는 하지 않음{% endcomment %}
 
   <!-- DNS Prefetch for External Resources -->
   <link rel="dns-prefetch" href="https://giscus.app">
