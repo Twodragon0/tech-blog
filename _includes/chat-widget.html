@@ -1,0 +1,60 @@
+<!-- DeepSeek Chat Widget -->
+<div id="deepseek-chat-widget" class="chat-widget">
+  <!-- Chat Button (Floating) -->
+  <button id="chat-widget-toggle" class="chat-widget-toggle" aria-label="DeepSeek AI 채팅 열기">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <span class="chat-widget-badge">AI</span>
+  </button>
+
+  <!-- Chat Window -->
+  <div id="chat-widget-window" class="chat-widget-window" style="display: none;">
+    <div class="chat-widget-header">
+      <div class="chat-widget-header-content">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <h3>AI Assistant</h3>
+        <span class="chat-widget-subtitle">Powered by DeepSeek v3</span>
+      </div>
+      <button id="chat-widget-close" class="chat-widget-close" aria-label="채팅 닫기">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div id="chat-widget-messages" class="chat-widget-messages">
+      <div class="chat-message chat-message-assistant">
+        <div class="chat-message-content">
+          <p>안녕하세요! DevSecOps, 클라우드 보안, 인프라 자동화에 대해 궁금하신 점이 있으신가요? 질문해 주세요.</p>
+        </div>
+        <div class="chat-message-time">방금 전</div>
+      </div>
+    </div>
+
+    <div class="chat-widget-input-container">
+      <form id="chat-widget-form" class="chat-widget-form">
+        <input 
+          type="text" 
+          id="chat-widget-input" 
+          class="chat-widget-input" 
+          placeholder="질문을 입력하세요..." 
+          autocomplete="off"
+          aria-label="채팅 메시지 입력"
+        />
+        <button type="submit" id="chat-widget-send" class="chat-widget-send" aria-label="메시지 전송">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+      <p class="chat-widget-footer">
+        대화 내용은 서비스 개선을 위해 개인정보보호법에 따라 안전하게 저장됩니다
+      </p>
+    </div>
+  </div>
+</div>
