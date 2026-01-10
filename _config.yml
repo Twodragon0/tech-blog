@@ -20,6 +20,13 @@ author:
 # Build Settings
 markdown: kramdown
 highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+    span:
+      line_numbers: false
 theme: null
 plugins:
   - jekyll-feed

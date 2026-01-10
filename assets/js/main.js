@@ -484,52 +484,176 @@
     }
   };
 
-  // Copy Code Block Button
-  document.querySelectorAll('pre code').forEach(codeBlock => {
-    const pre = codeBlock.parentElement;
-    if (pre.tagName === 'PRE') {
-      const button = document.createElement('button');
-      button.className = 'copy-code-btn';
-      button.innerHTML = 'Copy';
-      button.setAttribute('aria-label', 'Copy code');
-      button.style.cssText = `
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        padding: 0.25rem 0.5rem;
-        background: var(--color-bg-secondary);
-        border: 1px solid var(--color-border);
-        border-radius: 4px;
-        font-size: 0.75rem;
-        cursor: pointer;
-        opacity: 0;
-        transition: opacity 0.2s;
-      `;
-      
-      pre.style.position = 'relative';
-      pre.appendChild(button);
-
-      pre.addEventListener('mouseenter', () => {
-        button.style.opacity = '1';
-      });
-
-      pre.addEventListener('mouseleave', () => {
-        button.style.opacity = '0';
-      });
-
-      button.addEventListener('click', async () => {
-        const text = codeBlock.textContent;
-        try {
-          await navigator.clipboard.writeText(text);
-          button.textContent = 'Copied!';
-          setTimeout(() => {
-            button.textContent = 'Copy';
-          }, 2000);
-        } catch (err) {
-          console.error('Failed to copy:', err);
-        }
-      });
+  // Enhanced Code Block with Language Label and Copy Button
+  document.querySelectorAll('.highlight, pre code').forEach(element => {
+    let highlightDiv, pre, codeBlock;
+    
+    // Handle both .highlight div and direct pre code
+    if (element.classList.contains('highlight')) {
+      highlightDiv = element;
+      pre = highlightDiv.querySelector('pre');
+      codeBlock = pre ? pre.querySelector('code') : null;
+    } else if (element.tagName === 'CODE' && element.parentElement.tagName === 'PRE') {
+      pre = element.parentElement;
+      codeBlock = element;
+      // Check if parent is .highlight
+      highlightDiv = pre.closest('.highlight');
+      if (!highlightDiv) {
+        // Wrap in highlight div if not already wrapped
+        highlightDiv = document.createElement('div');
+        highlightDiv.className = 'highlight';
+        pre.parentNode.insertBefore(highlightDiv, pre);
+        highlightDiv.appendChild(pre);
+      }
+    } else {
+      return;
     }
+
+    if (!codeBlock || !pre) return;
+
+    // Detect language from class names
+    // Rouge typically adds classes like: .highlight.python, .highlight .language-python, etc.
+    let language = 'code';
+    
+    // First, check code element classes (most common: language-xxx)
+    const codeClasses = Array.from(codeBlock.classList);
+    let langMatch = codeClasses.find(cls => 
+      cls.startsWith('language-') || 
+      /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
+    );
+    
+    if (langMatch) {
+      language = langMatch.replace('language-', '').toUpperCase();
+    } else {
+      // Check pre element classes
+      const preClasses = Array.from(pre.classList);
+      langMatch = preClasses.find(cls => 
+        cls !== 'highlight' && 
+        /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
+      );
+      
+      if (langMatch) {
+        language = langMatch.toUpperCase();
+      } else if (highlightDiv) {
+        // Check highlight div classes (Rouge often adds language class here)
+        const highlightClasses = Array.from(highlightDiv.classList);
+        langMatch = highlightClasses.find(cls => 
+          cls !== 'highlight' && 
+          /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
+        );
+        
+        if (langMatch) {
+          language = langMatch.toUpperCase();
+        }
+      }
+    }
+
+    // Language name mapping for better display
+    const langMap = {
+      'PYTHON': 'Python',
+      'JAVASCRIPT': 'JavaScript',
+      'JS': 'JavaScript',
+      'BASH': 'Bash',
+      'SH': 'Shell',
+      'YAML': 'YAML',
+      'YML': 'YAML',
+      'JSON': 'JSON',
+      'HTML': 'HTML',
+      'CSS': 'CSS',
+      'SQL': 'SQL',
+      'GO': 'Go',
+      'RUST': 'Rust',
+      'JAVA': 'Java',
+      'PHP': 'PHP',
+      'RUBY': 'Ruby',
+      'TYPESCRIPT': 'TypeScript',
+      'TS': 'TypeScript',
+      'DOCKERFILE': 'Dockerfile',
+      'DOCKER': 'Docker',
+      'MAKEFILE': 'Makefile',
+      'MAKE': 'Make',
+      'MARKDOWN': 'Markdown',
+      'MD': 'Markdown',
+      'XML': 'XML',
+      'INI': 'INI',
+      'TOML': 'TOML',
+      'PROPERTIES': 'Properties',
+      'CONF': 'Config',
+      'CONFIG': 'Config'
+    };
+    
+    const displayLang = langMap[language] || language;
+
+    // Set language attribute for CSS
+    if (highlightDiv) {
+      highlightDiv.setAttribute('data-lang', displayLang);
+    }
+
+    // Create copy button
+    const button = document.createElement('button');
+    button.className = 'copy-code-btn';
+    button.setAttribute('aria-label', 'Copy code to clipboard');
+    button.innerHTML = `
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    `;
+    
+    // Ensure highlight div is positioned relatively
+    if (highlightDiv) {
+      if (!highlightDiv.style.position) {
+        highlightDiv.style.position = 'relative';
+      }
+      highlightDiv.appendChild(button);
+    } else {
+      if (!pre.style.position) {
+        pre.style.position = 'relative';
+      }
+      pre.appendChild(button);
+    }
+
+    // Copy functionality
+    button.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const text = codeBlock.textContent || codeBlock.innerText;
+      
+      try {
+        await navigator.clipboard.writeText(text);
+        
+        // Update button state
+        const originalHTML = button.innerHTML;
+        button.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Copied!</span>
+        `;
+        button.style.color = 'var(--color-success, #10b981)';
+        button.style.borderColor = 'var(--color-success, #10b981)';
+        
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+          button.style.color = '';
+          button.style.borderColor = '';
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy:', err);
+        button.innerHTML = '<span>Error</span>';
+        button.style.color = 'var(--color-error, #ef4444)';
+        setTimeout(() => {
+          button.innerHTML = `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy</span>
+          `;
+          button.style.color = '';
+        }, 2000);
+      }
+    });
   });
 
   // Lazy Loading Images

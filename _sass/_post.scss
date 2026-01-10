@@ -135,17 +135,138 @@
   // Code Blocks with Syntax Highlighting
   .highlight {
     position: relative;
-    margin-bottom: $spacing-lg;
-    border-radius: $radius-md;
+    margin: $spacing-xl 0;
+    border-radius: $radius-lg;
     overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: $shadow-sm;
+    background-color: var(--code-bg);
+    transition: box-shadow $transition-base, border-color $transition-base;
+
+    &:hover {
+      box-shadow: $shadow-md;
+      border-color: var(--primary);
+      
+      .copy-code-btn {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+    }
+
+    // Code header with language label
+    &::before {
+      content: attr(data-lang);
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: $spacing-xs $spacing-md;
+      background-color: var(--bg-tertiary);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom-right-radius: $radius-sm;
+      z-index: 2;
+      opacity: 0.9;
+      font-family: $font-sans;
+    }
+
+    // Copy button styling
+    .copy-code-btn {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      padding: 0.375rem 0.75rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: $radius-sm;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      opacity: 0;
+      transition: all $transition-base;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--text-secondary);
+      z-index: 10;
+      backdrop-filter: blur(8px);
+      box-shadow: $shadow-sm;
+      transform: translateY(-2px);
+      font-family: $font-sans;
+
+      &:hover {
+        background: var(--bg-secondary);
+        color: var(--primary);
+        border-color: var(--primary);
+        transform: translateY(0);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      svg {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      span {
+        display: inline-block;
+      }
+    }
 
     pre {
       margin: 0;
+      padding: $spacing-lg;
       border: none;
       border-radius: 0;
+      overflow-x: auto;
+      background-color: transparent;
+      
+      // Scrollbar styling
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+      
+      &::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 4px;
+        
+        &:hover {
+          background: var(--text-tertiary);
+        }
+      }
+
+      code {
+        background: none;
+        padding: 0;
+        border-radius: 0;
+        font-size: 0.875rem;
+        line-height: 1.7;
+      }
     }
   }
 
+  // Inline code
+  code:not(pre code) {
+    font-family: $font-mono;
+    font-size: 0.875em;
+    background-color: var(--code-bg);
+    padding: 0.2em 0.4em;
+    border-radius: $radius-sm;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+  }
+
+  // Code header (for manual code blocks)
   .code-header {
     display: flex;
     justify-content: space-between;
@@ -154,6 +275,13 @@
     background-color: var(--bg-tertiary);
     font-size: 0.8rem;
     color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+
+    .code-lang {
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
     .copy-btn {
       background: none;
@@ -163,10 +291,18 @@
       padding: $spacing-xs $spacing-sm;
       border-radius: $radius-sm;
       font-size: 0.75rem;
+      transition: all $transition-fast;
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
 
       &:hover {
         background-color: var(--bg-secondary);
-        color: var(--text);
+        color: var(--primary);
+      }
+
+      &:active {
+        transform: scale(0.95);
       }
     }
   }
