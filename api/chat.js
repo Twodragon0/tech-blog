@@ -16,9 +16,10 @@
 
 // 최적화 설정
 const CONFIG = {
-  // Pro 플랜: 60초 제한, 안전하게 55초로 설정 (DeepSeek API 응답 시간 고려)
+  // 타임아웃 설정: 성능 최적화를 위해 30초로 단축
+  // Pro 플랜: 60초 제한, 안전하게 30초로 설정 (응답 시간 최적화)
   // Hobby 플랜 사용 시: 10초 제한, 9초로 설정 필요
-  TIMEOUT_MS: process.env.VERCEL_ENV === 'production' ? 55000 : 9000,
+  TIMEOUT_MS: process.env.VERCEL_ENV === 'production' ? 30000 : 9000,
   // Rate limiting (간단한 메모리 기반, 프로덕션에서는 Redis 권장)
   RATE_LIMIT: {
     MAX_REQUESTS: 15, // 세션당 최대 요청 수 (비용 최적화를 위해 증가)
@@ -26,7 +27,7 @@ const CONFIG = {
   },
   // 메시지 제한
   MAX_MESSAGE_LENGTH: 2000,
-  MAX_TOKENS: 1500, // 응답 품질 향상을 위해 증가 (비용 최적화는 Context Caching으로 보완)
+  MAX_TOKENS: 1000, // 응답 시간 최적화를 위해 1000으로 감소 (품질은 Context Caching으로 보완)
   // 대화 컨텍스트 설정 (비용 최적화: Context Caching 활용)
   MAX_CONVERSATION_HISTORY: 10, // 최대 대화 히스토리 수 (캐시 효율성 고려)
   // Off-peak 시간대 (UTC): 16:30-00:30 (50-75% 할인)
@@ -35,6 +36,8 @@ const CONFIG = {
   // 모델 선택: deepseek-chat (일반 작업) 또는 deepseek-chat-v3 (최신 모델)
   // 기본값: deepseek-chat (안정적이고 비용 효율적)
   MODEL: process.env.DEEPSEEK_MODEL || 'deepseek-chat', // 환경 변수로 모델 선택 가능
+  // 성능 모니터링 임계값
+  SLOW_REQUEST_THRESHOLD_MS: 5000, // 5초 이상인 경우만 로깅
 };
 
 // 간단한 메모리 기반 Rate Limiter (프리티어용)
@@ -249,13 +252,15 @@ export default async function handler(req, res) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), CONFIG.TIMEOUT_MS);
 
-    // API 요청 로깅 (디버깅용)
-    console.log('[Chat API] DeepSeek API 호출:', {
-      model: CONFIG.MODEL,
-      messageCount: messages.length,
-      hasApiKey: !!apiKey,
-      apiKeyPrefix: apiKey ? apiKey.substring(0, 7) + '...' : 'missing'
-    });
+    // API 요청 로깅 (개발 환경에서만 상세 로깅)
+    if (process.env.NODE_ENV === 'development') {
+      console.log('[Chat API] DeepSeek API 호출:', {
+        model: CONFIG.MODEL,
+        messageCount: messages.length,
+        hasApiKey: !!apiKey,
+        apiKeyPrefix: apiKey ? apiKey.substring(0, 7) + '...' : 'missing'
+      });
+    }
 
     const deepseekResponse = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
@@ -270,7 +275,7 @@ export default async function handler(req, res) {
         max_tokens: CONFIG.MAX_TOKENS,
         stream: false,
         // 응답 시간 최적화를 위한 추가 설정
-        top_p: 0.95, // 응답 다양성 조절
+        top_p: 0.9, // 응답 다양성 조절 (0.95 → 0.9로 감소하여 응답 생성 속도 향상)
         // Context Caching은 자동으로 작동하므로 별도 설정 불필요
         // 하지만 일관된 시스템 메시지와 대화 히스토리를 유지하면 캐시 히트율 향상
       }),
@@ -364,7 +369,7 @@ export default async function handler(req, res) {
     // XSS 방지를 위한 응답 정제
     const sanitizedResponse = sanitizeInput(response);
 
-    // 실행 시간 로깅 (프리티어 모니터링)
+    // 실행 시간 로깅 (성능 모니터링)
     const executionTime = Date.now() - startTime;
     
     // 비용 최적화 모니터링: 캐시 히트율 및 토큰 사용량 로깅
@@ -374,7 +379,15 @@ export default async function handler(req, res) {
     const totalCompletionTokens = data.usage?.completion_tokens || 0;
     const cacheHitRate = totalPromptTokens > 0 ? (cacheHitTokens / totalPromptTokens * 100).toFixed(1) : 0;
     
-    if (process.env.NODE_ENV === 'development' || executionTime > 5000) {
+    // 성능 모니터링: 느린 요청만 로깅 (프로덕션 최적화)
+    if (executionTime > CONFIG.SLOW_REQUEST_THRESHOLD_MS) {
+      console.log(`[Chat API] Execution time: ${executionTime}ms`);
+      console.log(`[Chat API] Token usage - Prompt: ${totalPromptTokens} (Cache hit: ${cacheHitTokens}, Miss: ${cacheMissTokens}), Completion: ${totalCompletionTokens}, Cache hit rate: ${cacheHitRate}%`);
+      if (isOffPeak) {
+        console.log(`[Chat API] Off-peak hours (UTC ${utcHour}:00) - 50-75% discount applied`);
+      }
+    } else if (process.env.NODE_ENV === 'development') {
+      // 개발 환경에서는 모든 요청 로깅
       console.log(`[Chat API] Execution time: ${executionTime}ms`);
       console.log(`[Chat API] Token usage - Prompt: ${totalPromptTokens} (Cache hit: ${cacheHitTokens}, Miss: ${cacheMissTokens}), Completion: ${totalCompletionTokens}, Cache hit rate: ${cacheHitRate}%`);
       if (isOffPeak) {
@@ -413,13 +426,12 @@ export default async function handler(req, res) {
 
     // 타임아웃 오류 처리
     if (error.name === 'AbortError' || error.name === 'TimeoutError') {
-      if (process.env.NODE_ENV === 'development') {
-        console.warn(`[Chat API] Timeout after ${executionTime}ms`);
-      }
+      console.warn(`[Chat API] Timeout after ${executionTime}ms (limit: ${CONFIG.TIMEOUT_MS}ms)`);
       
       return res.status(504).json({ 
         error: '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.',
-        timeout: true
+        timeout: true,
+        executionTime: executionTime
       });
     }
     
