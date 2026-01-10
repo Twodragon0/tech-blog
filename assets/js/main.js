@@ -1087,33 +1087,30 @@
               try {
                 const translated = await translateText(text, 'ko', targetLang);
                 if (translated && translated !== text) {
-                  // Preserve HTML structure if it exists
+                  // Security: Always use textContent instead of innerHTML to prevent XSS attacks
+                  // textContent automatically escapes HTML and prevents script injection
                   if (el.children.length > 0) {
-                    // Security: Use textContent instead of innerHTML to prevent XSS
-                    // Create a temporary text node to safely extract text content
-                    const tempDiv = document.createElement('div');
-                    tempDiv.textContent = translated; // Safe: textContent escapes HTML
-                    const safeTranslatedText = tempDiv.textContent;
-                    
-                    // Update child elements with translated text safely
+                    // For elements with children, update text content of each child safely
                     const children = Array.from(el.children);
-                    const translatedParts = safeTranslatedText.split(/\s+/);
-                    let partIndex = 0;
+                    // Split translated text by whitespace to distribute to children
+                    const words = translated.split(/\s+/);
+                    let wordIndex = 0;
                     
-                    children.forEach((child, idx) => {
-                      if (partIndex < translatedParts.length) {
-                        // Safely update text content without HTML interpretation
-                        child.textContent = translatedParts[partIndex] || child.textContent;
-                        partIndex++;
+                    children.forEach((child) => {
+                      if (wordIndex < words.length) {
+                        // Security: textContent escapes HTML, preventing XSS
+                        child.textContent = words[wordIndex];
+                        wordIndex++;
                       }
                     });
                     
-                    // If structure doesn't match, use safe textContent
-                    if (children.length !== translatedParts.length) {
-                      el.textContent = safeTranslatedText;
+                    // If we have remaining words or structure mismatch, update parent textContent
+                    if (wordIndex < words.length || children.length === 0) {
+                      // Security: textContent is safe - it escapes HTML automatically
+                      el.textContent = translated;
                     }
                   } else {
-                    // Safe: textContent automatically escapes HTML
+                    // Security: textContent automatically escapes HTML, preventing XSS
                     el.textContent = translated;
                   }
                 }
