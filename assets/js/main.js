@@ -30,8 +30,12 @@
       /Refused to connect.*violates.*Content Security Policy/i,
       /Refused to load.*violates.*Content Security Policy/i,
       /Loading the script.*violates.*Content Security Policy/i,
+      /Framing.*violates.*Content Security Policy/i,
       /Unchecked runtime\.lastError/i,
       /The message port closed before a response was received/i,
+      /Failed to load resource.*404/i,
+      /Failed to execute.*postMessage/i,
+      /The target origin provided.*does not match/i,
       /favicon\.png.*404/i,
       /favicon.*404/i,
       /apple-touch-icon.*404/i,
@@ -96,6 +100,38 @@
         replacement: {
           message: 'ℹ️ 콘텐츠 보안 정책',
           details: 'CSP 정책에 의해 일부 스크립트 로드가 차단되었습니다. 이는 정상적인 보안 동작입니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /Framing.*violates.*Content Security Policy/i,
+        replacement: {
+          message: 'ℹ️ 콘텐츠 보안 정책',
+          details: 'CSP 정책에 의해 일부 프레임 로드가 차단되었습니다. 이는 정상적인 보안 동작입니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /Failed to execute.*postMessage/i,
+        replacement: {
+          message: 'ℹ️ 브라우저 보안',
+          details: '브라우저 보안 정책에 의한 메시지입니다. 무시해도 됩니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /The target origin provided.*does not match/i,
+        replacement: {
+          message: 'ℹ️ 브라우저 보안',
+          details: '브라우저 보안 정책에 의한 메시지입니다. 무시해도 됩니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /Failed to load resource.*404/i,
+        replacement: {
+          message: 'ℹ️ 리소스 로드',
+          details: '일부 리소스를 불러올 수 없습니다. 무시해도 됩니다.',
           level: 'info'
         }
       },
@@ -1364,29 +1400,61 @@
     });
   })();
 
-  // Fix Korean image filename URL encoding
-  // 한글 파일명을 가진 이미지의 URL 인코딩 문제 해결
+  // Fix Korean image filename URL encoding and handle load errors
+  // 한글 파일명을 가진 이미지의 URL 인코딩 문제 해결 및 로드 에러 처리
   (function() {
     function fixImageUrls() {
-      const images = document.querySelectorAll('img.post-image, img[src*="assets/images"]');
+      const images = document.querySelectorAll('img.post-image, img[src*="assets/images"], img.clickable-image');
       images.forEach(img => {
+        // 이미지 로드 실패 시 조용히 처리 (404 에러 방지)
+        img.addEventListener('error', function() {
+          // 에러 발생 시 이미지를 숨기거나 대체 이미지 사용
+          // 콘솔 에러는 이미 필터링되므로 조용히 처리
+          this.style.display = 'none';
+          // 부모 요소도 숨기기 (post-image div)
+          const parent = this.closest('.post-image');
+          if (parent) {
+            parent.style.display = 'none';
+          }
+        }, { once: true });
+        
         const src = img.getAttribute('src');
-        if (src && /[가-힣]/.test(src)) {
+        const dataFullSrc = img.getAttribute('data-full-src');
+        
+        // src와 data-full-src 모두 처리
+        [src, dataFullSrc].forEach((currentSrc, index) => {
+          if (!currentSrc) return;
+          
+          // 이미 URL 인코딩된 경우 디코딩 후 다시 인코딩 (일관성 유지)
+          let decodedSrc = currentSrc;
+          try {
+            decodedSrc = decodeURIComponent(currentSrc);
+          } catch (e) {
+            // 디코딩 실패 시 원본 사용
+            decodedSrc = currentSrc;
+          }
+          
           // 한글이 포함된 경우 URL 인코딩
-          // 상대 경로인 경우 직접 처리
-          const pathParts = src.split('/');
-          const filename = pathParts[pathParts.length - 1];
-          if (filename && /[가-힣]/.test(filename)) {
-            // 파일명만 URL 인코딩 (경로는 그대로 유지)
-            const encodedFilename = encodeURIComponent(filename);
-            pathParts[pathParts.length - 1] = encodedFilename;
-            const newSrc = pathParts.join('/');
-            // 이미 인코딩된 경우 스킵
-            if (newSrc !== src) {
-              img.src = newSrc;
+          if (/[가-힣]/.test(decodedSrc)) {
+            const pathParts = decodedSrc.split('/');
+            const filename = pathParts[pathParts.length - 1];
+            if (filename && /[가-힣]/.test(filename)) {
+              // 파일명만 URL 인코딩 (경로는 그대로 유지)
+              const encodedFilename = encodeURIComponent(filename);
+              pathParts[pathParts.length - 1] = encodedFilename;
+              const newSrc = pathParts.join('/');
+              
+              // src 업데이트
+              if (index === 0 && newSrc !== src) {
+                img.src = newSrc;
+              }
+              // data-full-src 업데이트
+              if (index === 1 && newSrc !== dataFullSrc) {
+                img.setAttribute('data-full-src', newSrc);
+              }
             }
           }
-        }
+        });
       });
     }
 
