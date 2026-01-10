@@ -1404,6 +1404,56 @@
   // Fix Korean image filename URL encoding and handle load errors
   // 한글 파일명을 가진 이미지의 URL 인코딩 문제 해결 및 로드 에러 처리
   (function() {
+    /**
+     * 경로를 안전하게 검증하고 정제합니다 (XSS 방지)
+     * @param {string} path - 검증할 경로
+     * @returns {string|null} - 정제된 경로 또는 null (안전하지 않은 경우)
+     */
+    function sanitizeImagePath(path) {
+      if (!path || typeof path !== 'string') {
+        return null;
+      }
+      
+      // 위험한 프로토콜 제거 (javascript:, data:, vbscript: 등)
+      const dangerousProtocols = /^(javascript|data|vbscript|file|about|chrome):/i;
+      if (dangerousProtocols.test(path.trim())) {
+        return null;
+      }
+      
+      // HTML 태그나 스크립트 태그 제거
+      if (/<[^>]*>/i.test(path)) {
+        return null;
+      }
+      
+      // 경로 정규화: 상대 경로 또는 절대 경로만 허용
+      // 허용되는 패턴: /path/to/file, ./path, ../path, path/to/file
+      const trimmedPath = path.trim();
+      
+      // 절대 경로인 경우 (/)로 시작
+      if (trimmedPath.startsWith('/')) {
+        // assets/images로 시작하는 경로만 허용 (보안 강화)
+        if (trimmedPath.startsWith('/assets/images/') || 
+            trimmedPath.startsWith('/assets/') ||
+            trimmedPath.startsWith('/images/')) {
+          // 경로에서 위험한 문자 제거
+          const sanitized = trimmedPath.replace(/[<>"']/g, '');
+          return sanitized;
+        }
+        return null;
+      }
+      
+      // 상대 경로인 경우
+      if (trimmedPath.startsWith('./') || trimmedPath.startsWith('../') || 
+          !trimmedPath.includes('://')) {
+        // 경로에서 위험한 문자 제거
+        const sanitized = trimmedPath.replace(/[<>"']/g, '');
+        return sanitized;
+      }
+      
+      // 외부 URL은 허용하지 않음 (보안 정책)
+      return null;
+    }
+    
     function fixImageUrls() {
       const images = document.querySelectorAll('img.post-image, img[src*="assets/images"], img.clickable-image');
       images.forEach(img => {
@@ -1422,9 +1472,12 @@
             // 디코딩된 경로에 한글이 있으면, 디코딩된 경로(한글 파일명)로 먼저 시도
             if (decodedSrc !== src && /[가-힣]/.test(decodedSrc)) {
               // 서버가 한글 파일명을 직접 처리할 수 있는 경우를 위해 디코딩된 경로로 먼저 시도
-              img.src = decodedSrc;
-              if (dataFullSrc) {
-                img.setAttribute('data-full-src', decodedSrc);
+              const sanitized = sanitizeImagePath(decodedSrc);
+              if (sanitized) {
+                img.src = sanitized;
+                if (dataFullSrc) {
+                  img.setAttribute('data-full-src', sanitized);
+                }
               }
             }
           } catch (e) {
@@ -1448,11 +1501,14 @@
               const decodedSrc = decodeURIComponent(currentSrc);
               if (decodedSrc !== currentSrc && /[가-힣]/.test(decodedSrc)) {
                 // 디코딩된 경로로 재시도 (서버가 한글 파일명을 직접 처리할 수 있는 경우)
-                this.src = decodedSrc;
-                if (dataFullSrc) {
-                  this.setAttribute('data-full-src', decodedSrc);
+                const sanitized = sanitizeImagePath(decodedSrc);
+                if (sanitized) {
+                  this.src = sanitized;
+                  if (dataFullSrc) {
+                    this.setAttribute('data-full-src', sanitized);
+                  }
+                  return;
                 }
-                return;
               }
             } catch (e) {
               // 디코딩 실패
@@ -1463,11 +1519,14 @@
           if (retryCount === 2 && dataOriginalSrc) {
             // 원본 경로를 그대로 사용 (Jekyll이 생성한 경로)
             const originalPath = dataOriginalSrc.startsWith('/') ? dataOriginalSrc : '/' + dataOriginalSrc;
-            this.src = originalPath;
-            if (dataFullSrc) {
-              this.setAttribute('data-full-src', originalPath);
+            const sanitized = sanitizeImagePath(originalPath);
+            if (sanitized) {
+              this.src = sanitized;
+              if (dataFullSrc) {
+                this.setAttribute('data-full-src', sanitized);
+              }
+              return;
             }
-            return;
           }
           
           // 방법 3: 경로를 분해하여 파일명만 다시 인코딩
@@ -1482,11 +1541,14 @@
                 const encodedFilename = encodeURIComponent(filename);
                 pathParts[pathParts.length - 1] = encodedFilename;
                 const newSrc = pathParts.join('/');
-                this.src = newSrc;
-                if (dataFullSrc) {
-                  this.setAttribute('data-full-src', newSrc);
+                const sanitized = sanitizeImagePath(newSrc);
+                if (sanitized) {
+                  this.src = sanitized;
+                  if (dataFullSrc) {
+                    this.setAttribute('data-full-src', sanitized);
+                  }
+                  return;
                 }
-                return;
               }
             } catch (e) {
               // 처리 실패
@@ -1503,9 +1565,13 @@
                 // 파일명이 한글이면 디코딩된 경로로 재구성
                 pathParts[pathParts.length - 1] = filename;
                 const newSrc = pathParts.join('/');
-                this.src = newSrc.startsWith('/') ? newSrc : '/' + newSrc;
-                if (dataFullSrc) {
-                  this.setAttribute('data-full-src', this.src);
+                const finalPath = newSrc.startsWith('/') ? newSrc : '/' + newSrc;
+                const sanitized = sanitizeImagePath(finalPath);
+                if (sanitized) {
+                  this.src = sanitized;
+                  if (dataFullSrc) {
+                    this.setAttribute('data-full-src', sanitized);
+                  }
                 }
               }
             } catch (e) {

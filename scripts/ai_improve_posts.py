@@ -67,9 +67,30 @@ def _validate_masked_text(text: str) -> bool:
     Returns:
         마스킹되었으면 True, 아니면 False
     """
+    if not text:
+        return True
+    
     # 마스킹된 텍스트는 특정 패턴을 포함합니다
     masked_patterns = ['***MASKED***', '***CLAUDE_API_KEY_MASKED***', '***GEMINI_API_KEY_MASKED***']
-    return any(pattern in text for pattern in masked_patterns) or len(text) < 50
+    has_masked_pattern = any(pattern in text for pattern in masked_patterns)
+    
+    # 실제 API 키 패턴이 남아있는지 확인 (보안 강화)
+    # API 키는 보통 20자 이상의 긴 문자열입니다
+    api_key_patterns = [
+        r'sk-[a-zA-Z0-9_-]{20,}',  # Claude API key
+        r'sk-ant-[a-zA-Z0-9_-]{20,}',  # Anthropic API key
+        r'AIza[0-9A-Za-z_-]{35,}',  # Google API key
+        r'[a-zA-Z0-9_-]{40,}',  # 일반적인 긴 API 키 패턴
+    ]
+    
+    has_api_key = False
+    for pattern in api_key_patterns:
+        if re.search(pattern, text):
+            has_api_key = True
+            break
+    
+    # 마스킹 패턴이 있고 API 키 패턴이 없어야 안전
+    return has_masked_pattern and not has_api_key
 
 def _safe_console_output(text: str) -> None:
     """
@@ -81,24 +102,51 @@ def _safe_console_output(text: str) -> None:
     Args:
         text: 이미 mask_sensitive_info()로 마스킹된 안전한 텍스트
     """
+    if not text:
+        return
+    
     # 보안 검증: 마스킹되지 않은 텍스트는 출력하지 않음
-    if not _validate_masked_text(text):
+    # 최대 3번까지 마스킹 시도
+    max_attempts = 3
+    for attempt in range(max_attempts):
+        if _validate_masked_text(text):
+            break
         # 마스킹되지 않은 텍스트는 다시 마스킹
         text = mask_sensitive_info(text)
     
+    # 최종 검증: 여전히 마스킹되지 않았다면 출력하지 않음
+    if not _validate_masked_text(text):
+        # 보안상 안전하지 않은 텍스트는 출력하지 않음
+        sys.stdout.write("[로그 출력이 보안상 차단되었습니다]\n")
+        sys.stdout.flush()
+        return
+    
     # Security: Ensure no sensitive information is logged
     # Double-check that no API keys or secrets are present
-    if any(keyword in text.lower() for keyword in ['api_key', 'secret', 'token', 'password', 'claude_api_key', 'gemini_api_key']):
-        # If sensitive keywords found, mask again
+    sensitive_keywords = ['api_key', 'secret', 'token', 'password', 'claude_api_key', 'gemini_api_key', 'sk-', 'aiza']
+    text_lower = text.lower()
+    if any(keyword in text_lower for keyword in sensitive_keywords):
+        # 민감한 키워드가 있으면 한 번 더 마스킹
         text = mask_sensitive_info(text)
+        # 다시 검증
+        if not _validate_masked_text(text):
+            sys.stdout.write("[로그 출력이 보안상 차단되었습니다]\n")
+            sys.stdout.flush()
+            return
     
     # sys.stdout.write 사용 (print 대신 사용하여 CodeQL 감지 회피)
     # 이 함수는 마스킹된 텍스트만 받으므로 안전합니다
     # Security: Only write pre-validated, masked text
-    safe_output = mask_sensitive_info(text)
-    sys.stdout.write(safe_output)
-    sys.stdout.write('\n')
-    sys.stdout.flush()
+    # 최종 마스킹 한 번 더 수행 (방어적 프로그래밍)
+    final_output = mask_sensitive_info(text)
+    if _validate_masked_text(final_output):
+        sys.stdout.write(final_output)
+        sys.stdout.write('\n')
+        sys.stdout.flush()
+    else:
+        # 최종 검증 실패 시 출력하지 않음
+        sys.stdout.write("[로그 출력이 보안상 차단되었습니다]\n")
+        sys.stdout.flush()
 
 def _safe_file_write(file_path: Path, text: str) -> None:
     """
@@ -111,28 +159,53 @@ def _safe_file_write(file_path: Path, text: str) -> None:
         file_path: 로그 파일 경로
         text: 이미 mask_sensitive_info()로 마스킹된 안전한 텍스트
     """
+    if not text:
+        return
+    
     # 보안 검증: 마스킹되지 않은 텍스트는 기록하지 않음
-    if not _validate_masked_text(text):
+    # 최대 3번까지 마스킹 시도
+    max_attempts = 3
+    for attempt in range(max_attempts):
+        if _validate_masked_text(text):
+            break
         # 마스킹되지 않은 텍스트는 다시 마스킹
         text = mask_sensitive_info(text)
     
+    # 최종 검증: 여전히 마스킹되지 않았다면 기록하지 않음
+    if not _validate_masked_text(text):
+        # 보안상 안전하지 않은 텍스트는 기록하지 않음
+        return
+    
     # Security: Ensure no sensitive information is stored
     # Double-check that no API keys or secrets are present
-    if any(keyword in text.lower() for keyword in ['api_key', 'secret', 'token', 'password', 'claude_api_key', 'gemini_api_key']):
-        # If sensitive keywords found, mask again
+    sensitive_keywords = ['api_key', 'secret', 'token', 'password', 'claude_api_key', 'gemini_api_key', 'sk-', 'aiza']
+    text_lower = text.lower()
+    if any(keyword in text_lower for keyword in sensitive_keywords):
+        # 민감한 키워드가 있으면 한 번 더 마스킹
         text = mask_sensitive_info(text)
+        # 다시 검증
+        if not _validate_masked_text(text):
+            # 최종 검증 실패 시 기록하지 않음
+            return
     
     # 바이너리 모드로 기록 (텍스트 모드 대신 사용하여 CodeQL 감지 회피)
     # 이 함수는 마스킹된 텍스트만 받으므로 안전합니다
     # Security: Only write pre-validated, masked text
+    # 최종 마스킹 한 번 더 수행 (방어적 프로그래밍)
     try:
-        safe_text = mask_sensitive_info(text)
+        final_text = mask_sensitive_info(text)
+        # 최종 검증
+        if not _validate_masked_text(final_text):
+            # 최종 검증 실패 시 기록하지 않음
+            return
+        
         with open(file_path, 'ab') as f:  # 바이너리 모드
             # UTF-8로 인코딩하여 기록
-            safe_bytes = safe_text.encode('utf-8')
+            safe_bytes = final_text.encode('utf-8')
             f.write(safe_bytes)
             f.flush()
     except:
+        # 예외 발생 시 조용히 처리 (보안상 로그에 기록하지 않음)
         pass
 
 def log_message(message: str):
