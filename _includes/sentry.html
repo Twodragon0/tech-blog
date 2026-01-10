@@ -46,6 +46,13 @@
       replaysSessionSampleRate: 0.0, // 0% (비활성화 - 비용 절감)
       replaysOnErrorSampleRate: 0.0, // 0% (비활성화 - 비용 절감)
       
+      // Source Maps: 프로덕션에서는 비활성화 (CSP 위반 방지 및 보안)
+      // 개발 환경에서만 source map 로드
+      _experiments: {
+        // Source map 로드 비활성화 (프로덕션)
+        enableSourceMaps: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      },
+      
       // 릴리스 정보 (선택사항)
       // release: 'tech-blog@1.0.0',
       
