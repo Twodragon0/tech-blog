@@ -41,6 +41,7 @@
       /apple-touch-icon.*404/i,
       /GET.*favicon/i,
       /GET.*apple-touch-icon/i,
+      /Failed to load image/i,
       /Download the React DevTools/i,
       /Download the Apollo DevTools/i
     ];
@@ -1415,37 +1416,18 @@
         let retryCount = 0;
         const maxRetries = 3;
         
-        // 이미지 로드 전에 경로를 미리 수정
+        // 이미지 로드 전에 경로를 미리 수정 - 디코딩된 경로를 먼저 시도
         if (src) {
           try {
             // URL 인코딩된 경로를 디코딩
             const decodedSrc = decodeURIComponent(src);
             
-            // 디코딩된 경로에 한글이 있으면, 서버가 처리할 수 있는 형식으로 변환
+            // 디코딩된 경로에 한글이 있으면, 디코딩된 경로(한글 파일명)로 먼저 시도
             if (decodedSrc !== src && /[가-힣]/.test(decodedSrc)) {
-              // 경로를 분해하여 파일명만 처리
-              const pathParts = decodedSrc.split('/');
-              const filename = pathParts[pathParts.length - 1];
-              
-              if (filename && /[가-힣]/.test(filename)) {
-                // 파일명을 다시 인코딩 (서버가 URL 인코딩을 요구하는 경우)
-                const encodedFilename = encodeURIComponent(filename);
-                pathParts[pathParts.length - 1] = encodedFilename;
-                const newSrc = pathParts.join('/');
-                
-                // 현재 경로와 다르면 업데이트
-                if (newSrc !== src) {
-                  img.src = newSrc;
-                  if (dataFullSrc) {
-                    img.setAttribute('data-full-src', newSrc);
-                  }
-                }
-              } else {
-                // 디코딩된 경로가 한글을 포함하지만 파일명이 아닌 경우, 디코딩된 경로로 시도
-                img.src = decodedSrc;
-                if (dataFullSrc) {
-                  img.setAttribute('data-full-src', decodedSrc);
-                }
+              // 서버가 한글 파일명을 직접 처리할 수 있는 경우를 위해 디코딩된 경로로 먼저 시도
+              img.src = decodedSrc;
+              if (dataFullSrc) {
+                img.setAttribute('data-full-src', decodedSrc);
               }
             }
           } catch (e) {

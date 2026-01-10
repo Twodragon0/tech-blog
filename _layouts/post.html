@@ -542,12 +542,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Open lightbox on image click
   function openLightbox(img) {
-    const src = img.dataset.fullSrc || img.src;
+    let src = img.dataset.fullSrc || img.src;
     const alt = img.alt || '';
 
     if (!src) {
       console.error('Image source is missing');
       return;
+    }
+
+    // URL 인코딩된 경로를 디코딩하여 한글 파일명으로 변환 시도
+    try {
+      const decodedSrc = decodeURIComponent(src);
+      if (decodedSrc !== src && /[가-힣]/.test(decodedSrc)) {
+        // 디코딩된 경로(한글 파일명)로 먼저 시도
+        src = decodedSrc;
+      }
+    } catch (e) {
+      // 디코딩 실패 시 원본 사용
     }
 
     // Reset scale and show loading state
@@ -572,7 +583,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const handleImageError = () => {
-      console.error('Failed to load image:', src);
+      // 콘솔 에러는 필터링되므로 조용히 처리
       lightboxImage.style.opacity = '0.5';
       lightboxCaption.textContent = alt ? `${alt} (이미지를 불러올 수 없습니다)` : '이미지를 불러올 수 없습니다';
       lightboxCaption.style.color = '#ff6b6b';
@@ -588,29 +599,41 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Preload image to check if it's available
     const preloadImage = new Image();
+    let retryCount = 0;
+    const originalSrc = img.dataset.fullSrc || img.src;
     
-    preloadImage.onload = () => {
-      // Image is available, set it to lightbox
-      lightboxImage.src = src;
-      lightboxImage.alt = alt;
+    const tryLoadImage = (imageSrc) => {
+      preloadImage.onload = () => {
+        // Image is available, set it to lightbox
+        lightboxImage.src = imageSrc;
+        lightboxImage.alt = alt;
+        
+        // Add event listeners
+        lightboxImage.onload = newImageLoadHandler;
+        lightboxImage.onerror = newImageErrorHandler;
+        
+        // If image is already cached, trigger load immediately
+        if (lightboxImage.complete && lightboxImage.naturalHeight !== 0) {
+          handleImageLoad();
+        }
+      };
       
-      // Add event listeners
-      lightboxImage.onload = newImageLoadHandler;
-      lightboxImage.onerror = newImageErrorHandler;
+      preloadImage.onerror = () => {
+        retryCount++;
+        // 재시도: 원본 URL 인코딩된 경로로 시도
+        if (retryCount === 1 && imageSrc !== originalSrc) {
+          tryLoadImage(originalSrc);
+        } else {
+          handleImageError();
+          lightboxImage.onerror = newImageErrorHandler;
+        }
+      };
       
-      // If image is already cached, trigger load immediately
-      if (lightboxImage.complete && lightboxImage.naturalHeight !== 0) {
-        handleImageLoad();
-      }
+      preloadImage.src = imageSrc;
     };
     
-    preloadImage.onerror = () => {
-      handleImageError();
-      lightboxImage.onerror = newImageErrorHandler;
-    };
-    
-    // Start preloading
-    preloadImage.src = src;
+    // Start preloading with decoded path first
+    tryLoadImage(src);
   }
 
   // Close lightbox

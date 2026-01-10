@@ -71,12 +71,12 @@
   <!-- Favicon - 기본 SVG 아이콘 사용 (404 에러 방지) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
   <script>
-    // Favicon 파일이 있으면 교체, 없으면 기본 아이콘 유지
+    // Favicon 파일이 있으면 교체, 없으면 기본 아이콘 유지 (에러 조용히 처리)
     (function() {
       const faviconPath = '{{ "/assets/images/favicon.png" | relative_url }}';
       const appleIconPath = '{{ "/assets/images/apple-touch-icon.png" | relative_url }}';
       
-      // Favicon 존재 여부 확인 후 교체
+      // Favicon 존재 여부 확인 후 교체 (에러는 조용히 처리)
       const img = new Image();
       img.onload = function() {
         const faviconLink = document.querySelector('link[rel="icon"]');
@@ -87,10 +87,12 @@
       };
       img.onerror = function() {
         // Favicon이 없으면 기본 SVG 아이콘 유지 (이미 설정됨)
+        // 에러는 조용히 처리 (콘솔에 표시하지 않음)
       };
+      // 에러 이벤트 리스너를 먼저 등록한 후 src 설정
       img.src = faviconPath;
       
-      // Apple touch icon 존재 여부 확인 후 추가
+      // Apple touch icon 존재 여부 확인 후 추가 (에러는 조용히 처리)
       const img2 = new Image();
       img2.onload = function() {
         let appleIconLink = document.querySelector('link[rel="apple-touch-icon"]');
@@ -103,6 +105,7 @@
       };
       img2.onerror = function() {
         // Apple touch icon이 없으면 추가하지 않음
+        // 에러는 조용히 처리 (콘솔에 표시하지 않음)
       };
       img2.src = appleIconPath;
     })();
