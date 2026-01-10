@@ -15,6 +15,35 @@
 
   {% include footer.html %}
   {% include chat-widget.html %}
-  <script src="{{ "/assets/js/chat-widget.js" | relative_url }}" defer></script>
+  <!-- Chat widget is loaded on-demand when user interacts -->
+  <script>
+    // Lazy load chat widget script only when user interacts
+    (function() {
+      let chatWidgetLoaded = false;
+      const chatToggle = document.getElementById('chat-widget-toggle');
+      
+      function loadChatWidget() {
+        if (chatWidgetLoaded) return;
+        chatWidgetLoaded = true;
+        
+        const script = document.createElement('script');
+        script.src = "{{ "/assets/js/chat-widget.js" | relative_url }}";
+        script.defer = true;
+        document.body.appendChild(script);
+      }
+      
+      // Load on toggle click or after 3 seconds (if user is still on page)
+      if (chatToggle) {
+        chatToggle.addEventListener('click', loadChatWidget, { once: true });
+        
+        // Also load after 3 seconds if user hasn't left (non-blocking)
+        setTimeout(function() {
+          if (document.visibilityState === 'visible') {
+            requestIdleCallback ? requestIdleCallback(loadChatWidget) : setTimeout(loadChatWidget, 0);
+          }
+        }, 3000);
+      }
+    })();
+  </script>
 </body>
 </html>

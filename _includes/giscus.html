@@ -15,23 +15,86 @@
       <p>댓글을 불러오는 중...</p>
     </div>
     <div class="giscus" id="giscus-container">
-      <script src="https://giscus.app/client.js"
-              data-repo="{{ site.giscus.repo }}"
-              data-repo-id="{{ site.giscus.repo_id }}"
-              data-category="{{ site.giscus.category }}"
-              data-category-id="{{ site.giscus.category_id }}"
-              data-mapping="{{ site.giscus.mapping }}"
-              {% if site.giscus.mapping == "title" %}data-term="{{ page.title | escape }}"{% endif %}
-              data-strict="0"
-              data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
-              data-emit-metadata="{{ site.giscus.emit_metadata }}"
-              data-input-position="{{ site.giscus.input_position }}"
-              data-theme="{{ site.giscus.theme }}"
-              data-lang="{{ site.giscus.lang }}"
-              crossorigin="{{ site.giscus.crossorigin }}"
-              async>
-      </script>
+      <!-- Giscus script will be loaded when user scrolls to comments section -->
+      <noscript>
+        <p>댓글을 보려면 JavaScript를 활성화하세요.</p>
+      </noscript>
     </div>
+    <script>
+      // Lazy load Giscus when user scrolls near comments section (performance optimization)
+      (function() {
+        const giscusContainer = document.getElementById('giscus-container');
+        if (!giscusContainer) return;
+        
+        let giscusLoaded = false;
+        const giscusConfig = {
+          repo: "{{ site.giscus.repo }}",
+          repoId: "{{ site.giscus.repo_id }}",
+          category: "{{ site.giscus.category }}",
+          categoryId: "{{ site.giscus.category_id }}",
+          mapping: "{{ site.giscus.mapping }}",
+          {% if site.giscus.mapping == "title" %}term: "{{ page.title | escape }}",{% endif %}
+          strict: "0",
+          reactionsEnabled: "{{ site.giscus.reactions_enabled }}",
+          emitMetadata: "{{ site.giscus.emit_metadata }}",
+          inputPosition: "{{ site.giscus.input_position }}",
+          theme: "{{ site.giscus.theme }}",
+          lang: "{{ site.giscus.lang }}",
+          crossorigin: "{{ site.giscus.crossorigin }}"
+        };
+        
+        function loadGiscus() {
+          if (giscusLoaded) return;
+          giscusLoaded = true;
+          
+          const script = document.createElement('script');
+          script.src = 'https://giscus.app/client.js';
+          script.async = true;
+          script.crossOrigin = giscusConfig.crossorigin;
+          
+          // Set data attributes
+          Object.keys(giscusConfig).forEach(key => {
+            if (giscusConfig[key]) {
+              script.setAttribute('data-' + key.replace(/([A-Z])/g, '-$1').toLowerCase(), giscusConfig[key]);
+            }
+          });
+          
+          giscusContainer.appendChild(script);
+        }
+        
+        // Load when user scrolls near comments section (Intersection Observer)
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                loadGiscus();
+                observer.disconnect();
+              }
+            });
+          }, {
+            rootMargin: '200px' // Start loading 200px before reaching comments
+          });
+          
+          observer.observe(giscusContainer);
+          
+          // Fallback: Load after 3 seconds if user is still on page
+          setTimeout(() => {
+            if (document.visibilityState === 'visible' && !giscusLoaded) {
+              requestIdleCallback ? requestIdleCallback(loadGiscus) : loadGiscus();
+            }
+          }, 3000);
+        } else {
+          // Fallback for browsers without IntersectionObserver
+          window.addEventListener('scroll', function() {
+            const rect = giscusContainer.getBoundingClientRect();
+            if (rect.top < window.innerHeight + 200) {
+              loadGiscus();
+              window.removeEventListener('scroll', arguments.callee);
+            }
+          });
+        }
+      })();
+    </script>
   </div>
   <script>
     // Giscus 로딩 상태 관리 및 에러 핸들링

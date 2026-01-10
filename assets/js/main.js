@@ -1,8 +1,36 @@
 // Modern UI/UX JavaScript for Tech Blog
 (function() {
   'use strict';
+  
+  // Performance optimization: Use requestIdleCallback to defer non-critical work
+  const scheduleIdleWork = (callback, timeout = 5000) => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(callback, { timeout });
+    } else {
+      // Fallback for browsers without requestIdleCallback
+      setTimeout(callback, 0);
+    }
+  };
+  
+  // Critical initialization (runs immediately)
+  const initCritical = () => {
+    // Theme detection (critical for preventing flash)
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', currentTheme);
 
-  // Console Error Filtering and Enhancement
+    if (themeToggle) {
+      themeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+    }
+  };
+  
+  // Console Error Filtering and Enhancement (runs immediately - critical for error handling)
   // 보안적으로 안전한 에러 메시지 필터링 및 개선
   (function() {
     const originalError = console.error;
@@ -282,42 +310,31 @@
       };
     }
   })();
+  
+  // Run critical initialization immediately
+  initCritical();
+  
+  // Non-critical initialization (runs when idle)
+  const initNonCritical = () => {
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
 
-  // Theme Toggle
-  const themeToggle = document.getElementById('theme-toggle');
-  const currentTheme = localStorage.getItem('theme') || 
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (mobileMenuBtn && mobileNav) {
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileNav.classList.toggle('active');
+        const isOpen = mobileNav.classList.contains('active');
+        mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+      }, { passive: true });
 
-  document.documentElement.setAttribute('data-theme', currentTheme);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-    });
-  }
-
-  // Mobile Menu Toggle
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileNav = document.getElementById('mobile-nav');
-
-  if (mobileMenuBtn && mobileNav) {
-    mobileMenuBtn.addEventListener('click', function() {
-      mobileNav.classList.toggle('active');
-      const isOpen = mobileNav.classList.contains('active');
-      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!mobileMenuBtn.contains(event.target) && !mobileNav.contains(event.target)) {
-        mobileNav.classList.remove('active');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!mobileMenuBtn.contains(event.target) && !mobileNav.contains(event.target)) {
+          mobileNav.classList.remove('active');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+      }, { passive: true });
+    }
 
   // Smooth Scroll for Anchor Links
   // 숫자로 시작하는 ID를 안전하게 처리하는 헬퍼 함수
@@ -378,17 +395,17 @@
     });
   });
 
-  // Search Functionality
-  const searchInput = document.getElementById('search-input');
-  const searchResults = document.getElementById('search-results');
-  
-  // searchContainer를 안전하게 찾기 (searchInput이 있을 때만)
-  let searchContainer = null;
-  if (searchInput) {
-    searchContainer = searchInput.closest('.search-container');
-  }
+    // Search Functionality (deferred)
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    
+    // searchContainer를 안전하게 찾기 (searchInput이 있을 때만)
+    let searchContainer = null;
+    if (searchInput) {
+      searchContainer = searchInput.closest('.search-container');
+    }
 
-  if (searchInput && searchResults) {
+    if (searchInput && searchResults) {
     let searchData = [];
     let searchDataLoaded = false;
 
@@ -480,28 +497,28 @@
     }
   }
 
-  // Intersection Observer for Scroll Animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
+    // Intersection Observer for Scroll Animations (non-critical, defer)
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-  const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe cards for fade-in animation
+    document.querySelectorAll('.card, .post-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(card);
     });
-  }, observerOptions);
-
-  // Observe cards for fade-in animation
-  document.querySelectorAll('.card, .post-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
-  });
 
   // Reading Progress Bar (for post pages)
   const postArticle = document.querySelector('.post-article');
@@ -944,7 +961,7 @@
     });
   }
 
-  console.log('Tech Blog UI initialized');
+    console.log('Tech Blog UI initialized (non-critical)');
 
   // ============================================
   // Language Dropdown and Translation
@@ -1471,9 +1488,9 @@
     });
   })();
 
-  // Fix Korean image filename URL encoding and handle load errors
-  // 한글 파일명을 가진 이미지의 URL 인코딩 문제 해결 및 로드 에러 처리
-  (function() {
+    // Fix Korean image filename URL encoding and handle load errors
+    // 한글 파일명을 가진 이미지의 URL 인코딩 문제 해결 및 로드 에러 처리
+    (function() {
     /**
      * 경로를 안전하게 검증하고 정제합니다 (XSS 방지)
      * @param {string} path - 검증할 경로
@@ -1652,24 +1669,37 @@
       });
     }
 
-    // DOM 로드 후 실행
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', fixImageUrls);
-    } else {
-      fixImageUrls();
-    }
+    // DOM 로드 후 실행 (defer to idle time)
+    scheduleIdleWork(() => {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fixImageUrls);
+      } else {
+        fixImageUrls();
+      }
 
-    // 동적으로 추가된 이미지도 처리
-    const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        if (mutation.addedNodes.length) {
-          fixImageUrls();
-        }
+      // 동적으로 추가된 이미지도 처리
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.addedNodes.length) {
+            fixImageUrls();
+          }
+        });
+      });
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
       });
     });
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
+    })();
+  
+  }; // End of initNonCritical function
+  
+  // Schedule non-critical initialization when idle
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      scheduleIdleWork(initNonCritical);
     });
-  })();
+  } else {
+    scheduleIdleWork(initNonCritical);
+  }
 })();

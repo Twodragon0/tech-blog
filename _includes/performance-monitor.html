@@ -89,9 +89,20 @@
       try {
         const resourceObserver = new PerformanceObserver(function(list) {
           for (const entry of list.getEntries()) {
-            // Monitor slow resources (> 1s)
-            if (entry.duration > 1000 && entry.initiatorType !== 'navigation') {
-              console.warn('[Performance] Slow resource:', entry.name, entry.duration + 'ms');
+            // API 요청은 타임아웃 직전까지 걸릴 수 있으므로 임계값 조정
+            const isApiRequest = entry.name.includes('/api/');
+            const threshold = isApiRequest ? 8000 : 2000; // API: 8초, 기타: 2초
+            
+            // Monitor slow resources
+            if (entry.duration > threshold && entry.initiatorType !== 'navigation') {
+              // API 요청은 타임아웃 직전이므로 경고만 (에러 아님)
+              if (isApiRequest) {
+                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                  console.warn('[Performance] API response is slow (expected for AI):', entry.name, Math.round(entry.duration) + 'ms');
+                }
+              } else {
+                console.warn('[Performance] Slow resource:', entry.name, Math.round(entry.duration) + 'ms');
+              }
             }
           }
         });

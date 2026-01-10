@@ -85,8 +85,8 @@
     // Log to console in development
     logError(error, context);
 
-    // Send to Sentry if available
-    if (window.Sentry) {
+    // Send to Sentry if available (Free 티어 최적화: 프로덕션만 전송)
+    if (window.Sentry && window.location.hostname === 'tech.2twodragon.com') {
       try {
         // 에러는 captureException으로 전송
         if (typeof window.Sentry.captureException === 'function') {
@@ -96,7 +96,8 @@
           });
         }
         
-        // 로그도 함께 전송 (Sentry Logs 기능 사용)
+        // 로그도 함께 전송 (Sentry Logs 기능 사용) - error 레벨만
+        // Free 티어 최적화: error 레벨만 전송 (warn은 제외)
         if (window.Sentry.logger && typeof window.Sentry.logger.error === 'function') {
           window.Sentry.logger.error(errorMessage, {
             ...context,

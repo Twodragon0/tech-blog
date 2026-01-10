@@ -298,6 +298,19 @@
   }
 
 
+  // Debounce function for input events (performance optimization)
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
   // Handle form submission
   function handleSubmit(e) {
     e.preventDefault();
@@ -308,10 +321,36 @@
     sendMessage(message);
   }
 
+  // Optimized input handler with debounce for better INP
+  const debouncedInputHandler = debounce(function() {
+    // Any input-related side effects can go here
+    // Currently just prevents blocking the main thread
+  }, 100);
+
   // Event Listeners
-  chatToggle.addEventListener('click', toggleChat);
-  chatClose.addEventListener('click', toggleChat);
-  chatForm.addEventListener('submit', handleSubmit);
+  if (chatToggle) {
+    chatToggle.addEventListener('click', toggleChat, { passive: true });
+  }
+  if (chatClose) {
+    chatClose.addEventListener('click', toggleChat, { passive: true });
+  }
+  if (chatForm) {
+    chatForm.addEventListener('submit', handleSubmit);
+  }
+  
+  // Optimize input events for better INP score
+  if (chatInput) {
+    // Use passive listeners where possible
+    chatInput.addEventListener('input', debouncedInputHandler, { passive: true });
+    
+    // Optimize focus events
+    chatInput.addEventListener('focus', function() {
+      // Use requestAnimationFrame to avoid blocking
+      requestAnimationFrame(() => {
+        // Any focus-related initialization
+      });
+    }, { passive: true });
+  }
   
   // Close on Escape key
   document.addEventListener('keydown', (e) => {

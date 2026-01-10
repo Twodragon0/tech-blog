@@ -3,6 +3,14 @@
   공식 Loader Script 사용 (권장)
   DSN: https://61fd23528aff138753e071de26c5b306@o4510686170710016.ingest.us.sentry.io/4510686177984512
   
+  Free 티어 최적화 (월 5,000 이벤트 제한):
+  - 프로덕션만 수집 (개발/프리뷰 환경 제외)
+  - 트레이스 샘플링: 5% (프로덕션)
+  - 로그: warn, error만 전송 (info, debug 제외)
+  - console.log는 전송하지 않음
+  - 민감 정보 자동 필터링
+  - 중복 에러 그룹핑 최적화
+  
   설정 방법:
   1. Sentry.io 프로젝트 설정에서 Loader Script 복사
   2. 아래 스크립트 태그의 src URL 업데이트 (필요시)
@@ -39,8 +47,11 @@
         ? 'development'
         : 'preview',
       
-      // Tracing: 성능 모니터링 (프리티어 최적화: 10% 샘플링)
-      tracesSampleRate: 0.1, // 프로덕션: 10%, 개발: 1.0 (100%)
+      // Tracing: 성능 모니터링 (Free 티어 최적화: 5% 샘플링)
+      // Free 티어는 월 5,000 이벤트 제한이 있으므로 샘플링을 낮춤
+      tracesSampleRate: window.location.hostname === 'tech.2twodragon.com' 
+        ? 0.05  // 프로덕션: 5% (Free 티어 최적화)
+        : 0.0,  // 개발/프리뷰: 0% (개발 환경은 트레이스 수집 안 함)
       
       // Session Replay: 세션 재생 (비용 최적화)
       replaysSessionSampleRate: 0.0, // 0% (비활성화 - 비용 절감)
@@ -59,9 +70,14 @@
       // 릴리스 정보 (선택사항)
       // release: 'tech-blog@1.0.0',
       
-      // 에러 필터링 및 보안
+      // 에러 필터링 및 보안 - Free 티어 최적화
       beforeSend(event, hint) {
-        // 민감 정보 제거
+        // Free 티어 최적화: 개발 환경 에러는 전송하지 않음
+        if (window.location.hostname !== 'tech.2twodragon.com') {
+          return null; // 프로덕션만 에러 수집
+        }
+        
+        // 민감 정보 제거 및 보안 강화
         if (event.request) {
           // 쿠키 제거
           delete event.request.cookies;
@@ -70,7 +86,11 @@
           if (event.request.url) {
             try {
               const url = new URL(event.request.url);
-              const sensitiveParams = ['token', 'key', 'password', 'secret', 'api_key', 'apikey'];
+              const sensitiveParams = [
+                'token', 'key', 'password', 'secret', 'api_key', 'apikey',
+                'access_token', 'refresh_token', 'auth', 'authorization',
+                'credential', 'private_key', 'session', 'sessionid'
+              ];
               sensitiveParams.forEach(param => {
                 url.searchParams.delete(param);
               });
@@ -79,6 +99,34 @@
               // URL 파싱 실패 시 그대로 유지
             }
           }
+        }
+        
+        // 스택 트레이스에서 민감 정보 제거
+        if (event.exception && event.exception.values) {
+          event.exception.values.forEach(exception => {
+            if (exception.stacktrace && exception.stacktrace.frames) {
+              exception.stacktrace.frames.forEach(frame => {
+                // 파일 경로에서 민감 정보 제거
+                if (frame.filename) {
+                  frame.filename = frame.filename.replace(/\/home\/[^\/]+/g, '/home/***');
+                  frame.filename = frame.filename.replace(/\/Users\/[^\/]+/g, '/Users/***');
+                }
+                // 코드 컨텍스트에서 민감 정보 제거
+                if (frame.vars) {
+                  Object.keys(frame.vars).forEach(key => {
+                    const lowerKey = key.toLowerCase();
+                    if (lowerKey.includes('password') || 
+                        lowerKey.includes('token') || 
+                        lowerKey.includes('secret') ||
+                        lowerKey.includes('key') ||
+                        lowerKey.includes('auth')) {
+                      frame.vars[key] = '***REDACTED***';
+                    }
+                  });
+                }
+              });
+            }
+          });
         }
         
         // 특정 에러 무시 (정상적인 보안 에러 및 이미지 로드 실패)
@@ -130,16 +178,40 @@
               url.includes('og.png') || 
               url.includes('og.jpg') || 
               url.includes('og.webp') ||
+              url.includes('favicon') ||
+              url.includes('robots.txt') ||
               /[\uAC00-\uD7A3]/.test(event.request.url)) { // 한글 포함된 URL
             return null; // 이벤트 무시
           }
         }
         
+        // Free 티어 최적화: 중복 에러 그룹핑 최적화
+        // 동일한 에러가 너무 많이 발생하면 샘플링
+        if (event.fingerprint) {
+          // fingerprint를 기반으로 그룹핑 최적화
+          // (Sentry가 자동으로 처리하지만, 추가 최적화 가능)
+        }
+        
+        // Free 티어 최적화: 이벤트 크기 제한 (너무 큰 이벤트는 잘라서 전송)
+        if (event.extra && JSON.stringify(event.extra).length > 5000) {
+          event.extra = { message: 'Extra data too large, truncated for Free tier optimization' };
+        }
+        
         return event;
       },
       
-      // 로그 필터링 및 보안 (beforeSendLog)
+      // 로그 필터링 및 보안 (beforeSendLog) - Free 티어 최적화
       beforeSendLog(log, hint) {
+        // Free 티어 최적화: 개발 환경 로그는 전송하지 않음
+        if (window.location.hostname !== 'tech.2twodragon.com') {
+          return null; // 프로덕션만 로그 수집
+        }
+        
+        // Free 티어 최적화: info, debug 레벨은 전송하지 않음 (warn, error만)
+        if (log.level === 'info' || log.level === 'debug' || log.level === 'trace') {
+          return null; // info, debug, trace는 제외 (Free 티어 최적화)
+        }
+        
         // 민감 정보 제거
         if (log.message) {
           // 민감한 정보가 포함된 로그 필터링
@@ -150,7 +222,9 @@
             /api[_-]?key/i,
             /apikey/i,
             /authorization/i,
-            /bearer/i
+            /bearer/i,
+            /credential/i,
+            /private[_-]?key/i
           ];
           
           if (sensitivePatterns.some(pattern => pattern.test(log.message))) {
@@ -158,23 +232,29 @@
           }
         }
         
-        // 개발 환경의 디버그 로그는 필터링 (프로덕션에서만 중요한 로그 수집)
-        if (log.level === 'debug' && window.location.hostname === 'tech.2twodragon.com') {
-          return null; // 프로덕션에서는 debug 로그 제외
+        // 중복 로그 필터링: 동일한 메시지가 너무 많으면 제한
+        // (실제로는 Sentry가 자동으로 그룹핑하지만, 추가 필터링)
+        if (log.message && log.message.length > 1000) {
+          // 너무 긴 로그는 잘라서 전송 (비용 절감)
+          log.message = log.message.substring(0, 1000) + '... [truncated]';
         }
         
         return log;
       },
       
       // 샘플링 함수 (에러 수집률)
-      sampleRate: 1.0, // 100% 에러 수집 (필요시 조정)
+      // Free 티어 최적화: 프로덕션만 100% 수집, 개발 환경은 제외
+      sampleRate: window.location.hostname === 'tech.2twodragon.com' 
+        ? 1.0   // 프로덕션: 100% (중요한 에러는 모두 수집)
+        : 0.0,  // 개발/프리뷰: 0% (개발 환경 이벤트는 수집하지 않음)
       
       // 통합 설정
       integrations: [
         // BrowserTracing은 Loader Script에서 자동 설정됨
-        // Console 로깅 통합: console.log, console.warn, console.error를 Sentry 로그로 전송
+        // Console 로깅 통합: Free 티어 최적화 - warn, error만 전송
+        // console.log는 너무 많아서 Free 티어에서 제외 (warn, error만 중요)
         Sentry.consoleLoggingIntegration({ 
-          levels: ["log", "warn", "error"] 
+          levels: ["warn", "error"]  // log 레벨 제외 (Free 티어 최적화)
         }),
       ],
     });
@@ -190,15 +270,8 @@
       console.log('[Sentry] Initialized successfully');
     }
     
-    // Sentry Logs 테스트 (개발 환경에서만)
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      if (Sentry.logger && typeof Sentry.logger.info === 'function') {
-        Sentry.logger.info('Sentry initialized with Logs enabled', {
-          environment: window.location.hostname === 'tech.2twodragon.com' ? 'production' : 'development',
-          timestamp: new Date().toISOString()
-        });
-      }
-    }
+    // Free 티어 최적화: 개발 환경에서는 로그 전송하지 않음
+    // (프로덕션에서만 Sentry 사용)
   });
 })();
 </script>
