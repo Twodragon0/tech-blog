@@ -46,99 +46,176 @@
 
   // 이미지 크기 힌트 계산 (CLS 최적화)
   function setImageSizeHint(img) {
+    // 입력 검증
+    if (!img || typeof img !== 'object' || img.nodeType !== 1) {
+      return;
+    }
+    
     // 이미 width/height가 있으면 스킵
     if (img.width && img.height && img.width > 0 && img.height > 0) {
       return;
     }
     
     // 부모 컨테이너 크기 기반으로 힌트 설정
-    const container = img.closest('.post-card-image, .post-image-container');
-    if (container) {
-      const containerWidth = container.offsetWidth || 400;
-      const aspectRatio = 16 / 9; // 기본 aspect ratio
-      const suggestedHeight = Math.round(containerWidth / aspectRatio);
-      
-      // width/height 속성 설정 (CLS 최적화)
-      if (!img.hasAttribute('width')) {
-        img.setAttribute('width', containerWidth);
+    try {
+      const container = img.closest && img.closest('.post-card-image, .post-image-container');
+      if (container) {
+        const containerWidth = container.offsetWidth || 400;
+        const aspectRatio = 16 / 9; // 기본 aspect ratio
+        const suggestedHeight = Math.round(containerWidth / aspectRatio);
+        
+        // width/height 속성 설정 (CLS 최적화)
+        if (img.hasAttribute && !img.hasAttribute('width')) {
+          img.setAttribute('width', containerWidth);
+        }
+        if (img.hasAttribute && !img.hasAttribute('height')) {
+          img.setAttribute('height', suggestedHeight);
+        }
       }
-      if (!img.hasAttribute('height')) {
-        img.setAttribute('height', suggestedHeight);
-      }
+    } catch (e) {
+      // 에러 발생 시 조용히 실패 (최적화는 선택사항)
+      console.warn('[Image Optimizer] setImageSizeHint failed:', e);
     }
   }
 
   // 이미지 최적화 적용
   function optimizeImage(img) {
+    // 입력 검증: null/undefined 체크
+    if (!img || typeof img !== 'object') {
+      return;
+    }
+    
+    // IMG 요소인지 확인
+    if (img.nodeType !== 1 || img.tagName !== 'IMG') {
+      return;
+    }
+    
     // 이미 처리된 이미지 스킵
-    if (img.dataset.optimized === 'true') {
+    if (img.dataset && img.dataset.optimized === 'true') {
       return;
     }
 
     // CLS 최적화: 이미지 크기 힌트 설정
-    setImageSizeHint(img);
+    try {
+      setImageSizeHint(img);
+    } catch (e) {
+      // 에러 발생 시 계속 진행 (최적화는 선택사항)
+      console.warn('[Image Optimizer] setImageSizeHint failed:', e);
+    }
 
     // WebP를 지원하는 경우에만 변환 시도
-    if (supportsWebP()) {
-      const originalSrc = img.src || img.getAttribute('src');
-      const webpUrl = getWebPUrl(originalSrc);
-      
-      if (webpUrl && webpUrl !== originalSrc) {
-        // WebP 이미지 로드 시도
-        const webpImg = new Image();
+    try {
+      if (supportsWebP()) {
+        const originalSrc = img.src || (img.getAttribute && img.getAttribute('src'));
         
-        webpImg.onload = function() {
-          // WebP 로드 성공
-          img.src = webpUrl;
-          img.dataset.optimized = 'true';
-          img.dataset.format = 'webp';
+        // src가 없으면 스킵
+        if (!originalSrc) {
+          if (img.dataset) {
+            img.dataset.optimized = 'true';
+            img.dataset.format = 'original';
+          }
+          return;
+        }
+        
+        const webpUrl = getWebPUrl(originalSrc);
+        
+        if (webpUrl && webpUrl !== originalSrc) {
+          // WebP 이미지 로드 시도
+          const webpImg = new Image();
           
-          // CLS 최적화: 크기 힌트 재확인
+          webpImg.onload = function() {
+            try {
+              // WebP 로드 성공
+              img.src = webpUrl;
+              if (img.dataset) {
+                img.dataset.optimized = 'true';
+                img.dataset.format = 'webp';
+              }
+              
+              // CLS 최적화: 크기 힌트 재확인
+              setImageSizeHint(img);
+            } catch (e) {
+              console.warn('[Image Optimizer] Failed to set WebP image:', e);
+            }
+          };
+          
+          webpImg.onerror = function() {
+            try {
+              // WebP 파일이 없으면 원본 유지
+              if (img.dataset) {
+                img.dataset.optimized = 'true';
+                img.dataset.format = 'original';
+              }
+              
+              // CLS 최적화: 크기 힌트 재확인
+              setImageSizeHint(img);
+            } catch (e) {
+              console.warn('[Image Optimizer] Failed to handle WebP error:', e);
+            }
+          };
+          
+          webpImg.src = webpUrl;
+        } else {
+          if (img.dataset) {
+            img.dataset.optimized = 'true';
+            img.dataset.format = 'original';
+          }
           setImageSizeHint(img);
-        };
-        
-        webpImg.onerror = function() {
-          // WebP 파일이 없으면 원본 유지
+        }
+      } else {
+        // WebP 미지원 브라우저
+        if (img.dataset) {
           img.dataset.optimized = 'true';
           img.dataset.format = 'original';
-          
-          // CLS 최적화: 크기 힌트 재확인
-          setImageSizeHint(img);
-        };
-        
-        webpImg.src = webpUrl;
-      } else {
-        img.dataset.optimized = 'true';
-        img.dataset.format = 'original';
+        }
         setImageSizeHint(img);
       }
-    } else {
-      // WebP 미지원 브라우저
-      img.dataset.optimized = 'true';
-      img.dataset.format = 'original';
-      setImageSizeHint(img);
+    } catch (e) {
+      // 에러 발생 시 원본 유지하고 로깅
+      console.warn('[Image Optimizer] optimizeImage failed:', e);
+      if (img.dataset) {
+        img.dataset.optimized = 'true';
+        img.dataset.format = 'original';
+      }
     }
   }
 
   // 모든 이미지 최적화
   function optimizeAllImages() {
-    const images = document.querySelectorAll('img:not([data-optimized="true"])');
-    
-    images.forEach(function(img) {
-      // Lazy loading 이미지는 Intersection Observer로 처리
-      if (img.loading === 'lazy' || img.dataset.src) {
-        return; // Lazy loading 로직에서 처리
-      }
+    try {
+      const images = document.querySelectorAll('img:not([data-optimized="true"])');
       
-      // 즉시 로드되는 이미지만 최적화
-      if (img.complete) {
-        optimizeImage(img);
-      } else {
-        img.addEventListener('load', function() {
-          optimizeImage(img);
-        }, { once: true });
-      }
-    });
+      images.forEach(function(img) {
+        try {
+          // 입력 검증
+          if (!img || img.nodeType !== 1 || img.tagName !== 'IMG') {
+            return;
+          }
+          
+          // Lazy loading 이미지는 Intersection Observer로 처리
+          if (img.loading === 'lazy' || (img.dataset && img.dataset.src)) {
+            return; // Lazy loading 로직에서 처리
+          }
+          
+          // 즉시 로드되는 이미지만 최적화
+          if (img.complete) {
+            optimizeImage(img);
+          } else {
+            img.addEventListener('load', function() {
+              try {
+                optimizeImage(img);
+              } catch (e) {
+                console.warn('[Image Optimizer] Failed to optimize image on load:', e);
+              }
+            }, { once: true });
+          }
+        } catch (e) {
+          console.warn('[Image Optimizer] Failed to process image:', e);
+        }
+      });
+    } catch (e) {
+      console.warn('[Image Optimizer] optimizeAllImages failed:', e);
+    }
   }
 
   // Lazy loading 이미지 최적화
@@ -152,8 +229,14 @@
         if (entry.isIntersecting) {
           const img = entry.target;
           
+          // 입력 검증
+          if (!img || img.nodeType !== 1 || img.tagName !== 'IMG') {
+            observer.unobserve(img);
+            return;
+          }
+          
           // Lazy loading 이미지 로드 후 최적화
-          if (img.dataset.src) {
+          if (img.dataset && img.dataset.src) {
             const originalSrc = img.dataset.src;
             const webpUrl = getWebPUrl(originalSrc);
             
@@ -161,32 +244,64 @@
               // WebP 시도
               const webpImg = new Image();
               webpImg.onload = function() {
-                img.src = webpUrl;
-                img.removeAttribute('data-src');
-                img.dataset.optimized = 'true';
-                img.dataset.format = 'webp';
-                observer.unobserve(img);
+                try {
+                  img.src = webpUrl;
+                  if (img.removeAttribute) {
+                    img.removeAttribute('data-src');
+                  }
+                  if (img.dataset) {
+                    img.dataset.optimized = 'true';
+                    img.dataset.format = 'webp';
+                  }
+                  observer.unobserve(img);
+                } catch (e) {
+                  console.warn('[Image Optimizer] Failed to set WebP for lazy image:', e);
+                  observer.unobserve(img);
+                }
               };
               webpImg.onerror = function() {
-                // WebP 실패 시 원본 사용
-                img.src = originalSrc;
-                img.removeAttribute('data-src');
-                img.dataset.optimized = 'true';
-                img.dataset.format = 'original';
-                observer.unobserve(img);
+                try {
+                  // WebP 실패 시 원본 사용
+                  img.src = originalSrc;
+                  if (img.removeAttribute) {
+                    img.removeAttribute('data-src');
+                  }
+                  if (img.dataset) {
+                    img.dataset.optimized = 'true';
+                    img.dataset.format = 'original';
+                  }
+                  observer.unobserve(img);
+                } catch (e) {
+                  console.warn('[Image Optimizer] Failed to set original for lazy image:', e);
+                  observer.unobserve(img);
+                }
               };
               webpImg.src = webpUrl;
             } else {
-              // WebP 미지원 또는 변환 불가
-              img.src = originalSrc;
-              img.removeAttribute('data-src');
-              img.dataset.optimized = 'true';
-              img.dataset.format = 'original';
-              observer.unobserve(img);
+              try {
+                // WebP 미지원 또는 변환 불가
+                img.src = originalSrc;
+                if (img.removeAttribute) {
+                  img.removeAttribute('data-src');
+                }
+                if (img.dataset) {
+                  img.dataset.optimized = 'true';
+                  img.dataset.format = 'original';
+                }
+                observer.unobserve(img);
+              } catch (e) {
+                console.warn('[Image Optimizer] Failed to set original lazy image:', e);
+                observer.unobserve(img);
+              }
             }
           } else {
-            optimizeImage(img);
-            observer.unobserve(img);
+            try {
+              optimizeImage(img);
+              observer.unobserve(img);
+            } catch (e) {
+              console.warn('[Image Optimizer] Failed to optimize lazy image:', e);
+              observer.unobserve(img);
+            }
           }
         }
       });
@@ -218,13 +333,23 @@
       mutations.forEach(function(mutation) {
         mutation.addedNodes.forEach(function(node) {
           if (node.nodeType === 1) { // Element node
-            if (node.tagName === 'IMG') {
-              optimizeImage(node);
-            } else {
-              const images = node.querySelectorAll && node.querySelectorAll('img');
-              if (images) {
-                images.forEach(optimizeImage);
+            try {
+              if (node.tagName === 'IMG') {
+                optimizeImage(node);
+              } else {
+                const images = node.querySelectorAll && node.querySelectorAll('img');
+                if (images && images.length > 0) {
+                  images.forEach(function(img) {
+                    try {
+                      optimizeImage(img);
+                    } catch (e) {
+                      console.warn('[Image Optimizer] Failed to optimize image:', e);
+                    }
+                  });
+                }
               }
+            } catch (e) {
+              console.warn('[Image Optimizer] Failed to process added node:', e);
             }
           }
         });
