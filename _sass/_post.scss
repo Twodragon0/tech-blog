@@ -426,6 +426,57 @@
       }
     }
     
+    // Mermaid block special handling
+    &.mermaid-block {
+      overflow: visible; // Allow SVG to render properly
+      padding: $spacing-md;
+      background-color: var(--bg-primary);
+      
+      // Hide language label for Mermaid (optional, can be shown if needed)
+      &::before {
+        display: block; // Show Mermaid label
+      }
+      
+      // Ensure copy button is always visible and properly positioned
+      .copy-code-btn,
+      .mermaid-copy-btn {
+        opacity: 1 !important; // Always visible for Mermaid
+        transform: translateY(0) !important;
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        z-index: 100; // High z-index to ensure it's above SVG
+      }
+      
+      // Mermaid SVG styling
+      svg.mermaid,
+      svg[id^="mermaid-"] {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+      
+      // Mermaid container
+      .mermaid {
+        text-align: center;
+        padding: $spacing-md 0;
+      }
+      
+      // Ensure pre/code don't interfere with Mermaid rendering
+      pre {
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        overflow: visible;
+        
+        code {
+          padding: 0;
+          background: transparent;
+        }
+      }
+    }
+    
     // Responsive adjustments
     @media (max-width: $breakpoint-sm) {
       margin: $spacing-lg 0;
@@ -444,6 +495,19 @@
         
         .copy-text {
           display: none; // Hide text on mobile, show only icon
+        }
+      }
+      
+      // Mermaid responsive
+      &.mermaid-block {
+        padding: $spacing-sm;
+        
+        .copy-code-btn,
+        .mermaid-copy-btn {
+          top: 0.5rem;
+          right: 0.5rem;
+          padding: 0.25rem 0.5rem;
+          font-size: 0.7rem;
         }
       }
       

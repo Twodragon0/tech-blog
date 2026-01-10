@@ -621,34 +621,43 @@
     const preClasses = Array.from(pre.classList);
     const codeClasses = Array.from(codeBlock.classList);
     
-    // Check highlight div classes first (Rouge often adds language class here)
-    let langMatch = highlightClasses.find(cls => 
-      cls !== 'highlight' && 
-      /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
-    );
+    // Check for Mermaid first (special handling needed)
+    const isMermaid = highlightClasses.some(cls => cls === 'mermaid' || cls === 'language-mermaid') ||
+                     preClasses.some(cls => cls === 'mermaid' || cls === 'language-mermaid') ||
+                     codeClasses.some(cls => cls === 'mermaid' || cls === 'language-mermaid' || cls.startsWith('language-mermaid'));
     
-    if (!langMatch) {
-      // Check pre element classes
-      langMatch = preClasses.find(cls => 
+    if (isMermaid) {
+      language = 'MERMAID';
+    } else {
+      // Check highlight div classes first (Rouge often adds language class here)
+      let langMatch = highlightClasses.find(cls => 
         cls !== 'highlight' && 
         /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
       );
-    }
-    
-    if (!langMatch) {
-      // Check code element classes (most common: language-xxx)
-      langMatch = codeClasses.find(cls => 
-        cls.startsWith('language-') || 
-        /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
-      );
       
-      if (langMatch && langMatch.startsWith('language-')) {
-        language = langMatch.replace('language-', '').toUpperCase();
-      } else if (langMatch) {
+      if (!langMatch) {
+        // Check pre element classes
+        langMatch = preClasses.find(cls => 
+          cls !== 'highlight' && 
+          /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
+        );
+      }
+      
+      if (!langMatch) {
+        // Check code element classes (most common: language-xxx)
+        langMatch = codeClasses.find(cls => 
+          cls.startsWith('language-') || 
+          /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
+        );
+        
+        if (langMatch && langMatch.startsWith('language-')) {
+          language = langMatch.replace('language-', '').toUpperCase();
+        } else if (langMatch) {
+          language = langMatch.toUpperCase();
+        }
+      } else {
         language = langMatch.toUpperCase();
       }
-    } else {
-      language = langMatch.toUpperCase();
     }
 
     // Language name mapping for better display
@@ -682,13 +691,19 @@
       'TOML': 'TOML',
       'PROPERTIES': 'Properties',
       'CONF': 'Config',
-      'CONFIG': 'Config'
+      'CONFIG': 'Config',
+      'MERMAID': 'Mermaid'
     };
     
     const displayLang = langMap[language] || language;
 
     // Set language attribute for CSS
     highlightDiv.setAttribute('data-lang', displayLang);
+    
+    // Mark Mermaid blocks for special handling
+    if (isMermaid) {
+      highlightDiv.classList.add('mermaid-block');
+    }
     
     // Ensure highlight div is positioned relatively
     if (!highlightDiv.style.position) {
@@ -698,6 +713,9 @@
     // Create copy button
     const button = document.createElement('button');
     button.className = 'copy-code-btn';
+    if (isMermaid) {
+      button.classList.add('mermaid-copy-btn');
+    }
     button.setAttribute('aria-label', 'Copy code to clipboard');
     button.setAttribute('type', 'button');
     button.innerHTML = `
@@ -708,19 +726,59 @@
       <span class="copy-text">Copy</span>
     `;
     
-    highlightDiv.appendChild(button);
+    // For Mermaid blocks, ensure button is always visible and properly positioned
+    if (isMermaid) {
+      // Append button immediately
+      highlightDiv.appendChild(button);
+      
+      // Wait for Mermaid to render and ensure button positioning
+      let checkCount = 0;
+      const maxChecks = 50; // Maximum 5 seconds (50 * 100ms)
+      
+      const checkMermaidRendered = () => {
+        checkCount++;
+        const mermaidSvg = highlightDiv.querySelector('svg.mermaid, svg[id^="mermaid-"]');
+        const mermaidDiv = highlightDiv.querySelector('.mermaid');
+        const renderedContent = mermaidSvg || mermaidDiv;
+        
+        if (renderedContent || checkCount >= maxChecks) {
+          // Mermaid has rendered or timeout reached
+          // Ensure button is positioned correctly above the rendered content
+          // CSS will handle most of the positioning, but we ensure it's visible
+          button.style.opacity = '1';
+          button.style.transform = 'translateY(0)';
+        } else {
+          // Check again after a short delay
+          setTimeout(checkMermaidRendered, 100);
+        }
+      };
+      
+      // Start checking after a short delay to allow Mermaid to initialize
+      setTimeout(checkMermaidRendered, 200);
+    } else {
+      highlightDiv.appendChild(button);
+    }
 
     // Copy functionality
+    // Store original code text for Mermaid blocks (before rendering)
+    const originalCodeText = codeBlock.textContent || codeBlock.innerText;
+    
     button.addEventListener('click', async (e) => {
       e.stopPropagation();
       e.preventDefault();
       
-      const text = codeBlock.textContent || codeBlock.innerText;
+      // For Mermaid blocks, use original code text; for others, use current text
+      let textToCopy = originalCodeText;
+      if (!isMermaid) {
+        // For non-Mermaid blocks, try to get current text (in case it changed)
+        textToCopy = codeBlock.textContent || codeBlock.innerText || originalCodeText;
+      }
+      
       const copyText = button.querySelector('.copy-text');
       const buttonSvg = button.querySelector('svg');
       
       try {
-        await navigator.clipboard.writeText(text);
+        await navigator.clipboard.writeText(textToCopy);
         
         // Update button state - success
         button.classList.add('copied');
