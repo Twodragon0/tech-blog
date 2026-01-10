@@ -58,22 +58,33 @@ vercel env add SENTRY_DSN development
 # Settings → Environment Variables → SENTRY_DSN 추가
 ```
 
-#### 3. Sentry SDK 추가
-`_includes/sentry.html` 파일에서 Sentry SDK를 로드합니다:
+#### 3. Sentry Loader Script 추가
+Sentry 공식 Loader Script를 사용합니다 (권장):
 
 ```html
-<!-- Sentry SDK (최신 버전) -->
-<script src="https://browser.sentry-cdn.com/7.xx.x/bundle.min.js" 
-        integrity="sha384-..." 
-        crossorigin="anonymous"></script>
+<!-- Sentry Loader Script -->
+<script
+  src="https://js.sentry-cdn.com/61fd23528aff138753e071de26c5b306.min.js"
+  crossorigin="anonymous"
+></script>
 ```
 
-#### 4. DSN 설정
-`_includes/sentry.html`에서 환경 변수 또는 직접 DSN 설정:
+**참고**: Loader Script URL은 Sentry 프로젝트 설정에서 제공하는 고유 URL입니다.
+
+#### 4. Sentry 초기화
+`_includes/sentry.html`에서 `Sentry.onLoad()`를 사용하여 초기화:
 
 ```javascript
-const SENTRY_DSN = 'https://xxxxx@xxxxx.ingest.sentry.io/xxxxx';
+Sentry.onLoad(function() {
+  Sentry.init({
+    tracesSampleRate: 0.1, // 10% 샘플링
+    replaysSessionSampleRate: 0.0, // 비활성화
+    replaysOnErrorSampleRate: 0.0, // 비활성화
+  });
+});
 ```
+
+**DSN**: Loader Script에 자동으로 포함되어 있어 별도 설정 불필요
 
 ### 보안
 - DSN은 환경 변수로 관리 (프로덕션)
@@ -93,8 +104,13 @@ Platform: JavaScript
 Framework: Browser
 Project Name: tech-blog
 Organization: your-org
-DSN: https://xxxxx@xxxxx.ingest.sentry.io/xxxxx
+Loader Script URL: https://js.sentry-cdn.com/61fd23528aff138753e071de26c5b306.min.js
+DSN: https://61fd23528aff138753e071de26c5b306@o4510686170710016.ingest.us.sentry.io/4510686177984512
 ```
+
+### Loader Script vs Bundle Script
+- **Loader Script (권장)**: 자동 업데이트, 최적화된 로딩, DSN 포함
+- **Bundle Script**: 수동 버전 관리 필요, 더 많은 제어 가능
 
 ### 통합 확인
 1. 브라우저 콘솔에서 `window.Sentry` 확인

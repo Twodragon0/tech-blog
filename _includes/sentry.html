@@ -1,45 +1,34 @@
-<!-- Sentry Error Tracking (Optional) -->
+<!-- Sentry Error Tracking -->
 <!-- 
+  공식 Loader Script 사용 (권장)
+  DSN: https://61fd23528aff138753e071de26c5b306@o4510686170710016.ingest.us.sentry.io/4510686177984512
+  
   설정 방법:
-  1. Sentry.io에서 JavaScript (Browser) 프로젝트 생성
-  2. DSN 복사
-  3. 아래 SENTRY_DSN에 DSN 입력 또는 Vercel 환경 변수 사용
-  4. Sentry SDK 버전 확인: https://docs.sentry.io/platforms/javascript/install/cdn/
+  1. Sentry.io 프로젝트 설정에서 Loader Script 복사
+  2. 아래 스크립트 태그의 src URL 업데이트 (필요시)
+  3. DSN은 Loader Script에 포함되어 있음
 -->
 
-<!-- Sentry SDK (최신 버전 - 버전 확인 후 업데이트 필요) -->
-<!-- 
-  최신 버전 확인: https://github.com/getsentry/sentry-javascript/releases
-  또는 Sentry 프로젝트 설정에서 제공하는 스니펫 사용
--->
-<script 
-  src="https://browser.sentry-cdn.com/7.91.0/bundle.min.js" 
-  integrity="sha384-..." 
+<!-- Sentry Loader Script (페이지 상단에 위치) -->
+<script
+  src="https://js.sentry-cdn.com/61fd23528aff138753e071de26c5b306.min.js"
   crossorigin="anonymous"
-  defer
 ></script>
 
+<!-- Sentry 초기화 (Loader Script 로드 후 실행) -->
 <script>
 (function() {
   'use strict';
   
-  // Sentry DSN 설정
-  // 방법 1: 직접 설정 (프로덕션에서는 환경 변수 사용 권장)
-  const SENTRY_DSN = null; // 'https://xxxxx@xxxxx.ingest.sentry.io/xxxxx'
-  
-  // 방법 2: Vercel 환경 변수에서 가져오기 (서버 사이드 렌더링 필요 시)
-  // const SENTRY_DSN = '{{ site.sentry_dsn }}'; // _config.yml에 추가 필요
-  
-  if (!SENTRY_DSN) {
-    // Sentry 미설정 시 기본 에러 핸들러 사용
+  // Sentry가 로드될 때까지 대기
+  if (typeof Sentry === 'undefined') {
+    console.warn('[Sentry] Loader script not loaded');
     return;
   }
 
-  // Sentry 초기화 (SDN 로드 후 실행)
-  if (window.Sentry) {
-    window.Sentry.init({
-      dsn: SENTRY_DSN,
-      
+  // Sentry.onLoad()를 사용하여 초기화 (Loader Script 방식)
+  Sentry.onLoad(function() {
+    Sentry.init({
       // 환경 설정
       environment: window.location.hostname === 'tech.2twodragon.com' 
         ? 'production' 
@@ -47,28 +36,31 @@
         ? 'development'
         : 'preview',
       
-      // 성능 모니터링 샘플링 (10%)
-      tracesSampleRate: 0.1,
+      // Tracing: 성능 모니터링 (프리티어 최적화: 10% 샘플링)
+      tracesSampleRate: 0.1, // 프로덕션: 10%, 개발: 1.0 (100%)
       
-      // 세션 리플레이 (선택사항, 비용 고려)
-      replaysSessionSampleRate: 0.0, // 0% (비활성화)
-      replaysOnErrorSampleRate: 0.0, // 0% (비활성화)
+      // Session Replay: 세션 재생 (비용 최적화)
+      replaysSessionSampleRate: 0.0, // 0% (비활성화 - 비용 절감)
+      replaysOnErrorSampleRate: 0.0, // 0% (비활성화 - 비용 절감)
       
       // 릴리스 정보 (선택사항)
       // release: 'tech-blog@1.0.0',
       
-      // 에러 필터링
+      // 에러 필터링 및 보안
       beforeSend(event, hint) {
         // 민감 정보 제거
         if (event.request) {
+          // 쿠키 제거
           delete event.request.cookies;
+          
           // URL에서 민감한 쿼리 파라미터 제거
           if (event.request.url) {
             try {
               const url = new URL(event.request.url);
-              url.searchParams.delete('token');
-              url.searchParams.delete('key');
-              url.searchParams.delete('password');
+              const sensitiveParams = ['token', 'key', 'password', 'secret', 'api_key', 'apikey'];
+              sensitiveParams.forEach(param => {
+                url.searchParams.delete(param);
+              });
               event.request.url = url.toString();
             } catch (e) {
               // URL 파싱 실패 시 그대로 유지
@@ -76,36 +68,44 @@
           }
         }
         
-        // 특정 에러 무시 (선택사항)
+        // 특정 에러 무시 (정상적인 보안 에러)
         if (event.exception) {
           const error = hint.originalException;
-          // CSP 위반 등 정상적인 보안 에러는 무시
-          if (error && error.message && error.message.includes('Content Security Policy')) {
-            return null; // 이벤트 무시
+          if (error && error.message) {
+            const errorMessage = error.message.toLowerCase();
+            // CSP 위반, 확장 프로그램 관련 에러는 무시
+            if (errorMessage.includes('content security policy') ||
+                errorMessage.includes('csp') ||
+                errorMessage.includes('extension') ||
+                errorMessage.includes('chrome-extension') ||
+                errorMessage.includes('moz-extension')) {
+              return null; // 이벤트 무시
+            }
           }
         }
         
         return event;
       },
       
-      // 샘플링 함수 (고급)
+      // 샘플링 함수 (에러 수집률)
       sampleRate: 1.0, // 100% 에러 수집 (필요시 조정)
       
       // 통합 설정
       integrations: [
-        // 브라우저 통합 (기본)
-        new window.Sentry.Integrations.BrowserTracing({
-          // 성능 모니터링 추적
-          tracingOrigins: ['tech.2twodragon.com', 'localhost'],
-        }),
+        // BrowserTracing은 Loader Script에서 자동 설정됨
       ],
     });
 
     // 사용자 컨텍스트 설정 (선택사항)
-    // window.Sentry.setUser({
+    // Sentry.setUser({
     //   id: 'anonymous',
     //   username: 'visitor'
     // });
-  }
+
+    // 개발 환경에서만 로그
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      console.log('[Sentry] Initialized successfully');
+    }
+  });
 })();
 </script>
