@@ -69,28 +69,6 @@ toc: true
 
 이 글에서는 클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안에 대해 실무 중심으로 상세히 다룹니다.
 
-## 📋 포스팅 요약
-
-> **제목**: 클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안
-> 
-> **카테고리**: Security
-> 
-> **태그**: AWS, CDN, Cloudflare, GitHub, SAST, WAF, 보안, 보안 아키텍처, 애플리케이션 보안, 코드 보안
-> 
-> **핵심 내용**: 
-> - AWS WAF를 활용한 웹 애플리케이션 보안 강화
-> - Cloudflare의 DDoS 보호, WAF, SSL/TLS, CDN 등 종합 보안 기능
-> - GitHub Dependabot 및 Code Scanning을 통한 코드 보안 자동화
-> - 실무 중심의 보안 실습 및 모범 사례
-> 
-> **주요 기술/도구**: AWS WAF, Cloudflare, GitHub Advanced Security, Dependabot, Code Scanning, DVWA
-> 
-> **대상 독자**: 보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자
-> 
-> ---
-> 
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
 ## 1. 강의 일정 및 구성
 
 ### 1.1 세션 구성

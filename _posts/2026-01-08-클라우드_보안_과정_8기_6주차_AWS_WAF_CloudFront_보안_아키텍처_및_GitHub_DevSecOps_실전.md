@@ -60,28 +60,6 @@ toc: true
 </div>
 </div>
 
-## 📋 포스팅 요약
-
-> **제목**: 클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전
-> 
-> **카테고리**: Security
-> 
-> **태그**: AWS, CloudFront, DevSecOps, GitHub, GitHub-Actions, Security-Engineering, Tech-Blog, WAF
-> 
-> **핵심 내용**: 
-> - AWS WAF와 CloudFront를 결합한 안전한 콘텐츠 전송 아키텍처
-> - GitHub Actions 및 Advanced Security를 통한 DevSecOps 구현
-> - 테크 블로그 개선 및 보안 패치 실전 사례 (SSRF, Data Masking)
-> - CodeQL을 활용한 코드 보안 취약점 진단 및 수정
-> 
-> **주요 기술/도구**: AWS WAF, CloudFront, OAI/OAC, GitHub Actions, CodeQL, Dependabot, Amazon Q Developer
-> 
-> **대상 독자**: 보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자, 개발자
-> 
-> ---
-> 
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.
