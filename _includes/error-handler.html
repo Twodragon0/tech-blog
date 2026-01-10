@@ -53,11 +53,10 @@
     // Log to console in development
     logError(error, context);
 
-    // TODO: Send to error tracking service (Sentry, LogRocket, etc.)
-    // Example:
-    // if (window.Sentry) {
-    //   window.Sentry.captureException(error, { contexts: { custom: context } });
-    // }
+    // Send to error tracking service (Sentry)
+    if (window.Sentry) {
+      window.Sentry.captureException(error, { contexts: { custom: context } });
+    }
   }
 
   // Global error handler

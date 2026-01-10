@@ -118,8 +118,29 @@
   <link rel="dns-prefetch" href="https://api.deepseek.com">
   <link rel="dns-prefetch" href="https://va.vercel-scripts.com">
 
+  <!-- Image Optimizer -->
+  <script src="{{ "/assets/js/image-optimizer.js" | relative_url }}" defer></script>
+
+  <!-- Font Optimizer -->
+  {% include font-optimizer.html %}
+
   <!-- Styles -->
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+
+  <!-- Service Worker Registration -->
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function(registration) {
+          console.log('Service Worker registered:', registration.scope);
+        })
+        .catch(function(error) {
+          console.log('Service Worker registration failed:', error);
+        });
+    });
+  }
+  </script>
 
   <!-- Theme Detection (Inline for Performance) -->
   <script>

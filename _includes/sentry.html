@@ -1,0 +1,33 @@
+<!-- Sentry Error Tracking (Optional) -->
+<!-- 사용하려면 SENTRY_DSN 환경 변수를 설정하세요 -->
+<script>
+(function() {
+  'use strict';
+  
+  // Sentry DSN은 환경 변수로 관리 (보안)
+  const SENTRY_DSN = null; // Vercel 환경 변수에서 가져오거나 null로 설정
+  
+  if (!SENTRY_DSN) {
+    // Sentry 미설정 시 기본 에러 핸들러 사용
+    return;
+  }
+
+  // Sentry 로드 (CDN 또는 npm 패키지)
+  // 예시: <script src="https://browser.sentry-cdn.com/7.x.x/bundle.min.js"></script>
+  
+  if (window.Sentry) {
+    window.Sentry.init({
+      dsn: SENTRY_DSN,
+      environment: window.location.hostname === 'tech.2twodragon.com' ? 'production' : 'development',
+      tracesSampleRate: 0.1, // 10% 샘플링
+      beforeSend(event) {
+        // 민감 정보 필터링
+        if (event.request) {
+          delete event.request.cookies;
+        }
+        return event;
+      }
+    });
+  }
+})();
+</script>
