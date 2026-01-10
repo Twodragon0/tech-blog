@@ -282,6 +282,45 @@ Sentry.logger.error('Test error log', {
 - [Vercel Log Drains 문서](https://vercel.com/docs/log-drains/configure-log-drains)
 - [Sentry Free 티어 제한](https://sentry.io/pricing/)
 
+## 빠른 시작 가이드
+
+### 1. Vercel Log Drains 설정
+
+```bash
+# 대화형 설정 스크립트 실행
+./scripts/setup_vercel_log_drains.sh
+```
+
+또는 수동으로:
+1. [Vercel Marketplace](https://vercel.com/integrations)에서 Sentry 통합 설치
+2. Vercel 대시보드 > Team Settings > Drains > Add Drain
+3. 설정: Name, Data Type (Logs), Projects, Sampling Rate (10%), Destination (Sentry)
+
+### 2. 로그 검증
+
+```bash
+# 로그 검증 스크립트 실행
+node scripts/verify_sentry_logs.js
+```
+
+브라우저 콘솔에서 테스트:
+```javascript
+console.warn('Test log from browser', { test: true });
+console.error('Test error log', { test: true });
+```
+
+### 3. 할당량 모니터링
+
+```bash
+# 할당량 모니터링 스크립트 실행
+./scripts/monitor_sentry_quota.sh
+```
+
+Sentry 대시보드에서 확인:
+- [통계](https://sentry.io/organizations/twodragon/projects/tech-blog/stats/)
+- [로그](https://sentry.io/organizations/twodragon/projects/tech-blog/logs/)
+
 ## 업데이트 이력
 
 - **2026-01-10**: 초기 문서 작성, Vercel Log Drains 설정 가이드 추가
+- **2026-01-10**: 검증 및 모니터링 스크립트 추가
