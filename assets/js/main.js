@@ -27,7 +27,12 @@
       /GET.*giscus\.app.*404/i,
       /\[giscus\] Discussion not found/i,
       /Content Security Policy.*connect-src.*violates/i,
-      /Refused to connect.*violates.*Content Security Policy/i
+      /Refused to connect.*violates.*Content Security Policy/i,
+      /Unchecked runtime\.lastError/i,
+      /The message port closed before a response was received/i,
+      /favicon\.png.*404/i,
+      /Download the React DevTools/i,
+      /Download the Apollo DevTools/i
     ];
 
     // 에러 메시지 개선 매핑
@@ -85,6 +90,30 @@
         replacement: {
           message: 'ℹ️ 댓글 시스템',
           details: '새로운 댓글을 작성하면 자동으로 토론이 생성됩니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /favicon\.png.*404/i,
+        replacement: {
+          message: 'ℹ️ 아이콘',
+          details: 'Favicon 파일이 없습니다. 기본 아이콘이 사용됩니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /Unchecked runtime\.lastError/i,
+        replacement: {
+          message: 'ℹ️ 브라우저 확장 프로그램',
+          details: '브라우저 확장 프로그램 관련 메시지입니다. 무시해도 됩니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /The message port closed before a response was received/i,
+        replacement: {
+          message: 'ℹ️ 브라우저 확장 프로그램',
+          details: '브라우저 확장 프로그램 통신 관련 메시지입니다. 무시해도 됩니다.',
           level: 'info'
         }
       }

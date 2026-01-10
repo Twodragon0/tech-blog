@@ -543,14 +543,72 @@ document.addEventListener('DOMContentLoaded', function() {
     const src = img.dataset.fullSrc || img.src;
     const alt = img.alt || '';
 
-    lightboxImage.src = src;
-    lightboxImage.alt = alt;
-    lightboxCaption.textContent = alt;
+    if (!src) {
+      console.error('Image source is missing');
+      return;
+    }
+
+    // Reset scale and show loading state
     currentScale = 1;
     lightboxImage.style.transform = `scale(${currentScale})`;
+    lightboxImage.style.opacity = '0';
+    lightboxImage.style.display = 'block';
+    lightboxImage.style.visibility = 'visible';
+    
+    // Reset caption style
+    lightboxCaption.style.color = '#ffffff';
+    lightboxCaption.textContent = alt;
 
+    // Show lightbox immediately
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Handle image load
+    const handleImageLoad = () => {
+      lightboxImage.style.opacity = '1';
+      lightboxImage.style.transition = 'opacity 0.3s ease';
+    };
+
+    const handleImageError = () => {
+      console.error('Failed to load image:', src);
+      lightboxImage.style.opacity = '0.5';
+      lightboxCaption.textContent = alt ? `${alt} (이미지를 불러올 수 없습니다)` : '이미지를 불러올 수 없습니다';
+      lightboxCaption.style.color = '#ff6b6b';
+    };
+
+    // Remove previous event listeners
+    const newImageLoadHandler = handleImageLoad;
+    const newImageErrorHandler = handleImageError;
+    
+    // Remove old listeners
+    lightboxImage.onload = null;
+    lightboxImage.onerror = null;
+    
+    // Preload image to check if it's available
+    const preloadImage = new Image();
+    
+    preloadImage.onload = () => {
+      // Image is available, set it to lightbox
+      lightboxImage.src = src;
+      lightboxImage.alt = alt;
+      
+      // Add event listeners
+      lightboxImage.onload = newImageLoadHandler;
+      lightboxImage.onerror = newImageErrorHandler;
+      
+      // If image is already cached, trigger load immediately
+      if (lightboxImage.complete && lightboxImage.naturalHeight !== 0) {
+        handleImageLoad();
+      }
+    };
+    
+    preloadImage.onerror = () => {
+      handleImageError();
+      lightboxImage.onerror = newImageErrorHandler;
+    };
+    
+    // Start preloading
+    preloadImage.src = src;
   }
 
   // Close lightbox
@@ -559,6 +617,18 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = '';
     currentScale = 1;
     lightboxImage.style.transform = `scale(${currentScale})`;
+    // Reset image styles
+    lightboxImage.style.opacity = '1';
+    lightboxImage.style.visibility = 'visible';
+    lightboxCaption.style.color = '#ffffff';
+    // Clear image source to free memory
+    setTimeout(() => {
+      if (!lightbox.classList.contains('active')) {
+        lightboxImage.src = '';
+        lightboxImage.onload = null;
+        lightboxImage.onerror = null;
+      }
+    }, 300);
   }
 
   // Zoom functions
@@ -581,14 +651,32 @@ document.addEventListener('DOMContentLoaded', function() {
     lightboxImage.style.transform = `scale(${currentScale})`;
   }
 
-  // Event listeners for clickable images
-  document.querySelectorAll('.clickable-image, .post-content img, .post-image img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', function(e) {
-      e.preventDefault();
-      openLightbox(this);
+  // Function to attach click handlers to images
+  function attachImageHandlers() {
+    const images = document.querySelectorAll('.clickable-image, .post-content img, .post-image img');
+    images.forEach(img => {
+      // Skip if already processed
+      if (img.dataset.lightboxAttached === 'true') return;
+      
+      img.style.cursor = 'zoom-in';
+      img.dataset.lightboxAttached = 'true';
+      img.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openLightbox(this);
+      });
     });
-  });
+  }
+
+  // Attach handlers on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachImageHandlers);
+  } else {
+    attachImageHandlers();
+  }
+
+  // Also attach handlers after a short delay to catch dynamically loaded images
+  setTimeout(attachImageHandlers, 500);
 
   // Close events
   lightboxClose.addEventListener('click', closeLightbox);
