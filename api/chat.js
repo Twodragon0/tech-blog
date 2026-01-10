@@ -1,13 +1,76 @@
 // Vercel Serverless Function for DeepSeek Chat API
 // 보안: API 키를 서버에서 관리하여 클라이언트에 노출되지 않도록 함
+// 프리티어 최적화: 실행 시간, 메모리, Rate limiting 고려
+// 
+// 사용법:
+// 1. Vercel 환경 변수에 DEEPSEEK_API_KEY 설정
+// 2. /api/chat 엔드포인트로 POST 요청
+// 
+// 요청 형식:
+// {
+//   "message": "질문 내용",
+//   "sessionId": "세션 ID (선택사항)"
+// }
+
+// 프리티어 최적화 설정
+const CONFIG = {
+  // 프리티어 고려: Hobby 플랜은 10초, 안전하게 8초로 설정
+  TIMEOUT_MS: 8000,
+  // Rate limiting (간단한 메모리 기반, 프로덕션에서는 Redis 권장)
+  RATE_LIMIT: {
+    MAX_REQUESTS: 10, // 세션당 최대 요청 수
+    WINDOW_MS: 60000, // 1분 윈도우
+  },
+  // 메시지 제한
+  MAX_MESSAGE_LENGTH: 2000,
+  MAX_TOKENS: 1500, // 프리티어 최적화: 토큰 수 제한
+};
+
+// 간단한 메모리 기반 Rate Limiter (프리티어용)
+// 프로덕션에서는 Redis 또는 Vercel KV 사용 권장
+const rateLimitStore = new Map();
+
+function checkRateLimit(sessionId) {
+  const now = Date.now();
+  const key = sessionId || 'anonymous';
+  const record = rateLimitStore.get(key);
+
+  if (!record) {
+    rateLimitStore.set(key, { count: 1, resetAt: now + CONFIG.RATE_LIMIT.WINDOW_MS });
+    // 메모리 정리: 오래된 레코드 삭제
+    if (rateLimitStore.size > 1000) {
+      for (const [k, v] of rateLimitStore.entries()) {
+        if (v.resetAt < now) {
+          rateLimitStore.delete(k);
+        }
+      }
+    }
+    return true;
+  }
+
+  if (record.resetAt < now) {
+    record.count = 1;
+    record.resetAt = now + CONFIG.RATE_LIMIT.WINDOW_MS;
+    return true;
+  }
+
+  if (record.count >= CONFIG.RATE_LIMIT.MAX_REQUESTS) {
+    return false;
+  }
+
+  record.count++;
+  return true;
+}
 
 export default async function handler(req, res) {
-  // CORS 헤더 설정 (필요한 경우)
+  const startTime = Date.now();
+  
+  // CORS 헤더 설정
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // OPTIONS 요청 처리 (CORS preflight)
+  // OPTIONS 요청 처리 (CORS preflight) - 빠른 응답
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -25,9 +88,20 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: '메시지가 필요합니다.' });
     }
 
-    // 메시지 길이 제한 (보안)
-    if (message.length > 2000) {
-      return res.status(400).json({ error: '메시지가 너무 깁니다. (최대 2000자)' });
+    // 메시지 길이 제한 (보안 및 프리티어 최적화)
+    if (message.length > CONFIG.MAX_MESSAGE_LENGTH) {
+      return res.status(400).json({ 
+        error: `메시지가 너무 깁니다. (최대 ${CONFIG.MAX_MESSAGE_LENGTH}자)` 
+      });
+    }
+
+    // Rate limiting 체크
+    const sessionKey = sessionId || `session-${Date.now()}`;
+    if (!checkRateLimit(sessionKey)) {
+      return res.status(429).json({ 
+        error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.',
+        retryAfter: 60
+      });
     }
 
     // XSS 방지를 위한 입력 정제
@@ -36,19 +110,18 @@ export default async function handler(req, res) {
     // DeepSeek API 키 확인
     const apiKey = process.env.DEEPSEEK_API_KEY;
     if (!apiKey) {
-      console.error('DEEPSEEK_API_KEY가 설정되지 않았습니다.');
+      // 프로덕션에서는 상세 로그 최소화
+      if (process.env.NODE_ENV === 'development') {
+        console.error('[Chat API] DEEPSEEK_API_KEY가 설정되지 않았습니다.');
+      }
       return res.status(503).json({ 
         error: 'AI 서비스가 일시적으로 사용할 수 없습니다. 관리자에게 문의하세요.' 
       });
     }
 
-    // Rate limiting을 위한 세션 ID 사용 (간단한 구현)
-    // 실제로는 Redis 등을 사용하는 것이 좋습니다
-    const sessionKey = sessionId || `session-${Date.now()}`;
-
-    // DeepSeek API 호출
+    // DeepSeek API 호출 (프리티어 최적화: 타임아웃 8초)
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 60000); // 60초 타임아웃
+    const timeoutId = setTimeout(() => controller.abort(), CONFIG.TIMEOUT_MS);
 
     const deepseekResponse = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
@@ -69,7 +142,7 @@ export default async function handler(req, res) {
           },
         ],
         temperature: 0.7,
-        max_tokens: 2000,
+        max_tokens: CONFIG.MAX_TOKENS, // 프리티어 최적화: 토큰 수 제한
         stream: false,
       }),
       signal: controller.signal,
@@ -79,7 +152,14 @@ export default async function handler(req, res) {
 
     if (!deepseekResponse.ok) {
       const errorData = await deepseekResponse.json().catch(() => ({}));
-      console.error('DeepSeek API 오류:', deepseekResponse.status, errorData);
+      
+      // 프로덕션에서는 상세 로그 최소화 (프리티어 최적화)
+      if (process.env.NODE_ENV === 'development') {
+        console.error('[Chat API] DeepSeek API 오류:', deepseekResponse.status, errorData);
+      } else {
+        // 프로덕션: 간단한 로그만
+        console.error(`[Chat API] Error ${deepseekResponse.status}`);
+      }
       
       // Rate limit 오류 처리
       if (deepseekResponse.status === 429) {
@@ -98,7 +178,12 @@ export default async function handler(req, res) {
     const data = await deepseekResponse.json();
 
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-      console.error('DeepSeek API 응답 형식 오류:', data);
+      // 프로덕션에서는 상세 로그 최소화
+      if (process.env.NODE_ENV === 'development') {
+        console.error('[Chat API] DeepSeek API 응답 형식 오류:', data);
+      } else {
+        console.error('[Chat API] Invalid response format');
+      }
       return res.status(500).json({ error: '응답 형식이 올바르지 않습니다.' });
     }
 
@@ -112,6 +197,12 @@ export default async function handler(req, res) {
     // XSS 방지를 위한 응답 정제
     const sanitizedResponse = sanitizeInput(response);
 
+    // 실행 시간 로깅 (프리티어 모니터링)
+    const executionTime = Date.now() - startTime;
+    if (process.env.NODE_ENV === 'development' || executionTime > 5000) {
+      console.log(`[Chat API] Execution time: ${executionTime}ms`);
+    }
+
     // 성공 응답
     return res.status(200).json({
       response: sanitizedResponse,
@@ -120,7 +211,12 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
-    console.error('Chat API 오류:', error);
+    // 프로덕션에서는 상세 로그 최소화
+    if (process.env.NODE_ENV === 'development') {
+      console.error('[Chat API] 오류:', error);
+    } else {
+      console.error(`[Chat API] Error: ${error.name || 'Unknown'}`);
+    }
 
     if (error.name === 'AbortError' || error.name === 'TimeoutError') {
       return res.status(504).json({ 

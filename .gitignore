@@ -15,3 +15,4 @@ vendor/
 *.key
 *.pem
 secrets/
+.vercel

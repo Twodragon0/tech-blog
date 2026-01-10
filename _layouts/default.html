@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'ko' }}">
 {% include head.html %}
+{% include error-handler.html %}
 <body>
   <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
   {% include header.html %}
@@ -13,6 +14,6 @@
 
   {% include footer.html %}
   {% include chat-widget.html %}
-  <script src="{{ "/assets/js/chat-widget.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/chat-widget.js" | relative_url }}" defer></script>
 </body>
 </html>

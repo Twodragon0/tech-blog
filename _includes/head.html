@@ -106,16 +106,62 @@
   <!-- Fallback: SVG 아이콘 (PNG 로드 실패 시) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
 
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="{{ "/assets/css/main.css" | relative_url }}" as="style">
+  <link rel="preload" href="{{ "/assets/js/main.js" | relative_url }}" as="script">
+  {% if og_image %}
+  <link rel="preload" href="{{ og_image_url }}" as="image">
+  {% endif %}
+
+  <!-- DNS Prefetch for External Resources -->
+  <link rel="dns-prefetch" href="https://giscus.app">
+  <link rel="dns-prefetch" href="https://api.deepseek.com">
+  <link rel="dns-prefetch" href="https://va.vercel-scripts.com">
+
   <!-- Styles -->
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
 
-  <!-- Theme Detection -->
+  <!-- Theme Detection (Inline for Performance) -->
   <script>
     (function() {
       const theme = localStorage.getItem('theme') ||
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       document.documentElement.setAttribute('data-theme', theme);
     })();
+  </script>
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebSite{% endif %}",
+    "headline": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}",
+    "description": "{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}",
+    "url": "{{ page.url | absolute_url }}",
+    "datePublished": "{% if page.date %}{{ page.date | date_to_xmlschema }}{% endif %}",
+    "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% elsif page.date %}{{ page.date | date_to_xmlschema }}{% endif %}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author.name }}",
+      "url": "{{ site.url }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.logo | absolute_url }}"
+      }
+    }{% if og_image %},
+    "image": {
+      "@type": "ImageObject",
+      "url": "{{ og_image_url }}",
+      "width": {{ site.og_image_width | default: 1200 }},
+      "height": {{ site.og_image_height | default: 630 }}
+    }{% endif %}{% if page.category %},
+    "articleSection": "{{ page.category }}"{% endif %}{% if page.tags %},
+    "keywords": "{{ page.tags | join: ', ' }}"{% endif %}
+  }
   </script>
 
   {% if site.google_analytics %}
@@ -139,4 +185,7 @@
   <!-- Vercel Analytics & Speed Insights -->
   <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
   <script defer src="https://va.vercel-scripts.com/v1/speed-insights/script.js"></script>
+  
+  <!-- Performance Monitoring -->
+  {% include performance-monitor.html %}
 </head>

@@ -1,0 +1,139 @@
+<!-- Global Error Handler for Production -->
+<script>
+(function() {
+  'use strict';
+  
+  // Only run in production
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    return;
+  }
+
+  // Error tracking configuration
+  const ERROR_CONFIG = {
+    maxErrors: 10, // 최대 에러 수 (메모리 보호)
+    errorWindow: 60000, // 1분 윈도우
+    errors: []
+  };
+
+  // Clean old errors
+  function cleanOldErrors() {
+    const now = Date.now();
+    ERROR_CONFIG.errors = ERROR_CONFIG.errors.filter(err => 
+      now - err.timestamp < ERROR_CONFIG.errorWindow
+    );
+  }
+
+  // Log error to console (development only)
+  function logError(error, context) {
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      console.error('[Error Handler]', error, context);
+    }
+  }
+
+  // Report error (can be extended to send to error tracking service)
+  function reportError(error, context) {
+    cleanOldErrors();
+    
+    // Prevent error spam
+    if (ERROR_CONFIG.errors.length >= ERROR_CONFIG.maxErrors) {
+      return;
+    }
+
+    const errorInfo = {
+      message: error.message || String(error),
+      stack: error.stack,
+      context: context,
+      url: window.location.href,
+      userAgent: navigator.userAgent,
+      timestamp: Date.now()
+    };
+
+    ERROR_CONFIG.errors.push(errorInfo);
+
+    // Log to console in development
+    logError(error, context);
+
+    // TODO: Send to error tracking service (Sentry, LogRocket, etc.)
+    // Example:
+    // if (window.Sentry) {
+    //   window.Sentry.captureException(error, { contexts: { custom: context } });
+    // }
+  }
+
+  // Global error handler
+  window.addEventListener('error', function(event) {
+    // Ignore errors from external scripts (CSP violations, etc.)
+    if (event.filename && !event.filename.includes(window.location.hostname)) {
+      return;
+    }
+
+    reportError(event.error || event.message, {
+      type: 'error',
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno
+    });
+  }, true);
+
+  // Unhandled promise rejection handler
+  window.addEventListener('unhandledrejection', function(event) {
+    reportError(event.reason, {
+      type: 'unhandledrejection',
+      promise: event.promise
+    });
+  }, true);
+
+  // Resource loading error handler
+  window.addEventListener('error', function(event) {
+    if (event.target && event.target.tagName) {
+      const tagName = event.target.tagName.toLowerCase();
+      if (['img', 'script', 'link', 'style'].includes(tagName)) {
+        reportError(`Failed to load ${tagName}: ${event.target.src || event.target.href}`, {
+          type: 'resource',
+          tag: tagName,
+          src: event.target.src || event.target.href
+        });
+      }
+    }
+  }, true);
+
+  // Performance monitoring
+  if ('PerformanceObserver' in window) {
+    try {
+      // Long task monitoring
+      const longTaskObserver = new PerformanceObserver(function(list) {
+        for (const entry of list.getEntries()) {
+          if (entry.duration > 50) { // 50ms 이상의 긴 작업
+            reportError(`Long task detected: ${entry.duration}ms`, {
+              type: 'performance',
+              duration: entry.duration,
+              startTime: entry.startTime
+            });
+          }
+        }
+      });
+      longTaskObserver.observe({ entryTypes: ['longtask'] });
+    } catch (e) {
+      // Long task observer not supported
+    }
+
+    // Layout shift monitoring (CLS)
+    try {
+      const layoutShiftObserver = new PerformanceObserver(function(list) {
+        for (const entry of list.getEntries()) {
+          if (!entry.hadRecentInput && entry.value > 0.1) {
+            reportError(`Layout shift detected: ${entry.value}`, {
+              type: 'performance',
+              metric: 'CLS',
+              value: entry.value
+            });
+          }
+        }
+      });
+      layoutShiftObserver.observe({ entryTypes: ['layout-shift'] });
+    } catch (e) {
+      // Layout shift observer not supported
+    }
+  }
+})();
+</script>

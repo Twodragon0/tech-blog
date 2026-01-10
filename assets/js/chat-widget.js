@@ -5,8 +5,8 @@
   // Configuration
   const CONFIG = {
     apiEndpoint: '/api/chat', // Vercel Serverless Function 엔드포인트
-    maxRetries: 3,
-    timeout: 60000, // 60 seconds
+    maxRetries: 2, // 프리티어 최적화: 재시도 횟수 감소
+    timeout: 10000, // 프리티어 최적화: 10초 (서버 타임아웃 8초 + 여유)
     showIconDelay: 5000, // 5 seconds
   };
 

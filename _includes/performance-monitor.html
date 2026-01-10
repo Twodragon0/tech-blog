@@ -1,0 +1,105 @@
+<!-- Performance Monitoring (Production Only) -->
+<script>
+(function() {
+  'use strict';
+  
+  // Only run in production
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    return;
+  }
+
+  // Wait for page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPerformanceMonitor);
+  } else {
+    initPerformanceMonitor();
+  }
+
+  function initPerformanceMonitor() {
+    // Web Vitals monitoring
+    if ('PerformanceObserver' in window) {
+      // Largest Contentful Paint (LCP)
+      try {
+        const lcpObserver = new PerformanceObserver(function(list) {
+          const entries = list.getEntries();
+          const lastEntry = entries[entries.length - 1];
+          if (lastEntry && lastEntry.renderTime) {
+            const lcp = lastEntry.renderTime;
+            if (lcp > 2500) { // LCP should be < 2.5s
+              console.warn('[Performance] LCP is slow:', lcp + 'ms');
+            }
+          }
+        });
+        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+      } catch (e) {
+        // LCP observer not supported
+      }
+
+      // First Input Delay (FID)
+      try {
+        const fidObserver = new PerformanceObserver(function(list) {
+          for (const entry of list.getEntries()) {
+            if (entry.processingStart - entry.startTime > 100) { // FID should be < 100ms
+              console.warn('[Performance] FID is slow:', (entry.processingStart - entry.startTime) + 'ms');
+            }
+          }
+        });
+        fidObserver.observe({ entryTypes: ['first-input'] });
+      } catch (e) {
+        // FID observer not supported
+      }
+
+      // Cumulative Layout Shift (CLS)
+      let clsValue = 0;
+      try {
+        const clsObserver = new PerformanceObserver(function(list) {
+          for (const entry of list.getEntries()) {
+            if (!entry.hadRecentInput) {
+              clsValue += entry.value;
+              if (clsValue > 0.1) { // CLS should be < 0.1
+                console.warn('[Performance] CLS is high:', clsValue);
+              }
+            }
+          }
+        });
+        clsObserver.observe({ entryTypes: ['layout-shift'] });
+      } catch (e) {
+        // CLS observer not supported
+      }
+    }
+
+    // Page load time monitoring
+    window.addEventListener('load', function() {
+      if (window.performance && window.performance.timing) {
+        const timing = window.performance.timing;
+        const loadTime = timing.loadEventEnd - timing.navigationStart;
+        const domReady = timing.domContentLoadedEventEnd - timing.navigationStart;
+        
+        if (loadTime > 3000) { // Page load should be < 3s
+          console.warn('[Performance] Page load is slow:', loadTime + 'ms');
+        }
+        if (domReady > 2000) { // DOM ready should be < 2s
+          console.warn('[Performance] DOM ready is slow:', domReady + 'ms');
+        }
+      }
+    });
+
+    // Resource loading monitoring
+    if ('PerformanceObserver' in window) {
+      try {
+        const resourceObserver = new PerformanceObserver(function(list) {
+          for (const entry of list.getEntries()) {
+            // Monitor slow resources (> 1s)
+            if (entry.duration > 1000 && entry.initiatorType !== 'navigation') {
+              console.warn('[Performance] Slow resource:', entry.name, entry.duration + 'ms');
+            }
+          }
+        });
+        resourceObserver.observe({ entryTypes: ['resource'] });
+      } catch (e) {
+        // Resource observer not supported
+      }
+    }
+  }
+})();
+</script>
