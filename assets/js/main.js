@@ -709,6 +709,11 @@
     if (!highlightDiv.style.position) {
       highlightDiv.style.position = 'relative';
     }
+    
+    // Ensure pre element is positioned relatively for button positioning
+    if (!pre.style.position) {
+      pre.style.position = 'relative';
+    }
 
     // Create copy button
     const button = document.createElement('button');
@@ -728,8 +733,8 @@
     
     // For Mermaid blocks, ensure button is always visible and properly positioned
     if (isMermaid) {
-      // Append button immediately
-      highlightDiv.appendChild(button);
+      // Append button to pre element (inside code block)
+      pre.appendChild(button);
       
       // Wait for Mermaid to render and ensure button positioning
       let checkCount = 0;
@@ -756,7 +761,8 @@
       // Start checking after a short delay to allow Mermaid to initialize
       setTimeout(checkMermaidRendered, 200);
     } else {
-      highlightDiv.appendChild(button);
+      // Append button to pre element (inside code block)
+      pre.appendChild(button);
     }
 
     // Copy functionality
@@ -863,6 +869,11 @@
         highlightDiv.setAttribute('data-lang', displayLang);
         highlightDiv.style.position = 'relative';
         
+        // Ensure pre element is positioned relatively for button positioning
+        if (!newPre.style.position) {
+          newPre.style.position = 'relative';
+        }
+        
         const button = document.createElement('button');
         button.className = 'copy-code-btn';
         button.setAttribute('aria-label', 'Copy code to clipboard');
@@ -875,7 +886,8 @@
           <span class="copy-text">Copy</span>
         `;
         
-        highlightDiv.appendChild(button);
+        // Append button to pre element (inside code block)
+        newPre.appendChild(button);
         
         button.addEventListener('click', async (e) => {
           e.stopPropagation();

@@ -12,6 +12,19 @@ from pathlib import Path
 from datetime import datetime
 from urllib.parse import quote
 
+# .env 파일에서 환경 변수 로드
+SCRIPT_DIR = Path(__file__).parent
+PROJECT_ROOT = SCRIPT_DIR.parent
+ENV_FILE = PROJECT_ROOT / '.env'
+
+if ENV_FILE.exists():
+    with open(ENV_FILE, 'r') as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith('#') and '=' in line:
+                key, value = line.split('=', 1)
+                os.environ[key.strip()] = value.strip()
+
 # Optional imports - will be skipped if not configured
 try:
     import tweepy
@@ -174,16 +187,19 @@ def share_to_facebook(message: str) -> bool:
 
 
 def share_to_linkedin(message: str) -> bool:
-    """Share to LinkedIn using API."""
+    """Share to LinkedIn using OAuth 2.0 Access Token."""
     if not REQUESTS_AVAILABLE:
         print("LinkedIn: requests not installed, skipping")
         return False
 
+    # OAuth 2.0 Access Token 사용 (API key 불필요)
     access_token = os.environ.get('LINKEDIN_ACCESS_TOKEN')
     person_id = os.environ.get('LINKEDIN_PERSON_ID')
 
     if not all([access_token, person_id]):
-        print("LinkedIn: API credentials not configured, skipping")
+        print("LinkedIn: OAuth 2.0 credentials not configured, skipping")
+        print("   필요한 환경 변수: LINKEDIN_ACCESS_TOKEN, LINKEDIN_PERSON_ID")
+        print("   OAuth 인증 실행: python scripts/linkedin_oauth.py")
         return False
 
     try:
