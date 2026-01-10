@@ -199,44 +199,31 @@ image_alt: "DevSecOps Viewing Automotive Security Complete Guide: Connected Car 
 - **서비스 지향 아키텍처(SOA)**: 차량 기능이 소프트웨어 서비스로 제공
 - **OTA 업데이트 의존성**: 지속적인 기능 업데이트 및 보안 패치 필수
 
-#### SDV 보안 고려사항
+#### SDV 보안 아키텍처 구조 (2025)
 
-```mermaid
-graph TB
-    subgraph SDV["🚗 SDV 보안 아키텍처 (2025)"]
-        subgraph CCP["Central Computing Platform"]
-            ADAS["🚙 ADAS<br/>Domain"]
-            INFO["🎬 Infotainment"]
-            BODY["🔧 Body<br/>Control"]
-            POWER["⚡ Powertrain<br/>Control"]
-        end
+**SDV 보안 아키텍처 계층 구조**:
 
-        subgraph SEC["🔐 Security Middleware"]
-            AC["Access Control"]
-            ENC["Encryption"]
-            SB["Secure Boot"]
-        end
+| 계층 | 구성 요소 | 설명 | 보안 기능 |
+|------|----------|------|----------|
+| **애플리케이션 도메인** | ADAS Domain | 자율주행 보조 시스템 | 도메인 격리, 접근 제어 |
+| | Infotainment | 인포테인먼트 시스템 | 샌드박싱, 앱 검증 |
+| | Body Control | 차체 제어 시스템 | 권한 분리, 안전 검증 |
+| | Powertrain Control | 파워트레인 제어 | 실시간 보안, 무결성 검증 |
+| **보안 미들웨어** | Access Control | 접근 제어 | 역할 기반 접근 제어 (RBAC) |
+| | Encryption | 암호화 | 전송/저장 데이터 암호화 |
+| | Secure Boot | 보안 부팅 | 부팅 체인 무결성 검증 |
+| **보안 게이트웨이** | Secure Gateway | 보안 게이트웨이 | 네트워크 분할, 트래픽 검사 |
+| **외부 연결** | V2X Module | 차량 간 통신 | PKI 인증, 메시지 무결성 |
+| | Cloud Backend | 클라우드 백엔드 | TLS 1.3, 인증서 고정 |
+| | OTA Server | OTA 업데이트 서버 | 서명 검증, 롤백 메커니즘 |
 
-        ADAS --> SEC
-        INFO --> SEC
-        BODY --> SEC
-        POWER --> SEC
+**데이터 흐름 및 보안 검증**:
 
-        SEC --> GW["🛡️ Secure Gateway"]
-
-        GW --> V2X["📡 V2X Module"]
-        GW --> CLOUD["☁️ Cloud Backend"]
-        GW --> OTA["📲 OTA Server"]
-    end
-
-    style SDV fill:#1a1a2e,stroke:#16213e,color:#fff
-    style CCP fill:#0f3460,stroke:#1a1a2e,color:#fff
-    style SEC fill:#e94560,stroke:#1a1a2e,color:#fff
-    style GW fill:#533483,stroke:#1a1a2e,color:#fff
-    style V2X fill:#0f3460,stroke:#16213e,color:#fff
-    style CLOUD fill:#0f3460,stroke:#16213e,color:#fff
-    style OTA fill:#0f3460,stroke:#16213e,color:#fff
-```
+| 데이터 흐름 경로 | 보안 검증 단계 | 설명 |
+|----------------|--------------|------|
+| **도메인 → 보안 미들웨어** | 인증 및 인가 | 각 도메인에서 보안 미들웨어로 요청 시 인증/인가 검증 |
+| **보안 미들웨어 → 게이트웨이** | 암호화 및 무결성 | 모든 통신은 암호화되고 무결성 검증 |
+| **게이트웨이 → 외부 연결** | 네트워크 분할 | V2X, Cloud, OTA 각각 독립적인 보안 정책 적용 |
 
 | 보안 고려사항 | 설명 | 적용 영역 |
 |-------------|------|----------|

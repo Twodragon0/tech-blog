@@ -390,24 +390,36 @@ secret_protection:
 
 ### 5.3 통합 보안 전략
 
-```mermaid
-graph TB
-    A[코드 작성] --> B[GitHub Secret Protection]
-    B --> C{시크릿 탐지?}
-    C -->|Yes| D[Push Protection 차단]
-    C -->|No| E[GitHub Code Security]
-    E --> F[Copilot Autofix 분석]
-    F --> G[자동 수정 제안]
-    G --> H[배포]
-    H --> I[Cloudflare WAF]
-    I --> J[Bot Management]
-    J --> K[실시간 위협 차단]
+**GitHub + Cloudflare 통합 보안 파이프라인**:
 
-    style B fill:#238636
-    style E fill:#238636
-    style I fill:#f6821f
-    style J fill:#f6821f
-```
+| 단계 | 프로세스 | 도구/서비스 | 설명 |
+|------|---------|------------|------|
+| 1 | 코드 작성 | 개발자 | 코드 작성 및 커밋 |
+| 2 | Secret 탐지 | GitHub Secret Protection | 민감 정보 자동 탐지 |
+| 3 | 시크릿 검증 | Push Protection | 시크릿 발견 시 푸시 차단 |
+| 4 | 코드 보안 분석 | GitHub Code Security | 정적 코드 분석 |
+| 5 | 자동 수정 분석 | Copilot Autofix | 취약점 자동 수정 제안 |
+| 6 | 수정 적용 | 개발자 | 자동 수정 제안 검토 및 적용 |
+| 7 | 배포 | CI/CD | 프로덕션 배포 |
+| 8 | WAF 보호 | Cloudflare WAF | 웹 애플리케이션 방화벽 |
+| 9 | 봇 관리 | Cloudflare Bot Management | 봇 트래픽 차단 |
+| 10 | 실시간 위협 차단 | Cloudflare 실시간 보호 | 위협 자동 차단 |
+
+**보안 단계별 보호 영역**:
+
+| 보안 영역 | 단계 | 도구 | 보호 기능 |
+|----------|------|------|----------|
+| **코드 보안** | 2-6 | GitHub Secret Protection, Code Security, Copilot Autofix | 민감 정보 탐지, 취약점 수정 |
+| **배포 보안** | 7 | CI/CD | 자동화된 배포 프로세스 |
+| **런타임 보안** | 8-10 | Cloudflare WAF, Bot Management | 실시간 위협 차단 |
+
+**보안 통합 효과**:
+
+| 통합 영역 | 효과 | 설명 |
+|----------|------|------|
+| **개발 단계** | 조기 취약점 탐지 | 코드 작성 단계에서 보안 검사 |
+| **배포 단계** | 자동화된 보안 검증 | CI/CD 파이프라인 통합 |
+| **운영 단계** | 실시간 위협 차단 | Cloudflare를 통한 런타임 보호 |
 
 ## 결론
 
