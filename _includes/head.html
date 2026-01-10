@@ -6,7 +6,7 @@
   <!-- Security Headers -->
   <!-- Note: X-Frame-Options는 HTTP 헤더로만 설정 가능하므로 메타 태그에서 제거됨 -->
   <!-- 서버 설정에서 X-Frame-Options: SAMEORIGIN 헤더를 추가해야 합니다 -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; font-src 'self'; frame-src https://giscus.app https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://www.google.com; connect-src 'self' https://giscus.app https://api.mymemory.translated.net https://va.vercel-scripts.com https://vitals.vercel-insights.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; font-src 'self'; frame-src https://giscus.app https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://www.google.com; connect-src 'self' https://giscus.app https://api.mymemory.translated.net https://api.deepseek.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -14,6 +14,7 @@
   <title>{% if page.title %}{{ page.title | escape }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   <meta name="author" content="{{ site.author.name }}">
+  <meta name="naver-site-verification" content="b4d9dc74a4120dd65ce564a3fd97adb2f48ae7f2" />
   <link rel="canonical" href="{{ page.url | absolute_url }}">
 
   <!-- Open Graph -->
@@ -38,7 +39,21 @@
   {% endfor %}
   {% endif %}
   {% endif %}
-  {% assign og_image = page.image | default: site.og_image | default: site.logo %}
+  {% comment %}OG 이미지 우선순위: 1) page.og_image, 2) 자동 생성된 OG 이미지, 3) page.image, 4) site.og_image, 5) site.logo {% endcomment %}
+  {% assign og_image = page.og_image %}
+  
+  {% comment %}포스트인 경우 자동 생성된 OG 이미지 찾기{% endcomment %}
+  {% if page.layout == 'post' and og_image == nil %}
+    {% assign post_slug = page.name | replace: '.md', '' | replace: '.html', '' %}
+    {% assign post_slug_clean = post_slug | replace: '^\d{4}-\d{2}-\d{2}-', '' %}
+    {% assign auto_og_image = '/assets/images/' | append: post_slug_clean | append: '_og.png' %}
+    {% assign og_image = auto_og_image %}
+  {% endif %}
+  
+  {% if og_image == nil %}
+    {% assign og_image = page.image | default: site.og_image | default: site.logo %}
+  {% endif %}
+  
   {% if og_image %}
     {% comment %}LinkedIn은 SVG를 지원하지 않으므로 PNG로 변환된 이미지 우선 사용{% endcomment %}
     {% assign og_image_url = og_image | absolute_url %}
