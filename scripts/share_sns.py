@@ -187,6 +187,52 @@ def share_to_facebook(message: str) -> bool:
         return False
 
 
+def decode_octal_path(path: str) -> str:
+    """Decode octal escape sequences in file paths (e.g., \\355\\201\\264 -> actual characters)."""
+    try:
+        # Find all octal escape sequences and convert to bytes
+        octal_pattern = r'\\(\d{1,3})'
+        matches = list(re.finditer(octal_pattern, path))
+        
+        if not matches:
+            return path
+        
+        # Build byte array: convert text parts and octal escapes to bytes
+        byte_parts = []
+        last_end = 0
+        
+        for match in matches:
+            # Add any text before this match as UTF-8 bytes
+            if match.start() > last_end:
+                text_part = path[last_end:match.start()]
+                byte_parts.append(text_part.encode('utf-8'))
+            
+            # Convert octal escape to byte
+            octal_str = match.group(1)
+            byte_val = int(octal_str, 8)
+            byte_parts.append(bytes([byte_val]))
+            
+            last_end = match.end()
+        
+        # Add remaining text as UTF-8 bytes
+        if last_end < len(path):
+            text_part = path[last_end:]
+            byte_parts.append(text_part.encode('utf-8'))
+        
+        # Join all bytes and decode as UTF-8
+        decoded_bytes = b''.join(byte_parts)
+        decoded = decoded_bytes.decode('utf-8', errors='replace')
+        return decoded
+    except Exception as e:
+        # If decoding fails, try alternative: extract date and find file
+        print(f"Warning: Failed to decode octal path: {e}")
+        # Try to extract date pattern and find file by date
+        date_match = re.search(r'(\d{4}-\d{2}-\d{2})', path)
+        if date_match:
+            return path  # Will be handled by file finding logic later
+        return path
+
+
 def share_to_linkedin(message: str, post_url: str = None, image_url: str = None) -> bool:
     """Share to LinkedIn using OAuth 2.0 Access Token with link preview (Open Graph image auto-included)."""
     if not REQUESTS_AVAILABLE:
@@ -301,23 +347,40 @@ def main():
 
     post_path_arg = sys.argv[1]
     
+    # Decode octal escape sequences if present (common in CI/CD environments)
+    if '\\' in post_path_arg and re.search(r'\\\d{1,3}', post_path_arg):
+        post_path_arg = decode_octal_path(post_path_arg)
+        print(f"Decoded path: {post_path_arg}")
+    
     # Handle file path issues: decode if needed, resolve relative paths
     script_dir = Path(__file__).parent.parent
     posts_dir = script_dir / '_posts'
     
     # First, try to use the path as-is
-    if os.path.isabs(post_path_arg):
-        post_path = Path(post_path_arg)
-    else:
-        # Try relative to script directory first
-        post_path = script_dir / post_path_arg
-        if not post_path.exists():
-            # Try relative to current working directory
-            post_path = Path(post_path_arg).resolve()
+    post_path = None
+    try:
+        if os.path.isabs(post_path_arg):
+            post_path = Path(post_path_arg)
+        else:
+            # Try relative to script directory first
+            post_path = script_dir / post_path_arg
+            if not post_path.exists():
+                # Try relative to current working directory
+                post_path = Path(post_path_arg).resolve()
+    except (OSError, ValueError) as e:
+        # Handle "File name too long" or other path errors
+        # This often happens with octal-encoded paths
+        print(f"Warning: Path error ({e}), will try to find file by date pattern")
+        post_path = None
     
-    # If file doesn't exist, try to find it by date pattern or partial name
-    if not post_path.exists() and posts_dir.exists():
-        filename_arg = Path(post_path_arg).name
+    # If file doesn't exist or path is invalid, try to find it by date pattern or partial name
+    if (post_path is None or not post_path.exists()) and posts_dir.exists():
+        # Extract filename from argument, handling octal-encoded paths
+        try:
+            filename_arg = Path(post_path_arg).name
+        except (OSError, ValueError):
+            # If Path() fails, try to extract filename manually
+            filename_arg = post_path_arg.split('/')[-1] if '/' in post_path_arg else post_path_arg
         
         # Extract date pattern (YYYY-MM-DD) if present
         date_match = re.search(r'(\d{4}-\d{2}-\d{2})', filename_arg)
@@ -352,8 +415,19 @@ def main():
                     print(f"Found file by name match: {post_path.name}")
                     break
     
+    # Validate that we found a file
+    if post_path is None:
+        print(f"Error: Could not resolve file path: {post_path_arg}")
+        print(f"Searched in: {posts_dir}")
+        sys.exit(1)
+    
     # Convert to absolute path string
-    post_path = str(post_path.resolve())
+    try:
+        post_path = str(post_path.resolve())
+    except (OSError, ValueError) as e:
+        print(f"Error: Invalid file path: {e}")
+        print(f"Attempted path: {post_path}")
+        sys.exit(1)
     
     if not os.path.exists(post_path):
         print(f"Error: File not found: {post_path}")
