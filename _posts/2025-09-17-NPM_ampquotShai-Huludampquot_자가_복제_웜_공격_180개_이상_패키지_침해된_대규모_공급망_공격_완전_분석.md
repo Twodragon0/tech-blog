@@ -192,6 +192,7 @@ NPM 생태계 역사상 최초의 자가 복제 웜 형태 공급망 공격 분�
 
 2025년 11월, 더욱 진화된 **Shai-Hulud 2.0** 변종이 발견되었습니다. 가장 위험한 새 기능은 **Dead Man's Switch**입니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │           Shai-Hulud 2.0 - Dead Man's Switch                │
@@ -215,10 +216,19 @@ NPM 생태계 역사상 최초의 자가 복제 웜 형태 공급망 공격 분�
 │       5. GitHub/GitLab secrets 탈취                          │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
+
 ```
+-->
 
 #### Dead Man's Switch 대응 방법
 
+> **참고**: Shai-Hulud 2.0 탐지 및 대응 도구는 [Shai-Hulud-2.0-Detector](https://github.com/gensecaihq/Shai-Hulud-2.0-Detector) 및 [OreNPMGuard](https://github.com/rapticore/OreNPMGuard)를 참조하세요.
+> 
+> ```bash
+> # 안전한 제거 절차 (Dead Man's Switch 우회)...
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # 안전한 제거 절차 (Dead Man's Switch 우회)
 
@@ -238,7 +248,9 @@ npm cache clean --force
 
 # 5. 새로운 환경에서 클린 설치
 npm ci --ignore-scripts
+
 ```
+-->
 
 ### 5.3 연관 사건: 9월 대규모 npm 침해
 
@@ -257,6 +269,13 @@ Shai-Hulud와 시기적으로 연관된 2025년 9월 대규모 npm 침해 사건
 
 Shai-Hulud와 별개로 발생한 또 다른 심각한 공급망 공격:
 
+> **참고**: s1ngularity 공격 상세 분석은 [Nx 공식 포스트모템](https://nx.dev/blog/s1ngularity-postmortem) 및 [Nx GitHub 저장소](https://github.com/nrwl/nx)를 참조하세요.
+> 
+> ```yaml
+> # s1ngularity 공격 개요...
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # s1ngularity 공격 개요
 attack_name: "s1ngularity"
@@ -269,9 +288,13 @@ affected_packages:
   - "@nrwl/workspace"
   - "@nx/workspace"
   - "@nx/devkit"
+
 ```
+-->
 
 #### Nx 패키지 영향 확인
+
+> **참고**: Nx 보안 관련 자세한 내용은 [Nx 공식 포스트모템](https://nx.dev/blog/s1ngularity-postmortem) 및 [npm 보안 권고사항](https://github.com/npm/security-advisories)을 참조하세요.
 
 ```bash
 # Nx 의존성 확인
@@ -306,6 +329,13 @@ grep -A5 '"@nrwl\|"@nx/' package-lock.json | grep integrity
 
 ### 5.7 GitLab Vulnerability Research Team 권장 도구
 
+> **참고**: 공급망 보안 도구 관련 자세한 내용은 [Socket.dev](https://github.com/socketsecurity/socket), [Snyk](https://github.com/snyk/snyk), [OSV Scanner](https://github.com/google/osv-scanner)를 참조하세요.
+> 
+> ```bash
+> # 공급망 보안 강화 도구 모음...
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # 공급망 보안 강화 도구 모음
 
@@ -326,7 +356,9 @@ npx snyk test
 # 5. osv-scanner - Google OSV 데이터베이스 기반 스캔
 # (Go 설치 필요)
 osv-scanner --lockfile package-lock.json
+
 ```
+-->
 
 ## 결론
 

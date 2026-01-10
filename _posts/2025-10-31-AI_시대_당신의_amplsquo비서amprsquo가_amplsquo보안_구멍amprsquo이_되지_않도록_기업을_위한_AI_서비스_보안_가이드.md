@@ -170,6 +170,8 @@ AI 브라우저 에이전트는 사용자가 방문하는 모든 웹페이지의
 
 승인된 AI 서비스만 사용을 허용하는 방식입니다:
 
+> **참고**: AI 서비스 정책 설정 관련 내용은 [OWASP AI Security Guide](https://owasp.org/www-project-top-10-for-large-language-model-applications/) 및 [Microsoft Copilot 보안 가이드](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-security)를 참조하세요.
+
 ```yaml
 # 허용된 AI 서비스 목록 예시
 Allowed AI Services:
@@ -197,6 +199,13 @@ Blocked Services:
 
 #### 분류별 AI 서비스 사용 정책
 
+> **참고**: 데이터 분류 및 AI 서비스 정책 관련 내용은 [OWASP AI Security Guide](https://owasp.org/www-project-top-10-for-large-language-model-applications/)를 참조하세요.
+> 
+> ```yaml
+> Data Classification Policy:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Data Classification Policy:
   Public:
@@ -214,7 +223,9 @@ Data Classification Policy:
   Top Secret:
     AI Service Usage: Strictly Prohibited
     Monitoring: Real-time alerting
+
 ```
+-->
 
 ## 4. 기술적 통제 방안
 
@@ -223,6 +234,8 @@ Data Classification Policy:
 #### DNS 필터링
 
 AI 서비스 도메인을 DNS 레벨에서 차단:
+
+> **참고**: DNS 기반 AI 서비스 차단 관련 내용은 [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) 및 [DNS 필터링 모범 사례](https://www.ietf.org/rfc/rfc4033.txt)를 참조하세요.
 
 ```yaml
 # 차단할 AI 서비스 도메인 예시
@@ -237,6 +250,8 @@ Blocked Domains:
 #### 프록시/방화벽 규칙
 
 웹 프록시나 방화벽을 통해 AI 서비스 접근 차단:
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 예시: iptables 규칙
@@ -357,6 +372,8 @@ CASB를 통해 클라우드 서비스 사용을 모니터링하고 제어:
 #### Least Privilege (최소 권한 원칙)
 AI 시스템과 에이전트에게 필요한 최소한의 권한만 부여합니다. 이를 통해 AI 에이전트가 탈취되거나 오작동하더라도 피해 범위를 최소화할 수 있습니다.
 
+> **참고**: 최소 권한 원칙 관련 내용은 [OWASP Access Control Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html) 및 [Kubernetes RBAC 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)를 참조하세요.
+
 ```yaml
 AI Agent Permissions:
   - Read: Only necessary data sources
@@ -374,6 +391,13 @@ AI 서비스와의 모든 API 통신을 모니터링하고 기록합니다. 이�
 ### 9.2 거버넌스 및 컴플라이언스
 
 #### AI 거버넌스 프레임워크
+> **참고**: AI 거버넌스 프레임워크 관련 내용은 [OWASP AI Security Guide](https://owasp.org/www-project-top-10-for-large-language-model-applications/) 및 [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)를 참조하세요.
+> 
+> ```yaml
+> AI Governance Framework:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 AI Governance Framework:
   Policy:
@@ -390,7 +414,9 @@ AI Governance Framework:
     - AI 의사결정 감사 추적
     - 정기적인 보안 감사
     - 인시던트 대응 절차 검토
+
 ```
+-->
 
 ### 9.3 기술적 보안 강화
 
@@ -402,6 +428,13 @@ AI 모델에 대한 적대적 공격 시나리오를 시뮬레이션하고, 이�
 - **입출력 로깅**: AI 모델의 입력과 출력을 기록하여 감사 추적 가능
 - **롤백 기능**: 문제 발생 시 이전 버전으로 신속하게 복원
 
+> **참고**: AI 모델 관리 관련 내용은 [MLflow](https://github.com/mlflow/mlflow) 및 [Weights & Biases](https://github.com/wandb/wandb)를 참조하세요.
+> 
+> ```yaml
+> Model Management:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Model Management:
   Versioning:
@@ -413,11 +446,20 @@ Model Management:
     - Input/Output capture with privacy controls
     - Performance metrics tracking
     - Anomaly detection alerts
+
 ```
+-->
 
 #### Continuous Monitoring (지속적 모니터링)
 AI 시스템의 동작을 실시간으로 모니터링하여 이상 행동을 탐지합니다.
 
+> **참고**: AI 모니터링 관련 내용은 [Evidently AI](https://github.com/evidentlyai/evidently) 및 [Arize AI](https://github.com/Arize-ai/phoenix)를 참조하세요.
+> 
+> ```yaml
+> Monitoring Checklist:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Monitoring Checklist:
   Real-time:
@@ -429,7 +471,9 @@ Monitoring Checklist:
     - Security posture assessment
     - Vulnerability scanning
     - Penetration testing
+
 ```
+-->
 
 ### 9.4 Security-by-Design (Shift Left)
 
@@ -447,6 +491,13 @@ Monitoring Checklist:
 
 #### AI 개발 보안 체크리스트
 
+> **참고**: AI 보안 체크리스트 관련 내용은 [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) 및 [MITRE ATLAS](https://atlas.mitre.org/)를 참조하세요.
+> 
+> ```yaml
+> AI Security Checklist:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 AI Security Checklist:
   Data Security:
@@ -463,7 +514,9 @@ AI Security Checklist:
     - [ ] 네트워크 분리
     - [ ] 암호화 적용 (저장/전송)
     - [ ] 접근 로그 기록
+
 ```
+-->
 
 ### 9.5 AI 에이전트 보안
 
@@ -476,6 +529,13 @@ AI Security Checklist:
 3. **실행 샌드박싱**: AI 에이전트를 격리된 환경에서 실행하여 시스템 영향 최소화
 4. **인간 감독**: 중요한 결정이나 행동 전 인간의 승인 요구
 
+> **참고**: AI 에이전트 보안 제어 관련 내용은 [LangChain Security](https://github.com/langchain-ai/langchain) 및 [AutoGPT Security](https://github.com/Significant-Gravitas/AutoGPT)를 참조하세요.
+> 
+> ```yaml
+> AI Agent Security Controls:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 AI Agent Security Controls:
   Boundaries:
@@ -487,7 +547,9 @@ AI Agent Security Controls:
     - Human-in-the-loop for critical actions
     - Real-time activity dashboard
     - Automatic shutdown triggers
+
 ```
+-->
 
 ## 결론
 

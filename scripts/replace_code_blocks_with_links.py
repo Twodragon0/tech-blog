@@ -1,0 +1,219 @@
+#!/usr/bin/env python3
+"""
+포스트 파일에서 코드 블록을 GitHub 링크나 관련 링크로 대체하는 스크립트
+"""
+import re
+import os
+from pathlib import Path
+from typing import List, Tuple, Optional
+
+# GitHub 링크 매핑 (코드 타입별) - 예제 저장소 우선
+GITHUB_LINKS = {
+    'terraform': 'https://github.com/terraform-aws-modules',
+    'hcl': 'https://github.com/terraform-aws-modules',
+    'yaml': 'https://github.com/kubernetes/examples',
+    'kubernetes': 'https://github.com/kubernetes/examples',
+    'python': 'https://github.com/python/cpython/tree/main/Doc',
+    'bash': None,  # Bash는 공식 문서 링크 사용
+    'shell': None,  # Shell은 공식 문서 링크 사용
+    'json': None,  # JSON은 공식 문서 링크 사용
+    'dockerfile': 'https://github.com/docker-library',
+    'docker': 'https://github.com/docker-library',
+    'javascript': 'https://github.com/nodejs/node/tree/main/doc',
+    'typescript': 'https://github.com/microsoft/TypeScript/tree/main/doc',
+    'go': 'https://github.com/golang/go/tree/master/doc',
+    'rust': 'https://github.com/rust-lang/rust/tree/master/src/doc',
+    'java': 'https://github.com/openjdk/jdk/tree/master/doc',
+    'c': 'https://github.com/torvalds/linux/tree/master/Documentation',
+    'cpp': 'https://github.com/microsoft/STL/tree/main/docs',
+    'solidity': 'https://github.com/ethereum/solidity/tree/develop/docs',
+    'aws': 'https://github.com/aws-samples',
+}
+
+# 관련 링크 매핑 (GitHub 링크가 없는 경우)
+RELATED_LINKS = {
+    'terraform': 'https://registry.terraform.io/browse/modules?provider=aws',
+    'hcl': 'https://www.terraform.io/docs/language',
+    'yaml': 'https://yaml.org/spec/',
+    'kubernetes': 'https://kubernetes.io/docs/home/',
+    'python': 'https://docs.python.org/3/',
+    'bash': 'https://www.gnu.org/software/bash/manual/bash.html',
+    'shell': 'https://www.gnu.org/software/bash/manual/bash.html',
+    'json': 'https://www.json.org/json-en.html',
+    'dockerfile': 'https://docs.docker.com/engine/reference/builder/',
+    'docker': 'https://docs.docker.com/',
+    'aws': 'https://docs.aws.amazon.com/',
+    'cloudformation': 'https://docs.aws.amazon.com/cloudformation/',
+}
+
+def detect_code_type(code_block: str) -> Optional[str]:
+    """코드 블록의 타입을 감지"""
+    code_lower = code_block.lower()
+    
+    # Terraform/HCL
+    if 'resource "aws_' in code_block or 'provider "aws"' in code_block:
+        return 'terraform'
+    
+    # Kubernetes YAML
+    if 'apiVersion:' in code_block and ('kind:' in code_block or 'metadata:' in code_block):
+        return 'kubernetes'
+    
+    # Docker
+    if 'FROM ' in code_block and ('RUN ' in code_block or 'COPY ' in code_block):
+        return 'dockerfile'
+    
+    # Python
+    if 'import ' in code_block or 'def ' in code_block or 'class ' in code_block:
+        return 'python'
+    
+    # Bash/Shell
+    if code_block.startswith('#!') or '#!/bin/bash' in code_block or '#!/bin/sh' in code_block:
+        return 'bash'
+    
+    # AWS CLI
+    if 'aws ' in code_block and ('--region' in code_block or '--profile' in code_block):
+        return 'aws'
+    
+    # JSON
+    if code_block.strip().startswith('{') and code_block.strip().endswith('}'):
+        return 'json'
+    
+    return None
+
+def get_replacement_link(code_type: str, code_block: str, context: str = '') -> Optional[str]:
+    """코드 블록을 대체할 링크 반환"""
+    code_lower = code_block.lower()
+    
+    # AWS 관련 코드는 AWS 예제 저장소 우선
+    if 'aws' in code_lower or 'boto3' in code_lower or 'amazon' in code_lower:
+        if code_type in ['terraform', 'hcl']:
+            return 'https://github.com/terraform-aws-modules'
+        elif code_type == 'python':
+            return 'https://github.com/aws-samples'
+        elif code_type == 'yaml' and 'kubernetes' in code_lower:
+            return 'https://github.com/aws-samples/aws-k8s-examples'
+        else:
+            return 'https://github.com/aws-samples'
+    
+    # Kubernetes 관련
+    if 'kubernetes' in code_lower or 'k8s' in code_lower or 'kubectl' in code_lower:
+        if code_type in ['yaml', 'kubernetes']:
+            return 'https://github.com/kubernetes/examples'
+        return 'https://github.com/kubernetes/examples'
+    
+    # Docker 관련
+    if 'docker' in code_lower or 'container' in code_lower:
+        return 'https://github.com/docker-library'
+    
+    # GitHub 링크 우선
+    if code_type in GITHUB_LINKS and GITHUB_LINKS[code_type]:
+        return GITHUB_LINKS[code_type]
+    
+    # 관련 링크
+    if code_type in RELATED_LINKS:
+        return RELATED_LINKS[code_type]
+    
+    return None
+
+def should_replace_code_block(code_block: str, code_type: str) -> bool:
+    """코드 블록을 대체해야 하는지 판단"""
+    # 너무 짧은 코드 블록은 유지 (설명용)
+    if len(code_block.strip()) < 20:
+        return False
+    
+    # 주석만 있는 코드 블록은 유지
+    lines = code_block.strip().split('\n')
+    non_comment_lines = [line for line in lines if line.strip() and not line.strip().startswith('#')]
+    if len(non_comment_lines) < 2:
+        return False
+    
+    return True
+
+def replace_code_blocks(content: str) -> str:
+    """마크다운 파일의 코드 블록에 GitHub 링크 추가 또는 대체"""
+    # 코드 블록 패턴: ```language\n...\n```
+    pattern = r'```(\w+)?\n(.*?)```'
+    
+    def replace_match(match):
+        language = match.group(1) or ''
+        code_block = match.group(2)
+        full_match = match.group(0)
+        
+        # 이미 링크가 있는지 확인
+        if 'github.com' in content[max(0, match.start()-200):match.start()]:
+            return full_match  # 이미 링크가 있으면 유지
+        
+        # 코드 타입 감지
+        code_type = language.lower() if language else detect_code_type(code_block)
+        
+        # 링크 가져오기
+        link = get_replacement_link(code_type, code_block)
+        
+        # 코드 블록 길이 확인
+        code_lines = len(code_block.strip().split('\n'))
+        code_length = len(code_block.strip())
+        
+        # 긴 코드 블록 (10줄 이상 또는 500자 이상)은 링크로 대체
+        if code_lines >= 10 or code_length >= 500:
+            if link:
+                code_preview = code_block.split('\n')[0][:80].strip()
+                return f'> **코드 예시**: 전체 코드는 [GitHub 예제 저장소]({link})를 참조하세요.\n> \n> ```{language}\n> {code_preview}...\n> ```\n\n<!-- 전체 코드는 위 GitHub 링크 참조\n```{language}\n{code_block}\n```\n-->'
+            else:
+                # 링크가 없으면 주석 처리
+                return f'<!-- 긴 코드 블록 제거됨 (가독성 향상)\n```{language}\n{code_block}\n```\n-->'
+        else:
+            # 짧은 코드 블록은 유지하되 링크 추가 (너무 짧으면 링크 추가 안 함)
+            if link and code_lines >= 3:  # 3줄 이상인 경우만 링크 추가
+                link_text = 'GitHub 예제 저장소' if 'github.com' in link else '공식 문서'
+                return f'> **참고**: 관련 예제는 [{link_text}]({link})를 참조하세요.\n\n{full_match}'
+            else:
+                return full_match  # 링크가 없거나 너무 짧으면 원본 유지
+    
+    return re.sub(pattern, replace_match, content, flags=re.DOTALL)
+
+def process_post_file(file_path: Path) -> bool:
+    """포스트 파일 처리"""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # 코드 블록이 있는지 확인
+        if '```' not in content:
+            return False
+        
+        # 코드 블록 대체
+        new_content = replace_code_blocks(content)
+        
+        # 변경사항이 있는지 확인
+        if content != new_content:
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            return True
+        
+        return False
+    except Exception as e:
+        print(f"Error processing {file_path}: {e}")
+        return False
+
+def main():
+    """메인 함수"""
+    posts_dir = Path(__file__).parent.parent / '_posts'
+    
+    if not posts_dir.exists():
+        print(f"Posts directory not found: {posts_dir}")
+        return
+    
+    processed = 0
+    updated = 0
+    
+    for post_file in posts_dir.glob('*.md'):
+        processed += 1
+        if process_post_file(post_file):
+            updated += 1
+            print(f"Updated: {post_file.name}")
+    
+    print(f"\nProcessed: {processed} files")
+    print(f"Updated: {updated} files")
+
+if __name__ == '__main__':
+    main()

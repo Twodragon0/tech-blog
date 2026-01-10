@@ -68,6 +68,7 @@ image_alt: "Cloud Security Course 7Batch 8Week: CI/CD and Kubernetes Security Pr
 
 ### 1.1 CI/CD 보안의 중요성
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │ CI/CD Pipeline Security │
@@ -80,10 +81,19 @@ image_alt: "Cloud Security Course 7Batch 8Week: CI/CD and Kubernetes Security Pr
 │ Lint Signing Tests Vuln Check Security │
 │ Scan │
 └─────────────────────────────────────────────────────────────────┘
+
 ```
+-->
 
 ### 1.2 GitHub Actions 보안 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/secure-pipeline.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/secure-pipeline.yml
 name: Secure CI/CD Pipeline
@@ -154,12 +164,21 @@ jobs:
  ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
  env:
  COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+
 ```
+-->
 
 ## 2. Kubernetes RBAC 보안
 
 ### 2.1 최소 권한 원칙 적용
 
+> **참고**: Kubernetes RBAC 및 최소 권한 원칙 관련 내용은 [Kubernetes RBAC 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) 및 [Kubernetes 보안 모범 사례](https://kubernetes.io/docs/concepts/security/)를 참조하세요.
+> 
+> ```yaml
+> # 개발자용 제한된 Role...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 개발자용 제한된 Role
 apiVersion: rbac.authorization.k8s.io/v1
@@ -194,10 +213,19 @@ roleRef:
  kind: Role
  name: developer-role
  apiGroup: rbac.authorization.k8s.io
+
 ```
+-->
 
 ### 2.2 ServiceAccount 보안
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # 전용 ServiceAccount 생성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 전용 ServiceAccount 생성
 apiVersion: v1
@@ -224,11 +252,15 @@ spec:
  runAsUser: 1000
  readOnlyRootFilesystem: true
  allowPrivilegeEscalation: false
+
 ```
+-->
 
 ## 3. Pod Security Standards (PSS)
 
 ### 3.1 Namespace 레벨 보안 정책
+
+> **참고**: Pod Security Standards 관련 내용은 [Kubernetes Pod Security Standards 문서](https://kubernetes.io/docs/concepts/security/pod-security-standards/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```yaml
 # Restricted 정책이 적용된 Namespace
@@ -244,6 +276,13 @@ metadata:
 
 ### 3.2 보안 컨텍스트 모범 사례
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: apps/v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -292,12 +331,21 @@ spec:
  emptyDir: {}
  - name: cache
  emptyDir: {}
+
 ```
+-->
 
 ## 4. Network Policy 구현
 
 ### 4.1 기본 거부 정책
 
+> **참고**: Kubernetes Network Policy 관련 내용은 [Kubernetes Network Policy 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Network Policy 예제](https://github.com/kubernetes/examples/tree/master/staging/network-policies)를 참조하세요.
+> 
+> ```yaml
+> # 모든 인그레스/이그레스 트래픽 차단 (기본)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 모든 인그레스/이그레스 트래픽 차단 (기본)
 apiVersion: networking.k8s.io/v1
@@ -310,10 +358,19 @@ spec:
  policyTypes:
  - Ingress
  - Egress
+
 ```
+-->
 
 ### 4.2 필요한 트래픽만 허용
 
+> **참고**: Kubernetes Network Policy 관련 내용은 [Kubernetes Network Policy 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Network Policy 예제](https://github.com/kubernetes/examples/tree/master/staging/network-policies)를 참조하세요.
+> 
+> ```yaml
+> # Frontend -> Backend 통신만 허용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Frontend -> Backend 통신만 허용
 apiVersion: networking.k8s.io/v1
@@ -353,12 +410,21 @@ spec:
  ports:
  - protocol: UDP
  port: 53
+
 ```
+-->
 
 ## 5. Secret 관리
 
 ### 5.1 External Secrets Operator
 
+> **참고**: External Secrets Operator 관련 내용은 [External Secrets Operator GitHub 저장소](https://github.com/external-secrets/external-secrets) 및 [External Secrets Operator 문서](https://external-secrets.io/latest/)를 참조하세요.
+> 
+> ```yaml
+> # AWS Secrets Manager와 연동...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # AWS Secrets Manager와 연동
 apiVersion: external-secrets.io/v1beta1
@@ -398,9 +464,13 @@ spec:
  remoteRef:
  key: prod/database
  property: password
+
 ```
+-->
 
 ### 5.2 Sealed Secrets (GitOps 환경)
+
+> **참고**: Sealed Secrets 관련 내용은 [Sealed Secrets GitHub 저장소](https://github.com/bitnami-labs/sealed-secrets) 및 [Sealed Secrets 문서](https://sealed-secrets.netlify.app/)를 참조하세요.
 
 ```bash
 # Sealed Secrets 컨트롤러 설치
@@ -418,6 +488,13 @@ git commit -m "Add encrypted database credentials"
 
 ### 6.1 Admission Controller로 이미지 검증
 
+> **참고**: Kyverno를 통한 이미지 검증 관련 내용은 [Kyverno GitHub 저장소](https://github.com/kyverno/kyverno) 및 [Kyverno 공식 문서](https://kyverno.io/docs/)를 참조하세요.
+> 
+> ```yaml
+> # Kyverno 정책: 서명된 이미지만 허용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Kyverno 정책: 서명된 이미지만 허용
 apiVersion: kyverno.io/v1
@@ -444,11 +521,20 @@ spec:
  -----BEGIN PUBLIC KEY-----
  MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE...
  -----END PUBLIC KEY-----
+
 ```
+-->
 
 ### 6.2 취약점이 있는 이미지 차단
 
 {% raw %}
+> **참고**: Kyverno를 통한 취약점 이미지 차단 관련 내용은 [Kyverno GitHub 저장소](https://github.com/kyverno/kyverno) 및 [Kyverno 공식 문서](https://kyverno.io/docs/)를 참조하세요.
+> 
+> ```yaml
+> # Kyverno 정책: Critical 취약점 차단...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Kyverno 정책: Critical 취약점 차단
 apiVersion: kyverno.io/v1
@@ -472,13 +558,22 @@ spec:
  - key: "{{ images.*.vulnerabilities[?severity=='CRITICAL'] | length(@) }}"
  operator: GreaterThan
  value: 0
+
 ```
+-->
 {% endraw %}
 
 ## 7. 런타임 보안
 
 ### 7.1 Falco 규칙 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # 의심스러운 활동 탐지 규칙...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 의심스러운 활동 탐지 규칙
 - rule: Terminal shell in container
@@ -501,7 +596,9 @@ spec:
  output: "File below /etc opened for writing (user=%user.name command=%proc.cmdline file=%fd.name)"
  priority: ERROR
  tags: [filesystem, mitre_persistence]
+
 ```
+-->
 
 ## 8. 2025년 Kubernetes 보안 업데이트
 
@@ -513,6 +610,13 @@ Kubernetes는 2024년 말 1.32 "Penelope"를 시작으로 2025년 12월 1.35 "Ti
 
 kubelet API에 대한 세밀한 접근 제어가 가능해졌습니다.
 
+> **참고**: Kubelet API 접근 제어 관련 내용은 [Kubernetes Kubelet 문서](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) 및 [Kubernetes RBAC 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)를 참조하세요.
+> 
+> ```yaml
+> # RBAC을 통한 kubelet API 세밀한 제어...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # RBAC을 통한 kubelet API 세밀한 제어
 apiVersion: rbac.authorization.k8s.io/v1
@@ -540,7 +644,9 @@ authorization:
   webhook:
     cacheAuthorizedTTL: 5m
     cacheUnauthorizedTTL: 30s
+
 ```
+-->
 
 **보안 이점:**
 - 노드별, Pod별 kubelet API 접근 권한 세밀 제어
@@ -551,6 +657,13 @@ authorization:
 
 인증서 서명 기반 credential ID 생성으로 포렌식 기능이 강화되었습니다.
 
+> **참고**: Kubernetes Audit 및 credential 추적 관련 내용은 [Kubernetes Audit 문서](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/)를 참조하세요.
+> 
+> ```yaml
+> # Audit Policy에서 credential 추적 활성화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Audit Policy에서 credential 추적 활성화
 apiVersion: audit.k8s.io/v1
@@ -568,8 +681,17 @@ rules:
   nonResourceURLs:
   - "/api/*"
   - "/apis/*"
-```
 
+```
+-->
+
+> **참고**: Kubernetes Audit 로그 분석 관련 내용은 [Kubernetes Audit 문서](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/)를 참조하세요.
+> 
+> ```bash
+> # Audit 로그에서 credential 추적 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Audit 로그에서 credential 추적 예시
 {
@@ -583,12 +705,21 @@ rules:
     }
   }
 }
+
 ```
+-->
 
 #### User Namespaces Support (Linux Kernel 6.3+)
 
 워크로드 격리를 크게 강화하는 User Namespaces가 정식 지원됩니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -610,7 +741,9 @@ spec:
         drop:
         - ALL
       readOnlyRootFilesystem: true
+
 ```
+-->
 
 **User Namespace 보안 효과:**
 | 공격 시나리오 | 기존 | User Namespace 적용 |
@@ -623,6 +756,13 @@ spec:
 
 kubelet이 Pod용 인증서를 자동으로 요청하고 마운트합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -656,9 +796,18 @@ spec:
           path: ca.crt
           name: cluster-trust-bundle
           optional: false
+
 ```
+-->
 
 **자동 인증서 Rotation:**
+> **참고**: Kubernetes 인증서 관리 관련 내용은 [Kubernetes Certificate Signing Requests 문서](https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/)를 참조하세요.
+> 
+> ```yaml
+> # CertificateSigningRequest 자동 생성 및 갱신...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # CertificateSigningRequest 자동 생성 및 갱신
 apiVersion: certificates.k8s.io/v1
@@ -673,12 +822,21 @@ spec:
   - server auth
   - client auth
   expirationSeconds: 86400  # 24시간 후 자동 갱신
+
 ```
+-->
 
 ### 8.2 EKS 1.32 Anonymous Authentication 제한
 
 Amazon EKS 1.32부터 익명 인증이 health check endpoint로 제한됩니다.
 
+> **참고**: Amazon EKS 보안 관련 내용은 [Amazon EKS 문서](https://docs.aws.amazon.com/eks/latest/userguide/) 및 [EKS 보안 모범 사례](https://aws.github.io/aws-eks-best-practices/security/docs/)를 참조하세요.
+> 
+> ```yaml
+> # EKS 1.32+ 익명 접근 허용 endpoint...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # EKS 1.32+ 익명 접근 허용 endpoint
 # /healthz, /readyz, /livez 만 익명 접근 가능
@@ -696,10 +854,19 @@ roleRef:
   kind: ClusterRole
   name: view
   apiGroup: rbac.authorization.k8s.io
+
 ```
+-->
 
 ### 8.3 Deprecated 기능 및 마이그레이션
 
+> **참고**: Kubernetes Deprecated 기능 관련 내용은 [Kubernetes Deprecation Guide](https://kubernetes.io/docs/reference/using-api/deprecation-guide/)를 참조하세요.
+> 
+> ```yaml
+> # DEPRECATED: ServiceAccount의 enforce-mountable-secrets annotation...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # DEPRECATED: ServiceAccount의 enforce-mountable-secrets annotation
 # 이 방식은 더 이상 권장되지 않음
@@ -734,7 +901,9 @@ spec:
       - serviceAccountToken:
           path: token
           expirationSeconds: 3600  # 단기 토큰 사용
+
 ```
+-->
 
 ### 8.4 2025년 보안 강화 체크리스트
 

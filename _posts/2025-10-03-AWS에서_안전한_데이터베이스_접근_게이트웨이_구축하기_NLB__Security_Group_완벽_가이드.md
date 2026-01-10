@@ -133,6 +133,13 @@ image_alt: "Building Secure Database Access Gateway on AWS: NLB Security Group C
 
 ### 1.2 NLB 구성 요소
 
+> **참고**: Terraform AWS NLB 구성 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://github.com/terraform-aws-modules/terraform-aws-alb) 및 [AWS NLB 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_lb" "db_gateway" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_lb" "db_gateway" {
   name               = "db-gateway-nlb"
@@ -147,10 +154,19 @@ resource "aws_lb" "db_gateway" {
     Environment = var.environment
   }
 }
+
 ```
+-->
 
 ### 1.3 타겟 그룹 설정
 
+> **참고**: Terraform AWS Load Balancer 타겟 그룹 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://github.com/terraform-aws-modules/terraform-aws-alb) 및 [AWS ELB Target Groups 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_lb_target_group" "rds_mysql" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_lb_target_group" "rds_mysql" {
   name     = "rds-mysql-tg"
@@ -168,7 +184,9 @@ resource "aws_lb_target_group" "rds_mysql" {
     Name = "RDS MySQL Target Group"
   }
 }
+
 ```
+-->
 
 ## 2. Security Group 구성
 
@@ -186,6 +204,13 @@ resource "aws_lb_target_group" "rds_mysql" {
 
 NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Security Group을 통해 제어합니다:
 
+> **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://github.com/terraform-aws-modules/terraform-aws-security-group) 및 [AWS Security Groups 문서](https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_security_group" "nlb" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_security_group" "nlb" {
   name        = "db-gateway-nlb-sg"
@@ -213,10 +238,19 @@ resource "aws_security_group" "nlb" {
     Name = "DB Gateway NLB Security Group"
   }
 }
+
 ```
+-->
 
 ### 2.3 데이터베이스 Security Group
 
+> **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://github.com/terraform-aws-modules/terraform-aws-security-group) 및 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_security_group" "database" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_security_group" "database" {
   name        = "database-sg"
@@ -245,7 +279,9 @@ resource "aws_security_group" "database" {
     Name = "Database Security Group"
   }
 }
+
 ```
+-->
 
 ## 3. Zero Trust 아키텍처 구현
 
@@ -259,6 +295,13 @@ resource "aws_security_group" "database" {
 
 #### 애플리케이션 레벨 인증
 
+> **참고**: AWS 데이터베이스 접근 보안 관련 내용은 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html) 및 [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/)를 참조하세요.
+> 
+> ```python
+> # 애플리케이션에서 데이터베이스 접근 시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # 애플리케이션에서 데이터베이스 접근 시
 import boto3
@@ -279,7 +322,9 @@ conn = mysql.connector.connect(
     password=token,
     ssl_ca='/path/to/rds-ca-cert.pem'
 )
+
 ```
+-->
 
 #### Security Group 기반 접근 제어
 
@@ -302,6 +347,13 @@ modules/
 
 ### 4.2 변수 정의
 
+> **참고**: Terraform 변수 정의 관련 내용은 [Terraform 변수 문서](https://developer.hashicorp.com/terraform/language/values/variables) 및 [Terraform AWS 모듈 예제](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> variable "vpc_id" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 variable "vpc_id" {
   description = "VPC ID"
@@ -322,10 +374,19 @@ variable "environment" {
   description = "Environment name"
   type        = string
 }
+
 ```
+-->
 
 ### 4.3 출력 값
 
+> **참고**: Terraform 출력 값 관련 내용은 [Terraform 출력 문서](https://developer.hashicorp.com/terraform/language/values/outputs) 및 [Terraform AWS 모듈 예제](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> output "nlb_dns_name" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 output "nlb_dns_name" {
   description = "NLB DNS name"
@@ -341,7 +402,9 @@ output "database_security_group_id" {
   description = "Database security group ID"
   value       = aws_security_group.database.id
 }
+
 ```
+-->
 
 ## 5. 모니터링 및 로깅
 
@@ -358,6 +421,8 @@ NLB는 자동으로 CloudWatch 메트릭을 제공합니다:
 
 VPC Flow Logs를 활성화하여 네트워크 트래픽을 모니터링:
 
+> **참고**: VPC Flow Logs 설정 관련 내용은 [AWS VPC Flow Logs 문서](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) 및 [Terraform AWS VPC 모듈](https://github.com/terraform-aws-modules/terraform-aws-vpc)을 참조하세요.
+
 ```hcl
 resource "aws_flow_log" "vpc_flow_log" {
   iam_role_arn    = aws_iam_role.flow_log.arn
@@ -370,6 +435,8 @@ resource "aws_flow_log" "vpc_flow_log" {
 ### 5.3 데이터베이스 로깅
 
 RDS의 경우 자동 로깅 기능을 활성화:
+
+> **참고**: RDS 로깅 설정 관련 내용은 [AWS RDS 로깅 문서](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html) 및 [Terraform AWS RDS 모듈](https://github.com/terraform-aws-modules/terraform-aws-rds)을 참조하세요.
 
 ```hcl
 resource "aws_db_instance" "mysql" {
@@ -427,6 +494,13 @@ resource "aws_db_instance" "mysql" {
 
 ### 8.2 모니터링 알림
 
+> **참고**: AWS CloudWatch 알림 설정 관련 내용은 [AWS CloudWatch 문서](https://docs.aws.amazon.com/cloudwatch/) 및 [Terraform AWS CloudWatch 모듈](https://github.com/terraform-aws-modules/terraform-aws-cloudwatch)을 참조하세요.
+> 
+> ```hcl
+> resource "aws_cloudwatch_metric_alarm" "unhealthy_hosts" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_cloudwatch_metric_alarm" "unhealthy_hosts" {
   alarm_name          = "nlb-unhealthy-hosts"
@@ -443,7 +517,9 @@ resource "aws_cloudwatch_metric_alarm" "unhealthy_hosts" {
     LoadBalancer = aws_lb.db_gateway.arn_suffix
   }
 }
+
 ```
+-->
 
 ## 9. 2025년 AWS 네트워크 보안 최신 동향
 
@@ -451,6 +527,13 @@ resource "aws_cloudwatch_metric_alarm" "unhealthy_hosts" {
 
 AWS ALB/NLB가 양자 내성 암호화를 지원합니다:
 
+> **참고**: Post-Quantum 암호화 관련 내용은 [NIST Post-Quantum Cryptography](https://csrc.nist.gov/projects/post-quantum-cryptography) 및 [AWS TLS 정책](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-listener.html#tls-policies)을 참조하세요.
+> 
+> ```hcl
+> # 2025년 Post-Quantum TLS 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # 2025년 Post-Quantum TLS 설정
 resource "aws_lb_listener" "quantum_safe" {
@@ -466,7 +549,9 @@ resource "aws_lb_listener" "quantum_safe" {
     target_group_arn = aws_lb_target_group.db.arn
   }
 }
+
 ```
+-->
 
 **주요 특징**:
 - **ML-KEM768** 양자 내성 암호화 알고리즘 채택
@@ -485,6 +570,13 @@ resource "aws_lb_listener" "quantum_safe" {
 | **복잡도** | 단순화된 관리 | 다중 컴포넌트 관리 필요 |
 | **문서화** | 신규 (문서 증가 중) | 풍부한 레퍼런스 |
 
+> **참고**: AWS VPC Lattice 관련 내용은 [AWS VPC Lattice 문서](https://docs.aws.amazon.com/vpc-lattice/) 및 [AWS VPC Lattice 예제](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```hcl
+> # VPC Lattice Resource Gateway 예시 (2025)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # VPC Lattice Resource Gateway 예시 (2025)
 resource "aws_vpclattice_service" "db_service" {
@@ -518,12 +610,21 @@ resource "aws_vpclattice_auth_policy" "db_policy" {
     ]
   })
 }
+
 ```
+-->
 
 ### 9.3 NLB Security Group 모범 사례 (2025)
 
 **중요**: NLB 생성 시 Security Group을 연결하지 않으면 나중에 추가할 수 없습니다.
 
+> **참고**: AWS NLB Security Group 설정 관련 내용은 [AWS NLB 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/) 및 [Terraform AWS ALB/NLB 모듈](https://github.com/terraform-aws-modules/terraform-aws-alb)을 참조하세요.
+> 
+> ```hcl
+> # NLB Security Group 필수 설정 (2025 권장사항)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # NLB Security Group 필수 설정 (2025 권장사항)
 resource "aws_lb" "db_gateway_2025" {
@@ -547,12 +648,21 @@ resource "aws_lb" "db_gateway_2025" {
 
 # QUIC/TCP_QUIC 리스너 사용 시 Security Group 미사용
 # 주의: QUIC 프로토콜 사용 시 Security Group 연결 불가
+
 ```
+-->
 
 ### 9.4 Network Firewall Proxy 통합
 
 AWS Network Firewall Proxy와 NLB 통합 시 고려사항:
 
+> **참고**: AWS Network Firewall 및 NLB 통합 관련 내용은 [AWS Network Firewall 문서](https://docs.aws.amazon.com/network-firewall/) 및 [AWS Load Balancer Controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller)를 참조하세요.
+> 
+> ```yaml
+> # Network Firewall + NLB 통합 아키텍처...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Network Firewall + NLB 통합 아키텍처
 integration_notes:
@@ -564,7 +674,9 @@ recommended_patterns:
   - vpc_lattice_resource_endpoints
   - nlb_vpc_endpoint_service
   - network_firewall_proxy_mode
+
 ```
+-->
 
 ## 결론
 

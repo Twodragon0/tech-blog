@@ -133,6 +133,8 @@ Zscaler는 클라우드 네이티브 보안 플랫폼으로, 전 세계에 분�
 
 ZCC는 Windows, macOS, iOS, Android 등 다양한 플랫폼을 지원합니다. 설치 후 조직의 Zscaler 클라우드에 연결하기 위해 인증 정보를 입력합니다.
 
+> **참고**: Zscaler Client Connector 설정 관련 내용은 [Zscaler 공식 문서](https://help.zscaler.com/zscaler-client-connector)를 참조하세요.
+
 ```bash
 # macOS 설치 예시
 # Zscaler 포털에서 다운로드한 .pkg 파일 실행
@@ -175,6 +177,8 @@ ZCC는 설치 후 모든 인터넷 트래픽을 Zscaler 클라우드로 전달�
 1. **URL 카테고리 예외**: `talk.kakao.com`, `kakaocdn.net` 등의 도메인을 허용 목록에 추가
 2. **애플리케이션 예외**: Zscaler에서 카카오톡을 인식하여 자동으로 예외 처리
 3. **SSL 검사 예외**: 카카오톡 트래픽에 대해서만 SSL 검사 건너뛰기
+
+> **참고**: Zscaler 예외 정책 설정 관련 내용은 [Zscaler 공식 문서](https://help.zscaler.com/zscaler-client-connector) 및 [Zscaler SSL Inspection 가이드](https://help.zscaler.com/zia/ssl-inspection)를 참조하세요.
 
 ```yaml
 # 예외 정책 예시
@@ -236,6 +240,8 @@ ChatGPT, Claude, Copilot 등 AI 서비스는 생산성 향상에 도움이 되�
 
 ### 7.2 AI 서비스 차단 설정
 
+> **참고**: Zscaler AI 서비스 차단 설정 관련 내용은 [Zscaler 공식 문서](https://help.zscaler.com/zscaler-client-connector) 및 [Zscaler URL Filtering](https://help.zscaler.com/zia/url-filtering)을 참조하세요.
+
 ```yaml
 # AI 서비스 차단 정책 예시
 Category: AI Services
@@ -271,6 +277,8 @@ Zscaler는 다음과 같은 유해 사이트를 자동으로 차단합니다:
 - **스팸**: 스팸 메일 발송 서버
 
 ### 8.3 차단 정책 설정
+
+> **참고**: Zscaler 차단 정책 설정 관련 내용은 [Zscaler URL Filtering](https://help.zscaler.com/zia/url-filtering) 및 [Zscaler 공식 문서](https://help.zscaler.com/zscaler-client-connector)를 참조하세요.
 
 ```yaml
 # 광고 및 유해 사이트 차단 정책
@@ -365,6 +373,8 @@ Zscaler를 포함한 주요 ZTNA 솔루션들이 **AI/ML 기반 위협 탐지**�
 ChatGPT, Claude, Copilot 등 생성형 AI 서비스의 기업 내 활용이 증가하면서, **AI 서비스에 대한 보안 정책**이 더욱 정교해지고 있습니다.
 
 **2025년 AI 보안 정책 권장사항:**
+
+> **참고**: AI 서비스 보안 정책 관련 내용은 [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) 및 [Zscaler AI 보안 가이드](https://help.zscaler.com/zscaler-client-connector)를 참조하세요.
 
 ```yaml
 # AI 서비스 접근 정책 예시

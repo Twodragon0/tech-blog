@@ -34,6 +34,7 @@ image_alt: "Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Gove
 
 ### 1.2 계정 구조 예시
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Management Account (관리 계정)
 ├── Security OU (보안 조직 단위)
@@ -47,7 +48,9 @@ Management Account (관리 계정)
 │   └── Dev Account 2
 └── Sandbox OU (샌드박스)
     └── Sandbox Accounts
+
 ```
+-->
 
 ## 2. AWS Control Tower
 
@@ -108,6 +111,13 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
 
 #### 개발 계정에서 프로덕션 리소스 접근 차단
 
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -127,10 +137,19 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
     }
   ]
 }
+
 ```
+-->
 
 #### 특정 리전만 허용
 
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -153,10 +172,19 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
     }
   ]
 }
+
 ```
+-->
 
 #### Root 계정 사용 차단
 
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -173,7 +201,9 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
     }
   ]
 }
+
 ```
+-->
 
 ## 4. Datadog SIEM
 
@@ -211,6 +241,13 @@ Datadog SIEM(Security Information and Event Management)은 보안 이벤트를 �
 
 #### 커스텀 탐지 규칙
 
+> **참고**: Datadog 커스텀 탐지 규칙 관련 내용은 [Datadog Security Monitoring](https://docs.datadoghq.com/security/) 및 [CloudTrail 통합](https://docs.datadoghq.com/integrations/amazon_cloudtrail/)을 참조하세요.
+> 
+> ```yaml
+> # 예시: 비정상적인 리전에서의 API 호출 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 예시: 비정상적인 리전에서의 API 호출 탐지
 detection_rule:
@@ -224,7 +261,9 @@ detection_rule:
     timeframe: 1h
   notification:
     - slack
+
 ```
+-->
 
 ## 5. Cloudflare 보안
 
@@ -272,6 +311,8 @@ Cloudflare는 전 세계에 분산된 CDN 및 보안 서비스를 제공하는 �
 ## 6. 통합 보안 아키텍처
 
 ### 6.1 전체 아키텍처
+
+> **참고**: AWS 보안 아키텍처 관련 내용은 [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/) 및 [AWS Security Reference Architecture](https://aws.amazon.com/architecture/security-identity-compliance/)를 참조하세요.
 
 ```
 [Cloudflare]
@@ -392,6 +433,13 @@ AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도�
 - Control Tower와 통합하여 멀티 계정 환경에서 AI 거버넌스 관리
 
 **SCP 적용 예시 - AI 에이전트 리전 제한:**
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -414,7 +462,9 @@ AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도�
     }
   ]
 }
+
 ```
+-->
 
 ### 9.3 IAM Policy Autopilot
 
@@ -427,6 +477,8 @@ AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도�
 4. 기존 정책과의 차이 분석 및 권장 사항 제공
 
 **사용 예시:**
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # IAM Policy Autopilot 실행
 iam-policy-autopilot analyze --source ./my-app --output policy.json
@@ -452,6 +504,8 @@ AWS Security Hub가 GA(General Availability)로 출시되어 **멀티 계정 보
 - 규정 준수 상태 대시보드
 
 **Datadog SIEM과의 통합:**
+> **참고**: Datadog SIEM 통합 관련 내용은 [Datadog Security Monitoring](https://docs.datadoghq.com/security/) 및 [Datadog AWS Security Hub 통합](https://docs.datadoghq.com/integrations/amazon_security_hub/)을 참조하세요.
+
 ```yaml
 # Datadog에서 Security Hub 데이터 수집 설정
 security_hub_integration:
@@ -475,6 +529,13 @@ GuardDuty가 **Extended Threat Detection** 기능을 추가하여 EC2 및 ECS �
 - 내부자 위협 및 측면 이동 탐지
 
 **Datadog SIEM 연동 탐지 규칙:**
+> **참고**: Datadog SIEM 탐지 규칙 관련 내용은 [Datadog Security Monitoring](https://docs.datadoghq.com/security/) 및 [Datadog CloudTrail 통합](https://docs.datadoghq.com/integrations/amazon_cloudtrail/)을 참조하세요.
+> 
+> ```yaml
+> detection_rule:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 detection_rule:
   name: "GuardDuty Extended Threat - Multi-stage Attack"
@@ -488,10 +549,19 @@ detection_rule:
   notification:
     - slack
     - pagerduty
+
 ```
+-->
 
 ### 9.5 통합 거버넌스 아키텍처 (2025년 업데이트 반영)
 
+> **참고**: AWS 통합 거버넌스 아키텍처 관련 내용은 [AWS Control Tower 문서](https://docs.aws.amazon.com/controltower/) 및 [AWS Organizations](https://docs.aws.amazon.com/organizations/)를 참조하세요.
+> 
+> ```
+> [AWS Organizations]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 [AWS Organizations]
     ├── Account Migration (직접 이동 지원)
@@ -509,7 +579,9 @@ detection_rule:
         [Datadog SIEM] ← 통합 모니터링
                     ↓
         [IAM Policy Autopilot] ← 정책 자동화
+
 ```
+-->
 
 ### 9.6 2025년 업데이트 적용 권장 사항
 

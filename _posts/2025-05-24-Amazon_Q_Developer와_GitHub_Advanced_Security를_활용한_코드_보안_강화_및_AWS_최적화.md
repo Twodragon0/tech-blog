@@ -157,6 +157,13 @@ image_alt: "Code Security Enhancement and AWS Optimization Using Amazon Q Develo
 
 Amazon Q Developer는 2025년 대폭 강화된 보안 기능을 제공합니다:
 
+> **참고**: Amazon Q Developer 보안 기능 관련 내용은 [AWS 공식 문서](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/) 및 [AWS 보안 모범 사례](https://aws.amazon.com/security/security-resources/)를 참조하세요.
+> 
+> ```python
+> # Amazon Q Developer 보안 스캔 활성화 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Amazon Q Developer 보안 스캔 활성화 예시
 # VS Code 또는 JetBrains IDE에서 설정
@@ -187,12 +194,21 @@ def get_secure_s3_client():
         # IMDSv2 강제 (EC2 메타데이터 보안)
         use_fips_endpoint=True  # FIPS 엔드포인트 사용
     )
+
 ```
+-->
 
 ### 5.2 IAM Policy Autopilot - AWS MCP 서버
 
 AWS에서 오픈소스로 공개한 MCP(Model Context Protocol) 서버를 활용하면 AI가 IAM 정책을 자동으로 생성할 수 있습니다.
 
+> **참고**: IAM Policy Autopilot 관련 내용은 [IAM Policy Autopilot GitHub 저장소](https://github.com/awslabs/iam-policy-autopilot) 및 [AWS Security Blog](https://aws.amazon.com/blogs/security/iam-policy-autopilot-an-open-source-tool-that-brings-iam-policy-expertise-to-builders-and-ai-coding-assistants/)를 참조하세요.
+> 
+> ```yaml
+> # MCP 서버 설정 예시 (claude_desktop_config.json)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # MCP 서버 설정 예시 (claude_desktop_config.json)
 {
@@ -207,10 +223,19 @@ AWS에서 오픈소스로 공개한 MCP(Model Context Protocol) 서버를 활용
     }
   }
 }
+
 ```
+-->
 
 #### 활용 예시
 
+> **참고**: IAM Policy Autopilot 활용 예시는 [IAM Policy Autopilot GitHub 저장소](https://github.com/awslabs/iam-policy-autopilot)의 예제를 참조하세요.
+> 
+> ```
+> 사용자 요청:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 사용자 요청:
 "Lambda 함수가 S3 버킷 'app-data'에서 읽기만 하고,
@@ -240,7 +265,9 @@ AI 자동 생성 결과:
         }
     ]
 }
+
 ```
+-->
 
 ### 5.3 AWS Security Agent (Preview)
 
@@ -259,49 +286,12 @@ AI 자동 생성 결과:
 
 GitHub Advanced Security와 Copilot이 통합되어 취약점 발견 시 자동으로 수정 코드를 제안합니다:
 
-```yaml
-# .github/workflows/security-scan.yml
-name: Security Scan with Copilot Autofix
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요. 자동 수정 강화
 
-on:
-  pull_request:
-    branches: [main]
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요..yml...
+> ```
 
-jobs:
-  codeql-analysis:
-    runs-on: ubuntu-latest
-    permissions:
-      security-events: write
-      contents: read
-      pull-requests: write
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: javascript, python
-          # Copilot 자동 수정 활성화
-          copilot-autofix: true
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-        with:
-          # AI 기반 심각도 우선순위화
-          ai-severity-ranking: true
-```
-
-#### Secret Scanning Push Protection 기본 활성화
-
-2025년부터 모든 공개 저장소에서 기본 활성화:
-
-- 커밋 시점에 비밀 정보 탐지 및 차단
-- 바이패스 시 승인 워크플로우 적용
-- 감사 로그 자동 기록
-
-#### Dependabot 자동 수정 강화
-
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/dependabot.yml
 version: 2
@@ -321,12 +311,21 @@ updates:
     compatibility-scoring:
       enabled: true
       minimum-score: 0.8
+
 ```
+-->
 
 ### 5.5 Supply Chain Security 강화
 
 npm 등 패키지 레지스트리에 대한 공급망 공격이 증가하면서 SBOM과 의존성 검증이 필수가 되었습니다:
 
+> **참고**: 공급망 보안 관련 내용은 [CycloneDX](https://github.com/CycloneDX/cyclonedx-cli), [SPDX](https://github.com/spdx/tools) 및 [GitHub Dependabot](https://docs.github.com/en/code-security/dependabot)을 참조하세요.
+> 
+> ```yaml
+> # GitHub Actions Supply Chain Security...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # GitHub Actions Supply Chain Security
 name: Supply Chain Security
@@ -357,7 +356,9 @@ jobs:
       # npm 패키지 서명 검증
       - name: Verify Package Signatures
         run: npm audit signatures
+
 ```
+-->
 
 ### 5.6 Shift Left Security 접근법
 

@@ -81,6 +81,13 @@ Docker는 애플리케이션을 **컨테이너**라는 격리된 환경에서 �
 
 ### 1.3 기본 Docker 명령어
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # 이미지 다운로드...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 이미지 다운로드
 docker pull nginx:latest
@@ -96,7 +103,9 @@ docker logs my-nginx
 
 # 컨테이너 중지 및 삭제
 docker stop my-nginx && docker rm my-nginx
+
 ```
+-->
 
 ## 2. Kubernetes 핵심 개념
 
@@ -104,6 +113,7 @@ docker stop my-nginx && docker rm my-nginx
 
 Kubernetes는 컨테이너화된 워크로드와 서비스를 관리하기 위한 **오케스트레이션 플랫폼**입니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────┐
 │ Control Plane │
@@ -126,13 +136,22 @@ Kubernetes는 컨테이너화된 워크로드와 서비스를 관리하기 위�
 │ │ Pods │ │ │ │ Pods │ │ │ │ Pods │ │
 │ └─────────┘ │ │ └─────────┘ │ │ └─────────┘ │
 └─────────────┘ └─────────────┘ └─────────────┘
+
 ```
+-->
 
 ### 2.2 주요 Kubernetes 리소스
 
 #### Pod
 가장 작은 배포 단위로, 하나 이상의 컨테이너를 포함합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -146,11 +165,20 @@ spec:
  image: nginx:1.21
  ports:
  - containerPort: 80
+
 ```
+-->
 
 #### Deployment
 Pod의 선언적 업데이트를 제공합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: apps/v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -171,11 +199,20 @@ spec:
  image: nginx:1.21
  ports:
  - containerPort: 80
+
 ```
+-->
 
 #### Service
 Pod 집합에 대한 네트워크 서비스를 노출합니다.
 
+> **참고**: Kubernetes Service 관련 내용은 [Kubernetes Service 문서](https://kubernetes.io/docs/concepts/services-networking/service/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Service
@@ -189,7 +226,9 @@ spec:
  port: 80
  targetPort: 80
  type: LoadBalancer
+
 ```
+-->
 
 ## 3. 컨테이너 보안 Best Practices
 
@@ -211,6 +250,13 @@ spec:
 
 ### 3.2 런타임 보안
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # SecurityContext 설정 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # SecurityContext 설정 예시
 apiVersion: v1
@@ -231,9 +277,13 @@ spec:
  capabilities:
  drop:
  - ALL
+
 ```
+-->
 
 ### 3.3 네트워크 정책
+
+> **참고**: Kubernetes Network Policy 관련 내용은 [Kubernetes Network Policy 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Network Policy 예제](https://github.com/kubernetes/examples/tree/master/staging/network-policies)를 참조하세요.
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -251,6 +301,8 @@ spec:
 
 ### 4.1 Minikube 설치
 
+> **참고**: Minikube 설치 관련 내용은 [Minikube 공식 문서](https://minikube.sigs.k8s.io/docs/) 및 [Minikube GitHub 저장소](https://github.com/kubernetes/minikube)를 참조하세요.
+
 ```bash
 # macOS
 brew install minikube
@@ -266,6 +318,8 @@ minikube start --driver=docker --cpus=2 --memory=4096
 ### 4.2 K9s로 클러스터 관리
 
 K9s는 터미널 기반 Kubernetes 대시보드입니다.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 설치
@@ -300,6 +354,8 @@ Kubernetes는 2025년에도 활발하게 발전하고 있습니다.
 
 Kubernetes 1.32+에서 `KubeletFineGrainedAuthz` feature gate를 통해 kubelet API에 대한 세밀한 접근 제어가 가능해졌습니다.
 
+> **참고**: Kubelet API 접근 제어 관련 내용은 [Kubernetes Kubelet 문서](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) 및 [Kubernetes RBAC 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)를 참조하세요.
+
 ```yaml
 # kubelet 설정에서 Fine-grained 인가 활성화
 apiVersion: kubelet.config.k8s.io/v1beta1
@@ -319,6 +375,8 @@ authorization:
 
 인증서 서명 기반의 credential ID 생성으로 보안 포렌식이 크게 향상되었습니다.
 
+> **참고**: Kubernetes Audit 및 credential 추적 관련 내용은 [Kubernetes Audit 문서](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/)를 참조하세요.
+
 ```bash
 # 인증서 기반 credential 추적 확인
 kubectl get certificatesigningrequests -o wide
@@ -336,6 +394,13 @@ kubectl logs -n kube-system kube-apiserver-* | grep credentialID
 
 Linux 커널 6.3 이상에서 사용 가능한 User Namespaces가 Kubernetes에서 정식 지원됩니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -349,7 +414,9 @@ spec:
     securityContext:
       runAsUser: 1000
       runAsGroup: 1000
+
 ```
+-->
 
 **보안 강화 효과:**
 - 컨테이너 내 root 사용자가 호스트에서는 비특권 사용자로 매핑
@@ -360,6 +427,13 @@ spec:
 
 kubelet이 Pod용 인증서를 자동으로 요청하고 마운트하는 기능이 추가되었습니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -383,7 +457,9 @@ spec:
       - clusterTrustBundle:
           path: ca.crt
           name: my-cluster-bundle
+
 ```
+-->
 
 **주요 특징:**
 - 자동 인증서 rotation으로 운영 부담 감소
@@ -394,6 +470,13 @@ spec:
 
 Amazon EKS 1.32에서는 익명 인증이 health check endpoint로 제한됩니다.
 
+> **참고**: Amazon EKS 보안 관련 내용은 [Amazon EKS 문서](https://docs.aws.amazon.com/eks/latest/userguide/) 및 [EKS 보안 모범 사례](https://aws.github.io/aws-eks-best-practices/security/docs/)를 참조하세요.
+> 
+> ```yaml
+> # EKS 1.32+ 에서의 익명 인증 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # EKS 1.32+ 에서의 익명 인증 설정
 # 기존의 익명 접근이 제한됨에 따라 명시적 인증 필요
@@ -407,10 +490,19 @@ rules:
   - "/readyz"
   - "/livez"
   verbs: ["get"]
+
 ```
+-->
 
 ### 5.4 Deprecation 주의사항
 
+> **참고**: Kubernetes Deprecated 기능 관련 내용은 [Kubernetes Deprecation Guide](https://kubernetes.io/docs/reference/using-api/deprecation-guide/)를 참조하세요.
+> 
+> ```yaml
+> # Deprecated (사용 자제)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Deprecated (사용 자제)
 apiVersion: v1
@@ -424,7 +516,9 @@ metadata:
 # 권장 방식: Pod SecurityContext에서 직접 제어
 spec:
   automountServiceAccountToken: false
+
 ```
+-->
 
 ## 6. 마무리
 

@@ -207,6 +207,13 @@ toc: true
 
 **설치 및 사용:**
 
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Slither 설치...
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Slither 설치
 pip install slither-analyzer
@@ -219,10 +226,16 @@ slither contracts/MyContract.sol --detect reentrancy-eth,unchecked-transfer
 
 # JSON 리포트 생성
 slither contracts/MyContract.sol --json slither-report.json
+
 ```
+-->
 
 **GitHub 통합:**
 
+> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./security-audit.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/security-audit.yml
 name: Security Audit
@@ -247,7 +260,9 @@ jobs:
         with:
           name: slither-report
           path: slither-report.json
+
 ```
+-->
 
 #### Mythril (ConsenSys)
 
@@ -270,6 +285,13 @@ jobs:
 
 **설치 및 사용:**
 
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Mythril 설치...
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Mythril 설치
 pip install mythril
@@ -282,7 +304,9 @@ myth analyze contracts/MyContract.sol --execution-timeout 60
 
 # JSON 리포트 생성
 myth analyze contracts/MyContract.sol -o json > mythril-report.json
+
 ```
+-->
 
 #### Securify 2.0 (ChainSecurity)
 
@@ -316,6 +340,10 @@ myth analyze contracts/MyContract.sol -o json > mythril-report.json
 
 **GitHub 통합:**
 
+> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./securify.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/securify.yml
 name: Securify Security Scan
@@ -332,13 +360,17 @@ jobs:
         with:
           contract-path: 'contracts/'
           output-format: 'json'
+
 ```
+-->
 
 ### 2.2 기타 유용한 보안 도구
 
 #### Echidna (Trail of Bits)
 
 **Echidna**는 속성 기반 테스팅 도구로, 스마트 컨트랙트의 보안 속성을 검증합니다.
+
+> **참고**: Echidna 관련 내용은 [Echidna GitHub 저장소](https://github.com/crytic/echidna) 및 [Echidna 문서](https://github.com/crytic/echidna/wiki)를 참조하세요.
 
 ```bash
 # Echidna 설치
@@ -352,6 +384,8 @@ echidna-test contracts/MyContract.sol --contract MyContract
 
 **Manticore**는 심볼릭 실행 엔진으로, 복잡한 보안 취약점을 탐지합니다.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Manticore 설치
 pip install manticore
@@ -363,6 +397,8 @@ manticore contracts/MyContract.sol
 #### Foundry (Paradigm)
 
 **Foundry**는 빠른 Rust 기반 테스팅 프레임워크로, Fuzz 테스팅을 지원합니다. 테스트 함수에 매개변수를 추가하면 자동으로 속성 기반 퍼즈 테스트로 실행됩니다.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # Foundry 설치
@@ -385,6 +421,8 @@ forge test --match-test invariant
 - **병렬 퍼징**: 멀티코어를 활용한 고속 테스트
 - **스마트 변이 생성**: Slither와 연동하여 런타임 값 기반 최적화된 입력 생성
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Medusa 설치
 go install github.com/crytic/medusa@latest
@@ -405,6 +443,10 @@ medusa fuzz --target-contracts MyContract
 
 **완전한 보안 파이프라인 예시:**
 
+> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./blockchain-security.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/blockchain-security.yml
 name: Blockchain Security Pipeline
@@ -472,7 +514,9 @@ jobs:
         uses: github/super-linter@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 ```
+-->
 
 ### 3.2 GitHub Advanced Security 통합
 
@@ -485,6 +529,10 @@ GitHub Advanced Security의 기능을 활용하여 블록체인 프로젝트의 
 
 **설정 예시:**
 
+> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./codeql-analysis.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/codeql-analysis.yml
 name: CodeQL Analysis
@@ -523,7 +571,9 @@ jobs:
       
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
+
 ```
+-->
 
 ## 4. 스마트 컨트랙트 보안 모범 사례
 
@@ -531,6 +581,13 @@ jobs:
 
 #### Reentrancy 방어
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
+> 
+> ```solidity
+> // ❌ 취약한 코드...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
 // ❌ 취약한 코드
 contract VulnerableContract {
@@ -563,10 +620,19 @@ contract SecureContract {
         require(success, "Transfer failed");
     }
 }
+
 ```
+-->
 
 #### Integer Overflow 방어
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
+> 
+> ```solidity
+> // ✅ Solidity 0.8.0+ 에서는 기본적으로 오버플로우 체크가 활성화됨...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
 // ✅ Solidity 0.8.0+ 에서는 기본적으로 오버플로우 체크가 활성화됨
 contract SafeMathExample {
@@ -584,7 +650,9 @@ contract SafeMathExample {
 
 // ⚠️ Solidity 0.8.0 미만 버전은 SafeMath 사용 필수
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+
 ```
+-->
 
 > **💡 2025년 권장사항**
 >
@@ -592,6 +660,13 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 #### Access Control 강화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
+> 
+> ```solidity
+> // ✅ OpenZeppelin Contracts 5.0+ AccessControl 사용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
 // ✅ OpenZeppelin Contracts 5.0+ AccessControl 사용
 import "@openzeppelin/contracts/access/AccessControl.sol";
@@ -611,7 +686,9 @@ contract SecureContract is AccessControl {
         // 관리자만 실행 가능
     }
 }
+
 ```
+-->
 
 > **⚠️ OpenZeppelin 5.0 변경사항**
 >
@@ -632,6 +709,13 @@ contract SecureContract is AccessControl {
 - 관리자 권한 분리 및 제한
 
 **예시:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
+> 
+> ```solidity
+> // ✅ 좋은 예: 역할 기반 접근 제어...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
 // ✅ 좋은 예: 역할 기반 접근 제어
 contract SecureContract is AccessControl {
@@ -646,7 +730,9 @@ contract SecureContract is AccessControl {
         // 운영자도 실행 가능
     }
 }
+
 ```
+-->
 
 #### Defense in Depth (다층 방어)
 
@@ -673,6 +759,13 @@ contract SecureContract is AccessControl {
 - 시간 잠금(Time Lock) 메커니즘
 
 **예시:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
+> 
+> ```solidity
+> // ✅ 좋은 예: 긴급 중지 기능...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
 // ✅ 좋은 예: 긴급 중지 기능
 contract SecureContract {
@@ -693,7 +786,9 @@ contract SecureContract {
         // 정지 상태에서는 실행 불가
     }
 }
+
 ```
+-->
 
 ### 4.3 보안 체크리스트
 
@@ -1086,6 +1181,7 @@ contract SecureContract {
 - **책임감**: 사고에 대한 책임 인정 및 사과
 
 **커뮤니케이션 템플릿 예시:**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [긴급 공지] 보안 사고 발생 및 대응 조치
 
@@ -1102,7 +1198,9 @@ contract SecureContract {
 피해 복구에 최선을 다하겠습니다.
 
 [업데이트 일정 및 연락처]
+
 ```
+-->
 
 ## 결론
 

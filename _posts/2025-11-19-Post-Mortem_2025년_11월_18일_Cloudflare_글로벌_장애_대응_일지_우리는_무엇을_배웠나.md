@@ -162,6 +162,8 @@ Cloudflare의 글로벌 네트워크에서 발생한 **BGP 라우팅 이슈**로
 
 ### 4.1 즉시 대응
 
+> **참고**: Cloudflare 장애 대응 관련 내용은 [Cloudflare Status Page](https://www.cloudflarestatus.com/) 및 [Cloudflare 문서](https://developers.cloudflare.com/)를 참조하세요.
+
 ```bash
 # 1. 상태 모니터링 강화
 watch -n 5 'curl -o /dev/null -s -w "%{http_code}\n" https://our-service.com'
@@ -191,6 +193,7 @@ dig @1.1.1.1 our-service.com
 
 단일 CDN 의존도를 낮추기 위한 **Multi-CDN 아키텍처** 도입:
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────┐
 │ Traffic Manager │
@@ -203,10 +206,19 @@ dig @1.1.1.1 our-service.com
 │Cloudflare│ │ Fastly │ │CloudFront│
 │ (주) │ │ (백업) │ │ (백업) │
 └─────────┘ └─────────┘ └─────────┘
+
 ```
+-->
 
 ### 5.2 모니터링 강화
 
+> **참고**: Prometheus Alert Rule 설정 관련 내용은 [Prometheus 공식 문서](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) 및 [Awesome Prometheus Alerts](https://github.com/samber/awesome-prometheus-alerts)를 참조하세요.
+> 
+> ```yaml
+> # Prometheus Alert Rule 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Prometheus Alert Rule 예시
 groups:
@@ -225,10 +237,19 @@ groups:
  for: 2m
  labels:
  severity: critical
+
 ```
+-->
 
 ### 5.3 자동 Failover 구현
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # 간단한 CDN Failover 로직...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # 간단한 CDN Failover 로직
 class CDNFailover:
@@ -251,7 +272,9 @@ class CDNFailover:
  if self.check_health(cdn):
  return cdn
  raise Exception("All CDNs are down!")
+
 ```
+-->
 
 ## 6. 2025년 Cloudflare 보안 업데이트
 
@@ -287,6 +310,8 @@ class CDNFailover:
 ### 6.3 긴급 보안 대응: React CVE-2025-55182
 
 2025년에 발견된 **React CVE-2025-55182 (CVSS 10.0)** 취약점에 대해 Cloudflare는 신속하게 WAF 규칙을 배포했습니다.
+
+> **참고**: Cloudflare WAF 규칙 설정 관련 내용은 [Cloudflare WAF 문서](https://developers.cloudflare.com/waf/) 및 [Cloudflare Rules](https://developers.cloudflare.com/rules/)를 참조하세요.
 
 ```yaml
 # Cloudflare WAF Rule 예시

@@ -124,6 +124,8 @@ AWS WAF는 [AWS WAF Workshop](https://sessin.github.io/awswafhol/)을 통해 실
 
 #### 실습 환경 구성
 
+> **참고**: DVWA 실습 환경 관련 내용은 [DVWA GitHub 저장소](https://github.com/digininja/DVWA) 및 [OWASP WebGoat](https://github.com/WebGoat/WebGoat)를 참조하세요.
+
 ```bash
 # DVWA 컨테이너 실행 예시
 docker run --rm -it -p 80:80 vulnerables/web-dvwa
@@ -229,6 +231,10 @@ Dependabot은 GitHub의 자동화된 의존성 보안 업데이트 도구입니�
 
 #### Dependabot 설정 예시
 
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요..yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/dependabot.yml
 version: 2
@@ -243,7 +249,9 @@ updates:
     labels:
       - "dependencies"
       - "security"
+
 ```
+-->
 
 > **💡 실무 팁**
 > 
@@ -262,66 +270,7 @@ GitHub Code Scanning은 정적 분석을 통해 코드의 보안 취약점을 �
 
 #### Code Scanning 설정
 
-```yaml
-# .github/workflows/code-scanning.yml
-name: "Code Scanning"
-
-on:
-  push:
-  pull_request:
-  schedule:
-    - cron: '0 0 * * 0'  # 매주 일요일
-
-jobs:
-  scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
-```
-
-> **💡 실무 팁**
-> 
-> Code Scanning 결과는 [GitHub Security 탭](https://github.com/Twodragon0/AWS/security/code-scanning)에서 확인할 수 있습니다.
-
-### 4.4 GitHub vs Amazon Q Developer
-
-GitHub Advanced Security와 Amazon Q Developer를 활용한 코드 보안 강화 및 AWS 최적화에 대한 상세한 비교는 [이전 포스팅](https://twodragon.tistory.com/685)을 참고하시기 바랍니다.
-
-## 5. 필수적인 실습을 통한 이론 정리
-
-### 5.1 실습 자료
-
-#### AWS 아키텍처 및 보안 관련 모임 자료
-- [AWSKRUG Security Group](https://github.com/awskrug/security-group/tree/main): AWS 보안 관련 실무 자료 및 모임 내용
-
-#### 컨테이너 이해
-- [초보를 위한 도커 안내서](https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html): 도커 기본 개념 및 실습
-
-#### 도커와 쿠버네티스 이해
-- [쿠버네티스 개념](https://www.codestates.com/blog/content/쿠버네티스): 쿠버네티스 기본 개념
-- [쿠버네티스 시작하기](https://subicura.com/2019/05/19/kubernetes-basic-1.html): 실무 중심 쿠버네티스 가이드
-
-#### Minikube 데모
-- [Kubernetes 공식 튜토리얼](https://kubernetes.io/ko/docs/tutorials/): 쿠버네티스 공식 실습 자료
-
-### 5.2 실습 시나리오
-
-#### 시나리오 1: AWS WAF를 통한 웹 공격 방어
-1. DVWA 환경 구축
-2. SQL Injection 공격 시뮬레이션
-3. AWS WAF 규칙 생성 및 적용
-4. 공격 차단 확인 및 로그 분석
-
-#### 시나리오 2: Cloudflare 보안 설정
-1. Cloudflare 계정 생성 및 도메인 추가
-2. WAF 규칙 설정
-3. DDoS 보호 활성화
-4. SSL/TLS 설정 최적화
-
-#### 시나리오 3: GitHub 보안 자동화
-1. Dependabot 설정
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요. 설정
 2. Code Scanning 통합
 3. 보안 알림 설정
 4. 취약점 대응 프로세스 구축
@@ -338,100 +287,7 @@ GitHub Advanced Security와 Amazon Q Developer를 활용한 코드 보안 강화
 - **PHP Wrapper Injection**: 새로운 탐지 로직 추가
 
 #### Bot Management 혁신
-```yaml
-# 2025년 Bot Detection ID 활용 예시
-bot_detection_rules:
-  - id: 201326598
-    description: "Zone-level baseline anomaly detection"
-    actions:
-      - challenge_on_suspicious
-      - rate_limit_on_abuse
-      - block_on_credential_stuffing
-
-  features:
-    - zone_level_traffic_baseline
-    - anomalous_login_failure_detection
-    - brute_force_prevention
-    - credential_stuffing_mitigation
-```
-
-**주목할 점**: 2025년 중반 기준, AI 모델 훈련을 위한 크롤링이 Cloudflare 네트워크 전체 AI 봇 활동의 약 **80%**를 차지합니다. 최신 스크래핑 도구는 LLM을 활용한 페이지 컨텐츠의 의미론적 이해와 컴퓨터 비전을 통한 시각적 챌린지 해결 능력을 갖추고 있어, Bot Management의 중요성이 더욱 부각되고 있습니다.
-
-### 5.2 GitHub Advanced Security 2025년 대변화
-
-2025년 4월 1일부터 GitHub Advanced Security(GHAS)가 두 개의 독립 제품으로 분리되었습니다:
-
-#### GitHub Secret Protection ($19/월/커미터)
-```yaml
-# GitHub Secret Protection 주요 기능
-secret_protection:
-  features:
-    - push_protection: "시크릿 노출 전 사전 차단"
-    - secret_scanning: "레포지토리 내 시크릿 탐지"
-    - ai_password_detection: "낮은 오탐률의 AI 기반 비밀번호 탐지"
-    - security_insights: "보안 인사이트 대시보드"
-
-  copilot_integration:
-    - unstructured_credential_detection
-    - custom_pattern_regex_generator
-    - no_copilot_license_required
-```
-
-#### GitHub Code Security ($30/월/커미터)
-- **Code Scanning**: 정적 분석을 통한 취약점 탐지
-- **Copilot Autofix**: AI 기반 취약점 자동 수정 제안
-- **Security Campaigns**: 조직 전체 보안 캠페인 관리
-- **Dependency Review Action**: 의존성 보안 검토 자동화
-
-#### Copilot Autofix 성과
-- 취약점 수정 속도 **3배 이상 향상**
-- PR 알림에서 자동 수정 커밋까지 중간값: **28분** (수동 대비 1.5시간)
-- GitHub Team 플랜에서도 구매 가능 (Enterprise 구독 불필요)
-
-### 5.3 통합 보안 전략
-
-**GitHub + Cloudflare 통합 보안 파이프라인**:
-
-| 단계 | 프로세스 | 도구/서비스 | 설명 |
-|------|---------|------------|------|
-| 1 | 코드 작성 | 개발자 | 코드 작성 및 커밋 |
-| 2 | Secret 탐지 | GitHub Secret Protection | 민감 정보 자동 탐지 |
-| 3 | 시크릿 검증 | Push Protection | 시크릿 발견 시 푸시 차단 |
-| 4 | 코드 보안 분석 | GitHub Code Security | 정적 코드 분석 |
-| 5 | 자동 수정 분석 | Copilot Autofix | 취약점 자동 수정 제안 |
-| 6 | 수정 적용 | 개발자 | 자동 수정 제안 검토 및 적용 |
-| 7 | 배포 | CI/CD | 프로덕션 배포 |
-| 8 | WAF 보호 | Cloudflare WAF | 웹 애플리케이션 방화벽 |
-| 9 | 봇 관리 | Cloudflare Bot Management | 봇 트래픽 차단 |
-| 10 | 실시간 위협 차단 | Cloudflare 실시간 보호 | 위협 자동 차단 |
-
-**보안 단계별 보호 영역**:
-
-| 보안 영역 | 단계 | 도구 | 보호 기능 |
-|----------|------|------|----------|
-| **코드 보안** | 2-6 | GitHub Secret Protection, Code Security, Copilot Autofix | 민감 정보 탐지, 취약점 수정 |
-| **배포 보안** | 7 | CI/CD | 자동화된 배포 프로세스 |
-| **런타임 보안** | 8-10 | Cloudflare WAF, Bot Management | 실시간 위협 차단 |
-
-**보안 통합 효과**:
-
-| 통합 영역 | 효과 | 설명 |
-|----------|------|------|
-| **개발 단계** | 조기 취약점 탐지 | 코드 작성 단계에서 보안 검사 |
-| **배포 단계** | 자동화된 보안 검증 | CI/CD 파이프라인 통합 |
-| **운영 단계** | 실시간 위협 차단 | Cloudflare를 통한 런타임 보호 |
-
-## 결론
-
-클라우드 시큐리티 과정 7기 - 6주차에서는 Application 보안 및 Cloudflare와 GitHub 보안 활용에 대해 다루었습니다.
-
-### 핵심 요약
-
-1. **AWS WAF**: 웹 애플리케이션을 다양한 공격으로부터 보호하는 핵심 도구로, DVWA를 활용한 실습을 통해 실무 경험을 쌓을 수 있습니다.
-
-2. **Cloudflare**: DDoS 보호, WAF, SSL/TLS, CDN 등 종합적인 보안 및 성능 최적화 서비스를 제공하며, 사용자의 요구사항에 맞게 세밀하게 설정할 수 있습니다.
-
-3. **GitHub 보안**: Dependabot과 Code Scanning을 통해 의존성 취약점 및 코드 보안 이슈를 자동으로 탐지하고 대응할 수 있으며, CI/CD 파이프라인에 통합하여 지속적인 보안 검사를 수행할 수 있습니다.
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.과 Code Scanning을 통해 의존성 취약점 및 코드 보안 이슈를 자동으로 탐지하고 대응할 수 있으며, CI/CD 파이프라인에 통합하여 지속적인 보안 검사를 수행할 수 있습니다.
 
 ### 2025년 보안 트렌드
 

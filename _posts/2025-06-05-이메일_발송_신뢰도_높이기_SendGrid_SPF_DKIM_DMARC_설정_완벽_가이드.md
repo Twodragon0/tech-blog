@@ -260,6 +260,8 @@ v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc@yourdomain.com
 v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
 ```
 
+> **참고**: DMARC 설정 관련 자세한 내용은 [DMARC 공식 문서](https://dmarc.org/)를 참조하세요.
+
 ## 5. SendGrid 설정 가이드
 
 ### 5.1 SendGrid 계정 설정
@@ -324,6 +326,8 @@ TTL: 3600
 - **Google Postmaster Tools**: Gmail 전달률 확인
 
 ### 7.2 명령줄 도구
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # SPF 확인
@@ -459,6 +463,7 @@ mail.yourdomain.com → 별도 SPF, DKIM, DMARC
 
 **단계별 DMARC 강화 로드맵:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 # 1단계 (즉시): 기본 설정
 v=DMARC1; p=none; rua=mailto:dmarc@yourdomain.com
@@ -471,7 +476,9 @@ v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc@yourdomain.com
 
 # 4단계 (2개월 후): 완전 거부 (권장)
 v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
+
 ```
+-->
 
 ### 11.4 AI 기반 이메일 보안
 

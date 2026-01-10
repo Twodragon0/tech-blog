@@ -113,6 +113,13 @@ S3 버킷에 대한 직접 접근을 차단하고, 오직 CloudFront를 통해�
 
 #### OAC 구성 예시
 
+> **참고**: CloudFront 설정 관련 자세한 내용은 [AWS CloudFront Terraform 모듈](https://github.com/terraform-aws-modules/terraform-aws-cloudfront) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.
+> 
+> ```yaml
+> # CloudFront Distribution 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # CloudFront Distribution 설정
 CloudFrontDistribution:
@@ -126,12 +133,21 @@ CloudFrontDistribution:
             OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${OAC}'
       # 또는 OAC 사용
       OriginAccessControlId: !Ref OriginAccessControl
+
 ```
+-->
 
 > **⚠️ 보안 주의사항**
 > 
 > S3 버킷 정책에서 직접 접근을 차단하고 CloudFront를 통해서만 접근하도록 설정해야 합니다. 그렇지 않으면 OAI/OAC 설정이 무의미해집니다.
 
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -149,7 +165,9 @@ CloudFrontDistribution:
     }
   ]
 }
+
 ```
+-->
 
 ### 1.2 Geo-Blocking (국가별 차단)
 
@@ -157,6 +175,13 @@ WAF의 Geo Match 조건을 활용하여 특정 국가의 접속을 차단하거�
 
 #### Geo-Blocking 규칙 예시
 
+> **참고**: AWS WAF 규칙 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF 자동화 예제](https://github.com/aws-samples/aws-waf-automation-terraform-samples)를 참조하세요.
+> 
+> ```yaml
+> # WAF Geo Match Rule...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # WAF Geo Match Rule
 GeoMatchRule:
@@ -182,7 +207,9 @@ GeoMatchRule:
               - KR  # 대한민국만 허용
         Action:
           Allow: {}
+
 ```
+-->
 
 > **💡 실무 팁**
 > 
@@ -194,6 +221,10 @@ GeoMatchRule:
 
 특정 User-Agent나 Secret Key 헤더가 없는 요청을 WAF단에서 즉시 차단하여 비인가 접근을 방어합니다.
 
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. Header Match Rule...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # WAF Header Match Rule
 HeaderMatchRule:
@@ -222,12 +253,18 @@ HeaderMatchRule:
             SearchString: "sqlmap|nikto|nmap"
         Action:
           Block: {}
+
 ```
+-->
 
 #### Response Header 보안
 
 서버 정보 노출을 막기 위해 불필요한 헤더를 삭제하거나, HSTS, X-Frame-Options 등 보안 헤더를 강제로 주입합니다.
 
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. Response Headers Policy...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # CloudFront Response Headers Policy
 ResponseHeadersPolicy:
@@ -259,13 +296,17 @@ ResponseHeadersPolicy:
           - Header: X-Frame-Options
             Value: DENY
             Override: true
+
 ```
+-->
 
 ### 1.4 실습: AWS WAF Workshop
 
 AWS WAF Workshop 및 DVWA를 활용하여 SQL Injection/XSS 공격을 시도하고, WAF 규칙으로 방어하는 전체 과정을 실습합니다.
 
 #### 실습 환경 구성
+
+> **참고**: DVWA 실습 환경 관련 내용은 [DVWA GitHub 저장소](https://github.com/digininja/DVWA) 및 [OWASP WebGoat](https://github.com/WebGoat/WebGoat)를 참조하세요.
 
 ```bash
 # DVWA 컨테이너 실행
@@ -302,6 +343,13 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 
 #### Dependabot 설정 예시
 
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.
+> 
+> ```yaml
+> # .github/dependabot.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/dependabot.yml
 version: 2
@@ -335,10 +383,19 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+
 ```
+-->
 
 #### Dependabot 알림 설정
 
+> **참고**: Dependabot 알림 설정 관련 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot)를 참조하세요.
+> 
+> ```yaml
+> # .github/dependabot.yml (계속)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/dependabot.yml (계속)
 updates:
@@ -351,7 +408,9 @@ updates:
     # High/Critical 취약점은 즉시 PR 생성
     allow:
       - dependency-type: "direct"
+
 ```
+-->
 
 ### 2.2 Code Scanning (CodeQL)
 
@@ -359,6 +418,13 @@ updates:
 
 #### CodeQL 워크플로우 설정
 
+> **참고**: CodeQL 분석 설정 관련 내용은 [GitHub CodeQL 문서](https://docs.github.com/en/code-security/code-scanning/using-codeql-code-scanning-with-your-ci) 및 [CodeQL Action](https://github.com/github/codeql-action)을 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/codeql-analysis.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/codeql-analysis.yml
 name: "CodeQL Analysis"
@@ -403,10 +469,19 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
+
 ```
+-->
 
 #### CodeQL 쿼리 커스터마이징
 
+> **참고**: CodeQL 쿼리 커스터마이징 관련 내용은 [CodeQL 쿼리 작성 가이드](https://docs.github.com/en/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites) 및 [CodeQL 예제](https://github.com/github/codeql)를 참조하세요.
+> 
+> ```yaml
+> # codeql-config.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # codeql-config.yml
 name: "Custom CodeQL Config"
@@ -422,7 +497,9 @@ paths-ignore:
   - '**/*.test.js'
   - '**/node_modules/**'
   - '**/vendor/**'
+
 ```
+-->
 
 ### 2.3 Amazon Q Developer vs GitHub Advanced Security
 
@@ -461,6 +538,8 @@ paths-ignore:
 
 **수정 전 (Before)**
 
+> **참고**: Python URL 검증 관련 내용은 [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html) 및 [Python urllib.parse 문서](https://docs.python.org/3/library/urllib.parse.html)를 참조하세요.
+
 ```python
 # 취약한 코드
 if 'blog.kakaocdn.net' in src:
@@ -474,6 +553,13 @@ if 'blog.kakaocdn.net' in src:
 
 **수정 후 (After)**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> from urllib.parse import urlparse...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 from urllib.parse import urlparse
 
@@ -506,7 +592,9 @@ if validate_url(src):
     download_image(src)
 else:
     logger.warning(f"Blocked suspicious URL: {src}")
+
 ```
+-->
 
 > **⚠️ 보안 주의사항**
 > 
@@ -520,6 +608,13 @@ else:
 
 **해결 방안: Data Masking 함수 구현**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import re...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import re
 from typing import Any
@@ -570,11 +665,15 @@ logger.info(f"API Key: {mask_sensitive_data(api_key)}")
 # 로그 기록 전 마스킹
 log_message = f"Connecting with API_KEY={api_key}"
 logger.info(mask_sensitive_data(log_message))
+
 ```
+-->
 
 #### 취약점 3: 입력값 검증 부재
 
 **수정 전**
+
+> **참고**: Python 이미지 처리 보안 관련 내용은 [OWASP Image Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html) 및 [Python requests 문서](https://requests.readthedocs.io/)를 참조하세요.
 
 ```python
 def process_image_url(url: str):
@@ -584,6 +683,13 @@ def process_image_url(url: str):
 
 **수정 후**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import requests...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import requests
 from urllib.parse import urlparse
@@ -618,7 +724,9 @@ def process_image_url(url: str):
     except requests.RequestException as e:
         logger.error(f"Failed to fetch image: {e}")
         raise
+
 ```
+-->
 
 ### 3.3 CodeQL 스캔 결과 및 수정 내역
 
