@@ -172,6 +172,10 @@
       // 통합 설정
       integrations: [
         // BrowserTracing은 Loader Script에서 자동 설정됨
+        // Console 로깅 통합: console.log, console.warn, console.error를 Sentry 로그로 전송
+        Sentry.consoleLoggingIntegration({ 
+          levels: ["log", "warn", "error"] 
+        }),
       ],
     });
 
