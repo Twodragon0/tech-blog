@@ -78,19 +78,36 @@
           }
         }
         
-        // 특정 에러 무시 (정상적인 보안 에러)
+        // 특정 에러 무시 (정상적인 보안 에러 및 이미지 로드 실패)
         if (event.exception) {
           const error = hint.originalException;
           if (error && error.message) {
             const errorMessage = error.message.toLowerCase();
             // CSP 위반, 확장 프로그램 관련 에러는 무시
+            // 이미지 로드 실패 (404, 한글 파일명 인코딩 문제 등)는 무시
             if (errorMessage.includes('content security policy') ||
                 errorMessage.includes('csp') ||
                 errorMessage.includes('extension') ||
                 errorMessage.includes('chrome-extension') ||
-                errorMessage.includes('moz-extension')) {
+                errorMessage.includes('moz-extension') ||
+                errorMessage.includes('failed to load') ||
+                errorMessage.includes('load link') ||
+                (errorMessage.includes('image') && (errorMessage.includes('404') || errorMessage.includes('not found')))) {
               return null; // 이벤트 무시
             }
+          }
+        }
+        
+        // 이미지 로드 실패 에러 필터링 (request URL 기반)
+        if (event.request && event.request.url) {
+          const url = event.request.url.toLowerCase();
+          // OG 이미지, 한글 파일명 포함 URL은 무시
+          if (url.includes('_og.png') || 
+              url.includes('og.png') || 
+              url.includes('og.jpg') || 
+              url.includes('og.webp') ||
+              /[\uAC00-\uD7A3]/.test(event.request.url)) { // 한글 포함된 URL
+            return null; // 이벤트 무시
           }
         }
         

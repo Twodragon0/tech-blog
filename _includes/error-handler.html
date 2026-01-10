@@ -174,19 +174,32 @@
       const tagName = event.target.tagName.toLowerCase();
       if (['img', 'script', 'link', 'style'].includes(tagName)) {
         const src = event.target.src || event.target.href || 'unknown';
-        // 404 오류는 정상적인 경우가 많으므로 무시 (이미지, giscus 등)
-        if (event.target.tagName.toLowerCase() === 'img' || src.includes('giscus.app')) {
+        
+        // 404 오류는 정상적인 경우가 많으므로 무시
+        // - 이미지 파일 (og.png, 이미지 파일 등)
+        // - 외부 서비스 (giscus.app 등)
+        // - 한글 파일명 관련 에러 (URL 인코딩 문제)
+        if (event.target.tagName.toLowerCase() === 'img' || 
+            src.includes('giscus.app') ||
+            src.includes('_og.png') ||
+            src.includes('og.png') ||
+            src.includes('og.jpg') ||
+            src.includes('og.webp') ||
+            /[\uAC00-\uD7A3]/.test(src)) { // 한글 포함된 URL
           return; // 정상적인 404는 무시
         }
         
-        try {
-          reportError(`Failed to load ${tagName}: ${src}`, {
-            type: 'resource',
-            tag: tagName,
-            src: src
-          });
-        } catch (e) {
-          // 무시
+        // 중요한 리소스만 에러로 보고 (script, link 등)
+        if (tagName === 'script' || tagName === 'link') {
+          try {
+            reportError(`Failed to load ${tagName}: ${src}`, {
+              type: 'resource',
+              tag: tagName,
+              src: src
+            });
+          } catch (e) {
+            // 무시
+          }
         }
       }
     }
@@ -195,14 +208,17 @@
   // Performance monitoring
   if ('PerformanceObserver' in window) {
     try {
-      // Long task monitoring
+      // Long task monitoring (100ms 이상만 보고 - 50ms는 정상적인 범위)
       const longTaskObserver = new PerformanceObserver(function(list) {
         for (const entry of list.getEntries()) {
-          if (entry.duration > 50) { // 50ms 이상의 긴 작업
-            reportError(`Long task detected: ${entry.duration}ms`, {
+          // 100ms 이상의 긴 작업만 보고 (50ms는 정상적인 범위)
+          // 브라우저 확장 프로그램이나 광고 스크립트로 인한 긴 작업은 무시
+          if (entry.duration > 100 && entry.name && !entry.name.includes('chrome-extension') && !entry.name.includes('moz-extension')) {
+            reportError(`Long task detected: ${Math.round(entry.duration)}ms`, {
               type: 'performance',
               duration: entry.duration,
-              startTime: entry.startTime
+              startTime: entry.startTime,
+              name: entry.name || 'unknown'
             });
           }
         }
