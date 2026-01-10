@@ -49,40 +49,137 @@
         // FID observer not supported
       }
 
-      // Cumulative Layout Shift (CLS)
+      // Cumulative Layout Shift (CLS) - 상세 추적 및 리포트
       let clsValue = 0;
       let clsEntries = [];
+      let clsReportGenerated = false;
+      
+      // CLS 원인 분석 함수
+      function analyzeCLSCause(entry) {
+        const causes = [];
+        if (entry.sources && entry.sources.length > 0) {
+          entry.sources.forEach(function(source) {
+            if (source.node) {
+              const tagName = source.node.tagName || '';
+              const className = source.node.className || '';
+              const id = source.node.id || '';
+              
+              // 주요 원인 분류
+              if (tagName === 'IMG' || className.includes('image') || className.includes('img')) {
+                causes.push('이미지: ' + (source.node.src || source.node.getAttribute('src') || '알 수 없음'));
+              } else if (tagName === 'IFRAME' || className.includes('adsbygoogle') || className.includes('ad')) {
+                causes.push('광고: ' + (source.node.src || className || '알 수 없음'));
+              } else if (tagName === 'DIV' && className.includes('card')) {
+                causes.push('카드 컴포넌트: ' + className);
+              } else if (tagName === 'SCRIPT') {
+                causes.push('스크립트 삽입');
+              } else {
+                causes.push(tagName + (id ? '#' + id : '') + (className ? '.' + className.split(' ')[0] : ''));
+              }
+            }
+          });
+        }
+        return causes.length > 0 ? causes.join(', ') : '알 수 없음';
+      }
+      
+      // CLS 리포트 생성
+      function generateCLSReport() {
+        if (clsReportGenerated || clsEntries.length === 0) return;
+        clsReportGenerated = true;
+        
+        const report = {
+          totalCLS: clsValue.toFixed(6),
+          entryCount: clsEntries.length,
+          entries: clsEntries.map(function(entry) {
+            return {
+              value: entry.value.toFixed(6),
+              cause: entry.cause || '알 수 없음',
+              time: entry.startTime.toFixed(2) + 'ms'
+            };
+          }),
+          topCauses: {}
+        };
+        
+        // 주요 원인 집계
+        clsEntries.forEach(function(entry) {
+          const cause = entry.cause || '알 수 없음';
+          if (!report.topCauses[cause]) {
+            report.topCauses[cause] = { count: 0, totalValue: 0 };
+          }
+          report.topCauses[cause].count++;
+          report.topCauses[cause].totalValue += entry.value;
+        });
+        
+        // 개발 환경에서만 상세 리포트 표시
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          console.group('[Performance] CLS 상세 리포트');
+          console.log('총 CLS 값:', report.totalCLS);
+          console.log('레이아웃 시프트 횟수:', report.entryCount);
+          console.log('주요 원인:', report.topCauses);
+          console.table(report.entries.slice(0, 10)); // 상위 10개만 표시
+          console.groupEnd();
+        }
+        
+        return report;
+      }
+      
       try {
         const clsObserver = new PerformanceObserver(function(list) {
           for (const entry of list.getEntries()) {
             // 사용자 입력 후 500ms 이내의 시프트는 무시 (사용자 의도적 상호작용)
             if (!entry.hadRecentInput) {
+              const cause = analyzeCLSCause(entry);
               clsValue += entry.value;
+              
               clsEntries.push({
                 value: entry.value,
                 sources: entry.sources || [],
-                startTime: entry.startTime
+                startTime: entry.startTime,
+                cause: cause
               });
               
               // CLS 임계값 체크 (0.1 이상이면 경고)
               if (clsValue > 0.1) {
-                console.warn('[Performance] CLS is high:', clsValue.toFixed(6));
-                // 개발 환경에서만 상세 정보 표시
-                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                  console.warn('[Performance] CLS entries:', clsEntries.slice(-5)); // 최근 5개만
-                }
+                console.warn('[Performance] CLS is high:', clsValue.toFixed(6), '| 원인:', cause);
               }
             }
           }
         });
         clsObserver.observe({ entryTypes: ['layout-shift'] });
         
-        // 페이지 언로드 시 최종 CLS 값 기록
+        // 페이지 언로드 시 최종 CLS 리포트 생성
         window.addEventListener('beforeunload', function() {
-          if (clsValue > 0.1 && 'sendBeacon' in navigator) {
-            // 최종 CLS 값을 서버로 전송 (선택사항)
-            // navigator.sendBeacon('/api/metrics', JSON.stringify({ cls: clsValue }));
+          if (clsValue > 0) {
+            const report = generateCLSReport();
+            
+            // 프로덕션에서도 중요한 CLS 정보만 로깅
+            if (clsValue > 0.25) { // 매우 높은 CLS
+              console.error('[Performance] CLS is very high:', clsValue.toFixed(6));
+            }
+            
+            // 서버로 전송 (선택사항)
+            // if ('sendBeacon' in navigator && report) {
+            //   navigator.sendBeacon('/api/metrics', JSON.stringify({
+            //     metric: 'CLS',
+            //     value: clsValue,
+            //     report: report
+            //   }));
+            // }
           }
+        });
+        
+        // 페이지 로드 완료 후 중간 리포트 (개발 환경)
+        window.addEventListener('load', function() {
+          setTimeout(function() {
+            if ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && clsValue > 0.05) {
+              console.warn('[Performance] 페이지 로드 후 CLS:', clsValue.toFixed(6));
+              if (clsEntries.length > 0) {
+                console.log('[Performance] 주요 원인:', clsEntries.slice(0, 3).map(function(e) {
+                  return e.cause + ' (' + e.value.toFixed(4) + ')';
+                }).join(', '));
+              }
+            }
+          }, 2000);
         });
       } catch (e) {
         // CLS observer not supported

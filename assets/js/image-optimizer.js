@@ -44,12 +44,39 @@
     return webpUrl;
   }
 
+  // 이미지 크기 힌트 계산 (CLS 최적화)
+  function setImageSizeHint(img) {
+    // 이미 width/height가 있으면 스킵
+    if (img.width && img.height && img.width > 0 && img.height > 0) {
+      return;
+    }
+    
+    // 부모 컨테이너 크기 기반으로 힌트 설정
+    const container = img.closest('.post-card-image, .post-image-container');
+    if (container) {
+      const containerWidth = container.offsetWidth || 400;
+      const aspectRatio = 16 / 9; // 기본 aspect ratio
+      const suggestedHeight = Math.round(containerWidth / aspectRatio);
+      
+      // width/height 속성 설정 (CLS 최적화)
+      if (!img.hasAttribute('width')) {
+        img.setAttribute('width', containerWidth);
+      }
+      if (!img.hasAttribute('height')) {
+        img.setAttribute('height', suggestedHeight);
+      }
+    }
+  }
+
   // 이미지 최적화 적용
   function optimizeImage(img) {
     // 이미 처리된 이미지 스킵
     if (img.dataset.optimized === 'true') {
       return;
     }
+
+    // CLS 최적화: 이미지 크기 힌트 설정
+    setImageSizeHint(img);
 
     // WebP를 지원하는 경우에만 변환 시도
     if (supportsWebP()) {
@@ -65,23 +92,31 @@
           img.src = webpUrl;
           img.dataset.optimized = 'true';
           img.dataset.format = 'webp';
+          
+          // CLS 최적화: 크기 힌트 재확인
+          setImageSizeHint(img);
         };
         
         webpImg.onerror = function() {
           // WebP 파일이 없으면 원본 유지
           img.dataset.optimized = 'true';
           img.dataset.format = 'original';
+          
+          // CLS 최적화: 크기 힌트 재확인
+          setImageSizeHint(img);
         };
         
         webpImg.src = webpUrl;
       } else {
         img.dataset.optimized = 'true';
         img.dataset.format = 'original';
+        setImageSizeHint(img);
       }
     } else {
       // WebP 미지원 브라우저
       img.dataset.optimized = 'true';
       img.dataset.format = 'original';
+      setImageSizeHint(img);
     }
   }
 
