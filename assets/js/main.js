@@ -1407,17 +1407,14 @@
     function fixImageUrls() {
       const images = document.querySelectorAll('img.post-image, img[src*="assets/images"], img.clickable-image');
       images.forEach(img => {
-        // 이미지가 아직 로드되지 않았을 때만 처리
-        if (img.complete) return;
-        
         const src = img.getAttribute('src');
         const dataFullSrc = img.getAttribute('data-full-src');
         const dataOriginalSrc = img.getAttribute('data-original-src');
         let retryCount = 0;
-        const maxRetries = 3;
+        const maxRetries = 4;
         
         // 이미지 로드 전에 경로를 미리 수정 - 디코딩된 경로를 먼저 시도
-        if (src) {
+        if (src && !img.complete) {
           try {
             // URL 인코딩된 경로를 디코딩
             const decodedSrc = decodeURIComponent(src);
@@ -1439,7 +1436,6 @@
         img.addEventListener('error', function() {
           if (retryCount >= maxRetries) {
             // 모든 재시도 실패 시 조용히 처리
-            console.warn('이미지를 로드할 수 없습니다:', this.getAttribute('src'));
             return;
           }
           
@@ -1447,48 +1443,74 @@
           const currentSrc = this.getAttribute('src');
           
           // 방법 1: URL 인코딩된 경로를 완전히 디코딩하여 한글 파일명으로 변환
-          try {
-            const decodedSrc = decodeURIComponent(currentSrc);
-            if (decodedSrc !== currentSrc && retryCount === 1) {
-              // 디코딩된 경로로 재시도 (서버가 한글 파일명을 직접 처리할 수 있는 경우)
-              this.src = decodedSrc;
-              if (dataFullSrc) {
-                this.setAttribute('data-full-src', decodedSrc);
+          if (retryCount === 1) {
+            try {
+              const decodedSrc = decodeURIComponent(currentSrc);
+              if (decodedSrc !== currentSrc && /[가-힣]/.test(decodedSrc)) {
+                // 디코딩된 경로로 재시도 (서버가 한글 파일명을 직접 처리할 수 있는 경우)
+                this.src = decodedSrc;
+                if (dataFullSrc) {
+                  this.setAttribute('data-full-src', decodedSrc);
+                }
+                return;
               }
-              return;
+            } catch (e) {
+              // 디코딩 실패
             }
-          } catch (e) {
-            // 디코딩 실패
           }
           
-          // 방법 2: data-original-src가 있으면 상대 경로로 재시도
-          if (dataOriginalSrc && retryCount === 2) {
+          // 방법 2: data-original-src가 있으면 원본 경로로 재시도
+          if (retryCount === 2 && dataOriginalSrc) {
             // 원본 경로를 그대로 사용 (Jekyll이 생성한 경로)
-            this.src = dataOriginalSrc.startsWith('/') ? dataOriginalSrc : '/' + dataOriginalSrc;
+            const originalPath = dataOriginalSrc.startsWith('/') ? dataOriginalSrc : '/' + dataOriginalSrc;
+            this.src = originalPath;
             if (dataFullSrc) {
-              this.setAttribute('data-full-src', this.src);
+              this.setAttribute('data-full-src', originalPath);
             }
             return;
           }
           
           // 방법 3: 경로를 분해하여 파일명만 다시 인코딩
-          try {
-            const decodedSrc = decodeURIComponent(currentSrc);
-            const pathParts = decodedSrc.split('/');
-            const filename = pathParts[pathParts.length - 1];
-            
-            if (filename && /[가-힣]/.test(filename)) {
-              // 파일명만 다시 인코딩 (경로는 그대로)
-              const encodedFilename = encodeURIComponent(filename);
-              pathParts[pathParts.length - 1] = encodedFilename;
-              const newSrc = pathParts.join('/');
-              this.src = newSrc;
-              if (dataFullSrc) {
-                this.setAttribute('data-full-src', newSrc);
+          if (retryCount === 3) {
+            try {
+              const decodedSrc = decodeURIComponent(currentSrc);
+              const pathParts = decodedSrc.split('/');
+              const filename = pathParts[pathParts.length - 1];
+              
+              if (filename && /[가-힣]/.test(filename)) {
+                // 파일명만 다시 인코딩 (경로는 그대로)
+                const encodedFilename = encodeURIComponent(filename);
+                pathParts[pathParts.length - 1] = encodedFilename;
+                const newSrc = pathParts.join('/');
+                this.src = newSrc;
+                if (dataFullSrc) {
+                  this.setAttribute('data-full-src', newSrc);
+                }
+                return;
               }
+            } catch (e) {
+              // 처리 실패
             }
-          } catch (e) {
-            // 처리 실패
+          }
+          
+          // 방법 4: data-original-src를 기반으로 상대 경로 재구성
+          if (retryCount === 4 && dataOriginalSrc) {
+            try {
+              // 원본 경로에서 파일명만 추출하여 디코딩된 경로로 재구성
+              const pathParts = dataOriginalSrc.split('/');
+              const filename = pathParts[pathParts.length - 1];
+              if (filename && /[가-힣]/.test(filename)) {
+                // 파일명이 한글이면 디코딩된 경로로 재구성
+                pathParts[pathParts.length - 1] = filename;
+                const newSrc = pathParts.join('/');
+                this.src = newSrc.startsWith('/') ? newSrc : '/' + newSrc;
+                if (dataFullSrc) {
+                  this.setAttribute('data-full-src', this.src);
+                }
+              }
+            } catch (e) {
+              // 처리 실패
+            }
           }
         }, { once: false });
       });
