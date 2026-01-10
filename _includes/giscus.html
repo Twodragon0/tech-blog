@@ -21,6 +21,7 @@
               data-category="{{ site.giscus.category }}"
               data-category-id="{{ site.giscus.category_id }}"
               data-mapping="{{ site.giscus.mapping }}"
+              {% if site.giscus.mapping == "title" %}data-term="{{ page.title | escape }}"{% endif %}
               data-strict="0"
               data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
               data-emit-metadata="{{ site.giscus.emit_metadata }}"

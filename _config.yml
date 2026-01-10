@@ -108,7 +108,7 @@ giscus:
   repo_id: "R_kgDOQ1zGAg"  # GitHub GraphQL Repository ID
   category: "Announcements"
   category_id: "DIC_kwDOQ1zGAs4C0tYD"  # GitHub Discussions Category ID
-  mapping: "pathname"
+  mapping: "title"  # Changed from "pathname" to avoid double URL encoding with Korean characters
   reactions_enabled: "1"
   emit_metadata: "0"
   input_position: "bottom"
