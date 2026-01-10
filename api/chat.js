@@ -32,7 +32,8 @@ const CONFIG = {
   // Off-peak 시간대 (UTC): 16:30-00:30 (50-75% 할인)
   OFF_PEAK_START_HOUR: 16,
   OFF_PEAK_END_HOUR: 0,
-  // 모델 선택: deepseek-chat (일반 작업) 또는 deepseek-v3 (고급 작업)
+  // 모델 선택: deepseek-chat (일반 작업) 또는 deepseek-chat-v3 (최신 모델)
+  // 기본값: deepseek-chat (안정적이고 비용 효율적)
   MODEL: process.env.DEEPSEEK_MODEL || 'deepseek-chat', // 환경 변수로 모델 선택 가능
 };
 
@@ -203,12 +204,19 @@ export default async function handler(req, res) {
     // DeepSeek API 키 확인
     const apiKey = process.env.DEEPSEEK_API_KEY;
     if (!apiKey) {
-      // 프로덕션에서는 상세 로그 최소화
-      if (process.env.NODE_ENV === 'development') {
-        console.error('[Chat API] DEEPSEEK_API_KEY가 설정되지 않았습니다.');
-      }
+      console.error('[Chat API] DEEPSEEK_API_KEY가 설정되지 않았습니다.');
       return res.status(503).json({ 
-        error: 'AI 서비스가 일시적으로 사용할 수 없습니다. 관리자에게 문의하세요.' 
+        error: 'AI 서비스가 일시적으로 사용할 수 없습니다. 관리자에게 문의하세요.',
+        code: 'API_KEY_MISSING'
+      });
+    }
+    
+    // API 키 형식 검증 (sk-로 시작하는지 확인)
+    if (!apiKey.startsWith('sk-')) {
+      console.error('[Chat API] DEEPSEEK_API_KEY 형식이 올바르지 않습니다.');
+      return res.status(503).json({ 
+        error: 'AI 서비스 설정 오류입니다. 관리자에게 문의하세요.',
+        code: 'API_KEY_INVALID'
       });
     }
 
@@ -241,6 +249,14 @@ export default async function handler(req, res) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), CONFIG.TIMEOUT_MS);
 
+    // API 요청 로깅 (디버깅용)
+    console.log('[Chat API] DeepSeek API 호출:', {
+      model: CONFIG.MODEL,
+      messageCount: messages.length,
+      hasApiKey: !!apiKey,
+      apiKeyPrefix: apiKey ? apiKey.substring(0, 7) + '...' : 'missing'
+    });
+
     const deepseekResponse = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -264,19 +280,24 @@ export default async function handler(req, res) {
     clearTimeout(timeoutId);
 
     if (!deepseekResponse.ok) {
-      const errorData = await deepseekResponse.json().catch(() => ({}));
-      
-      // 프로덕션에서는 상세 로그 최소화 (보안 및 프리티어 최적화)
-      if (process.env.NODE_ENV === 'development') {
-        console.error('[Chat API] DeepSeek API 오류:', {
+      let errorData = {};
+      try {
+        errorData = await deepseekResponse.json();
+      } catch (e) {
+        const responseText = await deepseekResponse.text().catch(() => 'Unable to read response');
+        console.error('[Chat API] DeepSeek API 오류 응답 파싱 실패:', {
           status: deepseekResponse.status,
-          // 민감 정보는 로깅하지 않음
-          errorType: errorData.error?.type || 'unknown'
+          responsePreview: responseText.substring(0, 200)
         });
-      } else {
-        // 프로덕션: 간단한 로그만 (민감 정보 제외)
-        console.error(`[Chat API] DeepSeek API Error ${deepseekResponse.status}`);
       }
+      
+      // 상세 로그 (보안: 민감 정보 제외)
+      console.error('[Chat API] DeepSeek API 오류:', {
+        status: deepseekResponse.status,
+        statusText: deepseekResponse.statusText,
+        errorType: errorData.error?.type || 'unknown',
+        errorMessage: errorData.error?.message || 'No error message'
+      });
       
       // Rate limit 오류 처리
       if (deepseekResponse.status === 429) {
@@ -300,23 +321,44 @@ export default async function handler(req, res) {
       });
     }
 
-    const data = await deepseekResponse.json();
+    let data;
+    try {
+      data = await deepseekResponse.json();
+    } catch (parseError) {
+      console.error('[Chat API] DeepSeek API 응답 파싱 오류:', parseError.message);
+      const responseText = await deepseekResponse.text().catch(() => 'Unable to read response');
+      console.error('[Chat API] Raw response:', responseText.substring(0, 500));
+      return res.status(500).json({ 
+        error: 'AI 서비스 응답을 처리할 수 없습니다. 잠시 후 다시 시도해주세요.',
+        code: 'RESPONSE_PARSE_ERROR'
+      });
+    }
 
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-      // 프로덕션에서는 상세 로그 최소화
-      if (process.env.NODE_ENV === 'development') {
-        console.error('[Chat API] DeepSeek API 응답 형식 오류:', data);
-      } else {
-        console.error('[Chat API] Invalid response format');
-      }
-      return res.status(500).json({ error: '응답 형식이 올바르지 않습니다.' });
+      console.error('[Chat API] DeepSeek API 응답 형식 오류:', {
+        hasChoices: !!data.choices,
+        choicesLength: data.choices?.length,
+        hasMessage: !!data.choices?.[0]?.message,
+        error: data.error
+      });
+      return res.status(500).json({ 
+        error: '응답 형식이 올바르지 않습니다.',
+        code: 'INVALID_RESPONSE_FORMAT'
+      });
     }
 
     const response = data.choices[0].message.content;
 
     // 응답 검증 및 정제
     if (!response || typeof response !== 'string') {
-      return res.status(500).json({ error: '응답을 생성할 수 없습니다.' });
+      console.error('[Chat API] 응답 내용이 없거나 문자열이 아닙니다:', {
+        responseType: typeof response,
+        responseValue: response
+      });
+      return res.status(500).json({ 
+        error: '응답을 생성할 수 없습니다.',
+        code: 'EMPTY_RESPONSE'
+      });
     }
 
     // XSS 방지를 위한 응답 정제
@@ -361,17 +403,13 @@ export default async function handler(req, res) {
   } catch (error) {
     const executionTime = Date.now() - startTime;
     
-    // 프로덕션에서는 상세 로그 최소화 (보안: 민감 정보 노출 방지)
-    if (process.env.NODE_ENV === 'development') {
-      console.error('[Chat API] 오류:', {
-        name: error.name,
-        message: error.message,
-        executionTime: executionTime
-      });
-    } else {
-      // 프로덕션: 최소한의 정보만 로깅
-      console.error(`[Chat API] Error: ${error.name || 'Unknown'} (${executionTime}ms)`);
-    }
+    // 상세 로그 (보안: 민감 정보 제외)
+    console.error('[Chat API] 오류:', {
+      name: error.name,
+      message: error.message,
+      stack: error.stack?.split('\n').slice(0, 3).join('\n'), // 스택 트레이스 일부만
+      executionTime: executionTime
+    });
 
     // 타임아웃 오류 처리
     if (error.name === 'AbortError' || error.name === 'TimeoutError') {

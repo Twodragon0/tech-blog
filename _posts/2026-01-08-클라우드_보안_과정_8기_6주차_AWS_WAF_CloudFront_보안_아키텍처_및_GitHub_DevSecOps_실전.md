@@ -652,14 +652,22 @@ def process_image_url(url: str):
 
 ### 3.3 CodeQL 스캔 결과 및 수정 내역
 
-| 취약점 ID | 심각도 | 설명 | 수정 상태 |
-|----------|--------|------|----------|
-| CWE-918 | High | SSRF (Server-Side Request Forgery) | ✅ 수정 완료 |
-| CWE-200 | High | 민감 정보 노출 | ✅ 수정 완료 |
-| CWE-20 | Medium | 입력값 검증 부재 | ✅ 수정 완료 |
-| CWE-79 | Medium | XSS 가능성 | ✅ 수정 완료 |
-| CWE-400 | Low | 리소스 소모 공격 | ✅ 수정 완료 |
-| CWE-209 | Low | 정보 노출 | ✅ 수정 완료 |
+| 취약점 ID | CWE | 심각도 | 설명 | 수정 방법 | 수정 상태 |
+|----------|-----|--------|------|----------|----------|
+| **SSRF** | CWE-918 | High | Server-Side Request Forgery | URL 검증 함수 구현, Allow-list 방식 | ✅ 수정 완료 |
+| **민감 정보 노출** | CWE-200 | High | API 키, 비밀번호 등 평문 노출 | Data Masking 함수 구현 | ✅ 수정 완료 |
+| **입력값 검증 부재** | CWE-20 | Medium | 입력값 검증 없이 사용 | URL 형식 검증, 도메인 검증, 확장자 검증 | ✅ 수정 완료 |
+| **XSS 가능성** | CWE-79 | Medium | Cross-Site Scripting 가능성 | 입력값 정제, 출력 인코딩 | ✅ 수정 완료 |
+| **리소스 소모 공격** | CWE-400 | Low | DoS 공격 가능성 | 타임아웃 설정, 리다이렉트 방지 | ✅ 수정 완료 |
+| **정보 노출** | CWE-209 | Low | 에러 메시지를 통한 정보 노출 | 에러 메시지 일반화 | ✅ 수정 완료 |
+
+#### 취약점별 상세 분석
+
+| 취약점 | 발견 위치 | 공격 시나리오 | 영향도 | 대응 방안 |
+|--------|----------|-------------|--------|----------|
+| **SSRF** | `fetch_tistory_images.py` | 악의적 URL을 통한 내부 네트워크 접근 | 높음 | URL 검증 함수, Allow-list |
+| **민감 정보 노출** | `ai_improve_posts.py` | 로그 파일에 API 키 평문 저장 | 높음 | Data Masking 함수 |
+| **입력값 검증 부재** | 이미지 다운로드 함수 | 악의적 파일 다운로드 | 중간 | 다중 검증 계층 |
 
 > **👨‍🏫 멘토의 조언 (Takeaway)**
 > 
@@ -688,26 +696,53 @@ def process_image_url(url: str):
 
 ### 핵심 요약
 
-1. **AWS WAF & CloudFront**: 엣지 레벨에서의 강력한 보안 아키텍처 구축
-   - OAI/OAC를 통한 S3 직접 접근 차단
-   - Geo-blocking 및 Header 보안 설정
-   - 실습을 통한 공격/방어 시나리오 이해
+| 영역 | 핵심 내용 | 실무 적용 포인트 |
+|------|----------|----------------|
+| **AWS WAF & CloudFront** | 엣지 레벨에서의 강력한 보안 아키텍처 구축 | OAI/OAC를 통한 S3 직접 접근 차단, Geo-blocking, Header 보안 설정 |
+| **GitHub DevSecOps** | 코드 작성 단계부터 보안 내재화 | Dependabot, CodeQL, CI/CD 파이프라인 보안 검사 통합 |
+| **실전 사례** | 테크 블로그 보안 개선 | SSRF 취약점 수정, 민감 정보 마스킹, 입력값 검증 로직 추가 |
 
-2. **GitHub DevSecOps**: 코드 작성 단계부터 보안 내재화
-   - Dependabot을 통한 의존성 취약점 자동 탐지
-   - CodeQL을 통한 정적 분석 및 취약점 탐지
-   - CI/CD 파이프라인에 보안 검사 통합
+### AWS WAF & CloudFront 보안 아키텍처
 
-3. **실전 사례**: 테크 블로그 보안 개선
-   - SSRF 취약점 수정 (URL 검증 강화)
-   - 민감 정보 마스킹 (Data Masking)
-   - 입력값 검증 로직 추가
+| 구성 요소 | 설명 | 보안 이점 |
+|----------|------|----------|
+| **OAI/OAC** | S3 직접 접근 차단, CloudFront를 통해서만 접근 | 데이터 유출 위험 감소 |
+| **Geo-blocking** | 특정 국가 접근 차단 | 공격 표면 축소 |
+| **Header 보안** | Request/Response 헤더 보안 설정 | 서버 정보 노출 방지, 보안 헤더 강제 |
+| **WAF 규칙** | SQL Injection, XSS 등 공격 차단 | 웹 애플리케이션 보안 강화 |
+
+### GitHub DevSecOps 실전
+
+| 도구 | 기능 | 활용 방법 |
+|------|------|----------|
+| **Dependabot** | 의존성 취약점 자동 탐지 및 업데이트 | `.github/dependabot.yml` 설정 |
+| **CodeQL** | 정적 분석을 통한 취약점 탐지 | GitHub Actions 워크플로우 통합 |
+| **Secret Scanning** | 민감 정보 노출 탐지 | Push Protection 활성화 |
+| **Advanced Security** | 종합 보안 기능 | GitHub Advanced Security 활성화 |
+
+### 실전 보안 패치 사례
+
+| 취약점 | 수정 내용 | 보안 강화 효과 |
+|--------|----------|--------------|
+| **SSRF** | URL 검증 함수 구현, Allow-list 방식 | 내부 네트워크 접근 차단 |
+| **민감 정보 노출** | Data Masking 함수 구현 | 로그 파일 보안 강화 |
+| **입력값 검증 부재** | 다중 검증 계층 추가 | 악의적 입력 차단 |
 
 ### 다음 단계
 
-- 개인 프로젝트 코드에 CodeQL 스캔 적용
-- AWS WAF Workshop을 통한 실습 경험 쌓기
-- GitHub Advanced Security 기능 활용 시작
+| 단계 | 활동 | 예상 기간 |
+|------|------|----------|
+| **즉시 적용** | 개인 프로젝트 코드에 CodeQL 스캔 적용 | 1주일 |
+| **실습** | AWS WAF Workshop을 통한 실습 경험 쌓기 | 2-3주 |
+| **고급 기능** | GitHub Advanced Security 기능 활용 시작 | 1개월 |
+
+> **👨‍🏫 멘토의 조언 (Takeaway)**
+> 
+> DevSecOps는 거창한 시스템이 아닌, 사소한 코드 한 줄에서부터 보안을 고려하는 습관에서 시작됩니다. 이번 주 실습을 통해 여러분의 개인 프로젝트 코드도 점검해 보세요.
 
 추가적인 질문이나 도움이 필요하시면 언제든지 댓글로 남겨주세요.
+
+---
+
+**원본 포스트**: [클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전](https://twodragon.tistory.com/707)
 
