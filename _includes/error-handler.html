@@ -39,10 +39,28 @@
       return;
     }
 
+    // 안전한 에러 정보 추출
+    let errorMessage = 'Unknown error';
+    let errorStack = null;
+    
+    if (error) {
+      if (typeof error === 'string') {
+        errorMessage = error;
+      } else if (error.message) {
+        errorMessage = error.message;
+      } else if (error.toString) {
+        errorMessage = error.toString();
+      }
+      
+      if (error.stack) {
+        errorStack = error.stack;
+      }
+    }
+
     const errorInfo = {
-      message: error.message || String(error),
-      stack: error.stack,
-      context: context,
+      message: errorMessage,
+      stack: errorStack,
+      context: context || {},
       url: window.location.href,
       userAgent: navigator.userAgent,
       timestamp: Date.now()
@@ -53,9 +71,19 @@
     // Log to console in development
     logError(error, context);
 
-    // Send to error tracking service (Sentry)
-    if (window.Sentry) {
-      window.Sentry.captureException(error, { contexts: { custom: context } });
+    // Send to Sentry if available
+    if (window.Sentry && typeof window.Sentry.captureException === 'function') {
+      try {
+        const sentryError = error instanceof Error ? error : new Error(errorMessage);
+        window.Sentry.captureException(sentryError, { 
+          contexts: { custom: context || {} } 
+        });
+      } catch (e) {
+        // Sentry 전송 실패 시 무시
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          console.warn('[Error Handler] Failed to send to Sentry:', e);
+        }
+      }
     }
   }
 
