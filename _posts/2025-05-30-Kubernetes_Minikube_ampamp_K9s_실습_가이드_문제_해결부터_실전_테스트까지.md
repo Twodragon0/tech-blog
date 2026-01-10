@@ -4,7 +4,7 @@ title: "Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 �
 date: 2025-05-30 01:11:00 +0900
 categories: kubernetes
 tags: [Kubernetes, Minikube, K9s, K8s, Troubleshooting]
-excerpt: "Kubernetes Minikube & K9s 실습 가이드: Minikube 시작 이슈 해결(시작 실패/충돌 문제 리소스 부족/하이퍼바이저 충돌/네트워크 설정, 해결 방법 리소스 할당 증가/드라이버 변경/네트워크 재설정, 로컬 Kubernetes 클러스터 구성), K9s 터미널 UI 활용(Pod/Deployment/Service 실시간 모니터링, 리소스 상태 확인/디버깅, 실전 테스트 시나리오 Pod 배포/Service 노출/ConfigMap/Secret 관리), Kubernetes 2025 업데이트(Kubernetes 1.32 Penelope 개선된 스케줄링/보안 강화, Minikube 최신 버전 호환성, 실습 환경 최적화), 트러블슈팅 가이드(일반적인 문제 해결, 로그 분석 방법, 디버깅 기법)까지 실무 중심 정리."
+excerpt: "Kubernetes Minikube &amp; K9s 실습 가이드: Minikube 시작 이슈 해결(시작 실패/충돌 문제 리소스 부족/하이퍼바이저 충돌/네트워크 설정, 해결 방법 리소스 할당 증가/드라이버 변경/네트워크 재설정, 로컬 Kubernetes 클러스터 구성), K9s 터미널 UI 활용(Pod/Deployment/Service 실시간 모니터링, 리소스 상태 확인/디버깅, 실전 테스트 시나리오 Pod 배포/Service 노출/ConfigMap/Secret 관리), Kubernetes 2025 업데이트(Kubernetes 1.32 Penelope 개선된 스케줄링/보안 강화, Minikube 최신 버전 호환성, 실습 환경 최적화), 트러블슈팅 가이드(일반적인 문제 해결, 로그 분석 방법, 디버깅 기법)까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/687
 image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지.svg
