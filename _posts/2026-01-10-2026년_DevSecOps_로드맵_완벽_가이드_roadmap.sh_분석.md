@@ -3,7 +3,7 @@ layout: post
 title: "2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석"
 date: 2026-01-10 10:00:00 +0900
 categories: [devsecops, security]
-tags: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, 2026]
+tags: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, "2026"]
 excerpt: "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석: 93개 학습 항목(기초 학습, 위협 관리, 보안 아키텍처, 거버넌스, 도구 자동화), 단계별 학습 경로(초급/중급/고급/전문가), 실무 보안 도구 스택(SAST/DAST, SIEM/SOAR, 컨테이너 보안), 공급망 보안(SBOM, 의존성 관리), 인시던트 대응 체계까지 DevSecOps 전문가 성장을 위한 완벽 가이드."
 comments: true
 image: /assets/images/2026-01-10-2026년_DevSecOps_로드맵_완벽_가이드_roadmap.sh_분석.svg

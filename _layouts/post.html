@@ -60,7 +60,7 @@ layout: default
     {% if page.tags.size > 0 %}
     <div class="post-tags">
       {% for tag in page.tags %}
-      <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">{{ tag }}</a>
+      <a href="{{ '/tags/' | relative_url }}#{{ tag | to_string | slugify }}" class="tag">{{ tag }}</a>
       {% endfor %}
     </div>
     {% endif %}

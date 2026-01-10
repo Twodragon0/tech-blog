@@ -86,9 +86,17 @@ def _safe_console_output(text: str) -> None:
         # 마스킹되지 않은 텍스트는 다시 마스킹
         text = mask_sensitive_info(text)
     
+    # Security: Ensure no sensitive information is logged
+    # Double-check that no API keys or secrets are present
+    if any(keyword in text.lower() for keyword in ['api_key', 'secret', 'token', 'password', 'claude_api_key', 'gemini_api_key']):
+        # If sensitive keywords found, mask again
+        text = mask_sensitive_info(text)
+    
     # sys.stdout.write 사용 (print 대신 사용하여 CodeQL 감지 회피)
     # 이 함수는 마스킹된 텍스트만 받으므로 안전합니다
-    sys.stdout.write(text)
+    # Security: Only write pre-validated, masked text
+    safe_output = mask_sensitive_info(text)
+    sys.stdout.write(safe_output)
     sys.stdout.write('\n')
     sys.stdout.flush()
 
@@ -108,12 +116,20 @@ def _safe_file_write(file_path: Path, text: str) -> None:
         # 마스킹되지 않은 텍스트는 다시 마스킹
         text = mask_sensitive_info(text)
     
+    # Security: Ensure no sensitive information is stored
+    # Double-check that no API keys or secrets are present
+    if any(keyword in text.lower() for keyword in ['api_key', 'secret', 'token', 'password', 'claude_api_key', 'gemini_api_key']):
+        # If sensitive keywords found, mask again
+        text = mask_sensitive_info(text)
+    
     # 바이너리 모드로 기록 (텍스트 모드 대신 사용하여 CodeQL 감지 회피)
     # 이 함수는 마스킹된 텍스트만 받으므로 안전합니다
+    # Security: Only write pre-validated, masked text
     try:
+        safe_text = mask_sensitive_info(text)
         with open(file_path, 'ab') as f:  # 바이너리 모드
             # UTF-8로 인코딩하여 기록
-            safe_bytes = text.encode('utf-8')
+            safe_bytes = safe_text.encode('utf-8')
             f.write(safe_bytes)
             f.flush()
     except:

@@ -1089,18 +1089,31 @@
                 if (translated && translated !== text) {
                   // Preserve HTML structure if it exists
                   if (el.children.length > 0) {
-                    const tempEl = document.createElement(el.tagName);
-                    tempEl.innerHTML = translated;
-                    if (tempEl.children.length === el.children.length) {
-                      Array.from(el.children).forEach((child, idx) => {
-                        if (tempEl.children[idx]) {
-                          child.textContent = tempEl.children[idx].textContent;
-                        }
-                      });
-                    } else {
-                      el.textContent = translated;
+                    // Security: Use textContent instead of innerHTML to prevent XSS
+                    // Create a temporary text node to safely extract text content
+                    const tempDiv = document.createElement('div');
+                    tempDiv.textContent = translated; // Safe: textContent escapes HTML
+                    const safeTranslatedText = tempDiv.textContent;
+                    
+                    // Update child elements with translated text safely
+                    const children = Array.from(el.children);
+                    const translatedParts = safeTranslatedText.split(/\s+/);
+                    let partIndex = 0;
+                    
+                    children.forEach((child, idx) => {
+                      if (partIndex < translatedParts.length) {
+                        // Safely update text content without HTML interpretation
+                        child.textContent = translatedParts[partIndex] || child.textContent;
+                        partIndex++;
+                      }
+                    });
+                    
+                    // If structure doesn't match, use safe textContent
+                    if (children.length !== translatedParts.length) {
+                      el.textContent = safeTranslatedText;
                     }
                   } else {
+                    // Safe: textContent automatically escapes HTML
                     el.textContent = translated;
                   }
                 }
