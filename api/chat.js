@@ -12,10 +12,11 @@
 //   "sessionId": "세션 ID (선택사항)"
 // }
 
-// 프리티어 최적화 설정
+// 최적화 설정
 const CONFIG = {
-  // 프리티어 고려: Hobby 플랜은 10초, 안전하게 9초로 설정 (DeepSeek API 응답 시간 고려)
-  TIMEOUT_MS: 9000, // 9초 (프리티어 안전 마진 + API 응답 시간 고려)
+  // Pro 플랜: 60초 제한, 안전하게 55초로 설정 (DeepSeek API 응답 시간 고려)
+  // Hobby 플랜 사용 시: 10초 제한, 9초로 설정 필요
+  TIMEOUT_MS: process.env.VERCEL_ENV === 'production' ? 55000 : 9000,
   // Rate limiting (간단한 메모리 기반, 프로덕션에서는 Redis 권장)
   RATE_LIMIT: {
     MAX_REQUESTS: 10, // 세션당 최대 요청 수
@@ -23,7 +24,7 @@ const CONFIG = {
   },
   // 메시지 제한
   MAX_MESSAGE_LENGTH: 2000,
-  MAX_TOKENS: 1200, // 프리티어 최적화: 토큰 수 제한 (응답 시간 단축)
+  MAX_TOKENS: 1200, // 응답 시간 단축을 위한 토큰 수 제한
 };
 
 // 간단한 메모리 기반 Rate Limiter (프리티어용)
@@ -119,7 +120,7 @@ export default async function handler(req, res) {
       });
     }
 
-    // DeepSeek API 호출 (프리티어 최적화: 타임아웃 8초)
+    // DeepSeek API 호출 (타임아웃 설정: Pro 플랜 55초, Hobby 플랜 9초)
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), CONFIG.TIMEOUT_MS);
 

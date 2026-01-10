@@ -242,49 +242,11 @@
           }
         }
         
-        // 중복 로그 필터링: 동일한 메시지가 너무 많으면 제한 (Free 티어 최적화)
-        // 로그 메시지 해시를 사용하여 중복 방지
-        if (log.message) {
+        // 중복 로그 필터링: 동일한 메시지가 너무 많으면 제한
+        // (실제로는 Sentry가 자동으로 그룹핑하지만, 추가 필터링)
+        if (log.message && log.message.length > 1000) {
           // 너무 긴 로그는 잘라서 전송 (비용 절감)
-          if (log.message.length > 1000) {
-            log.message = log.message.substring(0, 1000) + '... [truncated]';
-          }
-          
-          // 중복 로그 제한: 동일한 메시지가 1분에 10번 이상이면 제한
-          // (간단한 메모리 기반 중복 체크)
-          if (!window.__sentryLogDedupe) {
-            window.__sentryLogDedupe = {
-              messages: {},
-              cleanup: function() {
-                const now = Date.now();
-                Object.keys(this.messages).forEach(key => {
-                  if (now - this.messages[key].timestamp > 60000) { // 1분
-                    delete this.messages[key];
-                  }
-                });
-              }
-            };
-          }
-          
-          const dedupe = window.__sentryLogDedupe;
-          dedupe.cleanup();
-          
-          // 메시지 해시 생성 (간단한 해시)
-          const messageHash = log.message.substring(0, 100) + '|' + (log.level || 'unknown');
-          const messageKey = messageHash.replace(/[^a-zA-Z0-9|]/g, '');
-          
-          if (dedupe.messages[messageKey]) {
-            dedupe.messages[messageKey].count++;
-            // 1분에 10번 이상이면 제한 (Free 티어 최적화)
-            if (dedupe.messages[messageKey].count > 10) {
-              return null; // 중복 로그는 전송하지 않음
-            }
-          } else {
-            dedupe.messages[messageKey] = {
-              count: 1,
-              timestamp: Date.now()
-            };
-          }
+          log.message = log.message.substring(0, 1000) + '... [truncated]';
         }
         
         return log;
@@ -297,13 +259,11 @@
         : 0.0,  // 개발/프리뷰: 0% (개발 환경 이벤트는 수집하지 않음)
       
       // 통합 설정
+      // 참고: Loader Script를 사용할 때는 consoleLoggingIntegration을 사용할 수 없음
+      // 대신 beforeSendLog에서 필터링하여 warn, error만 전송 (아래 beforeSendLog 참조)
       integrations: [
         // BrowserTracing은 Loader Script에서 자동 설정됨
-        // Console 로깅 통합: Free 티어 최적화 - warn, error만 전송
-        // console.log는 너무 많아서 Free 티어에서 제외 (warn, error만 중요)
-        Sentry.consoleLoggingIntegration({ 
-          levels: ["warn", "error"]  // log 레벨 제외 (Free 티어 최적화)
-        }),
+        // Console 로깅은 beforeSendLog에서 처리 (Loader Script 제한으로 인해 통합 사용 불가)
       ],
     });
 
