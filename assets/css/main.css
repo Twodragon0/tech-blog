@@ -409,7 +409,8 @@ body {
   line-height: 1.4;
   text-align: left;
   text-decoration: none;
-  white-space: nowrap;
+  flex-wrap: wrap;
+  white-space: normal;
   cursor: pointer;
   transition: background-color 0.15s ease;
   -webkit-appearance: none;

@@ -689,6 +689,9 @@
       return chunks.filter(chunk => chunk.length > 0);
     }
 
+    // Translation cache for individual text chunks
+    const textTranslationCache = {};
+
     // Translate text using MyMemory API with retry logic
     async function translateText(text, sourceLang, targetLang, retries = 2) {
       if (!text || text.trim().length === 0) return text;
@@ -696,6 +699,12 @@
       // Skip if already in target language
       if (isAlreadyInTargetLanguage(text, targetLang)) {
         return text;
+      }
+
+      // Check cache first
+      const cacheKey = `${sourceLang}-${targetLang}-${text}`;
+      if (textTranslationCache[cacheKey]) {
+        return textTranslationCache[cacheKey];
       }
 
       const langMap = {
@@ -713,32 +722,43 @@
         const chunks = splitTextIntoChunks(text, 500);
         const translatedChunks = [];
         
-        for (const chunk of chunks) {
+        // Process chunks in parallel for better performance
+        const chunkPromises = chunks.map(async (chunk) => {
           const translated = await translateText(chunk, sourceLang, targetLang, retries);
-          translatedChunks.push(translated || chunk);
-          // Small delay to avoid rate limiting
-          await new Promise(resolve => setTimeout(resolve, 100));
-        }
+          return translated || chunk;
+        });
         
-        return translatedChunks.join(' ');
+        const results = await Promise.all(chunkPromises);
+        const translated = results.join(' ');
+        
+        // Cache the result
+        textTranslationCache[cacheKey] = translated;
+        return translated;
       }
 
       // Translate short text
       for (let attempt = 0; attempt <= retries; attempt++) {
         try {
+          // Create abort controller for timeout
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+          
           const response = await fetch(
             `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLangCode}|${targetLangCode}`,
             {
               method: 'GET',
               headers: {
                 'Accept': 'application/json'
-              }
+              },
+              signal: controller.signal
             }
           );
+          
+          clearTimeout(timeoutId);
 
           if (!response.ok) {
             if (attempt < retries) {
-              await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+              await new Promise(resolve => setTimeout(resolve, 500 * (attempt + 1)));
               continue;
             }
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -750,21 +770,26 @@
             const translated = data.responseData.translatedText;
             // Check if translation is valid (not same as original for non-English)
             if (translated && translated !== text) {
+              // Cache the result
+              textTranslationCache[cacheKey] = translated;
               return translated;
             }
           }
 
           // If translation failed, return original text
+          textTranslationCache[cacheKey] = text;
           return text;
         } catch (error) {
-          if (attempt < retries) {
-            await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+          if (attempt < retries && error.name !== 'AbortError') {
+            await new Promise(resolve => setTimeout(resolve, 500 * (attempt + 1)));
             continue;
           }
           // Only log in development mode
           if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
             console.warn('Translation failed:', error.message, text.substring(0, 50));
           }
+          // Cache the original text to avoid repeated failures
+          textTranslationCache[cacheKey] = text;
           return text;
         }
       }
@@ -792,98 +817,123 @@
       let translatedItems = 0;
 
       // Count items to translate
-      if (postTitle) totalItems++;
-      if (postContent) {
+      if (postTitle && originalContent.postTitle) totalItems++;
+      if (postContent && originalContent.postContent) {
         const textElements = postContent.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote');
         totalItems += textElements.length;
       }
       totalItems += cardTitles.length + cardExcerpts.length;
 
-      // Translate title
+      // Translate title first (priority)
       if (postTitle && originalContent.postTitle) {
-        translation.postTitle = await translateText(originalContent.postTitle, 'ko', targetLang);
-        translatedItems++;
-        showToast(`번역 중... ${Math.round((translatedItems / totalItems) * 100)}%`, 'loading');
+        try {
+          translation.postTitle = await translateText(originalContent.postTitle, 'ko', targetLang);
+          translatedItems++;
+          // Apply title immediately for better UX
+          if (translation.postTitle && translation.postTitle !== originalContent.postTitle) {
+            postTitle.textContent = translation.postTitle;
+          }
+          showToast(`번역 중... ${Math.round((translatedItems / totalItems) * 100)}%`, 'loading');
+        } catch (error) {
+          console.warn('Title translation failed:', error);
+          translation.postTitle = originalContent.postTitle;
+        }
       }
 
-      // Translate post content
+      // Translate post content with batch processing for better performance
       if (postContent && originalContent.postContent) {
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = originalContent.postContent;
-        const textElements = tempDiv.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote, code:not(pre code), span:not(.highlight), div:not(.code-block):not(.highlight)');
-
-        for (const el of textElements) {
+        const textElements = Array.from(tempDiv.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote, code:not(pre code), span:not(.highlight), div:not(.code-block):not(.highlight)')).filter(el => {
           const text = el.textContent.trim();
+          // Filter out empty elements, code blocks, and elements with code children
+          return text && !el.closest('pre') && !el.closest('code') && !el.querySelector('code');
+        });
+
+        // Process in batches for better performance
+        const batchSize = 5;
+        for (let i = 0; i < textElements.length; i += batchSize) {
+          const batch = textElements.slice(i, i + batchSize);
           
-          // Skip if empty, code blocks, or already processed
-          if (!text || el.closest('pre') || el.closest('code') || el.querySelector('code')) {
-            translatedItems++;
-            continue;
-          }
+          // Process batch in parallel
+          const batchPromises = batch.map(async (el) => {
+            const text = el.textContent.trim();
+            
+            // Only translate if it's mostly text content
+            const hasOnlyTextChildren = Array.from(el.childNodes).every(node => 
+              node.nodeType === Node.TEXT_NODE || 
+              (node.nodeType === Node.ELEMENT_NODE && (node.tagName === 'STRONG' || node.tagName === 'EM' || node.tagName === 'B' || node.tagName === 'I' || node.tagName === 'A'))
+            );
 
-          // Translate text content (even if element has children)
-          // Only translate if it's mostly text content
-          const hasOnlyTextChildren = Array.from(el.childNodes).every(node => 
-            node.nodeType === Node.TEXT_NODE || 
-            (node.nodeType === Node.ELEMENT_NODE && (node.tagName === 'STRONG' || node.tagName === 'EM' || node.tagName === 'B' || node.tagName === 'I' || node.tagName === 'A'))
-          );
-
-          if (hasOnlyTextChildren && text.length > 0) {
-            try {
-              const translated = await translateText(text, 'ko', targetLang);
-              if (translated && translated !== text) {
-                // Preserve HTML structure if it exists
-                if (el.children.length > 0) {
-                  // If element has children, try to preserve them
-                  const tempEl = document.createElement(el.tagName);
-                  tempEl.innerHTML = translated;
-                  // If translation preserved structure, use it; otherwise replace text
-                  if (tempEl.children.length === el.children.length) {
-                    Array.from(el.children).forEach((child, idx) => {
-                      if (tempEl.children[idx]) {
-                        child.textContent = tempEl.children[idx].textContent;
-                      }
-                    });
+            if (hasOnlyTextChildren && text.length > 0) {
+              try {
+                const translated = await translateText(text, 'ko', targetLang);
+                if (translated && translated !== text) {
+                  // Preserve HTML structure if it exists
+                  if (el.children.length > 0) {
+                    const tempEl = document.createElement(el.tagName);
+                    tempEl.innerHTML = translated;
+                    if (tempEl.children.length === el.children.length) {
+                      Array.from(el.children).forEach((child, idx) => {
+                        if (tempEl.children[idx]) {
+                          child.textContent = tempEl.children[idx].textContent;
+                        }
+                      });
+                    } else {
+                      el.textContent = translated;
+                    }
                   } else {
                     el.textContent = translated;
                   }
-                } else {
-                  el.textContent = translated;
                 }
+              } catch (error) {
+                // Continue on error
               }
-            } catch (error) {
-              // Continue on error
             }
-          }
+          });
+
+          await Promise.all(batchPromises);
+          translatedItems += batch.length;
           
-          translatedItems++;
-          if (translatedItems % 3 === 0) {
+          // Update progress every batch
+          if (translatedItems % 5 === 0 || i + batchSize >= textElements.length) {
             showToast(`번역 중... ${Math.round((translatedItems / totalItems) * 100)}%`, 'loading');
           }
           
-          // Small delay to avoid rate limiting
-          await new Promise(resolve => setTimeout(resolve, 50));
+          // Small delay between batches to avoid rate limiting
+          if (i + batchSize < textElements.length) {
+            await new Promise(resolve => setTimeout(resolve, 100));
+          }
         }
 
         translation.postContent = tempDiv.innerHTML;
       }
 
-      // Translate card titles
+      // Translate card titles in parallel
       translation.cardTitles = [];
-      for (let i = 0; i < cardTitles.length; i++) {
-        if (originalContent.cardTitles && originalContent.cardTitles[i]) {
-          translation.cardTitles[i] = await translateText(originalContent.cardTitles[i], 'ko', targetLang);
-          translatedItems++;
-        }
+      if (cardTitles.length > 0 && originalContent.cardTitles) {
+        const titlePromises = Array.from(cardTitles).map(async (el, i) => {
+          if (originalContent.cardTitles[i]) {
+            return await translateText(originalContent.cardTitles[i], 'ko', targetLang);
+          }
+          return null;
+        });
+        translation.cardTitles = await Promise.all(titlePromises);
+        translatedItems += cardTitles.length;
+        showToast(`번역 중... ${Math.round((translatedItems / totalItems) * 100)}%`, 'loading');
       }
 
-      // Translate card excerpts
+      // Translate card excerpts in parallel
       translation.cardExcerpts = [];
-      for (let i = 0; i < cardExcerpts.length; i++) {
-        if (originalContent.cardExcerpts && originalContent.cardExcerpts[i]) {
-          translation.cardExcerpts[i] = await translateText(originalContent.cardExcerpts[i], 'ko', targetLang);
-          translatedItems++;
-        }
+      if (cardExcerpts.length > 0 && originalContent.cardExcerpts) {
+        const excerptPromises = Array.from(cardExcerpts).map(async (el, i) => {
+          if (originalContent.cardExcerpts[i]) {
+            return await translateText(originalContent.cardExcerpts[i], 'ko', targetLang);
+          }
+          return null;
+        });
+        translation.cardExcerpts = await Promise.all(excerptPromises);
+        translatedItems += cardExcerpts.length;
       }
 
       // Cache and apply translation
@@ -898,25 +948,33 @@
       const cardTitles = document.querySelectorAll('.post-card h3, .card h3, .card h4');
       const cardExcerpts = document.querySelectorAll('.post-card .card-excerpt, .card p');
 
-      if (postTitle && translation.postTitle) {
+      // Apply title translation (ensure it's applied even if already set)
+      if (postTitle && translation.postTitle && translation.postTitle !== originalContent.postTitle) {
         postTitle.textContent = translation.postTitle;
       }
 
+      // Apply post content translation
       if (postContent && translation.postContent) {
         postContent.innerHTML = translation.postContent;
       }
 
-      cardTitles.forEach((el, i) => {
-        if (translation.cardTitles && translation.cardTitles[i]) {
-          el.textContent = translation.cardTitles[i];
-        }
-      });
+      // Apply card titles
+      if (translation.cardTitles) {
+        cardTitles.forEach((el, i) => {
+          if (translation.cardTitles[i] && translation.cardTitles[i] !== originalContent.cardTitles?.[i]) {
+            el.textContent = translation.cardTitles[i];
+          }
+        });
+      }
 
-      cardExcerpts.forEach((el, i) => {
-        if (translation.cardExcerpts && translation.cardExcerpts[i]) {
-          el.textContent = translation.cardExcerpts[i];
-        }
-      });
+      // Apply card excerpts
+      if (translation.cardExcerpts) {
+        cardExcerpts.forEach((el, i) => {
+          if (translation.cardExcerpts[i] && translation.cardExcerpts[i] !== originalContent.cardExcerpts?.[i]) {
+            el.textContent = translation.cardExcerpts[i];
+          }
+        });
+      }
     }
 
     // Restore original content
