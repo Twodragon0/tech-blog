@@ -208,8 +208,18 @@
         }
         
         // Free 티어 최적화: info, debug 레벨은 전송하지 않음 (warn, error만)
-        if (log.level === 'info' || log.level === 'debug' || log.level === 'trace') {
+        // 단, 초기화 확인 로그는 예외 (환경 정보 포함)
+        const isInitializationLog = log.message && 
+          (log.message.includes('Sentry initialized') || 
+           log.message.includes('Logs enabled'));
+        
+        if ((log.level === 'info' || log.level === 'debug' || log.level === 'trace') && !isInitializationLog) {
           return null; // info, debug, trace는 제외 (Free 티어 최적화)
+        }
+        
+        // 초기화 로그는 info를 warn으로 변환 (beforeSendLog에서 필터링 방지)
+        if (isInitializationLog && log.level === 'info') {
+          log.level = 'warn';
         }
         
         // 민감 정보 제거
@@ -232,11 +242,49 @@
           }
         }
         
-        // 중복 로그 필터링: 동일한 메시지가 너무 많으면 제한
-        // (실제로는 Sentry가 자동으로 그룹핑하지만, 추가 필터링)
-        if (log.message && log.message.length > 1000) {
+        // 중복 로그 필터링: 동일한 메시지가 너무 많으면 제한 (Free 티어 최적화)
+        // 로그 메시지 해시를 사용하여 중복 방지
+        if (log.message) {
           // 너무 긴 로그는 잘라서 전송 (비용 절감)
-          log.message = log.message.substring(0, 1000) + '... [truncated]';
+          if (log.message.length > 1000) {
+            log.message = log.message.substring(0, 1000) + '... [truncated]';
+          }
+          
+          // 중복 로그 제한: 동일한 메시지가 1분에 10번 이상이면 제한
+          // (간단한 메모리 기반 중복 체크)
+          if (!window.__sentryLogDedupe) {
+            window.__sentryLogDedupe = {
+              messages: {},
+              cleanup: function() {
+                const now = Date.now();
+                Object.keys(this.messages).forEach(key => {
+                  if (now - this.messages[key].timestamp > 60000) { // 1분
+                    delete this.messages[key];
+                  }
+                });
+              }
+            };
+          }
+          
+          const dedupe = window.__sentryLogDedupe;
+          dedupe.cleanup();
+          
+          // 메시지 해시 생성 (간단한 해시)
+          const messageHash = log.message.substring(0, 100) + '|' + (log.level || 'unknown');
+          const messageKey = messageHash.replace(/[^a-zA-Z0-9|]/g, '');
+          
+          if (dedupe.messages[messageKey]) {
+            dedupe.messages[messageKey].count++;
+            // 1분에 10번 이상이면 제한 (Free 티어 최적화)
+            if (dedupe.messages[messageKey].count > 10) {
+              return null; // 중복 로그는 전송하지 않음
+            }
+          } else {
+            dedupe.messages[messageKey] = {
+              count: 1,
+              timestamp: Date.now()
+            };
+          }
         }
         
         return log;
@@ -270,8 +318,33 @@
       console.log('[Sentry] Initialized successfully');
     }
     
-    // Free 티어 최적화: 개발 환경에서는 로그 전송하지 않음
-    // (프로덕션에서만 Sentry 사용)
+    // Sentry Logs 검증 (프로덕션에서만 - Free 티어 최적화)
+    if (window.location.hostname === 'tech.2twodragon.com') {
+      // 초기화 확인 로그 전송 (한 번만)
+      if (Sentry.logger && typeof Sentry.logger.info === 'function') {
+        // info 레벨은 beforeSendLog에서 필터링되므로 warn으로 전송
+        Sentry.logger.warn('Sentry initialized with Logs enabled', {
+          environment: 'production',
+          timestamp: new Date().toISOString(),
+          sdk: 'browser',
+          version: Sentry.SDK_VERSION || 'unknown'
+        });
+      }
+      
+      // 로그 검증: console.error 테스트 (개발자 도구에서 확인용)
+      if (typeof console !== 'undefined' && console.error) {
+        // 실제 에러는 발생시키지 않고, 로그만 확인
+        setTimeout(function() {
+          if (Sentry.logger && typeof Sentry.logger.error === 'function') {
+            // 테스트 로그 (실제 운영에서는 제거하거나 주석 처리)
+            // Sentry.logger.error('Sentry Logs test - this is a test log', {
+            //   test: true,
+            //   source: 'verification'
+            // });
+          }
+        }, 2000);
+      }
+    }
   });
 })();
 </script>
