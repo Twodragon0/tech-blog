@@ -6,7 +6,7 @@
   <!-- Security Headers -->
   <!-- Note: X-Frame-Options는 HTTP 헤더로만 설정 가능하므로 메타 태그에서 제거됨 -->
   <!-- 서버 설정에서 X-Frame-Options: SAMEORIGIN 헤더를 추가해야 합니다 -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; font-src 'self'; frame-src https://giscus.app https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://www.google.com; connect-src 'self' https://giscus.app https://api.mymemory.translated.net https://api.deepseek.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://js.sentry-cdn.com; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; font-src 'self'; frame-src https://giscus.app https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://www.google.com; connect-src 'self' https://giscus.app https://api.mymemory.translated.net https://api.deepseek.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://o4510686170710016.ingest.us.sentry.io https://*.ingest.sentry.io;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -110,7 +110,16 @@
   <link rel="preload" href="{{ "/assets/css/main.css" | relative_url }}" as="style">
   <link rel="preload" href="{{ "/assets/js/main.js" | relative_url }}" as="script">
   {% if og_image %}
-  <link rel="preload" href="{{ og_image_url }}" as="image">
+  {% comment %}OG 이미지가 실제로 존재하는 경우에만 preload{% endcomment %}
+  {% assign og_image_exists = false %}
+  {% if og_image_url %}
+    {% comment %}실제 파일 존재 여부는 확인 불가하므로, 일반적인 경우에만 preload{% endcomment %}
+    {% unless og_image contains 'og.png' or og_image contains 'og.jpg' or og_image contains 'og.webp' %}
+      {% comment %}명시적인 OG 이미지가 있는 경우에만 preload{% endcomment %}
+    {% else %}
+      <link rel="preload" href="{{ og_image_url }}" as="image" crossorigin="anonymous">
+    {% endunless %}
+  {% endif %}
   {% endif %}
 
   <!-- DNS Prefetch for External Resources -->

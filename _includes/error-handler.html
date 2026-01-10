@@ -63,22 +63,39 @@
   window.addEventListener('error', function(event) {
     // Ignore errors from external scripts (CSP violations, etc.)
     if (event.filename && !event.filename.includes(window.location.hostname)) {
+      // CSP 위반은 정상적인 보안 동작이므로 무시
+      if (event.message && event.message.includes('Content Security Policy')) {
+        return;
+      }
       return;
     }
 
-    reportError(event.error || event.message, {
+    // 안전한 에러 객체 생성
+    const error = event.error || new Error(event.message || 'Unknown error');
+    
+    reportError(error, {
       type: 'error',
-      filename: event.filename,
-      lineno: event.lineno,
-      colno: event.colno
+      filename: event.filename || 'unknown',
+      lineno: event.lineno || 0,
+      colno: event.colno || 0
     });
   }, true);
 
   // Unhandled promise rejection handler
   window.addEventListener('unhandledrejection', function(event) {
-    reportError(event.reason, {
+    // 안전한 에러 객체 생성
+    let error = event.reason;
+    if (!error) {
+      error = new Error('Unhandled promise rejection');
+    } else if (typeof error === 'string') {
+      error = new Error(error);
+    } else if (!(error instanceof Error)) {
+      error = new Error(String(error));
+    }
+    
+    reportError(error, {
       type: 'unhandledrejection',
-      promise: event.promise
+      promise: event.promise ? 'Promise' : 'unknown'
     });
   }, true);
 

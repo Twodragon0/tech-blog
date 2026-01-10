@@ -20,9 +20,12 @@
 (function() {
   'use strict';
   
-  // Sentry가 로드될 때까지 대기
+  // Sentry가 로드될 때까지 대기 (CSP 위반 시 로드되지 않을 수 있음)
   if (typeof Sentry === 'undefined') {
-    console.warn('[Sentry] Loader script not loaded');
+    // 개발 환경에서만 경고 (프로덕션에서는 조용히 실패)
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      console.warn('[Sentry] Loader script not loaded - CSP may be blocking it');
+    }
     return;
   }
 
