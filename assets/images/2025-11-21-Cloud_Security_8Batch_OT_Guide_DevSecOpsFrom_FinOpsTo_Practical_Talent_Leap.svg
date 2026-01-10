@@ -32,7 +32,7 @@
 
   <!-- Main Title -->
   <text x="400" y="85" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">Cloud Security Course</text>
-  <text x="400" y="120" font-family="Arial, sans-serif" font-size="18" fill="#a5b4fc" text-anchor="middle">Orientation · Professional Talent Development Program</text>
+  <text x="400" y="120" font-family="Arial, sans-serif" font-size="18" fill="#a5b4fc" text-anchor="middle">Orientation | Professional Talent Development Program</text>
 
   <!-- Three pillars -->
   <g transform="translate(100, 160)">
@@ -42,7 +42,7 @@
       <circle cx="90" cy="35" r="20" fill="#8b5cf6" opacity="0.3"/>
       <text x="90" y="42" font-family="Arial, sans-serif" font-size="20" fill="#fff" text-anchor="middle">🔐</text>
       <text x="90" y="75" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">DevSecOps</text>
-      <text x="90" y="100" font-family="Arial, sans-serif" font-size="11" fill="#a5b4fc" text-anchor="middle">Security Automation · CI/CD Integration</text>
+      <text x="90" y="100" font-family="Arial, sans-serif" font-size="11" fill="#a5b4fc" text-anchor="middle">Security Automation | CI/CD Integration</text>
     </g>
 
     <!-- Cloud Security -->
@@ -51,7 +51,7 @@
       <circle cx="90" cy="35" r="20" fill="#3b82f6" opacity="0.3"/>
       <text x="90" y="42" font-family="Arial, sans-serif" font-size="20" fill="#fff" text-anchor="middle">☁️</text>
       <text x="90" y="75" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">Cloud Security</text>
-      <text x="90" y="100" font-family="Arial, sans-serif" font-size="11" fill="#93c5fd" text-anchor="middle">AWS · GCP · Azure Security</text>
+      <text x="90" y="100" font-family="Arial, sans-serif" font-size="11" fill="#93c5fd" text-anchor="middle">AWS | GCP | Azure Security</text>
     </g>
 
     <!-- FinOps -->
@@ -60,7 +60,7 @@
       <circle cx="90" cy="35" r="20" fill="#10b981" opacity="0.3"/>
       <text x="90" y="42" font-family="Arial, sans-serif" font-size="20" fill="#fff" text-anchor="middle">💰</text>
       <text x="90" y="75" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">FinOps</text>
-      <text x="90" y="100" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7" text-anchor="middle">Cost Optimization · ROI Management</text>
+      <text x="90" y="100" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7" text-anchor="middle">Cost Optimization | ROI Management</text>
     </g>
   </g>
 
