@@ -8,7 +8,7 @@ excerpt: "클라우드 시큐리티 과정 7기 7주차: Docker 기초(이미지
 comments: true
 toc: true
 original_url: https://twodragon.tistory.com/686
-image: /assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해.svg
+image: /assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes.svg
 ---
 
 <div class="ai-summary-card">
@@ -60,7 +60,7 @@ image: /assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차
 
 
 
-<img src="{{ '/assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

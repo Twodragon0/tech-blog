@@ -103,6 +103,7 @@ def create_share_message(frontmatter: dict, post_url: str, platform: str) -> str
         return message
 
     elif platform == 'linkedin':
+        # LinkedIn은 메시지에 링크가 포함되면 자동으로 Open Graph를 크롤링하여 이미지 표시
         message = f"""🚀 새로운 기술 블로그 포스트를 공유합니다!
 
 📝 {title}
@@ -186,8 +187,8 @@ def share_to_facebook(message: str) -> bool:
         return False
 
 
-def share_to_linkedin(message: str) -> bool:
-    """Share to LinkedIn using OAuth 2.0 Access Token."""
+def share_to_linkedin(message: str, post_url: str = None, image_url: str = None) -> bool:
+    """Share to LinkedIn using OAuth 2.0 Access Token with link preview (Open Graph image auto-included)."""
     if not REQUESTS_AVAILABLE:
         print("LinkedIn: requests not installed, skipping")
         return False
@@ -202,6 +203,10 @@ def share_to_linkedin(message: str) -> bool:
         print("   OAuth 인증 실행: python scripts/linkedin_oauth.py")
         return False
 
+    if not post_url:
+        print("LinkedIn: Post URL is required for link preview")
+        return False
+
     try:
         url = "https://api.linkedin.com/v2/ugcPosts"
         headers = {
@@ -210,7 +215,9 @@ def share_to_linkedin(message: str) -> bool:
             'X-Restli-Protocol-Version': '2.0.0'
         }
 
-        payload = {
+        # 방법 1: ARTICLE 타입으로 링크 공유 (링크 미리보기와 이미지 자동 포함)
+        # LinkedIn이 Open Graph 메타 태그를 크롤링하여 이미지와 미리보기 표시
+        payload_article = {
             "author": f"urn:li:person:{person_id}",
             "lifecycleState": "PUBLISHED",
             "specificContent": {
@@ -218,7 +225,19 @@ def share_to_linkedin(message: str) -> bool:
                     "shareCommentary": {
                         "text": message
                     },
-                    "shareMediaCategory": "NONE"
+                    "shareMediaCategory": "ARTICLE",
+                    "media": [
+                        {
+                            "status": "READY",
+                            "description": {
+                                "text": message.split('\n\n')[1][:200] if '\n\n' in message else message[:200]
+                            },
+                            "originalUrl": post_url,
+                            "title": {
+                                "text": message.split('\n')[1].replace('📝 ', '')[:100] if len(message.split('\n')) > 1 else message[:100]
+                            }
+                        }
+                    ]
                 }
             },
             "visibility": {
@@ -226,16 +245,52 @@ def share_to_linkedin(message: str) -> bool:
             }
         }
 
-        response = requests.post(url, headers=headers, json=payload)
+        response = requests.post(url, headers=headers, json=payload_article)
 
         if response.status_code == 201:
-            print(f"LinkedIn: Successfully posted!")
+            print(f"LinkedIn: ✅ Successfully posted with link preview and image!")
+            print(f"   LinkedIn이 Open Graph 이미지를 자동으로 크롤링합니다.")
             return True
         else:
-            print(f"LinkedIn: Error - {response.status_code} {response.text}")
-            return False
+            # 방법 2: 텍스트에 링크 포함 (LinkedIn이 자동으로 Open Graph 크롤링)
+            print(f"LinkedIn: Article share failed ({response.status_code}), trying link-in-text share...")
+            
+            # 메시지에 링크가 포함되어 있으면 LinkedIn이 자동으로 크롤링
+            message_with_link = message
+            if post_url not in message:
+                message_with_link = f"{message}\n\n{post_url}"
+            
+            payload_text = {
+                "author": f"urn:li:person:{person_id}",
+                "lifecycleState": "PUBLISHED",
+                "specificContent": {
+                    "com.linkedin.ugc.ShareContent": {
+                        "shareCommentary": {
+                            "text": message_with_link
+                        },
+                        "shareMediaCategory": "NONE"
+                    }
+                },
+                "visibility": {
+                    "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
+                }
+            }
+            
+            response = requests.post(url, headers=headers, json=payload_text)
+            
+            if response.status_code == 201:
+                print(f"LinkedIn: ✅ Successfully posted with link!")
+                print(f"   LinkedIn이 링크를 감지하여 Open Graph 이미지를 자동으로 크롤링합니다.")
+                print(f"   ⏳ 이미지 표시까지 몇 분이 걸릴 수 있습니다.")
+                return True
+            else:
+                print(f"LinkedIn: ❌ Error - {response.status_code}")
+                print(f"   응답: {response.text}")
+                return False
     except Exception as e:
-        print(f"LinkedIn: Error posting - {e}")
+        print(f"LinkedIn: ❌ Error posting - {e}")
+        import traceback
+        traceback.print_exc()
         return False
 
 
@@ -332,9 +387,18 @@ def main():
     facebook_msg = create_share_message(frontmatter, post_url, 'facebook')
     results['facebook'] = share_to_facebook(facebook_msg)
 
-    # LinkedIn
+    # LinkedIn (포스트 URL과 이미지 URL 전달)
     linkedin_msg = create_share_message(frontmatter, post_url, 'linkedin')
-    results['linkedin'] = share_to_linkedin(linkedin_msg)
+    image_url = None
+    if frontmatter.get('image'):
+        # 이미지 URL 생성 (절대 URL)
+        site_url = os.environ.get('SITE_URL', 'https://tech.2twodragon.com')
+        image_path = frontmatter.get('image')
+        # SVG를 PNG로 변환 (LinkedIn은 SVG를 지원하지 않음)
+        if image_path.endswith('.svg'):
+            image_path = image_path.replace('.svg', '.png')
+        image_url = f"{site_url}{image_path}"
+    results['linkedin'] = share_to_linkedin(linkedin_msg, post_url, image_url)
 
     # Summary
     print("\n--- Summary ---")

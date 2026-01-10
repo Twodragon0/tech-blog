@@ -40,11 +40,28 @@
   {% endif %}
   {% assign og_image = page.image | default: site.og_image | default: site.logo %}
   {% if og_image %}
-  <meta property="og:image" content="{{ og_image | absolute_url }}">
-  <meta property="og:image:secure_url" content="{{ og_image | absolute_url }}">
+    {% comment %}LinkedIn은 SVG를 지원하지 않으므로 PNG로 변환된 이미지 우선 사용{% endcomment %}
+    {% assign og_image_url = og_image | absolute_url %}
+    {% assign og_image_type = "image/png" %}
+    
+    {% if og_image contains '.svg' %}
+      {% comment %}SVG 파일인 경우 PNG 버전 우선 시도{% endcomment %}
+      {% assign og_image_png = og_image | replace: '.svg', '.png' %}
+      {% assign og_image_url = og_image_png | absolute_url %}
+      {% assign og_image_type = "image/png" %}
+    {% elsif og_image contains '.jpg' or og_image contains '.jpeg' %}
+      {% assign og_image_type = "image/jpeg" %}
+    {% elsif og_image contains '.png' %}
+      {% assign og_image_type = "image/png" %}
+    {% elsif og_image contains '.webp' %}
+      {% assign og_image_type = "image/webp" %}
+    {% endif %}
+    
+  <meta property="og:image" content="{{ og_image_url }}">
+  <meta property="og:image:secure_url" content="{{ og_image_url }}">
   <meta property="og:image:width" content="{{ site.og_image_width | default: 1200 }}">
   <meta property="og:image:height" content="{{ site.og_image_height | default: 630 }}">
-  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:type" content="{{ og_image_type }}">
   <meta property="og:image:alt" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
   {% endif %}
 

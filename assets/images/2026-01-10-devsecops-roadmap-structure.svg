@@ -30,87 +30,87 @@
   <rect width="1200" height="800" fill="url(#bgGrad)"/>
   
   <!-- Title -->
-  <text x="600" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffffff">DevSecOps 로드맵 전체 구조</text>
-  <text x="600" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#cccccc">93개 학습 항목, 5개 주요 섹션</text>
+  <text x="600" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffffff">DevSecOps Roadmap Structure</text>
+  <text x="600" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#cccccc">93 Learning Items, 5 Major Sections</text>
   
   <!-- Section 1: Learn the Foundations -->
   <g transform="translate(100, 150)">
     <rect x="0" y="0" width="200" height="500" rx="10" fill="url(#foundationGrad)" opacity="0.9"/>
-    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">기초 학습</text>
+    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Foundation</text>
     <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Learn the Foundations</text>
     
     <!-- Items -->
-    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 프로그래밍 언어</text>
-    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 스크립팅 (Bash, PowerShell)</text>
+    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Programming Languages</text>
+    <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Scripting (Bash, PowerShell)</text>
     <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• CIA Triad</text>
-    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 인증/인가</text>
-    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 암호화</text>
-    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 네트워크 보안</text>
+    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Authentication/Authorization</text>
+    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Encryption</text>
+    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Network Security</text>
     <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• OWASP Top 10</text>
-    <text x="10" y="265" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 에디터</text>
+    <text x="10" y="265" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Editors</text>
   </g>
   
   <!-- Section 2: Managing Threats & Risks -->
   <g transform="translate(300, 150)">
     <rect x="0" y="0" width="200" height="500" rx="10" fill="url(#threatGrad)" opacity="0.9"/>
-    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">위협 관리</text>
+    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Threat Management</text>
     <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Managing Threats</text>
     
     <!-- Items -->
-    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 위협 모델링</text>
+    <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Threat Modeling</text>
     <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• STRIDE, PASTA</text>
-    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 취약점 스캔</text>
-    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 공급망 보안</text>
+    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Vulnerability Scanning</text>
+    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Supply Chain Security</text>
     <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• SBOM</text>
-    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 의존성 관리</text>
-    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 빌드 파이프라인</text>
+    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Dependency Management</text>
+    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Build Pipeline</text>
   </g>
   
   <!-- Section 3: Secure Architecture -->
   <g transform="translate(500, 150)">
     <rect x="0" y="0" width="200" height="500" rx="10" fill="url(#archGrad)" opacity="0.9"/>
-    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">보안 아키텍처</text>
+    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Security Architecture</text>
     <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Secure Architecture</text>
     
     <!-- Items -->
     <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Defense in Depth</text>
     <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Zero Trust</text>
-    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 보안 API 설계</text>
-    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 클라우드 보안</text>
-    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 컨테이너 보안</text>
-    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 네트워크 구역화</text>
-    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 인시던트 대응</text>
+    <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Secure API Design</text>
+    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Cloud Security</text>
+    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Container Security</text>
+    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Network Segmentation</text>
+    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Incident Response</text>
   </g>
   
   <!-- Section 4: Governance -->
   <g transform="translate(700, 150)">
     <rect x="0" y="0" width="200" height="500" rx="10" fill="url(#govGrad)" opacity="0.9"/>
-    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">거버넌스</text>
+    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Governance</text>
     <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Governance</text>
     
     <!-- Items -->
     <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• NIST Framework</text>
     <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• ISO 27001</text>
     <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• SOC 2</text>
-    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 감사 및 컴플라이언스</text>
-    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 리스크 정량화</text>
-    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 엔터프라이즈 운영</text>
-    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• PKI 설계</text>
+    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Audit &amp; Compliance</text>
+    <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Risk Quantification</text>
+    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Enterprise Operations</text>
+    <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• PKI Design</text>
   </g>
   
   <!-- Section 5: DevSecOps Tools -->
   <g transform="translate(900, 150)">
     <rect x="0" y="0" width="200" height="500" rx="10" fill="url(#toolsGrad)" opacity="0.9"/>
-    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">도구 및 자동화</text>
+    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Tools &amp; Automation</text>
     <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">DevSecOps Tools</text>
     
     <!-- Items -->
     <text x="10" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• SIEM</text>
     <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Burp Suite</text>
     <text x="10" y="140" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Wireshark, Nmap</text>
-    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 취약점 스캔 도구</text>
+    <text x="10" y="165" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Vulnerability Scanning Tools</text>
     <text x="10" y="190" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• SOAR</text>
-    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• DDoS 완화</text>
+    <text x="10" y="215" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• DDoS Mitigation</text>
     <text x="10" y="240" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• IDS/IPS</text>
   </g>
   

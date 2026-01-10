@@ -6,7 +6,7 @@ categories: [devsecops, security]
 tags: [DevSecOps, Automotive-Security, Connected-Car, SAST, DAST, SBOM, Supply-Chain-Security]
 excerpt: "DevSecOps 자동차 보안 완벽 가이드: SDV(Software Defined Vehicle) 시대 보안 아키텍처, 자동차 보안 위협 분석(네트워크/물리적/소프트웨어/공급망), DevSecOps 라이프사이클 통합(Plan->Code->Build->Test->Release->Deploy->Monitor), 규제 컴플라이언스(ISO 21434, UN R155/R156, V2X 보안), 실무 보안 도구 스택(SAST/DAST/SCA/SBOM)까지 실무 중심 정리."
 comments: true
-image: /assets/images/2026-01-06-DevSecOps가_바라보는_자동차_보안_완벽_가이드.svg
+image: /assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg
 ---
 
 <div class="ai-summary-card">
@@ -57,6 +57,9 @@ image: /assets/images/2026-01-06-DevSecOps가_바라보는_자동차_보안_완�
   이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
 </div>
 </div>
+
+<img src="{{ '/assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+*그림: 포스트 이미지*
 
 
 ## 서론

@@ -1,0 +1,109 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="teslaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e31937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c41230;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Title Section -->
+  <text x="600" y="80" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    Tesla FSD 2026 Complete Guide
+  </text>
+  <text x="600" y="120" font-family="Arial, sans-serif" font-size="24" fill="#a0a0a0" text-anchor="middle">
+    Model Y Juniper · Hardware 4 · DevSecOps Perspective
+  </text>
+  
+  <!-- Tesla Car Icon (Simplified) -->
+  <g transform="translate(200, 200)">
+    <!-- Car Body -->
+    <rect x="0" y="40" width="200" height="80" rx="10" fill="url(#teslaGradient)" opacity="0.9"/>
+    <!-- Windshield -->
+    <polygon points="40,40 80,20 120,20 160,40" fill="#0f0f1a" opacity="0.7"/>
+    <!-- Wheels -->
+    <circle cx="50" cy="120" r="20" fill="#2a2a3e"/>
+    <circle cx="150" cy="120" r="20" fill="#2a2a3e"/>
+    <!-- Tesla Logo -->
+    <text x="100" y="95" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">T</text>
+  </g>
+  
+  <!-- Hardware 4 Section -->
+  <g transform="translate(500, 200)">
+    <rect x="0" y="0" width="300" height="150" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#4a90e2" stroke-width="2"/>
+    <text x="150" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#4a90e2" text-anchor="middle">Hardware 4</text>
+    <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 500+ TOPS Performance</text>
+    <text x="20" y="85" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 20 CPU Cores</text>
+    <text x="20" y="110" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 16GB GDDR6 Memory</text>
+    <text x="20" y="135" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 11x 5MP Cameras</text>
+  </g>
+  
+  <!-- FSD v14.2.1 Section -->
+  <g transform="translate(850, 200)">
+    <rect x="0" y="0" width="300" height="150" rx="10" fill="#2d4a2d" opacity="0.8" stroke="#5cb85c" stroke-width="2"/>
+    <text x="150" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#5cb85c" text-anchor="middle">FSD v14.2.1</text>
+    <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Enhanced Vision Encoder</text>
+    <text x="20" y="85" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Emergency Vehicle Detection</text>
+    <text x="20" y="110" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• 5 Speed Profiles</text>
+    <text x="20" y="135" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">• Global Expansion</text>
+  </g>
+  
+  <!-- Security Layers -->
+  <g transform="translate(200, 400)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ff6b6b">Security Layers</text>
+    <!-- Security Layer 1: OTA -->
+    <rect x="0" y="30" width="180" height="60" rx="5" fill="#4a2d2d" opacity="0.8" stroke="#ff6b6b" stroke-width="2"/>
+    <text x="90" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff6b6b" text-anchor="middle">OTA Security</text>
+    <text x="90" y="75" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Signature Verify</text>
+    
+    <!-- Security Layer 2: SBOM -->
+    <rect x="200" y="30" width="180" height="60" rx="5" fill="#4a2d2d" opacity="0.8" stroke="#ff6b6b" stroke-width="2"/>
+    <text x="290" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff6b6b" text-anchor="middle">SBOM</text>
+    <text x="290" y="75" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Supply Chain</text>
+    
+    <!-- Security Layer 3: Secure Boot -->
+    <rect x="400" y="30" width="180" height="60" rx="5" fill="#4a2d2d" opacity="0.8" stroke="#ff6b6b" stroke-width="2"/>
+    <text x="490" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Secure Boot</text>
+    <text x="490" y="75" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Boot Verify</text>
+    
+    <!-- Security Layer 4: Monitoring -->
+    <rect x="600" y="30" width="180" height="60" rx="5" fill="#4a2d2d" opacity="0.8" stroke="#ff6b6b" stroke-width="2"/>
+    <text x="690" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Real-time Monitor</text>
+    <text x="690" y="75" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Anomaly Detect</text>
+  </g>
+  
+  <!-- Model Y Juniper Info -->
+  <g transform="translate(200, 520)">
+    <rect x="0" y="0" width="800" height="120" rx="10" fill="#2a2a3e" opacity="0.9" stroke="#6c5ce7" stroke-width="2"/>
+    <text x="400" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#6c5ce7" text-anchor="middle">Model Y Juniper</text>
+    <text x="50" y="65" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Price: $44,900 (US) / KRW 49.99M (KR)</text>
+    <text x="50" y="90" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Range: 357mi (574km) · Battery: 4680 @ 75kWh</text>
+    <text x="50" y="115" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Display: 15&quot; Center + 8&quot; Rear · Connect: 5G</text>
+  </g>
+  
+  <!-- DevSecOps Badge -->
+  <g transform="translate(1050, 520)">
+    <circle cx="75" cy="60" r="50" fill="#2d4a2d" opacity="0.9" stroke="#5cb85c" stroke-width="3"/>
+    <text x="75" y="50" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#5cb85c" text-anchor="middle">DevSecOps</text>
+    <text x="75" y="70" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#5cb85c" text-anchor="middle">Perspective</text>
+  </g>
+  
+  <!-- Bottom Decorative Line -->
+  <line x1="100" y1="700" x2="1100" y2="700" stroke="#4a90e2" stroke-width="3" opacity="0.5"/>
+  <text x="600" y="750" font-family="Arial, sans-serif" font-size="16" fill="#a0a0a0" text-anchor="middle">
+    Automotive Security from DevSecOps Perspective
+  </text>
+</svg>

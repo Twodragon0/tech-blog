@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sktGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+
+  <!-- Grid pattern -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="75" x2="800" y2="75"/>
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="225" x2="800" y2="225"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+    <line x1="160" y1="0" x2="160" y2="450"/>
+    <line x1="320" y1="0" x2="320" y2="450"/>
+    <line x1="480" y1="0" x2="480" y2="450"/>
+    <line x1="640" y1="0" x2="640" y2="450"/>
+  </g>
+
+  <!-- Phone/USIM visualization -->
+  <g transform="translate(80, 120)" filter="url(#glow)">
+    <!-- Phone body -->
+    <rect x="0" y="0" width="120" height="200" rx="15" fill="#2d3436" stroke="#636e72" stroke-width="2"/>
+    <rect x="8" y="25" width="104" height="150" rx="5" fill="#1e272e"/>
+
+    <!-- Screen content - SIM card icon -->
+    <rect x="35" y="60" width="50" height="35" rx="4" fill="#e74c3c"/>
+    <rect x="40" y="65" width="8" height="6" rx="1" fill="#c0392b"/>
+    <rect x="52" y="65" width="8" height="6" rx="1" fill="#c0392b"/>
+    <rect x="64" y="65" width="8" height="6" rx="1" fill="#c0392b"/>
+    <rect x="40" y="75" width="8" height="6" rx="1" fill="#c0392b"/>
+    <rect x="52" y="75" width="8" height="6" rx="1" fill="#c0392b"/>
+    <rect x="64" y="75" width="8" height="6" rx="1" fill="#c0392b"/>
+    <text x="60" y="110" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle">USIM</text>
+
+    <!-- Home button -->
+    <circle cx="60" cy="190" r="8" fill="none" stroke="#636e72" stroke-width="2"/>
+
+    <!-- SKT Logo area -->
+    <text x="60" y="145" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e74c3c" text-anchor="middle">SK telecom</text>
+  </g>
+
+  <!-- Shield with lock (Security) -->
+  <g transform="translate(250, 130)" filter="url(#glow)">
+    <path d="M60 0 L120 25 L120 75 C120 120 60 150 60 150 C60 150 0 120 0 75 L0 25 Z"
+          fill="none" stroke="#00cec9" stroke-width="3"/>
+    <path d="M60 12 L108 33 L108 73 C108 110 60 135 60 135 C60 135 12 110 12 73 L12 33 Z"
+          fill="#00cec9" fill-opacity="0.15"/>
+
+    <!-- Lock icon -->
+    <rect x="40" y="65" width="40" height="35" rx="5" fill="#00cec9"/>
+    <path d="M48 65 L48 50 C48 38 72 38 72 50 L72 65" fill="none" stroke="#00cec9" stroke-width="5"/>
+    <circle cx="60" cy="82" r="6" fill="#1a1a2e"/>
+    <rect x="57" y="82" width="6" height="10" fill="#1a1a2e"/>
+
+    <text x="60" y="125" font-family="Arial, sans-serif" font-size="11" fill="#00cec9" text-anchor="middle">SECURITY</text>
+  </g>
+
+  <!-- IMEI visualization -->
+  <g transform="translate(420, 140)" filter="url(#glow)">
+    <rect x="0" y="0" width="150" height="80" rx="8" fill="#2d3436" stroke="#fdcb6e" stroke-width="2"/>
+    <text x="75" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fdcb6e" text-anchor="middle">IMEI</text>
+    <text x="75" y="50" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">35XXXXXXXXXX</text>
+    <text x="75" y="68" font-family="monospace" font-size="10" fill="#b2bec3" text-anchor="middle">*#06#</text>
+  </g>
+
+  <!-- MFA Icons -->
+  <g transform="translate(620, 130)" filter="url(#glow)">
+    <!-- MFA circle background -->
+    <circle cx="60" cy="60" r="55" fill="none" stroke="#a29bfe" stroke-width="2"/>
+    <circle cx="60" cy="60" r="45" fill="#a29bfe" fill-opacity="0.15"/>
+
+    <!-- Key icon -->
+    <circle cx="45" cy="45" r="12" fill="none" stroke="#a29bfe" stroke-width="3"/>
+    <path d="M53 53 L70 70 M65 70 L70 70 L70 65" fill="none" stroke="#a29bfe" stroke-width="3"/>
+
+    <!-- Fingerprint lines -->
+    <path d="M55 75 Q65 65 75 75" fill="none" stroke="#a29bfe" stroke-width="2"/>
+    <path d="M50 80 Q65 68 80 80" fill="none" stroke="#a29bfe" stroke-width="2"/>
+
+    <text x="60" y="130" font-family="Arial, sans-serif" font-size="11" fill="#a29bfe" text-anchor="middle">MFA</text>
+  </g>
+
+  <!-- Connection lines -->
+  <g stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="5,5">
+    <line x1="200" y1="200" x2="250" y2="200"/>
+    <line x1="370" y1="200" x2="420" y2="180"/>
+    <line x1="570" y1="180" x2="620" y2="180"/>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="45" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    SKT Security Issue Complete Response Guide
+  </text>
+  <text x="400" y="75" font-family="Arial, sans-serif" font-size="14" fill="#b2bec3" text-anchor="middle">
+    IMEI Check · USIM/eSIM Replacement · MFA Setup
+  </text>
+
+  <!-- Bottom info badges -->
+  <g transform="translate(120, 350)">
+    <rect x="0" y="0" width="100" height="28" rx="14" fill="#e74c3c" fill-opacity="0.2" stroke="#e74c3c" stroke-width="1"/>
+    <text x="50" y="18" font-family="Arial, sans-serif" font-size="11" fill="#e74c3c" text-anchor="middle">USIM Security</text>
+  </g>
+  <g transform="translate(240, 350)">
+    <rect x="0" y="0" width="100" height="28" rx="14" fill="#00cec9" fill-opacity="0.2" stroke="#00cec9" stroke-width="1"/>
+    <text x="50" y="18" font-family="Arial, sans-serif" font-size="11" fill="#00cec9" text-anchor="middle">eSIM Migration</text>
+  </g>
+  <g transform="translate(360, 350)">
+    <rect x="0" y="0" width="100" height="28" rx="14" fill="#fdcb6e" fill-opacity="0.2" stroke="#fdcb6e" stroke-width="1"/>
+    <text x="50" y="18" font-family="Arial, sans-serif" font-size="11" fill="#fdcb6e" text-anchor="middle">IMEI Check</text>
+  </g>
+  <g transform="translate(480, 350)">
+    <rect x="0" y="0" width="100" height="28" rx="14" fill="#a29bfe" fill-opacity="0.2" stroke="#a29bfe" stroke-width="1"/>
+    <text x="50" y="18" font-family="Arial, sans-serif" font-size="11" fill="#a29bfe" text-anchor="middle">2FA</text>
+  </g>
+
+  <!-- Warning icon -->
+  <g transform="translate(680, 340)">
+    <polygon points="40,5 75,65 5,65" fill="none" stroke="#f39c12" stroke-width="2"/>
+    <text x="40" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#f39c12" text-anchor="middle">!</text>
+    <text x="40" y="85" font-family="Arial, sans-serif" font-size="9" fill="#f39c12" text-anchor="middle">Emergency Response</text>
+  </g>
+</svg>

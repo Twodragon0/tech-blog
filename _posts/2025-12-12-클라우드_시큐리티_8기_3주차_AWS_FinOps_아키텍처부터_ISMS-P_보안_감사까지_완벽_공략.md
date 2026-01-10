@@ -7,7 +7,7 @@ tags: [AWS, FinOps, ISMS-P, Audit, Cost-Optimization]
 excerpt: "클라우드 시큐리티 8기 3주차: 2025년 FinOps 트렌드(AI/ML 비용 최적화 GPU 인스턴스/Spot Instance 최대 90% 절감, GreenOps 통합 Customer Carbon Footprint Tool, Unit Economics Cost per Transaction/User, Real-time Cost Visibility Cost Anomaly Detection), AWS 비용 관리 도구(Cost Optimization Hub 통합 대시보드, Compute Optimizer AI 기반 right-sizing, Application Cost Profiler 테넌트별 비용 배분, Cost Anomaly Detection ML 기반 탐지), ISMS-P 인증 대응(AWS Artifact/Config Rules/Security Hub/CloudTrail), FinOps+보안 통합, Commitment Management 자동화까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/703
-image: /assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략.svg
+image: /assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.svg
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -64,7 +64,7 @@ image: /assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinO
 이 글에서는 클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!에 대해 실무 중심으로 상세히 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

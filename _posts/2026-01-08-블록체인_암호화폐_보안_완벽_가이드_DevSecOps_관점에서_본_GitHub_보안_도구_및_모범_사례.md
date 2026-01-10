@@ -7,7 +7,7 @@ tags: [Blockchain, Cryptocurrency, Bitcoin, Ethereum, Smart-Contract, Security-A
 excerpt: "블록체인 암호화폐 보안 완벽 가이드: 2024-2025년 34억 달러 손실(Bybit 15억 달러 해킹 포함), 스마트 컨트랙트 보안 도구 비교(Slither/Mythril/Securify 2.0/Medusa 2025), CI/CD 보안 파이프라인 통합(GitHub Actions), 주요 위협(Reentrancy, Integer Overflow, 51% 공격), 실무 보안 모범 사례(Fuzz 테스트, 속성 기반 테스팅)까지 DevSecOps 관점에서 종합 정리."
 comments: true
 original_url: https://twodragon.tistory.com
-image: /assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_DevSecOps_관점에서_본_GitHub_보안_도구_및_모범_사례.svg
+image: /assets/images/2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_and_Best_Practice.svg
 toc: true
 ---
 <div class="ai-summary-card">
@@ -59,6 +59,9 @@ toc: true
   이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
 </div>
 </div>
+
+<img src="{{ '/assets/images/2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_and_Best_Practice_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+*그림: 포스트 이미지*
 
 
 ---

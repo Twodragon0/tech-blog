@@ -7,7 +7,7 @@ tags: [AWS, CDN, Cloudflare, GitHub, SAST, WAF, 보안, 보안-아키텍처, 애
 excerpt: "클라우드 시큐리티 과정 7기 6주차: AWS WAF 보안 강화(웹 ACL 규칙, IP 기반 접근 제어, Geo-blocking), Cloudflare 종합 보안(DDoS 보호, WAF, SSL/TLS 1.3, CDN, Bot Management), GitHub 보안 자동화(Dependabot, CodeQL, Secret Scanning), 실무 보안 실습(DVWA 활용)까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/684
-image: /assets/images/2025-05-23-클라우드_시큐리티_과정_7기_-_6주차_Cloudflare_및_github_보안.svg
+image: /assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security.svg
 toc: true
 ---
 <div class="ai-summary-card">
@@ -61,6 +61,10 @@ toc: true
   이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
 </div>
 </div>
+
+
+<img src="{{ '/assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+*그림: 포스트 이미지*
 
 
 ## 서론

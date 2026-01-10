@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+
+  <!-- Grid pattern -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+  </g>
+
+  <!-- AWSKRUG -->
+  <g transform="translate(80, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#ff9900" stroke-width="2"/>
+    <text x="65" y="45" font-family="Arial Black, sans-serif" font-size="18" font-weight="bold" fill="#ff9900" text-anchor="middle">AWS</text>
+    <text x="65" y="65" font-family="Arial, sans-serif" font-size="12" fill="#ff9900" text-anchor="middle">KRUG</text>
+    <!-- People icons -->
+    <circle cx="45" cy="80" r="6" fill="#ff9900" fill-opacity="0.5"/>
+    <circle cx="65" cy="80" r="6" fill="#ff9900" fill-opacity="0.5"/>
+    <circle cx="85" cy="80" r="6" fill="#ff9900" fill-opacity="0.5"/>
+    <text x="65" y="100" font-family="Arial, sans-serif" font-size="9" fill="#ff9900" text-anchor="middle">Community</text>
+  </g>
+
+  <!-- OWASP -->
+  <g transform="translate(250, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#ffffff" stroke-width="2"/>
+    <!-- OWASP wasp icon simplified -->
+    <circle cx="65" cy="45" r="20" fill="#ffffff" fill-opacity="0.2" stroke="#ffffff" stroke-width="2"/>
+    <text x="65" y="52" font-family="Arial Black, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">O</text>
+    <text x="65" y="80" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">OWASP</text>
+    <text x="65" y="100" font-family="Arial, sans-serif" font-size="9" fill="#ffffff" text-anchor="middle">Security</text>
+  </g>
+
+  <!-- Datadog -->
+  <g transform="translate(420, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#632ca6" stroke-width="2"/>
+    <!-- Dog icon simplified -->
+    <circle cx="60" cy="45" r="20" fill="#632ca6" fill-opacity="0.3" stroke="#632ca6" stroke-width="2"/>
+    <!-- Eyes -->
+    <circle cx="53" cy="42" r="3" fill="#632ca6"/>
+    <circle cx="67" cy="42" r="3" fill="#632ca6"/>
+    <!-- Nose -->
+    <circle cx="60" cy="50" r="4" fill="#632ca6"/>
+    <text x="60" y="80" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#632ca6" text-anchor="middle">Datadog</text>
+    <text x="60" y="100" font-family="Arial, sans-serif" font-size="9" fill="#632ca6" text-anchor="middle">Observability</text>
+  </g>
+
+  <!-- AI + Security -->
+  <g transform="translate(590, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#10b981" stroke-width="2"/>
+    <!-- AI brain -->
+    <circle cx="45" cy="45" r="15" fill="#8b5cf6" fill-opacity="0.3" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="45" y="50" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8b5cf6" text-anchor="middle">AI</text>
+    <!-- Plus -->
+    <text x="60" y="50" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">+</text>
+    <!-- Shield -->
+    <path d="M75 30 L90 37 L90 52 C90 62 75 70 75 70 C75 70 60 62 60 52 L60 37 Z"
+          fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-width="1.5"/>
+    <text x="60" y="90" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">AI + Security</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    December Conference Review: AWSKRUG, OWASP, Datadog
+  </text>
+  <text x="400" y="70" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">
+    Preview 2025: AI &amp; Security Coexistence
+  </text>
+
+  <!-- Feature cards -->
+  <g transform="translate(80, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#ff9900" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff9900" text-anchor="middle">AWS Trends</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Latest Cloud Trends</text>
+  </g>
+  <g transform="translate(250, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#ffffff" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">Web Security</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">OWASP Top 10 2025</text>
+  </g>
+  <g transform="translate(420, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#632ca6" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#632ca6" text-anchor="middle">Monitoring</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">APM, Logs, Metrics</text>
+  </g>
+  <g transform="translate(590, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#10b981" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">AI Security Strategy</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">2025 Outlook</text>
+  </g>
+
+  <!-- Bottom badges -->
+  <g transform="translate(140, 370)">
+    <rect x="0" y="0" width="80" height="26" rx="13" fill="#ff9900" fill-opacity="0.2" stroke="#ff9900" stroke-width="1"/>
+    <text x="40" y="17" font-family="Arial, sans-serif" font-size="10" fill="#ff9900" text-anchor="middle">AWSKRUG</text>
+  </g>
+  <g transform="translate(240, 370)">
+    <rect x="0" y="0" width="70" height="26" rx="13" fill="#ffffff" fill-opacity="0.2" stroke="#ffffff" stroke-width="1"/>
+    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle">OWASP</text>
+  </g>
+  <g transform="translate(330, 370)">
+    <rect x="0" y="0" width="70" height="26" rx="13" fill="#632ca6" fill-opacity="0.2" stroke="#632ca6" stroke-width="1"/>
+    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#632ca6" text-anchor="middle">Datadog</text>
+  </g>
+  <g transform="translate(420, 370)">
+    <rect x="0" y="0" width="90" height="26" rx="13" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
+    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Conference</text>
+  </g>
+</svg>

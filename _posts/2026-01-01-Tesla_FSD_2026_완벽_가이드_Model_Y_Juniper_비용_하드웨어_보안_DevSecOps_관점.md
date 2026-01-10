@@ -6,7 +6,7 @@ categories: [devsecops, security, cloud]
 tags: [Tesla, FSD, Model Y, Juniper, Hardware 4, Automotive Security, DevSecOps, Cybersecurity]
 excerpt: "테슬라 FSD 2026 완벽 가이드: FSD v14.2.1 개선사항(긴급 차량 대응, 속도 프로파일), Model Y Juniper($44,900부터, HW4, 4680 배터리, 357마일), Hardware 4 아키텍처(500+ TOPS, 16GB GDDR6, 11개 5MP 카메라), 자동차 보안 취약점 분석, DevSecOps 실무 대응(OTA 보안, SBOM, Secure Boot)까지 상세 정리."
 comments: true
-image: /assets/images/2026-01-01-Tesla_FSD_2026_완벽_가이드_Model_Y_Juniper_비용_하드웨어_보안_DevSecOps_관점.svg
+image: /assets/images/2026-01-01-Tesla_FSD_2026_Complete_Guide_Model_Y_Juniper_Security_DevSecOps.svg
 ---
 
 <div class="ai-summary-card">
@@ -58,6 +58,9 @@ image: /assets/images/2026-01-01-Tesla_FSD_2026_완벽_가이드_Model_Y_Juniper
   이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
 </div>
 </div>
+
+<img src="{{ '/assets/images/2026-01-01-Tesla_FSD_2026_Complete_Guide_Model_Y_Juniper_Security_DevSecOps.svg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+*그림: 포스트 이미지*
 
 ## 서론
 

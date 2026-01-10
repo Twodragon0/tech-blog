@@ -7,7 +7,7 @@ tags: [Cloud-Security, DevSecOps, FinOps, Course]
 excerpt: "클라우드 시큐리티 8기 OT 안내: 9주 커리큘럼 상세(1주차 인프라 본질/2025 보안 트렌드, 2주차 AWS 보안 아키텍처 VPC/IAM/S3/GuardDuty, 3주차 FinOps/ISMS-P, 4주차 통합 보안 취약점 점검, 5주차 Control Tower/Datadog SIEM/Cloudflare, 6주차 이후 DevSecOps 심화), 2025년 보안 트렌드 반영(AI 보안 93% 리더 일일 공격 예상, Shadow AI, Supply Chain 공격, Zero Trust, Post-quantum 암호화 Cloudflare 52%), AWS re:Invent 2025 발표 반영(Security Agent, GuardDuty Extended, IAM Policy Autopilot), 효율적 학습 루틴(20분 강의+5분 휴식), 대체 불가능한 클라우드 보안 전문가로 성장까지 정리."
 comments: true
 original_url: https://twodragon.tistory.com/700
-image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라.svg
+image: /assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.svg
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -64,7 +64,7 @@ image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSec
 
 이번 8기는 **'20분 강의 + 5분 휴식'**이라는 뇌과학적으로 가장 효율적인 학습 루틴으로 진행됩니다. 단순한 이론 주입식 교육이 아닌, 실무의 고민을 함께 나누는 시간이 될 것입니다.
 
-<img src="{{ '/assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

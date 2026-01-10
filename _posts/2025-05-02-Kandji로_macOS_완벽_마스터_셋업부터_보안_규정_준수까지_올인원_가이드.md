@@ -7,7 +7,7 @@ tags: [Kandji, macOS, MDM, Endpoint-Security, Compliance]
 excerpt: "Kandji macOS 완벽 가이드: Apple 통합 엔드포인트 관리(UEM) 솔루션 Kandji 활용법(macOS/iOS/iPadOS/tvOS, MDM 정책 설정, 앱 배포 자동화, 보안 설정 중앙 관리, 컴플라이언스 모니터링), 보안 및 규정 준수(패스키 기반 디바이스 인증, FIDO2/WebAuthn 통합 YubiKey/Touch ID/Face ID, Zero Trust 아키텍처 적용), 2025년 엔드포인트 보안 트렌드(패스키 기반 제로 터치 배포, AI 기반 위협 탐지 이상 행위 탐지/자동 대응, SASE 통합 Zscaler/Netskope), 실무 적용(디바이스 신뢰도 평가, 동적 접근 제어, 컴플라이언스 상태 기반 실시간 접근 제어)까지 상세 정리."
 comments: true
 original_url: https://twodragon.tistory.com/680
-image: /assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_보안_규정_준수까지_올인원_가이드.svg
+image: /assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.svg
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -63,7 +63,7 @@ image: /assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_�
 이 글에서는 Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드에 대해 실무 중심으로 상세히 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_보안_규정_준수까지_올인원_가이드_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

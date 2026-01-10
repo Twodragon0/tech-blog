@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="carGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bgGrad)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <path d="M0 50 H800 M0 100 H800 M0 150 H800 M0 200 H800 M0 250 H800 M0 300 H800 M0 350 H800" stroke="#fff" stroke-width="0.5"/>
+    <path d="M50 0 V400 M100 0 V400 M150 0 V400 M200 0 V400 M250 0 V400 M300 0 V400 M350 0 V400 M400 0 V400 M450 0 V400 M500 0 V400 M550 0 V400 M600 0 V400 M650 0 V400 M700 0 V400 M750 0 V400" stroke="#fff" stroke-width="0.5"/>
+  </g>
+
+  <!-- Car icon -->
+  <g transform="translate(100, 150)">
+    <!-- Car body -->
+    <path d="M20 80 L40 40 L120 40 L140 80 L160 80 L160 120 L0 120 L0 80 Z" fill="url(#carGrad)" opacity="0.9"/>
+    <!-- Windows -->
+    <path d="M45 45 L55 70 L105 70 L115 45 Z" fill="#1e293b"/>
+    <!-- Wheels -->
+    <circle cx="40" cy="120" r="20" fill="#374151"/>
+    <circle cx="40" cy="120" r="10" fill="#6b7280"/>
+    <circle cx="120" cy="120" r="20" fill="#374151"/>
+    <circle cx="120" cy="120" r="10" fill="#6b7280"/>
+    <!-- Headlight -->
+    <rect x="150" y="85" width="10" height="15" rx="2" fill="#fbbf24"/>
+    <!-- Signal lines (connectivity) -->
+    <g stroke="#10b981" stroke-width="2" fill="none" opacity="0.8">
+      <path d="M80 30 Q80 10 100 10">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+      </path>
+      <path d="M80 25 Q80 0 110 0">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+      </path>
+      <path d="M80 20 Q80 -10 120 -10">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+      </path>
+    </g>
+  </g>
+
+  <!-- Shield (Security) -->
+  <g transform="translate(350, 120)">
+    <path d="M50 0 L100 20 L100 70 Q100 110 50 130 Q0 110 0 70 L0 20 Z" fill="url(#shieldGrad)" opacity="0.9"/>
+    <path d="M50 15 L85 30 L85 68 Q85 100 50 115 Q15 100 15 68 L15 30 Z" fill="#0f172a" opacity="0.5"/>
+    <!-- Lock icon -->
+    <rect x="35" y="55" width="30" height="25" rx="3" fill="#fff"/>
+    <path d="M40 55 L40 45 Q40 35 50 35 Q60 35 60 45 L60 55" fill="none" stroke="#fff" stroke-width="4"/>
+    <circle cx="50" cy="67" r="4" fill="#10b981"/>
+  </g>
+
+  <!-- DevSecOps infinity loop -->
+  <g transform="translate(500, 160)">
+    <path d="M0 50 Q0 0 50 0 Q100 0 100 50 Q100 100 150 100 Q200 100 200 50 Q200 0 150 0 Q100 0 100 50 Q100 100 50 100 Q0 100 0 50"
+          fill="none" stroke="#8b5cf6" stroke-width="8" stroke-linecap="round" opacity="0.8">
+      <animate attributeName="stroke-dasharray" values="0,1000;500,500;1000,0" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <!-- Dev -->
+    <text x="30" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3b82f6">Dev</text>
+    <!-- Sec -->
+    <text x="85" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#10b981">Sec</text>
+    <!-- Ops -->
+    <text x="150" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b">Ops</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">DevSecOps Automotive Security Guide</text>
+  <text x="400" y="380" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">UN R155/R156 · ISO 21434 · AUTOSAR</text>
+
+  <!-- Decorative elements -->
+  <g opacity="0.3">
+    <circle cx="50" cy="50" r="30" fill="none" stroke="#3b82f6" stroke-width="1"/>
+    <circle cx="750" cy="350" r="40" fill="none" stroke="#8b5cf6" stroke-width="1"/>
+    <circle cx="700" cy="80" r="25" fill="none" stroke="#10b981" stroke-width="1"/>
+  </g>
+
+  <!-- Binary/Code decoration -->
+  <g fill="#3b82f6" opacity="0.2" font-family="monospace" font-size="10">
+    <text x="600" y="30">01101001</text>
+    <text x="620" y="45">10110010</text>
+    <text x="640" y="60">01001101</text>
+  </g>
+</svg>

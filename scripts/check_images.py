@@ -7,7 +7,7 @@
 import os
 import re
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
@@ -145,22 +145,28 @@ def main():
     
     # 요약 통계
     total = len(results)
-    with_image = sum(1 for r in results if r['has_image'])
-    missing_image = total - with_image
-    
-    print("=" * 80)
-    print("📊 이미지 파일 통계")
-    print("=" * 80)
-    print(f"전체 포스팅: {total}")
-    print(f"이미지 있음: {with_image} ({with_image/total*100:.1f}%)")
-    print(f"이미지 없음: {missing_image} ({missing_image/total*100:.1f}%)")
-    
-    if missing_image > 0:
-        print(f"\n❌ 이미지가 없는 포스팅:")
-        for r in results:
-            if not r['has_image']:
-                print(f"  - {r['post']['filename']}")
-                print(f"    제목: {r['post']['title']}")
+    if total > 0:
+        with_image = sum(1 for r in results if r['has_image'])
+        missing_image = total - with_image
+        
+        print("=" * 80)
+        print("📊 이미지 파일 통계")
+        print("=" * 80)
+        print(f"전체 포스팅: {total}")
+        print(f"이미지 있음: {with_image} ({with_image/total*100:.1f}%)")
+        print(f"이미지 없음: {missing_image} ({missing_image/total*100:.1f}%)")
+        
+        if missing_image > 0:
+            print(f"\n❌ 이미지가 없는 포스팅:")
+            for r in results:
+                if not r['has_image']:
+                    print(f"  - {r['post']['filename']}")
+                    print(f"    제목: {r['post']['title']}")
+    else:
+        print("=" * 80)
+        print("📊 이미지 파일 통계")
+        print("=" * 80)
+        print("모든 포스팅에 이미지가 있습니다! ✅")
 
 
 if __name__ == '__main__':

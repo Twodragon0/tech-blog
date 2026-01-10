@@ -7,7 +7,7 @@ tags: [AWS, Control-Tower, ZTNA, Zero-Trust]
 excerpt: "클라우드 시큐리티 과정 7기 5주차: AWS Control Tower 멀티 계정 관리(Landing Zone 자동 설정, Guardrails 정책 적용 필수/권장/선택, 계정 팩토리 자동 계정 생성, Organizations 및 SCP 활용, 2025년 업데이트 계정 마이그레이션 개선 standalone 분리 불필요), ZTNA(Zero Trust Network Access) 개념 및 AWS 구현 방법(PrivateLink, VPC Endpoint, Security Group 최소 권한), 클라우드 환경 제로 트러스트 보안 모델 적용, 2025년 AWS 거버넌스 업데이트(Organizations 계정 마이그레이션 개선, Control Tower Guardrails 확장, SCP 정책 자동화), 실무 적용(멀티 계정 아키텍처 설계, 거버넌스 정책 자동화, 제로 트러스트 네트워크 구성)까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/683
-image: /assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차_AWS_Control_Tower_및_ZTNA.svg
+image: /assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA.svg
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -62,7 +62,7 @@ image: /assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차
 이 글에서는 클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA에 대해 실무 중심으로 상세히 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차_AWS_Control_Tower_및_ZTNA_image.jpg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA_image.jpg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

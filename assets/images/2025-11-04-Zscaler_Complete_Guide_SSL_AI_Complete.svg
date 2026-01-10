@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+
+  <!-- Grid pattern -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+  </g>
+
+  <!-- Zscaler Logo -->
+  <g transform="translate(80, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#0090d4" stroke-width="2"/>
+    <!-- Z icon -->
+    <text x="65" y="65" font-family="Arial Black, sans-serif" font-size="42" font-weight="bold" fill="#0090d4" text-anchor="middle">Z</text>
+    <text x="65" y="95" font-family="Arial, sans-serif" font-size="10" fill="#0090d4" text-anchor="middle">Zscaler</text>
+  </g>
+
+  <!-- SSL Inspection -->
+  <g transform="translate(250, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#10b981" stroke-width="2"/>
+    <!-- Lock with magnifying glass -->
+    <rect x="45" y="35" width="40" height="30" rx="4" fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-width="2"/>
+    <path d="M52 35 L52 25 Q65 15 78 25 L78 35" fill="none" stroke="#10b981" stroke-width="2"/>
+    <!-- Magnifying glass -->
+    <circle cx="85" cy="70" r="12" fill="none" stroke="#10b981" stroke-width="2"/>
+    <line x1="93" y1="78" x2="105" y2="90" stroke="#10b981" stroke-width="2"/>
+    <text x="65" y="105" font-family="Arial, sans-serif" font-size="9" fill="#10b981" text-anchor="middle">SSL Inspection</text>
+  </g>
+
+  <!-- Sandbox -->
+  <g transform="translate(420, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#f59e0b" stroke-width="2"/>
+    <!-- Box -->
+    <rect x="25" y="25" width="70" height="50" rx="4" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="2"/>
+    <!-- Sand dots -->
+    <circle cx="40" cy="50" r="3" fill="#f59e0b"/>
+    <circle cx="55" cy="55" r="3" fill="#f59e0b"/>
+    <circle cx="70" cy="48" r="3" fill="#f59e0b"/>
+    <circle cx="80" cy="58" r="3" fill="#f59e0b"/>
+    <circle cx="45" cy="62" r="3" fill="#f59e0b"/>
+    <text x="60" y="95" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Sandbox</text>
+  </g>
+
+  <!-- AI Protection -->
+  <g transform="translate(590, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="2"/>
+    <!-- AI Brain shield -->
+    <path d="M60 20 L95 35 L95 60 C95 80 60 95 60 95 C60 95 25 80 25 60 L25 35 Z"
+          fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="2"/>
+    <!-- AI text -->
+    <text x="60" y="55" font-family="Arial Black, sans-serif" font-size="18" font-weight="bold" fill="#8b5cf6" text-anchor="middle">AI</text>
+    <text x="60" y="70" font-family="Arial, sans-serif" font-size="8" fill="#8b5cf6" text-anchor="middle">Protection</text>
+    <text x="60" y="105" font-family="Arial, sans-serif" font-size="9" fill="#8b5cf6" text-anchor="middle">AI Security</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="45" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    Zscaler Complete Guide
+  </text>
+  <text x="400" y="75" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">
+    SSL Inspection, Sandbox, AI, Ads, Malicious Sites Blocking
+  </text>
+
+  <!-- Feature cards -->
+  <g transform="translate(80, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#0090d4" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0090d4" text-anchor="middle">Zero Trust</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">ZTNA Architecture</text>
+  </g>
+  <g transform="translate(250, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#10b981" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">SSL/TLS Decryption</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Encrypted Traffic Inspection</text>
+  </g>
+  <g transform="translate(420, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#f59e0b" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f59e0b" text-anchor="middle">Advanced Sandbox</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Malware Isolation &amp; Analysis</text>
+  </g>
+  <g transform="translate(590, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b5cf6" text-anchor="middle">URL Filtering</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Malicious Site Blocking</text>
+  </g>
+
+  <!-- Bottom badges -->
+  <g transform="translate(150, 370)">
+    <rect x="0" y="0" width="70" height="26" rx="13" fill="#0090d4" fill-opacity="0.2" stroke="#0090d4" stroke-width="1"/>
+    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#0090d4" text-anchor="middle">Zscaler</text>
+  </g>
+  <g transform="translate(240, 370)">
+    <rect x="0" y="0" width="90" height="26" rx="13" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
+    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Zero Trust</text>
+  </g>
+  <g transform="translate(350, 370)">
+    <rect x="0" y="0" width="70" height="26" rx="13" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Sandbox</text>
+  </g>
+  <g transform="translate(440, 370)">
+    <rect x="0" y="0" width="70" height="26" rx="13" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">Security</text>
+  </g>
+</svg>

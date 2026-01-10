@@ -8,7 +8,7 @@ excerpt: "클라우드 시큐리티 과정 7기 8주차: CI/CD 파이프라인 �
 comments: true
 toc: true
 original_url: https://twodragon.tistory.com/689
-image: /assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드.svg
+image: /assets/images/2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CICDand_Kubernetes_Security_Practical_Guide.svg
 ---
 
 <div class="ai-summary-card">
@@ -60,7 +60,7 @@ image: /assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차
 
 
 
-<img src="{{ '/assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CICDand_Kubernetes_Security_Practical_Guide_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

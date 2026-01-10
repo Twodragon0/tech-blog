@@ -7,7 +7,7 @@ tags: [npm, Supply-Chain-Attack, Worm, Security-Incident]
 excerpt: "NPM Shai-Hulud 자가 복제 웜 공격 완전 분석: NPM 생태계 최초 자가 복제 웜 형태 공급망 공격, 180개 이상 패키지 감염, 개발자 인증 정보 탈취 및 자동 전파 메커니즘, 공격 체인 분석(패키지 하이재킹->인증 정보 탈취->자동 전파), 대응 방안(SBOM 생성, 의존성 스캔, 2FA 활성화)까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/694
-image: /assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_자가_복제_웜_공격_180개_이상_패키지_침해된_대규모_공급망_공격_완전_분석.svg
+image: /assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis.svg
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -61,7 +61,7 @@ NPM 생태계 역사상 최초의 자가 복제 웜 형태 공급망 공격 분�
 이 글에서는 NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석에 대해 실무 중심으로 상세히 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_자가_복제_웜_공격_180개_이상_패키지_침해된_대규모_공급망_공격_완전_분석_image.webp' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis_image.webp' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

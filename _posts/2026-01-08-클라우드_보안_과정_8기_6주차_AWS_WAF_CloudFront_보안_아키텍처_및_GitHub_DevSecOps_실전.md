@@ -7,7 +7,7 @@ tags: [AWS, CloudFront, cloudsecurity, Cybersecurity, DevSecOps, github, githuba
 excerpt: "클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처(OAI/OAC, WAF 규칙, Geo-blocking), GitHub DevSecOps 실전(CodeQL, Dependabot, Secret Scanning), 실전 보안 패치 사례(SSRF 수정, Data Masking), 테크 블로그 보안 개선(Jekyll, CodeQL 기반 취약점 진단), Amazon Q Developer 활용까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/707
-image: /assets/images/2026-01-08-클라우드_보안_과정_8기_6주차_AWS_WAF_CloudFront_보안_아키텍처_및_GitHub_DevSecOps_실전.svg
+image: /assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg
 toc: true
 ---
 <div class="ai-summary-card">
@@ -59,6 +59,9 @@ toc: true
   이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
 </div>
 </div>
+
+<img src="{{ '/assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+*그림: 포스트 이미지*
 
 ## 서론
 

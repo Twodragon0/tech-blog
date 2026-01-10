@@ -8,7 +8,7 @@ excerpt: "Post-Mortem: 2025년 11월 18일 Cloudflare 글로벌 네트워크 장
 comments: true
 toc: true
 original_url: https://twodragon.tistory.com/699
-image: /assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글로벌_장애_대응_일지_우리는_무엇을_배웠나.svg
+image: /assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned.svg
 ---
 
 <div class="ai-summary-card">
@@ -60,7 +60,7 @@ image: /assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글�
 
 
 
-<img src="{{ '/assets/images/2025-11-19-Post-Mortem_2025년_11월_18일_Cloudflare_글로벌_장애_대응_일지_우리는_무엇을_배웠나_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
 *그림: 포스트 이미지*
 
 

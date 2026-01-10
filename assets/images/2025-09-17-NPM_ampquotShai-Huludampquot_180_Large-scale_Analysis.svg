@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+
+  <!-- Grid pattern -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+  </g>
+
+  <!-- NPM Worm -->
+  <g transform="translate(80, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#ef4444" stroke-width="2"/>
+    <!-- Worm icon -->
+    <path d="M30 55 Q45 35 60 55 Q75 75 90 55 Q105 35 110 55" fill="none" stroke="#ef4444" stroke-width="3"/>
+    <!-- Bug eyes -->
+    <circle cx="25" cy="55" r="8" fill="#ef4444"/>
+    <circle cx="25" cy="55" r="3" fill="#ffffff"/>
+    <!-- npm text -->
+    <rect x="35" y="70" width="60" height="20" rx="3" fill="#cb3837"/>
+    <text x="65" y="84" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">npm</text>
+    <text x="65" y="100" font-family="Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">Shai-Hulud</text>
+  </g>
+
+  <!-- Supply Chain -->
+  <g transform="translate(250, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#f59e0b" stroke-width="2"/>
+    <!-- Chain links -->
+    <ellipse cx="40" cy="45" rx="15" ry="10" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <ellipse cx="65" cy="45" rx="15" ry="10" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <ellipse cx="90" cy="45" rx="15" ry="10" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <!-- Break mark -->
+    <line x1="65" y1="30" x2="65" y2="60" stroke="#ef4444" stroke-width="2"/>
+    <text x="60" y="35" font-family="Arial, sans-serif" font-size="12" fill="#ef4444">X</text>
+    <text x="65" y="80" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">180+ Packages</text>
+    <text x="65" y="100" font-family="Arial, sans-serif" font-size="9" fill="#f59e0b" text-anchor="middle">Supply Chain</text>
+  </g>
+
+  <!-- Self-Replication -->
+  <g transform="translate(420, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="2"/>
+    <!-- Replication arrows -->
+    <circle cx="60" cy="45" r="15" fill="#8b5cf6" fill-opacity="0.3" stroke="#8b5cf6" stroke-width="2"/>
+    <path d="M35 45 L25 45 L25 65 L35 65" fill="none" stroke="#8b5cf6" stroke-width="2"/>
+    <path d="M85 45 L95 45 L95 65 L85 65" fill="none" stroke="#8b5cf6" stroke-width="2"/>
+    <circle cx="35" cy="65" r="10" fill="#8b5cf6" fill-opacity="0.3" stroke="#8b5cf6" stroke-width="1.5"/>
+    <circle cx="85" cy="65" r="10" fill="#8b5cf6" fill-opacity="0.3" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="60" y="100" font-family="Arial, sans-serif" font-size="9" fill="#8b5cf6" text-anchor="middle">Self-Replication</text>
+  </g>
+
+  <!-- Analysis -->
+  <g transform="translate(590, 115)" filter="url(#glow)">
+    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#10b981" stroke-width="2"/>
+    <!-- Magnifying glass -->
+    <circle cx="50" cy="45" r="20" fill="none" stroke="#10b981" stroke-width="2"/>
+    <line x1="65" y1="60" x2="85" y2="80" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+    <!-- Code inside -->
+    <text x="45" y="42" font-family="monospace" font-size="10" fill="#10b981">{}</text>
+    <text x="50" y="52" font-family="monospace" font-size="8" fill="#10b981">...</text>
+    <text x="60" y="100" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Attack Analysis</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    NPM &quot;Shai-Hulud&quot; Self-Replicating Worm Attack
+  </text>
+  <text x="400" y="70" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">
+    Large-Scale Supply Chain Attack: 180+ Packages Compromised
+  </text>
+
+  <!-- Feature cards -->
+  <g transform="translate(80, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#ef4444" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444" text-anchor="middle">Worm Attack Mechanism</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Self-Replicating Malware</text>
+  </g>
+  <g transform="translate(250, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#f59e0b" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f59e0b" text-anchor="middle">Supply Chain Breach</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Dependency Chain Attack</text>
+  </g>
+  <g transform="translate(420, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Infection Spread</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">install Script Exploitation</text>
+  </g>
+  <g transform="translate(590, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#10b981" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">Response Plan</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Security Audit Guide</text>
+  </g>
+
+  <!-- Bottom badges -->
+  <g transform="translate(150, 370)">
+    <rect x="0" y="0" width="60" height="26" rx="13" fill="#cb3837" fill-opacity="0.2" stroke="#cb3837" stroke-width="1"/>
+    <text x="30" y="17" font-family="Arial, sans-serif" font-size="10" fill="#cb3837" text-anchor="middle">npm</text>
+  </g>
+  <g transform="translate(230, 370)">
+    <rect x="0" y="0" width="100" height="26" rx="13" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+    <text x="50" y="17" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">Supply Chain</text>
+  </g>
+  <g transform="translate(350, 370)">
+    <rect x="0" y="0" width="80" height="26" rx="13" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+    <text x="40" y="17" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Malware</text>
+  </g>
+  <g transform="translate(450, 370)">
+    <rect x="0" y="0" width="70" height="26" rx="13" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
+    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Security</text>
+  </g>
+</svg>

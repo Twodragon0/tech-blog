@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+
+  <!-- Grid pattern -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+  </g>
+
+  <!-- DevSecOps Infinity -->
+  <g transform="translate(80, 110)" filter="url(#glow)">
+    <rect x="0" y="0" width="150" height="120" rx="12" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="2"/>
+    <!-- Infinity symbol -->
+    <path d="M40 60 C40 35 65 35 75 60 C85 85 110 85 110 60 C110 35 85 35 75 60 C65 85 40 85 40 60"
+          fill="none" stroke="#8b5cf6" stroke-width="3"/>
+    <!-- Dev -->
+    <text x="50" y="55" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#3b82f6">Dev</text>
+    <!-- Sec -->
+    <text x="70" y="75" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10b981">Sec</text>
+    <!-- Ops -->
+    <text x="95" y="55" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f59e0b">Ops</text>
+    <text x="75" y="108" font-family="Arial, sans-serif" font-size="11" fill="#8b5cf6" text-anchor="middle">DevSecOps</text>
+  </g>
+
+  <!-- Pipeline Stages -->
+  <g transform="translate(270, 120)" filter="url(#glow)">
+    <rect x="0" y="0" width="130" height="100" rx="12" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+    <!-- Pipeline arrows -->
+    <rect x="15" y="25" width="25" height="20" rx="3" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1"/>
+    <text x="27" y="38" font-family="Arial, sans-serif" font-size="8" fill="#3b82f6" text-anchor="middle">Plan</text>
+    <path d="M45 35 L55 35" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <rect x="55" y="25" width="25" height="20" rx="3" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1"/>
+    <text x="67" y="38" font-family="Arial, sans-serif" font-size="8" fill="#3b82f6" text-anchor="middle">Build</text>
+
+    <rect x="90" y="25" width="25" height="20" rx="3" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1"/>
+    <text x="102" y="38" font-family="Arial, sans-serif" font-size="8" fill="#3b82f6" text-anchor="middle">Test</text>
+
+    <rect x="15" y="55" width="25" height="20" rx="3" fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-width="1"/>
+    <text x="27" y="68" font-family="Arial, sans-serif" font-size="8" fill="#10b981" text-anchor="middle">Scan</text>
+
+    <rect x="55" y="55" width="25" height="20" rx="3" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1"/>
+    <text x="67" y="68" font-family="Arial, sans-serif" font-size="7" fill="#f59e0b" text-anchor="middle">Deploy</text>
+
+    <rect x="90" y="55" width="25" height="20" rx="3" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1"/>
+    <text x="102" y="68" font-family="Arial, sans-serif" font-size="7" fill="#ef4444" text-anchor="middle">Monitor</text>
+
+    <text x="65" y="92" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">Pipeline</text>
+  </g>
+
+  <!-- Security Tools -->
+  <g transform="translate(440, 120)" filter="url(#glow)">
+    <rect x="0" y="0" width="120" height="100" rx="12" fill="#1e3a5f" stroke="#10b981" stroke-width="2"/>
+    <!-- Tool icons -->
+    <circle cx="35" cy="35" r="12" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1.5"/>
+    <text x="35" y="39" font-family="Arial, sans-serif" font-size="8" fill="#10b981" text-anchor="middle">SAST</text>
+
+    <circle cx="85" cy="35" r="12" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1.5"/>
+    <text x="85" y="39" font-family="Arial, sans-serif" font-size="8" fill="#10b981" text-anchor="middle">DAST</text>
+
+    <circle cx="60" cy="60" r="12" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1.5"/>
+    <text x="60" y="64" font-family="Arial, sans-serif" font-size="8" fill="#10b981" text-anchor="middle">SCA</text>
+
+    <text x="60" y="90" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Security Tools</text>
+  </g>
+
+  <!-- Monitoring -->
+  <g transform="translate(600, 120)" filter="url(#glow)">
+    <rect x="0" y="0" width="120" height="100" rx="12" fill="#1e3a5f" stroke="#f59e0b" stroke-width="2"/>
+    <!-- Graph lines -->
+    <polyline points="20,65 35,50 50,60 65,40 80,55 100,35"
+              fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <!-- Dots -->
+    <circle cx="20" cy="65" r="3" fill="#f59e0b"/>
+    <circle cx="35" cy="50" r="3" fill="#f59e0b"/>
+    <circle cx="50" cy="60" r="3" fill="#f59e0b"/>
+    <circle cx="65" cy="40" r="3" fill="#f59e0b"/>
+    <circle cx="80" cy="55" r="3" fill="#f59e0b"/>
+    <circle cx="100" cy="35" r="3" fill="#f59e0b"/>
+    <text x="60" y="90" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Monitoring</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="45" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    Cloud Security Course Season 7 - Week 9
+  </text>
+  <text x="400" y="75" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">
+    DevSecOps Integration Summary
+  </text>
+
+  <!-- Feature cards -->
+  <g transform="translate(80, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Shift Left Security</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Security Early in Development</text>
+  </g>
+  <g transform="translate(250, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3b82f6" text-anchor="middle">Automated Security</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">CI/CD Pipeline Integration</text>
+  </g>
+  <g transform="translate(420, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#10b981" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">Vulnerability Management</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Continuous Scanning &amp; Response</text>
+  </g>
+  <g transform="translate(590, 280)">
+    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#f59e0b" stroke-width="1"/>
+    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f59e0b" text-anchor="middle">Security Monitoring</text>
+    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Real-time Threat Detection</text>
+  </g>
+
+  <!-- Bottom badges -->
+  <g transform="translate(150, 370)">
+    <rect x="0" y="0" width="90" height="26" rx="13" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">DevSecOps</text>
+  </g>
+  <g transform="translate(260, 370)">
+    <rect x="0" y="0" width="70" height="26" rx="13" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">CI/CD</text>
+  </g>
+  <g transform="translate(350, 370)">
+    <rect x="0" y="0" width="70" height="26" rx="13" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
+    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Security</text>
+  </g>
+  <g transform="translate(440, 370)">
+    <rect x="0" y="0" width="90" height="26" rx="13" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Automation</text>
+  </g>
+</svg>
