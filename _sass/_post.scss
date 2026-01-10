@@ -843,6 +843,8 @@
     padding: $spacing-xl;
     box-shadow: $shadow-sm;
     transition: all $transition-base;
+    min-height: 400px; // CLS 최적화: 최소 높이 설정
+    contain: layout style paint; // 레이아웃 시프트 방지
 
     &:hover {
       box-shadow: $shadow-md;
@@ -852,6 +854,7 @@
     @media (max-width: $breakpoint-sm) {
       padding: $spacing-md;
       border-radius: $radius-md;
+      min-height: 300px;
     }
   }
 
@@ -886,13 +889,15 @@
   .giscus {
     opacity: 0;
     animation: fadeIn 0.5s ease-out 0.3s forwards;
-    min-height: 200px;
+    min-height: 400px; // CLS 최적화: 최소 높이 설정
+    contain: layout style paint; // 레이아웃 시프트 방지
 
     // Giscus iframe 스타일
     iframe {
       border-radius: $radius-md;
       width: 100%;
       min-height: 400px;
+      display: block; // 인라인 요소로 인한 레이아웃 시프트 방지
     }
   }
 

@@ -53,7 +53,9 @@
       /giscus\.app.*404.*discussions/i,
       /giscus\.app\/api\/discussions.*404/i,
       /GET.*giscus\.app.*404/i,
+      /GET.*giscus\.app\/api\/discussions.*404/i,
       /\[giscus\] Discussion not found/i,
+      /giscus.*404/i,
       /Content Security Policy.*violates/i,
       /Refused to connect.*violates.*Content Security Policy/i,
       /Refused to load.*violates.*Content Security Policy/i,
@@ -70,6 +72,9 @@
       /GET.*favicon/i,
       /GET.*apple-touch-icon/i,
       /Failed to load image/i,
+      /\.webp.*404/i,
+      /GET.*\.webp.*404/i,
+      /assets\/images.*\.webp.*404/i,
       /Download the React DevTools/i,
       /Download the Apollo DevTools/i
     ];
@@ -181,10 +186,26 @@
         }
       },
       {
+        pattern: /giscus.*404/i,
+        replacement: {
+          message: 'ℹ️ 댓글 시스템',
+          details: '새로운 댓글을 작성하면 자동으로 토론이 생성됩니다.',
+          level: 'info'
+        }
+      },
+      {
         pattern: /favicon.*404/i,
         replacement: {
           message: 'ℹ️ 아이콘',
           details: 'Favicon 파일이 없습니다. 기본 아이콘이 사용됩니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /\.webp.*404|GET.*\.webp.*404|assets\/images.*\.webp.*404/i,
+        replacement: {
+          message: 'ℹ️ 이미지 최적화',
+          details: 'WebP 이미지가 없어 원본 이미지를 사용합니다. 정상 동작입니다.',
           level: 'info'
         }
       },

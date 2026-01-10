@@ -141,7 +141,7 @@
           
           webpImg.onerror = function() {
             try {
-              // WebP 파일이 없으면 원본 유지
+              // WebP 파일이 없으면 원본 유지 (조용히 처리 - 404는 정상)
               if (img.dataset) {
                 img.dataset.optimized = 'true';
                 img.dataset.format = 'original';
@@ -150,7 +150,11 @@
               // CLS 최적화: 크기 힌트 재확인
               setImageSizeHint(img);
             } catch (e) {
-              console.warn('[Image Optimizer] Failed to handle WebP error:', e);
+              // 에러 발생 시 조용히 처리 (최적화는 선택사항)
+              if (img.dataset) {
+                img.dataset.optimized = 'true';
+                img.dataset.format = 'original';
+              }
             }
           };
           
@@ -261,7 +265,7 @@
               };
               webpImg.onerror = function() {
                 try {
-                  // WebP 실패 시 원본 사용
+                  // WebP 실패 시 원본 사용 (조용히 처리 - 404는 정상)
                   img.src = originalSrc;
                   if (img.removeAttribute) {
                     img.removeAttribute('data-src');
@@ -272,7 +276,11 @@
                   }
                   observer.unobserve(img);
                 } catch (e) {
-                  console.warn('[Image Optimizer] Failed to set original for lazy image:', e);
+                  // 에러 발생 시 조용히 처리
+                  if (img.dataset) {
+                    img.dataset.optimized = 'true';
+                    img.dataset.format = 'original';
+                  }
                   observer.unobserve(img);
                 }
               };
