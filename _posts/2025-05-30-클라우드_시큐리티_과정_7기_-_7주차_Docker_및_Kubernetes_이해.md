@@ -4,7 +4,7 @@ title: "클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes �
 date: 2025-05-30 00:04:58 +0900
 category: kubernetes
 tags: [Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps]
-excerpt: "클라우드 시큐리티 과정 7기 7주차: Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처 및 주요 리소스(Pod, Deployment, Service, ConfigMap, Secret), 컨테이너 보안 Best Practices(최소 권한, 이미지 스캔, Secret 관리), 런타임 보안(Trivy, Falco), Minikube/K9s 실습 가이드까지 실무 중심 정리."
+excerpt: "클라우드 시큐리티 과정 7기 7주차: Docker 기초(이미지/컨테이너/Dockerfile 개념, 기본 Docker 명령어 pull/run/ps/logs/stop/rm, Registry Docker Hub, 컨테이너 격리/실행 환경), Kubernetes 아키텍처(Control Plane API Server/etcd/Scheduler/Controller Manager, Node kubelet/Pods, 주요 리소스 Pod/Deployment/Service/ConfigMap/Secret/Namespace), 컨테이너 보안 Best Practices(최소 권한 원칙, 이미지 스캔 Trivy/Snyk, Secret 관리 Kubernetes Secrets/External Secrets Operator, 비루트 사용자 실행, 읽기 전용 파일시스템), 런타임 보안(Trivy 취약점 스캔, Falco 이상 행위 탐지, Pod Security Standards 적용, Network Policy 구현), Minikube/K9s 실습 가이드까지 실무 중심 정리."
 comments: true
 toc: true
 original_url: https://twodragon.tistory.com/686
