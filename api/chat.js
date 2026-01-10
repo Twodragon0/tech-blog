@@ -1,6 +1,7 @@
 // Vercel Serverless Function for DeepSeek Chat API
 // 보안: API 키를 서버에서 관리하여 클라이언트에 노출되지 않도록 함
-// 프리티어 최적화: 실행 시간, 메모리, Rate limiting 고려
+// 비용 최적화: Context Caching 활용, Off-peak 시간대 활용, 토큰 사용량 모니터링
+// 효율성: 대화 컨텍스트 유지, 응답 시간 최적화
 // 
 // 사용법:
 // 1. Vercel 환경 변수에 DEEPSEEK_API_KEY 설정
@@ -9,7 +10,8 @@
 // 요청 형식:
 // {
 //   "message": "질문 내용",
-//   "sessionId": "세션 ID (선택사항)"
+//   "sessionId": "세션 ID (선택사항)",
+//   "conversationHistory": [{"role": "user", "content": "..."}, ...] (선택사항)
 // }
 
 // 최적화 설정
@@ -19,12 +21,19 @@ const CONFIG = {
   TIMEOUT_MS: process.env.VERCEL_ENV === 'production' ? 55000 : 9000,
   // Rate limiting (간단한 메모리 기반, 프로덕션에서는 Redis 권장)
   RATE_LIMIT: {
-    MAX_REQUESTS: 10, // 세션당 최대 요청 수
+    MAX_REQUESTS: 15, // 세션당 최대 요청 수 (비용 최적화를 위해 증가)
     WINDOW_MS: 60000, // 1분 윈도우
   },
   // 메시지 제한
   MAX_MESSAGE_LENGTH: 2000,
-  MAX_TOKENS: 1200, // 응답 시간 단축을 위한 토큰 수 제한
+  MAX_TOKENS: 1500, // 응답 품질 향상을 위해 증가 (비용 최적화는 Context Caching으로 보완)
+  // 대화 컨텍스트 설정 (비용 최적화: Context Caching 활용)
+  MAX_CONVERSATION_HISTORY: 10, // 최대 대화 히스토리 수 (캐시 효율성 고려)
+  // Off-peak 시간대 (UTC): 16:30-00:30 (50-75% 할인)
+  OFF_PEAK_START_HOUR: 16,
+  OFF_PEAK_END_HOUR: 0,
+  // 모델 선택: deepseek-chat (일반 작업) 또는 deepseek-v3 (고급 작업)
+  MODEL: process.env.DEEPSEEK_MODEL || 'deepseek-chat', // 환경 변수로 모델 선택 가능
 };
 
 // 간단한 메모리 기반 Rate Limiter (프리티어용)
@@ -108,7 +117,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { message, sessionId } = req.body;
+    const { message, sessionId, conversationHistory } = req.body;
 
     // 입력 검증 강화
     if (!message || typeof message !== 'string') {
@@ -132,12 +141,18 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: '메시지는 최소 2자 이상이어야 합니다.' });
     }
     
-    // 위험한 패턴 검증 (기본적인 보안 필터)
+    // 위험한 패턴 검증 (기본적인 보안 필터) - 강화
     const dangerousPatterns = [
       /<script[^>]*>/i,
       /javascript:/i,
       /on\w+\s*=/i, // onclick, onerror 등
       /data:text\/html/i,
+      /vbscript:/i,
+      /<iframe[^>]*>/i,
+      /<object[^>]*>/i,
+      /<embed[^>]*>/i,
+      /expression\s*\(/i, // CSS expression
+      /@import/i, // CSS injection
     ];
     
     for (const pattern of dangerousPatterns) {
@@ -147,6 +162,29 @@ export default async function handler(req, res) {
           console.warn('[Chat API] 위험한 패턴 감지:', pattern);
         }
         return res.status(400).json({ error: '유효하지 않은 메시지 형식입니다.' });
+      }
+    }
+
+    // 대화 히스토리 검증 (보안 강화)
+    let validatedHistory = [];
+    if (conversationHistory && Array.isArray(conversationHistory)) {
+      // 최대 히스토리 수 제한 (비용 최적화 및 보안)
+      const limitedHistory = conversationHistory.slice(-CONFIG.MAX_CONVERSATION_HISTORY);
+      
+      for (const msg of limitedHistory) {
+        if (msg && typeof msg === 'object' && 
+            typeof msg.role === 'string' && 
+            typeof msg.content === 'string' &&
+            (msg.role === 'user' || msg.role === 'assistant')) {
+          // 각 히스토리 메시지도 검증 및 정제
+          const sanitizedContent = sanitizeInput(msg.content);
+          if (sanitizedContent.length > 0 && sanitizedContent.length <= CONFIG.MAX_MESSAGE_LENGTH) {
+            validatedHistory.push({
+              role: msg.role,
+              content: sanitizedContent
+            });
+          }
+        }
       }
     }
 
@@ -174,6 +212,31 @@ export default async function handler(req, res) {
       });
     }
 
+    // 시스템 메시지 (Context Caching 최적화: 재사용 가능하도록 일관된 형식 유지)
+    const systemMessage = {
+      role: 'system',
+      content: '당신은 DevSecOps, 클라우드 보안, 인프라 자동화 전문가입니다. 기술 블로그의 질문에 친절하고 전문적으로 답변해주세요. 한국어로 답변하세요. 답변은 간결하고 핵심적인 내용으로 작성해주세요.',
+    };
+
+    // 메시지 배열 구성 (Context Caching 최적화: 시스템 메시지 재사용)
+    const messages = [systemMessage];
+    
+    // 대화 히스토리 추가 (Context Caching 활용: 이전 대화 재사용)
+    if (validatedHistory.length > 0) {
+      messages.push(...validatedHistory);
+    }
+    
+    // 현재 사용자 메시지 추가
+    messages.push({
+      role: 'user',
+      content: sanitizedMessage,
+    });
+
+    // Off-peak 시간대 확인 (비용 최적화: 16:30-00:30 UTC, 50-75% 할인)
+    const now = new Date();
+    const utcHour = now.getUTCHours();
+    const isOffPeak = utcHour >= CONFIG.OFF_PEAK_START_HOUR || utcHour < CONFIG.OFF_PEAK_END_HOUR;
+    
     // DeepSeek API 호출 (타임아웃 설정: Pro 플랜 55초, Hobby 플랜 9초)
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), CONFIG.TIMEOUT_MS);
@@ -185,22 +248,15 @@ export default async function handler(req, res) {
         'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'deepseek-chat',
-        messages: [
-          {
-            role: 'system',
-            content: '당신은 DevSecOps, 클라우드 보안, 인프라 자동화 전문가입니다. 기술 블로그의 질문에 친절하고 전문적으로 답변해주세요. 한국어로 답변하세요. 답변은 간결하고 핵심적인 내용으로 작성해주세요.',
-          },
-          {
-            role: 'user',
-            content: sanitizedMessage,
-          },
-        ],
+        model: CONFIG.MODEL,
+        messages: messages,
         temperature: 0.7,
-        max_tokens: CONFIG.MAX_TOKENS, // 프리티어 최적화: 토큰 수 제한 (응답 시간 단축)
+        max_tokens: CONFIG.MAX_TOKENS,
         stream: false,
         // 응답 시간 최적화를 위한 추가 설정
         top_p: 0.95, // 응답 다양성 조절
+        // Context Caching은 자동으로 작동하므로 별도 설정 불필요
+        // 하지만 일관된 시스템 메시지와 대화 히스토리를 유지하면 캐시 히트율 향상
       }),
       signal: controller.signal,
     });
@@ -268,15 +324,38 @@ export default async function handler(req, res) {
 
     // 실행 시간 로깅 (프리티어 모니터링)
     const executionTime = Date.now() - startTime;
+    
+    // 비용 최적화 모니터링: 캐시 히트율 및 토큰 사용량 로깅
+    const cacheHitTokens = data.usage?.prompt_cache_hit_tokens || 0;
+    const cacheMissTokens = data.usage?.prompt_cache_miss_tokens || 0;
+    const totalPromptTokens = data.usage?.prompt_tokens || 0;
+    const totalCompletionTokens = data.usage?.completion_tokens || 0;
+    const cacheHitRate = totalPromptTokens > 0 ? (cacheHitTokens / totalPromptTokens * 100).toFixed(1) : 0;
+    
     if (process.env.NODE_ENV === 'development' || executionTime > 5000) {
       console.log(`[Chat API] Execution time: ${executionTime}ms`);
+      console.log(`[Chat API] Token usage - Prompt: ${totalPromptTokens} (Cache hit: ${cacheHitTokens}, Miss: ${cacheMissTokens}), Completion: ${totalCompletionTokens}, Cache hit rate: ${cacheHitRate}%`);
+      if (isOffPeak) {
+        console.log(`[Chat API] Off-peak hours (UTC ${utcHour}:00) - 50-75% discount applied`);
+      }
     }
 
-    // 성공 응답
+    // 성공 응답 (비용 최적화 정보 포함)
     return res.status(200).json({
       response: sanitizedResponse,
       sessionId: sessionKey,
       provider: 'deepseek',
+      // 비용 최적화 정보 (선택적, 개발 환경에서만 상세 정보 제공)
+      ...(process.env.NODE_ENV === 'development' ? {
+        usage: {
+          promptTokens: totalPromptTokens,
+          completionTokens: totalCompletionTokens,
+          cacheHitTokens: cacheHitTokens,
+          cacheMissTokens: cacheMissTokens,
+          cacheHitRate: `${cacheHitRate}%`,
+          isOffPeak: isOffPeak,
+        }
+      } : {}),
     });
 
   } catch (error) {
@@ -328,8 +407,9 @@ function sanitizeInput(input) {
 
   // HTML 태그 및 위험한 문자 제거 (XSS 방지 강화)
   // 실제로는 더 강력한 라이브러리(DOMPurify 등)를 사용하는 것이 좋습니다
+  // 하지만 서버리스 환경에서는 의존성 최소화를 위해 기본 함수 사용
   return input
-    // HTML 태그 제거
+    // HTML 태그 제거 (더 강력한 패턴)
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     // 따옴표 이스케이프
@@ -341,5 +421,9 @@ function sanitizeInput(input) {
     .replace(/&(?!(?:amp|lt|gt|quot|#x27|#x2F);)/g, '&amp;')
     // 제어 문자 제거 (보안 강화)
     .replace(/[\x00-\x1F\x7F]/g, '')
+    // 추가 보안: 위험한 패턴 제거
+    .replace(/javascript:/gi, '')
+    .replace(/on\w+\s*=/gi, '')
+    .replace(/data:text\/html/gi, '')
     .trim();
 }

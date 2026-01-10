@@ -193,6 +193,19 @@
     }
   }
 
+  // 대화 컨텍스트를 API 형식으로 변환 (비용 최적화: Context Caching 활용)
+  function getConversationHistory() {
+    // 시스템 메시지 제외하고 최근 대화만 전송 (비용 최적화)
+    const history = messages
+      .filter(msg => msg.role === 'user' || msg.role === 'assistant')
+      .slice(-10) // 최근 10개 메시지만 (서버 설정과 일치)
+      .map(msg => ({
+        role: msg.role,
+        content: msg.content
+      }));
+    return history;
+  }
+
   // Send message to DeepSeek API
   async function sendMessage(message) {
     if (isLoading) return;
@@ -208,6 +221,9 @@
     showLoading();
     
     try {
+      // 대화 컨텍스트 가져오기 (비용 최적화: Context Caching 활용)
+      const conversationHistory = getConversationHistory();
+      
       // Vercel Serverless Function을 통한 API 호출 (보안)
       // 엔드포인트는 trailing slash 없이 사용 (Vercel이 자동으로 처리)
       const response = await fetch(CONFIG.apiEndpoint, {
@@ -219,6 +235,7 @@
         body: JSON.stringify({
           message: message,
           sessionId: sessionId,
+          conversationHistory: conversationHistory.length > 0 ? conversationHistory : undefined, // 빈 배열은 전송하지 않음
         }),
         signal: AbortSignal.timeout(CONFIG.timeout),
       });
@@ -264,6 +281,16 @@
         if (data.sessionId) {
           sessionId = data.sessionId;
           localStorage.setItem('chatSessionId', sessionId);
+        }
+        
+        // 개발 환경에서 비용 최적화 정보 표시 (선택적)
+        if (data.usage && process.env.NODE_ENV === 'development') {
+          console.log('[Chat Widget] Usage:', {
+            promptTokens: data.usage.promptTokens,
+            completionTokens: data.usage.completionTokens,
+            cacheHitRate: data.usage.cacheHitRate,
+            isOffPeak: data.usage.isOffPeak,
+          });
         }
       } else {
         throw new Error('응답 형식이 올바르지 않습니다.');
