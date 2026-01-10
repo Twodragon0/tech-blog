@@ -66,14 +66,69 @@ image: /assets/images/[파일명].svg
    - 주요 기술/도구
    - 대상 독자
 3. **서론** (배경 및 목적)
+   - 문제 상황 설명
+   - 해결 방법 개요
+   - 포스팅의 목적
 4. **본문** (주제별 섹션)
    - 명확한 제목과 계층 구조
    - 코드 예제 (필요시)
    - 이미지/다이어그램 (필요시)
    - 실무 팁 및 주의사항
+   - 단계별 가이드 제공
 5. **결론** (요약 및 다음 단계)
+   - 핵심 내용 요약
+   - 추가 학습 자료 (선택)
+   - 원본 포스트 링크 (있는 경우)
 
 ### 포스팅 요약 형식
+HTML 형식의 AI 요약 카드 사용 (권장, 기존 마크다운 형식도 허용):
+
+```html
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">[제목]</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">[태그1]</span>
+      <span class="tag">[태그2]</span>
+      <span class="tag">[태그3]</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li>[핵심 포인트 1]</li>
+      <li>[핵심 포인트 2]</li>
+      <li>[핵심 포인트 3]</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">[기술1, 기술2, 기술3]</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">[대상 독자]</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
+```
+
+또는 마크다운 형식:
 ```markdown
 ## 📋 포스팅 요약
 
@@ -153,11 +208,28 @@ aws ec2 describe-instances --region us-east-1 --profile my-secret-profile
 - API 키, 비밀번호, 토큰은 절대 실제 값 사용 금지
 - 예시: `YOUR_API_KEY`, `your-secret-key`, `***` 사용
 - 환경 변수나 시크릿 관리 도구 사용 예시 제공
+- 로그 파일에 민감 정보가 기록되지 않도록 주의
+- API 키는 환경 변수로 관리: `export CLAUDE_API_KEY="your-key"`
+
+### 민감 정보 마스킹 패턴
+코드나 로그에서 민감 정보를 마스킹할 때 다음 패턴 사용:
+- API 키: `sk-***MASKED***`, `AIza***MASKED***`
+- 비밀번호: `***MASKED***`
+- 토큰: `***TOKEN_MASKED***`
+- 실제 IP 주소: 예시 IP 사용 (예: `192.0.2.0`)
 
 ### 보안 모범 사례 강조
 - 코드 예제에 보안 주석 추가
 - 취약점 및 대응 방법 명시
 - 보안 체크리스트 제공 (필요시)
+- Defense in Depth 전략 설명
+- 최소 권한 원칙 적용 예시
+
+### API 키 및 시크릿 관리
+- 절대 Git에 커밋하지 않음
+- `.gitignore`에 환경 변수 파일 포함
+- AWS Secrets Manager, HashiCorp Vault 등 시크릿 관리 도구 사용
+- 로컬 개발 시 `.env` 파일 사용 (Git 제외)
 
 ### 보안 경고 박스
 ```markdown
@@ -254,11 +326,13 @@ tech-blog/
 - 제목, 카테고리, 태그, 핵심 내용을 명확히 전달
 - 필요한 이미지/다이어그램 요구사항 명시
 - 대상 독자 레벨 지정
+- 원본 URL이 있으면 `original_url` 필드에 포함
 
 ### 코드 작성 요청 시
 - 사용 기술 스택 명시
 - 보안 요구사항 명시
 - 실행 환경 및 제약사항 명시
+- 민감 정보는 환경 변수나 플레이스홀더 사용
 
 ### 이미지 생성 요청 시
 - `GEMINI_IMAGE_GUIDE.md`의 템플릿 참조
@@ -266,21 +340,156 @@ tech-blog/
 - 레이아웃: 가로형 (블로그 포스트용)
 - 한글 라벨 포함
 
+## AI 프롬프트 엔지니어링
+
+### 포스팅 개선 프롬프트 구조
+AI 기반 포스팅 개선 시 다음 구조를 따릅니다:
+
+```markdown
+당신은 기술 블로그 전문 작가입니다. 다음 정보를 바탕으로 상세하고 실용적인 기술 블로그 포스팅 본문을 작성해주세요.
+
+제목: [제목]
+카테고리: [카테고리]
+태그: [태그]
+요약: [excerpt]
+원본 URL: [original_url]
+
+요구사항:
+1. 실무 중심의 구체적인 내용으로 작성
+2. 코드 예제와 설정 예시 포함
+3. 보안 모범 사례 강조
+4. 단계별 가이드 제공
+5. 문제 해결 섹션 포함
+6. 마크다운 형식으로 작성
+7. 한글로 작성
+
+다음 구조로 작성해주세요:
+## 서론
+[배경 및 목적 설명]
+
+## 1. 개요
+[주요 개념 및 배경]
+
+## 2. 핵심 내용
+[상세한 설명 및 실전 가이드]
+
+## 3. 실전 적용
+[구체적인 설정 방법 및 코드 예제]
+
+## 4. 모범 사례
+[보안 및 운영 모범 사례]
+
+## 5. 문제 해결
+[일반적인 문제 및 해결 방법]
+
+## 결론
+[요약 및 마무리]
+
+원본 포스트: [original_url]
+```
+
+### 카테고리별 프롬프트 커스터마이징
+- **보안 관련**: 보안 모범 사례, 위협 대응, 취약점 분석 강조
+- **클라우드 관련**: 아키텍처 설계, 비용 최적화, 운영 모범 사례 강조
+- **DevSecOps 관련**: CI/CD 통합, 자동화, 보안 스캔 통합 강조
+
+### 포스팅 개선 기준
+다음 조건을 만족하는 포스팅은 개선 대상입니다:
+- 본문이 1500자 미만인 포스팅
+- "서론" 또는 "1." 섹션이 없는 포스팅
+- 원본 링크만 있고 본문이 거의 없는 포스팅
+
+### AI 도구 활용 순서
+1. **Claude API** (1순위): 가장 고품질의 콘텐츠 생성
+2. **Gemini API** (2순위): Claude 실패 시 사용
+3. **Cursor 분석** (3순위): API 키 없이도 작동, 파일 구조 분석 기반 개선
+
 ## 검증 체크리스트
 
-포스트 작성 완료 후 확인:
+### 포스트 작성 완료 후 확인
 - [ ] Front matter 형식 올바름
-- [ ] 포스팅 요약 섹션 포함
-- [ ] 이미지 경로 올바름
-- [ ] 코드에 민감 정보 없음
+- [ ] 포스팅 요약 섹션 포함 (HTML 또는 마크다운 형식)
+- [ ] 이미지 경로 올바름 (`/assets/images/` 디렉토리)
+- [ ] 코드에 민감 정보 없음 (API 키, 비밀번호, 토큰)
 - [ ] 보안 고려사항 명시
 - [ ] 마크다운 형식 올바름
 - [ ] 링크 및 참조 확인
 - [ ] 한글/영문 혼용 일관성
+- [ ] 서론 섹션 포함
+- [ ] 본문 길이 1500자 이상 (권장)
+- [ ] 원본 포스트 링크 포함 (있는 경우)
+
+### 코드 검토 체크리스트
+- [ ] 하드코딩된 민감 정보 제거
+- [ ] 환경 변수 사용 예시 제공
+- [ ] 보안 주석 포함
+- [ ] 최소 권한 원칙 적용
+- [ ] 에러 처리 포함
+
+### AI 개선 후 검토
+- [ ] 생성된 본문이 포스트 주제와 일치하는가?
+- [ ] 코드 예제가 실제로 작동하는가?
+- [ ] 보안 모범 사례가 포함되었는가?
+- [ ] 실무 중심의 내용인가?
+- [ ] 원본 포스트 링크가 유지되었는가?
+
+## AI 기반 포스팅 개선 워크플로우
+
+### 자동 개선 스크립트 활용
+프로젝트에는 AI 기반 포스팅 개선 스크립트가 포함되어 있습니다:
+
+1. **AI 기반 개선** (`scripts/ai_improve_posts.py`):
+   - Claude API, Gemini API 활용
+   - 실무 중심의 상세한 본문 생성
+   - 카테고리별 맞춤 콘텐츠 생성
+
+2. **기본 템플릿 개선** (`scripts/smart_improve_posts.py`):
+   - API 키 없이도 작동
+   - 기본 템플릿 기반 개선
+
+### 개선 프로세스
+1. 포스팅 분석: 본문 길이, 구조 확인
+2. 개선 필요 여부 판단: 1500자 미만, 구조 부재 등
+3. AI 콘텐츠 생성: Claude → Gemini → Cursor 분석 순서
+4. 파일 업데이트: 기존 본문 교체 또는 추가
+5. 로그 기록: 모든 작업은 `ai_improvement_log.txt`에 기록
+
+### 실행 방법
+```bash
+# API 키 설정
+./scripts/setup_ai_keys.sh
+
+# 즉시 실행 (1시간)
+./scripts/run_ai_improvement.sh
+
+# 백그라운드 실행
+./scripts/start_ai_background.sh
+
+# 로그 확인
+tail -f ai_improvement_log.txt
+```
+
+## 스크립트 및 자동화
+
+### 주요 스크립트
+- `scripts/ai_improve_posts.py`: AI 기반 포스팅 개선
+- `scripts/enhance_all_posts.py`: 모든 포스팅 요약 섹션 보강
+- `scripts/smart_improve_posts.py`: 지능형 포스팅 개선
+- `scripts/fix_summary_format.py`: 요약 형식 표준화
+
+### 스크립트 작성 시 주의사항
+- 모든 로그는 민감 정보 마스킹 필수
+- API 키는 환경 변수에서만 읽기
+- 예외 처리 시 민감 정보 포함 여부 확인
+- 파일 작업 전 백업 권장
 
 ## 참고 문서
 - `README.md`: 프로젝트 개요
+- `BEST_PRACTICES.md`: 포스팅 작성 모범 사례
 - `GEMINI_IMAGE_GUIDE.md`: 이미지 생성 가이드
 - `POST_VISUALIZATION_CHECKLIST.md`: 시각화 체크리스트
+- `scripts/README_AI_IMPROVEMENT.md`: AI 기반 개선 가이드
+- `scripts/README_IMPROVEMENT.md`: 기본 개선 가이드
+- `scripts/QUICK_START.md`: 빠른 시작 가이드
 - `_config.yml`: Jekyll 설정 및 카테고리 목록
-- `SECURITY.md`: 보안 정책 (있는 경우)
+- `SECURITY.md`: 보안 정책
