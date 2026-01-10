@@ -7,7 +7,9 @@ layout: default
   <header class="post-header">
     {% if page.image %}
     <div class="post-image">
-      <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="clickable-image" data-full-src="{{ page.image | relative_url }}" loading="eager" decoding="async" fetchpriority="high" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in;">
+      {% assign image_path = page.image | relative_url %}
+      {% comment %} 한글 파일명이 포함된 경우 URL 인코딩 보장 {% endcomment %}
+      <img src="{{ image_path }}" alt="{{ page.title | escape }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" loading="eager" decoding="async" fetchpriority="high" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in;">
     </div>
     {% endif %}
 

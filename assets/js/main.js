@@ -1406,55 +1406,88 @@
     function fixImageUrls() {
       const images = document.querySelectorAll('img.post-image, img[src*="assets/images"], img.clickable-image');
       images.forEach(img => {
-        // 이미지 로드 실패 시 조용히 처리 (404 에러 방지)
-        img.addEventListener('error', function() {
-          // 에러 발생 시 이미지를 숨기거나 대체 이미지 사용
-          // 콘솔 에러는 이미 필터링되므로 조용히 처리
-          this.style.display = 'none';
-          // 부모 요소도 숨기기 (post-image div)
-          const parent = this.closest('.post-image');
-          if (parent) {
-            parent.style.display = 'none';
-          }
-        }, { once: true });
-        
         const src = img.getAttribute('src');
         const dataFullSrc = img.getAttribute('data-full-src');
+        const dataOriginalSrc = img.getAttribute('data-original-src');
+        let retryCount = 0;
+        const maxRetries = 3;
         
-        // src와 data-full-src 모두 처리
-        [src, dataFullSrc].forEach((currentSrc, index) => {
-          if (!currentSrc) return;
-          
-          // 이미 URL 인코딩된 경우 디코딩 후 다시 인코딩 (일관성 유지)
-          let decodedSrc = currentSrc;
-          try {
-            decodedSrc = decodeURIComponent(currentSrc);
-          } catch (e) {
-            // 디코딩 실패 시 원본 사용
-            decodedSrc = currentSrc;
+        // 이미지 로드 실패 시 여러 방법으로 재시도
+        img.addEventListener('error', function() {
+          if (retryCount >= maxRetries) {
+            // 모든 재시도 실패 시 조용히 처리
+            console.warn('이미지를 로드할 수 없습니다:', this.getAttribute('src'));
+            return;
           }
           
-          // 한글이 포함된 경우 URL 인코딩
-          if (/[가-힣]/.test(decodedSrc)) {
+          retryCount++;
+          const currentSrc = this.getAttribute('src');
+          
+          // 방법 1: data-original-src가 있으면 상대 경로로 재시도
+          if (dataOriginalSrc && retryCount === 1) {
+            const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+            const newSrc = basePath + dataOriginalSrc.replace(/^\//, '/');
+            this.src = newSrc;
+            return;
+          }
+          
+          // 방법 2: URL 인코딩된 경로를 디코딩하여 한글 파일명으로 변환
+          try {
+            const decodedSrc = decodeURIComponent(currentSrc);
+            if (decodedSrc !== currentSrc && retryCount === 2) {
+              // 디코딩된 경로로 재시도
+              this.src = decodedSrc;
+              return;
+            }
+          } catch (e) {
+            // 디코딩 실패
+          }
+          
+          // 방법 3: 경로를 분해하여 파일명만 다시 인코딩
+          try {
+            const decodedSrc = decodeURIComponent(currentSrc);
             const pathParts = decodedSrc.split('/');
             const filename = pathParts[pathParts.length - 1];
+            
             if (filename && /[가-힣]/.test(filename)) {
-              // 파일명만 URL 인코딩 (경로는 그대로 유지)
+              // 파일명만 다시 인코딩 (경로는 그대로)
               const encodedFilename = encodeURIComponent(filename);
               pathParts[pathParts.length - 1] = encodedFilename;
               const newSrc = pathParts.join('/');
-              
-              // src 업데이트
-              if (index === 0 && newSrc !== src) {
-                img.src = newSrc;
-              }
-              // data-full-src 업데이트
-              if (index === 1 && newSrc !== dataFullSrc) {
-                img.setAttribute('data-full-src', newSrc);
+              this.src = newSrc;
+            }
+          } catch (e) {
+            // 처리 실패
+          }
+        }, { once: false });
+        
+        // 초기 로드 시 경로 최적화
+        if (src) {
+          try {
+            // URL 인코딩된 경로 확인
+            const decodedSrc = decodeURIComponent(src);
+            if (decodedSrc !== src && /[가-힣]/.test(decodedSrc)) {
+              // 한글이 포함된 경우, 파일명만 인코딩하여 경로 최적화
+              const pathParts = decodedSrc.split('/');
+              const filename = pathParts[pathParts.length - 1];
+              if (filename && /[가-힣]/.test(filename)) {
+                const encodedFilename = encodeURIComponent(filename);
+                pathParts[pathParts.length - 1] = encodedFilename;
+                const optimizedSrc = pathParts.join('/');
+                
+                // 최적화된 경로가 현재 경로와 다르면 업데이트
+                if (optimizedSrc !== src) {
+                  img.src = optimizedSrc;
+                  if (dataFullSrc) {
+                    img.setAttribute('data-full-src', optimizedSrc);
+                  }
+                }
               }
             }
+          } catch (e) {
+            // 처리 실패 시 원본 유지
           }
-        });
+        }
       });
     }
 
