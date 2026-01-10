@@ -6,7 +6,7 @@
   <!-- Security Headers -->
   <!-- Note: X-Frame-Options는 HTTP 헤더로만 설정 가능하므로 메타 태그에서 제거됨 -->
   <!-- 서버 설정에서 X-Frame-Options: SAMEORIGIN 헤더를 추가해야 합니다 -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; font-src 'self'; frame-src https://giscus.app https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; connect-src 'self' https://giscus.app https://api.mymemory.translated.net https://va.vercel-scripts.com https://vitals.vercel-insights.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://*.adtrafficquality.google;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; font-src 'self'; frame-src https://giscus.app https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; connect-src 'self' https://giscus.app https://api.mymemory.translated.net https://va.vercel-scripts.com https://vitals.vercel-insights.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -68,31 +68,43 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="{{ "/assets/images/favicon.png" | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ "/assets/images/apple-touch-icon.png" | relative_url }}">
+  <!-- Favicon - 기본 SVG 아이콘 사용 (404 에러 방지) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
   <script>
-    // Favicon 로드 실패 시 조용히 처리 (404 에러 방지)
+    // Favicon 파일이 있으면 교체, 없으면 기본 아이콘 유지
     (function() {
-      const favicon = document.querySelector('link[rel="icon"]');
-      if (favicon) {
-        const img = new Image();
-        img.onerror = function() {
-          // Favicon이 없으면 기본 SVG 아이콘 사용
-          favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🔒</text></svg>';
-        };
-        img.src = favicon.href;
-      }
+      const faviconPath = '{{ "/assets/images/favicon.png" | relative_url }}';
+      const appleIconPath = '{{ "/assets/images/apple-touch-icon.png" | relative_url }}';
       
-      // Apple touch icon도 동일하게 처리
-      const appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
-      if (appleIcon) {
-        const img2 = new Image();
-        img2.onerror = function() {
-          appleIcon.remove();
-        };
-        img2.src = appleIcon.href;
-      }
+      // Favicon 존재 여부 확인 후 교체
+      const img = new Image();
+      img.onload = function() {
+        const faviconLink = document.querySelector('link[rel="icon"]');
+        if (faviconLink) {
+          faviconLink.href = faviconPath;
+          faviconLink.type = 'image/png';
+        }
+      };
+      img.onerror = function() {
+        // Favicon이 없으면 기본 SVG 아이콘 유지 (이미 설정됨)
+      };
+      img.src = faviconPath;
+      
+      // Apple touch icon 존재 여부 확인 후 추가
+      const img2 = new Image();
+      img2.onload = function() {
+        let appleIconLink = document.querySelector('link[rel="apple-touch-icon"]');
+        if (!appleIconLink) {
+          appleIconLink = document.createElement('link');
+          appleIconLink.rel = 'apple-touch-icon';
+          document.head.appendChild(appleIconLink);
+        }
+        appleIconLink.href = appleIconPath;
+      };
+      img2.onerror = function() {
+        // Apple touch icon이 없으면 추가하지 않음
+      };
+      img2.src = appleIconPath;
     })();
   </script>
 

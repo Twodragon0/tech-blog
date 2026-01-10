@@ -26,11 +26,17 @@
       /giscus\.app\/api\/discussions.*404/i,
       /GET.*giscus\.app.*404/i,
       /\[giscus\] Discussion not found/i,
-      /Content Security Policy.*connect-src.*violates/i,
+      /Content Security Policy.*violates/i,
       /Refused to connect.*violates.*Content Security Policy/i,
+      /Refused to load.*violates.*Content Security Policy/i,
+      /Loading the script.*violates.*Content Security Policy/i,
       /Unchecked runtime\.lastError/i,
       /The message port closed before a response was received/i,
       /favicon\.png.*404/i,
+      /favicon.*404/i,
+      /apple-touch-icon.*404/i,
+      /GET.*favicon/i,
+      /GET.*apple-touch-icon/i,
       /Download the React DevTools/i,
       /Download the Apollo DevTools/i
     ];
@@ -62,7 +68,7 @@
         }
       },
       {
-        pattern: /Content Security Policy directive.*violates/i,
+        pattern: /Content Security Policy.*violates/i,
         replacement: {
           message: 'ℹ️ 콘텐츠 보안 정책',
           details: 'CSP 정책이 적용되어 있습니다. 이는 정상적인 보안 동작입니다.',
@@ -74,6 +80,22 @@
         replacement: {
           message: 'ℹ️ 콘텐츠 보안 정책',
           details: 'CSP 정책에 의해 일부 연결이 차단되었습니다. 이는 정상적인 보안 동작입니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /Refused to load.*violates.*Content Security Policy/i,
+        replacement: {
+          message: 'ℹ️ 콘텐츠 보안 정책',
+          details: 'CSP 정책에 의해 일부 리소스 로드가 차단되었습니다. 이는 정상적인 보안 동작입니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /Loading the script.*violates.*Content Security Policy/i,
+        replacement: {
+          message: 'ℹ️ 콘텐츠 보안 정책',
+          details: 'CSP 정책에 의해 일부 스크립트 로드가 차단되었습니다. 이는 정상적인 보안 동작입니다.',
           level: 'info'
         }
       },
@@ -94,10 +116,26 @@
         }
       },
       {
-        pattern: /favicon\.png.*404/i,
+        pattern: /favicon.*404/i,
         replacement: {
           message: 'ℹ️ 아이콘',
           details: 'Favicon 파일이 없습니다. 기본 아이콘이 사용됩니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /apple-touch-icon.*404/i,
+        replacement: {
+          message: 'ℹ️ 아이콘',
+          details: 'Apple touch icon 파일이 없습니다. 무시해도 됩니다.',
+          level: 'info'
+        }
+      },
+      {
+        pattern: /GET.*favicon/i,
+        replacement: {
+          message: 'ℹ️ 아이콘',
+          details: 'Favicon 요청입니다. 무시해도 됩니다.',
           level: 'info'
         }
       },
