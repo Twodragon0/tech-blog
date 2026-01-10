@@ -46,6 +46,9 @@
       replaysSessionSampleRate: 0.0, // 0% (비활성화 - 비용 절감)
       replaysOnErrorSampleRate: 0.0, // 0% (비활성화 - 비용 절감)
       
+      // Logs: 구조화된 로깅 활성화 (SDK 9.41.0+)
+      enableLogs: true,
+      
       // Source Maps: 프로덕션에서는 비활성화 (CSP 위반 방지 및 보안)
       // 개발 환경에서만 source map 로드
       _experiments: {
@@ -85,6 +88,7 @@
             const errorMessage = error.message.toLowerCase();
             // CSP 위반, 확장 프로그램 관련 에러는 무시
             // 이미지 로드 실패 (404, 한글 파일명 인코딩 문제 등)는 무시
+            // Long task는 성능 경고이지 에러가 아니므로 무시 (성능 모니터링은 별도로 처리)
             if (errorMessage.includes('content security policy') ||
                 errorMessage.includes('csp') ||
                 errorMessage.includes('extension') ||
@@ -92,9 +96,29 @@
                 errorMessage.includes('moz-extension') ||
                 errorMessage.includes('failed to load') ||
                 errorMessage.includes('load link') ||
+                errorMessage.includes('long task detected') ||
+                errorMessage.includes('layout shift detected') ||
                 (errorMessage.includes('image') && (errorMessage.includes('404') || errorMessage.includes('not found')))) {
               return null; // 이벤트 무시
             }
+          }
+        }
+        
+        // Long task 및 성능 관련 에러 필터링 (커스텀 컨텍스트 기반)
+        if (event.contexts && event.contexts.custom) {
+          const customContext = event.contexts.custom;
+          // Long task는 성능 경고이지 에러가 아님 (100-200ms는 허용 가능한 범위)
+          if (customContext.type === 'performance' && 
+              (customContext.duration !== undefined || customContext.metric === 'CLS')) {
+            return null; // 성능 메트릭은 에러로 보고하지 않음
+          }
+        }
+        
+        // 에러 메시지에서 Long task 패턴 확인 (추가 안전장치)
+        if (event.message) {
+          const message = event.message.toLowerCase();
+          if (message.includes('long task') || message.includes('layout shift')) {
+            return null; // 성능 경고는 에러로 보고하지 않음
           }
         }
         
@@ -112,6 +136,34 @@
         }
         
         return event;
+      },
+      
+      // 로그 필터링 및 보안 (beforeSendLog)
+      beforeSendLog(log, hint) {
+        // 민감 정보 제거
+        if (log.message) {
+          // 민감한 정보가 포함된 로그 필터링
+          const sensitivePatterns = [
+            /password/i,
+            /token/i,
+            /secret/i,
+            /api[_-]?key/i,
+            /apikey/i,
+            /authorization/i,
+            /bearer/i
+          ];
+          
+          if (sensitivePatterns.some(pattern => pattern.test(log.message))) {
+            return null; // 민감한 로그는 전송하지 않음
+          }
+        }
+        
+        // 개발 환경의 디버그 로그는 필터링 (프로덕션에서만 중요한 로그 수집)
+        if (log.level === 'debug' && window.location.hostname === 'tech.2twodragon.com') {
+          return null; // 프로덕션에서는 debug 로그 제외
+        }
+        
+        return log;
       },
       
       // 샘플링 함수 (에러 수집률)
@@ -132,6 +184,16 @@
     // 개발 환경에서만 로그
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
       console.log('[Sentry] Initialized successfully');
+    }
+    
+    // Sentry Logs 테스트 (개발 환경에서만)
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      if (Sentry.logger && typeof Sentry.logger.info === 'function') {
+        Sentry.logger.info('Sentry initialized with Logs enabled', {
+          environment: window.location.hostname === 'tech.2twodragon.com' ? 'production' : 'development',
+          timestamp: new Date().toISOString()
+        });
+      }
     }
   });
 })();

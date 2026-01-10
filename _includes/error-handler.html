@@ -86,12 +86,24 @@
     logError(error, context);
 
     // Send to Sentry if available
-    if (window.Sentry && typeof window.Sentry.captureException === 'function') {
+    if (window.Sentry) {
       try {
-        const sentryError = errorObj || new Error(errorMessage);
-        window.Sentry.captureException(sentryError, { 
-          contexts: { custom: context || {} } 
-        });
+        // 에러는 captureException으로 전송
+        if (typeof window.Sentry.captureException === 'function') {
+          const sentryError = errorObj || new Error(errorMessage);
+          window.Sentry.captureException(sentryError, { 
+            contexts: { custom: context || {} } 
+          });
+        }
+        
+        // 로그도 함께 전송 (Sentry Logs 기능 사용)
+        if (window.Sentry.logger && typeof window.Sentry.logger.error === 'function') {
+          window.Sentry.logger.error(errorMessage, {
+            ...context,
+            stack: errorStack,
+            url: window.location.href
+          });
+        }
       } catch (e) {
         // Sentry 전송 실패 시 무시
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
@@ -208,12 +220,15 @@
   // Performance monitoring
   if ('PerformanceObserver' in window) {
     try {
-      // Long task monitoring (100ms 이상만 보고 - 50ms는 정상적인 범위)
+      // Long task monitoring (150ms 이상만 보고 - 100ms 이하는 허용 가능한 범위)
+      // 참고: 브라우저의 기본 임계값은 50ms이지만, 100-150ms는 일반적으로 허용 가능
+      // 150ms 이상은 실제 성능 문제로 간주하여 모니터링
       const longTaskObserver = new PerformanceObserver(function(list) {
         for (const entry of list.getEntries()) {
-          // 100ms 이상의 긴 작업만 보고 (50ms는 정상적인 범위)
+          // 150ms 이상의 긴 작업만 보고 (100-150ms는 허용 가능한 범위)
           // 브라우저 확장 프로그램이나 광고 스크립트로 인한 긴 작업은 무시
-          if (entry.duration > 100 && entry.name && !entry.name.includes('chrome-extension') && !entry.name.includes('moz-extension')) {
+          if (entry.duration >= 150 && entry.name && !entry.name.includes('chrome-extension') && !entry.name.includes('moz-extension')) {
+            // 성능 경고로만 기록 (Sentry에서는 필터링됨)
             reportError(`Long task detected: ${Math.round(entry.duration)}ms`, {
               type: 'performance',
               duration: entry.duration,
