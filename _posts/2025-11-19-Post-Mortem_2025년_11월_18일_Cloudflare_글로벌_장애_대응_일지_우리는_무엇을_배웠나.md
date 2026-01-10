@@ -9,6 +9,7 @@ comments: true
 toc: true
 original_url: https://twodragon.tistory.com/699
 image: /assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned.svg
+image_alt: "Post-Mortem November 18 2025 Cloudflare Global Incident Response Log: What We Learned"
 ---
 
 <div class="ai-summary-card">
@@ -60,8 +61,7 @@ image: /assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incide
 
 
 
-<img src="{{ '/assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned_image.png' | relative_url }}" alt="Post-Mortem November 18 2025 Cloudflare Global Incident Response Log: What We Learned" loading="lazy" class="post-image">
 
 
 ## 1. 들어가며
@@ -69,6 +69,55 @@ image: /assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incide
 2025년 11월 18일 저녁, 전 세계 수많은 인터넷 서비스를 마비시킨 **Cloudflare의 글로벌 네트워크 장애**가 발생했습니다. 우리 서비스 역시 예외는 아니었습니다.
 
 이 글은 긴박했던 장애 상황에서 우리 팀이 어떻게 문제를 인지하고 대응했는지, 특히 **모바일과 PC 환경에서 나타난 상이한 증상**을 어떻게 분석했는지를 기록합니다.
+
+## 📊 빠른 참조
+
+### 인시던트 요약
+
+| 항목 | 내용 |
+|------|------|
+| **발생 일시** | 2025년 11월 18일 18:30 KST |
+| **장애 지속 시간** | 약 1시간 30분 (18:30 ~ 20:00) |
+| **영향 범위** | Cloudflare 글로벌 네트워크 장애 |
+| **근본 원인** | Cloudflare 인프라 문제 (BGP 라우팅 이슈 추정) |
+| **영향 받은 서비스** | 전 세계 수많은 인터넷 서비스 |
+
+### 장애 타임라인
+
+| 시간 (KST) | 이벤트 | 조치 |
+|-----------|--------|------|
+| 18:30 | 사용자 문의 시작 | - |
+| 18:35 | 모니터링 알림 발생 | 1차 조사 시작 |
+| 18:40 | 내부 시스템 정상 확인 | 외부 원인 의심 |
+| 18:45 | Cloudflare Status 확인 | 장애 공지 없음 |
+| 18:50 | SNS에서 글로벌 장애 정보 포착 | 상황 파악 |
+| 18:55 | Cloudflare 공식 장애 공지 | 대응 계획 수립 |
+| 19:30 | 서비스 정상화 시작 | 모니터링 강화 |
+| 20:00 | 완전 복구 | 사후 분석 |
+
+### 모바일 vs PC 환경 증상 차이
+
+| 환경 | 증상 | 원인 | 영향도 |
+|------|------|------|--------|
+| **모바일** | 완전 접속 불가 | DNS 캐시 짧음 + 모바일 네트워크 특성 | 100% 사용자 |
+| **PC** | 간헐적 접속 가능 | 브라우저 DNS 캐시 + 로컬 DNS 캐시 | 일부 사용자 |
+
+### 대응 방안 및 개선 사항
+
+| 개선 영역 | Before | After | 효과 |
+|----------|--------|-------|------|
+| **Multi-CDN 전략** | Cloudflare 단일 의존 | Cloudflare + AWS CloudFront | 장애 격리 |
+| **자동 Failover** | 수동 전환 | 자동 Failover 구현 | 빠른 복구 |
+| **모니터링** | 기본 모니터링 | 다중 CDN 모니터링 | 조기 탐지 |
+| **알림 체계** | 단일 채널 | 다중 채널 (Slack, PagerDuty) | 신속한 알림 |
+
+### 2025년 Cloudflare 보안 업데이트
+
+| 업데이트 항목 | 설명 | 적용 시기 |
+|-------------|------|----------|
+| **Post-Quantum Encryption** | 양자 내성 암호화 지원 | 2025년 |
+| **DDoS 위협 대응** | 향상된 DDoS 방어 | 지속적 |
+| **Zero Trust 네트워크** | Zero Trust 아키텍처 강화 | 2025년 |
 
 ## 2. 타임라인
 

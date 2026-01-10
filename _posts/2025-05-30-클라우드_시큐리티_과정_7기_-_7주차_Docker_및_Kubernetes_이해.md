@@ -9,6 +9,7 @@ comments: true
 toc: true
 original_url: https://twodragon.tistory.com/686
 image: /assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes.svg
+image_alt: "Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understanding"
 ---
 
 <div class="ai-summary-card">
@@ -60,8 +61,7 @@ image: /assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and
 
 
 
-<img src="{{ '/assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes_image.png' | relative_url }}" alt="Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understanding" loading="lazy" class="post-image">
 
 
 ## 1. Docker 기초 이해

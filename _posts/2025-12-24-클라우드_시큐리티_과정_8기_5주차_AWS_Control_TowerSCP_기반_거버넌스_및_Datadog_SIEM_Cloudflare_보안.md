@@ -8,6 +8,7 @@ excerpt: "클라우드 보안 과정 8기 5주차: AWS 멀티 계정 거버넌�
 comments: true
 original_url: https://twodragon.tistory.com/706
 image: /assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security.svg
+image_alt: "Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance and Datadog SIEM Cloudflare Security"
 ---
 
 ## 서론
@@ -17,8 +18,7 @@ image: /assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_
 이번 과정 역시 게더 타운(Gather Town)에서 진행되며, 온라인 환경에서의 집중력 유지를 위해 20분 강의 후 5분 휴식 패턴으로 구성되어 있습니다. 특히 이번 주차에서는 AWS의 강력한 통제 기능을 제공하는 Control Tower와 SCP, 그리고 통합 보안 모니터링을 위한 Datadog SIEM, 웹 보안을 위한 Cloudflare에 대해 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security_image.jpg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security_image.jpg' | relative_url }}" alt="Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance and Datadog SIEM Cloudflare Security" loading="lazy" class="post-image">
 
 
 ## 1. AWS 멀티 계정 전략

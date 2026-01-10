@@ -8,6 +8,7 @@ excerpt: "AI 서비스 보안 가이드: 2025년 AI 보안 위협 현황(Shadow 
 comments: true
 original_url: https://twodragon.tistory.com/697
 image: /assets/images/2025-10-31-AI_amplsquoamprsquo_amplsquoSecurity_amprsquo_Batch_AI_Security_Guide.svg
+image_alt: "AI Era Enterprise AI Service Security Guide: Ensuring Your Assistant Does Not Become a Security Hole"
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -64,8 +65,7 @@ image: /assets/images/2025-10-31-AI_amplsquoamprsquo_amplsquoSecurity_amprsquo_B
 본 가이드에서는 AI 서비스 사용 시 발생할 수 있는 보안 위험을 분석하고, 기업이 이를 효과적으로 관리하기 위한 실무 가이드를 제공합니다.
 
 
-<img src="{{ '/assets/images/2025-10-31-AI_amplsquoamprsquo_amplsquoSecurity_amprsquo_Batch_AI_Security_Guide_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-10-31-AI_amplsquoamprsquo_amplsquoSecurity_amprsquo_Batch_AI_Security_Guide_image.png' | relative_url }}" alt="AI Era Enterprise AI Service Security Guide: Ensuring Your Assistant Does Not Become a Security Hole" loading="lazy" class="post-image">
 
 
 ## 2025년 AI 보안 위협 현황

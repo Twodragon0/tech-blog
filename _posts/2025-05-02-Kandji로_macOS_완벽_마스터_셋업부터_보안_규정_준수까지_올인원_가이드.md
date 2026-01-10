@@ -8,6 +8,7 @@ excerpt: "Kandji macOS 완벽 가이드: Apple 통합 엔드포인트 관리(UEM
 comments: true
 original_url: https://twodragon.tistory.com/680
 image: /assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.svg
+image_alt: "Kandji macOS Complete Master: Setup from Security Regulation Compliance to All-in-One Guide"
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -63,8 +64,7 @@ image: /assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security
 이 글에서는 Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드에 대해 실무 중심으로 상세히 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide_image.png' | relative_url }}" alt="Kandji macOS Complete Master: Setup from Security Regulation Compliance to All-in-One Guide" loading="lazy" class="post-image">
 
 
 ## 1. 개요

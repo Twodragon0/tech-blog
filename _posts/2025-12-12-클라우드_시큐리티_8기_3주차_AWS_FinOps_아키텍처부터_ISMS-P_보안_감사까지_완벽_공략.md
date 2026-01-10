@@ -8,6 +8,7 @@ excerpt: "클라우드 시큐리티 8기 3주차: 2025년 FinOps 트렌드(AI/ML
 comments: true
 original_url: https://twodragon.tistory.com/703
 image: /assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.svg
+image_alt: "Cloud Security 8Batch 3Week: Complete Strategy from AWS FinOps Architecture to ISMS-P Security Audit"
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -64,8 +65,7 @@ image: /assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_Architec
 이 글에서는 클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!에 대해 실무 중심으로 상세히 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy_image.png' | relative_url }}" alt="Cloud Security 8Batch 3Week: Complete Strategy from AWS FinOps Architecture to ISMS-P Security Audit" loading="lazy" class="post-image">
 
 
 ## 1. 개요

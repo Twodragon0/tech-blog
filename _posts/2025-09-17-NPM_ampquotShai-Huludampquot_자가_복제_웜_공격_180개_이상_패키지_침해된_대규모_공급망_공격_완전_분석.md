@@ -8,6 +8,7 @@ excerpt: "NPM Shai-Hulud 자가 복제 웜 공격 완전 분석: NPM 생태계 �
 comments: true
 original_url: https://twodragon.tistory.com/694
 image: /assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis.svg
+image_alt: "NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale Supply Chain Attack with 180+ Compromised Packages"
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -60,9 +61,47 @@ NPM 생태계 역사상 최초의 자가 복제 웜 형태 공급망 공격 분�
 
 이 글에서는 NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석에 대해 실무 중심으로 상세히 다룹니다.
 
+## 📊 빠른 참조
 
-<img src="{{ '/assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis_image.webp' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+### 공격 요약
+
+| 항목 | 내용 |
+|------|------|
+| **공격 유형** | 자가 복제 웜 형태 공급망 공격 |
+| **감염 패키지 수** | 180개 이상 |
+| **공격 특징** | NPM 생태계 최초 자가 복제 웜 |
+| **주요 목표** | 개발자 인증 정보 탈취 및 자동 전파 |
+
+### 공격 체인 분석
+
+| 단계 | 설명 | 목적 |
+|------|------|------|
+| 1. 패키지 하이재킹 | 기존 패키지 탈취 또는 유사 이름 패키지 생성 | 초기 침투 |
+| 2. 인증 정보 탈취 | 개발자 인증 정보 (토큰, 비밀번호) 수집 | 권한 확보 |
+| 3. 자동 전파 | 탈취한 인증 정보로 새 패키지 생성 및 업데이트 | 확산 |
+| 4. 지속성 확보 | 백도어 설치 및 추가 공격 벡터 구축 | 장기 침투 |
+
+### 대응 방안
+
+| 대응 항목 | 설명 | 우선순위 |
+|----------|------|----------|
+| **SBOM 생성** | 소프트웨어 구성 요소 목록 관리 | 높음 |
+| **의존성 스캔** | 정기적인 취약점 스캔 | 높음 |
+| **2FA 활성화** | 2단계 인증 필수 | 매우 높음 |
+| **패키지 검증** | 신뢰할 수 있는 소스 확인 | 높음 |
+| **모니터링** | 이상 패키지 활동 탐지 | 중간 |
+
+### 보안 체크리스트
+
+| 항목 | 상태 | 설명 |
+|------|------|------|
+| **2FA 활성화** | ✅ 필수 | NPM 계정 2단계 인증 |
+| **의존성 검토** | ✅ 필수 | 정기적인 의존성 검토 |
+| **패키지 검증** | ✅ 필수 | 신뢰할 수 있는 패키지만 사용 |
+| **SBOM 생성** | ✅ 권장 | 소프트웨어 구성 요소 추적 |
+| **자동 스캔** | ✅ 권장 | CI/CD 파이프라인 통합 |
+
+<img src="{{ '/assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis_image.webp' | relative_url }}" alt="NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale Supply Chain Attack with 180+ Compromised Packages" loading="lazy" class="post-image">
 
 
 ## 1. 개요

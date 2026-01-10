@@ -8,6 +8,7 @@ excerpt: "SKT 보안 이슈 대응 가이드: SK텔레콤 USIM 정보 유출 사
 comments: true
 original_url: https://twodragon.tistory.com/677
 image: /assets/images/2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_and_MFA_Importance.svg
+image_alt: "SKT Security Issue Complete Response Guide: IMEI Check USIM eSIM Replacement and MFA Importance"
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -63,8 +64,7 @@ image: /assets/images/2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI
 이 글에서는 SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성에 대해 실무 중심으로 상세히 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_and_MFA_Importance_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_and_MFA_Importance_image.png' | relative_url }}" alt="SKT Security Issue Complete Response Guide: IMEI Check USIM eSIM Replacement and MFA Importance" loading="lazy" class="post-image">
 
 
 ## 1. 개요

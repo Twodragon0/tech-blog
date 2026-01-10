@@ -8,6 +8,7 @@ excerpt: "클라우드 시큐리티 과정 7기 6주차: AWS WAF 보안 강화(�
 comments: true
 original_url: https://twodragon.tistory.com/684
 image: /assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security.svg
+image_alt: "Cloud Security Course 7Batch 6Week: Cloudflare and GitHub Security"
 toc: true
 ---
 <div class="ai-summary-card">
@@ -63,8 +64,7 @@ toc: true
 </div>
 
 
-<img src="{{ '/assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security_image.png' | relative_url }}" alt="Cloud Security Course 7Batch 6Week: Cloudflare and GitHub Security" loading="lazy" class="post-image">
 
 
 ## 서론

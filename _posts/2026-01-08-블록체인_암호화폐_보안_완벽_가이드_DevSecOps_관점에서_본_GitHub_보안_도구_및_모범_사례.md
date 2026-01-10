@@ -8,6 +8,7 @@ excerpt: "블록체인 암호화폐 보안 완벽 가이드: 2024-2025년 34억 
 comments: true
 original_url: https://twodragon.tistory.com
 image: /assets/images/2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_and_Best_Practice.svg
+image_alt: "Blockchain Cryptocurrency Security Complete Guide: DevSecOps Perspective on GitHub Security Tools and Best Practices"
 toc: true
 ---
 <div class="ai-summary-card">
@@ -60,8 +61,7 @@ toc: true
 </div>
 </div>
 
-<img src="{{ '/assets/images/2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_and_Best_Practice_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_and_Best_Practice_image.png' | relative_url }}" alt="Blockchain Cryptocurrency Security Complete Guide: DevSecOps Perspective on GitHub Security Tools and Best Practices" loading="lazy" class="post-image">
 
 
 ---
@@ -78,6 +78,54 @@ toc: true
 
 이 가이드에서는 **GitHub의 오픈소스 보안 도구들(Slither, Mythril, Securify 등)**을 활용한 블록체인 보안 강화 방법을 실무 중심으로 종합적으로 다룹니다. 특히 스마트 컨트랙트 보안 감사, CI/CD 파이프라인 통합, 그리고 기업 환경에서의 암호화폐 보안 전략에 중점을 둡니다.
 
+## 📊 빠른 참조
+
+### 2024-2025년 보안 사고 통계
+
+| 항목 | 내용 |
+|------|------|
+| **총 손실 규모** | 약 34억 달러 |
+| **북한 해커 관련 손실** | 약 20.2억 달러 (전년 대비 51% 증가) |
+| **가장 큰 단일 사고** | Bybit 15억 달러 (2025년 2월) |
+| **주요 위협 유형** | 스마트 컨트랙트 취약점 60%, 거래소 해킹 30%, 지갑 보안 10% |
+
+### 주요 보안 사고 (2024-2025)
+
+| 사건 | 날짜 | 손실 규모 | 공격 유형 | 배후 |
+|------|------|----------|----------|------|
+| **Bybit 해킹** | 2025년 2월 | $15억 | 콜드 월렛 침해 | 북한 Lazarus |
+| **Cetus DEX** | 2025년 | $2.23억 | 스마트 컨트랙트 취약점 | - |
+| **DMM Bitcoin** | 2024년 | $3.05억 | 거래소 해킹 | - |
+| **Phemex** | 2025년 | $7,300만 | 거래소 해킹 | - |
+
+### 스마트 컨트랙트 보안 도구 비교
+
+| 도구 | 유형 | 장점 | 단점 | 추천 용도 |
+|------|------|------|------|----------|
+| **Slither** | 정적 분석 | 빠른 속도, 낮은 False Positive | 깊이 있는 분석 제한 | 초기 검사 |
+| **Mythril** | 심볼릭 실행 | 깊이 있는 분석, 경로 탐색 | 느린 속도, 높은 False Positive | 심화 분석 |
+| **Securify 2.0** | 패턴+데이터 흐름 | 높은 정확도, 패턴 기반 | 제한된 취약점 탐지 | 프로덕션 검사 |
+| **Medusa 2025** | 차세대 퍼저 | 커버리지 기반, 빠른 속도 | 신규 도구, 커뮤니티 작음 | 실험적 사용 |
+
+### 주요 보안 위협 유형
+
+| 위협 유형 | 설명 | 대응 방안 |
+|----------|------|----------|
+| **Reentrancy** | 함수 실행 중 재진입을 통한 자금 탈취 | Checks-Effects-Interactions 패턴 |
+| **Integer Overflow** | 정수 연산 오류로 인한 자산 조작 | SafeMath 라이브러리 사용 |
+| **Access Control** | 권한 검증 부재로 인한 무단 접근 | OpenZeppelin AccessControl |
+| **Oracle Manipulation** | 외부 데이터 소스 조작 | Chainlink Oracle 사용 |
+| **Front-running** | 거래 순서 조작을 통한 이익 추구 | Commit-Reveal 스킴 |
+
+### CI/CD 보안 파이프라인 통합
+
+| 단계 | 도구 | 목적 |
+|------|------|------|
+| **정적 분석** | Slither | 코드 취약점 탐지 |
+| **심볼릭 실행** | Mythril | 깊이 있는 분석 |
+| **패턴 검사** | Securify 2.0 | 높은 정확도 검사 |
+| **의존성 스캔** | npm audit | 오픈소스 취약점 탐지 |
+| **Fuzz 테스트** | Foundry, Medusa | 자동화된 테스트 |
 
 ## 1. 블록체인 보안 위협 개요
 

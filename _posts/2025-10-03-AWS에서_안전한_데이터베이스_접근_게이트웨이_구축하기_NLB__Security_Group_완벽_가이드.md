@@ -8,6 +8,7 @@ excerpt: "AWS 데이터베이스 접근 게이트웨이 구축: Network Load Bal
 comments: true
 original_url: https://twodragon.tistory.com/696
 image: /assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.svg
+image_alt: "Building Secure Database Access Gateway on AWS: NLB Security Group Complete Guide"
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -60,8 +61,7 @@ image: /assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Securit
 데이터베이스 접근 관리 솔루션을 AWS에 배포하면서 Network Load Balancer와 Security Group을 활용한 Zero Trust 아키텍처를 구축한 경험을 공유합니다. Terraform으로 완전 자동화하고, 보안과 가용성을 모두 확보했습니다.
 
 
-<img src="{{ '/assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide_image.png' | relative_url }}" alt="Building Secure Database Access Gateway on AWS: NLB Security Group Complete Guide" loading="lazy" class="post-image">
 
 
 ## 배경: 왜 데이터베이스 접근 게이트웨이가 필요한가?

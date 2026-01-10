@@ -8,6 +8,7 @@ excerpt: "Zscaler 완벽 가이드: 하이브리드 근무 환경 Zero Trust 보
 comments: true
 original_url: https://twodragon.tistory.com/698
 image: /assets/images/2025-11-04-Zscaler_Complete_Guide_SSL_AI_Complete.svg
+image_alt: "Zscaler Complete Guide: SSL Inspection Sandbox AI Advertising Malicious Site Complete Blocking"
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -62,9 +63,56 @@ image: /assets/images/2025-11-04-Zscaler_Complete_Guide_SSL_AI_Complete.svg
 **Zscaler**는 이러한 문제를 해결하는 클라우드 기반 Zero Trust 네트워크 접근(ZTNA) 솔루션입니다. 이 가이드에서는 Zscaler 클라이언트 설정(ZCC)부터 트래픽 전달, SSL 검사, 필수 앱 예외 처리(카카오톡), 샌드박스(ATP), 브라우저 제어, 그리고 AI, 광고, 유해 사이트 차단에 이르는 Zscaler의 핵심 정책을 상세히 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-11-04-Zscaler_Complete_Guide_SSL_AI_Complete_image.jpg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-11-04-Zscaler_Complete_Guide_SSL_AI_Complete_image.jpg' | relative_url }}" alt="Zscaler Complete Guide: SSL Inspection Sandbox AI Advertising Malicious Site Complete Blocking" loading="lazy" class="post-image">
 
+## 📊 빠른 참조
+
+### Zscaler 주요 구성 요소
+
+| 구성 요소 | 약어 | 설명 | 용도 |
+|----------|------|------|------|
+| **Zscaler Internet Access** | ZIA | 인터넷 트래픽 보안 및 필터링 | 인터넷 접근 보안 |
+| **Zscaler Private Access** | ZPA | 내부 애플리케이션 Zero Trust 접근 | 내부 앱 접근 |
+| **Zscaler Client Connector** | ZCC | 사용자 디바이스 클라이언트 | 트래픽 전달 |
+| **Zscaler Digital Experience** | ZDX | 사용자 경험 모니터링 | 성능 최적화 |
+
+### SSL 검사 프로세스
+
+| 단계 | 설명 | 보안 조치 |
+|------|------|----------|
+| 1. 인증서 발급 | Zscaler 내부 CA를 통해 인증서 발급 | 내부 CA 관리 |
+| 2. 트래픽 가로채기 | 사용자 HTTPS 요청 가로채기 | TLS 1.3 |
+| 3. 재암호화 | 대상 서버와 새 HTTPS 연결 생성 | 서명 검증 |
+| 4. 검사 수행 | 암호화 해제된 트래픽 검사 | 보안 정책 적용 |
+
+### 필수 앱 예외 처리 (카카오톡 예시)
+
+| 설정 항목 | 값 | 설명 |
+|----------|-----|------|
+| **애플리케이션** | KakaoTalk | 예외 처리 대상 앱 |
+| **Action** | Allow | 허용 정책 |
+| **SSL Inspection** | Bypass | SSL 검사 건너뛰기 |
+| **URL Filtering** | Allow | URL 필터링 허용 |
+| **도메인** | talk.kakao.com, kakaocdn.net | 허용 도메인 |
+
+### 샌드박스 (ATP) 동작 프로세스
+
+| 단계 | 설명 | 소요 시간 |
+|------|------|----------|
+| 1. 파일 다운로드 감지 | 사용자 파일 다운로드 감지 | 즉시 |
+| 2. 샌드박스 전송 | 의심스러운 파일 샌드박스로 전송 | 1-2초 |
+| 3. 동적 분석 | 파일 실행 및 행위 분석 | 2-5분 |
+| 4. 위협 판정 | 악성 행위 탐지 시 차단 및 알림 | 즉시 |
+
+### URL 필터링 카테고리
+
+| 카테고리 | 설명 | 기본 정책 |
+|----------|------|----------|
+| **악성 사이트** | 악성 코드, 피싱 사이트 | 차단 |
+| **광고** | 광고 네트워크 | 차단/허용 선택 |
+| **AI 서비스** | ChatGPT, Claude 등 | 허용/차단 선택 |
+| **소셜 미디어** | Facebook, Twitter 등 | 허용/차단 선택 |
+| **금융** | 은행, 결제 사이트 | SSL 검사 예외 권장 |
 
 ## 1. Zscaler 개요
 

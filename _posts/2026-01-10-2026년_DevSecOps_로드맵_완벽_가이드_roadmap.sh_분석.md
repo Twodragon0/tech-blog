@@ -7,6 +7,7 @@ tags: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, "2026"]
 excerpt: "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석: 93개 학습 항목(기초 학습, 위협 관리, 보안 아키텍처, 거버넌스, 도구 자동화), 단계별 학습 경로(초급/중급/고급/전문가), 실무 보안 도구 스택(SAST/DAST, SIEM/SOAR, 컨테이너 보안), 공급망 보안(SBOM, 의존성 관리), 인시던트 대응 체계까지 DevSecOps 전문가 성장을 위한 완벽 가이드."
 comments: true
 image: /assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg
+image_alt: "2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis"
 toc: true
 ---
 
@@ -58,8 +59,7 @@ toc: true
 </div>
 </div>
 
-<img src="{{ '/assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg' | relative_url }}" alt="2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis" loading="lazy" class="post-image">
 
 
 ## 서론
@@ -69,6 +69,63 @@ toc: true
 2026년을 맞이하며, DevSecOps 분야에서 전문가로 성장하기 위한 체계적인 학습 경로가 더욱 중요해졌습니다. [roadmap.sh](https://roadmap.sh/devsecops)는 개발자 커뮤니티에서 가장 신뢰받는 학습 로드맵 플랫폼 중 하나로, 2026년 DevSecOps 로드맵을 새롭게 업데이트했습니다.
 
 이 포스팅에서는 roadmap.sh의 2026년 DevSecOps 로드맵을 완벽 분석하여, 총 **93개의 학습 항목**을 단계별로 정리하고 실무 중심의 학습 경로를 제시합니다. 기초 프로그래밍부터 고급 거버넌스까지, DevSecOps 전문가가 되기 위한 완벽한 가이드를 제공합니다.
+
+## 📊 빠른 참조
+
+### 로드맵 개요
+
+| 항목 | 내용 |
+|------|------|
+| **총 학습 항목** | 93개 |
+| **주요 섹션** | 5개 (기초 학습, 위협 관리, 보안 아키텍처, 거버넌스, 도구 자동화) |
+| **학습 단계** | 초급 → 중급 → 고급 → 전문가 |
+| **예상 기간** | 초급(0-6개월), 중급(6-12개월), 고급(12-24개월), 전문가(24개월+) |
+
+### 필수 프로그래밍 언어
+
+| 언어 | 용도 | 우선순위 |
+|------|------|----------|
+| **Python** | 보안 스크립팅, 자동화 | ⭐⭐⭐ 필수 |
+| **Bash** | 리눅스/유닉스 자동화 | ⭐⭐⭐ 필수 |
+| **Go** | 고성능 보안 도구 | ⭐⭐ 권장 |
+| **JavaScript/Node.js** | 웹 애플리케이션 보안 | ⭐⭐ 권장 |
+| **PowerShell** | Windows 환경 자동화 | ⭐ 선택 |
+
+### 보안 도구 스택
+
+| 도구 유형 | 도구명 | 용도 |
+|----------|--------|------|
+| **SAST** | CodeQL, SonarQube | 정적 코드 분석 |
+| **DAST** | Burp Suite, OWASP ZAP | 동적 보안 테스트 |
+| **취약점 스캔** | Nessus, Nmap, OpenVAS | 취약점 탐지 |
+| **네트워크 분석** | Wireshark, tcpdump | 패킷 분석 |
+| **컨테이너 보안** | Docker, Kubernetes | 컨테이너 보안 |
+| **SIEM/SOAR** | Splunk, ELK, Cortex | 보안 모니터링 및 자동화 |
+| **SBOM** | CycloneDX, Syft | 소프트웨어 구성 요소 관리 |
+
+### 학습 단계별 로드맵
+
+| 단계 | 기간 | 주요 학습 내용 | 목표 |
+|------|------|--------------|------|
+| **초급** | 0-6개월 | 프로그래밍 기초, 보안 개념, 기본 도구 | 보안 기초 이해 |
+| **중급** | 6-12개월 | 위협 모델링, 컨테이너 보안, 취약점 관리 | 보안 도구 활용 |
+| **고급** | 12-24개월 | 엔터프라이즈 아키텍처, 거버넌스, 인시던트 대응 | 보안 아키텍처 설계 |
+| **전문가** | 24개월+ | 전략 수립, 리더십, 엔터프라이즈 운영 | 보안 전략가 |
+
+### 위협 모델링 방법론
+
+| 방법론 | 설명 | 적용 시기 |
+|--------|------|----------|
+| **STRIDE** | 6가지 위협 분류 (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) | 설계 단계 |
+| **PASTA** | 7단계 위협 분석 프로세스, 비즈니스 영향도 기반 | 엔터프라이즈 |
+
+### 컴플라이언스 프레임워크
+
+| 프레임워크 | 설명 | 적용 분야 |
+|-----------|------|----------|
+| **NIST CSF** | Identify, Protect, Detect, Respond, Recover | 미국 정부/기업 |
+| **ISO 27001** | 정보 보안 관리 시스템 (ISMS) | 글로벌 기업 |
+| **SOC 2** | 서비스 조직 통제 보고서 | 클라우드 서비스 |
 
 ## 1. DevSecOps 로드맵 개요
 

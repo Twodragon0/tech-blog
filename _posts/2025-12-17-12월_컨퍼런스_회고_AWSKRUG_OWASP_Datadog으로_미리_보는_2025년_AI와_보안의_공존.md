@@ -8,6 +8,7 @@ excerpt: "12월 컨퍼런스 회고: AWSKRUG AI IDE Kiro Launch Party, OWASP Seo
 comments: true
 original_url: https://twodragon.tistory.com/704
 image: /assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence.svg
+image_alt: "December Conference Review: Previewing 2025 AI and Security Coexistence with AWSKRUG OWASP Datadog"
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -63,8 +64,7 @@ image: /assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Prev
 이 글에서는 [12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존에 대해 실무 중심으로 상세히 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence_image.png' | relative_url }}" alt="December Conference Review: Previewing 2025 AI and Security Coexistence with AWSKRUG OWASP Datadog" loading="lazy" class="post-image">
 
 
 ## 1. 개요

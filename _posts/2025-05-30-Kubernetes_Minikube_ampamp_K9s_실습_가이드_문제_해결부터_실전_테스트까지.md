@@ -8,6 +8,7 @@ excerpt: "Kubernetes Minikube &amp; K9s 실습 가이드: Minikube 시작 이슈
 comments: true
 original_url: https://twodragon.tistory.com/687
 image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_Guide_From_Practical_To.svg
+image_alt: "Kubernetes Minikube and K9s Practical Guide: From Problem Solving to Practical Testing"
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -63,8 +64,7 @@ image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_Guide_From_Pract
 이 글에서는 Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지에 대해 실무 중심으로 상세히 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_Guide_From_Practical_To_image.png' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_Guide_From_Practical_To_image.png' | relative_url }}" alt="Kubernetes Minikube and K9s Practical Guide: From Problem Solving to Practical Testing" loading="lazy" class="post-image">
 
 
 ## 1. 개요

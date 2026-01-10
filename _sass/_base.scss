@@ -32,7 +32,7 @@ body {
   --border: #{$light-border};
   --primary: #{$primary};
   --primary-hover: #{$primary-hover};
-  --code-bg: #{$light-bg-tertiary};
+  --code-bg: #f6f8fa;
 }
 
 [data-theme="dark"] {
@@ -42,7 +42,7 @@ body {
   --text: #{$dark-text};
   --text-secondary: #{$dark-text-secondary};
   --border: #{$dark-border};
-  --code-bg: #{$dark-bg-tertiary};
+  --code-bg: #161b22;
   --primary: #60a5fa;
   --primary-hover: #93c5fd;
 }
@@ -55,7 +55,7 @@ body {
     --text: #{$dark-text};
     --text-secondary: #{$dark-text-secondary};
     --border: #{$dark-border};
-    --code-bg: #{$dark-bg-tertiary};
+    --code-bg: #161b22;
   }
 }
 

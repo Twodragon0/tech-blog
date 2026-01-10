@@ -8,6 +8,7 @@ excerpt: "클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아
 comments: true
 original_url: https://twodragon.tistory.com/707
 image: /assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg
+image_alt: "Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture and GitHub DevSecOps Practical"
 toc: true
 ---
 <div class="ai-summary-card">
@@ -60,8 +61,7 @@ toc: true
 </div>
 </div>
 
-<img src="{{ '/assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg' | relative_url }}" alt="Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture and GitHub DevSecOps Practical" loading="lazy" class="post-image">
 
 ## 서론
 

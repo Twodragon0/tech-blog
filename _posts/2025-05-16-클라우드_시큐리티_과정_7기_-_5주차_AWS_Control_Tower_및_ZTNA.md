@@ -8,6 +8,7 @@ excerpt: "클라우드 시큐리티 과정 7기 5주차: AWS Control Tower 멀�
 comments: true
 original_url: https://twodragon.tistory.com/683
 image: /assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA.svg
+image_alt: "Cloud Security Course 7Batch 5Week: AWS Control Tower and ZTNA"
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
@@ -62,8 +63,7 @@ image: /assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Contro
 이 글에서는 클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA에 대해 실무 중심으로 상세히 다룹니다.
 
 
-<img src="{{ '/assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA_image.jpg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA_image.jpg' | relative_url }}" alt="Cloud Security Course 7Batch 5Week: AWS Control Tower and ZTNA" loading="lazy" class="post-image">
 
 
 ## 1. 개요

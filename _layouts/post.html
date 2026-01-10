@@ -9,7 +9,12 @@ layout: default
     <div class="post-image">
       {% assign image_path = page.image | relative_url %}
       {% comment %} 한글 파일명이 포함된 경우 URL 인코딩 보장 {% endcomment %}
-      <img src="{{ image_path }}" alt="{{ page.title | escape }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" loading="eager" decoding="async" fetchpriority="high" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in;">
+      {% if page.image_alt %}
+        {% assign image_alt_text = page.image_alt | escape %}
+      {% else %}
+        {% assign image_alt_text = page.title | escape %}
+      {% endif %}
+      <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" loading="eager" decoding="async" fetchpriority="high" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in;">
     </div>
     {% endif %}
 

@@ -7,6 +7,7 @@ tags: [DevSecOps, Automotive-Security, Connected-Car, SAST, DAST, SBOM, Supply-C
 excerpt: "DevSecOps 자동차 보안 완벽 가이드: SDV(Software Defined Vehicle) 시대 보안 아키텍처, 자동차 보안 위협 분석(네트워크/물리적/소프트웨어/공급망), DevSecOps 라이프사이클 통합(Plan->Code->Build->Test->Release->Deploy->Monitor), 규제 컴플라이언스(ISO 21434, UN R155/R156, V2X 보안), 실무 보안 도구 스택(SAST/DAST/SCA/SBOM)까지 실무 중심 정리."
 comments: true
 image: /assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg
+image_alt: "DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era Security Strategy"
 ---
 
 <div class="ai-summary-card">
@@ -58,8 +59,7 @@ image: /assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_
 </div>
 </div>
 
-<img src="{{ '/assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg' | relative_url }}" alt="포스트 이미지" loading="lazy" class="post-image">
-*그림: 포스트 이미지*
+<img src="{{ '/assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg' | relative_url }}" alt="DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era Security Strategy" loading="lazy" class="post-image">
 
 
 ## 서론
@@ -75,6 +75,73 @@ image: /assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_
 전통적인 소프트웨어 개발 방식에서는 보안이 개발의 마지막 단계에서 고려되었지만, 이는 빠르게 변화하는 자동차 기술 환경에서 효과적이지 않습니다. **DevSecOps**는 개발 초기 단계부터 보안을 통합하여 보안 취약점을 조기에 발견하고 해결함으로써, 안전한 소프트웨어를 신속하게 제공할 수 있도록 합니다.
 
 이 가이드에서는 **DevSecOps 관점에서 자동차 보안을 접근**하는 방법을 실무 중심으로 종합적으로 다룹니다. 특히 SAST, DAST, SBOM, 공급망 보안 등 자동차 업계에서 필수적인 보안 도구와 프로세스에 중점을 둡니다.
+
+## 📊 빠른 참조
+
+### 자동차 보안 통계
+
+| 항목 | 내용 |
+|------|------|
+| **평균 코드 라인 수** | 1억 5천만 줄 이상 (자동차 1대당) |
+| **보안 취약점 증가율** | 전년 대비 30% 이상 증가 (2023년) |
+| **ECU 개수** | 수백 개의 ECU (Electronic Control Unit) |
+| **오픈소스 의존성** | 자동차 소프트웨어의 60% 이상 |
+
+### 자동차 보안 위협 유형
+
+| 위협 유형 | 공격 방법 | 영향도 | 대응 방안 |
+|----------|----------|--------|----------|
+| **네트워크 공격** | Wi-Fi, Bluetooth, 4G/5G, V2X | 높음 | 네트워크 분할, 암호화 |
+| **물리적 공격** | OBD-II 포트, ECU 탬퍼링 | 중간~높음 | 물리적 보안, 접근 제어 |
+| **소프트웨어 취약점** | 메모리 취약점, 암호화 취약점 | 매우 높음 | SAST, DAST, 코드 검토 |
+| **공급망 공격** | 악성 코드 삽입, 의존성 취약점 | 매우 높음 | SBOM, 의존성 스캔 |
+
+### 규제 및 컴플라이언스
+
+| 규제/표준 | 설명 | 적용 시기 | 필수 여부 |
+|----------|------|----------|----------|
+| **ISO 21434** | 자동차 사이버 보안 표준 | 2021년 발표 | 필수 |
+| **UN R155** | 사이버 보안 규정 | 2025년 글로벌 확대 | 필수 |
+| **UN R156** | 소프트웨어 업데이트 규정 | 2025년 글로벌 확대 | 필수 |
+| **GDPR** | 개인정보보호법 | EU 지역 | 필수 |
+
+### DevSecOps 라이프사이클 통합
+
+| 단계 | 보안 활동 | 도구 예시 |
+|------|----------|----------|
+| **Plan** | 위협 모델링 (STRIDE, TARA) | Microsoft Threat Modeling Tool |
+| **Code** | SAST, Secret 스캔 | SonarQube, Gitleaks |
+| **Build** | SCA, 이미지 스캔 | Trivy, Snyk |
+| **Test** | DAST/IAST, Fuzz 테스트 | OWASP ZAP, AFL |
+| **Release** | SBOM, 서명/암호화 | Syft, SPDX |
+| **Deploy** | Secure Boot, 무결성 검증 | TEE, HSM |
+| **Monitor** | 런타임 보안, 침입 탐지 | Falco, Sysdig |
+
+### 실무 보안 도구 스택
+
+| 도구 유형 | 도구명 | 용도 |
+|----------|--------|------|
+| **SAST** | SonarQube, Semgrep, Clang Static Analyzer | 정적 코드 분석 |
+| **Secret 스캔** | Gitleaks, GitGuardian | 민감 정보 탐지 |
+| **SCA** | Trivy, Snyk, Grype | 의존성 취약점 스캔 |
+| **DAST** | OWASP ZAP, Burp Suite | 동적 보안 테스트 |
+| **Fuzz** | AFL, LibFuzzer | 자동화된 테스트 |
+| **SBOM** | Syft, SPDX | 소프트웨어 구성 요소 관리 |
+| **런타임 보안** | Falco, Sysdig | 실시간 보안 모니터링 |
+
+### SDV 보안 아키텍처 핵심 요소
+
+| 보안 영역 | 보안 항목 | 필수 여부 |
+|----------|----------|----------|
+| **아키텍처** | 중앙 집중식 보안 정책 | 필수 |
+| | Zero Trust 내부 통신 | 권장 |
+| | HSM 통합 | 필수 |
+| **소프트웨어** | Secure Boot 체인 | 필수 |
+| | 런타임 무결성 검증 | 권장 |
+| | 보안 OTA 업데이트 | 필수 |
+| **모니터링** | 실시간 위협 탐지 | 필수 |
+| | 보안 이벤트 로깅 | 필수 |
+| | ML 기반 이상 탐지 | 권장 |
 
 ## 1. 자동차 보안 위협 개요
 
