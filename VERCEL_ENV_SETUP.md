@@ -11,7 +11,7 @@ tech-blog 프로젝트에 필요한 Vercel 환경 변수 설정 가이드입니�
 3. **Settings** → **Environment Variables** 이동
 4. 다음 변수 추가:
    - **Key**: `DEEPSEEK_API_KEY`
-   - **Value**: `sk-46c21143b44f412b8f420f06df8693cd`
+   - **Value**: [DeepSeek Platform](https://platform.deepseek.com)에서 발급받은 API 키
    - **Environment**: 
      - ✅ Production
      - ✅ Preview  
@@ -25,15 +25,15 @@ cd "/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내
 
 # Production 환경
 vercel env add DEEPSEEK_API_KEY production
-# 프롬프트에 키 입력: sk-46c21143b44f412b8f420f06df8693cd
+# 프롬프트에 DeepSeek API 키 입력 (sk-로 시작)
 
 # Preview 환경
 vercel env add DEEPSEEK_API_KEY preview
-# 프롬프트에 키 입력: sk-46c21143b44f412b8f420f06df8693cd
+# 프롬프트에 DeepSeek API 키 입력 (sk-로 시작)
 
 # Development 환경
 vercel env add DEEPSEEK_API_KEY development
-# 프롬프트에 키 입력: sk-46c21143b44f412b8f420f06df8693cd
+# 프롬프트에 DeepSeek API 키 입력 (sk-로 시작)
 ```
 
 ### 확인
@@ -64,8 +64,9 @@ DEEPSEEK_API_KEY    Encrypted    Development, Preview, Production
 2. **환경 확인**: Production, Preview, Development 모두 설정되었는지 확인
 3. **로컬 테스트**: 로컬에서 테스트하려면 `.env.local` 파일에 추가:
    ```bash
-   DEEPSEEK_API_KEY=sk-46c21143b44f412b8f420f06df8693cd
+   DEEPSEEK_API_KEY=sk-your-deepseek-api-key
    ```
+   **주의**: `.env.local` 파일은 절대 git에 커밋하지 마세요!
 
 ### API 오류가 발생하는 경우
 

@@ -26,7 +26,7 @@ Vercel 대시보드에서 환경 변수를 설정합니다:
 1. Vercel 프로젝트 설정 → Environment Variables
 2. 다음 변수 추가:
    - **Key**: `DEEPSEEK_API_KEY`
-   - **Value**: `sk-46c21143b44f412b8f420f06df8693cd` (online-course 프로젝트와 동일한 키)
+   - **Value**: online-course 프로젝트와 동일한 키 사용 (Vercel 환경 변수에서 확인)
    - **Environment**: Production, Preview, Development 모두 선택
 
 **참고**: online-course 프로젝트에서 동일한 DeepSeek API 키를 사용합니다.

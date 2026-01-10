@@ -12,7 +12,21 @@ vendor/
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
+.env.test
+*.env
 *.key
 *.pem
 secrets/
 .vercel
+
+# API Keys and sensitive data (보안)
+**/DEEPSEEK_API_KEY
+**/OPENAI_API_KEY
+**/GEMINI_API_KEY
+**/*_API_KEY
+**/*_SECRET
+**/*_TOKEN
+**/credentials.json
+**/service-account*.json
