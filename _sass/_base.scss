@@ -109,6 +109,12 @@ img {
   max-width: 100%;
   height: auto;
   border-radius: $radius-md;
+  
+  // CLS 최적화: 이미지 로드 중 레이아웃 시프트 방지
+  display: block;
+  
+  // CLS 최적화: 이미지 크기 계산 최적화
+  box-sizing: border-box;
 }
 
 // Code

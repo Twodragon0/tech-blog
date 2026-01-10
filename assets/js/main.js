@@ -498,6 +498,7 @@
   }
 
     // Intersection Observer for Scroll Animations (non-critical, defer)
+    // CLS 최적화: CSS 클래스 기반 애니메이션 사용 (초기 레이아웃 시프트 방지)
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -506,17 +507,16 @@
     const observer = new IntersectionObserver(function(entries) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          // CSS 클래스 추가로 애니메이션 (레이아웃 시프트 없음)
+          entry.target.classList.add('animate-in');
+          observer.unobserve(entry.target); // 한 번만 실행
         }
       });
     }, observerOptions);
 
-    // Observe cards for fade-in animation
+    // Observe cards for fade-in animation (CSS 기반)
     document.querySelectorAll('.card, .post-card').forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      // 초기 상태는 CSS에서 처리 (레이아웃 시프트 방지)
       observer.observe(card);
     });
 

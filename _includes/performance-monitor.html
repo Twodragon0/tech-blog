@@ -51,18 +51,39 @@
 
       // Cumulative Layout Shift (CLS)
       let clsValue = 0;
+      let clsEntries = [];
       try {
         const clsObserver = new PerformanceObserver(function(list) {
           for (const entry of list.getEntries()) {
+            // 사용자 입력 후 500ms 이내의 시프트는 무시 (사용자 의도적 상호작용)
             if (!entry.hadRecentInput) {
               clsValue += entry.value;
-              if (clsValue > 0.1) { // CLS should be < 0.1
-                console.warn('[Performance] CLS is high:', clsValue);
+              clsEntries.push({
+                value: entry.value,
+                sources: entry.sources || [],
+                startTime: entry.startTime
+              });
+              
+              // CLS 임계값 체크 (0.1 이상이면 경고)
+              if (clsValue > 0.1) {
+                console.warn('[Performance] CLS is high:', clsValue.toFixed(6));
+                // 개발 환경에서만 상세 정보 표시
+                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                  console.warn('[Performance] CLS entries:', clsEntries.slice(-5)); // 최근 5개만
+                }
               }
             }
           }
         });
         clsObserver.observe({ entryTypes: ['layout-shift'] });
+        
+        // 페이지 언로드 시 최종 CLS 값 기록
+        window.addEventListener('beforeunload', function() {
+          if (clsValue > 0.1 && 'sendBeacon' in navigator) {
+            // 최종 CLS 값을 서버로 전송 (선택사항)
+            // navigator.sendBeacon('/api/metrics', JSON.stringify({ cls: clsValue }));
+          }
+        });
       } catch (e) {
         // CLS observer not supported
       }

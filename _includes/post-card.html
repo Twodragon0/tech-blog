@@ -3,7 +3,8 @@
   <a href="{{ post.url | relative_url }}" class="post-card-inner">
     {% if post.image and post.image != "" %}
     <div class="post-card-image">
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async">
+      {% comment %}CLS 최적화: aspect-ratio를 CSS에서 이미 처리하므로 width/height는 생략{% endcomment %}
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="225" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/9;">
     </div>
     {% endif %}
 

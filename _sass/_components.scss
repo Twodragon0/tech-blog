@@ -57,10 +57,31 @@
   border-radius: $radius-lg;
   padding: $spacing-lg;
   transition: border-color $transition-fast, box-shadow $transition-fast;
+  
+  // CLS 최적화: 초기 상태는 완전히 보이도록 설정 (레이아웃 시프트 방지)
+  opacity: 1;
+  transform: translateY(0);
+  
+  // Intersection Observer로 트리거되는 애니메이션
+  &.animate-in {
+    animation: fadeInUp 0.6s ease forwards;
+  }
 
   &:hover {
     border-color: var(--primary);
     box-shadow: $shadow-md;
+  }
+}
+
+// CLS 최적화: 레이아웃 시프트를 유발하지 않는 애니메이션
+@keyframes fadeInUp {
+  from {
+    opacity: 0.3;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -72,6 +93,15 @@
   height: 100%;
   position: relative;
   overflow: hidden;
+  
+  // CLS 최적화: 초기 상태는 완전히 보이도록 설정
+  opacity: 1;
+  transform: translateY(0);
+  
+  // Intersection Observer로 트리거되는 애니메이션
+  &.animate-in {
+    animation: fadeInUp 0.6s ease forwards;
+  }
 
   &:hover {
     transform: translateY(-4px);
@@ -136,11 +166,20 @@
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 56.25%; // 16:9 aspect ratio
+  padding-bottom: 56.25%; // 16:9 aspect ratio (fallback for older browsers)
   overflow: hidden;
   background-color: var(--bg-tertiary);
   border-radius: $radius-lg $radius-lg 0 0;
   transition: transform $transition-base;
+  
+  // CLS 최적화: aspect-ratio 속성 사용 (최신 브라우저, padding-bottom보다 우선)
+  aspect-ratio: 16 / 9;
+  
+  // CLS 최적화: 이미지 로드 전 공간 확보
+  min-height: 0;
+  
+  // CLS 최적화: 레이아웃 재계산 최소화
+  contain: layout style paint;
 
   img {
     position: absolute;
@@ -151,6 +190,16 @@
     object-fit: cover;
     object-position: center;
     transition: transform $transition-slow;
+    
+    // CLS 최적화: 이미지 로드 중 레이아웃 시프트 방지
+    display: block;
+    
+    // CLS 최적화: 이미지 로드 실패 시에도 공간 유지
+    background-color: var(--bg-tertiary);
+    
+    // CLS 최적화: 이미지 크기 명시 (HTML width/height와 일치)
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .post-card:hover & {
@@ -161,6 +210,7 @@
 
   @media (max-width: $breakpoint-sm) {
     padding-bottom: 50%; // Slightly taller on mobile
+    aspect-ratio: 2 / 1; // 모바일용 aspect-ratio
   }
 }
 
@@ -251,6 +301,9 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: $spacing-lg;
+  
+  // CLS 최적화: 그리드 레이아웃 안정화
+  align-items: start;
 
   @media (min-width: $breakpoint-md) {
     grid-template-columns: repeat(2, 1fr);
@@ -262,6 +315,9 @@
 
   .post-card {
     margin-bottom: 0;
+    
+    // CLS 최적화: 카드 높이 안정화
+    min-height: 0;
   }
 }
 
@@ -445,6 +501,12 @@
   overflow-y: auto;
   z-index: 50;
   display: none;
+  
+  // CLS 최적화: 초기 높이 설정으로 레이아웃 시프트 방지
+  min-height: 0;
+  
+  // CLS 최적화: 스크롤바 공간 확보
+  scrollbar-gutter: stable;
 
   &.active {
     display: block;
@@ -716,4 +778,42 @@
     color: var(--text-secondary);
     margin-top: $spacing-xs;
   }
+}
+
+// Google AdSense 광고 컨테이너 최적화 (CLS 방지)
+.adsbygoogle,
+ins.adsbygoogle {
+  display: block;
+  text-align: center;
+  
+  // CLS 최적화: 광고 컨테이너에 최소 높이 설정
+  min-height: 100px;
+  
+  // CLS 최적화: 광고 로드 전 공간 확보
+  background-color: var(--bg-tertiary);
+  border-radius: $radius-md;
+  
+  // CLS 최적화: 레이아웃 안정화
+  contain: layout style paint;
+  
+  iframe {
+    display: block;
+    width: 100%;
+    min-height: 100px;
+  }
+}
+
+// 광고 섹션 컨테이너
+.ad-container {
+  margin: $spacing-xl 0;
+  padding: $spacing-md;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  
+  // CLS 최적화: 광고 섹션 높이 안정화
+  min-height: 250px;
+  
+  // CLS 최적화: 레이아웃 안정화
+  contain: layout style;
 }

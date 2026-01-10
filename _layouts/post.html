@@ -14,7 +14,7 @@ layout: default
       {% else %}
         {% assign image_alt_text = page.title | escape %}
       {% endif %}
-      <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" loading="eager" decoding="async" fetchpriority="high" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in;">
+      <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in; aspect-ratio: 16/9; object-fit: cover;">
     </div>
     {% endif %}
 
@@ -155,19 +155,43 @@ layout: default
 </article>
 
 <script>
-// Reading time calculation
-document.addEventListener('DOMContentLoaded', function() {
-  const content = document.querySelector('.post-content');
-  if (content) {
-    const text = content.textContent || content.innerText;
-    const wordCount = text.trim().split(/\s+/).length;
-    const readingTime = Math.ceil(wordCount / 200);
-    document.getElementById('reading-time').textContent = readingTime + ' min read';
-  }
+// Reading time calculation (deferred to idle time)
+(function() {
+  'use strict';
+  
+  // Use requestIdleCallback for non-critical work
+  const scheduleIdleWork = (callback, timeout = 2000) => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(callback, { timeout });
+    } else {
+      setTimeout(callback, 0);
+    }
+  };
+  
+  scheduleIdleWork(() => {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initReadingTime);
+    } else {
+      initReadingTime();
+    }
+  });
+  
+  function initReadingTime() {
+    const content = document.querySelector('.post-content');
+    if (content) {
+      const text = content.textContent || content.innerText;
+      const wordCount = text.trim().split(/\s+/).length;
+      const readingTime = Math.ceil(wordCount / 200);
+      const readingTimeEl = document.getElementById('reading-time');
+      if (readingTimeEl) {
+        readingTimeEl.textContent = readingTime + ' min read';
+      }
+    }
 
-  // Enhance external links in post content
-  enhanceExternalLinks();
-});
+    // Enhance external links in post content (non-critical)
+    scheduleIdleWork(enhanceExternalLinks, 3000);
+  }
+})();
 
 // Function to enhance external links with icons and attributes
 function enhanceExternalLinks() {
@@ -282,35 +306,52 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Translation functionality using Google Translate
+// Translation functionality using Google Translate (deferred)
 (function() {
+  'use strict';
+  
+  // Defer translation script loading until user interaction or idle time
+  const scheduleIdleWork = (callback, timeout = 5000) => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(callback, { timeout });
+    } else {
+      setTimeout(callback, 0);
+    }
+  };
+  
+  // Load translation functionality on demand
+  let translationLoaded = false;
   const langButtons = document.querySelectorAll('.lang-btn');
-  const translateStatus = document.getElementById('translate-status');
-  const postContent = document.querySelector('.post-content');
-  const postTitle = document.querySelector('.post-title');
-  const googleTranslateLink = document.getElementById('google-translate-link');
+  
+  function initTranslation() {
+    if (translationLoaded) return;
+    translationLoaded = true;
+    const translateStatus = document.getElementById('translate-status');
+    const postContent = document.querySelector('.post-content');
+    const postTitle = document.querySelector('.post-title');
+    const googleTranslateLink = document.getElementById('google-translate-link');
 
-  let originalContent = null;
-  let originalTitle = null;
-  let currentLang = 'ko';
-  let translationCache = {};
+    let originalContent = null;
+    let originalTitle = null;
+    let currentLang = 'ko';
+    let translationCache = {};
 
-  // Set Google Translate link
-  if (googleTranslateLink) {
-    googleTranslateLink.href = `https://translate.google.com/translate?sl=ko&tl=en&u=${encodeURIComponent(window.location.href)}`;
-  }
+    // Set Google Translate link
+    if (googleTranslateLink) {
+      googleTranslateLink.href = `https://translate.google.com/translate?sl=ko&tl=en&u=${encodeURIComponent(window.location.href)}`;
+    }
 
-  // Save original content
-  if (postContent) {
-    originalContent = postContent.innerHTML;
-  }
-  if (postTitle) {
-    originalTitle = postTitle.textContent;
-  }
+    // Save original content
+    if (postContent) {
+      originalContent = postContent.innerHTML;
+    }
+    if (postTitle) {
+      originalTitle = postTitle.textContent;
+    }
 
-  // Language button click handler
-  langButtons.forEach(btn => {
-    btn.addEventListener('click', async function() {
+    // Language button click handler
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', async function() {
       const targetLang = this.dataset.lang;
 
       if (targetLang === currentLang) return;
@@ -339,8 +380,8 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Translation error:', error);
         showStatus('번역 실패. 다시 시도해주세요.', 'error');
       }
+      });
     });
-  });
 
   async function translatePage(targetLang) {
     // Check cache first
@@ -483,6 +524,25 @@ document.addEventListener('DOMContentLoaded', function() {
       'zh': '中文'
     };
     return names[lang] || lang;
+  }
+  }
+  
+  // Initialize translation on button click or after idle time
+  if (langButtons.length > 0) {
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (!translationLoaded) {
+          initTranslation();
+        }
+      }, { once: true });
+    });
+    
+    // Also load after idle time if user hasn't interacted
+    scheduleIdleWork(() => {
+      if (!translationLoaded && document.visibilityState === 'visible') {
+        initTranslation();
+      }
+    });
   }
 })();
 
