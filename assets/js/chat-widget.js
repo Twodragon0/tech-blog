@@ -4,11 +4,13 @@
 
   // Configuration
   const CONFIG = {
-    apiEndpoint: '/api/chat', // Vercel Serverless Function 엔드포인트
+    // 엔드포인트: trailing slash 없이 사용 (Vercel이 자동으로 처리)
+    apiEndpoint: '/api/chat',
     maxRetries: 1, // 재시도 횟수 (타임아웃 시 재시도는 비효율적)
     timeout: 12000, // 12초 (서버 타임아웃 9초 + 네트워크 여유)
     showIconDelay: 5000, // 5 seconds
     retryDelay: 2000, // 재시도 전 대기 시간 (ms)
+    maxMessageLength: 2000, // 서버와 동일한 제한
   };
 
   // State
@@ -207,11 +209,13 @@
     
     try {
       // Vercel Serverless Function을 통한 API 호출 (보안)
+      // 엔드포인트는 trailing slash 없이 사용 (Vercel이 자동으로 처리)
       const response = await fetch(CONFIG.apiEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'omit', // 쿠키 전송 방지 (보안)
         body: JSON.stringify({
           message: message,
           sessionId: sessionId,
@@ -221,6 +225,11 @@
       
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
+        
+        // 403 Forbidden (Origin 검증 실패)
+        if (response.status === 403) {
+          throw new Error('요청이 거부되었습니다. 페이지를 새로고침해주세요.');
+        }
         
         // Rate limit 오류 처리
         if (response.status === 429) {
@@ -236,6 +245,11 @@
         // 타임아웃 오류
         if (response.status === 504) {
           throw new Error(errorData.error || '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.');
+        }
+        
+        // 400 Bad Request (입력 검증 실패)
+        if (response.status === 400) {
+          throw new Error(errorData.error || '입력 형식이 올바르지 않습니다.');
         }
         
         throw new Error(errorData.error || `서버 오류 (${response.status})`);
@@ -315,7 +329,21 @@
   function handleSubmit(e) {
     e.preventDefault();
     const message = chatInput.value.trim();
+    
+    // 클라이언트 측 검증 강화
     if (!message || isLoading) return;
+    
+    // 최소 길이 검증
+    if (message.length < 2) {
+      addMessage('❌ 메시지는 최소 2자 이상이어야 합니다.', 'assistant');
+      return;
+    }
+    
+    // 최대 길이 검증
+    if (message.length > CONFIG.maxMessageLength) {
+      addMessage(`❌ 메시지가 너무 깁니다. (최대 ${CONFIG.maxMessageLength}자)`, 'assistant');
+      return;
+    }
     
     chatInput.value = '';
     sendMessage(message);
