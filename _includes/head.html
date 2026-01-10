@@ -6,7 +6,7 @@
   <!-- Security Headers -->
   <!-- Note: X-Frame-Options는 HTTP 헤더로만 설정 가능하므로 메타 태그에서 제거됨 -->
   <!-- 서버 설정에서 X-Frame-Options: SAMEORIGIN 헤더를 추가해야 합니다 -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://js.sentry-cdn.com; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; font-src 'self'; frame-src https://giscus.app https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://www.google.com; connect-src 'self' https://giscus.app https://api.mymemory.translated.net https://api.deepseek.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://o4510686170710016.ingest.us.sentry.io https://*.ingest.sentry.io;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://js.sentry-cdn.com https://browser.sentry-cdn.com; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; font-src 'self'; frame-src https://giscus.app https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://www.google.com; connect-src 'self' https://giscus.app https://api.mymemory.translated.net https://api.deepseek.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://o4510686170710016.ingest.us.sentry.io https://*.ingest.sentry.io;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -142,11 +142,35 @@
     window.addEventListener('load', function() {
       navigator.serviceWorker.register('/sw.js')
         .then(function(registration) {
-          console.log('Service Worker registered:', registration.scope);
+          // 서비스 워커 업데이트 확인
+          registration.addEventListener('updatefound', function() {
+            const newWorker = registration.installing;
+            newWorker.addEventListener('statechange', function() {
+              if (newWorker.state === 'activated') {
+                // 새 서비스 워커 활성화 시 페이지 리로드 제안
+                if (navigator.serviceWorker.controller) {
+                  console.log('[Service Worker] New version available');
+                }
+              }
+            });
+          });
+          
+          // 개발 환경에서만 로그
+          if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('Service Worker registered:', registration.scope);
+          }
         })
         .catch(function(error) {
-          console.log('Service Worker registration failed:', error);
+          // 프로덕션에서는 조용히 실패
+          if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('Service Worker registration failed:', error);
+          }
         });
+      
+      // 서비스 워커 업데이트 체크
+      if (navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+      }
     });
   }
   </script>

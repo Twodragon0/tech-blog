@@ -1,7 +1,8 @@
 // Service Worker for Offline Support and Caching
-const CACHE_NAME = 'tech-blog-v1';
-const STATIC_CACHE = 'tech-blog-static-v1';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v1';
+// 버전 업데이트 시 CACHE_NAME 변경하여 캐시 무효화
+const CACHE_NAME = 'tech-blog-v2';
+const STATIC_CACHE = 'tech-blog-static-v2';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v2';
 
 // 캐시할 정적 리소스
 const STATIC_ASSETS = [
@@ -29,14 +30,24 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
+          // 현재 버전이 아닌 모든 캐시 삭제
           if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
             return caches.delete(cacheName);
           }
         })
       );
+    }).then(() => {
+      // 모든 클라이언트에 즉시 적용
+      return self.clients.claim();
     })
   );
-  return self.clients.claim();
+});
+
+// 메시지 리스너: 즉시 활성화 요청
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
 
 // 네트워크 우선, 캐시 fallback 전략
@@ -64,6 +75,7 @@ self.addEventListener('fetch', (event) => {
     fetch(request)
       .then((response) => {
         // GET 요청이고 성공한 경우에만 캐시
+        // POST, PUT, DELETE 등은 절대 캐시하지 않음
         if (request.method === 'GET' && response.status === 200) {
           // 캐시 가능한 응답인지 확인
           const contentType = response.headers.get('content-type') || '';
@@ -81,6 +93,8 @@ self.addEventListener('fetch', (event) => {
               cache.put(request, responseClone).catch(() => {
                 // 캐시 저장 실패 시 무시
               });
+            }).catch(() => {
+              // 캐시 열기 실패 시 무시
             });
           }
         }
@@ -96,7 +110,7 @@ self.addEventListener('fetch', (event) => {
             });
           });
         }
-        // POST 등은 네트워크 오류 그대로 반환
+        // POST 등은 네트워크 오류 그대로 반환 (캐시하지 않음)
         return new Response('Network error', { 
           status: 503,
           headers: { 'Content-Type': 'text/plain' }
