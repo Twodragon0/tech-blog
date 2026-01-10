@@ -72,6 +72,15 @@
   flex-wrap: wrap;
   gap: $spacing-sm;
   margin-top: $spacing-md;
+
+  .tag {
+    transition: all $transition-fast;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+  }
 }
 
 // Post Content
@@ -123,12 +132,112 @@
     margin-bottom: $spacing-xl;
   }
 
-  a {
-    text-decoration: underline;
-    text-underline-offset: 2px;
+  // Internal and external links (exclude code blocks)
+  a:not(pre a):not(code a):not(.highlight a) {
+    color: var(--primary);
+    text-decoration: none;
+    text-underline-offset: 3px;
+    border-bottom: 1px solid transparent;
+    transition: all $transition-fast;
+    position: relative;
+    font-weight: 500;
+
+    // Underline animation
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width $transition-base;
+    }
 
     &:hover {
-      text-decoration-color: var(--primary);
+      color: var(--primary-hover);
+      border-bottom-color: var(--primary);
+      
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    // External link indicator (added by JavaScript or has target="_blank")
+    &.external-link,
+    &[target="_blank"] {
+      padding-right: 1.1em;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0.1em;
+        width: 0.85em;
+        height: 0.85em;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.6;
+        transition: opacity $transition-fast, transform $transition-fast;
+      }
+
+      &:hover::before {
+        opacity: 1;
+        transform: translate(2px, -2px);
+      }
+    }
+
+    // Internal links (same domain)
+    &[href^="/"],
+    &[href^="#"] {
+      color: var(--primary);
+    }
+
+    // Email and phone links (use different approach to avoid conflict with external link icon)
+    &[href^="mailto:"]:not(.external-link):not([target="_blank"]) {
+      padding-left: 1.2em;
+      
+      &::before {
+        content: '✉';
+        position: absolute;
+        left: 0;
+        top: 0.1em;
+        font-size: 0.9em;
+        opacity: 0.7;
+      }
+    }
+
+    &[href^="tel:"]:not(.external-link):not([target="_blank"]) {
+      padding-left: 1.2em;
+      
+      &::before {
+        content: '📞';
+        position: absolute;
+        left: 0;
+        top: 0.1em;
+        font-size: 0.9em;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  // Links in code blocks should remain simple
+  pre a,
+  code a,
+  .highlight a {
+    color: var(--primary);
+    text-decoration: underline;
+    
+    &:hover {
+      text-decoration-color: var(--primary-hover);
     }
   }
 
@@ -368,15 +477,61 @@
 
   .related-item {
     padding: $spacing-md;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all $transition-base;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: var(--primary);
+      transform: scaleY(0);
+      transition: transform $transition-base;
+    }
+
+    &:hover {
+      border-color: var(--primary);
+      transform: translateX(4px);
+      box-shadow: $shadow-md;
+
+      &::before {
+        transform: scaleY(1);
+      }
+
+      h4 {
+        color: var(--primary);
+      }
+    }
+
+    &:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
 
     h4 {
       font-size: 1rem;
       margin: 0 0 $spacing-xs;
+      transition: color $transition-fast;
+      line-height: 1.4;
     }
 
     .related-date {
       font-size: 0.8rem;
       color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+      
+      &::before {
+        content: '📅';
+        font-size: 0.7rem;
+      }
     }
   }
 }
@@ -540,15 +695,30 @@
   font-size: 0.85rem;
   color: var(--text-secondary);
   margin-top: $spacing-md;
+  transition: all $transition-fast;
+  text-decoration: none;
 
   &:hover {
     border-color: var(--primary);
     color: var(--primary);
+    background-color: var(--bg-tertiary);
+    transform: translateY(-1px);
+    box-shadow: $shadow-sm;
+  }
+
+  &:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
   }
 
   svg {
     width: 14px;
     height: 14px;
+    transition: transform $transition-fast;
+  }
+
+  &:hover svg {
+    transform: translate(2px, -2px);
   }
 }
 

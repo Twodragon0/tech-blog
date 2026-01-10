@@ -4,7 +4,7 @@ title: "Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보�
 date: 2025-05-24 00:17:56 +0900
 categories: devsecops
 tags: [Amazon-Q, GitHub-Advanced-Security, Code-Security, AWS]
-excerpt: "최근 개발 환경에서 코드 보안의 중요성은 아무리 강조해도 지나치지 않습니다. ️ Amazon Q Developer와 GitHub Advanced Security는 이러한 코드 보안을 한층 강화하고, 개발 생산성을 높이는 데 도움을 줄 수 있는 강력한 도구들입니다. 특히 AWS 환경을 적극적으로 활용하는 개발팀이라면 Amazon Q Developer의 이점을 눈여겨볼 만합니다. ✨ ️ 주요 기능 소개 Amazon Q Developer는 AW.."
+excerpt: "Amazon Q Developer & GitHub Advanced Security 활용: Amazon Q Developer 코드 보안 검토 및 AWS 최적화 제안, GitHub Advanced Security 통합(CodeQL, Dependabot, Secret Scanning), 코드 보안 자동화 및 DevSecOps 모범 사례, AWS 환경 개발 생산성 향상 전략까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/685
 image: /assets/images/2025-05-24-Amazon_Q_Developer와_GitHub_Advanced_Security를_활용한_코드_보안_강화_및_AWS_최적화.svg

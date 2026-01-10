@@ -5,7 +5,7 @@ date: 2026-01-06 14:59:11 +0900
 category: devsecops
 categories: [DevSecOps, Security]
 tags: [DevSecOps, Automotive-Security, Connected-Car, SAST, DAST, SBOM, Supply-Chain-Security]
-excerpt: "자동차 산업의 디지털화와 커넥티드 카 기술의 발전으로 인해 차량 보안의 중요성이 더욱 부각되고 있습니다. 전통적인 소프트웨어 개발 방식에서는 보안이 개발의 마지막 단계에서 고려되었지만, 이는 빠르게 변화하는 자동차 기술 환경에서 효과적이지 않습니다. DevSecOps는 개발 초기 단계부터 보안을 통합하여 보안 취약점을 조기에 발견하고 해결함으로써, 안전한 소프트웨어를 신속하게 제공할 수 있도록 합니다."
+excerpt: "DevSecOps 자동차 보안 완벽 가이드: SDV(Software Defined Vehicle) 시대 보안 아키텍처, 자동차 보안 위협 분석(네트워크/물리적/소프트웨어/공급망), DevSecOps 라이프사이클 통합(Plan→Code→Build→Test→Release→Deploy→Monitor), 규제 컴플라이언스(ISO 21434, UN R155/R156, V2X 보안), 실무 보안 도구 스택(SAST/DAST/SCA/SBOM)까지 실무 중심 정리."
 comments: true
 image: /assets/images/2026-01-06-DevSecOps가_바라보는_자동차_보안_완벽_가이드.svg
 ---
@@ -38,15 +38,16 @@ image: /assets/images/2026-01-06-DevSecOps가_바라보는_자동차_보안_완�
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>커넥티드 카 시대의 자동차 보안 위협과 취약점 분석</li>
-      <li>DevSecOps를 통한 자동차 소프트웨어 개발 라이프사이클 전반의 보안 통합</li>
-      <li>SAST, DAST, SBOM, 공급망 보안 등 실무 중심의 보안 도구 및 프로세스</li>
-      <li>자동차 업계의 DevSecOps 모범 사례 및 구현 전략</li>
+      <li><strong>SDV(Software Defined Vehicle) 시대 보안</strong>: 중앙 집중식 컴퓨팅 플랫폼, 서비스 지향 아키텍처(SOA), OTA 업데이트 의존성, Zero Trust 내부 통신, HSM 통합, Secure Boot 체인</li>
+      <li><strong>자동차 보안 위협 분석</strong>: 네트워크 공격(Wi-Fi/Bluetooth/4G/5G, V2X, OTA), 물리적 공격(OBD-II, ECU 탬퍼링), 소프트웨어 취약점(메모리/암호화/인증), 공급망 공격(악성 코드 삽입, 의존성 취약점)</li>
+      <li><strong>DevSecOps 라이프사이클 통합</strong>: Plan(위협 모델링 STRIDE/TARA), Code(SAST, Secret 스캔), Build(SCA, 이미지 스캔), Test(DAST/IAST, Fuzz), Release(SBOM, 서명/암호화), Deploy(Secure Boot), Monitor(런타임 보안, 침입 탐지)</li>
+      <li><strong>규제 및 컴플라이언스</strong>: ISO 21434(자동차 사이버 보안), UN R155/R156(2025년 글로벌 확대 적용), V2X 보안 표준화(IEEE 1609.2, SCMS), GDPR/개인정보보호법</li>
+      <li><strong>실무 보안 도구 스택</strong>: SAST(SonarQube, Semgrep, Clang Static Analyzer), Secret 스캔(Gitleaks, GitGuardian), SCA(Trivy, Snyk, Grype), DAST(OWASP ZAP, Burp Suite), Fuzz(AFL, LibFuzzer), SBOM(Syft, SPDX), 런타임 보안(Falco, Sysdig)</li>
     </ul>
   </div>
   <div class="summary-row">
     <span class="summary-label">기술/도구</span>
-    <span class="summary-value">SAST, DAST, SBOM, Trivy, Snyk, SonarQube, OWASP ZAP, CI/CD, GitHub Actions</span>
+    <span class="summary-value">SAST, DAST, IAST, SCA, SBOM, SonarQube, Semgrep, Gitleaks, GitGuardian, Trivy, Snyk, OWASP ZAP, Burp Suite, AFL, LibFuzzer, Syft, SPDX, Falco, Sysdig, Secure Boot, TEE, HSM, ISO 21434, UN R155/R156, AUTOSAR Adaptive</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">대상 독자</span>

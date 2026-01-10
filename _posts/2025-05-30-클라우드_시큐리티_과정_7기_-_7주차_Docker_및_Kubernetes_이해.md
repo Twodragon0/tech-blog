@@ -4,7 +4,7 @@ title: "클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes �
 date: 2025-05-30 00:04:58 +0900
 category: kubernetes
 tags: [Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps]
-excerpt: "안녕하세요, **Twodragon**입니다. 이번 포스트에서는 클라우드 보안 과정 7기의 **Docker 및 Kubernetes 이해**에 관련된 내용을 다루고자 합니다. 이 과정은 게더 타운(Gather Town)에서 진행되며, 각 세션은 **20분 강의 후 5분 휴식** 패턴으로 구성되어 있습니다."
+excerpt: "클라우드 시큐리티 과정 7기 7주차: Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처 및 주요 리소스(Pod, Deployment, Service, ConfigMap, Secret), 컨테이너 보안 Best Practices(최소 권한, 이미지 스캔, Secret 관리), 런타임 보안(Trivy, Falco), Minikube/K9s 실습 가이드까지 실무 중심 정리."
 comments: true
 toc: true
 original_url: https://twodragon.tistory.com/686

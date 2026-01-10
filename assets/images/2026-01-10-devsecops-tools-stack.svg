@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3c72;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a5298;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sastGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dastGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="scanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="monitorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="autoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGrad3)"/>
+  
+  <!-- Title -->
+  <text x="600" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffffff">DevSecOps 보안 도구 및 기술 스택</text>
+  <text x="600" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#cccccc">주요 보안 도구 분류 및 비교</text>
+  
+  <!-- SAST Tools -->
+  <g transform="translate(50, 150)">
+    <rect x="0" y="0" width="220" height="550" rx="15" fill="url(#sastGrad)" opacity="0.9"/>
+    <text x="110" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">SAST</text>
+    <text x="110" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">정적 분석</text>
+    
+    <rect x="10" y="90" width="200" height="80" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="110" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">CodeQL</text>
+    <text x="110" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0">GitHub 코드 분석</text>
+    
+    <rect x="10" y="180" width="200" height="80" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="110" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">SonarQube</text>
+    <text x="110" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0">코드 품질 분석</text>
+    
+    <rect x="10" y="270" width="200" height="80" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="110" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Checkmarx</text>
+    <text x="110" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0">정적 보안 테스트</text>
+  </g>
+  
+  <!-- DAST Tools -->
+  <g transform="translate(290, 150)">
+    <rect x="0" y="0" width="220" height="550" rx="15" fill="url(#dastGrad)" opacity="0.9"/>
+    <text x="110" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">DAST</text>
+    <text x="110" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">동적 분석</text>
+    
+    <rect x="10" y="90" width="200" height="80" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="110" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Burp Suite</text>
+    <text x="110" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0">웹 보안 테스트</text>
+    
+    <rect x="10" y="180" width="200" height="80" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="110" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">OWASP ZAP</text>
+    <text x="110" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0">오픈소스 스캐너</text>
+  </g>
+  
+  <!-- Vulnerability Scanning -->
+  <g transform="translate(530, 150)">
+    <rect x="0" y="0" width="220" height="550" rx="15" fill="url(#scanGrad)" opacity="0.9"/>
+    <text x="110" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">취약점 스캔</text>
+    <text x="110" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Vulnerability Scan</text>
+    
+    <rect x="10" y="90" width="200" height="80" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="110" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Nessus</text>
+    <text x="110" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0">종합 스캐너</text>
+    
+    <rect x="10" y="180" width="200" height="80" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="110" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Nmap</text>
+    <text x="110" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0">네트워크 탐지</text>
+    
+    <rect x="10" y="270" width="200" height="80" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="110" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Qualys</text>
+    <text x="110" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0">클라우드 스캔</text>
+  </g>
+  
+  <!-- Monitoring & SIEM -->
+  <g transform="translate(770, 150)">
+    <rect x="0" y="0" width="220" height="550" rx="15" fill="url(#monitorGrad)" opacity="0.9"/>
+    <text x="110" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">모니터링</text>
+    <text x="110" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">SIEM & Log</text>
+    
+    <rect x="10" y="90" width="200" height="80" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="110" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">SIEM</text>
+    <text x="110" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0">보안 이벤트 관리</text>
+    
+    <rect x="10" y="180" width="200" height="80" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="110" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Wireshark</text>
+    <text x="110" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0">패킷 분석</text>
+    
+    <rect x="10" y="270" width="200" height="80" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="110" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Log Analysis</text>
+    <text x="110" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e0e0e0">중앙 집중식 로깅</text>
+  </g>
+  
+  <!-- Automation -->
+  <g transform="translate(1010, 150)">
+    <rect x="0" y="0" width="140" height="550" rx="15" fill="url(#autoGrad)" opacity="0.9"/>
+    <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">자동화</text>
+    <text x="70" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">SOAR</text>
+    
+    <rect x="10" y="90" width="120" height="100" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="70" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">SOAR</text>
+    <text x="70" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">보안 오케스트레이션</text>
+    
+    <rect x="10" y="200" width="120" height="100" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="70" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">자동 패치</text>
+    <text x="70" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">취약점 자동 수정</text>
+    
+    <rect x="10" y="310" width="120" height="100" rx="5" fill="#ffffff" opacity="0.2"/>
+    <text x="70" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">EDR</text>
+    <text x="70" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">엔드포인트 탐지</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#888888">각 도구는 특정 보안 영역에 특화되어 있으며, 통합 사용이 권장됩니다</text>
+</svg>

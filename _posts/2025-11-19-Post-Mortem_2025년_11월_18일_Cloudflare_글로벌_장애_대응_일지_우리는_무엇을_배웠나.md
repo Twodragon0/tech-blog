@@ -4,7 +4,7 @@ title: "[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일
 date: 2025-11-19 12:25:20 +0900
 category: incident
 tags: [Cloudflare, Post-Mortem, Incident-Response, CDN, Network, SRE]
-excerpt: "2025년 11월 18일 저녁, 전 세계 수많은 인터넷 서비스를 마비시킨 **Cloudflare의 글로벌 네트워크 장애**가 발생했습니다. 우리 서비스 역시 예외는 아니었습니다. 이 글은 긴박했던 장애 상황에서 우리 팀이 어떻게 문제를 인지하고 대응했는지, 특히 **모바일과 PC 환경에서 나타난 상이한 증상**을 어떻게 분석했는지를 기록합니다."
+excerpt: "Post-Mortem: 2025년 11월 18일 Cloudflare 글로벌 네트워크 장애 대응 일지. 모바일/PC 환경 상이한 증상 분석(모바일 100% 접속 불가, PC 간헐적 접속), Multi-CDN 전략 및 자동 Failover 구현 방안, 2025년 Cloudflare 보안 업데이트(Post-Quantum Encryption, DDoS 위협 동향), 인시던트 대응 프로세스, 모니터링 및 알림 체계 개선까지 실무 중심 정리."
 comments: true
 toc: true
 original_url: https://twodragon.tistory.com/699

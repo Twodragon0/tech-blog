@@ -32,7 +32,7 @@
     <h2 class="post-card-title">{{ post.title | escape }}</h2>
 
     {% if post.excerpt and post.excerpt != "" %}
-    <p class="post-card-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
+    <p class="post-card-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 250 }}</p>
     {% endif %}
 
       {% if post.tags and post.tags.size > 0 %}

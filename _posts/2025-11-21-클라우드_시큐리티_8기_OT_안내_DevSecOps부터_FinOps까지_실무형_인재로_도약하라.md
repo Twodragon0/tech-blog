@@ -4,7 +4,7 @@ title: "클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 
 date: 2025-11-21 18:28:12 +0900
 categories: devsecops
 tags: [Cloud-Security, DevSecOps, FinOps, Course]
-excerpt: "클라우드 시큐리티 8기 OT 안내입니다. DevSecOps, FinOps, 클라우드 보안 실무 역량을 키우고 대체 불가능한 전문가로 성장할 기회를 소개합니다."
+excerpt: "클라우드 시큐리티 8기 OT 안내: 9주 커리큘럼 소개(AWS 보안 아키텍처, FinOps, 취약점 점검, Control Tower, CI/CD/Kubernetes 보안, DevSecOps 통합), DevSecOps/FinOps 실무 역량 강화 과정(20분 강의 + 5분 휴식 루틴), 실전 내용 및 대체 불가능한 클라우드 보안 전문가로 성장하는 기회까지 정리."
 comments: true
 original_url: https://twodragon.tistory.com/700
 image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라.svg

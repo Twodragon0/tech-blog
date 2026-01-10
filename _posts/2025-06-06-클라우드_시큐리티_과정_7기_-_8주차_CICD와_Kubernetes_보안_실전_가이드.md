@@ -4,7 +4,7 @@ title: "클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보
 date: 2025-06-06 19:45:40 +0900
 category: kubernetes
 tags: [CI/CD, Kubernetes, Security, DevSecOps, GitOps, Pipeline-Security]
-excerpt: "안녕하세요, **Twodragon**입니다. 이번 주차에서는 DevOps 환경에서 필수적인 **CI/CD 파이프라인 보안**과 **Kubernetes 클러스터 보안**에 대해 알아보겠습니다. 실습과 이론을 병행하여, 실제 서비스 환경에 적용 가능한 보안 전략을 다루었습니다."
+excerpt: "클라우드 시큐리티 과정 7기 8주차: CI/CD 파이프라인 보안(GitHub Actions 보안 설정, SAST/DAST 통합), Kubernetes 클러스터 보안(RBAC, Pod Security Standards, Network Policy), 이미지 서명(Cosign), Secret 관리, 런타임 보안(Kyverno, Falco), GitOps 보안 모범 사례까지 실무 중심 정리."
 comments: true
 toc: true
 original_url: https://twodragon.tistory.com/689

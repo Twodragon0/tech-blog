@@ -5,7 +5,7 @@ date: 2025-05-23 01:07:48 +0900
 category: security
 categories: [Security, DevSecOps]
 tags: [AWS, CDN, Cloudflare, GitHub, SAST, WAF, 보안, 보안-아키텍처, 애플리케이션-보안, 코드-보안]
-excerpt: "안녕하세요, Twodragon입니다. 이번 포스트에서는 클라우드 보안 과정 7기의 Application 보안 및 Cloudflare 및 GitHub 활용을 다루고자 합니다. AWS WAF를 활용한 웹 애플리케이션 보안 강화부터, Cloudflare의 DDoS 보호, WAF, SSL/TLS, CDN 등 종합 보안 기능, 그리고 GitHub Dependabot 및 Code Scanning을 통한 코드 보안 자동화까지 실무 중심으로 상세히 다룹니다..."
+excerpt: "클라우드 시큐리티 과정 7기 6주차: AWS WAF 보안 강화(웹 ACL 규칙, IP 기반 접근 제어, Geo-blocking), Cloudflare 종합 보안(DDoS 보호, WAF, SSL/TLS 1.3, CDN, Bot Management), GitHub 보안 자동화(Dependabot, CodeQL, Secret Scanning), 실무 보안 실습(DVWA 활용)까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/684
 image: /assets/images/2025-05-23-클라우드_시큐리티_과정_7기_-_6주차_Cloudflare_및_github_보안.svg
@@ -42,15 +42,16 @@ toc: true
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>AWS WAF를 활용한 웹 애플리케이션 보안 강화</li>
-      <li>Cloudflare의 DDoS 보호, WAF, SSL/TLS, CDN 등 종합 보안 기능</li>
-      <li>GitHub Dependabot 및 Code Scanning을 통한 코드 보안 자동화</li>
-      <li>실무 중심의 보안 실습 및 모범 사례</li>
+      <li><strong>AWS WAF 보안 강화</strong>: 웹 ACL 규칙 설정(SQL Injection, XSS, Rate Limiting), IP 기반 접근 제어, Geo-blocking, 커스텀 규칙 로직, CloudWatch 연동 모니터링</li>
+      <li><strong>Cloudflare 종합 보안</strong>: DDoS 보호(자동 완화, Rate Limiting), WAF 규칙 관리(OWASP Core Rule Set), SSL/TLS 설정(TLS 1.3, HSTS), CDN 최적화, Bot Management, Page Rules</li>
+      <li><strong>GitHub 보안 자동화</strong>: Dependabot 의존성 취약점 스캔 및 자동 PR 생성, Code Scanning(CodeQL) 정적 분석, Secret Scanning 민감 정보 탐지, Security Advisories 관리</li>
+      <li><strong>실무 보안 실습</strong>: DVWA(Damn Vulnerable Web Application)를 활용한 취약점 실습, AWS WAF 규칙 테스트, Cloudflare 보안 설정 실습, GitHub 보안 기능 통합</li>
+      <li><strong>보안 모범 사례</strong>: Defense in Depth 전략, 다층 보안 방어, 자동화된 보안 검사, 실시간 모니터링 및 알림</li>
     </ul>
   </div>
   <div class="summary-row">
     <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS WAF, Cloudflare, GitHub Advanced Security, Dependabot, Code Scanning, DVWA</span>
+    <span class="summary-value">AWS WAF, CloudFront, Cloudflare, DDoS Protection, WAF, SSL/TLS, CDN, Bot Management, GitHub Advanced Security, Dependabot, CodeQL, Code Scanning, Secret Scanning, DVWA, CloudWatch, OWASP Core Rule Set</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">대상 독자</span>

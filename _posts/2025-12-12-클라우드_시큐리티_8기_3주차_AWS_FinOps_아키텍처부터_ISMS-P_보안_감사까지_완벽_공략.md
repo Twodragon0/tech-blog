@@ -4,7 +4,7 @@ title: "클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 IS
 date: 2025-12-12 14:45:05 +0900
 categories: finops
 tags: [AWS, FinOps, ISMS-P, Audit, Cost-Optimization]
-excerpt: "안녕하세요, Twodragon입니다. 어느덧 클라우드 시큐리티 과정 8기도 중반부를 향해 달려가고 있습니다. &zwj;♂️ 이번 3주차 세션 역시 우리만의 온라인 미팅에서 진행되었으며, '20분 몰입 + 5분 휴식'이라는 효율적인 루틴으로 집중도를 최대로 끌어올렸습니다."
+excerpt: "클라우드 시큐리티 8기 3주차: 2025년 FinOps 트렌드(AI/ML 비용 최적화, GreenOps 통합, Unit Economics, Real-time Cost Visibility), AWS 비용 관리 도구(Cost Optimization Hub, Compute Optimizer, Application Cost Profiler, Cost Anomaly Detection), ISMS-P 인증 대응을 위한 AWS 기반 보안 감사 전략, Commitment Management(Savings Plans, Reserved Instances) 자동화까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/703
 image: /assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략.svg

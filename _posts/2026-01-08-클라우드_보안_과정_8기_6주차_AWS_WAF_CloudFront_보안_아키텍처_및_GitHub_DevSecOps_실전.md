@@ -5,7 +5,7 @@ date: 2026-01-08 19:58:00 +0900
 category: security
 categories: [Security, DevSecOps]
 tags: [AWS, CloudFront, cloudsecurity, Cybersecurity, DevSecOps, github, githubactions, SecurityEngineering, TechBlog, waf]
-excerpt: "지난 5주차에서는 AWS Control Tower와 Datadog SIEM, Cloudflare를 활용한 거버넌스와 관제에 대해 다루었습니다. 이번 클라우드 보안 과정 8기 6주차에서는 AWS WAF와 CloudFront를 결합한 안전한 콘텐츠 전송 아키텍처와, 개발과 보안을 통합하는 GitHub DevSecOps, 그리고 엔지니어의 성장을 위한 테크 블로그 운영 및 실제 보안 적용 사례를 공유합니다..."
+excerpt: "클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처(OAI/OAC, WAF 규칙, Geo-blocking), GitHub DevSecOps 실전(CodeQL, Dependabot, Secret Scanning), 실전 보안 패치 사례(SSRF 수정, Data Masking), 테크 블로그 보안 개선(Jekyll, CodeQL 기반 취약점 진단), Amazon Q Developer 활용까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/707
 image: /assets/images/2026-01-08-클라우드_보안_과정_8기_6주차_AWS_WAF_CloudFront_보안_아키텍처_및_GitHub_DevSecOps_실전.svg
@@ -40,15 +40,16 @@ toc: true
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>AWS WAF와 CloudFront를 결합한 안전한 콘텐츠 전송 아키텍처</li>
-      <li>GitHub Actions 및 Advanced Security를 통한 DevSecOps 구현</li>
-      <li>테크 블로그 개선 및 보안 패치 실전 사례 (SSRF, Data Masking)</li>
-      <li>CodeQL을 활용한 코드 보안 취약점 진단 및 수정</li>
+      <li><strong>AWS WAF/CloudFront 보안 아키텍처</strong>: CloudFront와 S3 간 안전한 연결(OAI/OAC), WAF 규칙 설정(SQL Injection, XSS, Rate Limiting), Geo-blocking, IP 화이트리스트/블랙리스트, 커스텀 규칙 로직</li>
+      <li><strong>GitHub DevSecOps 실전</strong>: GitHub Actions를 통한 자동화된 보안 검사, CodeQL 정적 분석, Dependabot 의존성 취약점 스캔, Secret Scanning, Advanced Security 기능 활용</li>
+      <li><strong>실전 보안 패치 사례</strong>: SSRF(Server-Side Request Forgery) 취약점 수정, Data Masking 구현, 입력 검증 강화, 보안 헤더 설정(CSP, HSTS, X-Frame-Options)</li>
+      <li><strong>테크 블로그 보안 개선</strong>: Jekyll 블로그 보안 강화, CodeQL 기반 취약점 진단 및 수정, UI 개선 및 보안 패치, 실무 적용 케이스 스터디</li>
+      <li><strong>Amazon Q Developer 활용</strong>: AI 기반 코드 보안 검토, 취약점 제안 및 수정 가이드, 개발 생산성 향상</li>
     </ul>
   </div>
   <div class="summary-row">
     <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS WAF, CloudFront, OAI/OAC, GitHub Actions, CodeQL, Dependabot, Amazon Q Developer</span>
+    <span class="summary-value">AWS WAF, CloudFront, S3, OAI/OAC, GitHub Actions, CodeQL, Dependabot, Secret Scanning, GitHub Advanced Security, Amazon Q Developer, Jekyll, SSRF 방어, Data Masking, CSP, HSTS</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">대상 독자</span>

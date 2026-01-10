@@ -157,7 +157,66 @@ document.addEventListener('DOMContentLoaded', function() {
     const readingTime = Math.ceil(wordCount / 200);
     document.getElementById('reading-time').textContent = readingTime + ' min read';
   }
+
+  // Enhance external links in post content
+  enhanceExternalLinks();
 });
+
+// Function to enhance external links with icons and attributes
+function enhanceExternalLinks() {
+  const postContent = document.querySelector('.post-content');
+  if (!postContent) return;
+
+  const links = postContent.querySelectorAll('a[href]');
+  const currentHost = window.location.hostname;
+  const currentProtocol = window.location.protocol;
+
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+
+    // Skip if already processed or is a special link
+    if (link.classList.contains('external-link-processed') || 
+        href.startsWith('#') || 
+        href.startsWith('mailto:') || 
+        href.startsWith('tel:')) {
+      return;
+    }
+
+    // Check if it's an external link
+    const isExternal = (href.startsWith('http://') || href.startsWith('https://')) &&
+                       !href.includes(currentHost) &&
+                       !link.hasAttribute('target');
+
+    // Check if it's an internal link that should open in new tab
+    const shouldOpenNewTab = link.hasAttribute('target') && 
+                             link.getAttribute('target') === '_blank';
+
+    if (isExternal || shouldOpenNewTab) {
+      // Add external link attributes for security
+      if (!link.hasAttribute('target')) {
+        link.setAttribute('target', '_blank');
+      }
+      if (!link.hasAttribute('rel')) {
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
+
+      // Add aria-label for accessibility
+      const linkText = link.textContent.trim();
+      if (!link.hasAttribute('aria-label')) {
+        link.setAttribute('aria-label', `${linkText} (새 창에서 열림)`);
+      }
+
+      // Add class for styling
+      link.classList.add('external-link', 'external-link-processed');
+
+      // Add title attribute if not present
+      if (!link.hasAttribute('title')) {
+        link.setAttribute('title', '새 창에서 열림');
+      }
+    }
+  });
+}
 
 // Reading progress bar
 window.addEventListener('scroll', function() {

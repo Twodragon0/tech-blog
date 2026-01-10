@@ -5,7 +5,7 @@ date: 2026-01-08 16:00:00 +0900
 category: security
 categories: [Security, Blockchain, DevSecOps]
 tags: [Blockchain, Cryptocurrency, Bitcoin, Ethereum, Smart-Contract, Security-Audit, GitHub, DevSecOps, Slither, Mythril, Securify, CI-CD]
-excerpt: "블록체인과 암호화폐 생태계가 급속도로 성장하면서, 보안은 더욱 중요한 이슈로 부상하고 있습니다. 2024년 한 해 동안만도 스마트 컨트랙트 취약점으로 인한 수십억 달러 규모의 자산 손실이 발생했습니다. 이 가이드에서는 DevSecOps 관점에서 GitHub의 오픈소스 보안 도구들(Slither, Mythril, Securify 등)을 활용한 스마트 컨트랙트 보안 감사부터, CI/CD 파이프라인 통합, 블록체인 네트워크 보안, 지갑 보안, 그리고 기업 환경에서의 암호화폐 보안 모범 사례까지 실무 중심으로 종합적으로 다룹니다..."
+excerpt: "블록체인 암호화폐 보안 완벽 가이드: 2024-2025년 34억 달러 손실(Bybit 15억 달러 해킹 포함), 스마트 컨트랙트 보안 도구 비교(Slither/Mythril/Securify 2.0/Medusa 2025), CI/CD 보안 파이프라인 통합(GitHub Actions), 주요 위협(Reentrancy, Integer Overflow, 51% 공격), 실무 보안 모범 사례(Fuzz 테스트, 속성 기반 테스팅)까지 DevSecOps 관점에서 종합 정리."
 comments: true
 original_url: https://twodragon.tistory.com
 image: /assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_DevSecOps_관점에서_본_GitHub_보안_도구_및_모범_사례.svg
@@ -40,14 +40,16 @@ toc: true
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>GitHub 오픈소스 보안 도구(Slither, Mythril, Securify)를 활용한 스마트 컨트랙트 보안 감사</li>
-      <li>CI/CD 파이프라인에 보안 검사 통합 및 자동화</li>
-      <li>블록체인 네트워크, 지갑, 거래소 보안 모범 사례</li>
+      <li><strong>스마트 컨트랙트 보안 도구 비교</strong>: Slither(정적 분석, 빠른 초기 검사), Mythril(심볼릭 실행, 깊이 있는 분석), Securify 2.0(패턴+데이터 흐름, 높은 정확도), Medusa 2025(차세대 퍼저, 커버리지 기반)</li>
+      <li><strong>CI/CD 보안 파이프라인 통합</strong>: GitHub Actions를 통한 자동화된 보안 검사(Slither, Mythril, Securify), 의존성 취약점 스캔(npm audit), Fuzz 테스트(Foundry, Medusa), 배포 전 최종 검증</li>
+      <li><strong>2024-2025년 보안 사고 분석</strong>: 총 34억 달러 손실, Bybit 15억 달러 해킹(북한 Lazarus), 스마트 컨트랙트 취약점 60%, 거래소 해킹 30%, 지갑 보안 10%</li>
+      <li><strong>블록체인 보안 위협</strong>: Reentrancy, Integer Overflow, Access Control 취약점, Oracle Manipulation, Front-running, 51% 공격, Sybil/Eclipse 공격</li>
+      <li><strong>실무 보안 모범 사례</strong>: 다중 도구 조합 사용, 자동화된 보안 검사, 속성 기반 테스팅(Echidna), Fuzz 테스트(Foundry, Medusa), 보안 감사 체크리스트</li>
     </ul>
   </div>
   <div class="summary-row">
     <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Slither, Mythril, Securify, GitHub Actions, Foundry, Echidna</span>
+    <span class="summary-value">Slither, Mythril, Securify 2.0, Medusa 2025, Echidna, Manticore, Foundry, GitHub Actions, npm audit, Solidity, EVM, Hardhat, Truffle, OpenZeppelin</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">대상 독자</span>
