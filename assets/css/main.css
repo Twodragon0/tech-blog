@@ -762,7 +762,7 @@ body {
 /* Posts List */
 .posts-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-lg);
   margin-top: var(--spacing-lg);
 }
@@ -2057,6 +2057,12 @@ body {
 }
 
 /* Responsive Design */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .posts-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --container-padding: 1rem;
