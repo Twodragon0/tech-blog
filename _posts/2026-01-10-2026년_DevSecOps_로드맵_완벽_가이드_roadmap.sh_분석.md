@@ -4,7 +4,7 @@ title: "2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석"
 date: 2026-01-10 10:00:00 +0900
 categories: [devsecops, security]
 tags: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, "2026"]
-excerpt: "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석: 93개 학습 항목(기초 학습, 위협 관리, 보안 아키텍처, 거버넌스, 도구 자동화), 단계별 학습 경로(초급/중급/고급/전문가), 실무 보안 도구 스택(SAST/DAST, SIEM/SOAR, 컨테이너 보안), 공급망 보안(SBOM, 의존성 관리), 인시던트 대응 체계까지 DevSecOps 전문가 성장을 위한 완벽 가이드."
+excerpt: "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석: 93개 학습 항목, 2024-2025 최신 트렌드 반영(OWASP Top 10:2025, NIST CSF 2.0, GitHub Advanced Security, AI/ML 보안 자동화), 단계별 학습 경로, 실무 보안 도구 스택(SAST/DAST/IAST, SIEM/SOAR), 공급망 보안 강화(SBOM, Secret Scanning), 인시던트 대응 체계까지 DevSecOps 전문가 성장을 위한 완벽 가이드."
 comments: true
 image: /assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg
 image_alt: "2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis"
@@ -38,16 +38,17 @@ toc: true
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li><strong>93개 학습 항목 완벽 분석</strong>: 기초 학습(프로그래밍, 보안 기초), 위협 관리(STRIDE, PASTA), 보안 아키텍처(Defense in Depth, Zero Trust), 거버넌스(NIST, ISO 27001), 도구 자동화(SAST/DAST, SIEM, SOAR)</li>
+      <li><strong>93개 학습 항목 완벽 분석</strong>: 기초 학습(프로그래밍, 보안 기초), 위협 관리(STRIDE, PASTA), 보안 아키텍처(Defense in Depth, Zero Trust), 거버넌스(NIST CSF 2.0, ISO 27001), 도구 자동화(SAST/DAST/IAST, SIEM, SOAR)</li>
+      <li><strong>2024-2025 최신 트렌드 반영</strong>: OWASP Top 10:2025 (공급망 보안 강조), NIST CSF 2.0, GitHub Advanced Security 최신 기능, AI/ML 기반 보안 자동화, Secret Scanning 통계</li>
       <li><strong>단계별 학습 경로</strong>: 초급(0-6개월) 프로그래밍/보안 기초, 중급(6-12개월) 위협 모델링/컨테이너 보안, 고급(12-24개월) 엔터프라이즈 아키텍처/거버넌스, 전문가(24개월+) 전략 수립</li>
-      <li><strong>실무 보안 도구 스택</strong>: SAST(CodeQL, SonarQube), DAST(Burp Suite, OWASP ZAP), 컨테이너 보안(Docker, Kubernetes), SIEM/SOAR, 공급망 보안(SBOM, Dependabot)</li>
-      <li><strong>공급망 보안 심화</strong>: SBOM 생성/검증, 의존성 리스크 관리, 빌드 파이프라인 강화, 자동 의존성 스캔 CI/CD 통합</li>
-      <li><strong>인시던트 대응 체계</strong>: IR 라이프사이클(준비→탐지→격리→근절→복구), 포렌식(디지털/메모리/네트워크), SOAR 자동화, EDR 솔루션</li>
+      <li><strong>실무 보안 도구 스택 (2024-2025)</strong>: SAST(CodeQL Rust 지원, Semgrep), DAST(Burp Suite, OWASP ZAP), IAST(Contrast Security), SCA(Trivy, Dependabot), 컨테이너 보안, SIEM/SOAR, SBOM(CycloneDX, Syft)</li>
+      <li><strong>공급망 보안 심화</strong>: SBOM 생성/검증/표준화, 의존성 리스크 관리(함수 호출 분석), 빌드 파이프라인 강화, NIST SP 800-204D, CISA SBOM 가이드, Secret Scanning (3,900만 개 이상 탐지)</li>
+      <li><strong>인시던트 대응 체계</strong>: IR 라이프사이클(준비→탐지→격리→근절→복구), 포렌식(디지털/메모리/네트워크), SOAR 자동화, EDR 솔루션, AI 기반 자동 대응</li>
     </ul>
   </div>
   <div class="summary-row">
     <span class="summary-label">기술/도구</span>
-    <span class="summary-value">roadmap.sh, Python/Go/JavaScript, Bash/PowerShell, STRIDE/PASTA, OWASP Top 10, CodeQL, SonarQube, Burp Suite, OWASP ZAP, Nessus, Wireshark, Nmap, Docker, Kubernetes, SIEM, SOAR, EDR, SBOM, Dependabot, NIST Framework, ISO 27001, SOC 2</span>
+    <span class="summary-value">roadmap.sh, Python/Go/JavaScript, Bash/PowerShell, STRIDE/PASTA, OWASP Top 10:2025, CodeQL (Rust 지원), SonarQube, Semgrep, Burp Suite, OWASP ZAP, Contrast Security, Trivy, Dependabot, GitHub Advanced Security, Docker, Kubernetes, SIEM, SOAR, EDR, SBOM (CycloneDX, Syft), NIST CSF 2.0, NIST SP 800-204D, ISO 27001, SOC 2, CISA SBOM 가이드</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">대상 독자</span>
@@ -68,7 +69,16 @@ toc: true
 
 2026년을 맞이하며, DevSecOps 분야에서 전문가로 성장하기 위한 체계적인 학습 경로가 더욱 중요해졌습니다. [roadmap.sh](https://roadmap.sh/devsecops)는 개발자 커뮤니티에서 가장 신뢰받는 학습 로드맵 플랫폼 중 하나로, 2026년 DevSecOps 로드맵을 새롭게 업데이트했습니다.
 
-이 포스팅에서는 roadmap.sh의 2026년 DevSecOps 로드맵을 완벽 분석하여, 총 **93개의 학습 항목**을 단계별로 정리하고 실무 중심의 학습 경로를 제시합니다. 기초 프로그래밍부터 고급 거버넌스까지, DevSecOps 전문가가 되기 위한 완벽한 가이드를 제공합니다.
+이 포스팅에서는 roadmap.sh의 2026년 DevSecOps 로드맵을 완벽 분석하여, 총 **93개의 학습 항목**을 단계별로 정리하고 실무 중심의 학습 경로를 제시합니다. 또한 **2024-2025년 최신 트렌드와 동향**을 반영하여 다음과 같은 최신 정보를 포함합니다:
+
+- **OWASP Top 10:2025** (2025년 11월 발표): 공급망 보안이 별도 카테고리로 추가
+- **NIST Cybersecurity Framework 2.0** (2024년 2월): Govern 함수 추가
+- **GitHub Advanced Security 최신 기능**: CodeQL Rust 지원, 증분 분석, Dependabot 개선
+- **AI/ML 기반 보안 자동화**: ZeroFalse, AutoGuard 등 최신 연구
+- **공급망 보안 강화**: NIST SP 800-204D, CISA SBOM 가이드, Secret Scanning 통계
+- **최신 보안 도구**: Semgrep, Trivy, Contrast Security 등 2024-2025 도구 업데이트
+
+기초 프로그래밍부터 고급 거버넌스까지, DevSecOps 전문가가 되기 위한 완벽한 가이드를 제공합니다.
 
 ## 📊 빠른 참조
 
@@ -91,17 +101,20 @@ toc: true
 | **JavaScript/Node.js** | 웹 애플리케이션 보안 | ⭐⭐ 권장 |
 | **PowerShell** | Windows 환경 자동화 | ⭐ 선택 |
 
-### 보안 도구 스택
+### 보안 도구 스택 (2024-2025 최신)
 
-| 도구 유형 | 도구명 | 용도 |
-|----------|--------|------|
-| **SAST** | CodeQL, SonarQube | 정적 코드 분석 |
-| **DAST** | Burp Suite, OWASP ZAP | 동적 보안 테스트 |
-| **취약점 스캔** | Nessus, Nmap, OpenVAS | 취약점 탐지 |
-| **네트워크 분석** | Wireshark, tcpdump | 패킷 분석 |
-| **컨테이너 보안** | Docker, Kubernetes | 컨테이너 보안 |
-| **SIEM/SOAR** | Splunk, ELK, Cortex | 보안 모니터링 및 자동화 |
-| **SBOM** | CycloneDX, Syft | 소프트웨어 구성 요소 관리 |
+| 도구 유형 | 도구명 | 용도 | 2024-2025 주요 업데이트 |
+|----------|--------|------|----------------------|
+| **SAST** | CodeQL, SonarQube, Semgrep | 정적 코드 분석 | CodeQL: Rust 지원, 증분 분석 (20% 속도 향상)<br>Semgrep: 실시간 보안 검사, 커스터마이징 규칙 |
+| **DAST** | Burp Suite, OWASP ZAP | 동적 보안 테스트 | OWASP ZAP: AI 기반 스캔 개선<br>Burp Suite: 인증 스캔, RBAC 지원 강화 |
+| **IAST** | Contrast Security, Synopsys Seeker | 런타임 보안 테스트 | 실시간 취약점 탐지, 코드 실행 경로 분석 |
+| **SCA** | Trivy, Sonatype Nexus, Dependabot | 소프트웨어 구성 요소 분석 | Trivy: 컨테이너, IaC 템플릿 스캔<br>Dependabot: Rust 툴체인 자동 업데이트, 커스텀 자동 분류 규칙 |
+| **취약점 스캔** | Nessus, Nmap, OpenVAS | 취약점 탐지 | AI 기반 위협 탐지 통합 |
+| **네트워크 분석** | Wireshark, tcpdump | 패킷 분석 | 향상된 프로토콜 디코딩 |
+| **컨테이너 보안** | Docker, Kubernetes, Trivy | 컨테이너 보안 | Kubernetes 보안 강화, 이미지 스캔 자동화 |
+| **SIEM/SOAR** | Splunk, ELK, Cortex XSOAR | 보안 모니터링 및 자동화 | AI 기반 이상 탐지, 자동 대응 워크플로우 |
+| **SBOM** | CycloneDX, Syft, SPDX | 소프트웨어 구성 요소 관리 | 디지털 서명, 해싱, 검증 기능 강화 |
+| **Secret Scanning** | GitHub Secret Scanning, GitGuardian | 시크릿 탐지 | 2024년 GitHub에서 3,900만 개 이상의 시크릿 탐지 |
 
 ### 학습 단계별 로드맵
 
@@ -121,11 +134,19 @@ toc: true
 
 ### 컴플라이언스 프레임워크
 
-| 프레임워크 | 설명 | 적용 분야 |
-|-----------|------|----------|
-| **NIST CSF** | Identify, Protect, Detect, Respond, Recover | 미국 정부/기업 |
-| **ISO 27001** | 정보 보안 관리 시스템 (ISMS) | 글로벌 기업 |
-| **SOC 2** | 서비스 조직 통제 보고서 | 클라우드 서비스 |
+| 프레임워크 | 버전 | 설명 | 주요 구성 요소 | 적용 분야 |
+|-----------|------|------|--------------|----------|
+| **NIST CSF** | **2.0 (2024년 2월)** | 사이버 보안 프레임워크 | **6개 함수**: Govern, Identify, Protect, Detect, Respond, Recover<br>22개 카테고리, 168개 하위 카테고리 | 미국 정부/기업 |
+| **ISO 27001** | 2022 | 정보 보안 관리 시스템 (ISMS) | 93개 통제 항목, 위험 관리 기반 | 글로벌 기업 |
+| **SOC 2** | Type I/II | 서비스 조직 통제 보고서 | 5개 신뢰 서비스 기준 (TSC) | 클라우드 서비스 |
+| **NIST SSDF** | 최신 | Secure Software Development Framework | 4개 실무 관행, 19개 태스크 | 소프트웨어 개발 |
+| **CISA SBOM 가이드** | 2024-2025 | Software Bill of Materials 소비 가이드 | SBOM 생성, 검증, 관리 모범 사례 | 공급망 보안 |
+
+> **📌 NIST CSF 2.0 주요 변화**
+> 
+> - **Govern 함수 추가**: 거버넌스와 리더십 강조
+> - **구조 간소화**: 6개 함수, 22개 카테고리로 재구성
+> - **실행 가능성 향상**: 더 구체적인 하위 카테고리 제공
 
 ## 1. DevSecOps 로드맵 개요
 
@@ -214,20 +235,28 @@ DevSecOps 엔지니어는 다양한 프로그래밍 언어와 스크립팅 지�
 
 ### 2.4 애플리케이션 보안 기초
 
-#### OWASP Top 10
+#### OWASP Top 10:2025
 
-웹 애플리케이션의 가장 심각한 10가지 보안 위험:
+2025년 11월에 발표된 OWASP Top 10:2025는 이전 버전과 비교하여 중요한 변화를 포함합니다:
 
-1. Broken Access Control
-2. Cryptographic Failures
-3. Injection (SQL, NoSQL, Command)
-4. Insecure Design
-5. Security Misconfiguration
-6. Vulnerable and Outdated Components
-7. Authentication and Session Management Failures
-8. Software and Data Integrity Failures
-9. Security Logging and Monitoring Failures
-10. Server-Side Request Forgery (SSRF)
+| 순위 | 위험 항목 | 설명 | 주요 변화 |
+|------|----------|------|----------|
+| **A01:2025** | Broken Access Control | 인증되지 않은 접근, 권한 우회 | **SSRF 통합**: Server-Side Request Forgery가 이 카테고리로 통합됨 |
+| **A02:2025** | Cryptographic Failures | 암호화 실패, 민감 데이터 노출 | 이전 A02와 동일 |
+| **A03:2025** | Software Supply Chain Failures | **신규**: 의존성, 빌드 시스템, 배포 인프라 취약점 | **확장**: 단순히 오래된 컴포넌트가 아닌 전체 공급망 위험 포함 |
+| **A04:2025** | Injection | SQL, NoSQL, Command Injection | 이전 A03과 동일 |
+| **A05:2025** | Insecure Design | 보안 설계 결함 | 이전 A04와 동일 |
+| **A06:2025** | Security Misconfiguration | 보안 설정 오류 | 이전 A05와 동일 |
+| **A07:2025** | Vulnerable and Outdated Components | 취약한 오래된 컴포넌트 | 이전 A06과 유사하나 A03과 구분 |
+| **A08:2025** | Authentication and Session Management Failures | 인증 및 세션 관리 실패 | 이전 A07과 동일 |
+| **A09:2025** | Software and Data Integrity Failures | 소프트웨어 및 데이터 무결성 실패 | 이전 A08과 동일 |
+| **A10:2025** | Mishandling of Exceptional Conditions | **신규**: 예외 조건 처리 오류 | **신규**: 부적절한 오류 처리로 인한 정보 노출 및 DoS 공격 |
+
+> **💡 주요 변화 요약**
+> 
+> - **A03:2025 Software Supply Chain Failures**: 공급망 보안이 별도 카테고리로 강조됨
+> - **A10:2025 Mishandling of Exceptional Conditions**: 예외 처리 실패가 새로운 위험으로 추가됨
+> - **SSRF 통합**: A01에 통합되어 접근 제어 문제로 재분류됨
 
 #### 주요 공격 방어
 
@@ -286,23 +315,38 @@ DevSecOps 엔지니어는 다양한 프로그래밍 언어와 스크립팅 지�
 
 ### 3.3 공급망 보안 (Supply Chain Security)
 
-#### SBOM (Software Bill of Materials)
+공급망 보안은 2024-2025년 DevSecOps의 최우선 과제로 부상했습니다. OWASP Top 10:2025에서 **A03:2025 Software Supply Chain Failures**가 별도 카테고리로 추가되었으며, NIST와 CISA에서도 관련 가이드라인을 발표했습니다.
 
-- 소프트웨어 구성 요소 목록 관리
-- 의존성 취약점 추적
-- 라이선스 컴플라이언스 관리
+#### SBOM (Software Bill of Materials) - 2024-2025 모범 사례
+
+| SBOM 구성 요소 | 설명 | 2024-2025 주요 개선사항 |
+|--------------|------|----------------------|
+| **정확한 생성** | Lock 파일 및 패키지 매니저 활용 | 표준화된 형식 (CycloneDX, SPDX) 강제 |
+| **표준화** | 프로젝트 전반의 통일된 SBOM 형식 | 파이프라인 정책을 통한 표준 강제 |
+| **검증** | 디지털 서명, 해싱, 증명서 | SBOM 무결성 및 진위성 검증 강화 |
+| **지속적 모니터링** | CVE 피드 및 SBOM 실시간 모니터링 | 공개 CVE 피드와 연동한 자동 알림 |
 
 #### 의존성 리스크 관리 (Dependency Risk Management)
 
-- **자동 의존성 스캔**: CI/CD 파이프라인 통합
-- **의존성 업데이트**: 자동 패치 및 알림
-- **의존성 검증**: 신뢰할 수 있는 소스 확인
+| 관리 영역 | 전략 | 도구 및 방법 |
+|----------|------|------------|
+| **자동 스캔** | CI/CD 파이프라인 통합 | Dependabot, Snyk, Trivy |
+| **함수 호출 분석** | 도달 가능한 코드의 취약점에 집중 | False Positive 감소, 실제 공격 가능성 평가 |
+| **의존성 업데이트** | 자동 패치 및 알림 | Rust 툴체인 자동 업데이트 (Dependabot) |
+| **의존성 검증** | 신뢰할 수 있는 소스 확인 | 서명 검증, 출처 확인 |
 
 #### 빌드 파이프라인 강화 (Build Pipeline Hardening)
 
-- **소스 코드 검증**: 코드 서명 및 검증
-- **빌드 환경 격리**: 안전한 빌드 환경 구축
-- **아티팩트 검증**: 빌드 산출물 무결성 검증
+| 강화 영역 | 보안 조치 | NIST SSDF 연계 |
+|----------|----------|--------------|
+| **소스 코드 검증** | 코드 서명 및 검증 | PO.3: Protect all forms of code |
+| **빌드 환경 격리** | 안전한 빌드 환경 구축 | PO.4: Secure build environment |
+| **아티팩트 검증** | 빌드 산출물 무결성 검증 | PO.5: Archive and protect each release |
+| **Zero-Trust 원칙** | 제3자 시스템에 대한 신뢰 검증 | ID 확인, 디바이스 상태 평가, 행동 기반 접근 제어 |
+
+> **📌 NIST SP 800-204D (2024년 2월)**
+> 
+> "Strategies for the Integration of Software Supply Chain Security in DevSecOps CI/CD Pipelines" 문서에서 공급망 보안을 CI/CD 파이프라인에 통합하는 구체적인 방법을 제시합니다.
 
 ## 4. 보안 아키텍처 (Secure Architecture)
 
@@ -455,19 +499,29 @@ SIEM은 보안 이벤트를 수집, 분석, 상관관계 분석하는 시스템�
 
 ## 6. 거버넌스 및 컴플라이언스 (Governance)
 
-### 6.1 사이버 보안 프레임워크
+### 6.1 사이버 보안 프레임워크 (2024-2025 최신)
 
 #### 주요 프레임워크
 
-- **NIST Cybersecurity Framework**: 
-  - Identify (식별)
-  - Protect (보호)
-  - Detect (탐지)
-  - Respond (대응)
-  - Recover (복구)
+**NIST Cybersecurity Framework 2.0 (2024년 2월 발표)**
 
-- **ISO 27001**: 정보 보안 관리 시스템 (ISMS)
-- **SOC 2**: 서비스 조직 통제 보고서
+| 함수 | 설명 | 주요 변화 |
+|------|------|----------|
+| **Govern** | **신규**: 거버넌스 및 리더십 | 조직의 사이버 보안 전략, 정책, 문화 강조 |
+| **Identify** | 식별 | 자산, 비즈니스 환경, 위험 관리 |
+| **Protect** | 보호 | 보안 제어, 데이터 보안, 접근 제어 |
+| **Detect** | 탐지 | 이상 탐지, 보안 모니터링 |
+| **Respond** | 대응 | 인시던트 대응, 커뮤니케이션 |
+| **Recover** | 복구 | 복구 계획, 개선 |
+
+**구조**: 6개 함수, 22개 카테고리, 168개 하위 카테고리
+
+**기타 주요 프레임워크**
+
+- **ISO 27001 (2022)**: 정보 보안 관리 시스템 (ISMS), 93개 통제 항목
+- **SOC 2 Type I/II**: 서비스 조직 통제 보고서, 5개 신뢰 서비스 기준 (TSC)
+- **NIST SSDF**: Secure Software Development Framework, 4개 실무 관행, 19개 태스크
+- **CISA SBOM 가이드**: SBOM 소비 모범 사례 (2024-2025)
 
 ### 6.2 감사 및 컴플라이언스 매핑 (Audit & Compliance Mapping)
 
@@ -510,19 +564,29 @@ SIEM은 보안 이벤트를 수집, 분석, 상관관계 분석하는 시스템�
 
 ## 7. 보안 도구 및 자동화 (DevSecOps Tools)
 
-### 7.1 보안 테스트 도구
+### 7.1 보안 테스트 도구 (2024-2025 최신)
 
 #### 정적 분석 도구 (SAST)
 
-- **CodeQL**: GitHub의 코드 분석 도구
-- **SonarQube**: 코드 품질 및 보안 분석
-- **Checkmarx**: 정적 애플리케이션 보안 테스트
+| 도구 | 주요 기능 | 2024-2025 업데이트 | GitHub 링크 |
+|------|----------|------------------|------------|
+| **CodeQL** | 다중 언어 코드 분석, 쿼리 기반 탐지 | Rust 지원 (2025), 증분 분석 (20% 속도 향상), Kotlin 2.2.2x 지원 | [GitHub CodeQL](https://github.com/github/codeql) |
+| **SonarQube** | 코드 품질 및 보안 분석, 30+ 언어 지원 | AI 기반 코드 리뷰, 보안 핫스팟 강화 | [SonarQube](https://www.sonarqube.org/) |
+| **Semgrep** | 경량 다중 언어 정적 분석, 커스터마이징 규칙 | 실시간 보안 검사, 개발자 친화적 인터페이스 | [Semgrep](https://semgrep.dev/) |
 
 #### 동적 분석 도구 (DAST)
 
-- **Burp Suite**: 웹 애플리케이션 보안 테스트
-- **OWASP ZAP**: 오픈소스 웹 보안 스캐너
-- **Nessus**: 취약점 스캐너
+| 도구 | 주요 기능 | 2024-2025 업데이트 | GitHub 링크 |
+|------|----------|------------------|------------|
+| **Burp Suite** | 웹 애플리케이션 보안 테스트, 수동/자동 스캔 | 인증 스캔 강화, RBAC 지원, 상세 보고서 | [Burp Suite](https://portswigger.net/burp) |
+| **OWASP ZAP** | 오픈소스 웹 보안 스캐너, 프록시 기능 | AI 기반 스캔 개선, 패시브/액티브 스캔 | [OWASP ZAP](https://www.zaproxy.org/) |
+
+#### 인터랙티브 분석 도구 (IAST)
+
+| 도구 | 주요 기능 | 2024-2025 특징 |
+|------|----------|--------------|
+| **Contrast Security** | 런타임 취약점 탐지, 코드 실행 경로 분석 | 실시간 보안 모니터링, 자동화된 보호 |
+| **Synopsys Seeker** | SAST/DAST 결합, 에이전트 기반 분석 | 자동화/수동 테스트 중 애플리케이션 동작 분석 |
 
 #### 네트워크 분석 도구
 
@@ -530,7 +594,42 @@ SIEM은 보안 이벤트를 수집, 분석, 상관관계 분석하는 시스템�
 - **Nmap**: 네트워크 탐지 및 보안 스캔
 - **tcpdump**: 명령줄 패킷 캡처
 
-### 7.2 DDoS 완화 전략 (DDoS Mitigation Strategy)
+### 7.2 GitHub Advanced Security (2024-2025 최신 기능)
+
+GitHub Advanced Security는 2024-2025년 동안 상당한 개선을 이루었습니다.
+
+#### CodeQL 최신 기능 (2024-2025)
+
+| 기능 | 설명 | 출시 시기 |
+|------|------|----------|
+| **Rust 지원** | Rust 코드베이스 스캔 지원 | 2025년 후반 |
+| **증분 분석** | PR 스캔 속도 20% 향상, 변경된 코드만 분석 | 2025년 중반 |
+| **Kotlin 2.2.2x 지원** | Kotlin 최신 버전 지원 강화 | 2024년 9월 |
+| **React 지원 강화** | React 애플리케이션 보안 분석 개선 | 2024년 9월 |
+| **자동 CodeQL 설치** | Self-hosted 에이전트 자동 설치 | 2024년 |
+
+#### Dependabot 최신 기능 (2024-2025)
+
+| 기능 | 설명 | 출시 시기 |
+|------|------|----------|
+| **서브디렉토리 제외** | Monorepo에서 특정 서브디렉토리 제외 | 2024년 9월 |
+| **Rust 툴체인 자동 업데이트** | `rust-toolchain.toml` 자동 업데이트 | 2024년 9월 |
+| **커스텀 자동 분류 규칙** | 조직 소유자/보안 관리자가 규칙 생성 | 2025년 |
+| **고급 필터** | 리포지토리별 보안 기능 상태 필터링 | 2024년 9월 |
+
+#### Secret Scanning 통계 및 개선
+
+- **2024년 탐지**: GitHub에서 3,900만 개 이상의 시크릿 탐지
+- **해킹 침해의 40%**: 도난당한 자격 증명이 원인
+- **API 개선**: Secret Asset Metadata API를 통한 풍부한 컨텍스트 제공 (2025년)
+
+> **💡 GitHub Advanced Security 활용 팁**
+> 
+> - CodeQL 증분 분석을 활용하여 PR 리뷰 시간 단축
+> - Dependabot 커스텀 규칙으로 조직 정책에 맞는 자동 분류 설정
+> - Secret Scanning을 CI/CD 파이프라인에 통합하여 실시간 탐지
+
+### 7.3 DDoS 완화 전략 (DDoS Mitigation Strategy)
 
 #### DDoS 공격 유형
 
@@ -545,7 +644,7 @@ SIEM은 보안 이벤트를 수집, 분석, 상관관계 분석하는 시스템�
 - **WAF**: 웹 애플리케이션 방화벽
 - **DDoS 보호 서비스**: 클라우드 기반 DDoS 보호
 
-### 7.3 IDS (Intrusion Detection System)
+### 7.4 IDS (Intrusion Detection System)
 
 #### IDS 유형
 
@@ -651,31 +750,77 @@ SIEM은 보안 이벤트를 수집, 분석, 상관관계 분석하는 시스템�
    - 사고 대응 고도화
    - 위협 인텔리전스
 
-## 9. 2026년 DevSecOps 트렌드
+## 9. 2024-2026년 DevSecOps 트렌드 및 최신 동향
 
-### 9.1 AI/ML 기반 보안
+### 9.1 AI/ML 기반 보안 자동화
 
-- **AI 기반 위협 탐지**: 머신러닝을 활용한 이상 탐지
-- **자동화된 대응**: AI 기반 인시던트 자동 대응
-- **보안 분석 자동화**: 로그 분석 및 패턴 인식
+2024-2025년 AI/ML이 DevSecOps에 본격적으로 통합되기 시작했습니다.
 
-### 9.2 공급망 보안 강화
+| AI/ML 활용 영역 | 기술 및 도구 | 주요 특징 |
+|---------------|------------|----------|
+| **위협 탐지** | ML 기반 이상 탐지, 패턴 인식 | Git 커밋 패턴, 빌드 출력, SBOM 통계적 이상 탐지 |
+| **자동 대응** | AI 기반 인시던트 자동 대응 | AutoGuard: 강화 학습 기반 자가 치유 보안 프레임워크 |
+| **보안 분석** | LLM 기반 로그 분석, 코드 리뷰 | ZeroFalse: SAST와 LLM 통합으로 False Positive 감소 |
+| **자동 수정** | 취약점 자동 수정, 정책 템플릿 생성 | AI 기반 자동 패치, 보안 설정 자동화 |
 
-- **SBOM 의무화**: 소프트웨어 구성 요소 투명성
-- **의존성 보안**: 오픈소스 의존성 보안 강화
-- **빌드 보안**: CI/CD 파이프라인 보안 강화
+> **💡 주요 AI 보안 프로젝트**
+> 
+> - **DevSecOps MCP Server**: SAST, DAST, IAST, SCA 통합 AI 서버
+> - **Awesome AI4DevSecOps**: AI 기반 DevSecOps 솔루션 연구 및 도구 모음
+> - **OWASP GenAI Security Project**: AI 보안 가이드 및 도구 (2025년 8월 웹사이트 런칭)
+
+### 9.2 공급망 보안 강화 (2024-2025 핵심 트렌드)
+
+공급망 보안은 2024-2025년 가장 중요한 보안 우선순위로 부상했습니다.
+
+| 보안 영역 | 2024-2025 주요 변화 | 규제 및 표준 |
+|----------|------------------|------------|
+| **SBOM 의무화** | EU Cyber Resilience Act, NIS2/DORA | CISA SBOM 가이드 (2024-2025) |
+| **의존성 보안** | 오픈소스 의존성 보안 강화, 자동 스캔 | NIST SP 800-204D (2024년 2월) |
+| **빌드 보안** | CI/CD 파이프라인 보안 강화, 서명 검증 | NIST SSDF, SLSA (Supply-chain Levels for Software Artifacts) |
+| **Secret 관리** | GitHub에서 3,900만 개 이상 시크릿 탐지 (2024) | Secret Scanning 자동화, 자격 증명 도난 방지 |
+
+#### Secret Scanning 통계 (2024)
+
+- **탐지된 시크릿**: 3,900만 개 이상 (GitHub 리포지토리)
+- **해킹 침해의 40%**: 도난당한 자격 증명이 원인
+- **대응 전략**: 자동 Secret Scanning, CI/CD 통합, 실시간 알림
 
 ### 9.3 Zero Trust 확산
 
-- **Zero Trust 네트워크**: 네트워크 레벨 Zero Trust
-- **Zero Trust 애플리케이션**: 애플리케이션 레벨 Zero Trust
-- **Zero Trust 데이터**: 데이터 레벨 Zero Trust
+| Zero Trust 영역 | 구현 요소 | 2024-2025 특징 |
+|---------------|----------|--------------|
+| **네트워크** | 마이크로 세그멘테이션, 네트워크 분할 | SD-WAN, SASE 통합 |
+| **애플리케이션** | 강력한 인증, 최소 권한 접근 | OAuth 2.0, JWT 강화 |
+| **데이터** | 데이터 암호화, 접근 제어 | 데이터 분류 및 레이블링 자동화 |
+| **제3자 시스템** | ID 확인, 디바이스 상태 평가, 행동 기반 접근 제어 | 공급망에 Zero Trust 확장 |
 
 ### 9.4 클라우드 네이티브 보안
 
-- **컨테이너 보안**: Kubernetes 보안 강화
-- **서버리스 보안**: 서버리스 아키텍처 보안
-- **멀티 클라우드 보안**: 여러 클라우드 환경 통합 보안
+| 보안 영역 | 2024-2025 주요 발전 | 도구 및 프레임워크 |
+|----------|------------------|-----------------|
+| **컨테이너 보안** | Kubernetes 보안 강화, 이미지 스캔 자동화 | Trivy, Falco, Kubernetes Pod Security Standards |
+| **서버리스 보안** | 서버리스 아키텍처 보안, 함수 레벨 보안 | AWS Lambda Layers, Azure Functions 보안 |
+| **멀티 클라우드 보안** | 여러 클라우드 환경 통합 보안, CSPM | AWS Security Hub, Azure Security Center, GCP Security Command Center |
+| **IaC 보안** | Infrastructure as Code 보안 스캔 | Checkov, tfsec, Terrascan |
+
+### 9.5 통합 DevSecOps 플랫폼
+
+| 플랫폼 유형 | 주요 솔루션 | 특징 |
+|-----------|----------|------|
+| **통합 도구체인** | Jit Security, GitLab Ultimate | 단일 인터페이스에서 여러 보안 도구 관리, 빠른 배포 |
+| **GitHub Advanced Security** | CodeQL, Dependabot, Secret Scanning | 증분 분석, Rust 지원, 커스텀 자동 분류 규칙 |
+| **클라우드 네이티브 보안** | AWS Security Hub, Azure Security Center | 클라우드 환경 통합 보안 모니터링 |
+
+### 9.6 규제 및 컴플라이언스 강화
+
+| 규제/표준 | 발표 시기 | 주요 내용 |
+|----------|---------|----------|
+| **EU Cyber Resilience Act** | 2024-2025 | 소프트웨어 제품의 사이버 보안 요구사항 |
+| **NIS2/DORA** | 2024-2025 | 네트워크 및 정보 시스템 보안, 금융 서비스 디지털 운영 복원력 |
+| **NIST CSF 2.0** | 2024년 2월 | Govern 함수 추가, 구조 간소화 |
+| **NIST SP 800-204D** | 2024년 2월 | DevSecOps CI/CD 파이프라인에 공급망 보안 통합 전략 |
+| **CISA SBOM 가이드** | 2024-2025 | SBOM 소비 모범 사례, 공급업체 위험 평가 도구 |
 
 ## 결론
 
@@ -685,13 +830,15 @@ roadmap.sh의 2026년 DevSecOps 로드맵은 총 93개의 학습 항목으로 �
 
 1. **기초 학습**: 프로그래밍, 보안 개념, 네트워크 보안 기초가 필수입니다.
 
-2. **위협 관리**: 위협 모델링, 취약점 관리, 공급망 보안이 핵심 역량입니다.
+2. **위협 관리**: 위협 모델링, 취약점 관리, **공급망 보안이 2024-2025년 최우선 과제**입니다.
 
 3. **보안 아키텍처**: Defense in Depth, Zero Trust, 보안 API 설계가 실무에서 중요합니다.
 
-4. **모니터링 및 대응**: SIEM, 인시던트 대응, SOAR 자동화가 필수입니다.
+4. **모니터링 및 대응**: SIEM, 인시던트 대응, SOAR 자동화, **AI 기반 자동 대응**이 필수입니다.
 
-5. **거버넌스**: 컴플라이언스, 리스크 관리, 엔터프라이즈 운영이 전문가로 성장하는 데 필요합니다.
+5. **거버넌스**: **NIST CSF 2.0**, ISO 27001, 컴플라이언스, 리스크 관리, 엔터프라이즈 운영이 전문가로 성장하는 데 필요합니다.
+
+6. **2024-2025 최신 동향**: OWASP Top 10:2025 (공급망 보안 강조), GitHub Advanced Security 최신 기능, AI/ML 기반 보안 자동화, Secret Scanning 강화
 
 ### 학습 권장사항
 
@@ -709,6 +856,31 @@ roadmap.sh의 2026년 DevSecOps 로드맵은 총 93개의 학습 항목으로 �
 ---
 
 **참고 자료**:
-- [roadmap.sh DevSecOps Roadmap](https://roadmap.sh/devsecops)
-- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+
+### 공식 문서 및 가이드
+
+- [roadmap.sh DevSecOps Roadmap](https://roadmap.sh/devsecops) - 2026년 최신 DevSecOps 로드맵
+- [OWASP Top 10:2025](https://owasp.org/Top10/2025/) - 2025년 11월 발표된 최신 OWASP Top 10
+- [OWASP DevSecOps Guideline (DSOGL)](https://devsecops.owasp.org/) - DevSecOps 모범 사례 가이드
+- [OWASP DevSecOps Maturity Model (DSOMM)](https://devsecops.owasp.org/) - DevSecOps 성숙도 모델
+- [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework) - 2024년 2월 발표된 CSF 2.0
+- [NIST SP 800-204D](https://www.nist.gov/publications/strategies-integration-software-supply-chain-security-devsecops-cicd-pipelines) - DevSecOps CI/CD 파이프라인 공급망 보안 통합 전략 (2024년 2월)
+- [NIST SP 1800-44](https://www.nccoe.nist.gov/news-insights/new-software-supply-chain-and-devops-security-practices-publication-released-and) - Secure Software Development, Security, and Operations (DevSecOps) Practices (2025년 8월 초안)
+- [CISA SBOM 소비 가이드](https://www.cisa.gov/news-events/alerts/2023/11/09/cisa-nsa-and-partners-release-new-guidance-securing-software-supply-chain) - SBOM 모범 사례 (2023년 11월)
+- [CISA 소프트웨어 획득 가이드](https://www.cisa.gov/news-events/news/cisa-releases-software-acquisition-guide-government-enterprise-consumers-software-assurance-cyber) - 정부 기업 소비자용 소프트웨어 획득 가이드 (2024년 8월)
+
+### GitHub 및 도구
+
+- [GitHub Advanced Security](https://docs.github.com/en/enterprise-cloud@latest/admin/advanced-security) - CodeQL, Dependabot, Secret Scanning
+- [CodeQL GitHub](https://github.com/github/codeql) - GitHub의 정적 코드 분석 도구
+- [OWASP ZAP](https://www.zaproxy.org/) - 오픈소스 웹 보안 스캐너
+- [Semgrep](https://semgrep.dev/) - 경량 다중 언어 정적 분석 도구
+- [Trivy](https://github.com/aquasecurity/trivy) - 컨테이너, Git 리포지토리, IaC 취약점 스캐너
+- [DevSecOps MCP Server](https://github.com/jmstar85/DevSecOps-MCP) - AI 기반 DevSecOps 도구 통합 서버
+- [Awesome AI4DevSecOps](https://github.com/awsm-research/Awesome-AI4DevSecOps) - AI 기반 DevSecOps 솔루션 연구 및 도구 모음
+
+### 연구 및 트렌드
+
+- [ZeroFalse: SAST와 LLM 통합으로 False Positive 감소](https://arxiv.org/abs/2510.02534) - 2024년 연구 논문
+- [AutoGuard: 강화 학습 기반 자가 치유 보안 프레임워크](https://arxiv.org/abs/2512.04368) - 2024년 연구 논문
+- [공급망 보안 연구: SBOM 생성 및 검증](https://arxiv.org/abs/2511.20313) - 2024년 연구 논문

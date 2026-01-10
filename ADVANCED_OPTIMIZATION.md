@@ -34,16 +34,72 @@ done
 
 ## 3. Sentry 통합
 
+### 플랫폼 선택
+- **플랫폼**: JavaScript (Browser)
+- **프레임워크**: Vanilla JavaScript (Jekyll 정적 사이트)
+
 ### 설정 방법
-1. [Sentry](https://sentry.io) 계정 생성
-2. 프로젝트 생성 후 DSN 복사
-3. Vercel 환경 변수에 `SENTRY_DSN` 추가
-4. `_includes/sentry.html`에서 DSN 설정
+
+#### 1. Sentry 계정 및 프로젝트 생성
+1. [Sentry.io](https://sentry.io) 접속 및 계정 생성
+2. **Create Project** 클릭
+3. **Platform 선택**: `JavaScript` → `Browser` 선택
+4. 프로젝트 이름 입력 (예: `tech-blog`)
+5. DSN (Data Source Name) 복사
+
+#### 2. Vercel 환경 변수 설정
+```bash
+# Vercel CLI 사용
+vercel env add SENTRY_DSN production
+vercel env add SENTRY_DSN preview
+vercel env add SENTRY_DSN development
+
+# 또는 Vercel 대시보드에서:
+# Settings → Environment Variables → SENTRY_DSN 추가
+```
+
+#### 3. Sentry SDK 추가
+`_includes/sentry.html` 파일에서 Sentry SDK를 로드합니다:
+
+```html
+<!-- Sentry SDK (최신 버전) -->
+<script src="https://browser.sentry-cdn.com/7.xx.x/bundle.min.js" 
+        integrity="sha384-..." 
+        crossorigin="anonymous"></script>
+```
+
+#### 4. DSN 설정
+`_includes/sentry.html`에서 환경 변수 또는 직접 DSN 설정:
+
+```javascript
+const SENTRY_DSN = 'https://xxxxx@xxxxx.ingest.sentry.io/xxxxx';
+```
 
 ### 보안
-- DSN은 환경 변수로 관리
-- 민감 정보 자동 필터링
-- 10% 샘플링으로 비용 최적화
+- DSN은 환경 변수로 관리 (프로덕션)
+- 민감 정보 자동 필터링 (쿠키, 토큰, 키 등)
+- CSP 위반 등 정상적인 보안 에러는 무시
+- URL에서 민감한 쿼리 파라미터 자동 제거
+
+### 비용 최적화
+- 성능 모니터링: 10% 샘플링
+- 에러 수집: 100% (필요시 조정)
+- 세션 리플레이: 비활성화 (0%)
+- 에러 리플레이: 비활성화 (0%)
+
+### Sentry 프로젝트 설정 예시
+```
+Platform: JavaScript
+Framework: Browser
+Project Name: tech-blog
+Organization: your-org
+DSN: https://xxxxx@xxxxx.ingest.sentry.io/xxxxx
+```
+
+### 통합 확인
+1. 브라우저 콘솔에서 `window.Sentry` 확인
+2. 의도적으로 에러 발생시켜 Sentry로 전송되는지 확인
+3. Sentry 대시보드에서 이벤트 수신 확인
 
 ## 4. 서비스 워커 (오프라인 지원)
 

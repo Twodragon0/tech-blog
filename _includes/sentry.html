@@ -1,33 +1,111 @@
 <!-- Sentry Error Tracking (Optional) -->
-<!-- 사용하려면 SENTRY_DSN 환경 변수를 설정하세요 -->
+<!-- 
+  설정 방법:
+  1. Sentry.io에서 JavaScript (Browser) 프로젝트 생성
+  2. DSN 복사
+  3. 아래 SENTRY_DSN에 DSN 입력 또는 Vercel 환경 변수 사용
+  4. Sentry SDK 버전 확인: https://docs.sentry.io/platforms/javascript/install/cdn/
+-->
+
+<!-- Sentry SDK (최신 버전 - 버전 확인 후 업데이트 필요) -->
+<!-- 
+  최신 버전 확인: https://github.com/getsentry/sentry-javascript/releases
+  또는 Sentry 프로젝트 설정에서 제공하는 스니펫 사용
+-->
+<script 
+  src="https://browser.sentry-cdn.com/7.91.0/bundle.min.js" 
+  integrity="sha384-..." 
+  crossorigin="anonymous"
+  defer
+></script>
+
 <script>
 (function() {
   'use strict';
   
-  // Sentry DSN은 환경 변수로 관리 (보안)
-  const SENTRY_DSN = null; // Vercel 환경 변수에서 가져오거나 null로 설정
+  // Sentry DSN 설정
+  // 방법 1: 직접 설정 (프로덕션에서는 환경 변수 사용 권장)
+  const SENTRY_DSN = null; // 'https://xxxxx@xxxxx.ingest.sentry.io/xxxxx'
+  
+  // 방법 2: Vercel 환경 변수에서 가져오기 (서버 사이드 렌더링 필요 시)
+  // const SENTRY_DSN = '{{ site.sentry_dsn }}'; // _config.yml에 추가 필요
   
   if (!SENTRY_DSN) {
     // Sentry 미설정 시 기본 에러 핸들러 사용
     return;
   }
 
-  // Sentry 로드 (CDN 또는 npm 패키지)
-  // 예시: <script src="https://browser.sentry-cdn.com/7.x.x/bundle.min.js"></script>
-  
+  // Sentry 초기화 (SDN 로드 후 실행)
   if (window.Sentry) {
     window.Sentry.init({
       dsn: SENTRY_DSN,
-      environment: window.location.hostname === 'tech.2twodragon.com' ? 'production' : 'development',
-      tracesSampleRate: 0.1, // 10% 샘플링
-      beforeSend(event) {
-        // 민감 정보 필터링
+      
+      // 환경 설정
+      environment: window.location.hostname === 'tech.2twodragon.com' 
+        ? 'production' 
+        : window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        ? 'development'
+        : 'preview',
+      
+      // 성능 모니터링 샘플링 (10%)
+      tracesSampleRate: 0.1,
+      
+      // 세션 리플레이 (선택사항, 비용 고려)
+      replaysSessionSampleRate: 0.0, // 0% (비활성화)
+      replaysOnErrorSampleRate: 0.0, // 0% (비활성화)
+      
+      // 릴리스 정보 (선택사항)
+      // release: 'tech-blog@1.0.0',
+      
+      // 에러 필터링
+      beforeSend(event, hint) {
+        // 민감 정보 제거
         if (event.request) {
           delete event.request.cookies;
+          // URL에서 민감한 쿼리 파라미터 제거
+          if (event.request.url) {
+            try {
+              const url = new URL(event.request.url);
+              url.searchParams.delete('token');
+              url.searchParams.delete('key');
+              url.searchParams.delete('password');
+              event.request.url = url.toString();
+            } catch (e) {
+              // URL 파싱 실패 시 그대로 유지
+            }
+          }
         }
+        
+        // 특정 에러 무시 (선택사항)
+        if (event.exception) {
+          const error = hint.originalException;
+          // CSP 위반 등 정상적인 보안 에러는 무시
+          if (error && error.message && error.message.includes('Content Security Policy')) {
+            return null; // 이벤트 무시
+          }
+        }
+        
         return event;
-      }
+      },
+      
+      // 샘플링 함수 (고급)
+      sampleRate: 1.0, // 100% 에러 수집 (필요시 조정)
+      
+      // 통합 설정
+      integrations: [
+        // 브라우저 통합 (기본)
+        new window.Sentry.Integrations.BrowserTracing({
+          // 성능 모니터링 추적
+          tracingOrigins: ['tech.2twodragon.com', 'localhost'],
+        }),
+      ],
     });
+
+    // 사용자 컨텍스트 설정 (선택사항)
+    // window.Sentry.setUser({
+    //   id: 'anonymous',
+    //   username: 'visitor'
+    // });
   }
 })();
 </script>
