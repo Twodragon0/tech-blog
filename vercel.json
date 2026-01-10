@@ -69,5 +69,11 @@
       "maxDuration": 10,
       "memory": 1024
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/api/chat",
+      "destination": "/api/chat.js"
+    }
+  ]
 }

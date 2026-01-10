@@ -14,8 +14,8 @@
 
 // 프리티어 최적화 설정
 const CONFIG = {
-  // 프리티어 고려: Hobby 플랜은 10초, 안전하게 8초로 설정
-  TIMEOUT_MS: 8000,
+  // 프리티어 고려: Hobby 플랜은 10초, 안전하게 9초로 설정 (DeepSeek API 응답 시간 고려)
+  TIMEOUT_MS: 9000, // 9초 (프리티어 안전 마진 + API 응답 시간 고려)
   // Rate limiting (간단한 메모리 기반, 프로덕션에서는 Redis 권장)
   RATE_LIMIT: {
     MAX_REQUESTS: 10, // 세션당 최대 요청 수
@@ -23,7 +23,7 @@ const CONFIG = {
   },
   // 메시지 제한
   MAX_MESSAGE_LENGTH: 2000,
-  MAX_TOKENS: 1500, // 프리티어 최적화: 토큰 수 제한
+  MAX_TOKENS: 1200, // 프리티어 최적화: 토큰 수 제한 (응답 시간 단축)
 };
 
 // 간단한 메모리 기반 Rate Limiter (프리티어용)
@@ -134,7 +134,7 @@ export default async function handler(req, res) {
         messages: [
           {
             role: 'system',
-            content: '당신은 DevSecOps, 클라우드 보안, 인프라 자동화 전문가입니다. 기술 블로그의 질문에 친절하고 전문적으로 답변해주세요. 한국어로 답변하세요.',
+            content: '당신은 DevSecOps, 클라우드 보안, 인프라 자동화 전문가입니다. 기술 블로그의 질문에 친절하고 전문적으로 답변해주세요. 한국어로 답변하세요. 답변은 간결하고 핵심적인 내용으로 작성해주세요.',
           },
           {
             role: 'user',
@@ -142,8 +142,10 @@ export default async function handler(req, res) {
           },
         ],
         temperature: 0.7,
-        max_tokens: CONFIG.MAX_TOKENS, // 프리티어 최적화: 토큰 수 제한
+        max_tokens: CONFIG.MAX_TOKENS, // 프리티어 최적화: 토큰 수 제한 (응답 시간 단축)
         stream: false,
+        // 응답 시간 최적화를 위한 추가 설정
+        top_p: 0.95, // 응답 다양성 조절
       }),
       signal: controller.signal,
     });
@@ -219,8 +221,16 @@ export default async function handler(req, res) {
     }
 
     if (error.name === 'AbortError' || error.name === 'TimeoutError') {
+      // 실행 시간 로깅
+      const executionTime = Date.now() - startTime;
+      if (process.env.NODE_ENV === 'development') {
+        console.warn(`[Chat API] Timeout after ${executionTime}ms`);
+      }
+      
       return res.status(504).json({ 
-        error: '요청 시간이 초과되었습니다. 네트워크 연결을 확인하고 다시 시도해주세요.' 
+        error: '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.',
+        timeout: true,
+        executionTime: executionTime
       });
     }
 

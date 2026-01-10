@@ -5,9 +5,10 @@
   // Configuration
   const CONFIG = {
     apiEndpoint: '/api/chat', // Vercel Serverless Function 엔드포인트
-    maxRetries: 2, // 프리티어 최적화: 재시도 횟수 감소
-    timeout: 10000, // 프리티어 최적화: 10초 (서버 타임아웃 8초 + 여유)
+    maxRetries: 1, // 재시도 횟수 (타임아웃 시 재시도는 비효율적)
+    timeout: 12000, // 12초 (서버 타임아웃 9초 + 네트워크 여유)
     showIconDelay: 5000, // 5 seconds
+    retryDelay: 2000, // 재시도 전 대기 시간 (ms)
   };
 
   // State
@@ -232,6 +233,11 @@
           throw new Error(errorData.error || '서비스가 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도해주세요.');
         }
         
+        // 타임아웃 오류
+        if (response.status === 504) {
+          throw new Error(errorData.error || '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.');
+        }
+        
         throw new Error(errorData.error || `서버 오류 (${response.status})`);
       }
       
@@ -251,14 +257,38 @@
     } catch (error) {
       removeLoading();
       let errorMessage = '죄송합니다. 답변을 생성하는 중에 문제가 발생했습니다.';
+      let shouldRetry = false;
       
       if (error.name === 'AbortError' || error.name === 'TimeoutError') {
-        errorMessage = '요청 시간이 초과되었습니다. 네트워크 연결을 확인하고 다시 시도해주세요.';
+        errorMessage = '응답 생성에 시간이 오래 걸리고 있습니다. 잠시 후 다시 시도해주세요.';
+        // 타임아웃은 재시도하지 않음 (비효율적)
+        shouldRetry = false;
       } else if (error.message) {
         errorMessage = error.message;
+        // 네트워크 오류는 재시도 고려
+        if (error.message.includes('네트워크') || error.message.includes('fetch')) {
+          shouldRetry = true;
+        }
       }
       
       addMessage(`❌ ${errorMessage}`, 'assistant');
+      
+      // 재시도 제안 (타임아웃이 아닌 경우)
+      if (shouldRetry && !errorMessage.includes('너무 많습니다')) {
+        const retryButton = document.createElement('button');
+        retryButton.className = 'chat-retry-button';
+        retryButton.textContent = '🔄 다시 시도';
+        retryButton.style.cssText = 'margin-top: 0.5rem; padding: 0.5rem 1rem; background: var(--color-primary); color: white; border: none; border-radius: 0.5rem; cursor: pointer;';
+        retryButton.onclick = () => {
+          retryButton.remove();
+          sendMessage(message);
+        };
+        
+        const lastMessage = chatMessages.lastElementChild;
+        if (lastMessage) {
+          lastMessage.querySelector('.chat-message-content')?.appendChild(retryButton);
+        }
+      }
     } finally {
       isLoading = false;
       chatInput.disabled = false;
