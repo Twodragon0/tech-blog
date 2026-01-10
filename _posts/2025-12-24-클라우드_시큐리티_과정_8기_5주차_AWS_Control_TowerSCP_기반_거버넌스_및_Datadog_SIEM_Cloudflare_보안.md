@@ -112,12 +112,7 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
 #### 개발 계정에서 프로덕션 리소스 접근 차단
 
 > **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
-> ```json
-> {...
-> ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -137,19 +132,12 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
     }
   ]
 }
-
 ```
--->
 
 #### 특정 리전만 허용
 
 > **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
-> ```json
-> {...
-> ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -172,19 +160,12 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
     }
   ]
 }
-
 ```
--->
 
 #### Root 계정 사용 차단
 
 > **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
-> ```json
-> {...
-> ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -201,9 +182,7 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
     }
   ]
 }
-
 ```
--->
 
 ## 4. Datadog SIEM
 
@@ -242,12 +221,7 @@ Datadog SIEM(Security Information and Event Management)은 보안 이벤트를 �
 #### 커스텀 탐지 규칙
 
 > **참고**: Datadog 커스텀 탐지 규칙 관련 내용은 [Datadog Security Monitoring](https://docs.datadoghq.com/security/) 및 [CloudTrail 통합](https://docs.datadoghq.com/integrations/amazon_cloudtrail/)을 참조하세요.
-> 
-> ```yaml
-> # 예시: 비정상적인 리전에서의 API 호출 탐지...
-> ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 예시: 비정상적인 리전에서의 API 호출 탐지
 detection_rule:
@@ -261,9 +235,7 @@ detection_rule:
     timeframe: 1h
   notification:
     - slack
-
 ```
--->
 
 ## 5. Cloudflare 보안
 
@@ -434,12 +406,7 @@ AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도�
 
 **SCP 적용 예시 - AI 에이전트 리전 제한:**
 > **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
-> ```json
-> {...
-> ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -462,9 +429,7 @@ AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도�
     }
   ]
 }
-
 ```
--->
 
 ### 9.3 IAM Policy Autopilot
 
@@ -530,12 +495,7 @@ GuardDuty가 **Extended Threat Detection** 기능을 추가하여 EC2 및 ECS �
 
 **Datadog SIEM 연동 탐지 규칙:**
 > **참고**: Datadog SIEM 탐지 규칙 관련 내용은 [Datadog Security Monitoring](https://docs.datadoghq.com/security/) 및 [Datadog CloudTrail 통합](https://docs.datadoghq.com/integrations/amazon_cloudtrail/)을 참조하세요.
-> 
-> ```yaml
-> detection_rule:...
-> ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 detection_rule:
   name: "GuardDuty Extended Threat - Multi-stage Attack"
@@ -549,19 +509,12 @@ detection_rule:
   notification:
     - slack
     - pagerduty
-
 ```
--->
 
 ### 9.5 통합 거버넌스 아키텍처 (2025년 업데이트 반영)
 
 > **참고**: AWS 통합 거버넌스 아키텍처 관련 내용은 [AWS Control Tower 문서](https://docs.aws.amazon.com/controltower/) 및 [AWS Organizations](https://docs.aws.amazon.com/organizations/)를 참조하세요.
-> 
-> ```
-> [AWS Organizations]...
-> ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 [AWS Organizations]
     ├── Account Migration (직접 이동 지원)
@@ -579,9 +532,7 @@ detection_rule:
         [Datadog SIEM] ← 통합 모니터링
                     ↓
         [IAM Policy Autopilot] ← 정책 자동화
-
 ```
--->
 
 ### 9.6 2025년 업데이트 적용 권장 사항
 
