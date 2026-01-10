@@ -38,9 +38,10 @@ image: /assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>Docker 기초 및 핵심 개념 (이미지, 컨테이너, Dockerfile)</li>
-      <li>Kubernetes 아키텍처 및 주요 리소스 (Pod, Deployment, Service)</li>
-      <li>컨테이너 보안 Best Practices 및 런타임 보안</li>
+      <li><strong>Docker 기초</strong>: 이미지/컨테이너/Dockerfile 개념, 기본 Docker 명령어(pull, run, ps, logs, stop, rm), Registry(Docker Hub), 컨테이너 격리 및 실행 환경</li>
+      <li><strong>Kubernetes 아키텍처</strong>: Control Plane(API Server, etcd, Scheduler, Controller Manager), Node(kubelet, Pods), 주요 리소스(Pod, Deployment, Service, ConfigMap, Secret, Namespace)</li>
+      <li><strong>컨테이너 보안 Best Practices</strong>: 최소 권한 원칙, 이미지 스캔(Trivy, Snyk), Secret 관리(Kubernetes Secrets, External Secrets Operator), 비루트 사용자 실행, 읽기 전용 파일시스템</li>
+      <li><strong>런타임 보안</strong>: Trivy 취약점 스캔, Falco 이상 행위 탐지, Pod Security Standards 적용, Network Policy 구현, Minikube/K9s 실습 가이드</li>
     </ul>
   </div>
   <div class="summary-row">

@@ -35,9 +35,10 @@ image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>Minikube와 K9s 환경 실습 및 테스트 가이드</li>
-      <li>Minikube 시작 시 흔히 겪는 이슈 및 해결 방법</li>
-      <li>로컬 Kubernetes 클러스터 구성 및 문제 해결</li>
+      <li><strong>Minikube 시작 이슈 해결</strong>: 시작 실패 및 충돌 문제(리소스 부족, 하이퍼바이저 충돌, 네트워크 설정), 해결 방법(리소스 할당 증가, 드라이버 변경, 네트워크 재설정), 로컬 Kubernetes 클러스터 구성</li>
+      <li><strong>K9s 터미널 UI 활용</strong>: Kubernetes 클러스터 관리 터미널 UI, Pod/Deployment/Service 실시간 모니터링, 리소스 상태 확인 및 디버깅, 실전 테스트 시나리오(Pod 배포, Service 노출, ConfigMap/Secret 관리)</li>
+      <li><strong>Kubernetes 2025 업데이트</strong>: Kubernetes 1.32 "Penelope" 릴리스(개선된 스케줄링 알고리즘, 보안 강화), Minikube 최신 버전 호환성, 실습 환경 최적화</li>
+      <li><strong>트러블슈팅 가이드</strong>: 일반적인 문제 해결(설정 오류, 성능 저하, 네트워크 문제), 로그 분석 방법, 디버깅 기법</li>
     </ul>
   </div>
   <div class="summary-row">

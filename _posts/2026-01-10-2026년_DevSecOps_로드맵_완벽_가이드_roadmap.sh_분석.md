@@ -2,8 +2,7 @@
 layout: post
 title: "2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석"
 date: 2026-01-10 10:00:00 +0900
-category: devsecops
-categories: [DevSecOps, Security]
+categories: [devsecops, security]
 tags: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, 2026]
 excerpt: "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석: 93개 학습 항목(기초 학습, 위협 관리, 보안 아키텍처, 거버넌스, 도구 자동화), 단계별 학습 경로(초급/중급/고급/전문가), 실무 보안 도구 스택(SAST/DAST, SIEM/SOAR, 컨테이너 보안), 공급망 보안(SBOM, 의존성 관리), 인시던트 대응 체계까지 DevSecOps 전문가 성장을 위한 완벽 가이드."
 comments: true
@@ -110,7 +109,7 @@ roadmap.sh의 2026년 DevSecOps 로드맵은 총 **93개의 학습 항목**으�
 - **중급 (Intermediate)**: 보안 도구 활용, 위협 모델링
 - **고급 (Advanced)**: 엔터프라이즈 보안, 거버넌스, 자동화
 
-![DevSecOps 로드맵 전체 구조](assets/images/2026-01-10-devsecops-roadmap-structure.svg)
+![DevSecOps 로드맵 전체 구조](/assets/images/2026-01-10-devsecops-roadmap-structure.svg)
 *그림 1: DevSecOps 로드맵 전체 구조*
 
 ## 2. 기초 학습 (Learn the Foundations)
@@ -198,7 +197,7 @@ DevSecOps 엔지니어는 다양한 프로그래밍 언어와 스크립팅 지�
 - **XSS Prevention**: 크로스 사이트 스크립팅 방어
 - **Input Validation Patterns**: 입력 검증 패턴
 
-![학습 경로 단계별 흐름도](assets/images/2026-01-10-devsecops-learning-path.svg)
+![학습 경로 단계별 흐름도](/assets/images/2026-01-10-devsecops-learning-path.svg)
 *그림 2: DevSecOps 학습 경로 단계별 흐름도*
 
 ## 3. 위협 및 리스크 관리 (Managing Threats & Risks)
@@ -341,7 +340,7 @@ Zero Trust는 "신뢰하되 검증하라(Trust but Verify)" 원칙을 기반으�
 - [ ] 네트워크 정책 설정
 - [ ] 런타임 보안 모니터링
 
-![보안 도구 및 기술 스택 비교](assets/images/2026-01-10-devsecops-tools-stack.svg)
+![보안 도구 및 기술 스택 비교](/assets/images/2026-01-10-devsecops-tools-stack.svg)
 *그림 3: DevSecOps 보안 도구 및 기술 스택 비교*
 
 ## 5. 모니터링 및 인시던트 대응

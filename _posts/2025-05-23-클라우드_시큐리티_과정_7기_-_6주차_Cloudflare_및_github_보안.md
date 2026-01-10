@@ -2,8 +2,7 @@
 layout: post
 title: "클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안"
 date: 2025-05-23 01:07:48 +0900
-category: security
-categories: [Security, DevSecOps]
+categories: [security, devsecops]
 tags: [AWS, CDN, Cloudflare, GitHub, SAST, WAF, 보안, 보안-아키텍처, 애플리케이션-보안, 코드-보안]
 excerpt: "클라우드 시큐리티 과정 7기 6주차: AWS WAF 보안 강화(웹 ACL 규칙, IP 기반 접근 제어, Geo-blocking), Cloudflare 종합 보안(DDoS 보호, WAF, SSL/TLS 1.3, CDN, Bot Management), GitHub 보안 자동화(Dependabot, CodeQL, Secret Scanning), 실무 보안 실습(DVWA 활용)까지 실무 중심 정리."
 comments: true

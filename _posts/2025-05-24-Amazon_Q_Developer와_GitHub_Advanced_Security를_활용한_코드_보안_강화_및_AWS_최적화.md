@@ -34,9 +34,11 @@ image: /assets/images/2025-05-24-Amazon_Q_Developer와_GitHub_Advanced_Security�
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 방법</li>
-      <li>AWS 환경에서의 개발 생산성 향상 전략</li>
-      <li>코드 보안 자동화 및 DevSecOps 모범 사례</li>
+      <li><strong>Amazon Q Developer</strong>: 코드 보안 검토 및 AWS 최적화 제안, AI 기반 코드 생성 및 리뷰, AWS 서비스 통합(CodeCommit, CodeBuild, CodeDeploy), 보안 취약점 자동 탐지, AWS Well-Architected Framework 기반 권장사항</li>
+      <li><strong>GitHub Advanced Security 통합</strong>: CodeQL 정적 분석(취약점 패턴 검사), Dependabot 의존성 취약점 스캔 및 자동 PR 생성, Secret Scanning 민감 정보 탐지, Security Advisories 관리, AI 생성 코드 보안 검증</li>
+      <li><strong>코드 보안 자동화</strong>: CI/CD 파이프라인에 보안 스캔 통합, DevSecOps 모범 사례(Shift-Left Security), 자동화된 보안 검사, 실시간 취약점 알림</li>
+      <li><strong>AWS 환경 개발 생산성 향상</strong>: Amazon Q Developer와 GitHub 통합, AWS 서비스 최적화 제안, 코드 리뷰 자동화, 보안과 생산성의 균형</li>
+      <li><strong>2025년 DevSecOps 트렌드</strong>: AI 코딩 어시스턴트 보안 검증 체크리스트, AI 생성 코드 보안 검증(취약점 패턴 검사, 의존성 스캔, 보안 모범 사례 준수), Post-Quantum 암호화 대응</li>
     </ul>
   </div>
   <div class="summary-row">

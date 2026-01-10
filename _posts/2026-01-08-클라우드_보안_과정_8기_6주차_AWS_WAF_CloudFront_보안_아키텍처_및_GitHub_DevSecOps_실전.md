@@ -2,8 +2,7 @@
 layout: post
 title: "클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전"
 date: 2026-01-08 19:58:00 +0900
-category: security
-categories: [Security, DevSecOps]
+categories: [security, devsecops]
 tags: [AWS, CloudFront, cloudsecurity, Cybersecurity, DevSecOps, github, githubactions, SecurityEngineering, TechBlog, waf]
 excerpt: "클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처(OAI/OAC, WAF 규칙, Geo-blocking), GitHub DevSecOps 실전(CodeQL, Dependabot, Secret Scanning), 실전 보안 패치 사례(SSRF 수정, Data Masking), 테크 블로그 보안 개선(Jekyll, CodeQL 기반 취약점 진단), Amazon Q Developer 활용까지 실무 중심 정리."
 comments: true

@@ -4,7 +4,7 @@ title: "클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 
 date: 2025-11-21 18:28:12 +0900
 categories: devsecops
 tags: [Cloud-Security, DevSecOps, FinOps, Course]
-excerpt: "클라우드 시큐리티 8기 OT 안내: 9주 커리큘럼 소개(AWS 보안 아키텍처, FinOps, 취약점 점검, Control Tower, CI/CD/Kubernetes 보안, DevSecOps 통합), DevSecOps/FinOps 실무 역량 강화 과정(20분 강의 + 5분 휴식 루틴), 실전 내용 및 대체 불가능한 클라우드 보안 전문가로 성장하는 기회까지 정리."
+excerpt: "클라우드 시큐리티 8기 OT 안내: 9주 커리큘럼 상세(1주차 인프라 본질/2025 보안 트렌드, 2주차 AWS 보안 아키텍처 VPC/IAM/S3/GuardDuty, 3주차 FinOps/ISMS-P, 4주차 통합 보안 취약점 점검, 5주차 Control Tower/Datadog SIEM/Cloudflare, 6주차 이후 DevSecOps 심화), 2025년 보안 트렌드 반영(AI 보안 93% 리더 일일 공격 예상, Shadow AI, Supply Chain 공격, Zero Trust, Post-quantum 암호화 Cloudflare 52%), AWS re:Invent 2025 발표 반영(Security Agent, GuardDuty Extended, IAM Policy Autopilot), 효율적 학습 루틴(20분 강의+5분 휴식), 대체 불가능한 클라우드 보안 전문가로 성장까지 정리."
 comments: true
 original_url: https://twodragon.tistory.com/700
 image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라.svg
@@ -34,10 +34,11 @@ image: /assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSec
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>클라우드 시큐리티 8기 OT 안내 및 9주 커리큘럼 소개</li>
-      <li>DevSecOps, FinOps 실무 역량 강화 과정 (20분 강의 + 5분 휴식)</li>
-      <li>AWS 보안 아키텍처, 비용 최적화, 취약점 점검 등 실전 내용</li>
-      <li>대체 불가능한 클라우드 보안 전문가로 성장하는 기회</li>
+      <li><strong>9주 커리큘럼 상세</strong>: 1주차(인프라 본질, 2025 보안 트렌드), 2주차(AWS 보안 아키텍처 VPC/IAM/S3/GuardDuty), 3주차(AWS FinOps, ISMS-P), 4주차(통합 보안 취약점 점검), 5주차(AWS Control Tower, Datadog SIEM, Cloudflare), 6주차 이후(DevSecOps 심화, CI/CD/Kubernetes 보안)</li>
+      <li><strong>2025년 보안 트렌드 반영</strong>: AI 보안 양면성(93% 리더 일일 AI 공격 예상), Shadow AI 위협, Supply Chain 공격 급증, Zero Trust 표준화, Post-quantum 암호화(Cloudflare 52% 적용), AWS re:Invent 2025 발표 반영(Security Agent, GuardDuty Extended, IAM Policy Autopilot)</li>
+      <li><strong>학습 방식</strong>: 효율적 학습 루틴(20분 강의 + 5분 휴식, 뇌과학 기반 최적화), 실무 중심 교육, 상호작용형 학습 환경, 실무 고민 공유 및 Q&A</li>
+      <li><strong>기대 효과</strong>: DevSecOps/FinOps 실무 역량 강화, 대체 불가능한 클라우드 보안 전문가로 성장, 실무 문제 해결 능력 향상, 클라우드 보안 아키텍처 설계 능력, 비용 최적화 역량 확보</li>
+      <li><strong>주요 학습 영역</strong>: DevSecOps 영역(보안 통합 개발, 컨테이너 보안, 코드 보안, 인프라 보안), FinOps 영역(비용 최적화, 리소스 태깅, 거버넌스, 예산 관리), 클라우드 보안 영역(네트워크 보안, 접근 제어, 위협 탐지, 데이터 보호)</li>
     </ul>
   </div>
   <div class="summary-row">

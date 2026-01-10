@@ -4,7 +4,7 @@ title: "클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 IS
 date: 2025-12-12 14:45:05 +0900
 categories: finops
 tags: [AWS, FinOps, ISMS-P, Audit, Cost-Optimization]
-excerpt: "클라우드 시큐리티 8기 3주차: 2025년 FinOps 트렌드(AI/ML 비용 최적화, GreenOps 통합, Unit Economics, Real-time Cost Visibility), AWS 비용 관리 도구(Cost Optimization Hub, Compute Optimizer, Application Cost Profiler, Cost Anomaly Detection), ISMS-P 인증 대응을 위한 AWS 기반 보안 감사 전략, Commitment Management(Savings Plans, Reserved Instances) 자동화까지 실무 중심 정리."
+excerpt: "클라우드 시큐리티 8기 3주차: 2025년 FinOps 트렌드(AI/ML 비용 최적화 GPU 인스턴스/Spot Instance 최대 90% 절감, GreenOps 통합 Customer Carbon Footprint Tool, Unit Economics Cost per Transaction/User, Real-time Cost Visibility Cost Anomaly Detection), AWS 비용 관리 도구(Cost Optimization Hub 통합 대시보드, Compute Optimizer AI 기반 right-sizing, Application Cost Profiler 테넌트별 비용 배분, Cost Anomaly Detection ML 기반 탐지), ISMS-P 인증 대응(AWS Artifact/Config Rules/Security Hub/CloudTrail), FinOps+보안 통합, Commitment Management 자동화까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/703
 image: /assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략.svg
@@ -35,14 +35,16 @@ image: /assets/images/2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinO
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>2025년 FinOps 트렌드: AI/ML 비용 최적화, GreenOps 통합, Unit Economics</li>
-      <li>AWS 비용 관리 도구: Cost Optimization Hub, Compute Optimizer, Application Cost Profiler</li>
-      <li>ISMS-P 인증 대응을 위한 AWS 기반 보안 감사 전략</li>
+      <li><strong>2025년 FinOps 트렌드</strong>: AI/ML 비용 최적화(GPU 인스턴스 최적화, Spot Instance 최대 90% 절감), GreenOps 통합(AWS Customer Carbon Footprint Tool, 그린 리전 선택), Unit Economics(Cost per Transaction, Cost per User), Real-time Cost Visibility(AWS Cost Anomaly Detection, 실시간 대시보드), Commitment Management 강화(Savings Plans, Reserved Instances 자동화)</li>
+      <li><strong>AWS 비용 관리 도구</strong>: Cost Optimization Hub(통합 대시보드, 우선순위 지정), Compute Optimizer(AI 기반 right-sizing, ML 기반 분석), Application Cost Profiler(테넌트별 비용 배분, 차지백 지원), Cost Anomaly Detection(ML 기반 비정상 비용 탐지, 사전 알림 시스템)</li>
+      <li><strong>ISMS-P 인증 대응</strong>: AWS 기반 보안 감사 전략(AWS Artifact, AWS Config Rules, AWS Security Hub, AWS CloudTrail), 클라우드 환경 ISMS-P 주요 점검 항목(인증 및 권한관리, 접근통제, 시스템 보안관리, 운영관리), FinOps 모범 사례(태깅 전략, 예산 알림, 정기 리뷰)</li>
+      <li><strong>FinOps + 보안 통합</strong>: 비용 최적화와 보안의 균형, AI/ML 비용 최적화와 보안 연계(GPU 인스턴스 보안, 모델 보안과 비용), FinOps + GreenOps + Security 통합(Triple Bottom Line 접근법)</li>
+      <li><strong>실무 적용</strong>: AWS Budgets 예산 알림, 월간 비용 최적화 리뷰, 개발팀 비용 인식 제고 교육, ISMS-P 인증 준비 체크리스트</li>
     </ul>
   </div>
   <div class="summary-row">
     <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS FinOps, ISMS-P, Cost Optimization Hub, Compute Optimizer, Cost Anomaly Detection, AWS Security Hub</span>
+    <span class="summary-value">AWS FinOps, ISMS-P, Cost Optimization Hub, Compute Optimizer, Application Cost Profiler, Cost Anomaly Detection, AWS Security Hub, AWS Artifact, AWS Config Rules, AWS CloudTrail, AWS Budgets, Savings Plans, Reserved Instances, Customer Carbon Footprint Tool</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">대상 독자</span>

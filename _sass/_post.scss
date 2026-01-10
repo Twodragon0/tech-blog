@@ -251,6 +251,7 @@
     box-shadow: $shadow-sm;
     background-color: var(--code-bg);
     transition: box-shadow $transition-base, border-color $transition-base;
+    isolation: isolate; // Create stacking context
 
     &:hover {
       box-shadow: $shadow-md;
@@ -269,16 +270,31 @@
       top: 0;
       left: 0;
       padding: $spacing-xs $spacing-md;
-      background-color: var(--bg-tertiary);
+      background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
       color: var(--text-secondary);
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       border-bottom-right-radius: $radius-sm;
       z-index: 2;
-      opacity: 0.9;
+      opacity: 0.95;
       font-family: $font-sans;
+      backdrop-filter: blur(4px);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      
+      // Hide if no language detected
+      &:empty {
+        display: none;
+      }
+    }
+    
+    // Show language label only if data-lang attribute exists and is not empty
+    &:not([data-lang])::before,
+    &[data-lang=""]::before,
+    &[data-lang="CODE"]::before {
+      display: none;
     }
 
     // Copy button styling
@@ -295,36 +311,65 @@
       cursor: pointer;
       opacity: 0;
       transition: all $transition-base;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: 0.375rem;
       color: var(--text-secondary);
       z-index: 10;
       backdrop-filter: blur(8px);
       box-shadow: $shadow-sm;
       transform: translateY(-2px);
       font-family: $font-sans;
+      user-select: none;
+      -webkit-user-select: none;
+      line-height: 1;
 
       &:hover {
         background: var(--bg-secondary);
         color: var(--primary);
         border-color: var(--primary);
         transform: translateY(0);
+        box-shadow: $shadow-md;
       }
 
       &:active {
-        transform: scale(0.95);
+        transform: scale(0.95) translateY(0);
+      }
+
+      &:focus {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+      }
+
+      // Success state
+      &.copied {
+        background: var(--color-success, #10b981);
+        border-color: var(--color-success, #10b981);
+        color: white;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+
+      // Error state
+      &.error {
+        background: var(--color-error, #ef4444);
+        border-color: var(--color-error, #ef4444);
+        color: white;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
       }
 
       svg {
         width: 14px;
         height: 14px;
         display: inline-block;
-        vertical-align: middle;
+        flex-shrink: 0;
+        stroke: currentColor;
       }
 
-      span {
+      .copy-text {
         display: inline-block;
+        white-space: nowrap;
       }
     }
 
@@ -335,24 +380,36 @@
       border-radius: 0;
       overflow-x: auto;
       background-color: transparent;
+      position: relative;
       
-      // Scrollbar styling
+      // Scrollbar styling - Modern and accessible
       &::-webkit-scrollbar {
-        height: 8px;
+        height: 10px;
+        width: 10px;
       }
       
       &::-webkit-scrollbar-track {
         background: var(--bg-secondary);
+        border-radius: 5px;
       }
       
       &::-webkit-scrollbar-thumb {
         background: var(--border);
-        border-radius: 4px;
+        border-radius: 5px;
+        border: 2px solid var(--bg-secondary);
         
         &:hover {
           background: var(--text-tertiary);
         }
+        
+        &:active {
+          background: var(--primary);
+        }
       }
+      
+      // Firefox scrollbar
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) var(--bg-secondary);
 
       code {
         background: none;
@@ -360,6 +417,43 @@
         border-radius: 0;
         font-size: 0.875rem;
         line-height: 1.7;
+        color: inherit;
+        font-family: $font-mono;
+        display: block;
+        white-space: pre;
+        word-wrap: normal;
+        overflow-wrap: normal;
+      }
+    }
+    
+    // Responsive adjustments
+    @media (max-width: $breakpoint-sm) {
+      margin: $spacing-lg 0;
+      border-radius: $radius-md;
+      
+      &::before {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.5rem;
+      }
+      
+      .copy-code-btn {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.7rem;
+        
+        .copy-text {
+          display: none; // Hide text on mobile, show only icon
+        }
+      }
+      
+      pre {
+        padding: $spacing-md;
+        font-size: 0.8125rem;
+        
+        code {
+          font-size: 0.8125rem;
+        }
       }
     }
   }

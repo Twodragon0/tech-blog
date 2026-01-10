@@ -2,8 +2,7 @@
 layout: post
 title: "블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례"
 date: 2026-01-08 16:00:00 +0900
-category: security
-categories: [Security, Blockchain, DevSecOps]
+categories: [security, blockchain, devsecops]
 tags: [Blockchain, Cryptocurrency, Bitcoin, Ethereum, Smart-Contract, Security-Audit, GitHub, DevSecOps, Slither, Mythril, Securify, CI-CD]
 excerpt: "블록체인 암호화폐 보안 완벽 가이드: 2024-2025년 34억 달러 손실(Bybit 15억 달러 해킹 포함), 스마트 컨트랙트 보안 도구 비교(Slither/Mythril/Securify 2.0/Medusa 2025), CI/CD 보안 파이프라인 통합(GitHub Actions), 주요 위협(Reentrancy, Integer Overflow, 51% 공격), 실무 보안 모범 사례(Fuzz 테스트, 속성 기반 테스팅)까지 DevSecOps 관점에서 종합 정리."
 comments: true

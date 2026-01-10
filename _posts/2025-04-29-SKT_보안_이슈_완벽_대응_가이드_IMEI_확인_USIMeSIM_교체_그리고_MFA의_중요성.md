@@ -4,7 +4,7 @@ title: "SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체
 date: 2025-04-29 15:25:12 +0900
 categories: security
 tags: [SKT, MFA, USIM, Security-Incident]
-excerpt: "SKT 보안 이슈 대응 가이드: SK텔레콤 USIM 정보 유출 사태 대응 방법, SIM 스와핑/복제 위험성과 OTP/MFA의 중요성, IMEI 확인 방법(아이폰/안드로이드), 안전한 USIM/eSIM 교체 절차, MFA(Multi-Factor Authentication) 활성화 가이드, 재발 방지 대책까지 실무 중심 정리."
+excerpt: "SKT 보안 이슈 대응 가이드: SK텔레콤 USIM 정보 유출 사태 즉시 조치(USIM/eSIM 교체, IMEI 확인, MFA 활성화), SIM 스와핑/복제 위험성(공격 메커니즘, 피해 사례, OTP/MFA 중요성), IMEI 확인 및 USIM/eSIM 교체(아이폰 *#06#, 안드로이드 설정, 통신사 방문 절차, eSIM 전환 장점), 2025년 업데이트(통신사 보안 강화 무료 USIM 보호/실시간 이상 탐지/IMEI 변경 알림, 개인 보안 강화 MFA 전면 적용), 기업 보안 시사점(공급망 보안, Zero Trust, AI 기반 피싱 대응)까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/677
 image: /assets/images/2025-04-29-SKT_보안_이슈_완벽_대응_가이드_IMEI_확인_USIMeSIM_교체_그리고_MFA의_중요성.svg
@@ -34,9 +34,11 @@ image: /assets/images/2025-04-29-SKT_보안_이슈_완벽_대응_가이드_IMEI_
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>SK텔레콤 USIM 정보 유출 사태 대응 방법</li>
-      <li>SIM 스와핑/복제 위험성과 OTP/MFA의 중요성</li>
-      <li>IMEI 확인 및 안전한 USIM/eSIM 교체 가이드</li>
+      <li><strong>SK텔레콤 USIM 정보 유출 사태 대응</strong>: 즉시 조치(USIM/eSIM 교체, IMEI 확인, MFA 활성화), 통신사 보안 서비스 가입(USIM 보호 서비스, 번호 도용 차단), 금융 보안 강화(계좌 이체 한도 조정, 생체 인증 설정, 이상 거래 알림)</li>
+      <li><strong>SIM 스와핑/복제 위험성</strong>: 공격 메커니즘(통신사 직원 사칭, 사회공학적 기법, 내부자 협조), 피해 사례(계좌 이체, 금융 앱 접근, 2FA 우회), OTP/MFA의 중요성(SMS OTP 취약점, TOTP 앱 권장, 하드웨어 보안 키)</li>
+      <li><strong>IMEI 확인 및 USIM/eSIM 교체</strong>: IMEI 확인 방법(아이폰 *#06#, 안드로이드 설정→휴대전화 정보), 안전한 USIM/eSIM 교체 절차(통신사 방문, 본인 확인 강화, 즉시 활성화), eSIM 전환 장점(물리적 복제 불가, 원격 관리 가능)</li>
+      <li><strong>2025년 업데이트</strong>: 통신사 보안 강화 조치(무료 USIM 보호 서비스, eSIM 전환 촉진, 이중 인증 강화, 실시간 이상 탐지 시스템, IMEI 변경 알림), 개인 보안 강화 권고사항(MFA 전면 적용, 통신사 보안 서비스 가입, 정기 IMEI 확인)</li>
+      <li><strong>기업 보안 시사점</strong>: 공급망 보안(외부 파트너 보안 수준 점검), Zero Trust 아키텍처 적용, 보안 사고 대응 계획 수립, AI 기반 피싱 공격 대응 전략</li>
     </ul>
   </div>
   <div class="summary-row">

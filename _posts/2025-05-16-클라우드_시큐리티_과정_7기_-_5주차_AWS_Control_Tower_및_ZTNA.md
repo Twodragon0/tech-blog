@@ -4,7 +4,7 @@ title: "클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZT
 date: 2025-05-16 00:53:10 +0900
 categories: cloud
 tags: [AWS, Control-Tower, ZTNA, Zero-Trust]
-excerpt: "클라우드 시큐리티 과정 7기 5주차: AWS Control Tower 멀티 계정 관리(Landing Zone 자동 설정, Guardrails 정책 적용, 계정 팩토리), ZTNA(Zero Trust Network Access) 개념 및 AWS 구현 방법, 클라우드 환경 제로 트러스트 보안 모델 적용, Organizations 및 SCP 활용까지 실무 중심 정리."
+excerpt: "클라우드 시큐리티 과정 7기 5주차: AWS Control Tower 멀티 계정 관리(Landing Zone 자동 설정, Guardrails 정책 적용 필수/권장/선택, 계정 팩토리 자동 계정 생성, Organizations 및 SCP 활용, 2025년 업데이트 계정 마이그레이션 개선 standalone 분리 불필요), ZTNA(Zero Trust Network Access) 개념 및 AWS 구현 방법(PrivateLink, VPC Endpoint, Security Group 최소 권한), 클라우드 환경 제로 트러스트 보안 모델 적용, 2025년 AWS 거버넌스 업데이트(Organizations 계정 마이그레이션 개선, Control Tower Guardrails 확장, SCP 정책 자동화), 실무 적용(멀티 계정 아키텍처 설계, 거버넌스 정책 자동화, 제로 트러스트 네트워크 구성)까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/683
 image: /assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차_AWS_Control_Tower_및_ZTNA.svg
@@ -34,9 +34,10 @@ image: /assets/images/2025-05-16-클라우드_시큐리티_과정_7기_-_5주차
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>AWS Control Tower를 활용한 멀티 계정 관리</li>
-      <li>ZTNA(Zero Trust Network Access) 개념 및 구현</li>
-      <li>클라우드 환경에서의 제로 트러스트 보안 모델 적용</li>
+      <li><strong>AWS Control Tower 멀티 계정 관리</strong>: Landing Zone 자동 설정, Guardrails 정책 적용(필수/권장/선택), 계정 팩토리(자동 계정 생성), Organizations 및 SCP 활용, 2025년 업데이트(계정 마이그레이션 개선, standalone 분리 불필요)</li>
+      <li><strong>ZTNA(Zero Trust Network Access)</strong>: Zero Trust 개념("절대 신뢰하지 말고, 항상 검증하라"), AWS 구현 방법(PrivateLink, VPC Endpoint, Security Group 최소 권한), 클라우드 환경 제로 트러스트 보안 모델 적용</li>
+      <li><strong>2025년 AWS 거버넌스 업데이트</strong>: Organizations 계정 마이그레이션 개선(조직 간 직접 이동, 다운타임 최소화), Control Tower Guardrails 확장, SCP 정책 자동화</li>
+      <li><strong>실무 적용</strong>: 멀티 계정 아키텍처 설계, 거버넌스 정책 자동화, 제로 트러스트 네트워크 구성, 보안 및 컴플라이언스 통합 관리</li>
     </ul>
   </div>
   <div class="summary-row">

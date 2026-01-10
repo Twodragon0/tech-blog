@@ -485,67 +485,66 @@
   };
 
   // Enhanced Code Block with Language Label and Copy Button
-  document.querySelectorAll('.highlight, pre code').forEach(element => {
-    let highlightDiv, pre, codeBlock;
-    
-    // Handle both .highlight div and direct pre code
-    if (element.classList.contains('highlight')) {
-      highlightDiv = element;
-      pre = highlightDiv.querySelector('pre');
-      codeBlock = pre ? pre.querySelector('code') : null;
-    } else if (element.tagName === 'CODE' && element.parentElement.tagName === 'PRE') {
-      pre = element.parentElement;
-      codeBlock = element;
-      // Check if parent is .highlight
-      highlightDiv = pre.closest('.highlight');
-      if (!highlightDiv) {
-        // Wrap in highlight div if not already wrapped
-        highlightDiv = document.createElement('div');
-        highlightDiv.className = 'highlight';
-        pre.parentNode.insertBefore(highlightDiv, pre);
-        highlightDiv.appendChild(pre);
-      }
-    } else {
+  // Use a Set to track processed code blocks and prevent duplicates
+  const processedBlocks = new Set();
+  
+  // Only process .highlight divs to avoid duplicates
+  document.querySelectorAll('.highlight').forEach(highlightDiv => {
+    // Skip if already processed
+    if (processedBlocks.has(highlightDiv)) {
       return;
     }
-
+    
+    // Mark as processed
+    processedBlocks.add(highlightDiv);
+    
+    const pre = highlightDiv.querySelector('pre');
+    const codeBlock = pre ? pre.querySelector('code') : null;
+    
     if (!codeBlock || !pre) return;
+    
+    // Check if button already exists
+    if (highlightDiv.querySelector('.copy-code-btn')) {
+      return;
+    }
 
     // Detect language from class names
     // Rouge typically adds classes like: .highlight.python, .highlight .language-python, etc.
     let language = 'code';
     
-    // First, check code element classes (most common: language-xxx)
+    // Priority order: highlight div > pre > code
+    const highlightClasses = Array.from(highlightDiv.classList);
+    const preClasses = Array.from(pre.classList);
     const codeClasses = Array.from(codeBlock.classList);
-    let langMatch = codeClasses.find(cls => 
-      cls.startsWith('language-') || 
+    
+    // Check highlight div classes first (Rouge often adds language class here)
+    let langMatch = highlightClasses.find(cls => 
+      cls !== 'highlight' && 
       /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
     );
     
-    if (langMatch) {
-      language = langMatch.replace('language-', '').toUpperCase();
-    } else {
+    if (!langMatch) {
       // Check pre element classes
-      const preClasses = Array.from(pre.classList);
       langMatch = preClasses.find(cls => 
         cls !== 'highlight' && 
         /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
       );
+    }
+    
+    if (!langMatch) {
+      // Check code element classes (most common: language-xxx)
+      langMatch = codeClasses.find(cls => 
+        cls.startsWith('language-') || 
+        /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
+      );
       
-      if (langMatch) {
+      if (langMatch && langMatch.startsWith('language-')) {
+        language = langMatch.replace('language-', '').toUpperCase();
+      } else if (langMatch) {
         language = langMatch.toUpperCase();
-      } else if (highlightDiv) {
-        // Check highlight div classes (Rouge often adds language class here)
-        const highlightClasses = Array.from(highlightDiv.classList);
-        langMatch = highlightClasses.find(cls => 
-          cls !== 'highlight' && 
-          /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
-        );
-        
-        if (langMatch) {
-          language = langMatch.toUpperCase();
-        }
       }
+    } else {
+      language = langMatch.toUpperCase();
     }
 
     // Language name mapping for better display
@@ -585,75 +584,170 @@
     const displayLang = langMap[language] || language;
 
     // Set language attribute for CSS
-    if (highlightDiv) {
-      highlightDiv.setAttribute('data-lang', displayLang);
+    highlightDiv.setAttribute('data-lang', displayLang);
+    
+    // Ensure highlight div is positioned relatively
+    if (!highlightDiv.style.position) {
+      highlightDiv.style.position = 'relative';
     }
 
     // Create copy button
     const button = document.createElement('button');
     button.className = 'copy-code-btn';
     button.setAttribute('aria-label', 'Copy code to clipboard');
+    button.setAttribute('type', 'button');
     button.innerHTML = `
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
       </svg>
-      <span>Copy</span>
+      <span class="copy-text">Copy</span>
     `;
     
-    // Ensure highlight div is positioned relatively
-    if (highlightDiv) {
-      if (!highlightDiv.style.position) {
-        highlightDiv.style.position = 'relative';
-      }
-      highlightDiv.appendChild(button);
-    } else {
-      if (!pre.style.position) {
-        pre.style.position = 'relative';
-      }
-      pre.appendChild(button);
-    }
+    highlightDiv.appendChild(button);
 
     // Copy functionality
     button.addEventListener('click', async (e) => {
       e.stopPropagation();
+      e.preventDefault();
+      
       const text = codeBlock.textContent || codeBlock.innerText;
+      const copyText = button.querySelector('.copy-text');
+      const buttonSvg = button.querySelector('svg');
       
       try {
         await navigator.clipboard.writeText(text);
         
-        // Update button state
-        const originalHTML = button.innerHTML;
-        button.innerHTML = `
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-          <span>Copied!</span>
-        `;
-        button.style.color = 'var(--color-success, #10b981)';
-        button.style.borderColor = 'var(--color-success, #10b981)';
+        // Update button state - success
+        button.classList.add('copied');
+        if (copyText) copyText.textContent = 'Copied!';
+        if (buttonSvg) {
+          buttonSvg.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
+        }
         
         setTimeout(() => {
-          button.innerHTML = originalHTML;
-          button.style.color = '';
-          button.style.borderColor = '';
+          button.classList.remove('copied');
+          if (copyText) copyText.textContent = 'Copy';
+          if (buttonSvg) {
+            buttonSvg.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
+          }
         }, 2000);
       } catch (err) {
         console.error('Failed to copy:', err);
-        button.innerHTML = '<span>Error</span>';
-        button.style.color = 'var(--color-error, #ef4444)';
+        
+        // Update button state - error
+        button.classList.add('error');
+        if (copyText) copyText.textContent = 'Error';
+        
         setTimeout(() => {
-          button.innerHTML = `
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            <span>Copy</span>
-          `;
-          button.style.color = '';
+          button.classList.remove('error');
+          if (copyText) copyText.textContent = 'Copy';
         }, 2000);
       }
     });
+  });
+  
+  // Also handle standalone pre code blocks (not wrapped in .highlight)
+  document.querySelectorAll('pre code').forEach(codeBlock => {
+    const pre = codeBlock.parentElement;
+    if (pre.tagName === 'PRE' && !pre.closest('.highlight')) {
+      // Check if already processed
+      if (processedBlocks.has(pre)) {
+        return;
+      }
+      processedBlocks.add(pre);
+      
+      // Check if button already exists
+      if (pre.querySelector('.copy-code-btn')) {
+        return;
+      }
+      
+      // Wrap in highlight div
+      const highlightDiv = document.createElement('div');
+      highlightDiv.className = 'highlight';
+      pre.parentNode.insertBefore(highlightDiv, pre);
+      highlightDiv.appendChild(pre);
+      
+      // Process the newly created highlight div
+      const newPre = highlightDiv.querySelector('pre');
+      const newCodeBlock = newPre ? newPre.querySelector('code') : null;
+      
+      if (newCodeBlock && newPre) {
+        // Detect language and set up button (reuse logic above)
+        let language = 'code';
+        const codeClasses = Array.from(newCodeBlock.classList);
+        const langMatch = codeClasses.find(cls => 
+          cls.startsWith('language-') || 
+          /^(python|javascript|js|bash|sh|yaml|yml|json|html|css|sql|go|rust|java|php|ruby|typescript|ts|dockerfile|docker|makefile|make|markdown|md|xml|ini|toml|properties|conf|config|text|plain)$/i.test(cls)
+        );
+        
+        if (langMatch) {
+          language = langMatch.replace('language-', '').toUpperCase();
+        }
+        
+        const langMap = {
+          'PYTHON': 'Python', 'JAVASCRIPT': 'JavaScript', 'JS': 'JavaScript',
+          'BASH': 'Bash', 'SH': 'Shell', 'YAML': 'YAML', 'YML': 'YAML',
+          'JSON': 'JSON', 'HTML': 'HTML', 'CSS': 'CSS', 'SQL': 'SQL',
+          'GO': 'Go', 'RUST': 'Rust', 'JAVA': 'Java', 'PHP': 'PHP',
+          'RUBY': 'Ruby', 'TYPESCRIPT': 'TypeScript', 'TS': 'TypeScript',
+          'DOCKERFILE': 'Dockerfile', 'DOCKER': 'Docker', 'MAKEFILE': 'Makefile',
+          'MAKE': 'Make', 'MARKDOWN': 'Markdown', 'MD': 'Markdown',
+          'XML': 'XML', 'INI': 'INI', 'TOML': 'TOML', 'PROPERTIES': 'Properties',
+          'CONF': 'Config', 'CONFIG': 'Config'
+        };
+        
+        const displayLang = langMap[language] || language;
+        highlightDiv.setAttribute('data-lang', displayLang);
+        highlightDiv.style.position = 'relative';
+        
+        const button = document.createElement('button');
+        button.className = 'copy-code-btn';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+        button.setAttribute('type', 'button');
+        button.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span class="copy-text">Copy</span>
+        `;
+        
+        highlightDiv.appendChild(button);
+        
+        button.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          const text = newCodeBlock.textContent || newCodeBlock.innerText;
+          const copyText = button.querySelector('.copy-text');
+          const buttonSvg = button.querySelector('svg');
+          
+          try {
+            await navigator.clipboard.writeText(text);
+            button.classList.add('copied');
+            if (copyText) copyText.textContent = 'Copied!';
+            if (buttonSvg) {
+              buttonSvg.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
+            }
+            setTimeout(() => {
+              button.classList.remove('copied');
+              if (copyText) copyText.textContent = 'Copy';
+              if (buttonSvg) {
+                buttonSvg.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
+              }
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy:', err);
+            button.classList.add('error');
+            if (copyText) copyText.textContent = 'Error';
+            setTimeout(() => {
+              button.classList.remove('error');
+              if (copyText) copyText.textContent = 'Copy';
+            }, 2000);
+          }
+        });
+      }
+    }
   });
 
   // Lazy Loading Images

@@ -35,9 +35,10 @@ image: /assets/images/2025-06-05-이메일_발송_신뢰도_높이기_SendGrid_S
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>SPF, DKIM, DMARC 이메일 인증 기술 설정 방법</li>
-      <li>SendGrid를 활용한 도메인 인증 및 DNS 레코드 구성</li>
-      <li>이메일 발송 신뢰도 향상 및 스팸 방지 전략</li>
+      <li><strong>SPF(Sender Policy Framework)</strong>: DNS TXT 레코드 설정(v=spf1 include:sendgrid.net ~all), 발신 서버 인증, SPF 한정자(+/-/~/?), 여러 이메일 서비스 사용 시 설정</li>
+      <li><strong>DKIM(DomainKeys Identified Mail)</strong>: 서명 키 구성(Selector, Public Key), DNS TXT 레코드 설정(s1._domainkey), 이메일 무결성 검증, 디지털 서명 기술</li>
+      <li><strong>DMARC(Domain-based Message Authentication)</strong>: 정책 설정(v=DMARC1; p=quarantine; rua=mailto:...), 보고서 분석(집계 보고서, 실패 보고서), 정책 모드(none/quarantine/reject), 실무 DNS 설정 예시</li>
+      <li><strong>이메일 발송 신뢰도 향상</strong>: 스팸 방지 전략, 발송률 향상, 피싱 방지, SendGrid 도메인 인증 완료 프로세스, DNS 레코드 검증 방법</li>
     </ul>
   </div>
   <div class="summary-row">

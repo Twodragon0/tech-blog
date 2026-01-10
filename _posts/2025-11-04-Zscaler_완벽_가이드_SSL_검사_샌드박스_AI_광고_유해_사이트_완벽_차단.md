@@ -2,8 +2,7 @@
 layout: post
 title: "Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단"
 date: 2025-11-04 17:45:38 +0900
-category: security
-categories: [Security, Cloud]
+categories: [security, cloud]
 tags: [Zscaler, ZTNA, SSL-Inspection, Zero-Trust, Cloud-Security]
 excerpt: "Zscaler 완벽 가이드: 하이브리드 근무 환경 Zero Trust 보안 아키텍처(ZIA, ZPA, ZDX), Zscaler Client Connector(ZCC) 설정 및 트래픽 전달, SSL 검사(인증서 배포, 예외 처리), 샌드박스(ATP) 악성 파일 분석, 필수 앱 예외 처리(카카오톡), 브라우저 제어, AI/광고/유해 사이트 차단 정책까지 실무 중심 정리."
 comments: true

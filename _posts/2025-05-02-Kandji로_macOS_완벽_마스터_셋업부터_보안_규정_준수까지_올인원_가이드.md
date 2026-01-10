@@ -4,7 +4,7 @@ title: "Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까�
 date: 2025-05-02 18:55:13 +0900
 categories: security
 tags: [Kandji, macOS, MDM, Endpoint-Security, Compliance]
-excerpt: "Kandji macOS 완벽 가이드: Apple 통합 엔드포인트 관리(UEM) 솔루션 Kandji 활용법, macOS/iOS/iPadOS/tvOS 기기 효율적 관리 방법, 보안 및 규정 준수를 위한 단계별 설정 가이드(MDM 정책, 앱 배포, 보안 설정, 컴플라이언스), 실무 적용 사례까지 상세 정리."
+excerpt: "Kandji macOS 완벽 가이드: Apple 통합 엔드포인트 관리(UEM) 솔루션 Kandji 활용법(macOS/iOS/iPadOS/tvOS, MDM 정책 설정, 앱 배포 자동화, 보안 설정 중앙 관리, 컴플라이언스 모니터링), 보안 및 규정 준수(패스키 기반 디바이스 인증, FIDO2/WebAuthn 통합 YubiKey/Touch ID/Face ID, Zero Trust 아키텍처 적용), 2025년 엔드포인트 보안 트렌드(패스키 기반 제로 터치 배포, AI 기반 위협 탐지 이상 행위 탐지/자동 대응, SASE 통합 Zscaler/Netskope), 실무 적용(디바이스 신뢰도 평가, 동적 접근 제어, 컴플라이언스 상태 기반 실시간 접근 제어)까지 상세 정리."
 comments: true
 original_url: https://twodragon.tistory.com/680
 image: /assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_보안_규정_준수까지_올인원_가이드.svg
@@ -35,9 +35,10 @@ image: /assets/images/2025-05-02-Kandji로_macOS_완벽_마스터_셋업부터_�
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li>Apple 통합 엔드포인트 관리(UEM) 솔루션 Kandji 활용법</li>
-      <li>macOS, iOS, iPadOS, tvOS 기기 효율적 관리 방법</li>
-      <li>보안 및 규정 준수를 위한 단계별 설정 가이드</li>
+      <li><strong>Kandji UEM 솔루션</strong>: Apple 통합 엔드포인트 관리(macOS/iOS/iPadOS/tvOS), MDM 정책 설정, 앱 배포 자동화, 보안 설정 중앙 관리, 컴플라이언스 모니터링</li>
+      <li><strong>보안 및 규정 준수</strong>: 단계별 설정 가이드(MDM 정책, 앱 배포, 보안 설정, 컴플라이언스), 패스키 기반 디바이스 인증, FIDO2/WebAuthn 통합(YubiKey, Touch ID/Face ID), Zero Trust 아키텍처 적용</li>
+      <li><strong>2025년 엔드포인트 보안 트렌드</strong>: 패스키 기반 디바이스 인증(제로 터치 배포, 관리자 인증 강화), AI 기반 위협 탐지(이상 행위 탐지, 자동 대응, 예측적 보안), SASE 통합(Zscaler, Netskope)</li>
+      <li><strong>실무 적용</strong>: 디바이스 신뢰도 평가, 동적 접근 제어, 컴플라이언스 상태 기반 실시간 접근 제어, 기업 앱 로그인 자동화</li>
     </ul>
   </div>
   <div class="summary-row">
