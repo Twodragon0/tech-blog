@@ -15,9 +15,18 @@ const https = require('https');
 const { URL } = require('url');
 
 // Sentry 설정
-const SENTRY_DSN = process.env.SENTRY_DSN || 'https://61fd23528aff138753e071de26c5b306@o4510686170710016.ingest.us.sentry.io/4510686177984512';
-const SENTRY_ORG = process.env.SENTRY_ORG || 'twodragon';
+// 보안: DSN은 환경 변수로만 제공되어야 하며, 기본값은 사용하지 않음
+const SENTRY_DSN = process.env.SENTRY_DSN;
+const SENTRY_ORG = process.env.SENTRY_ORG || 'your-org';  // 실제 조직 이름으로 교체 필요
 const SENTRY_PROJECT = process.env.SENTRY_PROJECT || 'tech-blog';
+
+// DSN 검증
+if (!SENTRY_DSN) {
+  console.error('❌ SENTRY_DSN 환경 변수가 설정되지 않았습니다.');
+  console.error('환경 변수를 설정하거나 다음 명령어로 실행하세요:');
+  console.error('  SENTRY_DSN=your-sentry-dsn node scripts/verify_sentry_logs.js');
+  process.exit(1);
+}
 
 // DSN에서 정보 추출
 function parseDSN(dsn) {

@@ -31,8 +31,8 @@ Free 티어는 소규모 프로젝트나 개인 블로그에 적합합니다. �
 - **프로젝트**: tech-blog
 - **조직**: twodragon
 - **프로덕션 도메인**: tech.2twodragon.com
-- **DSN**: `https://61fd23528aff138753e071de26c5b306@o4510686170710016.ingest.us.sentry.io/4510686177984512`
-- **Loader Script**: `https://js.sentry-cdn.com/61fd23528aff138753e071de26c5b306.min.js`
+- **DSN**: `https://YOUR_SENTRY_DSN@o4510686170710016.ingest.us.sentry.io/YOUR_PROJECT_ID` (실제 DSN으로 교체 필요)
+- **Loader Script**: `https://js.sentry-cdn.com/YOUR_SENTRY_DSN.min.js` (실제 Loader Script URL로 교체 필요)
 - **구현 방식**: Loader Script + `Sentry.onLoad()` (권장 방식)
 
 ## GitHub 통합 기능

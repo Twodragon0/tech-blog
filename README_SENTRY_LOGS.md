@@ -124,8 +124,8 @@ Vercel Log Drains를 통해 서버 로그를 Sentry로 전송할 수 있습니�
 Vercel 프로젝트에 다음 환경 변수가 설정되어 있는지 확인:
 
 ```bash
-# Sentry DSN (이미 설정되어 있음)
-SENTRY_DSN=https://61fd23528aff138753e071de26c5b306@o4510686170710016.ingest.us.sentry.io/4510686177984512
+# Sentry DSN (실제 DSN으로 교체 필요)
+SENTRY_DSN=https://YOUR_SENTRY_DSN@o4510686170710016.ingest.us.sentry.io/YOUR_PROJECT_ID
 
 # 환경별 설정 (선택사항)
 SENTRY_ENVIRONMENT=production

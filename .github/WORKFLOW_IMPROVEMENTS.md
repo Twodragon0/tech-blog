@@ -39,7 +39,7 @@
 
 ## 📝 코드 변경 사항
 
-### `scripts/generate_audio.py`
+### `scripts/generate_enhanced_audio.py`
 
 ```python
 # 재시도 로직 추가

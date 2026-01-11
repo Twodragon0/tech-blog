@@ -21,7 +21,7 @@ tech-blog 프로젝트에 필요한 Vercel 환경 변수 설정 가이드입니�
 ### 방법 2: Vercel CLI 사용
 
 ```bash
-cd "/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내 드라이브/tech-blog"
+cd /path/to/tech-blog  # 실제 프로젝트 경로로 교체 필요
 
 # Production 환경
 vercel env add DEEPSEEK_API_KEY production

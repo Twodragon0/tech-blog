@@ -58,14 +58,18 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 # API 엔드포인트
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
-GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent"
+GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent"  # Gemini 1.5 Pro deprecated, 2.5 Pro 사용
+GEMINI_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent"  # Gemini Nano Banana (이미지 생성)
+GEMINI_VIDEO_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent"  # Gemini Veo (영상 생성)
 ELEVENLABS_API_URL = "https://api.elevenlabs.io/v1/text-to-speech"
 ELEVENLABS_VOICES_URL = "https://api.elevenlabs.io/v1/voices"
+GEMINI_TTS_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent"  # Gemini TTS (오디오 생성)
 
 # 설정
 MAX_TEXT_LENGTH = 50000  # 최대 텍스트 길이 (비용 관리)
-MAX_SCRIPT_LENGTH = 3000  # 최대 대본 길이 (약 5분 분량)
+MAX_SCRIPT_LENGTH = 4500  # 최대 대본 길이 (약 7-8분 분량, 1.5배속 재생 시 약 5분)
 AUDIO_OUTPUT_FORMAT = "mp3"
+AUDIO_SPEED_MULTIPLIER = 1.5  # 오디오 재생 속도 배율 (1.5배속)
 
 # API 선택 전략 설정
 USE_GEMINI_FOR_IMPROVEMENT = os.getenv("USE_GEMINI_FOR_IMPROVEMENT", "true").lower() == "true"
@@ -191,31 +195,38 @@ def log_message(message: str, level: str = "INFO") -> None:
     try:
         # 보안: 민감 정보가 포함된 로그는 파일에 기록하지 않음
         # log_entry는 이미 mask_sensitive_info()로 마스킹되었지만 추가 검증
-        if _validate_masked_log_entry(log_entry):
+        # 최종 검증: 마스킹이 완전히 되었는지 확인
+        final_log_entry = mask_sensitive_info(log_entry)
+        if _validate_masked_log_entry(final_log_entry):
+            # 검증된 안전한 로그만 파일에 기록
             with open(LOG_FILE, "a", encoding="utf-8") as f:
-                f.write(log_entry)
+                f.write(final_log_entry)
         else:
-            # 마스킹되지 않은 로그는 기록하지 않음
-            safe_log_entry = mask_sensitive_info(log_entry)
-            if _validate_masked_log_entry(safe_log_entry):
-                with open(LOG_FILE, "a", encoding="utf-8") as f:
-                    f.write(safe_log_entry)
+            # 마스킹 검증 실패 시 민감 정보를 완전히 제거한 안전한 메시지만 기록
+            # API 키나 민감 정보가 포함된 부분을 완전히 제거
+            safe_log_entry = "[로그 항목이 보안상 차단되었습니다]"
+            with open(LOG_FILE, "a", encoding="utf-8") as f:
+                f.write(f"[{timestamp}] [{level}] {safe_log_entry}\n")
     except Exception as e:
         # 예외 메시지도 마스킹
         error_msg = mask_sensitive_info(str(e))
         print(f"⚠️ 로그 파일 기록 실패: {error_msg}", file=sys.stderr)
     
     # 콘솔 출력도 마스킹된 메시지만 출력
+    # 다중 마스킹 적용: 여러 번 마스킹하여 완전히 안전한지 확인
     safe_console_output = mask_sensitive_info(log_entry.strip())
+    # 추가 마스킹 라운드 (방어적 프로그래밍)
+    for _ in range(2):
+        if not _validate_masked_log_entry(safe_console_output):
+            safe_console_output = mask_sensitive_info(safe_console_output)
+        else:
+            break
+    
     if _validate_masked_log_entry(safe_console_output):
         print(safe_console_output)
     else:
-        # 최종 마스킹 시도
-        final_output = mask_sensitive_info(safe_console_output)
-        if _validate_masked_log_entry(final_output):
-            print(final_output)
-        else:
-            print("[로그 출력이 보안상 차단되었습니다]")
+        # 최종 마스킹 시도 실패 시 안전한 메시지만 출력
+        print("[로그 출력이 보안상 차단되었습니다]")
 
 
 def get_cache_key(text: str, post_title: str = "") -> str:
@@ -371,25 +382,27 @@ def generate_script_with_gemini_cli(text: str, post_title: str = "") -> Optional
         log_message(f"⚠️ 텍스트가 너무 깁니다 ({len(text)}자). 처음 {MAX_TEXT_LENGTH}자만 사용합니다.", "WARNING")
         text = text[:MAX_TEXT_LENGTH]
     
-    # Gemini CLI를 위한 프롬프트 구성
+    # Gemini CLI를 위한 프롬프트 구성 (1.5배속 재생 고려)
     title_context = f"제목: {post_title}\n\n" if post_title else ""
-    prompt = f"""다음 보안 기술 블로그 내용을 5분 내외의 자연스러운 강의 대본으로 요약해줘.
+    prompt = f"""다음 보안 기술 블로그 내용을 7-8분 분량의 상세한 강의 대본으로 요약해줘.
+(참고: 이 대본은 1.5배속으로 재생되어 약 5분 분량의 강의가 됩니다)
 
 {title_context}블로그 내용:
 {text}
 
 강의 대본 작성 가이드:
-1. **서론 (10-15초)**: 인사말과 오늘 다룰 주제 소개
-2. **본론 (4-4.5분)**: 핵심 내용을 단계별로 명확하게 설명, 구어체 사용
-3. **결론 (10-15초)**: 핵심 내용 요약 및 마무리 인사
+1. **서론 (30-45초, 1.5배속 시 20-30초)**: 인사말, 주제 소개, 학습 목표 안내
+2. **본론 (6-7분, 1.5배속 시 4-4.5분)**: 핵심 내용을 단계별로 상세하게 설명, 구어체 사용, 실무 예시 포함
+3. **결론 (30-45초, 1.5배속 시 20-30초)**: 핵심 내용 요약, 실무 팁, 마무리 인사
 
 요구사항:
 - 자연스러운 구어체로 작성
-- 핵심 내용을 명확하고 체계적으로 전달
-- 5분 내외 분량 (약 800-1000자)
+- 핵심 내용을 상세하고 체계적으로 전달
+- 7-8분 분량 (약 2,000-2,500자, 1.5배속 재생 시 약 5분)
 - 기술 용어는 정확하게 사용하되 이해하기 쉽게 설명
+- 실무 예시와 비유를 풍부하게 포함
 - 한국어로 작성
-- 강의자의 말투처럼 자연스럽게 작성"""
+- 강의자의 말투처럼 자연스럽고 친근하게 작성"""
     
     try:
         log_message("📝 Gemini CLI로 대본 생성 중...")
@@ -455,8 +468,8 @@ def get_gemini_oauth_client():
         # Gemini API 클라이언트 초기화
         genai.configure(credentials=credentials)
         
-        # 모델 생성
-        model = genai.GenerativeModel('gemini-1.5-pro')
+        # 모델 생성 (Gemini 2.5 Pro 사용)
+        model = genai.GenerativeModel('gemini-2.5-pro')
         
         log_message("✅ OAuth 2.0 인증 완료 (서비스 계정 사용)")
         return model
@@ -499,36 +512,42 @@ def generate_script_with_gemini_oauth(text: str, post_title: str = "") -> Option
         log_message(f"⚠️ 텍스트가 너무 깁니다 ({len(text)}자). 처음 {MAX_TEXT_LENGTH}자만 사용합니다.", "WARNING")
         text = text[:MAX_TEXT_LENGTH]
     
-    # 프롬프트 구성
+    # 프롬프트 구성 (1.5배속 재생 고려하여 더 긴 대본 생성)
     title_context = f"제목: {post_title}\n\n" if post_title else ""
     prompt = f"""당신은 기술 블로그를 전문 강의 대본으로 변환하는 전문가입니다. 
-다음 보안 기술 블로그 내용을 5분 내외의 자연스럽고 매력적인 강의 대본으로 변환해주세요.
+다음 보안 기술 블로그 내용을 7-8분 분량의 상세하고 매력적인 강의 대본으로 변환해주세요.
+(참고: 이 대본은 1.5배속으로 재생되어 약 5분 분량의 강의가 됩니다)
 
 {title_context}블로그 내용:
 {text}
 
 강의 대본 작성 가이드:
-1. **서론 (10-15초)**
+1. **서론 (30-45초, 1.5배속 시 20-30초)**
    - 인사말과 오늘 다룰 주제 소개
-   - 예: "안녕하세요, 오늘은 [주제]에 대해 알아보겠습니다."
+   - 학습 목표와 강의 구성 안내
+   - 예: "안녕하세요, 오늘은 [주제]에 대해 자세히 알아보겠습니다. 이번 강의에서는 [핵심 내용]을 중심으로 설명드리겠습니다."
 
-2. **본론 (4-4.5분)**
-   - 핵심 내용을 단계별로 명확하게 설명
-   - 구어체 사용 ("이제", "그런데", "중요한 것은" 등)
-   - 기술 용어는 정확하게 사용하되, 쉬운 설명 추가
-   - 실무 예시나 비유 활용
+2. **본론 (6-7분, 1.5배속 시 4-4.5분)**
+   - 핵심 내용을 단계별로 상세하고 명확하게 설명
+   - 구어체 사용 ("이제", "그런데", "중요한 것은", "예를 들어" 등)
+   - 기술 용어는 정확하게 사용하되, 쉬운 설명과 비유를 풍부하게 추가
+   - 실무 예시, 코드 예제, 시나리오를 구체적으로 설명
+   - 각 섹션마다 자연스러운 전환 구문 사용
+   - 핵심 포인트를 반복하여 강조
 
-3. **결론 (10-15초)**
-   - 핵심 내용 요약
+3. **결론 (30-45초, 1.5배속 시 20-30초)**
+   - 오늘 배운 핵심 내용을 체계적으로 요약
+   - 실무 적용 팁 또는 다음 학습 내용 안내
    - 마무리 인사
 
 요구사항:
-- 자연스러운 구어체로 작성
-- 핵심 내용을 명확하고 체계적으로 전달
-- 5분 내외 분량 (약 800-1000자)
+- 자연스러운 구어체로 작성 (강의자의 말투)
+- 핵심 내용을 상세하고 체계적으로 전달
+- 7-8분 분량 (약 2,000-2,500자, 1.5배속 재생 시 약 5분)
 - 기술 용어는 정확하게 사용하되 이해하기 쉽게 설명
+- 실무 예시와 비유를 풍부하게 포함
 - 한국어로 작성
-- 강의자의 말투처럼 자연스럽게 작성"""
+- 강의자의 말투처럼 자연스럽고 친근하게 작성"""
     
     # 재시도 로직 (최대 3회)
     max_retries = 3
@@ -550,7 +569,7 @@ def generate_script_with_gemini_oauth(text: str, post_title: str = "") -> Option
                     "temperature": 0.8,
                     "top_k": 40,
                     "top_p": 0.95,
-                    "max_output_tokens": 2000,
+                    "max_output_tokens": 3000,  # 더 긴 대본 생성을 위해 증가
                 },
                 safety_settings=[
                     {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
@@ -620,36 +639,42 @@ def generate_script_with_gemini(text: str, post_title: str = "") -> Optional[str
         log_message(f"⚠️ 텍스트가 너무 깁니다 ({len(text)}자). 처음 {MAX_TEXT_LENGTH}자만 사용합니다.", "WARNING")
         text = text[:MAX_TEXT_LENGTH]
     
-    # Gemini AI Pro를 위한 고급 프롬프트 구성
+    # Gemini AI Pro를 위한 고급 프롬프트 구성 (1.5배속 재생 고려)
     title_context = f"제목: {post_title}\n\n" if post_title else ""
     prompt = f"""당신은 기술 블로그를 전문 강의 대본으로 변환하는 전문가입니다. 
-다음 보안 기술 블로그 내용을 5분 내외의 자연스럽고 매력적인 강의 대본으로 변환해주세요.
+다음 보안 기술 블로그 내용을 7-8분 분량의 상세하고 매력적인 강의 대본으로 변환해주세요.
+(참고: 이 대본은 1.5배속으로 재생되어 약 5분 분량의 강의가 됩니다)
 
 {title_context}블로그 내용:
 {text}
 
 강의 대본 작성 가이드:
-1. **서론 (10-15초)**
+1. **서론 (30-45초, 1.5배속 시 20-30초)**
    - 인사말과 오늘 다룰 주제 소개
-   - 예: "안녕하세요, 오늘은 [주제]에 대해 알아보겠습니다."
+   - 학습 목표와 강의 구성 안내
+   - 예: "안녕하세요, 오늘은 [주제]에 대해 자세히 알아보겠습니다. 이번 강의에서는 [핵심 내용]을 중심으로 설명드리겠습니다."
 
-2. **본론 (4-4.5분)**
-   - 핵심 내용을 단계별로 명확하게 설명
-   - 구어체 사용 ("이제", "그런데", "중요한 것은" 등)
-   - 기술 용어는 정확하게 사용하되, 쉬운 설명 추가
-   - 실무 예시나 비유 활용
+2. **본론 (6-7분, 1.5배속 시 4-4.5분)**
+   - 핵심 내용을 단계별로 상세하고 명확하게 설명
+   - 구어체 사용 ("이제", "그런데", "중요한 것은", "예를 들어" 등)
+   - 기술 용어는 정확하게 사용하되, 쉬운 설명과 비유를 풍부하게 추가
+   - 실무 예시, 코드 예제, 시나리오를 구체적으로 설명
+   - 각 섹션마다 자연스러운 전환 구문 사용
+   - 핵심 포인트를 반복하여 강조
 
-3. **결론 (10-15초)**
-   - 핵심 내용 요약
+3. **결론 (30-45초, 1.5배속 시 20-30초)**
+   - 오늘 배운 핵심 내용을 체계적으로 요약
+   - 실무 적용 팁 또는 다음 학습 내용 안내
    - 마무리 인사
 
 요구사항:
-- 자연스러운 구어체로 작성
-- 핵심 내용을 명확하고 체계적으로 전달
-- 5분 내외 분량 (약 800-1000자)
+- 자연스러운 구어체로 작성 (강의자의 말투)
+- 핵심 내용을 상세하고 체계적으로 전달
+- 7-8분 분량 (약 2,000-2,500자, 1.5배속 재생 시 약 5분)
 - 기술 용어는 정확하게 사용하되 이해하기 쉽게 설명
+- 실무 예시와 비유를 풍부하게 포함
 - 한국어로 작성
-- 강의자의 말투처럼 자연스럽게 작성"""
+- 강의자의 말투처럼 자연스럽고 친근하게 작성"""
     
     # 재시도 로직 (최대 3회)
     max_retries = 3
@@ -677,7 +702,7 @@ def generate_script_with_gemini(text: str, post_title: str = "") -> Optional[str
                     "temperature": 0.8,  # 창의성 향상
                     "topK": 40,
                     "topP": 0.95,
-                    "maxOutputTokens": 2000,
+                    "maxOutputTokens": 3000,  # 더 긴 대본 생성을 위해 증가
                     "candidateCount": 1
                 },
                 "safetySettings": [
@@ -796,19 +821,21 @@ def generate_script_with_deepseek(text: str, post_title: str = "") -> Optional[s
         log_message(f"⚠️ 텍스트가 너무 깁니다 ({len(text)}자). 처음 {MAX_TEXT_LENGTH}자만 사용합니다.", "WARNING")
         text = text[:MAX_TEXT_LENGTH]
     
-    # 프롬프트 구성
+    # 프롬프트 구성 (1.5배속 재생 고려)
     title_context = f"제목: {post_title}\n\n" if post_title else ""
-    prompt = f"""다음 보안 기술 블로그 내용을 5분 내외의 자연스러운 강의 대본으로 요약해줘. 
-구어체로 작성하고, 핵심 내용을 명확하게 전달해줘.
+    prompt = f"""다음 보안 기술 블로그 내용을 7-8분 분량의 상세한 강의 대본으로 요약해줘. 
+구어체로 작성하고, 핵심 내용을 상세하고 명확하게 전달해줘.
+(참고: 이 대본은 1.5배속으로 재생되어 약 5분 분량의 강의가 됩니다)
 
 {title_context}블로그 내용:
 {text}
 
 요구사항:
-- 구어체로 작성 (예: "안녕하세요", "이제", "그런데" 등 자연스러운 말투)
-- 핵심 내용을 명확하게 전달
-- 5분 내외 분량 (약 800-1000자)
-- 기술 용어는 정확하게 사용
+- 구어체로 작성 (예: "안녕하세요", "이제", "그런데", "예를 들어" 등 자연스러운 말투)
+- 핵심 내용을 상세하고 체계적으로 전달
+- 7-8분 분량 (약 2,000-2,500자, 1.5배속 재생 시 약 5분)
+- 기술 용어는 정확하게 사용하되 이해하기 쉽게 설명
+- 실무 예시와 비유를 풍부하게 포함
 - 한국어로 작성"""
     
     # 재시도 로직 (최대 3회)
@@ -842,7 +869,7 @@ def generate_script_with_deepseek(text: str, post_title: str = "") -> Optional[s
                     }
                 ],
                 "temperature": 0.7,
-                "max_tokens": 2000
+                "max_tokens": 3000  # 더 긴 대본 생성을 위해 증가
             }
             
             timeout_seconds = 120
@@ -942,17 +969,18 @@ def improve_script_with_gemini(script: str, post_title: str = "") -> Optional[st
             title_context = f"제목: {post_title}\n\n" if post_title else ""
             prompt = f"""당신은 전문 강의 대본 개선 전문가입니다. 
 다음 강의 대본을 더 자연스럽고 매력적이며 효과적으로 개선해주세요.
+(참고: 이 대본은 1.5배속으로 재생되어 약 5분 분량의 강의가 됩니다)
 
 {title_context}원본 대본:
 {script}
 
 개선 가이드:
-1. **자연스러운 구어체 유지**: "안녕하세요", "이제", "그런데", "중요한 것은" 등 자연스러운 말투
+1. **자연스러운 구어체 유지**: "안녕하세요", "이제", "그런데", "중요한 것은", "예를 들어" 등 자연스러운 말투
 2. **핵심 내용 보존**: 기술적 정확성과 핵심 내용은 그대로 유지
 3. **표현 개선**: 더 명확하고 이해하기 쉬운 표현으로 변경
 4. **흐름 개선**: 논리적 흐름과 전환을 더 부드럽게
 5. **몰입도 향상**: 청중의 관심을 끌 수 있는 표현 추가
-6. **길이 유지**: 원본과 비슷한 길이 유지 (약 800-1000자)
+6. **길이 유지**: 원본과 비슷한 길이 유지 (약 2,000-2,500자, 1.5배속 재생 시 약 5분)
 
 요구사항:
 - 자연스러운 구어체 유지
@@ -975,7 +1003,7 @@ def improve_script_with_gemini(script: str, post_title: str = "") -> Optional[st
                     "temperature": 0.8,  # 창의성 향상
                     "topK": 40,
                     "topP": 0.95,
-                    "maxOutputTokens": 2000,
+                    "maxOutputTokens": 3000,  # 더 긴 대본 생성을 위해 증가
                     "candidateCount": 1
                 },
                 "safetySettings": [
@@ -1168,9 +1196,9 @@ def generate_script(text: str, post_title: str = "") -> Optional[str]:
     return script
 
 
-def text_to_speech(script: str, output_path: Path) -> bool:
+def text_to_speech_with_gemini(script: str, output_path: Path) -> bool:
     """
-    ElevenLabs API를 사용하여 텍스트를 음성으로 변환합니다.
+    Gemini API를 사용하여 텍스트를 음성으로 변환합니다.
     
     Args:
         script: 대본 텍스트
@@ -1183,65 +1211,168 @@ def text_to_speech(script: str, output_path: Path) -> bool:
         log_message("❌ 대본이 비어있습니다.", "ERROR")
         return False
     
-    if not ELEVENLABS_VOICE_ID:
-        log_message("❌ ELEVENLABS_VOICE_ID가 설정되지 않았습니다.", "ERROR")
+    if not GEMINI_API_KEY:
         return False
     
     try:
-        log_message("🎤 ElevenLabs API로 음성 생성 중...")
+        log_message("🎤 Gemini API로 음성 생성 중...")
         
-        url = f"{ELEVENLABS_API_URL}/{ELEVENLABS_VOICE_ID}"
-        headers = {
-            "xi-api-key": ELEVENLABS_API_KEY,
-            "Content-Type": "application/json"
-        }
+        # Gemini TTS는 현재 제한적이므로, 일단 ElevenLabs로 폴백
+        # 향후 Gemini TTS API가 정식 출시되면 구현
+        log_message("⚠️ Gemini TTS는 아직 정식 출시되지 않았습니다. ElevenLabs로 폴백합니다.", "WARNING")
+        return False
+        
+    except Exception as e:
+        log_message(f"❌ Gemini TTS 오류: {str(e)}", "ERROR")
+        return False
+
+
+def text_to_speech(script: str, output_path: Path) -> bool:
+    """
+    ElevenLabs API 또는 Gemini API를 사용하여 텍스트를 음성으로 변환합니다.
+    비용 최적화: ElevenLabs를 우선 사용 (비용 효율적), Gemini는 폴백으로 사용.
+    
+    Args:
+        script: 대본 텍스트
+        output_path: 출력 파일 경로
+        
+    Returns:
+        성공 시 True, 실패 시 False
+    """
+    if not script:
+        log_message("❌ 대본이 비어있습니다.", "ERROR")
+        return False
+    
+    # 비용 최적화: ElevenLabs를 우선 사용 (비용 효율적)
+    if ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID:
+        try:
+            log_message("🎤 ElevenLabs API로 음성 생성 중... (비용 최적화: ElevenLabs 우선)")
+            
+            url = f"{ELEVENLABS_API_URL}/{ELEVENLABS_VOICE_ID}"
+            headers = {
+                "xi-api-key": ELEVENLABS_API_KEY,
+                "Content-Type": "application/json"
+            }
+            
+            data = {
+                "text": script,
+                "model_id": "eleven_multilingual_v2",  # 한국어 지원 모델
+                "voice_settings": {
+                    "stability": 0.5,
+                    "similarity_boost": 0.75,
+                    "style": 0.0,
+                    "use_speaker_boost": True
+                }
+            }
+            
+            usage = usage_stats["elevenlabs"]
+            usage.requests += 1
+            
+            response = requests.post(
+                url,
+                json=data,
+                headers=headers,
+                timeout=60
+            )
+            
+            response.raise_for_status()
+            
+            # 오디오 파일 저장
+            with open(output_path, "wb") as f:
+                f.write(response.content)
+            
+            file_size = output_path.stat().st_size
+            log_message(f"✅ 음성 생성 완료: {output_path} ({file_size:,} bytes)")
+            return True
+            
+        except requests.exceptions.RequestException as e:
+            usage = usage_stats["elevenlabs"]
+            usage.errors += 1
+            log_message(f"❌ ElevenLabs API 요청 실패: {str(e)}", "ERROR")
+            if hasattr(e, 'response') and e.response is not None:
+                try:
+                    error_detail = e.response.json()
+                    log_message(f"   응답 내용: {json.dumps(error_detail, ensure_ascii=False)}", "ERROR")
+                except:
+                    log_message(f"   응답 내용: {e.response.text[:200]}", "ERROR")
+            # ElevenLabs 실패 시 Gemini로 폴백
+            log_message("🔄 ElevenLabs 실패, Gemini TTS로 폴백...", "WARNING")
+    
+    # Gemini TTS 폴백 (ElevenLabs 실패 시)
+    if GEMINI_API_KEY:
+        if text_to_speech_with_gemini(script, output_path):
+            return True
+        log_message("⚠️ Gemini TTS도 실패했습니다.", "WARNING")
+    
+    # 모든 방법 실패
+    log_message("❌ 음성 생성 실패: 사용 가능한 API가 없습니다.", "ERROR")
+    return False
+
+
+def generate_image_with_gemini_nano_banana(post_title: str, script: str, output_path: Path) -> bool:
+    """
+    Gemini Nano Banana를 사용하여 강의용 썸네일 이미지를 생성합니다.
+    
+    Args:
+        post_title: 포스트 제목
+        script: 대본 텍스트 (이미지 생성 프롬프트에 활용)
+        output_path: 출력 이미지 파일 경로
+        
+    Returns:
+        성공 시 True, 실패 시 False
+    """
+    if not GEMINI_API_KEY:
+        log_message("⚠️ Gemini API 키가 없어 이미지 생성을 건너뜁니다.", "WARNING")
+        return False
+    
+    try:
+        log_message("🎨 Gemini Nano Banana로 이미지 생성 중...")
+        
+        # 이미지 생성 프롬프트 (대본의 핵심 내용 기반)
+        script_summary = script[:500] if len(script) > 500 else script
+        prompt = f"""다음 기술 강의를 위한 전문적이고 현대적인 썸네일 이미지를 생성해주세요.
+
+강의 제목: {post_title}
+강의 요약: {script_summary}
+
+요구사항:
+- 기술 블로그 강의용 썸네일
+- 전문적이고 깔끔한 디자인
+- 기술적인 느낌을 주는 색상과 아이콘
+- 1920x1080 해상도
+- 한국어 텍스트 포함 가능
+- 현대적이고 세련된 스타일"""
+        
+        url = f"{GEMINI_IMAGE_API_URL}?key={GEMINI_API_KEY}"
         
         data = {
-            "text": script,
-            "model_id": "eleven_multilingual_v2",  # 한국어 지원 모델
-            "voice_settings": {
-                "stability": 0.5,
-                "similarity_boost": 0.75,
-                "style": 0.0,
-                "use_speaker_boost": True
+            "contents": [{
+                "parts": [{
+                    "text": prompt
+                }]
+            }],
+            "generationConfig": {
+                "temperature": 0.9,
+                "topK": 40,
+                "topP": 0.95,
+                "maxOutputTokens": 1000
             }
         }
         
-        usage = usage_stats["elevenlabs"]
-        usage.requests += 1
+        response = requests.post(url, json=data, timeout=120)
         
-        response = requests.post(
-            url,
-            json=data,
-            headers=headers,
-            timeout=60
-        )
-        
-        response.raise_for_status()
-        
-        # 오디오 파일 저장
-        with open(output_path, "wb") as f:
-            f.write(response.content)
-        
-        file_size = output_path.stat().st_size
-        log_message(f"✅ 음성 생성 완료: {output_path} ({file_size:,} bytes)")
-        return True
-        
-    except requests.exceptions.RequestException as e:
-        usage = usage_stats["elevenlabs"]
-        usage.errors += 1
-        log_message(f"❌ ElevenLabs API 요청 실패: {str(e)}", "ERROR")
-        if hasattr(e, 'response') and e.response is not None:
-            try:
-                error_detail = e.response.json()
-                log_message(f"   응답 내용: {json.dumps(error_detail, ensure_ascii=False)}", "ERROR")
-            except:
-                log_message(f"   응답 내용: {e.response.text[:200]}", "ERROR")
-        return False
+        if response.status_code == 200:
+            result = response.json()
+            # Gemini Nano Banana는 이미지 생성이 아닌 텍스트 기반이므로
+            # 실제 이미지 생성은 다른 API나 도구가 필요할 수 있습니다
+            log_message("⚠️ Gemini Nano Banana 이미지 생성은 현재 제한적입니다. 기본 썸네일을 사용합니다.", "WARNING")
+            return False
+        else:
+            log_message(f"⚠️ Gemini 이미지 생성 실패: HTTP {response.status_code}", "WARNING")
+            return False
+            
     except Exception as e:
-        usage = usage_stats["elevenlabs"]
-        usage.errors += 1
-        log_message(f"❌ 음성 생성 중 오류 발생: {str(e)}", "ERROR")
+        log_message(f"⚠️ 이미지 생성 중 오류: {str(e)}", "WARNING")
         return False
 
 
@@ -1340,14 +1471,54 @@ def process_post(post_path: Path) -> bool:
         
         # 출력 파일 경로 생성
         post_stem = post_path.stem
+        script_filename = f"{post_stem}_script.txt"
+        script_path = OUTPUT_DIR / script_filename
         audio_filename = f"{post_stem}_audio.{AUDIO_OUTPUT_FORMAT}"
         audio_path = OUTPUT_DIR / audio_filename
+        
+        # 대본 파일 저장 (사용된 API 정보 포함)
+        try:
+            # 사용된 API 정보 추적
+            api_info = []
+            if USE_OAUTH:
+                api_info.append("Gemini OAuth 2.0")
+            if GEMINI_API_KEY:
+                api_info.append("Gemini API Key")
+            if DEEPSEEK_API_KEY:
+                api_info.append("DeepSeek API")
+            
+            used_api = " → ".join(api_info) if api_info else "알 수 없음"
+            
+            with open(script_path, "w", encoding="utf-8") as f:
+                f.write(f"# {title}\n\n")
+                f.write(f"생성일: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                f.write(f"대본 길이: {len(script)}자\n")
+                f.write(f"원본 포스트: {post_path.name}\n")
+                f.write(f"사용된 API: {used_api}\n")
+                f.write(f"API 전략: ")
+                if USE_OAUTH:
+                    f.write("OAuth 2.0 우선")
+                elif PREFER_GEMINI:
+                    f.write("Gemini 우선")
+                else:
+                    f.write("DeepSeek 우선")
+                f.write("\n")
+                f.write("\n" + "=" * 60 + "\n")
+                f.write("강의용 대본\n")
+                f.write("=" * 60 + "\n\n")
+                f.write(script)
+                f.write("\n")
+            log_message(f"✅ 대본 파일 저장 완료: {script_path}")
+            log_message(f"   사용된 API: {used_api}")
+        except Exception as e:
+            log_message(f"⚠️ 대본 파일 저장 실패: {str(e)}", "WARNING")
         
         # 음성 생성
         success = text_to_speech(script, audio_path)
         
         if success:
             log_message(f"✅ 포스트 처리 완료: {post_path.name}")
+            log_message(f"   대본 파일: {script_path}")
             log_message(f"   오디오 파일: {audio_path}")
             return True
         else:

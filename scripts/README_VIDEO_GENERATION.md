@@ -63,13 +63,13 @@ GitHub Actions 사용 시:
 
 ```bash
 cd scripts
-python3 generate_audio.py
+python3 scripts/generate_enhanced_audio.py
 ```
 
 #### 2. 특정 포스트 지정
 
 ```bash
-python3 generate_audio.py 2026-01-10-2026년_DevSecOps_로드맵_완벽_가이드_roadmap.sh_분석.md
+python3 scripts/generate_enhanced_audio.py 2026-01-10-2026년_DevSecOps_로드맵_완벽_가이드_roadmap.sh_분석.md
 ```
 
 #### 3. 결과 확인
@@ -95,7 +95,7 @@ python3 generate_audio.py 2026-01-10-2026년_DevSecOps_로드맵_완벽_가이�
 
 ## ⚙️ 설정
 
-### 스크립트 설정 (`generate_audio.py`)
+### 스크립트 설정 (`generate_enhanced_audio.py`)
 
 ```python
 MAX_TEXT_LENGTH = 50000  # 최대 텍스트 길이 (비용 관리)

@@ -28,7 +28,7 @@
 #### 3단계: GitHub Secrets 업데이트
 ```bash
 # GitHub CLI 사용
-cd "/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내 드라이브/tech-blog"
+cd /path/to/tech-blog  # 실제 프로젝트 경로로 교체 필요
 gh secret set DEEPSEEK_API_KEY --body "your-new-api-key-here"
 
 # 확인
@@ -43,7 +43,7 @@ export ELEVENLABS_API_KEY='your-elevenlabs-key'
 export ELEVENLABS_VOICE_ID='your-voice-id'
 
 # 테스트 실행
-python3 scripts/generate_audio.py
+python3 scripts/generate_enhanced_audio.py
 ```
 
 ### 2. ElevenLabs API 오류
@@ -70,17 +70,17 @@ gh secret set ELEVENLABS_VOICE_ID --body "your-voice-id"
 
 **증상:**
 ```
-python3: can't open file 'scripts/generate_audio.py': [Errno 2] No such file or directory
+python3: can't open file 'scripts/generate_enhanced_audio.py': [Errno 2] No such file or directory
 ```
 
 **해결 방법:**
 ```bash
 # 스크립트 파일 커밋 확인
-git status scripts/generate_audio.py
+git status scripts/generate_enhanced_audio.py
 
 # 파일이 없다면 추가
-git add scripts/generate_audio.py
-git commit -m "feat: Add audio generation script"
+git add scripts/generate_enhanced_audio.py
+git commit -m "feat: Add enhanced audio generation script"
 git push origin main
 ```
 

@@ -63,8 +63,9 @@ Sentry 공식 Loader Script를 사용합니다 (권장):
 
 ```html
 <!-- Sentry Loader Script -->
+<!-- 실제 Loader Script URL은 Sentry 프로젝트 설정에서 확인하세요 -->
 <script
-  src="https://js.sentry-cdn.com/61fd23528aff138753e071de26c5b306.min.js"
+  src="https://js.sentry-cdn.com/YOUR_SENTRY_DSN.min.js"
   crossorigin="anonymous"
 ></script>
 ```
@@ -104,8 +105,8 @@ Platform: JavaScript
 Framework: Browser
 Project Name: tech-blog
 Organization: your-org
-Loader Script URL: https://js.sentry-cdn.com/61fd23528aff138753e071de26c5b306.min.js
-DSN: https://61fd23528aff138753e071de26c5b306@o4510686170710016.ingest.us.sentry.io/4510686177984512
+Loader Script URL: https://js.sentry-cdn.com/YOUR_SENTRY_DSN.min.js (실제 Loader Script URL로 교체 필요)
+DSN: https://YOUR_SENTRY_DSN@o4510686170710016.ingest.us.sentry.io/YOUR_PROJECT_ID (실제 DSN으로 교체 필요)
 ```
 
 ### Loader Script vs Bundle Script

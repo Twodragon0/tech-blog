@@ -15,9 +15,10 @@ NC='\033[0m' # No Color
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-# 기본값
-DEFAULT_API_KEY="AIzaSyDkFfVGpaP6kaJKENUItnB2u0tSCD8xQ_g"
-DEFAULT_PROJECT_ID="online-course-447813"
+# 기본값 (보안: 실제 키는 GitHub Secrets에 저장하고, 여기서는 플레이스홀더 사용)
+# 실제 사용 시에는 --api-key 옵션으로 실제 키를 제공하거나 GitHub Secrets에서 가져와야 합니다.
+DEFAULT_API_KEY="your-gemini-api-key"
+DEFAULT_PROJECT_ID="your-project-id"
 
 echo "============================================================"
 echo "🔑 Gemini API Key 설정"
@@ -34,7 +35,7 @@ usage() {
     echo "  --github                GitHub Secrets에만 설정"
     echo "  --local                 로컬 환경 변수에만 설정"
     echo "  --both                  GitHub Secrets와 로컬 환경 변수 모두 설정 (기본값)"
-    echo "  --default               기본값 사용 (AIzaSyDkFfVGpaP6kaJKENUItnB2u0tSCD8xQ_g)"
+    echo "  --default               기본값 사용 (플레이스홀더, 실제 키는 --api-key로 제공 필요)"
     echo "  --help                  이 도움말 표시"
     echo ""
     echo "예시:"

@@ -1,0 +1,437 @@
+#!/usr/bin/env python3
+"""
+포스팅 이미지 자동 생성 스크립트
+포스팅 파일을 분석하여 적절한 이미지 생성 프롬프트를 생성하고,
+이미지가 없으면 Gemini API를 사용하여 이미지를 생성합니다.
+"""
+
+import os
+import re
+import sys
+import frontmatter
+import requests
+from pathlib import Path
+from typing import Dict, Optional, Tuple
+from datetime import datetime
+
+PROJECT_ROOT = Path(__file__).parent.parent
+POSTS_DIR = PROJECT_ROOT / "_posts"
+IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
+
+# Gemini API 설정
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent"
+
+
+def log_message(message: str, level: str = "INFO"):
+    """로그 메시지 출력"""
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    icons = {
+        "INFO": "ℹ️",
+        "SUCCESS": "✅",
+        "WARNING": "⚠️",
+        "ERROR": "❌"
+    }
+    icon = icons.get(level, "ℹ️")
+    print(f"[{timestamp}] [{level}] {icon} {message}")
+
+
+def extract_post_info(post_file: Path) -> Dict:
+    """포스팅 파일에서 정보 추출"""
+    try:
+        with open(post_file, "r", encoding="utf-8") as f:
+            post = frontmatter.load(f)
+        
+        title = post.metadata.get("title", "")
+        categories = post.metadata.get("categories", [])
+        if isinstance(categories, str):
+            categories = [categories]
+        category = categories[0] if categories else post.metadata.get("category", "")
+        tags = post.metadata.get("tags", [])
+        image_path = post.metadata.get("image", "")
+        excerpt = post.metadata.get("excerpt", "")
+        content = post.content
+        
+        # AI 요약 카드에서 핵심 내용 추출
+        highlights = []
+        if "핵심 내용" in content:
+            highlights_match = re.search(
+                r'핵심 내용[^<]*<ul[^>]*>(.*?)</ul>',
+                content,
+                re.DOTALL
+            )
+            if highlights_match:
+                highlights_text = highlights_match.group(1)
+                highlights = re.findall(r'<li>(.*?)</li>', highlights_text, re.DOTALL)
+                highlights = [h.strip() for h in highlights[:5]]  # 최대 5개
+        
+        return {
+            "title": title,
+            "category": category,
+            "tags": tags,
+            "image": image_path,
+            "excerpt": excerpt,
+            "content": content,
+            "highlights": highlights,
+            "filename": post_file.name
+        }
+    except Exception as e:
+        log_message(f"포스팅 정보 추출 실패: {str(e)}", "ERROR")
+        return {}
+
+
+def check_image_exists(image_path: str) -> Tuple[bool, Optional[Path]]:
+    """이미지 파일 존재 여부 확인"""
+    if not image_path:
+        return False, None
+    
+    # /assets/images/... 형식에서 실제 경로 추출
+    if image_path.startswith("/assets/images/"):
+        image_file = PROJECT_ROOT / image_path.lstrip("/")
+    elif image_path.startswith("assets/images/"):
+        image_file = PROJECT_ROOT / image_path
+    else:
+        image_file = IMAGES_DIR / Path(image_path).name
+    
+    return image_file.exists(), image_file
+
+
+def generate_image_prompt(post_info: Dict) -> str:
+    """포스팅 정보를 기반으로 이미지 생성 프롬프트 생성"""
+    title = post_info.get("title", "")
+    category = post_info.get("category", "")
+    highlights = post_info.get("highlights", [])
+    excerpt = post_info.get("excerpt", "")
+    
+    # 카테고리별 기본 스타일
+    category_styles = {
+        "security": "minimalist security illustration",
+        "devsecops": "minimalist DevSecOps pipeline illustration",
+        "devops": "minimalist DevOps workflow illustration",
+        "cloud": "minimalist cloud architecture illustration",
+        "kubernetes": "minimalist Kubernetes architecture illustration",
+        "finops": "minimalist financial tech illustration",
+        "incident": "minimalist incident timeline illustration"
+    }
+    
+    style = category_styles.get(category, "minimalist tech blog illustration")
+    
+    # 색상 팔레트
+    color_palettes = {
+        "security": "Red (#CC0000) for threats, Green (#00AA44) for security measures, Blue (#0066CC) for infrastructure",
+        "devsecops": "Blue (#0066CC) for CI/CD, Green (#00AA44) for security, Orange (#FF6600) for deployment",
+        "cloud": "AWS orange (#FF9900), Blue (#0066CC) for networking, Green (#00AA44) for security",
+        "kubernetes": "Kubernetes blue (#326CE5), Green (#00AA44) for pods, Orange (#FF6600) for services",
+        "incident": "Red (#CC0000) for incident start, Orange (#FF6600) for investigation, Yellow (#FFCC00) for response, Green (#00AA44) for recovery"
+    }
+    
+    colors = color_palettes.get(category, "Blue (#0066CC), Green (#00AA44), Orange (#FF6600)")
+    
+    # 핵심 내용 요약
+    content_summary = ""
+    if highlights:
+        content_summary = " ".join(highlights[:3])  # 최대 3개
+    elif excerpt:
+        content_summary = excerpt[:200]  # 최대 200자
+    
+    # 프롬프트 생성
+    prompt = f"""Create a nano banana style illustration for a tech blog post.
+
+Title: {title}
+Category: {category}
+Content Summary: {content_summary}
+
+Requirements:
+- Style: {style}
+- Colors: {colors}
+- Layout: horizontal, optimized for blog post (1200x800px recommended)
+- Include: Korean labels for key components (if applicable)
+- Professional and modern design
+- Clean and minimalist aesthetic
+- Suitable for technical blog post header image
+
+The image should visually represent the main topic: {title}
+"""
+    
+    return prompt.strip()
+
+
+def generate_image_with_gemini(prompt: str, output_path: Path) -> bool:
+    """Gemini API를 사용하여 이미지 생성 (프롬프트 생성만 지원)"""
+    if not GEMINI_API_KEY:
+        log_message("Gemini API 키가 없어 이미지 생성을 건너뜁니다.", "WARNING")
+        log_message("프롬프트를 파일로 저장합니다.", "INFO")
+        return False
+    
+    try:
+        log_message("🎨 Gemini API로 이미지 생성 시도 중...")
+        
+        url = f"{GEMINI_IMAGE_API_URL}?key={GEMINI_API_KEY}"
+        
+        data = {
+            "contents": [{
+                "parts": [{
+                    "text": f"""You are an expert at creating detailed image generation prompts for technical blog posts.
+
+Generate a detailed prompt for creating a professional tech blog illustration based on the following requirements:
+
+{prompt}
+
+Please provide a refined, detailed prompt that can be used with image generation tools like DALL-E, Midjourney, or Stable Diffusion.
+The prompt should be specific, include technical details, and follow the nano banana style guidelines."""
+                }]
+            }],
+            "generationConfig": {
+                "temperature": 0.7,
+                "topK": 40,
+                "topP": 0.95,
+                "maxOutputTokens": 2000
+            }
+        }
+        
+        response = requests.post(url, json=data, timeout=120)
+        
+        if response.status_code == 200:
+            result = response.json()
+            if "candidates" in result and len(result["candidates"]) > 0:
+                refined_prompt = result["candidates"][0]["content"]["parts"][0]["text"]
+                
+                # 프롬프트를 파일로 저장
+                prompt_file = output_path.parent / f"{output_path.stem}_prompt.txt"
+                with open(prompt_file, "w", encoding="utf-8") as f:
+                    f.write(f"# Image Generation Prompt\n\n")
+                    f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                    f.write(f"Output: {output_path.name}\n\n")
+                    f.write("=" * 80 + "\n")
+                    f.write("REFINED PROMPT:\n")
+                    f.write("=" * 80 + "\n\n")
+                    f.write(refined_prompt)
+                    f.write("\n\n")
+                    f.write("=" * 80 + "\n")
+                    f.write("ORIGINAL PROMPT:\n")
+                    f.write("=" * 80 + "\n\n")
+                    f.write(prompt)
+                
+                log_message(f"✅ 프롬프트 파일 저장 완료: {prompt_file}", "SUCCESS")
+                log_message("⚠️ Gemini API는 직접 이미지를 생성하지 않습니다.", "WARNING")
+                log_message("💡 위 프롬프트를 사용하여 DALL-E, Midjourney, 또는 Stable Diffusion으로 이미지를 생성하세요.", "INFO")
+                return False
+            else:
+                log_message("⚠️ Gemini API 응답에 후보가 없습니다.", "WARNING")
+                return False
+        else:
+            log_message(f"⚠️ Gemini API 호출 실패: HTTP {response.status_code}", "WARNING")
+            if response.status_code == 404:
+                log_message("💡 Gemini API는 이미지 생성 기능을 직접 지원하지 않습니다.", "INFO")
+                log_message("💡 프롬프트를 파일로 저장합니다.", "INFO")
+            return False
+            
+    except Exception as e:
+        log_message(f"⚠️ 이미지 생성 중 오류: {str(e)}", "WARNING")
+        return False
+
+
+def save_prompt_file(prompt: str, output_path: Path):
+    """프롬프트를 파일로 저장"""
+    prompt_file = output_path.parent / f"{output_path.stem}_prompt.txt"
+    try:
+        with open(prompt_file, "w", encoding="utf-8") as f:
+            f.write(f"# Image Generation Prompt\n\n")
+            f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"Output: {output_path.name}\n\n")
+            f.write("=" * 80 + "\n")
+            f.write("PROMPT:\n")
+            f.write("=" * 80 + "\n\n")
+            f.write(prompt)
+            f.write("\n\n")
+            f.write("=" * 80 + "\n")
+            f.write("USAGE:\n")
+            f.write("=" * 80 + "\n\n")
+            f.write("이 프롬프트를 사용하여 다음 도구로 이미지를 생성할 수 있습니다:\n\n")
+            f.write("1. DALL-E (OpenAI): https://platform.openai.com/docs/guides/images\n")
+            f.write("2. Midjourney: https://www.midjourney.com/\n")
+            f.write("3. Stable Diffusion: https://stability.ai/\n")
+            f.write("4. Gemini Studio: https://makersuite.google.com/app/prompts/image\n")
+        
+        log_message(f"✅ 프롬프트 파일 저장 완료: {prompt_file}", "SUCCESS")
+    except Exception as e:
+        log_message(f"⚠️ 프롬프트 파일 저장 실패: {str(e)}", "WARNING")
+
+
+def process_post(post_file: Path, force: bool = False) -> bool:
+    """단일 포스팅 처리"""
+    log_message(f"📄 포스팅 처리 시작: {post_file.name}")
+    
+    # 포스팅 정보 추출
+    post_info = extract_post_info(post_file)
+    if not post_info:
+        log_message(f"❌ 포스팅 정보 추출 실패: {post_file.name}", "ERROR")
+        return False
+    
+    title = post_info.get("title", "")
+    image_path = post_info.get("image", "")
+    
+    # 이미지 경로 확인
+    has_image, image_file = check_image_exists(image_path)
+    
+    if has_image and not force:
+        log_message(f"✅ 이미지가 이미 존재합니다: {image_file.name}", "SUCCESS")
+        return True
+    
+    # 이미지 경로가 없으면 생성
+    if not image_path:
+        # 파일명 기반으로 이미지 경로 생성
+        post_stem = post_file.stem
+        image_filename = f"{post_stem}.svg"
+        image_path = f"/assets/images/{image_filename}"
+        log_message(f"💡 이미지 경로 생성: {image_path}", "INFO")
+    
+    # 출력 경로 설정
+    if image_path.startswith("/assets/images/"):
+        output_path = PROJECT_ROOT / image_path.lstrip("/")
+    elif image_path.startswith("assets/images/"):
+        output_path = PROJECT_ROOT / image_path
+    else:
+        output_path = IMAGES_DIR / Path(image_path).name
+    
+    # 이미지 디렉토리 생성
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    # 이미지 생성 프롬프트 생성
+    prompt = generate_image_prompt(post_info)
+    log_message(f"📝 이미지 생성 프롬프트 생성 완료", "SUCCESS")
+    
+    # Gemini API로 이미지 생성 시도 (실제로는 프롬프트만 생성)
+    if GEMINI_API_KEY:
+        generate_image_with_gemini(prompt, output_path)
+    else:
+        # 프롬프트만 파일로 저장
+        save_prompt_file(prompt, output_path)
+    
+    # PNG 이미지도 생성 (OG 이미지용)
+    png_path = output_path.with_suffix(".png")
+    if output_path.suffix == ".svg":
+        log_message(f"💡 SVG를 PNG로 변환하려면 다음 명령어를 사용하세요:", "INFO")
+        log_message(f"   python3 scripts/generate_og_image.py", "INFO")
+    
+    log_message(f"✅ 포스팅 처리 완료: {post_file.name}", "SUCCESS")
+    return True
+
+
+def main():
+    """메인 함수"""
+    import argparse
+    
+    parser = argparse.ArgumentParser(
+        description="포스팅 이미지 자동 생성 스크립트",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+예시:
+  # 최근 포스팅 이미지 생성
+  python3 scripts/generate_post_images.py --recent 1
+  
+  # 특정 포스팅 이미지 생성
+  python3 scripts/generate_post_images.py _posts/2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.md
+  
+  # 모든 포스팅 이미지 생성
+  python3 scripts/generate_post_images.py --all
+  
+  # 이미지가 있어도 강제로 재생성
+  python3 scripts/generate_post_images.py --recent 1 --force
+        """
+    )
+    
+    parser.add_argument(
+        "post_file",
+        nargs="?",
+        help="처리할 포스팅 파일 (선택사항)"
+    )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="모든 포스팅 처리"
+    )
+    parser.add_argument(
+        "--recent",
+        type=int,
+        default=1,
+        help="최근 N개 포스팅만 처리 (기본값: 1)"
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="이미지가 있어도 강제로 재생성"
+    )
+    parser.add_argument(
+        "--missing",
+        action="store_true",
+        help="이미지가 없는 포스팅만 처리"
+    )
+    
+    args = parser.parse_args()
+    
+    # Gemini API 키 확인
+    if not GEMINI_API_KEY:
+        log_message("⚠️ GEMINI_API_KEY 환경 변수가 설정되지 않았습니다.", "WARNING")
+        log_message("💡 프롬프트만 생성합니다. 이미지 생성은 수동으로 진행해야 합니다.", "INFO")
+        log_message("💡 Gemini API 키 설정: export GEMINI_API_KEY='your-key'", "INFO")
+    
+    # 포스팅 파일 목록
+    posts = []
+    
+    if args.post_file:
+        # 특정 파일 처리
+        post_path = Path(args.post_file)
+        if not post_path.is_absolute():
+            post_path = PROJECT_ROOT / post_path
+        
+        if not post_path.exists():
+            log_message(f"❌ 파일을 찾을 수 없습니다: {post_path}", "ERROR")
+            sys.exit(1)
+        
+        posts = [post_path]
+    elif args.all:
+        # 모든 포스팅 처리
+        posts = sorted(POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)
+    else:
+        # 최근 N개 포스팅 처리
+        posts = sorted(POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)[:args.recent]
+    
+    if not posts:
+        log_message("❌ 처리할 포스팅이 없습니다.", "ERROR")
+        sys.exit(1)
+    
+    log_message(f"📊 {len(posts)}개 포스팅 처리 시작\n")
+    
+    # 각 포스팅 처리
+    success_count = 0
+    for post_file in posts:
+        try:
+            # 이미지가 없는 포스팅만 처리하는 경우
+            if args.missing:
+                post_info = extract_post_info(post_file)
+                has_image, _ = check_image_exists(post_info.get("image", ""))
+                if has_image:
+                    continue
+            
+            if process_post(post_file, force=args.force):
+                success_count += 1
+        except Exception as e:
+            log_message(f"❌ 포스팅 처리 실패: {post_file.name} - {str(e)}", "ERROR")
+        
+        print()  # 빈 줄 추가
+    
+    # 요약
+    log_message("=" * 80)
+    log_message(f"📊 처리 완료: {success_count}/{len(posts)}개 성공", "SUCCESS")
+    log_message("=" * 80)
+    
+    if not GEMINI_API_KEY:
+        log_message("\n💡 다음 단계:", "INFO")
+        log_message("1. 생성된 프롬프트 파일 확인", "INFO")
+        log_message("2. DALL-E, Midjourney, 또는 Stable Diffusion으로 이미지 생성", "INFO")
+        log_message("3. 생성된 이미지를 assets/images/ 디렉토리에 저장", "INFO")
+
+
+if __name__ == "__main__":
+    main()

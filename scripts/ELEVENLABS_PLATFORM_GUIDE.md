@@ -129,14 +129,14 @@
 스크립트를 사용하여 사용 가능한 Voice 목록을 조회할 수 있습니다:
 
 ```bash
-python3 scripts/generate_audio.py --list-voices
+python3 scripts/generate_enhanced_audio.py --list-voices
 ```
 
 또는 환경 변수만 설정하고 실행:
 
 ```bash
 export ELEVENLABS_API_KEY='your-api-key'
-python3 scripts/generate_audio.py --list-voices
+python3 scripts/generate_enhanced_audio.py --list-voices
 ```
 
 ### 4. 환경 변수 설정

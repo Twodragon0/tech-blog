@@ -25,7 +25,7 @@
   - 사용처: `.github/workflows/ai-video-gen.yml`, `scripts/generate_enhanced_audio.py`
   - 비용: 토큰 기반 과금 (Gemini 1.5 Pro)
   - 참고: DeepSeek 또는 Gemini 중 하나는 필수
-  - 기본값 예시: `AIxxxg` (선택적, Secret이 없을 때 사용)
+  - 기본값 예시: `your-gemini-api-key` (선택적, Secret이 없을 때 사용, 실제 키로 교체 필요)
 
 - `GEMINI_SERVICE_ACCOUNT_KEY`: Google Cloud 서비스 계정 키 (선택적, OAuth 2.0 방식) ⭐ 권장
   - 생성 방법: 
@@ -43,7 +43,7 @@
   - 형식: 프로젝트 ID 문자열
   - 사용처: `.github/workflows/ai-video-gen.yml` (OAuth 2.0 인증)
   - 참고: `GEMINI_SERVICE_ACCOUNT_KEY`와 함께 사용
-  - 기본값 예시: `oxxx-cxxx` (선택적, Secret이 없을 때 사용)
+  - 기본값 예시: `your-project-id` (선택적, Secret이 없을 때 사용, 실제 프로젝트 ID로 교체 필요)
 
 ### DeepSeek API 관련 (보이스 생성)
 - `DEEPSEEK_API_KEY`: DeepSeek AI API 키 (선택적)
@@ -87,14 +87,56 @@
 
 다음 값들은 Secret이 설정되지 않은 경우 기본값으로 사용됩니다:
 
-- `GEMINI_API_KEY`: `AIzaSyDkFfVGpaP6kaJKENUItnB2u0tSCD8xQ_g`
-- `GOOGLE_CLOUD_PROJECT`: `online-course-447813`
+- `GEMINI_API_KEY`: `your-gemini-api-key` (예시, 실제 키로 교체 필요)
+- `GOOGLE_CLOUD_PROJECT`: `your-project-id` (예시, 실제 프로젝트 ID로 교체 필요)
 
-**주의**: 기본값 사용 시 보안 및 비용 관리에 주의하세요. 가능하면 GitHub Secrets에 개별 키를 설정하는 것을 권장합니다.
+**주의**: 기본값 사용 시 보안 및 비용 관리에 주의하세요. 가능하면 GitHub Secrets에 개별 키를 설정하는 것을 권장합니다. **절대 실제 API 키를 코드나 문서에 하드코딩하지 마세요.**
 
 ## Secrets 설정 방법
 
-### 방법 1: CLI 스크립트 사용 (권장) ⭐
+### 방법 1: GitHub CLI 사용 (권장) ⭐
+
+GitHub CLI (`gh`)를 사용하여 Secrets를 설정할 수 있습니다:
+
+```bash
+# GitHub CLI 로그인 확인
+gh auth status
+
+# 필수 Secrets 설정
+gh secret set ELEVENLABS_API_KEY --body "your-elevenlabs-api-key"
+gh secret set ELEVENLABS_VOICE_ID --body "your-voice-id"
+gh secret set DEEPSEEK_API_KEY --body "your-deepseek-api-key"
+
+# Gemini API (선택: API Key 방식)
+gh secret set GEMINI_API_KEY --body "your-gemini-api-key"
+
+# Gemini OAuth 2.0 (선택: 권장, 비용 절감)
+gh secret set GEMINI_SERVICE_ACCOUNT_KEY --body "$(cat path/to/service-account-key.json)"
+gh secret set GOOGLE_CLOUD_PROJECT --body "your-project-id"
+
+# Sentry (선택)
+gh secret set SENTRY_AUTH_TOKEN --body "your-sentry-auth-token"
+
+# SNS 공유 (선택)
+gh secret set TWITTER_API_KEY --body "your-twitter-api-key"
+gh secret set TWITTER_API_SECRET --body "your-twitter-api-secret"
+gh secret set TWITTER_ACCESS_TOKEN --body "your-twitter-access-token"
+gh secret set TWITTER_ACCESS_SECRET --body "your-twitter-access-secret"
+gh secret set FACEBOOK_PAGE_ID --body "your-facebook-page-id"
+gh secret set FACEBOOK_ACCESS_TOKEN --body "your-facebook-access-token"
+gh secret set LINKEDIN_ACCESS_TOKEN --body "your-linkedin-access-token"
+gh secret set LINKEDIN_PERSON_ID --body "your-linkedin-person-id"
+
+# Secrets 확인
+gh secret list
+```
+
+**주의사항:**
+- `GEMINI_SERVICE_ACCOUNT_KEY`는 JSON 파일 전체 내용을 설정해야 합니다
+- 파일 내용을 설정할 때: `gh secret set GEMINI_SERVICE_ACCOUNT_KEY < path/to/service-account-key.json`
+- 또는: `gh secret set GEMINI_SERVICE_ACCOUNT_KEY --body "$(cat path/to/service-account-key.json)"`
+
+### 방법 2: CLI 스크립트 사용
 
 ```bash
 # 스크립트 실행
@@ -104,7 +146,7 @@ cd scripts
 
 자세한 내용은 [Gemini API Key 설정 가이드](../scripts/SETUP_GEMINI_API_KEY.md)를 참조하세요.
 
-### 방법 2: GitHub 웹 인터페이스 사용
+### 방법 3: GitHub 웹 인터페이스 사용
 
 1. GitHub 저장소 접속
 2. **Settings** → **Secrets and variables** → **Actions**

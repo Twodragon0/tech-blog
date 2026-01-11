@@ -8,8 +8,11 @@
 
 set -e
 
-ONLINE_COURSE_DIR="/Users/twodragon/twodragon114@gmail.com - Google Drive/내 드라이브/online-course"
-TECH_BLOG_DIR="/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내 드라이브/tech-blog"
+# 경로 설정 (환경 변수 또는 스크립트 위치 기반 자동 감지)
+# 환경 변수로 설정하거나 스크립트 위치를 기준으로 자동 감지
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TECH_BLOG_DIR="${TECH_BLOG_DIR:-$(cd "$SCRIPT_DIR/.." && pwd)}"
+ONLINE_COURSE_DIR="${ONLINE_COURSE_DIR:-/path/to/online-course}"  # 실제 경로로 교체 필요
 
 echo "🔍 online-course 프로젝트에서 DeepSeek API 키 확인 중..."
 

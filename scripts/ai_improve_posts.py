@@ -202,10 +202,24 @@ def _write_safe_text_to_file(file_path: Path, safe_text: str) -> None:
             # 검증 실패 시 기록하지 않음
             return
         
+        # 보안: 최종 검증 - 마스킹이 완전히 되었는지 재확인
+        # 추가 마스킹 라운드 적용 (방어적 프로그래밍)
+        final_safe_text = safe_text
+        for _ in range(2):
+            if not _validate_masked_text(final_safe_text):
+                final_safe_text = mask_sensitive_info(final_safe_text)
+            else:
+                break
+        
+        # 최종 검증 실패 시 기록하지 않음
+        if not _validate_masked_text(final_safe_text):
+            # 안전하지 않은 텍스트는 기록하지 않음
+            return
+        
         with open(file_path, 'ab') as f:  # 바이너리 모드
             # UTF-8로 인코딩하여 기록
             # 보안: 마스킹된 텍스트만 기록 (API 키 등 민감 정보 제외)
-            safe_bytes = safe_text.encode('utf-8')
+            safe_bytes = final_safe_text.encode('utf-8')
             f.write(safe_bytes)
             f.flush()
     except:

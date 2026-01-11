@@ -3,7 +3,7 @@
 Remotion을 사용하여 블로그 포스팅 영상을 생성하는 스크립트
 
 사전 요구사항:
-1. generate_audio.py로 오디오 생성 완료
+1. generate_enhanced_audio.py로 오디오 생성 완료
 2. Node.js 및 npm 설치
 3. video-generator 디렉토리에 npm install 완료
 """
@@ -308,7 +308,7 @@ def process_post_with_remotion(post_path: Path) -> bool:
         
         if not audio_path.exists():
             log_message(f"❌ 오디오 파일을 찾을 수 없습니다: {audio_path}", "ERROR")
-            log_message("   먼저 generate_audio.py를 실행하여 오디오를 생성하세요.", "ERROR")
+            log_message("   먼저 generate_enhanced_audio.py를 실행하여 오디오를 생성하세요.", "ERROR")
             return False
         
         # 썸네일 이미지 찾기

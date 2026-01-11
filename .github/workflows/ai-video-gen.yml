@@ -70,16 +70,20 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_SERVICE_ACCOUNT_KEY: ${{ secrets.GEMINI_SERVICE_ACCOUNT_KEY }}
           GOOGLE_CLOUD_PROJECT: ${{ secrets.GOOGLE_CLOUD_PROJECT }}
-          # 기본값은 shell 스크립트에서 처리
-          GEMINI_API_KEY_DEFAULT: 'AIzaSyDkFfVGpaP6kaJKENUItnB2u0tSCD8xQ_g'
-          GOOGLE_CLOUD_PROJECT_DEFAULT: 'online-course-447813'
         run: |
-          # 기본값 설정 (Secret이 없을 경우)
-          if [ -z "$GEMINI_API_KEY" ]; then
-            export GEMINI_API_KEY="$GEMINI_API_KEY_DEFAULT"
+          # 보안: 기본값은 사용하지 않음. GitHub Secrets에 반드시 설정해야 함
+          if [ -z "$GEMINI_API_KEY" ] && [ -z "$GEMINI_SERVICE_ACCOUNT_KEY" ]; then
+            echo "❌ GEMINI_API_KEY 또는 GEMINI_SERVICE_ACCOUNT_KEY가 설정되지 않았습니다."
+            echo "GitHub Secrets에 다음 중 하나를 설정해주세요:"
+            echo "  - GEMINI_API_KEY: Gemini API Key"
+            echo "  - GEMINI_SERVICE_ACCOUNT_KEY: Gemini OAuth 2.0 서비스 계정 키 (JSON)"
+            echo "설정 방법: .github/SECRETS_MANAGEMENT.md 참고"
+            exit 1
           fi
-          if [ -z "$GOOGLE_CLOUD_PROJECT" ]; then
-            export GOOGLE_CLOUD_PROJECT="$GOOGLE_CLOUD_PROJECT_DEFAULT"
+          if [ -n "$GEMINI_SERVICE_ACCOUNT_KEY" ] && [ -z "$GOOGLE_CLOUD_PROJECT" ]; then
+            echo "❌ GEMINI_SERVICE_ACCOUNT_KEY를 사용하는 경우 GOOGLE_CLOUD_PROJECT도 필요합니다."
+            echo "GitHub Secrets에 GOOGLE_CLOUD_PROJECT를 설정해주세요."
+            exit 1
           fi
           
           # API 키 검증 (보안: 키 값은 출력하지 않음)
@@ -207,9 +211,6 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GOOGLE_CLOUD_PROJECT: ${{ secrets.GOOGLE_CLOUD_PROJECT }}
           GEMINI_SERVICE_ACCOUNT_KEY: ${{ secrets.GEMINI_SERVICE_ACCOUNT_KEY }}
-          # 기본값은 shell 스크립트에서 처리
-          GEMINI_API_KEY_DEFAULT: 'AIzaSyDkFfVGpaP6kaJKENUItnB2u0tSCD8xQ_g'
-          GOOGLE_CLOUD_PROJECT_DEFAULT: 'online-course-447813'
           # API 선택 전략 (Gemini 우선)
           PREFER_GEMINI: 'true'
           USE_GEMINI_FOR_SCRIPT: 'true'
@@ -217,12 +218,19 @@ jobs:
           USE_GEMINI_FOR_IMPROVEMENT: 'true'
           ENABLE_CACHING: 'true'
         run: |
-          # 기본값 설정 (Secret이 없을 경우)
-          if [ -z "$GEMINI_API_KEY" ]; then
-            export GEMINI_API_KEY="$GEMINI_API_KEY_DEFAULT"
+          # 보안: 기본값은 사용하지 않음. GitHub Secrets에 반드시 설정해야 함
+          if [ -z "$GEMINI_API_KEY" ] && [ -z "$GEMINI_SERVICE_ACCOUNT_KEY" ]; then
+            echo "❌ GEMINI_API_KEY 또는 GEMINI_SERVICE_ACCOUNT_KEY가 설정되지 않았습니다."
+            echo "GitHub Secrets에 다음 중 하나를 설정해주세요:"
+            echo "  - GEMINI_API_KEY: Gemini API Key"
+            echo "  - GEMINI_SERVICE_ACCOUNT_KEY: Gemini OAuth 2.0 서비스 계정 키 (JSON)"
+            echo "설정 방법: .github/SECRETS_MANAGEMENT.md 참고"
+            exit 1
           fi
-          if [ -z "$GOOGLE_CLOUD_PROJECT" ]; then
-            export GOOGLE_CLOUD_PROJECT="$GOOGLE_CLOUD_PROJECT_DEFAULT"
+          if [ -n "$GEMINI_SERVICE_ACCOUNT_KEY" ] && [ -z "$GOOGLE_CLOUD_PROJECT" ]; then
+            echo "❌ GEMINI_SERVICE_ACCOUNT_KEY를 사용하는 경우 GOOGLE_CLOUD_PROJECT도 필요합니다."
+            echo "GitHub Secrets에 GOOGLE_CLOUD_PROJECT를 설정해주세요."
+            exit 1
           fi
           
           # OAuth 2.0 환경 변수 설정 (서비스 계정 키가 있는 경우 우선 사용)

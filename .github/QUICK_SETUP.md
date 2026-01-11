@@ -24,7 +24,7 @@
 ### 방법 2: GitHub CLI 사용
 
 ```bash
-cd "/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내 드라이브/tech-blog"
+cd /path/to/tech-blog  # 실제 프로젝트 경로로 교체 필요
 
 # Secret 추가
 gh secret set SENTRY_AUTH_TOKEN \
@@ -58,7 +58,7 @@ gh run view <run-id> --log
 ### GitHub CLI로 설정 (권장)
 
 ```bash
-cd "/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내 드라이브/tech-blog"
+cd /path/to/tech-blog  # 실제 프로젝트 경로로 교체 필요
 
 # API Key 설정
 gh secret set ELEVENLABS_API_KEY --body "your-api-key-here"

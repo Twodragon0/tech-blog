@@ -10,7 +10,7 @@
 보안 취약점을 발견했을 경우, 공개된 Issue 트래커에 올리는 것을 **금지**합니다. 대신 아래 절차를 따라주세요.
 
 ### 신고 채널
-* **담당자 이메일**: `twodragon114@gmail.com` (또는 담당자 사내 메신저)
+* **담당자 이메일**: `security@example.com` (실제 담당자 이메일로 교체 필요)
 * **GitHub**: `Security` 탭 > `Report a vulnerability` (Private Reporting)
 
 ### 대응 타임라인 (SLA)

@@ -18,30 +18,30 @@
 
 #### 1. Python 패키지 설치
 ```bash
-cd "/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내 드라이브/tech-blog"
+cd /path/to/tech-blog  # 실제 프로젝트 경로로 교체 필요
 pip3 install -r scripts/requirements.txt
 ```
 
 #### 2. 환경 변수 설정
 ```bash
 # GitHub Secrets에서 가져온 값으로 설정
-export ELEVENLABS_API_KEY='sk_ba9e2442482041d00b7ac7d0ab5af676faf8051157e99f85'
-export ELEVENLABS_VOICE_ID='hnRmCiCoPWAjpxiiXEwz'
+export ELEVENLABS_API_KEY='your-elevenlabs-api-key'  # 실제 키로 교체 필요
+export ELEVENLABS_VOICE_ID='your-voice-id'  # 실제 Voice ID로 교체 필요
 export DEEPSEEK_API_KEY='your-deepseek-key-here'
 ```
 
 #### 3. Voice 목록 조회 테스트 (선택사항)
 ```bash
-python3 scripts/generate_audio.py --list-voices
+python3 scripts/generate_enhanced_audio.py --list-voices
 ```
 
 #### 4. 오디오 생성 테스트
 ```bash
 # 최신 포스트로 테스트
-python3 scripts/generate_audio.py
+python3 scripts/generate_enhanced_audio.py
 
 # 특정 포스트로 테스트
-python3 scripts/generate_audio.py _posts/2026-01-10-2026년_DevSecOps_로드맵_완벽_가이드_roadmap.sh_분석.md
+python3 scripts/generate_enhanced_audio.py _posts/2026-01-10-2026년_DevSecOps_로드맵_완벽_가이드_roadmap.sh_분석.md
 ```
 
 #### 5. 결과 확인
@@ -57,7 +57,7 @@ tail -n 50 video_generation_log.txt
 
 #### 1. 워크플로우 파일 커밋 및 푸시
 ```bash
-cd "/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내 드라이브/tech-blog"
+cd /path/to/tech-blog  # 실제 프로젝트 경로로 교체 필요
 
 # 변경사항 확인
 git status
@@ -104,7 +104,7 @@ gh run view <run-id> --log
    - `echo $ELEVENLABS_API_KEY`로 확인 (보안: 실제 값은 출력되지 않음)
 
 3. **Voice ID 오류**
-   - Voice ID 형식 확인: `hnRmCiCoPWAjpxiiXEwz`
+   - Voice ID 형식 확인: `your-voice-id` (실제 Voice ID로 교체 필요)
    - `--list-voices` 옵션으로 사용 가능한 Voice 확인
 
 ### GitHub Actions 실패 시

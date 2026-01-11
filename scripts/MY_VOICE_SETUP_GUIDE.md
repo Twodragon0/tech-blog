@@ -54,7 +54,7 @@ ElevenLabs를 사용하여 자신의 목소리로 블로그 포스팅을 강의 
 export ELEVENLABS_API_KEY='your-api-key-here'
 
 # Voice 목록 조회
-python3 scripts/generate_audio.py --list-voices
+python3 scripts/generate_enhanced_audio.py --list-voices
 ```
 
 출력 예시:
@@ -94,10 +94,10 @@ GitHub Actions에서 사용하는 경우:
 
 ```bash
 # 최신 포스트로 오디오 생성
-python3 scripts/generate_audio.py
+python3 scripts/generate_enhanced_audio.py
 
 # 특정 포스트로 오디오 생성
-python3 scripts/generate_audio.py _posts/2026-01-10-example.md
+python3 scripts/generate_enhanced_audio.py _posts/2026-01-10-example.md
 ```
 
 ## 💡 Voice Design 프롬프트 작성 팁

@@ -236,9 +236,13 @@ def replace_code_blocks(content: str) -> str:
         context_start = max(0, match.start() - 200)
         context = content[context_start:match.start()]
         # 보안: 링크 검증 - github.com이 안전한 URL 형식인지 확인
+        # URL 검증: 완전한 URL 패턴만 허용 (부분 문자열 매칭 방지)
         if 'github.com' in context:
-            # 링크가 마크다운 형식인지 확인
-            if '](' in context or '](https://github.com' in context or '](http://github.com' in context:
+            # 링크가 마크다운 형식인지 확인 (완전한 URL 패턴 검사)
+            # 위험한 부분 문자열 매칭 방지: 정확한 URL 패턴만 허용
+            import re
+            safe_url_pattern = r'\]\s*\(\s*(https?://[^\s\)]+github\.com[^\s\)]*)'
+            if re.search(safe_url_pattern, context, re.IGNORECASE):
                 return full_match  # 이미 링크가 있으면 유지
         
         # 코드 타입 감지
@@ -277,10 +281,23 @@ def replace_code_blocks(content: str) -> str:
                 link_text = 'GitHub 예제 저장소' if 'github.com' in link else '공식 문서'
                 # 보안: URL에 위험한 문자가 포함되지 않도록 검증된 링크만 사용
                 # urllib.parse를 사용하여 안전하게 인코딩
-                from urllib.parse import quote
-                safe_link = quote(link, safe='/:?#[]@!$&\'()*+,;=')
-                # 마크다운 링크 구문자 추가 이스케이프
+                from urllib.parse import quote, urlparse, urlunparse
+                # URL 파싱을 통해 각 구성 요소를 안전하게 인코딩
+                parsed = urlparse(link)
+                # 각 구성 요소를 개별적으로 인코딩하여 부분 문자열 우회 방지
+                safe_scheme = parsed.scheme
+                safe_netloc = parsed.netloc
+                safe_path = quote(parsed.path, safe='/')
+                safe_params = quote(parsed.params, safe=';')
+                safe_query = quote(parsed.query, safe='=&?')
+                safe_fragment = quote(parsed.fragment, safe='#')
+                # 안전하게 재구성된 URL
+                safe_link = urlunparse((safe_scheme, safe_netloc, safe_path, safe_params, safe_query, safe_fragment))
+                # 마크다운 링크 구문자 추가 이스케이프 (URL 인코딩)
                 safe_link = safe_link.replace(']', '%5D').replace('[', '%5B')
+                # 최종 URL 검증 (재구성 후에도 안전한지 확인)
+                if not validate_url(safe_link):
+                    return full_match  # 검증 실패 시 링크 추가하지 않음
                 return f'> **참고**: 관련 예제는 [{link_text}]({safe_link})를 참조하세요.\n\n{full_match}'
             else:
                 return full_match  # 링크가 없거나 너무 짧으면 원본 유지

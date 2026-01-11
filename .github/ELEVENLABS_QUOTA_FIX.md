@@ -72,7 +72,7 @@
 
 ## 📝 코드 변경 사항
 
-### `scripts/generate_audio.py`
+### `scripts/generate_enhanced_audio.py`
 
 ```python
 # 대본 길이 제한 감소

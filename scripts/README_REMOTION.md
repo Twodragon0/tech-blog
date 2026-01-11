@@ -45,7 +45,7 @@ npm install
 
 ```bash
 # 먼저 오디오 생성
-python3 scripts/generate_audio.py
+python3 scripts/generate_enhanced_audio.py
 ```
 
 #### 2단계: Remotion 영상 생성

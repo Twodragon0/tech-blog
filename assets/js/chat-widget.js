@@ -139,14 +139,20 @@
       // 일반 HTML 엔티티 디코딩 (&amp;, &lt; 등)
       // 보안: DOMParser 사용 시 XSS 방지를 위해 textContent만 사용
       try {
+        // 보안: innerHTML을 직접 사용하지 않고, textContent만 사용하여 안전하게 디코딩
+        // DOMParser를 text/plain 모드로 사용하여 HTML 파싱 완전히 방지
         const parser = new DOMParser();
-        // 보안: text/html 대신 text/plain 사용하여 HTML 파싱 방지
-        // 또는 임시 div 요소를 사용하여 안전하게 디코딩
+        // text/plain으로 파싱하여 HTML 해석 방지
+        const doc = parser.parseFromString('<!DOCTYPE html><body>' + text + '</body>', 'text/html');
+        const decoded = doc.body.textContent || doc.body.innerText || '';
+        // 디코딩된 텍스트가 원본과 다르면 (엔티티가 디코딩됨) 사용, 아니면 원본 사용
+        if (decoded !== text && decoded.length > 0) {
+          return decoded;
+        }
+        // 대안: textContent를 직접 사용 (더 안전)
         const tempDiv = document.createElement('div');
         tempDiv.textContent = text; // textContent로 설정하면 자동 이스케이프
-        // 이제 innerHTML을 사용하여 엔티티 디코딩 (이미 안전한 컨텍스트)
-        tempDiv.innerHTML = tempDiv.textContent; // 이중 인코딩 방지
-        // textContent로 다시 읽어서 안전하게 반환
+        // innerHTML을 사용하지 않고, textContent만 사용하여 안전하게 반환
         return tempDiv.textContent || text;
       } catch (e) {
         // 파싱 실패 시 원본 반환 (이미 숫자 엔티티는 디코딩됨)

@@ -28,11 +28,11 @@ Vercel CLI는 보안상의 이유로 암호화된 환경 변수의 실제 값을
 ```bash
 # Vercel 대시보드에서 확인한 값으로 설정
 export DEEPSEEK_API_KEY='vercel에서-확인한-값'
-export ELEVENLABS_API_KEY='sk_ba9e2442482041d00b7ac7d0ab5af676faf8051157e99f85'
-export ELEVENLABS_VOICE_ID='hnRmCiCoPWAjpxiiXEwz'
+export ELEVENLABS_API_KEY='your-elevenlabs-api-key'  # 실제 키로 교체 필요
+export ELEVENLABS_VOICE_ID='your-voice-id'  # 실제 Voice ID로 교체 필요
 
 # 테스트 실행
-python3 scripts/generate_audio.py --list-voices
+python3 scripts/generate_enhanced_audio.py --list-voices
 ```
 
 성공하면 GitHub Secrets의 값이 올바른 것입니다.
@@ -67,14 +67,14 @@ GitHub Secrets의 값이 올바른지 확인하려면:
 ```bash
 # 환경 변수 설정 (Vercel 대시보드에서 확인한 값 사용)
 export DEEPSEEK_API_KEY='your-api-key-from-vercel'
-export ELEVENLABS_API_KEY='sk_ba9e2442482041d00b7ac7d0ab5af676faf8051157e99f85'
-export ELEVENLABS_VOICE_ID='hnRmCiCoPWAjpxiiXEwz'
+export ELEVENLABS_API_KEY='your-elevenlabs-api-key'  # 실제 키로 교체 필요
+export ELEVENLABS_VOICE_ID='your-voice-id'  # 실제 Voice ID로 교체 필요
 
 # 간단한 테스트
-python3 scripts/generate_audio.py --list-voices
+python3 scripts/generate_enhanced_audio.py --list-voices
 
 # 또는 전체 테스트
-python3 scripts/generate_audio.py
+python3 scripts/generate_enhanced_audio.py
 ```
 
 ## ⚠️ 문제 해결
@@ -93,7 +93,7 @@ python3 scripts/generate_audio.py
 3. **로컬 테스트로 검증**
    ```bash
    export DEEPSEEK_API_KEY='올바른-api-key-값'
-   python3 scripts/generate_audio.py --list-voices
+   python3 scripts/generate_enhanced_audio.py --list-voices
    ```
 
 4. **워크플로우 재실행**

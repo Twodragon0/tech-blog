@@ -8,7 +8,7 @@
 
 ```bash
 # GitHub CLI 사용 (권장)
-cd "/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내 드라이브/tech-blog"
+cd /path/to/tech-blog  # 실제 프로젝트 경로로 교체 필요
 gh secret set ELEVENLABS_API_KEY --body "your-api-key-here"
 ```
 
@@ -45,7 +45,7 @@ Voice ID는 ElevenLabs Creative Platform에서 확인할 수 있습니다:
 gh secret set ELEVENLABS_VOICE_ID --body "your-voice-id-here"
 
 # 예시 (실제 사용된 Voice ID)
-gh secret set ELEVENLABS_VOICE_ID --body "hnRmCiCoPWAjpxiiXEwz"
+gh secret set ELEVENLABS_VOICE_ID --body "your-voice-id"  # 실제 Voice ID로 교체 필요
 ```
 
 > 💡 **참고**: Voice Design으로 생성한 Voice는 무료 플랜에서도 사용 가능합니다.
@@ -115,7 +115,7 @@ export ELEVENLABS_VOICE_ID='your-voice-id'
 export DEEPSEEK_API_KEY='your-deepseek-key'
 
 # 스크립트 실행
-python3 scripts/generate_audio.py
+python3 scripts/generate_enhanced_audio.py
 ```
 
 ## 📊 모니터링

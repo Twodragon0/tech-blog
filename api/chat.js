@@ -529,6 +529,13 @@ function sanitizeInput(input) {
   
   // 보안: 멀티바이트 문자를 고려한 완전한 sanitization
   // 모든 위험한 문자를 먼저 이스케이프 처리
+  // 멀티바이트 문자 시퀀스를 올바르게 처리하기 위해 정규화된 문자열 사용
+  
+  // 1단계: 멀티바이트 문자 시퀀스 처리 (유니코드 정규화 후)
+  // 위험한 유니코드 조합 문자 제거
+  sanitized = sanitized.replace(/[\u200B-\u200D\uFEFF\u202A-\u202E\u2060-\u206F]/g, '');
+  
+  // 2단계: HTML 특수 문자 이스케이프 (멀티바이트 안전)
   sanitized = sanitized
     // 앰퍼샌드 먼저 처리 (다른 엔티티와 충돌 방지)
     .replace(/&/g, '&amp;')
@@ -539,29 +546,41 @@ function sanitizeInput(input) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#x27;')
     // 슬래시 이스케이프
-    .replace(/\//g, '&#x2F;')
-    // 이미 이스케이프된 엔티티 복원 (중복 이스케이프 방지)
+    .replace(/\//g, '&#x2F;');
+  
+  // 3단계: 이미 이스케이프된 엔티티 복원 (중복 이스케이프 방지)
+  sanitized = sanitized
     .replace(/&amp;amp;/g, '&amp;')
     .replace(/&amp;lt;/g, '&lt;')
     .replace(/&amp;gt;/g, '&gt;')
     .replace(/&amp;quot;/g, '&quot;')
     .replace(/&amp;#x27;/g, '&#x27;')
-    .replace(/&amp;#x2F;/g, '&#x2F;')
-    // 제어 문자 제거 (보안 강화) - 유니코드 제어 문자 포함
-    .replace(/[\x00-\x1F\x7F-\x9F\u200B-\u200D\uFEFF]/g, '')
-    // 추가 보안: 위험한 패턴 제거 (대소문자 무시, 멀티바이트 고려)
-    // 멀티바이트 문자를 고려하여 모든 변형 패턴 제거
-    .replace(/javascript:/gi, '')
-    .replace(/data:\s*text\/html/gi, '')
-    .replace(/data:\s*text\/javascript/gi, '')
-    .replace(/vbscript:/gi, '')
-    .replace(/on\w+\s*=/gi, '')
-    .replace(/&lt;script/gi, '')
-    .replace(/&lt;iframe/gi, '')
-    .replace(/&lt;object/gi, '')
-    .replace(/&lt;embed/gi, '')
-    .replace(/expression\s*\(/gi, '')
-    .trim();
+    .replace(/&amp;#x2F;/g, '&#x2F;');
+  
+  // 4단계: 제어 문자 제거 (보안 강화) - 유니코드 제어 문자 포함
+  sanitized = sanitized.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
+  
+  // 5단계: 위험한 패턴 제거 (멀티바이트 고려, 완전한 패턴 매칭)
+  // 멀티바이트 문자를 고려하여 모든 변형 패턴 제거
+  // 정규화된 문자열에서 위험한 패턴 검사
+  const dangerousPatterns = [
+    /javascript\s*:/gi,
+    /data\s*:\s*text\s*\/\s*html/gi,
+    /data\s*:\s*text\s*\/\s*javascript/gi,
+    /vbscript\s*:/gi,
+    /on\w+\s*=/gi,
+    /&lt;\s*script/gi,
+    /&lt;\s*iframe/gi,
+    /&lt;\s*object/gi,
+    /&lt;\s*embed/gi,
+    /expression\s*\(/gi,
+  ];
+  
+  for (const pattern of dangerousPatterns) {
+    sanitized = sanitized.replace(pattern, '');
+  }
+  
+  sanitized = sanitized.trim();
   
   return sanitized;
 }
@@ -574,17 +593,31 @@ function validateUrl(url) {
   
   try {
     // 보안: URL 문자열 자체에 위험한 패턴이 있는지 먼저 검사
-    const urlLower = url.toLowerCase().trim();
+    const urlTrimmed = url.trim();
+    const urlLower = urlTrimmed.toLowerCase();
+    
+    // 완전한 스킴 검사: 위험한 스킴이 정확히 시작 부분에 있는지 확인
+    // 멀티바이트 문자나 인코딩된 문자를 우회하는 시도 차단
     const dangerousSchemes = ['javascript:', 'data:', 'vbscript:', 'file:', 'about:', 'jar:'];
     for (const scheme of dangerousSchemes) {
-      // 완전한 스킴 검사 (콜론 포함, 공백 없음)
-      if (urlLower.startsWith(scheme) || urlLower.includes(' ' + scheme) || urlLower.includes('\n' + scheme)) {
+      // 정확한 스킴 매칭: 시작 부분에 정확히 일치하는지 확인
+      // 공백, 탭, 줄바꿈 등으로 시작하는 경우도 차단
+      if (urlLower.startsWith(scheme) || 
+          urlLower.match(new RegExp(`^[\\s\\t\\n\\r]*${scheme.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i'))) {
+        return null;
+      }
+      // URL 내부에 위험한 스킴이 포함된 경우도 차단
+      if (urlLower.includes(' ' + scheme) || 
+          urlLower.includes('\n' + scheme) || 
+          urlLower.includes('\t' + scheme) ||
+          urlLower.includes('%20' + scheme) ||
+          urlLower.includes('%0a' + scheme)) {
         return null;
       }
     }
     
     // 상대 경로를 절대 경로로 변환
-    let urlToValidate = url.trim();
+    let urlToValidate = urlTrimmed;
     if (!urlToValidate.includes('://')) {
       // 상대 경로인 경우 현재 도메인 기준으로 절대 경로 생성
       urlToValidate = new URL(urlToValidate, 'https://tech.2twodragon.com').href;
@@ -592,9 +625,9 @@ function validateUrl(url) {
     
     const urlObj = new URL(urlToValidate);
     
-    // 보안: 허용된 스킴만 허용 (정확한 비교)
+    // 보안: 허용된 스킴만 허용 (정확한 비교, 대소문자 구분)
     const allowedSchemes = ['http:', 'https:'];
-    if (!allowedSchemes.includes(urlObj.protocol)) {
+    if (!allowedSchemes.includes(urlObj.protocol.toLowerCase())) {
       return null; // javascript:, data:, vbscript: 등 차단
     }
     
@@ -604,21 +637,33 @@ function validateUrl(url) {
       return null;
     }
     
-    // 보안: 위험한 패턴이 포함된 URL 차단 (href 전체 검사)
+    // 보안: 위험한 패턴이 포함된 URL 차단 (모든 구성 요소 검사)
     const dangerousPatterns = [
-      /javascript:/i,
-      /data:text\/html/i,
-      /data:text\/javascript/i,
-      /vbscript:/i,
+      /javascript\s*:/i,
+      /data\s*:\s*text\s*\/\s*html/i,
+      /data\s*:\s*text\s*\/\s*javascript/i,
+      /vbscript\s*:/i,
       /on\w+\s*=/i,
       /<script/i,
       /<iframe/i,
       /expression\s*\(/i
     ];
     
-    for (const pattern of dangerousPatterns) {
-      if (pattern.test(urlObj.href) || pattern.test(urlObj.pathname) || pattern.test(urlObj.search) || pattern.test(urlObj.hash)) {
-        return null;
+    // URL의 모든 구성 요소 검사
+    const urlComponents = [
+      urlObj.href,
+      urlObj.protocol,
+      urlObj.hostname,
+      urlObj.pathname,
+      urlObj.search,
+      urlObj.hash
+    ];
+    
+    for (const component of urlComponents) {
+      for (const pattern of dangerousPatterns) {
+        if (pattern.test(component)) {
+          return null;
+        }
       }
     }
     

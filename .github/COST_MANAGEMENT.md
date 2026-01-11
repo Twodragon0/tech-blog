@@ -24,7 +24,7 @@ API Key 생성 시 월간 크레딧 제한을 설정하여 예상치 못한 사�
 긴 포스트는 DeepSeek AI로 요약하여 사용량을 절감합니다.
 
 ```python
-# scripts/generate_audio.py에서 자동으로 처리
+# scripts/generate_enhanced_audio.py에서 자동으로 처리
 MAX_SCRIPT_LENGTH = 3000  # 최대 대본 길이 (약 5분 분량)
 ```
 

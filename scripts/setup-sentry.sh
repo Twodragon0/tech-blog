@@ -9,7 +9,8 @@
 
 set -e
 
-TECH_BLOG_DIR="/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내 드라이브/tech-blog"
+# 프로젝트 디렉토리 (실제 경로로 교체하거나 환경 변수 사용)
+TECH_BLOG_DIR="${TECH_BLOG_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 SENTRY_DSN="${1}"
 
 cd "$TECH_BLOG_DIR"
