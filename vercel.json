@@ -8,7 +8,17 @@
       "LANG": "C.UTF-8",
       "LC_ALL": "C.UTF-8",
       "LANGUAGE": "C.UTF-8",
-      "JEKYLL_ENV": "production"
+      "JEKYLL_ENV": "production",
+      "BUNDLE_WITHOUT": "development:test",
+      "BUNDLE_JOBS": "4",
+      "BUNDLE_PATH": "vendor/bundle"
+    }
+  },
+  "git": {
+    "deploymentEnabled": {
+      "production": true,
+      "preview": true,
+      "development": false
     }
   },
   "headers": [

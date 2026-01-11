@@ -112,19 +112,55 @@
     if (!content) return '';
     
     // Enhanced HTML entity decoding (더 정확한 디코딩)
+    // 보안: innerHTML 사용을 피하고 DOMParser 사용
     const decodeHtml = (text) => {
+      if (!text || typeof text !== 'string') return '';
+      
       // 먼저 숫자 엔티티 디코딩 (&#x2F; 같은 형태)
       text = text.replace(/&#x([0-9A-Fa-f]+);/g, (match, hex) => {
-        return String.fromCharCode(parseInt(hex, 16));
+        const code = parseInt(hex, 16);
+        // 보안: 제어 문자 및 위험한 문자 범위 제한
+        if (code < 0x20 || (code >= 0x7F && code < 0xA0)) {
+          return '';
+        }
+        return String.fromCharCode(code);
       });
       // 10진수 엔티티 디코딩 (&#47; 같은 형태)
       text = text.replace(/&#(\d+);/g, (match, dec) => {
-        return String.fromCharCode(parseInt(dec, 10));
+        const code = parseInt(dec, 10);
+        // 보안: 제어 문자 및 위험한 문자 범위 제한
+        if (code < 0x20 || (code >= 0x7F && code < 0xA0)) {
+          return '';
+        }
+        return String.fromCharCode(code);
       });
-      // 일반 HTML 엔티티 디코딩
-      const textarea = document.createElement('textarea');
-      textarea.innerHTML = text;
-      return textarea.value;
+      
+      // 보안: DOMParser를 사용하여 안전하게 HTML 엔티티 디코딩
+      // 일반 HTML 엔티티 디코딩 (&amp;, &lt; 등)
+      try {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        // parseFromString이 오류를 반환하면 원본 텍스트 반환
+        if (doc.body && doc.body.textContent !== null) {
+          return doc.body.textContent;
+        }
+      } catch (e) {
+        // 파싱 실패 시 원본 반환 (이미 숫자 엔티티는 디코딩됨)
+      }
+      
+      // DOMParser 실패 시 수동으로 일반 엔티티 디코딩
+      const entityMap = {
+        '&amp;': '&',
+        '&lt;': '<',
+        '&gt;': '>',
+        '&quot;': '"',
+        '&#x27;': "'",
+        '&#x2F;': '/',
+        '&apos;': "'"
+      };
+      return text.replace(/&(?:amp|lt|gt|quot|#x27|#x2F|apos);/g, (match) => {
+        return entityMap[match] || match;
+      });
     };
     
     // Escape HTML to prevent XSS (마크다운 파싱 후 최종 적용)
@@ -233,19 +269,68 @@
     formatted = processedLines.join('\n');
     
     // Links: [text](url) - 버튼 스타일로 개선
+    // 보안: URL 검증 강화
     formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, url) => {
       // Validate URL
       try {
         // URL 디코딩 (엔티티가 포함된 경우)
         const decodedUrl = decodeHtml(url);
-        const urlObj = new URL(decodedUrl);
-        if (urlObj.protocol === 'http:' || urlObj.protocol === 'https:') {
-          // 외부 링크는 아이콘과 함께 버튼 스타일로 표시
-          const isExternal = urlObj.hostname !== window.location.hostname;
-          const linkClass = isExternal ? 'chat-link-external' : 'chat-link-internal';
-          const icon = isExternal ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-left: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>' : '';
-          return `<a href="${escapeHtml(decodedUrl)}" target="_blank" rel="noopener noreferrer" class="${linkClass}">${escapeHtml(text)}${icon}</a>`;
+        
+        // 보안: 위험한 스킴 차단
+        const dangerousSchemes = ['javascript:', 'data:', 'vbscript:', 'file:', 'about:'];
+        const urlLower = decodedUrl.toLowerCase().trim();
+        for (const scheme of dangerousSchemes) {
+          if (urlLower.startsWith(scheme)) {
+            // 위험한 스킴이면 텍스트만 반환
+            return escapeHtml(text);
+          }
         }
+        
+        // 상대 경로를 절대 경로로 변환
+        let urlToValidate = decodedUrl.trim();
+        if (!urlToValidate.includes('://')) {
+          // 상대 경로인 경우 현재 도메인 기준으로 절대 경로 생성
+          try {
+            urlToValidate = new URL(urlToValidate, window.location.origin).href;
+          } catch (e) {
+            // 상대 경로 파싱 실패 시 텍스트만 반환
+            return escapeHtml(text);
+          }
+        }
+        
+        const urlObj = new URL(urlToValidate);
+        
+        // 보안: 허용된 스킴만 허용
+        if (urlObj.protocol !== 'http:' && urlObj.protocol !== 'https:') {
+          return escapeHtml(text);
+        }
+        
+        // 보안: 위험한 호스트명 차단
+        const dangerousHosts = ['localhost', '127.0.0.1', '0.0.0.0', '[::1]'];
+        if (dangerousHosts.includes(urlObj.hostname.toLowerCase())) {
+          return escapeHtml(text);
+        }
+        
+        // 보안: URL에 위험한 패턴이 포함되어 있는지 확인
+        const dangerousPatterns = [
+          /javascript:/i,
+          /data:text\/html/i,
+          /data:text\/javascript/i,
+          /vbscript:/i,
+          /on\w+\s*=/i
+        ];
+        
+        for (const pattern of dangerousPatterns) {
+          if (pattern.test(urlObj.href)) {
+            return escapeHtml(text);
+          }
+        }
+        
+        // 외부 링크는 아이콘과 함께 버튼 스타일로 표시
+        const isExternal = urlObj.hostname !== window.location.hostname;
+        const linkClass = isExternal ? 'chat-link-external' : 'chat-link-internal';
+        const icon = isExternal ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-left: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>' : '';
+        return `<a href="${escapeHtml(urlObj.href)}" target="_blank" rel="noopener noreferrer" class="${linkClass}">${escapeHtml(text)}${icon}</a>`;
       } catch (e) {
         // Invalid URL, return text only
       }

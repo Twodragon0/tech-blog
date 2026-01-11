@@ -514,16 +514,20 @@ export default async function handler(req, res) {
 }
 
 // XSS 방지를 위한 입력 정제 함수 (강화)
+// 보안: 멀티바이트 문자 및 유니코드 정규화 지원
 function sanitizeInput(input) {
   if (typeof input !== 'string') {
     return '';
   }
 
+  // 보안: 유니코드 정규화 (NFC) - 멀티바이트 문자 처리
+  let sanitized = input.normalize('NFC');
+  
   // HTML 태그 및 위험한 문자 제거 (XSS 방지 강화)
   // 실제로는 더 강력한 라이브러리(DOMPurify 등)를 사용하는 것이 좋습니다
   // 하지만 서버리스 환경에서는 의존성 최소화를 위해 기본 함수 사용
-  return input
-    // HTML 태그 제거 (더 강력한 패턴)
+  sanitized = sanitized
+    // HTML 태그 제거 (더 강력한 패턴) - 멀티바이트 문자 고려
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     // 따옴표 이스케이프
@@ -531,13 +535,72 @@ function sanitizeInput(input) {
     .replace(/'/g, '&#x27;')
     // 슬래시 이스케이프
     .replace(/\//g, '&#x2F;')
-    // 추가 위험 문자 제거
-    .replace(/&(?!(?:amp|lt|gt|quot|#x27|#x2F);)/g, '&amp;')
-    // 제어 문자 제거 (보안 강화)
-    .replace(/[\x00-\x1F\x7F]/g, '')
-    // 추가 보안: 위험한 패턴 제거
+    // 추가 위험 문자 제거 - 멀티바이트 문자 고려
+    .replace(/&(?!(?:amp|lt|gt|quot|#x27|#x2F|#x[0-9A-Fa-f]+|#\d+);)/g, '&amp;')
+    // 제어 문자 제거 (보안 강화) - 유니코드 제어 문자 포함
+    .replace(/[\x00-\x1F\x7F-\x9F\u200B-\u200D\uFEFF]/g, '')
+    // 추가 보안: 위험한 패턴 제거 (대소문자 무시, 멀티바이트 고려)
     .replace(/javascript:/gi, '')
+    .replace(/data:\s*text\/html/gi, '')
+    .replace(/data:\s*text\/javascript/gi, '')
+    .replace(/vbscript:/gi, '')
     .replace(/on\w+\s*=/gi, '')
-    .replace(/data:text\/html/gi, '')
+    .replace(/<script/gi, '')
+    .replace(/<iframe/gi, '')
+    .replace(/<object/gi, '')
+    .replace(/<embed/gi, '')
+    .replace(/expression\s*\(/gi, '')
     .trim();
+  
+  return sanitized;
+}
+
+// URL 검증 함수 (보안 강화)
+function validateUrl(url) {
+  if (typeof url !== 'string' || !url.trim()) {
+    return null;
+  }
+  
+  try {
+    // 상대 경로를 절대 경로로 변환
+    let urlToValidate = url.trim();
+    if (!urlToValidate.includes('://')) {
+      // 상대 경로인 경우 현재 도메인 기준으로 절대 경로 생성
+      urlToValidate = new URL(urlToValidate, 'https://tech.2twodragon.com').href;
+    }
+    
+    const urlObj = new URL(urlToValidate);
+    
+    // 보안: 허용된 스킴만 허용
+    const allowedSchemes = ['http:', 'https:'];
+    if (!allowedSchemes.includes(urlObj.protocol)) {
+      return null; // javascript:, data:, vbscript: 등 차단
+    }
+    
+    // 보안: 위험한 호스트명 차단
+    const dangerousHosts = ['localhost', '127.0.0.1', '0.0.0.0', '[::1]'];
+    if (dangerousHosts.includes(urlObj.hostname.toLowerCase())) {
+      return null;
+    }
+    
+    // 보안: 위험한 패턴이 포함된 URL 차단
+    const dangerousPatterns = [
+      /javascript:/i,
+      /data:text\/html/i,
+      /data:text\/javascript/i,
+      /vbscript:/i,
+      /on\w+\s*=/i
+    ];
+    
+    for (const pattern of dangerousPatterns) {
+      if (pattern.test(urlObj.href)) {
+        return null;
+      }
+    }
+    
+    return urlObj.href;
+  } catch (e) {
+    // URL 파싱 실패 시 null 반환
+    return null;
+  }
 }

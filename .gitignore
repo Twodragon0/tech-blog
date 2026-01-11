@@ -6,6 +6,13 @@ vendor/
 .bundle/
 .vercel/
 *.log
+*.pid
+*_improvement*.log
+*_improvement*.txt
+improvement*.log
+improvement*.txt
+ai_improvement*.log
+ai_improvement*.txt
 .DS_Store
 
 # Environment variables and secrets
@@ -30,3 +37,4 @@ secrets/
 **/*_TOKEN
 **/credentials.json
 **/service-account*.json
+.env*.local

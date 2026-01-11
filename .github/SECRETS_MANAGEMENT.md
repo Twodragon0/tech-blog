@@ -10,9 +10,17 @@
   - 권한: `project:releases` (최소 권한)
   - 사용처: `.github/workflows/sentry-release.yml`, `.github/workflows/vercel-deploy.yml`
 
+### DeepSeek API 관련
+- `DEEPSEEK_API_KEY`: DeepSeek AI API 키
+  - 생성 방법: [DeepSeek Platform](https://platform.deepseek.com)에서 발급
+  - 형식: `sk-`로 시작하는 문자열
+  - 사용처: `api/chat.js` (Vercel Serverless Function)
+  - 참고: Vercel 환경 변수에도 동일하게 설정 필요 (Development, Preview, Production)
+
 ### Vercel 관련
 - Vercel 대시보드에서 직접 관리 (GitHub Integration 사용 시 자동 동기화)
   - 환경 변수는 Vercel 대시보드에서 설정
+  - `DEEPSEEK_API_KEY`: Vercel 환경 변수로도 설정 필요
 
 ### SNS 공유 관련
 - `TWITTER_API_KEY`: Twitter/X API Key

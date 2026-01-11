@@ -80,6 +80,46 @@ def detect_code_type(code_block: str) -> Optional[str]:
     
     return None
 
+def validate_url(url: str) -> bool:
+    """
+    URL이 안전한지 검증합니다.
+    
+    Args:
+        url: 검증할 URL
+        
+    Returns:
+        안전하면 True, 아니면 False
+    """
+    if not url or not isinstance(url, str):
+        return False
+    
+    # 보안: 위험한 스킴 차단
+    dangerous_schemes = ['javascript:', 'data:', 'vbscript:', 'file:', 'about:']
+    url_lower = url.lower().strip()
+    for scheme in dangerous_schemes:
+        if url_lower.startswith(scheme):
+            return False
+    
+    # 보안: 허용된 스킴만 허용
+    if not url_lower.startswith('http://') and not url_lower.startswith('https://'):
+        return False
+    
+    # 보안: 위험한 패턴이 포함되어 있는지 확인
+    dangerous_patterns = [
+        'javascript:',
+        'data:text/html',
+        'data:text/javascript',
+        'vbscript:',
+        'onerror=',
+        'onclick=',
+    ]
+    
+    for pattern in dangerous_patterns:
+        if pattern in url_lower:
+            return False
+    
+    return True
+
 def get_replacement_link(code_type: str, code_block: str, context: str = '') -> Optional[str]:
     """코드 블록을 대체할 링크 반환"""
     code_lower = code_block.lower()
@@ -87,31 +127,54 @@ def get_replacement_link(code_type: str, code_block: str, context: str = '') -> 
     # AWS 관련 코드는 AWS 예제 저장소 우선
     if 'aws' in code_lower or 'boto3' in code_lower or 'amazon' in code_lower:
         if code_type in ['terraform', 'hcl']:
-            return 'https://github.com/terraform-aws-modules'
+            link = 'https://github.com/terraform-aws-modules'
         elif code_type == 'python':
-            return 'https://github.com/aws-samples'
+            link = 'https://github.com/aws-samples'
         elif code_type == 'yaml' and 'kubernetes' in code_lower:
-            return 'https://github.com/aws-samples/aws-k8s-examples'
+            link = 'https://github.com/aws-samples/aws-k8s-examples'
         else:
-            return 'https://github.com/aws-samples'
+            link = 'https://github.com/aws-samples'
+        
+        # 보안: URL 검증
+        if validate_url(link):
+            return link
+        return None
     
     # Kubernetes 관련
     if 'kubernetes' in code_lower or 'k8s' in code_lower or 'kubectl' in code_lower:
         if code_type in ['yaml', 'kubernetes']:
-            return 'https://github.com/kubernetes/examples'
-        return 'https://github.com/kubernetes/examples'
+            link = 'https://github.com/kubernetes/examples'
+        else:
+            link = 'https://github.com/kubernetes/examples'
+        
+        # 보안: URL 검증
+        if validate_url(link):
+            return link
+        return None
     
     # Docker 관련
     if 'docker' in code_lower or 'container' in code_lower:
-        return 'https://github.com/docker-library'
+        link = 'https://github.com/docker-library'
+        # 보안: URL 검증
+        if validate_url(link):
+            return link
+        return None
     
     # GitHub 링크 우선
     if code_type in GITHUB_LINKS and GITHUB_LINKS[code_type]:
-        return GITHUB_LINKS[code_type]
+        link = GITHUB_LINKS[code_type]
+        # 보안: URL 검증
+        if validate_url(link):
+            return link
+        return None
     
     # 관련 링크
     if code_type in RELATED_LINKS:
-        return RELATED_LINKS[code_type]
+        link = RELATED_LINKS[code_type]
+        # 보안: URL 검증
+        if validate_url(link):
+            return link
+        return None
     
     return None
 
@@ -153,19 +216,29 @@ def replace_code_blocks(content: str) -> str:
         code_lines = len(code_block.strip().split('\n'))
         code_length = len(code_block.strip())
         
+        # 보안: 링크 검증
+        if link and not validate_url(link):
+            link = None  # 검증 실패 시 링크 제거
+        
         # 긴 코드 블록 (10줄 이상 또는 500자 이상)은 링크로 대체
         if code_lines >= 10 or code_length >= 500:
             if link:
+                # 보안: 링크 이스케이프 (마크다운 링크 형식에서 안전하게 처리)
                 code_preview = code_block.split('\n')[0][:80].strip()
-                return f'> **코드 예시**: 전체 코드는 [GitHub 예제 저장소]({link})를 참조하세요.\n> \n> ```{language}\n> {code_preview}...\n> ```\n\n<!-- 전체 코드는 위 GitHub 링크 참조\n```{language}\n{code_block}\n```\n-->'
+                # 보안: URL에 위험한 문자가 포함되지 않도록 검증된 링크만 사용
+                safe_link = link.replace(']', '%5D').replace('[', '%5B')  # 마크다운 링크 구문자 이스케이프
+                return f'> **코드 예시**: 전체 코드는 [GitHub 예제 저장소]({safe_link})를 참조하세요.\n> \n> ```{language}\n> {code_preview}...\n> ```\n\n<!-- 전체 코드는 위 GitHub 링크 참조\n```{language}\n{code_block}\n```\n-->'
             else:
                 # 링크가 없으면 주석 처리
                 return f'<!-- 긴 코드 블록 제거됨 (가독성 향상)\n```{language}\n{code_block}\n```\n-->'
         else:
             # 짧은 코드 블록은 유지하되 링크 추가 (너무 짧으면 링크 추가 안 함)
             if link and code_lines >= 3:  # 3줄 이상인 경우만 링크 추가
+                # 보안: 링크 이스케이프 (마크다운 링크 형식에서 안전하게 처리)
                 link_text = 'GitHub 예제 저장소' if 'github.com' in link else '공식 문서'
-                return f'> **참고**: 관련 예제는 [{link_text}]({link})를 참조하세요.\n\n{full_match}'
+                # 보안: URL에 위험한 문자가 포함되지 않도록 검증된 링크만 사용
+                safe_link = link.replace(']', '%5D').replace('[', '%5B')  # 마크다운 링크 구문자 이스케이프
+                return f'> **참고**: 관련 예제는 [{link_text}]({safe_link})를 참조하세요.\n\n{full_match}'
             else:
                 return full_match  # 링크가 없거나 너무 짧으면 원본 유지
     
