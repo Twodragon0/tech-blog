@@ -107,27 +107,121 @@
     return messageEl;
   }
 
-  // Format message content (basic markdown)
+  // Format message content (enhanced markdown)
   function formatMessage(content) {
     if (!content) return '';
     
-    // Escape HTML to prevent XSS
+    // Decode HTML entities first (API에서 올 수 있는 엔티티 처리)
+    const decodeHtml = (text) => {
+      const textarea = document.createElement('textarea');
+      textarea.innerHTML = text;
+      return textarea.value;
+    };
+    
+    // Escape HTML to prevent XSS (마크다운 파싱 후 최종 적용)
     const escapeHtml = (text) => {
       const div = document.createElement('div');
       div.textContent = text;
       return div.innerHTML;
     };
     
-    let formatted = escapeHtml(content);
+    // HTML 엔티티 디코딩 (API 응답에서 올 수 있는 엔티티 처리)
+    let formatted = decodeHtml(content);
     
-    // Bold text: **text**
+    // XSS 방지를 위해 다시 이스케이프 (마크다운 파싱 전)
+    formatted = escapeHtml(formatted);
+    
+    // Horizontal rules: --- or ***
+    formatted = formatted.replace(/^(\*\*\*|---)$/gm, '<hr>');
+    
+    // Headings: # ## ### #### ##### ######
+    formatted = formatted.replace(/^###### (.*)$/gm, '<h6>$1</h6>');
+    formatted = formatted.replace(/^##### (.*)$/gm, '<h5>$1</h5>');
+    formatted = formatted.replace(/^#### (.*)$/gm, '<h4>$1</h4>');
+    formatted = formatted.replace(/^### (.*)$/gm, '<h3>$1</h3>');
+    formatted = formatted.replace(/^## (.*)$/gm, '<h2>$1</h2>');
+    formatted = formatted.replace(/^# (.*)$/gm, '<h1>$1</h1>');
+    
+    // Code blocks: ```language\ncode\n```
+    formatted = formatted.replace(/```(\w+)?\n?([\s\S]*?)```/g, (match, lang, code) => {
+      const escapedCode = escapeHtml(code.trim());
+      return `<pre class="code-block"><code class="language-${lang || 'text'}">${escapedCode}</code></pre>`;
+    });
+    
+    // Inline code: `code` (code blocks 이후에 처리)
+    formatted = formatted.replace(/`([^`\n]+)`/g, '<code class="inline-code">$1</code>');
+    
+    // Bold text: **text** or __text__
     formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    formatted = formatted.replace(/__(.*?)__/g, '<strong>$1</strong>');
     
-    // Code blocks: ```code```
-    formatted = formatted.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+    // Italic text: *text* or _text_ (bold 이후에 처리, 단독으로만)
+    formatted = formatted.replace(/(?<!\*)\*([^*\n]+?)\*(?!\*)/g, '<em>$1</em>');
+    formatted = formatted.replace(/(?<!_)_([^_\n]+?)_(?!_)/g, '<em>$1</em>');
     
-    // Inline code: `code`
-    formatted = formatted.replace(/`([^`]+)`/g, '<code>$1</code>');
+    // Strikethrough: ~~text~~
+    formatted = formatted.replace(/~~(.*?)~~/g, '<del>$1</del>');
+    
+    // Blockquotes: > text
+    formatted = formatted.replace(/^> (.*)$/gm, '<blockquote>$1</blockquote>');
+    
+    // Lists processing: 먼저 줄 단위로 처리
+    const lines = formatted.split('\n');
+    const processedLines = [];
+    let inUnorderedList = false;
+    let inOrderedList = false;
+    
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const trimmed = line.trim();
+      
+      // Unordered list item: - * +
+      if (/^[\-\*\+] (.+)$/.test(trimmed)) {
+        if (!inUnorderedList) {
+          if (inOrderedList) {
+            processedLines.push('</ol>');
+            inOrderedList = false;
+          }
+          processedLines.push('<ul>');
+          inUnorderedList = true;
+        }
+        processedLines.push('<li>' + trimmed.replace(/^[\-\*\+] /, '') + '</li>');
+      }
+      // Ordered list item: 1. 2. etc.
+      else if (/^\d+\. (.+)$/.test(trimmed)) {
+        if (!inOrderedList) {
+          if (inUnorderedList) {
+            processedLines.push('</ul>');
+            inUnorderedList = false;
+          }
+          processedLines.push('<ol>');
+          inOrderedList = true;
+        }
+        processedLines.push('<li>' + trimmed.replace(/^\d+\. /, '') + '</li>');
+      }
+      // Not a list item
+      else {
+        if (inUnorderedList) {
+          processedLines.push('</ul>');
+          inUnorderedList = false;
+        }
+        if (inOrderedList) {
+          processedLines.push('</ol>');
+          inOrderedList = false;
+        }
+        processedLines.push(line);
+      }
+    }
+    
+    // Close any open lists
+    if (inUnorderedList) {
+      processedLines.push('</ul>');
+    }
+    if (inOrderedList) {
+      processedLines.push('</ol>');
+    }
+    
+    formatted = processedLines.join('\n');
     
     // Links: [text](url)
     formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, url) => {
@@ -143,8 +237,49 @@
       return escapeHtml(text);
     });
     
-    // Line breaks
-    formatted = formatted.replace(/\n/g, '<br>');
+    // Paragraphs: 연속된 텍스트를 <p>로 감싸기 (헤딩, 리스트, 코드 블록 제외)
+    const paraLines = formatted.split('\n');
+    const processed = [];
+    let currentParagraph = [];
+    
+    for (let i = 0; i < paraLines.length; i++) {
+      const line = paraLines[i];
+      const trimmed = line.trim();
+      
+      // 블록 요소들은 그대로 유지
+      if (trimmed.startsWith('<h') || 
+          trimmed.startsWith('<ul') || trimmed.startsWith('</ul') ||
+          trimmed.startsWith('<ol') || trimmed.startsWith('</ol') ||
+          trimmed.startsWith('<li') || trimmed.startsWith('</li') ||
+          trimmed.startsWith('<pre') || trimmed.includes('</pre>') ||
+          trimmed.startsWith('<blockquote') || trimmed.includes('</blockquote>') ||
+          trimmed.startsWith('<hr') ||
+          trimmed === '') {
+        // 현재 단락이 있으면 닫기
+        if (currentParagraph.length > 0) {
+          const paraText = currentParagraph.join(' ').trim();
+          if (paraText) {
+            processed.push('<p>' + paraText + '</p>');
+          }
+          currentParagraph = [];
+        }
+        if (trimmed !== '') {
+          processed.push(line);
+        }
+      } else {
+        currentParagraph.push(line);
+      }
+    }
+    
+    // 마지막 단락 처리
+    if (currentParagraph.length > 0) {
+      const paraText = currentParagraph.join(' ').trim();
+      if (paraText) {
+        processed.push('<p>' + paraText + '</p>');
+      }
+    }
+    
+    formatted = processed.join('\n');
     
     return formatted;
   }
