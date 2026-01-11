@@ -30,11 +30,8 @@ Sentry Logs는 구조화된 로깅을 제공하여 에러, 트레이스와 함�
 ```javascript
 Sentry.init({
   enableLogs: true,
-  integrations: [
-    Sentry.consoleLoggingIntegration({ 
-      levels: ["warn", "error"]  // console.log는 제외 (Free 티어 최적화)
-    }),
-  ],
+  // Loader Script 제한으로 consoleLoggingIntegration 사용 불가
+  // 대신 console.warn/error를 수동으로 래핑하여 Sentry로 전송
   beforeSendLog(log, hint) {
     // Free 티어 최적화: 프로덕션만 수집
     if (window.location.hostname !== 'tech.2twodragon.com') {
@@ -44,11 +41,58 @@ Sentry.init({
     if (log.level === 'info' || log.level === 'debug' || log.level === 'trace') {
       return null;
     }
+    // 로그 컨텍스트 정보 추가
+    log.data = {
+      page: window.location.pathname,
+      url: window.location.href,
+      referrer: document.referrer || 'none',
+      timestamp: new Date().toISOString()
+    };
+    // 민감 정보 필터링
+    // ...
+  },
+  // Breadcrumbs 강화: 에러 발생 시 관련 로그 자동 연결
+  maxBreadcrumbs: 100,
+  beforeBreadcrumb(breadcrumb, hint) {
+    // 프로덕션만 breadcrumb 수집
     // 민감 정보 필터링
     // ...
   }
 });
 ```
+
+### Console 메서드 자동 전송
+
+Loader Script 제한으로 `consoleLoggingIntegration`을 사용할 수 없으므로, `console.warn`과 `console.error`를 수동으로 래핑하여 Sentry로 자동 전송합니다:
+
+```javascript
+// console.warn 래핑
+console.warn = function(...args) {
+  originalWarn.apply(console, args);
+  Sentry.logger.warn(message, {
+    console: true,
+    args: extra,
+    page: window.location.pathname,
+    timestamp: new Date().toISOString()
+  });
+};
+
+// console.error 래핑
+console.error = function(...args) {
+  originalError.apply(console, args);
+  Sentry.logger.error(message, {
+    console: true,
+    error: errorData,
+    page: window.location.pathname,
+    timestamp: new Date().toISOString()
+  });
+};
+```
+
+**효과**:
+- `console.warn`, `console.error`가 자동으로 Sentry로 전송
+- 원본 console 메서드 기능 유지
+- 추가 컨텍스트 정보 자동 포함
 
 ### 로그 레벨
 
@@ -63,30 +107,48 @@ Sentry.init({
 
 ### 로그 전송 방법
 
-#### 1. console 메서드 사용
+#### 1. console 메서드 사용 (자동 전송)
 
 ```javascript
-// 자동으로 Sentry로 전송됨
+// console.warn, console.error가 자동으로 Sentry로 전송됨
 console.warn('Warning message', { context: 'additional data' });
 console.error('Error occurred', { errorCode: 500 });
+
+// 에러 객체도 자동 처리
+console.error('API 호출 실패', new Error('Network error'), { endpoint: '/api/users' });
 ```
 
-#### 2. Sentry.logger API 사용
+**자동 추가되는 컨텍스트**:
+- `page`: 현재 페이지 경로
+- `url`: 전체 URL
+- `referrer`: 리퍼러 정보
+- `timestamp`: 타임스탬프
+- `console: true`: console 메서드에서 전송된 로그임을 표시
+
+#### 2. Sentry.logger API 사용 (권장)
 
 ```javascript
-// 구조화된 로그 전송
+// 구조화된 로그 전송 (더 많은 컨텍스트 정보 포함 가능)
 Sentry.logger.warn('Warning message', {
   userId: 'user123',
   action: 'login',
-  timestamp: new Date().toISOString()
+  timestamp: new Date().toISOString(),
+  page: window.location.pathname
 });
 
 Sentry.logger.error('Error occurred', {
   errorCode: 500,
   endpoint: '/api/users',
-  requestId: 'req-123'
+  requestId: 'req-123',
+  stack: error.stack
 });
 ```
+
+**Sentry.logger의 장점**:
+- 더 구조화된 데이터 전송
+- 자동 태깅 (logLevel, source 등)
+- 에러 객체 자동 처리
+- Breadcrumbs에 자동 추가
 
 ## Vercel Log Drains 설정
 
@@ -158,6 +220,9 @@ vercel env add SENTRY_ENVIRONMENT production
 4. **샘플링**: Vercel Log Drains 샘플링 10%
 5. **로그 길이 제한**: 1,000자 초과 시 잘라서 전송
 6. **중복 로그 필터링**: Sentry 자동 그룹핑 활용
+7. **동적 샘플링**: 동일한 로그가 1시간 내 20번 이상 발생 시 70% 샘플링
+8. **민감 정보 필터링**: API 키, 토큰 등 자동 필터링
+9. **Breadcrumbs 제한**: 최대 100개로 제한
 
 ### 예상 이벤트 수
 
@@ -320,7 +385,76 @@ Sentry 대시보드에서 확인:
 - [통계](https://sentry.io/organizations/twodragon/projects/tech-blog/stats/)
 - [로그](https://sentry.io/organizations/twodragon/projects/tech-blog/logs/)
 
+## 로그 모니터링 개선
+
+### 로그 레벨별 통계
+
+로그 레벨별 통계가 자동으로 추적됩니다:
+
+```javascript
+// 1시간마다 자동으로 Sentry 메트릭으로 전송
+Sentry.metrics.distribution('logs.warn', warnCount, {
+  unit: 'none',
+  tags: {
+    page: window.location.pathname,
+    period: '1h'
+  }
+});
+
+Sentry.metrics.distribution('logs.error', errorCount, {
+  unit: 'none',
+  tags: {
+    page: window.location.pathname,
+    period: '1h'
+  }
+});
+```
+
+**확인 방법**:
+1. Sentry 대시보드 → **Performance** → **Metrics**
+2. `logs.warn`, `logs.error` 메트릭 확인
+3. 페이지별 필터링 가능
+
+### Breadcrumbs 강화
+
+에러 발생 시 관련 로그가 자동으로 Breadcrumbs에 추가됩니다:
+
+```javascript
+// 최대 100개의 breadcrumb 저장
+maxBreadcrumbs: 100,
+
+// Breadcrumb 필터링 및 컨텍스트 추가
+beforeBreadcrumb(breadcrumb, hint) {
+  // 프로덕션만 수집
+  // 민감 정보 필터링
+  // 페이지 정보 추가
+  breadcrumb.data = {
+    page: window.location.pathname,
+    timestamp: new Date().toISOString()
+  };
+  return breadcrumb;
+}
+```
+
+**효과**:
+- 에러 발생 전후의 사용자 액션 추적
+- 관련 로그 자동 연결
+- 문제 진단 시간 단축
+
+### 로그 컨텍스트 정보
+
+모든 로그에 다음 컨텍스트 정보가 자동으로 추가됩니다:
+
+- **page**: 현재 페이지 경로
+- **url**: 전체 URL
+- **referrer**: 리퍼러 정보
+- **timestamp**: 타임스탬프
+- **navigationType**: 네비게이션 타입 (가능한 경우)
+- **tags**: 로그 레벨, 소스 등
+
 ## 업데이트 이력
 
 - **2026-01-10**: 초기 문서 작성, Vercel Log Drains 설정 가이드 추가
 - **2026-01-10**: 검증 및 모니터링 스크립트 추가
+- **2026-01-11**: Console 메서드 자동 전송 추가, 로그 컨텍스트 정보 강화
+- **2026-01-11**: Breadcrumbs 강화, 로그 레벨별 통계 추적 추가

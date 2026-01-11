@@ -13,7 +13,67 @@
 
 ## 적용된 개선사항
 
-### 1. Performance Monitoring 강화
+### 1. 로그 수집 개선
+
+#### Console 메서드 자동 전송
+
+Loader Script 제한으로 `consoleLoggingIntegration`을 사용할 수 없으므로, `console.warn`과 `console.error`를 수동으로 래핑하여 Sentry로 자동 전송:
+
+```javascript
+// console.warn, console.error가 자동으로 Sentry로 전송
+console.warn('Warning message', { context: 'data' });
+console.error('Error occurred', new Error('Error message'));
+```
+
+**효과**:
+- 기존 코드 수정 없이 자동 로그 수집
+- 원본 console 메서드 기능 유지
+- 추가 컨텍스트 정보 자동 포함
+
+#### 로그 컨텍스트 정보 자동 추가
+
+모든 로그에 다음 정보가 자동으로 추가됩니다:
+
+- **page**: 현재 페이지 경로
+- **url**: 전체 URL
+- **referrer**: 리퍼러 정보
+- **timestamp**: 타임스탬프
+- **navigationType**: 네비게이션 타입
+
+#### Breadcrumbs 강화
+
+에러 발생 시 관련 로그가 자동으로 Breadcrumbs에 추가:
+
+```javascript
+maxBreadcrumbs: 100,
+beforeBreadcrumb(breadcrumb, hint) {
+  // 프로덕션만 수집
+  // 민감 정보 필터링
+  // 페이지 정보 추가
+  return breadcrumb;
+}
+```
+
+**효과**:
+- 에러 발생 전후의 사용자 액션 추적
+- 관련 로그 자동 연결
+- 문제 진단 시간 단축
+
+#### 로그 레벨별 통계 추적
+
+1시간마다 로그 레벨별 통계를 Sentry 메트릭으로 전송:
+
+```javascript
+Sentry.metrics.distribution('logs.warn', warnCount, {
+  unit: 'none',
+  tags: {
+    page: window.location.pathname,
+    period: '1h'
+  }
+});
+```
+
+### 2. Performance Monitoring 강화
 
 #### Web Vitals 자동 추적
 
@@ -475,8 +535,72 @@ console.log('Monthly events:', monthlyEvents, '/ 5000');
 - [Sentry Release Management](https://docs.sentry.io/product/releases/)
 - [Sentry Free Tier Limits](https://sentry.io/pricing/)
 
+## 로그 모니터링 개선
+
+### 로그 수집 방식
+
+#### 1. Console 메서드 (자동 전송)
+
+```javascript
+// console.warn, console.error가 자동으로 Sentry로 전송
+console.warn('Warning message', { context: 'data' });
+console.error('Error occurred', new Error('Error message'));
+```
+
+#### 2. Sentry.logger API (권장)
+
+```javascript
+// 구조화된 로그 전송
+Sentry.logger.warn('Warning message', {
+  userId: 'user123',
+  action: 'login',
+  page: window.location.pathname
+});
+
+Sentry.logger.error('Error occurred', {
+  errorCode: 500,
+  endpoint: '/api/users',
+  stack: error.stack
+});
+```
+
+### 로그 필터링 및 보안
+
+#### 민감 정보 자동 필터링
+
+다음 패턴이 포함된 로그는 자동으로 필터링됩니다:
+
+- `password`, `token`, `secret`, `api_key`, `apikey`
+- `authorization`, `bearer`, `credential`, `private_key`
+- API 키 패턴: `sk-[a-zA-Z0-9]+`
+- Sentry 토큰 패턴: `sntryu_[a-zA-Z0-9]+`
+
+#### 동적 샘플링
+
+동일한 로그가 1시간 내 20번 이상 발생하면 70% 샘플링:
+
+```javascript
+// 1시간 이내에 동일한 로그가 20번 이상 발생하면 샘플링 (30%)
+if (logCount > 20 && (now - lastLogTime) < oneHour) {
+  if (Math.random() > 0.3) {
+    return null; // 70% 샘플링
+  }
+}
+```
+
+### 로그 통계 모니터링
+
+Sentry 대시보드에서 로그 통계 확인:
+
+1. **Performance** → **Metrics** 이동
+2. `logs.warn`, `logs.error` 메트릭 확인
+3. 페이지별 필터링 가능
+
 ## 업데이트 이력
 
 - **2026-01-11**: 초기 문서 작성, Performance Monitoring 강화
 - **2026-01-11**: 에러 그룹핑 개선, Release 정보 자동화
 - **2026-01-11**: 비용 최적화 전략 추가
+- **2026-01-11**: 로그 수집 개선 (Console 메서드 자동 전송)
+- **2026-01-11**: 로그 컨텍스트 정보 강화, Breadcrumbs 개선
+- **2026-01-11**: 로그 레벨별 통계 추적 추가

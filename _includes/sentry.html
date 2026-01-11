@@ -421,6 +421,24 @@
           log.level = 'warn';
         }
         
+        // 로그 컨텍스트 정보 추가 (페이지, 사용자 액션 등)
+        if (!log.data) {
+          log.data = {};
+        }
+        
+        // 페이지 정보 추가
+        log.data.page = window.location.pathname;
+        log.data.url = window.location.href;
+        log.data.referrer = document.referrer || 'none';
+        
+        // 사용자 상호작용 정보 추가 (가능한 경우)
+        if (window.performance && window.performance.navigation) {
+          log.data.navigationType = window.performance.navigation.type;
+        }
+        
+        // 타임스탬프 추가
+        log.data.timestamp = new Date().toISOString();
+        
         // 민감 정보 제거
         if (log.message) {
           // 민감한 정보가 포함된 로그 필터링
@@ -433,11 +451,23 @@
             /authorization/i,
             /bearer/i,
             /credential/i,
-            /private[_-]?key/i
+            /private[_-]?key/i,
+            /sk-[a-zA-Z0-9]+/i, // API 키 패턴 (예: sk-xxx)
+            /sntryu_[a-zA-Z0-9]+/i // Sentry 토큰 패턴
           ];
           
           if (sensitivePatterns.some(pattern => pattern.test(log.message))) {
             return null; // 민감한 로그는 전송하지 않음
+          }
+          
+          // log.data에서도 민감 정보 제거
+          if (log.data && typeof log.data === 'object') {
+            Object.keys(log.data).forEach(key => {
+              const value = String(log.data[key] || '');
+              if (sensitivePatterns.some(pattern => pattern.test(value))) {
+                log.data[key] = '***REDACTED***';
+              }
+            });
           }
         }
         
@@ -476,6 +506,13 @@
         } catch (e) {
           // localStorage 접근 실패 시 무시
         }
+        
+        // 로그 레벨별 태그 추가 (모니터링 개선)
+        if (!log.tags) {
+          log.tags = {};
+        }
+        log.tags.logLevel = log.level;
+        log.tags.source = log.data && log.data.console ? 'console' : 'logger';
         
         return log;
       },
@@ -545,6 +582,45 @@
         // BrowserTracing은 Loader Script에서 자동 설정됨
         // Console 로깅은 beforeSendLog에서 처리 (Loader Script 제한으로 인해 통합 사용 불가)
       ],
+      
+      // Breadcrumbs 강화: 에러 발생 시 관련 로그를 자동으로 연결
+      // 최대 100개의 breadcrumb 저장 (Free 티어 최적화)
+      maxBreadcrumbs: 100,
+      
+      // Breadcrumb 타입별 필터링
+      beforeBreadcrumb(breadcrumb, hint) {
+        // 프로덕션만 breadcrumb 수집
+        if (window.location.hostname !== 'tech.2twodragon.com') {
+          return null;
+        }
+        
+        // 일부 불필요한 breadcrumb 필터링
+        if (breadcrumb.category === 'console' && breadcrumb.level === 'log') {
+          return null; // console.log는 breadcrumb에서도 제외
+        }
+        
+        // 민감 정보가 포함된 breadcrumb 필터링
+        if (breadcrumb.message) {
+          const sensitivePatterns = [
+            /password/i,
+            /token/i,
+            /secret/i,
+            /api[_-]?key/i,
+            /sk-[a-zA-Z0-9]+/i
+          ];
+          
+          if (sensitivePatterns.some(pattern => pattern.test(breadcrumb.message))) {
+            return null;
+          }
+        }
+        
+        // Breadcrumb에 추가 컨텍스트 정보 추가
+        breadcrumb.data = breadcrumb.data || {};
+        breadcrumb.data.page = window.location.pathname;
+        breadcrumb.data.timestamp = new Date().toISOString();
+        
+        return breadcrumb;
+      },
     });
 
     // 사용자 컨텍스트 설정 (선택사항)
@@ -556,6 +632,48 @@
     // 개발 환경에서만 로그
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
       console.log('[Sentry] Initialized successfully');
+    }
+    
+    // 로그 레벨별 통계 추적 (프로덕션만)
+    if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined') {
+      // 로그 통계를 위한 헬퍼 함수
+      window.__sentryLogStats = {
+        warn: 0,
+        error: 0,
+        lastReset: Date.now()
+      };
+      
+      // 1시간마다 통계 리셋
+      setInterval(function() {
+        const now = Date.now();
+        const oneHour = 60 * 60 * 1000;
+        
+        if ((now - window.__sentryLogStats.lastReset) > oneHour) {
+          // 통계를 Sentry로 전송 (선택적)
+          if (window.__sentryLogStats.warn > 0 || window.__sentryLogStats.error > 0) {
+            Sentry.metrics.distribution('logs.warn', window.__sentryLogStats.warn, {
+              unit: 'none',
+              tags: {
+                page: window.location.pathname,
+                period: '1h'
+              }
+            });
+            
+            Sentry.metrics.distribution('logs.error', window.__sentryLogStats.error, {
+              unit: 'none',
+              tags: {
+                page: window.location.pathname,
+                period: '1h'
+              }
+            });
+          }
+          
+          // 통계 리셋
+          window.__sentryLogStats.warn = 0;
+          window.__sentryLogStats.error = 0;
+          window.__sentryLogStats.lastReset = now;
+        }
+      }, 60 * 60 * 1000); // 1시간마다 실행
     }
     
     // 전역 에러 핸들러 설정 (Unknown error 방지)
@@ -709,6 +827,85 @@
           version: Sentry.SDK_VERSION || 'unknown'
         });
       }
+    }
+    
+    // Console 메서드를 Sentry로 자동 전송 (Loader Script 제한으로 수동 구현)
+    // console.warn, console.error가 자동으로 Sentry 로그로 전송되도록 래핑
+    if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined') {
+      // 원본 console 메서드 저장
+      const originalWarn = console.warn;
+      const originalError = console.error;
+      
+      // console.warn 래핑
+      console.warn = function(...args) {
+        // 원본 console.warn 실행
+        originalWarn.apply(console, args);
+        
+        // Sentry로 전송 (beforeSendLog에서 필터링됨)
+        if (Sentry.logger && typeof Sentry.logger.warn === 'function') {
+          try {
+            // 메시지와 추가 데이터 분리
+            const message = args[0] || 'Warning';
+            const extra = args.length > 1 ? args.slice(1) : {};
+            
+            Sentry.logger.warn(message, {
+              console: true,
+              args: extra,
+              page: window.location.pathname,
+              timestamp: new Date().toISOString()
+            });
+            
+            // 로그 통계 업데이트
+            if (window.__sentryLogStats) {
+              window.__sentryLogStats.warn++;
+            }
+          } catch (e) {
+            // Sentry 로깅 실패 시 무시 (원본 console.warn은 이미 실행됨)
+          }
+        }
+      };
+      
+      // console.error 래핑
+      console.error = function(...args) {
+        // 원본 console.error 실행
+        originalError.apply(console, args);
+        
+        // Sentry로 전송 (beforeSendLog에서 필터링됨)
+        if (Sentry.logger && typeof Sentry.logger.error === 'function') {
+          try {
+            // 메시지와 추가 데이터 분리
+            const message = args[0] || 'Error';
+            const extra = args.length > 1 ? args.slice(1) : {};
+            
+            // 에러 객체인 경우 추가 처리
+            let errorData = extra;
+            if (args[0] instanceof Error) {
+              errorData = {
+                error: {
+                  name: args[0].name,
+                  message: args[0].message,
+                  stack: args[0].stack
+                },
+                ...(args.length > 1 ? { extra: args.slice(1) } : {})
+              };
+            }
+            
+            Sentry.logger.error(message, {
+              console: true,
+              ...errorData,
+              page: window.location.pathname,
+              timestamp: new Date().toISOString()
+            });
+            
+            // 로그 통계 업데이트
+            if (window.__sentryLogStats) {
+              window.__sentryLogStats.error++;
+            }
+          } catch (e) {
+            // Sentry 로깅 실패 시 무시 (원본 console.error는 이미 실행됨)
+          }
+        }
+      };
     }
     
     // Web Vitals를 Sentry Performance로 전송
