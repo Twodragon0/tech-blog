@@ -1,0 +1,242 @@
+name: Generate AI Video Lecture
+
+on:
+  workflow_dispatch:  # 수동 실행만 허용 (비용 관리)
+    inputs:
+      post_file:
+        description: '포스트 파일명 (예: 2026-01-10-2026년_DevSecOps_로드맵_완벽_가이드_roadmap.sh_분석.md)'
+        required: false
+        type: string
+      video_method:
+        description: '영상 생성 방법 (ffmpeg 또는 remotion)'
+        required: false
+        type: choice
+        options:
+          - ffmpeg
+          - remotion
+        default: 'ffmpeg'
+  # push 이벤트는 주석 처리 (비용 관리)
+  # push:
+  #   paths:
+  #     - '_posts/**'
+
+jobs:
+  generate-audio:
+    runs-on: ubuntu-latest
+    # 비용 관리: 실패 시 즉시 중단
+    continue-on-error: false
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: Verify API Keys
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          # API 키 검증 (보안: 키 값은 출력하지 않음)
+          if [ -z "$ELEVENLABS_API_KEY" ]; then
+            echo "❌ ELEVENLABS_API_KEY가 설정되지 않았습니다."
+            echo "GitHub Secrets에 ELEVENLABS_API_KEY를 추가해주세요."
+            echo "설정 방법: .github/SECRETS_MANAGEMENT.md 참고"
+            exit 1
+          fi
+          if [ -z "$ELEVENLABS_VOICE_ID" ]; then
+            echo "❌ ELEVENLABS_VOICE_ID가 설정되지 않았습니다."
+            echo "GitHub Secrets에 ELEVENLABS_VOICE_ID를 추가해주세요."
+            echo "설정 방법: scripts/ELEVENLABS_PLATFORM_GUIDE.md 참고"
+            exit 1
+          fi
+          if [ -z "$DEEPSEEK_API_KEY" ]; then
+            echo "❌ DEEPSEEK_API_KEY가 설정되지 않았습니다."
+            echo "GitHub Secrets에 DEEPSEEK_API_KEY를 추가해주세요."
+            exit 1
+          fi
+          
+          # API 키 형식 검증 (보안 강화)
+          if [[ ! "$ELEVENLABS_API_KEY" =~ ^sk_ ]]; then
+            echo "⚠️ ELEVENLABS_API_KEY 형식이 올바르지 않습니다. (sk_로 시작해야 함)"
+            exit 1
+          fi
+          
+          echo "✅ 모든 API 키가 설정되었습니다."
+          echo "🔒 보안: API 키 값은 로그에 출력되지 않습니다."
+
+      - name: Generate Audio from Post
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          echo "💰 비용 관리: ElevenLabs 무료 티어는 월 10,000자 제한"
+          echo "📊 사용량 확인: https://elevenlabs.io/app/usage"
+          
+          if [ -n "${{ github.event.inputs.post_file }}" ]; then
+            python3 scripts/generate_audio.py "${{ github.event.inputs.post_file }}"
+          else
+            python3 scripts/generate_audio.py
+          fi
+          
+          # 생성된 오디오 파일 크기 확인 (비용 모니터링)
+          if [ -d "output" ]; then
+            echo "📦 생성된 파일:"
+            ls -lh output/*.mp3 2>/dev/null || echo "⚠️ 오디오 파일이 생성되지 않았습니다."
+          fi
+
+      - name: Install FFmpeg
+        if: github.event.inputs.video_method == 'ffmpeg' || github.event.inputs.video_method == ''
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Set up Node.js
+        if: github.event.inputs.video_method == 'remotion'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: video-generator/package.json
+
+      - name: Install Remotion dependencies
+        if: github.event.inputs.video_method == 'remotion'
+        run: |
+          cd video-generator
+          npm install
+
+      - name: Create Video with FFmpeg
+        if: github.event.inputs.video_method == 'ffmpeg' || github.event.inputs.video_method == ''
+        run: |
+          # output 디렉토리 확인
+          if [ ! -d "output" ]; then
+            echo "❌ output 디렉토리가 없습니다. 오디오 생성이 실패했을 수 있습니다."
+            exit 1
+          fi
+          
+          # 생성된 오디오 파일 찾기
+          AUDIO_FILE=$(find output -name "*_audio.mp3" -type f | head -n 1)
+          
+          if [ -z "$AUDIO_FILE" ]; then
+            echo "❌ 오디오 파일을 찾을 수 없습니다."
+            exit 1
+          fi
+          
+          echo "📹 영상 생성 중: $AUDIO_FILE"
+          
+          # 썸네일 이미지 찾기 (포스트의 image 필드에서 가져오거나 기본 이미지 사용)
+          # 기본 이미지는 assets/images 디렉토리에서 찾기
+          THUMBNAIL=$(find assets/images -name "*.png" -o -name "*.jpg" | head -n 1)
+          
+          if [ -z "$THUMBNAIL" ]; then
+            echo "⚠️ 썸네일 이미지를 찾을 수 없습니다. 기본 이미지를 생성합니다."
+            # 간단한 색상 이미지 생성 (ImageMagick이 설치되어 있다면)
+            if command -v convert &> /dev/null; then
+              convert -size 1920x1080 xc:#1a1a1a -pointsize 72 -fill white -gravity center \
+                -annotate +0+0 "Tech Blog Lecture" output/default_thumbnail.png
+              THUMBNAIL="output/default_thumbnail.png"
+            else
+              echo "❌ 썸네일 이미지가 필요합니다. assets/images 디렉토리에 이미지를 추가하거나 ImageMagick을 설치해주세요."
+              exit 1
+            fi
+          fi
+          
+          # 영상 파일명 생성
+          VIDEO_FILE="${AUDIO_FILE%.mp3}.mp4"
+          
+          # FFmpeg로 영상 생성
+          # -loop 1: 이미지를 반복하여 오디오 길이에 맞춤
+          # -tune stillimage: 정적 이미지 최적화
+          # -shortest: 오디오 길이에 맞춤
+          ffmpeg -loop 1 -i "$THUMBNAIL" -i "$AUDIO_FILE" \
+            -c:v libx264 -tune stillimage -c:a aac -b:a 192k \
+            -pix_fmt yuv420p -shortest -y "$VIDEO_FILE"
+          
+          if [ -f "$VIDEO_FILE" ]; then
+            echo "✅ 영상 생성 완료: $VIDEO_FILE"
+            ls -lh "$VIDEO_FILE"
+          else
+            echo "❌ 영상 생성 실패"
+            exit 1
+          fi
+
+      - name: Create Video with Remotion
+        if: github.event.inputs.video_method == 'remotion'
+        run: |
+          # output 디렉토리 확인
+          if [ ! -d "output" ]; then
+            echo "❌ output 디렉토리가 없습니다. 오디오 생성이 실패했을 수 있습니다."
+            exit 1
+          fi
+          
+          # 생성된 오디오 파일 찾기
+          AUDIO_FILE=$(find output -name "*_audio.mp3" -type f | head -n 1)
+          
+          if [ -z "$AUDIO_FILE" ]; then
+            echo "❌ 오디오 파일을 찾을 수 없습니다."
+            exit 1
+          fi
+          
+          echo "📹 Remotion으로 영상 생성 중: $AUDIO_FILE"
+          
+          # 포스트 파일 찾기
+          if [ -n "${{ github.event.inputs.post_file }}" ]; then
+            POST_FILE="_posts/${{ github.event.inputs.post_file }}"
+          else
+            POST_FILE=$(ls -t _posts/*.md | head -n 1)
+          fi
+          
+          # Python 스크립트로 Remotion 영상 생성
+          python3 scripts/generate_video_with_remotion.py "$POST_FILE"
+          
+          # 생성된 영상 파일 확인
+          VIDEO_FILE=$(find output -name "*_video.mp4" -type f | head -n 1)
+          
+          if [ -f "$VIDEO_FILE" ]; then
+            echo "✅ Remotion 영상 생성 완료: $VIDEO_FILE"
+            ls -lh "$VIDEO_FILE"
+          else
+            echo "❌ Remotion 영상 생성 실패"
+            exit 1
+          fi
+
+      - name: Upload Video Artifact
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: generated-video
+          path: output/*.mp4
+          retention-days: 7  # 7일간 보관 (비용 관리)
+
+      - name: Upload Audio Artifact
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: generated-audio
+          path: output/*.mp3
+          retention-days: 7
+
+      - name: Show Summary
+        if: always()
+        run: |
+          echo "## 📊 작업 요약" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -d "output" ]; then
+            echo "### 생성된 파일:" >> $GITHUB_STEP_SUMMARY
+            ls -lh output/ >> $GITHUB_STEP_SUMMARY || true
+          fi
+          if [ -f "video_generation_log.txt" ]; then
+            echo "### 로그 (마지막 20줄):" >> $GITHUB_STEP_SUMMARY
+            tail -n 20 video_generation_log.txt >> $GITHUB_STEP_SUMMARY || true
+          fi
