@@ -355,3 +355,23 @@
 ============================================================
 [2026-01-11 17:59:36] [INFO] 💡 Voice ID를 환경 변수에 설정하세요:
 [2026-01-11 17:59:36] [INFO]    export ELEVENLABS_VOICE_ID='your-voice-id'
+[2026-01-11 18:41:13] [INFO] ============================================================
+[2026-01-11 18:41:13] [INFO] 블로그 포스팅 → 오디오 변환 시작 (개선 버전)
+[2026-01-11 18:41:13] [INFO] ============================================================
+[2026-01-11 18:41:13] [ERROR] ❌ 필수 환경 변수가 설정되지 않았습니다: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID, DEEPSEEK_API_KEY 또는 GEMINI_API_KEY
+[2026-01-11 18:41:13] [ERROR] 환경 변수 설정 방법:
+[2026-01-11 18:41:13] [ERROR]   export ELEVENLABS_API_KEY='your-api-key'
+[2026-01-11 18:41:13] [ERROR]   export ELEVENLABS_VOICE_ID='your-voice-id'
+[2026-01-11 18:41:13] [ERROR]   export DEEPSEEK_API_KEY='your-deepseek-key' (또는)
+[2026-01-11 18:41:13] [ERROR]   export GEMINI_API_KEY='your-gemini-key'
+[2026-01-11 18:41:13] [ERROR] ❌ API 키 검증 실패. 스크립트를 종료합니다.
+[2026-01-11 18:41:13] [INFO] ============================================================
+[2026-01-11 18:41:13] [INFO] 블로그 포스팅 → 오디오 변환 시작 (개선 버전)
+[2026-01-11 18:41:13] [INFO] ============================================================
+[2026-01-11 18:41:13] [ERROR] ❌ 필수 환경 변수가 설정되지 않았습니다: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID, DEEPSEEK_API_KEY 또는 GEMINI_API_KEY
+[2026-01-11 18:41:13] [ERROR] 환경 변수 설정 방법:
+[2026-01-11 18:41:13] [ERROR]   export ELEVENLABS_API_KEY='your-api-key'
+[2026-01-11 18:41:13] [ERROR]   export ELEVENLABS_VOICE_ID='your-voice-id'
+[2026-01-11 18:41:13] [ERROR]   export DEEPSEEK_API_KEY='your-deepseek-key' (또는)
+[2026-01-11 18:41:13] [ERROR]   export GEMINI_API_KEY='your-gemini-key'
+[2026-01-11 18:41:13] [ERROR] ❌ API 키 검증 실패. 스크립트를 종료합니다.

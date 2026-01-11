@@ -45,12 +45,43 @@ jobs:
           pip install --upgrade pip
           pip install -r scripts/requirements.txt
 
+      - name: Setup Gemini OAuth 2.0 (if available)
+        env:
+          GEMINI_SERVICE_ACCOUNT_KEY: ${{ secrets.GEMINI_SERVICE_ACCOUNT_KEY }}
+        run: |
+          # 서비스 계정 키 파일 생성 (OAuth 2.0 사용 시)
+          if [ -n "$GEMINI_SERVICE_ACCOUNT_KEY" ]; then
+            echo "🔐 Gemini OAuth 2.0 서비스 계정 키 설정 중..."
+            mkdir -p $HOME/.config/gcloud
+            SERVICE_KEY_FILE="$HOME/.config/gcloud/gemini-service-key.json"
+            echo "$GEMINI_SERVICE_ACCOUNT_KEY" > "$SERVICE_KEY_FILE"
+            chmod 600 "$SERVICE_KEY_FILE"
+            echo "✅ 서비스 계정 키 파일 생성 완료: $SERVICE_KEY_FILE"
+            echo "GOOGLE_APPLICATION_CREDENTIALS=$SERVICE_KEY_FILE" >> $GITHUB_ENV
+          else
+            echo "ℹ️ GEMINI_SERVICE_ACCOUNT_KEY가 설정되지 않았습니다. OAuth 2.0을 건너뜁니다."
+          fi
+
       - name: Verify API Keys
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_SERVICE_ACCOUNT_KEY: ${{ secrets.GEMINI_SERVICE_ACCOUNT_KEY }}
+          GOOGLE_CLOUD_PROJECT: ${{ secrets.GOOGLE_CLOUD_PROJECT }}
+          # 기본값은 shell 스크립트에서 처리
+          GEMINI_API_KEY_DEFAULT: 'AIzaSyDkFfVGpaP6kaJKENUItnB2u0tSCD8xQ_g'
+          GOOGLE_CLOUD_PROJECT_DEFAULT: 'online-course-447813'
         run: |
+          # 기본값 설정 (Secret이 없을 경우)
+          if [ -z "$GEMINI_API_KEY" ]; then
+            export GEMINI_API_KEY="$GEMINI_API_KEY_DEFAULT"
+          fi
+          if [ -z "$GOOGLE_CLOUD_PROJECT" ]; then
+            export GOOGLE_CLOUD_PROJECT="$GOOGLE_CLOUD_PROJECT_DEFAULT"
+          fi
+          
           # API 키 검증 (보안: 키 값은 출력하지 않음)
           if [ -z "$ELEVENLABS_API_KEY" ]; then
             echo "❌ ELEVENLABS_API_KEY가 설정되지 않았습니다."
@@ -64,9 +95,14 @@ jobs:
             echo "설정 방법: scripts/ELEVENLABS_PLATFORM_GUIDE.md 참고"
             exit 1
           fi
-          if [ -z "$DEEPSEEK_API_KEY" ]; then
-            echo "❌ DEEPSEEK_API_KEY가 설정되지 않았습니다."
-            echo "GitHub Secrets에 DEEPSEEK_API_KEY를 추가해주세요."
+          
+          # DeepSeek 또는 Gemini 중 하나는 필요
+          if [ -z "$DEEPSEEK_API_KEY" ] && [ -z "$GEMINI_API_KEY" ] && [ -z "$GEMINI_SERVICE_ACCOUNT_KEY" ]; then
+            echo "❌ DEEPSEEK_API_KEY 또는 GEMINI_API_KEY 또는 GEMINI_SERVICE_ACCOUNT_KEY 중 하나는 필요합니다."
+            echo "GitHub Secrets에 다음 중 하나를 추가해주세요:"
+            echo "  - DEEPSEEK_API_KEY (권장)"
+            echo "  - GEMINI_API_KEY"
+            echo "  - GEMINI_SERVICE_ACCOUNT_KEY (OAuth 2.0, 비용 절감)"
             exit 1
           fi
           
@@ -76,8 +112,37 @@ jobs:
             exit 1
           fi
           
-          echo "✅ 모든 API 키가 설정되었습니다."
+          if [ -n "$DEEPSEEK_API_KEY" ] && [[ ! "$DEEPSEEK_API_KEY" =~ ^sk- ]]; then
+            echo "⚠️ DEEPSEEK_API_KEY 형식이 올바르지 않습니다. (sk-로 시작해야 함)"
+            exit 1
+          fi
+          
+          # 사용 가능한 API 확인 (우선순위 표시)
+          echo "🔑 사용 가능한 API (우선순위 순):"
+          echo "  ✅ ElevenLabs: 설정됨"
+          if [ -n "$GEMINI_SERVICE_ACCOUNT_KEY" ]; then
+            echo "  1️⃣ Gemini (OAuth 2.0): 설정됨 ⭐ 최우선"
+            if [ -n "$GOOGLE_CLOUD_PROJECT" ]; then
+              echo "     프로젝트 ID: $GOOGLE_CLOUD_PROJECT"
+            fi
+          else
+            echo "  ❌ Gemini (OAuth 2.0): 미설정"
+          fi
+          if [ -n "$GEMINI_API_KEY" ]; then
+            echo "  2️⃣ Gemini (API Key): 설정됨 (OAuth 실패 시 폴백)"
+          else
+            echo "  ❌ Gemini (API Key): 미설정"
+          fi
+          if [ -n "$DEEPSEEK_API_KEY" ]; then
+            echo "  3️⃣ DeepSeek: 설정됨 (Gemini 실패 시 폴백)"
+          else
+            echo "  ❌ DeepSeek: 미설정"
+          fi
+          
+          echo ""
+          echo "✅ API 키 검증 완료"
           echo "🔒 보안: API 키 값은 로그에 출력되지 않습니다."
+          echo "📋 사용 순서: OAuth 2.0 → API Key → DeepSeek"
 
       - name: Check ElevenLabs Credits
         env:
@@ -139,20 +204,74 @@ jobs:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_CLOUD_PROJECT: ${{ secrets.GOOGLE_CLOUD_PROJECT }}
+          GEMINI_SERVICE_ACCOUNT_KEY: ${{ secrets.GEMINI_SERVICE_ACCOUNT_KEY }}
+          # 기본값은 shell 스크립트에서 처리
+          GEMINI_API_KEY_DEFAULT: 'AIzaSyDkFfVGpaP6kaJKENUItnB2u0tSCD8xQ_g'
+          GOOGLE_CLOUD_PROJECT_DEFAULT: 'online-course-447813'
+          # API 선택 전략 (Gemini 우선)
+          PREFER_GEMINI: 'true'
+          USE_GEMINI_FOR_SCRIPT: 'true'
+          USE_DEEPSEEK_FOR_SCRIPT: 'true'
+          USE_GEMINI_FOR_IMPROVEMENT: 'true'
+          ENABLE_CACHING: 'true'
         run: |
+          # 기본값 설정 (Secret이 없을 경우)
+          if [ -z "$GEMINI_API_KEY" ]; then
+            export GEMINI_API_KEY="$GEMINI_API_KEY_DEFAULT"
+          fi
+          if [ -z "$GOOGLE_CLOUD_PROJECT" ]; then
+            export GOOGLE_CLOUD_PROJECT="$GOOGLE_CLOUD_PROJECT_DEFAULT"
+          fi
+          
+          # OAuth 2.0 환경 변수 설정 (서비스 계정 키가 있는 경우 우선 사용)
+          if [ -n "$GEMINI_SERVICE_ACCOUNT_KEY" ]; then
+            export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/gemini-service-key.json"
+            export USE_GEMINI_OAUTH="true"
+            echo "🔐 Gemini OAuth 2.0 활성화됨 (우선 사용)"
+          else
+            export USE_GEMINI_OAUTH="false"
+            echo "ℹ️ Gemini OAuth 2.0 미설정 (API Key 또는 DeepSeek으로 폴백)"
+          fi
+          
           echo "💰 비용 관리: ElevenLabs 무료 티어는 월 10,000자 제한"
           echo "📊 사용량 확인: https://elevenlabs.io/app/usage"
-          
-          if [ -n "${{ github.event.inputs.post_file }}" ]; then
-            python3 scripts/generate_audio.py "${{ github.event.inputs.post_file }}"
+          echo ""
+          echo "🎯 API 선택 전략 (우선순위):"
+          if [ "$USE_GEMINI_OAUTH" = "true" ]; then
+            echo "  1️⃣ Gemini OAuth 2.0 (우선) ⭐"
+            echo "  2️⃣ Gemini API Key (폴백)"
+            echo "  3️⃣ DeepSeek API (폴백)"
+          elif [ -n "$GEMINI_API_KEY" ]; then
+            echo "  1️⃣ Gemini API Key (우선)"
+            echo "  2️⃣ DeepSeek API (폴백)"
+          elif [ -n "$DEEPSEEK_API_KEY" ]; then
+            echo "  1️⃣ DeepSeek API (우선)"
           else
-            python3 scripts/generate_audio.py
+            echo "  ⚠️ 사용 가능한 API가 없습니다."
+          fi
+          echo ""
+          
+          # 개선된 스크립트 사용 (Gemini, DeepSeek, OAuth 2.0 지원)
+          if [ -n "${{ github.event.inputs.post_file }}" ]; then
+            python3 scripts/generate_enhanced_audio.py "${{ github.event.inputs.post_file }}"
+          else
+            python3 scripts/generate_enhanced_audio.py
           fi
           
           # 생성된 오디오 파일 크기 확인 (비용 모니터링)
           if [ -d "output" ]; then
+            echo ""
             echo "📦 생성된 파일:"
             ls -lh output/*.mp3 2>/dev/null || echo "⚠️ 오디오 파일이 생성되지 않았습니다."
+          fi
+          
+          # 사용량 통계 확인 (generate_enhanced_audio.py가 자동으로 출력)
+          if [ -f "video_generation_log.txt" ]; then
+            echo ""
+            echo "📊 최근 로그 (API 사용량 포함):"
+            tail -n 30 video_generation_log.txt | grep -E "(📊|💰|✅|❌)" || true
           fi
 
       - name: Install FFmpeg
