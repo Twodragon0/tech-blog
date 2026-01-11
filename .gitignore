@@ -39,6 +39,13 @@ secrets/
 # Gemini OAuth service account keys
 gemini-service-key.json
 *-service-key.json
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 **/*_API_KEY
 **/*_SECRET
 **/*_TOKEN
