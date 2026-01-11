@@ -248,60 +248,89 @@ def generate_script(text: str, post_title: str = "") -> Optional[str]:
 - 기술 용어는 정확하게 사용
 - 한국어로 작성"""
     
-    try:
-        log_message("📝 DeepSeek API로 대본 생성 중...")
-        
-        headers = {
-            "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
-            "Content-Type": "application/json"
-        }
-        
-        data = {
-            "model": "deepseek-chat",
-            "messages": [
-                {
-                    "role": "system",
-                    "content": "당신은 기술 블로그를 강의 대본으로 변환하는 전문가입니다. 자연스럽고 명확한 구어체로 작성해주세요."
-                },
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ],
-            "temperature": 0.7,
-            "max_tokens": 2000
-        }
-        
-        response = requests.post(
-            DEEPSEEK_API_URL,
-            json=data,
-            headers=headers,
-            timeout=30
-        )
-        
-        response.raise_for_status()
-        result = response.json()
-        
-        if "choices" not in result or not result["choices"]:
-            log_message(f"❌ DeepSeek API 응답 형식 오류: {json.dumps(result, ensure_ascii=False)}", "ERROR")
+    # 재시도 로직 (최대 3회)
+    max_retries = 3
+    retry_delay = 2  # 초기 재시도 대기 시간 (초)
+    
+    for attempt in range(1, max_retries + 1):
+        try:
+            if attempt > 1:
+                wait_time = retry_delay * (2 ** (attempt - 2))  # 지수 백오프
+                log_message(f"🔄 재시도 {attempt}/{max_retries} (대기: {wait_time}초)...", "WARNING")
+                time.sleep(wait_time)
+            else:
+                log_message("📝 DeepSeek API로 대본 생성 중...")
+            
+            headers = {
+                "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
+                "Content-Type": "application/json"
+            }
+            
+            data = {
+                "model": "deepseek-chat",
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": "당신은 기술 블로그를 강의 대본으로 변환하는 전문가입니다. 자연스럽고 명확한 구어체로 작성해주세요."
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ],
+                "temperature": 0.7,
+                "max_tokens": 2000
+            }
+            
+            # 타임아웃 증가: 긴 포스트 처리 시 시간이 더 필요함
+            timeout_seconds = 120  # 30초 → 120초로 증가
+            
+            response = requests.post(
+                DEEPSEEK_API_URL,
+                json=data,
+                headers=headers,
+                timeout=timeout_seconds
+            )
+            
+            response.raise_for_status()
+            result = response.json()
+            
+            if "choices" not in result or not result["choices"]:
+                log_message(f"❌ DeepSeek API 응답 형식 오류: {json.dumps(result, ensure_ascii=False)}", "ERROR")
+                if attempt < max_retries:
+                    continue
+                return None
+            
+            script = result["choices"][0]["message"]["content"].strip()
+            
+            # 대본 길이 검증
+            if len(script) > MAX_SCRIPT_LENGTH:
+                log_message(f"⚠️ 생성된 대본이 너무 깁니다 ({len(script)}자). 처음 {MAX_SCRIPT_LENGTH}자만 사용합니다.", "WARNING")
+                script = script[:MAX_SCRIPT_LENGTH]
+            
+            log_message(f"✅ 대본 생성 완료 ({len(script)}자)")
+            return script
+            
+        except requests.exceptions.Timeout as e:
+            log_message(f"⏱️ DeepSeek API 타임아웃 (시도 {attempt}/{max_retries}): {str(e)}", "WARNING")
+            if attempt < max_retries:
+                continue
+            log_message(f"❌ DeepSeek API 요청 타임아웃: 최대 재시도 횟수 초과", "ERROR")
             return None
-        
-        script = result["choices"][0]["message"]["content"].strip()
-        
-        # 대본 길이 검증
-        if len(script) > MAX_SCRIPT_LENGTH:
-            log_message(f"⚠️ 생성된 대본이 너무 깁니다 ({len(script)}자). 처음 {MAX_SCRIPT_LENGTH}자만 사용합니다.", "WARNING")
-            script = script[:MAX_SCRIPT_LENGTH]
-        
-        log_message(f"✅ 대본 생성 완료 ({len(script)}자)")
-        return script
-        
-    except requests.exceptions.RequestException as e:
-        log_message(f"❌ DeepSeek API 요청 실패: {str(e)}", "ERROR")
-        return None
-    except Exception as e:
-        log_message(f"❌ 대본 생성 중 오류 발생: {str(e)}", "ERROR")
-        return None
+        except requests.exceptions.RequestException as e:
+            log_message(f"❌ DeepSeek API 요청 실패 (시도 {attempt}/{max_retries}): {str(e)}", "WARNING")
+            if attempt < max_retries:
+                continue
+            log_message(f"❌ DeepSeek API 요청 실패: 최대 재시도 횟수 초과", "ERROR")
+            return None
+        except Exception as e:
+            log_message(f"❌ 대본 생성 중 오류 발생 (시도 {attempt}/{max_retries}): {str(e)}", "WARNING")
+            if attempt < max_retries:
+                continue
+            log_message(f"❌ 대본 생성 중 오류 발생: 최대 재시도 횟수 초과", "ERROR")
+            return None
+    
+    return None
 
 
 def text_to_speech(script: str, output_path: Path) -> bool:
