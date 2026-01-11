@@ -16,11 +16,13 @@
 
 // 최적화 설정
 const CONFIG = {
-  // 타임아웃 설정: Vercel maxDuration과 일치하도록 조정
-  // Pro 플랜: 60초 제한, 안전하게 55초로 설정 (응답 시간 최적화)
-  // Hobby 플랜 사용 시: 10초 제한, 9초로 설정 필요
-  // vercel.json의 maxDuration: 60과 일치하도록 55초로 설정
-  TIMEOUT_MS: process.env.VERCEL_ENV === 'production' ? 55000 : 9000,
+  // 타임아웃 설정: Vercel 플랜에 따라 조정
+  // Pro 플랜: 60초 제한, 안전하게 50초로 설정 (안전 마진 확보)
+  // Hobby 플랜: 10초 제한, 8초로 설정 (안전 마진 확보)
+  // vercel.json의 maxDuration: 60이지만, 실제 플랜이 Hobby일 수 있으므로 보수적으로 설정
+  // 환경 변수 VERCEL_ENV가 'production'이어도 Hobby 플랜일 수 있음
+  // 따라서 더 보수적으로 설정: 프로덕션에서도 25초로 설정 (Pro/Hobby 모두 대응)
+  TIMEOUT_MS: process.env.VERCEL_ENV === 'production' ? 25000 : 8000,
   // Rate limiting (간단한 메모리 기반, 프로덕션에서는 Redis 권장)
   RATE_LIMIT: {
     MAX_REQUESTS: 15, // 세션당 최대 요청 수 (비용 최적화를 위해 증가)
@@ -28,7 +30,7 @@ const CONFIG = {
   },
   // 메시지 제한
   MAX_MESSAGE_LENGTH: 2000,
-  MAX_TOKENS: 1000, // 응답 시간 최적화를 위해 1000으로 감소 (품질은 Context Caching으로 보완)
+  MAX_TOKENS: 800, // 응답 시간 최적화를 위해 800으로 감소 (타임아웃 방지 우선)
   // 대화 컨텍스트 설정 (비용 최적화: Context Caching 활용)
   MAX_CONVERSATION_HISTORY: 10, // 최대 대화 히스토리 수 (캐시 효율성 고려)
   // Off-peak 시간대 (UTC): 16:30-00:30 (50-75% 할인)
@@ -262,24 +264,23 @@ export default async function handler(req, res) {
     const utcHour = now.getUTCHours();
     const isOffPeak = utcHour >= CONFIG.OFF_PEAK_START_HOUR || utcHour < CONFIG.OFF_PEAK_END_HOUR;
     
-    // DeepSeek API 호출 (타임아웃 설정: Pro 플랜 55초, Hobby 플랜 9초)
+    // DeepSeek API 호출 (타임아웃 설정: 보수적으로 25초로 설정)
     const controller = new AbortController();
     const timeoutId = setTimeout(() => {
-      console.warn(`[Chat API] 타임아웃 발생 (${CONFIG.TIMEOUT_MS}ms 초과)`);
+      const elapsed = Date.now() - requestStartTime;
+      console.warn(`[Chat API] 타임아웃 발생 (${elapsed}ms 경과, 제한: ${CONFIG.TIMEOUT_MS}ms)`);
       controller.abort();
     }, CONFIG.TIMEOUT_MS);
 
-    // API 요청 로깅 (개발 환경에서만 상세 로깅)
+    // API 요청 로깅 (항상 로깅하여 진단 가능하도록)
     const requestStartTime = Date.now();
-    if (process.env.NODE_ENV === 'development') {
-      console.log('[Chat API] DeepSeek API 호출:', {
-        model: CONFIG.MODEL,
-        messageCount: messages.length,
-        hasApiKey: !!apiKey,
-        apiKeyPrefix: apiKey ? apiKey.substring(0, 7) + '...' : 'missing',
-        timeout: CONFIG.TIMEOUT_MS
-      });
-    }
+    console.log('[Chat API] DeepSeek API 호출 시작:', {
+      model: CONFIG.MODEL,
+      messageCount: messages.length,
+      maxTokens: CONFIG.MAX_TOKENS,
+      timeout: CONFIG.TIMEOUT_MS,
+      timestamp: new Date().toISOString()
+    });
 
     let deepseekResponse;
     try {
@@ -331,9 +332,12 @@ export default async function handler(req, res) {
     clearTimeout(timeoutId);
     const fetchTime = Date.now() - requestStartTime;
     
-    // API 응답 시간 로깅
-    if (fetchTime > CONFIG.SLOW_REQUEST_THRESHOLD_MS || process.env.NODE_ENV === 'development') {
-      console.log(`[Chat API] DeepSeek API 응답 시간: ${fetchTime}ms`);
+    // API 응답 시간 로깅 (항상 로깅하여 진단 가능하도록)
+    console.log(`[Chat API] DeepSeek API 응답 완료: ${fetchTime}ms (타임아웃 제한: ${CONFIG.TIMEOUT_MS}ms)`);
+    
+    // 타임아웃에 가까운 경우 경고
+    if (fetchTime > CONFIG.TIMEOUT_MS * 0.8) {
+      console.warn(`[Chat API] 응답 시간이 타임아웃 제한의 80%를 초과했습니다: ${fetchTime}ms / ${CONFIG.TIMEOUT_MS}ms`);
     }
 
     if (!deepseekResponse.ok) {
@@ -478,13 +482,20 @@ export default async function handler(req, res) {
 
     // 타임아웃 오류 처리 (이미 fetch 단계에서 처리했지만, 추가 안전장치)
     if (error.name === 'AbortError' || error.name === 'TimeoutError') {
-      console.warn(`[Chat API] Timeout after ${executionTime}ms (limit: ${CONFIG.TIMEOUT_MS}ms)`);
+      console.error(`[Chat API] Timeout after ${executionTime}ms (limit: ${CONFIG.TIMEOUT_MS}ms)`, {
+        timeout: CONFIG.TIMEOUT_MS,
+        executionTime: executionTime,
+        model: CONFIG.MODEL,
+        maxTokens: CONFIG.MAX_TOKENS
+      });
       
       return res.status(504).json({ 
-        error: '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.',
+        error: '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 짧고 구체적으로 작성하거나 잠시 후 다시 시도해주세요.',
         timeout: true,
         executionTime: executionTime,
-        code: 'TIMEOUT'
+        timeoutLimit: CONFIG.TIMEOUT_MS,
+        code: 'TIMEOUT',
+        suggestion: '질문을 더 짧게 작성하거나, 여러 질문으로 나누어 주시면 더 빠르게 답변받을 수 있습니다.'
       });
     }
     

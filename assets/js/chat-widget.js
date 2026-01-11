@@ -7,7 +7,7 @@
     // 엔드포인트: trailing slash 없이 사용 (Vercel이 자동으로 처리)
     apiEndpoint: '/api/chat',
     maxRetries: 1, // 재시도 횟수 (타임아웃 시 재시도는 비효율적)
-    timeout: 60000, // 60초 (서버 타임아웃 55초 + 네트워크 여유 5초)
+    timeout: 30000, // 30초 (서버 타임아웃 25초 + 네트워크 여유 5초)
     showIconDelay: 5000, // 5 seconds
     retryDelay: 2000, // 재시도 전 대기 시간 (ms)
     maxMessageLength: 2000, // 서버와 동일한 제한
@@ -396,7 +396,9 @@
         
         // 타임아웃 오류
         if (response.status === 504) {
-          throw new Error(errorData.error || '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.');
+          const timeoutError = new Error(errorData.error || '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.');
+          timeoutError.timeoutData = errorData; // 추가 정보 저장
+          throw timeoutError;
         }
         
         // 400 Bad Request (입력 검증 실패)
@@ -435,8 +437,14 @@
       let errorMessage = '죄송합니다. 답변을 생성하는 중에 문제가 발생했습니다.';
       let shouldRetry = false;
       
-      if (error.name === 'AbortError' || error.name === 'TimeoutError') {
-        errorMessage = '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.';
+      if (error.name === 'AbortError' || error.name === 'TimeoutError' || error.message.includes('시간이 오래 걸리고')) {
+        // 서버에서 더 자세한 메시지를 받은 경우 사용
+        const timeoutData = error.timeoutData || errorData;
+        if (timeoutData && timeoutData.suggestion) {
+          errorMessage = timeoutData.error + '\n\n💡 ' + timeoutData.suggestion;
+        } else {
+          errorMessage = '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 짧고 구체적으로 작성하거나 잠시 후 다시 시도해주세요.';
+        }
         // 타임아웃은 재시도하지 않음 (비효율적)
         shouldRetry = false;
       } else if (error.message) {
