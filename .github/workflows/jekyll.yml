@@ -1,5 +1,8 @@
 name: Jekyll site CI
 
+# GitHub Pages 배포 워크플로우
+# Free 티어 최적화: 캐싱, 조건부 실행, 병렬화
+
 on:
   push:
     branches:
@@ -7,10 +10,15 @@ on:
   pull_request:
     branches:
       - main
+    # PR에서는 빌드만 실행 (배포 제외)
+  workflow_dispatch: # 수동 실행 가능
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # 타임아웃 설정 (무한 실행 방지)
+    timeout-minutes: 10
+    
     permissions:
       contents: read
       pages: write
@@ -24,7 +32,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
-          bundler-cache: true
+          bundler-cache: true # 자동 캐싱 (비용 절감)
 
       - name: Setup Pages
         id: pages
@@ -36,11 +44,18 @@ jobs:
           JEKYLL_ENV: production
           LANG: en_US.UTF-8
           LC_ALL: en_US.UTF-8
+          # Vercel과 동기화를 위한 빌드 정보
+          BUILD_ID: ${{ github.sha }}
+          BUILD_TIME: ${{ github.event.head_commit.timestamp }}
+          DEPLOYMENT_URL: ${{ github.event.repository.html_url }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
   deploy:
+    # PR에서는 배포하지 않음 (비용 절감)
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -53,3 +68,10 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      
+      - name: Deployment Info
+        if: success()
+        run: |
+          echo "✅ Deployed to GitHub Pages"
+          echo "URL: ${{ steps.deployment.outputs.page_url }}"
+          echo "Commit: ${{ github.sha }}"

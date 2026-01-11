@@ -1,0 +1,62 @@
+name: Sentry Release
+
+# Sentry Release 생성 워크플로우
+# Free 티어 최적화: 프로덕션 배포 시에만 실행, 소스맵 업로드 제외
+
+on:
+  push:
+    branches:
+      - main
+    # 특정 파일 변경 시에만 실행 (비용 절감)
+    paths:
+      - '_includes/**'
+      - '_layouts/**'
+      - '_posts/**'
+      - 'assets/**'
+      - '_config.yml'
+      - 'vercel.json'
+      - '.github/workflows/sentry-release.yml'
+  workflow_dispatch: # 수동 실행 가능
+
+jobs:
+  create-sentry-release:
+    runs-on: ubuntu-latest
+    # 타임아웃 설정 (무한 실행 방지)
+    timeout-minutes: 5
+    
+    permissions:
+      contents: read
+      # Sentry Release 생성에 필요한 최소 권한만
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 전체 히스토리 필요 (커밋 정보 추출)
+      
+      - name: Create Sentry Release
+        # Free 티어 최적화: 소스맵 업로드 제외 (비용 절감)
+        uses: getsentry/action-release@v1
+        env:
+          # GitHub Secrets에 저장 필요
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: twodragon
+          SENTRY_PROJECT: tech-blog
+        with:
+          environment: production
+          version: ${{ github.sha }}
+          # Free 티어 최적화: 소스맵 제외 (Jekyll 정적 사이트이므로 불필요)
+          sourcemaps: false
+          # 커밋 정보만 추적 (비용 절감)
+          set_commits: auto
+          # GitHub 통합을 통한 커밋 정보 자동 연결
+          ignore_missing: true
+      
+      - name: Output Release Info
+        if: success()
+        run: |
+          echo "✅ Sentry Release created successfully"
+          echo "Release: ${{ github.sha }}"
+          echo "Environment: production"
+          echo "Project: tech-blog"
+          echo "Org: twodragon"

@@ -1,0 +1,66 @@
+name: CI Optimization Check
+
+# CI/CD 워크플로우 최적화 검증
+# 불필요한 워크플로우 실행 방지 및 비용 최적화
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
+
+jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    
+    permissions:
+      contents: read
+    
+    outputs:
+      should-build: ${{ steps.filter.outputs.should-build }}
+      should-deploy: ${{ steps.filter.outputs.should-deploy }}
+      should-share: ${{ steps.filter.outputs.should-share }}
+      should-release: ${{ steps.filter.outputs.should-release }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      
+      - name: Check changed files
+        id: filter
+        uses: dorny/paths-filter@v2
+        with:
+          filters: |
+            should-build:
+              - '**_posts/**'
+              - '**_includes/**'
+              - '**_layouts/**'
+              - '**assets/**'
+              - '**_config.yml'
+              - '**vercel.json'
+              - '**.github/workflows/**'
+            should-deploy:
+              - '**_posts/**'
+              - '**_includes/**'
+              - '**_layouts/**'
+              - '**assets/**'
+              - '**_config.yml'
+            should-share:
+              - '**_posts/**'
+            should-release:
+              - '**_includes/**'
+              - '**_layouts/**'
+              - '**assets/**'
+              - '**_config.yml'
+              - '**vercel.json'
+      
+      - name: Output decision
+        run: |
+          echo "Should build: ${{ steps.filter.outputs.should-build }}"
+          echo "Should deploy: ${{ steps.filter.outputs.should-deploy }}"
+          echo "Should share: ${{ steps.filter.outputs.should-share }}"
+          echo "Should release: ${{ steps.filter.outputs.should-release }}"
