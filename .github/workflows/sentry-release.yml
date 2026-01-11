@@ -41,9 +41,17 @@ jobs:
         run: |
           if ! command -v jq &> /dev/null; then
             echo "📦 Installing jq for JSON parsing..."
-            sudo apt-get update && sudo apt-get install -y jq || echo "⚠️  jq 설치 실패, 기본 파싱 사용"
+            # Ubuntu runner에는 jq가 기본 설치되어 있지만, 확인 후 설치
+            if command -v apt-get &> /dev/null; then
+              sudo apt-get update -qq && sudo apt-get install -y jq || {
+                echo "⚠️  jq 설치 실패, 기본 파싱 사용"
+                echo "   JSON 파싱은 jq 없이도 작동하지만 덜 정확할 수 있습니다"
+              }
+            else
+              echo "⚠️  apt-get을 사용할 수 없습니다. jq 없이 진행합니다"
+            fi
           else
-            echo "✅ jq already installed"
+            echo "✅ jq already installed: $(jq --version)"
           fi
       
       - name: Verify Sentry Configuration
@@ -97,10 +105,26 @@ jobs:
           
           # Sentry API 연결 테스트 (프로젝트 정보 조회)
           echo "🔗 Testing Sentry API connection..."
-          RESPONSE=$(curl -s --max-time 10 -w "\n%{http_code}" \
+          RESPONSE=$(curl -s --max-time 10 --fail-with-body -w "\n%{http_code}" \
             -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
             -H "Content-Type: application/json" \
-            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/")
+            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/" 2>&1) || CURL_EXIT_CODE=$?
+          
+          # curl 실패 처리
+          if [ -n "$CURL_EXIT_CODE" ] && [ "$CURL_EXIT_CODE" -ne 0 ]; then
+            HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+            if [ -z "$HTTP_CODE" ] || [ "$HTTP_CODE" = "000" ]; then
+              echo "❌ Network error or timeout when connecting to Sentry API"
+              echo "   curl exit code: $CURL_EXIT_CODE"
+              echo "   Response: $RESPONSE"
+              echo ""
+              echo "💡 해결 방법:"
+              echo "1. 네트워크 연결 확인"
+              echo "2. Sentry API 상태 확인: https://status.sentry.io/"
+              echo "3. 잠시 후 다시 시도"
+              exit 1
+            fi
+          fi
           
           HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
           BODY=$(echo "$RESPONSE" | sed '$d')
@@ -353,9 +377,15 @@ jobs:
           HTTP_CODE=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" \
             -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
             -H "Content-Type: application/json" \
-            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/")
+            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/" 2>&1)
+          CURL_EXIT_CODE=$?
           
-          if [ "$HTTP_CODE" = "200" ]; then
+          # curl 실패 처리
+          if [ "$CURL_EXIT_CODE" -ne 0 ] || ! echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
+            echo "⚠️  Network error when checking release (curl exit: $CURL_EXIT_CODE)"
+            echo "   Will attempt to create release anyway"
+            echo "exists=false" >> $GITHUB_OUTPUT
+          elif [ "$HTTP_CODE" = "200" ]; then
             echo "ℹ️  Release $RELEASE_VERSION already exists"
             echo "exists=true" >> $GITHUB_OUTPUT
           elif [ "$HTTP_CODE" = "404" ]; then
@@ -384,7 +414,8 @@ jobs:
           version: ${{ github.sha }}
           # Free 티어 최적화: 소스맵 제외 (Jekyll 정적 사이트이므로 불필요)
           sourcemaps: false
-          # 커밋 정보만 추적 (비용 절감)
+          # 커밋 정보 추적 (GitHub 통합 필요)
+          # GitHub 통합이 설정되어 있지 않으면 'auto' 대신 'skip' 사용 권장
           set_commits: auto
           # GitHub 통합을 통한 커밋 정보 자동 연결
           ignore_missing: true
@@ -415,17 +446,27 @@ jobs:
             HTTP_CODE=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" \
               -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
               -H "Content-Type: application/json" \
-              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/")
+              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/" 2>&1)
+            CURL_EXIT_CODE=$?
             
-            if [ "$HTTP_CODE" = "200" ]; then
-              echo "✅ Release $RELEASE_VERSION exists (created successfully)"
-              echo "✅ Continuing workflow..."
-              echo "success=true" >> $GITHUB_OUTPUT
-              exit 0
+            # HTTP 코드 유효성 검사
+            if [ "$CURL_EXIT_CODE" -eq 0 ] && echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
+              if [ "$HTTP_CODE" = "200" ]; then
+                echo "✅ Release $RELEASE_VERSION exists (created successfully)"
+                echo "✅ Continuing workflow..."
+                echo "success=true" >> $GITHUB_OUTPUT
+                exit 0
+              fi
+            else
+              echo "⚠️  Network error during retry $RETRY_COUNT/$MAX_RETRIES (curl exit: $CURL_EXIT_CODE)"
             fi
             
             RETRY_COUNT=$((RETRY_COUNT + 1))
-            echo "⚠️  Retry $RETRY_COUNT/$MAX_RETRIES: Release not found (HTTP $HTTP_CODE)"
+            if echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
+              echo "⚠️  Retry $RETRY_COUNT/$MAX_RETRIES: Release not found (HTTP $HTTP_CODE)"
+            else
+              echo "⚠️  Retry $RETRY_COUNT/$MAX_RETRIES: Network error"
+            fi
           done
           
           # 모든 재시도 실패 시
@@ -464,9 +505,11 @@ jobs:
             HTTP_CODE=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" \
               -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
               -H "Content-Type: application/json" \
-              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/")
+              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/" 2>&1)
+            CURL_EXIT_CODE=$?
             
-            if [ "$HTTP_CODE" = "200" ]; then
+            # HTTP 코드 유효성 검사
+            if [ "$CURL_EXIT_CODE" -eq 0 ] && echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$' && [ "$HTTP_CODE" = "200" ]; then
               break
             fi
             
