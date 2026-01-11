@@ -75,6 +75,61 @@ jobs:
           echo "✅ 모든 API 키가 설정되었습니다."
           echo "🔒 보안: API 키 값은 로그에 출력되지 않습니다."
 
+      - name: Check ElevenLabs Credits
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          echo "💰 ElevenLabs 크레딧 확인 중..."
+          
+          # 최소 필요 크레딧 (대본 최대 길이: 800자)
+          MIN_REQUIRED_CREDITS=800
+          
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X GET "https://api.elevenlabs.io/v1/user" \
+            -H "xi-api-key: $ELEVENLABS_API_KEY" \
+            -H "Content-Type: application/json" 2>/dev/null || echo -e "\n000")
+          
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+          
+          if [ "$HTTP_CODE" = "200" ]; then
+            # Python을 사용하여 JSON 파싱 (jq가 없을 수 있음)
+            python3 << EOF
+          import json
+          import sys
+          
+          try:
+              data = json.loads('''$BODY''')
+              subscription = data.get("subscription", {})
+              character_limit = subscription.get("character_limit", 0)
+              character_count = subscription.get("character_count", 0)
+              remaining = character_limit - character_count
+              
+              print(f"📊 크레딧 상태:")
+              print(f"   전체: {character_limit:,} 크레딧")
+              print(f"   사용: {character_count:,} 크레딧")
+              print(f"   남은: {remaining:,} 크레딧")
+              print(f"   필요: {MIN_REQUIRED_CREDITS:,} 크레딧")
+              
+              if remaining < MIN_REQUIRED_CREDITS:
+                  print(f"")
+                  print(f"⚠️ 크레딧 부족: {remaining:,} < {MIN_REQUIRED_CREDITS:,}")
+                  print(f"💡 해결 방법:")
+                  print(f"   1. ElevenLabs 대시보드 확인: https://elevenlabs.io/app/usage")
+                  print(f"   2. 다음 달까지 대기 (월간 크레딧 리셋)")
+                  print(f"   3. 유료 플랜 업그레이드 고려")
+                  print(f"")
+                  print(f"⚠️ 워크플로우는 계속 진행하지만 실패할 수 있습니다.")
+              else:
+                  print(f"✅ 크레딧 충분: {remaining:,} >= {MIN_REQUIRED_CREDITS:,}")
+          except Exception as e:
+              print(f"⚠️ 크레딧 확인 실패: {e}")
+              print(f"워크플로우는 계속 진행합니다.")
+          EOF
+          else
+            echo "⚠️ ElevenLabs 크레딧 확인 실패 (HTTP $HTTP_CODE)"
+            echo "워크플로우는 계속 진행합니다."
+          fi
+
       - name: Generate Audio from Post
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}

@@ -39,6 +39,7 @@ DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 ELEVENLABS_API_URL = "https://api.elevenlabs.io/v1/text-to-speech"
 ELEVENLABS_VOICES_URL = "https://api.elevenlabs.io/v1/voices"
+ELEVENLABS_USER_URL = "https://api.elevenlabs.io/v1/user"
 
 # 설정
 MAX_TEXT_LENGTH = 50000  # 최대 텍스트 길이 (비용 관리)
@@ -144,6 +145,58 @@ def list_voices() -> Optional[Dict[str, Any]]:
         return None
     except Exception as e:
         log_message(f"❌ Voice 목록 조회 중 오류 발생: {str(e)}", "ERROR")
+        return None
+
+
+def check_elevenlabs_credits(required_credits: int = 800) -> Optional[int]:
+    """
+    ElevenLabs API 크레딧을 확인합니다.
+    
+    Args:
+        required_credits: 필요한 최소 크레딧 (기본값: 800)
+        
+    Returns:
+        남은 크레딧 또는 None (확인 실패 시)
+    """
+    if not ELEVENLABS_API_KEY:
+        return None
+    
+    try:
+        headers = {
+            "xi-api-key": ELEVENLABS_API_KEY
+        }
+        
+        response = requests.get(
+            ELEVENLABS_USER_URL,
+            headers=headers,
+            timeout=10
+        )
+        
+        if response.status_code == 200:
+            user_data = response.json()
+            # subscription 정보에서 크레딧 확인
+            subscription = user_data.get("subscription", {})
+            character_limit = subscription.get("character_limit", 0)
+            character_count = subscription.get("character_count", 0)
+            remaining = character_limit - character_count
+            
+            log_message(f"💰 ElevenLabs 크레딧: {remaining:,} / {character_limit:,} (사용: {character_count:,})")
+            
+            if remaining < required_credits:
+                log_message(f"⚠️ 크레딧 부족: {remaining} < {required_credits} (필요)", "WARNING")
+                log_message(f"💡 해결 방법:", "WARNING")
+                log_message(f"   1. ElevenLabs 대시보드 확인: https://elevenlabs.io/app/usage", "WARNING")
+                log_message(f"   2. 다음 달까지 대기 (월간 크레딧 리셋)", "WARNING")
+                log_message(f"   3. 유료 플랜 업그레이드 고려", "WARNING")
+                return remaining
+            
+            return remaining
+        else:
+            log_message(f"⚠️ ElevenLabs 크레딧 확인 실패: HTTP {response.status_code}", "WARNING")
+            return None
+            
+    except Exception as e:
+        log_message(f"⚠️ ElevenLabs 크레딧 확인 중 오류: {str(e)}", "WARNING")
         return None
 
 
@@ -357,6 +410,19 @@ def text_to_speech(script: str, output_path: Path) -> bool:
         log_message("❌ ELEVENLABS_VOICE_ID가 설정되지 않았습니다.", "ERROR")
         return False
     
+    # 크레딧 사전 확인 (대본 길이만큼 필요)
+    required_credits = len(script)
+    remaining_credits = check_elevenlabs_credits(required_credits)
+    
+    if remaining_credits is not None and remaining_credits < required_credits:
+        log_message(f"❌ 크레딧 부족: {remaining_credits} < {required_credits} (필요)", "ERROR")
+        log_message(f"💡 대본 길이: {len(script)}자 → 필요 크레딧: {required_credits}", "ERROR")
+        log_message(f"💡 해결 방법:", "ERROR")
+        log_message(f"   1. 대본을 더 짧게 생성 (현재 제한: {MAX_SCRIPT_LENGTH}자)", "ERROR")
+        log_message(f"   2. ElevenLabs 크레딧 확인: https://elevenlabs.io/app/usage", "ERROR")
+        log_message(f"   3. 다음 달까지 대기 또는 유료 플랜 업그레이드", "ERROR")
+        return False
+    
     try:
         log_message("🎤 ElevenLabs API로 음성 생성 중...")
         
@@ -432,6 +498,13 @@ def process_post(post_path: Path) -> bool:
     if not post_path.exists():
         log_message(f"❌ 파일을 찾을 수 없습니다: {post_path}", "ERROR")
         return False
+    
+    # 작업 시작 전 크레딧 확인 (예상 최대 크레딧: MAX_SCRIPT_LENGTH)
+    log_message("💰 ElevenLabs 크레딧 사전 확인 중...")
+    remaining_credits = check_elevenlabs_credits(MAX_SCRIPT_LENGTH)
+    if remaining_credits is not None and remaining_credits < MAX_SCRIPT_LENGTH:
+        log_message(f"⚠️ 크레딧이 부족할 수 있습니다: {remaining_credits} < {MAX_SCRIPT_LENGTH} (예상 필요)", "WARNING")
+        log_message(f"💡 짧은 대본으로 생성 시도하겠습니다...", "WARNING")
     
     try:
         log_message(f"📄 포스트 처리 시작: {post_path.name}")
