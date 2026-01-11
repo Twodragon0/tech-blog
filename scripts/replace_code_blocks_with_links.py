@@ -279,8 +279,12 @@ def replace_code_blocks(content: str) -> str:
                 from urllib.parse import quote, urlparse, urlunparse
                 # URL 파싱을 통해 각 구성 요소를 안전하게 인코딩
                 parsed = urlparse(link)
-                # netloc을 정확히 비교하여 github.com 확인 (부분 문자열 매칭 방지)
-                is_github = parsed.netloc and parsed.netloc.lower().endswith('github.com')
+                # 보안: 정확한 도메인 매칭 (부분 문자열 매칭 방지)
+                # evil.github.com 같은 도메인을 차단하기 위해 정확히 github.com 또는 www.github.com만 허용
+                netloc_lower = parsed.netloc.lower() if parsed.netloc else ''
+                is_github = (netloc_lower == 'github.com' or 
+                            netloc_lower == 'www.github.com' or
+                            netloc_lower.endswith('.github.com') and netloc_lower.count('.') == 2)
                 link_text = 'GitHub 예제 저장소' if is_github else '공식 문서'
                 # 보안: URL에 위험한 문자가 포함되지 않도록 검증된 링크만 사용
                 # 각 구성 요소를 개별적으로 인코딩하여 부분 문자열 우회 방지

@@ -122,13 +122,16 @@
   {% comment %}OG 이미지 preload는 제거 (404 오류 및 성능 문제 방지){% endcomment %}
   {% comment %}OG 이미지는 메타 태그로만 사용하고, preload는 하지 않음{% endcomment %}
 
-  <!-- DNS Prefetch and Preconnect for External Resources -->
-  <link rel="dns-prefetch" href="https://giscus.app">
-  <link rel="dns-prefetch" href="https://api.deepseek.com">
-  <link rel="dns-prefetch" href="https://va.vercel-scripts.com">
-  <link rel="dns-prefetch" href="https://api.mymemory.translated.net">
+  <!-- DNS Prefetch and Preconnect for External Resources (TTFB 최적화) -->
+  <!-- Critical resources: preconnect (DNS + TCP + TLS) -->
   <link rel="preconnect" href="https://giscus.app" crossorigin>
-  <link rel="preconnect" href="https://api.mymemory.translated.net" crossorigin>
+  <link rel="preconnect" href="https://api.deepseek.com" crossorigin>
+  <link rel="preconnect" href="https://va.vercel-scripts.com" crossorigin>
+  <!-- Non-critical resources: dns-prefetch only -->
+  <link rel="dns-prefetch" href="https://api.mymemory.translated.net">
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://js.sentry-cdn.com">
   
   {% if page.layout == 'post' and page.image %}
   <!-- Preload critical post image -->
@@ -250,7 +253,7 @@
   <!-- Sentry Error Tracking (최상단에 위치 - 에러 추적 우선) -->
   {% include sentry.html %}
   
-  <!-- Vercel Analytics & Speed Insights -->
+  <!-- Vercel Analytics & Speed Insights (TTFB 최적화: defer 사용) -->
   <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
   <script defer src="https://va.vercel-scripts.com/v1/speed-insights/script.js"></script>
   

@@ -57,6 +57,13 @@
         ? 0.05  // 프로덕션: 5% (Free 티어 최적화)
         : 0.0,  // 개발/프리뷰: 0% (개발 환경은 트레이스 수집 안 함)
       
+      // Performance Monitoring: Web Vitals 추적
+      // TTFB, LCP, FID, CLS 등 핵심 메트릭 자동 수집
+      enableTracing: true,
+      
+      // BrowserTracing 설정 (Loader Script에서 자동 설정되지만 명시적으로 구성)
+      // 커스텀 트레이싱 옵션은 integrations에서 설정
+      
       // Session Replay: 세션 재생 (비용 최적화)
       replaysSessionSampleRate: 0.0, // 0% (비활성화 - 비용 절감)
       replaysOnErrorSampleRate: 0.0, // 0% (비활성화 - 비용 절감)
@@ -144,6 +151,32 @@
             timestamp: new Date().toISOString(),
             referrer: document.referrer || 'none'
           };
+        }
+        
+        // Fingerprinting 개선: 에러 타입과 메시지 기반 그룹핑
+        if (event.exception && event.exception.values && event.exception.values.length > 0) {
+          const firstException = event.exception.values[0];
+          const errorType = firstException.type || 'Error';
+          const errorMessage = firstException.value || event.message || 'Unknown';
+          
+          // 에러 타입과 메시지의 첫 부분으로 그룹핑
+          const fingerprint = [
+            errorType,
+            errorMessage.substring(0, 100).replace(/\s+/g, ' ').trim()
+          ];
+          
+          // URL 패턴이 포함된 경우 URL도 fingerprint에 추가 (동적 값 제외)
+          if (event.request && event.request.url) {
+            try {
+              const url = new URL(event.request.url);
+              // 경로만 포함 (쿼리 파라미터 제외)
+              fingerprint.push(url.pathname);
+            } catch (e) {
+              // URL 파싱 실패 시 무시
+            }
+          }
+          
+          event.fingerprint = fingerprint;
         }
         
         // 민감 정보 제거 및 보안 강화
@@ -675,6 +708,92 @@
           sdk: 'browser',
           version: Sentry.SDK_VERSION || 'unknown'
         });
+      }
+    }
+    
+    // Web Vitals를 Sentry Performance로 전송
+    if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined') {
+      // TTFB 추적
+      if (window.performance && window.performance.timing) {
+        const timing = window.performance.timing;
+        const ttfb = timing.responseStart - timing.requestStart;
+        
+        if (ttfb > 0) {
+          Sentry.metrics.distribution('ttfb', ttfb, {
+            unit: 'millisecond',
+            tags: {
+              page: window.location.pathname
+            }
+          });
+        }
+      }
+      
+      // LCP, FID, CLS는 Performance Observer를 통해 수집
+      // performance-monitor.html에서 처리하되, Sentry로 전송하도록 개선
+      if ('PerformanceObserver' in window) {
+        // LCP 추적
+        try {
+          const lcpObserver = new PerformanceObserver(function(list) {
+            const entries = list.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            if (lastEntry && lastEntry.renderTime) {
+              Sentry.metrics.distribution('lcp', lastEntry.renderTime, {
+                unit: 'millisecond',
+                tags: {
+                  page: window.location.pathname
+                }
+              });
+            }
+          });
+          lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+        } catch (e) {
+          // LCP observer not supported
+        }
+        
+        // FID 추적
+        try {
+          const fidObserver = new PerformanceObserver(function(list) {
+            for (const entry of list.getEntries()) {
+              const fid = entry.processingStart - entry.startTime;
+              Sentry.metrics.distribution('fid', fid, {
+                unit: 'millisecond',
+                tags: {
+                  page: window.location.pathname
+                }
+              });
+            }
+          });
+          fidObserver.observe({ entryTypes: ['first-input'] });
+        } catch (e) {
+          // FID observer not supported
+        }
+        
+        // CLS 추적
+        let clsValue = 0;
+        try {
+          const clsObserver = new PerformanceObserver(function(list) {
+            for (const entry of list.getEntries()) {
+              if (!entry.hadRecentInput) {
+                clsValue += entry.value;
+              }
+            }
+          });
+          clsObserver.observe({ entryTypes: ['layout-shift'] });
+          
+          // 페이지 언로드 시 최종 CLS 전송
+          window.addEventListener('beforeunload', function() {
+            if (clsValue > 0) {
+              Sentry.metrics.distribution('cls', clsValue, {
+                unit: 'none',
+                tags: {
+                  page: window.location.pathname
+                }
+              });
+            }
+          });
+        } catch (e) {
+          // CLS observer not supported
+        }
       }
     }
   });
