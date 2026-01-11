@@ -105,29 +105,36 @@ jobs:
           
           # Sentry API 연결 테스트 (프로젝트 정보 조회)
           echo "🔗 Testing Sentry API connection..."
-          RESPONSE=$(curl -s --max-time 10 --fail-with-body -w "\n%{http_code}" \
+          RESPONSE=$(curl -s --max-time 10 -w "\n%{http_code}" \
             -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
             -H "Content-Type: application/json" \
-            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/" 2>&1) || CURL_EXIT_CODE=$?
+            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/" 2>&1)
+          CURL_EXIT_CODE=$?
           
-          # curl 실패 처리
-          if [ -n "$CURL_EXIT_CODE" ] && [ "$CURL_EXIT_CODE" -ne 0 ]; then
-            HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
-            if [ -z "$HTTP_CODE" ] || [ "$HTTP_CODE" = "000" ]; then
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+          
+          # curl 실패 및 HTTP 코드 유효성 검사
+          if [ "$CURL_EXIT_CODE" -ne 0 ]; then
+            if [ -z "$HTTP_CODE" ] || [ "$HTTP_CODE" = "000" ] || ! echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
               echo "❌ Network error or timeout when connecting to Sentry API"
               echo "   curl exit code: $CURL_EXIT_CODE"
-              echo "   Response: $RESPONSE"
+              echo "   Response preview: $(echo "$RESPONSE" | head -n 5)"
               echo ""
               echo "💡 해결 방법:"
               echo "1. 네트워크 연결 확인"
               echo "2. Sentry API 상태 확인: https://status.sentry.io/"
-              echo "3. 잠시 후 다시 시도"
+              echo "3. 잠시 후 다시 시도 (워크플로우 재실행)"
               exit 1
             fi
           fi
           
-          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
-          BODY=$(echo "$RESPONSE" | sed '$d')
+          # HTTP 코드 유효성 검사
+          if ! echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
+            echo "❌ Invalid HTTP response code: $HTTP_CODE"
+            echo "   Response preview: $(echo "$RESPONSE" | head -n 10)"
+            exit 1
+          fi
           
           if [ "$HTTP_CODE" = "200" ]; then
             echo "✅ Successfully connected to Sentry API"
