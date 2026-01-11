@@ -285,15 +285,16 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                 wait_time = 2 ** (attempt - 1)  # 지수 백오프: 2초, 4초, 8초
                 log_message(f"🔄 재시도 {attempt}/{max_retries} (대기: {wait_time}초)...", "WARNING")
                 time.sleep(wait_time)
-        # 모델 선택
-        api_url = GEMINI_IMAGE_PRO_API_URL if USE_PRO_MODEL else GEMINI_IMAGE_API_URL
-        url = f"{api_url}?key={GEMINI_API_KEY}"
-        
-        log_message("🎨 Gemini API로 이미지 생성 시도 중...")
-        log_message(f"   모델: {'Gemini 3 Pro Image (Nano Banana Pro)' if USE_PRO_MODEL else 'Gemini 2.5 Flash Image (Nano Banana)'}")
-        
-        # Gemini 이미지 생성 API 요청
-        data = {
+            
+            # 모델 선택
+            api_url = GEMINI_IMAGE_PRO_API_URL if USE_PRO_MODEL else GEMINI_IMAGE_API_URL
+            url = f"{api_url}?key={GEMINI_API_KEY}"
+            
+            log_message("🎨 Gemini API로 이미지 생성 시도 중...")
+            log_message(f"   모델: {'Gemini 3 Pro Image (Nano Banana Pro)' if USE_PRO_MODEL else 'Gemini 2.5 Flash Image (Nano Banana)'}")
+            
+            # Gemini 이미지 생성 API 요청
+            data = {
             "contents": [{
                 "parts": [{
                     "text": prompt
@@ -304,108 +305,118 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                 "topK": 40,
                 "topP": 0.95,
             }
-        }
-        
-        response = requests.post(url, json=data, timeout=120)
-        
-        if response.status_code == 200:
-            result = response.json()
+            }
             
-            # Gemini API 응답에서 이미지 데이터 추출
-            if "candidates" in result and len(result["candidates"]) > 0:
-                candidate = result["candidates"][0]
+            response = requests.post(url, json=data, timeout=120)
+            
+            if response.status_code == 200:
+                result = response.json()
                 
-                # 이미지 데이터가 parts에 포함되어 있을 수 있음
-                if "content" in candidate and "parts" in candidate["content"]:
-                    for part in candidate["content"]["parts"]:
-                        # 이미지 데이터가 base64로 인코딩되어 있을 수 있음
-                        if "inlineData" in part:
-                            image_data = part["inlineData"]["data"]
-                            image_mime_type = part["inlineData"]["mimeType"]
+                # Gemini API 응답에서 이미지 데이터 추출
+                if "candidates" in result and len(result["candidates"]) > 0:
+                    candidate = result["candidates"][0]
+                    
+                    # 이미지 데이터가 parts에 포함되어 있을 수 있음
+                    if "content" in candidate and "parts" in candidate["content"]:
+                        for part in candidate["content"]["parts"]:
+                            # 이미지 데이터가 base64로 인코딩되어 있을 수 있음
+                            if "inlineData" in part:
+                                image_data = part["inlineData"]["data"]
+                                image_mime_type = part["inlineData"]["mimeType"]
+                                
+                                # base64 디코딩
+                                try:
+                                    image_bytes = base64.b64decode(image_data)
+                                    
+                                    # 이미지 저장 (MIME 타입에 따라 확장자 결정)
+                                    if "png" in image_mime_type:
+                                        output_path = output_path.with_suffix(".png")
+                                    elif "jpeg" in image_mime_type or "jpg" in image_mime_type:
+                                        output_path = output_path.with_suffix(".jpg")
+                                    
+                                    with open(output_path, "wb") as f:
+                                        f.write(image_bytes)
+                                    
+                                    log_message(f"✅ 이미지 생성 완료: {output_path.name} ({len(image_bytes)} bytes)", "SUCCESS")
+                                    return True
+                                except Exception as e:
+                                    log_message(f"❌ 이미지 디코딩 실패: {str(e)}", "ERROR")
+                                    if attempt < max_retries:
+                                        continue
+                                    return False
                             
-                            # base64 디코딩
-                            try:
-                                image_bytes = base64.b64decode(image_data)
+                            # 또는 이미지 URL이 제공될 수 있음
+                            if "url" in part:
+                                image_url = part["url"]
+                                log_message(f"📥 이미지 URL 받음, 다운로드 중: {image_url}")
                                 
-                                # 이미지 저장 (MIME 타입에 따라 확장자 결정)
-                                if "png" in image_mime_type:
-                                    output_path = output_path.with_suffix(".png")
-                                elif "jpeg" in image_mime_type or "jpg" in image_mime_type:
-                                    output_path = output_path.with_suffix(".jpg")
-                                
-                                with open(output_path, "wb") as f:
-                                    f.write(image_bytes)
-                                
-                                log_message(f"✅ 이미지 생성 완료: {output_path.name} ({len(image_bytes)} bytes)", "SUCCESS")
-                                return True
-                            except Exception as e:
-                                log_message(f"❌ 이미지 디코딩 실패: {str(e)}", "ERROR")
-                                return False
+                                # 이미지 다운로드
+                                img_response = requests.get(image_url, timeout=60)
+                                if img_response.status_code == 200:
+                                    with open(output_path, "wb") as f:
+                                        f.write(img_response.content)
+                                    log_message(f"✅ 이미지 다운로드 완료: {output_path.name}", "SUCCESS")
+                                    return True
+                                else:
+                                    log_message(f"❌ 이미지 다운로드 실패: {img_response.status_code}", "ERROR")
+                                    if attempt < max_retries:
+                                        continue
+                                    return False
+                    
+                    # 응답 형식이 다른 경우 (텍스트로 이미지 생성 프롬프트가 반환될 수 있음)
+                    if "text" in candidate.get("content", {}).get("parts", [{}])[0]:
+                        text_response = candidate["content"]["parts"][0]["text"]
+                        log_message(f"⚠️ Gemini API가 텍스트 응답을 반환했습니다. 프롬프트로 저장합니다.", "WARNING")
                         
-                        # 또는 이미지 URL이 제공될 수 있음
-                        if "url" in part:
-                            image_url = part["url"]
-                            log_message(f"📥 이미지 URL 받음, 다운로드 중: {image_url}")
+                        # 프롬프트를 파일로 저장
+                        prompt_file = output_path.parent / f"{output_path.stem}_prompt.txt"
+                        safe_text_response = mask_sensitive_info(text_response)
+                        safe_prompt = mask_sensitive_info(prompt)
+                        
+                        # 보안: 검증된 안전한 텍스트만 파일에 기록
+                        if _validate_masked_text(safe_text_response) and _validate_masked_text(safe_prompt):
+                            safe_content = f"# Image Generation Prompt\n\n"
+                            safe_content += f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+                            safe_content += f"Output: {output_path.name}\n\n"
+                            safe_content += "=" * 80 + "\n"
+                            safe_content += "REFINED PROMPT:\n"
+                            safe_content += "=" * 80 + "\n\n"
+                            safe_content += safe_text_response
+                            safe_content += "\n\n"
+                            safe_content += "=" * 80 + "\n"
+                            safe_content += "ORIGINAL PROMPT:\n"
+                            safe_content += "=" * 80 + "\n\n"
+                            safe_content += safe_prompt
                             
-                            # 이미지 다운로드
-                            img_response = requests.get(image_url, timeout=60)
-                            if img_response.status_code == 200:
-                                with open(output_path, "wb") as f:
-                                    f.write(img_response.content)
-                                log_message(f"✅ 이미지 다운로드 완료: {output_path.name}", "SUCCESS")
-                                return True
-                            else:
-                                log_message(f"❌ 이미지 다운로드 실패: {img_response.status_code}", "ERROR")
-                                return False
-                
-                # 응답 형식이 다른 경우 (텍스트로 이미지 생성 프롬프트가 반환될 수 있음)
-                if "text" in candidate.get("content", {}).get("parts", [{}])[0]:
-                    text_response = candidate["content"]["parts"][0]["text"]
-                    log_message(f"⚠️ Gemini API가 텍스트 응답을 반환했습니다. 프롬프트로 저장합니다.", "WARNING")
-                    
-                    # 프롬프트를 파일로 저장
-                    prompt_file = output_path.parent / f"{output_path.stem}_prompt.txt"
-                    safe_text_response = mask_sensitive_info(text_response)
-                    safe_prompt = mask_sensitive_info(prompt)
-                    
-                    # 보안: 검증된 안전한 텍스트만 파일에 기록
-                    if _validate_masked_text(safe_text_response) and _validate_masked_text(safe_prompt):
-                        safe_content = f"# Image Generation Prompt\n\n"
-                        safe_content += f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-                        safe_content += f"Output: {output_path.name}\n\n"
-                        safe_content += "=" * 80 + "\n"
-                        safe_content += "REFINED PROMPT:\n"
-                        safe_content += "=" * 80 + "\n\n"
-                        safe_content += safe_text_response
-                        safe_content += "\n\n"
-                        safe_content += "=" * 80 + "\n"
-                        safe_content += "ORIGINAL PROMPT:\n"
-                        safe_content += "=" * 80 + "\n\n"
-                        safe_content += safe_prompt
+                            _write_validated_safe_text(prompt_file, safe_content)
+                            log_message(f"✅ 프롬프트 파일 저장 완료: {prompt_file}", "SUCCESS")
+                        else:
+                            log_message("⚠️ 프롬프트 내용이 보안상 차단되었습니다.", "WARNING")
                         
-                        _write_validated_safe_text(prompt_file, safe_content)
-                        log_message(f"✅ 프롬프트 파일 저장 완료: {prompt_file}", "SUCCESS")
-                    else:
-                        log_message("⚠️ 프롬프트 내용이 보안상 차단되었습니다.", "WARNING")
-                    
+                        if attempt < max_retries:
+                            continue
+                        return False
+            
+                    log_message("⚠️ Gemini API 응답에 이미지 데이터가 없습니다.", "WARNING")
+                    log_message(f"   응답: {json.dumps(result, indent=2, ensure_ascii=False)[:500]}...")
+                    if attempt < max_retries:
+                        continue
                     return False
-            
-            log_message("⚠️ Gemini API 응답에 이미지 데이터가 없습니다.", "WARNING")
-            log_message(f"   응답: {json.dumps(result, indent=2, ensure_ascii=False)[:500]}...")
-            return False
-        else:
-            error_text = response.text[:500] if response.text else "No error message"
-            log_message(f"⚠️ Gemini API 호출 실패: HTTP {response.status_code}", "WARNING")
-            log_message(f"   오류: {error_text}", "WARNING")
-            
-            # 404 오류인 경우 모델이 지원되지 않을 수 있음
-            if response.status_code == 404:
-                log_message("💡 Gemini 이미지 생성 모델이 지원되지 않을 수 있습니다.", "INFO")
-                log_message("💡 환경 변수 USE_GEMINI_PRO_IMAGE=false로 설정하여 Flash 모델을 시도해보세요.", "INFO")
-                log_message("💡 프롬프트를 파일로 저장합니다.", "INFO")
-            
-            return False
-            
+            else:
+                error_text = response.text[:500] if response.text else "No error message"
+                log_message(f"⚠️ Gemini API 호출 실패: HTTP {response.status_code}", "WARNING")
+                log_message(f"   오류: {error_text}", "WARNING")
+                
+                # 404 오류인 경우 모델이 지원되지 않을 수 있음
+                if response.status_code == 404:
+                    log_message("💡 Gemini 이미지 생성 모델이 지원되지 않을 수 있습니다.", "INFO")
+                    log_message("💡 환경 변수 USE_GEMINI_PRO_IMAGE=false로 설정하여 Flash 모델을 시도해보세요.", "INFO")
+                    log_message("💡 프롬프트를 파일로 저장합니다.", "INFO")
+                
+                if attempt < max_retries:
+                    continue
+                return False
+                
         except requests.exceptions.Timeout:
             if attempt < max_retries:
                 log_message(f"⏱️ 타임아웃 발생, 재시도 예정...", "WARNING")
