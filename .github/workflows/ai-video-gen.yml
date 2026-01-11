@@ -23,6 +23,10 @@ on:
 jobs:
   generate-audio:
     runs-on: ubuntu-latest
+    # 보안: 최소 권한 원칙 적용
+    permissions:
+      contents: read
+      actions: read
     # 비용 관리: 실패 시 즉시 중단
     continue-on-error: false
     

@@ -197,6 +197,11 @@ def _write_safe_text_to_file(file_path: Path, safe_text: str) -> None:
             return
         
         # Write only validated safe text in binary mode
+        # 보안: 추가 검증 - 런타임에 한 번 더 확인
+        if not _validate_masked_text(safe_text):
+            # 검증 실패 시 기록하지 않음
+            return
+        
         with open(file_path, 'ab') as f:  # 바이너리 모드
             # UTF-8로 인코딩하여 기록
             # 보안: 마스킹된 텍스트만 기록 (API 키 등 민감 정보 제외)

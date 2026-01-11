@@ -93,18 +93,23 @@ def validate_url(url: str) -> bool:
     if not url or not isinstance(url, str):
         return False
     
-    # 보안: 위험한 스킴 차단
-    dangerous_schemes = ['javascript:', 'data:', 'vbscript:', 'file:', 'about:']
     url_lower = url.lower().strip()
+    
+    # 보안: 위험한 스킴 차단 (완전한 스킴 검사)
+    dangerous_schemes = ['javascript:', 'data:', 'vbscript:', 'file:', 'about:', 'jar:']
     for scheme in dangerous_schemes:
-        if url_lower.startswith(scheme):
+        # URL 시작 부분 또는 공백/줄바꿈 후에 오는 경우도 차단
+        if (url_lower.startswith(scheme) or 
+            ' ' + scheme in url_lower or 
+            '\n' + scheme in url_lower or
+            '\t' + scheme in url_lower):
             return False
     
-    # 보안: 허용된 스킴만 허용
+    # 보안: 허용된 스킴만 허용 (정확한 비교)
     if not url_lower.startswith('http://') and not url_lower.startswith('https://'):
         return False
     
-    # 보안: 위험한 패턴이 포함되어 있는지 확인
+    # 보안: URL 전체에서 위험한 패턴 검사 (부분 문자열 포함)
     dangerous_patterns = [
         'javascript:',
         'data:text/html',
@@ -112,11 +117,36 @@ def validate_url(url: str) -> bool:
         'vbscript:',
         'onerror=',
         'onclick=',
+        '<script',
+        '<iframe',
+        'expression(',
     ]
     
     for pattern in dangerous_patterns:
         if pattern in url_lower:
             return False
+    
+    # 보안: URL 파싱을 통한 추가 검증
+    try:
+        from urllib.parse import urlparse, urlunparse
+        parsed = urlparse(url)
+        
+        # 파싱된 URL의 각 구성 요소 검증
+        url_parts = [parsed.scheme, parsed.netloc, parsed.path, parsed.params, parsed.query, parsed.fragment]
+        url_string = ' '.join(str(part) for part in url_parts if part)
+        
+        # 각 구성 요소에서 위험한 패턴 검사
+        for pattern in dangerous_patterns:
+            if pattern in url_string.lower():
+                return False
+        
+        # 스킴 재검증
+        if parsed.scheme not in ['http', 'https']:
+            return False
+            
+    except Exception:
+        # URL 파싱 실패 시 안전하지 않은 것으로 간주
+        return False
     
     return True
 
@@ -202,9 +232,14 @@ def replace_code_blocks(content: str) -> str:
         code_block = match.group(2)
         full_match = match.group(0)
         
-        # 이미 링크가 있는지 확인
-        if 'github.com' in content[max(0, match.start()-200):match.start()]:
-            return full_match  # 이미 링크가 있으면 유지
+        # 이미 링크가 있는지 확인 (안전한 검사)
+        context_start = max(0, match.start() - 200)
+        context = content[context_start:match.start()]
+        # 보안: 링크 검증 - github.com이 안전한 URL 형식인지 확인
+        if 'github.com' in context:
+            # 링크가 마크다운 형식인지 확인
+            if '](' in context or '](https://github.com' in context or '](http://github.com' in context:
+                return full_match  # 이미 링크가 있으면 유지
         
         # 코드 타입 감지
         code_type = language.lower() if language else detect_code_type(code_block)
@@ -234,10 +269,18 @@ def replace_code_blocks(content: str) -> str:
         else:
             # 짧은 코드 블록은 유지하되 링크 추가 (너무 짧으면 링크 추가 안 함)
             if link and code_lines >= 3:  # 3줄 이상인 경우만 링크 추가
+                # 보안: 링크 재검증 (방어적 프로그래밍)
+                if not validate_url(link):
+                    return full_match  # 검증 실패 시 링크 추가하지 않음
+                
                 # 보안: 링크 이스케이프 (마크다운 링크 형식에서 안전하게 처리)
                 link_text = 'GitHub 예제 저장소' if 'github.com' in link else '공식 문서'
                 # 보안: URL에 위험한 문자가 포함되지 않도록 검증된 링크만 사용
-                safe_link = link.replace(']', '%5D').replace('[', '%5B')  # 마크다운 링크 구문자 이스케이프
+                # urllib.parse를 사용하여 안전하게 인코딩
+                from urllib.parse import quote
+                safe_link = quote(link, safe='/:?#[]@!$&\'()*+,;=')
+                # 마크다운 링크 구문자 추가 이스케이프
+                safe_link = safe_link.replace(']', '%5D').replace('[', '%5B')
                 return f'> **참고**: 관련 예제는 [{link_text}]({safe_link})를 참조하세요.\n\n{full_match}'
             else:
                 return full_match  # 링크가 없거나 너무 짧으면 원본 유지

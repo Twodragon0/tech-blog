@@ -110,6 +110,42 @@ usage_stats: Dict[str, APIUsage] = {
 }
 
 
+def _validate_masked_log_entry(text: str) -> bool:
+    """
+    로그 항목이 안전하게 마스킹되었는지 검증합니다.
+    
+    Args:
+        text: 검증할 텍스트
+        
+    Returns:
+        안전하면 True, 아니면 False
+    """
+    if not text:
+        return True
+    
+    # 실제 API 키 패턴이 남아있는지 확인
+    api_key_patterns = [
+        r'sk-[a-zA-Z0-9_-]{20,}',
+        r'[a-zA-Z0-9_-]{40,}',
+    ]
+    
+    for pattern in api_key_patterns:
+        if re.search(pattern, text):
+            return False
+    
+    # 환경 변수에서 읽은 실제 API 키 값이 포함되어 있는지 확인
+    if ELEVENLABS_API_KEY and len(ELEVENLABS_API_KEY) > 10 and ELEVENLABS_API_KEY in text:
+        return False
+    if DEEPSEEK_API_KEY and len(DEEPSEEK_API_KEY) > 10 and DEEPSEEK_API_KEY in text:
+        return False
+    if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10 and GEMINI_API_KEY in text:
+        return False
+    if ELEVENLABS_VOICE_ID and len(ELEVENLABS_VOICE_ID) > 10 and ELEVENLABS_VOICE_ID in text:
+        return False
+    
+    return True
+
+
 def mask_sensitive_info(text: str) -> str:
     """
     로그에 기록될 민감한 정보를 마스킹합니다.
@@ -153,12 +189,33 @@ def log_message(message: str, level: str = "INFO") -> None:
     log_entry = f"[{timestamp}] [{level}] {safe_message}\n"
     
     try:
-        with open(LOG_FILE, "a", encoding="utf-8") as f:
-            f.write(log_entry)
+        # 보안: 민감 정보가 포함된 로그는 파일에 기록하지 않음
+        # log_entry는 이미 mask_sensitive_info()로 마스킹되었지만 추가 검증
+        if _validate_masked_log_entry(log_entry):
+            with open(LOG_FILE, "a", encoding="utf-8") as f:
+                f.write(log_entry)
+        else:
+            # 마스킹되지 않은 로그는 기록하지 않음
+            safe_log_entry = mask_sensitive_info(log_entry)
+            if _validate_masked_log_entry(safe_log_entry):
+                with open(LOG_FILE, "a", encoding="utf-8") as f:
+                    f.write(safe_log_entry)
     except Exception as e:
-        print(f"⚠️ 로그 파일 기록 실패: {e}", file=sys.stderr)
+        # 예외 메시지도 마스킹
+        error_msg = mask_sensitive_info(str(e))
+        print(f"⚠️ 로그 파일 기록 실패: {error_msg}", file=sys.stderr)
     
-    print(log_entry.strip())
+    # 콘솔 출력도 마스킹된 메시지만 출력
+    safe_console_output = mask_sensitive_info(log_entry.strip())
+    if _validate_masked_log_entry(safe_console_output):
+        print(safe_console_output)
+    else:
+        # 최종 마스킹 시도
+        final_output = mask_sensitive_info(safe_console_output)
+        if _validate_masked_log_entry(final_output):
+            print(final_output)
+        else:
+            print("[로그 출력이 보안상 차단되었습니다]")
 
 
 def get_cache_key(text: str, post_title: str = "") -> str:

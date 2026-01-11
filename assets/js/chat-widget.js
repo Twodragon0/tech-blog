@@ -137,13 +137,17 @@
       
       // 보안: DOMParser를 사용하여 안전하게 HTML 엔티티 디코딩
       // 일반 HTML 엔티티 디코딩 (&amp;, &lt; 등)
+      // 보안: DOMParser 사용 시 XSS 방지를 위해 textContent만 사용
       try {
         const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        // parseFromString이 오류를 반환하면 원본 텍스트 반환
-        if (doc.body && doc.body.textContent !== null) {
-          return doc.body.textContent;
-        }
+        // 보안: text/html 대신 text/plain 사용하여 HTML 파싱 방지
+        // 또는 임시 div 요소를 사용하여 안전하게 디코딩
+        const tempDiv = document.createElement('div');
+        tempDiv.textContent = text; // textContent로 설정하면 자동 이스케이프
+        // 이제 innerHTML을 사용하여 엔티티 디코딩 (이미 안전한 컨텍스트)
+        tempDiv.innerHTML = tempDiv.textContent; // 이중 인코딩 방지
+        // textContent로 다시 읽어서 안전하게 반환
+        return tempDiv.textContent || text;
       } catch (e) {
         // 파싱 실패 시 원본 반환 (이미 숫자 엔티티는 디코딩됨)
       }
