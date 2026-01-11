@@ -7,7 +7,7 @@
     // 엔드포인트: trailing slash 없이 사용 (Vercel이 자동으로 처리)
     apiEndpoint: '/api/chat',
     maxRetries: 1, // 재시도 횟수 (타임아웃 시 재시도는 비효율적)
-    timeout: 12000, // 12초 (서버 타임아웃 9초 + 네트워크 여유)
+    timeout: 60000, // 60초 (서버 타임아웃 55초 + 네트워크 여유 5초)
     showIconDelay: 5000, // 5 seconds
     retryDelay: 2000, // 재시도 전 대기 시간 (ms)
     maxMessageLength: 2000, // 서버와 동일한 제한
@@ -301,15 +301,28 @@
       let shouldRetry = false;
       
       if (error.name === 'AbortError' || error.name === 'TimeoutError') {
-        errorMessage = '응답 생성에 시간이 오래 걸리고 있습니다. 잠시 후 다시 시도해주세요.';
+        errorMessage = '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.';
         // 타임아웃은 재시도하지 않음 (비효율적)
         shouldRetry = false;
       } else if (error.message) {
         errorMessage = error.message;
         // 네트워크 오류는 재시도 고려
-        if (error.message.includes('네트워크') || error.message.includes('fetch')) {
+        if (error.message.includes('네트워크') || error.message.includes('fetch') || error.message.includes('연결')) {
           shouldRetry = true;
         }
+        // 타임아웃 관련 메시지도 재시도하지 않음
+        if (error.message.includes('시간이 오래 걸리고') || error.message.includes('타임아웃')) {
+          shouldRetry = false;
+        }
+      }
+      
+      // 콘솔에 상세 오류 로깅 (디버깅용)
+      if (process.env.NODE_ENV === 'development') {
+        console.error('[Chat Widget] 오류 발생:', {
+          name: error.name,
+          message: error.message,
+          stack: error.stack
+        });
       }
       
       addMessage(`❌ ${errorMessage}`, 'assistant');

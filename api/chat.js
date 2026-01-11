@@ -16,10 +16,11 @@
 
 // 최적화 설정
 const CONFIG = {
-  // 타임아웃 설정: 성능 최적화를 위해 30초로 단축
-  // Pro 플랜: 60초 제한, 안전하게 30초로 설정 (응답 시간 최적화)
+  // 타임아웃 설정: Vercel maxDuration과 일치하도록 조정
+  // Pro 플랜: 60초 제한, 안전하게 55초로 설정 (응답 시간 최적화)
   // Hobby 플랜 사용 시: 10초 제한, 9초로 설정 필요
-  TIMEOUT_MS: process.env.VERCEL_ENV === 'production' ? 30000 : 9000,
+  // vercel.json의 maxDuration: 60과 일치하도록 55초로 설정
+  TIMEOUT_MS: process.env.VERCEL_ENV === 'production' ? 55000 : 9000,
   // Rate limiting (간단한 메모리 기반, 프로덕션에서는 Redis 권장)
   RATE_LIMIT: {
     MAX_REQUESTS: 15, // 세션당 최대 요청 수 (비용 최적화를 위해 증가)
@@ -33,7 +34,9 @@ const CONFIG = {
   // Off-peak 시간대 (UTC): 16:30-00:30 (50-75% 할인)
   OFF_PEAK_START_HOUR: 16,
   OFF_PEAK_END_HOUR: 0,
-  // 모델 선택: deepseek-chat (일반 작업) 또는 deepseek-chat-v3 (최신 모델)
+  // 모델 선택: deepseek-chat (일반 작업) 또는 deepseek-reasoner (복잡한 추론 작업)
+  // deepseek-chat: DeepSeek-V3.2 기반, 빠른 응답, Function Calling 지원
+  // deepseek-reasoner: 깊은 추론 작업용, 최대 64,000 토큰 출력
   // 기본값: deepseek-chat (안정적이고 비용 효율적)
   MODEL: process.env.DEEPSEEK_MODEL || 'deepseek-chat', // 환경 변수로 모델 선택 가능
   // 성능 모니터링 임계값
@@ -208,6 +211,7 @@ export default async function handler(req, res) {
     const apiKey = process.env.DEEPSEEK_API_KEY;
     if (!apiKey) {
       console.error('[Chat API] DEEPSEEK_API_KEY가 설정되지 않았습니다.');
+      console.error('[Chat API] 환경 변수 확인 필요: vercel env ls | grep DEEPSEEK_API_KEY');
       return res.status(503).json({ 
         error: 'AI 서비스가 일시적으로 사용할 수 없습니다. 관리자에게 문의하세요.',
         code: 'API_KEY_MISSING'
@@ -217,6 +221,16 @@ export default async function handler(req, res) {
     // API 키 형식 검증 (sk-로 시작하는지 확인)
     if (!apiKey.startsWith('sk-')) {
       console.error('[Chat API] DEEPSEEK_API_KEY 형식이 올바르지 않습니다.');
+      console.error('[Chat API] API 키는 sk-로 시작해야 합니다.');
+      return res.status(503).json({ 
+        error: 'AI 서비스 설정 오류입니다. 관리자에게 문의하세요.',
+        code: 'API_KEY_INVALID'
+      });
+    }
+    
+    // API 키 길이 검증 (최소 길이 확인)
+    if (apiKey.length < 20) {
+      console.error('[Chat API] DEEPSEEK_API_KEY가 너무 짧습니다.');
       return res.status(503).json({ 
         error: 'AI 서비스 설정 오류입니다. 관리자에게 문의하세요.',
         code: 'API_KEY_INVALID'
@@ -250,39 +264,77 @@ export default async function handler(req, res) {
     
     // DeepSeek API 호출 (타임아웃 설정: Pro 플랜 55초, Hobby 플랜 9초)
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), CONFIG.TIMEOUT_MS);
+    const timeoutId = setTimeout(() => {
+      console.warn(`[Chat API] 타임아웃 발생 (${CONFIG.TIMEOUT_MS}ms 초과)`);
+      controller.abort();
+    }, CONFIG.TIMEOUT_MS);
 
     // API 요청 로깅 (개발 환경에서만 상세 로깅)
+    const requestStartTime = Date.now();
     if (process.env.NODE_ENV === 'development') {
       console.log('[Chat API] DeepSeek API 호출:', {
         model: CONFIG.MODEL,
         messageCount: messages.length,
         hasApiKey: !!apiKey,
-        apiKeyPrefix: apiKey ? apiKey.substring(0, 7) + '...' : 'missing'
+        apiKeyPrefix: apiKey ? apiKey.substring(0, 7) + '...' : 'missing',
+        timeout: CONFIG.TIMEOUT_MS
       });
     }
 
-    const deepseekResponse = await fetch('https://api.deepseek.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: CONFIG.MODEL,
-        messages: messages,
-        temperature: 0.7,
-        max_tokens: CONFIG.MAX_TOKENS,
-        stream: false,
-        // 응답 시간 최적화를 위한 추가 설정
-        top_p: 0.9, // 응답 다양성 조절 (0.95 → 0.9로 감소하여 응답 생성 속도 향상)
-        // Context Caching은 자동으로 작동하므로 별도 설정 불필요
-        // 하지만 일관된 시스템 메시지와 대화 히스토리를 유지하면 캐시 히트율 향상
-      }),
-      signal: controller.signal,
-    });
+    let deepseekResponse;
+    try {
+      deepseekResponse = await fetch('https://api.deepseek.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: CONFIG.MODEL,
+          messages: messages,
+          temperature: 0.7,
+          max_tokens: CONFIG.MAX_TOKENS,
+          stream: false,
+          // 응답 시간 최적화를 위한 추가 설정
+          top_p: 0.9, // 응답 다양성 조절 (0.95 → 0.9로 감소하여 응답 생성 속도 향상)
+          // Context Caching은 자동으로 작동하므로 별도 설정 불필요
+          // 하지만 일관된 시스템 메시지와 대화 히스토리를 유지하면 캐시 히트율 향상
+        }),
+        signal: controller.signal,
+      });
+    } catch (fetchError) {
+      clearTimeout(timeoutId);
+      const fetchTime = Date.now() - requestStartTime;
+      
+      // 타임아웃 오류 처리
+      if (fetchError.name === 'AbortError' || fetchError.name === 'TimeoutError') {
+        console.warn(`[Chat API] DeepSeek API 타임아웃 (${fetchTime}ms)`);
+        return res.status(504).json({ 
+          error: '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.',
+          timeout: true,
+          executionTime: fetchTime
+        });
+      }
+      
+      // 네트워크 오류 처리
+      console.error('[Chat API] DeepSeek API 네트워크 오류:', {
+        name: fetchError.name,
+        message: fetchError.message,
+        fetchTime: fetchTime
+      });
+      return res.status(503).json({ 
+        error: 'AI 서비스에 연결할 수 없습니다. 네트워크 연결을 확인하고 잠시 후 다시 시도해주세요.',
+        code: 'NETWORK_ERROR'
+      });
+    }
 
     clearTimeout(timeoutId);
+    const fetchTime = Date.now() - requestStartTime;
+    
+    // API 응답 시간 로깅
+    if (fetchTime > CONFIG.SLOW_REQUEST_THRESHOLD_MS || process.env.NODE_ENV === 'development') {
+      console.log(`[Chat API] DeepSeek API 응답 시간: ${fetchTime}ms`);
+    }
 
     if (!deepseekResponse.ok) {
       let errorData = {};
@@ -424,14 +476,15 @@ export default async function handler(req, res) {
       executionTime: executionTime
     });
 
-    // 타임아웃 오류 처리
+    // 타임아웃 오류 처리 (이미 fetch 단계에서 처리했지만, 추가 안전장치)
     if (error.name === 'AbortError' || error.name === 'TimeoutError') {
       console.warn(`[Chat API] Timeout after ${executionTime}ms (limit: ${CONFIG.TIMEOUT_MS}ms)`);
       
       return res.status(504).json({ 
         error: '응답 생성에 시간이 오래 걸리고 있습니다. 질문을 더 구체적으로 작성하거나 잠시 후 다시 시도해주세요.',
         timeout: true,
-        executionTime: executionTime
+        executionTime: executionTime,
+        code: 'TIMEOUT'
       });
     }
     
