@@ -199,11 +199,91 @@ jobs:
             echo "❌ Project not found (HTTP 404)"
             echo "   Organization 또는 Project 이름이 올바르지 않습니다."
             echo ""
-            echo "💡 확인 사항:"
-            echo "1. Organization 이름: $SENTRY_ORG"
-            echo "2. Project 이름: $SENTRY_PROJECT"
-            echo "3. Sentry 대시보드에서 정확한 이름 확인:"
+            
+            # Token으로 접근 가능한 Organization 목록 조회
+            echo "🔍 Discovering accessible organizations..."
+            ORG_RESPONSE=$(curl -s -w "\n%{http_code}" \
+              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+              -H "Content-Type: application/json" \
+              "https://sentry.io/api/0/organizations/")
+            
+            ORG_HTTP_CODE=$(echo "$ORG_RESPONSE" | tail -n1)
+            ORG_BODY=$(echo "$ORG_RESPONSE" | sed '$d')
+            
+            if [ "$ORG_HTTP_CODE" = "200" ]; then
+              echo "✅ Token으로 접근 가능한 Organizations:"
+              echo "$ORG_BODY" | jq -r '.[] | "   - \(.slug) (ID: \(.id))"' 2>/dev/null || echo "$ORG_BODY"
+              echo ""
+              
+              # 각 Organization의 Projects 조회
+              ORG_SLUGS=$(echo "$ORG_BODY" | jq -r '.[].slug' 2>/dev/null)
+              if [ -n "$ORG_SLUGS" ]; then
+                for ORG_SLUG in $ORG_SLUGS; do
+                  if [ "$ORG_SLUG" != "null" ] && [ -n "$ORG_SLUG" ]; then
+                    echo "🔍 Discovering projects in organization: $ORG_SLUG"
+                    PROJ_RESPONSE=$(curl -s -w "\n%{http_code}" \
+                      -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+                      -H "Content-Type: application/json" \
+                      "https://sentry.io/api/0/organizations/$ORG_SLUG/projects/")
+                    
+                    PROJ_HTTP_CODE=$(echo "$PROJ_RESPONSE" | tail -n1)
+                    PROJ_BODY=$(echo "$PROJ_RESPONSE" | sed '$d')
+                    
+                    if [ "$PROJ_HTTP_CODE" = "200" ]; then
+                      PROJ_COUNT=$(echo "$PROJ_BODY" | jq 'length' 2>/dev/null || echo "0")
+                      if [ "$PROJ_COUNT" -gt 0 ]; then
+                        echo "✅ Projects in '$ORG_SLUG':"
+                        echo "$PROJ_BODY" | jq -r '.[] | "   - \(.slug) (ID: \(.id))"' 2>/dev/null || echo "$PROJ_BODY"
+                        echo ""
+                      else
+                        echo "   ℹ️  No projects found in this organization"
+                        echo ""
+                      fi
+                    elif [ "$PROJ_HTTP_CODE" = "403" ]; then
+                      echo "   ⚠️  No permission to list projects in this organization"
+                      echo ""
+                    fi
+                  fi
+                done
+              fi
+            elif [ "$ORG_HTTP_CODE" = "403" ]; then
+              echo "❌ Token에 'org:read' 권한이 없습니다."
+              echo "   Organization 목록을 조회할 수 없습니다."
+              echo ""
+            else
+              echo "⚠️  Organization 목록 조회 실패 (HTTP $ORG_HTTP_CODE)"
+              echo ""
+            fi
+            
+            echo "💡 해결 방법:"
+            echo ""
+            echo "📋 프로젝트가 없는 경우:"
+            echo "1. Sentry 대시보드에서 프로젝트 생성:"
+            echo "   https://sentry.io/organizations/$SENTRY_ORG/projects/new/"
+            echo ""
+            echo "2. 프로젝트 생성 시:"
+            echo "   - Platform: JavaScript 선택"
+            echo "   - Project Name: tech-blog (또는 원하는 이름)"
+            echo "   - Project Slug는 자동 생성되지만, 'tech-blog'로 설정 권장"
+            echo ""
+            echo "📋 프로젝트가 이미 있는 경우:"
+            echo "1. 위에 표시된 Organization 및 Project 이름을 확인하세요"
+            echo "2. GitHub Secrets에 올바른 값을 설정:"
+            echo "   - SENTRY_ORG: Organization slug (현재: $SENTRY_ORG)"
+            echo "   - SENTRY_PROJECT: Project slug (현재: $SENTRY_PROJECT)"
+            echo ""
+            echo "3. GitHub CLI로 설정하는 방법:"
+            echo "   gh secret set SENTRY_ORG --body \"$SENTRY_ORG\""
+            echo "   gh secret set SENTRY_PROJECT --body \"실제-프로젝트-slug\""
+            echo ""
+            echo "4. 또는 GitHub 웹 UI에서 설정:"
+            echo "   Settings > Secrets and variables > Actions > New repository secret"
+            echo ""
+            echo "5. Sentry 대시보드에서 프로젝트 목록 확인:"
             echo "   https://sentry.io/organizations/$SENTRY_ORG/projects/"
+            echo ""
+            echo "6. 프로젝트 설정에서 정확한 Slug 확인:"
+            echo "   Project Settings > General > Project Slug"
             exit 1
           else
             echo "⚠️  Unexpected response (HTTP $HTTP_CODE)"
