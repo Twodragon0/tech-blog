@@ -403,6 +403,12 @@ def get_gemini_oauth_client():
         
         log_message("✅ OAuth 2.0 인증 완료 (서비스 계정 사용)")
         return model
+    except NameError:
+        log_message("❌ google.generativeai 모듈을 찾을 수 없습니다. pip install google-generativeai 실행하세요.", "ERROR")
+        return None
+    except ImportError:
+        log_message("❌ Google 인증 라이브러리를 찾을 수 없습니다. pip install google-auth google-generativeai 실행하세요.", "ERROR")
+        return None
     except Exception as e:
         error_msg = mask_sensitive_info(str(e))
         log_message(f"❌ OAuth 2.0 인증 실패: {error_msg}", "ERROR")
