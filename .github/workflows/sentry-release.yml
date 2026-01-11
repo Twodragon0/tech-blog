@@ -45,7 +45,6 @@ jobs:
           echo "🔍 Verifying Sentry configuration..."
           echo "Organization: $SENTRY_ORG"
           echo "Project: $SENTRY_PROJECT"
-          echo "Token: ${SENTRY_AUTH_TOKEN:0:10}..." # 첫 10자만 표시
           
           # Token 존재 확인
           if [ -z "$SENTRY_AUTH_TOKEN" ]; then
@@ -56,19 +55,34 @@ jobs:
             echo "   https://sentry.io/settings/account/api/auth-tokens/"
             echo "2. Token 생성 시 다음 권한 선택:"
             echo "   - project:read"
-            echo "   - project:releases"
+            echo "   - project:releases (필수!)"
             echo "   - org:read"
             echo "3. 생성된 Token을 GitHub Secrets에 추가:"
+            echo "   방법 1 (GitHub CLI):"
+            echo "   gh secret set SENTRY_AUTH_TOKEN --body \"your-token-here\""
+            echo ""
+            echo "   방법 2 (GitHub 웹 UI):"
             echo "   Settings > Secrets and variables > Actions > New repository secret"
             echo "   Name: SENTRY_AUTH_TOKEN"
             echo "   Value: [생성한 Token]"
+            echo ""
+            echo "4. Token 형식 확인:"
+            echo "   - sntryu_로 시작하는 일반 Token"
+            echo "   - sentry-release로 시작하는 Release 전용 Token"
             exit 1
           fi
           
-          # Token 형식 확인
-          if [[ ! "$SENTRY_AUTH_TOKEN" =~ ^sntryu_ ]]; then
-            echo "⚠️  Token 형식이 올바르지 않습니다 (sntryu_로 시작해야 함)"
-            echo "   현재 Token: ${SENTRY_AUTH_TOKEN:0:20}..."
+          # Token 형식 확인 (보안: 전체 값은 출력하지 않음)
+          TOKEN_PREFIX="${SENTRY_AUTH_TOKEN:0:15}"
+          echo "Token prefix: ${TOKEN_PREFIX}... (보안상 전체 값은 표시하지 않음)"
+          
+          # Token 형식 확인 (sntryu_ 또는 sentry-release로 시작)
+          if [[ ! "$SENTRY_AUTH_TOKEN" =~ ^(sntryu_|sentry-release) ]]; then
+            echo "⚠️  Token 형식 확인: sntryu_ 또는 sentry-release로 시작해야 합니다"
+            echo "   현재 Token 접두사: ${SENTRY_AUTH_TOKEN:0:20}..."
+            echo "   Token 형식은 유효할 수 있지만, 일반적인 형식과 다릅니다"
+          else
+            echo "✅ Token 형식 확인 완료"
           fi
           
           # Sentry API 연결 테스트 (프로젝트 정보 조회)

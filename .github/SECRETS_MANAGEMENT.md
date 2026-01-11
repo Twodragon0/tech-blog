@@ -5,10 +5,16 @@
 ## 필수 Secrets
 
 ### Sentry 관련
-- `SENTRY_AUTH_TOKEN`: Sentry 인증 토큰
-  - 생성 방법: Sentry 대시보드 → Settings → Account → Auth Tokens
-  - 권한: `project:releases` (최소 권한)
+- `SENTRY_AUTH_TOKEN`: Sentry 인증 토큰 (필수)
+  - 생성 방법: Sentry 대시보드 → Settings → Account → Auth Tokens → Create New Token
+  - Token 형식: `sntryu_` 또는 `sentry-release`로 시작
+  - 권한: `project:releases` (필수), `project:read`, `org:read` (권장)
   - 사용처: `.github/workflows/sentry-release.yml`, `.github/workflows/vercel-deploy.yml`
+  - GitHub Secrets 설정:
+    ```bash
+    gh secret set SENTRY_AUTH_TOKEN --body "sentry-release************fe26"
+    ```
+  - 확인 방법: GitHub Repository → Settings → Secrets and variables → Actions → SENTRY_AUTH_TOKEN
 
 ### DeepSeek API 관련 (채팅)
 - `DEEPSEEK_API_KEY`: DeepSeek AI API 키

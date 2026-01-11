@@ -235,15 +235,12 @@ def replace_code_blocks(content: str) -> str:
         # 이미 링크가 있는지 확인 (안전한 검사)
         context_start = max(0, match.start() - 200)
         context = content[context_start:match.start()]
-        # 보안: 링크 검증 - github.com이 안전한 URL 형식인지 확인
-        # URL 검증: 완전한 URL 패턴만 허용 (부분 문자열 매칭 방지)
-        if 'github.com' in context:
-            # 링크가 마크다운 형식인지 확인 (완전한 URL 패턴 검사)
-            # 위험한 부분 문자열 매칭 방지: 정확한 URL 패턴만 허용
-            import re
-            safe_url_pattern = r'\]\s*\(\s*(https?://[^\s\)]+github\.com[^\s\)]*)'
-            if re.search(safe_url_pattern, context, re.IGNORECASE):
-                return full_match  # 이미 링크가 있으면 유지
+        # 보안: 링크 검증 - 완전한 URL 패턴만 허용 (부분 문자열 매칭 방지)
+        # 위험한 부분 문자열 매칭 방지: 정확한 URL 패턴만 허용
+        import re
+        safe_url_pattern = r'\]\s*\(\s*(https?://[^\s\)]+github\.com[^\s\)]*)'
+        if re.search(safe_url_pattern, context, re.IGNORECASE):
+            return full_match  # 이미 링크가 있으면 유지
         
         # 코드 타입 감지
         code_type = language.lower() if language else detect_code_type(code_block)
@@ -278,12 +275,14 @@ def replace_code_blocks(content: str) -> str:
                     return full_match  # 검증 실패 시 링크 추가하지 않음
                 
                 # 보안: 링크 이스케이프 (마크다운 링크 형식에서 안전하게 처리)
-                link_text = 'GitHub 예제 저장소' if 'github.com' in link else '공식 문서'
-                # 보안: URL에 위험한 문자가 포함되지 않도록 검증된 링크만 사용
-                # urllib.parse를 사용하여 안전하게 인코딩
+                # 보안: URL 파싱을 통해 netloc을 안전하게 확인 (부분 문자열 매칭 방지)
                 from urllib.parse import quote, urlparse, urlunparse
                 # URL 파싱을 통해 각 구성 요소를 안전하게 인코딩
                 parsed = urlparse(link)
+                # netloc을 정확히 비교하여 github.com 확인 (부분 문자열 매칭 방지)
+                is_github = parsed.netloc and parsed.netloc.lower().endswith('github.com')
+                link_text = 'GitHub 예제 저장소' if is_github else '공식 문서'
+                # 보안: URL에 위험한 문자가 포함되지 않도록 검증된 링크만 사용
                 # 각 구성 요소를 개별적으로 인코딩하여 부분 문자열 우회 방지
                 safe_scheme = parsed.scheme
                 safe_netloc = parsed.netloc

@@ -23,6 +23,34 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 GEMINI_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent"
 
 
+def mask_sensitive_info(text: str) -> str:
+    """
+    로그에 기록될 민감한 정보를 마스킹합니다.
+    
+    Args:
+        text: 마스킹할 텍스트
+        
+    Returns:
+        마스킹된 텍스트
+    """
+    if not text:
+        return text
+    
+    # API 키 마스킹
+    masked = re.sub(r'sk-[a-zA-Z0-9_-]{20,}', 'sk-***MASKED***', text)
+    masked = re.sub(r'AIza[0-9A-Za-z_-]{35}', 'AIza***MASKED***', masked)
+    masked = re.sub(r'[a-zA-Z0-9_-]{40,}', lambda m: m.group()[:8] + '***MASKED***' if len(m.group()) > 40 else m.group(), masked)
+    
+    # 환경 변수에서 읽은 실제 API 키 값 마스킹
+    if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
+        masked = masked.replace(GEMINI_API_KEY, '***GEMINI_API_KEY_MASKED***')
+    
+    # URL에 포함된 API 키 마스킹 (key= 파라미터)
+    masked = re.sub(r'[?&]key=[a-zA-Z0-9_-]+', '?key=***MASKED***', masked)
+    
+    return masked
+
+
 def log_message(message: str, level: str = "INFO"):
     """로그 메시지 출력"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -197,7 +225,11 @@ The prompt should be specific, include technical details, and follow the nano ba
                 refined_prompt = result["candidates"][0]["content"]["parts"][0]["text"]
                 
                 # 프롬프트를 파일로 저장
+                # 보안: 프롬프트에 민감 정보가 포함될 수 있으므로 마스킹
                 prompt_file = output_path.parent / f"{output_path.stem}_prompt.txt"
+                # 프롬프트 마스킹 (API 응답에 민감 정보가 포함될 수 있음)
+                safe_refined_prompt = mask_sensitive_info(refined_prompt)
+                safe_prompt = mask_sensitive_info(prompt)
                 with open(prompt_file, "w", encoding="utf-8") as f:
                     f.write(f"# Image Generation Prompt\n\n")
                     f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
@@ -205,12 +237,12 @@ The prompt should be specific, include technical details, and follow the nano ba
                     f.write("=" * 80 + "\n")
                     f.write("REFINED PROMPT:\n")
                     f.write("=" * 80 + "\n\n")
-                    f.write(refined_prompt)
+                    f.write(safe_refined_prompt)
                     f.write("\n\n")
                     f.write("=" * 80 + "\n")
                     f.write("ORIGINAL PROMPT:\n")
                     f.write("=" * 80 + "\n\n")
-                    f.write(prompt)
+                    f.write(safe_prompt)
                 
                 log_message(f"✅ 프롬프트 파일 저장 완료: {prompt_file}", "SUCCESS")
                 log_message("⚠️ Gemini API는 직접 이미지를 생성하지 않습니다.", "WARNING")

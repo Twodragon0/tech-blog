@@ -197,10 +197,24 @@ def log_message(message: str, level: str = "INFO") -> None:
         # log_entry는 이미 mask_sensitive_info()로 마스킹되었지만 추가 검증
         # 최종 검증: 마스킹이 완전히 되었는지 확인
         final_log_entry = mask_sensitive_info(log_entry)
+        # 추가 검증 라운드 (방어적 프로그래밍)
+        for _ in range(2):
+            if not _validate_masked_log_entry(final_log_entry):
+                final_log_entry = mask_sensitive_info(final_log_entry)
+            else:
+                break
+        
         if _validate_masked_log_entry(final_log_entry):
             # 검증된 안전한 로그만 파일에 기록
-            with open(LOG_FILE, "a", encoding="utf-8") as f:
-                f.write(final_log_entry)
+            # 보안: 최종 한 번 더 마스킹하여 완전히 안전한지 확인
+            safe_final_entry = mask_sensitive_info(final_log_entry)
+            if _validate_masked_log_entry(safe_final_entry):
+                with open(LOG_FILE, "a", encoding="utf-8") as f:
+                    f.write(safe_final_entry)
+            else:
+                # 최종 검증 실패 시 안전한 메시지만 기록
+                with open(LOG_FILE, "a", encoding="utf-8") as f:
+                    f.write(f"[{timestamp}] [{level}] [로그 항목이 보안상 차단되었습니다]\n")
         else:
             # 마스킹 검증 실패 시 민감 정보를 완전히 제거한 안전한 메시지만 기록
             # API 키나 민감 정보가 포함된 부분을 완전히 제거
@@ -222,8 +236,22 @@ def log_message(message: str, level: str = "INFO") -> None:
         else:
             break
     
-    if _validate_masked_log_entry(safe_console_output):
-        print(safe_console_output)
+    # 보안: 최종 검증 및 추가 마스킹 라운드
+    final_console_output = safe_console_output
+    for _ in range(2):
+        if not _validate_masked_log_entry(final_console_output):
+            final_console_output = mask_sensitive_info(final_console_output)
+        else:
+            break
+    
+    if _validate_masked_log_entry(final_console_output):
+        # 최종 한 번 더 마스킹하여 완전히 안전한지 확인
+        safe_final_output = mask_sensitive_info(final_console_output)
+        if _validate_masked_log_entry(safe_final_output):
+            print(safe_final_output)
+        else:
+            # 최종 검증 실패 시 안전한 메시지만 출력
+            print("[로그 출력이 보안상 차단되었습니다]")
     else:
         # 최종 마스킹 시도 실패 시 안전한 메시지만 출력
         print("[로그 출력이 보안상 차단되었습니다]")
@@ -1506,7 +1534,20 @@ def process_post(post_path: Path) -> bool:
                 f.write("\n" + "=" * 60 + "\n")
                 f.write("강의용 대본\n")
                 f.write("=" * 60 + "\n\n")
-                f.write(script)
+                # 보안: 스크립트 내용에 민감 정보가 포함될 수 있으므로 마스킹
+                # API 응답에 민감 정보가 포함될 수 있으므로 안전하게 처리
+                safe_script = mask_sensitive_info(script)
+                # 추가 검증: 마스킹이 완전히 되었는지 확인
+                if _validate_masked_log_entry(safe_script):
+                    f.write(safe_script)
+                else:
+                    # 검증 실패 시 다시 마스킹
+                    safe_script = mask_sensitive_info(safe_script)
+                    if _validate_masked_log_entry(safe_script):
+                        f.write(safe_script)
+                    else:
+                        # 최종 검증 실패 시 안전한 메시지 기록
+                        f.write("[대본 내용이 보안상 차단되었습니다]\n")
                 f.write("\n")
             log_message(f"✅ 대본 파일 저장 완료: {script_path}")
             log_message(f"   사용된 API: {used_api}")

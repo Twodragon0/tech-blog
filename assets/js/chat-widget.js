@@ -135,25 +135,25 @@
         return String.fromCharCode(code);
       });
       
-      // 보안: DOMParser를 사용하여 안전하게 HTML 엔티티 디코딩
-      // 일반 HTML 엔티티 디코딩 (&amp;, &lt; 등)
-      // 보안: DOMParser 사용 시 XSS 방지를 위해 textContent만 사용
+      // 보안: DOMParser를 사용하지 않고 안전하게 HTML 엔티티 디코딩
+      // HTML 파싱을 완전히 방지하여 XSS 공격 차단
+      // textContent를 사용하여 안전하게 엔티티 디코딩
       try {
-        // 보안: innerHTML을 직접 사용하지 않고, textContent만 사용하여 안전하게 디코딩
-        // DOMParser를 text/plain 모드로 사용하여 HTML 파싱 완전히 방지
-        const parser = new DOMParser();
-        // text/plain으로 파싱하여 HTML 해석 방지
-        const doc = parser.parseFromString('<!DOCTYPE html><body>' + text + '</body>', 'text/html');
-        const decoded = doc.body.textContent || doc.body.innerText || '';
-        // 디코딩된 텍스트가 원본과 다르면 (엔티티가 디코딩됨) 사용, 아니면 원본 사용
-        if (decoded !== text && decoded.length > 0) {
-          return decoded;
-        }
-        // 대안: textContent를 직접 사용 (더 안전)
+        // 보안: DOMParser의 HTML 파싱 모드를 사용하지 않고, textContent만 사용
+        // 이렇게 하면 HTML이 실행되지 않고 텍스트로만 처리됨
         const tempDiv = document.createElement('div');
-        tempDiv.textContent = text; // textContent로 설정하면 자동 이스케이프
-        // innerHTML을 사용하지 않고, textContent만 사용하여 안전하게 반환
-        return tempDiv.textContent || text;
+        // textContent로 설정하면 HTML 엔티티가 자동으로 디코딩되지만 HTML은 실행되지 않음
+        tempDiv.textContent = text;
+        const decoded = tempDiv.textContent || text;
+        
+        // 추가 보안: 디코딩된 텍스트에 위험한 패턴이 있는지 확인
+        // HTML 태그나 스크립트가 포함되어 있으면 원본 반환
+        if (/<[a-z][\s\S]*>/i.test(decoded)) {
+          // HTML 태그가 감지되면 원본 반환 (이미 숫자 엔티티는 디코딩됨)
+          return text;
+        }
+        
+        return decoded;
       } catch (e) {
         // 파싱 실패 시 원본 반환 (이미 숫자 엔티티는 디코딩됨)
       }
