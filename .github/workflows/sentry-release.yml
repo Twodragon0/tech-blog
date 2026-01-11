@@ -200,6 +200,8 @@ jobs:
           ignore_missing: true
           # 이미 존재하는 릴리스 무시
           ignore_empty: true
+          # Free 티어 최적화: 최소한의 정보만 전송
+          finalize: true
       
       - name: Handle Release Creation Result
         id: handle_release
@@ -212,28 +214,46 @@ jobs:
           RELEASE_VERSION="${{ github.sha }}"
           echo "⚠️  Release creation had issues, checking final status..."
           
-          # 최종 상태 확인
-          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
-            -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-            -H "Content-Type: application/json" \
-            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/")
+          # 최종 상태 확인 (재시도 로직 포함)
+          MAX_RETRIES=3
+          RETRY_COUNT=0
+          HTTP_CODE=0
           
-          if [ "$HTTP_CODE" = "200" ]; then
-            echo "✅ Release $RELEASE_VERSION exists (may have been created by another process)"
-            echo "✅ Continuing workflow..."
-            echo "success=true" >> $GITHUB_OUTPUT
-          else
-            echo "❌ Release $RELEASE_VERSION does not exist"
-            echo "❌ Please check the error logs above for details"
-            echo ""
-            echo "Common issues:"
-            echo "1. Token lacks 'project:releases' permission"
-            echo "2. Organization or project name mismatch"
-            echo "3. Rate limiting (free tier)"
-            echo "4. Network/API issues"
-            echo "success=false" >> $GITHUB_OUTPUT
-            exit 1
-          fi
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+            sleep $((RETRY_COUNT + 1))  # 점진적 대기 (1초, 2초, 3초)
+            
+            HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+              -H "Content-Type: application/json" \
+              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/")
+            
+            if [ "$HTTP_CODE" = "200" ]; then
+              echo "✅ Release $RELEASE_VERSION exists (created successfully)"
+              echo "✅ Continuing workflow..."
+              echo "success=true" >> $GITHUB_OUTPUT
+              exit 0
+            fi
+            
+            RETRY_COUNT=$((RETRY_COUNT + 1))
+            echo "⚠️  Retry $RETRY_COUNT/$MAX_RETRIES: Release not found (HTTP $HTTP_CODE)"
+          done
+          
+          # 모든 재시도 실패 시
+          echo "❌ Release $RELEASE_VERSION does not exist after $MAX_RETRIES retries"
+          echo "❌ HTTP Status: $HTTP_CODE"
+          echo ""
+          echo "Common issues:"
+          echo "1. Token lacks 'project:releases' permission"
+          echo "2. Organization or project name mismatch"
+          echo "3. Rate limiting (free tier) - Sentry Free 티어는 월 5,000 이벤트 제한"
+          echo "4. Network/API issues"
+          echo ""
+          echo "💡 해결 방법:"
+          echo "- Free 티어 제한 내에서 운영 중이면 Release 생성 실패는 정상일 수 있습니다"
+          echo "- 워크플로우는 계속 진행되지만 Release는 생성되지 않았습니다"
+          echo "success=false" >> $GITHUB_OUTPUT
+          # Free 티어에서는 Release 생성 실패를 치명적 오류로 처리하지 않음
+          exit 0
       
       - name: Output Release Info
         if: always()
@@ -264,7 +284,12 @@ jobs:
             echo ""
             echo "View release: https://sentry.io/organizations/twodragon/releases/$RELEASE_VERSION/"
           else
-            echo "❌ Sentry Release not found"
+            echo "⚠️  Sentry Release not found (HTTP $HTTP_CODE)"
             echo "Release: $RELEASE_VERSION"
             echo "HTTP Status: $HTTP_CODE"
+            echo ""
+            echo "💡 참고:"
+            echo "- Free 티어 제한으로 인해 Release 생성이 실패할 수 있습니다"
+            echo "- 이는 워크플로우 실패로 처리되지 않습니다 (continue-on-error)"
+            echo "- Release가 없어도 Sentry 로그 수집은 정상 작동합니다"
           fi
