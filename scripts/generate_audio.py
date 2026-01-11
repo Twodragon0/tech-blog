@@ -42,7 +42,9 @@ ELEVENLABS_VOICES_URL = "https://api.elevenlabs.io/v1/voices"
 
 # 설정
 MAX_TEXT_LENGTH = 50000  # 최대 텍스트 길이 (비용 관리)
-MAX_SCRIPT_LENGTH = 3000  # 최대 대본 길이 (약 5분 분량)
+MAX_SCRIPT_LENGTH = 800  # 최대 대본 길이 (약 3분 분량, ElevenLabs 무료 티어 고려)
+# ElevenLabs 무료 티어: 월 10,000자 = 약 5,000 크레딧
+# 크레딧 = 문자 수이므로 짧은 대본 필요
 AUDIO_OUTPUT_FORMAT = "mp3"
 
 
@@ -234,19 +236,22 @@ def generate_script(text: str, post_title: str = "") -> Optional[str]:
         text = text[:MAX_TEXT_LENGTH]
     
     # 프롬프트 구성
+    # ElevenLabs 무료 티어 제한 고려: 월 10,000자 = 약 5,000 크레딧
+    # 크레딧 = 문자 수이므로 짧은 대본 생성 필요
     title_context = f"제목: {post_title}\n\n" if post_title else ""
-    prompt = f"""다음 보안 기술 블로그 내용을 5분 내외의 자연스러운 강의 대본으로 요약해줘. 
-구어체로 작성하고, 핵심 내용을 명확하게 전달해줘.
+    prompt = f"""다음 보안 기술 블로그 내용을 3분 내외의 간결한 강의 대본으로 요약해줘. 
+구어체로 작성하고, 핵심 내용만 명확하게 전달해줘.
 
 {title_context}블로그 내용:
 {text}
 
 요구사항:
 - 구어체로 작성 (예: "안녕하세요", "이제", "그런데" 등 자연스러운 말투)
-- 핵심 내용을 명확하게 전달
-- 5분 내외 분량 (약 800-1000자)
+- 핵심 내용만 간결하게 전달 (불필요한 설명 생략)
+- 3분 내외 분량 (약 500-700자, 최대 800자)
 - 기술 용어는 정확하게 사용
-- 한국어로 작성"""
+- 한국어로 작성
+- 크레딧 절약을 위해 가능한 한 짧게 작성"""
     
     # 재시도 로직 (최대 3회)
     max_retries = 3
@@ -395,6 +400,17 @@ def text_to_speech(script: str, output_path: Path) -> bool:
             try:
                 error_detail = e.response.json()
                 log_message(f"   응답 내용: {json.dumps(error_detail, ensure_ascii=False)}", "ERROR")
+                
+                # 크레딧 부족 오류 처리
+                if "detail" in error_detail:
+                    detail = error_detail["detail"]
+                    if isinstance(detail, dict) and detail.get("status") == "quota_exceeded":
+                        message = detail.get("message", "")
+                        log_message(f"⚠️ ElevenLabs 크레딧 부족: {message}", "ERROR")
+                        log_message(f"💡 해결 방법:", "ERROR")
+                        log_message(f"   1. ElevenLabs 대시보드에서 크레딧 확인: https://elevenlabs.io/app/usage", "ERROR")
+                        log_message(f"   2. 대본 길이를 줄이거나 다음 달까지 대기", "ERROR")
+                        log_message(f"   3. 유료 플랜으로 업그레이드 고려", "ERROR")
             except:
                 log_message(f"   응답 내용: {e.response.text[:200]}", "ERROR")
         return False
