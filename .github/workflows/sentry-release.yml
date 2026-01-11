@@ -48,28 +48,106 @@ jobs:
           # Token 존재 확인
           if [ -z "$SENTRY_AUTH_TOKEN" ]; then
             echo "❌ SENTRY_AUTH_TOKEN is not set in GitHub Secrets"
+            echo ""
+            echo "💡 해결 방법:"
+            echo "1. Sentry 대시보드에서 Auth Token 생성:"
+            echo "   https://sentry.io/settings/account/api/auth-tokens/"
+            echo "2. Token 생성 시 다음 권한 선택:"
+            echo "   - project:read"
+            echo "   - project:releases"
+            echo "   - org:read"
+            echo "3. 생성된 Token을 GitHub Secrets에 추가:"
+            echo "   Settings > Secrets and variables > Actions > New repository secret"
+            echo "   Name: SENTRY_AUTH_TOKEN"
+            echo "   Value: [생성한 Token]"
             exit 1
           fi
           
-          # Sentry API 연결 테스트
+          # Token 형식 확인
+          if [[ ! "$SENTRY_AUTH_TOKEN" =~ ^sntryu_ ]]; then
+            echo "⚠️  Token 형식이 올바르지 않습니다 (sntryu_로 시작해야 함)"
+            echo "   현재 Token: ${SENTRY_AUTH_TOKEN:0:20}..."
+          fi
+          
+          # Sentry API 연결 테스트 (프로젝트 정보 조회)
           echo "🔗 Testing Sentry API connection..."
-          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
             -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
             -H "Content-Type: application/json" \
             "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/")
           
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+          
           if [ "$HTTP_CODE" = "200" ]; then
             echo "✅ Successfully connected to Sentry API"
-          elif [ "$HTTP_CODE" = "401" ] || [ "$HTTP_CODE" = "403" ]; then
-            echo "❌ Authentication failed (HTTP $HTTP_CODE)"
-            echo "   Please check token permissions (project:releases required)"
+            echo "✅ Project access verified"
+            
+            # Token 권한 확인 (releases API 테스트)
+            echo "🔍 Checking token permissions for releases..."
+            RELEASE_TEST_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+              -H "Content-Type: application/json" \
+              -X GET \
+              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/")
+            
+            if [ "$RELEASE_TEST_CODE" = "200" ] || [ "$RELEASE_TEST_CODE" = "404" ]; then
+              echo "✅ Token has 'project:releases' permission"
+            elif [ "$RELEASE_TEST_CODE" = "403" ]; then
+              echo "❌ Token lacks 'project:releases' permission (HTTP 403)"
+              echo ""
+              echo "💡 해결 방법:"
+              echo "1. Sentry 대시보드에서 기존 Token 수정 또는 새 Token 생성:"
+              echo "   https://sentry.io/settings/account/api/auth-tokens/"
+              echo "2. Token 생성/수정 시 다음 권한을 반드시 선택:"
+              echo "   ✅ project:read"
+              echo "   ✅ project:releases (필수!)"
+              echo "   ✅ org:read"
+              echo "3. 새 Token을 GitHub Secrets에 업데이트:"
+              echo "   Settings > Secrets and variables > Actions > SENTRY_AUTH_TOKEN > Update"
+              exit 1
+            else
+              echo "⚠️  Unexpected response when checking releases permission (HTTP $RELEASE_TEST_CODE)"
+            fi
+          elif [ "$HTTP_CODE" = "401" ]; then
+            echo "❌ Authentication failed (HTTP 401)"
+            echo "   Token이 유효하지 않거나 만료되었습니다."
+            echo ""
+            echo "💡 해결 방법:"
+            echo "1. Sentry 대시보드에서 새 Token 생성:"
+            echo "   https://sentry.io/settings/account/api/auth-tokens/"
+            echo "2. GitHub Secrets의 SENTRY_AUTH_TOKEN 업데이트"
+            exit 1
+          elif [ "$HTTP_CODE" = "403" ]; then
+            echo "❌ Access denied (HTTP 403)"
+            echo "   Token에 프로젝트 접근 권한이 없습니다."
+            echo ""
+            echo "💡 해결 방법:"
+            echo "1. Sentry 대시보드에서 Token 권한 확인:"
+            echo "   https://sentry.io/settings/account/api/auth-tokens/"
+            echo "2. 다음 권한이 선택되어 있는지 확인:"
+            echo "   ✅ project:read"
+            echo "   ✅ project:releases"
+            echo "   ✅ org:read"
+            echo "3. Organization 및 Project 이름 확인:"
+            echo "   Organization: $SENTRY_ORG"
+            echo "   Project: $SENTRY_PROJECT"
             exit 1
           elif [ "$HTTP_CODE" = "404" ]; then
-            echo "❌ Project not found (HTTP $HTTP_CODE)"
-            echo "   Please verify org: $SENTRY_ORG, project: $SENTRY_PROJECT"
+            echo "❌ Project not found (HTTP 404)"
+            echo "   Organization 또는 Project 이름이 올바르지 않습니다."
+            echo ""
+            echo "💡 확인 사항:"
+            echo "1. Organization 이름: $SENTRY_ORG"
+            echo "2. Project 이름: $SENTRY_PROJECT"
+            echo "3. Sentry 대시보드에서 정확한 이름 확인:"
+            echo "   https://sentry.io/organizations/$SENTRY_ORG/projects/"
             exit 1
           else
             echo "⚠️  Unexpected response (HTTP $HTTP_CODE)"
+            if [ -n "$BODY" ]; then
+              echo "Response: $BODY"
+            fi
           fi
       
       - name: Check if Release Exists
