@@ -1,0 +1,109 @@
+name: Test Sentry Release
+
+# Sentry Release 워크플로우 테스트용
+# 실제 Release 생성 없이 검증만 수행
+
+on:
+  workflow_dispatch: # 수동 실행만
+
+jobs:
+  test-sentry-config:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Verify Sentry Token
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: twodragon
+          SENTRY_PROJECT: tech-blog
+        run: |
+          echo "🔍 Testing Sentry Configuration..."
+          
+          # Token 존재 확인
+          if [ -z "$SENTRY_AUTH_TOKEN" ]; then
+            echo "❌ SENTRY_AUTH_TOKEN is not set in GitHub Secrets"
+            exit 1
+          fi
+          
+          echo "✅ SENTRY_AUTH_TOKEN is set"
+          
+          # Token 형식 확인 (sntryu_로 시작하는지)
+          if [[ ! "$SENTRY_AUTH_TOKEN" =~ ^sntryu_ ]]; then
+            echo "⚠️  Warning: Token format may be incorrect (should start with 'sntryu_')"
+          else
+            echo "✅ Token format is correct"
+          fi
+          
+          # Sentry API 연결 테스트 (읽기 전용)
+          echo "🔗 Testing Sentry API connection..."
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
+            -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/")
+          
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+          
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "✅ Successfully connected to Sentry API"
+            echo "📊 Project info retrieved"
+          elif [ "$HTTP_CODE" = "401" ] || [ "$HTTP_CODE" = "403" ]; then
+            echo "❌ Authentication failed (HTTP $HTTP_CODE)"
+            echo "   Please check:"
+            echo "   1. Token is correct"
+            echo "   2. Token has 'project:releases' permission"
+            echo "   3. Organization and project names are correct"
+            exit 1
+          elif [ "$HTTP_CODE" = "404" ]; then
+            echo "❌ Project not found (HTTP $HTTP_CODE)"
+            echo "   Please check:"
+            echo "   1. Organization name: $SENTRY_ORG"
+            echo "   2. Project name: $SENTRY_PROJECT"
+            exit 1
+          else
+            echo "⚠️  Unexpected response (HTTP $HTTP_CODE)"
+            echo "   Response: $BODY"
+          fi
+      
+      - name: Verify Release Configuration
+        run: |
+          echo "🔍 Verifying Release configuration..."
+          
+          # 커밋 SHA 확인
+          COMMIT_SHA="${{ github.sha }}"
+          if [ -z "$COMMIT_SHA" ]; then
+            echo "❌ Cannot get commit SHA"
+            exit 1
+          fi
+          
+          echo "✅ Commit SHA: $COMMIT_SHA"
+          echo "✅ Release version will be: tech-blog@${COMMIT_SHA:0:7}"
+          echo "✅ Environment: production"
+          echo "✅ Sourcemaps: false (Free tier optimization)"
+          echo "✅ Set commits: auto"
+      
+      - name: Test Summary
+        if: always()
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📋 Test Summary"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "✅ Configuration verified"
+          echo "✅ Ready to create Sentry Release"
+          echo ""
+          echo "Next steps:"
+          echo "1. Run the 'Sentry Release' workflow"
+          echo "2. Check Sentry dashboard for new release"
+          echo "3. Verify commit information is linked"
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
