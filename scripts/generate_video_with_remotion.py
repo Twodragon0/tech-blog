@@ -229,25 +229,25 @@ def generate_video_with_remotion(
         log_message(f"❌ 썸네일 이미지 복사 실패: {str(e)}", "ERROR")
         return False
     
-        # Remotion render 실행
-        try:
-            log_message("📝 Remotion 렌더링 시작...")
-            
-            # Remotion render 명령 실행
-            # props는 JSON 문자열로 전달
-            props_json = json.dumps({
-                "title": post_title,
-                "thumbnail": thumbnail_filename,
-                "audioPath": audio_filename,
-            }, ensure_ascii=False)
-            
-            cmd = [
-                "npx", "remotion", "render",
-                "BlogVideo",
-                str(output_path),
-                "--props", props_json,
-                "--frames", "0", str(duration_in_frames - 1),
-            ]
+    # Remotion render 실행
+    try:
+        log_message("📝 Remotion 렌더링 시작...")
+        
+        # Remotion render 명령 실행
+        # props는 JSON 문자열로 전달
+        props_json = json.dumps({
+            "title": post_title,
+            "thumbnail": thumbnail_filename,
+            "audioPath": audio_filename,
+        }, ensure_ascii=False)
+        
+        cmd = [
+            "npx", "remotion", "render",
+            "BlogVideo",
+            str(output_path),
+            "--props", props_json,
+            "--frames", "0", str(duration_in_frames - 1),
+        ]
         
         result = subprocess.run(
             cmd,
