@@ -117,16 +117,16 @@
 }
 
 [data-theme="dark"] .post-content pre {
-  background-color: #1e293b;
+  background-color: var(--color-bg-secondary);
   border-color: var(--color-border);
 }
 
 [data-theme="dark"] .post-content code {
-  background-color: #1e293b;
+  background-color: var(--color-bg-secondary);
 }
 
 [data-theme="dark"] .post-content blockquote {
-  background-color: #1e293b;
+  background-color: var(--color-bg-secondary);
   border-left-color: var(--color-primary);
 }
 
@@ -185,11 +185,12 @@ body {
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
-  background-color: var(--color-bg-primary);
   border-bottom: 1px solid var(--color-border);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.9);
   transition: all var(--transition-base);
+  will-change: background-color, backdrop-filter;
 }
 
 [data-theme="dark"] .site-header {
@@ -428,8 +429,8 @@ body {
 }
 
 [data-theme="dark"] .lang-option.active {
-  background-color: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
 }
 
 .lang-option .lang-flag {
@@ -1257,7 +1258,7 @@ body {
 
 [data-theme="dark"] .search-result-title mark {
   background: linear-gradient(120deg, rgba(99, 102, 241, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
-  color: #818cf8;
+  color: var(--color-primary);
 }
 
 /* Footer */
@@ -1432,13 +1433,13 @@ body {
 }
 
 .translate-status.success {
-  color: #16a34a;
-  background: #dcfce7;
+  color: var(--color-success);
+  background: rgba(16, 185, 129, 0.1);
 }
 
 .translate-status.error {
-  color: #dc2626;
-  background: #fee2e2;
+  color: var(--color-error);
+  background: rgba(239, 68, 68, 0.1);
 }
 
 [data-theme="dark"] .translate-status.loading {
@@ -1600,47 +1601,47 @@ body {
 
 /* Dark mode link improvements */
 [data-theme="dark"] .post-content a {
-  color: #60a5fa;
+  color: var(--color-primary);
 }
 
 [data-theme="dark"] .post-content a:hover {
-  color: #93c5fd;
+  color: var(--color-primary-hover);
 }
 
 /* General links in dark mode */
 [data-theme="dark"] a {
-  color: #60a5fa;
+  color: var(--color-primary);
 }
 
 [data-theme="dark"] a:hover {
-  color: #93c5fd;
+  color: var(--color-primary-hover);
 }
 
 /* Discussion page links */
 [data-theme="dark"] .discussion-page a {
-  color: #60a5fa;
+  color: var(--color-primary);
 }
 
 [data-theme="dark"] .discussion-page a:hover {
-  color: #93c5fd;
+  color: var(--color-primary-hover);
 }
 
 /* Card links in dark mode */
 [data-theme="dark"] .card a {
-  color: #60a5fa;
+  color: var(--color-primary);
 }
 
 [data-theme="dark"] .card a:hover {
-  color: #93c5fd;
+  color: var(--color-primary-hover);
 }
 
 /* All links in dark mode - ensure visibility */
 [data-theme="dark"] a:not(.btn):not(.nav-link):not(.tag):not(.post-card) {
-  color: #60a5fa;
+  color: var(--color-primary);
 }
 
 [data-theme="dark"] a:not(.btn):not(.nav-link):not(.tag):not(.post-card):hover {
-  color: #93c5fd;
+  color: var(--color-primary-hover);
 }
 
 .post-content img {
@@ -1785,6 +1786,8 @@ body {
   width: 0%;
   z-index: 9999;
   transition: width 0.1s ease;
+  will-change: width;
+  pointer-events: none;
 }
 
 /* Share Buttons */
@@ -2174,7 +2177,7 @@ body {
   z-index: 10000;
   padding: var(--spacing-sm) var(--spacing-lg);
   background: var(--color-primary);
-  color: #ffffff;
+  color: white;
   font-weight: 600;
   font-size: var(--font-size-sm);
   text-decoration: none;
@@ -2186,26 +2189,6 @@ body {
 .skip-link:focus {
   top: var(--spacing-md);
   outline: 2px solid var(--color-primary-hover);
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-/* Focus Styles */
-*:focus-visible {
-  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -2333,7 +2316,7 @@ body {
 [data-theme="dark"] .post-content > h2:first-child + blockquote strong,
 [data-theme="dark"] .post-content > blockquote:first-child strong,
 [data-theme="dark"] .ai-summary strong {
-  color: #60a5fa;
+  color: var(--color-primary);
 }
 
 /* Ensure normal blockquotes inside content don't get AI summary styling */
@@ -2904,6 +2887,7 @@ body {
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -3088,7 +3072,9 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 1;
+  will-change: opacity;
 }
 
 .lightbox-content {
@@ -3959,11 +3945,6 @@ body {
     font-size: 0.8125rem;
   }
   
-  .chat-widget-input-container {
-    padding: 0.875rem;
-  }
-}
-
   .chat-widget-input-container {
     padding: 0.875rem;
   }

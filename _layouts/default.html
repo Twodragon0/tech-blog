@@ -19,6 +19,7 @@
   <script>
     // Lazy load chat widget script only when user interacts
     (function() {
+      'use strict';
       let chatWidgetLoaded = false;
       const chatToggle = document.getElementById('chat-widget-toggle');
       
@@ -29,17 +30,24 @@
         const script = document.createElement('script');
         script.src = "{{ "/assets/js/chat-widget.js" | relative_url }}";
         script.defer = true;
+        script.onerror = function() {
+          console.error('[Chat Widget] Failed to load script');
+        };
         document.body.appendChild(script);
       }
       
       // Load on toggle click or after 3 seconds (if user is still on page)
       if (chatToggle) {
-        chatToggle.addEventListener('click', loadChatWidget, { once: true });
+        chatToggle.addEventListener('click', loadChatWidget, { once: true, passive: true });
         
         // Also load after 3 seconds if user hasn't left (non-blocking)
         setTimeout(function() {
-          if (document.visibilityState === 'visible') {
-            requestIdleCallback ? requestIdleCallback(loadChatWidget) : setTimeout(loadChatWidget, 0);
+          if (document.visibilityState === 'visible' && !chatWidgetLoaded) {
+            if (typeof requestIdleCallback !== 'undefined') {
+              requestIdleCallback(loadChatWidget, { timeout: 2000 });
+            } else {
+              setTimeout(loadChatWidget, 0);
+            }
           }
         }, 3000);
       }

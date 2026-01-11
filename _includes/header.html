@@ -1,17 +1,17 @@
 <header class="site-header">
   <div class="container">
     <div class="header-inner">
-      <a href="{{ "/" | relative_url }}" class="site-logo">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <a href="{{ "/" | relative_url }}" class="site-logo" aria-label="홈으로 이동">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           <path d="M9 12l2 2 4-4"/>
         </svg>
         <span>{{ site.title | split: "'" | first }}</span>
       </a>
 
-      <nav class="site-nav">
+      <nav class="site-nav" role="navigation" aria-label="주요 메뉴">
         {% for item in site.navigation %}
-        <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+        <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}" {% if page.url == item.url %}aria-current="page"{% endif %}>
           {{ item.title }}
         </a>
         {% endfor %}
@@ -19,32 +19,32 @@
 
       <div class="nav-actions">
         <div class="lang-dropdown" id="lang-dropdown">
-          <button class="lang-toggle" id="lang-toggle" aria-label="Change language" title="언어 변경">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <button class="lang-toggle" id="lang-toggle" aria-label="언어 변경" aria-expanded="false" aria-haspopup="true" aria-controls="lang-menu" title="언어 변경" type="button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <circle cx="12" cy="12" r="10"/>
               <line x1="2" y1="12" x2="22" y2="12"/>
               <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
             </svg>
           </button>
-          <div class="lang-menu" id="lang-menu">
-            <button class="lang-option active" data-lang="ko">
-              <span class="lang-flag">🇰🇷</span>
+          <div class="lang-menu" id="lang-menu" role="menu" aria-labelledby="lang-toggle">
+            <button class="lang-option active" data-lang="ko" role="menuitem" aria-checked="true" type="button">
+              <span class="lang-flag" aria-hidden="true">🇰🇷</span>
               <span>한국어</span>
             </button>
-            <button class="lang-option" data-lang="en">
-              <span class="lang-flag">🇺🇸</span>
+            <button class="lang-option" data-lang="en" role="menuitem" aria-checked="false" type="button">
+              <span class="lang-flag" aria-hidden="true">🇺🇸</span>
               <span>English</span>
             </button>
-            <button class="lang-option" data-lang="ja">
-              <span class="lang-flag">🇯🇵</span>
+            <button class="lang-option" data-lang="ja" role="menuitem" aria-checked="false" type="button">
+              <span class="lang-flag" aria-hidden="true">🇯🇵</span>
               <span>日本語</span>
             </button>
-            <button class="lang-option" data-lang="zh">
-              <span class="lang-flag">🇨🇳</span>
+            <button class="lang-option" data-lang="zh" role="menuitem" aria-checked="false" type="button">
+              <span class="lang-flag" aria-hidden="true">🇨🇳</span>
               <span>中文</span>
             </button>
-            <a href="#" class="lang-option google-translate-link" id="header-google-translate" target="_blank" rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <a href="#" class="lang-option google-translate-link" id="header-google-translate" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Google 번역으로 이동">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                 <polyline points="15 3 21 3 21 9"/>
                 <line x1="10" y1="14" x2="21" y2="3"/>
@@ -54,8 +54,8 @@
           </div>
         </div>
 
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button class="theme-toggle" id="theme-toggle" aria-label="테마 변경" aria-pressed="false" type="button">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <circle cx="12" cy="12" r="5"/>
             <line x1="12" y1="1" x2="12" y2="3"/>
             <line x1="12" y1="21" x2="12" y2="23"/>
@@ -66,13 +66,13 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
           </svg>
-          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
 
-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <line x1="3" y1="12" x2="21" y2="12"/>
             <line x1="3" y1="6" x2="21" y2="6"/>
             <line x1="3" y1="18" x2="21" y2="18"/>
@@ -82,9 +82,9 @@
     </div>
   </div>
 
-  <nav class="mobile-nav" id="mobile-nav">
+  <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="모바일 메뉴">
     {% for item in site.navigation %}
-    <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+    <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}" {% if page.url == item.url %}aria-current="page"{% endif %}>
       {{ item.title }}
     </a>
     {% endfor %}

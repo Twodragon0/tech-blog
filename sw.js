@@ -18,7 +18,11 @@ const STATIC_ASSETS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(STATIC_CACHE).then((cache) => {
-      return cache.addAll(STATIC_ASSETS);
+      return cache.addAll(STATIC_ASSETS).catch((error) => {
+        // 일부 리소스 캐시 실패해도 계속 진행
+        console.error('[Service Worker] Cache addAll failed:', error);
+        return Promise.resolve();
+      });
     })
   );
   self.skipWaiting();
@@ -32,13 +36,20 @@ self.addEventListener('activate', (event) => {
         cacheNames.map((cacheName) => {
           // 현재 버전이 아닌 모든 캐시 삭제
           if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
-            return caches.delete(cacheName);
+            return caches.delete(cacheName).catch((error) => {
+              // 캐시 삭제 실패 시 로그만 남기고 계속 진행
+              console.error('[Service Worker] Cache delete failed:', error);
+              return Promise.resolve();
+            });
           }
+          return Promise.resolve();
         })
       );
     }).then(() => {
       // 모든 클라이언트에 즉시 적용
       return self.clients.claim();
+    }).catch((error) => {
+      console.error('[Service Worker] Activate failed:', error);
     })
   );
 });
@@ -76,7 +87,7 @@ self.addEventListener('fetch', (event) => {
       .then((response) => {
         // GET 요청이고 성공한 경우에만 캐시
         // POST, PUT, DELETE 등은 절대 캐시하지 않음
-        if (request.method === 'GET' && response.status === 200) {
+        if (request.method === 'GET' && response.status === 200 && response.type === 'basic') {
           // 캐시 가능한 응답인지 확인
           const contentType = response.headers.get('content-type') || '';
           const isCacheable = 
@@ -90,30 +101,49 @@ self.addEventListener('fetch', (event) => {
             const responseClone = response.clone();
             caches.open(DYNAMIC_CACHE).then((cache) => {
               // 안전하게 캐시 저장 (에러 무시)
-              cache.put(request, responseClone).catch(() => {
-                // 캐시 저장 실패 시 무시
+              cache.put(request, responseClone).catch((error) => {
+                // 캐시 저장 실패 시 로그만 남기고 무시
+                if (self.location.hostname === 'localhost' || self.location.hostname === '127.0.0.1') {
+                  console.error('[Service Worker] Cache put failed:', error);
+                }
               });
-            }).catch(() => {
-              // 캐시 열기 실패 시 무시
+            }).catch((error) => {
+              // 캐시 열기 실패 시 로그만 남기고 무시
+              if (self.location.hostname === 'localhost' || self.location.hostname === '127.0.0.1') {
+                console.error('[Service Worker] Cache open failed:', error);
+              }
             });
           }
         }
         return response;
       })
-      .catch(() => {
+      .catch((error) => {
         // 네트워크 실패 시 캐시에서 반환 (GET 요청만)
         if (request.method === 'GET') {
           return caches.match(request).then((cachedResponse) => {
-            return cachedResponse || new Response('Offline', { 
+            if (cachedResponse) {
+              return cachedResponse;
+            }
+            // 캐시에도 없으면 오프라인 메시지 반환
+            return new Response('Offline', { 
               status: 503,
-              headers: { 'Content-Type': 'text/plain' }
+              statusText: 'Service Unavailable',
+              headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+            });
+          }).catch(() => {
+            // 캐시 매칭 실패 시에도 오프라인 메시지 반환
+            return new Response('Offline', { 
+              status: 503,
+              statusText: 'Service Unavailable',
+              headers: { 'Content-Type': 'text/plain; charset=utf-8' }
             });
           });
         }
         // POST 등은 네트워크 오류 그대로 반환 (캐시하지 않음)
         return new Response('Network error', { 
           status: 503,
-          headers: { 'Content-Type': 'text/plain' }
+          statusText: 'Service Unavailable',
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' }
         });
       })
   );

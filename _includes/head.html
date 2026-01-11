@@ -4,9 +4,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Security Headers -->
-  <!-- Note: X-Frame-Options는 HTTP 헤더로만 설정 가능하므로 메타 태그에서 제거됨 -->
-  <!-- 서버 설정에서 X-Frame-Options: SAMEORIGIN 헤더를 추가해야 합니다 -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://js.sentry-cdn.com https://browser.sentry-cdn.com; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; font-src 'self'; frame-src https://giscus.app https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://www.google.com; connect-src 'self' https://giscus.app https://api.mymemory.translated.net https://api.deepseek.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://csi.gstatic.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://o4510686170710016.ingest.us.sentry.io https://*.ingest.sentry.io https://browser.sentry-cdn.com;">
+  <!-- 
+    보안 헤더 설정:
+    - X-Frame-Options: HTTP 헤더로만 설정 가능 (서버 설정 필요)
+    - CSP: Google Ads 등 외부 스크립트 호환성을 위해 'unsafe-eval' 허용
+      ⚠️ 보안 고려사항: 'unsafe-eval'은 보안 위험이 있지만, Google Ads 등 외부 스크립트가 
+      eval()을 사용하므로 호환성을 위해 허용. 가능한 한 외부 스크립트 사용을 최소화하는 것이 권장됨.
+    - X-Content-Type-Options: MIME 타입 스니핑 방지
+    - Referrer Policy: 크로스 오리진 요청 시 referrer 정보 제한
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://js.sentry-cdn.com https://browser.sentry-cdn.com; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; font-src 'self'; frame-src https://giscus.app https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://www.google.com; connect-src 'self' https://giscus.app https://api.mymemory.translated.net https://api.deepseek.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://csi.gstatic.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://o4510686170710016.ingest.us.sentry.io https://*.ingest.sentry.io https://browser.sentry-cdn.com;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
