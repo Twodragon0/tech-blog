@@ -2,12 +2,16 @@
 """
 포스팅 이미지 자동 생성 스크립트
 포스팅 파일을 분석하여 적절한 이미지 생성 프롬프트를 생성하고,
-이미지가 없으면 Gemini API를 사용하여 이미지를 생성합니다.
+이미지가 없으면 Gemini API를 사용하여 실제 이미지를 생성합니다.
+Gemini 2.5 Flash Image (Nano Banana) 또는 Gemini 3 Pro Image (Nano Banana Pro) 모델 사용.
 """
 
 import os
 import re
 import sys
+import json
+import base64
+import time
 import frontmatter
 import requests
 from pathlib import Path
@@ -18,9 +22,18 @@ PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
 IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
 
+# 이미지 디렉토리 생성
+IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+
 # Gemini API 설정
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-GEMINI_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent"
+# Gemini 2.5 Flash Image (Nano Banana) - 이미지 생성 전용 모델
+GEMINI_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent"
+# 대체 모델: Gemini 3 Pro Image (Nano Banana Pro) - 더 높은 품질
+GEMINI_IMAGE_PRO_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent"
+
+# 모델 선택 (환경 변수로 제어 가능)
+USE_PRO_MODEL = os.getenv("USE_GEMINI_PRO_IMAGE", "false").lower() == "true"
 
 
 def _validate_masked_text(text: str) -> bool:
@@ -227,58 +240,69 @@ def generate_image_prompt(post_info: Dict) -> str:
     elif excerpt:
         content_summary = excerpt[:200]  # 최대 200자
     
-    # 프롬프트 생성
+    # 프롬프트 생성 (GEMINI_IMAGE_GUIDE.md 가이드라인 반영)
     prompt = f"""Create a nano banana style illustration for a tech blog post.
 
 Title: {title}
 Category: {category}
 Content Summary: {content_summary}
 
-Requirements:
+Style Requirements:
 - Style: {style}
 - Colors: {colors}
-- Layout: horizontal, optimized for blog post (1200x800px recommended)
-- Include: Korean labels for key components (if applicable)
+- Layout: horizontal, optimized for blog post header image (1200x800px recommended, 300 DPI)
+- Include: Korean labels for key components (if applicable and readable)
 - Professional and modern design
 - Clean and minimalist aesthetic
 - Suitable for technical blog post header image
+- High resolution for clarity
+- Consistent with tech blog visual identity
+
+Visual Elements:
+- Represent the main topic: {title}
+- Use appropriate icons, diagrams, or illustrations based on category
+- Maintain visual consistency with nano banana style
+- Professional tech blog aesthetic
+- Clear and readable design
 
 The image should visually represent the main topic: {title}
+Focus on creating an engaging, professional header image that captures the essence of the blog post.
 """
     
     return prompt.strip()
 
 
-def generate_image_with_gemini(prompt: str, output_path: Path) -> bool:
-    """Gemini API를 사용하여 이미지 생성 (프롬프트 생성만 지원)"""
+def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int = 3) -> bool:
+    """Gemini API를 사용하여 실제 이미지 생성 (재시도 로직 포함)"""
     if not GEMINI_API_KEY:
         log_message("Gemini API 키가 없어 이미지 생성을 건너뜁니다.", "WARNING")
         log_message("프롬프트를 파일로 저장합니다.", "INFO")
         return False
     
-    try:
+    for attempt in range(1, max_retries + 1):
+        try:
+            if attempt > 1:
+                wait_time = 2 ** (attempt - 1)  # 지수 백오프: 2초, 4초, 8초
+                log_message(f"🔄 재시도 {attempt}/{max_retries} (대기: {wait_time}초)...", "WARNING")
+                time.sleep(wait_time)
+        # 모델 선택
+        api_url = GEMINI_IMAGE_PRO_API_URL if USE_PRO_MODEL else GEMINI_IMAGE_API_URL
+        url = f"{api_url}?key={GEMINI_API_KEY}"
+        
         log_message("🎨 Gemini API로 이미지 생성 시도 중...")
+        log_message(f"   모델: {'Gemini 3 Pro Image (Nano Banana Pro)' if USE_PRO_MODEL else 'Gemini 2.5 Flash Image (Nano Banana)'}")
         
-        url = f"{GEMINI_IMAGE_API_URL}?key={GEMINI_API_KEY}"
-        
+        # Gemini 이미지 생성 API 요청
         data = {
             "contents": [{
                 "parts": [{
-                    "text": f"""You are an expert at creating detailed image generation prompts for technical blog posts.
-
-Generate a detailed prompt for creating a professional tech blog illustration based on the following requirements:
-
-{prompt}
-
-Please provide a refined, detailed prompt that can be used with image generation tools like DALL-E, Midjourney, or Stable Diffusion.
-The prompt should be specific, include technical details, and follow the nano banana style guidelines."""
+                    "text": prompt
                 }]
             }],
             "generationConfig": {
                 "temperature": 0.7,
                 "topK": 40,
                 "topP": 0.95,
-                "maxOutputTokens": 2000
             }
         }
         
@@ -286,59 +310,122 @@ The prompt should be specific, include technical details, and follow the nano ba
         
         if response.status_code == 200:
             result = response.json()
+            
+            # Gemini API 응답에서 이미지 데이터 추출
             if "candidates" in result and len(result["candidates"]) > 0:
-                refined_prompt = result["candidates"][0]["content"]["parts"][0]["text"]
+                candidate = result["candidates"][0]
                 
-                # 프롬프트를 파일로 저장
-                # 보안: 프롬프트에 민감 정보가 포함될 수 있으므로 마스킹
-                prompt_file = output_path.parent / f"{output_path.stem}_prompt.txt"
-                # 프롬프트 마스킹 (API 응답에 민감 정보가 포함될 수 있음)
-                safe_refined_prompt = mask_sensitive_info(refined_prompt)
-                safe_prompt = mask_sensitive_info(prompt)
+                # 이미지 데이터가 parts에 포함되어 있을 수 있음
+                if "content" in candidate and "parts" in candidate["content"]:
+                    for part in candidate["content"]["parts"]:
+                        # 이미지 데이터가 base64로 인코딩되어 있을 수 있음
+                        if "inlineData" in part:
+                            image_data = part["inlineData"]["data"]
+                            image_mime_type = part["inlineData"]["mimeType"]
+                            
+                            # base64 디코딩
+                            try:
+                                image_bytes = base64.b64decode(image_data)
+                                
+                                # 이미지 저장 (MIME 타입에 따라 확장자 결정)
+                                if "png" in image_mime_type:
+                                    output_path = output_path.with_suffix(".png")
+                                elif "jpeg" in image_mime_type or "jpg" in image_mime_type:
+                                    output_path = output_path.with_suffix(".jpg")
+                                
+                                with open(output_path, "wb") as f:
+                                    f.write(image_bytes)
+                                
+                                log_message(f"✅ 이미지 생성 완료: {output_path.name} ({len(image_bytes)} bytes)", "SUCCESS")
+                                return True
+                            except Exception as e:
+                                log_message(f"❌ 이미지 디코딩 실패: {str(e)}", "ERROR")
+                                return False
+                        
+                        # 또는 이미지 URL이 제공될 수 있음
+                        if "url" in part:
+                            image_url = part["url"]
+                            log_message(f"📥 이미지 URL 받음, 다운로드 중: {image_url}")
+                            
+                            # 이미지 다운로드
+                            img_response = requests.get(image_url, timeout=60)
+                            if img_response.status_code == 200:
+                                with open(output_path, "wb") as f:
+                                    f.write(img_response.content)
+                                log_message(f"✅ 이미지 다운로드 완료: {output_path.name}", "SUCCESS")
+                                return True
+                            else:
+                                log_message(f"❌ 이미지 다운로드 실패: {img_response.status_code}", "ERROR")
+                                return False
                 
-                # 보안: 검증된 안전한 텍스트만 파일에 기록
-                if _validate_masked_text(safe_refined_prompt) and _validate_masked_text(safe_prompt):
-                    # Security: Build safe content with validated text
-                    safe_content = f"# Image Generation Prompt\n\n"
-                    safe_content += f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-                    safe_content += f"Output: {output_path.name}\n\n"
-                    safe_content += "=" * 80 + "\n"
-                    safe_content += "REFINED PROMPT:\n"
-                    safe_content += "=" * 80 + "\n\n"
-                    safe_content += safe_refined_prompt
-                    safe_content += "\n\n"
-                    safe_content += "=" * 80 + "\n"
-                    safe_content += "ORIGINAL PROMPT:\n"
-                    safe_content += "=" * 80 + "\n\n"
-                    safe_content += safe_prompt
+                # 응답 형식이 다른 경우 (텍스트로 이미지 생성 프롬프트가 반환될 수 있음)
+                if "text" in candidate.get("content", {}).get("parts", [{}])[0]:
+                    text_response = candidate["content"]["parts"][0]["text"]
+                    log_message(f"⚠️ Gemini API가 텍스트 응답을 반환했습니다. 프롬프트로 저장합니다.", "WARNING")
                     
-                    # Security: Use dedicated function for validated safe text
-                    _write_validated_safe_text(prompt_file, safe_content)
-                else:
-                    # 검증 실패 시 안전한 메시지만 기록
-                    safe_blocked_content = f"# Image Generation Prompt\n\n"
-                    safe_blocked_content += f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-                    safe_blocked_content += f"Output: {output_path.name}\n\n"
-                    safe_blocked_content += "[프롬프트 내용이 보안상 차단되었습니다]\n"
-                    _write_validated_safe_text(prompt_file, safe_blocked_content)
-                
-                log_message(f"✅ 프롬프트 파일 저장 완료: {prompt_file}", "SUCCESS")
-                log_message("⚠️ Gemini API는 직접 이미지를 생성하지 않습니다.", "WARNING")
-                log_message("💡 위 프롬프트를 사용하여 DALL-E, Midjourney, 또는 Stable Diffusion으로 이미지를 생성하세요.", "INFO")
-                return False
-            else:
-                log_message("⚠️ Gemini API 응답에 후보가 없습니다.", "WARNING")
-                return False
+                    # 프롬프트를 파일로 저장
+                    prompt_file = output_path.parent / f"{output_path.stem}_prompt.txt"
+                    safe_text_response = mask_sensitive_info(text_response)
+                    safe_prompt = mask_sensitive_info(prompt)
+                    
+                    # 보안: 검증된 안전한 텍스트만 파일에 기록
+                    if _validate_masked_text(safe_text_response) and _validate_masked_text(safe_prompt):
+                        safe_content = f"# Image Generation Prompt\n\n"
+                        safe_content += f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+                        safe_content += f"Output: {output_path.name}\n\n"
+                        safe_content += "=" * 80 + "\n"
+                        safe_content += "REFINED PROMPT:\n"
+                        safe_content += "=" * 80 + "\n\n"
+                        safe_content += safe_text_response
+                        safe_content += "\n\n"
+                        safe_content += "=" * 80 + "\n"
+                        safe_content += "ORIGINAL PROMPT:\n"
+                        safe_content += "=" * 80 + "\n\n"
+                        safe_content += safe_prompt
+                        
+                        _write_validated_safe_text(prompt_file, safe_content)
+                        log_message(f"✅ 프롬프트 파일 저장 완료: {prompt_file}", "SUCCESS")
+                    else:
+                        log_message("⚠️ 프롬프트 내용이 보안상 차단되었습니다.", "WARNING")
+                    
+                    return False
+            
+            log_message("⚠️ Gemini API 응답에 이미지 데이터가 없습니다.", "WARNING")
+            log_message(f"   응답: {json.dumps(result, indent=2, ensure_ascii=False)[:500]}...")
+            return False
         else:
+            error_text = response.text[:500] if response.text else "No error message"
             log_message(f"⚠️ Gemini API 호출 실패: HTTP {response.status_code}", "WARNING")
+            log_message(f"   오류: {error_text}", "WARNING")
+            
+            # 404 오류인 경우 모델이 지원되지 않을 수 있음
             if response.status_code == 404:
-                log_message("💡 Gemini API는 이미지 생성 기능을 직접 지원하지 않습니다.", "INFO")
+                log_message("💡 Gemini 이미지 생성 모델이 지원되지 않을 수 있습니다.", "INFO")
+                log_message("💡 환경 변수 USE_GEMINI_PRO_IMAGE=false로 설정하여 Flash 모델을 시도해보세요.", "INFO")
                 log_message("💡 프롬프트를 파일로 저장합니다.", "INFO")
+            
             return False
             
-    except Exception as e:
-        log_message(f"⚠️ 이미지 생성 중 오류: {str(e)}", "WARNING")
-        return False
+        except requests.exceptions.Timeout:
+            if attempt < max_retries:
+                log_message(f"⏱️ 타임아웃 발생, 재시도 예정...", "WARNING")
+                continue
+            log_message(f"❌ 이미지 생성 타임아웃 (120초 초과, {max_retries}회 시도)", "ERROR")
+            return False
+        except requests.exceptions.RequestException as e:
+            if attempt < max_retries:
+                log_message(f"🔄 네트워크 오류 발생, 재시도 예정...", "WARNING")
+                continue
+            log_message(f"❌ 네트워크 오류: {str(e)}", "ERROR")
+            return False
+        except Exception as e:
+            if attempt < max_retries:
+                log_message(f"🔄 오류 발생, 재시도 예정: {str(e)[:100]}", "WARNING")
+                continue
+            log_message(f"⚠️ 이미지 생성 중 오류: {str(e)}", "WARNING")
+            return False
+    
+    return False
 
 
 def save_prompt_file(prompt: str, output_path: Path):
