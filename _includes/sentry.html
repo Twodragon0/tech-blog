@@ -20,11 +20,12 @@
   3. DSN은 Loader Script에 포함되어 있음
 -->
 
-<!-- Sentry Loader Script (페이지 상단에 위치) -->
+<!-- Sentry Loader Script (페이지 상단에 위치 - 에러 추적을 위해 빠른 로딩 필요) -->
 <!-- 실제 Loader Script URL은 Sentry 프로젝트 설정에서 확인하세요 -->
 <script
   src="https://js.sentry-cdn.com/YOUR_SENTRY_DSN.min.js"
   crossorigin="anonymous"
+  async
 ></script>
 
 <!-- Sentry 초기화 (Loader Script 로드 후 실행) -->

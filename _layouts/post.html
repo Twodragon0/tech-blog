@@ -14,7 +14,7 @@ layout: default
       {% else %}
         {% assign image_alt_text = page.title | escape %}
       {% endif %}
-      <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in; aspect-ratio: 16/9; object-fit: cover;" onerror="this.style.display='none';">
+      <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in; aspect-ratio: 16/9; object-fit: cover;" onerror="this.style.display='none';" sizes="(max-width: 768px) 100vw, 1200px">
     </div>
     {% endif %}
 

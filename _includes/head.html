@@ -123,15 +123,15 @@
   {% comment %}OG 이미지는 메타 태그로만 사용하고, preload는 하지 않음{% endcomment %}
 
   <!-- DNS Prefetch and Preconnect for External Resources (TTFB 최적화) -->
-  <!-- Critical resources: preconnect (DNS + TCP + TLS) -->
-  <link rel="preconnect" href="https://giscus.app" crossorigin>
-  <link rel="preconnect" href="https://api.deepseek.com" crossorigin>
-  <link rel="preconnect" href="https://va.vercel-scripts.com" crossorigin>
+  <!-- Critical resources: preconnect (DNS + TCP + TLS) - Sentry는 에러 추적을 위해 빠른 로딩 필요 -->
   <link rel="preconnect" href="https://js.sentry-cdn.com" crossorigin>
-  <!-- Non-critical resources: dns-prefetch only -->
+  <!-- Non-critical resources: dns-prefetch only (지연 로딩되는 리소스) -->
+  <link rel="dns-prefetch" href="https://giscus.app">
+  <link rel="dns-prefetch" href="https://api.deepseek.com">
   <link rel="dns-prefetch" href="https://api.mymemory.translated.net">
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://va.vercel-scripts.com">
   
   {% if page.layout == 'post' and page.image %}
   <!-- Preload critical post image -->
@@ -155,6 +155,16 @@
     /* Critical above-the-fold styles inline for faster rendering */
     .post-header { opacity: 0; animation: fadeIn 0.3s ease-in forwards; }
     @keyframes fadeIn { to { opacity: 1; } }
+    /* Prevent layout shift for images */
+    .post-image img { display: block; max-width: 100%; height: auto; }
+    .post-content img { max-width: 100%; height: auto; display: block; }
+    /* Critical layout styles */
+    .post-article { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+    .post-title { font-size: 2rem; font-weight: 700; margin: 1rem 0; line-height: 1.2; }
+    .post-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; font-size: 0.875rem; color: var(--text-secondary); }
+    /* Prevent FOUC */
+    body { visibility: hidden; }
+    body.loaded { visibility: visible; }
   </style>
   {% endif %}
 
@@ -163,6 +173,18 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+
+  <!-- Body loaded class for FOUC prevention -->
+  <script>
+    // Mark body as loaded to prevent FOUC
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+      });
+    } else {
+      document.body.classList.add('loaded');
+    }
+  </script>
 
   <!-- Service Worker Registration -->
   <script>
@@ -247,24 +269,48 @@
   </script>
 
   {% if site.google_analytics %}
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <!-- Google Analytics (deferred for performance) -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics }}');
+    // Defer Google Analytics loading until after page load
+    window.addEventListener('load', function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}';
+      document.head.appendChild(script);
+      
+      script.onload = function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}', {
+          'send_page_view': false
+        });
+        // Trigger page view after load
+        gtag('event', 'page_view', {
+          'page_path': window.location.pathname + window.location.search
+        });
+      };
+    });
   </script>
   {% endif %}
 
   {% if site.google_adsense %}
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}" crossorigin="anonymous"></script>
+  <!-- Google AdSense (deferred for performance) -->
+  <script>
+    // Defer AdSense loading until after page load
+    window.addEventListener('load', function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}';
+      script.crossOrigin = 'anonymous';
+      document.head.appendChild(script);
+    });
+  </script>
   {% endif %}
 
   {% seo %}
 
-  <!-- Sentry Error Tracking (최상단에 위치 - 에러 추적 우선) -->
+  <!-- Sentry Error Tracking (최상단에 위치 - 에러 추적 우선, 하지만 스크립트는 defer로 로딩) -->
   {% include sentry.html %}
   
   <!-- Vercel Analytics & Speed Insights (TTFB 최적화: defer 사용, 최하단으로 이동) -->
