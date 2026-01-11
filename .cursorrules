@@ -154,6 +154,61 @@ HTML 형식의 AI 요약 카드 사용 (권장, 기존 마크다운 형식도 �
 
 ## 코드 작성 규칙
 
+### HTML/CSS 코드 품질 규칙
+
+#### CSS 작성 규칙
+- **중복 코드 제거**: 동일한 속성이나 규칙이 중복 선언되지 않도록 주의
+- **CSS 변수 활용**: 하드코딩된 색상 값은 CSS 변수(`var(--color-*)`)로 대체
+- **성능 최적화**: 
+  - 애니메이션이나 트랜지션이 있는 요소에 `will-change` 속성 적절히 사용
+  - `backdrop-filter` 사용 시 `-webkit-backdrop-filter`도 함께 추가 (Safari 호환성)
+- **호환성**: `-webkit-line-clamp` 사용 시 표준 `line-clamp` 속성도 함께 선언
+- **중복 제거 체크리스트**:
+  - 동일한 `@media` 쿼리 블록이 여러 곳에 있는지 확인
+  - 동일한 선택자에 중복된 속성 선언이 있는지 확인
+  - `:focus-visible` 같은 접근성 스타일이 중복되지 않는지 확인
+
+#### HTML 접근성 규칙
+- **ARIA 속성 필수**: 
+  - 네비게이션: `role="navigation"`, `aria-label` 추가
+  - 버튼: `aria-label`, `aria-expanded`, `aria-controls`, `aria-pressed` 등 상황에 맞게 추가
+  - 다이얼로그: `role="dialog"`, `aria-labelledby`, `aria-modal="true"` 추가
+  - 메뉴: `role="menu"`, `role="menuitem"`, `aria-checked` 추가
+  - 로그/동적 콘텐츠: `role="log"`, `aria-live="polite"` 추가
+- **SVG 아이콘**: 모든 장식용 SVG에 `aria-hidden="true"` 추가
+- **버튼 타입**: 모든 버튼에 `type="button"` 명시 (폼 제출 버튼 제외)
+- **활성 링크**: 현재 페이지 링크에 `aria-current="page"` 추가
+- **외부 링크**: `target="_blank"` 사용 시 `rel="noopener noreferrer"` 필수
+- **접근성 체크리스트**:
+  - 모든 인터랙티브 요소에 적절한 ARIA 속성 추가
+  - 스크린 리더 사용자를 고려한 시맨틱 HTML 사용
+  - 키보드 네비게이션 지원 확인
+
+#### JavaScript 코드 품질 규칙
+- **엄격 모드**: 모든 JavaScript 파일 상단에 `'use strict';` 추가
+- **이벤트 리스너**: 가능한 경우 `passive: true` 옵션 추가 (성능 최적화)
+- **에러 핸들링**: 
+  - 모든 비동기 작업에 `.catch()` 핸들러 추가
+  - 개발 환경에서만 상세 로그 출력
+  - 프로덕션 환경에서는 최소한의 로그만 기록
+- **리소스 로딩**: 
+  - `requestIdleCallback` 사용 시 `timeout` 옵션 추가
+  - 스크립트 로드 실패 시 `onerror` 핸들러 추가
+
+#### Service Worker 규칙
+- **에러 핸들링**: 모든 캐시 작업에 에러 핸들링 추가
+- **응답 타입 검증**: `response.type === 'basic'` 확인 후 캐시
+- **개발 환경 로깅**: 개발 환경에서만 에러 로깅 (`self.location.hostname` 확인)
+- **오프라인 응답**: 적절한 HTTP 헤더 포함 (`charset=utf-8`, `statusText`)
+
+#### CSP (Content Security Policy) 규칙
+- **보안 우선**: 기본적으로 `unsafe-eval` 사용 금지
+- **외부 스크립트 호환성**: Google Ads 등 외부 스크립트가 `eval()`을 사용하는 경우:
+  - `unsafe-eval` 허용 시 주석으로 보안 고려사항 명시
+  - 가능한 한 외부 스크립트 사용 최소화 권장
+  - 보안 위험을 인지하고 문서화
+- **CSP 문서화**: CSP 정책 변경 시 주석으로 이유와 보안 고려사항 명시
+
 ### 코드 블록 처리 원칙
 - **가독성 향상**: 긴 코드 블록(10줄 이상 또는 500자 이상)은 GitHub 링크로 대체하고 원본은 주석 처리
 - **짧은 예시 유지**: 짧은 코드 블록(3줄 이상, 10줄 미만)은 유지하되 관련 GitHub 링크 추가
@@ -478,6 +533,11 @@ tech-blog/
 2. 하드코딩된 민감 정보 제거
 3. 주석으로 보안 고려사항 설명
 4. 테스트 가능한 예제 제공
+5. **CSS 중복 코드 확인**: 동일한 속성이나 규칙이 중복되지 않았는지 확인
+6. **CSS 변수 활용**: 하드코딩된 색상 값을 CSS 변수로 대체
+7. **HTML 접근성 확인**: ARIA 속성, SVG aria-hidden, 버튼 type 등 확인
+8. **JavaScript 품질**: 'use strict', 에러 핸들링, 이벤트 리스너 옵션 확인
+9. **Service Worker 안정성**: 에러 핸들링, 응답 타입 검증 확인
 
 ### 모니터링 설정 변경 시
 1. Sentry 로그 레벨 확인 (warn, error만)
@@ -620,6 +680,12 @@ AI 기반 포스팅 개선 시 다음 구조를 따릅니다:
 - [ ] 보안 주석 포함
 - [ ] 최소 권한 원칙 적용
 - [ ] 에러 처리 포함
+- [ ] **CSS 중복 코드 제거**: 동일한 속성이나 규칙이 중복되지 않았는지 확인
+- [ ] **CSS 변수 활용**: 하드코딩된 색상 값을 CSS 변수로 대체했는지 확인
+- [ ] **CSS 성능 최적화**: will-change, -webkit-backdrop-filter 등 적절히 사용
+- [ ] **HTML 접근성**: ARIA 속성, SVG aria-hidden, 버튼 type 등 확인
+- [ ] **JavaScript 품질**: 'use strict', 에러 핸들링, 이벤트 리스너 옵션 확인
+- [ ] **Service Worker 안정성**: 에러 핸들링, 응답 타입 검증 확인
 
 ### Kubernetes 관련 포스트 검토 체크리스트
 - [ ] 최신 Kubernetes 버전 정보 반영 (1.32-1.35)
