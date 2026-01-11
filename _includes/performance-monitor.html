@@ -33,6 +33,13 @@
         lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
       } catch (e) {
         // LCP observer not supported
+        // 실제 에러인 경우에만 Sentry로 전송
+        if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
+          Sentry.captureException(e, {
+            tags: { errorType: 'performance_monitor_lcp' },
+            level: 'warning'
+          });
+        }
       }
 
       // First Input Delay (FID)
@@ -47,6 +54,13 @@
         fidObserver.observe({ entryTypes: ['first-input'] });
       } catch (e) {
         // FID observer not supported
+        // 실제 에러인 경우에만 Sentry로 전송
+        if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
+          Sentry.captureException(e, {
+            tags: { errorType: 'performance_monitor_fid' },
+            level: 'warning'
+          });
+        }
       }
 
       // Cumulative Layout Shift (CLS) - 상세 추적 및 리포트
@@ -183,6 +197,13 @@
         });
       } catch (e) {
         // CLS observer not supported
+        // 실제 에러인 경우에만 Sentry로 전송
+        if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
+          Sentry.captureException(e, {
+            tags: { errorType: 'performance_monitor_cls' },
+            level: 'warning'
+          });
+        }
       }
     }
 
@@ -227,6 +248,13 @@
         resourceObserver.observe({ entryTypes: ['resource'] });
       } catch (e) {
         // Resource observer not supported
+        // 실제 에러인 경우에만 Sentry로 전송
+        if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
+          Sentry.captureException(e, {
+            tags: { errorType: 'performance_monitor_resource' },
+            level: 'warning'
+          });
+        }
       }
     }
   }
