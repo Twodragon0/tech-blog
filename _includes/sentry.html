@@ -43,6 +43,98 @@
 
   // Sentry.onLoad()를 사용하여 초기화 (Loader Script 방식)
   Sentry.onLoad(function() {
+    // localStorage 캐시 및 헬퍼 함수 (프리티어 최적화: 메모리 및 성능)
+    const storageCache = {};
+    const storageHelper = {
+      get: function(key) {
+        if (storageCache[key] !== undefined) {
+          return storageCache[key];
+        }
+        try {
+          const value = localStorage.getItem(key);
+          storageCache[key] = value;
+          return value;
+        } catch (e) {
+          return null;
+        }
+      },
+      set: function(key, value) {
+        try {
+          localStorage.setItem(key, value);
+          storageCache[key] = value;
+          // 캐시 크기 제한 (메모리 최적화)
+          const keys = Object.keys(storageCache);
+          if (keys.length > 20) {
+            delete storageCache[keys[0]];
+          }
+        } catch (e) {
+          // localStorage 접근 실패 시 무시
+        }
+      },
+      remove: function(key) {
+        try {
+          localStorage.removeItem(key);
+          delete storageCache[key];
+        } catch (e) {
+          // 무시
+        }
+      }
+    };
+    
+    // 월간 이벤트 추적 헬퍼 함수 (중복 코드 제거)
+    const monthlyEventTracker = {
+      get: function() {
+        const monthlyEventsKey = 'sentry_monthly_events';
+        const monthlyTimestampKey = 'sentry_monthly_timestamp';
+        const now = Date.now();
+        const oneMonth = 30 * 24 * 60 * 60 * 1000;
+        
+        let monthlyEvents = parseInt(storageHelper.get(monthlyEventsKey) || '0');
+        let monthlyTimestamp = parseInt(storageHelper.get(monthlyTimestampKey) || '0');
+        
+        // 월이 지나면 리셋
+        if ((now - monthlyTimestamp) > oneMonth || monthlyTimestamp === 0) {
+          monthlyEvents = 0;
+          monthlyTimestamp = now;
+          storageHelper.set(monthlyEventsKey, '0');
+          storageHelper.set(monthlyTimestampKey, now.toString());
+        }
+        
+        return {
+          count: monthlyEvents,
+          timestamp: monthlyTimestamp,
+          increment: function() {
+            monthlyEvents++;
+            storageHelper.set(monthlyEventsKey, monthlyEvents.toString());
+            return monthlyEvents;
+          },
+          getDailyLimit: function() {
+            const freeTierLimit = 5000;
+            const daysInMonth = 30;
+            return freeTierLimit / daysInMonth; // 약 166개/일
+          },
+          getExpectedDailyAverage: function() {
+            const now = Date.now();
+            const currentDay = Math.floor((now - monthlyTimestamp) / (24 * 60 * 60 * 1000)) + 1;
+            return monthlyEvents / currentDay;
+          }
+        };
+      }
+    };
+    
+    // User-Agent 해시 처리 (개인정보 보호)
+    const hashUserAgent = function(ua) {
+      if (!ua || ua.length < 10) return 'unknown';
+      // 간단한 해시 (보안: 실제 해시 함수 사용 권장)
+      let hash = 0;
+      for (let i = 0; i < Math.min(ua.length, 50); i++) {
+        const char = ua.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // 32bit 정수로 변환
+      }
+      return 'ua_' + Math.abs(hash).toString(36).substring(0, 8);
+    };
+    
     Sentry.init({
       // 환경 설정
       environment: window.location.hostname === 'tech.2twodragon.com' 
@@ -146,10 +238,10 @@
             event.extra = {};
           }
           event.extra.errorContext = {
-            url: window.location.href,
-            userAgent: navigator.userAgent,
+            url: window.location.href.substring(0, 200), // 길이 제한 (프리티어 최적화)
+            userAgent: hashUserAgent(navigator.userAgent), // 개인정보 보호: 해시 처리
             timestamp: new Date().toISOString(),
-            referrer: document.referrer || 'none'
+            referrer: (document.referrer || 'none').substring(0, 200) // 길이 제한
           };
         }
         
@@ -319,64 +411,64 @@
           }
         }
         
-        // Free 티어 최적화: 중복 에러 그룹핑 최적화
+        // Free 티어 최적화: 중복 에러 그룹핑 최적화 (프리티어 최적화)
         // 동일한 에러가 너무 많이 발생하면 샘플링 (로컬 스토리지 기반)
         const errorKey = event.fingerprint ? event.fingerprint.join('-') : 
                         (event.message || event.exception?.values?.[0]?.value || 'unknown');
-        const errorCountKey = 'sentry_error_count_' + errorKey.substring(0, 50);
-        const errorTimestampKey = 'sentry_error_timestamp_' + errorKey.substring(0, 50);
+        const errorKeyHash = errorKey.substring(0, 40).replace(/[^a-zA-Z0-9]/g, '_'); // 50 → 40으로 감소
+        const errorCountKey = 'se_' + errorKeyHash; // 키 이름 단축 (메모리 최적화)
+        const errorTimestampKey = 'set_' + errorKeyHash;
         
         try {
-          const errorCount = parseInt(localStorage.getItem(errorCountKey) || '0');
-          const lastErrorTime = parseInt(localStorage.getItem(errorTimestampKey) || '0');
+          const errorCount = parseInt(storageHelper.get(errorCountKey) || '0');
+          const lastErrorTime = parseInt(storageHelper.get(errorTimestampKey) || '0');
           const now = Date.now();
           const oneHour = 60 * 60 * 1000;
           
-          // 1시간 이내에 동일한 에러가 10번 이상 발생하면 샘플링 (50%)
-          if (errorCount > 10 && (now - lastErrorTime) < oneHour) {
-            if (Math.random() > 0.5) {
-              return null; // 50% 샘플링
+          // 1시간 이내에 동일한 에러가 8번 이상 발생하면 샘플링 30% (더 공격적, 10 → 8로 감소)
+          if (errorCount > 8 && (now - lastErrorTime) < oneHour) {
+            if (Math.random() > 0.3) {
+              return null; // 70% 샘플링 (50% → 70%로 증가)
             }
           }
           
-          // 에러 카운트 업데이트 (1시간마다 리셋)
+          // 에러 카운트 업데이트
           if ((now - lastErrorTime) > oneHour) {
-            localStorage.setItem(errorCountKey, '1');
+            storageHelper.set(errorCountKey, '1');
           } else {
-            localStorage.setItem(errorCountKey, (errorCount + 1).toString());
+            storageHelper.set(errorCountKey, (errorCount + 1).toString());
           }
-          localStorage.setItem(errorTimestampKey, now.toString());
+          storageHelper.set(errorTimestampKey, now.toString());
         } catch (e) {
-          // localStorage 접근 실패 시 무시 (프라이빗 모드 등)
+          // localStorage 접근 실패 시 무시
         }
         
-        // Free 티어 최적화: 이벤트 크기 제한 강화 (전체 이벤트 크기 제한)
+        // Free 티어 최적화: 이벤트 크기 제한 강화 (프리티어 최적화: 8KB → 6KB)
         const eventSize = JSON.stringify(event).length;
-        const maxEventSize = 8000; // 8KB 제한 (Free 티어 최적화)
+        const maxEventSize = 6000; // 6KB 제한 (8KB → 6KB로 감소)
         
         if (eventSize > maxEventSize) {
           // 이벤트 크기 축소
           if (event.extra) {
             const extraSize = JSON.stringify(event.extra).length;
-            if (extraSize > 2000) {
+            if (extraSize > 1500) { // 2000 → 1500으로 감소
               event.extra = { 
                 message: 'Extra data truncated for Free tier optimization',
-                originalSize: extraSize,
                 truncated: true
               };
             }
           }
           
-          // breadcrumbs 제한
-          if (event.breadcrumbs && event.breadcrumbs.length > 10) {
-            event.breadcrumbs = event.breadcrumbs.slice(-10); // 최근 10개만 유지
+          // breadcrumbs 제한 (10 → 8로 감소)
+          if (event.breadcrumbs && event.breadcrumbs.length > 8) {
+            event.breadcrumbs = event.breadcrumbs.slice(-8);
           }
           
           // contexts 제한
           if (event.contexts) {
             Object.keys(event.contexts).forEach(key => {
               const contextSize = JSON.stringify(event.contexts[key]).length;
-              if (contextSize > 1000) {
+              if (contextSize > 800) { // 1000 → 800으로 감소
                 event.contexts[key] = { message: 'Context data truncated' };
               }
             });
@@ -385,11 +477,11 @@
           // 최종 크기 확인 - 여전히 크면 추가 축소
           const finalSize = JSON.stringify(event).length;
           if (finalSize > maxEventSize) {
-            // 스택 트레이스 프레임 제한
+            // 스택 트레이스 프레임 제한 (20 → 15로 감소)
             if (event.exception?.values) {
               event.exception.values.forEach(exception => {
-                if (exception.stacktrace?.frames && exception.stacktrace.frames.length > 20) {
-                  exception.stacktrace.frames = exception.stacktrace.frames.slice(-20); // 최근 20개만
+                if (exception.stacktrace?.frames && exception.stacktrace.frames.length > 15) {
+                  exception.stacktrace.frames = exception.stacktrace.frames.slice(-15);
                 }
               });
             }
@@ -421,23 +513,23 @@
           log.level = 'warn';
         }
         
-        // 로그 컨텍스트 정보 추가 (페이지, 사용자 액션 등)
+        // 로그 컨텍스트 정보 추가 (페이지, 사용자 액션 등, 프리티어 최적화)
         if (!log.data) {
           log.data = {};
         }
         
-        // 페이지 정보 추가
-        log.data.page = window.location.pathname;
-        log.data.url = window.location.href;
-        log.data.referrer = document.referrer || 'none';
+        // 페이지 정보 추가 (길이 제한으로 비용 절감)
+        log.data.page = window.location.pathname.substring(0, 100);
+        log.data.url = window.location.href.substring(0, 200); // URL 길이 제한
+        log.data.referrer = (document.referrer || 'none').substring(0, 200); // Referrer 길이 제한
         
-        // 사용자 상호작용 정보 추가 (가능한 경우)
+        // 사용자 상호작용 정보 추가 (가능한 경우, 최소한만)
         if (window.performance && window.performance.navigation) {
-          log.data.navigationType = window.performance.navigation.type;
+          log.data.navType = window.performance.navigation.type; // navigationType → navType (키 이름 단축)
         }
         
-        // 타임스탬프 추가
-        log.data.timestamp = new Date().toISOString();
+        // 타임스탬프 추가 (ISO 형식 유지하되 최소한만)
+        log.data.ts = new Date().toISOString(); // timestamp → ts (키 이름 단축)
         
         // 민감 정보 제거
         if (log.message) {
@@ -478,31 +570,32 @@
           log.message = log.message.substring(0, 1000) + '... [truncated]';
         }
         
-        // 동일한 로그가 너무 많이 발생하면 샘플링 (로컬 스토리지 기반)
-        const logKey = log.message ? log.message.substring(0, 100) : 'unknown';
-        const logCountKey = 'sentry_log_count_' + logKey.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 50);
-        const logTimestampKey = 'sentry_log_timestamp_' + logKey.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 50);
+        // 동일한 로그가 너무 많이 발생하면 샘플링 (로컬 스토리지 기반, 프리티어 최적화)
+        const logKey = log.message ? log.message.substring(0, 80) : 'unknown'; // 100 → 80으로 감소 (메모리 최적화)
+        const logKeyHash = logKey.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 40); // 50 → 40으로 감소
+        const logCountKey = 'sl_' + logKeyHash; // 키 이름 단축 (메모리 최적화)
+        const logTimestampKey = 'st_' + logKeyHash;
         
         try {
-          const logCount = parseInt(localStorage.getItem(logCountKey) || '0');
-          const lastLogTime = parseInt(localStorage.getItem(logTimestampKey) || '0');
+          const logCount = parseInt(storageHelper.get(logCountKey) || '0');
+          const lastLogTime = parseInt(storageHelper.get(logTimestampKey) || '0');
           const now = Date.now();
           const oneHour = 60 * 60 * 1000;
           
-          // 1시간 이내에 동일한 로그가 20번 이상 발생하면 샘플링 (30%)
-          if (logCount > 20 && (now - lastLogTime) < oneHour) {
-            if (Math.random() > 0.3) {
-              return null; // 70% 샘플링
+          // 1시간 이내에 동일한 로그가 15번 이상 발생하면 샘플링 20% (더 공격적, 20 → 15로 감소)
+          if (logCount > 15 && (now - lastLogTime) < oneHour) {
+            if (Math.random() > 0.2) {
+              return null; // 80% 샘플링 (70% → 80%로 증가)
             }
           }
           
           // 로그 카운트 업데이트 (1시간마다 리셋)
           if ((now - lastLogTime) > oneHour) {
-            localStorage.setItem(logCountKey, '1');
+            storageHelper.set(logCountKey, '1');
           } else {
-            localStorage.setItem(logCountKey, (logCount + 1).toString());
+            storageHelper.set(logCountKey, (logCount + 1).toString());
           }
-          localStorage.setItem(logTimestampKey, now.toString());
+          storageHelper.set(logTimestampKey, now.toString());
         } catch (e) {
           // localStorage 접근 실패 시 무시
         }
@@ -526,37 +619,28 @@
           return 0.0;
         }
         
-        // 동적 샘플링: 월간 이벤트 수에 따라 자동 조정
+        // 동적 샘플링: 월간 이벤트 수에 따라 자동 조정 (프리티어 최적화)
         try {
-          const monthlyEventsKey = 'sentry_monthly_events';
-          const monthlyTimestampKey = 'sentry_monthly_timestamp';
-          const now = Date.now();
-          const oneMonth = 30 * 24 * 60 * 60 * 1000;
+          const tracker = monthlyEventTracker.get();
+          const freeTierLimit = 5000;
+          const dailyLimit = tracker.getDailyLimit();
+          const expectedDailyAverage = tracker.getExpectedDailyAverage();
           
-          let monthlyEvents = parseInt(localStorage.getItem(monthlyEventsKey) || '0');
-          let monthlyTimestamp = parseInt(localStorage.getItem(monthlyTimestampKey) || '0');
-          
-          // 월이 지나면 리셋
-          if ((now - monthlyTimestamp) > oneMonth || monthlyTimestamp === 0) {
-            monthlyEvents = 0;
-            monthlyTimestamp = now;
-            localStorage.setItem(monthlyEventsKey, '0');
-            localStorage.setItem(monthlyTimestampKey, now.toString());
+          // 90% 이상 사용 시 샘플링 30% (더 공격적)
+          if (tracker.count > freeTierLimit * 0.9) {
+            return 0.3;
           }
-          
-          const freeTierLimit = 5000; // Free 티어 제한
-          const daysInMonth = 30;
-          const dailyLimit = freeTierLimit / daysInMonth; // 약 166개/일
-          const currentDay = Math.floor((now - monthlyTimestamp) / (24 * 60 * 60 * 1000)) + 1;
-          const expectedDailyAverage = monthlyEvents / currentDay;
-          
           // 80% 이상 사용 시 샘플링 50%
-          if (monthlyEvents > freeTierLimit * 0.8) {
+          else if (tracker.count > freeTierLimit * 0.8) {
             return 0.5;
           }
           // 60% 이상 사용 시 샘플링 75%
-          else if (monthlyEvents > freeTierLimit * 0.6) {
+          else if (tracker.count > freeTierLimit * 0.6) {
             return 0.75;
+          }
+          // 일일 평균이 제한의 95% 이상이면 샘플링 85%
+          else if (expectedDailyAverage > dailyLimit * 0.95) {
+            return 0.85;
           }
           // 일일 평균이 제한의 90% 이상이면 샘플링 90%
           else if (expectedDailyAverage > dailyLimit * 0.9) {
@@ -584,8 +668,8 @@
       ],
       
       // Breadcrumbs 강화: 에러 발생 시 관련 로그를 자동으로 연결
-      // 최대 100개의 breadcrumb 저장 (Free 티어 최적화)
-      maxBreadcrumbs: 100,
+      // 최대 50개의 breadcrumb 저장 (프리티어 최적화: 100 → 50으로 감소)
+      maxBreadcrumbs: 50,
       
       // Breadcrumb 타입별 필터링
       beforeBreadcrumb(breadcrumb, hint) {
@@ -614,10 +698,10 @@
           }
         }
         
-        // Breadcrumb에 추가 컨텍스트 정보 추가
+        // Breadcrumb에 추가 컨텍스트 정보 추가 (프리티어 최적화: 최소한만)
         breadcrumb.data = breadcrumb.data || {};
-        breadcrumb.data.page = window.location.pathname;
-        breadcrumb.data.timestamp = new Date().toISOString();
+        breadcrumb.data.page = window.location.pathname.substring(0, 100); // 길이 제한
+        breadcrumb.data.ts = new Date().toISOString(); // timestamp → ts (키 이름 단축)
         
         return breadcrumb;
       },
@@ -634,46 +718,64 @@
       console.log('[Sentry] Initialized successfully');
     }
     
-    // 로그 레벨별 통계 추적 (프로덕션만)
+    // 로그 레벨별 통계 추적 (프로덕션만, 프리티어 최적화: 선택적 전송)
     if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined') {
-      // 로그 통계를 위한 헬퍼 함수
-      window.__sentryLogStats = {
+      // 로그 통계를 위한 헬퍼 함수 (메모리 최적화)
+      const logStats = {
         warn: 0,
         error: 0,
-        lastReset: Date.now()
+        lastReset: Date.now(),
+        // 통계 전송 여부 (프리티어 최적화: 중요 통계만 전송)
+        shouldSend: function() {
+          // warn 또는 error가 10개 이상일 때만 전송 (비용 절감)
+          return this.warn >= 10 || this.error >= 5;
+        }
       };
       
-      // 1시간마다 통계 리셋
-      setInterval(function() {
+      // 1시간마다 통계 리셋 및 전송 (프리티어 최적화)
+      const statsInterval = setInterval(function() {
         const now = Date.now();
         const oneHour = 60 * 60 * 1000;
         
-        if ((now - window.__sentryLogStats.lastReset) > oneHour) {
-          // 통계를 Sentry로 전송 (선택적)
-          if (window.__sentryLogStats.warn > 0 || window.__sentryLogStats.error > 0) {
-            Sentry.metrics.distribution('logs.warn', window.__sentryLogStats.warn, {
-              unit: 'none',
-              tags: {
-                page: window.location.pathname,
-                period: '1h'
-              }
-            });
-            
-            Sentry.metrics.distribution('logs.error', window.__sentryLogStats.error, {
-              unit: 'none',
-              tags: {
-                page: window.location.pathname,
-                period: '1h'
-              }
-            });
+        if ((now - logStats.lastReset) > oneHour) {
+          // 통계를 Sentry로 전송 (조건부, 비용 절감)
+          if (logStats.shouldSend()) {
+            try {
+              // 메트릭은 이벤트로 카운트되지 않지만, 과도한 전송 방지
+              Sentry.metrics.distribution('logs.warn', logStats.warn, {
+                unit: 'none',
+                tags: {
+                  page: window.location.pathname.substring(0, 50), // 길이 제한
+                  period: '1h'
+                }
+              });
+              
+              Sentry.metrics.distribution('logs.error', logStats.error, {
+                unit: 'none',
+                tags: {
+                  page: window.location.pathname.substring(0, 50), // 길이 제한
+                  period: '1h'
+                }
+              });
+            } catch (e) {
+              // 메트릭 전송 실패 시 무시
+            }
           }
           
           // 통계 리셋
-          window.__sentryLogStats.warn = 0;
-          window.__sentryLogStats.error = 0;
-          window.__sentryLogStats.lastReset = now;
+          logStats.warn = 0;
+          logStats.error = 0;
+          logStats.lastReset = now;
         }
       }, 60 * 60 * 1000); // 1시간마다 실행
+      
+      // 전역 접근을 위한 참조 저장 (최소한의 데이터만)
+      window.__sentryLogStats = logStats;
+      
+      // 페이지 언로드 시 정리
+      window.addEventListener('beforeunload', function() {
+        clearInterval(statsInterval);
+      });
     }
     
     // 전역 에러 핸들러 설정 (Unknown error 방지)
@@ -683,19 +785,19 @@
         return;
       }
       
-      // 에러 컨텍스트 수집
+      // 에러 컨텍스트 수집 (프리티어 최적화: 최소한의 데이터만)
       const errorContext = {
-        message: event.message || 'Unknown error',
-        filename: event.filename || 'unknown',
+        message: (event.message || 'Unknown error').substring(0, 200), // 길이 제한
+        filename: (event.filename || 'unknown').substring(0, 100), // 길이 제한
         lineno: event.lineno || 0,
         colno: event.colno || 0,
         error: event.error ? {
           name: event.error.name,
-          message: event.error.message,
-          stack: event.error.stack
+          message: (event.error.message || '').substring(0, 200), // 길이 제한
+          stack: event.error.stack ? event.error.stack.substring(0, 1000) : null // 스택 길이 제한
         } : null,
-        url: window.location.href,
-        userAgent: navigator.userAgent,
+        url: window.location.href.substring(0, 200), // 길이 제한
+        userAgent: hashUserAgent(navigator.userAgent), // 개인정보 보호: 해시 처리
         timestamp: new Date().toISOString()
       };
       
@@ -704,31 +806,14 @@
         const error = event.error || new Error(event.message || 'Unknown error');
         error.__sentry_context__ = errorContext;
         
-        // 월간 이벤트 수 추적 (Free 티어 제한 모니터링)
+        // 월간 이벤트 수 추적 (Free 티어 제한 모니터링, 통합 헬퍼 사용)
         try {
-          const monthlyEventsKey = 'sentry_monthly_events';
-          const monthlyTimestampKey = 'sentry_monthly_timestamp';
-          const now = Date.now();
-          const oneMonth = 30 * 24 * 60 * 60 * 1000;
-          
-          let monthlyEvents = parseInt(localStorage.getItem(monthlyEventsKey) || '0');
-          let monthlyTimestamp = parseInt(localStorage.getItem(monthlyTimestampKey) || '0');
-          
-          // 월이 지나면 리셋
-          if ((now - monthlyTimestamp) > oneMonth || monthlyTimestamp === 0) {
-            monthlyEvents = 0;
-            monthlyTimestamp = now;
-            localStorage.setItem(monthlyEventsKey, '0');
-            localStorage.setItem(monthlyTimestampKey, now.toString());
-          }
-          
-          // 이벤트 수 증가
-          monthlyEvents++;
-          localStorage.setItem(monthlyEventsKey, monthlyEvents.toString());
+          const tracker = monthlyEventTracker.get();
+          const newCount = tracker.increment();
           
           // 80% 이상 사용 시 경고 (개발 환경에서만)
-          if (monthlyEvents > 4000 && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
-            console.warn('[Sentry] Monthly event limit warning:', monthlyEvents, '/ 5000');
+          if (newCount > 4000 && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+            console.warn('[Sentry] Monthly event limit warning:', newCount, '/ 5000');
           }
         } catch (e) {
           // localStorage 접근 실패 시 무시
@@ -742,8 +827,9 @@
           extra: errorContext,
           contexts: {
             browser: {
-              name: navigator.userAgent,
-              version: navigator.appVersion
+              // 개인정보 보호: User-Agent 해시 처리
+              name: hashUserAgent(navigator.userAgent),
+              version: navigator.appVersion ? navigator.appVersion.substring(0, 50) : 'unknown' // 길이 제한
             }
           }
         });
@@ -757,12 +843,12 @@
         return;
       }
       
-      // 에러 컨텍스트 수집
+      // 에러 컨텍스트 수집 (프리티어 최적화: 최소한의 데이터만)
       const errorContext = {
-        message: event.reason ? (event.reason.message || String(event.reason)) : 'Unhandled Promise Rejection',
+        message: (event.reason ? (event.reason.message || String(event.reason)) : 'Unhandled Promise Rejection').substring(0, 200), // 길이 제한
         type: event.reason ? event.reason.constructor.name : 'Unknown',
-        url: window.location.href,
-        userAgent: navigator.userAgent,
+        url: window.location.href.substring(0, 200), // 길이 제한
+        userAgent: hashUserAgent(navigator.userAgent), // 개인정보 보호: 해시 처리
         timestamp: new Date().toISOString()
       };
       
@@ -774,27 +860,9 @@
         
         error.__sentry_context__ = errorContext;
         
-        // 월간 이벤트 수 추적 (Free 티어 제한 모니터링)
+        // 월간 이벤트 수 추적 (Free 티어 제한 모니터링, 통합 헬퍼 사용)
         try {
-          const monthlyEventsKey = 'sentry_monthly_events';
-          const monthlyTimestampKey = 'sentry_monthly_timestamp';
-          const now = Date.now();
-          const oneMonth = 30 * 24 * 60 * 60 * 1000;
-          
-          let monthlyEvents = parseInt(localStorage.getItem(monthlyEventsKey) || '0');
-          let monthlyTimestamp = parseInt(localStorage.getItem(monthlyTimestampKey) || '0');
-          
-          // 월이 지나면 리셋
-          if ((now - monthlyTimestamp) > oneMonth || monthlyTimestamp === 0) {
-            monthlyEvents = 0;
-            monthlyTimestamp = now;
-            localStorage.setItem(monthlyEventsKey, '0');
-            localStorage.setItem(monthlyTimestampKey, now.toString());
-          }
-          
-          // 이벤트 수 증가
-          monthlyEvents++;
-          localStorage.setItem(monthlyEventsKey, monthlyEvents.toString());
+          monthlyEventTracker.get().increment();
         } catch (e) {
           // localStorage 접근 실패 시 무시
         }
@@ -807,8 +875,9 @@
           extra: errorContext,
           contexts: {
             browser: {
-              name: navigator.userAgent,
-              version: navigator.appVersion
+              // 개인정보 보호: User-Agent 해시 처리
+              name: hashUserAgent(navigator.userAgent),
+              version: navigator.appVersion ? navigator.appVersion.substring(0, 50) : 'unknown' // 길이 제한
             }
           }
         });
@@ -851,11 +920,11 @@
             Sentry.logger.warn(message, {
               console: true,
               args: extra,
-              page: window.location.pathname,
+              page: window.location.pathname.substring(0, 100), // 길이 제한 (프리티어 최적화)
               timestamp: new Date().toISOString()
             });
             
-            // 로그 통계 업데이트
+            // 로그 통계 업데이트 (프리티어 최적화: 메모리 효율적)
             if (window.__sentryLogStats) {
               window.__sentryLogStats.warn++;
             }
@@ -893,11 +962,11 @@
             Sentry.logger.error(message, {
               console: true,
               ...errorData,
-              page: window.location.pathname,
+              page: window.location.pathname.substring(0, 100), // 길이 제한 (프리티어 최적화)
               timestamp: new Date().toISOString()
             });
             
-            // 로그 통계 업데이트
+            // 로그 통계 업데이트 (프리티어 최적화: 메모리 효율적)
             if (window.__sentryLogStats) {
               window.__sentryLogStats.error++;
             }
