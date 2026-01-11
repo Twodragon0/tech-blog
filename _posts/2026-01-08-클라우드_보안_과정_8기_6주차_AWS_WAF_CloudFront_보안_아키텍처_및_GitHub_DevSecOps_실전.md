@@ -589,7 +589,7 @@ def mask_sensitive_data(data: Any) -> str:
     return data
 
 # 사용 예시
-api_key = "sk-1234567890abcdefghijklmnopqrstuvwxyz"
+api_key = os.getenv("API_KEY", "YOUR_API_KEY_HERE")  # 환경 변수에서 읽기
 logger.info(f"API Key: {mask_sensitive_data(api_key)}")
 # 출력: API Key: sk-**********************************
 

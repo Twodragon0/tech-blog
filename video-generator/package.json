@@ -1,0 +1,25 @@
+{
+  "name": "blog-video-generator",
+  "version": "1.0.0",
+  "description": "Remotion-based video generator for blog posts",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "render": "remotion render",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.403",
+    "@remotion/lambda": "^4.0.403",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.403"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/web": "^0.0.100",
+    "typescript": "^5.1.6"
+  },
+  "packageManager": "npm@9.0.0"
+}

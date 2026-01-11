@@ -1,0 +1,357 @@
+[2026-01-11 17:46:15] [INFO] ============================================================
+[2026-01-11 17:46:15] [INFO] 블로그 포스팅 → 오디오 변환 시작
+[2026-01-11 17:46:15] [INFO] ============================================================
+[2026-01-11 17:46:15] [INFO] 🔍 ElevenLabs Voice 목록 조회 중...
+[2026-01-11 17:46:15] [INFO] ✅ 21개의 Voice를 찾았습니다.
+[2026-01-11 17:46:15] [INFO] 
+📋 사용 가능한 Voice 목록:
+[2026-01-11 17:46:15] [INFO] ============================================================
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Roger - Laid-Back, Casual, Resonant
+[2026-01-11 17:46:15] [INFO]    ID: CwhRBWXzGAHq8TQ4Fs17
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: Easy going and perfect for casual conversations.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Sarah - Mature, Reassuring, Confident
+[2026-01-11 17:46:15] [INFO]    ID: EXAVITQu4vr4xnSDxMaL
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: Young adult woman with a confident and warm, mature quality and a reassuring, professional tone.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Laura - Enthusiast, Quirky Attitude
+[2026-01-11 17:46:15] [INFO]    ID: FGY2WhTYpPnrIDTdsKH5
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: This young adult female voice delivers sunny enthusiasm with a quirky attitude.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Charlie - Deep, Confident, Energetic
+[2026-01-11 17:46:15] [INFO]    ID: IKne3meq5aSn9XLyUdCD
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: A young Australian male with a confident and energetic voice.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: George - Warm, Captivating Storyteller
+[2026-01-11 17:46:15] [INFO]    ID: JBFqnCBsd6RMkjVDRZzb
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: Warm resonance that instantly captivates listeners.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Callum - Husky Trickster
+[2026-01-11 17:46:15] [INFO]    ID: N2lVS1w4EtoT3dr4eOWO
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: Deceptively gravelly, yet unsettling edge.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: River - Relaxed, Neutral, Informative
+[2026-01-11 17:46:15] [INFO]    ID: SAz9YHcvj6GT2YYXdXww
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: A relaxed, neutral voice ready for narrations or conversational projects.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Harry - Fierce Warrior
+[2026-01-11 17:46:15] [INFO]    ID: SOYHLrjzK2X1ezoPC6cr
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: An animated warrior ready to charge forward.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Liam - Energetic, Social Media Creator
+[2026-01-11 17:46:15] [INFO]    ID: TX3LPaxmHKxFdv7VOQHJ
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: A young adult with energy and warmth - suitable for reels and shorts.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Alice - Clear, Engaging Educator
+[2026-01-11 17:46:15] [INFO]    ID: Xb7hH8MSUJpSbSDYk0k2
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: Clear and engaging, friendly woman with a British accent suitable for e-learning.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Matilda - Knowledgable, Professional
+[2026-01-11 17:46:15] [INFO]    ID: XrExE9yKIg1WjnnlVkGX
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: A professional woman with a pleasing alto pitch. Suitable for many use cases.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Will - Relaxed Optimist
+[2026-01-11 17:46:15] [INFO]    ID: bIHbv24MWmeRgasZH58o
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: Conversational and laid back.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Jessica - Playful, Bright, Warm
+[2026-01-11 17:46:15] [INFO]    ID: cgSgspJ2msm6clMCkdW9
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: Young and popular, this playful American female voice is perfect for trendy content.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Eric - Smooth, Trustworthy
+[2026-01-11 17:46:15] [INFO]    ID: cjVigY5qzO86Huf0OWal
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: A smooth tenor pitch from a man in his 40s - perfect for agentic use cases.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Chris - Charming, Down-to-Earth
+[2026-01-11 17:46:15] [INFO]    ID: iP95p4xoKVk53GoZ742B
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: Natural and real, this down-to-earth voice is great across many use-cases.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Brian - Deep, Resonant and Comforting
+[2026-01-11 17:46:15] [INFO]    ID: nPczCjzI2devNBz1zQrb
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: Middle-aged man with a resonant and comforting tone. Great for narrations and advertisements.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Daniel - Steady Broadcaster
+[2026-01-11 17:46:15] [INFO]    ID: onwK4e9ZLuTAKqWW03F9
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: A strong voice perfect for delivering a professional broadcast or news story.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Lily - Velvety Actress
+[2026-01-11 17:46:15] [INFO]    ID: pFZP5JQG7iQjIQuC4Bku
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: Velvety British female voice delivers news and narrations with warmth and clarity.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Adam - Dominant, Firm
+[2026-01-11 17:46:15] [INFO]    ID: pNInz6obpgDQGcFmaJgB
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: A bright tenor pitch that immediately cuts through. The delivery is brash and openly confident, speaking with unwavering certainty and a slightly aggressive self-assurance.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: Bill - Wise, Mature, Balanced
+[2026-01-11 17:46:15] [INFO]    ID: pqHfZKP75CvOlQylNhV4
+[2026-01-11 17:46:15] [INFO]    카테고리: premade
+[2026-01-11 17:46:15] [INFO]    설명: Friendly and comforting voice ready to narrate your stories.
+[2026-01-11 17:46:15] [INFO] 
+🎤 Voice: New-Man
+[2026-01-11 17:46:15] [INFO]    ID: ***VOICE_ID_MASKED***
+[2026-01-11 17:46:15] [INFO]    카테고리: generated
+[2026-01-11 17:46:15] [INFO]    설명: - "한국어를 구사하는 남성 강의 목소리, 차분하고 명확한 톤, 약간 낮은 음성"
+- "한국어를 구사하는 여성 강의 목소리, 친근하고 밝은 톤, 명확한 발음"
+- "한국어를 구사하는 전문가 목소리, 신뢰감 있고 전문적인 톤"
+[2026-01-11 17:46:15] [INFO] 
+============================================================
+[2026-01-11 17:46:15] [INFO] 💡 Voice ID를 환경 변수에 설정하세요:
+[2026-01-11 17:46:15] [INFO]    export ELEVENLABS_VOICE_ID='your-voice-id'
+[2026-01-11 17:46:21] [INFO] ============================================================
+[2026-01-11 17:46:21] [INFO] 블로그 포스팅 → 오디오 변환 시작
+[2026-01-11 17:46:21] [INFO] ============================================================
+[2026-01-11 17:46:21] [INFO] 🔍 ElevenLabs Voice 목록 조회 중...
+[2026-01-11 17:46:21] [INFO] ✅ 21개의 Voice를 찾았습니다.
+[2026-01-11 17:46:21] [INFO] 
+📋 사용 가능한 Voice 목록:
+[2026-01-11 17:46:21] [INFO] ============================================================
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Roger - Laid-Back, Casual, Resonant
+[2026-01-11 17:46:21] [INFO]    ID: CwhRBWXzGAHq8TQ4Fs17
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: Easy going and perfect for casual conversations.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Sarah - Mature, Reassuring, Confident
+[2026-01-11 17:46:21] [INFO]    ID: EXAVITQu4vr4xnSDxMaL
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: Young adult woman with a confident and warm, mature quality and a reassuring, professional tone.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Laura - Enthusiast, Quirky Attitude
+[2026-01-11 17:46:21] [INFO]    ID: FGY2WhTYpPnrIDTdsKH5
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: This young adult female voice delivers sunny enthusiasm with a quirky attitude.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Charlie - Deep, Confident, Energetic
+[2026-01-11 17:46:21] [INFO]    ID: IKne3meq5aSn9XLyUdCD
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: A young Australian male with a confident and energetic voice.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: George - Warm, Captivating Storyteller
+[2026-01-11 17:46:21] [INFO]    ID: JBFqnCBsd6RMkjVDRZzb
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: Warm resonance that instantly captivates listeners.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Callum - Husky Trickster
+[2026-01-11 17:46:21] [INFO]    ID: N2lVS1w4EtoT3dr4eOWO
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: Deceptively gravelly, yet unsettling edge.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: River - Relaxed, Neutral, Informative
+[2026-01-11 17:46:21] [INFO]    ID: SAz9YHcvj6GT2YYXdXww
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: A relaxed, neutral voice ready for narrations or conversational projects.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Harry - Fierce Warrior
+[2026-01-11 17:46:21] [INFO]    ID: SOYHLrjzK2X1ezoPC6cr
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: An animated warrior ready to charge forward.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Liam - Energetic, Social Media Creator
+[2026-01-11 17:46:21] [INFO]    ID: TX3LPaxmHKxFdv7VOQHJ
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: A young adult with energy and warmth - suitable for reels and shorts.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Alice - Clear, Engaging Educator
+[2026-01-11 17:46:21] [INFO]    ID: Xb7hH8MSUJpSbSDYk0k2
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: Clear and engaging, friendly woman with a British accent suitable for e-learning.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Matilda - Knowledgable, Professional
+[2026-01-11 17:46:21] [INFO]    ID: XrExE9yKIg1WjnnlVkGX
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: A professional woman with a pleasing alto pitch. Suitable for many use cases.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Will - Relaxed Optimist
+[2026-01-11 17:46:21] [INFO]    ID: bIHbv24MWmeRgasZH58o
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: Conversational and laid back.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Jessica - Playful, Bright, Warm
+[2026-01-11 17:46:21] [INFO]    ID: cgSgspJ2msm6clMCkdW9
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: Young and popular, this playful American female voice is perfect for trendy content.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Eric - Smooth, Trustworthy
+[2026-01-11 17:46:21] [INFO]    ID: cjVigY5qzO86Huf0OWal
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: A smooth tenor pitch from a man in his 40s - perfect for agentic use cases.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Chris - Charming, Down-to-Earth
+[2026-01-11 17:46:21] [INFO]    ID: iP95p4xoKVk53GoZ742B
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: Natural and real, this down-to-earth voice is great across many use-cases.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Brian - Deep, Resonant and Comforting
+[2026-01-11 17:46:21] [INFO]    ID: nPczCjzI2devNBz1zQrb
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: Middle-aged man with a resonant and comforting tone. Great for narrations and advertisements.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Daniel - Steady Broadcaster
+[2026-01-11 17:46:21] [INFO]    ID: onwK4e9ZLuTAKqWW03F9
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: A strong voice perfect for delivering a professional broadcast or news story.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Lily - Velvety Actress
+[2026-01-11 17:46:21] [INFO]    ID: pFZP5JQG7iQjIQuC4Bku
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: Velvety British female voice delivers news and narrations with warmth and clarity.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Adam - Dominant, Firm
+[2026-01-11 17:46:21] [INFO]    ID: pNInz6obpgDQGcFmaJgB
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: A bright tenor pitch that immediately cuts through. The delivery is brash and openly confident, speaking with unwavering certainty and a slightly aggressive self-assurance.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: Bill - Wise, Mature, Balanced
+[2026-01-11 17:46:21] [INFO]    ID: pqHfZKP75CvOlQylNhV4
+[2026-01-11 17:46:21] [INFO]    카테고리: premade
+[2026-01-11 17:46:21] [INFO]    설명: Friendly and comforting voice ready to narrate your stories.
+[2026-01-11 17:46:21] [INFO] 
+🎤 Voice: New-Man
+[2026-01-11 17:46:21] [INFO]    ID: ***VOICE_ID_MASKED***
+[2026-01-11 17:46:21] [INFO]    카테고리: generated
+[2026-01-11 17:46:21] [INFO]    설명: - "한국어를 구사하는 남성 강의 목소리, 차분하고 명확한 톤, 약간 낮은 음성"
+- "한국어를 구사하는 여성 강의 목소리, 친근하고 밝은 톤, 명확한 발음"
+- "한국어를 구사하는 전문가 목소리, 신뢰감 있고 전문적인 톤"
+[2026-01-11 17:46:21] [INFO] 
+============================================================
+[2026-01-11 17:46:21] [INFO] 💡 Voice ID를 환경 변수에 설정하세요:
+[2026-01-11 17:46:21] [INFO]    export ELEVENLABS_VOICE_ID='your-voice-id'
+[2026-01-11 17:59:36] [INFO] ============================================================
+[2026-01-11 17:59:36] [INFO] 블로그 포스팅 → 오디오 변환 시작
+[2026-01-11 17:59:36] [INFO] ============================================================
+[2026-01-11 17:59:36] [INFO] 🔍 ElevenLabs Voice 목록 조회 중...
+[2026-01-11 17:59:36] [INFO] ✅ 21개의 Voice를 찾았습니다.
+[2026-01-11 17:59:36] [INFO] 
+📋 사용 가능한 Voice 목록:
+[2026-01-11 17:59:36] [INFO] ============================================================
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Roger - Laid-Back, Casual, Resonant
+[2026-01-11 17:59:36] [INFO]    ID: CwhRBWXzGAHq8TQ4Fs17
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: Easy going and perfect for casual conversations.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Sarah - Mature, Reassuring, Confident
+[2026-01-11 17:59:36] [INFO]    ID: EXAVITQu4vr4xnSDxMaL
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: Young adult woman with a confident and warm, mature quality and a reassuring, professional tone.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Laura - Enthusiast, Quirky Attitude
+[2026-01-11 17:59:36] [INFO]    ID: FGY2WhTYpPnrIDTdsKH5
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: This young adult female voice delivers sunny enthusiasm with a quirky attitude.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Charlie - Deep, Confident, Energetic
+[2026-01-11 17:59:36] [INFO]    ID: IKne3meq5aSn9XLyUdCD
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: A young Australian male with a confident and energetic voice.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: George - Warm, Captivating Storyteller
+[2026-01-11 17:59:36] [INFO]    ID: JBFqnCBsd6RMkjVDRZzb
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: Warm resonance that instantly captivates listeners.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Callum - Husky Trickster
+[2026-01-11 17:59:36] [INFO]    ID: N2lVS1w4EtoT3dr4eOWO
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: Deceptively gravelly, yet unsettling edge.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: River - Relaxed, Neutral, Informative
+[2026-01-11 17:59:36] [INFO]    ID: SAz9YHcvj6GT2YYXdXww
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: A relaxed, neutral voice ready for narrations or conversational projects.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Harry - Fierce Warrior
+[2026-01-11 17:59:36] [INFO]    ID: SOYHLrjzK2X1ezoPC6cr
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: An animated warrior ready to charge forward.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Liam - Energetic, Social Media Creator
+[2026-01-11 17:59:36] [INFO]    ID: TX3LPaxmHKxFdv7VOQHJ
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: A young adult with energy and warmth - suitable for reels and shorts.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Alice - Clear, Engaging Educator
+[2026-01-11 17:59:36] [INFO]    ID: Xb7hH8MSUJpSbSDYk0k2
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: Clear and engaging, friendly woman with a British accent suitable for e-learning.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Matilda - Knowledgable, Professional
+[2026-01-11 17:59:36] [INFO]    ID: XrExE9yKIg1WjnnlVkGX
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: A professional woman with a pleasing alto pitch. Suitable for many use cases.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Will - Relaxed Optimist
+[2026-01-11 17:59:36] [INFO]    ID: bIHbv24MWmeRgasZH58o
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: Conversational and laid back.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Jessica - Playful, Bright, Warm
+[2026-01-11 17:59:36] [INFO]    ID: cgSgspJ2msm6clMCkdW9
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: Young and popular, this playful American female voice is perfect for trendy content.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Eric - Smooth, Trustworthy
+[2026-01-11 17:59:36] [INFO]    ID: cjVigY5qzO86Huf0OWal
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: A smooth tenor pitch from a man in his 40s - perfect for agentic use cases.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Chris - Charming, Down-to-Earth
+[2026-01-11 17:59:36] [INFO]    ID: iP95p4xoKVk53GoZ742B
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: Natural and real, this down-to-earth voice is great across many use-cases.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Brian - Deep, Resonant and Comforting
+[2026-01-11 17:59:36] [INFO]    ID: nPczCjzI2devNBz1zQrb
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: Middle-aged man with a resonant and comforting tone. Great for narrations and advertisements.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Daniel - Steady Broadcaster
+[2026-01-11 17:59:36] [INFO]    ID: onwK4e9ZLuTAKqWW03F9
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: A strong voice perfect for delivering a professional broadcast or news story.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Lily - Velvety Actress
+[2026-01-11 17:59:36] [INFO]    ID: pFZP5JQG7iQjIQuC4Bku
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: Velvety British female voice delivers news and narrations with warmth and clarity.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Adam - Dominant, Firm
+[2026-01-11 17:59:36] [INFO]    ID: pNInz6obpgDQGcFmaJgB
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: A bright tenor pitch that immediately cuts through. The delivery is brash and openly confident, speaking with unwavering certainty and a slightly aggressive self-assurance.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: Bill - Wise, Mature, Balanced
+[2026-01-11 17:59:36] [INFO]    ID: pqHfZKP75CvOlQylNhV4
+[2026-01-11 17:59:36] [INFO]    카테고리: premade
+[2026-01-11 17:59:36] [INFO]    설명: Friendly and comforting voice ready to narrate your stories.
+[2026-01-11 17:59:36] [INFO] 
+🎤 Voice: New-Man
+[2026-01-11 17:59:36] [INFO]    ID: ***VOICE_ID_MASKED***
+[2026-01-11 17:59:36] [INFO]    카테고리: generated
+[2026-01-11 17:59:36] [INFO]    설명: - "한국어를 구사하는 남성 강의 목소리, 차분하고 명확한 톤, 약간 낮은 음성"
+- "한국어를 구사하는 여성 강의 목소리, 친근하고 밝은 톤, 명확한 발음"
+- "한국어를 구사하는 전문가 목소리, 신뢰감 있고 전문적인 톤"
+[2026-01-11 17:59:36] [INFO] 
+============================================================
+[2026-01-11 17:59:36] [INFO] 💡 Voice ID를 환경 변수에 설정하세요:
+[2026-01-11 17:59:36] [INFO]    export ELEVENLABS_VOICE_ID='your-voice-id'

@@ -32,6 +32,13 @@ secrets/
 **/DEEPSEEK_API_KEY
 **/OPENAI_API_KEY
 **/GEMINI_API_KEY
+
+# 캐시 디렉토리
+.cache/
+
+# Gemini OAuth service account keys
+gemini-service-key.json
+*-service-key.json
 **/*_API_KEY
 **/*_SECRET
 **/*_TOKEN

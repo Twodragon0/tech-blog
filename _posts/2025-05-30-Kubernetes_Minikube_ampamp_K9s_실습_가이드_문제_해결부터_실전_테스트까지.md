@@ -434,8 +434,8 @@ metadata:
   name: app-secret
 type: Opaque
 stringData:
-  password: "my-secret-password"
-  api_key: "sk-***MASKED***"
+  password: "YOUR_SECRET_PASSWORD_HERE"  # 실제 비밀번호로 교체
+  api_key: "sk-***MASKED***"  # 실제 API 키로 교체
 ```
 
 ```bash

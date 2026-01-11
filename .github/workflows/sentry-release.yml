@@ -45,14 +45,64 @@ jobs:
           echo "Project: $SENTRY_PROJECT"
           echo "Token: ${SENTRY_AUTH_TOKEN:0:10}..." # 첫 10자만 표시
           
-          # Sentry CLI로 프로젝트 확인 (디버그 모드)
-          if command -v sentry-cli &> /dev/null; then
-            echo "Checking project access..."
-            sentry-cli projects list --org $SENTRY_ORG 2>&1 || echo "sentry-cli not available in runner"
+          # Token 존재 확인
+          if [ -z "$SENTRY_AUTH_TOKEN" ]; then
+            echo "❌ SENTRY_AUTH_TOKEN is not set in GitHub Secrets"
+            exit 1
+          fi
+          
+          # Sentry API 연결 테스트
+          echo "🔗 Testing Sentry API connection..."
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/")
+          
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "✅ Successfully connected to Sentry API"
+          elif [ "$HTTP_CODE" = "401" ] || [ "$HTTP_CODE" = "403" ]; then
+            echo "❌ Authentication failed (HTTP $HTTP_CODE)"
+            echo "   Please check token permissions (project:releases required)"
+            exit 1
+          elif [ "$HTTP_CODE" = "404" ]; then
+            echo "❌ Project not found (HTTP $HTTP_CODE)"
+            echo "   Please verify org: $SENTRY_ORG, project: $SENTRY_PROJECT"
+            exit 1
+          else
+            echo "⚠️  Unexpected response (HTTP $HTTP_CODE)"
+          fi
+      
+      - name: Check if Release Exists
+        id: check_release
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: twodragon
+          SENTRY_PROJECT: tech-blog
+        run: |
+          RELEASE_VERSION="${{ github.sha }}"
+          echo "🔍 Checking if release $RELEASE_VERSION already exists..."
+          
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/")
+          
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "ℹ️  Release $RELEASE_VERSION already exists"
+            echo "exists=true" >> $GITHUB_OUTPUT
+          elif [ "$HTTP_CODE" = "404" ]; then
+            echo "✅ Release $RELEASE_VERSION does not exist, will create new"
+            echo "exists=false" >> $GITHUB_OUTPUT
+          else
+            echo "⚠️  Unexpected response (HTTP $HTTP_CODE), will attempt to create"
+            echo "exists=false" >> $GITHUB_OUTPUT
           fi
       
       - name: Create Sentry Release
+        id: create_release
+        if: steps.check_release.outputs.exists != 'true'
         # Free 티어 최적화: 소스맵 업로드 제외 (비용 절감)
+        continue-on-error: true
         uses: getsentry/action-release@v1
         env:
           # GitHub Secrets에 저장 필요
@@ -70,12 +120,73 @@ jobs:
           set_commits: auto
           # GitHub 통합을 통한 커밋 정보 자동 연결
           ignore_missing: true
+          # 이미 존재하는 릴리스 무시
+          ignore_empty: true
+      
+      - name: Handle Release Creation Result
+        id: handle_release
+        if: always() && steps.create_release.outcome != 'success'
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: twodragon
+          SENTRY_PROJECT: tech-blog
+        run: |
+          RELEASE_VERSION="${{ github.sha }}"
+          echo "⚠️  Release creation had issues, checking final status..."
+          
+          # 최종 상태 확인
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/")
+          
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "✅ Release $RELEASE_VERSION exists (may have been created by another process)"
+            echo "✅ Continuing workflow..."
+            echo "success=true" >> $GITHUB_OUTPUT
+          else
+            echo "❌ Release $RELEASE_VERSION does not exist"
+            echo "❌ Please check the error logs above for details"
+            echo ""
+            echo "Common issues:"
+            echo "1. Token lacks 'project:releases' permission"
+            echo "2. Organization or project name mismatch"
+            echo "3. Rate limiting (free tier)"
+            echo "4. Network/API issues"
+            echo "success=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
       
       - name: Output Release Info
-        if: success()
+        if: always()
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: twodragon
+          SENTRY_PROJECT: tech-blog
         run: |
-          echo "✅ Sentry Release created successfully"
-          echo "Release: ${{ github.sha }}"
-          echo "Environment: production"
-          echo "Project: tech-blog"
-          echo "Org: twodragon"
+          RELEASE_VERSION="${{ github.sha }}"
+          
+          # 최종 릴리스 존재 여부 확인
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/")
+          
+          if [ "$HTTP_CODE" = "200" ]; then
+            if [ "${{ steps.check_release.outputs.exists }}" = "true" ]; then
+              echo "ℹ️  Sentry Release already existed"
+            else
+              echo "✅ Sentry Release created successfully"
+            fi
+            echo ""
+            echo "Release: $RELEASE_VERSION"
+            echo "Environment: production"
+            echo "Project: tech-blog"
+            echo "Org: twodragon"
+            echo ""
+            echo "View release: https://sentry.io/organizations/twodragon/releases/$RELEASE_VERSION/"
+          else
+            echo "❌ Sentry Release not found"
+            echo "Release: $RELEASE_VERSION"
+            echo "HTTP Status: $HTTP_CODE"
+          fi

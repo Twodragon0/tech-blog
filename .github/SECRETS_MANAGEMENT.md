@@ -17,6 +17,21 @@
   - 사용처: `api/chat.js` (Vercel Serverless Function)
   - 참고: Vercel 환경 변수에도 동일하게 설정 필요 (Development, Preview, Production)
 
+### ElevenLabs API 관련
+- `ELEVENLABS_API_KEY`: ElevenLabs Text-to-Speech API 키
+  - 생성 방법: [ElevenLabs Creative Platform](https://elevenlabs.io/app) → Developers → API Keys
+  - 형식: `sk_`로 시작하는 문자열
+  - 권한: Text to Speech (Access)만 활성화 (최소 권한 원칙)
+  - 사용처: `.github/workflows/ai-video-gen.yml`, `scripts/generate_audio.py`
+  - 비용 관리: 월간 크레딧 제한 설정 권장 (ElevenLabs 대시보드에서 설정)
+  - 참고: 무료 티어는 월 10,000자 제한
+
+- `ELEVENLABS_VOICE_ID`: ElevenLabs Voice ID
+  - 생성 방법: ElevenLabs Creative Platform → Voices → Voice 선택 → Voice ID 복사
+  - 또는 Voice Cloning으로 본인 목소리 생성 후 Voice ID 확인
+  - 형식: UUID 문자열
+  - 사용처: `.github/workflows/ai-video-gen.yml`, `scripts/generate_audio.py`
+
 ### Vercel 관련
 - Vercel 대시보드에서 직접 관리 (GitHub Integration 사용 시 자동 동기화)
   - 환경 변수는 Vercel 대시보드에서 설정
@@ -53,6 +68,7 @@
 ### 1. 최소 권한 원칙
 - 각 Secret은 필요한 최소 권한만 부여
 - Sentry Auth Token: `project:releases` 권한만
+- ElevenLabs API Key: Text to Speech (Access)만 활성화
 - GitHub Actions: 필요한 권한만 부여
 
 ### 2. 환경별 분리
@@ -62,10 +78,17 @@
 ### 3. 정기적 로테이션
 - 90일마다 Secrets 로테이션 권장
 - 유출 의심 시 즉시 재생성
+- ElevenLabs API Key: 사용량 모니터링 후 필요시 로테이션
 
 ### 4. 접근 제어
 - Secrets 접근 권한을 최소한의 인원에게만 부여
 - 감사 로그 정기 확인
+
+### 5. 비용 관리 (ElevenLabs)
+- API Key 생성 시 월간 크레딧 제한 설정
+- ElevenLabs 대시보드에서 사용량 모니터링
+- 워크플로우는 수동 실행만 허용 (workflow_dispatch)
+- 긴 포스트는 요약 후 사용하여 비용 절감
 
 ## Secrets 검증
 

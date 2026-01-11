@@ -5,3 +5,9 @@ python-frontmatter>=1.0.0
 lxml>=4.9.0
 tweepy>=4.14.0
 PyYAML>=6.0
+
+# Google OAuth 2.0 및 Gemini API (선택적)
+google-auth>=2.23.0
+google-auth-oauthlib>=1.1.0
+google-auth-httplib2>=0.1.1
+google-generativeai>=0.3.0

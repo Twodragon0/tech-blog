@@ -53,13 +53,50 @@ gh run list --workflow="Test Sentry Release" --limit 1
 gh run view <run-id> --log
 ```
 
+## 🎤 ElevenLabs API 설정
+
+### GitHub CLI로 설정 (권장)
+
+```bash
+cd "/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내 드라이브/tech-blog"
+
+# API Key 설정
+gh secret set ELEVENLABS_API_KEY --body "your-api-key-here"
+
+# Voice ID 설정 (ElevenLabs 대시보드에서 확인)
+gh secret set ELEVENLABS_VOICE_ID --body "your-voice-id-here"
+
+# 확인
+gh secret list | grep -i elevenlabs
+```
+
+### 웹 인터페이스로 설정
+
+1. 저장소 → **Settings** → **Secrets and variables** → **Actions**
+2. **New repository secret** 클릭
+3. Name: `ELEVENLABS_API_KEY` 또는 `ELEVENLABS_VOICE_ID`
+4. Secret 값 입력 후 저장
+
+> 💡 **참고**: 
+> - API Key는 ElevenLabs Creative Platform → Developers → API Keys에서 생성
+> - Voice ID는 Voices 메뉴에서 확인
+> - 자세한 내용은 [ELEVENLABS_SETUP.md](./ELEVENLABS_SETUP.md) 참고
+
 ## 🐛 문제 해결
 
 ### Secret이 보이지 않는 경우
-- Secret 이름이 정확한지 확인: `SENTRY_AUTH_TOKEN` (대소문자 구분)
+- Secret 이름이 정확한지 확인 (대소문자 구분)
 - 저장소 Settings → Secrets and variables → Actions에서 확인
 
 ### 워크플로우가 실패하는 경우
 - Secret이 올바르게 설정되었는지 확인
-- Token 값이 정확한지 확인
-- Token 권한 확인: `project:releases`
+- Token/Key 값이 정확한지 확인
+- 권한 확인:
+  - Sentry: `project:releases`
+  - ElevenLabs: Text to Speech (Access)
+
+### ElevenLabs 관련 오류
+- API Key 형식 확인: `sk_`로 시작해야 함
+- Voice ID 형식 확인: UUID 형식
+- 사용량 확인: [ElevenLabs Usage](https://elevenlabs.io/app/usage)
+- 무료 티어 제한: 월 10,000자
