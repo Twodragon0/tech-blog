@@ -34,6 +34,23 @@ jobs:
         with:
           fetch-depth: 0 # 전체 히스토리 필요 (커밋 정보 추출)
       
+      - name: Verify Sentry Configuration
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: twodragon
+          SENTRY_PROJECT: tech-blog
+        run: |
+          echo "🔍 Verifying Sentry configuration..."
+          echo "Organization: $SENTRY_ORG"
+          echo "Project: $SENTRY_PROJECT"
+          echo "Token: ${SENTRY_AUTH_TOKEN:0:10}..." # 첫 10자만 표시
+          
+          # Sentry CLI로 프로젝트 확인 (디버그 모드)
+          if command -v sentry-cli &> /dev/null; then
+            echo "Checking project access..."
+            sentry-cli projects list --org $SENTRY_ORG 2>&1 || echo "sentry-cli not available in runner"
+          fi
+      
       - name: Create Sentry Release
         # Free 티어 최적화: 소스맵 업로드 제외 (비용 절감)
         uses: getsentry/action-release@v1
@@ -42,6 +59,8 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: twodragon
           SENTRY_PROJECT: tech-blog
+          # 디버그 로그 활성화 (문제 해결용)
+          SENTRY_LOG_LEVEL: debug
         with:
           environment: production
           version: ${{ github.sha }}
