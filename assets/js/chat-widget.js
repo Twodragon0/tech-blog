@@ -111,8 +111,17 @@
   function formatMessage(content) {
     if (!content) return '';
     
-    // Decode HTML entities first (API에서 올 수 있는 엔티티 처리)
+    // Enhanced HTML entity decoding (더 정확한 디코딩)
     const decodeHtml = (text) => {
+      // 먼저 숫자 엔티티 디코딩 (&#x2F; 같은 형태)
+      text = text.replace(/&#x([0-9A-Fa-f]+);/g, (match, hex) => {
+        return String.fromCharCode(parseInt(hex, 16));
+      });
+      // 10진수 엔티티 디코딩 (&#47; 같은 형태)
+      text = text.replace(/&#(\d+);/g, (match, dec) => {
+        return String.fromCharCode(parseInt(dec, 10));
+      });
+      // 일반 HTML 엔티티 디코딩
       const textarea = document.createElement('textarea');
       textarea.innerHTML = text;
       return textarea.value;
@@ -223,13 +232,19 @@
     
     formatted = processedLines.join('\n');
     
-    // Links: [text](url)
+    // Links: [text](url) - 버튼 스타일로 개선
     formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, url) => {
       // Validate URL
       try {
-        const urlObj = new URL(url);
+        // URL 디코딩 (엔티티가 포함된 경우)
+        const decodedUrl = decodeHtml(url);
+        const urlObj = new URL(decodedUrl);
         if (urlObj.protocol === 'http:' || urlObj.protocol === 'https:') {
-          return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(text)}</a>`;
+          // 외부 링크는 아이콘과 함께 버튼 스타일로 표시
+          const isExternal = urlObj.hostname !== window.location.hostname;
+          const linkClass = isExternal ? 'chat-link-external' : 'chat-link-internal';
+          const icon = isExternal ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-left: 4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>' : '';
+          return `<a href="${escapeHtml(decodedUrl)}" target="_blank" rel="noopener noreferrer" class="${linkClass}">${escapeHtml(text)}${icon}</a>`;
         }
       } catch (e) {
         // Invalid URL, return text only
