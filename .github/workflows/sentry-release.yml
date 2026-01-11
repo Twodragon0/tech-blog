@@ -257,6 +257,7 @@ jobs:
       
       - name: Output Release Info
         if: always()
+        continue-on-error: true
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: twodragon
@@ -264,11 +265,28 @@ jobs:
         run: |
           RELEASE_VERSION="${{ github.sha }}"
           
-          # 최종 릴리스 존재 여부 확인
-          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
-            -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-            -H "Content-Type: application/json" \
-            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/")
+          # 최종 릴리스 존재 여부 확인 (재시도 포함)
+          MAX_RETRIES=2
+          RETRY_COUNT=0
+          HTTP_CODE=0
+          
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+            HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+              -H "Content-Type: application/json" \
+              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/")
+            
+            if [ "$HTTP_CODE" = "200" ]; then
+              break
+            fi
+            
+            if [ $RETRY_COUNT -lt $((MAX_RETRIES - 1)) ]; then
+              sleep 2
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+            else
+              break
+            fi
+          done
           
           if [ "$HTTP_CODE" = "200" ]; then
             if [ "${{ steps.check_release.outputs.exists }}" = "true" ]; then
@@ -292,4 +310,5 @@ jobs:
             echo "- Free 티어 제한으로 인해 Release 생성이 실패할 수 있습니다"
             echo "- 이는 워크플로우 실패로 처리되지 않습니다 (continue-on-error)"
             echo "- Release가 없어도 Sentry 로그 수집은 정상 작동합니다"
+            echo "- 워크플로우는 성공으로 처리됩니다"
           fi
