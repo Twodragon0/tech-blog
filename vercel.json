@@ -33,7 +33,19 @@
         { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
         { "key": "X-DNS-Prefetch-Control", "value": "on" },
         { "key": "X-Download-Options", "value": "noopen" },
-        { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" }
+        { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "X-Request-ID", "value": "" }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
+        { "key": "X-RateLimit-Limit", "value": "15" },
+        { "key": "X-RateLimit-Window", "value": "60" }
       ]
     },
     {
@@ -45,6 +57,20 @@
     },
     {
       "source": "/(.*).html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=7200, s-maxage=7200, stale-while-revalidate=172800" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
+      "source": "/posts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=10800, s-maxage=10800, stale-while-revalidate=259200" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
+      "source": "/categories",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400" },
         { "key": "X-Content-Type-Options", "value": "nosniff" }
@@ -68,7 +94,11 @@
       "source": "/api/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
+        { "key": "X-RateLimit-Limit", "value": "15" },
+        { "key": "X-RateLimit-Window", "value": "60" }
       ]
     }
   ],

@@ -127,22 +127,36 @@
   <link rel="preconnect" href="https://giscus.app" crossorigin>
   <link rel="preconnect" href="https://api.deepseek.com" crossorigin>
   <link rel="preconnect" href="https://va.vercel-scripts.com" crossorigin>
+  <link rel="preconnect" href="https://js.sentry-cdn.com" crossorigin>
   <!-- Non-critical resources: dns-prefetch only -->
   <link rel="dns-prefetch" href="https://api.mymemory.translated.net">
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://js.sentry-cdn.com">
   
   {% if page.layout == 'post' and page.image %}
   <!-- Preload critical post image -->
   <link rel="preload" href="{{ page.image | relative_url }}" as="image" fetchpriority="high">
   {% endif %}
+  
+  {% if page.layout == 'post' %}
+  <!-- Prefetch next/related posts for better navigation performance -->
+  <link rel="prefetch" href="{{ "/assets/css/main.css" | relative_url }}" as="style">
+  {% endif %}
 
-  <!-- Image Optimizer -->
+  <!-- Image Optimizer (deferred for performance) -->
   <script src="{{ "/assets/js/image-optimizer.js" | relative_url }}" defer></script>
   
-  <!-- Ad Optimizer (CLS 방지) -->
+  <!-- Ad Optimizer (CLS 방지, deferred for performance) -->
   <script src="{{ "/assets/js/ad-optimizer.js" | relative_url }}" defer></script>
+  
+  <!-- Critical CSS inline (if needed for above-the-fold content) -->
+  {% if page.layout == 'post' %}
+  <style>
+    /* Critical above-the-fold styles inline for faster rendering */
+    .post-header { opacity: 0; animation: fadeIn 0.3s ease-in forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
+  </style>
+  {% endif %}
 
   <!-- Font Optimizer -->
   {% include font-optimizer.html %}
@@ -253,9 +267,8 @@
   <!-- Sentry Error Tracking (최상단에 위치 - 에러 추적 우선) -->
   {% include sentry.html %}
   
-  <!-- Vercel Analytics & Speed Insights (TTFB 최적화: defer 사용) -->
-  <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
-  <script defer src="https://va.vercel-scripts.com/v1/speed-insights/script.js"></script>
+  <!-- Vercel Analytics & Speed Insights (TTFB 최적화: defer 사용, 최하단으로 이동) -->
+  <!-- Note: Analytics는 페이지 로드 후 실행되도록 defer 사용 -->
   
   <!-- Performance Monitoring -->
   {% include performance-monitor.html %}

@@ -72,17 +72,21 @@
               }
             });
           }, {
-            rootMargin: '200px' // Start loading 200px before reaching comments
+            rootMargin: '300px' // Start loading 300px before reaching comments (performance optimization)
           });
           
           observer.observe(giscusContainer);
           
-          // Fallback: Load after 3 seconds if user is still on page
+          // Fallback: Load after 5 seconds if user is still on page (performance optimization)
           setTimeout(() => {
             if (document.visibilityState === 'visible' && !giscusLoaded) {
-              requestIdleCallback ? requestIdleCallback(loadGiscus) : loadGiscus();
+              if (window.requestIdleCallback) {
+                window.requestIdleCallback(loadGiscus, { timeout: 5000 });
+              } else {
+                setTimeout(loadGiscus, 100);
+              }
             }
-          }, 3000);
+          }, 5000);
         } else {
           // Fallback for browsers without IntersectionObserver
           window.addEventListener('scroll', function() {

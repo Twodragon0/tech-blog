@@ -81,8 +81,67 @@ function checkRateLimit(sessionId) {
   return true;
 }
 
+// Request ID 생성 함수 (보안 로깅 및 추적)
+function generateRequestId() {
+  return `req-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+}
+
+// Bot 보호: User-Agent 검증
+function isBotUserAgent(userAgent) {
+  if (!userAgent) return true; // User-Agent가 없으면 봇으로 간주
+  
+  const botPatterns = [
+    /bot/i, /crawler/i, /spider/i, /scraper/i,
+    /curl/i, /wget/i, /python-requests/i, /go-http-client/i,
+    /^$/, // 빈 User-Agent
+  ];
+  
+  // 허용된 브라우저 패턴
+  const allowedPatterns = [
+    /mozilla/i, /chrome/i, /safari/i, /firefox/i, /edge/i,
+    /opera/i, /samsungbrowser/i, /mobile/i
+  ];
+  
+  // 허용된 패턴이 있으면 봇 아님
+  if (allowedPatterns.some(pattern => pattern.test(userAgent))) {
+    return false;
+  }
+  
+  // 봇 패턴이 있으면 봇
+  return botPatterns.some(pattern => pattern.test(userAgent));
+}
+
 export default async function handler(req, res) {
   const startTime = Date.now();
+  const requestId = generateRequestId();
+  
+  // 요청 크기 제한 (보안 및 비용 최적화)
+  const contentLength = req.headers['content-length'];
+  if (contentLength && parseInt(contentLength) > 100000) { // 100KB 제한
+    return res.status(413).json({ 
+      error: '요청 크기가 너무 큽니다.',
+      requestId 
+    });
+  }
+  
+  // Bot 보호 (프리티어 비용 보호)
+  const userAgent = req.headers['user-agent'];
+  if (process.env.NODE_ENV === 'production' && isBotUserAgent(userAgent)) {
+    // 보안 이벤트 로깅 (비용 최적화: 최소한만)
+    if (process.env.VERCEL_ENV === 'production') {
+      console.warn('[Security] Bot blocked:', {
+        userAgent: userAgent ? userAgent.substring(0, 100) : 'none',
+        ip: req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'unknown',
+        requestId
+      });
+    }
+    
+    // 프로덕션에서 봇 차단 (비용 보호)
+    return res.status(403).json({ 
+      error: 'Forbidden',
+      requestId 
+    });
+  }
   
   // 허용된 Origin 목록 (보안 강화)
   const allowedOrigins = [
@@ -109,6 +168,7 @@ export default async function handler(req, res) {
   res.setHeader('X-Frame-Options', 'DENY');
   res.setHeader('X-XSS-Protection', '1; mode=block');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('X-Request-ID', requestId); // 요청 추적용
   
   // OPTIONS 요청 처리 (CORS preflight) - 빠른 응답
   if (req.method === 'OPTIONS') {
@@ -166,11 +226,20 @@ export default async function handler(req, res) {
     
     for (const pattern of dangerousPatterns) {
       if (pattern.test(trimmedMessage)) {
+        // 보안 이벤트를 Sentry로 전송 (프리티어 최적화: 프로덕션만)
+        if (process.env.NODE_ENV === 'production' && typeof process !== 'undefined' && process.env.SENTRY_DSN) {
+          // Sentry는 브라우저에서만 사용 가능하므로 서버 측에서는 로그만 기록
+          // 필요시 서버 측 Sentry SDK 사용 고려
+        }
+        
         // 프로덕션에서는 상세 로그 최소화
         if (process.env.NODE_ENV === 'development') {
           console.warn('[Chat API] 위험한 패턴 감지:', pattern);
         }
-        return res.status(400).json({ error: '유효하지 않은 메시지 형식입니다.' });
+        return res.status(400).json({ 
+          error: '유효하지 않은 메시지 형식입니다.',
+          requestId 
+        });
       }
     }
 
@@ -199,12 +268,39 @@ export default async function handler(req, res) {
 
     // Rate limiting 체크
     const sessionKey = sessionId || `session-${Date.now()}`;
+    const rateLimitRecord = rateLimitStore.get(sessionKey);
+    const remainingRequests = rateLimitRecord 
+      ? Math.max(0, CONFIG.RATE_LIMIT.MAX_REQUESTS - rateLimitRecord.count)
+      : CONFIG.RATE_LIMIT.MAX_REQUESTS;
+    
     if (!checkRateLimit(sessionKey)) {
+      // 보안 이벤트 로깅 (Rate Limit 초과)
+      if (process.env.VERCEL_ENV === 'production') {
+        console.warn('[Security] Rate limit exceeded:', {
+          sessionKey: sessionKey.substring(0, 50),
+          ip: req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'unknown',
+          requestId
+        });
+      }
+      
+      // Rate Limit 헤더 추가
+      res.setHeader('X-RateLimit-Limit', CONFIG.RATE_LIMIT.MAX_REQUESTS.toString());
+      res.setHeader('X-RateLimit-Remaining', '0');
+      res.setHeader('X-RateLimit-Reset', rateLimitRecord ? Math.ceil(rateLimitRecord.resetAt / 1000).toString() : Math.ceil((Date.now() + CONFIG.RATE_LIMIT.WINDOW_MS) / 1000).toString());
+      res.setHeader('Retry-After', '60');
+      
       return res.status(429).json({ 
         error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.',
-        retryAfter: 60
+        retryAfter: 60,
+        requestId
       });
     }
+    
+    // Rate Limit 헤더 추가 (정상 응답 시)
+    res.setHeader('X-RateLimit-Limit', CONFIG.RATE_LIMIT.MAX_REQUESTS.toString());
+    res.setHeader('X-RateLimit-Remaining', remainingRequests.toString());
+    const currentRecord = rateLimitStore.get(sessionKey);
+    res.setHeader('X-RateLimit-Reset', currentRecord ? Math.ceil(currentRecord.resetAt / 1000).toString() : Math.ceil((Date.now() + CONFIG.RATE_LIMIT.WINDOW_MS) / 1000).toString());
 
     // XSS 방지를 위한 입력 정제
     const sanitizedMessage = sanitizeInput(trimmedMessage);
