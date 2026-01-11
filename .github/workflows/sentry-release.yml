@@ -39,8 +39,8 @@ jobs:
       - name: Verify Sentry Configuration
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: twodragon
-          SENTRY_PROJECT: tech-blog
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'tech-blog' }}
         run: |
           echo "🔍 Verifying Sentry configuration..."
           echo "Organization: $SENTRY_ORG"
@@ -136,18 +136,64 @@ jobs:
             exit 1
           elif [ "$HTTP_CODE" = "403" ]; then
             echo "❌ Access denied (HTTP 403)"
-            echo "   Token에 프로젝트 접근 권한이 없습니다."
+            echo "   Token에 프로젝트 접근 권한이 없거나 Organization/Project 이름이 잘못되었습니다."
             echo ""
+            
+            # Token으로 접근 가능한 Organization 목록 조회
+            echo "🔍 Discovering accessible organizations..."
+            ORG_RESPONSE=$(curl -s -w "\n%{http_code}" \
+              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+              -H "Content-Type: application/json" \
+              "https://sentry.io/api/0/organizations/")
+            
+            ORG_HTTP_CODE=$(echo "$ORG_RESPONSE" | tail -n1)
+            ORG_BODY=$(echo "$ORG_RESPONSE" | sed '$d')
+            
+            if [ "$ORG_HTTP_CODE" = "200" ]; then
+              echo "✅ Token으로 접근 가능한 Organizations:"
+              echo "$ORG_BODY" | jq -r '.[] | "   - \(.slug) (ID: \(.id))"' 2>/dev/null || echo "$ORG_BODY"
+              echo ""
+              
+              # 첫 번째 Organization의 Projects 조회 시도
+              FIRST_ORG=$(echo "$ORG_BODY" | jq -r '.[0].slug' 2>/dev/null)
+              if [ -n "$FIRST_ORG" ] && [ "$FIRST_ORG" != "null" ]; then
+                echo "🔍 Discovering projects in organization: $FIRST_ORG"
+                PROJ_RESPONSE=$(curl -s -w "\n%{http_code}" \
+                  -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+                  -H "Content-Type: application/json" \
+                  "https://sentry.io/api/0/organizations/$FIRST_ORG/projects/")
+                
+                PROJ_HTTP_CODE=$(echo "$PROJ_RESPONSE" | tail -n1)
+                PROJ_BODY=$(echo "$PROJ_RESPONSE" | sed '$d')
+                
+                if [ "$PROJ_HTTP_CODE" = "200" ]; then
+                  echo "✅ Projects in '$FIRST_ORG':"
+                  echo "$PROJ_BODY" | jq -r '.[] | "   - \(.slug) (ID: \(.id))"' 2>/dev/null || echo "$PROJ_BODY"
+                  echo ""
+                fi
+              fi
+            elif [ "$ORG_HTTP_CODE" = "403" ]; then
+              echo "❌ Token에 'org:read' 권한이 없습니다."
+            else
+              echo "⚠️  Organization 목록 조회 실패 (HTTP $ORG_HTTP_CODE)"
+            fi
+            
             echo "💡 해결 방법:"
-            echo "1. Sentry 대시보드에서 Token 권한 확인:"
+            echo "1. Sentry 대시보드에서 Token 권한 확인/수정:"
             echo "   https://sentry.io/settings/account/api/auth-tokens/"
             echo "2. 다음 권한이 선택되어 있는지 확인:"
-            echo "   ✅ project:read"
-            echo "   ✅ project:releases"
-            echo "   ✅ org:read"
-            echo "3. Organization 및 Project 이름 확인:"
-            echo "   Organization: $SENTRY_ORG"
-            echo "   Project: $SENTRY_PROJECT"
+            echo "   ✅ project:read (필수!)"
+            echo "   ✅ project:releases (필수!)"
+            echo "   ✅ org:read (권장, Organization 목록 조회용)"
+            echo "3. 위에 표시된 Organization 및 Project 이름을 확인하고,"
+            echo "   워크플로우의 SENTRY_ORG와 SENTRY_PROJECT 값을 업데이트하세요:"
+            echo "   현재 설정:"
+            echo "   - SENTRY_ORG: $SENTRY_ORG"
+            echo "   - SENTRY_PROJECT: $SENTRY_PROJECT"
+            echo ""
+            echo "4. 또는 GitHub Secrets에 Organization/Project 이름을 추가:"
+            echo "   gh secret set SENTRY_ORG --body \"your-org-slug\""
+            echo "   gh secret set SENTRY_PROJECT --body \"your-project-slug\""
             exit 1
           elif [ "$HTTP_CODE" = "404" ]; then
             echo "❌ Project not found (HTTP 404)"
@@ -170,8 +216,8 @@ jobs:
         id: check_release
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: twodragon
-          SENTRY_PROJECT: tech-blog
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'tech-blog' }}
         run: |
           RELEASE_VERSION="${{ github.sha }}"
           echo "🔍 Checking if release $RELEASE_VERSION already exists..."
@@ -201,8 +247,8 @@ jobs:
         env:
           # GitHub Secrets에 저장 필요
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: twodragon
-          SENTRY_PROJECT: tech-blog
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'tech-blog' }}
           # 디버그 로그 활성화 (문제 해결용)
           SENTRY_LOG_LEVEL: debug
         with:
@@ -224,8 +270,8 @@ jobs:
         if: always() && steps.create_release.outcome != 'success'
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: twodragon
-          SENTRY_PROJECT: tech-blog
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'tech-blog' }}
         run: |
           RELEASE_VERSION="${{ github.sha }}"
           echo "⚠️  Release creation had issues, checking final status..."
@@ -276,8 +322,8 @@ jobs:
         continue-on-error: true
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: twodragon
-          SENTRY_PROJECT: tech-blog
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'tech-blog' }}
         run: |
           RELEASE_VERSION="${{ github.sha }}"
           

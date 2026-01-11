@@ -8,13 +8,29 @@
 - `SENTRY_AUTH_TOKEN`: Sentry 인증 토큰 (필수)
   - 생성 방법: Sentry 대시보드 → Settings → Account → Auth Tokens → Create New Token
   - Token 형식: `sntryu_` 또는 `sentry-release`로 시작
-  - 권한: `project:releases` (필수), `project:read`, `org:read` (권장)
+  - 권한: `project:releases` (필수), `project:read` (필수), `org:read` (권장)
   - 사용처: `.github/workflows/sentry-release.yml`, `.github/workflows/vercel-deploy.yml`
   - GitHub Secrets 설정:
     ```bash
     gh secret set SENTRY_AUTH_TOKEN --body "sentry-release************fe26"
     ```
   - 확인 방법: GitHub Repository → Settings → Secrets and variables → Actions → SENTRY_AUTH_TOKEN
+
+- `SENTRY_ORG`: Sentry Organization 슬러그 (선택적, 기본값: `twodragon`)
+  - 확인 방법: Sentry 대시보드 URL에서 확인 (예: `https://sentry.io/organizations/YOUR-ORG-SLUG/`)
+  - GitHub Secrets 설정 (필요시):
+    ```bash
+    gh secret set SENTRY_ORG --body "your-org-slug"
+    ```
+  - 참고: Secret이 없으면 워크플로우에서 기본값 `twodragon` 사용
+
+- `SENTRY_PROJECT`: Sentry Project 슬러그 (선택적, 기본값: `tech-blog`)
+  - 확인 방법: Sentry 대시보드 → Projects → Project 선택 → Settings → General → Project Slug
+  - GitHub Secrets 설정 (필요시):
+    ```bash
+    gh secret set SENTRY_PROJECT --body "your-project-slug"
+    ```
+  - 참고: Secret이 없으면 워크플로우에서 기본값 `tech-blog` 사용
 
 ### DeepSeek API 관련 (채팅)
 - `DEEPSEEK_API_KEY`: DeepSeek AI API 키
