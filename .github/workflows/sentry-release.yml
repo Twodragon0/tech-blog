@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     # 타임아웃 설정 (무한 실행 방지)
     timeout-minutes: 5
+    # Free 티어에서는 Release 생성 실패를 치명적 오류로 처리하지 않음
+    continue-on-error: true
     
     permissions:
       contents: read
