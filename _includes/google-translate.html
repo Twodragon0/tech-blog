@@ -57,8 +57,8 @@ function googleTranslateElementInit() {
       return;
     }
 
-    // 토글 버튼 클릭
-    langToggle.onclick = function(e) {
+    // 토글 버튼 클릭 - addEventListener 사용
+    langToggle.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
 
@@ -71,10 +71,10 @@ function googleTranslateElementInit() {
         langDropdown.classList.add('active');
         langToggle.setAttribute('aria-expanded', 'true');
       }
-    };
+    }, true); // capture phase for better handling
 
     // 더블클릭으로 시스템 설정으로 복귀
-    langToggle.ondblclick = function(e) {
+    langToggle.addEventListener('dblclick', function(e) {
       e.preventDefault();
       e.stopPropagation();
       localStorage.setItem('preferredLang', 'system');
@@ -83,24 +83,37 @@ function googleTranslateElementInit() {
         currentLangSpan.textContent = LANG_MAP[sysLang];
       }
       changeLang(sysLang);
-    };
+    }, true);
 
     // 외부 클릭 시 닫기
     document.addEventListener('click', function(e) {
-      if (!langToggle.contains(e.target) && !langDropdown.contains(e.target)) {
+      var target = e.target;
+      // font 태그 내부 클릭 시 부모 요소 확인
+      while (target && target.tagName === 'FONT') {
+        target = target.parentNode;
+      }
+      if (!langToggle.contains(target) && !langDropdown.contains(target)) {
         langDropdown.classList.remove('active');
         langToggle.setAttribute('aria-expanded', 'false');
       }
     });
 
-    // 언어 옵션 클릭
-    var langOptions = document.querySelectorAll('.lang-option');
-    for (var i = 0; i < langOptions.length; i++) {
-      langOptions[i].onclick = function(e) {
+    // 언어 옵션 클릭 - 이벤트 위임 사용
+    langDropdown.addEventListener('click', function(e) {
+      var target = e.target;
+      // font 태그 내부 클릭 시 부모 요소 찾기
+      while (target && !target.classList.contains('lang-option')) {
+        if (target === langDropdown) {
+          return;
+        }
+        target = target.parentNode;
+      }
+
+      if (target && target.classList.contains('lang-option')) {
         e.preventDefault();
         e.stopPropagation();
 
-        var lang = this.getAttribute('data-lang');
+        var lang = target.getAttribute('data-lang');
 
         // 드롭다운 닫기
         langDropdown.classList.remove('active');
@@ -116,8 +129,8 @@ function googleTranslateElementInit() {
 
         // 언어 변경
         changeLang(lang);
-      };
-    }
+      }
+    }, true);
 
     // 현재 언어 감지 및 표시
     var currentLang = getCurrentLang();

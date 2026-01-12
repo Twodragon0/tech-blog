@@ -853,6 +853,28 @@ iframe[class*="goog-te"],
   display: contents !important;
   vertical-align: unset !important;
   font-style: inherit !important;
+  pointer-events: none !important;
+}
+
+/* Ensure lang-toggle and its children are clickable */
+.lang-toggle,
+.lang-toggle * {
+  pointer-events: auto !important;
+}
+
+.lang-toggle font,
+.lang-toggle font * {
+  pointer-events: none !important;
+}
+
+.lang-option,
+.lang-option * {
+  pointer-events: auto !important;
+}
+
+.lang-option font,
+.lang-option font * {
+  pointer-events: none !important;
 }
 
 /* Ensure lang-toggle maintains proper flex layout */
