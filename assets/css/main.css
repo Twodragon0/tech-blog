@@ -832,6 +832,40 @@ iframe[class*="goog-te"],
   border: none !important;
 }
 
+/* Fix Google Translate <font> tag injection breaking layouts */
+/* These font tags are added by Google Translate even for notranslate elements */
+.notranslate font,
+.notranslate font font,
+[translate="no"] font,
+[translate="no"] font font,
+.lang-toggle font,
+.lang-toggle font font,
+.lang-code font,
+.lang-code font font,
+.lang-dropdown font,
+.lang-dropdown font font,
+.chat-widget font,
+.chat-widget font font,
+.site-logo font,
+.site-logo font font,
+.nav-link font,
+.nav-link font font {
+  display: contents !important;
+  vertical-align: unset !important;
+  font-style: inherit !important;
+}
+
+/* Ensure lang-toggle maintains proper flex layout */
+.lang-toggle {
+  display: inline-flex !important;
+  flex-wrap: nowrap !important;
+}
+
+.lang-code {
+  display: inline !important;
+  white-space: nowrap !important;
+}
+
 /* Dark mode styles */
 [data-theme="dark"] .lang-toggle {
   background-color: var(--color-bg-tertiary);

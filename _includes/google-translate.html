@@ -178,12 +178,62 @@ function googleTranslateElementInit() {
     }
   }
 
+  // Google Translate가 삽입한 font 태그 제거
+  function cleanupFontTags() {
+    var selectors = [
+      '.notranslate font',
+      '[translate="no"] font',
+      '.lang-toggle font',
+      '.lang-code font',
+      '.chat-widget font'
+    ];
+
+    selectors.forEach(function(selector) {
+      var fonts = document.querySelectorAll(selector);
+      fonts.forEach(function(font) {
+        var parent = font.parentNode;
+        while (font.firstChild) {
+          parent.insertBefore(font.firstChild, font);
+        }
+        parent.removeChild(font);
+      });
+    });
+  }
+
+  // Google Translate 배너/팝업 강제 숨김
+  function hideGoogleTranslateBanner() {
+    var banners = document.querySelectorAll(
+      '.goog-te-banner-frame, [class*="VIpgJd"], #goog-gt-tt, .goog-te-balloon-frame'
+    );
+    banners.forEach(function(el) {
+      el.style.display = 'none';
+      el.style.visibility = 'hidden';
+    });
+
+    // body top 강제 리셋
+    if (document.body) {
+      document.body.style.top = '0';
+    }
+  }
+
   // DOM 준비 시 초기화
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLangToggle);
+    document.addEventListener('DOMContentLoaded', function() {
+      initLangToggle();
+      cleanupFontTags();
+      hideGoogleTranslateBanner();
+    });
   } else {
     initLangToggle();
+    cleanupFontTags();
+    hideGoogleTranslateBanner();
   }
+
+  // 주기적으로 정리 실행 (Google Translate가 나중에 요소를 추가할 수 있음)
+  setInterval(function() {
+    cleanupFontTags();
+    hideGoogleTranslateBanner();
+  }, 1000);
 })();
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
