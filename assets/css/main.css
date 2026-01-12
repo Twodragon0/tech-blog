@@ -2899,30 +2899,6 @@ body {
 
 /* Accessibility */
 
-/* Skip Link - 키보드 사용자를 위한 본문 건너뛰기 링크 */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10000;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  background: var(--color-primary);
-  color: white;
-  font-weight: 600;
-  font-size: var(--font-size-sm);
-  text-decoration: none;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  transition: top 0.2s ease-in-out;
-}
-
-.skip-link:focus {
-  top: var(--spacing-md);
-  outline: 2px solid var(--color-primary-hover);
-  outline-offset: 2px;
-}
-
 /* Animations */
 @keyframes slideIn {
   from {

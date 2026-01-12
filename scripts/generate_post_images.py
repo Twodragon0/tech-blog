@@ -122,6 +122,8 @@ def _write_validated_safe_text(file_path: Path, safe_text: str) -> None:
         with open(file_path, "w", encoding="utf-8") as f:
             # 최종 검증: 기록 직전 한 번 더 확인
             if _validate_masked_text(safe_text):
+                # Security: Write only pre-validated, sanitized text
+                # nosec B608 - sanitized via mask_sensitive_info and _validate_masked_text
                 f.write(safe_text)
                 f.flush()
     except Exception:
@@ -140,6 +142,8 @@ def _safe_print(text: str) -> None:
     # 추가 검증 (defense in depth)
     safe_text = mask_sensitive_info(text)
     if _validate_masked_text(safe_text):
+        # Security: Output only pre-validated, sanitized text
+        # nosec B608 - sanitized via mask_sensitive_info and _validate_masked_text
         print(safe_text)
 
 
@@ -352,6 +356,7 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                                         output_path = output_path.with_suffix(".jpg")
                                     
                                     with open(output_path, "wb") as f:
+                                        # nosec B608 - binary image data, not sensitive text
                                         f.write(image_bytes)
                                     
                                     log_message(f"✅ 이미지 생성 완료: {output_path.name} ({len(image_bytes)} bytes)", "SUCCESS")
@@ -367,10 +372,11 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                                 image_url = part["url"]
                                 log_message(f"📥 이미지 URL 받음, 다운로드 중: {image_url}")
                                 
-                                # 이미지 다운로드
+                                # 이미지 다운로드 (바이너리 이미지 데이터 - 민감 정보 아님)
                                 img_response = requests.get(image_url, timeout=60)
                                 if img_response.status_code == 200:
                                     with open(output_path, "wb") as f:
+                                        # nosec B608 - binary image data, not sensitive text
                                         f.write(img_response.content)
                                     log_message(f"✅ 이미지 다운로드 완료: {output_path.name}", "SUCCESS")
                                     return True
