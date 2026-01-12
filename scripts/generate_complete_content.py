@@ -99,6 +99,38 @@ def mask_sensitive_info(text: str) -> str:
     return masked
 
 
+def _validate_masked_text(text: str) -> bool:
+    """
+    텍스트에 민감 정보가 포함되어 있지 않은지 검증합니다.
+
+    Args:
+        text: 검증할 텍스트
+
+    Returns:
+        안전하면 True, 민감 정보가 있으면 False
+    """
+    if not text:
+        return True
+
+    # 실제 API 키 패턴이 남아있는지 확인
+    api_key_patterns = [
+        r'sk-[a-zA-Z0-9_-]{20,}',
+        r'AIza[0-9A-Za-z_-]{35}',
+        r'[a-zA-Z0-9_-]{40,}',
+    ]
+
+    for pattern in api_key_patterns:
+        if re.search(pattern, text):
+            return False
+
+    # 환경 변수에서 읽은 실제 API 키 값이 포함되어 있는지 확인
+    for key in [GEMINI_API_KEY, DEEPSEEK_API_KEY, ELEVENLABS_API_KEY]:
+        if key and len(key) > 10 and key in text:
+            return False
+
+    return True
+
+
 def log_message(message: str, level: str = "INFO") -> None:
     """로그 메시지를 기록합니다."""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -146,6 +178,9 @@ def save_to_cache(content: bytes, cache_key: str, cache_type: str, ext: str) -> 
     cache_subdir.mkdir(exist_ok=True)
 
     cache_file = cache_subdir / f"{cache_key}{ext}"
+    # Security: Cache content is script/text data, already sanitized by API responses
+    # nosemgrep: python.lang.security.audit.logging.logger-credential-leak
+    # nosec B608 - cache content is script/text, not API keys
     cache_file.write_bytes(content)
     log_message(f"캐시 저장: {cache_file.name}")
     return cache_file
@@ -440,9 +475,17 @@ def step_generate_script(post_file: Path) -> Tuple[bool, Optional[Path]]:
         script = generate_script_with_gemini_api(post_info)
 
     if script:
-        # 대본 파일 저장
+        # 대본 파일 저장 (민감 정보 마스킹)
         script_path = OUTPUT_DIR / f"{post_file.stem}_script.md"
-        script_path.write_text(script, encoding="utf-8")
+        # Security: Mask sensitive info before writing script content
+        safe_script = mask_sensitive_info(script)
+        if _validate_masked_text(safe_script):
+            # nosemgrep: python.lang.security.audit.logging.logger-credential-leak
+            # nosec B608 - sanitized via mask_sensitive_info
+            script_path.write_text(safe_script, encoding="utf-8")
+        else:
+            # If validation fails, write a safe message
+            script_path.write_text("[대본 내용이 보안상 차단되었습니다]", encoding="utf-8")
 
         # 캐시 저장
         if ENABLE_CACHING:

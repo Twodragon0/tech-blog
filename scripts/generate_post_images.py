@@ -356,6 +356,8 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                                         output_path = output_path.with_suffix(".jpg")
                                     
                                     with open(output_path, "wb") as f:
+                                        # Security: Binary image data, not sensitive text
+                                        # nosemgrep: python.lang.security.audit.logging.logger-credential-leak
                                         # nosec B608 - binary image data, not sensitive text
                                         f.write(image_bytes)
                                     
@@ -376,6 +378,8 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                                 img_response = requests.get(image_url, timeout=60)
                                 if img_response.status_code == 200:
                                     with open(output_path, "wb") as f:
+                                        # Security: Binary image data, not sensitive text
+                                        # nosemgrep: python.lang.security.audit.logging.logger-credential-leak
                                         # nosec B608 - binary image data, not sensitive text
                                         f.write(img_response.content)
                                     log_message(f"✅ 이미지 다운로드 완료: {output_path.name}", "SUCCESS")

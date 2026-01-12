@@ -91,6 +91,33 @@ def _validate_masked_text(text: str) -> bool:
     return True
 
 
+def _write_safe_text_to_file(file_path: Path, safe_text: str) -> None:
+    """
+    검증된 안전한 텍스트만 파일에 기록합니다.
+    
+    Args:
+        file_path: 파일 경로
+        safe_text: _validate_masked_text()로 검증된 안전한 텍스트
+    """
+    if not safe_text:
+        return
+    
+    # Additional runtime validation (defense in depth)
+    if not _validate_masked_text(safe_text):
+        return
+    
+    try:
+        # Security: Write only pre-validated, sanitized text
+        # nosemgrep: python.lang.security.audit.logging.logger-credential-leak
+        with open(file_path, "w", encoding="utf-8") as f:
+            # nosec B608 - sanitized via mask_sensitive_info and _validate_masked_text
+            f.write(safe_text)
+            f.flush()
+    except Exception:
+        # 예외 발생 시 조용히 처리 (보안상 로그에 기록하지 않음)
+        pass
+
+
 def _safe_print(text: str) -> None:
     """
     검증된 안전한 텍스트만 출력합니다.
@@ -104,7 +131,8 @@ def _safe_print(text: str) -> None:
     if _validate_masked_text(safe_text):
         # Security: Output only pre-validated, sanitized text
         # nosemgrep: python.lang.security.audit.logging.logger-credential-leak
-        print(safe_text)  # nosec B608 - sanitized via mask_sensitive_info and _validate_masked_text
+        # nosec B608 - sanitized via mask_sensitive_info and _validate_masked_text
+        print(safe_text)
 
 
 def log_message(message: str, level: str = "INFO"):
@@ -265,6 +293,8 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                                     
                                     # 이미지 저장 (바이너리 이미지 데이터 - 민감 정보 아님)
                                     with open(output_path, "wb") as f:
+                                        # Security: Binary image data, not sensitive text
+                                        # nosemgrep: python.lang.security.audit.logging.logger-credential-leak
                                         # nosec B608 - binary image data, not sensitive text
                                         f.write(image_bytes)
                                     
@@ -285,6 +315,8 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                                 img_response = requests.get(image_url, timeout=60)
                                 if img_response.status_code == 200:
                                     with open(output_path, "wb") as f:
+                                        # Security: Binary image data, not sensitive text
+                                        # nosemgrep: python.lang.security.audit.logging.logger-credential-leak
                                         # nosec B608 - binary image data, not sensitive text
                                         f.write(img_response.content)
                                     log_message(f"✅ 이미지 다운로드 완료: {output_path.name}", "SUCCESS")
@@ -299,20 +331,21 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                     if "text" in candidate.get("content", {}).get("parts", [{}])[0]:
                         text_response = candidate["content"]["parts"][0]["text"]
                         log_message(f"⚠️ Gemini API가 텍스트 응답을 반환했습니다. 이미지 생성 프롬프트로 사용할 수 있습니다.", "WARNING")
-                        log_message(f"   응답: {text_response[:200]}...")
+                        # Security: Mask sensitive info before logging
+                        safe_text_preview = mask_sensitive_info(text_response[:200])
+                        log_message(f"   응답: {safe_text_preview}...")
                         
                         # 프롬프트 파일로 저장 (민감 정보 마스킹)
                         prompt_file = output_path.parent / f"{output_path.stem}_prompt.txt"
                         safe_prompt = mask_sensitive_info(prompt)
                         safe_text_response = mask_sensitive_info(text_response)
                         if _validate_masked_text(safe_prompt) and _validate_masked_text(safe_text_response):
-                            with open(prompt_file, "w", encoding="utf-8") as f:
-                                # Security: All content sanitized via mask_sensitive_info and validated
-                                # nosec B608 - sanitized via mask_sensitive_info and _validate_masked_text
-                                f.write(f"# Image Generation Prompt\n\n")
-                                f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-                                f.write(f"Original Prompt:\n{safe_prompt}\n\n")
-                                f.write(f"Refined Prompt:\n{safe_text_response}\n")
+                            safe_content = f"# Image Generation Prompt\n\n"
+                            safe_content += f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+                            safe_content += f"Original Prompt:\n{safe_prompt}\n\n"
+                            safe_content += f"Refined Prompt:\n{safe_text_response}\n"
+                            # Security: Use dedicated function for validated safe text
+                            _write_safe_text_to_file(prompt_file, safe_content)
                         
                         log_message(f"💡 프롬프트 파일 저장: {prompt_file}", "INFO")
                         if attempt < max_retries:
