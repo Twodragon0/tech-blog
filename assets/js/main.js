@@ -1714,7 +1714,7 @@
     })();
 
     // ========================================
-    // Code Block UI Enhancement
+    // Code Block UI Enhancement (언어 뱃지만 추가, 복사 버튼은 기존 것 사용)
     // ========================================
     (function initCodeBlockEnhancement() {
       // Language name mapping for display
@@ -1777,27 +1777,16 @@
         'log': 'Log'
       };
 
-      // Copy icon SVG
-      const copyIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
-
-      // Check icon SVG
-      const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
-
-      // Find all code blocks
+      // Find all code blocks and add language badges only
       const codeBlocks = document.querySelectorAll('.post-content .highlight, .post-content pre:not(.highlight pre)');
 
-      codeBlocks.forEach((block, index) => {
-        // Skip if already processed
-        if (block.closest('.code-block-wrapper')) return;
+      codeBlocks.forEach((block) => {
+        // Skip if already has language badge
+        if (block.querySelector('.code-language-badge')) return;
 
         // Get the code element
-        let codeElement = block.querySelector('code');
-        let preElement = block.tagName === 'PRE' ? block : block.querySelector('pre');
-
-        if (!preElement) return;
-        if (!codeElement) {
-          codeElement = preElement;
-        }
+        const codeElement = block.querySelector('code');
+        if (!codeElement) return;
 
         // Detect language from class
         let language = '';
@@ -1807,80 +1796,20 @@
           language = langMatch[1] || langMatch[2] || langMatch[3];
         }
 
-        // Also check Rouge's highlight class pattern
-        if (!language) {
-          const highlightMatch = block.className && block.className.match(/highlight-source-(\w+)/);
-          if (highlightMatch) {
-            language = highlightMatch[1];
+        // Add language badge if language detected
+        if (language && languageNames[language]) {
+          const badge = document.createElement('span');
+          badge.className = 'code-language-badge';
+          badge.textContent = languageNames[language];
+
+          // Make parent relative for badge positioning
+          const preElement = block.tagName === 'PRE' ? block : block.querySelector('pre');
+          if (preElement) {
+            preElement.style.position = 'relative';
+            preElement.insertBefore(badge, preElement.firstChild);
           }
         }
-
-        // Create wrapper
-        const wrapper = document.createElement('div');
-        wrapper.className = 'code-block-wrapper';
-
-        // Create header
-        const header = document.createElement('div');
-        header.className = 'code-block-header';
-
-        // Language badge
-        const languageBadge = document.createElement('span');
-        languageBadge.className = 'code-language-badge';
-        languageBadge.textContent = languageNames[language] || language.toUpperCase() || 'CODE';
-
-        // Copy button
-        const copyBtn = document.createElement('button');
-        copyBtn.className = 'code-copy-btn';
-        copyBtn.setAttribute('aria-label', '코드 복사');
-        copyBtn.innerHTML = `${copyIcon}<span>복사</span>`;
-
-        // Copy functionality
-        copyBtn.addEventListener('click', async () => {
-          const code = codeElement.textContent || codeElement.innerText;
-
-          try {
-            await navigator.clipboard.writeText(code);
-            copyBtn.classList.add('copied');
-            copyBtn.innerHTML = `${checkIcon}<span>복사됨!</span>`;
-
-            setTimeout(() => {
-              copyBtn.classList.remove('copied');
-              copyBtn.innerHTML = `${copyIcon}<span>복사</span>`;
-            }, 2000);
-          } catch (err) {
-            // Fallback for older browsers
-            const textArea = document.createElement('textarea');
-            textArea.value = code;
-            textArea.style.position = 'fixed';
-            textArea.style.left = '-9999px';
-            document.body.appendChild(textArea);
-            textArea.select();
-            try {
-              document.execCommand('copy');
-              copyBtn.classList.add('copied');
-              copyBtn.innerHTML = `${checkIcon}<span>복사됨!</span>`;
-
-              setTimeout(() => {
-                copyBtn.classList.remove('copied');
-                copyBtn.innerHTML = `${copyIcon}<span>복사</span>`;
-              }, 2000);
-            } catch (e) {
-              console.error('Copy failed:', e);
-            }
-            document.body.removeChild(textArea);
-          }
-        });
-
-        header.appendChild(languageBadge);
-        header.appendChild(copyBtn);
-
-        // Wrap the block
-        block.parentNode.insertBefore(wrapper, block);
-        wrapper.appendChild(header);
-        wrapper.appendChild(block);
       });
-
-      safeLog('Code block enhancement initialized');
     })();
 
   }; // End of initNonCritical function
