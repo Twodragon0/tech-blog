@@ -4061,6 +4061,21 @@ iframe[class*="goog-te"],
   padding: 2px 6px;
   border-radius: 10px;
   border: 2px solid var(--color-bg-primary);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Prevent Google Translate font tags from breaking layout */
+.chat-widget-badge font,
+.chat-widget-badge font font,
+.lang-code font,
+.lang-code font font,
+.lang-name font,
+.lang-name font font,
+.lang-flag font,
+.lang-flag font font {
+  display: contents !important;
+  vertical-align: inherit !important;
 }
 
 /* Chat Window */
