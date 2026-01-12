@@ -28,24 +28,25 @@
             </svg>
             <span class="lang-code notranslate" id="current-lang" translate="no">KO</span>
           </button>
-          <div class="lang-dropdown notranslate" id="lang-dropdown" translate="no">
-            <button class="lang-option" data-lang="ko" title="한국어">
+          <div class="lang-dropdown-overlay" id="lang-dropdown-overlay" aria-hidden="true"></div>
+          <div class="lang-dropdown notranslate" id="lang-dropdown" translate="no" role="menu" aria-label="언어 선택">
+            <button class="lang-option" data-lang="ko" title="한국어" role="menuitem">
               <span class="lang-flag">🇰🇷</span>
               <span class="lang-name">한국어</span>
             </button>
-            <button class="lang-option" data-lang="en" title="English">
+            <button class="lang-option" data-lang="en" title="English" role="menuitem">
               <span class="lang-flag">🇺🇸</span>
               <span class="lang-name">English</span>
             </button>
-            <button class="lang-option" data-lang="ja" title="日本語">
+            <button class="lang-option" data-lang="ja" title="日本語" role="menuitem">
               <span class="lang-flag">🇯🇵</span>
               <span class="lang-name">日本語</span>
             </button>
-            <button class="lang-option" data-lang="zh-CN" title="简体中文">
+            <button class="lang-option" data-lang="zh-CN" title="简体中文" role="menuitem">
               <span class="lang-flag">🇨🇳</span>
               <span class="lang-name">简体中文</span>
             </button>
-            <button class="lang-option" data-lang="zh-TW" title="繁體中文">
+            <button class="lang-option" data-lang="zh-TW" title="繁體中文" role="menuitem">
               <span class="lang-flag">🇹🇼</span>
               <span class="lang-name">繁體中文</span>
             </button>

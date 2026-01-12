@@ -1020,6 +1020,7 @@
   (function initLanguageDropdown() {
     const langToggle = document.getElementById('lang-toggle');
     const langDropdown = document.getElementById('lang-dropdown');
+    const langDropdownOverlay = document.getElementById('lang-dropdown-overlay');
     const langMenu = document.getElementById('lang-menu');
     const langOptions = document.querySelectorAll('.lang-option[data-lang]');
     const googleTranslateLink = document.getElementById('header-google-translate');
@@ -1039,23 +1040,67 @@
       googleTranslateLink.href = `https://translate.google.com/translate?sl=ko&tl=en&u=${encodeURIComponent(window.location.href)}`;
     }
 
+    // Function to open dropdown
+    function openDropdown() {
+      langDropdown.classList.add('active');
+      if (langDropdownOverlay) {
+        langDropdownOverlay.classList.add('active');
+        langDropdownOverlay.setAttribute('aria-hidden', 'false');
+      }
+      if (langToggle) {
+        langToggle.setAttribute('aria-expanded', 'true');
+      }
+      // Prevent body scroll on mobile when dropdown is open
+      if (window.innerWidth <= 768) {
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // Function to close dropdown
+    function closeDropdown() {
+      langDropdown.classList.remove('active');
+      if (langDropdownOverlay) {
+        langDropdownOverlay.classList.remove('active');
+        langDropdownOverlay.setAttribute('aria-hidden', 'true');
+      }
+      if (langToggle) {
+        langToggle.setAttribute('aria-expanded', 'false');
+      }
+      // Restore body scroll
+      document.body.style.overflow = '';
+    }
+
     // Toggle dropdown
     langToggle.addEventListener('click', function(e) {
       e.stopPropagation();
-      langDropdown.classList.toggle('active');
+      if (langDropdown.classList.contains('active')) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
     });
+
+    // Close dropdown when clicking overlay
+    if (langDropdownOverlay) {
+      langDropdownOverlay.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeDropdown();
+      });
+    }
 
     // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
-      if (!langDropdown.contains(e.target)) {
-        langDropdown.classList.remove('active');
+      if (!langDropdown.contains(e.target) && 
+          !langToggle.contains(e.target) &&
+          (!langDropdownOverlay || !langDropdownOverlay.contains(e.target))) {
+        closeDropdown();
       }
     });
 
     // Close dropdown on escape key
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        langDropdown.classList.remove('active');
+      if (e.key === 'Escape' && langDropdown.classList.contains('active')) {
+        closeDropdown();
       }
     });
 
@@ -1481,7 +1526,7 @@
         const targetLang = this.dataset.lang;
 
         if (targetLang === currentLang) {
-          langDropdown.classList.remove('active');
+          closeDropdown();
           return;
         }
 
@@ -1499,7 +1544,7 @@
         });
 
         // Close dropdown
-        langDropdown.classList.remove('active');
+        closeDropdown();
 
         // Show loading
         showToast('번역 중...', 'loading');
