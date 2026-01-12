@@ -308,8 +308,6 @@ graph LR
     style RELEASE fill:#9f7aea,stroke:#805ad5,color:#fff
     style DEPLOY fill:#e53e3e,stroke:#c53030,color:#fff
     style MONITOR fill:#319795,stroke:#2c7a7b,color:#fff
-
-```
 -->
 
 각 단계별 보안 활동:
@@ -395,7 +393,6 @@ jobs:
             sonar-report.json
             semgrep-report.json
 
-```
 -->
 
 ### 3.2 Secret 스캔
@@ -412,7 +409,6 @@ jobs:
   with:
     sarif_file: 'trivy-results.sarif'
 
-```
 -->
 
 #### 의존성 취약점 대응 프로세스
@@ -462,7 +458,6 @@ DAST는 실행 중인 애플리케이션을 테스트하여 런타임 취약점�
       burpsuite --project-file=/results/burp-project.burp \
       --scan /results/scan-config.json
 
-```
 -->
 
 ### 5.2 Fuzz 테스트
@@ -516,7 +511,6 @@ int main(int argc, char **argv) {
     return parse_can_message(buffer, len);
 }
 
-```
 -->
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
@@ -600,7 +594,6 @@ cosign verify-blob --key cosign.pub \
   --certificate firmware.bin.crt \
   firmware.bin
 
-```
 -->
 
 ### 7.2 Secure Boot
@@ -633,7 +626,6 @@ int verify_firmware_signature(uint8_t *firmware, size_t len, uint8_t *signature)
     return 0;
 }
 
-```
 -->
 
 ## 8. 런타임 보안 및 모니터링
@@ -668,7 +660,6 @@ int verify_firmware_signature(uint8_t *firmware, size_t len, uint8_t *signature)
     (id=%can_message.id, source=%can_message.source)
   priority: CRITICAL
 
-```
 -->
 
 ### 8.2 침입 탐지 시스템 (IDS)
@@ -732,7 +723,6 @@ class CanBusIDS:
         print(f"[ALERT] {message}")
         # 실제 환경에서는 SIEM으로 전송
 
-```
 -->
 
 ## 9. 자동차 업계 DevSecOps 모범 사례
@@ -819,7 +809,6 @@ class CanBusIDS:
             trivy-report.json
             sbom.spdx.json
 
-```
 -->
 
 ## 10. 규정 준수: ISO 21434 및 UN R155
