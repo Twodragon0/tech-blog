@@ -230,11 +230,13 @@
   }
   </script>
 
-  <!-- Theme Detection (Inline for Performance) -->
+  <!-- Theme Detection (Inline for Performance) - 시스템 설정 우선 -->
   <script>
     (function() {
-      const theme = localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      var saved = localStorage.getItem('theme');
+      var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      // 저장값이 없거나 'system'이면 시스템 설정 따름
+      var theme = (!saved || saved === 'system') ? (systemDark ? 'dark' : 'light') : saved;
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>

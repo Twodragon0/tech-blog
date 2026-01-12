@@ -15,17 +15,44 @@
   // Critical initialization (runs immediately)
   const initCritical = () => {
     // Theme detection (critical for preventing flash)
+    // 시스템 설정 우선: localStorage에 'system' 또는 값이 없으면 시스템 설정 따름
     const themeToggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme') || 
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', currentTheme);
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // 테마 결정: 저장된 값이 없거나 'system'이면 시스템 설정 따름
+    const getEffectiveTheme = () => {
+      if (!savedTheme || savedTheme === 'system') {
+        return systemPrefersDark.matches ? 'dark' : 'light';
+      }
+      return savedTheme;
+    };
+
+    document.documentElement.setAttribute('data-theme', getEffectiveTheme());
+
+    // 시스템 테마 변경 감지 (실시간 반영)
+    systemPrefersDark.addEventListener('change', (e) => {
+      const currentSaved = localStorage.getItem('theme');
+      // 저장된 값이 없거나 'system'이면 시스템 변경 따름
+      if (!currentSaved || currentSaved === 'system') {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      }
+    });
 
     if (themeToggle) {
       themeToggle.addEventListener('click', function() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', newTheme);
+        // 수동 변경 시 해당 테마 저장 (시스템 자동 따르기 해제)
         localStorage.setItem('theme', newTheme);
+      });
+
+      // 더블클릭으로 시스템 설정으로 복귀
+      themeToggle.addEventListener('dblclick', function() {
+        localStorage.setItem('theme', 'system');
+        const systemTheme = systemPrefersDark.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', systemTheme);
       });
     }
   };

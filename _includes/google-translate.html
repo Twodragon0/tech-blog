@@ -1,4 +1,4 @@
-<!-- Google Translate Integration -->
+<!-- Google Translate Integration - 시스템 언어 설정 우선 -->
 <script type="text/javascript">
 // Google Translate 초기화
 function googleTranslateElementInit() {
@@ -19,8 +19,34 @@ function googleTranslateElementInit() {
     'en': 'EN',
     'ja': 'JA',
     'zh-CN': 'CN',
-    'zh-TW': 'TW'
+    'zh-TW': 'TW',
+    'zh': 'CN'
   };
+
+  var SUPPORTED_LANGS = ['ko', 'en', 'ja', 'zh-CN', 'zh-TW'];
+
+  // 시스템 언어 감지
+  function getSystemLanguage() {
+    var lang = navigator.language || navigator.userLanguage || 'ko';
+    lang = lang.toLowerCase();
+
+    if (lang.startsWith('ko')) return 'ko';
+    if (lang.startsWith('ja')) return 'ja';
+    if (lang.startsWith('zh-tw') || lang.startsWith('zh-hant')) return 'zh-TW';
+    if (lang.startsWith('zh')) return 'zh-CN';
+    if (lang.startsWith('en')) return 'en';
+
+    return 'ko';
+  }
+
+  // 저장된 언어 또는 시스템 언어 가져오기
+  function getPreferredLanguage() {
+    var saved = localStorage.getItem('preferredLang');
+    if (!saved || saved === 'system') {
+      return getSystemLanguage();
+    }
+    return saved;
+  }
 
   function initLangToggle() {
     var langToggle = document.getElementById('lang-toggle');
@@ -28,11 +54,8 @@ function googleTranslateElementInit() {
     var currentLangSpan = document.getElementById('current-lang');
 
     if (!langToggle || !langDropdown) {
-      console.log('[Lang Toggle] Elements not found');
       return;
     }
-
-    console.log('[Lang Toggle] Initializing...');
 
     // 토글 버튼 클릭
     langToggle.onclick = function(e) {
@@ -40,7 +63,6 @@ function googleTranslateElementInit() {
       e.stopPropagation();
 
       var isActive = langDropdown.classList.contains('active');
-      console.log('[Lang Toggle] Clicked, isActive:', isActive);
 
       if (isActive) {
         langDropdown.classList.remove('active');
@@ -49,6 +71,18 @@ function googleTranslateElementInit() {
         langDropdown.classList.add('active');
         langToggle.setAttribute('aria-expanded', 'true');
       }
+    };
+
+    // 더블클릭으로 시스템 설정으로 복귀
+    langToggle.ondblclick = function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      localStorage.setItem('preferredLang', 'system');
+      var sysLang = getSystemLanguage();
+      if (LANG_MAP[sysLang] && currentLangSpan) {
+        currentLangSpan.textContent = LANG_MAP[sysLang];
+      }
+      changeLang(sysLang);
     };
 
     // 외부 클릭 시 닫기
@@ -67,7 +101,6 @@ function googleTranslateElementInit() {
         e.stopPropagation();
 
         var lang = this.getAttribute('data-lang');
-        console.log('[Lang Toggle] Language selected:', lang);
 
         // 드롭다운 닫기
         langDropdown.classList.remove('active');
@@ -77,6 +110,9 @@ function googleTranslateElementInit() {
         if (LANG_MAP[lang] && currentLangSpan) {
           currentLangSpan.textContent = LANG_MAP[lang];
         }
+
+        // 수동 선택 시 저장
+        localStorage.setItem('preferredLang', lang);
 
         // 언어 변경
         changeLang(lang);
@@ -89,7 +125,8 @@ function googleTranslateElementInit() {
       currentLangSpan.textContent = LANG_MAP[currentLang];
     }
 
-    console.log('[Lang Toggle] Initialized successfully');
+    // 첫 방문 시 시스템 언어로 자동 번역
+    autoTranslateOnFirstVisit();
   }
 
   function getCurrentLang() {
@@ -97,21 +134,41 @@ function googleTranslateElementInit() {
     return match ? match[1] : 'ko';
   }
 
+  function autoTranslateOnFirstVisit() {
+    // 이미 번역 쿠키가 있으면 스킵
+    if (document.cookie.indexOf('googtrans=') !== -1) {
+      return;
+    }
+
+    // 이미 방문한 적 있으면 스킵
+    if (localStorage.getItem('hasVisited')) {
+      return;
+    }
+
+    localStorage.setItem('hasVisited', 'true');
+
+    var preferredLang = getPreferredLanguage();
+
+    // 한국어가 아닌 경우 자동 번역
+    if (preferredLang !== 'ko' && SUPPORTED_LANGS.indexOf(preferredLang) !== -1) {
+      setTimeout(function() {
+        changeLang(preferredLang);
+      }, 1500);
+    }
+  }
+
   function changeLang(lang) {
     if (lang === 'ko') {
-      // 원본으로 복원
       document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + location.hostname;
       location.reload();
       return;
     }
 
-    // 번역 쿠키 설정
     var cookieVal = '/ko/' + lang;
     document.cookie = 'googtrans=' + cookieVal + '; path=/;';
     document.cookie = 'googtrans=' + cookieVal + '; path=/; domain=.' + location.hostname;
 
-    // Google Translate 트리거
     var select = document.querySelector('.goog-te-combo');
     if (select) {
       select.value = lang;
