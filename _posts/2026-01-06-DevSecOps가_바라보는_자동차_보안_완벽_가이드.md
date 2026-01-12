@@ -165,6 +165,36 @@ image_alt: "DevSecOps Viewing Automotive Security Complete Guide: Connected Car 
 >
 > 2025년부터 UN R155(사이버 보안)와 R156(소프트웨어 업데이트) 규정이 글로벌로 확대 적용되었습니다. 이제 신규 출시되는 모든 차량은 이 규정을 준수해야 하며, 기존 판매 중인 차량도 단계적으로 적용됩니다. 이는 전 세계 자동차 제조사들이 사이버 보안 관리 시스템(CSMS)을 의무적으로 구축해야 함을 의미합니다.
 
+<div class="quick-ref">
+<div class="quick-ref-title">자동차 보안 규정 Quick Reference</div>
+<div class="quick-ref-grid">
+<div class="quick-ref-item critical">
+<h4>UN R155 (CSMS)</h4>
+<p>사이버 보안 관리 시스템<br>2025년 글로벌 확대 적용</p>
+</div>
+<div class="quick-ref-item critical">
+<h4>UN R156 (SUMS)</h4>
+<p>소프트웨어 업데이트 관리<br>OTA 보안 필수화</p>
+</div>
+<div class="quick-ref-item high">
+<h4>ISO 21434</h4>
+<p>자동차 사이버 보안 엔지니어링<br>TARA (위협 분석)</p>
+</div>
+<div class="quick-ref-item high">
+<h4>ISO/SAE 21434</h4>
+<p>보안 개발 라이프사이클<br>CSMS 구현 가이드</p>
+</div>
+<div class="quick-ref-item medium">
+<h4>V2X 보안</h4>
+<p>IEEE 1609.2<br>SCMS 인증서 관리</p>
+</div>
+<div class="quick-ref-item info">
+<h4>필수 도구</h4>
+<p>SBOM 생성: Syft, SPDX<br>보안 검사: Trivy, Snyk</p>
+</div>
+</div>
+</div>
+
 ### 1.2 주요 보안 위협 유형
 
 자동차 보안 위협은 다음과 같이 분류할 수 있습니다:

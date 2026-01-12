@@ -486,6 +486,36 @@ jobs:
 
 ## 4. 스마트 컨트랙트 보안 모범 사례
 
+<div class="quick-ref">
+<div class="quick-ref-title">Smart Contract 취약점 Quick Reference</div>
+<div class="quick-ref-grid">
+<div class="quick-ref-item critical">
+<h4>Reentrancy (재진입)</h4>
+<p>외부 호출 전 상태 변경 필수<br><code>Checks-Effects-Interactions</code></p>
+</div>
+<div class="quick-ref-item critical">
+<h4>Integer Overflow</h4>
+<p>Solidity 0.8.0+ 사용 권장<br>또는 <code>SafeMath</code> 라이브러리</p>
+</div>
+<div class="quick-ref-item high">
+<h4>Access Control</h4>
+<p>OpenZeppelin 5.0+ <code>AccessControl</code><br>명시적 역할 할당 필수</p>
+</div>
+<div class="quick-ref-item high">
+<h4>Oracle Manipulation</h4>
+<p>TWAP 사용, 다중 오라클<br>Chainlink Price Feeds</p>
+</div>
+<div class="quick-ref-item medium">
+<h4>Front-running</h4>
+<p>Commit-Reveal 패턴<br>Flashbots Protect 사용</p>
+</div>
+<div class="quick-ref-item info">
+<h4>추천 도구</h4>
+<p>Slither (빠른 검사)<br>Mythril (심층 분석)</p>
+</div>
+</div>
+</div>
+
 ### 4.1 코드 레벨 보안
 
 #### Reentrancy 방어
