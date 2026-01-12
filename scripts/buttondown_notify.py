@@ -153,12 +153,37 @@ def main():
         print("Usage: python buttondown_notify.py <post_file_path>")
         sys.exit(1)
 
-    post_path = sys.argv[1]
+    post_path = sys.argv[1].strip()
+    
+    # Remove quotes if present
+    if post_path.startswith('"') and post_path.endswith('"'):
+        post_path = post_path[1:-1]
+    if post_path.startswith("'") and post_path.endswith("'"):
+        post_path = post_path[1:-1]
 
+    # Convert to Path object for better handling
+    post_file = Path(post_path)
+    
+    # Try to resolve the path
+    if not post_file.is_absolute():
+        # If relative, try from project root
+        project_root = Path(__file__).parent.parent
+        post_file = project_root / post_path
+    
     # Validate file exists
-    if not Path(post_path).exists():
+    if not post_file.exists():
         print(f"❌ Post file not found: {post_path}")
+        print(f"   Resolved path: {post_file}")
+        print(f"   Current directory: {Path.cwd()}")
+        print(f"   Available files in _posts/ (first 10):")
+        posts_dir = Path(__file__).parent.parent / '_posts'
+        if posts_dir.exists():
+            for f in list(posts_dir.glob('*.md'))[:10]:
+                print(f"     - {f.name}")
         sys.exit(1)
+    
+    # Use resolved path
+    post_path = str(post_file)
 
     # Get API key from environment
     api_key = os.environ.get('BUTTONDOWN_API_KEY')

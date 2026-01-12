@@ -95,6 +95,19 @@
   - 환경 변수는 Vercel 대시보드에서 설정
   - `DEEPSEEK_API_KEY`: Vercel 환경 변수로도 설정 필요
 
+### Buttondown 이메일 관련
+- `BUTTONDOWN_API_KEY`: Buttondown 이메일 서비스 API 키
+  - 생성 방법: [Buttondown Dashboard](https://buttondown.com/settings/api) → API Keys → Create API Key
+  - 형식: UUID 문자열 (예: `xxxx`)
+  - 사용처: `.github/workflows/buttondown-notify.yml`
+  - 용도: 새 포스트 발행 시 구독자에게 이메일 발송
+  - GitHub Secrets 설정:
+    ```bash
+    gh secret set BUTTONDOWN_API_KEY --body "your-buttondown-api-key"
+    ```
+  - API 엔드포인트: `https://api.buttondown.com/v1/subscribers`
+  - 인증 방식: `Authorization: Token $BUTTONDOWN_API_KEY` 헤더 사용
+
 ### SNS 공유 관련
 - `TWITTER_API_KEY`: Twitter/X API Key
 - `TWITTER_API_SECRET`: Twitter/X API Secret
@@ -138,6 +151,9 @@ gh secret set GOOGLE_CLOUD_PROJECT --body "your-project-id"
 
 # Sentry (선택)
 gh secret set SENTRY_AUTH_TOKEN --body "your-sentry-auth-token"
+
+# Buttondown 이메일 (선택)
+gh secret set BUTTONDOWN_API_KEY --body "your-buttondown-api-key"
 
 # SNS 공유 (선택)
 gh secret set TWITTER_API_KEY --body "your-twitter-api-key"

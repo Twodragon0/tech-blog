@@ -28,16 +28,20 @@ jobs:
         id: check_posts
         run: |
           # Get the list of added posts in this push
-          NEW_POSTS=$(git diff --name-only HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          # Use --diff-filter=A to only get added files (not modified)
+          NEW_POSTS=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          
           if [ -z "$NEW_POSTS" ]; then
             echo "No new posts found"
             echo "has_new_posts=false" >> $GITHUB_OUTPUT
           else
-            echo "New posts found: $NEW_POSTS"
+            echo "New posts found:"
+            echo "$NEW_POSTS"
             echo "has_new_posts=true" >> $GITHUB_OUTPUT
-            # Get the most recent new post
-            LATEST_POST=$(echo "$NEW_POSTS" | head -1)
+            # Get the most recent new post (first line)
+            LATEST_POST=$(echo "$NEW_POSTS" | head -1 | tr -d '\n')
             echo "latest_post=$LATEST_POST" >> $GITHUB_OUTPUT
+            echo "Processing: $LATEST_POST"
           fi
 
       - name: Set up Python
@@ -57,4 +61,27 @@ jobs:
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
           SITE_URL: "https://tech.2twodragon.com"
         run: |
-          python scripts/buttondown_notify.py "${{ steps.check_posts.outputs.latest_post }}"
+          # 보안: API 키 검증
+          if [ -z "$BUTTONDOWN_API_KEY" ]; then
+            echo "❌ BUTTONDOWN_API_KEY is not set in GitHub Secrets"
+            echo "Please set it in: Settings → Secrets and variables → Actions"
+            exit 1
+          fi
+          
+          # 파일 경로 가져오기 및 검증
+          POST_FILE="${{ steps.check_posts.outputs.latest_post }}"
+          if [ -z "$POST_FILE" ]; then
+            echo "❌ No post file specified"
+            exit 1
+          fi
+          
+          # 파일 존재 확인
+          if [ ! -f "$POST_FILE" ]; then
+            echo "⚠️ Post file not found: $POST_FILE"
+            echo "Available files in _posts/:"
+            ls -la _posts/ | head -10
+            exit 1
+          fi
+          
+          echo "📧 Sending email notification for: $POST_FILE"
+          python scripts/buttondown_notify.py "$POST_FILE"
