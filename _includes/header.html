@@ -18,40 +18,9 @@
       </nav>
 
       <div class="nav-actions">
-        <div class="lang-dropdown" id="lang-dropdown">
-          <button class="lang-toggle" id="lang-toggle" aria-label="언어 변경" aria-expanded="false" aria-haspopup="true" aria-controls="lang-menu" title="언어 변경" type="button">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="2" y1="12" x2="22" y2="12"/>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-            </svg>
-          </button>
-          <div class="lang-menu" id="lang-menu" role="menu" aria-labelledby="lang-toggle">
-            <button class="lang-option active" data-lang="ko" role="menuitem" aria-checked="true" type="button">
-              <span class="lang-flag" aria-hidden="true">🇰🇷</span>
-              <span>한국어</span>
-            </button>
-            <button class="lang-option" data-lang="en" role="menuitem" aria-checked="false" type="button">
-              <span class="lang-flag" aria-hidden="true">🇺🇸</span>
-              <span>English</span>
-            </button>
-            <button class="lang-option" data-lang="ja" role="menuitem" aria-checked="false" type="button">
-              <span class="lang-flag" aria-hidden="true">🇯🇵</span>
-              <span>日本語</span>
-            </button>
-            <button class="lang-option" data-lang="zh" role="menuitem" aria-checked="false" type="button">
-              <span class="lang-flag" aria-hidden="true">🇨🇳</span>
-              <span>中文</span>
-            </button>
-            <a href="#" class="lang-option google-translate-link" id="header-google-translate" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Google 번역으로 이동">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-              <span>Google 번역</span>
-            </a>
-          </div>
+        <!-- Google Translate Widget -->
+        <div class="gtranslate-wrapper">
+          {% include google-translate.html %}
         </div>
 
         <button class="theme-toggle" id="theme-toggle" aria-label="테마 변경" aria-pressed="false" type="button">
