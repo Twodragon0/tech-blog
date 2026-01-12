@@ -67,11 +67,16 @@ image_alt: "Cloud Security 8Batch 2Week: Complete Mastery of AWS Security Archit
 <img src="{{ '/assets/images/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer_image.png' | relative_url }}" alt="Cloud Security 8Batch 2Week: Complete Mastery of AWS Security Architecture Core from VPC to GuardDuty" loading="lazy" class="post-image">
 
 > **📌 핵심 요약**
-> 
+>
 > - **VPC**: 네트워크 격리 및 보안 설계를 통한 방어의 깊이 구현
 > - **IAM**: 최소 권한 원칙과 역할 기반 접근 제어를 통한 세밀한 권한 관리
 > - **S3**: 데이터 암호화 및 접근 제어를 통한 데이터 보호
 > - **GuardDuty**: 지속적인 위협 탐지 및 자동 대응을 통한 보안 강화
+
+<figure>
+<img src="{{ '/assets/images/diagrams/diagram_vpc_security.png' | relative_url }}" alt="AWS VPC Security Architecture Diagram" loading="lazy" class="post-image">
+<figcaption>AWS VPC 보안 아키텍처 다이어그램 - Python diagrams로 생성</figcaption>
+</figure>
 
 ## 1. AWS 보안 아키텍처 핵심 구성요소
 

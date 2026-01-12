@@ -97,6 +97,11 @@ toc: true
 
 단순히 VPC 내부를 보호하는 것을 넘어, **CloudFront(CDN)**와 **WAF**를 결합하여 엣지(Edge) 레벨에서 강력한 보안 아키텍처를 구성하는 방법을 다룹니다.
 
+<figure>
+<img src="{{ '/assets/images/diagrams/diagram_waf_cloudfront.png' | relative_url }}" alt="AWS WAF CloudFront Security Architecture" loading="lazy" class="post-image">
+<figcaption>AWS WAF & CloudFront 보안 아키텍처 - Python diagrams로 생성</figcaption>
+</figure>
+
 ### 1.1 CloudFront & OAI/OAC (Origin Access Identity/Control)
 
 S3 버킷에 대한 직접 접근을 차단하고, 오직 CloudFront를 통해서만 콘텐츠를 안전하게 전송하도록 구성합니다.

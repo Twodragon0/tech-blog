@@ -94,17 +94,10 @@ image_alt: "Building Secure Database Access Gateway on AWS: NLB Security Group C
 
 ### 전체 구조
 
-```
-[애플리케이션] 
-    ↓
-[Network Load Balancer (NLB)]
-    ↓
-[Security Group (게이트웨이)]
-    ↓
-[Private Subnet]
-    ↓
-[RDS / ElastiCache / 기타 DB]
-```
+<figure>
+<img src="{{ '/assets/images/diagrams/diagram_db_gateway.png' | relative_url }}" alt="Database Access Gateway Architecture" loading="lazy" class="post-image">
+<figcaption>데이터베이스 접근 게이트웨이 아키텍처 - Python diagrams로 생성</figcaption>
+</figure>
 
 ### 핵심 컴포넌트
 

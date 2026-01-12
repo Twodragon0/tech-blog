@@ -66,24 +66,12 @@ image_alt: "Cloud Security Course 7Batch 8Week: CI/CD and Kubernetes Security Pr
 
 ## 1. CI/CD 파이프라인 보안 기초
 
+<figure>
+<img src="{{ '/assets/images/diagrams/diagram_devsecops_pipeline.png' | relative_url }}" alt="DevSecOps CI/CD Pipeline Architecture" loading="lazy" class="post-image">
+<figcaption>DevSecOps CI/CD 파이프라인 아키텍처 - Python diagrams로 생성</figcaption>
+</figure>
+
 ### 1.1 CI/CD 보안의 중요성
-
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
-```
-┌─────────────────────────────────────────────────────────────────┐
-│ CI/CD Pipeline Security │
-├─────────────────────────────────────────────────────────────────┤
-│ │
-│ Code ──► Build ──► Test ──► Scan ──► Deploy ──► Monitor │
-│ │ │ │ │ │ │ │
-│ ▼ ▼ ▼ ▼ ▼ ▼ │
-│ SAST Image Unit DAST Secrets Runtime │
-│ Lint Signing Tests Vuln Check Security │
-│ Scan │
-└─────────────────────────────────────────────────────────────────┘
-
-```
--->
 
 ### 1.2 GitHub Actions 보안 설정
 
@@ -169,6 +157,11 @@ jobs:
 -->
 
 ## 2. Kubernetes RBAC 보안
+
+<figure>
+<img src="{{ '/assets/images/diagrams/diagram_k8s_security.png' | relative_url }}" alt="Kubernetes Security Architecture" loading="lazy" class="post-image">
+<figcaption>Kubernetes 보안 아키텍처 - Python diagrams로 생성</figcaption>
+</figure>
 
 ### 2.1 최소 권한 원칙 적용
 

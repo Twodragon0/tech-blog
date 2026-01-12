@@ -65,6 +65,10 @@ image_alt: "Cloud Security Course 7Batch 5Week: AWS Control Tower and ZTNA"
 
 <img src="{{ '/assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA_image.jpg' | relative_url }}" alt="Cloud Security Course 7Batch 5Week: AWS Control Tower and ZTNA" loading="lazy" class="post-image">
 
+<figure>
+<img src="{{ '/assets/images/diagrams/diagram_zero_trust.png' | relative_url }}" alt="Zero Trust Security Architecture" loading="lazy" class="post-image">
+<figcaption>Zero Trust 보안 아키텍처 - Python diagrams로 생성</figcaption>
+</figure>
 
 ## 1. 개요
 

@@ -80,6 +80,11 @@ toc: true
 
 기초 프로그래밍부터 고급 거버넌스까지, DevSecOps 전문가가 되기 위한 완벽한 가이드를 제공합니다.
 
+<figure>
+<img src="{{ '/assets/images/diagrams/diagram_devsecops_roadmap.png' | relative_url }}" alt="DevSecOps Learning Roadmap 2026" loading="lazy" class="post-image">
+<figcaption>DevSecOps 학습 로드맵 2026 - Python diagrams로 생성</figcaption>
+</figure>
+
 ## 📊 빠른 참조
 
 ### 로드맵 개요
