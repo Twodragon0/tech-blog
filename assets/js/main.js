@@ -742,7 +742,94 @@
     if (!highlightDiv.style.position) {
       highlightDiv.style.position = 'relative';
     }
-    
+
+    // Ensure pre element is positioned relatively for button positioning
+    if (!pre.style.position) {
+      pre.style.position = 'relative';
+    }
+
+    // Create copy button with improved UI/UX
+    const button = document.createElement('button');
+    button.className = 'copy-code-btn';
+    if (isMermaid) {
+      button.classList.add('mermaid-copy-btn');
+    }
+    button.setAttribute('aria-label', 'Copy code to clipboard');
+    button.setAttribute('type', 'button');
+    button.setAttribute('title', 'Copy');
+    button.innerHTML = `
+      <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    `;
+
+    // Append button to highlight div (positioned at top-right via CSS)
+    highlightDiv.appendChild(button);
+
+    // Store original code text for Mermaid blocks (before rendering)
+    const originalCodeText = codeBlock.textContent || codeBlock.innerText;
+
+    // Copy functionality with visual feedback
+    button.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+
+      // For Mermaid blocks, use original code text; for others, use current text
+      let textToCopy = isMermaid ? originalCodeText : (codeBlock.textContent || codeBlock.innerText || originalCodeText);
+
+      const copyIcon = button.querySelector('.copy-icon');
+      const checkIcon = button.querySelector('.check-icon');
+
+      try {
+        await navigator.clipboard.writeText(textToCopy);
+
+        // Visual feedback - show check icon
+        button.classList.add('copied');
+        if (copyIcon) copyIcon.style.display = 'none';
+        if (checkIcon) checkIcon.style.display = 'block';
+        button.setAttribute('title', 'Copied!');
+
+        setTimeout(() => {
+          button.classList.remove('copied');
+          if (copyIcon) copyIcon.style.display = 'block';
+          if (checkIcon) checkIcon.style.display = 'none';
+          button.setAttribute('title', 'Copy');
+        }, 2000);
+      } catch (err) {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = textToCopy;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          button.classList.add('copied');
+          if (copyIcon) copyIcon.style.display = 'none';
+          if (checkIcon) checkIcon.style.display = 'block';
+          button.setAttribute('title', 'Copied!');
+          setTimeout(() => {
+            button.classList.remove('copied');
+            if (copyIcon) copyIcon.style.display = 'block';
+            if (checkIcon) checkIcon.style.display = 'none';
+            button.setAttribute('title', 'Copy');
+          }, 2000);
+        } catch (fallbackErr) {
+          button.classList.add('error');
+          button.setAttribute('title', 'Failed to copy');
+          setTimeout(() => {
+            button.classList.remove('error');
+            button.setAttribute('title', 'Copy');
+          }, 2000);
+        }
+        document.body.removeChild(textArea);
+      }
+    });
   });
   
   // Also handle standalone pre code blocks (not wrapped in .highlight)
@@ -793,6 +880,75 @@
         const displayLang = langMap[language] || language;
         highlightDiv.setAttribute('data-lang', displayLang);
         highlightDiv.style.position = 'relative';
+
+        // Create copy button for standalone code blocks
+        const button = document.createElement('button');
+        button.className = 'copy-code-btn';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+        button.setAttribute('type', 'button');
+        button.setAttribute('title', 'Copy');
+        button.innerHTML = `
+          <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        `;
+
+        highlightDiv.appendChild(button);
+
+        button.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          const text = newCodeBlock.textContent || newCodeBlock.innerText;
+          const copyIcon = button.querySelector('.copy-icon');
+          const checkIcon = button.querySelector('.check-icon');
+
+          try {
+            await navigator.clipboard.writeText(text);
+            button.classList.add('copied');
+            if (copyIcon) copyIcon.style.display = 'none';
+            if (checkIcon) checkIcon.style.display = 'block';
+            button.setAttribute('title', 'Copied!');
+            setTimeout(() => {
+              button.classList.remove('copied');
+              if (copyIcon) copyIcon.style.display = 'block';
+              if (checkIcon) checkIcon.style.display = 'none';
+              button.setAttribute('title', 'Copy');
+            }, 2000);
+          } catch (err) {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+              document.execCommand('copy');
+              button.classList.add('copied');
+              if (copyIcon) copyIcon.style.display = 'none';
+              if (checkIcon) checkIcon.style.display = 'block';
+              button.setAttribute('title', 'Copied!');
+              setTimeout(() => {
+                button.classList.remove('copied');
+                if (copyIcon) copyIcon.style.display = 'block';
+                if (checkIcon) checkIcon.style.display = 'none';
+                button.setAttribute('title', 'Copy');
+              }, 2000);
+            } catch (fallbackErr) {
+              button.classList.add('error');
+              button.setAttribute('title', 'Failed to copy');
+              setTimeout(() => {
+                button.classList.remove('error');
+                button.setAttribute('title', 'Copy');
+              }, 2000);
+            }
+            document.body.removeChild(textArea);
+          }
+        });
       }
     }
   });
