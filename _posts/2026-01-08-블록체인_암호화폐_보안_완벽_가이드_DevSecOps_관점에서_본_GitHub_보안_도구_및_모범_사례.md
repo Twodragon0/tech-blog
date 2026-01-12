@@ -207,13 +207,6 @@ toc: true
 
 **설치 및 사용:**
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
-> ```bash
-> # Slither 설치...
-> ```
-
-<!-- 전체 코드는 위 링크 참조
 ```bash
 # Slither 설치
 pip install slither-analyzer
@@ -226,43 +219,32 @@ slither contracts/MyContract.sol --detect reentrancy-eth,unchecked-transfer
 
 # JSON 리포트 생성
 slither contracts/MyContract.sol --json slither-report.json
-
 ```
--->
 
-**GitHub 통합:**
+**GitHub Actions 통합:**
 
-> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./security-audit.yml...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/security-audit.yml
 name: Security Audit
-
 on: [push, pull_request]
 
 jobs:
   slither:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-      - name: Install Slither
-        run: pip install slither-analyzer
-      - name: Run Slither
-        run: slither contracts/ --json slither-report.json
-      - name: Upload report
-        uses: actions/upload-artifact@v3
+          python-version: '3.11'
+      - run: pip install slither-analyzer
+      - run: slither contracts/ --json slither-report.json
+      - uses: actions/upload-artifact@v4
         with:
           name: slither-report
           path: slither-report.json
-
 ```
--->
+
+> 자세한 내용은 [GitHub Actions 보안 가이드](https://docs.github.com/en/actions/security-guides)를 참조하세요.
 
 #### Mythril (ConsenSys)
 
@@ -285,13 +267,6 @@ jobs:
 
 **설치 및 사용:**
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
-> ```bash
-> # Mythril 설치...
-> ```
-
-<!-- 전체 코드는 위 링크 참조
 ```bash
 # Mythril 설치
 pip install mythril
@@ -299,14 +274,12 @@ pip install mythril
 # 기본 분석
 myth analyze contracts/MyContract.sol
 
-# 특정 취약점 검사
+# 타임아웃 설정 분석
 myth analyze contracts/MyContract.sol --execution-timeout 60
 
 # JSON 리포트 생성
 myth analyze contracts/MyContract.sol -o json > mythril-report.json
-
 ```
--->
 
 #### Securify 2.0 (ChainSecurity)
 
@@ -338,31 +311,24 @@ myth analyze contracts/MyContract.sol -o json > mythril-report.json
 > 2. **Mythril**: 중요한 컨트랙트에 대한 깊이 있는 분석
 > 3. **Securify 2.0**: 배포 전 최종 검증
 
-**GitHub 통합:**
+**GitHub Actions 통합:**
 
-> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./securify.yml...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/securify.yml
 name: Securify Security Scan
-
 on: [push, pull_request]
 
 jobs:
   securify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run Securify
         uses: chainsecurity/securify-action@v1
         with:
           contract-path: 'contracts/'
           output-format: 'json'
-
 ```
--->
 
 ### 2.2 기타 유용한 보안 도구
 
@@ -443,14 +409,9 @@ medusa fuzz --target-contracts MyContract
 
 **완전한 보안 파이프라인 예시:**
 
-> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./blockchain-security.yml...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/blockchain-security.yml
 name: Blockchain Security Pipeline
-
 on:
   push:
     branches: [main, develop]
@@ -461,62 +422,31 @@ jobs:
   security-audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      
-      - name: Install dependencies
-        run: |
-          npm install
-          pip install slither-analyzer mythril
-      
-      # 1. 정적 분석 (Slither)
-      - name: Run Slither
-        run: |
-          slither contracts/ \
-            --json slither-report.json \
-            --exclude-dependencies \
-            --filter-paths "node_modules"
-      
-      # 2. 심볼릭 실행 (Mythril)
-      - name: Run Mythril
-        run: |
-          myth analyze contracts/MyContract.sol \
-            -o json > mythril-report.json || true
-      
-      # 3. 의존성 취약점 검사
-      - name: Audit dependencies
-        run: npm audit --audit-level=moderate
-      
-      # 4. 코드 품질 검사
-      - name: Run linting
-        run: npm run lint
-      
-      # 5. 테스트 실행
-      - name: Run tests
-        run: npm test
-      
-      # 6. 리포트 업로드
-      - name: Upload security reports
-        uses: actions/upload-artifact@v3
+          node-version: '20'
+      - run: npm install && pip install slither-analyzer mythril
+
+      # 정적 분석 (Slither)
+      - run: slither contracts/ --json slither-report.json
+
+      # 심볼릭 실행 (Mythril)
+      - run: myth analyze contracts/MyContract.sol -o json > mythril-report.json || true
+
+      # 의존성 취약점 검사
+      - run: npm audit --audit-level=moderate
+
+      # 리포트 업로드
+      - uses: actions/upload-artifact@v4
         with:
           name: security-reports
           path: |
             slither-report.json
             mythril-report.json
-      
-      # 7. GitHub Security Advisory 생성
-      - name: Create Security Advisory
-        if: failure()
-        uses: github/super-linter@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 ```
--->
+
+> 자세한 내용은 [GitHub Actions 보안 가이드](https://docs.github.com/en/actions/security-guides)를 참조하세요.
 
 ### 3.2 GitHub Advanced Security 통합
 
@@ -529,51 +459,30 @@ GitHub Advanced Security의 기능을 활용하여 블록체인 프로젝트의 
 
 **설정 예시:**
 
-> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./codeql-analysis.yml...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/codeql-analysis.yml
 name: CodeQL Analysis
-
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 0 * * 0' # 매주 일요일
+    - cron: '0 0 * * 0'
 
 jobs:
   analyze:
     runs-on: ubuntu-latest
     permissions:
-      actions: read
-      contents: read
       security-events: write
-    
-    strategy:
-      fail-fast: false
-      matrix:
-        language: ['javascript', 'solidity']
-    
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v3
         with:
-          languages: ${{ matrix.language }}
-      
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
-      
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
-
+          languages: javascript
+      - uses: github/codeql-action/autobuild@v3
+      - uses: github/codeql-action/analyze@v3
 ```
--->
 
 ## 4. 스마트 컨트랙트 보안 모범 사례
 
@@ -581,22 +490,15 @@ jobs:
 
 #### Reentrancy 방어
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
-> 
-> ```solidity
-> // ❌ 취약한 코드...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
 // ❌ 취약한 코드
 contract VulnerableContract {
     mapping(address => uint256) public balances;
-    
+
     function withdraw() public {
         uint256 amount = balances[msg.sender];
         (bool success, ) = msg.sender.call{value: amount}("");
-        require(success, "Transfer failed");
+        require(success);
         balances[msg.sender] = 0; // 재진입 시점에 이미 실행됨
     }
 }
@@ -604,55 +506,33 @@ contract VulnerableContract {
 // ✅ 안전한 코드 (Checks-Effects-Interactions 패턴)
 contract SecureContract {
     mapping(address => uint256) public balances;
-    bool private locked;
-    
-    modifier noReentrant() {
-        require(!locked, "ReentrancyGuard: reentrant call");
-        locked = true;
-        _;
-        locked = false;
-    }
-    
-    function withdraw() public noReentrant {
+
+    function withdraw() public {
         uint256 amount = balances[msg.sender];
         balances[msg.sender] = 0; // Effects: 상태 변경 먼저
-        (bool success, ) = msg.sender.call{value: amount}(""); // Interactions: 외부 호출 나중에
-        require(success, "Transfer failed");
+        (bool success, ) = msg.sender.call{value: amount}("");
+        require(success);
     }
 }
-
 ```
--->
+
+> OpenZeppelin의 `ReentrancyGuard`를 사용하면 더 안전합니다.
 
 #### Integer Overflow 방어
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
-> 
-> ```solidity
-> // ✅ Solidity 0.8.0+ 에서는 기본적으로 오버플로우 체크가 활성화됨...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
-// ✅ Solidity 0.8.0+ 에서는 기본적으로 오버플로우 체크가 활성화됨
+// ✅ Solidity 0.8.0+ 내장 오버플로우 체크
 contract SafeMathExample {
     function add(uint256 a, uint256 b) public pure returns (uint256) {
-        return a + b; // 0.8.0+ 에서는 자동으로 overflow 체크
+        return a + b; // 자동 overflow 체크
     }
 
-    // 가스 최적화가 필요한 경우 unchecked 블록 사용
+    // 가스 최적화 필요시 unchecked 블록 사용 (주의!)
     function unsafeAdd(uint256 a, uint256 b) public pure returns (uint256) {
-        unchecked {
-            return a + b; // 오버플로우 체크 비활성화 (주의 필요)
-        }
+        unchecked { return a + b; }
     }
 }
-
-// ⚠️ Solidity 0.8.0 미만 버전은 SafeMath 사용 필수
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-
 ```
--->
 
 > **💡 2025년 권장사항**
 >
@@ -660,35 +540,21 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 #### Access Control 강화
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
-> 
-> ```solidity
-> // ✅ OpenZeppelin Contracts 5.0+ AccessControl 사용...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
-// ✅ OpenZeppelin Contracts 5.0+ AccessControl 사용
+// OpenZeppelin 5.0+ AccessControl 사용
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 contract SecureContract is AccessControl {
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
-    bytes32 public constant OPERATOR_ROLE = keccak256("OPERATOR_ROLE");
 
-    // ⚠️ OpenZeppelin 5.0부터는 배포자에게 자동 역할 할당이 제거됨
-    // 명시적으로 역할을 할당해야 함
     constructor(address admin) {
-        _grantRole(DEFAULT_ADMIN_ROLE, admin);
+        _grantRole(DEFAULT_ADMIN_ROLE, admin);  // 5.0+: 명시적 할당 필수
         _grantRole(ADMIN_ROLE, admin);
     }
 
-    function sensitiveFunction() public onlyRole(ADMIN_ROLE) {
-        // 관리자만 실행 가능
-    }
+    function sensitiveFunction() public onlyRole(ADMIN_ROLE) { }
 }
-
 ```
--->
 
 > **⚠️ OpenZeppelin 5.0 변경사항**
 >
@@ -709,30 +575,16 @@ contract SecureContract is AccessControl {
 - 관리자 권한 분리 및 제한
 
 **예시:**
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
-> 
-> ```solidity
-> // ✅ 좋은 예: 역할 기반 접근 제어...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
-// ✅ 좋은 예: 역할 기반 접근 제어
+// 역할 기반 접근 제어 (RBAC)
 contract SecureContract is AccessControl {
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
     bytes32 public constant OPERATOR_ROLE = keccak256("OPERATOR_ROLE");
-    
-    function criticalFunction() public onlyRole(ADMIN_ROLE) {
-        // 관리자만 실행 가능
-    }
-    
-    function normalFunction() public onlyRole(OPERATOR_ROLE) {
-        // 운영자도 실행 가능
-    }
-}
 
+    function criticalFunction() public onlyRole(ADMIN_ROLE) { }   // 관리자만
+    function normalFunction() public onlyRole(OPERATOR_ROLE) { }  // 운영자도 가능
+}
 ```
--->
 
 #### Defense in Depth (다층 방어)
 
@@ -759,36 +611,20 @@ contract SecureContract is AccessControl {
 - 시간 잠금(Time Lock) 메커니즘
 
 **예시:**
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
-> 
-> ```solidity
-> // ✅ 좋은 예: 긴급 중지 기능...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
-// ✅ 좋은 예: 긴급 중지 기능
+// 긴급 중지 (Emergency Pause) 패턴
 contract SecureContract {
     bool public paused;
-    address public admin;
-    
+
     modifier whenNotPaused() {
-        require(!paused, "Contract is paused");
+        require(!paused, "Paused");
         _;
     }
-    
-    function pause() public onlyAdmin {
-        paused = true;
-        emit Paused(msg.sender);
-    }
-    
-    function withdraw() public whenNotPaused {
-        // 정지 상태에서는 실행 불가
-    }
-}
 
+    function pause() public onlyAdmin { paused = true; }
+    function withdraw() public whenNotPaused { /* 정지 시 실행 불가 */ }
+}
 ```
--->
 
 ### 4.3 보안 체크리스트
 

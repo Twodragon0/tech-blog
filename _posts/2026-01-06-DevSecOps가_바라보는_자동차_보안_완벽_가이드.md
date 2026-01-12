@@ -268,47 +268,7 @@ image_alt: "DevSecOps Viewing Automotive Security Complete Guide: Connected Car 
 
 ### 2.2 자동차 소프트웨어 개발 라이프사이클에 보안 통합
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
-```mermaid
-graph LR
-    subgraph LIFECYCLE["🔄 자동차 DevSecOps 라이프사이클"]
-        PLAN["📋 Plan"] --> CODE["💻 Code"]
-        CODE --> BUILD["🔨 Build"]
-        BUILD --> TEST["🧪 Test"]
-        TEST --> RELEASE["📦 Release"]
-        RELEASE --> DEPLOY["🚀 Deploy"]
-        DEPLOY --> MONITOR["📊 Monitor"]
-        MONITOR -.->|피드백| PLAN
-    end
-
-    subgraph SECURITY["🔐 보안 활동"]
-        S1["🎯 위협 모델링<br/>STRIDE, TARA"]
-        S2["🔍 SAST<br/>Secret 스캔"]
-        S3["📦 SCA<br/>이미지 스캔"]
-        S4["⚡ DAST/IAST<br/>Fuzz 테스트"]
-        S5["📜 SBOM 생성<br/>서명/암호화"]
-        S6["✅ 펌웨어 검증<br/>Secure Boot"]
-        S7["👁️ 런타임 보안<br/>침입 탐지"]
-    end
-
-    PLAN --> S1
-    CODE --> S2
-    BUILD --> S3
-    TEST --> S4
-    RELEASE --> S5
-    DEPLOY --> S6
-    MONITOR --> S7
-
-    style LIFECYCLE fill:#1e3a5f,stroke:#2c5282,color:#fff
-    style SECURITY fill:#2d3748,stroke:#4a5568,color:#fff
-    style PLAN fill:#3182ce,stroke:#2c5282,color:#fff
-    style CODE fill:#38a169,stroke:#276749,color:#fff
-    style BUILD fill:#d69e2e,stroke:#b7791f,color:#fff
-    style TEST fill:#dd6b20,stroke:#c05621,color:#fff
-    style RELEASE fill:#9f7aea,stroke:#805ad5,color:#fff
-    style DEPLOY fill:#e53e3e,stroke:#c53030,color:#fff
-    style MONITOR fill:#319795,stroke:#2c7a7b,color:#fff
--->
+**DevSecOps 라이프사이클**: Plan → Code → Build → Test → Release → Deploy → Monitor (피드백 순환)
 
 각 단계별 보안 활동:
 

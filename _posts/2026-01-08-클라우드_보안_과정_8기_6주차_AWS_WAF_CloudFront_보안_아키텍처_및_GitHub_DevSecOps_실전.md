@@ -172,22 +172,12 @@ GeoMatchRule:
     Rules:
       - Name: BlockSpecificCountries
         Priority: 1
-        Statement:
-          GeoMatchStatement:
-            CountryCodes:
-              - CN  # 중국 차단
-              - RU  # 러시아 차단
-              - KP  # 북한 차단
-        Action:
-          Block: {}
+        Statement: { GeoMatchStatement: { CountryCodes: [CN, RU, KP] } }  # 차단 국가
+        Action: { Block: {} }
       - Name: AllowOnlyKorea
         Priority: 2
-        Statement:
-          GeoMatchStatement:
-            CountryCodes:
-              - KR  # 대한민국만 허용
-        Action:
-          Allow: {}
+        Statement: { GeoMatchStatement: { CountryCodes: [KR] } }  # 허용 국가
+        Action: { Allow: {} }
 ```
 
 > **💡 실무 팁**
@@ -203,33 +193,21 @@ GeoMatchRule:
 > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.
 
 ```yaml
-# WAF Header Match Rule
+# WAF Header Match Rule (CloudFormation)
 HeaderMatchRule:
   Type: AWS::WAFv2::WebACL
   Properties:
     Rules:
       - Name: RequireSecretHeader
         Priority: 10
-        Statement:
-          ByteMatchStatement:
-            FieldToMatch:
-              Headers:
-                - Name: X-Secret-Key
-            PositionalConstraint: EXACTLY
-            SearchString: "your-secret-key-value"
-        Action:
-          Allow: {}
+        Statement: { ByteMatchStatement: { FieldToMatch: { Headers: [{ Name: X-Secret-Key }] },
+          PositionalConstraint: EXACTLY, SearchString: "your-secret-key" } }
+        Action: { Allow: {} }
       - Name: BlockSuspiciousUserAgent
         Priority: 20
-        Statement:
-          ByteMatchStatement:
-            FieldToMatch:
-              SingleHeader:
-                Name: User-Agent
-            PositionalConstraint: CONTAINS
-            SearchString: "sqlmap|nikto|nmap"
-        Action:
-          Block: {}
+        Statement: { ByteMatchStatement: { FieldToMatch: { SingleHeader: { Name: User-Agent } },
+          PositionalConstraint: CONTAINS, SearchString: "sqlmap|nikto|nmap" } }
+        Action: { Block: {} }
 ```
 
 #### Response Header 보안
@@ -239,36 +217,16 @@ HeaderMatchRule:
 > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.
 
 ```yaml
-# CloudFront Response Headers Policy
+# CloudFront Response Headers Policy (주요 보안 헤더)
 ResponseHeadersPolicy:
   Type: AWS::CloudFront::ResponseHeadersPolicy
   Properties:
     ResponseHeadersPolicyConfig:
       SecurityHeadersConfig:
-        StrictTransportSecurity:
-          AccessControlMaxAgeSec: 31536000
-          IncludeSubdomains: true
-          Override: true
-        ContentTypeOptions:
-          Override: true
-        FrameOptions:
-          FrameOption: DENY
-          Override: true
-        ReferrerPolicy:
-          ReferrerPolicy: strict-origin-when-cross-origin
-          Override: true
-        XSSProtection:
-          ModeBlock: true
-          Protection: true
-          Override: true
-      CustomHeadersConfig:
-        Items:
-          - Header: X-Content-Type-Options
-            Value: nosniff
-            Override: true
-          - Header: X-Frame-Options
-            Value: DENY
-            Override: true
+        StrictTransportSecurity: { AccessControlMaxAgeSec: 31536000, IncludeSubdomains: true }
+        ContentTypeOptions: { Override: true }  # X-Content-Type-Options: nosniff
+        FrameOptions: { FrameOption: DENY }     # Clickjacking 방어
+        XSSProtection: { ModeBlock: true, Protection: true }
 ```
 
 ### 1.4 실습: AWS WAF Workshop
@@ -320,35 +278,17 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 # .github/dependabot.yml
 version: 2
 updates:
-  # npm 의존성
   - package-ecosystem: "npm"
     directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
+    schedule: { interval: "weekly", day: "monday" }
     open-pull-requests-limit: 10
-    reviewers:
-      - "security-team"
-    labels:
-      - "dependencies"
-      - "security"
-      - "automated"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-  
-  # Python 의존성
+    labels: ["dependencies", "security"]
   - package-ecosystem: "pip"
     directory: "/scripts"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-  
-  # GitHub Actions
+    schedule: { interval: "weekly" }
   - package-ecosystem: "github-actions"
     directory: "/"
-    schedule:
-      interval: "monthly"
+    schedule: { interval: "monthly" }
 ```
 
 #### Dependabot 알림 설정
@@ -380,47 +320,22 @@ updates:
 ```yaml
 # .github/workflows/codeql-analysis.yml
 name: "CodeQL Analysis"
-
 on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: '0 0 * * 0'  # 매주 일요일 자정
-  workflow_dispatch:
+  push: { branches: [main, develop] }
+  pull_request: { branches: [main] }
+  schedule: [{ cron: '0 0 * * 0' }]  # 매주 일요일
 
 jobs:
   analyze:
-    name: Analyze
     runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'javascript', 'python' ]
-
+    permissions: { actions: read, contents: read, security-events: write }
+    strategy: { matrix: { language: ['javascript', 'python'] } }
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
-      with:
-        languages: ${{ matrix.language }}
-        queries: +security-and-quality
-
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:${{matrix.language}}"
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v3
+        with: { languages: '${{ matrix.language }}', queries: +security-and-quality }
+      - uses: github/codeql-action/autobuild@v3
+      - uses: github/codeql-action/analyze@v3
 ```
 
 #### CodeQL 쿼리 커스터마이징
@@ -501,35 +416,16 @@ if 'blog.kakaocdn.net' in src:
 ```python
 from urllib.parse import urlparse
 
-ALLOWED_HOSTS = [
-    'blog.kakaocdn.net',
-    't1.daumcdn.net',
-    'tistory.com'
-]
+ALLOWED_HOSTS = ['blog.kakaocdn.net', 't1.daumcdn.net', 'tistory.com']
 
-def validate_url(url_str: str) -> bool:
-    """URL 검증 함수"""
+def validate_url(url: str) -> bool:
+    """Allow-list 기반 URL 검증 (HTTPS + 허용 도메인만)"""
     try:
-        parsed = urlparse(url_str)
-        hostname = parsed.hostname
-        
-        # 허용된 도메인 리스트(Allow-list)에 없으면 원천 차단
-        if hostname not in ALLOWED_HOSTS:
-            return False
-        
-        # HTTPS만 허용
-        if parsed.scheme != 'https':
-            return False
-        
-        return True
-    except Exception:
-        return False
+        p = urlparse(url)
+        return p.scheme == 'https' and p.hostname in ALLOWED_HOSTS
+    except: return False
 
-# 사용 예시
-if validate_url(src):
-    download_image(src)
-else:
-    logger.warning(f"Blocked suspicious URL: {src}")
+# 사용: if validate_url(src): download_image(src)
 ```
 
 > **⚠️ 보안 주의사항**
@@ -548,54 +444,19 @@ else:
 
 ```python
 import re
-from typing import Any
 
-def mask_sensitive_data(data: Any) -> str:
-    """민감 정보 마스킹 함수"""
-    if not isinstance(data, str):
-        data = str(data)
-    
-    # API Key 패턴 (sk-로 시작하는 키)
-    data = re.sub(
-        r'sk-[a-zA-Z0-9]{20,}',
-        lambda m: f"sk-{'*' * (len(m.group()) - 3)}",
-        data
-    )
-    
-    # 일반 API Key 패턴
-    data = re.sub(
-        r'api[_-]?key["\s:=]+([a-zA-Z0-9]{20,})',
-        lambda m: f'api_key="{"*" * len(m.group(1))}"',
-        data,
-        flags=re.IGNORECASE
-    )
-    
-    # 비밀번호 패턴
-    data = re.sub(
-        r'password["\s:=]+([^\s"\']+)',
-        lambda m: f'password="{"*" * len(m.group(1))}"',
-        data,
-        flags=re.IGNORECASE
-    )
-    
-    # 토큰 패턴
-    data = re.sub(
-        r'token["\s:=]+([a-zA-Z0-9]{20,})',
-        lambda m: f'token="{"*" * len(m.group(1))}"',
-        data,
-        flags=re.IGNORECASE
-    )
-    
+def mask_sensitive_data(data: str) -> str:
+    """민감 정보 마스킹 (API Key, Password, Token)"""
+    patterns = [
+        (r'sk-[a-zA-Z0-9]{20,}', lambda m: f"sk-{'*'*20}"),  # OpenAI Key
+        (r'(api[_-]?key|password|token)["\s:=]+([^\s"\']{8,})',
+         lambda m: f'{m.group(1)}="{"*"*10}"')
+    ]
+    for pattern, repl in patterns:
+        data = re.sub(pattern, repl, data, flags=re.IGNORECASE)
     return data
 
-# 사용 예시
-api_key = os.getenv("API_KEY", "YOUR_API_KEY_HERE")  # 환경 변수에서 읽기
-logger.info(f"API Key: {mask_sensitive_data(api_key)}")
-# 출력: API Key: sk-**********************************
-
-# 로그 기록 전 마스킹
-log_message = f"Connecting with API_KEY={api_key}"
-logger.info(mask_sensitive_data(log_message))
+# 사용: logger.info(mask_sensitive_data(f"API_KEY={api_key}"))
 ```
 
 #### 취약점 3: 입력값 검증 부재
@@ -615,39 +476,18 @@ def process_image_url(url: str):
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 
 ```python
-import requests
+import requests, validators
 from urllib.parse import urlparse
-import validators
+
+ALLOWED_EXT = ['.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp']
 
 def process_image_url(url: str):
-    """안전한 이미지 URL 처리"""
-    # 1. URL 형식 검증
-    if not validators.url(url):
-        raise ValueError(f"Invalid URL format: {url}")
-    
-    # 2. 허용된 도메인 검증
-    if not validate_url(url):
-        raise ValueError(f"URL not in allowed list: {url}")
-    
-    # 3. 파일 확장자 검증
-    parsed = urlparse(url)
-    allowed_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp']
-    if not any(parsed.path.lower().endswith(ext) for ext in allowed_extensions):
-        raise ValueError(f"Invalid file extension: {url}")
-    
-    # 4. 안전한 요청
-    try:
-        response = requests.get(
-            url,
-            timeout=10,
-            allow_redirects=False,  # 리다이렉트 방지
-            verify=True  # SSL 검증
-        )
-        response.raise_for_status()
-        return response
-    except requests.RequestException as e:
-        logger.error(f"Failed to fetch image: {e}")
-        raise
+    """다층 검증: URL형식 → 도메인 → 확장자 → 안전한 요청"""
+    if not validators.url(url): raise ValueError("Invalid URL")
+    if not validate_url(url): raise ValueError("Domain not allowed")
+    if not any(urlparse(url).path.lower().endswith(e) for e in ALLOWED_EXT):
+        raise ValueError("Invalid extension")
+    return requests.get(url, timeout=10, allow_redirects=False, verify=True)
 ```
 
 ### 3.3 CodeQL 스캔 결과 및 수정 내역
