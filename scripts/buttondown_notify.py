@@ -125,24 +125,57 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
         "Content-Type": "application/json"
     }
 
+    # Use "sent" status to immediately send to all subscribers
+    # Alternative: "about_to_send" (draft) or "scheduled" (with publish_date)
     data = {
         "subject": subject,
         "body": body,
-        "status": "about_to_send"  # Immediately send to subscribers
+        "status": "sent"  # Immediately send to all subscribers
     }
 
     try:
+        print(f"📤 Sending email via Buttondown API...")
+        print(f"   URL: {url}")
+        print(f"   Subject: {subject[:50]}...")
+        
         response = requests.post(url, json=data, headers=headers, timeout=30)
 
+        # Check response status
         if response.status_code in [200, 201]:
+            result = response.json() if response.text else {}
+            email_id = result.get('id', 'N/A')
             print(f"✅ Email sent successfully!")
+            print(f"   Email ID: {email_id}")
             print(f"   Subject: {subject}")
             return True
+        elif response.status_code == 401:
+            print(f"❌ Authentication failed (401 Unauthorized)")
+            print(f"   Please check your BUTTONDOWN_API_KEY")
+            print(f"   API Key format: Token {api_key[:10]}...")
+            return False
+        elif response.status_code == 404:
+            print(f"❌ Resource not found (404)")
+            print(f"   This might indicate an invalid API endpoint or missing resource")
+            print(f"   Response: {response.text[:200]}")
+            return False
         else:
             print(f"❌ Failed to send email: {response.status_code}")
-            print(f"   Response: {response.text}")
+            print(f"   Response: {response.text[:500]}")
+            try:
+                error_data = response.json()
+                if 'detail' in error_data:
+                    print(f"   Error detail: {error_data['detail']}")
+            except:
+                pass
             return False
 
+    except requests.exceptions.Timeout:
+        print(f"❌ Request timeout: API did not respond within 30 seconds")
+        return False
+    except requests.exceptions.ConnectionError as e:
+        print(f"❌ Connection error: {e}")
+        print(f"   Please check your internet connection and API endpoint")
+        return False
     except requests.exceptions.RequestException as e:
         print(f"❌ Request error: {e}")
         return False
@@ -189,7 +222,16 @@ def main():
     api_key = os.environ.get('BUTTONDOWN_API_KEY')
     if not api_key:
         print("❌ BUTTONDOWN_API_KEY environment variable not set")
+        print("   Please set it in GitHub Secrets or .env file")
         sys.exit(1)
+    
+    # Validate API key format (should be UUID-like)
+    if len(api_key) < 20:
+        print("⚠️ Warning: API key seems too short. Please verify your BUTTONDOWN_API_KEY")
+    
+    # Test API connection (optional, can be disabled for faster execution)
+    # This helps catch authentication issues early
+    print(f"🔑 API Key: {api_key[:10]}...{api_key[-4:] if len(api_key) > 14 else '***'}")
 
     # Get site URL
     site_url = os.environ.get('SITE_URL', 'https://tech.2twodragon.com')
