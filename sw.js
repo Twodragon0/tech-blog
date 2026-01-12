@@ -1,8 +1,8 @@
 // Service Worker for Offline Support and Caching
 // 버전 업데이트 시 CACHE_NAME 변경하여 캐시 무효화
-const CACHE_NAME = 'tech-blog-v2';
-const STATIC_CACHE = 'tech-blog-static-v2';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v2';
+const CACHE_NAME = 'tech-blog-v3';
+const STATIC_CACHE = 'tech-blog-static-v3';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v3';
 
 // 캐시할 정적 리소스
 const STATIC_ASSETS = [
@@ -14,15 +14,30 @@ const STATIC_ASSETS = [
   '/assets/images/favicon.png'
 ];
 
-// 설치: 정적 리소스 캐시
+// 설치: 정적 리소스 캐시 (개별 캐시로 에러 격리)
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(STATIC_CACHE).then((cache) => {
-      return cache.addAll(STATIC_ASSETS).catch((error) => {
-        // 일부 리소스 캐시 실패해도 계속 진행
-        console.error('[Service Worker] Cache addAll failed:', error);
-        return Promise.resolve();
-      });
+      // 각 리소스를 개별적으로 캐시하여 하나가 실패해도 다른 것들은 계속 캐시
+      return Promise.all(
+        STATIC_ASSETS.map((url) => {
+          return fetch(url, { cache: 'no-store' })
+            .then((response) => {
+              if (response.ok) {
+                return cache.put(url, response);
+              }
+              // 404 등 실패한 리소스는 무시하고 계속 진행
+              return Promise.resolve();
+            })
+            .catch(() => {
+              // 네트워크 에러도 무시하고 계속 진행
+              return Promise.resolve();
+            });
+        })
+      );
+    }).catch((error) => {
+      // 캐시 열기 실패해도 조용히 계속 진행
+      return Promise.resolve();
     })
   );
   self.skipWaiting();

@@ -1712,7 +1712,177 @@
       });
     });
     })();
-  
+
+    // ========================================
+    // Code Block UI Enhancement
+    // ========================================
+    (function initCodeBlockEnhancement() {
+      // Language name mapping for display
+      const languageNames = {
+        'js': 'JavaScript',
+        'javascript': 'JavaScript',
+        'ts': 'TypeScript',
+        'typescript': 'TypeScript',
+        'py': 'Python',
+        'python': 'Python',
+        'rb': 'Ruby',
+        'ruby': 'Ruby',
+        'java': 'Java',
+        'go': 'Go',
+        'golang': 'Go',
+        'rs': 'Rust',
+        'rust': 'Rust',
+        'cpp': 'C++',
+        'c': 'C',
+        'cs': 'C#',
+        'csharp': 'C#',
+        'php': 'PHP',
+        'swift': 'Swift',
+        'kt': 'Kotlin',
+        'kotlin': 'Kotlin',
+        'sh': 'Shell',
+        'bash': 'Bash',
+        'shell': 'Shell',
+        'zsh': 'Zsh',
+        'powershell': 'PowerShell',
+        'ps1': 'PowerShell',
+        'html': 'HTML',
+        'css': 'CSS',
+        'scss': 'SCSS',
+        'sass': 'Sass',
+        'less': 'Less',
+        'json': 'JSON',
+        'yaml': 'YAML',
+        'yml': 'YAML',
+        'xml': 'XML',
+        'md': 'Markdown',
+        'markdown': 'Markdown',
+        'sql': 'SQL',
+        'graphql': 'GraphQL',
+        'dockerfile': 'Dockerfile',
+        'docker': 'Docker',
+        'nginx': 'Nginx',
+        'apache': 'Apache',
+        'terraform': 'Terraform',
+        'tf': 'Terraform',
+        'hcl': 'HCL',
+        'toml': 'TOML',
+        'ini': 'INI',
+        'conf': 'Config',
+        'env': 'Environment',
+        'plaintext': 'Text',
+        'text': 'Text',
+        'diff': 'Diff',
+        'console': 'Console',
+        'log': 'Log'
+      };
+
+      // Copy icon SVG
+      const copyIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+
+      // Check icon SVG
+      const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+
+      // Find all code blocks
+      const codeBlocks = document.querySelectorAll('.post-content .highlight, .post-content pre:not(.highlight pre)');
+
+      codeBlocks.forEach((block, index) => {
+        // Skip if already processed
+        if (block.closest('.code-block-wrapper')) return;
+
+        // Get the code element
+        let codeElement = block.querySelector('code');
+        let preElement = block.tagName === 'PRE' ? block : block.querySelector('pre');
+
+        if (!preElement) return;
+        if (!codeElement) {
+          codeElement = preElement;
+        }
+
+        // Detect language from class
+        let language = '';
+        const classes = (codeElement.className + ' ' + (block.className || '')).toLowerCase();
+        const langMatch = classes.match(/language-(\w+)|highlight-(\w+)|(\w+)-lang/);
+        if (langMatch) {
+          language = langMatch[1] || langMatch[2] || langMatch[3];
+        }
+
+        // Also check Rouge's highlight class pattern
+        if (!language) {
+          const highlightMatch = block.className && block.className.match(/highlight-source-(\w+)/);
+          if (highlightMatch) {
+            language = highlightMatch[1];
+          }
+        }
+
+        // Create wrapper
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+
+        // Create header
+        const header = document.createElement('div');
+        header.className = 'code-block-header';
+
+        // Language badge
+        const languageBadge = document.createElement('span');
+        languageBadge.className = 'code-language-badge';
+        languageBadge.textContent = languageNames[language] || language.toUpperCase() || 'CODE';
+
+        // Copy button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'code-copy-btn';
+        copyBtn.setAttribute('aria-label', '코드 복사');
+        copyBtn.innerHTML = `${copyIcon}<span>복사</span>`;
+
+        // Copy functionality
+        copyBtn.addEventListener('click', async () => {
+          const code = codeElement.textContent || codeElement.innerText;
+
+          try {
+            await navigator.clipboard.writeText(code);
+            copyBtn.classList.add('copied');
+            copyBtn.innerHTML = `${checkIcon}<span>복사됨!</span>`;
+
+            setTimeout(() => {
+              copyBtn.classList.remove('copied');
+              copyBtn.innerHTML = `${copyIcon}<span>복사</span>`;
+            }, 2000);
+          } catch (err) {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = code;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+              document.execCommand('copy');
+              copyBtn.classList.add('copied');
+              copyBtn.innerHTML = `${checkIcon}<span>복사됨!</span>`;
+
+              setTimeout(() => {
+                copyBtn.classList.remove('copied');
+                copyBtn.innerHTML = `${copyIcon}<span>복사</span>`;
+              }, 2000);
+            } catch (e) {
+              console.error('Copy failed:', e);
+            }
+            document.body.removeChild(textArea);
+          }
+        });
+
+        header.appendChild(languageBadge);
+        header.appendChild(copyBtn);
+
+        // Wrap the block
+        block.parentNode.insertBefore(wrapper, block);
+        wrapper.appendChild(header);
+        wrapper.appendChild(block);
+      });
+
+      safeLog('Code block enhancement initialized');
+    })();
+
   }; // End of initNonCritical function
   
   // Schedule non-critical initialization when idle

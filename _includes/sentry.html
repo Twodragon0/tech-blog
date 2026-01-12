@@ -21,24 +21,34 @@
 -->
 
 <!-- Sentry Loader Script (페이지 상단에 위치 - 에러 추적을 위해 빠른 로딩 필요) -->
-<!-- 실제 Loader Script URL은 Sentry 프로젝트 설정에서 확인하세요 -->
+<!--
+  실제 Loader Script URL은 Sentry 프로젝트 설정에서 확인하세요.
+  현재 Sentry가 비활성화되어 있습니다. 활성화하려면:
+  1. Sentry.io에서 프로젝트 생성
+  2. 아래 주석을 해제하고 YOUR_SENTRY_DSN을 실제 DSN으로 교체
+-->
+<!--
 <script
   src="https://js.sentry-cdn.com/YOUR_SENTRY_DSN.min.js"
   crossorigin="anonymous"
   async
 ></script>
+-->
 
 <!-- Sentry 초기화 (Loader Script 로드 후 실행) -->
 <script>
 (function() {
   'use strict';
-  
-  // Sentry가 로드될 때까지 대기 (CSP 위반 시 로드되지 않을 수 있음)
+
+  // Sentry가 로드될 때까지 대기 (비활성화 또는 CSP 위반 시 로드되지 않을 수 있음)
   if (typeof Sentry === 'undefined') {
-    // 개발 환경에서만 경고 (프로덕션에서는 조용히 실패)
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      console.warn('[Sentry] Loader script not loaded - CSP may be blocking it');
-    }
+    // Sentry가 비활성화되어 있거나 로드되지 않았습니다
+    // 조용히 종료 (콘솔에 에러 표시하지 않음)
+    return;
+  }
+
+  // Sentry.onLoad가 없으면 (잘못된 DSN 등) 조용히 종료
+  if (typeof Sentry.onLoad !== 'function') {
     return;
   }
 
