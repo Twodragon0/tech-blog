@@ -107,6 +107,12 @@
       /adsbygoogle\.js.*403/i,
       /pagead2\.googlesyndication\.com.*403/i,
       /GET.*adsbygoogle.*403/i,
+      // Firebase Dynamic Links 오류 필터링 (2025년 8월 25일 서비스 종료로 인한 오류)
+      /firebase.*dynamic.*link/i,
+      /Invalid dynamic link/i,
+      /firebaseapp\.com.*dynamic/i,
+      /app\.goo\.gl/i,
+      /firebase.*link.*invalid/i,
       // 이미지 404 에러 필터링 (WebP fallback이 처리함)
       /\.webp.*404/i,
       /image.*404.*Not Found/i,
@@ -369,6 +375,54 @@
         }
       };
     }
+
+    // 전역 에러 핸들러: Firebase Dynamic Links 및 기타 무시할 수 있는 오류 처리
+    const originalWindowError = window.onerror;
+    window.onerror = function(message, source, lineno, colno, error) {
+      // Firebase Dynamic Links 오류 필터링 (2025년 8월 25일 서비스 종료)
+      if (typeof message === 'string' && (
+        /firebase.*dynamic.*link/i.test(message) ||
+        /Invalid dynamic link/i.test(message) ||
+        /firebaseapp\.com/i.test(message) ||
+        /app\.goo\.gl/i.test(message)
+      )) {
+        // 조용히 무시 (Firebase Dynamic Links는 서비스가 종료되었으므로 오류는 정상)
+        return true; // 에러 처리됨을 표시
+      }
+      
+      // 기타 필터링된 오류도 무시
+      if (typeof message === 'string' && shouldFilter(message)) {
+        return true;
+      }
+      
+      // 원래 핸들러가 있으면 호출
+      if (originalWindowError) {
+        return originalWindowError.call(this, message, source, lineno, colno, error);
+      }
+      
+      return false; // 기본 에러 처리 계속
+    };
+
+    // Unhandled Promise Rejection 핸들러
+    window.addEventListener('unhandledrejection', function(event) {
+      const reason = event.reason;
+      const reasonStr = reason && typeof reason === 'object' ? reason.toString() : String(reason);
+      
+      // Firebase Dynamic Links 관련 Promise rejection 필터링
+      if (/firebase.*dynamic.*link/i.test(reasonStr) ||
+          /Invalid dynamic link/i.test(reasonStr) ||
+          /firebaseapp\.com/i.test(reasonStr) ||
+          /app\.goo\.gl/i.test(reasonStr)) {
+        event.preventDefault(); // 기본 에러 처리 방지
+        return;
+      }
+      
+      // 기타 필터링된 오류도 무시
+      if (shouldFilter(reasonStr)) {
+        event.preventDefault();
+        return;
+      }
+    }, { passive: true });
   })();
   
   // Run critical initialization immediately
