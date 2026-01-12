@@ -25,6 +25,26 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
 GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent"
 
+
+def check_gemini_cli_available() -> bool:
+    """
+    Gemini CLI가 설치되어 있고 사용 가능한지 확인합니다.
+
+    Returns:
+        CLI 사용 가능 여부
+    """
+    try:
+        result = subprocess.run(
+            ["gemini", "--version"],
+            capture_output=True,
+            text=True,
+            timeout=5
+        )
+        return result.returncode == 0
+    except (FileNotFoundError, subprocess.TimeoutExpired, Exception):
+        return False
+
+
 def mask_sensitive_info(text: str) -> str:
     """
     로그에 기록될 민감한 정보를 마스킹합니다.
@@ -629,31 +649,103 @@ def generate_content_from_suggestions(title: str, excerpt: str, category: str,
     
     return content
 
+def improve_with_gemini_cli(post_info: Dict) -> Optional[str]:
+    """
+    Gemini CLI를 사용하여 포스팅 개선 (무료 - OAuth 2.0 인증 사용)
+
+    비용 절감을 위해 API 대신 CLI 우선 사용
+    """
+    if not check_gemini_cli_available():
+        return None
+
+    try:
+        title = post_info['title']
+        excerpt = post_info['excerpt']
+        category = post_info['category']
+        tags = post_info['tags']
+        original_url = post_info.get('original_url', '')
+
+        prompt = f"""기술 블로그 전문 작가로서 다음 정보를 바탕으로 실용적인 기술 블로그 포스팅 본문을 작성해주세요.
+
+제목: {title}
+카테고리: {category}
+태그: {tags}
+요약: {excerpt}
+원본 URL: {original_url}
+
+요구사항:
+1. 실무 중심의 구체적인 내용으로 작성
+2. 코드 예제와 설정 예시 포함
+3. 보안 모범 사례 강조
+4. 단계별 가이드 제공
+5. 마크다운 형식으로 작성
+6. 한글로 작성
+
+다음 구조로 작성:
+## 서론
+## 1. 개요
+## 2. 핵심 내용
+## 3. 실전 적용
+## 4. 모범 사례
+## 5. 문제 해결
+## 결론
+
+원본 포스트: {original_url}"""
+
+        # Gemini CLI 호출 (stdin으로 프롬프트 전달)
+        result = subprocess.run(
+            ["gemini"],
+            input=prompt,
+            capture_output=True,
+            text=True,
+            timeout=120
+        )
+
+        if result.returncode == 0 and result.stdout.strip():
+            return result.stdout.strip()
+        return None
+
+    except subprocess.TimeoutExpired:
+        log_message("Gemini CLI 타임아웃 (120초)")
+        return None
+    except Exception as e:
+        error_msg = mask_sensitive_info(str(e))
+        log_message(f"Gemini CLI 호출 오류: {error_msg}")
+        return None
+
+
 def improve_post_with_ai(post_info: Dict) -> bool:
-    """AI를 활용하여 포스팅 개선"""
+    """AI를 활용하여 포스팅 개선 (비용 최적화: CLI 우선)"""
     improved_content = None
     method_used = None
-    
-    # 1순위: Claude API 시도
-    if CLAUDE_API_KEY:
-        log_message(f"  Claude API로 개선 시도...")
-        improved_content = improve_with_claude(post_info)
+
+    # 1순위: Gemini CLI 시도 (무료 - OAuth 2.0 인증)
+    if check_gemini_cli_available():
+        log_message(f"  Gemini CLI로 개선 시도 (무료)...")
+        improved_content = improve_with_gemini_cli(post_info)
         if improved_content:
-            method_used = "Claude"
-    
-    # 2순위: Gemini API 시도 (Claude 실패 시)
-    if not improved_content and GEMINI_API_KEY:
-        log_message(f"  Gemini API로 개선 시도...")
-        improved_content = improve_with_gemini(post_info)
-        if improved_content:
-            method_used = "Gemini"
-    
-    # 3순위: Cursor 분석 기반 개선 (API 실패 시)
+            method_used = "Gemini CLI"
+
+    # 2순위: Cursor 분석 기반 개선 (무료 - 로컬 템플릿)
     if not improved_content:
-        log_message(f"  Cursor 분석으로 개선 시도...")
+        log_message(f"  Cursor 분석으로 개선 시도 (로컬)...")
         improved_content = improve_with_cursor_analysis(post_info)
         if improved_content:
             method_used = "Cursor Analysis"
+
+    # 3순위: Claude API 시도 (비용 발생)
+    if not improved_content and CLAUDE_API_KEY:
+        log_message(f"  Claude API로 개선 시도 (API 비용 발생)...")
+        improved_content = improve_with_claude(post_info)
+        if improved_content:
+            method_used = "Claude API"
+
+    # 4순위: Gemini API 시도 (비용 발생)
+    if not improved_content and GEMINI_API_KEY:
+        log_message(f"  Gemini API로 개선 시도 (API 비용 발생)...")
+        improved_content = improve_with_gemini(post_info)
+        if improved_content:
+            method_used = "Gemini API"
     
     if not improved_content:
         log_message(f"  모든 AI 방법 실패, 기본 템플릿 사용")

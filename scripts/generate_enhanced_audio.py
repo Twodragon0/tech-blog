@@ -75,7 +75,7 @@ AUDIO_SPEED_MULTIPLIER = 1.5  # 오디오 재생 속도 배율 (1.5배속)
 USE_GEMINI_FOR_IMPROVEMENT = os.getenv("USE_GEMINI_FOR_IMPROVEMENT", "true").lower() == "true"
 USE_DEEPSEEK_FOR_SCRIPT = os.getenv("USE_DEEPSEEK_FOR_SCRIPT", "true").lower() == "true"
 USE_GEMINI_FOR_SCRIPT = os.getenv("USE_GEMINI_FOR_SCRIPT", "true").lower() == "true"  # Gemini AI Pro 적극 활용
-USE_GEMINI_CLI = os.getenv("USE_GEMINI_CLI", "false").lower() == "true"  # Gemini CLI 사용 (OAuth 2.0 지원)
+USE_GEMINI_CLI = os.getenv("USE_GEMINI_CLI", "true").lower() == "true"  # Gemini CLI 사용 (비용 절감 - OAuth 2.0 지원)
 PREFER_GEMINI = os.getenv("PREFER_GEMINI", "true").lower() == "true"  # Gemini Pro 우선 사용
 ENABLE_CACHING = os.getenv("ENABLE_CACHING", "true").lower() == "true"
 
@@ -1208,66 +1208,29 @@ def generate_script(text: str, post_title: str = "") -> Optional[str]:
     if cached_script:
         return cached_script
     
-    # API 선택 전략 (OAuth 2.0 우선, CLI 지원)
+    # API 선택 전략 (비용 최적화: CLI 우선)
     script = None
-    
-    # 전략 1: OAuth 2.0 우선 (USE_OAUTH=true) ⭐ 권장
-    if USE_OAUTH:
-        log_message("🎯 OAuth 2.0 우선 전략: Gemini OAuth 2.0 API로 대본 생성 시도...")
-        script = generate_script_with_gemini_oauth(text, post_title)
-        
-        # OAuth 실패 시 API 키로 폴백
-        if not script and USE_GEMINI_FOR_SCRIPT and GEMINI_API_KEY:
-            log_message("🔄 OAuth 2.0 실패, Gemini API 키로 대본 생성 시도...", "WARNING")
-            script = generate_script_with_gemini(text, post_title)
-        
-        # API 키도 실패 시 DeepSeek으로 폴백
-        if not script and USE_DEEPSEEK_FOR_SCRIPT and DEEPSEEK_API_KEY:
-            log_message("🔄 Gemini 실패, DeepSeek API로 대본 생성 시도...", "WARNING")
-            script = generate_script_with_deepseek(text, post_title)
-    
-    # 전략 2: Gemini CLI 우선 (USE_GEMINI_CLI=true)
-    elif USE_GEMINI_CLI and check_gemini_cli_available():
-        log_message("🎯 Gemini CLI 우선 전략: Gemini CLI로 대본 생성 시도...")
+
+    # 전략 1: Gemini CLI 우선 (무료 - OAuth 2.0 인증) ⭐ 비용 절감
+    if USE_GEMINI_CLI and check_gemini_cli_available():
+        log_message("🎯 Gemini CLI 우선 전략 (무료): Gemini CLI로 대본 생성 시도...")
         script = generate_script_with_gemini_cli(text, post_title)
-        
-        # CLI 실패 시 API로 폴백
-        if not script and USE_GEMINI_FOR_SCRIPT and GEMINI_API_KEY:
-            log_message("🔄 Gemini CLI 실패, Gemini API로 대본 생성 시도...", "WARNING")
-            script = generate_script_with_gemini(text, post_title)
-        
-        # API도 실패 시 DeepSeek으로 폴백
-        if not script and USE_DEEPSEEK_FOR_SCRIPT and DEEPSEEK_API_KEY:
-            log_message("🔄 Gemini 실패, DeepSeek API로 대본 생성 시도...", "WARNING")
-            script = generate_script_with_deepseek(text, post_title)
-    
-    # 전략 3: Gemini AI Pro 우선 (PREFER_GEMINI=true, API 키 사용)
-    elif PREFER_GEMINI and USE_GEMINI_FOR_SCRIPT and GEMINI_API_KEY:
-        log_message("🎯 Gemini AI Pro 우선 전략: Gemini API로 대본 생성 시도...")
+
+    # 전략 2: OAuth 2.0 (USE_OAUTH=true)
+    if not script and USE_OAUTH:
+        log_message("🎯 OAuth 2.0 전략: Gemini OAuth 2.0 API로 대본 생성 시도...")
+        script = generate_script_with_gemini_oauth(text, post_title)
+
+    # 전략 3: Gemini API 키 (비용 발생)
+    if not script and USE_GEMINI_FOR_SCRIPT and GEMINI_API_KEY:
+        log_message("🔄 Gemini API로 대본 생성 시도 (API 비용 발생)...", "WARNING")
         script = generate_script_with_gemini(text, post_title)
-        
-        # Gemini 실패 시 DeepSeek으로 폴백
-        if not script and USE_DEEPSEEK_FOR_SCRIPT and DEEPSEEK_API_KEY:
-            log_message("🔄 Gemini 실패, DeepSeek API로 대본 생성 시도...", "WARNING")
-            script = generate_script_with_deepseek(text, post_title)
-    
-    # 전략 2: DeepSeek 우선 (PREFER_GEMINI=false)
-    elif USE_DEEPSEEK_FOR_SCRIPT and DEEPSEEK_API_KEY:
-        log_message("🎯 DeepSeek 우선 전략: DeepSeek으로 대본 생성 시도...")
+
+    # 전략 4: DeepSeek API (비용 발생)
+    if not script and USE_DEEPSEEK_FOR_SCRIPT and DEEPSEEK_API_KEY:
+        log_message("🔄 DeepSeek API로 대본 생성 시도 (API 비용 발생)...", "WARNING")
         script = generate_script_with_deepseek(text, post_title)
-        
-        # DeepSeek 실패 시 Gemini로 폴백
-        if not script and USE_GEMINI_FOR_SCRIPT and GEMINI_API_KEY:
-            log_message("🔄 DeepSeek 실패, Gemini AI Pro로 대본 생성 시도...", "WARNING")
-            script = generate_script_with_gemini(text, post_title)
-    
-    # 전략 3: 사용 가능한 API만 사용
-    else:
-        if USE_GEMINI_FOR_SCRIPT and GEMINI_API_KEY:
-            script = generate_script_with_gemini(text, post_title)
-        elif USE_DEEPSEEK_FOR_SCRIPT and DEEPSEEK_API_KEY:
-            script = generate_script_with_deepseek(text, post_title)
-    
+
     if not script:
         log_message("❌ 대본 생성 실패: 사용 가능한 API가 없습니다.", "ERROR")
         return None
