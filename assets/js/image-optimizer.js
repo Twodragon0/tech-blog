@@ -142,6 +142,7 @@
           webpImg.onerror = function() {
             try {
               // WebP 파일이 없으면 원본 유지 (조용히 처리 - 404는 정상)
+              // 콘솔 에러를 방지하기 위해 아무것도 로깅하지 않음
               if (img.dataset) {
                 img.dataset.optimized = 'true';
                 img.dataset.format = 'original';
@@ -151,6 +152,7 @@
               setImageSizeHint(img);
             } catch (e) {
               // 에러 발생 시 조용히 처리 (최적화는 선택사항)
+              // 콘솔 에러를 방지하기 위해 아무것도 로깅하지 않음
               if (img.dataset) {
                 img.dataset.optimized = 'true';
                 img.dataset.format = 'original';
@@ -266,6 +268,7 @@
               webpImg.onerror = function() {
                 try {
                   // WebP 실패 시 원본 사용 (조용히 처리 - 404는 정상)
+                  // 콘솔 에러를 방지하기 위해 아무것도 로깅하지 않음
                   img.src = originalSrc;
                   if (img.removeAttribute) {
                     img.removeAttribute('data-src');
@@ -277,6 +280,7 @@
                   observer.unobserve(img);
                 } catch (e) {
                   // 에러 발생 시 조용히 처리
+                  // 콘솔 에러를 방지하기 위해 아무것도 로깅하지 않음
                   if (img.dataset) {
                     img.dataset.optimized = 'true';
                     img.dataset.format = 'original';

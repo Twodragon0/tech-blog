@@ -311,6 +311,13 @@
       script.async = true;
       script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}';
       script.crossOrigin = 'anonymous';
+      
+      // 에러 핸들링: 403 등 에러 발생 시 조용히 처리
+      script.onerror = function() {
+        // AdSense 로드 실패는 조용히 처리 (계정 문제, CSP 정책 등)
+        // 콘솔 에러를 방지하기 위해 아무것도 하지 않음
+      };
+      
       document.head.appendChild(script);
     });
   </script>

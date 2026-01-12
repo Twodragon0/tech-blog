@@ -98,6 +98,18 @@
       /apple-touch-icon.*404/i,
       /GET.*favicon/i,
       /GET.*apple-touch-icon/i,
+      // 성능 경고 필터링 (외부 리소스 로딩 지연은 정상)
+      /\[Performance\] Slow resource/i,
+      /Slow resource.*vercel/i,
+      /Slow resource.*giscus/i,
+      /Slow resource.*googlesyndication/i,
+      // Google Ads 403 에러 필터링 (AdSense 계정 문제일 수 있음)
+      /adsbygoogle\.js.*403/i,
+      /pagead2\.googlesyndication\.com.*403/i,
+      /GET.*adsbygoogle.*403/i,
+      // 이미지 404 에러 필터링 (WebP fallback이 처리함)
+      /\.webp.*404/i,
+      /image.*404.*Not Found/i,
       /Failed to load image/i,
       /\.webp.*404/i,
       /GET.*\.webp.*404/i,

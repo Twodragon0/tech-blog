@@ -121,6 +121,12 @@
         script.async = true;
         script.crossOrigin = giscusConfig.crossorigin;
 
+        // 에러 핸들링: 스크립트 로드 실패 시 조용히 처리
+        script.onerror = function() {
+          if (loadingEl) loadingEl.style.display = 'none';
+          // Giscus 로드 실패는 조용히 처리 (네트워크 문제, 설정 문제 등)
+        };
+
         // Set data attributes
         script.setAttribute('data-repo', giscusConfig.repo);
         script.setAttribute('data-repo-id', giscusConfig.repoId);
@@ -156,6 +162,12 @@
           // Handle loading complete
           if (type === 'ready' || discussion) {
             if (loadingEl) loadingEl.style.display = 'none';
+          }
+
+          // Handle error messages
+          if (type === 'error') {
+            if (loadingEl) loadingEl.style.display = 'none';
+            // 404 에러 등은 조용히 처리 (GitHub Discussions 설정 문제일 수 있음)
           }
 
           // Update reactions from discussion
