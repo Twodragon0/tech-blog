@@ -62,6 +62,18 @@ layout: default
         </svg>
         <span itemprop="name">{{ site.author.name }}</span>
       </span>
+
+      {% if page.last_modified_at %}
+      <span class="meta-item meta-updated" title="Last Updated">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 4v6h-6"/>
+          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+        </svg>
+        <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">
+          {{ page.last_modified_at | date: "%Y. %m. %d" }}
+        </time>
+      </span>
+      {% endif %}
     </div>
 
     {% if page.tags.size > 0 %}
@@ -557,3 +569,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 })();
 </script>
+
+{% include mermaid.html %}

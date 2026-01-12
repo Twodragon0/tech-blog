@@ -2138,6 +2138,43 @@ iframe[class*="goog-te"],
   margin: var(--spacing-lg) auto;
 }
 
+/* Figure and Figcaption - 이미지 캡션 (접근성) */
+.post-content figure {
+  margin: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.post-content figure img {
+  margin-bottom: var(--spacing-sm);
+}
+
+.post-content figcaption {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  margin-top: var(--spacing-sm);
+  padding: 0 var(--spacing-md);
+}
+
+/* Mermaid 다이어그램 */
+.post-content .mermaid {
+  margin: var(--spacing-xl) 0;
+  text-align: center;
+  background: var(--color-bg-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  overflow-x: auto;
+}
+
+.post-content .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+[data-theme="dark"] .post-content .mermaid {
+  background: var(--color-bg-tertiary);
+}
+
 .post-content table {
   width: 100%;
   border-collapse: collapse;

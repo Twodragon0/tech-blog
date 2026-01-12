@@ -1,0 +1,51 @@
+<!-- Mermaid.js for diagrams -->
+<script>
+(function() {
+  // Check if page has mermaid diagrams
+  var hasMermaid = document.querySelector('.language-mermaid, pre code.mermaid');
+  if (!hasMermaid) return;
+
+  // Load mermaid.js on demand
+  var script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+  script.onload = function() {
+    // Get current theme
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose',
+      flowchart: { useMaxWidth: true, htmlLabels: true }
+    });
+
+    // Convert code blocks to mermaid diagrams
+    document.querySelectorAll('.language-mermaid, pre code.mermaid').forEach(function(el) {
+      var pre = el.closest('pre');
+      var code = el.textContent;
+      var div = document.createElement('div');
+      div.className = 'mermaid';
+      div.textContent = code;
+      pre.parentNode.replaceChild(div, pre);
+    });
+
+    mermaid.run();
+  };
+  document.head.appendChild(script);
+
+  // Re-render on theme change
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.attributeName === 'data-theme' && window.mermaid) {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        mermaid.initialize({ theme: isDark ? 'dark' : 'default' });
+        document.querySelectorAll('.mermaid').forEach(function(el) {
+          el.removeAttribute('data-processed');
+        });
+        mermaid.run();
+      }
+    });
+  });
+  observer.observe(document.documentElement, { attributes: true });
+})();
+</script>
