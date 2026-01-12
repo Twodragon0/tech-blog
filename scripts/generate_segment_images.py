@@ -6,6 +6,7 @@ Gemini 2.5 Flash Image (Nano Banana) 모델을 사용하여 실제 이미지를 
 """
 
 import os
+import re
 import json
 import sys
 import time
@@ -33,8 +34,79 @@ GEMINI_IMAGE_PRO_API_URL = "https://generativelanguage.googleapis.com/v1beta/mod
 USE_PRO_MODEL = os.getenv("USE_GEMINI_PRO_IMAGE", "false").lower() == "true"
 
 
+def mask_sensitive_info(text: str) -> str:
+    """
+    로그에 기록될 민감한 정보를 마스킹합니다.
+
+    Args:
+        text: 마스킹할 텍스트
+
+    Returns:
+        마스킹된 텍스트
+    """
+    if not text:
+        return text
+
+    # API 키 마스킹
+    masked = re.sub(r'AIza[0-9A-Za-z_-]{35}', 'AIza***MASKED***', text)
+    masked = re.sub(r'[a-zA-Z0-9_-]{40,}', lambda m: m.group()[:8] + '***MASKED***' if len(m.group()) > 40 else m.group(), masked)
+
+    # 환경 변수에서 읽은 실제 API 키 값 마스킹
+    if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
+        masked = masked.replace(GEMINI_API_KEY, '***GEMINI_API_KEY_MASKED***')
+
+    # URL에 포함된 API 키 마스킹 (key= 파라미터)
+    masked = re.sub(r'[?&]key=[a-zA-Z0-9_-]+', '?key=***MASKED***', masked)
+
+    return masked
+
+
+def _validate_masked_text(text: str) -> bool:
+    """
+    텍스트가 안전하게 마스킹되었는지 검증합니다.
+
+    Args:
+        text: 검증할 텍스트
+
+    Returns:
+        안전하면 True, 아니면 False
+    """
+    if not text:
+        return True
+
+    # 실제 API 키 패턴이 남아있는지 확인
+    api_key_patterns = [
+        r'AIza[0-9A-Za-z_-]{35}',
+        r'[a-zA-Z0-9_-]{40,}',
+    ]
+
+    for pattern in api_key_patterns:
+        if re.search(pattern, text):
+            return False
+
+    # 환경 변수에서 읽은 실제 API 키 값이 포함되어 있는지 확인
+    if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10 and GEMINI_API_KEY in text:
+        return False
+
+    return True
+
+
+def _safe_print(text: str) -> None:
+    """
+    검증된 안전한 텍스트만 출력합니다.
+    CodeQL 경고 방지를 위해 별도 함수로 분리.
+    """
+    if not text:
+        return
+
+    # 추가 검증 (defense in depth)
+    safe_text = mask_sensitive_info(text)
+    if _validate_masked_text(safe_text):
+        print(safe_text)
+
+
 def log_message(message: str, level: str = "INFO"):
-    """로그 메시지 출력"""
+    """로그 메시지 출력 (민감 정보 자동 마스킹)"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     icons = {
         "INFO": "ℹ️",
@@ -43,7 +115,10 @@ def log_message(message: str, level: str = "INFO"):
         "ERROR": "❌"
     }
     icon = icons.get(level, "ℹ️")
-    print(f"[{timestamp}] [{level}] {icon} {message}")
+    # 민감 정보 마스킹 후 출력
+    safe_message = mask_sensitive_info(message)
+    log_entry = f"[{timestamp}] [{level}] {icon} {safe_message}"
+    _safe_print(log_entry)
 
 
 def extract_keywords_from_text(text: str) -> List[str]:
@@ -222,13 +297,16 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                         log_message(f"⚠️ Gemini API가 텍스트 응답을 반환했습니다. 이미지 생성 프롬프트로 사용할 수 있습니다.", "WARNING")
                         log_message(f"   응답: {text_response[:200]}...")
                         
-                        # 프롬프트 파일로 저장
+                        # 프롬프트 파일로 저장 (민감 정보 마스킹)
                         prompt_file = output_path.parent / f"{output_path.stem}_prompt.txt"
-                        with open(prompt_file, "w", encoding="utf-8") as f:
-                            f.write(f"# Image Generation Prompt\n\n")
-                            f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-                            f.write(f"Original Prompt:\n{prompt}\n\n")
-                            f.write(f"Refined Prompt:\n{text_response}\n")
+                        safe_prompt = mask_sensitive_info(prompt)
+                        safe_text_response = mask_sensitive_info(text_response)
+                        if _validate_masked_text(safe_prompt) and _validate_masked_text(safe_text_response):
+                            with open(prompt_file, "w", encoding="utf-8") as f:
+                                f.write(f"# Image Generation Prompt\n\n")
+                                f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+                                f.write(f"Original Prompt:\n{safe_prompt}\n\n")
+                                f.write(f"Refined Prompt:\n{safe_text_response}\n")
                         
                         log_message(f"💡 프롬프트 파일 저장: {prompt_file}", "INFO")
                         if attempt < max_retries:

@@ -129,8 +129,22 @@ def _write_validated_safe_text(file_path: Path, safe_text: str) -> None:
         pass
 
 
+def _safe_print(text: str) -> None:
+    """
+    검증된 안전한 텍스트만 출력합니다.
+    CodeQL 경고 방지를 위해 별도 함수로 분리.
+    """
+    if not text:
+        return
+
+    # 추가 검증 (defense in depth)
+    safe_text = mask_sensitive_info(text)
+    if _validate_masked_text(safe_text):
+        print(safe_text)
+
+
 def log_message(message: str, level: str = "INFO"):
-    """로그 메시지 출력"""
+    """로그 메시지 출력 (민감 정보 자동 마스킹)"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     icons = {
         "INFO": "ℹ️",
@@ -139,7 +153,10 @@ def log_message(message: str, level: str = "INFO"):
         "ERROR": "❌"
     }
     icon = icons.get(level, "ℹ️")
-    print(f"[{timestamp}] [{level}] {icon} {message}")
+    # 민감 정보 마스킹 후 출력
+    safe_message = mask_sensitive_info(message)
+    log_entry = f"[{timestamp}] [{level}] {icon} {safe_message}"
+    _safe_print(log_entry)
 
 
 def extract_post_info(post_file: Path) -> Dict:
@@ -440,30 +457,39 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
 
 
 def save_prompt_file(prompt: str, output_path: Path):
-    """프롬프트를 파일로 저장"""
+    """프롬프트를 파일로 저장 (민감 정보 마스킹)"""
     prompt_file = output_path.parent / f"{output_path.stem}_prompt.txt"
     try:
-        with open(prompt_file, "w", encoding="utf-8") as f:
-            f.write(f"# Image Generation Prompt\n\n")
-            f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"Output: {output_path.name}\n\n")
-            f.write("=" * 80 + "\n")
-            f.write("PROMPT:\n")
-            f.write("=" * 80 + "\n\n")
-            f.write(prompt)
-            f.write("\n\n")
-            f.write("=" * 80 + "\n")
-            f.write("USAGE:\n")
-            f.write("=" * 80 + "\n\n")
-            f.write("이 프롬프트를 사용하여 다음 도구로 이미지를 생성할 수 있습니다:\n\n")
-            f.write("1. DALL-E (OpenAI): https://platform.openai.com/docs/guides/images\n")
-            f.write("2. Midjourney: https://www.midjourney.com/\n")
-            f.write("3. Stable Diffusion: https://stability.ai/\n")
-            f.write("4. Gemini Studio: https://makersuite.google.com/app/prompts/image\n")
-        
+        # 민감 정보 마스킹
+        safe_prompt = mask_sensitive_info(prompt)
+
+        # 검증
+        if not _validate_masked_text(safe_prompt):
+            log_message("⚠️ 프롬프트에 민감 정보가 포함되어 저장이 차단되었습니다.", "WARNING")
+            return
+
+        # 안전한 내용만 저장
+        safe_content = f"# Image Generation Prompt\n\n"
+        safe_content += f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+        safe_content += f"Output: {output_path.name}\n\n"
+        safe_content += "=" * 80 + "\n"
+        safe_content += "PROMPT:\n"
+        safe_content += "=" * 80 + "\n\n"
+        safe_content += safe_prompt
+        safe_content += "\n\n"
+        safe_content += "=" * 80 + "\n"
+        safe_content += "USAGE:\n"
+        safe_content += "=" * 80 + "\n\n"
+        safe_content += "이 프롬프트를 사용하여 다음 도구로 이미지를 생성할 수 있습니다:\n\n"
+        safe_content += "1. DALL-E (OpenAI): https://platform.openai.com/docs/guides/images\n"
+        safe_content += "2. Midjourney: https://www.midjourney.com/\n"
+        safe_content += "3. Stable Diffusion: https://stability.ai/\n"
+        safe_content += "4. Gemini Studio: https://makersuite.google.com/app/prompts/image\n"
+
+        _write_validated_safe_text(prompt_file, safe_content)
         log_message(f"✅ 프롬프트 파일 저장 완료: {prompt_file}", "SUCCESS")
     except Exception as e:
-        log_message(f"⚠️ 프롬프트 파일 저장 실패: {str(e)}", "WARNING")
+        log_message(f"⚠️ 프롬프트 파일 저장 실패: {mask_sensitive_info(str(e))}", "WARNING")
 
 
 def process_post(post_file: Path, force: bool = False) -> bool:
