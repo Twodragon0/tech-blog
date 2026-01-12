@@ -1,14 +1,118 @@
-<!-- Google Translate Widget -->
-<div id="google_translate_element"></div>
-
+<!-- Google Translate Integration with Custom Toggle -->
 <script type="text/javascript">
+// Language code mapping
+const LANG_CODES = {
+  'ko': { code: 'KO', name: '한국어' },
+  'en': { code: 'EN', name: 'English' },
+  'ja': { code: 'JA', name: '日本語' },
+  'zh-CN': { code: 'CN', name: '简体中文' },
+  'zh-TW': { code: 'TW', name: '繁體中文' }
+};
+
+// Initialize Google Translate
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'ko',
-    includedLanguages: 'en,ja,zh-CN,zh-TW,es,fr,de,vi,th',
+    includedLanguages: 'en,ja,zh-CN,zh-TW',
     layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
     autoDisplay: false
   }, 'google_translate_element');
 }
+
+// Language Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const langToggle = document.getElementById('lang-toggle');
+  const langDropdown = document.getElementById('lang-dropdown');
+  const currentLangSpan = document.getElementById('current-lang');
+  const langOptions = document.querySelectorAll('.lang-option');
+
+  if (!langToggle || !langDropdown) return;
+
+  // Toggle dropdown
+  langToggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const isExpanded = langToggle.getAttribute('aria-expanded') === 'true';
+    langToggle.setAttribute('aria-expanded', !isExpanded);
+    langDropdown.classList.toggle('active');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!langToggle.contains(e.target) && !langDropdown.contains(e.target)) {
+      langToggle.setAttribute('aria-expanded', 'false');
+      langDropdown.classList.remove('active');
+    }
+  });
+
+  // Language selection
+  langOptions.forEach(function(option) {
+    option.addEventListener('click', function() {
+      const lang = this.getAttribute('data-lang');
+      changeLanguage(lang);
+
+      // Update display
+      if (LANG_CODES[lang]) {
+        currentLangSpan.textContent = LANG_CODES[lang].code;
+      }
+
+      // Close dropdown
+      langToggle.setAttribute('aria-expanded', 'false');
+      langDropdown.classList.remove('active');
+    });
+  });
+
+  // Change language using Google Translate
+  function changeLanguage(lang) {
+    // For Korean (original), remove translation
+    if (lang === 'ko') {
+      // Find and click the "Show original" button or remove translation cookie
+      const iframe = document.querySelector('.goog-te-banner-frame');
+      if (iframe) {
+        try {
+          const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+          const closeBtn = innerDoc.querySelector('.goog-te-button');
+          if (closeBtn) closeBtn.click();
+        } catch (e) {
+          // Cross-origin restriction - use cookie method
+        }
+      }
+
+      // Reset Google Translate cookie
+      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname;
+
+      // Reload to show original
+      window.location.reload();
+      return;
+    }
+
+    // Set translation cookie
+    const cookieValue = '/ko/' + lang;
+    document.cookie = 'googtrans=' + cookieValue + '; path=/;';
+    document.cookie = 'googtrans=' + cookieValue + '; path=/; domain=.' + window.location.hostname;
+
+    // Trigger Google Translate
+    const select = document.querySelector('.goog-te-combo');
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event('change'));
+    } else {
+      // If Google Translate not ready, reload
+      window.location.reload();
+    }
+  }
+
+  // Detect current language from cookie
+  function getCurrentLanguage() {
+    const match = document.cookie.match(/googtrans=\/ko\/([^;]+)/);
+    return match ? match[1] : 'ko';
+  }
+
+  // Set initial language display
+  const currentLang = getCurrentLanguage();
+  if (LANG_CODES[currentLang]) {
+    currentLangSpan.textContent = LANG_CODES[currentLang].code;
+  }
+});
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

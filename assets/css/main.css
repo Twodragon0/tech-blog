@@ -666,59 +666,106 @@ body {
   display: none;
 }
 
-/* Google Translate Widget in Header */
-.gtranslate-wrapper {
+/* Language Toggle Button */
+.lang-toggle-wrapper {
+  position: relative;
   display: inline-flex;
   align-items: center;
   z-index: 100;
 }
 
-.gtranslate-wrapper #google_translate_element {
-  display: inline-block;
-}
-
-/* Hide Google Translate attribution */
-.goog-te-gadget > span {
-  display: none !important;
-}
-
-.goog-logo-link {
-  display: none !important;
-}
-
-/* Style the Google Translate dropdown */
-.goog-te-gadget .goog-te-combo {
-  padding: 8px 12px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-md);
-  background-color: var(--color-bg-primary);
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  background: transparent;
+  border: none;
   color: var(--color-text-primary);
-  font-size: 13px;
-  font-family: inherit;
   cursor: pointer;
-  outline: none;
+  border-radius: var(--border-radius-md);
   transition: all var(--transition-fast);
-  min-width: 100px;
 }
 
-.goog-te-gadget .goog-te-combo:hover {
-  border-color: var(--color-primary);
+.lang-toggle:hover {
   background-color: var(--color-bg-secondary);
 }
 
-.goog-te-gadget .goog-te-combo:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px var(--color-primary-light);
+.lang-toggle .globe-icon {
+  stroke: var(--color-text-secondary);
+  transition: stroke var(--transition-fast);
 }
 
-[data-theme="dark"] .goog-te-gadget .goog-te-combo {
-  background-color: var(--color-bg-secondary);
+.lang-toggle:hover .globe-icon {
+  stroke: var(--color-primary);
+}
+
+.lang-toggle .lang-code {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.lang-toggle:hover .lang-code {
+  color: var(--color-primary);
+}
+
+/* Language Dropdown */
+.lang-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  min-width: 150px;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all var(--transition-fast);
+  overflow: hidden;
+}
+
+.lang-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
   color: var(--color-text-primary);
-  border-color: var(--color-border);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
 }
 
-[data-theme="dark"] .goog-te-gadget .goog-te-combo:hover {
-  background-color: var(--color-bg-tertiary);
+.lang-option:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-primary);
+}
+
+.lang-option .lang-flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Hide Google Translate default UI */
+.goog-te-gadget,
+.goog-te-gadget > span,
+.goog-logo-link,
+#google_translate_element .goog-te-gadget-simple {
+  display: none !important;
 }
 
 /* Hide Google Translate banner */
@@ -730,16 +777,39 @@ body {
   top: 0 !important;
 }
 
+/* Dark mode styles */
+[data-theme="dark"] .lang-dropdown {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .lang-option:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
-  .gtranslate-wrapper {
+  .lang-toggle-wrapper {
     order: -1;
   }
 
-  .goog-te-gadget .goog-te-combo {
+  .lang-toggle {
     padding: 6px 8px;
-    font-size: 12px;
-    min-width: 80px;
+  }
+
+  .lang-toggle .lang-code {
+    font-size: 11px;
+  }
+
+  .lang-dropdown {
+    right: auto;
+    left: 0;
+    min-width: 130px;
+  }
+
+  .lang-option {
+    padding: 8px 12px;
+    font-size: 13px;
   }
 }
 /* Translation Status Toast */
