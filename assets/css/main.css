@@ -671,16 +671,16 @@ body {
   position: relative;
   display: inline-flex;
   align-items: center;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .lang-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 8px 10px;
-  background: transparent;
-  border: none;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
   color: var(--color-text-primary);
   cursor: pointer;
   border-radius: var(--border-radius-md);
@@ -688,7 +688,8 @@ body {
 }
 
 .lang-toggle:hover {
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-primary);
 }
 
 .lang-toggle .globe-icon {
@@ -703,7 +704,7 @@ body {
 .lang-toggle .lang-code {
   font-size: 12px;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   transition: color var(--transition-fast);
 }
 
@@ -714,25 +715,26 @@ body {
 /* Language Dropdown */
 .lang-dropdown {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 8px);
   right: 0;
-  margin-top: 8px;
-  min-width: 150px;
+  min-width: 160px;
   background-color: var(--color-bg-primary);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
-  transition: all var(--transition-fast);
-  overflow: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  z-index: 9999;
+  pointer-events: none;
 }
 
 .lang-dropdown.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 .lang-option {
@@ -778,9 +780,19 @@ body {
 }
 
 /* Dark mode styles */
+[data-theme="dark"] .lang-toggle {
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .lang-toggle:hover {
+  background-color: var(--color-bg-secondary);
+}
+
 [data-theme="dark"] .lang-dropdown {
   background-color: var(--color-bg-secondary);
   border-color: var(--color-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="dark"] .lang-option:hover {
