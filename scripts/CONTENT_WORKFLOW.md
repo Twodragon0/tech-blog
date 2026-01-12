@@ -24,10 +24,12 @@
 | 우선순위 | 서비스 | 비용 | 용도 |
 |----------|--------|------|------|
 | 1순위 | **Gemini CLI** | 무료 (OAuth 2.0) | 대본 생성, 텍스트 처리 |
-| 2순위 | **Python Diagrams** | 무료 (로컬) | AWS 아키텍처 다이어그램 |
-| 3순위 | **DeepSeek API** | 저비용 | 대본 생성 폴백 |
-| 4순위 | **Gemini API** | 유료 | 이미지 생성, TTS 폴백 |
-| 5순위 | **ElevenLabs** | 유료 | 고품질 TTS |
+| 2순위 | **Python Diagrams** | 무료 (로컬) | AWS/보안 아키텍처 다이어그램 |
+| 3순위 | **Edge-TTS** | 무료 | TTS (API 키 불필요) |
+| 4순위 | **Coqui TTS** | 무료 (로컬) | TTS 폴백 (로컬 실행) |
+| 5순위 | **DeepSeek API** | 저비용 | 대본 생성 폴백 |
+| 6순위 | **Gemini API** | 유료 | 이미지 생성, TTS 폴백 |
+| 7순위 | **ElevenLabs** | 유료 | 고품질 TTS (최후의 수단) |
 
 ### 캐싱 전략
 
@@ -121,12 +123,18 @@ python3 scripts/generate_segment_images.py _posts/2026-01-12-DevSecOps.md
 
 ### 이미지 생성 우선순위
 
-| 콘텐츠 유형 | 생성 방법 | 비용 |
-|------------|----------|------|
-| AWS 아키텍처 | Python Diagrams | 무료 |
-| Kubernetes 구조 | Python Diagrams | 무료 |
-| 개념도/흐름도 | Gemini API | 유료 |
-| 썸네일 | Gemini Nano Banana | 유료 |
+| 콘텐츠 유형 | 생성 방법 | 비용 | 자동 감지 |
+|------------|----------|------|----------|
+| **AWS 아키텍처** | **Python Diagrams** | **무료** | ✅ 자동 감지 (AWS 키워드 2개 이상) |
+| **보안 아키텍처** | **Python Diagrams** | **무료** | ✅ 자동 감지 (보안 키워드 2개 이상) |
+| Kubernetes 구조 | Python Diagrams | 무료 | 수동 지정 |
+| 개념도/흐름도 | Gemini API | 유료 | 기본값 |
+| 썸네일 | Gemini Nano Banana | 유료 | 수동 지정 |
+
+**자동 감지 로직:**
+- AWS 키워드 2개 이상 감지 → Python Diagrams 사용
+- 보안 키워드 2개 이상 감지 → Python Diagrams 사용
+- 그 외 → Gemini API 사용
 
 ---
 
@@ -181,18 +189,38 @@ python3 scripts/generate_enhanced_audio.py --script-only _posts/2026-01-12-Post.
 
 ## 4단계: TTS (Text-to-Speech)
 
-### API 선택 전략
+### API 선택 전략 (비용 최적화)
 
-| 우선순위 | 서비스 | 품질 | 비용 |
-|----------|--------|------|------|
-| 1순위 | ElevenLabs | 최고 | 유료 (월 10,000자 무료) |
-| 2순위 | Gemini TTS | 우수 | 유료 |
-| 3순위 | Google Cloud TTS | 양호 | 유료 |
+| 우선순위 | 서비스 | 품질 | 비용 | 특징 |
+|----------|--------|------|------|------|
+| **1순위** | **Edge-TTS** | 우수 | **무료** | Microsoft Edge TTS, API 키 불필요, 한국어 지원 |
+| **2순위** | **Coqui TTS** | 우수 | **무료** | 로컬 실행, 완전 무료, 한국어 지원 |
+| 3순위 | ElevenLabs | 최고 | 유료 (월 10,000자 무료) | 최고 품질, 유료 |
+| 4순위 | Gemini TTS | 우수 | 유료 | 폴백 옵션 |
 
-### 음성 설정
+### TTS 설치 및 설정
 
+#### Edge-TTS (권장 - 무료)
+```bash
+# 설치
+pip install edge-tts
+
+# 사용 가능한 한국어 음성 확인
+edge-tts --list-voices | grep ko-KR
+```
+
+#### Coqui TTS (로컬 실행)
+```bash
+# 설치
+pip install TTS
+
+# 한국어 모델 자동 다운로드 (첫 실행 시)
+python3 -c "from TTS.api import TTS; tts = TTS(model_name='tts_models/ko/common-glow_tts')"
+```
+
+#### ElevenLabs 설정 (선택사항)
 ```python
-# ElevenLabs 설정
+# ElevenLabs 설정 (유료)
 VOICE_ID = "pNInz6obpgDQGcFmaJgB"  # Adam
 VOICE_SETTINGS = {
     "stability": 0.5,
@@ -200,7 +228,11 @@ VOICE_SETTINGS = {
     "style": 0.5,
     "use_speaker_boost": True
 }
+```
 
+### 오디오 설정
+
+```python
 # 오디오 설정
 AUDIO_SPEED_MULTIPLIER = 1.5  # 1.5배속
 AUDIO_OUTPUT_FORMAT = "mp3"
@@ -357,6 +389,19 @@ gemini auth login
 gemini auth status
 ```
 
+### TTS 라이브러리 설치 오류
+
+```bash
+# Edge-TTS 재설치
+pip install --upgrade edge-tts
+
+# Coqui TTS 재설치
+pip install --upgrade TTS
+
+# 사용 가능한 한국어 음성 확인 (Edge-TTS)
+edge-tts --list-voices | grep ko-KR
+```
+
 ### ElevenLabs 할당량 초과
 
 ```bash
@@ -364,8 +409,8 @@ gemini auth status
 curl -H "xi-api-key: $ELEVENLABS_API_KEY" \
   https://api.elevenlabs.io/v1/user/subscription
 
-# Gemini TTS로 폴백
-export USE_GEMINI_TTS_FALLBACK="true"
+# Edge-TTS로 자동 폴백 (기본 동작)
+# 또는 Coqui TTS 사용
 ```
 
 ### 이미지 생성 실패
@@ -383,6 +428,7 @@ brew install graphviz
 ## 참고 문서
 
 - [Gemini CLI 설정](GEMINI_OAUTH_SETUP.md)
+- [TTS 오픈소스 가이드](TTS_OPENSOURCE_GUIDE.md) ⭐ **추천**
 - [ElevenLabs 설정](ELEVENLABS_SETUP.md)
 - [비디오 생성 가이드](README_VIDEO_GENERATION.md)
 - [비용 최적화 가이드](COST_OPTIMIZATION_GUIDE.md)

@@ -38,6 +38,19 @@ try:
 except ImportError:
     OAUTH_AVAILABLE = False
 
+# TTS 오픈소스 라이브러리 (비용 최적화)
+try:
+    import edge_tts
+    EDGE_TTS_AVAILABLE = True
+except ImportError:
+    EDGE_TTS_AVAILABLE = False
+
+try:
+    from TTS.api import TTS
+    COQUI_TTS_AVAILABLE = True
+except ImportError:
+    COQUI_TTS_AVAILABLE = False
+
 # 경로 설정
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
@@ -1288,10 +1301,136 @@ def text_to_speech_with_gemini(script: str, output_path: Path) -> bool:
         return False
 
 
+def adjust_audio_speed(input_path: Path, output_path: Path, speed: float = 1.5) -> bool:
+    """FFmpeg를 사용하여 오디오 속도를 조정합니다."""
+    try:
+        import subprocess
+        
+        # FFmpeg로 속도 조정
+        cmd = [
+            "ffmpeg", "-i", str(input_path),
+            "-filter:a", f"atempo={speed}",
+            "-y",  # 덮어쓰기
+            str(output_path)
+        ]
+        
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+        
+        if result.returncode == 0:
+            return True
+        return False
+        
+    except Exception as e:
+        log_message(f"⚠️ 오디오 속도 조정 실패 (FFmpeg 없음): {str(e)}", "WARNING")
+        return False
+
+
+def text_to_speech_with_edge_tts(script: str, output_path: Path) -> bool:
+    """
+    Edge-TTS (Microsoft Edge TTS)를 사용하여 텍스트를 음성으로 변환합니다.
+    무료, API 키 불필요, 한국어 지원.
+    
+    Args:
+        script: 대본 텍스트
+        output_path: 출력 파일 경로
+        
+    Returns:
+        성공 시 True, 실패 시 False
+    """
+    if not EDGE_TTS_AVAILABLE:
+        return False
+    
+    try:
+        log_message("🎤 Edge-TTS로 음성 생성 중... (무료, API 키 불필요)")
+        
+        # 한국어 음성 선택 (여성 음성)
+        voice = "ko-KR-SunHiNeural"  # 한국어 여성 음성
+        
+        # 임시 파일 경로
+        temp_path = output_path.with_suffix(".tmp.mp3")
+        
+        # Edge-TTS로 음성 생성
+        communicate = edge_tts.Communicate(script, voice)
+        communicate.save(str(temp_path))
+        
+        # 오디오 속도 조정 (1.5배속)
+        if AUDIO_SPEED_MULTIPLIER != 1.0:
+            if adjust_audio_speed(temp_path, output_path, AUDIO_SPEED_MULTIPLIER):
+                temp_path.unlink()  # 임시 파일 삭제
+            else:
+                # 속도 조정 실패 시 원본 파일 사용
+                temp_path.rename(output_path)
+        else:
+            temp_path.rename(output_path)
+        
+        file_size = output_path.stat().st_size
+        log_message(f"✅ Edge-TTS 음성 생성 완료: {output_path} ({file_size:,} bytes, {AUDIO_SPEED_MULTIPLIER}x 속도)")
+        return True
+        
+    except Exception as e:
+        log_message(f"❌ Edge-TTS 오류: {str(e)}", "ERROR")
+        return False
+
+
+def text_to_speech_with_coqui_tts(script: str, output_path: Path) -> bool:
+    """
+    Coqui TTS를 사용하여 텍스트를 음성으로 변환합니다.
+    로컬 실행, 완전 무료, 한국어 지원.
+    
+    Args:
+        script: 대본 텍스트
+        output_path: 출력 파일 경로
+        
+    Returns:
+        성공 시 True, 실패 시 False
+    """
+    if not COQUI_TTS_AVAILABLE:
+        return False
+    
+    try:
+        log_message("🎤 Coqui TTS로 음성 생성 중... (로컬 실행, 완전 무료)")
+        
+        # 한국어 모델 초기화
+        tts = TTS(model_name="tts_models/ko/common-glow_tts", progress_bar=False)
+        
+        # 임시 파일 경로
+        temp_path = output_path.with_suffix(".tmp.mp3")
+        
+        # 음성 생성
+        tts.tts_to_file(text=script, file_path=str(temp_path))
+        
+        # 오디오 속도 조정 (1.5배속)
+        if AUDIO_SPEED_MULTIPLIER != 1.0:
+            if adjust_audio_speed(temp_path, output_path, AUDIO_SPEED_MULTIPLIER):
+                temp_path.unlink()  # 임시 파일 삭제
+            else:
+                # 속도 조정 실패 시 원본 파일 사용
+                temp_path.rename(output_path)
+        else:
+            temp_path.rename(output_path)
+        
+        file_size = output_path.stat().st_size
+        log_message(f"✅ Coqui TTS 음성 생성 완료: {output_path} ({file_size:,} bytes, {AUDIO_SPEED_MULTIPLIER}x 속도)")
+        return True
+        
+    except Exception as e:
+        log_message(f"❌ Coqui TTS 오류: {str(e)}", "ERROR")
+        return False
+
+
 def text_to_speech(script: str, output_path: Path) -> bool:
     """
-    ElevenLabs API 또는 Gemini API를 사용하여 텍스트를 음성으로 변환합니다.
-    비용 최적화: ElevenLabs를 우선 사용 (비용 효율적), Gemini는 폴백으로 사용.
+    텍스트를 음성으로 변환합니다.
+    비용 최적화 우선순위:
+    1. Edge-TTS (무료, API 키 불필요, 한국어 지원)
+    2. Coqui TTS (로컬, 완전 무료, 한국어 지원)
+    3. ElevenLabs (유료, 최고 품질)
+    4. Gemini TTS (유료, 폴백)
     
     Args:
         script: 대본 텍스트
@@ -1304,7 +1443,19 @@ def text_to_speech(script: str, output_path: Path) -> bool:
         log_message("❌ 대본이 비어있습니다.", "ERROR")
         return False
     
-    # 비용 최적화: ElevenLabs를 우선 사용 (비용 효율적)
+    # 1순위: Edge-TTS (무료, API 키 불필요)
+    if EDGE_TTS_AVAILABLE:
+        if text_to_speech_with_edge_tts(script, output_path):
+            return True
+        log_message("⚠️ Edge-TTS 실패, 다음 옵션 시도...", "WARNING")
+    
+    # 2순위: Coqui TTS (로컬, 완전 무료)
+    if COQUI_TTS_AVAILABLE:
+        if text_to_speech_with_coqui_tts(script, output_path):
+            return True
+        log_message("⚠️ Coqui TTS 실패, 다음 옵션 시도...", "WARNING")
+    
+    # 3순위: ElevenLabs (유료, 최고 품질)
     if ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID:
         try:
             log_message("🎤 ElevenLabs API로 음성 생성 중... (비용 최적화: ElevenLabs 우선)")
@@ -1338,12 +1489,23 @@ def text_to_speech(script: str, output_path: Path) -> bool:
             
             response.raise_for_status()
             
-            # 오디오 파일 저장
-            with open(output_path, "wb") as f:
+            # 임시 파일에 저장
+            temp_path = output_path.with_suffix(".tmp.mp3")
+            with open(temp_path, "wb") as f:
                 f.write(response.content)
             
+            # 오디오 속도 조정 (1.5배속)
+            if AUDIO_SPEED_MULTIPLIER != 1.0:
+                if adjust_audio_speed(temp_path, output_path, AUDIO_SPEED_MULTIPLIER):
+                    temp_path.unlink()  # 임시 파일 삭제
+                else:
+                    # 속도 조정 실패 시 원본 파일 사용
+                    temp_path.rename(output_path)
+            else:
+                temp_path.rename(output_path)
+            
             file_size = output_path.stat().st_size
-            log_message(f"✅ 음성 생성 완료: {output_path} ({file_size:,} bytes)")
+            log_message(f"✅ ElevenLabs 음성 생성 완료: {output_path} ({file_size:,} bytes, {AUDIO_SPEED_MULTIPLIER}x 속도)")
             return True
             
         except requests.exceptions.RequestException as e:

@@ -482,7 +482,15 @@ def generate_diagram(post_file: Path, diagram_type: str = "auto", output_path: O
 
     # 출력 경로 설정
     if output_path is None:
-        output_path = ASSETS_IMAGES_DIR / f"{post_file.stem}_diagram.png"
+        # 포스트의 image 필드에서 경로 추출 시도
+        post_image = post_info.get("image", "")
+        if post_image and post_image.startswith("/assets/images/"):
+            # 기존 이미지 경로를 기반으로 다이어그램 경로 생성
+            base_name = Path(post_image).stem
+            output_path = ASSETS_IMAGES_DIR / f"{base_name}_diagram.png"
+        else:
+            # 기본 다이어그램 경로
+            output_path = ASSETS_IMAGES_DIR / f"{post_file.stem}_diagram.png"
 
     # 출력 디렉토리 생성
     output_path.parent.mkdir(parents=True, exist_ok=True)

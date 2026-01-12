@@ -11,3 +11,11 @@ google-auth>=2.23.0
 google-auth-oauthlib>=1.1.0
 google-auth-httplib2>=0.1.1
 google-generativeai>=0.3.0
+
+# TTS 오픈소스 라이브러리 (비용 최적화)
+edge-tts>=6.1.0  # Edge-TTS (무료, API 키 불필요)
+TTS>=0.20.0      # Coqui TTS (로컬 실행, 완전 무료)
+
+# AWS 아키텍처 다이어그램 생성
+diagrams>=0.23.0  # Python Diagrams (무료, 로컬 실행)
+graphviz>=0.20.0  # Graphviz (diagrams 의존성)

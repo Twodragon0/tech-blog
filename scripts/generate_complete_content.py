@@ -67,7 +67,16 @@ ENABLE_CACHING = os.getenv("ENABLE_CACHING", "true").lower() == "true"
 AWS_KEYWORDS = [
     "AWS", "EC2", "ECS", "EKS", "Lambda", "S3", "RDS", "DynamoDB",
     "VPC", "IAM", "WAF", "CloudFront", "Route53", "CloudWatch",
-    "CodePipeline", "CodeBuild", "Fargate", "API Gateway", "SNS", "SQS"
+    "CodePipeline", "CodeBuild", "Fargate", "API Gateway", "SNS", "SQS",
+    "Aurora", "ElastiCache", "EFS", "EBS", "Secrets Manager", "KMS",
+    "Cognito", "Shield", "GuardDuty", "Security Hub", "Inspector"
+]
+
+# 보안 아키텍처 키워드
+SECURITY_KEYWORDS = [
+    "보안", "Security", "WAF", "Shield", "IAM", "인증", "Authentication",
+    "방화벽", "Firewall", "ZTNA", "Zero Trust", "암호화", "Encryption",
+    "KMS", "Secrets Manager", "Cognito", "RBAC", "권한", "Access Control"
 ]
 
 
@@ -157,12 +166,21 @@ def check_gemini_cli_available() -> bool:
 
 
 def detect_image_method(content: str, tags: List[str]) -> str:
-    """포스트 내용을 분석하여 이미지 생성 방법을 결정합니다."""
+    """
+    포스트 내용을 분석하여 이미지 생성 방법을 결정합니다.
+    AWS 및 보안 아키텍처는 Python Diagrams를 우선 사용합니다.
+    """
     combined = content.lower() + " " + " ".join(tags).lower()
 
     # AWS 키워드 체크
     aws_count = sum(1 for kw in AWS_KEYWORDS if kw.lower() in combined)
-    if aws_count >= 3:
+    
+    # 보안 아키텍처 키워드 체크
+    security_count = sum(1 for kw in SECURITY_KEYWORDS if kw.lower() in combined)
+    
+    # AWS 또는 보안 아키텍처 관련이면 diagrams 사용
+    if aws_count >= 2 or security_count >= 2:
+        log_message(f"AWS/보안 아키텍처 감지: AWS={aws_count}, Security={security_count} → Python Diagrams 사용")
         return "diagrams"
 
     return "gemini"
@@ -281,6 +299,35 @@ def step_generate_images(post_file: Path, method: str = "auto") -> bool:
     return True  # 이미지 실패해도 계속 진행
 
 
+def update_post_image_field(post_file: Path, diagram_path: Path) -> bool:
+    """포스팅 파일의 image 필드에 다이어그램 경로를 추가합니다."""
+    try:
+        import frontmatter
+        
+        with open(post_file, "r", encoding="utf-8") as f:
+            post = frontmatter.load(f)
+        
+        # 상대 경로로 변환
+        relative_path = f"/assets/images/{diagram_path.name}"
+        
+        # image 필드가 없거나 다이어그램 경로가 아닌 경우 업데이트
+        current_image = post.get("image", "")
+        if not current_image or "_diagram" not in current_image:
+            post["image"] = relative_path
+            
+            with open(post_file, "w", encoding="utf-8") as f:
+                f.write(frontmatter.dumps(post))
+            
+            log_message(f"포스팅 image 필드 업데이트: {relative_path}", "SUCCESS")
+            return True
+        
+        return False
+        
+    except Exception as e:
+        log_message(f"포스팅 업데이트 오류: {mask_sensitive_info(str(e))}", "WARNING")
+        return False
+
+
 def generate_with_diagrams(post_file: Path) -> bool:
     """Python Diagrams로 아키텍처 다이어그램을 생성합니다."""
     try:
@@ -303,6 +350,15 @@ def generate_with_diagrams(post_file: Path) -> bool:
 
         if result.returncode == 0:
             log_message("아키텍처 다이어그램 생성 완료", "SUCCESS")
+            
+            # 생성된 다이어그램 경로 찾기
+            post_info = extract_post_info(post_file)
+            diagram_path = ASSETS_IMAGES_DIR / f"{post_file.stem}_diagram.png"
+            
+            if diagram_path.exists():
+                # 포스팅 파일의 image 필드 업데이트
+                update_post_image_field(post_file, diagram_path)
+            
             return True
         else:
             log_message(f"다이어그램 생성 실패: {result.stderr[:200] if result.stderr else 'Unknown'}", "WARNING")
