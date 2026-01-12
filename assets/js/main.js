@@ -644,11 +644,6 @@
     const codeBlock = pre ? pre.querySelector('code') : null;
     
     if (!codeBlock || !pre) return;
-    
-    // Check if button already exists
-    if (highlightDiv.querySelector('.copy-code-btn')) {
-      return;
-    }
 
     // Detect language from class names
     // Rouge typically adds classes like: .highlight.python, .highlight .language-python, etc.
@@ -748,109 +743,6 @@
       highlightDiv.style.position = 'relative';
     }
     
-    // Ensure pre element is positioned relatively for button positioning
-    if (!pre.style.position) {
-      pre.style.position = 'relative';
-    }
-
-    // Create copy button
-    const button = document.createElement('button');
-    button.className = 'copy-code-btn';
-    if (isMermaid) {
-      button.classList.add('mermaid-copy-btn');
-    }
-    button.setAttribute('aria-label', 'Copy code to clipboard');
-    button.setAttribute('type', 'button');
-    button.innerHTML = `
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-      </svg>
-      <span class="copy-text">Copy</span>
-    `;
-    
-    // For Mermaid blocks, ensure button is always visible and properly positioned
-    if (isMermaid) {
-      // Append button to pre element (inside code block)
-      pre.appendChild(button);
-      
-      // Wait for Mermaid to render and ensure button positioning
-      let checkCount = 0;
-      const maxChecks = 50; // Maximum 5 seconds (50 * 100ms)
-      
-      const checkMermaidRendered = () => {
-        checkCount++;
-        const mermaidSvg = highlightDiv.querySelector('svg.mermaid, svg[id^="mermaid-"]');
-        const mermaidDiv = highlightDiv.querySelector('.mermaid');
-        const renderedContent = mermaidSvg || mermaidDiv;
-        
-        if (renderedContent || checkCount >= maxChecks) {
-          // Mermaid has rendered or timeout reached
-          // Ensure button is positioned correctly above the rendered content
-          // CSS will handle most of the positioning, but we ensure it's visible
-          button.style.opacity = '1';
-          button.style.transform = 'translateY(0)';
-        } else {
-          // Check again after a short delay
-          setTimeout(checkMermaidRendered, 100);
-        }
-      };
-      
-      // Start checking after a short delay to allow Mermaid to initialize
-      setTimeout(checkMermaidRendered, 200);
-    } else {
-      // Append button to pre element (inside code block)
-      pre.appendChild(button);
-    }
-
-    // Copy functionality
-    // Store original code text for Mermaid blocks (before rendering)
-    const originalCodeText = codeBlock.textContent || codeBlock.innerText;
-    
-    button.addEventListener('click', async (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-      
-      // For Mermaid blocks, use original code text; for others, use current text
-      let textToCopy = originalCodeText;
-      if (!isMermaid) {
-        // For non-Mermaid blocks, try to get current text (in case it changed)
-        textToCopy = codeBlock.textContent || codeBlock.innerText || originalCodeText;
-      }
-      
-      const copyText = button.querySelector('.copy-text');
-      const buttonSvg = button.querySelector('svg');
-      
-      try {
-        await navigator.clipboard.writeText(textToCopy);
-        
-        // Update button state - success
-        button.classList.add('copied');
-        if (copyText) copyText.textContent = 'Copied!';
-        if (buttonSvg) {
-          buttonSvg.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
-        }
-        
-        setTimeout(() => {
-          button.classList.remove('copied');
-          if (copyText) copyText.textContent = 'Copy';
-          if (buttonSvg) {
-            buttonSvg.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
-          }
-        }, 2000);
-      } catch (err) {
-        console.error('Failed to copy:', err);
-        
-        // Update button state - error
-        button.classList.add('error');
-        if (copyText) copyText.textContent = 'Error';
-        
-        setTimeout(() => {
-          button.classList.remove('error');
-          if (copyText) copyText.textContent = 'Copy';
-        }, 2000);
-      }
-    });
   });
   
   // Also handle standalone pre code blocks (not wrapped in .highlight)
@@ -863,11 +755,6 @@
       }
       processedBlocks.add(pre);
       
-      // Check if button already exists
-      if (pre.querySelector('.copy-code-btn')) {
-        return;
-      }
-      
       // Wrap in highlight div
       const highlightDiv = document.createElement('div');
       highlightDiv.className = 'highlight';
@@ -879,7 +766,7 @@
       const newCodeBlock = newPre ? newPre.querySelector('code') : null;
       
       if (newCodeBlock && newPre) {
-        // Detect language and set up button (reuse logic above)
+        // Detect language for language badge display
         let language = 'code';
         const codeClasses = Array.from(newCodeBlock.classList);
         const langMatch = codeClasses.find(cls => 
@@ -906,58 +793,6 @@
         const displayLang = langMap[language] || language;
         highlightDiv.setAttribute('data-lang', displayLang);
         highlightDiv.style.position = 'relative';
-        
-        // Ensure pre element is positioned relatively for button positioning
-        if (!newPre.style.position) {
-          newPre.style.position = 'relative';
-        }
-        
-        const button = document.createElement('button');
-        button.className = 'copy-code-btn';
-        button.setAttribute('aria-label', 'Copy code to clipboard');
-        button.setAttribute('type', 'button');
-        button.innerHTML = `
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-          </svg>
-          <span class="copy-text">Copy</span>
-        `;
-        
-        // Append button to pre element (inside code block)
-        newPre.appendChild(button);
-        
-        button.addEventListener('click', async (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-          const text = newCodeBlock.textContent || newCodeBlock.innerText;
-          const copyText = button.querySelector('.copy-text');
-          const buttonSvg = button.querySelector('svg');
-          
-          try {
-            await navigator.clipboard.writeText(text);
-            button.classList.add('copied');
-            if (copyText) copyText.textContent = 'Copied!';
-            if (buttonSvg) {
-              buttonSvg.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
-            }
-            setTimeout(() => {
-              button.classList.remove('copied');
-              if (copyText) copyText.textContent = 'Copy';
-              if (buttonSvg) {
-                buttonSvg.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
-              }
-            }, 2000);
-          } catch (err) {
-            console.error('Failed to copy:', err);
-            button.classList.add('error');
-            if (copyText) copyText.textContent = 'Error';
-            setTimeout(() => {
-              button.classList.remove('error');
-              if (copyText) copyText.textContent = 'Copy';
-            }, 2000);
-          }
-        });
       }
     }
   });
