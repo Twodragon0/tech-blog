@@ -1,0 +1,60 @@
+name: Buttondown Email Notification
+
+# 새 포스트 발행 시 Buttondown을 통해 구독자에게 이메일 발송
+# Free 티어 최적화: 조건부 실행, 타임아웃 설정
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '_posts/**' # 포스트 변경 시에만 실행
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      contents: read
+      actions: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check for new posts
+        id: check_posts
+        run: |
+          # Get the list of added posts in this push
+          NEW_POSTS=$(git diff --name-only HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          if [ -z "$NEW_POSTS" ]; then
+            echo "No new posts found"
+            echo "has_new_posts=false" >> $GITHUB_OUTPUT
+          else
+            echo "New posts found: $NEW_POSTS"
+            echo "has_new_posts=true" >> $GITHUB_OUTPUT
+            # Get the most recent new post
+            LATEST_POST=$(echo "$NEW_POSTS" | head -1)
+            echo "latest_post=$LATEST_POST" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set up Python
+        if: steps.check_posts.outputs.has_new_posts == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        if: steps.check_posts.outputs.has_new_posts == 'true'
+        run: |
+          pip install pyyaml requests
+
+      - name: Send Buttondown Email
+        if: steps.check_posts.outputs.has_new_posts == 'true'
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          SITE_URL: "https://tech.2twodragon.com"
+        run: |
+          python scripts/buttondown_notify.py "${{ steps.check_posts.outputs.latest_post }}"
