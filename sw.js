@@ -1,8 +1,8 @@
 // Service Worker for Offline Support and Caching
 // 버전 업데이트 시 CACHE_NAME 변경하여 캐시 무효화
-const CACHE_NAME = 'tech-blog-v5';
-const STATIC_CACHE = 'tech-blog-static-v5';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v5';
+const CACHE_NAME = 'tech-blog-v6';
+const STATIC_CACHE = 'tech-blog-static-v6';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v6';
 
 // 캐시할 정적 리소스
 const STATIC_ASSETS = [

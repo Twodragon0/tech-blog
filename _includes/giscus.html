@@ -1,162 +1,259 @@
 {% if site.giscus.repo_id != "" and site.giscus.category_id != "" %}
-<div class="comments-section">
-  <div class="comments-header">
-    <h3 class="comments-title">
-      <svg class="comments-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-      </svg>
-      <span>댓글</span>
-    </h3>
-    <p class="comments-description">의견이나 질문을 남겨주세요. GitHub 계정으로 로그인하여 댓글을 작성할 수 있습니다.</p>
-  </div>
-  <div class="giscus-wrapper">
-    <div class="giscus-loading" id="giscus-loading">
-      <div class="loading-spinner"></div>
-      <p>댓글을 불러오는 중...</p>
+<section class="comments-section" id="comments">
+  <div class="comments-container">
+    <!-- Comments Header -->
+    <div class="comments-header">
+      <div class="comments-title-wrapper">
+        <h3 class="comments-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Comments
+        </h3>
+        <span class="comments-badge" id="comments-count">0</span>
+      </div>
+      <p class="comments-description">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        GitHub 계정으로 로그인하여 댓글을 작성하세요
+      </p>
     </div>
-    <div class="giscus" id="giscus-container">
-      <!-- Giscus script will be loaded when user scrolls to comments section -->
-      <noscript>
-        <p>댓글을 보려면 JavaScript를 활성화하세요.</p>
-      </noscript>
+
+    <!-- Quick Reactions -->
+    <div class="quick-reactions" id="quick-reactions">
+      <span class="reactions-label">이 글이 도움이 되셨나요?</span>
+      <div class="reactions-buttons">
+        <button class="reaction-btn" data-reaction="thumbsUp" title="좋아요">
+          <span class="reaction-emoji">&#x1F44D;</span>
+          <span class="reaction-count" id="reaction-thumbsUp">0</span>
+        </button>
+        <button class="reaction-btn" data-reaction="heart" title="하트">
+          <span class="reaction-emoji">&#x2764;&#xFE0F;</span>
+          <span class="reaction-count" id="reaction-heart">0</span>
+        </button>
+        <button class="reaction-btn" data-reaction="rocket" title="로켓">
+          <span class="reaction-emoji">&#x1F680;</span>
+          <span class="reaction-count" id="reaction-rocket">0</span>
+        </button>
+        <button class="reaction-btn" data-reaction="eyes" title="관심">
+          <span class="reaction-emoji">&#x1F440;</span>
+          <span class="reaction-count" id="reaction-eyes">0</span>
+        </button>
+      </div>
     </div>
-    <script>
-      // Lazy load Giscus when user scrolls near comments section (performance optimization)
-      (function() {
-        const giscusContainer = document.getElementById('giscus-container');
-        if (!giscusContainer) return;
-        
-        let giscusLoaded = false;
-        const giscusConfig = {
-          repo: "{{ site.giscus.repo }}",
-          repoId: "{{ site.giscus.repo_id }}",
-          category: "{{ site.giscus.category }}",
-          categoryId: "{{ site.giscus.category_id }}",
-          mapping: "{{ site.giscus.mapping }}",
-          {% if site.giscus.mapping == "title" %}term: "{{ page.title | escape }}",{% endif %}
-          strict: "0",
-          reactionsEnabled: "{{ site.giscus.reactions_enabled }}",
-          emitMetadata: "{{ site.giscus.emit_metadata }}",
-          inputPosition: "{{ site.giscus.input_position }}",
-          theme: "{{ site.giscus.theme }}",
-          lang: "{{ site.giscus.lang }}",
-          crossorigin: "{{ site.giscus.crossorigin }}"
-        };
-        
-        function loadGiscus() {
-          if (giscusLoaded) return;
-          giscusLoaded = true;
-          
-          const script = document.createElement('script');
-          script.src = 'https://giscus.app/client.js';
-          script.async = true;
-          script.crossOrigin = giscusConfig.crossorigin;
-          
-          // Set data attributes
-          Object.keys(giscusConfig).forEach(key => {
-            if (giscusConfig[key]) {
-              script.setAttribute('data-' + key.replace(/([A-Z])/g, '-$1').toLowerCase(), giscusConfig[key]);
-            }
-          });
-          
-          giscusContainer.appendChild(script);
-        }
-        
-        // Load when user scrolls near comments section (Intersection Observer)
-        if ('IntersectionObserver' in window) {
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                loadGiscus();
-                observer.disconnect();
-              }
-            });
-          }, {
-            rootMargin: '300px' // Start loading 300px before reaching comments (performance optimization)
-          });
-          
-          observer.observe(giscusContainer);
-          
-          // Fallback: Load after 5 seconds if user is still on page (performance optimization)
-          setTimeout(() => {
-            if (document.visibilityState === 'visible' && !giscusLoaded) {
-              if (window.requestIdleCallback) {
-                window.requestIdleCallback(loadGiscus, { timeout: 5000 });
-              } else {
-                setTimeout(loadGiscus, 100);
-              }
-            }
-          }, 5000);
-        } else {
-          // Fallback for browsers without IntersectionObserver
-          window.addEventListener('scroll', function() {
-            const rect = giscusContainer.getBoundingClientRect();
-            if (rect.top < window.innerHeight + 200) {
-              loadGiscus();
-              window.removeEventListener('scroll', arguments.callee);
-            }
-          });
-        }
-      })();
-    </script>
+
+    <!-- Giscus Widget -->
+    <div class="giscus-wrapper">
+      <div class="giscus-loading" id="giscus-loading">
+        <div class="loading-spinner"></div>
+        <span>댓글을 불러오는 중...</span>
+      </div>
+      <div class="giscus" id="giscus-container">
+        <noscript>
+          <div class="noscript-message">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <p>댓글을 보려면 JavaScript를 활성화하세요.</p>
+          </div>
+        </noscript>
+      </div>
+    </div>
+
+    <!-- Comment Guidelines -->
+    <div class="comment-guidelines">
+      <details>
+        <summary>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          댓글 작성 가이드
+        </summary>
+        <ul>
+          <li>건설적인 피드백과 질문을 환영합니다</li>
+          <li>마크다운 문법을 사용할 수 있습니다</li>
+          <li>코드 블록은 ``` 로 감싸주세요</li>
+          <li>상대방을 존중하는 표현을 사용해주세요</li>
+        </ul>
+      </details>
+    </div>
   </div>
+
   <script>
-    // Giscus 로딩 상태 관리 및 에러 핸들링
+    // Lazy load Giscus with performance optimization
     (function() {
-      const loadingEl = document.getElementById('giscus-loading');
-      const containerEl = document.getElementById('giscus-container');
-      
-      if (!loadingEl || !containerEl) return;
+      'use strict';
 
-      // Giscus 로드 완료 감지
-      const checkGiscusLoaded = setInterval(function() {
-        const giscusFrame = containerEl.querySelector('iframe');
+      const giscusContainer = document.getElementById('giscus-container');
+      const loadingEl = document.getElementById('giscus-loading');
+      const commentsCountEl = document.getElementById('comments-count');
+
+      if (!giscusContainer) return;
+
+      let giscusLoaded = false;
+      const giscusConfig = {
+        repo: "{{ site.giscus.repo }}",
+        repoId: "{{ site.giscus.repo_id }}",
+        category: "{{ site.giscus.category }}",
+        categoryId: "{{ site.giscus.category_id }}",
+        mapping: "{{ site.giscus.mapping }}",
+        {% if site.giscus.mapping == "title" %}term: "{{ page.title | escape }}",{% endif %}
+        strict: "0",
+        reactionsEnabled: "1",
+        emitMetadata: "1",
+        inputPosition: "top",
+        theme: localStorage.getItem('theme') === 'light' ? 'light' : 'dark_dimmed',
+        lang: "{{ site.giscus.lang | default: 'ko' }}",
+        crossorigin: "anonymous"
+      };
+
+      function loadGiscus() {
+        if (giscusLoaded) return;
+        giscusLoaded = true;
+
+        const script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.async = true;
+        script.crossOrigin = giscusConfig.crossorigin;
+
+        // Set data attributes
+        script.setAttribute('data-repo', giscusConfig.repo);
+        script.setAttribute('data-repo-id', giscusConfig.repoId);
+        script.setAttribute('data-category', giscusConfig.category);
+        script.setAttribute('data-category-id', giscusConfig.categoryId);
+        script.setAttribute('data-mapping', giscusConfig.mapping);
+        if (giscusConfig.term) script.setAttribute('data-term', giscusConfig.term);
+        script.setAttribute('data-strict', giscusConfig.strict);
+        script.setAttribute('data-reactions-enabled', giscusConfig.reactionsEnabled);
+        script.setAttribute('data-emit-metadata', giscusConfig.emitMetadata);
+        script.setAttribute('data-input-position', giscusConfig.inputPosition);
+        script.setAttribute('data-theme', giscusConfig.theme);
+        script.setAttribute('data-lang', giscusConfig.lang);
+        script.setAttribute('data-loading', 'lazy');
+
+        giscusContainer.appendChild(script);
+      }
+
+      // Handle Giscus messages
+      window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://giscus.app') return;
+
+        if (event.data && event.data.giscus) {
+          const { discussion, type } = event.data.giscus;
+
+          // Update comment count
+          if (discussion && commentsCountEl) {
+            const count = discussion.totalCommentCount || 0;
+            commentsCountEl.textContent = count;
+            commentsCountEl.style.display = count > 0 ? 'inline-flex' : 'none';
+          }
+
+          // Handle loading complete
+          if (type === 'ready' || discussion) {
+            if (loadingEl) loadingEl.style.display = 'none';
+          }
+
+          // Update reactions from discussion
+          if (discussion && discussion.reactions) {
+            updateReactionCounts(discussion.reactions);
+          }
+        }
+      });
+
+      // Update reaction counts
+      function updateReactionCounts(reactions) {
+        const reactionMap = {
+          'THUMBS_UP': 'thumbsUp',
+          'HEART': 'heart',
+          'ROCKET': 'rocket',
+          'EYES': 'eyes'
+        };
+
+        Object.keys(reactionMap).forEach(key => {
+          const el = document.getElementById('reaction-' + reactionMap[key]);
+          if (el && reactions[key] !== undefined) {
+            el.textContent = reactions[key];
+          }
+        });
+      }
+
+      // Quick reaction buttons (link to GitHub discussion)
+      document.querySelectorAll('.reaction-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Scroll to Giscus widget to interact with reactions
+          const giscusFrame = giscusContainer.querySelector('iframe');
+          if (giscusFrame) {
+            giscusFrame.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+
+      // Theme sync with site theme
+      document.addEventListener('themeChanged', function(e) {
+        const theme = e.detail === 'light' ? 'light' : 'dark_dimmed';
+        const giscusFrame = giscusContainer.querySelector('iframe');
         if (giscusFrame) {
-          clearInterval(checkGiscusLoaded);
-          loadingEl.style.display = 'none';
-          
-          // Giscus 이벤트 리스너 설정
-          window.addEventListener('message', function(event) {
-            if (event.origin !== 'https://giscus.app') return;
-            
-            if (event.data && event.data.giscus) {
-              const { type } = event.data.giscus;
-              
-              // 에러 발생 시 조용히 처리 (404는 정상 - 새 토론 생성 가능)
-              if (type === 'error') {
-                // 404 에러는 무시 (새 토론이 생성될 수 있음)
-                // 다른 에러만 개발 환경에서만 로깅
-                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                  console.info('댓글 시스템: 새 토론을 생성할 수 있습니다.');
-                }
-              }
+          giscusFrame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: theme } } },
+            'https://giscus.app'
+          );
+        }
+      });
+
+      // Intersection Observer for lazy loading
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              loadGiscus();
+              observer.disconnect();
             }
           });
-        }
-      }, 100);
+        }, { rootMargin: '400px' });
 
-      // 타임아웃 설정 (10초 후 로딩 표시 제거)
-      setTimeout(function() {
-        clearInterval(checkGiscusLoaded);
-        if (loadingEl && loadingEl.style.display !== 'none') {
-          loadingEl.style.display = 'none';
-        }
-      }, 10000);
+        observer.observe(giscusContainer);
+
+        // Fallback timeout
+        setTimeout(() => {
+          if (!giscusLoaded && document.visibilityState === 'visible') {
+            loadGiscus();
+          }
+        }, 8000);
+      } else {
+        // Fallback for older browsers
+        setTimeout(loadGiscus, 1000);
+      }
+
+      // Hide loading after timeout
+      setTimeout(() => {
+        if (loadingEl) loadingEl.style.display = 'none';
+      }, 12000);
     })();
   </script>
-</div>
+</section>
 {% else %}
-<div class="comments-section">
-  <div class="comments-header">
-    <h3 class="comments-title">
-      <svg class="comments-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<section class="comments-section">
+  <div class="comments-container">
+    <div class="comments-header">
+      <h3 class="comments-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Comments
+      </h3>
+    </div>
+    <div class="comments-disabled">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        <line x1="9" y1="10" x2="15" y2="10"/>
       </svg>
-      <span>댓글</span>
-    </h3>
+      <p>댓글 기능을 사용하려면 <a href="https://giscus.app" target="_blank" rel="noopener">Giscus</a>를 설정하세요.</p>
+    </div>
   </div>
-  <div class="alert info">
-    <p>댓글 기능을 활성화하려면 <a href="https://giscus.app" target="_blank" rel="noopener">Giscus</a>를 설정하세요.</p>
-  </div>
-</div>
+</section>
 {% endif %}
