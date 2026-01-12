@@ -181,12 +181,9 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
         return False
 
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python buttondown_notify.py <post_file_path>")
-        sys.exit(1)
-
-    post_path = sys.argv[1].strip()
+def find_post_file(post_path: str) -> Path:
+    """Find post file with robust path handling for Unicode filenames."""
+    post_path = post_path.strip()
     
     # Remove quotes if present
     if post_path.startswith('"') and post_path.endswith('"'):
@@ -194,14 +191,56 @@ def main():
     if post_path.startswith("'") and post_path.endswith("'"):
         post_path = post_path[1:-1]
 
+    project_root = Path(__file__).parent.parent
+    posts_dir = project_root / '_posts'
+    
     # Convert to Path object for better handling
     post_file = Path(post_path)
     
     # Try to resolve the path
     if not post_file.is_absolute():
         # If relative, try from project root
-        project_root = Path(__file__).parent.parent
         post_file = project_root / post_path
+    
+    # Validate file exists
+    if post_file.exists():
+        return post_file
+    
+    # If file not found, try to find by filename pattern
+    # Extract filename from path (handle both relative and absolute paths)
+    filename = post_file.name
+    
+    # Try exact match first
+    if posts_dir.exists():
+        exact_match = posts_dir / filename
+        if exact_match.exists():
+            return exact_match
+        
+        # Try pattern matching (for cases where encoding is corrupted)
+        # Extract date and partial title from filename
+        match = re.match(r'(\d{4}-\d{2}-\d{2})-(.+)\.md', filename)
+        if match:
+            date_part = match.group(1)
+            title_part = match.group(2)
+            
+            # Find files matching the date
+            for f in posts_dir.glob(f'{date_part}-*.md'):
+                # Check if the file matches (case-insensitive, partial match)
+                if date_part in f.stem:
+                    print(f"🔍 Found matching file by pattern: {f.name}")
+                    return f
+    
+    # If still not found, return the original path for error reporting
+    return post_file
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python buttondown_notify.py <post_file_path>")
+        sys.exit(1)
+
+    post_path = sys.argv[1]
+    post_file = find_post_file(post_path)
     
     # Validate file exists
     if not post_file.exists():

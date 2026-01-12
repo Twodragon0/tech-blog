@@ -44,13 +44,14 @@ permalink: /support/
         <div>
           <!-- Buttondown Form -->
           <form
-            action="https://buttondown.com/api/emails/newsletter-subscribe"
+            action="https://buttondown.com/api/emails/embed-subscribe/twodragon"
             method="post"
             target="popupwindow"
             onsubmit="window.open('https://buttondown.com/twodragon', 'popupwindow')"
             class="newsletter-form"
             style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);"
           >
+            <input type="hidden" name="embed" value="1" />
             <input type="hidden" name="tag" value="tech-blog" />
             <div style="margin-bottom: 1rem;">
               <label for="bd-email" style="display: block; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">이메일 주소</label>
@@ -335,4 +336,116 @@ permalink: /support/
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
+
+.support-page .newsletter-form .success-message {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+  border: 1px solid #10b981;
+  border-radius: 8px;
+  color: #10b981;
+  font-size: 0.9rem;
+  text-align: center;
+  display: none;
+}
+
+.support-page .newsletter-form .error-message {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+  border: 1px solid #ef4444;
+  border-radius: 8px;
+  color: #ef4444;
+  font-size: 0.9rem;
+  text-align: center;
+  display: none;
+}
+
+.support-page .newsletter-form.loading button {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 </style>
+
+<script>
+(function() {
+  'use strict';
+  
+  const newsletterForm = document.querySelector('.newsletter-form');
+  if (!newsletterForm) return;
+  
+  // 성공/에러 메시지 요소 생성
+  const successMsg = document.createElement('div');
+  successMsg.className = 'success-message';
+  successMsg.textContent = '✅ 구독이 완료되었습니다! 확인 이메일을 확인해주세요.';
+  
+  const errorMsg = document.createElement('div');
+  errorMsg.className = 'error-message';
+  errorMsg.textContent = '❌ 구독 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.';
+  
+  newsletterForm.appendChild(successMsg);
+  newsletterForm.appendChild(errorMsg);
+  
+  // 폼 제출 이벤트 처리
+  newsletterForm.addEventListener('submit', function(e) {
+    const emailInput = newsletterForm.querySelector('input[type="email"]');
+    const submitButton = newsletterForm.querySelector('button[type="submit"]');
+    
+    // 입력 검증
+    if (!emailInput.value || !emailInput.validity.valid) {
+      e.preventDefault();
+      errorMsg.style.display = 'block';
+      successMsg.style.display = 'none';
+      setTimeout(() => {
+        errorMsg.style.display = 'none';
+      }, 5000);
+      return false;
+    }
+    
+    // 로딩 상태 표시
+    newsletterForm.classList.add('loading');
+    submitButton.disabled = true;
+    errorMsg.style.display = 'none';
+    successMsg.style.display = 'none';
+    
+    // 폼은 기본 동작으로 제출 (Buttondown API로 POST)
+    // 성공 시 팝업 창이 열리므로, 여기서는 에러 처리만 수행
+    // 팝업이 차단된 경우를 대비한 폴백
+    setTimeout(() => {
+      newsletterForm.classList.remove('loading');
+      submitButton.disabled = false;
+      
+      // 팝업이 열렸는지 확인 (간접적으로)
+      // 실제로는 Buttondown이 리디렉션하므로 성공 메시지 표시
+      const checkPopup = setInterval(() => {
+        try {
+          // 팝업 창이 열렸는지 확인
+          if (window.open('', 'popupwindow').closed === false) {
+            clearInterval(checkPopup);
+            successMsg.style.display = 'block';
+            emailInput.value = ''; // 입력 필드 초기화
+          }
+        } catch (err) {
+          // 팝업 차단 등의 경우
+          clearInterval(checkPopup);
+        }
+      }, 100);
+      
+      // 3초 후 체크 중단
+      setTimeout(() => {
+        clearInterval(checkPopup);
+      }, 3000);
+    }, 1000);
+  });
+  
+  // 입력 필드 포커스 시 에러 메시지 숨김
+  const emailInput = newsletterForm.querySelector('input[type="email"]');
+  if (emailInput) {
+    emailInput.addEventListener('focus', function() {
+      errorMsg.style.display = 'none';
+      successMsg.style.display = 'none';
+    });
+  }
+})();
+</script>
