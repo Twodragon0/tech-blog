@@ -118,7 +118,7 @@ def create_email_content(frontmatter: dict, post_url: str, excerpt: str = None) 
 
 def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
     """Send email via Buttondown API."""
-    url = "https://api.buttondown.email/v1/emails"
+    url = "https://api.buttondown.com/v1/emails"
 
     headers = {
         "Authorization": f"Token {api_key}",
