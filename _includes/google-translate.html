@@ -106,6 +106,9 @@ function googleTranslateElementInit() {
       if (LANG_MAP[sysLang] && currentLangSpan) {
         currentLangSpan.textContent = LANG_MAP[sysLang];
       }
+      // 시스템 언어로 복귀 시 플래그 초기화
+      sessionStorage.removeItem('langApplied');
+      sessionStorage.removeItem('langChanging');
       changeLang(sysLang);
     }, true);
 
@@ -145,6 +148,9 @@ function googleTranslateElementInit() {
         }
 
         localStorage.setItem('preferredLang', lang);
+        // 수동 언어 변경 시 플래그 초기화
+        sessionStorage.removeItem('langApplied');
+        sessionStorage.removeItem('langChanging');
         changeLang(lang);
       }
     }, true);
@@ -160,23 +166,39 @@ function googleTranslateElementInit() {
   }
 
   function getCurrentLang() {
+    // 쿠키에서 언어 정보 읽기
     var match = document.cookie.match(/googtrans=\/ko\/([^;]+)/);
-    return match ? match[1] : 'ko';
+    if (match && match[1]) {
+      return match[1];
+    }
+    
+    // 쿠키가 없으면 한국어로 간주
+    return 'ko';
   }
 
-  // 시스템 언어 자동 적용 (항상 실행)
+  // 시스템 언어 자동 적용 (한 번만 실행)
   function applySystemLanguage() {
+    // 이미 실행되었는지 확인 (무한 루프 방지)
+    var appliedFlag = sessionStorage.getItem('langApplied');
+    if (appliedFlag === 'true') {
+      return;
+    }
+
     var currentLang = getCurrentLang();
     var preferredLang = getPreferredLanguage();
     var savedPref = localStorage.getItem('preferredLang');
 
     // 사용자가 수동으로 선택한 경우 그 설정 유지
     if (savedPref && savedPref !== 'system' && savedPref === currentLang) {
+      sessionStorage.setItem('langApplied', 'true');
       return;
     }
 
     // 시스템 언어와 현재 언어가 다르면 변경
     if (preferredLang !== currentLang) {
+      // 플래그 설정 (무한 루프 방지)
+      sessionStorage.setItem('langApplied', 'true');
+      
       // Google Translate 스크립트 로딩 후 언어 변경
       if (preferredLang !== 'ko') {
         loadTranslateScript(function() {
@@ -188,17 +210,35 @@ function googleTranslateElementInit() {
         // 시스템 언어가 한국어인데 현재 다른 언어로 번역되어 있으면 원본으로
         changeLang('ko');
       }
-    } else if (preferredLang !== 'ko' && !translateScriptLoaded) {
-      // 이미 올바른 언어지만 스크립트 로딩 필요
-      loadTranslateScript();
+    } else {
+      // 이미 올바른 언어면 플래그 설정
+      sessionStorage.setItem('langApplied', 'true');
+      
+      if (preferredLang !== 'ko' && !translateScriptLoaded) {
+        // 이미 올바른 언어지만 스크립트 로딩 필요
+        loadTranslateScript();
+      }
     }
   }
 
   function changeLang(lang) {
+    // 무한 루프 방지: 이미 언어 변경이 진행 중이면 중단
+    var changingFlag = sessionStorage.getItem('langChanging');
+    if (changingFlag === 'true') {
+      return;
+    }
+    
+    // 언어 변경 시작 플래그 설정
+    sessionStorage.setItem('langChanging', 'true');
+    
     if (lang === 'ko') {
       document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + location.hostname;
-      location.reload();
+      
+      // 쿠키 설정 후 짧은 지연 후 리로드 (쿠키가 확실히 설정되도록)
+      setTimeout(function() {
+        location.reload();
+      }, 100);
       return;
     }
 
@@ -210,8 +250,14 @@ function googleTranslateElementInit() {
     if (select) {
       select.value = lang;
       select.dispatchEvent(new Event('change'));
+      // 언어 변경 완료 플래그 설정
+      sessionStorage.setItem('langChanging', 'false');
+      sessionStorage.setItem('langApplied', 'true');
     } else {
-      location.reload();
+      // 쿠키 설정 후 짧은 지연 후 리로드 (쿠키가 확실히 설정되도록)
+      setTimeout(function() {
+        location.reload();
+      }, 100);
     }
   }
 
@@ -255,14 +301,20 @@ function googleTranslateElementInit() {
   // DOM 준비 시 초기화
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
+      // 페이지 로드 후 짧은 지연으로 언어 적용 (쿠키가 확실히 읽히도록)
+      setTimeout(function() {
+        initLangToggle();
+        cleanupFontTags();
+        hideGoogleTranslateBanner();
+      }, 100);
+    });
+  } else {
+    // 페이지 로드 후 짧은 지연으로 언어 적용 (쿠키가 확실히 읽히도록)
+    setTimeout(function() {
       initLangToggle();
       cleanupFontTags();
       hideGoogleTranslateBanner();
-    });
-  } else {
-    initLangToggle();
-    cleanupFontTags();
-    hideGoogleTranslateBanner();
+    }, 100);
   }
 
   // 주기적으로 정리 실행 (간격 늘림 - 성능 최적화)
