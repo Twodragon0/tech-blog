@@ -1,6 +1,8 @@
-<!-- Google Translate Integration - 시스템 언어 설정 우선 -->
+<!-- Google Translate Integration - 시스템 언어 설정 자동 적용 -->
 <script type="text/javascript">
-// Google Translate 초기화
+// Google Translate 초기화 (지연 로딩)
+var googleTranslateLoaded = false;
+
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'ko',
@@ -8,6 +10,7 @@ function googleTranslateElementInit() {
     layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
     autoDisplay: false
   }, 'google_translate_element');
+  googleTranslateLoaded = true;
 }
 
 // 언어 토글 초기화
@@ -24,6 +27,7 @@ function googleTranslateElementInit() {
   };
 
   var SUPPORTED_LANGS = ['ko', 'en', 'ja', 'zh-CN', 'zh-TW'];
+  var translateScriptLoaded = false;
 
   // 시스템 언어 감지
   function getSystemLanguage() {
@@ -46,6 +50,26 @@ function googleTranslateElementInit() {
       return getSystemLanguage();
     }
     return saved;
+  }
+
+  // Google Translate 스크립트 지연 로딩
+  function loadTranslateScript(callback) {
+    if (translateScriptLoaded) {
+      if (callback) callback();
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.onload = function() {
+      translateScriptLoaded = true;
+      if (callback) {
+        // Google Translate 초기화 대기
+        setTimeout(callback, 500);
+      }
+    };
+    document.head.appendChild(script);
   }
 
   function initLangToggle() {
@@ -71,7 +95,7 @@ function googleTranslateElementInit() {
         langDropdown.classList.add('active');
         langToggle.setAttribute('aria-expanded', 'true');
       }
-    }, true); // capture phase for better handling
+    }, true);
 
     // 더블클릭으로 시스템 설정으로 복귀
     langToggle.addEventListener('dblclick', function(e) {
@@ -88,7 +112,6 @@ function googleTranslateElementInit() {
     // 외부 클릭 시 닫기
     document.addEventListener('click', function(e) {
       var target = e.target;
-      // font 태그 내부 클릭 시 부모 요소 확인
       while (target && target.tagName === 'FONT') {
         target = target.parentNode;
       }
@@ -101,7 +124,6 @@ function googleTranslateElementInit() {
     // 언어 옵션 클릭 - 이벤트 위임 사용
     langDropdown.addEventListener('click', function(e) {
       var target = e.target;
-      // font 태그 내부 클릭 시 부모 요소 찾기
       while (target && !target.classList.contains('lang-option')) {
         if (target === langDropdown) {
           return;
@@ -115,19 +137,14 @@ function googleTranslateElementInit() {
 
         var lang = target.getAttribute('data-lang');
 
-        // 드롭다운 닫기
         langDropdown.classList.remove('active');
         langToggle.setAttribute('aria-expanded', 'false');
 
-        // 언어 표시 업데이트
         if (LANG_MAP[lang] && currentLangSpan) {
           currentLangSpan.textContent = LANG_MAP[lang];
         }
 
-        // 수동 선택 시 저장
         localStorage.setItem('preferredLang', lang);
-
-        // 언어 변경
         changeLang(lang);
       }
     }, true);
@@ -138,8 +155,8 @@ function googleTranslateElementInit() {
       currentLangSpan.textContent = LANG_MAP[currentLang];
     }
 
-    // 첫 방문 시 시스템 언어로 자동 번역
-    autoTranslateOnFirstVisit();
+    // 시스템 언어 자동 적용
+    applySystemLanguage();
   }
 
   function getCurrentLang() {
@@ -147,26 +164,33 @@ function googleTranslateElementInit() {
     return match ? match[1] : 'ko';
   }
 
-  function autoTranslateOnFirstVisit() {
-    // 이미 번역 쿠키가 있으면 스킵
-    if (document.cookie.indexOf('googtrans=') !== -1) {
-      return;
-    }
-
-    // 이미 방문한 적 있으면 스킵
-    if (localStorage.getItem('hasVisited')) {
-      return;
-    }
-
-    localStorage.setItem('hasVisited', 'true');
-
+  // 시스템 언어 자동 적용 (항상 실행)
+  function applySystemLanguage() {
+    var currentLang = getCurrentLang();
     var preferredLang = getPreferredLanguage();
+    var savedPref = localStorage.getItem('preferredLang');
 
-    // 한국어가 아닌 경우 자동 번역
-    if (preferredLang !== 'ko' && SUPPORTED_LANGS.indexOf(preferredLang) !== -1) {
-      setTimeout(function() {
-        changeLang(preferredLang);
-      }, 1500);
+    // 사용자가 수동으로 선택한 경우 그 설정 유지
+    if (savedPref && savedPref !== 'system' && savedPref === currentLang) {
+      return;
+    }
+
+    // 시스템 언어와 현재 언어가 다르면 변경
+    if (preferredLang !== currentLang) {
+      // Google Translate 스크립트 로딩 후 언어 변경
+      if (preferredLang !== 'ko') {
+        loadTranslateScript(function() {
+          setTimeout(function() {
+            changeLang(preferredLang);
+          }, 300);
+        });
+      } else if (currentLang !== 'ko') {
+        // 시스템 언어가 한국어인데 현재 다른 언어로 번역되어 있으면 원본으로
+        changeLang('ko');
+      }
+    } else if (preferredLang !== 'ko' && !translateScriptLoaded) {
+      // 이미 올바른 언어지만 스크립트 로딩 필요
+      loadTranslateScript();
     }
   }
 
@@ -223,7 +247,6 @@ function googleTranslateElementInit() {
       el.style.visibility = 'hidden';
     });
 
-    // body top 강제 리셋
     if (document.body) {
       document.body.style.top = '0';
     }
@@ -242,11 +265,27 @@ function googleTranslateElementInit() {
     hideGoogleTranslateBanner();
   }
 
-  // 주기적으로 정리 실행 (Google Translate가 나중에 요소를 추가할 수 있음)
+  // 주기적으로 정리 실행 (간격 늘림 - 성능 최적화)
   setInterval(function() {
     cleanupFontTags();
     hideGoogleTranslateBanner();
-  }, 1000);
+  }, 2000);
+
+  // 한국어 사이트이고 시스템 언어도 한국어면 스크립트 로딩 안함
+  // 다른 언어면 필요시 로딩
+  var sysLang = getSystemLanguage();
+  var currentLang = getCurrentLang();
+
+  // 번역이 필요한 경우에만 스크립트 로딩
+  if (sysLang !== 'ko' || currentLang !== 'ko') {
+    // 페이지 로드 완료 후 지연 로딩
+    if (document.readyState === 'complete') {
+      setTimeout(loadTranslateScript, 100);
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(loadTranslateScript, 100);
+      });
+    }
+  }
 })();
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

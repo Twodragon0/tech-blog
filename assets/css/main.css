@@ -1957,6 +1957,15 @@ iframe[class*="goog-te"],
   line-height: var(--line-height-relaxed);
   color: var(--color-text-primary);
   font-size: var(--font-size-base);
+  /* CLS 최적화 - 레이아웃 안정성 */
+  contain: layout style;
+}
+
+/* CLS 최적화 - 이미지 공간 예약 */
+.post-content img {
+  aspect-ratio: attr(width) / attr(height);
+  height: auto;
+  max-width: 100%;
 }
 
 .post-content p {
@@ -3047,6 +3056,9 @@ iframe[class*="goog-te"],
   font-style: normal;
   box-shadow: var(--shadow-md);
   overflow: hidden;
+  /* CLS 최적화 - 최소 높이 예약 */
+  min-height: 150px;
+  contain: layout style;
 }
 
 /* AI Summary Header Badge */
@@ -3360,6 +3372,8 @@ iframe[class*="goog-te"],
   border-top: 1px dashed #cbd5e1;
   font-size: 0.8125rem;
   color: #64748b;
+  /* CLS 최적화 */
+  min-height: 40px;
   font-style: italic;
   text-align: center;
 }
