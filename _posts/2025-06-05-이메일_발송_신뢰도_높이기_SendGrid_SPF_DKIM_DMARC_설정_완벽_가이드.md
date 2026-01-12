@@ -148,7 +148,7 @@ SPF는 도메인 소유자가 자신의 도메인을 대신하여 이메일을 �
 
 ### 2.2 SPF 레코드 구조
 
-```
+```text
 v=spf1 include:sendgrid.net ~all
 ```
 
@@ -167,7 +167,7 @@ v=spf1 include:sendgrid.net ~all
 
 SendGrid를 사용하는 경우, DNS에 다음 SPF 레코드를 추가합니다:
 
-```
+```text
 TXT 레코드:
 이름: @ (또는 도메인 이름)
 값: v=spf1 include:sendgrid.net ~all
@@ -178,7 +178,7 @@ TTL: 3600
 
 여러 이메일 서비스를 사용하는 경우:
 
-```
+```text
 v=spf1 include:sendgrid.net include:_spf.google.com ~all
 ```
 
@@ -203,7 +203,7 @@ SendGrid에서 DKIM을 활성화하면 다음 정보를 제공합니다:
 
 DNS에 다음 레코드를 추가합니다:
 
-```
+```text
 TXT 레코드:
 이름: s1._domainkey (또는 s1._domainkey.yourdomain.com)
 값: v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC...
@@ -232,7 +232,7 @@ DMARC는 SPF와 DKIM을 기반으로 한 정책 프레임워크입니다. 도메
 
 ### 4.3 DMARC 레코드 구조
 
-```
+```text
 v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com; ruf=mailto:dmarc@yourdomain.com; pct=100
 ```
 
@@ -246,7 +246,7 @@ v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com; ruf=mailto:dmarc@yourdo
 
 처음에는 모니터링부터 시작하는 것이 좋습니다:
 
-```
+```text
 # 1단계: 모니터링만
 v=DMARC1; p=none; rua=mailto:dmarc@yourdomain.com
 
