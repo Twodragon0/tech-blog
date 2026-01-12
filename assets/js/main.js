@@ -113,6 +113,13 @@
       /firebaseapp\.com.*dynamic/i,
       /app\.goo\.gl/i,
       /firebase.*link.*invalid/i,
+      // 네트워크 요청에서 Firebase Dynamic Links 오류 필터링
+      /Failed to load resource.*firebase/i,
+      /Failed to load resource.*app\.goo\.gl/i,
+      /Network request failed.*firebase/i,
+      /Network request failed.*app\.goo\.gl/i,
+      /GET.*firebaseapp\.com/i,
+      /GET.*app\.goo\.gl/i,
       // 이미지 404 에러 필터링 (WebP fallback이 처리함)
       /\.webp.*404/i,
       /image.*404.*Not Found/i,
@@ -423,8 +430,113 @@
         return;
       }
     }, { passive: true });
+
+    // 네트워크 요청에서 Firebase Dynamic Links 오류 필터링
+    // fetch API 래핑
+    const originalFetch = window.fetch;
+    window.fetch = function(...args) {
+      const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
+      
+      // Firebase Dynamic Links 관련 요청은 조용히 실패 처리
+      if (/firebaseapp\.com/i.test(url) || /app\.goo\.gl/i.test(url)) {
+        return Promise.reject(new Error('Firebase Dynamic Links service has been discontinued'));
+      }
+      
+      return originalFetch.apply(this, args).catch(function(error) {
+        // Firebase Dynamic Links 관련 네트워크 오류 필터링
+        const errorMessage = error?.message || error?.toString() || '';
+        if (/firebase.*dynamic.*link/i.test(errorMessage) ||
+            /firebaseapp\.com/i.test(errorMessage) ||
+            /app\.goo\.gl/i.test(errorMessage) ||
+            /Invalid dynamic link/i.test(errorMessage)) {
+          // 조용히 무시 (Firebase Dynamic Links는 서비스가 종료되었으므로 오류는 정상)
+          return Promise.resolve(new Response('', { status: 200, statusText: 'OK' }));
+        }
+        throw error;
+      });
+    };
+
+    // XMLHttpRequest 래핑 (레거시 브라우저 지원)
+    if (window.XMLHttpRequest) {
+      const OriginalXHR = window.XMLHttpRequest;
+      window.XMLHttpRequest = function() {
+        const xhr = new OriginalXHR();
+        const originalOpen = xhr.open;
+        
+        xhr.open = function(method, url, ...rest) {
+          // Firebase Dynamic Links 관련 요청은 조용히 차단
+          if (/firebaseapp\.com/i.test(url) || /app\.goo\.gl/i.test(url)) {
+            // 빈 응답으로 처리
+            xhr.readyState = 4;
+            xhr.status = 200;
+            xhr.statusText = 'OK';
+            xhr.responseText = '';
+            return;
+          }
+          
+          return originalOpen.apply(this, [method, url, ...rest]);
+        };
+        
+        return xhr;
+      };
+    }
   })();
   
+  // Firebase Dynamic Links URL 파라미터 처리 (Buttondown 확인 이메일에서 Gmail 링크 클릭 시)
+  (function() {
+    'use strict';
+    
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const linkParam = urlParams.get('link');
+      const hasFirebaseParams = urlParams.has('link') || 
+                                urlParams.has('apn') || 
+                                urlParams.has('ibi') || 
+                                urlParams.has('isi') ||
+                                urlParams.has('efr') ||
+                                window.location.href.includes('app.goo.gl') ||
+                                window.location.href.includes('firebaseapp.com');
+      
+      if (hasFirebaseParams) {
+        // Firebase Dynamic Links 파라미터가 있는 경우 처리
+        if (linkParam) {
+          // link 파라미터에 최종 리디렉션 URL이 있음
+          try {
+            const decodedLink = decodeURIComponent(linkParam);
+            // 보안: 허용된 도메인만 리디렉션
+            const allowedDomains = ['tech.2twodragon.com', 'buttondown.com', 'buttondown.email'];
+            const linkUrl = new URL(decodedLink);
+            
+            if (allowedDomains.some(domain => linkUrl.hostname === domain || linkUrl.hostname.endsWith('.' + domain))) {
+              // 안전한 도메인이면 리디렉션
+              window.location.replace(decodedLink);
+              return;
+            }
+          } catch (e) {
+            // URL 파싱 실패 시 무시하고 계속 진행
+          }
+        }
+        
+        // Firebase Dynamic Links 파라미터 제거하여 깨끗한 URL로 변경
+        const cleanUrl = new URL(window.location.href);
+        // Firebase Dynamic Links 관련 파라미터 제거
+        const paramsToRemove = ['link', 'apn', 'ibi', 'isi', 'efr', 'ofl', 'afl', 'utm_source', 'utm_medium', 'utm_campaign'];
+        paramsToRemove.forEach(param => {
+          if (cleanUrl.searchParams.has(param)) {
+            cleanUrl.searchParams.delete(param);
+          }
+        });
+        
+        // 깨끗한 URL로 교체 (히스토리 추가하지 않음)
+        if (cleanUrl.href !== window.location.href) {
+          window.history.replaceState({}, '', cleanUrl.href);
+        }
+      }
+    } catch (e) {
+      // URL 파라미터 처리 실패 시 조용히 무시
+    }
+  })();
+
   // Run critical initialization immediately
   initCritical();
   
