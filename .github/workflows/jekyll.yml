@@ -56,6 +56,11 @@ jobs:
     # PR에서는 배포하지 않음 (비용 절감)
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     
+    # 동시 배포 방지: 같은 브랜치의 배포는 큐에 대기
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: true
+    
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -65,12 +70,13 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - name: Wait for previous deployment
+      - name: Wait for any in-progress deployments
         run: |
-          echo "⏳ Checking for in-progress deployments..."
-          # Wait longer to allow previous deployment to complete
-          # GitHub Pages deployments can take 1-2 minutes
-          sleep 90
+          echo "⏳ Waiting for any in-progress deployments to complete..."
+          echo "ℹ️ Note: concurrency setting should prevent this, but adding safety wait"
+          # GitHub Pages 배포는 보통 1-2분 소요
+          # concurrency 설정으로 대부분 방지되지만, 추가 안전장치
+          sleep 30
           echo "✅ Proceeding with deployment..."
       
       - name: Deploy to GitHub Pages
