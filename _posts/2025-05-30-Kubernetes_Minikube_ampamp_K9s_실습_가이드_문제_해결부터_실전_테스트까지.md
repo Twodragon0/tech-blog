@@ -4,6 +4,7 @@ title: "Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 �
 date: 2025-05-30 01:11:00 +0900
 categories: kubernetes
 tags: [Kubernetes, Minikube, K9s, K8s, Troubleshooting]
+certifications: [ckad, cka]
 excerpt: "Kubernetes Minikube &amp; K9s 실습 가이드 2024-2025: Minikube 1.37.0+ 설치 및 설정(containerd 기본 런타임, AI 워크로드 지원 krunkit 드라이버, AMD GPU 지원, 리소스/하이퍼바이저/네트워크 문제 해결), K9s 터미널 UI 활용(실시간 모니터링, 네임스페이스 기반 관리, 성능 최적화, 보안 고려사항), Kubernetes 2024-2025 보안 강화(User Namespaces, Bound Service Account Tokens, mTLS Pod Certificates, Dynamic Resource Allocation), 실전 테스트 시나리오(Pod/Deployment/Service 배포, ConfigMap/Secret 관리, HPA/Network Policy 적용)까지 최신 best practices 반영한 실무 중심 가이드."
 comments: true
 original_url: https://twodragon.tistory.com/687

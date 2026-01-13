@@ -4,6 +4,7 @@ title: "클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 IS
 date: 2025-12-12 14:45:05 +0900
 categories: finops
 tags: [AWS, FinOps, ISMS-P, Audit, Cost-Optimization]
+certifications: [isms-p, aws-saa]
 excerpt: "클라우드 시큐리티 8기 3주차: 2025년 FinOps 트렌드(AI/ML 비용 최적화 GPU 인스턴스/Spot Instance 최대 90% 절감, GreenOps 통합 Customer Carbon Footprint Tool, Unit Economics Cost per Transaction/User, Real-time Cost Visibility Cost Anomaly Detection), AWS 비용 관리 도구(Cost Optimization Hub 통합 대시보드, Compute Optimizer AI 기반 right-sizing, Application Cost Profiler 테넌트별 비용 배분, Cost Anomaly Detection ML 기반 탐지), ISMS-P 인증 대응(AWS Artifact/Config Rules/Security Hub/CloudTrail), FinOps+보안 통합, Commitment Management 자동화까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/703

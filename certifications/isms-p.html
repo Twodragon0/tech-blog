@@ -1,0 +1,251 @@
+---
+layout: page
+title: ISMS-P
+description: ISMS-P 인증 준비 및 기출문제 - 기술 블로그 포스팅과 연결된 학습 자료
+permalink: /certifications/isms-p/
+---
+<div class="certification-detail-page">
+  <div class="page-header">
+    <h1>ISMS-P (정보보안 관리체계 인증)</h1>
+    <p class="page-description">ISMS-P 인증 준비를 위한 기술 블로그 포스팅 및 학습 자료</p>
+    <a href="https://isms.kisa.or.kr/" target="_blank" rel="noopener noreferrer" class="official-link">
+      공식 사이트 방문 →
+    </a>
+  </div>
+
+  <div class="certification-info">
+    <h2>인증 정보</h2>
+    <ul>
+      <li><strong>공식 명칭:</strong> 정보보안 관리체계 인증 (ISMS-P)</li>
+      <li><strong>인증 기관:</strong> 한국인터넷진흥원 (KISA)</li>
+      <li><strong>인증 유효기간:</strong> 3년</li>
+      <li><strong>인증 대상:</strong> 개인정보를 처리하는 기관·기업</li>
+      <li><strong>인증 범위:</strong> 개인정보보호법, 정보통신망법 준수</li>
+    </ul>
+  </div>
+
+  <div class="related-posts">
+    <h2>관련 포스팅</h2>
+    <div class="posts-list">
+      {% assign cert_posts = "" | split: "" %}
+      {% for post in site.posts %}
+        {% assign post_matched = false %}
+        {% if post.certifications %}
+          {% for post_cert in post.certifications %}
+            {% assign post_cert_lower = post_cert | downcase %}
+            {% if post_cert_lower == "isms-p" or post_cert_lower == "isms" %}
+              {% assign post_matched = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% unless post_matched %}
+          {% if post.certification %}
+            {% assign post_cert_lower = post.certification | downcase %}
+            {% if post_cert_lower == "isms-p" or post_cert_lower == "isms" %}
+              {% assign post_matched = true %}
+            {% endif %}
+          {% endif %}
+        {% endunless %}
+        {% unless post_matched %}
+          {% if post.tags %}
+            {% for tag in post.tags %}
+              {% assign tag_lower = tag | downcase %}
+              {% if tag_lower contains "isms" %}
+                {% assign post_matched = true %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endunless %}
+        {% if post_matched %}
+          {% assign cert_posts = cert_posts | push: post %}
+        {% endif %}
+      {% endfor %}
+      
+      {% if cert_posts.size > 0 %}
+        {% for post in cert_posts %}
+          {% include post-card.html post=post %}
+        {% endfor %}
+      {% else %}
+        <p class="no-posts">관련 포스팅이 없습니다. 곧 추가될 예정입니다.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="exam-topics">
+    <h2>주요 인증 요구사항</h2>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <h3>1. 정보보안 정책 및 조직</h3>
+        <ul>
+          <li>정보보안 정책 수립 및 관리</li>
+          <li>정보보안 조직 구성</li>
+          <li>역할 및 책임 정의</li>
+        </ul>
+      </div>
+      <div class="topic-card">
+        <h3>2. 자산 관리</h3>
+        <ul>
+          <li>정보자산 분류 및 관리</li>
+          <li>자산 목록 관리</li>
+          <li>자산 소유권 및 책임</li>
+        </ul>
+      </div>
+      <div class="topic-card">
+        <h3>3. 접근 통제</h3>
+        <ul>
+          <li>접근 권한 관리</li>
+          <li>사용자 인증 및 인가</li>
+          <li>네트워크 접근 제어</li>
+        </ul>
+      </div>
+      <div class="topic-card">
+        <h3>4. 암호화</h3>
+        <ul>
+          <li>데이터 암호화 정책</li>
+          <li>암호화 키 관리</li>
+          <li>전송 및 저장 데이터 보호</li>
+        </ul>
+      </div>
+      <div class="topic-card">
+        <h3>5. 물리적 보안</h3>
+        <ul>
+          <li>물리적 접근 제어</li>
+          <li>보안 구역 관리</li>
+          <li>장비 보호</li>
+        </ul>
+      </div>
+      <div class="topic-card">
+        <h3>6. 운영 보안</h3>
+        <ul>
+          <li>변경 관리</li>
+          <li>백업 및 복구</li>
+          <li>로그 관리 및 모니터링</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.certification-detail-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.page-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.page-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.official-link {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.official-link:hover {
+  background: var(--primary-dark, #0056b3);
+}
+
+.certification-info,
+.related-posts,
+.exam-topics {
+  margin-bottom: 3rem;
+}
+
+.certification-info h2,
+.related-posts h2,
+.exam-topics h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.certification-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.certification-info li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.certification-info li:last-child {
+  border-bottom: none;
+}
+
+.certification-info strong {
+  color: var(--text-primary);
+  min-width: 120px;
+  display: inline-block;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.topic-card {
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.topic-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.topic-card ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.topic-card li {
+  margin-bottom: 0.5rem;
+}
+
+.no-posts {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

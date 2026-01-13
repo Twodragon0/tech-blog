@@ -4,6 +4,7 @@ title: "클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보
 date: 2025-06-06 19:45:40 +0900
 category: kubernetes
 tags: [CI/CD, Kubernetes, Security, DevSecOps, GitOps, Pipeline-Security]
+certifications: [ckad, cka]
 excerpt: "클라우드 시큐리티 과정 7기 8주차: CI/CD 파이프라인 보안(GitHub Actions 보안 설정 permissions 최소화/Secret 관리, SAST/DAST 통합 Semgrep/SonarQube/Gitleaks/Trivy/OWASP ZAP, Secret 스캐닝, 의존성 취약점 스캔), Kubernetes 클러스터 보안(RBAC Role/RoleBinding/ClusterRole/ClusterRoleBinding, Pod Security Standards Restricted/Baseline/Privileged, Network Policy 트래픽 제어/네임스페이스 격리, Service Account 최소 권한), 이미지 서명 및 Secret 관리(Cosign 이미지 서명, Kubernetes Secrets 관리, External Secrets Operator, Sealed Secrets, Vault 통합), 런타임 보안(Kyverno 정책 엔진 Admission Control/Policy as Code, Falco 이상 행위 탐지, GitOps 보안 모범 사례 ArgoCD/Flux), 실무 적용 체크리스트까지 실무 중심 정리."
 comments: true
 toc: true

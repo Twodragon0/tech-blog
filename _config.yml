@@ -101,6 +101,10 @@ category_list:
     title: "Incident"
     description: "보안 사고 분석 및 Post-Mortem"
     icon: "alert"
+  - name: certifications
+    title: "Certifications"
+    description: "자격증 준비 및 기출문제 - AWS-SAA, 정보보안기사, 정보처리기사, ISMS-P, CKAD, CKA"
+    icon: "certificate"
 
 # Giscus Comments (GitHub Discussions)
 giscus:
@@ -116,12 +120,47 @@ giscus:
   lang: "ko"
   crossorigin: "anonymous"
 
+# Certifications
+certifications:
+  - name: aws-saa
+    title: "AWS Solutions Architect Associate"
+    description: "AWS SAA 자격증 준비 및 기출문제"
+    icon: "cloud"
+    official_url: "https://aws.amazon.com/certification/certified-solutions-architect-associate/"
+  - name: information-security-engineer
+    title: "정보보안기사"
+    description: "정보보안기사 자격증 준비 및 기출문제"
+    icon: "shield"
+    official_url: "https://www.q-net.or.kr/crf005.do?id=crf00501&jmCd=1320"
+  - name: information-processing-engineer
+    title: "정보처리기사"
+    description: "정보처리기사 자격증 준비 및 기출문제"
+    icon: "code"
+    official_url: "https://www.q-net.or.kr/crf005.do?id=crf00501&jmCd=1321"
+  - name: isms-p
+    title: "ISMS-P"
+    description: "ISMS-P 인증 준비 및 기출문제"
+    icon: "shield"
+    official_url: "https://isms.kisa.or.kr/"
+  - name: ckad
+    title: "CKAD (Certified Kubernetes Application Developer)"
+    description: "CKAD 자격증 준비 및 기출문제"
+    icon: "cube"
+    official_url: "https://www.cncf.io/certification/ckad/"
+  - name: cka
+    title: "CKA (Certified Kubernetes Administrator)"
+    description: "CKA 자격증 준비 및 기출문제"
+    icon: "cube"
+    official_url: "https://www.cncf.io/certification/cka/"
+
 # Navigation
 navigation:
   - title: "Home"
     url: "/"
   - title: "Categories"
     url: "/categories/"
+  - title: "Certifications"
+    url: "/certifications/"
   - title: "Tags"
     url: "/tags/"
   - title: "Archive"

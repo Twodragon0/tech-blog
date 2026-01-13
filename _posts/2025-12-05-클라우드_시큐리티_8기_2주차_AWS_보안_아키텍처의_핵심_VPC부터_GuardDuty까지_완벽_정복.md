@@ -4,6 +4,7 @@ title: "클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵�
 date: 2025-12-05 17:07:53 +0900
 categories: cloud
 tags: [AWS, VPC, GuardDuty, Security-Architecture]
+certifications: [aws-saa]
 excerpt: "클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처 핵심 구성요소(VPC 네트워크 격리, IAM 접근 제어, S3 데이터 보호, GuardDuty 위협 탐지), 2025년 AWS re:Invent 보안 발표(GuardDuty Extended Threat Detection, Security Hub GA, IAM Policy Autopilot), 실무 보안 모범 사례(최소 권한 원칙, 자동화된 보안 스캔)까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/702

@@ -4,6 +4,7 @@ title: "AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하�
 date: 2025-10-03 00:10:37 +0900
 categories: cloud
 tags: [AWS, NLB, Security-Group, Database, Network]
+certifications: [aws-saa]
 excerpt: "AWS 데이터베이스 접근 게이트웨이 구축: Network Load Balancer(NLB)와 Security Group을 활용한 Zero Trust 아키텍처, Terraform 기반 인프라 자동화, 다중 데이터베이스 지원(RDS, ElastiCache, DocumentDB, Redshift), 보안 강화(IP 기반 접근 제어, 암호화, 중앙화된 모니터링), 고가용성 설계까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/696

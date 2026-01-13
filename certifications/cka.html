@@ -1,0 +1,246 @@
+---
+layout: page
+title: CKA (Certified Kubernetes Administrator)
+description: CKA 자격증 준비 및 기출문제 - 기술 블로그 포스팅과 연결된 학습 자료
+permalink: /certifications/cka/
+---
+<div class="certification-detail-page">
+  <div class="page-header">
+    <h1>CKA (Certified Kubernetes Administrator)</h1>
+    <p class="page-description">CKA 자격증 준비를 위한 기술 블로그 포스팅 및 학습 자료</p>
+    <a href="https://www.cncf.io/certification/cka/" target="_blank" rel="noopener noreferrer" class="official-link">
+      공식 사이트 방문 →
+    </a>
+  </div>
+
+  <div class="certification-info">
+    <h2>자격증 정보</h2>
+    <ul>
+      <li><strong>공식 명칭:</strong> Certified Kubernetes Administrator (CKA)</li>
+      <li><strong>시험 시간:</strong> 3시간</li>
+      <li><strong>문제 수:</strong> 실기형 문제 (실제 Kubernetes 클러스터에서 작업)</li>
+      <li><strong>합격 점수:</strong> 66% 이상</li>
+      <li><strong>유효 기간:</strong> 3년</li>
+      <li><strong>시험 비용:</strong> $395 USD</li>
+    </ul>
+  </div>
+
+  <div class="related-posts">
+    <h2>관련 포스팅</h2>
+    <div class="posts-list">
+      {% assign cert_posts = "" | split: "" %}
+      {% for post in site.posts %}
+        {% assign post_matched = false %}
+        {% if post.certifications %}
+          {% for post_cert in post.certifications %}
+            {% assign post_cert_lower = post_cert | downcase %}
+            {% if post_cert_lower == "cka" %}
+              {% assign post_matched = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% unless post_matched %}
+          {% if post.certification %}
+            {% assign post_cert_lower = post.certification | downcase %}
+            {% if post_cert_lower == "cka" %}
+              {% assign post_matched = true %}
+            {% endif %}
+          {% endif %}
+        {% endunless %}
+        {% unless post_matched %}
+          {% if post.tags %}
+            {% for tag in post.tags %}
+              {% assign tag_lower = tag | downcase %}
+              {% if tag_lower contains "kubernetes" or tag_lower contains "k8s" %}
+                {% if post.categories contains "kubernetes" %}
+                  {% assign post_matched = true %}
+                  {% break %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endunless %}
+        {% if post_matched %}
+          {% assign cert_posts = cert_posts | push: post %}
+        {% endif %}
+      {% endfor %}
+      
+      {% if cert_posts.size > 0 %}
+        {% for post in cert_posts %}
+          {% include post-card.html post=post %}
+        {% endfor %}
+      {% else %}
+        <p class="no-posts">관련 포스팅이 없습니다. 곧 추가될 예정입니다.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="exam-topics">
+    <h2>주요 시험 주제</h2>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <h3>1. 클러스터 아키텍처, 설치 및 구성 (25%)</h3>
+        <ul>
+          <li>Kubernetes 클러스터 설치 및 구성</li>
+          <li>etcd 백업 및 복원</li>
+          <li>클러스터 업그레이드</li>
+        </ul>
+      </div>
+      <div class="topic-card">
+        <h3>2. 워크로드 및 스케줄링 (15%)</h3>
+        <ul>
+          <li>Pod 스케줄링 및 관리</li>
+          <li>Deployment 및 ReplicaSet 관리</li>
+          <li>DaemonSet 및 StatefulSet 구성</li>
+        </ul>
+      </div>
+      <div class="topic-card">
+        <h3>3. 서비스 및 네트워킹 (20%)</h3>
+        <ul>
+          <li>Service 및 Ingress 구성</li>
+          <li>네트워크 정책 구현</li>
+          <li>DNS 및 서비스 디스커버리</li>
+        </ul>
+      </div>
+      <div class="topic-card">
+        <h3>4. 스토리지 (10%)</h3>
+        <ul>
+          <li>영구 볼륨 및 클레임 관리</li>
+          <li>스토리지 클래스 구성</li>
+          <li>스토리지 백엔드 이해</li>
+        </ul>
+      </div>
+      <div class="topic-card">
+        <h3>5. 트러블슈팅 (30%)</h3>
+        <ul>
+          <li>클러스터 컴포넌트 문제 해결</li>
+          <li>애플리케이션 로그 분석</li>
+          <li>네트워크 및 스토리지 문제 해결</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.certification-detail-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.page-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.page-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.official-link {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.official-link:hover {
+  background: var(--primary-dark, #0056b3);
+}
+
+.certification-info,
+.related-posts,
+.exam-topics {
+  margin-bottom: 3rem;
+}
+
+.certification-info h2,
+.related-posts h2,
+.exam-topics h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.certification-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.certification-info li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.certification-info li:last-child {
+  border-bottom: none;
+}
+
+.certification-info strong {
+  color: var(--text-primary);
+  min-width: 120px;
+  display: inline-block;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.topic-card {
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.topic-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.topic-card ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.topic-card li {
+  margin-bottom: 0.5rem;
+}
+
+.no-posts {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
