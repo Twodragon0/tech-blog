@@ -29,6 +29,43 @@ from typing import Optional, Dict, Any, Tuple
 from dataclasses import dataclass
 import frontmatter
 
+# .env 파일 로드 (선택적)
+def load_env_file(env_path: Path) -> None:
+    """간단한 .env 파일 파서 (python-dotenv 없이도 작동)"""
+    if not env_path.exists():
+        return
+    
+    try:
+        with open(env_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                # 주석이나 빈 줄 건너뛰기
+                if not line or line.startswith("#"):
+                    continue
+                # KEY=VALUE 형식 파싱
+                if "=" in line:
+                    key, value = line.split("=", 1)
+                    key = key.strip()
+                    value = value.strip().strip('"').strip("'")
+                    # 환경 변수가 이미 설정되어 있지 않은 경우에만 설정
+                    if key and not os.getenv(key):
+                        os.environ[key] = value
+    except Exception:
+        # .env 파일 로드 실패 시 무시 (보안상 안전)
+        pass
+
+# 프로젝트 루트의 .env 파일 로드
+env_path = Path(__file__).parent.parent / ".env"
+load_env_file(env_path)
+
+# python-dotenv도 시도 (설치되어 있는 경우)
+try:
+    from dotenv import load_dotenv
+    if env_path.exists():
+        load_dotenv(env_path, override=False)  # 기존 환경 변수는 덮어쓰지 않음
+except ImportError:
+    pass
+
 # OAuth 2.0 지원 (선택적)
 try:
     from google.auth import default
@@ -64,23 +101,43 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 # API 설정 (환경 변수에서 읽기)
-ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY", "")
-ELEVENLABS_VOICE_ID = os.getenv("ELEVENLABS_VOICE_ID", "")
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 # API 엔드포인트
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent"  # Gemini 1.5 Pro deprecated, 2.5 Pro 사용
+GEMINI_FLASH_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"  # Gemini 2.5 Flash (높은 RPM)
 GEMINI_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent"  # Gemini Nano Banana (이미지 생성)
 GEMINI_VIDEO_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent"  # Gemini Veo (영상 생성)
-ELEVENLABS_API_URL = "https://api.elevenlabs.io/v1/text-to-speech"
-ELEVENLABS_VOICES_URL = "https://api.elevenlabs.io/v1/voices"
-GEMINI_TTS_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent"  # Gemini TTS (오디오 생성)
+# Gemini TTS API 엔드포인트 (비용 최적화: Flash 모델 우선)
+GEMINI_TTS_FLASH_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent"
+GEMINI_TTS_PRO_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-preview-tts:generateContent"
+# Google Cloud Text-to-Speech API (Chirp 3: Instant Custom Voice 지원)
+GCP_TTS_API_URL = "https://texttospeech.googleapis.com/v1beta1/text:synthesize"
+GCP_TTS_VOICE_CLONING_KEY_API_URL = "https://texttospeech.googleapis.com/v1beta1/voices:generateVoiceCloningKey"
+
+# Gemini API Rate Limit 설정 (유료 1등급 기준)
+# gemini-2.5-pro: RPM 150, TPM 2M, RPD 10K
+# gemini-2.5-flash: RPM 1K, TPM 1M, RPD 10K
+# gemini-2.0-flash: RPM 2K, TPM 4M, RPD 무제한
+GEMINI_PRO_RPM_LIMIT = 150  # Requests Per Minute
+GEMINI_PRO_TPM_LIMIT = 2_000_000  # Tokens Per Minute
+GEMINI_PRO_RPD_LIMIT = 10_000  # Requests Per Day
+GEMINI_FLASH_RPM_LIMIT = 1000  # Requests Per Minute
+GEMINI_FLASH_TPM_LIMIT = 1_000_000  # Tokens Per Minute
+GEMINI_FLASH_RPD_LIMIT = 10_000  # Requests Per Day
+
+# Rate Limit 안전 마진 (80% 사용 시 경고)
+RATE_LIMIT_WARNING_THRESHOLD = 0.8
+# 요청 간 최소 지연 시간 (초) - RPM 제한 고려
+GEMINI_PRO_MIN_DELAY = 60.0 / GEMINI_PRO_RPM_LIMIT  # 약 0.4초
+GEMINI_FLASH_MIN_DELAY = 60.0 / GEMINI_FLASH_RPM_LIMIT  # 약 0.06초
 
 # 설정
 MAX_TEXT_LENGTH = 50000  # 최대 텍스트 길이 (비용 관리)
 MAX_SCRIPT_LENGTH = 4500  # 최대 대본 길이 (약 7-8분 분량, 1.5배속 재생 시 약 5분)
+MIN_SCRIPT_LENGTH = 2000  # 최소 대본 길이 (목표: 2,000-2,500자)
 AUDIO_OUTPUT_FORMAT = "mp3"
 AUDIO_SPEED_MULTIPLIER = 1.5  # 오디오 재생 속도 배율 (1.5배속)
 
@@ -91,6 +148,30 @@ USE_GEMINI_FOR_SCRIPT = os.getenv("USE_GEMINI_FOR_SCRIPT", "true").lower() == "t
 USE_GEMINI_CLI = os.getenv("USE_GEMINI_CLI", "true").lower() == "true"  # Gemini CLI 사용 (비용 절감 - OAuth 2.0 지원)
 PREFER_GEMINI = os.getenv("PREFER_GEMINI", "true").lower() == "true"  # Gemini Pro 우선 사용
 ENABLE_CACHING = os.getenv("ENABLE_CACHING", "true").lower() == "true"
+# 모델 선택: "pro" (gemini-2.5-pro) 또는 "flash" (gemini-2.5-flash)
+# flash는 RPM이 높아 일반 텍스트 생성에 적합, pro는 고품질 생성에 적합
+GEMINI_MODEL_TYPE = os.getenv("GEMINI_MODEL_TYPE", "flash").lower()  # 기본값: flash (높은 RPM)
+
+# TTS 제공자 선택 설정 (비용 최적화: Gemini 우선)
+# "gemini", "coqui", "auto" (자동 선택: Gemini -> Coqui)
+TTS_PROVIDER = os.getenv("TTS_PROVIDER", "auto").lower()  # 기본값: auto (Gemini 우선)
+USE_COQUI_TTS = os.getenv("USE_COQUI_TTS", "false").lower() == "true"  # Coqui TTS 사용 여부
+
+# Gemini TTS Voice 설정 (IT/DevSecOps/클라우드 보안 전문가용 남자 목소리)
+# 권장 Voice: "Rasalgethi" (Informative and professional) 또는 "Sadaltager" (Knowledgeable and authoritative)
+# 기본값: "Rasalgethi" (IT 전문가용 추천)
+# 다른 옵션: Charon, Iapetus, Orus 등 (Gemini TTS API 문서 참조)
+GEMINI_TTS_VOICE_NAME = os.getenv("GEMINI_TTS_VOICE_NAME", "Rasalgethi").strip()  # 기본값: Rasalgethi (IT 전문가용)
+GEMINI_TTS_VOICE_STYLE = os.getenv("GEMINI_TTS_VOICE_STYLE", "").strip()  # 자연어 프롬프트로 스타일 제어 (예: "professional and authoritative")
+GEMINI_TTS_VOICE_PACE = float(os.getenv("GEMINI_TTS_VOICE_PACE", "1.0"))  # 속도 조절 (0.25 ~ 4.0, 기본값: 1.0)
+
+# Chirp 3: Instant Custom Voice 설정 (Google Cloud Text-to-Speech API)
+# 자신의 목소리로 클로닝하여 사용하려면 아래 설정 필요
+USE_CHIRP3_CUSTOM_VOICE = os.getenv("USE_CHIRP3_CUSTOM_VOICE", "false").lower() == "true"  # Chirp 3 사용 여부
+GEMINI_TTS_VOICE_CLONING_KEY = os.getenv("GEMINI_TTS_VOICE_CLONING_KEY", "")  # Voice Cloning Key (선택적)
+CHIRP3_VOICE_CLONING_KEY = os.getenv("CHIRP3_VOICE_CLONING_KEY", "")  # Chirp 3 Voice Cloning Key
+GOOGLE_CLOUD_PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT", "")  # Google Cloud Project ID
+CHIRP3_LOCATION = os.getenv("CHIRP3_LOCATION", "global").strip()  # 리전 설정 (global, us, eu 등)
 
 # OAuth 2.0 설정
 GOOGLE_APPLICATION_CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "")
@@ -119,11 +200,117 @@ class APIUsage:
             return 0.0
         return (self.cache_hit_tokens / self.prompt_tokens) * 100
 
+
+# Rate Limit 추적 (시간 윈도우 기반)
+class RateLimitTracker:
+    """Rate Limit 추적 및 모니터링"""
+    
+    def __init__(self, rpm_limit: int, tpm_limit: int, rpd_limit: int):
+        self.rpm_limit = rpm_limit
+        self.tpm_limit = tpm_limit
+        self.rpd_limit = rpd_limit
+        self.request_times: list = []  # 최근 1분간 요청 시간
+        self.token_usage: list = []  # 최근 1분간 토큰 사용량 (timestamp, tokens)
+        self.daily_requests: int = 0
+        self.last_reset_date = datetime.now().date()
+        self.last_request_time: float = 0.0
+        self.min_delay = 60.0 / rpm_limit if rpm_limit > 0 else 0.0
+    
+    def reset_daily_if_needed(self) -> None:
+        """일일 요청 수 리셋 (날짜 변경 시)"""
+        today = datetime.now().date()
+        if today != self.last_reset_date:
+            self.daily_requests = 0
+            self.last_reset_date = today
+    
+    def can_make_request(self) -> Tuple[bool, str]:
+        """
+        요청 가능 여부 확인
+        
+        Returns:
+            (가능 여부, 이유)
+        """
+        self.reset_daily_if_needed()
+        now = time.time()
+        
+        # 1분 윈도우 정리
+        self.request_times = [t for t in self.request_times if now - t < 60.0]
+        self.token_usage = [(ts, tokens) for ts, tokens in self.token_usage if now - ts < 60.0]
+        
+        # RPM 체크
+        if len(self.request_times) >= self.rpm_limit:
+            wait_time = 60.0 - (now - self.request_times[0])
+            return False, f"RPM 제한 초과 (최대 {self.rpm_limit}/분). {wait_time:.1f}초 후 재시도 가능"
+        
+        # RPD 체크
+        if self.daily_requests >= self.rpd_limit:
+            return False, f"일일 요청 제한 초과 (최대 {self.rpd_limit}/일)"
+        
+        # 최소 지연 시간 체크
+        if self.last_request_time > 0:
+            elapsed = now - self.last_request_time
+            if elapsed < self.min_delay:
+                return False, f"요청 간 최소 지연 시간 필요 ({self.min_delay:.2f}초)"
+        
+        return True, ""
+    
+    def record_request(self, tokens: int = 0) -> None:
+        """요청 기록"""
+        self.reset_daily_if_needed()
+        now = time.time()
+        self.request_times.append(now)
+        self.daily_requests += 1
+        self.last_request_time = now
+        if tokens > 0:
+            self.token_usage.append((now, tokens))
+    
+    def get_usage_stats(self) -> Dict[str, Any]:
+        """사용량 통계 반환"""
+        self.reset_daily_if_needed()
+        now = time.time()
+        
+        # 1분 윈도우 정리
+        self.request_times = [t for t in self.request_times if now - t < 60.0]
+        self.token_usage = [(ts, tokens) for ts, tokens in self.token_usage if now - ts < 60.0]
+        
+        current_rpm = len(self.request_times)
+        current_tpm = sum(tokens for _, tokens in self.token_usage)
+        
+        rpm_usage_rate = current_rpm / self.rpm_limit if self.rpm_limit > 0 else 0.0
+        tpm_usage_rate = current_tpm / self.tpm_limit if self.tpm_limit > 0 else 0.0
+        rpd_usage_rate = self.daily_requests / self.rpd_limit if self.rpd_limit > 0 else 0.0
+        
+        return {
+            "rpm": {"current": current_rpm, "limit": self.rpm_limit, "usage_rate": rpm_usage_rate},
+            "tpm": {"current": current_tpm, "limit": self.tpm_limit, "usage_rate": tpm_usage_rate},
+            "rpd": {"current": self.daily_requests, "limit": self.rpd_limit, "usage_rate": rpd_usage_rate}
+        }
+    
+    def check_warning_threshold(self) -> Optional[str]:
+        """경고 임계값 체크"""
+        stats = self.get_usage_stats()
+        warnings = []
+        
+        if stats["rpm"]["usage_rate"] >= RATE_LIMIT_WARNING_THRESHOLD:
+            warnings.append(f"RPM 사용률 {stats['rpm']['usage_rate']*100:.1f}% (경고: {RATE_LIMIT_WARNING_THRESHOLD*100}%)")
+        if stats["tpm"]["usage_rate"] >= RATE_LIMIT_WARNING_THRESHOLD:
+            warnings.append(f"TPM 사용률 {stats['tpm']['usage_rate']*100:.1f}% (경고: {RATE_LIMIT_WARNING_THRESHOLD*100}%)")
+        if stats["rpd"]["usage_rate"] >= RATE_LIMIT_WARNING_THRESHOLD:
+            warnings.append(f"일일 요청 사용률 {stats['rpd']['usage_rate']*100:.1f}% (경고: {RATE_LIMIT_WARNING_THRESHOLD*100}%)")
+        
+        return "; ".join(warnings) if warnings else None
+
+
+# Rate Limit 추적 인스턴스
+rate_limit_trackers = {
+    "pro": RateLimitTracker(GEMINI_PRO_RPM_LIMIT, GEMINI_PRO_TPM_LIMIT, GEMINI_PRO_RPD_LIMIT),
+    "flash": RateLimitTracker(GEMINI_FLASH_RPM_LIMIT, GEMINI_FLASH_TPM_LIMIT, GEMINI_FLASH_RPD_LIMIT)
+}
+
 # 전역 사용량 추적
 usage_stats: Dict[str, APIUsage] = {
     "deepseek": APIUsage("deepseek"),
-    "gemini": APIUsage("gemini"),
-    "elevenlabs": APIUsage("elevenlabs")
+    "gemini": APIUsage("gemini")
 }
 
 
@@ -151,13 +338,11 @@ def _validate_masked_log_entry(text: str) -> bool:
             return False
     
     # 환경 변수에서 읽은 실제 API 키 값이 포함되어 있는지 확인
-    if ELEVENLABS_API_KEY and len(ELEVENLABS_API_KEY) > 10 and ELEVENLABS_API_KEY in text:
-        return False
     if DEEPSEEK_API_KEY and len(DEEPSEEK_API_KEY) > 10 and DEEPSEEK_API_KEY in text:
         return False
     if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10 and GEMINI_API_KEY in text:
         return False
-    if ELEVENLABS_VOICE_ID and len(ELEVENLABS_VOICE_ID) > 10 and ELEVENLABS_VOICE_ID in text:
+    if CHIRP3_VOICE_CLONING_KEY and len(CHIRP3_VOICE_CLONING_KEY) > 10 and CHIRP3_VOICE_CLONING_KEY in text:
         return False
     
     return True
@@ -251,14 +436,12 @@ def mask_sensitive_info(text: str) -> str:
     masked = re.sub(r'[a-zA-Z0-9_-]{40,}', lambda m: m.group()[:8] + '***MASKED***' if len(m.group()) > 40 else m.group(), masked)
     
     # 환경 변수에서 읽은 실제 API 키 값 마스킹
-    if ELEVENLABS_API_KEY and len(ELEVENLABS_API_KEY) > 10:
-        masked = masked.replace(ELEVENLABS_API_KEY, '***ELEVENLABS_API_KEY_MASKED***')
     if DEEPSEEK_API_KEY and len(DEEPSEEK_API_KEY) > 10:
         masked = masked.replace(DEEPSEEK_API_KEY, '***DEEPSEEK_API_KEY_MASKED***')
     if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
         masked = masked.replace(GEMINI_API_KEY, '***GEMINI_API_KEY_MASKED***')
-    if ELEVENLABS_VOICE_ID and len(ELEVENLABS_VOICE_ID) > 10:
-        masked = masked.replace(ELEVENLABS_VOICE_ID, '***VOICE_ID_MASKED***')
+    if CHIRP3_VOICE_CLONING_KEY and len(CHIRP3_VOICE_CLONING_KEY) > 10:
+        masked = masked.replace(CHIRP3_VOICE_CLONING_KEY, '***CHIRP3_VOICE_CLONING_KEY_MASKED***')
     
     return masked
 
@@ -393,22 +576,45 @@ def validate_api_keys() -> Tuple[bool, list]:
     """
     missing_keys = []
     
-    if not ELEVENLABS_API_KEY:
-        missing_keys.append("ELEVENLABS_API_KEY")
-    if not ELEVENLABS_VOICE_ID:
-        missing_keys.append("ELEVENLABS_VOICE_ID")
+    # TTS 제공자에 따라 필요한 키 확인
+    if TTS_PROVIDER == "chirp3":
+        # Chirp 3 사용 시
+        if not USE_CHIRP3_CUSTOM_VOICE:
+            missing_keys.append("USE_CHIRP3_CUSTOM_VOICE=true")
+        if not CHIRP3_VOICE_CLONING_KEY:
+            missing_keys.append("CHIRP3_VOICE_CLONING_KEY")
+        if not GOOGLE_CLOUD_PROJECT_ID:
+            missing_keys.append("GOOGLE_CLOUD_PROJECT")
+        if not GOOGLE_APPLICATION_CREDENTIALS:
+            missing_keys.append("GOOGLE_APPLICATION_CREDENTIALS")
+    elif TTS_PROVIDER == "gemini":
+        # Gemini TTS 사용 시
+        if not GEMINI_API_KEY:
+            missing_keys.append("GEMINI_API_KEY")
+    elif TTS_PROVIDER == "coqui":
+        # Coqui TTS 사용 시 (추가 키 불필요)
+        pass
+    else:
+        # auto 모드: 최소한 하나의 TTS 제공자가 필요
+        if not USE_CHIRP3_CUSTOM_VOICE and not GEMINI_API_KEY and not USE_COQUI_TTS:
+            missing_keys.append("USE_CHIRP3_CUSTOM_VOICE 또는 GEMINI_API_KEY 또는 USE_COQUI_TTS")
     
-    # DeepSeek 또는 Gemini 중 하나는 필요
+    # 대본 생성을 위한 API 키 확인
     if not DEEPSEEK_API_KEY and not GEMINI_API_KEY:
-        missing_keys.append("DEEPSEEK_API_KEY 또는 GEMINI_API_KEY")
+        missing_keys.append("DEEPSEEK_API_KEY 또는 GEMINI_API_KEY (대본 생성용)")
     
     if missing_keys:
         log_message(f"❌ 필수 환경 변수가 설정되지 않았습니다: {', '.join(missing_keys)}", "ERROR")
         log_message("환경 변수 설정 방법:", "ERROR")
-        log_message("  export ELEVENLABS_API_KEY='your-api-key'", "ERROR")
-        log_message("  export ELEVENLABS_VOICE_ID='your-voice-id'", "ERROR")
-        log_message("  export DEEPSEEK_API_KEY='your-deepseek-key' (또는)", "ERROR")
-        log_message("  export GEMINI_API_KEY='your-gemini-key'", "ERROR")
+        if TTS_PROVIDER == "chirp3":
+            log_message("  export USE_CHIRP3_CUSTOM_VOICE=true", "ERROR")
+            log_message("  export CHIRP3_VOICE_CLONING_KEY='your-voice-cloning-key'", "ERROR")
+            log_message("  export GOOGLE_CLOUD_PROJECT='your-project-id'", "ERROR")
+            log_message("  export GOOGLE_APPLICATION_CREDENTIALS='/path/to/service-account-key.json'", "ERROR")
+        else:
+            log_message("  export DEEPSEEK_API_KEY='your-deepseek-key' (선택적)", "ERROR")
+            log_message("  export GEMINI_API_KEY='your-gemini-key' (TTS 필수)", "ERROR")
+            log_message("  자세한 내용은 CHIRP3_VOICE_SETUP_GUIDE.md 참조", "ERROR")
         return False, missing_keys
     
     # API 키 형식 검증
@@ -493,27 +699,82 @@ def generate_script_with_gemini_cli(text: str, post_title: str = "") -> Optional
         log_message(f"⚠️ 텍스트가 너무 깁니다 ({len(text)}자). 처음 {MAX_TEXT_LENGTH}자만 사용합니다.", "WARNING")
         text = text[:MAX_TEXT_LENGTH]
     
-    # Gemini CLI를 위한 프롬프트 구성 (1.5배속 재생 고려)
+    # Gemini CLI를 위한 프롬프트 구성 (온라인 강의 베스트 프랙티스 반영)
     title_context = f"제목: {post_title}\n\n" if post_title else ""
-    prompt = f"""다음 보안 기술 블로그 내용을 7-8분 분량의 상세한 강의 대본으로 요약해줘.
+    prompt = f"""당신은 클라우드 보안, IT, DevSecOps 전문 온라인 강의를 제작하는 전문가입니다.
+다음 기술 블로그 내용을 7-8분 분량의 고품질 온라인 강의 대본으로 변환해주세요.
 (참고: 이 대본은 1.5배속으로 재생되어 약 5분 분량의 강의가 됩니다)
+
+**⚠️ 매우 중요한 구조 요구사항 - 반드시 정확히 이 순서를 따르세요!**
+
+**대본은 반드시 첫 문장으로 시작해야 합니다. 첫 문장을 절대 생략하거나 잘라내지 마세요!**
+
+1. **처음 30초 (1.5배속 시 약 20초, 약 200-300자) - 핵심 요약으로 흥미 유발**
+   **문장 1 (필수)**: 블로그 내용에서 가장 흥미로운 구체적 예시나 질문으로 시작
+     * 블로그에 "Pioneer" 같은 구체적 예시가 있으면: "혹시 최근 유튜브에서 화제가 된 'Pioneer'라는 AI 뮤직비디오 보셨나요?"
+     * 구체적 예시가 없으면: "2026년, 이제 이미지부터 음악, 영상까지 전부 AI로 만들 수 있게 되었습니다"
+     * **⚠️ 절대 첫 문장을 생략하거나 잘라내지 마세요! 대본은 반드시 이 첫 문장으로 시작해야 합니다!**
+   **문장 2 (필수)**: 구체적 사례나 놀라운 사실 제시
+     * 예: "이미지부터 음악, 영상까지 전부 AI로만 만들었는데, 퀄리티가 정말 놀랍죠"
+     * 블로그에 나온 구체적 도구나 기술을 언급
+   
+   **문장 3 (필수)**: 문제 제기와 관점 전환
+     * 예: "하지만 우리 같은 DevSecOps 엔지니어들에게는 이 화려한 기술 뒤에 숨겨진 보안, 비용, 거버넌스 문제가 더 중요합니다"
+   
+   **문장 4 (필수)**: 블로그 전체 내용 요약 (30초 안에 모든 핵심 키워드 포함)
+     * 블로그에 언급된 모든 주요 도구, 기술, 보안 이슈, 비용 최적화 등을 자연스럽게 나열
+     * 예: "오늘은 Midjourney, Suno V5, Veo 3 같은 최신 AI 도구부터, API 키 관리, 데이터 프라이버시 보호, CI/CD 자동화, 그리고 비용 최적화 전략까지 DevSecOps 관점에서 완벽하게 정리해드리겠습니다"
+     * **반드시 블로그의 모든 핵심 키워드를 빠짐없이 포함하세요!**
+   
+   **문장 5 (필수)**: 학습 목표 제시
+     * 예: "이 강의가 끝나면 여러분은 생성형 AI 프로젝트를 안전하고 효율적으로 운영하는 실질적인 노하우를 갖게 되실 겁니다"
+   
+   **30초 요약의 핵심**: 
+   - 시청자가 "이 강의에서 무엇을 배울 수 있을까?"를 즉시 알 수 있도록 블로그의 모든 핵심 내용을 빠짐없이 요약
+   - 반드시 위 5개 문장을 모두 순서대로 포함하여 작성하세요
+   - 첫 문장부터 시작하여 다섯 번째 문장까지 완전한 문장으로 작성하세요
+
+2. **본론 (6-7분, 1.5배속 시 4-4.5분) - 포스팅 내용을 순서대로 상세히 설명**
+   - **포스팅의 구조와 순서를 그대로 따라가며** 상세히 설명
+   - 포스팅에 나온 모든 구체적 정보를 빠짐없이 포함:
+     * 도구별 가격, 기능, 특징
+     * 워크플로우와 사용 방법
+     * 보안 고려사항과 베스트 프랙티스
+     * 비용 최적화 전략과 수치
+     * 실전 사례와 팁
+   - 대화형 톤: "이게 왜 중요하냐고요?", "실무에서 이걸 어떻게 활용하냐고요?" 같은 질문 사용
+   - 실무 예시: 구체적인 사례, 수치, 데이터 포함
+   - 핵심 포인트 반복 강조: 각 섹션 마무리에서 핵심 요약
+   - 상호작용 요소: "지금 기억해두시면 좋을 것 같아요", "여기서 팁을 하나 드리면"
+   - 자연스러운 전환: "자, 그럼 시작해볼까요?", "이제 가장 중요한 부분입니다"
+
+3. **결론 (30-45초, 1.5배속 시 20-30초) - 핵심 내용 체계적 요약**
+   - 핵심 내용을 5가지로 체계적으로 요약
+   - 실무 적용 팁 제시
+   - 다음 학습 내용 또는 추가 자료 안내 (선택적)
+   - 친근한 마무리 인사
 
 {title_context}블로그 내용:
 {text}
 
-강의 대본 작성 가이드:
-1. **서론 (30-45초, 1.5배속 시 20-30초)**: 인사말, 주제 소개, 학습 목표 안내
-2. **본론 (6-7분, 1.5배속 시 4-4.5분)**: 핵심 내용을 단계별로 상세하게 설명, 구어체 사용, 실무 예시 포함
-3. **결론 (30-45초, 1.5배속 시 20-30초)**: 핵심 내용 요약, 실무 팁, 마무리 인사
-
-요구사항:
-- 자연스러운 구어체로 작성
-- 핵심 내용을 상세하고 체계적으로 전달
-- 7-8분 분량 (약 2,000-2,500자, 1.5배속 재생 시 약 5분)
+작성 스타일 요구사항:
+- 자연스러운 구어체로 작성 (강의자가 직접 말하는 느낌)
+- 전문가 신뢰도: 실무 경험 기반 사례와 구체적인 조언
+- 대화형 톤: 질문, 사고 유도, 상호작용 요소 포함
+- 실무 중심: 이론보다 실전 적용 가능한 내용 강조
+- 구체적이고 명확: 모호한 표현 지양, 정확한 수치와 데이터 사용
+- **반드시 2,000-2,500자 분량으로 작성** (7-8분 분량, 1.5배속 재생 시 약 5분)
+- **처음 30초 분량은 반드시 200-300자로 작성** (1.5배속 재생 시 약 20초)
 - 기술 용어는 정확하게 사용하되 이해하기 쉽게 설명
-- 실무 예시와 비유를 풍부하게 포함
-- 한국어로 작성
-- 강의자의 말투처럼 자연스럽고 친근하게 작성"""
+- 한국어로 작성 (UTF-8 인코딩, 특수문자 없이)
+- **절대 사용 금지**: "(본론 시작)", "(슬라이드 1)", "(본론 1)", "**강사:**", "---", "**1단계:**" 등 모든 메타 지시어
+- **절대 사용 금지**: 괄호로 둘러싼 지시어, 굵은 글씨로 된 단계 표시, 구분선 등
+- 자연스러운 흐름으로 작성: 서론에서 본론으로, 본론에서 결론으로 자연스럽게 전환
+
+**중요**: 
+- 대본은 순수한 강의 내용만 포함해야 하며, 지시어나 메타 정보는 전혀 포함하지 마세요.
+- 30초 요약 부분은 반드시 블로그의 모든 핵심 내용을 포함하여 흥미롭게 작성하세요.
+- 본론은 포스팅의 순서와 내용을 그대로 따라가며 상세히 설명하세요."""
     
     try:
         log_message("📝 Gemini CLI로 대본 생성 중...")
@@ -537,6 +798,8 @@ def generate_script_with_gemini_cli(text: str, post_title: str = "") -> Optional
             if len(script) > MAX_SCRIPT_LENGTH:
                 log_message(f"⚠️ 생성된 대본이 너무 깁니다 ({len(script)}자). 처음 {MAX_SCRIPT_LENGTH}자만 사용합니다.", "WARNING")
                 script = script[:MAX_SCRIPT_LENGTH]
+            elif len(script) < MIN_SCRIPT_LENGTH:
+                log_message(f"⚠️ 생성된 대본이 너무 짧습니다 ({len(script)}자). 목표는 {MIN_SCRIPT_LENGTH}-{MAX_SCRIPT_LENGTH}자입니다.", "WARNING")
             
             log_message(f"✅ Gemini CLI로 대본 생성 완료 ({len(script)}자)")
             return script
@@ -623,42 +886,82 @@ def generate_script_with_gemini_oauth(text: str, post_title: str = "") -> Option
         log_message(f"⚠️ 텍스트가 너무 깁니다 ({len(text)}자). 처음 {MAX_TEXT_LENGTH}자만 사용합니다.", "WARNING")
         text = text[:MAX_TEXT_LENGTH]
     
-    # 프롬프트 구성 (1.5배속 재생 고려하여 더 긴 대본 생성)
+    # 프롬프트 구성 (온라인 강의 베스트 프랙티스 반영)
     title_context = f"제목: {post_title}\n\n" if post_title else ""
-    prompt = f"""당신은 기술 블로그를 전문 강의 대본으로 변환하는 전문가입니다. 
-다음 보안 기술 블로그 내용을 7-8분 분량의 상세하고 매력적인 강의 대본으로 변환해주세요.
+    prompt = f"""당신은 클라우드 보안, IT, DevSecOps 전문 온라인 강의를 제작하는 전문가입니다.
+다음 기술 블로그 내용을 7-8분 분량의 고품질 온라인 강의 대본으로 변환해주세요.
 (참고: 이 대본은 1.5배속으로 재생되어 약 5분 분량의 강의가 됩니다)
+
+**⚠️ 매우 중요한 구조 요구사항 - 반드시 정확히 이 순서를 따르세요!**
+
+**대본은 반드시 첫 문장으로 시작해야 합니다. 첫 문장을 절대 생략하거나 잘라내지 마세요!**
+
+1. **처음 30초 (1.5배속 시 약 20초, 약 200-300자) - 핵심 요약으로 흥미 유발**
+   **문장 1 (필수)**: 블로그 내용에서 가장 흥미로운 구체적 예시나 질문으로 시작
+     * 블로그에 "Pioneer" 같은 구체적 예시가 있으면: "혹시 최근 유튜브에서 화제가 된 'Pioneer'라는 AI 뮤직비디오 보셨나요?"
+     * 구체적 예시가 없으면: "2026년, 이제 이미지부터 음악, 영상까지 전부 AI로 만들 수 있게 되었습니다"
+     * **⚠️ 절대 첫 문장을 생략하거나 잘라내지 마세요! 대본은 반드시 이 첫 문장으로 시작해야 합니다!**
+   **문장 2 (필수)**: 구체적 사례나 놀라운 사실 제시
+     * 예: "이미지부터 음악, 영상까지 전부 AI로만 만들었는데, 퀄리티가 정말 놀랍죠"
+     * 블로그에 나온 구체적 도구나 기술을 언급
+   
+   **문장 3 (필수)**: 문제 제기와 관점 전환
+     * 예: "하지만 우리 같은 DevSecOps 엔지니어들에게는 이 화려한 기술 뒤에 숨겨진 보안, 비용, 거버넌스 문제가 더 중요합니다"
+   
+   **문장 4 (필수)**: 블로그 전체 내용 요약 (30초 안에 모든 핵심 키워드 포함)
+     * 블로그에 언급된 모든 주요 도구, 기술, 보안 이슈, 비용 최적화 등을 자연스럽게 나열
+     * 예: "오늘은 Midjourney, Suno V5, Veo 3 같은 최신 AI 도구부터, API 키 관리, 데이터 프라이버시 보호, CI/CD 자동화, 그리고 비용 최적화 전략까지 DevSecOps 관점에서 완벽하게 정리해드리겠습니다"
+     * **반드시 블로그의 모든 핵심 키워드를 빠짐없이 포함하세요!**
+   
+   **문장 5 (필수)**: 학습 목표 제시
+     * 예: "이 강의가 끝나면 여러분은 생성형 AI 프로젝트를 안전하고 효율적으로 운영하는 실질적인 노하우를 갖게 되실 겁니다"
+   
+   **30초 요약의 핵심**: 
+   - 시청자가 "이 강의에서 무엇을 배울 수 있을까?"를 즉시 알 수 있도록 블로그의 모든 핵심 내용을 빠짐없이 요약
+   - 반드시 위 5개 문장을 모두 순서대로 포함하여 작성하세요
+   - 첫 문장부터 시작하여 다섯 번째 문장까지 완전한 문장으로 작성하세요
+
+2. **본론 (6-7분, 1.5배속 시 4-4.5분) - 포스팅 내용을 순서대로 상세히 설명**
+   - **포스팅의 구조와 순서를 그대로 따라가며** 상세히 설명
+   - 포스팅에 나온 모든 구체적 정보를 빠짐없이 포함:
+     * 도구별 가격, 기능, 특징
+     * 워크플로우와 사용 방법
+     * 보안 고려사항과 베스트 프랙티스
+     * 비용 최적화 전략과 수치
+     * 실전 사례와 팁
+   - 대화형 톤: "이게 왜 중요하냐고요?", "실무에서 이걸 어떻게 활용하냐고요?" 같은 질문 사용
+   - 실무 예시: 구체적인 사례, 수치, 데이터 포함
+   - 핵심 포인트 반복 강조: 각 섹션 마무리에서 핵심 요약
+   - 상호작용 요소: "지금 기억해두시면 좋을 것 같아요", "여기서 팁을 하나 드리면"
+   - 자연스러운 전환: "자, 그럼 시작해볼까요?", "이제 가장 중요한 부분입니다"
+
+3. **결론 (30-45초, 1.5배속 시 20-30초) - 핵심 내용 체계적 요약**
+   - 핵심 내용을 5가지로 체계적으로 요약
+   - 실무 적용 팁 제시
+   - 다음 학습 내용 또는 추가 자료 안내 (선택적)
+   - 친근한 마무리 인사
 
 {title_context}블로그 내용:
 {text}
 
-강의 대본 작성 가이드:
-1. **서론 (30-45초, 1.5배속 시 20-30초)**
-   - 인사말과 오늘 다룰 주제 소개
-   - 학습 목표와 강의 구성 안내
-   - 예: "안녕하세요, 오늘은 [주제]에 대해 자세히 알아보겠습니다. 이번 강의에서는 [핵심 내용]을 중심으로 설명드리겠습니다."
-
-2. **본론 (6-7분, 1.5배속 시 4-4.5분)**
-   - 핵심 내용을 단계별로 상세하고 명확하게 설명
-   - 구어체 사용 ("이제", "그런데", "중요한 것은", "예를 들어" 등)
-   - 기술 용어는 정확하게 사용하되, 쉬운 설명과 비유를 풍부하게 추가
-   - 실무 예시, 코드 예제, 시나리오를 구체적으로 설명
-   - 각 섹션마다 자연스러운 전환 구문 사용
-   - 핵심 포인트를 반복하여 강조
-
-3. **결론 (30-45초, 1.5배속 시 20-30초)**
-   - 오늘 배운 핵심 내용을 체계적으로 요약
-   - 실무 적용 팁 또는 다음 학습 내용 안내
-   - 마무리 인사
-
-요구사항:
-- 자연스러운 구어체로 작성 (강의자의 말투)
-- 핵심 내용을 상세하고 체계적으로 전달
-- 7-8분 분량 (약 2,000-2,500자, 1.5배속 재생 시 약 5분)
+작성 스타일 요구사항:
+- 자연스러운 구어체로 작성 (강의자가 직접 말하는 느낌)
+- 전문가 신뢰도: 실무 경험 기반 사례와 구체적인 조언
+- 대화형 톤: 질문, 사고 유도, 상호작용 요소 포함
+- 실무 중심: 이론보다 실전 적용 가능한 내용 강조
+- 구체적이고 명확: 모호한 표현 지양, 정확한 수치와 데이터 사용
+- **반드시 2,000-2,500자 분량으로 작성** (7-8분 분량, 1.5배속 재생 시 약 5분)
+- **처음 30초 분량은 반드시 200-300자로 작성** (1.5배속 재생 시 약 20초)
 - 기술 용어는 정확하게 사용하되 이해하기 쉽게 설명
-- 실무 예시와 비유를 풍부하게 포함
-- 한국어로 작성
-- 강의자의 말투처럼 자연스럽고 친근하게 작성"""
+- 한국어로 작성 (UTF-8 인코딩, 특수문자 없이)
+- **절대 사용 금지**: "(본론 시작)", "(슬라이드 1)", "(본론 1)", "**강사:**", "---", "**1단계:**" 등 모든 메타 지시어
+- **절대 사용 금지**: 괄호로 둘러싼 지시어, 굵은 글씨로 된 단계 표시, 구분선 등
+- 자연스러운 흐름으로 작성: 서론에서 본론으로, 본론에서 결론으로 자연스럽게 전환
+
+**중요**: 
+- 대본은 순수한 강의 내용만 포함해야 하며, 지시어나 메타 정보는 전혀 포함하지 마세요.
+- 30초 요약 부분은 반드시 블로그의 모든 핵심 내용을 포함하여 흥미롭게 작성하세요.
+- 본론은 포스팅의 순서와 내용을 그대로 따라가며 상세히 설명하세요."""
     
     # 재시도 로직 (최대 3회)
     max_retries = 3
@@ -680,7 +983,7 @@ def generate_script_with_gemini_oauth(text: str, post_title: str = "") -> Option
                     "temperature": 0.8,
                     "top_k": 40,
                     "top_p": 0.95,
-                    "max_output_tokens": 3000,  # 더 긴 대본 생성을 위해 증가
+                    "max_output_tokens": 4000,  # 더 긴 대본 생성을 위해 증가 (2,000-2,500자 목표)
                 },
                 safety_settings=[
                     {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
@@ -705,6 +1008,8 @@ def generate_script_with_gemini_oauth(text: str, post_title: str = "") -> Option
                 if len(script) > MAX_SCRIPT_LENGTH:
                     log_message(f"⚠️ 생성된 대본이 너무 깁니다 ({len(script)}자). 처음 {MAX_SCRIPT_LENGTH}자만 사용합니다.", "WARNING")
                     script = script[:MAX_SCRIPT_LENGTH]
+                elif len(script) < MIN_SCRIPT_LENGTH:
+                    log_message(f"⚠️ 생성된 대본이 너무 짧습니다 ({len(script)}자). 목표는 {MIN_SCRIPT_LENGTH}-{MAX_SCRIPT_LENGTH}자입니다.", "WARNING")
                 
                 log_message(f"✅ Gemini OAuth 2.0 API로 대본 생성 완료 ({len(script)}자)")
                 return script
@@ -729,7 +1034,8 @@ def generate_script_with_gemini_oauth(text: str, post_title: str = "") -> Option
 
 def generate_script_with_gemini(text: str, post_title: str = "") -> Optional[str]:
     """
-    Gemini AI Pro를 사용하여 고품질 강의용 대본을 생성합니다.
+    Gemini AI를 사용하여 고품질 강의용 대본을 생성합니다.
+    Rate Limit을 고려하여 안전하게 요청합니다.
     
     Args:
         text: 원본 텍스트
@@ -745,47 +1051,115 @@ def generate_script_with_gemini(text: str, post_title: str = "") -> Optional[str
         log_message("❌ 텍스트가 비어있습니다.", "ERROR")
         return None
     
+    # 모델 타입 선택 (pro 또는 flash)
+    model_type = GEMINI_MODEL_TYPE if GEMINI_MODEL_TYPE in ["pro", "flash"] else "flash"
+    tracker = rate_limit_trackers[model_type]
+    
+    # Rate Limit 체크
+    can_request, reason = tracker.can_make_request()
+    if not can_request:
+        log_message(f"⚠️ Rate Limit 제한: {reason}", "WARNING")
+        # 경고 메시지 출력
+        warning = tracker.check_warning_threshold()
+        if warning:
+            log_message(f"⚠️ Rate Limit 경고: {warning}", "WARNING")
+        return None
+    
     # 텍스트 길이 제한 (비용 관리)
     if len(text) > MAX_TEXT_LENGTH:
         log_message(f"⚠️ 텍스트가 너무 깁니다 ({len(text)}자). 처음 {MAX_TEXT_LENGTH}자만 사용합니다.", "WARNING")
         text = text[:MAX_TEXT_LENGTH]
     
-    # Gemini AI Pro를 위한 고급 프롬프트 구성 (1.5배속 재생 고려)
+    # 사용량 통계 확인 및 경고
+    stats = tracker.get_usage_stats()
+    if stats["rpm"]["usage_rate"] >= RATE_LIMIT_WARNING_THRESHOLD:
+        log_message(f"⚠️ RPM 사용률 높음: {stats['rpm']['current']}/{stats['rpm']['limit']} ({stats['rpm']['usage_rate']*100:.1f}%)", "WARNING")
+    
+    # Gemini AI Pro를 위한 고급 프롬프트 구성 (온라인 강의 베스트 프랙티스 반영)
     title_context = f"제목: {post_title}\n\n" if post_title else ""
-    prompt = f"""당신은 기술 블로그를 전문 강의 대본으로 변환하는 전문가입니다. 
-다음 보안 기술 블로그 내용을 7-8분 분량의 상세하고 매력적인 강의 대본으로 변환해주세요.
+    
+    prompt = f"""당신은 클라우드 보안, IT, DevSecOps 전문 온라인 강의를 제작하는 전문가입니다.
+다음 기술 블로그 내용을 7-8분 분량의 고품질 온라인 강의 대본으로 변환해주세요.
 (참고: 이 대본은 1.5배속으로 재생되어 약 5분 분량의 강의가 됩니다)
+
+**⚠️ 매우 중요한 구조 요구사항 - 반드시 정확히 이 순서를 따르세요!**
+
+**대본은 반드시 첫 문장으로 시작해야 합니다. 첫 문장을 절대 생략하거나 잘라내지 마세요!**
+
+1. **처음 30초 (1.5배속 시 약 20초, 약 200-300자) - 핵심 요약으로 흥미 유발**
+   **문장 1 (필수)**: 블로그 내용에서 가장 흥미로운 구체적 예시나 질문으로 시작
+     * 블로그에 "Pioneer" 같은 구체적 예시가 있으면: "혹시 최근 유튜브에서 화제가 된 'Pioneer'라는 AI 뮤직비디오 보셨나요?"
+     * 구체적 예시가 없으면: "2026년, 이제 이미지부터 음악, 영상까지 전부 AI로 만들 수 있게 되었습니다"
+     * **⚠️ 절대 첫 문장을 생략하거나 잘라내지 마세요! 대본은 반드시 이 첫 문장으로 시작해야 합니다!**
+   **문장 2 (필수)**: 구체적 사례나 놀라운 사실 제시
+     * 예: "이미지부터 음악, 영상까지 전부 AI로만 만들었는데, 퀄리티가 정말 놀랍죠"
+     * 블로그에 나온 구체적 도구나 기술을 언급
+   
+   **문장 3 (필수)**: 문제 제기와 관점 전환
+     * 예: "하지만 우리 같은 DevSecOps 엔지니어들에게는 이 화려한 기술 뒤에 숨겨진 보안, 비용, 거버넌스 문제가 더 중요합니다"
+   
+   **문장 4 (필수)**: 블로그 전체 내용 요약 (30초 안에 모든 핵심 키워드 포함)
+     * 블로그에 언급된 모든 주요 도구, 기술, 보안 이슈, 비용 최적화 등을 자연스럽게 나열
+     * 예: "오늘은 Midjourney, Suno V5, Veo 3 같은 최신 AI 도구부터, API 키 관리, 데이터 프라이버시 보호, CI/CD 자동화, 그리고 비용 최적화 전략까지 DevSecOps 관점에서 완벽하게 정리해드리겠습니다"
+     * **반드시 블로그의 모든 핵심 키워드를 빠짐없이 포함하세요!**
+   
+   **문장 5 (필수)**: 학습 목표 제시
+     * 예: "이 강의가 끝나면 여러분은 생성형 AI 프로젝트를 안전하고 효율적으로 운영하는 실질적인 노하우를 갖게 되실 겁니다"
+   
+   **30초 요약의 핵심**: 
+   - 시청자가 "이 강의에서 무엇을 배울 수 있을까?"를 즉시 알 수 있도록 블로그의 모든 핵심 내용을 빠짐없이 요약
+   - 반드시 위 5개 문장을 모두 순서대로 포함하여 작성하세요
+   - 첫 문장부터 시작하여 다섯 번째 문장까지 완전한 문장으로 작성하세요
+
+2. **본론 (6-7분, 1.5배속 시 4-4.5분) - 포스팅 내용을 순서대로 상세히 설명**
+   - **포스팅의 구조와 순서를 그대로 따라가며** 상세히 설명
+   - 포스팅에 나온 모든 구체적 정보를 빠짐없이 포함:
+     * 도구별 가격, 기능, 특징
+     * 워크플로우와 사용 방법
+     * 보안 고려사항과 베스트 프랙티스
+     * 비용 최적화 전략과 수치
+     * 실전 사례와 팁
+   - 대화형 톤: "이게 왜 중요하냐고요?", "실무에서 이걸 어떻게 활용하냐고요?" 같은 질문 사용
+   - 실무 예시: 구체적인 사례, 수치, 데이터 포함
+   - 핵심 포인트 반복 강조: 각 섹션 마무리에서 핵심 요약
+   - 상호작용 요소: "지금 기억해두시면 좋을 것 같아요", "여기서 팁을 하나 드리면"
+   - 자연스러운 전환: "자, 그럼 시작해볼까요?", "이제 가장 중요한 부분입니다"
+
+3. **결론 (30-45초, 1.5배속 시 20-30초) - 핵심 내용 체계적 요약**
+   - 핵심 내용을 5가지로 체계적으로 요약
+   - 실무 적용 팁 제시
+   - 다음 학습 내용 또는 추가 자료 안내 (선택적)
+   - 친근한 마무리 인사
 
 {title_context}블로그 내용:
 {text}
 
-강의 대본 작성 가이드:
-1. **서론 (30-45초, 1.5배속 시 20-30초)**
-   - 인사말과 오늘 다룰 주제 소개
-   - 학습 목표와 강의 구성 안내
-   - 예: "안녕하세요, 오늘은 [주제]에 대해 자세히 알아보겠습니다. 이번 강의에서는 [핵심 내용]을 중심으로 설명드리겠습니다."
-
-2. **본론 (6-7분, 1.5배속 시 4-4.5분)**
-   - 핵심 내용을 단계별로 상세하고 명확하게 설명
-   - 구어체 사용 ("이제", "그런데", "중요한 것은", "예를 들어" 등)
-   - 기술 용어는 정확하게 사용하되, 쉬운 설명과 비유를 풍부하게 추가
-   - 실무 예시, 코드 예제, 시나리오를 구체적으로 설명
-   - 각 섹션마다 자연스러운 전환 구문 사용
-   - 핵심 포인트를 반복하여 강조
-
-3. **결론 (30-45초, 1.5배속 시 20-30초)**
-   - 오늘 배운 핵심 내용을 체계적으로 요약
-   - 실무 적용 팁 또는 다음 학습 내용 안내
-   - 마무리 인사
-
-요구사항:
-- 자연스러운 구어체로 작성 (강의자의 말투)
-- 핵심 내용을 상세하고 체계적으로 전달
-- 7-8분 분량 (약 2,000-2,500자, 1.5배속 재생 시 약 5분)
+작성 스타일 요구사항:
+- 자연스러운 구어체로 작성 (강의자가 직접 말하는 느낌)
+- 전문가 신뢰도: 실무 경험 기반 사례와 구체적인 조언
+- 대화형 톤: 질문, 사고 유도, 상호작용 요소 포함
+- 실무 중심: 이론보다 실전 적용 가능한 내용 강조
+- 구체적이고 명확: 모호한 표현 지양, 정확한 수치와 데이터 사용
+- **반드시 2,000-2,500자 분량으로 작성** (7-8분 분량, 1.5배속 재생 시 약 5분)
+- **처음 30초 분량은 반드시 200-300자로 작성** (1.5배속 재생 시 약 20초)
 - 기술 용어는 정확하게 사용하되 이해하기 쉽게 설명
-- 실무 예시와 비유를 풍부하게 포함
-- 한국어로 작성
-- 강의자의 말투처럼 자연스럽고 친근하게 작성"""
+- 한국어로 작성 (UTF-8 인코딩, 특수문자 없이)
+- **절대 사용 금지**: "(본론 시작)", "(슬라이드 1)", "(본론 1)", "**강사:**", "---", "**1단계:**" 등 모든 메타 지시어
+- **절대 사용 금지**: 괄호로 둘러싼 지시어, 굵은 글씨로 된 단계 표시, 구분선 등
+- 자연스러운 흐름으로 작성: 서론에서 본론으로, 본론에서 결론으로 자연스럽게 전환
+
+**중요**: 
+- 대본은 순수한 강의 내용만 포함해야 하며, 지시어나 메타 정보는 전혀 포함하지 마세요.
+- 30초 요약 부분은 반드시 블로그의 모든 핵심 내용을 포함하여 흥미롭게 작성하세요.
+- 본론은 포스팅의 순서와 내용을 그대로 따라가며 상세히 설명하세요."""
+    
+    # API URL 선택 (모델 타입에 따라)
+    if model_type == "flash":
+        api_url = GEMINI_FLASH_API_URL
+        log_message(f"📝 Gemini 2.5 Flash로 대본 생성 중... (RPM: {GEMINI_FLASH_RPM_LIMIT}, TPM: {GEMINI_FLASH_TPM_LIMIT:,})")
+    else:
+        api_url = GEMINI_API_URL
+        log_message(f"📝 Gemini 2.5 Pro로 대본 생성 중... (RPM: {GEMINI_PRO_RPM_LIMIT}, TPM: {GEMINI_PRO_TPM_LIMIT:,})")
     
     # 재시도 로직 (최대 3회)
     max_retries = 3
@@ -793,14 +1167,31 @@ def generate_script_with_gemini(text: str, post_title: str = "") -> Optional[str
     
     for attempt in range(1, max_retries + 1):
         try:
+            # Rate Limit 재확인
+            can_request, reason = tracker.can_make_request()
+            if not can_request:
+                if attempt < max_retries:
+                    wait_time = tracker.min_delay * 2
+                    log_message(f"⏳ Rate Limit 대기: {reason} ({wait_time:.1f}초 대기)...", "WARNING")
+                    time.sleep(wait_time)
+                    continue
+                else:
+                    log_message(f"❌ Rate Limit 제한으로 요청 불가: {reason}", "ERROR")
+                    return None
+            
             if attempt > 1:
                 wait_time = retry_delay * (2 ** (attempt - 2))
                 log_message(f"🔄 Gemini API 재시도 {attempt}/{max_retries} (대기: {wait_time}초)...", "WARNING")
                 time.sleep(wait_time)
-            else:
-                log_message("📝 Gemini AI Pro로 대본 생성 중...")
             
-            url = f"{GEMINI_API_URL}?key={GEMINI_API_KEY}"
+            # 최소 지연 시간 적용
+            if tracker.last_request_time > 0:
+                elapsed = time.time() - tracker.last_request_time
+                if elapsed < tracker.min_delay:
+                    sleep_time = tracker.min_delay - elapsed
+                    time.sleep(sleep_time)
+            
+            url = f"{api_url}?key={GEMINI_API_KEY}"
             
             # Gemini AI Pro 고급 설정
             data = {
@@ -813,7 +1204,7 @@ def generate_script_with_gemini(text: str, post_title: str = "") -> Optional[str
                     "temperature": 0.8,  # 창의성 향상
                     "topK": 40,
                     "topP": 0.95,
-                    "maxOutputTokens": 3000,  # 더 긴 대본 생성을 위해 증가
+                    "maxOutputTokens": 4000,  # 더 긴 대본 생성을 위해 증가 (2,000-2,500자 목표)
                     "candidateCount": 1
                 },
                 "safetySettings": [
@@ -841,13 +1232,48 @@ def generate_script_with_gemini(text: str, post_title: str = "") -> Optional[str
             
             response = requests.post(url, json=data, timeout=120)
             
+            # Rate Limit 에러 처리 (429)
+            if response.status_code == 429:
+                usage.errors += 1
+                error_detail = {}
+                try:
+                    if response.text:
+                        error_detail = json.loads(response.text)
+                except:
+                    pass
+                
+                # Retry-After 헤더 확인
+                retry_after = response.headers.get("Retry-After")
+                if retry_after:
+                    wait_time = int(retry_after)
+                else:
+                    # Exponential backoff
+                    wait_time = retry_delay * (2 ** (attempt - 1))
+                
+                log_message(f"⚠️ Rate Limit 초과 (429). {wait_time}초 후 재시도...", "WARNING")
+                
+                if attempt < max_retries:
+                    time.sleep(wait_time)
+                    continue
+                else:
+                    log_message(f"❌ Rate Limit 초과: 최대 재시도 횟수 초과", "ERROR")
+                    return None
+            
             if response.status_code == 200:
                 result = response.json()
                 
                 # 사용량 추적
+                prompt_tokens = 0
+                completion_tokens = 0
                 if "usageMetadata" in result:
-                    usage.prompt_tokens += result["usageMetadata"].get("promptTokenCount", 0)
-                    usage.completion_tokens += result["usageMetadata"].get("candidatesTokenCount", 0)
+                    prompt_tokens = result["usageMetadata"].get("promptTokenCount", 0)
+                    completion_tokens = result["usageMetadata"].get("candidatesTokenCount", 0)
+                    usage.prompt_tokens += prompt_tokens
+                    usage.completion_tokens += completion_tokens
+                
+                # Rate Limit 추적에 토큰 사용량 기록
+                total_tokens = prompt_tokens + completion_tokens
+                tracker.record_request(total_tokens)
                 
                 candidates = result.get('candidates', [])
                 if candidates and len(candidates) > 0:
@@ -860,6 +1286,8 @@ def generate_script_with_gemini(text: str, post_title: str = "") -> Optional[str
                         if len(script) > MAX_SCRIPT_LENGTH:
                             log_message(f"⚠️ 생성된 대본이 너무 깁니다 ({len(script)}자). 처음 {MAX_SCRIPT_LENGTH}자만 사용합니다.", "WARNING")
                             script = script[:MAX_SCRIPT_LENGTH]
+                        elif len(script) < MIN_SCRIPT_LENGTH:
+                            log_message(f"⚠️ 생성된 대본이 너무 짧습니다 ({len(script)}자). 목표는 {MIN_SCRIPT_LENGTH}-{MAX_SCRIPT_LENGTH}자입니다.", "WARNING")
                         
                         log_message(f"✅ Gemini AI Pro로 대본 생성 완료 ({len(script)}자)")
                         return script
@@ -932,22 +1360,82 @@ def generate_script_with_deepseek(text: str, post_title: str = "") -> Optional[s
         log_message(f"⚠️ 텍스트가 너무 깁니다 ({len(text)}자). 처음 {MAX_TEXT_LENGTH}자만 사용합니다.", "WARNING")
         text = text[:MAX_TEXT_LENGTH]
     
-    # 프롬프트 구성 (1.5배속 재생 고려)
+    # 프롬프트 구성 (온라인 강의 베스트 프랙티스 반영)
     title_context = f"제목: {post_title}\n\n" if post_title else ""
-    prompt = f"""다음 보안 기술 블로그 내용을 7-8분 분량의 상세한 강의 대본으로 요약해줘. 
-구어체로 작성하고, 핵심 내용을 상세하고 명확하게 전달해줘.
+    prompt = f"""당신은 클라우드 보안, IT, DevSecOps 전문 온라인 강의를 제작하는 전문가입니다.
+다음 기술 블로그 내용을 7-8분 분량의 고품질 온라인 강의 대본으로 변환해주세요.
 (참고: 이 대본은 1.5배속으로 재생되어 약 5분 분량의 강의가 됩니다)
+
+**⚠️ 매우 중요한 구조 요구사항 - 반드시 정확히 이 순서를 따르세요!**
+
+**대본은 반드시 첫 문장으로 시작해야 합니다. 첫 문장을 절대 생략하거나 잘라내지 마세요!**
+
+1. **처음 30초 (1.5배속 시 약 20초, 약 200-300자) - 핵심 요약으로 흥미 유발**
+   **문장 1 (필수)**: 블로그 내용에서 가장 흥미로운 구체적 예시나 질문으로 시작
+     * 블로그에 "Pioneer" 같은 구체적 예시가 있으면: "혹시 최근 유튜브에서 화제가 된 'Pioneer'라는 AI 뮤직비디오 보셨나요?"
+     * 구체적 예시가 없으면: "2026년, 이제 이미지부터 음악, 영상까지 전부 AI로 만들 수 있게 되었습니다"
+     * **⚠️ 절대 첫 문장을 생략하거나 잘라내지 마세요! 대본은 반드시 이 첫 문장으로 시작해야 합니다!**
+   **문장 2 (필수)**: 구체적 사례나 놀라운 사실 제시
+     * 예: "이미지부터 음악, 영상까지 전부 AI로만 만들었는데, 퀄리티가 정말 놀랍죠"
+     * 블로그에 나온 구체적 도구나 기술을 언급
+   
+   **문장 3 (필수)**: 문제 제기와 관점 전환
+     * 예: "하지만 우리 같은 DevSecOps 엔지니어들에게는 이 화려한 기술 뒤에 숨겨진 보안, 비용, 거버넌스 문제가 더 중요합니다"
+   
+   **문장 4 (필수)**: 블로그 전체 내용 요약 (30초 안에 모든 핵심 키워드 포함)
+     * 블로그에 언급된 모든 주요 도구, 기술, 보안 이슈, 비용 최적화 등을 자연스럽게 나열
+     * 예: "오늘은 Midjourney, Suno V5, Veo 3 같은 최신 AI 도구부터, API 키 관리, 데이터 프라이버시 보호, CI/CD 자동화, 그리고 비용 최적화 전략까지 DevSecOps 관점에서 완벽하게 정리해드리겠습니다"
+     * **반드시 블로그의 모든 핵심 키워드를 빠짐없이 포함하세요!**
+   
+   **문장 5 (필수)**: 학습 목표 제시
+     * 예: "이 강의가 끝나면 여러분은 생성형 AI 프로젝트를 안전하고 효율적으로 운영하는 실질적인 노하우를 갖게 되실 겁니다"
+   
+   **30초 요약의 핵심**: 
+   - 시청자가 "이 강의에서 무엇을 배울 수 있을까?"를 즉시 알 수 있도록 블로그의 모든 핵심 내용을 빠짐없이 요약
+   - 반드시 위 5개 문장을 모두 순서대로 포함하여 작성하세요
+   - 첫 문장부터 시작하여 다섯 번째 문장까지 완전한 문장으로 작성하세요
+
+2. **본론 (6-7분, 1.5배속 시 4-4.5분) - 포스팅 내용을 순서대로 상세히 설명**
+   - **포스팅의 구조와 순서를 그대로 따라가며** 상세히 설명
+   - 포스팅에 나온 모든 구체적 정보를 빠짐없이 포함:
+     * 도구별 가격, 기능, 특징
+     * 워크플로우와 사용 방법
+     * 보안 고려사항과 베스트 프랙티스
+     * 비용 최적화 전략과 수치
+     * 실전 사례와 팁
+   - 대화형 톤: "이게 왜 중요하냐고요?", "실무에서 이걸 어떻게 활용하냐고요?" 같은 질문 사용
+   - 실무 예시: 구체적인 사례, 수치, 데이터 포함
+   - 핵심 포인트 반복 강조: 각 섹션 마무리에서 핵심 요약
+   - 상호작용 요소: "지금 기억해두시면 좋을 것 같아요", "여기서 팁을 하나 드리면"
+   - 자연스러운 전환: "자, 그럼 시작해볼까요?", "이제 가장 중요한 부분입니다"
+
+3. **결론 (30-45초, 1.5배속 시 20-30초) - 핵심 내용 체계적 요약**
+   - 핵심 내용을 5가지로 체계적으로 요약
+   - 실무 적용 팁 제시
+   - 다음 학습 내용 또는 추가 자료 안내 (선택적)
+   - 친근한 마무리 인사
 
 {title_context}블로그 내용:
 {text}
 
-요구사항:
-- 구어체로 작성 (예: "안녕하세요", "이제", "그런데", "예를 들어" 등 자연스러운 말투)
-- 핵심 내용을 상세하고 체계적으로 전달
-- 7-8분 분량 (약 2,000-2,500자, 1.5배속 재생 시 약 5분)
+작성 스타일 요구사항:
+- 자연스러운 구어체로 작성 (강의자가 직접 말하는 느낌)
+- 전문가 신뢰도: 실무 경험 기반 사례와 구체적인 조언
+- 대화형 톤: 질문, 사고 유도, 상호작용 요소 포함
+- 실무 중심: 이론보다 실전 적용 가능한 내용 강조
+- 구체적이고 명확: 모호한 표현 지양, 정확한 수치와 데이터 사용
+- **반드시 2,000-2,500자 분량으로 작성** (7-8분 분량, 1.5배속 재생 시 약 5분)
+- **처음 30초 분량은 반드시 200-300자로 작성** (1.5배속 재생 시 약 20초)
 - 기술 용어는 정확하게 사용하되 이해하기 쉽게 설명
-- 실무 예시와 비유를 풍부하게 포함
-- 한국어로 작성"""
+- 한국어로 작성 (UTF-8 인코딩, 특수문자 없이)
+- **절대 사용 금지**: "(본론 시작)", "(슬라이드 1)", "(본론 1)", "**강사:**", "---", "**1단계:**" 등 모든 메타 지시어
+- **절대 사용 금지**: 괄호로 둘러싼 지시어, 굵은 글씨로 된 단계 표시, 구분선 등
+- 자연스러운 흐름으로 작성: 서론에서 본론으로, 본론에서 결론으로 자연스럽게 전환
+
+**중요**: 
+- 대본은 순수한 강의 내용만 포함해야 하며, 지시어나 메타 정보는 전혀 포함하지 마세요.
+- 30초 요약 부분은 반드시 블로그의 모든 핵심 내용을 포함하여 흥미롭게 작성하세요.
+- 본론은 포스팅의 순서와 내용을 그대로 따라가며 상세히 설명하세요."""
     
     # 재시도 로직 (최대 3회)
     max_retries = 3
@@ -972,7 +1460,7 @@ def generate_script_with_deepseek(text: str, post_title: str = "") -> Optional[s
                 "messages": [
                     {
                         "role": "system",
-                        "content": "당신은 기술 블로그를 강의 대본으로 변환하는 전문가입니다. 자연스럽고 명확한 구어체로 작성해주세요."
+                        "content": "당신은 클라우드 보안, IT, DevSecOps 전문 온라인 강의를 제작하는 전문가입니다. 실무 경험 기반의 구체적이고 명확한 대화형 톤으로 작성해주세요. 슬라이드 지시어, 본론 지시어, 강사 지시어 등 메타 지시어는 절대 사용하지 마세요."
                     },
                     {
                         "role": "user",
@@ -980,7 +1468,7 @@ def generate_script_with_deepseek(text: str, post_title: str = "") -> Optional[s
                     }
                 ],
                 "temperature": 0.7,
-                "max_tokens": 3000  # 더 긴 대본 생성을 위해 증가
+                "max_tokens": 4000  # 더 긴 대본 생성을 위해 증가 (2,000-2,500자 목표)
             }
             
             timeout_seconds = 120
@@ -1018,6 +1506,8 @@ def generate_script_with_deepseek(text: str, post_title: str = "") -> Optional[s
             if len(script) > MAX_SCRIPT_LENGTH:
                 log_message(f"⚠️ 생성된 대본이 너무 깁니다 ({len(script)}자). 처음 {MAX_SCRIPT_LENGTH}자만 사용합니다.", "WARNING")
                 script = script[:MAX_SCRIPT_LENGTH]
+            elif len(script) < MIN_SCRIPT_LENGTH:
+                log_message(f"⚠️ 생성된 대본이 너무 짧습니다 ({len(script)}자). 목표는 {MIN_SCRIPT_LENGTH}-{MAX_SCRIPT_LENGTH}자입니다.", "WARNING")
             
             log_message(f"✅ DeepSeek API로 대본 생성 완료 ({len(script)}자)")
             return script
@@ -1049,7 +1539,8 @@ def generate_script_with_deepseek(text: str, post_title: str = "") -> Optional[s
 
 def improve_script_with_gemini(script: str, post_title: str = "") -> Optional[str]:
     """
-    Gemini AI Pro를 사용하여 대본을 고품질로 개선합니다.
+    Gemini AI를 사용하여 대본을 고품질로 개선합니다.
+    Rate Limit을 고려하여 안전하게 요청합니다.
     
     Args:
         script: 원본 대본
@@ -1064,46 +1555,101 @@ def improve_script_with_gemini(script: str, post_title: str = "") -> Optional[st
     if not script:
         return None
     
+    # 모델 타입 선택 (pro 또는 flash)
+    model_type = GEMINI_MODEL_TYPE if GEMINI_MODEL_TYPE in ["pro", "flash"] else "flash"
+    tracker = rate_limit_trackers[model_type]
+    
+    # Rate Limit 체크
+    can_request, reason = tracker.can_make_request()
+    if not can_request:
+        log_message(f"⚠️ Rate Limit 제한: {reason}", "WARNING")
+        warning = tracker.check_warning_threshold()
+        if warning:
+            log_message(f"⚠️ Rate Limit 경고: {warning}", "WARNING")
+        return None
+    
+    # 사용량 통계 확인 및 경고
+    stats = tracker.get_usage_stats()
+    if stats["rpm"]["usage_rate"] >= RATE_LIMIT_WARNING_THRESHOLD:
+        log_message(f"⚠️ RPM 사용률 높음: {stats['rpm']['current']}/{stats['rpm']['limit']} ({stats['rpm']['usage_rate']*100:.1f}%)", "WARNING")
+    
+    # API URL 선택 (모델 타입에 따라)
+    if model_type == "flash":
+        api_url = GEMINI_FLASH_API_URL
+        log_message(f"✨ Gemini 2.5 Flash로 대본 개선 중... (RPM: {GEMINI_FLASH_RPM_LIMIT}, TPM: {GEMINI_FLASH_TPM_LIMIT:,})")
+    else:
+        api_url = GEMINI_API_URL
+        log_message(f"✨ Gemini 2.5 Pro로 대본 개선 중... (RPM: {GEMINI_PRO_RPM_LIMIT}, TPM: {GEMINI_PRO_TPM_LIMIT:,})")
+    
     # 재시도 로직 (최대 3회)
     max_retries = 3
     retry_delay = 2
     
     for attempt in range(1, max_retries + 1):
         try:
+            # Rate Limit 재확인
+            can_request, reason = tracker.can_make_request()
+            if not can_request:
+                if attempt < max_retries:
+                    wait_time = tracker.min_delay * 2
+                    log_message(f"⏳ Rate Limit 대기: {reason} ({wait_time:.1f}초 대기)...", "WARNING")
+                    time.sleep(wait_time)
+                    continue
+                else:
+                    log_message(f"❌ Rate Limit 제한으로 요청 불가: {reason}", "ERROR")
+                    return None
+            
             if attempt > 1:
                 wait_time = retry_delay * (2 ** (attempt - 2))
                 log_message(f"🔄 Gemini API 재시도 {attempt}/{max_retries} (대기: {wait_time}초)...", "WARNING")
                 time.sleep(wait_time)
-            else:
-                log_message("✨ Gemini AI Pro로 대본 개선 중...")
+            
+            # 최소 지연 시간 적용
+            if tracker.last_request_time > 0:
+                elapsed = time.time() - tracker.last_request_time
+                if elapsed < tracker.min_delay:
+                    sleep_time = tracker.min_delay - elapsed
+                    time.sleep(sleep_time)
             
             title_context = f"제목: {post_title}\n\n" if post_title else ""
-            prompt = f"""당신은 전문 강의 대본 개선 전문가입니다. 
-다음 강의 대본을 더 자연스럽고 매력적이며 효과적으로 개선해주세요.
+            prompt = f"""당신은 클라우드 보안, IT, DevSecOps 전문 온라인 강의 대본 개선 전문가입니다.
+다음 강의 대본을 온라인 강의 베스트 프랙티스에 맞게 개선해주세요.
 (참고: 이 대본은 1.5배속으로 재생되어 약 5분 분량의 강의가 됩니다)
 
 {title_context}원본 대본:
 {script}
 
-개선 가이드:
-1. **자연스러운 구어체 유지**: "안녕하세요", "이제", "그런데", "중요한 것은", "예를 들어" 등 자연스러운 말투
-2. **핵심 내용 보존**: 기술적 정확성과 핵심 내용은 그대로 유지
-3. **표현 개선**: 더 명확하고 이해하기 쉬운 표현으로 변경
-4. **흐름 개선**: 논리적 흐름과 전환을 더 부드럽게
-5. **몰입도 향상**: 청중의 관심을 끌 수 있는 표현 추가
-6. **길이 유지**: 원본과 비슷한 길이 유지 (약 2,000-2,500자, 1.5배속 재생 시 약 5분)
+개선 가이드 (온라인 강의 베스트 프랙티스):
 
-요구사항:
-- 자연스러운 구어체 유지
-- 핵심 내용은 그대로 유지
-- 더 매력적이고 이해하기 쉬운 표현으로 개선
-- 강의자의 말투처럼 자연스럽게
-- 길이는 원본과 비슷하게 유지
-- 한국어로 작성"""
+1. **명확한 학습 목표 제시**: 서론에서 "오늘 여러분이 배우게 될 핵심 내용은 세 가지입니다"와 같이 명확히 제시
+2. **대화형 톤 강화**: "이게 왜 중요하냐고요?", "실무에서 이걸 어떻게 활용하냐고요?" 같은 질문 추가
+3. **실무 예시 강화**: 구체적인 사례, 수치, 데이터 포함 (예: "한 스타트업에서...", "비용을 70퍼센트 절감")
+4. **핵심 포인트 반복 강조**: 각 섹션 마무리에서 핵심 요약 추가
+5. **상호작용 요소 추가**: "지금 기억해두시면 좋을 것 같아요", "여기서 팁을 하나 드리면" 같은 표현 추가
+6. **구체적인 수치와 데이터**: 비용, 시간, 성능 등 정확한 수치 제시
+7. **전문가 신뢰도 향상**: 실무 경험 기반 사례와 구체적인 조언 추가
+8. **자연스러운 전환**: "이제 가장 중요한 부분입니다", "자, 그럼 시작해볼까요?" 같은 전환 구문 추가
+9. **결론 체계화**: 핵심 내용을 5가지로 체계적으로 요약
+
+개선 요구사항:
+- 자연스러운 구어체 유지 (강의자가 직접 말하는 느낌)
+- 핵심 내용은 그대로 유지하되 표현 개선
+- 전문가 신뢰도: 실무 경험 기반 사례 추가
+- 대화형 톤: 질문, 사고 유도, 상호작용 요소 포함
+- 실무 중심: 이론보다 실전 적용 가능한 내용 강조
+- 구체적이고 명확: 모호한 표현 지양, 정확한 수치와 데이터 사용
+- **반드시 2,000-2,500자 분량으로 작성** (원본이 짧으면 확장, 원본이 길면 요약)
+- 한국어로 작성 (UTF-8 인코딩, 특수문자 없이)
+- **절대 사용 금지**: "(본론 시작)", "(슬라이드 1)", "(본론 1)", "**강사:**", "---", "**1단계:**" 등 모든 메타 지시어
+- **절대 사용 금지**: 괄호로 둘러싼 지시어, 굵은 글씨로 된 단계 표시, 구분선 등
+- 자연스러운 흐름으로 작성: 서론에서 본론으로, 본론에서 결론으로 자연스럽게 전환
+- 각 섹션을 자연스러운 문장으로 연결 (예: "자, 그럼 시작해볼까요?", "이제 가장 중요한 부분입니다")
+
+중요: 대본은 순수한 강의 내용만 포함해야 하며, 지시어나 메타 정보는 전혀 포함하지 마세요. 원본에 메타 지시어가 있다면 반드시 제거하세요."""
             
-            url = f"{GEMINI_API_URL}?key={GEMINI_API_KEY}"
+            url = f"{api_url}?key={GEMINI_API_KEY}"
             
-            # Gemini AI Pro 고급 설정
+            # Gemini AI 고급 설정
             data = {
                 "contents": [{
                     "parts": [{
@@ -1114,7 +1660,7 @@ def improve_script_with_gemini(script: str, post_title: str = "") -> Optional[st
                     "temperature": 0.8,  # 창의성 향상
                     "topK": 40,
                     "topP": 0.95,
-                    "maxOutputTokens": 3000,  # 더 긴 대본 생성을 위해 증가
+                    "maxOutputTokens": 4000,  # 더 긴 대본 생성을 위해 증가 (2,000-2,500자 목표)
                     "candidateCount": 1
                 },
                 "safetySettings": [
@@ -1139,6 +1685,34 @@ def improve_script_with_gemini(script: str, post_title: str = "") -> Optional[st
             
             response = requests.post(url, json=data, timeout=120)
             
+            # Rate Limit 에러 처리 (429)
+            if response.status_code == 429:
+                usage = usage_stats["gemini"]
+                usage.errors += 1
+                error_detail = {}
+                try:
+                    if response.text:
+                        error_detail = json.loads(response.text)
+                except:
+                    pass
+                
+                # Retry-After 헤더 확인
+                retry_after = response.headers.get("Retry-After")
+                if retry_after:
+                    wait_time = int(retry_after)
+                else:
+                    # Exponential backoff
+                    wait_time = retry_delay * (2 ** (attempt - 1))
+                
+                log_message(f"⚠️ Rate Limit 초과 (429). {wait_time}초 후 재시도...", "WARNING")
+                
+                if attempt < max_retries:
+                    time.sleep(wait_time)
+                    continue
+                else:
+                    log_message(f"❌ Rate Limit 초과: 최대 재시도 횟수 초과", "ERROR")
+                    return None
+            
             # 사용량 추적
             usage = usage_stats["gemini"]
             usage.requests += 1
@@ -1147,9 +1721,17 @@ def improve_script_with_gemini(script: str, post_title: str = "") -> Optional[st
                 result = response.json()
                 
                 # 사용량 정보 추출
+                prompt_tokens = 0
+                completion_tokens = 0
                 if "usageMetadata" in result:
-                    usage.prompt_tokens += result["usageMetadata"].get("promptTokenCount", 0)
-                    usage.completion_tokens += result["usageMetadata"].get("candidatesTokenCount", 0)
+                    prompt_tokens = result["usageMetadata"].get("promptTokenCount", 0)
+                    completion_tokens = result["usageMetadata"].get("candidatesTokenCount", 0)
+                    usage.prompt_tokens += prompt_tokens
+                    usage.completion_tokens += completion_tokens
+                
+                # Rate Limit 추적에 토큰 사용량 기록
+                total_tokens = prompt_tokens + completion_tokens
+                tracker.record_request(total_tokens)
                 
                 candidates = result.get('candidates', [])
                 if candidates and len(candidates) > 0:
@@ -1270,9 +1852,65 @@ def generate_script(text: str, post_title: str = "") -> Optional[str]:
     return script
 
 
+def adjust_audio_speed(input_path: Path, output_path: Path, speed: float = 1.5) -> bool:
+    """
+    ffmpeg를 사용하여 오디오 속도를 조절합니다.
+    
+    Args:
+        input_path: 입력 오디오 파일 경로
+        output_path: 출력 오디오 파일 경로
+        speed: 재생 속도 배율 (기본값: 1.5)
+        
+    Returns:
+        성공 시 True, 실패 시 False
+    """
+    if not input_path.exists():
+        log_message(f"❌ 입력 파일을 찾을 수 없습니다: {input_path}", "ERROR")
+        return False
+    
+    try:
+        log_message(f"⚡ 오디오 속도 조절 중 ({speed}배속)...")
+        
+        # ffmpeg 명령어 실행
+        # atempo 필터를 사용하여 속도 조절 (0.5 ~ 2.0 범위)
+        # 1.5배속이 2.0을 초과하지 않으므로 한 번의 atempo로 처리 가능
+        result = subprocess.run(
+            [
+                "ffmpeg",
+                "-i", str(input_path),
+                "-filter:a", f"atempo={speed}",
+                "-y",  # 덮어쓰기
+                str(output_path)
+            ],
+            capture_output=True,
+            text=True,
+            timeout=300  # 5분 타임아웃
+        )
+        
+        if result.returncode == 0:
+            file_size = output_path.stat().st_size
+            log_message(f"✅ 오디오 속도 조절 완료: {output_path} ({file_size:,} bytes, {speed}배속)")
+            return True
+        else:
+            error_msg = result.stderr.strip() if result.stderr else "알 수 없는 오류"
+            log_message(f"❌ ffmpeg 오류: {error_msg}", "ERROR")
+            return False
+            
+    except FileNotFoundError:
+        log_message("❌ ffmpeg를 찾을 수 없습니다. 설치: brew install ffmpeg (macOS) 또는 apt-get install ffmpeg (Linux)", "ERROR")
+        return False
+    except subprocess.TimeoutExpired:
+        log_message("❌ ffmpeg 타임아웃 (5분 초과)", "ERROR")
+        return False
+    except Exception as e:
+        log_message(f"❌ 오디오 속도 조절 중 오류: {str(e)}", "ERROR")
+        return False
+
+
 def text_to_speech_with_gemini(script: str, output_path: Path) -> bool:
     """
-    Gemini API를 사용하여 텍스트를 음성으로 변환합니다.
+    Gemini 2.5 TTS API를 사용하여 텍스트를 음성으로 변환합니다.
+    비용 효율적: 토큰 기반 과금으로 ElevenLabs 대비 저렴함.
     
     Args:
         script: 대본 텍스트
@@ -1288,19 +1926,196 @@ def text_to_speech_with_gemini(script: str, output_path: Path) -> bool:
     if not GEMINI_API_KEY:
         return False
     
+    # 모델 선택 (Flash가 더 저렴하고 빠름)
+    model_type = GEMINI_MODEL_TYPE if GEMINI_MODEL_TYPE in ["pro", "flash"] else "flash"
+    if model_type == "flash":
+        api_url = GEMINI_TTS_FLASH_API_URL
+        log_message(f"🎤 Gemini 2.5 Flash TTS로 음성 생성 중... (비용 효율적, Voice: {GEMINI_TTS_VOICE_NAME})")
+    else:
+        api_url = GEMINI_TTS_PRO_API_URL
+        log_message(f"🎤 Gemini 2.5 Pro TTS로 음성 생성 중... (고품질, Voice: {GEMINI_TTS_VOICE_NAME})")
+    
     try:
-        log_message("🎤 Gemini API로 음성 생성 중...")
+        url = f"{api_url}?key={GEMINI_API_KEY}"
         
-        # Gemini TTS는 현재 제한적이므로, 일단 ElevenLabs로 폴백
-        # 향후 Gemini TTS API가 정식 출시되면 구현
-        log_message("⚠️ Gemini TTS는 아직 정식 출시되지 않았습니다. ElevenLabs로 폴백합니다.", "WARNING")
+        # Gemini TTS API 요청 데이터
+        # 참고: responseModalities를 ["AUDIO"]로 설정하여 오디오 응답 요청
+        # 기본 제공 Voice 사용
+        voice_config = {
+            "prebuiltVoiceConfig": {
+                "voiceName": GEMINI_TTS_VOICE_NAME  # IT/DevSecOps 전문가용 남자 목소리 (환경 변수로 설정 가능)
+            }
+        }
+        
+        # Voice Controls 추가 (Gemini 2.5 TTS 기능)
+        speech_config = {
+            "voiceConfig": voice_config
+        }
+        
+        # 스타일 제어 (자연어 프롬프트)
+        if GEMINI_TTS_VOICE_STYLE:
+            speech_config["style"] = GEMINI_TTS_VOICE_STYLE
+        
+        # 속도 제어 (0.25 ~ 4.0)
+        if GEMINI_TTS_VOICE_PACE != 1.0:
+            speech_config["pace"] = max(0.25, min(4.0, GEMINI_TTS_VOICE_PACE))
+        
+        data = {
+            "contents": [{
+                "parts": [{
+                    "text": script
+                }]
+            }],
+            "generationConfig": {
+                "responseModalities": ["AUDIO"],  # 오디오 응답 요청
+                "speechConfig": speech_config
+            }
+        }
+        
+        usage = usage_stats["gemini"]
+        usage.requests += 1
+        
+        response = requests.post(url, json=data, timeout=120)
+        
+        if response.status_code == 200:
+            result = response.json()
+            
+            # 오디오 데이터 추출
+            candidates = result.get('candidates', [])
+            if candidates and len(candidates) > 0:
+                content = candidates[0].get('content', {})
+                parts = content.get('parts', [])
+                
+                # 오디오 데이터 찾기
+                audio_data = None
+                mime_type = None
+                for part in parts:
+                    if 'inlineData' in part:
+                        audio_data = part['inlineData'].get('data')
+                        mime_type = part['inlineData'].get('mimeType', 'audio/L16;codec=pcm;rate=24000')
+                        break
+                    elif 'inline_data' in part:  # 하위 호환성
+                        audio_data = part['inline_data'].get('data')
+                        mime_type = part['inline_data'].get('mimeType', 'audio/L16;codec=pcm;rate=24000')
+                        break
+                    elif 'text' in part:
+                        # 텍스트 응답인 경우 (에러 메시지일 수 있음)
+                        log_message(f"⚠️ Gemini TTS 텍스트 응답: {part['text'][:200]}", "WARNING")
+                
+                if audio_data:
+                    # Base64 디코딩
+                    import base64
+                    audio_bytes = base64.b64decode(audio_data)
+                    
+                    # PCM 오디오를 WAV로 저장 (임시)
+                    import wave
+                    temp_wav = output_path.parent / f"{output_path.stem}_temp.wav"
+                    with wave.open(str(temp_wav), "wb") as wf:
+                        # MIME 타입에서 샘플 레이트 추출 (기본값: 24000)
+                        sample_rate = 24000
+                        if mime_type and 'rate=' in mime_type:
+                            try:
+                                sample_rate = int(mime_type.split('rate=')[1].split(';')[0])
+                            except:
+                                pass
+                        wf.setnchannels(1)  # Mono
+                        wf.setsampwidth(2)  # 16-bit PCM
+                        wf.setframerate(sample_rate)
+                        wf.writeframes(audio_bytes)
+                    
+                    # WAV를 MP3로 변환 (ffmpeg 사용)
+                    temp_output = output_path.parent / f"{output_path.stem}_temp{output_path.suffix}"
+                    if output_path.suffix == ".mp3":
+                        result = subprocess.run(
+                            [
+                                "ffmpeg",
+                                "-i", str(temp_wav),
+                                "-y",
+                                str(temp_output)
+                            ],
+                            capture_output=True,
+                            text=True,
+                            timeout=300
+                        )
+                        try:
+                            temp_wav.unlink()
+                        except:
+                            pass
+                        
+                        if result.returncode != 0:
+                            log_message(f"⚠️ MP3 변환 실패: {result.stderr[:200]}", "WARNING")
+                            # WAV 파일을 그대로 사용
+                            temp_wav.rename(output_path.with_suffix(".wav"))
+                            log_message(f"✅ Gemini TTS 음성 생성 완료 (WAV): {output_path.with_suffix('.wav')}")
+                            return True
+                    else:
+                        temp_wav.rename(temp_output)
+                    
+                    # 1.5배속으로 오디오 속도 조절
+                    if AUDIO_SPEED_MULTIPLIER != 1.0:
+                        success = adjust_audio_speed(temp_output, output_path, AUDIO_SPEED_MULTIPLIER)
+                        # 임시 파일 삭제
+                        try:
+                            temp_output.unlink()
+                        except:
+                            pass
+                        
+                        if success:
+                            file_size = output_path.stat().st_size
+                            log_message(f"✅ Gemini TTS 음성 생성 완료 (1.5배속): {output_path} ({file_size:,} bytes)")
+                            return True
+                        else:
+                            # 속도 조절 실패 시 원본 파일 사용
+                            log_message("⚠️ 속도 조절 실패, 원본 오디오 사용", "WARNING")
+                            temp_output.rename(output_path)
+                            file_size = output_path.stat().st_size
+                            log_message(f"✅ Gemini TTS 음성 생성 완료 (원본 속도): {output_path} ({file_size:,} bytes)")
+                            return True
+                    else:
+                        # 속도 조절이 필요 없는 경우
+                        temp_output.rename(output_path)
+                        file_size = output_path.stat().st_size
+                        log_message(f"✅ Gemini TTS 음성 생성 완료: {output_path} ({file_size:,} bytes)")
+                        return True
+                else:
+                    log_message("⚠️ Gemini TTS 응답에 오디오 데이터가 없습니다.", "WARNING")
+                    usage.errors += 1
+                    return False
+            else:
+                log_message("⚠️ Gemini TTS 응답에 후보가 없습니다.", "WARNING")
+                usage.errors += 1
+                return False
+        else:
+            usage.errors += 1
+            error_msg = f"Gemini TTS API 오류: HTTP {response.status_code}"
+            if response.text:
+                try:
+                    error_detail = json.loads(response.text)
+                    error_msg += f" - {json.dumps(error_detail, ensure_ascii=False)[:200]}"
+                except:
+                    error_msg += f" - {response.text[:200]}"
+            log_message(error_msg, "ERROR")
+            return False
+        
+    except requests.exceptions.Timeout:
+        usage = usage_stats["gemini"]
+        usage.errors += 1
+        log_message("⏱️ Gemini TTS API 타임아웃 (300초 초과)", "ERROR")
         return False
-        
+    except requests.exceptions.RequestException as e:
+        usage = usage_stats["gemini"]
+        usage.errors += 1
+        log_message(f"❌ Gemini TTS API 요청 실패: {str(e)}", "ERROR")
+        return False
     except Exception as e:
-        log_message(f"❌ Gemini TTS 오류: {str(e)}", "ERROR")
+        usage = usage_stats["gemini"]
+        usage.errors += 1
+        error_msg = mask_sensitive_info(str(e))
+        log_message(f"❌ Gemini TTS 오류: {error_msg}", "ERROR")
         return False
 
 
+<<<<<<< Updated upstream
 def adjust_audio_speed(input_path: Path, output_path: Path, speed: float = 1.5) -> bool:
     """FFmpeg를 사용하여 오디오 속도를 조정합니다."""
     try:
@@ -1431,6 +2246,120 @@ def text_to_speech(script: str, output_path: Path) -> bool:
     2. Coqui TTS (로컬, 완전 무료, 한국어 지원)
     3. ElevenLabs (유료, 최고 품질)
     4. Gemini TTS (유료, 폴백)
+=======
+def create_chirp3_voice_cloning_key(reference_audio_path: Path, consent_audio_path: Path) -> Optional[str]:
+    """
+    Chirp 3: Instant Custom Voice를 위한 Voice Cloning Key를 생성합니다.
+    
+    Args:
+        reference_audio_path: 참조 오디오 파일 경로 (WAV, 24kHz, LINEAR16, 몇 초 분량의 명확한 음성)
+        consent_audio_path: 동의 오디오 파일 경로 (화자가 동의 스크립트를 읽은 오디오)
+        
+    Returns:
+        Voice cloning key 또는 None (실패 시)
+    """
+    if not GOOGLE_CLOUD_PROJECT_ID:
+        log_message("❌ GOOGLE_CLOUD_PROJECT 환경 변수가 설정되지 않았습니다.", "ERROR")
+        return None
+    
+    if not reference_audio_path.exists() or not consent_audio_path.exists():
+        log_message("❌ 참조 오디오 또는 동의 오디오 파일을 찾을 수 없습니다.", "ERROR")
+        return None
+    
+    try:
+        import base64
+        
+        # 오디오 파일을 Base64로 인코딩
+        with open(reference_audio_path, "rb") as f:
+            reference_audio_bytes = base64.b64encode(f.read()).decode("utf-8")
+        
+        with open(consent_audio_path, "rb") as f:
+            consent_audio_bytes = base64.b64encode(f.read()).decode("utf-8")
+        
+        # API 엔드포인트 설정
+        api_endpoint = (
+            f"{CHIRP3_LOCATION}-texttospeech.googleapis.com"
+            if CHIRP3_LOCATION != "global"
+            else "texttospeech.googleapis.com"
+        )
+        url = f"https://{api_endpoint}/v1beta1/voices:generateVoiceCloningKey"
+        
+        # OAuth 2.0 인증 토큰 가져오기
+        if USE_OAUTH and OAUTH_AVAILABLE:
+            try:
+                from google.auth import default
+                from google.auth.transport.requests import Request
+                credentials, _ = default()
+                auth_req = Request()
+                credentials.refresh(auth_req)
+                access_token = credentials.token
+            except Exception as e:
+                log_message(f"❌ OAuth 2.0 인증 실패: {str(e)}", "ERROR")
+                return None
+        else:
+            log_message("❌ OAuth 2.0 인증이 필요합니다. GOOGLE_APPLICATION_CREDENTIALS를 설정하세요.", "ERROR")
+            return None
+        
+        # 요청 본문
+        request_body = {
+            "reference_audio": {
+                "audio_config": {
+                    "audio_encoding": "LINEAR16",
+                    "sample_rate_hertz": 24000
+                },
+                "content": reference_audio_bytes
+            },
+            "voice_talent_consent": {
+                "audio_config": {
+                    "audio_encoding": "LINEAR16",
+                    "sample_rate_hertz": 24000
+                },
+                "content": consent_audio_bytes
+            },
+            "consent_script": "I am the owner of this voice and I consent to Google using this voice to create a synthetic voice model.",
+            "language_code": "ko-KR"  # 한국어 지원
+        }
+        
+        headers = {
+            "Authorization": f"Bearer {access_token}",
+            "x-goog-user-project": GOOGLE_CLOUD_PROJECT_ID,
+            "Content-Type": "application/json; charset=utf-8"
+        }
+        
+        log_message("🎤 Chirp 3: Instant Custom Voice Key 생성 중...")
+        response = requests.post(url, headers=headers, json=request_body, timeout=120)
+        
+        if response.status_code == 200:
+            result = response.json()
+            voice_key = result.get("voiceCloningKey")
+            if voice_key:
+                log_message(f"✅ Chirp 3 Voice Cloning Key 생성 완료: {voice_key[:10]}...")
+                return voice_key
+            else:
+                log_message("❌ 응답에 voiceCloningKey가 없습니다.", "ERROR")
+                return None
+        else:
+            error_msg = f"HTTP {response.status_code}"
+            if response.text:
+                try:
+                    error_detail = json.loads(response.text)
+                    error_msg += f" - {json.dumps(error_detail, ensure_ascii=False)[:200]}"
+                except:
+                    error_msg += f" - {response.text[:200]}"
+            log_message(f"❌ Chirp 3 Voice Cloning Key 생성 실패: {error_msg}", "ERROR")
+            return None
+            
+    except Exception as e:
+        error_msg = mask_sensitive_info(str(e))
+        log_message(f"❌ Chirp 3 Voice Cloning Key 생성 오류: {error_msg}", "ERROR")
+        return None
+
+
+def text_to_speech_with_chirp3(script: str, output_path: Path) -> bool:
+    """
+    Chirp 3: Instant Custom Voice를 사용하여 텍스트를 음성으로 변환합니다.
+    자신의 목소리로 클로닝된 음성을 사용할 수 있습니다.
+>>>>>>> Stashed changes
     
     Args:
         script: 대본 텍스트
@@ -1443,6 +2372,7 @@ def text_to_speech(script: str, output_path: Path) -> bool:
         log_message("❌ 대본이 비어있습니다.", "ERROR")
         return False
     
+<<<<<<< Updated upstream
     # 1순위: Edge-TTS (무료, API 키 불필요)
     if EDGE_TTS_AVAILABLE:
         if text_to_speech_with_edge_tts(script, output_path):
@@ -1520,15 +2450,313 @@ def text_to_speech(script: str, output_path: Path) -> bool:
                     log_message(f"   응답 내용: {e.response.text[:200]}", "ERROR")
             # ElevenLabs 실패 시 Gemini로 폴백
             log_message("🔄 ElevenLabs 실패, Gemini TTS로 폴백...", "WARNING")
+=======
+    if not CHIRP3_VOICE_CLONING_KEY:
+        log_message("❌ CHIRP3_VOICE_CLONING_KEY 환경 변수가 설정되지 않았습니다.", "ERROR")
+        return False
+>>>>>>> Stashed changes
     
-    # Gemini TTS 폴백 (ElevenLabs 실패 시)
-    if GEMINI_API_KEY:
-        if text_to_speech_with_gemini(script, output_path):
-            return True
-        log_message("⚠️ Gemini TTS도 실패했습니다.", "WARNING")
+    if not GOOGLE_CLOUD_PROJECT_ID:
+        log_message("❌ GOOGLE_CLOUD_PROJECT 환경 변수가 설정되지 않았습니다.", "ERROR")
+        return False
+    
+    try:
+        import base64
+        
+        # API 엔드포인트 설정
+        api_endpoint = (
+            f"{CHIRP3_LOCATION}-texttospeech.googleapis.com"
+            if CHIRP3_LOCATION != "global"
+            else "texttospeech.googleapis.com"
+        )
+        url = f"https://{api_endpoint}/v1beta1/text:synthesize"
+        
+        # OAuth 2.0 인증 토큰 가져오기
+        if USE_OAUTH and OAUTH_AVAILABLE:
+            try:
+                from google.auth import default
+                from google.auth.transport.requests import Request
+                credentials, _ = default()
+                auth_req = Request()
+                credentials.refresh(auth_req)
+                access_token = credentials.token
+            except Exception as e:
+                log_message(f"❌ OAuth 2.0 인증 실패: {str(e)}", "ERROR")
+                return False
+        else:
+            log_message("❌ OAuth 2.0 인증이 필요합니다. GOOGLE_APPLICATION_CREDENTIALS를 설정하세요.", "ERROR")
+            return False
+        
+        # 요청 본문
+        request_body = {
+            "input": {
+                "text": script
+            },
+            "voice": {
+                "language_code": "ko-KR",  # 한국어
+                "voice_clone": {
+                    "voice_cloning_key": CHIRP3_VOICE_CLONING_KEY
+                }
+            },
+            "audioConfig": {
+                "audioEncoding": "LINEAR16",
+                "sample_rate_hertz": 24000
+            }
+        }
+        
+        headers = {
+            "Authorization": f"Bearer {access_token}",
+            "x-goog-user-project": GOOGLE_CLOUD_PROJECT_ID,
+            "Content-Type": "application/json; charset=utf-8"
+        }
+        
+        log_message(f"🎤 Chirp 3: Instant Custom Voice로 음성 생성 중... (자신의 목소리)")
+        
+        response = requests.post(url, headers=headers, json=request_body, timeout=120)
+        
+        if response.status_code == 200:
+            result = response.json()
+            audio_content = result.get("audioContent")
+            
+            if audio_content:
+                # Base64 디코딩
+                audio_bytes = base64.b64decode(audio_content)
+                
+                # PCM 오디오를 WAV로 저장 (임시)
+                import wave
+                temp_wav = output_path.parent / f"{output_path.stem}_temp.wav"
+                with wave.open(str(temp_wav), "wb") as wf:
+                    wf.setnchannels(1)  # Mono
+                    wf.setsampwidth(2)  # 16-bit PCM
+                    wf.setframerate(24000)  # 24kHz
+                    wf.writeframes(audio_bytes)
+                
+                # WAV를 MP3로 변환 (ffmpeg 사용)
+                temp_output = output_path.parent / f"{output_path.stem}_temp{output_path.suffix}"
+                if output_path.suffix == ".mp3":
+                    result = subprocess.run(
+                        [
+                            "ffmpeg",
+                            "-i", str(temp_wav),
+                            "-y",
+                            str(temp_output)
+                        ],
+                        capture_output=True,
+                        text=True,
+                        timeout=300
+                    )
+                    try:
+                        temp_wav.unlink()
+                    except:
+                        pass
+                    
+                    if result.returncode != 0:
+                        log_message(f"⚠️ MP3 변환 실패: {result.stderr[:200]}", "WARNING")
+                        # WAV 파일을 그대로 사용
+                        temp_wav.rename(output_path.with_suffix(".wav"))
+                        log_message(f"✅ Chirp 3 음성 생성 완료 (WAV): {output_path.with_suffix('.wav')}")
+                        return True
+                else:
+                    temp_wav.rename(temp_output)
+                
+                # 1.5배속으로 오디오 속도 조절
+                if AUDIO_SPEED_MULTIPLIER != 1.0:
+                    success = adjust_audio_speed(temp_output, output_path, AUDIO_SPEED_MULTIPLIER)
+                    # 임시 파일 삭제
+                    try:
+                        temp_output.unlink()
+                    except:
+                        pass
+                    
+                    if success:
+                        file_size = output_path.stat().st_size
+                        log_message(f"✅ Chirp 3 음성 생성 완료 (1.5배속): {output_path} ({file_size:,} bytes)")
+                        return True
+                    else:
+                        # 속도 조절 실패 시 원본 파일 사용
+                        log_message("⚠️ 속도 조절 실패, 원본 오디오 사용", "WARNING")
+                        temp_output.rename(output_path)
+                        file_size = output_path.stat().st_size
+                        log_message(f"✅ Chirp 3 음성 생성 완료 (원본 속도): {output_path} ({file_size:,} bytes)")
+                        return True
+                else:
+                    # 속도 조절이 필요 없는 경우
+                    temp_output.rename(output_path)
+                    file_size = output_path.stat().st_size
+                    log_message(f"✅ Chirp 3 음성 생성 완료: {output_path} ({file_size:,} bytes)")
+                    return True
+            else:
+                log_message("⚠️ Chirp 3 응답에 오디오 데이터가 없습니다.", "WARNING")
+                return False
+        else:
+            error_msg = f"HTTP {response.status_code}"
+            if response.text:
+                try:
+                    error_detail = json.loads(response.text)
+                    error_msg += f" - {json.dumps(error_detail, ensure_ascii=False)[:200]}"
+                except:
+                    error_msg += f" - {response.text[:200]}"
+            log_message(f"❌ Chirp 3 API 오류: {error_msg}", "ERROR")
+            return False
+            
+    except requests.exceptions.Timeout:
+        log_message("⏱️ Chirp 3 API 타임아웃 (120초 초과)", "ERROR")
+        return False
+    except requests.exceptions.RequestException as e:
+        log_message(f"❌ Chirp 3 API 요청 실패: {str(e)}", "ERROR")
+        return False
+    except Exception as e:
+        error_msg = mask_sensitive_info(str(e))
+        log_message(f"❌ Chirp 3 오류: {error_msg}", "ERROR")
+        return False
+
+
+def text_to_speech_with_coqui(script: str, output_path: Path) -> bool:
+    """
+    Coqui TTS 오픈소스를 사용하여 텍스트를 음성으로 변환합니다.
+    완전 무료이며 자체 호스팅 가능 (한국어 지원).
+    
+    Args:
+        script: 대본 텍스트
+        output_path: 출력 파일 경로
+        
+    Returns:
+        성공 시 True, 실패 시 False
+    """
+    if not script:
+        log_message("❌ 대본이 비어있습니다.", "ERROR")
+        return False
+    
+    try:
+        # Coqui TTS 라이브러리 확인
+        try:
+            from TTS.api import TTS
+        except ImportError:
+            log_message("⚠️ Coqui TTS가 설치되지 않았습니다. 설치: pip install TTS", "WARNING")
+            log_message("   한국어 지원: pip install TTS[ko]", "WARNING")
+            return False
+        
+        log_message("🎤 Coqui TTS로 음성 생성 중... (무료 오픈소스)")
+        
+        # 한국어 지원 모델 로드 (xtts_v2)
+        tts = TTS(model_name="tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
+        
+        # 임시 파일에 오디오 저장 (속도 조절 전 원본)
+        temp_output = output_path.parent / f"{output_path.stem}_temp.wav"
+        tts.tts_to_file(text=script, file_path=str(temp_output), language="ko")
+        
+        # WAV를 MP3로 변환 (ffmpeg 사용)
+        if output_path.suffix == ".mp3":
+            result = subprocess.run(
+                [
+                    "ffmpeg",
+                    "-i", str(temp_output),
+                    "-y",
+                    str(output_path)
+                ],
+                capture_output=True,
+                text=True,
+                timeout=300
+            )
+            try:
+                temp_output.unlink()
+            except:
+                pass
+            
+            if result.returncode != 0:
+                log_message(f"⚠️ MP3 변환 실패: {result.stderr[:200]}", "WARNING")
+                # WAV 파일을 그대로 사용
+                temp_output.rename(output_path.with_suffix(".wav"))
+                log_message(f"✅ Coqui TTS 음성 생성 완료 (WAV): {output_path.with_suffix('.wav')}")
+                return True
+        else:
+            temp_output.rename(output_path)
+        
+        # 1.5배속으로 오디오 속도 조절
+        if AUDIO_SPEED_MULTIPLIER != 1.0:
+            final_output = output_path.parent / f"{output_path.stem}_final{output_path.suffix}"
+            success = adjust_audio_speed(output_path, final_output, AUDIO_SPEED_MULTIPLIER)
+            if success:
+                output_path.unlink()
+                final_output.rename(output_path)
+                file_size = output_path.stat().st_size
+                log_message(f"✅ Coqui TTS 음성 생성 완료 (1.5배속): {output_path} ({file_size:,} bytes)")
+                return True
+            else:
+                log_message("⚠️ 속도 조절 실패, 원본 오디오 사용", "WARNING")
+        
+        file_size = output_path.stat().st_size
+        log_message(f"✅ Coqui TTS 음성 생성 완료: {output_path} ({file_size:,} bytes)")
+        return True
+        
+    except ImportError:
+        log_message("⚠️ Coqui TTS 라이브러리를 찾을 수 없습니다.", "WARNING")
+        return False
+    except Exception as e:
+        error_msg = mask_sensitive_info(str(e))
+        log_message(f"❌ Coqui TTS 오류: {error_msg}", "ERROR")
+        return False
+
+
+def text_to_speech(script: str, output_path: Path) -> bool:
+    """
+    Chirp 3, Gemini TTS, 또는 Coqui TTS를 사용하여 텍스트를 음성으로 변환합니다.
+    비용 최적화: Chirp 3 (자신의 목소리) -> Gemini TTS -> Coqui TTS 순서로 시도.
+    
+    Args:
+        script: 대본 텍스트
+        output_path: 출력 파일 경로
+        
+    Returns:
+        성공 시 True, 실패 시 False
+    """
+    if not script:
+        log_message("❌ 대본이 비어있습니다.", "ERROR")
+        return False
+    
+    # TTS 제공자 선택 전략
+    if TTS_PROVIDER == "chirp3":
+        # Chirp 3만 사용 (자신의 목소리)
+        if USE_CHIRP3_CUSTOM_VOICE and CHIRP3_VOICE_CLONING_KEY:
+            if text_to_speech_with_chirp3(script, output_path):
+                return True
+        log_message("❌ Chirp 3 TTS 실패: USE_CHIRP3_CUSTOM_VOICE와 CHIRP3_VOICE_CLONING_KEY가 필요합니다.", "ERROR")
+        return False
+    elif TTS_PROVIDER == "gemini":
+        # Gemini만 사용
+        if GEMINI_API_KEY:
+            if text_to_speech_with_gemini(script, output_path):
+                return True
+        log_message("❌ Gemini TTS 실패: API 키가 없습니다.", "ERROR")
+        return False
+    elif TTS_PROVIDER == "coqui":
+        # Coqui만 사용
+        if USE_COQUI_TTS:
+            if text_to_speech_with_coqui(script, output_path):
+                return True
+        log_message("❌ Coqui TTS 실패: USE_COQUI_TTS가 활성화되지 않았습니다.", "ERROR")
+        return False
+    else:
+        # auto: 자동 선택 (우선순위: Chirp 3 -> Gemini -> Coqui)
+        # 1. Chirp 3 우선 (자신의 목소리)
+        if USE_CHIRP3_CUSTOM_VOICE and CHIRP3_VOICE_CLONING_KEY:
+            if text_to_speech_with_chirp3(script, output_path):
+                return True
+            log_message("🔄 Chirp 3 실패, 다음 옵션 시도...", "WARNING")
+        
+        # 2. Gemini TTS 폴백 (비용 효율적)
+        if GEMINI_API_KEY:
+            if text_to_speech_with_gemini(script, output_path):
+                return True
+            log_message("🔄 Gemini TTS 실패, 다음 옵션 시도...", "WARNING")
+        
+        # 3. Coqui TTS 폴백 (무료)
+        if USE_COQUI_TTS:
+            if text_to_speech_with_coqui(script, output_path):
+                return True
     
     # 모든 방법 실패
-    log_message("❌ 음성 생성 실패: 사용 가능한 API가 없습니다.", "ERROR")
+    log_message("❌ 음성 생성 실패: 사용 가능한 TTS 제공자가 없습니다.", "ERROR")
     return False
 
 
@@ -1611,14 +2839,11 @@ def calculate_estimated_cost(usage: APIUsage) -> float:
         input_cost = (usage.prompt_tokens / 1_000_000) * 1.25
         output_cost = (usage.completion_tokens / 1_000_000) * 5.00
         return input_cost + output_cost
-    elif usage.provider == "elevenlabs":
-        # ElevenLabs는 문자 기반 과금이므로 여기서는 추정 불가
-        return 0.0
     return 0.0
 
 
 def print_usage_stats() -> None:
-    """API 사용량 통계 출력"""
+    """API 사용량 통계 출력 (Rate Limit 정보 포함)"""
     log_message("=" * 60)
     log_message("📊 API 사용량 통계")
     log_message("=" * 60)
@@ -1641,6 +2866,24 @@ def print_usage_stats() -> None:
             log_message(f"  에러 수: {usage.errors}")
             if cost > 0:
                 log_message(f"  예상 비용: ${cost:.6f}")
+    
+    # Gemini Rate Limit 정보 출력
+    if GEMINI_API_KEY:
+        log_message(f"\n🔒 Gemini API Rate Limit 상태:")
+        for model_type, tracker in rate_limit_trackers.items():
+            stats = tracker.get_usage_stats()
+            model_name = "Gemini 2.5 Pro" if model_type == "pro" else "Gemini 2.5 Flash"
+            log_message(f"\n  {model_name}:")
+            log_message(f"    RPM: {stats['rpm']['current']}/{stats['rpm']['limit']} ({stats['rpm']['usage_rate']*100:.1f}%)")
+            log_message(f"    TPM: {stats['tpm']['current']:,}/{stats['tpm']['limit']:,} ({stats['tpm']['usage_rate']*100:.1f}%)")
+            log_message(f"    일일 요청: {stats['rpd']['current']}/{stats['rpd']['limit']} ({stats['rpd']['usage_rate']*100:.1f}%)")
+            
+            # 경고 메시지
+            warning = tracker.check_warning_threshold()
+            if warning:
+                log_message(f"    ⚠️ 경고: {warning}", "WARNING")
+            else:
+                log_message(f"    ✅ 정상 범위 내")
     
     if total_cost > 0:
         log_message(f"\n💰 총 예상 비용: ${total_cost:.6f}")
@@ -1799,7 +3042,20 @@ def main():
             log_message(f"    프로젝트 ID: {GOOGLE_CLOUD_PROJECT}")
         if GOOGLE_APPLICATION_CREDENTIALS:
             log_message(f"    자격 증명 파일: {GOOGLE_APPLICATION_CREDENTIALS}")
-    log_message(f"  ElevenLabs: {'✅' if ELEVENLABS_API_KEY else '❌'}")
+    log_message(f"  TTS 제공자:")
+    log_message(f"    - 선택된 제공자: {TTS_PROVIDER}")
+    log_message(f"    - Chirp 3: Instant Custom Voice: {'✅' if (USE_CHIRP3_CUSTOM_VOICE and CHIRP3_VOICE_CLONING_KEY) else '❌'} (자신의 목소리 ⭐)")
+    if USE_CHIRP3_CUSTOM_VOICE and CHIRP3_VOICE_CLONING_KEY:
+        log_message(f"      Voice Cloning Key: {CHIRP3_VOICE_CLONING_KEY[:10]}...")
+        log_message(f"      Location: {CHIRP3_LOCATION}")
+    log_message(f"    - Gemini TTS: {'✅' if GEMINI_API_KEY else '❌'} (비용 효율적)")
+    if GEMINI_API_KEY:
+        log_message(f"      Voice: {GEMINI_TTS_VOICE_NAME} (IT/DevSecOps 전문가용)")
+        if GEMINI_TTS_VOICE_STYLE:
+            log_message(f"      Style: {GEMINI_TTS_VOICE_STYLE}")
+        if GEMINI_TTS_VOICE_PACE != 1.0:
+            log_message(f"      Pace: {GEMINI_TTS_VOICE_PACE}x")
+    log_message(f"    - Coqui TTS: {'✅' if USE_COQUI_TTS else '❌'} (무료 오픈소스)")
     log_message(f"  설정:")
     log_message(f"    - OAuth 2.0 우선: {USE_OAUTH} ⭐")
     log_message(f"    - Gemini CLI 우선: {USE_GEMINI_CLI}")
