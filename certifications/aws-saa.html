@@ -109,6 +109,107 @@ permalink: /certifications/aws-saa/
       </div>
     </div>
   </div>
+
+  <div class="exam-questions">
+    <h2>기출문제 및 연습 문제</h2>
+    <div class="questions-intro">
+      <p>다음은 AWS SAA 자격증 준비를 위한 기출문제 및 연습 문제입니다. 각 문제는 관련 포스팅과 연결되어 있어 상세한 설명을 확인할 수 있습니다.</p>
+    </div>
+
+    <div class="questions-section">
+      <h3>2024년 이후 기출문제</h3>
+      
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-number">문제 1</span>
+          <span class="question-topic">VPC 및 네트워크 보안</span>
+        </div>
+        <div class="question-content">
+          <p><strong>Q:</strong> 여러 가용 영역에 걸쳐 고가용성 웹 애플리케이션을 배포하려고 합니다. 인터넷에서의 트래픽을 분산하고, 프라이빗 서브넷의 애플리케이션 서버에 안전하게 연결하려면 어떤 아키텍처를 사용해야 합니까?</p>
+          <div class="question-options">
+            <p><strong>A.</strong> Application Load Balancer를 퍼블릭 서브넷에 배치하고, 애플리케이션 서버를 프라이빗 서브넷에 배치</p>
+            <p><strong>B.</strong> Network Load Balancer를 프라이빗 서브넷에 배치하고, 애플리케이션 서버를 퍼블릭 서브넷에 배치</p>
+            <p><strong>C.</strong> Classic Load Balancer를 퍼블릭 서브넷에 배치하고, 애플리케이션 서버를 프라이빗 서브넷에 배치</p>
+            <p><strong>D.</strong> Application Load Balancer를 프라이빗 서브넷에 배치하고, 애플리케이션 서버를 퍼블릭 서브넷에 배치</p>
+          </div>
+          <div class="question-answer">
+            <p><strong>정답:</strong> A</p>
+            <p><strong>해설:</strong> <a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/">VPC 보안 아키텍처 포스트</a>에서 자세한 설명을 확인하세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-number">문제 2</span>
+          <span class="question-topic">IAM 및 접근 제어</span>
+        </div>
+        <div class="question-content">
+          <p><strong>Q:</strong> 여러 AWS 계정을 관리하는 조직에서 중앙 집중식 거버넌스를 구현하려고 합니다. 모든 계정에서 특정 서비스 사용을 제한하려면 어떤 서비스를 사용해야 합니까?</p>
+          <div class="question-options">
+            <p><strong>A.</strong> IAM Policy</p>
+            <p><strong>B.</strong> AWS Organizations의 Service Control Policy (SCP)</p>
+            <p><strong>C.</strong> Resource-based Policy</p>
+            <p><strong>D.</strong> Security Group</p>
+          </div>
+          <div class="question-answer">
+            <p><strong>정답:</strong> B</p>
+            <p><strong>해설:</strong> <a href="/posts/2025/12/클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안/">AWS Control Tower 및 SCP 포스트</a>에서 자세한 설명을 확인하세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-number">문제 3</span>
+          <span class="question-topic">데이터베이스 보안</span>
+        </div>
+        <div class="question-content">
+          <p><strong>Q:</strong> 프라이빗 서브넷의 RDS 데이터베이스에 안전하게 접근하기 위한 게이트웨이를 구축하려고 합니다. 인터넷에서 직접 접근을 차단하면서도 애플리케이션 서버에서 접근할 수 있도록 하려면 어떤 아키텍처를 사용해야 합니까?</p>
+          <div class="question-options">
+            <p><strong>A.</strong> Network Load Balancer와 Security Group을 활용한 게이트웨이</p>
+            <p><strong>B.</strong> Application Load Balancer만 사용</p>
+            <p><strong>C.</strong> NAT Gateway만 사용</p>
+            <p><strong>D.</strong> Internet Gateway만 사용</p>
+          </div>
+          <div class="question-answer">
+            <p><strong>정답:</strong> A</p>
+            <p><strong>해설:</strong> <a href="/posts/2025/10/AWS에서_안전한_데이터베이스_접근_게이트웨이_구축하기_NLB__Security_Group_완벽_가이드/">데이터베이스 접근 게이트웨이 포스트</a>에서 자세한 설명을 확인하세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-number">문제 4</span>
+          <span class="question-topic">비용 최적화</span>
+        </div>
+        <div class="question-content">
+          <p><strong>Q:</strong> 예측 가능한 워크로드를 위해 EC2 인스턴스 비용을 최적화하려고 합니다. 가장 비용 효율적인 옵션은 무엇입니까?</p>
+          <div class="question-options">
+            <p><strong>A.</strong> On-Demand Instances</p>
+            <p><strong>B.</strong> Reserved Instances (1년 약정)</p>
+            <p><strong>C.</strong> Spot Instances</p>
+            <p><strong>D.</strong> Savings Plans</p>
+          </div>
+          <div class="question-answer">
+            <p><strong>정답:</strong> B 또는 D (상황에 따라 다름)</p>
+            <p><strong>해설:</strong> <a href="/posts/2025/12/클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략/">AWS FinOps 포스트</a>에서 비용 최적화 전략을 확인하세요.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="study-tips">
+      <h3>학습 팁</h3>
+      <ul>
+        <li>각 도메인별로 관련 포스팅을 읽으며 실무 경험을 쌓으세요</li>
+        <li>AWS Well-Architected Framework의 5개 기둥을 이해하세요</li>
+        <li>실제 시나리오 기반 문제를 많이 풀어보세요</li>
+        <li>관련 포스팅의 실전 예제를 따라해보며 이해도를 높이세요</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -222,6 +323,135 @@ permalink: /certifications/aws-saa/
   font-style: italic;
 }
 
+.exam-questions {
+  margin-bottom: 3rem;
+}
+
+.exam-questions h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.questions-intro {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.questions-section {
+  margin-bottom: 2rem;
+}
+
+.questions-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.question-card {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.2s;
+}
+
+.question-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.question-number {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.question-topic {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+.question-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.question-options {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+}
+
+.question-options p {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background: var(--bg-primary);
+  border-radius: 4px;
+}
+
+.question-answer {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+}
+
+.question-answer p {
+  margin-bottom: 0.5rem;
+}
+
+.question-answer a {
+  color: white;
+  text-decoration: underline;
+}
+
+.question-answer a:hover {
+  text-decoration: none;
+}
+
+.study-tips {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.study-tips h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.study-tips ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.study-tips li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
 @media (max-width: 768px) {
   .page-header h1 {
     font-size: 2rem;
@@ -229,6 +459,12 @@ permalink: /certifications/aws-saa/
   
   .topics-grid {
     grid-template-columns: 1fr;
+  }
+
+  .question-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 </style>

@@ -4,6 +4,7 @@ title: "클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기
 date: 2025-12-24 19:13:05 +0900
 categories: cloud
 tags: [AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM]
+certifications: [aws-saa]
 excerpt: "클라우드 보안 과정 8기 5주차: AWS 멀티 계정 거버넌스(AWS Control Tower, SCP 기반 계정/OU 제어), 통합 보안 모니터링(Datadog SIEM, 보안 이벤트 상관관계 분석), 웹 보안(Cloudflare DDoS 보호, WAF, SSL/TLS), Guardrails(필수/강력 권장/선택적 정책), Landing Zone 자동 설정까지 실무 중심 정리."
 comments: true
 original_url: https://twodragon.tistory.com/706

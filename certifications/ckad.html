@@ -129,6 +129,66 @@ permalink: /certifications/ckad/
       </div>
     </div>
   </div>
+
+  <div class="exam-questions">
+    <h2>기출문제 및 연습 문제</h2>
+    <div class="questions-intro">
+      <p>다음은 CKAD 자격증 준비를 위한 기출문제 및 연습 문제입니다. CKAD는 실기형 시험이므로 실제 Kubernetes 클러스터에서 작업하는 연습이 중요합니다.</p>
+    </div>
+
+    <div class="questions-section">
+      <h3>실전 연습 문제</h3>
+      
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-number">문제 1</span>
+          <span class="question-topic">Pod 및 Deployment</span>
+        </div>
+        <div class="question-content">
+          <p><strong>Q:</strong> nginx 이미지를 사용하여 3개의 replica를 가진 Deployment를 생성하고, 각 Pod가 80번 포트를 사용하도록 설정하세요.</p>
+          <div class="question-answer">
+            <p><strong>해설:</strong> <a href="/posts/2025/05/Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지/">Kubernetes 실습 가이드 포스트</a>에서 Pod와 Deployment 생성 방법을 확인하세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-number">문제 2</span>
+          <span class="question-topic">ConfigMap 및 Secret</span>
+        </div>
+        <div class="question-content">
+          <p><strong>Q:</strong> 애플리케이션 설정을 ConfigMap으로 관리하고, 데이터베이스 비밀번호를 Secret으로 관리하여 Pod에 마운트하는 방법을 설명하세요.</p>
+          <div class="question-answer">
+            <p><strong>해설:</strong> <a href="/posts/2025/06/클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드/">Kubernetes 보안 실전 가이드 포스트</a>에서 ConfigMap과 Secret 관리 방법을 확인하세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-number">문제 3</span>
+          <span class="question-topic">Service 및 네트워킹</span>
+        </div>
+        <div class="question-content">
+          <p><strong>Q:</strong> ClusterIP 타입의 Service를 생성하여 Pod들을 외부에 노출하지 않고 내부에서만 접근 가능하도록 설정하세요.</p>
+          <div class="question-answer">
+            <p><strong>해설:</strong> <a href="/posts/2025/05/클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해/">Docker 및 Kubernetes 이해 포스트</a>에서 Service 리소스 사용법을 확인하세요.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="study-tips">
+      <h3>학습 팁</h3>
+      <ul>
+        <li>Minikube나 실제 Kubernetes 클러스터에서 직접 명령어를 실행해보세요</li>
+        <li>kubectl 명령어를 빠르게 입력할 수 있도록 연습하세요 (시험 시간이 제한적입니다)</li>
+        <li>YAML 파일 작성 시 들여쓰기와 문법을 정확히 확인하세요</li>
+        <li>관련 포스팅의 실전 예제를 따라하며 실습하세요</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -242,6 +302,135 @@ permalink: /certifications/ckad/
   font-style: italic;
 }
 
+.exam-questions {
+  margin-bottom: 3rem;
+}
+
+.exam-questions h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.questions-intro {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.questions-section {
+  margin-bottom: 2rem;
+}
+
+.questions-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.question-card {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.2s;
+}
+
+.question-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.question-number {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.question-topic {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+.question-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.question-options {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+}
+
+.question-options p {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background: var(--bg-primary);
+  border-radius: 4px;
+}
+
+.question-answer {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+}
+
+.question-answer p {
+  margin-bottom: 0.5rem;
+}
+
+.question-answer a {
+  color: white;
+  text-decoration: underline;
+}
+
+.question-answer a:hover {
+  text-decoration: none;
+}
+
+.study-tips {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.study-tips h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.study-tips ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.study-tips li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
 @media (max-width: 768px) {
   .page-header h1 {
     font-size: 2rem;
@@ -249,6 +438,12 @@ permalink: /certifications/ckad/
   
   .topics-grid {
     grid-template-columns: 1fr;
+  }
+
+  .question-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 </style>

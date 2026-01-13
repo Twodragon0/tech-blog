@@ -126,6 +126,87 @@ permalink: /certifications/isms-p/
       </div>
     </div>
   </div>
+
+  <div class="exam-questions">
+    <h2>기출문제 및 연습 문제</h2>
+    <div class="questions-intro">
+      <p>다음은 ISMS-P 인증 준비를 위한 기출문제 및 연습 문제입니다. 각 문제는 관련 포스팅과 연결되어 있어 상세한 설명을 확인할 수 있습니다.</p>
+    </div>
+
+    <div class="questions-section">
+      <h3>2024년 이후 기출문제</h3>
+      
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-number">문제 1</span>
+          <span class="question-topic">정보보안 정책 및 조직</span>
+        </div>
+        <div class="question-content">
+          <p><strong>Q:</strong> ISMS-P 인증을 받기 위해 정보보안 정책을 수립해야 합니다. 다음 중 정보보안 정책에 포함되어야 할 필수 사항이 아닌 것은?</p>
+          <div class="question-options">
+            <p><strong>A.</strong> 정보보안 목표 및 범위</p>
+            <p><strong>B.</strong> 정보보안 조직 구성 및 역할</p>
+            <p><strong>C.</strong> 구체적인 기술적 보안 솔루션 상세 명세</p>
+            <p><strong>D.</strong> 정보보안 위험 관리 절차</p>
+          </div>
+          <div class="question-answer">
+            <p><strong>정답:</strong> C</p>
+            <p><strong>해설:</strong> 정보보안 정책은 전략적 수준의 문서이며, 구체적인 기술적 솔루션은 별도의 절차서나 매뉴얼에 포함됩니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_4주차_통합_보안_취약점_점검_및_ISMS-P_인증_대응_실무/">ISMS-P 인증 대응 포스트</a>에서 자세한 설명을 확인하세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-number">문제 2</span>
+          <span class="question-topic">접근 통제</span>
+        </div>
+        <div class="question-content">
+          <p><strong>Q:</strong> AWS 환경에서 ISMS-P 인증을 받기 위해 접근 통제를 구현해야 합니다. 다음 중 AWS에서 접근 통제를 구현하는 방법으로 가장 적절한 것은?</p>
+          <div class="question-options">
+            <p><strong>A.</strong> IAM 역할 및 정책만 사용</p>
+            <p><strong>B.</strong> IAM, Security Group, Network ACL을 통합하여 Defense in Depth 구현</p>
+            <p><strong>C.</strong> Security Group만 사용</p>
+            <p><strong>D.</strong> VPC만 사용</p>
+          </div>
+          <div class="question-answer">
+            <p><strong>정답:</strong> B</p>
+            <p><strong>해설:</strong> ISMS-P는 Defense in Depth 원칙을 요구합니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략/">ISMS-P 보안 감사 포스트</a>에서 AWS 기반 컴플라이언스 전략을 확인하세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">
+          <span class="question-number">문제 3</span>
+          <span class="question-topic">암호화</span>
+        </div>
+        <div class="question-content">
+          <p><strong>Q:</strong> ISMS-P 인증을 위해 데이터 암호화를 구현해야 합니다. 전송 중 데이터와 저장된 데이터 모두를 암호화해야 하는 경우, AWS에서 어떤 서비스를 사용해야 합니까?</p>
+          <div class="question-options">
+            <p><strong>A.</strong> S3만 사용</p>
+            <p><strong>B.</strong> KMS와 TLS/SSL을 통합 사용</p>
+            <p><strong>C.</strong> CloudFront만 사용</p>
+            <p><strong>D.</strong> IAM만 사용</p>
+          </div>
+          <div class="question-answer">
+            <p><strong>정답:</strong> B</p>
+            <p><strong>해설:</strong> 전송 중 암호화는 TLS/SSL, 저장 데이터 암호화는 KMS를 사용합니다. <a href="/posts/2025/05/클라우드_보안_과정_7기_-_4주차_AWS_취약점_점검_및_ISMS_대응_가이드/">AWS 취약점 점검 및 ISMS 대응 포스트</a>에서 자세한 설명을 확인하세요.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="study-tips">
+      <h3>학습 팁</h3>
+      <ul>
+        <li>ISMS-P 인증 요구사항을 도메인별로 정리하여 학습하세요</li>
+        <li>AWS 기반 컴플라이언스 구현 사례를 참고하세요</li>
+        <li>보안 감사 프로세스와 대응 방법을 이해하세요</li>
+        <li>관련 포스팅의 실무 사례를 통해 실제 적용 방법을 학습하세요</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -239,6 +320,135 @@ permalink: /certifications/isms-p/
   font-style: italic;
 }
 
+.exam-questions {
+  margin-bottom: 3rem;
+}
+
+.exam-questions h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.questions-intro {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.questions-section {
+  margin-bottom: 2rem;
+}
+
+.questions-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.question-card {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.2s;
+}
+
+.question-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.question-number {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.question-topic {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+.question-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.question-options {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+}
+
+.question-options p {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background: var(--bg-primary);
+  border-radius: 4px;
+}
+
+.question-answer {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+}
+
+.question-answer p {
+  margin-bottom: 0.5rem;
+}
+
+.question-answer a {
+  color: white;
+  text-decoration: underline;
+}
+
+.question-answer a:hover {
+  text-decoration: none;
+}
+
+.study-tips {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.study-tips h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.study-tips ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.study-tips li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
 @media (max-width: 768px) {
   .page-header h1 {
     font-size: 2rem;
@@ -246,6 +456,12 @@ permalink: /certifications/isms-p/
   
   .topics-grid {
     grid-template-columns: 1fr;
+  }
+
+  .question-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 </style>
