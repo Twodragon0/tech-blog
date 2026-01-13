@@ -61,6 +61,9 @@ jobs:
       group: pages-deploy
       cancel-in-progress: true
     
+    # 배포 job 타임아웃: GitHub Pages 배포는 최대 15분까지 소요될 수 있음
+    timeout-minutes: 15
+    
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -70,19 +73,12 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - name: Wait for any in-progress deployments
-        run: |
-          echo "⏳ Waiting for any in-progress deployments to complete..."
-          echo "ℹ️ Note: concurrency setting should prevent this, but adding safety wait"
-          # GitHub Pages 배포는 보통 1-2분 소요
-          # concurrency 설정으로 대부분 방지되지만, 추가 안전장치
-          sleep 30
-          echo "✅ Proceeding with deployment..."
-      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        timeout-minutes: 5
+        # deploy-pages 액션 타임아웃: 10분 (600000ms)
+        # 액션 내부에서 deployment_queued 상태를 모니터링하며 대기
+        timeout-minutes: 10
       
       - name: Deployment Info
         if: success()
