@@ -37,15 +37,42 @@
 pip install frontmatter requests
 ```
 
-### 환경 변수 설정 (선택사항)
+### 환경 변수 설정
 
-Gemini API 키를 설정하면 프롬프트를 더 정교하게 생성할 수 있습니다:
+#### 로컬 환경
+
+Gemini API 키를 설정하면 실제 이미지를 생성할 수 있습니다:
 
 ```bash
 export GEMINI_API_KEY='your-gemini-api-key'
 ```
 
-> **참고**: Gemini API 키는 필수가 아닙니다. API 키가 없어도 프롬프트는 생성됩니다.
+#### GitHub Actions (권장) ⭐
+
+GitHub Secrets에 `GEMINI_API_KEY`를 설정하면 GitHub Actions에서 자동으로 이미지를 생성할 수 있습니다:
+
+1. **GitHub Secrets 설정**:
+   ```bash
+   # GitHub CLI 사용 (권장)
+   gh secret set GEMINI_API_KEY --body 'your-gemini-api-key'
+   
+   # 또는 GitHub 웹 인터페이스 사용
+   # Settings → Secrets and variables → Actions → New repository secret
+   ```
+
+2. **워크플로우 실행**:
+   - GitHub 저장소 → **Actions** 탭
+   - **Generate Post Images** 워크플로우 선택
+   - **Run workflow** 클릭
+   - 옵션 설정:
+     - `post_file`: 특정 포스트 파일명 (선택사항)
+     - `image_type`: `post` (포스트 이미지), `segment` (세그먼트 이미지), `both` (둘 다)
+     - `force`: 이미지가 있어도 강제 재생성 (선택사항)
+
+> **참고**: 
+> - 로컬에서는 API 키가 없어도 프롬프트만 생성됩니다.
+> - GitHub Actions에서는 `GEMINI_API_KEY`가 필수입니다 (실제 이미지 생성).
+> - 자세한 내용: [.github/SECRETS_MANAGEMENT.md](../.github/SECRETS_MANAGEMENT.md)
 
 ---
 
@@ -83,6 +110,33 @@ python3 scripts/generate_post_images.py --recent 1 --force
 ---
 
 ## 워크플로우
+
+### GitHub Actions 사용 (권장) ⭐
+
+GitHub Actions를 사용하면 자동으로 이미지를 생성할 수 있습니다:
+
+1. **GitHub Secrets 설정** (최초 1회):
+   ```bash
+   gh secret set GEMINI_API_KEY --body 'your-gemini-api-key'
+   ```
+
+2. **워크플로우 실행**:
+   - GitHub 저장소 → **Actions** 탭
+   - **Generate Post Images** 선택
+   - **Run workflow** 클릭
+   - 옵션 설정 후 실행
+
+3. **생성된 이미지 확인**:
+   - 워크플로우 완료 후 **Artifacts**에서 다운로드
+   - 또는 저장소의 `assets/images/` 디렉토리 확인
+
+**장점**:
+- 로컬 환경 설정 불필요
+- GitHub Secrets로 안전한 API 키 관리
+- 자동화된 이미지 생성
+- 생성된 이미지 자동 다운로드
+
+### 로컬 워크플로우
 
 ### 1. 새 포스팅 작성 후
 
@@ -247,6 +301,8 @@ cat _posts/포스팅명.md
 
 ### Gemini API 오류
 
+#### 로컬 환경
+
 ```bash
 # API 키 확인
 echo $GEMINI_API_KEY
@@ -254,6 +310,33 @@ echo $GEMINI_API_KEY
 # API 키 재설정
 export GEMINI_API_KEY='your-new-key'
 ```
+
+#### GitHub Actions
+
+```bash
+# GitHub Secrets 확인
+gh secret list | grep GEMINI_API_KEY
+
+# GitHub Secrets 재설정
+gh secret set GEMINI_API_KEY --body 'your-new-key'
+
+# 워크플로우 재실행
+# GitHub 저장소 → Actions → Generate Post Images → Run workflow
+```
+
+### 워크플로우 실행 실패
+
+1. **GitHub Secrets 확인**:
+   ```bash
+   gh secret list
+   ```
+
+2. **워크플로우 로그 확인**:
+   - GitHub 저장소 → Actions → 실패한 워크플로우 → 로그 확인
+
+3. **API 키 형식 확인**:
+   - Gemini API 키는 최소 20자 이상이어야 합니다
+   - [Google AI Studio](https://makersuite.google.com/app/apikey)에서 발급 확인
 
 ---
 

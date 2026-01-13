@@ -52,22 +52,25 @@
     }
   }
 
-  // Comments - 더 부드러운 회색
+  // Comments - 더 부드러운 회색 (개선된 가시성)
   .c, .c1, .cm, .cs { 
     color: #8b949e; 
-    font-style: italic; 
+    font-style: italic;
+    opacity: 0.9;
   }
   
   // Errors - 더 명확한 빨간색
   .err { 
     color: #f85149; 
-    background-color: rgba(248, 81, 73, 0.1);
+    background-color: rgba(248, 81, 73, 0.15);
+    padding: 0 2px;
+    border-radius: 2px;
   }
   
-  // Keywords - 더 선명한 주황빨강
+  // Keywords - 더 선명한 주황빨강 (개선된 대비)
   .k, .kc, .kd, .kn, .kp, .kr, .kt { 
     color: #ff7b72; 
-    font-weight: 500;
+    font-weight: 600;
   }
   
   // Operators & Punctuation
@@ -114,10 +117,10 @@
     color: #c9d1d9; 
   }
   
-  // Function - 보라색
+  // Function - 보라색 (개선된 가시성)
   .nf { 
     color: #d2a8ff; 
-    font-weight: 500;
+    font-weight: 600;
   }
   
   // Namespace - 주황색
@@ -216,22 +219,25 @@
       background-color: transparent;
     }
 
-    // Comments - softer gray
+    // Comments - softer gray (개선된 가시성)
     .c, .c1, .cm, .cs { 
       color: #6a737d; 
-      font-style: italic; 
+      font-style: italic;
+      opacity: 0.9;
     }
     
     // Errors - clear red
     .err { 
       color: #d73a49; 
-      background-color: rgba(215, 58, 73, 0.1);
+      background-color: rgba(215, 58, 73, 0.15);
+      padding: 0 2px;
+      border-radius: 2px;
     }
     
-    // Keywords - vibrant red
+    // Keywords - vibrant red (개선된 대비)
     .k, .kc, .kd, .kn, .kp, .kr, .kt { 
       color: #d73a49; 
-      font-weight: 500;
+      font-weight: 600;
     }
     
     // Operators & Punctuation - dark
@@ -275,10 +281,10 @@
       color: #24292e; 
     }
     
-    // Function - purple
+    // Function - purple (개선된 가시성)
     .nf { 
       color: #6f42c1; 
-      font-weight: 500;
+      font-weight: 600;
     }
     
     // Namespace - purple

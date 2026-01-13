@@ -28,11 +28,20 @@ body {
   --bg-secondary: #{$light-bg-secondary};
   --bg-tertiary: #{$light-bg-tertiary};
   --text: #{$light-text};
+  --text-primary: #{$light-text};
   --text-secondary: #{$light-text-secondary};
   --border: #{$light-border};
   --primary: #{$primary};
   --primary-hover: #{$primary-hover};
   --code-bg: #f6f8fa;
+  --color-success: #{$secondary};
+  --color-error: #{$danger};
+  --color-warning: #{$warning};
+  --color-info: #{$info};
+  // RGB values for rgba() usage
+  --bg-primary-rgb: 255, 255, 255;
+  --bg-secondary-rgb: 248, 249, 250;
+  --primary-rgb: 37, 99, 246;
 }
 
 [data-theme="dark"] {
@@ -40,11 +49,16 @@ body {
   --bg-secondary: #{$dark-bg-secondary};
   --bg-tertiary: #{$dark-bg-tertiary};
   --text: #{$dark-text};
+  --text-primary: #{$dark-text};
   --text-secondary: #{$dark-text-secondary};
   --border: #{$dark-border};
   --code-bg: #161b22;
   --primary: #60a5fa;
   --primary-hover: #93c5fd;
+  // RGB values for rgba() usage in dark mode
+  --bg-primary-rgb: 13, 17, 23;
+  --bg-secondary-rgb: 22, 27, 34;
+  --primary-rgb: 96, 165, 250;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -53,9 +67,13 @@ body {
     --bg-secondary: #{$dark-bg-secondary};
     --bg-tertiary: #{$dark-bg-tertiary};
     --text: #{$dark-text};
+    --text-primary: #{$dark-text};
     --text-secondary: #{$dark-text-secondary};
     --border: #{$dark-border};
     --code-bg: #161b22;
+    --bg-primary-rgb: 13, 17, 23;
+    --bg-secondary-rgb: 22, 27, 34;
+    --primary-rgb: 96, 165, 250;
   }
 }
 
