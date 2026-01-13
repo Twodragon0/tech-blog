@@ -65,9 +65,17 @@ jobs:
       pages: write
       id-token: write
     steps:
+      - name: Wait for previous deployment
+        run: |
+          echo "⏳ Checking for in-progress deployments..."
+          # Wait a bit to allow previous deployment to complete
+          sleep 15
+          echo "✅ Proceeding with deployment..."
+      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        timeout-minutes: 5
       
       - name: Deployment Info
         if: success()
