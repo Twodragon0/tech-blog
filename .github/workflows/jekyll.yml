@@ -70,24 +70,11 @@ jobs:
           echo "⏳ Checking for in-progress deployments..."
           # Wait longer to allow previous deployment to complete
           # GitHub Pages deployments can take 1-2 minutes
-          sleep 60
+          sleep 90
           echo "✅ Proceeding with deployment..."
       
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
-        timeout-minutes: 5
-        continue-on-error: true
-      
-      - name: Retry deployment if needed
-        if: steps.deployment.outcome == 'failure'
-        run: |
-          echo "⚠️ First deployment attempt failed, waiting and retrying..."
-          sleep 30
-      
-      - name: Deploy to GitHub Pages (Retry)
-        if: steps.deployment.outcome == 'failure'
-        id: deployment_retry
         uses: actions/deploy-pages@v4
         timeout-minutes: 5
       
