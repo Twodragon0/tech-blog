@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "🚀 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 보안까지"
-date: 2026-01-15 18:30:00 +0900
+date: 2026-01-15 18:25:00 +0900
 categories: [security, devsecops, kubernetes]
 tags: [Docker, Kubernetes, Container-Security, K8s, Cloud-Security, DevSecOps, Minikube, K9s, Pod-Security-Standards, User-Namespaces]
 excerpt: "클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드. Docker/Container/Kubernetes 기본 이해(이미지, 컨테이너, Pod, Deployment), 컨테이너 보안 Best Practices(이미지 스캔, Secret 관리, 비루트 실행), Kubernetes 보안 아키텍처(Pod Security Standards, User Namespaces, Network Policies), Kubernetes 보안 Best Practices(이미지 서명, 런타임 모니터링), 최신 보안 기능(2024-2026, Kubernetes 1.32-1.35+, Minikube 1.37.0+, K9s)까지 DevSecOps 관점에서 실무 중심 가이드 제공."
