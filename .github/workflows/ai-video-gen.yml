@@ -40,10 +40,57 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
+      - name: Check disk space
+        run: |
+          echo "📊 디스크 공간 확인:"
+          df -h
+          echo ""
+          echo "💾 사용 가능한 공간:"
+          df -h / | tail -1
+
       - name: Install dependencies
+        env:
+          USE_COQUI_TTS: ${{ secrets.USE_COQUI_TTS }}
         run: |
           pip install --upgrade pip
-          pip install -r scripts/requirements.txt
+          
+          # 기본 의존성 설치 (TTS 제외)
+          pip install requests>=2.31.0 \
+            certifi>=2023.0.0 \
+            beautifulsoup4>=4.12.0 \
+            python-frontmatter>=1.0.0 \
+            lxml>=4.9.0 \
+            tweepy>=4.14.0 \
+            PyYAML>=6.0 \
+            google-auth>=2.23.0 \
+            google-auth-oauthlib>=1.1.0 \
+            google-auth-httplib2>=0.1.1 \
+            google-generativeai>=0.3.0 \
+            edge-tts>=6.1.0 \
+            diagrams>=0.23.0 \
+            graphviz>=0.20.0
+          
+          # Coqui TTS는 선택적 설치 (디스크 공간 절약)
+          # USE_COQUI_TTS 환경 변수가 "true"로 설정된 경우에만 설치
+          if [ "$USE_COQUI_TTS" = "true" ]; then
+            echo "📦 Coqui TTS 설치 중 (대용량 패키지, 시간 소요)..."
+            pip install TTS>=0.20.0 || echo "⚠️ TTS 설치 실패 (디스크 공간 부족 가능)"
+          else
+            echo "⏭️ Coqui TTS 건너뛰기 (USE_COQUI_TTS가 설정되지 않음, 디스크 공간 절약)"
+            echo "💡 Coqui TTS가 필요한 경우 GitHub Secrets에 USE_COQUI_TTS=true 설정"
+          fi
+          
+          # 설치 후 디스크 공간 확인
+          echo ""
+          echo "📊 설치 후 디스크 공간:"
+          df -h / | tail -1
+
+      - name: Clean up pip cache
+        if: always()
+        run: |
+          echo "🧹 pip 캐시 정리 중..."
+          pip cache purge || true
+          echo "✅ 캐시 정리 완료"
 
       - name: Setup Gemini OAuth 2.0 (if available)
         env:
@@ -211,12 +258,15 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GOOGLE_CLOUD_PROJECT: ${{ secrets.GOOGLE_CLOUD_PROJECT }}
           GEMINI_SERVICE_ACCOUNT_KEY: ${{ secrets.GEMINI_SERVICE_ACCOUNT_KEY }}
+          USE_COQUI_TTS: ${{ secrets.USE_COQUI_TTS }}
           # API 선택 전략 (Gemini 우선)
           PREFER_GEMINI: 'true'
           USE_GEMINI_FOR_SCRIPT: 'true'
           USE_DEEPSEEK_FOR_SCRIPT: 'true'
           USE_GEMINI_FOR_IMPROVEMENT: 'true'
           ENABLE_CACHING: 'true'
+          # TTS 제공자 선택 (Coqui TTS가 설치되지 않은 경우 자동으로 Edge-TTS 또는 Gemini 사용)
+          TTS_PROVIDER: 'auto'
         run: |
           # 보안: 기본값은 사용하지 않음. GitHub Secrets에 반드시 설정해야 함
           if [ -z "$GEMINI_API_KEY" ] && [ -z "$GEMINI_SERVICE_ACCOUNT_KEY" ]; then
