@@ -1,11 +1,6 @@
 ---
 layout: post
 title: "AI 기반 음악 비디오 생성 완벽 가이드: DevSecOps 관점에서 본 생성형 AI 활용법"
-
-
-![Devsecops Workflow](/assets/images/2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective_devsecops_workflow.png)
-*그림: Devsecops Workflow*
-
 date: 2026-01-11 10:00:00 +0900
 categories: [devsecops, security]
 tags: [AI, Generative-AI, Music-Video, DevSecOps, Security, Midjourney, Suno, VEO-3, Content-Creation]
