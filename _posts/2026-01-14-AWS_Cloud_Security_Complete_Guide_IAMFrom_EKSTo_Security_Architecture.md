@@ -49,24 +49,6 @@ certifications: [aws-saa]
       <li><strong>S3 보안</strong>: 버킷 정책, 암호화 설정 (서버 측 암호화, KMS), 버전 관리, 접근 로그, Public Access 차단</li>
       <li><strong>RDS 보안</strong>: 데이터베이스 암호화, 보안 그룹 구성, 파라미터 그룹, 스냅샷, 자동 백업</li>
       <li><strong>EKS 보안</strong>: Pod Security Standards, Network Policy, RBAC, 컨테이너 이미지 보안, 시크릿 관리</li>
-
-
-Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
-
-```mermaid
-graph LR
-    Privileged["Privileged<br/>No restrictions<br/>System Pods"]
-    Baseline["Baseline<br/>Minimal security<br/>General Apps"]
-    Restricted["Restricted<br/>Strongest policies<br/>Sensitive Workloads"]
-    
-    Privileged --> Baseline
-    Baseline --> Restricted
-    
-    style Privileged fill:#ffebee
-    style Baseline fill:#fff4e1
-    style Restricted fill:#e8f5e9
-```
-
       <li><strong>모니터링 및 감사</strong>: CloudTrail 설정, CloudWatch 모니터링, Security Hub 통합, GuardDuty 위협 탐지</li>
     </ul>
   </div>

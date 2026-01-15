@@ -56,42 +56,6 @@ toc: true
   <div class="summary-row">
     <span class="summary-label">대상 독자</span>
     <span class="summary-value">보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자</span>
-
-
-컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
-
-```mermaid
-graph LR
-    subgraph Dev["Dev Phase"]
-        Code["Code<br/>Secure Dockerfile"]
-        Build["Build<br/>Image Scanning"]
-    end
-    
-    subgraph Sec["Sec Phase"]
-        Scan["Security Scan<br/>Trivy, Snyk"]
-        Policy["Policy Check<br/>K8s YAML Validation"]
-    end
-    
-    subgraph Ops["Ops Phase"]
-        Deploy["Deploy<br/>Secure Deployment"]
-        Monitor["Monitor<br/>Runtime Security"]
-    end
-    
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
-    
-    style Code fill:#e1f5ff
-    style Build fill:#fff4e1
-    style Scan fill:#ffebee
-    style Policy fill:#fff4e1
-    style Deploy fill:#e8f5e9
-    style Monitor fill:#f3e5f5
-```
-
   </div>
 </div>
 <div class="ai-summary-footer">
