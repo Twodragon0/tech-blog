@@ -8,9 +8,25 @@ permalink: /certifications/aws-saa/
   <div class="page-header">
     <h1>AWS Solutions Architect Associate</h1>
     <p class="page-description">AWS SAA 자격증 준비를 위한 기술 블로그 포스팅 및 학습 자료</p>
-    <a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/" target="_blank" rel="noopener noreferrer" class="official-link">
-      공식 사이트 방문 →
-    </a>
+    <div class="header-actions">
+      <a href="#related-posts" class="header-action-button posts-button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+        <span>관련 포스팅 보기</span>
+      </a>
+      <a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/" target="_blank" rel="noopener noreferrer" class="header-action-button official-button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+        <span>공식 사이트</span>
+      </a>
+    </div>
   </div>
 
   <div class="certification-info">
@@ -31,7 +47,7 @@ permalink: /certifications/aws-saa/
     </div>
   </div>
 
-  <div class="related-posts">
+  <div class="related-posts" id="related-posts">
     <h2>관련 포스팅</h2>
     <div class="posts-list">
       {% assign cert_posts = "" | split: "" %}
@@ -517,22 +533,77 @@ permalink: /certifications/aws-saa/
 .page-description {
   font-size: 1.1rem;
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.official-link {
-  display: inline-block;
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.header-action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: var(--primary);
-  color: white;
+  font-size: 0.9375rem;
+  font-weight: 500;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 500;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
 }
 
-.official-link:hover {
+.header-action-button svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.header-action-button.posts-button {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.header-action-button.posts-button:hover {
+  background: var(--bg-primary);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-action-button.posts-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.header-action-button.official-button {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.header-action-button.official-button:hover {
   background: var(--primary-dark, #0056b3);
+  border-color: var(--primary-dark, #0056b3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.header-action-button.official-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.header-action-button:active {
+  transform: translateY(0);
 }
 
 .certification-info,
@@ -750,6 +821,16 @@ permalink: /certifications/aws-saa/
 @media (max-width: 768px) {
   .page-header h1 {
     font-size: 2rem;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .header-action-button {
+    width: 100%;
+    justify-content: center;
   }
   
   .topics-grid {
