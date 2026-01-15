@@ -39,12 +39,32 @@ jobs:
             echo "New posts found:"
             echo "$NEW_POSTS"
             echo "has_new_posts=true" >> $GITHUB_OUTPUT
-            # Get the most recent new post (first line)
-            # Base64 encode to preserve Unicode characters in GitHub Actions output
-            LATEST_POST=$(echo "$NEW_POSTS" | head -1 | tr -d '\n')
-            LATEST_POST_ENCODED=$(echo -n "$LATEST_POST" | base64 -w 0)
-            echo "latest_post_encoded=$LATEST_POST_ENCODED" >> $GITHUB_OUTPUT
-            echo "Processing: $LATEST_POST"
+            
+            # Count posts
+            POST_COUNT=$(echo "$NEW_POSTS" | grep -c '^' || echo "0")
+            echo "post_count=$POST_COUNT" >> $GITHUB_OUTPUT
+            
+            # Encode all posts as JSON array (more reliable than multiline)
+            # Convert each post path to base64 and store as JSON array
+            POSTS_JSON="["
+            FIRST=true
+            while IFS= read -r post; do
+              if [ -n "$post" ]; then
+                POST_ENCODED=$(echo -n "$post" | base64 -w 0)
+                if [ "$FIRST" = true ]; then
+                  POSTS_JSON="$POSTS_JSON\"$POST_ENCODED\""
+                  FIRST=false
+                else
+                  POSTS_JSON="$POSTS_JSON,\"$POST_ENCODED\""
+                fi
+              fi
+            done <<< "$NEW_POSTS"
+            POSTS_JSON="$POSTS_JSON]"
+            
+            # Store as single-line JSON (GitHub Actions output is more reliable this way)
+            echo "posts_json=$POSTS_JSON" >> $GITHUB_OUTPUT
+            
+            echo "Found $POST_COUNT new post(s) to process"
           fi
 
       - name: Set up Python
@@ -71,30 +91,19 @@ jobs:
             exit 1
           fi
           
-          # 파일 경로 가져오기 및 디코딩 (base64로 인코딩된 한글 파일명 처리)
-          POST_FILE_ENCODED="${{ steps.check_posts.outputs.latest_post_encoded }}"
-          if [ -z "$POST_FILE_ENCODED" ]; then
-            echo "❌ No post file specified"
+          # 모든 새 포스트 가져오기 (JSON 배열 형식)
+          POSTS_JSON="${{ steps.check_posts.outputs.posts_json }}"
+          POST_COUNT="${{ steps.check_posts.outputs.post_count }}"
+          
+          if [ -z "$POSTS_JSON" ] || [ "$POSTS_JSON" = "[]" ]; then
+            echo "❌ No post files specified"
             exit 1
           fi
           
-          # Base64 디코딩
-          POST_FILE=$(echo -n "$POST_FILE_ENCODED" | base64 -d)
+          echo "📧 Processing $POST_COUNT new post(s)..."
+          echo ""
           
-          if [ -z "$POST_FILE" ]; then
-            echo "❌ Failed to decode post file path"
-            exit 1
-          fi
+          # Python 스크립트를 사용하여 JSON 배열 파싱 및 처리
+          # 여러 포스트를 한 번에 처리하는 배치 스크립트 사용
+          python3 scripts/buttondown_notify_batch.py
           
-          echo "📄 Decoded post file: $POST_FILE"
-          
-          # 파일 존재 확인
-          if [ ! -f "$POST_FILE" ]; then
-            echo "⚠️ Post file not found: $POST_FILE"
-            echo "Available files in _posts/:"
-            ls -la _posts/ | head -10
-            exit 1
-          fi
-          
-          echo "📧 Sending email notification for: $POST_FILE"
-          python scripts/buttondown_notify.py "$POST_FILE"
