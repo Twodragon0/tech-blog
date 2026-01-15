@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "SK Shieldus 보안 가이드 기반 포스팅 작성 가이드: ISMS-P, AWS/GCP 클라우드 보안, CSPM 완벽 정리"
-date: 2026-01-11 10:00:00 +0900
+date: 2026-01-14 10:00:00 +0900
 categories: [security, cloud]
 tags: [SK-Shieldus, ISMS-P, AWS, GCP, CSPM, DataDog, Security, Compliance, 포스팅-가이드]
 excerpt: "SK Shieldus의 보안 가이드 문서들을 기반으로 한 포스팅 작성 가이드. 2025년 ISMS-P 운영 가이드, 2025년 CSPM(DataDog) AWS 보안 가이드, 2024년 AWS/GCP 클라우드 보안 가이드 주요 내용을 반영한 실무 중심 포스팅 작성 방법과 자격증 연계 가이드 제공."
 comments: true
 certifications: [isms-p, aws-saa]
-image: /assets/images/2026-01-11-SK_Shieldus_Security_Guide_Based_Posting_Writing_Guide.svg
+image: /assets/images/2026-01-14-SK_Shieldus_Security_Guide_Based_Posting_Writing_Guide.svg
 image_alt: "SK Shieldus Security Guide Based Posting Writing Guide"
 toc: true
 ---
@@ -971,5 +971,5 @@ image: /assets/images/2025-01-XX-AWS_Security_Group_Guide.svg
 
 ---
 
-**마지막 업데이트**: 2026-01-11
+**마지막 업데이트**: 2026-01-14
 **작성 기준**: SK Shieldus 보안 가이드 문서 (2024-2025)
