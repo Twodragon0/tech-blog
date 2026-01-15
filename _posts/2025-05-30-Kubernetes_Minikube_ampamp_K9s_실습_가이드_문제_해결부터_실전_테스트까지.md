@@ -547,6 +547,11 @@ minikube start --kubernetes-version=v1.34.0
 
 #### User Namespaces Support (Kubernetes 1.33+)
 
+
+![User Namespaces](/assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지_user_namespaces.png)
+*그림: User Namespaces*
+
+
 컨테이너 격리를 강화하는 사용자 네임스페이스 지원:
 
 ```yaml
@@ -729,6 +734,11 @@ Kubernetes 2024-2025 업데이트를 적용할 때 확인해야 할 보안 항�
 | Image Pull Policy | 이미지 풀 정책 및 자격 증명 검증 | `kubectl get pods -o yaml \| grep imagePullPolicy` |
 | Resource Limits | 리소스 제한 설정 | `kubectl top pods`, `kubectl describe pod` |
 | Pod Security Standards | Pod 보안 표준 준수 | `kubectl get namespace <ns> -o yaml \| grep pod-security` |
+
+
+![Pod Security Standards](/assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지_pod_security_standards.png)
+*그림: Pod Security Standards*
+
 
 ### 5.6 Kubernetes Best Practices (2024-2025)
 

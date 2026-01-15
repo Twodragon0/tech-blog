@@ -4,8 +4,28 @@ title: "클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes �
 date: 2025-05-30 00:04:58 +0900
 category: kubernetes
 tags: [Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps]
+
+
+![Devsecops Workflow](/assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해_devsecops_workflow.png)
+*그림: Devsecops Workflow*
+
 certifications: [ckad, cka]
 excerpt: "클라우드 시큐리티 과정 7기 7주차: Docker 기초(이미지/컨테이너/Dockerfile 개념, 기본 Docker 명령어 pull/run/ps/logs/stop/rm, Registry Docker Hub, 컨테이너 격리/실행 환경), Kubernetes 아키텍처(Control Plane API Server/etcd/Scheduler/Controller Manager, Node kubelet/Pods, 주요 리소스 Pod/Deployment/Service/ConfigMap/Secret/Namespace), 컨테이너 보안 Best Practices(최소 권한 원칙, 이미지 스캔 Trivy/Snyk, Secret 관리 Kubernetes Secrets/External Secrets Operator, 비루트 사용자 실행, 읽기 전용 파일시스템), 런타임 보안(Trivy 취약점 스캔, Falco 이상 행위 탐지, Pod Security Standards 적용, Network Policy 구현), Minikube/K9s 실습 가이드까지 실무 중심 정리."
+
+
+![Pod Security Standards](/assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해_pod_security_standards.png)
+*그림: Pod Security Standards*
+
+
+
+![Container Security Layers](/assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해_container_security_layers.png)
+*그림: Container Security Layers*
+
+
+
+![Kubernetes Architecture](/assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해_kubernetes_architecture.png)
+*그림: Kubernetes Architecture*
+
 comments: true
 toc: true
 original_url: https://twodragon.tistory.com/686
@@ -392,6 +412,11 @@ kubectl logs -n kube-system kube-apiserver-* | grep credentialID
 - 인증서 갱신 및 폐기 이력 관리
 
 #### User Namespaces Support
+
+
+![User Namespaces](/assets/images/2025-05-30-클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해_user_namespaces.png)
+*그림: User Namespaces*
+
 
 Linux 커널 6.3 이상에서 사용 가능한 User Namespaces가 Kubernetes에서 정식 지원됩니다.
 

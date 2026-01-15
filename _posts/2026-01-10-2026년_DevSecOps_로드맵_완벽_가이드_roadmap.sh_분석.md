@@ -1,6 +1,11 @@
 ---
 layout: post
 title: "2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석"
+
+
+![Devsecops Workflow](/assets/images/2026-01-10-2026년_DevSecOps_로드맵_완벽_가이드_roadmap.sh_분석_devsecops_workflow.png)
+*그림: Devsecops Workflow*
+
 date: 2026-01-10 10:00:00 +0900
 categories: [devsecops, security]
 tags: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, "2026"]
@@ -412,6 +417,11 @@ Zero Trust는 "신뢰하되 검증하라(Trust but Verify)" 원칙을 기반으�
 
 ### 4.5 컨테이너 보안 (Container Security)
 
+
+![Container Security Layers](/assets/images/2026-01-10-2026년_DevSecOps_로드맵_완벽_가이드_roadmap.sh_분석_container_security_layers.png)
+*그림: Container Security Layers*
+
+
 #### 컨테이너 보안 요소
 
 - **Docker**: 컨테이너 기본 보안
@@ -805,6 +815,11 @@ GitHub Advanced Security는 2024-2025년 동안 상당한 개선을 이루었습
 | 보안 영역 | 2024-2025 주요 발전 | 도구 및 프레임워크 |
 |----------|------------------|-----------------|
 | **컨테이너 보안** | Kubernetes 보안 강화, 이미지 스캔 자동화 | Trivy, Falco, Kubernetes Pod Security Standards |
+
+
+![Pod Security Standards](/assets/images/2026-01-10-2026년_DevSecOps_로드맵_완벽_가이드_roadmap.sh_분석_pod_security_standards.png)
+*그림: Pod Security Standards*
+
 | **서버리스 보안** | 서버리스 아키텍처 보안, 함수 레벨 보안 | AWS Lambda Layers, Azure Functions 보안 |
 | **멀티 클라우드 보안** | 여러 클라우드 환경 통합 보안, CSPM | AWS Security Hub, Azure Security Center, GCP Security Command Center |
 | **IaC 보안** | Infrastructure as Code 보안 스캔 | Checkov, tfsec, Terrascan |

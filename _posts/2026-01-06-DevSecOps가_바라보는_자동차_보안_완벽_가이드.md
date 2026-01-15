@@ -1,6 +1,11 @@
 ---
 layout: post
 title: "DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략"
+
+
+![Devsecops Workflow](/assets/images/2026-01-06-DevSecOps가_바라보는_자동차_보안_완벽_가이드_devsecops_workflow.png)
+*그림: Devsecops Workflow*
+
 date: 2026-01-06 14:59:11 +0900
 categories: [devsecops, security]
 tags: [DevSecOps, Automotive-Security, Connected-Car, SAST, DAST, SBOM, Supply-Chain-Security]

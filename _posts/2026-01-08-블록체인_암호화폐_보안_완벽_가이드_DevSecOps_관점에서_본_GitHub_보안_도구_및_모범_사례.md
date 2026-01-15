@@ -1,6 +1,11 @@
 ---
 layout: post
 title: "블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례"
+
+
+![Devsecops Workflow](/assets/images/2026-01-08-블록체인_암호화폐_보안_완벽_가이드_DevSecOps_관점에서_본_GitHub_보안_도구_및_모범_사례_devsecops_workflow.png)
+*그림: Devsecops Workflow*
+
 date: 2026-01-08 16:00:00 +0900
 categories: [security, blockchain, devsecops]
 tags: [Blockchain, Cryptocurrency, Bitcoin, Ethereum, Smart-Contract, Security-Audit, GitHub, DevSecOps, Slither, Mythril, Securify, CI-CD]

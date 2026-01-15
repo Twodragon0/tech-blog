@@ -1280,13 +1280,22 @@
     function saveOriginalContent() {
       if (isInitialized) return;
 
+      // Support both post pages and certification pages
       const postContent = document.querySelector('.post-content');
       const postTitle = document.querySelector('.post-title');
+      const certPage = document.querySelector('.certification-detail-page');
+      const certTitle = certPage ? certPage.querySelector('.page-header h1') : null;
       const cardTitles = document.querySelectorAll('.post-card h3, .card h3, .card h4');
       const cardExcerpts = document.querySelectorAll('.post-card .card-excerpt, .card p');
 
       if (postContent) originalContent.postContent = postContent.innerHTML;
       if (postTitle) originalContent.postTitle = postTitle.textContent;
+      
+      // Save certification page content
+      if (certPage) {
+        originalContent.certPage = certPage.innerHTML;
+        if (certTitle) originalContent.certTitle = certTitle.textContent;
+      }
 
       originalContent.cardTitles = [];
       cardTitles.forEach((el, i) => {
@@ -1480,6 +1489,8 @@
 
       const postContent = document.querySelector('.post-content');
       const postTitle = document.querySelector('.post-title');
+      const certPage = document.querySelector('.certification-detail-page');
+      const certTitle = certPage ? certPage.querySelector('.page-header h1') : null;
       const cardTitles = document.querySelectorAll('.post-card h3, .card h3, .card h4');
       const cardExcerpts = document.querySelectorAll('.post-card .card-excerpt, .card p');
 
@@ -1489,8 +1500,13 @@
 
       // Count items to translate
       if (postTitle && originalContent.postTitle) totalItems++;
+      if (certTitle && originalContent.certTitle) totalItems++;
       if (postContent && originalContent.postContent) {
         const textElements = postContent.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote');
+        totalItems += textElements.length;
+      }
+      if (certPage && originalContent.certPage) {
+        const textElements = certPage.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote, span.question-topic, span.question-number');
         totalItems += textElements.length;
       }
       totalItems += cardTitles.length + cardExcerpts.length;
@@ -1508,6 +1524,21 @@
         } catch (error) {
           console.warn('Title translation failed:', error);
           translation.postTitle = originalContent.postTitle;
+        }
+      }
+      
+      // Translate certification page title
+      if (certTitle && originalContent.certTitle) {
+        try {
+          translation.certTitle = await translateText(originalContent.certTitle, 'ko', targetLang);
+          translatedItems++;
+          if (translation.certTitle && translation.certTitle !== originalContent.certTitle) {
+            certTitle.textContent = translation.certTitle;
+          }
+          showToast(`번역 중... ${Math.round((translatedItems / totalItems) * 100)}%`, 'loading');
+        } catch (error) {
+          console.warn('Certification title translation failed:', error);
+          translation.certTitle = originalContent.certTitle;
         }
       }
 
@@ -1617,6 +1648,78 @@
         translatedItems += cardExcerpts.length;
       }
 
+      // Translate certification page content
+      if (certPage && originalContent.certPage) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = originalContent.certPage;
+        const textElements = Array.from(tempDiv.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, blockquote, span.question-topic, span.question-number, .question-content, .question-options, .question-answer')).filter(el => {
+          const text = el.textContent.trim();
+          // Filter out empty elements, code blocks, and elements with code children
+          return text && !el.closest('pre') && !el.closest('code') && !el.querySelector('code') && !el.classList.contains('notranslate');
+        });
+
+        // Process in batches for better performance
+        const batchSize = 5;
+        for (let i = 0; i < textElements.length; i += batchSize) {
+          const batch = textElements.slice(i, i + batchSize);
+          
+          // Process batch in parallel
+          const batchPromises = batch.map(async (el) => {
+            const text = el.textContent.trim();
+            
+            // Only translate if it's mostly text content
+            const hasOnlyTextChildren = Array.from(el.childNodes).every(node => 
+              node.nodeType === Node.TEXT_NODE || 
+              (node.nodeType === Node.ELEMENT_NODE && (node.tagName === 'STRONG' || node.tagName === 'EM' || node.tagName === 'B' || node.tagName === 'I' || node.tagName === 'A'))
+            );
+
+            if (hasOnlyTextChildren && text.length > 0) {
+              try {
+                const translated = await translateText(text, 'ko', targetLang);
+                if (translated && translated !== text) {
+                  // Security: Always use textContent instead of innerHTML to prevent XSS attacks
+                  if (el.children.length > 0) {
+                    const children = Array.from(el.children);
+                    const words = translated.split(/\s+/);
+                    let wordIndex = 0;
+                    
+                    children.forEach((child) => {
+                      if (wordIndex < words.length) {
+                        child.textContent = words[wordIndex];
+                        wordIndex++;
+                      }
+                    });
+                    
+                    if (wordIndex < words.length || children.length === 0) {
+                      el.textContent = translated;
+                    }
+                  } else {
+                    el.textContent = translated;
+                  }
+                }
+              } catch (error) {
+                // Continue on error
+              }
+            }
+          });
+
+          await Promise.all(batchPromises);
+          translatedItems += batch.length;
+          
+          // Update progress every batch
+          if (translatedItems % 5 === 0 || i + batchSize >= textElements.length) {
+            showToast(`번역 중... ${Math.round((translatedItems / totalItems) * 100)}%`, 'loading');
+          }
+          
+          // Small delay between batches to avoid rate limiting
+          if (i + batchSize < textElements.length) {
+            await new Promise(resolve => setTimeout(resolve, 100));
+          }
+        }
+
+        translation.certPage = tempDiv.innerHTML;
+      }
+
       // Cache and apply translation
       translationCache[targetLang] = translation;
       applyTranslation(translation);
@@ -1626,6 +1729,8 @@
     function applyTranslation(translation) {
       const postContent = document.querySelector('.post-content');
       const postTitle = document.querySelector('.post-title');
+      const certPage = document.querySelector('.certification-detail-page');
+      const certTitle = certPage ? certPage.querySelector('.page-header h1') : null;
       const cardTitles = document.querySelectorAll('.post-card h3, .card h3, .card h4');
       const cardExcerpts = document.querySelectorAll('.post-card .card-excerpt, .card p');
 
@@ -1633,10 +1738,20 @@
       if (postTitle && translation.postTitle && translation.postTitle !== originalContent.postTitle) {
         postTitle.textContent = translation.postTitle;
       }
+      
+      // Apply certification page title translation
+      if (certTitle && translation.certTitle && translation.certTitle !== originalContent.certTitle) {
+        certTitle.textContent = translation.certTitle;
+      }
 
       // Apply post content translation
       if (postContent && translation.postContent) {
         postContent.innerHTML = translation.postContent;
+      }
+      
+      // Apply certification page content translation
+      if (certPage && translation.certPage) {
+        certPage.innerHTML = translation.certPage;
       }
 
       // Apply card titles
@@ -1662,6 +1777,8 @@
     function restoreOriginal() {
       const postContent = document.querySelector('.post-content');
       const postTitle = document.querySelector('.post-title');
+      const certPage = document.querySelector('.certification-detail-page');
+      const certTitle = certPage ? certPage.querySelector('.page-header h1') : null;
       const cardTitles = document.querySelectorAll('.post-card h3, .card h3, .card h4');
       const cardExcerpts = document.querySelectorAll('.post-card .card-excerpt, .card p');
 
@@ -1671,6 +1788,15 @@
 
       if (postTitle && originalContent.postTitle) {
         postTitle.textContent = originalContent.postTitle;
+      }
+      
+      // Restore certification page content
+      if (certPage && originalContent.certPage) {
+        certPage.innerHTML = originalContent.certPage;
+      }
+      
+      if (certTitle && originalContent.certTitle) {
+        certTitle.textContent = originalContent.certTitle;
       }
 
       cardTitles.forEach((el, i) => {

@@ -49,6 +49,11 @@ toc: true
       <li><strong>S3 보안</strong>: 버킷 정책, 암호화 설정 (서버 측 암호화, KMS), 버전 관리, 접근 로그, Public Access 차단</li>
       <li><strong>RDS 보안</strong>: 데이터베이스 암호화, 보안 그룹 구성, 파라미터 그룹, 스냅샷, 자동 백업</li>
       <li><strong>EKS 보안</strong>: Pod Security Standards, Network Policy, RBAC, 컨테이너 이미지 보안, 시크릿 관리</li>
+
+
+![Pod Security Standards](/assets/images/2026-01-14-AWS_클라우드_보안_완벽_가이드_IAM부터_EKS까지_실무_중심_보안_아키텍처_pod_security_standards.png)
+*그림: Pod Security Standards*
+
       <li><strong>모니터링 및 감사</strong>: CloudTrail 설정, CloudWatch 모니터링, Security Hub 통합, GuardDuty 위협 탐지</li>
     </ul>
   </div>

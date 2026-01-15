@@ -281,6 +281,11 @@ AI 기반 IAM 정책 자동 생성 도구입니다.
 | **컨텍스트 인식 침투 테스트** | 애플리케이션 컨텍스트를 이해한 침투 테스트 | 개발 단계 보안 테스트 |
 | **DevSecOps 통합** | CI/CD 파이프라인에 자동 통합 | Shift-Left Security 실현 |
 
+
+![Devsecops Workflow](/assets/images/2025-12-05-클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복_devsecops_workflow.png)
+*그림: Devsecops Workflow*
+
+
 #### AgentCore Identity
 
 AI 에이전트를 위한 전용 신원 관리 시스템입니다.

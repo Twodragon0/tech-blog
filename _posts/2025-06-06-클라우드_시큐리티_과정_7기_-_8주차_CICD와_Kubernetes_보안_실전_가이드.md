@@ -4,8 +4,18 @@ title: "클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보
 date: 2025-06-06 19:45:40 +0900
 category: kubernetes
 tags: [CI/CD, Kubernetes, Security, DevSecOps, GitOps, Pipeline-Security]
+
+
+![Devsecops Workflow](/assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드_devsecops_workflow.png)
+*그림: Devsecops Workflow*
+
 certifications: [ckad, cka]
 excerpt: "클라우드 시큐리티 과정 7기 8주차: CI/CD 파이프라인 보안(GitHub Actions 보안 설정 permissions 최소화/Secret 관리, SAST/DAST 통합 Semgrep/SonarQube/Gitleaks/Trivy/OWASP ZAP, Secret 스캐닝, 의존성 취약점 스캔), Kubernetes 클러스터 보안(RBAC Role/RoleBinding/ClusterRole/ClusterRoleBinding, Pod Security Standards Restricted/Baseline/Privileged, Network Policy 트래픽 제어/네임스페이스 격리, Service Account 최소 권한), 이미지 서명 및 Secret 관리(Cosign 이미지 서명, Kubernetes Secrets 관리, External Secrets Operator, Sealed Secrets, Vault 통합), 런타임 보안(Kyverno 정책 엔진 Admission Control/Policy as Code, Falco 이상 행위 탐지, GitOps 보안 모범 사례 ArgoCD/Flux), 실무 적용 체크리스트까지 실무 중심 정리."
+
+
+![Pod Security Standards](/assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드_pod_security_standards.png)
+*그림: Pod Security Standards*
+
 comments: true
 toc: true
 original_url: https://twodragon.tistory.com/689
@@ -162,6 +172,11 @@ jobs:
 <figure>
 <img src="{{ '/assets/images/diagrams/diagram_k8s_security.png' | relative_url }}" alt="Kubernetes Security Architecture" loading="lazy" class="post-image">
 <figcaption>Kubernetes 보안 아키텍처 - Python diagrams로 생성</figcaption>
+
+
+![Kubernetes Architecture](/assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드_kubernetes_architecture.png)
+*그림: Kubernetes Architecture*
+
 </figure>
 
 ### 2.1 최소 권한 원칙 적용
@@ -704,6 +719,11 @@ rules:
 -->
 
 #### User Namespaces Support (Linux Kernel 6.3+)
+
+
+![User Namespaces](/assets/images/2025-06-06-클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드_user_namespaces.png)
+*그림: User Namespaces*
+
 
 워크로드 격리를 크게 강화하는 User Namespaces가 정식 지원됩니다.
 

@@ -396,6 +396,11 @@ paths-ignore:
 
 ### 3.2 실전 사례: 코드 보안 취약점 진단 및 수정
 
+
+![Devsecops Workflow](/assets/images/2026-01-08-클라우드_보안_과정_8기_6주차_AWS_WAF_CloudFront_보안_아키텍처_및_GitHub_DevSecOps_실전_devsecops_workflow.png)
+*그림: Devsecops Workflow*
+
+
 블로그 포스팅을 자동화하기 위해 작성했던 Python 스크립트(`fetch_tistory_images.py`, `ai_improve_posts.py`)를 **GitHub Code Scanning(CodeQL)**으로 점검했습니다. 그 결과 **High Severity(고위험)** 취약점 6건이 발견되었고, 이를 해결한 과정을 상세히 공유합니다.
 
 #### 취약점 1: URL 검증 부재 (SSRF 위험)

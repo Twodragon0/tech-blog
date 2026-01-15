@@ -1,6 +1,11 @@
 ---
 layout: post
 title: "테슬라 FSD 2026 완벽 가이드: Model Y Juniper 비용, 하드웨어, 보안을 DevSecOps 관점에서 분석"
+
+
+![Devsecops Workflow](/assets/images/2026-01-01-Tesla_FSD_2026_완벽_가이드_Model_Y_Juniper_비용_하드웨어_보안_DevSecOps_관점_devsecops_workflow.png)
+*그림: Devsecops Workflow*
+
 date: 2026-01-01 10:00:00 +0900
 categories: [devsecops, security, cloud]
 tags: [Tesla, FSD, Model Y, Juniper, Hardware 4, Automotive Security, DevSecOps, Cybersecurity]

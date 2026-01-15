@@ -1,23 +1,14 @@
 ---
 layout: page
 title: AWS Solutions Architect Associate
-description: AWS SAA 자격증 준비 및 기출문제 - 기술 블로그 포스팅과 연결된 학습 자료
+description: AWS SAA Certification Preparation and Past Exam Questions - Study Materials Linked to Technical Blog Posts
 permalink: /certifications/aws-saa/
 ---
 <div class="certification-detail-page">
   <div class="page-header">
     <h1>AWS Solutions Architect Associate</h1>
-    <p class="page-description">AWS SAA 자격증 준비를 위한 기술 블로그 포스팅 및 학습 자료</p>
+    <p class="page-description">AWS SAA Certification Preparation and Past Exam Questions - Study Materials Linked to Technical Blog Posts</p>
     <div class="header-actions">
-      <a href="#related-posts" class="header-action-button posts-button">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <polyline points="14 2 14 8 20 8"></polyline>
-          <line x1="16" y1="13" x2="8" y2="13"></line>
-          <line x1="16" y1="17" x2="8" y2="17"></line>
-        </svg>
-        <span>관련 포스팅 보기</span>
-      </a>
       <a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/" target="_blank" rel="noopener noreferrer" class="header-action-button official-button">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -26,109 +17,6 @@ permalink: /certifications/aws-saa/
         </svg>
         <span>공식 사이트</span>
       </a>
-    </div>
-  </div>
-
-  <div class="certification-info">
-    <h2>자격증 정보</h2>
-    <ul>
-      <li><strong>공식 명칭:</strong> AWS Certified Solutions Architect - Associate (SAA)</li>
-      <li><strong>시험 코드:</strong> SAA-C03</li>
-      <li><strong>시험 시간:</strong> 130분 (40분 추가 시간 신청 가능, 총 170분)</li>
-      <li><strong>문제 수:</strong> 65문제 (단수 선택 4개 중 1개, 복수 선택 5개 중 2개)</li>
-      <li><strong>채점 문제:</strong> 65문제 중 50문제만 채점 (나머지 15문제는 데이터 수집용)</li>
-      <li><strong>합격 점수:</strong> 720점 / 1000점</li>
-      <li><strong>유효 기간:</strong> 3년</li>
-      <li><strong>시험 비용:</strong> $150 USD (할인 바우처 사용 가능)</li>
-      <li><strong>시험 형식:</strong> 온라인 또는 시험 센터</li>
-    </ul>
-    <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-secondary); border-radius: 8px; border-left: 4px solid var(--primary);">
-      <p style="margin: 0;"><strong>💡 시험 팁:</strong> 시험 신청 전에 40분 추가 시간을 요청할 수 있습니다. 가능하면 신청하세요. 시험 준비 시간(10분)이 기본으로 포함되어 있어 실제 시험 시간은 160분부터 차감됩니다.</p>
-    </div>
-  </div>
-
-  <div class="related-posts" id="related-posts">
-    <h2>관련 포스팅</h2>
-    <div class="posts-list">
-      {% assign cert_posts = "" | split: "" %}
-      {% for post in site.posts %}
-        {% assign post_matched = false %}
-        {% if post.certifications %}
-          {% for post_cert in post.certifications %}
-            {% if post_cert == "aws-saa" or post_cert == "AWS-SAA" %}
-              {% assign post_matched = true %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-        {% unless post_matched %}
-          {% if post.certification == "aws-saa" or post.certification == "AWS-SAA" %}
-            {% assign post_matched = true %}
-          {% endif %}
-        {% endunless %}
-        {% unless post_matched %}
-          {% if post.tags %}
-            {% for tag in post.tags %}
-              {% assign tag_lower = tag | downcase %}
-              {% if tag_lower contains "aws" or tag_lower contains "saa" or tag_lower contains "solutions architect" %}
-                {% if post.categories contains "cloud" or post.categories contains "aws" %}
-                  {% assign post_matched = true %}
-                  {% break %}
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-        {% endunless %}
-        {% if post_matched %}
-          {% assign cert_posts = cert_posts | push: post %}
-        {% endif %}
-      {% endfor %}
-      
-      {% if cert_posts.size > 0 %}
-        {% for post in cert_posts %}
-          {% include post-card.html post=post %}
-        {% endfor %}
-      {% else %}
-        <p class="no-posts">관련 포스팅이 없습니다. 곧 추가될 예정입니다.</p>
-      {% endif %}
-    </div>
-  </div>
-
-  <div class="exam-topics">
-    <h2>주요 시험 주제</h2>
-    <div class="topics-grid">
-      <div class="topic-card">
-        <h3>1. 디자인 비용 최적화 솔루션</h3>
-        <ul>
-          <li>비용 효율적인 아키텍처 설계</li>
-          <li>비용 할당 태그</li>
-          <li>Reserved Instances 및 Savings Plans</li>
-        </ul>
-      </div>
-      <div class="topic-card">
-        <h3>2. 디자인 보안 솔루션</h3>
-        <ul>
-          <li>IAM 및 접근 제어</li>
-          <li>VPC 및 네트워크 보안</li>
-          <li>데이터 암호화</li>
-        </ul>
-      </div>
-      <div class="topic-card">
-        <h3>3. 디자인 고가용성 솔루션</h3>
-        <ul>
-          <li>Multi-AZ 배포</li>
-          <li>Auto Scaling</li>
-          <li>로드 밸런싱</li>
-        </ul>
-      </div>
-      <div class="topic-card">
-        <h3>4. 디자인 확장 가능한 솔루션</h3>
-        <ul>
-          <li>Elasticity 및 Scalability</li>
-          <li>데이터베이스 확장</li>
-          <li>캐싱 전략</li>
-        </ul>
-      </div>
     </div>
   </div>
 
@@ -251,7 +139,7 @@ permalink: /certifications/aws-saa/
     <div class="questions-section question-card-view" id="questions-container">
       <h3>2024년 이후 기출문제</h3>
       
-      <div class="question-card" data-topic="VPC 및 네트워크 보안" data-answer="A">
+      <div class="question-card" data-topic="VPC 및 네트워크 보안" data-answer="A" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 1</span>
           <span class="question-topic">VPC 및 네트워크 보안</span>
@@ -302,282 +190,716 @@ permalink: /certifications/aws-saa/
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="IAM 및 접근 제어" data-answer="B" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 2</span>
           <span class="question-topic">IAM 및 접근 제어</span>
+          <span class="question-status" id="status-2" aria-label="문제 2 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> 여러 AWS 계정을 관리하는 조직에서 중앙 집중식 거버넌스를 구현하려고 합니다. 모든 계정에서 특정 서비스 사용을 제한하려면 어떤 서비스를 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> 여러 AWS 계정을 관리하는 조직에서 중앙 집중식 거버넌스를 구현하려고 합니다. 모든 계정에서 특정 서비스 사용을 제한하려면 어떤 서비스를 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> IAM Policy</p>
-            <p><strong>B.</strong> AWS Organizations의 Service Control Policy (SCP)</p>
-            <p><strong>C.</strong> Resource-based Policy</p>
-            <p><strong>D.</strong> Security Group</p>
+            <label class="option-label">
+              <input type="radio" name="question-2" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> IAM Policy</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-2" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> AWS Organizations의 Service Control Policy (SCP)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-2" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> Resource-based Policy</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-2" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> Security Group</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> B</p>
-            <p><strong>해설:</strong> <a href="/posts/2025/12/클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안/">AWS Control Tower 및 SCP 포스트</a>에서 자세한 설명을 확인하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="2" aria-label="문제 2 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="2" aria-expanded="false" aria-label="문제 2 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-2" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> <a href="/posts/2025/12/클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안/" target="_blank" rel="noopener noreferrer">AWS Control Tower 및 SCP 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="데이터베이스 보안" data-answer="A" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 3</span>
           <span class="question-topic">데이터베이스 보안</span>
+          <span class="question-status" id="status-3" aria-label="문제 3 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> 프라이빗 서브넷의 RDS 데이터베이스에 안전하게 접근하기 위한 게이트웨이를 구축하려고 합니다. 인터넷에서 직접 접근을 차단하면서도 애플리케이션 서버에서 접근할 수 있도록 하려면 어떤 아키텍처를 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> 프라이빗 서브넷의 RDS 데이터베이스에 안전하게 접근하기 위한 게이트웨이를 구축하려고 합니다. 인터넷에서 직접 접근을 차단하면서도 애플리케이션 서버에서 접근할 수 있도록 하려면 어떤 아키텍처를 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> Network Load Balancer와 Security Group을 활용한 게이트웨이</p>
-            <p><strong>B.</strong> Application Load Balancer만 사용</p>
-            <p><strong>C.</strong> NAT Gateway만 사용</p>
-            <p><strong>D.</strong> Internet Gateway만 사용</p>
+            <label class="option-label">
+              <input type="radio" name="question-3" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> Network Load Balancer와 Security Group을 활용한 게이트웨이</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-3" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> Application Load Balancer만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-3" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> NAT Gateway만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-3" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> Internet Gateway만 사용</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> A</p>
-            <p><strong>해설:</strong> <a href="/posts/2025/10/AWS에서_안전한_데이터베이스_접근_게이트웨이_구축하기_NLB__Security_Group_완벽_가이드/">데이터베이스 접근 게이트웨이 포스트</a>에서 자세한 설명을 확인하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="3" aria-label="문제 3 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="3" aria-expanded="false" aria-label="문제 3 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-3" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> <a href="/posts/2025/10/AWS에서_안전한_데이터베이스_접근_게이트웨이_구축하기_NLB__Security_Group_완벽_가이드/" target="_blank" rel="noopener noreferrer">데이터베이스 접근 게이트웨이 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="비용 최적화" data-answer="B" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 4</span>
           <span class="question-topic">비용 최적화</span>
+          <span class="question-status" id="status-4" aria-label="문제 4 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> 예측 가능한 워크로드를 위해 EC2 인스턴스 비용을 최적화하려고 합니다. 가장 비용 효율적인 옵션은 무엇입니까?</p>
+          <p class="question-text"><strong>Q:</strong> 예측 가능한 워크로드를 위해 EC2 인스턴스 비용을 최적화하려고 합니다. 가장 비용 효율적인 옵션은 무엇입니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> On-Demand Instances</p>
-            <p><strong>B.</strong> Reserved Instances (1년 약정)</p>
-            <p><strong>C.</strong> Spot Instances</p>
-            <p><strong>D.</strong> Savings Plans</p>
+            <label class="option-label">
+              <input type="radio" name="question-4" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> On-Demand Instances</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-4" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> Reserved Instances (1년 약정)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-4" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> Spot Instances</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-4" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> Savings Plans</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> B 또는 D (상황에 따라 다름)</p>
-            <p><strong>해설:</strong> <a href="/posts/2025/12/클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략/">AWS FinOps 포스트</a>에서 비용 최적화 전략을 확인하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="4" aria-label="문제 4 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="4" aria-expanded="false" aria-label="문제 4 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-4" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> <a href="/posts/2025/12/클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략/" target="_blank" rel="noopener noreferrer">AWS FinOps 포스트</a>에서 비용 최적화 전략을 확인하세요.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="S3 및 스토리지" data-answer="C" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 5</span>
           <span class="question-topic">S3 및 스토리지</span>
+          <span class="question-status" id="status-5" aria-label="문제 5 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> 자주 접근하지 않는 데이터를 비용 효율적으로 저장하려고 합니다. 데이터는 즉시 접근 가능해야 하지만, 자주 사용되지 않습니다. 어떤 S3 스토리지 클래스를 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> 자주 접근하지 않는 데이터를 비용 효율적으로 저장하려고 합니다. 데이터는 즉시 접근 가능해야 하지만, 자주 사용되지 않습니다. 어떤 S3 스토리지 클래스를 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> S3 Standard</p>
-            <p><strong>B.</strong> S3 Intelligent-Tiering</p>
-            <p><strong>C.</strong> S3 Standard-IA (Infrequent Access)</p>
-            <p><strong>D.</strong> S3 Glacier Instant Retrieval</p>
+            <label class="option-label">
+              <input type="radio" name="question-5" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> S3 Standard</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-5" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> S3 Intelligent-Tiering</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-5" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> S3 Standard-IA (Infrequent Access)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-5" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> S3 Glacier Instant Retrieval</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> C</p>
-            <p><strong>해설:</strong> S3 Standard-IA는 자주 접근하지 않는 데이터를 즉시 접근 가능한 상태로 저장하면서도 비용을 절감할 수 있는 스토리지 클래스입니다. S3 Glacier Instant Retrieval도 가능하지만, Standard-IA가 더 일반적인 선택입니다.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="5" aria-label="문제 5 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="5" aria-expanded="false" aria-label="문제 5 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-5" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> S3 Standard-IA는 자주 접근하지 않는 데이터를 즉시 접근 가능한 상태로 저장하면서도 비용을 절감할 수 있는 스토리지 클래스입니다. S3 Glacier Instant Retrieval도 가능하지만, Standard-IA가 더 일반적인 선택입니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="고가용성 및 확장성" data-answer="B" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 6</span>
           <span class="question-topic">고가용성 및 확장성</span>
+          <span class="question-status" id="status-6" aria-label="문제 6 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> 트래픽이 예측 불가능하게 변동하는 웹 애플리케이션을 운영하고 있습니다. 트래픽 증가에 따라 자동으로 인스턴스를 추가하고, 트래픽 감소 시 인스턴스를 제거하려면 어떤 서비스를 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> 트래픽이 예측 불가능하게 변동하는 웹 애플리케이션을 운영하고 있습니다. 트래픽 증가에 따라 자동으로 인스턴스를 추가하고, 트래픽 감소 시 인스턴스를 제거하려면 어떤 서비스를 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> Elastic Load Balancer만 사용</p>
-            <p><strong>B.</strong> Auto Scaling Group과 Elastic Load Balancer 조합</p>
-            <p><strong>C.</strong> CloudWatch만 사용</p>
-            <p><strong>D.</strong> EC2 인스턴스를 수동으로 추가/제거</p>
+            <label class="option-label">
+              <input type="radio" name="question-6" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> Elastic Load Balancer만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-6" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> Auto Scaling Group과 Elastic Load Balancer 조합</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-6" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> CloudWatch만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-6" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> EC2 인스턴스를 수동으로 추가/제거</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> B</p>
-            <p><strong>해설:</strong> Auto Scaling Group은 CloudWatch 메트릭을 기반으로 자동으로 인스턴스를 추가하거나 제거합니다. Elastic Load Balancer와 함께 사용하면 트래픽을 여러 인스턴스에 분산시킬 수 있습니다.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="6" aria-label="문제 6 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="6" aria-expanded="false" aria-label="문제 6 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-6" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> Auto Scaling Group은 CloudWatch 메트릭을 기반으로 자동으로 인스턴스를 추가하거나 제거합니다. Elastic Load Balancer와 함께 사용하면 트래픽을 여러 인스턴스에 분산시킬 수 있습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="데이터베이스" data-answer="A" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 7</span>
           <span class="question-topic">데이터베이스</span>
+          <span class="question-status" id="status-7" aria-label="문제 7 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> 읽기 작업이 많은 애플리케이션에서 RDS 데이터베이스의 성능을 향상시키려고 합니다. 읽기 전용 복제본을 여러 개 생성하여 읽기 트래픽을 분산시키려면 어떤 방법을 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> 읽기 작업이 많은 애플리케이션에서 RDS 데이터베이스의 성능을 향상시키려고 합니다. 읽기 전용 복제본을 여러 개 생성하여 읽기 트래픽을 분산시키려면 어떤 방법을 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> RDS Read Replica를 여러 개 생성하고 애플리케이션에서 직접 연결</p>
-            <p><strong>B.</strong> RDS Read Replica를 생성하고 Application Load Balancer를 사용하여 트래픽 분산</p>
-            <p><strong>C.</strong> RDS Read Replica를 생성하고 Route 53을 사용하여 트래픽 분산</p>
-            <p><strong>D.</strong> RDS Multi-AZ를 사용</p>
+            <label class="option-label">
+              <input type="radio" name="question-7" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> RDS Read Replica를 여러 개 생성하고 애플리케이션에서 직접 연결</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-7" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> RDS Read Replica를 생성하고 Application Load Balancer를 사용하여 트래픽 분산</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-7" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> RDS Read Replica를 생성하고 Route 53을 사용하여 트래픽 분산</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-7" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> RDS Multi-AZ를 사용</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> A</p>
-            <p><strong>해설:</strong> RDS Read Replica는 읽기 전용 복제본으로, 여러 개 생성하여 애플리케이션에서 직접 연결하여 읽기 트래픽을 분산시킬 수 있습니다. Load Balancer는 RDS에 직접 연결할 수 없습니다.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="7" aria-label="문제 7 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="7" aria-expanded="false" aria-label="문제 7 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-7" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> RDS Read Replica는 읽기 전용 복제본으로, 여러 개 생성하여 애플리케이션에서 직접 연결하여 읽기 트래픽을 분산시킬 수 있습니다. Load Balancer는 RDS에 직접 연결할 수 없습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="네트워킹" data-answer="A" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 8</span>
           <span class="question-topic">네트워킹</span>
+          <span class="question-status" id="status-8" aria-label="문제 8 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> 프라이빗 서브넷의 EC2 인스턴스가 인터넷에 접근하여 소프트웨어 업데이트를 다운로드해야 합니다. 인터넷 게이트웨이를 사용할 수 없는 프라이빗 서브넷에서 인터넷 접근을 제공하려면 어떤 서비스를 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> 프라이빗 서브넷의 EC2 인스턴스가 인터넷에 접근하여 소프트웨어 업데이트를 다운로드해야 합니다. 인터넷 게이트웨이를 사용할 수 없는 프라이빗 서브넷에서 인터넷 접근을 제공하려면 어떤 서비스를 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> NAT Gateway</p>
-            <p><strong>B.</strong> NAT Instance</p>
-            <p><strong>C.</strong> VPN Gateway</p>
-            <p><strong>D.</strong> Direct Connect</p>
+            <label class="option-label">
+              <input type="radio" name="question-8" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> NAT Gateway</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-8" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> NAT Instance</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-8" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> VPN Gateway</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-8" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> Direct Connect</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> A</p>
-            <p><strong>해설:</strong> NAT Gateway는 프라이빗 서브넷의 인스턴스가 인터넷에 접근할 수 있도록 하는 관리형 서비스입니다. NAT Instance도 가능하지만, NAT Gateway가 더 안정적이고 관리가 쉽습니다.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="8" aria-label="문제 8 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="8" aria-expanded="false" aria-label="문제 8 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-8" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> NAT Gateway는 프라이빗 서브넷의 인스턴스가 인터넷에 접근할 수 있도록 하는 관리형 서비스입니다. NAT Instance도 가능하지만, NAT Gateway가 더 안정적이고 관리가 쉽습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="Lambda 및 서버리스" data-answer="A" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 9</span>
           <span class="question-topic">Lambda 및 서버리스</span>
+          <span class="question-status" id="status-9" aria-label="문제 9 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> S3 버킷에 파일이 업로드될 때마다 자동으로 이미지를 리사이징하는 서버리스 애플리케이션을 구축하려고 합니다. 어떤 서비스 조합을 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> S3 버킷에 파일이 업로드될 때마다 자동으로 이미지를 리사이징하는 서버리스 애플리케이션을 구축하려고 합니다. 어떤 서비스 조합을 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> S3 Event Notification → Lambda → S3</p>
-            <p><strong>B.</strong> CloudWatch Events → Lambda → S3</p>
-            <p><strong>C.</strong> S3 Event Notification → EC2 → S3</p>
-            <p><strong>D.</strong> EventBridge → Lambda → S3</p>
+            <label class="option-label">
+              <input type="radio" name="question-9" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> S3 Event Notification → Lambda → S3</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-9" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> CloudWatch Events → Lambda → S3</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-9" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> S3 Event Notification → EC2 → S3</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-9" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> EventBridge → Lambda → S3</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> A</p>
-            <p><strong>해설:</strong> S3 Event Notification을 사용하여 파일 업로드 이벤트를 Lambda 함수로 전달하고, Lambda 함수에서 이미지를 리사이징한 후 다시 S3에 저장하는 것이 가장 효율적인 방법입니다.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="9" aria-label="문제 9 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="9" aria-expanded="false" aria-label="문제 9 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-9" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> S3 Event Notification을 사용하여 파일 업로드 이벤트를 Lambda 함수로 전달하고, Lambda 함수에서 이미지를 리사이징한 후 다시 S3에 저장하는 것이 가장 효율적인 방법입니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="보안 및 암호화" data-answer="C" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 10</span>
           <span class="question-topic">보안 및 암호화</span>
+          <span class="question-status" id="status-10" aria-label="문제 10 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> S3 버킷에 저장된 민감한 데이터를 암호화하려고 합니다. 서버 측 암호화(SSE)를 사용하면서도 암호화 키를 완전히 제어하려면 어떤 방법을 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> S3 버킷에 저장된 민감한 데이터를 암호화하려고 합니다. 서버 측 암호화(SSE)를 사용하면서도 암호화 키를 완전히 제어하려면 어떤 방법을 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> SSE-S3 (S3 관리형 키)</p>
-            <p><strong>B.</strong> SSE-KMS (AWS KMS 관리형 키)</p>
-            <p><strong>C.</strong> SSE-C (고객 제공 키)</p>
-            <p><strong>D.</strong> 클라이언트 측 암호화</p>
+            <label class="option-label">
+              <input type="radio" name="question-10" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> SSE-S3 (S3 관리형 키)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-10" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> SSE-KMS (AWS KMS 관리형 키)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-10" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> SSE-C (고객 제공 키)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-10" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 클라이언트 측 암호화</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> C</p>
-            <p><strong>해설:</strong> SSE-C(Server-Side Encryption with Customer-Provided Keys)는 고객이 제공한 암호화 키를 사용하여 S3에서 데이터를 암호화합니다. 키를 완전히 제어할 수 있지만, 키 관리 책임도 고객에게 있습니다.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="10" aria-label="문제 10 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="10" aria-expanded="false" aria-label="문제 10 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-10" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> SSE-C(Server-Side Encryption with Customer-Provided Keys)는 고객이 제공한 암호화 키를 사용하여 S3에서 데이터를 암호화합니다. 키를 완전히 제어할 수 있지만, 키 관리 책임도 고객에게 있습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="CloudFront 및 CDN" data-answer="B" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 11</span>
           <span class="question-topic">CloudFront 및 CDN</span>
+          <span class="question-status" id="status-11" aria-label="문제 11 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> 전 세계 사용자에게 정적 웹사이트 콘텐츠를 빠르게 제공하려고 합니다. S3 버킷에 저장된 콘텐츠를 전 세계 엣지 로케이션을 통해 제공하려면 어떤 서비스를 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> 전 세계 사용자에게 정적 웹사이트 콘텐츠를 빠르게 제공하려고 합니다. S3 버킷에 저장된 콘텐츠를 전 세계 엣지 로케이션을 통해 제공하려면 어떤 서비스를 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> Route 53</p>
-            <p><strong>B.</strong> CloudFront</p>
-            <p><strong>C.</strong> API Gateway</p>
-            <p><strong>D.</strong> Elastic Load Balancer</p>
+            <label class="option-label">
+              <input type="radio" name="question-11" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> Route 53</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-11" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> CloudFront</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-11" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> API Gateway</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-11" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> Elastic Load Balancer</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> B</p>
-            <p><strong>해설:</strong> CloudFront는 AWS의 CDN(Content Delivery Network) 서비스로, S3 버킷을 오리진으로 사용하여 전 세계 엣지 로케이션을 통해 콘텐츠를 빠르게 제공할 수 있습니다.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="11" aria-label="문제 11 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="11" aria-expanded="false" aria-label="문제 11 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-11" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> CloudFront는 AWS의 CDN(Content Delivery Network) 서비스로, S3 버킷을 오리진으로 사용하여 전 세계 엣지 로케이션을 통해 콘텐츠를 빠르게 제공할 수 있습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="모니터링 및 로깅" data-answer="A" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 12</span>
           <span class="question-topic">모니터링 및 로깅</span>
+          <span class="question-status" id="status-12" aria-label="문제 12 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> EC2 인스턴스의 CPU 사용률이 80%를 초과할 때 알림을 받고 싶습니다. 어떤 서비스를 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> EC2 인스턴스의 CPU 사용률이 80%를 초과할 때 알림을 받고 싶습니다. 어떤 서비스를 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> CloudWatch Alarms와 SNS</p>
-            <p><strong>B.</strong> CloudWatch Logs만 사용</p>
-            <p><strong>C.</strong> CloudTrail만 사용</p>
-            <p><strong>D.</strong> EventBridge만 사용</p>
+            <label class="option-label">
+              <input type="radio" name="question-12" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> CloudWatch Alarms와 SNS</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-12" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> CloudWatch Logs만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-12" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> CloudTrail만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-12" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> EventBridge만 사용</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> A</p>
-            <p><strong>해설:</strong> CloudWatch Alarms를 사용하여 CPU 사용률 메트릭을 모니터링하고, 임계값을 초과하면 SNS(Simple Notification Service)를 통해 알림을 전송할 수 있습니다.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="12" aria-label="문제 12 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="12" aria-expanded="false" aria-label="문제 12 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-12" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> CloudWatch Alarms를 사용하여 CPU 사용률 메트릭을 모니터링하고, 임계값을 초과하면 SNS(Simple Notification Service)를 통해 알림을 전송할 수 있습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="비용 최적화" data-answer="C" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 13</span>
           <span class="question-topic">비용 최적화</span>
+          <span class="question-status" id="status-13" aria-label="문제 13 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> 예측 불가능한 워크로드를 실행하려고 합니다. 중단이 허용되는 배치 작업에 가장 적합한 EC2 인스턴스 유형은 무엇입니까?</p>
+          <p class="question-text"><strong>Q:</strong> 예측 불가능한 워크로드를 실행하려고 합니다. 중단이 허용되는 배치 작업에 가장 적합한 EC2 인스턴스 유형은 무엇입니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> On-Demand Instances</p>
-            <p><strong>B.</strong> Reserved Instances</p>
-            <p><strong>C.</strong> Spot Instances</p>
-            <p><strong>D.</strong> Dedicated Instances</p>
+            <label class="option-label">
+              <input type="radio" name="question-13" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> On-Demand Instances</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-13" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> Reserved Instances</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-13" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> Spot Instances</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-13" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> Dedicated Instances</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> C</p>
-            <p><strong>해설:</strong> Spot Instances는 중단이 허용되는 워크로드에 가장 비용 효율적인 옵션입니다. 최대 90%까지 할인된 가격으로 제공되지만, AWS가 용량이 필요할 때 인스턴스를 중단할 수 있습니다.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="13" aria-label="문제 13 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="13" aria-expanded="false" aria-label="문제 13 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-13" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> Spot Instances는 중단이 허용되는 워크로드에 가장 비용 효율적인 옵션입니다. 최대 90%까지 할인된 가격으로 제공되지만, AWS가 용량이 필요할 때 인스턴스를 중단할 수 있습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="데이터베이스 고가용성" data-answer="B" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 14</span>
           <span class="question-topic">데이터베이스 고가용성</span>
+          <span class="question-status" id="status-14" aria-label="문제 14 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> RDS 데이터베이스의 고가용성을 보장하려고 합니다. 자동 장애 조치를 제공하면서도 동기식 복제를 사용하려면 어떤 구성을 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> RDS 데이터베이스의 고가용성을 보장하려고 합니다. 자동 장애 조치를 제공하면서도 동기식 복제를 사용하려면 어떤 구성을 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> RDS Read Replica</p>
-            <p><strong>B.</strong> RDS Multi-AZ</p>
-            <p><strong>C.</strong> RDS Single-AZ</p>
-            <p><strong>D.</strong> RDS Snapshot</p>
+            <label class="option-label">
+              <input type="radio" name="question-14" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> RDS Read Replica</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-14" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> RDS Multi-AZ</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-14" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> RDS Single-AZ</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-14" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> RDS Snapshot</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> B</p>
-            <p><strong>해설:</strong> RDS Multi-AZ는 다른 가용 영역에 동기식 복제본을 생성하고, 자동으로 장애 조치를 수행합니다. Read Replica는 비동기식 복제이며 자동 장애 조치를 제공하지 않습니다.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="14" aria-label="문제 14 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="14" aria-expanded="false" aria-label="문제 14 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-14" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> RDS Multi-AZ는 다른 가용 영역에 동기식 복제본을 생성하고, 자동으로 장애 조치를 수행합니다. Read Replica는 비동기식 복제이며 자동 장애 조치를 제공하지 않습니다.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="네트워크 보안" data-answer="C" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 15</span>
           <span class="question-topic">네트워크 보안</span>
+          <span class="question-status" id="status-15" aria-label="문제 15 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> VPC 내의 EC2 인스턴스 간 트래픽을 제어하려고 합니다. 특정 IP 주소에서만 접근을 허용하려면 어떤 보안 메커니즘을 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> VPC 내의 EC2 인스턴스 간 트래픽을 제어하려고 합니다. 특정 IP 주소에서만 접근을 허용하려면 어떤 보안 메커니즘을 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> Security Group만 사용</p>
-            <p><strong>B.</strong> Network ACL만 사용</p>
-            <p><strong>C.</strong> Security Group과 Network ACL 조합</p>
-            <p><strong>D.</strong> IAM Policy만 사용</p>
+            <label class="option-label">
+              <input type="radio" name="question-15" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> Security Group만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-15" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> Network ACL만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-15" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> Security Group과 Network ACL 조합</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-15" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> IAM Policy만 사용</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> C</p>
-            <p><strong>해설:</strong> Security Group은 인스턴스 레벨에서 트래픽을 제어하고, Network ACL은 서브넷 레벨에서 트래픽을 제어합니다. Defense in Depth 전략을 위해 둘 다 사용하는 것이 권장됩니다.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="15" aria-label="문제 15 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="15" aria-expanded="false" aria-label="문제 15 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-15" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> Security Group은 인스턴스 레벨에서 트래픽을 제어하고, Network ACL은 서브넷 레벨에서 트래픽을 제어합니다. Defense in Depth 전략을 위해 둘 다 사용하는 것이 권장됩니다.</p>
+            </div>
           </div>
         </div>
       </div>

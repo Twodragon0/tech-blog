@@ -503,6 +503,11 @@ resources:
 
 #### Pod Security Standards 강화
 
+
+![Pod Security Standards](/assets/images/2026-01-14-GCP_클라우드_보안_완벽_가이드_IAM부터_GKE까지_실무_중심_보안_아키텍처_pod_security_standards.png)
+*그림: Pod Security Standards*
+
+
 2025년, GKE는 Pod Security Standards를 강화하여 컨테이너 보안을 향상시켰습니다.
 
 **주요 기능:**

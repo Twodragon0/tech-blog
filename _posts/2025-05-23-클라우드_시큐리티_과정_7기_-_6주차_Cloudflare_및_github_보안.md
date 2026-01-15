@@ -56,6 +56,11 @@ toc: true
   <div class="summary-row">
     <span class="summary-label">대상 독자</span>
     <span class="summary-value">보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자</span>
+
+
+![Devsecops Workflow](/assets/images/2025-05-23-클라우드_시큐리티_과정_7기_-_6주차_Cloudflare_및_github_보안_devsecops_workflow.png)
+*그림: Devsecops Workflow*
+
   </div>
 </div>
 <div class="ai-summary-footer">

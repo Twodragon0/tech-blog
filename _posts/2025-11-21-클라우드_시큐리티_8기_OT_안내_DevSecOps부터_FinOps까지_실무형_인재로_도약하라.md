@@ -1,6 +1,11 @@
 ---
 layout: post
 title: "클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!"
+
+
+![Devsecops Workflow](/assets/images/2025-11-21-클라우드_시큐리티_8기_OT_안내_DevSecOps부터_FinOps까지_실무형_인재로_도약하라_devsecops_workflow.png)
+*그림: Devsecops Workflow*
+
 date: 2025-11-21 18:28:12 +0900
 categories: devsecops
 tags: [Cloud-Security, DevSecOps, FinOps, Course]

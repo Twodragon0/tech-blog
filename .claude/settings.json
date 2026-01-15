@@ -1,0 +1,43 @@
+{
+  "authPrecedence": "subscription",
+  "ignoreEnvApiKey": true,
+  "comment": "Claude Code CLI 설정 - 구독 우선 사용, 환경 변수 API 키 무시",
+  "usage": {
+    "authPrecedence": {
+      "subscription": "Claude 구독을 우선 사용 (구독 사용자 권장)",
+      "api-key": "API 키를 우선 사용 (에이전트 개발자용)",
+      "auto": "자동 선택 (기본값)"
+    },
+    "ignoreEnvApiKey": {
+      "true": "환경 변수 ANTHROPIC_API_KEY 무시 (구독 사용자 권장, 이중 인증 충돌 해결)",
+      "false": "환경 변수 API 키 사용 (에이전트 개발자용)"
+    }
+  },
+  "scenarios": {
+    "subscription_only": {
+      "authPrecedence": "subscription",
+      "ignoreEnvApiKey": true,
+      "description": "구독 전용 사용자 - 환경 변수 API 키 무시, 구독만 사용"
+    },
+    "agent_developer": {
+      "authPrecedence": "subscription",
+      "ignoreEnvApiKey": true,
+      "description": "에이전트 개발자 (이중 인증) - Cursor는 구독 사용, SDK는 환경 변수 API 키 사용"
+    },
+    "api_key_only": {
+      "authPrecedence": "api-key",
+      "ignoreEnvApiKey": false,
+      "description": "API 키 전용 사용자 - 환경 변수 API 키 우선 사용"
+    },
+    "auto": {
+      "authPrecedence": "auto",
+      "ignoreEnvApiKey": false,
+      "description": "자동 선택 - 시스템이 자동으로 선택 (기본값)"
+    }
+  },
+  "current_config": {
+    "authPrecedence": "subscription",
+    "ignoreEnvApiKey": true,
+    "description": "현재 설정: 구독 우선 사용, 환경 변수 API 키 무시 (이중 인증 충돌 방지)"
+  }
+}

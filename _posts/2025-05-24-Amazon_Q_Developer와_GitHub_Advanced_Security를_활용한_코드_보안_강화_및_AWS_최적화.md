@@ -5,6 +5,11 @@ date: 2025-05-24 00:17:56 +0900
 categories: devsecops
 tags: [Amazon-Q, GitHub-Advanced-Security, Code-Security, AWS]
 excerpt: "Amazon Q Developer &amp; GitHub Advanced Security 활용: Amazon Q Developer 코드 보안 검토 및 AWS 최적화 제안(AI 기반 코드 생성/리뷰, AWS 서비스 통합 CodeCommit/CodeBuild/CodeDeploy, 보안 취약점 자동 탐지, AWS Well-Architected Framework 기반 권장사항), GitHub Advanced Security 통합(CodeQL 정적 분석 취약점 패턴 검사, Dependabot 의존성 취약점 스캔/자동 PR 생성, Secret Scanning 민감 정보 탐지, Security Advisories 관리, AI 생성 코드 보안 검증), 코드 보안 자동화(CI/CD 파이프라인 보안 스캔 통합, DevSecOps 모범 사례 Shift-Left Security, 자동화된 보안 검사, 실시간 취약점 알림), AWS 환경 개발 생산성 향상 전략, 2025년 DevSecOps 트렌드(AI 코딩 어시스턴트 보안 검증 체크리스트, Post-Quantum 암호화 대응)까지 실무 중심 정리."
+
+
+![Devsecops Workflow](/assets/images/2025-05-24-Amazon_Q_Developer와_GitHub_Advanced_Security를_활용한_코드_보안_강화_및_AWS_최적화_devsecops_workflow.png)
+*그림: Devsecops Workflow*
+
 comments: true
 original_url: https://twodragon.tistory.com/685
 image: /assets/images/2025-05-24-Amazon_Q_Developerand_GitHub_Advanced_Security_Security_and_AWS.svg

@@ -258,6 +258,136 @@ vercel env ls
 2. GitHub Actions 권한 설정 확인
 3. Vercel 프로젝트 권한 확인
 
+### Cursor Claude 설정 (Claude Code CLI 사용자)
+
+#### 문제 시나리오
+
+**시나리오 1: 비활성화된 API 키로 인한 오류**
+- Claude Pro/Max 구독이 있는데도 API 키 오류 발생
+- **원인**: 이전에 사용하던 조직(organization)의 비활성화된 API 키가 환경 변수에 남아있어 충돌
+
+**시나리오 2: 이중 인증 충돌 (맞춤형 에이전트 개발자)**
+- Claude Max Pro 구독자이면서 동시에 맞춤형 에이전트 개발자
+- SDK 직접 호출을 위해 `ANTHROPIC_API_KEY` 환경 변수 필요
+- 두 도구가 같은 컴퓨터에서 실행 중
+- **원인**: 두 인증 방식 모두 유효하지만 지속적인 인증 충돌 경고 발생
+
+**참고**: 이 문제는 [GitHub Issue #9880](https://github.com/getcursor/cursor/issues/9880)에서 논의되었으며, `--use-subscription` 플래그나 설정 파일 옵션 개선이 제안되었습니다.
+
+**해결 방법 1: 환경 변수 제거 (권장)**
+
+**Windows:**
+```bash
+# 명령 프롬프트에서 실행
+set ANTHROPIC_API_KEY=
+
+# 또는 시스템 환경 변수 설정에서 해당 변수를 삭제
+# 제어판 → 시스템 → 고급 시스템 설정 → 환경 변수
+```
+
+**macOS/Linux:**
+```bash
+# 현재 세션에서만 제거
+unset ANTHROPIC_API_KEY
+
+# 영구적으로 제거 (셸 설정 파일에서 삭제)
+# ~/.zshrc 또는 ~/.bashrc 파일을 열어서 다음 라인 삭제:
+# export ANTHROPIC_API_KEY="..."
+
+# 셸 설정 파일 편집 후
+source ~/.zshrc  # 또는 source ~/.bashrc
+```
+
+**해결 방법 2: Cursor 설정 파일 수정**
+
+Cursor 설정 파일에 다음 설정을 추가하여 환경 변수 API 키를 무시하고 구독을 우선 사용하도록 설정:
+
+**설정 파일 위치:**
+- **macOS**: `~/Library/Application Support/Cursor/User/settings.json`
+- **Windows**: `%APPDATA%\Cursor\User\settings.json`
+- **Linux**: `~/.config/Cursor/User/settings.json`
+
+**설정 추가:**
+
+```json
+{
+  "claude": {
+    "authPrecedence": "subscription",
+    "ignoreEnvApiKey": true
+  }
+}
+```
+
+**설정 옵션 설명:**
+- `authPrecedence`: 인증 우선순위 설정
+  - `"subscription"`: Claude 구독을 우선 사용 (구독 사용자 권장)
+  - `"api-key"`: API 키를 우선 사용 (에이전트 개발자용)
+  - `"auto"`: 자동 선택 (기본값)
+- `ignoreEnvApiKey`: 환경 변수의 API 키 무시 여부
+  - `true`: 환경 변수 `ANTHROPIC_API_KEY` 무시 (구독 사용자 권장, 이중 인증 충돌 해결)
+  - `false`: 환경 변수 API 키 사용 (에이전트 개발자용)
+
+**사용 사례별 권장 설정:**
+
+| 사용 사례 | `authPrecedence` | `ignoreEnvApiKey` | 설명 |
+|----------|----------------|------------------|------|
+| **구독 전용 사용자** | `"subscription"` | `true` | 환경 변수 API 키 무시, 구독만 사용 |
+| **에이전트 개발자 (이중 인증)** | `"subscription"` | `true` | Cursor는 구독 사용, SDK는 환경 변수 API 키 사용 |
+| **API 키 전용 사용자** | `"api-key"` | `false` | 환경 변수 API 키 우선 사용 |
+| **자동 선택** | `"auto"` | `false` | 시스템이 자동으로 선택 (기본값) |
+
+**이중 인증 워크플로우 (맞춤형 에이전트 개발자):**
+- Cursor/Claude Code: 구독 인증 사용 (`ignoreEnvApiKey: true`)
+- SDK/에이전트: 환경 변수 `ANTHROPIC_API_KEY` 사용
+- 두 인증 방식이 각각의 목적에 맞게 작동하며 충돌 없음
+
+**설정 적용 방법:**
+
+1. **Cursor 완전 종료**
+   ```bash
+   # macOS
+   killall Cursor
+   
+   # Windows
+   taskkill /F /IM Cursor.exe
+   
+   # Linux
+   pkill -f cursor
+   ```
+
+2. **설정 파일 편집**
+   ```bash
+   # macOS
+   nano ~/Library/Application\ Support/Cursor/User/settings.json
+   
+   # Windows (PowerShell)
+   notepad $env:APPDATA\Cursor\User\settings.json
+   
+   # Linux
+   nano ~/.config/Cursor/User/settings.json
+   ```
+
+3. **설정 추가 후 Cursor 재시작**
+
+**확인 방법:**
+
+1. Cursor 재시작 후 Claude API 호출 테스트
+2. Cursor 개발자 도구 열기: `Help → Toggle Developer Tools`
+3. Console 탭에서 오류 메시지 확인
+4. Settings에서 Claude 구독 상태 확인
+
+**추가 참고사항:**
+
+- **명령줄 플래그 (향후 지원 예정)**: 
+  - `claude --use-subscription`: 환경 변수 API 키 무시
+  - `claude --ignore-env-api-key`: 대체 명령어
+- **환경 변수 방식 (향후 지원 예정)**:
+  - `CLAUDE_CODE_AUTH_METHOD=subscription claude`
+- **현재 권장 방법**: 설정 파일 방식 (위의 방법 2)
+
+**관련 이슈:**
+- [GitHub Issue #9880](https://github.com/getcursor/cursor/issues/9880): 인증 방법 명시적 선택을 위한 플래그 개선 제안
+
 ## 참고 자료
 
 - [GitHub Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
