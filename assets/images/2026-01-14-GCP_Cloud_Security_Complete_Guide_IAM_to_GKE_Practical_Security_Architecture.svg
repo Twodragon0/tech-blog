@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="gcpBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285F4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a73e8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gcpBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285F4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a73e8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gcpGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34A853;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E7D32;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#gcpBgGrad)"/>
+  
+  <!-- Title -->
+  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#ffffff">GCP Cloud Security</text>
+  <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#e0e0e0">Complete Guide: IAM to GKE</text>
+  
+  <!-- GCP Services Stack -->
+  <g transform="translate(100, 180)">
+    <!-- IAM Layer -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="200" height="120" rx="10" fill="url(#gcpBlueGrad)" opacity="0.9"/>
+      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">IAM</text>
+      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Access Control</text>
+      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Service Account</text>
+    </g>
+    
+    <!-- Cloud SQL Layer -->
+    <g transform="translate(250, 0)">
+      <rect x="0" y="0" width="200" height="120" rx="10" fill="url(#gcpGreenGrad)" opacity="0.9"/>
+      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Cloud SQL</text>
+      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Database</text>
+      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Encryption, SSL</text>
+    </g>
+    
+    <!-- Cloud Storage Layer -->
+    <g transform="translate(500, 0)">
+      <rect x="0" y="0" width="200" height="120" rx="10" fill="#EA4335" opacity="0.9"/>
+      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Cloud Storage</text>
+      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Object Storage</text>
+      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">CMEK, Policy</text>
+    </g>
+    
+    <!-- GKE Layer -->
+    <g transform="translate(750, 0)">
+      <rect x="0" y="0" width="200" height="120" rx="10" fill="#FBBC04" opacity="0.9"/>
+      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">GKE</text>
+      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Container</text>
+      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Pod Security, Network</text>
+    </g>
+    
+    <!-- VPC Network Layer -->
+    <g transform="translate(1000, 0)">
+      <rect x="0" y="0" width="200" height="120" rx="10" fill="#9C27B0" opacity="0.9"/>
+      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">VPC Network</text>
+      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Network Security</text>
+      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Firewall, NAT</text>
+    </g>
+  </g>
+  
+  <!-- Security Monitoring -->
+  <g transform="translate(200, 350)">
+    <rect x="0" y="0" width="800" height="200" rx="15" fill="rgba(255, 255, 255, 0.1)" stroke="#ffffff" stroke-width="2"/>
+    <text x="400" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Security Monitoring and Compliance</text>
+    
+    <!-- Cloud Logging -->
+    <g transform="translate(50, 70)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="rgba(66, 133, 244, 0.3)" stroke="#4285F4" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Cloud Logging</text>
+      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Audit Logs</text>
+    </g>
+    
+    <!-- Cloud Monitoring -->
+    <g transform="translate(250, 70)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="rgba(52, 168, 83, 0.3)" stroke="#34A853" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Cloud Monitoring</text>
+      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Metrics, Alerts</text>
+    </g>
+    
+    <!-- Security Command Center -->
+    <g transform="translate(450, 70)">
+      <rect x="0" y="0" width="200" height="100" rx="8" fill="rgba(234, 67, 53, 0.3)" stroke="#EA4335" stroke-width="2"/>
+      <text x="100" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Security Command</text>
+      <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Center</text>
+      <text x="100" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Threat Detection</text>
+    </g>
+    
+    <!-- Cloud KMS -->
+    <g transform="translate(700, 70)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="rgba(251, 188, 4, 0.3)" stroke="#FBBC04" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Cloud KMS</text>
+      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Key Management</text>
+    </g>
+  </g>
+  
+  <!-- Defense in Depth -->
+  <g transform="translate(100, 600)">
+    <rect x="0" y="0" width="1000" height="120" rx="15" fill="rgba(255, 255, 255, 0.05)" stroke="#ffffff" stroke-width="2"/>
+    <text x="500" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">Defense in Depth Strategy</text>
+    <text x="500" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#e0e0e0">Multiple Security Layers: IAM - VPC - Application - Data - Monitoring</text>
+  </g>
+</svg>

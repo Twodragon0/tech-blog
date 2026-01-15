@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a237e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#283593;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9900;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6600;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00AA44;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#008833;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="600" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#ffffff">2025 ISMS-P Certification</text>
+  <text x="600" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#e0e0e0">Complete Guide: AWS Environment</text>
+  
+  <!-- AWS Cloud Icon -->
+  <g transform="translate(200, 200)">
+    <rect x="0" y="0" width="200" height="150" rx="15" fill="url(#awsGrad)" opacity="0.9"/>
+    <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">AWS</text>
+    <text x="100" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Cloud</text>
+    <text x="100" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Environment</text>
+  </g>
+  
+  <!-- ISMS-P Shield -->
+  <g transform="translate(500, 200)">
+    <rect x="0" y="0" width="200" height="150" rx="15" fill="url(#securityGrad)" opacity="0.9"/>
+    <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">ISMS-P</text>
+    <text x="100" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">101 Criteria</text>
+    <text x="100" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Compliance</text>
+  </g>
+  
+  <!-- NIST CSF 2.0 -->
+  <g transform="translate(800, 200)">
+    <rect x="0" y="0" width="200" height="150" rx="15" fill="#4a90e2" opacity="0.9"/>
+    <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">NIST CSF</text>
+    <text x="100" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">2.0</text>
+    <text x="100" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Framework</text>
+  </g>
+  
+  <!-- Security Layers -->
+  <g transform="translate(100, 400)">
+    <rect x="0" y="0" width="1000" height="300" rx="20" fill="rgba(255, 255, 255, 0.1)" stroke="#ffffff" stroke-width="2"/>
+    
+    <!-- Layer 1: IAM -->
+    <g transform="translate(50, 50)">
+      <rect x="0" y="0" width="180" height="200" rx="10" fill="rgba(255, 153, 0, 0.3)" stroke="#FF9900" stroke-width="2"/>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">IAM</text>
+      <text x="90" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Access Control</text>
+      <text x="90" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">MFA</text>
+      <text x="90" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">RBAC</text>
+    </g>
+    
+    <!-- Layer 2: Encryption -->
+    <g transform="translate(270, 50)">
+      <rect x="0" y="0" width="180" height="200" rx="10" fill="rgba(0, 170, 68, 0.3)" stroke="#00AA44" stroke-width="2"/>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Encryption</text>
+      <text x="90" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">KMS</text>
+      <text x="90" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">TLS/SSL</text>
+      <text x="90" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Data Protection</text>
+    </g>
+    
+    <!-- Layer 3: Monitoring -->
+    <g transform="translate(490, 50)">
+      <rect x="0" y="0" width="180" height="200" rx="10" fill="rgba(74, 144, 226, 0.3)" stroke="#4a90e2" stroke-width="2"/>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Monitoring</text>
+      <text x="90" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">CloudTrail</text>
+      <text x="90" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">CloudWatch</text>
+      <text x="90" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Security Hub</text>
+    </g>
+    
+    <!-- Layer 4: Network -->
+    <g transform="translate(710, 50)">
+      <rect x="0" y="0" width="180" height="200" rx="10" fill="rgba(102, 126, 234, 0.3)" stroke="#667eea" stroke-width="2"/>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Network</text>
+      <text x="90" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">VPC</text>
+      <text x="90" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Security Group</text>
+      <text x="90" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">NACL</text>
+    </g>
+  </g>
+  
+  <!-- Defense in Depth Label -->
+  <text x="600" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">Defense in Depth Strategy</text>
+</svg>

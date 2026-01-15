@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="cspmBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#632CA6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A148C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="datadogGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#632CA6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A148C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9900;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6600;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="complianceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00AA44;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#008833;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#cspmBgGrad)"/>
+  
+  <!-- Title -->
+  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="#ffffff">CSPM DataDog AWS Security</text>
+  <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#e0e0e0">Automated Configuration Verification and Compliance Monitoring</text>
+  
+  <!-- DataDog CSPM Icon -->
+  <g transform="translate(400, 180)">
+    <rect x="0" y="0" width="400" height="150" rx="15" fill="url(#datadogGrad)" opacity="0.9"/>
+    <text x="200" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffffff">DataDog CSPM</text>
+    <text x="200" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#ffffff">1000+ Compliance Rules</text>
+    <text x="200" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#e0e0e0">Automated Security Validation</text>
+  </g>
+  
+  <!-- AWS Integration -->
+  <g transform="translate(100, 380)">
+    <rect x="0" y="0" width="300" height="120" rx="10" fill="url(#awsGrad)" opacity="0.9"/>
+    <text x="150" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">AWS</text>
+    <text x="150" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Cloud Resources</text>
+    <text x="150" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Security Hub, Config</text>
+  </g>
+  
+  <!-- Misconfiguration Detection -->
+  <g transform="translate(450, 380)">
+    <rect x="0" y="0" width="300" height="120" rx="10" fill="rgba(204, 0, 0, 0.8)" opacity="0.9"/>
+    <text x="150" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Misconfiguration</text>
+    <text x="150" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Detection</text>
+    <text x="150" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Real-time Scanning</text>
+  </g>
+  
+  <!-- Compliance Monitoring -->
+  <g transform="translate(800, 380)">
+    <rect x="0" y="0" width="300" height="120" rx="10" fill="url(#complianceGrad)" opacity="0.9"/>
+    <text x="150" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Compliance</text>
+    <text x="150" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Monitoring</text>
+    <text x="150" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">CIS, PCI-DSS, ISMS-P</text>
+  </g>
+  
+  <!-- Compliance Frameworks -->
+  <g transform="translate(100, 550)">
+    <rect x="0" y="0" width="1000" height="180" rx="15" fill="rgba(255, 255, 255, 0.1)" stroke="#ffffff" stroke-width="2"/>
+    <text x="500" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Supported Compliance Frameworks</text>
+    
+    <!-- CIS -->
+    <g transform="translate(50, 60)">
+      <rect x="0" y="0" width="180" height="100" rx="8" fill="rgba(255, 153, 0, 0.3)" stroke="#FF9900" stroke-width="2"/>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">CIS</text>
+      <text x="90" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Benchmark</text>
+    </g>
+    
+    <!-- PCI-DSS -->
+    <g transform="translate(270, 60)">
+      <rect x="0" y="0" width="180" height="100" rx="8" fill="rgba(0, 170, 68, 0.3)" stroke="#00AA44" stroke-width="2"/>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">PCI-DSS</text>
+      <text x="90" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Payment Card</text>
+    </g>
+    
+    <!-- ISMS-P -->
+    <g transform="translate(490, 60)">
+      <rect x="0" y="0" width="180" height="100" rx="8" fill="rgba(74, 144, 226, 0.3)" stroke="#4a90e2" stroke-width="2"/>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">ISMS-P</text>
+      <text x="90" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Information Security</text>
+    </g>
+    
+    <!-- SOC 2 -->
+    <g transform="translate(710, 60)">
+      <rect x="0" y="0" width="180" height="100" rx="8" fill="rgba(102, 126, 234, 0.3)" stroke="#667eea" stroke-width="2"/>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">SOC 2</text>
+      <text x="90" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Service Control</text>
+    </g>
+    
+    <!-- NIST CSF -->
+    <g transform="translate(930, 60)">
+      <rect x="0" y="0" width="180" height="100" rx="8" fill="rgba(156, 39, 176, 0.3)" stroke="#9C27B0" stroke-width="2"/>
+      <text x="90" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">NIST CSF</text>
+      <text x="90" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">2.0 Framework</text>
+    </g>
+  </g>
+  
+  <!-- Automation Label -->
+  <text x="600" y="780" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Automated Security Validation and Compliance Monitoring</text>
+</svg>

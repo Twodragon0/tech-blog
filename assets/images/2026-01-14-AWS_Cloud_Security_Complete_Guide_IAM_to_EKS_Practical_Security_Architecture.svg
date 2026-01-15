@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="awsBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#232F3E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#146EB4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="awsOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9900;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6600;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="securityGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00AA44;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#008833;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#awsBgGrad)"/>
+  
+  <!-- Title -->
+  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#ffffff">AWS Cloud Security</text>
+  <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#e0e0e0">Complete Guide: IAM to EKS</text>
+  
+  <!-- AWS Services Stack -->
+  <g transform="translate(100, 180)">
+    <!-- IAM Layer -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="200" height="120" rx="10" fill="url(#awsOrangeGrad)" opacity="0.9"/>
+      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">IAM</text>
+      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Access Control</text>
+      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">MFA, RBAC</text>
+    </g>
+    
+    <!-- VPC Layer -->
+    <g transform="translate(250, 0)">
+      <rect x="0" y="0" width="200" height="120" rx="10" fill="url(#securityGreenGrad)" opacity="0.9"/>
+      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">VPC</text>
+      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Network Security</text>
+      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Subnet, SG, NACL</text>
+    </g>
+    
+    <!-- S3 Layer -->
+    <g transform="translate(500, 0)">
+      <rect x="0" y="0" width="200" height="120" rx="10" fill="#4a90e2" opacity="0.9"/>
+      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">S3</text>
+      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Object Storage</text>
+      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Encryption, Policy</text>
+    </g>
+    
+    <!-- RDS Layer -->
+    <g transform="translate(750, 0)">
+      <rect x="0" y="0" width="200" height="120" rx="10" fill="#667eea" opacity="0.9"/>
+      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">RDS</text>
+      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Database</text>
+      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Encryption, Backup</text>
+    </g>
+    
+    <!-- EKS Layer -->
+    <g transform="translate(1000, 0)">
+      <rect x="0" y="0" width="200" height="120" rx="10" fill="#326CE5" opacity="0.9"/>
+      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">EKS</text>
+      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Container</text>
+      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Pod Security, Network</text>
+    </g>
+  </g>
+  
+  <!-- Security Monitoring -->
+  <g transform="translate(200, 350)">
+    <rect x="0" y="0" width="800" height="200" rx="15" fill="rgba(255, 255, 255, 0.1)" stroke="#ffffff" stroke-width="2"/>
+    <text x="400" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Security Monitoring and Compliance</text>
+    
+    <!-- CloudTrail -->
+    <g transform="translate(50, 70)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="rgba(255, 153, 0, 0.3)" stroke="#FF9900" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">CloudTrail</text>
+      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Audit Logs</text>
+    </g>
+    
+    <!-- CloudWatch -->
+    <g transform="translate(250, 70)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="rgba(0, 170, 68, 0.3)" stroke="#00AA44" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">CloudWatch</text>
+      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Monitoring</text>
+    </g>
+    
+    <!-- Security Hub -->
+    <g transform="translate(450, 70)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="rgba(74, 144, 226, 0.3)" stroke="#4a90e2" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Security Hub</text>
+      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Compliance</text>
+    </g>
+    
+    <!-- GuardDuty -->
+    <g transform="translate(650, 70)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="rgba(204, 0, 0, 0.3)" stroke="#CC0000" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">GuardDuty</text>
+      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Threat Detection</text>
+    </g>
+  </g>
+  
+  <!-- Defense in Depth -->
+  <g transform="translate(100, 600)">
+    <rect x="0" y="0" width="1000" height="120" rx="15" fill="rgba(255, 255, 255, 0.05)" stroke="#ffffff" stroke-width="2"/>
+    <text x="500" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">Defense in Depth Strategy</text>
+    <text x="500" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#e0e0e0">Multiple Security Layers: IAM - VPC - Application - Data - Monitoring</text>
+  </g>
+</svg>
