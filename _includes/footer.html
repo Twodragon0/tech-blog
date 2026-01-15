@@ -38,6 +38,54 @@
 
 <script src="{{ "/assets/js/main.js" | relative_url }}" defer></script>
 
-<!-- Vercel Analytics & Speed Insights (페이지 하단에서 로드) -->
-<script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
-<script defer src="https://va.vercel-scripts.com/v1/speed-insights/script.js"></script>
+<!-- Vercel Analytics & Speed Insights (페이지 하단에서 로드, 에러 핸들링 포함) -->
+<script>
+  // Vercel Analytics & Speed Insights 로드 (에러 핸들링 포함)
+  (function() {
+    // 프로덕션 환경에서만 로드
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      return; // 개발 환경에서는 로드하지 않음
+    }
+    
+    // Analytics 스크립트 로드
+    var analyticsScript = document.createElement('script');
+    analyticsScript.defer = true;
+    analyticsScript.src = 'https://va.vercel-scripts.com/v1/script.js';
+    analyticsScript.onerror = function() {
+      // Analytics 로드 실패는 조용히 처리 (Rate Limiting, 네트워크 문제 등)
+    };
+    document.head.appendChild(analyticsScript);
+    
+    // Speed Insights 스크립트 로드 (에러 핸들링 포함)
+    var speedInsightsScript = document.createElement('script');
+    speedInsightsScript.defer = true;
+    speedInsightsScript.src = 'https://va.vercel-scripts.com/v1/speed-insights/script.js';
+    speedInsightsScript.onerror = function() {
+      // Speed Insights 로드 실패는 조용히 처리 (429 Rate Limiting 등)
+    };
+    document.head.appendChild(speedInsightsScript);
+    
+    // Speed Insights vitals 엔드포인트 429 에러 처리
+    // fetch를 사용하는 경우 에러 핸들링
+    if (window.fetch) {
+      var originalFetch = window.fetch;
+      window.fetch = function() {
+        var args = Array.prototype.slice.call(arguments);
+        var url = args[0];
+        
+        // Speed Insights vitals 엔드포인트인 경우 에러 핸들링
+        if (typeof url === 'string' && url.includes('/_vercel/speed-insights/vitals')) {
+          return originalFetch.apply(this, args).catch(function(error) {
+            // 429 에러 등은 조용히 처리 (Rate Limiting)
+            if (error && error.status === 429) {
+              return Promise.resolve(new Response(null, { status: 429 }));
+            }
+            throw error;
+          });
+        }
+        
+        return originalFetch.apply(this, args);
+      };
+    }
+  })();
+</script>

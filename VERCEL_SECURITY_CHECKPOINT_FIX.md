@@ -6,9 +6,12 @@ Vercel 보안 검문소에서 "브라우저를 확인하지 못했습니다" 오
 
 ### 발생 경로
 - `/certifications/aws-saa/` 등 certifications 페이지 접근 시 종종 발생
+- `/posts/2025/12/...` 등 posts 페이지 접근 시 발생 (429, 705 에러)
+- `/_vercel/speed-insights/vitals` 경로에서 429 (Too Many Requests) 에러 발생
 
 ### 오류 코드
 - **705**: 브라우저 검증 실패
+- **429**: Too Many Requests (Rate Limiting)
 
 ## 원인 분석
 
@@ -19,7 +22,9 @@ Vercel 보안 검문소에서 "브라우저를 확인하지 못했습니다" 오
 
 ## 해결 방법
 
-### 1. vercel.json 설정 수정 (완료)
+### 1. vercel.json 설정 수정
+
+#### `/certifications/` 경로 (완료)
 
 `/certifications/` 경로에 대해서는 브라우저 검증에 방해가 되는 헤더를 제거했습니다:
 
@@ -44,7 +49,46 @@ Vercel 보안 검문소에서 "브라우저를 확인하지 못했습니다" 오
 - ✅ `X-Request-ID` 빈 값 제거
 - ✅ 캐싱 헤더 추가 (성능 최적화)
 
-### 2. Vercel 대시보드 확인
+#### `/posts/` 경로 (2026-01-11 추가)
+
+`/posts/` 경로에서도 동일한 문제가 발생할 수 있으므로, 브라우저 검증에 방해가 되는 헤더를 최적화했습니다:
+
+```json
+{
+  "source": "/posts/(.*)",
+  "headers": [
+    { "key": "X-Content-Type-Options", "value": "nosniff" },
+    { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+    { "key": "X-XSS-Protection", "value": "1; mode=block" },
+    { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+    { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
+    { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
+    { "key": "X-DNS-Prefetch-Control", "value": "on" },
+    { "key": "Cache-Control", "value": "public, max-age=10800, s-maxage=10800, stale-while-revalidate=259200" }
+  ]
+}
+```
+
+**변경 사항**:
+- ✅ 브라우저 검증에 필요한 헤더만 유지
+- ✅ 캐싱 헤더 최적화 (3시간 캐시, stale-while-revalidate 적용)
+- ✅ 보안 헤더는 유지하되 브라우저 검증을 방해하지 않도록 조정
+
+### 2. Cloudflare 설정 확인 (Cloudflare 사용 시)
+
+Cloudflare를 사용하는 경우, Rate Limiting 및 보안 설정을 확인하세요:
+
+1. **Cloudflare 대시보드** 접속
+2. **Security** → **WAF** 또는 **Rate Limiting** 이동
+3. **Rate Limiting 규칙** 확인:
+   - 임계값이 너무 낮게 설정되어 있는지 확인
+   - 정상적인 사용자 트래픽이 차단되지 않도록 조정
+4. **Security Level** 확인:
+   - Medium 또는 Low로 설정 권장 (High는 너무 엄격할 수 있음)
+5. **Bot Fight Mode** 확인:
+   - 정상적인 크롤러가 차단되지 않도록 설정
+
+### 3. Vercel 대시보드 확인
 
 Vercel 대시보드에서 보안 검문소 설정을 확인하세요:
 
@@ -53,7 +97,7 @@ Vercel 대시보드에서 보안 검문소 설정을 확인하세요:
 3. **Firewall** 또는 **Security Checkpoint** 설정 확인
 4. 필요시 보안 검문소 임계값 조정
 
-### 3. 브라우저 측 해결 방법
+### 4. 브라우저 측 해결 방법
 
 사용자가 경험하는 경우 다음을 시도해보세요:
 
@@ -127,11 +171,15 @@ Vercel Pro 플랜 이상에서는 보안 검문소 설정을 세밀하게 조정
 ### 배포 전 확인
 - [ ] `vercel.json` 설정이 올바르게 적용되었는지 확인
 - [ ] `/certifications/` 경로 헤더 설정 확인
+- [ ] `/posts/` 경로 헤더 설정 확인
 - [ ] Vercel 대시보드에서 보안 설정 확인
+- [ ] Cloudflare 설정 확인 (사용 시)
 
 ### 배포 후 확인
 - [ ] `/certifications/aws-saa/` 접근 테스트
+- [ ] `/posts/2025/12/...` 경로 접근 테스트
 - [ ] 브라우저 개발자 도구에서 응답 헤더 확인
+- [ ] 429, 705 에러가 발생하지 않는지 확인
 - [ ] 다양한 브라우저에서 테스트 (Chrome, Firefox, Safari, Edge)
 - [ ] 모바일 브라우저에서도 테스트
 
@@ -147,7 +195,67 @@ Vercel Pro 플랜 이상에서는 보안 검문소 설정을 세밀하게 조정
 - [HTTP 보안 헤더 가이드](https://owasp.org/www-project-secure-headers/)
 - [프로젝트 보안 정책](./SECURITY.md)
 
+## Vercel Speed Insights 429 에러 해결
+
+### 문제
+`/_vercel/speed-insights/vitals` 경로에서 429 (Too Many Requests) 에러가 발생합니다.
+
+### 원인
+- Vercel Speed Insights의 Rate Limiting
+- 너무 많은 페이지뷰로 인한 요청 제한 초과
+- 동시 요청 수 제한
+
+### 해결 방법
+
+#### 1. 에러 핸들링 추가 (완료)
+
+`_includes/footer.html`에 에러 핸들링을 추가했습니다:
+
+```javascript
+// Speed Insights 스크립트 로드 (에러 핸들링 포함)
+var speedInsightsScript = document.createElement('script');
+speedInsightsScript.defer = true;
+speedInsightsScript.src = 'https://va.vercel-scripts.com/v1/speed-insights/script.js';
+speedInsightsScript.onerror = function() {
+  // Speed Insights 로드 실패는 조용히 처리 (429 Rate Limiting 등)
+};
+```
+
+**효과**:
+- 429 에러 발생 시 콘솔 에러 방지
+- 사용자 경험 개선
+- Speed Insights는 선택적 기능이므로 실패해도 사이트 기능에 영향 없음
+
+#### 2. 프로덕션에서만 활성화
+
+개발 환경에서는 Speed Insights를 로드하지 않도록 설정:
+
+```javascript
+// 프로덕션 환경에서만 로드
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+  return; // 개발 환경에서는 로드하지 않음
+}
+```
+
+#### 3. Vercel 대시보드 확인
+
+Vercel 대시보드에서 Speed Insights 설정 확인:
+
+1. **Vercel 대시보드** 접속
+2. **프로젝트** → **Analytics** → **Speed Insights** 이동
+3. Rate Limiting 설정 확인
+4. 필요시 Vercel Pro 플랜 업그레이드 고려
+
+### 참고사항
+
+- Speed Insights는 선택적 기능입니다
+- 429 에러가 발생해도 사이트 기능에는 영향이 없습니다
+- 에러 핸들링으로 콘솔 에러를 방지할 수 있습니다
+- Vercel Pro 플랜에서는 더 높은 Rate Limit이 제공됩니다
+
 ## 업데이트 이력
 
 - **2026-01-11**: 초기 문서 작성, `/certifications/` 경로 헤더 최적화 적용
 - **2026-01-11**: `X-Robots-Tag` 헤더 제거로 브라우저 검증 충돌 해결
+- **2026-01-11**: `/posts/` 경로 헤더 최적화 추가, Cloudflare 설정 가이드 추가
+- **2026-01-11**: Vercel Speed Insights 429 에러 해결 방법 추가
