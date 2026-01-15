@@ -25,6 +25,106 @@ permalink: /certifications/information-security-engineer/
     </ul>
   </div>
 
+  <div class="latest-info">
+    <h2>2025년 최신 정보</h2>
+    <div class="latest-content">
+      <div class="exam-schedule">
+        <h3>2025년 예상 시험 일정</h3>
+        <div class="schedule-table-wrapper">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>회차</th>
+                <th>필기 시험</th>
+                <th>실기 시험</th>
+                <th>비고</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1회차</strong></td>
+                <td>3월 중순 예정</td>
+                <td>5월 초 예정</td>
+                <td>정확한 일정은 Q-Net 공지 확인</td>
+              </tr>
+              <tr>
+                <td><strong>2회차</strong></td>
+                <td>8월 말 예정</td>
+                <td>10월 중순 예정</td>
+                <td>정확한 일정은 Q-Net 공지 확인</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="schedule-note">※ 정확한 시험 일정은 <a href="https://www.q-net.or.kr/crf005.do?id=crf00501&jmCd=1320" target="_blank" rel="noopener noreferrer">Q-Net 공식 홈페이지</a>에서 확인하시기 바랍니다.</p>
+      </div>
+
+      <div class="exam-trends">
+        <h3>2025년 출제 경향</h3>
+        <div class="trends-grid">
+          <div class="trend-card">
+            <div class="trend-icon">📝</div>
+            <h4>필기시험 구성</h4>
+            <ul>
+              <li><strong>과목:</strong> 시스템 보안, 네트워크 보안, 정보보호론, 응용 시스템 보안, 관리적 보안</li>
+              <li><strong>출제 유형:</strong> 객관식 4지선다형</li>
+              <li><strong>문항 수:</strong> 과목별 20문항씩 총 100문항</li>
+              <li><strong>합격 기준:</strong> 과목별 40점 이상, 평균 60점 이상</li>
+            </ul>
+          </div>
+          <div class="trend-card">
+            <div class="trend-icon">💻</div>
+            <h4>실기시험 구성</h4>
+            <ul>
+              <li><strong>형태:</strong> 필답형(서술형 및 문제풀이)</li>
+              <li><strong>주요 내용:</strong> 보안 사고 대응, 네트워크 분석, 침입 탐지 및 차단 대책 설계</li>
+              <li><strong>특징:</strong> 실무 중심의 문제 출제</li>
+            </ul>
+          </div>
+          <div class="trend-card">
+            <div class="trend-icon">🎯</div>
+            <h4>실무 적용 능력 중시</h4>
+            <p>최근 출제 경향을 보면, 실무 적용 능력을 중시하는 방향으로 변화하고 있습니다. 따라서 이론 학습뿐만 아니라 실제 사례를 통한 학습과 실습이 중요합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="passing-strategy">
+        <h3>2025년 합격 전략</h3>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="strategy-number">1</span>
+            <div class="strategy-content">
+              <h4>최신 기출문제 분석</h4>
+              <p>최근 3년간의 기출문제를 분석하여 출제 경향을 파악하고, 반복 출제되는 핵심 개념을 정리합니다.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <span class="strategy-number">2</span>
+            <div class="strategy-content">
+              <h4>실무 경험 쌓기</h4>
+              <p>보안 도구 사용법을 익히고, 실제 보안 사고 대응 시나리오를 학습하여 실기 시험에 대비합니다.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <span class="strategy-number">3</span>
+            <div class="strategy-content">
+              <h4>과목별 균형 학습</h4>
+              <p>과목별 40점 이상을 달성하기 위해 모든 과목을 균형있게 학습하고, 약한 과목은 집중 보완합니다.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <span class="strategy-number">4</span>
+            <div class="strategy-content">
+              <h4>실습 환경 구축</h4>
+              <p>가상 환경을 구축하여 네트워크 분석, 침입 탐지 등 실기 시험에 필요한 실습을 진행합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="related-posts">
     <h2>관련 포스팅</h2>
     <div class="posts-list">
@@ -304,7 +404,8 @@ permalink: /certifications/information-security-engineer/
 
 .certification-info,
 .related-posts,
-.exam-topics {
+.exam-topics,
+.latest-info {
   margin-bottom: 3rem;
 }
 
@@ -701,6 +802,211 @@ permalink: /certifications/information-security-engineer/
   .resource-icon,
   .video-icon {
     margin: 0 auto;
+  }
+}
+
+.latest-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.latest-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.exam-schedule h3,
+.exam-trends h3,
+.passing-strategy h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.schedule-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table thead {
+  background: linear-gradient(135deg, var(--primary), #10b981);
+  color: white;
+}
+
+.schedule-table th {
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.schedule-table td {
+  padding: 0.875rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.schedule-table tbody tr:hover {
+  background: var(--bg-secondary);
+}
+
+.schedule-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.schedule-note {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.schedule-note a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.trends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.trend-card {
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.trend-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.trend-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.trend-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.trend-card p,
+.trend-card ul {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.trend-card ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.trend-card li {
+  margin-bottom: 0.5rem;
+}
+
+.strategy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.strategy-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.strategy-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.strategy-number {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary), #10b981);
+  color: white;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.strategy-content {
+  flex: 1;
+}
+
+.strategy-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.strategy-content p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .schedule-table-wrapper {
+    overflow-x: scroll;
+  }
+
+  .schedule-table {
+    font-size: 0.8rem;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 0.5rem;
+  }
+
+  .trends-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strategy-item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .strategy-number {
+    align-self: flex-start;
   }
 }
 </style>

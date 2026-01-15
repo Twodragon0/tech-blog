@@ -24,6 +24,84 @@ permalink: /certifications/isms-p/
     </ul>
   </div>
 
+  <div class="latest-info">
+    <h2>2025년 최신 정보</h2>
+    <div class="latest-content">
+      <div class="certification-updates">
+        <h3>2025년 인증 요구사항 변경사항</h3>
+        <div class="updates-grid">
+          <div class="update-card">
+            <div class="update-icon">🔄</div>
+            <h4>NIST CSF 2.0 연계</h4>
+            <p>2025년 8월 4일, KISA는 미국 NIST의 Cybersecurity Framework(CSF) 2.0 발표에 따라 ISMS-P 인증제도와의 비교를 진행하였으며, 향후 인증 기준의 개정이 이루어질 가능성이 있습니다.</p>
+            <a href="https://isms-p.kisa.or.kr/main/community/notice/index.jsp" target="_blank" rel="noopener noreferrer" class="update-link">공식 공지 확인 →</a>
+          </div>
+          <div class="update-card">
+            <div class="update-icon">🤖</div>
+            <h4>AI 보안 요구사항 추가</h4>
+            <p>2025년 8월 21일, AI 서비스 기업이 고려해야 할 보안 요구사항을 발표하였으며, 이는 향후 ISMS-P 인증 기준에 AI 관련 보안 요구사항이 추가될 수 있음을 시사합니다.</p>
+            <a href="https://isms-p.kisa.or.kr/main/community/notice/index.jsp" target="_blank" rel="noopener noreferrer" class="update-link">공식 공지 확인 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="certification-trends">
+        <h3>2025년 인증 트렌드</h3>
+        <div class="trends-grid">
+          <div class="trend-card">
+            <div class="trend-icon">☁️</div>
+            <h4>클라우드 보안 강화</h4>
+            <p>클라우드 환경에서의 ISMS-P 인증 요구사항이 강화되고 있으며, AWS, Azure, GCP 등 주요 클라우드 플랫폼 기반 컴플라이언스 구현이 중요해지고 있습니다.</p>
+          </div>
+          <div class="trend-card">
+            <div class="trend-icon">🔐</div>
+            <h4>암호화 및 키 관리</h4>
+            <p>데이터 암호화 및 키 관리에 대한 요구사항이 더욱 엄격해지고 있으며, 전송 중 암호화와 저장 데이터 암호화를 모두 구현해야 합니다.</p>
+          </div>
+          <div class="trend-card">
+            <div class="trend-icon">📊</div>
+            <h4>로그 관리 및 모니터링</h4>
+            <p>보안 로그 관리 및 실시간 모니터링 시스템 구축이 필수 요구사항으로 강화되고 있으며, 보안 사고 대응 체계 구축이 중요합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="passing-strategy">
+        <h3>2025년 인증 준비 전략</h3>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="strategy-number">1</span>
+            <div class="strategy-content">
+              <h4>최신 인증 기준 확인</h4>
+              <p>KISA 공식 홈페이지를 통해 최신 인증 기준과 변경사항을 지속적으로 확인하고, NIST CSF 2.0 및 AI 보안 요구사항을 반영합니다.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <span class="strategy-number">2</span>
+            <div class="strategy-content">
+              <h4>클라우드 환경 컴플라이언스 구현</h4>
+              <p>AWS, Azure, GCP 등 클라우드 플랫폼에서 ISMS-P 요구사항을 충족하는 보안 아키텍처를 설계하고 구현합니다.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <span class="strategy-number">3</span>
+            <div class="strategy-content">
+              <h4>보안 정책 및 절차 문서화</h4>
+              <p>정보보안 정책, 절차서, 매뉴얼을 체계적으로 작성하고, 정기적인 검토 및 개선 프로세스를 수립합니다.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <span class="strategy-number">4</span>
+            <div class="strategy-content">
+              <h4>보안 감사 대응 준비</h4>
+              <p>인증 심사 전 자체 보안 감사를 실시하고, 취약점을 사전에 보완하여 인증 심사를 원활하게 진행합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="related-posts">
     <h2>관련 포스팅</h2>
     <div class="posts-list">
@@ -306,7 +384,8 @@ permalink: /certifications/isms-p/
 
 .certification-info,
 .related-posts,
-.exam-topics {
+.exam-topics,
+.latest-info {
   margin-bottom: 3rem;
 }
 
@@ -703,6 +782,189 @@ permalink: /certifications/isms-p/
   .resource-icon,
   .video-icon {
     margin: 0 auto;
+  }
+}
+
+.latest-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.latest-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.certification-updates h3,
+.certification-trends h3,
+.passing-strategy h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.updates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.update-card {
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.update-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.update-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.update-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.update-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.update-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.update-link:hover {
+  color: var(--primary-dark, #0056b3);
+  text-decoration: underline;
+}
+
+.trends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.trend-card {
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.trend-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.trend-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.trend-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.trend-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.strategy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.strategy-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.strategy-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.strategy-number {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary), #10b981);
+  color: white;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.strategy-content {
+  flex: 1;
+}
+
+.strategy-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.strategy-content p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .updates-grid,
+  .trends-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strategy-item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .strategy-number {
+    align-self: flex-start;
   }
 }
 </style>
