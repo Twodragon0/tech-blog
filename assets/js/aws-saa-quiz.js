@@ -53,6 +53,9 @@
     // 기존 문제 카드를 인터랙티브 형식으로 변환
     convertExistingQuestions();
     
+    // 문제 리스트 테이블 생성
+    generateQuestionTable();
+    
     // 이벤트 리스너 등록
     setupEventListeners();
     
@@ -217,13 +220,37 @@
     if (topicFilter) {
       topicFilter.addEventListener('change', (e) => {
         filterQuestions(e.target.value);
+        filterQuestionTable(e.target.value);
       });
     }
+    
+    // 검색 기능
+    const searchInput = document.getElementById('question-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuestions(e.target.value);
+      });
+    }
+    
+    // 뷰 토글
+    const viewButtons = document.querySelectorAll('.view-button');
+    viewButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const view = e.currentTarget.dataset.view;
+        switchView(view);
+      });
+    });
     
     // 초기화 버튼
     const resetButton = document.getElementById('reset-answers');
     if (resetButton) {
       resetButton.addEventListener('click', resetAllAnswers);
+    }
+    
+    // 다운로드 버튼
+    const downloadAllButton = document.getElementById('download-all-questions');
+    if (downloadAllButton) {
+      downloadAllButton.addEventListener('click', downloadAllQuestions);
     }
   }
 
@@ -385,6 +412,282 @@
         card.style.display = 'none';
       }
     });
+  }
+
+  // 문제 검색
+  function searchQuestions(query) {
+    const cards = document.querySelectorAll('.question-card[data-converted]');
+    const searchTerm = query.toLowerCase().trim();
+    
+    cards.forEach(card => {
+      const questionText = card.querySelector('.question-text')?.textContent.toLowerCase() || '';
+      const topic = card.querySelector('.question-topic')?.textContent.toLowerCase() || '';
+      const options = Array.from(card.querySelectorAll('.option-text')).map(opt => opt.textContent.toLowerCase()).join(' ');
+      
+      const matches = questionText.includes(searchTerm) || 
+                     topic.includes(searchTerm) || 
+                     options.includes(searchTerm);
+      
+      card.style.display = matches ? '' : 'none';
+    });
+    
+    // 리스트 뷰에서도 검색
+    filterQuestionTable(null, searchTerm);
+  }
+
+  // 뷰 전환
+  function switchView(view) {
+    const listView = document.getElementById('question-list-view');
+    const cardView = document.getElementById('questions-container');
+    const viewButtons = document.querySelectorAll('.view-button');
+    
+    viewButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.view === view);
+    });
+    
+    if (view === 'list') {
+      listView.style.display = 'block';
+      if (cardView) {
+        cardView.classList.add('hidden');
+      }
+    } else {
+      listView.style.display = 'none';
+      if (cardView) {
+        cardView.classList.remove('hidden');
+      }
+    }
+  }
+
+  // 문제 리스트 테이블 생성
+  function generateQuestionTable() {
+    const tbody = document.getElementById('question-table-body');
+    if (!tbody) return;
+    
+    const cards = document.querySelectorAll('.question-card[data-converted]');
+    tbody.innerHTML = '';
+    
+    cards.forEach((card, index) => {
+      const questionNum = index + 1;
+      const numEl = card.querySelector('.question-number');
+      const numMatch = numEl?.textContent.match(/문제\s*(\d+)/);
+      const actualNum = numMatch ? parseInt(numMatch[1]) : questionNum;
+      
+      const topic = card.dataset.topic || '기타';
+      const questionText = card.querySelector('.question-text')?.textContent || '';
+      const shortQuestion = questionText.length > 80 ? questionText.substring(0, 80) + '...' : questionText;
+      
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${actualNum}</td>
+        <td>${shortQuestion}</td>
+        <td>${topic}</td>
+        <td>
+          <a href="#question-${actualNum}" class="table-link" data-question="${actualNum}" aria-label="문제 ${actualNum} CBT">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="9" y1="9" x2="15" y2="9"></line>
+              <line x1="9" y1="15" x2="15" y2="15"></line>
+            </svg>
+            CBT
+          </a>
+        </td>
+        <td>
+          <a href="#question-${actualNum}" class="table-link" data-question="${actualNum}" aria-label="문제 ${actualNum} 바로보기">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            보기
+          </a>
+        </td>
+        <td>
+          <button type="button" class="table-link download-question" data-question="${actualNum}" aria-label="문제 ${actualNum} 다운로드">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            다운
+          </button>
+        </td>
+        <td>
+          <button type="button" class="table-link download-explanation" data-question="${actualNum}" aria-label="해설 ${actualNum} 다운로드">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            다운
+          </button>
+        </td>
+        <td>
+          <button type="button" class="table-link download-both" data-question="${actualNum}" aria-label="문제+해설 ${actualNum} 다운로드">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            다운
+          </button>
+        </td>
+      `;
+      
+      tbody.appendChild(row);
+    });
+    
+    // 테이블 링크 이벤트
+    tbody.querySelectorAll('a[data-question]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const questionId = link.dataset.question;
+        switchView('card');
+        setTimeout(() => {
+          scrollToQuestion(questionId);
+        }, 100);
+      });
+    });
+    
+    // 다운로드 버튼 이벤트
+    tbody.querySelectorAll('.download-question').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const questionId = btn.dataset.question;
+        downloadQuestion(questionId, 'question');
+      });
+    });
+    
+    tbody.querySelectorAll('.download-explanation').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const questionId = btn.dataset.question;
+        downloadQuestion(questionId, 'explanation');
+      });
+    });
+    
+    tbody.querySelectorAll('.download-both').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const questionId = btn.dataset.question;
+        downloadQuestion(questionId, 'both');
+      });
+    });
+  }
+
+  // 문제로 스크롤
+  function scrollToQuestion(questionId) {
+    const cards = document.querySelectorAll('.question-card[data-converted]');
+    for (let card of cards) {
+      const numEl = card.querySelector('.question-number');
+      if (numEl) {
+        const numMatch = numEl.textContent.match(/문제\s*(\d+)/);
+        if (numMatch && parseInt(numMatch[1]) === parseInt(questionId)) {
+          card.id = `question-${questionId}`;
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          card.style.animation = 'highlight 2s ease';
+          return;
+        }
+      }
+    }
+  }
+
+  // 문제 테이블 필터링
+  function filterQuestionTable(topic = null, searchTerm = null) {
+    const rows = document.querySelectorAll('#question-table-body tr');
+    rows.forEach(row => {
+      const topicCell = row.cells[2]?.textContent || '';
+      const questionCell = row.cells[1]?.textContent || '';
+      
+      let show = true;
+      
+      if (topic && topic !== 'all') {
+        show = show && topicCell === topic;
+      }
+      
+      if (searchTerm) {
+        const searchLower = searchTerm.toLowerCase();
+        show = show && (questionCell.toLowerCase().includes(searchLower) || topicCell.toLowerCase().includes(searchLower));
+      }
+      
+      row.style.display = show ? '' : 'none';
+    });
+  }
+
+  // 문제 다운로드
+  function downloadQuestion(questionId, type) {
+    const cards = document.querySelectorAll('.question-card[data-converted]');
+    let card = null;
+    
+    for (let c of cards) {
+      const numEl = c.querySelector('.question-number');
+      if (numEl) {
+        const numMatch = numEl.textContent.match(/문제\s*(\d+)/);
+        if (numMatch && parseInt(numMatch[1]) === parseInt(questionId)) {
+          card = c;
+          break;
+        }
+      }
+    }
+    
+    if (!card) return;
+    
+    const questionText = card.querySelector('.question-text')?.textContent || '';
+    const topic = card.dataset.topic || '';
+    const options = Array.from(card.querySelectorAll('.option-text')).map(opt => opt.textContent).join('\n');
+    const answer = card.dataset.answer || '';
+    const explanation = card.querySelector('.answer-explanation')?.textContent || '';
+    
+    let content = `AWS SAA 기출문제 - 문제 ${questionId}\n`;
+    content += `주제: ${topic}\n\n`;
+    content += `문제:\n${questionText}\n\n`;
+    content += `선택지:\n${options}\n\n`;
+    
+    if (type === 'explanation' || type === 'both') {
+      content += `정답: ${answer}\n\n`;
+      content += `해설:\n${explanation}\n`;
+    }
+    
+    if (type === 'question' || type === 'both') {
+      // 문제만 다운로드
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `AWS-SAA-문제-${questionId}.txt`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  }
+
+  // 전체 문제 다운로드
+  function downloadAllQuestions() {
+    const cards = document.querySelectorAll('.question-card[data-converted]');
+    let content = 'AWS SAA 기출문제 모음\n';
+    content += '='.repeat(50) + '\n\n';
+    
+    cards.forEach((card, index) => {
+      const numEl = card.querySelector('.question-number');
+      const numMatch = numEl?.textContent.match(/문제\s*(\d+)/);
+      const questionNum = numMatch ? parseInt(numMatch[1]) : index + 1;
+      
+      const questionText = card.querySelector('.question-text')?.textContent || '';
+      const topic = card.dataset.topic || '';
+      const options = Array.from(card.querySelectorAll('.option-text')).map(opt => opt.textContent).join('\n');
+      const answer = card.dataset.answer || '';
+      const explanation = card.querySelector('.answer-explanation')?.textContent || '';
+      
+      content += `문제 ${questionNum}\n`;
+      content += `주제: ${topic}\n\n`;
+      content += `${questionText}\n\n`;
+      content += `선택지:\n${options}\n\n`;
+      content += `정답: ${answer}\n\n`;
+      content += `해설:\n${explanation}\n\n`;
+      content += '-'.repeat(50) + '\n\n';
+    });
+    
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `AWS-SAA-기출문제-전체.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
   }
 
   // 통계 업데이트
