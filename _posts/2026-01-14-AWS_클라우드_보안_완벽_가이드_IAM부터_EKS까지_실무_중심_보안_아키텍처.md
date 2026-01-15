@@ -522,6 +522,126 @@ Resources:
 
 ---
 
+## 8. 2025년 이후 최신 업데이트
+
+### 8.1 IAM 보안 강화
+
+#### 리전 기반 액세스 제어: `aws:SourceVpcArn` 조건 키
+
+2025년 11월, AWS는 리전 기반 액세스 제어를 위한 새로운 글로벌 조건 키 `aws:SourceVpcArn`을 도입했습니다.
+
+```yaml
+# aws:SourceVpcArn 조건 키 예시
+Version: '2012-10-17'
+Statement:
+  - Effect: Allow
+    Action:
+      - s3:GetObject
+      - s3:PutObject
+    Resource: 'arn:aws:s3:::secure-bucket/*'
+    Condition:
+      StringEquals:
+        'aws:SourceVpcArn': 'arn:aws:ec2:ap-northeast-2:ACCOUNT_ID:vpc/vpc-xxxxxxxxx'
+```
+
+**주요 활용 사례:**
+- AWS PrivateLink를 통한 리소스 접근 제어
+- 데이터 레지던시 요구사항 충족
+- 특정 리전의 VPC 엔드포인트에서만 접근 허용
+
+### 8.2 VPC 보안 강화
+
+#### VPC 오리진의 교차 계정 지원
+
+2025년 11월, Amazon CloudFront는 다른 AWS 계정의 VPC 리소스를 오리진으로 설정할 수 있도록 지원합니다.
+
+**주요 활용 사례:**
+- 멀티 계정 아키텍처에서 공통 프런트 도메인 구성
+- 각 계정별 백엔드 VPC 패턴 구성
+- 보안 격리 유지하면서 리소스 공유
+
+### 8.3 S3 보안 강화
+
+#### S3 Express One Zone IPv6 지원 및 테이블 태깅
+
+2025년 11월, S3 Express One Zone은 IPv6를 지원하며, S3 테이블에 대한 태깅 기능이 추가되었습니다.
+
+**주요 기능:**
+- IPv6 네트워크 지원으로 보안 강화
+- 테이블 태깅을 통한 리소스 관리 및 보안 정책 적용
+- 비용 최적화 및 성능 향상
+
+### 8.4 RDS 보안 강화
+
+#### AWS Backup을 통한 Amazon EKS 지원
+
+2025년 11월, AWS Backup은 Amazon EKS 클러스터, 네임스페이스, 볼륨 등 Kubernetes 워크로드를 직접 백업 및 복구할 수 있도록 지원합니다.
+
+**주요 기능:**
+- 컨테이너 환경의 재해 복구 표준화
+- EKS 클러스터 자동 백업
+- 네임스페이스 및 볼륨 레벨 백업
+
+```yaml
+# AWS Backup EKS 백업 설정 예시
+Resources:
+  EKSBackupPlan:
+    Type: AWS::Backup::BackupPlan
+    Properties:
+      BackupPlan:
+        BackupPlanName: eks-backup-plan
+        Rules:
+          - RuleName: eks-daily-backup
+            TargetBackupVault: !Ref BackupVault
+            ScheduleExpression: cron(0 3 * * ? *)
+            Lifecycle:
+              DeleteAfterDays: 30
+            CopyActions:
+              - DestinationBackupVaultArn: !GetAtt BackupVault.Arn
+                Lifecycle:
+                  DeleteAfterDays: 90
+```
+
+### 8.5 EKS 보안 강화
+
+#### 향상된 네트워크 보안 정책
+
+2025년 12월, Amazon EKS는 Kubernetes 워크로드에 대한 네트워크 보안 태세와 클러스터 외부 대상과의 통합을 개선하기 위해 향상된 네트워크 정책 기능을 발표했습니다.
+
+**주요 기능:**
+- 전체 클러스터에 걸친 네트워크 액세스 필터 중앙 적용
+- DNS 기반 정책을 활용한 클러스터 환경의 송신 트래픽 보호
+- 네트워크 보안 정책의 중앙 관리
+
+#### EKS Cluster Insights 정책
+
+2025년, EKS는 클러스터 인사이트를 사용한 Kubernetes 버전 업그레이드 준비 및 잘못된 구성 문제 해결을 위해 `AmazonEKSClusterInsightsPolicy`를 도입했습니다.
+
+**주요 기능:**
+- 클러스터 노드의 상태 정보 읽기
+- kube-proxy 구성에 대한 읽기 액세스
+- 클러스터의 보안과 안정성 향상
+
+```yaml
+# EKS Cluster Insights Policy 예시
+Resources:
+  EKSClusterInsightsRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: EKSClusterInsightsRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: eks.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonEKSClusterInsightsPolicy
+```
+
+---
+
 ## 결론
 
 AWS 클라우드 환경에서 보안을 강화하기 위해서는 IAM부터 EKS까지 모든 서비스 계층에서 Defense in Depth 전략을 적용해야 합니다.
