@@ -226,6 +226,31 @@ permalink: /certifications/isms-p/
     </div>
   </div>
 
+  <div class="posting-guide">
+    <h2>포스팅 작성 가이드</h2>
+    <div class="guide-intro">
+      <p>ISMS-P 관련 포스팅 작성 시 참고할 수 있는 SK Shieldus 보안 가이드 기반 포스팅 작성 가이드를 확인하세요.</p>
+    </div>
+    <div class="guide-link">
+      <a href="/SK_SHIELDUS_POSTING_GUIDE.html" class="guide-card" aria-label="SK Shieldus 보안 가이드 기반 포스팅 작성 가이드 (새 창)">
+        <div class="guide-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <div class="guide-content">
+          <h3>SK Shieldus 보안 가이드 기반 포스팅 작성 가이드</h3>
+          <p>ISMS-P, AWS/GCP 클라우드 보안, CSPM 관련 포스팅 작성 가이드 및 자격증 연계 방법</p>
+          <span class="guide-link-text">가이드 보기 →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
   <div class="online-videos">
     <h2>온라인 강의</h2>
     <div class="videos-intro">
@@ -952,6 +977,91 @@ permalink: /certifications/isms-p/
   font-size: 0.95rem;
 }
 
+.posting-guide {
+  margin-bottom: 3rem;
+}
+
+.posting-guide h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.guide-intro {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.guide-link {
+  display: flex;
+  justify-content: center;
+}
+
+.guide-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--primary), #8b5cf6);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+  max-width: 600px;
+  width: 100%;
+}
+
+.guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.guide-card:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.guide-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.guide-content {
+  flex: 1;
+}
+
+.guide-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.guide-content p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.guide-link-text {
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .updates-grid,
   .trends-grid {
@@ -965,6 +1075,15 @@ permalink: /certifications/isms-p/
 
   .strategy-number {
     align-self: flex-start;
+  }
+
+  .guide-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .guide-icon {
+    margin: 0 auto;
   }
 }
 </style>
