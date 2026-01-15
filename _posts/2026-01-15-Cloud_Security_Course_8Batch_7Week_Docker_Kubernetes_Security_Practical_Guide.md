@@ -79,16 +79,13 @@ category: kubernetes
 
 ### **📅 7주차 타임테이블 (Agenda)**
 
-* **10:00 - 10:20 | 근황 토크 & 과제 피드백**  
-   * 한 주간의 보안 이슈 공유 및 Q&A
-* **10:25 - 10:50 | Docker/Container/Kubernetes 기본 이해**  
-   * Docker 이미지/컨테이너 개념, VM vs Container, Kubernetes 핵심 리소스
-* **11:00 - 11:25 | 컨테이너 보안 Best Practices**  
-   * Docker 이미지 보안, Secret 관리, 비루트 실행, 이미지 스캔(Trivy, Snyk)
-* **11:30 - 11:50 | Kubernetes 보안 아키텍처 & Best Practices**  
-   * Pod Security Standards, User Namespaces, Network Policies, RBAC, 보안 모범 사례
-* **11:55 - 12:00 | 실습 및 Q&A**  
-   * Minikube 보안 환경 구성, 실전 보안 강화 사례
+| 시간 | 주제 | 내용 |
+|------|------|------|
+| **10:00 - 10:20** | **근황 토크 & 과제 피드백** | 한 주간의 보안 이슈 공유 및 Q&A |
+| **10:25 - 10:50** | **Docker/Container/Kubernetes 기본 이해** | Docker 이미지/컨테이너 개념, VM vs Container, Kubernetes 핵심 리소스 |
+| **11:00 - 11:25** | **컨테이너 보안 Best Practices** | Docker 이미지 보안, Secret 관리, 비루트 실행, 이미지 스캔(Trivy, Snyk) |
+| **11:30 - 11:50** | **Kubernetes 보안 아키텍처 & Best Practices** | Pod Security Standards, User Namespaces, Network Policies, RBAC, 보안 모범 사례 |
+| **11:55 - 12:00** | **실습 및 Q&A** | Minikube 보안 환경 구성, 실전 보안 강화 사례 |
 
 ---
 
