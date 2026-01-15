@@ -133,7 +133,9 @@ docker rm my-nginx
 
 #### **1.2 Container 이해**
 
-##### **VM vs Container 비교**| 항목 | 가상머신(VM) | 컨테이너 |
+##### **VM vs Container 비교**
+
+| 항목 | 가상머신(VM) | 컨테이너 |
 |------|------------|---------|
 | **실행 단위** | 전체 OS 포함 | 앱 + 라이브러리 |
 | **성능** | 무겁고 느림 | 경량, 빠름 |
@@ -165,7 +167,9 @@ docker rm my-nginx
 | **ConfigMap** | 설정 데이터를 저장하는 리소스 | 설정 파일 저장소 |
 | **Secret** | 민감한 데이터를 저장하는 리소스 | 비밀 정보 저장소 |
 
-##### **Kubernetes 아키텍처**| 구성 요소 | 설명 | 역할 |
+##### **Kubernetes 아키텍처**
+
+| 구성 요소 | 설명 | 역할 |
 |----------|------|------|
 | **Control Plane** | 클러스터 관리 및 제어 | API Server, etcd, Scheduler, Controller Manager |
 | **Node** | 실제 워크로드가 실행되는 서버 | kubelet, kube-proxy, 컨테이너 런타임 |
