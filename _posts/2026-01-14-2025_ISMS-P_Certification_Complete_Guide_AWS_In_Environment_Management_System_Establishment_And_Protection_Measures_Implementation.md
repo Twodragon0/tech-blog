@@ -72,28 +72,43 @@ certifications: [isms-p]
 
 
 
-User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
+ISMS-P 인증 프로세스는 체계적인 단계를 통해 진행됩니다:
 
 ```mermaid
 graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User<br/>UID 0"]
-        HostUser["Host Non-root User<br/>UID 1000"]
+    subgraph Phase1["1단계: 준비"]
+        Policy["정보보안 정책 수립"]
+        Org["조직 구성 및 역할 정의"]
+        Risk["위험 관리 체계 구축"]
     end
     
-    subgraph Container["Container"]
-        ContainerRoot["Container Root<br/>UID 0"]
-        ContainerApp["Container App<br/>UID 1000"]
+    subgraph Phase2["2단계: 구현"]
+        Access["접근 통제 구현"]
+        Encrypt["암호화 구현"]
+        Log["로그 관리 및 모니터링"]
     end
     
-    ContainerRoot -.->|"User Namespace Mapping"| HostUser
-    ContainerApp -.->|"Direct Mapping"| HostUser
-    HostRoot -.->|"Isolated"| ContainerRoot
+    subgraph Phase3["3단계: 인증"]
+        Audit["보안 감사"]
+        Cert["인증 획득"]
+    end
     
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
+    Policy --> Org
+    Org --> Risk
+    Risk --> Access
+    Access --> Encrypt
+    Encrypt --> Log
+    Log --> Audit
+    Audit --> Cert
+    
+    style Policy fill:#e1f5ff
+    style Org fill:#e1f5ff
+    style Risk fill:#e1f5ff
+    style Access fill:#fff4e1
+    style Encrypt fill:#fff4e1
+    style Log fill:#fff4e1
+    style Audit fill:#e8f5e9
+    style Cert fill:#e8f5e9
 ```## 📊 빠른 참조
 
 ### ISMS-P 인증 기준 개요
@@ -159,35 +174,35 @@ ISMS-P(Information Security Management System - Personal Information)는 정보�
 #### AI 보안 요구사항
 
 
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
+ISMS-P 보호대책은 Defense in Depth 전략을 통해 다층 보안을 구현합니다:
 
 ```mermaid
 graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning<br/>Trivy, Snyk"]
-        SecretMgmt["Secret Management<br/>K8s Secrets, Vault"]
-        NonRoot["Non-root User<br/>runAsNonRoot"]
-        ReadOnly["Read-only Filesystem<br/>readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop<br/>capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies<br/>Pod Isolation"]
+    subgraph SecurityLayers["보호대책 레이어"]
+        AccessControl["접근 통제<br/>IAM, Security Group"]
+        Encryption["암호화<br/>KMS, TLS/SSL"]
+        NetworkSec["네트워크 보안<br/>VPC, Subnet"]
+        Logging["로그 관리<br/>CloudTrail, CloudWatch"]
+        Backup["백업 및 복구<br/>S3, RDS Snapshot"]
+        Monitoring["보안 모니터링<br/>Security Hub, GuardDuty"]
     end
     
-    App["Application Container"]
+    Data["정보자산"]
     
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
+    AccessControl --> Encryption
+    Encryption --> NetworkSec
+    NetworkSec --> Logging
+    Logging --> Backup
+    Backup --> Monitoring
+    Monitoring --> Data
     
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
+    style AccessControl fill:#e1f5ff
+    style Encryption fill:#e1f5ff
+    style NetworkSec fill:#e1f5ff
+    style Logging fill:#e1f5ff
+    style Backup fill:#e1f5ff
+    style Monitoring fill:#e1f5ff
+    style Data fill:#fff4e1
 ```
 
 
