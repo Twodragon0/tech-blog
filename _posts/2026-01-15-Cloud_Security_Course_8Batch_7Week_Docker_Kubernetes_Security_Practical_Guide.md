@@ -97,7 +97,7 @@ category: kubernetes
 
 ##### **Docker의 핵심 구성 요소**
 
-![Docker 핵심 구성 요소 - Image, Container, Dockerfile, Registry](/assets/images/diagrams/docker_core_components.png)
+![Docker 핵심 구성 요소 - Image, Container, Dockerfile, Registry](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
 
 *Docker의 핵심 구성 요소: Dockerfile로 이미지를 빌드하고, Registry에 저장하며, Container로 실행*
 
@@ -157,7 +157,7 @@ docker rm my-nginx
 
 ##### **컨테이너 격리 원리**
 
-![컨테이너 격리 메커니즘 - Namespaces, Cgroups, Union File Systems](/assets/images/diagrams/container_isolation_mechanism.png)
+![컨테이너 격리 메커니즘 - Namespaces, Cgroups, Union File Systems](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_3.png)
 
 *컨테이너 격리 원리: Linux 커널의 Namespaces, Cgroups, Union File Systems를 활용한 격리*
 
@@ -184,7 +184,7 @@ docker rm my-nginx
 
 ##### **Kubernetes 핵심 리소스**
 
-![Kubernetes 핵심 리소스 관계도 - Pod, Deployment, Service, Namespace](/assets/images/diagrams/kubernetes_core_resources.png)
+![Kubernetes 핵심 리소스 관계도 - Pod, Deployment, Service, Namespace](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_4.png)
 
 *Kubernetes 핵심 리소스: Pod는 최소 배포 단위, Deployment는 Pod를 관리, Service는 네트워크 엔드포인트 제공*
 
@@ -199,7 +199,7 @@ docker rm my-nginx
 
 ##### **Kubernetes 아키텍처**
 
-![Kubernetes 클러스터 아키텍처 - Control Plane과 Worker Node](/assets/images/diagrams/kubernetes_cluster_architecture.png)
+![Kubernetes 클러스터 아키텍처 - Control Plane과 Worker Node](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_5.png)
 
 *Kubernetes 아키텍처: Control Plane(API Server, etcd, Scheduler)과 Worker Node(kubelet, kube-proxy)로 구성*
 
@@ -218,7 +218,7 @@ docker rm my-nginx
 
 *Mermaid Chart 4*
 
-##### **Kubernetes 리소스 관계도**mermaid
+##### **Kubernetes 리소스 관계도**
 ![mermaid_chart_5](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_5.png)
 
 *Mermaid Chart 5*
@@ -269,38 +269,17 @@ kubectl delete pod <pod-name>
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
 ```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning - Trivy, Snyk"]
-        SecretMgmt["Secret Management - K8s Secrets, Vault"]
-        NonRoot["Non-root User - runAsNonRoot"]
-        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies - Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan -> SecretMgmt
-    SecretMgmt -> NonRoot
-    NonRoot -> ReadOnly
-    ReadOnly -> CapDrop
-    CapDrop -> NetworkPolicy
-    NetworkPolicy -> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
+![mermaid_chart_1](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
 
+*Mermaid Chart 1*
+
+![mermaid_chart_1](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
+
+*Mermaid Chart 1*
 
 ##### **최소 권한 원칙 적용**
 
-![컨테이너 보안 최소 권한 원칙 - 취약한 설정 vs 보안 강화 설정](/assets/images/diagrams/container_security_least_privilege.png)
+![컨테이너 보안 최소 권한 원칙 - 취약한 설정 vs 보안 강화 설정](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_7.png)
 
 *최소 권한 원칙 적용: 비루트 사용자, 읽기 전용 파일시스템, Capabilities 제거, Secret 관리*
 
@@ -334,7 +313,7 @@ CMD ["node", "server.js"]
 
 ##### **이미지 스캔 자동화**
 
-![컨테이너 이미지 스캔 도구 비교 - Trivy, Snyk, Clair](/assets/images/diagrams/container_image_scanning_tools.png)
+![컨테이너 이미지 스캔 도구 비교 - Trivy, Snyk, Clair](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_12.png)
 
 *이미지 스캔 자동화: CI/CD 파이프라인에 통합하여 배포 전 취약점 탐지*
 
@@ -403,7 +382,7 @@ spec:
 
 ##### **Security Context 설정**
 
-![Security Context 개념도 - 비루트 사용자 실행 및 최소 권한 원칙](/assets/images/diagrams/kubernetes_security_context_concept.png)
+![Security Context 개념도 - 비루트 사용자 실행 및 최소 권한 원칙](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_12.png)
 
 *Security Context를 통한 컨테이너 보안 강화: 비루트 사용자 실행, 권한 상승 방지, Capabilities 제거*
 
@@ -455,24 +434,18 @@ Kubernetes 클러스터 보안은 다층 방어 전략으로 접근해야 합니
 
 Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 
-![Pod Security Standards 레벨 - Privileged, Baseline, Restricted](/assets/images/diagrams/pod_security_standards_levels.png)
+![Pod Security Standards 레벨 - Privileged, Baseline, Restricted](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_13.png)
 
 *Pod Security Standards: Privileged(제한 없음) → Baseline(최소 보안) → Restricted(강력한 보안)*
 
 ```mermaid
-graph LR
-    Privileged["Privileged - No restrictions - System Pods"]
-    Baseline["Baseline - Minimal security - General Apps"]
-    Restricted["Restricted - Strongest policies - Sensitive Workloads"]
-    
-    Privileged -> Baseline
-    Baseline -> Restricted
-    
-    style Privileged fill:#ffebee
-    style Baseline fill:#fff4e1
-    style Restricted fill:#e8f5e9
-```
+![mermaid_chart_2](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
 
+*Mermaid Chart 2*
+
+![mermaid_chart_2](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
+
+*Mermaid Chart 2*
 
 | 레벨 | 설명 | 적용 예시 |
 |------|------|----------|
@@ -519,27 +492,13 @@ spec:
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
 ```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User - UID 0"]
-        HostUser["Host Non-root User - UID 1000"]
-    end
-    
-    subgraph Container["Container"]
-        ContainerRoot["Container Root - UID 0"]
-        ContainerApp["Container App - UID 1000"]
-    end
-    
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
-```
+![mermaid_chart_3](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_3.png)
 
+*Mermaid Chart 3*
+
+![mermaid_chart_3](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_3.png)
+
+*Mermaid Chart 3*
 
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다.
 
@@ -587,7 +546,7 @@ spec:
 
 ##### **네트워크 트래픽 제어**
 
-![Network Policy 동작 원리 - Ingress, Egress, Default Deny](/assets/images/diagrams/network_policy_concept.png)
+![Network Policy 동작 원리 - Ingress, Egress, Default Deny](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_10.png)
 
 *Network Policy를 통한 Pod 간 통신 제어: Ingress(들어오는 트래픽), Egress(나가는 트래픽), Default Deny(기본 거부)*
 
@@ -603,8 +562,29 @@ Network Policies를 통해 Pod 간 통신을 제어하여 방어 깊이를 강�
 
 ![mermaid_chart_10](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_10.png)
 
-*Mermaid Chart 10*yaml
-# Network Policy 예시
+*Mermaid Chart 10*
+
+> **참고**: Network Policy 설정 예시는 [Kubernetes Network Policies 공식 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Kubernetes 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```yaml
+# Network Policy 예시 (간단한 버전)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: app-network-policy
+  namespace: production
+spec:
+  podSelector:
+    matchLabels:
+      app: myapp
+  policyTypes:
+  - Ingress
+  - Egress
+```
+
+<!-- 전체 Network Policy 설정은 위 링크 참조
+```yaml
+# Network Policy 예시 (전체)
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -637,12 +617,13 @@ spec:
     - protocol: TCP
       port: 5432
 ```
+-->
 
 #### **3.4 RBAC 최소 권한 원칙**
 
 ##### **역할 기반 접근 제어**
 
-![RBAC 구조 - User/ServiceAccount → RoleBinding → Role → Resources](/assets/images/diagrams/rbac_structure.png)
+![RBAC 구조 - User/ServiceAccount → RoleBinding → Role → Resources](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_11.png)
 
 *RBAC 최소 권한 원칙: 사용자/서비스 계정이 Role을 통해 필요한 리소스에만 접근*
 
@@ -656,7 +637,7 @@ spec:
 
 ![mermaid_chart_11](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_11.png)
 
-*Mermaid Chart 11*yaml
+*Mermaid Chart 11*
 # RBAC 예시
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -706,18 +687,31 @@ roleRef:
 
 *Mermaid Chart 12*
 
-> **참고**: 이미지 서명 및 검증은 [Docker Content Trust 문서](https://docs.docker.com/engine/security/trust/) 및 [Cosign GitHub 저장소](https://github.com/sigstore/cosign)를 참조하세요.yaml
+> **참고**: 이미지 서명 및 검증은 [Docker Content Trust 문서](https://docs.docker.com/engine/security/trust/) 및 [Cosign GitHub 저장소](https://github.com/sigstore/cosign)를 참조하세요.
+
+```bash
+# Cosign을 사용한 이미지 서명 및 검증 (간단한 예시)
+cosign sign --key cosign.key myregistry.io/myapp:v1.0.0
+cosign verify --key cosign.pub myregistry.io/myapp:v1.0.0
+```
+
+<!-- 전체 Cosign 사용 예시는 위 GitHub 링크 참조
+```bash
 # Cosign을 사용한 이미지 서명 예시
 # 이미지 서명
 cosign sign --key cosign.key myregistry.io/myapp:v1.0.0
 
 # 이미지 검증
 cosign verify --key cosign.pub myregistry.io/myapp:v1.0.0
+
+# 추가 옵션 및 고급 사용법은 위 링크 참조
+```
+-->
 ```
 
 #### **4.2 최소 권한 이미지 사용**
 
-![컨테이너 이미지 비교 - Full OS vs Minimal vs Distroless](/assets/images/diagrams/container_image_comparison.png)
+![컨테이너 이미지 비교 - Full OS vs Minimal vs Distroless](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_13.png)
 
 *컨테이너 이미지 유형 비교: Full OS 이미지(무거움, 많은 취약점) → Minimal 이미지(Alpine, 경량) → Distroless 이미지(최소 권한, 최고 보안)*
 
@@ -802,13 +796,28 @@ spec:
 | **컨테이너 로그 수집** | Pod 로그 중앙 수집 및 분석 | ELK Stack, Loki | 로그 수집 파이프라인 |
 | **보안 이벤트 모니터링** | 보안 관련 이벤트 실시간 모니터링 | Prometheus, Grafana | 메트릭 수집 및 알림 |
 
-##### **보안 감사 및 로깅 아키텍처**mermaid
+##### **보안 감사 및 로깅 아키텍처**
 ![mermaid_chart_15](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_15.png)
 
 *Mermaid Chart 15*
 
+> **참고**: Kubernetes Audit Policy 설정은 [Kubernetes Audit 문서](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/) 및 [Kubernetes 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```yaml
-# Kubernetes Audit Policy 예시
+# Kubernetes Audit Policy 예시 (간단한 버전)
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+- level: Metadata
+  namespaces: ["production"]
+  resources:
+  - group: ""
+    resources: ["secrets", "configmaps"]
+```
+
+<!-- 전체 Audit Policy 설정은 위 링크 참조
+```yaml
+# Kubernetes Audit Policy 예시 (전체)
 apiVersion: audit.k8s.io/v1
 kind: Policy
 rules:
@@ -823,6 +832,7 @@ rules:
   - group: ""
     resources: ["pods", "deployments"]
 ```
+-->
 
 #### **4.6 자동화된 보안 검증 (CI/CD 통합)**
 

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 """
+⚠️ DEPRECATED: 이 스크립트는 더 이상 사용되지 않습니다.
+대신 `verify_images_unified.py`를 사용하세요.
+
 이미지 파일 검증 스크립트
 - 이미지 파일 존재 여부 확인
 - 이미지 파일명이 영어로 되어 있는지 확인

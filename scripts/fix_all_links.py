@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 """
+⚠️ DEPRECATED: 이 스크립트는 더 이상 사용되지 않습니다.
+대신 `fix_links_unified.py`를 사용하세요.
+
 모든 포스트 파일의 부적절한 링크를 적절한 링크로 교체하는 스크립트
 """
 import re

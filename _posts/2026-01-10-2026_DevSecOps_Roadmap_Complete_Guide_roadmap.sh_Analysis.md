@@ -80,10 +80,73 @@ toc: true
 
 기초 프로그래밍부터 고급 거버넌스까지, DevSecOps 전문가가 되기 위한 완벽한 가이드를 제공합니다.
 
-<figure>
-<img src="{{ '/assets/images/diagrams/diagram_devsecops_roadmap.png' | relative_url }}" alt="DevSecOps Learning Roadmap 2026" loading="lazy" class="post-image">
-<figcaption>DevSecOps 학습 로드맵 2026 - Python diagrams로 생성</figcaption>
-</figure>
+```mermaid
+graph LR
+    subgraph Stage1["Stage 1: Foundation (0-6 months)"]
+        direction TB
+        S1_Linux["Linux/Networking"]
+        S1_Security["Security Basics<br/>OWASP Top 10"]
+        S1_Programming["Programming<br/>Python, Bash, Go"]
+    end
+    
+    subgraph Stage2["Stage 2: Tools (6-12 months)"]
+        direction TB
+        S2_SCA["SCA<br/>Trivy, Dependabot"]
+        S2_DAST["DAST<br/>Burp Suite, ZAP"]
+        S2_SAST["SAST<br/>CodeQL, Semgrep"]
+    end
+    
+    subgraph Stage3["Stage 3: Platform (12-18 months)"]
+        direction TB
+        S3_CICD["CI/CD Security<br/>GitHub Actions"]
+        S3_Container["Container Security<br/>Docker, K8s"]
+        S3_Cloud["Cloud Security<br/>AWS, GCP, Azure"]
+    end
+    
+    subgraph Stage4["Stage 4: Advanced (18-24 months)"]
+        direction TB
+        S4_Governance["Governance<br/>NIST CSF 2.0"]
+        S4_IR["Incident Response<br/>SIEM, SOAR"]
+        S4_Threat["Threat Modeling<br/>STRIDE, PASTA"]
+    end
+    
+    subgraph Stage5["Stage 5: Expert (24+ months)"]
+        direction TB
+        S5_Architect["Security Architect<br/>Enterprise Design"]
+        S5_Leadership["Security Leadership<br/>Strategy & Culture"]
+    end
+    
+    %% Stage 1 to Stage 2
+    S1_Linux --> S2_SCA
+    S1_Security --> S2_DAST
+    S1_Programming --> S2_SAST
+    
+    %% Stage 2 to Stage 3
+    S2_SCA --> S3_CICD
+    S2_DAST --> S3_Container
+    S2_SAST --> S3_Cloud
+    
+    %% Stage 3 to Stage 4
+    S3_CICD --> S4_Governance
+    S3_Container --> S4_IR
+    S3_Cloud --> S4_Threat
+    
+    %% Stage 4 to Stage 5
+    S4_Governance --> S5_Leadership
+    S4_IR --> S5_Architect
+    S4_Threat --> S5_Architect
+    
+    %% Additional connections
+    S3_Cloud --> S4_Governance
+    
+    style Stage1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Stage2 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style Stage3 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Stage4 fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style Stage5 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+```
+
+*DevSecOps 학습 로드맵 2026*
 
 ## 📊 빠른 참조
 
