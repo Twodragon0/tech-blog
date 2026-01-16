@@ -70,28 +70,41 @@ certifications: [isms-p]
 
 GCP 클라우드 환경에서 보안을 강화하기 위해서는 IAM부터 GKE까지 모든 서비스 계층에서 Defense in Depth 전략을 적용해야 합니다. 이 포스팅은 **SK Shieldus의 2024년 GCP 클라우드 보안 가이드**를 기반으로, 실무에서 즉시 활용 가능한 GCP 보안 아키텍처 설계 및 구현 가이드를 제공합니다.
 
-주요 GCP 서비스별 보안 모범 사례와 코드 예제, 보안 체크리스트를 포함하여 실무 중심의 보안 구축 방법을 제시합니다.User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
+주요 GCP 서비스별 보안 모범 사례와 코드 예제, 보안 체크리스트를 포함하여 실무 중심의 보안 구축 방법을 제시합니다.
+
+### User Namespaces 보안: Before vs After
+
+User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
 ```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User - UID 0"]
-        HostUser["Host Non-root User - UID 1000"]
+graph LR
+    subgraph After["After: User Namespaces Isolation"]
+        HostOS1["Host OS"]
+        UserNSMapping["User Namespace Mapping"]
+        Pod1["Pod<br/>Container (root in namespace)"]
+        EscapeBlocked["Escape Blocked<br/>Non-privileged User"]
+        
+        HostOS1 --> UserNSMapping
+        UserNSMapping --> Pod1
+        Pod1 --> EscapeBlocked
     end
     
-    subgraph Container["Container"]
-        ContainerRoot["Container Root - UID 0"]
-        ContainerApp["Container App - UID 1000"]
+    subgraph Before["Before: Container Escape = Host Root"]
+        HostOS2["Host OS"]
+        Pod2["Pod<br/>Container (root)"]
+        EscapeRoot["Escape = Root Access"]
+        
+        HostOS2 --> Pod2
+        Pod2 --> EscapeRoot
     end
     
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
+    style HostOS1 fill:#e1f5ff
+    style UserNSMapping fill:#e8f5e9
+    style Pod1 fill:#fff4e1
+    style EscapeBlocked fill:#c8e6c9
+    style HostOS2 fill:#e1f5ff
+    style Pod2 fill:#ffebee
+    style EscapeRoot fill:#ffcdd2
 ```
 
 ## 📊 빠른 참조
@@ -602,12 +615,12 @@ Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 
 ```mermaid
 graph LR
-    Privileged["Privileged - No restrictions - System Pods"]
-    Baseline["Baseline - Minimal security - General Apps"]
-    Restricted["Restricted - Strongest policies - Sensitive Workloads"]
+    Privileged["Privileged<br/>No restrictions"]
+    Baseline["Baseline<br/>Minimal security requirements"]
+    Restricted["Restricted<br/>Strongest security policies"]
     
-    Privileged -> Baseline
-    Baseline -> Restricted
+    Privileged --> Baseline
+    Baseline --> Restricted
     
     style Privileged fill:#ffebee
     style Baseline fill:#fff4e1

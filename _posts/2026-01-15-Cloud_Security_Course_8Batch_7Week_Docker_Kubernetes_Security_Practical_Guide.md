@@ -269,13 +269,33 @@ kubectl delete pod <pod-name>
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
 ```mermaid
-![mermaid_chart_1](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
-
-*Mermaid Chart 1*
-
-![mermaid_chart_1](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
-
-*Mermaid Chart 1*
+graph TB
+    SecurityLayers["Security Layers"]
+    ImageScan["Image Scanning<br/>Trivy, Snyk"]
+    SecretMgmt["Secret Management<br/>K8s Secrets, Vault"]
+    NonRoot["Non-root User<br/>runAsNonRoot"]
+    ReadOnly["Read-only Filesystem<br/>readOnlyRootFilesystem"]
+    CapDrop["Capabilities Drop<br/>capabilities.drop: ALL"]
+    NetworkPolicy["Network Policies<br/>Pod Isolation"]
+    Pod["Pod<br/>Application Container"]
+    
+    SecurityLayers --> ImageScan
+    ImageScan --> SecretMgmt
+    SecretMgmt --> NonRoot
+    NonRoot --> ReadOnly
+    ReadOnly --> CapDrop
+    CapDrop --> NetworkPolicy
+    NetworkPolicy --> Pod
+    
+    style SecurityLayers fill:#e1f5ff
+    style ImageScan fill:#e1f5ff
+    style SecretMgmt fill:#e1f5ff
+    style NonRoot fill:#e1f5ff
+    style ReadOnly fill:#e1f5ff
+    style CapDrop fill:#e1f5ff
+    style NetworkPolicy fill:#e1f5ff
+    style Pod fill:#fff4e1
+```
 
 ##### **최소 권한 원칙 적용**
 
