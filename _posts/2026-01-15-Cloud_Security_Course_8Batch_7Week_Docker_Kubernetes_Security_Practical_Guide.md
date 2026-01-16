@@ -97,6 +97,10 @@ category: kubernetes
 
 ##### **Docker의 핵심 구성 요소**
 
+![Docker 핵심 구성 요소 - Image, Container, Dockerfile, Registry](/assets/images/diagrams/docker_core_components.png)
+
+*Docker의 핵심 구성 요소: Dockerfile로 이미지를 빌드하고, Registry에 저장하며, Container로 실행*
+
 | 개념 | 설명 | 비유 |
 |------|------|------|
 | **Image** | 컨테이너 실행에 필요한 파일과 설정을 포함한 템플릿 | 빵을 만드는 레시피 |
@@ -169,6 +173,10 @@ docker rm my-nginx
 
 ##### **VM vs Container 비교**
 
+![VM vs Container 아키텍처 비교](/assets/images/diagrams/vm_vs_container_comparison.png)
+
+*가상머신과 컨테이너의 차이: VM은 전체 OS를 포함하지만, Container는 호스트 커널을 공유하여 경량화*
+
 | 항목 | 가상머신(VM) | 컨테이너 |
 |------|------------|---------|
 | **실행 단위** | 전체 OS 포함 | 앱 + 라이브러리 |
@@ -179,6 +187,10 @@ docker rm my-nginx
 | **시작 시간** | 느림 (분 단위) | 빠름 (초 단위) |
 
 ##### **컨테이너 격리 원리**
+
+![컨테이너 격리 메커니즘 - Namespaces, Cgroups, Union File Systems](/assets/images/diagrams/container_isolation_mechanism.png)
+
+*컨테이너 격리 원리: Linux 커널의 Namespaces, Cgroups, Union File Systems를 활용한 격리*
 
 컨테이너는 Linux 커널의 다음 기능을 활용하여 격리를 제공합니다:
 
@@ -296,6 +308,10 @@ graph TB
 
 ##### **Kubernetes 핵심 리소스**
 
+![Kubernetes 핵심 리소스 관계도 - Pod, Deployment, Service, Namespace](/assets/images/diagrams/kubernetes_core_resources.png)
+
+*Kubernetes 핵심 리소스: Pod는 최소 배포 단위, Deployment는 Pod를 관리, Service는 네트워크 엔드포인트 제공*
+
 | 리소스 | 설명 | 비유 |
 |--------|------|------|
 | **Pod** | 하나 이상의 컨테이너로 구성된 최소 배포 단위 | 컨테이너를 담는 상자 |
@@ -306,6 +322,10 @@ graph TB
 | **Secret** | 민감한 데이터를 저장하는 리소스 | 비밀 정보 저장소 |
 
 ##### **Kubernetes 아키텍처**
+
+![Kubernetes 클러스터 아키텍처 - Control Plane과 Worker Node](/assets/images/diagrams/kubernetes_cluster_architecture.png)
+
+*Kubernetes 아키텍처: Control Plane(API Server, etcd, Scheduler)과 Worker Node(kubelet, kube-proxy)로 구성*
 
 | 구성 요소 | 설명 | 역할 |
 |----------|------|------|
@@ -498,6 +518,10 @@ graph TB
 
 ##### **최소 권한 원칙 적용**
 
+![컨테이너 보안 최소 권한 원칙 - 취약한 설정 vs 보안 강화 설정](/assets/images/diagrams/container_security_least_privilege.png)
+
+*최소 권한 원칙 적용: 비루트 사용자, 읽기 전용 파일시스템, Capabilities 제거, Secret 관리*
+
 | 보안 항목 | 취약한 예시 | 보안 강화 예시 | 설명 |
 |----------|-----------|--------------|------|
 | **사용자 권한** | `USER root` | `USER 1000:1000` | 비루트 사용자로 실행 |
@@ -527,6 +551,10 @@ CMD ["node", "server.js"]
 ```
 
 ##### **이미지 스캔 자동화**
+
+![컨테이너 이미지 스캔 도구 비교 - Trivy, Snyk, Clair](/assets/images/diagrams/container_image_scanning_tools.png)
+
+*이미지 스캔 자동화: CI/CD 파이프라인에 통합하여 배포 전 취약점 탐지*
 
 | 도구 | 설명 | CI/CD 통합 | 특징 |
 |------|------|-----------|------|
@@ -640,6 +668,10 @@ spec:
 
 ##### **Security Context 설정**
 
+![Security Context 개념도 - 비루트 사용자 실행 및 최소 권한 원칙](/assets/images/diagrams/kubernetes_security_context_concept.png)
+
+*Security Context를 통한 컨테이너 보안 강화: 비루트 사용자 실행, 권한 상승 방지, Capabilities 제거*
+
 | 설정 항목 | 설명 | 보안 효과 |
 |----------|------|----------|
 | `runAsNonRoot: true` | 루트 사용자 실행 방지 | 권한 상승 공격 방어 |
@@ -687,6 +719,10 @@ Kubernetes 클러스터 보안은 다층 방어 전략으로 접근해야 합니
 ##### **PSS 레벨별 정책**
 
 Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
+
+![Pod Security Standards 레벨 - Privileged, Baseline, Restricted](/assets/images/diagrams/pod_security_standards_levels.png)
+
+*Pod Security Standards: Privileged(제한 없음) → Baseline(최소 보안) → Restricted(강력한 보안)*
 
 ```mermaid
 graph LR
@@ -816,6 +852,10 @@ spec:
 
 ##### **네트워크 트래픽 제어**
 
+![Network Policy 동작 원리 - Ingress, Egress, Default Deny](/assets/images/diagrams/network_policy_concept.png)
+
+*Network Policy를 통한 Pod 간 통신 제어: Ingress(들어오는 트래픽), Egress(나가는 트래픽), Default Deny(기본 거부)*
+
 Network Policies를 통해 Pod 간 통신을 제어하여 방어 깊이를 강화합니다.
 
 | 정책 유형 | 설명 | 적용 예시 |
@@ -905,6 +945,10 @@ spec:
 #### **3.4 RBAC 최소 권한 원칙**
 
 ##### **역할 기반 접근 제어**
+
+![RBAC 구조 - User/ServiceAccount → RoleBinding → Role → Resources](/assets/images/diagrams/rbac_structure.png)
+
+*RBAC 최소 권한 원칙: 사용자/서비스 계정이 Role을 통해 필요한 리소스에만 접근*
 
 | 역할 | 권한 | 설명 |
 |------|------|------|
@@ -1058,6 +1102,10 @@ cosign verify --key cosign.pub myregistry.io/myapp:v1.0.0
 ```
 
 #### **4.2 최소 권한 이미지 사용**
+
+![컨테이너 이미지 비교 - Full OS vs Minimal vs Distroless](/assets/images/diagrams/container_image_comparison.png)
+
+*컨테이너 이미지 유형 비교: Full OS 이미지(무거움, 많은 취약점) → Minimal 이미지(Alpine, 경량) → Distroless 이미지(최소 권한, 최고 보안)*
 
 | 원칙 | 설명 | 적용 방법 |
 |------|------|----------|
@@ -1355,7 +1403,7 @@ rules:
 | **mTLS Pod Certificates (Stable)** | 예상 | Pod 간 mTLS 안정화 |
 | **Enhanced Pod Security** | 예상 | 추가 보안 기능 강화 |
 
-> **참고**: Kubernetes 최신 릴리스 정보는 [Kubernetes 릴리스 노트](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/) 및 [Kubernetes 공식 문서](https://kubernetes.io/docs/)를 참조하세요.
+> **참고**: Kubernetes 최신 릴리스 정보는 [Kubernetes 릴리스 노트](https://github.com/kubernetes/kubernetes) 및 [Kubernetes 공식 문서](https://kubernetes.io/docs/)를 참조하세요.
 
 ##### **Minikube 1.37.0+ 보안 기능 (2025-2026)**
 
