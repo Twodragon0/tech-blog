@@ -126,13 +126,21 @@ def create_email_content(frontmatter: dict, post_url: str, post_content: str = N
 
     # Format date
     date_str = ""
+    date_short = ""
     if filename:
         date_str = format_date_from_filename(filename)
+        # Extract short date (YYYY-MM-DD) for subject
+        match = re.match(r'(\d{4})-(\d{2})-(\d{2})', filename)
+        if match:
+            date_short = match.group(0)  # YYYY-MM-DD format
 
-    # Email subject (remove emoji from title if present to avoid duplication)
-    # Keep title as is, but add prefix
+    # Email subject with date to avoid duplicate detection
+    # Add date to subject to make it unique if post is updated
     clean_title = title
-    subject = f"📢 새 글: {clean_title}"
+    if date_short:
+        subject = f"📢 새 글 ({date_short}): {clean_title}"
+    else:
+        subject = f"📢 새 글: {clean_title}"
 
     # Email body (Markdown format with improved UI/UX)
     body_parts = [
@@ -202,7 +210,10 @@ def create_email_content(frontmatter: dict, post_url: str, post_content: str = N
         "",
     ])
 
-    # Footer
+    # Footer with timestamp to avoid duplicate detection
+    from datetime import datetime
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
     body_parts.extend([
         "---",
         "",
@@ -214,7 +225,7 @@ def create_email_content(frontmatter: dict, post_url: str, post_content: str = N
         "",
         "---",
         "",
-        "<small>구독 해지를 원하시면 이메일 하단의 링크를 클릭하세요.</small>",
+        f"<small>발송 시간: {current_time} | 구독 해지를 원하시면 이메일 하단의 링크를 클릭하세요.</small>",
     ])
 
     body = "\n".join(body_parts)
