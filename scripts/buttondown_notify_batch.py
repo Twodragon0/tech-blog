@@ -32,12 +32,25 @@ def main():
     api_key = os.environ.get('BUTTONDOWN_API_KEY')
     site_url = os.environ.get('SITE_URL', 'https://tech.2twodragon.com')
     
+    # Debug logging
+    print("🔍 Debug: Environment variables")
+    print(f"   POSTS_JSON length: {len(posts_json)}")
+    print(f"   POSTS_JSON (first 200 chars): {posts_json[:200]}...")
+    print(f"   BUTTONDOWN_API_KEY: {'set' if api_key else 'not set'}")
+    print(f"   SITE_URL: {site_url}")
+    print("")
+    
     if not api_key:
         print("❌ BUTTONDOWN_API_KEY environment variable not set")
         sys.exit(1)
     
     if not posts_json or posts_json == '[]':
         print("❌ No post files specified")
+        print(f"   POSTS_JSON value: {posts_json}")
+        print("   This might happen if:")
+        print("   1. No new posts were added (only existing posts were modified)")
+        print("   2. The workflow didn't detect any changes")
+        print("   3. The POSTS_JSON environment variable wasn't set correctly")
         sys.exit(1)
     
     try:
