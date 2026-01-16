@@ -330,6 +330,7 @@
   width: 32px;
   height: 32px;
   padding: 0;
+  margin: 0;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 6px;
@@ -339,11 +340,39 @@
   transition: all 0.2s ease;
   z-index: 20;
   backdrop-filter: blur(4px);
+  /* Safari/iPhone 호환성 */
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1;
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .highlight:hover .copy-code-btn,
-.copy-code-btn:focus {
+.copy-code-btn:focus,
+.copy-code-btn:focus-visible {
   opacity: 1;
+}
+
+/* 모바일/터치 디바이스에서 항상 버튼 표시 (hover가 작동하지 않으므로) */
+@media (hover: none) and (pointer: coarse) {
+  .copy-code-btn {
+    opacity: 0.7;
+  }
+  
+  .copy-code-btn:active,
+  .copy-code-btn.copied,
+  .copy-code-btn.error {
+    opacity: 1;
+  }
 }
 
 .copy-code-btn:hover {
@@ -355,6 +384,8 @@
 
 .copy-code-btn:active {
   transform: scale(0.95);
+  /* Safari에서 active 상태 시각적 피드백 개선 */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .copy-code-btn.copied {
@@ -375,6 +406,21 @@
   width: 16px;
   height: 16px;
   stroke-width: 2;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Safari에서 버튼 텍스트 스타일 정규화 */
+.copy-code-btn {
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Safari에서 버튼 내부 요소 정렬 보정 */
+.copy-code-btn::before,
+.copy-code-btn::after {
+  content: none;
 }
 
 /* Light theme adjustments */
@@ -758,6 +804,14 @@ body {
   transition: all 0.2s ease;
   z-index: 9999;
   pointer-events: none;
+  /* iPhone Safari 웹앱 호환성 */
+  -webkit-transform: translateY(-8px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Google Translate가 텍스트 노드를 직접 추가해도 레이아웃 유지 */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .lang-dropdown.active {
@@ -783,6 +837,17 @@ body {
   min-height: 44px;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  /* iPhone Safari 웹앱 호환성 */
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Google Translate가 텍스트 노드를 직접 추가해도 레이아웃 유지 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* flexbox가 깨지지 않도록 */
+  flex-shrink: 0;
 }
 
 .lang-option:hover,
@@ -902,6 +967,20 @@ iframe[class*="goog-te"],
   pointer-events: none !important;
 }
 
+/* Google Translate가 lang-dropdown에 텍스트 노드를 직접 추가하는 경우 처리 */
+.lang-dropdown > text,
+.lang-dropdown > font {
+  display: none !important;
+}
+
+/* lang-option 내부의 직접 텍스트 노드 처리 */
+.lang-option > text {
+  display: inline !important;
+  white-space: nowrap !important;
+}
+
+/* lang-dropdown 구조는 JavaScript로 처리 */
+
 /* Ensure lang-toggle and its children are clickable */
 .lang-toggle,
 .lang-toggle * {
@@ -922,6 +1001,18 @@ iframe[class*="goog-te"],
 .lang-option font * {
   pointer-events: none !important;
 }
+
+/* Google Translate가 lang-option의 구조를 변경해도 레이아웃 유지 */
+/* 텍스트만 있는 경우에도 flexbox 유지 (JavaScript로 처리) */
+.lang-option {
+  /* 항상 flexbox 유지 */
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* lang-option 내부에 span이 없는 경우를 위한 플레이스홀더 */
+/* JavaScript로 처리하므로 CSS는 기본 스타일만 유지 */
 
 /* Ensure lang-toggle maintains proper flex layout */
 .lang-toggle {
@@ -961,6 +1052,14 @@ iframe[class*="goog-te"],
 
 /* Tablet responsive */
 @media (max-width: 1024px) {
+  .lang-dropdown-overlay {
+    display: block !important;
+    /* iPhone Safari 웹앱 호환성 */
+    position: fixed !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
   .lang-dropdown {
     position: fixed !important;
     top: auto !important;
@@ -975,17 +1074,22 @@ iframe[class*="goog-te"],
     border-bottom: none !important;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2) !important;
     transform: translateY(100%) !important;
+    -webkit-transform: translateY(100%) !important;
     max-height: 50vh !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
+    /* iPhone Safari 웹앱 호환성 */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+    /* Google Translate가 텍스트 노드를 직접 추가해도 레이아웃 유지 */
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .lang-dropdown.active {
     transform: translateY(0) !important;
-  }
-
-  .lang-dropdown-overlay {
-    display: block !important;
+    -webkit-transform: translateY(0) !important;
   }
 }
 
@@ -1013,6 +1117,10 @@ iframe[class*="goog-te"],
   /* Mobile: Full-width bottom sheet style */
   .lang-dropdown-overlay {
     display: block !important;
+    /* iPhone Safari 웹앱 호환성 */
+    position: fixed !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   .lang-dropdown {
@@ -1030,13 +1138,22 @@ iframe[class*="goog-te"],
     border-bottom: none !important;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2) !important;
     transform: translateY(100%) !important;
+    -webkit-transform: translateY(100%) !important;
     max-height: 50vh !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
+    /* iPhone Safari 웹앱 호환성 */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+    /* Google Translate가 텍스트 노드를 직접 추가해도 레이아웃 유지 */
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .lang-dropdown.active {
     transform: translateY(0) !important;
+    -webkit-transform: translateY(0) !important;
   }
 
   .lang-option {
