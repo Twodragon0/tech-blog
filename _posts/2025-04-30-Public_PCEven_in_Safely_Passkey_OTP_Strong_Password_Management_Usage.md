@@ -75,26 +75,26 @@ image_alt: "Safely on Public PC: Passkey OTP Strong Password Management Usage"
 ```mermaid
 graph LR
     subgraph Dev["Dev Phase"]
-        Code["Code<br/>Secure Dockerfile"]
-        Build["Build<br/>Image Scanning"]
+        Code["Code - Secure Dockerfile"]
+        Build["Build - Image Scanning"]
     end
     
     subgraph Sec["Sec Phase"]
-        Scan["Security Scan<br/>Trivy, Snyk"]
-        Policy["Policy Check<br/>K8s YAML Validation"]
+        Scan["Security Scan - Trivy, Snyk"]
+        Policy["Policy Check - K8s YAML Validation"]
     end
     
     subgraph Ops["Ops Phase"]
-        Deploy["Deploy<br/>Secure Deployment"]
-        Monitor["Monitor<br/>Runtime Security"]
+        Deploy["Deploy - Secure Deployment"]
+        Monitor["Monitor - Runtime Security"]
     end
     
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
+    Code -> Build
+    Build -> Scan
+    Scan -> Policy
+    Policy -> Deploy
+    Deploy -> Monitor
+    Monitor -> Code
     
     style Code fill:#e1f5ff
     style Build fill:#fff4e1
@@ -145,22 +145,22 @@ graph LR
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning<br/>Trivy, Snyk"]
-        SecretMgmt["Secret Management<br/>K8s Secrets, Vault"]
-        NonRoot["Non-root User<br/>runAsNonRoot"]
-        ReadOnly["Read-only Filesystem<br/>readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop<br/>capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies<br/>Pod Isolation"]
+        ImageScan["Image Scanning - Trivy, Snyk"]
+        SecretMgmt["Secret Management - K8s Secrets, Vault"]
+        NonRoot["Non-root User - runAsNonRoot"]
+        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies - Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
+    ImageScan -> SecretMgmt
+    SecretMgmt -> NonRoot
+    NonRoot -> ReadOnly
+    ReadOnly -> CapDrop
+    CapDrop -> NetworkPolicy
+    NetworkPolicy -> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff

@@ -102,22 +102,22 @@ toc: true
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning<br/>Trivy, Snyk"]
-        SecretMgmt["Secret Management<br/>K8s Secrets, Vault"]
-        NonRoot["Non-root User<br/>runAsNonRoot"]
-        ReadOnly["Read-only Filesystem<br/>readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop<br/>capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies<br/>Pod Isolation"]
+        ImageScan["Image Scanning - Trivy, Snyk"]
+        SecretMgmt["Secret Management - K8s Secrets, Vault"]
+        NonRoot["Non-root User - runAsNonRoot"]
+        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies - Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
+    ImageScan -> SecretMgmt
+    SecretMgmt -> NonRoot
+    NonRoot -> ReadOnly
+    ReadOnly -> CapDrop
+    CapDrop -> NetworkPolicy
+    NetworkPolicy -> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff

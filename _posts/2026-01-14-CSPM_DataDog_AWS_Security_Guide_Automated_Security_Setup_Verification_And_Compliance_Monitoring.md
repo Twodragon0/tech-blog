@@ -171,22 +171,22 @@ Resources:
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning<br/>Trivy, Snyk"]
-        SecretMgmt["Secret Management<br/>K8s Secrets, Vault"]
-        NonRoot["Non-root User<br/>runAsNonRoot"]
-        ReadOnly["Read-only Filesystem<br/>readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop<br/>capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies<br/>Pod Isolation"]
+        ImageScan["Image Scanning - Trivy, Snyk"]
+        SecretMgmt["Secret Management - K8s Secrets, Vault"]
+        NonRoot["Non-root User - runAsNonRoot"]
+        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies - Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
+    ImageScan -> SecretMgmt
+    SecretMgmt -> NonRoot
+    NonRoot -> ReadOnly
+    ReadOnly -> CapDrop
+    CapDrop -> NetworkPolicy
+    NetworkPolicy -> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
@@ -294,26 +294,26 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 ```mermaid
 graph LR
     subgraph Detection["Detection Phase"]
-        CSPM["DataDog CSPM<br/>Misconfiguration Detection"]
-        RiskEval["Risk Assessment<br/>Priority Ranking"]
+        CSPM["DataDog CSPM - Misconfiguration Detection"]
+        RiskEval["Risk Assessment - Priority Ranking"]
     end
     
     subgraph AutoRemediation["Auto Remediation"]
-        AutoFix["Auto Fix<br/>Automated Remediation"]
-        ManualReview["Manual Review<br/>Alert & Notification"]
+        AutoFix["Auto Fix - Automated Remediation"]
+        ManualReview["Manual Review - Alert & Notification"]
     end
     
     subgraph Validation["Validation Phase"]
-        Verify["Verification<br/>Re-scan & Validate"]
-        Report["Report<br/>Compliance Report"]
+        Verify["Verification - Re-scan & Validate"]
+        Report["Report - Compliance Report"]
     end
     
-    CSPM --> RiskEval
-    RiskEval --> AutoFix
-    RiskEval --> ManualReview
-    AutoFix --> Verify
-    ManualReview --> Verify
-    Verify --> Report
+    CSPM -> RiskEval
+    RiskEval -> AutoFix
+    RiskEval -> ManualReview
+    AutoFix -> Verify
+    ManualReview -> Verify
+    Verify -> Report
     
     style CSPM fill:#e1f5ff
     style RiskEval fill:#fff4e1

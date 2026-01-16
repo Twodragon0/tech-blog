@@ -301,13 +301,13 @@ image_alt: "DevSecOps Viewing Automotive Security Complete Guide: Connected Car 
 ```mermaid
 graph LR
     subgraph LIFECYCLE["DevSecOps 라이프사이클"]
-        PLAN[Plan] --> CODE[Code]
-        CODE --> BUILD[Build]
-        BUILD --> TEST[Test]
-        TEST --> RELEASE[Release]
-        RELEASE --> DEPLOY[Deploy]
-        DEPLOY --> MONITOR[Monitor]
-        MONITOR -->|피드백| PLAN
+        PLAN[Plan] -> CODE[Code]
+        CODE -> BUILD[Build]
+        BUILD -> TEST[Test]
+        TEST -> RELEASE[Release]
+        RELEASE -> DEPLOY[Deploy]
+        DEPLOY -> MONITOR[Monitor]
+        MONITOR ->|피드백| PLAN
     end
 
     subgraph SECURITY["보안 활동"]
@@ -320,13 +320,13 @@ graph LR
         S7[런타임 보안]
     end
 
-    PLAN --> S1
-    CODE --> S2
-    BUILD --> S3
-    TEST --> S4
-    RELEASE --> S5
-    DEPLOY --> S6
-    MONITOR --> S7
+    PLAN -> S1
+    CODE -> S2
+    BUILD -> S3
+    TEST -> S4
+    RELEASE -> S5
+    DEPLOY -> S6
+    MONITOR -> S7
 ```
 
 각 단계별 보안 활동:

@@ -77,26 +77,26 @@ toc: true
 ```mermaid
 graph LR
     subgraph Dev["Dev Phase"]
-        Code["Code<br/>Secure Dockerfile"]
-        Build["Build<br/>Image Scanning"]
+        Code["Code - Secure Dockerfile"]
+        Build["Build - Image Scanning"]
     end
     
     subgraph Sec["Sec Phase"]
-        Scan["Security Scan<br/>Trivy, Snyk"]
-        Policy["Policy Check<br/>K8s YAML Validation"]
+        Scan["Security Scan - Trivy, Snyk"]
+        Policy["Policy Check - K8s YAML Validation"]
     end
     
     subgraph Ops["Ops Phase"]
-        Deploy["Deploy<br/>Secure Deployment"]
-        Monitor["Monitor<br/>Runtime Security"]
+        Deploy["Deploy - Secure Deployment"]
+        Monitor["Monitor - Runtime Security"]
     end
     
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
+    Code -> Build
+    Build -> Scan
+    Scan -> Policy
+    Policy -> Deploy
+    Deploy -> Monitor
+    Monitor -> Code
     
     style Code fill:#e1f5ff
     style Build fill:#fff4e1
@@ -232,22 +232,22 @@ graph LR
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning<br/>Trivy, Snyk"]
-        SecretMgmt["Secret Management<br/>K8s Secrets, Vault"]
-        NonRoot["Non-root User<br/>runAsNonRoot"]
-        ReadOnly["Read-only Filesystem<br/>readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop<br/>capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies<br/>Pod Isolation"]
+        ImageScan["Image Scanning - Trivy, Snyk"]
+        SecretMgmt["Secret Management - K8s Secrets, Vault"]
+        NonRoot["Non-root User - runAsNonRoot"]
+        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies - Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
+    ImageScan -> SecretMgmt
+    SecretMgmt -> NonRoot
+    NonRoot -> ReadOnly
+    ReadOnly -> CapDrop
+    CapDrop -> NetworkPolicy
+    NetworkPolicy -> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
@@ -277,18 +277,18 @@ User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사
 ```mermaid
 graph TB
     subgraph Host["Host System"]
-        HostRoot["Host Root User<br/>UID 0"]
-        HostUser["Host Non-root User<br/>UID 1000"]
+        HostRoot["Host Root User - UID 0"]
+        HostUser["Host Non-root User - UID 1000"]
     end
     
     subgraph Container["Container"]
-        ContainerRoot["Container Root<br/>UID 0"]
-        ContainerApp["Container App<br/>UID 1000"]
+        ContainerRoot["Container Root - UID 0"]
+        ContainerApp["Container App - UID 1000"]
     end
     
-    ContainerRoot -->|"User Namespace Mapping"| HostUser
-    ContainerApp -->|"Direct Mapping"| HostUser
-    HostRoot -->|"Isolated"| ContainerRoot
+    ContainerRoot ->|"User Namespace Mapping"| HostUser
+    ContainerApp ->|"Direct Mapping"| HostUser
+    HostRoot ->|"Isolated"| ContainerRoot
     
     style HostRoot fill:#ffebee
     style HostUser fill:#e8f5e9

@@ -75,18 +75,18 @@ GCP 클라우드 환경에서 보안을 강화하기 위해서는 IAM부터 GKE�
 ```mermaid
 graph TB
     subgraph Host["Host System"]
-        HostRoot["Host Root User<br/>UID 0"]
-        HostUser["Host Non-root User<br/>UID 1000"]
+        HostRoot["Host Root User - UID 0"]
+        HostUser["Host Non-root User - UID 1000"]
     end
     
     subgraph Container["Container"]
-        ContainerRoot["Container Root<br/>UID 0"]
-        ContainerApp["Container App<br/>UID 1000"]
+        ContainerRoot["Container Root - UID 0"]
+        ContainerApp["Container App - UID 1000"]
     end
     
-    ContainerRoot -->|"User Namespace Mapping"| HostUser
-    ContainerApp -->|"Direct Mapping"| HostUser
-    HostRoot -->|"Isolated"| ContainerRoot
+    ContainerRoot ->|"User Namespace Mapping"| HostUser
+    ContainerApp ->|"Direct Mapping"| HostUser
+    HostRoot ->|"Isolated"| ContainerRoot
     
     style HostRoot fill:#ffebee
     style HostUser fill:#e8f5e9
@@ -104,22 +104,22 @@ graph TB
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning<br/>Trivy, Snyk"]
-        SecretMgmt["Secret Management<br/>K8s Secrets, Vault"]
-        NonRoot["Non-root User<br/>runAsNonRoot"]
-        ReadOnly["Read-only Filesystem<br/>readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop<br/>capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies<br/>Pod Isolation"]
+        ImageScan["Image Scanning - Trivy, Snyk"]
+        SecretMgmt["Secret Management - K8s Secrets, Vault"]
+        NonRoot["Non-root User - runAsNonRoot"]
+        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies - Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
+    ImageScan -> SecretMgmt
+    SecretMgmt -> NonRoot
+    NonRoot -> ReadOnly
+    ReadOnly -> CapDrop
+    CapDrop -> NetworkPolicy
+    NetworkPolicy -> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
@@ -152,27 +152,27 @@ GCP 클라우드 환경에서의 다층 보안 방어 구조:
 ```mermaid
 graph TB
     subgraph Layers["Security Layers"]
-        Network["Network Layer<br/>VPC, Firewall Rules<br/>Cloud NAT"]
-        Auth["Auth Layer<br/>IAM, Identity Platform<br/>MFA"]
-        App["Application Layer<br/>Cloud Armor<br/>API Gateway"]
-        Data["Data Layer<br/>Cloud KMS<br/>Cloud Storage Encryption"]
-        Monitor["Monitoring Layer<br/>Cloud Logging<br/>Security Command Center"]
+        Network["Network Layer - VPC, Firewall Rules - Cloud NAT"]
+        Auth["Auth Layer - IAM, Identity Platform - MFA"]
+        App["Application Layer - Cloud Armor - API Gateway"]
+        Data["Data Layer - Cloud KMS - Cloud Storage Encryption"]
+        Monitor["Monitoring Layer - Cloud Logging - Security Command Center"]
     end
     
     subgraph GKE["GKE Security"]
-        RBAC["RBAC<br/>Service Accounts"]
-        PodSec["Pod Security<br/>Standards"]
-        NetworkPolicy["Network Policies<br/>Pod Isolation"]
+        RBAC["RBAC - Service Accounts"]
+        PodSec["Pod Security - Standards"]
+        NetworkPolicy["Network Policies - Pod Isolation"]
     end
     
-    Network --> Auth
-    Auth --> App
-    App --> Data
-    Data --> Monitor
-    Monitor --> GKE
-    GKE --> RBAC
-    RBAC --> PodSec
-    PodSec --> NetworkPolicy
+    Network -> Auth
+    Auth -> App
+    App -> Data
+    Data -> Monitor
+    Monitor -> GKE
+    GKE -> RBAC
+    RBAC -> PodSec
+    PodSec -> NetworkPolicy
     
     style Network fill:#e1f5ff
     style Auth fill:#e8f5e9
@@ -602,12 +602,12 @@ Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 
 ```mermaid
 graph LR
-    Privileged["Privileged<br/>No restrictions<br/>System Pods"]
-    Baseline["Baseline<br/>Minimal security<br/>General Apps"]
-    Restricted["Restricted<br/>Strongest policies<br/>Sensitive Workloads"]
+    Privileged["Privileged - No restrictions - System Pods"]
+    Baseline["Baseline - Minimal security - General Apps"]
+    Restricted["Restricted - Strongest policies - Sensitive Workloads"]
     
-    Privileged --> Baseline
-    Baseline --> Restricted
+    Privileged -> Baseline
+    Baseline -> Restricted
     
     style Privileged fill:#ffebee
     style Baseline fill:#fff4e1

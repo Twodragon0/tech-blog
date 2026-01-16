@@ -104,6 +104,43 @@ category: kubernetes
 | **Dockerfile** | 이미지를 빌드하기 위한 명령어 스크립트 | 레시피 작성 방법 |
 | **Registry** | 이미지를 저장하고 공유하는 저장소 (Docker Hub 등) | 빵 레시피 도서관 |
 
+##### **Docker 구성 요소 관계도**
+
+```mermaid
+graph TB
+    subgraph Dev["Development"]
+        Dockerfile["Dockerfile - 이미지 빌드 스크립트"]
+    end
+    
+    subgraph Build["Build Process"]
+        Image["Docker Image - 실행 가능한 템플릿"]
+    end
+    
+    subgraph Registry["Registry"]
+        DockerHub["Docker Hub / - Private Registry - 이미지 저장소"]
+    end
+    
+    subgraph Runtime["Runtime"]
+        Container1["Container 1 - 이미지 인스턴스"]
+        Container2["Container 2 - 이미지 인스턴스"]
+        Container3["Container 3 - 이미지 인스턴스"]
+    end
+    
+    Dockerfile ->|docker build| Image
+    Image ->|docker push| DockerHub
+    DockerHub ->|docker pull| Image
+    Image ->|docker run| Container1
+    Image ->|docker run| Container2
+    Image ->|docker run| Container3
+    
+    style Dockerfile fill:#e1f5ff
+    style Image fill:#fff4e1
+    style DockerHub fill:#e8f5e9
+    style Container1 fill:#f3e5f5
+    style Container2 fill:#f3e5f5
+    style Container3 fill:#f3e5f5
+```
+
 ##### **기본 Docker 명령어**
 
 > **참고**: Docker 기본 명령어는 [Docker 공식 문서](https://docs.docker.com/) 및 [Docker 공식 예제](https://github.com/docker/awesome-compose)를 참조하세요.
@@ -151,6 +188,110 @@ docker rm my-nginx
 | **Cgroups** | CPU, 메모리, I/O 리소스 제한 | 리소스 사용량 제어 |
 | **Union File Systems** | 레이어드 파일시스템 | 이미지 효율적 관리 |
 
+##### **VM vs Container 아키텍처 비교**
+
+```mermaid
+graph TB
+    subgraph VM["Virtual Machine Architecture"]
+        App1["App 1"]
+        App2["App 2"]
+        App3["App 3"]
+        GuestOS1["Guest OS 1"]
+        GuestOS2["Guest OS 2"]
+        GuestOS3["Guest OS 3"]
+        Hypervisor["Hypervisor"]
+        HostOS["Host OS"]
+        Hardware["Hardware"]
+        
+        App1 -> GuestOS1
+        App2 -> GuestOS2
+        App3 -> GuestOS3
+        GuestOS1 -> Hypervisor
+        GuestOS2 -> Hypervisor
+        GuestOS3 -> Hypervisor
+        Hypervisor -> HostOS
+        HostOS -> Hardware
+    end
+    
+    subgraph Container["Container Architecture"]
+        App4["App 1"]
+        App5["App 2"]
+        App6["App 3"]
+        ContainerRuntime["Container Runtime - (Docker, containerd)"]
+        HostOS2["Host OS"]
+        Hardware2["Hardware"]
+        
+        App4 -> ContainerRuntime
+        App5 -> ContainerRuntime
+        App6 -> ContainerRuntime
+        ContainerRuntime -> HostOS2
+        HostOS2 -> Hardware2
+    end
+    
+    style Hypervisor fill:#ffebee
+    style ContainerRuntime fill:#e8f5e9
+    style GuestOS1 fill:#fff4e1
+    style GuestOS2 fill:#fff4e1
+    style GuestOS3 fill:#fff4e1
+```
+
+##### **컨테이너 격리 메커니즘**
+
+```mermaid
+graph TB
+    subgraph Host["Host System"]
+        Kernel["Linux Kernel"]
+        
+        subgraph Namespaces["Namespaces"]
+            PID["PID Namespace - 프로세스 격리"]
+            NET["Network Namespace - 네트워크 격리"]
+            MNT["Mount Namespace - 파일시스템 격리"]
+            IPC["IPC Namespace - 프로세스 간 통신 격리"]
+            UTS["UTS Namespace - 호스트명 격리"]
+            USER["User Namespace - 사용자 ID 격리"]
+        end
+        
+        subgraph Cgroups["Cgroups"]
+            CPU["CPU 제한"]
+            Memory["Memory 제한"]
+            IO["I/O 제한"]
+        end
+        
+        subgraph UFS["Union File System"]
+            Layer1["Base Layer"]
+            Layer2["Application Layer"]
+            Layer3["Config Layer"]
+        end
+    end
+    
+    Container["Container - 격리된 실행 환경"]
+    
+    Kernel -> Namespaces
+    Kernel -> Cgroups
+    Kernel -> UFS
+    
+    PID -> Container
+    NET -> Container
+    MNT -> Container
+    IPC -> Container
+    UTS -> Container
+    USER -> Container
+    
+    CPU -> Container
+    Memory -> Container
+    IO -> Container
+    
+    Layer1 -> Container
+    Layer2 -> Container
+    Layer3 -> Container
+    
+    style Container fill:#e1f5ff
+    style Kernel fill:#fff4e1
+    style Namespaces fill:#e8f5e9
+    style Cgroups fill:#f3e5f5
+    style UFS fill:#ffebee
+```
+
 #### **1.3 Kubernetes 기본 개념**
 
 ##### **Kubernetes 핵심 리소스**
@@ -174,6 +315,111 @@ docker rm my-nginx
 | **etcd** | 클러스터 상태를 저장하는 분산 키-값 저장소 | 클러스터의 데이터베이스 |
 | **Scheduler** | Pod를 적절한 Node에 배치 | 리소스 할당 결정 |
 | **kubelet** | Node에서 Pod를 관리하는 에이전트 | Pod 생명주기 관리 |
+
+##### **Kubernetes 클러스터 아키텍처**
+
+```mermaid
+graph TB
+    subgraph CP["Control Plane"]
+        API["API Server - 모든 요청의 진입점"]
+        etcd["etcd - 클러스터 상태 저장소"]
+        Scheduler["Scheduler - Pod 배치 결정"]
+        CM["Controller Manager - 리소스 관리"]
+        
+        API -> etcd
+        API -> Scheduler
+        API -> CM
+        Scheduler -> etcd
+        CM -> etcd
+    end
+    
+    subgraph Node1["Worker Node 1"]
+        Kubelet1["kubelet - Pod 관리 에이전트"]
+        KubeProxy1["kube-proxy - 네트워크 프록시"]
+        Runtime1["Container Runtime - Docker/containerd"]
+        Pod1["Pod 1"]
+        Pod2["Pod 2"]
+        
+        Kubelet1 -> Runtime1
+        KubeProxy1 -> Pod1
+        KubeProxy1 -> Pod2
+        Runtime1 -> Pod1
+        Runtime1 -> Pod2
+    end
+    
+    subgraph Node2["Worker Node 2"]
+        Kubelet2["kubelet"]
+        KubeProxy2["kube-proxy"]
+        Runtime2["Container Runtime"]
+        Pod3["Pod 3"]
+        Pod4["Pod 4"]
+        
+        Kubelet2 -> Runtime2
+        KubeProxy2 -> Pod3
+        KubeProxy2 -> Pod4
+        Runtime2 -> Pod3
+        Runtime2 -> Pod4
+    end
+    
+    API < ->|통신| Kubelet1
+    API < ->|통신| Kubelet2
+    API < ->|통신| KubeProxy1
+    API < ->|통신| KubeProxy2
+    
+    style API fill:#e1f5ff
+    style etcd fill:#fff4e1
+    style Scheduler fill:#e8f5e9
+    style CM fill:#f3e5f5
+    style Kubelet1 fill:#ffebee
+    style Kubelet2 fill:#ffebee
+```
+
+##### **Kubernetes 리소스 관계도**
+
+```mermaid
+graph TB
+    subgraph NS["Namespace"]
+        Deployment["Deployment - Pod 배포 관리"]
+        Service["Service - 네트워크 엔드포인트"]
+        ConfigMap["ConfigMap - 설정 데이터"]
+        Secret["Secret - 민감 정보"]
+        
+        Deployment ->|생성| Pod1["Pod 1"]
+        Deployment ->|생성| Pod2["Pod 2"]
+        Deployment ->|생성| Pod3["Pod 3"]
+        
+        Service ->|연결| Pod1
+        Service ->|연결| Pod2
+        Service ->|연결| Pod3
+        
+        Pod1 ->|사용| ConfigMap
+        Pod2 ->|사용| ConfigMap
+        Pod3 ->|사용| ConfigMap
+        
+        Pod1 ->|사용| Secret
+        Pod2 ->|사용| Secret
+        Pod3 ->|사용| Secret
+    end
+    
+    subgraph Pod1Detail["Pod 1 상세"]
+        Container1["Container 1"]
+        Container2["Container 2 - (Sidecar)"]
+        Volume1["Volume - 데이터 저장"]
+        
+        Container1 -> Volume1
+        Container2 -> Volume1
+    end
+    
+    Pod1 -> Pod1Detail
+    
+    style Deployment fill:#e1f5ff
+    style Service fill:#fff4e1
+    style ConfigMap fill:#e8f5e9
+    style Secret fill:#ffebee
+    style Pod1 fill:#f3e5f5
+    style Pod2 fill:#f3e5f5
+    style Pod3 fill:#f3e5f5
+```
 
 > **참고**: Kubernetes 기본 개념은 [Kubernetes 공식 문서](https://kubernetes.io/docs/concepts/) 및 [Kubernetes GitHub 저장소](https://github.com/kubernetes/kubernetes)를 참조하세요.
 
@@ -233,12 +479,12 @@ graph TB
     
     App["Application Container"]
     
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
+    ImageScan -> SecretMgmt
+    SecretMgmt -> NonRoot
+    NonRoot -> ReadOnly
+    ReadOnly -> CapDrop
+    CapDrop -> NetworkPolicy
+    NetworkPolicy -> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
@@ -315,6 +561,57 @@ jobs:
 | **Kubernetes Secrets** | 네이티브 Secret 리소스 | 간단한 설정 | Base64 인코딩(암호화 아님) |
 | **External Secrets Operator** | 외부 Secret Store 통합 | 중앙 관리, 자동 동기화 | 추가 Operator 필요 |
 | **Sealed Secrets** | 암호화된 Secret | Git에 안전하게 저장 가능 | 추가 도구 필요 |
+
+##### **Secret 관리 방식 비교**
+
+```mermaid
+graph TB
+    subgraph Native["Kubernetes Native Secrets"]
+        K8sSecret["Kubernetes Secret - Base64 인코딩"]
+        Pod1["Pod"]
+        
+        K8sSecret - >|환경 변수/볼륨| Pod1
+    end
+    
+    subgraph External["External Secrets Operator"]
+        AWS["AWS Secrets Manager"]
+        Vault["HashiCorp Vault"]
+        Azure["Azure Key Vault"]
+        GCP["GCP Secret Manager"]
+        
+        ESO["External Secrets - Operator"]
+        K8sSecret2["Kubernetes Secret - 자동 생성"]
+        Pod2["Pod"]
+        
+        AWS - > ESO
+        Vault - > ESO
+        Azure - > ESO
+        GCP - > ESO
+        ESO - >|동기화| K8sSecret2
+        K8sSecret2 - >|환경 변수/볼륨| Pod2
+    end
+    
+    subgraph Sealed["Sealed Secrets"]
+        SealedSecret["Sealed Secret - 암호화된 YAML"]
+        Git["Git Repository - 안전하게 저장"]
+        Controller["Sealed Secrets - Controller"]
+        K8sSecret3["Kubernetes Secret - 복호화"]
+        Pod3["Pod"]
+        
+        SealedSecret - > Git
+        Git - > Controller
+        Controller - >|복호화| K8sSecret3
+        K8sSecret3 - >|환경 변수/볼륨| Pod3
+    end
+    
+    style K8sSecret fill:#ffebee
+    style ESO fill:#e8f5e9
+    style Controller fill:#e1f5ff
+    style AWS fill:#fff4e1
+    style Vault fill:#fff4e1
+    style Azure fill:#fff4e1
+    style GCP fill:#fff4e1
+```
 
 > **참고**: External Secrets Operator 설정은 [External Secrets Operator 문서](https://external-secrets.io/) 및 [AWS Secrets Manager 통합](https://external-secrets.io/latest/provider/aws-secrets-manager/)을 참조하세요.
 
@@ -397,8 +694,8 @@ graph LR
     Baseline["Baseline - Minimal security - General Apps"]
     Restricted["Restricted - Strongest policies - Sensitive Workloads"]
     
-    Privileged --> Baseline
-    Baseline --> Restricted
+    Privileged -> Baseline
+    Baseline -> Restricted
     
     style Privileged fill:#ffebee
     style Baseline fill:#fff4e1
@@ -462,9 +759,9 @@ graph TB
         ContainerApp["Container App - UID 1000"]
     end
     
-    ContainerRoot -->|"User Namespace Mapping"| HostUser
-    ContainerApp -->|"Direct Mapping"| HostUser
-    HostRoot -->|"Isolated"| ContainerRoot
+    ContainerRoot ->|"User Namespace Mapping"| HostUser
+    ContainerApp ->|"Direct Mapping"| HostUser
+    HostRoot ->|"Isolated"| ContainerRoot
     
     style HostRoot fill:#ffebee
     style HostUser fill:#e8f5e9
@@ -527,6 +824,49 @@ Network Policies를 통해 Pod 간 통신을 제어하여 방어 깊이를 강�
 | **Egress** | 나가는 트래픽 제어 | 특정 서비스로만 통신 허용 |
 | **Default Deny** | 기본 거부 정책 | 명시적으로 허용된 트래픽만 통신 |
 
+##### **Network Policy 동작 원리**
+
+```mermaid
+graph TB
+    subgraph Frontend["Frontend Namespace"]
+        FrontendPod["Frontend Pod - app: frontend"]
+    end
+    
+    subgraph Backend["Backend Namespace"]
+        BackendPod["Backend Pod - app: backend"]
+    end
+    
+    subgraph Database["Database Namespace"]
+        DBPod["Database Pod - app: database"]
+    end
+    
+    subgraph External["External"]
+        Internet["Internet"]
+    end
+    
+    subgraph Policy["Network Policies"]
+        IngressPolicy["Ingress Policy - Frontend → Backend만 허용"]
+        EgressPolicy["Egress Policy - Backend → Database만 허용"]
+        DefaultDeny["Default Deny - 모든 트래픽 기본 차단"]
+    end
+    
+    FrontendPod - >|"✅ 허용 - Ingress Policy"| BackendPod
+    BackendPod - >|"✅ 허용 - Egress Policy"| DBPod
+    Internet - >|"❌ 차단 - Default Deny"| BackendPod
+    FrontendPod - >|"❌ 차단 - Default Deny"| DBPod
+    BackendPod - >|"❌ 차단 - Default Deny"| Internet
+    
+    DefaultDeny - > IngressPolicy
+    DefaultDeny - > EgressPolicy
+    
+    style FrontendPod fill:#e1f5ff
+    style BackendPod fill:#fff4e1
+    style DBPod fill:#ffebee
+    style IngressPolicy fill:#e8f5e9
+    style EgressPolicy fill:#e8f5e9
+    style DefaultDeny fill:#f3e5f5
+```
+
 ```yaml
 # Network Policy 예시
 apiVersion: networking.k8s.io/v1
@@ -572,6 +912,63 @@ spec:
 | **Operator** | Pod 로그 조회, 리소스 모니터링 | 운영 작업만 가능 |
 | **Security** | NetworkPolicy, PodSecurityPolicy 관리 | 보안 정책 관리 |
 
+##### **RBAC 구조 및 권한 흐름**
+
+```mermaid
+graph TB
+    subgraph Users["Users / Service Accounts"]
+        DevUser["Developer User"]
+        OpUser["Operator User"]
+        SecUser["Security User"]
+        SA["Service Account"]
+    end
+    
+    subgraph Bindings["Role Bindings / ClusterRole Bindings"]
+        DevBinding["Developer RoleBinding"]
+        OpBinding["Operator RoleBinding"]
+        SecBinding["Security RoleBinding"]
+        SABinding["ServiceAccount RoleBinding"]
+    end
+    
+    subgraph Roles["Roles / ClusterRoles"]
+        DevRole["Developer Role - Deployments: create, update"]
+        OpRole["Operator Role - Pods: get, list, logs"]
+        SecRole["Security Role - NetworkPolicy: *"]
+        SARole["ServiceAccount Role - Pods: create"]
+    end
+    
+    subgraph Resources["Kubernetes Resources"]
+        Deployment["Deployment"]
+        Pod["Pod"]
+        NetworkPolicy["NetworkPolicy"]
+        Secret["Secret"]
+    end
+    
+    DevUser - > DevBinding
+    OpUser - > OpBinding
+    SecUser - > SecBinding
+    SA - > SABinding
+    
+    DevBinding - > DevRole
+    OpBinding - > OpRole
+    SecBinding - > SecRole
+    SABinding - > SARole
+    
+    DevRole - >|권한| Deployment
+    OpRole - >|권한| Pod
+    SecRole - >|권한| NetworkPolicy
+    SARole - >|권한| Pod
+    
+    style DevUser fill:#e1f5ff
+    style OpUser fill:#fff4e1
+    style SecUser fill:#ffebee
+    style SA fill:#f3e5f5
+    style DevRole fill:#e8f5e9
+    style OpRole fill:#e8f5e9
+    style SecRole fill:#e8f5e9
+    style SARole fill:#e8f5e9
+```
+
 ```yaml
 # RBAC 예시
 apiVersion: rbac.authorization.k8s.io/v1
@@ -616,6 +1013,39 @@ roleRef:
 | **이미지 검증** | 배포 전 서명 검증 | Admission Controller | Kubernetes에서 자동 검증 |
 | **신뢰할 수 있는 레지스트리** | 공식/검증된 레지스트리만 사용 | ImagePolicyWebhook | 정책 기반 이미지 허용 |
 
+##### **이미지 서명 및 검증 프로세스**
+
+```mermaid
+graph LR
+    subgraph Build["Build Phase"]
+        Dockerfile["Dockerfile"]
+        Image["Container Image"]
+        Sign["Cosign Sign - 이미지 서명"]
+        Registry["Container Registry - 서명된 이미지 저장"]
+    end
+    
+    subgraph Deploy["Deploy Phase"]
+        Pull["Pull Image - 이미지 다운로드"]
+        Verify["Cosign Verify - 서명 검증"]
+        Admission["Admission Controller - 정책 검증"]
+        DeployPod["Pod 배포"]
+    end
+    
+    Dockerfile - >|docker build| Image
+    Image - >|cosign sign| Sign
+    Sign - >|docker push| Registry
+    Registry - >|docker pull| Pull
+    Pull - >|cosign verify| Verify
+    Verify - >|정책 확인| Admission
+    Admission - >|검증 통과| DeployPod
+    
+    style Sign fill:#e8f5e9
+    style Verify fill:#e8f5e9
+    style Admission fill:#fff4e1
+    style Registry fill:#e1f5ff
+    style DeployPod fill:#f3e5f5
+```
+
 > **참고**: 이미지 서명 및 검증은 [Docker Content Trust 문서](https://docs.docker.com/engine/security/trust/) 및 [Cosign GitHub 저장소](https://github.com/sigstore/cosign)를 참조하세요.
 
 ```yaml
@@ -651,6 +1081,57 @@ CMD ["server.js"]
 | **Falco** | 오픈소스 런타임 보안 모니터링 | 이상 행위 탐지, 실시간 알림 | Kubernetes Operator로 배포 |
 | **Sysdig Secure** | 상용 런타임 보안 플랫폼 | 포괄적인 보안 모니터링 | 클라우드 서비스 통합 |
 | **Aqua Security** | 컨테이너 보안 플랫폼 | 이미지 스캔, 런타임 보호 | Kubernetes 통합 |
+
+##### **런타임 보안 모니터링 아키텍처**
+
+```mermaid
+graph TB
+    subgraph K8s["Kubernetes Cluster"]
+        subgraph Node1["Node 1"]
+            Pod1["Pod 1"]
+            FalcoAgent1["Falco Agent - DaemonSet"]
+        end
+        
+        subgraph Node2["Node 2"]
+            Pod2["Pod 2"]
+            FalcoAgent2["Falco Agent - DaemonSet"]
+        end
+        
+        subgraph Node3["Node 3"]
+            Pod3["Pod 3"]
+            FalcoAgent3["Falco Agent - DaemonSet"]
+        end
+    end
+    
+    subgraph Monitoring["Monitoring & Alerting"]
+        FalcoServer["Falco Server - 이벤트 수집"]
+        Rules["Falco Rules - 보안 정책"]
+        AlertManager["Alert Manager - 알림 관리"]
+        SIEM["SIEM / Log Aggregation - ELK, Splunk"]
+        Dashboard["Security Dashboard - Grafana"]
+    end
+    
+    Pod1 - >|시스템 호출 모니터링| FalcoAgent1
+    Pod2 - >|시스템 호출 모니터링| FalcoAgent2
+    Pod3 - >|시스템 호출 모니터링| FalcoAgent3
+    
+    FalcoAgent1 - >|이벤트 전송| FalcoServer
+    FalcoAgent2 - >|이벤트 전송| FalcoServer
+    FalcoAgent3 - >|이벤트 전송| FalcoServer
+    
+    Rules - >|정책 적용| FalcoServer
+    FalcoServer - >|알림| AlertManager
+    FalcoServer - >|로그 전송| SIEM
+    SIEM - >|시각화| Dashboard
+    
+    style FalcoAgent1 fill:#e1f5ff
+    style FalcoAgent2 fill:#e1f5ff
+    style FalcoAgent3 fill:#e1f5ff
+    style FalcoServer fill:#fff4e1
+    style Rules fill:#e8f5e9
+    style AlertManager fill:#ffebee
+    style Dashboard fill:#f3e5f5
+```
 
 > **참고**: Falco 설정은 [Falco 공식 문서](https://falco.org/docs/) 및 [Falco Kubernetes Operator](https://github.com/falcosecurity/falco-operator)를 참조하세요.
 
@@ -692,6 +1173,75 @@ spec:
 | **네임스페이스 격리** | 네임스페이스별 네트워크 격리 | 네임스페이스별 Network Policy |
 | **서비스 메시 통합** | Istio, Linkerd 등 서비스 메시 활용 | mTLS, 트래픽 제어 |
 
+##### **네트워크 세분화 전략**
+
+```mermaid
+graph TB
+    subgraph External["External"]
+        Internet["Internet"]
+        VPN["VPN Users"]
+    end
+    
+    subgraph Ingress["Ingress Layer"]
+        IngressController["Ingress Controller - NGINX/Traefik"]
+        WAF["WAF - 웹 애플리케이션 방화벽"]
+    end
+    
+    subgraph Frontend["Frontend Namespace"]
+        FrontendPod1["Frontend Pod 1"]
+        FrontendPod2["Frontend Pod 2"]
+        FrontendPolicy["Network Policy - Ingress: Ingress만 - Egress: Backend만"]
+    end
+    
+    subgraph Backend["Backend Namespace"]
+        BackendPod1["Backend Pod 1"]
+        BackendPod2["Backend Pod 2"]
+        BackendPolicy["Network Policy - Ingress: Frontend만 - Egress: Database만"]
+    end
+    
+    subgraph Database["Database Namespace"]
+        DBPod1["Database Pod 1"]
+        DBPod2["Database Pod 2"]
+        DBPolicy["Network Policy - Ingress: Backend만 - Egress: 차단"]
+    end
+    
+    subgraph ServiceMesh["Service Mesh (Optional)"]
+        Istio["Istio Control Plane - mTLS, 트래픽 제어"]
+    end
+    
+    Internet - >|HTTPS| WAF
+    VPN - >|HTTPS| WAF
+    WAF - > IngressController
+    IngressController - >|허용된 트래픽| FrontendPod1
+    IngressController - >|허용된 트래픽| FrontendPod2
+    
+    FrontendPolicy - > FrontendPod1
+    FrontendPolicy - > FrontendPod2
+    
+    FrontendPod1 - >|허용된 트래픽| BackendPod1
+    FrontendPod2 - >|허용된 트래픽| BackendPod2
+    
+    BackendPolicy - > BackendPod1
+    BackendPolicy - > BackendPod2
+    
+    BackendPod1 - >|허용된 트래픽| DBPod1
+    BackendPod2 - >|허용된 트래픽| DBPod2
+    
+    DBPolicy - > DBPod1
+    DBPolicy - > DBPod2
+    
+    Istio -.->|mTLS 적용| FrontendPod1
+    Istio -.->|mTLS 적용| BackendPod1
+    Istio -.->|mTLS 적용| DBPod1
+    
+    style WAF fill:#ffebee
+    style IngressController fill:#e1f5ff
+    style FrontendPolicy fill:#e8f5e9
+    style BackendPolicy fill:#e8f5e9
+    style DBPolicy fill:#e8f5e9
+    style Istio fill:#fff4e1
+```
+
 #### **4.5 정기적인 보안 감사 및 로깅**
 
 | 항목 | 설명 | 도구 | 적용 방법 |
@@ -699,6 +1249,67 @@ spec:
 | **Audit 로깅** | Kubernetes API 서버 감사 로그 활성화 | Kubernetes Audit | API 서버 설정 |
 | **컨테이너 로그 수집** | Pod 로그 중앙 수집 및 분석 | ELK Stack, Loki | 로그 수집 파이프라인 |
 | **보안 이벤트 모니터링** | 보안 관련 이벤트 실시간 모니터링 | Prometheus, Grafana | 메트릭 수집 및 알림 |
+
+##### **보안 감사 및 로깅 아키텍처**
+
+```mermaid
+graph TB
+    subgraph K8s["Kubernetes Cluster"]
+        API["API Server - Audit Log 생성"]
+        Pod1["Pod 1 - 애플리케이션 로그"]
+        Pod2["Pod 2 - 애플리케이션 로그"]
+        Pod3["Pod 3 - 애플리케이션 로그"]
+        Falco["Falco - 보안 이벤트"]
+    end
+    
+    subgraph Collection["Log Collection"]
+        Fluentd["Fluentd / Fluent Bit - 로그 수집"]
+        AuditLog["Audit Log - API 서버 감사 로그"]
+    end
+    
+    subgraph Storage["Log Storage & Analysis"]
+        Elasticsearch["Elasticsearch - 로그 저장 및 검색"]
+        Loki["Loki - 로그 저장소"]
+    end
+    
+    subgraph Monitoring["Monitoring & Alerting"]
+        Prometheus["Prometheus - 메트릭 수집"]
+        Grafana["Grafana - 대시보드"]
+        AlertManager["Alert Manager - 알림"]
+    end
+    
+    subgraph SIEM["SIEM"]
+        Splunk["Splunk / - 기타 SIEM"]
+    end
+    
+    API - >|Audit Log| AuditLog
+    Pod1 - >|애플리케이션 로그| Fluentd
+    Pod2 - >|애플리케이션 로그| Fluentd
+    Pod3 - >|애플리케이션 로그| Fluentd
+    Falco - >|보안 이벤트| Fluentd
+    
+    AuditLog - > Fluentd
+    Fluentd - > Elasticsearch
+    Fluentd - > Loki
+    
+    Elasticsearch - > Grafana
+    Loki - > Grafana
+    
+    Falco - > Prometheus
+    API - > Prometheus
+    
+    Prometheus - > Grafana
+    Prometheus - > AlertManager
+    
+    Elasticsearch - > Splunk
+    
+    style API fill:#e1f5ff
+    style Fluentd fill:#fff4e1
+    style Elasticsearch fill:#e8f5e9
+    style Prometheus fill:#f3e5f5
+    style Grafana fill:#ffebee
+    style Falco fill:#e1f5ff
+```
 
 ```yaml
 # Kubernetes Audit Policy 예시
@@ -793,12 +1404,12 @@ graph LR
         Monitor["Monitor - Runtime Security"]
     end
     
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
+    Code -> Build
+    Build -> Scan
+    Scan -> Policy
+    Policy -> Deploy
+    Deploy -> Monitor
+    Monitor -> Code
     
     style Code fill:#e1f5ff
     style Build fill:#fff4e1

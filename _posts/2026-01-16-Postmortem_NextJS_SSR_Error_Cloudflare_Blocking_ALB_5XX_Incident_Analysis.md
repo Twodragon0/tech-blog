@@ -109,94 +109,161 @@ toc: true
 ### 1.0 전체 아키텍처
 
 <figure>
-<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_architecture_diagram.png' | relative_url }}" alt="Next.js SSR Error Incident Architecture" loading="lazy" class="post-image">
-<figcaption>그림 1: Next.js SSR 에러 인시던트 전체 아키텍처 - Python diagrams로 생성</figcaption>
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_architecture_diagram.drawio.svg' | relative_url }}" alt="Next.js SSR Error Incident Architecture" loading="lazy" class="post-image">
+<figcaption>그림 1: Next.js SSR 에러 인시던트 전체 아키텍처 - draw.io로 생성</figcaption>
 </figure>
 
-```python
-#!/usr/bin/env python3
-"""
-Next.js SSR 에러 인시던트 아키텍처 다이어그램
-생성: python3 scripts/generate_architecture_diagram.py
-"""
+<details>
+<summary>draw.io XML 코드 (클릭하여 확장)</summary>
 
-from diagrams import Diagram, Cluster, Edge
-from diagrams.onprem.client import Client, Users
-from diagrams.generic.device import Mobile, Tablet
-from diagrams.saas.cdn import Cloudflare
-from diagrams.aws.network import ALB, CloudFront
-from diagrams.aws.security import WAF
-from diagrams.k8s.compute import Pod, Deployment
-from diagrams.k8s.network import Service, Ingress
-from diagrams.programming.framework import React
-from diagrams.generic.blank import Blank
-
-with Diagram(
-    "Next.js SSR Error Incident Architecture",
-    filename="2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_architecture_diagram",
-    show=False,
-    direction="TB",
-    graph_attr={"fontsize": "14", "bgcolor": "white"},
-):
-    # 클라이언트 환경
-    with Cluster("Client Environment"):
-        mobile = Mobile("Mobile x.com")
-        desktop = Client("Desktop Browser")
-        inapp = Tablet("In-App Browser")
-    
-    # CDN & 보안
-    with Cluster("CDN & Security"):
-        cloudflare = Cloudflare("Cloudflare")
-        waf = WAF("WAF Rules")
-        ratelimit = Blank("Rate Limiting")
-    
-    # AWS 인프라
-    with Cluster("AWS Infrastructure"):
-        alb = ALB("Application Load Balancer")
-        targetgroup = Blank("Target Group")
-        healthcheck = Blank("Health Check")
-    
-    # Kubernetes 클러스터
-    with Cluster("Kubernetes Cluster"):
-        ingress = Ingress("Ingress Controller")
-        service = Service("Service")
+```xml
+<mxfile host="app.diagrams.net">
+  <diagram name="Next.js SSR Error Incident Architecture" id="architecture">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
         
-        with Cluster("Pods"):
-            pod1 = Pod("Pod 1\nNext.js SSR")
-            pod2 = Pod("Pod 2\nNext.js SSR")
-            pod3 = Pod("Pod 3\nNext.js SSR")
-    
-    # 에러 발생 지점
-    with Cluster("Error Point"):
-        ssr = Blank("SSR Rendering")
-        location = Blank("location 접근")
-        referror = Blank("ReferenceError")
-    
-    # 연결
-    mobile >> cloudflare
-    desktop >> cloudflare
-    inapp >> cloudflare
-    
-    cloudflare >> waf
-    waf >> ratelimit
-    ratelimit >> alb
-    
-    alb >> targetgroup
-    targetgroup >> healthcheck
-    healthcheck >> ingress
-    
-    ingress >> service
-    service >> pod1
-    service >> pod2
-    service >> pod3
-    
-    pod1 >> ssr
-    pod2 >> ssr
-    pod3 >> ssr
-    
-    ssr >> location
-    location >> referror
+        <!-- Client Environment Cluster -->
+        <mxCell id="client-cluster" value="Client Environment" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E1F5FE;strokeColor=#01579B;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1080" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile" value="Mobile x.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
+          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="desktop" value="Desktop Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
+          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="inapp" value="In-App Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
+          <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- CDN & Security Cluster -->
+        <mxCell id="cdn-cluster" value="CDN &amp; Security" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="1080" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cloudflare" value="Cloudflare" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
+          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="waf" value="WAF Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
+          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ratelimit" value="Rate Limiting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
+          <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- AWS Infrastructure Cluster -->
+        <mxCell id="aws-cluster" value="AWS Infrastructure" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#4A148C;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="1080" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="alb" value="Application Load Balancer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;" vertex="1" parent="aws-cluster">
+          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="targetgroup" value="Target Group" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;" vertex="1" parent="aws-cluster">
+          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="healthcheck" value="Health Check" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;" vertex="1" parent="aws-cluster">
+          <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Kubernetes Cluster -->
+        <mxCell id="k8s-cluster" value="Kubernetes Cluster" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#1B5E20;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="1080" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ingress" value="Ingress Controller" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=12;" vertex="1" parent="k8s-cluster">
+          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="service" value="Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=12;" vertex="1" parent="k8s-cluster">
+          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pod1" value="Pod 1&#xa;Next.js SSR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
+          <mxGeometry x="40" y="120" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pod2" value="Pod 2&#xa;Next.js SSR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
+          <mxGeometry x="390" y="120" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pod3" value="Pod 3&#xa;Next.js SSR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
+          <mxGeometry x="740" y="120" width="300" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Error Point Cluster -->
+        <mxCell id="error-cluster" value="Error Point" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#B71C1C;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="760" width="1080" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ssr" value="SSR Rendering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="error-cluster">
+          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="location" value="location 접근" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="error-cluster">
+          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="referror" value="ReferenceError" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#B71C1C;fontSize=12;fontStyle=1" vertex="1" parent="error-cluster">
+          <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="edge1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="mobile" target="cloudflare">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="desktop" target="cloudflare">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="inapp" target="cloudflare">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="cloudflare" target="waf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="waf" target="ratelimit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="ratelimit" target="alb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="alb" target="targetgroup">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="targetgroup" target="healthcheck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="healthcheck" target="ingress">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="ingress" target="service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod1" target="ssr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod2" target="ssr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod3" target="ssr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="ssr" target="location">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="location" target="referror">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
 ```
+
+</details>
+
+> **참고**: 위 draw.io XML 코드를 [draw.io](https://app.diagrams.net/)에서 열어서 다이어그램을 편집하고 SVG/PNG로 내보낼 수 있습니다.
 
 ### 1.1 문제 상황
 
@@ -352,13 +419,13 @@ graph TB
         CSR["CSR (클라이언트 사이드 렌더링)"]
     end
     
-    Browser --> Location1
-    Browser --> Window1
-    NodeJS --> Location2
-    NodeJS --> Window2
+    Browser -> Location1
+    Browser -> Window1
+    NodeJS -> Location2
+    NodeJS -> Window2
     
-    SSR --> NodeJS
-    CSR --> Browser
+    SSR -> NodeJS
+    CSR -> Browser
     
     style Location2 fill:#ffebee
     style Window2 fill:#ffebee
@@ -408,16 +475,16 @@ graph TB
         Error["ReferenceError 발생"]
     end
     
-    User -->|"x.com 링크 클릭"| Link
-    Link -->|"앱 설치됨"| XApp
-    Link -->|"앱 미설치"| SystemBrowser
-    XApp -->|"인앱 브라우저"| XBrowser
+    User ->|"x.com 링크 클릭"| Link
+    Link ->|"앱 설치됨"| XApp
+    Link ->|"앱 미설치"| SystemBrowser
+    XApp ->|"인앱 브라우저"| XBrowser
     
-    XBrowser -->|"요청 전송"| SSR
-    SystemBrowser -->|"요청 전송"| SSR
+    XBrowser ->|"요청 전송"| SSR
+    SystemBrowser ->|"요청 전송"| SSR
     
-    SSR --> LocationCheck
-    LocationCheck -->|"location 직접 접근"| Error
+    SSR -> LocationCheck
+    LocationCheck ->|"location 직접 접근"| Error
     
     style Error fill:#ffebee
     style LocationCheck fill:#fff3e0
@@ -455,14 +522,14 @@ graph LR
         SSR2["SSR 렌더링"]
     end
     
-    WebView -->|"요청"| SSR1
-    Chrome -->|"요청"| SSR2
+    WebView ->|"요청"| SSR1
+    Chrome ->|"요청"| SSR2
     
-    CustomUA -->|"다른 헤더"| SSR1
-    StandardUA -->|"표준 헤더"| SSR2
+    CustomUA ->|"다른 헤더"| SSR1
+    StandardUA ->|"표준 헤더"| SSR2
     
-    LimitedAPI -->|"location 접근 제한"| SSR1
-    FullAPI -->|"정상 동작"| SSR2
+    LimitedAPI ->|"location 접근 제한"| SSR1
+    FullAPI ->|"정상 동작"| SSR2
     
     style WebView fill:#ffebee
     style LimitedAPI fill:#ffebee
@@ -609,68 +676,50 @@ function redirectTo(url: string) {
 
 #### 배포 프로세스 다이어그램
 
-<figure>
-<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_deployment_diagram.png' | relative_url }}" alt="Deployment Process Flow" loading="lazy" class="post-image">
-<figcaption>그림 2: 배포 프로세스 플로우 - Python diagrams로 생성</figcaption>
-</figure>
-
-```python
-#!/usr/bin/env python3
-"""
-배포 프로세스 다이어그램
-생성: python3 scripts/generate_deployment_diagram.py
-"""
-
-from diagrams import Diagram, Cluster, Edge
-from diagrams.onprem.vcs import Github
-from diagrams.onprem.ci import GithubActions
-from diagrams.onprem.container import Docker
-from diagrams.aws.compute import ECR
-from diagrams.k8s.compute import Pod, Deployment
-from diagrams.k8s.controlplane import APIServer
-from diagrams.generic.blank import Blank
-
-with Diagram(
-    "Deployment Process Flow",
-    filename="2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_deployment_diagram",
-    show=False,
-    direction="LR",
-    graph_attr={"fontsize": "14", "bgcolor": "white"},
-):
-    # 개발자
-    developer = Blank("Developer")
+```mermaid
+graph LR
+    subgraph Developer["개발자"]
+        Dev["Developer"]
+    end
     
-    # 소스 코드 관리
-    with Cluster("Source Code"):
-        github = Github("GitHub\nexample-frontend")
-        main_branch = Blank("main branch")
+    subgraph SourceCode["소스 코드 관리"]
+        GitHub["GitHub - example-frontend"]
+        MainBranch["main branch"]
+    end
     
-    # CI/CD 파이프라인
-    with Cluster("CI/CD Pipeline"):
-        actions = GithubActions("GitHub Actions\nbuild-and-deploy.yml")
-        build = Blank("Build\nnpm run build")
-        docker_build = Docker("Docker Build\nImage: v1.0.1")
+    subgraph CICD["CI/CD 파이프라인"]
+        Actions["GitHub Actions - build-and-deploy.yml"]
+        Build["Build - npm run build"]
+        DockerBuild["Docker Build - Image: v1.0.1"]
+    end
     
-    # 컨테이너 레지스트리
-    with Cluster("Container Registry"):
-        ecr = ECR("ECR\nImage Storage")
+    subgraph Registry["컨테이너 레지스트리"]
+        ECR["ECR - Image Storage"]
+    end
     
-    # Kubernetes 배포
-    with Cluster("Kubernetes"):
-        api = APIServer("Kubernetes\nAPI Server")
-        deployment = Deployment("Deployment\nweb-app")
-        pod = Pod("Pod\nNext.js SSR")
+    subgraph K8s["Kubernetes"]
+        API["Kubernetes - API Server"]
+        Deployment["Deployment - web-app"]
+        Pod["Pod - Next.js SSR"]
+    end
     
-    # 연결
-    developer >> github
-    github >> main_branch
-    main_branch >> actions
-    actions >> build
-    build >> docker_build
-    docker_build >> ecr
-    ecr >> api
-    api >> deployment
-    deployment >> pod
+    Dev -> GitHub
+    GitHub -> MainBranch
+    MainBranch -> Actions
+    Actions -> Build
+    Build -> DockerBuild
+    DockerBuild -> ECR
+    ECR -> API
+    API -> Deployment
+    Deployment -> Pod
+    
+    style Dev fill:#E3F2FD
+    style GitHub fill:#E1F5FE
+    style Actions fill:#FFF3E0
+    style DockerBuild fill:#FFF3E0
+    style ECR fill:#F3E5F5
+    style API fill:#E8F5E9
+    style Pod fill:#E8F5E9
 ```
 
 #### 배포 예시: 실제 코드 변경 사항
@@ -799,94 +848,167 @@ jobs:
 ### 4.2 5XX 에러 발생 경로
 
 <figure>
-<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_error_path_diagram.png' | relative_url }}" alt="5XX Error Path" loading="lazy" class="post-image">
-<figcaption>그림 3: 5XX 에러 발생 경로 - Python diagrams로 생성</figcaption>
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_error_path_diagram.drawio.svg' | relative_url }}" alt="5XX Error Path" loading="lazy" class="post-image">
+<figcaption>그림 3: 5XX 에러 발생 경로 - draw.io로 생성</figcaption>
 </figure>
 
-```python
-#!/usr/bin/env python3
-"""
-5XX 에러 발생 경로 다이어그램
-생성: python3 scripts/generate_error_path_diagram.py
-"""
+<details>
+<summary>draw.io XML 코드 (클릭하여 확장)</summary>
 
-from diagrams import Diagram, Cluster, Edge
-from diagrams.generic.device import Mobile
-from diagrams.onprem.client import Client
-from diagrams.saas.cdn import Cloudflare
-from diagrams.aws.network import ALB
-from diagrams.aws.security import WAF
-from diagrams.k8s.compute import Pod
-from diagrams.k8s.network import Service, Ingress
-from diagrams.generic.blank import Blank
-
-with Diagram(
-    "5XX Error Path",
-    filename="2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_error_path_diagram",
-    show=False,
-    direction="TB",
-    graph_attr={"fontsize": "14", "bgcolor": "white"},
-):
-    # 클라이언트
-    mobile = Mobile("Mobile x.com")
-    desktop = Client("Desktop Browser")
-    
-    # Cloudflare
-    with Cluster("Cloudflare"):
-        cloudflare = Cloudflare("Cloudflare")
-        waf = WAF("WAF")
-        block = Blank("IP 차단")
-        pass_through = Blank("요청 통과")
-    
-    # ALB
-    with Cluster("AWS ALB"):
-        alb = ALB("Application Load Balancer")
-        ingress = Ingress("Ingress")
-        healthcheck = Blank("Health Check\n실패")
-        targetgroup = Blank("Target Group\nUnhealthy")
-    
-    # Kubernetes
-    with Cluster("Kubernetes"):
-        service = Service("Service")
-        pod1 = Pod("Pod 1")
-        pod2 = Pod("Pod 2")
-        pod3 = Pod("Pod 3")
-    
-    # 에러
-    with Cluster("Error"):
-        ssr = Blank("SSR 렌더링")
-        location = Blank("location 접근")
-        referror = Blank("ReferenceError")
-        status500 = Blank("500 에러")
-    
-    # 연결
-    mobile >> cloudflare
-    desktop >> cloudflare
-    
-    cloudflare >> waf
-    waf >> block
-    waf >> pass_through
-    
-    block >> status500
-    pass_through >> alb
-    
-    alb >> ingress
-    ingress >> healthcheck
-    healthcheck >> targetgroup
-    targetgroup >> service
-    
-    service >> pod1
-    service >> pod2
-    service >> pod3
-    
-    pod1 >> ssr
-    pod2 >> ssr
-    pod3 >> ssr
-    
-    ssr >> location
-    location >> referror
-    referror >> status500
+```xml
+<mxfile host="app.diagrams.net">
+  <diagram name="5XX Error Path" id="error-path">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Client -->
+        <mxCell id="mobile" value="Mobile x.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="desktop" value="Desktop Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Cloudflare Cluster -->
+        <mxCell id="cf-cluster" value="Cloudflare" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="1080" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="cloudflare" value="Cloudflare" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cf-cluster">
+          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="waf" value="WAF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cf-cluster">
+          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="block" value="IP 차단" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="cf-cluster">
+          <mxGeometry x="520" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pass-through" value="요청 통과" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=12;" vertex="1" parent="cf-cluster">
+          <mxGeometry x="760" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- AWS ALB Cluster -->
+        <mxCell id="alb-cluster" value="AWS ALB" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#4A148C;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="340" width="1080" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="alb" value="Application Load Balancer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;" vertex="1" parent="alb-cluster">
+          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ingress" value="Ingress" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;" vertex="1" parent="alb-cluster">
+          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="healthcheck" value="Health Check&#xa;실패" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="alb-cluster">
+          <mxGeometry x="520" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="targetgroup" value="Target Group&#xa;Unhealthy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="alb-cluster">
+          <mxGeometry x="760" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Kubernetes Cluster -->
+        <mxCell id="k8s-cluster" value="Kubernetes" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#1B5E20;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="540" width="1080" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="service" value="Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=12;" vertex="1" parent="k8s-cluster">
+          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pod1" value="Pod 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
+          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pod2" value="Pod 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
+          <mxGeometry x="520" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pod3" value="Pod 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
+          <mxGeometry x="760" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Error Cluster -->
+        <mxCell id="error-cluster" value="Error" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#B71C1C;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="740" width="1080" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="ssr" value="SSR 렌더링" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="error-cluster">
+          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="location" value="location 접근" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="error-cluster">
+          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="referror" value="ReferenceError" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#B71C1C;fontSize=12;fontStyle=1" vertex="1" parent="error-cluster">
+          <mxGeometry x="520" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="status500" value="500 에러" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#B71C1C;fontSize=12;fontStyle=1" vertex="1" parent="error-cluster">
+          <mxGeometry x="760" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="edge1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="mobile" target="cloudflare">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="desktop" target="cloudflare">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="cloudflare" target="waf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="waf" target="block">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#388E3C;" edge="1" parent="1" source="waf" target="pass-through">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="block" target="status500">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#388E3C;" edge="1" parent="1" source="pass-through" target="alb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="alb" target="ingress">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="ingress" target="healthcheck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="healthcheck" target="targetgroup">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="targetgroup" target="service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod1" target="ssr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod2" target="ssr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod3" target="ssr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="ssr" target="location">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="location" target="referror">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="referror" target="status500">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
 ```
+
+</details>
+
+> **참고**: 위 draw.io XML 코드를 [draw.io](https://app.diagrams.net/)에서 열어서 다이어그램을 편집하고 SVG/PNG로 내보낼 수 있습니다.
 
 **에러 발생 경로 상세**:
 

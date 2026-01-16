@@ -418,22 +418,22 @@ Zero Trust는 "신뢰하되 검증하라(Trust but Verify)" 원칙을 기반으�
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning<br/>Trivy, Snyk"]
-        SecretMgmt["Secret Management<br/>K8s Secrets, Vault"]
-        NonRoot["Non-root User<br/>runAsNonRoot"]
-        ReadOnly["Read-only Filesystem<br/>readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop<br/>capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies<br/>Pod Isolation"]
+        ImageScan["Image Scanning - Trivy, Snyk"]
+        SecretMgmt["Secret Management - K8s Secrets, Vault"]
+        NonRoot["Non-root User - runAsNonRoot"]
+        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies - Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
+    ImageScan -> SecretMgmt
+    SecretMgmt -> NonRoot
+    NonRoot -> ReadOnly
+    ReadOnly -> CapDrop
+    CapDrop -> NetworkPolicy
+    NetworkPolicy -> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
@@ -844,12 +844,12 @@ Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 
 ```mermaid
 graph LR
-    Privileged["Privileged<br/>No restrictions<br/>System Pods"]
-    Baseline["Baseline<br/>Minimal security<br/>General Apps"]
-    Restricted["Restricted<br/>Strongest policies<br/>Sensitive Workloads"]
+    Privileged["Privileged - No restrictions - System Pods"]
+    Baseline["Baseline - Minimal security - General Apps"]
+    Restricted["Restricted - Strongest policies - Sensitive Workloads"]
     
-    Privileged --> Baseline
-    Baseline --> Restricted
+    Privileged -> Baseline
+    Baseline -> Restricted
     
     style Privileged fill:#ffebee
     style Baseline fill:#fff4e1
