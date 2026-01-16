@@ -125,12 +125,13 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
         "Content-Type": "application/json"
     }
 
-    # Use "sent" status to immediately send to all subscribers
-    # Alternative: "about_to_send" (draft) or "scheduled" (with publish_date)
+    # Use "about_to_send" status to immediately send to all subscribers
+    # Valid statuses: "draft", "about_to_send", "scheduled", "imported", "transactional"
+    # Note: "sent" is not valid for newly created emails
     data = {
         "subject": subject,
         "body": body,
-        "status": "sent"  # Immediately send to all subscribers
+        "status": "about_to_send"  # Immediately send to all subscribers
     }
 
     try:
