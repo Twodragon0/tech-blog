@@ -345,7 +345,7 @@ spec:
 
 ### 4.1 기본 거부 정책
 
-> **참고**: Kubernetes Network Policy 관련 내용은 [Kubernetes Network Policy 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Network Policy 예제](https://github.com/kubernetes/examples/tree/master/staging/network-policies)를 참조하세요.
+> **참고**: Kubernetes Network Policy 관련 내용은 [Kubernetes Network Policy 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Network Policy 예제](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
 > # 모든 인그레스/이그레스 트래픽 차단 (기본)...
@@ -370,7 +370,7 @@ spec:
 
 ### 4.2 필요한 트래픽만 허용
 
-> **참고**: Kubernetes Network Policy 관련 내용은 [Kubernetes Network Policy 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Network Policy 예제](https://github.com/kubernetes/examples/tree/master/staging/network-policies)를 참조하세요.
+> **참고**: Kubernetes Network Policy 관련 내용은 [Kubernetes Network Policy 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Network Policy 예제](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
 > # Frontend -> Backend 통신만 허용...

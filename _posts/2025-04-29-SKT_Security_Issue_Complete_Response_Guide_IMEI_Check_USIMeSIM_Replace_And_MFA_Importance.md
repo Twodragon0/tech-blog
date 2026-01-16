@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/677
 image: /assets/images/2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_and_MFA_Importance.svg
 image_alt: "SKT Security Issue Complete Response Guide: IMEI Check USIM eSIM Replacement and MFA Importance"
+toc: true
 ---
 
 <div class="ai-summary-card">

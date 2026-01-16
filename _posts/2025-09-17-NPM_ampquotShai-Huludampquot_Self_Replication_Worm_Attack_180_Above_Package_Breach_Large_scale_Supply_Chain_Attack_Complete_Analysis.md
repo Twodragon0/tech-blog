@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/694
 image: /assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis.svg
 image_alt: "NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale Supply Chain Attack with 180+ Compromised Packages"
+toc: true
 ---
 
 <div class="ai-summary-card">

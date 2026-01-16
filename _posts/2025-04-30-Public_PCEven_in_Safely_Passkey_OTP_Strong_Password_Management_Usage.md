@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/678
 image: /assets/images/2025-04-30-Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage.svg
 image_alt: "Safely on Public PC: Passkey OTP Strong Password Management Usage"
+toc: true
 ---
 
 <div class="ai-summary-card">

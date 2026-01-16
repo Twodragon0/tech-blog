@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/683
 image: /assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA.svg
 image_alt: "Cloud Security Course 7Batch 5Week: AWS Control Tower and ZTNA"
+toc: true
 certifications: [aws-saa]
 ---
 

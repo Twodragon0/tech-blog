@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/687
 image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_Guide_From_Practical_To.svg
 image_alt: "Kubernetes Minikube and K9s Practical Guide: From Problem Solving to Practical Testing"
+toc: true
 certifications: [ckad, cka]
 ---
 
@@ -964,10 +965,10 @@ Minikube 1.37.0에서는 AI 워크로드 지원, AMD GPU 지원, containerd 기�
 
 ### Kubernetes 릴리스 노트
 
-- [Kubernetes 1.32 릴리스 노트](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md)
-- [Kubernetes 1.33 릴리스 노트](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md)
-- [Kubernetes 1.34 릴리스 노트](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md)
-- [Kubernetes 1.35 릴리스 노트](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md)
+- [Kubernetes 1.32 릴리스 노트](https://github.com/kubernetes/kubernetes)
+- [Kubernetes 1.33 릴리스 노트](https://github.com/kubernetes/kubernetes)
+- [Kubernetes 1.34 릴리스 노트](https://github.com/kubernetes/kubernetes)
+- [Kubernetes 1.35 릴리스 노트](https://github.com/kubernetes/kubernetes)
 
 ### 추가 학습 자료
 

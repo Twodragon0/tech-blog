@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/685
 image: /assets/images/2025-05-24-Amazon_Q_Developerand_GitHub_Advanced_Security_Security_and_AWS.svg
 image_alt: "Code Security Enhancement and AWS Optimization Using Amazon Q Developer and GitHub Advanced Security"
+toc: true
 ---
 
 <div class="ai-summary-card">

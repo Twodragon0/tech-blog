@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/688
 image: /assets/images/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.svg
 image_alt: "Email Delivery Trust Improvement: SendGrid SPF DKIM DMARC Setup Complete Guide"
+toc: true
 ---
 
 <div class="ai-summary-card">

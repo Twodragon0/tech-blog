@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/680
 image: /assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.svg
 image_alt: "Kandji macOS Complete Master: Setup from Security Regulation Compliance to All-in-One Guide"
+toc: true
 ---
 
 <div class="ai-summary-card">

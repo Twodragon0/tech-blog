@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/704
 image: /assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence.svg
 image_alt: "December Conference Review: Previewing 2025 AI and Security Coexistence with AWSKRUG OWASP Datadog"
+toc: true
 ---
 
 <div class="ai-summary-card">

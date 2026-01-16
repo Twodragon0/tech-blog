@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/693
 image: /assets/images/2025-09-16-AWS_reInforce_2025_Cloud_Security_and_Future.svg
 image_alt: "AWS re:Inforce 2025: Cloud Security Present and Future"
+toc: true
 ---
 
 <div class="ai-summary-card">
