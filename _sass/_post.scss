@@ -122,6 +122,31 @@
     margin: $spacing-xl auto;
     border-radius: $radius-md;
     box-shadow: $shadow-md;
+    max-width: 100%;
+    height: auto;
+  }
+
+  // Figure 안의 이미지 스타일 (다이어그램 등)
+  figure {
+    margin: $spacing-xl 0;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto $spacing-sm;
+      border-radius: $radius-md;
+      box-shadow: $shadow-md;
+    }
+
+    figcaption {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-style: italic;
+      margin-top: $spacing-sm;
+      padding: 0 $spacing-md;
+    }
   }
 
   .image-caption {
