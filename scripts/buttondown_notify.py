@@ -68,47 +68,153 @@ def generate_post_url(file_path: str, site_url: str) -> str:
     return f"{site_url}/posts/{year}/{month}/{title}/"
 
 
-def create_email_content(frontmatter: dict, post_url: str, excerpt: str = None) -> tuple:
-    """Create email subject and body for Buttondown."""
+def extract_excerpt_from_content(content: str, max_length: int = 250) -> str:
+    """Extract excerpt from post content if excerpt is not available."""
+    # Remove markdown links, images, code blocks
+    content = re.sub(r'!\[.*?\]\(.*?\)', '', content)  # Remove images
+    content = re.sub(r'\[.*?\]\(.*?\)', '', content)  # Remove links (keep text)
+    content = re.sub(r'```[\s\S]*?```', '', content)  # Remove code blocks
+    content = re.sub(r'`[^`]+`', '', content)  # Remove inline code
+    content = re.sub(r'#{1,6}\s+', '', content)  # Remove headers
+    content = re.sub(r'\*\*([^*]+)\*\*', r'\1', content)  # Remove bold
+    content = re.sub(r'\*([^*]+)\*', r'\1', content)  # Remove italic
+    content = re.sub(r'\n+', ' ', content)  # Replace newlines with space
+    content = content.strip()
+    
+    if len(content) > max_length:
+        # Try to cut at sentence boundary
+        truncated = content[:max_length]
+        last_period = truncated.rfind('.')
+        last_exclamation = truncated.rfind('!')
+        last_question = truncated.rfind('?')
+        last_sentence = max(last_period, last_exclamation, last_question)
+        
+        if last_sentence > max_length * 0.7:  # If we found a sentence boundary reasonably close
+            content = truncated[:last_sentence + 1]
+        else:
+            content = truncated + '...'
+    
+    return content
+
+
+def format_date_from_filename(filename: str) -> str:
+    """Format date from filename (YYYY-MM-DD-title.md)."""
+    match = re.match(r'(\d{4})-(\d{2})-(\d{2})', filename)
+    if match:
+        year, month, day = match.groups()
+        # Convert to Korean date format
+        months = ['1월', '2월', '3월', '4월', '5월', '6월', 
+                  '7월', '8월', '9월', '10월', '11월', '12월']
+        try:
+            month_name = months[int(month) - 1]
+            return f"{year}년 {month_name} {day}일"
+        except (ValueError, IndexError):
+            return f"{year}-{month}-{day}"
+    return ""
+
+
+def create_email_content(frontmatter: dict, post_url: str, post_content: str = None, filename: str = None) -> tuple:
+    """Create email subject and body for Buttondown with improved UI/UX."""
     title = frontmatter.get('title', 'New Post')
     description = frontmatter.get('excerpt', frontmatter.get('description', ''))
     tags = frontmatter.get('tags', [])
     category = frontmatter.get('categories', frontmatter.get('category', ''))
 
-    # Email subject
-    subject = f"[새 글] {title}"
+    # Extract excerpt from content if not available
+    if not description and post_content:
+        description = extract_excerpt_from_content(post_content, max_length=250)
 
-    # Email body (Markdown format)
+    # Format date
+    date_str = ""
+    if filename:
+        date_str = format_date_from_filename(filename)
+
+    # Email subject (remove emoji from title if present to avoid duplication)
+    # Keep title as is, but add prefix
+    clean_title = title
+    subject = f"📢 새 글: {clean_title}"
+
+    # Email body (Markdown format with improved UI/UX)
     body_parts = [
-        f"# {title}",
+        "---",
+        "",
+        f"# ✨ {title}",
         "",
     ]
 
-    if description:
-        body_parts.extend([description, ""])
+    # Date
+    if date_str:
+        body_parts.extend([
+            f"📅 **발행일:** {date_str}",
+            "",
+        ])
 
-    # Tags section
-    if tags:
-        tag_str = ', '.join([f"`{tag}`" for tag in tags[:5]])
-        body_parts.extend([f"**태그:** {tag_str}", ""])
-
-    # Category
+    # Category badge
     if category:
         if isinstance(category, list):
             category = category[0] if category else ''
-        body_parts.extend([f"**카테고리:** {category}", ""])
+        if category:
+            # Category emoji mapping
+            category_emoji = {
+                'security': '🔒',
+                'devsecops': '🛡️',
+                'devops': '⚙️',
+                'cloud': '☁️',
+                'kubernetes': '☸️',
+                'finops': '💰',
+                'incident': '🚨',
+            }
+            emoji = category_emoji.get(category.lower(), '📝')
+            body_parts.extend([
+                f"{emoji} **카테고리:** `{category}`",
+                "",
+            ])
 
-    # Call to action
+    # Tags
+    if tags:
+        tag_list = tags[:6]  # Limit to 6 tags
+        tag_badges = ' '.join([f"`{tag}`" for tag in tag_list])
+        body_parts.extend([
+            f"🏷️ **태그:** {tag_badges}",
+            "",
+        ])
+
+    # Description/Excerpt
+    if description:
+        body_parts.extend([
+            "---",
+            "",
+            "## 📋 요약",
+            "",
+            description,
+            "",
+        ])
+
+    # Call to action - more prominent
     body_parts.extend([
         "---",
         "",
-        f"[👉 전체 글 읽기]({post_url})",
+        "### 🚀 전체 글 읽기",
+        "",
+        f"> **[👉 지금 바로 읽기 →]({post_url})**",
         "",
         "---",
         "",
+    ])
+
+    # Footer
+    body_parts.extend([
+        "---",
+        "",
+        "💌 **TwoDragon's Tech Blog**",
+        "",
         "이 이메일은 [TwoDragon's Tech Blog](https://tech.2twodragon.com)의 새 글 알림입니다.",
         "",
-        "구독 해지를 원하시면 아래 링크를 클릭하세요.",
+        "📧 더 많은 기술 콘텐츠를 받아보려면 [블로그 구독하기](https://tech.2twodragon.com/support.html)",
+        "",
+        "---",
+        "",
+        "<small>구독 해지를 원하시면 이메일 하단의 링크를 클릭하세요.</small>",
     ])
 
     body = "\n".join(body_parts)
@@ -293,8 +399,12 @@ def main():
     post_url = generate_post_url(post_path, site_url)
     print(f"🔗 Post URL: {post_url}")
 
-    # Create email content
-    subject, body = create_email_content(frontmatter, post_url)
+    # Get post content for excerpt extraction
+    post_content = get_post_content(post_path)
+    filename = Path(post_path).name
+
+    # Create email content with improved UI/UX
+    subject, body = create_email_content(frontmatter, post_url, post_content, filename)
 
     # Send email
     success = send_buttondown_email(subject, body, api_key)

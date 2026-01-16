@@ -271,6 +271,41 @@ SNS 자동 공유를 위해 다음 시크릿을 설정하세요:
 
 - 새 글 작성 시 자동으로 구독자에게 이메일 발송
 - 구독 페이지: https://buttondown.com/twodragon
+- **개선된 이메일 템플릿**: 시각적으로 매력적인 레이아웃, 카테고리/태그 배지, 요약 섹션 포함
+
+### 이메일 기능
+
+#### 이메일 미리보기
+```bash
+# 특정 포스트의 이메일 미리보기
+python3 scripts/preview_buttondown_email.py _posts/2026-01-15-Example.md
+
+# 미리보기를 파일로 저장
+python3 scripts/preview_buttondown_email.py _posts/2026-01-15-Example.md preview.md
+```
+
+#### 이메일 발송 테스트
+```bash
+# Dry run (실제 발송 없이 미리보기)
+python3 scripts/test_buttondown_email_send.py _posts/2026-01-15-Example.md --dry-run
+
+# 실제 이메일 발송 (모든 구독자에게 전송)
+python3 scripts/test_buttondown_email_send.py _posts/2026-01-15-Example.md
+```
+
+#### 이메일 템플릿 특징
+- ✨ 시각적으로 매력적인 헤더와 레이아웃
+- 📅 발행일 정보 표시
+- 🔒 카테고리 배지 (이모지 포함)
+- 🏷️ 태그 배지 (최대 6개)
+- 📋 요약 섹션 (excerpt 또는 본문에서 자동 추출)
+- 🚀 눈에 띄는 CTA 버튼
+- 💌 브랜딩된 푸터
+
+#### 자동 발송
+GitHub Actions 워크플로우를 통해 새 포스트가 푸시되면 자동으로 이메일이 발송됩니다:
+- `.github/workflows/buttondown-notify.yml`에서 처리
+- `BUTTONDOWN_API_KEY` GitHub Secret 필요
 
 ## 🔗 링크
 
