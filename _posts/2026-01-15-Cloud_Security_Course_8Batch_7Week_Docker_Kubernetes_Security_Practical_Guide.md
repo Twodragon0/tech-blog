@@ -110,7 +110,9 @@ category: kubernetes
 
 ##### **Docker 구성 요소 관계도**
 
-*위 이미지 참조*
+![Docker 구성 요소 관계도](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
+
+*Docker의 핵심 구성 요소: Dockerfile로 이미지를 빌드하고, Registry에 저장하며, Container로 실행*
 
 ##### **기본 Docker 명령어**
 
@@ -169,17 +171,17 @@ docker rm my-nginx
 
 ##### **VM vs Container 아키텍처 비교**
 
-*위 이미지 참조*
+*가상머신과 컨테이너의 아키텍처 차이: VM은 전체 OS를 포함하지만, Container는 호스트 커널을 공유하여 경량화*
 
 ##### **컨테이너 격리 메커니즘**
 
-*위 이미지 참조*
+![컨테이너 격리 메커니즘](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_3.png)
+
+*컨테이너 격리 원리: Linux 커널의 Namespaces, Cgroups, Union File Systems를 활용한 격리*
 
 #### **1.3 Kubernetes 기본 개념**
 
 ##### **Kubernetes 핵심 리소스**
-
-![Kubernetes 핵심 리소스 관계도 - Pod, Deployment, Service, Namespace](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
 
 *Kubernetes 핵심 리소스: Pod는 최소 배포 단위, Deployment는 Pod를 관리, Service는 네트워크 엔드포인트 제공*
 
@@ -207,11 +209,7 @@ docker rm my-nginx
 
 ##### **Kubernetes 클러스터 아키텍처**
 
-*위 이미지 참조*
-
-##### **Kubernetes 리소스 관계도**
-
-*위 이미지 참조*
+*Kubernetes 클러스터는 Control Plane과 Worker Node로 구성되어 있습니다.*
 
 > **참고**: Kubernetes 기본 개념은 [Kubernetes 공식 문서](https://kubernetes.io/docs/concepts/) 및 [Kubernetes GitHub 저장소](https://github.com/kubernetes/kubernetes)를 참조하세요.
 
@@ -363,7 +361,7 @@ jobs:
 
 ##### **Secret 관리 방식 비교**
 
-*위 이미지 참조*
+*Secret 관리 방식 비교: Kubernetes Secrets, External Secrets Operator, Sealed Secrets*
 
 > **참고**: External Secrets Operator 설정은 [External Secrets Operator 문서](https://external-secrets.io/) 및 [AWS Secrets Manager 통합](https://external-secrets.io/latest/provider/aws-secrets-manager/)을 참조하세요.yaml
 # External Secrets Operator 예시 (AWS Secrets Manager)
@@ -552,7 +550,7 @@ Network Policies를 통해 Pod 간 통신을 제어하여 방어 깊이를 강�
 
 ##### **Network Policy 동작 원리**
 
-*위 이미지 참조*
+*Network Policy를 통한 Pod 간 통신 제어: Ingress(들어오는 트래픽), Egress(나가는 트래픽), Default Deny(기본 거부)*
 
 > **참고**: Network Policy 설정 예시는 [Kubernetes Network Policies 공식 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Kubernetes 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -613,8 +611,6 @@ spec:
 
 ##### **역할 기반 접근 제어**
 
-![RBAC 구조 - User/ServiceAccount → RoleBinding → Role → Resources](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
-
 *RBAC 최소 권한 원칙: 사용자/서비스 계정이 Role을 통해 필요한 리소스에만 접근*
 
 | 역할 | 권한 | 설명 |
@@ -625,7 +621,7 @@ spec:
 
 ##### **RBAC 구조 및 권한 흐름**
 
-*위 이미지 참조*
+*RBAC 구조: User/ServiceAccount → RoleBinding → Role → Resources*
 # RBAC 예시
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -728,7 +724,7 @@ CMD ["server.js"]
 
 ##### **런타임 보안 모니터링 아키텍처**
 
-*위 이미지 참조*
+*런타임 보안 모니터링: Falco, Sysdig 등을 사용하여 컨테이너 런타임 보안 모니터링*
 
 > **참고**: Falco 설정은 [Falco 공식 문서](https://falco.org/docs/) 및 [Falco Kubernetes Operator](https://github.com/falcosecurity/falco-operator)를 참조하세요.yaml
 # Falco Kubernetes Operator 설치 예시
@@ -770,7 +766,7 @@ spec:
 
 ##### **네트워크 세분화 전략**
 
-*위 이미지 참조*
+*네트워크 세분화: 기본 거부 정책, 네임스페이스 격리, 서비스 메시 통합을 통한 네트워크 보안 강화*
 
 #### **4.5 정기적인 보안 감사 및 로깅**
 
@@ -782,7 +778,7 @@ spec:
 
 ##### **보안 감사 및 로깅 아키텍처**
 
-*위 이미지 참조*
+*보안 감사 및 로깅: Kubernetes Audit 로깅, 컨테이너 로그 수집, 보안 이벤트 모니터링을 통한 보안 가시성 확보*
 
 > **참고**: Kubernetes Audit Policy 설정은 [Kubernetes Audit 문서](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/) 및 [Kubernetes 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
