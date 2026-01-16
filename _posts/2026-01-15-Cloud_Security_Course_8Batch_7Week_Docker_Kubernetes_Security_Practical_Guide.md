@@ -110,9 +110,7 @@ category: kubernetes
 
 ##### **Docker 구성 요소 관계도**
 
-![Docker 구성 요소 관계도](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
-
-*Docker의 핵심 구성 요소: Dockerfile로 이미지를 빌드하고, Registry에 저장하며, Container로 실행*
+*Docker의 핵심 구성 요소 관계도는 위 이미지를 참조하세요.*
 
 ##### **기본 Docker 명령어**
 
@@ -175,9 +173,7 @@ docker rm my-nginx
 
 ##### **컨테이너 격리 메커니즘**
 
-![컨테이너 격리 메커니즘](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_3.png)
-
-*컨테이너 격리 원리: Linux 커널의 Namespaces, Cgroups, Union File Systems를 활용한 격리*
+*컨테이너 격리 메커니즘은 위 이미지를 참조하세요.*
 
 #### **1.3 Kubernetes 기본 개념**
 
@@ -321,8 +317,6 @@ CMD ["node", "server.js"]
 
 ##### **이미지 스캔 자동화**
 
-![컨테이너 이미지 스캔 도구 비교 - Trivy, Snyk, Clair](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
-
 *이미지 스캔 자동화: CI/CD 파이프라인에 통합하여 배포 전 취약점 탐지*
 
 | 도구 | 설명 | CI/CD 통합 | 특징 |
@@ -363,7 +357,9 @@ jobs:
 
 *Secret 관리 방식 비교: Kubernetes Secrets, External Secrets Operator, Sealed Secrets*
 
-> **참고**: External Secrets Operator 설정은 [External Secrets Operator 문서](https://external-secrets.io/) 및 [AWS Secrets Manager 통합](https://external-secrets.io/latest/provider/aws-secrets-manager/)을 참조하세요.yaml
+> **참고**: External Secrets Operator 설정은 [External Secrets Operator 문서](https://external-secrets.io/) 및 [AWS Secrets Manager 통합](https://external-secrets.io/latest/provider/aws-secrets-manager/)을 참조하세요.
+
+```yaml
 # External Secrets Operator 예시 (AWS Secrets Manager)
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
@@ -387,8 +383,6 @@ spec:
 #### **2.3 비루트 사용자 실행**
 
 ##### **Security Context 설정**
-
-![Security Context 개념도 - 비루트 사용자 실행 및 최소 권한 원칙](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
 
 *Security Context를 통한 컨테이너 보안 강화: 비루트 사용자 실행, 권한 상승 방지, Capabilities 제거*
 
@@ -440,8 +434,6 @@ Kubernetes 클러스터 보안은 다층 방어 전략으로 접근해야 합니
 
 Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 
-![Pod Security Standards 레벨 - Privileged, Baseline, Restricted](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
-
 *Pod Security Standards: Privileged(제한 없음) → Baseline(최소 보안) → Restricted(강력한 보안)*
 
 | 레벨 | 설명 | 적용 예시 |
@@ -488,8 +480,6 @@ spec:
 
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
-![User Namespaces 컨테이너 격리 강화](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_3.png)
-
 *User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다.*
 
 | 공격 시나리오 | 기존 | User Namespaces 적용 |
@@ -535,8 +525,6 @@ spec:
 #### **3.3 Network Policies**
 
 ##### **네트워크 트래픽 제어**
-
-![Network Policy 동작 원리 - Ingress, Egress, Default Deny](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
 
 *Network Policy를 통한 Pod 간 통신 제어: Ingress(들어오는 트래픽), Egress(나가는 트래픽), Default Deny(기본 거부)*
 
@@ -613,15 +601,15 @@ spec:
 
 *RBAC 최소 권한 원칙: 사용자/서비스 계정이 Role을 통해 필요한 리소스에만 접근*
 
+RBAC 구조: User/ServiceAccount → RoleBinding → Role → Resources
+
 | 역할 | 권한 | 설명 |
 |------|------|------|
 | **Developer** | Deployment 생성/수정 | 애플리케이션 배포만 가능 |
 | **Operator** | Pod 로그 조회, 리소스 모니터링 | 운영 작업만 가능 |
 | **Security** | NetworkPolicy, PodSecurityPolicy 관리 | 보안 정책 관리 |
 
-##### **RBAC 구조 및 권한 흐름**
-
-*RBAC 구조: User/ServiceAccount → RoleBinding → Role → Resources*
+```yaml
 # RBAC 예시
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -667,8 +655,6 @@ roleRef:
 
 ##### **이미지 서명 및 검증 프로세스**
 
-![이미지 서명 및 검증 프로세스](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
-
 *이미지 서명 및 검증 프로세스: CI/CD 파이프라인에서 이미지 서명 및 검증 자동화*
 
 > **참고**: 이미지 서명 및 검증은 [Docker Content Trust 문서](https://docs.docker.com/engine/security/trust/) 및 [Cosign GitHub 저장소](https://github.com/sigstore/cosign)를 참조하세요.
@@ -691,11 +677,8 @@ cosign verify --key cosign.pub myregistry.io/myapp:v1.0.0
 # 추가 옵션 및 고급 사용법은 위 링크 참조
 ```
 -->
-```
 
 #### **4.2 최소 권한 이미지 사용**
-
-![컨테이너 이미지 비교 - Full OS vs Minimal vs Distroless](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
 
 *컨테이너 이미지 유형 비교: Full OS 이미지(무거움, 많은 취약점) → Minimal 이미지(Alpine, 경량) → Distroless 이미지(최소 권한, 최고 보안)*
 
@@ -726,7 +709,9 @@ CMD ["server.js"]
 
 *런타임 보안 모니터링: Falco, Sysdig 등을 사용하여 컨테이너 런타임 보안 모니터링*
 
-> **참고**: Falco 설정은 [Falco 공식 문서](https://falco.org/docs/) 및 [Falco Kubernetes Operator](https://github.com/falcosecurity/falco-operator)를 참조하세요.yaml
+> **참고**: Falco 설정은 [Falco 공식 문서](https://falco.org/docs/) 및 [Falco Kubernetes Operator](https://github.com/falcosecurity/falco-operator)를 참조하세요.
+
+```yaml
 # Falco Kubernetes Operator 설치 예시
 apiVersion: v1
 kind: Namespace
