@@ -248,6 +248,11 @@ console.log(location.hostname);    // 호스트명 (example.com)
 
 #### SSR 환경에서의 문제
 
+<figure>
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_ssr_csr_comparison.png' | relative_url }}" alt="SSR vs CSR Environment Comparison" loading="lazy" class="post-image">
+<figcaption>그림 4: SSR vs CSR 환경 비교 - location 객체 접근 차이</figcaption>
+</figure>
+
 ```mermaid
 graph TB
     subgraph Client["클라이언트 사이드 (브라우저)"]
@@ -302,7 +307,12 @@ function redirectTo(url: string) {
 
 #### 모바일 x.com의 URL 처리 방식
 
-```mermaid
+<figure>
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_mobile_x_flow.png' | relative_url }}" alt="Mobile x.com Link Flow" loading="lazy" class="post-image">
+<figcaption>그림 5: 모바일 x.com 링크 처리 플로우</figcaption>
+</figure>
+
+```mermaid>
 graph TB
     subgraph Mobile["모바일 환경"]
         User["사용자"]
@@ -670,6 +680,11 @@ jobs:
    - 특정 요청에서 500 에러 반환
 
 ### 4.3 연쇄 반응
+
+<figure>
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_cascade_reaction.png' | relative_url }}" alt="Cascade Reaction Flow" loading="lazy" class="post-image">
+<figcaption>그림 6: 연쇄 반응 플로우</figcaption>
+</figure>
 
 ```mermaid
 sequenceDiagram
