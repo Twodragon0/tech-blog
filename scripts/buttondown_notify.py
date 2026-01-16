@@ -9,8 +9,10 @@ import sys
 import re
 import yaml
 import requests
+import hashlib
 from pathlib import Path
 from urllib.parse import quote
+from datetime import datetime
 
 # .env 파일에서 환경 변수 로드
 SCRIPT_DIR = Path(__file__).parent
@@ -134,13 +136,17 @@ def create_email_content(frontmatter: dict, post_url: str, post_content: str = N
         if match:
             date_short = match.group(0)  # YYYY-MM-DD format
 
-    # Email subject with date to avoid duplicate detection
-    # Add date to subject to make it unique if post is updated
+    # Email subject with date and timestamp to avoid duplicate detection
+    # Add date and timestamp to subject to make it unique
     clean_title = title
+    timestamp = datetime.now().strftime("%Y%m%d-%H%M")
+    
     if date_short:
-        subject = f"📢 새 글 ({date_short}): {clean_title}"
+        # Include both post date and current timestamp for uniqueness
+        subject = f"📢 새 글 ({date_short}) [{timestamp}]: {clean_title}"
     else:
-        subject = f"📢 새 글: {clean_title}"
+        # Fallback: use timestamp only if date extraction fails
+        subject = f"📢 새 글 [{timestamp}]: {clean_title}"
 
     # Email body (Markdown format with improved UI/UX)
     body_parts = [
@@ -210,9 +216,10 @@ def create_email_content(frontmatter: dict, post_url: str, post_content: str = N
         "",
     ])
 
-    # Footer with timestamp to avoid duplicate detection
-    from datetime import datetime
+    # Footer with timestamp and unique identifier to avoid duplicate detection
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # Create a unique hash based on post URL and timestamp
+    unique_id = hashlib.md5(f"{post_url}{current_time}".encode()).hexdigest()[:8]
     
     body_parts.extend([
         "---",
@@ -225,7 +232,7 @@ def create_email_content(frontmatter: dict, post_url: str, post_content: str = N
         "",
         "---",
         "",
-        f"<small>발송 시간: {current_time} | 구독 해지를 원하시면 이메일 하단의 링크를 클릭하세요.</small>",
+        f"<small>발송 시간: {current_time} | ID: {unique_id} | 구독 해지를 원하시면 이메일 하단의 링크를 클릭하세요.</small>",
     ])
 
     body = "\n".join(body_parts)
