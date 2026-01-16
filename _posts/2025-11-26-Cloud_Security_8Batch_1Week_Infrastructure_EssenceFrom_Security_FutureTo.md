@@ -306,7 +306,7 @@ graph TB
 | **Event Source Validation** | 이벤트 소스 검증 | 무단 이벤트 차단 |
 | **Execution Environment Isolation** | 실행 환경 격리 | 함수 간 격리 강화 |
 
-> **참고**: 클라우드 네이티브 보안 관련 내용은 [CNCF Security Whitepaper](https://github.com/cncf/tag-security) 및 [Kubernetes 보안 모범 사례](https://kubernetes.io/docs/concepts/security/best-practices/)를 참조하세요.
+> **참고**: 클라우드 네이티브 보안 관련 내용은 [CNCF Security Whitepaper](https://github.com/cncf/tag-security) 및 [Kubernetes 보안 체크리스트](https://kubernetes.io/docs/concepts/security/security-checklist/)를 참조하세요.
 
 ### 2.4 규제 및 컴플라이언스 동향
 

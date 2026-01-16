@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석"
-date: 2025-01-16 12:00:00 +0900
+date: 2026-01-16 12:00:00 +0900
 categories: [incident]
 tags: [Post-Mortem, Next.js, SSR, Cloudflare, ALB, Kubernetes, Incident-Response, AWS]
 excerpt: "Post-Mortem: Next.js SSR 환경에서 location 객체 접근으로 인한 5XX 에러 및 Cloudflare IP 차단 인시던트 분석. 배포 후 발생한 ReferenceError: location is not defined 에러, ALB Target Group Health Check 실패, Cloudflare WAF 차단 패턴 분석, 근본 원인 분석 및 재발 방지 대책까지 실무 중심 정리."
 comments: true
-image: /assets/images/2025-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.svg
+image: /assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.svg
 image_alt: "Post-Mortem Next.js SSR Error Cloudflare Blocking ALB 5XX Incident Analysis"
 toc: true
 ---
@@ -67,7 +67,7 @@ toc: true
 
 안녕하세요, **Twodragon**입니다. 이번 포스팅에서는 Next.js SSR 환경에서 발생한 인시던트 대응에 대해 실무 중심으로 정리합니다.
 
-2025년 1월 14일 발생한 Next.js SSR 에러와 Cloudflare 차단으로 인한 ALB 5XX 에러는 배포 프로세스와 모니터링의 중요성을 다시 한번 일깨워주었습니다.
+2026년 1월 14일 발생한 Next.js SSR 에러와 Cloudflare 차단으로 인한 ALB 5XX 에러는 배포 프로세스와 모니터링의 중요성을 다시 한번 일깨워주었습니다.
 
 이번 포스팅에서는 다음 내용을 다룹니다:
 - Next.js SSR 환경에서 location 객체 접근으로 인한 에러 분석
@@ -86,7 +86,7 @@ toc: true
 
 | 항목 | 내용 |
 |------|------|
-| **발생 일시** | 2025-01-14 |
+| **발생 일시** | 2026-01-14 |
 | **영향 서비스** | web-app (example.com, content.example.com) |
 | **심각도** | High |
 | **장애 지속 시간** | 약 5분 (5XX 에러 집중 발생) |
@@ -109,7 +109,7 @@ toc: true
 ### 1.0 전체 아키텍처
 
 <figure>
-<img src="{{ '/assets/images/2025-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_architecture_diagram.png' | relative_url }}" alt="Next.js SSR Error Incident Architecture" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_architecture_diagram.png' | relative_url }}" alt="Next.js SSR Error Incident Architecture" loading="lazy" class="post-image">
 <figcaption>그림 1: Next.js SSR 에러 인시던트 전체 아키텍처 - Python diagrams로 생성</figcaption>
 </figure>
 
@@ -133,7 +133,7 @@ from diagrams.generic.blank import Blank
 
 with Diagram(
     "Next.js SSR Error Incident Architecture",
-    filename="2025-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_architecture_diagram",
+    filename="2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_architecture_diagram",
     show=False,
     direction="TB",
     graph_attr={"fontsize": "14", "bgcolor": "white"},
@@ -610,7 +610,7 @@ function redirectTo(url: string) {
 #### 배포 프로세스 다이어그램
 
 <figure>
-<img src="{{ '/assets/images/2025-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_deployment_diagram.png' | relative_url }}" alt="Deployment Process Flow" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_deployment_diagram.png' | relative_url }}" alt="Deployment Process Flow" loading="lazy" class="post-image">
 <figcaption>그림 2: 배포 프로세스 플로우 - Python diagrams로 생성</figcaption>
 </figure>
 
@@ -632,7 +632,7 @@ from diagrams.generic.blank import Blank
 
 with Diagram(
     "Deployment Process Flow",
-    filename="2025-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_deployment_diagram",
+    filename="2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_deployment_diagram",
     show=False,
     direction="LR",
     graph_attr={"fontsize": "14", "bgcolor": "white"},
@@ -799,7 +799,7 @@ jobs:
 ### 4.2 5XX 에러 발생 경로
 
 <figure>
-<img src="{{ '/assets/images/2025-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_error_path_diagram.png' | relative_url }}" alt="5XX Error Path" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_error_path_diagram.png' | relative_url }}" alt="5XX Error Path" loading="lazy" class="post-image">
 <figcaption>그림 3: 5XX 에러 발생 경로 - Python diagrams로 생성</figcaption>
 </figure>
 
@@ -822,7 +822,7 @@ from diagrams.generic.blank import Blank
 
 with Diagram(
     "5XX Error Path",
-    filename="2025-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_error_path_diagram",
+    filename="2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_error_path_diagram",
     show=False,
     direction="TB",
     graph_attr={"fontsize": "14", "bgcolor": "white"},
@@ -1206,7 +1206,7 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 
 #### 1. **GitHub 배포로 인한 영향** ⚠️ **핵심 원인**
 
-- **최근 배포**: `v1.0.0` → `v1.0.1` (2025-01-14 배포)
+- **최근 배포**: `v1.0.0` → `v1.0.1` (2026-01-14 배포)
 - **배포 방식**: GitHub Actions 자동 배포 (`build-and-deploy.yml`)
 - **영향**:
   - 새 버전 배포로 인해 기존에 숨겨져 있던 `location` 관련 버그가 노출됨
@@ -1331,7 +1331,7 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 
 ---
 
-**작성일**: 2025-01-16
+**작성일**: 2026-01-16
 
 **작성자**: DevSecOps Team
 

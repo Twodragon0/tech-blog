@@ -89,7 +89,7 @@ certifications: [ckad, cka]
 
 ### 1.2 GitHub Actions 보안 설정
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: GitHub Actions 보안 설정 관련 내용은 [GitHub Actions 보안 가이드](https://docs.github.com/en/actions/security-guides) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.
 > 
 > ```yaml
 > # .github/workflows/secure-pipeline.yml...
@@ -225,7 +225,7 @@ roleRef:
 
 ### 2.2 ServiceAccount 보안
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Kubernetes ServiceAccount 보안 관련 내용은 [Kubernetes ServiceAccount 문서](https://kubernetes.io/docs/concepts/security/service-accounts/) 및 [Kubernetes RBAC 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)를 참조하세요.
 > 
 > ```yaml
 > # 전용 ServiceAccount 생성...
@@ -282,7 +282,7 @@ metadata:
 
 ### 3.2 보안 컨텍스트 모범 사례
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Kubernetes Security Context 관련 내용은 [Kubernetes Security Context 문서](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) 및 [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)를 참조하세요.
 > 
 > ```yaml
 > apiVersion: apps/v1...
@@ -573,7 +573,7 @@ spec:
 
 ### 7.1 Falco 규칙 설정
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Falco 런타임 보안 모니터링 관련 내용은 [Falco 공식 저장소](https://github.com/falcosecurity/falco) 및 [Falco 문서](https://falco.org/docs/)를 참조하세요.
 > 
 > ```yaml
 > # 의심스러운 활동 탐지 규칙...
@@ -745,7 +745,7 @@ graph TB
 
 워크로드 격리를 크게 강화하는 User Namespaces가 정식 지원됩니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Kubernetes User Namespaces 관련 내용은 [Kubernetes User Namespaces 문서](https://kubernetes.io/docs/concepts/security/user-namespaces/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
 > apiVersion: v1...
@@ -788,7 +788,7 @@ spec:
 
 kubelet이 Pod용 인증서를 자동으로 요청하고 마운트합니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Kubernetes Pod Certificates 관련 내용은 [Kubernetes Certificate Signing Requests 문서](https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
 > apiVersion: v1...

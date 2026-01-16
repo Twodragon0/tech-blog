@@ -454,7 +454,7 @@ DAST는 실행 중인 애플리케이션을 테스트하여 런타임 취약점�
 
 #### 자동차 환경에서의 DAST
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: DAST 테스트 관련 내용은 [OWASP ZAP](https://www.zaproxy.org/) 및 [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)를 참조하세요.
 > 
 > ```yaml
 > # DAST 테스트 단계...

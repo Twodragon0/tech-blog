@@ -94,7 +94,7 @@ Docker는 애플리케이션을 **컨테이너**라는 격리된 환경에서 �
 
 ### 1.3 기본 Docker 명령어
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Docker 기본 명령어 관련 내용은 [Docker 공식 문서](https://docs.docker.com/) 및 [Docker 공식 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 > 
 > ```bash
 > # 이미지 다운로드...
@@ -158,7 +158,7 @@ Kubernetes는 컨테이너화된 워크로드와 서비스를 관리하기 위�
 #### Pod
 가장 작은 배포 단위로, 하나 이상의 컨테이너를 포함합니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Kubernetes Pod 관련 내용은 [Kubernetes Pod 문서](https://kubernetes.io/docs/concepts/workloads/pods/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
 > apiVersion: v1...
@@ -185,7 +185,7 @@ spec:
 #### Deployment
 Pod의 선언적 업데이트를 제공합니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Kubernetes Deployment 관련 내용은 [Kubernetes Deployment 문서](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
 > apiVersion: apps/v1...
@@ -263,7 +263,7 @@ spec:
 
 ### 3.2 런타임 보안
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Kubernetes Security Context 관련 내용은 [Kubernetes Security Context 문서](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
 > # SecurityContext 설정 예시...
@@ -433,7 +433,7 @@ graph TB
 
 Linux 커널 6.3 이상에서 사용 가능한 User Namespaces가 Kubernetes에서 정식 지원됩니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Kubernetes User Namespaces 관련 내용은 [Kubernetes User Namespaces 문서](https://kubernetes.io/docs/concepts/security/user-namespaces/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
 > apiVersion: v1...
@@ -466,7 +466,7 @@ spec:
 
 kubelet이 Pod용 인증서를 자동으로 요청하고 마운트하는 기능이 추가되었습니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Kubernetes Pod Certificates 관련 내용은 [Kubernetes Certificate Signing Requests 문서](https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
 > apiVersion: v1...

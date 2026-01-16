@@ -901,7 +901,7 @@ spec:
       port: 80
 ```
 
-> **참고**: Kubernetes Best Practices는 [Kubernetes 공식 문서 - Best Practices](https://kubernetes.io/docs/concepts/security/best-practices/)를 참조하세요.
+> **참고**: Kubernetes Best Practices는 [Kubernetes 보안 체크리스트](https://kubernetes.io/docs/concepts/security/security-checklist/)를 참조하세요.
 
 ## 6. 모범 사례 요약
 
@@ -957,7 +957,7 @@ Minikube 1.37.0에서는 AI 워크로드 지원, AMD GPU 지원, containerd 기�
 
 ### Kubernetes 보안 관련
 
-- [Kubernetes 보안 Best Practices](https://kubernetes.io/docs/concepts/security/best-practices/)
+- [Kubernetes 보안 체크리스트](https://kubernetes.io/docs/concepts/security/security-checklist/)
 - [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)
 - [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
 - [RBAC 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
