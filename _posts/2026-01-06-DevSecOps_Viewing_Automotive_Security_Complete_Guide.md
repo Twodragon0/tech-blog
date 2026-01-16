@@ -307,7 +307,7 @@ graph LR
         TEST --> RELEASE[Release]
         RELEASE --> DEPLOY[Deploy]
         DEPLOY --> MONITOR[Monitor]
-        MONITOR -.->|피드백| PLAN
+        MONITOR -->|피드백| PLAN
     end
 
     subgraph SECURITY["보안 활동"]

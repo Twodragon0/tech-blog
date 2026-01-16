@@ -229,9 +229,9 @@ graph TB
         ContainerApp["Container App<br/>UID 1000"]
     end
     
-    ContainerRoot -.->|"User Namespace Mapping"| HostUser
-    ContainerApp -.->|"Direct Mapping"| HostUser
-    HostRoot -.->|"Isolated"| ContainerRoot
+    ContainerRoot -->|"User Namespace Mapping"| HostUser
+    ContainerApp -->|"Direct Mapping"| HostUser
+    HostRoot -->|"Isolated"| ContainerRoot
     
     style HostRoot fill:#ffebee
     style HostUser fill:#e8f5e9

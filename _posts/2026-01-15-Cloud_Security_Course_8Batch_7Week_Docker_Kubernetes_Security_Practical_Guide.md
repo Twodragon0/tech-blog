@@ -464,7 +464,7 @@ graph TB
     
     ContainerRoot -->|"User Namespace Mapping"| HostUser
     ContainerApp -->|"Direct Mapping"| HostUser
-    HostRoot -.->|"Isolated"| ContainerRoot
+    HostRoot -->|"Isolated"| ContainerRoot
     
     style HostRoot fill:#ffebee
     style HostUser fill:#e8f5e9
