@@ -110,9 +110,7 @@ category: kubernetes
 
 ##### **Docker 구성 요소 관계도**
 
-![mermaid_chart_1](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
-
-*Mermaid Chart 1*
+*위 이미지 참조*
 
 ##### **기본 Docker 명령어**
 
@@ -171,20 +169,17 @@ docker rm my-nginx
 
 ##### **VM vs Container 아키텍처 비교**
 
-![mermaid_chart_2](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
-
-*Mermaid Chart 2*
+*위 이미지 참조*
 
 ##### **컨테이너 격리 메커니즘**
-![mermaid_chart_3](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_3.png)
 
-*Mermaid Chart 3*
+*위 이미지 참조*
 
 #### **1.3 Kubernetes 기본 개념**
 
 ##### **Kubernetes 핵심 리소스**
 
-![Kubernetes 핵심 리소스 관계도 - Pod, Deployment, Service, Namespace](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_4.png)
+![Kubernetes 핵심 리소스 관계도 - Pod, Deployment, Service, Namespace](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
 
 *Kubernetes 핵심 리소스: Pod는 최소 배포 단위, Deployment는 Pod를 관리, Service는 네트워크 엔드포인트 제공*
 
@@ -199,8 +194,6 @@ docker rm my-nginx
 
 ##### **Kubernetes 아키텍처**
 
-![Kubernetes 클러스터 아키텍처 - Control Plane과 Worker Node](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_5.png)
-
 *Kubernetes 아키텍처: Control Plane(API Server, etcd, Scheduler)과 Worker Node(kubelet, kube-proxy)로 구성*
 
 | 구성 요소 | 설명 | 역할 |
@@ -214,14 +207,11 @@ docker rm my-nginx
 
 ##### **Kubernetes 클러스터 아키텍처**
 
-![mermaid_chart_4](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_4.png)
-
-*Mermaid Chart 4*
+*위 이미지 참조*
 
 ##### **Kubernetes 리소스 관계도**
-![mermaid_chart_5](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_5.png)
 
-*Mermaid Chart 5*
+*위 이미지 참조*
 
 > **참고**: Kubernetes 기본 개념은 [Kubernetes 공식 문서](https://kubernetes.io/docs/concepts/) 및 [Kubernetes GitHub 저장소](https://github.com/kubernetes/kubernetes)를 참조하세요.
 
@@ -299,7 +289,7 @@ graph TB
 
 ##### **최소 권한 원칙 적용**
 
-![컨테이너 보안 최소 권한 원칙 - 취약한 설정 vs 보안 강화 설정](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_7.png)
+![컨테이너 보안 최소 권한 원칙 - 취약한 설정 vs 보안 강화 설정](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
 
 *최소 권한 원칙 적용: 비루트 사용자, 읽기 전용 파일시스템, Capabilities 제거, Secret 관리*
 
@@ -333,7 +323,7 @@ CMD ["node", "server.js"]
 
 ##### **이미지 스캔 자동화**
 
-![컨테이너 이미지 스캔 도구 비교 - Trivy, Snyk, Clair](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_12.png)
+![컨테이너 이미지 스캔 도구 비교 - Trivy, Snyk, Clair](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
 
 *이미지 스캔 자동화: CI/CD 파이프라인에 통합하여 배포 전 취약점 탐지*
 
@@ -373,9 +363,7 @@ jobs:
 
 ##### **Secret 관리 방식 비교**
 
-![mermaid_chart_7](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_7.png)
-
-*Mermaid Chart 7*
+*위 이미지 참조*
 
 > **참고**: External Secrets Operator 설정은 [External Secrets Operator 문서](https://external-secrets.io/) 및 [AWS Secrets Manager 통합](https://external-secrets.io/latest/provider/aws-secrets-manager/)을 참조하세요.yaml
 # External Secrets Operator 예시 (AWS Secrets Manager)
@@ -402,7 +390,7 @@ spec:
 
 ##### **Security Context 설정**
 
-![Security Context 개념도 - 비루트 사용자 실행 및 최소 권한 원칙](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_12.png)
+![Security Context 개념도 - 비루트 사용자 실행 및 최소 권한 원칙](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
 
 *Security Context를 통한 컨테이너 보안 강화: 비루트 사용자 실행, 권한 상승 방지, Capabilities 제거*
 
@@ -454,18 +442,9 @@ Kubernetes 클러스터 보안은 다층 방어 전략으로 접근해야 합니
 
 Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 
-![Pod Security Standards 레벨 - Privileged, Baseline, Restricted](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_13.png)
+![Pod Security Standards 레벨 - Privileged, Baseline, Restricted](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
 
 *Pod Security Standards: Privileged(제한 없음) → Baseline(최소 보안) → Restricted(강력한 보안)*
-
-```mermaid
-![mermaid_chart_2](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
-
-*Mermaid Chart 2*
-
-![mermaid_chart_2](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
-
-*Mermaid Chart 2*
 
 | 레벨 | 설명 | 적용 예시 |
 |------|------|----------|
@@ -511,16 +490,9 @@ spec:
 
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
-```mermaid
-![mermaid_chart_3](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_3.png)
+![User Namespaces 컨테이너 격리 강화](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_3.png)
 
-*Mermaid Chart 3*
-
-![mermaid_chart_3](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_3.png)
-
-*Mermaid Chart 3*
-
-User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다.
+*User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다.*
 
 | 공격 시나리오 | 기존 | User Namespaces 적용 |
 |--------------|------|---------------------|
@@ -566,7 +538,7 @@ spec:
 
 ##### **네트워크 트래픽 제어**
 
-![Network Policy 동작 원리 - Ingress, Egress, Default Deny](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_10.png)
+![Network Policy 동작 원리 - Ingress, Egress, Default Deny](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
 
 *Network Policy를 통한 Pod 간 통신 제어: Ingress(들어오는 트래픽), Egress(나가는 트래픽), Default Deny(기본 거부)*
 
@@ -580,9 +552,7 @@ Network Policies를 통해 Pod 간 통신을 제어하여 방어 깊이를 강�
 
 ##### **Network Policy 동작 원리**
 
-![mermaid_chart_10](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_10.png)
-
-*Mermaid Chart 10*
+*위 이미지 참조*
 
 > **참고**: Network Policy 설정 예시는 [Kubernetes Network Policies 공식 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Kubernetes 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -643,7 +613,7 @@ spec:
 
 ##### **역할 기반 접근 제어**
 
-![RBAC 구조 - User/ServiceAccount → RoleBinding → Role → Resources](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_11.png)
+![RBAC 구조 - User/ServiceAccount → RoleBinding → Role → Resources](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
 
 *RBAC 최소 권한 원칙: 사용자/서비스 계정이 Role을 통해 필요한 리소스에만 접근*
 
@@ -655,9 +625,7 @@ spec:
 
 ##### **RBAC 구조 및 권한 흐름**
 
-![mermaid_chart_11](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_11.png)
-
-*Mermaid Chart 11*
+*위 이미지 참조*
 # RBAC 예시
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -703,9 +671,9 @@ roleRef:
 
 ##### **이미지 서명 및 검증 프로세스**
 
-![mermaid_chart_12](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_12.png)
+![이미지 서명 및 검증 프로세스](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
 
-*Mermaid Chart 12*
+*이미지 서명 및 검증 프로세스: CI/CD 파이프라인에서 이미지 서명 및 검증 자동화*
 
 > **참고**: 이미지 서명 및 검증은 [Docker Content Trust 문서](https://docs.docker.com/engine/security/trust/) 및 [Cosign GitHub 저장소](https://github.com/sigstore/cosign)를 참조하세요.
 
@@ -731,7 +699,7 @@ cosign verify --key cosign.pub myregistry.io/myapp:v1.0.0
 
 #### **4.2 최소 권한 이미지 사용**
 
-![컨테이너 이미지 비교 - Full OS vs Minimal vs Distroless](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_13.png)
+![컨테이너 이미지 비교 - Full OS vs Minimal vs Distroless](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
 
 *컨테이너 이미지 유형 비교: Full OS 이미지(무거움, 많은 취약점) → Minimal 이미지(Alpine, 경량) → Distroless 이미지(최소 권한, 최고 보안)*
 
@@ -760,9 +728,7 @@ CMD ["server.js"]
 
 ##### **런타임 보안 모니터링 아키텍처**
 
-![mermaid_chart_13](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_13.png)
-
-*Mermaid Chart 13*
+*위 이미지 참조*
 
 > **참고**: Falco 설정은 [Falco 공식 문서](https://falco.org/docs/) 및 [Falco Kubernetes Operator](https://github.com/falcosecurity/falco-operator)를 참조하세요.yaml
 # Falco Kubernetes Operator 설치 예시
@@ -804,9 +770,7 @@ spec:
 
 ##### **네트워크 세분화 전략**
 
-![mermaid_chart_14](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_14.png)
-
-*Mermaid Chart 14*
+*위 이미지 참조*
 
 #### **4.5 정기적인 보안 감사 및 로깅**
 
@@ -817,9 +781,8 @@ spec:
 | **보안 이벤트 모니터링** | 보안 관련 이벤트 실시간 모니터링 | Prometheus, Grafana | 메트릭 수집 및 알림 |
 
 ##### **보안 감사 및 로깅 아키텍처**
-![mermaid_chart_15](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_15.png)
 
-*Mermaid Chart 15*
+*위 이미지 참조*
 
 > **참고**: Kubernetes Audit Policy 설정은 [Kubernetes Audit 문서](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/) 및 [Kubernetes 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
