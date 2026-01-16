@@ -155,6 +155,118 @@ layout: default
 </article>
 
 <script>
+// Auto-generate IDs for headings (runs immediately for TOC to work)
+(function() {
+  'use strict';
+  
+  // Generate safe ID from text (handles Korean and special characters)
+  // Matches kramdown's auto_id format as closely as possible
+  function generateId(text) {
+    if (!text) return '';
+    
+    // Remove HTML tags if any
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = text;
+    text = tempDiv.textContent || tempDiv.innerText || text;
+    
+    // Remove anchor links if present
+    text = text.replace(/<a[^>]*>.*?<\/a>/gi, '');
+    
+    // Trim and normalize whitespace
+    text = text.trim().replace(/\s+/g, ' ');
+    
+    // Convert to lowercase
+    let id = text.toLowerCase();
+    
+    // Replace spaces with hyphens (kramdown style)
+    id = id.replace(/\s+/g, '-');
+    
+    // Remove special characters but keep alphanumeric, Korean, and hyphens
+    // Korean Unicode ranges: \uAC00-\uD7A3 (Hangul syllables), \u3131-\u318E (Hangul Jamo)
+    id = id.replace(/[^\w\uAC00-\uD7A3\u3131-\u318E-]/g, '');
+    
+    // Remove consecutive hyphens
+    id = id.replace(/-+/g, '-');
+    
+    // Remove leading/trailing hyphens
+    id = id.replace(/^-+|-+$/g, '');
+    
+    // If empty, use fallback
+    if (!id) {
+      id = 'heading';
+    }
+    
+    // If starts with number, add prefix (HTML ID cannot start with number)
+    if (/^\d/.test(id)) {
+      id = 'heading-' + id;
+    }
+    
+    // Ensure uniqueness
+    let uniqueId = id;
+    let counter = 1;
+    while (document.getElementById(uniqueId)) {
+      uniqueId = id + '-' + counter;
+      counter++;
+    }
+    
+    return uniqueId;
+  }
+  
+  // Generate IDs for all headings in post content
+  function generateHeadingIds() {
+    const postContent = document.querySelector('.post-content');
+    if (!postContent) return;
+    
+    const headings = postContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    
+    headings.forEach(heading => {
+      // Skip if already has an ID
+      if (heading.id) return;
+      
+      // Get text content excluding any existing anchor links
+      let text = '';
+      const children = Array.from(heading.childNodes);
+      children.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          text += node.textContent;
+        } else if (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains('heading-anchor')) {
+          text += node.textContent || node.innerText || '';
+        }
+      });
+      
+      // Fallback to textContent if no text found
+      if (!text.trim()) {
+        text = heading.textContent || heading.innerText || '';
+      }
+      
+      const id = generateId(text);
+      
+      if (id) {
+        heading.id = id;
+        
+        // Add anchor link icon for better UX
+        if (!heading.querySelector('.heading-anchor')) {
+          const anchor = document.createElement('a');
+          anchor.className = 'heading-anchor';
+          anchor.href = '#' + id;
+          anchor.setAttribute('aria-label', 'Permalink to ' + text.trim());
+          anchor.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>';
+          
+          // Insert anchor at the beginning
+          heading.insertBefore(anchor, heading.firstChild);
+        }
+      }
+    });
+  }
+  
+  // Run immediately when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', generateHeadingIds);
+  } else {
+    generateHeadingIds();
+  }
+})();
+
 // Reading time calculation (deferred to idle time)
 (function() {
   'use strict';

@@ -21,6 +21,8 @@ author:
 markdown: kramdown
 highlighter: rouge
 kramdown:
+  auto_ids: true
+  header_offset: 0
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     block:

@@ -138,6 +138,37 @@
     }
   });
 
+  // Update TOC links after headings get IDs (wait for heading ID generation)
+  function updateTocLinks() {
+    const tocLinks = document.querySelectorAll('.toc-card-item, .toc-sub-item');
+    tocLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;
+      
+      const targetId = href.substring(1);
+      const targetEl = document.getElementById(targetId);
+      
+      // If target doesn't exist, try to find heading by text content
+      if (!targetEl) {
+        const linkText = link.textContent.trim();
+        const headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
+        
+        headings.forEach(heading => {
+          const headingText = heading.textContent.trim().replace(/^#+\s*/, '');
+          if (headingText === linkText && heading.id) {
+            link.setAttribute('href', '#' + heading.id);
+          }
+        });
+      }
+    });
+  }
+  
+  // Wait for heading IDs to be generated, then update TOC links
+  setTimeout(updateTocLinks, 100);
+  
+  // Also update after a short delay to catch any late-generated IDs
+  setTimeout(updateTocLinks, 500);
+
   // 스무스 스크롤
   document.querySelectorAll('.toc-card-item, .toc-sub-item').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -145,7 +176,20 @@
       if (!href || href === '#') return;
 
       const targetId = href.substring(1);
-      const targetEl = document.getElementById(targetId);
+      let targetEl = document.getElementById(targetId);
+      
+      // If target not found, try to find by text content
+      if (!targetEl) {
+        const linkText = this.textContent.trim();
+        const headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
+        
+        headings.forEach(heading => {
+          const headingText = heading.textContent.trim().replace(/^#+\s*/, '');
+          if (headingText === linkText) {
+            targetEl = heading;
+          }
+        });
+      }
 
       if (targetEl) {
         e.preventDefault();
@@ -156,7 +200,7 @@
           top: targetPosition,
           behavior: 'smooth'
         });
-        history.pushState(null, null, '#' + targetId);
+        history.pushState(null, null, '#' + (targetEl.id || targetId));
       }
     });
   });
@@ -181,7 +225,20 @@
       if (!href) return;
 
       const targetId = href.substring(1);
-      const section = document.getElementById(targetId);
+      let section = document.getElementById(targetId);
+      
+      // If section not found by ID, try to find by text content
+      if (!section) {
+        const linkText = item.textContent.trim();
+        const headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
+        
+        headings.forEach(heading => {
+          const headingText = heading.textContent.trim().replace(/^#+\s*/, '');
+          if (headingText === linkText) {
+            section = heading;
+          }
+        });
+      }
 
       if (section) {
         const sectionTop = section.offsetTop;

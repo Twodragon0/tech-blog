@@ -2121,11 +2121,15 @@ iframe[class*="goog-te"],
 .post-content h1,
 .post-content h2,
 .post-content h3,
-.post-content h4 {
+.post-content h4,
+.post-content h5,
+.post-content h6 {
   margin-top: var(--spacing-2xl);
   margin-bottom: var(--spacing-md);
   color: var(--color-text-primary);
   font-weight: var(--font-weight-semibold);
+  position: relative;
+  scroll-margin-top: 80px; /* TOC 링크 클릭 시 헤더가 상단에 정확히 위치하도록 */
 }
 
 .post-content h1 {
@@ -2145,6 +2149,77 @@ iframe[class*="goog-te"],
 
 .post-content h4 {
   font-size: var(--font-size-lg);
+}
+
+/* Heading Anchor Links */
+.post-content h1 .heading-anchor,
+.post-content h2 .heading-anchor,
+.post-content h3 .heading-anchor,
+.post-content h4 .heading-anchor,
+.post-content h5 .heading-anchor,
+.post-content h6 .heading-anchor {
+  position: absolute;
+  left: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--border-radius-sm);
+}
+
+.post-content h1:hover .heading-anchor,
+.post-content h2:hover .heading-anchor,
+.post-content h3:hover .heading-anchor,
+.post-content h4:hover .heading-anchor,
+.post-content h5:hover .heading-anchor,
+.post-content h6:hover .heading-anchor,
+.post-content h1 .heading-anchor:focus,
+.post-content h2 .heading-anchor:focus,
+.post-content h3 .heading-anchor:focus,
+.post-content h4 .heading-anchor:focus,
+.post-content h5 .heading-anchor:focus,
+.post-content h6 .heading-anchor:focus {
+  opacity: 1;
+}
+
+.post-content h1 .heading-anchor:hover,
+.post-content h2 .heading-anchor:hover,
+.post-content h3 .heading-anchor:hover,
+.post-content h4 .heading-anchor:hover,
+.post-content h5 .heading-anchor:hover,
+.post-content h6 .heading-anchor:hover {
+  color: var(--color-primary);
+  background-color: var(--color-bg-secondary);
+}
+
+.post-content h1 .heading-anchor svg,
+.post-content h2 .heading-anchor svg,
+.post-content h3 .heading-anchor svg,
+.post-content h4 .heading-anchor svg,
+.post-content h5 .heading-anchor svg,
+.post-content h6 .heading-anchor svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Mobile: Show anchor links on tap */
+@media (max-width: 768px) {
+  .post-content h1 .heading-anchor,
+  .post-content h2 .heading-anchor,
+  .post-content h3 .heading-anchor,
+  .post-content h4 .heading-anchor,
+  .post-content h5 .heading-anchor,
+  .post-content h6 .heading-anchor {
+    left: -24px;
+    opacity: 0.5;
+  }
 }
 
 .post-content ul,
