@@ -89,7 +89,7 @@ category: kubernetes
 
 ---
 
-### **🌐 1. Docker/Container/Kubernetes 기본 이해**
+## 1. Docker/Container/Kubernetes 기본 이해
 
 컨테이너와 Kubernetes를 이해하기 전에 기본 개념을 명확히 하는 것이 중요합니다.
 
@@ -106,7 +106,7 @@ category: kubernetes
 
 ##### **기본 Docker 명령어**
 
-> **참고**: Docker 기본 명령어는 [Docker 공식 문서](https://docs.docker.com/) 및 [Docker GitHub 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: Docker 기본 명령어는 [Docker 공식 문서](https://docs.docker.com/) 및 [Docker 공식 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 
 ```bash
 # 이미지 다운로드
@@ -210,7 +210,7 @@ kubectl delete pod <pod-name>
 
 ---
 
-### **🌐 2. 컨테이너 보안 Best Practices**
+## 2. 컨테이너 보안 Best Practices
 
 컨테이너 보안은 DevSecOps의 핵심입니다. 이미지 빌드 단계부터 런타임까지 전 과정에서 보안을 고려해야 합니다.
 
@@ -381,7 +381,7 @@ spec:
 
 ---
 
-### **🤖 3. Kubernetes 보안 아키텍처**
+## 3. Kubernetes 보안 아키텍처
 
 Kubernetes 클러스터 보안은 다층 방어 전략으로 접근해야 합니다.
 
@@ -604,7 +604,7 @@ roleRef:
 
 ---
 
-### **📋 4. Kubernetes 보안 Best Practices (2024-2026)**
+## 4. Kubernetes 보안 Best Practices (2024-2026)
 
 2024-2026년 최신 보안 모범 사례를 반영한 Kubernetes 보안 강화 전략입니다.
 
@@ -766,7 +766,7 @@ rules:
 
 ---
 
-### **📝 5. 실전 보안 강화 사례**
+## 5. 실전 보안 강화 사례
 
 보안 엔지니어에게 실전 경험은 이론보다 중요합니다. 이번 주에는 실제 프로젝트에서 적용한 보안 강화 사례를 공유합니다.
 
@@ -881,7 +881,7 @@ spec:
 
 ---
 
-### **🔧 6. 실습: Minikube 보안 환경 구성**
+## 6. 실습: Minikube 보안 환경 구성
 
 #### **6.1 Minikube 설치 및 보안 설정**
 
@@ -955,10 +955,11 @@ kubectl describe pod secure-app -n production
 ```bash
 # Trivy 설치
 brew install trivy  # macOS
-# 또는
-wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.49.0_Linux-64bit.tar.gz
-tar -xzf trivy_0.49.0_Linux-64bit.tar.gz
-sudo mv trivy /usr/local/bin/
+# 또는 Linux의 경우
+# GitHub Releases에서 최신 버전 확인: https://github.com/aquasecurity/trivy/releases
+# 예: wget https://github.com/aquasecurity/trivy/releases/download/v0.68.2/trivy_0.68.2_Linux-64bit.tar.gz
+# tar -xzf trivy_0.68.2_Linux-64bit.tar.gz
+# sudo mv trivy /usr/local/bin/
 
 # 이미지 스캔 실행
 trivy image nginx:1.25-alpine
@@ -969,7 +970,7 @@ trivy k8s cluster --severity HIGH,CRITICAL
 
 ---
 
-### **✅ 보안 체크리스트**
+## 보안 체크리스트
 
 | 보안 영역 | 체크리스트 항목 | 설명 |
 |----------|---------------|------|
@@ -1002,10 +1003,10 @@ Docker & Kubernetes 보안은 DevSecOps의 핵심입니다. 컨테이너 보안�
 
 이 가이드를 참고하여 여러분의 컨테이너 환경 보안을 강화하시기 바랍니다.
 
-### 관련 자료
+## 관련 자료
 
 - [Kubernetes 공식 문서](https://kubernetes.io/docs/)
-- [Kubernetes 보안 Best Practices](https://kubernetes.io/docs/concepts/security/best-practices/)
+- [Kubernetes 보안 체크리스트](https://kubernetes.io/docs/concepts/security/security-checklist/)
 - [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)
 - [Minikube 공식 문서](https://minikube.sigs.k8s.io/docs/)
 - [K9s 공식 문서](https://k9scli.io/)
