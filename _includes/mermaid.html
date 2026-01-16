@@ -9,27 +9,44 @@
   var script = document.createElement('script');
   script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
   script.onload = function() {
-    // Get current theme
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    try {
+      // Get current theme
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: isDark ? 'dark' : 'default',
-      securityLevel: 'loose',
-      flowchart: { useMaxWidth: true, htmlLabels: true }
-    });
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: isDark ? 'dark' : 'default',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true },
+        // 에러 처리 개선
+        logLevel: 'error'
+      });
 
-    // Convert code blocks to mermaid diagrams
-    document.querySelectorAll('.language-mermaid, pre code.mermaid').forEach(function(el) {
-      var pre = el.closest('pre');
-      var code = el.textContent;
-      var div = document.createElement('div');
-      div.className = 'mermaid';
-      div.textContent = code;
-      pre.parentNode.replaceChild(div, pre);
-    });
+      // Convert code blocks to mermaid diagrams
+      document.querySelectorAll('.language-mermaid, pre code.mermaid').forEach(function(el) {
+        try {
+          var pre = el.closest('pre');
+          var code = el.textContent;
+          var div = document.createElement('div');
+          div.className = 'mermaid';
+          div.textContent = code;
+          pre.parentNode.replaceChild(div, pre);
+        } catch (e) {
+          console.warn('[Mermaid] Failed to convert diagram:', e);
+        }
+      });
 
-    mermaid.run();
+      mermaid.run().catch(function(err) {
+        // Mermaid 렌더링 에러는 조용히 처리
+        console.warn('[Mermaid] Rendering error (non-critical):', err);
+      });
+    } catch (e) {
+      console.warn('[Mermaid] Initialization error:', e);
+    }
+  };
+  
+  script.onerror = function() {
+    console.warn('[Mermaid] Failed to load mermaid.js');
   };
   document.head.appendChild(script);
 

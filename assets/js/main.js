@@ -127,8 +127,15 @@
       /\.webp.*404/i,
       /GET.*\.webp.*404/i,
       /assets\/images.*\.webp.*404/i,
+      /Failed to load resource.*\.webp/i,
+      /Failed to load resource.*\.png.*404/i,
+      /diagrams\/.*\.png.*404/i,
+      /diagrams\/.*\.webp.*404/i,
       /Download the React DevTools/i,
-      /Download the Apollo DevTools/i
+      /Download the Apollo DevTools/i,
+      // Mermaid.js 에러 필터링 (다이어그램 렌더링 실패는 정상일 수 있음)
+      /mermaid.*Uncaught.*promise/i,
+      /mermaid.*error/i
     ];
 
     // 에러 메시지 개선 매핑
@@ -254,9 +261,9 @@
         }
       },
       {
-        pattern: /\.webp.*404|GET.*\.webp.*404|assets\/images.*\.webp.*404/i,
+        pattern: /\.webp.*404|GET.*\.webp.*404|assets\/images.*\.webp.*404|Failed to load resource.*\.webp|diagrams\/.*\.(png|webp).*404/i,
         replacement: {
-          message: 'ℹ️ 이미지 최적화',
+          message: 'ℹ️ 이미지 최적화 (WebP Fallback)',
           details: 'WebP 이미지가 없어 원본 이미지를 사용합니다. 정상 동작입니다.',
           level: 'info'
         }
