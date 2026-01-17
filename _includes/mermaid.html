@@ -7,7 +7,7 @@
 
   // Load mermaid.js on demand
   var script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+  script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10.9.5/dist/mermaid.min.js';
   script.onload = function() {
     try {
       // Get current theme
@@ -19,25 +19,41 @@
         securityLevel: 'loose',
         flowchart: { useMaxWidth: true, htmlLabels: true },
         // 에러 처리 개선
-        logLevel: 'error'
+        logLevel: 'error',
+        // 문법 오류 처리 개선
+        suppressErrorRendering: false,
+        errorCallback: function(err, hash) {
+          console.warn('[Mermaid] Syntax error in diagram:', err, hash);
+        }
       });
 
       // Convert code blocks to mermaid diagrams
       document.querySelectorAll('.language-mermaid, pre code.mermaid').forEach(function(el) {
         try {
           var pre = el.closest('pre');
-          var code = el.textContent;
+          var code = el.textContent || el.innerText;
+          
+          // 빈 코드 블록 체크
+          if (!code || !code.trim()) {
+            console.warn('[Mermaid] Empty diagram code block');
+            return;
+          }
+          
           var div = document.createElement('div');
           div.className = 'mermaid';
-          div.textContent = code;
+          div.textContent = code.trim();
           pre.parentNode.replaceChild(div, pre);
         } catch (e) {
           console.warn('[Mermaid] Failed to convert diagram:', e);
         }
       });
 
-      mermaid.run().catch(function(err) {
-        // Mermaid 렌더링 에러는 조용히 처리
+      // Mermaid 렌더링 실행 (에러 처리 개선)
+      mermaid.run({
+        querySelector: '.mermaid',
+        suppressErrorRendering: false
+      }).catch(function(err) {
+        // Mermaid 렌더링 에러는 조용히 처리하되 로그는 남김
         console.warn('[Mermaid] Rendering error (non-critical):', err);
       });
     } catch (e) {

@@ -78,6 +78,10 @@ toc: true
 - 근본 원인 분석 및 재발 방지 대책
 - 배포 프로세스 개선 및 모니터링 강화 방안
 
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.svg' | relative_url }}" alt="Post-Mortem Next.js SSR Error Cloudflare Blocking ALB 5XX Incident Analysis" loading="lazy" class="post-image">
+
+*그림 1: Post-Mortem Next.js SSR 에러 및 Cloudflare 차단 인시던트 분석 개요*
+
 > **관련 포스팅**:
 > - [Post-Mortem: 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지](/posts/2025/11/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/)
 > - [Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기](/posts/2025/10/Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution/)
@@ -400,10 +404,7 @@ console.log(location.hostname);    // 호스트명 (example.com)
 
 #### SSR 환경에서의 문제
 
-<figure>
-<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_ssr_csr_comparison.png' | relative_url }}" alt="SSR vs CSR Environment Comparison" loading="lazy" class="post-image">
-<figcaption>그림 2: SSR vs CSR 환경 비교 - 클라이언트 사이드와 서버 사이드에서 location 객체 접근 차이</figcaption>
-</figure>
+> **참고**: SSR vs CSR 환경 비교 다이어그램은 추후 추가 예정입니다.
 
 **문제 코드 예시**:
 ```typescript
@@ -426,10 +427,7 @@ function redirectTo(url: string) {
 
 #### 모바일 x.com의 URL 처리 방식
 
-<figure>
-<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_mobile_x_flow.png' | relative_url }}" alt="Mobile x.com URL Processing Flow" loading="lazy" class="post-image">
-<figcaption>그림 3: 모바일 x.com URL 처리 흐름 - Universal Links, Deep Links, 인앱 브라우저를 통한 요청 처리</figcaption>
-</figure>
+> **참고**: 모바일 x.com URL 처리 흐름 다이어그램은 추후 추가 예정입니다.
 
 #### 모바일 x.com에서 동작이 다른 이유
 
