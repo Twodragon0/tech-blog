@@ -1,125 +1,129 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
-
-  <rect width="800" height="450" fill="url(#bgGrad)"/>
-
-  <!-- Grid pattern -->
-  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
-    <line x1="0" y1="90" x2="800" y2="90"/>
-    <line x1="0" y1="180" x2="800" y2="180"/>
-    <line x1="0" y1="270" x2="800" y2="270"/>
-    <line x1="0" y1="360" x2="800" y2="360"/>
-  </g>
-
-  <!-- AWS FinOps -->
-  <g transform="translate(80, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#ff9900" stroke-width="2"/>
-    <!-- Dollar with cloud -->
-    <ellipse cx="65" cy="40" rx="35" ry="20" fill="#ff9900" fill-opacity="0.2" stroke="#ff9900" stroke-width="2"/>
-    <text x="65" y="50" font-family="Arial Black, sans-serif" font-size="24" font-weight="bold" fill="#ff9900" text-anchor="middle">$</text>
-    <!-- Trend line -->
-    <path d="M30 80 L50 70 L70 75 L90 60 L100 65" fill="none" stroke="#10b981" stroke-width="2"/>
-    <text x="65" y="100" font-family="Arial, sans-serif" font-size="10" fill="#ff9900" text-anchor="middle">FinOps</text>
-  </g>
-
-  <!-- ISMS-P -->
-  <g transform="translate(250, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#10b981" stroke-width="2"/>
-    <!-- Certificate -->
-    <rect x="35" y="20" width="60" height="50" rx="4" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="2"/>
-    <circle cx="65" cy="40" r="12" fill="none" stroke="#10b981" stroke-width="2"/>
-    <path d="M59 40 L63 44 L72 34" fill="none" stroke="#10b981" stroke-width="2"/>
-    <!-- Ribbon -->
-    <path d="M55 70 L65 85 L75 70" fill="none" stroke="#10b981" stroke-width="2"/>
-    <text x="65" y="100" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">ISMS-P</text>
-  </g>
-
-  <!-- Security Audit -->
-  <g transform="translate(420, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="2"/>
-    <!-- Clipboard with checklist -->
-    <rect x="30" y="20" width="60" height="60" rx="4" fill="none" stroke="#8b5cf6" stroke-width="2"/>
-    <rect x="45" y="15" width="30" height="10" rx="3" fill="#8b5cf6"/>
-    <!-- Check items -->
-    <path d="M38 35 L42 39 L48 32" fill="none" stroke="#8b5cf6" stroke-width="1.5"/>
-    <line x1="55" y1="36" x2="80" y2="36" stroke="#8b5cf6" stroke-width="1.5"/>
-    <path d="M38 50 L42 54 L48 47" fill="none" stroke="#8b5cf6" stroke-width="1.5"/>
-    <line x1="55" y1="51" x2="80" y2="51" stroke="#8b5cf6" stroke-width="1.5"/>
-    <path d="M38 65 L42 69 L48 62" fill="none" stroke="#8b5cf6" stroke-width="1.5"/>
-    <line x1="55" y1="66" x2="80" y2="66" stroke="#8b5cf6" stroke-width="1.5"/>
-    <text x="60" y="100" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">Security Audit</text>
-  </g>
-
-  <!-- Architecture -->
-  <g transform="translate(590, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
-    <!-- Architecture blocks -->
-    <rect x="25" y="25" width="30" height="20" rx="3" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1.5"/>
-    <rect x="65" y="25" width="30" height="20" rx="3" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1.5"/>
-    <rect x="45" y="55" width="30" height="20" rx="3" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1.5"/>
-    <!-- Connection lines -->
-    <line x1="40" y1="45" x2="50" y2="55" stroke="#3b82f6" stroke-width="1.5"/>
-    <line x1="80" y1="45" x2="70" y2="55" stroke="#3b82f6" stroke-width="1.5"/>
-    <text x="60" y="100" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">Architecture</text>
-  </g>
-
-  <!-- Title -->
-  <text x="400" y="45" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
-    Cloud Security Course Season 8 - Week 3
-  </text>
-  <text x="400" y="75" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">
-    Complete Strategy: AWS FinOps Architecture to ISMS-P Security Audit
-  </text>
-
-  <!-- Feature cards -->
-  <g transform="translate(80, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#ff9900" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff9900" text-anchor="middle">Cost Optimization</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">AWS Cost Explorer</text>
-  </g>
-  <g transform="translate(250, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#10b981" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">Security Certification</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">ISMS-P Requirements Response</text>
-  </g>
-  <g transform="translate(420, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Audit Response</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Evidence Preparation</text>
-  </g>
-  <g transform="translate(590, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3b82f6" text-anchor="middle">Architecture Design</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Well-Architected</text>
-  </g>
-
-  <!-- Bottom badges -->
-  <g transform="translate(160, 370)">
-    <rect x="0" y="0" width="70" height="26" rx="13" fill="#ff9900" fill-opacity="0.2" stroke="#ff9900" stroke-width="1"/>
-    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#ff9900" text-anchor="middle">FinOps</text>
-  </g>
-  <g transform="translate(250, 370)">
-    <rect x="0" y="0" width="70" height="26" rx="13" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
-    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">ISMS-P</text>
-  </g>
-  <g transform="translate(340, 370)">
-    <rect x="0" y="0" width="60" height="26" rx="13" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
-    <text x="30" y="17" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">Audit</text>
-  </g>
-  <g transform="translate(420, 370)">
-    <rect x="0" y="0" width="60" height="26" rx="13" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-    <text x="30" y="17" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">AWS</text>
-  </g>
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">AWS FinOps Architecture &amp; ISMS-P Security Audit</text>
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">Cloud Security 8Batch Week 3: Complete Strategy Guide</text>
+  
+  <!-- 2025 FinOps Trends -->
+  <rect x="50" y="100" width="550" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="325" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">2025 FinOps Trends</text>
+  
+  <rect x="80" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#ffd43b" stroke-width="2"/>
+  <text x="160" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffd43b" text-anchor="middle">AI/ML Cost</text>
+  <text x="160" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffd43b" text-anchor="middle">Optimization</text>
+  <text x="160" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">GPU Instances</text>
+  <text x="160" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Spot 90% Save</text>
+  
+  <rect x="260" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="340" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">GreenOps</text>
+  <text x="340" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Carbon</text>
+  <text x="340" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Footprint Tool</text>
+  <text x="340" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Sustainability</text>
+  
+  <rect x="440" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
+  <text x="520" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Unit Economics</text>
+  <text x="520" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Cost per</text>
+  <text x="520" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Transaction</text>
+  <text x="520" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Cost per User</text>
+  
+  <rect x="80" y="250" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
+  <text x="160" y="275" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Real-time</text>
+  <text x="160" y="290" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Visibility</text>
+  <text x="160" y="310" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Cost Anomaly</text>
+  <text x="160" y="325" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Detection</text>
+  
+  <rect x="260" y="250" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#845ef7" stroke-width="1"/>
+  <text x="340" y="275" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#845ef7" text-anchor="middle">Commitment</text>
+  <text x="340" y="290" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#845ef7" text-anchor="middle">Management</text>
+  <text x="340" y="310" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">RI/Savings</text>
+  <text x="340" y="325" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Plans Auto</text>
+  
+  <rect x="440" y="250" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="520" y="275" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#a8dadc" text-anchor="middle">FinOps +</text>
+  <text x="520" y="290" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#a8dadc" text-anchor="middle">Security</text>
+  <text x="520" y="310" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Integration</text>
+  <text x="520" y="325" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Compliance</text>
+  
+  <!-- AWS Cost Tools -->
+  <rect x="650" y="100" width="500" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="900" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">AWS Cost Management Tools</text>
+  
+  <rect x="680" y="150" width="140" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="750" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Cost Optimization</text>
+  <text x="750" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Hub</text>
+  <text x="750" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Unified</text>
+  <text x="750" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Dashboard</text>
+  
+  <rect x="840" y="150" width="140" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="910" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Compute</text>
+  <text x="910" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Optimizer</text>
+  <text x="910" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">AI-Based</text>
+  <text x="910" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Right Sizing</text>
+  
+  <rect x="1000" y="150" width="140" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1070" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Application</text>
+  <text x="1070" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Cost Profiler</text>
+  <text x="1070" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Tenant Cost</text>
+  <text x="1070" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Allocation</text>
+  
+  <rect x="680" y="250" width="140" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="750" y="275" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Cost Anomaly</text>
+  <text x="750" y="290" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Detection</text>
+  <text x="750" y="310" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">ML-Based</text>
+  <text x="750" y="325" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Detection</text>
+  
+  <rect x="840" y="250" width="300" height="80" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="990" y="275" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">AWS Cost Tools: Cost Explorer | Budgets | Savings Plans | Reserved Instances | Customer Carbon Footprint Tool</text>
+  
+  <!-- ISMS-P Compliance -->
+  <rect x="50" y="430" width="1100" height="180" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">ISMS-P Security Audit Response</text>
+  
+  <rect x="80" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="180" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">AWS Artifact</text>
+  <text x="180" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Security</text>
+  <text x="180" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Documents</text>
+  <text x="180" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Compliance</text>
+  
+  <rect x="300" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="400" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Config Rules</text>
+  <text x="400" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Compliance</text>
+  <text x="400" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Auto Check</text>
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Rules</text>
+  
+  <rect x="520" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="620" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Security Hub</text>
+  <text x="620" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Compliance</text>
+  <text x="620" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Status</text>
+  <text x="620" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Centralized</text>
+  
+  <rect x="740" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="840" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">CloudTrail</text>
+  <text x="840" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Audit Logs</text>
+  <text x="840" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Collection</text>
+  <text x="840" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Retention</text>
+  
+  <rect x="960" y="480" width="180" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1050" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">FinOps Best</text>
+  <text x="1050" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Practices</text>
+  <text x="1050" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Tagging</text>
+  <text x="1050" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Budget Alerts</text>
+  
+  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">AWS FinOps | 2025 Trends | Cost Management Tools | ISMS-P Compliance | Security Audit</text>
 </svg>

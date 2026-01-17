@@ -1,6 +1,7 @@
 name: Buttondown Email Notification
 
 # 새 포스트 발행 시 Buttondown을 통해 구독자에게 이메일 발송
+# 업데이트된 포스트는 이메일 발송하지 않음 (새 포스트만 발송)
 # Free 티어 최적화: 조건부 실행, 타임아웃 설정
 
 on:
@@ -30,32 +31,25 @@ jobs:
           # Get the list of added posts in this push
           # Use --diff-filter=A to only get added files (not modified)
           # Use -z option for null-terminated strings to handle Unicode filenames correctly
+          # Only new posts trigger email notifications (updated posts do not)
           NEW_POSTS=$(git diff --name-only -z --diff-filter=A HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null | tr '\0' '\n' || echo "")
           
-          # Also check for modified posts (for re-posting scenarios)
-          # This allows triggering email for existing posts that were updated
-          MODIFIED_POSTS=$(git diff --name-only -z --diff-filter=M HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null | tr '\0' '\n' || echo "")
-          
-          # Combine new and modified posts
-          ALL_POSTS=$(echo -e "${NEW_POSTS}\n${MODIFIED_POSTS}" | grep -v '^$' | sort -u || echo "")
-          
-          echo "🔍 Debug: Checking for posts..."
+          echo "🔍 Debug: Checking for new posts..."
           echo "  New posts: ${NEW_POSTS:-none}"
-          echo "  Modified posts: ${MODIFIED_POSTS:-none}"
-          echo "  All posts: ${ALL_POSTS:-none}"
+          echo "  Note: Modified posts are excluded from email notifications"
           
-          if [ -z "$ALL_POSTS" ]; then
-            echo "No new or modified posts found"
+          if [ -z "$NEW_POSTS" ]; then
+            echo "No new posts found"
             echo "has_new_posts=false" >> $GITHUB_OUTPUT
             echo "posts_json=[]" >> $GITHUB_OUTPUT
             echo "post_count=0" >> $GITHUB_OUTPUT
           else
-            echo "Posts found:"
-            echo "$ALL_POSTS"
+            echo "New posts found:"
+            echo "$NEW_POSTS"
             echo "has_new_posts=true" >> $GITHUB_OUTPUT
             
             # Count posts
-            POST_COUNT=$(echo "$ALL_POSTS" | grep -c '^' || echo "0")
+            POST_COUNT=$(echo "$NEW_POSTS" | grep -c '^' || echo "0")
             echo "post_count=$POST_COUNT" >> $GITHUB_OUTPUT
             
             # Encode all posts as JSON array (more reliable than multiline)
@@ -72,13 +66,13 @@ jobs:
                   POSTS_JSON="$POSTS_JSON,\"$POST_ENCODED\""
                 fi
               fi
-            done <<< "$ALL_POSTS"
+            done <<< "$NEW_POSTS"
             POSTS_JSON="$POSTS_JSON]"
             
             # Store as single-line JSON (GitHub Actions output is more reliable this way)
             echo "posts_json=$POSTS_JSON" >> $GITHUB_OUTPUT
             
-            echo "Found $POST_COUNT post(s) to process (new + modified)"
+            echo "Found $POST_COUNT new post(s) to process"
           fi
 
       - name: Set up Python

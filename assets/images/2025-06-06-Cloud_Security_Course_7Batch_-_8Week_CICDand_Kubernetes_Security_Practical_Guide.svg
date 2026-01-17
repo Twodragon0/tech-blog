@@ -1,130 +1,169 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
-
-  <rect width="800" height="450" fill="url(#bgGrad)"/>
-
-  <!-- Grid pattern -->
-  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
-    <line x1="0" y1="90" x2="800" y2="90"/>
-    <line x1="0" y1="180" x2="800" y2="180"/>
-    <line x1="0" y1="270" x2="800" y2="270"/>
-    <line x1="0" y1="360" x2="800" y2="360"/>
-  </g>
-
-  <!-- CI/CD Pipeline -->
-  <g transform="translate(80, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
-    <!-- Infinity loop for CI/CD -->
-    <path d="M35 55 C35 35 55 35 65 55 C75 75 95 75 95 55 C95 35 75 35 65 55 C55 75 35 75 35 55"
-          fill="none" stroke="#3b82f6" stroke-width="3"/>
-    <!-- Arrow -->
-    <path d="M90 50 L100 55 L90 60" fill="none" stroke="#3b82f6" stroke-width="2"/>
-    <text x="65" y="95" font-family="Arial, sans-serif" font-size="11" fill="#3b82f6" text-anchor="middle">CI/CD Pipeline</text>
-  </g>
-
-  <!-- Kubernetes -->
-  <g transform="translate(250, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#326ce5" stroke-width="2"/>
-    <!-- K8s wheel -->
-    <circle cx="65" cy="50" r="25" fill="none" stroke="#326ce5" stroke-width="2"/>
-    <circle cx="65" cy="50" r="8" fill="#326ce5"/>
-    <!-- Spokes -->
-    <g stroke="#326ce5" stroke-width="2">
-      <line x1="65" y1="25" x2="65" y2="35"/>
-      <line x1="65" y1="65" x2="65" y2="75"/>
-      <line x1="40" y1="50" x2="50" y2="50"/>
-      <line x1="80" y1="50" x2="90" y2="50"/>
-      <line x1="47" y1="32" x2="54" y2="39"/>
-      <line x1="76" y1="61" x2="83" y2="68"/>
-      <line x1="47" y1="68" x2="54" y2="61"/>
-      <line x1="76" y1="39" x2="83" y2="32"/>
-    </g>
-    <text x="65" y="95" font-family="Arial, sans-serif" font-size="11" fill="#326ce5" text-anchor="middle">Kubernetes</text>
-  </g>
-
-  <!-- Security Shield -->
-  <g transform="translate(420, 105)" filter="url(#glow)">
-    <path d="M60 0 L120 25 L120 70 C120 110 60 140 60 140 C60 140 0 110 0 70 L0 25 Z"
-          fill="none" stroke="#10b981" stroke-width="2"/>
-    <path d="M60 12 L108 33 L108 68 C108 100 60 125 60 125 C60 125 12 100 12 68 L12 33 Z"
-          fill="#10b981" fill-opacity="0.15"/>
-    <!-- Lock icon -->
-    <rect x="45" y="55" width="30" height="25" rx="3" fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-width="1.5"/>
-    <path d="M52 55 L52 45 Q60 35 68 45 L68 55" fill="none" stroke="#10b981" stroke-width="2"/>
-    <circle cx="60" cy="67" r="3" fill="#10b981"/>
-    <text x="60" y="125" font-family="Arial, sans-serif" font-size="11" fill="#10b981" text-anchor="middle">Security</text>
-  </g>
-
-  <!-- Container Security -->
-  <g transform="translate(590, 120)" filter="url(#glow)">
-    <rect x="0" y="0" width="120" height="100" rx="12" fill="#1e3a5f" stroke="#f59e0b" stroke-width="2"/>
-    <!-- Container boxes -->
-    <rect x="25" y="20" width="30" height="25" rx="3" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.5"/>
-    <rect x="65" y="20" width="30" height="25" rx="3" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.5"/>
-    <rect x="45" y="50" width="30" height="25" rx="3" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.5"/>
-    <!-- Shield overlay -->
-    <path d="M60 30 L75 35 L75 50 C75 58 60 65 60 65 C60 65 45 58 45 50 L45 35 Z"
-          fill="none" stroke="#f59e0b" stroke-width="1.5"/>
-    <text x="60" y="90" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Container Sec</text>
-  </g>
-
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  
   <!-- Title -->
-  <text x="400" y="45" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
-    Cloud Security Course Season 7 - Week 8
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">
+    CI/CD &amp; Kubernetes Security: Practical Guide
   </text>
-  <text x="400" y="75" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">
-    CI/CD &amp; Kubernetes Security Practical Guide
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">
+    Cloud Security Course 7Batch Week 8: Pipeline Security &amp; Container Security
   </text>
-
-  <!-- Feature cards -->
-  <g transform="translate(80, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3b82f6" text-anchor="middle">GitHub Actions</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Security Pipeline Setup</text>
-  </g>
-  <g transform="translate(250, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#326ce5" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#326ce5" text-anchor="middle">RBAC + PSP</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">K8s Access Control</text>
-  </g>
-  <g transform="translate(420, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#10b981" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">Image Scanning</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Trivy, Snyk Integration</text>
-  </g>
-  <g transform="translate(590, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#f59e0b" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f59e0b" text-anchor="middle">Network Policy</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Pod-to-Pod Communication Control</text>
-  </g>
-
-  <!-- Bottom badges -->
-  <g transform="translate(160, 370)">
-    <rect x="0" y="0" width="70" height="26" rx="13" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">CI/CD</text>
-  </g>
-  <g transform="translate(250, 370)">
-    <rect x="0" y="0" width="90" height="26" rx="13" fill="#326ce5" fill-opacity="0.2" stroke="#326ce5" stroke-width="1"/>
-    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#326ce5" text-anchor="middle">Kubernetes</text>
-  </g>
-  <g transform="translate(360, 370)">
-    <rect x="0" y="0" width="90" height="26" rx="13" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
-    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">DevSecOps</text>
-  </g>
-  <g transform="translate(470, 370)">
-    <rect x="0" y="0" width="90" height="26" rx="13" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
-    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Container</text>
-  </g>
+  
+  <!-- CI/CD Pipeline Security -->
+  <rect x="50" y="100" width="550" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="325" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">CI/CD Pipeline Security</text>
+  
+  <!-- GitHub Actions -->
+  <rect x="80" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="140" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">GitHub Actions</text>
+  <text x="140" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Permissions</text>
+  <text x="140" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Minimize</text>
+  
+  <!-- SAST -->
+  <rect x="220" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="280" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">SAST</text>
+  <text x="280" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Semgrep</text>
+  <text x="280" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SonarQube</text>
+  
+  <!-- DAST -->
+  <rect x="360" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="420" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">DAST</text>
+  <text x="420" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">OWASP ZAP</text>
+  <text x="420" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Burp Suite</text>
+  
+  <!-- Secret Scan -->
+  <rect x="500" y="150" width="80" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="540" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Secret</text>
+  <text x="540" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Scan</text>
+  <text x="540" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Gitleaks</text>
+  
+  <!-- SCA -->
+  <rect x="80" y="240" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
+  <text x="140" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">SCA</text>
+  <text x="140" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Dependency</text>
+  <text x="140" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Scan</text>
+  
+  <!-- Image Scan -->
+  <rect x="220" y="240" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
+  <text x="280" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Image Scan</text>
+  <text x="280" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Trivy</text>
+  <text x="280" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Snyk</text>
+  
+  <!-- Secret Management -->
+  <rect x="360" y="240" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="420" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Secret Mgmt</text>
+  <text x="420" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">K8s Secrets</text>
+  <text x="420" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Vault</text>
+  
+  <!-- Pipeline Flow -->
+  <rect x="500" y="240" width="80" height="70" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="540" y="265" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#a8dadc" text-anchor="middle">Pipeline</text>
+  <text x="540" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Flow</text>
+  <text x="540" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Automated</text>
+  
+  <!-- Security Tools -->
+  <rect x="80" y="330" width="500" height="60" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="330" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Security Tools: SAST (Semgrep, SonarQube) | DAST (OWASP ZAP) | Secret Scan (Gitleaks) | SCA | Image Scan (Trivy, Snyk)</text>
+  
+  <!-- Kubernetes Security -->
+  <rect x="650" y="100" width="500" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="900" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Kubernetes Cluster Security</text>
+  
+  <!-- RBAC -->
+  <rect x="680" y="150" width="140" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="750" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">RBAC</text>
+  <text x="750" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Role</text>
+  <text x="750" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">RoleBinding</text>
+  <text x="750" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">ClusterRole</text>
+  
+  <!-- Pod Security -->
+  <rect x="840" y="150" width="140" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="910" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Pod Security</text>
+  <text x="910" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Standards</text>
+  <text x="910" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Restricted</text>
+  <text x="910" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Baseline</text>
+  
+  <!-- Network Policy -->
+  <rect x="1000" y="150" width="140" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="1070" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Network</text>
+  <text x="1070" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Policy</text>
+  <text x="1070" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Traffic</text>
+  <text x="1070" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Control</text>
+  
+  <!-- Image Signing -->
+  <rect x="680" y="250" width="140" height="80" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
+  <text x="750" y="275" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Image</text>
+  <text x="750" y="290" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Signing</text>
+  <text x="750" y="310" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Cosign</text>
+  <text x="750" y="325" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Verification</text>
+  
+  <!-- Runtime Security -->
+  <rect x="840" y="250" width="300" height="80" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="990" y="275" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Runtime Security</text>
+  <text x="990" y="295" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Kyverno: Admission Control | Policy as Code</text>
+  <text x="990" y="310" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Falco: Anomaly Detection | Sysdig: Runtime Monitoring</text>
+  <text x="990" y="325" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">GitOps: ArgoCD | Flux | Security Best Practices</text>
+  
+  <!-- Best Practices -->
+  <rect x="50" y="430" width="1100" height="180" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Security Best Practices Checklist</text>
+  
+  <!-- Practice 1 -->
+  <rect x="80" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="180" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">CI/CD Security</text>
+  <text x="180" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Minimal Permissions</text>
+  <text x="180" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Secret Management</text>
+  <text x="180" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SAST/DAST</text>
+  
+  <!-- Practice 2 -->
+  <rect x="300" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="400" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">K8s Security</text>
+  <text x="400" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">RBAC</text>
+  <text x="400" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Pod Security</text>
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Network Policy</text>
+  
+  <!-- Practice 3 -->
+  <rect x="520" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="620" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Image Security</text>
+  <text x="620" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Cosign Signing</text>
+  <text x="620" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Vulnerability Scan</text>
+  <text x="620" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Trivy/Snyk</text>
+  
+  <!-- Practice 4 -->
+  <rect x="740" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="840" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Runtime Security</text>
+  <text x="840" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Kyverno Policies</text>
+  <text x="840" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Falco Detection</text>
+  <text x="840" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">GitOps Security</text>
+  
+  <!-- Practice 5 -->
+  <rect x="960" y="480" width="180" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1050" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Secret Management</text>
+  <text x="1050" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">External Secrets</text>
+  <text x="1050" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Sealed Secrets</text>
+  <text x="1050" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Vault Integration</text>
+  
+  <!-- Footer -->
+  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">
+    CI/CD Pipeline Security | Kubernetes Security | RBAC | Pod Security Standards | Network Policy | Runtime Security
+  </text>
 </svg>

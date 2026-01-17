@@ -1,112 +1,130 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="100%" style="stop-color:#1e293b"/>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff9900"/>
-      <stop offset="100%" style="stop-color:#ffb84d"/>
-    </linearGradient>
-    <linearGradient id="vpcGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#6d28d9"/>
-    </linearGradient>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-
-  <!-- Background -->
-  <rect width="800" height="400" fill="url(#bgGrad)"/>
-
-  <!-- Grid pattern -->
-  <g opacity="0.05">
-    <path d="M0 50 H800 M0 100 H800 M0 150 H800 M0 200 H800 M0 250 H800 M0 300 H800 M0 350 H800" stroke="#fff" stroke-width="0.5"/>
-    <path d="M50 0 V400 M100 0 V400 M150 0 V400 M200 0 V400 M250 0 V400 M300 0 V400 M350 0 V400 M400 0 V400 M450 0 V400 M500 0 V400 M550 0 V400 M600 0 V400 M650 0 V400 M700 0 V400 M750 0 V400" stroke="#fff" stroke-width="0.5"/>
-  </g>
-
-  <!-- Week 2 Badge -->
-  <g transform="translate(50, 25)">
-    <rect x="0" y="0" width="100" height="36" rx="18" fill="#ff9900"/>
-    <text x="50" y="24" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Week 2</text>
-  </g>
-
-  <!-- AWS Logo stylized -->
-  <g transform="translate(680, 20)">
-    <rect x="0" y="0" width="80" height="40" rx="5" fill="url(#awsGrad)"/>
-    <text x="40" y="27" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#232f3e" text-anchor="middle">AWS</text>
-  </g>
-
-  <!-- VPC Container -->
-  <g transform="translate(80, 80)">
-    <rect x="0" y="0" width="350" height="200" rx="10" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-dasharray="10,5"/>
-    <rect x="10" y="10" width="80" height="25" rx="5" fill="#8b5cf6"/>
-    <text x="50" y="28" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">VPC</text>
-
-    <!-- Public Subnet -->
-    <rect x="20" y="50" width="150" height="60" rx="8" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="2"/>
-    <text x="95" y="70" font-family="Arial, sans-serif" font-size="10" fill="#22c55e" text-anchor="middle">Public Subnet</text>
-    <rect x="35" y="80" width="50" height="20" rx="3" fill="#22c55e" opacity="0.8"/>
-    <text x="60" y="94" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle">NAT GW</text>
-    <rect x="100" y="80" width="55" height="20" rx="3" fill="#3b82f6" opacity="0.8"/>
-    <text x="127" y="94" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle">ALB</text>
-
-    <!-- Private Subnet -->
-    <rect x="20" y="125" width="150" height="60" rx="8" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="2"/>
-    <text x="95" y="145" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">Private Subnet</text>
-    <rect x="35" y="155" width="50" height="20" rx="3" fill="#3b82f6" opacity="0.8"/>
-    <text x="60" y="169" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle">EC2</text>
-    <rect x="100" y="155" width="55" height="20" rx="3" fill="#f59e0b" opacity="0.8"/>
-    <text x="127" y="169" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle">RDS</text>
-
-    <!-- Security Group -->
-    <rect x="190" y="50" width="140" height="135" rx="8" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="2" stroke-dasharray="5,3"/>
-    <text x="260" y="70" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Security Group</text>
-
-    <!-- Firewall icon -->
-    <rect x="220" y="100" width="80" height="50" rx="5" fill="#10b981" opacity="0.8"/>
-    <text x="260" y="120" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle">Firewall</text>
-    <text x="260" y="135" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle">Rules</text>
-  </g>
-
-  <!-- Arrow to GuardDuty -->
-  <path d="M440 180 L480 180" stroke="#ff9900" stroke-width="3" fill="none"/>
-  <path d="M470 172 L485 180 L470 188" fill="#ff9900"/>
-
-  <!-- GuardDuty Section -->
-  <g transform="translate(500, 80)">
-    <rect x="0" y="0" width="250" height="200" rx="10" fill="#1e293b" stroke="#ff9900" stroke-width="2"/>
-
-    <!-- GuardDuty -->
-    <rect x="15" y="20" width="100" height="50" rx="8" fill="#ff9900" opacity="0.9"/>
-    <text x="65" y="45" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#232f3e" text-anchor="middle">GuardDuty</text>
-    <text x="65" y="60" font-family="Arial, sans-serif" font-size="8" fill="#232f3e" text-anchor="middle">Threat Detection</text>
-
-    <!-- Security Hub -->
-    <rect x="130" y="20" width="105" height="50" rx="8" fill="#3b82f6" opacity="0.9"/>
-    <text x="182" y="45" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">Security Hub</text>
-    <text x="182" y="60" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle">Central View</text>
-
-    <!-- CloudTrail -->
-    <rect x="15" y="85" width="100" height="50" rx="8" fill="#22c55e" opacity="0.9"/>
-    <text x="65" y="110" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">CloudTrail</text>
-    <text x="65" y="125" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle">API Logging</text>
-
-    <!-- Config -->
-    <rect x="130" y="85" width="105" height="50" rx="8" fill="#ec4899" opacity="0.9"/>
-    <text x="182" y="110" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">Config</text>
-    <text x="182" y="125" font-family="Arial, sans-serif" font-size="8" fill="#fff" text-anchor="middle">Compliance</text>
-
-    <!-- IAM -->
-    <rect x="70" y="150" width="110" height="35" rx="8" fill="#ef4444" opacity="0.9"/>
-    <text x="125" y="173" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">IAM Access Analyzer</text>
-  </g>
-
-  <!-- Title -->
-  <text x="400" y="320" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#fff" text-anchor="middle">AWS Security Architecture Core</text>
-  <text x="400" y="355" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Complete Mastery: VPC to GuardDuty | Week 2</text>
-
-  <!-- Decorative circles -->
-  <g opacity="0.3">
-    <circle cx="30" cy="350" r="20" fill="none" stroke="#8b5cf6" stroke-width="1"/>
-    <circle cx="770" cy="380" r="15" fill="none" stroke="#ff9900" stroke-width="1"/>
-  </g>
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">AWS Security Architecture: VPC to GuardDuty</text>
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">Cloud Security 8Batch Week 2: Complete Security Architecture Guide</text>
+  
+  <!-- VPC -->
+  <rect x="50" y="100" width="250" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="175" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">VPC</text>
+  
+  <rect x="80" y="150" width="190" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="175" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Network Isolation</text>
+  <text x="175" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Public/Private</text>
+  <text x="175" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Isolated Subnets</text>
+  
+  <rect x="80" y="240" width="190" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="175" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Security Groups</text>
+  <text x="175" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Stateful</text>
+  <text x="175" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">NACL</text>
+  
+  <rect x="80" y="330" width="190" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="175" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Flow Logs</text>
+  <text x="175" y="375" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">VPC Endpoint</text>
+  
+  <!-- IAM -->
+  <rect x="320" y="100" width="250" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="445" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">IAM</text>
+  
+  <rect x="350" y="150" width="190" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="445" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Least Privilege</text>
+  <text x="445" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">RBAC</text>
+  <text x="445" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Policy Autopilot</text>
+  
+  <rect x="350" y="240" width="190" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="445" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">MFA Required</text>
+  <text x="445" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Conditional</text>
+  <text x="445" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">IP-Based</text>
+  
+  <rect x="350" y="330" width="190" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="445" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Role-Based</text>
+  <text x="445" y="375" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Instance Profile</text>
+  
+  <!-- S3 -->
+  <rect x="590" y="100" width="250" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="715" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">S3</text>
+  
+  <rect x="620" y="150" width="190" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="715" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Data Protection</text>
+  <text x="715" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Encryption</text>
+  <text x="715" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Versioning</text>
+  
+  <rect x="620" y="240" width="190" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="715" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Access Control</text>
+  <text x="715" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Bucket Policy</text>
+  <text x="715" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Public Block</text>
+  
+  <rect x="620" y="330" width="190" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="715" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Backup</text>
+  <text x="715" y="375" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Lifecycle</text>
+  
+  <!-- GuardDuty -->
+  <rect x="860" y="100" width="290" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1005" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">GuardDuty</text>
+  
+  <rect x="890" y="150" width="230" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="1005" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Threat Detection</text>
+  <text x="1005" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Extended</text>
+  <text x="1005" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">2 New Sequences</text>
+  
+  <rect x="890" y="240" width="230" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="1005" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Auto Response</text>
+  <text x="1005" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Lambda</text>
+  <text x="1005" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SNS Alerts</text>
+  
+  <rect x="890" y="330" width="230" height="60" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="1005" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Continuous</text>
+  <text x="1005" y="375" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Monitoring</text>
+  
+  <!-- 2025 Updates -->
+  <rect x="50" y="430" width="1100" height="180" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">2025 AWS re:Invent Security Updates</text>
+  
+  <rect x="80" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="180" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">GuardDuty Extended</text>
+  <text x="180" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Threat Detection</text>
+  <text x="180" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">EC2/ECS</text>
+  <text x="180" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Sequences</text>
+  
+  <rect x="300" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="400" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Security Hub GA</text>
+  <text x="400" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Centralized</text>
+  <text x="400" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">History Trends</text>
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Custom Widgets</text>
+  
+  <rect x="520" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="620" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">IAM Policy</text>
+  <text x="620" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Autopilot</text>
+  <text x="620" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">AI-Based</text>
+  <text x="620" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Auto Generation</text>
+  
+  <rect x="740" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="840" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Best Practices</text>
+  <text x="840" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Defense in Depth</text>
+  <text x="840" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Automated Scanning</text>
+  <text x="840" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Continuous Monitoring</text>
+  
+  <rect x="960" y="480" width="180" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1050" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Security</text>
+  <text x="1050" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Architecture</text>
+  <text x="1050" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">VPC/IAM/S3</text>
+  <text x="1050" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">GuardDuty</text>
+  
+  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">AWS Security Architecture | VPC | IAM | S3 | GuardDuty | 2025 re:Invent Updates</text>
 </svg>

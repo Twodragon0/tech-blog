@@ -1,115 +1,155 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e1b4b"/>
-      <stop offset="50%" style="stop-color:#312e81"/>
-      <stop offset="100%" style="stop-color:#1e3a5f"/>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.05"/>
-    </linearGradient>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-
+  
   <!-- Background -->
-  <rect width="800" height="400" fill="url(#bgGrad)"/>
-
-  <!-- Decorative circles -->
-  <circle cx="650" cy="80" r="150" fill="#8b5cf6" opacity="0.1"/>
-  <circle cx="100" cy="350" r="120" fill="#3b82f6" opacity="0.1"/>
-
-  <!-- Grid pattern -->
-  <g opacity="0.05" stroke="#fff" stroke-width="0.5">
-    <path d="M0 40 H800 M0 80 H800 M0 120 H800 M0 160 H800 M0 200 H800 M0 240 H800 M0 280 H800 M0 320 H800 M0 360 H800"/>
-    <path d="M40 0 V400 M80 0 V400 M120 0 V400 M160 0 V400 M200 0 V400 M240 0 V400 M280 0 V400 M320 0 V400 M360 0 V400 M400 0 V400 M440 0 V400 M480 0 V400 M520 0 V400 M560 0 V400 M600 0 V400 M640 0 V400 M680 0 V400 M720 0 V400 M760 0 V400"/>
-  </g>
-
-  <!-- Season 8 Badge -->
-  <g transform="translate(50, 30)">
-    <rect x="0" y="0" width="80" height="36" rx="18" fill="#8b5cf6"/>
-    <text x="40" y="24" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">Season 8</text>
-  </g>
-
-  <!-- Main Title -->
-  <text x="400" y="85" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">Cloud Security Course</text>
-  <text x="400" y="120" font-family="Arial, sans-serif" font-size="18" fill="#a5b4fc" text-anchor="middle">Orientation | Professional Talent Development Program</text>
-
-  <!-- Three pillars -->
-  <g transform="translate(100, 160)">
-    <!-- DevSecOps -->
-    <g transform="translate(0, 0)">
-      <rect width="180" height="120" rx="12" fill="url(#cardGrad)" stroke="#8b5cf6" stroke-width="2"/>
-      <circle cx="90" cy="35" r="20" fill="#8b5cf6" opacity="0.3"/>
-      <text x="90" y="42" font-family="Arial, sans-serif" font-size="20" fill="#fff" text-anchor="middle">🔐</text>
-      <text x="90" y="75" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">DevSecOps</text>
-      <text x="90" y="100" font-family="Arial, sans-serif" font-size="11" fill="#a5b4fc" text-anchor="middle">Security Automation | CI/CD Integration</text>
-    </g>
-
-    <!-- Cloud Security -->
-    <g transform="translate(210, 0)">
-      <rect width="180" height="120" rx="12" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="2"/>
-      <circle cx="90" cy="35" r="20" fill="#3b82f6" opacity="0.3"/>
-      <text x="90" y="42" font-family="Arial, sans-serif" font-size="20" fill="#fff" text-anchor="middle">☁️</text>
-      <text x="90" y="75" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">Cloud Security</text>
-      <text x="90" y="100" font-family="Arial, sans-serif" font-size="11" fill="#93c5fd" text-anchor="middle">AWS | GCP | Azure Security</text>
-    </g>
-
-    <!-- FinOps -->
-    <g transform="translate(420, 0)">
-      <rect width="180" height="120" rx="12" fill="url(#cardGrad)" stroke="#10b981" stroke-width="2"/>
-      <circle cx="90" cy="35" r="20" fill="#10b981" opacity="0.3"/>
-      <text x="90" y="42" font-family="Arial, sans-serif" font-size="20" fill="#fff" text-anchor="middle">💰</text>
-      <text x="90" y="75" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">FinOps</text>
-      <text x="90" y="100" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7" text-anchor="middle">Cost Optimization | ROI Management</text>
-    </g>
-  </g>
-
-  <!-- Arrow connections -->
-  <g stroke="#fff" stroke-width="2" fill="none" opacity="0.3">
-    <path d="M280 220 L310 220">
-      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
-    </path>
-    <path d="M490 220 L520 220">
-      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite" begin="0.5s"/>
-    </path>
-  </g>
-
-  <!-- Bottom info -->
-  <g transform="translate(0, 310)">
-    <rect x="100" y="0" width="600" height="60" rx="10" fill="rgba(255,255,255,0.05)"/>
-
-    <!-- Stats -->
-    <g transform="translate(150, 30)">
-      <text x="0" y="5" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#8b5cf6">10 Weeks</text>
-      <text x="0" y="22" font-family="Arial, sans-serif" font-size="11" fill="#a5b4fc">Duration</text>
-    </g>
-
-    <g transform="translate(300, 30)">
-      <text x="0" y="5" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#3b82f6">Hands-on</text>
-      <text x="0" y="22" font-family="Arial, sans-serif" font-size="11" fill="#93c5fd">Practice Focused</text>
-    </g>
-
-    <g transform="translate(450, 30)">
-      <text x="0" y="5" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#10b981">Mentoring</text>
-      <text x="0" y="22" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Industry Experts</text>
-    </g>
-
-    <g transform="translate(600, 30)">
-      <text x="0" y="5" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#f59e0b">Career</text>
-      <text x="0" y="22" font-family="Arial, sans-serif" font-size="11" fill="#fcd34d">Career Support</text>
-    </g>
-  </g>
-
-  <!-- Floating elements animation -->
-  <g opacity="0.4">
-    <circle cx="720" cy="150" r="5" fill="#8b5cf6">
-      <animate attributeName="cy" values="150;140;150" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="750" cy="200" r="3" fill="#3b82f6">
-      <animate attributeName="cy" values="200;190;200" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="70" cy="120" r="4" fill="#10b981">
-      <animate attributeName="cy" values="120;110;120" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-  </g>
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">
+    Cloud Security Course 8Batch: OT Guide
+  </text>
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">
+    Leap to Practical Talent: DevSecOps to FinOps
+  </text>
+  
+  <!-- 9-Week Curriculum -->
+  <rect x="50" y="100" width="1100" height="200" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">9-Week Curriculum Overview</text>
+  
+  <!-- Week 1 -->
+  <rect x="80" y="150" width="110" height="130" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="135" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Week 1</text>
+  <text x="135" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Infrastructure</text>
+  <text x="135" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Essence</text>
+  <text x="135" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">2025 Trends</text>
+  <text x="135" y="240" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">AI Security</text>
+  <text x="135" y="255" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Zero Trust</text>
+  
+  <!-- Week 2 -->
+  <rect x="210" y="150" width="110" height="130" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="265" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Week 2</text>
+  <text x="265" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">AWS Security</text>
+  <text x="265" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Architecture</text>
+  <text x="265" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">VPC/IAM/S3</text>
+  <text x="265" y="240" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">GuardDuty</text>
+  <text x="265" y="255" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Extended</text>
+  
+  <!-- Week 3 -->
+  <rect x="340" y="150" width="110" height="130" rx="5" fill="#1a1a2e" stroke="#ffd43b" stroke-width="1"/>
+  <text x="395" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffd43b" text-anchor="middle">Week 3</text>
+  <text x="395" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">AWS FinOps</text>
+  <text x="395" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">ISMS-P</text>
+  <text x="395" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Cost Opt</text>
+  <text x="395" y="240" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Governance</text>
+  <text x="395" y="255" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Compliance</text>
+  
+  <!-- Week 4 -->
+  <rect x="470" y="150" width="110" height="130" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="525" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Week 4</text>
+  <text x="525" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Integration</text>
+  <text x="525" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Security</text>
+  <text x="525" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Vulnerability</text>
+  <text x="525" y="240" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Inspection</text>
+  <text x="525" y="255" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">ISMS-P</text>
+  
+  <!-- Week 5 -->
+  <rect x="600" y="150" width="110" height="130" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
+  <text x="655" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Week 5</text>
+  <text x="655" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Control Tower</text>
+  <text x="655" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Datadog SIEM</text>
+  <text x="655" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Cloudflare</text>
+  <text x="655" y="240" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SCP</text>
+  <text x="655" y="255" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Governance</text>
+  
+  <!-- Week 6+ -->
+  <rect x="730" y="150" width="110" height="130" rx="5" fill="#1a1a2e" stroke="#845ef7" stroke-width="1"/>
+  <text x="785" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#845ef7" text-anchor="middle">Week 6+</text>
+  <text x="785" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">DevSecOps</text>
+  <text x="785" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Deep Dive</text>
+  <text x="785" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">CI/CD</text>
+  <text x="785" y="240" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Kubernetes</text>
+  <text x="785" y="255" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Security</text>
+  
+  <!-- 2025 Security Trends -->
+  <rect x="50" y="330" width="550" height="220" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="325" y="360" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">2025 Security Trends</text>
+  
+  <!-- Trend 1 -->
+  <rect x="80" y="380" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="160" y="405" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">AI Security</text>
+  <text x="160" y="425" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">93% Leaders</text>
+  <text x="160" y="440" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Daily Attacks</text>
+  
+  <!-- Trend 2 -->
+  <rect x="260" y="380" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="340" y="405" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Shadow AI</text>
+  <text x="340" y="425" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Unauthorized</text>
+  <text x="340" y="440" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">AI Systems</text>
+  
+  <!-- Trend 3 -->
+  <rect x="440" y="380" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="520" y="405" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Supply Chain</text>
+  <text x="520" y="425" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Attacks</text>
+  <text x="520" y="440" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Shai-Hulud</text>
+  
+  <!-- Trend 4 -->
+  <rect x="80" y="470" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="160" y="495" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Zero Trust</text>
+  <text x="160" y="515" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Standardized</text>
+  <text x="160" y="530" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">ZTNA</text>
+  
+  <!-- Trend 5 -->
+  <rect x="260" y="470" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="340" y="495" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Post-Quantum</text>
+  <text x="340" y="515" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Encryption</text>
+  <text x="340" y="530" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Cloudflare 52%</text>
+  
+  <!-- Trend 6 -->
+  <rect x="440" y="470" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="520" y="495" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">AWS re:Invent</text>
+  <text x="520" y="515" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Security Agent</text>
+  <text x="520" y="530" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">GuardDuty Ext</text>
+  
+  <!-- Learning Method -->
+  <rect x="650" y="330" width="500" height="220" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="900" y="360" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Learning Method &amp; Expected Outcomes</text>
+  
+  <!-- Method -->
+  <rect x="680" y="380" width="220" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="790" y="405" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#51cf66" text-anchor="middle">Efficient Learning</text>
+  <text x="790" y="425" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">20 min Lecture</text>
+  <text x="790" y="440" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">+ 5 min Break</text>
+  <text x="790" y="455" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Neuroscience Based</text>
+  
+  <!-- Outcomes -->
+  <rect x="920" y="380" width="220" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1030" y="405" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#51cf66" text-anchor="middle">Expected Outcomes</text>
+  <text x="1030" y="425" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">DevSecOps Skills</text>
+  <text x="1030" y="440" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">FinOps Expertise</text>
+  <text x="1030" y="455" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Cloud Security Pro</text>
+  
+  <!-- Learning Areas -->
+  <rect x="680" y="480" width="460" height="60" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="910" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Learning Areas: DevSecOps | FinOps | Cloud Security Architecture | Cost Optimization</text>
+  
+  <!-- Footer -->
+  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">
+    9-Week Course | 2025 Security Trends | Practical Talent Development | DevSecOps + FinOps Integration
+  </text>
 </svg>

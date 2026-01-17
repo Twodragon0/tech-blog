@@ -1,114 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="50%" style="stop-color:#1e293b"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="infraGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
-    </linearGradient>
-    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#10b981"/>
-      <stop offset="100%" style="stop-color:#059669"/>
-    </linearGradient>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-
-  <!-- Background -->
-  <rect width="800" height="400" fill="url(#bgGrad)"/>
-
-  <!-- Grid pattern -->
-  <g opacity="0.08">
-    <path d="M0 40 H800 M0 80 H800 M0 120 H800 M0 160 H800 M0 200 H800 M0 240 H800 M0 280 H800 M0 320 H800 M0 360 H800" stroke="#fff" stroke-width="0.5"/>
-    <path d="M40 0 V400 M80 0 V400 M120 0 V400 M160 0 V400 M200 0 V400 M240 0 V400 M280 0 V400 M320 0 V400 M360 0 V400 M400 0 V400 M440 0 V400 M480 0 V400 M520 0 V400 M560 0 V400 M600 0 V400 M640 0 V400 M680 0 V400 M720 0 V400 M760 0 V400" stroke="#fff" stroke-width="0.5"/>
-  </g>
-
-  <!-- Week 1 Badge -->
-  <g transform="translate(50, 30)">
-    <rect x="0" y="0" width="100" height="36" rx="18" fill="#3b82f6"/>
-    <text x="50" y="24" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Week 1</text>
-  </g>
-
-  <!-- Infrastructure Icon (Server Stack) -->
-  <g transform="translate(100, 120)">
-    <!-- Server 1 -->
-    <rect x="0" y="0" width="120" height="40" rx="5" fill="url(#infraGrad)" opacity="0.9"/>
-    <circle cx="20" cy="20" r="6" fill="#22c55e"/>
-    <rect x="35" y="15" width="40" height="4" rx="2" fill="#fff" opacity="0.5"/>
-    <rect x="35" y="22" width="30" height="4" rx="2" fill="#fff" opacity="0.3"/>
-    <rect x="90" y="10" width="20" height="20" rx="3" fill="#1e40af"/>
-
-    <!-- Server 2 -->
-    <rect x="0" y="50" width="120" height="40" rx="5" fill="url(#infraGrad)" opacity="0.8"/>
-    <circle cx="20" cy="70" r="6" fill="#22c55e"/>
-    <rect x="35" y="65" width="40" height="4" rx="2" fill="#fff" opacity="0.5"/>
-    <rect x="35" y="72" width="30" height="4" rx="2" fill="#fff" opacity="0.3"/>
-    <rect x="90" y="60" width="20" height="20" rx="3" fill="#1e40af"/>
-
-    <!-- Server 3 -->
-    <rect x="0" y="100" width="120" height="40" rx="5" fill="url(#infraGrad)" opacity="0.7"/>
-    <circle cx="20" cy="120" r="6" fill="#fbbf24"/>
-    <rect x="35" y="115" width="40" height="4" rx="2" fill="#fff" opacity="0.5"/>
-    <rect x="35" y="122" width="30" height="4" rx="2" fill="#fff" opacity="0.3"/>
-    <rect x="90" y="110" width="20" height="20" rx="3" fill="#1e40af"/>
-  </g>
-
-  <!-- Arrow -->
-  <g transform="translate(240, 190)">
-    <path d="M0 0 L60 0" stroke="#8b5cf6" stroke-width="3" fill="none"/>
-    <path d="M50 -8 L65 0 L50 8" fill="#8b5cf6"/>
-  </g>
-
-  <!-- Cloud Icon -->
-  <g transform="translate(320, 130)">
-    <ellipse cx="60" cy="80" rx="55" ry="35" fill="#8b5cf6" opacity="0.3"/>
-    <ellipse cx="40" cy="60" rx="40" ry="30" fill="#8b5cf6" opacity="0.5"/>
-    <ellipse cx="80" cy="55" rx="45" ry="35" fill="#8b5cf6" opacity="0.7"/>
-    <ellipse cx="60" cy="45" rx="35" ry="25" fill="#a78bfa"/>
-    <text x="60" y="55" font-family="Arial, sans-serif" font-size="20" fill="#fff" text-anchor="middle">Cloud</text>
-  </g>
-
-  <!-- Arrow -->
-  <g transform="translate(450, 190)">
-    <path d="M0 0 L60 0" stroke="#10b981" stroke-width="3" fill="none"/>
-    <path d="M50 -8 L65 0 L50 8" fill="#10b981"/>
-  </g>
-
-  <!-- Security Shield -->
-  <g transform="translate(530, 100)">
-    <path d="M60 0 L120 25 L120 85 Q120 130 60 160 Q0 130 0 85 L0 25 Z" fill="url(#securityGrad)" opacity="0.9"/>
-    <path d="M60 15 L105 35 L105 82 Q105 118 60 142 Q15 118 15 82 L15 35 Z" fill="#0f172a" opacity="0.5"/>
-    <!-- Lock icon -->
-    <rect x="42" y="70" width="36" height="30" rx="4" fill="#fff"/>
-    <path d="M50 70 L50 55 Q50 40 60 40 Q70 40 70 55 L70 70" fill="none" stroke="#fff" stroke-width="5"/>
-    <circle cx="60" cy="85" r="5" fill="#10b981"/>
-  </g>
-
-  <!-- Future trends - AI, Zero Trust icons -->
-  <g transform="translate(680, 100)">
-    <!-- AI chip -->
-    <rect x="0" y="0" width="70" height="50" rx="8" fill="#f59e0b" opacity="0.8"/>
-    <text x="35" y="32" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">AI</text>
-
-    <!-- Zero Trust -->
-    <rect x="0" y="60" width="70" height="50" rx="8" fill="#ef4444" opacity="0.8"/>
-    <text x="35" y="85" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">Zero</text>
-    <text x="35" y="100" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">Trust</text>
-
-    <!-- Cloud Native -->
-    <rect x="0" y="120" width="70" height="50" rx="8" fill="#8b5cf6" opacity="0.8"/>
-    <text x="35" y="145" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">Cloud</text>
-    <text x="35" y="160" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">Native</text>
-  </g>
-
-  <!-- Title -->
-  <text x="400" y="320" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#fff" text-anchor="middle">Cloud Security Course Season 8 - Week 1</text>
-  <text x="400" y="355" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">From Infrastructure Essence to Security Future</text>
-
-  <!-- Decorative elements -->
-  <g opacity="0.4">
-    <circle cx="50" cy="380" r="20" fill="none" stroke="#3b82f6" stroke-width="1"/>
-    <circle cx="750" cy="30" r="25" fill="none" stroke="#10b981" stroke-width="1"/>
-  </g>
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">Cloud Infrastructure Essence &amp; Security Future</text>
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">Cloud Security 8Batch Week 1: Infrastructure Fundamentals &amp; 2025 Security Trends</text>
+  
+  <!-- Infrastructure Components -->
+  <rect x="50" y="100" width="550" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="325" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Cloud Infrastructure Core Components</text>
+  
+  <rect x="80" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="2"/>
+  <text x="160" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Network</text>
+  <text x="160" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">VPC/Subnet</text>
+  <text x="160" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Security Groups</text>
+  <text x="160" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">NACL</text>
+  
+  <rect x="260" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="2"/>
+  <text x="340" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Compute</text>
+  <text x="340" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">EC2/Lambda</text>
+  <text x="340" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Containers</text>
+  <text x="340" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Auto Scaling</text>
+  
+  <rect x="440" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="2"/>
+  <text x="520" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Storage</text>
+  <text x="520" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">S3/EBS/EFS</text>
+  <text x="520" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Encryption</text>
+  <text x="520" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Backup</text>
+  
+  <rect x="80" y="250" width="520" height="60" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="340" y="280" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Security Perspective: Defense in Depth | Least Privilege | Monitoring &amp; Auditing</text>
+  
+  <!-- 2025 Security Trends -->
+  <rect x="650" y="100" width="500" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="900" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">2025 Cloud Security Trends</text>
+  
+  <rect x="680" y="150" width="220" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="790" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">AI Security</text>
+  <text x="790" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Threat &amp; Defense</text>
+  <text x="790" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Shadow AI</text>
+  
+  <rect x="920" y="150" width="220" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="1030" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Zero Trust</text>
+  <text x="1030" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Architecture</text>
+  <text x="1030" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Standardized</text>
+  
+  <rect x="680" y="240" width="220" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="790" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Post-Quantum</text>
+  <text x="790" y="280" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Encryption</text>
+  <text x="790" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Cloudflare 52%</text>
+  
+  <rect x="920" y="240" width="220" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1030" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Supply Chain</text>
+  <text x="1030" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Security</text>
+  <text x="1030" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SBOM Required</text>
+  
+  <rect x="680" y="330" width="460" height="60" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="910" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Cloud Native Security | Container Security | Kubernetes Security | Serverless Security</text>
+  
+  <!-- Learning Method -->
+  <rect x="50" y="430" width="1100" height="180" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Learning Method &amp; Practical Security Issues</text>
+  
+  <rect x="80" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="180" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Efficient Learning</text>
+  <text x="180" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">20 min Lecture</text>
+  <text x="180" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">+ 5 min Break</text>
+  <text x="180" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Neuroscience</text>
+  
+  <rect x="300" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="400" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Common Issues</text>
+  <text x="400" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Public DB</text>
+  <text x="400" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Open SG Rules</text>
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Root Account</text>
+  
+  <rect x="520" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <rect x="740" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <rect x="960" y="480" width="180" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  
+  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Cloud Infrastructure | Network/Compute/Storage | 2025 Security Trends | AI Security | Zero Trust | Post-Quantum Encryption</text>
 </svg>

@@ -1,119 +1,121 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
-
-  <rect width="800" height="450" fill="url(#bgGrad)"/>
-
-  <!-- Grid pattern -->
-  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
-    <line x1="0" y1="90" x2="800" y2="90"/>
-    <line x1="0" y1="180" x2="800" y2="180"/>
-    <line x1="0" y1="270" x2="800" y2="270"/>
-    <line x1="0" y1="360" x2="800" y2="360"/>
-  </g>
-
-  <!-- Karpenter Logo -->
-  <g transform="translate(80, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#ff9900" stroke-width="2"/>
-    <!-- K icon -->
-    <text x="65" y="55" font-family="Arial Black, sans-serif" font-size="36" font-weight="bold" fill="#ff9900" text-anchor="middle">K</text>
-    <text x="65" y="75" font-family="Arial, sans-serif" font-size="12" fill="#ff9900" text-anchor="middle">v1.5.3</text>
-    <text x="65" y="100" font-family="Arial, sans-serif" font-size="10" fill="#ff9900" text-anchor="middle">Karpenter</text>
-  </g>
-
-  <!-- Node Consolidation Issue -->
-  <g transform="translate(250, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#ef4444" stroke-width="2"/>
-    <!-- Multiple nodes being merged -->
-    <rect x="20" y="25" width="25" height="25" rx="3" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
-    <rect x="55" y="25" width="25" height="25" rx="3" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
-    <rect x="85" y="25" width="25" height="25" rx="3" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
-    <!-- Arrow down -->
-    <path d="M65 55 L65 70 M55 65 L65 75 L75 65" stroke="#ef4444" stroke-width="2" fill="none"/>
-    <!-- Warning -->
-    <circle cx="65" cy="85" r="8" fill="#ef4444"/>
-    <text x="65" y="89" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">!</text>
-    <text x="65" y="105" font-family="Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">Node Consolidation Issue</text>
-  </g>
-
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">Karpenter v1.5.3 Large-Scale Incident Analysis</text>
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">Post-Mortem: Node Integration Incident &amp; Resolution</text>
+  
+  <!-- Incident Summary -->
+  <rect x="50" y="100" width="550" height="150" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="325" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Incident Summary</text>
+  
+  <rect x="80" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="160" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Date</text>
+  <text x="160" y="195" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">2025-10-02</text>
+  <text x="160" y="215" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">15:43:00 KST</text>
+  
+  <rect x="260" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="340" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Duration</text>
+  <text x="340" y="195" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">~10 minutes</text>
+  <text x="340" y="215" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">15:43-15:53</text>
+  
+  <rect x="440" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="520" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Impact</text>
+  <text x="520" y="195" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">20+ Pods</text>
+  <text x="520" y="215" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">API Gateway</text>
+  
   <!-- Root Cause -->
-  <g transform="translate(420, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#f59e0b" stroke-width="2"/>
-    <!-- Magnifying glass -->
-    <circle cx="50" cy="45" r="20" fill="none" stroke="#f59e0b" stroke-width="2"/>
-    <line x1="65" y1="60" x2="85" y2="80" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
-    <!-- Bug inside -->
-    <ellipse cx="50" cy="45" rx="8" ry="6" fill="#f59e0b" fill-opacity="0.5"/>
-    <text x="60" y="100" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Root Cause</text>
-  </g>
-
-  <!-- Solution -->
-  <g transform="translate(590, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#10b981" stroke-width="2"/>
-    <!-- Check mark in circle -->
-    <circle cx="60" cy="45" r="25" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="2"/>
-    <path d="M45 45 L55 55 L75 35" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
-    <!-- Wrench -->
-    <path d="M80 65 L95 50" stroke="#10b981" stroke-width="2"/>
-    <text x="60" y="100" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Solution</text>
-  </g>
-
-  <!-- Title -->
-  <text x="400" y="45" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
-    Karpenter v1.5.3 Node Consolidation Issue Analysis
-  </text>
-  <text x="400" y="75" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">
-    Large-Scale Incident Analysis &amp; Resolution
-  </text>
-
-  <!-- Feature cards -->
-  <g transform="translate(80, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#ff9900" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff9900" text-anchor="middle">Consolidation</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Node Consolidation Policy</text>
-  </g>
-  <g transform="translate(250, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#ef4444" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444" text-anchor="middle">Incident Status</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Pod Rescheduling Failure</text>
-  </g>
-  <g transform="translate(420, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#f59e0b" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f59e0b" text-anchor="middle">Debugging</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Log &amp; Event Analysis</text>
-  </g>
-  <g transform="translate(590, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#10b981" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">Prevention</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Configuration Optimization</text>
-  </g>
-
-  <!-- Bottom badges -->
-  <g transform="translate(150, 370)">
-    <rect x="0" y="0" width="80" height="26" rx="13" fill="#ff9900" fill-opacity="0.2" stroke="#ff9900" stroke-width="1"/>
-    <text x="40" y="17" font-family="Arial, sans-serif" font-size="10" fill="#ff9900" text-anchor="middle">Karpenter</text>
-  </g>
-  <g transform="translate(250, 370)">
-    <rect x="0" y="0" width="90" height="26" rx="13" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">Post-Mortem</text>
-  </g>
-  <g transform="translate(360, 370)">
-    <rect x="0" y="0" width="90" height="26" rx="13" fill="#326ce5" fill-opacity="0.2" stroke="#326ce5" stroke-width="1"/>
-    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#326ce5" text-anchor="middle">Kubernetes</text>
-  </g>
-  <g transform="translate(470, 370)">
-    <rect x="0" y="0" width="60" height="26" rx="13" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
-    <text x="30" y="17" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">AWS</text>
-  </g>
+  <rect x="650" y="100" width="500" height="150" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="900" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Root Cause Analysis</text>
+  
+  <rect x="680" y="150" width="220" height="80" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="790" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Aggressive</text>
+  <text x="790" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Consolidation</text>
+  <text x="790" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">v1.5.3 Policy</text>
+  <text x="790" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">WhenEmptyOrUnderutilized</text>
+  
+  <rect x="920" y="150" width="220" height="80" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="1030" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">PDB</text>
+  <text x="1030" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Not Set</text>
+  <text x="1030" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">PodDisruptionBudget</text>
+  <text x="1030" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Missing</text>
+  
+  <!-- Timeline -->
+  <rect x="50" y="280" width="1100" height="200" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="310" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Incident Timeline</text>
+  
+  <rect x="80" y="330" width="140" height="50" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="150" y="355" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ff6b6b" text-anchor="middle">15:43:00</text>
+  <text x="150" y="370" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Node Consolidation</text>
+  
+  <rect x="240" y="330" width="140" height="50" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="310" y="355" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ff6b6b" text-anchor="middle">15:43:20</text>
+  <text x="310" y="370" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">20+ Pods Terminating</text>
+  
+  <rect x="400" y="330" width="140" height="50" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="470" y="355" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ff6b6b" text-anchor="middle">15:44:00</text>
+  <text x="470" y="370" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Service Down</text>
+  
+  <rect x="560" y="330" width="140" height="50" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="630" y="355" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">15:50:00</text>
+  <text x="630" y="370" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Manual Recovery</text>
+  
+  <rect x="720" y="330" width="140" height="50" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="790" y="355" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">15:53:00</text>
+  <text x="790" y="370" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Service Restored</text>
+  
+  <rect x="80" y="400" width="1060" height="60" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="610" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Problematic NodePool Config: consolidationPolicy=WhenEmptyOrUnderutilized | consolidateAfter=30s | budgets.nodes=100%</text>
+  <text x="610" y="450" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Solution: consolidationPolicy=WhenEmpty | consolidateAfter=5m | budgets.nodes=10% | PodDisruptionBudget Applied</text>
+  
+  <!-- Resolution -->
+  <rect x="50" y="510" width="1100" height="180" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="540" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Resolution &amp; Prevention</text>
+  
+  <rect x="80" y="560" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="180" y="585" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">NodePool Config</text>
+  <text x="180" y="605" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">WhenEmpty Only</text>
+  <text x="180" y="620" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">5m Wait</text>
+  <text x="180" y="635" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">10% Budget</text>
+  
+  <rect x="300" y="560" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="400" y="585" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">PodDisruptionBudget</text>
+  <text x="400" y="605" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">minAvailable: 50%</text>
+  <text x="400" y="620" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Pod Protection</text>
+  <text x="400" y="635" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Sequential Drain</text>
+  
+  <rect x="520" y="560" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="620" y="585" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Karpenter v1.0</text>
+  <text x="620" y="600" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">GA Updates</text>
+  <text x="620" y="620" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">API Stable</text>
+  <text x="620" y="635" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Smart Consolidation</text>
+  
+  <rect x="740" y="560" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="840" y="585" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Monitoring</text>
+  <text x="840" y="605" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Node Events</text>
+  <text x="840" y="620" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Alerts</text>
+  <text x="840" y="635" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Dashboards</text>
+  
+  <rect x="960" y="560" width="180" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1050" y="585" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Best Practices</text>
+  <text x="1050" y="605" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">PDB Required</text>
+  <text x="1050" y="620" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">WhenEmpty Policy</text>
+  <text x="1050" y="635" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Rollback Plan</text>
+  
+  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Karpenter v1.5.3 Incident | Node Consolidation | PodDisruptionBudget | Karpenter v1.0 GA | Best Practices</text>
 </svg>

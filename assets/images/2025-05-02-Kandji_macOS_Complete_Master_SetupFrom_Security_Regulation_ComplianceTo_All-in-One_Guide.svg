@@ -1,126 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0f0f1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
-
-  <rect width="800" height="450" fill="url(#bgGrad)"/>
-
-  <!-- Grid pattern -->
-  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
-    <line x1="0" y1="90" x2="800" y2="90"/>
-    <line x1="0" y1="180" x2="800" y2="180"/>
-    <line x1="0" y1="270" x2="800" y2="270"/>
-    <line x1="0" y1="360" x2="800" y2="360"/>
-  </g>
-
-  <!-- macOS Laptop Icon -->
-  <g transform="translate(80, 120)" filter="url(#glow)">
-    <rect x="0" y="0" width="130" height="85" rx="8" fill="#1e3a5f" stroke="#60a5fa" stroke-width="2"/>
-    <!-- Screen -->
-    <rect x="8" y="8" width="114" height="65" rx="4" fill="#0f172a"/>
-    <!-- Apple Logo -->
-    <path d="M60 25 C60 20 68 15 72 20 C75 18 80 18 82 22 C88 22 90 28 87 33 C90 38 88 45 82 47 C80 50 75 52 72 49 C68 52 62 50 60 47 C54 45 52 38 55 33 C52 28 54 22 60 22 C60 22 60 25 60 25" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
-    <line x1="72" y1="49" x2="72" y2="55" stroke="#60a5fa" stroke-width="1.5"/>
-    <!-- Keyboard base -->
-    <rect x="-10" y="85" width="150" height="8" rx="2" fill="#334155"/>
-    <text x="65" y="105" font-family="Arial, sans-serif" font-size="10" fill="#60a5fa" text-anchor="middle">macOS</text>
-  </g>
-
-  <!-- Kandji Shield -->
-  <g transform="translate(250, 110)" filter="url(#glow)">
-    <path d="M60 0 L120 25 L120 70 C120 110 60 140 60 140 C60 140 0 110 0 70 L0 25 Z"
-          fill="none" stroke="#8b5cf6" stroke-width="2"/>
-    <path d="M60 12 L108 33 L108 68 C108 100 60 125 60 125 C60 125 12 100 12 68 L12 33 Z"
-          fill="#8b5cf6" fill-opacity="0.15"/>
-    <!-- K Logo -->
-    <text x="60" y="75" font-family="Arial Black, sans-serif" font-size="40" font-weight="bold" fill="#8b5cf6" text-anchor="middle">K</text>
-    <text x="60" y="125" font-family="Arial, sans-serif" font-size="11" fill="#8b5cf6" text-anchor="middle">Kandji</text>
-  </g>
-
-  <!-- MDM Config Icon -->
-  <g transform="translate(420, 120)" filter="url(#glow)">
-    <rect x="0" y="0" width="120" height="100" rx="12" fill="#1e3a5f" stroke="#10b981" stroke-width="2"/>
-    <!-- Gear Icon -->
-    <circle cx="60" cy="45" r="20" fill="none" stroke="#10b981" stroke-width="2"/>
-    <circle cx="60" cy="45" r="8" fill="#10b981"/>
-    <!-- Gear teeth -->
-    <g stroke="#10b981" stroke-width="3">
-      <line x1="60" y1="20" x2="60" y2="28"/>
-      <line x1="60" y1="62" x2="60" y2="70"/>
-      <line x1="35" y1="45" x2="43" y2="45"/>
-      <line x1="77" y1="45" x2="85" y2="45"/>
-    </g>
-    <text x="60" y="85" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">MDM Config</text>
-  </g>
-
-  <!-- Compliance Check -->
-  <g transform="translate(590, 120)" filter="url(#glow)">
-    <rect x="0" y="0" width="120" height="100" rx="12" fill="#1e3a5f" stroke="#f59e0b" stroke-width="2"/>
-    <!-- Clipboard -->
-    <rect x="30" y="15" width="60" height="65" rx="4" fill="none" stroke="#f59e0b" stroke-width="2"/>
-    <rect x="45" y="10" width="30" height="12" rx="3" fill="#f59e0b"/>
-    <!-- Check marks -->
-    <path d="M40 35 L48 43 L60 28" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
-    <path d="M40 50 L48 58 L60 43" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
-    <path d="M40 65 L48 73 L60 58" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
-    <text x="60" y="95" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Compliance</text>
-  </g>
-
-  <!-- Title -->
-  <text x="400" y="45" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
-    Master macOS with Kandji!
-  </text>
-  <text x="400" y="75" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">
-    All-in-One Guide: Setup, Security &amp; Compliance
-  </text>
-
-  <!-- Feature cards -->
-  <g transform="translate(80, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#60a5fa" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#60a5fa" text-anchor="middle">Zero-Touch Deployment</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Automated Device Setup</text>
-  </g>
-  <g transform="translate(250, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Security Policy Management</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">FileVault, Firewall Config</text>
-  </g>
-  <g transform="translate(420, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#10b981" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">App Deployment Automation</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Auto Apps, Custom Apps</text>
-  </g>
-  <g transform="translate(590, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#f59e0b" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f59e0b" text-anchor="middle">Compliance Monitoring</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">CIS, NIST, SOC2</text>
-  </g>
-
-  <!-- Bottom badges -->
-  <g transform="translate(180, 370)">
-    <rect x="0" y="0" width="90" height="26" rx="13" fill="#60a5fa" fill-opacity="0.2" stroke="#60a5fa" stroke-width="1"/>
-    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#60a5fa" text-anchor="middle">Apple MDM</text>
-  </g>
-  <g transform="translate(290, 370)">
-    <rect x="0" y="0" width="70" height="26" rx="13" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
-    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">Kandji</text>
-  </g>
-  <g transform="translate(380, 370)">
-    <rect x="0" y="0" width="90" height="26" rx="13" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
-    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Compliance</text>
-  </g>
-  <g transform="translate(490, 370)">
-    <rect x="0" y="0" width="70" height="26" rx="13" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
-    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Security</text>
-  </g>
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">Kandji macOS Complete Master Guide</text>
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">Setup from Security Regulation Compliance to All-in-One Guide</text>
+  
+  <!-- Kandji UEM -->
+  <rect x="50" y="100" width="550" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="325" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Kandji UEM Solution</text>
+  
+  <rect x="80" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="160" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Apple Unified</text>
+  <text x="160" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Management</text>
+  <text x="160" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">macOS/iOS</text>
+  <text x="160" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">iPadOS/tvOS</text>
+  
+  <rect x="260" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="340" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">MDM Policies</text>
+  <text x="340" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">App Deployment</text>
+  <text x="340" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Security Settings</text>
+  <text x="340" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Centralized</text>
+  
+  <rect x="440" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="520" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Compliance</text>
+  <text x="520" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Monitoring</text>
+  <text x="520" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Regulation</text>
+  <text x="520" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Compliance</text>
+  
+  <rect x="80" y="250" width="520" height="60" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="340" y="280" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Kandji Features: MDM Policy Configuration | App Deployment Automation | Security Settings Central Management | Compliance Monitoring</text>
+  
+  <!-- Security & Compliance -->
+  <rect x="650" y="100" width="500" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="900" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Security &amp; Compliance</text>
+  
+  <rect x="680" y="150" width="220" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="790" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Passkey-Based</text>
+  <text x="790" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Device Auth</text>
+  <text x="790" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">FIDO2/WebAuthn</text>
+  <text x="790" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">YubiKey/Touch ID</text>
+  
+  <rect x="920" y="150" width="220" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="1030" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Zero Trust</text>
+  <text x="1030" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Architecture</text>
+  <text x="1030" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Applied</text>
+  <text x="1030" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Always Verify</text>
+  
+  <rect x="680" y="250" width="460" height="80" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="910" y="275" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">2025 Endpoint Security Trends: Passkey-Based Zero Touch Deployment | AI-Based Threat Detection | SASE Integration (Zscaler/Netskope)</text>
+  <text x="910" y="300" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Practical Application: Device Trust Assessment | Dynamic Access Control | Compliance Status-Based Real-Time Access Control | Enterprise App Login Automation</text>
+  <text x="910" y="320" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">AI-Based Threat Detection: Anomaly Detection | Auto Response | Predictive Security</text>
+  
+  <!-- Best Practices -->
+  <rect x="50" y="430" width="1100" height="180" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Kandji Setup &amp; Best Practices</text>
+  
+  <rect x="80" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="180" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">MDM Policy</text>
+  <text x="180" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Configuration</text>
+  <text x="180" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Security Policies</text>
+  <text x="180" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">App Restrictions</text>
+  
+  <rect x="300" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="400" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">App Deployment</text>
+  <text x="400" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Automation</text>
+  <text x="400" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Zero Touch</text>
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Deployment</text>
+  
+  <rect x="520" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="620" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Security Settings</text>
+  <text x="620" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Centralized</text>
+  <text x="620" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Management</text>
+  <text x="620" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Enforcement</text>
+  
+  <rect x="740" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="840" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Compliance</text>
+  <text x="840" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Monitoring</text>
+  <text x="840" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Regulation</text>
+  <text x="840" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Status Tracking</text>
+  
+  <rect x="960" y="480" width="180" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1050" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">2025 Trends</text>
+  <text x="1050" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Passkey Auth</text>
+  <text x="1050" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">AI Detection</text>
+  <text x="1050" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SASE Integration</text>
+  
+  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Kandji | macOS | MDM | Endpoint Security | Compliance | Passkey | Zero Trust | 2025 Trends</text>
 </svg>

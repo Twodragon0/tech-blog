@@ -115,6 +115,179 @@ def format_date_from_filename(filename: str) -> str:
     return ""
 
 
+def format_summary_for_email(description: str) -> str:
+    """Format summary/excerpt for better readability in email with improved UI/UX."""
+    if not description:
+        return ""
+    
+    # Remove extra whitespace
+    description = re.sub(r'\s+', ' ', description.strip())
+    
+    # If description is short (less than 150 chars), return as is
+    if len(description) <= 150:
+        return description
+    
+    # Pattern 1: Content with parentheses - most common pattern
+    # e.g., "주제(설명), 주제2(설명2), 주제3(설명3)까지"
+    if '(' in description and ')' in description:
+        # Use regex to find all topic(content) patterns
+        # Pattern matches: "topic(content)" where content can contain commas, slashes, etc.
+        pattern = r'([^,()]+?)\(([^)]+?)\)'
+        matches = re.finditer(pattern, description)
+        
+        formatted_parts = []
+        last_end = 0
+        
+        for match in matches:
+            # Check if there's text before this match (like "가이드: " prefix)
+            if match.start() > last_end:
+                prefix = description[last_end:match.start()].strip()
+                # Remove trailing colons, commas, and common markers
+                prefix = re.sub(r'[:,\s]+$', '', prefix)
+                if prefix and not prefix.endswith('까지'):
+                    # This might be an intro text
+                    pass
+            
+            topic = match.group(1).strip()
+            content = match.group(2).strip()
+            
+            # Clean up topic (remove trailing markers and colons)
+            topic = re.sub(r'\s*(까지|및|그리고|,|:)$', '', topic).strip()
+            
+            # Format content - replace slashes with commas for better readability
+            content = content.replace('/', ', ')
+            # Clean up multiple spaces
+            content = re.sub(r'\s+', ' ', content)
+            
+            # Add appropriate emoji based on topic keywords
+            emoji = '📌'
+            topic_lower = topic.lower()
+            if any(kw in topic_lower for kw in ['즉시', '조치', '대응', 'action', 'response']):
+                emoji = '⚡'
+            elif any(kw in topic_lower for kw in ['위험', 'risk', 'threat', '공격', '스와핑', '복제']):
+                emoji = '⚠️'
+            elif any(kw in topic_lower for kw in ['확인', 'check', 'verify', '교체', 'imei', 'usim', 'esim']):
+                emoji = '🔍'
+            elif any(kw in topic_lower for kw in ['업데이트', 'update', '강화', '2025']):
+                emoji = '🔄'
+            elif any(kw in topic_lower for kw in ['시사점', 'implication', 'lesson', '기업', 'enterprise']):
+                emoji = '💼'
+            elif any(kw in topic_lower for kw in ['보안', 'security', 'mfa', 'otp']):
+                emoji = '🔒'
+            
+            formatted_parts.append({
+                'topic': topic,
+                'content': content,
+                'emoji': emoji
+            })
+            
+            last_end = match.end()
+        
+        # If we found structured parts, format them nicely
+        if formatted_parts:
+            result_parts = []
+            for part in formatted_parts[:8]:  # Limit to 8 items for readability
+                result_parts.append(
+                    f"{part['emoji']} **{part['topic']}**\n   {part['content']}"
+                )
+            
+            # Check if there's trailing text after last match
+            if last_end < len(description):
+                trailing = description[last_end:].strip()
+                trailing = re.sub(r'^\s*(까지|및|그리고|,)\s*', '', trailing)
+                if trailing and len(trailing) > 5:
+                    result_parts.append(f"💡 {trailing}")
+            
+            return "\n\n".join(result_parts)
+    
+    # Pattern 2: Content with colons (e.g., "주제: 내용, 주제2: 내용2")
+    if ':' in description and ',' in description:
+        # Split by comma and check if items contain colons
+        parts = [p.strip() for p in description.split(',')]
+        if len(parts) > 2 and any(':' in p for p in parts[:3]):
+            formatted_parts = []
+            for part in parts[:6]:  # Limit to 6 items
+                if ':' in part:
+                    # Split by colon
+                    key_value = part.split(':', 1)
+                    if len(key_value) == 2:
+                        key = key_value[0].strip()
+                        value = key_value[1].strip()
+                        # Add emoji based on key content
+                        emoji = '📌'
+                        key_lower = key.lower()
+                        if any(kw in key_lower for kw in ['주제', 'topic', 'subject']):
+                            emoji = '📝'
+                        elif any(kw in key_lower for kw in ['내용', 'content', 'summary']):
+                            emoji = '📋'
+                        elif any(kw in key_lower for kw in ['요약', 'summary']):
+                            emoji = '✨'
+                        formatted_parts.append(f"{emoji} **{key}:** {value}")
+                    else:
+                        formatted_parts.append(f"• {part}")
+                else:
+                    formatted_parts.append(f"• {part}")
+            
+            if formatted_parts:
+                return "\n\n".join(formatted_parts)
+    
+    # Pattern 3: Long sentences - try to break into bullet points
+    sentences = re.split(r'([.!?。！？]\s+)', description)
+    if len(sentences) > 3:
+        # Reconstruct sentences
+        formatted_sentences = []
+        current_sentence = ""
+        for i, part in enumerate(sentences):
+            current_sentence += part
+            # Check if this is a complete sentence
+            if part.strip() and part.strip()[-1] in '.!?。！？':
+                sentence = current_sentence.strip()
+                if sentence and len(sentence) > 20:  # Only format substantial sentences
+                    # Check if sentence starts with common keywords
+                    if any(sentence.startswith(kw) for kw in ['SKT', 'IMEI', 'USIM', 'MFA', '보안', '통신사']):
+                        formatted_sentences.append(f"🔹 {sentence}")
+                    else:
+                        formatted_sentences.append(f"• {sentence}")
+                current_sentence = ""
+        
+        if formatted_sentences:
+            return "\n\n".join(formatted_sentences)
+    
+    # Pattern 4: If description contains common section markers
+    if any(marker in description for marker in ['까지', '부터', '및', '그리고']):
+        # Try to split by common delimiters
+        parts = re.split(r'[,，]\s*(?=[가-힣A-Z])', description)
+        if len(parts) > 3:
+            formatted_parts = []
+            for part in parts[:6]:  # Limit to 6 items for readability
+                part = part.strip()
+                if part:
+                    # Remove trailing markers like "까지", "및" from individual items
+                    part = re.sub(r'\s*(까지|및|그리고)$', '', part)
+                    if part:
+                        formatted_parts.append(f"• {part}")
+            
+            if formatted_parts:
+                return "\n\n".join(formatted_parts)
+    
+    # Fallback: If description is very long, wrap it nicely
+    if len(description) > 200:
+        # Try to break at sentence boundaries
+        sentences = re.split(r'([.!?。！？]\s+)', description)
+        if len(sentences) > 2:
+            # Take first few sentences and format nicely
+            result = ""
+            for i in range(0, min(4, len(sentences)), 2):
+                if i + 1 < len(sentences):
+                    sentence = (sentences[i] + sentences[i + 1]).strip()
+                    if sentence:
+                        result += f"{sentence}\n\n"
+            return result.strip()
+    
+    # Default: return as is with some spacing improvements
+    return description
+
+
 def create_email_content(frontmatter: dict, post_url: str, post_content: str = None, filename: str = None) -> tuple:
     """Create email subject and body for Buttondown with improved UI/UX."""
     title = frontmatter.get('title', 'New Post')
@@ -193,14 +366,17 @@ def create_email_content(frontmatter: dict, post_url: str, post_content: str = N
             "",
         ])
 
-    # Description/Excerpt
+    # Description/Excerpt - formatted for better readability
     if description:
+        formatted_description = format_summary_for_email(description)
         body_parts.extend([
             "---",
             "",
             "## 📋 요약",
             "",
-            description,
+            formatted_description,
+            "",
+            "---",
             "",
         ])
 

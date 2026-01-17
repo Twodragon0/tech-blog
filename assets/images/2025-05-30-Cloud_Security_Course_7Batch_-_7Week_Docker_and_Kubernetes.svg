@@ -1,143 +1,112 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
-
-  <!-- Background -->
-  <rect width="800" height="450" fill="url(#bgGrad)"/>
-
-  <!-- Grid pattern -->
-  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
-    <line x1="0" y1="90" x2="800" y2="90"/>
-    <line x1="0" y1="180" x2="800" y2="180"/>
-    <line x1="0" y1="270" x2="800" y2="270"/>
-    <line x1="0" y1="360" x2="800" y2="360"/>
-    <line x1="200" y1="0" x2="200" y2="450"/>
-    <line x1="400" y1="0" x2="400" y2="450"/>
-    <line x1="600" y1="0" x2="600" y2="450"/>
-  </g>
-
-  <!-- Docker whale -->
-  <g transform="translate(100, 130)" filter="url(#glow)">
-    <!-- Container boxes on whale -->
-    <rect x="20" y="30" width="25" height="20" rx="2" fill="#2496ed"/>
-    <rect x="50" y="30" width="25" height="20" rx="2" fill="#2496ed"/>
-    <rect x="80" y="30" width="25" height="20" rx="2" fill="#2496ed"/>
-    <rect x="35" y="5" width="25" height="20" rx="2" fill="#2496ed"/>
-    <rect x="65" y="5" width="25" height="20" rx="2" fill="#2496ed"/>
-    <!-- Whale body -->
-    <ellipse cx="65" cy="70" rx="60" ry="25" fill="#2496ed"/>
-    <circle cx="25" cy="70" r="5" fill="#1e293b"/>
-    <!-- Whale tail -->
-    <path d="M125 60 Q145 40 135 70 Q145 100 125 80" fill="#2496ed"/>
-    <text x="65" y="115" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2496ed" text-anchor="middle">Docker</text>
-  </g>
-
-  <!-- Kubernetes wheel -->
-  <g transform="translate(320, 120)" filter="url(#glow)">
-    <circle cx="70" cy="70" r="55" fill="none" stroke="#326ce5" stroke-width="3"/>
-    <circle cx="70" cy="70" r="20" fill="#326ce5"/>
-    <!-- Spokes -->
-    <line x1="70" y1="15" x2="70" y2="45" stroke="#326ce5" stroke-width="4"/>
-    <line x1="70" y1="95" x2="70" y2="125" stroke="#326ce5" stroke-width="4"/>
-    <line x1="15" y1="70" x2="45" y2="70" stroke="#326ce5" stroke-width="4"/>
-    <line x1="95" y1="70" x2="125" y2="70" stroke="#326ce5" stroke-width="4"/>
-    <line x1="31" y1="31" x2="51" y2="51" stroke="#326ce5" stroke-width="4"/>
-    <line x1="89" y1="89" x2="109" y2="109" stroke="#326ce5" stroke-width="4"/>
-    <line x1="109" y1="31" x2="89" y2="51" stroke="#326ce5" stroke-width="4"/>
-    <line x1="51" y1="89" x2="31" y2="109" stroke="#326ce5" stroke-width="4"/>
-    <!-- Pods at ends -->
-    <circle cx="70" cy="15" r="8" fill="#326ce5"/>
-    <circle cx="70" cy="125" r="8" fill="#326ce5"/>
-    <circle cx="15" cy="70" r="8" fill="#326ce5"/>
-    <circle cx="125" cy="70" r="8" fill="#326ce5"/>
-    <circle cx="31" cy="31" r="6" fill="#326ce5"/>
-    <circle cx="109" cy="109" r="6" fill="#326ce5"/>
-    <circle cx="109" cy="31" r="6" fill="#326ce5"/>
-    <circle cx="31" cy="109" r="6" fill="#326ce5"/>
-    <text x="70" y="155" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#326ce5" text-anchor="middle">Kubernetes</text>
-  </g>
-
-  <!-- Container orchestration flow -->
-  <g transform="translate(540, 130)" filter="url(#glow)">
-    <rect x="0" y="0" width="180" height="120" rx="8" fill="#1e3a5f" stroke="#10b981" stroke-width="2"/>
-    <!-- Pods -->
-    <rect x="15" y="20" width="45" height="35" rx="4" fill="#10b981" fill-opacity="0.3" stroke="#10b981"/>
-    <text x="37" y="42" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Pod 1</text>
-    <rect x="70" y="20" width="45" height="35" rx="4" fill="#10b981" fill-opacity="0.3" stroke="#10b981"/>
-    <text x="92" y="42" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Pod 2</text>
-    <rect x="125" y="20" width="45" height="35" rx="4" fill="#10b981" fill-opacity="0.3" stroke="#10b981"/>
-    <text x="147" y="42" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Pod 3</text>
-    <!-- Service -->
-    <rect x="40" y="70" width="100" height="35" rx="4" fill="#8b5cf6" fill-opacity="0.3" stroke="#8b5cf6"/>
-    <text x="90" y="92" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">Service</text>
-    <text x="90" y="145" font-family="Arial, sans-serif" font-size="11" fill="#10b981" text-anchor="middle">Orchestration</text>
-  </g>
-
-  <!-- Connection arrows -->
-  <g stroke="#ffffff" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="5,5">
-    <line x1="230" y1="200" x2="300" y2="200"/>
-    <line x1="480" y1="200" x2="530" y2="200"/>
-  </g>
-
-  <!-- Title -->
-  <text x="400" y="45" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
-    Cloud Security Course Season 7 - Week 7
-  </text>
-  <text x="400" y="75" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">
-    Understanding Docker &amp; Kubernetes
-  </text>
-
-  <!-- Bottom concepts -->
-  <g transform="translate(80, 300)">
-    <rect x="0" y="0" width="120" height="50" rx="6" fill="#1e3a5f" stroke="#2496ed" stroke-width="1"/>
-    <text x="60" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2496ed" text-anchor="middle">Container</text>
-    <text x="60" y="38" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">Isolated Runtime Environment</text>
-  </g>
-  <g transform="translate(220, 300)">
-    <rect x="0" y="0" width="120" height="50" rx="6" fill="#1e3a5f" stroke="#326ce5" stroke-width="1"/>
-    <text x="60" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#326ce5" text-anchor="middle">Pod</text>
-    <text x="60" y="38" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">Minimal Deployment Unit</text>
-  </g>
-  <g transform="translate(360, 300)">
-    <rect x="0" y="0" width="120" height="50" rx="6" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="1"/>
-    <text x="60" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Service</text>
-    <text x="60" y="38" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">Network Abstraction</text>
-  </g>
-  <g transform="translate(500, 300)">
-    <rect x="0" y="0" width="120" height="50" rx="6" fill="#1e3a5f" stroke="#10b981" stroke-width="1"/>
-    <text x="60" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10b981" text-anchor="middle">Deployment</text>
-    <text x="60" y="38" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">Declarative Updates</text>
-  </g>
-
-  <!-- Bottom badges -->
-  <g transform="translate(180, 380)">
-    <rect x="0" y="0" width="100" height="28" rx="14" fill="#2496ed" fill-opacity="0.2" stroke="#2496ed" stroke-width="1"/>
-    <text x="50" y="18" font-family="Arial, sans-serif" font-size="11" fill="#2496ed" text-anchor="middle">Docker</text>
-  </g>
-  <g transform="translate(300, 380)">
-    <rect x="0" y="0" width="100" height="28" rx="14" fill="#326ce5" fill-opacity="0.2" stroke="#326ce5" stroke-width="1"/>
-    <text x="50" y="18" font-family="Arial, sans-serif" font-size="11" fill="#326ce5" text-anchor="middle">K8s</text>
-  </g>
-  <g transform="translate(420, 380)">
-    <rect x="0" y="0" width="100" height="28" rx="14" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
-    <text x="50" y="18" font-family="Arial, sans-serif" font-size="11" fill="#10b981" text-anchor="middle">Container</text>
-  </g>
-
-  <!-- Week badge -->
-  <g transform="translate(680, 380)">
-    <circle cx="30" cy="14" r="20" fill="#326ce5" fill-opacity="0.3" stroke="#326ce5" stroke-width="1"/>
-    <text x="30" y="10" font-family="Arial, sans-serif" font-size="9" fill="#326ce5" text-anchor="middle">Week</text>
-    <text x="30" y="22" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#326ce5" text-anchor="middle">7</text>
-  </g>
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">Docker &amp; Kubernetes Security: Complete Guide</text>
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">Cloud Security Course 7Batch Week 7: Container Security Best Practices</text>
+  
+  <!-- Docker -->
+  <rect x="50" y="100" width="550" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="325" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Docker Fundamentals</text>
+  
+  <rect x="80" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="140" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Image</text>
+  <text x="140" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Template</text>
+  <text x="140" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Files</text>
+  
+  <rect x="220" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="280" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Container</text>
+  <text x="280" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Instance</text>
+  <text x="280" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Isolation</text>
+  
+  <rect x="360" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="420" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Dockerfile</text>
+  <text x="420" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Build Script</text>
+  <text x="420" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Commands</text>
+  
+  <rect x="500" y="150" width="80" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="540" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Registry</text>
+  <text x="540" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Docker Hub</text>
+  <text x="540" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">ECR</text>
+  
+  <rect x="80" y="240" width="500" height="60" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="330" y="270" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Docker Commands: pull | run | ps | logs | stop | rm | build | push</text>
+  
+  <!-- Kubernetes -->
+  <rect x="650" y="100" width="500" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="900" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Kubernetes Architecture</text>
+  
+  <rect x="680" y="150" width="100" height="70" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
+  <text x="730" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Control</text>
+  <text x="730" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Plane</text>
+  <text x="730" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">API Server</text>
+  
+  <rect x="800" y="150" width="100" height="70" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
+  <text x="850" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Node</text>
+  <text x="850" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">kubelet</text>
+  <text x="850" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Pods</text>
+  
+  <rect x="920" y="150" width="100" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="970" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Resources</text>
+  <text x="970" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Pod/Deploy</text>
+  <text x="970" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Service</text>
+  
+  <rect x="1040" y="150" width="100" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1090" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Config</text>
+  <text x="1090" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Secret</text>
+  <text x="1090" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Namespace</text>
+  
+  <rect x="680" y="240" width="460" height="60" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="910" y="270" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Kubernetes Components: Control Plane (API Server, etcd, Scheduler) | Node (kubelet, Pods) | Resources (Pod, Deployment, Service, ConfigMap, Secret)</text>
+  
+  <!-- Security Best Practices -->
+  <rect x="50" y="430" width="1100" height="180" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Container Security Best Practices</text>
+  
+  <rect x="80" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="180" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Least Privilege</text>
+  <text x="180" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Minimal Access</text>
+  <text x="180" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Non-root User</text>
+  <text x="180" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Read-only FS</text>
+  
+  <rect x="300" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="400" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Image Scanning</text>
+  <text x="400" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Trivy</text>
+  <text x="400" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Snyk</text>
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Vulnerability</text>
+  
+  <rect x="520" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="620" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Secret Management</text>
+  <text x="620" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">K8s Secrets</text>
+  <text x="620" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">External Secrets</text>
+  <text x="620" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Vault</text>
+  
+  <rect x="740" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="840" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Runtime Security</text>
+  <text x="840" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Trivy Scan</text>
+  <text x="840" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Falco Detection</text>
+  <text x="840" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Pod Security</text>
+  
+  <rect x="960" y="480" width="180" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1050" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Minikube/K9s</text>
+  <text x="1050" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Practice</text>
+  <text x="1050" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Guide</text>
+  <text x="1050" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Troubleshooting</text>
+  
+  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Docker | Kubernetes | Container Security | Image Scanning | Secret Management | Runtime Security</text>
 </svg>

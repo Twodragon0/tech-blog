@@ -1,128 +1,111 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
-
-  <rect width="800" height="450" fill="url(#bgGrad)"/>
-
-  <!-- Grid pattern -->
-  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
-    <line x1="0" y1="90" x2="800" y2="90"/>
-    <line x1="0" y1="180" x2="800" y2="180"/>
-    <line x1="0" y1="270" x2="800" y2="270"/>
-    <line x1="0" y1="360" x2="800" y2="360"/>
-  </g>
-
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">AWS Control Tower &amp; ZTNA: Multi-Account Governance</text>
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">Cloud Security Course 7Batch Week 5: Zero Trust Network Access</text>
+  
   <!-- Control Tower -->
-  <g transform="translate(80, 110)" filter="url(#glow)">
-    <rect x="0" y="0" width="130" height="130" rx="12" fill="#1e3a5f" stroke="#ff9900" stroke-width="2"/>
-    <!-- Tower structure -->
-    <rect x="50" y="25" width="30" height="70" rx="2" fill="#ff9900" fill-opacity="0.2" stroke="#ff9900" stroke-width="2"/>
-    <rect x="40" y="20" width="50" height="15" rx="2" fill="none" stroke="#ff9900" stroke-width="2"/>
-    <!-- Signal waves -->
-    <path d="M30 50 Q20 60 30 70" fill="none" stroke="#ff9900" stroke-width="1.5"/>
-    <path d="M20 45 Q5 60 20 75" fill="none" stroke="#ff9900" stroke-width="1.5"/>
-    <path d="M100 50 Q110 60 100 70" fill="none" stroke="#ff9900" stroke-width="1.5"/>
-    <path d="M110 45 Q125 60 110 75" fill="none" stroke="#ff9900" stroke-width="1.5"/>
-    <text x="65" y="115" font-family="Arial, sans-serif" font-size="10" fill="#ff9900" text-anchor="middle">Control Tower</text>
-  </g>
-
-  <!-- ZTNA Shield -->
-  <g transform="translate(250, 110)" filter="url(#glow)">
-    <path d="M65 0 L130 30 L130 80 C130 120 65 150 65 150 C65 150 0 120 0 80 L0 30 Z"
-          fill="none" stroke="#8b5cf6" stroke-width="2"/>
-    <path d="M65 12 L118 38 L118 78 C118 110 65 135 65 135 C65 135 12 110 12 78 L12 38 Z"
-          fill="#8b5cf6" fill-opacity="0.15"/>
-    <!-- Zero Trust text -->
-    <text x="65" y="60" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b5cf6" text-anchor="middle">ZERO</text>
-    <text x="65" y="80" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b5cf6" text-anchor="middle">TRUST</text>
-    <!-- Lock -->
-    <rect x="52" y="90" width="26" height="20" rx="3" fill="#8b5cf6" fill-opacity="0.3"/>
-    <path d="M58 90 L58 82 Q65 75 72 82 L72 90" fill="none" stroke="#8b5cf6" stroke-width="2"/>
-    <text x="65" y="130" font-family="Arial, sans-serif" font-size="11" fill="#8b5cf6" text-anchor="middle">ZTNA</text>
-  </g>
-
-  <!-- Multi-Account -->
-  <g transform="translate(420, 120)" filter="url(#glow)">
-    <rect x="0" y="0" width="120" height="100" rx="12" fill="#1e3a5f" stroke="#10b981" stroke-width="2"/>
-    <!-- Stacked accounts -->
-    <rect x="25" y="20" width="70" height="18" rx="4" fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-width="1"/>
-    <rect x="30" y="42" width="70" height="18" rx="4" fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-width="1"/>
-    <rect x="35" y="64" width="70" height="18" rx="4" fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-width="1"/>
-    <text x="60" y="90" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Multi-Account</text>
-  </g>
-
-  <!-- Governance -->
-  <g transform="translate(590, 120)" filter="url(#glow)">
-    <rect x="0" y="0" width="120" height="100" rx="12" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
-    <!-- Hierarchy diagram -->
-    <circle cx="60" cy="25" r="10" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1.5"/>
-    <line x1="60" y1="35" x2="60" y2="45" stroke="#3b82f6" stroke-width="1.5"/>
-    <line x1="35" y1="45" x2="85" y2="45" stroke="#3b82f6" stroke-width="1.5"/>
-    <line x1="35" y1="45" x2="35" y2="55" stroke="#3b82f6" stroke-width="1.5"/>
-    <line x1="60" y1="45" x2="60" y2="55" stroke="#3b82f6" stroke-width="1.5"/>
-    <line x1="85" y1="45" x2="85" y2="55" stroke="#3b82f6" stroke-width="1.5"/>
-    <circle cx="35" cy="62" r="7" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1"/>
-    <circle cx="60" cy="62" r="7" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1"/>
-    <circle cx="85" cy="62" r="7" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="1"/>
-    <text x="60" y="90" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">Governance</text>
-  </g>
-
-  <!-- Title -->
-  <text x="400" y="45" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">
-    Cloud Security Course Season 7 - Week 5
-  </text>
-  <text x="400" y="75" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">
-    AWS Control Tower &amp; ZTNA
-  </text>
-
-  <!-- Feature cards -->
-  <g transform="translate(80, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#ff9900" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff9900" text-anchor="middle">Landing Zone</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Multi-Account Environment Setup</text>
-  </g>
-  <g transform="translate(250, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Zero Trust</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Never Trust, Always Verify</text>
-  </g>
-  <g transform="translate(420, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#10b981" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">SCP Policy</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Service Control Policy</text>
-  </g>
-  <g transform="translate(590, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3b82f6" text-anchor="middle">Guardrails</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Security Guardrails</text>
-  </g>
-
-  <!-- Bottom badges -->
-  <g transform="translate(160, 370)">
-    <rect x="0" y="0" width="110" height="26" rx="13" fill="#ff9900" fill-opacity="0.2" stroke="#ff9900" stroke-width="1"/>
-    <text x="55" y="17" font-family="Arial, sans-serif" font-size="10" fill="#ff9900" text-anchor="middle">Control Tower</text>
-  </g>
-  <g transform="translate(290, 370)">
-    <rect x="0" y="0" width="70" height="26" rx="13" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
-    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">ZTNA</text>
-  </g>
-  <g transform="translate(380, 370)">
-    <rect x="0" y="0" width="100" height="26" rx="13" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
-    <text x="50" y="17" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Multi-Account</text>
-  </g>
-  <g transform="translate(500, 370)">
-    <rect x="0" y="0" width="90" height="26" rx="13" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-    <text x="45" y="17" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">Governance</text>
-  </g>
+  <rect x="50" y="100" width="550" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="325" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">AWS Control Tower</text>
+  
+  <rect x="80" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="140" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Landing Zone</text>
+  <text x="140" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Auto Setup</text>
+  <text x="140" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">2025 Update</text>
+  
+  <rect x="220" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="280" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Guardrails</text>
+  <text x="280" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Required</text>
+  <text x="280" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Recommended</text>
+  
+  <rect x="360" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="420" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Account Factory</text>
+  <text x="420" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Auto Account</text>
+  <text x="420" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Creation</text>
+  
+  <rect x="500" y="150" width="80" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="540" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Organizations</text>
+  <text x="540" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SCP</text>
+  <text x="540" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Multi-Account</text>
+  
+  <rect x="80" y="240" width="500" height="60" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="330" y="270" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">2025 Updates: Account Migration Improved | Standalone Separation Not Required | Guardrails Extended</text>
+  
+  <!-- ZTNA -->
+  <rect x="650" y="100" width="500" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="900" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Zero Trust Network Access (ZTNA)</text>
+  
+  <rect x="680" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="760" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Zero Trust Principles</text>
+  <text x="760" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Never Trust</text>
+  <text x="760" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Always Verify</text>
+  <text x="760" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Explicit Verify</text>
+  
+  <rect x="860" y="150" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="940" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">AWS Implementation</text>
+  <text x="940" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">PrivateLink</text>
+  <text x="940" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">VPC Endpoint</text>
+  <text x="940" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Security Groups</text>
+  
+  <rect x="1040" y="150" width="100" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1090" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Network</text>
+  <text x="1090" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Isolation</text>
+  <text x="1090" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">VPC</text>
+  <text x="1090" y="225" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Segmentation</text>
+  
+  <rect x="680" y="250" width="460" height="140" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="910" y="275" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">ZTNA Architecture: PrivateLink | VPC Endpoint | Security Group Least Privilege | Network Isolation</text>
+  <text x="910" y="300" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Cloud Environment Zero Trust Security Model | Always Verify | Never Trust | Minimal Access</text>
+  
+  <!-- Best Practices -->
+  <rect x="50" y="430" width="1100" height="180" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Best Practices &amp; Implementation</text>
+  
+  <rect x="80" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="180" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Multi-Account</text>
+  <text x="180" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Architecture</text>
+  <text x="180" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Design</text>
+  <text x="180" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">OU Structure</text>
+  
+  <rect x="300" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="400" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Governance</text>
+  <text x="400" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Automation</text>
+  <text x="400" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SCP Policies</text>
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Auto Apply</text>
+  
+  <rect x="520" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="620" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Zero Trust</text>
+  <text x="620" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Network</text>
+  <text x="620" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Configuration</text>
+  <text x="620" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">PrivateLink</text>
+  
+  <rect x="740" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="840" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Security &amp;</text>
+  <text x="840" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Compliance</text>
+  <text x="840" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Integrated</text>
+  <text x="840" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Management</text>
+  
+  <rect x="960" y="480" width="180" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="1050" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">2025 Updates</text>
+  <text x="1050" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Account Migration</text>
+  <text x="1050" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SCP Automation</text>
+  <text x="1050" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Guardrails Ext</text>
+  
+  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">AWS Control Tower | ZTNA | Zero Trust | Multi-Account Governance | 2025 Updates</text>
 </svg>

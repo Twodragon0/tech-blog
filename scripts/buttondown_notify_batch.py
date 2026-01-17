@@ -3,6 +3,7 @@
 Buttondown Batch Email Notification Script
 Processes multiple blog posts and sends email notifications for each.
 Can work with POSTS_JSON environment variable or detect posts via git diff.
+Note: Only new posts trigger email notifications. Updated posts are excluded.
 """
 
 import os
@@ -27,11 +28,12 @@ if ENV_FILE.exists():
 
 
 def detect_posts_via_git_diff():
-    """Detect new and modified posts via git diff."""
+    """Detect only new posts via git diff (excludes modified posts)."""
     posts = []
     
     try:
-        # Get added posts
+        # Get only added posts (new posts)
+        # Modified posts are excluded to prevent email notifications for updates
         result = subprocess.run(
             ['git', 'diff', '--name-only', '--diff-filter=A', 'HEAD~1', 'HEAD', '--', '_posts/*.md'],
             cwd=PROJECT_ROOT,
@@ -42,19 +44,11 @@ def detect_posts_via_git_diff():
         if result.returncode == 0 and result.stdout.strip():
             posts.extend(result.stdout.strip().split('\n'))
         
-        # Get modified posts
-        result = subprocess.run(
-            ['git', 'diff', '--name-only', '--diff-filter=M', 'HEAD~1', 'HEAD', '--', '_posts/*.md'],
-            cwd=PROJECT_ROOT,
-            capture_output=True,
-            text=True,
-            timeout=10
-        )
-        if result.returncode == 0 and result.stdout.strip():
-            posts.extend(result.stdout.strip().split('\n'))
-        
         # Remove duplicates and empty strings
         posts = list(set([p.strip() for p in posts if p.strip()]))
+        
+        if posts:
+            print(f"📝 Detected {len(posts)} new post(s) (modified posts excluded)")
         
     except subprocess.TimeoutExpired:
         print("⚠️ Git diff command timed out")
@@ -129,7 +123,7 @@ def main():
     if not valid_posts:
         print("❌ No valid post files found")
         print("   This might happen if:")
-        print("   1. No new or modified posts were detected")
+        print("   1. No new posts were detected (updated posts are excluded)")
         print("   2. All posts are marked as draft")
         print("   3. The post files don't exist")
         sys.exit(1)

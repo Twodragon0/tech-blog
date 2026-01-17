@@ -1,0 +1,155 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0f3460;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#grad1)"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">
+    AI Coding Assistants Comparison: 2025-2026 Research Analysis
+  </text>
+  <text x="600" y="65" font-family="Arial, sans-serif" font-size="14" fill="#a8dadc" text-anchor="middle">
+    Gemini, Claude Code, ChatGPT, OpenCode, DeepSeek Performance Benchmark
+  </text>
+  
+  <!-- SWE-Bench Performance -->
+  <rect x="50" y="100" width="550" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="325" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">SWE-Bench Performance (Verified)</text>
+  
+  <!-- Claude -->
+  <rect x="80" y="150" width="100" height="230" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <rect x="80" y="150" width="100" height="186" rx="5" fill="#51cf66" opacity="0.7"/>
+  <text x="130" y="170" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Claude</text>
+  <text x="130" y="185" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Opus 4.5</text>
+  <text x="130" y="355" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">80.9%</text>
+  
+  <!-- GPT-5 -->
+  <rect x="200" y="150" width="100" height="230" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="2"/>
+  <rect x="200" y="150" width="100" height="175" rx="5" fill="#4dabf7" opacity="0.7"/>
+  <text x="250" y="170" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">GPT-5.1</text>
+  <text x="250" y="185" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Codex</text>
+  <text x="250" y="355" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">76.3%</text>
+  
+  <!-- Gemini -->
+  <rect x="320" y="150" width="100" height="230" rx="5" fill="#1a1a2e" stroke="#ffd43b" stroke-width="2"/>
+  <rect x="320" y="150" width="100" height="175" rx="5" fill="#ffd43b" opacity="0.7"/>
+  <text x="370" y="170" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffd43b" text-anchor="middle">Gemini</text>
+  <text x="370" y="185" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">2.5 Pro</text>
+  <text x="370" y="355" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">76.2%</text>
+  
+  <!-- DeepSeek -->
+  <rect x="440" y="150" width="100" height="230" rx="5" fill="#1a1a2e" stroke="#845ef7" stroke-width="2"/>
+  <rect x="440" y="150" width="100" height="165" rx="5" fill="#845ef7" opacity="0.7"/>
+  <text x="490" y="170" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#845ef7" text-anchor="middle">DeepSeek</text>
+  <text x="490" y="185" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">V3.2</text>
+  <text x="490" y="355" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">72-74%</text>
+  
+  <!-- HumanEval Performance -->
+  <rect x="650" y="100" width="500" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="900" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">HumanEval Performance (pass@1)</text>
+  
+  <!-- DeepSeek Coder V2 -->
+  <rect x="680" y="150" width="100" height="230" rx="5" fill="#1a1a2e" stroke="#845ef7" stroke-width="2"/>
+  <rect x="680" y="150" width="100" height="207" rx="5" fill="#845ef7" opacity="0.7"/>
+  <text x="730" y="170" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#845ef7" text-anchor="middle">DeepSeek</text>
+  <text x="730" y="185" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Coder V2</text>
+  <text x="730" y="355" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">90.2%</text>
+  
+  <!-- GPT-5 -->
+  <rect x="800" y="150" width="100" height="230" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="2"/>
+  <rect x="800" y="150" width="100" height="207" rx="5" fill="#4dabf7" opacity="0.7"/>
+  <text x="850" y="170" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">GPT-5</text>
+  <text x="850" y="185" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Codex</text>
+  <text x="850" y="355" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">88-90%</text>
+  
+  <!-- Claude -->
+  <rect x="920" y="150" width="100" height="230" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <rect x="920" y="150" width="100" height="205" rx="5" fill="#51cf66" opacity="0.7"/>
+  <text x="970" y="170" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Claude</text>
+  <text x="970" y="185" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Opus 4.5</text>
+  <text x="970" y="355" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">88-89%</text>
+  
+  <!-- Gemini -->
+  <rect x="1040" y="150" width="100" height="230" rx="5" fill="#1a1a2e" stroke="#ffd43b" stroke-width="2"/>
+  <rect x="1040" y="150" width="100" height="196" rx="5" fill="#ffd43b" opacity="0.7"/>
+  <text x="1090" y="170" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffd43b" text-anchor="middle">Gemini</text>
+  <text x="1090" y="185" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">2.5 Pro</text>
+  <text x="1090" y="355" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">85-87%</text>
+  
+  <!-- Reproducibility Issue -->
+  <rect x="50" y="430" width="550" height="200" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="325" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Reproducibility Analysis</text>
+  
+  <!-- Overall -->
+  <rect x="80" y="480" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="160" y="505" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Overall Rate</text>
+  <text x="160" y="530" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">68.3%</text>
+  
+  <!-- Python -->
+  <rect x="260" y="480" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
+  <text x="340" y="505" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#51cf66" text-anchor="middle">Python</text>
+  <text x="340" y="530" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">89.2%</text>
+  
+  <!-- Java -->
+  <rect x="440" y="480" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="520" y="505" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Java</text>
+  <text x="520" y="530" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">44.0%</text>
+  
+  <!-- Issues -->
+  <rect x="80" y="570" width="520" height="50" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
+  <text x="340" y="595" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Key Issues: Hidden Dependencies | Missing Environment Config | Language-Specific Challenges</text>
+  
+  <!-- Multi-Language Support -->
+  <rect x="650" y="430" width="500" height="200" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="900" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Multi-Language Support (vs Python)</text>
+  
+  <!-- Languages -->
+  <rect x="680" y="480" width="80" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="720" y="505" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Python</text>
+  <text x="720" y="525" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f1faee" text-anchor="middle">100%</text>
+  
+  <rect x="780" y="480" width="80" height="60" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
+  <text x="820" y="505" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4dabf7" text-anchor="middle">JS/TS</text>
+  <text x="820" y="525" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f1faee" text-anchor="middle">65-68%</text>
+  
+  <rect x="880" y="480" width="80" height="60" rx="5" fill="#1a1a2e" stroke="#ffd43b" stroke-width="1"/>
+  <text x="920" y="505" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffd43b" text-anchor="middle">Java</text>
+  <text x="920" y="525" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f1faee" text-anchor="middle">57%</text>
+  
+  <rect x="980" y="480" width="80" height="60" rx="5" fill="#1a1a2e" stroke="#845ef7" stroke-width="1"/>
+  <text x="1020" y="505" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#845ef7" text-anchor="middle">Go</text>
+  <text x="1020" y="525" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f1faee" text-anchor="middle">60%</text>
+  
+  <rect x="1080" y="480" width="80" height="60" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1"/>
+  <text x="1120" y="505" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Rust</text>
+  <text x="1120" y="525" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f1faee" text-anchor="middle">55%</text>
+  
+  <!-- Recommendations -->
+  <rect x="680" y="560" width="470" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
+  <text x="915" y="585" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Recommendations: Claude (Enterprise) | DeepSeek (Cost-Effective) | GPT-5 (Ecosystem)</text>
+  
+  <!-- Footer -->
+  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">
+    2025-2026 Research Analysis | SWE-Bench, HumanEval, Multi-SWE-Bench Benchmark Results
+  </text>
+</svg>
