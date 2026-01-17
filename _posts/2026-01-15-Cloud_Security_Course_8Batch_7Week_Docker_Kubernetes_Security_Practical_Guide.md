@@ -392,6 +392,11 @@ spec:
 
 Kubernetes 클러스터 보안은 다층 방어 전략으로 접근해야 합니다.
 
+<figure>
+<img src="{{ '/assets/images/2026-01-15-Kubernetes_Security_Architecture_Diagram.svg' | relative_url }}" alt="Kubernetes Security Architecture" loading="lazy" class="post-image">
+<figcaption>Kubernetes 보안 아키텍처: 다층 방어 전략 (Defense in Depth)</figcaption>
+</figure>
+
 #### **3.1 Pod Security Standards (PSS)**
 
 ##### **PSS 레벨별 정책**
@@ -443,8 +448,6 @@ spec:
 ##### **컨테이너 격리 강화**
 
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
-
-*User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다.*
 
 | 공격 시나리오 | 기존 | User Namespaces 적용 |
 |--------------|------|---------------------|
@@ -819,14 +822,15 @@ rules:
 
 ##### **DevSecOps 워크플로우**
 
-컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
+컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다. 실제 보안 강화 사례를 통해 구체적인 개선 방법을 살펴보겠습니다.
 
-**3. 불필요한 Capabilities 허용**
+#### **보안 강화 사례: Capabilities 제거**
 
 | **구분** | **수정 전 (Before)** | **수정 후 (After)** |
 |---------|-------------------|-------------------|
 | **Security Context** | Capabilities 설정 없음<br>_(기본 Capabilities 모두 허용)_ | `capabilities.drop: ["ALL"]`<br>_(모든 Capabilities 제거)_ |
 | **위협 요소** | NET_ADMIN, SYS_ADMIN 등 위험한 Capabilities 사용 가능 | 필요한 Capabilities만 명시적으로 추가 |
+| **보안 효과** | 컨테이너 탈출 시 위험한 권한 사용 가능 | 최소 권한 원칙 적용, 공격 표면 최소화 |
 
 > 👨‍🏫 멘토의 조언 (Takeaway)
 > 

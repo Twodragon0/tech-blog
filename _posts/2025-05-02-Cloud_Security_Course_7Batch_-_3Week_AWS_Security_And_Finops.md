@@ -183,9 +183,7 @@ resource "aws_flow_log" "main" {
 ```
 -->
 
-User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
-
-<img src="{{ '/assets/images/diagrams/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops_mermaid_chart_2.png' | relative_url }}" alt="mermaid_chart_2" loading="lazy" class="post-image">## 2. AWS 보안 서비스 상세
+## 2. AWS 보안 서비스 상세
 
 ### 2.1 GuardDuty 자동화 대응
 
@@ -473,7 +471,7 @@ compute_savings_plan:
 
 #### AWS Security Hub GA 업데이트
 
-Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
+AWS Security Hub는 통합 보안 관리 플랫폼으로, 여러 AWS 보안 서비스의 결과를 중앙에서 관리합니다:
 
 <img src="{{ '/assets/images/diagrams/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops_mermaid_chart_3.png' | relative_url }}" alt="mermaid_chart_3" loading="lazy" class="post-image">
 

@@ -325,8 +325,7 @@ SAST는 소스 코드를 분석하여 보안 취약점을 탐지하는 정적 �
 
 #### SAST 도구 통합 예시
 
-> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./automotive-sast.yml...
-> ```
+> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요.
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml

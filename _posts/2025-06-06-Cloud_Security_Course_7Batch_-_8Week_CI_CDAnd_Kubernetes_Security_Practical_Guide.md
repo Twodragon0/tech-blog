@@ -86,10 +86,6 @@ certifications: [ckad, cka]
 ### 1.2 GitHub Actions 보안 설정
 
 > **참고**: GitHub Actions 보안 설정 관련 내용은 [GitHub Actions 보안 가이드](https://docs.github.com/en/actions/security-guides) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.
-> 
-> ```yaml
-> # .github/workflows/secure-pipeline.yml...
-> ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml

@@ -106,7 +106,9 @@ choco install minikube
 
 ### 2.2 Minikube 시작 및 기본 설정
 
-#### 최신 Kubernetes 버전으로 시작```bash
+#### 최신 Kubernetes 버전으로 시작
+
+```bash
 # 최신 안정 버전으로 시작
 minikube start --kubernetes-version=stable
 
@@ -122,7 +124,9 @@ minikube start --driver=docker    # Docker Desktop
 minikube start --driver=podman    # Podman
 ```
 
-#### containerd 런타임 사용 (2024-2025 권장)Minikube 1.37.0부터 기본 컨테이너 런타임이 Docker에서 containerd로 변경되었습니다:
+#### containerd 런타임 사용 (2024-2025 권장)
+
+Minikube 1.37.0부터 기본 컨테이너 런타임이 Docker에서 containerd로 변경되었습니다:
 
 ```bash
 # containerd 런타임으로 시작
@@ -266,7 +270,7 @@ k9s:
 
 #### 3. 보안 고려사항
 
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
+K9s를 사용할 때는 다음 보안 고려사항을 준수해야 합니다:
 
 ```bash
 # 읽기 전용 모드로 감사 수행
@@ -729,8 +733,6 @@ Kubernetes 2024-2025 업데이트를 적용할 때 확인해야 할 보안 항�
 | Image Pull Policy | 이미지 풀 정책 및 자격 증명 검증 | `kubectl get pods -o yaml \| grep imagePullPolicy` |
 | Resource Limits | 리소스 제한 설정 | `kubectl top pods`, `kubectl describe pod` |
 | Pod Security Standards | Pod 보안 표준 준수 | `kubectl get namespace <ns> -o yaml \| grep pod-security` |
-
-Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 
 ### 5.6 Kubernetes Best Practices (2024-2025)
 
