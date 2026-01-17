@@ -260,26 +260,26 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 ```mermaid
 graph LR
     subgraph Detection["Detection Phase"]
-        CSPM["DataDog CSPM - Misconfiguration Detection"]
-        RiskEval["Risk Assessment - Priority Ranking"]
+        CSPM["DataDog CSPM: Misconfiguration Detection"]
+        RiskEval["Risk Assessment: Priority Ranking"]
     end
     
     subgraph AutoRemediation["Auto Remediation"]
-        AutoFix["Auto Fix - Automated Remediation"]
-        ManualReview["Manual Review - Alert & Notification"]
+        AutoFix["Auto Fix: Automated Remediation"]
+        ManualReview["Manual Review: Alert and Notification"]
     end
     
     subgraph Validation["Validation Phase"]
-        Verify["Verification - Re-scan & Validate"]
-        Report["Report - Compliance Report"]
+        Verify["Verification: Re-scan and Validate"]
+        Report["Report: Compliance Report"]
     end
     
-    CSPM -> RiskEval
-    RiskEval -> AutoFix
-    RiskEval -> ManualReview
-    AutoFix -> Verify
-    ManualReview -> Verify
-    Verify -> Report
+    CSPM --> RiskEval
+    RiskEval --> AutoFix
+    RiskEval --> ManualReview
+    AutoFix --> Verify
+    ManualReview --> Verify
+    Verify --> Report
     
     style CSPM fill:#e1f5ff
     style RiskEval fill:#fff4e1
