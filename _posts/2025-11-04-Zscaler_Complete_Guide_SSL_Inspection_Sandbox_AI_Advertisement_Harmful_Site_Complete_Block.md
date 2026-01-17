@@ -72,13 +72,13 @@ User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사
 ```mermaid
 graph TB
     subgraph Host["Host System"]
-        HostRoot["Host Root User - UID 0"]
-        HostUser["Host Non-root User - UID 1000"]
+        HostRoot["Host Root User: UID 0"]
+        HostUser["Host Non-root User: UID 1000"]
     end
     
     subgraph Container["Container"]
-        ContainerRoot["Container Root - UID 0"]
-        ContainerApp["Container App - UID 1000"]
+        ContainerRoot["Container Root: UID 0"]
+        ContainerApp["Container App: UID 1000"]
     end
     
     ContainerRoot ->|"User Namespace Mapping"| HostUser
@@ -400,22 +400,22 @@ Zscaler를 포함한 주요 ZTNA 솔루션들이 **AI/ML 기반 위협 탐지**�
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning - Trivy, Snyk"]
-        SecretMgmt["Secret Management - K8s Secrets, Vault"]
-        NonRoot["Non-root User - runAsNonRoot"]
-        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies - Pod Isolation"]
+        ImageScan["Image Scanning: Trivy, Snyk"]
+        SecretMgmt["Secret Management: K8s Secrets, Vault"]
+        NonRoot["Non-root User: runAsNonRoot"]
+        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies: Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan -> SecretMgmt
-    SecretMgmt -> NonRoot
-    NonRoot -> ReadOnly
-    ReadOnly -> CapDrop
-    CapDrop -> NetworkPolicy
-    NetworkPolicy -> App
+    ImageScan --> SecretMgmt
+    SecretMgmt --> NonRoot
+    NonRoot --> ReadOnly
+    ReadOnly --> CapDrop
+    CapDrop --> NetworkPolicy
+    NetworkPolicy --> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff

@@ -79,24 +79,24 @@ AI 서비스 사용 시 발생할 수 있는 보안 위협:
 ```mermaid
 graph TB
     subgraph Threats["Security Threats"]
-        ShadowAI["Shadow AI - 비승인 AI 서비스 사용"]
-        DataLeak["Data Leakage - 민감 정보 유출"]
-        Deepfake["Deepfake - 사기 및 신원 도용"]
-        Poisoning["Data Poisoning - 모델 조작"]
-        MCP["MCP Server - 취약점 악용"]
+        ShadowAI["Shadow AI: 비승인 AI 서비스 사용"]
+        DataLeak["Data Leakage: 민감 정보 유출"]
+        Deepfake["Deepfake: 사기 및 신원 도용"]
+        Poisoning["Data Poisoning: 모델 조작"]
+        MCP["MCP Server: 취약점 악용"]
     end
     
     subgraph Impact["Business Impact"]
-        Compliance["규정 위반 - GDPR, 개인정보보호법"]
-        Reputation["평판 손상 - 고객 신뢰도 하락"]
-        Financial["재정적 손실 - 사기 및 소송"]
+        Compliance["규정 위반: GDPR, 개인정보보호법"]
+        Reputation["평판 손상: 고객 신뢰도 하락"]
+        Financial["재정적 손실: 사기 및 소송"]
     end
     
-    ShadowAI -> DataLeak
-    DataLeak -> Compliance
-    Deepfake -> Reputation
-    Poisoning -> Financial
-    MCP -> DataLeak
+    ShadowAI --> DataLeak
+    DataLeak --> Compliance
+    Deepfake --> Reputation
+    Poisoning --> Financial
+    MCP --> DataLeak
     
     style ShadowAI fill:#ffebee
     style DataLeak fill:#ff5252
@@ -115,22 +115,22 @@ graph TB
 ```mermaid
 graph TB
     subgraph Controls["Security Controls"]
-        Policy["정책 수립 - AI 사용 정책"]
-        DLP["DLP - Data Loss Prevention"]
-        CASB["CASB - Cloud Access Security Broker"]
-        ZeroTrust["Zero Trust - 최소 권한 원칙"]
-        Monitoring["모니터링 - AI 활동 추적"]
+        Policy["정책 수립: AI 사용 정책"]
+        DLP["DLP: Data Loss Prevention"]
+        CASB["CASB: Cloud Access Security Broker"]
+        ZeroTrust["Zero Trust: 최소 권한 원칙"]
+        Monitoring["모니터링: AI 활동 추적"]
     end
     
     subgraph Result["Result"]
-        Secure["Secure AI Usage - 안전한 AI 활용"]
+        Secure["Secure AI Usage: 안전한 AI 활용"]
     end
     
-    Policy -> DLP
-    DLP -> CASB
-    CASB -> ZeroTrust
-    ZeroTrust -> Monitoring
-    Monitoring -> Secure
+    Policy --> DLP
+    DLP --> CASB
+    CASB --> ZeroTrust
+    ZeroTrust --> Monitoring
+    Monitoring --> Secure
     
     style Policy fill:#e8f5e9
     style DLP fill:#e8f5e9
@@ -146,22 +146,22 @@ graph TB
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning - Trivy, Snyk"]
-        SecretMgmt["Secret Management - K8s Secrets, Vault"]
-        NonRoot["Non-root User - runAsNonRoot"]
-        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies - Pod Isolation"]
+        ImageScan["Image Scanning: Trivy, Snyk"]
+        SecretMgmt["Secret Management: K8s Secrets, Vault"]
+        NonRoot["Non-root User: runAsNonRoot"]
+        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies: Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan -> SecretMgmt
-    SecretMgmt -> NonRoot
-    NonRoot -> ReadOnly
-    ReadOnly -> CapDrop
-    CapDrop -> NetworkPolicy
-    NetworkPolicy -> App
+    ImageScan --> SecretMgmt
+    SecretMgmt --> NonRoot
+    NonRoot --> ReadOnly
+    ReadOnly --> CapDrop
+    CapDrop --> NetworkPolicy
+    NetworkPolicy --> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
@@ -698,7 +698,7 @@ Monitoring Checklist:
 > AI Security Checklist:...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 AI Security Checklist:
   Data Security:

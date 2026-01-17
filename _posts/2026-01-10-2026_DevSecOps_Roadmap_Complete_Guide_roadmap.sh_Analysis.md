@@ -82,38 +82,38 @@ toc: true
 
 ```mermaid
 graph LR
-    subgraph Stage1["Stage 1: Foundation - 0-6 months"]
+    subgraph Stage1["Stage 1: Foundation: 0-6 months"]
         direction TB
         S1_Linux["Linux/Networking"]
         S1_Security["Security Basics<br/>OWASP Top 10"]
         S1_Programming["Programming<br/>Python, Bash, Go"]
     end
     
-    subgraph Stage2["Stage 2: Tools - 6-12 months"]
+    subgraph Stage2["Stage 2: Tools: 6-12 months"]
         direction TB
         S2_SCA["SCA<br/>Trivy, Dependabot"]
         S2_DAST["DAST<br/>Burp Suite, ZAP"]
         S2_SAST["SAST<br/>CodeQL, Semgrep"]
     end
     
-    subgraph Stage3["Stage 3: Platform - 12-18 months"]
+    subgraph Stage3["Stage 3: Platform: 12-18 months"]
         direction TB
         S3_CICD["CI/CD Security<br/>GitHub Actions"]
         S3_Container["Container Security<br/>Docker, K8s"]
         S3_Cloud["Cloud Security<br/>AWS, GCP, Azure"]
     end
     
-    subgraph Stage4["Stage 4: Advanced - 18-24 months"]
+    subgraph Stage4["Stage 4: Advanced: 18-24 months"]
         direction TB
         S4_Governance["Governance<br/>NIST CSF 2.0"]
         S4_IR["Incident Response<br/>SIEM, SOAR"]
         S4_Threat["Threat Modeling<br/>STRIDE, PASTA"]
     end
     
-    subgraph Stage5["Stage 5: Expert - 24+ months"]
+    subgraph Stage5["Stage 5: Expert: 24+ months"]
         direction TB
         S5_Architect["Security Architect<br/>Enterprise Design"]
-        S5_Leadership["Security Leadership<br/>Strategy & Culture"]
+        S5_Leadership["Security Leadership<br/>Strategy and Culture"]
     end
     
     %% Stage 1 to Stage 2
@@ -481,22 +481,22 @@ Zero Trust는 "신뢰하되 검증하라(Trust but Verify)" 원칙을 기반으�
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning - Trivy, Snyk"]
-        SecretMgmt["Secret Management - K8s Secrets, Vault"]
-        NonRoot["Non-root User - runAsNonRoot"]
-        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies - Pod Isolation"]
+        ImageScan["Image Scanning: Trivy, Snyk"]
+        SecretMgmt["Secret Management: K8s Secrets, Vault"]
+        NonRoot["Non-root User: runAsNonRoot"]
+        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies: Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan -> SecretMgmt
-    SecretMgmt -> NonRoot
-    NonRoot -> ReadOnly
-    ReadOnly -> CapDrop
-    CapDrop -> NetworkPolicy
-    NetworkPolicy -> App
+    ImageScan --> SecretMgmt
+    SecretMgmt --> NonRoot
+    NonRoot --> ReadOnly
+    ReadOnly --> CapDrop
+    CapDrop --> NetworkPolicy
+    NetworkPolicy --> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
@@ -907,12 +907,12 @@ Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 
 ```mermaid
 graph LR
-    Privileged["Privileged - No restrictions - System Pods"]
-    Baseline["Baseline - Minimal security - General Apps"]
-    Restricted["Restricted - Strongest policies - Sensitive Workloads"]
+    Privileged["Privileged - No restrictions: System Pods"]
+    Baseline["Baseline - Minimal security: General Apps"]
+    Restricted["Restricted - Strongest policies: Sensitive Workloads"]
     
-    Privileged -> Baseline
-    Baseline -> Restricted
+    Privileged --> Baseline
+    Baseline --> Restricted
     
     style Privileged fill:#ffebee
     style Baseline fill:#fff4e1

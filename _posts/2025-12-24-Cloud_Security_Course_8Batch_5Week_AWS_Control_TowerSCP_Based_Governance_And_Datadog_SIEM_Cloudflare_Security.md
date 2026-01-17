@@ -80,13 +80,13 @@ User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사
 ```mermaid
 graph TB
     subgraph Host["Host System"]
-        HostRoot["Host Root User - UID 0"]
-        HostUser["Host Non-root User - UID 1000"]
+        HostRoot["Host Root User: UID 0"]
+        HostUser["Host Non-root User: UID 1000"]
     end
     
     subgraph Container["Container"]
-        ContainerRoot["Container Root - UID 0"]
-        ContainerApp["Container App - UID 1000"]
+        ContainerRoot["Container Root: UID 0"]
+        ContainerApp["Container App: UID 1000"]
     end
     
     ContainerRoot ->|"User Namespace Mapping"| HostUser
@@ -321,22 +321,22 @@ detection_rule:
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning - Trivy, Snyk"]
-        SecretMgmt["Secret Management - K8s Secrets, Vault"]
-        NonRoot["Non-root User - runAsNonRoot"]
-        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies - Pod Isolation"]
+        ImageScan["Image Scanning: Trivy, Snyk"]
+        SecretMgmt["Secret Management: K8s Secrets, Vault"]
+        NonRoot["Non-root User: runAsNonRoot"]
+        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies: Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan -> SecretMgmt
-    SecretMgmt -> NonRoot
-    NonRoot -> ReadOnly
-    ReadOnly -> CapDrop
-    CapDrop -> NetworkPolicy
-    NetworkPolicy -> App
+    ImageScan --> SecretMgmt
+    SecretMgmt --> NonRoot
+    NonRoot --> ReadOnly
+    ReadOnly --> CapDrop
+    CapDrop --> NetworkPolicy
+    NetworkPolicy --> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
@@ -572,12 +572,12 @@ Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 
 ```mermaid
 graph LR
-    Privileged["Privileged - No restrictions - System Pods"]
-    Baseline["Baseline - Minimal security - General Apps"]
-    Restricted["Restricted - Strongest policies - Sensitive Workloads"]
+    Privileged["Privileged - No restrictions: System Pods"]
+    Baseline["Baseline - Minimal security: General Apps"]
+    Restricted["Restricted - Strongest policies: Sensitive Workloads"]
     
-    Privileged -> Baseline
-    Baseline -> Restricted
+    Privileged --> Baseline
+    Baseline --> Restricted
     
     style Privileged fill:#ffebee
     style Baseline fill:#fff4e1

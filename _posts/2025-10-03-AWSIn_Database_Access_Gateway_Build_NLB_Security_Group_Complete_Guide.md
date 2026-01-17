@@ -73,13 +73,13 @@ User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사
 ```mermaid
 graph TB
     subgraph Host["Host System"]
-        HostRoot["Host Root User - UID 0"]
-        HostUser["Host Non-root User - UID 1000"]
+        HostRoot["Host Root User: UID 0"]
+        HostUser["Host Non-root User: UID 1000"]
     end
     
     subgraph Container["Container"]
-        ContainerRoot["Container Root - UID 0"]
-        ContainerApp["Container App - UID 1000"]
+        ContainerRoot["Container Root: UID 0"]
+        ContainerApp["Container App: UID 1000"]
     end
     
     ContainerRoot ->|"User Namespace Mapping"| HostUser
@@ -318,7 +318,7 @@ resource "aws_security_group" "database" {
 > # 애플리케이션에서 데이터베이스 접근 시...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```python
 # 애플리케이션에서 데이터베이스 접근 시
 import boto3
@@ -475,22 +475,22 @@ resource "aws_db_instance" "mysql" {
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning - Trivy, Snyk"]
-        SecretMgmt["Secret Management - K8s Secrets, Vault"]
-        NonRoot["Non-root User - runAsNonRoot"]
-        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies - Pod Isolation"]
+        ImageScan["Image Scanning: Trivy, Snyk"]
+        SecretMgmt["Secret Management: K8s Secrets, Vault"]
+        NonRoot["Non-root User: runAsNonRoot"]
+        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies: Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan -> SecretMgmt
-    SecretMgmt -> NonRoot
-    NonRoot -> ReadOnly
-    ReadOnly -> CapDrop
-    CapDrop -> NetworkPolicy
-    NetworkPolicy -> App
+    ImageScan --> SecretMgmt
+    SecretMgmt --> NonRoot
+    NonRoot --> ReadOnly
+    ReadOnly --> CapDrop
+    CapDrop --> NetworkPolicy
+    NetworkPolicy --> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
@@ -583,7 +583,7 @@ AWS ALB/NLB가 양자 내성 암호화를 지원합니다:
 > # 2025년 Post-Quantum TLS 설정...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```hcl
 # 2025년 Post-Quantum TLS 설정
 resource "aws_lb_listener" "quantum_safe" {

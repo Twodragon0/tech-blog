@@ -140,27 +140,27 @@ Karpenter의 노드 통합(Consolidation)은 비용 최적화를 위해 여러 �
 ```mermaid
 graph TB
     subgraph Before["Before Consolidation"]
-        Node1["Node 1 - Pod A, Pod B - CPU: 30%"]
-        Node2["Node 2 - Pod C - CPU: 15%"]
-        Node3["Node 3 - Pod D - CPU: 20%"]
+        Node1["Node 1 - Pod A, Pod B: CPU: 30%"]
+        Node2["Node 2 - Pod C: CPU: 15%"]
+        Node3["Node 3 - Pod D: CPU: 20%"]
     end
     
     subgraph Karpenter["Karpenter Consolidation"]
-        Analyze["Analyze - Node Utilization"]
-        Schedule["Schedule - Pod Migration"]
-        Drain["Drain Nodes - Pod Eviction"]
+        Analyze["Analyze: Node Utilization"]
+        Schedule["Schedule: Pod Migration"]
+        Drain["Drain Nodes: Pod Eviction"]
     end
     
     subgraph After["After Consolidation"]
-        Node1New["Node 1 - Pod A, Pod B, Pod C, Pod D - CPU: 65%"]
-        Node2Del["Node 2 - - Deleted"]
-        Node3Del["Node 3 - - Deleted"]
+        Node1New["Node 1 - Pod A, Pod B, Pod C, Pod D: CPU: 65%"]
+        Node2Del["Node 2 -: Deleted"]
+        Node3Del["Node 3 -: Deleted"]
     end
     
-    Before -> Analyze
-    Analyze -> Schedule
-    Schedule -> Drain
-    Drain -> After
+    Before --> Analyze
+    Analyze --> Schedule
+    Schedule --> Drain
+    Drain --> After
     
     style Node1 fill:#e1f5ff
     style Node2 fill:#fff4e1
@@ -180,31 +180,31 @@ graph TB
 ```mermaid
 graph LR
     subgraph Config["Problematic Configuration"]
-        Policy["consolidationPolicy: - WhenEmptyOrUnderutilized"]
-        Budget["budgets.nodes: - 100%"]
+        Policy["consolidationPolicy:: WhenEmptyOrUnderutilized"]
+        Budget["budgets.nodes:: 100%"]
         NoPDB["No PodDisruptionBudget"]
     end
     
     subgraph Incident["Incident Timeline"]
-        Start["15:43:00 - Consolidation Starts"]
-        Drain["15:43:15 - Multiple Nodes - Drain Simultaneously"]
-        Pods["15:43:20 - 20+ Pods - Terminating"]
-        Failure["15:43:30 - Service Failure"]
+        Start["15:43:00: Consolidation Starts"]
+        Drain["15:43:15 - Multiple Nodes: Drain Simultaneously"]
+        Pods["15:43:20 - 20+ Pods: Terminating"]
+        Failure["15:43:30: Service Failure"]
     end
     
     subgraph Impact["Impact"]
-        API["API Gateway - 0/3 Healthy"]
-        Order["Order Service - Down"]
-        Payment["Payment Service - Down"]
+        API["API Gateway: 0/3 Healthy"]
+        Order["Order Service: Down"]
+        Payment["Payment Service: Down"]
     end
     
-    Config -> Start
-    Start -> Drain
-    Drain -> Pods
-    Pods -> Failure
-    Failure -> API
-    Failure -> Order
-    Failure -> Payment
+    Config --> Start
+    Start --> Drain
+    Drain --> Pods
+    Pods --> Failure
+    Failure --> API
+    Failure --> Order
+    Failure --> Payment
     
     style Policy fill:#ffebee
     style Budget fill:#ffebee
@@ -456,22 +456,22 @@ done
 ```mermaid
 graph TB
     subgraph Solution["Solution Layers"]
-        Policy["1. Consolidation Policy - WhenEmpty Only"]
-        Budget["2. Disruption Budget - Max 20% Nodes"]
-        PDB["3. PodDisruptionBudget - minAvailable: 50%"]
-        Schedule["4. Schedule Restriction - Business Hours Block"]
-        Monitor["5. Monitoring & Alerts - Real-time Detection"]
+        Policy["1. Consolidation Policy: WhenEmpty Only"]
+        Budget["2. Disruption Budget: Max 20% Nodes"]
+        PDB["3. PodDisruptionBudget: minAvailable: 50%"]
+        Schedule["4. Schedule Restriction: Business Hours Block"]
+        Monitor["5. Monitoring and Alerts: Real-time Detection"]
     end
     
     subgraph Result["Result"]
-        Stable["Stable Service - No Disruption"]
+        Stable["Stable Service: No Disruption"]
     end
     
-    Policy -> Budget
-    Budget -> PDB
-    PDB -> Schedule
-    Schedule -> Monitor
-    Monitor -> Stable
+    Policy --> Budget
+    Budget --> PDB
+    PDB --> Schedule
+    Schedule --> Monitor
+    Monitor --> Stable
     
     style Policy fill:#e8f5e9
     style Budget fill:#e8f5e9
@@ -532,22 +532,22 @@ graph LR
         Pod1["Pod 1"]
         Pod2["Pod 2"]
         Pod3["Pod 3"]
-        Drain1["Karpenter - Drain All"]
+        Drain1["Karpenter: Drain All"]
     end
     
     subgraph After["After PDB"]
-        Pod1P["Pod 1 - Protected"]
-        Pod2P["Pod 2 - Protected"]
-        Pod3P["Pod 3 - Protected"]
-        PDB["PDB - minAvailable: 2"]
-        Drain2["Karpenter - Respects PDB"]
+        Pod1P["Pod 1: Protected"]
+        Pod2P["Pod 2: Protected"]
+        Pod3P["Pod 3: Protected"]
+        PDB["PDB: minAvailable: 2"]
+        Drain2["Karpenter: Respects PDB"]
     end
     
-    Before -> Drain1
+    Before --> Drain1
     Drain1 ->|"All Pods Terminated"| Failure["Service Failure"]
     
-    After -> PDB
-    PDB -> Drain2
+    After --> PDB
+    PDB --> Drain2
     Drain2 ->|"Sequential Drain"| Stable["Service Stable"]
     
     style Drain1 fill:#ffebee

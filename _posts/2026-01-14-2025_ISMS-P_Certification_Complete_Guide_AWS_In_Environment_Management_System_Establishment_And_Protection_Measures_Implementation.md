@@ -93,13 +93,13 @@ graph TB
         Cert["인증 획득"]
     end
     
-    Policy -> Org
-    Org -> Risk
-    Risk -> Access
-    Access -> Encrypt
-    Encrypt -> Log
-    Log -> Audit
-    Audit -> Cert
+    Policy --> Org
+    Org --> Risk
+    Risk --> Access
+    Access --> Encrypt
+    Encrypt --> Log
+    Log --> Audit
+    Audit --> Cert
     
     style Policy fill:#e1f5ff
     style Org fill:#e1f5ff
@@ -179,22 +179,22 @@ ISMS-P 보호대책은 Defense in Depth 전략을 통해 다층 보안을 구현
 ```mermaid
 graph TB
     subgraph SecurityLayers["보호대책 레이어"]
-        AccessControl["접근 통제 - IAM, Security Group"]
-        Encryption["암호화 - KMS, TLS/SSL"]
-        NetworkSec["네트워크 보안 - VPC, Subnet"]
-        Logging["로그 관리 - CloudTrail, CloudWatch"]
-        Backup["백업 및 복구 - S3, RDS Snapshot"]
-        Monitoring["보안 모니터링 - Security Hub, GuardDuty"]
+        AccessControl["접근 통제: IAM, Security Group"]
+        Encryption["암호화: KMS, TLS/SSL"]
+        NetworkSec["네트워크 보안: VPC, Subnet"]
+        Logging["로그 관리: CloudTrail, CloudWatch"]
+        Backup["백업 및 복구: S3, RDS Snapshot"]
+        Monitoring["보안 모니터링: Security Hub, GuardDuty"]
     end
     
     Data["정보자산"]
     
-    AccessControl -> Encryption
-    Encryption -> NetworkSec
-    NetworkSec -> Logging
-    Logging -> Backup
-    Backup -> Monitoring
-    Monitoring -> Data
+    AccessControl --> Encryption
+    Encryption --> NetworkSec
+    NetworkSec --> Logging
+    Logging --> Backup
+    Backup --> Monitoring
+    Monitoring --> Data
     
     style AccessControl fill:#e1f5ff
     style Encryption fill:#e1f5ff

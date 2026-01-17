@@ -402,30 +402,30 @@ console.log(location.hostname);    // 호스트명 (example.com)
 
 ```mermaid
 graph TB
-    subgraph Client["클라이언트 사이드 - 브라우저"]
+    subgraph Client["클라이언트 사이드: 브라우저"]
         Browser["브라우저 환경"]
-        Location1["location 객체 존재 (OK)"]
-        Window1["window 객체 존재 (OK)"]
+        Location1["location 객체 존재: OK"]
+        Window1["window 객체 존재: OK"]
     end
     
-    subgraph Server["서버 사이드 - Node.js"]
+    subgraph Server["서버 사이드: Node.js"]
         NodeJS["Node.js 환경"]
-        Location2["location 객체 없음 (X)"]
-        Window2["window 객체 없음 (X)"]
+        Location2["location 객체 없음: X"]
+        Window2["window 객체 없음: X"]
     end
     
     subgraph NextJS["Next.js 렌더링"]
-        SSR["SSR - 서버 사이드 렌더링"]
-        CSR["CSR - 클라이언트 사이드 렌더링"]
+        SSR["SSR: 서버 사이드 렌더링"]
+        CSR["CSR: 클라이언트 사이드 렌더링"]
     end
     
-    Browser -> Location1
-    Browser -> Window1
-    NodeJS -> Location2
-    NodeJS -> Window2
+    Browser --> Location1
+    Browser --> Window1
+    NodeJS --> Location2
+    NodeJS --> Window2
     
-    SSR -> NodeJS
-    CSR -> Browser
+    SSR --> NodeJS
+    CSR --> Browser
     
     style Location2 fill:#ffebee
     style Window2 fill:#ffebee
@@ -458,7 +458,7 @@ function redirectTo(url: string) {
 graph TB
     subgraph Mobile["모바일 환경"]
         User["사용자"]
-        XApp["X 앱 - 설치됨"]
+        XApp["X 앱: 설치됨"]
         XBrowser["X 인앱 브라우저"]
         SystemBrowser["시스템 브라우저"]
     end
@@ -483,7 +483,7 @@ graph TB
     XBrowser ->|"요청 전송"| SSR
     SystemBrowser ->|"요청 전송"| SSR
     
-    SSR -> LocationCheck
+    SSR --> LocationCheck
     LocationCheck ->|"location 직접 접근"| Error
     
     style Error fill:#ffebee
@@ -505,7 +505,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph XApp["X 앱 - 인앱 브라우저"]
+    subgraph XApp["X 앱: 인앱 브라우저"]
         WebView["WebView"]
         CustomUA["Custom User-Agent"]
         LimitedAPI["제한된 API"]
@@ -683,35 +683,35 @@ graph LR
     end
     
     subgraph SourceCode["소스 코드 관리"]
-        GitHub["GitHub - example-frontend"]
+        GitHub["GitHub: example-frontend"]
         MainBranch["main branch"]
     end
     
     subgraph CICD["CI/CD 파이프라인"]
-        Actions["GitHub Actions - build-and-deploy.yml"]
-        Build["Build - npm run build"]
-        DockerBuild["Docker Build - Image: v1.0.1"]
+        Actions["GitHub Actions: build-and-deploy.yml"]
+        Build["Build: npm run build"]
+        DockerBuild["Docker Build: Image: v1.0.1"]
     end
     
     subgraph Registry["컨테이너 레지스트리"]
-        ECR["ECR - Image Storage"]
+        ECR["ECR: Image Storage"]
     end
     
     subgraph K8s["Kubernetes"]
-        API["Kubernetes - API Server"]
-        Deployment["Deployment - web-app"]
-        Pod["Pod - Next.js SSR"]
+        API["Kubernetes: API Server"]
+        Deployment["Deployment: web-app"]
+        Pod["Pod: Next.js SSR"]
     end
     
-    Dev -> GitHub
-    GitHub -> MainBranch
-    MainBranch -> Actions
-    Actions -> Build
-    Build -> DockerBuild
-    DockerBuild -> ECR
-    ECR -> API
-    API -> Deployment
-    Deployment -> Pod
+    Dev --> GitHub
+    GitHub --> MainBranch
+    MainBranch --> Actions
+    Actions --> Build
+    Build --> DockerBuild
+    DockerBuild --> ECR
+    ECR --> API
+    API --> Deployment
+    Deployment --> Pod
     
     style Dev fill:#E3F2FD
     style GitHub fill:#E1F5FE

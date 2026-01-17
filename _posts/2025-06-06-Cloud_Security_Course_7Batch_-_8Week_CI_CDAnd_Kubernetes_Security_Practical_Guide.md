@@ -184,7 +184,7 @@ jobs:
 > # 개발자용 제한된 Role...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # 개발자용 제한된 Role
 apiVersion: rbac.authorization.k8s.io/v1
@@ -231,7 +231,7 @@ roleRef:
 > # 전용 ServiceAccount 생성...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # 전용 ServiceAccount 생성
 apiVersion: v1
@@ -288,7 +288,7 @@ metadata:
 > apiVersion: apps/v1...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -622,7 +622,7 @@ kubelet API에 대한 세밀한 접근 제어가 가능해졌습니다.
 > # RBAC을 통한 kubelet API 세밀한 제어...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # RBAC을 통한 kubelet API 세밀한 제어
 apiVersion: rbac.authorization.k8s.io/v1
@@ -669,7 +669,7 @@ authorization:
 > # Audit Policy에서 credential 추적 활성화...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # Audit Policy에서 credential 추적 활성화
 apiVersion: audit.k8s.io/v1
@@ -697,7 +697,7 @@ rules:
 > # Audit 로그에서 credential 추적 예시...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Audit 로그에서 credential 추적 예시
 {
@@ -723,13 +723,13 @@ User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사
 ```mermaid
 graph TB
     subgraph Host["Host System"]
-        HostRoot["Host Root User - UID 0"]
-        HostUser["Host Non-root User - UID 1000"]
+        HostRoot["Host Root User: UID 0"]
+        HostUser["Host Non-root User: UID 1000"]
     end
     
     subgraph Container["Container"]
-        ContainerRoot["Container Root - UID 0"]
-        ContainerApp["Container App - UID 1000"]
+        ContainerRoot["Container Root: UID 0"]
+        ContainerApp["Container App: UID 1000"]
     end
     
     ContainerRoot ->|"User Namespace Mapping"| HostUser
@@ -839,7 +839,7 @@ spec:
 > # CertificateSigningRequest 자동 생성 및 갱신...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # CertificateSigningRequest 자동 생성 및 갱신
 apiVersion: certificates.k8s.io/v1
@@ -868,7 +868,7 @@ Amazon EKS 1.32부터 익명 인증이 health check endpoint로 제한됩니다.
 > # EKS 1.32+ 익명 접근 허용 endpoint...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # EKS 1.32+ 익명 접근 허용 endpoint
 # /healthz, /readyz, /livez 만 익명 접근 가능
@@ -898,7 +898,7 @@ roleRef:
 > # DEPRECATED: ServiceAccount의 enforce-mountable-secrets annotation...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # DEPRECATED: ServiceAccount의 enforce-mountable-secrets annotation
 # 이 방식은 더 이상 권장되지 않음

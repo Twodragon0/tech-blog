@@ -81,7 +81,7 @@ graph LR
     subgraph After["After: User Namespaces Isolation"]
         HostOS1["Host OS"]
         UserNSMapping["User Namespace Mapping"]
-        Pod1["Pod<br/>Container - root in namespace"]
+        Pod1["Pod<br/>Container: root in namespace"]
         EscapeBlocked["Escape Blocked<br/>Non-privileged User"]
         
         HostOS1 --> UserNSMapping
@@ -91,7 +91,7 @@ graph LR
     
     subgraph Before["Before: Container Escape = Host Root"]
         HostOS2["Host OS"]
-        Pod2["Pod<br/>Container - root"]
+        Pod2["Pod<br/>Container: root"]
         EscapeRoot["Escape = Root Access"]
         
         HostOS2 --> Pod2
@@ -117,22 +117,22 @@ graph LR
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning - Trivy, Snyk"]
-        SecretMgmt["Secret Management - K8s Secrets, Vault"]
-        NonRoot["Non-root User - runAsNonRoot"]
-        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies - Pod Isolation"]
+        ImageScan["Image Scanning: Trivy, Snyk"]
+        SecretMgmt["Secret Management: K8s Secrets, Vault"]
+        NonRoot["Non-root User: runAsNonRoot"]
+        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies: Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan -> SecretMgmt
-    SecretMgmt -> NonRoot
-    NonRoot -> ReadOnly
-    ReadOnly -> CapDrop
-    CapDrop -> NetworkPolicy
-    NetworkPolicy -> App
+    ImageScan --> SecretMgmt
+    SecretMgmt --> NonRoot
+    NonRoot --> ReadOnly
+    ReadOnly --> CapDrop
+    CapDrop --> NetworkPolicy
+    NetworkPolicy --> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
@@ -165,27 +165,27 @@ GCP 클라우드 환경에서의 다층 보안 방어 구조:
 ```mermaid
 graph TB
     subgraph Layers["Security Layers"]
-        Network["Network Layer - VPC, Firewall Rules - Cloud NAT"]
-        Auth["Auth Layer - IAM, Identity Platform - MFA"]
-        App["Application Layer - Cloud Armor - API Gateway"]
-        Data["Data Layer - Cloud KMS - Cloud Storage Encryption"]
-        Monitor["Monitoring Layer - Cloud Logging - Security Command Center"]
+        Network["Network Layer - VPC, Firewall Rules: Cloud NAT"]
+        Auth["Auth Layer - IAM, Identity Platform: MFA"]
+        App["Application Layer - Cloud Armor: API Gateway"]
+        Data["Data Layer - Cloud KMS: Cloud Storage Encryption"]
+        Monitor["Monitoring Layer - Cloud Logging: Security Command Center"]
     end
     
     subgraph GKE["GKE Security"]
-        RBAC["RBAC - Service Accounts"]
-        PodSec["Pod Security - Standards"]
-        NetworkPolicy["Network Policies - Pod Isolation"]
+        RBAC["RBAC: Service Accounts"]
+        PodSec["Pod Security: Standards"]
+        NetworkPolicy["Network Policies: Pod Isolation"]
     end
     
-    Network -> Auth
-    Auth -> App
-    App -> Data
-    Data -> Monitor
-    Monitor -> GKE
-    GKE -> RBAC
-    RBAC -> PodSec
-    PodSec -> NetworkPolicy
+    Network --> Auth
+    Auth --> App
+    App --> Data
+    Data --> Monitor
+    Monitor --> GKE
+    GKE --> RBAC
+    RBAC --> PodSec
+    PodSec --> NetworkPolicy
     
     style Network fill:#e1f5ff
     style Auth fill:#e8f5e9

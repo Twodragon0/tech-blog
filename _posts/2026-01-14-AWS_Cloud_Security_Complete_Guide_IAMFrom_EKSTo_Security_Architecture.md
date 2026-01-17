@@ -77,13 +77,13 @@ AWS 클라우드 환경에서 보안을 강화하기 위해서는 IAM부터 EKS�
 ```mermaid
 graph TB
     subgraph Host["Host System"]
-        HostRoot["Host Root User - UID 0"]
-        HostUser["Host Non-root User - UID 1000"]
+        HostRoot["Host Root User: UID 0"]
+        HostUser["Host Non-root User: UID 1000"]
     end
     
     subgraph Container["Container"]
-        ContainerRoot["Container Root - UID 0"]
-        ContainerApp["Container App - UID 1000"]
+        ContainerRoot["Container Root: UID 0"]
+        ContainerApp["Container App: UID 1000"]
     end
     
     ContainerRoot ->|"User Namespace Mapping"| HostUser
@@ -106,22 +106,22 @@ graph TB
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning - Trivy, Snyk"]
-        SecretMgmt["Secret Management - K8s Secrets, Vault"]
-        NonRoot["Non-root User - runAsNonRoot"]
-        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies - Pod Isolation"]
+        ImageScan["Image Scanning: Trivy, Snyk"]
+        SecretMgmt["Secret Management: K8s Secrets, Vault"]
+        NonRoot["Non-root User: runAsNonRoot"]
+        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies: Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan -> SecretMgmt
-    SecretMgmt -> NonRoot
-    NonRoot -> ReadOnly
-    ReadOnly -> CapDrop
-    CapDrop -> NetworkPolicy
-    NetworkPolicy -> App
+    ImageScan --> SecretMgmt
+    SecretMgmt --> NonRoot
+    NonRoot --> ReadOnly
+    ReadOnly --> CapDrop
+    CapDrop --> NetworkPolicy
+    NetworkPolicy --> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff

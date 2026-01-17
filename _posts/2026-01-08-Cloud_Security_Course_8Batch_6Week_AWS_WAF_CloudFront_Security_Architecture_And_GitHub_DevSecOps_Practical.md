@@ -103,22 +103,22 @@ certifications: [aws-saa]
 ```mermaid
 graph TB
     subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning - Trivy, Snyk"]
-        SecretMgmt["Secret Management - K8s Secrets, Vault"]
-        NonRoot["Non-root User - runAsNonRoot"]
-        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies - Pod Isolation"]
+        ImageScan["Image Scanning: Trivy, Snyk"]
+        SecretMgmt["Secret Management: K8s Secrets, Vault"]
+        NonRoot["Non-root User: runAsNonRoot"]
+        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
+        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
+        NetworkPolicy["Network Policies: Pod Isolation"]
     end
     
     App["Application Container"]
     
-    ImageScan -> SecretMgmt
-    SecretMgmt -> NonRoot
-    NonRoot -> ReadOnly
-    ReadOnly -> CapDrop
-    CapDrop -> NetworkPolicy
-    NetworkPolicy -> App
+    ImageScan --> SecretMgmt
+    SecretMgmt --> NonRoot
+    NonRoot --> ReadOnly
+    ReadOnly --> CapDrop
+    CapDrop --> NetworkPolicy
+    NetworkPolicy --> App
     
     style ImageScan fill:#e1f5ff
     style SecretMgmt fill:#e1f5ff
@@ -131,10 +131,10 @@ graph TB
 
 <figure>
 <img src="{{ '/assets/images/diagrams/diagram_waf_cloudfront.png' | relative_url }}" alt="AWS WAF CloudFront Security Architecture" loading="lazy" class="post-image">
-<figcaption>AWS WAF & CloudFront 보안 아키텍처 - Python diagrams로 생성</figcaption>
+<figcaption>AWS WAF and CloudFront 보안 아키텍처 - Python diagrams로 생성</figcaption>
 </figure>
 
-### 1.1 CloudFront & OAI/OAC (Origin Access Identity/Control)
+### 1.1 CloudFront and OAI/OAC (Origin Access Identity/Control)
 
 S3 버킷에 대한 직접 접근을 차단하고, 오직 CloudFront를 통해서만 콘텐츠를 안전하게 전송하도록 구성합니다.
 
@@ -433,26 +433,26 @@ paths-ignore:
 ```mermaid
 graph LR
     subgraph Dev["Dev Phase"]
-        Code["Code - Secure Dockerfile"]
-        Build["Build - Image Scanning"]
+        Code["Code: Secure Dockerfile"]
+        Build["Build: Image Scanning"]
     end
     
     subgraph Sec["Sec Phase"]
-        Scan["Security Scan - Trivy, Snyk"]
-        Policy["Policy Check - K8s YAML Validation"]
+        Scan["Security Scan: Trivy, Snyk"]
+        Policy["Policy Check: K8s YAML Validation"]
     end
     
     subgraph Ops["Ops Phase"]
-        Deploy["Deploy - Secure Deployment"]
-        Monitor["Monitor - Runtime Security"]
+        Deploy["Deploy: Secure Deployment"]
+        Monitor["Monitor: Runtime Security"]
     end
     
-    Code -> Build
-    Build -> Scan
-    Scan -> Policy
-    Policy -> Deploy
-    Deploy -> Monitor
-    Monitor -> Code
+    Code --> Build
+    Build --> Scan
+    Scan --> Policy
+    Policy --> Deploy
+    Deploy --> Monitor
+    Monitor --> Code
     
     style Code fill:#e1f5ff
     style Build fill:#fff4e1

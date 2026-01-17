@@ -411,13 +411,13 @@ User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사
 ```mermaid
 graph TB
     subgraph Host["Host System"]
-        HostRoot["Host Root User - UID 0"]
-        HostUser["Host Non-root User - UID 1000"]
+        HostRoot["Host Root User: UID 0"]
+        HostUser["Host Non-root User: UID 1000"]
     end
     
     subgraph Container["Container"]
-        ContainerRoot["Container Root - UID 0"]
-        ContainerApp["Container App - UID 1000"]
+        ContainerRoot["Container Root: UID 0"]
+        ContainerApp["Container App: UID 1000"]
     end
     
     ContainerRoot ->|"User Namespace Mapping"| HostUser
@@ -515,7 +515,7 @@ Amazon EKS 1.32에서는 익명 인증이 health check endpoint로 제한됩니�
 > # EKS 1.32+ 에서의 익명 인증 설정...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # EKS 1.32+ 에서의 익명 인증 설정
 # 기존의 익명 접근이 제한됨에 따라 명시적 인증 필요
@@ -541,7 +541,7 @@ rules:
 > # Deprecated (사용 자제)...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # Deprecated (사용 자제)
 apiVersion: v1
