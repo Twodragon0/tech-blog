@@ -97,10 +97,6 @@ category: kubernetes
 
 ##### **Docker의 핵심 구성 요소**
 
-![Docker 핵심 구성 요소 - Image, Container, Dockerfile, Registry](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png)
-
-*Docker의 핵심 구성 요소: Dockerfile로 이미지를 빌드하고, Registry에 저장하며, Container로 실행*
-
 | 개념 | 설명 | 비유 |
 |------|------|------|
 | **Image** | 컨테이너 실행에 필요한 파일과 설정을 포함한 템플릿 | 빵을 만드는 레시피 |
@@ -166,10 +162,6 @@ docker rm my-nginx
 | **Namespaces** | 프로세스, 네트워크, 파일시스템 격리 | 각 컨테이너가 독립적인 환경을 가짐 |
 | **Cgroups** | CPU, 메모리, I/O 리소스 제한 | 리소스 사용량 제어 |
 | **Union File Systems** | 레이어드 파일시스템 | 이미지 효율적 관리 |
-
-##### **VM vs Container 아키텍처 비교**
-
-*가상머신과 컨테이너의 아키텍처 차이: VM은 전체 OS를 포함하지만, Container는 호스트 커널을 공유하여 경량화*
 
 ##### **컨테이너 격리 메커니즘**
 
@@ -252,34 +244,10 @@ kubectl delete pod <pod-name>
 
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
-```mermaid
-graph TB
-    SecurityLayers["Security Layers"]
-    ImageScan["Image Scanning<br/>Trivy, Snyk"]
-    SecretMgmt["Secret Management<br/>K8s Secrets, Vault"]
-    NonRoot["Non-root User<br/>runAsNonRoot"]
-    ReadOnly["Read-only Filesystem<br/>readOnlyRootFilesystem"]
-    CapDrop["Capabilities Drop<br/>capabilities.drop: ALL"]
-    NetworkPolicy["Network Policies<br/>Pod Isolation"]
-    Pod["Pod<br/>Application Container"]
-    
-    SecurityLayers --> ImageScan
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> Pod
-    
-    style SecurityLayers fill:#e1f5ff
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style Pod fill:#fff4e1
-```
+<figure>
+  <img src="/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png" alt="Docker 핵심 구성 요소 - Image, Container, Dockerfile, Registry" />
+  <figcaption>Docker의 핵심 구성 요소: Dockerfile로 이미지를 빌드하고, Registry에 저장하며, Container로 실행</figcaption>
+</figure>
 
 ##### **최소 권한 원칙 적용**
 
