@@ -3,7 +3,7 @@ layout: post
 title: "AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신 연구 논문 기반 종합 평가"
 date: 2026-01-17 13:00:00 +0900
 categories: [ai, devsecops]
-tags: [AI, Coding-Assistants, Gemini, Claude-Code, ChatGPT, OpenCode, DeepSeek, SWE-Bench, HumanEval, Reproducibility, Benchmark, Research, 2025, 2026]
+tags: [AI, Coding-Assistants, Gemini, Claude-Code, ChatGPT, OpenCode, DeepSeek, SWE-Bench, HumanEval, Reproducibility, Benchmark, Research, "2025", "2026"]
 excerpt: "2025-2026년 최신 연구 논문과 벤치마크를 기반으로 한 AI 코딩 어시스턴트 종합 비교 분석. Gemini, Claude Code, ChatGPT, OpenCode, DeepSeek의 SWE-Bench, HumanEval 성능, 재현성 문제, 멀티링구얼 지원, 실무 활용 가이드까지 실무 중심 정리."
 comments: true
 image: /assets/images/2026-01-17-AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis.svg
