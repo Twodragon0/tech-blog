@@ -97,6 +97,8 @@ certifications: [aws-saa]
 
 ## 1. AWS WAF & CloudFront 보안 아키텍처
 
+단순히 VPC 내부를 보호하는 것을 넘어, **CloudFront(CDN)**와 **WAF**를 결합하여 엣지(Edge) 레벨에서 강력한 보안 아키텍처를 구성하는 방법을 다룹니다.
+
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
 ```mermaid
@@ -126,7 +128,7 @@ graph TB
     style CapDrop fill:#e1f5ff
     style NetworkPolicy fill:#e1f5ff
     style App fill:#fff4e1
-```단순히 VPC 내부를 보호하는 것을 넘어, **CloudFront(CDN)**와 **WAF**를 결합하여 엣지(Edge) 레벨에서 강력한 보안 아키텍처를 구성하는 방법을 다룹니다.
+```
 
 <figure>
 <img src="{{ '/assets/images/diagrams/diagram_waf_cloudfront.png' | relative_url }}" alt="AWS WAF CloudFront Security Architecture" loading="lazy" class="post-image">
