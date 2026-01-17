@@ -153,8 +153,8 @@ graph TB
     
     subgraph After["After Consolidation"]
         Node1New["Node 1 - Pod A, Pod B, Pod C, Pod D - CPU: 65%"]
-        Node2Del["Node 2 - (Deleted)"]
-        Node3Del["Node 3 - (Deleted)"]
+        Node2Del["Node 2 - - Deleted"]
+        Node3Del["Node 3 - - Deleted"]
     end
     
     Before -> Analyze
@@ -321,7 +321,7 @@ spec:
 > # PodDisruptionBudget이 없었음...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # PodDisruptionBudget이 없었음
 # 결과: 모든 Pod가 동시에 종료될 수 있음
@@ -350,7 +350,7 @@ spec:
 > # Karpenter 로그 확인...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Karpenter 로그 확인
 kubectl logs -n karpenter deploy/karpenter -c controller --since=1h | grep -i consolidat
@@ -563,7 +563,7 @@ graph LR
 > # Critical 서비스용 PDB...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # Critical 서비스용 PDB
 apiVersion: policy/v1
@@ -616,7 +616,7 @@ done
 > # 같은 서비스의 Pod를 다른 노드에 분산...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # 같은 서비스의 Pod를 다른 노드에 분산
 apiVersion: apps/v1
@@ -698,7 +698,7 @@ spec:
 > # Datadog Monitor...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```yaml
 # Datadog Monitor
 {

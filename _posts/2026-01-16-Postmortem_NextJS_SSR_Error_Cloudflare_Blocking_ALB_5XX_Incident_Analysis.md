@@ -402,21 +402,21 @@ console.log(location.hostname);    // 호스트명 (example.com)
 
 ```mermaid
 graph TB
-    subgraph Client["클라이언트 사이드 (브라우저)"]
+    subgraph Client["클라이언트 사이드 - 브라우저"]
         Browser["브라우저 환경"]
-        Location1["location 객체 존재 ✅"]
-        Window1["window 객체 존재 ✅"]
+        Location1["location 객체 존재 (OK)"]
+        Window1["window 객체 존재 (OK)"]
     end
     
-    subgraph Server["서버 사이드 (Node.js)"]
+    subgraph Server["서버 사이드 - Node.js"]
         NodeJS["Node.js 환경"]
-        Location2["location 객체 없음 ❌"]
-        Window2["window 객체 없음 ❌"]
+        Location2["location 객체 없음 (X)"]
+        Window2["window 객체 없음 (X)"]
     end
     
     subgraph NextJS["Next.js 렌더링"]
-        SSR["SSR (서버 사이드 렌더링)"]
-        CSR["CSR (클라이언트 사이드 렌더링)"]
+        SSR["SSR - 서버 사이드 렌더링"]
+        CSR["CSR - 클라이언트 사이드 렌더링"]
     end
     
     Browser -> Location1
@@ -458,7 +458,7 @@ function redirectTo(url: string) {
 graph TB
     subgraph Mobile["모바일 환경"]
         User["사용자"]
-        XApp["X 앱 (설치됨)"]
+        XApp["X 앱 - 설치됨"]
         XBrowser["X 인앱 브라우저"]
         SystemBrowser["시스템 브라우저"]
     end
@@ -505,7 +505,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph XApp["X 앱 (인앱 브라우저)"]
+    subgraph XApp["X 앱 - 인앱 브라우저"]
         WebView["WebView"]
         CustomUA["Custom User-Agent"]
         LimitedAPI["제한된 API"]
@@ -1024,11 +1024,11 @@ jobs:
 
 ```mermaid
 sequenceDiagram
-    participant User as 사용자 (x.com)
+    participant User as "사용자 - x.com"
     participant CF as Cloudflare
     participant ALB as AWS ALB
     participant K8s as Kubernetes
-    participant Pod as Pod (Next.js)
+    participant Pod as "Pod - Next.js"
     
     User->>CF: 링크 클릭 (모바일/데스크톱)
     CF->>CF: WAF 검사
@@ -1041,7 +1041,7 @@ sequenceDiagram
         
         Pod->>Pod: SSR 렌더링 시작
         Pod->>Pod: location 객체 접근 시도
-        Pod->>Pod: ❌ ReferenceError 발생
+        Pod->>Pod: [ERROR] ReferenceError 발생
         
         Pod->>ALB: 500 에러 응답
         ALB->>ALB: Health Check 실패
@@ -1448,7 +1448,7 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 ### 9.3 보안 모범 사례
 
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [Kubernetes 보안 모범 사례](https://kubernetes.io/docs/concepts/security/best-practices/)
+- [Kubernetes 보안 모범 사례](https://kubernetes.io/docs/concepts/security/security-checklist/)
 - [AWS 보안 모범 사례](https://aws.github.io/aws-eks-best-practices/security/docs/)
 
 ---

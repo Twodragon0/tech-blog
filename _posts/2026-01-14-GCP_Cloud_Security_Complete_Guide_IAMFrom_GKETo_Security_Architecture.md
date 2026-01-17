@@ -81,7 +81,7 @@ graph LR
     subgraph After["After: User Namespaces Isolation"]
         HostOS1["Host OS"]
         UserNSMapping["User Namespace Mapping"]
-        Pod1["Pod<br/>Container (root in namespace)"]
+        Pod1["Pod<br/>Container - root in namespace"]
         EscapeBlocked["Escape Blocked<br/>Non-privileged User"]
         
         HostOS1 --> UserNSMapping
@@ -91,7 +91,7 @@ graph LR
     
     subgraph Before["Before: Container Escape = Host Root"]
         HostOS2["Host OS"]
-        Pod2["Pod<br/>Container (root)"]
+        Pod2["Pod<br/>Container - root"]
         EscapeRoot["Escape = Root Access"]
         
         HostOS2 --> Pod2
