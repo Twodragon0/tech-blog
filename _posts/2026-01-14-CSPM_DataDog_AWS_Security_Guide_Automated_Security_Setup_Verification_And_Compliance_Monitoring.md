@@ -164,40 +164,6 @@ Resources:
 
 ## 3. 보안 설정 검증
 
-### 컨테이너 보안 레이어 (Defense in Depth)
-
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning - Trivy, Snyk"]
-        SecretMgmt["Secret Management - K8s Secrets, Vault"]
-        NonRoot["Non-root User - runAsNonRoot"]
-        ReadOnly["Read-only Filesystem - readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop - capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies - Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan -> SecretMgmt
-    SecretMgmt -> NonRoot
-    NonRoot -> ReadOnly
-    ReadOnly -> CapDrop
-    CapDrop -> NetworkPolicy
-    NetworkPolicy -> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
-
 ### 3.1 보안 그룹 설정 검증
 
 #### 주요 Misconfiguration 유형
