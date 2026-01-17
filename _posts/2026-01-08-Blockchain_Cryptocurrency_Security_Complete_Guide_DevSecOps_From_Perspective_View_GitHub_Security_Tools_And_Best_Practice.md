@@ -64,7 +64,6 @@ toc: true
 
 <img src="{{ '/assets/images/2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_and_Best_Practice_image.png' | relative_url }}" alt="Blockchain Cryptocurrency Security Complete Guide: DevSecOps Perspective on GitHub Security Tools and Best Practices" loading="lazy" class="post-image">
 
-
 ---
 
 ## 서론

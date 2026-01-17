@@ -69,35 +69,11 @@ certifications: [aws-saa]
 
 이번 과정 역시 게더 타운(Gather Town)에서 진행되며, 온라인 환경에서의 집중력 유지를 위해 20분 강의 후 5분 휴식 패턴으로 구성되어 있습니다. 특히 이번 주차에서는 AWS의 강력한 통제 기능을 제공하는 Control Tower와 SCP, 그리고 통합 보안 모니터링을 위한 Datadog SIEM, 웹 보안을 위한 Cloudflare에 대해 다룹니다.
 
-
 <img src="{{ '/assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security_image.jpg' | relative_url }}" alt="Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance and Datadog SIEM Cloudflare Security" loading="lazy" class="post-image">
-
-
-
 
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
-```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User: UID 0"]
-        HostUser["Host Non-root User: UID 1000"]
-    end
-    
-    subgraph Container["Container"]
-        ContainerRoot["Container Root: UID 0"]
-        ContainerApp["Container App: UID 1000"]
-    end
-    
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
-```## 1. AWS 멀티 계정 전략
+## 1. AWS 멀티 계정 전략
 
 ### 1.1 왜 멀티 계정이 필요한가?
 
@@ -315,38 +291,7 @@ detection_rule:
 
 ## 5. Cloudflare 보안
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 ### 5.1 Cloudflare란?
 
@@ -567,23 +512,7 @@ iam-policy-autopilot diff --current current-policy.json --recommended policy.jso
 
 #### AWS Security Hub GA
 
-
 Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
-
-```mermaid
-graph LR
-    Privileged["Privileged - No restrictions: System Pods"]
-    Baseline["Baseline - Minimal security: General Apps"]
-    Restricted["Restricted - Strongest policies: Sensitive Workloads"]
-    
-    Privileged --> Baseline
-    Baseline --> Restricted
-    
-    style Privileged fill:#ffebee
-    style Baseline fill:#fff4e1
-    style Restricted fill:#e8f5e9
-```
-
 
 AWS Security Hub가 GA(General Availability)로 출시되어 **멀티 계정 보안 현황을 통합 관리**할 수 있게 되었습니다.
 

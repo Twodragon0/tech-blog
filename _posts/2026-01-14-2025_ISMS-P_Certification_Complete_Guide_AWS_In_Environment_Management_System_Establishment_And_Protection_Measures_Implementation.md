@@ -70,46 +70,9 @@ certifications: [isms-p]
 
 이 포스팅은 **SK Shieldus의 2025년 ISMS-P 운영 가이드**를 기반으로, AWS 환경에서 ISMS-P 인증을 받기 위한 실무 중심의 완벽 가이드를 제공합니다. 101개 기준을 상세히 설명하고, AWS 서비스를 활용한 컴플라이언스 구현 방법을 단계별로 제시합니다.
 
-
-
 ISMS-P 인증 프로세스는 체계적인 단계를 통해 진행됩니다:
 
-```mermaid
-graph TB
-    subgraph Phase1["1단계: 준비"]
-        Policy["정보보안 정책 수립"]
-        Org["조직 구성 및 역할 정의"]
-        Risk["위험 관리 체계 구축"]
-    end
-    
-    subgraph Phase2["2단계: 구현"]
-        Access["접근 통제 구현"]
-        Encrypt["암호화 구현"]
-        Log["로그 관리 및 모니터링"]
-    end
-    
-    subgraph Phase3["3단계: 인증"]
-        Audit["보안 감사"]
-        Cert["인증 획득"]
-    end
-    
-    Policy --> Org
-    Org --> Risk
-    Risk --> Access
-    Access --> Encrypt
-    Encrypt --> Log
-    Log --> Audit
-    Audit --> Cert
-    
-    style Policy fill:#e1f5ff
-    style Org fill:#e1f5ff
-    style Risk fill:#e1f5ff
-    style Access fill:#fff4e1
-    style Encrypt fill:#fff4e1
-    style Log fill:#fff4e1
-    style Audit fill:#e8f5e9
-    style Cert fill:#e8f5e9
-```## 📊 빠른 참조
+## 📊 빠른 참조
 
 ### ISMS-P 인증 기준 개요
 
@@ -173,38 +136,7 @@ ISMS-P(Information Security Management System - Personal Information)는 정보�
 
 #### AI 보안 요구사항
 
-
 ISMS-P 보호대책은 Defense in Depth 전략을 통해 다층 보안을 구현합니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["보호대책 레이어"]
-        AccessControl["접근 통제: IAM, Security Group"]
-        Encryption["암호화: KMS, TLS/SSL"]
-        NetworkSec["네트워크 보안: VPC, Subnet"]
-        Logging["로그 관리: CloudTrail, CloudWatch"]
-        Backup["백업 및 복구: S3, RDS Snapshot"]
-        Monitoring["보안 모니터링: Security Hub, GuardDuty"]
-    end
-    
-    Data["정보자산"]
-    
-    AccessControl --> Encryption
-    Encryption --> NetworkSec
-    NetworkSec --> Logging
-    Logging --> Backup
-    Backup --> Monitoring
-    Monitoring --> Data
-    
-    style AccessControl fill:#e1f5ff
-    style Encryption fill:#e1f5ff
-    style NetworkSec fill:#e1f5ff
-    style Logging fill:#e1f5ff
-    style Backup fill:#e1f5ff
-    style Monitoring fill:#e1f5ff
-    style Data fill:#fff4e1
-```
-
 
 AI 서비스 기업을 위한 추가 보안 요구사항이 포함되었습니다:
 

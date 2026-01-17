@@ -72,66 +72,11 @@ certifications: [aws-saa]
 
 AWS 클라우드 환경에서 보안을 강화하기 위해서는 IAM부터 EKS까지 모든 서비스 계층에서 Defense in Depth 전략을 적용해야 합니다. 이 포스팅은 **SK Shieldus의 2024년 AWS 클라우드 보안 가이드**를 기반으로, 실무에서 즉시 활용 가능한 AWS 보안 아키텍처 설계 및 구현 가이드를 제공합니다.
 
-주요 AWS 서비스별 보안 모범 사례와 코드 예제, 보안 체크리스트를 포함하여 실무 중심의 보안 구축 방법을 제시합니다.User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
-
-```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User: UID 0"]
-        HostUser["Host Non-root User: UID 1000"]
-    end
-    
-    subgraph Container["Container"]
-        ContainerRoot["Container Root: UID 0"]
-        ContainerApp["Container App: UID 1000"]
-    end
-    
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
-```
+주요 AWS 서비스별 보안 모범 사례와 코드 예제, 보안 체크리스트를 포함하여 실무 중심의 보안 구축 방법을 제시합니다.
 
 ## 📊 빠른 참조
 
 ### AWS 보안 서비스 개요
-
-
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 | 서비스 | 용도 | 주요 기능 |
 |--------|------|----------|

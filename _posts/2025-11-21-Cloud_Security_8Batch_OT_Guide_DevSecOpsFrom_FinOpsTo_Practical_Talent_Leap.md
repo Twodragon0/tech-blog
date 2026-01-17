@@ -57,7 +57,6 @@ image_alt: "Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSec
 </div>
 </div>
 
-
 ## 서론
 
 안녕하세요, Twodragon입니다. 클라우드 시큐리티 과정 8기가 곧 시작됩니다! 
@@ -67,7 +66,6 @@ image_alt: "Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSec
 이번 8기는 **'20분 강의 + 5분 휴식'**이라는 뇌과학적으로 가장 효율적인 학습 루틴으로 진행됩니다. 단순한 이론 주입식 교육이 아닌, 실무의 고민을 함께 나누는 시간이 될 것입니다.
 
 <img src="{{ '/assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap_image.png' | relative_url }}" alt="Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSecOps to FinOps" loading="lazy" class="post-image">
-
 
 ## 1. 과정 개요
 

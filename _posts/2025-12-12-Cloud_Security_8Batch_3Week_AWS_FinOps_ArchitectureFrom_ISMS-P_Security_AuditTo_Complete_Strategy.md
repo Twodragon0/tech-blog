@@ -58,7 +58,6 @@ certifications: [isms-p, aws-saa]
 </div>
 </div>
 
-
 ## 서론
 
 안녕하세요, Twodragon입니다. 어느덧 클라우드 시큐리티 과정 8기도 중반부를 향해 달려가고 있습니다. 이번 3주차 세션 역시 우리만의 온라인 미팅에서 진행되었으며, '20분 몰입 + 5분 휴식'이라는 효율적인 루틴으로 집중도를 최대로 끌어올렸습니다.
@@ -91,38 +90,7 @@ certifications: [isms-p, aws-saa]
 
 #### Spot Instance 보안 고려사항
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 > **⚠️ 보안 주의사항**
 > 

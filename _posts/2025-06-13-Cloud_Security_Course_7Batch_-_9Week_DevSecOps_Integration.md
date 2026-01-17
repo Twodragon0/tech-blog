@@ -58,11 +58,7 @@ toc: true
 </div>
 </div>
 
-
-
 <img src="{{ '/assets/images/2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration_image.png' | relative_url }}" alt="Cloud Security Course 7Batch 9Week: DevSecOps Integration Summary" loading="lazy" class="post-image">
-
-
 
 ## 서론
 

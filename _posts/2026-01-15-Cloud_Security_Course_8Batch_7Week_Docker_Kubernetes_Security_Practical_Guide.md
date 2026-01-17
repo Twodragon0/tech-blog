@@ -151,8 +151,6 @@ docker rm my-nginx
 
 ##### **컨테이너 격리 원리**
 
-![컨테이너 격리 메커니즘 - Namespaces, Cgroups, Union File Systems](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_3.png)
-
 *컨테이너 격리 원리: Linux 커널의 Namespaces, Cgroups, Union File Systems를 활용한 격리*
 
 컨테이너는 Linux 커널의 다음 기능을 활용하여 격리를 제공합니다:
@@ -245,13 +243,11 @@ kubectl delete pod <pod-name>
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
 <figure>
-  <img src="/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_1.png" alt="Docker 핵심 구성 요소 - Image, Container, Dockerfile, Registry" />
+  
   <figcaption>Docker의 핵심 구성 요소: Dockerfile로 이미지를 빌드하고, Registry에 저장하며, Container로 실행</figcaption>
 </figure>
 
 ##### **최소 권한 원칙 적용**
-
-![컨테이너 보안 최소 권한 원칙 - 취약한 설정 vs 보안 강화 설정](/assets/images/diagrams/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide_mermaid_chart_2.png)
 
 *최소 권한 원칙 적용: 비루트 사용자, 읽기 전용 파일시스템, Capabilities 제거, Secret 관리*
 

@@ -66,63 +66,9 @@ NPM 생태계 역사상 최초의 자가 복제 웜 형태 공급망 공격 분�
 
 Shai-Hulud 웜 공격의 자가 복제 메커니즘:
 
-```mermaid
-graph TB
-    subgraph Attack["Attack Chain"]
-        Step1["1. Package Hijacking - 기존 패키지 탈취: 또는 유사 이름 생성"]
-        Step2["2. Credential Theft - 개발자 인증 정보 탈취: npm token, password"]
-        Step3["3. Auto Propagation - 탈취한 인증 정보로: 새 패키지 생성/업데이트"]
-        Step4["4. Persistence - 백도어 설치: 추가 공격 벡터 구축"]
-    end
-    
-    Step1 --> Step2
-    Step2 --> Step3
-    Step3 --> Step4
-    Step4 --> Step1
-    
-    style Step1 fill:#ffebee
-    style Step2 fill:#ff5252
-    style Step3 fill:#ff9800
-    style Step4 fill:#ffebee
-```
-
 ### 공급망 공격 확산 과정
 
 감염된 패키지가 어떻게 확산되는지:
-
-```mermaid
-graph LR
-    subgraph Initial["Initial Infection"]
-        Pkg1["Compromised: Package 1"]
-        Dev1["Developer 1: Installs Package"]
-    end
-    
-    subgraph Spread["Worm Spread"]
-        Token1["Token Stolen: from Developer 1"]
-        Pkg2["New Package: Created"]
-        Dev2["Developer 2: Installs Package"]
-        Token2["Token Stolen: from Developer 2"]
-    end
-    
-    subgraph Scale["Large Scale"]
-        PkgN["180+ Packages: Compromised"]
-        Impact["Massive Impact: Supply Chain"]
-    end
-    
-    Pkg1 --> Dev1
-    Dev1 --> Token1
-    Token1 --> Pkg2
-    Pkg2 --> Dev2
-    Dev2 --> Token2
-    Token2 --> PkgN
-    PkgN --> Impact
-    
-    style Pkg1 fill:#ffebee
-    style Token1 fill:#ff5252
-    style Token2 fill:#ff5252
-    style PkgN fill:#ff9800
-    style Impact fill:#d32f2f
-```
 
 ## 📊 빠른 참조
 

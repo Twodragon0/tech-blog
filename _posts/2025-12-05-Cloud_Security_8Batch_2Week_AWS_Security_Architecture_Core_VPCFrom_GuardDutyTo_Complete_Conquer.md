@@ -56,7 +56,6 @@ certifications: [aws-saa]
 </div>
 </div>
 
-
 ## 서론
 
 안녕하세요, Twodragon입니다. 클라우드 시큐리티 과정 8기 2주차에서는 AWS 보안 아키텍처의 핵심 구성요소인 **VPC, IAM, S3, GuardDuty**를 다뤘습니다. 네트워크 격리, 접근 제어, 데이터 보호, 위협 탐지까지 실무에 바로 적용 가능한 내용을 중심으로 진행되었습니다.
@@ -79,64 +78,13 @@ certifications: [aws-saa]
 <figcaption>AWS VPC 보안 아키텍처 다이어그램 - Python diagrams로 생성</figcaption>
 </figure>## 1. AWS 보안 아키텍처 핵심 구성요소
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 ### 1.1 VPC: 네트워크 격리 및 보안 설계
 
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
-```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User: UID 0"]
-        HostUser["Host Non-root User: UID 1000"]
-    end
-    
-    subgraph Container["Container"]
-        ContainerRoot["Container Root: UID 0"]
-        ContainerApp["Container App: UID 1000"]
-    end
-    
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
-```
+<img src="{{ '/assets/images/diagrams/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer_mermaid_chart_1.png' | relative_url }}" alt="mermaid_chart_1" loading="lazy" class="post-image">
 VPC(Virtual Private Cloud)는 AWS 리소스를 격리된 가상 네트워크에서 실행할 수 있게 해주는 핵심 서비스입니다.
 
 #### 네트워크 분리 전략
@@ -335,41 +283,7 @@ AI 기반 IAM 정책 자동 생성 도구입니다.
 | **컨텍스트 인식 침투 테스트** | 애플리케이션 컨텍스트를 이해한 침투 테스트 | 개발 단계 보안 테스트 |
 | **DevSecOps 통합** | CI/CD 파이프라인에 자동 통합 | Shift-Left Security 실현 |
 
-
 컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
-
-```mermaid
-graph LR
-    subgraph Dev["Dev Phase"]
-        Code["Code: Secure Dockerfile"]
-        Build["Build: Image Scanning"]
-    end
-    
-    subgraph Sec["Sec Phase"]
-        Scan["Security Scan: Trivy, Snyk"]
-        Policy["Policy Check: K8s YAML Validation"]
-    end
-    
-    subgraph Ops["Ops Phase"]
-        Deploy["Deploy: Secure Deployment"]
-        Monitor["Monitor: Runtime Security"]
-    end
-    
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
-    
-    style Code fill:#e1f5ff
-    style Build fill:#fff4e1
-    style Scan fill:#ffebee
-    style Policy fill:#fff4e1
-    style Deploy fill:#e8f5e9
-    style Monitor fill:#f3e5f5
-```
-
 
 #### AgentCore Identity
 

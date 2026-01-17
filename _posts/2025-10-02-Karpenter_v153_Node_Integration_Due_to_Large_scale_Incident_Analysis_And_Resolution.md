@@ -60,7 +60,6 @@ toc: true
 
 <img src="{{ '/assets/images/2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large-scale_Incident_Analysis_and_Resolution_image.png' | relative_url }}" alt="Karpenter v1.5.3 Large-Scale Incident Analysis and Resolution Due to Node Integration" loading="lazy" class="post-image">
 
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다. 이번 포스팅에서는 Kubernetes 오토스케일링에 대해 실무 중심으로 정리합니다.
@@ -137,85 +136,9 @@ Karpenter는 Kubernetes 클러스터의 오토스케일링을 혁신적으로 �
 
 Karpenter의 노드 통합(Consolidation)은 비용 최적화를 위해 여러 노드에 분산된 Pod를 더 적은 수의 노드로 모아 빈 노드를 삭제하는 프로세스입니다:
 
-```mermaid
-graph TB
-    subgraph Before["Before Consolidation"]
-        Node1["Node 1 - Pod A, Pod B: CPU: 30%"]
-        Node2["Node 2 - Pod C: CPU: 15%"]
-        Node3["Node 3 - Pod D: CPU: 20%"]
-    end
-    
-    subgraph Karpenter["Karpenter Consolidation"]
-        Analyze["Analyze: Node Utilization"]
-        Schedule["Schedule: Pod Migration"]
-        Drain["Drain Nodes: Pod Eviction"]
-    end
-    
-    subgraph After["After Consolidation"]
-        Node1New["Node 1 - Pod A, Pod B, Pod C, Pod D: CPU: 65%"]
-        Node2Del["Node 2 -: Deleted"]
-        Node3Del["Node 3 -: Deleted"]
-    end
-    
-    Before --> Analyze
-    Analyze --> Schedule
-    Schedule --> Drain
-    Drain --> After
-    
-    style Node1 fill:#e1f5ff
-    style Node2 fill:#fff4e1
-    style Node3 fill:#fff4e1
-    style Analyze fill:#e8f5e9
-    style Schedule fill:#fff4e1
-    style Drain fill:#ffebee
-    style Node1New fill:#e8f5e9
-    style Node2Del fill:#ffebee
-    style Node3Del fill:#ffebee
-```
-
 ### 장애 발생 시나리오
 
 문제가 된 설정으로 인해 발생한 장애 시나리오:
-
-```mermaid
-graph LR
-    subgraph Config["Problematic Configuration"]
-        Policy["consolidationPolicy:: WhenEmptyOrUnderutilized"]
-        Budget["budgets.nodes:: 100%"]
-        NoPDB["No PodDisruptionBudget"]
-    end
-    
-    subgraph Incident["Incident Timeline"]
-        Start["15:43:00: Consolidation Starts"]
-        Drain["15:43:15 - Multiple Nodes: Drain Simultaneously"]
-        Pods["15:43:20 - 20+ Pods: Terminating"]
-        Failure["15:43:30: Service Failure"]
-    end
-    
-    subgraph Impact["Impact"]
-        API["API Gateway: 0/3 Healthy"]
-        Order["Order Service: Down"]
-        Payment["Payment Service: Down"]
-    end
-    
-    Config --> Start
-    Start --> Drain
-    Drain --> Pods
-    Pods --> Failure
-    Failure --> API
-    Failure --> Order
-    Failure --> Payment
-    
-    style Policy fill:#ffebee
-    style Budget fill:#ffebee
-    style NoPDB fill:#ffebee
-    style Drain fill:#ffebee
-    style Pods fill:#ffebee
-    style Failure fill:#ff5252
-    style API fill:#ff5252
-    style Order fill:#ff5252
-    style Payment fill:#ff5252
-```
 
 ## 1. 사건의 시작
 
@@ -453,34 +376,6 @@ done
 
 다음과 같은 다층 방어 전략을 통해 재발을 방지합니다:
 
-```mermaid
-graph TB
-    subgraph Solution["Solution Layers"]
-        Policy["1. Consolidation Policy: WhenEmpty Only"]
-        Budget["2. Disruption Budget: Max 20% Nodes"]
-        PDB["3. PodDisruptionBudget: minAvailable: 50%"]
-        Schedule["4. Schedule Restriction: Business Hours Block"]
-        Monitor["5. Monitoring and Alerts: Real-time Detection"]
-    end
-    
-    subgraph Result["Result"]
-        Stable["Stable Service: No Disruption"]
-    end
-    
-    Policy --> Budget
-    Budget --> PDB
-    PDB --> Schedule
-    Schedule --> Monitor
-    Monitor --> Stable
-    
-    style Policy fill:#e8f5e9
-    style Budget fill:#e8f5e9
-    style PDB fill:#e8f5e9
-    style Schedule fill:#e8f5e9
-    style Monitor fill:#e8f5e9
-    style Stable fill:#c8e6c9
-```
-
 ### 5.1 NodePool 설정 수정
 
 > **참고**: Karpenter NodePool 설정 관련 내용은 [Karpenter 공식 문서](https://karpenter.sh/) 및 [Karpenter GitHub 저장소](https://github.com/aws/karpenter)를 참조하세요.
@@ -525,37 +420,6 @@ spec:
 ### 5.2 PodDisruptionBudget 적용
 
 PodDisruptionBudget을 적용하여 Pod 보호:
-
-```mermaid
-graph LR
-    subgraph Before["Before PDB"]
-        Pod1["Pod 1"]
-        Pod2["Pod 2"]
-        Pod3["Pod 3"]
-        Drain1["Karpenter: Drain All"]
-    end
-    
-    subgraph After["After PDB"]
-        Pod1P["Pod 1: Protected"]
-        Pod2P["Pod 2: Protected"]
-        Pod3P["Pod 3: Protected"]
-        PDB["PDB: minAvailable: 2"]
-        Drain2["Karpenter: Respects PDB"]
-    end
-    
-    Before --> Drain1
-    Drain1 ->|"All Pods Terminated"| Failure["Service Failure"]
-    
-    After --> PDB
-    PDB --> Drain2
-    Drain2 ->|"Sequential Drain"| Stable["Service Stable"]
-    
-    style Drain1 fill:#ffebee
-    style Failure fill:#ff5252
-    style PDB fill:#e8f5e9
-    style Drain2 fill:#e8f5e9
-    style Stable fill:#c8e6c9
-```
 
 > **참고**: PodDisruptionBudget 설정 관련 내용은 [Kubernetes PDB 문서](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) 및 [Karpenter 문서](https://karpenter.sh/)를 참조하세요.
 > 

@@ -58,78 +58,21 @@ toc: true
 </div>
 </div>
 
-
 ## 서론
 
 안녕하세요! macOS 뿐만 아니라 iOS, iPadOS 등 다양한 Apple 기기를 효율적이고 안전하게 관리하고 싶은 IT 관리자 여러분! 오늘은 Apple 통합 엔드포인트 관리(UEM) 솔루션으로 주목받는 Kandji의 강력한 기능들을 어떻게 실제로 활용하는지, 단계별 상세 가이드 형식으로 알려드리겠습니다. Kandji는 복잡한 Apple 기기 전체(macOS, iOS, iPadOS, tvOS) 관리를 간소..
 
 이 글에서는 Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드에 대해 실무 중심으로 상세히 다룹니다.
 
-
 <img src="{{ '/assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide_image.png' | relative_url }}" alt="Kandji macOS Complete Master: Setup from Security Regulation Compliance to All-in-One Guide" loading="lazy" class="post-image">
-
-
-
 
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
-```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User: UID 0"]
-        HostUser["Host Non-root User: UID 1000"]
-    end
-    
-    subgraph Container["Container"]
-        ContainerRoot["Container Root: UID 0"]
-        ContainerApp["Container App: UID 1000"]
-    end
-    
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
-```
-
-
+<img src="{{ '/assets/images/diagrams/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide_mermaid_chart_1.png' | relative_url }}" alt="mermaid_chart_1" loading="lazy" class="post-image">
 
 컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
 
-```mermaid
-graph LR
-    subgraph Dev["Dev Phase"]
-        Code["Code: Secure Dockerfile"]
-        Build["Build: Image Scanning"]
-    end
-    
-    subgraph Sec["Sec Phase"]
-        Scan["Security Scan: Trivy, Snyk"]
-        Policy["Policy Check: K8s YAML Validation"]
-    end
-    
-    subgraph Ops["Ops Phase"]
-        Deploy["Deploy: Secure Deployment"]
-        Monitor["Monitor: Runtime Security"]
-    end
-    
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
-    
-    style Code fill:#e1f5ff
-    style Build fill:#fff4e1
-    style Scan fill:#ffebee
-    style Policy fill:#fff4e1
-    style Deploy fill:#e8f5e9
-    style Monitor fill:#f3e5f5
-```## 1. 개요
+<img src="{{ '/assets/images/diagrams/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide_mermaid_chart_2.png' | relative_url }}" alt="mermaid_chart_2" loading="lazy" class="post-image">## 1. 개요
 
 ### 1.1 배경 및 필요성
 
@@ -158,38 +101,9 @@ graph LR
 
 #### 단계 2: 보안 구성
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
+<img src="{{ '/assets/images/diagrams/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide_mermaid_chart_3.png' | relative_url }}" alt="mermaid_chart_3" loading="lazy" class="post-image">
 
 보안 설정을 구성합니다:
 

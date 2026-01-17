@@ -281,14 +281,11 @@ def process_post(post_file: Path, force: bool = False) -> bool:
         log_message("💡 변환할 차트가 없습니다.", "INFO")
         return True
     
-    # 모든 차트를 이미지로 변환 (force 모드이거나 복잡한 차트인 경우)
+    # 모든 차트를 이미지로 변환 (모든 차트를 변환하도록 수정)
     charts_to_convert = []
     for line_num, chart_id, chart_content in charts:
-        if force or is_complex_chart(chart_content):
-            charts_to_convert.append((line_num, chart_id, chart_content))
-            log_message(f"  ✓ 차트 발견 (라인 {line_num}): {chart_id}", "DIAGRAM")
-        else:
-            log_message(f"  - 간단한 차트 (라인 {line_num}): {chart_id} - 스킵", "INFO")
+        charts_to_convert.append((line_num, chart_id, chart_content))
+        log_message(f"  ✓ 차트 발견 (라인 {line_num}): {chart_id}", "DIAGRAM")
     
     if not charts_to_convert:
         log_message("💡 변환할 차트가 없습니다.", "INFO")
@@ -328,80 +325,37 @@ def process_post(post_file: Path, force: bool = False) -> bool:
         else:
             log_message(f"⚠️  차트 변환 실패: {chart_id}", "WARNING")
     
-    # 마크다운 파일 업데이트 (이미지로 교체)
-    if image_replacements:
-        log_message(f"📝 마크다운 파일 업데이트 중...")
-        
-        # 역순으로 정렬 (뒤에서부터 교체하여 라인 번호가 변경되지 않도록)
-        image_replacements.sort(key=lambda x: x[0], reverse=True)
-        
-        lines = content.split('\n')
-        chart_indices = {line_num: (chart_id, img_path, chart_content) 
-                         for line_num, chart_id, img_path, chart_content in image_replacements}
-        
-        # 각 차트를 찾아서 이미지로 교체
-        i = 0
-        new_lines = []
-        in_mermaid_block = False
-        mermaid_start_line = -1
-        current_chart_content = ""
-        
-        while i < len(lines):
-            line = lines[i]
+        # 마크다운 파일 업데이트 (이미지로 교체)
+        if image_replacements:
+            log_message(f"📝 마크다운 파일 업데이트 중...")
             
-            # mermaid 블록 시작
-            if line.strip() == '```mermaid':
-                in_mermaid_block = True
-                mermaid_start_line = i
-                current_chart_content = ""
-                new_lines.append(line)
-                i += 1
-                continue
+            # 각 차트를 찾아서 이미지로 교체
+            # 정규식으로 머메이드 블록을 찾아서 교체하는 방식으로 변경
+            pattern = r'```mermaid\n(.*?)```'
             
-            # mermaid 블록 내부
-            if in_mermaid_block:
-                if line.strip() == '```':
-                    # mermaid 블록 종료
-                    in_mermaid_block = False
-                    
-                    # 이 차트가 이미지로 교체되어야 하는지 확인
-                    chart_line = mermaid_start_line + 1  # 실제 차트 시작 라인
-                    if chart_line in chart_indices:
-                        chart_id, img_path, original_content = chart_indices[chart_line]
-                        
-                        # 차트 내용이 일치하는지 확인
-                        if current_chart_content.strip() == original_content.strip():
-                            # 이미지로 교체
-                            new_lines.append(f'![{chart_id}]({img_path})')
-                            new_lines.append('')
-                            new_lines.append(f'*{chart_id.replace("_", " ").title()}*')
-                            log_message(f"  ✓ 차트 교체: {chart_id} -> {img_path}", "SUCCESS")
-                        else:
-                            # 내용이 일치하지 않으면 원본 유지
-                            new_lines.append('```')
-                    else:
-                        # 교체 대상이 아니면 원본 유지
-                        new_lines.append('```')
-                    
-                    current_chart_content = ""
-                    mermaid_start_line = -1
-                else:
-                    current_chart_content += line + '\n'
-                    # 교체 대상이면 라인을 추가하지 않음 (이미지로 대체할 예정)
-                    if mermaid_start_line + 1 not in chart_indices:
-                        new_lines.append(line)
+            # 교체할 차트를 딕셔너리로 변환 (빠른 검색을 위해)
+            chart_replacements = {}
+            for line_num, chart_id, img_path, original_content in image_replacements:
+                chart_replacements[original_content.strip()] = (chart_id, img_path)
             
-            else:
-                new_lines.append(line)
+            def replace_mermaid(match):
+                chart_content = match.group(1).strip()
+                # 차트 내용이 교체 대상인지 확인
+                if chart_content in chart_replacements:
+                    chart_id, img_path = chart_replacements[chart_content]
+                    # 이미지로 교체 (Jekyll relative_url 필터 사용)
+                    log_message(f"  ✓ 차트 교체: {chart_id} -> {img_path}", "SUCCESS")
+                    return f'<img src="{{{{ \'{img_path}\' | relative_url }}}}" alt="{chart_id}" loading="lazy" class="post-image">'
+                # 교체 대상이 아니면 원본 유지
+                return match.group(0)
             
-            i += 1
-        
-        # 파일 저장
-        new_content = '\n'.join(new_lines)
-        with open(post_file, 'w', encoding='utf-8') as f:
-            f.write(new_content)
-        
-        log_message(f"✅ 마크다운 파일 업데이트 완료: {len(image_replacements)}개 차트를 이미지로 교체", "SUCCESS")
+            new_content = re.sub(pattern, replace_mermaid, content, flags=re.DOTALL)
+            
+            # 파일 저장
+            with open(post_file, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            
+            log_message(f"✅ 마크다운 파일 업데이트 완료: {len(image_replacements)}개 차트를 이미지로 교체", "SUCCESS")
     
     log_message(f"📊 처리 완료: {success_count}/{len(charts_to_convert)}개 차트 변환 성공", "SUCCESS")
     return success_count == len(charts_to_convert)
@@ -419,6 +373,9 @@ def main():
   # 특정 포스팅 처리
   python3 scripts/convert_mermaid_to_image.py _posts/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide.md
   
+  # 모든 포스팅 처리
+  python3 scripts/convert_mermaid_to_image.py --all
+  
   # 강제 재생성
   python3 scripts/convert_mermaid_to_image.py _posts/2026-01-15-...md --force
         """
@@ -426,7 +383,13 @@ def main():
     
     parser.add_argument(
         "post_file",
-        help="처리할 포스팅 파일"
+        nargs="?",
+        help="처리할 포스팅 파일 (선택사항)"
+    )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="모든 포스팅 처리"
     )
     parser.add_argument(
         "--force",
@@ -436,7 +399,31 @@ def main():
     
     args = parser.parse_args()
     
-    # 파일 경로 처리
+    # 모든 포스팅 처리
+    if args.all:
+        log_message("📊 모든 포스팅의 머메이드 차트를 이미지로 변환합니다.", "INFO")
+        post_files = sorted(POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)
+        log_message(f"📄 {len(post_files)}개 포스팅 파일 발견", "INFO")
+        
+        success_count = 0
+        for post_file in post_files:
+            try:
+                if process_post(post_file, force=args.force):
+                    success_count += 1
+                print()  # 빈 줄 추가
+            except Exception as e:
+                log_message(f"❌ 포스팅 처리 실패: {post_file.name} - {str(e)}", "ERROR")
+        
+        log_message("=" * 80)
+        log_message(f"📊 처리 완료: {success_count}/{len(post_files)}개 성공", "SUCCESS")
+        log_message("=" * 80)
+        sys.exit(0 if success_count == len(post_files) else 1)
+    
+    # 특정 파일 처리
+    if not args.post_file:
+        parser.print_help()
+        sys.exit(1)
+    
     post_path = Path(args.post_file)
     if not post_path.is_absolute():
         post_path = PROJECT_ROOT / post_path

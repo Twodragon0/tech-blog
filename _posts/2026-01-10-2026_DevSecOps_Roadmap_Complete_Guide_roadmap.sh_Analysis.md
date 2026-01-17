@@ -62,7 +62,6 @@ toc: true
 
 <img src="{{ '/assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg' | relative_url }}" alt="2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis" loading="lazy" class="post-image">
 
-
 ## 서론
 
 안녕하세요, Twodragon입니다. 
@@ -79,72 +78,6 @@ toc: true
 - **최신 보안 도구**: Semgrep, Trivy, Contrast Security 등 2024-2025 도구 업데이트
 
 기초 프로그래밍부터 고급 거버넌스까지, DevSecOps 전문가가 되기 위한 완벽한 가이드를 제공합니다.
-
-```mermaid
-graph LR
-    subgraph Stage1["Stage 1: Foundation: 0-6 months"]
-        direction TB
-        S1_Linux["Linux/Networking"]
-        S1_Security["Security Basics<br/>OWASP Top 10"]
-        S1_Programming["Programming<br/>Python, Bash, Go"]
-    end
-    
-    subgraph Stage2["Stage 2: Tools: 6-12 months"]
-        direction TB
-        S2_SCA["SCA<br/>Trivy, Dependabot"]
-        S2_DAST["DAST<br/>Burp Suite, ZAP"]
-        S2_SAST["SAST<br/>CodeQL, Semgrep"]
-    end
-    
-    subgraph Stage3["Stage 3: Platform: 12-18 months"]
-        direction TB
-        S3_CICD["CI/CD Security<br/>GitHub Actions"]
-        S3_Container["Container Security<br/>Docker, K8s"]
-        S3_Cloud["Cloud Security<br/>AWS, GCP, Azure"]
-    end
-    
-    subgraph Stage4["Stage 4: Advanced: 18-24 months"]
-        direction TB
-        S4_Governance["Governance<br/>NIST CSF 2.0"]
-        S4_IR["Incident Response<br/>SIEM, SOAR"]
-        S4_Threat["Threat Modeling<br/>STRIDE, PASTA"]
-    end
-    
-    subgraph Stage5["Stage 5: Expert: 24+ months"]
-        direction TB
-        S5_Architect["Security Architect<br/>Enterprise Design"]
-        S5_Leadership["Security Leadership<br/>Strategy and Culture"]
-    end
-    
-    %% Stage 1 to Stage 2
-    S1_Linux --> S2_SCA
-    S1_Security --> S2_DAST
-    S1_Programming --> S2_SAST
-    
-    %% Stage 2 to Stage 3
-    S2_SCA --> S3_CICD
-    S2_DAST --> S3_Container
-    S2_SAST --> S3_Cloud
-    
-    %% Stage 3 to Stage 4
-    S3_CICD --> S4_Governance
-    S3_Container --> S4_IR
-    S3_Cloud --> S4_Threat
-    
-    %% Stage 4 to Stage 5
-    S4_Governance --> S5_Leadership
-    S4_IR --> S5_Architect
-    S4_Threat --> S5_Architect
-    
-    %% Additional connections
-    S3_Cloud --> S4_Governance
-    
-    style Stage1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style Stage2 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
-    style Stage3 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style Stage4 fill:#fce4ec,stroke:#c2185b,stroke-width:2px
-    style Stage5 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-```
 
 *DevSecOps 학습 로드맵 2026*
 
@@ -475,38 +408,7 @@ Zero Trust는 "신뢰하되 검증하라(Trust but Verify)" 원칙을 기반으�
 
 ### 4.5 컨테이너 보안 (Container Security)
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 #### 컨테이너 보안 요소
 
@@ -902,22 +804,7 @@ GitHub Advanced Security는 2024-2025년 동안 상당한 개선을 이루었습
 |----------|------------------|-----------------|
 | **컨테이너 보안** | Kubernetes 보안 강화, 이미지 스캔 자동화 | Trivy, Falco, Kubernetes Pod Security Standards |
 
-
 Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
-
-```mermaid
-graph LR
-    Privileged["Privileged - No restrictions: System Pods"]
-    Baseline["Baseline - Minimal security: General Apps"]
-    Restricted["Restricted - Strongest policies: Sensitive Workloads"]
-    
-    Privileged --> Baseline
-    Baseline --> Restricted
-    
-    style Privileged fill:#ffebee
-    style Baseline fill:#fff4e1
-    style Restricted fill:#e8f5e9
-```
 
 | **서버리스 보안** | 서버리스 아키텍처 보안, 함수 레벨 보안 | AWS Lambda Layers, Azure Functions 보안 |
 | **멀티 클라우드 보안** | 여러 클라우드 환경 통합 보안, CSPM | AWS Security Hub, Azure Security Center, GCP Security Command Center |

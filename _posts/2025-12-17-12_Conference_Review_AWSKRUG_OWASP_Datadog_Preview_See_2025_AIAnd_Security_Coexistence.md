@@ -58,7 +58,6 @@ toc: true
 </div>
 </div>
 
-
 ## 서론
 
 12월은 한 해를 마무리하는 시기이자, 내년의 기술 트렌드를 가장 먼저 접할 수 있는 달이기도 합니다. 이번 달에는 **AWSKRUG AI IDE Kiro Launch Party**, **OWASP Seoul Chapter 송년회**, 그리고 **Datadog Security 101 세미나**에 연달아 참석하며, 개발 생산성의 도구인 AI와 이를 지키는 보안 기술이 어떻게 융합되고 있는지 생생하게 느낄 수 있었습니다.
@@ -76,64 +75,11 @@ toc: true
 > - **Zero Trust Architecture**가 업계 표준으로 정착하며, Post-quantum 암호화가 현실화 (Cloudflare 52% 적용)
 > - **Supply Chain 공격**이 급증하며, npm Shai-Hulud 웜 등 의존성 관리의 중요성 강조
 
-
-
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
-```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User: UID 0"]
-        HostUser["Host Non-root User: UID 1000"]
-    end
-    
-    subgraph Container["Container"]
-        ContainerRoot["Container Root: UID 0"]
-        ContainerApp["Container App: UID 1000"]
-    end
-    
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
-```## 2. 2025년 보안 트렌드: 컨퍼런스에서 본 미래
-
+## 2. 2025년 보안 트렌드: 컨퍼런스에서 본 미래
 
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 ### 2.1 AI 보안의 양면성
 
@@ -414,41 +360,7 @@ Datadog은 클라우드 네이티브 환경에서의 **통합 보안 모니터�
 
 #### 적용 예시: CI/CD 보안 통합
 
-
 컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
-
-```mermaid
-graph LR
-    subgraph Dev["Dev Phase"]
-        Code["Code: Secure Dockerfile"]
-        Build["Build: Image Scanning"]
-    end
-    
-    subgraph Sec["Sec Phase"]
-        Scan["Security Scan: Trivy, Snyk"]
-        Policy["Policy Check: K8s YAML Validation"]
-    end
-    
-    subgraph Ops["Ops Phase"]
-        Deploy["Deploy: Secure Deployment"]
-        Monitor["Monitor: Runtime Security"]
-    end
-    
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
-    
-    style Code fill:#e1f5ff
-    style Build fill:#fff4e1
-    style Scan fill:#ffebee
-    style Policy fill:#fff4e1
-    style Deploy fill:#e8f5e9
-    style Monitor fill:#f3e5f5
-```
-
 
 ```yaml
 # GitHub Actions 예시 (간단한 구조)

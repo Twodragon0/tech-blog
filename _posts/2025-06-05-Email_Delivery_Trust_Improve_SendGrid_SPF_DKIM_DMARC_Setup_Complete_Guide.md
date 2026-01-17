@@ -58,7 +58,6 @@ toc: true
 </div>
 </div>
 
-
 ## 서론
 
 이메일은 비즈니스 커뮤니케이션의 핵심 도구이지만, 스팸 메일함으로 직행하거나 아예 차단되는 경우만큼 답답한 일도 없습니다. 고객에게 중요한 정보가 담긴 메일이 제대로 전달되지 않는다면 비즈니스에 큰 타격을 줄 수 있습니다.
@@ -126,7 +125,6 @@ toc: true
 | **보고서 모니터링** | ✅ 권장 | DMARC 보고서 정기적 확인 |
 
 <img src="{{ '/assets/images/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide_image.jpg' | relative_url }}" alt="Email Delivery Trust Improvement: SendGrid SPF DKIM DMARC Setup Complete Guide" loading="lazy" class="post-image">
-
 
 ## 1. 이메일 인증이란?
 
@@ -438,38 +436,7 @@ mail.yourdomain.com → 별도 SPF, DKIM, DMARC
 
 ## 11. 2025년 이메일 보안 트렌드
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 ### 11.1 악성 이메일 증가 및 대응
 

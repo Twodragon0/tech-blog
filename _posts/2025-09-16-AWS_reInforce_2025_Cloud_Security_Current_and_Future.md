@@ -56,11 +56,7 @@ toc: true
 </div>
 </div>
 
-
-
 <img src="{{ '/assets/images/2025-09-16-AWS_reInforce_2025_Cloud_Security_and_Future_image.png' | relative_url }}" alt="AWS re:Inforce 2025: Cloud Security Present and Future" loading="lazy" class="post-image">
-
-
 
 ## 서론
 
@@ -84,74 +80,27 @@ AWS re:Inforce 2025에서 발표된 최신 보안 기능과 모범 사례는 클
 - 개인 연구 및 실무 경험을 바탕으로 한 보안 인사이트
 - 클라우드 보안의 미래 트렌드
 
-
-
 컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
 
-```mermaid
-graph LR
-    subgraph Dev["Dev Phase"]
-        Code["Code: Secure Dockerfile"]
-        Build["Build: Image Scanning"]
-    end
-    
-    subgraph Sec["Sec Phase"]
-        Scan["Security Scan: Trivy, Snyk"]
-        Policy["Policy Check: K8s YAML Validation"]
-    end
-    
-    subgraph Ops["Ops Phase"]
-        Deploy["Deploy: Secure Deployment"]
-        Monitor["Monitor: Runtime Security"]
-    end
-    
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
-    
-    style Code fill:#e1f5ff
-    style Build fill:#fff4e1
-    style Scan fill:#ffebee
-    style Policy fill:#fff4e1
-    style Deploy fill:#e8f5e9
-    style Monitor fill:#f3e5f5
-```## 1. 주요 트렌드: AI 기반 보안
-
+| 단계 | 프로세스 | 설명 | 도구 |
+|------|---------|------|------|
+| **Dev Phase** | Code | Secure Dockerfile 작성 | Dockerfile Best Practices |
+| | Build | Image Scanning | Trivy, Snyk |
+| **Sec Phase** | Security Scan | 취약점 스캔 | Trivy, Snyk |
+| | Policy Check | K8s YAML 검증 | Kubernetes Policy Validation |
+| **Ops Phase** | Deploy | Secure Deployment | Kubernetes Deployment |
+| | Monitor | Runtime Security 모니터링 | Falco, OPA Gatekeeper |## 1. 주요 트렌드: AI 기반 보안
 
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
+| 보안 레이어 | 설명 | 구현 방법 |
+|------------|------|----------|
+| **Image Scanning** | 이미지 취약점 스캔 | Trivy, Snyk |
+| **Secret Management** | 비밀 정보 관리 | K8s Secrets, Vault |
+| **Non-root User** | 비권한 사용자 실행 | `runAsNonRoot: true` |
+| **Read-only Filesystem** | 읽기 전용 파일시스템 | `readOnlyRootFilesystem: true` |
+| **Capabilities Drop** | 불필요한 권한 제거 | `capabilities.drop: ALL` |
+| **Network Policies** | Pod 네트워크 격리 | Network Policies |
 
 ### 1.1 AI가 보안에 미치는 영향
 
@@ -198,27 +147,13 @@ Zero Trust는 "신뢰하되 검증하라(Trust but Verify)"에서 "검증하라(
 
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
-```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User: UID 0"]
-        HostUser["Host Non-root User: UID 1000"]
-    end
-    
-    subgraph Container["Container"]
-        ContainerRoot["Container Root: UID 0"]
-        ContainerApp["Container App: UID 1000"]
-    end
-    
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
-```
+| 환경 | 사용자 | UID | 매핑 관계 | 설명 |
+|------|--------|-----|----------|------|
+| **Host System** | Host Root User | UID 0 | - | 호스트 루트 사용자 |
+| | Host Non-root User | UID 1000 | - | 호스트 비권한 사용자 |
+| **Container** | Container Root | UID 0 | → Host Non-root User (UID 1000) | User Namespace 매핑으로 호스트 비권한 사용자로 매핑 |
+| | Container App | UID 1000 | → Host Non-root User (UID 1000) | 직접 매핑 |
+| **격리** | Host Root | UID 0 | ↔ Container Root (격리됨) | 호스트 루트와 컨테이너 루트는 격리됨 |
 - **VPC**: 논리적 네트워크 격리
 - **Security Groups**: 인스턴스 레벨 방화벽
 - **NACLs**: 서브넷 레벨 접근 제어

@@ -97,7 +97,6 @@ certifications: [aws-saa]
 
 ## 1. AWS WAF & CloudFront 보안 아키텍처
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
 ```mermaid
@@ -427,7 +426,6 @@ paths-ignore:
 
 ### 3.2 실전 사례: 코드 보안 취약점 진단 및 수정
 
-
 컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
 
 ```mermaid
@@ -461,7 +459,6 @@ graph LR
     style Deploy fill:#e8f5e9
     style Monitor fill:#f3e5f5
 ```
-
 
 블로그 포스팅을 자동화하기 위해 작성했던 Python 스크립트(`fetch_tistory_images.py`, `ai_improve_posts.py`)를 **GitHub Code Scanning(CodeQL)**으로 점검했습니다. 그 결과 **High Severity(고위험)** 취약점 6건이 발견되었고, 이를 해결한 과정을 상세히 공유합니다.
 

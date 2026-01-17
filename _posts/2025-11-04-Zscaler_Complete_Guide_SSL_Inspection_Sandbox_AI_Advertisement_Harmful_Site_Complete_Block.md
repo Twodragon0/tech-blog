@@ -55,41 +55,17 @@ image_alt: "Zscaler Complete Guide: SSL Inspection Sandbox AI Advertising Malici
 </div>
 </div>
 
-
 ## 서론
 
 하이브리드 근무가 보편화되면서, 사용자는 사무실, 집, 카페 등 다양한 장소에서 기업 리소스에 접근합니다. 이러한 분산된 환경에서 전통적인 VPN 방식은 복잡한 설정, 성능 저하, 보안 취약점 등의 문제를 안고 있습니다. 
 
 **Zscaler**는 이러한 문제를 해결하는 클라우드 기반 Zero Trust 네트워크 접근(ZTNA) 솔루션입니다. 이 가이드에서는 Zscaler 클라이언트 설정(ZCC)부터 트래픽 전달, SSL 검사, 필수 앱 예외 처리(카카오톡), 샌드박스(ATP), 브라우저 제어, 그리고 AI, 광고, 유해 사이트 차단에 이르는 Zscaler의 핵심 정책을 상세히 다룹니다.
 
-
 <img src="{{ '/assets/images/2025-11-04-Zscaler_Complete_Guide_SSL_AI_Complete_image.jpg' | relative_url }}" alt="Zscaler Complete Guide: SSL Inspection Sandbox AI Advertising Malicious Site Complete Blocking" loading="lazy" class="post-image">
-
-
 
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
-```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User: UID 0"]
-        HostUser["Host Non-root User: UID 1000"]
-    end
-    
-    subgraph Container["Container"]
-        ContainerRoot["Container Root: UID 0"]
-        ContainerApp["Container App: UID 1000"]
-    end
-    
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
-```## 📊 빠른 참조
+## 📊 빠른 참조
 
 ### Zscaler 주요 구성 요소
 
@@ -394,38 +370,7 @@ Zscaler를 포함한 주요 ZTNA 솔루션들이 **AI/ML 기반 위협 탐지**�
 
 ### 11.4 AI 서비스 보안 정책 강화
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 ChatGPT, Claude, Copilot 등 생성형 AI 서비스의 기업 내 활용이 증가하면서, **AI 서비스에 대한 보안 정책**이 더욱 정교해지고 있습니다.
 

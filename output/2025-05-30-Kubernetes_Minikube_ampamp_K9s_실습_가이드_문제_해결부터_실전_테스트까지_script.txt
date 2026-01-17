@@ -1,0 +1,13 @@
+# Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지
+
+생성일: 2026-01-11 23:16:00
+대본 길이: 382자
+원본 포스트: 2025-05-30-Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지.md
+사용된 API: Gemini API Key → DeepSeek API
+API 전략: Gemini 우선
+
+============================================================
+강의용 대본
+============================================================
+
+혹시 최신 AI 워크로드를 로컬 Kubernetes 환경에서 안전하게 돌려보고 싶다는 생각 해보신 적 있으신가요? Minikube 1.37.0의 AI 및 AMD GPU 지원으로 로컬에서도 강력한 개발 환경 구축이 가능해졌습니다. 하지만 우리 DevSecOps 엔지니어들에게는 이 편리함 뒤의 보안 취약점, 리소스 관리, 효율적인 운영이 더 중요합니다. 오늘은 Minikube 설치 및 문제 해결, K9s 활용법, 그리고 Kubernetes 1.32부터 1.35까지 강화된 User Namespaces, Bound Service Account Tokens, mTLS Pod Certificates 같은 핵심 보안 기능을 DevSecOps 관점에서 완벽하게 정리해드리겠습니다. 이 강의가

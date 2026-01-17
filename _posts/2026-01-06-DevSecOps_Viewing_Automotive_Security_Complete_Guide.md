@@ -61,7 +61,6 @@ image_alt: "DevSecOps Viewing Automotive Security Complete Guide: Connected Car 
 
 <img src="{{ '/assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg' | relative_url }}" alt="DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era Security Strategy" loading="lazy" class="post-image">
 
-
 ## 서론
 
 자동차 산업은 급속한 디지털 전환을 겪고 있습니다. **커넥티드 카(Connected Car)**, **자율주행(Autonomous Driving)**, **전기차(EV)** 기술의 발전으로 현대 자동차는 수억 줄의 코드와 수백 개의 ECU(Electronic Control Unit)로 구성된 복잡한 소프트웨어 시스템이 되었습니다.
@@ -297,37 +296,6 @@ image_alt: "DevSecOps Viewing Automotive Security Complete Guide: Connected Car 
 | | 투명한 커뮤니케이션 (보안 이슈에 대한 명확한 보고 및 대응 프로세스) | 신속한 보안 대응 |
 
 ### 2.2 자동차 소프트웨어 개발 라이프사이클에 보안 통합
-
-```mermaid
-graph LR
-    subgraph LIFECYCLE["DevSecOps 라이프사이클"]
-        PLAN[Plan] -> CODE[Code]
-        CODE --> BUILD[Build]
-        BUILD --> TEST[Test]
-        TEST --> RELEASE[Release]
-        RELEASE --> DEPLOY[Deploy]
-        DEPLOY --> MONITOR[Monitor]
-        MONITOR ->|피드백| PLAN
-    end
-
-    subgraph SECURITY["보안 활동"]
-        S1[위협 모델링]
-        S2[SAST/Secret 스캔]
-        S3[SCA/이미지 스캔]
-        S4[DAST/Fuzz]
-        S5[SBOM/서명]
-        S6[Secure Boot]
-        S7[런타임 보안]
-    end
-
-    PLAN --> S1
-    CODE --> S2
-    BUILD --> S3
-    TEST --> S4
-    RELEASE --> S5
-    DEPLOY --> S6
-    MONITOR --> S7
-```
 
 각 단계별 보안 활동:
 

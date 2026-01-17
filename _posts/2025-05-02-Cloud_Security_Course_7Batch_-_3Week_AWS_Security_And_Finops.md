@@ -60,8 +60,6 @@ certifications: [aws-saa]
 </div>
 </div>
 
-
-
 <img src="{{ '/assets/images/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_and_Finops_image.png' | relative_url }}" alt="Cloud Security Course 7Batch 3Week: AWS Security and FinOps" loading="lazy" class="post-image">
 
 ## 서론
@@ -78,35 +76,7 @@ certifications: [aws-saa]
 
 ## 1. AWS 보안 아키텍처
 
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
+<img src="{{ '/assets/images/diagrams/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops_mermaid_chart_1.png' | relative_url }}" alt="mermaid_chart_1" loading="lazy" class="post-image">
 
 ### 1.1 AWS 보안 서비스 전체 구조
 
@@ -213,31 +183,9 @@ resource "aws_flow_log" "main" {
 ```
 -->
 
-
-
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
-```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User: UID 0"]
-        HostUser["Host Non-root User: UID 1000"]
-    end
-    
-    subgraph Container["Container"]
-        ContainerRoot["Container Root: UID 0"]
-        ContainerApp["Container App: UID 1000"]
-    end
-    
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
-```## 2. AWS 보안 서비스 상세
+<img src="{{ '/assets/images/diagrams/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops_mermaid_chart_2.png' | relative_url }}" alt="mermaid_chart_2" loading="lazy" class="post-image">## 2. AWS 보안 서비스 상세
 
 ### 2.1 GuardDuty 자동화 대응
 
@@ -525,22 +473,9 @@ compute_savings_plan:
 
 #### AWS Security Hub GA 업데이트
 
-
 Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 
-```mermaid
-graph LR
-    Privileged["Privileged - No restrictions: System Pods"]
-    Baseline["Baseline - Minimal security: General Apps"]
-    Restricted["Restricted - Strongest policies: Sensitive Workloads"]
-    
-    Privileged --> Baseline
-    Baseline --> Restricted
-    
-    style Privileged fill:#ffebee
-    style Baseline fill:#fff4e1
-    style Restricted fill:#e8f5e9
-```
+<img src="{{ '/assets/images/diagrams/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops_mermaid_chart_3.png' | relative_url }}" alt="mermaid_chart_3" loading="lazy" class="post-image">
 
 - **보안 위험 중앙 집중화**: 모든 보안 위협을 단일 대시보드에서 관리
 - **히스토리 트렌드**: 시간에 따른 보안 상태 변화 추적

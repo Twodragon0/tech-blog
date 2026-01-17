@@ -59,52 +59,15 @@ certifications: [ckad, cka]
 </div>
 </div>
 
-
 ## 서론
 
 Kubernetes는 현대적인 컨테이너 오케스트레이션의 표준이 되었으며, 로컬 개발 환경에서 Kubernetes를 학습하고 테스트하기 위한 도구들이 지속적으로 발전하고 있습니다. Minikube는 로컬에서 Kubernetes 클러스터를 쉽게 구성할 수 있게 해주는 도구이며, K9s는 터미널 기반의 강력한 Kubernetes 클러스터 관리 UI입니다.
 
 이 글에서는 2024-2025년 최신 best practices를 반영하여 Minikube와 K9s를 활용한 실습 가이드를 제공합니다. 실제 운영 환경에서 겪을 수 있는 문제 해결 방법부터 최신 보안 기능까지 실무 중심으로 상세히 다룹니다.
 
-
 <img src="{{ '/assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_Guide_From_Practical_To_image.png' | relative_url }}" alt="Kubernetes Minikube and K9s Practical Guide: From Problem Solving to Practical Testing" loading="lazy" class="post-image">
 
-
-
-
 컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
-
-```mermaid
-graph LR
-    subgraph Dev["Dev Phase"]
-        Code["Code: Secure Dockerfile"]
-        Build["Build: Image Scanning"]
-    end
-    
-    subgraph Sec["Sec Phase"]
-        Scan["Security Scan: Trivy, Snyk"]
-        Policy["Policy Check: K8s YAML Validation"]
-    end
-    
-    subgraph Ops["Ops Phase"]
-        Deploy["Deploy: Secure Deployment"]
-        Monitor["Monitor: Runtime Security"]
-    end
-    
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
-    
-    style Code fill:#e1f5ff
-    style Build fill:#fff4e1
-    style Scan fill:#ffebee
-    style Policy fill:#fff4e1
-    style Deploy fill:#e8f5e9
-    style Monitor fill:#f3e5f5
-```
 
 ## 1. 개요
 
@@ -303,38 +266,7 @@ k9s:
 
 #### 3. 보안 고려사항
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 ```bash
 # 읽기 전용 모드로 감사 수행
@@ -614,31 +546,7 @@ minikube start --kubernetes-version=v1.34.0
 
 #### User Namespaces Support (Kubernetes 1.33+)
 
-
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
-
-```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User: UID 0"]
-        HostUser["Host Non-root User: UID 1000"]
-    end
-    
-    subgraph Container["Container"]
-        ContainerRoot["Container Root: UID 0"]
-        ContainerApp["Container App: UID 1000"]
-    end
-    
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
-```
-
 
 컨테이너 격리를 강화하는 사용자 네임스페이스 지원:
 
@@ -729,7 +637,6 @@ spec:
 
 ```
 -->
-
 
 ### 5.3 Minikube 최신 기능 (1.37.0+)
 
@@ -823,23 +730,7 @@ Kubernetes 2024-2025 업데이트를 적용할 때 확인해야 할 보안 항�
 | Resource Limits | 리소스 제한 설정 | `kubectl top pods`, `kubectl describe pod` |
 | Pod Security Standards | Pod 보안 표준 준수 | `kubectl get namespace <ns> -o yaml \| grep pod-security` |
 
-
 Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
-
-```mermaid
-graph LR
-    Privileged["Privileged - No restrictions: System Pods"]
-    Baseline["Baseline - Minimal security: General Apps"]
-    Restricted["Restricted - Strongest policies: Sensitive Workloads"]
-    
-    Privileged --> Baseline
-    Baseline --> Restricted
-    
-    style Privileged fill:#ffebee
-    style Baseline fill:#fff4e1
-    style Restricted fill:#e8f5e9
-```
-
 
 ### 5.6 Kubernetes Best Practices (2024-2025)
 

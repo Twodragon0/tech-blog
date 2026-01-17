@@ -57,7 +57,6 @@ toc: true
 </div>
 </div>
 
-
 ## 서론
 
 최근 몇 년간, 특히 AI 기반 브라우저와 브라우저 '에이전트'의 등장은 우리가 일하는 방식을 근본적으로 바꾸고 있습니다. 단순한 정보 검색을 넘어, AI가 웹페이지를 요약하고, 번역하며, 심지어 우리를 대신해 작업을 수행하는 시대가 열렸습니다.
@@ -66,112 +65,19 @@ toc: true
 
 본 가이드에서는 AI 서비스 사용 시 발생할 수 있는 보안 위험을 분석하고, 기업이 이를 효과적으로 관리하기 위한 실무 가이드를 제공합니다.
 
-
 <img src="{{ '/assets/images/2025-10-31-AI_amplsquoamprsquo_amplsquoSecurity_amprsquo_Batch_AI_Security_Guide_image.png' | relative_url }}" alt="AI Era Enterprise AI Service Security Guide: Ensuring Your Assistant Does Not Become a Security Hole" loading="lazy" class="post-image">
-
-
-
 
 ### AI 서비스 보안 위협 체인
 
 AI 서비스 사용 시 발생할 수 있는 보안 위협:
 
-```mermaid
-graph TB
-    subgraph Threats["Security Threats"]
-        ShadowAI["Shadow AI: 비승인 AI 서비스 사용"]
-        DataLeak["Data Leakage: 민감 정보 유출"]
-        Deepfake["Deepfake: 사기 및 신원 도용"]
-        Poisoning["Data Poisoning: 모델 조작"]
-        MCP["MCP Server: 취약점 악용"]
-    end
-    
-    subgraph Impact["Business Impact"]
-        Compliance["규정 위반: GDPR, 개인정보보호법"]
-        Reputation["평판 손상: 고객 신뢰도 하락"]
-        Financial["재정적 손실: 사기 및 소송"]
-    end
-    
-    ShadowAI --> DataLeak
-    DataLeak --> Compliance
-    Deepfake --> Reputation
-    Poisoning --> Financial
-    MCP --> DataLeak
-    
-    style ShadowAI fill:#ffebee
-    style DataLeak fill:#ff5252
-    style Deepfake fill:#ff9800
-    style Poisoning fill:#ffebee
-    style MCP fill:#ffebee
-    style Compliance fill:#d32f2f
-    style Reputation fill:#d32f2f
-    style Financial fill:#d32f2f
-```
-
 ### AI 보안 통제 계층
 
 기업 AI 서비스 보안을 위한 다층 방어 전략:
 
-```mermaid
-graph TB
-    subgraph Controls["Security Controls"]
-        Policy["정책 수립: AI 사용 정책"]
-        DLP["DLP: Data Loss Prevention"]
-        CASB["CASB: Cloud Access Security Broker"]
-        ZeroTrust["Zero Trust: 최소 권한 원칙"]
-        Monitoring["모니터링: AI 활동 추적"]
-    end
-    
-    subgraph Result["Result"]
-        Secure["Secure AI Usage: 안전한 AI 활용"]
-    end
-    
-    Policy --> DLP
-    DLP --> CASB
-    CASB --> ZeroTrust
-    ZeroTrust --> Monitoring
-    Monitoring --> Secure
-    
-    style Policy fill:#e8f5e9
-    style DLP fill:#e8f5e9
-    style CASB fill:#e8f5e9
-    style ZeroTrust fill:#e8f5e9
-    style Monitoring fill:#e8f5e9
-    style Secure fill:#c8e6c9
-```## 2025년 AI 보안 위협 현황
-
+## 2025년 AI 보안 위협 현황
 
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 ### 급증하는 AI 기반 사이버 공격
 

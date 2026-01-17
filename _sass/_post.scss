@@ -108,6 +108,27 @@
   p {
     margin-bottom: $spacing-lg;
   }
+  
+  // 이미지만 포함된 p 태그는 마진 최소화 (이미지가 자체 마진을 가짐)
+  // :has() 선택자 지원 브라우저용
+  p:has(> img:only-child) {
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 0; // 인라인 공백 제거
+  }
+  
+  // 텍스트와 이미지가 함께 있는 p 태그
+  p:has(> img:not(:only-child)) {
+    margin-bottom: $spacing-xl;
+  }
+  
+  // :has() 미지원 브라우저를 위한 fallback
+  // 이미지만 포함된 p 태그 (클래스 기반 접근)
+  p.image-only {
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 0;
+  }
 
   ul, ol {
     margin-bottom: $spacing-lg;
@@ -124,6 +145,23 @@
     box-shadow: $shadow-md;
     max-width: 100%;
     height: auto;
+  }
+  
+  // p 태그 안의 이미지는 블록 레벨로 처리하여 텍스트와 분리
+  p > img {
+    display: block;
+    margin: $spacing-xl auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle; // 인라인 공백 제거
+  }
+  
+  // 이미지만 포함된 p 태그의 이미지
+  p:has(> img:only-child) > img,
+  p.image-only > img {
+    margin-top: $spacing-xl;
+    margin-bottom: $spacing-xl;
   }
 
   // Figure 안의 이미지 스타일 (다이어그램 등)

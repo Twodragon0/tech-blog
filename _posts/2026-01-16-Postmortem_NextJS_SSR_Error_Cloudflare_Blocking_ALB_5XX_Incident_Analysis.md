@@ -109,7 +109,7 @@ toc: true
 ### 1.0 전체 아키텍처
 
 <figure>
-<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_architecture_diagram.drawio.svg' | relative_url }}" alt="Next.js SSR Error Incident Architecture" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_architecture_diagram.png' | relative_url }}" alt="Next.js SSR Error Incident Architecture" loading="lazy" class="post-image">
 <figcaption>그림 1: Next.js SSR 에러 인시던트 전체 아키텍처 - draw.io로 생성</figcaption>
 </figure>
 
@@ -400,38 +400,10 @@ console.log(location.hostname);    // 호스트명 (example.com)
 
 #### SSR 환경에서의 문제
 
-```mermaid
-graph TB
-    subgraph Client["클라이언트 사이드: 브라우저"]
-        Browser["브라우저 환경"]
-        Location1["location 객체 존재: OK"]
-        Window1["window 객체 존재: OK"]
-    end
-    
-    subgraph Server["서버 사이드: Node.js"]
-        NodeJS["Node.js 환경"]
-        Location2["location 객체 없음: X"]
-        Window2["window 객체 없음: X"]
-    end
-    
-    subgraph NextJS["Next.js 렌더링"]
-        SSR["SSR: 서버 사이드 렌더링"]
-        CSR["CSR: 클라이언트 사이드 렌더링"]
-    end
-    
-    Browser --> Location1
-    Browser --> Window1
-    NodeJS --> Location2
-    NodeJS --> Window2
-    
-    SSR --> NodeJS
-    CSR --> Browser
-    
-    style Location2 fill:#ffebee
-    style Window2 fill:#ffebee
-    style Location1 fill:#e8f5e9
-    style Window1 fill:#e8f5e9
-```
+<figure>
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_ssr_csr_comparison.png' | relative_url }}" alt="SSR vs CSR Environment Comparison" loading="lazy" class="post-image">
+<figcaption>그림 2: SSR vs CSR 환경 비교 - 클라이언트 사이드와 서버 사이드에서 location 객체 접근 차이</figcaption>
+</figure>
 
 **문제 코드 예시**:
 ```typescript
@@ -454,43 +426,10 @@ function redirectTo(url: string) {
 
 #### 모바일 x.com의 URL 처리 방식
 
-```mermaid
-graph TB
-    subgraph Mobile["모바일 환경"]
-        User["사용자"]
-        XApp["X 앱: 설치됨"]
-        XBrowser["X 인앱 브라우저"]
-        SystemBrowser["시스템 브라우저"]
-    end
-    
-    subgraph Link["링크 클릭"]
-        UniversalLink["Universal Links"]
-        DeepLink["Deep Links"]
-        WebLink["일반 웹 링크"]
-    end
-    
-    subgraph Server["서버 사이드"]
-        SSR["Next.js SSR"]
-        LocationCheck["location 객체 접근"]
-        Error["ReferenceError 발생"]
-    end
-    
-    User ->|"x.com 링크 클릭"| Link
-    Link ->|"앱 설치됨"| XApp
-    Link ->|"앱 미설치"| SystemBrowser
-    XApp ->|"인앱 브라우저"| XBrowser
-    
-    XBrowser ->|"요청 전송"| SSR
-    SystemBrowser ->|"요청 전송"| SSR
-    
-    SSR --> LocationCheck
-    LocationCheck ->|"location 직접 접근"| Error
-    
-    style Error fill:#ffebee
-    style LocationCheck fill:#fff3e0
-    style XBrowser fill:#e3f2fd
-    style SystemBrowser fill:#e8f5e9
-```
+<figure>
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_mobile_x_flow.png' | relative_url }}" alt="Mobile x.com URL Processing Flow" loading="lazy" class="post-image">
+<figcaption>그림 3: 모바일 x.com URL 처리 흐름 - Universal Links, Deep Links, 인앱 브라우저를 통한 요청 처리</figcaption>
+</figure>
 
 #### 모바일 x.com에서 동작이 다른 이유
 
@@ -503,39 +442,14 @@ graph TB
 
 #### 인앱 브라우저 vs 시스템 브라우저
 
-```mermaid
-graph LR
-    subgraph XApp["X 앱: 인앱 브라우저"]
-        WebView["WebView"]
-        CustomUA["Custom User-Agent"]
-        LimitedAPI["제한된 API"]
-    end
-    
-    subgraph System["시스템 브라우저"]
-        Chrome["Chrome/Safari"]
-        StandardUA["표준 User-Agent"]
-        FullAPI["전체 API"]
-    end
-    
-    subgraph Server["서버 사이드"]
-        SSR1["SSR 렌더링"]
-        SSR2["SSR 렌더링"]
-    end
-    
-    WebView ->|"요청"| SSR1
-    Chrome ->|"요청"| SSR2
-    
-    CustomUA ->|"다른 헤더"| SSR1
-    StandardUA ->|"표준 헤더"| SSR2
-    
-    LimitedAPI ->|"location 접근 제한"| SSR1
-    FullAPI ->|"정상 동작"| SSR2
-    
-    style WebView fill:#ffebee
-    style LimitedAPI fill:#ffebee
-    style Chrome fill:#e8f5e9
-    style FullAPI fill:#e8f5e9
-```
+다음 표는 인앱 브라우저와 시스템 브라우저의 주요 차이점을 정리한 것입니다:
+
+| 항목 | 인앱 브라우저 (WebView) | 시스템 브라우저 |
+|------|----------------------|---------------|
+| **User-Agent** | Custom User-Agent (앱 식별자 포함) | 표준 User-Agent |
+| **API 지원** | 제한된 API (location 접근 제한 가능) | 전체 API 지원 |
+| **렌더링** | WebView 엔진 사용 | 표준 브라우저 엔진 사용 |
+| **SSR 영향** | 동일하게 SSR 환경에서 location 접근 시 에러 발생 | 동일하게 SSR 환경에서 location 접근 시 에러 발생 |
 
 #### 실제 동작 차이 예시
 
@@ -676,51 +590,10 @@ function redirectTo(url: string) {
 
 #### 배포 프로세스 다이어그램
 
-```mermaid
-graph LR
-    subgraph Developer["개발자"]
-        Dev["Developer"]
-    end
-    
-    subgraph SourceCode["소스 코드 관리"]
-        GitHub["GitHub: example-frontend"]
-        MainBranch["main branch"]
-    end
-    
-    subgraph CICD["CI/CD 파이프라인"]
-        Actions["GitHub Actions: build-and-deploy.yml"]
-        Build["Build: npm run build"]
-        DockerBuild["Docker Build: Image: v1.0.1"]
-    end
-    
-    subgraph Registry["컨테이너 레지스트리"]
-        ECR["ECR: Image Storage"]
-    end
-    
-    subgraph K8s["Kubernetes"]
-        API["Kubernetes: API Server"]
-        Deployment["Deployment: web-app"]
-        Pod["Pod: Next.js SSR"]
-    end
-    
-    Dev --> GitHub
-    GitHub --> MainBranch
-    MainBranch --> Actions
-    Actions --> Build
-    Build --> DockerBuild
-    DockerBuild --> ECR
-    ECR --> API
-    API --> Deployment
-    Deployment --> Pod
-    
-    style Dev fill:#E3F2FD
-    style GitHub fill:#E1F5FE
-    style Actions fill:#FFF3E0
-    style DockerBuild fill:#FFF3E0
-    style ECR fill:#F3E5F5
-    style API fill:#E8F5E9
-    style Pod fill:#E8F5E9
-```
+<figure>
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_deployment_diagram.png' | relative_url }}" alt="Deployment Process Diagram" loading="lazy" class="post-image">
+<figcaption>그림 5: 배포 프로세스 다이어그램 - GitHub Actions를 통한 CI/CD 파이프라인</figcaption>
+</figure>
 
 #### 배포 예시: 실제 코드 변경 사항
 
@@ -847,10 +720,21 @@ jobs:
 
 ### 4.2 5XX 에러 발생 경로
 
-<figure>
-<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_error_path_diagram.drawio.svg' | relative_url }}" alt="5XX Error Path" loading="lazy" class="post-image">
-<figcaption>그림 3: 5XX 에러 발생 경로 - draw.io로 생성</figcaption>
-</figure>
+다음은 5XX 에러가 발생하는 전체 경로를 단계별로 정리한 것입니다:
+
+| 단계 | 컴포넌트 | 상태 | 설명 |
+|------|---------|------|------|
+| 1 | 사용자 요청 | - | 모바일 x.com 또는 데스크톱 브라우저에서 링크 클릭 |
+| 2 | Cloudflare | WAF 검사 | 의심스러운 패턴 감지 시 IP 차단 (403 에러) |
+| 3 | Cloudflare | 요청 통과 | 정상 요청은 ALB로 전달 |
+| 4 | AWS ALB | 라우팅 | Ingress Controller로 요청 전달 |
+| 5 | Kubernetes | Pod | Next.js SSR 렌더링 시작 |
+| 6 | Pod | SSR 렌더링 | location 객체 접근 시도 |
+| 7 | Pod | ReferenceError | `location is not defined` 에러 발생 |
+| 8 | Pod | 500 에러 | 에러 응답 반환 |
+| 9 | ALB | Health Check 실패 | Pod 에러로 인한 Health Check 실패 |
+| 10 | ALB | Target Group Unhealthy | Target Group이 unhealthy 상태로 변경 |
+| 11 | 사용자 | 500 에러 | 최종적으로 사용자에게 500 에러 응답 |
 
 <details>
 <summary>draw.io XML 코드 (클릭하여 확장)</summary>
@@ -1022,38 +906,10 @@ jobs:
 
 ### 4.3 연쇄 반응
 
-```mermaid
-sequenceDiagram
-    participant User as "사용자 - x.com"
-    participant CF as Cloudflare
-    participant ALB as AWS ALB
-    participant K8s as Kubernetes
-    participant Pod as "Pod - Next.js"
-    
-    User->>CF: 링크 클릭 (모바일/데스크톱)
-    CF->>CF: WAF 검사
-    alt 의심스러운 패턴
-        CF->>User: IP 차단 (403)
-    else 정상 요청
-        CF->>ALB: 요청 전달
-        ALB->>K8s: 라우팅
-        K8s->>Pod: 요청 전달
-        
-        Pod->>Pod: SSR 렌더링 시작
-        Pod->>Pod: location 객체 접근 시도
-        Pod->>Pod: [ERROR] ReferenceError 발생
-        
-        Pod->>ALB: 500 에러 응답
-        ALB->>ALB: Health Check 실패
-        ALB->>ALB: Target Group Unhealthy
-        
-        ALB->>User: 500 에러 응답
-        
-        Note over Pod: 더 많은 요청 → 더 많은 에러
-        Note over ALB: Health Check 계속 실패
-        Note over CF: 비정상 트래픽 패턴 감지
-    end
-```
+<figure>
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_cascade_reaction.png' | relative_url }}" alt="Cascade Reaction Sequence" loading="lazy" class="post-image">
+<figcaption>그림 7: 연쇄 반응 시퀀스 다이어그램 - 사용자 요청부터 에러 발생까지의 전체 흐름</figcaption>
+</figure>
 
 **연쇄 반응 상세**:
 

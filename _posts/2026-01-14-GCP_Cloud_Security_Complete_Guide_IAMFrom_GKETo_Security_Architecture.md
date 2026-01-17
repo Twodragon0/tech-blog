@@ -76,73 +76,11 @@ GCP 클라우드 환경에서 보안을 강화하기 위해서는 IAM부터 GKE�
 
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
-```mermaid
-graph LR
-    subgraph After["After: User Namespaces Isolation"]
-        HostOS1["Host OS"]
-        UserNSMapping["User Namespace Mapping"]
-        Pod1["Pod<br/>Container: root in namespace"]
-        EscapeBlocked["Escape Blocked<br/>Non-privileged User"]
-        
-        HostOS1 --> UserNSMapping
-        UserNSMapping --> Pod1
-        Pod1 --> EscapeBlocked
-    end
-    
-    subgraph Before["Before: Container Escape = Host Root"]
-        HostOS2["Host OS"]
-        Pod2["Pod<br/>Container: root"]
-        EscapeRoot["Escape = Root Access"]
-        
-        HostOS2 --> Pod2
-        Pod2 --> EscapeRoot
-    end
-    
-    style HostOS1 fill:#e1f5ff
-    style UserNSMapping fill:#e8f5e9
-    style Pod1 fill:#fff4e1
-    style EscapeBlocked fill:#c8e6c9
-    style HostOS2 fill:#e1f5ff
-    style Pod2 fill:#ffebee
-    style EscapeRoot fill:#ffcdd2
-```
-
 ## 📊 빠른 참조
 
 ### GCP 보안 서비스 개요
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 | 서비스 | 용도 | 주요 기능 |
 |--------|------|----------|
@@ -161,41 +99,6 @@ graph TB
 ### GCP 보안 아키텍처 (Defense in Depth)
 
 GCP 클라우드 환경에서의 다층 보안 방어 구조:
-
-```mermaid
-graph TB
-    subgraph Layers["Security Layers"]
-        Network["Network Layer - VPC, Firewall Rules: Cloud NAT"]
-        Auth["Auth Layer - IAM, Identity Platform: MFA"]
-        App["Application Layer - Cloud Armor: API Gateway"]
-        Data["Data Layer - Cloud KMS: Cloud Storage Encryption"]
-        Monitor["Monitoring Layer - Cloud Logging: Security Command Center"]
-    end
-    
-    subgraph GKE["GKE Security"]
-        RBAC["RBAC: Service Accounts"]
-        PodSec["Pod Security: Standards"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    Network --> Auth
-    Auth --> App
-    App --> Data
-    Data --> Monitor
-    Monitor --> GKE
-    GKE --> RBAC
-    RBAC --> PodSec
-    PodSec --> NetworkPolicy
-    
-    style Network fill:#e1f5ff
-    style Auth fill:#e8f5e9
-    style App fill:#fff4e1
-    style Data fill:#f3e5f5
-    style Monitor fill:#e1f5ff
-    style RBAC fill:#e8f5e9
-    style PodSec fill:#fff4e1
-    style NetworkPolicy fill:#e8f5e9
-```
 
 ### 1.1 Defense in Depth 전략
 
@@ -610,23 +513,7 @@ resources:
 
 #### Pod Security Standards 강화
 
-
 Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
-
-```mermaid
-graph LR
-    Privileged["Privileged<br/>No restrictions"]
-    Baseline["Baseline<br/>Minimal security requirements"]
-    Restricted["Restricted<br/>Strongest security policies"]
-    
-    Privileged --> Baseline
-    Baseline --> Restricted
-    
-    style Privileged fill:#ffebee
-    style Baseline fill:#fff4e1
-    style Restricted fill:#e8f5e9
-```
-
 
 2025년, GKE는 Pod Security Standards를 강화하여 컨테이너 보안을 향상시켰습니다.
 

@@ -1,0 +1,13 @@
+# 클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!
+
+생성일: 2026-01-11 23:22:39
+대본 길이: 425자
+원본 포스트: 2025-12-12-클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략.md
+사용된 API: Gemini API Key → DeepSeek API
+API 전략: Gemini 우선
+
+============================================================
+강의용 대본
+============================================================
+
+2025년, 클라우드 비용이 예상보다 급증하고 보안 감사는 점점 더 까다로워지고 있습니다. 특히 AI/ML 워크로드 증가로 GPU 인스턴스 최적화와 스팟 인스턴스 보안 같은 새로운 도전이 등장했죠. 하지만 우리 같은 클라우드 전문가들에게는 이 기술 뒤에 숨겨진 비용, 보안, 그리고 거버넌스 문제가 훨씬 중요합니다. 오늘은 2025년 FinOps 트렌드인 AI/ML 비용 최적화, GreenOps 통합, Commitment Management 강화부터 AWS Cost Optimization Hub, Compute Optimizer, Application Cost Profiler, Cost Anomaly Detection 같은 최신 비용 관리 도구, 그리고 AWS Artifact, Config Rules, Security Hub, CloudTrail을 활용

@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9900;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6600;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="githubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#24292e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#181717;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ffffff"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Grid pattern -->
+  <g stroke="#ffffff" stroke-opacity="0.05" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Main Title -->
+  <text x="600" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#ffffff">Cloud Security Course 8 Batch Week 6</text>
+  <text x="600" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#94a3b8">AWS WAF/CloudFront Security Architecture &amp; GitHub DevSecOps Practical</text>
+
+  <!-- CloudFront Architecture -->
+  <g transform="translate(100, 180)">
+    <!-- CloudFront Icon -->
+    <rect x="0" y="0" width="120" height="80" rx="8" fill="url(#awsGrad)" opacity="0.9"/>
+    <text x="60" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">CloudFront</text>
+    <text x="60" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">CDN</text>
+    <circle cx="60" cy="70" r="5" fill="#ffffff"/>
+    
+    <!-- Arrow -->
+    <path d="M130 40 L160 40" stroke="#ff9900" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- WAF Shield -->
+    <rect x="170" y="0" width="120" height="80" rx="8" fill="#ef4444" opacity="0.9"/>
+    <path d="M230 10 L250 25 L250 50 C250 65 230 75 230 75 C230 75 210 65 210 50 L210 25 Z" fill="#ffffff" opacity="0.3"/>
+    <text x="230" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">WAF</text>
+    <text x="230" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Security Defense</text>
+    
+    <!-- Arrow -->
+    <path d="M300 40 L330 40" stroke="#ef4444" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- S3 Bucket -->
+    <rect x="340" y="0" width="120" height="80" rx="8" fill="#569a31" opacity="0.9"/>
+    <text x="400" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">S3</text>
+    <text x="400" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">OAC/OAI</text>
+    <rect x="385" y="60" width="30" height="15" rx="2" fill="#ffffff" opacity="0.3"/>
+  </g>
+
+  <!-- GitHub DevSecOps -->
+  <g transform="translate(600, 180)">
+    <!-- GitHub Icon -->
+    <rect x="0" y="0" width="120" height="80" rx="8" fill="url(#githubGrad)" opacity="0.9"/>
+    <circle cx="60" cy="30" r="15" fill="#ffffff" opacity="0.2"/>
+    <path d="M50 25 L60 20 L70 25 L60 30 Z" fill="#ffffff" opacity="0.5"/>
+    <text x="60" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">GitHub</text>
+    <text x="60" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">Advanced</text>
+    
+    <!-- Arrow -->
+    <path d="M130 40 L160 40" stroke="#24292e" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- CodeQL -->
+    <rect x="170" y="0" width="120" height="80" rx="8" fill="#4a90e2" opacity="0.9"/>
+    <text x="230" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">CodeQL</text>
+    <text x="230" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Static Analysis</text>
+    <circle cx="230" cy="70" r="4" fill="#ffffff"/>
+    
+    <!-- Arrow -->
+    <path d="M300 40 L330 40" stroke="#4a90e2" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Dependabot -->
+    <rect x="340" y="0" width="120" height="80" rx="8" fill="#2ecc71" opacity="0.9"/>
+    <text x="400" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Dependabot</text>
+    <text x="400" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Dependency Scan</text>
+    <circle cx="400" cy="70" r="4" fill="#ffffff"/>
+  </g>
+
+  <!-- Security Features -->
+  <g transform="translate(100, 320)">
+    <rect x="0" y="0" width="200" height="100" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#3b82f6" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3b82f6">Geo-Blocking</text>
+    <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Country Blocking</text>
+    <circle cx="100" cy="75" r="8" fill="#3b82f6"/>
+  </g>
+
+  <g transform="translate(350, 320)">
+    <rect x="0" y="0" width="200" height="100" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#ef4444" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ef4444">WAF Rules</text>
+    <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SQL Injection, XSS</text>
+    <path d="M90 70 L100 80 L110 70" stroke="#ef4444" stroke-width="2" fill="none"/>
+  </g>
+
+  <g transform="translate(600, 320)">
+    <rect x="0" y="0" width="200" height="100" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#2ecc71" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2ecc71">Secret Scanning</text>
+    <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Sensitive Data Detection</text>
+    <circle cx="100" cy="75" r="8" fill="#2ecc71"/>
+  </g>
+
+  <g transform="translate(850, 320)">
+    <rect x="0" y="0" width="200" height="100" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#f39c12" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f39c12">SSRF Defense</text>
+    <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">URL Validation</text>
+    <rect x="92" y="68" width="16" height="14" rx="2" fill="#f39c12"/>
+  </g>
+
+  <!-- Footer -->
+  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#64748b">DevSecOps Practical Security</text>
+  <text x="600" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#475569">tech.2twodragon.com</text>
+</svg>

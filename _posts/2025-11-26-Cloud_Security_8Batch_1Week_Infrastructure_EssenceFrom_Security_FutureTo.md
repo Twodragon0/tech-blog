@@ -55,13 +55,11 @@ toc: true
 </div>
 </div>
 
-
 ## 서론
 
 안녕하세요, Twodragon입니다. 드디어 기다리던 클라우드 시큐리티 과정 8기가 힘차게 닻을 올렸습니다! 이번 8기는 온라인미팅에서, '20분 강의 + 5분 휴식'이라는 뇌과학적으로 가장 효율적인 학습 루틴으로 진행됩니다. 단순한 이론 주입식 교육이 아닌, 실무의 고민을 함께 나누는 시간이었습니다. 1주차 핵심 내용을 블로그를 통해 정리해 드립니다.
 
 이 글에서는 클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지에 대해 실무 중심으로 상세히 다룹니다.
-
 
 <img src="{{ '/assets/images/2025-11-26-Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo_image.jpg' | relative_url }}" alt="Cloud Security 8Batch 1Week: From Infrastructure Essence to Security Future" loading="lazy" class="post-image">
 
@@ -70,41 +68,7 @@ toc: true
 <figcaption>AWS 보안 서비스 개요 - Python diagrams로 생성</figcaption>
 </figure>
 
-
-
 컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
-
-```mermaid
-graph LR
-    subgraph Dev["Dev Phase"]
-        Code["Code: Secure Dockerfile"]
-        Build["Build: Image Scanning"]
-    end
-    
-    subgraph Sec["Sec Phase"]
-        Scan["Security Scan: Trivy, Snyk"]
-        Policy["Policy Check: K8s YAML Validation"]
-    end
-    
-    subgraph Ops["Ops Phase"]
-        Deploy["Deploy: Secure Deployment"]
-        Monitor["Monitor: Runtime Security"]
-    end
-    
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
-    
-    style Code fill:#e1f5ff
-    style Build fill:#fff4e1
-    style Scan fill:#ffebee
-    style Policy fill:#fff4e1
-    style Deploy fill:#e8f5e9
-    style Monitor fill:#f3e5f5
-```
 
 ## 1. 클라우드 인프라의 본질
 
@@ -229,36 +193,6 @@ graph LR
 
 #### 컨테이너 보안컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
-
 | 보안 영역 | 기능 | 설명 |
 |----------|------|------|
 | **이미지 스캔** | 빌드 시점 취약점 탐지 | CI/CD 파이프라인에 이미지 스캔 통합 |
@@ -271,30 +205,7 @@ graph TB
 | **Credential Tracking** | 자격 증명 추적 및 관리 | 자격 증명 유출 탐지 |
 | **User Namespaces** | Pod 사용자 네임스페이스 격리 | 컨테이너 탈출 위험 감소 |
 
-
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
-
-```mermaid
-graph TB
-    subgraph Host["Host System"]
-        HostRoot["Host Root User: UID 0"]
-        HostUser["Host Non-root User: UID 1000"]
-    end
-    
-    subgraph Container["Container"]
-        ContainerRoot["Container Root: UID 0"]
-        ContainerApp["Container App: UID 1000"]
-    end
-    
-    ContainerRoot ->|"User Namespace Mapping"| HostUser
-    ContainerApp ->|"Direct Mapping"| HostUser
-    HostRoot ->|"Isolated"| ContainerRoot
-    
-    style HostRoot fill:#ffebee
-    style HostUser fill:#e8f5e9
-    style ContainerRoot fill:#fff4e1
-    style ContainerApp fill:#e1f5ff
-```
 
 | **Pod Certificates for mTLS** | Pod 간 상호 TLS 인증 | 네트워크 트래픽 암호화 |
 

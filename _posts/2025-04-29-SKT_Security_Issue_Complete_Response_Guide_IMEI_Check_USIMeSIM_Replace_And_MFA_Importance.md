@@ -58,52 +58,17 @@ toc: true
 </div>
 </div>
 
-
 ## 서론
 
 안녕하세요! 여러분의 IT 라이프를 위한 꿀팁을 전하는 블로거입니다. 최근 SK텔레콤 USIM 정보 유출 사태로 아이폰과 안드로이드 스마트폰 사용자 여러분 모두 불안감이 크실 텐데요, 특히 이번 사태의 핵심 위협인 SIM 스와핑/복제의 위험성과 이를 효과적으로 방어할 수 있는 OTP/MFA의 중요성에 대해 확실히 짚고 넘어가야 할 필요가 있습니다. 오늘은 IMEI 확인, 안전한 USIM/eSIM 교체..
 
 이 글에서는 SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성에 대해 실무 중심으로 상세히 다룹니다.
 
-
 <img src="{{ '/assets/images/2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_and_MFA_Importance_image.png' | relative_url }}" alt="SKT Security Issue Complete Response Guide: IMEI Check USIM eSIM Replacement and MFA Importance" loading="lazy" class="post-image">
-
-
-
 
 컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
 
-```mermaid
-graph LR
-    subgraph Dev["Dev Phase"]
-        Code["Code: Secure Dockerfile"]
-        Build["Build: Image Scanning"]
-    end
-    
-    subgraph Sec["Sec Phase"]
-        Scan["Security Scan: Trivy, Snyk"]
-        Policy["Policy Check: K8s YAML Validation"]
-    end
-    
-    subgraph Ops["Ops Phase"]
-        Deploy["Deploy: Secure Deployment"]
-        Monitor["Monitor: Runtime Security"]
-    end
-    
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
-    
-    style Code fill:#e1f5ff
-    style Build fill:#fff4e1
-    style Scan fill:#ffebee
-    style Policy fill:#fff4e1
-    style Deploy fill:#e8f5e9
-    style Monitor fill:#f3e5f5
-```## 1. 개요
+## 1. 개요
 
 ### 1.1 배경 및 필요성
 
@@ -132,38 +97,7 @@ graph LR
 
 #### 단계 2: 보안 구성
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 보안 설정을 구성합니다:
 

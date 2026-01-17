@@ -58,52 +58,17 @@ toc: true
 </div>
 </div>
 
-
 ## 서론
 
 안녕하세요! 여러분의 IT 라이프를 위한 꿀팁을 전하는 블로거입니다. 카페, 도서관 등 공용 PC를 사용해야 할 때 개인 정보나 계정 보안 때문에 찜찜했던 경험, 다들 있으시죠? 비밀번호 입력도 조심스럽고, 로그아웃은 제대로 했는지 불안하기도 하고요. 오늘은 이러한 걱정을 덜어줄 강력한 인증 및 암호 관리 방법들을 종합적으로 알아보고, 공용 PC에서도 개인 정보를 안전하게 지키는 방법을 소개해 드리려고 합니다! ..
 
 이 글에서는 공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법에 대해 실무 중심으로 상세히 다룹니다.
 
-
 <img src="{{ '/assets/images/2025-04-30-Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage_image.png' | relative_url }}" alt="Safely on Public PC: Passkey OTP Strong Password Management Usage" loading="lazy" class="post-image">
-
-
-
 
 컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
 
-```mermaid
-graph LR
-    subgraph Dev["Dev Phase"]
-        Code["Code: Secure Dockerfile"]
-        Build["Build: Image Scanning"]
-    end
-    
-    subgraph Sec["Sec Phase"]
-        Scan["Security Scan: Trivy, Snyk"]
-        Policy["Policy Check: K8s YAML Validation"]
-    end
-    
-    subgraph Ops["Ops Phase"]
-        Deploy["Deploy: Secure Deployment"]
-        Monitor["Monitor: Runtime Security"]
-    end
-    
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
-    
-    style Code fill:#e1f5ff
-    style Build fill:#fff4e1
-    style Scan fill:#ffebee
-    style Policy fill:#fff4e1
-    style Deploy fill:#e8f5e9
-    style Monitor fill:#f3e5f5
-```## 1. 개요
+## 1. 개요
 
 ### 1.1 배경 및 필요성
 
@@ -132,38 +97,7 @@ graph LR
 
 #### 단계 2: 보안 구성
 
-
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
-
 
 보안 설정을 구성합니다:
 
