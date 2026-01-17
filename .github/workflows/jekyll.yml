@@ -38,8 +38,25 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
 
+      - name: Validate Jekyll Configuration
+        run: |
+          bundle exec jekyll doctor || true
+          echo "✅ Jekyll configuration validation completed"
+
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: |
+          set -e
+          echo "🔍 Building Jekyll site..."
+          echo "Ruby version: $(ruby -v)"
+          echo "Bundler version: $(bundle -v)"
+          echo "Jekyll version: $(bundle exec jekyll -v)"
+          echo ""
+          echo "📦 Installing dependencies..."
+          bundle install
+          echo ""
+          echo "🏗️  Building site..."
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --verbose --trace
+          echo "✅ Build completed successfully"
         env:
           JEKYLL_ENV: production
           LANG: en_US.UTF-8
