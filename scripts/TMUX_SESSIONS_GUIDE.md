@@ -6,8 +6,8 @@ tech.2twodragon.com과 edu.2twodragon.com 블로그 작업을 위한 tmux 세션
 
 | 세션명 | 블로그 | 디렉토리 |
 |--------|--------|----------|
-| `blog-tech` | tech.2twodragon.com | `/Users/twodragon/twodragon114@gmail.com - Google Drive/내 드라이브/tech-blog` |
-| `blog-edu` | edu.2twodragon.com | `/Users/twodragon/twodragon114@gmail.com - Google Drive/내 드라이브/online-course` |
+| `blog-tech` | tech.2twodragon.com | `/xx/tech-blog` |
+| `blog-edu` | edu.2twodragon.com | `/xx/online-course` |
 
 ## 🚀 세션 생성
 
@@ -16,7 +16,7 @@ tech.2twodragon.com과 edu.2twodragon.com 블로그 작업을 위한 tmux 세션
 ./scripts/setup_tmux_sessions.sh
 
 # 또는 절대 경로로
-/Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내\ 드라이브/tech-blog/scripts/setup_tmux_sessions.sh
+/xx/tech-blog/scripts/setup_tmux_sessions.sh
 ```
 
 ## 🔌 세션 연결
@@ -51,10 +51,10 @@ tmux attach -t blog-edu
 
 ```bash
 # tech 블로그 프로젝트 열기
-code "/Users/twodragon/twodragon114@gmail.com - Google Drive/내 드라이브/tech-blog"
+code "/xx/tech-blog"
 
 # edu 블로그 프로젝트 열기
-code "/Users/twodragon/twodragon114@gmail.com - Google Drive/내 드라이브/online-course"
+code "/xx/online-course"
 ```
 
 또는 Cursor에서:
