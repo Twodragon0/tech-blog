@@ -7,7 +7,7 @@
   <script>
   (function(){
     var _e=console.error,_w=console.warn;
-    function sup(m){if(typeof m!=='string')m=(m&&m.message)||String(m);return /runtime\.lastError|message port closed|Framing.*violates.*Content Security Policy|frame-ancestors\s*'self'|report-only.*frame-ancestors|violation has been logged|giscus\.app.*404|discussions.*404|GET.*giscus\.app.*404/i.test(m);}
+    function sup(m){if(typeof m!=='string')m=(m&&m.message)||String(m);return /runtime\.lastError|message port closed|Framing.*violates.*Content Security Policy|frame-ancestors\s*'self'|report-only.*frame-ancestors|violation has been logged|giscus\.app.*404|discussions.*404|GET.*giscus\.app.*404|Unexpected token.*at.*:.*\d+.*:\d+/i.test(m);}
     console.error=function(){if(arguments[0]!==undefined&&sup(arguments[0]))return;_e.apply(console,arguments);};
     console.warn=function(){if(arguments[0]!==undefined&&sup(arguments[0]))return;_w.apply(console,arguments);};
   })();
