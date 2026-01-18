@@ -974,5 +974,13 @@ Docker & Kubernetes 보안은 DevSecOps의 핵심입니다. 컨테이너 보안�
 
 ---
 
-**마지막 업데이트**: 2026-01-15  
-**작성 기준**: 클라우드 보안 과정 8기 7주차 강의 자료
+<div class="post-metadata">
+  <div class="metadata-item">
+    <strong>마지막 업데이트</strong>
+    <span>2026-01-15</span>
+  </div>
+  <div class="metadata-item">
+    <strong>작성 기준</strong>
+    <span>클라우드 보안 과정 8기 7주차 강의 자료</span>
+  </div>
+</div>
