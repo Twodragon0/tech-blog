@@ -157,15 +157,19 @@ jobs:
   deploy:
     # PR에서는 배포하지 않음 (비용 절감)
     # CI 최적화: 관련 파일 변경 시에만 배포
+    # build 작업이 성공했을 때만 배포 (명시적 조건 추가)
     if: |
+      always() &&
       github.event_name == 'push' && 
       github.ref == 'refs/heads/main' &&
-      (needs.check-changes.outputs.should-build == 'true' || needs.check-changes.outputs.should-build == '')
+      (needs.check-changes.outputs.should-build == 'true' || needs.check-changes.outputs.should-build == '') &&
+      needs.build.result == 'success'
     
     # 동시 배포 방지: 같은 브랜치의 배포는 큐에 대기
+    # cancel-in-progress: false로 설정하여 이전 빌드가 완료될 때까지 대기
     concurrency:
-      group: pages-deploy
-      cancel-in-progress: true
+      group: pages-deploy-${{ github.ref }}
+      cancel-in-progress: false
     
     # 배포 job 타임아웃: GitHub Pages 배포는 최대 15분까지 소요될 수 있음
     timeout-minutes: 15
@@ -179,12 +183,21 @@ jobs:
       pages: write
       id-token: write
     steps:
+      - name: Check build status
+        run: |
+          if [ "${{ needs.build.result }}" != "success" ]; then
+            echo "❌ Build job failed or was cancelled. Skipping deployment."
+            exit 1
+          fi
+          echo "✅ Build job succeeded. Proceeding with deployment."
+      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         # deploy-pages 액션 타임아웃: 10분 (600000ms)
         # 액션 내부에서 deployment_queued 상태를 모니터링하며 대기
         timeout-minutes: 10
+        continue-on-error: false
       
       - name: Deployment Info
         if: success()

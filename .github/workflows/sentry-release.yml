@@ -105,29 +105,64 @@ jobs:
           
           # Sentry API 연결 테스트 (프로젝트 정보 조회)
           echo "🔗 Testing Sentry API connection..."
-          RESPONSE=$(curl -s --max-time 10 -w "\n%{http_code}" \
-            -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-            -H "Content-Type: application/json" \
-            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/" 2>&1)
-          CURL_EXIT_CODE=$?
           
-          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
-          BODY=$(echo "$RESPONSE" | sed '$d')
+          # 재시도 로직 포함 (타임아웃 처리)
+          MAX_RETRIES=3
+          RETRY_COUNT=0
+          RESPONSE=""
+          HTTP_CODE=""
+          BODY=""
+          CURL_EXIT_CODE=0
           
-          # curl 실패 및 HTTP 코드 유효성 검사
-          if [ "$CURL_EXIT_CODE" -ne 0 ]; then
-            if [ -z "$HTTP_CODE" ] || [ "$HTTP_CODE" = "000" ] || ! echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
-              echo "❌ Network error or timeout when connecting to Sentry API"
-              echo "   curl exit code: $CURL_EXIT_CODE"
-              echo "   Response preview: $(echo "$RESPONSE" | head -n 5)"
-              echo ""
-              echo "💡 해결 방법:"
-              echo "1. 네트워크 연결 확인"
-              echo "2. Sentry API 상태 확인: https://status.sentry.io/"
-              echo "3. 잠시 후 다시 시도 (워크플로우 재실행)"
-              exit 1
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+            RESPONSE=$(curl -s --max-time 15 -w "\n%{http_code}" \
+              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+              -H "Content-Type: application/json" \
+              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/" 2>&1)
+            CURL_EXIT_CODE=$?
+            
+            HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+            BODY=$(echo "$RESPONSE" | sed '$d')
+            
+            # curl 성공 및 HTTP 코드 유효성 검사
+            if [ "$CURL_EXIT_CODE" -eq 0 ] && echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
+              break  # 성공적으로 응답 받음
+            elif [ "$CURL_EXIT_CODE" -eq 28 ]; then
+              # 타임아웃 에러 (exit code 28)
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "⚠️  Timeout occurred (attempt $RETRY_COUNT/$MAX_RETRIES), retrying in 2 seconds..."
+                sleep 2
+              else
+                echo "❌ Network timeout after $MAX_RETRIES attempts when connecting to Sentry API"
+                echo "   curl exit code: $CURL_EXIT_CODE"
+                echo "   Response preview: $(echo "$RESPONSE" | head -n 5)"
+                echo ""
+                echo "💡 해결 방법:"
+                echo "1. 네트워크 연결 확인"
+                echo "2. Sentry API 상태 확인: https://status.sentry.io/"
+                echo "3. 잠시 후 다시 시도 (워크플로우 재실행)"
+                exit 1
+              fi
+            else
+              # 다른 curl 에러
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "⚠️  Network error (curl exit: $CURL_EXIT_CODE, attempt $RETRY_COUNT/$MAX_RETRIES), retrying..."
+                sleep 2
+              else
+                echo "❌ Network error after $MAX_RETRIES attempts when connecting to Sentry API"
+                echo "   curl exit code: $CURL_EXIT_CODE"
+                echo "   Response preview: $(echo "$RESPONSE" | head -n 5)"
+                echo ""
+                echo "💡 해결 방법:"
+                echo "1. 네트워크 연결 확인"
+                echo "2. Sentry API 상태 확인: https://status.sentry.io/"
+                echo "3. 잠시 후 다시 시도 (워크플로우 재실행)"
+                exit 1
+              fi
             fi
-          fi
+          done
           
           # HTTP 코드 유효성 검사
           if ! echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
@@ -142,12 +177,56 @@ jobs:
             
             # Token 권한 확인 (releases API 테스트)
             echo "🔍 Checking token permissions for releases..."
-            RELEASE_TEST_CODE=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" \
-              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-              -H "Content-Type: application/json" \
-              -X GET \
-              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/")
             
+            # 재시도 로직 포함 (타임아웃 처리)
+            MAX_RETRIES=3
+            RETRY_COUNT=0
+            RELEASE_TEST_CODE=""
+            CURL_EXIT_CODE=0
+            
+            while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+              RELEASE_TEST_RESPONSE=$(curl -s --max-time 15 -w "\n%{http_code}" \
+                -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+                -H "Content-Type: application/json" \
+                -X GET \
+                "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/" 2>&1)
+              CURL_EXIT_CODE=$?
+              
+              RELEASE_TEST_CODE=$(echo "$RELEASE_TEST_RESPONSE" | tail -n1)
+              RELEASE_TEST_BODY=$(echo "$RELEASE_TEST_RESPONSE" | sed '$d')
+              
+              # curl 성공 및 HTTP 코드 유효성 검사
+              if [ "$CURL_EXIT_CODE" -eq 0 ] && echo "$RELEASE_TEST_CODE" | grep -qE '^[0-9]{3}$'; then
+                break  # 성공적으로 응답 받음
+              elif [ "$CURL_EXIT_CODE" -eq 28 ]; then
+                # 타임아웃 에러 (exit code 28)
+                RETRY_COUNT=$((RETRY_COUNT + 1))
+                if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                  echo "⚠️  Timeout occurred (attempt $RETRY_COUNT/$MAX_RETRIES), retrying in 2 seconds..."
+                  sleep 2
+                else
+                  echo "⚠️  Timeout after $MAX_RETRIES attempts when checking releases permission"
+                  echo "   This may be due to network issues or Sentry API slowness"
+                  echo "   Continuing workflow anyway (release creation may still work)"
+                  RELEASE_TEST_CODE="TIMEOUT"
+                  break
+                fi
+              else
+                # 다른 curl 에러
+                RETRY_COUNT=$((RETRY_COUNT + 1))
+                if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                  echo "⚠️  Network error (curl exit: $CURL_EXIT_CODE, attempt $RETRY_COUNT/$MAX_RETRIES), retrying..."
+                  sleep 2
+                else
+                  echo "⚠️  Network error after $MAX_RETRIES attempts (curl exit: $CURL_EXIT_CODE)"
+                  echo "   Continuing workflow anyway"
+                  RELEASE_TEST_CODE="NETWORK_ERROR"
+                  break
+                fi
+              fi
+            done
+            
+            # HTTP 코드 기반 처리
             if [ "$RELEASE_TEST_CODE" = "200" ] || [ "$RELEASE_TEST_CODE" = "404" ]; then
               echo "✅ Token has 'project:releases' permission"
             elif [ "$RELEASE_TEST_CODE" = "403" ]; then
@@ -162,9 +241,19 @@ jobs:
               echo "   ✅ org:read"
               echo "3. 새 Token을 GitHub Secrets에 업데이트:"
               echo "   Settings > Secrets and variables > Actions > SENTRY_AUTH_TOKEN > Update"
-              exit 1
+              # Free 티어에서는 권한 확인 실패를 치명적 오류로 처리하지 않음
+              echo "⚠️  Continuing workflow despite permission check failure"
+            elif [ "$RELEASE_TEST_CODE" = "TIMEOUT" ] || [ "$RELEASE_TEST_CODE" = "NETWORK_ERROR" ]; then
+              echo "⚠️  Could not verify token permissions due to network issues"
+              echo "   Continuing workflow - release creation will be attempted anyway"
             else
-              echo "⚠️  Unexpected response when checking releases permission (HTTP $RELEASE_TEST_CODE)"
+              if echo "$RELEASE_TEST_CODE" | grep -qE '^[0-9]{3}$'; then
+                echo "⚠️  Unexpected response when checking releases permission (HTTP $RELEASE_TEST_CODE)"
+                echo "   Continuing workflow anyway"
+              else
+                echo "⚠️  Could not determine HTTP status (response: $RELEASE_TEST_CODE)"
+                echo "   Continuing workflow anyway"
+              fi
             fi
           elif [ "$HTTP_CODE" = "401" ]; then
             echo "❌ Authentication failed (HTTP 401)"
@@ -381,25 +470,66 @@ jobs:
           RELEASE_VERSION="${{ github.sha }}"
           echo "🔍 Checking if release $RELEASE_VERSION already exists..."
           
-          HTTP_CODE=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" \
-            -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-            -H "Content-Type: application/json" \
-            "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/" 2>&1)
-          CURL_EXIT_CODE=$?
+          # 재시도 로직 포함 (타임아웃 처리)
+          MAX_RETRIES=3
+          RETRY_COUNT=0
+          HTTP_CODE=""
+          CURL_EXIT_CODE=0
           
-          # curl 실패 처리
-          if [ "$CURL_EXIT_CODE" -ne 0 ] || ! echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
-            echo "⚠️  Network error when checking release (curl exit: $CURL_EXIT_CODE)"
-            echo "   Will attempt to create release anyway"
-            echo "exists=false" >> $GITHUB_OUTPUT
-          elif [ "$HTTP_CODE" = "200" ]; then
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+            HTTP_CODE=$(curl -s --max-time 15 -o /dev/null -w "%{http_code}" \
+              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+              -H "Content-Type: application/json" \
+              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/" 2>&1)
+            CURL_EXIT_CODE=$?
+            
+            # curl 성공 및 HTTP 코드 유효성 검사
+            if [ "$CURL_EXIT_CODE" -eq 0 ] && echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
+              break  # 성공적으로 응답 받음
+            elif [ "$CURL_EXIT_CODE" -eq 28 ]; then
+              # 타임아웃 에러 (exit code 28)
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "⚠️  Timeout occurred (attempt $RETRY_COUNT/$MAX_RETRIES), retrying in 2 seconds..."
+                sleep 2
+              else
+                echo "⚠️  Timeout after $MAX_RETRIES attempts when checking release"
+                echo "   Will attempt to create release anyway"
+                HTTP_CODE="TIMEOUT"
+                break
+              fi
+            else
+              # 다른 curl 에러
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "⚠️  Network error (curl exit: $CURL_EXIT_CODE, attempt $RETRY_COUNT/$MAX_RETRIES), retrying..."
+                sleep 2
+              else
+                echo "⚠️  Network error after $MAX_RETRIES attempts (curl exit: $CURL_EXIT_CODE)"
+                echo "   Will attempt to create release anyway"
+                HTTP_CODE="NETWORK_ERROR"
+                break
+              fi
+            fi
+          done
+          
+          # HTTP 코드 기반 처리
+          if [ "$HTTP_CODE" = "200" ]; then
             echo "ℹ️  Release $RELEASE_VERSION already exists"
             echo "exists=true" >> $GITHUB_OUTPUT
           elif [ "$HTTP_CODE" = "404" ]; then
             echo "✅ Release $RELEASE_VERSION does not exist, will create new"
             echo "exists=false" >> $GITHUB_OUTPUT
+          elif [ "$HTTP_CODE" = "TIMEOUT" ] || [ "$HTTP_CODE" = "NETWORK_ERROR" ]; then
+            echo "⚠️  Could not check release status due to network issues"
+            echo "   Will attempt to create release anyway"
+            echo "exists=false" >> $GITHUB_OUTPUT
           else
-            echo "⚠️  Unexpected response (HTTP $HTTP_CODE), will attempt to create"
+            if echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
+              echo "⚠️  Unexpected response (HTTP $HTTP_CODE), will attempt to create"
+            else
+              echo "⚠️  Could not determine HTTP status, will attempt to create"
+            fi
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
       
@@ -445,12 +575,13 @@ jobs:
           # 최종 상태 확인 (재시도 로직 포함)
           MAX_RETRIES=3
           RETRY_COUNT=0
-          HTTP_CODE=0
+          HTTP_CODE=""
+          CURL_EXIT_CODE=0
           
           while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
             sleep $((RETRY_COUNT + 1))  # 점진적 대기 (1초, 2초, 3초)
             
-            HTTP_CODE=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" \
+            HTTP_CODE=$(curl -s --max-time 15 -o /dev/null -w "%{http_code}" \
               -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
               -H "Content-Type: application/json" \
               "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/" 2>&1)
@@ -463,16 +594,32 @@ jobs:
                 echo "✅ Continuing workflow..."
                 echo "success=true" >> $GITHUB_OUTPUT
                 exit 0
+              else
+                RETRY_COUNT=$((RETRY_COUNT + 1))
+                if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                  echo "⚠️  Retry $RETRY_COUNT/$MAX_RETRIES: Release not found (HTTP $HTTP_CODE)"
+                fi
+              fi
+            elif [ "$CURL_EXIT_CODE" -eq 28 ]; then
+              # 타임아웃 에러
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "⚠️  Timeout during retry $RETRY_COUNT/$MAX_RETRIES, retrying..."
+              else
+                echo "⚠️  Timeout after $MAX_RETRIES attempts"
+                HTTP_CODE="TIMEOUT"
+                break
               fi
             else
-              echo "⚠️  Network error during retry $RETRY_COUNT/$MAX_RETRIES (curl exit: $CURL_EXIT_CODE)"
-            fi
-            
-            RETRY_COUNT=$((RETRY_COUNT + 1))
-            if echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
-              echo "⚠️  Retry $RETRY_COUNT/$MAX_RETRIES: Release not found (HTTP $HTTP_CODE)"
-            else
-              echo "⚠️  Retry $RETRY_COUNT/$MAX_RETRIES: Network error"
+              # 다른 네트워크 에러
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "⚠️  Network error during retry $RETRY_COUNT/$MAX_RETRIES (curl exit: $CURL_EXIT_CODE)"
+              else
+                echo "⚠️  Network error after $MAX_RETRIES attempts (curl exit: $CURL_EXIT_CODE)"
+                HTTP_CODE="NETWORK_ERROR"
+                break
+              fi
             fi
           done
           
@@ -504,12 +651,13 @@ jobs:
           RELEASE_VERSION="${{ github.sha }}"
           
           # 최종 릴리스 존재 여부 확인 (재시도 포함)
-          MAX_RETRIES=2
+          MAX_RETRIES=3
           RETRY_COUNT=0
-          HTTP_CODE=0
+          HTTP_CODE=""
+          CURL_EXIT_CODE=0
           
           while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-            HTTP_CODE=$(curl -s --max-time 10 -o /dev/null -w "%{http_code}" \
+            HTTP_CODE=$(curl -s --max-time 15 -o /dev/null -w "%{http_code}" \
               -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
               -H "Content-Type: application/json" \
               "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/" 2>&1)
@@ -518,13 +666,28 @@ jobs:
             # HTTP 코드 유효성 검사
             if [ "$CURL_EXIT_CODE" -eq 0 ] && echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$' && [ "$HTTP_CODE" = "200" ]; then
               break
-            fi
-            
-            if [ $RETRY_COUNT -lt $((MAX_RETRIES - 1)) ]; then
-              sleep 2
+            elif [ "$CURL_EXIT_CODE" -eq 28 ]; then
+              # 타임아웃 에러
               RETRY_COUNT=$((RETRY_COUNT + 1))
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "⚠️  Timeout occurred (attempt $RETRY_COUNT/$MAX_RETRIES), retrying in 2 seconds..."
+                sleep 2
+              else
+                echo "⚠️  Timeout after $MAX_RETRIES attempts"
+                HTTP_CODE="TIMEOUT"
+                break
+              fi
             else
-              break
+              # 다른 네트워크 에러
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "⚠️  Network error (curl exit: $CURL_EXIT_CODE, attempt $RETRY_COUNT/$MAX_RETRIES), retrying..."
+                sleep 2
+              else
+                echo "⚠️  Network error after $MAX_RETRIES attempts"
+                HTTP_CODE="NETWORK_ERROR"
+                break
+              fi
             fi
           done
           
@@ -541,8 +704,23 @@ jobs:
             echo "Org: twodragon"
             echo ""
             echo "View release: https://sentry.io/organizations/twodragon/releases/$RELEASE_VERSION/"
+          elif [ "$HTTP_CODE" = "TIMEOUT" ] || [ "$HTTP_CODE" = "NETWORK_ERROR" ]; then
+            echo "⚠️  Could not verify release status due to network issues"
+            echo "Release: $RELEASE_VERSION"
+            echo "Issue: $HTTP_CODE"
+            echo ""
+            echo "💡 참고:"
+            echo "- 네트워크 문제로 Release 상태를 확인할 수 없습니다"
+            echo "- Release는 생성되었을 수 있지만 확인할 수 없습니다"
+            echo "- 이는 워크플로우 실패로 처리되지 않습니다 (continue-on-error)"
+            echo "- Release가 없어도 Sentry 로그 수집은 정상 작동합니다"
+            echo "- 워크플로우는 성공으로 처리됩니다"
           else
-            echo "⚠️  Sentry Release not found (HTTP $HTTP_CODE)"
+            if echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
+              echo "⚠️  Sentry Release not found (HTTP $HTTP_CODE)"
+            else
+              echo "⚠️  Could not determine release status (response: $HTTP_CODE)"
+            fi
             echo "Release: $RELEASE_VERSION"
             echo "HTTP Status: $HTTP_CODE"
             echo ""
