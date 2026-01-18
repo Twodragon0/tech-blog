@@ -89,6 +89,18 @@ def check_link_exists(session: requests.Session, url: str, timeout: int = 10) ->
     try:
         parsed = urlparse(url)
         
+        # Security: Validate URL components before processing
+        if not parsed.netloc or not parsed.scheme:
+            result = {'exists': False, 'status_code': None, 'error': 'Invalid URL format'}
+            LINK_RESULTS[url] = result
+            return False, None, 'Invalid URL format'
+        
+        # Security: Only allow http/https protocols
+        if parsed.scheme not in ['http', 'https']:
+            result = {'exists': False, 'status_code': None, 'error': 'Invalid protocol'}
+            LINK_RESULTS[url] = result
+            return False, None, 'Invalid protocol'
+        
         # 특수 URL 처리
         if 'twodragon.tistory.com' in parsed.netloc:
             # 티스토리 링크는 존재한다고 가정 (인증 필요할 수 있음)

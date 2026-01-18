@@ -2227,7 +2227,6 @@ def text_to_speech_with_gemini(script: str, output_path: Path) -> bool:
         return False
 
 
-<<<<<<< Updated upstream
 def adjust_audio_speed(input_path: Path, output_path: Path, speed: float = 1.5) -> bool:
     """FFmpeg를 사용하여 오디오 속도를 조정합니다."""
     try:
@@ -2358,7 +2357,98 @@ def text_to_speech(script: str, output_path: Path) -> bool:
     2. Coqui TTS (로컬, 완전 무료, 한국어 지원)
     3. ElevenLabs (유료, 최고 품질)
     4. Gemini TTS (유료, 폴백)
-=======
+    """
+    if not script:
+        log_message("❌ 대본이 비어있습니다.", "ERROR")
+        return False
+    
+    # 1순위: Edge-TTS (무료, API 키 불필요)
+    if EDGE_TTS_AVAILABLE:
+        if text_to_speech_with_edge_tts(script, output_path):
+            return True
+        log_message("⚠️ Edge-TTS 실패, 다음 옵션 시도...", "WARNING")
+    
+    # 2순위: Coqui TTS (로컬, 완전 무료)
+    if COQUI_TTS_AVAILABLE:
+        if text_to_speech_with_coqui_tts(script, output_path):
+            return True
+        log_message("⚠️ Coqui TTS 실패, 다음 옵션 시도...", "WARNING")
+    
+    # 3순위: ElevenLabs (유료, 최고 품질)
+    if ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID:
+        try:
+            log_message("🎤 ElevenLabs API로 음성 생성 중... (비용 최적화: ElevenLabs 우선)")
+            
+            url = f"{ELEVENLABS_API_URL}/{ELEVENLABS_VOICE_ID}"
+            headers = {
+                "xi-api-key": ELEVENLABS_API_KEY,
+                "Content-Type": "application/json"
+            }
+            
+            data = {
+                "text": script,
+                "model_id": "eleven_multilingual_v2",  # 한국어 지원 모델
+                "voice_settings": {
+                    "stability": 0.5,
+                    "similarity_boost": 0.75,
+                    "style": 0.0,
+                    "use_speaker_boost": True
+                }
+            }
+            
+            usage = usage_stats["elevenlabs"]
+            usage.requests += 1
+            
+            response = requests.post(
+                url,
+                json=data,
+                headers=headers,
+                timeout=60
+            )
+            
+            response.raise_for_status()
+            
+            # 임시 파일에 저장
+            temp_path = output_path.with_suffix(".tmp.mp3")
+            with open(temp_path, "wb") as f:
+                f.write(response.content)
+            
+            # 오디오 속도 조정 (1.5배속)
+            if AUDIO_SPEED_MULTIPLIER != 1.0:
+                if adjust_audio_speed(temp_path, output_path, AUDIO_SPEED_MULTIPLIER):
+                    temp_path.unlink()  # 임시 파일 삭제
+                else:
+                    # 속도 조정 실패 시 원본 파일 사용
+                    temp_path.rename(output_path)
+            else:
+                temp_path.rename(output_path)
+            
+            file_size = output_path.stat().st_size
+            log_message(f"✅ ElevenLabs 음성 생성 완료: {output_path} ({file_size:,} bytes, {AUDIO_SPEED_MULTIPLIER}x 속도)")
+            return True
+            
+        except requests.exceptions.RequestException as e:
+            usage = usage_stats["elevenlabs"]
+            usage.errors += 1
+            log_message(f"❌ ElevenLabs API 요청 실패: {str(e)}", "ERROR")
+            if hasattr(e, 'response') and e.response is not None:
+                try:
+                    error_detail = e.response.json()
+                    log_message(f"   응답 내용: {json.dumps(error_detail, ensure_ascii=False)}", "ERROR")
+                except:
+                    log_message(f"   응답 내용: {e.response.text[:200]}", "ERROR")
+            # ElevenLabs 실패 시 Gemini로 폴백
+            log_message("🔄 ElevenLabs 실패, Gemini TTS로 폴백...", "WARNING")
+    
+    # 4순위: Gemini TTS (유료, 폴백)
+    if GEMINI_API_KEY:
+        if text_to_speech_with_gemini(script, output_path):
+            return True
+    
+    log_message("❌ 모든 TTS 옵션이 실패했습니다.", "ERROR")
+    return False
+
+
 def create_chirp3_voice_cloning_key(reference_audio_path: Path, consent_audio_path: Path) -> Optional[str]:
     """
     Chirp 3: Instant Custom Voice를 위한 Voice Cloning Key를 생성합니다.
@@ -2471,7 +2561,6 @@ def text_to_speech_with_chirp3(script: str, output_path: Path) -> bool:
     """
     Chirp 3: Instant Custom Voice를 사용하여 텍스트를 음성으로 변환합니다.
     자신의 목소리로 클로닝된 음성을 사용할 수 있습니다.
->>>>>>> Stashed changes
     
     Args:
         script: 대본 텍스트
@@ -2480,93 +2569,9 @@ def text_to_speech_with_chirp3(script: str, output_path: Path) -> bool:
     Returns:
         성공 시 True, 실패 시 False
     """
-    if not script:
-        log_message("❌ 대본이 비어있습니다.", "ERROR")
-        return False
-    
-<<<<<<< Updated upstream
-    # 1순위: Edge-TTS (무료, API 키 불필요)
-    if EDGE_TTS_AVAILABLE:
-        if text_to_speech_with_edge_tts(script, output_path):
-            return True
-        log_message("⚠️ Edge-TTS 실패, 다음 옵션 시도...", "WARNING")
-    
-    # 2순위: Coqui TTS (로컬, 완전 무료)
-    if COQUI_TTS_AVAILABLE:
-        if text_to_speech_with_coqui_tts(script, output_path):
-            return True
-        log_message("⚠️ Coqui TTS 실패, 다음 옵션 시도...", "WARNING")
-    
-    # 3순위: ElevenLabs (유료, 최고 품질)
-    if ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID:
-        try:
-            log_message("🎤 ElevenLabs API로 음성 생성 중... (비용 최적화: ElevenLabs 우선)")
-            
-            url = f"{ELEVENLABS_API_URL}/{ELEVENLABS_VOICE_ID}"
-            headers = {
-                "xi-api-key": ELEVENLABS_API_KEY,
-                "Content-Type": "application/json"
-            }
-            
-            data = {
-                "text": script,
-                "model_id": "eleven_multilingual_v2",  # 한국어 지원 모델
-                "voice_settings": {
-                    "stability": 0.5,
-                    "similarity_boost": 0.75,
-                    "style": 0.0,
-                    "use_speaker_boost": True
-                }
-            }
-            
-            usage = usage_stats["elevenlabs"]
-            usage.requests += 1
-            
-            response = requests.post(
-                url,
-                json=data,
-                headers=headers,
-                timeout=60
-            )
-            
-            response.raise_for_status()
-            
-            # 임시 파일에 저장
-            temp_path = output_path.with_suffix(".tmp.mp3")
-            with open(temp_path, "wb") as f:
-                f.write(response.content)
-            
-            # 오디오 속도 조정 (1.5배속)
-            if AUDIO_SPEED_MULTIPLIER != 1.0:
-                if adjust_audio_speed(temp_path, output_path, AUDIO_SPEED_MULTIPLIER):
-                    temp_path.unlink()  # 임시 파일 삭제
-                else:
-                    # 속도 조정 실패 시 원본 파일 사용
-                    temp_path.rename(output_path)
-            else:
-                temp_path.rename(output_path)
-            
-            file_size = output_path.stat().st_size
-            log_message(f"✅ ElevenLabs 음성 생성 완료: {output_path} ({file_size:,} bytes, {AUDIO_SPEED_MULTIPLIER}x 속도)")
-            return True
-            
-        except requests.exceptions.RequestException as e:
-            usage = usage_stats["elevenlabs"]
-            usage.errors += 1
-            log_message(f"❌ ElevenLabs API 요청 실패: {str(e)}", "ERROR")
-            if hasattr(e, 'response') and e.response is not None:
-                try:
-                    error_detail = e.response.json()
-                    log_message(f"   응답 내용: {json.dumps(error_detail, ensure_ascii=False)}", "ERROR")
-                except:
-                    log_message(f"   응답 내용: {e.response.text[:200]}", "ERROR")
-            # ElevenLabs 실패 시 Gemini로 폴백
-            log_message("🔄 ElevenLabs 실패, Gemini TTS로 폴백...", "WARNING")
-=======
     if not CHIRP3_VOICE_CLONING_KEY:
         log_message("❌ CHIRP3_VOICE_CLONING_KEY 환경 변수가 설정되지 않았습니다.", "ERROR")
         return False
->>>>>>> Stashed changes
     
     if not GOOGLE_CLOUD_PROJECT_ID:
         log_message("❌ GOOGLE_CLOUD_PROJECT 환경 변수가 설정되지 않았습니다.", "ERROR")

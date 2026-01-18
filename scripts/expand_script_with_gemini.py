@@ -17,6 +17,22 @@ from typing import Tuple, List
 import requests
 from datetime import datetime
 
+def mask_sensitive_info(text: str) -> str:
+    """민감 정보 마스킹"""
+    if not text:
+        return text
+    # API 키 마스킹
+    masked = re.sub(r'AIza[0-9A-Za-z_-]{35}', 'AIza***MASKED***', text)
+    masked = re.sub(r'[?&]key=[a-zA-Z0-9_-]+', '?key=***MASKED***', masked)
+    if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
+        masked = masked.replace(GEMINI_API_KEY, '***GEMINI_API_KEY_MASKED***')
+    return masked
+
+def safe_print(message: str) -> None:
+    """안전한 출력 (민감 정보 마스킹)"""
+    safe_message = mask_sensitive_info(message)
+    print(safe_message)
+
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 OUTPUT_DIR = PROJECT_ROOT / "output"
@@ -166,6 +182,7 @@ def expand_script_with_gemini_pro(original_script: str, post_content: str, targe
 - DevSecOps 전문가 관점에서 실무적이고 실용적인 내용으로 작성하세요."""
 
     try:
+        # Security: Don't log URL with API key - construct it but don't print it
         url = f"{GEMINI_PRO_API_URL}?key={GEMINI_API_KEY}"
         
         data = {
@@ -203,19 +220,27 @@ def expand_script_with_gemini_pro(original_script: str, post_content: str, targe
                         print(f"   ✅ Gemini Pro로 대본 확장 완료: {len(expanded_text)}자")
                         return expanded_text
             else:
-                print(f"   ⚠️ Gemini Pro API 응답에 candidates가 없습니다.")
-                print(f"   응답: {json.dumps(result, ensure_ascii=False, indent=2)[:500]}")
+                safe_print(f"   ⚠️ Gemini Pro API 응답에 candidates가 없습니다.")
+                # Security: Mask sensitive info in response
+                safe_response = mask_sensitive_info(json.dumps(result, ensure_ascii=False, indent=2)[:500])
+                safe_print(f"   응답: {safe_response}")
         else:
-            print(f"   ⚠️ Gemini Pro API HTTP 오류: {response.status_code}")
+            safe_print(f"   ⚠️ Gemini Pro API HTTP 오류: {response.status_code}")
             try:
                 error_detail = response.json()
-                print(f"   오류 상세: {json.dumps(error_detail, ensure_ascii=False, indent=2)[:500]}")
+                # Security: Mask sensitive info in error detail
+                safe_error = mask_sensitive_info(json.dumps(error_detail, ensure_ascii=False, indent=2)[:500])
+                safe_print(f"   오류 상세: {safe_error}")
             except:
-                print(f"   응답 본문: {response.text[:500]}")
+                # Security: Mask sensitive info in response text
+                safe_text = mask_sensitive_info(response.text[:500])
+                safe_print(f"   응답 본문: {safe_text}")
         
         return original_script
     except Exception as e:
-        print(f"   ⚠️ Gemini Pro API 오류: {str(e)[:100]}")
+        # Security: Mask sensitive info in error message
+        safe_error = mask_sensitive_info(str(e)[:100])
+        safe_print(f"   ⚠️ Gemini Pro API 오류: {safe_error}")
         return original_script
 
 def segment_for_remotion(text: str, target_duration_per_segment: float = 5.0) -> List[dict]:

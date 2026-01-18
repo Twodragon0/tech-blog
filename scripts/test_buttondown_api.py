@@ -36,7 +36,9 @@ def test_api_connection(api_key: str) -> bool:
     try:
         print("🔍 Testing Buttondown API connection...")
         print(f"   Endpoint: {url}")
-        print(f"   API Key: {api_key[:10]}...{api_key[-4:] if len(api_key) > 14 else '***'}")
+        # Security: Mask API key in logs - only show first 4 and last 4 characters
+        masked_key = f"{api_key[:4]}...{api_key[-4:]}" if len(api_key) > 8 else "***"
+        print(f"   API Key: {masked_key}")
         
         response = requests.get(url, headers=headers, timeout=10)
         

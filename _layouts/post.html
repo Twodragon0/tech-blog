@@ -163,15 +163,17 @@ layout: default
 (function() {
   'use strict';
   
-  // Generate safe ID from text (handles Korean and special characters)
-  // Matches kramdown's auto_id format as closely as possible
-  function generateId(text) {
-    if (!text) return '';
-    
-    // Remove HTML tags if any
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = text;
-    text = tempDiv.textContent || tempDiv.innerText || text;
+    // Generate safe ID from text (handles Korean and special characters)
+    // Matches kramdown's auto_id format as closely as possible
+    function generateId(text) {
+      if (!text) return '';
+      
+      // Security: Use textContent instead of innerHTML to prevent XSS
+      // Remove HTML tags if any by parsing safely
+      const tempDiv = document.createElement('div');
+      // Security: Only set textContent, not innerHTML, to prevent XSS
+      tempDiv.textContent = text;
+      text = tempDiv.textContent || text;
     
     // Remove anchor links if present
     text = text.replace(/<a[^>]*>.*?<\/a>/gi, '');

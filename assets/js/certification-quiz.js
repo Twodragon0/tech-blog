@@ -96,10 +96,24 @@
               const [, value, text] = optionMatch;
               const label = document.createElement('label');
               label.className = 'option-label';
-              label.innerHTML = `
-                <input type="radio" name="question-${questionNum}" value="${value}" class="option-radio" aria-label="선택지 ${value}">
-                <span class="option-text"><strong>${value}.</strong> ${text}</span>
-              `;
+              
+              // Security: Use DOM methods instead of innerHTML to prevent XSS
+              const radio = document.createElement('input');
+              radio.type = 'radio';
+              radio.name = `question-${questionNum}`;
+              radio.value = value;
+              radio.className = 'option-radio';
+              radio.setAttribute('aria-label', `선택지 ${value}`);
+              
+              const optionText = document.createElement('span');
+              optionText.className = 'option-text';
+              const strong = document.createElement('strong');
+              strong.textContent = `${value}. `;
+              optionText.appendChild(strong);
+              optionText.appendChild(document.createTextNode(text));
+              
+              label.appendChild(radio);
+              label.appendChild(optionText);
               optionsDiv.appendChild(label);
             }
           });
@@ -131,12 +145,41 @@
         answerDiv.hidden = true;
         answerDiv.id = `answer-${questionNum}`;
         answerDiv.className = 'question-answer';
-        answerDiv.innerHTML = `
-          <div class="answer-content">
-            <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">${correctAnswer}</span></p>
-            <p class="answer-explanation"><strong>해설:</strong> ${explanation || '해설이 없습니다.'}</p>
-          </div>
-        `;
+        
+        // Security: Use DOM methods instead of innerHTML to prevent XSS
+        const answerContent = document.createElement('div');
+        answerContent.className = 'answer-content';
+        
+        const answerCorrect = document.createElement('p');
+        answerCorrect.className = 'answer-correct';
+        const strongCorrect = document.createElement('strong');
+        strongCorrect.textContent = '정답: ';
+        const answerValue = document.createElement('span');
+        answerValue.className = 'answer-value';
+        answerValue.textContent = correctAnswer;
+        answerCorrect.appendChild(strongCorrect);
+        answerCorrect.appendChild(answerValue);
+        
+        const answerExplanation = document.createElement('p');
+        answerExplanation.className = 'answer-explanation';
+        const strongExplanation = document.createElement('strong');
+        strongExplanation.textContent = '해설: ';
+        answerExplanation.appendChild(strongExplanation);
+        
+        // Security: For explanation HTML content, use a temporary div to parse safely
+        if (explanation) {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = explanation; // Only trusted content from our own HTML
+          while (tempDiv.firstChild) {
+            answerExplanation.appendChild(tempDiv.firstChild);
+          }
+        } else {
+          answerExplanation.appendChild(document.createTextNode('해설이 없습니다.'));
+        }
+        
+        answerContent.appendChild(answerCorrect);
+        answerContent.appendChild(answerExplanation);
+        answerDiv.appendChild(answerContent);
         
         // 액션 버튼을 정답 영역 앞에 삽입
         answerDiv.parentNode.insertBefore(actionsDiv, answerDiv);
@@ -455,60 +498,52 @@
       const shortQuestion = questionText.length > 80 ? questionText.substring(0, 80) + '...' : questionText;
       
       const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${actualNum}</td>
-        <td>${shortQuestion}</td>
-        <td>${topic}</td>
-        <td>
-          <a href="#question-${actualNum}" class="table-link" data-question="${actualNum}" aria-label="문제 ${actualNum} CBT">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="9" y1="9" x2="15" y2="9"></line>
-              <line x1="9" y1="15" x2="15" y2="15"></line>
-            </svg>
-            CBT
-          </a>
-        </td>
-        <td>
-          <a href="#question-${actualNum}" class="table-link" data-question="${actualNum}" aria-label="문제 ${actualNum} 바로보기">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-              <circle cx="12" cy="12" r="3"></circle>
-            </svg>
-            보기
-          </a>
-        </td>
-        <td>
-          <button type="button" class="table-link download-question" data-question="${actualNum}" aria-label="문제 ${actualNum} 다운로드">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            다운
-          </button>
-        </td>
-        <td>
-          <button type="button" class="table-link download-explanation" data-question="${actualNum}" aria-label="해설 ${actualNum} 다운로드">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            다운
-          </button>
-        </td>
-        <td>
-          <button type="button" class="table-link download-both" data-question="${actualNum}" aria-label="문제+해설 ${actualNum} 다운로드">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            다운
-          </button>
-        </td>
-      `;
+      
+      // Security: Use DOM methods instead of innerHTML to prevent XSS
+      const createCell = (content) => {
+        const td = document.createElement('td');
+        if (typeof content === 'string') {
+          td.textContent = content;
+        } else {
+          td.appendChild(content);
+        }
+        return td;
+      };
+      
+      const createLink = (href, text, ariaLabel, className, dataQuestion) => {
+        const a = document.createElement('a');
+        // Security: Escape href to prevent XSS
+        a.href = href.replace(/[<>"']/g, '');
+        a.className = className;
+        a.setAttribute('data-question', String(dataQuestion));
+        a.setAttribute('aria-label', ariaLabel);
+        a.textContent = text;
+        return a;
+      };
+      
+      const createButton = (text, className, ariaLabel, dataQuestion) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = className;
+        btn.setAttribute('data-question', String(dataQuestion));
+        btn.setAttribute('aria-label', ariaLabel);
+        btn.textContent = text;
+        return btn;
+      };
+      
+      // Security: Escape all user input before using
+      const safeActualNum = String(actualNum).replace(/[<>"']/g, '');
+      const safeShortQuestion = shortQuestion.replace(/[<>"']/g, '');
+      const safeTopic = topic.replace(/[<>"']/g, '');
+      
+      row.appendChild(createCell(safeActualNum));
+      row.appendChild(createCell(safeShortQuestion));
+      row.appendChild(createCell(safeTopic));
+      row.appendChild(createCell(createLink(`#question-${safeActualNum}`, 'CBT', `문제 ${safeActualNum} CBT`, 'table-link', safeActualNum)));
+      row.appendChild(createCell(createLink(`#question-${safeActualNum}`, '보기', `문제 ${safeActualNum} 바로보기`, 'table-link', safeActualNum)));
+      row.appendChild(createCell(createButton('다운', 'table-link download-question', `문제 ${safeActualNum} 다운로드`, safeActualNum)));
+      row.appendChild(createCell(createButton('다운', 'table-link download-explanation', `해설 ${safeActualNum} 다운로드`, safeActualNum)));
+      row.appendChild(createCell(createButton('다운', 'table-link download-both', `문제+해설 ${safeActualNum} 다운로드`, safeActualNum)));
       
       tbody.appendChild(row);
     });

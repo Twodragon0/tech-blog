@@ -17,6 +17,23 @@ from typing import List, Tuple
 import json
 import requests
 
+def mask_sensitive_info(text: str) -> str:
+    """민감 정보 마스킹"""
+    if not text:
+        return text
+    # API 키 마스킹
+    masked = re.sub(r'AIza[0-9A-Za-z_-]{35}', 'AIza***MASKED***', text)
+    masked = re.sub(r'[?&]key=[a-zA-Z0-9_-]+', '?key=***MASKED***', masked)
+    # GEMINI_API_KEY는 함수 내에서 가져와야 함
+    return masked
+
+def safe_print(message: str, gemini_api_key: str = "") -> None:
+    """안전한 출력 (민감 정보 마스킹)"""
+    safe_message = mask_sensitive_info(message)
+    if gemini_api_key and len(gemini_api_key) > 10:
+        safe_message = safe_message.replace(gemini_api_key, '***GEMINI_API_KEY_MASKED***')
+    print(safe_message)
+
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 OUTPUT_DIR = PROJECT_ROOT / "output"
@@ -278,6 +295,7 @@ def improve_script_with_gemini(original_text: str, metadata: dict) -> str:
 - 오디오로 녹음했을 때 자연스럽고 듣기 좋아야 합니다."""
     
     try:
+        # Security: Don't log URL with API key - construct it but don't print it
         url = f"{GEMINI_FLASH_API_URL}?key={GEMINI_API_KEY}"
         
         data = {
@@ -308,10 +326,14 @@ def improve_script_with_gemini(original_text: str, metadata: dict) -> str:
                         print(f"   ✅ Gemini API로 대본 개선 완료")
                         return improved_text
         
-        print(f"   ⚠️ Gemini API 응답 오류, 기본 개선만 적용")
+        safe_print(f"   ⚠️ Gemini API 응답 오류, 기본 개선만 적용", GEMINI_API_KEY)
         return original_text
     except Exception as e:
-        print(f"   ⚠️ Gemini API 오류: {str(e)[:100]}, 기본 개선만 적용")
+        # Security: Mask sensitive info in error message
+        safe_error = mask_sensitive_info(str(e)[:100])
+        if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
+            safe_error = safe_error.replace(GEMINI_API_KEY, '***GEMINI_API_KEY_MASKED***')
+        safe_print(f"   ⚠️ Gemini API 오류: {safe_error}, 기본 개선만 적용", GEMINI_API_KEY)
         return original_text
 
 def improve_script(script_path: Path) -> Tuple[str, List[dict]]:

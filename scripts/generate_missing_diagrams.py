@@ -36,12 +36,25 @@ GEMINI_IMAGE_PRO_API_URL = "https://generativelanguage.googleapis.com/v1beta/mod
 USE_PRO_MODEL = os.getenv("USE_GEMINI_PRO_IMAGE", "false").lower() == "true"
 
 
+def mask_sensitive_info(text: str) -> str:
+    """민감 정보 마스킹"""
+    if not text:
+        return text
+    # API 키 마스킹
+    masked = re.sub(r'AIza[0-9A-Za-z_-]{35}', 'AIza***MASKED***', text)
+    masked = re.sub(r'[?&]key=[a-zA-Z0-9_-]+', '?key=***MASKED***', masked)
+    if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
+        masked = masked.replace(GEMINI_API_KEY, '***GEMINI_API_KEY_MASKED***')
+    return masked
+
 def log_message(message: str, level: str = "INFO"):
-    """로그 메시지 출력"""
+    """로그 메시지 출력 (민감 정보 자동 마스킹)"""
     timestamp = datetime.now().strftime("%H:%M:%S")
     icons = {"INFO": "ℹ️", "SUCCESS": "✅", "WARNING": "⚠️", "ERROR": "❌", "DIAGRAM": "📊"}
     icon = icons.get(level, "ℹ️")
-    print(f"[{timestamp}] {icon} {message}")
+    # Security: Mask sensitive information before logging
+    safe_message = mask_sensitive_info(message)
+    print(f"[{timestamp}] {icon} {safe_message}")
 
 
 def extract_diagram_references(content: str) -> List[Tuple[str, str]]:
@@ -175,6 +188,7 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
             api_url = GEMINI_IMAGE_PRO_API_URL if USE_PRO_MODEL else GEMINI_IMAGE_API_URL
             url = f"{api_url}?key={GEMINI_API_KEY}"
             
+            # Security: Don't log URL with API key
             log_message("🎨 Gemini API로 이미지 생성 시도 중...")
             
             data = {

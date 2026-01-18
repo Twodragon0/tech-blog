@@ -14,6 +14,24 @@ from pathlib import Path
 from urllib.parse import quote
 from datetime import datetime
 
+def mask_sensitive_info(text: str) -> str:
+    """민감 정보 마스킹"""
+    if not text:
+        return text
+    # API 키 마스킹
+    masked = re.sub(r'Token\s+[a-zA-Z0-9_-]{20,}', 'Token ***MASKED***', text)
+    masked = re.sub(r'[?&]key=[a-zA-Z0-9_-]+', '?key=***MASKED***', masked)
+    # Buttondown API 키 마스킹
+    buttondown_key = os.getenv("BUTTONDOWN_API_KEY", "")
+    if buttondown_key and len(buttondown_key) > 10:
+        masked = masked.replace(buttondown_key, '***BUTTONDOWN_API_KEY_MASKED***')
+    return masked
+
+def safe_print(message: str) -> None:
+    """안전한 출력 (민감 정보 마스킹)"""
+    safe_message = mask_sensitive_info(message)
+    print(safe_message)
+
 # .env 파일에서 환경 변수 로드
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR.parent
@@ -452,7 +470,9 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
         elif response.status_code == 401:
             print(f"❌ Authentication failed (401 Unauthorized)")
             print(f"   Please check your BUTTONDOWN_API_KEY")
-            print(f"   API Key format: Token {api_key[:10]}...")
+            # Security: Mask API key in log output
+            masked_key = f"Token {api_key[:4]}...{api_key[-4:]}" if len(api_key) > 8 else "Token ***MASKED***"
+            safe_print(f"   API Key format: {masked_key}")
             return False
         elif response.status_code == 404:
             print(f"❌ Resource not found (404)")
@@ -571,7 +591,9 @@ def main():
     
     # Test API connection (optional, can be disabled for faster execution)
     # This helps catch authentication issues early
-    print(f"🔑 API Key: {api_key[:10]}...{api_key[-4:] if len(api_key) > 14 else '***'}")
+    # Security: Mask API key in log output
+    masked_key = f"{api_key[:4]}...{api_key[-4:]}" if len(api_key) > 8 else "***MASKED***"
+    safe_print(f"🔑 API Key: {masked_key}")
 
     # Get site URL
     site_url = os.environ.get('SITE_URL', 'https://tech.2twodragon.com')

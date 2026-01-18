@@ -516,12 +516,31 @@
           // link 파라미터에 최종 리디렉션 URL이 있음
           try {
             const decodedLink = decodeURIComponent(linkParam);
+            // Security: Validate URL before parsing
+            if (!decodedLink || decodedLink.length > 2048) {
+              // URL too long or empty - potential attack
+              return;
+            }
+            
             // 보안: 허용된 도메인만 리디렉션
             const allowedDomains = ['tech.2twodragon.com', 'buttondown.com', 'buttondown.email'];
             const linkUrl = new URL(decodedLink);
             
+            // Security: Validate protocol
+            if (!['http:', 'https:'].includes(linkUrl.protocol)) {
+              return;
+            }
+            
+            // Security: Additional validation - check protocol and ensure it's http/https
+            const allowedProtocols = ['http:', 'https:'];
+            if (!allowedProtocols.includes(linkUrl.protocol)) {
+              // Only allow http/https protocols
+              return;
+            }
+            
             if (allowedDomains.some(domain => linkUrl.hostname === domain || linkUrl.hostname.endsWith('.' + domain))) {
               // 안전한 도메인이면 리디렉션
+              // Security: Use replace instead of assign to prevent back navigation
               window.location.replace(decodedLink);
               return;
             }
