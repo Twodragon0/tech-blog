@@ -25,57 +25,6 @@ permalink: /certifications/cka/
     </ul>
   </div>
 
-  <div class="related-posts">
-    <h2>관련 포스팅</h2>
-    <div class="posts-list">
-      {% assign cert_posts = "" | split: "" %}
-      {% for post in site.posts %}
-        {% assign post_matched = false %}
-        {% if post.certifications %}
-          {% for post_cert in post.certifications %}
-            {% assign post_cert_lower = post_cert | downcase %}
-            {% if post_cert_lower == "cka" %}
-              {% assign post_matched = true %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-        {% unless post_matched %}
-          {% if post.certification %}
-            {% assign post_cert_lower = post.certification | downcase %}
-            {% if post_cert_lower == "cka" %}
-              {% assign post_matched = true %}
-            {% endif %}
-          {% endif %}
-        {% endunless %}
-        {% unless post_matched %}
-          {% if post.tags %}
-            {% for tag in post.tags %}
-              {% assign tag_lower = tag | downcase %}
-              {% if tag_lower contains "kubernetes" or tag_lower contains "k8s" %}
-                {% if post.categories contains "kubernetes" %}
-                  {% assign post_matched = true %}
-                  {% break %}
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-        {% endunless %}
-        {% if post_matched %}
-          {% assign cert_posts = cert_posts | push: post %}
-        {% endif %}
-      {% endfor %}
-      
-      {% if cert_posts.size > 0 %}
-        {% for post in cert_posts %}
-          {% include post-card.html post=post %}
-        {% endfor %}
-      {% else %}
-        <p class="no-posts">관련 포스팅이 없습니다. 곧 추가될 예정입니다.</p>
-      {% endif %}
-    </div>
-  </div>
-
   <div class="exam-topics">
     <h2>주요 시험 주제</h2>
     <div class="topics-grid">

@@ -125,57 +125,6 @@ permalink: /certifications/information-security-engineer/
     </div>
   </div>
 
-  <div class="related-posts">
-    <h2>관련 포스팅</h2>
-    <div class="posts-list">
-      {% assign cert_posts = "" | split: "" %}
-      {% for post in site.posts %}
-        {% assign post_matched = false %}
-        {% if post.certifications %}
-          {% for post_cert in post.certifications %}
-            {% assign post_cert_lower = post_cert | downcase %}
-            {% if post_cert_lower contains "정보보안" or post_cert_lower contains "information-security" %}
-              {% assign post_matched = true %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-        {% unless post_matched %}
-          {% if post.certification %}
-            {% assign post_cert_lower = post.certification | downcase %}
-            {% if post_cert_lower contains "정보보안" or post_cert_lower contains "information-security" %}
-              {% assign post_matched = true %}
-            {% endif %}
-          {% endif %}
-        {% endunless %}
-        {% unless post_matched %}
-          {% if post.tags %}
-            {% for tag in post.tags %}
-              {% assign tag_lower = tag | downcase %}
-              {% if tag_lower contains "보안" or tag_lower contains "security" %}
-                {% if post.categories contains "security" %}
-                  {% assign post_matched = true %}
-                  {% break %}
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-        {% endunless %}
-        {% if post_matched %}
-          {% assign cert_posts = cert_posts | push: post %}
-        {% endif %}
-      {% endfor %}
-      
-      {% if cert_posts.size > 0 %}
-        {% for post in cert_posts %}
-          {% include post-card.html post=post %}
-        {% endfor %}
-      {% else %}
-        <p class="no-posts">관련 포스팅이 없습니다. 곧 추가될 예정입니다.</p>
-      {% endif %}
-    </div>
-  </div>
-
   <div class="exam-topics">
     <h2>주요 시험 과목</h2>
     <div class="topics-grid">
@@ -457,6 +406,13 @@ permalink: /certifications/information-security-engineer/
             <div class="answer-content">
               <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
               <p class="answer-explanation"><strong>해설:</strong> 보안 패치 적용은 알려진 취약점을 해결하는 가장 기본적이고 중요한 조치입니다.</p>
+              <div class="answer-related-posts">
+                <p class="related-posts-label"><strong>관련 포스팅:</strong></p>
+                <ul>
+                  <li><a href="/posts/2025/12/클라우드_시큐리티_8기_4주차_통합_보안_취약점_점검_및_ISMS-P_인증_대응_실무/" target="_blank" rel="noopener noreferrer">통합 보안 취약점 점검 및 ISMS-P 인증 대응 실무</a></li>
+                  <li><a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/" target="_blank" rel="noopener noreferrer">AWS 보안 아키텍처의 핵심 (VPC, GuardDuty)</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -508,6 +464,13 @@ permalink: /certifications/information-security-engineer/
             <div class="answer-content">
               <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
               <p class="answer-explanation"><strong>해설:</strong> IDS는 침입을 탐지하고 알림만 제공하며, IPS는 탐지 후 자동으로 차단까지 수행합니다.</p>
+              <div class="answer-related-posts">
+                <p class="related-posts-label"><strong>관련 포스팅:</strong></p>
+                <ul>
+                  <li><a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/" target="_blank" rel="noopener noreferrer">AWS 보안 아키텍처의 핵심 (VPC, GuardDuty - 침입 탐지)</a></li>
+                  <li><a href="/posts/2025/12/클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안/" target="_blank" rel="noopener noreferrer">Datadog SIEM 및 Cloudflare 보안</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -566,14 +529,12 @@ permalink: /certifications/information-security-engineer/
 }
 
 .certification-info,
-.related-posts,
 .exam-topics,
 .latest-info {
   margin-bottom: 3rem;
 }
 
 .certification-info h2,
-.related-posts h2,
 .exam-topics h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
@@ -1103,6 +1064,49 @@ permalink: /certifications/information-security-engineer/
 
 .answer-explanation a:hover {
   text-decoration: none;
+  color: var(--primary-hover, #1d4ed8);
+}
+
+.answer-related-posts {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.answer-related-posts .related-posts-label {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.answer-related-posts ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.answer-related-posts li {
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.answer-related-posts li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.answer-related-posts a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.answer-related-posts a:hover {
+  text-decoration: underline;
   color: var(--primary-hover, #1d4ed8);
 }
 
