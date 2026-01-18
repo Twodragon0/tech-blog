@@ -37,6 +37,7 @@ jobs:
               - '**_posts/**'
               - '**_includes/**'
               - '**_layouts/**'
+              - '**_sass/**'
               - '**assets/**'
               - '**_config.yml'
               - '**vercel.json'
