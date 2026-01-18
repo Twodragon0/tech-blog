@@ -220,6 +220,29 @@
     // Blockquotes: > text
     formatted = formatted.replace(/^> (.*)$/gm, '<blockquote>$1</blockquote>');
     
+    // Markdown tables: | A | B | \n |---|---| \n | 1 | 2 |
+    // UI/UX: 챗봇 답변에서 표를 가독성 있게 렌더링 (모바일 가로 스크롤 지원은 CSS에서)
+    formatted = formatted.replace(/(^|\n)(\|[^\n]+\|)\n(\|[-:\s|]+\|)\n((?:\|[^\n]+\|\n?)+)/g, function(_, before, headerRow, _sep, bodyBlock) {
+      var parseRow = function(row) {
+        return row.split('|').map(function(c) { return c.trim(); }).filter(function(c) { return c.length > 0; });
+      };
+      var thead = parseRow(headerRow);
+      var bodyRows = bodyBlock.trim().split('\n').map(function(r) { return parseRow(r); }).filter(function(arr) { return arr.length > 0; });
+      if (thead.length === 0) return before + headerRow + '\n' + _sep + '\n' + bodyBlock;
+      var html = '<div class="chat-table-wrap"><table class="chat-table"><thead><tr>';
+      thead.forEach(function(c) { html += '<th>' + c + '</th>'; });
+      html += '</tr></thead><tbody>';
+      bodyRows.forEach(function(row) {
+        html += '<tr>';
+        for (var i = 0; i < thead.length; i++) {
+          html += '<td>' + (row[i] || '') + '</td>';
+        }
+        html += '</tr>';
+      });
+      html += '</tbody></table></div>';
+      return before + html;
+    });
+    
     // Lists processing: 먼저 줄 단위로 처리
     const lines = formatted.split('\n');
     const processedLines = [];
@@ -356,14 +379,14 @@
       const line = paraLines[i];
       const trimmed = line.trim();
       
-      // 블록 요소들은 그대로 유지
+      // 블록 요소들은 그대로 유지 (표, 코드, 리스트, 제목 등)
       if (trimmed.startsWith('<h') || 
           trimmed.startsWith('<ul') || trimmed.startsWith('</ul') ||
           trimmed.startsWith('<ol') || trimmed.startsWith('</ol') ||
           trimmed.startsWith('<li') || trimmed.startsWith('</li') ||
           trimmed.startsWith('<pre') || trimmed.includes('</pre>') ||
           trimmed.startsWith('<blockquote') || trimmed.includes('</blockquote>') ||
-          trimmed.startsWith('<hr') ||
+          trimmed.startsWith('<hr') || trimmed.includes('chat-table-wrap') ||
           trimmed === '') {
         // 현재 단락이 있으면 닫기
         if (currentParagraph.length > 0) {
