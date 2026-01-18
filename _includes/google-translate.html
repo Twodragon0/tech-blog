@@ -617,18 +617,61 @@ function googleTranslateElementInit() {
     });
   }
 
-  // Google Translate 배너/팝업 강제 숨김
+  // Google Translate 배너/팝업 강제 숨김 및 CLS 방지
   function hideGoogleTranslateBanner() {
     var banners = document.querySelectorAll(
-      '.goog-te-banner-frame, [class*="VIpgJd"], #goog-gt-tt, .goog-te-balloon-frame'
+      '.goog-te-banner-frame, [class*="VIpgJd"], #goog-gt-tt, .goog-te-balloon-frame, .goog-te-menu-frame'
     );
     banners.forEach(function(el) {
-      el.style.display = 'none';
-      el.style.visibility = 'hidden';
+      // CLS 방지를 위한 강력한 스타일 적용
+      el.style.display = 'none' !important;
+      el.style.visibility = 'hidden' !important;
+      el.style.position = 'fixed' !important;
+      el.style.top = '0' !important;
+      el.style.left = '0' !important;
+      el.style.width = '0' !important;
+      el.style.height = '0' !important;
+      el.style.overflow = 'hidden' !important;
+      el.style.opacity = '0' !important;
+      el.style.zIndex = '-1' !important;
+      el.style.contain = 'strict' !important;
     });
 
     if (document.body) {
       document.body.style.top = '0';
+      document.body.style.position = 'static';
+    }
+  }
+  
+  // Google Translate 위젯 동적 추가 감지 및 CLS 방지
+  function preventGoogleTranslateCLS() {
+    if ('MutationObserver' in window) {
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          mutation.addedNodes.forEach(function(node) {
+            if (node.nodeType === 1) { // Element node
+              // VIpgJd 클래스를 가진 요소 감지
+              if (node.classList && node.classList.toString().includes('VIpgJd')) {
+                hideGoogleTranslateBanner();
+              }
+              // 하위에 있는 Google Translate 요소도 처리
+              var translateElements = node.querySelectorAll && node.querySelectorAll(
+                '[class*="VIpgJd"], .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame'
+              );
+              if (translateElements && translateElements.length > 0) {
+                hideGoogleTranslateBanner();
+              }
+            }
+          });
+        });
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['class']
+      });
     }
   }
 
@@ -642,6 +685,7 @@ function googleTranslateElementInit() {
         restoreLangStructure();
         hideGoogleTranslateBanner();
         addAttributesToTranslateSelect();
+        preventGoogleTranslateCLS(); // CLS 방지 감시 시작
       }, 100);
     });
   } else {
@@ -652,6 +696,7 @@ function googleTranslateElementInit() {
       restoreLangStructure();
       hideGoogleTranslateBanner();
       addAttributesToTranslateSelect();
+      preventGoogleTranslateCLS(); // CLS 방지 감시 시작
     }, 100);
   }
 

@@ -1,0 +1,88 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vmGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="containerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#F9FAFB"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1F2937">VM vs Container Architecture Comparison</text>
+  
+  <!-- VM Section -->
+  <g id="vm-section">
+    <!-- VM Box -->
+    <rect x="50" y="100" width="300" height="350" rx="10" fill="url(#vmGradient)" opacity="0.9" stroke="#4F46E5" stroke-width="2"/>
+    <text x="200" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">Virtual Machine</text>
+    
+    <!-- VM Layers -->
+    <rect x="70" y="170" width="260" height="50" rx="5" fill="white" opacity="0.9"/>
+    <text x="200" y="195" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1F2937">App 1</text>
+    
+    <rect x="70" y="230" width="260" height="50" rx="5" fill="white" opacity="0.9"/>
+    <text x="200" y="255" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1F2937">App 2</text>
+    
+    <rect x="70" y="290" width="260" height="50" rx="5" fill="#E5E7EB" opacity="0.9"/>
+    <text x="200" y="315" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1F2937">Guest OS</text>
+    
+    <rect x="70" y="350" width="260" height="50" rx="5" fill="#D1D5DB" opacity="0.9"/>
+    <text x="200" y="375" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1F2937">Hypervisor</text>
+    
+    <rect x="70" y="410" width="260" height="30" rx="5" fill="#9CA3AF" opacity="0.9"/>
+    <text x="200" y="430" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Host OS</text>
+    
+    <!-- VM Characteristics -->
+    <text x="200" y="480" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1F2937">Heavy, Full OS Isolation</text>
+  </g>
+  
+  <!-- Container Section -->
+  <g id="container-section">
+    <!-- Container Box -->
+    <rect x="450" y="100" width="300" height="350" rx="10" fill="url(#containerGradient)" opacity="0.9" stroke="#059669" stroke-width="2"/>
+    <text x="600" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">Container</text>
+    
+    <!-- Container Layers -->
+    <rect x="470" y="170" width="260" height="50" rx="5" fill="white" opacity="0.9"/>
+    <text x="600" y="195" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1F2937">App 1</text>
+    
+    <rect x="470" y="230" width="260" height="50" rx="5" fill="white" opacity="0.9"/>
+    <text x="600" y="255" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1F2937">App 2</text>
+    
+    <rect x="470" y="290" width="260" height="50" rx="5" fill="white" opacity="0.9"/>
+    <text x="600" y="315" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1F2937">App 3</text>
+    
+    <rect x="470" y="350" width="260" height="50" rx="5" fill="#D1FAE5" opacity="0.9"/>
+    <text x="600" y="375" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1F2937">Docker Engine</text>
+    
+    <rect x="470" y="410" width="260" height="30" rx="5" fill="#9CA3AF" opacity="0.9"/>
+    <text x="600" y="430" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Host OS (Shared)</text>
+    
+    <!-- Container Characteristics -->
+    <text x="600" y="480" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1F2937">Lightweight, Shared Kernel</text>
+  </g>
+  
+  <!-- Comparison Arrow -->
+  <path d="M 350 275 L 450 275" stroke="#EF4444" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="400" y="265" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#EF4444">vs</text>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#EF4444"/>
+    </marker>
+  </defs>
+  
+  <!-- Key Differences -->
+  <g id="differences">
+    <rect x="50" y="520" width="700" height="60" rx="5" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="400" y="545" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1F2937">Key Differences</text>
+    <text x="400" y="570" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#4B5563">VM: Full OS per instance | Container: Shared kernel, lightweight</text>
+  </g>
+</svg>

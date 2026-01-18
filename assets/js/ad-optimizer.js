@@ -53,11 +53,36 @@
 
   // 모든 광고 요소 찾기 및 래핑
   function optimizeAds() {
-    // Google AdSense 광고 요소 찾기
-    const ads = document.querySelectorAll('ins.adsbygoogle, .adsbygoogle');
+    // Google AdSense 광고 요소 찾기 (adsbygoogle-noablate 포함)
+    const ads = document.querySelectorAll(
+      'ins.adsbygoogle, .adsbygoogle, ins.adsbygoogle-noablate, .adsbygoogle-noablate, .google-auto-placed'
+    );
     
     ads.forEach(function(ad) {
       wrapAdInContainer(ad);
+      // 직접 스타일 적용으로 CLS 방지 강화
+      if (!ad.style.minHeight) {
+        ad.style.minHeight = '250px';
+        ad.style.display = 'block';
+        ad.style.contain = 'layout style';
+        ad.style.width = '100%';
+      }
+    });
+    
+    // google-auto-placed 클래스를 가진 요소들도 처리
+    const autoPlacedAds = document.querySelectorAll('.google-auto-placed, [class*="google-auto-placed"]');
+    autoPlacedAds.forEach(function(ad) {
+      // 이미 처리된 경우 스킵
+      if (!ad.closest('.ad-container')) {
+        wrapAdInContainer(ad);
+        // aspect-ratio 설정으로 CLS 방지
+        if (!ad.style.aspectRatio) {
+          ad.style.aspectRatio = 'auto';
+          ad.style.minHeight = '250px';
+          ad.style.display = 'block';
+          ad.style.contain = 'layout style';
+        }
+      }
     });
 
     // 동적으로 추가된 광고도 처리
@@ -66,16 +91,35 @@
         mutations.forEach(function(mutation) {
           mutation.addedNodes.forEach(function(node) {
             if (node.nodeType === 1) { // Element node
-              // 직접 추가된 광고
-              if (node.classList && (node.classList.contains('adsbygoogle') || 
-                  node.tagName === 'INS' && node.classList.contains('adsbygoogle'))) {
+              // 직접 추가된 광고 (adsbygoogle-noablate 포함)
+              if (node.classList && (
+                  node.classList.contains('adsbygoogle') || 
+                  node.classList.contains('adsbygoogle-noablate') ||
+                  node.tagName === 'INS' && (
+                    node.classList.contains('adsbygoogle') || 
+                    node.classList.contains('adsbygoogle-noablate')
+                  )
+                )) {
                 wrapAdInContainer(node);
+                // 즉시 스타일 적용
+                node.style.minHeight = '250px';
+                node.style.display = 'block';
+                node.style.contain = 'layout style';
+                node.style.width = '100%';
               }
               
               // 하위에 있는 광고
-              const ads = node.querySelectorAll && node.querySelectorAll('ins.adsbygoogle, .adsbygoogle');
+              const ads = node.querySelectorAll && node.querySelectorAll(
+                'ins.adsbygoogle, .adsbygoogle, ins.adsbygoogle-noablate, .adsbygoogle-noablate'
+              );
               if (ads) {
-                ads.forEach(wrapAdInContainer);
+                ads.forEach(function(ad) {
+                  wrapAdInContainer(ad);
+                  ad.style.minHeight = '250px';
+                  ad.style.display = 'block';
+                  ad.style.contain = 'layout style';
+                  ad.style.width = '100%';
+                });
               }
             }
           });

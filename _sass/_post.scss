@@ -51,6 +51,8 @@
 
 /* Post content: 본문 가독성 (한글·영문 혼용) */
 .post-content {
+  /* CLS 최적화: 콘텐츠 영역 레이아웃 안정화 */
+  contain: layout style;
   font-family: var(--font-family-base);
   font-size: 1.0625rem;
   line-height: 1.75;
@@ -78,6 +80,9 @@
 
 .post-content p {
   margin: 0 0 1.25em;
+  /* CLS 최적화: 단락 레이아웃 안정화 */
+  min-height: 1.5em;
+  contain: layout style;
 }
 
 .post-content p:last-child {
@@ -210,6 +215,10 @@
   border-radius: var(--border-radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  /* CLS 최적화: 테이블 레이아웃 고정 */
+  table-layout: auto;
+  contain: layout style;
+  min-height: 100px; /* 최소 높이로 공간 확보 */
 }
 
 .post-content th,
@@ -218,6 +227,10 @@
   border: 1px solid var(--color-border);
   text-align: left;
   line-height: 1.6;
+  /* CLS 최적화: 셀 크기 안정화 */
+  min-width: 0;
+  word-wrap: break-word;
+  vertical-align: top;
 }
 
 .post-content th {
@@ -230,6 +243,9 @@
 
 .post-content tbody tr {
   transition: background-color var(--transition-fast);
+  /* CLS 최적화: 행 높이 안정화 */
+  min-height: 2.5em;
+  contain: layout style;
 }
 
 .post-content tbody tr:hover {
@@ -634,6 +650,9 @@
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
   position: relative;
+  /* CLS 최적화: 카드 레이아웃 안정화 */
+  min-height: 200px;
+  contain: layout style;
 }
 
 .post-content .ai-summary-card:first-child {
@@ -1272,10 +1291,18 @@
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-md);
   font-size: 0.875rem;
+  /* CLS 최적화: 레이아웃 시프트 방지 */
+  min-height: 150px;
+  contain: layout style;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .comment-guidelines details {
   cursor: pointer;
+  /* CLS 최적화: details 요소 안정화 */
+  min-height: 2em;
+  contain: layout style;
 }
 
 .comment-guidelines summary {
@@ -1286,6 +1313,9 @@
   color: var(--color-text-primary);
   list-style: none;
   user-select: none;
+  /* CLS 최적화: summary 높이 고정 */
+  min-height: 2em;
+  contain: layout style;
 }
 
 .comment-guidelines summary::-webkit-details-marker {
@@ -1330,4 +1360,90 @@
 [data-theme="dark"] .comment-guidelines {
   background-color: var(--color-bg-secondary);
   border-color: var(--color-border);
+}
+
+/* Ad Container - CLS 최적화 */
+.ad-container {
+  position: relative;
+  min-height: 250px;
+  width: 100%;
+  contain: layout style;
+  margin: 1.5rem 0;
+}
+
+.ad-container iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Google Auto-Placed Ads CLS 방지 */
+.google-auto-placed,
+[class*="google-auto-placed"] {
+  min-height: 250px;
+  contain: layout style;
+  display: block;
+}
+
+/* 광고가 로드되기 전 레이아웃 시프트 방지 */
+.adsbygoogle,
+.adsbygoogle-noablate,
+ins.adsbygoogle,
+ins.adsbygoogle-noablate {
+  display: block !important;
+  min-height: 250px !important;
+  contain: layout style !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+/* Google Ads iframe 호스트 CLS 방지 */
+#aswift_1_host,
+#aswift_2_host,
+[id^="aswift_"] {
+  min-height: 250px !important;
+  contain: layout style !important;
+  display: block !important;
+  position: relative !important;
+}
+
+/* Google Annotation Skip CLS 방지 */
+.google-anno-skip,
+[class*="google-anno-skip"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  contain: strict !important;
+  z-index: -1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Google Translate 위젯 CLS 방지 */
+[class*="VIpgJd"],
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-te-menu-frame {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  contain: strict !important;
+  z-index: -1 !important;
+}
+
+/* Google Translate 요소는 숨기되 공간은 확보 */
+#google_translate_element {
+  min-height: 0;
+  contain: layout style;
 }
