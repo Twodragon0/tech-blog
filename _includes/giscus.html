@@ -44,7 +44,12 @@
     </div>
 
     <!-- Giscus Widget -->
-    <!-- Note: Giscus dynamically creates form fields. These third-party fields may not have id/name attributes, which is expected behavior for third-party widgets. -->
+    <!-- 
+      Note: Giscus dynamically creates form fields via iframe. These third-party fields 
+      may not have id/name attributes, which is expected behavior for third-party widgets.
+      The iframe content is controlled by giscus.app and cannot be modified by our site.
+      This is a known limitation of third-party widgets and does not affect functionality.
+    -->
     <div class="giscus-wrapper">
       <div class="giscus-loading" id="giscus-loading">
         <div class="loading-spinner"></div>

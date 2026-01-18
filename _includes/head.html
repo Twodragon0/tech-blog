@@ -20,6 +20,7 @@
     - Content-Security-Policy (CSP)
       * 'unsafe-eval'은 Google Translate, Google Ads 등 third-party 스크립트 호환성을 위해 필요합니다.
       * 이는 정상적인 설정이며, third-party 스크립트의 eval() 사용을 허용합니다.
+      * 우리 사이트의 자체 코드에서는 eval()을 사용하지 않습니다.
     - X-Content-Type-Options
     - Referrer-Policy
     - Strict-Transport-Security
@@ -29,8 +30,12 @@
     - CSP eval() 경고: Google Translate, Google Ads 등 third-party 스크립트가 eval()을 사용하므로
       'unsafe-eval'이 필요합니다. 이는 보안 감사 도구에서 경고를 표시할 수 있지만,
       third-party 스크립트 호환성을 위해 필요한 설정입니다.
-    - Form field id/name: Giscus 등 third-party 위젯이 동적으로 생성하는 form 필드는
-      id/name 속성이 없을 수 있습니다. 이는 third-party 위젯의 정상적인 동작입니다.
+    - Form field id/name: 
+      * Google Translate select 요소는 동적으로 id/name 속성이 추가됩니다 (google-translate.html).
+      * Giscus 등 third-party 위젯이 iframe 내에서 동적으로 생성하는 form 필드는
+        id/name 속성이 없을 수 있습니다. 이는 third-party 위젯의 정상적인 동작이며,
+        iframe 내부이므로 우리 사이트의 접근성 정책에 영향을 주지 않습니다.
+    - DOCTYPE: 모든 페이지는 _layouts/default.html을 통해 <!DOCTYPE html>을 포함합니다.
   -->
 
   <!-- SEO -->

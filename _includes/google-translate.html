@@ -549,6 +549,22 @@ function googleTranslateElementInit() {
     });
   }
 
+  // Google Translate select 요소에 id/name 속성 추가 (접근성 및 autofill 개선)
+  function addAttributesToTranslateSelect() {
+    var select = document.querySelector('.goog-te-combo');
+    if (select) {
+      if (!select.id) {
+        select.id = 'google-translate-select';
+      }
+      if (!select.name) {
+        select.name = 'google-translate-language';
+      }
+      if (!select.getAttribute('aria-label')) {
+        select.setAttribute('aria-label', '번역 언어 선택');
+      }
+    }
+  }
+
   // lang-dropdown과 lang-option 구조 복구
   function restoreLangStructure() {
     var langDropdown = document.getElementById('lang-dropdown');
@@ -625,6 +641,7 @@ function googleTranslateElementInit() {
         cleanupFontTags();
         restoreLangStructure();
         hideGoogleTranslateBanner();
+        addAttributesToTranslateSelect();
       }, 100);
     });
   } else {
@@ -634,6 +651,7 @@ function googleTranslateElementInit() {
       cleanupFontTags();
       restoreLangStructure();
       hideGoogleTranslateBanner();
+      addAttributesToTranslateSelect();
     }, 100);
   }
 
@@ -642,7 +660,20 @@ function googleTranslateElementInit() {
     cleanupFontTags();
     restoreLangStructure();
     hideGoogleTranslateBanner();
+    addAttributesToTranslateSelect();
   }, 2000);
+
+  // Google Translate select 요소가 동적으로 생성될 때 속성 추가 (MutationObserver)
+  if ('MutationObserver' in window) {
+    var observer = new MutationObserver(function(mutations) {
+      addAttributesToTranslateSelect();
+    });
+    
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
 
   // 한국어 사이트이고 시스템 언어도 한국어면 스크립트 로딩 안함
   // 다른 언어면 필요시 로딩
