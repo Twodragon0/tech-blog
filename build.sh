@@ -32,7 +32,13 @@ log "  LANG: $LANG"
 log "  LC_ALL: $LC_ALL"
 
 log "Generating favicons..."
-python3 scripts/generate_favicon.py || error_exit "Favicon generation failed"
+if ! python3 scripts/generate_favicon.py; then
+    if [ -f "assets/images/favicon.png" ]; then
+        log "Favicon 생성 실패했으나 기존 favicon.png 사용"
+    else
+        error_exit "Favicon generation failed (Pillow 필요: pip install Pillow)"
+    fi
+fi
 
 # Clean previous build
 log "Cleaning previous build output..."

@@ -12,8 +12,6 @@ try:
     HAS_PIL = True
 except ImportError:
     HAS_PIL = False
-    print("PIL/Pillow가 설치되어 있지 않습니다.")
-    print("설치: pip install Pillow")
 
 def create_favicon(output_path, size=32):
     """Favicon 생성 (32x32 또는 16x16)"""
@@ -169,6 +167,16 @@ def main():
     if not images_dir.exists():
         print(f"✗ 디렉토리가 없습니다: {images_dir}")
         sys.exit(1)
+    
+    # Pillow 미설치 시: 기존 favicon.png가 있으면 스킵(성공), 없으면 실패
+    if not HAS_PIL:
+        favicon_path = images_dir / 'favicon.png'
+        if favicon_path.exists():
+            print("PIL 미설치: 기존 favicon.png 사용, 아이콘 생성 스킵")
+            return 0
+        print("PIL/Pillow가 설치되어 있지 않습니다.")
+        print("설치: pip install Pillow")
+        return 1
     
     # Favicon 생성 (32x32)
     favicon_path = images_dir / 'favicon.png'

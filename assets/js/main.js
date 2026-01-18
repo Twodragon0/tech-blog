@@ -81,6 +81,8 @@
       /giscus\.app\/api\/discussions.*404/i,
       /GET.*giscus\.app.*404/i,
       /GET.*giscus\.app\/api\/discussions.*404/i,
+      /giscus\.app\/api\/discussions.*\b404\b/i,
+      /\b404\b.*Not Found.*giscus|giscus.*\b404\b.*Not Found/i,
       /\[giscus\] Discussion not found/i,
       /giscus.*404/i,
       /Content Security Policy.*violates/i,
@@ -88,8 +90,12 @@
       /Refused to load.*violates.*Content Security Policy/i,
       /Loading the script.*violates.*Content Security Policy/i,
       /Framing.*violates.*Content Security Policy/i,
+      /frame-ancestors\s*'self'|'self'\s*frame-ancestors/i,
+      /report-only.*Content Security Policy|Content Security Policy.*report-only/i,
+      /The violation has been logged/i,
       /Unchecked runtime\.lastError/i,
       /The message port closed before a response was received/i,
+      /runtime\.lastError.*message port|message port.*response was received/i,
       /Failed to load resource.*404/i,
       /Failed to execute.*postMessage/i,
       /The target origin provided.*does not match/i,
@@ -1185,7 +1191,7 @@
     });
   }
 
-    console.log('Tech Blog UI initialized (non-critical)');
+    console.debug('Tech Blog UI initialized (non-critical)');
 
   // ============================================
   // Language Dropdown and Translation

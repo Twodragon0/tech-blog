@@ -2,7 +2,7 @@
   "framework": null,
   "buildCommand": "chmod +x build.sh && ./build.sh",
   "outputDirectory": "_site",
-  "installCommand": "npm install && bundle install --jobs 4 --retry 3",
+  "installCommand": "(python3 -m pip install --quiet --no-cache-dir Pillow || pip3 install --quiet --no-cache-dir Pillow) && npm install && bundle install --jobs 4 --retry 3",
   "build": {
     "env": {
       "LANG": "C.UTF-8",

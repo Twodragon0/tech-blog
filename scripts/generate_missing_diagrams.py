@@ -19,6 +19,10 @@ import requests
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from datetime import datetime
+from dotenv import load_dotenv
+
+# .env 파일에서 환경 변수 로드
+load_dotenv()
 
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
@@ -59,7 +63,7 @@ def extract_diagram_references(content: str) -> List[Tuple[str, str]]:
     return diagrams
 
 
-def check_image_exists(image_path: str) -> Tuple[bool, Path]:
+def check_image_exists(image_path: str) -> Tuple[bool, Optional[Path]]:
     """이미지 파일 존재 여부 확인"""
     if not image_path:
         return False, None

@@ -30,8 +30,8 @@
             {% if level == "2" %}
               {% assign id_start = header | split: 'id="' | last %}
               {% assign id = id_start | split: '"' | first %}
-              {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
-              {% assign title = title_start | split: '</h' | first | strip_html %}
+              {% assign title_raw = header | regex_replace: '^[^>]*>', '' | split: '</h' | first %}
+              {% assign title = title_raw | strip_html | strip %}
               {% assign item_count = item_count | plus: 1 %}
               <a href="#{{ id }}" class="toc-card-item" data-index="{{ item_count }}">
                 <span class="toc-item-number">{{ item_count }}</span>
@@ -56,8 +56,8 @@
             {% elsif level == "3" %}
               {% assign id_start = header | split: 'id="' | last %}
               {% assign id = id_start | split: '"' | first %}
-              {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
-              {% assign title = title_start | split: '</h' | first | strip_html %}
+              {% assign title_raw = header | regex_replace: '^[^>]*>', '' | split: '</h' | first %}
+              {% assign title = title_raw | strip_html | strip %}
               <a href="#{{ id }}" class="toc-sub-item" data-parent="{{ current_h2 }}">
                 <span class="toc-sub-bullet"></span>
                 <span class="toc-sub-text">{{ title }}</span>
@@ -81,6 +81,12 @@
 
   if (!tocToggle || !tocContent) return;
 
+  // 제목 내 잔여 HTML 제거 (strip_html 미처리·파싱 오류 대비)
+  document.querySelectorAll('.toc-item-text, .toc-sub-text').forEach(function(el) {
+    var t = (el.textContent || '').trim();
+    if (t) el.textContent = t;
+  });
+
   // 항목 수 표시
   if (tocCount && tocItems.length > 0) {
     tocCount.textContent = tocItems.length + '개 섹션';
@@ -95,16 +101,18 @@
     tocSublist.style.display = 'none';
   }
 
-  // 6개 초과 시 일부만 표시
-  if (tocItems.length > maxPreview) {
+  // 6개 초과 시 일부만 표시; 펼칠 항목이 없으면 버튼 숨김
+  const hasHidden = tocItems.length > maxPreview;
+  const hasSublist = tocSublist && tocSubItems.length > 0;
+  if (hasHidden) {
     tocItems.forEach((item, index) => {
-      if (index >= maxPreview) {
-        item.classList.add('toc-hidden');
-      }
+      if (index >= maxPreview) item.classList.add('toc-hidden');
     });
     tocToggle.querySelector('.btn-text').textContent = '+' + (tocItems.length - maxPreview) + ' 더보기';
-  } else {
+  } else if (hasSublist) {
     tocToggle.querySelector('.btn-text').textContent = '상세보기';
+  } else {
+    tocToggle.style.display = 'none';
   }
 
   // 토글 버튼 클릭
@@ -115,7 +123,7 @@
       // 전체 펼치기
       tocItems.forEach(item => item.classList.remove('toc-hidden'));
       if (tocSublist && tocSubItems.length > 0) {
-        tocSublist.style.display = 'block';
+        tocSublist.style.display = 'flex';
       }
       tocToggle.querySelector('.btn-text').textContent = '접기';
       tocToggle.classList.add('expanded');
@@ -123,17 +131,13 @@
       // 접기
       if (tocItems.length > maxPreview) {
         tocItems.forEach((item, index) => {
-          if (index >= maxPreview) {
-            item.classList.add('toc-hidden');
-          }
+          if (index >= maxPreview) item.classList.add('toc-hidden');
         });
         tocToggle.querySelector('.btn-text').textContent = '+' + (tocItems.length - maxPreview) + ' 더보기';
-      } else {
+      } else if (tocSubItems.length > 0) {
         tocToggle.querySelector('.btn-text').textContent = '상세보기';
       }
-      if (tocSublist) {
-        tocSublist.style.display = 'none';
-      }
+      if (tocSublist) tocSublist.style.display = 'none';
       tocToggle.classList.remove('expanded');
     }
   });
@@ -251,6 +255,8 @@
       }
     });
   }
+
+  highlightCurrentSection();
 })();
 </script>
 {% endif %}
