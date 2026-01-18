@@ -30,7 +30,7 @@
             {% if level == "2" %}
               {% assign id_start = header | split: 'id="' | last %}
               {% assign id = id_start | split: '"' | first %}
-              {% assign title_raw = header | regex_replace: '^[^>]*>', '' | split: '</h' | first %}
+              {% assign title_raw = header | replace: '&gt;', '>' | regex_replace: '^[^>]*>', '' | split: '</h' | first %}
               {% assign title = title_raw | strip_html | strip %}
               {% assign item_count = item_count | plus: 1 %}
               <a href="#{{ id }}" class="toc-card-item" data-index="{{ item_count }}">
@@ -56,7 +56,7 @@
             {% elsif level == "3" %}
               {% assign id_start = header | split: 'id="' | last %}
               {% assign id = id_start | split: '"' | first %}
-              {% assign title_raw = header | regex_replace: '^[^>]*>', '' | split: '</h' | first %}
+              {% assign title_raw = header | replace: '&gt;', '>' | regex_replace: '^[^>]*>', '' | split: '</h' | first %}
               {% assign title = title_raw | strip_html | strip %}
               <a href="#{{ id }}" class="toc-sub-item" data-parent="{{ current_h2 }}">
                 <span class="toc-sub-bullet"></span>
@@ -81,9 +81,11 @@
 
   if (!tocToggle || !tocContent) return;
 
-  // 제목 내 잔여 HTML 제거 (strip_html 미처리·파싱 오류 대비)
+  // 제목 내 잔여 HTML/태그 조각 제거 (strip_html 미처리·&gt; 파싱 오류 대비)
   document.querySelectorAll('.toc-item-text, .toc-sub-text').forEach(function(el) {
     var t = (el.textContent || '').trim();
+    var m = t.match(/^\d+\s+id="[^"]*"\s*>\s*(.*)$/);
+    if (m) t = m[1].trim();
     if (t) el.textContent = t;
   });
 
