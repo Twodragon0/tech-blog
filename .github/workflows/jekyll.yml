@@ -159,7 +159,6 @@ jobs:
     # CI 최적화: 관련 파일 변경 시에만 배포
     # build 작업이 성공했을 때만 배포 (명시적 조건 추가)
     if: |
-      always() &&
       github.event_name == 'push' && 
       github.ref == 'refs/heads/main' &&
       (needs.check-changes.outputs.should-build == 'true' || needs.check-changes.outputs.should-build == '') &&
