@@ -8,6 +8,11 @@
   right: 2rem;
   z-index: var(--z-modal, 1000);
   font-family: var(--font-family-base, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  pointer-events: none; /* 컨테이너 자체는 클릭 이벤트 차단 */
+}
+
+.chat-widget > * {
+  pointer-events: auto; /* 자식 요소는 클릭 가능 */
 }
 
 /* Chat Toggle Button */
@@ -24,7 +29,10 @@
   cursor: pointer;
   box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05));
   transition: all var(--transition-base, 0.2s ease);
-  position: relative;
+  position: fixed; /* 토글 버튼도 fixed로 설정 */
+  bottom: 2rem;
+  right: 2rem;
+  z-index: calc(var(--z-modal, 1000) + 1); /* 윈도우보다 위에 표시 */
   opacity: 0;
   transform: scale(0.8);
 }
@@ -66,27 +74,34 @@
 /* Chat Window */
 .chat-widget-window {
   position: fixed;
-  bottom: 2rem;
+  bottom: calc(2rem + 56px + 1rem); /* 토글 버튼 높이(56px) + 여백(1rem) */
   right: 2rem;
   width: 400px;
   max-width: calc(100vw - 4rem);
   height: 600px;
-  max-height: calc(100vh - 4rem);
+  max-height: calc(100vh - calc(2rem + 56px + 1rem) - 2rem); /* 상단 여백 고려 */
   background: var(--color-bg-primary, #ffffff);
   border-radius: var(--border-radius-xl, 16px);
   box-shadow: var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04));
-  display: flex;
+  display: none; /* 기본적으로 숨김 */
   flex-direction: column;
   overflow: hidden;
   opacity: 0;
   transform: translateY(20px) scale(0.95);
   transition: all var(--transition-slow, 0.3s ease);
   border: 1px solid var(--color-border, #e2e8f0);
+  z-index: var(--z-modal, 1000);
 }
 
 .chat-widget-window-open {
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+/* 윈도우가 열릴 때 display 설정 */
+.chat-widget-window[style*="display: flex"],
+.chat-widget-window.chat-widget-window-open {
+  display: flex !important;
 }
 
 /* Chat Header */
@@ -557,18 +572,20 @@
     right: 1rem;
   }
 
+  .chat-widget-toggle {
+    bottom: 1rem;
+    right: 1rem;
+    width: 48px;
+    height: 48px;
+  }
+
   .chat-widget-window {
     width: calc(100vw - 2rem);
     height: calc(100vh - 2rem);
     max-height: calc(100vh - 2rem);
-    bottom: 1rem;
+    bottom: calc(1rem + 48px + 1rem); /* 모바일 토글 버튼 높이(48px) + 여백 */
     right: 1rem;
     border-radius: var(--border-radius-lg, 12px);
-  }
-
-  .chat-widget-toggle {
-    width: 48px;
-    height: 48px;
   }
 
   .chat-message {
@@ -584,6 +601,13 @@
     bottom: 0;
     right: 0;
     border-radius: 0;
+  }
+
+  /* 모바일에서 윈도우가 열릴 때 토글 버튼 숨김 */
+  .chat-widget-window-open ~ .chat-widget-toggle,
+  .chat-widget-window[style*="display: flex"] ~ .chat-widget-toggle {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .chat-widget-header {
