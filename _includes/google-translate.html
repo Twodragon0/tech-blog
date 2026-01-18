@@ -49,6 +49,15 @@ function googleTranslateElementInit() {
     'zh': 'CN'
   };
 
+  /* data-lang 기반 복구용 (Google Translate DOM 변경 후 UI 복원) */
+  var LANG_LABELS = {
+    'ko': { flag: '\uD83C\uDDF0\uD83C\uDDF7', name: '한국어' },
+    'en': { flag: '\uD83C\uDDFA\uD83C\uDDF8', name: 'English' },
+    'ja': { flag: '\uD83C\uDDEF\uD83C\uDDF5', name: '日本語' },
+    'zh-CN': { flag: '\uD83C\uDDE8\uD83C\uDDF3', name: '简体中文' },
+    'zh-TW': { flag: '\uD83C\uDDF9\uD83C\uDDFC', name: '繁體中文' }
+  };
+
   var SUPPORTED_LANGS = ['ko', 'en', 'ja', 'zh-CN', 'zh-TW'];
   var translateScriptLoaded = false;
   var scriptLoadRetries = 0;
@@ -266,6 +275,7 @@ function googleTranslateElementInit() {
   function initLangToggle() {
     var langToggle = document.getElementById('lang-toggle');
     var langDropdown = document.getElementById('lang-dropdown');
+    var langDropdownOverlay = document.getElementById('lang-dropdown-overlay');
     var currentLangSpan = document.getElementById('current-lang');
 
     if (!langToggle || !langDropdown) {
@@ -282,9 +292,17 @@ function googleTranslateElementInit() {
       if (isActive) {
         langDropdown.classList.remove('active');
         langToggle.setAttribute('aria-expanded', 'false');
+        if (langDropdownOverlay) {
+          langDropdownOverlay.classList.remove('active');
+          langDropdownOverlay.setAttribute('aria-hidden', 'true');
+        }
       } else {
         langDropdown.classList.add('active');
         langToggle.setAttribute('aria-expanded', 'true');
+        if (langDropdownOverlay) {
+          langDropdownOverlay.classList.add('active');
+          langDropdownOverlay.setAttribute('aria-hidden', 'false');
+        }
       }
     }, true);
 
@@ -303,7 +321,7 @@ function googleTranslateElementInit() {
       changeLang(sysLang);
     }, true);
 
-    // 외부 클릭 시 닫기
+    // 외부 클릭 시 닫기 (overlay 클릭 시에도 닫힘)
     document.addEventListener('click', function(e) {
       var target = e.target;
       while (target && target.tagName === 'FONT') {
@@ -312,6 +330,10 @@ function googleTranslateElementInit() {
       if (!langToggle.contains(target) && !langDropdown.contains(target)) {
         langDropdown.classList.remove('active');
         langToggle.setAttribute('aria-expanded', 'false');
+        if (langDropdownOverlay) {
+          langDropdownOverlay.classList.remove('active');
+          langDropdownOverlay.setAttribute('aria-hidden', 'true');
+        }
       }
     });
 
@@ -346,6 +368,10 @@ function googleTranslateElementInit() {
         if (lang) {
           langDropdown.classList.remove('active');
           langToggle.setAttribute('aria-expanded', 'false');
+          if (langDropdownOverlay) {
+            langDropdownOverlay.classList.remove('active');
+            langDropdownOverlay.setAttribute('aria-hidden', 'true');
+          }
 
           if (LANG_MAP[lang] && currentLangSpan) {
             currentLangSpan.textContent = LANG_MAP[lang];
@@ -498,11 +524,12 @@ function googleTranslateElementInit() {
     }
   }
 
-  // Google Translate가 삽입한 font 태그 제거
+  // Google Translate가 삽입한 font 태그 제거 (lang 옵션 UI 깨짐 방지)
   function cleanupFontTags() {
     var selectors = [
       '.notranslate font',
       '[translate="no"] font',
+      '.lang-toggle-wrapper font',
       '.lang-toggle font',
       '.lang-code font',
       '.lang-dropdown font',
@@ -536,39 +563,40 @@ function googleTranslateElementInit() {
       }
     });
 
-    // lang-option 구조 복구
+    // lang-option 구조 복구 (Google Translate font/span 파괴 시 data-lang 기반 복원)
     var langOptions = document.querySelectorAll('.lang-option');
     langOptions.forEach(function(option) {
-      // lang-flag와 lang-name이 없는 경우 복구
       var hasFlag = option.querySelector('.lang-flag');
       var hasName = option.querySelector('.lang-name');
-      var textContent = option.textContent.trim();
+      if (hasFlag && hasName) return;
 
-      if (!hasFlag || !hasName) {
-        // 텍스트 내용에서 플래그와 이름 추출
+      var dataLang = option.getAttribute('data-lang');
+      var flag = '';
+      var name = '';
+
+      if (dataLang && LANG_LABELS[dataLang]) {
+        flag = LANG_LABELS[dataLang].flag;
+        name = LANG_LABELS[dataLang].name;
+      } else {
+        var textContent = option.textContent.trim();
         var flagMatch = textContent.match(/[\u{1F1E6}-\u{1F1FF}]{2}/u);
-        var flag = flagMatch ? flagMatch[0] : '';
-        var name = textContent.replace(/[\u{1F1E6}-\u{1F1FF}]{2}\s*/u, '').trim();
+        flag = flagMatch ? flagMatch[0] : '';
+        name = textContent.replace(/[\u{1F1E6}-\u{1F1FF}]{2}\s*/u, '').trim();
+      }
 
-        // 기존 내용 제거
-        while (option.firstChild) {
-          option.removeChild(option.firstChild);
-        }
+      while (option.firstChild) option.removeChild(option.firstChild);
 
-        // 구조 복구
-        if (flag) {
-          var flagSpan = document.createElement('span');
-          flagSpan.className = 'lang-flag';
-          flagSpan.textContent = flag;
-          option.appendChild(flagSpan);
-        }
-
-        if (name) {
-          var nameSpan = document.createElement('span');
-          nameSpan.className = 'lang-name';
-          nameSpan.textContent = name;
-          option.appendChild(nameSpan);
-        }
+      if (flag) {
+        var flagSpan = document.createElement('span');
+        flagSpan.className = 'lang-flag';
+        flagSpan.textContent = flag;
+        option.appendChild(flagSpan);
+      }
+      if (name) {
+        var nameSpan = document.createElement('span');
+        nameSpan.className = 'lang-name';
+        nameSpan.textContent = name;
+        option.appendChild(nameSpan);
       }
     });
   }

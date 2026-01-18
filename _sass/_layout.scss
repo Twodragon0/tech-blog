@@ -162,6 +162,153 @@
   border-radius: var(--border-radius-md);
 }
 
+/* Language Toggle & Dropdown - Chrome/Safari 호환, Google Translate DOM 변화 대응 */
+.lang-toggle-wrapper {
+  position: relative;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 0.5rem;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lang-toggle:hover {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-primary);
+}
+
+.lang-toggle .globe-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.lang-toggle .lang-code {
+  flex-shrink: 0;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+}
+
+.lang-dropdown-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal-backdrop);
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+}
+
+.lang-dropdown-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lang-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 160px;
+  padding: 0.25rem;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-modal);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+}
+
+.lang-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin: 0;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background: transparent;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--font-size-sm);
+  text-align: left;
+  white-space: nowrap;
+  flex-shrink: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: background-color var(--transition-fast);
+}
+
+.lang-option:hover {
+  background-color: var(--color-bg-secondary);
+}
+
+.lang-option:active {
+  background-color: var(--color-bg-tertiary);
+}
+
+/* 이모지 플래그: Chrome/Safari 렌더링 차이 완화 */
+.lang-option .lang-flag {
+  flex-shrink: 0;
+  font-size: 1.1em;
+  line-height: 1;
+  min-width: 1.25em;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-option .lang-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Dark theme */
+[data-theme="dark"] .lang-dropdown {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .lang-option:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
 /* Main Content */
 .main-content {
   min-height: calc(100vh - var(--header-height) - 200px);
