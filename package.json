@@ -4,7 +4,8 @@
   "description": "**DevSecOps, DevOps, FinOps 전문 기술 블로그**",
   "main": "sw.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vercel-build": "./build.sh"
   },
   "keywords": [],
   "author": "",
