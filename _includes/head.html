@@ -3,6 +3,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Early console noise filter: 확장 프로그램/CSP/Giscus 노이즈 (Chrome, Safari) -->
+  <script>
+  (function(){
+    var _e=console.error,_w=console.warn;
+    function sup(m){if(typeof m!=='string')m=(m&&m.message)||String(m);return /runtime\.lastError|message port closed|Framing.*violates.*Content Security Policy|frame-ancestors\s*'self'|report-only.*frame-ancestors|violation has been logged|giscus\.app.*404|discussions.*404|GET.*giscus\.app.*404/i.test(m);}
+    console.error=function(){if(arguments[0]!==undefined&&sup(arguments[0]))return;_e.apply(console,arguments);};
+    console.warn=function(){if(arguments[0]!==undefined&&sup(arguments[0]))return;_w.apply(console,arguments);};
+  })();
+  </script>
+
   <!-- Security Headers -->
   <!--
     보안 헤더 설정:
@@ -112,6 +122,11 @@
   <!-- Fallback: SVG 아이콘 (PNG 로드 실패 시) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
 
+  <!-- Fonts: Noto Sans KR (한글 가독성, font-display: swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- Preload Critical Resources -->
   <link rel="preload" href="{{ "/assets/css/main.css" | relative_url }}" as="style">
   <link rel="preload" href="{{ "/assets/js/main.js" | relative_url }}" as="script">
@@ -159,9 +174,9 @@
     .post-image img { display: block; max-width: 100%; height: auto; }
     .post-content img { max-width: 100%; height: auto; display: block; }
     /* Critical layout styles */
-    .post-article { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+    .post-article { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
     .post-title { font-size: 2rem; font-weight: 700; margin: 1rem 0; line-height: 1.2; }
-    .post-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; font-size: 0.875rem; color: var(--text-secondary); }
+    .post-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; font-size: 0.875rem; color: var(--color-text-secondary); }
     /* Prevent FOUC */
     body { visibility: hidden; }
     body.loaded { visibility: visible; }
