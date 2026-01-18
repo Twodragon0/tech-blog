@@ -1,0 +1,50 @@
+# pyproject.toml
+
+[tool.ruff]
+# Black-compatible code formatter
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+# E = pycodestyle errors, F = Pyflakes, W = pycodestyle warnings, I = isort
+select = ["E", "F", "W", "I"]
+ignore = []
+
+# Exclude directories from linting
+exclude = [
+    ".bundle",
+    ".git",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".venv",
+    "__pypackages__",
+    "_site",
+    "api", # JavaScript
+    "vendor",
+]
+
+[tool.ruff.format]
+# Black-compatible formatter
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+# Exclude files from formatting
+exclude = [
+    "scripts/requirements.txt",
+]
+
+
+[tool.mypy]
+python_version = "3.8"
+ignore_missing_imports = true
+exclude = ["vendor/", "node_modules/", "_site/"]
+
+# More strict checking (can be enabled progressively)
+# disallow_untyped_defs = true
+# disallow_any_unimported = true
+# no_implicit_optional = true
+# check_untyped_defs = true
+# warn_return_any = true
+# warn_unused_ignores = true

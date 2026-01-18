@@ -64,7 +64,7 @@ toc: true
 
 이 글에서는 Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화에 대해 실무 중심으로 상세히 다룹니다.
 
-<img src="{{ '/assets/images/2025-05-24-Amazon_Q_Developerand_GitHub_Advanced_Security_Security_and_AWS_image.png' | relative_url }}" alt="Code Security Enhancement and AWS Optimization Using Amazon Q Developer and GitHub Advanced Security" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-05-24-Amazon_Q_Developerand_GitHub_Advanced_Security_Security_and_AWS_image.webp' | relative_url }}" alt="Code Security Enhancement and AWS Optimization Using Amazon Q Developer and GitHub Advanced Security" loading="lazy" class="post-image">
 
 ## 1. 개요
 

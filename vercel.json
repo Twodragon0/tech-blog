@@ -2,7 +2,7 @@
   "framework": null,
   "buildCommand": "chmod +x build.sh && ./build.sh",
   "outputDirectory": "_site",
-  "installCommand": "bundle install",
+  "installCommand": "npm install && bundle install --jobs 4 --retry 3",
   "build": {
     "env": {
       "LANG": "C.UTF-8",
@@ -11,7 +11,9 @@
       "JEKYLL_ENV": "production",
       "BUNDLE_WITHOUT": "development:test",
       "BUNDLE_JOBS": "4",
-      "BUNDLE_PATH": "vendor/bundle"
+      "BUNDLE_PATH": "vendor/bundle",
+      "BUNDLE_RETRY": "3",
+      "JEKYLL_LOG_LEVEL": "warn"
     }
   },
   "git": {
@@ -25,9 +27,9 @@
     {
       "source": "/(.*)",
       "headers": [
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com https://*.google.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://js.sentry-cdn.com https://browser.sentry-cdn.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://giscus.app https://fonts.googleapis.com https://www.gstatic.com https://translate.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; frame-src 'self' https://giscus.app https://googleads.g.doubleclick.net https://*.doubleclick.net https://tpc.googlesyndication.com https://*.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://www.google.com; connect-src 'self' https://giscus.app https://api.mymemory.translated.net https://api.deepseek.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://googleads.g.doubleclick.net https://*.doubleclick.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com https://*.google.com https://csi.gstatic.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://*.adtrafficquality.google https://o4510686170710016.ingest.us.sentry.io https://*.ingest.sentry.io https://browser.sentry-cdn.com https://translate.googleapis.com https://translate-pa.googleapis.com https://buttondown.com https://api.buttondown.com; base-uri 'self'; form-action 'self' https://buttondown.com https://buttondown.email; upgrade-insecure-requests;" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
         { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
@@ -41,22 +43,11 @@
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
         { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
         { "key": "X-DNS-Prefetch-Control", "value": "on" },
         { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400" }
-      ]
-    },
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
-        { "key": "X-RateLimit-Limit", "value": "15" },
-        { "key": "X-RateLimit-Window", "value": "60" }
       ]
     },
     {
@@ -78,7 +69,6 @@
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
         { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },

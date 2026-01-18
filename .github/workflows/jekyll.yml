@@ -68,6 +68,8 @@ jobs:
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
 
   deploy:
     # PR에서는 배포하지 않음 (비용 절감)

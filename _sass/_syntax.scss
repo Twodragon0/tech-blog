@@ -1,369 +1,388 @@
-// Syntax Highlighting (Rouge - Enhanced GitHub Theme)
+/* Syntax Highlighting Styles */
+
+/* Language badge for code blocks */
+.code-language-badge {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a5b4fc;
+  padding: 0.2rem 0.5rem;
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+/* Base highlight container */
 .highlight {
-  background: linear-gradient(135deg, var(--code-bg) 0%, var(--bg-secondary) 100%);
-  border-radius: $radius-lg;
-  overflow: hidden;
   position: relative;
-  border: 2px solid var(--border);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
-  transition: all $transition-base;
+  margin: var(--spacing-lg) 0;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
 
-  // Dark mode specific background
-  [data-theme="dark"] & {
-    background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
-    border-color: #30363d;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
+.highlight pre {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: var(--border-radius-lg);
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  -webkit-overflow-scrolling: touch;
+}
 
-  // Enhanced hover effect
-  &:hover {
-    border-color: var(--primary);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
-    
-    [data-theme="dark"] & {
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
-      border-color: var(--primary);
-    }
-  }
+.highlight pre code {
+  background: transparent;
+  padding: 0;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  font-size: inherit;
+  color: #e2e8f0;
+}
 
-  pre {
-    margin: 0;
-    padding: $spacing-xl;
-    overflow-x: auto;
-    background-color: transparent;
-    border: none;
-    font-size: 0.875rem;
-    line-height: 1.8;
-    color: var(--text);
-    position: relative;
+/* Scrollbar styling for code blocks */
+.highlight pre::-webkit-scrollbar {
+  height: 8px;
+}
 
-    code {
-      background: none;
-      padding: 0;
-      border-radius: 0;
-      font-size: inherit;
-      color: inherit;
-      font-family: $font-mono;
-      display: block;
-      white-space: pre;
-      word-wrap: normal;
-      overflow-wrap: normal;
-    }
-  }
+.highlight pre::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
 
-  // Comments - 더 부드러운 회색 (개선된 가시성)
-  .c, .c1, .cm, .cs { 
-    color: #8b949e; 
-    font-style: italic;
-    opacity: 0.9;
-  }
-  
-  // Errors - 더 명확한 빨간색
-  .err { 
-    color: #f85149; 
-    background-color: rgba(248, 81, 73, 0.15);
-    padding: 0 2px;
-    border-radius: 2px;
-  }
-  
-  // Keywords - 더 선명한 주황빨강 (개선된 대비)
-  .k, .kc, .kd, .kn, .kp, .kr, .kt { 
-    color: #ff7b72; 
-    font-weight: 600;
-  }
-  
-  // Operators & Punctuation
-  .o { 
-    color: #c9d1d9; 
-  }
-  .p { 
-    color: #c9d1d9; 
-  }
-  
-  // Names
-  .n { 
-    color: #c9d1d9; 
-  }
-  
-  // Attributes - 밝은 파란색
-  .na { 
-    color: #79c0ff; 
-  }
-  
-  // Builtin - 주황색
-  .nb { 
-    color: #ffa657; 
-  }
-  
-  // Class - 주황색
-  .nc { 
-    color: #ffa657; 
-    font-weight: 500;
-  }
-  
-  // Constant - 파란색
-  .no { 
-    color: #79c0ff; 
-  }
-  
-  // Decorator - 보라색
-  .nd { 
-    color: #d2a8ff; 
-  }
-  
-  // Entity
-  .ni { 
-    color: #c9d1d9; 
-  }
-  
-  // Function - 보라색 (개선된 가시성)
-  .nf { 
-    color: #d2a8ff; 
-    font-weight: 600;
-  }
-  
-  // Namespace - 주황색
-  .nn { 
-    color: #ffa657; 
-  }
-  
-  // Tag - 초록색
-  .nt { 
-    color: #7ee787; 
-  }
-  
-  // Variable - 파란색
-  .nv { 
-    color: #79c0ff; 
-  }
-  
-  // Operator.Word
-  .ow { 
-    color: #ff7b72; 
-    font-weight: bold; 
-  }
-  
-  // Whitespace
-  .w { 
-    color: #c9d1d9; 
-  }
-  
-  // Numbers - 파란색
-  .mf, .mh, .mi, .mo, .il { 
-    color: #79c0ff; 
-  }
-  
-  // Strings - 밝은 파란색
-  .s, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { 
-    color: #a5d6ff; 
-  }
-  
-  // Builtin.Pseudo
-  .bp { 
-    color: #79c0ff; 
-  }
-  
-  // Variables
-  .vc, .vg, .vi { 
-    color: #79c0ff; 
-  }
-  
-  // Generic.Heading
-  .gh { 
-    color: #79c0ff; 
-    font-weight: bold; 
-  }
-  
-  // Generic.Subheading
-  .gu { 
-    color: #8b949e; 
-    font-weight: bold; 
-  }
-  
-  // Generic.Deleted
-  .gd { 
-    color: #ffa198; 
-    background-color: rgba(248, 81, 73, 0.15); 
-  }
-  
-  // Generic.Inserted
-  .gi { 
-    color: #7ee787; 
-    background-color: rgba(126, 231, 135, 0.15); 
-  }
+.highlight pre::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
+}
 
-  // Line Numbers
-  .lineno {
-    color: #6e7681;
-    user-select: none;
-    padding-right: $spacing-md;
-    border-right: 1px solid var(--border);
-    margin-right: $spacing-md;
+.highlight pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* Rouge syntax highlighting tokens */
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cs { color: #6b7280; font-style: italic; } /* Comments */
+
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kc,
+.highlight .kt { color: #c084fc; font-weight: 500; } /* Keywords */
+
+.highlight .kv { color: #67e8f9; } /* Keyword pseudo */
+
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx { color: #86efac; } /* Strings */
+
+.highlight .sr { color: #fca5a5; } /* Regex */
+.highlight .ss { color: #fbbf24; } /* Symbol */
+
+.highlight .n { color: #e2e8f0; } /* Name */
+.highlight .na { color: #67e8f9; } /* Name attribute */
+.highlight .nb { color: #fcd34d; } /* Name builtin */
+.highlight .nc { color: #67e8f9; font-weight: 600; } /* Name class */
+.highlight .nd { color: #c084fc; } /* Name decorator */
+.highlight .nf,
+.highlight .fm { color: #60a5fa; font-weight: 500; } /* Name function */
+.highlight .ni { color: #f9a8d4; } /* Name entity */
+.highlight .nn { color: #67e8f9; } /* Name namespace */
+.highlight .no { color: #f87171; } /* Name constant */
+.highlight .nt { color: #f472b6; font-weight: 500; } /* Name tag (HTML/XML) */
+.highlight .nv,
+.highlight .vi,
+.highlight .vg,
+.highlight .vc { color: #fbbf24; } /* Variables */
+
+.highlight .m,
+.highlight .mi,
+.highlight .mf,
+.highlight .mh,
+.highlight .mo,
+.highlight .mb,
+.highlight .mx,
+.highlight .il { color: #fb923c; } /* Numbers */
+
+.highlight .o,
+.highlight .ow { color: #94a3b8; } /* Operators */
+.highlight .p { color: #94a3b8; } /* Punctuation */
+
+.highlight .bp { color: #67e8f9; } /* Builtin pseudo */
+.highlight .ne { color: #f87171; } /* Exception */
+.highlight .nl { color: #60a5fa; } /* Label */
+
+.highlight .gh { color: #60a5fa; font-weight: 600; } /* Generic heading */
+.highlight .gu { color: #c084fc; font-weight: 600; } /* Generic subheading */
+.highlight .gd { color: #f87171; background: rgba(248, 113, 113, 0.1); } /* Deleted */
+.highlight .gi { color: #86efac; background: rgba(134, 239, 172, 0.1); } /* Inserted */
+.highlight .ge { font-style: italic; } /* Emphasis */
+.highlight .gs { font-weight: bold; } /* Strong */
+
+.highlight .err { color: #f87171; } /* Error */
+.highlight .w { color: #e2e8f0; } /* Whitespace */
+
+/* Line numbers (if enabled) */
+.highlight .lineno {
+  color: #475569;
+  user-select: none;
+  padding-right: 1rem;
+  border-right: 1px solid rgba(99, 102, 241, 0.2);
+  margin-right: 1rem;
+}
+
+/* Language-specific enhancements */
+
+/* YAML specific */
+.language-yaml .highlight .l { color: #86efac; } /* Literal */
+.language-yaml .highlight .p { color: #94a3b8; }
+
+/* JSON specific */
+.language-json .highlight .nt { color: #60a5fa; } /* Property names */
+
+/* Bash/Shell specific */
+.language-bash .highlight .nb,
+.language-shell .highlight .nb { color: #fcd34d; }
+.language-bash .highlight .nv,
+.language-shell .highlight .nv { color: #67e8f9; }
+
+/* Python specific */
+.language-python .highlight .bp { color: #fcd34d; }
+.language-python .highlight .fm { color: #c084fc; }
+
+/* JavaScript/TypeScript specific */
+.language-javascript .highlight .nx { color: #e2e8f0; }
+.language-typescript .highlight .nx { color: #e2e8f0; }
+
+/* Language Badge (top-left) */
+.highlight[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 0 0 8px 0;
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Copy Button (top-right) */
+.copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 20;
+  backdrop-filter: blur(4px);
+  /* Safari/iPhone 호환성 */
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1;
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.highlight:hover .copy-code-btn,
+.copy-code-btn:focus,
+.copy-code-btn:focus-visible {
+  opacity: 1;
+}
+
+/* 모바일/터치 디바이스에서 항상 버튼 표시 (hover가 작동하지 않으므로) */
+@media (hover: none) and (pointer: coarse) {
+  .copy-code-btn {
+    opacity: 0.7;
+  }
+  
+  .copy-code-btn:active,
+  .copy-code-btn.copied,
+  .copy-code-btn.error {
+    opacity: 1;
   }
 }
 
-// Light mode adjustments - Enhanced colors for better visibility
-:root:not([data-theme="dark"]) {
-  .highlight {
-    background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
-    border-color: #d1d9e0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.03);
-    
-    &:hover {
-      border-color: var(--primary);
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15), 0 4px 8px rgba(37, 99, 235, 0.1);
-    }
-    
-    pre {
-      background-color: transparent;
-    }
-
-    // Comments - softer gray (개선된 가시성)
-    .c, .c1, .cm, .cs { 
-      color: #6a737d; 
-      font-style: italic;
-      opacity: 0.9;
-    }
-    
-    // Errors - clear red
-    .err { 
-      color: #d73a49; 
-      background-color: rgba(215, 58, 73, 0.15);
-      padding: 0 2px;
-      border-radius: 2px;
-    }
-    
-    // Keywords - vibrant red (개선된 대비)
-    .k, .kc, .kd, .kn, .kp, .kr, .kt { 
-      color: #d73a49; 
-      font-weight: 600;
-    }
-    
-    // Operators & Punctuation - dark
-    .o, .p { 
-      color: #24292e; 
-    }
-    
-    // Names - dark
-    .n { 
-      color: #24292e; 
-    }
-    
-    // Attributes - bright blue
-    .na { 
-      color: #005cc5; 
-    }
-    
-    // Builtin - orange
-    .nb { 
-      color: #e36209; 
-    }
-    
-    // Class - purple
-    .nc { 
-      color: #6f42c1; 
-      font-weight: 500;
-    }
-    
-    // Constant - blue
-    .no { 
-      color: #005cc5; 
-    }
-    
-    // Decorator - purple
-    .nd { 
-      color: #6f42c1; 
-    }
-    
-    // Entity
-    .ni { 
-      color: #24292e; 
-    }
-    
-    // Function - purple (개선된 가시성)
-    .nf { 
-      color: #6f42c1; 
-      font-weight: 600;
-    }
-    
-    // Namespace - purple
-    .nn { 
-      color: #6f42c1; 
-    }
-    
-    // Tag - green
-    .nt { 
-      color: #22863a; 
-    }
-    
-    // Variable - orange
-    .nv { 
-      color: #e36209; 
-    }
-    
-    // Operator.Word
-    .ow { 
-      color: #d73a49; 
-      font-weight: bold; 
-    }
-    
-    // Whitespace
-    .w { 
-      color: #24292e; 
-    }
-    
-    // Numbers - blue
-    .mf, .mh, .mi, .mo, .il { 
-      color: #005cc5; 
-    }
-    
-    // Strings - dark blue
-    .s, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { 
-      color: #032f62; 
-    }
-    
-    // Builtin.Pseudo
-    .bp { 
-      color: #005cc5; 
-    }
-    
-    // Variables
-    .vc, .vg, .vi { 
-      color: #005cc5; 
-    }
-    
-    // Generic.Heading
-    .gh { 
-      color: #005cc5; 
-      font-weight: bold; 
-    }
-    
-    // Generic.Subheading
-    .gu { 
-      color: #6a737d; 
-      font-weight: bold; 
-    }
-    
-    // Generic.Deleted
-    .gd { 
-      color: #cb2431; 
-      background-color: rgba(203, 36, 49, 0.1); 
-    }
-    
-    // Generic.Inserted
-    .gi { 
-      color: #22863a; 
-      background-color: rgba(34, 134, 58, 0.1); 
-    }
-  }
+.copy-code-btn:hover {
+  background: rgba(99, 102, 241, 0.4);
+  border-color: rgba(99, 102, 241, 0.5);
+  color: #fff;
+  transform: scale(1.05);
 }
 
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    .highlight {
-      background-color: #f8f9fa;
-      border-color: #e1e4e8;
-    }
-  }
+.copy-code-btn:active {
+  transform: scale(0.95);
+  /* Safari에서 active 상태 시각적 피드백 개선 */
+  -webkit-tap-highlight-color: transparent;
 }
+
+.copy-code-btn.copied {
+  background: rgba(34, 197, 94, 0.4);
+  border-color: rgba(34, 197, 94, 0.5);
+  color: #86efac;
+  opacity: 1;
+}
+
+.copy-code-btn.error {
+  background: rgba(239, 68, 68, 0.4);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+  opacity: 1;
+}
+
+.copy-code-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Safari에서 버튼 텍스트 스타일 정규화 */
+.copy-code-btn {
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Safari에서 버튼 내부 요소 정렬 보정 */
+.copy-code-btn::before,
+.copy-code-btn::after {
+  content: none;
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .highlight[data-lang]::before {
+  color: rgba(99, 102, 241, 0.9);
+  background: rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] .copy-code-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] .copy-code-btn:hover {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #6366f1;
+}
+
+[data-theme="light"] .copy-code-btn.copied {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #16a34a;
+}
+
+/* Light theme code blocks */
+[data-theme="light"] .highlight pre,
+[data-theme="light"] .code-block-wrapper {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] .highlight pre code {
+  color: #334155;
+}
+
+[data-theme="light"] .code-block-header {
+  background: rgba(99, 102, 241, 0.05);
+  border-bottom-color: rgba(99, 102, 241, 0.1);
+}
+
+[data-theme="light"] .code-language-badge {
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+[data-theme="light"] .highlight .c,
+[data-theme="light"] .highlight .c1,
+[data-theme="light"] .highlight .cm,
+[data-theme="light"] .highlight .cs { color: #64748b; }
+
+[data-theme="light"] .highlight .k,
+[data-theme="light"] .highlight .kd,
+[data-theme="light"] .highlight .kn,
+[data-theme="light"] .highlight .kp,
+[data-theme="light"] .highlight .kr,
+[data-theme="light"] .highlight .kc,
+[data-theme="light"] .highlight .kt { color: #7c3aed; }
+
+[data-theme="light"] .highlight .s,
+[data-theme="light"] .highlight .s1,
+[data-theme="light"] .highlight .s2,
+[data-theme="light"] .highlight .sb,
+[data-theme="light"] .highlight .sc,
+[data-theme="light"] .highlight .sd,
+[data-theme="light"] .highlight .se,
+[data-theme="light"] .highlight .sh,
+[data-theme="light"] .highlight .si,
+[data-theme="light"] .highlight .sx { color: #16a34a; }
+
+[data-theme="light"] .highlight .n { color: #334155; }
+[data-theme="light"] .highlight .na { color: #0891b2; }
+[data-theme="light"] .highlight .nb { color: #d97706; }
+[data-theme="light"] .highlight .nc { color: #0891b2; }
+[data-theme="light"] .highlight .nf,
+[data-theme="light"] .highlight .fm { color: #2563eb; }
+[data-theme="light"] .highlight .nt { color: #db2777; }
+[data-theme="light"] .highlight .nv,
+[data-theme="light"] .highlight .vi,
+[data-theme="light"] .highlight .vg,
+[data-theme="light"] .highlight .vc { color: #d97706; }
+
+[data-theme="light"] .highlight .m,
+[data-theme="light"] .highlight .mi,
+[data-theme="light"] .highlight .mf,
+[data-theme="light"] .highlight .mh,
+[data-theme="light"] .highlight .mo,
+[data-theme="light"] .highlight .mb,
+[data-theme="light"] .highlight .mx,
+[data-theme="light"] .highlight .il { color: #ea580c; }
+
+[data-theme="light"] .highlight .o,
+[data-theme="light"] .highlight .ow { color: #64748b; }
+[data-theme="light"] .highlight .p { color: #64748b; }
+
+[data-theme="light"] .highlight .gd { color: #dc2626; background: rgba(220, 38, 38, 0.1); }
+[data-theme="light"] .highlight .gi { color: #16a34a; background: rgba(22, 163, 74, 0.1); }

@@ -191,7 +191,9 @@ toc: true
 
 ### 2.3 클라우드 네이티브 보안
 
-#### 컨테이너 보안컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
+#### 컨테이너 보안
+
+컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다.
 
 | 보안 영역 | 기능 | 설명 |
 |----------|------|------|
@@ -199,14 +201,13 @@ toc: true
 | **런타임 보호** | 컨테이너 런타임 보안 | Falco, Aqua Security 등 런타임 보안 도구 |
 | **네트워크 정책** | Pod 간 통신 제어 | Kubernetes Network Policies를 통한 마이크로 세그멘테이션 |
 
-#### Kubernetes 보안 (1.32+)| 기능 | 설명 | 보안 이점 |
+#### Kubernetes 보안 (1.32+)
+
+| 기능 | 설명 | 보안 이점 |
 |------|------|----------|
 | **Fine-grained Kubelet API Authorization** | Kubelet API에 대한 세밀한 권한 제어 | 최소 권한 원칙 적용 |
 | **Credential Tracking** | 자격 증명 추적 및 관리 | 자격 증명 유출 탐지 |
 | **User Namespaces** | Pod 사용자 네임스페이스 격리 | 컨테이너 탈출 위험 감소 |
-
-User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
-
 | **Pod Certificates for mTLS** | Pod 간 상호 TLS 인증 | 네트워크 트래픽 암호화 |
 
 #### 서버리스 보안

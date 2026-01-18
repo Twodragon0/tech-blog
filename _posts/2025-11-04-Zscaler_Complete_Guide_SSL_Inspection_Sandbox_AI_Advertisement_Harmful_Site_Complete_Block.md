@@ -63,7 +63,7 @@ image_alt: "Zscaler Complete Guide: SSL Inspection Sandbox AI Advertising Malici
 
 <img src="{{ '/assets/images/2025-11-04-Zscaler_Complete_Guide_SSL_AI_Complete_image.jpg' | relative_url }}" alt="Zscaler Complete Guide: SSL Inspection Sandbox AI Advertising Malicious Site Complete Blocking" loading="lazy" class="post-image">
 
-User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
+Zscaler는 Zero Trust 네트워크 접근을 통해 보안을 강화합니다.
 
 ## 📊 빠른 참조
 
@@ -370,7 +370,7 @@ Zscaler를 포함한 주요 ZTNA 솔루션들이 **AI/ML 기반 위협 탐지**�
 
 ### 11.4 AI 서비스 보안 정책 강화
 
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
+AI 서비스 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다.
 
 ChatGPT, Claude, Copilot 등 생성형 AI 서비스의 기업 내 활용이 증가하면서, **AI 서비스에 대한 보안 정책**이 더욱 정교해지고 있습니다.
 

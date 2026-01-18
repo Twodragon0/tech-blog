@@ -79,9 +79,7 @@ toc: true
 
 이 글은 긴박했던 장애 상황에서 우리 팀이 어떻게 문제를 인지하고 대응했는지, 특히 **모바일과 PC 환경에서 나타난 상이한 증상**을 어떻게 분석했는지를 기록합니다.
 
-User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
-
-<img src="{{ '/assets/images/diagrams/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned_mermaid_chart_1.png' | relative_url }}" alt="mermaid_chart_1" loading="lazy" class="post-image">## 📊 빠른 참조
+## 📊 빠른 참조
 
 ### 인시던트 요약
 
@@ -124,9 +122,7 @@ User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사
 
 ### 2025년 Cloudflare 보안 업데이트
 
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-<img src="{{ '/assets/images/diagrams/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned_mermaid_chart_2.png' | relative_url }}" alt="mermaid_chart_2" loading="lazy" class="post-image">
+2025년 Cloudflare는 급변하는 보안 환경에 대응하기 위해 여러 중요한 업데이트를 발표했습니다.
 
 | 업데이트 항목 | 설명 | 적용 시기 |
 |-------------|------|----------|
@@ -258,11 +254,7 @@ groups:
 
 ### 5.3 자동 Failover 구현
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
-> 
-> ```python
-> # 간단한 CDN Failover 로직...
-> ```
+> **참고**: CDN Failover 구현 관련 자세한 내용은 [AWS Route 53 Health Checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) 및 [Multi-CDN 전략 가이드](https://www.cloudflare.com/learning/cdn/what-is-multi-cdn/)를 참조하세요.
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 ```python

@@ -40,6 +40,9 @@ secrets/
 gemini-service-key.json
 *-service-key.json
 
+# Node
+node_modules/
+
 # Python cache files
 __pycache__/
 *.py[cod]

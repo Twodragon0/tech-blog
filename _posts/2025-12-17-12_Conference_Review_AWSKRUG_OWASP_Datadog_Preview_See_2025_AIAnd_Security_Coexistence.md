@@ -75,11 +75,11 @@ toc: true
 > - **Zero Trust Architecture**가 업계 표준으로 정착하며, Post-quantum 암호화가 현실화 (Cloudflare 52% 적용)
 > - **Supply Chain 공격**이 급증하며, npm Shai-Hulud 웜 등 의존성 관리의 중요성 강조
 
-User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
+2025년 보안 트렌드는 AI와 보안의 공존이 핵심입니다.
 
 ## 2. 2025년 보안 트렌드: 컨퍼런스에서 본 미래
 
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
+2025년 보안 트렌드는 AI와 보안의 공존이 핵심입니다.
 
 ### 2.1 AI 보안의 양면성
 

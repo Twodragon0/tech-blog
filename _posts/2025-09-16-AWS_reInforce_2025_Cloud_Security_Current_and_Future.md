@@ -89,9 +89,11 @@ AWS re:Inforce 2025에서 발표된 최신 보안 기능과 모범 사례는 클
 | **Sec Phase** | Security Scan | 취약점 스캔 | Trivy, Snyk |
 | | Policy Check | K8s YAML 검증 | Kubernetes Policy Validation |
 | **Ops Phase** | Deploy | Secure Deployment | Kubernetes Deployment |
-| | Monitor | Runtime Security 모니터링 | Falco, OPA Gatekeeper |## 1. 주요 트렌드: AI 기반 보안
+| | Monitor | Runtime Security 모니터링 | Falco, OPA Gatekeeper |
 
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
+## 1. 주요 트렌드: AI 기반 보안
+
+AWS 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다.
 
 | 보안 레이어 | 설명 | 구현 방법 |
 |------------|------|----------|
@@ -125,7 +127,9 @@ AI 기술 자체도 보안 위협에 노출되어 있습니다:
 - **데이터 독성**: 학습 데이터 오염
 - **모델 탈취**: 지적 재산권 보호
 
-## 2. Zero Trust 아키텍처### 2.1 Zero Trust의 핵심 원칙
+## 2. Zero Trust 아키텍처
+
+### 2.1 Zero Trust의 핵심 원칙
 
 Zero Trust는 "신뢰하되 검증하라(Trust but Verify)"에서 "검증하라(Verify)"로 전환하는 패러다임입니다.
 
@@ -145,7 +149,7 @@ Zero Trust는 "신뢰하되 검증하라(Trust but Verify)"에서 "검증하라(
 
 #### 네트워크 격리
 
-User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
+AWS re:Invent 2025에서는 여러 보안 강화 기능이 발표되었습니다.
 
 | 환경 | 사용자 | UID | 매핑 관계 | 설명 |
 |------|--------|-----|----------|------|

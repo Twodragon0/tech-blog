@@ -71,8 +71,6 @@ certifications: [aws-saa]
 
 <img src="{{ '/assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security_image.jpg' | relative_url }}" alt="Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance and Datadog SIEM Cloudflare Security" loading="lazy" class="post-image">
 
-User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
-
 ## 1. AWS 멀티 계정 전략
 
 ### 1.1 왜 멀티 계정이 필요한가?
@@ -163,13 +161,14 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
 
 #### 개발 계정에서 프로덕션 리소스 접근 차단
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> **참고**: SCP 정책 작성 관련 자세한 내용은 [AWS Organizations SCP 문서](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)를 참조하세요.
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "DenyProductionResourceAccess",
       "Effect": "Deny",
       "Action": [
         "rds:*",
@@ -188,13 +187,14 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
 
 #### 특정 리전만 허용
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> **참고**: 리전 제한 SCP 정책 관련 내용은 [AWS Organizations SCP 예제](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html)를 참조하세요.
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "DenyNonApprovedRegions",
       "Effect": "Deny",
       "NotAction": [
         "cloudwatch:*",
@@ -216,13 +216,14 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
 
 #### Root 계정 사용 차단
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> **참고**: Root 계정 차단 SCP 정책 관련 내용은 [AWS Organizations SCP 보안 모범 사례](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_best-practices.html)를 참조하세요.
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "DenyRootAccount",
       "Effect": "Deny",
       "Action": "*",
       "Resource": "*",
@@ -291,7 +292,7 @@ detection_rule:
 
 ## 5. Cloudflare 보안
 
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
+Cloudflare는 웹 애플리케이션 보안을 강화하는 엣지 보안 플랫폼입니다.
 
 ### 5.1 Cloudflare란?
 
@@ -334,7 +335,9 @@ Cloudflare는 전 세계에 분산된 CDN 및 보안 서비스를 제공하는 �
 | 설정 복잡도 | 낮음 | 높음 |
 | 비용 | 플랜별 | 사용량 기반 |
 
-## 6. 통합 보안 아키텍처### 6.1 전체 아키텍처
+## 6. 통합 보안 아키텍처
+
+### 6.1 전체 아키텍처
 
 > **참고**: AWS 보안 아키텍처 관련 내용은 [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/) 및 [AWS Security Reference Architecture](https://aws.amazon.com/architecture/security-identity-compliance/)를 참조하세요.
 
@@ -457,13 +460,15 @@ AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도�
 - Control Tower와 통합하여 멀티 계정 환경에서 AI 거버넌스 관리
 
 **SCP 적용 예시 - AI 에이전트 리전 제한:**
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+
+> **참고**: AI 에이전트 접근 제어 SCP 정책 관련 내용은 [AWS Organizations SCP 문서](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) 및 [AgentCore Identity 문서](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)를 참조하세요.
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "DenyAIAgentNonApprovedRegions",
       "Effect": "Deny",
       "Action": [
         "bedrock:*",
@@ -494,7 +499,8 @@ AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도�
 4. 기존 정책과의 차이 분석 및 권장 사항 제공
 
 **사용 예시:**
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: IAM Policy Autopilot 사용 관련 자세한 내용은 [IAM Policy Autopilot GitHub 저장소](https://github.com/aws/iam-policy-autopilot) 및 [AWS IAM Policy Autopilot 문서](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html)를 참조하세요.
 
 ```bash
 # IAM Policy Autopilot 실행
@@ -511,8 +517,6 @@ iam-policy-autopilot diff --current current-policy.json --recommended policy.jso
 ### 9.4 보안 모니터링 강화
 
 #### AWS Security Hub GA
-
-Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 
 AWS Security Hub가 GA(General Availability)로 출시되어 **멀티 계정 보안 현황을 통합 관리**할 수 있게 되었습니다.
 

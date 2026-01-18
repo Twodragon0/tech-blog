@@ -804,8 +804,6 @@ GitHub Advanced Security는 2024-2025년 동안 상당한 개선을 이루었습
 |----------|------------------|-----------------|
 | **컨테이너 보안** | Kubernetes 보안 강화, 이미지 스캔 자동화 | Trivy, Falco, Kubernetes Pod Security Standards |
 
-Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
-
 | **서버리스 보안** | 서버리스 아키텍처 보안, 함수 레벨 보안 | AWS Lambda Layers, Azure Functions 보안 |
 | **멀티 클라우드 보안** | 여러 클라우드 환경 통합 보안, CSPM | AWS Security Hub, Azure Security Center, GCP Security Command Center |
 | **IaC 보안** | Infrastructure as Code 보안 스캔 | Checkov, tfsec, Terrascan |

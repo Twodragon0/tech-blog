@@ -17,6 +17,28 @@ import requests
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 from datetime import datetime
+try:
+    from PIL import Image
+    PIL_AVAILABLE = True
+except ImportError:
+    PIL_AVAILABLE = False
+try:
+    from gtts import gTTS
+    TTS_AVAILABLE = True
+except ImportError:
+    TTS_AVAILABLE = False
+
+try:
+    from moviepy import ImageClip, AudioFileClip, concatenate_videoclips
+    MOVIEPY_AVAILABLE = True
+except ImportError:
+    MOVIEPY_AVAILABLE = False
+
+try:
+    import cairosvg
+    CAIROSVG_AVAILABLE = True
+except ImportError:
+    CAIROSVG_AVAILABLE = False
 
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
@@ -145,6 +167,37 @@ def _safe_print(text: str) -> None:
         # Security: Output only pre-validated, sanitized text
         # nosec B608 - sanitized via mask_sensitive_info and _validate_masked_text
         print(safe_text)
+
+
+def optimize_image(image_path: Path):
+    """
+    생성된 이미지를 최적화하고 WebP 버전을 생성합니다.
+    """
+    if not PIL_AVAILABLE:
+        log_message("⚠️ Pillow 라이브러리가 없어 이미지 최적화를 건너뜁니다.", "WARNING")
+        log_message("💡 설치: pip install Pillow", "INFO")
+        return
+
+    if not image_path.exists():
+        log_message(f"⚠️ 최적화할 이미지 파일을 찾을 수 없습니다: {image_path}", "WARNING")
+        return
+
+    try:
+        log_message(f"⚙️ 이미지 최적화 시작: {image_path.name}")
+        with Image.open(image_path) as img:
+            # 1. 원본 PNG를 압축하여 덮어쓰기
+            if img.format == 'PNG':
+                img.save(image_path, format='PNG', optimize=True)
+                log_message(f"   - 압축된 PNG 저장: {image_path.name}", "INFO")
+
+            # 2. WebP 버전 생성 (품질 85)
+            webp_path = image_path.with_suffix('.webp')
+            img.save(webp_path, format='WebP', quality=85)
+            log_message(f"   - WebP 버전 생성: {webp_path.name}", "INFO")
+
+        log_message(f"✅ 이미지 최적화 완료", "SUCCESS")
+    except Exception as e:
+        log_message(f"❌ 이미지 최적화 실패: {str(e)}", "ERROR")
 
 
 def log_message(message: str, level: str = "INFO"):
@@ -356,12 +409,13 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                                         output_path = output_path.with_suffix(".jpg")
                                     
                                     with open(output_path, "wb") as f:
-                                        # Security: Binary image data, not sensitive text
-                                        # nosemgrep: python.lang.security.audit.logging.logger-credential-leak
-                                        # nosec B608 - binary image data, not sensitive text
                                         f.write(image_bytes)
                                     
                                     log_message(f"✅ 이미지 생성 완료: {output_path.name} ({len(image_bytes)} bytes)", "SUCCESS")
+                                    
+                                    # 생성된 이미지 최적화
+                                    optimize_image(output_path)
+                                    
                                     return True
                                 except Exception as e:
                                     log_message(f"❌ 이미지 디코딩 실패: {str(e)}", "ERROR")
@@ -378,11 +432,12 @@ def generate_image_with_gemini(prompt: str, output_path: Path, max_retries: int 
                                 img_response = requests.get(image_url, timeout=60)
                                 if img_response.status_code == 200:
                                     with open(output_path, "wb") as f:
-                                        # Security: Binary image data, not sensitive text
-                                        # nosemgrep: python.lang.security.audit.logging.logger-credential-leak
-                                        # nosec B608 - binary image data, not sensitive text
                                         f.write(img_response.content)
                                     log_message(f"✅ 이미지 다운로드 완료: {output_path.name}", "SUCCESS")
+                                    
+                                    # 다운로드된 이미지 최적화
+                                    optimize_image(output_path)
+                                    
                                     return True
                                 else:
                                     log_message(f"❌ 이미지 다운로드 실패: {img_response.status_code}", "ERROR")
@@ -502,62 +557,159 @@ def save_prompt_file(prompt: str, output_path: Path):
         log_message(f"⚠️ 프롬프트 파일 저장 실패: {mask_sensitive_info(str(e))}", "WARNING")
 
 
-def process_post(post_file: Path, force: bool = False) -> bool:
+def generate_audio(post_info: Dict, output_path: Path) -> bool:
+    """포스팅 내용을 기반으로 오디오 생성"""
+    if not TTS_AVAILABLE:
+        log_message("⚠️ gTTS 라이브러리가 설치되지 않아 오디오 생성을 건너뜁니다.", "WARNING")
+        log_message("💡 설치: pip install gTTS", "INFO")
+        return False
+
+    try:
+        title = post_info.get("title", "")
+        excerpt = post_info.get("excerpt", "")
+        content = post_info.get("content", "")
+
+        # 오디오 텍스트 생성: 제목 + 요약 + 본문 일부
+        audio_text = f"{title}. {excerpt[:500]}"  # 제목 + 요약 500자
+
+        # 한글 텍스트에서 HTML 태그 제거
+        audio_text = re.sub(r'<[^>]+>', '', audio_text)
+
+        # 민감 정보 마스킹
+        safe_audio_text = mask_sensitive_info(audio_text)
+        if not _validate_masked_text(safe_audio_text):
+            log_message("⚠️ 오디오 텍스트에 민감 정보가 포함되어 생성이 차단되었습니다.", "WARNING")
+            return False
+
+        # TTS 생성
+        tts = gTTS(text=safe_audio_text, lang='ko', slow=False)
+        audio_file = output_path.parent / f"{output_path.stem}.mp3"
+
+        # 오디오 저장
+        tts.save(str(audio_file))
+        log_message(f"✅ 오디오 생성 완료: {audio_file.name}", "SUCCESS")
+        return True
+
+    except Exception as e:
+        log_message(f"⚠️ 오디오 생성 실패: {mask_sensitive_info(str(e))}", "WARNING")
+        return False
+
+
+def convert_svg_to_png(svg_path: Path, png_path: Path) -> bool:
+    """SVG 파일을 PNG로 변환"""
+    if not CAIROSVG_AVAILABLE:
+        log_message("⚠️ cairosvg 라이브러리가 설치되지 않아 SVG 변환을 건너뜁니다.", "WARNING")
+        log_message("💡 설치: pip install cairosvg", "INFO")
+        return False
+
+    try:
+        cairosvg.svg2png(url=str(svg_path), write_to=str(png_path), scale=2)  # 2x scale for higher quality
+        log_message(f"✅ SVG → PNG 변환 완료: {png_path.name}", "SUCCESS")
+        return True
+    except Exception as e:
+        log_message(f"⚠️ SVG 변환 실패: {mask_sensitive_info(str(e))}", "WARNING")
+        return False
+
+
+def generate_video(image_path: Path, audio_path: Path, output_path: Path) -> bool:
+    """이미지와 오디오를 결합하여 영상 생성"""
+    if not MOVIEPY_AVAILABLE:
+        log_message("⚠️ moviepy 라이브러리가 설치되지 않아 영상 생성을 건너뜁니다.", "WARNING")
+        log_message("💡 설치: pip install moviepy", "INFO")
+        return False
+
+    try:
+        # 이미지와 오디오 파일 존재 확인
+        if not image_path.exists():
+            log_message(f"⚠️ 이미지 파일이 존재하지 않습니다: {image_path}", "WARNING")
+            return False
+
+        if not audio_path.exists():
+            log_message(f"⚠️ 오디오 파일이 존재하지 않습니다: {audio_path}", "WARNING")
+            return False
+
+        # SVG 파일인 경우 PNG로 변환
+        if image_path.suffix.lower() == '.svg':
+            png_path = image_path.with_suffix('.png')
+            if not png_path.exists():
+                if not convert_svg_to_png(image_path, png_path):
+                    return False
+            image_path = png_path
+
+        # 이미지 클립 생성 (오디오 길이에 맞춤)
+        audio_clip = AudioFileClip(str(audio_path))
+        audio_duration = audio_clip.duration
+
+        image_clip = ImageClip(str(image_path), duration=audio_duration)
+
+        # 영상 결합
+        video_clip = image_clip.set_audio(audio_clip)
+
+        # 영상 저장
+        video_file = output_path.parent / f"{output_path.stem}.mp4"
+        video_clip.write_videofile(str(video_file), fps=24, codec='libx264', audio_codec='aac', verbose=False, logger=None)
+
+        # 클립 해제
+        video_clip.close()
+        audio_clip.close()
+        image_clip.close()
+
+        log_message(f"✅ 영상 생성 완료: {video_file.name}", "SUCCESS")
+        return True
+
+    except Exception as e:
+        log_message(f"⚠️ 영상 생성 실패: {mask_sensitive_info(str(e))}", "WARNING")
+        return False
+
+
+def process_post(post_file: Path, force: bool = False, optimize_only: bool = False) -> bool:
     """단일 포스팅 처리"""
     log_message(f"📄 포스팅 처리 시작: {post_file.name}")
     
-    # 포스팅 정보 추출
     post_info = extract_post_info(post_file)
     if not post_info:
         log_message(f"❌ 포스팅 정보 추출 실패: {post_file.name}", "ERROR")
         return False
     
-    title = post_info.get("title", "")
     image_path = post_info.get("image", "")
-    
-    # 이미지 경로 확인
     has_image, image_file = check_image_exists(image_path)
-    
+
+    if optimize_only:
+        if has_image and image_file:
+            log_message(f"✨ 최적화 모드: 기존 이미지 최적화 중... {image_file.name}", "INFO")
+            optimize_image(image_file)
+            return True
+        else:
+            log_message(f"⚠️ 최적화 모드: 이미지를 찾을 수 없어 건너뜁니다. {image_path}", "WARNING")
+            return False
+
     if has_image and not force:
-        log_message(f"✅ 이미지가 이미 존재합니다: {image_file.name}", "SUCCESS")
+        if image_file:
+            log_message(f"✅ 이미지가 이미 존재합니다: {image_file.name}", "SUCCESS")
         return True
     
-    # 이미지 경로가 없으면 생성
     if not image_path:
-        # 파일명 기반으로 이미지 경로 생성
         post_stem = post_file.stem
         image_filename = f"{post_stem}.svg"
         image_path = f"/assets/images/{image_filename}"
         log_message(f"💡 이미지 경로 생성: {image_path}", "INFO")
     
-    # 출력 경로 설정
-    if image_path.startswith("/assets/images/"):
-        output_path = PROJECT_ROOT / image_path.lstrip("/")
-    elif image_path.startswith("assets/images/"):
-        output_path = PROJECT_ROOT / image_path
-    else:
-        output_path = IMAGES_DIR / Path(image_path).name
-    
-    # 이미지 디렉토리 생성
+    output_path = IMAGES_DIR / Path(image_path).name
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
-    # 이미지 생성 프롬프트 생성
     prompt = generate_image_prompt(post_info)
     log_message(f"📝 이미지 생성 프롬프트 생성 완료", "SUCCESS")
     
-    # Gemini API로 이미지 생성 시도 (실제로는 프롬프트만 생성)
     if GEMINI_API_KEY:
         generate_image_with_gemini(prompt, output_path)
     else:
-        # 프롬프트만 파일로 저장
         save_prompt_file(prompt, output_path)
     
-    # PNG 이미지도 생성 (OG 이미지용)
     png_path = output_path.with_suffix(".png")
     if output_path.suffix == ".svg":
-        log_message(f"💡 SVG를 PNG로 변환하려면 다음 명령어를 사용하세요:", "INFO")
-        log_message(f"   python3 scripts/generate_og_image.py", "INFO")
-    
+        log_message("💡 SVG를 PNG로 변환하려면 다음 명령어를 사용하세요:", "INFO")
+        log_message("   python3 scripts/generate_og_image.py", "INFO")
+
     log_message(f"✅ 포스팅 처리 완료: {post_file.name}", "SUCCESS")
     return True
 
@@ -611,6 +763,11 @@ def main():
         action="store_true",
         help="이미지가 없는 포스팅만 처리"
     )
+    parser.add_argument(
+        "--optimize-only",
+        action="store_true",
+        help="이미지 재생성 없이 기존 이미지를 최적화"
+    )
     
     args = parser.parse_args()
     
@@ -652,13 +809,13 @@ def main():
     for post_file in posts:
         try:
             # 이미지가 없는 포스팅만 처리하는 경우
-            if args.missing:
+            if args.missing and not args.optimize_only:
                 post_info = extract_post_info(post_file)
                 has_image, _ = check_image_exists(post_info.get("image", ""))
                 if has_image:
                     continue
             
-            if process_post(post_file, force=args.force):
+            if process_post(post_file, force=args.force, optimize_only=args.optimize_only):
                 success_count += 1
         except Exception as e:
             log_message(f"❌ 포스팅 처리 실패: {post_file.name} - {str(e)}", "ERROR")

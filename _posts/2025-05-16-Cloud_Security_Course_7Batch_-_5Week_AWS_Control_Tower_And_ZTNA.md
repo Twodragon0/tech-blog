@@ -71,9 +71,7 @@ certifications: [aws-saa]
 <figcaption>Zero Trust 보안 아키텍처 - Python diagrams로 생성</figcaption>
 </figure>
 
-컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
-
-<img src="{{ '/assets/images/diagrams/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA_mermaid_chart_1.png' | relative_url }}" alt="mermaid_chart_1" loading="lazy" class="post-image">## 1. 개요
+## 1. 개요
 
 ### 1.1 배경 및 필요성
 
@@ -101,10 +99,6 @@ certifications: [aws-saa]
 ```
 
 #### 단계 2: 보안 구성
-
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-<img src="{{ '/assets/images/diagrams/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA_mermaid_chart_2.png' | relative_url }}" alt="mermaid_chart_2" loading="lazy" class="post-image">
 
 보안 설정을 구성합니다:
 

@@ -20,6 +20,7 @@ author:
 # Build Settings
 markdown: kramdown
 highlighter: rouge
+future: true  # Show posts with future dates
 kramdown:
   auto_ids: true
   header_offset: 0
@@ -216,10 +217,10 @@ exclude:
 
 # Build optimization
 keep_files: []
-incremental: false
+incremental: true
 safe: false
 
-# Sass (not used - using CSS directly)
-# sass:
-#   style: compressed
-#   sass_dir: _sass
+# Sass
+sass:
+  style: compressed
+  sass_dir: _sass

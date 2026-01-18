@@ -73,7 +73,9 @@ certifications: [isms-p, aws-saa]
 > - **2025년 FinOps 트렌드**: AI/ML 비용 최적화, GreenOps 통합, Commitment Management 강화, Real-time Cost Visibility, Unit Economics
 > - **AWS 비용 관리 도구**: Cost Optimization Hub, Compute Optimizer, Application Cost Profiler, Cost Anomaly Detection
 > - **ISMS-P 보안 감사 대응**: AWS Artifact, Config Rules, Security Hub, CloudTrail을 활용한 컴플라이언스 전략
-> - **FinOps 모범 사례**: 태깅 전략, 예산 알림, 정기 리뷰, FinOps 문화 정착## 1. 2025년 FinOps 트렌드
+> - **FinOps 모범 사례**: 태깅 전략, 예산 알림, 정기 리뷰, FinOps 문화 정착
+
+## 1. 2025년 FinOps 트렌드
 
 ### 1.1 AI/ML 비용 최적화
 
@@ -89,8 +91,6 @@ certifications: [isms-p, aws-saa]
 | **모델 최적화** | 모델 경량화 및 양자화 | 추론 비용 50% 절감 |
 
 #### Spot Instance 보안 고려사항
-
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
 > **⚠️ 보안 주의사항**
 > 

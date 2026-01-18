@@ -168,7 +168,7 @@ OWASP Top 10은 웹 애플리케이션 보안에서 가장 중요한 취약점�
 
 **실무 대응 방안**:
 
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요..yml 예시...
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조

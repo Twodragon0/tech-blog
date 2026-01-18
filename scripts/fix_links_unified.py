@@ -95,12 +95,29 @@ DUMMY_PATTERNS = [
 
 
 def is_github_link(url: str) -> bool:
-    """URL이 GitHub 링크인지 확인"""
+    """URL이 GitHub 링크인지 확인.
+
+    Args:
+        url: 확인할 URL 문자열.
+
+    Returns:
+        GitHub 링크이면 True, 아니면 False.
+    """
     return bool(re.search(GITHUB_PATTERN, url))
 
 
 def fix_link_text(match) -> str:
-    """링크 텍스트를 적절하게 수정"""
+    """링크 텍스트를 컨텍스트에 맞게 수정.
+
+    'GitHub 예제 저장소'와 같은 일반적인 링크 텍스트를
+    URL의 컨텍스트에 따라 '공식 문서' 등으로 변경합니다.
+
+    Args:
+        match: re.sub에서 전달된 re.Match 객체.
+
+    Returns:
+        수정된 마크다운 링크 문자열.
+    """
     full_match = match.group(0)
     url = match.group(2)
     
@@ -123,7 +140,19 @@ def fix_link_text(match) -> str:
 
 
 def fix_code_blocks(content: str) -> str:
-    """코드 블록 관련 문제 수정"""
+    """코드 블록 관련 문제를 수정.
+
+    - 주석 처리된 짧은 코드 블록(예: 설정, DNS 레코드)을 복원합니다.
+    - 주석 내의 링크 참조 텍스트를 수정합니다.
+    - 링크 텍스트를 컨텍스트에 맞게 수정합니다.
+    - JSON 코드 블록의 GitHub 링크를 공식 문서 링크로 교체합니다.
+
+    Args:
+        content: 수정할 포스트의 전체 내용.
+
+    Returns:
+        수정된 포스트 내용.
+    """
     # 1. 주석 처리된 짧은 코드 블록 복원 (DNS 레코드, 설정 예시 등)
     comment_pattern = r'<!-- (?:긴 코드 블록 제거됨|코드 블록 제거됨).*?```(\w+)?\n(.*?)```\n-->'
     
@@ -172,7 +201,17 @@ def fix_code_blocks(content: str) -> str:
 
 
 def fix_contextual_links(content: str) -> str:
-    """컨텍스트 기반 링크 수정"""
+    """포스트의 컨텍스트에 따라 일반적인 GitHub 링크를 더 구체적인 공식 문서 링크로 수정.
+
+    예: 'kubernetes/examples'와 'dependabot' 키워드가 함께 나오면
+    일반 GitHub 링크를 GitHub Dependabot 공식 문서 링크로 교체합니다.
+
+    Args:
+        content: 수정할 포스트의 전체 내용.
+
+    Returns:
+        수정된 포스트 내용.
+    """
     # 패턴 1: GitHub Actions/Dependabot 워크플로우
     if '.github/workflows' in content or 'dependabot' in content.lower():
         # Dependabot 설정
@@ -247,7 +286,14 @@ def fix_contextual_links(content: str) -> str:
 
 
 def fix_reference_links(content: str) -> str:
-    """참고자료 링크 수정"""
+    """오래되거나 잘못된 참고자료 링크를 올바른 URL로 수정.
+
+    Args:
+        content: 수정할 포스트의 전체 내용.
+
+    Returns:
+        수정된 포스트 내용.
+    """
     # URL 교체
     for pattern, replacement in LINK_FIXES:
         content = re.sub(pattern, replacement, content)
@@ -260,7 +306,14 @@ def fix_reference_links(content: str) -> str:
 
 
 def check_dummy_links(content: str) -> List[Tuple[int, str]]:
-    """더미 링크 확인"""
+    """'dummy', 'placeholder' 등 더미 링크 패턴이 있는지 확인.
+
+    Args:
+        content: 검사할 포스트의 전체 내용.
+
+    Returns:
+        (줄 번호, 매치된 텍스트) 튜플의 리스트.
+    """
     issues = []
     
     for pattern in DUMMY_PATTERNS:
@@ -273,7 +326,16 @@ def check_dummy_links(content: str) -> List[Tuple[int, str]]:
 
 
 def process_post_file(file_path: Path, fix_mode: bool = False, dry_run: bool = False) -> Dict:
-    """포스트 파일 처리"""
+    """단일 포스트 파일을 처리하여 링크를 검사하고 선택적으로 수정.
+
+    Args:
+        file_path: 처리할 포스트 파일의 경로.
+        fix_mode: True이면 링크를 실제로 수정.
+        dry_run: True이고 fix_mode가 True이면, 변경사항을 파일에 쓰지 않음.
+
+    Returns:
+        처리 결과를 담은 딕셔너리.
+    """
     result = {
         'file': str(file_path),
         'fixed': False,

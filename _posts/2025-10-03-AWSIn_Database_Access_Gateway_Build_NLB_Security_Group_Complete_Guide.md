@@ -63,7 +63,7 @@ certifications: [aws-saa]
 
 <img src="{{ '/assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide_image.png' | relative_url }}" alt="Building Secure Database Access Gateway on AWS: NLB Security Group Complete Guide" loading="lazy" class="post-image">
 
-User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
+데이터베이스 접근 게이트웨이는 Zero Trust 아키텍처를 통해 보안을 강화합니다.
 
 ## 배경: 왜 데이터베이스 접근 게이트웨이가 필요한가?
 
@@ -444,7 +444,7 @@ resource "aws_db_instance" "mysql" {
 
 ## 6. 보안 모범 사례
 
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
+데이터베이스 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다.
 
 ### 6.1 암호화
 

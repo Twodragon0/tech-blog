@@ -314,6 +314,118 @@ usage_stats: Dict[str, APIUsage] = {
 }
 
 
+# ============================================
+# TTS Provider Strategy Pattern
+# ============================================
+class BaseTTSProvider:
+    """TTS Provider의 기본 클래스"""
+    def __init__(self, speed_multiplier: float):
+        self.speed_multiplier = speed_multiplier
+
+    def synthesize(self, text: str, output_path: Path) -> bool:
+        """주어진 텍스트로 오디오 파일을 생성합니다."""
+        raise NotImplementedError
+
+    def _speed_up_audio(self, input_path: Path, output_path: Path) -> bool:
+        """ffmpeg를 사용하여 오디오 속도를 조절합니다."""
+        if self.speed_multiplier == 1.0:
+            input_path.rename(output_path)
+            return True
+        
+        try:
+            cmd = [
+                "ffmpeg", "-i", str(input_path),
+                "-filter:a", f"atempo={self.speed_multiplier}",
+                "-vn", str(output_path)
+            ]
+            result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+            log_message(f"✅ 오디오 속도 조절 완료: {output_path.name} ({self.speed_multiplier}배속)")
+            return True
+        except FileNotFoundError:
+            log_message("❌ ffmpeg가 설치되어 있지 않습니다. 오디오 속도 조절을 건너뜁니다.", "ERROR")
+            input_path.rename(output_path)
+            return False
+        except subprocess.CalledProcessError as e:
+            log_message(f"❌ 오디오 속도 조절 실패: {e.stderr}", "ERROR")
+            input_path.rename(output_path)
+            return False
+
+class GeminiTTSProvider(BaseTTSProvider):
+    """Gemini API를 사용하는 TTS Provider"""
+    def synthesize(self, text: str, output_path: Path) -> bool:
+        # 이 함수는 generate_tts_with_gemini_api의 로직을 포함하게 됩니다.
+        # 지금은 기존 함수를 호출하는 것으로 대체합니다.
+        return generate_tts_with_gemini_api(text, output_path, self.speed_multiplier)
+
+class EdgeTTSProvider(BaseTTSProvider):
+    """Edge-TTS를 사용하는 TTS Provider"""
+    def synthesize(self, text: str, output_path: Path) -> bool:
+        # 이 함수는 generate_tts_with_edge_tts의 로직을 포함하게 됩니다.
+        return generate_tts_with_edge_tts(text, output_path, self.speed_multiplier)
+
+class CoquiTTSProvider(BaseTTSProvider):
+    """Coqui TTS를 사용하는 TTS Provider"""
+    def synthesize(self, text: str, output_path: Path) -> bool:
+        # 이 함수는 generate_tts_with_coqui의 로직을 포함하게 됩니다.
+        return generate_tts_with_coqui(text, output_path, self.speed_multiplier)
+
+def get_tts_provider(provider_name: str, speed_multiplier: float) -> Optional[BaseTTSProvider]:
+    """선택된 TTS Provider 인스턴스를 반환하는 팩토리 함수"""
+    if provider_name == "gemini" and GEMINI_API_KEY:
+        return GeminiTTSProvider(speed_multiplier)
+    elif provider_name == "edge" and EDGE_TTS_AVAILABLE:
+        return EdgeTTSProvider(speed_multiplier)
+    elif provider_name == "coqui" and COQUI_TTS_AVAILABLE:
+        return CoquiTTSProvider(speed_multiplier)
+    elif provider_name == "auto":
+        # 자동 선택 로직: Gemini -> Coqui -> Edge
+        if GEMINI_API_KEY:
+            return GeminiTTSProvider(speed_multiplier)
+        if COQUI_TTS_AVAILABLE:
+            return CoquiTTSProvider(speed_multiplier)
+        if EDGE_TTS_AVAILABLE:
+            return EdgeTTSProvider(speed_multiplier)
+    return None
+
+def get_script_provider() -> Optional[callable]:
+    """사용 설정에 따라 스크립트 생성 함수를 반환하는 팩토리 함수.
+
+    Returns:
+        사용 가능한 스크립트 생성 함수 또는 None.
+    """
+    if PREFER_GEMINI:
+        if USE_GEMINI_CLI and check_gemini_cli_available():
+            log_message("ℹ️ 스크립트 생성에 Gemini CLI (OAuth)를 사용합니다.")
+            return generate_script_with_gemini_cli
+        if USE_OAUTH:
+            log_message("ℹ️ 스크립트 생성에 Gemini API (OAuth)를 사용합니다.")
+            return generate_script_with_gemini_oauth
+        if USE_GEMINI_FOR_SCRIPT and GEMINI_API_KEY:
+            log_message("ℹ️ 스크립트 생성에 Gemini API (API Key)를 사용합니다.")
+            return generate_script_with_gemini
+    
+    if USE_DEEPSEEK_FOR_SCRIPT and DEEPSEEK_API_KEY:
+        log_message("ℹ️ 스크립트 생성에 DeepSeek API를 사용합니다.")
+        return generate_script_with_deepseek
+    
+    # Fallback to Gemini if DeepSeek is not preferred or available
+    if USE_GEMINI_CLI and check_gemini_cli_available():
+        log_message("ℹ️ 스크립트 생성에 Gemini CLI (OAuth)를 사용합니다.")
+        return generate_script_with_gemini_cli
+    if USE_OAUTH:
+        log_message("ℹ️ 스크립트 생성에 Gemini API (OAuth)를 사용합니다.")
+        return generate_script_with_gemini_oauth
+    if USE_GEMINI_FOR_SCRIPT and GEMINI_API_KEY:
+        log_message("ℹ️ 스크립트 생성에 Gemini API (API Key)를 사용합니다.")
+        return generate_script_with_gemini
+
+    return None
+
+
+# ============================================
+
+
+
 def _validate_masked_log_entry(text: str) -> bool:
     """
     로그 항목이 안전하게 마스킹되었는지 검증합니다.

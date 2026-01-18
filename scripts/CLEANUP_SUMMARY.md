@@ -38,12 +38,9 @@
 
 ### 3. 중복 분석 결과
 
-#### 중복이 아닌 스크립트들
-- `fix_all_links.py` vs `fix_all_github_links.py` vs `fix_github_links.py`
-  - `fix_all_links.py`: 모든 링크 타입 처리 (포괄적)
-  - `fix_all_github_links.py`: GitHub 링크 전용, 컨텍스트 기반 교체 (구체적)
-  - `fix_github_links.py`: GitHub 링크 검증 및 단일 파일 처리
-  - **결론**: 각각 다른 목적이므로 모두 유지
+#### 링크 스크립트 통합
+- `fix_all_links.py`, `fix_all_github_links.py`, `fix_github_links.py` 스크립트들의 기능이 `fix_links_unified.py`로 통합되었습니다.
+- **결론**: `fix_links_unified.py` 사용을 권장하며, 이전 스크립트들은 제거 대상입니다.
 
 - `improve_all_posts.py` vs `enhance_all_posts.py`
   - `improve_all_posts.py`: 포스트 요약 개선 및 이미지 확인
@@ -56,12 +53,11 @@
 1. **TTS 오디오 생성**:
    - 일반 사용: `generate_enhanced_audio.py` (메인 스크립트)
    - 스크립트 파일에서: `generate_audio_from_script.py`
-   - 개선된 스크립트에서: `generate_audio_from_improved_scripts.py`
    - 테스트: `test_tts_providers.py`
 
 2. **포스트 개선**:
    - 중복 제거: `fix_all_duplicates.py`
-   - 링크 수정: `fix_all_links.py` (모든 링크) 또는 `fix_all_github_links.py` (GitHub 전용)
+   - 링크 수정: `fix_links_unified.py` (통합 스크립트)
    - 요약 보강: `enhance_all_posts.py`
    - AI 개선: `ai_improve_posts.py`
 
@@ -70,19 +66,10 @@
 scripts/
 ├── TTS 관련
 │   ├── generate_enhanced_audio.py (메인)
-│   ├── generate_audio_from_script.py
-│   ├── generate_audio_from_improved_scripts.py
-│   ├── generate_tts_*.py (유틸리티)
-│   └── test_tts_providers.py
+│   └── ...
 ├── 포스트 개선
-│   ├── fix_all_duplicates.py
-│   ├── fix_all_links.py
-│   ├── fix_all_github_links.py
-│   ├── fix_github_links.py
-│   ├── enhance_all_posts.py
-│   ├── improve_all_posts.py
-│   ├── ai_improve_posts.py
-│   └── smart_improve_posts.py
+│   ├── fix_links_unified.py (통합)
+│   └── ...
 └── 기타 유틸리티
 ```
 
@@ -94,8 +81,8 @@ scripts/
    - 중복된 audio 파일
 
 2. **스크립트 통합 고려**:
-   - `fix_all_github_links.py`의 기능을 `fix_all_links.py`에 통합 검토
-   - `fix_github_links.py`를 `fix_all_github_links.py`에 통합 검토
+   - `check_images.py`, `verify_images.py`를 `verify_images_unified.py`로 통합 완료.
+   - `fix_*_links.py` 스크립트들을 `fix_links_unified.py`로 통합 완료.
 
 3. **문서화 개선**:
    - 각 스크립트의 README 파일 업데이트

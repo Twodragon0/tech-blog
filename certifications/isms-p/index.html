@@ -287,70 +287,265 @@ permalink: /certifications/isms-p/
   </div>
 
   <div class="exam-questions">
-    <h2>기출문제 및 연습 문제</h2>
+    <div class="exam-header">
+      <h2>기출문제 및 연습 문제</h2>
+      <div class="exam-controls">
+        <div class="view-toggle">
+          <button type="button" class="view-button active" data-view="list" aria-label="리스트 뷰">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="8" y1="6" x2="21" y2="6"></line>
+              <line x1="8" y1="12" x2="21" y2="12"></line>
+              <line x1="8" y1="18" x2="21" y2="18"></line>
+              <line x1="3" y1="6" x2="3.01" y2="6"></line>
+              <line x1="3" y1="12" x2="3.01" y2="12"></line>
+              <line x1="3" y1="18" x2="3.01" y2="18"></line>
+            </svg>
+            리스트
+          </button>
+          <button type="button" class="view-button" data-view="card" aria-label="카드 뷰">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            카드
+          </button>
+        </div>
+        <div class="search-group">
+          <label for="question-search" class="sr-only">문제 검색</label>
+          <input type="search" id="question-search" class="search-input" placeholder="문제 검색..." aria-label="문제 검색">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </div>
+        <div class="filter-group">
+          <label for="topic-filter" class="filter-label">주제:</label>
+          <select id="topic-filter" class="filter-select" aria-label="주제별 필터">
+            <option value="all">전체</option>
+            <option value="정보보안 정책 및 조직">정보보안 정책 및 조직</option>
+            <option value="접근 통제">접근 통제</option>
+            <option value="암호화">암호화</option>
+            <option value="자산 관리">자산 관리</option>
+            <option value="물리적 보안">물리적 보안</option>
+            <option value="운영 보안">운영 보안</option>
+          </select>
+        </div>
+        <div class="exam-stats">
+          <span class="stat-item">
+            <span class="stat-label">진행:</span>
+            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">3</span>
+          </span>
+          <span class="stat-item">
+            <span class="stat-label">정답률:</span>
+            <span class="stat-value" id="accuracy-rate">0%</span>
+          </span>
+        </div>
+        <button type="button" class="reset-button" id="reset-answers" aria-label="모든 답안 초기화">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+            <path d="M21 3v5h-5"></path>
+            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+            <path d="M3 21v-5h5"></path>
+          </svg>
+          초기화
+        </button>
+      </div>
+    </div>
+    
     <div class="questions-intro">
-      <p>다음은 ISMS-P 인증 준비를 위한 기출문제 및 연습 문제입니다. 각 문제는 관련 포스팅과 연결되어 있어 상세한 설명을 확인할 수 있습니다.</p>
+      <p>다음은 ISMS-P 인증 준비를 위한 기출문제 및 연습 문제입니다. 각 문제에 답을 선택하고 정답을 확인할 수 있습니다. 각 문제는 관련 포스팅과 연결되어 있어 상세한 설명을 확인할 수 있습니다.</p>
     </div>
 
-    <div class="questions-section">
+    <!-- 문제 리스트 뷰 (에듀온 스타일) -->
+    <div class="question-list-view" id="question-list-view" style="display: none;">
+      <div class="list-header">
+        <h3>기출문제 리스트</h3>
+        <div class="list-actions">
+          <button type="button" class="action-button" id="download-all-questions" aria-label="모든 문제 다운로드">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            전체 다운로드
+          </button>
+        </div>
+      </div>
+      <div class="table-container">
+        <table class="question-table" role="table" aria-label="기출문제 목록">
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>주제</th>
+              <th>CBT</th>
+              <th>바로보기</th>
+              <th>문제다운</th>
+              <th>해설다운</th>
+              <th>문제+해설</th>
+            </tr>
+          </thead>
+          <tbody id="question-table-body">
+            <!-- JavaScript로 동적 생성 -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="questions-section question-card-view" id="questions-container">
       <h3>2024년 이후 기출문제</h3>
       
-      <div class="question-card">
+      <div class="question-card" data-topic="정보보안 정책 및 조직" data-answer="C" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 1</span>
           <span class="question-topic">정보보안 정책 및 조직</span>
+          <span class="question-status" id="status-1" aria-label="문제 1 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> ISMS-P 인증을 받기 위해 정보보안 정책을 수립해야 합니다. 다음 중 정보보안 정책에 포함되어야 할 필수 사항이 아닌 것은?</p>
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증을 받기 위해 정보보안 정책을 수립해야 합니다. 다음 중 정보보안 정책에 포함되어야 할 필수 사항이 아닌 것은?</p>
           <div class="question-options">
-            <p><strong>A.</strong> 정보보안 목표 및 범위</p>
-            <p><strong>B.</strong> 정보보안 조직 구성 및 역할</p>
-            <p><strong>C.</strong> 구체적인 기술적 보안 솔루션 상세 명세</p>
-            <p><strong>D.</strong> 정보보안 위험 관리 절차</p>
+            <label class="option-label">
+              <input type="radio" name="question-1" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 정보보안 목표 및 범위</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-1" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 정보보안 조직 구성 및 역할</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-1" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 구체적인 기술적 보안 솔루션 상세 명세</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-1" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 정보보안 위험 관리 절차</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> C</p>
-            <p><strong>해설:</strong> 정보보안 정책은 전략적 수준의 문서이며, 구체적인 기술적 솔루션은 별도의 절차서나 매뉴얼에 포함됩니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_4주차_통합_보안_취약점_점검_및_ISMS-P_인증_대응_실무/">ISMS-P 인증 대응 포스트</a>에서 자세한 설명을 확인하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="1" aria-label="문제 1 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="1" aria-expanded="false" aria-label="문제 1 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-1" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 정보보안 정책은 전략적 수준의 문서이며, 구체적인 기술적 솔루션은 별도의 절차서나 매뉴얼에 포함됩니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_4주차_통합_보안_취약점_점검_및_ISMS-P_인증_대응_실무/" target="_blank" rel="noopener noreferrer">ISMS-P 인증 대응 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="접근 통제" data-answer="B" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 2</span>
           <span class="question-topic">접근 통제</span>
+          <span class="question-status" id="status-2" aria-label="문제 2 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> AWS 환경에서 ISMS-P 인증을 받기 위해 접근 통제를 구현해야 합니다. 다음 중 AWS에서 접근 통제를 구현하는 방법으로 가장 적절한 것은?</p>
+          <p class="question-text"><strong>Q:</strong> AWS 환경에서 ISMS-P 인증을 받기 위해 접근 통제를 구현해야 합니다. 다음 중 AWS에서 접근 통제를 구현하는 방법으로 가장 적절한 것은?</p>
           <div class="question-options">
-            <p><strong>A.</strong> IAM 역할 및 정책만 사용</p>
-            <p><strong>B.</strong> IAM, Security Group, Network ACL을 통합하여 Defense in Depth 구현</p>
-            <p><strong>C.</strong> Security Group만 사용</p>
-            <p><strong>D.</strong> VPC만 사용</p>
+            <label class="option-label">
+              <input type="radio" name="question-2" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> IAM 역할 및 정책만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-2" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> IAM, Security Group, Network ACL을 통합하여 Defense in Depth 구현</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-2" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> Security Group만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-2" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> VPC만 사용</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> B</p>
-            <p><strong>해설:</strong> ISMS-P는 Defense in Depth 원칙을 요구합니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략/">ISMS-P 보안 감사 포스트</a>에서 AWS 기반 컴플라이언스 전략을 확인하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="2" aria-label="문제 2 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="2" aria-expanded="false" aria-label="문제 2 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-2" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> ISMS-P는 Defense in Depth 원칙을 요구합니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략/" target="_blank" rel="noopener noreferrer">ISMS-P 보안 감사 포스트</a>에서 AWS 기반 컴플라이언스 전략을 확인하세요.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="question-card">
+      <div class="question-card" data-topic="암호화" data-answer="B" data-converted="true">
         <div class="question-header">
           <span class="question-number">문제 3</span>
           <span class="question-topic">암호화</span>
+          <span class="question-status" id="status-3" aria-label="문제 3 상태"></span>
         </div>
         <div class="question-content">
-          <p><strong>Q:</strong> ISMS-P 인증을 위해 데이터 암호화를 구현해야 합니다. 전송 중 데이터와 저장된 데이터 모두를 암호화해야 하는 경우, AWS에서 어떤 서비스를 사용해야 합니까?</p>
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증을 위해 데이터 암호화를 구현해야 합니다. 전송 중 데이터와 저장된 데이터 모두를 암호화해야 하는 경우, AWS에서 어떤 서비스를 사용해야 합니까?</p>
           <div class="question-options">
-            <p><strong>A.</strong> S3만 사용</p>
-            <p><strong>B.</strong> KMS와 TLS/SSL을 통합 사용</p>
-            <p><strong>C.</strong> CloudFront만 사용</p>
-            <p><strong>D.</strong> IAM만 사용</p>
+            <label class="option-label">
+              <input type="radio" name="question-3" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> S3만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-3" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> KMS와 TLS/SSL을 통합 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-3" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> CloudFront만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-3" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> IAM만 사용</span>
+            </label>
           </div>
-          <div class="question-answer">
-            <p><strong>정답:</strong> B</p>
-            <p><strong>해설:</strong> 전송 중 암호화는 TLS/SSL, 저장 데이터 암호화는 KMS를 사용합니다. <a href="/posts/2025/05/클라우드_보안_과정_7기_-_4주차_AWS_취약점_점검_및_ISMS_대응_가이드/">AWS 취약점 점검 및 ISMS 대응 포스트</a>에서 자세한 설명을 확인하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="3" aria-label="문제 3 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="3" aria-expanded="false" aria-label="문제 3 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-3" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 전송 중 암호화는 TLS/SSL, 저장 데이터 암호화는 KMS를 사용합니다. <a href="/posts/2025/05/클라우드_보안_과정_7기_-_4주차_AWS_취약점_점검_및_ISMS_대응_가이드/" target="_blank" rel="noopener noreferrer">AWS 취약점 점검 및 ISMS 대응 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -482,14 +677,203 @@ permalink: /certifications/isms-p/
 
 .exam-questions {
   margin-bottom: 3rem;
+  /* CLS 최적화: 최소 높이 설정으로 레이아웃 시프트 방지 */
+  min-height: 200px;
 }
 
-.exam-questions h2 {
+.exam-header {
+  margin-bottom: 2rem;
+}
+
+.exam-header h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
   border-bottom: 2px solid var(--border);
   padding-bottom: 0.5rem;
+}
+
+.exam-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.25rem;
+}
+
+.view-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-button:hover {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.view-button.active {
+  color: var(--primary);
+  background: var(--primary-light, rgba(37, 99, 235, 0.1));
+}
+
+.view-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.search-group {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-color: var(--primary);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.filter-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.filter-select {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-select:hover {
+  border-color: var(--primary);
+}
+
+.filter-select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-color: var(--primary);
+}
+
+.exam-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+}
+
+.stat-value {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.reset-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+  background: var(--bg-secondary);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.reset-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.reset-button svg {
+  width: 16px;
+  height: 16px;
 }
 
 .questions-intro {
@@ -530,12 +914,17 @@ permalink: /certifications/isms-p/
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid var(--border);
+  /* CLS 최적화: 최소 높이 설정으로 레이아웃 시프트 방지 */
+  min-height: 40px;
 }
 
 .question-number {
   font-weight: 600;
   color: var(--primary);
   font-size: 1.1rem;
+  /* CLS 최적화: 인라인 블록으로 설정하여 레이아웃 안정화 */
+  display: inline-block;
+  min-width: 60px;
 }
 
 .question-topic {
@@ -544,6 +933,10 @@ permalink: /certifications/isms-p/
   background: var(--bg-primary);
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
+  /* CLS 최적화: 인라인 블록으로 설정하여 레이아웃 안정화 */
+  display: inline-block;
+  white-space: nowrap;
+  min-width: 100px;
 }
 
 .question-content p {
@@ -553,35 +946,355 @@ permalink: /certifications/isms-p/
 
 .question-options {
   margin: 1.5rem 0;
-  padding-left: 1rem;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.question-options p {
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
+.option-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
   background: var(--bg-primary);
-  border-radius: 4px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.option-label:hover {
+  border-color: var(--primary);
+  background: var(--bg-secondary);
+}
+
+.option-label.selected {
+  border-color: var(--primary);
+  background: var(--primary-light, rgba(37, 99, 235, 0.1));
+}
+
+.option-label.correct {
+  border-color: var(--color-success, #10b981);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.option-label.incorrect {
+  border-color: var(--color-error, #ef4444);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.option-radio {
+  margin-top: 0.25rem;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+}
+
+.option-text {
+  flex: 1;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.question-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.check-button,
+.explanation-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.check-button:hover,
+.explanation-toggle:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.check-button:focus-visible,
+.explanation-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.check-button:active,
+.explanation-toggle:active {
+  transform: translateY(0);
+}
+
+.check-button svg,
+.explanation-toggle svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.question-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+}
+
+.status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.status-icon.correct {
+  background: var(--color-success, #10b981);
+  color: white;
+}
+
+.status-icon.incorrect {
+  background: var(--color-error, #ef4444);
+  color: white;
+}
+
+.status-icon.pending {
+  background: var(--color-warning, #f59e0b);
+  color: white;
 }
 
 .question-answer {
   margin-top: 1.5rem;
-  padding: 1rem;
-  background: var(--primary);
-  color: white;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border: 2px solid var(--primary);
   border-radius: 8px;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-.question-answer p {
-  margin-bottom: 0.5rem;
+.question-answer.show {
+  animation: slideDown 0.3s ease;
 }
 
-.question-answer a {
-  color: white;
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.answer-content {
+  color: var(--text-primary);
+}
+
+.answer-correct {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.answer-value {
+  font-size: 1.25rem;
+  color: var(--color-success, #10b981);
+  font-weight: 700;
+}
+
+.answer-explanation {
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.answer-explanation a {
+  color: var(--primary);
   text-decoration: underline;
 }
 
-.question-answer a:hover {
+.answer-explanation a:hover {
   text-decoration: none;
+  color: var(--primary-hover, #1d4ed8);
+}
+
+/* 문제 리스트 뷰 스타일 */
+.question-list-view {
+  margin-bottom: 2rem;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.list-header h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.list-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-button:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.action-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.table-container {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-primary);
+}
+
+.question-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.question-table thead {
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--border);
+}
+
+.question-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.question-table th:first-child {
+  width: 60px;
+}
+
+.question-table th:nth-child(2) {
+  min-width: 300px;
+}
+
+.question-table th:nth-child(3) {
+  width: 150px;
+}
+
+.question-table th:nth-child(n+4) {
+  width: 100px;
+  text-align: center;
+}
+
+.question-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.2s ease;
+}
+
+.question-table tbody tr:hover {
+  background: var(--bg-secondary);
+}
+
+.question-table td {
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.question-table td:nth-child(n+4) {
+  text-align: center;
+}
+
+.table-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--primary);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.table-link:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.table-link svg {
+  width: 14px;
+  height: 14px;
+}
+
+.question-card-view {
+  display: block;
+}
+
+.question-card-view.hidden {
+  display: none;
+}
+
+@keyframes highlight {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: var(--primary-light, rgba(37, 99, 235, 0.2));
+  }
 }
 
 .study-tips {
@@ -1085,5 +1798,66 @@ permalink: /certifications/isms-p/
   .guide-icon {
     margin: 0 auto;
   }
+
+  .exam-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .view-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-group {
+    max-width: 100%;
+  }
+
+  .exam-stats {
+    margin-left: 0;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .reset-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .question-actions {
+    flex-direction: column;
+  }
+
+  .check-button,
+  .explanation-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .question-table {
+    font-size: 0.8rem;
+  }
+
+  .question-table th,
+  .question-table td {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .question-table th:nth-child(2),
+  .question-table td:nth-child(2) {
+    min-width: 200px;
+  }
 }
 </style>
+
+<script src="/assets/js/certification-quiz.js" defer></script>

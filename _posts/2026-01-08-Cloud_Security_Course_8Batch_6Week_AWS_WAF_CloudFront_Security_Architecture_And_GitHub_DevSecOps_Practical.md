@@ -99,40 +99,10 @@ certifications: [aws-saa]
 
 단순히 VPC 내부를 보호하는 것을 넘어, **CloudFront(CDN)**와 **WAF**를 결합하여 엣지(Edge) 레벨에서 강력한 보안 아키텍처를 구성하는 방법을 다룹니다.
 
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
-
-```mermaid
-graph TB
-    subgraph SecurityLayers["Security Layers"]
-        ImageScan["Image Scanning: Trivy, Snyk"]
-        SecretMgmt["Secret Management: K8s Secrets, Vault"]
-        NonRoot["Non-root User: runAsNonRoot"]
-        ReadOnly["Read-only Filesystem: readOnlyRootFilesystem"]
-        CapDrop["Capabilities Drop: capabilities.drop: ALL"]
-        NetworkPolicy["Network Policies: Pod Isolation"]
-    end
-    
-    App["Application Container"]
-    
-    ImageScan --> SecretMgmt
-    SecretMgmt --> NonRoot
-    NonRoot --> ReadOnly
-    ReadOnly --> CapDrop
-    CapDrop --> NetworkPolicy
-    NetworkPolicy --> App
-    
-    style ImageScan fill:#e1f5ff
-    style SecretMgmt fill:#e1f5ff
-    style NonRoot fill:#e1f5ff
-    style ReadOnly fill:#e1f5ff
-    style CapDrop fill:#e1f5ff
-    style NetworkPolicy fill:#e1f5ff
-    style App fill:#fff4e1
-```
 
 <figure>
-<img src="{{ '/assets/images/diagrams/diagram_waf_cloudfront.png' | relative_url }}" alt="AWS WAF CloudFront Security Architecture" loading="lazy" class="post-image">
-<figcaption>AWS WAF and CloudFront 보안 아키텍처 - Python diagrams로 생성</figcaption>
+<img src="{{ '/assets/images/2026-01-08-AWS_WAF_CloudFront_Security_Architecture_Diagram.svg' | relative_url }}" alt="AWS WAF CloudFront Security Architecture" loading="lazy" class="post-image">
+<figcaption>AWS WAF and CloudFront 보안 아키텍처 다이어그램</figcaption>
 </figure>
 
 ### 1.1 CloudFront and OAI/OAC (Origin Access Identity/Control)
@@ -154,7 +124,7 @@ S3 버킷에 대한 직접 접근을 차단하고, 오직 CloudFront를 통해�
 > **참고**: CloudFront 설정 관련 자세한 내용은 [AWS CloudFront Terraform 모듈](https://github.com/terraform-aws-modules/terraform-aws-cloudfront) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.
 
 ```yaml
-# CloudFront Distribution 설정
+# CloudFront Distribution with OAC 설정
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -162,23 +132,57 @@ CloudFrontDistribution:
       Origins:
         - Id: S3Origin
           DomainName: !GetAtt S3Bucket.RegionalDomainName
+          OriginAccessControlId: !Ref OriginAccessControl
           S3OriginConfig:
-            OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${OAC}'
-      # 또는 OAC 사용
-      OriginAccessControlId: !Ref OriginAccessControl
+            OriginAccessIdentity: ""  # OAC 사용 시 비워둠
+      Enabled: true
+      DefaultCacheBehavior:
+        TargetOriginId: S3Origin
+        ViewerProtocolPolicy: redirect-to-https
+        AllowedMethods: [GET, HEAD]
+        CachedMethods: [GET, HEAD]
+        ForwardedValues:
+          QueryString: false
+          Cookies:
+            Forward: none
+
+# Origin Access Control 정의
+OriginAccessControl:
+  Type: AWS::CloudFront::OriginAccessControl
+  Properties:
+    OriginAccessControlConfig:
+      Name: S3OAC
+      OriginAccessControlOriginType: s3
+      SigningBehavior: always
+      SigningProtocol: sigv4
 ```
 
 > **⚠️ 보안 주의사항**
 > 
 > S3 버킷 정책에서 직접 접근을 차단하고 CloudFront를 통해서만 접근하도록 설정해야 합니다. 그렇지 않으면 OAI/OAC 설정이 무의미해집니다.
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> **참고**: S3 버킷 정책 설정 관련 자세한 내용은 [AWS S3 버킷 정책 문서](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html)를 참조하세요.
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "AllowCloudFrontServicePrincipal",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cloudfront.amazonaws.com"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::your-bucket/*",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceArn": "arn:aws:cloudfront::ACCOUNT_ID:distribution/DISTRIBUTION_ID"
+        }
+      }
+    },
+    {
+      "Sid": "DenyDirectAccess",
       "Effect": "Deny",
       "Principal": "*",
       "Action": "s3:GetObject",
@@ -304,6 +308,11 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 
 코드 작성 및 배포 단계에서부터 보안을 고려하는 **'Shift Left'** 전략을 GitHub 기능을 통해 구현합니다.
 
+<figure>
+<img src="{{ '/assets/images/2026-01-08-GitHub_DevSecOps_Pipeline_Architecture_Diagram.svg' | relative_url }}" alt="GitHub DevSecOps Pipeline Architecture" loading="lazy" class="post-image">
+<figcaption>GitHub DevSecOps 파이프라인 아키텍처 다이어그램</figcaption>
+</figure>
+
 ### 2.1 Dependabot
 
 프로젝트에서 사용하는 라이브러리(의존성)의 취약점을 자동으로 탐지하고, 보안 패치가 적용된 버전으로 업데이트하는 PR을 생성해 줍니다.
@@ -428,40 +437,6 @@ paths-ignore:
 
 ### 3.2 실전 사례: 코드 보안 취약점 진단 및 수정
 
-컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
-
-```mermaid
-graph LR
-    subgraph Dev["Dev Phase"]
-        Code["Code: Secure Dockerfile"]
-        Build["Build: Image Scanning"]
-    end
-    
-    subgraph Sec["Sec Phase"]
-        Scan["Security Scan: Trivy, Snyk"]
-        Policy["Policy Check: K8s YAML Validation"]
-    end
-    
-    subgraph Ops["Ops Phase"]
-        Deploy["Deploy: Secure Deployment"]
-        Monitor["Monitor: Runtime Security"]
-    end
-    
-    Code --> Build
-    Build --> Scan
-    Scan --> Policy
-    Policy --> Deploy
-    Deploy --> Monitor
-    Monitor --> Code
-    
-    style Code fill:#e1f5ff
-    style Build fill:#fff4e1
-    style Scan fill:#ffebee
-    style Policy fill:#fff4e1
-    style Deploy fill:#e8f5e9
-    style Monitor fill:#f3e5f5
-```
-
 블로그 포스팅을 자동화하기 위해 작성했던 Python 스크립트(`fetch_tistory_images.py`, `ai_improve_posts.py`)를 **GitHub Code Scanning(CodeQL)**으로 점검했습니다. 그 결과 **High Severity(고위험)** 취약점 6건이 발견되었고, 이를 해결한 과정을 상세히 공유합니다.
 
 #### 취약점 1: URL 검증 부재 (SSRF 위험)
@@ -483,21 +458,52 @@ if 'blog.kakaocdn.net' in src:
 
 **수정 후 (After)**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> **참고**: URL 검증 및 SSRF 방어 관련 자세한 내용은 [OWASP SSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)를 참조하세요.
 
 ```python
 from urllib.parse import urlparse
+from typing import List
 
-ALLOWED_HOSTS = ['blog.kakaocdn.net', 't1.daumcdn.net', 'tistory.com']
+ALLOWED_HOSTS: List[str] = [
+    'blog.kakaocdn.net',
+    't1.daumcdn.net',
+    'tistory.com'
+]
 
 def validate_url(url: str) -> bool:
-    """Allow-list 기반 URL 검증 (HTTPS + 허용 도메인만)"""
+    """
+    Allow-list 기반 URL 검증 (HTTPS + 허용 도메인만)
+    
+    Args:
+        url: 검증할 URL 문자열
+        
+    Returns:
+        bool: URL이 안전한 경우 True, 그렇지 않으면 False
+    """
     try:
-        p = urlparse(url)
-        return p.scheme == 'https' and p.hostname in ALLOWED_HOSTS
-    except: return False
+        parsed = urlparse(url)
+        
+        # HTTPS만 허용
+        if parsed.scheme != 'https':
+            return False
+        
+        # 호스트명이 허용 목록에 있는지 확인
+        if parsed.hostname not in ALLOWED_HOSTS:
+            return False
+        
+        # 내부 IP 주소 차단 (추가 보안)
+        if parsed.hostname in ['localhost', '127.0.0.1', '0.0.0.0']:
+            return False
+            
+        return True
+    except Exception:
+        return False
 
-# 사용: if validate_url(src): download_image(src)
+# 사용 예시
+if validate_url(image_url):
+    download_image(image_url)
+else:
+    logger.warning(f"Blocked suspicious URL: {image_url}")
 ```
 
 > **⚠️ 보안 주의사항**
@@ -512,23 +518,54 @@ def validate_url(url: str) -> bool:
 
 **해결 방안: Data Masking 함수 구현**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> **참고**: 민감 정보 마스킹 관련 자세한 내용은 [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)를 참조하세요.
 
 ```python
 import re
+from typing import Pattern, Tuple
 
 def mask_sensitive_data(data: str) -> str:
-    """민감 정보 마스킹 (API Key, Password, Token)"""
-    patterns = [
-        (r'sk-[a-zA-Z0-9]{20,}', lambda m: f"sk-{'*'*20}"),  # OpenAI Key
-        (r'(api[_-]?key|password|token)["\s:=]+([^\s"\']{8,})',
-         lambda m: f'{m.group(1)}="{"*"*10}"')
+    """
+    민감 정보 마스킹 (API Key, Password, Token, Secret)
+    
+    Args:
+        data: 마스킹할 문자열
+        
+    Returns:
+        str: 민감 정보가 마스킹된 문자열
+    """
+    patterns: List[Tuple[Pattern, str]] = [
+        # OpenAI API Key
+        (re.compile(r'sk-[a-zA-Z0-9]{20,}', re.IGNORECASE), 'sk-***MASKED***'),
+        # AWS Access Key
+        (re.compile(r'AKIA[0-9A-Z]{16}', re.IGNORECASE), 'AKIA***MASKED***'),
+        # API Key 패턴
+        (re.compile(r'(api[_-]?key|apikey)["\s:=]+([^\s"\']{8,})', re.IGNORECASE),
+         r'\1="***MASKED***"'),
+        # Password 패턴
+        (re.compile(r'(password|passwd|pwd)["\s:=]+([^\s"\']{4,})', re.IGNORECASE),
+         r'\1="***MASKED***"'),
+        # Token 패턴
+        (re.compile(r'(token|secret|auth)["\s:=]+([^\s"\']{8,})', re.IGNORECASE),
+         r'\1="***MASKED***"'),
+        # JWT Token
+        (re.compile(r'eyJ[A-Za-z0-9-_=]+\.eyJ[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*'),
+         '***JWT_TOKEN_MASKED***'),
     ]
-    for pattern, repl in patterns:
-        data = re.sub(pattern, repl, data, flags=re.IGNORECASE)
-    return data
+    
+    masked_data = data
+    for pattern, replacement in patterns:
+        if isinstance(replacement, str):
+            masked_data = pattern.sub(replacement, masked_data)
+        else:
+            masked_data = pattern.sub(replacement, masked_data)
+    
+    return masked_data
 
-# 사용: logger.info(mask_sensitive_data(f"API_KEY={api_key}"))
+# 사용 예시
+api_key = os.getenv("OPENAI_API_KEY", "")
+logger.info(mask_sensitive_data(f"API_KEY={api_key}"))
+# 출력: API_KEY=sk-***MASKED***
 ```
 
 #### 취약점 3: 입력값 검증 부재
@@ -545,21 +582,79 @@ def process_image_url(url: str):
 
 **수정 후**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> **참고**: 입력값 검증 및 이미지 처리 보안 관련 자세한 내용은 [OWASP File Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)를 참조하세요.
 
 ```python
-import requests, validators
+import requests
 from urllib.parse import urlparse
+from typing import Optional
+import validators
 
-ALLOWED_EXT = ['.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp']
+ALLOWED_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp']
+MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
 
-def process_image_url(url: str):
-    """다층 검증: URL형식 → 도메인 → 확장자 → 안전한 요청"""
-    if not validators.url(url): raise ValueError("Invalid URL")
-    if not validate_url(url): raise ValueError("Domain not allowed")
-    if not any(urlparse(url).path.lower().endswith(e) for e in ALLOWED_EXT):
-        raise ValueError("Invalid extension")
-    return requests.get(url, timeout=10, allow_redirects=False, verify=True)
+def process_image_url(url: str) -> Optional[requests.Response]:
+    """
+    다층 검증을 통한 안전한 이미지 다운로드
+    
+    검증 단계:
+    1. URL 형식 검증
+    2. 도메인 허용 목록 검증
+    3. 파일 확장자 검증
+    4. 안전한 HTTP 요청
+    
+    Args:
+        url: 다운로드할 이미지 URL
+        
+    Returns:
+        requests.Response: 성공 시 응답 객체, 실패 시 None
+        
+    Raises:
+        ValueError: 검증 실패 시
+    """
+    # 1. URL 형식 검증
+    if not validators.url(url):
+        raise ValueError("Invalid URL format")
+    
+    # 2. 도메인 허용 목록 검증
+    if not validate_url(url):
+        raise ValueError("Domain not in allowed list")
+    
+    # 3. 파일 확장자 검증
+    parsed_url = urlparse(url)
+    path_lower = parsed_url.path.lower()
+    if not any(path_lower.endswith(ext) for ext in ALLOWED_EXTENSIONS):
+        raise ValueError(f"Invalid file extension. Allowed: {ALLOWED_EXTENSIONS}")
+    
+    # 4. 안전한 HTTP 요청
+    try:
+        response = requests.get(
+            url,
+            timeout=10,
+            allow_redirects=False,  # 리다이렉트 방지 (SSRF 방어)
+            verify=True,  # SSL 인증서 검증
+            stream=True  # 스트리밍으로 메모리 효율성 향상
+        )
+        
+        # 파일 크기 검증
+        content_length = response.headers.get('Content-Length')
+        if content_length and int(content_length) > MAX_FILE_SIZE:
+            raise ValueError(f"File size exceeds maximum: {MAX_FILE_SIZE} bytes")
+        
+        return response
+    except requests.RequestException as e:
+        logger.error(f"Failed to download image: {e}")
+        return None
+
+# 사용 예시
+try:
+    response = process_image_url(image_url)
+    if response and response.status_code == 200:
+        with open(output_path, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+except ValueError as e:
+    logger.warning(f"Image validation failed: {e}")
 ```
 
 ### 3.3 CodeQL 스캔 결과 및 수정 내역
@@ -587,7 +682,9 @@ def process_image_url(url: str):
 > 
 > 👉 **Tech Blog 운영 및 Discussion 활용 예시 보러가기**
 
-## 4. 차주 예습: 컨테이너 보안다음 7주차는 클라우드 네이티브의 핵심인 **Docker & Kubernetes** 보안입니다.
+## 4. 차주 예습: 컨테이너 보안
+
+다음 7주차는 클라우드 네이티브의 핵심인 **Docker & Kubernetes** 보안입니다.
 
 ### 4.1 필수 예습 자료
 
@@ -645,10 +742,6 @@ def process_image_url(url: str):
 | **즉시 적용** | 개인 프로젝트 코드에 CodeQL 스캔 적용 | 1주일 |
 | **실습** | AWS WAF Workshop을 통한 실습 경험 쌓기 | 2-3주 |
 | **고급 기능** | GitHub Advanced Security 기능 활용 시작 | 1개월 |
-
-> **👨‍🏫 멘토의 조언 (Takeaway)**
-> 
-> DevSecOps는 거창한 시스템이 아닌, 사소한 코드 한 줄에서부터 보안을 고려하는 습관에서 시작됩니다. 이번 주 실습을 통해 여러분의 개인 프로젝트 코드도 점검해 보세요.
 
 추가적인 질문이나 도움이 필요하시면 언제든지 댓글로 남겨주세요.
 

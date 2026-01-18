@@ -85,16 +85,16 @@ gemini "다음 기술 블로그 포스팅의 요약을 개선해주세요:
 
 ```bash
 # 최근 10개 포스팅 확인
-python3 scripts/check_images.py --recent 10
+python3 scripts/verify_images_unified.py --recent 10
 
 # 이미지가 없는 포스팅만 표시
-python3 scripts/check_images.py --missing
+python3 scripts/verify_images_unified.py --missing
 
 # 모든 포스팅 확인
-python3 scripts/check_images.py --all
+python3 scripts/verify_images_unified.py --all
 
 # Gemini CLI 명령어 생성
-python3 scripts/check_images.py --recent 5 --generate-commands
+python3 scripts/verify_images_unified.py --recent 5 --generate-commands
 ```
 
 ### 이미지 생성 가이드
@@ -149,9 +149,9 @@ python3 scripts/improve_post_summary.py "2025-12-24-포스팅명.md" --gemini
 python3 scripts/improve_post_summary.py --all --gemini
 ```
 
-### 2. `check_images.py`
+### 2. `verify_images_unified.py`
 
-이미지 파일 확인 및 Gemini CLI 명령어 생성 스크립트
+통합 이미지 파일 확인 및 Gemini CLI 명령어 생성 스크립트
 
 **옵션:**
 - `--all`: 모든 포스팅 확인
@@ -162,10 +162,10 @@ python3 scripts/improve_post_summary.py --all --gemini
 **예시:**
 ```bash
 # 최근 10개 포스팅 이미지 확인
-python3 scripts/check_images.py --recent 10
+python3 scripts/verify_images_unified.py --recent 10
 
 # 이미지가 없는 포스팅 확인 및 명령어 생성
-python3 scripts/check_images.py --missing --generate-commands
+python3 scripts/verify_images_unified.py --missing --generate-commands
 ```
 
 ---
@@ -175,8 +175,8 @@ python3 scripts/check_images.py --missing --generate-commands
 ### 1. 새 포스팅 작성 후
 
 ```bash
-# 1. 이미지 확인
-python3 scripts/check_images.py "새포스팅.md"
+# 1. 최신 포스팅 이미지 확인
+python3 scripts/verify_images_unified.py --recent 1
 
 # 2. 이미지가 없으면 생성
 # GEMINI_IMAGE_GUIDE.md의 가이드를 참조하여 Gemini CLI로 이미지 생성
@@ -192,7 +192,7 @@ python3 scripts/improve_post_summary.py "새포스팅.md" --gemini
 python3 scripts/improve_post_summary.py --all
 
 # 2. 이미지가 없는 포스팅 확인
-python3 scripts/check_images.py --missing --generate-commands
+python3 scripts/verify_images_unified.py --missing --generate-commands
 
 # 3. 요약이 부족한 포스팅 개선
 python3 scripts/improve_post_summary.py --all --gemini
@@ -202,7 +202,7 @@ python3 scripts/improve_post_summary.py --all --gemini
 
 ```bash
 # 주간 점검 스크립트
-python3 scripts/check_images.py --all > image_report.txt
+python3 scripts/verify_images_unified.py --all > image_report.txt
 python3 scripts/improve_post_summary.py --all > summary_report.txt
 ```
 

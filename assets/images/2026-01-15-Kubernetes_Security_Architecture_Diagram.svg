@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="k8sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#326ce5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e4dd8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="podGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ffffff"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="700" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffffff">Kubernetes Security Architecture</text>
+  <text x="700" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8">Multi-Layer Security with Pod Security Standards, Network Policies, and RBAC</text>
+
+  <!-- Control Plane -->
+  <g transform="translate(100, 150)">
+    <rect x="0" y="0" width="280" height="200" rx="12" fill="url(#k8sGrad)" opacity="0.95" stroke="#ffffff" stroke-width="2"/>
+    <text x="140" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Control Plane</text>
+    
+    <!-- API Server -->
+    <rect x="20" y="50" width="240" height="40" rx="6" fill="#ffffff" opacity="0.2"/>
+    <text x="140" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">API Server</text>
+    <text x="140" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">Authentication &amp; Authorization</text>
+    
+    <!-- etcd -->
+    <rect x="20" y="100" width="240" height="40" rx="6" fill="#ffffff" opacity="0.2"/>
+    <text x="140" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">etcd</text>
+    <text x="140" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">Encrypted at Rest</text>
+    
+    <!-- Scheduler -->
+    <rect x="20" y="150" width="240" height="40" rx="6" fill="#ffffff" opacity="0.2"/>
+    <text x="140" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Scheduler</text>
+    <text x="140" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">Pod Placement</text>
+  </g>
+
+  <!-- Worker Nodes -->
+  <g transform="translate(450, 150)">
+    <rect x="0" y="0" width="280" height="200" rx="12" fill="url(#podGrad)" opacity="0.95" stroke="#ffffff" stroke-width="2"/>
+    <text x="140" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Worker Node</text>
+    
+    <!-- Pod with Security Context -->
+    <rect x="20" y="50" width="240" height="60" rx="6" fill="#ffffff" opacity="0.2"/>
+    <text x="140" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Pod</text>
+    <text x="140" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">runAsNonRoot: true</text>
+    <text x="140" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">capabilities.drop: ALL</text>
+    
+    <!-- Container -->
+    <rect x="20" y="120" width="240" height="40" rx="6" fill="#ffffff" opacity="0.2"/>
+    <text x="140" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Container</text>
+    <text x="140" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">readOnlyRootFilesystem</text>
+    
+    <!-- kubelet -->
+    <rect x="20" y="170" width="240" height="25" rx="6" fill="#ffffff" opacity="0.2"/>
+    <text x="140" y="187" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">kubelet</text>
+  </g>
+
+  <!-- Security Components -->
+  <g transform="translate(800, 150)">
+    <rect x="0" y="0" width="280" height="200" rx="12" fill="url(#securityGrad)" opacity="0.95" stroke="#ffffff" stroke-width="2"/>
+    <text x="140" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Security Layer</text>
+    
+    <!-- PSS -->
+    <rect x="20" y="50" width="240" height="35" rx="6" fill="#ffffff" opacity="0.2"/>
+    <text x="140" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Pod Security Standards</text>
+    <text x="140" y="87" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">Restricted Policy</text>
+    
+    <!-- Network Policy -->
+    <rect x="20" y="95" width="240" height="35" rx="6" fill="#ffffff" opacity="0.2"/>
+    <text x="140" y="117" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Network Policy</text>
+    <text x="140" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">Ingress/Egress Control</text>
+    
+    <!-- RBAC -->
+    <rect x="20" y="140" width="240" height="35" rx="6" fill="#ffffff" opacity="0.2"/>
+    <text x="140" y="162" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">RBAC</text>
+    <text x="140" y="177" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#cbd5e1">Role-Based Access</text>
+    
+    <!-- User Namespaces -->
+    <rect x="20" y="185" width="240" height="10" rx="2" fill="#ffffff" opacity="0.3"/>
+  </g>
+
+  <!-- Arrows -->
+  <path d="M380 250 L430 250" stroke="#ffffff" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M730 250 L780 250" stroke="#ffffff" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Security Features -->
+  <g transform="translate(100, 400)">
+    <text x="0" y="0" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Security Features</text>
+    
+    <!-- Pod Security Standards -->
+    <g transform="translate(0, 50)">
+      <rect x="0" y="0" width="300" height="140" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#3b82f6" stroke-width="2"/>
+      <text x="150" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#3b82f6">Pod Security Standards</text>
+      <line x1="50" y1="45" x2="250" y2="45" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+      <text x="150" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">Privileged ? Baseline ? Restricted</text>
+      <text x="150" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Namespace-level enforcement</text>
+      <text x="150" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">runAsNonRoot, readOnlyRootFS</text>
+      <text x="150" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">capabilities.drop: ALL</text>
+    </g>
+    
+    <!-- Network Policies -->
+    <g transform="translate(350, 50)">
+      <rect x="0" y="0" width="300" height="140" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#10b981" stroke-width="2"/>
+      <text x="150" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#10b981">Network Policies</text>
+      <line x1="50" y1="45" x2="250" y2="45" stroke="#10b981" stroke-width="1" opacity="0.5"/>
+      <text x="150" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">Ingress and Egress Control</text>
+      <text x="150" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Default Deny Policy</text>
+      <text x="150" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Namespace Isolation</text>
+      <text x="150" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Pod-to-Pod Communication</text>
+    </g>
+    
+    <!-- RBAC -->
+    <g transform="translate(700, 50)">
+      <rect x="0" y="0" width="300" height="140" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#f59e0b" stroke-width="2"/>
+      <text x="150" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#f59e0b">RBAC</text>
+      <line x1="50" y1="45" x2="250" y2="45" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
+      <text x="150" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">Role-Based Access Control</text>
+      <text x="150" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">ServiceAccount Binding</text>
+      <text x="150" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Least Privilege Principle</text>
+      <text x="150" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Resource Permissions</text>
+    </g>
+    
+    <!-- User Namespaces -->
+    <g transform="translate(1050, 50)">
+      <rect x="0" y="0" width="300" height="140" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#8b5cf6" stroke-width="2"/>
+      <text x="150" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#8b5cf6">User Namespaces</text>
+      <line x1="50" y1="45" x2="250" y2="45" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+      <text x="150" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">Container Isolation (K8s 1.33+)</text>
+      <text x="150" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">hostUsers: false</text>
+      <text x="150" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Root User Mapping</text>
+      <text x="150" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Escape Prevention</text>
+    </g>
+  </g>
+
+  <!-- Security Layers -->
+  <g transform="translate(100, 650)">
+    <text x="0" y="0" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Security Layers</text>
+    
+    <g transform="translate(0, 50)">
+      <rect x="0" y="0" width="1200" height="250" rx="10" fill="#1e293b" opacity="0.8" stroke="#64748b" stroke-width="2"/>
+      
+      <!-- Layer 1: Container -->
+      <rect x="20" y="20" width="280" height="210" rx="8" fill="#3b82f6" opacity="0.3" stroke="#3b82f6" stroke-width="2"/>
+      <text x="160" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3b82f6">Layer 1: Container</text>
+      <text x="160" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">Security Context</text>
+      <text x="160" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- runAsNonRoot</text>
+      <text x="160" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- readOnlyRootFilesystem</text>
+      <text x="160" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- capabilities.drop: ALL</text>
+      <text x="160" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- allowPrivilegeEscalation: false</text>
+      <text x="160" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- User Namespaces</text>
+      <text x="160" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Image Scanning</text>
+      <text x="160" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Secret Management</text>
+      
+      <!-- Layer 2: Pod -->
+      <rect x="320" y="20" width="280" height="210" rx="8" fill="#10b981" opacity="0.3" stroke="#10b981" stroke-width="2"/>
+      <text x="460" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#10b981">Layer 2: Pod</text>
+      <text x="460" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">Pod Security Standards</text>
+      <text x="460" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Restricted Policy</text>
+      <text x="460" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Security Context</text>
+      <text x="460" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- ServiceAccount</text>
+      <text x="460" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Resource Limits</text>
+      <text x="460" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Image Policy</text>
+      <text x="460" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Network Policy</text>
+      <text x="460" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Volume Security</text>
+      
+      <!-- Layer 3: Namespace -->
+      <rect x="620" y="20" width="280" height="210" rx="8" fill="#f59e0b" opacity="0.3" stroke="#f59e0b" stroke-width="2"/>
+      <text x="760" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b">Layer 3: Namespace</text>
+      <text x="760" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">Namespace Isolation</text>
+      <text x="760" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Network Policies</text>
+      <text x="760" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- RBAC Policies</text>
+      <text x="760" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Resource Quotas</text>
+      <text x="760" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Limit Ranges</text>
+      <text x="760" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- PSS Enforcement</text>
+      <text x="760" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Service Mesh (mTLS)</text>
+      <text x="760" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Audit Logging</text>
+      
+      <!-- Layer 4: Cluster -->
+      <rect x="920" y="20" width="280" height="210" rx="8" fill="#8b5cf6" opacity="0.3" stroke="#8b5cf6" stroke-width="2"/>
+      <text x="1060" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#8b5cf6">Layer 4: Cluster</text>
+      <text x="1060" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">Cluster Security</text>
+      <text x="1060" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- API Server Security</text>
+      <text x="1060" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- etcd Encryption</text>
+      <text x="1060" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Admission Controllers</text>
+      <text x="1060" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Runtime Security (Falco)</text>
+      <text x="1060" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Image Scanning</text>
+      <text x="1060" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Compliance Monitoring</text>
+      <text x="1060" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Cluster Auditing</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="980" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#64748b">Defense in Depth: Multi-Layer Kubernetes Security</text>
+  <text x="700" y="995" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#475569">tech.2twodragon.com</text>
+</svg>

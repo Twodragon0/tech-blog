@@ -157,8 +157,7 @@ Git Push → GitHub Actions → Jekyll Build → Vercel Deploy
 | 스크립트 | 용도 |
 |----------|------|
 | `replace_code_blocks_with_links.py` | 긴 코드 블록 → GitHub 링크 |
-| `fix_github_links.py` | 부적절한 링크 검증 및 수정 |
-| `fix_all_links.py` | 전체 링크 일괄 수정 |
+| `fix_links_unified.py` | 모든 링크 검증 및 수정 (통합) |
 
 ### 4. SNS 공유 스크립트
 

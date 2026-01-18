@@ -10,6 +10,7 @@ original_url: https://twodragon.tistory.com/688
 image: /assets/images/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.svg
 image_alt: "Email Delivery Trust Improvement: SendGrid SPF DKIM DMARC Setup Complete Guide"
 toc: true
+audio_file: /assets/audio/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.mp3
 ---
 
 <div class="ai-summary-card">
@@ -436,7 +437,7 @@ mail.yourdomain.com → 별도 SPF, DKIM, DMARC
 
 ## 11. 2025년 이메일 보안 트렌드
 
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
+이메일 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다.
 
 ### 11.1 악성 이메일 증가 및 대응
 

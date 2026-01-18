@@ -78,11 +78,9 @@ certifications: [aws-saa]
 <figcaption>AWS VPC 보안 아키텍처 다이어그램 - Python diagrams로 생성</figcaption>
 </figure>## 1. AWS 보안 아키텍처 핵심 구성요소
 
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
+AWS 보안 아키텍처는 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다.
 
 ### 1.1 VPC: 네트워크 격리 및 보안 설계
-
-User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 
 <img src="{{ '/assets/images/diagrams/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer_mermaid_chart_1.png' | relative_url }}" alt="mermaid_chart_1" loading="lazy" class="post-image">
 VPC(Virtual Private Cloud)는 AWS 리소스를 격리된 가상 네트워크에서 실행할 수 있게 해주는 핵심 서비스입니다.

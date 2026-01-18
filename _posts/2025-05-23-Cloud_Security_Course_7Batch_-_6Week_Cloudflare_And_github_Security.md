@@ -69,7 +69,9 @@ toc: true
 
 안녕하세요, Twodragon입니다. 이번 포스트에서는 클라우드 보안 과정 7기의 Application 보안 및 Cloudflare 및 GitHub 활용을 다루고자 합니다. 이 과정은 게더 타운에서 진행되며, 각 세션은 20분 강의 후 5분 휴식으로 구성되어 있습니다. 이러한 구성은 온라인 강의의 특성 상 눈의 피로를 줄이고, 멘티 분들의 집중력을 최대화하기 위함입니다. 여러분들과 함께 다양한 AWS 보안 모니터링 및 대응 관련 주제를 깊이 있게 다루어 보고자 합니다.
 
-이 글에서는 클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안에 대해 실무 중심으로 상세히 다룹니다.## 1. 강의 일정 및 구성
+이 글에서는 클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안에 대해 실무 중심으로 상세히 다룹니다.
+
+## 1. 강의 일정 및 구성
 
 ### 1.1 세션 구성
 
@@ -93,8 +95,6 @@ toc: true
 - 보안 모범 사례 적용
 
 ### 1.2 최신 보안 업데이트 권고사항
-
-컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
 > **⚠️ 보안 주의사항**
 > 
@@ -229,8 +229,23 @@ Dependabot은 GitHub의 자동화된 의존성 보안 업데이트 도구입니�
 
 #### Dependabot 설정 예시
 
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요..yml...
-> ```
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.
+
+```yaml
+# .github/dependabot.yml
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "security-team"
+    labels:
+      - "dependencies"
+      - "security"
+```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
@@ -268,7 +283,10 @@ GitHub Code Scanning은 정적 분석을 통해 코드의 보안 취약점을 �
 
 #### Code Scanning 설정
 
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요. 설정
+> **참고**: Code Scanning 설정 관련 자세한 내용은 [GitHub Code Scanning 문서](https://docs.github.com/en/code-security/code-scanning) 및 [CodeQL Action](https://github.com/github/codeql-action)을 참조하세요.
+
+Code Scanning 설정 단계:
+1. GitHub Advanced Security 활성화
 2. Code Scanning 통합
 3. 보안 알림 설정
 4. 취약점 대응 프로세스 구축
@@ -285,7 +303,10 @@ GitHub Code Scanning은 정적 분석을 통해 코드의 보안 취약점을 �
 - **PHP Wrapper Injection**: 새로운 탐지 로직 추가
 
 #### Bot Management 혁신
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.과 Code Scanning을 통해 의존성 취약점 및 코드 보안 이슈를 자동으로 탐지하고 대응할 수 있으며, CI/CD 파이프라인에 통합하여 지속적인 보안 검사를 수행할 수 있습니다.
+
+2025년 Cloudflare는 AI 기반 봇 탐지 시스템을 대폭 강화했습니다.
+
+> **참고**: Cloudflare Bot Management 관련 자세한 내용은 [Cloudflare Bot Management 문서](https://developers.cloudflare.com/bots/) 및 [Cloudflare Bot Analytics](https://developers.cloudflare.com/analytics/web-analytics/)를 참조하세요.
 
 ### 2025년 보안 트렌드
 

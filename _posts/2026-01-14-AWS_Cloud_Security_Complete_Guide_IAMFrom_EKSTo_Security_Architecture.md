@@ -91,7 +91,9 @@ AWS 클라우드 환경에서 보안을 강화하기 위해서는 IAM부터 EKS�
 
 ---
 
-## 1. AWS 보안 아키텍처 개요### 1.1 Defense in Depth 전략
+## 1. AWS 보안 아키텍처 개요
+
+### 1.1 Defense in Depth 전략
 
 Defense in Depth는 여러 보안 레이어를 중첩하여 보안을 강화하는 전략입니다.
 
