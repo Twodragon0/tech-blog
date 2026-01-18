@@ -30,8 +30,8 @@
             {% if level == "2" %}
               {% assign id_start = header | split: 'id="' | last %}
               {% assign id = id_start | split: '"' | first %}
-              {% assign title_raw = header | replace: '&gt;', '>' | regex_replace: '^[^>]*>', '' | split: '</h' | first %}
-              {% assign title = title_raw | strip_html | strip %}
+              {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
+              {% assign title = title_start | split: '</h' | first | strip_html | strip %}
               {% assign item_count = item_count | plus: 1 %}
               <a href="#{{ id }}" class="toc-card-item" data-index="{{ item_count }}">
                 <span class="toc-item-number">{{ item_count }}</span>
@@ -56,8 +56,8 @@
             {% elsif level == "3" %}
               {% assign id_start = header | split: 'id="' | last %}
               {% assign id = id_start | split: '"' | first %}
-              {% assign title_raw = header | replace: '&gt;', '>' | regex_replace: '^[^>]*>', '' | split: '</h' | first %}
-              {% assign title = title_raw | strip_html | strip %}
+              {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
+              {% assign title = title_start | split: '</h' | first | strip_html | strip %}
               <a href="#{{ id }}" class="toc-sub-item" data-parent="{{ current_h2 }}">
                 <span class="toc-sub-bullet"></span>
                 <span class="toc-sub-text">{{ title }}</span>
@@ -81,11 +81,18 @@
 
   if (!tocToggle || !tocContent) return;
 
-  // 제목 내 잔여 HTML/태그 조각 제거 (strip_html 미처리·&gt; 파싱 오류 대비)
+  // 제목 내 잔여 HTML/태그 조각 제거 (strip_html 미처리·파싱 오류 대비)
   document.querySelectorAll('.toc-item-text, .toc-sub-text').forEach(function(el) {
     var t = (el.textContent || '').trim();
+    // HTML 엔티티 디코딩
+    t = t.replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&amp;/g, '&');
+    // 숫자 + id="..." 패턴 제거
     var m = t.match(/^\d+\s+id="[^"]*"\s*>\s*(.*)$/);
     if (m) t = m[1].trim();
+    // HTML 태그 제거
+    var div = document.createElement('div');
+    div.innerHTML = t;
+    t = (div.textContent || div.innerText || '').trim();
     if (t) el.textContent = t;
   });
 
