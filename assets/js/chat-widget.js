@@ -45,31 +45,84 @@
   // Show chat icon with delay
   function showChatIcon() {
     setTimeout(() => {
-      chatToggle.style.display = 'flex';
-      chatToggle.classList.add('chat-widget-toggle-visible');
+      if (chatToggle) {
+        chatToggle.style.display = 'flex';
+        // Force reflow for animation
+        chatToggle.offsetHeight;
+        requestAnimationFrame(() => {
+          chatToggle.classList.add('chat-widget-toggle-visible');
+        });
+      }
     }, CONFIG.showIconDelay);
+  }
+
+  // Prevent body scroll when chat is open on mobile
+  function preventBodyScroll(prevent) {
+    if (typeof window === 'undefined') return;
+    if (prevent) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '0px'; // Prevent layout shift
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
   }
 
   // Toggle chat window
   function toggleChat() {
+    const wasOpen = isOpen;
     isOpen = !isOpen;
+    
     if (isOpen) {
       chatWindow.style.display = 'flex';
-      chatWindow.classList.add('chat-widget-window-open');
-      chatInput.focus();
-      // Scroll to bottom
-      scrollToBottom();
+      // Force reflow to ensure display change is applied
+      chatWindow.offsetHeight;
+      // Use requestAnimationFrame for smoother animation
+      requestAnimationFrame(() => {
+        chatWindow.classList.add('chat-widget-window-open');
+        chatInput.focus();
+        // Scroll to bottom with smooth animation
+        setTimeout(() => {
+          scrollToBottom();
+        }, 100);
+      });
+      // Prevent body scroll on mobile
+      if (window.innerWidth <= 768) {
+        preventBodyScroll(true);
+      }
     } else {
       chatWindow.classList.remove('chat-widget-window-open');
+      // Update toggle button state
+      if (chatToggle) {
+        chatToggle.setAttribute('aria-expanded', 'false');
+      }
+      // Restore body scroll on mobile
+      if (window.innerWidth <= 768 && wasOpen) {
+        setTimeout(() => {
+          preventBodyScroll(false);
+        }, 300);
+      }
       setTimeout(() => {
         chatWindow.style.display = 'none';
       }, 300);
     }
+    // Update ARIA attributes
+    if (chatToggle) {
+      chatToggle.setAttribute('aria-expanded', isOpen.toString());
+    }
   }
 
-  // Scroll to bottom of messages
-  function scrollToBottom() {
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+  // Scroll to bottom of messages with smooth animation
+  function scrollToBottom(smooth = true) {
+    if (!chatMessages) return;
+    if (smooth) {
+      chatMessages.scrollTo({
+        top: chatMessages.scrollHeight,
+        behavior: 'smooth'
+      });
+    } else {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
   }
 
   // Add message to chat
@@ -699,16 +752,20 @@
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isOpen) {
+      e.preventDefault();
       toggleChat();
     }
   });
 
-  // Close when clicking outside (optional)
-  chatWindow.addEventListener('click', (e) => {
-    if (e.target === chatWindow) {
-      toggleChat();
-    }
-  });
+  // Close when clicking outside (optional) - improved with better event handling
+  if (chatWindow) {
+    chatWindow.addEventListener('click', (e) => {
+      // Only close if clicking directly on the window background, not on children
+      if (e.target === chatWindow) {
+        toggleChat();
+      }
+    });
+  }
 
   // Initialize
   initSession();
