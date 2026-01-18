@@ -1480,6 +1480,22 @@ ins.adsbygoogle-noablate {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-top: 1.5rem;
+  max-width: 100%;
+}
+
+/* 데스크톱에서 최대 4개까지 표시 */
+@media (min-width: 1200px) {
+  .related-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 큰 태블릿에서 2-3개 표시 */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .related-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 100%;
+  }
 }
 
 .related-item {
@@ -1783,6 +1799,14 @@ ins.adsbygoogle-noablate {
 }
 
 /* Responsive adjustments */
+/* 태블릿 크기에서 2개 표시 */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
 @media (max-width: 768px) {
   .related-posts {
     margin-top: 3rem;
