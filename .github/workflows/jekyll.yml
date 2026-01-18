@@ -86,24 +86,53 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node.js dependencies
+        run: |
+          echo "📦 Installing Node.js dependencies..."
+          npm ci || npm install
+          echo "✅ Node.js dependencies installed"
+
+      - name: Setup Python (for favicon generation)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          echo "📦 Installing Python dependencies..."
+          pip install --quiet --no-cache-dir Pillow || echo "⚠️ Pillow installation failed, continuing..."
+          echo "✅ Python dependencies installed"
+
       - name: Validate Jekyll Configuration
         run: |
           bundle exec jekyll doctor || true
           echo "✅ Jekyll configuration validation completed"
 
-      - name: Build with Jekyll
+      - name: Build with build.sh (consistent with Vercel)
         run: |
           set -e
-          echo "🔍 Building Jekyll site..."
+          echo "🔍 Building Jekyll site using build.sh..."
           echo "Ruby version: $(ruby -v)"
           echo "Bundler version: $(bundle -v)"
           echo "Jekyll version: $(bundle exec jekyll -v)"
+          echo "Node version: $(node -v)"
+          echo "Python version: $(python3 --version)"
           echo ""
-          echo "📦 Installing dependencies..."
-          bundle install || (echo "❌ Bundle install failed" && exit 1)
+          echo "📦 Installing Ruby dependencies..."
+          bundle install --jobs 4 --retry 3 || (echo "❌ Bundle install failed" && exit 1)
           echo ""
-          echo "🏗️  Building site..."
-          if bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --verbose --trace; then
+          echo "🏗️  Building site with build.sh..."
+          chmod +x build.sh
+          # Set baseurl for GitHub Pages (if configured)
+          export BASEURL="${{ steps.pages.outputs.base_path }}"
+          if ./build.sh; then
             echo "✅ Build completed successfully"
           else
             echo "❌ Build failed"
@@ -111,8 +140,9 @@ jobs:
           fi
         env:
           JEKYLL_ENV: production
-          LANG: en_US.UTF-8
-          LC_ALL: en_US.UTF-8
+          LANG: C.UTF-8
+          LC_ALL: C.UTF-8
+          LANGUAGE: C.UTF-8
           # Vercel과 동기화를 위한 빌드 정보
           BUILD_ID: ${{ github.sha }}
           BUILD_TIME: ${{ github.event.head_commit.timestamp }}

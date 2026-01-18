@@ -46,7 +46,15 @@ rm -rf _site || true
 
 # Build Jekyll with verbose output
 log "Building Jekyll site..."
-bundle exec jekyll build --verbose --trace 2>&1 | tee /tmp/jekyll-build.log || {
+# Support baseurl from environment (for GitHub Pages)
+BASEURL="${BASEURL:-}"
+BUILD_ARGS="--verbose --trace"
+if [ -n "$BASEURL" ]; then
+    BUILD_ARGS="$BUILD_ARGS --baseurl $BASEURL"
+    log "Using baseurl: $BASEURL"
+fi
+
+bundle exec jekyll build $BUILD_ARGS 2>&1 | tee /tmp/jekyll-build.log || {
     log "Jekyll build failed. Last 50 lines of output:"
     tail -n 50 /tmp/jekyll-build.log >&2
     error_exit "Jekyll build failed"
@@ -57,10 +65,22 @@ if [ ! -d "_site" ]; then
     error_exit "_site directory not created"
 fi
 
-# Minify JavaScript
+# Minify JavaScript (optional, graceful failure)
 log "Minifying JavaScript..."
 if [ -f "_site/assets/js/main.js" ]; then
-    npx terser _site/assets/js/main.js -o _site/assets/js/main.js -c -m || log "WARNING: terser command failed, using unminified JS"
+    # Check if terser is available
+    if command -v npx >/dev/null 2>&1 && [ -f "node_modules/.bin/terser" ] || [ -f "package.json" ]; then
+        # Try to use local terser first, then npx
+        if [ -f "node_modules/.bin/terser" ]; then
+            ./node_modules/.bin/terser _site/assets/js/main.js -o _site/assets/js/main.js -c -m || log "WARNING: terser command failed, using unminified JS"
+        elif npx --yes terser _site/assets/js/main.js -o _site/assets/js/main.js -c -m 2>/dev/null; then
+            log "✅ JavaScript minified successfully"
+        else
+            log "WARNING: terser command failed, using unminified JS"
+        fi
+    else
+        log "INFO: terser not available, skipping minification (optional step)"
+    fi
 else
     log "WARNING: _site/assets/js/main.js not found, skipping minification."
 fi
