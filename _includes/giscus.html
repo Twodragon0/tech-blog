@@ -21,24 +21,44 @@
     </div>
 
     <!-- Quick Reactions -->
-    <div class="quick-reactions" id="quick-reactions">
+    <div class="quick-reactions" id="quick-reactions" role="region" aria-label="게시글 반응">
       <span class="reactions-label">이 글이 도움이 되셨나요?</span>
-      <div class="reactions-buttons">
-        <button class="reaction-btn" data-reaction="thumbsUp" title="좋아요">
-          <span class="reaction-emoji">&#x1F44D;</span>
-          <span class="reaction-count" id="reaction-thumbsUp">0</span>
+      <div class="reactions-buttons" role="group" aria-label="반응 버튼">
+        <button 
+          class="reaction-btn" 
+          data-reaction="thumbsUp" 
+          aria-label="좋아요"
+          aria-pressed="false"
+          type="button">
+          <span class="reaction-emoji" aria-hidden="true">👍</span>
+          <span class="reaction-count" id="reaction-thumbsUp" aria-label="좋아요 개수">0</span>
         </button>
-        <button class="reaction-btn" data-reaction="heart" title="하트">
-          <span class="reaction-emoji">&#x2764;&#xFE0F;</span>
-          <span class="reaction-count" id="reaction-heart">0</span>
+        <button 
+          class="reaction-btn" 
+          data-reaction="heart" 
+          aria-label="하트"
+          aria-pressed="false"
+          type="button">
+          <span class="reaction-emoji" aria-hidden="true">❤️</span>
+          <span class="reaction-count" id="reaction-heart" aria-label="하트 개수">0</span>
         </button>
-        <button class="reaction-btn" data-reaction="rocket" title="로켓">
-          <span class="reaction-emoji">&#x1F680;</span>
-          <span class="reaction-count" id="reaction-rocket">0</span>
+        <button 
+          class="reaction-btn" 
+          data-reaction="rocket" 
+          aria-label="로켓"
+          aria-pressed="false"
+          type="button">
+          <span class="reaction-emoji" aria-hidden="true">🚀</span>
+          <span class="reaction-count" id="reaction-rocket" aria-label="로켓 개수">0</span>
         </button>
-        <button class="reaction-btn" data-reaction="eyes" title="관심">
-          <span class="reaction-emoji">&#x1F440;</span>
-          <span class="reaction-count" id="reaction-eyes">0</span>
+        <button 
+          class="reaction-btn" 
+          data-reaction="eyes" 
+          aria-label="관심"
+          aria-pressed="false"
+          type="button">
+          <span class="reaction-emoji" aria-hidden="true">👀</span>
+          <span class="reaction-count" id="reaction-eyes" aria-label="관심 개수">0</span>
         </button>
       </div>
     </div>
@@ -202,11 +222,44 @@
 
       // Quick reaction buttons (link to GitHub discussion)
       document.querySelectorAll('.reaction-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
+        // Load saved reaction state from localStorage
+        const reactionType = btn.getAttribute('data-reaction');
+        const savedState = localStorage.getItem(`reaction-${reactionType}`);
+        if (savedState === 'active') {
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+        }
+
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Toggle active state
+          const isActive = this.classList.contains('active');
+          
+          if (isActive) {
+            this.classList.remove('active');
+            this.setAttribute('aria-pressed', 'false');
+            localStorage.removeItem(`reaction-${reactionType}`);
+          } else {
+            // Remove active from other buttons
+            document.querySelectorAll('.reaction-btn').forEach(b => {
+              b.classList.remove('active');
+              b.setAttribute('aria-pressed', 'false');
+              localStorage.removeItem(`reaction-${b.getAttribute('data-reaction')}`);
+            });
+            
+            // Add active to clicked button
+            this.classList.add('active');
+            this.setAttribute('aria-pressed', 'true');
+            localStorage.setItem(`reaction-${reactionType}`, 'active');
+          }
+
           // Scroll to Giscus widget to interact with reactions
           const giscusFrame = giscusContainer.querySelector('iframe');
           if (giscusFrame) {
-            giscusFrame.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => {
+              giscusFrame.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
           }
         });
       });
