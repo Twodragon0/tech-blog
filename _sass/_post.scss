@@ -347,26 +347,18 @@
 
 /* Table of Contents */
 .toc-container {
-  position: -webkit-sticky;
-  position: sticky;
-  top: calc(var(--header-height) + 1rem);
-  max-height: calc(100vh - var(--header-height) - 2rem);
-  overflow-y: auto;
+  position: relative;
   padding: 0;
   border-radius: var(--border-radius-lg);
   background-color: var(--color-bg-secondary);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border);
   margin-bottom: 2rem;
-  z-index: 10;
 }
 
 /* 모바일에서 TOC 스타일 조정 */
 @media (max-width: 768px) {
   .toc-container {
-    position: relative;
-    top: 0;
-    max-height: none;
     margin-bottom: 1.5rem;
   }
 }
@@ -454,7 +446,8 @@
 
 .toc-nav {
   padding: 0.75rem 1rem 1rem;
-  overflow-y: auto;
+  max-height: none;
+  overflow: visible;
 }
 
 .toc-grid {
