@@ -31,6 +31,9 @@ log "  Working directory: $(pwd)"
 log "  LANG: $LANG"
 log "  LC_ALL: $LC_ALL"
 
+log "Generating favicons..."
+python3 scripts/generate_favicon.py || error_exit "Favicon generation failed"
+
 # Clean previous build
 log "Cleaning previous build output..."
 rm -rf _site || true
