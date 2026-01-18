@@ -67,6 +67,15 @@
   margin-bottom: 2.5rem;
 }
 
+/* 포스트 콘텐츠 첫 번째 요소 조정 */
+.post-content > *:first-child {
+  margin-top: 0;
+}
+
+.post-content > *:last-child {
+  margin-bottom: 0;
+}
+
 .post-content p {
   margin: 0 0 1.25em;
 }
@@ -102,8 +111,10 @@
   font-size: 1.65rem;
   font-weight: 700;
   margin-top: 2em;
+  margin-bottom: 0.75em;
   padding-bottom: 0.35em;
   border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--header-height) + 1rem);
 }
 
 .post-content h2 {
@@ -233,6 +244,18 @@
   background-color: var(--color-bg-secondary);
 }
 
+/* 표 내부 링크 스타일 */
+.post-content table a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.post-content table a:hover {
+  border-bottom-color: var(--color-primary);
+}
+
 /* 반응형 테이블 */
 @media (max-width: 768px) {
   .post-content table {
@@ -240,12 +263,26 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     font-size: 0.875rem;
+    margin: 1em -1rem;
+    border-radius: 0;
   }
   
   .post-content th,
   .post-content td {
     padding: 0.5em 0.75em;
-    white-space: nowrap;
+    min-width: 100px;
+  }
+  
+  .post-content th:first-child,
+  .post-content td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: var(--color-bg-secondary);
+    z-index: 1;
+  }
+  
+  .post-content tbody tr:nth-child(even) th:first-child {
+    background-color: var(--color-bg-tertiary);
   }
 }
 
@@ -282,6 +319,20 @@
   margin: 2em auto;
   max-width: 100%;
   height: auto;
+  border-radius: var(--border-radius-md);
+}
+
+/* 이미지 캡션 */
+.post-content figure {
+  margin: 2em 0;
+  text-align: center;
+}
+
+.post-content figcaption {
+  margin-top: 0.75em;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
 }
 
 /* Post Article Layout */
@@ -618,7 +669,27 @@
 .ai-summary-content {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .ai-summary-card {
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+  }
+  
+  .ai-summary-content {
+    gap: 0.75rem;
+  }
+  
+  .summary-label {
+    min-width: 80px;
+    font-size: 0.85rem;
+  }
+  
+  .summary-value {
+    font-size: 0.9rem;
+  }
 }
 
 .summary-row {
