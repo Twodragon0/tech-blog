@@ -18,10 +18,19 @@
     보안 헤더 설정:
     - Vercel.json에서 HTTP 헤더로 중앙 관리됩니다.
     - Content-Security-Policy (CSP)
+      * 'unsafe-eval'은 Google Translate, Google Ads 등 third-party 스크립트 호환성을 위해 필요합니다.
+      * 이는 정상적인 설정이며, third-party 스크립트의 eval() 사용을 허용합니다.
     - X-Content-Type-Options
     - Referrer-Policy
     - Strict-Transport-Security
     - X-Frame-Options
+    
+    참고:
+    - CSP eval() 경고: Google Translate, Google Ads 등 third-party 스크립트가 eval()을 사용하므로
+      'unsafe-eval'이 필요합니다. 이는 보안 감사 도구에서 경고를 표시할 수 있지만,
+      third-party 스크립트 호환성을 위해 필요한 설정입니다.
+    - Form field id/name: Giscus 등 third-party 위젯이 동적으로 생성하는 form 필드는
+      id/name 속성이 없을 수 있습니다. 이는 third-party 위젯의 정상적인 동작입니다.
   -->
 
   <!-- SEO -->
