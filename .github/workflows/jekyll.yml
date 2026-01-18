@@ -48,14 +48,21 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             echo "should-build=true" >> $GITHUB_OUTPUT
-          elif [ -n "${{ steps.filter.outputs.should-build }}" ]; then
-            echo "should-build=${{ steps.filter.outputs.should-build }}" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event_name }}" == "push" ] || [ "${{ github.event_name }}" == "pull_request" ]; then
+            # dorny/paths-filter는 'true' 또는 'false'를 반환
+            if [ "${{ steps.filter.outputs.should-build }}" == "true" ]; then
+              echo "should-build=true" >> $GITHUB_OUTPUT
+            else
+              echo "should-build=false" >> $GITHUB_OUTPUT
+            fi
           else
             echo "should-build=true" >> $GITHUB_OUTPUT
           fi
       
       - name: Output decision
         run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Filter output: ${{ steps.filter.outputs.should-build }}"
           echo "Should build: ${{ steps.set-output.outputs.should-build }}"
 
   build:
@@ -66,7 +73,7 @@ jobs:
     if: |
       github.event_name == 'workflow_dispatch' ||
       github.event_name == 'pull_request' ||
-      (github.event_name == 'push' && (needs.check-changes.outputs.should-build == 'true' || needs.check-changes.outputs.should-build == ''))
+      (github.event_name == 'push' && needs.check-changes.outputs.should-build == 'true')
     needs: [check-changes]
     permissions:
       contents: read
@@ -162,7 +169,7 @@ jobs:
     if: |
       github.event_name == 'push' && 
       github.ref == 'refs/heads/main' &&
-      (needs.check-changes.outputs.should-build == 'true' || needs.check-changes.outputs.should-build == '') &&
+      needs.check-changes.outputs.should-build == 'true' &&
       needs.build.result == 'success'
     
     # 동시 배포 방지: 같은 브랜치의 배포는 큐에 대기
