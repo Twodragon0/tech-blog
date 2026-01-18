@@ -424,6 +424,137 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Image Lightbox functionality
 (function() {
+  // Add lightbox styles
+  const style = document.createElement('style');
+  style.textContent = `
+    .image-lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .image-lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .lightbox-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      cursor: pointer;
+    }
+    
+    .lightbox-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    
+    .lightbox-image {
+      max-width: 100%;
+      max-height: calc(95vh - 100px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      cursor: default;
+      transition: opacity 0.3s ease;
+    }
+    
+    .lightbox-caption {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      color: #ffffff;
+      font-size: 0.9rem;
+      text-align: center;
+      max-width: 100%;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 40px;
+      height: 40px;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      z-index: 10001;
+      backdrop-filter: blur(10px);
+    }
+    
+    .lightbox-close:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+    
+    .lightbox-close:active {
+      transform: scale(0.95);
+    }
+    
+    .lightbox-close svg {
+      width: 24px;
+      height: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .lightbox-content {
+        padding: 1rem;
+      }
+      
+      .lightbox-image {
+        max-height: calc(95vh - 80px);
+      }
+      
+      .lightbox-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 36px;
+        height: 36px;
+      }
+      
+      .lightbox-close svg {
+        width: 20px;
+        height: 20px;
+      }
+      
+      .lightbox-caption {
+        font-size: 0.85rem;
+        margin-top: 0.75rem;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
   // Create lightbox elements
   const lightbox = document.createElement('div');
   lightbox.id = 'image-lightbox';
@@ -439,31 +570,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </button>
       <img class="lightbox-image" src="" alt="">
       <div class="lightbox-caption"></div>
-      <div class="lightbox-controls">
-        <button class="lightbox-zoom-in" aria-label="확대">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            <line x1="11" y1="8" x2="11" y2="14"/>
-            <line x1="8" y1="11" x2="14" y2="11"/>
-          </svg>
-        </button>
-        <button class="lightbox-zoom-out" aria-label="축소">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            <line x1="8" y1="11" x2="14" y2="11"/>
-          </svg>
-        </button>
-        <button class="lightbox-reset" aria-label="원본 크기">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="15 3 21 3 21 9"/>
-            <polyline points="9 21 3 21 3 15"/>
-            <line x1="21" y1="3" x2="14" y2="10"/>
-            <line x1="3" y1="21" x2="10" y2="14"/>
-          </svg>
-        </button>
-      </div>
     </div>
   `;
   document.body.appendChild(lightbox);
@@ -472,14 +578,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const lightboxCaption = lightbox.querySelector('.lightbox-caption');
   const lightboxClose = lightbox.querySelector('.lightbox-close');
   const lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
-  const zoomInBtn = lightbox.querySelector('.lightbox-zoom-in');
-  const zoomOutBtn = lightbox.querySelector('.lightbox-zoom-out');
-  const resetBtn = lightbox.querySelector('.lightbox-reset');
-
-  let currentScale = 1;
-  const scaleStep = 0.25;
-  const maxScale = 3;
-  const minScale = 0.5;
+  const lightboxContent = lightbox.querySelector('.lightbox-content');
 
   // Open lightbox on image click
   function openLightbox(img) {
@@ -502,9 +601,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // 디코딩 실패 시 원본 사용
     }
 
-    // Reset scale and show loading state
-    currentScale = 1;
-    lightboxImage.style.transform = `scale(${currentScale})`;
+    // Reset image styles
     lightboxImage.style.opacity = '0';
     lightboxImage.style.display = 'block';
     lightboxImage.style.visibility = 'visible';
@@ -524,7 +621,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const handleImageError = () => {
-      // 콘솔 에러는 필터링되므로 조용히 처리
       lightboxImage.style.opacity = '0.5';
       lightboxCaption.textContent = alt ? `${alt} (이미지를 불러올 수 없습니다)` : '이미지를 불러올 수 없습니다';
       lightboxCaption.style.color = '#ff6b6b';
@@ -581,8 +677,6 @@ document.addEventListener('DOMContentLoaded', function() {
   function closeLightbox() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
-    currentScale = 1;
-    lightboxImage.style.transform = `scale(${currentScale})`;
     // Reset image styles
     lightboxImage.style.opacity = '1';
     lightboxImage.style.visibility = 'visible';
@@ -595,26 +689,6 @@ document.addEventListener('DOMContentLoaded', function() {
         lightboxImage.onerror = null;
       }
     }, 300);
-  }
-
-  // Zoom functions
-  function zoomIn() {
-    if (currentScale < maxScale) {
-      currentScale = Math.min(currentScale + scaleStep, maxScale);
-      lightboxImage.style.transform = `scale(${currentScale})`;
-    }
-  }
-
-  function zoomOut() {
-    if (currentScale > minScale) {
-      currentScale = Math.max(currentScale - scaleStep, minScale);
-      lightboxImage.style.transform = `scale(${currentScale})`;
-    }
-  }
-
-  function resetZoom() {
-    currentScale = 1;
-    lightboxImage.style.transform = `scale(${currentScale})`;
   }
 
   // Function to attach click handlers to images
@@ -644,43 +718,31 @@ document.addEventListener('DOMContentLoaded', function() {
   // Also attach handlers after a short delay to catch dynamically loaded images
   setTimeout(attachImageHandlers, 500);
 
-  // Close events
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightboxBackdrop.addEventListener('click', closeLightbox);
+  // Close events - backdrop 클릭 시 닫기
+  lightboxBackdrop.addEventListener('click', function(e) {
+    // backdrop 자체를 클릭했을 때만 닫기 (이미지나 콘텐츠 영역 클릭은 제외)
+    if (e.target === lightboxBackdrop) {
+      closeLightbox();
+    }
+  });
 
-  // Zoom events
-  zoomInBtn.addEventListener('click', zoomIn);
-  zoomOutBtn.addEventListener('click', zoomOut);
-  resetBtn.addEventListener('click', resetZoom);
+  // Close button 클릭 시 닫기
+  lightboxClose.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  // 이미지나 콘텐츠 영역 클릭 시 닫지 않도록 이벤트 전파 방지
+  lightboxContent.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
 
   // Keyboard events
   document.addEventListener('keydown', function(e) {
     if (!lightbox.classList.contains('active')) return;
 
-    switch(e.key) {
-      case 'Escape':
-        closeLightbox();
-        break;
-      case '+':
-      case '=':
-        zoomIn();
-        break;
-      case '-':
-        zoomOut();
-        break;
-      case '0':
-        resetZoom();
-        break;
-    }
-  });
-
-  // Mouse wheel zoom
-  lightboxImage.addEventListener('wheel', function(e) {
-    e.preventDefault();
-    if (e.deltaY < 0) {
-      zoomIn();
-    } else {
-      zoomOut();
+    if (e.key === 'Escape') {
+      closeLightbox();
     }
   });
 })();
