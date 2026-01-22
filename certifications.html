@@ -39,9 +39,10 @@ permalink: /certifications/
       {% comment %} Check tags for certification keywords {% endcomment %}
       {% unless post_matched %}
         {% if post.tags %}
+          {% assign cert_title_lower = cert.title | downcase %}
           {% for tag in post.tags %}
             {% assign tag_lower = tag | downcase | strip %}
-            {% if tag_lower contains cert_name_lower or tag_lower contains cert.title | downcase %}
+            {% if tag_lower contains cert_name_lower or tag_lower contains cert_title_lower %}
               {% assign post_matched = true %}
               {% break %}
             {% endif %}
@@ -136,9 +137,10 @@ permalink: /certifications/
     {% comment %} Check tags for certification keywords {% endcomment %}
     {% unless post_matched %}
       {% if post.tags %}
+        {% assign cert_title_lower = cert.title | downcase %}
         {% for tag in post.tags %}
           {% assign tag_lower = tag | downcase | strip %}
-          {% if tag_lower contains cert_name_lower or tag_lower contains cert.title | downcase %}
+          {% if tag_lower contains cert_name_lower or tag_lower contains cert_title_lower %}
             {% assign post_matched = true %}
             {% break %}
           {% endif %}

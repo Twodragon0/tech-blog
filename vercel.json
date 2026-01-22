@@ -2,7 +2,7 @@
   "framework": null,
   "buildCommand": "chmod +x build.sh && ./build.sh",
   "outputDirectory": "_site",
-  "installCommand": "(python3 -m pip install --quiet --no-cache-dir Pillow || pip3 install --quiet --no-cache-dir Pillow || true) && npm ci || npm install && bundle install --jobs 4 --retry 3",
+  "installCommand": "(python3 -m pip install --quiet --no-cache-dir --break-system-packages Pillow || pip3 install --quiet --no-cache-dir --break-system-packages Pillow || true) && npm ci || npm install && bundle install --jobs 4 --retry 3",
   "build": {
     "env": {
       "LANG": "C.UTF-8",
