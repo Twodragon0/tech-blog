@@ -103,12 +103,12 @@ layout: default
 
   {% assign posts = site.posts | where_exp: "post", "post.url != page.url" %}
   {% if page.category %}
-    {% assign related = posts | where: "category", page.category | limit: 4 %}
+    {% assign related = posts | where: "category", page.category | limit: 3 %}
   {% elsif page.categories.first %}
     {% assign cat = page.categories.first %}
-    {% assign related = posts | where_exp: "post", "post.categories contains cat" | limit: 4 %}
+    {% assign related = posts | where_exp: "post", "post.categories contains cat" | limit: 3 %}
   {% else %}
-    {% assign related = posts | limit: 4 %}
+    {% assign related = posts | limit: 3 %}
   {% endif %}
 
   {% if related.size > 0 %}
@@ -123,7 +123,7 @@ layout: default
       </h3>
     </div>
     <div class="related-grid">
-      {% for post in related limit: 4 %}
+      {% for post in related limit: 3 %}
       <a href="{{ post.url | relative_url }}" class="related-item" aria-label="Read: {{ post.title | escape }}">
         <div class="related-content">
           <span class="related-category">{{ post.category | default: post.categories.first | default: "Blog" }}</span>
