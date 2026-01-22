@@ -54,7 +54,7 @@
       ]
     },
     {
-      "source": "/assets/css/(.*).css",
+      "source": "/assets/css/:path*.css",
       "headers": [
         { "key": "Content-Type", "value": "text/css; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
@@ -62,10 +62,24 @@
       ]
     },
     {
-      "source": "/assets/js/(.*).js",
+      "source": "/:path*.css",
+      "headers": [
+        { "key": "Content-Type", "value": "text/css; charset=utf-8" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
+      "source": "/assets/js/:path*.js",
       "headers": [
         { "key": "Content-Type", "value": "application/javascript; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
+      "source": "/:path*.js",
+      "headers": [
+        { "key": "Content-Type", "value": "application/javascript; charset=utf-8" },
         { "key": "X-Content-Type-Options", "value": "nosniff" }
       ]
     },
