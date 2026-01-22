@@ -206,8 +206,52 @@
   <!-- Font Optimizer -->
   {% include font-optimizer.html %}
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  <!-- Styles - Primary link with fallback -->
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}" id="main-stylesheet">
+  
+  <!-- CSS Fallback: Dynamically load CSS if MIME type check fails -->
+  <script>
+  (function() {
+    var link = document.getElementById('main-stylesheet');
+    var cssUrl = '{{ "/assets/css/main.css" | relative_url }}';
+    
+    // Check if stylesheet loaded properly after a short delay
+    setTimeout(function() {
+      var hasStyles = false;
+      try {
+        // Check if any stylesheets from our domain are loaded
+        for (var i = 0; i < document.styleSheets.length; i++) {
+          var sheet = document.styleSheets[i];
+          if (sheet.href && sheet.href.includes('/assets/css/main.css')) {
+            hasStyles = true;
+            break;
+          }
+        }
+      } catch(e) {
+        // Cross-origin or other error
+      }
+      
+      if (!hasStyles) {
+        // CSS didn't load - try fetching and injecting as style tag
+        fetch(cssUrl)
+          .then(function(response) {
+            if (!response.ok) throw new Error('CSS fetch failed');
+            return response.text();
+          })
+          .then(function(css) {
+            var style = document.createElement('style');
+            style.textContent = css;
+            style.id = 'main-stylesheet-fallback';
+            document.head.appendChild(style);
+            console.log('CSS loaded via fallback');
+          })
+          .catch(function(err) {
+            console.warn('CSS fallback failed:', err);
+          });
+      }
+    }, 500);
+  })();
+  </script>
 
   <!-- Body loaded class for FOUC prevention -->
   <script>
