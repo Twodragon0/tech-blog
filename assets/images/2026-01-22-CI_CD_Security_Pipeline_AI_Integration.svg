@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" font-family="Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="devGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ciGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cdGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#db2777;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="alertGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ffffff" opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="url(#bgGrad)"/>
+  
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
+  <rect width="1400" height="1000" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="700" y="50" text-anchor="middle" font-size="36" font-weight="bold" fill="#ffffff" filter="url(#glow)">CI/CD Security Pipeline with AI Integration</text>
+  <text x="700" y="80" text-anchor="middle" font-size="18" fill="#94a3b8">Automated Security Validation at Every Stage</text>
+
+  <!-- Stage 1: Code Development -->
+  <g transform="translate(50, 150)">
+    <rect x="0" y="0" width="220" height="160" rx="12" fill="url(#devGrad)" opacity="0.9" filter="url(#glow)"/>
+    <text x="110" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">1. Code Development</text>
+    <circle cx="60" cy="70" r="15" fill="#ffffff" opacity="0.3"/>
+    <text x="80" y="75" font-size="14" fill="#e0e7ff">Cursor AI</text>
+    <circle cx="60" cy="100" r="15" fill="#ffffff" opacity="0.3"/>
+    <text x="80" y="105" font-size="14" fill="#e0e7ff">GitHub Copilot</text>
+    <rect x="20" y="125" width="180" height="25" rx="6" fill="url(#securityGrad)" opacity="0.6"/>
+    <text x="110" y="142" text-anchor="middle" font-size="12" fill="#ffffff">Real-time Security Check</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="270" y1="230" x2="350" y2="230" stroke="#ffffff" stroke-width="3" opacity="0.6" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 2: Pre-commit Hooks -->
+  <g transform="translate(370, 150)">
+    <rect x="0" y="0" width="220" height="160" rx="12" fill="url(#ciGrad)" opacity="0.9" filter="url(#glow)"/>
+    <text x="110" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">2. Pre-commit</text>
+    <circle cx="60" cy="70" r="15" fill="#ffffff" opacity="0.3"/>
+    <text x="80" y="75" font-size="14" fill="#e0e7ff">AI Code Review</text>
+    <circle cx="60" cy="100" r="15" fill="#ffffff" opacity="0.3"/>
+    <text x="80" y="105" font-size="14" fill="#e0e7ff">Claude API</text>
+    <rect x="20" y="125" width="180" height="25" rx="6" fill="url(#securityGrad)" opacity="0.6"/>
+    <text x="110" y="142" text-anchor="middle" font-size="12" fill="#ffffff">Security Validation</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="590" y1="230" x2="670" y2="230" stroke="#ffffff" stroke-width="3" opacity="0.6" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 3: CI Stage -->
+  <g transform="translate(690, 150)">
+    <rect x="0" y="0" width="220" height="160" rx="12" fill="url(#ciGrad)" opacity="0.9" filter="url(#glow)"/>
+    <text x="110" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">3. CI Stage</text>
+    <circle cx="60" cy="70" r="15" fill="#ffffff" opacity="0.3"/>
+    <text x="80" y="75" font-size="14" fill="#e0e7ff">Trivy Scan</text>
+    <circle cx="60" cy="100" r="15" fill="#ffffff" opacity="0.3"/>
+    <text x="80" y="105" font-size="14" fill="#e0e7ff">SonarQube</text>
+    <rect x="20" y="125" width="180" height="25" rx="6" fill="url(#securityGrad)" opacity="0.6"/>
+    <text x="110" y="142" text-anchor="middle" font-size="12" fill="#ffffff">Image &amp; Code Scan</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <line x1="910" y1="230" x2="990" y2="230" stroke="#ffffff" stroke-width="3" opacity="0.6" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 4: CD Stage -->
+  <g transform="translate(1010, 150)">
+    <rect x="0" y="0" width="220" height="160" rx="12" fill="url(#cdGrad)" opacity="0.9" filter="url(#glow)"/>
+    <text x="110" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">4. CD Stage</text>
+    <circle cx="60" cy="70" r="15" fill="#ffffff" opacity="0.3"/>
+    <text x="80" y="75" font-size="14" fill="#e0e7ff">ArgoCD</text>
+    <circle cx="60" cy="100" r="15" fill="#ffffff" opacity="0.3"/>
+    <text x="80" y="105" font-size="14" fill="#e0e7ff">Kube-score</text>
+    <rect x="20" y="125" width="180" height="25" rx="6" fill="url(#securityGrad)" opacity="0.6"/>
+    <text x="110" y="142" text-anchor="middle" font-size="12" fill="#ffffff">Manifest Validation</text>
+  </g>
+
+  <!-- Arrow Down -->
+  <line x1="1120" y1="310" x2="1120" y2="400" stroke="#ffffff" stroke-width="3" opacity="0.6" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 5: Post-deployment -->
+  <g transform="translate(1010, 420)">
+    <rect x="0" y="0" width="220" height="160" rx="12" fill="url(#securityGrad)" opacity="0.9" filter="url(#glow)"/>
+    <text x="110" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">5. Post-deployment</text>
+    <circle cx="60" cy="70" r="15" fill="#ffffff" opacity="0.3"/>
+    <text x="80" y="75" font-size="14" fill="#e0e7ff">Falco</text>
+    <circle cx="60" cy="100" r="15" fill="#ffffff" opacity="0.3"/>
+    <text x="80" y="105" font-size="14" fill="#e0e7ff">AI Anomaly Detection</text>
+    <rect x="20" y="125" width="180" height="25" rx="6" fill="url(#alertGrad)" opacity="0.6"/>
+    <text x="110" y="142" text-anchor="middle" font-size="12" fill="#ffffff">Runtime Monitoring</text>
+  </g>
+
+  <!-- Security Checkpoints -->
+  <g transform="translate(50, 450)">
+    <text x="0" y="0" font-size="24" font-weight="bold" fill="#ffffff">Security Checkpoints</text>
+    <g transform="translate(0, 40)">
+      <rect x="0" y="0" width="15" height="15" fill="url(#securityGrad)"/>
+      <text x="25" y="12" font-size="14" fill="#cbd5e1">Code Development: Cursor AI, GitHub Copilot security validation</text>
+    </g>
+    <g transform="translate(0, 65)">
+      <rect x="0" y="0" width="15" height="15" fill="url(#securityGrad)"/>
+      <text x="25" y="12" font-size="14" fill="#cbd5e1">Pre-commit: Claude API automated code review</text>
+    </g>
+    <g transform="translate(0, 90)">
+      <rect x="0" y="0" width="15" height="15" fill="url(#securityGrad)"/>
+      <text x="25" y="12" font-size="14" fill="#cbd5e1">CI Stage: Trivy image scan, SonarQube code analysis</text>
+    </g>
+    <g transform="translate(0, 115)">
+      <rect x="0" y="0" width="15" height="15" fill="url(#securityGrad)"/>
+      <text x="25" y="12" font-size="14" fill="#cbd5e1">CD Stage: ArgoCD deployment, Kube-score validation</text>
+    </g>
+    <g transform="translate(0, 140)">
+      <rect x="0" y="0" width="15" height="15" fill="url(#securityGrad)"/>
+      <text x="25" y="12" font-size="14" fill="#cbd5e1">Post-deployment: Falco runtime security, AI anomaly detection</text>
+    </g>
+  </g>
+
+  <!-- AI Integration Box -->
+  <g transform="translate(50, 650)">
+    <rect x="0" y="0" width="1300" height="300" rx="12" fill="#1e293b" opacity="0.8" stroke="#334155" stroke-width="2"/>
+    <text x="650" y="30" text-anchor="middle" font-size="24" font-weight="bold" fill="#ffffff">AI Integration Benefits</text>
+    
+    <g transform="translate(50, 60)">
+      <rect x="0" y="0" width="280" height="200" rx="8" fill="#0f172a" opacity="0.6" stroke="#334155" stroke-width="1"/>
+      <text x="140" y="25" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Faster Detection</text>
+      <text x="20" y="55" font-size="14" fill="#cbd5e1">- Real-time vulnerability detection</text>
+      <text x="20" y="80" font-size="14" fill="#cbd5e1">- Automated code review</text>
+      <text x="20" y="105" font-size="14" fill="#cbd5e1">- Early security feedback</text>
+      <text x="20" y="130" font-size="14" fill="#cbd5e1">- Reduced false positives</text>
+      <text x="20" y="155" font-size="14" fill="#cbd5e1">- Continuous monitoring</text>
+    </g>
+    
+    <g transform="translate(360, 60)">
+      <rect x="0" y="0" width="280" height="200" rx="8" fill="#0f172a" opacity="0.6" stroke="#334155" stroke-width="1"/>
+      <text x="140" y="25" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Better Coverage</text>
+      <text x="20" y="55" font-size="14" fill="#cbd5e1">- Comprehensive security scans</text>
+      <text x="20" y="80" font-size="14" fill="#cbd5e1">- Multiple tool integration</text>
+      <text x="20" y="105" font-size="14" fill="#cbd5e1">- Pattern recognition</text>
+      <text x="20" y="130" font-size="14" fill="#cbd5e1">- Context-aware analysis</text>
+      <text x="20" y="155" font-size="14" fill="#cbd5e1">- Proactive threat detection</text>
+    </g>
+    
+    <g transform="translate(670, 60)">
+      <rect x="0" y="0" width="280" height="200" rx="8" fill="#0f172a" opacity="0.6" stroke="#334155" stroke-width="1"/>
+      <text x="140" y="25" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Automated Response</text>
+      <text x="20" y="55" font-size="14" fill="#cbd5e1">- Auto-block vulnerable code</text>
+      <text x="20" y="80" font-size="14" fill="#cbd5e1">- Intelligent remediation</text>
+      <text x="20" y="105" font-size="14" fill="#cbd5e1">- Security policy enforcement</text>
+      <text x="20" y="130" font-size="14" fill="#cbd5e1">- Incident response automation</text>
+      <text x="20" y="155" font-size="14" fill="#cbd5e1">- Self-healing systems</text>
+    </g>
+    
+    <g transform="translate(980, 60)">
+      <rect x="0" y="0" width="280" height="200" rx="8" fill="#0f172a" opacity="0.6" stroke="#334155" stroke-width="1"/>
+      <text x="140" y="25" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Cost Efficiency</text>
+      <text x="20" y="55" font-size="14" fill="#cbd5e1">- Reduced manual review time</text>
+      <text x="20" y="80" font-size="14" fill="#cbd5e1">- Lower security incidents</text>
+      <text x="20" y="105" font-size="14" fill="#cbd5e1">- Optimized resource usage</text>
+      <text x="20" y="130" font-size="14" fill="#cbd5e1">- Faster time to market</text>
+      <text x="20" y="155" font-size="14" fill="#cbd5e1">- Improved ROI</text>
+    </g>
+  </g>
+</svg>

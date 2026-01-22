@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" font-family="Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cursorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="claudeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="githubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#24292e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#181717;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="k8sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#326ce5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ffffff" opacity="0.8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="url(#bgGrad)"/>
+  
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
+  <rect width="1400" height="1000" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="700" y="50" text-anchor="middle" font-size="36" font-weight="bold" fill="#ffffff" filter="url(#glow)">AI-Powered DevSecOps Workflow</text>
+  <text x="700" y="80" text-anchor="middle" font-size="18" fill="#94a3b8">Cursor, Claude API, GitHub Copilot Integration</text>
+
+  <!-- Stage 1: Cursor IDE -->
+  <g transform="translate(100, 150)">
+    <rect x="0" y="0" width="200" height="140" rx="12" fill="url(#cursorGrad)" opacity="0.9" filter="url(#glow)"/>
+    <circle cx="100" cy="40" r="25" fill="#ffffff" opacity="0.3"/>
+    <text x="100" y="50" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Cursor IDE</text>
+    <text x="100" y="75" text-anchor="middle" font-size="14" fill="#e0e7ff">AI Code Assistant</text>
+    <text x="100" y="95" text-anchor="middle" font-size="12" fill="#cbd5e1">Real-time Security</text>
+    <text x="100" y="110" text-anchor="middle" font-size="12" fill="#cbd5e1">Vulnerability Detection</text>
+    <text x="100" y="125" text-anchor="middle" font-size="12" fill="#cbd5e1">Auto Code Review</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="300" y1="220" x2="380" y2="220" stroke="#ffffff" stroke-width="3" opacity="0.6" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 2: GitHub Copilot -->
+  <g transform="translate(400, 150)">
+    <rect x="0" y="0" width="200" height="140" rx="12" fill="url(#githubGrad)" opacity="0.9" filter="url(#glow)"/>
+    <circle cx="100" cy="40" r="25" fill="#ffffff" opacity="0.3"/>
+    <text x="100" y="50" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">GitHub Copilot</text>
+    <text x="100" y="75" text-anchor="middle" font-size="14" fill="#e0e7ff">Security Best Practices</text>
+    <text x="100" y="95" text-anchor="middle" font-size="12" fill="#cbd5e1">Code Suggestions</text>
+    <text x="100" y="110" text-anchor="middle" font-size="12" fill="#cbd5e1">Vulnerability Prevention</text>
+    <text x="100" y="125" text-anchor="middle" font-size="12" fill="#cbd5e1">Test Generation</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="600" y1="220" x2="680" y2="220" stroke="#ffffff" stroke-width="3" opacity="0.6" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 3: Claude API -->
+  <g transform="translate(700, 150)">
+    <rect x="0" y="0" width="200" height="140" rx="12" fill="url(#claudeGrad)" opacity="0.9" filter="url(#glow)"/>
+    <circle cx="100" cy="40" r="25" fill="#ffffff" opacity="0.3"/>
+    <text x="100" y="50" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Claude API</text>
+    <text x="100" y="75" text-anchor="middle" font-size="14" fill="#e0e7ff">Code Review</text>
+    <text x="100" y="95" text-anchor="middle" font-size="12" fill="#cbd5e1">Security Audit</text>
+    <text x="100" y="110" text-anchor="middle" font-size="12" fill="#cbd5e1">Automated Validation</text>
+    <text x="100" y="125" text-anchor="middle" font-size="12" fill="#cbd5e1">Best Practices</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <line x1="900" y1="220" x2="980" y2="220" stroke="#ffffff" stroke-width="3" opacity="0.6" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 4: GitHub Actions -->
+  <g transform="translate(1000, 150)">
+    <rect x="0" y="0" width="200" height="140" rx="12" fill="url(#githubGrad)" opacity="0.9" filter="url(#glow)"/>
+    <circle cx="100" cy="40" r="25" fill="#ffffff" opacity="0.3"/>
+    <text x="100" y="50" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">GitHub Actions</text>
+    <text x="100" y="75" text-anchor="middle" font-size="14" fill="#e0e7ff">Automated Security Scan</text>
+    <text x="100" y="95" text-anchor="middle" font-size="12" fill="#cbd5e1">Trivy, SonarQube</text>
+    <text x="100" y="110" text-anchor="middle" font-size="12" fill="#cbd5e1">Snyk, CodeQL</text>
+    <text x="100" y="125" text-anchor="middle" font-size="12" fill="#cbd5e1">CI/CD Pipeline</text>
+  </g>
+
+  <!-- Arrow Down -->
+  <line x1="1100" y1="290" x2="1100" y2="380" stroke="#ffffff" stroke-width="3" opacity="0.6" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 5: Kubernetes Deployment -->
+  <g transform="translate(1000, 400)">
+    <rect x="0" y="0" width="200" height="140" rx="12" fill="url(#k8sGrad)" opacity="0.9" filter="url(#glow)"/>
+    <circle cx="100" cy="40" r="25" fill="#ffffff" opacity="0.3"/>
+    <text x="100" y="50" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Kubernetes</text>
+    <text x="100" y="75" text-anchor="middle" font-size="14" fill="#e0e7ff">ArgoCD Deployment</text>
+    <text x="100" y="95" text-anchor="middle" font-size="12" fill="#cbd5e1">GitOps</text>
+    <text x="100" y="110" text-anchor="middle" font-size="12" fill="#cbd5e1">Helm Charts</text>
+    <text x="100" y="125" text-anchor="middle" font-size="12" fill="#cbd5e1">Security Policies</text>
+  </g>
+
+  <!-- Arrow Left -->
+  <line x1="1000" y1="470" x2="700" y2="470" stroke="#ffffff" stroke-width="3" opacity="0.6" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 6: Runtime Monitoring -->
+  <g transform="translate(500, 400)">
+    <rect x="0" y="0" width="200" height="140" rx="12" fill="url(#securityGrad)" opacity="0.9" filter="url(#glow)"/>
+    <circle cx="100" cy="40" r="25" fill="#ffffff" opacity="0.3"/>
+    <text x="100" y="50" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Runtime Monitoring</text>
+    <text x="100" y="75" text-anchor="middle" font-size="14" fill="#e0e7ff">Falco, Sysdig</text>
+    <text x="100" y="95" text-anchor="middle" font-size="12" fill="#cbd5e1">AI Anomaly Detection</text>
+    <text x="100" y="110" text-anchor="middle" font-size="12" fill="#cbd5e1">Security Events</text>
+    <text x="100" y="125" text-anchor="middle" font-size="12" fill="#cbd5e1">Auto Response</text>
+  </g>
+
+  <!-- Security Shield -->
+  <g transform="translate(700, 600)">
+    <circle cx="0" cy="0" r="80" fill="url(#securityGrad)" opacity="0.2"/>
+    <path d="M -40,-20 L 0,20 L 40,-20 L 0,-40 Z" fill="url(#securityGrad)" opacity="0.8" filter="url(#glow)"/>
+    <text x="0" y="10" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Security</text>
+    <text x="0" y="30" text-anchor="middle" font-size="14" fill="#ffffff">First</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(100, 750)">
+    <rect x="0" y="0" width="1200" height="200" rx="12" fill="#1e293b" opacity="0.8" stroke="#334155" stroke-width="2"/>
+    <text x="600" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">AI Tools Integration</text>
+    
+    <g transform="translate(50, 60)">
+      <rect x="0" y="0" width="15" height="15" fill="url(#cursorGrad)"/>
+      <text x="25" y="12" font-size="14" fill="#cbd5e1">Cursor IDE - Real-time security validation</text>
+    </g>
+    
+    <g transform="translate(50, 85)">
+      <rect x="0" y="0" width="15" height="15" fill="url(#githubGrad)"/>
+      <text x="25" y="12" font-size="14" fill="#cbd5e1">GitHub Copilot - Security best practices</text>
+    </g>
+    
+    <g transform="translate(50, 110)">
+      <rect x="0" y="0" width="15" height="15" fill="url(#claudeGrad)"/>
+      <text x="25" y="12" font-size="14" fill="#cbd5e1">Claude API - Automated security review</text>
+    </g>
+    
+    <g transform="translate(50, 135)">
+      <rect x="0" y="0" width="15" height="15" fill="url(#k8sGrad)"/>
+      <text x="25" y="12" font-size="14" fill="#cbd5e1">Kubernetes - Secure deployment</text>
+    </g>
+    
+    <g transform="translate(50, 160)">
+      <rect x="0" y="0" width="15" height="15" fill="url(#securityGrad)"/>
+      <text x="25" y="12" font-size="14" fill="#cbd5e1">Runtime Monitoring - AI-powered anomaly detection</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" font-family="Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cicdGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="k8sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#326ce5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="url(#bgGrad)"/>
+  
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
+  <rect width="1400" height="1000" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="700" y="60" text-anchor="middle" font-size="42" font-weight="bold" fill="#ffffff" filter="url(#glow)">CI/CD &amp; Kubernetes Security</text>
+  <text x="700" y="100" text-anchor="middle" font-size="24" fill="#94a3b8">Cloud Security Course 8Batch - Week 8</text>
+  <text x="700" y="130" text-anchor="middle" font-size="20" fill="#64748b">DevSecOps Pipeline to Cluster Security</text>
+
+  <!-- CI/CD Section -->
+  <g transform="translate(100, 200)">
+    <rect x="0" y="0" width="550" height="300" rx="16" fill="#1e293b" opacity="0.9" stroke="#334155" stroke-width="2"/>
+    <text x="275" y="35" text-anchor="middle" font-size="28" font-weight="bold" fill="#ffffff">CI/CD Pipeline Security</text>
+    
+    <!-- Code Scan -->
+    <g transform="translate(30, 60)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="url(#cicdGrad)" opacity="0.9" filter="url(#glow)"/>
+      <text x="75" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Code Scan</text>
+      <text x="20" y="50" font-size="12" fill="#e0e7ff">SAST</text>
+      <text x="20" y="70" font-size="12" fill="#e0e7ff">DAST</text>
+      <text x="20" y="90" font-size="12" fill="#e0e7ff">SCA</text>
+    </g>
+    
+    <!-- Image Scan -->
+    <g transform="translate(200, 60)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="url(#cicdGrad)" opacity="0.9" filter="url(#glow)"/>
+      <text x="75" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Image Scan</text>
+      <text x="20" y="50" font-size="12" fill="#e0e7ff">Trivy</text>
+      <text x="20" y="70" font-size="12" fill="#e0e7ff">Snyk</text>
+      <text x="20" y="90" font-size="12" fill="#e0e7ff">Clair</text>
+    </g>
+    
+    <!-- Secret Management -->
+    <g transform="translate(370, 60)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="url(#securityGrad)" opacity="0.9" filter="url(#glow)"/>
+      <text x="75" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Secrets</text>
+      <text x="20" y="50" font-size="12" fill="#e0e7ff">Vault</text>
+      <text x="20" y="70" font-size="12" fill="#e0e7ff">AWS SM</text>
+      <text x="20" y="90" font-size="12" fill="#e0e7ff">Sealed</text>
+    </g>
+    
+    <!-- AI Integration -->
+    <g transform="translate(30, 180)">
+      <rect x="0" y="0" width="490" height="100" rx="8" fill="url(#aiGrad)" opacity="0.9" filter="url(#glow)"/>
+      <text x="245" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">AI Integration</text>
+      <text x="50" y="60" font-size="14" fill="#e0e7ff">Cursor IDE</text>
+      <text x="50" y="80" font-size="14" fill="#e0e7ff">Claude API</text>
+      <text x="200" y="60" font-size="14" fill="#e0e7ff">GitHub Copilot</text>
+      <text x="200" y="80" font-size="14" fill="#e0e7ff">GitHub Actions AI</text>
+      <text x="350" y="60" font-size="14" fill="#e0e7ff">Automated Review</text>
+      <text x="350" y="80" font-size="14" fill="#e0e7ff">Security Validation</text>
+    </g>
+  </g>
+
+  <!-- Kubernetes Section -->
+  <g transform="translate(750, 200)">
+    <rect x="0" y="0" width="550" height="300" rx="16" fill="#1e293b" opacity="0.9" stroke="#334155" stroke-width="2"/>
+    <text x="275" y="35" text-anchor="middle" font-size="28" font-weight="bold" fill="#ffffff">Kubernetes Security</text>
+    
+    <!-- Network Policies -->
+    <g transform="translate(30, 60)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="url(#k8sGrad)" opacity="0.9" filter="url(#glow)"/>
+      <text x="75" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Network</text>
+      <text x="20" y="50" font-size="12" fill="#e0e7ff">Policies</text>
+      <text x="20" y="70" font-size="12" fill="#e0e7ff">Service Mesh</text>
+      <text x="20" y="90" font-size="12" fill="#e0e7ff">Ingress</text>
+    </g>
+    
+    <!-- RBAC -->
+    <g transform="translate(200, 60)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="url(#k8sGrad)" opacity="0.9" filter="url(#glow)"/>
+      <text x="75" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">RBAC</text>
+      <text x="20" y="50" font-size="12" fill="#e0e7ff">Roles</text>
+      <text x="20" y="70" font-size="12" fill="#e0e7ff">Bindings</text>
+      <text x="20" y="90" font-size="12" fill="#e0e7ff">Service Accounts</text>
+    </g>
+    
+    <!-- Pod Security -->
+    <g transform="translate(370, 60)">
+      <rect x="0" y="0" width="150" height="100" rx="8" fill="url(#securityGrad)" opacity="0.9" filter="url(#glow)"/>
+      <text x="75" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Pod Security</text>
+      <text x="20" y="50" font-size="12" fill="#e0e7ff">PSS</text>
+      <text x="20" y="70" font-size="12" fill="#e0e7ff">User NS</text>
+      <text x="20" y="90" font-size="12" fill="#e0e7ff">Context</text>
+    </g>
+    
+    <!-- Monitoring -->
+    <g transform="translate(30, 180)">
+      <rect x="0" y="0" width="490" height="100" rx="8" fill="url(#aiGrad)" opacity="0.9" filter="url(#glow)"/>
+      <text x="245" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">AI-Powered Monitoring</text>
+      <text x="50" y="60" font-size="14" fill="#e0e7ff">Falco</text>
+      <text x="50" y="80" font-size="14" fill="#e0e7ff">Prometheus</text>
+      <text x="200" y="60" font-size="14" fill="#e0e7ff">Claude API</text>
+      <text x="200" y="80" font-size="14" fill="#e0e7ff">Anomaly Detection</text>
+      <text x="350" y="60" font-size="14" fill="#e0e7ff">Audit Logging</text>
+      <text x="350" y="80" font-size="14" fill="#e0e7ff">Auto Response</text>
+    </g>
+  </g>
+
+  <!-- Center Shield -->
+  <g transform="translate(700, 550)">
+    <circle cx="0" cy="0" r="100" fill="url(#securityGrad)" opacity="0.2"/>
+    <path d="M -50,-30 L 0,30 L 50,-30 L 0,-50 Z" fill="url(#securityGrad)" opacity="0.9" filter="url(#glow)"/>
+    <text x="0" y="15" text-anchor="middle" font-size="24" font-weight="bold" fill="#ffffff">Security</text>
+    <text x="0" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">First</text>
+  </g>
+
+  <!-- Key Features -->
+  <g transform="translate(100, 700)">
+    <text x="0" y="0" font-size="28" font-weight="bold" fill="#ffffff">Key Features</text>
+    <g transform="translate(0, 50)">
+      <rect x="0" y="0" width="1200" height="250" rx="12" fill="#1e293b" opacity="0.8" stroke="#334155" stroke-width="2"/>
+      
+      <g transform="translate(40, 30)">
+        <circle cx="0" cy="0" r="8" fill="url(#securityGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">Automated security scanning at every stage</text>
+      </g>
+      
+      <g transform="translate(40, 60)">
+        <circle cx="0" cy="0" r="8" fill="url(#aiGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">AI-powered code review and threat detection</text>
+      </g>
+      
+      <g transform="translate(40, 90)">
+        <circle cx="0" cy="0" r="8" fill="url(#cicdGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">CI/CD pipeline security integration</text>
+      </g>
+      
+      <g transform="translate(40, 120)">
+        <circle cx="0" cy="0" r="8" fill="url(#k8sGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">Kubernetes multi-layer defense strategy</text>
+      </g>
+      
+      <g transform="translate(40, 150)">
+        <circle cx="0" cy="0" r="8" fill="url(#securityGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">Runtime security monitoring with AI</text>
+      </g>
+      
+      <g transform="translate(40, 180)">
+        <circle cx="0" cy="0" r="8" fill="url(#aiGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">Automated incident response and remediation</text>
+      </g>
+      
+      <g transform="translate(600, 30)">
+        <circle cx="0" cy="0" r="8" fill="url(#cicdGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">Secret management best practices</text>
+      </g>
+      
+      <g transform="translate(600, 60)">
+        <circle cx="0" cy="0" r="8" fill="url(#k8sGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">Network policies and RBAC enforcement</text>
+      </g>
+      
+      <g transform="translate(600, 90)">
+        <circle cx="0" cy="0" r="8" fill="url(#securityGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">Pod Security Standards (PSS) implementation</text>
+      </g>
+      
+      <g transform="translate(600, 120)">
+        <circle cx="0" cy="0" r="8" fill="url(#aiGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">Comprehensive audit logging</text>
+      </g>
+      
+      <g transform="translate(600, 150)">
+        <circle cx="0" cy="0" r="8" fill="url(#cicdGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">DevSecOps workflow optimization</text>
+      </g>
+      
+      <g transform="translate(600, 180)">
+        <circle cx="0" cy="0" r="8" fill="url(#k8sGrad)"/>
+        <text x="20" y="5" font-size="16" fill="#cbd5e1">Continuous security improvement</text>
+      </g>
+    </g>
+  </g>
+</svg>
