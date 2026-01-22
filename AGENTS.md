@@ -1,6 +1,17 @@
 # AGENTS.md - Coding Guidelines for Tech Blog
 
+Last updated: 2026-01-22
+
 This document provides coding guidelines and commands for agents working in this Jekyll-based DevSecOps technical blog repository.
+
+## Quick Reference
+
+| Resource | URL |
+|----------|-----|
+| **Production** | https://tech.2twodragon.com |
+| **Backup** | https://twodragon0.github.io/tech-blog |
+| **GitHub** | https://github.com/Twodragon0/tech-blog |
+| **RSS** | https://tech.2twodragon.com/feed.xml |
 
 ## 1. Build/Lint/Test Commands
 
@@ -292,3 +303,74 @@ tech-blog/
 - [ ] Implement retry logic with exponential backoff
 - [ ] Cache expensive operations when possible
 - [ ] Monitor memory usage for large file operations
+
+## 6. Current Implementation Status (2026-01-22)
+
+### Security Features (Score: 9/10)
+| Feature | Status | Implementation |
+|---------|--------|----------------|
+| CSP Headers | ✅ | vercel.json |
+| HSTS | ✅ | 1 year, includeSubDomains, preload |
+| X-Frame-Options | ✅ | SAMEORIGIN |
+| Sentry Error Tracking | ✅ | Free Tier optimized |
+| Sensitive Data Masking | ✅ | mask_sensitive_info() |
+
+### Performance Features (Score: 9/10)
+| Feature | Status | Implementation |
+|---------|--------|----------------|
+| Service Worker | ✅ | sw.js (offline support) |
+| Resource Caching | ✅ | 1 year for assets |
+| Lazy Loading | ✅ | IntersectionObserver |
+| Critical CSS | ✅ | Inline for above-fold |
+| Image Optimization | ✅ | WebP fallback |
+
+### SEO Features (Score: 10/10)
+| Feature | Status | Implementation |
+|---------|--------|----------------|
+| Open Graph | ✅ | Complete meta tags |
+| Twitter Cards | ✅ | summary_large_image |
+| JSON-LD | ✅ | BlogPosting schema |
+| Sitemap | ✅ | Dynamic generation |
+| RSS Feed | ✅ | /feed.xml |
+
+### User Features
+| Feature | Status | Implementation |
+|---------|--------|----------------|
+| Comments | ✅ | Giscus (GitHub Discussions) |
+| AI Chatbot | ✅ | DeepSeek v3 |
+| Dark/Light Mode | ✅ | System-aware |
+| Search | ✅ | Client-side JSON |
+| Translation | ✅ | Google Translate + MyMemory |
+
+## 7. Responsive Design Breakpoints
+
+```scss
+// Mobile: single column
+@media (max-width: 480px) {
+  .posts-list { grid-template-columns: 1fr; }
+}
+
+// Tablet: two columns
+@media (max-width: 768px) {
+  .posts-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+// Desktop: three columns (default)
+.posts-list { grid-template-columns: repeat(3, 1fr); }
+```
+
+## 8. Key Configuration Files
+
+| File | Purpose |
+|------|---------|
+| `_config.yml` | Jekyll configuration |
+| `vercel.json` | Vercel deployment, headers, caching |
+| `sw.js` | Service Worker for offline support |
+| `_includes/head.html` | SEO, meta tags, CSP notes |
+| `_includes/sentry.html` | Error tracking (Free tier optimized) |
+
+## 9. Related Posts Configuration
+
+- **Default count**: 3 posts
+- **Location**: `_layouts/post.html` (line 106-126)
+- **Matching**: By category first, then any posts

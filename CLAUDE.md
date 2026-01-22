@@ -1,13 +1,16 @@
 # Claude Code Instructions for Tech Blog
 
 이 파일은 Claude Code가 이 프로젝트에서 작업할 때 참조하는 지침서입니다.
+Last updated: 2026-01-22
 
 ## 프로젝트 개요
 
 Jekyll 기반의 DevSecOps 기술 블로그입니다.
-- **URL**: https://tech.2twodragon.com
-- **주제**: DevSecOps, DevOps, FinOps, 클라우드 보안
+- **URL**: https://tech.2twodragon.com (Vercel 호스팅)
+- **백업**: https://twodragon0.github.io/tech-blog (GitHub Pages)
+- **주제**: DevSecOps, DevOps, FinOps, 클라우드 보안, 블록체인
 - **언어**: 한국어 (코드 주석 제외)
+- **호스팅**: Vercel (프로덕션), GitHub Pages (백업)
 
 ## 핵심 작업 규칙
 
@@ -157,10 +160,12 @@ git push origin main
 
 ## 참고 문서
 - `.cursorrules`: Cursor IDE 규칙 (상세)
+- `AGENTS.md`: AI 에이전트 코딩 가이드라인
 - `GEMINI_IMAGE_GUIDE.md`: 이미지 생성 가이드
 - `POST_VISUALIZATION_CHECKLIST.md`: 시각화 체크리스트
 - `README.md`: 프로젝트 개요
 - `SECURITY.md`: 보안 정책
+- `vercel.json`: Vercel 배포 설정, CSP 헤더, 캐싱 정책
 
 ## 포스트 검토 시 주의사항
 
@@ -188,6 +193,32 @@ git push origin main
 - 표 다음에 홀로 있는 설명 없는 문장이 있는지 확인
 - 설명이 필요하면 상세한 설명 추가, 불필요하면 제거
 
+## 현재 구현된 주요 기능
+
+### 보안 (Security Score: 9/10)
+- CSP (Content Security Policy) - vercel.json
+- HSTS, X-Content-Type-Options, X-Frame-Options
+- Sentry 에러 추적 (Free Tier 최적화)
+- 민감정보 마스킹 자동화
+
+### 성능 (Performance Score: 9/10)
+- Service Worker (오프라인 지원)
+- 자산별 캐싱 전략 (최대 1년)
+- Lazy Loading (IntersectionObserver)
+- Critical CSS inline
+
+### SEO (SEO Score: 10/10)
+- Open Graph, Twitter Cards
+- JSON-LD 구조화 데이터
+- 동적 Sitemap
+- RSS Feed
+
+### 기능
+- Giscus 댓글 (GitHub Discussions)
+- DeepSeek AI 챗봇
+- 다크/라이트 모드 (시스템 연동)
+- 검색, 번역, 공유 기능
+
 ## 요약
 
 1. **보안**: 민감 정보 마스킹 필수
@@ -198,3 +229,4 @@ git push origin main
 6. **문맥 검증**: 섹션별 주제와 내용 일치 확인
 7. **중복 제거**: 동일한 설명 반복 확인
 8. **참조 링크**: 잘못된 패턴 및 중복 제거
+9. **반응형 UI**: 모바일/태블릿/데스크톱 지원 확인

@@ -1,7 +1,13 @@
 # Cursor Rules for Tech Blog
 
+Last updated: 2026-01-22
+
 ## 프로젝트 개요
-이 프로젝트는 Jekyll 기반의 기술 블로그입니다. DevSecOps, DevOps, FinOps 전문 콘텐츠를 다루며, 보안 중심의 실무 경험과 최신 트렌드를 공유합니다.
+이 프로젝트는 Jekyll 기반의 기술 블로그입니다. DevSecOps, DevOps, FinOps, 블록체인 전문 콘텐츠를 다루며, 보안 중심의 실무 경험과 최신 트렌드를 공유합니다.
+
+- **프로덕션 URL**: https://tech.2twodragon.com (Vercel)
+- **백업 URL**: https://twodragon0.github.io/tech-blog (GitHub Pages)
+- **GitHub**: https://github.com/Twodragon0/tech-blog
 
 ## 핵심 원칙
 
@@ -1136,3 +1142,52 @@ Kubernetes 관련 포스트 작성 시 다음 항목 확인:
 - [ ] Service Account 토큰 바인딩 고려
 - [ ] 이미지 풀 정책 및 자격 증명 검증
 - [ ] Pod Security Standards 준수
+
+## 현재 구현된 보안 헤더 (vercel.json)
+
+### CSP (Content Security Policy)
+```
+default-src 'self'; 
+script-src 'self' 'unsafe-inline' 'unsafe-eval' [허용된 도메인들];
+style-src 'self' 'unsafe-inline' [허용된 도메인들];
+img-src 'self' data: https:;
+font-src 'self' https://fonts.gstatic.com data:;
+frame-src 'self' https://giscus.app [Google Ads 도메인들];
+connect-src 'self' [API 및 분석 도메인들];
+```
+
+### 기타 보안 헤더
+- `Strict-Transport-Security`: max-age=31536000; includeSubDomains; preload
+- `X-Content-Type-Options`: nosniff
+- `X-Frame-Options`: SAMEORIGIN
+- `Referrer-Policy`: strict-origin-when-cross-origin
+- `Permissions-Policy`: geolocation=(), microphone=(), camera=()
+
+## 모바일 반응형 디자인
+
+### 브레이크포인트
+- **모바일**: ≤480px (1열 그리드)
+- **태블릿**: ≤768px (2열 그리드)
+- **데스크톱**: >768px (3열 그리드)
+
+### 주요 반응형 컴포넌트
+- `.posts-list`: 포스트 카드 그리드
+- `.category-grid`: 카테고리 그리드
+- `.stats-grid`: 통계 그리드
+- `.related-grid`: 관련 포스트 그리드
+
+## 성능 최적화 구현
+
+### 캐싱 전략 (vercel.json)
+| 리소스 | Cache-Control |
+|--------|---------------|
+| `/assets/*` | 1년 (immutable) |
+| `/*.html` | 2시간 |
+| `/posts/*` | 3시간 |
+| `/feed.xml` | 1시간 |
+| `/api/*` | no-cache |
+
+### Service Worker (sw.js)
+- 정적 리소스 캐싱
+- 오프라인 지원
+- Network-first, cache-fallback 전략
