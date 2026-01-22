@@ -142,7 +142,7 @@
       ]
     }
   ],
-  "trailingSlash": true,
+  "trailingSlash": false,
   "cleanUrls": true,
   "functions": {
     "api/chat.js": {
