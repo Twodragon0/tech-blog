@@ -1143,9 +1143,11 @@ Kubernetes 관련 포스트 작성 시 다음 항목 확인:
 - [ ] 이미지 풀 정책 및 자격 증명 검증
 - [ ] Pod Security Standards 준수
 
-## 현재 구현된 보안 헤더 (vercel.json)
+## 보안 강화 가이드라인
 
-### CSP (Content Security Policy)
+### 1. 보안 헤더 (vercel.json)
+
+#### CSP (Content Security Policy)
 ```
 default-src 'self'; 
 script-src 'self' 'unsafe-inline' 'unsafe-eval' [허용된 도메인들];
@@ -1154,14 +1156,231 @@ img-src 'self' data: https:;
 font-src 'self' https://fonts.gstatic.com data:;
 frame-src 'self' https://giscus.app [Google Ads 도메인들];
 connect-src 'self' [API 및 분석 도메인들];
+base-uri 'self';
+form-action 'self' https://buttondown.com;
+upgrade-insecure-requests;
 ```
 
-### 기타 보안 헤더
+**⚠️ 보안 주의사항**: `unsafe-eval`은 Google Ads 호환성을 위해 허용되었으나, 보안 위험이 있으므로 주기적으로 검토 필요. 가능하면 제거 고려.
+
+#### 기타 보안 헤더
 - `Strict-Transport-Security`: max-age=31536000; includeSubDomains; preload
 - `X-Content-Type-Options`: nosniff
 - `X-Frame-Options`: SAMEORIGIN
 - `Referrer-Policy`: strict-origin-when-cross-origin
 - `Permissions-Policy`: geolocation=(), microphone=(), camera=()
+- `X-DNS-Prefetch-Control`: on
+- `X-Download-Options`: noopen
+- `X-Permitted-Cross-Domain-Policies`: none
+
+### 2. 입력 검증 및 XSS 방지
+
+#### 필수 검증 패턴
+```javascript
+// XSS 패턴 감지
+const XSS_PATTERNS = [
+  /<script[^>]*>.*?<\/script>/gi,
+  /javascript:/gi,
+  /on\w+\s*=/gi,
+  /<iframe[^>]*>/gi,
+  /<object[^>]*>/gi,
+  /<embed[^>]*>/gi
+];
+
+// Injection 패턴 감지
+const INJECTION_PATTERNS = [
+  /eval\s*\(/gi,
+  /exec\s*\(/gi,
+  /Function\s*\(/gi,
+  /setTimeout\s*\(/gi,
+  /setInterval\s*\(/gi
+];
+```
+
+#### 입력 정제 함수
+- 모든 사용자 입력은 정제 후 사용
+- HTML 이스케이프: `&`, `<`, `>`, `"`, `'` 처리
+- URL 검증: 허용된 프로토콜만 (`http://`, `https://`)
+- 파일 업로드: 확장자 및 MIME 타입 검증
+
+### 3. API 보안
+
+#### Rate Limiting 구현
+- 세션당 10회/분 제한
+- IP 기반 차단 (필요시)
+- 토큰 기반 인증 (향후 확장)
+
+#### 에러 처리 보안
+- 상세 에러 정보는 개발 환경에서만 표시
+- 프로덕션에서는 일반화된 메시지 사용
+- 스택 트레이스는 로그에만 기록 (클라이언트 노출 금지)
+
+### 4. 의존성 보안
+
+#### 정기적 검사
+```bash
+# npm 패키지 취약점 검사
+npm audit --audit-level=moderate
+
+# Ruby gem 취약점 검사
+bundle audit --update
+
+# GitHub Dependabot 활성화 필수
+```
+
+#### 업데이트 전략
+- Critical/High 취약점: 즉시 업데이트
+- Medium 취약점: 7일 이내 업데이트
+- Low 취약점: 정기 업데이트 (월 1회)
+
+## 비용 최적화 전략
+
+### 1. API 비용 관리
+
+#### 우선순위 (비용 순)
+1. **Gemini CLI** (OAuth 2.0) - 무료 ⭐ 최우선
+2. **로컬 템플릿** - 무료
+3. **Cursor/Claude Console** - 무료 할당량
+4. **API 호출** - 비용 발생 (최소화)
+
+#### DeepSeek API 최적화
+- **Context Caching 활용**: 최대 90% 비용 절감
+- **Off-Peak 시간대**: UTC 16:30-00:30 (50-75% 할인)
+- **대화 히스토리 제한**: 최대 10개 메시지
+- **응답 크기 제한**: max_tokens=1500
+
+#### 캐싱 전략
+- 동일 포스트 7일 캐시
+- API 응답 캐싱 (가능한 경우)
+- 정적 리소스 CDN 캐싱
+
+### 2. 인프라 비용
+
+#### Vercel 프리티어 최적화
+- 함수 타임아웃: 8초 (안전 마진)
+- 메모리: 1024MB (최대 활용)
+- 캐싱: 정적 리소스 1년, HTML 2-3시간
+- Rate Limiting: DDoS 방지 및 비용 제어
+
+#### Sentry 프리티어 최적화
+- 로그 레벨: warn, error만
+- 샘플링: 10% (Vercel Log Drains)
+- 환경: 프로덕션만 수집
+- 월 제한: 5,000 이벤트
+
+### 3. 개발 비용
+
+#### 자동화로 수동 작업 감소
+- 포스트 개선: AI 기반 자동화 (80% 감소)
+- 이미지 생성: 자동 생성 (90% 감소)
+- 링크 검증: 자동 검증 및 수정
+- SNS 공유: GitHub Actions 자동화
+
+## UI/UX 개선 가이드라인
+
+### 1. 접근성 (WCAG 2.1 AA 준수)
+
+#### 필수 ARIA 속성
+- 네비게이션: `role="navigation"`, `aria-label`
+- 버튼: `aria-label`, `aria-expanded`, `aria-pressed`
+- 다이얼로그: `role="dialog"`, `aria-modal="true"`
+- 로그/동적 콘텐츠: `role="log"`, `aria-live="polite"`
+
+#### 키보드 네비게이션
+- 모든 인터랙티브 요소는 키보드로 접근 가능
+- 포커스 순서 논리적
+- `Tab`, `Enter`, `Space`, `Escape` 키 지원
+- `:focus-visible` 스타일 명확히 표시
+
+#### 색상 대비
+- 텍스트 대비: 4.5:1 이상 (일반 텍스트), 3:1 이상 (큰 텍스트)
+- 인터랙티브 요소: 3:1 이상
+- 다크 모드 지원 필수
+
+### 2. 성능 최적화
+
+#### Core Web Vitals 목표
+- **LCP (Largest Contentful Paint)**: < 2.5초
+- **FID (First Input Delay)**: < 100ms
+- **CLS (Cumulative Layout Shift)**: < 0.1
+
+#### 최적화 기법
+- 이미지 지연 로딩: `loading="lazy"`
+- Critical CSS 인라인
+- 리소스 힌트: `preconnect`, `dns-prefetch`
+- Service Worker 캐싱
+- 코드 스플리팅 (필요시)
+
+### 3. 사용자 경험
+
+#### 로딩 상태
+- 스켈레톤 UI 제공
+- 로딩 인디케이터 표시
+- 진행률 표시 (가능한 경우)
+
+#### 에러 처리
+- 친화적인 에러 메시지
+- 복구 방법 제시
+- 자동 재시도 (적절한 경우)
+
+#### 피드백
+- 작업 완료 시 시각적 피드백
+- 성공/실패 상태 명확히 표시
+- 애니메이션으로 상태 변화 표현
+
+### 4. 반응형 디자인
+
+#### 브레이크포인트
+- 모바일: ≤480px
+- 태블릿: ≤768px
+- 데스크톱: >768px
+
+#### 모바일 최적화
+- 터치 타겟 최소 44x44px
+- 스와이프 제스처 지원
+- 모바일 메뉴 제공
+- 이미지 최적화 (WebP, 적절한 크기)
+
+## 운영 효율성 가이드라인
+
+### 1. 모니터링 및 알림
+
+#### Sentry 설정
+- Critical 에러 즉시 알림
+- 에러 그룹핑 활성화
+- 컨텍스트 정보 자동 추가
+- Breadcrumbs 최대 100개
+
+#### Vercel Analytics
+- Core Web Vitals 추적
+- 사용자 행동 분석
+- 주간 리포트 자동 생성
+
+### 2. 자동화
+
+#### CI/CD 파이프라인
+- 자동 빌드 및 배포
+- 테스트 자동 실행
+- 보안 스캔 자동화
+- 의존성 업데이트 자동화
+
+#### 스크립트 자동화
+- 포스트 개선: `scripts/ai_improve_posts.py`
+- 이미지 생성: `scripts/generate_post_images.py`
+- 링크 검증: `scripts/fix_links_unified.py`
+- 이미지 검증: `scripts/verify_images_unified.py`
+
+### 3. 에러 복구
+
+#### 자동 재시도
+- 지수 백오프 전략
+- 최대 3회 재시도
+- 재시도 간격: 1초, 2초, 4초
+
+#### 폴백 전략
+- API 실패 시 캐시된 데이터 사용
+- 네트워크 오류 시 오프라인 모드
+- 에러 발생 시 기본 UI 표시
 
 ## 모바일 반응형 디자인
 

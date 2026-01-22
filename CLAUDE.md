@@ -1,232 +1,218 @@
-# Claude Code Instructions for Tech Blog
+# Claude Code Instructions
 
-이 파일은 Claude Code가 이 프로젝트에서 작업할 때 참조하는 지침서입니다.
-Last updated: 2026-01-22
+Instructions for Claude Code when working on this project.
 
-## 프로젝트 개요
+**Last updated**: 2026-01-22
 
-Jekyll 기반의 DevSecOps 기술 블로그입니다.
-- **URL**: https://tech.2twodragon.com (Vercel 호스팅)
-- **백업**: https://twodragon0.github.io/tech-blog (GitHub Pages)
-- **주제**: DevSecOps, DevOps, FinOps, 클라우드 보안, 블록체인
-- **언어**: 한국어 (코드 주석 제외)
-- **호스팅**: Vercel (프로덕션), GitHub Pages (백업)
+## Quick Reference
 
-## 핵심 작업 규칙
+| Resource | URL |
+|----------|-----|
+| **Production** | https://tech.2twodragon.com |
+| **Backup** | https://twodragon0.github.io/tech-blog |
+| **GitHub** | https://github.com/Twodragon0/tech-blog |
 
-### 1. 보안 우선 (Security First)
-- 모든 코드에서 민감 정보(API 키, 비밀번호, 토큰)는 절대 하드코딩 금지
-- API 키는 반드시 환경 변수로 관리: `os.getenv("API_KEY", "")`
-- 로그 출력 전 `mask_sensitive_info()` 함수로 마스킹 필수
-- 파일 저장 전 `_validate_masked_text()` 검증 필수
+## Project Overview
 
-### 2. 비용 최적화 (Cost Optimization)
-- **Gemini API 직접 호출 최소화**: 비용 발생
-- **우선순위**:
-  1. Gemini CLI (`gemini` 명령어) - OAuth 2.0 인증, 무료
-  2. Claude Console/Cursor - 무료 할당량 활용
-  3. 로컬 템플릿 기반 처리
-  4. API 호출은 마지막 수단
+Jekyll-based DevSecOps technical blog.
 
-### 3. 커밋 규칙
-- **Co-Authored-By 라인 제외**: 커밋 메시지에 `Co-Authored-By: Claude` 포함하지 않음
-- 커밋 메시지는 한글 또는 영어로 간결하게 작성
-- 예시:
-  ```bash
-  git commit -m "fix: 보안 경고 수정"
-  git commit -m "feat: Add new feature"
-  ```
+- **Topics**: DevSecOps, DevOps, FinOps, Cloud Security, Blockchain
+- **Language**: Korean (content), English (code comments)
+- **Hosting**: Vercel (production), GitHub Pages (backup)
 
-## 파일 구조
+## Core Principles
+
+### 1. Security First
+- **Never hardcode** API keys, passwords, tokens
+- Use `os.getenv("API_KEY", "")` for sensitive data
+- Mask logs with `mask_sensitive_info()` before output
+- Validate with `_validate_masked_text()` before file writes
+- **CSP Compliance**: Review CSP headers when adding external scripts
+- **Input Validation**: Always validate and sanitize user inputs
+- **Error Handling**: Never expose sensitive information in error messages
+- **Dependency Security**: Run `npm audit` and `bundle audit` regularly
+
+### 2. Cost Optimization
+Priority order for AI operations:
+1. **Gemini CLI** (`gemini` command) - Free with OAuth 2.0 ⭐ **최우선**
+2. **Local templates** - No API cost
+3. **Cursor/Claude Console** - Free allocation
+4. **API calls** - Last resort (costs money)
+
+**Cost Management Rules**:
+- Use Context Caching for DeepSeek API (up to 90% cost reduction)
+- Cache API responses for 7 days when possible
+- Monitor API usage with `scripts/monitor_api_usage.py`
+- Set rate limits to prevent unexpected costs
+- Use off-peak hours for DeepSeek API (50-75% discount)
+
+### 3. Operational Efficiency
+- **Automation First**: Use scripts instead of manual work
+- **Monitoring**: Check Sentry and Vercel Analytics regularly
+- **Error Recovery**: Implement automatic retry with exponential backoff
+- **Logging**: Use structured logging with context
+- **Performance**: Monitor Core Web Vitals (LCP, FID, CLS)
+
+### 4. UI/UX Excellence
+- **Accessibility**: WCAG 2.1 AA compliance required
+- **Responsive Design**: Mobile-first approach
+- **Performance**: Target LCP < 2.5s, FID < 100ms, CLS < 0.1
+- **User Feedback**: Provide loading states and error messages
+- **Dark Mode**: Support system preference + manual toggle
+
+### 5. Commit Rules
+- **No `Co-Authored-By: Claude`** in commit messages
+- Concise messages in Korean or English
+- Use conventional commits: `fix:`, `feat:`, `docs:`, `refactor:`
+
+```bash
+git commit -m "fix: 보안 경고 수정"
+git commit -m "feat: Add new feature"
+git commit -m "docs: Update SPEC.md with security improvements"
+```
+
+## File Structure
 
 ```
 tech-blog/
-├── _posts/              # 블로그 포스트 (Markdown)
-├── _layouts/            # Jekyll 레이아웃
-├── _includes/           # 재사용 컴포넌트
+├── _posts/              # Blog posts (YYYY-MM-DD-Title.md)
+├── _layouts/            # Jekyll layouts
+├── _includes/           # Reusable components
 ├── assets/
-│   ├── css/            # 스타일시트
-│   ├── js/             # JavaScript
-│   └── images/         # 이미지 (영어 파일명만)
-├── scripts/            # Python/Bash 스크립트
-├── api/                # Vercel Serverless Functions
-└── CLAUDE.md           # 이 파일
+│   ├── css/             # Stylesheets
+│   ├── js/              # JavaScript
+│   └── images/          # Images (English filenames only!)
+├── scripts/             # Python/Bash utilities
+│   └── docs/            # Script documentation
+├── docs/                # Project documentation
+│   ├── guides/          # Content creation guides
+│   ├── optimization/    # Performance guides
+│   ├── setup/           # Setup guides
+│   └── troubleshooting/ # Troubleshooting guides
+├── api/                 # Vercel Serverless Functions
+├── .cursorrules         # Detailed Cursor AI rules
+├── AGENTS.md            # AI agent coding guidelines
+├── CLAUDE.md            # This file
+└── SECURITY.md          # Security policy
 ```
 
-## 포스트 작성 규칙
+## Post Writing Rules
 
-### 파일명
-- 형식: `YYYY-MM-DD-영문_제목.md`
-- 한글 파일명 금지
-- 예: `2026-01-12-DevSecOps_Security_Guide.md`
+### Filename Format
+- Format: `YYYY-MM-DD-English_Title.md`
+- **No Korean in filenames**
 
 ### Front Matter
 ```yaml
 ---
 layout: post
-title: "제목 (한글 가능)"
+title: "제목 (Korean OK)"
 date: YYYY-MM-DD HH:MM:SS +0900
-category: [카테고리]
-categories: [카테고리1, 카테고리2]
-tags: [태그1, 태그2]
-excerpt: "요약 (150-200자)"
-image: /assets/images/영문파일명.svg
+category: [security|devsecops|devops|cloud|kubernetes|finops|incident]
+categories: [category1, category2]
+tags: [tag1, tag2]
+excerpt: "Summary (150-200 chars)"
+image: /assets/images/YYYY-MM-DD-English_Title.svg
 ---
 ```
 
-### 코드 블록
-- 언어 태그 필수: ```python, ```bash, ```yaml
-- 10줄 이상: GitHub 링크로 대체 + HTML 주석으로 원본 보존
-- 3-10줄: 그대로 유지하되 참조 링크 추가
-- 민감 정보는 `YOUR_API_KEY`, `***MASKED***` 등으로 대체
+### Code Blocks
+- **Always** include language tags: ```python, ```bash, ```yaml
+- **>10 lines**: Replace with GitHub link + HTML comment for original
+- **3-10 lines**: Keep with reference link
+- **<3 lines**: Keep original
+- **Mask** sensitive data: `YOUR_API_KEY`, `***MASKED***`
 
-## 이미지 규칙
+## Image Rules
 
-### 파일명
-- **영어만 사용**: 한글 파일명 절대 금지
-- 형식: `YYYY-MM-DD-English_Title.svg`
-- 변환 스크립트: `python3 scripts/rename_images_to_english.py`
+### Filenames
+- **English only** - No Korean characters
+- Format: `YYYY-MM-DD-English_Title.svg`
+- Convert script: `python3 scripts/rename_images_to_english.py`
 
-### SVG 텍스트
-- **영어만 사용**: SVG 내부 텍스트도 영어로 작성
-- 특수문자 금지: `·`, `•`, `—`, `"`, `'` 등
-- UTF-8 인코딩 필수
+### SVG Text
+- **English only** in SVG text elements
+- No special chars: `·`, `•`, `—`, `"`, `'`
+- UTF-8 encoding required
 
-## 스크립트 수정 시 주의사항
+## Common Commands
 
-### 보안 패턴
-```python
-# 로그 출력
-def log_message(message: str, level: str = "INFO"):
-    safe_message = mask_sensitive_info(message)
-    if _validate_masked_text(safe_message):
-        print(safe_message)
-
-# 파일 저장
-def save_file(path: Path, content: str):
-    safe_content = mask_sensitive_info(content)
-    if _validate_masked_text(safe_content):
-        with open(path, 'w') as f:
-            f.write(safe_content)
-```
-
-### API 우선순위
-```python
-# 비용 최적화: CLI 우선, API는 마지막
-def generate_content(text: str) -> str:
-    # 1. Gemini CLI (무료)
-    if check_gemini_cli_available():
-        result = generate_with_gemini_cli(text)
-        if result:
-            return result
-
-    # 2. 로컬 템플릿 (무료)
-    result = generate_from_template(text)
-    if result:
-        return result
-
-    # 3. API 호출 (비용 발생 - 마지막 수단)
-    if GEMINI_API_KEY:
-        return generate_with_gemini_api(text)
-
-    return None
-```
-
-## 자주 사용하는 명령어
-
-### 로컬 개발
 ```bash
-# Jekyll 서버 시작
-bundle exec jekyll serve
+# Local development
+bundle exec jekyll serve --livereload
 
-# 이미지 파일명 영어로 변환
-python3 scripts/rename_images_to_english.py
+# Convert image filenames to English
+python3 scripts/rename_images_to_english.py --yes
 
-# 포스트 이미지 생성
-python3 scripts/generate_post_images.py
+# Generate post images
+python3 scripts/generate_post_images.py --all --force
+
+# Validate posts
+python3 scripts/check_posts.py
+
+# Fix links
+python3 scripts/fix_links_unified.py --fix
+
+# Verify images
+python3 scripts/verify_images_unified.py --all
 ```
 
-### Git 작업
-```bash
-# 변경 사항 확인
-git status
-git diff
+## Implementation Status
 
-# 커밋 (Co-Authored-By 없이)
-git add .
-git commit -m "fix: 설명"
-git push origin main
-```
+| Feature | Score | Status | Next Steps |
+|---------|-------|--------|------------|
+| **Security** | 9/10 | CSP, HSTS, Sentry (Free Tier optimized), Masking, Input Validation | Periodic CSP review, dependency updates |
+| **Performance** | 9/10 | Service Worker, Caching, Lazy Loading, Critical CSS | Image optimization, bundle size reduction |
+| **SEO** | 10/10 | Open Graph, Twitter Cards, JSON-LD, Sitemap, RSS | Maintain current level |
+| **User Features** | 9/10 | Giscus comments, DeepSeek chatbot, Dark/Light mode, Search | Accessibility improvements |
+| **Cost Optimization** | 9/10 | API caching, rate limiting, free tier optimization | Monitor usage, optimize further |
+| **Operational Efficiency** | 8/10 | Automation scripts, CI/CD, monitoring | Enhanced error recovery |
 
-## 참고 문서
-- `.cursorrules`: Cursor IDE 규칙 (상세)
-- `AGENTS.md`: AI 에이전트 코딩 가이드라인
-- `GEMINI_IMAGE_GUIDE.md`: 이미지 생성 가이드
-- `POST_VISUALIZATION_CHECKLIST.md`: 시각화 체크리스트
-- `README.md`: 프로젝트 개요
-- `SECURITY.md`: 보안 정책
-- `vercel.json`: Vercel 배포 설정, CSP 헤더, 캐싱 정책
+## Related Documentation
 
-## 포스트 검토 시 주의사항
+| Document | Purpose |
+|----------|---------|
+| `.cursorrules` | Detailed Cursor AI rules (comprehensive) |
+| `AGENTS.md` | AI agent coding guidelines |
+| `SECURITY.md` | Security policy |
+| `docs/` | All project documentation |
+| `scripts/README.md` | Script documentation |
 
-### 문맥 오류 검증
-- **섹션별 주제 일치 확인**: 각 섹션의 제목과 내용이 일치하는지 확인
-  - 예: "AWS Security Hub" 섹션에 Kubernetes 관련 내용이 들어가지 않았는지 확인
-  - 예: "K9s 보안 고려사항" 섹션에 컨테이너 보안 일반 설명이 들어가지 않았는지 확인
-- **주제별 문장 배치 확인**: 
-  - Kubernetes 관련 문장은 Kubernetes 포스트나 관련 섹션에만 배치
-  - AWS 관련 문장은 AWS 포스트나 관련 섹션에만 배치
-  - 컨테이너 보안 문장은 컨테이너/Kubernetes 관련 포스트에만 배치
+## Quick Checklist
 
-### 중복 문장 패턴 확인
-다음 패턴들이 중복되지 않았는지 확인:
-- "User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:"
-- "컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:"
-- "Pod Security Standards는 세 가지 보안 레벨을 제공합니다:"
+### Pre-Commit Checklist
+- [ ] No hardcoded secrets
+- [ ] Image filenames are English only
+- [ ] SVG text is English only
+- [ ] Code blocks have language tags
+- [ ] Links point to real resources (no example.com)
+- [ ] Front matter follows format
+- [ ] `lsp_diagnostics` clean on changed files
 
-### 참조 링크 검증
-- **잘못된 패턴 제거**: `.yml...`, `.설정...`, `참조하세요...yml` 같은 잘못된 패턴 제거
-- **중복 참조 제거**: 동일한 참조 링크가 반복되는 경우 하나만 유지
-- **참조 링크 형식**: `> **참고**: [설명]은 [링크 텍스트](URL)를 참조하세요.` 형식 사용
+### Security Checklist
+- [ ] Input validation implemented
+- [ ] Error messages don't expose sensitive info
+- [ ] CSP headers reviewed (if adding external scripts)
+- [ ] Dependencies audited (`npm audit`, `bundle audit`)
+- [ ] API keys use environment variables
+- [ ] Logs mask sensitive information
 
-### 설명 부족 문장 확인
-- 표 다음에 홀로 있는 설명 없는 문장이 있는지 확인
-- 설명이 필요하면 상세한 설명 추가, 불필요하면 제거
+### Performance Checklist
+- [ ] Images optimized and lazy-loaded
+- [ ] CSS/JS minified for production
+- [ ] Service Worker updated (if changed)
+- [ ] Cache headers appropriate
+- [ ] Core Web Vitals checked
 
-## 현재 구현된 주요 기능
+### Cost Optimization Checklist
+- [ ] API calls minimized (use Gemini CLI first)
+- [ ] Caching implemented where possible
+- [ ] Rate limiting configured
+- [ ] Free tier limits respected (Sentry, Vercel)
 
-### 보안 (Security Score: 9/10)
-- CSP (Content Security Policy) - vercel.json
-- HSTS, X-Content-Type-Options, X-Frame-Options
-- Sentry 에러 추적 (Free Tier 최적화)
-- 민감정보 마스킹 자동화
-
-### 성능 (Performance Score: 9/10)
-- Service Worker (오프라인 지원)
-- 자산별 캐싱 전략 (최대 1년)
-- Lazy Loading (IntersectionObserver)
-- Critical CSS inline
-
-### SEO (SEO Score: 10/10)
-- Open Graph, Twitter Cards
-- JSON-LD 구조화 데이터
-- 동적 Sitemap
-- RSS Feed
-
-### 기능
-- Giscus 댓글 (GitHub Discussions)
-- DeepSeek AI 챗봇
-- 다크/라이트 모드 (시스템 연동)
-- 검색, 번역, 공유 기능
-
-## 요약
-
-1. **보안**: 민감 정보 마스킹 필수
-2. **비용**: API 대신 CLI/로컬 처리 우선
-3. **커밋**: Co-Authored-By 라인 제외
-4. **이미지**: 영어 파일명만 사용
-5. **코드 블록**: 언어 태그 필수
-6. **문맥 검증**: 섹션별 주제와 내용 일치 확인
-7. **중복 제거**: 동일한 설명 반복 확인
-8. **참조 링크**: 잘못된 패턴 및 중복 제거
-9. **반응형 UI**: 모바일/태블릿/데스크톱 지원 확인
+### UI/UX Checklist
+- [ ] Accessibility: ARIA attributes, keyboard navigation
+- [ ] Responsive: Mobile, tablet, desktop tested
+- [ ] Dark mode: Works correctly
+- [ ] Loading states: Provided for async operations
+- [ ] Error handling: User-friendly messages
