@@ -272,33 +272,200 @@
   border-bottom-color: var(--color-primary);
 }
 
-/* 반응형 테이블 */
+/* 테이블 래퍼 - 모바일 가로 스크롤 지원 */
+.post-content table {
+  position: relative;
+}
+
+/* 반응형 테이블 - 모바일 최적화 */
 @media (max-width: 768px) {
+  /* 테이블을 감싸는 래퍼 스타일 (마크다운에서 자동 생성되거나 수동 추가 가능) */
+  .post-content .table-wrapper {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.5em -1rem;
+    padding: 0 1rem;
+    /* 스크롤 가능함을 시각적으로 표시 */
+    position: relative;
+  }
+  
+  .post-content .table-wrapper::after {
+    content: '→ 스크롤';
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background-color: var(--color-bg-secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-border);
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity var(--transition-fast);
+  }
+  
+  /* 스크롤 가능할 때만 표시 */
+  .post-content .table-wrapper:not(:hover)::after {
+    opacity: 0.6;
+  }
+  
+  .post-content .table-wrapper:hover::after {
+    opacity: 0.9;
+  }
+  
+  /* 테이블 자체 스타일 */
   .post-content table {
     display: block;
+    width: 100%;
+    min-width: 600px; /* 최소 너비 보장 */
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     font-size: 0.875rem;
-    margin: 1em -1rem;
-    border-radius: 0;
+    margin: 0;
+    border-radius: var(--border-radius-md);
+    border-collapse: separate;
+    border-spacing: 0;
   }
   
   .post-content th,
   .post-content td {
-    padding: 0.5em 0.75em;
-    min-width: 100px;
+    padding: 0.75em 0.875em;
+    min-width: 120px;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    line-height: 1.5;
   }
   
+  /* 첫 번째 열 고정 (sticky) */
   .post-content th:first-child,
   .post-content td:first-child {
     position: sticky;
     left: 0;
     background-color: var(--color-bg-secondary);
-    z-index: 1;
+    z-index: 2;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+    padding-left: 1em;
+    padding-right: 1.25em;
+    min-width: 140px;
   }
   
-  .post-content tbody tr:nth-child(even) th:first-child {
+  /* 헤더 첫 번째 셀 */
+  .post-content thead th:first-child {
+    background-color: var(--color-bg-secondary);
+    z-index: 3;
+  }
+  
+  /* 짝수 행 첫 번째 셀 배경 */
+  .post-content tbody tr:nth-child(even) td:first-child {
     background-color: var(--color-bg-tertiary);
+  }
+  
+  /* 짝수 행 첫 번째 셀 hover 시 */
+  .post-content tbody tr:nth-child(even):hover td:first-child {
+    background-color: var(--color-bg-secondary);
+  }
+  
+  /* 테이블 헤더 고정 */
+  .post-content thead {
+    display: table-header-group;
+  }
+  
+  .post-content thead th {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-bg-secondary);
+    z-index: 1;
+    font-weight: 600;
+  }
+  
+  /* 첫 번째 열 + 헤더 교차점 */
+  .post-content thead th:first-child {
+    z-index: 4;
+  }
+}
+
+/* 작은 모바일 화면 (480px 이하) - 추가 최적화 */
+@media (max-width: 480px) {
+  .post-content .table-wrapper {
+    margin: 1.25em -1rem;
+    padding: 0 0.75rem;
+  }
+  
+  .post-content table {
+    font-size: 0.8125rem;
+    min-width: 500px;
+  }
+  
+  .post-content th,
+  .post-content td {
+    padding: 0.625em 0.75em;
+    min-width: 100px;
+    font-size: 0.8125rem;
+  }
+  
+  .post-content th:first-child,
+  .post-content td:first-child {
+    min-width: 120px;
+    padding-left: 0.875em;
+    padding-right: 1em;
+  }
+  
+  /* 스크롤 인디케이터 크기 조정 */
+  .post-content .table-wrapper::after {
+    font-size: 0.6875rem;
+    right: 0.25rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+/* 다크 모드 테이블 래퍼 스타일 */
+[data-theme="dark"] .post-content .table-wrapper::after {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border);
+  color: var(--color-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* LinkedIn 모바일 앱 최적화 (더 작은 화면) */
+@media (max-width: 375px) {
+  .post-content .table-wrapper {
+    margin: 1em -0.75rem;
+    padding: 0 0.5rem;
+  }
+  
+  .post-content table {
+    font-size: 0.75rem;
+    min-width: 450px;
+  }
+  
+  .post-content th,
+  .post-content td {
+    padding: 0.5em 0.625em;
+    min-width: 90px;
+    font-size: 0.75rem;
+  }
+  
+  .post-content th:first-child,
+  .post-content td:first-child {
+    min-width: 110px;
+    padding-left: 0.75em;
+    padding-right: 0.875em;
+  }
+  
+  .post-content .table-wrapper::after {
+    font-size: 0.625rem;
+    right: 0.2rem;
+    padding: 0.15rem 0.35rem;
+    content: '→';
   }
 }
 

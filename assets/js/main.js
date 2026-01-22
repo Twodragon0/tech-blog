@@ -2211,6 +2211,64 @@
       });
     })();
 
+    // Table wrapper for mobile responsiveness
+    (function initTableWrapper() {
+      'use strict';
+      
+      // 이미 래핑된 테이블은 스킵
+      const wrapTables = () => {
+        const postContent = document.querySelector('.post-content');
+        if (!postContent) return;
+        
+        const tables = postContent.querySelectorAll('table:not(.chat-table)');
+        tables.forEach(table => {
+          // 이미 래퍼로 감싸져 있으면 스킵
+          if (table.parentElement && table.parentElement.classList.contains('table-wrapper')) {
+            return;
+          }
+          
+          // 래퍼 생성
+          const wrapper = document.createElement('div');
+          wrapper.className = 'table-wrapper';
+          
+          // 테이블을 래퍼로 이동
+          table.parentNode.insertBefore(wrapper, table);
+          wrapper.appendChild(table);
+        });
+      };
+      
+      // 초기 실행
+      wrapTables();
+      
+      // 동적으로 추가된 콘텐츠를 위한 MutationObserver
+      const observer = new MutationObserver((mutations) => {
+        let shouldWrap = false;
+        mutations.forEach((mutation) => {
+          if (mutation.addedNodes.length > 0) {
+            mutation.addedNodes.forEach((node) => {
+              if (node.nodeType === 1) { // Element node
+                if (node.tagName === 'TABLE' || node.querySelector('table')) {
+                  shouldWrap = true;
+                }
+              }
+            });
+          }
+        });
+        
+        if (shouldWrap) {
+          wrapTables();
+        }
+      });
+      
+      const postContent = document.querySelector('.post-content');
+      if (postContent) {
+        observer.observe(postContent, {
+          childList: true,
+          subtree: true
+        });
+      }
+    })();
+
   }; // End of initNonCritical function
   
   // Schedule non-critical initialization when idle
