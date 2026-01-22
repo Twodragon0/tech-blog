@@ -89,3 +89,21 @@
     }
   })();
 </script>
+
+<!-- Cloudflare Web Analytics (무료, 프라이버시 친화적) -->
+<!-- 
+  Cloudflare Web Analytics 활성화 방법:
+  1. Cloudflare 대시보드 → Analytics & Logs → Web Analytics
+  2. Add a site → tech.2twodragon.com
+  3. 생성된 토큰을 아래 YOUR_CLOUDFLARE_BEACON_TOKEN에 입력
+  4. 주석 해제
+  
+  특징:
+  - 무료 (제한 없음)
+  - 프라이버시 친화적 (쿠키 없음, 개인정보 수집 안 함)
+  - Core Web Vitals 측정
+  - 실시간 분석
+-->
+{% if site.cloudflare_analytics_token %}
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ site.cloudflare_analytics_token }}"}'></script>
+{% endif %}

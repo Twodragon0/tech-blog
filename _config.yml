@@ -185,8 +185,11 @@ twitter:
 # google_analytics: "G-XXXXXXXXXX"
 
 # Google AdSense - Publisher ID (ca-pub-XXXXXXXXXX)
-# AdSense 계정에서 발급받은 Publisher ID를 입력하세요
 google_adsense: "ca-pub-6788271437088974"
+
+# Cloudflare Web Analytics (무료, 프라이버시 친화적)
+# 토큰 발급: Cloudflare Dashboard → Analytics & Logs → Web Analytics → Add a site
+# cloudflare_analytics_token: "YOUR_CLOUDFLARE_BEACON_TOKEN"
 
 # Open Graph & Social Sharing
 # 기본 이미지는 SVG로 생성되며, PNG로 변환하려면 scripts/generate_og_image.py 실행

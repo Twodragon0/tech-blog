@@ -167,9 +167,10 @@
       // BrowserTracing 설정 (Loader Script에서 자동 설정되지만 명시적으로 구성)
       // 커스텀 트레이싱 옵션은 integrations에서 설정
       
-      // Session Replay: 세션 재생 (비용 최적화)
-      replaysSessionSampleRate: 0.0, // 0% (비활성화 - 비용 절감)
-      replaysOnErrorSampleRate: 0.0, // 0% (비활성화 - 비용 절감)
+      // Session Replay: 에러 발생 시에만 녹화 (Free 티어: 월 50 replays)
+      // 일반 세션은 녹화하지 않고, 에러 발생 시 10%만 녹화하여 월 한도 내 유지
+      replaysSessionSampleRate: 0.0,  // 일반 세션은 녹화 안 함 (비용 절감)
+      replaysOnErrorSampleRate: window.location.hostname === 'tech.2twodragon.com' ? 0.1 : 0.0, // 에러 시 10% (프로덕션만)
       
       // Logs: 구조화된 로깅 활성화 (SDK 9.41.0+)
       enableLogs: true,
