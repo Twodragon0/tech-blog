@@ -65,6 +65,20 @@ if [ ! -d "_site" ]; then
     error_exit "_site directory not created"
 fi
 
+# Verify critical CSS file
+log "Verifying CSS compilation..."
+if [ -f "_site/assets/css/main.css" ]; then
+    CSS_SIZE=$(stat -f%z "_site/assets/css/main.css" 2>/dev/null || stat -c%s "_site/assets/css/main.css" 2>/dev/null || echo "0")
+    log "✅ CSS compiled successfully: _site/assets/css/main.css (${CSS_SIZE} bytes)"
+else
+    log "ERROR: CSS file not found at _site/assets/css/main.css"
+    log "Checking _site/assets/css/ directory contents:"
+    ls -la _site/assets/css/ 2>&1 || log "Directory does not exist"
+    log "Checking if SCSS source exists:"
+    ls -la assets/css/main.scss 2>&1 || log "SCSS source not found"
+    error_exit "CSS compilation failed - main.css not generated"
+fi
+
 # Minify JavaScript (optional, graceful failure)
 log "Minifying JavaScript..."
 if [ -f "_site/assets/js/main.js" ]; then
