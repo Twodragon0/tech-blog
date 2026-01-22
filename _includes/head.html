@@ -209,47 +209,37 @@
   <!-- Styles - Primary link with fallback -->
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}" id="main-stylesheet">
   
-  <!-- CSS Fallback: Dynamically load CSS if MIME type check fails -->
+  <!-- CSS Fallback: Load from GitHub Pages if primary fails -->
   <script>
   (function() {
-    var link = document.getElementById('main-stylesheet');
-    var cssUrl = '{{ "/assets/css/main.css" | relative_url }}';
+    var primaryUrl = '{{ "/assets/css/main.css" | relative_url }}';
+    var fallbackUrl = 'https://twodragon0.github.io/tech-blog/assets/css/main.css';
     
-    // Check if stylesheet loaded properly after a short delay
     setTimeout(function() {
       var hasStyles = false;
       try {
-        // Check if any stylesheets from our domain are loaded
         for (var i = 0; i < document.styleSheets.length; i++) {
           var sheet = document.styleSheets[i];
           if (sheet.href && sheet.href.includes('/assets/css/main.css')) {
-            hasStyles = true;
+            try { var rules = sheet.cssRules || sheet.rules; if (rules && rules.length > 0) hasStyles = true; } catch(e) { hasStyles = true; }
             break;
           }
         }
-      } catch(e) {
-        // Cross-origin or other error
-      }
+      } catch(e) {}
       
       if (!hasStyles) {
-        // CSS didn't load - try fetching and injecting as style tag
-        fetch(cssUrl)
-          .then(function(response) {
-            if (!response.ok) throw new Error('CSS fetch failed');
-            return response.text();
-          })
-          .then(function(css) {
-            var style = document.createElement('style');
-            style.textContent = css;
-            style.id = 'main-stylesheet-fallback';
-            document.head.appendChild(style);
-            console.log('CSS loaded via fallback');
-          })
-          .catch(function(err) {
-            console.warn('CSS fallback failed:', err);
-          });
+        fetch(primaryUrl).then(function(r) {
+          if (!r.ok || r.headers.get('content-type').indexOf('text/css') === -1) throw new Error('Primary CSS failed');
+          return r.text();
+        }).then(function(css) {
+          var s = document.createElement('style'); s.textContent = css; s.id = 'css-fallback'; document.head.appendChild(s);
+        }).catch(function() {
+          fetch(fallbackUrl).then(function(r) { return r.text(); }).then(function(css) {
+            var s = document.createElement('style'); s.textContent = css; s.id = 'css-fallback-gh'; document.head.appendChild(s);
+          }).catch(function(e) { console.warn('All CSS fallbacks failed:', e); });
+        });
       }
-    }, 500);
+    }, 300);
   })();
   </script>
 
