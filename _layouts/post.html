@@ -5,19 +5,7 @@ layout: default
 
 <article class="post-article" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    {% if page.image %}
-    <div class="post-image">
-      {% assign image_path = page.image | relative_url %}
-      {% comment %} 한글 파일명이 포함된 경우 URL 인코딩 보장 {% endcomment %}
-      {% if page.image_alt %}
-        {% assign image_alt_text = page.image_alt | escape %}
-      {% else %}
-        {% assign image_alt_text = page.title | escape %}
-      {% endif %}
-      <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in; aspect-ratio: 16/9; object-fit: cover;" onerror="this.style.display='none';" sizes="(max-width: 768px) 100vw, 1200px">
-    </div>
-    {% endif %}
-
+    {% comment %} 모바일 최적화: 카테고리 → 제목 → 메타 → 이미지 순서로 표시 {% endcomment %}
     {% if page.category %}
     <div class="post-category">
       <a href="{{ '/categories/' | relative_url }}#{{ page.category | downcase }}" class="category-badge {{ page.category | downcase }}">
@@ -81,6 +69,19 @@ layout: default
       {% for tag in page.tags %}
       <a href="{{ '/tags/' | relative_url }}#{{ tag | append: '' | slugify }}" class="tag">{{ tag }}</a>
       {% endfor %}
+    </div>
+    {% endif %}
+
+    {% comment %} 포스트 이미지: 메타 정보 아래에 표시 {% endcomment %}
+    {% if page.image %}
+    <div class="post-image">
+      {% assign image_path = page.image | relative_url %}
+      {% if page.image_alt %}
+        {% assign image_alt_text = page.image_alt | escape %}
+      {% else %}
+        {% assign image_alt_text = page.title | escape %}
+      {% endif %}
+      <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" style="width:100%; height:auto; border-radius:8px; margin-bottom: 20px; cursor: zoom-in; aspect-ratio: 16/9; object-fit: cover;" onerror="this.style.display='none';" sizes="(max-width: 768px) 100vw, 1200px">
     </div>
     {% endif %}
   </header>

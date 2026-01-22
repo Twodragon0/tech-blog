@@ -1,8 +1,9 @@
 // Service Worker for Offline Support and Caching
 // 버전 업데이트 시 CACHE_NAME 변경하여 캐시 무효화
-const CACHE_NAME = 'tech-blog-v6';
-const STATIC_CACHE = 'tech-blog-static-v6';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v6';
+// v7: 모바일 UI/UX 개선 - 포스트 헤더 순서 조정, TOC 최적화, 태그 오버플로우 수정
+const CACHE_NAME = 'tech-blog-v7';
+const STATIC_CACHE = 'tech-blog-static-v7';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v7';
 
 // 캐시할 정적 리소스
 const STATIC_ASSETS = [
