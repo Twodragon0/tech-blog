@@ -624,17 +624,17 @@ function googleTranslateElementInit() {
     );
     banners.forEach(function(el) {
       // CLS 방지를 위한 강력한 스타일 적용
-      el.style.display = 'none' !important;
-      el.style.visibility = 'hidden' !important;
-      el.style.position = 'fixed' !important;
-      el.style.top = '0' !important;
-      el.style.left = '0' !important;
-      el.style.width = '0' !important;
-      el.style.height = '0' !important;
-      el.style.overflow = 'hidden' !important;
-      el.style.opacity = '0' !important;
-      el.style.zIndex = '-1' !important;
-      el.style.contain = 'strict' !important;
+      el.style.setProperty('display', 'none', 'important');
+      el.style.setProperty('visibility', 'hidden', 'important');
+      el.style.setProperty('position', 'fixed', 'important');
+      el.style.setProperty('top', '0', 'important');
+      el.style.setProperty('left', '0', 'important');
+      el.style.setProperty('width', '0', 'important');
+      el.style.setProperty('height', '0', 'important');
+      el.style.setProperty('overflow', 'hidden', 'important');
+      el.style.setProperty('opacity', '0', 'important');
+      el.style.setProperty('z-index', '-1', 'important');
+      el.style.setProperty('contain', 'strict', 'important');
     });
 
     if (document.body) {

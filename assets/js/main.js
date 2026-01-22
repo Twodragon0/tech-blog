@@ -104,6 +104,10 @@
       /apple-touch-icon.*404/i,
       /GET.*favicon/i,
       /GET.*apple-touch-icon/i,
+      // Service Worker 정보 메시지 필터링 (에러 아님)
+      /\[Service Worker\] New version available/i,
+      /Service Worker.*registered/i,
+      /Service Worker.*activated/i,
       // 성능 경고 필터링 (외부 리소스 로딩 지연은 정상)
       /\[Performance\] Slow resource/i,
       /Slow resource.*vercel/i,

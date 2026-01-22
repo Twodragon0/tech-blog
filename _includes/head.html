@@ -227,32 +227,18 @@
     window.addEventListener('load', function() {
       navigator.serviceWorker.register('/sw.js')
         .then(function(registration) {
-          // 서비스 워커 업데이트 확인
           registration.addEventListener('updatefound', function() {
-            const newWorker = registration.installing;
+            var newWorker = registration.installing;
             newWorker.addEventListener('statechange', function() {
-              if (newWorker.state === 'activated') {
-                // 새 서비스 워커 활성화 시 페이지 리로드 제안
-                if (navigator.serviceWorker.controller) {
-                  console.log('[Service Worker] New version available');
-                }
+              if (newWorker.state === 'activated' && navigator.serviceWorker.controller) {
+                var isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                if (isDev) console.debug('[SW] New version ready');
               }
             });
           });
-          
-          // 개발 환경에서만 로그
-          if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            console.log('Service Worker registered:', registration.scope);
-          }
         })
-        .catch(function(error) {
-          // 프로덕션에서는 조용히 실패
-          if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            console.log('Service Worker registration failed:', error);
-          }
-        });
+        .catch(function() {});
       
-      // 서비스 워커 업데이트 체크
       if (navigator.serviceWorker.controller) {
         navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
       }
