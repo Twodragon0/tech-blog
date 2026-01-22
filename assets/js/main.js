@@ -1433,9 +1433,59 @@
     // Translation cache for individual text chunks
     const textTranslationCache = {};
 
+    // Technical terms and patterns that should NOT be translated
+    const noTranslatePatterns = [
+      /^[A-Z][A-Z0-9_\-\.]+$/,  // ALL_CAPS_CONSTANTS, API-KEY
+      /^[a-z]+\.[a-z]+/i,       // file.ext, package.name
+      /^\$[a-zA-Z_]+/,          // $variable
+      /^@[a-zA-Z]+/,            // @annotation
+      /^#[a-zA-Z]+/,            // #hashtag
+      /^https?:\/\//,           // URLs
+      /^[a-zA-Z_][a-zA-Z0-9_]*\(\)/,  // function()
+      /^\d+(\.\d+)?[a-zA-Z]+$/, // 10px, 2rem
+      /^[<>\/\[\]{}]+$/,        // HTML/code symbols only
+    ];
+    
+    // Words to preserve (technical terms)
+    const preserveWords = new Set([
+      'API', 'SDK', 'CLI', 'GUI', 'URL', 'URI', 'DNS', 'CDN', 'SSL', 'TLS', 'HTTP', 'HTTPS',
+      'JSON', 'XML', 'YAML', 'CSV', 'HTML', 'CSS', 'SQL', 'NoSQL',
+      'AWS', 'GCP', 'Azure', 'Docker', 'Kubernetes', 'K8s', 'Jenkins', 'GitHub', 'GitLab',
+      'React', 'Vue', 'Angular', 'Node.js', 'Python', 'Java', 'Go', 'Rust',
+      'DevOps', 'DevSecOps', 'FinOps', 'MLOps', 'GitOps', 'SRE',
+      'CI/CD', 'IaC', 'IAM', 'VPC', 'EC2', 'S3', 'RDS', 'EKS', 'ECS', 'Lambda',
+      'Sentry', 'Cloudflare', 'Vercel', 'Nginx', 'Apache',
+      'CRUD', 'REST', 'GraphQL', 'gRPC', 'WebSocket',
+      'OAuth', 'JWT', 'SAML', 'SSO', 'MFA', '2FA',
+      'SAST', 'DAST', 'IAST', 'SCA', 'WAF', 'DDoS', 'XSS', 'CSRF', 'SQLi',
+      'LCP', 'FID', 'CLS', 'TTFB', 'FCP',
+    ]);
+    
+    // Check if text should not be translated
+    function shouldSkipTranslation(text) {
+      if (!text || text.trim().length === 0) return true;
+      if (text.trim().length < 2) return true;
+      
+      // Skip if it's a technical pattern
+      const trimmed = text.trim();
+      if (noTranslatePatterns.some(pattern => pattern.test(trimmed))) return true;
+      
+      // Skip if it's a single preserved word
+      if (preserveWords.has(trimmed)) return true;
+      
+      // Skip if mostly numbers/symbols (less than 30% letters)
+      const letters = (trimmed.match(/[a-zA-Z가-힣]/g) || []).length;
+      if (letters < trimmed.length * 0.3) return true;
+      
+      return false;
+    }
+    
     // Translate text using MyMemory API with retry logic
     async function translateText(text, sourceLang, targetLang, retries = 2) {
       if (!text || text.trim().length === 0) return text;
+      
+      // Skip technical terms
+      if (shouldSkipTranslation(text)) return text;
 
       // Skip if already in target language
       if (isAlreadyInTargetLanguage(text, targetLang)) {
@@ -1443,7 +1493,7 @@
       }
 
       // Check cache first
-      const cacheKey = `${sourceLang}-${targetLang}-${text}`;
+      const cacheKey = `${sourceLang}-${targetLang}-${text.substring(0, 100)}`;
       if (textTranslationCache[cacheKey]) {
         return textTranslationCache[cacheKey];
       }
@@ -1458,21 +1508,20 @@
       const targetLangCode = langMap[targetLang] || targetLang;
       const sourceLangCode = langMap[sourceLang] || sourceLang;
 
-      // Handle long text by splitting into chunks
-      if (text.length > 500) {
-        const chunks = splitTextIntoChunks(text, 500);
-        const translatedChunks = [];
+      // Handle long text by splitting into chunks (MyMemory limit: ~500 chars)
+      if (text.length > 400) {
+        const chunks = splitTextIntoChunks(text, 400);
         
-        // Process chunks in parallel for better performance
-        const chunkPromises = chunks.map(async (chunk) => {
+        // Process chunks sequentially to avoid rate limiting
+        const results = [];
+        for (const chunk of chunks) {
           const translated = await translateText(chunk, sourceLang, targetLang, retries);
-          return translated || chunk;
-        });
+          results.push(translated || chunk);
+          // Delay between chunks to avoid rate limiting
+          await new Promise(resolve => setTimeout(resolve, 200));
+        }
         
-        const results = await Promise.all(chunkPromises);
         const translated = results.join(' ');
-        
-        // Cache the result
         textTranslationCache[cacheKey] = translated;
         return translated;
       }
@@ -1480,17 +1529,14 @@
       // Translate short text
       for (let attempt = 0; attempt <= retries; attempt++) {
         try {
-          // Create abort controller for timeout
           const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+          const timeoutId = setTimeout(() => controller.abort(), 8000);
           
           const response = await fetch(
             `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLangCode}|${targetLangCode}`,
             {
               method: 'GET',
-              headers: {
-                'Accept': 'application/json'
-              },
+              headers: { 'Accept': 'application/json' },
               signal: controller.signal
             }
           );
@@ -1498,38 +1544,60 @@
           clearTimeout(timeoutId);
 
           if (!response.ok) {
+            if (response.status === 429) {
+              // Rate limited - wait longer and retry
+              await new Promise(resolve => setTimeout(resolve, 2000 * (attempt + 1)));
+              continue;
+            }
             if (attempt < retries) {
               await new Promise(resolve => setTimeout(resolve, 500 * (attempt + 1)));
               continue;
             }
-            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            throw new Error(`HTTP ${response.status}`);
           }
 
           const data = await response.json();
 
+          // Check for rate limiting in response
+          if (data.responseStatus === 429 || 
+              (data.responseData && data.responseData.translatedText && 
+               data.responseData.translatedText.includes('MYMEMORY WARNING'))) {
+            if (attempt < retries) {
+              await new Promise(resolve => setTimeout(resolve, 2000 * (attempt + 1)));
+              continue;
+            }
+            textTranslationCache[cacheKey] = text;
+            return text;
+          }
+
           if (data.responseStatus === 200 && data.responseData && data.responseData.translatedText) {
-            const translated = data.responseData.translatedText;
-            // Check if translation is valid (not same as original for non-English)
-            if (translated && translated !== text) {
-              // Cache the result
+            let translated = data.responseData.translatedText;
+            
+            // Filter out MyMemory warnings
+            if (translated.includes('MYMEMORY WARNING') || 
+                translated.includes('PLEASE SELECT') ||
+                translated.includes('YOU USED ALL AVAILABLE')) {
+              textTranslationCache[cacheKey] = text;
+              return text;
+            }
+            
+            // Check if translation is valid
+            if (translated && translated !== text && translated.trim().length > 0) {
               textTranslationCache[cacheKey] = translated;
               return translated;
             }
           }
 
-          // If translation failed, return original text
           textTranslationCache[cacheKey] = text;
           return text;
         } catch (error) {
           if (attempt < retries && error.name !== 'AbortError') {
-            await new Promise(resolve => setTimeout(resolve, 500 * (attempt + 1)));
+            await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
             continue;
           }
-          // Only log in development mode
           if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            console.warn('Translation failed:', error.message, text.substring(0, 50));
+            console.warn('Translation failed:', error.message);
           }
-          // Cache the original text to avoid repeated failures
           textTranslationCache[cacheKey] = text;
           return text;
         }
@@ -1632,31 +1700,19 @@
               try {
                 const translated = await translateText(text, 'ko', targetLang);
                 if (translated && translated !== text) {
-                  // Security: Always use textContent instead of innerHTML to prevent XSS attacks
-                  // textContent automatically escapes HTML and prevents script injection
-                  if (el.children.length > 0) {
-                    // For elements with children, update text content of each child safely
-                    const children = Array.from(el.children);
-                    // Split translated text by whitespace to distribute to children
-                    const words = translated.split(/\s+/);
-                    let wordIndex = 0;
-                    
-                    children.forEach((child) => {
-                      if (wordIndex < words.length) {
-                        // Security: textContent escapes HTML, preventing XSS
-                        child.textContent = words[wordIndex];
-                        wordIndex++;
-                      }
-                    });
-                    
-                    // If we have remaining words or structure mismatch, update parent textContent
-                    if (wordIndex < words.length || children.length === 0) {
-                      // Security: textContent is safe - it escapes HTML automatically
+                  // Preserve inline formatting by translating only text nodes
+                  if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                    el.textContent = translated;
+                  } else if (el.children.length === 0) {
+                    el.textContent = translated;
+                  } else {
+                    // Has inline elements - try to preserve structure
+                    const textNodes = Array.from(el.childNodes).filter(n => n.nodeType === Node.TEXT_NODE);
+                    if (textNodes.length === 1) {
+                      textNodes[0].textContent = translated;
+                    } else {
                       el.textContent = translated;
                     }
-                  } else {
-                    // Security: textContent automatically escapes HTML, preventing XSS
-                    el.textContent = translated;
                   }
                 }
               } catch (error) {
@@ -1738,24 +1794,17 @@
               try {
                 const translated = await translateText(text, 'ko', targetLang);
                 if (translated && translated !== text) {
-                  // Security: Always use textContent instead of innerHTML to prevent XSS attacks
-                  if (el.children.length > 0) {
-                    const children = Array.from(el.children);
-                    const words = translated.split(/\s+/);
-                    let wordIndex = 0;
-                    
-                    children.forEach((child) => {
-                      if (wordIndex < words.length) {
-                        child.textContent = words[wordIndex];
-                        wordIndex++;
-                      }
-                    });
-                    
-                    if (wordIndex < words.length || children.length === 0) {
+                  if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                    el.textContent = translated;
+                  } else if (el.children.length === 0) {
+                    el.textContent = translated;
+                  } else {
+                    const textNodes = Array.from(el.childNodes).filter(n => n.nodeType === Node.TEXT_NODE);
+                    if (textNodes.length === 1) {
+                      textNodes[0].textContent = translated;
+                    } else {
                       el.textContent = translated;
                     }
-                  } else {
-                    el.textContent = translated;
                   }
                 }
               } catch (error) {

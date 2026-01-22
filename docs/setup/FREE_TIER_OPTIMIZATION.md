@@ -37,29 +37,91 @@ replaysOnErrorSampleRate: 0.1,      // 에러 발생 시 10%만 녹화 (월 50�
 
 #### 2. Cron Monitoring 활성화 (1 monitor 무료)
 
-GitHub Actions 워크플로우나 정기 작업 모니터링에 활용:
+**Sentry 대시보드에서 설정:**
 
-```javascript
-// Sentry Cron Monitor 설정 예시
-// 매일 빌드 체크용
-Sentry.captureCheckIn({
-  monitorSlug: 'daily-build-check',
-  status: 'in_progress',
-});
+1. [Sentry.io](https://sentry.io) 로그인
+2. 좌측 메뉴 → **Crons** 클릭
+3. **Create Monitor** 버튼 클릭
+4. 설정:
+   - **Name**: `daily-build-check` (원하는 이름)
+   - **Schedule Type**: `Crontab`
+   - **Schedule**: `0 9 * * *` (매일 오전 9시)
+   - **Timezone**: `Asia/Seoul`
+   - **Max Runtime**: `30 minutes`
+   - **Failure Tolerance**: `1` (1번 실패 허용)
 
-// 작업 완료 후
-Sentry.captureCheckIn({
-  monitorSlug: 'daily-build-check',
-  status: 'ok',
-});
+5. **Save** 클릭 후 **DSN** 복사
+
+**GitHub Actions에서 사용:**
+
+```yaml
+# .github/workflows/daily-check.yml
+name: Daily Build Check
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # UTC 기준 (KST 09:00)
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Sentry Cron Check-in (Start)
+        run: |
+          curl -X POST "https://sentry.io/api/0/monitors/daily-build-check/checkins/" \
+            -H "Authorization: DSN ${{ secrets.SENTRY_DSN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"status": "in_progress"}'
+      
+      - name: Build
+        run: bundle exec jekyll build
+      
+      - name: Sentry Cron Check-in (Complete)
+        if: success()
+        run: |
+          curl -X POST "https://sentry.io/api/0/monitors/daily-build-check/checkins/latest/" \
+            -H "Authorization: DSN ${{ secrets.SENTRY_DSN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"status": "ok"}'
+      
+      - name: Sentry Cron Check-in (Failed)
+        if: failure()
+        run: |
+          curl -X POST "https://sentry.io/api/0/monitors/daily-build-check/checkins/latest/" \
+            -H "Authorization: DSN ${{ secrets.SENTRY_DSN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"status": "error"}'
 ```
 
 #### 3. Uptime Monitoring 활성화 (1 monitor 무료)
 
-Sentry 대시보드에서 설정:
-1. Sentry.io → Crons → Create Monitor
-2. URL: `https://tech.2twodragon.com`
-3. Schedule: 매 5분 (또는 원하는 간격)
+**Sentry 대시보드에서 설정:**
+
+1. [Sentry.io](https://sentry.io) 로그인
+2. 좌측 메뉴 → **Crons** 클릭
+3. 상단 탭에서 **Uptime** 선택 (또는 **Monitors** → **Uptime**)
+4. **Create Uptime Monitor** 클릭
+5. 설정:
+   - **Name**: `tech-blog-uptime`
+   - **URL**: `https://tech.2twodragon.com`
+   - **HTTP Method**: `GET`
+   - **Check Interval**: `5 minutes` (무료는 5분 간격)
+   - **Timeout**: `30 seconds`
+   - **Expected Status**: `200-299`
+
+6. **Alerting** 설정:
+   - **Alert after**: `2 consecutive failures`
+   - **Notify**: 이메일 알림 활성화
+
+7. **Save** 클릭
+
+**모니터링 확인:**
+- Sentry Dashboard → Crons → Uptime 탭에서 상태 확인
+- 다운타임 발생 시 이메일 알림 수신
+- 가용성 통계 및 응답 시간 그래프 확인 가능
 
 ### 현재 최적화 설정
 
