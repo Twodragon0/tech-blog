@@ -206,42 +206,10 @@
   <!-- Font Optimizer -->
   {% include font-optimizer.html %}
 
-  <!-- Styles - Primary link with fallback -->
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}" id="main-stylesheet">
-  
-  <!-- CSS Fallback: Load from GitHub Pages if primary fails -->
-  <script>
-  (function() {
-    var primaryUrl = '{{ "/assets/css/main.css" | relative_url }}';
-    var fallbackUrl = 'https://twodragon0.github.io/tech-blog/assets/css/main.css';
-    
-    setTimeout(function() {
-      var hasStyles = false;
-      try {
-        for (var i = 0; i < document.styleSheets.length; i++) {
-          var sheet = document.styleSheets[i];
-          if (sheet.href && sheet.href.includes('/assets/css/main.css')) {
-            try { var rules = sheet.cssRules || sheet.rules; if (rules && rules.length > 0) hasStyles = true; } catch(e) { hasStyles = true; }
-            break;
-          }
-        }
-      } catch(e) {}
-      
-      if (!hasStyles) {
-        fetch(primaryUrl).then(function(r) {
-          if (!r.ok || r.headers.get('content-type').indexOf('text/css') === -1) throw new Error('Primary CSS failed');
-          return r.text();
-        }).then(function(css) {
-          var s = document.createElement('style'); s.textContent = css; s.id = 'css-fallback'; document.head.appendChild(s);
-        }).catch(function() {
-          fetch(fallbackUrl).then(function(r) { return r.text(); }).then(function(css) {
-            var s = document.createElement('style'); s.textContent = css; s.id = 'css-fallback-gh'; document.head.appendChild(s);
-          }).catch(function(e) { console.warn('All CSS fallbacks failed:', e); });
-        });
-      }
-    }, 300);
-  })();
-  </script>
+  <!-- Styles - Primary with GitHub Pages fallback -->
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}" id="main-stylesheet" onerror="this.onerror=null;this.href='https://twodragon0.github.io/tech-blog/assets/css/main.css';">
+  <link rel="stylesheet" href="https://twodragon0.github.io/tech-blog/assets/css/main.css" id="fallback-stylesheet" media="print" onload="this.media='all';">
+  <noscript><link rel="stylesheet" href="https://twodragon0.github.io/tech-blog/assets/css/main.css"></noscript>
 
   <!-- Body loaded class for FOUC prevention -->
   <script>
