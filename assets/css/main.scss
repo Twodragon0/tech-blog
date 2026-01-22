@@ -1,3 +1,8 @@
+---
+# Jekyll requires front matter (even empty) to process SCSS files
+# This file compiles to /assets/css/main.css
+---
+
 // Import partials from `_sass`
 @import "variables";
 @import "base";
