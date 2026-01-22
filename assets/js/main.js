@@ -3,12 +3,37 @@
   'use strict';
   
   // Performance optimization: Use requestIdleCallback to defer non-critical work
+  // This prevents Long Tasks (>50ms) that block the main thread
   const scheduleIdleWork = (callback, timeout = 5000) => {
     if ('requestIdleCallback' in window) {
       requestIdleCallback(callback, { timeout });
     } else {
       // Fallback for browsers without requestIdleCallback
-      setTimeout(callback, 0);
+      setTimeout(callback, 1);
+    }
+  };
+  
+  // Yield to main thread to prevent long tasks (breaks up execution)
+  const yieldToMain = () => {
+    return new Promise(resolve => {
+      if ('scheduler' in window && 'yield' in scheduler) {
+        // Use scheduler.yield() if available (Chrome 115+)
+        scheduler.yield().then(resolve);
+      } else {
+        // Fallback: setTimeout(0) yields to browser
+        setTimeout(resolve, 0);
+      }
+    });
+  };
+  
+  // Run tasks in chunks to avoid Long Tasks
+  const runInChunks = async (tasks, chunkSize = 5) => {
+    for (let i = 0; i < tasks.length; i += chunkSize) {
+      const chunk = tasks.slice(i, i + chunkSize);
+      chunk.forEach(task => task());
+      if (i + chunkSize < tasks.length) {
+        await yieldToMain(); // Yield between chunks
+      }
     }
   };
   

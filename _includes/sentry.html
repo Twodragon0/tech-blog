@@ -374,6 +374,7 @@
             // CSP 위반, 확장 프로그램 관련 에러는 무시
             // 이미지 로드 실패 (404, 한글 파일명 인코딩 문제 등)는 무시
             // Long task는 성능 경고이지 에러가 아니므로 무시 (성능 모니터링은 별도로 처리)
+            // Unknown error with no useful info is also filtered
             if (errorMessage.includes('content security policy') ||
                 errorMessage.includes('csp') ||
                 errorMessage.includes('extension') ||
@@ -381,10 +382,40 @@
                 errorMessage.includes('moz-extension') ||
                 errorMessage.includes('failed to load') ||
                 errorMessage.includes('load link') ||
-                errorMessage.includes('long task detected') ||
-                errorMessage.includes('layout shift detected') ||
+                errorMessage.includes('long task') ||
+                errorMessage.includes('longtask') ||
+                errorMessage.includes('layout shift') ||
+                errorMessage.includes('script error') ||
+                errorMessage.includes('resizeobserver loop') ||
+                errorMessage.includes('network error') ||
+                errorMessage === 'unknown error' ||
+                errorMessage === '' ||
                 (errorMessage.includes('image') && (errorMessage.includes('404') || errorMessage.includes('not found')))) {
               return null; // 이벤트 무시
+            }
+          }
+          
+          // Filter errors without useful stack trace (likely third-party or cross-origin)
+          const firstException = event.exception.values && event.exception.values[0];
+          if (firstException) {
+            const hasUsefulStack = firstException.stacktrace && 
+                                   firstException.stacktrace.frames && 
+                                   firstException.stacktrace.frames.some(function(frame) {
+                                     return frame.filename && 
+                                            !frame.filename.includes('chrome-extension') &&
+                                            !frame.filename.includes('moz-extension') &&
+                                            !frame.filename.includes('extension://') &&
+                                            (frame.filename.includes('tech.2twodragon.com') || 
+                                             frame.filename.includes('/assets/js/'));
+                                   });
+            
+            // If no useful stack and error is "Unknown" or generic, filter it
+            if (!hasUsefulStack && 
+                (!firstException.value || 
+                 firstException.value.toLowerCase() === 'unknown error' ||
+                 firstException.value.toLowerCase() === 'script error' ||
+                 firstException.value.trim() === '')) {
+              return null;
             }
           }
         }

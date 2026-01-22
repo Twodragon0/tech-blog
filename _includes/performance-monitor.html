@@ -16,6 +16,37 @@
   }
 
   function initPerformanceMonitor() {
+    // Long Task monitoring (detect but DON'T report as error - it's a performance metric, not an error)
+    // This helps identify blocking JavaScript without polluting Sentry error logs
+    if ('PerformanceObserver' in window) {
+      try {
+        let longTaskCount = 0;
+        const longTaskObserver = new PerformanceObserver(function(list) {
+          for (const entry of list.getEntries()) {
+            longTaskCount++;
+            // Only log in development - NEVER send to Sentry as error
+            // Long tasks (>50ms) are performance warnings, not errors
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+              console.debug('[Performance] Long task:', Math.round(entry.duration) + 'ms');
+            }
+          }
+        });
+        longTaskObserver.observe({ entryTypes: ['longtask'] });
+        
+        // Report summary on page unload (as metric, not error)
+        window.addEventListener('beforeunload', function() {
+          if (longTaskCount > 0 && typeof Sentry !== 'undefined' && Sentry.metrics) {
+            // Send as metric, NOT as error
+            Sentry.metrics.distribution('longtask.count', longTaskCount, {
+              unit: 'none',
+              tags: { page: window.location.pathname.substring(0, 50) }
+            });
+          }
+        });
+      } catch (e) {
+        // Long task observer not supported - ignore silently
+      }
+    }
     // Web Vitals monitoring
     if ('PerformanceObserver' in window) {
       // Largest Contentful Paint (LCP)
