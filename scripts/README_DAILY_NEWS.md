@@ -48,7 +48,6 @@ pip install feedparser requests beautifulsoup4 python-frontmatter google-generat
 | Datadog Security Labs | security | Datadog 보안 연구 |
 | The Hacker News | security | 보안 뉴스 미디어 |
 | Krebs on Security | security | 보안 전문가 블로그 |
-| Schneier on Security | security | 보안 전문가 블로그 |
 | OWASP Blog | security | 웹 보안 재단 |
 
 ### 클라우드 & DevOps

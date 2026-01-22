@@ -390,7 +390,7 @@ _posts/ (게시) ← Manual Review ← generate_news_draft.py → _drafts/
 | 카테고리 | 소스 |
 |----------|------|
 | **한국** | GeekNews, AWS Korea Blog |
-| **보안** | AWS Security, MS Security, CISA, Datadog Security Labs, The Hacker News, Krebs on Security, Schneier, OWASP |
+| **보안** | AWS Security, MS Security, CISA, Datadog Security Labs, The Hacker News, Krebs on Security, OWASP |
 | **클라우드** | AWS Blog, Google Cloud, Azure |
 | **DevOps** | Kubernetes Blog, CNCF, Hacker News |
 

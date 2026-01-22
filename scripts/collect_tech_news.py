@@ -127,14 +127,6 @@ NEWS_SOURCES = {
         "language": "en",
         "priority": 2,
     },
-    "schneier": {
-        "name": "Schneier on Security",
-        "url": "https://www.schneier.com/",
-        "feed_url": "https://www.schneier.com/feed/",
-        "category": "security",
-        "language": "en",
-        "priority": 2,
-    },
     # 기술 뉴스
     "hackernews": {
         "name": "Hacker News",
