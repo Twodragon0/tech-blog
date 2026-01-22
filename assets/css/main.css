@@ -1,0 +1,14 @@
+---
+# Jekyll requires front matter (even empty) to process SCSS files
+# This file compiles to /assets/css/main.css
+---
+
+// Import partials from `_sass`
+// Note: @import is deprecated in Dart Sass 3.0 but required for Jekyll compatibility
+@import "variables";
+@import "base";
+@import "layout";
+@import "components";
+@import "post";
+@import "syntax";
+@import "chat-widget";
