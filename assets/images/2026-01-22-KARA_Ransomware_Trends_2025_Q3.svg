@@ -1,0 +1,319 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0f2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dangerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="warningGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="safeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="url(#bgGrad)"/>
+  
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
+  <rect width="1400" height="1000" fill="url(#grid)"/>
+
+  <!-- Title Section -->
+  <g transform="translate(700, 60)">
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#ffffff" filter="url(#glow)">KARA Ransomware Trends Report</text>
+    <text x="0" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#f87171">2025 Q3 Analysis</text>
+    <text x="0" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8">SK Shieldus EQST Insight | Korea Anti-Ransomware Alliance</text>
+  </g>
+
+  <!-- Key Stats Banner -->
+  <g transform="translate(100, 130)">
+    <rect x="0" y="0" width="1200" height="80" rx="12" fill="#1e1e2e" opacity="0.9" stroke="#ef4444" stroke-width="2"/>
+    
+    <!-- Stat 1 -->
+    <g transform="translate(100, 40)">
+      <text x="0" y="-10" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ef4444">1,733</text>
+      <text x="0" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Total Attacks</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">+36% YoY</text>
+    </g>
+    
+    <!-- Stat 2 -->
+    <g transform="translate(300, 40)">
+      <text x="0" y="-10" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#f59e0b">77</text>
+      <text x="0" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Active Groups</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">+57% (Record High)</text>
+    </g>
+    
+    <!-- Stat 3 -->
+    <g transform="translate(500, 40)">
+      <text x="0" y="-10" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#10b981">23%</text>
+      <text x="0" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Payment Rate</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">All-Time Low</text>
+    </g>
+    
+    <!-- Stat 4 -->
+    <g transform="translate(700, 40)">
+      <text x="0" y="-10" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#3b82f6">$376K</text>
+      <text x="0" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Avg Ransom</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ef4444">-66% QoQ</text>
+    </g>
+    
+    <!-- Stat 5 -->
+    <g transform="translate(900, 40)">
+      <text x="0" y="-10" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#8b5cf6">85</text>
+      <text x="0" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Leak Sites</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">Record High</text>
+    </g>
+    
+    <!-- Stat 6 -->
+    <g transform="translate(1100, 40)">
+      <text x="0" y="-10" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ec4899">26%</text>
+      <text x="0" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Manufacturing</text>
+      <text x="0" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ef4444">#1 Target +56%</text>
+    </g>
+  </g>
+
+  <!-- Top Ransomware Groups -->
+  <g transform="translate(100, 250)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">Top Ransomware Groups (Q3 2025)</text>
+    
+    <!-- Group Cards -->
+    <g transform="translate(0, 30)">
+      <!-- Qilin -->
+      <rect x="0" y="0" width="230" height="130" rx="10" fill="#1e1e2e" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="230" height="35" rx="10" fill="url(#dangerGrad)"/>
+      <rect x="0" y="25" width="230" height="10" fill="#1e1e2e"/>
+      <text x="115" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">#1 Qilin</text>
+      <text x="115" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#ef4444">~250 victims</text>
+      <text x="115" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">+318% YoY</text>
+      <text x="115" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Target: Healthcare, IT</text>
+      <text x="115" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Agenda-based</text>
+      
+      <!-- Akira -->
+      <rect x="250" y="0" width="230" height="130" rx="10" fill="#1e1e2e" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="250" y="0" width="230" height="35" rx="10" fill="url(#warningGrad)"/>
+      <rect x="250" y="25" width="230" height="10" fill="#1e1e2e"/>
+      <text x="365" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">#2 Akira</text>
+      <text x="365" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#f59e0b">155 victims</text>
+      <text x="365" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">+212% YoY</text>
+      <text x="365" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Target: Manufacturing</text>
+      <text x="365" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">CVE-2024-40766</text>
+      
+      <!-- INC Ransomware -->
+      <rect x="500" y="0" width="230" height="130" rx="10" fill="#1e1e2e" stroke="#8b5cf6" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="500" y="0" width="230" height="35" rx="10" fill="url(#purpleGrad)"/>
+      <rect x="500" y="25" width="230" height="10" fill="#1e1e2e"/>
+      <text x="615" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">#3 INC Ransomware</text>
+      <text x="615" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#8b5cf6">114 victims</text>
+      <text x="615" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">+90% QoQ</text>
+      <text x="615" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Target: Healthcare</text>
+      <text x="615" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ef4444">NEW: Rust Version</text>
+      
+      <!-- LockBit 5.0 -->
+      <rect x="750" y="0" width="230" height="130" rx="10" fill="#1e1e2e" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="750" y="0" width="230" height="35" rx="10" fill="url(#blueGrad)"/>
+      <rect x="750" y="25" width="230" height="10" fill="#1e1e2e"/>
+      <text x="865" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">LockBit 5.0</text>
+      <text x="865" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#3b82f6">Returned Sept 2025</text>
+      <text x="865" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ef4444">High Threat</text>
+      <text x="865" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Multi-platform</text>
+      <text x="865" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Enhanced EDR Evasion</text>
+      
+      <!-- Play -->
+      <rect x="1000" y="0" width="200" height="130" rx="10" fill="#1e1e2e" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="1000" y="0" width="200" height="35" rx="10" fill="url(#safeGrad)"/>
+      <rect x="1000" y="25" width="200" height="10" fill="#1e1e2e"/>
+      <text x="1100" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">#4 Play</text>
+      <text x="1100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#10b981">102 victims</text>
+      <text x="1100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ef4444">-17.6% QoQ</text>
+      <text x="1100" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Target: SMB</text>
+      <text x="1100" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">900+ Total Victims</text>
+    </g>
+  </g>
+
+  <!-- Attack Chain -->
+  <g transform="translate(100, 440)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">Quadruple Extortion Attack Chain</text>
+    
+    <g transform="translate(0, 30)">
+      <!-- Step 1 -->
+      <rect x="0" y="0" width="280" height="90" rx="8" fill="#1e1e2e" stroke="#ef4444" stroke-width="2"/>
+      <circle cx="25" cy="20" r="15" fill="#ef4444"/>
+      <text x="25" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">1</text>
+      <text x="150" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">Data Encryption</text>
+      <text x="140" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Encrypt files + Demand ransom</text>
+      <text x="140" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">"Pay $500K for decryption"</text>
+      
+      <!-- Arrow -->
+      <path d="M290 45 L310 45" stroke="#ef4444" stroke-width="3" fill="none"/>
+      <polygon points="310,40 320,45 310,50" fill="#ef4444"/>
+      
+      <!-- Step 2 -->
+      <rect x="330" y="0" width="280" height="90" rx="8" fill="#1e1e2e" stroke="#f59e0b" stroke-width="2"/>
+      <circle cx="355" cy="20" r="15" fill="#f59e0b"/>
+      <text x="355" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">2</text>
+      <text x="480" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b">Data Leak Threat</text>
+      <text x="470" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Threaten to publish on Dark Web</text>
+      <text x="470" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">"72h or data goes public"</text>
+      
+      <!-- Arrow -->
+      <path d="M620 45 L640 45" stroke="#f59e0b" stroke-width="3" fill="none"/>
+      <polygon points="640,40 650,45 640,50" fill="#f59e0b"/>
+      
+      <!-- Step 3 -->
+      <rect x="660" y="0" width="280" height="90" rx="8" fill="#1e1e2e" stroke="#8b5cf6" stroke-width="2"/>
+      <circle cx="685" cy="20" r="15" fill="#8b5cf6"/>
+      <text x="685" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">3</text>
+      <text x="810" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b5cf6">DDoS Attack</text>
+      <text x="800" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Launch DDoS to add pressure</text>
+      <text x="800" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">"Service disruption"</text>
+      
+      <!-- Arrow -->
+      <path d="M950 45 L970 45" stroke="#8b5cf6" stroke-width="3" fill="none"/>
+      <polygon points="970,40 980,45 970,50" fill="#8b5cf6"/>
+      
+      <!-- Step 4 -->
+      <rect x="990" y="0" width="210" height="90" rx="8" fill="#1e1e2e" stroke="#ec4899" stroke-width="2"/>
+      <circle cx="1015" cy="20" r="15" fill="#ec4899"/>
+      <text x="1015" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">4</text>
+      <text x="1105" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ec4899">Contact Victims</text>
+      <text x="1095" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Contact customers/media</text>
+      <text x="1095" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">"Regulatory weaponization"</text>
+    </g>
+  </g>
+
+  <!-- Defense Strategies -->
+  <g transform="translate(100, 590)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">Defense Strategies</text>
+    
+    <g transform="translate(0, 30)">
+      <!-- Zero Trust -->
+      <rect x="0" y="0" width="290" height="160" rx="10" fill="#1e1e2e" stroke="#10b981" stroke-width="2"/>
+      <rect x="0" y="0" width="290" height="40" rx="10" fill="url(#safeGrad)"/>
+      <rect x="0" y="30" width="290" height="10" fill="#1e1e2e"/>
+      <text x="145" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Zero Trust Architecture</text>
+      <text x="20" y="60" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- MFA for all VPN access</text>
+      <text x="20" y="78" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Device trust verification</text>
+      <text x="20" y="96" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Micro-segmentation</text>
+      <text x="20" y="114" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- JIT/PAM access control</text>
+      <text x="20" y="132" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Continuous monitoring</text>
+      <text x="20" y="150" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- SIEM/SOAR integration</text>
+      
+      <!-- 3-2-1-1-0 Backup -->
+      <rect x="310" y="0" width="290" height="160" rx="10" fill="#1e1e2e" stroke="#3b82f6" stroke-width="2"/>
+      <rect x="310" y="0" width="290" height="40" rx="10" fill="url(#blueGrad)"/>
+      <rect x="310" y="30" width="290" height="10" fill="#1e1e2e"/>
+      <text x="455" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">3-2-1-1-0 Backup</text>
+      <text x="330" y="60" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">3 - Three copies of data</text>
+      <text x="330" y="78" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">2 - Two different media types</text>
+      <text x="330" y="96" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">1 - One offsite location</text>
+      <text x="330" y="114" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">1 - One immutable backup</text>
+      <text x="330" y="132" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">0 - Zero errors in recovery test</text>
+      <text x="330" y="150" font-family="Arial, sans-serif" font-size="11" fill="#10b981">AWS S3 Object Lock / WORM</text>
+      
+      <!-- Detection Rules -->
+      <rect x="620" y="0" width="290" height="160" rx="10" fill="#1e1e2e" stroke="#f59e0b" stroke-width="2"/>
+      <rect x="620" y="0" width="290" height="40" rx="10" fill="url(#warningGrad)"/>
+      <rect x="620" y="30" width="290" height="10" fill="#1e1e2e"/>
+      <text x="765" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Detection Rules</text>
+      <text x="640" y="60" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- YARA rules for malware</text>
+      <text x="640" y="78" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Sigma rules for behavior</text>
+      <text x="640" y="96" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- Shadow copy deletion alert</text>
+      <text x="640" y="114" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- ETW patching detection</text>
+      <text x="640" y="132" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- EDR evasion monitoring</text>
+      <text x="640" y="150" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">- BYOVD driver detection</text>
+      
+      <!-- Incident Response -->
+      <rect x="930" y="0" width="270" height="160" rx="10" fill="#1e1e2e" stroke="#ef4444" stroke-width="2"/>
+      <rect x="930" y="0" width="270" height="40" rx="10" fill="url(#dangerGrad)"/>
+      <rect x="930" y="30" width="270" height="10" fill="#1e1e2e"/>
+      <text x="1065" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Incident Response</text>
+      <text x="950" y="60" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">1. Detection (0-2h)</text>
+      <text x="950" y="78" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">2. Containment (2-4h)</text>
+      <text x="950" y="96" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">3. Eradication (4-24h)</text>
+      <text x="950" y="114" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">4. Recovery (24-72h)</text>
+      <text x="950" y="132" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">5. Lessons Learned (1-2w)</text>
+      <text x="950" y="150" font-family="Arial, sans-serif" font-size="11" fill="#ef4444">NEVER pay ransom</text>
+    </g>
+  </g>
+
+  <!-- Critical Vulnerabilities -->
+  <g transform="translate(100, 800)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">Critical Vulnerabilities (CISA KEV)</text>
+    
+    <g transform="translate(0, 25)">
+      <rect x="0" y="0" width="1200" height="70" rx="8" fill="#1e1e2e" stroke="#ef4444" stroke-width="1"/>
+      
+      <!-- CVE-2024-40766 -->
+      <g transform="translate(20, 35)">
+        <rect x="0" y="-20" width="220" height="45" rx="6" fill="#ef4444" opacity="0.2"/>
+        <text x="110" y="-2" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ef4444">CVE-2024-40766</text>
+        <text x="110" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">SonicWall SSLVPN | CVSS 9.8</text>
+      </g>
+      
+      <!-- CVE-2025-61882 -->
+      <g transform="translate(260, 35)">
+        <rect x="0" y="-20" width="220" height="45" rx="6" fill="#f59e0b" opacity="0.2"/>
+        <text x="110" y="-2" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f59e0b">CVE-2025-61882</text>
+        <text x="110" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Oracle EBS | CVSS 9.1</text>
+      </g>
+      
+      <!-- CVE-2024-21887 -->
+      <g transform="translate(500, 35)">
+        <rect x="0" y="-20" width="220" height="45" rx="6" fill="#8b5cf6" opacity="0.2"/>
+        <text x="110" y="-2" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8b5cf6">CVE-2024-21887</text>
+        <text x="110" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Ivanti Connect | CVSS 9.1</text>
+      </g>
+      
+      <!-- CVE-2024-1709 -->
+      <g transform="translate(740, 35)">
+        <rect x="0" y="-20" width="220" height="45" rx="6" fill="#3b82f6" opacity="0.2"/>
+        <text x="110" y="-2" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6">CVE-2024-1709</text>
+        <text x="110" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">ScreenConnect | CVSS 10.0</text>
+      </g>
+      
+      <!-- CVE-2024-3400 -->
+      <g transform="translate(980, 35)">
+        <rect x="0" y="-20" width="200" height="45" rx="6" fill="#10b981" opacity="0.2"/>
+        <text x="100" y="-2" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981">CVE-2024-3400</text>
+        <text x="100" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">PAN-OS | CVSS 10.0</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Key Message -->
+  <g transform="translate(100, 910)">
+    <rect x="0" y="0" width="1200" height="50" rx="8" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="2"/>
+    <text x="600" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#10b981">KEY TAKEAWAY: Payment refusal is increasing, but attack volume continues to rise.</text>
+    <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Zero Trust + 3-2-1-1-0 Backup + CISA KEV Patching + YARA/Sigma Detection = Comprehensive Defense</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="985" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Source: SK Shieldus EQST, KARA, CISA, GuidePoint GRIT, Checkpoint, Mandiant | tech.2twodragon.com</text>
+</svg>

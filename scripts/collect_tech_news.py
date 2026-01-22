@@ -162,6 +162,227 @@ NEWS_SOURCES = {
         "language": "en",
         "priority": 2,
     },
+    # ============================================================================
+    # Security Vendors (Jamf, Zscaler, Cloudflare, Okta, Datadog, etc.)
+    # ============================================================================
+    # Jamf
+    "jamf": {
+        "name": "Jamf Blog",
+        "url": "https://www.jamf.com/blog/",
+        "feed_url": "https://www.jamf.com/blog/rss/",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    # Zscaler
+    "zscaler": {
+        "name": "Zscaler Blog",
+        "url": "https://www.zscaler.com/blogs",
+        "feed_url": "https://www.zscaler.com/blogs/feed",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    "zscaler_research": {
+        "name": "Zscaler ThreatLabz",
+        "url": "https://www.zscaler.com/blogs/security-research",
+        "feed_url": "https://www.zscaler.com/blogs/security-research/feed",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    # Cloudflare
+    "cloudflare": {
+        "name": "Cloudflare Blog",
+        "url": "https://blog.cloudflare.com/",
+        "feed_url": "https://blog.cloudflare.com/rss/",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    # Okta
+    "okta": {
+        "name": "Okta Blog",
+        "url": "https://www.okta.com/blog/",
+        "feed_url": "https://www.okta.com/blog/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    "okta_security": {
+        "name": "Okta Security Blog",
+        "url": "https://sec.okta.com/",
+        "feed_url": "https://sec.okta.com/rss",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    # Datadog
+    "datadog": {
+        "name": "Datadog Blog",
+        "url": "https://www.datadoghq.com/blog/",
+        "feed_url": "https://www.datadoghq.com/blog/feed/",
+        "category": "devops",
+        "language": "en",
+        "priority": 1,
+    },
+    # CrowdStrike
+    "crowdstrike": {
+        "name": "CrowdStrike Blog",
+        "url": "https://www.crowdstrike.com/blog/",
+        "feed_url": "https://www.crowdstrike.com/blog/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    # Palo Alto Networks
+    "paloalto": {
+        "name": "Palo Alto Networks Blog",
+        "url": "https://www.paloaltonetworks.com/blog/",
+        "feed_url": "https://www.paloaltonetworks.com/blog/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    "unit42": {
+        "name": "Unit 42 (Palo Alto)",
+        "url": "https://unit42.paloaltonetworks.com/",
+        "feed_url": "https://unit42.paloaltonetworks.com/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    # Snyk
+    "snyk": {
+        "name": "Snyk Blog",
+        "url": "https://snyk.io/blog/",
+        "feed_url": "https://snyk.io/blog/feed/",
+        "category": "devsecops",
+        "language": "en",
+        "priority": 1,
+    },
+    # HashiCorp
+    "hashicorp": {
+        "name": "HashiCorp Blog",
+        "url": "https://www.hashicorp.com/blog/",
+        "feed_url": "https://www.hashicorp.com/blog/feed.xml",
+        "category": "devops",
+        "language": "en",
+        "priority": 1,
+    },
+    # Wiz
+    "wiz": {
+        "name": "Wiz Blog",
+        "url": "https://www.wiz.io/blog/",
+        "feed_url": "https://www.wiz.io/blog/rss.xml",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    # Lacework
+    "lacework": {
+        "name": "Lacework Blog",
+        "url": "https://www.lacework.com/blog/",
+        "feed_url": "https://www.lacework.com/blog/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 2,
+    },
+    # SentinelOne
+    "sentinelone": {
+        "name": "SentinelOne Blog",
+        "url": "https://www.sentinelone.com/blog/",
+        "feed_url": "https://www.sentinelone.com/blog/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    # Aqua Security
+    "aquasec": {
+        "name": "Aqua Security Blog",
+        "url": "https://blog.aquasec.com/",
+        "feed_url": "https://blog.aquasec.com/rss.xml",
+        "category": "devsecops",
+        "language": "en",
+        "priority": 1,
+    },
+    # Sysdig
+    "sysdig": {
+        "name": "Sysdig Blog",
+        "url": "https://sysdig.com/blog/",
+        "feed_url": "https://sysdig.com/blog/feed/",
+        "category": "devsecops",
+        "language": "en",
+        "priority": 1,
+    },
+    # Tenable
+    "tenable": {
+        "name": "Tenable Blog",
+        "url": "https://www.tenable.com/blog/",
+        "feed_url": "https://www.tenable.com/blog/feed",
+        "category": "security",
+        "language": "en",
+        "priority": 2,
+    },
+    # Rapid7
+    "rapid7": {
+        "name": "Rapid7 Blog",
+        "url": "https://www.rapid7.com/blog/",
+        "feed_url": "https://www.rapid7.com/blog/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 2,
+    },
+    # Splunk
+    "splunk": {
+        "name": "Splunk Blog",
+        "url": "https://www.splunk.com/en_us/blog.html",
+        "feed_url": "https://www.splunk.com/en_us/blog/feed.xml",
+        "category": "security",
+        "language": "en",
+        "priority": 2,
+    },
+    # Mandiant (Google)
+    "mandiant": {
+        "name": "Mandiant Blog",
+        "url": "https://www.mandiant.com/resources/blog",
+        "feed_url": "https://www.mandiant.com/resources/blog/rss.xml",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    # Elastic Security
+    "elastic_security": {
+        "name": "Elastic Security Labs",
+        "url": "https://www.elastic.co/security-labs/",
+        "feed_url": "https://www.elastic.co/security-labs/rss/feed.xml",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    # ============================================================================
+    # Korean Security Vendors
+    # ============================================================================
+    # SK쉴더스 EQST insight (월간 보안 뉴스레터)
+    "skshieldus_eqst": {
+        "name": "SK쉴더스 EQST insight",
+        "url": "https://www.skshieldus.com/kor/media/newsletter/insight.do",
+        "feed_url": None,  # No RSS - custom scraper
+        "scraper": "skshieldus_eqst",
+        "category": "security",
+        "language": "ko",
+        "priority": 1,
+    },
+    # SK쉴더스 보안 리포트 (KARA 랜섬웨어 보고서, 보안 가이드 등)
+    "skshieldus_report": {
+        "name": "SK쉴더스 보안 리포트",
+        "url": "https://www.skshieldus.com/kor/media/newsletter/insight.do",
+        "feed_url": None,  # No RSS - custom scraper
+        "scraper": "skshieldus_report",
+        "category": "security",
+        "language": "ko",
+        "priority": 1,
+    },
 }
 
 
@@ -243,6 +464,219 @@ def clean_html(html_content: str) -> str:
         text = text[:497] + "..."
 
     return text
+
+
+def fetch_skshieldus_insight(
+    source_key: str, source_config: dict, hours: int = 24
+) -> List[NewsItem]:
+    """SK쉴더스 인사이트 페이지에서 뉴스 수집 (EQST insight / Report)"""
+    items = []
+    base_url = "https://www.skshieldus.com"
+    insight_url = f"{base_url}/kor/media/newsletter/insight.do"
+
+    try:
+        print(f"  Fetching: {source_config['name']}...")
+
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+        }
+
+        response = requests.get(insight_url, headers=headers, timeout=30)
+        response.raise_for_status()
+
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        cutoff_time = datetime.now(timezone.utc) - timedelta(hours=hours)
+        scraper_type = source_config.get("scraper", "")
+
+        if scraper_type == "skshieldus_eqst":
+            items = _parse_skshieldus_eqst(soup, source_key, source_config, cutoff_time)
+        elif scraper_type == "skshieldus_report":
+            items = _parse_skshieldus_report(
+                soup, source_key, source_config, cutoff_time
+            )
+
+        print(f"    Found {len(items)} items")
+
+    except Exception as e:
+        print(f"    Error fetching SK쉴더스: {e}")
+
+    return items
+
+
+def _extract_title_from_url(url: str) -> str:
+    """URL의 o_fname 파라미터에서 파일명(제목) 추출"""
+    from urllib.parse import unquote, urlparse, parse_qs
+
+    try:
+        parsed = urlparse(url)
+        params = parse_qs(parsed.query)
+        if "o_fname" in params:
+            filename = unquote(params["o_fname"][0])
+            title = filename.replace(".pdf", "").replace("_", " ")
+            title = re.sub(r"\s+", " ", title).strip()
+            return title
+    except Exception:
+        pass
+    return ""
+
+
+def _parse_skshieldus_eqst(
+    soup: BeautifulSoup, source_key: str, source_config: dict, cutoff_time: datetime
+) -> List[NewsItem]:
+    """EQST insight 탭 파싱"""
+    items = []
+    base_url = "https://www.skshieldus.com"
+
+    eqst_items = soup.select('[fs-cmsfilter-element="list-2"] [role="listitem"]')
+
+    for item_el in eqst_items[:20]:
+        try:
+            year = "2025"
+            month = "01"
+
+            text_content = item_el.get_text()
+            year_match = re.search(r"(\d{4})\s*년", text_content)
+            month_match = re.search(r"(\d{1,2})\s*월", text_content)
+
+            if year_match:
+                year = year_match.group(1)
+            if month_match:
+                month = month_match.group(1).zfill(2)
+
+            published = datetime(int(year), int(month), 1, tzinfo=timezone.utc)
+
+            download_link = item_el.select_one('a[href*="download"]')
+            if download_link:
+                url = str(download_link.get("href", ""))
+                if not url.startswith("http"):
+                    url = base_url + url
+                title = _extract_title_from_url(url)
+            else:
+                url = f"{base_url}/kor/media/newsletter/insight.do#eqst-{year}-{month}"
+                title = ""
+
+            if not title or len(title) < 5:
+                title = f"SK쉴더스 EQST insight {year}년 {month}월호"
+
+            category_text = ""
+            for div in item_el.select("div"):
+                text = div.get_text(strip=True)
+                if (
+                    "Headline" in text
+                    or "Ransomware" in text
+                    or "Special Report" in text
+                ):
+                    category_text = text
+                    break
+
+            tags = ["SK쉴더스", "EQST", "보안인사이트", f"{year}년{month}월"]
+            if "Ransomware" in category_text or "랜섬웨어" in title:
+                tags.append("랜섬웨어")
+            if "제로트러스트" in title:
+                tags.append("제로트러스트")
+
+            item = NewsItem(
+                id=generate_id(url),
+                title=title,
+                url=url,
+                source=source_key,
+                source_name=source_config["name"],
+                category=source_config["category"],
+                language=source_config["language"],
+                published=published.isoformat(),
+                summary=f"SK쉴더스 EQST insight {year}년 {month}월호 - {category_text}"
+                if category_text
+                else title,
+                content="",
+                tags=tags[:5],
+                author="SK쉴더스 EQST",
+                priority=source_config.get("priority", 1),
+            )
+            items.append(item)
+
+        except Exception as e:
+            continue
+
+    return items
+
+
+def _parse_skshieldus_report(
+    soup: BeautifulSoup, source_key: str, source_config: dict, cutoff_time: datetime
+) -> List[NewsItem]:
+    """보안 리포트 탭 파싱"""
+    items = []
+    base_url = "https://www.skshieldus.com"
+
+    report_items = soup.select('[fs-cmsfilter-element="list"] [role="listitem"]')
+
+    for item_el in report_items[:20]:
+        try:
+            download_link = item_el.select_one('a[href*="download"]')
+            if not download_link:
+                continue
+
+            url = str(download_link.get("href", ""))
+            if not url.startswith("http"):
+                url = base_url + url
+
+            title = _extract_title_from_url(url)
+
+            if not title or len(title) < 5:
+                title_el = item_el.select_one('[class*="title"], [class*="name"]')
+                if title_el:
+                    title = title_el.get_text(strip=True)
+                else:
+                    for div in item_el.select("div"):
+                        text = div.get_text(strip=True)
+                        if text and len(text) > 10 and "Download" not in text:
+                            title = text
+                            break
+
+            if not title or len(title) < 5:
+                continue
+
+            published = datetime.now(timezone.utc)
+            if "'25" in title or "2025" in title:
+                published = datetime(2025, 1, 15, tzinfo=timezone.utc)
+            elif "'24" in title or "2024" in title:
+                published = datetime(2024, 6, 15, tzinfo=timezone.utc)
+
+            tags = ["SK쉴더스", "보안리포트"]
+            if "KARA" in title or "랜섬웨어" in title:
+                tags.extend(["KARA", "랜섬웨어"])
+            if "ISMS" in title or "관리체계" in title:
+                tags.append("ISMS-P")
+            if "CSPM" in title or "AWS" in title:
+                tags.extend(["CSPM", "클라우드보안"])
+            if "LLM" in title or "AI" in title:
+                tags.append("AI보안")
+            if "취약점" in title:
+                tags.append("취약점")
+
+            item = NewsItem(
+                id=generate_id(url),
+                title=title.replace('"', "").replace("'", ""),
+                url=url,
+                source=source_key,
+                source_name=source_config["name"],
+                category=source_config["category"],
+                language=source_config["language"],
+                published=published.isoformat(),
+                summary=f"SK쉴더스 보안 리포트: {title[:100]}",
+                content="",
+                tags=list(set(tags))[:5],
+                author="SK쉴더스",
+                priority=source_config.get("priority", 1),
+            )
+            items.append(item)
+
+        except Exception as e:
+            continue
+
+    return items
 
 
 def fetch_rss_feed(
@@ -357,7 +791,11 @@ def fetch_all_news(
     )
 
     for source_key, source_config in active_sources.items():
-        items = fetch_rss_feed(source_key, source_config, hours)
+        scraper = source_config.get("scraper")
+        if scraper and scraper.startswith("skshieldus"):
+            items = fetch_skshieldus_insight(source_key, source_config, hours)
+        else:
+            items = fetch_rss_feed(source_key, source_config, hours)
         all_items.extend(items)
 
     # 중복 제거 (URL 기준)
