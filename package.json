@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "**DevSecOps, DevOps, FinOps 전문 기술 블로그**",
   "main": "sw.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "vercel-build": "./build.sh"

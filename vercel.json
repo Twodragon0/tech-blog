@@ -148,8 +148,7 @@
   "cleanUrls": true,
   "functions": {
     "api/chat.js": {
-      "maxDuration": 60,
-      "memory": 1024
+      "maxDuration": 60
     }
   },
   "rewrites": [
