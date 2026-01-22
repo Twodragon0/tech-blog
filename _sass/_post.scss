@@ -1644,25 +1644,10 @@ ins.adsbygoogle-noablate {
 
 .related-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-top: 1.5rem;
   max-width: 100%;
-}
-
-/* 데스크톱에서 최대 4개까지 표시 */
-@media (min-width: 1200px) {
-  .related-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* 큰 태블릿에서 2-3개 표시 */
-@media (min-width: 768px) and (max-width: 1199px) {
-  .related-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    max-width: 100%;
-  }
 }
 
 .related-item {
@@ -1971,6 +1956,22 @@ ins.adsbygoogle-noablate {
   .related-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
+  }
+}
+
+/* 큰 태블릿/작은 데스크톱에서 3개 표시 */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .related-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* 데스크톱에서 4개 표시 */
+@media (min-width: 1200px) {
+  .related-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
   }
 }
 
