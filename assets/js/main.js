@@ -1368,6 +1368,69 @@
       });
       return clone.textContent || '';
     }
+    
+    // Remove Google injected elements (Knowledge Panel, Topics widgets, etc.)
+    // These are <insertion> elements or elements with [data-ved] injected by Google Chrome
+    function removeGoogleInjectedElements() {
+      const selectors = [
+        'insertion',
+        '[data-ved]',
+        '[data-google-topics]',
+        '.kp-wholepage',
+        '.kp-blk',
+        '.g-blk',
+        '.related-question-pair',
+        // Google's dynamic recommendation widgets
+        '[jscontroller][jsaction][jsname]'
+      ];
+      
+      selectors.forEach(selector => {
+        try {
+          document.querySelectorAll(selector).forEach(el => {
+            // Only remove if it looks like Google injected content (not our own elements)
+            if (el.closest('.post-content') || el.closest('.post-article') || el.closest('main')) {
+              el.remove();
+            }
+          });
+        } catch (e) {
+          // Silently ignore selector errors
+        }
+      });
+    }
+    
+    // Run cleanup on load and periodically (Google may inject elements dynamically)
+    removeGoogleInjectedElements();
+    
+    // Set up MutationObserver to catch dynamically injected elements
+    const googleInjectionObserver = new MutationObserver((mutations) => {
+      let shouldClean = false;
+      for (const mutation of mutations) {
+        if (mutation.addedNodes.length > 0) {
+          for (const node of mutation.addedNodes) {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+              if (node.tagName === 'INSERTION' || 
+                  node.hasAttribute('data-ved') || 
+                  node.hasAttribute('data-google-topics')) {
+                shouldClean = true;
+                break;
+              }
+            }
+          }
+        }
+        if (shouldClean) break;
+      }
+      if (shouldClean) {
+        removeGoogleInjectedElements();
+      }
+    });
+    
+    // Observe the document body for Google injections
+    if (document.body) {
+      googleInjectionObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    }
 
     function saveOriginalContent() {
       if (isInitialized) return;
