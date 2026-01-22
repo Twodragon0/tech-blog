@@ -337,7 +337,6 @@
 
 /* 반응형 테이블 - 모바일 최적화 */
 @media (max-width: 768px) {
-  /* 테이블을 감싸는 래퍼 스타일 (마크다운에서 자동 생성되거나 수동 추가 가능) */
   .post-content .table-wrapper {
     display: block;
     width: 100%;
@@ -346,8 +345,9 @@
     -webkit-overflow-scrolling: touch;
     margin: 1.5em -1rem;
     padding: 0 1rem;
-    /* 스크롤 가능함을 시각적으로 표시 */
     position: relative;
+    min-height: 3rem;
+    contain: layout style;
   }
   
   .post-content .table-wrapper::after {
@@ -689,6 +689,8 @@
   padding: 0.75rem 1rem 1rem;
   max-height: none;
   overflow: visible;
+  min-height: 2rem;
+  contain: layout style;
 }
 
 .toc-grid {

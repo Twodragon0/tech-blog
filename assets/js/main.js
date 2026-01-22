@@ -1331,17 +1331,47 @@
       }
     });
 
-    // Translation state
     let currentLang = 'ko';
     let originalContent = {};
     let translationCache = {};
     let isInitialized = false;
 
-    // Save original content
+    function stripBrowserTranslationTags(html) {
+      if (!html) return html;
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      
+      temp.querySelectorAll('font').forEach(font => {
+        const parent = font.parentNode;
+        while (font.firstChild) {
+          parent.insertBefore(font.firstChild, font);
+        }
+        parent.removeChild(font);
+      });
+      
+      temp.querySelectorAll('span[style*="vertical-align: inherit"]').forEach(span => {
+        const parent = span.parentNode;
+        while (span.firstChild) {
+          parent.insertBefore(span.firstChild, span);
+        }
+        parent.removeChild(span);
+      });
+      
+      return temp.innerHTML;
+    }
+    
+    function extractPureText(el) {
+      if (!el) return '';
+      const clone = el.cloneNode(true);
+      clone.querySelectorAll('font, span[style*="vertical-align: inherit"]').forEach(n => {
+        n.replaceWith(...n.childNodes);
+      });
+      return clone.textContent || '';
+    }
+
     function saveOriginalContent() {
       if (isInitialized) return;
 
-      // Support both post pages and certification pages
       const postContent = document.querySelector('.post-content');
       const postTitle = document.querySelector('.post-title');
       const certPage = document.querySelector('.certification-detail-page');
@@ -1349,23 +1379,22 @@
       const cardTitles = document.querySelectorAll('.post-card h3, .card h3, .card h4');
       const cardExcerpts = document.querySelectorAll('.post-card .card-excerpt, .card p');
 
-      if (postContent) originalContent.postContent = postContent.innerHTML;
-      if (postTitle) originalContent.postTitle = postTitle.textContent;
+      if (postContent) originalContent.postContent = stripBrowserTranslationTags(postContent.innerHTML);
+      if (postTitle) originalContent.postTitle = extractPureText(postTitle);
       
-      // Save certification page content
       if (certPage) {
-        originalContent.certPage = certPage.innerHTML;
-        if (certTitle) originalContent.certTitle = certTitle.textContent;
+        originalContent.certPage = stripBrowserTranslationTags(certPage.innerHTML);
+        if (certTitle) originalContent.certTitle = extractPureText(certTitle);
       }
 
       originalContent.cardTitles = [];
       cardTitles.forEach((el, i) => {
-        originalContent.cardTitles[i] = el.textContent;
+        originalContent.cardTitles[i] = extractPureText(el);
       });
 
       originalContent.cardExcerpts = [];
       cardExcerpts.forEach((el, i) => {
-        originalContent.cardExcerpts[i] = el.textContent;
+        originalContent.cardExcerpts[i] = extractPureText(el);
       });
 
       isInitialized = true;
