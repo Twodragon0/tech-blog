@@ -374,3 +374,48 @@ tech-blog/
 - **Default count**: 3 posts
 - **Location**: `_layouts/post.html` (line 106-126)
 - **Matching**: By category first, then any posts
+
+## 10. Daily Tech News Collection System
+
+매일 자동으로 기술/보안 뉴스를 수집하고 블로그 초안을 생성하는 시스템입니다.
+
+### 워크플로우
+```
+RSS Feeds (15+) → collect_tech_news.py → _data/collected_news.json
+                                              ↓
+_posts/ (게시) ← Manual Review ← generate_news_draft.py → _drafts/
+```
+
+### 뉴스 소스 (15개+)
+| 카테고리 | 소스 |
+|----------|------|
+| **한국** | GeekNews, AWS Korea Blog |
+| **보안** | AWS Security, MS Security, CISA, Datadog Security Labs, The Hacker News, Krebs on Security, Schneier, OWASP |
+| **클라우드** | AWS Blog, Google Cloud, Azure |
+| **DevOps** | Kubernetes Blog, CNCF, Hacker News |
+
+### 사용법
+```bash
+# 뉴스 수집
+python3 scripts/collect_tech_news.py --hours 24
+
+# 초안 생성 (AI 요약)
+export GEMINI_API_KEY="your-key"
+python3 scripts/generate_news_draft.py --use-ai --max-posts 10
+
+# 초안 생성 (기본)
+python3 scripts/generate_news_draft.py
+```
+
+### GitHub Actions
+- **스케줄**: 매일 오전 9시 (KST)
+- **워크플로우**: `.github/workflows/daily-news.yml`
+- **결과**: PR로 초안 제출, 수동 검토 후 게시
+
+### 필요한 Secrets
+| Secret | 설명 | 필수 |
+|--------|------|------|
+| `GEMINI_API_KEY` | AI 요약 생성용 | 선택 |
+
+### 상세 문서
+- `scripts/README_DAILY_NEWS.md`

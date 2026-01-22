@@ -1,0 +1,219 @@
+name: Daily Tech News Collection
+
+on:
+  # 매일 오전 9시 (KST) = UTC 00:00 실행
+  schedule:
+    - cron: '0 0 * * *'
+  
+  # 수동 실행 지원
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: 'Hours to look back for news'
+        required: false
+        default: '24'
+      sources:
+        description: 'Comma-separated list of sources (leave empty for all)'
+        required: false
+        default: ''
+      use_ai:
+        description: 'Use AI for summary generation'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+      max_posts:
+        description: 'Maximum number of posts to generate'
+        required: false
+        default: '10'
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  collect-news:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install feedparser requests beautifulsoup4 python-frontmatter google-generativeai PyYAML
+      
+      - name: Create data directory
+        run: mkdir -p _data _drafts
+      
+      - name: Collect tech news
+        run: |
+          HOURS="${{ github.event.inputs.hours || '24' }}"
+          SOURCES="${{ github.event.inputs.sources || '' }}"
+          
+          CMD="python3 scripts/collect_tech_news.py --hours $HOURS --filter-processed"
+          
+          if [ -n "$SOURCES" ]; then
+            CMD="$CMD --sources $SOURCES"
+          fi
+          
+          echo "Running: $CMD"
+          $CMD
+      
+      - name: Generate draft posts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          USE_AI="${{ github.event.inputs.use_ai || 'true' }}"
+          MAX_POSTS="${{ github.event.inputs.max_posts || '10' }}"
+          
+          CMD="python3 scripts/generate_news_draft.py --max-posts $MAX_POSTS"
+          
+          if [ "$USE_AI" = "true" ] && [ -n "$GEMINI_API_KEY" ]; then
+            CMD="$CMD --use-ai"
+          fi
+          
+          echo "Running: $CMD"
+          $CMD
+      
+      - name: Check for new drafts
+        id: check_drafts
+        run: |
+          DRAFT_COUNT=$(find _drafts -name "*.md" -type f -mmin -10 | wc -l)
+          echo "draft_count=$DRAFT_COUNT" >> $GITHUB_OUTPUT
+          
+          if [ "$DRAFT_COUNT" -gt 0 ]; then
+            echo "Found $DRAFT_COUNT new drafts"
+            echo "has_drafts=true" >> $GITHUB_OUTPUT
+          else
+            echo "No new drafts generated"
+            echo "has_drafts=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Create Pull Request
+        if: steps.check_drafts.outputs.has_drafts == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: add daily tech news drafts'
+          title: '📰 Daily Tech News Drafts - ${{ github.run_number }}'
+          body: |
+            ## 🤖 자동 생성된 뉴스 초안
+            
+            이 PR은 자동으로 수집된 기술/보안 뉴스를 기반으로 생성된 블로그 초안입니다.
+            
+            ### 📋 검토 체크리스트
+            
+            - [ ] 초안 내용 검토
+            - [ ] 필요시 제목/내용 수정
+            - [ ] 카테고리/태그 확인
+            - [ ] 이미지 추가 (필요시)
+            - [ ] `draft: true` 제거 후 `_posts/`로 이동
+            
+            ### 📁 생성된 초안
+            
+            `_drafts/` 폴더에서 확인하세요.
+            
+            ### ⚙️ 워크플로우 정보
+            
+            - **실행 번호**: ${{ github.run_number }}
+            - **트리거**: ${{ github.event_name }}
+            - **시간 범위**: ${{ github.event.inputs.hours || '24' }}시간
+            
+            ---
+            
+            > 이 PR은 GitHub Actions에 의해 자동 생성되었습니다.
+          branch: drafts/daily-news-${{ github.run_number }}
+          delete-branch: true
+          labels: |
+            automated
+            news-draft
+            needs-review
+      
+      - name: Summary
+        run: |
+          echo "## 📰 Daily News Collection Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f "_data/collected_news.json" ]; then
+            TOTAL=$(jq '.total_items' _data/collected_news.json)
+            echo "- **수집된 뉴스**: $TOTAL 건" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          DRAFT_COUNT=$(find _drafts -name "*.md" -type f 2>/dev/null | wc -l)
+          echo "- **생성된 초안**: $DRAFT_COUNT 건" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "$DRAFT_COUNT" -gt 0 ]; then
+            echo "### 생성된 파일" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            find _drafts -name "*.md" -type f | while read f; do
+              echo "- \`$(basename $f)\`" >> $GITHUB_STEP_SUMMARY
+            done
+          fi
+
+  # 매주 월요일에 뉴스 소스 상태 체크
+  check-sources:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' && github.event.schedule == '0 0 * * 1'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install dependencies
+        run: pip install feedparser requests
+      
+      - name: Check RSS feed status
+        run: |
+          python3 -c "
+          import sys
+          sys.path.insert(0, 'scripts')
+          from collect_tech_news import NEWS_SOURCES
+          import feedparser
+          
+          print('Checking RSS feed status...\n')
+          
+          failed = []
+          for key, config in NEWS_SOURCES.items():
+              feed_url = config.get('feed_url', '')
+              if not feed_url:
+                  continue
+              
+              try:
+                  feed = feedparser.parse(feed_url)
+                  if feed.bozo and not feed.entries:
+                      failed.append((key, config['name'], str(feed.bozo_exception)))
+                      print(f'❌ {config[\"name\"]}: Failed')
+                  else:
+                      print(f'✅ {config[\"name\"]}: OK ({len(feed.entries)} entries)')
+              except Exception as e:
+                  failed.append((key, config['name'], str(e)))
+                  print(f'❌ {config[\"name\"]}: Error - {e}')
+          
+          print(f'\n{len(NEWS_SOURCES) - len(failed)}/{len(NEWS_SOURCES)} sources OK')
+          
+          if failed:
+              print('\nFailed sources:')
+              for key, name, error in failed:
+                  print(f'  - {name}: {error}')
+          "

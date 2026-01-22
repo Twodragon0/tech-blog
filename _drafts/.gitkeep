@@ -1,0 +1,9 @@
+# This directory contains auto-generated draft posts from daily news collection.
+# 
+# Workflow:
+# 1. GitHub Actions collects news daily and creates drafts here
+# 2. Review and edit drafts as needed
+# 3. Move approved posts to _posts/ directory
+# 4. Remove 'draft: true' from front matter before publishing
+#
+# See: .github/workflows/daily-news.yml
