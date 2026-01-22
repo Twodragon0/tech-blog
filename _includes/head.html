@@ -208,8 +208,43 @@
   {% include font-optimizer.html %}
 
   <!-- Styles - Primary with GitHub Pages fallback -->
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}" id="main-stylesheet" onerror="this.onerror=null;this.href='https://twodragon0.github.io/tech-blog/assets/css/main.css';">
-  <link rel="stylesheet" href="https://twodragon0.github.io/tech-blog/assets/css/main.css" id="fallback-stylesheet" media="print" onload="this.media='all';">
+  <!-- Critical CSS for layout stability (inline) -->
+  <style>
+    /* Prevent FOUC and layout shifts */
+    body { opacity: 0; transition: opacity 0.3s ease; }
+    body.loaded { opacity: 1; }
+
+    /* Basic responsive layout */
+    .post-article { max-width: 800px; margin: 0 auto; padding: 2.5rem 2rem; }
+    .post-header { margin-bottom: 1.5rem; }
+    .post-title { font-size: clamp(1.5rem, 4vw, 2.25rem); margin: 0.5rem 0 1rem; }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .post-article { padding: 1.25rem 1rem; }
+      .post-title { font-size: clamp(1.25rem, 5vw, 1.75rem); }
+    }
+
+    /* TOC container - prevent layout shift */
+    .toc-container { margin-bottom: 2rem; background-color: #f8f9fa; border-radius: 12px; border: 1px solid #dee2e6; }
+    .toc-card { display: flex; flex-direction: column; overflow: hidden; border-radius: inherit; }
+    .toc-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid #dee2e6; }
+    .toc-nav { padding: 0.75rem 1rem 1rem; }
+
+    /* Dark mode basic support */
+    @media (prefers-color-scheme: dark) {
+      body { background-color: #0d1117; color: #c9d1d9; }
+      .toc-container { background-color: #161b22; border-color: #30363d; }
+    }
+  </style>
+
+  <!-- Main CSS with improved fallback -->
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}" id="main-stylesheet" onerror="
+    console.warn('Primary CSS failed, trying fallback...');
+    this.onerror=null;
+    this.href='https://twodragon0.github.io/tech-blog/assets/css/main.css?v=' + Date.now();
+  ">
+  <link rel="stylesheet" href="https://twodragon0.github.io/tech-blog/assets/css/main.css" id="fallback-stylesheet" media="print" onload="this.media='all'; console.log('Fallback CSS loaded');">
   <noscript><link rel="stylesheet" href="https://twodragon0.github.io/tech-blog/assets/css/main.css"></noscript>
 
   <!-- Body loaded class for FOUC prevention -->

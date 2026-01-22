@@ -607,7 +607,7 @@
   }
 }
 
-/* Table of Contents */
+/* Table of Contents - CLS 최적화 */
 .toc-container {
   position: relative;
   padding: 0;
@@ -616,6 +616,9 @@
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border);
   margin-bottom: 2rem;
+  /* CLS 최적화: 레이아웃 시프트 방지 */
+  contain: layout style;
+  min-height: 120px; /* 최소 높이로 공간 확보 */
 }
 
 /* 모바일에서 TOC 스타일 조정 */
@@ -712,6 +715,8 @@
   overflow: visible;
   min-height: 2rem;
   contain: layout style;
+  /* CLS 최적화: 전환 시 레이아웃 시프트 방지 */
+  transition: max-height var(--transition-base), opacity var(--transition-base);
 }
 
 .toc-grid {
