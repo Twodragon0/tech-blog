@@ -1,0 +1,265 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="vscodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007ACC"/>
+      <stop offset="100%" style="stop-color:#005A9E"/>
+    </linearGradient>
+    <linearGradient id="threatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C"/>
+      <stop offset="100%" style="stop-color:#C0392B"/>
+    </linearGradient>
+    <linearGradient id="persistGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12"/>
+      <stop offset="100%" style="stop-color:#D68910"/>
+    </linearGradient>
+    <linearGradient id="c2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6"/>
+      <stop offset="100%" style="stop-color:#7D3C98"/>
+    </linearGradient>
+    <linearGradient id="lateralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB"/>
+      <stop offset="100%" style="stop-color:#2980B9"/>
+    </linearGradient>
+    <linearGradient id="mitigateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60"/>
+      <stop offset="100%" style="stop-color:#1E8449"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#E74C3C"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#bgGrad)"/>
+  <rect width="1400" height="900" fill="url(#grid)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="80" fill="url(#threatGrad)" opacity="0.9"/>
+  <text x="700" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" filter="url(#glow)">VS Code Attack Flow - Threat Analysis</text>
+  <text x="700" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#e0e0e0">MITRE ATT&amp;CK Framework | Jamf Threat Labs Research | Developer IDE Security</text>
+
+  <!-- Attack Kill Chain -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="1300" height="250" rx="15" fill="#1e293b" stroke="#E74C3C" stroke-width="2" filter="url(#shadow)"/>
+    <text x="650" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#E74C3C">Attack Kill Chain - VS Code as Attack Vector</text>
+    
+    <!-- Phase 1: Initial Access -->
+    <g transform="translate(30, 50)">
+      <rect x="0" y="0" width="290" height="180" rx="12" fill="rgba(231,76,60,0.15)" stroke="#E74C3C" stroke-width="2"/>
+      <circle cx="35" cy="35" r="25" fill="url(#threatGrad)"/>
+      <text x="35" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">1</text>
+      <text x="170" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#E74C3C">Initial Access</text>
+      <text x="145" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">T1566 / T1195</text>
+      
+      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Phishing with .vscode project</text>
+      <text x="15" y="102" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Malicious extension supply chain</text>
+      <text x="15" y="119" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Typosquatting extensions</text>
+      <text x="15" y="136" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Git repo clone attack</text>
+      <text x="15" y="153" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Compromised Marketplace</text>
+      <text x="15" y="170" font-family="Arial, sans-serif" font-size="10" fill="#E74C3C">★ High risk for developers</text>
+    </g>
+    
+    <!-- Arrow 1 -->
+    <g transform="translate(320, 120)">
+      <line x1="0" y1="20" x2="30" y2="20" stroke="#E74C3C" stroke-width="3"/>
+      <polygon points="30,20 20,14 20,26" fill="#E74C3C"/>
+    </g>
+    
+    <!-- Phase 2: Persistence -->
+    <g transform="translate(360, 50)">
+      <rect x="0" y="0" width="290" height="180" rx="12" fill="rgba(243,156,18,0.15)" stroke="#F39C12" stroke-width="2"/>
+      <circle cx="35" cy="35" r="25" fill="url(#persistGrad)"/>
+      <text x="35" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">2</text>
+      <text x="170" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#F39C12">Persistence</text>
+      <text x="145" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">T1547 / T1137</text>
+      
+      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• .vscode/settings.json mod</text>
+      <text x="15" y="102" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• tasks.json auto-execution</text>
+      <text x="15" y="119" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• launch.json debugger abuse</text>
+      <text x="15" y="136" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Extension auto-start</text>
+      <text x="15" y="153" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Workspace trust bypass</text>
+      <text x="15" y="170" font-family="Arial, sans-serif" font-size="10" fill="#F39C12">★ Survives restarts</text>
+    </g>
+    
+    <!-- Arrow 2 -->
+    <g transform="translate(650, 120)">
+      <line x1="0" y1="20" x2="30" y2="20" stroke="#F39C12" stroke-width="3"/>
+      <polygon points="30,20 20,14 20,26" fill="#F39C12"/>
+    </g>
+    
+    <!-- Phase 3: C2 -->
+    <g transform="translate(690, 50)">
+      <rect x="0" y="0" width="290" height="180" rx="12" fill="rgba(155,89,182,0.15)" stroke="#9B59B6" stroke-width="2"/>
+      <circle cx="35" cy="35" r="25" fill="url(#c2Grad)"/>
+      <text x="35" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">3</text>
+      <text x="170" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#9B59B6">C2 Communication</text>
+      <text x="145" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">T1102 / T1071</text>
+      
+      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• VS Code Remote Tunnels</text>
+      <text x="15" y="102" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Traffic as *.vscode.dev</text>
+      <text x="15" y="119" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• GitHub Codespaces abuse</text>
+      <text x="15" y="136" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Legitimate MS infra</text>
+      <text x="15" y="153" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Encrypted WebSocket</text>
+      <text x="15" y="170" font-family="Arial, sans-serif" font-size="10" fill="#9B59B6">★ Hard to detect</text>
+    </g>
+    
+    <!-- Arrow 3 -->
+    <g transform="translate(980, 120)">
+      <line x1="0" y1="20" x2="30" y2="20" stroke="#9B59B6" stroke-width="3"/>
+      <polygon points="30,20 20,14 20,26" fill="#9B59B6"/>
+    </g>
+    
+    <!-- Phase 4: Lateral -->
+    <g transform="translate(1020, 50)">
+      <rect x="0" y="0" width="250" height="180" rx="12" fill="rgba(52,152,219,0.15)" stroke="#3498DB" stroke-width="2"/>
+      <circle cx="35" cy="35" r="25" fill="url(#lateralGrad)"/>
+      <text x="35" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">4</text>
+      <text x="140" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3498DB">Lateral Move</text>
+      <text x="125" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">T1021 / T1552</text>
+      
+      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• SSH key extraction</text>
+      <text x="15" y="102" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Git credentials theft</text>
+      <text x="15" y="119" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• AWS/Cloud keys</text>
+      <text x="15" y="136" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• Repo access</text>
+      <text x="15" y="153" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">• CI/CD pipelines</text>
+      <text x="15" y="170" font-family="Arial, sans-serif" font-size="10" fill="#3498DB">★ Supply chain</text>
+    </g>
+  </g>
+
+  <!-- Mitigation Strategies -->
+  <g transform="translate(50, 370)">
+    <rect x="0" y="0" width="1300" height="280" rx="15" fill="#1e293b" stroke="#27AE60" stroke-width="2" filter="url(#shadow)"/>
+    <text x="650" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#27AE60">Mitigation Strategies &amp; Detection Rules</text>
+    
+    <!-- Extension Control -->
+    <g transform="translate(30, 50)">
+      <rect x="0" y="0" width="300" height="210" rx="12" fill="rgba(39,174,96,0.15)" stroke="#27AE60" stroke-width="2"/>
+      <rect x="0" y="0" width="300" height="40" rx="12" fill="url(#mitigateGrad)"/>
+      <rect x="0" y="25" width="300" height="15" fill="url(#mitigateGrad)"/>
+      <text x="150" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Extension Control</text>
+      
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Whitelist approved extensions only</text>
+      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Disable auto-update extensions</text>
+      <text x="15" y="105" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Use Extension Marketplace lock</text>
+      <text x="15" y="125" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Review extension permissions</text>
+      <text x="15" y="145" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Block untrusted workspaces</text>
+      <text x="15" y="165" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Disable remote.autoForwardPorts</text>
+      
+      <rect x="15" y="180" width="270" height="20" rx="4" fill="rgba(39,174,96,0.3)"/>
+      <text x="150" y="194" text-anchor="middle" font-family="monospace" font-size="9" fill="#27AE60">extensions.autoCheckUpdates: false</text>
+    </g>
+    
+    <!-- Network Monitoring -->
+    <g transform="translate(350, 50)">
+      <rect x="0" y="0" width="300" height="210" rx="12" fill="rgba(52,152,219,0.15)" stroke="#3498DB" stroke-width="2"/>
+      <rect x="0" y="0" width="300" height="40" rx="12" fill="url(#lateralGrad)"/>
+      <rect x="0" y="25" width="300" height="15" fill="url(#lateralGrad)"/>
+      <text x="150" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Network Monitoring</text>
+      
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Block tunnels.api.visualstudio.com</text>
+      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Block *.devtunnels.ms</text>
+      <text x="15" y="105" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Monitor *.vscode.dev traffic</text>
+      <text x="15" y="125" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Alert on code.exe tunnel usage</text>
+      <text x="15" y="145" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ DNS logging for VS Code domains</text>
+      <text x="15" y="165" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Block GitHub tunnel endpoints</text>
+      
+      <rect x="15" y="180" width="270" height="20" rx="4" fill="rgba(52,152,219,0.3)"/>
+      <text x="150" y="194" text-anchor="middle" font-family="monospace" font-size="9" fill="#3498DB">firewall rule: deny *.devtunnels.ms</text>
+    </g>
+    
+    <!-- EDR/SIEM Rules -->
+    <g transform="translate(670, 50)">
+      <rect x="0" y="0" width="300" height="210" rx="12" fill="rgba(155,89,182,0.15)" stroke="#9B59B6" stroke-width="2"/>
+      <rect x="0" y="0" width="300" height="40" rx="12" fill="url(#c2Grad)"/>
+      <rect x="0" y="25" width="300" height="15" fill="url(#c2Grad)"/>
+      <text x="150" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">EDR/SIEM Detection</text>
+      
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Detect code.exe tunnel args</text>
+      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Alert on .vscode/ modifications</text>
+      <text x="15" y="105" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Monitor extension installs</text>
+      <text x="15" y="125" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Track tasks.json changes</text>
+      <text x="15" y="145" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ SSH key access alerts</text>
+      <text x="15" y="165" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Git credential access logs</text>
+      
+      <rect x="15" y="180" width="270" height="20" rx="4" fill="rgba(155,89,182,0.3)"/>
+      <text x="150" y="194" text-anchor="middle" font-family="monospace" font-size="9" fill="#9B59B6">process: code.exe args: tunnel</text>
+    </g>
+    
+    <!-- Secure Configuration -->
+    <g transform="translate(990, 50)">
+      <rect x="0" y="0" width="280" height="210" rx="12" fill="rgba(231,76,60,0.15)" stroke="#E74C3C" stroke-width="2"/>
+      <rect x="0" y="0" width="280" height="40" rx="12" fill="url(#threatGrad)"/>
+      <rect x="0" y="25" width="280" height="15" fill="url(#threatGrad)"/>
+      <text x="140" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Secure Configuration</text>
+      
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Enable Workspace Trust</text>
+      <text x="15" y="85" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Restrict Restricted Mode</text>
+      <text x="15" y="105" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Disable remote extensions</text>
+      <text x="15" y="125" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Use Settings Sync cautiously</text>
+      <text x="15" y="145" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Audit user settings.json</text>
+      <text x="15" y="165" font-family="Arial, sans-serif" font-size="11" fill="#e0e0e0">✓ Keep VS Code updated</text>
+      
+      <rect x="15" y="180" width="250" height="20" rx="4" fill="rgba(231,76,60,0.3)"/>
+      <text x="140" y="194" text-anchor="middle" font-family="monospace" font-size="9" fill="#E74C3C">security.workspace.trust: prompt</text>
+    </g>
+  </g>
+
+  <!-- IOC Section -->
+  <g transform="translate(50, 670)">
+    <rect x="0" y="0" width="1300" height="190" rx="12" fill="#1e293b" stroke="#007ACC" stroke-width="2" filter="url(#shadow)"/>
+    <text x="650" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#007ACC">Indicators of Compromise (IOC) - VS Code Specific</text>
+    
+    <!-- File IOCs -->
+    <g transform="translate(30, 50)">
+      <rect x="0" y="0" width="400" height="120" rx="8" fill="rgba(0,122,204,0.1)" stroke="#007ACC" stroke-width="1"/>
+      <text x="200" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#007ACC">File-based IOCs</text>
+      <text x="15" y="45" font-family="monospace" font-size="10" fill="#94a3b8">• .vscode/tasks.json (auto-run scripts)</text>
+      <text x="15" y="62" font-family="monospace" font-size="10" fill="#94a3b8">• .vscode/settings.json (malicious config)</text>
+      <text x="15" y="79" font-family="monospace" font-size="10" fill="#94a3b8">• .vscode/launch.json (debugger abuse)</text>
+      <text x="15" y="96" font-family="monospace" font-size="10" fill="#94a3b8">• ~/.vscode/extensions/ (suspicious ext)</text>
+      <text x="15" y="113" font-family="monospace" font-size="10" fill="#94a3b8">• %APPDATA%/Code/User/ (Windows)</text>
+    </g>
+    
+    <!-- Network IOCs -->
+    <g transform="translate(450, 50)">
+      <rect x="0" y="0" width="400" height="120" rx="8" fill="rgba(231,76,60,0.1)" stroke="#E74C3C" stroke-width="1"/>
+      <text x="200" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E74C3C">Network IOCs</text>
+      <text x="15" y="45" font-family="monospace" font-size="10" fill="#94a3b8">• *.tunnels.api.visualstudio.com</text>
+      <text x="15" y="62" font-family="monospace" font-size="10" fill="#94a3b8">• *.devtunnels.ms</text>
+      <text x="15" y="79" font-family="monospace" font-size="10" fill="#94a3b8">• *.vscode.dev (unusual traffic)</text>
+      <text x="15" y="96" font-family="monospace" font-size="10" fill="#94a3b8">• github.dev (Codespaces abuse)</text>
+      <text x="15" y="113" font-family="monospace" font-size="10" fill="#94a3b8">• wss:// WebSocket connections</text>
+    </g>
+    
+    <!-- Process IOCs -->
+    <g transform="translate(870, 50)">
+      <rect x="0" y="0" width="400" height="120" rx="8" fill="rgba(39,174,96,0.1)" stroke="#27AE60" stroke-width="1"/>
+      <text x="200" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#27AE60">Process IOCs</text>
+      <text x="15" y="45" font-family="monospace" font-size="10" fill="#94a3b8">• code.exe tunnel --accept-server</text>
+      <text x="15" y="62" font-family="monospace" font-size="10" fill="#94a3b8">• code-tunnel (standalone binary)</text>
+      <text x="15" y="79" font-family="monospace" font-size="10" fill="#94a3b8">• node.exe spawn from extensions</text>
+      <text x="15" y="96" font-family="monospace" font-size="10" fill="#94a3b8">• PowerShell/bash from VS Code</text>
+      <text x="15" y="113" font-family="monospace" font-size="10" fill="#94a3b8">• curl/wget for extension download</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="885" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Source: Jamf Threat Labs Research | MITRE ATT&amp;CK Framework | Developer Security | tech.2twodragon.com</text>
+</svg>

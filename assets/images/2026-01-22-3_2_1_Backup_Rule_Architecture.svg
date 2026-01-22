@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="backupBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498DB"/>
+      <stop offset="100%" style="stop-color:#2980B9"/>
+    </linearGradient>
+    <linearGradient id="mediaGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60"/>
+      <stop offset="100%" style="stop-color:#1E8449"/>
+    </linearGradient>
+    <linearGradient id="offsiteOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12"/>
+      <stop offset="100%" style="stop-color:#D68910"/>
+    </linearGradient>
+    <linearGradient id="ransomwareRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C"/>
+      <stop offset="100%" style="stop-color:#C0392B"/>
+    </linearGradient>
+    <linearGradient id="airgapPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6"/>
+      <stop offset="100%" style="stop-color:#7D3C98"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#bgGrad)"/>
+  <rect width="1400" height="900" fill="url(#grid)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="80" fill="url(#backupBlue)" opacity="0.9"/>
+  <text x="700" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" filter="url(#glow)">3-2-1 Backup Rule - Ransomware Defense Strategy</text>
+  <text x="700" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#e0e0e0">Data Protection Best Practice | KISA Advisory | Business Continuity Planning</text>
+
+  <!-- Rule 3: 3 Copies -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="420" height="340" rx="15" fill="#1e293b" stroke="#3498DB" stroke-width="3" filter="url(#shadow)"/>
+    
+    <!-- Number Circle -->
+    <circle cx="70" cy="60" r="45" fill="url(#backupBlue)" filter="url(#shadow)"/>
+    <text x="70" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">3</text>
+    
+    <text x="210" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#3498DB">COPIES</text>
+    <text x="210" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">of your data</text>
+    
+    <!-- Data Icons -->
+    <g transform="translate(30, 110)">
+      <rect x="0" y="0" width="110" height="110" rx="10" fill="rgba(52,152,219,0.2)" stroke="#3498DB" stroke-width="2"/>
+      <rect x="20" y="20" width="70" height="50" rx="5" fill="#3498DB"/>
+      <text x="55" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Original</text>
+      <text x="55" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3498DB">Production Data</text>
+    </g>
+    
+    <g transform="translate(155, 110)">
+      <rect x="0" y="0" width="110" height="110" rx="10" fill="rgba(52,152,219,0.2)" stroke="#3498DB" stroke-width="2"/>
+      <rect x="20" y="20" width="70" height="50" rx="5" fill="#3498DB"/>
+      <text x="55" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Backup 1</text>
+      <text x="55" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3498DB">Local Replica</text>
+    </g>
+    
+    <g transform="translate(280, 110)">
+      <rect x="0" y="0" width="110" height="110" rx="10" fill="rgba(52,152,219,0.2)" stroke="#3498DB" stroke-width="2"/>
+      <rect x="20" y="20" width="70" height="50" rx="5" fill="#3498DB"/>
+      <text x="55" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">Backup 2</text>
+      <text x="55" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3498DB">Remote Copy</text>
+    </g>
+    
+    <!-- Description -->
+    <rect x="20" y="240" width="380" height="80" rx="8" fill="rgba(52,152,219,0.1)" stroke="#3498DB" stroke-width="1"/>
+    <text x="210" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3498DB">Why 3 Copies?</text>
+    <text x="210" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Protects against single point of failure</text>
+    <text x="210" y="302" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Enables recovery from corruption</text>
+  </g>
+
+  <!-- Rule 2: 2 Media Types -->
+  <g transform="translate(490, 100)">
+    <rect x="0" y="0" width="420" height="340" rx="15" fill="#1e293b" stroke="#27AE60" stroke-width="3" filter="url(#shadow)"/>
+    
+    <!-- Number Circle -->
+    <circle cx="70" cy="60" r="45" fill="url(#mediaGreen)" filter="url(#shadow)"/>
+    <text x="70" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">2</text>
+    
+    <text x="230" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#27AE60">MEDIA TYPES</text>
+    <text x="230" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">different storage technologies</text>
+    
+    <!-- Media Icons -->
+    <g transform="translate(30, 110)">
+      <rect x="0" y="0" width="170" height="110" rx="10" fill="rgba(39,174,96,0.2)" stroke="#27AE60" stroke-width="2"/>
+      <text x="85" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#27AE60">Local Storage</text>
+      <rect x="20" y="45" width="130" height="25" rx="4" fill="#27AE60"/>
+      <text x="85" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">HDD/SSD/NVMe</text>
+      <text x="85" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Fast access, on-premises</text>
+    </g>
+    
+    <text x="210" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#94a3b8">+</text>
+    
+    <g transform="translate(220, 110)">
+      <rect x="0" y="0" width="170" height="110" rx="10" fill="rgba(39,174,96,0.2)" stroke="#27AE60" stroke-width="2"/>
+      <text x="85" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#27AE60">Secondary Media</text>
+      <rect x="20" y="45" width="130" height="25" rx="4" fill="#27AE60"/>
+      <text x="85" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">NAS/SAN/Tape</text>
+      <text x="85" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Redundant, different tech</text>
+    </g>
+    
+    <!-- Description -->
+    <rect x="20" y="240" width="380" height="80" rx="8" fill="rgba(39,174,96,0.1)" stroke="#27AE60" stroke-width="1"/>
+    <text x="210" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#27AE60">Why 2 Media Types?</text>
+    <text x="210" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Protects against media-specific failures</text>
+    <text x="210" y="302" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Different failure modes</text>
+  </g>
+
+  <!-- Rule 1: 1 Offsite -->
+  <g transform="translate(930, 100)">
+    <rect x="0" y="0" width="420" height="340" rx="15" fill="#1e293b" stroke="#F39C12" stroke-width="3" filter="url(#shadow)"/>
+    
+    <!-- Number Circle -->
+    <circle cx="70" cy="60" r="45" fill="url(#offsiteOrange)" filter="url(#shadow)"/>
+    <text x="70" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">1</text>
+    
+    <text x="230" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#F39C12">OFFSITE</text>
+    <text x="230" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">geographically separate location</text>
+    
+    <!-- Cloud Icon -->
+    <g transform="translate(110, 110)">
+      <rect x="0" y="0" width="200" height="110" rx="10" fill="rgba(243,156,18,0.2)" stroke="#F39C12" stroke-width="2"/>
+      <ellipse cx="100" cy="45" rx="70" ry="30" fill="#F39C12"/>
+      <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Cloud Storage</text>
+      <text x="100" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">AWS S3 / GCP / Azure Blob</text>
+    </g>
+    
+    <!-- Description -->
+    <rect x="20" y="240" width="380" height="80" rx="8" fill="rgba(243,156,18,0.1)" stroke="#F39C12" stroke-width="1"/>
+    <text x="210" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#F39C12">Why 1 Offsite?</text>
+    <text x="210" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Protects against site disasters</text>
+    <text x="210" y="302" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Fire, flood, theft, ransomware</text>
+  </g>
+
+  <!-- Air-Gap Recommendation (BONUS) -->
+  <g transform="translate(50, 460)">
+    <rect x="0" y="0" width="1300" height="150" rx="15" fill="rgba(231,76,60,0.1)" stroke="#E74C3C" stroke-width="3" filter="url(#shadow)"/>
+    
+    <!-- Warning Triangle -->
+    <g transform="translate(30, 30)">
+      <polygon points="40,0 80,70 0,70" fill="url(#ransomwareRed)"/>
+      <text x="40" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff">!</text>
+    </g>
+    
+    <text x="150" y="45" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#E74C3C">BONUS: Air-Gap / Immutable Backup</text>
+    <text x="150" y="70" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Network-isolated backup that ransomware cannot reach - CRITICAL for recovery after attack</text>
+    
+    <!-- Air-Gap Options -->
+    <g transform="translate(150, 85)">
+      <rect x="0" y="0" width="250" height="50" rx="8" fill="rgba(155,89,182,0.2)" stroke="#9B59B6" stroke-width="1"/>
+      <text x="125" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#9B59B6">Physical Air-Gap</text>
+      <text x="125" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Tape/Offline storage</text>
+    </g>
+    
+    <g transform="translate(420, 85)">
+      <rect x="0" y="0" width="250" height="50" rx="8" fill="rgba(155,89,182,0.2)" stroke="#9B59B6" stroke-width="1"/>
+      <text x="125" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#9B59B6">Logical Air-Gap</text>
+      <text x="125" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">S3 Object Lock / WORM</text>
+    </g>
+    
+    <g transform="translate(690, 85)">
+      <rect x="0" y="0" width="250" height="50" rx="8" fill="rgba(155,89,182,0.2)" stroke="#9B59B6" stroke-width="1"/>
+      <text x="125" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#9B59B6">Immutable Snapshots</text>
+      <text x="125" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">AWS Backup Vault Lock</text>
+    </g>
+    
+    <g transform="translate(960, 85)">
+      <rect x="0" y="0" width="250" height="50" rx="8" fill="rgba(155,89,182,0.2)" stroke="#9B59B6" stroke-width="1"/>
+      <text x="125" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#9B59B6">Separate Account</text>
+      <text x="125" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Cross-account backup</text>
+    </g>
+  </g>
+
+  <!-- Implementation Checklist -->
+  <g transform="translate(50, 630)">
+    <rect x="0" y="0" width="640" height="220" rx="12" fill="#1e293b" stroke="#3B82F6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="320" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#3B82F6">Implementation Checklist</text>
+    
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="290" height="150" rx="8" fill="rgba(59,130,246,0.1)" stroke="#3B82F6" stroke-width="1"/>
+      <text x="145" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3B82F6">Backup Strategy</text>
+      <text x="15" y="50" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">□ Daily incremental backups</text>
+      <text x="15" y="70" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">□ Weekly full backups</text>
+      <text x="15" y="90" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">□ Monthly archival backups</text>
+      <text x="15" y="110" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">□ Encrypt all backup data</text>
+      <text x="15" y="130" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">□ Document recovery procedures</text>
+    </g>
+    
+    <g transform="translate(330, 50)">
+      <rect x="0" y="0" width="290" height="150" rx="8" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="1"/>
+      <text x="145" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#22c55e">Testing &amp; Verification</text>
+      <text x="15" y="50" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">□ Monthly restore tests</text>
+      <text x="15" y="70" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">□ Verify backup integrity</text>
+      <text x="15" y="90" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">□ Test recovery time (RTO)</text>
+      <text x="15" y="110" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">□ Validate data completeness</text>
+      <text x="15" y="130" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">□ Annual DR drill</text>
+    </g>
+  </g>
+
+  <!-- Cloud Provider Options -->
+  <g transform="translate(710, 630)">
+    <rect x="0" y="0" width="640" height="220" rx="12" fill="#1e293b" stroke="#27AE60" stroke-width="2" filter="url(#shadow)"/>
+    <text x="320" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#27AE60">Cloud Backup Services</text>
+    
+    <!-- AWS -->
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="190" height="150" rx="8" fill="rgba(255,153,0,0.1)" stroke="#FF9900" stroke-width="1"/>
+      <text x="95" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#FF9900">AWS</text>
+      <text x="15" y="50" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ S3 + Glacier Deep Archive</text>
+      <text x="15" y="68" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ AWS Backup (centralized)</text>
+      <text x="15" y="86" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Object Lock (WORM)</text>
+      <text x="15" y="104" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Cross-region replication</text>
+      <text x="15" y="122" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Vault Lock for compliance</text>
+      <text x="15" y="140" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">$1/TB/month (Glacier)</text>
+    </g>
+    
+    <!-- GCP -->
+    <g transform="translate(225, 50)">
+      <rect x="0" y="0" width="190" height="150" rx="8" fill="rgba(66,133,244,0.1)" stroke="#4285F4" stroke-width="1"/>
+      <text x="95" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#4285F4">Google Cloud</text>
+      <text x="15" y="50" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Cloud Storage Archive</text>
+      <text x="15" y="68" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Backup and DR Service</text>
+      <text x="15" y="86" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Retention policies</text>
+      <text x="15" y="104" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Object versioning</text>
+      <text x="15" y="122" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Dual-region storage</text>
+      <text x="15" y="140" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">$1.2/TB/month (Archive)</text>
+    </g>
+    
+    <!-- Azure -->
+    <g transform="translate(430, 50)">
+      <rect x="0" y="0" width="190" height="150" rx="8" fill="rgba(0,120,212,0.1)" stroke="#0078D4" stroke-width="1"/>
+      <text x="95" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#0078D4">Azure</text>
+      <text x="15" y="50" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Blob Archive Storage</text>
+      <text x="15" y="68" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Azure Backup</text>
+      <text x="15" y="86" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Immutable blob storage</text>
+      <text x="15" y="104" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Geo-redundant storage</text>
+      <text x="15" y="122" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">✓ Soft delete protection</text>
+      <text x="15" y="140" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">$0.99/TB/month (Archive)</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="875" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">KISA Ransomware Prevention Advisory | 3-2-1 Backup Rule | Data Protection Best Practice | tech.2twodragon.com</text>
+</svg>

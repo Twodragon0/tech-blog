@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="k8sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#326CE5"/>
+      <stop offset="100%" style="stop-color:#1E4C9A"/>
+    </linearGradient>
+    <linearGradient id="containerdGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90D9"/>
+      <stop offset="100%" style="stop-color:#2E6BB3"/>
+    </linearGradient>
+    <linearGradient id="crioGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60"/>
+      <stop offset="100%" style="stop-color:#1E8449"/>
+    </linearGradient>
+    <linearGradient id="runcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6"/>
+      <stop offset="100%" style="stop-color:#7D3C98"/>
+    </linearGradient>
+    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#bgGrad)"/>
+  <rect width="1400" height="900" fill="url(#grid)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="80" fill="url(#k8sGrad)" opacity="0.9"/>
+  <text x="700" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" filter="url(#glow)">Kubernetes Container Runtime Stack</text>
+  <text x="700" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#e0e0e0">CRI Specification - OCI Compliant Container Runtimes - CNCF Landscape 2026</text>
+
+  <!-- Layer 1: Kubernetes Control Plane -->
+  <g transform="translate(100, 100)">
+    <rect x="0" y="0" width="1200" height="120" rx="15" fill="#1e293b" stroke="#326CE5" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1200" height="45" rx="15" fill="url(#k8sGrad)"/>
+    <rect x="0" y="30" width="1200" height="15" fill="url(#k8sGrad)"/>
+    <text x="600" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Kubernetes Control Plane</text>
+    
+    <!-- Control Plane Components -->
+    <g transform="translate(40, 60)">
+      <rect x="0" y="0" width="160" height="45" rx="8" fill="rgba(50,108,229,0.3)" stroke="#326CE5" stroke-width="1"/>
+      <text x="80" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#326CE5">kube-apiserver</text>
+      <text x="80" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">API Gateway</text>
+    </g>
+    <g transform="translate(220, 60)">
+      <rect x="0" y="0" width="160" height="45" rx="8" fill="rgba(50,108,229,0.3)" stroke="#326CE5" stroke-width="1"/>
+      <text x="80" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#326CE5">kube-scheduler</text>
+      <text x="80" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Pod Scheduling</text>
+    </g>
+    <g transform="translate(400, 60)">
+      <rect x="0" y="0" width="180" height="45" rx="8" fill="rgba(50,108,229,0.3)" stroke="#326CE5" stroke-width="1"/>
+      <text x="90" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#326CE5">kube-controller-manager</text>
+      <text x="90" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Control Loops</text>
+    </g>
+    <g transform="translate(600, 60)">
+      <rect x="0" y="0" width="140" height="45" rx="8" fill="rgba(50,108,229,0.3)" stroke="#326CE5" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#326CE5">etcd</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Key-Value Store</text>
+    </g>
+    <g transform="translate(760, 60)">
+      <rect x="0" y="0" width="160" height="45" rx="8" fill="rgba(50,108,229,0.3)" stroke="#326CE5" stroke-width="1"/>
+      <text x="80" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#326CE5">cloud-controller</text>
+      <text x="80" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Cloud Integration</text>
+    </g>
+    <g transform="translate(940, 60)">
+      <rect x="0" y="0" width="220" height="45" rx="8" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="1"/>
+      <text x="110" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#22c55e">K8s v1.32 (Dec 2025)</text>
+      <text x="110" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Latest Stable Release</text>
+    </g>
+  </g>
+
+  <!-- CRI Interface Arrow -->
+  <g transform="translate(600, 230)">
+    <rect x="0" y="0" width="200" height="40" rx="8" fill="rgba(148,163,184,0.2)" stroke="#94a3b8" stroke-width="2"/>
+    <text x="100" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#94a3b8">CRI (gRPC)</text>
+    <line x1="100" y1="40" x2="100" y2="70" stroke="#94a3b8" stroke-width="2"/>
+    <polygon points="100,70 94,58 106,58" fill="#94a3b8"/>
+  </g>
+
+  <!-- Kubelet -->
+  <g transform="translate(100, 240)">
+    <rect x="0" y="0" width="200" height="60" rx="10" fill="#1e293b" stroke="#326CE5" stroke-width="2" filter="url(#shadow)"/>
+    <text x="100" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#326CE5">kubelet</text>
+    <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Node Agent</text>
+    
+    <!-- Arrow to CRI -->
+    <line x1="200" y1="30" x2="400" y2="30" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,3"/>
+    <polygon points="400,30 388,24 388,36" fill="#94a3b8"/>
+  </g>
+
+  <!-- Layer 2: High-Level Container Runtimes -->
+  <g transform="translate(100, 320)">
+    <rect x="0" y="0" width="1200" height="200" rx="15" fill="#1e293b" stroke="#4A90D9" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1200" height="45" rx="15" fill="url(#containerdGrad)"/>
+    <rect x="0" y="30" width="1200" height="15" fill="url(#containerdGrad)"/>
+    <text x="600" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">High-Level Container Runtimes (CRI Implementations)</text>
+    
+    <!-- CRI-O -->
+    <g transform="translate(40, 60)">
+      <rect x="0" y="0" width="350" height="120" rx="12" fill="rgba(39,174,96,0.15)" stroke="#27AE60" stroke-width="2"/>
+      <rect x="0" y="0" width="350" height="35" rx="12" fill="url(#crioGrad)"/>
+      <rect x="0" y="20" width="350" height="15" fill="url(#crioGrad)"/>
+      <text x="175" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">CRI-O</text>
+      
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="11" fill="#27AE60">✓ Kubernetes-native runtime</text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="11" fill="#27AE60">✓ Minimal footprint</text>
+      <text x="20" y="89" font-family="Arial, sans-serif" font-size="11" fill="#27AE60">✓ OCI compliant</text>
+      <text x="20" y="106" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">★ OSTIF Security Audit 2026</text>
+      
+      <rect x="200" y="50" width="140" height="60" rx="6" fill="rgba(39,174,96,0.3)"/>
+      <text x="270" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#27AE60">OpenShift Default</text>
+      <text x="270" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">RHEL, Fedora CoreOS</text>
+      <text x="270" y="102" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">v1.32.0</text>
+    </g>
+    
+    <!-- containerd -->
+    <g transform="translate(420, 60)">
+      <rect x="0" y="0" width="350" height="120" rx="12" fill="rgba(74,144,217,0.15)" stroke="#4A90D9" stroke-width="2"/>
+      <rect x="0" y="0" width="350" height="35" rx="12" fill="url(#containerdGrad)"/>
+      <rect x="0" y="20" width="350" height="15" fill="url(#containerdGrad)"/>
+      <text x="175" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">containerd</text>
+      
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="11" fill="#4A90D9">✓ Industry standard runtime</text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="11" fill="#4A90D9">✓ Graduated CNCF project</text>
+      <text x="20" y="89" font-family="Arial, sans-serif" font-size="11" fill="#4A90D9">✓ Docker/K8s compatible</text>
+      <text x="20" y="106" font-family="Arial, sans-serif" font-size="11" fill="#4A90D9">✓ Image management</text>
+      
+      <rect x="200" y="50" width="140" height="60" rx="6" fill="rgba(74,144,217,0.3)"/>
+      <text x="270" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4A90D9">EKS, GKE, AKS</text>
+      <text x="270" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Default for most</text>
+      <text x="270" y="102" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">v1.7.x / v2.0</text>
+    </g>
+    
+    <!-- Docker (Legacy) -->
+    <g transform="translate(800, 60)">
+      <rect x="0" y="0" width="350" height="120" rx="12" fill="rgba(108,117,125,0.15)" stroke="#6c757d" stroke-width="2"/>
+      <rect x="0" y="0" width="350" height="35" rx="12" fill="#6c757d"/>
+      <rect x="0" y="20" width="350" height="15" fill="#6c757d"/>
+      <text x="175" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Docker Engine</text>
+      
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="11" fill="#adb5bd">✓ Development environments</text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="11" fill="#adb5bd">✓ Uses containerd internally</text>
+      <text x="20" y="89" font-family="Arial, sans-serif" font-size="11" fill="#f39c12">⚠ Not for K8s production</text>
+      <text x="20" y="106" font-family="Arial, sans-serif" font-size="11" fill="#adb5bd">✓ Build toolchain</text>
+      
+      <rect x="200" y="50" width="140" height="60" rx="6" fill="rgba(108,117,125,0.3)"/>
+      <text x="270" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#adb5bd">Dev/CI Only</text>
+      <text x="270" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Minikube, Docker Desktop</text>
+      <text x="270" y="102" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">v27.x</text>
+    </g>
+  </g>
+
+  <!-- OCI Interface Arrow -->
+  <g transform="translate(600, 530)">
+    <rect x="0" y="0" width="200" height="40" rx="8" fill="rgba(155,89,182,0.2)" stroke="#9B59B6" stroke-width="2"/>
+    <text x="100" y="26" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#9B59B6">OCI Runtime Spec</text>
+    <line x1="100" y1="40" x2="100" y2="70" stroke="#9B59B6" stroke-width="2"/>
+    <polygon points="100,70 94,58 106,58" fill="#9B59B6"/>
+  </g>
+
+  <!-- Layer 3: Low-Level Runtimes (OCI) -->
+  <g transform="translate(100, 610)">
+    <rect x="0" y="0" width="1200" height="160" rx="15" fill="#1e293b" stroke="#9B59B6" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1200" height="45" rx="15" fill="url(#runcGrad)"/>
+    <rect x="0" y="30" width="1200" height="15" fill="url(#runcGrad)"/>
+    <text x="600" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Low-Level OCI Runtimes (Container Executors)</text>
+    
+    <!-- runc -->
+    <g transform="translate(30, 60)">
+      <rect x="0" y="0" width="180" height="80" rx="10" fill="rgba(155,89,182,0.2)" stroke="#9B59B6" stroke-width="2"/>
+      <text x="90" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#9B59B6">runc</text>
+      <text x="90" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Reference OCI Runtime</text>
+      <text x="90" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Go, Linux namespaces</text>
+      <text x="90" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">Default for containerd</text>
+    </g>
+    
+    <!-- crun -->
+    <g transform="translate(230, 60)">
+      <rect x="0" y="0" width="180" height="80" rx="10" fill="rgba(155,89,182,0.2)" stroke="#9B59B6" stroke-width="2"/>
+      <text x="90" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#9B59B6">crun</text>
+      <text x="90" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">C-based, Lightweight</text>
+      <text x="90" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">2x faster than runc</text>
+      <text x="90" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">Default for CRI-O</text>
+    </g>
+    
+    <!-- youki -->
+    <g transform="translate(430, 60)">
+      <rect x="0" y="0" width="180" height="80" rx="10" fill="rgba(155,89,182,0.2)" stroke="#9B59B6" stroke-width="2"/>
+      <text x="90" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#9B59B6">youki</text>
+      <text x="90" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Rust-based Runtime</text>
+      <text x="90" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Memory safe</text>
+      <text x="90" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#f39c12">Emerging alternative</text>
+    </g>
+    
+    <!-- kata -->
+    <g transform="translate(630, 60)">
+      <rect x="0" y="0" width="180" height="80" rx="10" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="2"/>
+      <text x="90" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">Kata Containers</text>
+      <text x="90" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">VM-based Isolation</text>
+      <text x="90" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Hardware virtualization</text>
+      <text x="90" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#ef4444">Strong isolation</text>
+    </g>
+    
+    <!-- gVisor -->
+    <g transform="translate(830, 60)">
+      <rect x="0" y="0" width="180" height="80" rx="10" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="2"/>
+      <text x="90" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">gVisor (runsc)</text>
+      <text x="90" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">User-space Kernel</text>
+      <text x="90" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Syscall interception</text>
+      <text x="90" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#ef4444">GKE Sandbox</text>
+    </g>
+    
+    <!-- Firecracker -->
+    <g transform="translate(1030, 60)">
+      <rect x="0" y="0" width="150" height="80" rx="10" fill="rgba(255,153,0,0.2)" stroke="#FF9900" stroke-width="2"/>
+      <text x="75" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FF9900">Firecracker</text>
+      <text x="75" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">microVM</text>
+      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">AWS Lambda</text>
+      <text x="75" y="73" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FF9900">Fargate</text>
+    </g>
+  </g>
+
+  <!-- Security Audit Note -->
+  <g transform="translate(100, 790)">
+    <rect x="0" y="0" width="1200" height="80" rx="12" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="2" filter="url(#shadow)"/>
+    <text x="600" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#22c55e">CRI-O Security Audit - OSTIF 2026</text>
+    <text x="100" y="50" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">✓ Sponsored by CNCF</text>
+    <text x="350" y="50" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">✓ Audited by X41 D-Sec</text>
+    <text x="600" y="50" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">✓ Second comprehensive audit</text>
+    <text x="900" y="50" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">✓ Enhanced runtime security</text>
+    <text x="600" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">Production-ready for enterprise Kubernetes deployments with hardened security posture</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="890" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">CNCF Cloud Native Landscape 2026 | Kubernetes Container Runtime Stack | tech.2twodragon.com</text>
+</svg>

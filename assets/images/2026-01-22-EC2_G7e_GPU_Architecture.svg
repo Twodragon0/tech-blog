@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="nvidiaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#76B900"/>
+      <stop offset="100%" style="stop-color:#4A7C00"/>
+    </linearGradient>
+    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9900"/>
+      <stop offset="100%" style="stop-color:#FF6600"/>
+    </linearGradient>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="rtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6"/>
+      <stop offset="100%" style="stop-color:#2563EB"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#bgGrad)"/>
+  <rect width="1400" height="900" fill="url(#grid)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="80" fill="url(#awsGrad)" opacity="0.9"/>
+  <text x="700" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" filter="url(#glow)">AWS EC2 G7e Instance - NVIDIA Blackwell Architecture</text>
+  <text x="700" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Next-Gen GPU Computing for AI/ML, Graphics Rendering &amp; Spatial Computing</text>
+
+  <!-- Main GPU Architecture Section -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="1300" height="280" rx="15" fill="#1e293b" stroke="url(#nvidiaGrad)" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1300" height="50" rx="15" fill="url(#nvidiaGrad)"/>
+    <rect x="0" y="35" width="1300" height="15" fill="url(#nvidiaGrad)"/>
+    <text x="650" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">NVIDIA RTX PRO 6000 Blackwell Server Edition</text>
+    
+    <!-- GPU Architecture Components -->
+    <g transform="translate(30, 70)">
+      <!-- Tensor Cores -->
+      <rect x="0" y="0" width="300" height="180" rx="12" fill="rgba(139,92,246,0.15)" stroke="#8B5CF6" stroke-width="2"/>
+      <rect x="0" y="0" width="300" height="40" rx="12" fill="url(#aiGrad)"/>
+      <rect x="0" y="25" width="300" height="15" fill="url(#aiGrad)"/>
+      <text x="150" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Tensor Cores</text>
+      
+      <text x="20" y="65" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8B5CF6">5th Gen Architecture</text>
+      <text x="20" y="85" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ 2.3x faster AI inference</text>
+      <text x="20" y="102" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ FP8 precision support</text>
+      <text x="20" y="119" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ INT8 quantization</text>
+      <text x="20" y="136" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Transformer Engine 2.0</text>
+      <text x="20" y="153" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Optimized for LLM serving</text>
+      <text x="20" y="170" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">★ 100+ TFLOPS (TF32)</text>
+    </g>
+    
+    <g transform="translate(350, 70)">
+      <!-- RT Cores -->
+      <rect x="0" y="0" width="300" height="180" rx="12" fill="rgba(59,130,246,0.15)" stroke="#3B82F6" stroke-width="2"/>
+      <rect x="0" y="0" width="300" height="40" rx="12" fill="url(#rtGrad)"/>
+      <rect x="0" y="25" width="300" height="15" fill="url(#rtGrad)"/>
+      <text x="150" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">RT Cores</text>
+      
+      <text x="20" y="65" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3B82F6">4th Gen Ray Tracing</text>
+      <text x="20" y="85" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Real-time ray tracing</text>
+      <text x="20" y="102" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Neural radiance fields</text>
+      <text x="20" y="119" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Spatial computing ready</text>
+      <text x="20" y="136" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ VR/AR/MR rendering</text>
+      <text x="20" y="153" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Path tracing acceleration</text>
+      <text x="20" y="170" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">★ 2x RT performance</text>
+    </g>
+    
+    <g transform="translate(670, 70)">
+      <!-- CUDA Cores -->
+      <rect x="0" y="0" width="300" height="180" rx="12" fill="rgba(118,185,0,0.15)" stroke="#76B900" stroke-width="2"/>
+      <rect x="0" y="0" width="300" height="40" rx="12" fill="url(#nvidiaGrad)"/>
+      <rect x="0" y="25" width="300" height="15" fill="url(#nvidiaGrad)"/>
+      <text x="150" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">CUDA Cores</text>
+      
+      <text x="20" y="65" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#76B900">Blackwell SM</text>
+      <text x="20" y="85" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ 18,000+ CUDA cores</text>
+      <text x="20" y="102" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Enhanced FP64 support</text>
+      <text x="20" y="119" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Shader execution reorder</text>
+      <text x="20" y="136" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Ada architecture evolved</text>
+      <text x="20" y="153" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Multi-instance GPU</text>
+      <text x="20" y="170" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">★ 3x gen-over-gen</text>
+    </g>
+    
+    <g transform="translate(990, 70)">
+      <!-- Memory -->
+      <rect x="0" y="0" width="280" height="180" rx="12" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="2"/>
+      <rect x="0" y="0" width="280" height="40" rx="12" fill="url(#awsGrad)"/>
+      <rect x="0" y="25" width="280" height="15" fill="url(#awsGrad)"/>
+      <text x="140" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">GDDR6X Memory</text>
+      
+      <text x="20" y="65" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FF9900">High Bandwidth</text>
+      <text x="20" y="85" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ 48GB VRAM</text>
+      <text x="20" y="102" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ 900+ GB/s bandwidth</text>
+      <text x="20" y="119" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ ECC memory support</text>
+      <text x="20" y="136" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Large model support</text>
+      <text x="20" y="153" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ NVLink 5.0 ready</text>
+      <text x="20" y="170" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">★ LLM inference optimal</text>
+    </g>
+  </g>
+
+  <!-- Use Cases Section -->
+  <g transform="translate(50, 400)">
+    <rect x="0" y="0" width="640" height="280" rx="15" fill="#1e293b" stroke="#3B82F6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="320" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#3B82F6">Primary Use Cases</text>
+    
+    <!-- Use Case Cards -->
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="290" height="100" rx="10" fill="rgba(139,92,246,0.15)" stroke="#8B5CF6" stroke-width="1"/>
+      <text x="145" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6">Generative AI Inference</text>
+      <text x="15" y="48" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• LLM serving (GPT-4, Claude, Gemini)</text>
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• Stable Diffusion / DALL-E</text>
+      <text x="15" y="82" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• Real-time chatbot responses</text>
+    </g>
+    
+    <g transform="translate(330, 55)">
+      <rect x="0" y="0" width="290" height="100" rx="10" fill="rgba(59,130,246,0.15)" stroke="#3B82F6" stroke-width="1"/>
+      <text x="145" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6">Graphics Rendering</text>
+      <text x="15" y="48" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• Real-time 3D visualization</text>
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• Video encoding/decoding</text>
+      <text x="15" y="82" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• CAD/CAM applications</text>
+    </g>
+    
+    <g transform="translate(20, 165)">
+      <rect x="0" y="0" width="290" height="100" rx="10" fill="rgba(118,185,0,0.15)" stroke="#76B900" stroke-width="1"/>
+      <text x="145" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#76B900">Spatial Computing</text>
+      <text x="15" y="48" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• VR/AR/MR development</text>
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• Digital twin simulation</text>
+      <text x="15" y="82" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• Omniverse applications</text>
+    </g>
+    
+    <g transform="translate(330, 165)">
+      <rect x="0" y="0" width="290" height="100" rx="10" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="145" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">Scientific Computing</text>
+      <text x="15" y="48" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• Molecular dynamics</text>
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• Weather simulation</text>
+      <text x="15" y="82" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">• Financial modeling</text>
+    </g>
+  </g>
+
+  <!-- Instance Types Section -->
+  <g transform="translate(710, 400)">
+    <rect x="0" y="0" width="640" height="280" rx="15" fill="#1e293b" stroke="#FF9900" stroke-width="2" filter="url(#shadow)"/>
+    <text x="320" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FF9900">EC2 G7e Instance Types</text>
+    
+    <!-- Instance Type Grid -->
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="145" height="90" rx="8" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="2"/>
+      <text x="72" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FF9900">g7e.xlarge</text>
+      <text x="72" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">4 vCPU | 16 GB</text>
+      <text x="72" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">1 GPU | 48GB VRAM</text>
+      <text x="72" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">~$0.75/hr</text>
+    </g>
+    
+    <g transform="translate(175, 55)">
+      <rect x="0" y="0" width="145" height="90" rx="8" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="2"/>
+      <text x="72" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FF9900">g7e.2xlarge</text>
+      <text x="72" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">8 vCPU | 32 GB</text>
+      <text x="72" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">1 GPU | 48GB VRAM</text>
+      <text x="72" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">~$1.50/hr</text>
+    </g>
+    
+    <g transform="translate(330, 55)">
+      <rect x="0" y="0" width="145" height="90" rx="8" fill="rgba(255,153,0,0.2)" stroke="#FF9900" stroke-width="2"/>
+      <text x="72" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FF9900">g7e.4xlarge</text>
+      <text x="72" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">16 vCPU | 64 GB</text>
+      <text x="72" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">1 GPU | 48GB VRAM</text>
+      <text x="72" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">~$3.00/hr</text>
+    </g>
+    
+    <g transform="translate(485, 55)">
+      <rect x="0" y="0" width="145" height="90" rx="8" fill="rgba(255,153,0,0.25)" stroke="#FF9900" stroke-width="2"/>
+      <text x="72" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FF9900">g7e.8xlarge</text>
+      <text x="72" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">32 vCPU | 128 GB</text>
+      <text x="72" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">1 GPU | 48GB VRAM</text>
+      <text x="72" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">~$6.00/hr</text>
+    </g>
+    
+    <!-- Multi-GPU Options -->
+    <g transform="translate(20, 160)">
+      <rect x="0" y="0" width="300" height="100" rx="8" fill="rgba(139,92,246,0.15)" stroke="#8B5CF6" stroke-width="2"/>
+      <text x="150" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6">g7e.12xlarge</text>
+      <text x="150" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">48 vCPU | 192 GB Memory</text>
+      <text x="150" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">4 GPUs | 192GB VRAM Total</text>
+      <text x="150" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">Multi-GPU AI Training</text>
+    </g>
+    
+    <g transform="translate(330, 160)">
+      <rect x="0" y="0" width="300" height="100" rx="8" fill="rgba(139,92,246,0.2)" stroke="#8B5CF6" stroke-width="2"/>
+      <text x="150" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6">g7e.48xlarge</text>
+      <text x="150" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">192 vCPU | 768 GB Memory</text>
+      <text x="150" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">8 GPUs | 384GB VRAM Total</text>
+      <text x="150" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">Enterprise AI Workloads</text>
+    </g>
+  </g>
+
+  <!-- Availability & Pricing -->
+  <g transform="translate(50, 700)">
+    <rect x="0" y="0" width="1300" height="160" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2" filter="url(#shadow)"/>
+    <text x="650" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#22c55e">Availability &amp; Best Practices</text>
+    
+    <g transform="translate(30, 50)">
+      <rect x="0" y="0" width="400" height="90" rx="8" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="1"/>
+      <text x="200" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#22c55e">Available Regions (Jan 2026)</text>
+      <text x="15" y="45" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ US East (N. Virginia), US West (Oregon)</text>
+      <text x="15" y="62" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ EU (Ireland, Frankfurt)</text>
+      <text x="15" y="79" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Asia Pacific (Tokyo, Seoul, Singapore)</text>
+    </g>
+    
+    <g transform="translate(450, 50)">
+      <rect x="0" y="0" width="400" height="90" rx="8" fill="rgba(255,153,0,0.1)" stroke="#FF9900" stroke-width="1"/>
+      <text x="200" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#FF9900">Cost Optimization Tips</text>
+      <text x="15" y="45" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Spot instances: Up to 90% savings</text>
+      <text x="15" y="62" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Savings Plans: 1yr/3yr commitments</text>
+      <text x="15" y="79" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Inference Endpoints: Managed scaling</text>
+    </g>
+    
+    <g transform="translate(870, 50)">
+      <rect x="0" y="0" width="400" height="90" rx="8" fill="rgba(139,92,246,0.1)" stroke="#8B5CF6" stroke-width="1"/>
+      <text x="200" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#8B5CF6">Recommended Use</text>
+      <text x="15" y="45" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ AI inference over P5/P4d for cost</text>
+      <text x="15" y="62" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ Graphics workstation replacement</text>
+      <text x="15" y="79" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">✓ VR/AR content development</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="885" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Source: AWS Blog - EC2 G7e Announcement | NVIDIA Blackwell Architecture | January 2026 | tech.2twodragon.com</text>
+</svg>
