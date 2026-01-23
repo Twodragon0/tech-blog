@@ -20,10 +20,13 @@ LOG_FILE = Path(__file__).parent.parent / "ai_improvement_log.txt"
 RUN_DURATION = 3600  # 1시간
 
 # API 키 설정 (환경 변수에서 읽기)
-CLAUDE_API_KEY = os.getenv("CLAUDE_API_KEY", "")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+# lgtm[py/clear-text-storage-sensitive-data] - Environment variables, not hardcoded
+CLAUDE_API_KEY = os.getenv("CLAUDE_API_KEY", "")  # nosec B105
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")  # nosec B105
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
-GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent"
+GEMINI_API_URL = (
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent"
+)
 
 
 def check_gemini_cli_available() -> bool:
@@ -35,10 +38,7 @@ def check_gemini_cli_available() -> bool:
     """
     try:
         result = subprocess.run(
-            ["gemini", "--version"],
-            capture_output=True,
-            text=True,
-            timeout=5
+            ["gemini", "--version"], capture_output=True, text=True, timeout=5
         )
         return result.returncode == 0
     except (FileNotFoundError, subprocess.TimeoutExpired, Exception):
@@ -48,34 +48,39 @@ def check_gemini_cli_available() -> bool:
 def mask_sensitive_info(text: str) -> str:
     """
     로그에 기록될 민감한 정보를 마스킹합니다.
-    
+
     Args:
         text: 마스킹할 텍스트
-        
+
     Returns:
         마스킹된 텍스트
     """
     if not text:
         return text
-    
+
     # API 키 마스킹 (sk-, sk-ant-, AIza 등으로 시작하는 키)
-    masked = re.sub(r'sk-[a-zA-Z0-9_-]{20,}', 'sk-***MASKED***', text)
-    masked = re.sub(r'sk-ant-[a-zA-Z0-9_-]{20,}', 'sk-ant-***MASKED***', masked)
-    masked = re.sub(r'AIza[0-9A-Za-z_-]{35}', 'AIza***MASKED***', masked)
-    
+    masked = re.sub(r"sk-[a-zA-Z0-9_-]{20,}", "sk-***MASKED***", text)
+    masked = re.sub(r"sk-ant-[a-zA-Z0-9_-]{20,}", "sk-ant-***MASKED***", masked)
+    masked = re.sub(r"AIza[0-9A-Za-z_-]{35}", "AIza***MASKED***", masked)
+
     # 환경 변수에서 읽은 실제 API 키 값 마스킹
     if CLAUDE_API_KEY and len(CLAUDE_API_KEY) > 10:
-        masked = masked.replace(CLAUDE_API_KEY, '***CLAUDE_API_KEY_MASKED***')
+        masked = masked.replace(CLAUDE_API_KEY, "***CLAUDE_API_KEY_MASKED***")
     if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
-        masked = masked.replace(GEMINI_API_KEY, '***GEMINI_API_KEY_MASKED***')
-    
+        masked = masked.replace(GEMINI_API_KEY, "***GEMINI_API_KEY_MASKED***")
+
     # URL에 포함된 API 키 마스킹 (key= 파라미터)
-    masked = re.sub(r'[?&]key=[a-zA-Z0-9_-]+', '?key=***MASKED***', masked)
-    
+    masked = re.sub(r"[?&]key=[a-zA-Z0-9_-]+", "?key=***MASKED***", masked)
+
     # 일반적인 API 키 패턴 마스킹 (긴 알파벳/숫자 조합)
-    masked = re.sub(r'[a-zA-Z0-9_-]{40,}', lambda m: m.group()[:8] + '***MASKED***' if len(m.group()) > 40 else m.group(), masked)
-    
+    masked = re.sub(
+        r"[a-zA-Z0-9_-]{40,}",
+        lambda m: m.group()[:8] + "***MASKED***" if len(m.group()) > 40 else m.group(),
+        masked,
+    )
+
     return masked
+
 
 def _validate_masked_text(text: str) -> bool:
     """
@@ -92,10 +97,10 @@ def _validate_masked_text(text: str) -> bool:
 
     # 실제 API 키 패턴이 남아있는지 확인
     api_key_patterns = [
-        r'sk-[a-zA-Z0-9_-]{20,}',  # Claude API key
-        r'sk-ant-[a-zA-Z0-9_-]{20,}',  # Anthropic API key
-        r'AIza[0-9A-Za-z_-]{35,}',  # Google API key
-        r'[a-zA-Z0-9_-]{40,}',  # 일반적인 긴 API 키 패턴
+        r"sk-[a-zA-Z0-9_-]{20,}",  # Claude API key
+        r"sk-ant-[a-zA-Z0-9_-]{20,}",  # Anthropic API key
+        r"AIza[0-9A-Za-z_-]{35,}",  # Google API key
+        r"[a-zA-Z0-9_-]{40,}",  # 일반적인 긴 API 키 패턴
     ]
 
     for pattern in api_key_patterns:
@@ -111,13 +116,14 @@ def _validate_masked_text(text: str) -> bool:
     # API 키 패턴이 없으면 안전
     return True
 
+
 def _write_safe_text_to_stdout(safe_text: str) -> None:
     """
     검증된 안전한 텍스트만 stdout에 기록합니다.
-    
+
     이 함수는 _validate_masked_text()로 검증된 텍스트만 받습니다.
     CodeQL이 민감 정보 로깅으로 감지하지 않도록 별도 함수로 분리했습니다.
-    
+
     Args:
         safe_text: _validate_masked_text()로 검증된 안전한 텍스트
     """
@@ -125,16 +131,17 @@ def _write_safe_text_to_stdout(safe_text: str) -> None:
     # All sensitive information has been masked and validated before reaching here
     if not safe_text:
         return
-    
+
     # Additional runtime validation (defense in depth)
     if not _validate_masked_text(safe_text):
         # If somehow unsafe text reached here, block it
         return
-    
+
     # Write only validated safe text
-    sys.stdout.buffer.write(safe_text.encode('utf-8'))
-    sys.stdout.buffer.write(b'\n')
+    sys.stdout.buffer.write(safe_text.encode("utf-8"))
+    sys.stdout.buffer.write(b"\n")
     sys.stdout.buffer.flush()
+
 
 def _safe_console_output(text: str) -> None:
     """
@@ -156,6 +163,7 @@ def _safe_console_output(text: str) -> None:
         _write_safe_text_to_stdout(final_text)
     else:
         _write_safe_text_to_stdout("[로그 출력이 보안상 차단되었습니다]")
+
 
 def _write_safe_text_to_file(file_path: Path, safe_text: str) -> None:
     """
@@ -183,9 +191,9 @@ def _write_safe_text_to_file(file_path: Path, safe_text: str) -> None:
             return
 
         # UTF-8로 인코딩
-        safe_bytes = final_text.encode('utf-8')
+        safe_bytes = final_text.encode("utf-8")
 
-        with open(file_path, 'ab') as f:
+        with open(file_path, "ab") as f:
             # Security: Write only pre-validated, sanitized text
             # This text has been masked and validated, contains no sensitive data
             # nosec B608 - sanitized via mask_sensitive_info and _validate_masked_text
@@ -196,6 +204,7 @@ def _write_safe_text_to_file(file_path: Path, safe_text: str) -> None:
     except Exception:
         # 예외 발생 시 조용히 처리 (보안상 로그에 기록하지 않음)
         pass
+
 
 def _safe_file_write(file_path: Path, text: str) -> None:
     """
@@ -217,72 +226,79 @@ def _safe_file_write(file_path: Path, text: str) -> None:
         # nosec B608: This text has been sanitized through mask_sensitive_info
         _write_safe_text_to_file(file_path, final_text)
 
+
 def log_message(message: str):
     """
     로그 메시지 기록 (민감 정보 자동 마스킹)
-    
+
     모든 민감 정보는 기록 전에 자동으로 마스킹됩니다.
     """
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     # 민감 정보 마스킹 (모든 로깅 전에 수행)
     safe_message = mask_sensitive_info(message)
     log_entry = f"[{timestamp}] {safe_message}\n"
-    
+
     # 콘솔 출력 (이미 마스킹된 메시지만 출력)
     safe_console_output = mask_sensitive_info(log_entry.strip())
     _safe_console_output(safe_console_output)
-    
+
     # 파일 기록 (이미 마스킹된 메시지만 기록)
     safe_file_content = mask_sensitive_info(log_entry)
     _safe_file_write(LOG_FILE, safe_file_content)
 
+
 def extract_post_info(file_path: Path) -> Optional[Dict]:
     """포스팅 정보 추출"""
     try:
-        content = file_path.read_text(encoding='utf-8')
-        
+        content = file_path.read_text(encoding="utf-8")
+
         # Front matter 추출
-        front_matter_match = re.search(r'^---\n(.*?)\n---', content, re.DOTALL)
+        front_matter_match = re.search(r"^---\n(.*?)\n---", content, re.DOTALL)
         front_matter = {}
         if front_matter_match:
-            for line in front_matter_match.group(1).split('\n'):
-                if ':' in line and not line.strip().startswith('#'):
-                    parts = line.split(':', 1)
+            for line in front_matter_match.group(1).split("\n"):
+                if ":" in line and not line.strip().startswith("#"):
+                    parts = line.split(":", 1)
                     if len(parts) == 2:
                         key = parts[0].strip()
                         value = parts[1].strip().strip('"').strip("'")
                         front_matter[key] = value
-        
+
         # 본문 추출
-        summary_end = content.find('## 서론')
+        summary_end = content.find("## 서론")
         if summary_end == -1:
-            summary_end = content.find('## 1.')
+            summary_end = content.find("## 1.")
         if summary_end == -1:
-            summary_end = content.find('원본 포스트:')
-        
+            summary_end = content.find("원본 포스트:")
+
         body = ""
         if summary_end != -1:
             body = content[summary_end:]
-            body = re.sub(r'원본 포스트:.*', '', body, flags=re.DOTALL)
+            body = re.sub(r"원본 포스트:.*", "", body, flags=re.DOTALL)
             body = body.strip()
-        
+
         # 본문 길이 계산
-        body_lines = [line for line in body.split('\n') 
-                     if not line.strip().startswith('#') 
-                     and not line.strip().startswith('```')
-                     and line.strip()]
-        body_length = len('\n'.join(body_lines))
-        
+        body_lines = [
+            line
+            for line in body.split("\n")
+            if not line.strip().startswith("#")
+            and not line.strip().startswith("```")
+            and line.strip()
+        ]
+        body_length = len("\n".join(body_lines))
+
         return {
-            'file_path': file_path,
-            'title': front_matter.get('title', ''),
-            'category': front_matter.get('categories', front_matter.get('category', '')),
-            'tags': front_matter.get('tags', ''),
-            'excerpt': front_matter.get('excerpt', ''),
-            'body': body,
-            'body_length': body_length,
-            'original_url': front_matter.get('original_url', ''),
-            'content': content
+            "file_path": file_path,
+            "title": front_matter.get("title", ""),
+            "category": front_matter.get(
+                "categories", front_matter.get("category", "")
+            ),
+            "tags": front_matter.get("tags", ""),
+            "excerpt": front_matter.get("excerpt", ""),
+            "body": body,
+            "body_length": body_length,
+            "original_url": front_matter.get("original_url", ""),
+            "content": content,
         }
     except Exception as e:
         # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
@@ -290,33 +306,35 @@ def extract_post_info(file_path: Path) -> Optional[Dict]:
         log_message(f"Error extracting info from {file_path.name}: {error_msg}")
         return None
 
+
 def needs_improvement(post_info: Dict) -> bool:
     """개선이 필요한지 판단"""
     if not post_info:
         return False
-    
+
     # 본문이 너무 짧은 경우
-    if post_info['body_length'] < 1500:
+    if post_info["body_length"] < 1500:
         return True
-    
+
     # 본문에 "서론" 섹션이 없는 경우
-    if '## 서론' not in post_info['body'] and '## 1.' not in post_info['body']:
+    if "## 서론" not in post_info["body"] and "## 1." not in post_info["body"]:
         return True
-    
+
     return False
+
 
 def improve_with_claude(post_info: Dict) -> Optional[str]:
     """Claude API를 사용하여 포스팅 개선"""
     if not CLAUDE_API_KEY:
         return None
-    
+
     try:
-        title = post_info['title']
-        excerpt = post_info['excerpt']
-        category = post_info['category']
-        tags = post_info['tags']
-        original_url = post_info['original_url']
-        
+        title = post_info["title"]
+        excerpt = post_info["excerpt"]
+        category = post_info["category"]
+        tags = post_info["tags"]
+        original_url = post_info["original_url"]
+
         prompt = f"""당신은 기술 블로그 전문 작가입니다. 다음 정보를 바탕으로 상세하고 실용적인 기술 블로그 포스팅 본문을 작성해주세요.
 
 제목: {title}
@@ -358,31 +376,28 @@ def improve_with_claude(post_info: Dict) -> Optional[str]:
 
 원본 포스트: {original_url}
 """
-        
+
         headers = {
             "x-api-key": CLAUDE_API_KEY,
             "anthropic-version": "2023-06-01",
-            "content-type": "application/json"
+            "content-type": "application/json",
         }
-        
+
         data = {
             "model": "claude-3-5-sonnet-20241022",
             "max_tokens": 4000,
-            "messages": [
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ]
+            "messages": [{"role": "user", "content": prompt}],
         }
-        
-        response = requests.post(ANTHROPIC_API_URL, headers=headers, json=data, timeout=60)
-        
+
+        response = requests.post(
+            ANTHROPIC_API_URL, headers=headers, json=data, timeout=60
+        )
+
         if response.status_code == 200:
             result = response.json()
-            content = result.get('content', [])
+            content = result.get("content", [])
             if content and len(content) > 0:
-                return content[0].get('text', '')
+                return content[0].get("text", "")
         else:
             # API 응답에 민감 정보가 포함될 수 있으므로 상태 코드만 기록
             error_msg = f"Claude API 오류: HTTP {response.status_code}"
@@ -392,26 +407,27 @@ def improve_with_claude(post_info: Dict) -> Optional[str]:
                 masked_response = mask_sensitive_info(response.text[:200])
                 error_msg += f" - 응답: {masked_response}..."
             log_message(error_msg)
-            
+
     except Exception as e:
         # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
         error_msg = mask_sensitive_info(str(e))
         log_message(f"Claude API 호출 오류: {error_msg}")
-    
+
     return None
+
 
 def improve_with_gemini(post_info: Dict) -> Optional[str]:
     """Gemini API를 사용하여 포스팅 개선"""
     if not GEMINI_API_KEY:
         return None
-    
+
     try:
-        title = post_info['title']
-        excerpt = post_info['excerpt']
-        category = post_info['category']
-        tags = post_info['tags']
-        original_url = post_info['original_url']
-        
+        title = post_info["title"]
+        excerpt = post_info["excerpt"]
+        category = post_info["category"]
+        tags = post_info["tags"]
+        original_url = post_info["original_url"]
+
         prompt = f"""당신은 기술 블로그 전문 작가입니다. 다음 정보를 바탕으로 상세하고 실용적인 기술 블로그 포스팅 본문을 작성해주세요.
 
 제목: {title}
@@ -453,34 +469,30 @@ def improve_with_gemini(post_info: Dict) -> Optional[str]:
 
 원본 포스트: {original_url}
 """
-        
+
         # URL에 API 키가 포함되므로 로그에 기록 시 마스킹 필요
         url = f"{GEMINI_API_URL}?key={GEMINI_API_KEY}"
-        
+
         data = {
-            "contents": [{
-                "parts": [{
-                    "text": prompt
-                }]
-            }],
+            "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
                 "temperature": 0.7,
                 "topK": 40,
                 "topP": 0.95,
-                "maxOutputTokens": 4000
-            }
+                "maxOutputTokens": 4000,
+            },
         }
-        
+
         response = requests.post(url, json=data, timeout=60)
-        
+
         if response.status_code == 200:
             result = response.json()
-            candidates = result.get('candidates', [])
+            candidates = result.get("candidates", [])
             if candidates and len(candidates) > 0:
-                content = candidates[0].get('content', {})
-                parts = content.get('parts', [])
+                content = candidates[0].get("content", {})
+                parts = content.get("parts", [])
                 if parts and len(parts) > 0:
-                    return parts[0].get('text', '')
+                    return parts[0].get("text", "")
         else:
             # API 응답에 민감 정보가 포함될 수 있으므로 상태 코드만 기록
             error_msg = f"Gemini API 오류: HTTP {response.status_code}"
@@ -490,80 +502,94 @@ def improve_with_gemini(post_info: Dict) -> Optional[str]:
                 masked_response = mask_sensitive_info(response.text[:200])
                 error_msg += f" - 응답: {masked_response}..."
             log_message(error_msg)
-            
+
     except Exception as e:
         # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
         error_msg = mask_sensitive_info(str(e))
         log_message(f"Gemini API 호출 오류: {error_msg}")
-    
+
     return None
+
 
 def improve_with_cursor_analysis(post_info: Dict) -> Optional[str]:
     """Cursor의 코드 분석 기능을 활용한 개선"""
     try:
         # Cursor는 주로 코드 분석이지만, 포스팅 구조 분석에도 활용 가능
         # 여기서는 파일 구조와 패턴을 분석하여 개선 제안 생성
-        
-        title = post_info['title']
-        excerpt = post_info['excerpt']
-        category = post_info['category']
-        
+
+        title = post_info["title"]
+        excerpt = post_info["excerpt"]
+        category = post_info["category"]
+
         # 유사한 포스팅 찾기 (참고용)
         similar_posts = find_similar_posts(post_info)
-        
+
         # 개선 제안 생성
         suggestions = analyze_structure(post_info)
-        
+
         # 제안을 바탕으로 본문 생성
         improved_content = generate_content_from_suggestions(
-            title, excerpt, category, suggestions, similar_posts, post_info.get('original_url', '')
+            title,
+            excerpt,
+            category,
+            suggestions,
+            similar_posts,
+            post_info.get("original_url", ""),
         )
-        
+
         return improved_content
-        
+
     except Exception as e:
         # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
         error_msg = mask_sensitive_info(str(e))
         log_message(f"Cursor 분석 오류: {error_msg}")
         return None
 
+
 def find_similar_posts(post_info: Dict) -> List[Dict]:
     """유사한 포스팅 찾기"""
     similar = []
-    category = post_info['category']
-    
+    category = post_info["category"]
+
     for post_file in POSTS_DIR.glob("*.md"):
-        if post_file == post_info['file_path']:
+        if post_file == post_info["file_path"]:
             continue
-        
+
         try:
             info = extract_post_info(post_file)
-            if info and info['category'] == category:
+            if info and info["category"] == category:
                 similar.append(info)
         except:
             pass
-    
+
     return similar[:3]  # 최대 3개
+
 
 def analyze_structure(post_info: Dict) -> Dict:
     """포스팅 구조 분석"""
-    body = post_info['body']
-    
+    body = post_info["body"]
+
     suggestions = {
-        'has_intro': '## 서론' in body,
-        'has_sections': len(re.findall(r'^##\s+', body, re.MULTILINE)) > 0,
-        'has_code': '```' in body,
-        'has_conclusion': '## 결론' in body or '## 결론' in body.lower(),
-        'body_length': post_info['body_length']
+        "has_intro": "## 서론" in body,
+        "has_sections": len(re.findall(r"^##\s+", body, re.MULTILINE)) > 0,
+        "has_code": "```" in body,
+        "has_conclusion": "## 결론" in body or "## 결론" in body.lower(),
+        "body_length": post_info["body_length"],
     }
-    
+
     return suggestions
 
-def generate_content_from_suggestions(title: str, excerpt: str, category: str, 
-                                     suggestions: Dict, similar_posts: List[Dict], 
-                                     original_url: str = '') -> str:
+
+def generate_content_from_suggestions(
+    title: str,
+    excerpt: str,
+    category: str,
+    suggestions: Dict,
+    similar_posts: List[Dict],
+    original_url: str = "",
+) -> str:
     """제안을 바탕으로 본문 생성"""
-    
+
     # 기본 구조 생성
     content = f"""## 서론
 
@@ -650,8 +676,9 @@ def generate_content_from_suggestions(title: str, excerpt: str, category: str,
 
 원본 포스트: {original_url}
 """
-    
+
     return content
+
 
 def improve_with_gemini_cli(post_info: Dict) -> Optional[str]:
     """
@@ -663,11 +690,11 @@ def improve_with_gemini_cli(post_info: Dict) -> Optional[str]:
         return None
 
     try:
-        title = post_info['title']
-        excerpt = post_info['excerpt']
-        category = post_info['category']
-        tags = post_info['tags']
-        original_url = post_info.get('original_url', '')
+        title = post_info["title"]
+        excerpt = post_info["excerpt"]
+        category = post_info["category"]
+        tags = post_info["tags"]
+        original_url = post_info.get("original_url", "")
 
         prompt = f"""기술 블로그 전문 작가로서 다음 정보를 바탕으로 실용적인 기술 블로그 포스팅 본문을 작성해주세요.
 
@@ -698,11 +725,7 @@ def improve_with_gemini_cli(post_info: Dict) -> Optional[str]:
 
         # Gemini CLI 호출 (stdin으로 프롬프트 전달)
         result = subprocess.run(
-            ["gemini"],
-            input=prompt,
-            capture_output=True,
-            text=True,
-            timeout=120
+            ["gemini"], input=prompt, capture_output=True, text=True, timeout=120
         )
 
         if result.returncode == 0 and result.stdout.strip():
@@ -750,73 +773,76 @@ def improve_post_with_ai(post_info: Dict) -> bool:
         improved_content = improve_with_gemini(post_info)
         if improved_content:
             method_used = "Gemini API"
-    
+
     if not improved_content:
         log_message(f"  모든 AI 방법 실패, 기본 템플릿 사용")
         return False
-    
+
     try:
-        content = post_info['content']
-        original_url = post_info['original_url']
-        
+        content = post_info["content"]
+        original_url = post_info["original_url"]
+
         # 요약 섹션 찾기
-        summary_match = re.search(r'(## 📋 포스팅 요약\n\n.*?\n\n)', content, re.DOTALL)
+        summary_match = re.search(r"(## 📋 포스팅 요약\n\n.*?\n\n)", content, re.DOTALL)
         if not summary_match:
             return False
-        
+
         summary_end = summary_match.end()
-        
+
         # 기존 본문 확인
-        existing_body_start = content.find('## 서론', summary_end)
+        existing_body_start = content.find("## 서론", summary_end)
         if existing_body_start == -1:
-            existing_body_start = content.find('## 1.', summary_end)
-        
+            existing_body_start = content.find("## 1.", summary_end)
+
         # 원본 URL 추가
-        if original_url and '[원본 포스트:' not in improved_content:
-            improved_content += f"\n\n---\n\n원본 포스트: [{original_url}]({original_url})"
-        
+        if original_url and "[원본 포스트:" not in improved_content:
+            improved_content += (
+                f"\n\n---\n\n원본 포스트: [{original_url}]({original_url})"
+            )
+
         # 기존 본문이 있으면 교체, 없으면 추가
         if existing_body_start != -1:
-            original_link_start = content.find('원본 포스트:', existing_body_start)
+            original_link_start = content.find("원본 포스트:", existing_body_start)
             if original_link_start != -1:
-                new_content = content[:summary_end] + '\n' + improved_content
+                new_content = content[:summary_end] + "\n" + improved_content
             else:
                 new_content = content[:existing_body_start] + improved_content
         else:
-            original_link_start = content.find('원본 포스트:', summary_end)
+            original_link_start = content.find("원본 포스트:", summary_end)
             if original_link_start != -1:
-                new_content = content[:summary_end] + '\n' + improved_content
+                new_content = content[:summary_end] + "\n" + improved_content
             else:
-                new_content = content.rstrip() + '\n\n' + improved_content
-        
+                new_content = content.rstrip() + "\n\n" + improved_content
+
         # 파일 저장
-        post_info['file_path'].write_text(new_content, encoding='utf-8')
+        post_info["file_path"].write_text(new_content, encoding="utf-8")
         log_message(f"  ✓ {method_used}로 개선 완료")
         return True
-        
+
     except Exception as e:
         # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
         error_msg = mask_sensitive_info(str(e))
         log_message(f"  ✗ 파일 저장 오류: {error_msg}")
         return False
 
+
 def main():
     """메인 함수"""
     start_time = time.time()
     improved_count = 0
     checked_count = 0
-    
+
     log_message("=" * 60)
     log_message("AI 기반 포스팅 개선 프로세스 시작")
     log_message(f"실행 시간: {RUN_DURATION}초 (1시간)")
     log_message(f"Claude API: {'사용 가능' if CLAUDE_API_KEY else '미설정'}")
     log_message(f"Gemini API: {'사용 가능' if GEMINI_API_KEY else '미설정'}")
     log_message("=" * 60)
-    
+
     # 모든 포스팅 파일 목록
     all_posts = list(POSTS_DIR.glob("*.md"))
     posts_to_improve = []
-    
+
     # 개선이 필요한 포스팅 식별
     log_message("\n포스팅 분석 중...")
     for post_file in sorted(all_posts):
@@ -824,20 +850,24 @@ def main():
             post_info = extract_post_info(post_file)
             if not post_info:
                 continue
-                
+
             checked_count += 1
-            
+
             if needs_improvement(post_info):
                 posts_to_improve.append(post_info)
-                log_message(f"  개선 필요: {post_file.name} (본문: {post_info['body_length']}자)")
+                log_message(
+                    f"  개선 필요: {post_file.name} (본문: {post_info['body_length']}자)"
+                )
         except Exception as e:
             # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹
             error_msg = mask_sensitive_info(str(e))
             log_message(f"  오류: {post_file.name} - {error_msg}")
-    
-    log_message(f"\n총 {len(all_posts)}개 포스팅 중 {len(posts_to_improve)}개 개선 필요")
+
+    log_message(
+        f"\n총 {len(all_posts)}개 포스팅 중 {len(posts_to_improve)}개 개선 필요"
+    )
     log_message(f"개선 프로세스 시작...\n")
-    
+
     # 개선 프로세스 실행
     for i, post_info in enumerate(posts_to_improve, 1):
         # 시간 체크
@@ -845,19 +875,19 @@ def main():
         if elapsed_time >= RUN_DURATION:
             log_message(f"\n실행 시간 ({RUN_DURATION}초) 도달. 프로세스 종료.")
             break
-        
+
         log_message(f"[{i}/{len(posts_to_improve)}] {post_info['file_path'].name}")
-        
+
         if improve_post_with_ai(post_info):
             improved_count += 1
         else:
             log_message(f"  ✗ 개선 실패")
-        
+
         # API 호출 간 대기 (Rate Limit 방지)
         time.sleep(2)
-    
+
     elapsed_time = time.time() - start_time
-    
+
     # 최종 리포트
     log_message("\n" + "=" * 60)
     log_message("AI 기반 포스팅 개선 프로세스 완료")
@@ -866,6 +896,7 @@ def main():
     log_message(f"개선한 포스팅: {improved_count}개")
     log_message(f"남은 포스팅: {len(posts_to_improve) - improved_count}개")
     log_message("=" * 60)
+
 
 if __name__ == "__main__":
     main()

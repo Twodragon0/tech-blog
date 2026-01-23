@@ -1,0 +1,24 @@
+# CodeQL Configuration for tech-blog
+# Excludes deprecated files and configures query suites
+
+name: "tech-blog-codeql-config"
+
+# Paths to exclude from analysis
+paths-ignore:
+  # Deprecated/archived scripts (no longer in active use)
+  - scripts/_archive/**
+  - scripts/_archive/*
+  # Node modules (if any)
+  - node_modules/**
+  # Build output
+  - _site/**
+  - .jekyll-cache/**
+  # Third-party vendor code
+  - vendor/**
+  - assets/vendor/**
+
+# Query filters for reducing false positives
+query-filters:
+  # Exclude informational alerts
+  - exclude:
+      problem.severity: recommendation
