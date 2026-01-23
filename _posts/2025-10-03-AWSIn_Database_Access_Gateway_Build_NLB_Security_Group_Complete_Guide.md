@@ -10,6 +10,7 @@ original_url: https://twodragon.tistory.com/696
 image: /assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.svg
 image_alt: "Building Secure Database Access Gateway on AWS: NLB Security Group Complete Guide"
 certifications: [aws-saa]
+toc: true
 ---
 
 <div class="ai-summary-card">

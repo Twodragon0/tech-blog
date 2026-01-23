@@ -9,6 +9,7 @@ comments: true
 original_url: https://twodragon.tistory.com/700
 image: /assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.svg
 image_alt: "Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSecOps to FinOps"
+toc: true
 ---
 
 <div class="ai-summary-card">

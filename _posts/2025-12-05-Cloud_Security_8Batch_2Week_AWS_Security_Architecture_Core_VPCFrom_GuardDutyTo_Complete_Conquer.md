@@ -10,6 +10,7 @@ original_url: https://twodragon.tistory.com/702
 image: /assets/images/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer.svg
 image_alt: "Cloud Security 8Batch 2Week: Complete Mastery of AWS Security Architecture Core from VPC to GuardDuty"
 certifications: [aws-saa]
+toc: true
 ---
 
 <div class="ai-summary-card">

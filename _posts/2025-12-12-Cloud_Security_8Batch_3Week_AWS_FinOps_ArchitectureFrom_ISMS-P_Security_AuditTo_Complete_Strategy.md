@@ -10,6 +10,7 @@ original_url: https://twodragon.tistory.com/703
 image: /assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.svg
 image_alt: "Cloud Security 8Batch 3Week: Complete Strategy from AWS FinOps Architecture to ISMS-P Security Audit"
 certifications: [isms-p, aws-saa]
+toc: true
 ---
 
 <div class="ai-summary-card">

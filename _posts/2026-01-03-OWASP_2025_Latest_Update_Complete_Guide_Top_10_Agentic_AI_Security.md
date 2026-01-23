@@ -8,6 +8,7 @@ excerpt: "OWASP 2025년 주요 업데이트 완벽 정리: OWASP Top 10 2025의 
 comments: true
 image: /assets/images/2026-01-03-OWASP_2025_Complete_Guide_Top_10_AI_Security.svg
 image_alt: "OWASP 2025 Latest Update Complete Guide: Top 10 and Agentic AI Security"
+toc: true
 ---
 
 <div class="ai-summary-card">
