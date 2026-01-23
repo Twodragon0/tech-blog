@@ -78,6 +78,7 @@
   const tocCount = document.getElementById('toc-count');
   const tocItems = document.querySelectorAll('.toc-card-item');
   const tocSubItems = document.querySelectorAll('.toc-sub-item');
+  const tocContainer = tocContent ? tocContent.closest('.toc-container') : null;
 
   if (!tocToggle || !tocContent) return;
 
@@ -86,23 +87,14 @@
     tocCount.textContent = tocItems.length + '개 섹션';
   }
 
-   // 기본: h3 숨김, 4개 이상이면 미리보기
-   const maxPreview = 6;
-   let isExpanded = false;
+  // 기본 설정
+  const maxPreview = 6;
+  let isExpanded = false;
 
-   // CLS 최적화: 초기 컨테이너 높이 설정
-   const tocContainer = tocContent.closest('.toc-container');
-   if (tocContainer) {
-     // 초기 높이 계산 및 설정 (CLS 방지)
-     const initialHeight = tocContent.offsetHeight;
-     tocContainer.style.minHeight = initialHeight + 'px';
-     tocContainer.style.contain = 'layout style';
-   }
-
-   // 초기 상태: h3 숨김
-   if (tocSublist) {
-     tocSublist.style.display = 'none';
-   }
+  // 초기 상태: h3 숨김
+  if (tocSublist) {
+    tocSublist.style.display = 'none';
+  }
 
   // 6개 초과 시 일부만 표시
   if (tocItems.length > maxPreview) {
@@ -112,60 +104,41 @@
       }
     });
     tocToggle.querySelector('.btn-text').textContent = '+' + (tocItems.length - maxPreview) + ' 더보기';
-  } else {
+  } else if (tocSubItems.length > 0) {
     tocToggle.querySelector('.btn-text').textContent = '상세보기';
+  } else {
+    // 하위 항목이 없으면 버튼 숨김
+    tocToggle.style.display = 'none';
   }
 
-   // 토글 버튼 클릭
-   tocToggle.addEventListener('click', function() {
-     isExpanded = !isExpanded;
+  // 토글 버튼 클릭
+  tocToggle.addEventListener('click', function() {
+    isExpanded = !isExpanded;
 
-     // CLS 최적화: 높이 전환 전 계산
-     const currentHeight = tocContent.offsetHeight;
-     let targetHeight;
-
-     if (isExpanded) {
-       // 전체 펼치기
-       tocItems.forEach(item => item.classList.remove('toc-hidden'));
-       if (tocSublist && tocSubItems.length > 0) {
-         tocSublist.style.display = 'block';
-       }
-
-       // 펼친 후 높이 계산
-       targetHeight = tocContent.offsetHeight;
-
-       // CLS 최적화: 컨테이너 높이 업데이트
-       if (tocContainer) {
-         tocContainer.style.minHeight = targetHeight + 'px';
-       }
-
-       tocToggle.querySelector('.btn-text').textContent = '접기';
-       tocToggle.classList.add('expanded');
+    if (isExpanded) {
+      // 전체 펼치기
+      tocItems.forEach(item => item.classList.remove('toc-hidden'));
+      if (tocSublist && tocSubItems.length > 0) {
+        tocSublist.style.display = 'block';
+      }
+      tocToggle.querySelector('.btn-text').textContent = '접기';
+      tocToggle.classList.add('expanded');
+    } else {
+      // 접기
+      if (tocItems.length > maxPreview) {
+        tocItems.forEach((item, index) => {
+          if (index >= maxPreview) {
+            item.classList.add('toc-hidden');
+          }
+        });
+        tocToggle.querySelector('.btn-text').textContent = '+' + (tocItems.length - maxPreview) + ' 더보기';
       } else {
-       // 접기
-       if (tocItems.length > maxPreview) {
-         tocItems.forEach((item, index) => {
-           if (index >= maxPreview) {
-             item.classList.add('toc-hidden');
-           }
-         });
-         tocToggle.querySelector('.btn-text').textContent = '+' + (tocItems.length - maxPreview) + ' 더보기';
-       } else {
-         tocToggle.querySelector('.btn-text').textContent = '상세보기';
-       }
-       if (tocSublist) {
-         tocSublist.style.display = 'none';
-       }
-
-       // 접힌 후 높이 계산
-       targetHeight = tocContent.offsetHeight;
-
-       // CLS 최적화: 컨테이너 높이 업데이트
-       if (tocContainer) {
-         tocContainer.style.minHeight = targetHeight + 'px';
-       }
-
-       tocToggle.classList.remove('expanded');
+        tocToggle.querySelector('.btn-text').textContent = '상세보기';
+      }
+      if (tocSublist) {
+        tocSublist.style.display = 'none';
+      }
+      tocToggle.classList.remove('expanded');
     }
   });
 
