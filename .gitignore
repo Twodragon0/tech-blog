@@ -55,3 +55,31 @@ __pycache__/
 **/credentials.json
 **/service-account*.json
 .env*.local
+
+# Generated output files (scripts)
+output/
+video_generation_log.txt
+
+# Temporary files
+*.tmp
+*.bak
+Untitled.*
+
+# Obsidian
+.obsidian/
+
+# Image analysis temp files
+all_images.txt
+referenced_images.txt
+
+# IDE
+.vscode/
+.idea/
+
+# Ruff cache
+.ruff_cache/
+
+# Claude/Cursor session
+.claude/
+.cursor/
+.sisyphus/

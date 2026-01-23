@@ -1,58 +1,300 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950">
   <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&amp;display=swap');
-      .title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 56px; fill: #F8FAFC; }
-      .subtitle { font-family: 'Manrope', sans-serif; font-weight: 400; font-size: 30px; fill: #94A3B8; }
-      .bullet-text { font-family: 'Manrope', sans-serif; font-weight: 400; font-size: 32px; fill: #E2E8F0; }
-      .stat-val { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 72px; fill: #38BDF8; }
-      .stat-label { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 20px; fill: #94A3B8; text-transform: uppercase; letter-spacing: 2px; }
-      .card { fill: #1E293B; stroke: #334155; stroke-width: 2; rx: 16; }
-      .bullet-icon { fill: #38BDF8; }
-    </style>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0F172A;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1E293B;stop-opacity:1" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
     </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ea580c"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  
-  <rect width="100%" height="100%" fill="url(#grad)" />
-  <circle cx="1100" cy="100" r="400" fill="#38BDF8" opacity="0.03" />
-  
-  <g transform="translate(80, 80)">
-    <text x="0" y="60" class="title">Ransomware Trends Q3</text>
-    <text x="0" y="110" class="subtitle">Analysis by KARA (2025 Data)</text>
-    <line x1="0" y1="150" x2="1240" y2="150" stroke="#334155" stroke-width="2" />
-    
-    <g transform="translate(20, 220)">
-       <circle cx="10" cy="-10" r="6" class="bullet-icon" />
-       <text x="40" y="0" class="bullet-text">1,733 confirmed attacks (+36% YoY)</text>
-       
-       <circle cx="10" cy="70" r="6" class="bullet-icon" />
-       <text x="40" y="80" class="bullet-text">77 active groups showing high fragmentation</text>
 
-       <circle cx="10" cy="150" r="6" class="bullet-icon" />
-       <text x="40" y="160" class="bullet-text">Top groups: Qilin, Akira, INC, LockBit 5.0</text>
+  <!-- Background -->
+  <rect width="1400" height="950" fill="url(#bgGrad)"/>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.02"/>
+  </pattern>
+  <rect width="1400" height="950" fill="url(#grid)"/>
 
-       <circle cx="10" cy="230" r="6" class="bullet-icon" />
-       <text x="40" y="240" class="bullet-text">Manufacturing sector most targeted (+56%)</text>
+  <!-- Header -->
+  <text x="700" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="38" font-weight="bold" fill="#ffffff">KARA Ransomware Trends Report - 2025 Q3</text>
+  <text x="700" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8">SK Shieldus EQST Analysis | Korea Anti-Ransomware Alliance</text>
+  <line x1="100" y1="105" x2="1300" y2="105" stroke="#334155" stroke-width="2"/>
 
-       <circle cx="10" cy="310" r="6" class="bullet-icon" />
-       <text x="40" y="320" class="bullet-text">Record low payment rate of 23%</text>
+  <!-- Key Stats Row -->
+  <g transform="translate(100, 125)">
+    <!-- Total Attacks -->
+    <g>
+      <rect width="220" height="130" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <rect x="0" y="0" width="220" height="6" rx="3" fill="url(#redGrad)"/>
+      <text x="110" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="bold" fill="#ef4444" filter="url(#glow)">1,733</text>
+      <text x="110" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8">Total Attacks</text>
+      <text x="110" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">+36% YoY</text>
+      <text x="110" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Q3 2025</text>
+    </g>
+
+    <!-- Active Groups -->
+    <g transform="translate(240, 0)">
+      <rect width="220" height="130" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <rect x="0" y="0" width="220" height="6" rx="3" fill="url(#orangeGrad)"/>
+      <text x="110" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="bold" fill="#f97316" filter="url(#glow)">77</text>
+      <text x="110" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8">Active Groups</text>
+      <text x="110" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#f97316">+57% YoY</text>
+      <text x="110" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Ecosystem Fragmentation</text>
+    </g>
+
+    <!-- Payment Rate -->
+    <g transform="translate(480, 0)">
+      <rect width="220" height="130" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <rect x="0" y="0" width="220" height="6" rx="3" fill="url(#greenGrad)"/>
+      <text x="110" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="bold" fill="#22c55e" filter="url(#glow)">23%</text>
+      <text x="110" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8">Payment Rate</text>
+      <text x="110" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#22c55e">Record Low</text>
+      <text x="110" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Companies Refusing</text>
+    </g>
+
+    <!-- Average Ransom -->
+    <g transform="translate(720, 0)">
+      <rect width="220" height="130" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <rect x="0" y="0" width="220" height="6" rx="3" fill="#38bdf8"/>
+      <text x="110" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="#38bdf8" filter="url(#glow)">$377K</text>
+      <text x="110" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8">Avg Ransom</text>
+      <text x="110" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#22c55e">-66% QoQ</text>
+      <text x="110" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Declining Prices</text>
+    </g>
+
+    <!-- Leak Sites -->
+    <g transform="translate(960, 0)">
+      <rect width="220" height="130" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <rect x="0" y="0" width="220" height="6" rx="3" fill="#a78bfa"/>
+      <text x="110" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="bold" fill="#a78bfa" filter="url(#glow)">85</text>
+      <text x="110" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8">Leak Sites</text>
+      <text x="110" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b">All Time High</text>
+      <text x="110" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Tracking Complexity</text>
     </g>
   </g>
 
-  <g transform="translate(1000, 200)">
-     <rect x="0" y="0" width="280" height="160" class="card" />
-     <text x="140" y="85" text-anchor="middle" class="stat-val">1,733</text>
-     <text x="140" y="130" text-anchor="middle" class="stat-label">Attacks</text>
-     
-     <rect x="0" y="190" width="280" height="160" class="card" />
-     <text x="140" y="275" text-anchor="middle" class="stat-val">+36%</text>
-     <text x="140" y="320" text-anchor="middle" class="stat-label">YoY Growth</text>
-     
-     <rect x="0" y="380" width="280" height="160" class="card" />
-     <text x="140" y="465" text-anchor="middle" class="stat-val">23%</text>
-     <text x="140" y="510" text-anchor="middle" class="stat-label">Pay Rate</text>
+  <!-- Top Ransomware Groups -->
+  <g transform="translate(100, 280)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Top Ransomware Groups - Q3 2025</text>
+    
+    <g transform="translate(0, 25)">
+      <rect width="580" height="310" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      
+      <!-- Bar Chart -->
+      <g transform="translate(30, 30)">
+        <!-- Qilin -->
+        <text x="0" y="15" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Qilin</text>
+        <rect x="80" y="0" width="340" height="28" rx="4" fill="#ef4444" opacity="0.8"/>
+        <text x="430" y="18" font-family="system-ui, sans-serif" font-size="13" fill="#ef4444" font-weight="bold">~250 | +318%</text>
+        
+        <!-- Akira -->
+        <text x="0" y="60" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Akira</text>
+        <rect x="80" y="45" width="200" height="28" rx="4" fill="#f97316" opacity="0.8"/>
+        <text x="290" y="63" font-family="system-ui, sans-serif" font-size="13" fill="#f97316" font-weight="bold">155 | +212%</text>
+        
+        <!-- INC -->
+        <text x="0" y="105" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">INC</text>
+        <rect x="80" y="90" width="152" height="28" rx="4" fill="#eab308" opacity="0.8"/>
+        <text x="242" y="108" font-family="system-ui, sans-serif" font-size="13" fill="#eab308" font-weight="bold">114 | +90%</text>
+        
+        <!-- Play -->
+        <text x="0" y="150" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Play</text>
+        <rect x="80" y="135" width="136" height="28" rx="4" fill="#22c55e" opacity="0.8"/>
+        <text x="226" y="153" font-family="system-ui, sans-serif" font-size="13" fill="#22c55e" font-weight="bold">102 | -17%</text>
+        
+        <!-- SafePay -->
+        <text x="0" y="195" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">SafePay</text>
+        <rect x="80" y="180" width="120" height="28" rx="4" fill="#38bdf8" opacity="0.8"/>
+        <text x="210" y="198" font-family="system-ui, sans-serif" font-size="13" fill="#38bdf8" font-weight="bold">90 | New</text>
+        
+        <!-- LockBit 5.0 -->
+        <text x="0" y="240" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">LockBit 5.0</text>
+        <rect x="80" y="225" width="100" height="28" rx="4" fill="#a78bfa" opacity="0.8"/>
+        <text x="190" y="243" font-family="system-ui, sans-serif" font-size="13" fill="#a78bfa" font-weight="bold">Sept Return</text>
+      </g>
+      
+      <text x="290" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Victims Count | YoY Change</text>
+    </g>
   </g>
+
+  <!-- Quadruple Extortion -->
+  <g transform="translate(710, 280)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Quadruple Extortion Tactics</text>
+    
+    <g transform="translate(0, 25)">
+      <rect width="580" height="310" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      
+      <!-- 4 Steps -->
+      <g transform="translate(30, 30)">
+        <!-- Step 1 -->
+        <g>
+          <rect width="240" height="55" rx="8" fill="#dc2626" opacity="0.3" stroke="#ef4444"/>
+          <text x="20" y="22" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#ef4444">1. Encryption</text>
+          <text x="20" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Data locked + ransom demand</text>
+        </g>
+        
+        <path d="M250 27 L270 27" stroke="#64748b" stroke-width="2"/>
+        <polygon points="270,22 280,27 270,32" fill="#64748b"/>
+        
+        <!-- Step 2 -->
+        <g transform="translate(290, 0)">
+          <rect width="240" height="55" rx="8" fill="#ea580c" opacity="0.3" stroke="#f97316"/>
+          <text x="20" y="22" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#f97316">2. Data Leak Threat</text>
+          <text x="20" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Dark web exposure warning</text>
+        </g>
+        
+        <!-- Step 3 -->
+        <g transform="translate(0, 75)">
+          <rect width="240" height="55" rx="8" fill="#eab308" opacity="0.3" stroke="#facc15"/>
+          <text x="20" y="22" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#facc15">3. DDoS Attack</text>
+          <text x="20" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Service disruption pressure</text>
+        </g>
+        
+        <path d="M250 102 L270 102" stroke="#64748b" stroke-width="2"/>
+        <polygon points="270,97 280,102 270,107" fill="#64748b"/>
+        
+        <!-- Step 4 -->
+        <g transform="translate(290, 75)">
+          <rect width="240" height="55" rx="8" fill="#7c3aed" opacity="0.3" stroke="#a78bfa"/>
+          <text x="20" y="22" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#a78bfa">4. Customer Contact</text>
+          <text x="20" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Direct stakeholder pressure</text>
+        </g>
+      </g>
+      
+      <!-- NEW: Regulatory Weaponization -->
+      <g transform="translate(30, 185)">
+        <text x="0" y="0" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b">NEW: Regulatory Weaponization</text>
+        <g transform="translate(0, 15)">
+          <rect width="120" height="30" rx="6" fill="#0f172a" stroke="#64748b"/>
+          <text x="60" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">GDPR</text>
+        </g>
+        <g transform="translate(135, 15)">
+          <rect width="120" height="30" rx="6" fill="#0f172a" stroke="#64748b"/>
+          <text x="60" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">SEC</text>
+        </g>
+        <g transform="translate(270, 15)">
+          <rect width="120" height="30" rx="6" fill="#0f172a" stroke="#64748b"/>
+          <text x="60" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">HIPAA</text>
+        </g>
+        <g transform="translate(405, 15)">
+          <rect width="120" height="30" rx="6" fill="#0f172a" stroke="#64748b"/>
+          <text x="60" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">PCI-DSS</text>
+        </g>
+        <text x="260" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Attackers threaten to report breaches to regulators</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Target Industries -->
+  <g transform="translate(100, 630)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Target Industries</text>
+    
+    <g transform="translate(0, 25)">
+      <rect width="580" height="200" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      
+      <g transform="translate(30, 25)">
+        <!-- Manufacturing -->
+        <g>
+          <rect width="160" height="70" rx="8" fill="#ef4444" opacity="0.2" stroke="#ef4444"/>
+          <text x="80" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">#1 Manufacturing</text>
+          <text x="80" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#ef4444">26%</text>
+          <text x="80" y="63" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">+56% YoY</text>
+        </g>
+        
+        <!-- Healthcare -->
+        <g transform="translate(175, 0)">
+          <rect width="160" height="70" rx="8" fill="#f97316" opacity="0.2" stroke="#f97316"/>
+          <text x="80" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#f97316">#2 Healthcare</text>
+          <text x="80" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#f97316">8%</text>
+          <text x="80" y="63" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Stable</text>
+        </g>
+        
+        <!-- Financial -->
+        <g transform="translate(350, 0)">
+          <rect width="160" height="70" rx="8" fill="#eab308" opacity="0.2" stroke="#eab308"/>
+          <text x="80" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#eab308">#3 Financial</text>
+          <text x="80" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#eab308">7%</text>
+          <text x="80" y="63" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#ef4444">+65% YoY</text>
+        </g>
+      </g>
+      
+      <!-- Why Manufacturing -->
+      <g transform="translate(30, 110)">
+        <text x="0" y="0" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#38bdf8">Why Manufacturing is #1 Target:</text>
+        <text x="0" y="22" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">High downtime cost | OT/IT integration gaps | JIT production pressure | Low security maturity</text>
+        <text x="0" y="42" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#22c55e">Defense: OT/IT segmentation | Industrial firewalls | Regular security assessments</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Defense Strategies -->
+  <g transform="translate(710, 630)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Essential Defense Strategies</text>
+    
+    <g transform="translate(0, 25)">
+      <rect width="580" height="200" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      
+      <!-- 4 Pillars -->
+      <g transform="translate(25, 25)">
+        <!-- Zero Trust -->
+        <g>
+          <rect width="125" height="100" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+          <text x="62" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#38bdf8">Zero Trust</text>
+          <text x="62" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">MFA Everywhere</text>
+          <text x="62" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Least Privilege</text>
+          <text x="62" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Micro-Segment</text>
+        </g>
+        
+        <!-- Backup -->
+        <g transform="translate(140, 0)">
+          <rect width="125" height="100" rx="8" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
+          <text x="62" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#22c55e">3-2-1-1-0</text>
+          <text x="62" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Immutable Backup</text>
+          <text x="62" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Offsite Copy</text>
+          <text x="62" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Test Recovery</text>
+        </g>
+        
+        <!-- Patch -->
+        <g transform="translate(280, 0)">
+          <rect width="125" height="100" rx="8" fill="#0f172a" stroke="#f97316" stroke-width="2"/>
+          <text x="62" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#f97316">CISA KEV</text>
+          <text x="62" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Priority Patching</text>
+          <text x="62" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">VPN Hardening</text>
+          <text x="62" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">SonicWall Fix</text>
+        </g>
+        
+        <!-- Detection -->
+        <g transform="translate(420, 0)">
+          <rect width="125" height="100" rx="8" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+          <text x="62" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#a78bfa">Detection</text>
+          <text x="62" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">YARA/Sigma</text>
+          <text x="62" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">EDR/XDR</text>
+          <text x="62" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">IOC Monitoring</text>
+        </g>
+      </g>
+      
+      <!-- Critical CVE -->
+      <g transform="translate(25, 140)">
+        <rect width="530" height="35" rx="6" fill="#7f1d1d" opacity="0.5" stroke="#ef4444"/>
+        <text x="265" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ef4444">URGENT: Patch CVE-2024-40766 (SonicWall SSLVPN) - CVSS 9.8 - Actively exploited by Akira</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="910" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Source: SK Shieldus EQST, KARA, GuidePoint GRIT, Checkpoint, Mandiant | tech.2twodragon.com</text>
 </svg>

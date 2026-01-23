@@ -1,54 +1,208 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 850">
   <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&amp;display=swap');
-      .title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 56px; fill: #F8FAFC; }
-      .subtitle { font-family: 'Manrope', sans-serif; font-weight: 400; font-size: 30px; fill: #94A3B8; }
-      .bullet-text { font-family: 'Manrope', sans-serif; font-weight: 400; font-size: 32px; fill: #E2E8F0; }
-      .stat-val { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 72px; fill: #38BDF8; }
-      .stat-label { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 20px; fill: #94A3B8; text-transform: uppercase; letter-spacing: 2px; }
-      .card { fill: #1E293B; stroke: #334155; stroke-width: 2; rx: 16; }
-      .bullet-icon { fill: #38BDF8; }
-    </style>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0F172A;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1E293B;stop-opacity:1" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
     </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  
-  <rect width="100%" height="100%" fill="url(#grad)" />
-  <circle cx="1100" cy="100" r="400" fill="#38BDF8" opacity="0.03" />
-  
-  <g transform="translate(80, 80)">
-    <text x="0" y="60" class="title">Vendor Blog Review</text>
-    <text x="0" y="110" class="subtitle">Weekly Security Insights</text>
-    <line x1="0" y1="150" x2="1240" y2="150" stroke="#334155" stroke-width="2" />
+
+  <!-- Background -->
+  <rect width="1400" height="850" fill="url(#bgGrad)"/>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.02"/>
+  </pattern>
+  <rect width="1400" height="850" fill="url(#grid)"/>
+
+  <!-- Header -->
+  <text x="700" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="bold" fill="#ffffff">Security Vendor Blog Weekly Review</text>
+  <text x="700" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8">January 15-22, 2026 | 4 Vendors | Key Security Insights</text>
+  <line x1="100" y1="95" x2="1300" y2="95" stroke="#334155" stroke-width="2"/>
+
+  <!-- Summary Stats -->
+  <g transform="translate(100, 115)">
+    <g>
+      <rect width="200" height="60" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+      <text x="100" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#38bdf8">4</text>
+      <text x="100" y="48" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Vendors Covered</text>
+    </g>
+    <g transform="translate(220, 0)">
+      <rect width="200" height="60" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+      <text x="100" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#22c55e">7+</text>
+      <text x="100" y="48" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Articles Analyzed</text>
+    </g>
+    <g transform="translate(440, 0)">
+      <rect width="200" height="60" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+      <text x="100" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#f97316">7 Days</text>
+      <text x="100" y="48" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Coverage Period</text>
+    </g>
     
-    <g transform="translate(20, 220)">
-       <circle cx="10" cy="-10" r="6" class="bullet-icon" />
-       <text x="40" y="0" class="bullet-text">Jamf: VS Code threat expansion</text>
-       
-       <circle cx="10" cy="70" r="6" class="bullet-icon" />
-       <text x="40" y="80" class="bullet-text">Cloudflare: ACME validation vulnerability</text>
-
-       <circle cx="10" cy="150" r="6" class="bullet-icon" />
-       <text x="40" y="160" class="bullet-text">Snyk: Machine-speed security for AI agents</text>
-
-       <circle cx="10" cy="230" r="6" class="bullet-icon" />
-       <text x="40" y="240" class="bullet-text">HashiCorp: Zero Trust for non-human identities</text>
-
-       <circle cx="10" cy="310" r="6" class="bullet-icon" />
-       <text x="40" y="320" class="bullet-text">Weekly digest across 4 major vendors</text>
+    <!-- Key Themes -->
+    <g transform="translate(680, 0)">
+      <rect width="520" height="60" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+      <text x="260" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#a78bfa">Key Themes This Week</text>
+      <text x="260" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">AI Security | Zero Trust | VS Code Threats | ACME Vulnerabilities</text>
     </g>
   </g>
 
-  <g transform="translate(1000, 250)">
-     <rect x="0" y="0" width="280" height="160" class="card" />
-     <text x="140" y="85" text-anchor="middle" class="stat-val">4</text>
-     <text x="140" y="130" text-anchor="middle" class="stat-label">Vendors</text>
-     
-     <rect x="0" y="190" width="280" height="160" class="card" />
-     <text x="140" y="275" text-anchor="middle" class="stat-val">7</text>
-     <text x="140" y="320" text-anchor="middle" class="stat-label">Day Digest</text>
+  <!-- Vendor Grid -->
+  <g transform="translate(100, 200)">
+    <!-- Jamf -->
+    <g>
+      <rect width="580" height="180" rx="12" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
+      <rect x="0" y="0" width="580" height="40" rx="12" fill="#ec4899"/>
+      <rect x="0" y="28" width="580" height="12" fill="#ec4899"/>
+      <text x="30" y="27" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Jamf</text>
+      <text x="550" y="27" text-anchor="end" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">Endpoint Security</text>
+      
+      <g transform="translate(20, 55)">
+        <rect width="260" height="105" rx="8" fill="#0f172a" stroke="#7f1d1d"/>
+        <text x="130" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#ef4444">VS Code Threat Expansion</text>
+        <text x="130" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Malicious extensions</text>
+        <text x="130" y="58" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Tunnel hijacking</text>
+        <text x="130" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">C2 communication</text>
+        <rect x="60" y="82" width="140" height="18" rx="4" fill="#7f1d1d"/>
+        <text x="130" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#ef4444">HIGH PRIORITY</text>
+      </g>
+      
+      <g transform="translate(300, 55)">
+        <rect width="260" height="105" rx="8" fill="#0f172a" stroke="#334155"/>
+        <text x="130" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#f59e0b">Contagious Interview</text>
+        <text x="130" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">DPRK threat actors</text>
+        <text x="130" y="58" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Fake job interviews</text>
+        <text x="130" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Developer targeting</text>
+        <rect x="60" y="82" width="140" height="18" rx="4" fill="#422006"/>
+        <text x="130" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#f97316">MEDIUM PRIORITY</text>
+      </g>
+    </g>
+
+    <!-- Cloudflare -->
+    <g transform="translate(620, 0)">
+      <rect width="580" height="180" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+      <rect x="0" y="0" width="580" height="40" rx="12" fill="#f97316"/>
+      <rect x="0" y="28" width="580" height="12" fill="#f97316"/>
+      <text x="30" y="27" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Cloudflare</text>
+      <text x="550" y="27" text-anchor="end" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">Network Security</text>
+      
+      <g transform="translate(20, 55)">
+        <rect width="260" height="105" rx="8" fill="#0f172a" stroke="#7f1d1d"/>
+        <text x="130" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#ef4444">ACME Validation Bug</text>
+        <text x="130" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Certificate issuance flaw</text>
+        <text x="130" y="58" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">HTTP-01 challenge bypass</text>
+        <text x="130" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Mitigation deployed</text>
+        <rect x="60" y="82" width="140" height="18" rx="4" fill="#7f1d1d"/>
+        <text x="130" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#ef4444">HIGH PRIORITY</text>
+      </g>
+      
+      <g transform="translate(300, 55)">
+        <rect width="260" height="105" rx="8" fill="#0f172a" stroke="#334155"/>
+        <text x="130" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#38bdf8">DDoS Trends 2025 Q4</text>
+        <text x="130" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Attack patterns evolving</text>
+        <text x="130" y="58" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Tbps-scale mitigations</text>
+        <text x="130" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Bot detection updates</text>
+        <rect x="60" y="82" width="140" height="18" rx="4" fill="#172554"/>
+        <text x="130" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#3b82f6">INFORMATIONAL</text>
+      </g>
+    </g>
+
+    <!-- Snyk -->
+    <g transform="translate(0, 200)">
+      <rect width="580" height="180" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+      <rect x="0" y="0" width="580" height="40" rx="12" fill="#a78bfa"/>
+      <rect x="0" y="28" width="580" height="12" fill="#a78bfa"/>
+      <text x="30" y="27" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Snyk</text>
+      <text x="550" y="27" text-anchor="end" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">DevSecOps</text>
+      
+      <g transform="translate(20, 55)">
+        <rect width="540" height="105" rx="8" fill="#0f172a" stroke="#4c1d95"/>
+        <text x="270" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#a78bfa">Machine-Speed Security for AI Agents</text>
+        <text x="270" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">AI agents operate at machine speed - security must keep pace</text>
+        
+        <g transform="translate(40, 60)">
+          <rect width="140" height="30" rx="6" fill="#4c1d95" opacity="0.3"/>
+          <text x="70" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#a78bfa">Automated Scanning</text>
+        </g>
+        <g transform="translate(200, 60)">
+          <rect width="140" height="30" rx="6" fill="#4c1d95" opacity="0.3"/>
+          <text x="70" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#a78bfa">Real-time Fixes</text>
+        </g>
+        <g transform="translate(360, 60)">
+          <rect width="140" height="30" rx="6" fill="#4c1d95" opacity="0.3"/>
+          <text x="70" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#a78bfa">Policy as Code</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- HashiCorp -->
+    <g transform="translate(620, 200)">
+      <rect width="580" height="180" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+      <rect x="0" y="0" width="580" height="40" rx="12" fill="#22c55e"/>
+      <rect x="0" y="28" width="580" height="12" fill="#22c55e"/>
+      <text x="30" y="27" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">HashiCorp</text>
+      <text x="550" y="27" text-anchor="end" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">Infrastructure &amp; Identity</text>
+      
+      <g transform="translate(20, 55)">
+        <rect width="260" height="105" rx="8" fill="#0f172a" stroke="#14532d"/>
+        <text x="130" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#22c55e">Zero Trust for NHI</text>
+        <text x="130" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Non-Human Identity mgmt</text>
+        <text x="130" y="58" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Agentic AI protection</text>
+        <text x="130" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Vault integration</text>
+        <rect x="60" y="82" width="140" height="18" rx="4" fill="#14532d"/>
+        <text x="130" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#22c55e">HIGH PRIORITY</text>
+      </g>
+      
+      <g transform="translate(300, 55)">
+        <rect width="260" height="105" rx="8" fill="#0f172a" stroke="#334155"/>
+        <text x="130" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#38bdf8">Kiro IDE Partnership</text>
+        <text x="130" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Terraform integration</text>
+        <text x="130" y="58" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">AI-assisted IaC</text>
+        <text x="130" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">AWS simplification</text>
+        <rect x="60" y="82" width="140" height="18" rx="4" fill="#172554"/>
+        <text x="130" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#3b82f6">INFORMATIONAL</text>
+      </g>
+    </g>
   </g>
+
+  <!-- Action Items -->
+  <g transform="translate(100, 620)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">This Week's Action Items</text>
+    
+    <g transform="translate(0, 25)">
+      <rect width="1200" height="120" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      
+      <g transform="translate(30, 25)">
+        <rect width="270" height="70" rx="8" fill="#7f1d1d" opacity="0.3" stroke="#ef4444"/>
+        <text x="135" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#ef4444">HIGH PRIORITY</text>
+        <text x="135" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Block VS Code tunnels if unused</text>
+        <text x="135" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Audit ACME certificates</text>
+      </g>
+      
+      <g transform="translate(320, 25)">
+        <rect width="270" height="70" rx="8" fill="#14532d" opacity="0.3" stroke="#22c55e"/>
+        <text x="135" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#22c55e">RECOMMENDED</text>
+        <text x="135" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Review NHI management</text>
+        <text x="135" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Implement Zero Trust for AI</text>
+      </g>
+      
+      <g transform="translate(610, 25)">
+        <rect width="270" height="70" rx="8" fill="#172554" opacity="0.3" stroke="#3b82f6"/>
+        <text x="135" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#3b82f6">INFORMATIONAL</text>
+        <text x="135" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Evaluate AI-assisted IaC</text>
+        <text x="135" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Review DDoS mitigation</text>
+      </g>
+      
+      <g transform="translate(900, 25)">
+        <rect width="270" height="70" rx="8" fill="#4c1d95" opacity="0.3" stroke="#a78bfa"/>
+        <text x="135" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#a78bfa">STRATEGIC</text>
+        <text x="135" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Machine-speed security</text>
+        <text x="135" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">DevSecOps automation</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="810" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Source: Jamf, Cloudflare, Snyk, HashiCorp Official Blogs | tech.2twodragon.com</text>
 </svg>

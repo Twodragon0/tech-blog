@@ -1,135 +1,494 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
     </linearGradient>
-    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff9900;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff6600;stop-opacity:1" />
+    <linearGradient id="awsOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9900"/>
+      <stop offset="100%" style="stop-color:#FF6600"/>
     </linearGradient>
     <linearGradient id="githubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#24292e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#181717;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#24292e"/>
+      <stop offset="100%" style="stop-color:#181717"/>
     </linearGradient>
+    <linearGradient id="securityGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="alertRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="infoBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+    <linearGradient id="infoPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#9333ea"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#ffffff"/>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffffff"/>
     </marker>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1400" height="1000" fill="url(#bgGrad)"/>
+  <rect width="1400" height="1000" fill="url(#grid)"/>
 
-  <!-- Grid pattern -->
-  <g stroke="#ffffff" stroke-opacity="0.05" stroke-width="1">
-    <line x1="0" y1="100" x2="1200" y2="100"/>
-    <line x1="0" y1="200" x2="1200" y2="200"/>
-    <line x1="0" y1="300" x2="1200" y2="300"/>
-    <line x1="0" y1="400" x2="1200" y2="400"/>
-    <line x1="0" y1="500" x2="1200" y2="500"/>
-    <line x1="200" y1="0" x2="200" y2="630"/>
-    <line x1="400" y1="0" x2="400" y2="630"/>
-    <line x1="600" y1="0" x2="600" y2="630"/>
-    <line x1="800" y1="0" x2="800" y2="630"/>
-    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="90" fill="url(#awsOrange)" opacity="0.15"/>
+  <text x="700" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#FF9900" filter="url(#glow)">Cloud Security Course - Week 6</text>
+  <text x="700" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8">AWS WAF/CloudFront Security Architecture &amp; GitHub DevSecOps Practical</text>
+
+  <!-- Section 1: CloudFront CDN Security -->
+  <g transform="translate(30, 110)">
+    <rect x="0" y="0" width="420" height="280" rx="12" fill="#1e293b" stroke="#FF9900" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="420" height="40" rx="12" fill="url(#awsOrange)"/>
+    <rect x="0" y="20" width="420" height="20" fill="url(#awsOrange)"/>
+    <text x="210" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">CloudFront CDN Security</text>
+    
+    <!-- CloudFront Items Row 1 -->
+    <g transform="translate(15, 55)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">OAC/OAI</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">S3 Origin Access</text>
+    </g>
+    <g transform="translate(150, 55)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">SSL/TLS</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">HTTPS Only</text>
+    </g>
+    <g transform="translate(285, 55)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">Geo-Blocking</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Country Filter</text>
+    </g>
+    
+    <!-- CloudFront Items Row 2 -->
+    <g transform="translate(15, 115)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">Edge Functions</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Lambda@Edge</text>
+    </g>
+    <g transform="translate(150, 115)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">Field Encryption</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Data Protection</text>
+    </g>
+    <g transform="translate(285, 115)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">Signed URLs</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Time-Limited</text>
+    </g>
+    
+    <!-- CloudFront Items Row 3 -->
+    <g transform="translate(15, 175)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">Security Headers</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">CSP, HSTS</text>
+    </g>
+    <g transform="translate(150, 175)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">Access Logging</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">S3 Bucket</text>
+    </g>
+    <g transform="translate(285, 175)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">Cache Policy</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">TTL Control</text>
+    </g>
+    
+    <!-- Checklist -->
+    <g transform="translate(15, 240)">
+      <text x="0" y="12" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">✓ Use OAC over OAI</text>
+      <text x="130" y="12" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">✓ TLS 1.2+ only</text>
+      <text x="260" y="12" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">✓ Enable logging</text>
+    </g>
   </g>
 
-  <!-- Main Title -->
-  <text x="600" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#ffffff">Cloud Security Course 8 Batch Week 6</text>
-  <text x="600" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#94a3b8">AWS WAF/CloudFront Security Architecture &amp; GitHub DevSecOps Practical</text>
-
-  <!-- CloudFront Architecture -->
-  <g transform="translate(100, 180)">
-    <!-- CloudFront Icon -->
-    <rect x="0" y="0" width="120" height="80" rx="8" fill="url(#awsGrad)" opacity="0.9"/>
-    <text x="60" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">CloudFront</text>
-    <text x="60" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">CDN</text>
-    <circle cx="60" cy="70" r="5" fill="#ffffff"/>
+  <!-- Section 2: AWS WAF Security -->
+  <g transform="translate(470, 110)">
+    <rect x="0" y="0" width="420" height="280" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="420" height="40" rx="12" fill="url(#alertRed)"/>
+    <rect x="0" y="20" width="420" height="20" fill="url(#alertRed)"/>
+    <text x="210" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">AWS WAF Security Rules</text>
     
-    <!-- Arrow -->
-    <path d="M130 40 L160 40" stroke="#ff9900" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <!-- WAF Items Row 1 -->
+    <g transform="translate(15, 55)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">SQL Injection</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">SQLi Prevention</text>
+    </g>
+    <g transform="translate(150, 55)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">XSS Attack</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Script Blocking</text>
+    </g>
+    <g transform="translate(285, 55)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">Rate Limiting</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">DDoS Protection</text>
+    </g>
     
-    <!-- WAF Shield -->
-    <rect x="170" y="0" width="120" height="80" rx="8" fill="#ef4444" opacity="0.9"/>
-    <path d="M230 10 L250 25 L250 50 C250 65 230 75 230 75 C230 75 210 65 210 50 L210 25 Z" fill="#ffffff" opacity="0.3"/>
-    <text x="230" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">WAF</text>
-    <text x="230" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Security Defense</text>
+    <!-- WAF Items Row 2 -->
+    <g transform="translate(15, 115)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">Managed Rules</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">AWS + Vendors</text>
+    </g>
+    <g transform="translate(150, 115)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">Bot Control</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Bad Bot Block</text>
+    </g>
+    <g transform="translate(285, 115)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">IP Reputation</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Threat Intel</text>
+    </g>
     
-    <!-- Arrow -->
-    <path d="M300 40 L330 40" stroke="#ef4444" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <!-- WAF Items Row 3 -->
+    <g transform="translate(15, 175)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">Geo Match</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Country Rules</text>
+    </g>
+    <g transform="translate(150, 175)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">Size Constraints</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Body Limits</text>
+    </g>
+    <g transform="translate(285, 175)">
+      <rect x="0" y="0" width="125" height="50" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">Regex Patterns</text>
+      <text x="62" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Custom Rules</text>
+    </g>
     
-    <!-- S3 Bucket -->
-    <rect x="340" y="0" width="120" height="80" rx="8" fill="#569a31" opacity="0.9"/>
-    <text x="400" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">S3</text>
-    <text x="400" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">OAC/OAI</text>
-    <rect x="385" y="60" width="30" height="15" rx="2" fill="#ffffff" opacity="0.3"/>
+    <!-- Checklist -->
+    <g transform="translate(15, 240)">
+      <text x="0" y="12" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">✓ Enable logging</text>
+      <text x="130" y="12" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">✓ Use managed rules</text>
+      <text x="260" y="12" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">✓ Rate limit APIs</text>
+    </g>
   </g>
 
-  <!-- GitHub DevSecOps -->
-  <g transform="translate(600, 180)">
-    <!-- GitHub Icon -->
-    <rect x="0" y="0" width="120" height="80" rx="8" fill="url(#githubGrad)" opacity="0.9"/>
-    <circle cx="60" cy="30" r="15" fill="#ffffff" opacity="0.2"/>
-    <path d="M50 25 L60 20 L70 25 L60 30 Z" fill="#ffffff" opacity="0.5"/>
-    <text x="60" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">GitHub</text>
-    <text x="60" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">Advanced</text>
+  <!-- Section 3: GitHub Advanced Security -->
+  <g transform="translate(910, 110)">
+    <rect x="0" y="0" width="460" height="280" rx="12" fill="#1e293b" stroke="#24292e" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="460" height="40" rx="12" fill="url(#githubGrad)"/>
+    <rect x="0" y="20" width="460" height="20" fill="url(#githubGrad)"/>
+    <text x="230" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">GitHub Advanced Security</text>
     
-    <!-- Arrow -->
-    <path d="M130 40 L160 40" stroke="#24292e" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <!-- GitHub Items Row 1 -->
+    <g transform="translate(15, 55)">
+      <rect x="0" y="0" width="140" height="50" rx="6" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="1"/>
+      <text x="70" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3b82f6">CodeQL SAST</text>
+      <text x="70" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Static Analysis</text>
+    </g>
+    <g transform="translate(165, 55)">
+      <rect x="0" y="0" width="140" height="50" rx="6" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1"/>
+      <text x="70" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#22c55e">Dependabot</text>
+      <text x="70" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">SCA + Updates</text>
+    </g>
+    <g transform="translate(315, 55)">
+      <rect x="0" y="0" width="130" height="50" rx="6" fill="rgba(168,85,247,0.15)" stroke="#a855f7" stroke-width="1"/>
+      <text x="65" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#a855f7">Secret Scanning</text>
+      <text x="65" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Token Detection</text>
+    </g>
     
-    <!-- CodeQL -->
-    <rect x="170" y="0" width="120" height="80" rx="8" fill="#4a90e2" opacity="0.9"/>
-    <text x="230" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">CodeQL</text>
-    <text x="230" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Static Analysis</text>
-    <circle cx="230" cy="70" r="4" fill="#ffffff"/>
+    <!-- GitHub Items Row 2 -->
+    <g transform="translate(15, 115)">
+      <rect x="0" y="0" width="140" height="50" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="70" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">Code Scanning</text>
+      <text x="70" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">PR Integration</text>
+    </g>
+    <g transform="translate(165, 115)">
+      <rect x="0" y="0" width="140" height="50" rx="6" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="1"/>
+      <text x="70" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">Security Alerts</text>
+      <text x="70" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Auto Notify</text>
+    </g>
+    <g transform="translate(315, 115)">
+      <rect x="0" y="0" width="130" height="50" rx="6" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="1"/>
+      <text x="65" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3b82f6">Branch Protection</text>
+      <text x="65" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Required Reviews</text>
+    </g>
     
-    <!-- Arrow -->
-    <path d="M300 40 L330 40" stroke="#4a90e2" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <!-- GitHub Items Row 3 -->
+    <g transform="translate(15, 175)">
+      <rect x="0" y="0" width="140" height="50" rx="6" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1"/>
+      <text x="70" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#22c55e">SBOM Export</text>
+      <text x="70" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Supply Chain</text>
+    </g>
+    <g transform="translate(165, 175)">
+      <rect x="0" y="0" width="140" height="50" rx="6" fill="rgba(168,85,247,0.15)" stroke="#a855f7" stroke-width="1"/>
+      <text x="70" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#a855f7">Actions Security</text>
+      <text x="70" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">OIDC + Secrets</text>
+    </g>
+    <g transform="translate(315, 175)">
+      <rect x="0" y="0" width="130" height="50" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="65" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">Audit Log</text>
+      <text x="65" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Activity Track</text>
+    </g>
     
-    <!-- Dependabot -->
-    <rect x="340" y="0" width="120" height="80" rx="8" fill="#2ecc71" opacity="0.9"/>
-    <text x="400" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Dependabot</text>
-    <text x="400" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Dependency Scan</text>
-    <circle cx="400" cy="70" r="4" fill="#ffffff"/>
+    <!-- Checklist -->
+    <g transform="translate(15, 240)">
+      <text x="0" y="12" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">✓ Enable CodeQL</text>
+      <text x="120" y="12" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">✓ Secret scanning on</text>
+      <text x="270" y="12" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">✓ Branch protection</text>
+    </g>
   </g>
 
-  <!-- Security Features -->
-  <g transform="translate(100, 320)">
-    <rect x="0" y="0" width="200" height="100" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#3b82f6" stroke-width="2"/>
-    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3b82f6">Geo-Blocking</text>
-    <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Country Blocking</text>
-    <circle cx="100" cy="75" r="8" fill="#3b82f6"/>
+  <!-- Section 4: DevSecOps Pipeline -->
+  <g transform="translate(30, 410)">
+    <rect x="0" y="0" width="1340" height="190" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1340" height="40" rx="12" fill="url(#securityGreen)"/>
+    <rect x="0" y="20" width="1340" height="20" fill="url(#securityGreen)"/>
+    <text x="670" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">DevSecOps Pipeline - Security Integration at Every Stage</text>
+    
+    <!-- Pipeline Stages -->
+    <g transform="translate(30, 55)">
+      <!-- Stage 1: Code -->
+      <rect x="0" y="0" width="150" height="80" rx="8" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="2"/>
+      <text x="75" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3b82f6">CODE</text>
+      <text x="75" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Pre-commit Hooks</text>
+      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Secrets Detection</text>
+      <text x="75" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">gitleaks, trufflehog</text>
+      
+      <!-- Arrow -->
+      <path d="M160 40 L190 40" stroke="#22c55e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Stage 2: Build -->
+      <rect x="200" y="0" width="150" height="80" rx="8" fill="rgba(255,153,0,0.2)" stroke="#FF9900" stroke-width="2"/>
+      <text x="275" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#FF9900">BUILD</text>
+      <text x="275" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">SAST Analysis</text>
+      <text x="275" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Dependency Check</text>
+      <text x="275" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">CodeQL, Snyk</text>
+      
+      <!-- Arrow -->
+      <path d="M360 40 L390 40" stroke="#22c55e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Stage 3: Test -->
+      <rect x="400" y="0" width="150" height="80" rx="8" fill="rgba(168,85,247,0.2)" stroke="#a855f7" stroke-width="2"/>
+      <text x="475" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a855f7">TEST</text>
+      <text x="475" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">DAST Scanning</text>
+      <text x="475" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">API Security Test</text>
+      <text x="475" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">OWASP ZAP, Nuclei</text>
+      
+      <!-- Arrow -->
+      <path d="M560 40 L590 40" stroke="#22c55e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Stage 4: Deploy -->
+      <rect x="600" y="0" width="150" height="80" rx="8" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="2"/>
+      <text x="675" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#22c55e">DEPLOY</text>
+      <text x="675" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">IaC Scanning</text>
+      <text x="675" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Config Validation</text>
+      <text x="675" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">Checkov, tfsec</text>
+      
+      <!-- Arrow -->
+      <path d="M760 40 L790 40" stroke="#22c55e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Stage 5: Release -->
+      <rect x="800" y="0" width="150" height="80" rx="8" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="2"/>
+      <text x="875" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ef4444">RELEASE</text>
+      <text x="875" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Container Scan</text>
+      <text x="875" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Image Signing</text>
+      <text x="875" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">Trivy, Cosign</text>
+      
+      <!-- Arrow -->
+      <path d="M960 40 L990 40" stroke="#22c55e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Stage 6: Operate -->
+      <rect x="1000" y="0" width="150" height="80" rx="8" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="2"/>
+      <text x="1075" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3b82f6">OPERATE</text>
+      <text x="1075" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Runtime Security</text>
+      <text x="1075" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">CSPM Monitoring</text>
+      <text x="1075" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">Falco, DataDog</text>
+      
+      <!-- Arrow -->
+      <path d="M1160 40 L1190 40" stroke="#22c55e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Stage 7: Monitor -->
+      <rect x="1200" y="0" width="100" height="80" rx="8" fill="rgba(255,153,0,0.2)" stroke="#FF9900" stroke-width="2"/>
+      <text x="1250" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#FF9900">MONITOR</text>
+      <text x="1250" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">SIEM</text>
+      <text x="1250" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Alerting</text>
+      <text x="1250" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">Security Hub</text>
+    </g>
+    
+    <!-- Key Metrics -->
+    <g transform="translate(30, 145)">
+      <text x="0" y="12" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">✓ Shift-Left Security</text>
+      <text x="180" y="12" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">✓ Automated Scanning</text>
+      <text x="380" y="12" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">✓ Policy as Code</text>
+      <text x="560" y="12" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">✓ Continuous Compliance</text>
+      <text x="780" y="12" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">✓ Supply Chain Security</text>
+      <text x="1000" y="12" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">✓ Runtime Protection</text>
+    </g>
   </g>
 
-  <g transform="translate(350, 320)">
-    <rect x="0" y="0" width="200" height="100" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#ef4444" stroke-width="2"/>
-    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ef4444">WAF Rules</text>
-    <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SQL Injection, XSS</text>
-    <path d="M90 70 L100 80 L110 70" stroke="#ef4444" stroke-width="2" fill="none"/>
+  <!-- Section 5: Security Architecture Flow -->
+  <g transform="translate(30, 620)">
+    <rect x="0" y="0" width="660" height="200" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="660" height="40" rx="12" fill="url(#infoBlue)"/>
+    <rect x="0" y="20" width="660" height="20" fill="url(#infoBlue)"/>
+    <text x="330" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Security Architecture Flow</text>
+    
+    <!-- Architecture Diagram -->
+    <g transform="translate(30, 60)">
+      <!-- User -->
+      <rect x="0" y="30" width="80" height="50" rx="6" fill="rgba(59,130,246,0.3)" stroke="#3b82f6" stroke-width="1"/>
+      <text x="40" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3b82f6">Users</text>
+      <text x="40" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Internet</text>
+      
+      <!-- Arrow -->
+      <path d="M90 55 L115 55" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- CloudFront -->
+      <rect x="125" y="20" width="90" height="70" rx="6" fill="rgba(255,153,0,0.3)" stroke="#FF9900" stroke-width="2"/>
+      <text x="170" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">CloudFront</text>
+      <text x="170" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">CDN + Cache</text>
+      <text x="170" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Edge Security</text>
+      
+      <!-- Arrow -->
+      <path d="M225 55 L250 55" stroke="#FF9900" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- WAF -->
+      <rect x="260" y="20" width="90" height="70" rx="6" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="2"/>
+      <text x="305" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">AWS WAF</text>
+      <text x="305" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Rule Engine</text>
+      <text x="305" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Attack Block</text>
+      
+      <!-- Arrow -->
+      <path d="M360 55 L385 55" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- ALB -->
+      <rect x="395" y="20" width="90" height="70" rx="6" fill="rgba(168,85,247,0.3)" stroke="#a855f7" stroke-width="2"/>
+      <text x="440" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#a855f7">ALB</text>
+      <text x="440" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Load Balance</text>
+      <text x="440" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">SSL Termination</text>
+      
+      <!-- Arrow -->
+      <path d="M495 55 L520 55" stroke="#a855f7" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Origin -->
+      <rect x="530" y="20" width="90" height="70" rx="6" fill="rgba(34,197,94,0.3)" stroke="#22c55e" stroke-width="2"/>
+      <text x="575" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#22c55e">Origin</text>
+      <text x="575" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">EC2/ECS/S3</text>
+      <text x="575" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Private Subnet</text>
+    </g>
+    
+    <!-- Legend -->
+    <g transform="translate(30, 150)">
+      <rect x="0" y="0" width="12" height="12" rx="2" fill="#3b82f6"/>
+      <text x="18" y="10" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">External</text>
+      <rect x="100" y="0" width="12" height="12" rx="2" fill="#FF9900"/>
+      <text x="118" y="10" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Edge</text>
+      <rect x="180" y="0" width="12" height="12" rx="2" fill="#ef4444"/>
+      <text x="198" y="10" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Security</text>
+      <rect x="280" y="0" width="12" height="12" rx="2" fill="#a855f7"/>
+      <text x="298" y="10" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Network</text>
+      <rect x="380" y="0" width="12" height="12" rx="2" fill="#22c55e"/>
+      <text x="398" y="10" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Compute</text>
+    </g>
   </g>
 
-  <g transform="translate(600, 320)">
-    <rect x="0" y="0" width="200" height="100" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#2ecc71" stroke-width="2"/>
-    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2ecc71">Secret Scanning</text>
-    <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Sensitive Data Detection</text>
-    <circle cx="100" cy="75" r="8" fill="#2ecc71"/>
+  <!-- Section 6: OWASP Top 10 Coverage -->
+  <g transform="translate(710, 620)">
+    <rect x="0" y="0" width="660" height="200" rx="12" fill="#1e293b" stroke="#a855f7" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="660" height="40" rx="12" fill="url(#infoPurple)"/>
+    <rect x="0" y="20" width="660" height="20" fill="url(#infoPurple)"/>
+    <text x="330" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">OWASP Top 10:2021 Coverage</text>
+    
+    <!-- OWASP Items -->
+    <g transform="translate(15, 55)">
+      <rect x="0" y="0" width="200" height="40" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="10" y="17" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ef4444">A01: Broken Access Control</text>
+      <text x="10" y="32" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">WAF + IAM + API Gateway</text>
+    </g>
+    <g transform="translate(225, 55)">
+      <rect x="0" y="0" width="200" height="40" rx="4" fill="rgba(255,153,0,0.15)" stroke="#FF9900" stroke-width="1"/>
+      <text x="10" y="17" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FF9900">A02: Crypto Failures</text>
+      <text x="10" y="32" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">TLS 1.3 + KMS + Secrets</text>
+    </g>
+    <g transform="translate(435, 55)">
+      <rect x="0" y="0" width="210" height="40" rx="4" fill="rgba(168,85,247,0.15)" stroke="#a855f7" stroke-width="1"/>
+      <text x="10" y="17" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#a855f7">A03: Injection</text>
+      <text x="10" y="32" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">WAF SQLi/XSS + CodeQL</text>
+    </g>
+    
+    <g transform="translate(15, 105)">
+      <rect x="0" y="0" width="200" height="40" rx="4" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="1"/>
+      <text x="10" y="17" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#3b82f6">A04: Insecure Design</text>
+      <text x="10" y="32" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Threat Modeling + Review</text>
+    </g>
+    <g transform="translate(225, 105)">
+      <rect x="0" y="0" width="200" height="40" rx="4" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1"/>
+      <text x="10" y="17" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#22c55e">A05: Security Misconfig</text>
+      <text x="10" y="32" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Security Hub + Config</text>
+    </g>
+    <g transform="translate(435, 105)">
+      <rect x="0" y="0" width="210" height="40" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+      <text x="10" y="17" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ef4444">A06: Vuln Components</text>
+      <text x="10" y="32" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Dependabot + Inspector</text>
+    </g>
+    
+    <g transform="translate(15, 155)">
+      <rect x="0" y="0" width="200" height="30" rx="4" fill="rgba(255,153,0,0.1)" stroke="#FF9900" stroke-width="1"/>
+      <text x="10" y="20" font-family="Arial, sans-serif" font-size="10" fill="#FF9900">A07-A10: Auth, Integrity, Logging, SSRF</text>
+    </g>
+    <g transform="translate(225, 155)">
+      <rect x="0" y="0" width="420" height="30" rx="4" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="1"/>
+      <text x="10" y="20" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">Cognito + WAF SSRF Rules + CloudTrail + GuardDuty + Secret Scanning</text>
+    </g>
   </g>
 
-  <g transform="translate(850, 320)">
-    <rect x="0" y="0" width="200" height="100" rx="10" fill="#1e3a5f" opacity="0.8" stroke="#f39c12" stroke-width="2"/>
-    <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f39c12">SSRF Defense</text>
-    <text x="100" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">URL Validation</text>
-    <rect x="92" y="68" width="16" height="14" rx="2" fill="#f39c12"/>
+  <!-- Section 7: Quick Reference Commands -->
+  <g transform="translate(30, 840)">
+    <rect x="0" y="0" width="1340" height="140" rx="12" fill="#1e293b" stroke="#FF9900" stroke-width="2" filter="url(#shadow)"/>
+    <text x="670" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FF9900">Quick Reference - Essential Security Commands</text>
+    
+    <!-- Commands Grid -->
+    <g transform="translate(30, 50)">
+      <rect x="0" y="0" width="310" height="70" rx="6" fill="rgba(255,153,0,0.1)" stroke="#FF9900" stroke-width="1"/>
+      <text x="155" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9900">CloudFront + WAF</text>
+      <text x="10" y="40" font-family="monospace" font-size="9" fill="#94a3b8">aws wafv2 list-web-acls --scope CLOUDFRONT</text>
+      <text x="10" y="55" font-family="monospace" font-size="9" fill="#94a3b8">aws cloudfront list-distributions</text>
+    </g>
+    <g transform="translate(350, 50)">
+      <rect x="0" y="0" width="310" height="70" rx="6" fill="rgba(36,41,46,0.3)" stroke="#24292e" stroke-width="1"/>
+      <text x="155" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">GitHub Security</text>
+      <text x="10" y="40" font-family="monospace" font-size="9" fill="#94a3b8">gh api /repos/{owner}/{repo}/code-scanning</text>
+      <text x="10" y="55" font-family="monospace" font-size="9" fill="#94a3b8">gh secret list --repo {owner}/{repo}</text>
+    </g>
+    <g transform="translate(670, 50)">
+      <rect x="0" y="0" width="310" height="70" rx="6" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="1"/>
+      <text x="155" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#22c55e">DevSecOps Tools</text>
+      <text x="10" y="40" font-family="monospace" font-size="9" fill="#94a3b8">trivy image --severity HIGH,CRITICAL</text>
+      <text x="10" y="55" font-family="monospace" font-size="9" fill="#94a3b8">checkov -d . --framework terraform</text>
+    </g>
+    <g transform="translate(990, 50)">
+      <rect x="0" y="0" width="310" height="70" rx="6" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+      <text x="155" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">Security Scanning</text>
+      <text x="10" y="40" font-family="monospace" font-size="9" fill="#94a3b8">nuclei -u https://target.com -t cves/</text>
+      <text x="10" y="55" font-family="monospace" font-size="9" fill="#94a3b8">gitleaks detect --source . --verbose</text>
+    </g>
   </g>
 
   <!-- Footer -->
-  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#64748b">DevSecOps Practical Security</text>
-  <text x="600" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#475569">tech.2twodragon.com</text>
+  <text x="700" y="990" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Cloud Security Course Week 6 | AWS WAF + CloudFront + GitHub DevSecOps | tech.2twodragon.com | 2026</text>
 </svg>

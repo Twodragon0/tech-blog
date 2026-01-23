@@ -1,131 +1,297 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#020617;stop-opacity:1" />
     </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="4" dy="4" stdDeviation="4" flood-opacity="0.5" flood-color="#000"/>
+    </filter>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#334155" stroke-width="0.5" stroke-opacity="0.5"/>
+    </pattern>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
+    </marker>
   </defs>
 
-  <rect width="800" height="450" fill="url(#bgGrad)"/>
-
-  <!-- Grid pattern -->
-  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
-    <line x1="0" y1="90" x2="800" y2="90"/>
-    <line x1="0" y1="180" x2="800" y2="180"/>
-    <line x1="0" y1="270" x2="800" y2="270"/>
-    <line x1="0" y1="360" x2="800" y2="360"/>
+  <!-- Background Layer -->
+  <rect width="1400" height="900" fill="url(#bgGrad)"/>
+  <rect width="1400" height="900" fill="url(#grid)"/>
+  
+  <!-- Header Section -->
+  <g transform="translate(50, 40)">
+    <rect x="0" y="0" width="1300" height="3" fill="url(#headerGrad)" filter="url(#glow)"/>
+    <text x="0" y="45" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#f8fafc" letter-spacing="1">AI ERA: ENTERPRISE AI SERVICE SECURITY GUIDE</text>
+    <text x="0" y="75" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8">Comprehensive framework for securing Large Language Model (LLM) integrations and AI services</text>
+    <g transform="translate(1050, 10)">
+      <rect x="0" y="0" width="250" height="40" rx="20" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <circle cx="20" cy="20" r="6" fill="#10b981"/>
+      <text x="35" y="25" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">System Status: SECURE</text>
+    </g>
   </g>
 
-  <!-- AI Brain -->
-  <g transform="translate(80, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="2"/>
-    <!-- Brain shape -->
-    <circle cx="65" cy="45" r="28" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="2"/>
-    <!-- Neural connections -->
-    <circle cx="50" cy="35" r="5" fill="#8b5cf6"/>
-    <circle cx="80" cy="35" r="5" fill="#8b5cf6"/>
-    <circle cx="55" cy="55" r="5" fill="#8b5cf6"/>
-    <circle cx="75" cy="55" r="5" fill="#8b5cf6"/>
-    <line x1="50" y1="35" x2="80" y2="35" stroke="#8b5cf6" stroke-width="1"/>
-    <line x1="50" y1="35" x2="55" y2="55" stroke="#8b5cf6" stroke-width="1"/>
-    <line x1="80" y1="35" x2="75" y2="55" stroke="#8b5cf6" stroke-width="1"/>
-    <line x1="55" y1="55" x2="75" y2="55" stroke="#8b5cf6" stroke-width="1"/>
-    <text x="65" y="95" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">AI Assistant</text>
+  <!-- Left Column: Attack Surface & Risks -->
+  <g transform="translate(50, 130)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f87171">ATTACK SURFACE</text>
+    <line x1="0" y1="15" x2="350" y2="15" stroke="#f87171" stroke-width="2"/>
+    
+    <!-- Risk Card 1: Prompt Injection -->
+    <g transform="translate(0, 35)">
+      <rect width="350" height="110" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="6" height="110" rx="4" fill="#ef4444"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fca5a5">Prompt Injection</text>
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">Attacker manipulates LLM input to override</text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">system instructions or extract hidden data.</text>
+      <g transform="translate(20, 85)">
+        <rect width="60" height="16" rx="4" fill="#450a0a"/>
+        <text x="30" y="11" font-family="Arial, sans-serif" font-size="9" fill="#fca5a5" text-anchor="middle">CRITICAL</text>
+      </g>
+    </g>
+
+    <!-- Risk Card 2: Data Leakage -->
+    <g transform="translate(0, 165)">
+      <rect width="350" height="110" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="6" height="110" rx="4" fill="#f97316"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fdba74">Sensitive Data Leakage</text>
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">PII, API keys, or proprietary code inadvertently</text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">exposed in model responses or training data.</text>
+      <g transform="translate(20, 85)">
+        <rect width="60" height="16" rx="4" fill="#431407"/>
+        <text x="30" y="11" font-family="Arial, sans-serif" font-size="9" fill="#fdba74" text-anchor="middle">HIGH</text>
+      </g>
+    </g>
+
+    <!-- Risk Card 3: Supply Chain -->
+    <g transform="translate(0, 295)">
+      <rect width="350" height="110" rx="8" fill="#1e293b" stroke="#eab308" stroke-width="1" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="6" height="110" rx="4" fill="#eab308"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fde047">Supply Chain Vulnerabilities</text>
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">Compromised models, poisoned datasets,</text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">or malicious third-party libraries/plugins.</text>
+      <g transform="translate(20, 85)">
+        <rect width="60" height="16" rx="4" fill="#422006"/>
+        <text x="30" y="11" font-family="Arial, sans-serif" font-size="9" fill="#fde047" text-anchor="middle">MEDIUM</text>
+      </g>
+    </g>
+
+    <!-- Risk Card 4: Denial of Service -->
+    <g transform="translate(0, 425)">
+      <rect width="350" height="110" rx="8" fill="#1e293b" stroke="#a8a29e" stroke-width="1" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="6" height="110" rx="4" fill="#a8a29e"/>
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e7e5e4">Model Denial of Service</text>
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">Resource exhaustion attacks causing</text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#cbd5e1">high latency or service downtime.</text>
+      <g transform="translate(20, 85)">
+        <rect width="60" height="16" rx="4" fill="#292524"/>
+        <text x="30" y="11" font-family="Arial, sans-serif" font-size="9" fill="#e7e5e4" text-anchor="middle">LOW</text>
+      </g>
+    </g>
   </g>
 
-  <!-- Security Hole -->
-  <g transform="translate(250, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="130" height="110" rx="12" fill="#1e3a5f" stroke="#ef4444" stroke-width="2"/>
-    <!-- Shield with hole -->
-    <path d="M65 15 L105 30 L105 60 C105 85 65 100 65 100 C65 100 25 85 25 60 L25 30 Z"
-          fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="2"/>
-    <!-- Hole in shield -->
-    <circle cx="65" cy="55" r="15" fill="#1e3a5f" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2"/>
-    <text x="65" y="60" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">?</text>
-    <text x="65" y="105" font-family="Arial, sans-serif" font-size="9" fill="#ef4444" text-anchor="middle">Security Gap</text>
+  <!-- Center Column: Architecture Flow -->
+  <g transform="translate(440, 130)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#60a5fa">DEFENSE ARCHITECTURE</text>
+    <line x1="0" y1="15" x2="520" y2="15" stroke="#60a5fa" stroke-width="2"/>
+
+    <!-- Flow Diagram Container -->
+    <g transform="translate(0, 35)">
+      <rect width="520" height="500" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      
+      <!-- User Node -->
+      <g transform="translate(220, 20)">
+        <circle cx="40" cy="30" r="25" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6"/>
+        <path d="M40 15 C45 15 48 18 48 22 C48 26 45 29 40 29 C35 29 32 26 32 22 C32 18 35 15 40 15 M25 50 C25 40 30 35 40 35 C50 35 55 40 55 50" fill="none" stroke="#60a5fa" stroke-width="2"/>
+        <text x="40" y="70" font-family="Arial, sans-serif" font-size="12" fill="#93c5fd" text-anchor="middle">User / App</text>
+      </g>
+
+      <!-- Arrow Down -->
+      <line x1="260" y1="80" x2="260" y2="105" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- API Gateway -->
+      <g transform="translate(110, 105)">
+        <rect width="300" height="50" rx="6" fill="#1e293b" stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,3"/>
+        <text x="150" y="30" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0" text-anchor="middle">API Gateway (AuthN / AuthZ)</text>
+      </g>
+
+      <!-- Arrow Down -->
+      <line x1="260" y1="155" x2="260" y2="180" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- Input Guardrails -->
+      <g transform="translate(110, 180)">
+        <rect width="300" height="60" rx="6" fill="#172554" stroke="#3b82f6" stroke-width="1"/>
+        <text x="150" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">INPUT GUARDRAILS</text>
+        <text x="150" y="45" font-family="Arial, sans-serif" font-size="11" fill="#93c5fd" text-anchor="middle">PII Redaction • Prompt Validation • Rate Limiting</text>
+      </g>
+
+      <!-- Arrow Down -->
+      <line x1="260" y1="240" x2="260" y2="265" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- AI Model -->
+      <g transform="translate(160, 265)">
+        <rect width="200" height="90" rx="12" fill="#312e81" stroke="#8b5cf6" stroke-width="2" filter="url(#glow)"/>
+        <circle cx="100" cy="45" r="30" fill="#8b5cf6" fill-opacity="0.2"/>
+        <path d="M85 45 L115 45 M90 35 L110 55 M90 55 L110 35" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="100" y="80" font-family="Arial, sans-serif" font-size="12" fill="#ddd6fe" text-anchor="middle">LLM / Inference Engine</text>
+      </g>
+
+      <!-- Arrow Down -->
+      <line x1="260" y1="355" x2="260" y2="380" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+      <!-- Output Guardrails -->
+      <g transform="translate(110, 380)">
+        <rect width="300" height="60" rx="6" fill="#172554" stroke="#3b82f6" stroke-width="1"/>
+        <text x="150" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">OUTPUT GUARDRAILS</text>
+        <text x="150" y="45" font-family="Arial, sans-serif" font-size="11" fill="#93c5fd" text-anchor="middle">Response Filtering • Hallucination Check</text>
+      </g>
+
+      <!-- Logging Sidecar -->
+      <g transform="translate(430, 200)">
+        <rect width="80" height="220" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="1" stroke-dasharray="2,2"/>
+        <text x="40" y="30" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle" writing-mode="tb">Audit Logging &amp; Monitoring</text>
+        <!-- Data lines connecting to main flow -->
+        <path d="M-20 100 L0 100" stroke="#64748b" stroke-width="1" stroke-dasharray="2,2"/>
+        <path d="M-20 40 L0 40" stroke="#64748b" stroke-width="1" stroke-dasharray="2,2"/>
+        <path d="M-20 160 L0 160" stroke="#64748b" stroke-width="1" stroke-dasharray="2,2"/>
+      </g>
+    </g>
   </g>
 
-  <!-- Enterprise Protection -->
-  <g transform="translate(420, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#10b981" stroke-width="2"/>
-    <!-- Building icon -->
-    <rect x="35" y="25" width="50" height="55" rx="2" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="2"/>
-    <!-- Windows -->
-    <rect x="42" y="32" width="10" height="8" rx="1" fill="#10b981" fill-opacity="0.5"/>
-    <rect x="58" y="32" width="10" height="8" rx="1" fill="#10b981" fill-opacity="0.5"/>
-    <rect x="42" y="47" width="10" height="8" rx="1" fill="#10b981" fill-opacity="0.5"/>
-    <rect x="58" y="47" width="10" height="8" rx="1" fill="#10b981" fill-opacity="0.5"/>
-    <rect x="42" y="62" width="10" height="8" rx="1" fill="#10b981" fill-opacity="0.5"/>
-    <rect x="58" y="62" width="10" height="8" rx="1" fill="#10b981" fill-opacity="0.5"/>
-    <text x="60" y="100" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Enterprise</text>
+  <!-- Right Column: Security Tooling -->
+  <g transform="translate(1000, 130)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#a78bfa">SECURITY TOOLING</text>
+    <line x1="0" y1="15" x2="350" y2="15" stroke="#a78bfa" stroke-width="2"/>
+
+    <!-- Tool Category 1: Static Analysis -->
+    <g transform="translate(0, 35)">
+      <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#c4b5fd">Static Analysis (SAST/IaC)</text>
+      <rect x="0" y="25" width="350" height="70" rx="4" fill="#1e293b" stroke="#4c1d95" stroke-width="1"/>
+      <g transform="translate(15, 40)">
+        <text x="0" y="10" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ trivy fs --scanners vuln,secret .</text>
+        <text x="0" y="28" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ checkov -d ./terraform</text>
+        <text x="0" y="46" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ semgrep scan --config p/security</text>
+      </g>
+    </g>
+
+    <!-- Tool Category 2: Runtime Security -->
+    <g transform="translate(0, 130)">
+      <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#c4b5fd">Runtime Security</text>
+      <rect x="0" y="25" width="350" height="70" rx="4" fill="#1e293b" stroke="#4c1d95" stroke-width="1"/>
+      <g transform="translate(15, 40)">
+        <text x="0" y="10" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ falco -c /etc/falco/falco.yaml</text>
+        <text x="0" y="28" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ tetragon Observe --crd-policy</text>
+        <text x="0" y="46" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ gvisor-runsc --platform=ptrace</text>
+      </g>
+    </g>
+
+    <!-- Tool Category 3: Model Security -->
+    <g transform="translate(0, 225)">
+      <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#c4b5fd">Model Security &amp; Scanning</text>
+      <rect x="0" y="25" width="350" height="70" rx="4" fill="#1e293b" stroke="#4c1d95" stroke-width="1"/>
+      <g transform="translate(15, 40)">
+        <text x="0" y="10" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ modelscan -p ./models/llm-v1</text>
+        <text x="0" y="28" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ garak --model_type huggingface</text>
+        <text x="0" y="46" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ text-attack --recipe pruthi</text>
+      </g>
+    </g>
+
+    <!-- Tool Category 4: Governance -->
+    <g transform="translate(0, 320)">
+      <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#c4b5fd">Policy &amp; Governance</text>
+      <rect x="0" y="25" width="350" height="70" rx="4" fill="#1e293b" stroke="#4c1d95" stroke-width="1"/>
+      <g transform="translate(15, 40)">
+        <text x="0" y="10" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ opa eval -i input.json -d policy</text>
+        <text x="0" y="28" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ kyverno apply policy.yaml</text>
+        <text x="0" y="46" font-family="Monaco, monospace" font-size="11" fill="#a78bfa">$ gatekeeper-validate --audit</text>
+      </g>
+    </g>
+    
+    <!-- Info Box -->
+    <g transform="translate(0, 420)">
+       <rect x="0" y="0" width="350" height="115" rx="4" fill="#172554" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,4"/>
+       <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#60a5fa">Security Pro Tip</text>
+       <text x="20" y="55" font-family="Arial, sans-serif" font-size="12" fill="#bfdbfe">Implement 'Human-in-the-Loop' for</text>
+       <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#bfdbfe">high-stakes decisions. Always sanitize</text>
+       <text x="20" y="89" font-family="Arial, sans-serif" font-size="12" fill="#bfdbfe">inputs before they reach the model</text>
+       <text x="20" y="106" font-family="Arial, sans-serif" font-size="12" fill="#bfdbfe">context window.</text>
+    </g>
   </g>
 
-  <!-- Guide Book -->
-  <g transform="translate(590, 115)" filter="url(#glow)">
-    <rect x="0" y="0" width="120" height="110" rx="12" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
-    <!-- Book -->
-    <rect x="30" y="20" width="60" height="60" rx="3" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="2"/>
-    <line x1="60" y1="20" x2="60" y2="80" stroke="#3b82f6" stroke-width="1"/>
-    <!-- Lines on page -->
-    <line x1="65" y1="30" x2="82" y2="30" stroke="#3b82f6" stroke-width="1"/>
-    <line x1="65" y1="40" x2="80" y2="40" stroke="#3b82f6" stroke-width="1"/>
-    <line x1="65" y1="50" x2="78" y2="50" stroke="#3b82f6" stroke-width="1"/>
-    <line x1="65" y1="60" x2="75" y2="60" stroke="#3b82f6" stroke-width="1"/>
-    <text x="60" y="100" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">Security Guide</text>
+  <!-- Bottom Section: Detailed Checklist -->
+  <g transform="translate(50, 700)">
+    <rect x="0" y="0" width="1300" height="160" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="30" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#f8fafc">ENTERPRISE SECURITY CHECKLIST</text>
+    
+    <!-- Column 1 -->
+    <g transform="translate(30, 60)">
+      <g transform="translate(0, 0)">
+        <rect width="15" height="15" rx="3" fill="#10b981"/>
+        <path d="M3 8 L6 11 L12 4" stroke="#fff" stroke-width="2" fill="none"/>
+        <text x="25" y="12" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Enforce Least Privilege Access (RBAC)</text>
+      </g>
+      <g transform="translate(0, 30)">
+        <rect width="15" height="15" rx="3" fill="#10b981"/>
+        <path d="M3 8 L6 11 L12 4" stroke="#fff" stroke-width="2" fill="none"/>
+        <text x="25" y="12" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Sanitize All Training Data (PII)</text>
+      </g>
+      <g transform="translate(0, 60)">
+        <rect width="15" height="15" rx="3" fill="#10b981"/>
+        <path d="M3 8 L6 11 L12 4" stroke="#fff" stroke-width="2" fill="none"/>
+        <text x="25" y="12" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Secure Model Weights Storage</text>
+      </g>
+    </g>
+
+    <!-- Column 2 -->
+    <g transform="translate(450, 60)">
+      <g transform="translate(0, 0)">
+        <rect width="15" height="15" rx="3" fill="#10b981"/>
+        <path d="M3 8 L6 11 L12 4" stroke="#fff" stroke-width="2" fill="none"/>
+        <text x="25" y="12" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Input Validation Guardrails</text>
+      </g>
+      <g transform="translate(0, 30)">
+        <rect width="15" height="15" rx="3" fill="#10b981"/>
+        <path d="M3 8 L6 11 L12 4" stroke="#fff" stroke-width="2" fill="none"/>
+        <text x="25" y="12" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Output Content Filtering</text>
+      </g>
+      <g transform="translate(0, 60)">
+        <rect width="15" height="15" rx="3" fill="#10b981"/>
+        <path d="M3 8 L6 11 L12 4" stroke="#fff" stroke-width="2" fill="none"/>
+        <text x="25" y="12" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Adversarial Testing (Red Teaming)</text>
+      </g>
+    </g>
+
+    <!-- Column 3 -->
+    <g transform="translate(870, 60)">
+      <g transform="translate(0, 0)">
+        <rect width="15" height="15" rx="3" fill="#10b981"/>
+        <path d="M3 8 L6 11 L12 4" stroke="#fff" stroke-width="2" fill="none"/>
+        <text x="25" y="12" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Rate Limiting &amp; Cost Control</text>
+      </g>
+      <g transform="translate(0, 30)">
+        <rect width="15" height="15" rx="3" fill="#10b981"/>
+        <path d="M3 8 L6 11 L12 4" stroke="#fff" stroke-width="2" fill="none"/>
+        <text x="25" y="12" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Continuous Monitoring (Drift)</text>
+      </g>
+      <g transform="translate(0, 60)">
+        <rect width="15" height="15" rx="3" fill="#10b981"/>
+        <path d="M3 8 L6 11 L12 4" stroke="#fff" stroke-width="2" fill="none"/>
+        <text x="25" y="12" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Incident Response Plan</text>
+      </g>
+    </g>
   </g>
 
-  <!-- Title -->
-  <text x="400" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">
-    AI Era: Don&apos;t Let Your &apos;Assistant&apos; Become a &apos;Security Gap&apos;
-  </text>
-  <text x="400" y="70" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">
-    Enterprise AI Service Security Guide
-  </text>
-
-  <!-- Feature cards -->
-  <g transform="translate(80, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#8b5cf6" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b5cf6" text-anchor="middle">AI Service Risks</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">Data Leakage Risk</text>
-  </g>
-  <g transform="translate(250, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#ef4444" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444" text-anchor="middle">Prompt Injection</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">LLM Attack Techniques</text>
-  </g>
-  <g transform="translate(420, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#10b981" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10b981" text-anchor="middle">Security Policy</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">AI Usage Guidelines</text>
-  </g>
-  <g transform="translate(590, 280)">
-    <rect x="0" y="0" width="150" height="55" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
-    <text x="75" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3b82f6" text-anchor="middle">Monitoring</text>
-    <text x="75" y="40" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">AI Usage Tracking</text>
-  </g>
-
-  <!-- Bottom badges -->
-  <g transform="translate(170, 370)">
-    <rect x="0" y="0" width="60" height="26" rx="13" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
-    <text x="30" y="17" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">AI</text>
-  </g>
-  <g transform="translate(250, 370)">
-    <rect x="0" y="0" width="70" height="26" rx="13" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-    <text x="35" y="17" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">Security</text>
-  </g>
-  <g transform="translate(340, 370)">
-    <rect x="0" y="0" width="80" height="26" rx="13" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
-    <text x="40" y="17" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">Enterprise</text>
-  </g>
-  <g transform="translate(440, 370)">
-    <rect x="0" y="0" width="60" height="26" rx="13" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
-    <text x="30" y="17" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">Guide</text>
-  </g>
+  <!-- Footer Info -->
+  <text x="1350" y="880" font-family="Arial, sans-serif" font-size="10" fill="#475569" text-anchor="end">Twodragon Tech Blog • 2025 AI Security Framework • Version 2.0</text>
 </svg>

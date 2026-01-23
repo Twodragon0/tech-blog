@@ -1,0 +1,476 @@
+{
+  "collected_at": "2026-01-22T05:29:59.880024+00:00",
+  "total_items": 24,
+  "items": [
+    {
+      "id": "6c31c6a83335",
+      "title": "HeadLine 9월호 생성형 AI콘텐츠 진위 검증을 위한 워터마크 기술의 현황",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_9%EC%9B%94%ED%98%B8_%EC%83%9D%EC%84%B1%ED%98%95%20AI%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A7%84%EC%9C%84%20%EA%B2%80%EC%A6%9D%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%9B%8C%ED%84%B0%EB%A7%88%ED%81%AC%20%EA%B8%B0%EC%88%A0%EC%9D%98%20%ED%98%84%ED%99%A9.pdf&r_fname=20250924153030372.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.879305+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 9월호 생성형 AI콘텐츠 진위 검증을 위한 워터마크 기술의 현황",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트",
+        "AI보안"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "a0276e9b8043",
+      "title": "Keep up with Ransomware 9월호 Rust 버전의 INC 랜섬웨어 분석 및 위협 대응 방안",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%209%EC%9B%94%ED%98%B8%20Rust%20%EB%B2%84%EC%A0%84%EC%9D%98%20INC%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EB%B6%84%EC%84%9D%20%EB%B0%8F%20%EC%9C%84%ED%98%91%20%EB%8C%80%EC%9D%91%20%EB%B0%A9%EC%95%88.pdf&r_fname=20250924153112668.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.879235+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 9월호 Rust 버전의 INC 랜섬웨어 분석 및 위협 대응 방안",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트",
+        "KARA",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "dcc355477b35",
+      "title": "Special Report 9월호 제로트러스트 보안전략 애플리케이션 및 워크로드 (ApplicationWokrdload)",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_9%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%20%EB%B0%8F%20%EC%9B%8C%ED%81%AC%EB%A1%9C%EB%93%9C%20(ApplicationWokrdload).pdf&r_fname=20250924153208992.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.879168+00:00",
+      "summary": "SK쉴더스 보안 리포트: Special Report 9월호 제로트러스트 보안전략 애플리케이션 및 워크로드 (ApplicationWokrdload)",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "36ce4011547c",
+      "title": "SK쉴더스 EQST insight 9월호",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%209%EC%9B%94%ED%98%B8.pdf&r_fname=20250924152842596.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.879093+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 9월호",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "27f9ed00f8b8",
+      "title": "HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_11%EC%9B%94%ED%98%B8_%EC%82%AC%EC%9D%B4%EB%B2%84%EB%B3%B4%EC%95%88%20%ED%8A%B9%ED%99%94%20Vertical%20AI%20%EA%B5%AC%EC%B6%95%20%EB%B0%A9%EC%95%88.pdf&r_fname=20251127174323358.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.879038+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트",
+        "AI보안"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "230483d583e0",
+      "title": "Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2011%EC%9B%94%ED%98%B8%20%EA%B8%B0%EC%A1%B4%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%BD%94%EB%93%9C%EB%A5%BC%20%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%95%9C%20BlackField%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20251127174343776.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.878976+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트",
+        "KARA",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "d86768d75288",
+      "title": "Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_11%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EB%8D%B0%EC%9D%B4%ED%84%B0(Data).pdf&r_fname=20251127174412898.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.878911+00:00",
+      "summary": "SK쉴더스 보안 리포트: Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "5528f45e0d25",
+      "title": "SK쉴더스 EQST insight 통합 11월호",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_11%EC%9B%94%ED%98%B8.pdf&r_fname=20251127174457418.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.878848+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 11월호",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "986e55bc2a7e",
+      "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.878790+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "d811fadee334",
+      "title": "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.878726+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트",
+        "KARA",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "46094d971cf5",
+      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.878654+00:00",
+      "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "3cc1a7b416fc",
+      "title": "SK쉴더스 EQST insight 통합 12월호",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-01-22T05:29:59.878544+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "8351a9b4664b",
+      "title": "'25년 정보보호 및 개인정보보호 관리체계(ISMS-P) 운영 가이드 개정판",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=%2725%EB%85%84%20%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%20%EB%B0%8F%20%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%20%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84(ISMS-P)%20%EC%9A%B4%EC%98%81%20%EA%B0%80%EC%9D%B4%EB%93%9C_%EA%B0%9C%EC%A0%95%ED%8C%90.pdf&r_fname=20251230170658586.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "'25년 정보보호 및 개인정보보호 관리체계(ISMS-P) 운영 가이드 개정판",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    },
+    {
+      "id": "c451c8c5951a",
+      "title": "'25년 CSPM(DataDog) AWS 보안 가이드",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=%2725%EB%85%84%20CSPM(DataDog)%20AWS_%EB%B3%B4%EC%95%88%20%EA%B0%80%EC%9D%B4%EB%93%9C.pdf&r_fname=20251230162028217.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "'25년 CSPM(DataDog) AWS 보안 가이드",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    },
+    {
+      "id": "8255ab638a29",
+      "title": "KARA 랜섬웨어 동향 보고서 2025.3Q(KR)",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=KARA%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EB%8F%99%ED%96%A5%20%EB%B3%B4%EA%B3%A0%EC%84%9C%202025.3Q(KR).pdf&r_fname=20251218144138765.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "KARA 랜섬웨어 동향 보고서 2025.3Q(KR)",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    },
+    {
+      "id": "5574d41a6643",
+      "title": "KARA 랜섬웨어 동향 보고서 2025.2Q(KR)",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=KARA%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EB%8F%99%ED%96%A5%20%EB%B3%B4%EA%B3%A0%EC%84%9C%202025.2Q(KR).pdf&r_fname=20250822104900415.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "KARA 랜섬웨어 동향 보고서 2025.2Q(KR)",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    },
+    {
+      "id": "fdfcd9c01638",
+      "title": "LLM Application 취약점 진단 가이드",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=LLM%20Application%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A7%84%EB%8B%A8%20%EA%B0%80%EC%9D%B4%EB%93%9C.pdf&r_fname=20241129161501834.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "LLM Application 취약점 진단 가이드",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    },
+    {
+      "id": "5802509bc16b",
+      "title": "KARA 랜섬웨어 동향 보고서 2025.1Q(KR) v1.1",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=KARA%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EB%8F%99%ED%96%A5%20%EB%B3%B4%EA%B3%A0%EC%84%9C%202025.1Q(KR)_v1.1.pdf&r_fname=20250530094959963.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "KARA 랜섬웨어 동향 보고서 2025.1Q(KR) v1.1",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    },
+    {
+      "id": "10abd156f9e5",
+      "title": "KARA 랜섬웨어 동향 보고서 2024.4Q",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=KARA%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EB%8F%99%ED%96%A5%20%EB%B3%B4%EA%B3%A0%EC%84%9C%202024.4Q.pdf&r_fname=20250226153157563.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "KARA 랜섬웨어 동향 보고서 2024.4Q",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    },
+    {
+      "id": "edad8ba127d0",
+      "title": "Ransomware Arsenal 주요 랜섬웨어 전략과 대응 전략",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Ransomware%20Arsenal_%EC%A3%BC%EC%9A%94%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%A0%84%EB%9E%B5%EA%B3%BC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20241120151110254.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "SK쉴더스 EQST insight 2025년 01월호 - Ransomware Arsenal_ì£¼ì ëì¬ì¨ì´ ì ëµê³¼ ëì ì ëµDownload",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    },
+    {
+      "id": "4ff5a2e982b8",
+      "title": "2024 KARA 3Q v1.0",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=2024_KARA_3Q_v1.0.pdf&r_fname=20241120151159680.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "2024 KARA 3Q v1.0",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    },
+    {
+      "id": "60782bc5aaf6",
+      "title": "Desktop Application(Electron) 취약점 연구 보고서",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Desktop%20Application(Electron)%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%97%B0%EA%B5%AC%20%EB%B3%B4%EA%B3%A0%EC%84%9C.pdf&r_fname=20241017143304571.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "Desktop Application(Electron) 취약점 연구 보고서",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    },
+    {
+      "id": "09f2ca681f88",
+      "title": "[SK쉴더스] Top-CERT Trend Report - Ivanti VPN 취약점 공격 동향 및 대응방안",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=%5BSK%EC%89%B4%EB%8D%94%EC%8A%A4%5D%20Top-CERT%20Trend%20Report%20-%20Ivanti%20VPN%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EA%B3%B5%EA%B2%A9%20%EB%8F%99%ED%96%A5%20%EB%B0%8F%20%EB%8C%80%EC%9D%91%EB%B0%A9%EC%95%88.pdf&r_fname=20240911181024338.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "[SK쉴더스] Top-CERT Trend Report - Ivanti VPN 취약점 공격 동향 및 대응방안",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    },
+    {
+      "id": "75c447ef0b0c",
+      "title": "KARA 랜섬웨어 동향 보고서 2024.2Q",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=KARA%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EB%8F%99%ED%96%A5%20%EB%B3%B4%EA%B3%A0%EC%84%9C%202024.2Q.pdf&r_fname=20240826091129299.pdf",
+      "source": "skshieldus_eqst",
+      "source_name": "SK쉴더스 EQST insight",
+      "category": "security",
+      "language": "ko",
+      "published": "2025-01-01T00:00:00+00:00",
+      "summary": "KARA 랜섬웨어 동향 보고서 2024.2Q",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "EQST",
+        "보안인사이트",
+        "2025년01월",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스 EQST",
+      "priority": 1
+    }
+  ]
+}

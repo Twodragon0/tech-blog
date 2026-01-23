@@ -1,0 +1,82 @@
+{
+  "collected_at": "2026-01-22T12:19:38.362827",
+  "count": 4,
+  "notices": [
+    {
+      "id": "71925",
+      "title": "(사례) 이커머스 해킹 피해 악용 스미싱·피싱 주의권고",
+      "date": "2025-12-19",
+      "url": "https://www.boho.or.kr/kr/bbs/view.do?menuNo=205020&bbsId=B0000133&nttId=71925",
+      "views": 0,
+      "has_attachment": true,
+      "content": null,
+      "cves": null,
+      "vendor": null,
+      "category": "phishing",
+      "severity": null,
+      "references": [
+        {
+          "name": "KISA 보안공지",
+          "url": "https://www.boho.or.kr/kr/bbs/view.do?menuNo=205020&bbsId=B0000133&nttId=71925"
+        }
+      ]
+    },
+    {
+      "id": "71917",
+      "title": "리눅스 커널 루트킷 점검 가이드 배포",
+      "date": "2025-12-11",
+      "url": "https://www.boho.or.kr/kr/bbs/view.do?menuNo=205020&bbsId=B0000133&nttId=71917",
+      "views": 0,
+      "has_attachment": true,
+      "content": null,
+      "cves": null,
+      "vendor": null,
+      "category": "security",
+      "severity": null,
+      "references": [
+        {
+          "name": "KISA 보안공지",
+          "url": "https://www.boho.or.kr/kr/bbs/view.do?menuNo=205020&bbsId=B0000133&nttId=71917"
+        }
+      ]
+    },
+    {
+      "id": "71914",
+      "title": "랜섬웨어 악성코드 감염피해 예방을 위한 보안강화 권고",
+      "date": "2025-12-06",
+      "url": "https://www.boho.or.kr/kr/bbs/view.do?menuNo=205020&bbsId=B0000133&nttId=71914",
+      "views": 0,
+      "has_attachment": true,
+      "content": null,
+      "cves": null,
+      "vendor": null,
+      "category": "ransomware",
+      "severity": null,
+      "references": [
+        {
+          "name": "KISA 보안공지",
+          "url": "https://www.boho.or.kr/kr/bbs/view.do?menuNo=205020&bbsId=B0000133&nttId=71914"
+        }
+      ]
+    },
+    {
+      "id": "71910",
+      "title": "이커머스 해킹 피해 악용 스미싱·피싱 주의 권고",
+      "date": "2025-11-29",
+      "url": "https://www.boho.or.kr/kr/bbs/view.do?menuNo=205020&bbsId=B0000133&nttId=71910",
+      "views": 0,
+      "has_attachment": true,
+      "content": null,
+      "cves": null,
+      "vendor": null,
+      "category": "phishing",
+      "severity": null,
+      "references": [
+        {
+          "name": "KISA 보안공지",
+          "url": "https://www.boho.or.kr/kr/bbs/view.do?menuNo=205020&bbsId=B0000133&nttId=71910"
+        }
+      ]
+    }
+  ]
+}

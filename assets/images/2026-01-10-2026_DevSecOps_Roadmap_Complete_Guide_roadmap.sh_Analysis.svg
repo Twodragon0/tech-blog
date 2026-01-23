@@ -1,75 +1,406 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
   <defs>
-    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#357abd;stop-opacity:1" />
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
     </linearGradient>
-    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2ecc71;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#27ae60;stop-opacity:1" />
+    <linearGradient id="foundationGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
     </linearGradient>
-    <linearGradient id="cardGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f39c12;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e67e22;stop-opacity:1" />
+    <linearGradient id="threatGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ea580c"/>
     </linearGradient>
+    <linearGradient id="archGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="govGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#9333ea"/>
+    </linearGradient>
+    <linearGradient id="toolsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#db2777"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
   </defs>
   
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#mainGrad)"/>
+  <rect width="1400" height="1000" fill="url(#bgGrad)"/>
+  <rect width="1400" height="1000" fill="url(#grid)"/>
   
-  <!-- Main Title -->
-  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">2026 DevSecOps Roadmap</text>
-  <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#e0e0e0">roadmap.sh Complete Analysis Guide</text>
+  <!-- Header -->
+  <rect x="50" y="20" width="1300" height="80" rx="15" fill="url(#headerGrad)" filter="url(#shadow)"/>
+  <text x="700" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">2026 DevSecOps Roadmap - roadmap.sh Complete Analysis</text>
+  <text x="700" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0ff">93 Learning Items | 5 Core Sections | 4 Learning Stages | Beginner to Expert</text>
   
-  <!-- Stats Cards -->
-  <g transform="translate(100, 180)">
-    <rect x="0" y="0" width="300" height="150" rx="15" fill="url(#cardGrad1)" opacity="0.9"/>
-    <text x="150" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff">93</text>
-    <text x="150" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#e0e0e0">Learning Items</text>
-    <text x="150" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">From Basics to Advanced</text>
+  <!-- Stats Row -->
+  <g transform="translate(50, 115)">
+    <rect x="0" y="0" width="200" height="50" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+    <text x="100" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#60a5fa">93</text>
+    <text x="100" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Learning Items</text>
+  </g>
+  <g transform="translate(270, 115)">
+    <rect x="0" y="0" width="200" height="50" rx="8" fill="#1e3a5f" stroke="#22c55e" stroke-width="2"/>
+    <text x="100" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#4ade80">5</text>
+    <text x="100" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Core Sections</text>
+  </g>
+  <g transform="translate(490, 115)">
+    <rect x="0" y="0" width="200" height="50" rx="8" fill="#1e3a5f" stroke="#f97316" stroke-width="2"/>
+    <text x="100" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#fb923c">4</text>
+    <text x="100" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Learning Stages</text>
+  </g>
+  <g transform="translate(710, 115)">
+    <rect x="0" y="0" width="200" height="50" rx="8" fill="#1e3a5f" stroke="#a855f7" stroke-width="2"/>
+    <text x="100" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#c084fc">2026</text>
+    <text x="100" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Latest Trends</text>
+  </g>
+  <g transform="translate(930, 115)">
+    <rect x="0" y="0" width="420" height="50" rx="8" fill="#1e3a5f" stroke="#ec4899" stroke-width="2"/>
+    <text x="210" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f472b6">OWASP Top 10:2025 | NIST CSF 2.0 | AI/ML Security</text>
+    <text x="210" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">Supply Chain Security | GitHub Advanced Security | Zero Trust</text>
   </g>
   
-  <g transform="translate(450, 180)">
-    <rect x="0" y="0" width="300" height="150" rx="15" fill="url(#cardGrad2)" opacity="0.9"/>
-    <text x="150" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff">5</text>
-    <text x="150" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#e0e0e0">Key Sections</text>
-    <text x="150" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Structured Learning Path</text>
+  <!-- Section 1: Foundations (Blue) -->
+  <g transform="translate(50, 180)">
+    <rect x="0" y="0" width="260" height="380" rx="12" fill="#0f1729" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="260" height="40" rx="12" fill="url(#foundationGrad)"/>
+    <rect x="0" y="25" width="260" height="15" fill="url(#foundationGrad)"/>
+    <text x="130" y="27" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">1. FOUNDATIONS</text>
+    
+    <!-- Programming Languages -->
+    <text x="15" y="60" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#60a5fa">Programming Languages</text>
+    <rect x="15" y="68" width="55" height="20" rx="4" fill="#1e3a5f"/>
+    <text x="42" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#93c5fd">Python</text>
+    <rect x="75" y="68" width="40" height="20" rx="4" fill="#1e3a5f"/>
+    <text x="95" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#93c5fd">Go</text>
+    <rect x="120" y="68" width="60" height="20" rx="4" fill="#1e3a5f"/>
+    <text x="150" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#93c5fd">JavaScript</text>
+    <rect x="185" y="68" width="55" height="20" rx="4" fill="#1e3a5f"/>
+    <text x="212" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#93c5fd">Rust</text>
+    
+    <!-- Scripting -->
+    <text x="15" y="105" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#60a5fa">Scripting</text>
+    <rect x="15" y="113" width="50" height="20" rx="4" fill="#1e3a5f"/>
+    <text x="40" y="127" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#93c5fd">Bash</text>
+    <rect x="70" y="113" width="70" height="20" rx="4" fill="#1e3a5f"/>
+    <text x="105" y="127" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#93c5fd">PowerShell</text>
+    
+    <!-- Security Concepts -->
+    <text x="15" y="150" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#60a5fa">Security Concepts</text>
+    <rect x="15" y="158" width="230" height="60" rx="6" fill="#1e3a5f"/>
+    <text x="25" y="175" font-family="Arial, sans-serif" font-size="9" fill="#cbd5e1">CIA Triad: Confidentiality, Integrity, Availability</text>
+    <text x="25" y="190" font-family="Arial, sans-serif" font-size="9" fill="#cbd5e1">Authentication / Authorization / IAM</text>
+    <text x="25" y="205" font-family="Arial, sans-serif" font-size="9" fill="#cbd5e1">RBAC / Least Privilege Principle</text>
+    
+    <!-- Encryption -->
+    <text x="15" y="235" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#60a5fa">Encryption</text>
+    <rect x="15" y="243" width="230" height="45" rx="6" fill="#1e3a5f"/>
+    <text x="25" y="260" font-family="Arial, sans-serif" font-size="9" fill="#cbd5e1">Symmetric: AES, DES</text>
+    <text x="25" y="275" font-family="Arial, sans-serif" font-size="9" fill="#cbd5e1">Asymmetric: RSA, ECC | Hashing: SHA-256</text>
+    
+    <!-- Network Security -->
+    <text x="15" y="305" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#60a5fa">Network Security</text>
+    <rect x="15" y="313" width="230" height="55" rx="6" fill="#1e3a5f"/>
+    <text x="25" y="330" font-family="Arial, sans-serif" font-size="9" fill="#cbd5e1">HTTP/HTTPS / TLS / DNS Security</text>
+    <text x="25" y="345" font-family="Arial, sans-serif" font-size="9" fill="#cbd5e1">Firewalls / ACLs / VLANs</text>
+    <text x="25" y="360" font-family="Arial, sans-serif" font-size="9" fill="#cbd5e1">Network Segmentation</text>
   </g>
   
-  <g transform="translate(800, 180)">
-    <rect x="0" y="0" width="300" height="150" rx="15" fill="url(#cardGrad3)" opacity="0.9"/>
-    <text x="150" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff">4</text>
-    <text x="150" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#e0e0e0">Learning Stages</text>
-    <text x="150" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Beginner → Expert</text>
+  <!-- Section 2: Threat Management (Orange) -->
+  <g transform="translate(325, 180)">
+    <rect x="0" y="0" width="260" height="380" rx="12" fill="#0f1729" stroke="#f97316" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="260" height="40" rx="12" fill="url(#threatGrad)"/>
+    <rect x="0" y="25" width="260" height="15" fill="url(#threatGrad)"/>
+    <text x="130" y="27" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">2. THREAT MANAGEMENT</text>
+    
+    <!-- Threat Modeling -->
+    <text x="15" y="60" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fb923c">Threat Modeling</text>
+    <rect x="15" y="68" width="230" height="70" rx="6" fill="#2a1a0f"/>
+    <text x="25" y="85" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fed7aa">STRIDE Method:</text>
+    <text x="25" y="100" font-family="Arial, sans-serif" font-size="8" fill="#fde68a">Spoofing | Tampering | Repudiation</text>
+    <text x="25" y="113" font-family="Arial, sans-serif" font-size="8" fill="#fde68a">Info Disclosure | DoS | Privilege Escalation</text>
+    <text x="25" y="128" font-family="Arial, sans-serif" font-size="9" fill="#fed7aa">PASTA: 7-Step Business Impact Analysis</text>
+    
+    <!-- OWASP Top 10:2025 -->
+    <text x="15" y="155" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fb923c">OWASP Top 10:2025</text>
+    <rect x="15" y="163" width="230" height="90" rx="6" fill="#2a1a0f"/>
+    <text x="25" y="178" font-family="Arial, sans-serif" font-size="8" fill="#fde68a">A01: Broken Access Control (SSRF merged)</text>
+    <text x="25" y="191" font-family="Arial, sans-serif" font-size="8" fill="#fde68a">A02: Cryptographic Failures</text>
+    <text x="25" y="204" font-family="Arial, sans-serif" font-size="8" fill="#ef4444" font-weight="bold">A03: Supply Chain Failures (NEW!)</text>
+    <text x="25" y="217" font-family="Arial, sans-serif" font-size="8" fill="#fde68a">A04-A09: Injection, Design, Config...</text>
+    <text x="25" y="230" font-family="Arial, sans-serif" font-size="8" fill="#ef4444" font-weight="bold">A10: Exception Handling (NEW!)</text>
+    <text x="25" y="245" font-family="Arial, sans-serif" font-size="7" fill="#94a3b8">Released: November 2025</text>
+    
+    <!-- Supply Chain Security -->
+    <text x="15" y="270" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fb923c">Supply Chain Security</text>
+    <rect x="15" y="278" width="230" height="90" rx="6" fill="#2a1a0f"/>
+    <text x="25" y="295" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fed7aa">SBOM (Software Bill of Materials)</text>
+    <text x="25" y="310" font-family="Arial, sans-serif" font-size="8" fill="#fde68a">CycloneDX, SPDX, Syft</text>
+    <text x="25" y="325" font-family="Arial, sans-serif" font-size="8" fill="#fde68a">Dependency Risk Management</text>
+    <text x="25" y="340" font-family="Arial, sans-serif" font-size="8" fill="#fde68a">Build Pipeline Hardening</text>
+    <text x="25" y="355" font-family="Arial, sans-serif" font-size="8" fill="#fde68a">Secret Scanning: 39M+ secrets found (2024)</text>
   </g>
   
-  <!-- Key Topics -->
-  <text x="600" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Core Learning Areas</text>
-  
-  <g transform="translate(50, 440)">
-    <circle cx="0" cy="0" r="8" fill="#ffffff"/>
-    <text x="20" y="5" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Foundation: Programming, Security Concepts, Networking</text>
+  <!-- Section 3: Secure Architecture (Green) -->
+  <g transform="translate(600, 180)">
+    <rect x="0" y="0" width="260" height="380" rx="12" fill="#0f1729" stroke="#22c55e" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="260" height="40" rx="12" fill="url(#archGrad)"/>
+    <rect x="0" y="25" width="260" height="15" fill="url(#archGrad)"/>
+    <text x="130" y="27" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">3. SECURE ARCHITECTURE</text>
+    
+    <!-- Defense in Depth -->
+    <text x="15" y="60" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4ade80">Defense in Depth</text>
+    <rect x="15" y="68" width="230" height="55" rx="6" fill="#0f2a1a"/>
+    <text x="25" y="85" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Network Layer: Firewall, Segmentation</text>
+    <text x="25" y="100" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Application Layer: WAF, Input Validation</text>
+    <text x="25" y="115" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Data Layer: Encryption, Access Control</text>
+    
+    <!-- Zero Trust -->
+    <text x="15" y="140" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4ade80">Zero Trust Architecture</text>
+    <rect x="15" y="148" width="230" height="65" rx="6" fill="#0f2a1a"/>
+    <text x="25" y="165" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Never Trust, Always Verify</text>
+    <text x="25" y="180" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Least Privilege Access</text>
+    <text x="25" y="195" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Micro-segmentation</text>
+    <text x="25" y="210" font-family="Arial, sans-serif" font-size="8" fill="#86efac">Identity | Device | Network | App | Data</text>
+    
+    <!-- Cloud Security -->
+    <text x="15" y="235" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4ade80">Cloud Security</text>
+    <rect x="15" y="243" width="230" height="55" rx="6" fill="#0f2a1a"/>
+    <text x="25" y="260" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">CSPM: Cloud Security Posture Mgmt</text>
+    <text x="25" y="275" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">IAM / Key Management Service</text>
+    <text x="25" y="290" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Multi-Region Security Planning</text>
+    
+    <!-- Container Security -->
+    <text x="15" y="315" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4ade80">Container Security</text>
+    <rect x="15" y="323" width="230" height="45" rx="6" fill="#0f2a1a"/>
+    <text x="25" y="340" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Docker / Kubernetes Security</text>
+    <text x="25" y="355" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Image Scanning / Network Policies</text>
   </g>
   
-  <g transform="translate(50, 470)">
-    <circle cx="0" cy="0" r="8" fill="#ffffff"/>
-    <text x="20" y="5" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Threat Management: Threat Modeling, Vulnerability Management, Supply Chain Security</text>
+  <!-- Section 4: Governance (Purple) -->
+  <g transform="translate(875, 180)">
+    <rect x="0" y="0" width="240" height="380" rx="12" fill="#0f1729" stroke="#a855f7" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="240" height="40" rx="12" fill="url(#govGrad)"/>
+    <rect x="0" y="25" width="240" height="15" fill="url(#govGrad)"/>
+    <text x="120" y="27" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">4. GOVERNANCE</text>
+    
+    <!-- NIST CSF 2.0 -->
+    <text x="15" y="60" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c084fc">NIST CSF 2.0 (Feb 2024)</text>
+    <rect x="15" y="68" width="210" height="80" rx="6" fill="#1a0f2a"/>
+    <text x="25" y="85" font-family="Arial, sans-serif" font-size="8" fill="#ef4444" font-weight="bold">NEW: Govern Function Added</text>
+    <text x="25" y="100" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">Govern | Identify | Protect</text>
+    <text x="25" y="115" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">Detect | Respond | Recover</text>
+    <text x="25" y="130" font-family="Arial, sans-serif" font-size="8" fill="#a5b4fc">6 Functions, 22 Categories</text>
+    <text x="25" y="143" font-family="Arial, sans-serif" font-size="8" fill="#a5b4fc">168 Subcategories</text>
+    
+    <!-- Other Frameworks -->
+    <text x="15" y="165" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c084fc">Compliance Frameworks</text>
+    <rect x="15" y="173" width="210" height="70" rx="6" fill="#1a0f2a"/>
+    <text x="25" y="190" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">ISO 27001:2022 (93 Controls)</text>
+    <text x="25" y="205" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">SOC 2 Type I/II (5 TSC)</text>
+    <text x="25" y="220" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">NIST SSDF (4 Practices)</text>
+    <text x="25" y="235" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">CISA SBOM Guide (2024-25)</text>
+    
+    <!-- Audit & Risk -->
+    <text x="15" y="260" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c084fc">Audit &amp; Risk Management</text>
+    <rect x="15" y="268" width="210" height="55" rx="6" fill="#1a0f2a"/>
+    <text x="25" y="285" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">Compliance Mapping</text>
+    <text x="25" y="300" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">Risk Quantification (FAIR)</text>
+    <text x="25" y="315" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">Gap Analysis / Improvement</text>
+    
+    <!-- Enterprise Ops -->
+    <text x="15" y="340" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c084fc">Enterprise Operations</text>
+    <rect x="15" y="348" width="210" height="20" rx="4" fill="#1a0f2a"/>
+    <text x="25" y="362" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">PKI Design / Certificate Lifecycle</text>
   </g>
   
-  <g transform="translate(50, 500)">
-    <circle cx="0" cy="0" r="8" fill="#ffffff"/>
-    <text x="20" y="5" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Security Architecture: Zero Trust, Defense in Depth, API Security</text>
+  <!-- Section 5: Tools & Automation (Pink) -->
+  <g transform="translate(1130, 180)">
+    <rect x="0" y="0" width="220" height="380" rx="12" fill="#0f1729" stroke="#ec4899" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="220" height="40" rx="12" fill="url(#toolsGrad)"/>
+    <rect x="0" y="25" width="220" height="15" fill="url(#toolsGrad)"/>
+    <text x="110" y="27" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">5. TOOLS</text>
+    
+    <!-- SAST -->
+    <text x="15" y="60" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f472b6">SAST (Static Analysis)</text>
+    <rect x="15" y="68" width="190" height="45" rx="4" fill="#2a0f1a"/>
+    <text x="25" y="83" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">CodeQL (Rust Support 2025)</text>
+    <text x="25" y="96" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">SonarQube / Semgrep</text>
+    <text x="25" y="109" font-family="Arial, sans-serif" font-size="7" fill="#f9a8d4">20% faster incremental analysis</text>
+    
+    <!-- DAST -->
+    <text x="15" y="128" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f472b6">DAST (Dynamic)</text>
+    <rect x="15" y="136" width="190" height="30" rx="4" fill="#2a0f1a"/>
+    <text x="25" y="151" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Burp Suite / OWASP ZAP</text>
+    <text x="25" y="162" font-family="Arial, sans-serif" font-size="7" fill="#f9a8d4">AI-powered scanning</text>
+    
+    <!-- SCA -->
+    <text x="15" y="181" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f472b6">SCA (Composition)</text>
+    <rect x="15" y="189" width="190" height="30" rx="4" fill="#2a0f1a"/>
+    <text x="25" y="204" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Trivy / Dependabot / Snyk</text>
+    <text x="25" y="215" font-family="Arial, sans-serif" font-size="7" fill="#f9a8d4">Rust toolchain auto-update</text>
+    
+    <!-- SIEM/SOAR -->
+    <text x="15" y="234" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f472b6">SIEM / SOAR</text>
+    <rect x="15" y="242" width="190" height="30" rx="4" fill="#2a0f1a"/>
+    <text x="25" y="257" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Splunk / ELK / Cortex XSOAR</text>
+    <text x="25" y="268" font-family="Arial, sans-serif" font-size="7" fill="#f9a8d4">AI anomaly detection</text>
+    
+    <!-- IR -->
+    <text x="15" y="287" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f472b6">Incident Response</text>
+    <rect x="15" y="295" width="190" height="40" rx="4" fill="#2a0f1a"/>
+    <text x="25" y="310" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">IR Lifecycle: Prep-Detect-</text>
+    <text x="25" y="323" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Contain-Eradicate-Recover</text>
+    
+    <!-- GitHub Advanced Security -->
+    <text x="15" y="350" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f472b6">GitHub Advanced Sec</text>
+    <rect x="15" y="358" width="190" height="15" rx="4" fill="#2a0f1a"/>
+    <text x="25" y="369" font-family="Arial, sans-serif" font-size="7" fill="#fce7f3">CodeQL + Dependabot + Secret Scan</text>
   </g>
   
-  <g transform="translate(50, 530)">
-    <circle cx="0" cy="0" r="8" fill="#ffffff"/>
-    <text x="20" y="5" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Governance: Compliance, Risk Management, Enterprise Operations</text>
+  <!-- Learning Path Timeline -->
+  <g transform="translate(50, 575)">
+    <rect x="0" y="0" width="1300" height="130" rx="12" fill="#0f1729" stroke="#475569" stroke-width="1" filter="url(#shadow)"/>
+    <text x="650" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Learning Path Timeline</text>
+    
+    <!-- Timeline Line -->
+    <line x1="50" y1="75" x2="1250" y2="75" stroke="#64748b" stroke-width="3"/>
+    
+    <!-- Stage 1: Beginner -->
+    <circle cx="150" cy="75" r="20" fill="#3b82f6" stroke="#60a5fa" stroke-width="3"/>
+    <text x="150" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">1</text>
+    <text x="150" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#60a5fa">Beginner</text>
+    <text x="150" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">0-6 months</text>
+    <text x="150" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#cbd5e1">Programming, Security Basics</text>
+    
+    <!-- Stage 2: Intermediate -->
+    <circle cx="450" cy="75" r="20" fill="#f97316" stroke="#fb923c" stroke-width="3"/>
+    <text x="450" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">2</text>
+    <text x="450" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fb923c">Intermediate</text>
+    <text x="450" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">6-12 months</text>
+    <text x="450" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#cbd5e1">Threat Modeling, Container Sec</text>
+    
+    <!-- Stage 3: Advanced -->
+    <circle cx="750" cy="75" r="20" fill="#22c55e" stroke="#4ade80" stroke-width="3"/>
+    <text x="750" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">3</text>
+    <text x="750" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4ade80">Advanced</text>
+    <text x="750" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">12-24 months</text>
+    <text x="750" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#cbd5e1">Architecture, Governance</text>
+    
+    <!-- Stage 4: Expert -->
+    <circle cx="1050" cy="75" r="20" fill="#a855f7" stroke="#c084fc" stroke-width="3"/>
+    <text x="1050" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffffff">4</text>
+    <text x="1050" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c084fc">Expert</text>
+    <text x="1050" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">24+ months</text>
+    <text x="1050" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#cbd5e1">Strategy, Leadership</text>
+    
+    <!-- Arrows -->
+    <path d="M 180 75 L 420 75" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 480 75 L 720 75" stroke="#64748b" stroke-width="2"/>
+    <path d="M 780 75 L 1020 75" stroke="#64748b" stroke-width="2"/>
+  </g>
+  
+  <!-- 2024-2025 Trends Section -->
+  <g transform="translate(50, 720)">
+    <rect x="0" y="0" width="650" height="260" rx="12" fill="#0f1729" stroke="#eab308" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="650" height="35" rx="12" fill="#854d0e"/>
+    <rect x="0" y="20" width="650" height="15" fill="#854d0e"/>
+    <text x="325" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fef08a">2024-2025 DevSecOps Trends</text>
+    
+    <!-- AI/ML Security -->
+    <rect x="15" y="45" width="300" height="90" rx="8" fill="#1a1a0f" stroke="#eab308" stroke-width="1"/>
+    <text x="25" y="62" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fde047">AI/ML Security Automation</text>
+    <text x="25" y="78" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">Threat Detection: ML anomaly detection</text>
+    <text x="25" y="93" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">Auto Response: AutoGuard RL framework</text>
+    <text x="25" y="108" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">Code Analysis: ZeroFalse SAST+LLM</text>
+    <text x="25" y="123" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">OWASP GenAI Security Project (2025)</text>
+    
+    <!-- Supply Chain Focus -->
+    <rect x="330" y="45" width="305" height="90" rx="8" fill="#1a1a0f" stroke="#eab308" stroke-width="1"/>
+    <text x="340" y="62" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fde047">Supply Chain Security Focus</text>
+    <text x="340" y="78" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">SBOM Mandate: EU CRA, NIS2/DORA</text>
+    <text x="340" y="93" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">NIST SP 800-204D (Feb 2024)</text>
+    <text x="340" y="108" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">Secret Scanning: 39M+ found (2024)</text>
+    <text x="340" y="123" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">40% breaches from stolen credentials</text>
+    
+    <!-- Zero Trust Expansion -->
+    <rect x="15" y="145" width="300" height="55" rx="8" fill="#1a1a0f" stroke="#eab308" stroke-width="1"/>
+    <text x="25" y="162" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fde047">Zero Trust Expansion</text>
+    <text x="25" y="178" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">SD-WAN / SASE Integration</text>
+    <text x="25" y="193" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">Data Classification Automation</text>
+    
+    <!-- Cloud Native -->
+    <rect x="330" y="145" width="305" height="55" rx="8" fill="#1a1a0f" stroke="#eab308" stroke-width="1"/>
+    <text x="340" y="162" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fde047">Cloud Native Security</text>
+    <text x="340" y="178" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">K8s Pod Security Standards</text>
+    <text x="340" y="193" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">IaC Security: Checkov, tfsec, Terrascan</text>
+    
+    <!-- Platform Consolidation -->
+    <rect x="15" y="210" width="620" height="40" rx="8" fill="#1a1a0f" stroke="#eab308" stroke-width="1"/>
+    <text x="25" y="227" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fde047">Platform Consolidation</text>
+    <text x="25" y="242" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">Unified DevSecOps Platforms: Jit Security, GitLab Ultimate, GitHub Advanced Security - Single interface, faster deployment</text>
+  </g>
+  
+  <!-- Key Resources -->
+  <g transform="translate(715, 720)">
+    <rect x="0" y="0" width="635" height="260" rx="12" fill="#0f1729" stroke="#06b6d4" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="635" height="35" rx="12" fill="#0e7490"/>
+    <rect x="0" y="20" width="635" height="15" fill="#0e7490"/>
+    <text x="317" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#cffafe">Key Resources &amp; References</text>
+    
+    <!-- Official Docs -->
+    <rect x="15" y="45" width="300" height="95" rx="8" fill="#0f2937" stroke="#06b6d4" stroke-width="1"/>
+    <text x="25" y="62" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#67e8f9">Official Documentation</text>
+    <text x="25" y="78" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">roadmap.sh/devsecops</text>
+    <text x="25" y="93" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">OWASP Top 10:2025</text>
+    <text x="25" y="108" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">NIST CSF 2.0</text>
+    <text x="25" y="123" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">NIST SP 800-204D</text>
+    <text x="25" y="135" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">CISA SBOM Guidance</text>
+    
+    <!-- Tools -->
+    <rect x="330" y="45" width="290" height="95" rx="8" fill="#0f2937" stroke="#06b6d4" stroke-width="1"/>
+    <text x="340" y="62" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#67e8f9">Essential Tools</text>
+    <text x="340" y="78" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">GitHub CodeQL / Semgrep</text>
+    <text x="340" y="93" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">Trivy / Dependabot / Snyk</text>
+    <text x="340" y="108" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">OWASP ZAP / Burp Suite</text>
+    <text x="340" y="123" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">Splunk / ELK / Cortex XSOAR</text>
+    <text x="340" y="135" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">CycloneDX / SPDX / Syft</text>
+    
+    <!-- Certifications -->
+    <rect x="15" y="150" width="300" height="50" rx="8" fill="#0f2937" stroke="#06b6d4" stroke-width="1"/>
+    <text x="25" y="167" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#67e8f9">Recommended Certifications</text>
+    <text x="25" y="185" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">CISSP | CEH | OSCP | AWS Security</text>
+    <text x="25" y="197" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">CKS | CCSP | CompTIA Security+</text>
+    
+    <!-- Quick Start -->
+    <rect x="330" y="150" width="290" height="50" rx="8" fill="#0f2937" stroke="#06b6d4" stroke-width="1"/>
+    <text x="340" y="167" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#67e8f9">Quick Start Checklist</text>
+    <text x="340" y="185" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">1. Learn Python + Bash scripting</text>
+    <text x="340" y="197" font-family="Arial, sans-serif" font-size="9" fill="#cffafe">2. Study OWASP Top 10 + CIA Triad</text>
+    
+    <!-- Key Stats -->
+    <rect x="15" y="210" width="605" height="40" rx="8" fill="#0f2937" stroke="#22c55e" stroke-width="2"/>
+    <text x="25" y="227" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4ade80">Key Statistics (2024-2025):</text>
+    <text x="25" y="242" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">39M+ secrets detected on GitHub | 40% breaches from credentials | NIST CSF 2.0: 6 Functions, 22 Categories, 168 Subcategories</text>
   </g>
   
   <!-- Footer -->
-  <text x="600" y="600" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#cccccc">roadmap.sh DevSecOps Roadmap 2026 | Twodragon's Tech Blog</text>
+  <text x="700" y="990" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">roadmap.sh DevSecOps Roadmap 2026 Complete Analysis | Twodragon's Tech Blog | tech.2twodragon.com</text>
 </svg>

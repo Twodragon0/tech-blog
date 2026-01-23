@@ -1,108 +1,496 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
   <defs>
-    <linearGradient id="gcpBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4285F4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a73e8;stop-opacity:1" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
     </linearGradient>
-    <linearGradient id="gcpBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4285F4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a73e8;stop-opacity:1" />
+    <linearGradient id="gcpBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285F4"/>
+      <stop offset="100%" style="stop-color:#1a73e8"/>
     </linearGradient>
-    <linearGradient id="gcpGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#34A853;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2E7D32;stop-opacity:1" />
+    <linearGradient id="gcpGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34A853"/>
+      <stop offset="100%" style="stop-color:#2E7D32"/>
     </linearGradient>
+    <linearGradient id="gcpYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FBBC04"/>
+      <stop offset="100%" style="stop-color:#F9A825"/>
+    </linearGradient>
+    <linearGradient id="gcpRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EA4335"/>
+      <stop offset="100%" style="stop-color:#D32F2F"/>
+    </linearGradient>
+    <linearGradient id="infoPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9C27B0"/>
+      <stop offset="100%" style="stop-color:#7B1FA2"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
   </defs>
-  
+
   <!-- Background -->
-  <rect width="1200" height="800" fill="url(#gcpBgGrad)"/>
-  
-  <!-- Title -->
-  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#ffffff">GCP Cloud Security</text>
-  <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#e0e0e0">Complete Guide: IAM to GKE</text>
-  
-  <!-- GCP Services Stack -->
-  <g transform="translate(100, 180)">
-    <!-- IAM Layer -->
-    <g transform="translate(0, 0)">
-      <rect x="0" y="0" width="200" height="120" rx="10" fill="url(#gcpBlueGrad)" opacity="0.9"/>
-      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">IAM</text>
-      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Access Control</text>
-      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Service Account</text>
+  <rect width="1400" height="1000" fill="url(#bgGrad)"/>
+  <rect width="1400" height="1000" fill="url(#grid)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="90" fill="url(#gcpBlue)" opacity="0.15"/>
+  <text x="700" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#4285F4" filter="url(#glow)">GCP Cloud Security Complete Guide</text>
+  <text x="700" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8">IAM to GKE Practical Security Architecture - Defense in Depth Strategy</text>
+
+  <!-- Section 1: IAM Security -->
+  <g transform="translate(30, 110)">
+    <rect x="0" y="0" width="320" height="260" rx="12" fill="#1e293b" stroke="#4285F4" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="320" height="40" rx="12" fill="url(#gcpBlue)"/>
+    <rect x="0" y="20" width="320" height="20" fill="url(#gcpBlue)"/>
+    <text x="160" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">IAM Security</text>
+    
+    <!-- IAM Items -->
+    <g transform="translate(15, 55)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(66,133,244,0.15)" stroke="#4285F4" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4285F4">Service Accounts</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Workload Identity</text>
+    </g>
+    <g transform="translate(165, 55)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(66,133,244,0.15)" stroke="#4285F4" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4285F4">Predefined Roles</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Least Privilege</text>
+    </g>
+    <g transform="translate(15, 110)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(66,133,244,0.15)" stroke="#4285F4" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4285F4">IAM Conditions</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Context Aware</text>
+    </g>
+    <g transform="translate(165, 110)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(66,133,244,0.15)" stroke="#4285F4" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4285F4">Organization Policy</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Constraints</text>
+    </g>
+    <g transform="translate(15, 165)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(66,133,244,0.15)" stroke="#4285F4" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4285F4">Domain Restriction</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Allowed Domains</text>
+    </g>
+    <g transform="translate(165, 165)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(66,133,244,0.15)" stroke="#4285F4" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4285F4">Policy Analyzer</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Access Analysis</text>
     </g>
     
-    <!-- Cloud SQL Layer -->
-    <g transform="translate(250, 0)">
-      <rect x="0" y="0" width="200" height="120" rx="10" fill="url(#gcpGreenGrad)" opacity="0.9"/>
-      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Cloud SQL</text>
-      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Database</text>
-      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Encryption, SSL</text>
-    </g>
-    
-    <!-- Cloud Storage Layer -->
-    <g transform="translate(500, 0)">
-      <rect x="0" y="0" width="200" height="120" rx="10" fill="#EA4335" opacity="0.9"/>
-      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Cloud Storage</text>
-      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Object Storage</text>
-      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">CMEK, Policy</text>
-    </g>
-    
-    <!-- GKE Layer -->
-    <g transform="translate(750, 0)">
-      <rect x="0" y="0" width="200" height="120" rx="10" fill="#FBBC04" opacity="0.9"/>
-      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">GKE</text>
-      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Container</text>
-      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Pod Security, Network</text>
-    </g>
-    
-    <!-- VPC Network Layer -->
-    <g transform="translate(1000, 0)">
-      <rect x="0" y="0" width="200" height="120" rx="10" fill="#9C27B0" opacity="0.9"/>
-      <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">VPC Network</text>
-      <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff">Network Security</text>
-      <text x="100" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Firewall, NAT</text>
+    <!-- Checklist -->
+    <g transform="translate(15, 220)">
+      <text x="0" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Avoid owner role</text>
+      <text x="150" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Use conditions</text>
     </g>
   </g>
-  
-  <!-- Security Monitoring -->
-  <g transform="translate(200, 350)">
-    <rect x="0" y="0" width="800" height="200" rx="15" fill="rgba(255, 255, 255, 0.1)" stroke="#ffffff" stroke-width="2"/>
-    <text x="400" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff">Security Monitoring and Compliance</text>
+
+  <!-- Section 2: Cloud SQL Security -->
+  <g transform="translate(370, 110)">
+    <rect x="0" y="0" width="320" height="260" rx="12" fill="#1e293b" stroke="#34A853" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="320" height="40" rx="12" fill="url(#gcpGreen)"/>
+    <rect x="0" y="20" width="320" height="20" fill="url(#gcpGreen)"/>
+    <text x="160" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Cloud SQL Security</text>
     
-    <!-- Cloud Logging -->
-    <g transform="translate(50, 70)">
-      <rect x="0" y="0" width="150" height="100" rx="8" fill="rgba(66, 133, 244, 0.3)" stroke="#4285F4" stroke-width="2"/>
-      <text x="75" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Cloud Logging</text>
-      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Audit Logs</text>
+    <!-- Cloud SQL Items -->
+    <g transform="translate(15, 55)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#34A853">Private IP</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">VPC Peering</text>
+    </g>
+    <g transform="translate(165, 55)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#34A853">SSL/TLS Required</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">In Transit</text>
+    </g>
+    <g transform="translate(15, 110)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#34A853">CMEK Encryption</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Cloud KMS</text>
+    </g>
+    <g transform="translate(165, 110)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#34A853">IAM Auth</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">No Passwords</text>
+    </g>
+    <g transform="translate(15, 165)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#34A853">Auto Backup</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Point-in-Time</text>
+    </g>
+    <g transform="translate(165, 165)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#34A853">Audit Logging</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Data Access</text>
     </g>
     
-    <!-- Cloud Monitoring -->
-    <g transform="translate(250, 70)">
-      <rect x="0" y="0" width="150" height="100" rx="8" fill="rgba(52, 168, 83, 0.3)" stroke="#34A853" stroke-width="2"/>
-      <text x="75" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Cloud Monitoring</text>
-      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Metrics, Alerts</text>
-    </g>
-    
-    <!-- Security Command Center -->
-    <g transform="translate(450, 70)">
-      <rect x="0" y="0" width="200" height="100" rx="8" fill="rgba(234, 67, 53, 0.3)" stroke="#EA4335" stroke-width="2"/>
-      <text x="100" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Security Command</text>
-      <text x="100" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Center</text>
-      <text x="100" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Threat Detection</text>
-    </g>
-    
-    <!-- Cloud KMS -->
-    <g transform="translate(700, 70)">
-      <rect x="0" y="0" width="150" height="100" rx="8" fill="rgba(251, 188, 4, 0.3)" stroke="#FBBC04" stroke-width="2"/>
-      <text x="75" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">Cloud KMS</text>
-      <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e0e0e0">Key Management</text>
+    <!-- Checklist -->
+    <g transform="translate(15, 220)">
+      <text x="0" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Disable public IP</text>
+      <text x="150" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Enforce SSL</text>
     </g>
   </g>
-  
-  <!-- Defense in Depth -->
-  <g transform="translate(100, 600)">
-    <rect x="0" y="0" width="1000" height="120" rx="15" fill="rgba(255, 255, 255, 0.05)" stroke="#ffffff" stroke-width="2"/>
-    <text x="500" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">Defense in Depth Strategy</text>
-    <text x="500" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#e0e0e0">Multiple Security Layers: IAM - VPC - Application - Data - Monitoring</text>
+
+  <!-- Section 3: Cloud Storage Security -->
+  <g transform="translate(710, 110)">
+    <rect x="0" y="0" width="320" height="260" rx="12" fill="#1e293b" stroke="#EA4335" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="320" height="40" rx="12" fill="url(#gcpRed)"/>
+    <rect x="0" y="20" width="320" height="20" fill="url(#gcpRed)"/>
+    <text x="160" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Cloud Storage Security</text>
+    
+    <!-- Cloud Storage Items -->
+    <g transform="translate(15, 55)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Uniform Access</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">IAM Only</text>
+    </g>
+    <g transform="translate(165, 55)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">CMEK Encryption</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Customer Keys</text>
+    </g>
+    <g transform="translate(15, 110)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Public Prevention</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Org Policy</text>
+    </g>
+    <g transform="translate(165, 110)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Versioning</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Object History</text>
+    </g>
+    <g transform="translate(15, 165)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Retention Policy</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Compliance Lock</text>
+    </g>
+    <g transform="translate(165, 165)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Signed URLs</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Temp Access</text>
+    </g>
+    
+    <!-- Checklist -->
+    <g transform="translate(15, 220)">
+      <text x="0" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Enable CMEK</text>
+      <text x="150" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Block public</text>
+    </g>
   </g>
+
+  <!-- Section 4: VPC Network Security -->
+  <g transform="translate(1050, 110)">
+    <rect x="0" y="0" width="320" height="260" rx="12" fill="#1e293b" stroke="#9C27B0" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="320" height="40" rx="12" fill="url(#infoPurple)"/>
+    <rect x="0" y="20" width="320" height="20" fill="url(#infoPurple)"/>
+    <text x="160" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">VPC Network Security</text>
+    
+    <!-- VPC Items -->
+    <g transform="translate(15, 55)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(156,39,176,0.15)" stroke="#9C27B0" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#9C27B0">Firewall Rules</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Priority Based</text>
+    </g>
+    <g transform="translate(165, 55)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(156,39,176,0.15)" stroke="#9C27B0" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#9C27B0">Private Access</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Google APIs</text>
+    </g>
+    <g transform="translate(15, 110)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(156,39,176,0.15)" stroke="#9C27B0" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#9C27B0">VPC Flow Logs</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Traffic Analysis</text>
+    </g>
+    <g transform="translate(165, 110)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(156,39,176,0.15)" stroke="#9C27B0" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#9C27B0">Cloud NAT</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Outbound Only</text>
+    </g>
+    <g transform="translate(15, 165)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(156,39,176,0.15)" stroke="#9C27B0" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#9C27B0">VPC SC</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Service Perimeter</text>
+    </g>
+    <g transform="translate(165, 165)">
+      <rect x="0" y="0" width="140" height="45" rx="6" fill="rgba(156,39,176,0.15)" stroke="#9C27B0" stroke-width="1"/>
+      <text x="70" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#9C27B0">Shared VPC</text>
+      <text x="70" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Central Network</text>
+    </g>
+    
+    <!-- Checklist -->
+    <g transform="translate(15, 220)">
+      <text x="0" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Deny by default</text>
+      <text x="150" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Enable flow logs</text>
+    </g>
+  </g>
+
+  <!-- Section 5: GKE Kubernetes Security -->
+  <g transform="translate(30, 390)">
+    <rect x="0" y="0" width="660" height="280" rx="12" fill="#1e293b" stroke="#FBBC04" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="660" height="40" rx="12" fill="url(#gcpYellow)"/>
+    <rect x="0" y="20" width="660" height="20" fill="url(#gcpYellow)"/>
+    <text x="330" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">GKE Kubernetes Security</text>
+    
+    <!-- Row 1 -->
+    <g transform="translate(15, 55)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">Workload Identity</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">IAM for Pods</text>
+    </g>
+    <g transform="translate(175, 55)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">Pod Security</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Standards (PSS)</text>
+    </g>
+    <g transform="translate(335, 55)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">Network Policy</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Calico/Cilium</text>
+    </g>
+    <g transform="translate(495, 55)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">Binary Auth</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Image Signing</text>
+    </g>
+    
+    <!-- Row 2 -->
+    <g transform="translate(15, 115)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">Private Cluster</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">No Public Nodes</text>
+    </g>
+    <g transform="translate(175, 115)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">Shielded Nodes</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Secure Boot</text>
+    </g>
+    <g transform="translate(335, 115)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">Container Analysis</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Vuln Scanning</text>
+    </g>
+    <g transform="translate(495, 115)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">GKE Autopilot</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Managed Security</text>
+    </g>
+    
+    <!-- Row 3 -->
+    <g transform="translate(15, 175)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">Policy Controller</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">OPA/Gatekeeper</text>
+    </g>
+    <g transform="translate(175, 175)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">Config Connector</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">GCP as Code</text>
+    </g>
+    <g transform="translate(335, 175)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">Secret Manager</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">CSI Driver</text>
+    </g>
+    <g transform="translate(495, 175)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(251,188,4,0.15)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">RBAC + IAM</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Unified Authz</text>
+    </g>
+    
+    <!-- Checklist -->
+    <g transform="translate(15, 240)">
+      <text x="0" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Enable Workload Identity</text>
+      <text x="160" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Use Binary Authorization</text>
+      <text x="360" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Private cluster only</text>
+    </g>
+  </g>
+
+  <!-- Section 6: Security Monitoring -->
+  <g transform="translate(710, 390)">
+    <rect x="0" y="0" width="660" height="280" rx="12" fill="#1e293b" stroke="#EA4335" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="660" height="40" rx="12" fill="url(#gcpRed)"/>
+    <rect x="0" y="20" width="660" height="20" fill="url(#gcpRed)"/>
+    <text x="330" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Security Monitoring &amp; Compliance</text>
+    
+    <!-- Row 1 -->
+    <g transform="translate(15, 55)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Cloud Logging</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Centralized Logs</text>
+    </g>
+    <g transform="translate(175, 55)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Cloud Monitoring</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Metrics + Alerts</text>
+    </g>
+    <g transform="translate(335, 55)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Security Command</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Center (SCC)</text>
+    </g>
+    <g transform="translate(495, 55)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Event Threat</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Detection (ETD)</text>
+    </g>
+    
+    <!-- Row 2 -->
+    <g transform="translate(15, 115)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Cloud Asset</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Inventory</text>
+    </g>
+    <g transform="translate(175, 115)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Audit Logs</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Admin Activity</text>
+    </g>
+    <g transform="translate(335, 115)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Access Context</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Manager (BeyondCorp)</text>
+    </g>
+    <g transform="translate(495, 115)">
+      <rect x="0" y="0" width="150" height="50" rx="6" fill="rgba(234,67,53,0.15)" stroke="#EA4335" stroke-width="1"/>
+      <text x="75" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Cloud KMS</text>
+      <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Key Management</text>
+    </g>
+    
+    <!-- Row 3 - Compliance Frameworks -->
+    <g transform="translate(15, 175)">
+      <rect x="0" y="0" width="200" height="50" rx="6" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="1"/>
+      <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#34A853">CIS Benchmarks</text>
+      <text x="100" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">GCP Foundations v2.0</text>
+    </g>
+    <g transform="translate(225, 175)">
+      <rect x="0" y="0" width="200" height="50" rx="6" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="1"/>
+      <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#34A853">NIST CSF 2.0</text>
+      <text x="100" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Security Framework</text>
+    </g>
+    <g transform="translate(435, 175)">
+      <rect x="0" y="0" width="210" height="50" rx="6" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="1"/>
+      <text x="105" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#34A853">SOC 2 / ISO 27001</text>
+      <text x="105" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Compliance Reports</text>
+    </g>
+    
+    <!-- Checklist -->
+    <g transform="translate(15, 240)">
+      <text x="0" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Enable audit logs</text>
+      <text x="150" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Configure SCC alerts</text>
+      <text x="310" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Log sink to BigQuery</text>
+      <text x="490" y="12" font-family="Arial, sans-serif" font-size="10" fill="#34A853">✓ Monthly review</text>
+    </g>
+  </g>
+
+  <!-- Section 7: Defense in Depth Architecture -->
+  <g transform="translate(30, 690)">
+    <rect x="0" y="0" width="1340" height="130" rx="12" fill="#1e293b" stroke="#4285F4" stroke-width="2" filter="url(#shadow)"/>
+    <text x="670" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#4285F4">Defense in Depth Architecture - GCP Security Layers</text>
+    
+    <!-- Layer boxes -->
+    <g transform="translate(30, 50)">
+      <!-- Layer 1 -->
+      <rect x="0" y="0" width="150" height="60" rx="8" fill="url(#gcpBlue)" opacity="0.9"/>
+      <text x="75" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Edge Security</text>
+      <text x="75" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">Cloud CDN, Armor</text>
+      
+      <!-- Arrow -->
+      <path d="M160 30 L185 30" stroke="#4285F4" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Layer 2 -->
+      <rect x="195" y="0" width="150" height="60" rx="8" fill="url(#infoPurple)" opacity="0.9"/>
+      <text x="270" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Network</text>
+      <text x="270" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">VPC, Firewall, SC</text>
+      
+      <!-- Arrow -->
+      <path d="M355 30 L380 30" stroke="#9C27B0" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Layer 3 -->
+      <rect x="390" y="0" width="150" height="60" rx="8" fill="url(#gcpGreen)" opacity="0.9"/>
+      <text x="465" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Identity</text>
+      <text x="465" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">IAM, BeyondCorp</text>
+      
+      <!-- Arrow -->
+      <path d="M550 30 L575 30" stroke="#34A853" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Layer 4 -->
+      <rect x="585" y="0" width="150" height="60" rx="8" fill="url(#gcpYellow)" opacity="0.9"/>
+      <text x="660" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Compute</text>
+      <text x="660" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">GCE, GKE, Cloud Run</text>
+      
+      <!-- Arrow -->
+      <path d="M745 30 L770 30" stroke="#FBBC04" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Layer 5 -->
+      <rect x="780" y="0" width="150" height="60" rx="8" fill="url(#gcpRed)" opacity="0.9"/>
+      <text x="855" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Application</text>
+      <text x="855" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">API GW, LB</text>
+      
+      <!-- Arrow -->
+      <path d="M940 30 L965 30" stroke="#EA4335" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Layer 6 -->
+      <rect x="975" y="0" width="150" height="60" rx="8" fill="#00BCD4" opacity="0.9"/>
+      <text x="1050" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Data</text>
+      <text x="1050" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">GCS, SQL, BigQuery</text>
+      
+      <!-- Arrow -->
+      <path d="M1135 30 L1160 30" stroke="#00BCD4" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+      
+      <!-- Layer 7 -->
+      <rect x="1170" y="0" width="100" height="60" rx="8" fill="#FF5722" opacity="0.9"/>
+      <text x="1220" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Logging</text>
+      <text x="1220" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">Cloud Logging</text>
+    </g>
+  </g>
+
+  <!-- Section 8: Quick Reference -->
+  <g transform="translate(30, 840)">
+    <rect x="0" y="0" width="1340" height="140" rx="12" fill="#1e293b" stroke="#34A853" stroke-width="2" filter="url(#shadow)"/>
+    <text x="670" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#34A853">GCP Security Quick Reference - Essential Commands &amp; Best Practices</text>
+    
+    <!-- Commands Grid -->
+    <g transform="translate(30, 50)">
+      <rect x="0" y="0" width="310" height="70" rx="6" fill="rgba(66,133,244,0.1)" stroke="#4285F4" stroke-width="1"/>
+      <text x="155" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4285F4">IAM Best Practices</text>
+      <text x="10" y="40" font-family="monospace" font-size="9" fill="#94a3b8">gcloud iam roles list --project</text>
+      <text x="10" y="55" font-family="monospace" font-size="9" fill="#94a3b8">gcloud policy-intelligence analyze</text>
+    </g>
+    <g transform="translate(350, 50)">
+      <rect x="0" y="0" width="310" height="70" rx="6" fill="rgba(234,67,53,0.1)" stroke="#EA4335" stroke-width="1"/>
+      <text x="155" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#EA4335">Security Scanning</text>
+      <text x="10" y="40" font-family="monospace" font-size="9" fill="#94a3b8">gcloud container images scan</text>
+      <text x="10" y="55" font-family="monospace" font-size="9" fill="#94a3b8">gcloud scc findings list</text>
+    </g>
+    <g transform="translate(670, 50)">
+      <rect x="0" y="0" width="310" height="70" rx="6" fill="rgba(52,168,83,0.1)" stroke="#34A853" stroke-width="1"/>
+      <text x="155" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#34A853">Compliance Check</text>
+      <text x="10" y="40" font-family="monospace" font-size="9" fill="#94a3b8">gcloud asset analyze-org-policies</text>
+      <text x="10" y="55" font-family="monospace" font-size="9" fill="#94a3b8">gcloud logging read</text>
+    </g>
+    <g transform="translate(990, 50)">
+      <rect x="0" y="0" width="310" height="70" rx="6" fill="rgba(251,188,4,0.1)" stroke="#FBBC04" stroke-width="1"/>
+      <text x="155" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FBBC04">GKE Security</text>
+      <text x="10" y="40" font-family="monospace" font-size="9" fill="#94a3b8">gcloud container clusters describe</text>
+      <text x="10" y="55" font-family="monospace" font-size="9" fill="#94a3b8">kubectl auth can-i --list</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="990" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">GCP Cloud Security Complete Guide | tech.2twodragon.com | 2026</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffffff"/>
+    </marker>
+  </defs>
 </svg>

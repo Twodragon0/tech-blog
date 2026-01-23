@@ -1,109 +1,235 @@
-<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Arial, sans-serif">
   <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
     </linearGradient>
-    <filter id="shadow">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="2" dy="2" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3"/>
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <linearGradient id="spfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="dkimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+    <linearGradient id="dmarcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64748b"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#22c55e"/>
+    </marker>
   </defs>
-  <rect width="1200" height="800" fill="url(#grad1)"/>
-  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">SendGrid Email Authentication: SPF, DKIM, DMARC</text>
-  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">Complete Setup Guide: Email Delivery Trust &amp; Spam Prevention</text>
-  
-  <!-- SPF -->
-  <rect x="50" y="100" width="350" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="225" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">SPF (Sender Policy Framework)</text>
-  
-  <rect x="80" y="150" width="290" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
-  <text x="225" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">DNS TXT Record</text>
-  <text x="225" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">v=spf1</text>
-  <text x="225" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">include:sendgrid.net ~all</text>
-  
-  <rect x="80" y="240" width="290" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="225" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Sender Server</text>
-  <text x="225" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Authentication</text>
-  <text x="225" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Qualifiers: +/-/~/?</text>
-  
-  <rect x="80" y="330" width="290" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="225" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Multiple Email Services: Include All Senders</text>
-  
-  <!-- DKIM -->
-  <rect x="420" y="100" width="350" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="595" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">DKIM (DomainKeys Identified Mail)</text>
-  
-  <rect x="450" y="150" width="290" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
-  <text x="595" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Signature Key</text>
-  <text x="595" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Selector/Public Key</text>
-  <text x="595" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">s1._domainkey</text>
-  
-  <rect x="450" y="240" width="290" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="595" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Email Integrity</text>
-  <text x="595" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Verification</text>
-  <text x="595" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Digital Signature</text>
-  
-  <rect x="450" y="330" width="290" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="595" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">DNS TXT Record: {selector}._domainkey.{domain}</text>
-  
-  <!-- DMARC -->
-  <rect x="790" y="100" width="360" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="970" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">DMARC (Domain-based Message Authentication)</text>
-  
-  <rect x="820" y="150" width="300" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="2"/>
-  <text x="970" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Policy Setting</text>
-  <text x="970" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">v=DMARC1</text>
-  <text x="970" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">p=quarantine/reject</text>
-  
-  <rect x="820" y="240" width="300" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="970" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Report Analysis</text>
-  <text x="970" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Aggregate/Failure</text>
-  <text x="970" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">rua=mailto:</text>
-  
-  <rect x="820" y="330" width="300" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="970" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Policy Modes: none → quarantine → reject</text>
-  
-  <!-- Benefits -->
-  <rect x="50" y="430" width="1100" height="180" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="600" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Email Delivery Trust Improvement</text>
-  
-  <rect x="80" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="180" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Spam Prevention</text>
-  <text x="180" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Reduce Spam</text>
-  <text x="180" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Folder</text>
-  <text x="180" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Delivery Rate</text>
-  
-  <rect x="300" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="400" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Delivery Rate</text>
-  <text x="400" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Improvement</text>
-  <text x="400" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Higher</text>
-  <text x="400" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Inbox Rate</text>
-  
-  <rect x="520" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="620" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Phishing</text>
-  <text x="620" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Prevention</text>
-  <text x="620" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Email Spoofing</text>
-  <text x="620" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Protection</text>
-  
-  <rect x="740" y="480" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="840" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">SendGrid Domain</text>
-  <text x="840" y="520" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Verification</text>
-  <text x="840" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">DNS Record</text>
-  <text x="840" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Validation</text>
-  
-  <rect x="960" y="480" width="180" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="1050" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Best Practices</text>
-  <text x="1050" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Gradual</text>
-  <text x="1050" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Policy</text>
-  <text x="1050" y="555" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Monitoring</text>
-  
-  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">SendGrid | SPF | DKIM | DMARC | Email Authentication | Email Delivery Trust | Spam Prevention</text>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGrad)"/>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.02"/>
+  </pattern>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" font-size="30" font-weight="bold" fill="#ffffff" filter="url(#glow)">Email Authentication: SPF + DKIM + DMARC</text>
+  <text x="600" y="75" text-anchor="middle" font-size="16" fill="#94a3b8">SendGrid Email Delivery Trust Setup Guide</text>
+
+  <!-- Email Flow Diagram -->
+  <g transform="translate(50, 110)">
+    <!-- Sender -->
+    <g transform="translate(0, 100)">
+      <rect x="0" y="0" width="140" height="100" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+      <text x="70" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#f59e0b">Sender</text>
+      <text x="70" y="55" text-anchor="middle" font-size="12" fill="#94a3b8">Your Server</text>
+      <text x="70" y="75" text-anchor="middle" font-size="11" fill="#64748b">+ SendGrid</text>
+    </g>
+
+    <!-- Arrow to DNS -->
+    <path d="M 140 150 L 200 150" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- DNS Lookup Box -->
+    <g transform="translate(210, 60)">
+      <rect x="0" y="0" width="200" height="180" rx="10" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">DNS Records</text>
+      
+      <!-- SPF Record -->
+      <rect x="15" y="40" width="170" height="40" rx="6" fill="url(#spfGrad)" opacity="0.9"/>
+      <text x="100" y="55" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">SPF TXT</text>
+      <text x="100" y="70" text-anchor="middle" font-size="9" fill="#e0e7ff">v=spf1 include:sendgrid.net</text>
+      
+      <!-- DKIM Record -->
+      <rect x="15" y="90" width="170" height="40" rx="6" fill="url(#dkimGrad)" opacity="0.9"/>
+      <text x="100" y="105" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">DKIM TXT</text>
+      <text x="100" y="120" text-anchor="middle" font-size="9" fill="#e0e7ff">s1._domainkey (Public Key)</text>
+      
+      <!-- DMARC Record -->
+      <rect x="15" y="140" width="170" height="30" rx="6" fill="url(#dmarcGrad)" opacity="0.9"/>
+      <text x="100" y="160" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">DMARC TXT: p=quarantine</text>
+    </g>
+
+    <!-- Arrow to Verification -->
+    <path d="M 410 150 L 470 150" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Verification Process -->
+    <g transform="translate(480, 50)">
+      <rect x="0" y="0" width="280" height="200" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+      <text x="140" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#22c55e">Verification</text>
+      
+      <!-- Check 1: SPF -->
+      <g transform="translate(20, 45)">
+        <circle cx="15" cy="15" r="15" fill="url(#spfGrad)"/>
+        <text x="15" y="20" text-anchor="middle" font-size="16" fill="#ffffff">1</text>
+        <text x="45" y="15" font-size="12" font-weight="bold" fill="#22c55e">SPF Check</text>
+        <text x="45" y="30" font-size="10" fill="#94a3b8">IP in allowed list?</text>
+      </g>
+      
+      <!-- Check 2: DKIM -->
+      <g transform="translate(20, 95)">
+        <circle cx="15" cy="15" r="15" fill="url(#dkimGrad)"/>
+        <text x="15" y="20" text-anchor="middle" font-size="16" fill="#ffffff">2</text>
+        <text x="45" y="15" font-size="12" font-weight="bold" fill="#3b82f6">DKIM Check</text>
+        <text x="45" y="30" font-size="10" fill="#94a3b8">Signature valid?</text>
+      </g>
+      
+      <!-- Check 3: DMARC -->
+      <g transform="translate(20, 145)">
+        <circle cx="15" cy="15" r="15" fill="url(#dmarcGrad)"/>
+        <text x="15" y="20" text-anchor="middle" font-size="16" fill="#ffffff">3</text>
+        <text x="45" y="15" font-size="12" font-weight="bold" fill="#a855f7">DMARC Policy</text>
+        <text x="45" y="30" font-size="10" fill="#94a3b8">Apply enforcement</text>
+      </g>
+      
+      <!-- Pass indicators -->
+      <g transform="translate(200, 55)">
+        <circle cx="0" cy="0" r="10" fill="#22c55e"/>
+        <text x="0" y="4" text-anchor="middle" font-size="12" fill="#ffffff">OK</text>
+      </g>
+      <g transform="translate(200, 105)">
+        <circle cx="0" cy="0" r="10" fill="#22c55e"/>
+        <text x="0" y="4" text-anchor="middle" font-size="12" fill="#ffffff">OK</text>
+      </g>
+      <g transform="translate(200, 155)">
+        <circle cx="0" cy="0" r="10" fill="#22c55e"/>
+        <text x="0" y="4" text-anchor="middle" font-size="12" fill="#ffffff">OK</text>
+      </g>
+    </g>
+
+    <!-- Arrow to Inbox -->
+    <path d="M 760 150 L 820 150" stroke="#22c55e" stroke-width="3" marker-end="url(#arrowGreen)"/>
+
+    <!-- Receiver Inbox -->
+    <g transform="translate(830, 80)">
+      <rect x="0" y="0" width="160" height="140" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+      <text x="80" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#22c55e">Inbox</text>
+      <rect x="20" y="50" width="120" height="35" rx="6" fill="#0f172a" stroke="#22c55e" stroke-width="1"/>
+      <text x="80" y="72" text-anchor="middle" font-size="11" fill="#22c55e">Delivered</text>
+      <rect x="20" y="95" width="120" height="35" rx="6" fill="#0f172a" stroke="#64748b" stroke-width="1"/>
+      <text x="80" y="117" text-anchor="middle" font-size="11" fill="#64748b">Not Spam</text>
+    </g>
+  </g>
+
+  <!-- Three Protocol Details -->
+  <g transform="translate(50, 380)">
+    <!-- SPF Detail -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="360" height="190" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+      <rect x="0" y="0" width="360" height="40" rx="12" fill="url(#spfGrad)"/>
+      <rect x="0" y="28" width="360" height="12" fill="url(#spfGrad)"/>
+      <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">SPF - Sender Policy</text>
+      
+      <text x="20" y="65" font-size="12" font-weight="bold" fill="#22c55e">Purpose:</text>
+      <text x="90" y="65" font-size="11" fill="#94a3b8">Authorize sending IPs</text>
+      
+      <text x="20" y="90" font-size="12" font-weight="bold" fill="#22c55e">DNS Record:</text>
+      <rect x="20" y="100" width="320" height="30" rx="4" fill="#0f172a"/>
+      <text x="180" y="120" text-anchor="middle" font-size="10" fill="#22c55e" font-family="monospace">v=spf1 include:sendgrid.net ~all</text>
+      
+      <text x="20" y="155" font-size="12" font-weight="bold" fill="#22c55e">Result:</text>
+      <text x="90" y="155" font-size="11" fill="#94a3b8">pass | fail | softfail | neutral</text>
+      <text x="20" y="175" font-size="11" fill="#64748b">Tip: Use ~all (softfail) during testing</text>
+    </g>
+
+    <!-- DKIM Detail -->
+    <g transform="translate(390, 0)">
+      <rect x="0" y="0" width="360" height="190" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+      <rect x="0" y="0" width="360" height="40" rx="12" fill="url(#dkimGrad)"/>
+      <rect x="0" y="28" width="360" height="12" fill="url(#dkimGrad)"/>
+      <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">DKIM - Digital Signature</text>
+      
+      <text x="20" y="65" font-size="12" font-weight="bold" fill="#3b82f6">Purpose:</text>
+      <text x="90" y="65" font-size="11" fill="#94a3b8">Verify email integrity</text>
+      
+      <text x="20" y="90" font-size="12" font-weight="bold" fill="#3b82f6">DNS Record:</text>
+      <rect x="20" y="100" width="320" height="30" rx="4" fill="#0f172a"/>
+      <text x="180" y="120" text-anchor="middle" font-size="10" fill="#3b82f6" font-family="monospace">s1._domainkey.domain.com TXT</text>
+      
+      <text x="20" y="155" font-size="12" font-weight="bold" fill="#3b82f6">Key:</text>
+      <text x="60" y="155" font-size="11" fill="#94a3b8">2048-bit RSA public key</text>
+      <text x="20" y="175" font-size="11" fill="#64748b">Tip: Rotate keys annually</text>
+    </g>
+
+    <!-- DMARC Detail -->
+    <g transform="translate(780, 0)">
+      <rect x="0" y="0" width="360" height="190" rx="12" fill="#1e293b" stroke="#a855f7" stroke-width="2"/>
+      <rect x="0" y="0" width="360" height="40" rx="12" fill="url(#dmarcGrad)"/>
+      <rect x="0" y="28" width="360" height="12" fill="url(#dmarcGrad)"/>
+      <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">DMARC - Policy Control</text>
+      
+      <text x="20" y="65" font-size="12" font-weight="bold" fill="#a855f7">Purpose:</text>
+      <text x="90" y="65" font-size="11" fill="#94a3b8">Define failure handling</text>
+      
+      <text x="20" y="90" font-size="12" font-weight="bold" fill="#a855f7">DNS Record:</text>
+      <rect x="20" y="100" width="320" height="30" rx="4" fill="#0f172a"/>
+      <text x="180" y="120" text-anchor="middle" font-size="10" fill="#a855f7" font-family="monospace">v=DMARC1; p=quarantine; rua=mailto:</text>
+      
+      <text x="20" y="155" font-size="12" font-weight="bold" fill="#a855f7">Policy:</text>
+      <text x="75" y="155" font-size="11" fill="#94a3b8">none</text>
+      <text x="115" y="155" font-size="11" fill="#64748b">-></text>
+      <text x="135" y="155" font-size="11" fill="#f59e0b">quarantine</text>
+      <text x="205" y="155" font-size="11" fill="#64748b">-></text>
+      <text x="225" y="155" font-size="11" fill="#ef4444">reject</text>
+      <text x="20" y="175" font-size="11" fill="#64748b">Tip: Start with p=none, monitor reports</text>
+    </g>
+  </g>
+
+  <!-- Benefits Summary -->
+  <g transform="translate(50, 600)">
+    <rect x="0" y="0" width="1100" height="90" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <text x="550" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Implementation Benefits</text>
+    
+    <g transform="translate(60, 50)">
+      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
+      <text x="15" y="5" font-size="12" fill="#94a3b8">Inbox delivery rate</text>
+      <text x="145" y="5" font-size="12" font-weight="bold" fill="#22c55e">+20-30%</text>
+    </g>
+    <g transform="translate(300, 50)">
+      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
+      <text x="15" y="5" font-size="12" fill="#94a3b8">Spam classification</text>
+      <text x="145" y="5" font-size="12" font-weight="bold" fill="#22c55e">-80%</text>
+    </g>
+    <g transform="translate(530, 50)">
+      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
+      <text x="15" y="5" font-size="12" fill="#94a3b8">Phishing protection</text>
+      <text x="140" y="5" font-size="12" font-weight="bold" fill="#22c55e">Enhanced</text>
+    </g>
+    <g transform="translate(770, 50)">
+      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
+      <text x="15" y="5" font-size="12" fill="#94a3b8">Brand reputation</text>
+      <text x="125" y="5" font-size="12" font-weight="bold" fill="#22c55e">Protected</text>
+    </g>
+    <g transform="translate(970, 50)">
+      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
+      <text x="15" y="5" font-size="12" fill="#94a3b8">Gmail/O365</text>
+      <text x="85" y="5" font-size="12" font-weight="bold" fill="#22c55e">Required</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="600" y="785" text-anchor="middle" font-size="11" fill="#64748b">SendGrid | SPF + DKIM + DMARC | Email Authentication | Delivery Trust</text>
 </svg>

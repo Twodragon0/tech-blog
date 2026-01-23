@@ -1,54 +1,225 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 950">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
   <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&amp;display=swap');
-      .title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 56px; fill: #F8FAFC; }
-      .subtitle { font-family: 'Manrope', sans-serif; font-weight: 400; font-size: 30px; fill: #94A3B8; }
-      .bullet-text { font-family: 'Manrope', sans-serif; font-weight: 400; font-size: 32px; fill: #E2E8F0; }
-      .stat-val { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 72px; fill: #38BDF8; }
-      .stat-label { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 20px; fill: #94A3B8; text-transform: uppercase; letter-spacing: 2px; }
-      .card { fill: #1E293B; stroke: #334155; stroke-width: 2; rx: 16; }
-      .bullet-icon { fill: #38BDF8; }
-    </style>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0F172A;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1E293B;stop-opacity:1" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
     </linearGradient>
+    <linearGradient id="k8sGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#326ce5"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="alertGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  
-  <rect width="100%" height="100%" fill="url(#grad)" />
-  <circle cx="1000" cy="100" r="400" fill="#38BDF8" opacity="0.03" />
-  
-  <g transform="translate(60, 80)">
-    <text x="0" y="60" class="title">Cloud Security Trends</text>
-    <text x="0" y="110" class="subtitle">January 2026 Edition</text>
-    <line x1="0" y1="150" x2="1080" y2="150" stroke="#334155" stroke-width="2" />
-    
-    <g transform="translate(20, 220)">
-       <circle cx="10" cy="-10" r="6" class="bullet-icon" />
-       <text x="40" y="0" class="bullet-text">Kubernetes hits 82% production adoption</text>
-       
-       <circle cx="10" cy="70" r="6" class="bullet-icon" />
-       <text x="40" y="80" class="bullet-text">66% of AI inference runs on K8s clusters</text>
 
-       <circle cx="10" cy="150" r="6" class="bullet-icon" />
-       <text x="40" y="160" class="bullet-text">VS Code tunnels increasingly abused by attackers</text>
+  <!-- Background -->
+  <rect width="1400" height="900" fill="url(#bgGrad)"/>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03"/>
+  </pattern>
+  <rect width="1400" height="900" fill="url(#grid)"/>
 
-       <circle cx="10" cy="230" r="6" class="bullet-icon" />
-       <text x="40" y="240" class="bullet-text">CRI-O container runtime audit completed</text>
+  <!-- Header -->
+  <text x="700" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="42" font-weight="bold" fill="#ffffff">Cloud Security Trends - January 2026</text>
+  <text x="700" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8">Key Insights for DevSecOps Engineers</text>
+  <line x1="100" y1="115" x2="1300" y2="115" stroke="#334155" stroke-width="2"/>
 
-       <circle cx="10" cy="310" r="6" class="bullet-icon" />
-       <text x="40" y="320" class="bullet-text">Net-NTLMv1 deprecated; migrate to Kerberos</text>
+  <!-- Main Stats Row -->
+  <g transform="translate(100, 140)">
+    <!-- K8s Adoption -->
+    <g>
+      <rect width="280" height="150" rx="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <rect x="0" y="0" width="280" height="8" rx="4" fill="url(#k8sGrad)"/>
+      <text x="140" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="bold" fill="#38bdf8" filter="url(#glow)">82%</text>
+      <text x="140" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#94a3b8">K8s Production</text>
+      <text x="140" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">CNCF Survey 2025</text>
+      <text x="140" y="135" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#22c55e">+8% YoY</text>
+    </g>
+
+    <!-- AI on K8s -->
+    <g transform="translate(310, 0)">
+      <rect width="280" height="150" rx="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <rect x="0" y="0" width="280" height="8" rx="4" fill="url(#k8sGrad)"/>
+      <text x="140" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="bold" fill="#38bdf8" filter="url(#glow)">66%</text>
+      <text x="140" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#94a3b8">AI Inference on K8s</text>
+      <text x="140" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">ML Workloads</text>
+      <text x="140" y="135" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#f59e0b">Growing Rapidly</text>
+    </g>
+
+    <!-- VS Code Threat -->
+    <g transform="translate(620, 0)">
+      <rect width="280" height="150" rx="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <rect x="0" y="0" width="280" height="8" rx="4" fill="url(#alertGrad)"/>
+      <text x="140" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="#ef4444" filter="url(#glow)">VS Code</text>
+      <text x="140" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#94a3b8">Attack Vector Expanding</text>
+      <text x="140" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Jamf Threat Labs</text>
+      <text x="140" y="135" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#ef4444">HIGH RISK</text>
+    </g>
+
+    <!-- CRI-O Audit -->
+    <g transform="translate(930, 0)">
+      <rect width="280" height="150" rx="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      <rect x="0" y="0" width="280" height="8" rx="4" fill="url(#greenGrad)"/>
+      <text x="140" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="#22c55e" filter="url(#glow)">CRI-O</text>
+      <text x="140" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#94a3b8">Security Audit Complete</text>
+      <text x="140" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">OSTIF / CNCF</text>
+      <text x="140" y="135" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#22c55e">PASSED</text>
     </g>
   </g>
 
-  <g transform="translate(860, 250)">
-     <rect x="0" y="0" width="280" height="160" class="card" />
-     <text x="140" y="85" text-anchor="middle" class="stat-val">82%</text>
-     <text x="140" y="130" text-anchor="middle" class="stat-label">K8s Adoption</text>
-     
-     <rect x="0" y="190" width="280" height="160" class="card" />
-     <text x="140" y="275" text-anchor="middle" class="stat-val">66%</text>
-     <text x="140" y="320" text-anchor="middle" class="stat-label">AI on K8s</text>
+  <!-- Key Threats Section -->
+  <g transform="translate(100, 320)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">Key Security Threats</text>
+    
+    <g transform="translate(0, 30)">
+      <rect width="580" height="220" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      
+      <!-- VS Code Attack Flow -->
+      <text x="290" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ef4444">VS Code Attack Chain</text>
+      
+      <g transform="translate(30, 60)">
+        <rect width="110" height="50" rx="8" fill="#7c3aed" opacity="0.8"/>
+        <text x="55" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fff">Malicious</text>
+        <text x="55" y="44" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fff">Extension</text>
+      </g>
+      <path d="M145 85 L165 85" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+      
+      <g transform="translate(170, 60)">
+        <rect width="110" height="50" rx="8" fill="#dc2626" opacity="0.8"/>
+        <text x="55" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fff">Tunnel</text>
+        <text x="55" y="44" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fff">Hijacking</text>
+      </g>
+      <path d="M285 85 L305 85" stroke="#64748b" stroke-width="2"/>
+      
+      <g transform="translate(310, 60)">
+        <rect width="110" height="50" rx="8" fill="#ea580c" opacity="0.8"/>
+        <text x="55" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fff">C2</text>
+        <text x="55" y="44" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fff">Communication</text>
+      </g>
+      <path d="M425 85 L445 85" stroke="#64748b" stroke-width="2"/>
+      
+      <g transform="translate(450, 60)">
+        <rect width="110" height="50" rx="8" fill="#b91c1c" opacity="0.8"/>
+        <text x="55" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fff">Credential</text>
+        <text x="55" y="44" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fff">Theft</text>
+      </g>
+
+      <!-- Mitigations -->
+      <text x="290" y="145" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#22c55e">Mitigations</text>
+      <text x="145" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Block *.devtunnels.ms</text>
+      <text x="290" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Audit Extensions</text>
+      <text x="435" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">EDR Monitoring</text>
+      <circle cx="50" cy="171" r="4" fill="#22c55e"/>
+      <circle cx="205" cy="171" r="4" fill="#22c55e"/>
+      <circle cx="355" cy="171" r="4" fill="#22c55e"/>
+    </g>
   </g>
+
+  <!-- NTLM Deprecation -->
+  <g transform="translate(710, 320)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">Legacy Protocol Alert</text>
+    
+    <g transform="translate(0, 30)">
+      <rect width="580" height="220" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      
+      <text x="290" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b">Net-NTLMv1 Deprecation</text>
+      
+      <!-- Migration Path -->
+      <g transform="translate(40, 55)">
+        <rect width="140" height="60" rx="8" fill="#dc2626" opacity="0.3" stroke="#dc2626"/>
+        <text x="70" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">NTLMv1</text>
+        <text x="70" y="48" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">DEPRECATED</text>
+      </g>
+      
+      <path d="M190 85 L230 85" stroke="#64748b" stroke-width="2" stroke-dasharray="5,5"/>
+      <text x="210" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#64748b">X</text>
+      
+      <g transform="translate(240, 55)">
+        <rect width="140" height="60" rx="8" fill="#f59e0b" opacity="0.3" stroke="#f59e0b"/>
+        <text x="70" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b">NTLMv2</text>
+        <text x="70" y="48" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">TEMPORARY</text>
+      </g>
+      
+      <path d="M390 85 L420 85" stroke="#22c55e" stroke-width="2"/>
+      <polygon points="420,80 430,85 420,90" fill="#22c55e"/>
+      
+      <g transform="translate(440, 55)">
+        <rect width="120" height="60" rx="8" fill="#22c55e" opacity="0.3" stroke="#22c55e"/>
+        <text x="60" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#22c55e">Kerberos</text>
+        <text x="60" y="48" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">RECOMMENDED</text>
+      </g>
+
+      <!-- Action Items -->
+      <text x="290" y="145" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#38bdf8">Action Required</text>
+      <text x="145" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Audit NTLM Usage</text>
+      <text x="290" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Set LmLevel >= 3</text>
+      <text x="435" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Enable Kerberos</text>
+      <circle cx="50" cy="171" r="4" fill="#38bdf8"/>
+      <circle cx="205" cy="171" r="4" fill="#38bdf8"/>
+      <circle cx="355" cy="171" r="4" fill="#38bdf8"/>
+    </g>
+  </g>
+
+  <!-- K8s Security Layers -->
+  <g transform="translate(100, 590)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">Kubernetes Security Essentials (82% Production)</text>
+    
+    <g transform="translate(0, 30)">
+      <rect width="1200" height="180" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      
+      <!-- 4 Pillars -->
+      <g transform="translate(40, 25)">
+        <rect width="260" height="130" rx="10" fill="#0f172a" stroke="#326ce5" stroke-width="2"/>
+        <rect x="0" y="0" width="260" height="6" rx="3" fill="#326ce5"/>
+        <text x="130" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#38bdf8">RBAC</text>
+        <text x="130" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Role-Based Access</text>
+        <text x="130" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Least Privilege</text>
+        <text x="130" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Service Accounts</text>
+        <text x="130" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">REQUIRED</text>
+      </g>
+      
+      <g transform="translate(330, 25)">
+        <rect width="260" height="130" rx="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="2"/>
+        <rect x="0" y="0" width="260" height="6" rx="3" fill="#8b5cf6"/>
+        <text x="130" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#a78bfa">Network Policy</text>
+        <text x="130" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Pod-to-Pod Isolation</text>
+        <text x="130" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Ingress/Egress Rules</text>
+        <text x="130" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Namespace Segmentation</text>
+        <text x="130" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">REQUIRED</text>
+      </g>
+      
+      <g transform="translate(620, 25)">
+        <rect width="260" height="130" rx="10" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
+        <rect x="0" y="0" width="260" height="6" rx="3" fill="#22c55e"/>
+        <text x="130" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#4ade80">Pod Security</text>
+        <text x="130" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">PSS Enforcement</text>
+        <text x="130" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Security Context</text>
+        <text x="130" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">User Namespaces</text>
+        <text x="130" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">REQUIRED</text>
+      </g>
+      
+      <g transform="translate(910, 25)">
+        <rect width="260" height="130" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+        <rect x="0" y="0" width="260" height="6" rx="3" fill="#f59e0b"/>
+        <text x="130" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fbbf24">Audit Logging</text>
+        <text x="130" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">API Server Events</text>
+        <text x="130" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Resource Changes</text>
+        <text x="130" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Access Attempts</text>
+        <text x="130" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">REQUIRED</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="860" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Source: CNCF Survey 2025, Jamf Threat Labs, OSTIF, Mandiant | tech.2twodragon.com</text>
 </svg>

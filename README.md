@@ -119,31 +119,30 @@
 tech-blog/
 ├── _posts/                 # 블로그 포스트 (Markdown)
 ├── _layouts/               # Jekyll 레이아웃 파일
-│   ├── default.html
-│   ├── post.html
-│   └── page.html
 ├── _includes/              # 재사용 가능한 컴포넌트
-│   ├── head.html           # HTML head (SEO, CSP)
-│   ├── header.html         # 네비게이션 헤더
-│   ├── footer.html         # 푸터
-│   ├── giscus.html         # 댓글 시스템
-│   └── post-card.html      # 포스트 카드 컴포넌트
 ├── assets/
-│   ├── css/main.css        # 메인 스타일시트
-│   ├── js/                 # JavaScript 파일
-│   └── images/             # 이미지 (SVG, PNG)
-├── scripts/
-│   ├── share_sns.py        # SNS 자동 공유 스크립트
-│   └── requirements.txt    # Python 의존성
+│   ├── css/                # 스타일시트
+│   ├── js/                 # JavaScript
+│   └── images/             # 이미지 (영어 파일명만!)
+├── docs/                   # 프로젝트 문서
+│   ├── guides/             # 콘텐츠 작성 가이드
+│   ├── optimization/       # 성능 최적화 가이드
+│   ├── setup/              # 설정 가이드
+│   └── troubleshooting/    # 문제 해결 가이드
+├── scripts/                # Python/Bash 유틸리티
+│   ├── docs/               # 스크립트별 문서
+│   └── README.md           # 스크립트 가이드
 ├── .github/
-│   └── workflows/
-│       ├── jekyll.yml      # GitHub Pages 배포
-│       └── sns-share.yml   # SNS 자동 공유
+│   ├── workflows/          # GitHub Actions
+│   └── docs/               # 워크플로우 문서
+├── api/                    # Vercel Serverless Functions
 ├── _config.yml             # Jekyll 설정
 ├── vercel.json             # Vercel 배포 설정
-├── build.sh                # Vercel 빌드 스크립트
-├── Gemfile                 # Ruby 의존성
-└── README.md
+├── .cursorrules            # Cursor AI 규칙 (상세)
+├── CLAUDE.md               # Claude Code 지침
+├── AGENTS.md               # AI 에이전트 가이드라인
+├── SECURITY.md             # 보안 정책
+└── README.md               # 이 파일
 ```
 
 ## 🛠️ 기술 스택
@@ -321,13 +320,26 @@ GitHub Actions 워크플로우를 통해 새 포스트가 푸시되면 자동으
 
 이 프로젝트는 AI 어시스턴트를 활용한 콘텐츠 작성을 지원합니다.
 
-### 참고 문서
+### AI 관련 문서
 | 문서 | 용도 |
 |------|------|
-| `.cursorrules` | Cursor AI 설정 및 프로젝트 규칙 |
-| `BEST_PRACTICES.md` | 작업 가이드라인 |
-| `GEMINI_IMAGE_GUIDE.md` | 이미지 생성 가이드 |
-| `POST_VISUALIZATION_CHECKLIST.md` | 시각화 체크리스트 |
+| `.cursorrules` | Cursor AI 설정 및 프로젝트 규칙 (상세) |
+| `CLAUDE.md` | Claude Code 지침 |
+| `AGENTS.md` | AI 에이전트 코딩 가이드라인 |
+
+### 콘텐츠 가이드
+| 문서 | 용도 |
+|------|------|
+| `docs/guides/BEST_PRACTICES.md` | 포스트 작성 모범 사례 |
+| `docs/guides/GEMINI_IMAGE_GUIDE.md` | 이미지 생성 가이드 |
+| `docs/guides/POST_VISUALIZATION_CHECKLIST.md` | 시각화 체크리스트 |
+
+### 스크립트 사용
+| 명령어 | 용도 |
+|--------|------|
+| `python3 scripts/check_posts.py` | 포스트 검증 |
+| `python3 scripts/fix_links_unified.py --fix` | 링크 수정 |
+| `python3 scripts/verify_images_unified.py --all` | 이미지 검증 |
 
 ## 📄 라이선스
 

@@ -1,54 +1,345 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950">
   <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&amp;display=swap');
-      .title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 56px; fill: #F8FAFC; }
-      .subtitle { font-family: 'Manrope', sans-serif; font-weight: 400; font-size: 30px; fill: #94A3B8; }
-      .bullet-text { font-family: 'Manrope', sans-serif; font-weight: 400; font-size: 32px; fill: #E2E8F0; }
-      .stat-val { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 72px; fill: #38BDF8; }
-      .stat-label { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 20px; fill: #94A3B8; text-transform: uppercase; letter-spacing: 2px; }
-      .card { fill: #1E293B; stroke: #334155; stroke-width: 2; rx: 16; }
-      .bullet-icon { fill: #38BDF8; }
-    </style>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0F172A;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1E293B;stop-opacity:1" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
     </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  
-  <rect width="100%" height="100%" fill="url(#grad)" />
-  <circle cx="1000" cy="100" r="400" fill="#38BDF8" opacity="0.03" />
-  
-  <g transform="translate(60, 80)">
-    <text x="0" y="60" class="title">KISA Security Advisory</text>
-    <text x="0" y="110" class="subtitle">Ransomware, Linux Rootkits &amp; Phishing</text>
-    <line x1="0" y1="150" x2="1080" y2="150" stroke="#334155" stroke-width="2" />
+
+  <!-- Background -->
+  <rect width="1400" height="950" fill="url(#bgGrad)"/>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.02"/>
+  </pattern>
+  <rect width="1400" height="950" fill="url(#grid)"/>
+
+  <!-- Header -->
+  <text x="700" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="bold" fill="#ffffff">KISA Security Advisory Analysis</text>
+  <text x="700" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8">Ransomware Prevention &amp; Linux Rootkit Detection Guide</text>
+  <line x1="100" y1="95" x2="1300" y2="95" stroke="#334155" stroke-width="2"/>
+
+  <!-- Alert Cards -->
+  <g transform="translate(100, 115)">
+    <g>
+      <rect width="380" height="80" rx="10" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+      <text x="190" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">Ransomware Prevention</text>
+      <text x="190" y="52" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">3-2-1 Backup | Network Segmentation</text>
+      <text x="190" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#f87171">Priority: IMMEDIATE</text>
+    </g>
     
-    <g transform="translate(20, 220)">
-       <circle cx="10" cy="-10" r="6" class="bullet-icon" />
-       <text x="40" y="0" class="bullet-text">Implement 3-2-1 backup rule + air-gapped copies</text>
-       
-       <circle cx="10" cy="70" r="6" class="bullet-icon" />
-       <text x="40" y="80" class="bullet-text">Enforce network segmentation (DMZ/App/Data)</text>
-
-       <circle cx="10" cy="150" r="6" class="bullet-icon" />
-       <text x="40" y="160" class="bullet-text">Scan for rootkits: chkrootkit, rkhunter, AIDE</text>
-
-       <circle cx="10" cy="230" r="6" class="bullet-icon" />
-       <text x="40" y="240" class="bullet-text">Monitor for ecommerce phishing/smishing</text>
-
-       <circle cx="10" cy="310" r="6" class="bullet-icon" />
-       <text x="40" y="320" class="bullet-text">Automate patch management &amp; security controls</text>
+    <g transform="translate(410, 0)">
+      <rect width="380" height="80" rx="10" fill="#422006" stroke="#f97316" stroke-width="2"/>
+      <text x="190" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#f97316">Linux Rootkit Detection</text>
+      <text x="190" y="52" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Kernel Module | Syscall Verification</text>
+      <text x="190" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fb923c">Priority: HIGH</text>
+    </g>
+    
+    <g transform="translate(820, 0)">
+      <rect width="380" height="80" rx="10" fill="#172554" stroke="#3b82f6" stroke-width="2"/>
+      <text x="190" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#3b82f6">E-commerce Phishing</text>
+      <text x="190" y="52" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Smishing | Payment Fraud Alert</text>
+      <text x="190" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#60a5fa">Priority: MEDIUM</text>
     </g>
   </g>
 
-  <g transform="translate(860, 250)">
-     <rect x="0" y="0" width="280" height="160" class="card" />
-     <text x="140" y="85" text-anchor="middle" class="stat-val">3-2-1</text>
-     <text x="140" y="130" text-anchor="middle" class="stat-label">Backup Rule</text>
-     
-     <rect x="0" y="190" width="280" height="160" class="card" />
-     <text x="140" y="275" text-anchor="middle" class="stat-val">DMZ</text>
-     <text x="140" y="320" text-anchor="middle" class="stat-label">Segmentation</text>
+  <!-- 3-2-1 Backup Strategy -->
+  <g transform="translate(100, 220)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">3-2-1 Backup Strategy (Anti-Ransomware)</text>
+    
+    <g transform="translate(0, 25)">
+      <rect width="580" height="270" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+      
+      <!-- 3 Copies -->
+      <g transform="translate(30, 25)">
+        <rect width="160" height="100" rx="10" fill="#0f172a" stroke="#22c55e"/>
+        <text x="80" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="#22c55e" filter="url(#glow)">3</text>
+        <text x="80" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Copies</text>
+        <text x="80" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Production</text>
+        <text x="80" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">+ 2 Backups</text>
+      </g>
+      
+      <!-- 2 Media Types -->
+      <g transform="translate(210, 25)">
+        <rect width="160" height="100" rx="10" fill="#0f172a" stroke="#38bdf8"/>
+        <text x="80" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="#38bdf8" filter="url(#glow)">2</text>
+        <text x="80" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Media Types</text>
+        <text x="80" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Disk + Tape</text>
+        <text x="80" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">or Cloud</text>
+      </g>
+      
+      <!-- 1 Offsite -->
+      <g transform="translate(390, 25)">
+        <rect width="160" height="100" rx="10" fill="#0f172a" stroke="#a78bfa"/>
+        <text x="80" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="#a78bfa" filter="url(#glow)">1</text>
+        <text x="80" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Offsite</text>
+        <text x="80" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Geographic</text>
+        <text x="80" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Separation</text>
+      </g>
+      
+      <!-- Additional Rules -->
+      <g transform="translate(30, 140)">
+        <rect width="250" height="55" rx="8" fill="#14532d" stroke="#22c55e"/>
+        <text x="125" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#22c55e">+1 Immutable Copy</text>
+        <text x="125" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">WORM / Air-gapped / S3 Object Lock</text>
+      </g>
+      
+      <g transform="translate(300, 140)">
+        <rect width="250" height="55" rx="8" fill="#052e16" stroke="#4ade80"/>
+        <text x="125" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#4ade80">0 Errors in Recovery</text>
+        <text x="125" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Test Monthly / Full Simulation Quarterly</text>
+      </g>
+      
+      <!-- Final Rule -->
+      <g transform="translate(30, 210)">
+        <rect width="520" height="40" rx="6" fill="#0f172a" stroke="#fbbf24"/>
+        <text x="260" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#fbbf24">3-2-1-1-0 = Ultimate Ransomware Defense</text>
+      </g>
+    </g>
   </g>
+
+  <!-- Linux Rootkit Detection Flow -->
+  <g transform="translate(710, 220)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Linux Rootkit Detection Flow</text>
+    
+    <g transform="translate(0, 25)">
+      <rect width="580" height="270" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+      
+      <!-- Detection Flow -->
+      <g transform="translate(30, 25)">
+        <!-- Step 1 -->
+        <g>
+          <rect width="160" height="50" rx="8" fill="#7c2d12" stroke="#f97316"/>
+          <text x="80" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#fb923c">1. Kernel Module</text>
+          <text x="80" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">lsmod verification</text>
+        </g>
+        
+        <path d="M170 25 L190 25" stroke="#64748b" stroke-width="2"/>
+        <polygon points="190,20 200,25 190,30" fill="#64748b"/>
+        
+        <!-- Step 2 -->
+        <g transform="translate(205, 0)">
+          <rect width="160" height="50" rx="8" fill="#713f12" stroke="#eab308"/>
+          <text x="80" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#fbbf24">2. Syscall Table</text>
+          <text x="80" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Integrity check</text>
+        </g>
+        
+        <path d="M375 25 L395 25" stroke="#64748b" stroke-width="2"/>
+        <polygon points="395,20 405,25 395,30" fill="#64748b"/>
+        
+        <!-- Step 3 -->
+        <g transform="translate(410, 0)">
+          <rect width="130" height="50" rx="8" fill="#14532d" stroke="#22c55e"/>
+          <text x="65" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#22c55e">3. Tools Scan</text>
+          <text x="65" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">chkrootkit</text>
+        </g>
+      </g>
+      
+      <!-- Tools -->
+      <g transform="translate(30, 95)">
+        <text x="0" y="0" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#38bdf8">Recommended Tools:</text>
+        
+        <g transform="translate(0, 20)">
+          <rect width="125" height="50" rx="6" fill="#0f172a" stroke="#38bdf8"/>
+          <text x="62" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#38bdf8">chkrootkit</text>
+          <text x="62" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Quick scan</text>
+        </g>
+        
+        <g transform="translate(140, 20)">
+          <rect width="125" height="50" rx="6" fill="#0f172a" stroke="#22c55e"/>
+          <text x="62" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#22c55e">rkhunter</text>
+          <text x="62" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deep analysis</text>
+        </g>
+        
+        <g transform="translate(280, 20)">
+          <rect width="125" height="50" rx="6" fill="#0f172a" stroke="#a78bfa"/>
+          <text x="62" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#a78bfa">AIDE</text>
+          <text x="62" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">File integrity</text>
+        </g>
+        
+        <g transform="translate(420, 20)">
+          <rect width="100" height="50" rx="6" fill="#0f172a" stroke="#ec4899"/>
+          <text x="50" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ec4899">Lynis</text>
+          <text x="50" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Audit</text>
+        </g>
+      </g>
+      
+      <!-- Command Examples -->
+      <g transform="translate(30, 185)">
+        <rect width="520" height="65" rx="8" fill="#0f172a" stroke="#334155"/>
+        <text x="15" y="20" font-family="monospace" font-size="11" fill="#22c55e"># Quick rootkit scan</text>
+        <text x="15" y="38" font-family="monospace" font-size="11" fill="#94a3b8">sudo chkrootkit -q &amp;&amp; sudo rkhunter --check --skip-keypress</text>
+        <text x="15" y="55" font-family="monospace" font-size="11" fill="#64748b"># Run weekly via cron</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Network Segmentation -->
+  <g transform="translate(100, 530)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Network Segmentation (Ransomware Containment)</text>
+    
+    <g transform="translate(0, 25)">
+      <rect width="580" height="200" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      
+      <!-- Network Zones -->
+      <g transform="translate(30, 25)">
+        <!-- Internet -->
+        <g>
+          <rect width="100" height="60" rx="8" fill="#7f1d1d" stroke="#ef4444"/>
+          <text x="50" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ef4444">Internet</text>
+          <text x="50" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Untrusted</text>
+        </g>
+        
+        <path d="M110 30 L140 30" stroke="#ef4444" stroke-width="2"/>
+        
+        <!-- Firewall -->
+        <g transform="translate(145, 0)">
+          <rect width="80" height="60" rx="8" fill="#422006" stroke="#f97316"/>
+          <text x="40" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f97316">Firewall</text>
+          <text x="40" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">WAF</text>
+        </g>
+        
+        <path d="M235 30 L265 30" stroke="#f97316" stroke-width="2"/>
+        
+        <!-- DMZ -->
+        <g transform="translate(270, 0)">
+          <rect width="100" height="60" rx="8" fill="#713f12" stroke="#eab308"/>
+          <text x="50" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#eab308">DMZ</text>
+          <text x="50" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Web/API</text>
+        </g>
+        
+        <path d="M380 30 L410 30" stroke="#eab308" stroke-width="2"/>
+        
+        <!-- Internal -->
+        <g transform="translate(415, 0)">
+          <rect width="100" height="60" rx="8" fill="#14532d" stroke="#22c55e"/>
+          <text x="50" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#22c55e">Internal</text>
+          <text x="50" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">App Tier</text>
+        </g>
+      </g>
+      
+      <!-- Second Row -->
+      <g transform="translate(30, 100)">
+        <!-- Data Zone -->
+        <g transform="translate(270, 0)">
+          <rect width="100" height="60" rx="8" fill="#1e3a5f" stroke="#3b82f6"/>
+          <text x="50" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6">Data</text>
+          <text x="50" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">DB Tier</text>
+        </g>
+        
+        <path d="M465 -40 L465 -10" stroke="#22c55e" stroke-width="2"/>
+        <path d="M465 -10 L370 -10 L370 20" stroke="#22c55e" stroke-width="2"/>
+        
+        <!-- Backup Zone -->
+        <g transform="translate(415, 0)">
+          <rect width="100" height="60" rx="8" fill="#4c1d95" stroke="#a78bfa"/>
+          <text x="50" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#a78bfa">Backup</text>
+          <text x="50" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Air-gap</text>
+        </g>
+      </g>
+      
+      <!-- Legend -->
+      <g transform="translate(30, 170)">
+        <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Zones isolated | East-West traffic controlled | Lateral movement blocked</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Security Checklist -->
+  <g transform="translate(710, 530)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">Immediate Action Checklist</text>
+    
+    <g transform="translate(0, 25)">
+      <rect width="580" height="200" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+      
+      <g transform="translate(25, 25)">
+        <!-- Ransomware Prevention -->
+        <text x="0" y="0" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">Ransomware Prevention</text>
+        <g transform="translate(0, 15)">
+          <rect width="12" height="12" rx="2" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <text x="20" y="11" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Implement 3-2-1-1-0 backup</text>
+        </g>
+        <g transform="translate(0, 35)">
+          <rect width="12" height="12" rx="2" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <text x="20" y="11" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Enable network segmentation</text>
+        </g>
+        <g transform="translate(0, 55)">
+          <rect width="12" height="12" rx="2" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <text x="20" y="11" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Apply all security patches</text>
+        </g>
+        <g transform="translate(0, 75)">
+          <rect width="12" height="12" rx="2" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <text x="20" y="11" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Deploy EDR solution</text>
+        </g>
+      </g>
+      
+      <g transform="translate(295, 25)">
+        <!-- Linux Security -->
+        <text x="0" y="0" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#f97316">Linux Security</text>
+        <g transform="translate(0, 15)">
+          <rect width="12" height="12" rx="2" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <text x="20" y="11" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Run chkrootkit weekly</text>
+        </g>
+        <g transform="translate(0, 35)">
+          <rect width="12" height="12" rx="2" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <text x="20" y="11" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Configure rkhunter cron</text>
+        </g>
+        <g transform="translate(0, 55)">
+          <rect width="12" height="12" rx="2" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <text x="20" y="11" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Enable AIDE monitoring</text>
+        </g>
+        <g transform="translate(0, 75)">
+          <rect width="12" height="12" rx="2" fill="none" stroke="#22c55e" stroke-width="2"/>
+          <text x="20" y="11" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Audit kernel modules</text>
+        </g>
+      </g>
+      
+      <!-- DevSecOps Integration -->
+      <g transform="translate(25, 130)">
+        <rect width="530" height="45" rx="8" fill="#172554" stroke="#3b82f6"/>
+        <text x="265" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6">DevSecOps Integration</text>
+        <text x="265" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Add security scans to CI/CD | Automate backup verification | Alert on anomalies</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Phishing Alert -->
+  <g transform="translate(100, 760)">
+    <rect width="1200" height="100" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="600" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#3b82f6">E-commerce Phishing/Smishing Alert</text>
+    
+    <g transform="translate(50, 50)">
+      <rect width="220" height="35" rx="6" fill="#7f1d1d" opacity="0.5" stroke="#ef4444"/>
+      <text x="110" y="23" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#f87171">Fake Delivery SMS</text>
+    </g>
+    
+    <g transform="translate(290, 50)">
+      <rect width="220" height="35" rx="6" fill="#422006" opacity="0.5" stroke="#f97316"/>
+      <text x="110" y="23" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fb923c">Phishing Payment Links</text>
+    </g>
+    
+    <g transform="translate(530, 50)">
+      <rect width="220" height="35" rx="6" fill="#713f12" opacity="0.5" stroke="#eab308"/>
+      <text x="110" y="23" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#fbbf24">Credential Harvesting</text>
+    </g>
+    
+    <g transform="translate(770, 50)">
+      <rect width="380" height="35" rx="6" fill="#14532d" stroke="#22c55e"/>
+      <text x="190" y="23" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#22c55e">Verify: Official sites only | Enable 2FA | Check URLs</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="700" y="910" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Source: KISA BoHoNaRa Security Advisory | tech.2twodragon.com</text>
 </svg>
