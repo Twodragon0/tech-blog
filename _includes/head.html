@@ -149,7 +149,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Preload Critical Resources -->
-  <link rel="preload" href="{{ "/assets/css/main.css" | relative_url }}" as="style">
+  <!-- CSS는 GitHub Pages fallback을 사용하므로 preload 제거 (unused preload 경고 방지) -->
   <link rel="preload" href="{{ "/assets/js/main.js" | relative_url }}" as="script">
   {% comment %}OG 이미지 preload는 제거 (404 오류 및 성능 문제 방지){% endcomment %}
   {% comment %}OG 이미지는 메타 태그로만 사용하고, preload는 하지 않음{% endcomment %}
@@ -175,8 +175,6 @@
   {% endif %}
   
   {% if page.layout == 'post' %}
-  <!-- Prefetch next/related posts for better navigation performance -->
-  <link rel="prefetch" href="{{ "/assets/css/main.css" | relative_url }}" as="style">
   {% endif %}
 
   <!-- Image Optimizer (deferred for performance) -->
