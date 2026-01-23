@@ -1754,55 +1754,64 @@ ins.adsbygoogle-noablate {
 }
 
 .related-item {
+  /* Layout & Box Model */
   display: flex;
   flex-direction: column;
+  position: relative;
+  min-height: 200px;
   padding: 1.75rem;
-  background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  
+  /* Appearance */
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  
+  /* Text */
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-  /* CLS 최적화: 카드 레이아웃 안정화 */
-  min-height: 200px;
+  
+  /* Optimization */
   contain: layout style;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
 }
 
+/* Gradient Overlay Effect */
+.related-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.05), rgba(0,0,0,0.02));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Top Accent Line */
 .related-item::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
+  height: 3px;
   background: linear-gradient(90deg, var(--color-primary), var(--color-devsecops), var(--color-finops));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
+  z-index: 2;
 }
 
-.related-item::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.03) 0%, rgba(139, 92, 246, 0.02) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
+/* Hover States */
 .related-item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
-  border-color: var(--color-primary);
-  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-tertiary) 100%);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: var(--color-primary-light);
+  background: var(--color-bg-tertiary);
+  z-index: 2;
 }
 
 .related-item:hover::before {
@@ -1813,9 +1822,11 @@ ins.adsbygoogle-noablate {
   opacity: 1;
 }
 
+/* Focus State */
 .related-item:focus-visible {
   outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+  outline-offset: 4px;
+  border-radius: 16px;
 }
 
 .related-content {
@@ -1827,95 +1838,79 @@ ins.adsbygoogle-noablate {
   z-index: 2;
 }
 
+/* Category Badge */
 .related-category {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 0.875rem;
-  font-size: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border-radius: var(--border-radius-md);
+  letter-spacing: 0.05em;
+  border-radius: 9999px; /* Pill shape */
   width: fit-content;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Category-specific colors */
+  
+  /* Default Colors */
   background-color: var(--color-bg-tertiary);
   color: var(--color-text-secondary);
-  border: 1.5px solid var(--color-border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
   position: relative;
-  overflow: hidden;
-}
-
-.related-category::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
+  z-index: 2;
 }
 
 .related-item:hover .related-category {
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
-  border-color: var(--color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.2);
-}
-
-.related-item:hover .related-category::before {
-  left: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-color: currentColor;
 }
 
 /* Category-specific styling */
 .related-item[href*="security"] .related-category,
 .related-item[href*="Security"] .related-category {
-  background-color: rgba(239, 68, 68, 0.1);
+  background-color: rgba(239, 68, 68, 0.08);
   color: #ef4444;
   border-color: rgba(239, 68, 68, 0.2);
 }
 
 .related-item[href*="devsecops"] .related-category,
 .related-item[href*="DevSecOps"] .related-category {
-  background-color: rgba(139, 92, 246, 0.1);
+  background-color: rgba(139, 92, 246, 0.08);
   color: #8b5cf6;
   border-color: rgba(139, 92, 246, 0.2);
 }
 
 .related-item[href*="devops"] .related-category,
 .related-item[href*="DevOps"] .related-category {
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(16, 185, 129, 0.08);
   color: #10b981;
   border-color: rgba(16, 185, 129, 0.2);
 }
 
 .related-item[href*="cloud"] .related-category,
 .related-item[href*="Cloud"] .related-category {
-  background-color: rgba(59, 130, 246, 0.1);
+  background-color: rgba(59, 130, 246, 0.08);
   color: #3b82f6;
   border-color: rgba(59, 130, 246, 0.2);
 }
 
 .related-item[href*="kubernetes"] .related-category,
 .related-item[href*="Kubernetes"] .related-category {
-  background-color: rgba(50, 108, 229, 0.1);
+  background-color: rgba(50, 108, 229, 0.08);
   color: #326ce5;
   border-color: rgba(50, 108, 229, 0.2);
 }
 
 .related-item[href*="finops"] .related-category,
 .related-item[href*="FinOps"] .related-category {
-  background-color: rgba(59, 130, 246, 0.1);
+  background-color: rgba(59, 130, 246, 0.08);
   color: #3b82f6;
   border-color: rgba(59, 130, 246, 0.2);
 }
 
 .related-item[href*="incident"] .related-category,
 .related-item[href*="Incident"] .related-category {
-  background-color: rgba(245, 158, 11, 0.1);
+  background-color: rgba(245, 158, 11, 0.08);
   color: #f59e0b;
   border-color: rgba(245, 158, 11, 0.2);
 }
@@ -1923,55 +1918,48 @@ ins.adsbygoogle-noablate {
 .related-item[href*="ai"] .related-category,
 .related-item[href*="AI"] .related-category,
 .related-item[href*="artificial-intelligence"] .related-category {
-  background-color: rgba(168, 85, 247, 0.1);
+  background-color: rgba(168, 85, 247, 0.08);
   color: #a855f7;
   border-color: rgba(168, 85, 247, 0.2);
 }
 
+/* Typography */
 .related-item h4 {
-  font-size: 1.1875rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.4;
   color: var(--color-text-primary);
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  transition: color 0.25s ease, transform 0.25s ease;
-  word-break: keep-all;
-  overflow-wrap: break-word;
-  letter-spacing: -0.01em;
+  transition: color 0.25s ease;
 }
 
 .related-item:hover h4 {
   color: var(--color-primary);
-  transform: translateX(2px);
 }
 
 .related-excerpt {
   font-size: 0.9375rem;
-  line-height: 1.7;
+  line-height: 1.6;
   color: var(--color-text-secondary);
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2; /* Reduced to 2 lines for cleaner look */
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
   flex-grow: 1;
-  word-break: keep-all;
-  overflow-wrap: break-word;
-  transition: color 0.25s ease;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .related-item:hover .related-excerpt {
-  color: var(--color-text-primary);
   opacity: 1;
+  color: var(--color-text-primary);
 }
 
+/* Meta Section */
 .related-meta {
   display: flex;
   align-items: center;
@@ -1979,14 +1967,14 @@ ins.adsbygoogle-noablate {
   gap: 1rem;
   margin-top: auto;
   padding-top: 1.25rem;
-  border-top: 1.5px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
   position: relative;
   z-index: 2;
+  transition: border-color 0.3s ease;
 }
 
 .related-item:hover .related-meta {
-  border-top-color: var(--color-primary);
-  opacity: 0.8;
+  border-top-color: rgba(var(--color-primary-rgb, 99, 102, 241), 0.3);
 }
 
 .related-date {
@@ -1996,56 +1984,61 @@ ins.adsbygoogle-noablate {
   font-size: 0.8125rem;
   color: var(--color-text-tertiary);
   font-weight: 500;
-  text-decoration: none;
 }
 
 .related-date svg {
-  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
   opacity: 0.7;
 }
 
+/* Arrow Interaction */
 .related-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 36px; /* Slightly larger */
+  height: 36px;
   border-radius: 50%;
   background-color: var(--color-bg-tertiary);
   color: var(--color-text-secondary);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
 }
 
 .related-item:hover .related-arrow {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-devsecops));
+  background: var(--color-primary);
   color: white;
-  transform: translateX(6px) scale(1.1);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(var(--color-primary-rgb, 99, 102, 241), 0.3);
 }
 
 .related-arrow svg {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
 }
 
 .related-item:hover .related-arrow svg {
-  transform: translateX(3px);
+  transform: translateX(2px);
 }
 
 /* Dark mode adjustments */
 [data-theme="dark"] .related-item {
   background-color: var(--color-bg-secondary);
   border-color: var(--color-border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .related-item:hover {
   background-color: var(--color-bg-tertiary);
   border-color: var(--color-primary);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
 }
 
 [data-theme="dark"] .related-category {
-  background-color: var(--color-bg-tertiary);
+  background-color: rgba(255, 255, 255, 0.05);
   border-color: var(--color-border);
 }
 
