@@ -86,6 +86,14 @@
       ]
     },
     {
+      "source": "/favicon.ico",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "Content-Type", "value": "image/png" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
       "source": "/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
@@ -152,6 +160,18 @@
     }
   },
   "rewrites": [
+    {
+      "source": "/favicon.ico",
+      "destination": "/assets/images/favicon.png"
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "destination": "/assets/images/apple-touch-icon.png"
+    },
+    {
+      "source": "/apple-touch-icon-precomposed.png",
+      "destination": "/assets/images/apple-touch-icon.png"
+    },
     {
       "source": "/api/chat",
       "destination": "/api/chat.js"
