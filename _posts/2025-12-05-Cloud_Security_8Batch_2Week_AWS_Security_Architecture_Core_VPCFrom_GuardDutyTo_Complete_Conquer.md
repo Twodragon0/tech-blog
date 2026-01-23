@@ -281,7 +281,6 @@ AI 기반 IAM 정책 자동 생성 도구입니다.
 | **컨텍스트 인식 침투 테스트** | 애플리케이션 컨텍스트를 이해한 침투 테스트 | 개발 단계 보안 테스트 |
 | **DevSecOps 통합** | CI/CD 파이프라인에 자동 통합 | Shift-Left Security 실현 |
 
-컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
 
 #### AgentCore Identity
 

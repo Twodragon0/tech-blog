@@ -67,8 +67,6 @@ Kubernetes는 현대적인 컨테이너 오케스트레이션의 표준이 되�
 
 <img src="{{ '/assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_Guide_From_Practical_To_image.png' | relative_url }}" alt="Kubernetes Minikube and K9s Practical Guide: From Problem Solving to Practical Testing" loading="lazy" class="post-image">
 
-컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
-
 ## 1. 개요
 
 ### 1.1 배경 및 필요성

@@ -66,40 +66,64 @@ toc: true
 
 <img src="{{ '/assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide_image.png' | relative_url }}" alt="Kandji macOS Complete Master: Setup from Security Regulation Compliance to All-in-One Guide" loading="lazy" class="post-image">
 
-## 1. 개요
+## 1. Kandji 개요
 
-### 1.1 배경 및 필요성
+### 1.1 Kandji란?
 
-안녕하세요! macOS 뿐만 아니라 iOS, iPadOS 등 다양한 Apple 기기를 효율적이고 안전하게 관리하고 싶은 IT 관리자 여러분! 오늘은 Apple 통합 엔드포인트 관리(UEM) 솔루션으로 주목받는 Kandji의 강력한 기능들을 어떻게 실제로 활용하는지, 단계별 상세 가이드 형식으로 알려드리겠습니다. Kandji는 복잡한 Apple 기기 전체(macOS, iOS, iPadOS, tvOS) 관리를 간소.....
+Kandji는 Apple 기기(macOS, iOS, iPadOS, tvOS) 전용 통합 엔드포인트 관리(UEM) 솔루션입니다. 복잡한 MDM 설정을 간소화하고, 보안 및 규정 준수를 자동화합니다.
 
-## 2. 핵심 내용
+| 기능 | 설명 | 장점 |
+|------|------|------|
+| **자동화된 디바이스 등록** | ABM/ASM 연동 제로터치 배포 | 수동 설정 시간 90% 감소 |
+| **컴플라이언스 모니터링** | CIS 벤치마크 기반 자동 검사 | 규정 위반 실시간 탐지 |
+| **앱 배포 자동화** | VPP 연동 자동 설치/업데이트 | IT 부담 대폭 감소 |
+| **보안 정책 관리** | FileVault, 방화벽, Gatekeeper | 중앙 집중식 보안 관리 |
 
-### 2.1 기본 설정
+### 1.2 지원 플랫폼
 
-기본 설정을 시작하기 전에 다음 사항을 확인해야 합니다:
-
-1. **요구사항 분석**: 필요한 기능 및 성능 요구사항 파악
-2. **환경 준비**: 필요한 도구 및 리소스 준비
-3. **보안 정책**: 보안 정책 및 규정 준수 사항 확인
-
-### 2.2 단계별 구현
-
-#### 단계 1: 초기 설정
-
-초기 설정 단계에서는 기본 구성을 수행합니다.
-
-```bash
-# 예시 명령어
-# 실제 설정에 맞게 수정 필요
+```plaintext
+┌────────────────────────────────────────────────┐
+│                  Kandji UEM                     │
+├────────────┬────────────┬──────────┬───────────┤
+│   macOS    │    iOS     │  iPadOS  │   tvOS    │
+│  (Intel/   │ (iPhone)   │  (iPad)  │ (Apple TV)│
+│   Apple    │            │          │           │
+│   Silicon) │            │          │           │
+└────────────┴────────────┴──────────┴───────────┘
 ```
 
-#### 단계 2: 보안 구성
+## 2. Kandji 설정 가이드
 
-보안 설정을 구성합니다:
+### 2.1 초기 설정 체크리스트
 
-- 접근 제어 설정
-- 암호화 구성
-- 모니터링 활성화
+Kandji 도입 전 확인 사항:
+
+- [ ] Apple Business Manager(ABM) 또는 Apple School Manager(ASM) 계정
+- [ ] APNs(Apple Push Notification service) 인증서
+- [ ] 관리 대상 디바이스 목록
+- [ ] 보안 정책 요구사항 문서
+
+### 2.2 ABM/ASM 연동
+
+```plaintext
+[Apple Business Manager] ──MDM 서버 등록──> [Kandji]
+         │                                      │
+         │      자동 디바이스 할당               │
+         ▼                                      ▼
+   [신규 디바이스] ──────제로터치 배포──────> [관리 디바이스]
+```
+
+### 2.3 보안 정책 구성
+
+Kandji에서 권장하는 핵심 보안 설정:
+
+| 보안 기능 | 권장 설정 | 컴플라이언스 |
+|----------|----------|-------------|
+| **FileVault** | 필수 활성화, 복구키 에스크로 | CIS, NIST |
+| **방화벽** | 활성화, 스텔스 모드 | CIS, SOC2 |
+| **Gatekeeper** | App Store + 확인된 개발자 | CIS, HIPAA |
+| **SIP (System Integrity Protection)** | 활성화 유지 | CIS, PCI-DSS |
+| **자동 업데이트** | 보안 업데이트 자동 설치 | 모든 프레임워크 |
 
 ## 2. 2025년 엔드포인트 보안 및 MDM 트렌드
 

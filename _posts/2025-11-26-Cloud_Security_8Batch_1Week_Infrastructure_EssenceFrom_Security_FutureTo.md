@@ -68,7 +68,6 @@ toc: true
 <figcaption>AWS 보안 서비스 개요 - Python diagrams로 생성</figcaption>
 </figure>
 
-컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다:
 
 ## 1. 클라우드 인프라의 본질
 
