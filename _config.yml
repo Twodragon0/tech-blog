@@ -217,6 +217,7 @@ exclude:
   - scripts/
   - "*.log"
   - build.sh
+  - data/
 
 # Build optimization
 keep_files: []
