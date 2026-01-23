@@ -627,13 +627,16 @@
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const linkParam = urlParams.get('link');
+      // Security: Use URL parsing instead of substring matching
+      const currentHostname = window.location.hostname;
+      const isFirebaseDomain = currentHostname === 'app.goo.gl' || 
+                               currentHostname.endsWith('.firebaseapp.com');
       const hasFirebaseParams = urlParams.has('link') || 
                                 urlParams.has('apn') || 
                                 urlParams.has('ibi') || 
                                 urlParams.has('isi') ||
                                 urlParams.has('efr') ||
-                                window.location.href.includes('app.goo.gl') ||
-                                window.location.href.includes('firebaseapp.com');
+                                isFirebaseDomain;
       
       if (hasFirebaseParams) {
         // Firebase Dynamic Links 파라미터가 있는 경우 처리
@@ -664,9 +667,8 @@
             }
             
             if (allowedDomains.some(domain => linkUrl.hostname === domain || linkUrl.hostname.endsWith('.' + domain))) {
-              // 안전한 도메인이면 리디렉션
-              // Security: Use replace instead of assign to prevent back navigation
-              window.location.replace(decodedLink);
+              // Security: Use linkUrl.href (sanitized URL) instead of decodedLink to prevent XSS
+              window.location.replace(linkUrl.href);
               return;
             }
           } catch (e) {

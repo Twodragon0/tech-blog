@@ -399,15 +399,32 @@
           // Filter errors without useful stack trace (likely third-party or cross-origin)
           const firstException = event.exception.values && event.exception.values[0];
           if (firstException) {
+            // Security: Use URL parsing instead of substring matching for proper validation
+            const isValidFilename = function(filename) {
+              if (!filename) return false;
+              try {
+                // Check for browser extension URLs
+                if (filename.startsWith('chrome-extension://') ||
+                    filename.startsWith('moz-extension://') ||
+                    filename.startsWith('extension://')) {
+                  return false;
+                }
+                // For relative paths starting with /assets/js/
+                if (filename.startsWith('/assets/js/')) {
+                  return true;
+                }
+                // For absolute URLs, parse and validate hostname
+                const url = new URL(filename, window.location.origin);
+                return url.hostname === 'tech.2twodragon.com' ||
+                       url.pathname.startsWith('/assets/js/');
+              } catch (e) {
+                return false;
+              }
+            };
             const hasUsefulStack = firstException.stacktrace && 
                                    firstException.stacktrace.frames && 
                                    firstException.stacktrace.frames.some(function(frame) {
-                                     return frame.filename && 
-                                            !frame.filename.includes('chrome-extension') &&
-                                            !frame.filename.includes('moz-extension') &&
-                                            !frame.filename.includes('extension://') &&
-                                            (frame.filename.includes('tech.2twodragon.com') || 
-                                             frame.filename.includes('/assets/js/'));
+                                     return isValidFilename(frame.filename);
                                    });
             
             // If no useful stack and error is "Unknown" or generic, filter it
