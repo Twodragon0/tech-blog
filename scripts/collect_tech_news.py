@@ -67,6 +67,14 @@ NEWS_SOURCES = {
         "language": "ko",
         "priority": 1,
     },
+    "aws_ml": {
+        "name": "AWS Machine Learning Blog",
+        "url": "https://aws.amazon.com/blogs/machine-learning/",
+        "feed_url": "https://aws.amazon.com/blogs/machine-learning/feed/",
+        "category": "ai",
+        "language": "en",
+        "priority": 1,
+    },
     # Google Cloud
     "gcp": {
         "name": "Google Cloud Blog",
@@ -75,6 +83,14 @@ NEWS_SOURCES = {
         "category": "cloud",
         "language": "en",
         "priority": 2,
+    },
+    "gcp_security": {
+        "name": "Google Cloud Security Bulletins",
+        "url": "https://cloud.google.com/support/bulletins",
+        "feed_url": "https://cloud.google.com/feeds/google-cloud-security-bulletins.xml",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
     },
     # Microsoft
     "microsoft_security": {
@@ -92,6 +108,14 @@ NEWS_SOURCES = {
         "category": "cloud",
         "language": "en",
         "priority": 2,
+    },
+    "azure_security": {
+        "name": "Azure Security Blog",
+        "url": "https://azure.microsoft.com/en-us/blog/category/security/",
+        "feed_url": "https://azure.microsoft.com/en-us/blog/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
     },
     # 보안 기관
     "cisa": {
@@ -360,6 +384,60 @@ NEWS_SOURCES = {
         "language": "en",
         "priority": 1,
     },
+    # Google Online Security
+    "google_security": {
+        "name": "Google Online Security Blog",
+        "url": "https://security.googleblog.com/",
+        "feed_url": "https://security.googleblog.com/feeds/posts/default",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
+    # ============================================================================
+    # AI & Machine Learning
+    # ============================================================================
+    # TensorFlow
+    "tensorflow": {
+        "name": "TensorFlow Blog",
+        "url": "https://blog.tensorflow.org/",
+        "feed_url": "https://blog.tensorflow.org/feeds/posts/default",
+        "category": "ai",
+        "language": "en",
+        "priority": 1,
+    },
+    # ============================================================================
+    # Blockchain & Cryptocurrency
+    # ============================================================================
+    # Ethereum
+    "ethereum": {
+        "name": "Ethereum Foundation Blog",
+        "url": "https://blog.ethereum.org/",
+        "feed_url": "https://blog.ethereum.org/feed",
+        "category": "blockchain",
+        "language": "en",
+        "priority": 1,
+    },
+    # CoinDesk
+    "coindesk": {
+        "name": "CoinDesk",
+        "url": "https://www.coindesk.com/",
+        "feed_url": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+        "category": "blockchain",
+        "language": "en",
+        "priority": 1,
+    },
+    # ============================================================================
+    # DevSecOps
+    # ============================================================================
+    # DevSecOps.org
+    "devsecops_org": {
+        "name": "DevSecOps.org Blog",
+        "url": "https://www.devsecops.org/blog",
+        "feed_url": "https://www.devsecops.org/blog?format=rss",
+        "category": "devsecops",
+        "language": "en",
+        "priority": 1,
+    },
     # ============================================================================
     # Korean Security Vendors
     # ============================================================================
@@ -518,8 +596,15 @@ def _extract_title_from_url(url: str) -> str:
             title = filename.replace(".pdf", "").replace("_", " ")
             title = re.sub(r"\s+", " ", title).strip()
             return title
-    except Exception:
-        pass
+    except (ValueError, KeyError, AttributeError, IndexError) as e:
+        # URL 파싱 실패는 정상적인 경우일 수 있으므로 조용히 처리
+        # 개발 환경에서만 디버깅을 위한 로그 출력
+        if os.getenv("DEBUG", "").lower() in ("1", "true", "yes"):
+            print(f"    Warning: Failed to extract title from URL: {type(e).__name__}")
+    except Exception as e:
+        # 예상치 못한 예외는 로깅
+        if os.getenv("DEBUG", "").lower() in ("1", "true", "yes"):
+            print(f"    Warning: Unexpected error extracting title from URL: {type(e).__name__}: {e}")
     return ""
 
 
