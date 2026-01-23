@@ -2,6 +2,7 @@
 layout: post
 title: "클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!"
 date: 2025-12-12 14:45:05 +0900
+category: finops
 categories: [finops]
 tags: [AWS, FinOps, ISMS-P, Audit, Cost-Optimization]
 excerpt: "클라우드 시큐리티 8기 3주차: 2025년 FinOps 트렌드(AI/ML 비용 최적화 GPU 인스턴스/Spot Instance 최대 90% 절감, GreenOps 통합 Customer Carbon Footprint Tool, Unit Economics Cost per Transaction/User, Real-time Cost Visibility Cost Anomaly Detection), AWS 비용 관리 도구(Cost Optimization Hub 통합 대시보드, Compute Optimizer AI 기반 right-sizing, Application Cost Profiler 테넌트별 비용 배분, Cost Anomaly Detection ML 기반 탐지), ISMS-P 인증 대응(AWS Artifact/Config Rules/Security Hub/CloudTrail), FinOps+보안 통합, Commitment Management 자동화까지 실무 중심 정리."
@@ -289,6 +290,31 @@ AWS 환경에서 ISMS-P 인증을 준비하기 위한 핵심 전략입니다.
 | **합의 평가 보고서** | AWS 서비스의 보안 평가 결과 | 클라우드 서비스 보안 수준 증명 |
 | **계약 문서** | AWS 서비스 이용 약관 | 계약 관리 체계 증빙 |
 
+```bash
+# AWS CLI로 비용 분석 확인
+aws ce get-cost-and-usage \
+  --time-period Start=2025-01-01,End=2025-12-31 \
+  --granularity MONTHLY \
+  --metrics "BlendedCost" "UnblendedCost" \
+  --group-by Type=DIMENSION,Key=SERVICE
+
+# 비용 이상 탐지 알림 설정
+aws ce create-anomaly-monitor \
+  --monitor-name "FinOps-Cost-Monitor" \
+  --monitor-type DIMENSIONAL \
+  --monitor-dimension SERVICE
+
+# AWS Config 규칙으로 S3 퍼블릭 접근 차단 확인
+aws configservice put-config-rule \
+  --config-rule '{
+    "ConfigRuleName": "s3-bucket-public-read-prohibited",
+    "Source": {
+      "Owner": "AWS",
+      "SourceIdentifier": "S3_BUCKET_PUBLIC_READ_PROHIBITED"
+    }
+  }'
+```
+
 #### AWS Config Rules를 통한 자동 컴플라이언스 확인
 
 | Config Rule | ISMS-P 항목 | 설명 |
@@ -391,6 +417,26 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 **FinOps 모범 사례**에서는 태깅 전략, 예산 알림, 정기 리뷰, FinOps 문화 정착 등 실무에 바로 적용 가능한 모범 사례를 정리했습니다. 특히 개발팀의 비용 인식 제고를 위한 교육 및 문화 정착 방법을 다뤘습니다.
 
 FinOps와 보안은 상호 보완적인 관계입니다. 비용 최적화와 보안을 동시에 고려하는 통합 접근법을 통해 안전하고 효율적인 클라우드 환경을 구축할 수 있습니다. 특히 2025년에는 AI/ML 비용 최적화와 GreenOps 통합이 중요한 트렌드로 부상했으며, 이러한 트렌드를 선제적으로 대응하는 것이 핵심입니다.
+
+## 실무 체크리스트
+
+### FinOps 도입 체크리스트
+
+- [ ] Cost Optimization Hub 활성화 및 대시보드 구성
+- [ ] 리소스 태깅 전략 수립 및 적용 (Environment, Project, Team, Owner)
+- [ ] AWS Budgets 예산 알림 설정 (80%, 100%, 120%)
+- [ ] Cost Anomaly Detection 활성화 및 Slack/Email 연동
+- [ ] 월간 비용 리뷰 미팅 프로세스 수립
+- [ ] RI/Savings Plans 커버리지 분석 및 최적화
+
+### ISMS-P 대응 체크리스트
+
+- [ ] AWS Artifact에서 컴플라이언스 보고서 다운로드
+- [ ] AWS Config Rules 필수 규칙 활성화 (s3-bucket-public-read-prohibited, iam-password-policy, encrypted-volumes)
+- [ ] Security Hub 활성화 및 CIS Benchmark 점검
+- [ ] CloudTrail 전체 리전 활성화 및 로그 보관 정책 설정
+- [ ] IAM 정책 검토 및 최소 권한 원칙 적용
+- [ ] MFA 전체 사용자 적용 확인
 
 ---
 

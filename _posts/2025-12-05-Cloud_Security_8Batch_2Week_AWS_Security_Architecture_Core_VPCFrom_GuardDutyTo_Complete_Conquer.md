@@ -2,6 +2,7 @@
 layout: post
 title: "클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!"
 date: 2025-12-05 17:07:53 +0900
+category: cloud
 categories: [cloud]
 tags: [AWS, VPC, GuardDuty, Security-Architecture]
 excerpt: "클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처 핵심 구성요소(VPC 네트워크 격리, IAM 접근 제어, S3 데이터 보호, GuardDuty 위협 탐지), 2025년 AWS re:Invent 보안 발표(GuardDuty Extended Threat Detection, Security Hub GA, IAM Policy Autopilot), 실무 보안 모범 사례(최소 권한 원칙, 자동화된 보안 스캔)까지 실무 중심 정리."
@@ -93,6 +94,26 @@ VPC(Virtual Private Cloud)는 AWS 리소스를 격리된 가상 네트워크에�
 | **Public 서브넷** | 인터넷 게이트웨이를 통한 외부 접근 허용 | 웹 서버, 로드 밸런서 | 최소한의 포트만 개방, WAF 적용 |
 | **Private 서브넷** | NAT 게이트웨이를 통한 아웃바운드만 허용 | 애플리케이션 서버, 데이터베이스 | 인바운드 트래픽 차단, VPC Endpoint 활용 |
 | **Isolated 서브넷** | 인터넷 접근 완전 차단 | 데이터베이스, 백업 저장소 | 완전 격리, VPC Peering 또는 VPN만 허용 |
+
+```bash
+# VPC 생성 및 서브넷 구성 예시
+aws ec2 create-vpc --cidr-block 10.0.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=security-vpc}]'
+
+# Public 서브넷 생성
+aws ec2 create-subnet --vpc-id vpc-xxx --cidr-block 10.0.1.0/24 --availability-zone ap-northeast-2a \
+  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=public-subnet-1}]'
+
+# Private 서브넷 생성
+aws ec2 create-subnet --vpc-id vpc-xxx --cidr-block 10.0.10.0/24 --availability-zone ap-northeast-2a \
+  --tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=private-subnet-1}]'
+
+# Security Group 생성 (최소 권한 원칙)
+aws ec2 create-security-group --group-name web-sg --description "Web Server Security Group" --vpc-id vpc-xxx
+aws ec2 authorize-security-group-ingress --group-id sg-xxx --protocol tcp --port 443 --cidr 0.0.0.0/0
+
+# GuardDuty 활성화
+aws guardduty create-detector --enable
+```
 
 #### 보안 그룹 및 NACL 비교
 
@@ -361,6 +382,21 @@ AI 에이전트를 위한 전용 신원 관리 시스템입니다.
 **실무 적용 방안**에서는 즉시 적용 가능한 보안 강화 방안과 보안 모범 사례 체크리스트를 제공했습니다. VPC 네트워크 분리, IAM 정책 최적화, S3 Public Access 차단, GuardDuty 활성화 등 실무에 바로 적용할 수 있는 구체적인 방안을 정리했습니다.
 
 AWS 보안 아키텍처는 단순한 서비스 구성이 아닌, 각 구성요소 간의 시너지를 고려한 전략적 설계가 필요합니다. 올바른 네트워크 분리, 세밀한 접근 제어, 지속적인 위협 탐지를 통해 안전하고 효율적인 클라우드 환경을 구축할 수 있습니다. 특히 2025년에는 AI 기반 보안 자동화 도구들이 실무에서 즉시 활용 가능한 수준에 도달했으며, 이러한 도구들을 적극 활용하여 보안을 강화하는 것이 핵심입니다.
+
+## 실무 체크리스트
+
+### AWS 보안 아키텍처 점검 체크리스트
+
+- [ ] VPC 네트워크가 Public/Private/Isolated로 올바르게 분리되어 있는지 확인
+- [ ] Security Group이 최소 권한 원칙을 따르는지 점검
+- [ ] VPC Flow Logs가 활성화되어 있는지 확인
+- [ ] IAM 정책이 최소 권한 원칙을 따르는지 검토
+- [ ] 모든 관리자 계정에 MFA가 적용되어 있는지 확인
+- [ ] S3 버킷에 Public Access Block이 설정되어 있는지 점검
+- [ ] S3 암호화(SSE-S3 또는 SSE-KMS)가 활성화되어 있는지 확인
+- [ ] GuardDuty가 모든 리전에서 활성화되어 있는지 확인
+- [ ] Security Hub가 활성화되고 CIS Benchmark가 적용되어 있는지 점검
+- [ ] CloudTrail이 모든 리전에서 활성화되어 있는지 확인
 
 ---
 

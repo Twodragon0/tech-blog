@@ -2,6 +2,7 @@
 layout: post
 title: "클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드"
 date: 2025-06-06 19:45:40 +0900
+category: kubernetes
 categories: [kubernetes]
 tags: [CI/CD, Kubernetes, Security, DevSecOps, GitOps, Pipeline-Security]
 excerpt: "CI/CD 파이프라인 보안: GitHub Actions 보안 설정(permissions 최소화, Secret 관리), SAST/DAST 통합(Semgrep, SonarQube, Gitleaks, Trivy, OWASP ZAP), Secret 스캐닝, 의존성 취약점 스캔"
@@ -927,7 +928,37 @@ spec:
 | **DAST** | 동적 애플리케이션 보안 테스트 | OWASP ZAP |
 | **이미지 서명** | 빌드 아티팩트 무결성 보장 | Cosign, Notary |
 
-## 10. 마무리
+## 10. 실무 적용 체크리스트
+
+### CI/CD 파이프라인 보안
+
+- [ ] GitHub Actions workflows에서 최소 권한(permissions) 설정 적용
+- [ ] Secret 스캐닝 도구(Gitleaks, TruffleHog) CI 파이프라인에 통합
+- [ ] SAST 도구(Semgrep, SonarQube) PR 검사에 적용
+- [ ] 컨테이너 이미지 스캔(Trivy) 빌드 단계에 통합
+- [ ] IaC 스캐닝(Checkov) Terraform/Kubernetes 매니페스트에 적용
+
+### Kubernetes 클러스터 보안
+
+- [ ] RBAC 정책 최소 권한 원칙으로 설정
+- [ ] Pod Security Standards(Restricted) 프로덕션 네임스페이스에 적용
+- [ ] Network Policy로 기본 거부 정책 설정
+- [ ] ServiceAccount 자동 마운트 비활성화
+- [ ] User Namespaces 활성화 (Linux 6.3+ 환경)
+
+### Secret 관리
+
+- [ ] External Secrets Operator 또는 Sealed Secrets 도입
+- [ ] 하드코딩된 시크릿 코드에서 제거
+- [ ] Secret 로테이션 자동화 설정
+
+### 런타임 보안
+
+- [ ] Falco 런타임 모니터링 배포
+- [ ] Kyverno/OPA Gatekeeper 정책 엔진 적용
+- [ ] 이미지 서명(Cosign) 및 검증 정책 설정
+
+## 11. 마무리
 
 이번 주차에서는 CI/CD 파이프라인과 Kubernetes 환경의 보안을 강화하는 다양한 방법을 학습했습니다. 또한 2025년 Kubernetes 보안 업데이트를 통해 Fine-grained Kubelet API Authorization, Credential Tracking, User Namespaces, Pod Certificates 등 최신 보안 기능들을 살펴보았습니다. **Shift-Left Security** 원칙에 따라 개발 초기 단계부터 보안을 적용하는 것이 중요합니다.
 

@@ -329,7 +329,58 @@ python3 scripts/monitor_api_usage.py
 - Visual feedback for actions
 - Responsive design (mobile-first)
 
-## 14. Summary
+## 14. Ralph Loop - Continuous Post Improvement
+
+OpenCode Sisyphus 모드에서 Ralph Loop를 사용하여 블로그 포스트를 자동으로 개선합니다.
+
+### Configuration
+
+설정 파일: `.opencode/opencode.json`
+
+### Ralph Loop Commands
+
+| Command | Description | Completion Promise |
+|---------|-------------|-------------------|
+| `/improve-posts` | RSS 수집 및 포스트 개선 | `POSTS_IMPROVED` |
+| `/collect-news` | RSS 뉴스 수집 | `NEWS_COLLECTED` |
+| `/validate-posts` | 포스트 품질 검증 | `POSTS_VALIDATED` |
+| `/generate-images` | 이미지 생성 | `IMAGES_GENERATED` |
+
+### Quality Score Criteria
+
+| Criterion | Weight | Threshold |
+|-----------|--------|-----------|
+| Content Length | 20% | >= 3000 chars |
+| Tables | 15% | >= 2 tables |
+| Code Blocks | 15% | >= 1 block |
+| Checklist | 10% | >= 1 item |
+| Front Matter | 20% | All required |
+| English Images | 10% | No Korean |
+| Valid Links | 10% | No broken |
+
+### Usage
+
+```bash
+# Basic usage
+/improve-posts
+
+# Extended collection
+/improve-posts --hours=48 --max-posts=10
+
+# High quality threshold
+/improve-posts --quality-threshold=90
+
+# Validate only
+python3 scripts/validate_post_quality.py --threshold 80
+```
+
+### Documentation
+
+자세한 내용은 `docs/scripts/README_RALPH_LOOP.md` 참조.
+
+---
+
+## 15. Summary
 
 1. **Security First**: Mask sensitive info, use env vars, validate inputs
 2. **English Filenames**: Images and SVG text must be English
@@ -339,3 +390,4 @@ python3 scripts/monitor_api_usage.py
 6. **Cost Optimization**: Gemini CLI first, API calls last
 7. **Operational Efficiency**: Automate, monitor, recover automatically
 8. **UI/UX Excellence**: Accessibility, performance, user feedback
+9. **Ralph Loop**: Use `/improve-posts` for continuous content improvement

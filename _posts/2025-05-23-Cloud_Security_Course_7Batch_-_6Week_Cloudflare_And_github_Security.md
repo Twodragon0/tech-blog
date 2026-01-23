@@ -2,6 +2,7 @@
 layout: post
 title: "클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안"
 date: 2025-05-23 01:07:48 +0900
+category: security
 categories: [security, devsecops]
 tags: [AWS, CDN, Cloudflare, GitHub, SAST, WAF, 보안, 보안-아키텍처, 애플리케이션-보안, 코드-보안]
 excerpt: "클라우드 시큐리티 과정 7기 6주차: AWS WAF 보안 강화(웹 ACL 규칙, IP 기반 접근 제어, Geo-blocking), Cloudflare 종합 보안(DDoS 보호, WAF, SSL/TLS 1.3, CDN, Bot Management), GitHub 보안 자동화(Dependabot, CodeQL, Secret Scanning), 실무 보안 실습(DVWA 활용)까지 실무 중심 정리."
@@ -110,11 +111,13 @@ AWS WAF는 웹 애플리케이션을 보호하는 데 중요한 도구입니다.
 
 #### 주요 기능
 
-- **SQL Injection 방어**: SQL 인젝션 공격 자동 탐지 및 차단
-- **XSS 방어**: 크로스 사이트 스크립팅 공격 차단
-- **Rate Limiting**: 트래픽 제한을 통한 DDoS 공격 완화
-- **Geo-blocking**: 특정 지역의 트래픽 차단
-- **Custom Rules**: 사용자 정의 규칙을 통한 세밀한 제어
+| 기능 | 설명 | 사용 사례 |
+|------|------|----------|
+| **SQL Injection 방어** | SQL 인젝션 공격 자동 탐지 및 차단 | 데이터베이스 보호, 데이터 유출 방지 |
+| **XSS 방어** | 크로스 사이트 스크립팅 공격 차단 | 사용자 세션 탈취 방지 |
+| **Rate Limiting** | 트래픽 제한을 통한 DDoS 공격 완화 | API 남용 방지, 서비스 안정성 확보 |
+| **Geo-blocking** | 특정 지역의 트래픽 차단 | 규정 준수, 리스크 감소 |
+| **Custom Rules** | 사용자 정의 규칙을 통한 세밀한 제어 | 비즈니스 로직 보호 |
 
 ### 2.2 AWS WAF 실습
 
@@ -159,30 +162,14 @@ Cloudflare는 웹사이트의 성능과 보안을 강화하기 위한 다양한 
 
 ### 3.2 주요 보안 기능
 
-#### DDoS 보호
-- 대규모 트래픽 공격을 자동으로 차단
-- Layer 3/4 및 Layer 7 공격 방어
-- 실시간 위협 탐지 및 대응
-
-#### WAF (웹 애플리케이션 방화벽)
-- SQL 인젝션, XSS 등 웹 공격을 방어
-- 사용자 정의 규칙 설정
-- OWASP Top 10 취약점 자동 차단
-
-#### SSL/TLS 지원
-- 데이터 암호화를 통해 안전한 통신 보장
-- 자동 인증서 관리
-- 최신 TLS 버전 지원
-
-#### 안전한 DNS 서비스
-- DNS 하이재킹을 방지하고 신속한 도메인 응답을 제공
-- DNSSEC 지원
-- Anycast 네트워크를 통한 고가용성
-
-#### 봇 관리
-- 악의적인 봇 트래픽을 감지하고 차단
-- AI 기반 봇 탐지
-- 정상적인 크롤러 허용
+| 보안 기능 | 설명 | 핵심 특징 |
+|----------|------|----------|
+| **DDoS 보호** | 대규모 트래픽 공격 자동 차단 | Layer 3/4/7 공격 방어, 실시간 위협 탐지 |
+| **WAF** | 웹 애플리케이션 방화벽 | SQL Injection/XSS 차단, OWASP Top 10 대응 |
+| **SSL/TLS** | 데이터 암호화 통신 | 자동 인증서 관리, TLS 1.3 지원 |
+| **DNS 보안** | 안전한 DNS 서비스 | DNSSEC 지원, Anycast 고가용성 |
+| **봇 관리** | 악성 봇 탐지 및 차단 | AI 기반 봇 탐지, 정상 크롤러 허용 |
+| **CDN** | 콘텐츠 전송 네트워크 | 전 세계 에지 서버, 캐싱 최적화 |
 
 #### CDN (콘텐츠 전송 네트워크)
 - 전 세계에 분산된 서버를 통해 콘텐츠를 빠르게 전달
@@ -320,3 +307,39 @@ Code Scanning 설정 단계:
 이 포스팅이 Application 보안 및 Cloudflare와 GitHub 활용에 도움이 되길 바랍니다. 추가적인 질문이나 도움이 필요하시면 언제든지 댓글로 남겨주세요.
 
 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 환경을 구축할 수 있습니다.
+
+## 보안 구현 체크리스트
+
+### AWS WAF 보안
+
+- [ ] WAF 웹 ACL 규칙 생성 및 적용
+- [ ] SQL Injection, XSS 차단 규칙 활성화
+- [ ] Rate Limiting 규칙 설정
+- [ ] IP 기반 접근 제어 구성
+- [ ] Geo-blocking 필요 시 적용
+- [ ] CloudWatch 로그 및 알림 설정
+
+### Cloudflare 보안
+
+- [ ] SSL/TLS 설정 (TLS 1.3, HSTS 활성화)
+- [ ] WAF 규칙 활성화 (OWASP Core Rule Set)
+- [ ] DDoS 보호 설정 확인
+- [ ] Bot Management 규칙 구성
+- [ ] Rate Limiting 설정
+- [ ] Page Rules 보안 정책 적용
+
+### GitHub 보안
+
+- [ ] Dependabot 활성화 및 설정
+- [ ] Code Scanning (CodeQL) 활성화
+- [ ] Secret Scanning 활성화
+- [ ] Branch Protection Rules 설정
+- [ ] 취약점 알림 수신자 설정
+- [ ] Security Advisory 프로세스 수립
+
+### 보안 모니터링
+
+- [ ] WAF 로그 모니터링 대시보드 구성
+- [ ] Cloudflare Analytics 모니터링
+- [ ] GitHub Security Alerts 검토 프로세스
+- [ ] 정기 보안 검토 일정 수립

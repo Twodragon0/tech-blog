@@ -1,0 +1,152 @@
+{
+  "$schema": "https://opencode.dev/schema/v1/config.json",
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "DevSecOps Tech Blog - AI-powered content pipeline with Ralph Loop",
+  
+  "agent": {
+    "mode": "sisyphus",
+    "model": "claude-sonnet-4-20250514",
+    "temperature": 0.3,
+    "maxTokens": 8192
+  },
+  
+  "ralphLoop": {
+    "enabled": true,
+    "defaultMaxIterations": 50,
+    "defaultCompletionPromise": "DONE",
+    "commands": {
+      "improve-posts": {
+        "description": "Continuously improve blog posts from RSS news",
+        "maxIterations": 50,
+        "completionPromise": "POSTS_IMPROVED",
+        "configFile": ".opencode/commands/improve-posts.md"
+      },
+      "collect-news": {
+        "description": "Collect news from RSS feeds",
+        "maxIterations": 3,
+        "completionPromise": "NEWS_COLLECTED"
+      },
+      "validate-posts": {
+        "description": "Validate all posts for quality",
+        "maxIterations": 10,
+        "completionPromise": "POSTS_VALIDATED"
+      },
+      "generate-images": {
+        "description": "Generate missing post images",
+        "maxIterations": 20,
+        "completionPromise": "IMAGES_GENERATED"
+      }
+    }
+  },
+  
+  "qualityGates": {
+    "post": {
+      "minContentLength": 3000,
+      "minTables": 2,
+      "minCodeBlocks": 1,
+      "requireChecklist": true,
+      "requireFrontMatter": ["title", "date", "category", "tags", "excerpt"],
+      "englishImagesOnly": true,
+      "noKoreanInSvg": true,
+      "noBrokenLinks": true
+    },
+    "scoreThreshold": 80,
+    "maxRetries": 3
+  },
+  
+  "workflows": {
+    "daily-news": {
+      "description": "Daily news collection and draft generation",
+      "steps": [
+        {
+          "name": "collect",
+          "command": "python3 scripts/collect_tech_news.py --hours 24",
+          "output": "_data/collected_news.json"
+        },
+        {
+          "name": "generate-drafts",
+          "command": "python3 scripts/generate_news_draft.py --prepare --max-posts 5",
+          "output": "_drafts/prompts/"
+        },
+        {
+          "name": "validate",
+          "command": "python3 scripts/check_posts.py",
+          "required": true
+        }
+      ],
+      "schedule": "0 9 * * *",
+      "timezone": "Asia/Seoul"
+    },
+    "weekly-digest": {
+      "description": "Weekly security digest auto-publishing",
+      "steps": [
+        {
+          "name": "collect",
+          "command": "python3 scripts/collect_tech_news.py --hours 168"
+        },
+        {
+          "name": "publish",
+          "command": "python3 scripts/auto_publish_news.py --max-news 15"
+        },
+        {
+          "name": "generate-image",
+          "command": "python3 scripts/generate_post_images.py --all"
+        }
+      ],
+      "schedule": "0 10 * * SUN",
+      "timezone": "Asia/Seoul"
+    }
+  },
+  
+  "paths": {
+    "posts": "_posts",
+    "drafts": "_drafts",
+    "prompts": "_drafts/prompts",
+    "images": "assets/images",
+    "scripts": "scripts",
+    "data": "_data"
+  },
+  
+  "newsSources": {
+    "categories": ["security", "cloud", "devops", "kubernetes", "devsecops", "ai", "blockchain"],
+    "prioritySources": ["thehackernews", "aws_security", "microsoft_security", "gcp_security"],
+    "maxItemsPerCategory": 3,
+    "defaultHours": 24
+  },
+  
+  "costOptimization": {
+    "priority": ["gemini-cli", "local-templates", "cursor-console", "api-calls"],
+    "geminiCli": {
+      "enabled": true,
+      "timeout": 120
+    },
+    "apiRateLimiting": {
+      "claude": {
+        "maxRequestsPerMinute": 10,
+        "delayBetweenRequests": 2000
+      },
+      "gemini": {
+        "maxRequestsPerMinute": 15,
+        "delayBetweenRequests": 1000
+      }
+    },
+    "caching": {
+      "enabled": true,
+      "ttlDays": 7
+    }
+  },
+  
+  "security": {
+    "maskSensitiveInfo": true,
+    "validateBeforeWrite": true,
+    "noHardcodedSecrets": true,
+    "auditLogging": true
+  },
+  
+  "monitoring": {
+    "logFile": "improvement_log.txt",
+    "processedIds": "_data/processed_news_ids.json",
+    "todoTracking": true
+  }
+}

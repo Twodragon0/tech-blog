@@ -2,6 +2,7 @@
 layout: post
 title: "클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!"
 date: 2025-11-21 18:28:12 +0900
+category: devsecops
 categories: [devsecops]
 tags: [Cloud-Security, DevSecOps, FinOps, Course]
 excerpt: "클라우드 시큐리티 8기 OT 안내: 9주 커리큘럼 상세(1주차 인프라 본질/2025 보안 트렌드, 2주차 AWS 보안 아키텍처 VPC/IAM/S3/GuardDuty, 3주차 FinOps/ISMS-P, 4주차 통합 보안 취약점 점검, 5주차 Control Tower/Datadog SIEM/Cloudflare, 6주차 이후 DevSecOps 심화), 2025년 보안 트렌드 반영(AI 보안 93% 리더 일일 공격 예상, Shadow AI, Supply Chain 공격, Zero Trust, Post-quantum 암호화 Cloudflare 52%), AWS re:Invent 2025 발표 반영(Security Agent, GuardDuty Extended, IAM Policy Autopilot), 효율적 학습 루틴(20분 강의+5분 휴식), 대체 불가능한 클라우드 보안 전문가로 성장까지 정리."
@@ -160,9 +161,44 @@ AWS re:Invent 2025에서 발표된 최신 보안 서비스들을 커리큘럼에
 - **위협 탐지**: GuardDuty, CloudTrail, Config
 - **데이터 보호**: S3 암호화, KMS 활용
 
-## 3. 과정 특징 및 기대 효과
+### 3.3 실습 환경 구성 예시
 
-### 3.1 과정의 특징
+과정에서 다루는 AWS 보안 환경 구성의 기본 예시입니다:
+
+```bash
+# AWS CLI를 사용한 보안 환경 기본 구성
+
+# 1. VPC 생성 (보안을 위한 네트워크 분리)
+aws ec2 create-vpc --cidr-block 10.0.0.0/16 \
+  --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=SecureVPC},{Key=Environment,Value=Training}]'
+
+# 2. CloudTrail 활성화 (감사 로그)
+aws cloudtrail create-trail --name security-audit-trail \
+  --s3-bucket-name my-cloudtrail-logs \
+  --is-multi-region-trail \
+  --enable-log-file-validation
+
+# 3. GuardDuty 활성화 (위협 탐지)
+aws guardduty create-detector --enable \
+  --finding-publishing-frequency FIFTEEN_MINUTES
+
+# 4. Security Hub 활성화 (통합 보안 관리)
+aws securityhub enable-security-hub --enable-default-standards
+
+# 5. IAM 암호 정책 강화
+aws iam update-account-password-policy \
+  --minimum-password-length 14 \
+  --require-symbols \
+  --require-numbers \
+  --require-uppercase-characters \
+  --require-lowercase-characters \
+  --max-password-age 90 \
+  --password-reuse-prevention 12
+```
+
+## 4. 과정 특징 및 기대 효과
+
+### 4.1 과정의 특징
 
 > **💡 실무 중심 교육**
 > 
@@ -176,7 +212,7 @@ AWS re:Invent 2025에서 발표된 최신 보안 서비스들을 커리큘럼에
 > 
 > 일방향 강의가 아닌, 실무 고민을 함께 나누고 해결하는 상호작용형 학습 환경을 제공합니다.
 
-### 3.2 기대 효과
+### 4.2 기대 효과
 
 이 과정을 수료하시면:
 
@@ -186,7 +222,7 @@ AWS re:Invent 2025에서 발표된 최신 보안 서비스들을 커리큘럼에
 4. **비용 최적화 역량**: 보안과 비용을 동시에 고려한 최적의 솔루션 설계 능력
 5. **커리어 발전**: 클라우드 보안 전문가로서의 커리어 경로 확장
 
-## 4. 마무리
+## 5. 마무리
 
 클라우드 시큐리티 8기는 단순한 교육 과정이 아닙니다. **대체 불가능한 클라우드 보안 전문가로 성장하는 여정**의 시작점입니다.
 
@@ -195,5 +231,29 @@ DevSecOps와 FinOps를 모두 아우르는 실무 역량을 키워, 보안과 �
 > "Security is not a product, but a process." - Bruce Schneier
 
 보안은 단순히 도구를 도입하는 것이 아니라, **문화와 프로세스의 변화**가 필요합니다. 이번 과정을 통해 그 변화를 함께 만들어가시길 바랍니다.
+
+## 과정 참여 전 준비 체크리스트
+
+### 필수 준비 사항
+
+- [ ] AWS 계정 생성 및 Free Tier 활성화
+- [ ] AWS CLI 설치 및 구성
+- [ ] MFA 활성화 (루트 계정 및 IAM 사용자)
+- [ ] 기본적인 Linux 명령어 숙지
+- [ ] Git 기본 사용법 이해
+
+### 권장 사전 학습
+
+- [ ] AWS 공식 문서의 Security Best Practices 읽기
+- [ ] VPC 기본 개념 이해 (서브넷, 라우팅 테이블, NAT Gateway)
+- [ ] IAM 기본 개념 이해 (사용자, 역할, 정책)
+- [ ] ISMS-P 인증 기준 개요 파악
+
+### 학습 환경 구성
+
+- [ ] 화상 회의 도구 설치 및 테스트
+- [ ] 안정적인 인터넷 연결 확보
+- [ ] 듀얼 모니터 권장 (강의 시청 + 실습 동시 진행)
+- [ ] 메모 및 질문 정리용 노트 준비
 
 클라우드 시큐리티 8기에서 만나요! 🚀

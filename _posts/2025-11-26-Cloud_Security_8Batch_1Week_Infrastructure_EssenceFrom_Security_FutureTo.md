@@ -2,6 +2,7 @@
 layout: post
 title: "클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지"
 date: 2025-11-26 19:36:52 +0900
+category: cloud
 categories: [cloud]
 tags: [Infrastructure, Cloud-Security, AWS]
 excerpt: "클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지. 2025년 클라우드 보안 핵심 트렌드(AI 보안 위협과 대응, Zero Trust 아키텍처, Post-quantum 암호화, 공급망 보안), 클라우드 인프라 기초 학습, 실무 중심 보안 교육(20분 강의 + 5분 휴식 루틴), 보안의 미래와 실무 고민 공유까지 정리."
@@ -84,6 +85,34 @@ toc: true
 - **가상 서버**: EC2, Lambda, 컨테이너 등 다양한 컴퓨팅 옵션
 - **리소스 관리**: 오토스케일링, 로드 밸런싱을 통한 가용성 확보
 - **보안**: IAM 역할, 인스턴스 프로파일을 통한 접근 제어
+
+```bash
+# 클라우드 인프라 보안 기본 설정 예시
+
+# IAM 역할 생성 (최소 권한 원칙)
+aws iam create-role --role-name EC2-Minimal-Role \
+  --assume-role-policy-document file://trust-policy.json
+
+# S3 버킷 암호화 활성화
+aws s3api put-bucket-encryption --bucket my-secure-bucket \
+  --server-side-encryption-configuration '{
+    "Rules": [{
+      "ApplyServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "aws:kms",
+        "KMSMasterKeyID": "alias/my-key"
+      }
+    }]
+  }'
+
+# CloudTrail 활성화 (모든 리전)
+aws cloudtrail create-trail --name security-trail \
+  --s3-bucket-name my-cloudtrail-bucket \
+  --is-multi-region-trail \
+  --enable-log-file-validation
+
+# Security Hub 활성화
+aws securityhub enable-security-hub --enable-default-standards
+```
 
 #### 스토리지 (Storage)
 - **데이터 저장**: S3, EBS, EFS 등 다양한 스토리지 옵션
@@ -257,6 +286,40 @@ toc: true
 | **Compliance Cost Efficiency** | 컴플라이언스 비용 효율성 | 규정 준수 비용 최적화 |
 
 > **참고**: FinOps와 보안 통합 관련 내용은 [FinOps Foundation](https://www.finops.org/) 및 [AWS Cost Management](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/)를 참조하세요.
+
+## 클라우드 인프라 보안 점검 체크리스트
+
+### 네트워크 보안
+
+- [ ] VPC 서브넷이 Public/Private으로 적절히 분리되어 있는가?
+- [ ] 데이터베이스, 애플리케이션 서버가 Private 서브넷에 배치되어 있는가?
+- [ ] Security Group 규칙이 최소 권한 원칙을 따르는가?
+- [ ] 불필요한 인바운드 포트(0.0.0.0/0)가 개방되어 있지 않은가?
+- [ ] VPC Flow Logs가 활성화되어 있는가?
+
+### 접근 제어
+
+- [ ] 루트 계정에 MFA가 활성화되어 있는가?
+- [ ] 일상 업무에 IAM 사용자/역할을 사용하고 있는가?
+- [ ] IAM 정책이 최소 권한 원칙을 따르는가?
+- [ ] 하드코딩된 자격 증명이 코드에 포함되어 있지 않은가?
+- [ ] Secrets Manager 또는 Parameter Store를 사용하고 있는가?
+
+### 데이터 보호
+
+- [ ] S3 버킷 기본 암호화가 활성화되어 있는가?
+- [ ] S3 Public Access Block이 활성화되어 있는가?
+- [ ] EBS 볼륨 암호화가 활성화되어 있는가?
+- [ ] RDS 암호화가 활성화되어 있는가?
+- [ ] 정기적인 백업 및 복구 테스트가 수행되고 있는가?
+
+### 모니터링 및 감사
+
+- [ ] CloudTrail이 모든 리전에서 활성화되어 있는가?
+- [ ] CloudWatch 알람이 주요 지표에 설정되어 있는가?
+- [ ] GuardDuty가 활성화되어 있는가?
+- [ ] Security Hub가 활성화되어 있는가?
+- [ ] 보안 이벤트에 대한 알림이 구성되어 있는가?
 
 ## 결론
 
