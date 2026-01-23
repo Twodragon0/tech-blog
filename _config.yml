@@ -1,11 +1,13 @@
 # Site Settings
 title: "Twodragon's Tech Blog"
 description: "DevSecOps, DevOps, FinOps 전문 기술 블로그 - 클라우드 보안, 인프라 자동화, 비용 최적화의 실무 경험과 최신 트렌드"
+description_en: "DevSecOps, Cloud Security & FinOps Technical Blog - Practical insights on Kubernetes security, AWS architecture, CI/CD pipelines, and cost optimization"
 url: "https://tech.2twodragon.com"
 baseurl: ""
 lang: "ko"
 logo: "/assets/images/logo.png"
-keywords: "DevSecOps, DevOps, FinOps, Cloud Security, Kubernetes, AWS, 보안, 클라우드, 인프라"
+keywords: "DevSecOps, DevOps, FinOps, Cloud Security, Kubernetes, AWS, GCP, Azure, Docker, CI/CD, Security, Infrastructure, FinOps, ISMS-P, Zero Trust, Container Security"
+keywords_en: "DevSecOps, Cloud Security, Kubernetes Security, AWS Security, GCP Security, Container Security, CI/CD Security, Infrastructure as Code, FinOps, Zero Trust Architecture, Security Automation"
 
 # Author
 author:

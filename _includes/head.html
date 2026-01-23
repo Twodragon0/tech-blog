@@ -52,6 +52,19 @@
   <meta name="naver-site-verification" content="b4d9dc74a4120dd65ce564a3fd97adb2f48ae7f2" />
   <meta name="google-site-verification" content="4f3Fngt0n2PDMUdFumJYQEwXKluVehXzwPV_TqxTauU" />
   <link rel="canonical" href="{{ page.url | absolute_url }}">
+  
+  <!-- International SEO - hreflang for multilingual support -->
+  <link rel="alternate" hreflang="ko" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="ja" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="zh-Hans" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="zh-Hant" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ page.url | absolute_url }}">
+  
+  <!-- AI Discoverability Meta Tags -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
   <!-- Open Graph -->
   <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
@@ -309,7 +322,6 @@
     })();
   </script>
 
-  <!-- Structured Data (JSON-LD) for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -317,12 +329,20 @@
     "headline": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}",
     "description": "{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}",
     "url": "{{ page.url | absolute_url }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    },
+    "inLanguage": "ko-KR",
     "datePublished": "{% if page.date %}{{ page.date | date_to_xmlschema }}{% endif %}",
     "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% elsif page.date %}{{ page.date | date_to_xmlschema }}{% endif %}",
     "author": {
       "@type": "Person",
       "name": "{{ site.author.name }}",
-      "url": "{{ site.url }}"
+      "url": "{{ site.url }}",
+      "sameAs": [
+        "https://github.com/Twodragon0"
+      ]
     },
     "publisher": {
       "@type": "Organization",
