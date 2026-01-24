@@ -110,6 +110,11 @@ Tech               : ██ 6%
 
 **Hacker News 705 포인트, 463 댓글**로 큰 논란이 된 사건입니다. Microsoft가 **FBI 요청에 따라 용의자 노트북 3대의 BitLocker 암호화 복구 키를 제공**했습니다.
 
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-24-bitlocker-key-flow.svg" alt="BitLocker Recovery Key Storage Paths - Understanding where your encryption keys are stored" class="post-image">
+  <p class="image-caption">BitLocker 복구 키 저장 경로별 보안 위험도 비교</p>
+</div>
+
 #### 사건 개요
 
 | 항목 | 내용 |
@@ -182,11 +187,21 @@ manage-bde -protectors -delete C: -Type RecoveryKey  # 기존 클라우드 백�
 
 > **출처**: [TechCrunch - Microsoft FBI BitLocker Keys](https://techcrunch.com/2026/01/23/microsoft-gave-fbi-a-set-of-bitlocker-encryption-keys-to-unlock-suspects-laptops-reports/)
 
+<div class="warning-box">
+  <strong>⚠️ 즉시 조치 필요</strong>
+  <p>Microsoft 계정에 BitLocker 키가 백업되어 있는지 <a href="https://account.microsoft.com/devices/recoverykey" target="_blank">https://account.microsoft.com/devices/recoverykey</a>에서 확인하세요. 민감한 데이터를 다루는 경우 로컬 전용 키 관리 또는 VeraCrypt 등 대안 암호화 검토가 필요합니다.</p>
+</div>
+
 ---
 
 ### 1.2 Cloudflare Route Leak 사건 상세 분석 (2026년 1월 22일)
 
 Cloudflare가 **1월 22일 발생한 Route Leak 사건**에 대한 상세 기술 분석 보고서를 공개했습니다. BGP 보안의 중요성을 다시 한번 일깨워주는 사례입니다.
+
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-24-bgp-route-leak.svg" alt="BGP Route Leak - How It Happens and Protection Methods" class="post-image">
+  <p class="image-caption">BGP Route Leak 발생 메커니즘과 방어 방법</p>
+</div>
 
 #### 사건 타임라인
 
@@ -270,6 +285,16 @@ filter import_filter {
 
 > **출처**: [Cloudflare Blog - Route Leak Incident January 22, 2026](https://blog.cloudflare.com/route-leak-incident-january-22-2026/)
 
+<div class="info-box">
+  <strong>💡 실무 팁: BGP 모니터링 도구</strong>
+  <ul>
+    <li><strong>BGPStream</strong>: 실시간 BGP 데이터 스트리밍 (CAIDA 제공)</li>
+    <li><strong>RIPE RIS</strong>: 유럽 기반 BGP 모니터링 서비스</li>
+    <li><strong>Cloudflare Radar</strong>: BGP 이상 탐지 무료 대시보드</li>
+    <li><strong>BGPalerter</strong>: 오픈소스 자가 호스팅 모니터링 도구</li>
+  </ul>
+</div>
+
 ---
 
 ## 2. 플랫폼 엔지니어링 & DevOps 뉴스
@@ -277,6 +302,11 @@ filter import_filter {
 ### 2.1 CNCF 2026 전망: 자율 기업과 4가지 플랫폼 제어 기둥
 
 CNCF에서 **2026년 자율 기업(Autonomous Enterprise) 전환**에 대한 심층 전망을 발표했습니다. AI 에이전트가 DevOps와 플랫폼 엔지니어링의 핵심 메커니즘으로 부상하고 있습니다.
+
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-24-autonomous-enterprise-pillars.svg" alt="Autonomous Enterprise - 4 Pillars of Platform Control" class="post-image">
+  <p class="image-caption">자율 기업의 4대 플랫폼 제어 기둥 - CNCF 2026 전망</p>
+</div>
 
 #### 자율 기업의 4대 제어 기둥
 
@@ -347,11 +377,26 @@ spec:
 
 > **출처**: [CNCF Blog - The Autonomous Enterprise 2026 Forecast](https://www.cncf.io/blog/2026/01/23/the-autonomous-enterprise-and-the-four-pillars-of-platform-control-2026-forecast/)
 
+<div class="success-box">
+  <strong>✅ 2026년 준비 체크리스트</strong>
+  <ul>
+    <li><strong>MCP 학습</strong>: Model Context Protocol 이해 및 실험 환경 구축</li>
+    <li><strong>NHI 인벤토리</strong>: 조직 내 비인간 ID(서비스 계정, API 키 등) 목록화</li>
+    <li><strong>FinOps 도입</strong>: 클라우드 비용 가시성 및 최적화 프로세스 수립</li>
+    <li><strong>AIOps 파일럿</strong>: 소규모 AI 기반 운영 자동화 PoC 시작</li>
+  </ul>
+</div>
+
 ---
 
 ### 2.2 Docker는 무엇이 되었는가? - 2026년 현황 분석
 
 GeekNews에서 **컨테이너화의 선구자 Docker의 2026년 현황**을 심층 분석했습니다. Kubernetes와의 경쟁 이후 Docker의 정체성과 방향성 변화를 다룹니다.
+
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-24-docker-ecosystem-2026.svg" alt="Docker Ecosystem 2026 - Evolution and Alternatives" class="post-image">
+  <p class="image-caption">Docker 2026 생태계 현황과 대안 기술 비교</p>
+</div>
 
 #### Docker의 변천사
 
@@ -417,6 +462,17 @@ docker run -d myapp
 | 프로덕션 (K8s) | containerd / CRI-O | 경량화, 보안 |
 
 > **출처**: [GeekNews - Docker는 무엇이 되었는가?](https://news.hada.io/topic?id=26085)
+
+<div class="info-box">
+  <strong>💡 Docker 종속성 탈피 전략</strong>
+  <p>Docker Desktop 라이선스 비용이 부담된다면 다음 전환 경로를 고려하세요:</p>
+  <ol>
+    <li><strong>macOS</strong>: Podman Desktop (무료, Docker CLI 호환)</li>
+    <li><strong>Linux</strong>: Podman + Buildah 조합</li>
+    <li><strong>Windows</strong>: WSL2 + Podman 또는 Rancher Desktop</li>
+    <li><strong>CI/CD</strong>: Kaniko (Kubernetes 네이티브, 특권 불필요)</li>
+  </ol>
+</div>
 
 ---
 
