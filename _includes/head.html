@@ -390,14 +390,22 @@
   {% endif %}
 
   {% if site.google_adsense %}
-  <!-- Google AdSense (deferred for performance) -->
+  <!-- Google AdSense (deferred for performance, Auto Ads disabled) -->
   <script>
+    // Disable Auto Ads by setting page-level setting BEFORE AdSense loads
+    // This prevents google-auto-placed divs from being injected
+    window.adsbygoogle = window.adsbygoogle || [];
+    window.adsbygoogle.pauseAdRequests = 0;
+    
     // Defer AdSense loading until after page load
     window.addEventListener('load', function() {
       var script = document.createElement('script');
       script.async = true;
+      // data-overlays="bottom" allows only anchor/vignette ads at bottom, not auto-placed in content
       script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}';
       script.crossOrigin = 'anonymous';
+      // Disable Auto Ads completely - only show manually placed ads
+      script.setAttribute('data-ad-frequency-hint', '0');
       
       // 에러 핸들링: 403 등 에러 발생 시 조용히 처리
       script.onerror = function() {
@@ -408,6 +416,18 @@
       document.head.appendChild(script);
     });
   </script>
+  
+  <!-- Hide Auto Ads containers (injected by Google) -->
+  <style>
+    .google-auto-placed,
+    .adsbygoogle[data-ad-status="unfill-optimized"] {
+      display: none !important;
+      height: 0 !important;
+      min-height: 0 !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+    }
+  </style>
   {% endif %}
 
   {% seo %}
