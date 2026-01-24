@@ -417,15 +417,20 @@
     });
   </script>
   
-  <!-- Hide Auto Ads containers (injected by Google) -->
   <style>
-    .google-auto-placed,
-    .adsbygoogle[data-ad-status="unfill-optimized"] {
+    /* Hide Google Ads "Related Topics" UI (advertisement block) while keeping actual ads visible */
+    .goog-rtopics,
+    .google-anno-skip,
+    .google-anno-sc,
+    [aria-label="도움말과 관련된 주제 중 관심이 있을 만한 항목입니다."] {
+      display: none !important;
+    }
+    /* Hide unfilled/optimized ad placeholders */
+    .adsbygoogle[data-ad-status="unfill-optimized"]:empty,
+    .adsbygoogle[data-ad-status="unfilled"]:empty {
       display: none !important;
       height: 0 !important;
       min-height: 0 !important;
-      max-height: 0 !important;
-      overflow: hidden !important;
     }
   </style>
   {% endif %}
