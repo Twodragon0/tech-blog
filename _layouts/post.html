@@ -94,9 +94,20 @@ layout: default
   {% include toc.html content=content %}
   {% endif %}
 
+  {% comment %} TOC 아래 광고 - 긴 글에서만 표시 {% endcomment %}
+  {% assign word_count = content | number_of_words %}
+  {% if word_count > 500 and site.google_adsense %}
+  {% include adsense.html type="in-article" %}
+  {% endif %}
+
   <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
+
+  {% comment %} 콘텐츠 하단 광고 {% endcomment %}
+  {% if site.google_adsense %}
+  {% include adsense.html type="multiplex" %}
+  {% endif %}
 
   <footer class="post-footer">
     {% include share-buttons.html %}
@@ -110,6 +121,11 @@ layout: default
     {% assign related = posts | where_exp: "post", "post.categories contains cat" | limit: 3 %}
   {% else %}
     {% assign related = posts | limit: 3 %}
+  {% endif %}
+
+  {% comment %} 관련 포스트 위 광고 {% endcomment %}
+  {% if site.google_adsense %}
+  {% include adsense.html type="footer" %}
   {% endif %}
 
   {% if related.size > 0 %}

@@ -984,3 +984,98 @@
     font-size: 0.625rem;
   }
 }
+
+/* ====================================
+   AdSense Styles - CLS Prevention
+   ==================================== */
+
+.ad-container {
+  background: var(--color-bg-secondary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  contain: layout style;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.ad-container::before {
+  content: 'Advertisement';
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+}
+
+.ad-container ins {
+  display: block !important;
+}
+
+.ad-in-article {
+  margin: 2rem 0;
+  min-height: 280px;
+  position: relative;
+}
+
+.ad-sidebar {
+  margin: 1rem 0;
+  min-height: 600px;
+  position: relative;
+}
+
+.ad-footer {
+  margin: 2rem 0;
+  min-height: 100px;
+  position: relative;
+}
+
+.ad-multiplex {
+  margin: 2rem 0;
+  min-height: 300px;
+  position: relative;
+}
+
+.ad-infeed {
+  margin: 1rem 0;
+  min-height: 180px;
+  position: relative;
+}
+
+.ad-responsive {
+  margin: 2rem 0;
+  min-height: 280px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .ad-container {
+    margin: 1.5rem 0;
+  }
+  
+  .ad-in-article,
+  .ad-multiplex,
+  .ad-responsive {
+    min-height: 250px;
+  }
+  
+  .ad-sidebar {
+    min-height: 280px;
+  }
+  
+  .ad-footer {
+    min-height: 90px;
+  }
+  
+  .ad-infeed {
+    min-height: 150px;
+  }
+}
+
+[data-theme="dark"] .ad-container {
+  background: var(--color-bg-tertiary);
+}

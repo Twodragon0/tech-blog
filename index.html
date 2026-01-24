@@ -55,9 +55,18 @@ title: Home
     <div class="posts-list">
       {% for post in site.posts limit: 12 %}
         {% include post-card.html post=post %}
+        {% comment %} 6번째 포스트 후에 인피드 광고 삽입 {% endcomment %}
+        {% if forloop.index == 6 and site.google_adsense %}
+          {% include adsense.html type="infeed" %}
+        {% endif %}
       {% endfor %}
     </div>
   </section>
+
+  {% comment %} 카테고리 섹션 위 광고 {% endcomment %}
+  {% if site.google_adsense %}
+  {% include adsense.html type="responsive" %}
+  {% endif %}
 
   <!-- Categories Quick Links -->
   <section class="categories-section">
