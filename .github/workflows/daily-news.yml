@@ -53,32 +53,38 @@ jobs:
           pip install feedparser requests beautifulsoup4 python-frontmatter PyYAML
       
       - name: Create directories
-        run: mkdir -p _data _posts assets/images
+        run: mkdir -p data _posts assets/images
       
       - name: Collect tech news from RSS
+        id: collect
         run: |
           HOURS="${{ github.event.inputs.hours || '24' }}"
           echo "Collecting news from last $HOURS hours..."
-          python3 scripts/collect_tech_news.py --hours $HOURS
+          
+          # RSS 수집 실행 (타임아웃 5분)
+          timeout 300 python3 scripts/collect_tech_news.py --hours $HOURS --output data/collected_news.json || {
+            echo "::warning::RSS collection timed out or failed, checking existing data..."
+          }
       
       - name: Check collected news
         id: check_news
         run: |
-          if [ -f "_data/collected_news.json" ]; then
-            TOTAL=$(python3 -c "import json; d=json.load(open('_data/collected_news.json')); print(d.get('total_items', 0))")
+          # data/ 디렉토리 확인 (기존 프로젝트 구조)
+          if [ -f "data/collected_news.json" ]; then
+            TOTAL=$(python3 -c "import json; d=json.load(open('data/collected_news.json')); print(d.get('total_items', 0))")
             echo "news_count=$TOTAL" >> $GITHUB_OUTPUT
-            echo "Collected $TOTAL news items"
+            echo "✅ Collected $TOTAL news items"
             
             if [ "$TOTAL" -ge 5 ]; then
               echo "has_enough_news=true" >> $GITHUB_OUTPUT
             else
               echo "has_enough_news=false" >> $GITHUB_OUTPUT
-              echo "Not enough news to publish (minimum: 5)"
+              echo "⚠️ Not enough news to publish (minimum: 5, got: $TOTAL)"
             fi
           else
             echo "news_count=0" >> $GITHUB_OUTPUT
             echo "has_enough_news=false" >> $GITHUB_OUTPUT
-            echo "No news collected"
+            echo "❌ No news collected - data/collected_news.json not found"
           fi
       
       - name: Auto publish news post
@@ -121,14 +127,19 @@ jobs:
           
           TODAY=$(date +%Y-%m-%d)
           
-          git add _posts/*.md assets/images/*.svg _data/collected_news.json
+          # 새 포스트와 이미지, 수집 데이터 추가
+          git add _posts/*.md assets/images/*.svg data/collected_news.json 2>/dev/null || true
           
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "feat: auto publish daily news digest - $TODAY"
+            NEWS_COUNT="${{ steps.check_news.outputs.news_count }}"
+            POST_FILE="${{ steps.check_post.outputs.post_file }}"
+            git commit -m "feat: auto publish daily tech & security digest - ${TODAY}" \
+              -m "News collected: ${NEWS_COUNT}" \
+              -m "Post: ${POST_FILE}"
             git push
-            echo "Changes committed and pushed"
+            echo "✅ Changes committed and pushed"
           fi
       
       - name: Summary

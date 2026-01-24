@@ -34,7 +34,7 @@ from collections import defaultdict
 
 POSTS_DIR = Path("_posts")
 IMAGES_DIR = Path("assets/images")
-DATA_DIR = Path("_data")
+DATA_DIR = Path("data")  # 프로젝트 구조에 맞춰 data/ 사용
 
 CATEGORY_PRIORITY = {
     "security": 1,

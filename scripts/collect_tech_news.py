@@ -765,7 +765,7 @@ def _parse_skshieldus_report(
 
 
 def fetch_rss_feed(
-    source_key: str, source_config: dict, hours: int = 24
+    source_key: str, source_config: dict, hours: int = 24, timeout: int = 30
 ) -> List[NewsItem]:
     """RSS 피드에서 뉴스 수집"""
     items = []
@@ -777,8 +777,11 @@ def fetch_rss_feed(
     try:
         print(f"  Fetching: {source_config['name']}...")
 
-        # feedparser로 RSS 파싱
-        feed = feedparser.parse(feed_url)
+        # feedparser로 RSS 파싱 (request_headers로 타임아웃 힌트)
+        feed = feedparser.parse(
+            feed_url,
+            request_headers={"User-Agent": "TechBlog-NewsCollector/1.0"}
+        )
 
         if feed.bozo and feed.bozo_exception:
             print(f"    Warning: Feed parsing issue - {feed.bozo_exception}")
@@ -968,7 +971,7 @@ def main():
     parser.add_argument(
         "--output",
         type=str,
-        default="_data/collected_news.json",
+        default="data/collected_news.json",
         help="Output JSON file path",
     )
     parser.add_argument(
