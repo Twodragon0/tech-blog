@@ -1001,15 +1001,7 @@
 }
 
 .ad-container::before {
-  content: 'Advertisement';
-  position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  font-size: 0.625rem;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.6;
+  content: none;
 }
 
 .ad-container ins {
