@@ -3,9 +3,10 @@
   <div class="comments-container">
     <!-- Comments Header Card -->
     <div class="comments-header-card">
+      <div class="comments-header-decoration"></div>
       <div class="comments-header-content">
         <div class="comments-icon-wrapper">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             <path d="M8 9h8M8 13h4" opacity="0.5"/>
           </svg>
@@ -13,45 +14,46 @@
         <div class="comments-header-text">
           <h3 class="comments-title">
             Discussion
-            <span class="comments-badge" id="comments-count">0</span>
+            <span class="comments-badge" id="comments-count" aria-label="댓글 개수">0</span>
           </h3>
           <p class="comments-description">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
             </svg>
-            GitHub 계정으로 참여하세요
+            GitHub 계정으로 로그인하여 댓글을 작성하세요
           </p>
         </div>
       </div>
-      <div class="comments-header-decoration"></div>
     </div>
 
     <!-- Engagement Card -->
     <div class="engagement-card" id="quick-reactions" role="region" aria-label="게시글 반응">
       <div class="engagement-header">
-        <span class="engagement-label">이 글이 도움이 되셨나요?</span>
-        <span class="engagement-hint">클릭하여 반응을 남겨주세요</span>
+        <div class="engagement-label-wrapper">
+          <span class="engagement-label">이 글이 도움이 되셨나요?</span>
+          <span class="engagement-hint">클릭하여 반응을 남겨주세요</span>
+        </div>
       </div>
       <div class="reactions-grid" role="group" aria-label="반응 버튼">
         <button class="reaction-card" data-reaction="thumbsUp" aria-label="유용해요" aria-pressed="false" type="button">
           <span class="reaction-emoji" aria-hidden="true">👍</span>
           <span class="reaction-label">유용해요</span>
-          <span class="reaction-count" id="reaction-thumbsUp">0</span>
+          <span class="reaction-count" id="reaction-thumbsUp" aria-label="유용해요 개수">0</span>
         </button>
         <button class="reaction-card" data-reaction="heart" aria-label="좋아요" aria-pressed="false" type="button">
           <span class="reaction-emoji" aria-hidden="true">❤️</span>
           <span class="reaction-label">좋아요</span>
-          <span class="reaction-count" id="reaction-heart">0</span>
+          <span class="reaction-count" id="reaction-heart" aria-label="좋아요 개수">0</span>
         </button>
         <button class="reaction-card" data-reaction="rocket" aria-label="대단해요" aria-pressed="false" type="button">
           <span class="reaction-emoji" aria-hidden="true">🚀</span>
           <span class="reaction-label">대단해요</span>
-          <span class="reaction-count" id="reaction-rocket">0</span>
+          <span class="reaction-count" id="reaction-rocket" aria-label="대단해요 개수">0</span>
         </button>
         <button class="reaction-card" data-reaction="eyes" aria-label="관심있어요" aria-pressed="false" type="button">
           <span class="reaction-emoji" aria-hidden="true">👀</span>
           <span class="reaction-label">관심있어요</span>
-          <span class="reaction-count" id="reaction-eyes">0</span>
+          <span class="reaction-count" id="reaction-eyes" aria-label="관심있어요 개수">0</span>
         </button>
       </div>
     </div>
@@ -68,7 +70,7 @@
         <div class="giscus" id="giscus-container">
           <noscript>
             <div class="noscript-message">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"/>
                 <line x1="12" y1="8" x2="12" y2="12"/>
                 <line x1="12" y1="16" x2="12.01" y2="16"/>
@@ -85,39 +87,39 @@
       <details>
         <summary>
           <div class="guidelines-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <circle cx="12" cy="12" r="10"/>
               <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
               <line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
           </div>
           <span class="guidelines-title">댓글 작성 가이드</span>
-          <svg class="guidelines-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="guidelines-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <polyline points="6 9 12 15 18 9"/>
           </svg>
         </summary>
         <div class="guidelines-content">
           <div class="guideline-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="20 6 9 17 4 12"/>
             </svg>
             <span>건설적인 피드백과 질문을 환영합니다</span>
           </div>
           <div class="guideline-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M4 7V4h16v3M9 20h6M12 4v16"/>
             </svg>
             <span>마크다운 문법을 사용할 수 있습니다</span>
           </div>
           <div class="guideline-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="16 18 22 12 16 6"/>
               <polyline points="8 6 2 12 8 18"/>
             </svg>
             <span>코드 블록은 <code>```</code> 로 감싸주세요</span>
           </div>
           <div class="guideline-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
               <circle cx="9" cy="7" r="4"/>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
@@ -172,7 +174,10 @@
 
         // 에러 핸들링: 스크립트 로드 실패 시 조용히 처리
         script.onerror = function() {
-          if (loadingEl) loadingEl.style.display = 'none';
+          if (loadingEl) {
+            loadingEl.classList.add('hidden');
+            loadingEl.style.display = 'none';
+          }
           // Giscus 로드 실패는 조용히 처리 (네트워크 문제, 설정 문제 등)
           // 404 에러는 이미 head.html의 콘솔 필터에서 처리됨
         };
@@ -210,16 +215,23 @@
             const count = discussion.totalCommentCount || 0;
             commentsCountEl.textContent = count;
             commentsCountEl.style.display = count > 0 ? 'inline-flex' : 'none';
+            commentsCountEl.setAttribute('aria-label', `댓글 ${count}개`);
           }
 
           // Handle loading complete
           if (type === 'ready' || discussion) {
-            if (loadingEl) loadingEl.style.display = 'none';
+            if (loadingEl) {
+              loadingEl.classList.add('hidden');
+              loadingEl.style.display = 'none';
+            }
           }
 
           // Handle error messages
           if (type === 'error') {
-            if (loadingEl) loadingEl.style.display = 'none';
+            if (loadingEl) {
+              loadingEl.classList.add('hidden');
+              loadingEl.style.display = 'none';
+            }
             // 404 에러 등은 조용히 처리 (GitHub Discussions 설정 문제일 수 있음)
           }
 
@@ -243,6 +255,14 @@
           const el = document.getElementById('reaction-' + reactionMap[key]);
           if (el && reactions[key] !== undefined) {
             el.textContent = reactions[key];
+            const reactionType = reactionMap[key];
+            const labelMap = {
+              'thumbsUp': '유용해요',
+              'heart': '좋아요',
+              'rocket': '대단해요',
+              'eyes': '관심있어요'
+            };
+            el.setAttribute('aria-label', `${labelMap[reactionType]} ${reactions[key]}개`);
           }
         });
       }
@@ -285,13 +305,21 @@
             }, 100);
           }
         });
+
+        // Keyboard navigation support
+        btn.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
       });
 
       // Theme sync with site theme
       document.addEventListener('themeChanged', function(e) {
         const theme = e.detail === 'light' ? 'light' : 'dark_dimmed';
         const giscusFrame = giscusContainer.querySelector('iframe');
-        if (giscusFrame) {
+        if (giscusFrame && giscusFrame.contentWindow) {
           giscusFrame.contentWindow.postMessage(
             { giscus: { setConfig: { theme: theme } } },
             'https://giscus.app'
@@ -325,7 +353,10 @@
 
       // Hide loading after timeout
       setTimeout(() => {
-        if (loadingEl) loadingEl.style.display = 'none';
+        if (loadingEl) {
+          loadingEl.classList.add('hidden');
+          loadingEl.style.display = 'none';
+        }
       }, 12000);
     })();
   </script>
@@ -335,14 +366,14 @@
   <div class="comments-container">
     <div class="comments-header">
       <h3 class="comments-title">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         </svg>
         Comments
       </h3>
     </div>
     <div class="comments-disabled">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         <line x1="9" y1="10" x2="15" y2="10"/>
       </svg>
