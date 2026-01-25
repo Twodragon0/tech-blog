@@ -102,6 +102,7 @@
       /X-Frame-Options may only be set via an HTTP header/i,
       /cache\.agilebits\.com.*404/i,
       /notification\.js.*\[Notification\]/i,
+      // Giscus 404 에러 (토론이 아직 생성되지 않은 경우 정상)
       /giscus\.app.*404.*discussions/i,
       /giscus\.app\/api\/discussions.*404/i,
       /GET.*giscus\.app.*404/i,
@@ -110,6 +111,23 @@
       /\b404\b.*Not Found.*giscus|giscus.*\b404\b.*Not Found/i,
       /\[giscus\] Discussion not found/i,
       /giscus.*404/i,
+      /widget.*giscus.*404/i,
+      /Failed to load resource.*giscus.*404/i,
+      // SES (Secure EcmaScript) - Google AdSense 보안 메커니즘
+      /SES Removing unpermitted intrinsics/i,
+      /lockdown-install/i,
+      /lockdown-install\.js/i,
+      // Google AdSense 400 에러 (광고가 없거나 계정 문제일 수 있음)
+      /googleads.*400/i,
+      /googlesyndication.*400/i,
+      /doubleclick.*400/i,
+      /doublecl.*400/i,
+      /ads\?client.*400/i,
+      /pagead\/ads.*400/i,
+      /Failed to load resource.*status of 400.*ads/i,
+      /Failed to load resource.*status of 400.*googleads/i,
+      /Failed to load resource.*status of 400.*doubleclick/i,
+      /Failed to load resource.*status of 400.*googlesyndication/i,
       /Content Security Policy.*violates/i,
       /Refused to connect.*violates.*Content Security Policy/i,
       /Refused to load.*violates.*Content Security Policy/i,
@@ -425,9 +443,13 @@
       };
     }
 
-    // 전역 에러 핸들러: Firebase Dynamic Links 및 기타 무시할 수 있는 오류 처리
+    // 전역 에러 핸들러: Firebase Dynamic Links, Giscus, AdSense 및 기타 무시할 수 있는 오류 처리
     const originalWindowError = window.onerror;
     window.onerror = function(message, source, lineno, colno, error) {
+      // 소스 URL도 확인 (네트워크 에러 필터링)
+      const sourceStr = source || '';
+      const fullMessage = (typeof message === 'string' ? message : String(message)) + ' ' + sourceStr;
+      
       // Firebase Dynamic Links 오류 필터링 (2025년 8월 25일 서비스 종료)
       if (typeof message === 'string' && (
         /firebase.*dynamic.*link/i.test(message) ||
@@ -439,8 +461,23 @@
         return true; // 에러 처리됨을 표시
       }
       
+      // Giscus 404 에러 필터링 (토론이 아직 생성되지 않은 경우 정상)
+      if (/giscus\.app/i.test(fullMessage) && /404/i.test(fullMessage)) {
+        return true;
+      }
+      
+      // Google AdSense 400 에러 필터링 (광고가 없거나 계정 문제일 수 있음)
+      if (/(googleads|googlesyndication|doubleclick|pagead)/i.test(fullMessage) && /400/i.test(fullMessage)) {
+        return true;
+      }
+      
+      // SES 경고 필터링 (Google AdSense 보안 메커니즘)
+      if (/SES Removing|lockdown-install/i.test(fullMessage)) {
+        return true;
+      }
+      
       // 기타 필터링된 오류도 무시
-      if (typeof message === 'string' && shouldFilter(message)) {
+      if (shouldFilter(fullMessage)) {
         return true;
       }
       
@@ -466,6 +503,18 @@
         return;
       }
       
+      // Giscus 404 에러 필터링
+      if (/giscus\.app/i.test(reasonStr) && /404/i.test(reasonStr)) {
+        event.preventDefault();
+        return;
+      }
+      
+      // Google AdSense 400 에러 필터링
+      if (/(googleads|googlesyndication|doubleclick|pagead)/i.test(reasonStr) && /400/i.test(reasonStr)) {
+        event.preventDefault();
+        return;
+      }
+      
       // 기타 필터링된 오류도 무시
       if (shouldFilter(reasonStr)) {
         event.preventDefault();
@@ -485,15 +534,30 @@
       }
       
       return originalFetch.apply(this, args).catch(function(error) {
-        // Firebase Dynamic Links 관련 네트워크 오류 필터링
         const errorMessage = error?.message || error?.toString() || '';
-        if (/firebase.*dynamic.*link/i.test(errorMessage) ||
-            /firebaseapp\.com/i.test(errorMessage) ||
-            /app\.goo\.gl/i.test(errorMessage) ||
-            /Invalid dynamic link/i.test(errorMessage)) {
+        const requestUrl = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
+        const fullError = errorMessage + ' ' + requestUrl;
+        
+        // Firebase Dynamic Links 관련 네트워크 오류 필터링
+        if (/firebase.*dynamic.*link/i.test(fullError) ||
+            /firebaseapp\.com/i.test(fullError) ||
+            /app\.goo\.gl/i.test(fullError) ||
+            /Invalid dynamic link/i.test(fullError)) {
           // 조용히 무시 (Firebase Dynamic Links는 서비스가 종료되었으므로 오류는 정상)
           return Promise.resolve(new Response('', { status: 200, statusText: 'OK' }));
         }
+        
+        // Giscus 404 에러 필터링 (토론이 아직 생성되지 않은 경우 정상)
+        if (/giscus\.app/i.test(requestUrl) && (error?.status === 404 || /404/i.test(errorMessage))) {
+          return Promise.resolve(new Response('', { status: 200, statusText: 'OK' }));
+        }
+        
+        // Google AdSense 400 에러 필터링 (광고가 없거나 계정 문제일 수 있음)
+        if (/(googleads|googlesyndication|doubleclick|pagead)/i.test(requestUrl) && 
+            (error?.status === 400 || /400/i.test(errorMessage))) {
+          return Promise.resolve(new Response('', { status: 200, statusText: 'OK' }));
+        }
+        
         throw error;
       });
     };
@@ -514,6 +578,38 @@
             xhr.statusText = 'OK';
             xhr.responseText = '';
             return;
+          }
+          
+          // Giscus 404 에러 필터링 (토론이 아직 생성되지 않은 경우 정상)
+          if (/giscus\.app/i.test(url)) {
+            const originalOnError = xhr.onerror;
+            xhr.onerror = function() {
+              // 404는 조용히 무시
+              if (xhr.status === 404) {
+                xhr.readyState = 4;
+                xhr.status = 200;
+                xhr.statusText = 'OK';
+                xhr.responseText = '';
+                return;
+              }
+              if (originalOnError) originalOnError.call(this);
+            };
+          }
+          
+          // Google AdSense 400 에러 필터링 (광고가 없거나 계정 문제일 수 있음)
+          if (/(googleads|googlesyndication|doubleclick|pagead)/i.test(url)) {
+            const originalOnError = xhr.onerror;
+            xhr.onerror = function() {
+              // 400은 조용히 무시
+              if (xhr.status === 400) {
+                xhr.readyState = 4;
+                xhr.status = 200;
+                xhr.statusText = 'OK';
+                xhr.responseText = '';
+                return;
+              }
+              if (originalOnError) originalOnError.call(this);
+            };
           }
           
           return originalOpen.apply(this, [method, url, ...rest]);

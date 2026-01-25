@@ -15,26 +15,57 @@
       /Framing.*violates.*Content Security Policy/i,
       /frame-ancestors/i,
       /violation has been logged/i,
+      // Giscus 404 에러 (토론이 아직 생성되지 않은 경우 정상)
       /giscus\.app.*404/i,
       /discussions.*404/i,
       /GET.*giscus\.app.*404/i,
+      /giscus\.app\/api\/discussions.*404/i,
+      /Failed to load resource.*giscus.*404/i,
+      /widget.*giscus.*404/i,
+      // SES (Secure EcmaScript) - Google AdSense 보안 메커니즘
       /SES Removing unpermitted intrinsics/i,
       /lockdown-install/i,
+      /lockdown-install\.js/i,
+      // Google AdSense 400 에러 (광고가 없거나 계정 문제일 수 있음)
       /googleads.*400/i,
       /googlesyndication.*400/i,
+      /doubleclick.*400/i,
       /doublecl.*400/i,
       /ads\?client.*400/i,
-      /Failed to load resource.*status of 400/i,
-      /Failed to load resource.*status of 404.*giscus/i,
+      /pagead\/ads.*400/i,
+      /Failed to load resource.*status of 400.*ads/i,
+      /Failed to load resource.*status of 400.*googleads/i,
+      /Failed to load resource.*status of 400.*doubleclick/i,
+      /Failed to load resource.*status of 400.*googlesyndication/i,
       /Unexpected token.*at.*:\d+.*:\d+/i
     ];
     function isNoise(m){
-      if(typeof m!=='string')m=(m&&m.message)||String(m);
+      if(typeof m!=='string'){
+        // 에러 객체나 다른 타입 처리
+        var msgStr = (m&&m.message)||(m&&m.toString&&m.toString())||String(m);
+        // 스택 트레이스도 확인
+        if(m&&m.stack){
+          msgStr += ' ' + m.stack;
+        }
+        m = msgStr;
+      }
       return noisePatterns.some(function(p){return p.test(m);});
     }
-    console.error=function(){if(arguments[0]!==undefined&&isNoise(arguments[0]))return;_e.apply(console,arguments);};
-    console.warn=function(){if(arguments[0]!==undefined&&isNoise(arguments[0]))return;_w.apply(console,arguments);};
-    console.log=function(){if(arguments[0]!==undefined&&isNoise(arguments[0]))return;_l.apply(console,arguments);};
+    console.error=function(){
+      var args = Array.prototype.slice.call(arguments);
+      if(args.length>0&&isNoise(args[0]))return;
+      _e.apply(console,args);
+    };
+    console.warn=function(){
+      var args = Array.prototype.slice.call(arguments);
+      if(args.length>0&&isNoise(args[0]))return;
+      _w.apply(console,args);
+    };
+    console.log=function(){
+      var args = Array.prototype.slice.call(arguments);
+      if(args.length>0&&isNoise(args[0]))return;
+      _l.apply(console,args);
+    };
   })();
   </script>
 
