@@ -337,14 +337,31 @@ OpenCode Sisyphus 모드에서 Ralph Loop를 사용하여 블로그 포스트를
 
 설정 파일: `.opencode/opencode.json`
 
+### Model Selection Strategy
+
+**비용 효율화를 위한 스마트 모델 선택**:
+
+| 작업 유형 | 모델 | 이유 |
+|-----------|------|------|
+| 콘텐츠/코드 생성 | Opus 4.5 ⭐ | 고품질 출력 필요 |
+| 코드 작성/리팩토링 | Opus 4.5 ⭐ | 복잡한 로직, 모범 사례 |
+| 검증/분석 | Sonnet 4 💰 | 규칙 기반, 비용 효율적 |
+| 읽기 전용 탐색 | Sonnet 4 💰 | 분석만, 생성 없음 |
+| 보안 감사 | Sonnet 4 💰 | 패턴 매칭, 비용 효율적 |
+
 ### Ralph Loop Commands
 
-| Command | Description | Completion Promise |
-|---------|-------------|-------------------|
-| `/improve-posts` | RSS 수집 및 포스트 개선 | `POSTS_IMPROVED` |
-| `/collect-news` | RSS 뉴스 수집 | `NEWS_COLLECTED` |
-| `/validate-posts` | 포스트 품질 검증 | `POSTS_VALIDATED` |
-| `/generate-images` | 이미지 생성 | `IMAGES_GENERATED` |
+| Command | Model | Description | Completion Promise |
+|---------|-------|-------------|-------------------|
+| `/improve-posts` | Opus 4.5 ⭐ | RSS 수집 및 포스트 개선 | `POSTS_IMPROVED` |
+| `/collect-news` | Sonnet 4 💰 | RSS 뉴스 수집 (비용 최적화) | `NEWS_COLLECTED` |
+| `/validate-posts` | Sonnet 4 💰 | 포스트 품질 검증 (비용 최적화) | `POSTS_VALIDATED` |
+| `/generate-images` | Opus 4.5 ⭐ | 이미지 생성 | `IMAGES_GENERATED` |
+| `/security-audit` | Sonnet 4 💰 | 보안 감사 (비용 최적화) | `SECURITY_AUDIT_COMPLETE` |
+| `/write-code` | Opus 4.5 ⭐ | 코드 작성 | `CODE_WRITTEN` |
+| `/refactor` | Opus 4.5 ⭐ | 코드 리팩토링 | `CODE_REFACTORED` |
+| `/fix-bugs` | Opus 4.5 ⭐ | 버그 및 보안 이슈 수정 | `BUGS_FIXED` |
+| `/cost-optimize` | Sonnet 4 💰 | API 사용 최적화 분석 | `COST_OPTIMIZED` |
 
 ### Quality Score Criteria
 
@@ -361,22 +378,53 @@ OpenCode Sisyphus 모드에서 Ralph Loop를 사용하여 블로그 포스트를
 ### Usage
 
 ```bash
-# Basic usage
+# OpenCode Sisyphus 모드 시작
+opencode sisyphus
+
+# 기본 사용
 /improve-posts
 
-# Extended collection
+# 확장 수집
 /improve-posts --hours=48 --max-posts=10
 
-# High quality threshold
+# 고품질 임계값
 /improve-posts --quality-threshold=90
 
-# Validate only
-python3 scripts/validate_post_quality.py --threshold 80
+# 검증만 수행
+/validate-posts
+
+# 보안 감사
+/security-audit
+
+# 코드 작업
+/write-code
+/refactor
+/fix-bugs
 ```
+
+### Cost Optimization
+
+**비용 절감 전략**:
+1. **캐시 우선**: `_data/collected_news.json` 확인 (7일 TTL)
+2. **로컬 스크립트**: `python3 scripts/*.py` 사용 (API 비용 없음)
+3. **Gemini CLI**: 무료 OAuth 2.0 (최우선)
+4. **배치 처리**: 여러 작업을 그룹화
+5. **모델 선택**: 검증은 Sonnet 4, 생성은 Opus 4.5
+
+### Security
+
+**보안 고려사항**:
+- 모든 에이전트는 최소 권한 원칙 준수
+- 로그에서 민감 정보 자동 마스킹
+- 모든 커맨드에 입력 검증
+- 보안 감사 커맨드 제공
 
 ### Documentation
 
-자세한 내용은 `docs/scripts/README_RALPH_LOOP.md` 참조.
+자세한 내용은 다음 문서 참조:
+- `.opencode/README.md` - OpenCode 설정 및 사용법
+- `.opencode/commands/*.md` - 각 커맨드 상세 문서
+- `docs/scripts/README_RALPH_LOOP.md` - Ralph Loop 가이드
 
 ---
 
@@ -387,7 +435,14 @@ python3 scripts/validate_post_quality.py --threshold 80
 3. **Code Quality**: Language tags, lint, type hints
 4. **No Co-Authored-By**: Don't include in commits
 5. **Use Unified Scripts**: `check_posts.py`, `fix_links_unified.py`, `verify_images_unified.py`
-6. **Cost Optimization**: Gemini CLI first, API calls last
+6. **Cost Optimization**: 
+   - Gemini CLI first (free), API calls last
+   - Smart model selection (Opus 4.5 for generation, Sonnet 4 for validation)
+   - Cache first (7-day TTL), local scripts preferred
 7. **Operational Efficiency**: Automate, monitor, recover automatically
 8. **UI/UX Excellence**: Accessibility, performance, user feedback
-9. **Ralph Loop**: Use `/improve-posts` for continuous content improvement
+9. **OpenCode Integration**: 
+   - Use Sisyphus mode with Ralph Loop
+   - `/improve-posts` for continuous content improvement
+   - Model selection based on task type (cost optimization)
+   - Security-first approach with least privilege

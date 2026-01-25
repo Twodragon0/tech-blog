@@ -168,12 +168,49 @@ python3 scripts/verify_images_unified.py --all
 | **Cost Optimization** | 9/10 | API caching, rate limiting, free tier optimization | Monitor usage, optimize further |
 | **Operational Efficiency** | 8/10 | Automation scripts, CI/CD, monitoring | Enhanced error recovery |
 
+## OpenCode Integration
+
+### OpenCode Sisyphus Mode with Ralph Loop
+
+This project uses OpenCode with Sisyphus mode and Ralph Loop for automated content improvement.
+
+#### Quick Start
+```bash
+# Start OpenCode in Sisyphus mode
+opencode sisyphus
+
+# Run Ralph Loop commands
+/improve-posts
+/collect-news
+/validate-posts
+/generate-images
+```
+
+#### Model Selection Strategy
+- **High-Quality Tasks** (Opus 4.5): Content generation, code writing, image generation
+- **Cost-Efficient Tasks** (Sonnet 4): Validation, analysis, read-only operations
+
+#### Cost Optimization
+1. **Cache First**: Check `_data/collected_news.json` (7-day TTL) before API calls
+2. **Local Scripts**: Use `python3 scripts/*.py` (no API cost)
+3. **Gemini CLI**: Free OAuth 2.0 (first choice)
+4. **Batch Operations**: Group operations to reduce API calls
+
+#### Security
+- All agents follow principle of least privilege
+- Sensitive data automatically masked in logs
+- Input validation for all commands
+- Security audit command available: `/security-audit`
+
+See `.opencode/README.md` for detailed documentation.
+
 ## Related Documentation
 
 | Document | Purpose |
 |----------|---------|
 | `.cursorrules` | Detailed Cursor AI rules (comprehensive) |
 | `AGENTS.md` | AI agent coding guidelines |
+| `.opencode/README.md` | OpenCode configuration and usage |
 | `SECURITY.md` | Security policy |
 | `docs/` | All project documentation |
 | `scripts/README.md` | Script documentation |
@@ -206,9 +243,11 @@ python3 scripts/verify_images_unified.py --all
 
 ### Cost Optimization Checklist
 - [ ] API calls minimized (use Gemini CLI first)
-- [ ] Caching implemented where possible
+- [ ] Caching implemented where possible (7-day TTL)
 - [ ] Rate limiting configured
 - [ ] Free tier limits respected (Sentry, Vercel)
+- [ ] OpenCode model selection optimized (Opus 4.5 for generation, Sonnet 4 for validation)
+- [ ] Local scripts used before API calls
 
 ### UI/UX Checklist
 - [ ] Accessibility: ARIA attributes, keyboard navigation

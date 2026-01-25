@@ -40,6 +40,16 @@ secrets/
 gemini-service-key.json
 *-service-key.json
 
+# Google OAuth credentials (MCP servers)
+gcp-oauth.keys.json
+google-oauth*.json
+client_secret_*.json
+*.credentials.json
+
+# OAuth token storage
+*.token.json
+oauth-tokens/
+
 # Node
 node_modules/
 

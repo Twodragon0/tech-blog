@@ -3,6 +3,8 @@
 ## Description
 Continuously improve blog posts using the Sisyphus Ralph Loop pattern. This command collects RSS news, generates drafts, validates quality, and iteratively improves content.
 
+**Model**: Claude Opus 4.5 ⭐ (High-quality for content generation)
+
 ## Usage
 ```
 /improve-posts [--hours=24] [--max-posts=5] [--quality-threshold=80]
@@ -17,13 +19,50 @@ Continuously improve blog posts using the Sisyphus Ralph Loop pattern. This comm
 - **Completion Promise**: `POSTS_IMPROVED`
 - **Max Iterations**: 50
 - **Stop Condition**: All posts meet quality threshold or max iterations reached
+- **Agent**: Primary (Opus 4.5)
+- **Mode**: Sisyphus orchestrator
+
+## Cost Optimization
+
+**CRITICAL**: Follow these steps to minimize API costs:
+
+1. **Check Cache First**: 
+   - Verify `_data/collected_news.json` exists and is < 7 days old
+   - Use cached data if available (no API cost)
+
+2. **Use Local Scripts**:
+   - `python3 scripts/collect_tech_news.py` (no API cost)
+   - `python3 scripts/generate_news_draft.py` (no API cost)
+   - `python3 scripts/check_posts.py` (no API cost)
+
+3. **Prioritize Free Tools**:
+   - Gemini CLI (OAuth 2.0, free) ⭐ First Choice
+   - Cursor/Claude Console (free allocation)
+   - API calls (minimize, use only when necessary)
+
+4. **Batch Operations**:
+   - Process multiple posts in single run
+   - Group API calls together
+   - Use prompt caching when possible (90% cost reduction)
+
+## Security
+
+**Security-First Approach**:
+- Mask sensitive data in all logs
+- Validate all inputs before processing
+- Never expose API keys or secrets
+- Check file permissions before operations
+- Sanitize content before saving
 
 ## Workflow Steps
 
-### Phase 1: News Collection
-1. Run `python3 scripts/collect_tech_news.py --hours {hours}`
-2. Verify `_data/collected_news.json` was created
-3. Log statistics (total items, by category)
+### Phase 1: News Collection (Cost-Optimized)
+1. **Check Cache First**: Verify `_data/collected_news.json` exists and is < 7 days old
+2. **If Cache Valid**: Use cached data (no API cost)
+3. **If Cache Invalid/Missing**: 
+   - Run `python3 scripts/collect_tech_news.py --hours {hours}` (local script, no API cost)
+   - Verify `_data/collected_news.json` was created
+4. Log statistics (total items, by category) with masked sensitive data
 
 ### Phase 2: Draft Generation
 1. Run `python3 scripts/generate_news_draft.py --prepare --max-posts {max_posts}`
@@ -148,6 +187,24 @@ Progress is tracked via:
 - Todo list in OpenCode session
 
 ## Related Commands
-- `/collect-news` - Only collect news without processing
-- `/validate-posts` - Only validate existing posts
-- `/generate-images` - Generate missing post images
+
+| Command | Model | Description |
+|---------|-------|-------------|
+| `/collect-news` | Sonnet 4 💰 | Only collect news without processing (cost-optimized) |
+| `/validate-posts` | Sonnet 4 💰 | Only validate existing posts (cost-optimized) |
+| `/generate-images` | Opus 4.5 ⭐ | Generate missing post images (high-quality) |
+| `/security-audit` | Sonnet 4 💰 | Security audit and compliance check (cost-optimized) |
+| `/cost-optimize` | Sonnet 4 💰 | Analyze and optimize API usage (cost-optimized) |
+
+## Model Selection Rationale
+
+This command uses **Opus 4.5** because:
+- High-quality content generation requires advanced reasoning
+- Complex multi-step workflows benefit from superior model capabilities
+- Content quality directly impacts user experience
+- Cost is justified by the value of high-quality blog posts
+
+For cost-optimized operations (validation, analysis), use:
+- `/collect-news` (Sonnet 4)
+- `/validate-posts` (Sonnet 4)
+- `/security-audit` (Sonnet 4)
