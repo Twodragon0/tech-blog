@@ -203,6 +203,38 @@ permalink: /certifications/
   padding: 2.5rem 1.5rem;
   background: linear-gradient(180deg, var(--color-bg-secondary, #f8fafc) 0%, transparent 100%);
   border-radius: 24px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+/* Animated gradient background */
+.page-header::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+  animation: headerPulse 8s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes headerPulse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(10%, 10%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.page-header > * {
+  position: relative;
+  z-index: 1;
 }
 
 .page-header::before {
@@ -215,6 +247,18 @@ permalink: /certifications/
   height: 4px;
   background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
   border-radius: 2px;
+  z-index: 2;
+  animation: gradientShift 3s ease infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .page-header h1 {
@@ -223,6 +267,13 @@ permalink: /certifications/
   color: var(--color-text-primary, #1e293b);
   font-weight: 800;
   letter-spacing: -0.03em;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+.page-header:hover h1 {
+  transform: scale(1.02);
+  color: var(--color-primary, #3b82f6);
 }
 
 .page-description {
@@ -231,6 +282,12 @@ permalink: /certifications/
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.7;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.page-header:hover .page-description {
+  color: var(--color-text-primary, #475569);
+  opacity: 0.95;
 }
 
 /* Certification Grid */
@@ -494,6 +551,13 @@ permalink: /certifications/
   border-top: 1px solid var(--color-border, #e2e8f0);
   background: var(--color-bg-secondary, #f8fafc);
   flex-wrap: wrap;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.certification-card-wrapper:hover .certification-actions,
+.certification-card-wrapper:focus-within .certification-actions {
+  background: var(--color-bg-primary, #ffffff);
+  border-top-color: rgba(59, 130, 246, 0.2);
 }
 
 /* Action Button Base */
@@ -506,17 +570,47 @@ permalink: /certifications/
   font-weight: 600;
   text-decoration: none;
   border-radius: 8px;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   border: 1px solid transparent;
   cursor: pointer;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Ripple effect on button */
+.action-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.action-button:active::before {
+  width: 300px;
+  height: 300px;
 }
 
 .action-button svg {
   flex-shrink: 0;
   width: 16px;
   height: 16px;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.action-button span {
+  position: relative;
+  z-index: 1;
 }
 
 /* Posts Button */
@@ -524,23 +618,42 @@ permalink: /certifications/
   background: var(--color-bg-primary, #ffffff);
   color: var(--color-text-primary, #1e293b);
   border-color: var(--color-border, #e2e8f0);
+  position: relative;
+}
+
+.action-button.posts-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color-primary, #3b82f6), rgba(139, 92, 246, 0.8));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+  z-index: 0;
 }
 
 .action-button.posts-button:hover {
   background: var(--color-primary, #3b82f6);
   border-color: var(--color-primary, #3b82f6);
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 6px 20px rgba(59, 130, 246, 0.35),
+    0 0 0 1px rgba(59, 130, 246, 0.1);
+}
+
+.action-button.posts-button:hover::after {
+  opacity: 1;
 }
 
 .action-button.posts-button:hover svg {
-  transform: scale(1.1);
+  transform: scale(1.15) rotate(5deg);
 }
 
 .action-button.posts-button:focus-visible {
-  outline: 2px solid var(--color-primary, #3b82f6);
+  outline: 3px solid var(--color-primary, #3b82f6);
   outline-offset: 2px;
+  transform: translateY(-2px);
 }
 
 .action-button.posts-button.disabled {
@@ -556,24 +669,44 @@ permalink: /certifications/
   color: white;
   border: none;
   box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.action-button.official-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .action-button.official-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 8px 24px rgba(59, 130, 246, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+.action-button.official-button:hover::after {
+  opacity: 1;
 }
 
 .action-button.official-button:hover svg {
-  transform: translateX(2px) translateY(-2px);
+  transform: translateX(3px) translateY(-3px) rotate(5deg) scale(1.1);
 }
 
 .action-button.official-button:focus-visible {
-  outline: 2px solid var(--color-primary, #3b82f6);
+  outline: 3px solid rgba(255, 255, 255, 0.8);
   outline-offset: 2px;
+  transform: translateY(-2px);
 }
 
 .action-button:active {
-  transform: translateY(0);
+  transform: translateY(-1px) scale(0.98);
+  transition: all 0.1s ease;
 }
 
 /* Certification Section (Posts List) */
@@ -581,6 +714,7 @@ permalink: /certifications/
   margin-bottom: 4rem;
   padding: 2.5rem 0;
   position: relative;
+  scroll-margin-top: 100px;
 }
 
 .certification-section::before {
@@ -593,6 +727,11 @@ permalink: /certifications/
   background: linear-gradient(180deg, var(--color-bg-secondary, #f8fafc) 0%, transparent 100%);
   border-radius: 24px 24px 0 0;
   z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.certification-section:hover::before {
+  background: linear-gradient(180deg, var(--color-bg-secondary, #f8fafc) 0%, rgba(59, 130, 246, 0.02) 50%, transparent 100%);
 }
 
 /* Section Header */
@@ -603,8 +742,30 @@ permalink: /certifications/
   gap: 1.25rem;
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  border-bottom: 2px solid var(--color-border, #e2e8f0);
   flex-wrap: wrap;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.certification-section:hover .certification-section-header {
+  border-bottom-color: rgba(59, 130, 246, 0.3);
+}
+
+.certification-section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 1px;
+}
+
+.certification-section:hover .certification-section-header::after {
+  width: 100px;
 }
 
 .certification-section-title {
@@ -616,6 +777,13 @@ permalink: /certifications/
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.certification-section:hover .certification-section-title {
+  color: var(--color-primary, #3b82f6);
+  transform: translateX(4px);
 }
 
 /* Section title icon */
@@ -626,6 +794,13 @@ permalink: /certifications/
   height: 1.5rem;
   background: linear-gradient(180deg, #3b82f6, #8b5cf6);
   border-radius: 2px;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.certification-section:hover .certification-section-title::before {
+  width: 6px;
+  height: 2rem;
+  background: linear-gradient(180deg, #2563eb, #7c3aed);
 }
 
 .certification-section-meta {
@@ -645,7 +820,44 @@ permalink: /certifications/
   background: var(--color-bg-tertiary, #f1f5f9);
   border-radius: 20px;
   border: 1px solid var(--color-border, #e2e8f0);
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.meta-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.meta-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.meta-item:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.meta-item:hover::before {
+  opacity: 1;
+}
+
+.meta-item svg {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.meta-item:hover svg {
+  transform: scale(1.15) rotate(5deg);
 }
 
 .meta-item.official-link {
@@ -654,14 +866,32 @@ permalink: /certifications/
 }
 
 .meta-item.official-link:hover {
-  background: var(--color-primary, #3b82f6);
+  background: linear-gradient(135deg, var(--color-primary, #3b82f6), rgba(139, 92, 246, 0.9));
   color: white;
   border-color: var(--color-primary, #3b82f6);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+}
+
+.meta-item.official-link:focus-visible {
+  outline: 2px solid var(--color-primary, #3b82f6);
+  outline-offset: 2px;
+}
+
+.meta-item:active {
+  transform: translateY(0) scale(1);
 }
 
 /* Dark Mode Support */
 [data-theme="dark"] .page-header {
   background: linear-gradient(180deg, rgba(30, 41, 59, 0.6) 0%, transparent 100%);
+}
+
+[data-theme="dark"] .page-header::after {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .page-header:hover h1 {
+  color: var(--color-primary, #60a5fa);
 }
 
 [data-theme="dark"] .certification-card-wrapper {
@@ -695,6 +925,24 @@ permalink: /certifications/
   border-color: var(--color-border, #334155);
 }
 
+[data-theme="dark"] .certification-section:hover .certification-section-header {
+  border-bottom-color: rgba(59, 130, 246, 0.4);
+}
+
+[data-theme="dark"] .certification-section:hover .certification-section-title {
+  color: var(--color-primary, #60a5fa);
+}
+
+[data-theme="dark"] .certification-actions {
+  border-top-color: var(--color-border, #334155);
+}
+
+[data-theme="dark"] .certification-card-wrapper:hover .certification-actions,
+[data-theme="dark"] .certification-card-wrapper:focus-within .certification-actions {
+  background: var(--color-bg-primary, #1e293b);
+  border-top-color: rgba(59, 130, 246, 0.3);
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .certification-grid {
@@ -714,6 +962,10 @@ permalink: /certifications/
 
   .page-header h1 {
     font-size: 1.875rem;
+  }
+  
+  .page-header:hover h1 {
+    transform: scale(1.01);
   }
 
   .page-description {
@@ -781,9 +1033,34 @@ permalink: /certifications/
   .certification-section-title {
     font-size: 1.375rem;
   }
+  
+  .certification-section:hover .certification-section-title {
+    transform: translateX(2px);
+  }
 
   .certification-section-meta {
     width: 100%;
+  }
+  
+  .meta-item {
+    min-height: 44px; /* Better touch target */
+    padding: 0.625rem 1.125rem;
+  }
+  
+  .meta-item:hover {
+    transform: translateY(-1px) scale(1.02);
+  }
+  
+  .action-button {
+    min-height: 44px; /* Better touch target */
+  }
+  
+  .action-button:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+  
+  .action-button.official-button:hover {
+    transform: translateY(-2px) scale(1.01);
   }
 }
 
@@ -823,6 +1100,18 @@ permalink: /certifications/
   .certification-card-wrapper:focus-within .certification-icon {
     animation: none; /* Stop pulse on interaction */
   }
+  
+  /* Section entrance animation */
+  .certification-section {
+    animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  }
+  
+  .certification-section:nth-of-type(1) { animation-delay: 0.1s; }
+  .certification-section:nth-of-type(2) { animation-delay: 0.15s; }
+  .certification-section:nth-of-type(3) { animation-delay: 0.2s; }
+  .certification-section:nth-of-type(4) { animation-delay: 0.25s; }
+  .certification-section:nth-of-type(5) { animation-delay: 0.3s; }
+  .certification-section:nth-of-type(6) { animation-delay: 0.35s; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -830,14 +1119,25 @@ permalink: /certifications/
   .certification-icon,
   .certification-card,
   .certification-card h3,
-  .certification-card p {
+  .certification-card p,
+  .certification-section,
+  .page-header,
+  .action-button,
+  .meta-item {
     animation: none !important;
     transition: none !important;
   }
   
   .certification-card-wrapper:hover,
-  .certification-card-wrapper:focus-within {
+  .certification-card-wrapper:focus-within,
+  .action-button:hover,
+  .meta-item:hover {
     transform: none;
+  }
+  
+  .page-header::after,
+  .page-header::before {
+    animation: none !important;
   }
 }
 
