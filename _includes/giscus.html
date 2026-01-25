@@ -129,8 +129,8 @@
         categoryId: "{{ site.giscus.category_id }}",
         mapping: "{{ site.giscus.mapping }}",
         {% if site.giscus.mapping == "title" %}
-        // 한글 제목을 안전하게 처리: encodeURIComponent로 URL 인코딩
-        term: encodeURIComponent("{{ page.title | escape }}"),
+        // 한글 제목을 그대로 전달 - Giscus가 자체적으로 처리
+        term: "{{ page.title | escape }}",
         {% endif %}
         strict: "0",
         reactionsEnabled: "1",

@@ -96,12 +96,26 @@
   margin: 1.5rem 0 0;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
+  /* CLS 최적화: 헤더 이미지 영역 확보 */
+  min-height: 200px;
+  contain: layout style;
 }
 
 .post-header .post-image img {
   width: 100%;
   height: auto;
   display: block;
+  /* CLS 최적화: 헤더 이미지 aspect-ratio */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: var(--color-bg-secondary);
+}
+
+/* SVG 헤더 이미지는 aspect-ratio 제거 */
+.post-header .post-image img[src$=".svg"] {
+  aspect-ratio: auto;
+  object-fit: contain;
+  background-color: transparent;
 }
 
 /* Post content: 본문 가독성 (한글·영문 혼용) */
@@ -575,6 +589,16 @@
   border-radius: var(--border-radius-md);
   display: block;
   margin: 1.5em auto;
+  /* CLS 최적화: 이미지 로딩 전 공간 확보 */
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background-color: var(--color-bg-secondary);
+}
+
+/* SVG 이미지는 aspect-ratio 제거 (벡터 이미지는 즉시 렌더링) */
+.post-content img[src$=".svg"] {
+  aspect-ratio: auto;
+  background-color: transparent;
 }
 
 .post-content .post-image {
@@ -582,6 +606,9 @@
   max-width: 100%;
   height: auto;
   border-radius: var(--border-radius-md);
+  /* CLS 최적화: 이미지 컨테이너 안정화 */
+  min-height: 200px;
+  contain: layout style;
 }
 
 /* 이미지 캡션 */
@@ -616,8 +643,9 @@
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border);
   margin-bottom: 2rem;
-  /* 자연스러운 높이 - min-height 제거 */
-  height: auto;
+  /* CLS 최적화: 레이아웃 이동 방지 */
+  min-height: 80px;
+  contain: layout style;
 }
 
 /* 모바일에서 TOC 스타일 조정 */
@@ -791,67 +819,6 @@
   opacity: 1;
 }
 
-.toc-sublist {
-  margin-top: 0.5rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid var(--color-border);
-  display: none; /* 기본 숨김 - JS로 제어 */
-  flex-direction: column;
-  gap: 0.25rem;
-  animation: toc-sublist-fade 0.2s ease-out;
-}
-
-.toc-sublist[style*="display: block"] {
-  display: flex;
-}
-
-@keyframes toc-sublist-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.toc-sub-item {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.5rem 0.35rem 1.25rem;
-  border-radius: var(--border-radius-sm);
-  color: var(--color-text-tertiary);
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: color var(--transition-fast), background-color var(--transition-fast);
-}
-
-.toc-sub-item:hover {
-  color: var(--color-primary);
-  background-color: var(--color-bg-tertiary);
-}
-
-.toc-sub-item:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-.toc-sub-bullet {
-  flex-shrink: 0;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: var(--color-text-tertiary);
-  opacity: 0.7;
-}
-
-.toc-sub-item:hover .toc-sub-bullet {
-  background-color: var(--color-primary);
-}
-
-.toc-sub-text {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 /* Legacy #toc (fallback) */
 #toc {
   list-style-type: none;
@@ -903,9 +870,9 @@
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
   position: relative;
-  /* CLS 최적화: 카드 레이아웃 안정화 */
-  min-height: 200px;
-  contain: layout style;
+  /* CLS 최적화: 카드 레이아웃 안정화 (400px로 증가 - 5개 row 기준) */
+  min-height: 400px;
+  contain: layout style paint;
 }
 
 .post-content .ai-summary-card:first-child {
@@ -918,6 +885,8 @@
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--color-border);
+  /* CLS 최적화: 헤더 높이 고정 */
+  min-height: 40px;
 }
 
 .ai-badge {
@@ -935,6 +904,9 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  /* CLS 최적화: 컨텐츠 영역 안정화 (300px로 증가) */
+  min-height: 300px;
+  contain: layout style;
 }
 
 @media (max-width: 640px) {
@@ -962,6 +934,9 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 0.5rem 0;
+  /* CLS 최적화: 레이아웃 이동 방지 (80px로 증가 - 폰트 로딩 고려) */
+  min-height: 80px;
+  contain: layout style;
 }
 
 @media (min-width: 640px) {
@@ -993,16 +968,25 @@
   color: var(--color-text-primary);
 }
 
+/* CLS 최적화: 하이라이트 행은 리스트가 있어 더 큰 min-height 필요 */
+.summary-row.highlights {
+  min-height: 150px;
+}
+
 .summary-list {
   margin: 0.5rem 0 0 0;
   padding-left: 1.5rem;
   list-style-type: disc;
+  /* CLS 최적화: 리스트 최소 높이 */
+  min-height: 100px;
 }
 
 .summary-list li {
   margin: 0.75rem 0;
   line-height: 1.7;
   color: var(--color-text-primary);
+  /* CLS 최적화: 리스트 아이템 안정화 */
+  min-height: 1.7em;
 }
 
 .summary-list li strong {
@@ -1089,6 +1073,9 @@
   color: var(--color-text-tertiary);
   font-style: italic;
   text-align: center;
+  /* CLS 최적화: 레이아웃 이동 방지 (48px로 증가) */
+  min-height: 48px;
+  contain: layout style;
 }
 
 [data-theme="dark"] .ai-summary-card {

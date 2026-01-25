@@ -44,28 +44,6 @@
           {% endif %}
         {% endfor %}
       </div>
-
-      <!-- 하위 목차 (h3) - 펼치면 표시 -->
-      <div class="toc-sublist" id="toc-sublist">
-        {% assign current_h2 = 0 %}
-        {% for header in headers %}
-          {% if header contains 'id="' %}
-            {% assign level = header | slice: 0, 1 %}
-            {% if level == "2" %}
-              {% assign current_h2 = current_h2 | plus: 1 %}
-            {% elsif level == "3" %}
-              {% assign id_start = header | split: 'id="' | last %}
-              {% assign id = id_start | split: '"' | first %}
-              {% assign title_start = header | split: '>' | slice: 1 | join: '>' %}
-              {% assign title = title_start | split: '</h' | first | strip_html %}
-              <a href="#{{ id }}" class="toc-sub-item" data-parent="{{ current_h2 }}">
-                <span class="toc-sub-bullet"></span>
-                <span class="toc-sub-text">{{ title }}</span>
-              </a>
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-      </div>
     </nav>
   </div>
 </div>
@@ -74,11 +52,8 @@
 (function() {
   const tocToggle = document.getElementById('toc-toggle');
   const tocContent = document.getElementById('toc-content');
-  const tocSublist = document.getElementById('toc-sublist');
   const tocCount = document.getElementById('toc-count');
   const tocItems = document.querySelectorAll('.toc-card-item');
-  const tocSubItems = document.querySelectorAll('.toc-sub-item');
-  const tocContainer = tocContent ? tocContent.closest('.toc-container') : null;
 
   if (!tocToggle || !tocContent) return;
 
@@ -91,12 +66,7 @@
   const maxPreview = 6;
   let isExpanded = false;
 
-  // 초기 상태: h3 숨김
-  if (tocSublist) {
-    tocSublist.style.display = 'none';
-  }
-
-  // 6개 초과 시 일부만 표시
+  // 6개 초과 시 일부만 표시, 아니면 버튼 숨김
   if (tocItems.length > maxPreview) {
     tocItems.forEach((item, index) => {
       if (index >= maxPreview) {
@@ -104,10 +74,7 @@
       }
     });
     tocToggle.querySelector('.btn-text').textContent = '+' + (tocItems.length - maxPreview) + ' 더보기';
-  } else if (tocSubItems.length > 0) {
-    tocToggle.querySelector('.btn-text').textContent = '상세보기';
   } else {
-    // 하위 항목이 없으면 버튼 숨김
     tocToggle.style.display = 'none';
   }
 
@@ -118,9 +85,6 @@
     if (isExpanded) {
       // 전체 펼치기
       tocItems.forEach(item => item.classList.remove('toc-hidden'));
-      if (tocSublist && tocSubItems.length > 0) {
-        tocSublist.style.display = 'block';
-      }
       tocToggle.querySelector('.btn-text').textContent = '접기';
       tocToggle.classList.add('expanded');
     } else {
@@ -132,19 +96,14 @@
           }
         });
         tocToggle.querySelector('.btn-text').textContent = '+' + (tocItems.length - maxPreview) + ' 더보기';
-      } else {
-        tocToggle.querySelector('.btn-text').textContent = '상세보기';
-      }
-      if (tocSublist) {
-        tocSublist.style.display = 'none';
       }
       tocToggle.classList.remove('expanded');
     }
   });
 
-  // Update TOC links after headings get IDs (wait for heading ID generation)
+  // Update TOC links after headings get IDs
   function updateTocLinks() {
-    const tocLinks = document.querySelectorAll('.toc-card-item, .toc-sub-item');
+    const tocLinks = document.querySelectorAll('.toc-card-item');
     tocLinks.forEach(link => {
       const href = link.getAttribute('href');
       if (!href || href === '#') return;
@@ -152,10 +111,9 @@
       const targetId = href.substring(1);
       const targetEl = document.getElementById(targetId);
       
-      // If target doesn't exist, try to find heading by text content
       if (!targetEl) {
         const linkText = link.textContent.trim();
-        const headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
+        const headings = document.querySelectorAll('.post-content h2');
         
         headings.forEach(heading => {
           const headingText = heading.textContent.trim().replace(/^#+\s*/, '');
@@ -167,14 +125,11 @@
     });
   }
   
-  // Wait for heading IDs to be generated, then update TOC links
   setTimeout(updateTocLinks, 100);
-  
-  // Also update after a short delay to catch any late-generated IDs
   setTimeout(updateTocLinks, 500);
 
   // 스무스 스크롤
-  document.querySelectorAll('.toc-card-item, .toc-sub-item').forEach(link => {
+  document.querySelectorAll('.toc-card-item').forEach(link => {
     link.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
       if (!href || href === '#') return;
@@ -182,10 +137,9 @@
       const targetId = href.substring(1);
       let targetEl = document.getElementById(targetId);
       
-      // If target not found, try to find by text content
       if (!targetEl) {
         const linkText = this.textContent.trim();
-        const headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
+        const headings = document.querySelectorAll('.post-content h2');
         
         headings.forEach(heading => {
           const headingText = heading.textContent.trim().replace(/^#+\s*/, '');
@@ -231,10 +185,9 @@
       const targetId = href.substring(1);
       let section = document.getElementById(targetId);
       
-      // If section not found by ID, try to find by text content
       if (!section) {
         const linkText = item.textContent.trim();
-        const headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
+        const headings = document.querySelectorAll('.post-content h2');
         
         headings.forEach(heading => {
           const headingText = heading.textContent.trim().replace(/^#+\s*/, '');

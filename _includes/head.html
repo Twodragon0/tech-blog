@@ -4,13 +4,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google" content="notranslate">
 
-  <!-- Early console noise filter: 확장 프로그램/CSP/Giscus 노이즈 (Chrome, Safari) -->
+  <!-- Early console noise filter: 확장 프로그램/CSP/Giscus/AdSense/SES 노이즈 (Chrome, Safari) -->
   <script>
   (function(){
-    var _e=console.error,_w=console.warn;
-    function sup(m){if(typeof m!=='string')m=(m&&m.message)||String(m);return /runtime\.lastError|message port closed|Framing.*violates.*Content Security Policy|frame-ancestors\s*'self'|report-only.*frame-ancestors|violation has been logged|giscus\.app.*404|discussions.*404|GET.*giscus\.app.*404|Unexpected token.*at.*:.*\d+.*:\d+/i.test(m);}
-    console.error=function(){if(arguments[0]!==undefined&&sup(arguments[0]))return;_e.apply(console,arguments);};
-    console.warn=function(){if(arguments[0]!==undefined&&sup(arguments[0]))return;_w.apply(console,arguments);};
+    var _e=console.error,_w=console.warn,_l=console.log;
+    // 노이즈 패턴: 확장프로그램, CSP, Giscus 404, AdSense 400, SES/MetaMask
+    var noisePatterns = [
+      /runtime\.lastError/i,
+      /message port closed/i,
+      /Framing.*violates.*Content Security Policy/i,
+      /frame-ancestors/i,
+      /violation has been logged/i,
+      /giscus\.app.*404/i,
+      /discussions.*404/i,
+      /GET.*giscus\.app.*404/i,
+      /SES Removing unpermitted intrinsics/i,
+      /lockdown-install/i,
+      /googleads.*400/i,
+      /googlesyndication.*400/i,
+      /doublecl.*400/i,
+      /ads\?client.*400/i,
+      /Failed to load resource.*status of 400/i,
+      /Failed to load resource.*status of 404.*giscus/i,
+      /Unexpected token.*at.*:\d+.*:\d+/i
+    ];
+    function isNoise(m){
+      if(typeof m!=='string')m=(m&&m.message)||String(m);
+      return noisePatterns.some(function(p){return p.test(m);});
+    }
+    console.error=function(){if(arguments[0]!==undefined&&isNoise(arguments[0]))return;_e.apply(console,arguments);};
+    console.warn=function(){if(arguments[0]!==undefined&&isNoise(arguments[0]))return;_w.apply(console,arguments);};
+    console.log=function(){if(arguments[0]!==undefined&&isNoise(arguments[0]))return;_l.apply(console,arguments);};
   })();
   </script>
 
@@ -425,9 +449,18 @@
     [aria-label="도움말과 관련된 주제 중 관심이 있을 만한 항목입니다."] {
       display: none !important;
     }
-    /* Hide unfilled/optimized ad placeholders */
-    .adsbygoogle[data-ad-status="unfill-optimized"]:empty,
-    .adsbygoogle[data-ad-status="unfilled"]:empty {
+    /* Hide unfilled/optimized ad placeholders including Related Topics container */
+    .adsbygoogle[data-ad-status="unfill-optimized"],
+    .adsbygoogle[data-ad-status="unfilled"] {
+      display: none !important;
+      height: 0 !important;
+      min-height: 0 !important;
+    }
+    /* Hide google-auto-placed ad containers when they contain Related Topics */
+    .google-auto-placed:has(.goog-rtopics),
+    .google-auto-placed:has(.google-anno-sc),
+    .ad-container:has(.goog-rtopics),
+    .ad-container:has(.google-anno-sc) {
       display: none !important;
       height: 0 !important;
       min-height: 0 !important;
