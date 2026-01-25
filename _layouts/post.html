@@ -441,9 +441,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Image Lightbox functionality
+// Image Lightbox functionality - Enhanced UI/UX
 (function() {
-  // Add lightbox styles
   const style = document.createElement('style');
   style.textContent = `
     .image-lightbox {
@@ -458,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function() {
       justify-content: center;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
+      transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s;
     }
     
     .image-lightbox.active {
@@ -472,123 +471,275 @@ document.addEventListener('DOMContentLoaded', function() {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
+      background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(15,15,25,0.98) 100%);
       cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     
     .lightbox-content {
       position: relative;
-      max-width: 95vw;
-      max-height: 95vh;
+      width: 98vw;
+      height: 98vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       z-index: 10000;
-      padding: 2rem;
+      padding: 1rem;
       box-sizing: border-box;
+    }
+    
+    .lightbox-image-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+      min-height: 0;
+      overflow: hidden;
     }
     
     .lightbox-image {
       max-width: 100%;
-      max-height: calc(95vh - 100px);
+      max-height: calc(98vh - 120px);
       width: auto;
       height: auto;
       object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-      cursor: default;
-      transition: opacity 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 10px 30px rgba(0, 0, 0, 0.4);
+      cursor: grab;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+      transform-origin: center center;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    
+    .lightbox-image.zoomed {
+      cursor: move;
+      max-width: none;
+      max-height: none;
+    }
+    
+    .lightbox-image.dragging {
+      cursor: grabbing;
+      transition: none;
+    }
+    
+    .image-lightbox.active .lightbox-image {
+      animation: lightbox-zoom-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    
+    @keyframes lightbox-zoom-in {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
     
     .lightbox-caption {
-      margin-top: 1rem;
-      padding: 0.75rem 1rem;
-      color: #ffffff;
-      font-size: 0.9rem;
+      margin-top: 1.25rem;
+      padding: 0.875rem 1.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 0.95rem;
       text-align: center;
-      max-width: 100%;
+      max-width: 90%;
       word-break: break-word;
-      line-height: 1.5;
+      line-height: 1.6;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    .lightbox-close {
+    .lightbox-controls {
       position: absolute;
       top: 1rem;
       right: 1rem;
-      width: 40px;
-      height: 40px;
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10001;
+    }
+    
+    .lightbox-btn {
+      width: 44px;
+      height: 44px;
       border: none;
-      background-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
       color: #ffffff;
-      border-radius: 50%;
+      border-radius: 12px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s ease;
-      z-index: 10001;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    
+    .lightbox-btn:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .lightbox-btn:active {
+      transform: translateY(0) scale(0.95);
+    }
+    
+    .lightbox-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+    
+    .lightbox-btn.active {
+      background: rgba(99, 102, 241, 0.5);
+      border-color: rgba(99, 102, 241, 0.6);
+    }
+    
+    .lightbox-zoom-info {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.5rem 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.8rem;
+      border-radius: 20px;
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
     }
     
-    .lightbox-close:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1);
+    .lightbox-zoom-info.visible {
+      opacity: 1;
     }
     
-    .lightbox-close:active {
-      transform: scale(0.95);
+    .lightbox-hint {
+      position: absolute;
+      bottom: 4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.625rem 1.25rem;
+      background: rgba(99, 102, 241, 0.2);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.8rem;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
     }
     
-    .lightbox-close svg {
-      width: 24px;
-      height: 24px;
+    .lightbox-hint.visible {
+      animation: hint-fade 3s ease-in-out forwards;
+    }
+    
+    @keyframes hint-fade {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
     }
     
     @media (max-width: 768px) {
       .lightbox-content {
-        padding: 1rem;
+        padding: 0.5rem;
       }
       
       .lightbox-image {
-        max-height: calc(95vh - 80px);
+        max-height: calc(98vh - 100px);
+        border-radius: 8px;
       }
       
-      .lightbox-close {
+      .lightbox-controls {
         top: 0.5rem;
         right: 0.5rem;
-        width: 36px;
-        height: 36px;
+        gap: 0.375rem;
       }
       
-      .lightbox-close svg {
+      .lightbox-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+      }
+      
+      .lightbox-btn svg {
         width: 20px;
         height: 20px;
       }
       
       .lightbox-caption {
-        font-size: 0.85rem;
-        margin-top: 0.75rem;
+        font-size: 0.875rem;
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        max-width: 95%;
+      }
+      
+      .lightbox-hint {
+        bottom: 3rem;
+        font-size: 0.75rem;
+      }
+    }
+    
+    @media (hover: none) {
+      .lightbox-btn:hover {
+        transform: none;
+        box-shadow: none;
       }
     }
   `;
   document.head.appendChild(style);
 
-  // Create lightbox elements
   const lightbox = document.createElement('div');
   lightbox.id = 'image-lightbox';
   lightbox.className = 'image-lightbox';
   lightbox.innerHTML = `
     <div class="lightbox-backdrop"></div>
     <div class="lightbox-content">
-      <button class="lightbox-close" aria-label="닫기">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="18" y1="6" x2="6" y2="18"/>
-          <line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
-      <img class="lightbox-image" src="" alt="">
+      <div class="lightbox-controls">
+        <button class="lightbox-btn lightbox-zoom-out" aria-label="축소" title="축소 (-)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </button>
+        <button class="lightbox-btn lightbox-zoom-in" aria-label="확대" title="확대 (+)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <line x1="11" y1="8" x2="11" y2="14"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </button>
+        <button class="lightbox-btn lightbox-reset" aria-label="원래 크기" title="원래 크기 (0)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 3 21 3 21 9"/>
+            <polyline points="9 21 3 21 3 15"/>
+            <line x1="21" y1="3" x2="14" y2="10"/>
+            <line x1="3" y1="21" x2="10" y2="14"/>
+          </svg>
+        </button>
+        <button class="lightbox-btn lightbox-close" aria-label="닫기" title="닫기 (ESC)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="lightbox-image-wrapper">
+        <img class="lightbox-image" src="" alt="">
+      </div>
       <div class="lightbox-caption"></div>
+      <div class="lightbox-zoom-info"></div>
+      <div class="lightbox-hint">더블클릭 또는 휠로 확대/축소</div>
     </div>
   `;
   document.body.appendChild(lightbox);
@@ -598,45 +749,92 @@ document.addEventListener('DOMContentLoaded', function() {
   const lightboxClose = lightbox.querySelector('.lightbox-close');
   const lightboxBackdrop = lightbox.querySelector('.lightbox-backdrop');
   const lightboxContent = lightbox.querySelector('.lightbox-content');
+  const lightboxZoomIn = lightbox.querySelector('.lightbox-zoom-in');
+  const lightboxZoomOut = lightbox.querySelector('.lightbox-zoom-out');
+  const lightboxReset = lightbox.querySelector('.lightbox-reset');
+  const lightboxZoomInfo = lightbox.querySelector('.lightbox-zoom-info');
+  const lightboxHint = lightbox.querySelector('.lightbox-hint');
+  const lightboxWrapper = lightbox.querySelector('.lightbox-image-wrapper');
 
-  // Open lightbox on image click
+  let currentZoom = 1;
+  let isDragging = false;
+  let startX = 0, startY = 0;
+  let translateX = 0, translateY = 0;
+  let lastTranslateX = 0, lastTranslateY = 0;
+  let zoomInfoTimeout = null;
+
+  function updateTransform() {
+    lightboxImage.style.transform = `scale(${currentZoom}) translate(${translateX / currentZoom}px, ${translateY / currentZoom}px)`;
+  }
+
+  function showZoomInfo() {
+    lightboxZoomInfo.textContent = `${Math.round(currentZoom * 100)}%`;
+    lightboxZoomInfo.classList.add('visible');
+    clearTimeout(zoomInfoTimeout);
+    zoomInfoTimeout = setTimeout(() => lightboxZoomInfo.classList.remove('visible'), 1500);
+  }
+
+  function zoom(delta, centerX, centerY) {
+    const oldZoom = currentZoom;
+    currentZoom = Math.max(0.5, Math.min(5, currentZoom + delta));
+    
+    if (currentZoom !== oldZoom) {
+      if (currentZoom > 1) {
+        lightboxImage.classList.add('zoomed');
+      } else {
+        lightboxImage.classList.remove('zoomed');
+        translateX = 0;
+        translateY = 0;
+      }
+      updateTransform();
+      showZoomInfo();
+    }
+  }
+
+  function resetZoom() {
+    currentZoom = 1;
+    translateX = 0;
+    translateY = 0;
+    lightboxImage.classList.remove('zoomed');
+    updateTransform();
+    showZoomInfo();
+  }
+
   function openLightbox(img) {
     let src = img.dataset.fullSrc || img.src;
     const alt = img.alt || '';
 
-    if (!src) {
-      console.error('Image source is missing');
-      return;
-    }
+    if (!src) return;
 
-    // URL 인코딩된 경로를 디코딩하여 한글 파일명으로 변환 시도
     try {
       const decodedSrc = decodeURIComponent(src);
       if (decodedSrc !== src && /[가-힣]/.test(decodedSrc)) {
-        // 디코딩된 경로(한글 파일명)로 먼저 시도
         src = decodedSrc;
       }
-    } catch (e) {
-      // 디코딩 실패 시 원본 사용
-    }
+    } catch (e) {}
 
-    // Reset image styles
+    currentZoom = 1;
+    translateX = 0;
+    translateY = 0;
+    lightboxImage.classList.remove('zoomed', 'dragging');
+    lightboxImage.style.transform = '';
     lightboxImage.style.opacity = '0';
     lightboxImage.style.display = 'block';
     lightboxImage.style.visibility = 'visible';
     
-    // Reset caption style
-    lightboxCaption.style.color = '#ffffff';
+    lightboxCaption.style.color = 'rgba(255, 255, 255, 0.95)';
     lightboxCaption.textContent = alt;
 
-    // Show lightbox immediately
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
 
-    // Handle image load
+    setTimeout(() => {
+      lightboxHint.classList.add('visible');
+      setTimeout(() => lightboxHint.classList.remove('visible'), 3000);
+    }, 500);
+
     const handleImageLoad = () => {
       lightboxImage.style.opacity = '1';
-      lightboxImage.style.transition = 'opacity 0.3s ease';
     };
 
     const handleImageError = () => {
@@ -645,30 +843,19 @@ document.addEventListener('DOMContentLoaded', function() {
       lightboxCaption.style.color = '#ff6b6b';
     };
 
-    // Remove previous event listeners
-    const newImageLoadHandler = handleImageLoad;
-    const newImageErrorHandler = handleImageError;
-    
-    // Remove old listeners
     lightboxImage.onload = null;
     lightboxImage.onerror = null;
     
-    // Preload image to check if it's available
     const preloadImage = new Image();
     let retryCount = 0;
     const originalSrc = img.dataset.fullSrc || img.src;
     
     const tryLoadImage = (imageSrc) => {
       preloadImage.onload = () => {
-        // Image is available, set it to lightbox
         lightboxImage.src = imageSrc;
         lightboxImage.alt = alt;
-        
-        // Add event listeners
-        lightboxImage.onload = newImageLoadHandler;
-        lightboxImage.onerror = newImageErrorHandler;
-        
-        // If image is already cached, trigger load immediately
+        lightboxImage.onload = handleImageLoad;
+        lightboxImage.onerror = handleImageError;
         if (lightboxImage.complete && lightboxImage.naturalHeight !== 0) {
           handleImageLoad();
         }
@@ -676,45 +863,36 @@ document.addEventListener('DOMContentLoaded', function() {
       
       preloadImage.onerror = () => {
         retryCount++;
-        // 재시도: 원본 URL 인코딩된 경로로 시도
         if (retryCount === 1 && imageSrc !== originalSrc) {
           tryLoadImage(originalSrc);
         } else {
           handleImageError();
-          lightboxImage.onerror = newImageErrorHandler;
         }
       };
       
       preloadImage.src = imageSrc;
     };
     
-    // Start preloading with decoded path first
     tryLoadImage(src);
   }
 
-  // Close lightbox
   function closeLightbox() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
-    // Reset image styles
-    lightboxImage.style.opacity = '1';
-    lightboxImage.style.visibility = 'visible';
-    lightboxCaption.style.color = '#ffffff';
-    // Clear image source to free memory
+    lightboxHint.classList.remove('visible');
     setTimeout(() => {
       if (!lightbox.classList.contains('active')) {
         lightboxImage.src = '';
         lightboxImage.onload = null;
         lightboxImage.onerror = null;
+        resetZoom();
       }
-    }, 300);
+    }, 350);
   }
 
-  // Function to attach click handlers to images
   function attachImageHandlers() {
     const images = document.querySelectorAll('.clickable-image, .post-content img, .post-image img');
     images.forEach(img => {
-      // Skip if already processed
       if (img.dataset.lightboxAttached === 'true') return;
       
       img.style.cursor = 'zoom-in';
@@ -727,40 +905,141 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Attach handlers on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', attachImageHandlers);
   } else {
     attachImageHandlers();
   }
-
-  // Also attach handlers after a short delay to catch dynamically loaded images
   setTimeout(attachImageHandlers, 500);
 
-  // Close events - backdrop 클릭 시 닫기
-  lightboxBackdrop.addEventListener('click', function(e) {
-    // backdrop 자체를 클릭했을 때만 닫기 (이미지나 콘텐츠 영역 클릭은 제외)
-    if (e.target === lightboxBackdrop) {
-      closeLightbox();
-    }
+  lightboxBackdrop.addEventListener('click', (e) => {
+    if (e.target === lightboxBackdrop) closeLightbox();
   });
 
-  // Close button 클릭 시 닫기
-  lightboxClose.addEventListener('click', function(e) {
+  lightboxClose.addEventListener('click', (e) => {
     e.stopPropagation();
     closeLightbox();
   });
 
-  // 이미지나 콘텐츠 영역 클릭 시 닫지 않도록 이벤트 전파 방지
-  lightboxContent.addEventListener('click', function(e) {
+  lightboxZoomIn.addEventListener('click', (e) => {
     e.stopPropagation();
+    zoom(0.25);
   });
 
-  // Keyboard events
-  document.addEventListener('keydown', function(e) {
+  lightboxZoomOut.addEventListener('click', (e) => {
+    e.stopPropagation();
+    zoom(-0.25);
+  });
+
+  lightboxReset.addEventListener('click', (e) => {
+    e.stopPropagation();
+    resetZoom();
+  });
+
+  lightboxImage.addEventListener('dblclick', (e) => {
+    e.stopPropagation();
+    if (currentZoom > 1) {
+      resetZoom();
+    } else {
+      zoom(1);
+    }
+  });
+
+  lightboxWrapper.addEventListener('wheel', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -0.15 : 0.15;
+    zoom(delta);
+  }, { passive: false });
+
+  lightboxImage.addEventListener('mousedown', (e) => {
+    if (currentZoom <= 1) return;
+    e.preventDefault();
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    lastTranslateX = translateX;
+    lastTranslateY = translateY;
+    lightboxImage.classList.add('dragging');
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    translateX = lastTranslateX + (e.clientX - startX);
+    translateY = lastTranslateY + (e.clientY - startY);
+    updateTransform();
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      lightboxImage.classList.remove('dragging');
+    }
+  });
+
+  let touchStartDistance = 0;
+  let initialZoom = 1;
+
+  lightboxImage.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+      touchStartDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      initialZoom = currentZoom;
+    } else if (e.touches.length === 1 && currentZoom > 1) {
+      isDragging = true;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      lastTranslateX = translateX;
+      lastTranslateY = translateY;
+    }
+  }, { passive: true });
+
+  lightboxImage.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 2) {
+      const distance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const scale = distance / touchStartDistance;
+      currentZoom = Math.max(0.5, Math.min(5, initialZoom * scale));
+      if (currentZoom > 1) {
+        lightboxImage.classList.add('zoomed');
+      } else {
+        lightboxImage.classList.remove('zoomed');
+      }
+      updateTransform();
+    } else if (isDragging && e.touches.length === 1) {
+      translateX = lastTranslateX + (e.touches[0].clientX - startX);
+      translateY = lastTranslateY + (e.touches[0].clientY - startY);
+      updateTransform();
+    }
+  }, { passive: true });
+
+  lightboxImage.addEventListener('touchend', () => {
+    isDragging = false;
+    if (currentZoom <= 1) {
+      translateX = 0;
+      translateY = 0;
+      updateTransform();
+    }
+    showZoomInfo();
+  });
+
+  document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('active')) return;
 
-    if (e.key === 'Escape') {
+    switch(e.key) {
+      case 'Escape': closeLightbox(); break;
+      case '+': case '=': zoom(0.25); break;
+      case '-': zoom(-0.25); break;
+      case '0': resetZoom(); break;
+    }
+  });
+
+  lightboxContent.addEventListener('click', (e) => {
+    if (e.target === lightboxContent || e.target === lightboxWrapper) {
       closeLightbox();
     }
   });
