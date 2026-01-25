@@ -456,6 +456,15 @@
       height: 0 !important;
       min-height: 0 !important;
     }
+    /* Hide parent ad-container when ad is unfilled */
+    .ad-container:has(.adsbygoogle[data-ad-status="unfilled"]),
+    .ad-container:has(.adsbygoogle[data-ad-status="unfill-optimized"]) {
+      display: none !important;
+      height: 0 !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
     /* Hide google-auto-placed ad containers when they contain Related Topics */
     .google-auto-placed:has(.goog-rtopics),
     .google-auto-placed:has(.google-anno-sc),
