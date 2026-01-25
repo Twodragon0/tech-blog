@@ -1,15 +1,18 @@
 ---
 layout: page
 title: 정보보안기사
-description: 정보보안기사 자격증 준비 및 기출문제 - 기술 블로그 포스팅과 연결된 학습 자료
+description: 기출문제 및 연습 문제를 통한 자격증 준비 - 기술 블로그 포스팅과 연결된 학습 자료
 permalink: /certifications/information-security-engineer/
 ---
 <div class="certification-detail-page">
-  <div class="page-header">
-    <h1>정보보안기사</h1>
-    <p class="page-description">기술 블로그 포스팅과 연결된 학습 자료</p>
-    <a href="https://www.q-net.or.kr/crf005.do?id=crf00501&jmCd=1320" target="_blank" rel="noopener noreferrer" class="official-link">
-      공식 사이트 방문 →
+  <div class="header-actions" style="margin-bottom: 3rem;">
+    <a href="https://www.q-net.or.kr/crf005.do?id=crf00501&jmCd=1320" target="_blank" rel="noopener noreferrer" class="header-action-button official-button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+      <span>공식 사이트</span>
     </a>
   </div>
 
@@ -293,12 +296,22 @@ permalink: /certifications/information-security-engineer/
             <option value="정보보안 일반">정보보안 일반</option>
             <option value="암호학">암호학</option>
             <option value="정보보안 관리">정보보안 관리</option>
+            <option value="애플리케이션 보안">애플리케이션 보안</option>
+            <option value="데이터베이스 보안">데이터베이스 보안</option>
+            <option value="무선 네트워크 보안">무선 네트워크 보안</option>
+            <option value="전자서명">전자서명</option>
+            <option value="사고 대응">사고 대응</option>
+            <option value="해시 함수">해시 함수</option>
+            <option value="방화벽">방화벽</option>
+            <option value="취약점 관리">취약점 관리</option>
+            <option value="보안 정책">보안 정책</option>
+            <option value="보안 감사">보안 감사</option>
           </select>
         </div>
         <div class="exam-stats">
           <span class="stat-item">
             <span class="stat-label">진행:</span>
-            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">2</span>
+            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">15</span>
           </span>
           <span class="stat-item">
             <span class="stat-label">정답률:</span>
@@ -358,7 +371,7 @@ permalink: /certifications/information-security-engineer/
     </div>
 
     <div class="questions-section question-card-view" id="questions-container">
-      <h3>2024년 이후 기출문제</h3>
+      <h3>2024년 기출문제</h3>
       
       <div class="question-card" data-topic="시스템 보안" data-answer="A" data-converted="true">
         <div class="question-header">
@@ -405,14 +418,7 @@ permalink: /certifications/information-security-engineer/
           <div class="question-answer" id="answer-1" hidden>
             <div class="answer-content">
               <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
-              <p class="answer-explanation"><strong>해설:</strong> 보안 패치 적용은 알려진 취약점을 해결하는 가장 기본적이고 중요한 조치입니다.</p>
-              <div class="answer-related-posts">
-                <p class="related-posts-label"><strong>관련 포스팅:</strong></p>
-                <ul>
-                  <li><a href="/posts/2025/12/클라우드_시큐리티_8기_4주차_통합_보안_취약점_점검_및_ISMS-P_인증_대응_실무/" target="_blank" rel="noopener noreferrer">통합 보안 취약점 점검 및 ISMS-P 인증 대응 실무</a></li>
-                  <li><a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/" target="_blank" rel="noopener noreferrer">AWS 보안 아키텍처의 핵심 (VPC, GuardDuty)</a></li>
-                </ul>
-              </div>
+              <p class="answer-explanation"><strong>해설:</strong> 보안 패치 적용은 알려진 취약점을 해결하는 가장 기본적이고 중요한 조치입니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_4주차_통합_보안_취약점_점검_및_ISMS-P_인증_대응_실무/" target="_blank" rel="noopener noreferrer">통합 보안 취약점 점검 및 ISMS-P 인증 대응 실무 포스트</a>에서 자세한 설명을 확인하세요.</p>
             </div>
           </div>
         </div>
@@ -463,14 +469,674 @@ permalink: /certifications/information-security-engineer/
           <div class="question-answer" id="answer-2" hidden>
             <div class="answer-content">
               <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
-              <p class="answer-explanation"><strong>해설:</strong> IDS는 침입을 탐지하고 알림만 제공하며, IPS는 탐지 후 자동으로 차단까지 수행합니다.</p>
-              <div class="answer-related-posts">
-                <p class="related-posts-label"><strong>관련 포스팅:</strong></p>
-                <ul>
-                  <li><a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/" target="_blank" rel="noopener noreferrer">AWS 보안 아키텍처의 핵심 (VPC, GuardDuty - 침입 탐지)</a></li>
-                  <li><a href="/posts/2025/12/클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안/" target="_blank" rel="noopener noreferrer">Datadog SIEM 및 Cloudflare 보안</a></li>
-                </ul>
-              </div>
+              <p class="answer-explanation"><strong>해설:</strong> IDS는 침입을 탐지하고 알림만 제공하며, IPS는 탐지 후 자동으로 차단까지 수행합니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/" target="_blank" rel="noopener noreferrer">AWS 보안 아키텍처의 핵심 (VPC, GuardDuty - 침입 탐지) 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="암호학" data-answer="B" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 3</span>
+          <span class="question-topic">암호학</span>
+          <span class="question-status" id="status-3" aria-label="문제 3 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 대칭키 암호화 방식과 비대칭키 암호화 방식의 차이점은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-3" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 대칭키는 공개키 사용, 비대칭키는 비밀키 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-3" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 대칭키는 동일한 키로 암호화/복호화, 비대칭키는 공개키/개인키 쌍 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-3" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 차이점 없음</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-3" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 대칭키는 느리고, 비대칭키는 빠름</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="3" aria-label="문제 3 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="3" aria-expanded="false" aria-label="문제 3 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-3" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 대칭키 암호화는 동일한 키로 암호화와 복호화를 수행하며, 비대칭키 암호화는 공개키와 개인키 쌍을 사용합니다. <a href="/posts/2025/05/클라우드_보안_과정_7기_-_4주차_AWS_취약점_점검_및_ISMS_대응_가이드/" target="_blank" rel="noopener noreferrer">AWS 취약점 점검 및 ISMS 대응 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="정보보안 일반" data-answer="C" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 4</span>
+          <span class="question-topic">정보보안 일반</span>
+          <span class="question-status" id="status-4" aria-label="문제 4 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 정보보안의 3대 요소인 기밀성(Confidentiality), 무결성(Integrity), 가용성(Availability) 중 무결성과 관련된 공격은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-4" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> DoS 공격</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-4" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 스니핑 공격</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-4" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 데이터 변조 공격</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-4" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 스푸핑 공격</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="4" aria-label="문제 4 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="4" aria-expanded="false" aria-label="문제 4 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-4" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 무결성은 데이터가 변경되지 않았음을 보장하는 것으로, 데이터 변조 공격이 무결성을 위협합니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/" target="_blank" rel="noopener noreferrer">AWS 보안 아키텍처의 핵심 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="정보보안 관리" data-answer="D" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 5</span>
+          <span class="question-topic">정보보안 관리</span>
+          <span class="question-status" id="status-5" aria-label="문제 5 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 접근 통제 모델 중 역할 기반 접근 통제(RBAC)의 특징은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-5" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 사용자에게 직접 권한 부여</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-5" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 리소스 소유자가 권한 결정</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-5" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 보안 등급에 따른 접근 제어</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-5" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 역할에 권한을 부여하고 사용자에게 역할 할당</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="5" aria-label="문제 5 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="5" aria-expanded="false" aria-label="문제 5 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-5" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">D</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> RBAC는 역할에 권한을 부여하고, 사용자에게 역할을 할당하는 방식입니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/" target="_blank" rel="noopener noreferrer">AWS 보안 아키텍처의 핵심 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>2025년 기출문제</h3>
+
+      <div class="question-card" data-topic="애플리케이션 보안" data-answer="B" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 6</span>
+          <span class="question-topic">애플리케이션 보안</span>
+          <span class="question-status" id="status-6" aria-label="문제 6 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> SQL Injection 공격을 방어하기 위한 가장 효과적인 방법은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-6" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 입력값 길이 제한</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-6" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> Prepared Statement 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-6" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 특수문자 제거</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-6" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 로그만 확인</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="6" aria-label="문제 6 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="6" aria-expanded="false" aria-label="문제 6 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-6" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> Prepared Statement는 SQL Injection 공격을 방어하는 가장 효과적인 방법입니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_4주차_통합_보안_취약점_점검_및_ISMS-P_인증_대응_실무/" target="_blank" rel="noopener noreferrer">통합 보안 취약점 점검 및 ISMS-P 인증 대응 실무 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="데이터베이스 보안" data-answer="A" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 7</span>
+          <span class="question-topic">데이터베이스 보안</span>
+          <span class="question-status" id="status-7" aria-label="문제 7 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 데이터베이스 보안을 강화하기 위한 조치 중 가장 중요한 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-7" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 접근 권한 최소화 및 암호화</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-7" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 모든 사용자에게 모든 권한 부여</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-7" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 백업만 수행</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-7" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 로그만 확인</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="7" aria-label="문제 7 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="7" aria-expanded="false" aria-label="문제 7 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-7" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 데이터베이스 보안은 접근 권한을 최소화하고 데이터를 암호화하는 것이 가장 중요합니다. <a href="/posts/2025/10/AWS에서_안전한_데이터베이스_접근_게이트웨이_구축하기_NLB__Security_Group_완벽_가이드/" target="_blank" rel="noopener noreferrer">AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="무선 네트워크 보안" data-answer="C" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 8</span>
+          <span class="question-topic">무선 네트워크 보안</span>
+          <span class="question-status" id="status-8" aria-label="문제 8 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 무선 네트워크 보안을 강화하기 위한 가장 효과적인 방법은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-8" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> WEP 암호화 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-8" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 암호화 없이 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-8" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> WPA3 또는 WPA2 암호화 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-8" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> SSID만 숨김</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="8" aria-label="문제 8 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="8" aria-expanded="false" aria-label="문제 8 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-8" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> WPA3 또는 WPA2는 현재 무선 네트워크 보안을 위한 표준 암호화 방식입니다. WEP는 취약하여 사용하지 않아야 합니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/" target="_blank" rel="noopener noreferrer">AWS 보안 아키텍처의 핵심 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="전자서명" data-answer="D" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 9</span>
+          <span class="question-topic">전자서명</span>
+          <span class="question-status" id="status-9" aria-label="문제 9 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 전자서명의 주요 목적은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-9" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 데이터 암호화</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-9" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 데이터 압축</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-9" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 데이터 전송 속도 향상</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-9" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 무결성 및 부인 방지</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="9" aria-label="문제 9 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="9" aria-expanded="false" aria-label="문제 9 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-9" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">D</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 전자서명은 데이터의 무결성을 보장하고 부인 방지를 제공합니다. <a href="/posts/2025/05/클라우드_보안_과정_7기_-_4주차_AWS_취약점_점검_및_ISMS_대응_가이드/" target="_blank" rel="noopener noreferrer">AWS 취약점 점검 및 ISMS 대응 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="사고 대응" data-answer="B" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 10</span>
+          <span class="question-topic">사고 대응</span>
+          <span class="question-status" id="status-10" aria-label="문제 10 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 보안 사고 발생 시 첫 번째로 수행해야 할 조치는?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-10" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 시스템 즉시 종료</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-10" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 사고 격리 및 증거 보존</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-10" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 사고 무시</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-10" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 모든 로그 삭제</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="10" aria-label="문제 10 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="10" aria-expanded="false" aria-label="문제 10 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-10" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 보안 사고 발생 시 먼저 사고를 격리하고 증거를 보존해야 합니다. <a href="/posts/2025/12/클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안/" target="_blank" rel="noopener noreferrer">Datadog SIEM 및 Cloudflare 보안 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>2026년 기출문제</h3>
+
+      <div class="question-card" data-topic="해시 함수" data-answer="A" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 11</span>
+          <span class="question-topic">해시 함수</span>
+          <span class="question-status" id="status-11" aria-label="문제 11 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 해시 함수의 주요 특성이 아닌 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-11" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 역변환 가능 (복호화 가능)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-11" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 일방향 함수 (역변환 불가능)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-11" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 고정 길이 출력</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-11" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 충돌 저항성</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="11" aria-label="문제 11 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="11" aria-expanded="false" aria-label="문제 11 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-11" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 해시 함수는 일방향 함수로 역변환이 불가능합니다. <a href="/posts/2025/05/클라우드_보안_과정_7기_-_4주차_AWS_취약점_점검_및_ISMS_대응_가이드/" target="_blank" rel="noopener noreferrer">AWS 취약점 점검 및 ISMS 대응 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="방화벽" data-answer="C" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 12</span>
+          <span class="question-topic">방화벽</span>
+          <span class="question-status" id="status-12" aria-label="문제 12 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 방화벽의 기본 정책으로 가장 안전한 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-12" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 모든 트래픽 허용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-12" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 모든 트래픽 차단</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-12" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 기본 차단, 필요한 것만 허용 (Deny All, Permit by Exception)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-12" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 기본 허용, 필요한 것만 차단</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="12" aria-label="문제 12 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="12" aria-expanded="false" aria-label="문제 12 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-12" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 방화벽은 기본적으로 모든 트래픽을 차단하고, 필요한 것만 허용하는 것이 가장 안전합니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/" target="_blank" rel="noopener noreferrer">AWS 보안 아키텍처의 핵심 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="취약점 관리" data-answer="D" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 13</span>
+          <span class="question-topic">취약점 관리</span>
+          <span class="question-status" id="status-13" aria-label="문제 13 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 취약점 관리 프로세스의 올바른 순서는?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-13" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 패치 적용 → 취약점 스캔 → 우선순위 결정</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-13" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 취약점 무시</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-13" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 패치만 적용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-13" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 취약점 스캔 → 우선순위 결정 → 패치 적용 → 재검증</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="13" aria-label="문제 13 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="13" aria-expanded="false" aria-label="문제 13 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-13" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">D</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 취약점 관리는 스캔 → 우선순위 결정 → 패치 적용 → 재검증 순서로 진행됩니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_4주차_통합_보안_취약점_점검_및_ISMS-P_인증_대응_실무/" target="_blank" rel="noopener noreferrer">통합 보안 취약점 점검 및 ISMS-P 인증 대응 실무 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="보안 정책" data-answer="A" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 14</span>
+          <span class="question-topic">보안 정책</span>
+          <span class="question-status" id="status-14" aria-label="문제 14 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 정보보안 정책을 수립할 때 고려해야 할 사항이 아닌 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-14" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 정책은 한 번 수립하면 변경 불가</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-14" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 조직의 목표와 일치</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-14" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 법규 및 규정 준수</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-14" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 정기적 검토 및 개선</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="14" aria-label="문제 14 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="14" aria-expanded="false" aria-label="문제 14 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-14" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 정보보안 정책은 환경 변화에 따라 정기적으로 검토하고 개선해야 합니다. <a href="/posts/2026/01/2025_ISMS-P_인증_완벽_가이드_AWS_환경에서의_관리체계_수립_및_보호조치_구현/" target="_blank" rel="noopener noreferrer">ISMS-P 인증 완벽 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="보안 감사" data-answer="B" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 15</span>
+          <span class="question-topic">보안 감사</span>
+          <span class="question-status" id="status-15" aria-label="문제 15 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 보안 감사를 수행할 때 가장 중요한 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-15" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 감사 결과를 숨김</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-15" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 객관적이고 체계적인 감사 수행 및 개선 조치</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-15" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 감사는 선택 사항</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-15" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 감사 결과 무시</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="15" aria-label="문제 15 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="15" aria-expanded="false" aria-label="문제 15 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-15" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 보안 감사는 객관적이고 체계적으로 수행하고, 발견된 문제에 대해 개선 조치를 취해야 합니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략/" target="_blank" rel="noopener noreferrer">ISMS-P 보안 감사 포스트</a>에서 자세한 설명을 확인하세요.</p>
             </div>
           </div>
         </div>
@@ -510,22 +1176,77 @@ permalink: /certifications/information-security-engineer/
 .page-description {
   font-size: 1.1rem;
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.official-link {
-  display: inline-block;
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.header-action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: var(--primary);
-  color: white;
+  font-size: 0.9375rem;
+  font-weight: 500;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 500;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
 }
 
-.official-link:hover {
+.header-action-button svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.header-action-button.posts-button {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.header-action-button.posts-button:hover {
+  background: var(--bg-primary);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-action-button.posts-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.header-action-button.official-button {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.header-action-button.official-button:hover {
   background: var(--primary-dark, #0056b3);
+  border-color: var(--primary-dark, #0056b3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.header-action-button.official-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.header-action-button:active {
+  transform: translateY(0);
 }
 
 .certification-info,
@@ -1461,6 +2182,16 @@ permalink: /certifications/information-security-engineer/
 @media (max-width: 768px) {
   .page-header h1 {
     font-size: 2rem;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .header-action-button {
+    width: 100%;
+    justify-content: center;
   }
   
   .topics-grid {

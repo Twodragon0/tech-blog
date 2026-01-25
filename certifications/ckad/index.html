@@ -1,82 +1,19 @@
 ---
 layout: page
 title: CKAD (Certified Kubernetes Application Developer)
-description: CKAD 자격증 준비 및 기출문제 - 기술 블로그 포스팅과 연결된 학습 자료
+description: 기출문제 및 연습 문제를 통한 자격증 준비 - 기술 블로그 포스팅과 연결된 학습 자료
 permalink: /certifications/ckad/
 ---
 <div class="certification-detail-page">
-  <div class="page-header">
-    <h1>CKAD (Certified Kubernetes Application Developer)</h1>
-    <p class="page-description">기술 블로그 포스팅과 연결된 학습 자료</p>
-    <a href="https://www.cncf.io/certification/ckad/" target="_blank" rel="noopener noreferrer" class="official-link">
-      공식 사이트 방문 →
+  <div class="header-actions" style="margin-bottom: 3rem;">
+    <a href="https://www.cncf.io/certification/ckad/" target="_blank" rel="noopener noreferrer" class="header-action-button official-button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+      <span>공식 사이트</span>
     </a>
-  </div>
-
-  <div class="certification-info">
-    <h2>자격증 정보</h2>
-    <ul>
-      <li><strong>공식 명칭:</strong> Certified Kubernetes Application Developer (CKAD)</li>
-      <li><strong>시험 시간:</strong> 2시간</li>
-      <li><strong>문제 수:</strong> 실기형 문제 (실제 Kubernetes 클러스터에서 작업)</li>
-      <li><strong>합격 점수:</strong> 66% 이상</li>
-      <li><strong>유효 기간:</strong> 3년</li>
-      <li><strong>시험 비용:</strong> $395 USD</li>
-    </ul>
-  </div>
-
-  <div class="exam-topics">
-    <h2>주요 시험 주제</h2>
-    <div class="topics-grid">
-      <div class="topic-card">
-        <h3>1. 애플리케이션 설계 및 빌드 (13%)</h3>
-        <ul>
-          <li>컨테이너 이미지 정의, 빌드 및 실행</li>
-          <li>Kubernetes 리소스 이해</li>
-          <li>멀티 컨테이너 Pod 설계</li>
-        </ul>
-      </div>
-      <div class="topic-card">
-        <h3>2. 애플리케이션 배포 (18%)</h3>
-        <ul>
-          <li>Deployment 및 ReplicaSet 사용</li>
-          <li>Pod 및 컨테이너 구성</li>
-          <li>서비스 및 네트워크 정책</li>
-        </ul>
-      </div>
-      <div class="topic-card">
-        <h3>3. 애플리케이션 노출 및 서비스 (13%)</h3>
-        <ul>
-          <li>Service 리소스 이해</li>
-          <li>Ingress 컨트롤러 구성</li>
-          <li>네트워크 정책 적용</li>
-        </ul>
-      </div>
-      <div class="topic-card">
-        <h3>4. 애플리케이션 관찰성 및 유지보수 (18%)</h3>
-        <ul>
-          <li>로그 및 모니터링</li>
-          <li>디버깅 및 트러블슈팅</li>
-          <li>리소스 사용량 모니터링</li>
-        </ul>
-      </div>
-      <div class="topic-card">
-        <h3>5. 환경, 구성 및 보안 (20%)</h3>
-        <ul>
-          <li>ConfigMap 및 Secret 사용</li>
-          <li>보안 컨텍스트 구성</li>
-          <li>ServiceAccount 및 RBAC</li>
-        </ul>
-      </div>
-      <div class="topic-card">
-        <h3>6. 서비스 및 네트워킹 (18%)</h3>
-        <ul>
-          <li>Service 타입 이해</li>
-          <li>DNS 및 서비스 디스커버리</li>
-          <li>네트워크 정책 구현</li>
-        </ul>
-      </div>
-    </div>
   </div>
 
   <div class="exam-questions">
@@ -277,7 +214,10 @@ permalink: /certifications/ckad/
   </div>
 </div>
 
+<script src="/assets/js/certification-quiz.js" defer></script>
+
 <style>
+/* AWS SAA와 동일한 스타일 사용 */
 .certification-detail-page {
   max-width: 1200px;
   margin: 0 auto;
@@ -298,22 +238,77 @@ permalink: /certifications/ckad/
 .page-description {
   font-size: 1.1rem;
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.official-link {
-  display: inline-block;
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.header-action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: var(--primary);
-  color: white;
+  font-size: 0.9375rem;
+  font-weight: 500;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 500;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
 }
 
-.official-link:hover {
+.header-action-button svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.header-action-button.posts-button {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.header-action-button.posts-button:hover {
+  background: var(--bg-primary);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-action-button.posts-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.header-action-button.official-button {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.header-action-button.official-button:hover {
   background: var(--primary-dark, #0056b3);
+  border-color: var(--primary-dark, #0056b3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.header-action-button.official-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.header-action-button:active {
+  transform: translateY(0);
 }
 
 .certification-info,
@@ -1040,6 +1035,16 @@ permalink: /certifications/ckad/
     font-size: 2rem;
   }
   
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .header-action-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
   .topics-grid {
     grid-template-columns: 1fr;
   }
@@ -1110,5 +1115,3 @@ permalink: /certifications/ckad/
   }
 }
 </style>
-
-<script src="/assets/js/certification-quiz.js" defer></script>

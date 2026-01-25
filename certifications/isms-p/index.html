@@ -1,15 +1,18 @@
 ---
 layout: page
 title: ISMS-P
-description: ISMS-P 인증 준비 및 기출문제 - 기술 블로그 포스팅과 연결된 학습 자료
+description: 기출문제 및 연습 문제를 통한 인증 준비 - 기술 블로그 포스팅과 연결된 학습 자료
 permalink: /certifications/isms-p/
 ---
 <div class="certification-detail-page">
-  <div class="page-header">
-    <h1>ISMS-P (정보보안 관리체계 인증)</h1>
-    <p class="page-description">기술 블로그 포스팅과 연결된 학습 자료</p>
-    <a href="https://isms.kisa.or.kr/" target="_blank" rel="noopener noreferrer" class="official-link">
-      공식 사이트 방문 →
+  <div class="header-actions" style="margin-bottom: 3rem;">
+    <a href="https://isms.kisa.or.kr/" target="_blank" rel="noopener noreferrer" class="header-action-button official-button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+      <span>공식 사이트</span>
     </a>
   </div>
 
@@ -281,12 +284,21 @@ permalink: /certifications/isms-p/
             <option value="자산 관리">자산 관리</option>
             <option value="물리적 보안">물리적 보안</option>
             <option value="운영 보안">운영 보안</option>
+            <option value="로그 관리 및 모니터링">로그 관리 및 모니터링</option>
+            <option value="사고 대응">사고 대응</option>
+            <option value="백업 및 복구">백업 및 복구</option>
+            <option value="위험 관리">위험 관리</option>
+            <option value="클라우드 보안">클라우드 보안</option>
+            <option value="CSPM">CSPM</option>
+            <option value="인증 심사">인증 심사</option>
+            <option value="컴플라이언스">컴플라이언스</option>
+            <option value="인증 유지">인증 유지</option>
           </select>
         </div>
         <div class="exam-stats">
           <span class="stat-item">
             <span class="stat-label">진행:</span>
-            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">3</span>
+            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">15</span>
           </span>
           <span class="stat-item">
             <span class="stat-label">정답률:</span>
@@ -346,7 +358,7 @@ permalink: /certifications/isms-p/
     </div>
 
     <div class="questions-section question-card-view" id="questions-container">
-      <h3>2024년 이후 기출문제</h3>
+      <h3>2024년 기출문제</h3>
       
       <div class="question-card" data-topic="정보보안 정책 및 조직" data-answer="C" data-converted="true">
         <div class="question-header">
@@ -500,6 +512,622 @@ permalink: /certifications/isms-p/
           </div>
         </div>
       </div>
+
+      <div class="question-card" data-topic="자산 관리" data-answer="A" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 4</span>
+          <span class="question-topic">자산 관리</span>
+          <span class="question-status" id="status-4" aria-label="문제 4 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증을 위해 정보자산을 분류하고 관리해야 합니다. 다음 중 정보자산 분류 기준으로 가장 적절한 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-4" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 기밀성, 무결성, 가용성(CIA) 기준에 따른 중요도 분류</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-4" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 자산의 물리적 크기 기준</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-4" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 자산의 구매 가격 기준</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-4" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 자산의 사용 빈도 기준</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="4" aria-label="문제 4 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="4" aria-expanded="false" aria-label="문제 4 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-4" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 정보자산은 기밀성, 무결성, 가용성 기준에 따라 중요도를 분류하여 관리합니다. <a href="/posts/2026/01/2025_ISMS-P_인증_완벽_가이드_AWS_환경에서의_관리체계_수립_및_보호조치_구현/" target="_blank" rel="noopener noreferrer">ISMS-P 인증 완벽 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="물리적 보안" data-answer="C" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 5</span>
+          <span class="question-topic">물리적 보안</span>
+          <span class="question-status" id="status-5" aria-label="문제 5 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증을 위해 물리적 보안을 구현해야 합니다. 클라우드 환경에서 물리적 보안을 보장하는 방법으로 가장 적절한 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-5" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 클라우드 제공업체의 데이터센터 물리적 보안 인증 확인</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-5" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 자체 데이터센터 구축</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-5" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 클라우드 제공업체의 SOC 2, ISO 27001 등 인증 확인 및 SLA 검토</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-5" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 물리적 보안은 클라우드 환경에서 불필요</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="5" aria-label="문제 5 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="5" aria-expanded="false" aria-label="문제 5 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-5" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 클라우드 환경에서는 제공업체의 인증 및 SLA를 확인하여 물리적 보안을 보장합니다. <a href="/posts/2026/01/2025_ISMS-P_인증_완벽_가이드_AWS_환경에서의_관리체계_수립_및_보호조치_구현/" target="_blank" rel="noopener noreferrer">ISMS-P 인증 완벽 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>2025년 기출문제</h3>
+
+      <div class="question-card" data-topic="운영 보안" data-answer="D" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 6</span>
+          <span class="question-topic">운영 보안</span>
+          <span class="question-status" id="status-6" aria-label="문제 6 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증을 위해 운영 보안을 구현해야 합니다. 다음 중 변경 관리 절차에 포함되어야 할 사항이 아닌 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-6" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 변경 요청 및 승인 절차</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-6" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 변경 영향도 분석</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-6" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 변경 롤백 계획</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-6" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 변경 즉시 실행 (승인 없이)</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="6" aria-label="문제 6 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="6" aria-expanded="false" aria-label="문제 6 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-6" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">D</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 모든 변경은 승인 절차를 거쳐야 하며, 즉시 실행은 허용되지 않습니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_4주차_통합_보안_취약점_점검_및_ISMS-P_인증_대응_실무/" target="_blank" rel="noopener noreferrer">ISMS-P 인증 대응 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="로그 관리 및 모니터링" data-answer="A" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 7</span>
+          <span class="question-topic">로그 관리 및 모니터링</span>
+          <span class="question-status" id="status-7" aria-label="문제 7 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증을 위해 보안 로그를 관리해야 합니다. 다음 중 로그 관리 요구사항으로 가장 적절한 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-7" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 로그 수집, 저장, 보관, 분석 및 모니터링 체계 구축</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-7" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 로그는 선택적으로 수집</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-7" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 로그는 1개월만 보관</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-7" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 로그 분석은 선택 사항</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="7" aria-label="문제 7 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="7" aria-expanded="false" aria-label="문제 7 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-7" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> ISMS-P는 로그의 수집, 저장, 보관, 분석 및 모니터링을 체계적으로 구축할 것을 요구합니다. <a href="/posts/2025/12/클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안/" target="_blank" rel="noopener noreferrer">Datadog SIEM 및 Cloudflare 보안 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="사고 대응" data-answer="B" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 8</span>
+          <span class="question-topic">사고 대응</span>
+          <span class="question-status" id="status-8" aria-label="문제 8 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증을 위해 보안 사고 대응 체계를 구축해야 합니다. 다음 중 보안 사고 대응 절차의 올바른 순서는?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-8" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 복구 → 차단 → 분석 → 보고</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-8" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 탐지 → 분석 → 차단 → 복구 → 보고</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-8" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 보고 → 차단 → 복구</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-8" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 복구만 수행</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="8" aria-label="문제 8 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="8" aria-expanded="false" aria-label="문제 8 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-8" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 보안 사고 대응은 탐지 → 분석 → 차단 → 복구 → 보고 순서로 진행됩니다. <a href="/posts/2025/12/클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안/" target="_blank" rel="noopener noreferrer">Datadog SIEM 및 Cloudflare 보안 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="백업 및 복구" data-answer="C" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 9</span>
+          <span class="question-topic">백업 및 복구</span>
+          <span class="question-status" id="status-9" aria-label="문제 9 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증을 위해 백업 및 복구 체계를 구축해야 합니다. 다음 중 백업 전략으로 가장 적절한 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-9" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 백업은 선택 사항</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-9" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 중요 데이터만 백업</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-9" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 정기적 백업, 백업 검증, 복구 테스트 수행</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-9" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 백업만 수행하고 복구 테스트는 불필요</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="9" aria-label="문제 9 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="9" aria-expanded="false" aria-label="문제 9 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-9" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 백업은 정기적으로 수행하고, 백업의 무결성을 검증하며, 복구 테스트를 통해 복구 가능성을 확인해야 합니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_4주차_통합_보안_취약점_점검_및_ISMS-P_인증_대응_실무/" target="_blank" rel="noopener noreferrer">ISMS-P 인증 대응 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="위험 관리" data-answer="A" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 10</span>
+          <span class="question-topic">위험 관리</span>
+          <span class="question-status" id="status-10" aria-label="문제 10 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증을 위해 위험 관리 체계를 구축해야 합니다. 다음 중 위험 관리 프로세스의 올바른 순서는?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-10" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 위험 식별 → 위험 분석 → 위험 평가 → 위험 처리</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-10" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 위험 처리 → 위험 평가 → 위험 분석</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-10" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 위험 평가만 수행</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-10" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 위험은 무시</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="10" aria-label="문제 10 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="10" aria-expanded="false" aria-label="문제 10 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-10" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 위험 관리는 위험 식별 → 위험 분석 → 위험 평가 → 위험 처리 순서로 진행됩니다. <a href="/posts/2026/01/2025_ISMS-P_인증_완벽_가이드_AWS_환경에서의_관리체계_수립_및_보호조치_구현/" target="_blank" rel="noopener noreferrer">ISMS-P 인증 완벽 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>2026년 기출문제</h3>
+
+      <div class="question-card" data-topic="클라우드 보안" data-answer="B" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 11</span>
+          <span class="question-topic">클라우드 보안</span>
+          <span class="question-status" id="status-11" aria-label="문제 11 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> AWS 환경에서 ISMS-P 인증을 받기 위해 클라우드 보안을 구현해야 합니다. 다음 중 클라우드 보안 아키텍처 설계 시 고려사항이 아닌 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-11" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 네트워크 분리 및 격리</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-11" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 모든 리소스를 퍼블릭 서브넷에 배치</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-11" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 최소 권한 원칙 적용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-11" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 모니터링 및 로깅 체계 구축</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="11" aria-label="문제 11 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="11" aria-expanded="false" aria-label="문제 11 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-11" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 민감한 리소스는 프라이빗 서브넷에 배치해야 하며, 모든 리소스를 퍼블릭 서브넷에 배치하는 것은 보안상 위험합니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/" target="_blank" rel="noopener noreferrer">AWS 보안 아키텍처 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="CSPM" data-answer="A" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 12</span>
+          <span class="question-topic">CSPM</span>
+          <span class="question-status" id="status-12" aria-label="문제 12 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증을 위해 클라우드 보안 상태를 지속적으로 모니터링해야 합니다. 다음 중 CSPM(Cloud Security Posture Management)의 주요 기능이 아닌 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-12" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 클라우드 리소스의 보안 설정 자동 변경</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-12" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 보안 설정 오류 탐지 및 알림</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-12" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 컴플라이언스 상태 모니터링</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-12" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 보안 정책 위반 사항 보고</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="12" aria-label="문제 12 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="12" aria-expanded="false" aria-label="문제 12 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-12" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> CSPM은 보안 설정을 탐지하고 알림하지만, 자동으로 변경하지는 않습니다. 변경은 관리자가 승인 후 수행해야 합니다. <a href="/posts/2026/01/CSPM_DataDog_AWS_보안_가이드_자동화된_보안_설정_검증_및_컴플라이언스_모니터링/" target="_blank" rel="noopener noreferrer">CSPM DataDog AWS 보안 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="인증 심사" data-answer="D" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 13</span>
+          <span class="question-topic">인증 심사</span>
+          <span class="question-status" id="status-13" aria-label="문제 13 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증 심사를 준비하고 있습니다. 다음 중 인증 심사 전 준비사항이 아닌 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-13" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 자체 보안 감사 실시</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-13" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 보안 정책 및 절차서 정비</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-13" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 취약점 점검 및 보완</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-13" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 심사 전날 급하게 문서 작성</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="13" aria-label="문제 13 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="13" aria-expanded="false" aria-label="문제 13 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-13" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">D</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 인증 심사는 충분한 준비 기간을 두고 체계적으로 준비해야 하며, 전날 급하게 작성하는 것은 적절하지 않습니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_4주차_통합_보안_취약점_점검_및_ISMS-P_인증_대응_실무/" target="_blank" rel="noopener noreferrer">ISMS-P 인증 대응 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="컴플라이언스" data-answer="C" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 14</span>
+          <span class="question-topic">컴플라이언스</span>
+          <span class="question-status" id="status-14" aria-label="문제 14 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> AWS 환경에서 ISMS-P 인증을 받기 위해 컴플라이언스를 구현해야 합니다. 다음 중 AWS에서 ISMS-P 컴플라이언스를 자동으로 검증하는 방법으로 가장 적절한 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-14" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 수동으로만 검증</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-14" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> CloudWatch만 사용</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-14" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> CSPM 도구(DataDog, AWS Security Hub 등)를 활용한 자동 검증</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-14" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 검증 불필요</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="14" aria-label="문제 14 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="14" aria-expanded="false" aria-label="문제 14 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-14" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> CSPM 도구를 활용하면 ISMS-P 컴플라이언스를 자동으로 검증하고 지속적으로 모니터링할 수 있습니다. <a href="/posts/2026/01/CSPM_DataDog_AWS_보안_가이드_자동화된_보안_설정_검증_및_컴플라이언스_모니터링/" target="_blank" rel="noopener noreferrer">CSPM DataDog AWS 보안 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="인증 유지" data-answer="A" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 15</span>
+          <span class="question-topic">인증 유지</span>
+          <span class="question-status" id="status-15" aria-label="문제 15 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ISMS-P 인증을 받은 후 인증을 유지하기 위해 필요한 사항이 아닌 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-15" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 인증 후 보안 관리 체계를 중단</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-15" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 정기적인 자체 보안 감사 실시</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-15" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 보안 정책 및 절차서의 지속적 개선</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-15" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 정기적인 모니터링 및 취약점 점검</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="15" aria-label="문제 15 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="15" aria-expanded="false" aria-label="문제 15 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-15" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 인증을 받은 후에도 보안 관리 체계를 지속적으로 운영하고 개선해야 합니다. <a href="/posts/2026/01/2025_ISMS-P_인증_완벽_가이드_AWS_환경에서의_관리체계_수립_및_보호조치_구현/" target="_blank" rel="noopener noreferrer">ISMS-P 인증 완벽 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="study-tips">
@@ -535,22 +1163,77 @@ permalink: /certifications/isms-p/
 .page-description {
   font-size: 1.1rem;
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.official-link {
-  display: inline-block;
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.header-action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: var(--primary);
-  color: white;
+  font-size: 0.9375rem;
+  font-weight: 500;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 500;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
 }
 
-.official-link:hover {
+.header-action-button svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.header-action-button.posts-button {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.header-action-button.posts-button:hover {
+  background: var(--bg-primary);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-action-button.posts-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.header-action-button.official-button {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.header-action-button.official-button:hover {
   background: var(--primary-dark, #0056b3);
+  border-color: var(--primary-dark, #0056b3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.header-action-button.official-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.header-action-button:active {
+  transform: translateY(0);
 }
 
 .certification-info,
@@ -1445,6 +2128,16 @@ permalink: /certifications/isms-p/
 @media (max-width: 768px) {
   .page-header h1 {
     font-size: 2rem;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .header-action-button {
+    width: 100%;
+    justify-content: center;
   }
   
   .topics-grid {
