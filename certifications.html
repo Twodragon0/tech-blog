@@ -330,10 +330,11 @@ permalink: /certifications/
   right: 0;
   height: 4px;
   background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  transform: scaleX(0);
+  transform: scaleX(0.3); /* Show 30% by default */
   transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
   z-index: 1;
+  opacity: 0.7; /* Slightly transparent by default */
 }
 
 .certification-card-wrapper:hover,
@@ -350,6 +351,7 @@ permalink: /certifications/
 .certification-card-wrapper:hover::before,
 .certification-card-wrapper:focus-within::before {
   transform: scaleX(1);
+  opacity: 1; /* Full opacity on hover */
 }
 
 /* Active state for better touch feedback */
@@ -361,17 +363,40 @@ permalink: /certifications/
 /* Category-specific accent colors */
 .certification-card-wrapper[data-cert="aws-saa"]::before {
   background: linear-gradient(90deg, #f97316, #facc15);
+  opacity: 0.85; /* More visible for AWS */
 }
+
 .certification-card-wrapper[data-cert="information-security-engineer"]::before,
 .certification-card-wrapper[data-cert="isms-p"]::before {
   background: linear-gradient(90deg, #ef4444, #f97316);
+  opacity: 0.85;
 }
+
 .certification-card-wrapper[data-cert="information-processing-engineer"]::before {
   background: linear-gradient(90deg, #10b981, #14b8a6);
+  opacity: 0.85;
 }
+
 .certification-card-wrapper[data-cert="ckad"]::before,
 .certification-card-wrapper[data-cert="cka"]::before {
   background: linear-gradient(90deg, #326ce5, #6366f1);
+  opacity: 0.85;
+}
+
+/* Ensure category colors are fully visible on hover */
+.certification-card-wrapper[data-cert="aws-saa"]:hover::before,
+.certification-card-wrapper[data-cert="aws-saa"]:focus-within::before,
+.certification-card-wrapper[data-cert="information-security-engineer"]:hover::before,
+.certification-card-wrapper[data-cert="information-security-engineer"]:focus-within::before,
+.certification-card-wrapper[data-cert="isms-p"]:hover::before,
+.certification-card-wrapper[data-cert="isms-p"]:focus-within::before,
+.certification-card-wrapper[data-cert="information-processing-engineer"]:hover::before,
+.certification-card-wrapper[data-cert="information-processing-engineer"]:focus-within::before,
+.certification-card-wrapper[data-cert="ckad"]:hover::before,
+.certification-card-wrapper[data-cert="ckad"]:focus-within::before,
+.certification-card-wrapper[data-cert="cka"]:hover::before,
+.certification-card-wrapper[data-cert="cka"]:focus-within::before {
+  opacity: 1;
 }
 
 /* Certification Card (Link) */
