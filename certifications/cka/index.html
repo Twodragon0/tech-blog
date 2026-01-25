@@ -117,12 +117,18 @@ permalink: /certifications/cka/
             <option value="서비스 및 네트워킹">서비스 및 네트워킹</option>
             <option value="스토리지">스토리지</option>
             <option value="트러블슈팅">트러블슈팅</option>
+            <option value="클러스터 업그레이드">클러스터 업그레이드</option>
+            <option value="클러스터 구성">클러스터 구성</option>
+            <option value="RBAC">RBAC</option>
+            <option value="워크로드 관리">워크로드 관리</option>
+            <option value="네트워킹">네트워킹</option>
+            <option value="클러스터 관리">클러스터 관리</option>
           </select>
         </div>
         <div class="exam-stats">
           <span class="stat-item">
             <span class="stat-label">진행:</span>
-            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">3</span>
+            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">15</span>
           </span>
         </div>
         <button type="button" class="reset-button" id="reset-answers" aria-label="모든 답안 초기화">
@@ -178,7 +184,7 @@ permalink: /certifications/cka/
     </div>
 
     <div class="questions-section question-card-view" id="questions-container">
-      <h3>실전 연습 문제</h3>
+      <h3>2024년 기출문제</h3>
       
       <div class="question-card" data-topic="클러스터 설치 및 구성" data-converted="true">
         <div class="question-header">
@@ -253,6 +259,322 @@ permalink: /certifications/cka/
           <div class="question-answer" id="answer-3" hidden>
             <div class="answer-content">
               <p class="answer-explanation"><strong>해설:</strong> <a href="/posts/2025/06/클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드/" target="_blank" rel="noopener noreferrer">Kubernetes 보안 실전 가이드 포스트</a>에서 Network Policy 구현 방법을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="클러스터 업그레이드" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 4</span>
+          <span class="question-topic">클러스터 업그레이드</span>
+          <span class="question-status" id="status-4" aria-label="문제 4 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> Kubernetes 클러스터를 업그레이드할 때 주의해야 할 사항과 절차를 설명하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="4" aria-expanded="false" aria-label="문제 4 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-4" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> 클러스터 업그레이드는 백업 후 단계적으로 진행하며, 각 컴포넌트의 호환성을 확인해야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="워크로드 및 스케줄링" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 5</span>
+          <span class="question-topic">워크로드 및 스케줄링</span>
+          <span class="question-status" id="status-5" aria-label="문제 5 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 특정 노드에만 Pod를 스케줄링하도록 nodeSelector를 사용하여 Deployment를 생성하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="5" aria-expanded="false" aria-label="문제 5 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-5" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> <a href="/posts/2025/05/Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지/" target="_blank" rel="noopener noreferrer">Kubernetes 실습 가이드 포스트</a>에서 Pod 스케줄링 방법을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>2025년 기출문제</h3>
+
+      <div class="question-card" data-topic="서비스 및 네트워킹" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 6</span>
+          <span class="question-topic">서비스 및 네트워킹</span>
+          <span class="question-status" id="status-6" aria-label="문제 6 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ClusterIP 타입의 Service를 생성하고, 특정 Pod에 연결하는 방법을 설명하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="6" aria-expanded="false" aria-label="문제 6 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-6" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> <a href="/posts/2025/05/클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해/" target="_blank" rel="noopener noreferrer">Docker 및 Kubernetes 이해 포스트</a>에서 Service 리소스 사용법을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="스토리지" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 7</span>
+          <span class="question-topic">스토리지</span>
+          <span class="question-status" id="status-7" aria-label="문제 7 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> PersistentVolume과 PersistentVolumeClaim을 생성하고, Pod에 마운트하는 방법을 설명하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="7" aria-expanded="false" aria-label="문제 7 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-7" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> PV와 PVC를 생성하고 Pod의 volumes 섹션에서 참조하여 마운트합니다. <a href="/posts/2025/05/Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지/" target="_blank" rel="noopener noreferrer">Kubernetes 실습 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="트러블슈팅" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 8</span>
+          <span class="question-topic">트러블슈팅</span>
+          <span class="question-status" id="status-8" aria-label="문제 8 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> kubelet이 정상적으로 작동하지 않는 경우, 어떤 명령어로 상태를 확인하고 문제를 해결할 수 있나요?</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="8" aria-expanded="false" aria-label="문제 8 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-8" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> systemctl status kubelet, journalctl -u kubelet 등의 명령어로 상태를 확인하고 로그를 확인합니다. <a href="/posts/2025/05/Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지/" target="_blank" rel="noopener noreferrer">Kubernetes 실습 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="클러스터 구성" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 9</span>
+          <span class="question-topic">클러스터 구성</span>
+          <span class="question-status" id="status-9" aria-label="문제 9 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> Kubernetes 클러스터에서 kubeconfig 파일을 사용하여 다른 클러스터로 전환하는 방법을 설명하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="9" aria-expanded="false" aria-label="문제 9 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-9" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> KUBECONFIG 환경변수를 설정하거나 kubectl config use-context 명령어를 사용하여 클러스터를 전환합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="RBAC" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 10</span>
+          <span class="question-topic">RBAC</span>
+          <span class="question-status" id="status-10" aria-label="문제 10 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> ServiceAccount를 생성하고, 특정 네임스페이스의 Pod만 조회할 수 있는 Role과 RoleBinding을 구성하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="10" aria-expanded="false" aria-label="문제 10 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-10" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> <a href="/posts/2025/06/클라우드_시큐리티_과정_7기_-_8주차_CICD와_Kubernetes_보안_실전_가이드/" target="_blank" rel="noopener noreferrer">Kubernetes 보안 실전 가이드 포스트</a>에서 RBAC 구성 방법을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>2026년 기출문제</h3>
+
+      <div class="question-card" data-topic="트러블슈팅" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 11</span>
+          <span class="question-topic">트러블슈팅</span>
+          <span class="question-status" id="status-11" aria-label="문제 11 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> API 서버가 응답하지 않는 경우, 어떤 컴포넌트를 확인하고 어떻게 문제를 해결할 수 있나요?</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="11" aria-expanded="false" aria-label="문제 11 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-11" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> kube-apiserver Pod 상태, 로그, etcd 연결 상태를 확인하고, 필요시 kube-apiserver를 재시작합니다. <a href="/posts/2025/05/Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지/" target="_blank" rel="noopener noreferrer">Kubernetes 실습 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="워크로드 관리" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 12</span>
+          <span class="question-topic">워크로드 관리</span>
+          <span class="question-status" id="status-12" aria-label="문제 12 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> DaemonSet을 사용하여 모든 노드에 로그 수집 Pod를 배포하는 방법을 설명하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="12" aria-expanded="false" aria-label="문제 12 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-12" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> DaemonSet은 모든 노드에 Pod를 배포하는 리소스입니다. <a href="/posts/2025/05/Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지/" target="_blank" rel="noopener noreferrer">Kubernetes 실습 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="스토리지" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 13</span>
+          <span class="question-topic">스토리지</span>
+          <span class="question-status" id="status-13" aria-label="문제 13 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> StorageClass를 생성하고, 동적 프로비저닝을 사용하여 PVC를 생성하는 방법을 설명하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="13" aria-expanded="false" aria-label="문제 13 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-13" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> StorageClass를 생성하고, PVC에서 storageClassName을 지정하면 동적으로 PV가 생성됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="네트워킹" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 14</span>
+          <span class="question-topic">네트워킹</span>
+          <span class="question-status" id="status-14" aria-label="문제 14 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> Ingress 리소스를 생성하여 외부에서 Pod에 접근할 수 있도록 설정하는 방법을 설명하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="14" aria-expanded="false" aria-label="문제 14 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-14" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> <a href="/posts/2025/05/클라우드_시큐리티_과정_7기_-_7주차_Docker_및_Kubernetes_이해/" target="_blank" rel="noopener noreferrer">Docker 및 Kubernetes 이해 포스트</a>에서 Ingress 구성 방법을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="클러스터 관리" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 15</span>
+          <span class="question-topic">클러스터 관리</span>
+          <span class="question-status" id="status-15" aria-label="문제 15 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 클러스터의 리소스 사용량을 모니터링하고, 노드의 리소스 상태를 확인하는 방법을 설명하세요.</p>
+          <div class="question-actions">
+            <button type="button" class="explanation-toggle" data-question="15" aria-expanded="false" aria-label="문제 15 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-15" hidden>
+            <div class="answer-content">
+              <p class="answer-explanation"><strong>해설:</strong> kubectl top nodes, kubectl top pods 명령어로 리소스 사용량을 확인하고, kubectl describe node로 상세 정보를 확인합니다. <a href="/posts/2025/05/Kubernetes_Minikube_ampamp_K9s_실습_가이드_문제_해결부터_실전_테스트까지/" target="_blank" rel="noopener noreferrer">Kubernetes 실습 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
             </div>
           </div>
         </div>
@@ -1168,6 +1490,5 @@ permalink: /certifications/cka/
     min-width: 200px;
   }
 }
-</style>
 
 <script src="/assets/js/certification-quiz.js" defer></script>
