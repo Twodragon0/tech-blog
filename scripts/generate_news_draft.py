@@ -150,11 +150,13 @@ def find_related_posts(news_item: dict, posts_dir: Path) -> List[dict]:
     try:
         for post_file in sorted(posts_dir.glob("*.md"), reverse=True)[:100]:
             try:
-                post = frontmatter.load(post_file)
-                post_category = post.get("category", "")
-                post_tags = [t.lower() for t in post.get("tags", [])]
-                post_title = post.get("title", "")
-                post_excerpt = post.get("excerpt", "")
+                with open(post_file, 'r', encoding='utf-8') as f:
+                    post = frontmatter.load(f)
+                post_category = str(post.get("category", ""))
+                raw_tags = post.get("tags", [])
+                post_tags = [str(t).lower() for t in (raw_tags if isinstance(raw_tags, list) else []) if t]
+                post_title = str(post.get("title", ""))
+                post_excerpt = str(post.get("excerpt", ""))
 
                 # 카테고리 일치 또는 키워드 일치
                 score = 0
@@ -172,12 +174,14 @@ def find_related_posts(news_item: dict, posts_dir: Path) -> List[dict]:
                 score += len(matching_words) * 0.5
 
                 if score >= 1:
+                    tags_raw = post.get("tags", [])
+                    tags_slice = post_tags[:5] if post_tags else []
                     related.append(
                         {
                             "title": post_title,
                             "file": post_file.name,
                             "category": post_category,
-                            "tags": post.get("tags", [])[:5],
+                            "tags": tags_slice,
                             "excerpt": post_excerpt[:200] if post_excerpt else "",
                             "score": score,
                         }

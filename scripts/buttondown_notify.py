@@ -43,7 +43,8 @@ if ENV_FILE.exists():
             line = line.strip()
             if line and not line.startswith('#') and '=' in line:
                 key, value = line.split('=', 1)
-                os.environ[key.strip()] = value.strip()
+                value = value.strip().strip('"').strip("'")
+                os.environ[key.strip()] = value
 
 
 def parse_frontmatter(file_path: str) -> dict:
@@ -329,127 +330,81 @@ def format_summary_for_email(description: str) -> str:
     return description
 
 
-def create_email_content(frontmatter: dict, post_url: str, post_content: str = None, filename: str = None) -> tuple:
-    """Create email subject and body for Buttondown with improved UI/UX."""
+def create_email_content(frontmatter: dict, post_url: str, post_content: "str | None" = None, filename: "str | None" = None) -> tuple:
+    """Create email subject and body for Buttondown with modern, clean UI/UX."""
     title = frontmatter.get('title', 'New Post')
     description = frontmatter.get('excerpt', frontmatter.get('description', ''))
     tags = frontmatter.get('tags', [])
     category = frontmatter.get('categories', frontmatter.get('category', ''))
 
-    # Extract excerpt from content if not available
     if not description and post_content:
-        description = extract_excerpt_from_content(post_content, max_length=250)
+        description = extract_excerpt_from_content(post_content, max_length=300)
 
-    # Format date
     date_str = ""
     date_short = ""
     if filename:
         date_str = format_date_from_filename(filename)
-        # Extract short date (YYYY-MM-DD) for subject
         match = re.match(r'(\d{4})-(\d{2})-(\d{2})', filename)
         if match:
-            date_short = match.group(0)  # YYYY-MM-DD format
+            date_short = match.group(0)
 
-    # Email subject with date and timestamp to avoid duplicate detection
-    # Add date and timestamp to subject to make it unique
-    clean_title = title
     timestamp = datetime.now().strftime("%Y%m%d-%H%M")
     
     if date_short:
-        # Include both post date and current timestamp for uniqueness
-        subject = f"📢 새 글 ({date_short}) [{timestamp}]: {clean_title}"
+        subject = f"🚀 [{date_short}] {title}"
     else:
-        # Fallback: use timestamp only if date extraction fails
-        subject = f"📢 새 글 [{timestamp}]: {clean_title}"
+        subject = f"🚀 {title}"
 
-    # Email body (Markdown format with improved UI/UX)
+    normalized_category = category[0] if isinstance(category, list) and category else category
+    category_emoji = {
+        'security': '🔒', 'devsecops': '🛡️', 'devops': '⚙️',
+        'cloud': '☁️', 'kubernetes': '☸️', 'finops': '💰', 'incident': '🚨',
+    }
+    cat_emoji = category_emoji.get(str(normalized_category).lower(), '📝') if normalized_category else '📝'
+
     body_parts = [
-        "---",
-        "",
-        f"# ✨ {title}",
+        f"# {cat_emoji} {title}",
         "",
     ]
 
-    # Date
+    meta_parts = []
     if date_str:
+        meta_parts.append(f"📅 {date_str}")
+    if normalized_category:
+        meta_parts.append(f"{cat_emoji} {normalized_category}")
+    
+    if meta_parts:
         body_parts.extend([
-            f"📅 **발행일:** {date_str}",
+            " · ".join(meta_parts),
             "",
         ])
 
-    # Category badge
-    if category:
-        # Normalize category (handle list format)
-        normalized_category = category[0] if isinstance(category, list) and category else category
-        if normalized_category:
-            # Category emoji mapping
-            category_emoji = {
-                'security': '🔒',
-                'devsecops': '🛡️',
-                'devops': '⚙️',
-                'cloud': '☁️',
-                'kubernetes': '☸️',
-                'finops': '💰',
-                'incident': '🚨',
-            }
-            emoji = category_emoji.get(str(normalized_category).lower(), '📝')
-            body_parts.extend([
-                f"{emoji} **카테고리:** `{normalized_category}`",
-                "",
-            ])
-
-    # Tags
     if tags:
-        tag_list = tags[:6]  # Limit to 6 tags
+        tag_list = tags[:5]
         tag_badges = ' '.join([f"`{tag}`" for tag in tag_list])
         body_parts.extend([
-            f"🏷️ **태그:** {tag_badges}",
+            tag_badges,
             "",
         ])
 
-    # Description/Excerpt - formatted for better readability
+    body_parts.append("---")
+    body_parts.append("")
+
     if description:
         formatted_description = format_summary_for_email(description)
         body_parts.extend([
-            "---",
-            "",
-            "## 📋 요약",
-            "",
             formatted_description,
-            "",
-            "---",
             "",
         ])
 
-    # Call to action - more prominent
     body_parts.extend([
         "---",
         "",
-        "### 🚀 전체 글 읽기",
-        "",
-        f"> **[👉 지금 바로 읽기 →]({post_url})**",
+        f"### [📖 전체 글 읽기 →]({post_url})",
         "",
         "---",
         "",
-    ])
-
-    # Footer with timestamp and unique identifier to avoid duplicate detection
-    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    # Create a unique hash based on post URL and timestamp
-    unique_id = hashlib.md5(f"{post_url}{current_time}".encode()).hexdigest()[:8]
-    
-    body_parts.extend([
-        "---",
-        "",
-        "💌 **TwoDragon's Tech Blog**",
-        "",
-        "이 이메일은 [TwoDragon's Tech Blog](https://tech.2twodragon.com)의 새 글 알림입니다.",
-        "",
-        "📧 더 많은 기술 콘텐츠를 받아보려면 [블로그 구독하기](https://tech.2twodragon.com/support.html)",
-        "",
-        "---",
-        "",
-        f"<small>발송 시간: {current_time} | ID: {unique_id} | 구독 해지를 원하시면 이메일 하단의 링크를 클릭하세요.</small>",
+        "**TwoDragon's Tech Blog** | [구독하기](https://tech.2twodragon.com/support.html) | [블로그 방문](https://tech.2twodragon.com)",
     ])
 
     body = "\n".join(body_parts)

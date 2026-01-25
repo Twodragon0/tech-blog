@@ -808,34 +808,39 @@ def fetch_rss_feed(
             if published < cutoff_time:
                 continue
 
-            # 뉴스 아이템 생성
-            title = entry.get("title", "").strip()
-            url = entry.get("link", "").strip()
+            raw_title = entry.get("title", "")
+            title = raw_title.strip() if isinstance(raw_title, str) else ""
+            raw_url = entry.get("link", "")
+            url = raw_url.strip() if isinstance(raw_url, str) else ""
 
             if not title or not url:
                 continue
 
-            # 요약 추출
             summary = ""
-            if hasattr(entry, "summary"):
-                summary = clean_html(entry.summary)
-            elif hasattr(entry, "description"):
-                summary = clean_html(entry.description)
+            raw_summary = getattr(entry, "summary", None)
+            if raw_summary and isinstance(raw_summary, str):
+                summary = clean_html(raw_summary)
+            elif not summary:
+                raw_desc = getattr(entry, "description", None)
+                if raw_desc and isinstance(raw_desc, str):
+                    summary = clean_html(raw_desc)
 
-            # 콘텐츠 추출
             content = ""
-            if hasattr(entry, "content") and entry.content:
-                content = clean_html(entry.content[0].get("value", ""))
+            raw_content = getattr(entry, "content", None)
+            if raw_content and isinstance(raw_content, list) and len(raw_content) > 0:
+                content_val = raw_content[0].get("value", "") if isinstance(raw_content[0], dict) else ""
+                if isinstance(content_val, str):
+                    content = clean_html(content_val)
 
-            # 태그 추출
-            tags = []
-            if hasattr(entry, "tags"):
-                tags = [tag.get("term", "") for tag in entry.tags if tag.get("term")]
+            tags: list[str] = []
+            raw_tags = getattr(entry, "tags", None)
+            if raw_tags and isinstance(raw_tags, list):
+                tags = [str(tag.get("term", "")) for tag in raw_tags if isinstance(tag, dict) and tag.get("term")]
 
-            # 작성자 추출
             author = ""
-            if hasattr(entry, "author"):
-                author = entry.author
+            raw_author = getattr(entry, "author", None)
+            if raw_author and isinstance(raw_author, str):
+                author = raw_author
 
             item = NewsItem(
                 id=generate_id(url),

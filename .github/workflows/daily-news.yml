@@ -3,7 +3,14 @@ name: Daily Tech News Auto Publish
 on:
   schedule:
     # 매일 오전 10시 KST = UTC 01:00
+    # GitHub Actions cron은 큐 지연이 있을 수 있음 (최대 15-30분)
     - cron: '0 1 * * *'
+  
+  # 저장소 푸시 시에도 트리거 (선택적으로 활성화)
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - '.github/workflows/daily-news.yml'
   
   workflow_dispatch:
     inputs:

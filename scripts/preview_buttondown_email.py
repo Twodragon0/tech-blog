@@ -21,7 +21,8 @@ if ENV_FILE.exists():
             line = line.strip()
             if line and not line.startswith('#') and '=' in line:
                 key, value = line.split('=', 1)
-                os.environ[key.strip()] = value.strip()
+                value = value.strip().strip('"').strip("'")
+                os.environ[key.strip()] = value
 
 # Import functions from buttondown_notify.py
 sys.path.insert(0, str(SCRIPT_DIR))
@@ -33,7 +34,7 @@ from buttondown_notify import (
 )
 
 
-def preview_email(post_path: str, output_file: str = None):
+def preview_email(post_path: str, output_file: "str | None" = None):
     """Preview email content without sending."""
     post_file = Path(post_path)
     
