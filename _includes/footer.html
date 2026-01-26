@@ -74,22 +74,26 @@
     document.head.appendChild(speedInsightsScript);
     
     // Speed Insights vitals 엔드포인트 429 에러 처리
-    // fetch를 사용하는 경우 에러 핸들링
     if (window.fetch) {
       var originalFetch = window.fetch;
       window.fetch = function() {
         var args = Array.prototype.slice.call(arguments);
         var url = args[0];
         
-        // Speed Insights vitals 엔드포인트인 경우 에러 핸들링
+        // Speed Insights vitals 엔드포인트인 경우
         if (typeof url === 'string' && url.includes('/_vercel/speed-insights/vitals')) {
-          return originalFetch.apply(this, args).catch(function(error) {
-            // 429 에러 등은 조용히 처리 (Rate Limiting)
-            if (error && error.status === 429) {
-              return Promise.resolve(new Response(null, { status: 429 }));
-            }
-            throw error;
-          });
+          return originalFetch.apply(this, args)
+            .then(function(response) {
+              // 429 응답은 조용히 처리 (Rate Limiting - 정상 동작)
+              if (response.status === 429) {
+                return new Response(null, { status: 200, statusText: 'OK' });
+              }
+              return response;
+            })
+            .catch(function() {
+              // 네트워크 에러도 조용히 처리
+              return new Response(null, { status: 200, statusText: 'OK' });
+            });
         }
         
         return originalFetch.apply(this, args);
