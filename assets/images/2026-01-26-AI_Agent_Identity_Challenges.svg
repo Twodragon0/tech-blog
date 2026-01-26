@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f3460;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="centerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c73e54;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="400" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="350" y="40" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle">AI Agent Identity Management Challenges</text>
+  
+  <!-- Three challenge boxes -->
+  <!-- Scale Box -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="80" width="140" height="120" rx="10" fill="url(#boxGrad)" stroke="#4a90d9" stroke-width="2"/>
+    <text x="150" y="115" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#4a90d9" text-anchor="middle">Scale</text>
+    <text x="150" y="145" font-family="Arial, sans-serif" font-size="13" fill="#ccc" text-anchor="middle">수천 개</text>
+    <text x="150" y="170" font-family="Arial, sans-serif" font-size="13" fill="#ccc" text-anchor="middle">에이전트</text>
+  </g>
+  
+  <!-- Velocity Box -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="80" width="140" height="120" rx="10" fill="url(#boxGrad)" stroke="#50c878" stroke-width="2"/>
+    <text x="350" y="115" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#50c878" text-anchor="middle">Velocity</text>
+    <text x="350" y="145" font-family="Arial, sans-serif" font-size="13" fill="#ccc" text-anchor="middle">초당 수백</text>
+    <text x="350" y="170" font-family="Arial, sans-serif" font-size="13" fill="#ccc" text-anchor="middle">API 호출</text>
+  </g>
+  
+  <!-- Autonomy Box -->
+  <g filter="url(#shadow)">
+    <rect x="480" y="80" width="140" height="120" rx="10" fill="url(#boxGrad)" stroke="#ffa500" stroke-width="2"/>
+    <text x="550" y="115" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffa500" text-anchor="middle">Autonomy</text>
+    <text x="550" y="145" font-family="Arial, sans-serif" font-size="13" fill="#ccc" text-anchor="middle">자율 결정</text>
+    <text x="550" y="170" font-family="Arial, sans-serif" font-size="13" fill="#ccc" text-anchor="middle">권한 요청</text>
+  </g>
+  
+  <!-- Connecting lines -->
+  <path d="M150 200 L150 235 L350 235" stroke="#4a90d9" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+  <path d="M350 200 L350 235" stroke="#50c878" stroke-width="2" fill="none"/>
+  <path d="M550 200 L550 235 L350 235" stroke="#ffa500" stroke-width="2" fill="none"/>
+  
+  <!-- Arrow down -->
+  <path d="M350 235 L350 265" stroke="#fff" stroke-width="2" fill="none"/>
+  <polygon points="350,275 343,260 357,260" fill="#fff"/>
+  
+  <!-- Zero Trust Center Box -->
+  <g filter="url(#shadow)">
+    <rect x="230" y="280" width="240" height="100" rx="12" fill="url(#centerGrad)" stroke="#fff" stroke-width="2"/>
+    <text x="350" y="310" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">Zero Trust 원칙</text>
+    <text x="350" y="335" font-family="Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">• Never Trust</text>
+    <text x="350" y="352" font-family="Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">• Always Verify</text>
+    <text x="350" y="369" font-family="Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">• Least Privilege</text>
+  </g>
+</svg>
