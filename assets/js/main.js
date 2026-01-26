@@ -1,4 +1,5 @@
 // Modern UI/UX JavaScript for Tech Blog
+// Build: 2026-01-26 v2 - Responsive table wrapper with scroll hints
 (function() {
   'use strict';
   
