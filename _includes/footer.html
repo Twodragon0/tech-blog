@@ -44,7 +44,7 @@
   </div>
 </footer>
 
-<script src="{{ "/assets/js/main.js" | relative_url }}" defer></script>
+<script src="{{ "/assets/js/main.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
 
 <!-- Vercel Analytics & Speed Insights (페이지 하단에서 로드, 에러 핸들링 포함) -->
 <script>
