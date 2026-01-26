@@ -253,9 +253,62 @@ Vercel 대시보드에서 Speed Insights 설정 확인:
 - 에러 핸들링으로 콘솔 에러를 방지할 수 있습니다
 - Vercel Pro 플랜에서는 더 높은 Rate Limit이 제공됩니다
 
+## Vercel Attack Challenge Mode (429 에러) 해결
+
+### 문제
+
+사이트 전체에서 429 에러와 함께 `x-vercel-mitigated: challenge` 헤더가 반환됩니다.
+
+### 원인
+
+Vercel의 Attack Challenge Mode가 활성화되어 모든 요청에 브라우저 검증이 적용됩니다.
+
+### 즉시 해결 방법 (Vercel Dashboard)
+
+1. **Vercel 대시보드** 접속: https://vercel.com/dashboard
+2. **프로젝트 선택** → **Settings** 이동
+3. **Security** 탭 클릭
+4. **Attack Challenge Mode** 확인:
+   - 현재 상태가 `Enabled`인 경우 `Disabled`로 변경
+   - 또는 **IP 기반 예외** 설정
+5. **Firewall Rules** 확인:
+   - 너무 엄격한 규칙이 있는지 확인
+   - 필요시 규칙 완화 또는 제거
+
+### 대안 해결 방법
+
+Attack Challenge가 필요한 경우:
+
+1. **특정 경로만 Challenge 적용**:
+   ```
+   Path: /api/*
+   Action: Challenge
+   ```
+
+2. **특정 국가/IP 예외 설정**:
+   - 한국(KR) IP 예외 처리
+   - 관리자 IP 화이트리스트 추가
+
+3. **Rate Limiting 대신 사용**:
+   - Challenge를 비활성화하고 Rate Limiting만 적용
+
+### 확인 방법
+
+```bash
+# HTTP 상태 코드 확인
+curl -s -o /dev/null -w "%{http_code}" https://tech.2twodragon.com
+
+# 응답 헤더 확인
+curl -s -I https://tech.2twodragon.com | head -20
+```
+
+정상인 경우: `200`
+문제인 경우: `429` + `x-vercel-mitigated: challenge`
+
 ## 업데이트 이력
 
 - **2026-01-11**: 초기 문서 작성, `/certifications/` 경로 헤더 최적화 적용
 - **2026-01-11**: `X-Robots-Tag` 헤더 제거로 브라우저 검증 충돌 해결
 - **2026-01-11**: `/posts/` 경로 헤더 최적화 추가, Cloudflare 설정 가이드 추가
 - **2026-01-11**: Vercel Speed Insights 429 에러 해결 방법 추가
+- **2026-01-26**: Vercel Attack Challenge Mode 해결 방법 추가 (705 에러)
