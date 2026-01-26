@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400">
+  <defs>
+    <linearGradient id="titleBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="attackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4757"/>
+      <stop offset="100%" style="stop-color:#ff6b81"/>
+    </linearGradient>
+    <linearGradient id="targetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2ed573"/>
+      <stop offset="100%" style="stop-color:#7bed9f"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="400" fill="#0f0f23"/>
+  
+  <!-- Title -->
+  <rect x="0" y="0" width="700" height="45" fill="url(#titleBg)"/>
+  <text x="350" y="28" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">AitM + BEC 공격 흐름도 (Attack Flow)</text>
+  
+  <!-- Phase boxes -->
+  <!-- Phase 1 -->
+  <rect x="30" y="65" width="140" height="80" rx="8" fill="url(#attackGrad)" filter="url(#shadow)"/>
+  <text x="100" y="90" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">[1] 초기 접근</text>
+  <text x="100" y="110" font-family="Arial, sans-serif" font-size="9" fill="#ffe0e0" text-anchor="middle">SharePoint 피싱</text>
+  <text x="100" y="125" font-family="Arial, sans-serif" font-size="9" fill="#ffe0e0" text-anchor="middle">링크 발송</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M170 105 L200 105" stroke="#ff4757" stroke-width="2" fill="none"/>
+  <polygon points="200,105 190,100 190,110" fill="#ff4757"/>
+  
+  <!-- Phase 2 -->
+  <rect x="205" y="65" width="140" height="80" rx="8" fill="url(#attackGrad)" filter="url(#shadow)"/>
+  <text x="275" y="90" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">[2] 자격 증명 탈취</text>
+  <text x="275" y="110" font-family="Arial, sans-serif" font-size="9" fill="#ffe0e0" text-anchor="middle">AitM 프록시</text>
+  <text x="275" y="125" font-family="Arial, sans-serif" font-size="9" fill="#ffe0e0" text-anchor="middle">MFA 토큰 가로채기</text>
+  
+  <!-- Arrow 2 -->
+  <path d="M345 105 L375 105" stroke="#ff4757" stroke-width="2" fill="none"/>
+  <polygon points="375,105 365,100 365,110" fill="#ff4757"/>
+  
+  <!-- Phase 3 -->
+  <rect x="380" y="65" width="140" height="80" rx="8" fill="url(#attackGrad)" filter="url(#shadow)"/>
+  <text x="450" y="90" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">[3] 지속성 확보</text>
+  <text x="450" y="110" font-family="Arial, sans-serif" font-size="9" fill="#ffe0e0" text-anchor="middle">받은편지함 규칙</text>
+  <text x="450" y="125" font-family="Arial, sans-serif" font-size="9" fill="#ffe0e0" text-anchor="middle">보안 알림 삭제</text>
+  
+  <!-- Arrow 3 -->
+  <path d="M520 105 L550 105" stroke="#ff4757" stroke-width="2" fill="none"/>
+  <polygon points="550,105 540,100 540,110" fill="#ff4757"/>
+  
+  <!-- Phase 4 -->
+  <rect x="555" y="65" width="120" height="80" rx="8" fill="#8b0000" filter="url(#shadow)"/>
+  <text x="615" y="90" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">[4] BEC 실행</text>
+  <text x="615" y="110" font-family="Arial, sans-serif" font-size="9" fill="#ffcccc" text-anchor="middle">내부 직원 위장</text>
+  <text x="615" y="125" font-family="Arial, sans-serif" font-size="9" fill="#ffcccc" text-anchor="middle">금융 사기</text>
+  
+  <!-- MITRE ATT&CK Section -->
+  <rect x="30" y="170" width="640" height="100" rx="8" fill="#1e2d4d" filter="url(#shadow)"/>
+  <text x="50" y="195" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffd700">MITRE ATT&CK Mapping</text>
+  
+  <g font-family="monospace" font-size="10">
+    <text x="50" y="220" fill="#ff6b6b">T1566.002</text>
+    <text x="130" y="220" fill="#aaa">스피어피싱 링크</text>
+    
+    <text x="280" y="220" fill="#ff6b6b">T1557</text>
+    <text x="330" y="220" fill="#aaa">Adversary-in-the-Middle</text>
+    
+    <text x="50" y="245" fill="#ff6b6b">T1564.008</text>
+    <text x="130" y="245" fill="#aaa">Email 규칙 숨기기</text>
+    
+    <text x="280" y="245" fill="#ff6b6b">T1534</text>
+    <text x="330" y="245" fill="#aaa">내부 스피어피싱</text>
+  </g>
+  
+  <!-- Defense Recommendations -->
+  <rect x="30" y="285" width="640" height="100" rx="8" fill="url(#targetGrad)" filter="url(#shadow)"/>
+  <text x="50" y="310" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1a1a2e">방어 권장 사항 (Defense Recommendations)</text>
+  
+  <g font-family="Arial, sans-serif" font-size="10" fill="#0a3d0a">
+    <circle cx="55" cy="333" r="3" fill="#006400"/>
+    <text x="65" y="337">피싱 방지 MFA (FIDO2/Passkey)</text>
+    
+    <circle cx="250" cy="333" r="3" fill="#006400"/>
+    <text x="260" y="337">받은편지함 규칙 모니터링</text>
+    
+    <circle cx="450" cy="333" r="3" fill="#006400"/>
+    <text x="460" y="337">SharePoint 외부 공유 제한</text>
+    
+    <circle cx="55" cy="358" r="3" fill="#006400"/>
+    <text x="65" y="362">조건부 액세스 정책</text>
+    
+    <circle cx="250" cy="358" r="3" fill="#006400"/>
+    <text x="260" y="362">비정상 로그인 탐지</text>
+    
+    <circle cx="450" cy="358" r="3" fill="#006400"/>
+    <text x="460" y="362">보안 인식 교육 강화</text>
+  </g>
+</svg>

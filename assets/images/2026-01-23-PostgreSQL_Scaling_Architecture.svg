@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 450">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="appGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa"/>
+      <stop offset="100%" style="stop-color:#00a080"/>
+    </linearGradient>
+    <linearGradient id="poolGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a29bfe"/>
+      <stop offset="100%" style="stop-color:#6c5ce7"/>
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#336791"/>
+      <stop offset="100%" style="stop-color:#264d73"/>
+    </linearGradient>
+    <linearGradient id="replicaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90a4"/>
+      <stop offset="100%" style="stop-color:#367588"/>
+    </linearGradient>
+    <linearGradient id="citusGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff7675"/>
+      <stop offset="100%" style="stop-color:#d63031"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="750" height="450" fill="#0f0f23"/>
+  
+  <!-- Title -->
+  <rect x="0" y="0" width="750" height="50" fill="url(#headerGrad)"/>
+  <text x="375" y="30" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#ffffff" text-anchor="middle">OpenAI PostgreSQL 스케일링 아키텍처</text>
+  <text x="375" y="45" font-family="Arial, sans-serif" font-size="10" fill="#888" text-anchor="middle">8억 ChatGPT 사용자 지원</text>
+  
+  <!-- ChatGPT Instances -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="70" width="100" height="50" rx="8" fill="url(#appGrad)"/>
+    <text x="150" y="95" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">ChatGPT</text>
+    <text x="150" y="110" font-family="Arial, sans-serif" font-size="8" fill="#c0ffc0" text-anchor="middle">Instance 1</text>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="225" y="70" width="100" height="50" rx="8" fill="url(#appGrad)"/>
+    <text x="275" y="95" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">ChatGPT</text>
+    <text x="275" y="110" font-family="Arial, sans-serif" font-size="8" fill="#c0ffc0" text-anchor="middle">Instance 2</text>
+  </g>
+  
+  <g filter="url(#shadow)">
+    <rect x="350" y="70" width="100" height="50" rx="8" fill="url(#appGrad)"/>
+    <text x="400" y="95" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">ChatGPT</text>
+    <text x="400" y="110" font-family="Arial, sans-serif" font-size="8" fill="#c0ffc0" text-anchor="middle">Instance 3</text>
+  </g>
+  
+  <text x="480" y="95" font-family="Arial, sans-serif" font-size="20" fill="#666">...</text>
+  
+  <!-- Connection lines to PgBouncer -->
+  <path d="M150 120 L150 155 L375 155" stroke="#00d4aa" stroke-width="2" fill="none"/>
+  <path d="M275 120 L275 155 L375 155" stroke="#00d4aa" stroke-width="2" fill="none"/>
+  <path d="M400 120 L400 155 L375 155" stroke="#00d4aa" stroke-width="2" fill="none"/>
+  <path d="M375 155 L375 170" stroke="#00d4aa" stroke-width="2" fill="none"/>
+  
+  <!-- PgBouncer -->
+  <rect x="250" y="170" width="250" height="60" rx="10" fill="url(#poolGrad)" filter="url(#shadow)"/>
+  <text x="375" y="195" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">PgBouncer</text>
+  <text x="375" y="215" font-family="Arial, sans-serif" font-size="10" fill="#e0e0ff" text-anchor="middle">Connection Pool Layer</text>
+  
+  <!-- Arrow from PgBouncer -->
+  <path d="M375 230 L375 255" stroke="#a29bfe" stroke-width="2" fill="none"/>
+  
+  <!-- Split lines -->
+  <path d="M375 255 L150 255 L150 280" stroke="#a29bfe" stroke-width="2" fill="none"/>
+  <path d="M375 255 L375 280" stroke="#a29bfe" stroke-width="2" fill="none"/>
+  <path d="M375 255 L600 255 L600 280" stroke="#a29bfe" stroke-width="2" fill="none"/>
+  
+  <!-- PostgreSQL Primary -->
+  <rect x="75" y="280" width="150" height="70" rx="10" fill="url(#primaryGrad)" filter="url(#shadow)"/>
+  <image href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0iIzMzNjc5MSIvPjwvc3ZnPg==" x="85" y="290" width="25" height="25"/>
+  <text x="150" y="305" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">PostgreSQL</text>
+  <text x="150" y="322" font-family="Arial, sans-serif" font-size="10" fill="#b0c4de" text-anchor="middle">Primary (Write)</text>
+  <rect x="95" y="335" width="110" height="12" rx="3" fill="#ffd700"/>
+  <text x="150" y="344" font-family="Arial, sans-serif" font-size="8" fill="#1a1a2e" text-anchor="middle">Master Node</text>
+  
+  <!-- Replication arrows -->
+  <path d="M225 315 L290 315" stroke="#ffd700" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+  <polygon points="290,315 280,310 280,320" fill="#ffd700"/>
+  
+  <path d="M225 315 L500 255 L525 280" stroke="#ffd700" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+  
+  <!-- PostgreSQL Replica 1 -->
+  <rect x="300" y="280" width="150" height="70" rx="10" fill="url(#replicaGrad)" filter="url(#shadow)"/>
+  <text x="375" y="305" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">PostgreSQL</text>
+  <text x="375" y="322" font-family="Arial, sans-serif" font-size="10" fill="#b0c4de" text-anchor="middle">Replica (Read)</text>
+  <rect x="320" y="335" width="110" height="12" rx="3" fill="#87ceeb"/>
+  <text x="375" y="344" font-family="Arial, sans-serif" font-size="8" fill="#1a1a2e" text-anchor="middle">Read Replica 1</text>
+  
+  <!-- PostgreSQL Replica 2 -->
+  <rect x="525" y="280" width="150" height="70" rx="10" fill="url(#replicaGrad)" filter="url(#shadow)"/>
+  <text x="600" y="305" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">PostgreSQL</text>
+  <text x="600" y="322" font-family="Arial, sans-serif" font-size="10" fill="#b0c4de" text-anchor="middle">Replica (Read)</text>
+  <rect x="545" y="335" width="110" height="12" rx="3" fill="#87ceeb"/>
+  <text x="600" y="344" font-family="Arial, sans-serif" font-size="8" fill="#1a1a2e" text-anchor="middle">Read Replica 2</text>
+  
+  <!-- Citus Layer -->
+  <rect x="75" y="380" width="600" height="55" rx="10" fill="url(#citusGrad)" filter="url(#shadow)"/>
+  <text x="375" y="405" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Citus (Distributed PostgreSQL)</text>
+  <text x="375" y="423" font-family="Arial, sans-serif" font-size="10" fill="#ffe0e0" text-anchor="middle">Horizontal Sharding for Massive Scale</text>
+  
+  <!-- Legend -->
+  <rect x="550" y="70" width="175" height="90" rx="5" fill="rgba(255,255,255,0.05)" stroke="#333"/>
+  <text x="637" y="88" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#888" text-anchor="middle">Key Components</text>
+  
+  <rect x="560" y="100" width="12" height="12" rx="2" fill="url(#poolGrad)"/>
+  <text x="580" y="110" font-family="Arial, sans-serif" font-size="9" fill="#aaa">Connection Pooling</text>
+  
+  <rect x="560" y="118" width="12" height="12" rx="2" fill="url(#primaryGrad)"/>
+  <text x="580" y="128" font-family="Arial, sans-serif" font-size="9" fill="#aaa">Write Node</text>
+  
+  <rect x="560" y="136" width="12" height="12" rx="2" fill="url(#replicaGrad)"/>
+  <text x="580" y="146" font-family="Arial, sans-serif" font-size="9" fill="#aaa">Read Replicas</text>
+</svg>
