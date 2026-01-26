@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="366" viewBox="0 0 400 366">
+<defs>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.2"/>
+  </filter>
+</defs>
+<g filter="url(#shadow)">
+<rect x="0" y="0" width="400" height="366" fill="#282a36" rx="10" ry="10"/>
+<rect x="0" y="0" width="400" height="40" fill="#21222c" rx="10" ry="10"/>
+<rect x="0" y="30" width="400" height="10" fill="#21222c"/>
+<circle cx="20" cy="20" r="6" fill="#ff5f56"/>
+<circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
+<circle cx="60" cy="20" r="6" fill="#27c93f"/>
+<text x="385" y="25" text-anchor="end" fill="#6272a4" font-family="monospace" font-size="12">yaml</text>
+</g>
+<text x="20" y="74" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">1</text>
+<text x="70" y="74" fill="#f8f8f2" font-family="monospace" font-size="14"># .github/dependabot.yml</text>
+<text x="20" y="96" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">2</text>
+<text x="70" y="96" fill="#f8f8f2" font-family="monospace" font-size="14">version: 2</text>
+<text x="20" y="118" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">3</text>
+<text x="70" y="118" fill="#f8f8f2" font-family="monospace" font-size="14">updates:</text>
+<text x="20" y="140" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">4</text>
+<text x="70" y="140" fill="#f8f8f2" font-family="monospace" font-size="14">  - package-ecosystem: &quot;npm&quot;</text>
+<text x="20" y="162" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">5</text>
+<text x="70" y="162" fill="#f8f8f2" font-family="monospace" font-size="14">    directory: &quot;/&quot;</text>
+<text x="20" y="184" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">6</text>
+<text x="70" y="184" fill="#f8f8f2" font-family="monospace" font-size="14">    schedule:</text>
+<text x="20" y="206" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">7</text>
+<text x="70" y="206" fill="#f8f8f2" font-family="monospace" font-size="14">      interval: &quot;weekly&quot;</text>
+<text x="20" y="228" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">8</text>
+<text x="70" y="228" fill="#f8f8f2" font-family="monospace" font-size="14">    open-pull-requests-limit: 10</text>
+<text x="20" y="250" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">9</text>
+<text x="70" y="250" fill="#f8f8f2" font-family="monospace" font-size="14">    reviewers:</text>
+<text x="20" y="272" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">10</text>
+<text x="70" y="272" fill="#f8f8f2" font-family="monospace" font-size="14">      - &quot;security-team&quot;</text>
+<text x="20" y="294" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">11</text>
+<text x="70" y="294" fill="#f8f8f2" font-family="monospace" font-size="14">    labels:</text>
+<text x="20" y="316" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">12</text>
+<text x="70" y="316" fill="#f8f8f2" font-family="monospace" font-size="14">      - &quot;dependencies&quot;</text>
+<text x="20" y="338" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">13</text>
+<text x="70" y="338" fill="#f8f8f2" font-family="monospace" font-size="14">      - &quot;security&quot;</text>
+</svg>

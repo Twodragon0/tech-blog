@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="740" viewBox="0 0 800 740">
+<defs>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.2"/>
+  </filter>
+</defs>
+<g filter="url(#shadow)">
+<rect x="0" y="0" width="800" height="740" fill="#282a36" rx="10" ry="10"/>
+<rect x="0" y="0" width="800" height="40" fill="#21222c" rx="10" ry="10"/>
+<rect x="0" y="30" width="800" height="10" fill="#21222c"/>
+<circle cx="20" cy="20" r="6" fill="#ff5f56"/>
+<circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
+<circle cx="60" cy="20" r="6" fill="#27c93f"/>
+<text x="785" y="25" text-anchor="end" fill="#6272a4" font-family="monospace" font-size="12">text</text>
+</g>
+<text x="20" y="74" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">1</text>
+<text x="70" y="74" fill="#f8f8f2" font-family="monospace" font-size="14">--&gt;</text>
+<text x="20" y="96" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">2</text>
+<text x="70" y="96" fill="#f8f8f2" font-family="monospace" font-size="14"></text>
+<text x="20" y="118" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">3</text>
+<text x="70" y="118" fill="#f8f8f2" font-family="monospace" font-size="14">## 5. FinOps 대시보드 KPI</text>
+<text x="20" y="140" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">4</text>
+<text x="70" y="140" fill="#f8f8f2" font-family="monospace" font-size="14"></text>
+<text x="20" y="162" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">5</text>
+<text x="70" y="162" fill="#f8f8f2" font-family="monospace" font-size="14">| 지표 | 설명 | 목표 |</text>
+<text x="20" y="184" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">6</text>
+<text x="70" y="184" fill="#f8f8f2" font-family="monospace" font-size="14">|------|------|------|</text>
+<text x="20" y="206" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">7</text>
+<text x="70" y="206" fill="#f8f8f2" font-family="monospace" font-size="14">| **Unit Cost** | 트랜잭션당 비용 | 감소 추세 |</text>
+<text x="20" y="228" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">8</text>
+<text x="70" y="228" fill="#f8f8f2" font-family="monospace" font-size="14">| **Coverage** | RI/SP 커버리지 | &gt; 70% |</text>
+<text x="20" y="250" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">9</text>
+<text x="70" y="250" fill="#f8f8f2" font-family="monospace" font-size="14">| **Utilization** | RI/SP 활용률 | &gt; 80% |</text>
+<text x="20" y="272" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">10</text>
+<text x="70" y="272" fill="#f8f8f2" font-family="monospace" font-size="14">| **Waste Rate** | 미사용 리소스 비율 | &lt; 5% |</text>
+<text x="20" y="294" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">11</text>
+<text x="70" y="294" fill="#f8f8f2" font-family="monospace" font-size="14">| **Tagging Compliance** | 태그 준수율 | &gt; 95% |</text>
+<text x="20" y="316" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">12</text>
+<text x="70" y="316" fill="#f8f8f2" font-family="monospace" font-size="14"></text>
+<text x="20" y="338" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">13</text>
+<text x="70" y="338" fill="#f8f8f2" font-family="monospace" font-size="14">## 6. 2025년 AWS re:Invent 보안 발표</text>
+<text x="20" y="360" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">14</text>
+<text x="70" y="360" fill="#f8f8f2" font-family="monospace" font-size="14"></text>
+<text x="20" y="382" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">15</text>
+<text x="70" y="382" fill="#f8f8f2" font-family="monospace" font-size="14">2025년 AWS re:Invent에서 발표된 주요 보안 기능들을 정리합니다. 이 새로운 기능들은 AWS 보안 서비스와 FinOps 전략에 중요한 영향을 미칩니다.</text>
+<text x="20" y="404" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">16</text>
+<text x="70" y="404" fill="#f8f8f2" font-family="monospace" font-size="14"></text>
+<text x="20" y="426" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">17</text>
+<text x="70" y="426" fill="#f8f8f2" font-family="monospace" font-size="14">### 6.1 핵심 보안 서비스 업데이트</text>
+<text x="20" y="448" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">18</text>
+<text x="70" y="448" fill="#f8f8f2" font-family="monospace" font-size="14"></text>
+<text x="20" y="470" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">19</text>
+<text x="70" y="470" fill="#f8f8f2" font-family="monospace" font-size="14">#### AWS Security Hub GA 업데이트</text>
+<text x="20" y="492" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">20</text>
+<text x="70" y="492" fill="#f8f8f2" font-family="monospace" font-size="14"></text>
+<text x="20" y="514" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">21</text>
+<text x="70" y="514" fill="#f8f8f2" font-family="monospace" font-size="14">AWS Security Hub는 통합 보안 관리 플랫폼으로, 여러 AWS 보안 서비스의 결과를 중앙에서 관리합니다:</text>
+<text x="20" y="536" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">22</text>
+<text x="70" y="536" fill="#f8f8f2" font-family="monospace" font-size="14"></text>
+<text x="20" y="558" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">23</text>
+<text x="70" y="558" fill="#f8f8f2" font-family="monospace" font-size="14">&lt;img src=&quot;{{ &#x27;/assets/images/diagrams/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops_mermaid_chart_3.png&#x27; | relative_url }}&quot; alt=&quot;mermaid_chart_3&quot; loading=&quot;lazy&quot; class=&quot;post-image&quot;&gt;</text>
+<text x="20" y="580" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">24</text>
+<text x="70" y="580" fill="#f8f8f2" font-family="monospace" font-size="14"></text>
+<text x="20" y="602" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">25</text>
+<text x="70" y="602" fill="#f8f8f2" font-family="monospace" font-size="14">- **보안 위험 중앙 집중화**: 모든 보안 위협을 단일 대시보드에서 관리</text>
+<text x="20" y="624" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">26</text>
+<text x="70" y="624" fill="#f8f8f2" font-family="monospace" font-size="14">- **히스토리 트렌드**: 시간에 따른 보안 상태 변화 추적</text>
+<text x="20" y="646" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">27</text>
+<text x="70" y="646" fill="#f8f8f2" font-family="monospace" font-size="14">- **노출 요약**: 취약점 노출 현황 한눈에 파악</text>
+<text x="20" y="668" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">28</text>
+<text x="70" y="668" fill="#f8f8f2" font-family="monospace" font-size="14">- **커스텀 위젯**: 맞춤형 보안 대시보드 구성 가능</text>
+<text x="20" y="690" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">29</text>
+<text x="70" y="690" fill="#f8f8f2" font-family="monospace" font-size="14"></text>
+<text x="20" y="712" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">30</text>
+<text x="70" y="712" fill="#f8f8f2" font-family="monospace" font-size="14">#### Amazon GuardDuty Extended Threat Detection</text>
+<text x="70" y="734" fill="#6272a4" font-family="monospace" font-size="14" font-style="italic">... (more lines)</text>
+</svg>

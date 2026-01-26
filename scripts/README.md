@@ -110,6 +110,27 @@ python3 scripts/generate_missing_diagrams.py _posts/2025-01-01-example.md
 python3 scripts/generate_og_banner.py
 ```
 
+### Code Block Images
+
+```bash
+# Generate code block images for recent posts
+python3 scripts/generate_code_images.py --recent 5
+
+# Generate for all posts (with Dracula theme)
+python3 scripts/generate_code_images.py --all --theme dracula
+
+# List available themes
+python3 scripts/generate_code_images.py --list-themes
+
+# Options:
+#   --theme: monokai, dracula, github-dark, one-dark, nord
+#   --max-blocks: Limit code blocks per post
+#   --max-lines: Max lines per code block (default: 30)
+#   --no-line-numbers: Hide line numbers
+#   --no-title-bar: Hide macOS-style title bar
+#   --force: Regenerate existing images
+```
+
 ### KISA Security Notices
 
 ```bash

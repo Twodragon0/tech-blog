@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="124" viewBox="0 0 400 124">
+<defs>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.2"/>
+  </filter>
+</defs>
+<g filter="url(#shadow)">
+<rect x="0" y="0" width="400" height="124" fill="#282a36" rx="10" ry="10"/>
+<rect x="0" y="0" width="400" height="40" fill="#21222c" rx="10" ry="10"/>
+<rect x="0" y="30" width="400" height="10" fill="#21222c"/>
+<circle cx="20" cy="20" r="6" fill="#ff5f56"/>
+<circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
+<circle cx="60" cy="20" r="6" fill="#27c93f"/>
+<text x="385" y="25" text-anchor="end" fill="#6272a4" font-family="monospace" font-size="12">bash</text>
+</g>
+<text x="20" y="74" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">1</text>
+<text x="70" y="74" fill="#f8f8f2" font-family="monospace" font-size="14">&gt; # 이미지 다운로드...</text>
+<text x="20" y="96" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">2</text>
+<text x="70" y="96" fill="#f8f8f2" font-family="monospace" font-size="14">&gt;</text>
+</svg>

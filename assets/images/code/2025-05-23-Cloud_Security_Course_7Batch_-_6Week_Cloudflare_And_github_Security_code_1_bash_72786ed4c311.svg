@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="501.6" height="190" viewBox="0 0 501.6 190">
+<defs>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.2"/>
+  </filter>
+</defs>
+<g filter="url(#shadow)">
+<rect x="0" y="0" width="501.6" height="190" fill="#282a36" rx="10" ry="10"/>
+<rect x="0" y="0" width="501.6" height="40" fill="#21222c" rx="10" ry="10"/>
+<rect x="0" y="30" width="501.6" height="10" fill="#21222c"/>
+<circle cx="20" cy="20" r="6" fill="#ff5f56"/>
+<circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
+<circle cx="60" cy="20" r="6" fill="#27c93f"/>
+<text x="486.6" y="25" text-anchor="end" fill="#6272a4" font-family="monospace" font-size="12">bash</text>
+</g>
+<text x="20" y="74" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">1</text>
+<text x="70" y="74" fill="#f8f8f2" font-family="monospace" font-size="14"># DVWA 컨테이너 실행 예시</text>
+<text x="20" y="96" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">2</text>
+<text x="70" y="96" fill="#f8f8f2" font-family="monospace" font-size="14">docker run --rm -it -p 80:80 vulnerables/web-dvwa</text>
+<text x="20" y="118" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">3</text>
+<text x="70" y="118" fill="#f8f8f2" font-family="monospace" font-size="14"></text>
+<text x="20" y="140" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">4</text>
+<text x="70" y="140" fill="#f8f8f2" font-family="monospace" font-size="14"># AWS WAF 설정 테스트</text>
+<text x="20" y="162" fill="#6272a4" font-family="monospace" font-size="14" text-anchor="start">5</text>
+<text x="70" y="162" fill="#f8f8f2" font-family="monospace" font-size="14"># AWS Console에서 WAF 규칙 생성 및 테스트</text>
+</svg>
