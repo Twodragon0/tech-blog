@@ -113,6 +113,8 @@
       /giscus.*404/i,
       /widget.*giscus.*404/i,
       /Failed to load resource.*giscus.*404/i,
+      /giscus\.app.*\d+ms/i,
+      /https:\/\/giscus\.app\/.*widget.*\d+ms/i,
       // SES (Secure EcmaScript) - Google AdSense 보안 메커니즘
       /SES Removing unpermitted intrinsics/i,
       /lockdown-install/i,
@@ -160,6 +162,17 @@
       /adsbygoogle\.js.*403/i,
       /pagead2\.googlesyndication\.com.*403/i,
       /GET.*adsbygoogle.*403/i,
+      /GET.*googlesyndication.*403/i,
+      /net::ERR_ABORTED.*403.*googlesyndication/i,
+      /googlesyndication.*net::ERR_ABORTED/i,
+      /adsbygoogle.*Forbidden/i,
+      // Vercel Speed Insights 429 에러 필터링 (Rate Limiting)
+      /speed-insights.*429/i,
+      /vitals.*429/i,
+      /_vercel\/speed-insights.*429/i,
+      /POST.*speed-insights.*429/i,
+      /Too Many Requests.*speed-insights/i,
+      /speed-insights.*Too Many Requests/i,
       // Firebase Dynamic Links 오류 필터링 (2025년 8월 25일 서비스 종료로 인한 오류)
       /firebase.*dynamic.*link/i,
       /Invalid dynamic link/i,
@@ -2479,11 +2492,14 @@
       });
     })();
 
-    // Table wrapper for mobile responsiveness
+    // Table wrapper for mobile responsiveness with enhanced scroll UX
     (function initTableWrapper() {
       'use strict';
       
-      // 이미 래핑된 테이블은 스킵
+      // 스크롤 타이머 ID 저장용
+      const scrollTimers = new WeakMap();
+      
+      // 테이블 래퍼 생성 및 스크롤 이벤트 설정
       const wrapTables = () => {
         const postContent = document.querySelector('.post-content');
         if (!postContent) return;
@@ -2492,6 +2508,8 @@
         tables.forEach(table => {
           // 이미 래퍼로 감싸져 있으면 스킵
           if (table.parentElement && table.parentElement.classList.contains('table-wrapper')) {
+            // 이미 래퍼가 있으면 스크롤 이벤트만 설정
+            setupScrollBehavior(table.parentElement);
             return;
           }
           
@@ -2502,7 +2520,69 @@
           // 테이블을 래퍼로 이동
           table.parentNode.insertBefore(wrapper, table);
           wrapper.appendChild(table);
+          
+          // 스크롤 동작 설정
+          setupScrollBehavior(wrapper);
         });
+      };
+      
+      // 스크롤 동작 설정 (스크롤 힌트 숨기기/보이기)
+      const setupScrollBehavior = (wrapper) => {
+        // 이미 설정된 경우 스킵
+        if (wrapper.dataset.scrollSetup === 'true') return;
+        wrapper.dataset.scrollSetup = 'true';
+        
+        let scrollTimeout;
+        
+        // 스크롤 시작 시 힌트 숨김
+        wrapper.addEventListener('scroll', () => {
+          // 스크롤 중 표시
+          wrapper.classList.add('is-scrolling');
+          
+          // 기존 타이머 클리어
+          if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+          }
+          
+          // 스크롤 종료 후 1.5초 뒤 힌트 다시 표시
+          scrollTimeout = setTimeout(() => {
+            wrapper.classList.remove('is-scrolling');
+          }, 1500);
+        }, { passive: true });
+        
+        // 터치 시작 시 힌트 숨김
+        wrapper.addEventListener('touchstart', () => {
+          wrapper.classList.add('is-scrolling');
+        }, { passive: true });
+        
+        // 터치 종료 후 힌트 다시 표시
+        wrapper.addEventListener('touchend', () => {
+          if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+          }
+          scrollTimeout = setTimeout(() => {
+            wrapper.classList.remove('is-scrolling');
+          }, 1500);
+        }, { passive: true });
+        
+        // 초기 상태: 스크롤 가능 여부 확인 후 힌트 표시/숨김
+        const checkScrollable = () => {
+          const isScrollable = wrapper.scrollWidth > wrapper.clientWidth;
+          if (!isScrollable) {
+            wrapper.classList.add('no-scroll-hint');
+          } else {
+            wrapper.classList.remove('no-scroll-hint');
+          }
+        };
+        
+        // 초기 체크 (약간 지연)
+        setTimeout(checkScrollable, 100);
+        
+        // 리사이즈 시 재체크
+        window.addEventListener('resize', () => {
+          clearTimeout(scrollTimers.get(wrapper));
+          scrollTimers.set(wrapper, setTimeout(checkScrollable, 200));
+        }, { passive: true });
       };
       
       // 초기 실행

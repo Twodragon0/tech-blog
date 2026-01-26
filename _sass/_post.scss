@@ -298,7 +298,9 @@
   font-weight: 600;
 }
 
-/* Tables */
+/* ===== Tables - Responsive Mobile/Tablet Optimized ===== */
+
+/* 기본 테이블 스타일 (데스크톱) */
 .post-content table {
   width: 100%;
   border-collapse: collapse;
@@ -308,20 +310,16 @@
   border-radius: var(--border-radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  /* CLS 최적화: 테이블 레이아웃 고정 */
   table-layout: auto;
   contain: layout style;
-  min-height: 100px; /* 최소 높이로 공간 확보 */
 }
 
 .post-content th,
 .post-content td {
-  padding: 0.75em 1em;
+  padding: 0.875em 1em;
   border: 1px solid var(--color-border);
   text-align: left;
   line-height: 1.6;
-  /* CLS 최적화: 셀 크기 안정화 */
-  min-width: 0;
   word-wrap: break-word;
   vertical-align: top;
 }
@@ -332,13 +330,11 @@
   color: var(--color-text-primary);
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
 .post-content tbody tr {
   transition: background-color var(--transition-fast);
-  /* CLS 최적화: 행 높이 안정화 */
-  min-height: 2.5em;
-  contain: layout style;
 }
 
 .post-content tbody tr:hover {
@@ -365,200 +361,283 @@
   border-bottom-color: var(--color-primary);
 }
 
-/* 테이블 래퍼 - 모바일 가로 스크롤 지원 */
-.post-content table {
+/* ===== 반응형 테이블 래퍼 ===== */
+.post-content .table-wrapper {
   position: relative;
+  width: 100%;
+  margin: 1.5em 0;
 }
 
-/* 반응형 테이블 - 모바일 최적화 */
-@media (max-width: 768px) {
-  .post-content .table-wrapper {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: visible;
-    -webkit-overflow-scrolling: touch;
-    margin: 1.5em -1rem;
-    padding: 0 1rem;
-    position: relative;
-    min-height: 3rem;
-    contain: layout style;
-  }
-  
-  .post-content .table-wrapper::after {
-    content: '→ 스크롤';
-    position: absolute;
-    right: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    background-color: var(--color-bg-secondary);
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--border-radius-sm);
-    border: 1px solid var(--color-border);
-    opacity: 0.8;
-    pointer-events: none;
-    z-index: 10;
-    white-space: nowrap;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: opacity var(--transition-fast);
-  }
-  
-  /* 스크롤 가능할 때만 표시 */
-  .post-content .table-wrapper:not(:hover)::after {
-    opacity: 0.6;
-  }
-  
-  .post-content .table-wrapper:hover::after {
-    opacity: 0.9;
-  }
-  
-  /* 테이블 자체 스타일 */
+/* ===== 태블릿 (768px ~ 1024px) ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
   .post-content table {
-    display: block;
-    width: 100%;
-    min-width: 600px; /* 최소 너비 보장 */
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    font-size: 0.875rem;
-    margin: 0;
-    border-radius: var(--border-radius-md);
-    border-collapse: separate;
-    border-spacing: 0;
+    font-size: 0.9rem;
   }
   
   .post-content th,
   .post-content td {
     padding: 0.75em 0.875em;
-    min-width: 120px;
-    white-space: nowrap;
-    font-size: 0.875rem;
-    line-height: 1.5;
+  }
+}
+
+/* ===== 모바일/태블릿 반응형 테이블 (768px 이하) ===== */
+@media (max-width: 768px) {
+  /* 테이블 래퍼 - 향상된 스크롤 컨테이너 */
+  .post-content .table-wrapper {
+    display: block;
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--color-bg-tertiary);
+    position: relative;
+    background: var(--color-bg-primary);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
   }
   
-  /* 첫 번째 열 고정 (sticky) */
-  .post-content th:first-child,
-  .post-content td:first-child {
+  /* 웹킷 스크롤바 스타일링 */
+  .post-content .table-wrapper::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .post-content .table-wrapper::-webkit-scrollbar-track {
+    background: var(--color-bg-tertiary);
+    border-radius: 4px;
+  }
+  
+  .post-content .table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+    opacity: 0.7;
+  }
+  
+  .post-content .table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-hover, #1d4ed8);
+  }
+  
+  /* 스크롤 가능 표시 - 우측 그라데이션 페이드 */
+  .post-content .table-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 8px; /* 스크롤바 높이 제외 */
+    width: 40px;
+    background: linear-gradient(to right, transparent, var(--color-bg-primary) 80%);
+    pointer-events: none;
+    z-index: 5;
+    opacity: 1;
+    transition: opacity var(--transition-fast);
+  }
+  
+  /* 스크롤 힌트 아이콘 */
+  .post-content .table-wrapper::before {
+    content: '← →';
+    position: absolute;
+    bottom: 12px;
+    right: 8px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+    background-color: var(--color-bg-secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-border);
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.8;
+    transition: opacity var(--transition-base);
+  }
+  
+  /* 스크롤 시 힌트 숨김 (JS로 .is-scrolling 클래스 추가 시) */
+  .post-content .table-wrapper.is-scrolling::before,
+  .post-content .table-wrapper.is-scrolling::after {
+    opacity: 0;
+  }
+  
+  /* 스크롤 불필요 시 힌트 완전 숨김 (JS로 .no-scroll-hint 클래스 추가) */
+  .post-content .table-wrapper.no-scroll-hint::before,
+  .post-content .table-wrapper.no-scroll-hint::after {
+    display: none;
+  }
+  
+  /* 테이블 기본 스타일 */
+  .post-content table {
+    display: table;
+    width: max-content;
+    min-width: 100%;
+    margin: 0;
+    font-size: 0.875rem;
+    border-radius: 0;
+    box-shadow: none;
+    border-collapse: collapse;
+  }
+  
+  .post-content th,
+  .post-content td {
+    padding: 0.75em 1em;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    white-space: normal;
+    word-break: keep-all;
+    min-width: 100px;
+  }
+  
+  /* 터치 친화적 터치 영역 */
+  .post-content tbody tr {
+    min-height: 44px; /* iOS 권장 터치 타겟 크기 */
+  }
+  
+  /* 첫 번째 열 고정 (선택적) - 테이블에 .sticky-first-col 클래스 필요 */
+  .post-content table.sticky-first-col th:first-child,
+  .post-content table.sticky-first-col td:first-child {
     position: sticky;
     left: 0;
     background-color: var(--color-bg-secondary);
     z-index: 2;
-    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
-    padding-left: 1em;
-    padding-right: 1.25em;
-    min-width: 140px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
   }
   
-  /* 헤더 첫 번째 셀 */
-  .post-content thead th:first-child {
-    background-color: var(--color-bg-secondary);
-    z-index: 3;
-  }
-  
-  /* 짝수 행 첫 번째 셀 배경 */
-  .post-content tbody tr:nth-child(even) td:first-child {
+  .post-content table.sticky-first-col tbody tr:nth-child(even) td:first-child {
     background-color: var(--color-bg-tertiary);
   }
   
-  /* 짝수 행 첫 번째 셀 hover 시 */
-  .post-content tbody tr:nth-child(even):hover td:first-child {
-    background-color: var(--color-bg-secondary);
-  }
-  
-  /* 테이블 헤더 고정 */
-  .post-content thead {
-    display: table-header-group;
-  }
-  
+  /* 헤더 고정 */
   .post-content thead th {
     position: sticky;
     top: 0;
     background-color: var(--color-bg-secondary);
-    z-index: 1;
+    z-index: 3;
     font-weight: 600;
   }
   
   /* 첫 번째 열 + 헤더 교차점 */
-  .post-content thead th:first-child {
+  .post-content table.sticky-first-col thead th:first-child {
     z-index: 4;
   }
 }
 
-/* 작은 모바일 화면 (480px 이하) - 추가 최적화 */
+/* ===== 작은 모바일 (480px 이하) ===== */
 @media (max-width: 480px) {
   .post-content .table-wrapper {
-    margin: 1.25em -1rem;
-    padding: 0 0.75rem;
+    width: calc(100% + 1.5rem);
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+  }
+  
+  .post-content .table-wrapper::after {
+    width: 30px;
+  }
+  
+  .post-content .table-wrapper::before {
+    font-size: 0.625rem;
+    padding: 0.2rem 0.4rem;
+    bottom: 10px;
+    right: 6px;
   }
   
   .post-content table {
     font-size: 0.8125rem;
-    min-width: 500px;
   }
   
   .post-content th,
   .post-content td {
     padding: 0.625em 0.75em;
-    min-width: 100px;
     font-size: 0.8125rem;
-  }
-  
-  .post-content th:first-child,
-  .post-content td:first-child {
-    min-width: 120px;
-    padding-left: 0.875em;
-    padding-right: 1em;
-  }
-  
-  /* 스크롤 인디케이터 크기 조정 */
-  .post-content .table-wrapper::after {
-    font-size: 0.6875rem;
-    right: 0.25rem;
-    padding: 0.2rem 0.4rem;
+    min-width: 80px;
   }
 }
 
-/* 다크 모드 테이블 래퍼 스타일 */
-[data-theme="dark"] .post-content .table-wrapper::after {
-  background-color: var(--color-bg-secondary);
-  border-color: var(--color-border);
-  color: var(--color-primary);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* LinkedIn 모바일 앱 최적화 (더 작은 화면) */
+/* ===== 매우 작은 화면 (375px 이하) ===== */
 @media (max-width: 375px) {
   .post-content .table-wrapper {
-    margin: 1em -0.75rem;
-    padding: 0 0.5rem;
+    width: calc(100% + 1rem);
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+  
+  .post-content .table-wrapper::before {
+    content: '↔';
+    font-size: 0.75rem;
+    padding: 0.15rem 0.35rem;
   }
   
   .post-content table {
     font-size: 0.75rem;
-    min-width: 450px;
   }
   
   .post-content th,
   .post-content td {
     padding: 0.5em 0.625em;
-    min-width: 90px;
     font-size: 0.75rem;
+    min-width: 70px;
+  }
+}
+
+/* ===== 다크 모드 테이블 스타일 ===== */
+[data-theme="dark"] .post-content .table-wrapper {
+  background: var(--color-bg-secondary);
+  scrollbar-color: var(--color-primary) var(--color-bg-tertiary);
+}
+
+[data-theme="dark"] .post-content .table-wrapper::after {
+  background: linear-gradient(to right, transparent, var(--color-bg-secondary) 80%);
+}
+
+[data-theme="dark"] .post-content .table-wrapper::before {
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .post-content .table-wrapper::-webkit-scrollbar-track {
+  background: var(--color-bg-tertiary);
+}
+
+[data-theme="dark"] .post-content .table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+}
+
+/* ===== 컴팩트 테이블 스타일 (.table-compact 클래스) ===== */
+.post-content table.table-compact th,
+.post-content table.table-compact td {
+  padding: 0.5em 0.75em;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 768px) {
+  .post-content table.table-compact th,
+  .post-content table.table-compact td {
+    padding: 0.4em 0.5em;
+    font-size: 0.75rem;
+    min-width: 60px;
+  }
+}
+
+/* ===== 가로 스크롤 필요 없는 작은 테이블 최적화 ===== */
+@media (max-width: 768px) {
+  /* 2-3열 테이블은 스크롤 없이 표시 */
+  .post-content table.table-fit {
+    width: 100%;
+    min-width: auto;
   }
   
-  .post-content th:first-child,
-  .post-content td:first-child {
-    min-width: 110px;
-    padding-left: 0.75em;
-    padding-right: 0.875em;
+  .post-content table.table-fit th,
+  .post-content table.table-fit td {
+    min-width: auto;
+    word-break: break-word;
+    hyphens: auto;
   }
   
-  .post-content .table-wrapper::after {
-    font-size: 0.625rem;
-    right: 0.2rem;
-    padding: 0.15rem 0.35rem;
-    content: '→';
+  /* table-fit 래퍼는 스크롤 힌트 숨김 */
+  .post-content .table-wrapper:has(table.table-fit)::before,
+  .post-content .table-wrapper:has(table.table-fit)::after {
+    display: none;
   }
 }
 
