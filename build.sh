@@ -79,9 +79,22 @@ else
     error_exit "CSS compilation failed - main.css not generated"
 fi
 
-# Minify JavaScript (optional, graceful failure)
-log "Minifying JavaScript..."
+# Verify and Minify JavaScript
+log "Verifying JavaScript..."
 if [ -f "_site/assets/js/main.js" ]; then
+    JS_SIZE_BEFORE=$(stat -f%z "_site/assets/js/main.js" 2>/dev/null || stat -c%s "_site/assets/js/main.js" 2>/dev/null || echo "0")
+    log "📄 JS size before minification: ${JS_SIZE_BEFORE} bytes"
+    
+    # Verify table-wrapper code exists
+    if grep -q "table-wrapper" "_site/assets/js/main.js"; then
+        log "✅ table-wrapper code found in JS"
+    else
+        log "⚠️ WARNING: table-wrapper code NOT found in JS - checking source..."
+        if grep -q "table-wrapper" "assets/js/main.js"; then
+            log "✅ table-wrapper exists in source, copying fresh..."
+            cp "assets/js/main.js" "_site/assets/js/main.js"
+        fi
+    fi
     # Check if terser is available
     if command -v npx >/dev/null 2>&1 && [ -f "node_modules/.bin/terser" ] || [ -f "package.json" ]; then
         # Try to use local terser first, then npx
@@ -95,6 +108,9 @@ if [ -f "_site/assets/js/main.js" ]; then
     else
         log "INFO: terser not available, skipping minification (optional step)"
     fi
+    
+    JS_SIZE_AFTER=$(stat -f%z "_site/assets/js/main.js" 2>/dev/null || stat -c%s "_site/assets/js/main.js" 2>/dev/null || echo "0")
+    log "📄 JS size after processing: ${JS_SIZE_AFTER} bytes"
 else
     log "WARNING: _site/assets/js/main.js not found, skipping minification."
 fi
