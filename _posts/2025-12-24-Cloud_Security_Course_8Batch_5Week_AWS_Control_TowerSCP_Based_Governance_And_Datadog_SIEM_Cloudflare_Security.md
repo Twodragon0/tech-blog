@@ -609,3 +609,22 @@ AWS Control Tower와 SCP를 통한 거버넌스, Datadog SIEM을 통한 보안 �
 2025년에 발표된 AWS 거버넌스 업데이트(Organizations 계정 직접 이동, AgentCore Identity, IAM Policy Autopilot, Security Hub GA, GuardDuty Extended Threat Detection)를 통해 더욱 효율적인 멀티 계정 관리와 강화된 보안 모니터링이 가능해졌습니다.
 
 이러한 도구들을 올바르게 구성하고 운영하면 멀티 계정 환경에서도 일관된 보안과 컴플라이언스를 유지할 수 있으며, 위협을 신속하게 탐지하고 대응할 수 있습니다.
+
+---
+
+## 관련 자료
+
+### 온라인 강의 (edu.2twodragon.com)
+
+| 과정 | 설명 | 링크 |
+|------|------|------|
+| **AWS Control Tower** | 멀티 계정 거버넌스, SCP, Guardrails 설정 | [수강하기](https://edu.2twodragon.com/courses/aws-control-tower) |
+| **Datadog SIEM** | Security Monitoring, Log Management, 알림 설정 | [수강하기](https://edu.2twodragon.com/courses/datadog-siem) |
+| **Cloudflare 보안** | WAF, DDoS 방어, Zero Trust 설정 | [수강하기](https://edu.2twodragon.com/courses/cloudflare-security) |
+| **AWS 클라우드 보안** | IAM, VPC, Security Groups, GuardDuty | [수강하기](https://edu.2twodragon.com/courses/aws-security) |
+
+### YouTube 영상
+
+| 주제 | 설명 | 링크 |
+|------|------|------|
+| **AWS WAF 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |

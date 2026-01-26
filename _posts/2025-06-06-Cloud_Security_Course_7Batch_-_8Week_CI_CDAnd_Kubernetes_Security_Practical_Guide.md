@@ -966,7 +966,25 @@ spec:
 
 ---
 
-📚 **참고 자료:**
+## 관련 자료
+
+### 온라인 강의 (edu.2twodragon.com)
+
+| 과정 | 설명 | 링크 |
+|------|------|------|
+| **CI/CD 보안** | 파이프라인 보안, Secret 관리, 이미지 스캔 자동화 | [수강하기](https://edu.2twodragon.com/courses/cicd-security) |
+| **Kubernetes 보안** | 클러스터 보안, RBAC, Network Policies, Pod Security | [수강하기](https://edu.2twodragon.com/courses/kubernetes-security) |
+| **DevSecOps 실전** | DevSecOps 전략, 보안 자동화, 모니터링 | [수강하기](https://edu.2twodragon.com/courses/devsecops) |
+
+### YouTube 영상
+
+| 주제 | 설명 | 링크 |
+|------|------|------|
+| **AWS WAF 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+
+---
+
+📚 **외부 참고 자료:**
 - [Kubernetes RBAC 공식 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 - [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)
 - [CNCF Security Whitepaper](https://github.com/cncf/tag-security)

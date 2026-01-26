@@ -964,6 +964,22 @@ Docker & Kubernetes 보안은 DevSecOps의 핵심입니다. 컨테이너 보안�
 
 ## 관련 자료
 
+### 온라인 강의 (edu.2twodragon.com)
+
+| 과정 | 설명 | 링크 |
+|------|------|------|
+| **Docker 보안** | 컨테이너 보안, 이미지 스캔, Secret 관리 | [수강하기](https://edu.2twodragon.com/courses/docker-security) |
+| **Kubernetes 보안** | 클러스터 보안, RBAC, Network Policies, Pod Security | [수강하기](https://edu.2twodragon.com/courses/kubernetes-security) |
+| **DevSecOps 실전** | DevSecOps 전략, 보안 자동화, 모니터링 | [수강하기](https://edu.2twodragon.com/courses/devsecops) |
+
+### YouTube 영상
+
+| 주제 | 설명 | 링크 |
+|------|------|------|
+| **AWS WAF 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+
+### 외부 참고 자료
+
 - [Kubernetes 공식 문서](https://kubernetes.io/docs/)
 - [Kubernetes 보안 체크리스트](https://kubernetes.io/docs/concepts/security/security-checklist/)
 - [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)

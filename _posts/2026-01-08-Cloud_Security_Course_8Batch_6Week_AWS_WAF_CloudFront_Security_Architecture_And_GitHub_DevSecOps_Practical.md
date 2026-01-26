@@ -706,5 +706,23 @@ except ValueError as e:
 
 ---
 
+## 관련 자료
+
+### 온라인 강의 (edu.2twodragon.com)
+
+| 과정 | 설명 | 링크 |
+|------|------|------|
+| **AWS WAF 보안** | WAF 규칙 설정, CloudFront 통합, DDoS 방어 | [수강하기](https://edu.2twodragon.com/courses/aws-waf) |
+| **GitHub DevSecOps** | CodeQL, Dependabot, Secret Scanning, GHAS | [수강하기](https://edu.2twodragon.com/courses/github-devsecops) |
+| **AWS 클라우드 보안** | IAM, VPC, Security Groups, GuardDuty | [수강하기](https://edu.2twodragon.com/courses/aws-security) |
+
+### YouTube 영상
+
+| 주제 | 설명 | 링크 |
+|------|------|------|
+| **AWS WAF 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+
+---
+
 **원본 포스트**: [클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전](https://twodragon.tistory.com/707)
 

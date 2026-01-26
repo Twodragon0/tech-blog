@@ -343,3 +343,21 @@ Code Scanning 설정 단계:
 - [ ] Cloudflare Analytics 모니터링
 - [ ] GitHub Security Alerts 검토 프로세스
 - [ ] 정기 보안 검토 일정 수립
+
+---
+
+## 관련 자료
+
+### 온라인 강의 (edu.2twodragon.com)
+
+| 과정 | 설명 | 링크 |
+|------|------|------|
+| **Cloudflare 보안** | WAF, DDoS 방어, Zero Trust 설정 | [수강하기](https://edu.2twodragon.com/courses/cloudflare-security) |
+| **GitHub DevSecOps** | CodeQL, Dependabot, Secret Scanning | [수강하기](https://edu.2twodragon.com/courses/github-devsecops) |
+| **AWS 클라우드 보안** | IAM, VPC, Security Groups, GuardDuty | [수강하기](https://edu.2twodragon.com/courses/aws-security) |
+
+### YouTube 영상
+
+| 주제 | 설명 | 링크 |
+|------|------|------|
+| **AWS WAF 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |

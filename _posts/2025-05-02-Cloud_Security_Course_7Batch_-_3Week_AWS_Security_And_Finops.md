@@ -566,7 +566,25 @@ aws login
 
 ---
 
-📚 **참고 자료:**
+## 관련 자료
+
+### 온라인 강의 (edu.2twodragon.com)
+
+| 과정 | 설명 | 링크 |
+|------|------|------|
+| **AWS 클라우드 보안** | IAM, VPC, Security Groups, GuardDuty | [수강하기](https://edu.2twodragon.com/courses/aws-security) |
+| **AWS FinOps** | 비용 최적화, 태깅 전략, Savings Plans | [수강하기](https://edu.2twodragon.com/courses/aws-finops) |
+| **AWS-SAA 자격증** | Solutions Architect Associate 준비 | [수강하기](https://edu.2twodragon.com/courses/aws-saa) |
+
+### YouTube 영상
+
+| 주제 | 설명 | 링크 |
+|------|------|------|
+| **AWS WAF 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+
+---
+
+📚 **외부 참고 자료:**
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
 - [AWS Security Best Practices](https://docs.aws.amazon.com/security/)
 - [FinOps Foundation](https://www.finops.org/)
