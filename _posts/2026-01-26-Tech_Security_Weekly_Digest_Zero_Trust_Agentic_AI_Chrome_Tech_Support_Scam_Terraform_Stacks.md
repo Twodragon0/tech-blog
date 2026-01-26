@@ -219,7 +219,7 @@ AI 에이전트 보안은 다음 영역에서 즉각적인 대응이 필요합�
 
 ### 2.1 위협 개요
 
-Google이 Chrome에 **Gemini Nano** 기반 기술지원 사기 탐지 기능을 도입했습니다:
+Google은 2025년 5월부터 Chrome에 **Gemini Nano** 기반 기술지원 사기 탐지 기능을 도입하여 운영 중입니다. 최근 Chrome의 Agentic 보안 아키텍처 발표(2025년 12월)와 함께 이 기술이 더욱 주목받고 있습니다:
 
 | 공격 유형 | 설명 | 탐지 방법 |
 |-----------|------|-----------|
@@ -228,7 +228,7 @@ Google이 Chrome에 **Gemini Nano** 기반 기술지원 사기 탐지 기능을 
 | **원격 접속 요청** | 원격 데스크톱 설치 유도 | 행위 분석 |
 | **결제 사기** | 가짜 서비스 결제 요구 | 의심 URL 차단 |
 
-> **참고**: [Google Security Blog - Using AI to stop tech support scams](https://security.googleblog.com/2026/01/using-ai-to-stop-tech-support-scams-in-chrome.html)
+> **참고**: [Google Security Blog - Using AI to stop tech support scams in Chrome](https://security.googleblog.com/2025/05/using-ai-to-stop-tech-support-scams-in.html) (2025년 5월 발표, Chrome의 AI 기반 사기 탐지 기술)
 
 ### 2.2 Gemini Nano 온디바이스 처리
 
@@ -351,7 +351,7 @@ Terraform Stacks로 마이그레이션 시 고려사항:
 
 ### 4.1 공격 유형 분류
 
-Google이 발표한 Prompt Injection 방어 전략에서 다루는 주요 공격 유형:
+Google이 2025년 6월에 발표한 Prompt Injection 다층 방어 전략은 LLM 애플리케이션 보안의 핵심 참고 자료입니다. 주요 공격 유형:
 
 | 공격 유형 | 설명 | 위험도 |
 |-----------|------|--------|
@@ -360,7 +360,7 @@ Google이 발표한 Prompt Injection 방어 전략에서 다루는 주요 공격
 | **Jailbreaking** | 안전 가드 우회 시도 | 중간 |
 | **Prompt Leaking** | 시스템 프롬프트 추출 | 중간 |
 
-> **참고**: [Google Security Blog - Mitigating prompt injection attacks](https://security.googleblog.com/2026/01/mitigating-prompt-injection-attacks.html)
+> **참고**: [Google Security Blog - Mitigating prompt injection attacks with a layered defense strategy](https://security.googleblog.com/2025/06/mitigating-prompt-injection-attacks.html) (2025년 6월 발표)
 
 ### 4.2 다층 방어 아키텍처
 
@@ -571,9 +571,9 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 | 리소스 | 링크 |
 |--------|------|
 | HashiCorp Zero Trust for Agentic AI | [공식 블로그](https://www.hashicorp.com/blog/zero-trust-for-agentic-systems-managing-non-human-identities-at-scale) |
-| Google Chrome AI Scam Detection | [Security Blog](https://security.googleblog.com/2026/01/using-ai-to-stop-tech-support-scams-in-chrome.html) |
+| Google Chrome AI Scam Detection | [Security Blog](https://security.googleblog.com/2025/05/using-ai-to-stop-tech-support-scams-in.html) (2025.05) |
 | Terraform Stacks Documentation | [HashiCorp Docs](https://developer.hashicorp.com/terraform/language/stacks) |
-| Prompt Injection Defense | [Google Security](https://security.googleblog.com/2026/01/mitigating-prompt-injection-attacks.html) |
+| Prompt Injection Defense | [Google Security](https://security.googleblog.com/2025/06/mitigating-prompt-injection-attacks.html) (2025.06) |
 | 2026 Cloud Strategy | [HashiCorp Blog](https://www.hashicorp.com/blog/new-year-new-cloud-strategy-5-shifts-cloud-leaders-will-be-making-in-2026) |
 
 ---
@@ -622,7 +622,7 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 ## 참고 문헌
 
 1. HashiCorp. (2026). "Zero Trust for Agentic Systems: Managing Non-Human Identities at Scale". [Link](https://www.hashicorp.com/blog/zero-trust-for-agentic-systems-managing-non-human-identities-at-scale)
-2. Google. (2026). "Using AI to stop tech support scams in Chrome". [Link](https://security.googleblog.com/2026/01/using-ai-to-stop-tech-support-scams-in-chrome.html)
+2. Google. (2025). "Using AI to stop tech support scams in Chrome". [Link](https://security.googleblog.com/2025/05/using-ai-to-stop-tech-support-scams-in.html)
 3. HashiCorp. (2026). "Terraform Stacks, explained". [Link](https://www.hashicorp.com/blog/terraform-stacks-explained)
-4. Google. (2026). "Mitigating prompt injection attacks with a layered defense strategy". [Link](https://security.googleblog.com/2026/01/mitigating-prompt-injection-attacks.html)
+4. Google. (2025). "Mitigating prompt injection attacks with a layered defense strategy". [Link](https://security.googleblog.com/2025/06/mitigating-prompt-injection-attacks.html)
 5. HashiCorp. (2026). "New year, new cloud strategy: 5 shifts cloud leaders will be making in 2026". [Link](https://www.hashicorp.com/blog/new-year-new-cloud-strategy-5-shifts-cloud-leaders-will-be-making-in-2026)
