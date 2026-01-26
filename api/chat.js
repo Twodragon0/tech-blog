@@ -14,6 +14,8 @@
 //   "conversationHistory": [{"role": "user", "content": "..."}, ...] (선택사항)
 // }
 
+import { checkRateLimit, setRateLimitHeaders } from './lib/ratelimit.js';
+
 // 최적화 설정
 const CONFIG = {
   // 타임아웃 설정: Vercel 플랜에 따라 조정
@@ -23,11 +25,6 @@ const CONFIG = {
   // 환경 변수 VERCEL_ENV가 'production'이어도 Hobby 플랜일 수 있음
   // 따라서 더 보수적으로 설정: 프로덕션에서도 25초로 설정 (Pro/Hobby 모두 대응)
   TIMEOUT_MS: process.env.VERCEL_ENV === 'production' ? 25000 : 8000,
-  // Rate limiting (간단한 메모리 기반, 프로덕션에서는 Redis 권장)
-  RATE_LIMIT: {
-    MAX_REQUESTS: 15, // 세션당 최대 요청 수 (비용 최적화를 위해 증가)
-    WINDOW_MS: 60000, // 1분 윈도우
-  },
   // 메시지 제한
   MAX_MESSAGE_LENGTH: 2000,
   MAX_TOKENS: 800, // 응답 시간 최적화를 위해 800으로 감소 (타임아웃 방지 우선)
@@ -45,41 +42,8 @@ const CONFIG = {
   SLOW_REQUEST_THRESHOLD_MS: 5000, // 5초 이상인 경우만 로깅
 };
 
-// 간단한 메모리 기반 Rate Limiter (프리티어용)
-// 프로덕션에서는 Redis 또는 Vercel KV 사용 권장
-const rateLimitStore = new Map();
-
-function checkRateLimit(sessionId) {
-  const now = Date.now();
-  const key = sessionId || 'anonymous';
-  const record = rateLimitStore.get(key);
-
-  if (!record) {
-    rateLimitStore.set(key, { count: 1, resetAt: now + CONFIG.RATE_LIMIT.WINDOW_MS });
-    // 메모리 정리: 오래된 레코드 삭제
-    if (rateLimitStore.size > 1000) {
-      for (const [k, v] of rateLimitStore.entries()) {
-        if (v.resetAt < now) {
-          rateLimitStore.delete(k);
-        }
-      }
-    }
-    return true;
-  }
-
-  if (record.resetAt < now) {
-    record.count = 1;
-    record.resetAt = now + CONFIG.RATE_LIMIT.WINDOW_MS;
-    return true;
-  }
-
-  if (record.count >= CONFIG.RATE_LIMIT.MAX_REQUESTS) {
-    return false;
-  }
-
-  record.count++;
-  return true;
-}
+// Rate Limiting은 api/lib/ratelimit.js에서 import
+// Upstash Redis 또는 In-Memory fallback 지원
 
 // Request ID 생성 함수 (보안 로깅 및 추적)
 function generateRequestId() {
@@ -266,41 +230,30 @@ export default async function handler(req, res) {
       }
     }
 
-    // Rate limiting 체크
-    const sessionKey = sessionId || `session-${Date.now()}`;
-    const rateLimitRecord = rateLimitStore.get(sessionKey);
-    const remainingRequests = rateLimitRecord 
-      ? Math.max(0, CONFIG.RATE_LIMIT.MAX_REQUESTS - rateLimitRecord.count)
-      : CONFIG.RATE_LIMIT.MAX_REQUESTS;
+    // Rate limiting 체크 (Upstash Redis 또는 In-Memory fallback)
+    const clientIp = req.headers['x-forwarded-for']?.split(',')[0]?.trim() 
+      || req.headers['x-real-ip'] 
+      || 'unknown';
+    const rateLimitIdentifier = sessionId || clientIp;
     
-    if (!checkRateLimit(sessionKey)) {
-      // 보안 이벤트 로깅 (Rate Limit 초과)
+    const rateLimitResult = await checkRateLimit(rateLimitIdentifier, 'anonymous');
+    setRateLimitHeaders(res, rateLimitResult.headers);
+    
+    if (!rateLimitResult.success) {
       if (process.env.VERCEL_ENV === 'production') {
         console.warn('[Security] Rate limit exceeded:', {
-          sessionKey: sessionKey.substring(0, 50),
-          ip: req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'unknown',
+          identifier: rateLimitIdentifier.substring(0, 50),
+          ip: clientIp,
           requestId
         });
       }
       
-      // Rate Limit 헤더 추가
-      res.setHeader('X-RateLimit-Limit', CONFIG.RATE_LIMIT.MAX_REQUESTS.toString());
-      res.setHeader('X-RateLimit-Remaining', '0');
-      res.setHeader('X-RateLimit-Reset', rateLimitRecord ? Math.ceil(rateLimitRecord.resetAt / 1000).toString() : Math.ceil((Date.now() + CONFIG.RATE_LIMIT.WINDOW_MS) / 1000).toString());
-      res.setHeader('Retry-After', '60');
-      
       return res.status(429).json({ 
         error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.',
-        retryAfter: 60,
+        retryAfter: rateLimitResult.retryAfter || 60,
         requestId
       });
     }
-    
-    // Rate Limit 헤더 추가 (정상 응답 시)
-    res.setHeader('X-RateLimit-Limit', CONFIG.RATE_LIMIT.MAX_REQUESTS.toString());
-    res.setHeader('X-RateLimit-Remaining', remainingRequests.toString());
-    const currentRecord = rateLimitStore.get(sessionKey);
-    res.setHeader('X-RateLimit-Reset', currentRecord ? Math.ceil(currentRecord.resetAt / 1000).toString() : Math.ceil((Date.now() + CONFIG.RATE_LIMIT.WINDOW_MS) / 1000).toString());
 
     // XSS 방지를 위한 입력 정제
     const sanitizedMessage = sanitizeInput(trimmedMessage);
