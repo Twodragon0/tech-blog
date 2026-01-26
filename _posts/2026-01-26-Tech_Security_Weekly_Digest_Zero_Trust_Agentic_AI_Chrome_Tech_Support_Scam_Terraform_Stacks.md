@@ -3,7 +3,7 @@ layout: post
 title: "Tech & Security Weekly Digest: Zero Trust for AI Agents, Chrome 기술지원 사기 방지, Terraform Stacks 혁신"
 date: 2026-01-26 10:00:00 +0900
 categories: [security, devsecops]
-tags: [Zero-Trust, AI-Agents, Chrome-Security, Terraform, HashiCorp, Google-Security, Non-Human-Identity, Infrastructure-as-Code, Tech-Support-Scam, DevSecOps, 2026]
+tags: [Zero-Trust, AI-Agents, Chrome-Security, Terraform, HashiCorp, Google-Security, Non-Human-Identity, Infrastructure-as-Code, Tech-Support-Scam, DevSecOps, "2026"]
 excerpt: "2026년 1월 26일 주요 기술/보안 뉴스 심층 분석: HashiCorp의 Agentic AI 시대 Zero Trust 전략, Google Chrome의 AI 기반 기술지원 사기 탐지, Terraform Stacks의 모노레포 지원, Prompt Injection 방어 전략까지 DevSecOps 관점에서 심층 분석합니다."
 image: /assets/images/2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Terraform.svg
 toc: true
