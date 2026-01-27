@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#14b8a6"/>
+      <stop offset="100%" style="stop-color:#0d9488"/>
+    </linearGradient>
+    <filter id="shadow4">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="350" fill="url(#bgGrad4)"/>
+  
+  <!-- Grid -->
+  <pattern id="grid4" width="30" height="30" patternUnits="userSpaceOnUse">
+    <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ffffff" stroke-opacity="0.03"/>
+  </pattern>
+  <rect width="700" height="350" fill="url(#grid4)"/>
+  
+  <!-- Title -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">ChatGPT Container Environment Architecture</text>
+  
+  <!-- Outer Container Box -->
+  <rect x="40" y="50" width="620" height="280" rx="12" fill="#1e293b" stroke="#475569" stroke-width="2" filter="url(#shadow4)"/>
+  <rect x="40" y="50" width="620" height="35" rx="12" fill="url(#tealGrad)"/>
+  <text x="350" y="74" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">ChatGPT Container Environment</text>
+  
+  <!-- Sandbox Container -->
+  <rect x="70" y="100" width="560" height="140" rx="10" fill="#2d3748" stroke="#14b8a6" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="350" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#5eead4" text-anchor="middle">Sandbox Container (Isolated)</text>
+  
+  <!-- Runtime Environments -->
+  <!-- Python -->
+  <g transform="translate(90, 140)">
+    <rect width="150" height="80" rx="8" fill="#374151" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="150" height="25" rx="8" fill="#3b82f6"/>
+    <text x="75" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Python Env</text>
+    <text x="75" y="48" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">pip install</text>
+    <text x="75" y="62" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">pandas, matplotlib</text>
+    <text x="75" y="76" font-family="Arial, sans-serif" font-size="8" fill="#fbbf24" text-anchor="middle">(restricted)</text>
+  </g>
+  
+  <!-- Node.js -->
+  <g transform="translate(270, 140)">
+    <rect width="150" height="80" rx="8" fill="#374151" stroke="#22c55e" stroke-width="2"/>
+    <rect width="150" height="25" rx="8" fill="#22c55e"/>
+    <text x="75" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Node.js Env</text>
+    <text x="75" y="48" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">npm install</text>
+    <text x="75" y="62" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">express, lodash</text>
+    <text x="75" y="76" font-family="Arial, sans-serif" font-size="8" fill="#fbbf24" text-anchor="middle">(restricted)</text>
+  </g>
+  
+  <!-- Bash -->
+  <g transform="translate(450, 140)">
+    <rect width="150" height="80" rx="8" fill="#374151" stroke="#f97316" stroke-width="2"/>
+    <rect width="150" height="25" rx="8" fill="#f97316"/>
+    <text x="75" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Bash Shell</text>
+    <text x="75" y="48" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Shell Commands</text>
+    <text x="75" y="62" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">File Operations</text>
+    <text x="75" y="76" font-family="Arial, sans-serif" font-size="8" fill="#fbbf24" text-anchor="middle">(restricted)</text>
+  </g>
+  
+  <!-- Restrictions Box -->
+  <rect x="70" y="255" width="560" height="65" rx="8" fill="#1f2937" stroke="#ef4444" stroke-width="1"/>
+  <text x="100" y="275" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ef4444">Security Restrictions:</text>
+  
+  <g transform="translate(100, 285)">
+    <circle cx="0" cy="8" r="3" fill="#fbbf24"/>
+    <text x="10" y="12" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Network: Limited outbound</text>
+  </g>
+  
+  <g transform="translate(240, 285)">
+    <circle cx="0" cy="8" r="3" fill="#fbbf24"/>
+    <text x="10" y="12" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Filesystem: Temp, session-scoped</text>
+  </g>
+  
+  <g transform="translate(420, 285)">
+    <circle cx="0" cy="8" r="3" fill="#fbbf24"/>
+    <text x="10" y="12" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Resources: CPU/Memory limits</text>
+  </g>
+  
+  <g transform="translate(100, 302)">
+    <circle cx="0" cy="8" r="3" fill="#fbbf24"/>
+    <text x="10" y="12" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Time: Execution timeout</text>
+  </g>
+  
+  <g transform="translate(240, 302)">
+    <circle cx="0" cy="8" r="3" fill="#fbbf24"/>
+    <text x="10" y="12" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Root: No privileged access</text>
+  </g>
+  
+  <g transform="translate(420, 302)">
+    <circle cx="0" cy="8" r="3" fill="#fbbf24"/>
+    <text x="10" y="12" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Isolation: Container sandboxed</text>
+  </g>
+</svg>

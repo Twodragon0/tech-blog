@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="50%" style="stop-color:#1a1a3e"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
+    </linearGradient>
+    
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+    
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    
+    <!-- Glow Filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow Filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Decorative Circles -->
+  <circle cx="100" cy="100" r="200" fill="#3b82f6" fill-opacity="0.05"/>
+  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
+  <circle cx="600" cy="315" r="300" fill="#dc2626" fill-opacity="0.03"/>
+  
+  <!-- Header Section -->
+  <rect x="40" y="30" width="200" height="36" rx="18" fill="url(#redGradient)" filter="url(#shadow)"/>
+  <text x="140" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY ALERT</text>
+  
+  <!-- Date Badge -->
+  <rect x="960" y="30" width="200" height="36" rx="18" fill="url(#blueGradient)" filter="url(#shadow)"/>
+  <text x="1060" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">January 27, 2026</text>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
+  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">MS Office Zero-Day | Kimi K2.5 | Kimwolf Botnet | AWS G7e</text>
+  
+  <!-- Main Content Cards -->
+  <!-- Card 1: MS Office Zero-Day -->
+  <g transform="translate(50, 190)">
+    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
+    
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="24" fill="#dc2626" text-anchor="middle">!</text>
+    
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ef4444">CRITICAL</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">MS Office Zero-Day</text>
+    
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">CVE-2026-21509 | CVSS 7.8</text>
+    <text x="20" y="120" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">Security Feature Bypass</text>
+    <text x="20" y="140" font-family="Arial, sans-serif" font-size="13" fill="#f87171" font-weight="bold">Active Exploitation</text>
+    
+    <rect x="20" y="155" width="120" height="20" rx="10" fill="#dc2626" fill-opacity="0.2"/>
+    <text x="80" y="169" font-family="Arial, sans-serif" font-size="11" fill="#fca5a5" text-anchor="middle">Patch Immediately</text>
+  </g>
+  
+  <!-- Card 2: Kimi K2.5 -->
+  <g transform="translate(430, 190)">
+    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#purpleGradient)"/>
+    
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="url(#purpleGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="20" fill="#a78bfa" text-anchor="middle">AI</text>
+    
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#a78bfa">OPEN SOURCE</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Kimi K2.5 Model</text>
+    
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">Visual Agentic AI SOTA</text>
+    <text x="20" y="120" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">HLE Benchmark: 50.2%</text>
+    <text x="20" y="140" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">100 Sub-agents, 1,500 Tool Calls</text>
+    
+    <rect x="20" y="155" width="100" height="20" rx="10" fill="#8b5cf6" fill-opacity="0.2"/>
+    <text x="70" y="169" font-family="Arial, sans-serif" font-size="11" fill="#c4b5fd" text-anchor="middle">Moonshot AI</text>
+  </g>
+  
+  <!-- Card 3: Kimwolf Botnet -->
+  <g transform="translate(810, 190)">
+    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
+    
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
+    <text x="40" y="56" font-family="Arial, sans-serif" font-size="18" fill="#fbbf24" text-anchor="middle">IoT</text>
+    
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fbbf24">THREAT</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Kimwolf/Badbox 2.0</text>
+    
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">2M+ Infected IoT Devices</text>
+    <text x="20" y="120" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">Corp/Govt Network Infiltration</text>
+    <text x="20" y="140" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">DDoS &amp; Malicious Traffic</text>
+    
+    <rect x="20" y="155" width="130" height="20" rx="10" fill="#f59e0b" fill-opacity="0.2"/>
+    <text x="85" y="169" font-family="Arial, sans-serif" font-size="11" fill="#fcd34d" text-anchor="middle">Network Isolation</text>
+  </g>
+  
+  <!-- Card 4: AWS G7e -->
+  <g transform="translate(50, 400)">
+    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#greenGradient)"/>
+    
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="url(#greenGradient)" fill-opacity="0.2"/>
+    <text x="40" y="56" font-family="Arial, sans-serif" font-size="14" fill="#34d399" text-anchor="middle">AWS</text>
+    
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#34d399">CLOUD</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">EC2 G7e Instances</text>
+    
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">NVIDIA RTX PRO 6000 Blackwell</text>
+    <text x="20" y="120" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">2.3x Inference Performance</text>
+    
+    <rect x="20" y="135" width="90" height="20" rx="10" fill="#10b981" fill-opacity="0.2"/>
+    <text x="65" y="149" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7" text-anchor="middle">GA Launch</text>
+  </g>
+  
+  <!-- Card 5: ChatGPT Containers -->
+  <g transform="translate(430, 400)">
+    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#blueGradient)"/>
+    
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="url(#blueGradient)" fill-opacity="0.2"/>
+    <text x="40" y="56" font-family="Arial, sans-serif" font-size="12" fill="#60a5fa" text-anchor="middle">GPT</text>
+    
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#60a5fa">FEATURE</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">ChatGPT Containers</text>
+    
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">Bash, pip/npm install</text>
+    <text x="20" y="120" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">File Download Support</text>
+    
+    <rect x="20" y="135" width="120" height="20" rx="10" fill="#3b82f6" fill-opacity="0.2"/>
+    <text x="80" y="149" font-family="Arial, sans-serif" font-size="11" fill="#93c5fd" text-anchor="middle">Sandbox Runtime</text>
+  </g>
+  
+  <!-- Card 6: Oracle Patch -->
+  <g transform="translate(810, 400)">
+    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="#ef4444"/>
+    
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="#ef4444" fill-opacity="0.2"/>
+    <text x="40" y="56" font-family="Arial, sans-serif" font-size="14" fill="#f87171" text-anchor="middle">ORA</text>
+    
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f87171">PATCH</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Oracle CPU Jan 2026</text>
+    
+    <text x="20" y="100" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">158 CVEs | 337 Patches</text>
+    <text x="20" y="120" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">27 Critical (8%)</text>
+    
+    <rect x="20" y="135" width="100" height="20" rx="10" fill="#ef4444" fill-opacity="0.2"/>
+    <text x="70" y="149" font-family="Arial, sans-serif" font-size="11" fill="#fca5a5" text-anchor="middle">Plan Update</text>
+  </g>
+  
+  <!-- Footer -->
+  <line x1="50" y1="585" x2="1150" y2="585" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Stats -->
+  <g transform="translate(50, 600)">
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">232 News Collected</text>
+  </g>
+  <g transform="translate(250, 600)">
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">47 RSS Sources</text>
+  </g>
+  <g transform="translate(450, 600)">
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">48hr Coverage</text>
+  </g>
+  
+  <!-- Blog Info -->
+  <text x="1150" y="612" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>
