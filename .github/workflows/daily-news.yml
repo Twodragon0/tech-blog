@@ -5,12 +5,16 @@ on:
     # 매일 오전 10시 KST = UTC 01:00
     # GitHub Actions cron은 큐 지연이 있을 수 있음 (최대 15-30분)
     - cron: '0 1 * * *'
+    # 백업: 오후 6시 KST = UTC 09:00 (schedule 미작동 대비)
+    - cron: '0 9 * * *'
   
-  # 저장소 푸시 시에도 트리거 (선택적으로 활성화)
-  # push:
-  #   branches: [main]
-  #   paths:
-  #     - '.github/workflows/daily-news.yml'
+  # 저장소 푸시 시에도 트리거 (워크플로우 파일 수정 시)
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/daily-news.yml'
+      - 'scripts/collect_tech_news.py'
+      - 'scripts/auto_publish_news.py'
   
   workflow_dispatch:
     inputs:
@@ -101,6 +105,13 @@ jobs:
           MAX_NEWS="${{ github.event.inputs.max_news || '10' }}"
           HOURS="${{ github.event.inputs.hours || '24' }}"
           
+          echo "📊 Debug Info:"
+          echo "  - Event: ${{ github.event_name }}"
+          echo "  - Dry Run: $DRY_RUN"
+          echo "  - Max News: $MAX_NEWS"
+          echo "  - Hours: $HOURS"
+          echo "  - Trigger Time: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          
           CMD="python3 scripts/auto_publish_news.py --hours $HOURS --max-news $MAX_NEWS"
           
           if [ "$DRY_RUN" = "true" ]; then
@@ -109,21 +120,36 @@ jobs:
           
           echo "Running: $CMD"
           $CMD
+          
+          echo ""
+          echo "📁 Generated files:"
+          ls -la _posts/*.md 2>/dev/null | tail -3 || echo "No posts found"
+          ls -la assets/images/*.svg 2>/dev/null | tail -3 || echo "No images found"
       
       - name: Check for new post
         id: check_post
         if: steps.check_news.outputs.has_enough_news == 'true'
         run: |
           TODAY=$(date +%Y-%m-%d)
-          POST_FILE="_posts/${TODAY}-Tech_Security_Weekly_Digest.md"
           
-          if [ -f "$POST_FILE" ]; then
+          # 여러 패턴의 포스트 파일 확인
+          POST_FILE=""
+          for pattern in "_posts/${TODAY}-Tech_Security_Weekly_Digest.md" "_posts/${TODAY}-Tech_Security_Weekly_Digest_*.md" "_posts/${TODAY}-*.md"; do
+            found=$(ls $pattern 2>/dev/null | head -1)
+            if [ -n "$found" ]; then
+              POST_FILE="$found"
+              break
+            fi
+          done
+          
+          if [ -n "$POST_FILE" ] && [ -f "$POST_FILE" ]; then
             echo "post_created=true" >> $GITHUB_OUTPUT
             echo "post_file=$POST_FILE" >> $GITHUB_OUTPUT
             echo "Post created: $POST_FILE"
           else
             echo "post_created=false" >> $GITHUB_OUTPUT
-            echo "No post created"
+            echo "No post created for today"
+            ls -la _posts/*.md 2>/dev/null | tail -5 || echo "No posts found"
           fi
       
       - name: Commit and push
@@ -135,7 +161,9 @@ jobs:
           TODAY=$(date +%Y-%m-%d)
           
           # 새 포스트와 이미지, 수집 데이터 추가
-          git add _posts/*.md assets/images/*.svg data/collected_news.json 2>/dev/null || true
+          git add _posts/${TODAY}*.md 2>/dev/null || true
+          git add assets/images/${TODAY}*.svg 2>/dev/null || true
+          git add data/collected_news.json 2>/dev/null || true
           
           if git diff --staged --quiet; then
             echo "No changes to commit"
@@ -144,7 +172,8 @@ jobs:
             POST_FILE="${{ steps.check_post.outputs.post_file }}"
             git commit -m "feat: auto publish daily tech & security digest - ${TODAY}" \
               -m "News collected: ${NEWS_COUNT}" \
-              -m "Post: ${POST_FILE}"
+              -m "Post: ${POST_FILE}" \
+              -m "Triggered by: ${{ github.event_name }}"
             git push
             echo "✅ Changes committed and pushed"
           fi
