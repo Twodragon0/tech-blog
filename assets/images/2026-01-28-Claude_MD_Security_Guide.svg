@@ -1,0 +1,291 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1222"/>
+      <stop offset="50%" stop-color="#1a1f35"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="greenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-opacity="0.4"/>
+    </filter>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.3"/>
+    </pattern>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#475569" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.3"/>
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.2"/>
+
+  <!-- Decorative elements -->
+  <circle cx="150" cy="80" r="100" fill="url(#purpleGlow)" opacity="0.05"/>
+  <circle cx="1050" cy="550" r="120" fill="url(#cyanGlow)" opacity="0.05"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1200" height="5" fill="url(#accent)"/>
+
+  <!-- Header badges -->
+  <g transform="translate(50, 35)">
+    <!-- Security badge -->
+    <rect width="95" height="36" rx="18" fill="url(#greenGlow)" filter="url(#shadow)"/>
+    <text x="47" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">SECURITY</text>
+
+    <!-- AI badge -->
+    <g transform="translate(110, 0)">
+      <rect width="100" height="36" rx="18" fill="url(#purpleGlow)" filter="url(#shadow)"/>
+      <text x="50" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">AI AGENT</text>
+    </g>
+
+    <!-- Date badge -->
+    <g transform="translate(225, 0)">
+      <rect width="110" height="36" rx="18" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="55" y="24" font-family="system-ui" font-size="12" font-weight="600" fill="#94a3b8" text-anchor="middle">2026.01.28</text>
+    </g>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="115" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="800" fill="#f8fafc" text-anchor="middle" filter="url(#glow)">CLAUDE.md Security Guide</text>
+  <text x="600" y="155" font-family="system-ui" font-size="17" fill="#94a3b8" text-anchor="middle">AI Agent Development Security Guidelines</text>
+
+  <!-- Accent line -->
+  <rect x="350" y="175" width="500" height="3" rx="1.5" fill="url(#accent)"/>
+
+  <!-- Main Content: 3 Cards -->
+
+  <!-- Card 1: Security First -->
+  <g transform="translate(40, 205)">
+    <rect width="360" height="230" rx="20" fill="url(#card)" filter="url(#shadow)" stroke="#10b981" stroke-width="1.5"/>
+
+    <!-- Header -->
+    <rect x="0" y="0" width="360" height="55" rx="20" fill="#10b981" opacity="0.1"/>
+    <rect x="0" y="35" width="360" height="20" fill="#10b981" opacity="0.1"/>
+
+    <!-- Shield icon -->
+    <g transform="translate(25, 15)">
+      <circle cx="12" cy="12" r="14" fill="#10b981" opacity="0.2"/>
+      <path d="M12 3L4 7v5c0 5.25 3.4 10.1 8 11.3 4.6-1.2 8-6.05 8-11.3V7l-8-4z" fill="#10b981" transform="translate(2, 2) scale(0.8)"/>
+    </g>
+
+    <text x="55" y="34" font-family="system-ui" font-size="16" font-weight="700" fill="#4ade80">Security First</text>
+
+    <!-- Content -->
+    <g transform="translate(25, 75)">
+      <circle cx="6" cy="6" r="4" fill="#ef4444"/>
+      <text x="20" y="10" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Never Hardcode Secrets</text>
+      <text x="20" y="28" font-family="system-ui" font-size="10" fill="#94a3b8">Use os.getenv() for all sensitive data</text>
+    </g>
+
+    <g transform="translate(25, 120)">
+      <circle cx="6" cy="6" r="4" fill="#f59e0b"/>
+      <text x="20" y="10" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Mask All Logs</text>
+      <text x="20" y="28" font-family="system-ui" font-size="10" fill="#94a3b8">mask_sensitive_info() before output</text>
+    </g>
+
+    <g transform="translate(25, 165)">
+      <circle cx="6" cy="6" r="4" fill="#22c55e"/>
+      <text x="20" y="10" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Validate All Inputs</text>
+      <text x="20" y="28" font-family="system-ui" font-size="10" fill="#94a3b8">XSS, SQL Injection prevention</text>
+    </g>
+  </g>
+
+  <!-- Card 2: AI Agent Files -->
+  <g transform="translate(420, 205)">
+    <rect width="360" height="230" rx="20" fill="url(#card)" filter="url(#shadow)" stroke="#8b5cf6" stroke-width="1.5"/>
+
+    <!-- Header -->
+    <rect x="0" y="0" width="360" height="55" rx="20" fill="#8b5cf6" opacity="0.1"/>
+    <rect x="0" y="35" width="360" height="20" fill="#8b5cf6" opacity="0.1"/>
+
+    <!-- File icon -->
+    <g transform="translate(25, 15)">
+      <circle cx="12" cy="12" r="14" fill="#8b5cf6" opacity="0.2"/>
+      <rect x="6" y="4" width="12" height="16" rx="2" fill="#8b5cf6"/>
+      <line x1="9" y1="9" x2="15" y2="9" stroke="#fff" stroke-width="1.5"/>
+      <line x1="9" y1="13" x2="15" y2="13" stroke="#fff" stroke-width="1.5"/>
+    </g>
+
+    <text x="55" y="34" font-family="system-ui" font-size="16" font-weight="700" fill="#a78bfa">AI Agent Files</text>
+
+    <!-- File list -->
+    <g transform="translate(25, 75)">
+      <rect width="140" height="32" rx="6" fill="#8b5cf6" opacity="0.15"/>
+      <text x="12" y="21" font-family="monospace" font-size="13" font-weight="600" fill="#a78bfa">CLAUDE.md</text>
+      <text x="155" y="21" font-family="system-ui" font-size="10" fill="#64748b">Claude Code CLI</text>
+    </g>
+
+    <g transform="translate(25, 115)">
+      <rect width="140" height="32" rx="6" fill="#06b6d4" opacity="0.15"/>
+      <text x="12" y="21" font-family="monospace" font-size="13" font-weight="600" fill="#22d3ee">AGENTS.md</text>
+      <text x="155" y="21" font-family="system-ui" font-size="10" fill="#64748b">All AI Agents</text>
+    </g>
+
+    <g transform="translate(25, 155)">
+      <rect width="140" height="32" rx="6" fill="#f59e0b" opacity="0.15"/>
+      <text x="12" y="21" font-family="monospace" font-size="13" font-weight="600" fill="#fbbf24">.cursorrules</text>
+      <text x="155" y="21" font-family="system-ui" font-size="10" fill="#64748b">Cursor IDE</text>
+    </g>
+
+    <!-- Arrow flow -->
+    <g transform="translate(25, 195)">
+      <text x="0" y="12" font-family="system-ui" font-size="10" fill="#64748b">Priority: Root &gt; .claude/ &gt; Global</text>
+    </g>
+  </g>
+
+  <!-- Card 3: Automation -->
+  <g transform="translate(800, 205)">
+    <rect width="360" height="230" rx="20" fill="url(#card)" filter="url(#shadow)" stroke="#06b6d4" stroke-width="1.5"/>
+
+    <!-- Header -->
+    <rect x="0" y="0" width="360" height="55" rx="20" fill="#06b6d4" opacity="0.1"/>
+    <rect x="0" y="35" width="360" height="20" fill="#06b6d4" opacity="0.1"/>
+
+    <!-- Gear icon -->
+    <g transform="translate(25, 15)">
+      <circle cx="12" cy="12" r="14" fill="#06b6d4" opacity="0.2"/>
+      <circle cx="12" cy="12" r="6" fill="none" stroke="#06b6d4" stroke-width="2"/>
+      <circle cx="12" cy="12" r="2" fill="#06b6d4"/>
+    </g>
+
+    <text x="55" y="34" font-family="system-ui" font-size="16" font-weight="700" fill="#22d3ee">Automation</text>
+
+    <!-- Tool list -->
+    <g transform="translate(25, 70)">
+      <rect width="85" height="26" rx="6" fill="#ef4444" opacity="0.2"/>
+      <text x="42" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#fca5a5" text-anchor="middle">Gitleaks</text>
+    </g>
+    <g transform="translate(120, 70)">
+      <rect width="75" height="26" rx="6" fill="#f59e0b" opacity="0.2"/>
+      <text x="37" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#fbbf24" text-anchor="middle">Bandit</text>
+    </g>
+    <g transform="translate(205, 70)">
+      <rect width="85" height="26" rx="6" fill="#22c55e" opacity="0.2"/>
+      <text x="42" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#4ade80" text-anchor="middle">Semgrep</text>
+    </g>
+
+    <!-- Workflow -->
+    <g transform="translate(25, 110)">
+      <text x="0" y="12" font-family="system-ui" font-size="11" font-weight="600" fill="#f8fafc">Pre-commit Hooks</text>
+      <text x="0" y="30" font-family="system-ui" font-size="10" fill="#94a3b8">Secret detection, SAST, dependency audit</text>
+    </g>
+
+    <g transform="translate(25, 155)">
+      <text x="0" y="12" font-family="system-ui" font-size="11" font-weight="600" fill="#f8fafc">GitHub Actions</text>
+      <text x="0" y="30" font-family="system-ui" font-size="10" fill="#94a3b8">CI/CD security scanning workflow</text>
+    </g>
+
+    <g transform="translate(25, 195)">
+      <rect width="100" height="22" rx="4" fill="#06b6d4"/>
+      <text x="50" y="15" font-family="system-ui" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">Automated</text>
+    </g>
+  </g>
+
+  <!-- Stats Bar -->
+  <g transform="translate(40, 455)">
+    <rect width="1120" height="75" rx="18" fill="url(#card)" filter="url(#shadow)"/>
+
+    <!-- Stat items -->
+    <g transform="translate(80, 15)">
+      <text x="0" y="5" font-family="system-ui" font-size="28" font-weight="800" fill="#10b981">5</text>
+      <text x="0" y="28" font-family="system-ui" font-size="11" fill="#4ade80">Core Principles</text>
+    </g>
+
+    <line x1="180" y1="15" x2="180" y2="60" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(220, 15)">
+      <text x="0" y="5" font-family="system-ui" font-size="28" font-weight="800" fill="#8b5cf6">3</text>
+      <text x="0" y="28" font-family="system-ui" font-size="11" fill="#a78bfa">Config Files</text>
+    </g>
+
+    <line x1="320" y1="15" x2="320" y2="60" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(360, 15)">
+      <text x="0" y="5" font-family="system-ui" font-size="28" font-weight="800" fill="#06b6d4">4</text>
+      <text x="0" y="28" font-family="system-ui" font-size="11" fill="#22d3ee">Security Tools</text>
+    </g>
+
+    <line x1="470" y1="15" x2="470" y2="60" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(510, 15)">
+      <text x="0" y="5" font-family="system-ui" font-size="28" font-weight="800" fill="#f59e0b">8+</text>
+      <text x="0" y="28" font-family="system-ui" font-size="11" fill="#fbbf24">Code Examples</text>
+    </g>
+
+    <line x1="620" y1="15" x2="620" y2="60" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(660, 15)">
+      <text x="0" y="5" font-family="system-ui" font-size="28" font-weight="800" fill="#ec4899">15+</text>
+      <text x="0" y="28" font-family="system-ui" font-size="11" fill="#f472b6">Checklists</text>
+    </g>
+
+    <line x1="780" y1="15" x2="780" y2="60" stroke="#334155" stroke-width="1"/>
+
+    <!-- Best Practices label -->
+    <g transform="translate(850, 20)">
+      <rect width="230" height="38" rx="10" fill="url(#accent)" filter="url(#shadow)"/>
+      <text x="115" y="25" font-family="system-ui" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Security Best Practices</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <rect x="0" y="545" width="1200" height="85" fill="#0a0f1a" opacity="0.98"/>
+
+  <!-- Author info -->
+  <text x="55" y="578" font-family="system-ui" font-size="24" font-weight="800" fill="#f8fafc">Twodragon</text>
+  <text x="55" y="603" font-family="system-ui" font-size="13" fill="#64748b">tech.2twodragon.com</text>
+
+  <!-- Tags -->
+  <g transform="translate(280, 568)">
+    <rect width="90" height="26" rx="13" fill="#10b981" opacity="0.15" stroke="#10b981" stroke-width="1"/>
+    <text x="45" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#4ade80" text-anchor="middle">#Security</text>
+  </g>
+  <g transform="translate(380, 568)">
+    <rect width="95" height="26" rx="13" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="47" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#a78bfa" text-anchor="middle">#AI-Agent</text>
+  </g>
+  <g transform="translate(485, 568)">
+    <rect width="100" height="26" rx="13" fill="#06b6d4" opacity="0.15" stroke="#06b6d4" stroke-width="1"/>
+    <text x="50" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#22d3ee" text-anchor="middle">#CLAUDE.md</text>
+  </g>
+  <g transform="translate(595, 568)">
+    <rect width="100" height="26" rx="13" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
+    <text x="50" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#fbbf24" text-anchor="middle">#DevSecOps</text>
+  </g>
+
+  <!-- CTA Button -->
+  <g transform="translate(1020, 563)">
+    <rect width="135" height="42" rx="21" fill="url(#accent)" filter="url(#shadow)"/>
+    <text x="67" y="27" font-family="system-ui" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Read Guide</text>
+  </g>
+
+  <!-- Bottom accent bar -->
+  <rect x="0" y="625" width="1200" height="5" fill="url(#accent)"/>
+</svg>
