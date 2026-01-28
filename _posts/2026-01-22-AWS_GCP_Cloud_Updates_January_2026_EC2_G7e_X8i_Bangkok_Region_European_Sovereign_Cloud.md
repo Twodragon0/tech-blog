@@ -4,7 +4,10 @@ title: "AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bang
 date: 2026-01-22 16:00:00 +0900
 categories: [cloud, devops]
 tags: [AWS, GCP, EC2-G7e, EC2-X8i, NVIDIA-Blackwell, Bangkok-Region, European-Sovereign-Cloud, Gemini-3, BigQuery, Cloud-Migration, FinOps, "2026"]
-excerpt: "2026년 1월 AWS와 GCP의 주요 클라우드 업데이트 분석. AWS EC2 G7e/X8i 인스턴스 GA, European Sovereign Cloud 출시, Google Cloud Bangkok 리전 개설, Gemini 3 Flash, BigQuery 고급 쿼리 엔진 등 실무 관점에서 정리."
+excerpt: "EC2 G7e Blackwell GPU, X8i SAP, EU Sovereign Cloud, Bangkok 리전, Gemini 3 Flash"
+description: "2026년 1월 AWS와 GCP 주요 업데이트: AWS EC2 G7e NVIDIA Blackwell GPU, EC2 X8i SAP 인증, European Sovereign Cloud 데이터 주권, Google Cloud Bangkok 리전, Gemini 3 Flash 모델, BigQuery SQL AI 추론까지 실무 관점 분석"
+keywords: [AWS, GCP, EC2-G7e, NVIDIA-Blackwell, EC2-X8i, SAP-HANA, European-Sovereign-Cloud, Bangkok-Region, Gemini-3-Flash, BigQuery, Cloud-Migration, FinOps, AI-Inference]
+author: Twodragon
 comments: true
 image: /assets/images/2026-01-22-AWS_GCP_Cloud_Updates_January_2026.svg
 image_alt: "AWS GCP Cloud Updates January 2026 - EC2 G7e X8i, Bangkok Region, European Sovereign Cloud"

@@ -4,7 +4,10 @@ title: "2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석"
 date: 2026-01-10 10:00:00 +0900
 categories: [devsecops, security]
 tags: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, "2026"]
-excerpt: "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석: 93개 학습 항목, 2024-2025 최신 트렌드 반영(OWASP Top 10:2025, NIST CSF 2.0, GitHub Advanced Security, AI/ML 보안 자동화), 단계별 학습 경로, 실무 보안 도구 스택(SAST/DAST/IAST, SIEM/SOAR), 공급망 보안 강화(SBOM, Secret Scanning), 인시던트 대응 체계까지 DevSecOps 전문가 성장을 위한 완벽 가이드."
+excerpt: "2026 DevSecOps 로드맵 93개 학습 항목 분석"
+description: "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석. 93개 학습 항목, OWASP Top 10:2025, NIST CSF 2.0, GitHub Advanced Security, AI/ML 보안 자동화, 단계별 학습 경로, SAST/DAST/IAST 도구 스택, 공급망 보안(SBOM) 강화까지 전문가 성장 가이드."
+keywords: [DevSecOps, Roadmap, roadmap.sh, OWASP Top 10 2025, NIST CSF 2.0, GitHub Advanced Security, SAST, DAST, IAST, SBOM, Supply Chain Security, Security Learning Path, CodeQL, AI Security]
+author: Twodragon
 comments: true
 image: /assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg
 image_alt: "2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis"

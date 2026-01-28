@@ -4,7 +4,10 @@ title: "Tech & Security Weekly Digest: Microsoft AitM 피싱 경고, Agentic AI 
 date: 2026-01-23 10:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, AitM-Phishing, BEC, Zero-Trust, Agentic-AI, NHI, PostgreSQL, OpenAI, Google-Cloud, HashiCorp, vLLM, DevSecOps, "2026"]
-excerpt: "2026년 1월 23일 주요 기술/보안 뉴스 심층 분석: Microsoft의 에너지 기업 대상 AitM 피싱 및 BEC 공격 경고, HashiCorp의 Agentic AI 시스템 Zero Trust NHI 관리 전략, OpenAI의 PostgreSQL 8억 사용자 스케일링 아키텍처, vLLM 제작자 Inferact $150M 투자 유치까지 DevSecOps 실무 관점에서 분석합니다."
+excerpt: "AitM 피싱, Agentic AI Zero Trust, PostgreSQL 8억 사용자 스케일링, vLLM Inferact $150M 투자"
+description: "2026년 1월 23일 주요 기술/보안 뉴스: Microsoft AitM 피싱 경고, HashiCorp Agentic AI Zero Trust NHI 관리, OpenAI PostgreSQL 8억 사용자 스케일링 아키텍처, vLLM 제작자 Inferact $150M 투자까지 DevSecOps 실무 분석"
+keywords: [Security-Weekly, AitM-Phishing, BEC, Zero-Trust, Agentic-AI, NHI, PostgreSQL, OpenAI, HashiCorp, vLLM, Inferact, DevSecOps, Security-News]
+author: Twodragon
 comments: true
 image: /assets/images/2026-01-23-Tech_Security_Weekly_Digest.svg
 image_alt: "Tech and Security Weekly Digest January 2026 - AitM Phishing, Zero Trust, PostgreSQL Scaling"

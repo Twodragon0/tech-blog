@@ -807,35 +807,6 @@ AI와 협업하는 개발 환경에서 보안은 선택이 아닌 필수입니�
 
 ---
 
-## FAQ (자주 묻는 질문)
-
-### CLAUDE.md란 무엇인가요?
-
-CLAUDE.md는 Claude Code CLI가 프로젝트에서 작업할 때 참조하는 지시 파일입니다. 단순한 코딩 스타일 가이드를 넘어 보안 정책, 비용 최적화, 운영 효율성을 모두 포함하는 종합 가이드라인입니다. 프로젝트 루트에 위치하며, .claude/CLAUDE.md보다 우선순위가 높습니다.
-
-### CLAUDE.md와 AGENTS.md의 차이점은 무엇인가요?
-
-CLAUDE.md는 Claude Code CLI 전용 설정 파일로 핵심 원칙 중심입니다. AGENTS.md는 Claude, Cursor, Copilot 등 모든 AI 에이전트가 참조할 수 있는 범용 가이드라인으로 상세한 기술적 구현을 포함합니다. .cursorrules는 Cursor IDE 전용 설정입니다.
-
-### AI가 생성한 코드에서 시크릿 노출을 방지하려면?
-
-1) CLAUDE.md에 "Never hardcode API keys, passwords, tokens" 원칙을 명시합니다. 2) `os.getenv("API_KEY", "")`로 환경 변수 사용을 지시합니다. 3) Pre-commit hook에 Gitleaks를 설정하여 커밋 전 시크릿을 탐지합니다. 4) GitHub Actions에 시크릿 스캔 워크플로우를 추가합니다.
-
-### mask_sensitive_info() 함수는 어떻게 작동하나요?
-
-mask_sensitive_info() 함수는 정규 표현식으로 민감 정보 패턴(API 키, 비밀번호, 토큰, GitHub 토큰, OpenAI 키 등)을 탐지하여 `***MASKED***`로 치환합니다. 로그 출력 전에 이 함수를 호출하면 실수로 민감 정보가 노출되는 것을 방지할 수 있습니다.
-
-### Pre-commit hook으로 보안 검증을 자동화하려면?
-
-`.pre-commit-config.yaml` 파일에 다음 훅을 설정합니다: 1) Gitleaks - 시크릿 탐지, 2) Bandit - Python 보안 검사, 3) npm audit - Node.js 의존성 취약점, 4) 커스텀 스크립트 - 프로젝트별 보안 규칙. `pre-commit install` 명령으로 활성화하면 매 커밋마다 자동 실행됩니다.
-
-### AI 생성 코드를 안전하게 리뷰하는 방법은?
-
-P0(필수): 하드코딩된 시크릿 확인, 입력 검증 적용 여부. P1(권장): 에러 메시지에 스택 트레이스 노출 여부, 로그 마스킹 적용. P2(개선): 최소 권한 원칙 적용, 의존성 취약점 검사. 자동화된 스캔(Gitleaks, Semgrep, npm audit)과 수동 리뷰를 병행하세요.
-
----
-
 **작성자**: Twodragon
 **작성일**: 2026-01-28
 **카테고리**: Security, DevSecOps
-**업데이트**: SEO/AEO 최적화 버전

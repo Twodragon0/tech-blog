@@ -677,30 +677,5 @@ jobs:
 
 ---
 
-## FAQ (자주 묻는 질문)
-
-### CVE-2026-21509란 무엇인가요?
-
-CVE-2026-21509는 Microsoft Office의 Protected View 보안 기능을 우회하는 Zero-Day 취약점입니다. CVSS 점수 7.8(High)로 평가되며, 현재 실제 공격에 악용되고 있습니다. 악성 Office 문서(DOCX, XLSX, PPTX)를 열면 매크로가 자동 실행되어 시스템이 감염될 수 있습니다.
-
-### CVE-2026-21509 패치는 어떻게 적용하나요?
-
-Windows Update를 통해 KB5034173 패치를 적용하거나, PowerShell에서 `Get-HotFix | Where-Object { $_.HotFixID -eq "KB5034173" }` 명령으로 패치 상태를 확인하세요. Office Click-to-Run 버전은 자동 업데이트되며, 수동 업데이트는 `OfficeC2RClient.exe /update user` 명령을 사용합니다.
-
-### CTEM 프레임워크란 무엇인가요?
-
-CTEM(Continuous Threat Exposure Management)은 Gartner가 2022년 제안한 지속적 위협 노출 관리 프레임워크입니다. 기존 취약점 관리를 넘어 비즈니스 맥락 기반의 위험 우선순위화를 강조하며, Scoping → Discovery → Prioritization → Validation → Mobilization의 5단계 사이클로 구성됩니다.
-
-### EPSS와 CVSS의 차이점은 무엇인가요?
-
-CVSS(Common Vulnerability Scoring System)는 취약점의 기술적 심각도를 0-10점으로 평가합니다. EPSS(Exploit Prediction Scoring System)는 해당 취약점이 30일 내 실제 공격에 사용될 확률(0-1)을 예측합니다. CTEM에서는 두 지표를 조합하여 우선순위를 결정합니다. 예: CVE-2026-21509는 CVSS 7.8, EPSS 0.847로 P0(즉시 대응) 등급입니다.
-
-### Grist-Core RCE 취약점 영향은?
-
-Grist-Core 1.1.15 미만 버전에서 인증된 사용자가 원격 코드 실행(RCE)을 수행할 수 있습니다. 내부 사용자가 서버를 장악하거나 컨테이너 탈출로 호스트 시스템에 접근할 수 있어 즉시 업그레이드가 필요합니다.
-
----
-
 **작성자**: Twodragon
 **작성일**: 2026-01-28
-**업데이트**: SEO/AEO 최적화 버전

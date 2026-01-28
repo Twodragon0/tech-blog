@@ -4,7 +4,10 @@ title: "[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 
 date: 2026-01-16 12:00:00 +0900
 categories: [incident]
 tags: [Post-Mortem, Next.js, SSR, Cloudflare, ALB, Kubernetes, Incident-Response, AWS]
-excerpt: "Post-Mortem: Next.js SSR 환경에서 location 객체 접근으로 인한 5XX 에러 및 Cloudflare IP 차단 인시던트 분석. 배포 후 발생한 ReferenceError: location is not defined 에러, ALB Target Group Health Check 실패, Cloudflare WAF 차단 패턴 분석, 근본 원인 분석 및 재발 방지 대책까지 실무 중심 정리."
+excerpt: "Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석"
+description: "Post-Mortem: Next.js SSR 환경 location 객체 접근 ReferenceError, Cloudflare WAF IP 차단, ALB Target Group Health Check 실패 인시던트 상세 분석. 근본 원인, 배포 연쇄 반응, 재발 방지 대책까지 실무 중심 정리"
+keywords: [Post-Mortem, Next.js-SSR, Location-Error, Cloudflare-WAF, ALB-5XX, Health-Check, Kubernetes, Incident-Response, AWS, ReferenceError, WAF-Blocking]
+author: Twodragon
 comments: true
 image: /assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.svg
 image_alt: "Post-Mortem Next.js SSR Error Cloudflare Blocking ALB 5XX Incident Analysis"
