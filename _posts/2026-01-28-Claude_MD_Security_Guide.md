@@ -4,12 +4,65 @@ title: "CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보�
 date: 2026-01-28 18:30:00 +0900
 categories: [security, devsecops]
 tags: [CLAUDE.md, AI-Security, Claude-Code, DevSecOps, Security-Guidelines, AI-Agent, Prompt-Engineering, "2026"]
-excerpt: "AI 에이전트(Claude, Cursor, Copilot)와 협업하는 프로젝트의 보안 가이드라인 작성법. CLAUDE.md와 AGENTS.md를 활용한 Security-First 개발 환경 구축 완벽 가이드"
+excerpt: "CLAUDE.md와 AGENTS.md로 AI 에이전트 보안 가이드라인 구축. Security-First 원칙과 실무 구현"
+description: "AI 에이전트(Claude Code, Cursor, Copilot)와 협업하는 프로젝트의 보안 가이드라인. CLAUDE.md 작성법, Never Hardcode Secrets, 로그 마스킹, 입력 검증, Pre-commit 자동화"
+keywords: [CLAUDE.md, AGENTS.md, AI Security, Claude Code, DevSecOps, Security Guidelines, AI Agent, 보안 가이드라인]
+author: Twodragon
 comments: true
 image: /assets/images/2026-01-28-Claude_MD_Security_Guide.svg
-image_alt: "CLAUDE.md Security Guide for AI Agent Development"
+image_alt: "CLAUDE.md Security Guide - AI Agent Security Guidelines Never Hardcode Secrets Log Masking Input Validation"
 toc: true
 ---
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">CLAUDE.md</span>
+      <span class="tag">AI-Security</span>
+      <span class="tag">Claude-Code</span>
+      <span class="tag">DevSecOps</span>
+      <span class="tag">Pre-commit</span>
+      <span class="tag">Log-Masking</span>
+      <span class="tag">2026</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>CLAUDE.md</strong>: Claude Code CLI가 참조하는 프로젝트 지시 파일 - 보안 정책, 비용 최적화, 운영 효율성 통합</li>
+      <li><strong>Never Hardcode Secrets</strong>: os.getenv() 사용, 환경 변수로 민감 정보 관리</li>
+      <li><strong>Log Masking</strong>: mask_sensitive_info() 함수로 API 키, 토큰, 비밀번호 마스킹</li>
+      <li><strong>Input Validation</strong>: XSS, SQL Injection 패턴 검증, HTML sanitization</li>
+      <li><strong>Pre-commit 자동화</strong>: Gitleaks, Bandit, npm audit, 커스텀 보안 스크립트</li>
+      <li><strong>GitHub Actions</strong>: 자동화된 보안 스캔 워크플로우 (Semgrep, Gitleaks, pip-audit)</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">CLAUDE.md, AGENTS.md, Gitleaks, Bandit, Semgrep, Pre-commit, GitHub Actions</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">AI 에이전트 활용 개발자, DevSecOps 엔지니어, 보안 담당자, 플랫폼 엔지니어</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 ## 서론
 
@@ -754,6 +807,35 @@ AI와 협업하는 개발 환경에서 보안은 선택이 아닌 필수입니�
 
 ---
 
+## FAQ (자주 묻는 질문)
+
+### CLAUDE.md란 무엇인가요?
+
+CLAUDE.md는 Claude Code CLI가 프로젝트에서 작업할 때 참조하는 지시 파일입니다. 단순한 코딩 스타일 가이드를 넘어 보안 정책, 비용 최적화, 운영 효율성을 모두 포함하는 종합 가이드라인입니다. 프로젝트 루트에 위치하며, .claude/CLAUDE.md보다 우선순위가 높습니다.
+
+### CLAUDE.md와 AGENTS.md의 차이점은 무엇인가요?
+
+CLAUDE.md는 Claude Code CLI 전용 설정 파일로 핵심 원칙 중심입니다. AGENTS.md는 Claude, Cursor, Copilot 등 모든 AI 에이전트가 참조할 수 있는 범용 가이드라인으로 상세한 기술적 구현을 포함합니다. .cursorrules는 Cursor IDE 전용 설정입니다.
+
+### AI가 생성한 코드에서 시크릿 노출을 방지하려면?
+
+1) CLAUDE.md에 "Never hardcode API keys, passwords, tokens" 원칙을 명시합니다. 2) `os.getenv("API_KEY", "")`로 환경 변수 사용을 지시합니다. 3) Pre-commit hook에 Gitleaks를 설정하여 커밋 전 시크릿을 탐지합니다. 4) GitHub Actions에 시크릿 스캔 워크플로우를 추가합니다.
+
+### mask_sensitive_info() 함수는 어떻게 작동하나요?
+
+mask_sensitive_info() 함수는 정규 표현식으로 민감 정보 패턴(API 키, 비밀번호, 토큰, GitHub 토큰, OpenAI 키 등)을 탐지하여 `***MASKED***`로 치환합니다. 로그 출력 전에 이 함수를 호출하면 실수로 민감 정보가 노출되는 것을 방지할 수 있습니다.
+
+### Pre-commit hook으로 보안 검증을 자동화하려면?
+
+`.pre-commit-config.yaml` 파일에 다음 훅을 설정합니다: 1) Gitleaks - 시크릿 탐지, 2) Bandit - Python 보안 검사, 3) npm audit - Node.js 의존성 취약점, 4) 커스텀 스크립트 - 프로젝트별 보안 규칙. `pre-commit install` 명령으로 활성화하면 매 커밋마다 자동 실행됩니다.
+
+### AI 생성 코드를 안전하게 리뷰하는 방법은?
+
+P0(필수): 하드코딩된 시크릿 확인, 입력 검증 적용 여부. P1(권장): 에러 메시지에 스택 트레이스 노출 여부, 로그 마스킹 적용. P2(개선): 최소 권한 원칙 적용, 의존성 취약점 검사. 자동화된 스캔(Gitleaks, Semgrep, npm audit)과 수동 리뷰를 병행하세요.
+
+---
+
 **작성자**: Twodragon
 **작성일**: 2026-01-28
 **카테고리**: Security, DevSecOps
+**업데이트**: SEO/AEO 최적화 버전

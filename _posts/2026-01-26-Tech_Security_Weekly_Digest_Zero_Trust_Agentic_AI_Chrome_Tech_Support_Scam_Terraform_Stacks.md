@@ -4,7 +4,10 @@ title: "Tech & Security Weekly Digest: Zero Trust for AI Agents, Chrome 기술�
 date: 2026-01-26 10:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, Zero-Trust, AI-Agents, Chrome-Security, Terraform, HashiCorp, Google-Security, Non-Human-Identity, Infrastructure-as-Code, Prompt-Injection, DevSecOps, "2026"]
-excerpt: "2026년 1월 26일 주요 기술/보안 뉴스 심층 분석: HashiCorp의 Agentic AI 시대 Zero Trust 전략, Google Chrome의 AI 기반 기술지원 사기 탐지, Terraform Stacks의 모노레포 지원, Prompt Injection 방어 전략까지 DevSecOps 관점에서 심층 분석합니다."
+excerpt: "AI 에이전트 Zero Trust, Chrome Gemini 사기 탐지, Terraform Stacks 모노레포, Prompt Injection 방어"
+description: "2026년 1월 26일 주요 기술/보안 뉴스: HashiCorp AI 에이전트 시대 비인간 ID(NHI) 관리 Zero Trust 전략, Google Chrome Gemini Nano 기반 온디바이스 기술지원 사기 탐지, Terraform Stacks 네이티브 모노레포 지원, Google Prompt Injection 4계층 방어 전략, 2026년 클라우드 전략 5가지 변화까지 DevSecOps 실무 분석"
+keywords: [Zero Trust, AI 에이전트, 비인간 ID, NHI, HashiCorp, Chrome 보안, Gemini Nano, 기술지원 사기, Terraform Stacks, 모노레포, Prompt Injection, Google Security, IaC, DevSecOps, 클라우드 보안, 2026]
+author: Twodragon
 comments: true
 image: /assets/images/2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Terraform.svg
 image_alt: "Tech and Security Weekly Digest January 2026 - Zero Trust for AI Agents, Chrome Scam Detection, Terraform Stacks"
@@ -468,6 +471,22 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 ![Weekly Action Items](/assets/images/2026-01-26-Weekly_Action_Items.svg)
 
 다음 포스팅에서는 SK쉴더스의 최신 보안 리포트를 기반으로 한 제로트러스트 데이터 보안 전략을 다루겠습니다.
+
+---
+
+## FAQ (자주 묻는 질문)
+
+### AI 에이전트 시대의 비인간 ID(NHI) 관리는 왜 중요한가요?
+
+AI 에이전트는 조직 내에서 자율적으로 API를 호출하고 데이터에 접근하며 작업을 수행합니다. 전통적인 정적 API 키 방식으로는 이러한 에이전트의 권한을 세밀하게 통제하기 어렵고, 키 유출 시 광범위한 피해가 발생합니다. HashiCorp Vault와 같은 동적 자격증명 시스템을 사용하면 작업 컨텍스트에 따라 단기 토큰을 발급하고, 모든 활동을 실시간으로 추적하며, 이상 행동을 즉시 탐지할 수 있습니다. AI 에이전트가 증가하는 환경에서 NHI 관리는 Zero Trust 보안의 핵심 요소입니다.
+
+### Chrome의 Gemini Nano 기반 사기 탐지는 어떻게 작동하나요?
+
+Chrome은 Gemini Nano 온디바이스 LLM을 사용하여 사용자의 브라우저에서 직접 화면 콘텐츠를 분석합니다. 서버로 데이터를 전송하지 않기 때문에 프라이버시가 보호되며, 실시간으로 가짜 바이러스 경고, 거짓 기술지원 전화번호, 원격 접속 유도 등의 사기 패턴을 탐지합니다. 의심스러운 페이지가 감지되면 사용자에게 즉시 경고를 표시하고, Enterprise 환경에서는 관리자에게 리포트를 전송할 수 있습니다. 이는 클라우드 기반 탐지보다 빠르고 프라이버시 친화적인 보안 방식입니다.
+
+### Terraform Stacks의 네이티브 모노레포 지원은 기존 방식과 어떻게 다른가요?
+
+기존에는 Terragrunt나 Atlantis 같은 별도 도구를 사용하여 모노레포를 관리하고 모듈 간 의존성을 수동으로 오케스트레이션해야 했습니다. Terraform Stacks는 의존성을 자동으로 해결하고 배포 순서를 그래프 기반으로 최적화하며, Stack Components를 통해 상태를 자연스럽게 공유합니다. 이를 통해 네트워킹, Kubernetes, 모니터링 같은 인프라 컴포넌트를 하나의 Stack으로 관리하면서도 각각의 독립성을 유지할 수 있습니다. CI/CD 파이프라인도 단순화되어 운영 복잡도가 크게 감소합니다.
 
 ---
 

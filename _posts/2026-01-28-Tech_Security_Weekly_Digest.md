@@ -4,12 +4,63 @@ title: "Tech & Security Weekly Digest: Microsoft Office Zero-Day 긴급 패치, 
 date: 2026-01-28 12:06:07 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, CVE-2026-21509, Microsoft-Office, Zero-Day, CTEM, Grist-Core, RCE, Cloud-Security, "2026"]
-excerpt: "2026년 1월 28일 주요 기술/보안 뉴스: Microsoft Office Zero-Day(CVE-2026-21509) 긴급 패치, CTEM 우선순위화 실무 가이드, Grist-Core RCE 취약점 분석"
+excerpt: "MS Office Zero-Day(CVE-2026-21509) 긴급 패치, CTEM 프레임워크 실무 가이드, Grist-Core RCE 취약점 대응"
+description: "2026년 1월 28일 보안 뉴스: Microsoft Office Zero-Day 취약점 긴급 패치 방법, CTEM 5단계 프레임워크 실무 적용, Grist-Core RCE 취약점 분석 및 대응 가이드"
+keywords: [CVE-2026-21509, Microsoft Office Zero-Day, CTEM, Grist-Core RCE, 보안 패치, DevSecOps]
+author: Twodragon
 comments: true
 image: /assets/images/2026-01-28-Tech_Security_Weekly_Digest.svg
-image_alt: "Tech and Security Weekly Digest January 2026"
+image_alt: "Tech and Security Weekly Digest January 2026 - CVE-2026-21509 MS Office Zero-Day CTEM Framework"
 toc: true
 ---
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 28일)</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">CVE-2026-21509</span>
+      <span class="tag">Zero-Day</span>
+      <span class="tag">Microsoft-Office</span>
+      <span class="tag">CTEM</span>
+      <span class="tag">Grist-Core</span>
+      <span class="tag">RCE</span>
+      <span class="tag">2026</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>CVE-2026-21509</strong>: MS Office Protected View 우회 Zero-Day - CVSS 7.8, 실제 악용 중, KB5034173 긴급 패치</li>
+      <li><strong>CTEM 프레임워크</strong>: Gartner 제안 5단계 위협 노출 관리 - Scoping, Discovery, Prioritization, Validation, Mobilization</li>
+      <li><strong>Grist-Core RCE</strong>: 오픈소스 스프레드시트 원격 코드 실행 - v1.1.15 이상 업그레이드 필수</li>
+      <li><strong>탐지 룰</strong>: Splunk SIEM, Sigma Rule, CrowdStrike EDR 쿼리 제공</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">수집 기간</span>
+    <span class="summary-value">2026년 1월 27일 ~ 28일</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 ## 서론
 
@@ -626,6 +677,30 @@ jobs:
 
 ---
 
+## FAQ (자주 묻는 질문)
+
+### CVE-2026-21509란 무엇인가요?
+
+CVE-2026-21509는 Microsoft Office의 Protected View 보안 기능을 우회하는 Zero-Day 취약점입니다. CVSS 점수 7.8(High)로 평가되며, 현재 실제 공격에 악용되고 있습니다. 악성 Office 문서(DOCX, XLSX, PPTX)를 열면 매크로가 자동 실행되어 시스템이 감염될 수 있습니다.
+
+### CVE-2026-21509 패치는 어떻게 적용하나요?
+
+Windows Update를 통해 KB5034173 패치를 적용하거나, PowerShell에서 `Get-HotFix | Where-Object { $_.HotFixID -eq "KB5034173" }` 명령으로 패치 상태를 확인하세요. Office Click-to-Run 버전은 자동 업데이트되며, 수동 업데이트는 `OfficeC2RClient.exe /update user` 명령을 사용합니다.
+
+### CTEM 프레임워크란 무엇인가요?
+
+CTEM(Continuous Threat Exposure Management)은 Gartner가 2022년 제안한 지속적 위협 노출 관리 프레임워크입니다. 기존 취약점 관리를 넘어 비즈니스 맥락 기반의 위험 우선순위화를 강조하며, Scoping → Discovery → Prioritization → Validation → Mobilization의 5단계 사이클로 구성됩니다.
+
+### EPSS와 CVSS의 차이점은 무엇인가요?
+
+CVSS(Common Vulnerability Scoring System)는 취약점의 기술적 심각도를 0-10점으로 평가합니다. EPSS(Exploit Prediction Scoring System)는 해당 취약점이 30일 내 실제 공격에 사용될 확률(0-1)을 예측합니다. CTEM에서는 두 지표를 조합하여 우선순위를 결정합니다. 예: CVE-2026-21509는 CVSS 7.8, EPSS 0.847로 P0(즉시 대응) 등급입니다.
+
+### Grist-Core RCE 취약점 영향은?
+
+Grist-Core 1.1.15 미만 버전에서 인증된 사용자가 원격 코드 실행(RCE)을 수행할 수 있습니다. 내부 사용자가 서버를 장악하거나 컨테이너 탈출로 호스트 시스템에 접근할 수 있어 즉시 업그레이드가 필요합니다.
+
+---
+
 **작성자**: Twodragon
 **작성일**: 2026-01-28
-**업데이트**: 고퀄리티 심층 분석 버전
+**업데이트**: SEO/AEO 최적화 버전

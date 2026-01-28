@@ -4,7 +4,10 @@ title: "Tech & Security Weekly Digest: MS Office Zero-Day 긴급패치, Kimi K2.
 date: 2026-01-27 22:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, Zero-Day, Microsoft-Office, Kimi-K25, AI-Agents, Kimwolf-Botnet, AWS-G7e, NVIDIA-Blackwell, Oracle-Patch, ChatGPT-Containers, DevSecOps, "2026"]
-excerpt: "2026년 1월 27일 주요 기술/보안 뉴스 심층 분석: Microsoft Office Zero-Day (CVE-2026-21509) 긴급 패치, Kimi K2.5 오픈소스 비주얼 에이전트 AI, Kimwolf/Badbox 2.0 IoT 봇넷 위협, AWS EC2 G7e NVIDIA Blackwell 인스턴스, ChatGPT 컨테이너 기능까지 DevSecOps 관점에서 심층 분석합니다."
+excerpt: "MS Office Zero-Day 실제 악용, Kimi K2.5 비주얼 에이전트, Kimwolf 200만 IoT 봇넷, AWS Blackwell GPU"
+description: "2026년 1월 27일 주요 기술/보안 뉴스: Microsoft Office CVE-2026-21509 Zero-Day 긴급 패치, Kimi K2.5 오픈소스 비주얼 에이전트 AI, Kimwolf/Badbox 2.0 IoT 봇넷 200만 기기 감염, AWS EC2 G7e NVIDIA Blackwell GPU 2.3배 성능, ChatGPT 컨테이너 실행 환경까지 DevSecOps 관점 심층 분석"
+keywords: [Microsoft Office, Zero-Day, CVE-2026-21509, Kimi K2.5, AI 에이전트, Kimwolf 봇넷, Badbox 2.0, IoT 보안, AWS EC2 G7e, NVIDIA Blackwell, Oracle 패치, ChatGPT 컨테이너, DevSecOps, 보안 패치, 긴급 보안, 2026]
+author: Twodragon
 comments: true
 image: /assets/images/2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Kimi_Kimwolf_AWS.svg
 image_alt: "Tech and Security Weekly Digest January 27 2026 - MS Office Zero Day, Kimi K2.5, Kimwolf Botnet, AWS G7e"
@@ -548,5 +551,21 @@ FROM my_table;
 
 ---
 
-*이 포스팅은 47개 RSS 피드에서 수집된 232개 뉴스를 분석하여 작성되었습니다.*  
+## FAQ (자주 묻는 질문)
+
+### MS Office Zero-Day(CVE-2026-21509)는 어떻게 대응해야 하나요?
+
+즉시 Microsoft의 긴급 패치를 적용하는 것이 최우선입니다. WSUS나 SCCM을 통해 조직 전체에 패치를 배포하고, 매크로 정책을 강화하여 인터넷에서 다운로드한 문서의 매크로를 차단하세요. 또한 Office 파일 실행 이상 패턴을 모니터링하고, cmd.exe를 실행하는 Office 프로세스가 있는지 감시 체계를 구축해야 합니다. 이 취약점은 실제 악용이 확인된 상태이므로 24시간 내 대응이 필수적입니다.
+
+### Kimi K2.5 오픈소스 AI 에이전트의 보안 리스크는 무엇인가요?
+
+Kimi K2.5는 100개 하위 에이전트와 1,500회 도구 호출을 지원하는 강력한 AI이지만, DevSecOps 환경에서 사용 시 민감 데이터 노출 위험이 있습니다. 반드시 샌드박스 환경에서 실행하고, API 키와 비밀번호를 마스킹하며, 내부 네트워크 정보를 입력하지 않아야 합니다. 생성된 코드는 보안 스캐닝을 거쳐야 하며, 네트워크 격리와 파일 시스템 접근 제한을 설정해야 합니다. 특히 코드 리뷰나 인프라 분석에 사용할 때는 민감한 구조 정보 유출을 주의해야 합니다.
+
+### Kimwolf/Badbox 2.0 IoT 봇넷으로부터 조직을 보호하려면 어떻게 해야 하나요?
+
+IoT 기기를 전용 VLAN으로 분리하고 인터넷 접근을 화이트리스트 방식으로 제한하는 것이 핵심입니다. 내부 네트워크 접근을 완전히 차단하고, 비정상 DNS 쿼리와 대량 아웃바운드 트래픽을 모니터링해야 합니다. Android TV 박스와 같은 중국 제조 IoT 기기는 특히 주의가 필요하며, 펌웨어를 정기적으로 업데이트하고 기본 비밀번호를 즉시 변경해야 합니다. NAC(Network Access Control)를 통해 알 수 없는 기기가 네트워크에 연결되는 것을 탐지하고, 주기적인 취약점 스캐닝으로 감염 여부를 확인하세요.
+
+---
+
+*이 포스팅은 47개 RSS 피드에서 수집된 232개 뉴스를 분석하여 작성되었습니다.*
 *수집 기간: 2026년 1월 26일 ~ 27일 (48시간)*
