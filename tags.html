@@ -10,20 +10,22 @@ permalink: /tags/
   <!-- Tag Cloud -->
   <div class="tag-cloud" style="margin-bottom: 3rem;">
     {% for tag in all_tags %}
+    {% assign tag_str = tag | append: "" %}
     {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
-    <a href="#{{ tag | slugify }}" class="tag" style="font-size: {% if tag_posts.size > 5 %}1rem{% elsif tag_posts.size > 2 %}0.9rem{% else %}0.8rem{% endif %};">
-      {{ tag }} ({{ tag_posts.size }})
+    <a href="#{{ tag_str | slugify }}" class="tag" style="font-size: {% if tag_posts.size > 5 %}1rem{% elsif tag_posts.size > 2 %}0.9rem{% else %}0.8rem{% endif %};">
+      {{ tag_str }} ({{ tag_posts.size }})
     </a>
     {% endfor %}
   </div>
 
   <!-- Posts by Tag -->
   {% for tag in all_tags %}
+  {% assign tag_str = tag | append: "" %}
   {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
   {% if tag_posts.size > 0 %}
-  <section id="{{ tag | slugify }}" style="margin-bottom: 3rem; scroll-margin-top: 80px;">
+  <section id="{{ tag_str | slugify }}" style="margin-bottom: 3rem; scroll-margin-top: 80px;">
     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
-      <span class="tag" style="font-size: 1rem; padding: 6px 16px;">{{ tag }}</span>
+      <span class="tag" style="font-size: 1rem; padding: 6px 16px;">{{ tag_str }}</span>
       <span style="color: var(--text-secondary); font-size: 0.9rem;">{{ tag_posts.size }} posts</span>
     </div>
     <ul style="list-style: none; padding: 0;">
