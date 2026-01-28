@@ -117,28 +117,40 @@
 
 ```
 tech-blog/
-├── _posts/                 # 블로그 포스트 (Markdown)
+├── _posts/                 # 블로그 포스트 (~50개, Markdown)
 ├── _layouts/               # Jekyll 레이아웃 파일
 ├── _includes/              # 재사용 가능한 컴포넌트
+├── _sass/                  # SASS 스타일시트 소스
+├── _data/                  # 데이터 파일 (JSON/YAML)
 ├── assets/
-│   ├── css/                # 스타일시트
+│   ├── css/                # 컴파일된 스타일시트
 │   ├── js/                 # JavaScript
 │   └── images/             # 이미지 (영어 파일명만!)
 ├── docs/                   # 프로젝트 문서
 │   ├── guides/             # 콘텐츠 작성 가이드
 │   ├── optimization/       # 성능 최적화 가이드
 │   ├── setup/              # 설정 가이드
-│   └── troubleshooting/    # 문제 해결 가이드
-├── scripts/                # Python/Bash 유틸리티
-│   ├── docs/               # 스크립트별 문서
+│   ├── troubleshooting/    # 문제 해결 가이드
+│   ├── pdca/               # 기능별 PDCA 문서
+│   ├── pipeline/           # 파이프라인 문서
+│   └── scripts/            # 스크립트 문서
+├── scripts/                # 유틸리티 스크립트
+│   ├── *.py (69개)         # Python 스크립트
+│   ├── *.sh (20개)         # Shell 스크립트
+│   ├── _archive/           # 보관된 스크립트 (22개)
 │   └── README.md           # 스크립트 가이드
-├── .github/
-│   ├── workflows/          # GitHub Actions
-│   └── docs/               # 워크플로우 문서
 ├── api/                    # Vercel Serverless Functions
+│   ├── chat.js             # DeepSeek 챗봇 API
+│   └── lib/                # 공유 라이브러리
+├── certifications/         # 자격증 문서 (AWS-SAA, CKA 등)
+├── .github/
+│   ├── workflows/          # GitHub Actions (CI/CD, SNS 공유)
+│   └── ISSUE_TEMPLATE/     # 이슈 템플릿
 ├── _config.yml             # Jekyll 설정
-├── vercel.json             # Vercel 배포 설정
-├── .cursorrules            # Cursor AI 규칙 (상세)
+├── vercel.json             # Vercel 배포 설정 (CSP, 캐싱)
+├── package.json            # Node.js 의존성
+├── Gemfile                 # Ruby 의존성
+├── build.sh                # 빌드 스크립트
 ├── CLAUDE.md               # Claude Code 지침
 ├── AGENTS.md               # AI 에이전트 가이드라인
 ├── SECURITY.md             # 보안 정책
@@ -340,6 +352,34 @@ GitHub Actions 워크플로우를 통해 새 포스트가 푸시되면 자동으
 | `python3 scripts/check_posts.py` | 포스트 검증 |
 | `python3 scripts/fix_links_unified.py --fix` | 링크 수정 |
 | `python3 scripts/verify_images_unified.py --all` | 이미지 검증 |
+
+## 📊 프로젝트 통계
+
+| 항목 | 수량 |
+|------|------|
+| 블로그 포스트 | ~50개 |
+| Python 스크립트 | 69개 |
+| Shell 스크립트 | 20개 |
+| 보관된 스크립트 | 22개 |
+| 문서 파일 | 50+개 |
+| GitHub Actions | 5개 워크플로우 |
+
+### 스크립트 카테고리
+
+| 카테고리 | 스크립트 수 | 용도 |
+|----------|------------|------|
+| 포스트 검증 | 4개 | Front matter, TOC, 품질 검사 |
+| 링크 관리 | 8개 | 링크 수정, Mermaid 호환성 |
+| 이미지 관리 | 9개 | 생성, 검증, 변환 |
+| 오디오/비디오 | 12개 | TTS, 비디오 생성 |
+| 콘텐츠 개선 | 5개 | AI 기반 개선 |
+| 뉴스/뉴스레터 | 10개 | 뉴스 수집, 이메일 발송 |
+| Mermaid | 5개 | 다이어그램 관리 |
+| SNS 공유 | 3개 | 소셜 미디어 연동 |
+| 유틸리티 | 13개 | 정리, 포맷팅, 생성 |
+| Shell 스크립트 | 20개 | 설정, 자동화, 모니터링 |
+
+자세한 스크립트 목록은 [scripts/README.md](scripts/README.md)를 참조하세요.
 
 ## 📄 라이선스
 
