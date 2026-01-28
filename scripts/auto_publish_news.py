@@ -34,7 +34,7 @@ from collections import defaultdict
 
 POSTS_DIR = Path("_posts")
 IMAGES_DIR = Path("assets/images")
-DATA_DIR = Path("data")  # 프로젝트 구조에 맞춰 data/ 사용
+DATA_DIR = Path("_data")  # 실제 데이터 디렉토리
 
 CATEGORY_PRIORITY = {
     "security": 1,
@@ -300,11 +300,12 @@ toc: true
 
     content += "\n---\n\n"
 
-    # 보안 뉴스 섹션
+    # 보안 뉴스 섹션 - 첫 번째는 상세 분석
     if security_news:
         content += "## 1. 보안 뉴스\n\n"
         for i, item in enumerate(security_news, 1):
-            content += generate_news_section(item, f"1.{i}")
+            is_critical = (i == 1)  # 첫 번째 뉴스는 상세 분석
+            content += generate_news_section(item, f"1.{i}", is_critical=is_critical)
 
     # 클라우드 뉴스 섹션
     if cloud_news:
@@ -321,70 +322,188 @@ toc: true
     # 기타 뉴스
     if tech_news:
         content += "## 4. 기타 주목할 뉴스\n\n"
-        for item in tech_news[:3]:
-            title = item.get("title", "")
-            url = item.get("url", "")
+        content += "| 제목 | 출처 | 핵심 내용 |\n"
+        content += "|------|------|----------|\n"
+        for item in tech_news[:5]:
+            title = item.get("title", "")[:50]
             source = item.get("source_name", "")
-            content += f"### {title[:50]}...\n\n"
-            content += f"> **출처**: [{source}]({url})\n\n"
+            url = item.get("url", "")
+            summary = item.get("summary", "")[:80]
+            content += f"| [{title}...]({url}) | {source} | {summary}... |\n"
+        content += "\n"
 
-    # 체크리스트
+    # 실무 액션 아이템 섹션
     content += """---
 
-## 5. DevSecOps 실무 체크리스트
+## 5. 실무 액션 아이템
 
-이번 뉴스를 바탕으로 한 점검 항목:
+### 이번 주 필수 조치
 
-### 긴급 (이번 주 내 조치)
+| 우선순위 | 항목 | 담당 | 기한 |
+|----------|------|------|------|
+| **P0** | 긴급 보안 패치 적용 여부 확인 | 인프라팀 | 즉시 |
+| **P1** | 보안 모니터링 룰 업데이트 | SOC팀 | 24시간 |
+| **P2** | 영향받는 시스템 인벤토리 확인 | 보안팀 | 48시간 |
 
-- [ ] 보안 업데이트 및 패치 현황 점검
-- [ ] MFA 설정 상태 확인
-- [ ] 의심스러운 로그 모니터링
+### DevSecOps 실무 체크리스트
 
-### 중요 (이번 달 내 계획)
+#### 긴급 (이번 주 내 조치)
 
-- [ ] 보안 정책 검토 및 업데이트
-- [ ] 클라우드 리소스 권한 감사
-- [ ] 백업 및 복구 테스트
+- [ ] **보안 패치**: 이번 주 발표된 긴급 패치 적용 상태 확인
+- [ ] **취약점 스캔**: 주요 시스템 대상 취약점 스캔 실행
+- [ ] **로그 분석**: SIEM에서 이상 징후 모니터링
+- [ ] **MFA 확인**: 관리자 계정 MFA 설정 상태 점검
+
+#### 중요 (이번 달 내 계획)
+
+- [ ] **접근 제어**: 클라우드 리소스 IAM 권한 감사
+- [ ] **백업 테스트**: 주요 시스템 백업 및 복구 테스트
+- [ ] **보안 정책**: 최신 위협 동향 반영한 정책 업데이트
+- [ ] **교육**: 팀원 대상 보안 인식 교육
+
+#### 지속 개선 (분기별)
+
+- [ ] **침투 테스트**: 주요 시스템 대상 모의 해킹
+- [ ] **아키텍처 검토**: Zero Trust 구현 현황 점검
+- [ ] **인시던트 대응**: 대응 플레이북 업데이트
 
 ---
 
-## 결론
+## 보안 모니터링 권장 사항
 
-오늘의 주요 뉴스에서 가장 중요한 포인트는 **지속적인 보안 모니터링과 업데이트**입니다.
+오늘 뉴스에서 다룬 위협에 대한 탐지 강화:
+
+```yaml
+# SIEM 탐지 룰 권장 사항
+monitoring:
+  - 비정상적인 관리자 로그인 시도
+  - 외부 IP에서의 내부 시스템 접근
+  - 대용량 데이터 전송 패턴
+  - 알려진 악성 IP/도메인 통신
+```
+
+---
+
+## 참고 자료
+
+### 공식 보안 권고
+
+- [CISA Known Exploited Vulnerabilities](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
+- [Microsoft Security Response Center](https://msrc.microsoft.com/)
+- [NIST National Vulnerability Database](https://nvd.nist.gov/)
+
+### 뉴스 소스
+
+- [The Hacker News](https://thehackernews.com/)
+- [Google Cloud Blog](https://cloud.google.com/blog/)
+- [HashiCorp Blog](https://www.hashicorp.com/blog/)
+- [GeekNews](https://news.hada.io/)
+- [CNCF Blog](https://www.cncf.io/blog/)
+
+---
+
+## 마무리
+
+오늘의 주요 뉴스에서 가장 중요한 포인트는 **선제적 위협 대응과 지속적인 보안 모니터링**입니다.
+
+특히 다음 사항에 주목하시기 바랍니다:
+
+1. **긴급 패치**: 발표된 보안 패치의 신속한 적용
+2. **위협 인텔리전스**: 최신 공격 동향 파악 및 방어 체계 강화
+3. **자동화**: 보안 운영의 효율성을 위한 자동화 도입
+4. **협업**: 개발-보안-운영 간 긴밀한 협력
 
 다음에도 DevSecOps 실무에 도움이 되는 핵심 뉴스를 선별하여 분석해 드리겠습니다.
 
 ---
 
-**참고 자료:**
-- [The Hacker News](https://thehackernews.com/)
-- [Google Cloud Blog](https://cloud.google.com/blog/)
-- [HashiCorp Blog](https://www.hashicorp.com/blog/)
-- [GeekNews](https://news.hada.io/)
+**작성자**: Twodragon
+**분석 방법론**: DevSecOps 실무 영향도 기반 우선순위화
 """
 
     return content
 
 
-def generate_news_section(item: Dict, section_num: str) -> str:
-    """개별 뉴스 섹션 생성"""
+def generate_news_section(item: Dict, section_num: str, is_critical: bool = False) -> str:
+    """개별 뉴스 섹션 생성 - 고품질 분석 포함"""
     title = item.get("title", "Untitled")
     url = item.get("url", "")
     source = item.get("source_name", item.get("source", "Unknown"))
-    summary = item.get("summary", "")[:300]
-    content_text = item.get("content", "")[:500]
+    summary = item.get("summary", "")
+    content_text = item.get("content", "")
+    category = item.get("category", "tech")
 
     section = f"### {section_num} {title}\n\n"
 
+    # 개요 추가
+    section += "#### 개요\n\n"
     if summary:
+        # 전체 summary 사용 (truncate 제거)
         section += f"{summary}\n\n"
     elif content_text:
-        section += f"{content_text}...\n\n"
+        section += f"{content_text[:800]}...\n\n"
 
-    section += f"> **출처**: [{source}]({url})\n\n---\n\n"
+    section += f"> **출처**: [{source}]({url})\n\n"
 
+    # 보안 뉴스의 경우 상세 분석 템플릿 추가
+    if category in ("security", "devsecops") and is_critical:
+        section += _generate_security_analysis_template(title)
+    elif category in ("security", "devsecops"):
+        section += _generate_security_brief_template()
+    elif category in ("cloud", "devops", "kubernetes"):
+        section += _generate_devops_template()
+
+    section += "\n---\n\n"
     return section
+
+
+def _generate_security_analysis_template(title: str) -> str:
+    """보안 뉴스 상세 분석 템플릿"""
+    # CVE 패턴 추출
+    cve_match = re.search(r'CVE-\d{4}-\d+', title)
+    cve_id = cve_match.group(0) if cve_match else "N/A"
+
+    template = f"""
+#### 위협 분석
+
+| 항목 | 내용 |
+|------|------|
+| **CVE ID** | {cve_id} |
+| **영향 범위** | 확인 필요 |
+| **심각도** | 확인 필요 (원문 참조) |
+| **익스플로잇 상태** | 확인 필요 |
+
+#### 권장 조치
+
+- [ ] 영향받는 시스템 식별
+- [ ] 패치 가용성 확인
+- [ ] 보안 모니터링 강화
+- [ ] 필요시 임시 완화 조치 적용
+
+"""
+    return template
+
+
+def _generate_security_brief_template() -> str:
+    """보안 뉴스 간략 분석 템플릿"""
+    return """
+#### 실무 영향
+
+보안 담당자는 해당 내용을 검토하고 필요시 조치 계획을 수립하시기 바랍니다.
+
+"""
+
+
+def _generate_devops_template() -> str:
+    """DevOps/Cloud 뉴스 템플릿"""
+    return """
+#### 실무 적용 포인트
+
+- 인프라 및 운영 환경에 대한 영향 검토
+- 기존 워크플로우와의 통합 가능성 확인
+- 팀 내 공유 및 테스트 계획 수립
+
+"""
 
 
 # ============================================================================
@@ -395,126 +514,204 @@ def generate_news_section(item: Dict, section_num: str) -> str:
 def generate_svg_image(
     date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
 ) -> str:
-    """SVG 이미지 생성"""
+    """고품질 SVG 이미지 생성 (영어)"""
 
     date_str = date.strftime("%Y.%m.%d")
+    month_year = date.strftime("%B %Y")
 
     # 통계 계산
     total = sum(len(items) for items in categorized.values())
-    security_pct = int(len(categorized.get("security", [])) / max(total, 1) * 100)
-    cloud_pct = int(len(categorized.get("cloud", [])) / max(total, 1) * 100)
-    devops_pct = int(len(categorized.get("devops", [])) / max(total, 1) * 100)
-    tech_pct = 100 - security_pct - cloud_pct - devops_pct
+    security_count = len(categorized.get("security", []))
+    cloud_count = len(categorized.get("cloud", []))
+    devops_count = len(categorized.get("devops", []))
+    tech_count = len(categorized.get("tech", []))
 
-    # 상위 뉴스 제목
+    # 상위 뉴스 제목 (영어만 사용)
     top_news = []
-    for item in news_items[:4]:
-        title = item.get("title", "")[:45]
-        source = item.get("source_name", "")[:12]
-        top_news.append((title, source))
+    for item in news_items[:3]:
+        title = item.get("title", "")[:50]
+        source = item.get("source_name", "")[:15]
+        category = item.get("category", "tech")
+        top_news.append((title, source, category))
+
+    # 첫 번째 보안 뉴스를 Critical로 표시
+    first_security = None
+    for item in news_items:
+        if item.get("category") in ("security", "devsecops"):
+            first_security = item.get("title", "")[:45]
+            break
 
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="50%" style="stop-color:#1e293b"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="30%" style="stop-color:#1a1f35"/>
+      <stop offset="70%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#0a0f1a"/>
     </linearGradient>
     <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="50%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#ec4899"/>
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="25%" style="stop-color:#f97316"/>
+      <stop offset="50%" style="stop-color:#eab308"/>
+      <stop offset="75%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="alertGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
       <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-opacity="0.4"/>
     </filter>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.3" opacity="0.4"/>
+    </pattern>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.8" fill="#475569" opacity="0.3"/>
+    </pattern>
   </defs>
-  
+
   <rect width="1200" height="630" fill="url(#bgGrad)"/>
-  
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.5" opacity="0.3"/>
-  </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
-  
-  <circle cx="100" cy="100" r="200" fill="#3b82f6" opacity="0.05"/>
-  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" opacity="0.05"/>
-  
-  <rect x="0" y="0" width="1200" height="4" fill="url(#accentGrad)"/>
-  
-  <rect x="40" y="30" width="150" height="36" rx="18" fill="#3b82f6" opacity="0.2"/>
-  <text x="115" y="54" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#60a5fa" text-anchor="middle">{date_str}</text>
-  
-  <text x="600" y="100" font-family="system-ui, sans-serif" font-size="42" font-weight="800" fill="#f8fafc" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="140" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">DevSecOps Insights - {total} News Analyzed</text>
-  
-  <rect x="400" y="160" width="400" height="2" fill="url(#accentGrad)" rx="1"/>
-  
-  <!-- Stats -->
-  <g transform="translate(60, 200)">
-    <rect width="250" height="180" rx="16" fill="#1e293b" filter="url(#shadow)"/>
-    <text x="125" y="40" font-family="system-ui" font-size="16" font-weight="600" fill="#f8fafc" text-anchor="middle">Distribution</text>
-    
-    <g transform="translate(30, 70)">
-      <rect width="{security_pct * 1.8}" height="20" rx="4" fill="#ef4444"/>
-      <text x="0" y="45" font-family="system-ui" font-size="12" fill="#94a3b8">Security {security_pct}%</text>
-    </g>
-    <g transform="translate(30, 95)">
-      <rect width="{cloud_pct * 1.8}" height="20" rx="4" fill="#22c55e"/>
-      <text x="0" y="45" font-family="system-ui" font-size="12" fill="#94a3b8">Cloud {cloud_pct}%</text>
-    </g>
-    <g transform="translate(30, 120)">
-      <rect width="{devops_pct * 1.8}" height="20" rx="4" fill="#f59e0b"/>
-      <text x="0" y="45" font-family="system-ui" font-size="12" fill="#94a3b8">DevOps {devops_pct}%</text>
-    </g>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <circle cx="0" cy="0" r="300" fill="#ef4444" opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#3b82f6" opacity="0.03"/>
+
+  <rect x="0" y="0" width="1200" height="5" fill="url(#accentGrad)"/>
+
+  <g transform="translate(40, 25)">
+    <rect width="120" height="40" rx="20" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="60" y="26" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">{date_str}</text>
   </g>
-  
-  <!-- Top News -->
-  <g transform="translate(340, 200)">
-    <rect width="800" height="180" rx="16" fill="#1e293b" filter="url(#shadow)"/>
-    <text x="400" y="35" font-family="system-ui" font-size="16" font-weight="600" fill="#f8fafc" text-anchor="middle">Top Headlines</text>
+
+  <text x="600" y="100" font-family="system-ui, sans-serif" font-size="44" font-weight="800" fill="#f8fafc" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
+  <text x="600" y="140" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">DevSecOps Insights - {total} News Analyzed</text>
+
+  <rect x="350" y="160" width="500" height="2" fill="url(#accentGrad)" rx="1"/>
 '''
 
-    colors = ["#ef4444", "#22c55e", "#3b82f6", "#f59e0b"]
-    for i, (title, source) in enumerate(top_news):
-        y_pos = 65 + i * 35
+    # Critical Alert Card (if security news exists)
+    if first_security:
+        svg += f'''
+  <g transform="translate(50, 190)">
+    <rect width="350" height="180" rx="16" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#ef4444" stroke-width="2"/>
+    <rect x="0" y="0" width="350" height="40" rx="16" fill="#ef4444" opacity="0.15"/>
+    <rect x="0" y="25" width="350" height="15" fill="#ef4444" opacity="0.15"/>
+    <g transform="translate(15, 10)">
+      <circle cx="10" cy="10" r="10" fill="#ef4444"/>
+      <text x="10" y="15" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">!</text>
+    </g>
+    <text x="45" y="26" font-family="system-ui" font-size="14" font-weight="700" fill="#fca5a5">SECURITY ALERT</text>
+    <text x="20" y="65" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">{first_security[:40]}...</text>
+    <text x="20" y="90" font-family="system-ui" font-size="11" fill="#94a3b8">Review and apply patches immediately</text>
+    <g transform="translate(20, 110)">
+      <rect width="80" height="24" rx="6" fill="#dc2626"/>
+      <text x="40" y="16" font-family="system-ui" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">CRITICAL</text>
+    </g>
+    <g transform="translate(110, 110)">
+      <rect width="90" height="24" rx="6" fill="#f97316" opacity="0.2"/>
+      <text x="45" y="16" font-family="system-ui" font-size="10" font-weight="600" fill="#fb923c" text-anchor="middle">PATCH NOW</text>
+    </g>
+    <text x="20" y="165" font-family="system-ui" font-size="10" fill="#64748b">Source: The Hacker News</text>
+  </g>
+'''
+
+    # Top Headlines Card
+    svg += f'''
+  <g transform="translate(420, 190)">
+    <rect width="730" height="180" rx="16" fill="url(#cardGrad)" filter="url(#shadow)"/>
+    <text x="365" y="30" font-family="system-ui" font-size="16" font-weight="600" fill="#f8fafc" text-anchor="middle">Top Headlines</text>
+'''
+
+    colors = {"security": "#ef4444", "devsecops": "#ef4444", "cloud": "#22c55e", "devops": "#f59e0b", "tech": "#3b82f6"}
+    for i, (title, source, category) in enumerate(top_news):
+        y_pos = 55 + i * 40
+        color = colors.get(category, "#3b82f6")
         svg += f'''    <g transform="translate(20, {y_pos})">
-      <circle cx="8" cy="8" r="5" fill="{colors[i % len(colors)]}"/>
-      <text x="25" y="12" font-family="system-ui" font-size="13" fill="#e2e8f0">{title}...</text>
-      <text x="700" y="12" font-family="system-ui" font-size="11" fill="#64748b" text-anchor="end">{source}</text>
+      <circle cx="8" cy="8" r="6" fill="{color}"/>
+      <text x="25" y="12" font-family="system-ui" font-size="12" font-weight="600" fill="#e2e8f0">{title}...</text>
+      <text x="680" y="12" font-family="system-ui" font-size="10" fill="#64748b" text-anchor="end">{source}</text>
     </g>
 '''
 
     svg += """  </g>
-  
-  <!-- Footer -->
-  <rect x="0" y="520" width="1200" height="110" fill="#0f172a" opacity="0.8"/>
-  
-  <text x="60" y="565" font-family="system-ui" font-size="24" font-weight="700" fill="#f8fafc">Twodragon</text>
-  <text x="60" y="595" font-family="system-ui" font-size="14" fill="#64748b">tech.2twodragon.com</text>
-  
-  <g transform="translate(400, 555)">
-    <rect width="80" height="26" rx="13" fill="#3b82f6" opacity="0.2"/>
-    <text x="40" y="18" font-family="system-ui" font-size="11" fill="#60a5fa" text-anchor="middle">#Security</text>
+"""
+
+    # Stats Section
+    svg += f'''
+  <g transform="translate(50, 390)">
+    <rect width="1100" height="100" rx="16" fill="url(#cardGrad)" filter="url(#shadow)"/>
+    <g transform="translate(80, 25)">
+      <text x="0" y="0" font-family="system-ui" font-size="32" font-weight="800" fill="#f8fafc">{total}</text>
+      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#94a3b8">Total News</text>
+    </g>
+    <g transform="translate(250, 25)">
+      <text x="0" y="0" font-family="system-ui" font-size="32" font-weight="800" fill="#ef4444">{security_count}</text>
+      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#fca5a5">Security</text>
+      <rect x="0" y="35" width="100" height="6" rx="3" fill="#1e293b"/>
+      <rect x="0" y="35" width="{min(security_count * 20, 100)}" height="6" rx="3" fill="#ef4444"/>
+    </g>
+    <g transform="translate(450, 25)">
+      <text x="0" y="0" font-family="system-ui" font-size="32" font-weight="800" fill="#22c55e">{cloud_count}</text>
+      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#4ade80">Cloud</text>
+      <rect x="0" y="35" width="100" height="6" rx="3" fill="#1e293b"/>
+      <rect x="0" y="35" width="{min(cloud_count * 20, 100)}" height="6" rx="3" fill="#22c55e"/>
+    </g>
+    <g transform="translate(650, 25)">
+      <text x="0" y="0" font-family="system-ui" font-size="32" font-weight="800" fill="#f59e0b">{devops_count}</text>
+      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#fbbf24">DevOps</text>
+      <rect x="0" y="35" width="100" height="6" rx="3" fill="#1e293b"/>
+      <rect x="0" y="35" width="{min(devops_count * 20, 100)}" height="6" rx="3" fill="#f59e0b"/>
+    </g>
+    <g transform="translate(850, 25)">
+      <text x="0" y="0" font-family="system-ui" font-size="32" font-weight="800" fill="#3b82f6">{tech_count}</text>
+      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#60a5fa">Tech</text>
+      <rect x="0" y="35" width="100" height="6" rx="3" fill="#1e293b"/>
+      <rect x="0" y="35" width="{min(tech_count * 20, 100)}" height="6" rx="3" fill="#3b82f6"/>
+    </g>
   </g>
-  <g transform="translate(490, 555)">
-    <rect width="90" height="26" rx="13" fill="#8b5cf6" opacity="0.2"/>
-    <text x="45" y="18" font-family="system-ui" font-size="11" fill="#a78bfa" text-anchor="middle">#DevSecOps</text>
+'''
+
+    # Footer
+    svg += f'''
+  <rect x="0" y="510" width="1200" height="120" fill="#0a0f1a" opacity="0.9"/>
+
+  <text x="60" y="555" font-family="system-ui" font-size="24" font-weight="800" fill="#f8fafc">Twodragon</text>
+  <text x="60" y="580" font-family="system-ui" font-size="13" fill="#64748b">tech.2twodragon.com</text>
+
+  <g transform="translate(350, 545)">
+    <rect width="85" height="26" rx="13" fill="#ef4444" opacity="0.2"/>
+    <text x="42" y="18" font-family="system-ui" font-size="10" fill="#fca5a5" text-anchor="middle">#Security</text>
   </g>
-  <g transform="translate(590, 555)">
+  <g transform="translate(445, 545)">
+    <rect width="95" height="26" rx="13" fill="#3b82f6" opacity="0.2"/>
+    <text x="47" y="18" font-family="system-ui" font-size="10" fill="#60a5fa" text-anchor="middle">#DevSecOps</text>
+  </g>
+  <g transform="translate(550, 545)">
     <rect width="70" height="26" rx="13" fill="#22c55e" opacity="0.2"/>
-    <text x="35" y="18" font-family="system-ui" font-size="11" fill="#4ade80" text-anchor="middle">#Cloud</text>
+    <text x="35" y="18" font-family="system-ui" font-size="10" fill="#4ade80" text-anchor="middle">#Cloud</text>
   </g>
-  
-  <g transform="translate(1020, 550)">
-    <rect width="120" height="40" rx="20" fill="url(#accentGrad)"/>
-    <text x="60" y="26" font-family="system-ui" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">Read More</text>
+  <g transform="translate(630, 545)">
+    <rect width="75" height="26" rx="13" fill="#8b5cf6" opacity="0.2"/>
+    <text x="37" y="18" font-family="system-ui" font-size="10" fill="#a78bfa" text-anchor="middle">#Weekly</text>
   </g>
-</svg>"""
+
+  <g transform="translate(1020, 540)">
+    <rect width="130" height="42" rx="21" fill="url(#accentGrad)" filter="url(#shadow)"/>
+    <text x="65" y="27" font-family="system-ui" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Read More</text>
+  </g>
+
+  <rect x="0" y="625" width="1200" height="5" fill="url(#accentGrad)"/>
+</svg>'''
 
     return svg
 
