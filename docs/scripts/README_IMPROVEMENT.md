@@ -67,7 +67,7 @@ tail -f improvement_log.txt
 crontab -e
 
 # 매일 오전 2시에 실행
-0 2 * * * cd /Users/yong/Desktop/tech-blog && /usr/bin/python3 scripts/smart_improve_posts.py >> improvement.log 2>&1
+0 2 * * * cd ~/Desktop/tech-blog && /usr/bin/python3 scripts/smart_improve_posts.py >> improvement.log 2>&1
 ```
 
 ### systemd 서비스로 실행 (Linux)
@@ -82,11 +82,11 @@ After=network.target
 [Service]
 Type=simple
 User=your-username
-WorkingDirectory=/Users/yong/Desktop/tech-blog
+WorkingDirectory=~/Desktop/tech-blog
 ExecStart=/usr/bin/python3 scripts/smart_improve_posts.py
 Restart=on-failure
-StandardOutput=append:/Users/yong/Desktop/tech-blog/improvement.log
-StandardError=append:/Users/yong/Desktop/tech-blog/improvement.log
+StandardOutput=append:~/Desktop/tech-blog/improvement.log
+StandardError=append:~/Desktop/tech-blog/improvement.log
 
 [Install]
 WantedBy=multi-user.target

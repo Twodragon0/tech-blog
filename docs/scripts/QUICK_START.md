@@ -5,7 +5,7 @@
 ### 0단계: 의존성 설치
 
 ```bash
-cd /Users/yong/Desktop/tech-blog
+cd ~/Desktop/tech-blog
 ./scripts/install_dependencies.sh
 ```
 
@@ -18,7 +18,7 @@ pip3 install requests certifi
 ### 1단계: API 키 설정
 
 ```bash
-cd /Users/yong/Desktop/tech-blog
+cd ~/Desktop/tech-blog
 ./scripts/setup_ai_keys.sh
 ```
 

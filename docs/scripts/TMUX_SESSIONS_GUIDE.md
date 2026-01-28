@@ -203,10 +203,10 @@ tmux -V
 
 ```bash
 # tech-blog 경로 확인
-ls "/Users/twodragon/twodragon114@gmail.com - Google Drive/내 드라이브/tech-blog"
+ls ~/Desktop/tech-blog
 
 # online-course 경로 확인
-ls "/Users/twodragon/twodragon114@gmail.com - Google Drive/내 드라이브/online-course"
+ls ~/Desktop/online-course
 ```
 
 ## 📚 참고 자료

@@ -63,7 +63,7 @@ Mermaid 다이어그램 렌더링 중 Promise rejection이 발생할 수 있습�
 
 1. **Favicon 생성**:
    ```bash
-   cd /Users/twodragon/Library/CloudStorage/GoogleDrive-twodragon114@gmail.com/내\ 드라이브/tech-blog
+   cd ~/Desktop/tech-blog
    python3 scripts/generate_favicon.py
    ```
 

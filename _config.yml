@@ -186,7 +186,8 @@ twitter:
 # Google Analytics - GA4 Measurement ID (G-XXXXXXXXXX) or Universal Analytics (UA-XXXXXXXXX-X)
 # google_analytics: "G-XXXXXXXXXX"
 
-# Google AdSense - Publisher ID (ca-pub-XXXXXXXXXX)
+# Google AdSense - Publisher ID (public by design, visible in page source)
+# Note: AdSense IDs are meant to be public and are embedded in ad code
 google_adsense: "ca-pub-6788271437088974"
 
 # Cloudflare Web Analytics (무료, 프라이버시 친화적)

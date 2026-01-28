@@ -19,9 +19,9 @@ if ! command -v tmux &> /dev/null; then
     exit 1
 fi
 
-# 디렉토리 경로 설정
-TECH_BLOG_DIR="/Users/twodragon/twodragon114@gmail.com - Google Drive/내 드라이브/tech-blog"
-EDU_BLOG_DIR="/Users/twodragon/twodragon114@gmail.com - Google Drive/내 드라이브/online-course"
+# 디렉토리 경로 설정 (환경에 맞게 수정 필요)
+TECH_BLOG_DIR="${TECH_BLOG_DIR:-$HOME/Desktop/tech-blog}"
+EDU_BLOG_DIR="${EDU_BLOG_DIR:-$HOME/Desktop/online-course}"
 
 # blog-tech 세션 생성
 if tmux has-session -t blog-tech 2>/dev/null; then

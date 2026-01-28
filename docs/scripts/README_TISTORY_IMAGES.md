@@ -27,28 +27,28 @@ chmod +x scripts/fetch_tistory_images.py
 ### 테스트 모드 (첫 번째 포스트만)
 
 ```bash
-cd /Users/yong/Desktop/tech-blog
+cd ~/Desktop/tech-blog
 python3 scripts/fetch_tistory_images.py --test
 ```
 
 ### 전체 포스트 처리
 
 ```bash
-cd /Users/yong/Desktop/tech-blog
+cd ~/Desktop/tech-blog
 python3 scripts/fetch_tistory_images.py
 ```
 
 ### 기존 이미지 강제 재다운로드
 
 ```bash
-cd /Users/yong/Desktop/tech-blog
+cd ~/Desktop/tech-blog
 python3 scripts/fetch_tistory_images.py --force
 ```
 
 ### 가상 환경 사용 시
 
 ```bash
-cd /Users/yong/Desktop/tech-blog
+cd ~/Desktop/tech-blog
 source venv/bin/activate
 python3 scripts/fetch_tistory_images.py
 ```

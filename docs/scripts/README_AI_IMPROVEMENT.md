@@ -37,14 +37,14 @@ source ~/.zshrc  # 또는 source ~/.bashrc
 ### 2. 즉시 실행 (1시간)
 
 ```bash
-cd /Users/yong/Desktop/tech-blog
+cd ~/Desktop/tech-blog
 ./scripts/run_ai_improvement.sh
 ```
 
 ### 3. 백그라운드 실행
 
 ```bash
-cd /Users/yong/Desktop/tech-blog
+cd ~/Desktop/tech-blog
 ./scripts/start_ai_background.sh
 ```
 
