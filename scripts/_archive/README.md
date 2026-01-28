@@ -4,6 +4,7 @@ This folder contains scripts that are:
 - **One-off scripts** - Created for specific tasks that are no longer needed
 - **Deprecated scripts** - Superseded by unified or improved versions
 - **Experimental scripts** - Testing scripts that are not part of the main workflow
+- **Migrated scripts** - Moved to other projects (backups kept here)
 
 ## Why Archived?
 
@@ -12,7 +13,30 @@ These scripts have been archived to:
 2. Preserve code for future reference if needed
 3. Avoid confusion about which scripts to use
 
-## Archived Scripts
+## Migrated to online-course (14 scripts)
+
+These audio/video scripts have been migrated to `~/Desktop/online-course/scripts/audio_video/`:
+
+| Script | New Location |
+|--------|--------------|
+| `generate_audio_batch.py` | `online-course/scripts/audio_video/` |
+| `generate_audio_from_improved_scripts.py` | `online-course/scripts/audio_video/` |
+| `generate_audio_from_improved_split.py` | `online-course/scripts/audio_video/` |
+| `generate_audio_from_script.py` | `online-course/scripts/audio_video/` |
+| `generate_enhanced_audio.py` | `online-course/scripts/audio_video/` |
+| `generate_tts_simple.py` | `online-course/scripts/audio_video/` |
+| `generate_tts_split.py` | `online-course/scripts/audio_video/` |
+| `generate_tts_with_voice.py` | `online-course/scripts/audio_video/` |
+| `generate_post_to_video.py` | `online-course/scripts/audio_video/` |
+| `generate_video_with_remotion.py` | `online-course/scripts/audio_video/` |
+| `generate_segment_images.py` | `online-course/scripts/audio_video/` |
+| `improve_scripts_for_audio_video.py` | `online-course/scripts/audio_video/` |
+| `clean_tts_formatting.py` | `online-course/scripts/audio_video/` |
+| `check_audio_generation_status.py` | `online-course/scripts/audio_video/` |
+
+> See [AUDIO_VIDEO_MOVED.md](../AUDIO_VIDEO_MOVED.md) for usage instructions.
+
+## Other Archived Scripts
 
 | Script | Reason |
 |--------|--------|

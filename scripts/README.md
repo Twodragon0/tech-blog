@@ -146,15 +146,19 @@ python3 scripts/collect_kisa_security.py --use-cache --generate-draft
 
 ### Audio/Video Generation
 
+> **Moved to online-course**: Audio/video scripts have been migrated to `~/Desktop/online-course/scripts/audio_video/` for centralized media production.
+>
+> See [AUDIO_VIDEO_MOVED.md](./AUDIO_VIDEO_MOVED.md) for details.
+
 ```bash
-# Generate audio batch
-python3 scripts/generate_audio_batch.py
+# From online-course directory
+cd ~/Desktop/online-course/scripts/audio_video/
 
-# Generate video with Remotion
-python3 scripts/generate_video_with_remotion.py
+# Generate video from tech-blog post
+python3 generate_post_to_video.py ~/Desktop/tech-blog/_posts/2026-01-15-Example.md
 
-# Convert post to video
-python3 scripts/generate_post_to_video.py
+# Generate audio from tech-blog post
+python3 generate_tts_simple.py ~/Desktop/tech-blog/_posts/2026-01-15-Example.md
 ```
 
 ### Daily News
@@ -311,24 +315,18 @@ Complete reference of all 69 active Python scripts and 20 active shell scripts, 
 | `generate_aws_diagram.py` | AWS architecture diagrams | `--output-dir` |
 | `generate_blog_diagrams.py` | General blog diagrams | `--type` (architecture/flow/process) |
 
-### Audio/Video Generation (12 scripts)
+### Audio/Video Generation (MOVED)
 
-| Script | Purpose | Key Options |
-|--------|---------|------------|
-| `generate_audio_batch.py` | Batch audio generation from posts | `--all`, `--recent N`, `--force` |
-| `generate_audio_from_improved_scripts.py` | Audio from improved scripts | `--batch-size`, `--output-dir` |
-| `generate_audio_from_improved_split.py` | Split audio generation for long content | `--chunk-size`, `--overlap` |
-| `generate_audio_from_script.py` | Single script audio conversion | `--script-file`, `--output` |
-| `generate_enhanced_audio.py` | Enhanced audio quality processing | `--quality` (low/medium/high) |
-| `generate_tts_simple.py` | Simple TTS generation | `--text`, `--output` |
-| `generate_tts_split.py` | Split TTS for long text | `--max-length`, `--overlap` |
-| `generate_tts_with_voice.py` | TTS with voice selection | `--voice`, `--language` |
-| `generate_post_to_video.py` | Convert post to video | `--all`, `--format` (mp4/webm) |
-| `generate_video_with_remotion.py` | Remotion video generation | `--composition`, `--fps` |
-| `generate_segment_images.py` | Video segment images | `--segments`, `--resolution` |
-| `check_audio_generation_status.py` | Check generation status | `--verbose`, `--retry-failed` |
+> **Migrated to online-course**: 14 audio/video scripts moved to `~/Desktop/online-course/scripts/audio_video/`
+>
+> See [AUDIO_VIDEO_MOVED.md](./AUDIO_VIDEO_MOVED.md) for full list and usage.
 
-### Content Improvement (5 scripts)
+| Location | Scripts | Purpose |
+|----------|---------|---------|
+| `online-course/scripts/audio_video/` | 14 scripts | TTS, video generation, segment images |
+| `_archive/` | Archived copies | Backup of original scripts |
+
+### Content Improvement (4 scripts)
 
 | Script | Purpose | Key Options |
 |--------|---------|------------|
@@ -336,7 +334,8 @@ Complete reference of all 69 active Python scripts and 20 active shell scripts, 
 | `smart_improve_posts.py` | Template-based improvement (no API) | `--templates-dir`, `--force` |
 | `continuous_improve_posts.py` | Continuous improvement loop | `--interval`, `--max-iterations` |
 | `improve_post_summary.py` | Improve post summaries | `--all`, `--min-quality` |
-| `improve_scripts_for_audio_video.py` | Improve A/V scripts | `--check`, `--improve` |
+
+> Note: `improve_scripts_for_audio_video.py` moved to `online-course/scripts/audio_video/`
 
 ### News & Newsletter (10 scripts)
 
