@@ -1,291 +1,332 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0c1222"/>
-      <stop offset="50%" stop-color="#1a1f35"/>
-      <stop offset="100%" stop-color="#0f172a"/>
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="50%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#8b5cf6"/>
       <stop offset="50%" stop-color="#06b6d4"/>
       <stop offset="100%" stop-color="#10b981"/>
     </linearGradient>
-    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#a78bfa"/>
-      <stop offset="100%" stop-color="#8b5cf6"/>
+    <linearGradient id="codeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#21262d"/>
+      <stop offset="100%" stop-color="#161b22"/>
     </linearGradient>
-    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22d3ee"/>
-      <stop offset="100%" stop-color="#06b6d4"/>
-    </linearGradient>
-    <linearGradient id="greenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#34d399"/>
-      <stop offset="100%" stop-color="#10b981"/>
-    </linearGradient>
-    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="termGrad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#1e293b"/>
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <filter id="shadow">
-      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-opacity="0.4"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.4"/>
     </filter>
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.3"/>
-    </pattern>
-    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="10" cy="10" r="1" fill="#475569" opacity="0.5"/>
-    </pattern>
   </defs>
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#grid)" opacity="0.3"/>
-  <rect width="1200" height="630" fill="url(#dots)" opacity="0.2"/>
 
-  <!-- Decorative elements -->
-  <circle cx="150" cy="80" r="100" fill="url(#purpleGlow)" opacity="0.05"/>
-  <circle cx="1050" cy="550" r="120" fill="url(#cyanGlow)" opacity="0.05"/>
+  <!-- Grid pattern -->
+  <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+    <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#30363d" stroke-width="0.3"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
 
-  <!-- Top accent bar -->
-  <rect x="0" y="0" width="1200" height="5" fill="url(#accent)"/>
+  <!-- Top accent -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
 
   <!-- Header badges -->
-  <g transform="translate(50, 35)">
-    <!-- Security badge -->
-    <rect width="95" height="36" rx="18" fill="url(#greenGlow)" filter="url(#shadow)"/>
-    <text x="47" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">SECURITY</text>
+  <g transform="translate(40, 28)">
+    <rect width="115" height="32" rx="16" fill="#238636" filter="url(#shadow)"/>
+    <text x="57" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">SECURITY</text>
 
-    <!-- AI badge -->
-    <g transform="translate(110, 0)">
-      <rect width="100" height="36" rx="18" fill="url(#purpleGlow)" filter="url(#shadow)"/>
-      <text x="50" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">AI AGENT</text>
+    <g transform="translate(125, 0)">
+      <rect width="85" height="32" rx="16" fill="#8b5cf6"/>
+      <text x="42" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">CODE</text>
     </g>
 
-    <!-- Date badge -->
-    <g transform="translate(225, 0)">
-      <rect width="110" height="36" rx="18" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-      <text x="55" y="24" font-family="system-ui" font-size="12" font-weight="600" fill="#94a3b8" text-anchor="middle">2026.01.28</text>
+    <g transform="translate(220, 0)">
+      <rect width="110" height="32" rx="16" fill="#21262d" stroke="#30363d"/>
+      <text x="55" y="22" font-family="system-ui" font-size="11" font-weight="600" fill="#8b949e" text-anchor="middle">2026.01.28</text>
     </g>
   </g>
 
   <!-- Title -->
-  <text x="600" y="115" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="800" fill="#f8fafc" text-anchor="middle" filter="url(#glow)">CLAUDE.md Security Guide</text>
-  <text x="600" y="155" font-family="system-ui" font-size="17" fill="#94a3b8" text-anchor="middle">AI Agent Development Security Guidelines</text>
+  <text x="600" y="95" font-family="system-ui" font-size="38" font-weight="800" fill="#f0f6fc" text-anchor="middle" filter="url(#glow)">CLAUDE.md Security Guide</text>
+  <text x="600" y="128" font-family="system-ui" font-size="15" fill="#8b949e" text-anchor="middle">Security-First AI Agent Development with Python Code Patterns</text>
+  <rect x="380" y="145" width="440" height="2" rx="1" fill="url(#accent)"/>
 
-  <!-- Accent line -->
-  <rect x="350" y="175" width="500" height="3" rx="1.5" fill="url(#accent)"/>
+  <!-- Code Block 1: Never Hardcode -->
+  <g transform="translate(35, 170)">
+    <rect width="370" height="195" rx="12" fill="url(#codeGrad)" filter="url(#shadow)" stroke="#30363d"/>
 
-  <!-- Main Content: 3 Cards -->
+    <!-- Terminal header -->
+    <rect x="0" y="0" width="370" height="32" rx="12" fill="#21262d"/>
+    <circle cx="18" cy="16" r="5" fill="#ff5f56"/>
+    <circle cx="36" cy="16" r="5" fill="#ffbd2e"/>
+    <circle cx="54" cy="16" r="5" fill="#27c93f"/>
+    <text x="185" y="21" font-family="monospace" font-size="11" fill="#8b949e" text-anchor="middle">security_patterns.py</text>
 
-  <!-- Card 1: Security First -->
-  <g transform="translate(40, 205)">
-    <rect width="360" height="230" rx="20" fill="url(#card)" filter="url(#shadow)" stroke="#10b981" stroke-width="1.5"/>
+    <!-- Code content -->
+    <g transform="translate(15, 45)">
+      <text x="0" y="0" font-family="monospace" font-size="10" fill="#8b949e">1</text>
+      <text x="25" y="0" font-family="monospace" font-size="10" fill="#ff7b72"># Never hardcode secrets</text>
 
-    <!-- Header -->
-    <rect x="0" y="0" width="360" height="55" rx="20" fill="#10b981" opacity="0.1"/>
-    <rect x="0" y="35" width="360" height="20" fill="#10b981" opacity="0.1"/>
+      <text x="0" y="18" font-family="monospace" font-size="10" fill="#8b949e">2</text>
+      <text x="25" y="18" font-family="monospace" font-size="10" fill="#ff7b72">import</text>
+      <text x="65" y="18" font-family="monospace" font-size="10" fill="#c9d1d9"> os</text>
 
-    <!-- Shield icon -->
-    <g transform="translate(25, 15)">
-      <circle cx="12" cy="12" r="14" fill="#10b981" opacity="0.2"/>
-      <path d="M12 3L4 7v5c0 5.25 3.4 10.1 8 11.3 4.6-1.2 8-6.05 8-11.3V7l-8-4z" fill="#10b981" transform="translate(2, 2) scale(0.8)"/>
+      <text x="0" y="36" font-family="monospace" font-size="10" fill="#8b949e">3</text>
+
+      <text x="0" y="54" font-family="monospace" font-size="10" fill="#8b949e">4</text>
+      <text x="25" y="54" font-family="monospace" font-size="10" fill="#ffa657">API_KEY</text>
+      <text x="73" y="54" font-family="monospace" font-size="10" fill="#c9d1d9"> = os.</text>
+      <text x="110" y="54" font-family="monospace" font-size="10" fill="#d2a8ff">getenv</text>
+      <text x="148" y="54" font-family="monospace" font-size="10" fill="#c9d1d9">(</text>
+      <text x="155" y="54" font-family="monospace" font-size="10" fill="#a5d6ff">"API_KEY"</text>
+      <text x="218" y="54" font-family="monospace" font-size="10" fill="#c9d1d9">,</text>
+      <text x="225" y="54" font-family="monospace" font-size="10" fill="#a5d6ff">""</text>
+      <text x="238" y="54" font-family="monospace" font-size="10" fill="#c9d1d9">)</text>
+
+      <text x="0" y="72" font-family="monospace" font-size="10" fill="#8b949e">5</text>
+
+      <text x="0" y="90" font-family="monospace" font-size="10" fill="#8b949e">6</text>
+      <text x="25" y="90" font-family="monospace" font-size="10" fill="#ff7b72">if not</text>
+      <text x="70" y="90" font-family="monospace" font-size="10" fill="#c9d1d9"> API_KEY:</text>
+
+      <text x="0" y="108" font-family="monospace" font-size="10" fill="#8b949e">7</text>
+      <text x="25" y="108" font-family="monospace" font-size="10" fill="#c9d1d9">    </text>
+      <text x="45" y="108" font-family="monospace" font-size="10" fill="#ff7b72">raise</text>
+      <text x="80" y="108" font-family="monospace" font-size="10" fill="#ffa657"> ValueError</text>
+      <text x="155" y="108" font-family="monospace" font-size="10" fill="#c9d1d9">(</text>
+      <text x="162" y="108" font-family="monospace" font-size="10" fill="#a5d6ff">"..."</text>
+      <text x="188" y="108" font-family="monospace" font-size="10" fill="#c9d1d9">)</text>
     </g>
 
-    <text x="55" y="34" font-family="system-ui" font-size="16" font-weight="700" fill="#4ade80">Security First</text>
-
-    <!-- Content -->
-    <g transform="translate(25, 75)">
-      <circle cx="6" cy="6" r="4" fill="#ef4444"/>
-      <text x="20" y="10" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Never Hardcode Secrets</text>
-      <text x="20" y="28" font-family="system-ui" font-size="10" fill="#94a3b8">Use os.getenv() for all sensitive data</text>
-    </g>
-
-    <g transform="translate(25, 120)">
-      <circle cx="6" cy="6" r="4" fill="#f59e0b"/>
-      <text x="20" y="10" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Mask All Logs</text>
-      <text x="20" y="28" font-family="system-ui" font-size="10" fill="#94a3b8">mask_sensitive_info() before output</text>
-    </g>
-
-    <g transform="translate(25, 165)">
-      <circle cx="6" cy="6" r="4" fill="#22c55e"/>
-      <text x="20" y="10" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Validate All Inputs</text>
-      <text x="20" y="28" font-family="system-ui" font-size="10" fill="#94a3b8">XSS, SQL Injection prevention</text>
-    </g>
-  </g>
-
-  <!-- Card 2: AI Agent Files -->
-  <g transform="translate(420, 205)">
-    <rect width="360" height="230" rx="20" fill="url(#card)" filter="url(#shadow)" stroke="#8b5cf6" stroke-width="1.5"/>
-
-    <!-- Header -->
-    <rect x="0" y="0" width="360" height="55" rx="20" fill="#8b5cf6" opacity="0.1"/>
-    <rect x="0" y="35" width="360" height="20" fill="#8b5cf6" opacity="0.1"/>
-
-    <!-- File icon -->
-    <g transform="translate(25, 15)">
-      <circle cx="12" cy="12" r="14" fill="#8b5cf6" opacity="0.2"/>
-      <rect x="6" y="4" width="12" height="16" rx="2" fill="#8b5cf6"/>
-      <line x1="9" y1="9" x2="15" y2="9" stroke="#fff" stroke-width="1.5"/>
-      <line x1="9" y1="13" x2="15" y2="13" stroke="#fff" stroke-width="1.5"/>
-    </g>
-
-    <text x="55" y="34" font-family="system-ui" font-size="16" font-weight="700" fill="#a78bfa">AI Agent Files</text>
-
-    <!-- File list -->
-    <g transform="translate(25, 75)">
-      <rect width="140" height="32" rx="6" fill="#8b5cf6" opacity="0.15"/>
-      <text x="12" y="21" font-family="monospace" font-size="13" font-weight="600" fill="#a78bfa">CLAUDE.md</text>
-      <text x="155" y="21" font-family="system-ui" font-size="10" fill="#64748b">Claude Code CLI</text>
-    </g>
-
-    <g transform="translate(25, 115)">
-      <rect width="140" height="32" rx="6" fill="#06b6d4" opacity="0.15"/>
-      <text x="12" y="21" font-family="monospace" font-size="13" font-weight="600" fill="#22d3ee">AGENTS.md</text>
-      <text x="155" y="21" font-family="system-ui" font-size="10" fill="#64748b">All AI Agents</text>
-    </g>
-
-    <g transform="translate(25, 155)">
-      <rect width="140" height="32" rx="6" fill="#f59e0b" opacity="0.15"/>
-      <text x="12" y="21" font-family="monospace" font-size="13" font-weight="600" fill="#fbbf24">.cursorrules</text>
-      <text x="155" y="21" font-family="system-ui" font-size="10" fill="#64748b">Cursor IDE</text>
-    </g>
-
-    <!-- Arrow flow -->
-    <g transform="translate(25, 195)">
-      <text x="0" y="12" font-family="system-ui" font-size="10" fill="#64748b">Priority: Root &gt; .claude/ &gt; Global</text>
+    <!-- Badge -->
+    <g transform="translate(15, 165)">
+      <rect width="120" height="22" rx="4" fill="#238636"/>
+      <text x="60" y="15" font-family="system-ui" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">os.getenv()</text>
     </g>
   </g>
 
-  <!-- Card 3: Automation -->
-  <g transform="translate(800, 205)">
-    <rect width="360" height="230" rx="20" fill="url(#card)" filter="url(#shadow)" stroke="#06b6d4" stroke-width="1.5"/>
+  <!-- Code Block 2: Mask Sensitive Info -->
+  <g transform="translate(415, 170)">
+    <rect width="370" height="195" rx="12" fill="url(#codeGrad)" filter="url(#shadow)" stroke="#30363d"/>
 
-    <!-- Header -->
-    <rect x="0" y="0" width="360" height="55" rx="20" fill="#06b6d4" opacity="0.1"/>
-    <rect x="0" y="35" width="360" height="20" fill="#06b6d4" opacity="0.1"/>
+    <!-- Terminal header -->
+    <rect x="0" y="0" width="370" height="32" rx="12" fill="#21262d"/>
+    <circle cx="18" cy="16" r="5" fill="#ff5f56"/>
+    <circle cx="36" cy="16" r="5" fill="#ffbd2e"/>
+    <circle cx="54" cy="16" r="5" fill="#27c93f"/>
+    <text x="185" y="21" font-family="monospace" font-size="11" fill="#8b949e" text-anchor="middle">mask_sensitive.py</text>
 
-    <!-- Gear icon -->
-    <g transform="translate(25, 15)">
-      <circle cx="12" cy="12" r="14" fill="#06b6d4" opacity="0.2"/>
-      <circle cx="12" cy="12" r="6" fill="none" stroke="#06b6d4" stroke-width="2"/>
-      <circle cx="12" cy="12" r="2" fill="#06b6d4"/>
+    <!-- Code content -->
+    <g transform="translate(15, 45)">
+      <text x="0" y="0" font-family="monospace" font-size="10" fill="#8b949e">1</text>
+      <text x="25" y="0" font-family="monospace" font-size="10" fill="#ff7b72">def</text>
+      <text x="50" y="0" font-family="monospace" font-size="10" fill="#d2a8ff"> mask_sensitive_info</text>
+      <text x="170" y="0" font-family="monospace" font-size="10" fill="#c9d1d9">(text):</text>
+
+      <text x="0" y="18" font-family="monospace" font-size="10" fill="#8b949e">2</text>
+      <text x="25" y="18" font-family="monospace" font-size="10" fill="#c9d1d9">    patterns = [</text>
+
+      <text x="0" y="36" font-family="monospace" font-size="10" fill="#8b949e">3</text>
+      <text x="25" y="36" font-family="monospace" font-size="10" fill="#c9d1d9">        </text>
+      <text x="55" y="36" font-family="monospace" font-size="10" fill="#a5d6ff">r'sk-[a-zA-Z0-9]{20,}'</text>
+
+      <text x="0" y="54" font-family="monospace" font-size="10" fill="#8b949e">4</text>
+      <text x="25" y="54" font-family="monospace" font-size="10" fill="#c9d1d9">        </text>
+      <text x="55" y="54" font-family="monospace" font-size="10" fill="#a5d6ff">r'ghp_[a-zA-Z0-9]{36}'</text>
+
+      <text x="0" y="72" font-family="monospace" font-size="10" fill="#8b949e">5</text>
+      <text x="25" y="72" font-family="monospace" font-size="10" fill="#c9d1d9">    ]</text>
+
+      <text x="0" y="90" font-family="monospace" font-size="10" fill="#8b949e">6</text>
+      <text x="25" y="90" font-family="monospace" font-size="10" fill="#ff7b72">    return</text>
+      <text x="72" y="90" font-family="monospace" font-size="10" fill="#c9d1d9"> re.sub(...,</text>
+      <text x="145" y="90" font-family="monospace" font-size="10" fill="#a5d6ff">"***"</text>
+      <text x="175" y="90" font-family="monospace" font-size="10" fill="#c9d1d9">)</text>
     </g>
 
-    <text x="55" y="34" font-family="system-ui" font-size="16" font-weight="700" fill="#22d3ee">Automation</text>
-
-    <!-- Tool list -->
-    <g transform="translate(25, 70)">
-      <rect width="85" height="26" rx="6" fill="#ef4444" opacity="0.2"/>
-      <text x="42" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#fca5a5" text-anchor="middle">Gitleaks</text>
-    </g>
-    <g transform="translate(120, 70)">
-      <rect width="75" height="26" rx="6" fill="#f59e0b" opacity="0.2"/>
-      <text x="37" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#fbbf24" text-anchor="middle">Bandit</text>
-    </g>
-    <g transform="translate(205, 70)">
-      <rect width="85" height="26" rx="6" fill="#22c55e" opacity="0.2"/>
-      <text x="42" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#4ade80" text-anchor="middle">Semgrep</text>
-    </g>
-
-    <!-- Workflow -->
-    <g transform="translate(25, 110)">
-      <text x="0" y="12" font-family="system-ui" font-size="11" font-weight="600" fill="#f8fafc">Pre-commit Hooks</text>
-      <text x="0" y="30" font-family="system-ui" font-size="10" fill="#94a3b8">Secret detection, SAST, dependency audit</text>
-    </g>
-
-    <g transform="translate(25, 155)">
-      <text x="0" y="12" font-family="system-ui" font-size="11" font-weight="600" fill="#f8fafc">GitHub Actions</text>
-      <text x="0" y="30" font-family="system-ui" font-size="10" fill="#94a3b8">CI/CD security scanning workflow</text>
-    </g>
-
-    <g transform="translate(25, 195)">
-      <rect width="100" height="22" rx="4" fill="#06b6d4"/>
-      <text x="50" y="15" font-family="system-ui" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">Automated</text>
+    <!-- Badge -->
+    <g transform="translate(15, 165)">
+      <rect width="130" height="22" rx="4" fill="#f59e0b"/>
+      <text x="65" y="15" font-family="system-ui" font-size="10" font-weight="600" fill="#000" text-anchor="middle">***MASKED***</text>
     </g>
   </g>
 
-  <!-- Stats Bar -->
-  <g transform="translate(40, 455)">
-    <rect width="1120" height="75" rx="18" fill="url(#card)" filter="url(#shadow)"/>
+  <!-- Code Block 3: Input Validation -->
+  <g transform="translate(795, 170)">
+    <rect width="370" height="195" rx="12" fill="url(#codeGrad)" filter="url(#shadow)" stroke="#30363d"/>
 
-    <!-- Stat items -->
-    <g transform="translate(80, 15)">
-      <text x="0" y="5" font-family="system-ui" font-size="28" font-weight="800" fill="#10b981">5</text>
-      <text x="0" y="28" font-family="system-ui" font-size="11" fill="#4ade80">Core Principles</text>
+    <!-- Terminal header -->
+    <rect x="0" y="0" width="370" height="32" rx="12" fill="#21262d"/>
+    <circle cx="18" cy="16" r="5" fill="#ff5f56"/>
+    <circle cx="36" cy="16" r="5" fill="#ffbd2e"/>
+    <circle cx="54" cy="16" r="5" fill="#27c93f"/>
+    <text x="185" y="21" font-family="monospace" font-size="11" fill="#8b949e" text-anchor="middle">validate_input.py</text>
+
+    <!-- Code content -->
+    <g transform="translate(15, 45)">
+      <text x="0" y="0" font-family="monospace" font-size="10" fill="#8b949e">1</text>
+      <text x="25" y="0" font-family="monospace" font-size="10" fill="#ff7b72"># XSS Prevention</text>
+
+      <text x="0" y="18" font-family="monospace" font-size="10" fill="#8b949e">2</text>
+      <text x="25" y="18" font-family="monospace" font-size="10" fill="#ffa657">XSS_PATTERNS</text>
+      <text x="110" y="18" font-family="monospace" font-size="10" fill="#c9d1d9"> = [</text>
+
+      <text x="0" y="36" font-family="monospace" font-size="10" fill="#8b949e">3</text>
+      <text x="25" y="36" font-family="monospace" font-size="10" fill="#c9d1d9">    </text>
+      <text x="45" y="36" font-family="monospace" font-size="10" fill="#a5d6ff">r'&lt;script'</text>
+      <text x="115" y="36" font-family="monospace" font-size="10" fill="#c9d1d9">,</text>
+      <text x="125" y="36" font-family="monospace" font-size="10" fill="#a5d6ff">r'javascript:'</text>
+
+      <text x="0" y="54" font-family="monospace" font-size="10" fill="#8b949e">4</text>
+      <text x="25" y="54" font-family="monospace" font-size="10" fill="#c9d1d9">]</text>
+
+      <text x="0" y="72" font-family="monospace" font-size="10" fill="#8b949e">5</text>
+      <text x="25" y="72" font-family="monospace" font-size="10" fill="#ff7b72"># SQL Injection Prevention</text>
+
+      <text x="0" y="90" font-family="monospace" font-size="10" fill="#8b949e">6</text>
+      <text x="25" y="90" font-family="monospace" font-size="10" fill="#ffa657">SQL_PATTERNS</text>
+      <text x="105" y="90" font-family="monospace" font-size="10" fill="#c9d1d9"> = [</text>
+      <text x="130" y="90" font-family="monospace" font-size="10" fill="#a5d6ff">r'UNION'</text>
+      <text x="178" y="90" font-family="monospace" font-size="10" fill="#c9d1d9">...]</text>
     </g>
 
-    <line x1="180" y1="15" x2="180" y2="60" stroke="#334155" stroke-width="1"/>
+    <!-- Badge -->
+    <g transform="translate(15, 165)">
+      <rect width="100" height="22" rx="4" fill="#ef4444"/>
+      <text x="50" y="15" font-family="system-ui" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">XSS + SQLi</text>
+    </g>
+  </g>
 
-    <g transform="translate(220, 15)">
-      <text x="0" y="5" font-family="system-ui" font-size="28" font-weight="800" fill="#8b5cf6">3</text>
-      <text x="0" y="28" font-family="system-ui" font-size="11" fill="#a78bfa">Config Files</text>
+  <!-- File Structure Card -->
+  <g transform="translate(35, 380)">
+    <rect width="280" height="130" rx="12" fill="url(#termGrad)" filter="url(#shadow)" stroke="#30363d"/>
+
+    <text x="20" y="28" font-family="system-ui" font-size="13" font-weight="700" fill="#58a6ff">File Structure</text>
+
+    <g transform="translate(20, 45)">
+      <text x="0" y="0" font-family="monospace" font-size="11" fill="#8b949e">project/</text>
+      <text x="0" y="18" font-family="monospace" font-size="11" fill="#7ee787">  CLAUDE.md</text>
+      <text x="100" y="18" font-family="monospace" font-size="9" fill="#6e7681"># Primary</text>
+      <text x="0" y="36" font-family="monospace" font-size="11" fill="#79c0ff">  AGENTS.md</text>
+      <text x="100" y="36" font-family="monospace" font-size="9" fill="#6e7681"># Universal</text>
+      <text x="0" y="54" font-family="monospace" font-size="11" fill="#ffa657">  .cursorrules</text>
+      <text x="100" y="54" font-family="monospace" font-size="9" fill="#6e7681"># Cursor</text>
+      <text x="0" y="72" font-family="monospace" font-size="11" fill="#8b949e">  .env.example</text>
+    </g>
+  </g>
+
+  <!-- Pre-commit Card -->
+  <g transform="translate(325, 380)">
+    <rect width="280" height="130" rx="12" fill="url(#termGrad)" filter="url(#shadow)" stroke="#30363d"/>
+
+    <text x="20" y="28" font-family="system-ui" font-size="13" font-weight="700" fill="#f59e0b">Pre-commit Hooks</text>
+
+    <g transform="translate(20, 48)">
+      <rect width="75" height="22" rx="4" fill="#ef4444" opacity="0.2"/>
+      <text x="37" y="15" font-family="system-ui" font-size="9" font-weight="600" fill="#fca5a5" text-anchor="middle">Gitleaks</text>
+
+      <rect x="85" width="65" height="22" rx="4" fill="#f59e0b" opacity="0.2"/>
+      <text x="117" y="15" font-family="system-ui" font-size="9" font-weight="600" fill="#fbbf24" text-anchor="middle">Bandit</text>
+
+      <rect x="160" width="80" height="22" rx="4" fill="#22c55e" opacity="0.2"/>
+      <text x="200" y="15" font-family="system-ui" font-size="9" font-weight="600" fill="#4ade80" text-anchor="middle">Semgrep</text>
     </g>
 
-    <line x1="320" y1="15" x2="320" y2="60" stroke="#334155" stroke-width="1"/>
+    <g transform="translate(20, 82)">
+      <text x="0" y="0" font-family="monospace" font-size="10" fill="#8b949e">$ pre-commit run --all-files</text>
+      <text x="0" y="18" font-family="monospace" font-size="10" fill="#7ee787">Passed: 3/3 hooks</text>
+    </g>
+  </g>
 
-    <g transform="translate(360, 15)">
-      <text x="0" y="5" font-family="system-ui" font-size="28" font-weight="800" fill="#06b6d4">4</text>
-      <text x="0" y="28" font-family="system-ui" font-size="11" fill="#22d3ee">Security Tools</text>
+  <!-- CI/CD Card -->
+  <g transform="translate(615, 380)">
+    <rect width="280" height="130" rx="12" fill="url(#termGrad)" filter="url(#shadow)" stroke="#30363d"/>
+
+    <text x="20" y="28" font-family="system-ui" font-size="13" font-weight="700" fill="#06b6d4">GitHub Actions</text>
+
+    <g transform="translate(20, 48)">
+      <circle cx="8" cy="8" r="6" fill="#238636"/>
+      <text x="22" y="12" font-family="system-ui" font-size="11" fill="#c9d1d9">security-scan.yml</text>
     </g>
 
-    <line x1="470" y1="15" x2="470" y2="60" stroke="#334155" stroke-width="1"/>
+    <g transform="translate(20, 72)">
+      <text x="0" y="0" font-family="monospace" font-size="10" fill="#8b949e">jobs:</text>
+      <text x="0" y="15" font-family="monospace" font-size="10" fill="#8b949e">  - gitleaks-action</text>
+      <text x="0" y="30" font-family="monospace" font-size="10" fill="#8b949e">  - semgrep-action</text>
+      <text x="0" y="45" font-family="monospace" font-size="10" fill="#8b949e">  - npm audit</text>
+    </g>
+  </g>
 
-    <g transform="translate(510, 15)">
-      <text x="0" y="5" font-family="system-ui" font-size="28" font-weight="800" fill="#f59e0b">8+</text>
-      <text x="0" y="28" font-family="system-ui" font-size="11" fill="#fbbf24">Code Examples</text>
+  <!-- Stats Card -->
+  <g transform="translate(905, 380)">
+    <rect width="260" height="130" rx="12" fill="url(#termGrad)" filter="url(#shadow)" stroke="#30363d"/>
+
+    <text x="20" y="28" font-family="system-ui" font-size="13" font-weight="700" fill="#a78bfa">Security Metrics</text>
+
+    <g transform="translate(20, 50)">
+      <text x="0" y="0" font-family="system-ui" font-size="24" font-weight="800" fill="#7ee787">6</text>
+      <text x="25" y="0" font-family="system-ui" font-size="11" fill="#8b949e">Python patterns</text>
     </g>
 
-    <line x1="620" y1="15" x2="620" y2="60" stroke="#334155" stroke-width="1"/>
-
-    <g transform="translate(660, 15)">
-      <text x="0" y="5" font-family="system-ui" font-size="28" font-weight="800" fill="#ec4899">15+</text>
-      <text x="0" y="28" font-family="system-ui" font-size="11" fill="#f472b6">Checklists</text>
+    <g transform="translate(130, 50)">
+      <text x="0" y="0" font-family="system-ui" font-size="24" font-weight="800" fill="#fbbf24">4</text>
+      <text x="22" y="0" font-family="system-ui" font-size="11" fill="#8b949e">Security tools</text>
     </g>
 
-    <line x1="780" y1="15" x2="780" y2="60" stroke="#334155" stroke-width="1"/>
+    <g transform="translate(20, 90)">
+      <text x="0" y="0" font-family="system-ui" font-size="24" font-weight="800" fill="#f87171">15+</text>
+      <text x="45" y="0" font-family="system-ui" font-size="11" fill="#8b949e">Checklists</text>
+    </g>
 
-    <!-- Best Practices label -->
-    <g transform="translate(850, 20)">
-      <rect width="230" height="38" rx="10" fill="url(#accent)" filter="url(#shadow)"/>
-      <text x="115" y="25" font-family="system-ui" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Security Best Practices</text>
+    <g transform="translate(130, 90)">
+      <text x="0" y="0" font-family="system-ui" font-size="24" font-weight="800" fill="#60a5fa">3</text>
+      <text x="22" y="0" font-family="system-ui" font-size="11" fill="#8b949e">Config files</text>
     </g>
   </g>
 
   <!-- Footer -->
-  <rect x="0" y="545" width="1200" height="85" fill="#0a0f1a" opacity="0.98"/>
+  <rect x="0" y="525" width="1200" height="105" fill="#0d1117" opacity="0.98"/>
 
-  <!-- Author info -->
-  <text x="55" y="578" font-family="system-ui" font-size="24" font-weight="800" fill="#f8fafc">Twodragon</text>
-  <text x="55" y="603" font-family="system-ui" font-size="13" fill="#64748b">tech.2twodragon.com</text>
+  <text x="50" y="565" font-family="system-ui" font-size="22" font-weight="800" fill="#f0f6fc">Twodragon</text>
+  <text x="50" y="590" font-family="system-ui" font-size="12" fill="#8b949e">tech.2twodragon.com</text>
 
   <!-- Tags -->
-  <g transform="translate(280, 568)">
-    <rect width="90" height="26" rx="13" fill="#10b981" opacity="0.15" stroke="#10b981" stroke-width="1"/>
-    <text x="45" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#4ade80" text-anchor="middle">#Security</text>
+  <g transform="translate(250, 555)">
+    <rect width="95" height="26" rx="13" fill="#238636" opacity="0.2" stroke="#238636"/>
+    <text x="47" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#7ee787" text-anchor="middle">#Security</text>
   </g>
-  <g transform="translate(380, 568)">
-    <rect width="95" height="26" rx="13" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
-    <text x="47" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#a78bfa" text-anchor="middle">#AI-Agent</text>
+  <g transform="translate(355, 555)">
+    <rect width="100" height="26" rx="13" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6"/>
+    <text x="50" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#a78bfa" text-anchor="middle">#CLAUDE.md</text>
   </g>
-  <g transform="translate(485, 568)">
-    <rect width="100" height="26" rx="13" fill="#06b6d4" opacity="0.15" stroke="#06b6d4" stroke-width="1"/>
-    <text x="50" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#22d3ee" text-anchor="middle">#CLAUDE.md</text>
+  <g transform="translate(465, 555)">
+    <rect width="80" height="26" rx="13" fill="#06b6d4" opacity="0.2" stroke="#06b6d4"/>
+    <text x="40" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#22d3ee" text-anchor="middle">#Python</text>
   </g>
-  <g transform="translate(595, 568)">
-    <rect width="100" height="26" rx="13" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
+  <g transform="translate(555, 555)">
+    <rect width="100" height="26" rx="13" fill="#f59e0b" opacity="0.2" stroke="#f59e0b"/>
     <text x="50" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#fbbf24" text-anchor="middle">#DevSecOps</text>
   </g>
-
-  <!-- CTA Button -->
-  <g transform="translate(1020, 563)">
-    <rect width="135" height="42" rx="21" fill="url(#accent)" filter="url(#shadow)"/>
-    <text x="67" y="27" font-family="system-ui" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Read Guide</text>
+  <g transform="translate(665, 555)">
+    <rect width="90" height="26" rx="13" fill="#ef4444" opacity="0.2" stroke="#ef4444"/>
+    <text x="45" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#fca5a5" text-anchor="middle">#Pre-commit</text>
   </g>
 
-  <!-- Bottom accent bar -->
-  <rect x="0" y="625" width="1200" height="5" fill="url(#accent)"/>
+  <!-- CTA -->
+  <g transform="translate(1030, 550)">
+    <rect width="130" height="40" rx="20" fill="url(#accent)" filter="url(#shadow)"/>
+    <text x="65" y="26" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">View Code</text>
+  </g>
+
+  <!-- Bottom accent -->
+  <rect x="0" y="626" width="1200" height="4" fill="url(#accent)"/>
 </svg>
