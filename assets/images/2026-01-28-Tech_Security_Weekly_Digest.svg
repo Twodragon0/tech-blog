@@ -1,278 +1,173 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <!-- Enhanced Gradients -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0f1a"/>
-      <stop offset="30%" style="stop-color:#1a1f35"/>
-      <stop offset="70%" style="stop-color:#0f172a"/>
-      <stop offset="100%" style="stop-color:#0a0f1a"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1a"/>
+      <stop offset="100%" stop-color="#1a1f35"/>
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="25%" style="stop-color:#f97316"/>
-      <stop offset="50%" style="stop-color:#eab308"/>
-      <stop offset="75%" style="stop-color:#22c55e"/>
-      <stop offset="100%" style="stop-color:#3b82f6"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#22c55e"/>
     </linearGradient>
-    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e293b"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <linearGradient id="alertGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#dc2626"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
-    </linearGradient>
-
-    <!-- Filters -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <filter id="shadow">
-      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-opacity="0.4"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
     </filter>
-    <filter id="innerGlow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-    </filter>
-
-    <!-- Patterns -->
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.3" opacity="0.4"/>
-    </pattern>
-    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="0.8" fill="#475569" opacity="0.3"/>
-    </pattern>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
 
-  <!-- Decorative Circles -->
-  <circle cx="0" cy="0" r="300" fill="#ef4444" opacity="0.03"/>
-  <circle cx="1200" cy="630" r="350" fill="#3b82f6" opacity="0.03"/>
-  <circle cx="600" cy="315" r="400" fill="#8b5cf6" opacity="0.02"/>
-
-  <!-- Top Accent Bar -->
-  <rect x="0" y="0" width="1200" height="5" fill="url(#accentGrad)"/>
-
-  <!-- Alert Badge -->
-  <g transform="translate(40, 25)">
-    <rect width="140" height="40" rx="20" fill="url(#alertGrad)" filter="url(#shadow)"/>
-    <text x="70" y="26" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">URGENT PATCH</text>
+  <!-- Header -->
+  <g transform="translate(50, 40)">
+    <rect width="100" height="32" rx="16" fill="#ef4444"/>
+    <text x="50" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">CRITICAL</text>
+  </g>
+  <g transform="translate(170, 40)">
+    <rect width="110" height="32" rx="16" fill="#1e293b" stroke="#475569"/>
+    <text x="55" y="22" font-family="system-ui" font-size="13" font-weight="600" fill="#94a3b8" text-anchor="middle">2026.01.28</text>
   </g>
 
-  <!-- Date Badge -->
-  <g transform="translate(200, 25)">
-    <rect width="130" height="40" rx="20" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-    <text x="65" y="26" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">2026.01.28</text>
-  </g>
-
-  <!-- Main Title -->
-  <text x="600" y="105" font-family="system-ui, sans-serif" font-size="44" font-weight="800" fill="#f8fafc" text-anchor="middle" filter="url(#glow)">
-    Tech &amp; Security Weekly Digest
-  </text>
-  <text x="600" y="145" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">
-    Microsoft Office Zero-Day | CTEM Framework | Grist-Core RCE
-  </text>
-
-  <!-- Divider Line -->
-  <rect x="350" y="165" width="500" height="2" fill="url(#accentGrad)" rx="1"/>
+  <!-- Title -->
+  <text x="600" y="120" font-family="system-ui" font-size="42" font-weight="800" fill="#f8fafc" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
+  <text x="600" y="155" font-family="system-ui" font-size="16" fill="#94a3b8" text-anchor="middle">CVE-2026-21509 | CTEM Framework | Grist-Core RCE</text>
+  <rect x="400" y="175" width="400" height="2" fill="url(#accent)" rx="1"/>
 
   <!-- Critical Alert Card -->
-  <g transform="translate(50, 195)">
-    <rect width="350" height="200" rx="16" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#ef4444" stroke-width="2"/>
-    <rect x="0" y="0" width="350" height="45" rx="16" fill="#ef4444" opacity="0.15"/>
-    <rect x="0" y="30" width="350" height="15" fill="#ef4444" opacity="0.15"/>
+  <g transform="translate(50, 210)">
+    <rect width="360" height="190" rx="16" fill="url(#card)" filter="url(#shadow)" stroke="#ef4444" stroke-width="2"/>
+    <rect x="0" y="0" width="360" height="50" rx="16" fill="#ef4444" opacity="0.1"/>
+    <circle cx="30" cy="25" r="12" fill="#ef4444"/>
+    <text x="30" y="30" font-family="system-ui" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">!</text>
+    <text x="55" y="30" font-family="system-ui" font-size="14" font-weight="700" fill="#fca5a5">CVE-2026-21509</text>
 
-    <!-- Alert Icon -->
-    <g transform="translate(20, 12)">
-      <circle cx="12" cy="12" r="12" fill="#ef4444"/>
-      <text x="12" y="17" font-family="system-ui" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">!</text>
-    </g>
-    <text x="50" y="30" font-family="system-ui" font-size="15" font-weight="700" fill="#fca5a5">CRITICAL: CVE-2026-21509</text>
+    <text x="20" y="80" font-family="system-ui" font-size="14" font-weight="600" fill="#f8fafc">Microsoft Office Zero-Day</text>
+    <text x="20" y="105" font-family="system-ui" font-size="12" fill="#94a3b8">Security Feature Bypass</text>
+    <text x="20" y="125" font-family="system-ui" font-size="12" fill="#94a3b8">CVSS 7.8 - Active Exploitation</text>
 
-    <text x="20" y="70" font-family="system-ui" font-size="13" font-weight="600" fill="#f8fafc">Microsoft Office Zero-Day</text>
-    <text x="20" y="95" font-family="system-ui" font-size="12" fill="#94a3b8">Security Feature Bypass</text>
-    <text x="20" y="115" font-family="system-ui" font-size="12" fill="#94a3b8">Active Exploitation Confirmed</text>
-
-    <!-- CVSS Score -->
-    <g transform="translate(20, 135)">
-      <rect width="80" height="28" rx="6" fill="#dc2626"/>
-      <text x="40" y="19" font-family="system-ui" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">CVSS 7.8</text>
-    </g>
-    <g transform="translate(110, 135)">
-      <rect width="100" height="28" rx="6" fill="#f97316" opacity="0.2"/>
-      <text x="50" y="19" font-family="system-ui" font-size="11" font-weight="600" fill="#fb923c" text-anchor="middle">PATCH NOW</text>
-    </g>
-
-    <line x1="20" y1="175" x2="330" y2="175" stroke="#334155" stroke-width="1"/>
-    <text x="20" y="192" font-family="system-ui" font-size="11" fill="#64748b">Source: The Hacker News</text>
+    <rect x="20" y="145" width="70" height="24" rx="6" fill="#dc2626"/>
+    <text x="55" y="161" font-family="system-ui" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">PATCH</text>
+    <rect x="100" y="145" width="80" height="24" rx="6" fill="#f97316" opacity="0.2"/>
+    <text x="140" y="161" font-family="system-ui" font-size="10" font-weight="600" fill="#fb923c" text-anchor="middle">KB5034173</text>
   </g>
 
-  <!-- CTEM Framework Card -->
-  <g transform="translate(420, 195)">
-    <rect width="350" height="200" rx="16" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#3b82f6" stroke-width="1"/>
-    <rect x="0" y="0" width="350" height="45" rx="16" fill="#3b82f6" opacity="0.1"/>
-    <rect x="0" y="30" width="350" height="15" fill="#3b82f6" opacity="0.1"/>
+  <!-- CTEM Card -->
+  <g transform="translate(430, 210)">
+    <rect width="340" height="190" rx="16" fill="url(#card)" filter="url(#shadow)" stroke="#3b82f6"/>
+    <rect x="0" y="0" width="340" height="50" rx="16" fill="#3b82f6" opacity="0.1"/>
+    <text x="20" y="32" font-family="system-ui" font-size="14" font-weight="700" fill="#60a5fa">CTEM Framework</text>
 
-    <!-- Shield Icon -->
-    <g transform="translate(20, 10)">
-      <path d="M12 2 L22 6 L22 12 C22 18 12 24 12 24 C12 24 2 18 2 12 L2 6 L12 2 Z" fill="url(#shieldGrad)"/>
-      <text x="12" y="16" font-family="system-ui" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
-    </g>
-    <text x="50" y="28" font-family="system-ui" font-size="14" font-weight="700" fill="#60a5fa">CTEM Framework</text>
+    <text x="20" y="75" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Continuous Threat Exposure Management</text>
 
-    <text x="20" y="65" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Continuous Threat Exposure Management</text>
-
-    <!-- 5 Steps -->
-    <g transform="translate(20, 85)">
-      <rect width="60" height="22" rx="4" fill="#22c55e" opacity="0.2"/>
-      <text x="30" y="15" font-family="system-ui" font-size="10" fill="#4ade80" text-anchor="middle">Scoping</text>
+    <g transform="translate(20, 95)">
+      <rect width="55" height="20" rx="4" fill="#22c55e" opacity="0.2"/>
+      <text x="27" y="14" font-family="system-ui" font-size="9" fill="#4ade80" text-anchor="middle">Scoping</text>
     </g>
-    <g transform="translate(85, 85)">
-      <rect width="70" height="22" rx="4" fill="#3b82f6" opacity="0.2"/>
-      <text x="35" y="15" font-family="system-ui" font-size="10" fill="#60a5fa" text-anchor="middle">Discovery</text>
+    <g transform="translate(80, 95)">
+      <rect width="60" height="20" rx="4" fill="#3b82f6" opacity="0.2"/>
+      <text x="30" y="14" font-family="system-ui" font-size="9" fill="#60a5fa" text-anchor="middle">Discovery</text>
     </g>
-    <g transform="translate(160, 85)">
-      <rect width="80" height="22" rx="4" fill="#f59e0b" opacity="0.2"/>
-      <text x="40" y="15" font-family="system-ui" font-size="10" fill="#fbbf24" text-anchor="middle">Prioritization</text>
+    <g transform="translate(145, 95)">
+      <rect width="70" height="20" rx="4" fill="#f59e0b" opacity="0.2"/>
+      <text x="35" y="14" font-family="system-ui" font-size="9" fill="#fbbf24" text-anchor="middle">Prioritization</text>
     </g>
-    <g transform="translate(20, 112)">
-      <rect width="70" height="22" rx="4" fill="#8b5cf6" opacity="0.2"/>
-      <text x="35" y="15" font-family="system-ui" font-size="10" fill="#a78bfa" text-anchor="middle">Validation</text>
+    <g transform="translate(20, 120)">
+      <rect width="60" height="20" rx="4" fill="#8b5cf6" opacity="0.2"/>
+      <text x="30" y="14" font-family="system-ui" font-size="9" fill="#a78bfa" text-anchor="middle">Validation</text>
     </g>
-    <g transform="translate(95, 112)">
-      <rect width="85" height="22" rx="4" fill="#ec4899" opacity="0.2"/>
-      <text x="42" y="15" font-family="system-ui" font-size="10" fill="#f472b6" text-anchor="middle">Mobilization</text>
+    <g transform="translate(85, 120)">
+      <rect width="70" height="20" rx="4" fill="#ec4899" opacity="0.2"/>
+      <text x="35" y="14" font-family="system-ui" font-size="9" fill="#f472b6" text-anchor="middle">Mobilization</text>
     </g>
 
-    <text x="20" y="155" font-family="system-ui" font-size="11" fill="#94a3b8">Risk-based vulnerability prioritization</text>
-    <text x="20" y="172" font-family="system-ui" font-size="11" fill="#94a3b8">EPSS + CVSS combined scoring</text>
-
-    <text x="20" y="192" font-family="system-ui" font-size="11" fill="#64748b">Framework: Gartner CTEM</text>
+    <text x="20" y="165" font-family="system-ui" font-size="11" fill="#94a3b8">EPSS + CVSS combined scoring</text>
   </g>
 
-  <!-- Additional Vulnerabilities Card -->
-  <g transform="translate(790, 195)">
-    <rect width="360" height="200" rx="16" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#f59e0b" stroke-width="1"/>
-    <rect x="0" y="0" width="360" height="45" rx="16" fill="#f59e0b" opacity="0.1"/>
-    <rect x="0" y="30" width="360" height="15" fill="#f59e0b" opacity="0.1"/>
+  <!-- Grist Card -->
+  <g transform="translate(790, 210)">
+    <rect width="360" height="190" rx="16" fill="url(#card)" filter="url(#shadow)" stroke="#f59e0b"/>
+    <rect x="0" y="0" width="360" height="50" rx="16" fill="#f59e0b" opacity="0.1"/>
+    <text x="20" y="32" font-family="system-ui" font-size="14" font-weight="700" fill="#fbbf24">Additional Alerts</text>
 
-    <!-- Warning Icon -->
-    <g transform="translate(20, 10)">
-      <polygon points="12,2 22,22 2,22" fill="#f59e0b"/>
-      <text x="12" y="18" font-family="system-ui" font-size="12" font-weight="700" fill="#0a0f1a" text-anchor="middle">!</text>
-    </g>
-    <text x="50" y="28" font-family="system-ui" font-size="14" font-weight="700" fill="#fbbf24">Additional Alerts</text>
-
-    <!-- Grist-Core -->
-    <g transform="translate(20, 55)">
-      <circle cx="8" cy="8" r="6" fill="#ef4444"/>
-      <text x="24" y="12" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Grist-Core RCE Vulnerability</text>
-      <text x="24" y="28" font-family="system-ui" font-size="11" fill="#94a3b8">Remote Code Execution - Critical</text>
+    <g transform="translate(20, 65)">
+      <circle cx="6" cy="6" r="5" fill="#ef4444"/>
+      <text x="20" y="10" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Grist-Core RCE</text>
+      <text x="20" y="28" font-family="system-ui" font-size="11" fill="#94a3b8">Remote Code Execution - Critical</text>
     </g>
 
-    <!-- HashiCorp -->
-    <g transform="translate(20, 100)">
-      <circle cx="8" cy="8" r="6" fill="#22c55e"/>
-      <text x="24" y="12" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Speed vs Security Balance</text>
-      <text x="24" y="28" font-family="system-ui" font-size="11" fill="#94a3b8">7 Lessons from Cloud Engineering</text>
+    <g transform="translate(20, 110)">
+      <circle cx="6" cy="6" r="5" fill="#22c55e"/>
+      <text x="20" y="10" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Speed vs Security</text>
+      <text x="20" y="28" font-family="system-ui" font-size="11" fill="#94a3b8">7 DevOps Security Lessons</text>
     </g>
 
-    <!-- Self-Service -->
-    <g transform="translate(20, 145)">
-      <circle cx="8" cy="8" r="6" fill="#3b82f6"/>
-      <text x="24" y="12" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">AI-Driven Infrastructure</text>
-      <text x="24" y="28" font-family="system-ui" font-size="11" fill="#94a3b8">Self-Service Platform Modernization</text>
+    <g transform="translate(20, 155)">
+      <circle cx="6" cy="6" r="5" fill="#3b82f6"/>
+      <text x="20" y="10" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">Self-Service Infrastructure</text>
     </g>
-
-    <text x="20" y="192" font-family="system-ui" font-size="11" fill="#64748b">Sources: HashiCorp, The Hacker News</text>
   </g>
 
-  <!-- Stats Section -->
-  <g transform="translate(50, 415)">
-    <rect width="1100" height="100" rx="16" fill="url(#cardGrad)" filter="url(#shadow)"/>
+  <!-- Stats Bar -->
+  <g transform="translate(50, 420)">
+    <rect width="1100" height="80" rx="16" fill="url(#card)" filter="url(#shadow)"/>
 
-    <!-- Total News -->
-    <g transform="translate(80, 25)">
-      <text x="0" y="0" font-family="system-ui" font-size="36" font-weight="800" fill="#f8fafc">12</text>
-      <text x="0" y="25" font-family="system-ui" font-size="12" fill="#94a3b8">Total News</text>
+    <g transform="translate(100, 20)">
+      <text x="0" y="0" font-family="system-ui" font-size="28" font-weight="800" fill="#f8fafc">3</text>
+      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#94a3b8">Critical</text>
     </g>
-
-    <!-- Security -->
-    <g transform="translate(250, 25)">
-      <text x="0" y="0" font-family="system-ui" font-size="36" font-weight="800" fill="#ef4444">3</text>
-      <text x="0" y="25" font-family="system-ui" font-size="12" fill="#fca5a5">Security</text>
-      <rect x="0" y="40" width="120" height="8" rx="4" fill="#1e293b"/>
-      <rect x="0" y="40" width="60" height="8" rx="4" fill="#ef4444"/>
+    <g transform="translate(280, 20)">
+      <text x="0" y="0" font-family="system-ui" font-size="28" font-weight="800" fill="#ef4444">P0</text>
+      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#fca5a5">Priority</text>
     </g>
-
-    <!-- DevOps -->
-    <g transform="translate(450, 25)">
-      <text x="0" y="0" font-family="system-ui" font-size="36" font-weight="800" fill="#22c55e">3</text>
-      <text x="0" y="25" font-family="system-ui" font-size="12" fill="#4ade80">DevOps</text>
-      <rect x="0" y="40" width="120" height="8" rx="4" fill="#1e293b"/>
-      <rect x="0" y="40" width="60" height="8" rx="4" fill="#22c55e"/>
+    <g transform="translate(460, 20)">
+      <text x="0" y="0" font-family="system-ui" font-size="28" font-weight="800" fill="#22c55e">5</text>
+      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#4ade80">Action Items</text>
     </g>
-
-    <!-- AI/ML -->
-    <g transform="translate(650, 25)">
-      <text x="0" y="0" font-family="system-ui" font-size="36" font-weight="800" fill="#8b5cf6">2</text>
-      <text x="0" y="25" font-family="system-ui" font-size="12" fill="#a78bfa">AI/ML</text>
-      <rect x="0" y="40" width="120" height="8" rx="4" fill="#1e293b"/>
-      <rect x="0" y="40" width="40" height="8" rx="4" fill="#8b5cf6"/>
+    <g transform="translate(640, 20)">
+      <text x="0" y="0" font-family="system-ui" font-size="28" font-weight="800" fill="#3b82f6">1</text>
+      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#60a5fa">SIEM Rule</text>
     </g>
-
-    <!-- Tech -->
-    <g transform="translate(850, 25)">
-      <text x="0" y="0" font-family="system-ui" font-size="36" font-weight="800" fill="#3b82f6">4</text>
-      <text x="0" y="25" font-family="system-ui" font-size="12" fill="#60a5fa">Tech</text>
-      <rect x="0" y="40" width="120" height="8" rx="4" fill="#1e293b"/>
-      <rect x="0" y="40" width="80" height="8" rx="4" fill="#3b82f6"/>
+    <g transform="translate(820, 20)">
+      <text x="0" y="0" font-family="system-ui" font-size="28" font-weight="800" fill="#8b5cf6">5</text>
+      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#a78bfa">References</text>
     </g>
   </g>
 
   <!-- Footer -->
-  <rect x="0" y="530" width="1200" height="100" fill="#0a0f1a" opacity="0.9"/>
+  <rect x="0" y="520" width="1200" height="110" fill="#0a0f1a" opacity="0.95"/>
 
-  <!-- Logo and Site -->
-  <text x="60" y="570" font-family="system-ui" font-size="26" font-weight="800" fill="#f8fafc">Twodragon</text>
-  <text x="60" y="595" font-family="system-ui" font-size="14" fill="#64748b">tech.2twodragon.com</text>
+  <text x="60" y="565" font-family="system-ui" font-size="24" font-weight="800" fill="#f8fafc">Twodragon</text>
+  <text x="60" y="590" font-family="system-ui" font-size="13" fill="#64748b">tech.2twodragon.com</text>
 
-  <!-- Tags -->
-  <g transform="translate(350, 558)">
-    <rect width="90" height="28" rx="14" fill="#ef4444" opacity="0.2"/>
-    <text x="45" y="19" font-family="system-ui" font-size="11" fill="#fca5a5" text-anchor="middle">#ZeroDay</text>
+  <g transform="translate(350, 555)">
+    <rect width="80" height="26" rx="13" fill="#ef4444" opacity="0.2"/>
+    <text x="40" y="18" font-family="system-ui" font-size="10" fill="#fca5a5" text-anchor="middle">#ZeroDay</text>
   </g>
-  <g transform="translate(450, 558)">
-    <rect width="100" height="28" rx="14" fill="#3b82f6" opacity="0.2"/>
-    <text x="50" y="19" font-family="system-ui" font-size="11" fill="#60a5fa" text-anchor="middle">#DevSecOps</text>
+  <g transform="translate(440, 555)">
+    <rect width="90" height="26" rx="13" fill="#3b82f6" opacity="0.2"/>
+    <text x="45" y="18" font-family="system-ui" font-size="10" fill="#60a5fa" text-anchor="middle">#DevSecOps</text>
   </g>
-  <g transform="translate(560, 558)">
-    <rect width="70" height="28" rx="14" fill="#22c55e" opacity="0.2"/>
-    <text x="35" y="19" font-family="system-ui" font-size="11" fill="#4ade80" text-anchor="middle">#CTEM</text>
+  <g transform="translate(540, 555)">
+    <rect width="65" height="26" rx="13" fill="#22c55e" opacity="0.2"/>
+    <text x="32" y="18" font-family="system-ui" font-size="10" fill="#4ade80" text-anchor="middle">#CTEM</text>
   </g>
-  <g transform="translate(640, 558)">
-    <rect width="90" height="28" rx="14" fill="#8b5cf6" opacity="0.2"/>
-    <text x="45" y="19" font-family="system-ui" font-size="11" fill="#a78bfa" text-anchor="middle">#Security</text>
+  <g transform="translate(615, 555)">
+    <rect width="70" height="26" rx="13" fill="#8b5cf6" opacity="0.2"/>
+    <text x="35" y="18" font-family="system-ui" font-size="10" fill="#a78bfa" text-anchor="middle">#Security</text>
   </g>
 
-  <!-- CTA Button -->
-  <g transform="translate(1020, 553)">
-    <rect width="130" height="44" rx="22" fill="url(#accentGrad)" filter="url(#shadow)"/>
-    <text x="65" y="28" font-family="system-ui" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">Read More</text>
+  <g transform="translate(1020, 548)">
+    <rect width="120" height="40" rx="20" fill="url(#accent)" filter="url(#shadow)"/>
+    <text x="60" y="26" font-family="system-ui" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Read More</text>
   </g>
 
-  <!-- Bottom Accent -->
-  <rect x="0" y="625" width="1200" height="5" fill="url(#accentGrad)"/>
+  <rect x="0" y="626" width="1200" height="4" fill="url(#accent)"/>
 </svg>

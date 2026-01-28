@@ -332,93 +332,39 @@ toc: true
             content += f"| [{title}...]({url}) | {source} | {summary}... |\n"
         content += "\n"
 
-    # 실무 액션 아이템 섹션
+    # 실무 체크리스트 (간결한 버전)
     content += """---
 
-## 5. 실무 액션 아이템
+## 실무 체크리스트
 
-### 이번 주 필수 조치
+### P0 (즉시)
 
-| 우선순위 | 항목 | 담당 | 기한 |
-|----------|------|------|------|
-| **P0** | 긴급 보안 패치 적용 여부 확인 | 인프라팀 | 즉시 |
-| **P1** | 보안 모니터링 룰 업데이트 | SOC팀 | 24시간 |
-| **P2** | 영향받는 시스템 인벤토리 확인 | 보안팀 | 48시간 |
+- [ ] 긴급 보안 패치 적용
+- [ ] 취약 시스템 모니터링 강화
 
-### DevSecOps 실무 체크리스트
+### P1 (7일 내)
 
-#### 긴급 (이번 주 내 조치)
+- [ ] SIEM 탐지 룰 업데이트
+- [ ] 보안 정책 검토
 
-- [ ] **보안 패치**: 이번 주 발표된 긴급 패치 적용 상태 확인
-- [ ] **취약점 스캔**: 주요 시스템 대상 취약점 스캔 실행
-- [ ] **로그 분석**: SIEM에서 이상 징후 모니터링
-- [ ] **MFA 확인**: 관리자 계정 MFA 설정 상태 점검
+### P2 (30일 내)
 
-#### 중요 (이번 달 내 계획)
-
-- [ ] **접근 제어**: 클라우드 리소스 IAM 권한 감사
-- [ ] **백업 테스트**: 주요 시스템 백업 및 복구 테스트
-- [ ] **보안 정책**: 최신 위협 동향 반영한 정책 업데이트
-- [ ] **교육**: 팀원 대상 보안 인식 교육
-
-#### 지속 개선 (분기별)
-
-- [ ] **침투 테스트**: 주요 시스템 대상 모의 해킹
-- [ ] **아키텍처 검토**: Zero Trust 구현 현황 점검
-- [ ] **인시던트 대응**: 대응 플레이북 업데이트
-
----
-
-## 보안 모니터링 권장 사항
-
-오늘 뉴스에서 다룬 위협에 대한 탐지 강화:
-
-```yaml
-# SIEM 탐지 룰 권장 사항
-monitoring:
-  - 비정상적인 관리자 로그인 시도
-  - 외부 IP에서의 내부 시스템 접근
-  - 대용량 데이터 전송 패턴
-  - 알려진 악성 IP/도메인 통신
-```
+- [ ] 공격 표면 인벤토리 갱신
+- [ ] 접근 제어 감사
 
 ---
 
 ## 참고 자료
 
-### 공식 보안 권고
-
-- [CISA Known Exploited Vulnerabilities](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
-- [Microsoft Security Response Center](https://msrc.microsoft.com/)
-- [NIST National Vulnerability Database](https://nvd.nist.gov/)
-
-### 뉴스 소스
-
-- [The Hacker News](https://thehackernews.com/)
-- [Google Cloud Blog](https://cloud.google.com/blog/)
-- [HashiCorp Blog](https://www.hashicorp.com/blog/)
-- [GeekNews](https://news.hada.io/)
-- [CNCF Blog](https://www.cncf.io/blog/)
-
----
-
-## 마무리
-
-오늘의 주요 뉴스에서 가장 중요한 포인트는 **선제적 위협 대응과 지속적인 보안 모니터링**입니다.
-
-특히 다음 사항에 주목하시기 바랍니다:
-
-1. **긴급 패치**: 발표된 보안 패치의 신속한 적용
-2. **위협 인텔리전스**: 최신 공격 동향 파악 및 방어 체계 강화
-3. **자동화**: 보안 운영의 효율성을 위한 자동화 도입
-4. **협업**: 개발-보안-운영 간 긴밀한 협력
-
-다음에도 DevSecOps 실무에 도움이 되는 핵심 뉴스를 선별하여 분석해 드리겠습니다.
+| 리소스 | 링크 |
+|--------|------|
+| CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
+| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
+| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
 
 ---
 
 **작성자**: Twodragon
-**분석 방법론**: DevSecOps 실무 영향도 기반 우선순위화
 """
 
     return content
