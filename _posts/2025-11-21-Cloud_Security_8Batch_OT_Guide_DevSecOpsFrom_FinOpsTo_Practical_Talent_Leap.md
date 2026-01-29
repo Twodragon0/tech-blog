@@ -5,12 +5,15 @@ date: 2025-11-21 18:28:12 +0900
 category: devsecops
 categories: [devsecops]
 tags: [Cloud-Security, DevSecOps, FinOps, Course]
-excerpt: "클라우드 시큐리티 8기 OT 안내: 9주 커리큘럼 상세(1주차 인프라 본질/2025 보안 트렌드, 2주차 AWS 보안 아키텍처 VPC/IAM/S3/GuardDuty, 3주차 FinOps/ISMS-P, 4주차 통합 보안 취약점 점검, 5주차 Control Tower/Datadog SIEM/Cloudflare, 6주차 이후 DevSecOps 심화), 2025년 보안 트렌드 반영(AI 보안 93% 리더 일일 공격 예상, Shadow AI, Supply Chain 공격, Zero Trust, Post-quantum 암호화 Cloudflare 52%), AWS re:Invent 2025 발표 반영(Security Agent, GuardDuty Extended, IAM Policy Autopilot), 효율적 학습 루틴(20분 강의+5분 휴식), 대체 불가능한 클라우드 보안 전문가로 성장까지 정리."
+excerpt: "클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량 강화, 2025년 보안 트렌드 완벽 대응"
 comments: true
 original_url: https://twodragon.tistory.com/700
 image: /assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.svg
 image_alt: "Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSecOps to FinOps"
 toc: true
+description: "클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량을 강화하고, 2025년 AI 보안 트렌드에 대응하는 실무형 전문가로 성장하세요."
+keywords: [Cloud-Security, DevSecOps, FinOps, AWS, Course, 클라우드보안, 실무교육, Zero Trust, Post-quantum]
+author: Twodragon
 ---
 
 <div class="ai-summary-card">

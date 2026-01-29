@@ -4,12 +4,15 @@ title: "[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일
 date: 2025-11-19 12:25:20 +0900
 categories: [incident]
 tags: [Cloudflare, Post-Mortem, Incident-Response, CDN, Network, SRE]
-excerpt: "Post-Mortem: 2025년 11월 18일 Cloudflare 글로벌 네트워크 장애 대응 일지. 모바일/PC 환경 상이한 증상 분석(모바일 100% 접속 불가, PC 간헐적 접속), Multi-CDN 전략 및 자동 Failover 구현 방안, 2025년 Cloudflare 보안 업데이트(Post-Quantum Encryption, DDoS 위협 동향), 인시던트 대응 프로세스, 모니터링 및 알림 체계 개선까지 실무 중심 정리."
+excerpt: "Cloudflare 글로벌 장애 대응 일지. Multi-CDN 전략 및 자동 Failover 구현."
 comments: true
 original_url: https://twodragon.tistory.com/699
 image: /assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned.svg
 image_alt: "Post-Mortem November 18 2025 Cloudflare Global Incident Response Log: What We Learned"
 toc: true
+description: 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지. Multi-CDN 전략 및 자동 Failover 구현 방안을 다룹니다.
+keywords: [Cloudflare, Post-Mortem, Incident-Response, CDN, Multi-CDN, BGP]
+author: Twodragon
 ---
 
 <div class="ai-summary-card">

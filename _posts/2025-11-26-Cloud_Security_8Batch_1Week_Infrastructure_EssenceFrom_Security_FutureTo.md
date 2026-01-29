@@ -5,12 +5,15 @@ date: 2025-11-26 19:36:52 +0900
 category: cloud
 categories: [cloud]
 tags: [Infrastructure, Cloud-Security, AWS]
-excerpt: "클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지. 2025년 클라우드 보안 핵심 트렌드(AI 보안 위협과 대응, Zero Trust 아키텍처, Post-quantum 암호화, 공급망 보안), 클라우드 인프라 기초 학습, 실무 중심 보안 교육(20분 강의 + 5분 휴식 루틴), 보안의 미래와 실무 고민 공유까지 정리."
+excerpt: "클라우드 인프라 본질부터 2025년 AI 보안, Zero Trust, Post-quantum 암호화까지 실무 중심 학습"
 comments: true
 original_url: https://twodragon.tistory.com/701
 image: /assets/images/2025-11-26-Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo.svg
 image_alt: "Cloud Security 8Batch 1Week: From Infrastructure Essence to Security Future"
 toc: true
+description: "클라우드 인프라 본질부터 2025년 보안 트렌드까지. AI 보안, Zero Trust, Post-quantum 암호화 등 최신 보안 기술을 실무 중심으로 학습하세요."
+keywords: [Infrastructure, Cloud-Security, AWS, Zero Trust, AI보안, Post-quantum, 네트워크보안, 클라우드인프라]
+author: Twodragon
 ---
 
 <div class="ai-summary-card">

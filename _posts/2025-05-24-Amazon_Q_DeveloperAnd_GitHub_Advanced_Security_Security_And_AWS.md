@@ -4,12 +4,15 @@ title: "Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보�
 date: 2025-05-24 00:17:56 +0900
 categories: [devsecops]
 tags: [Amazon-Q, GitHub-Advanced-Security, Code-Security, AWS]
-excerpt: "Amazon Q Developer: 코드 보안 검토 및 AWS 최적화 제안, AI 기반 코드 생성 및 리뷰, AWS 서비스 통합(CodeCommit, CodeBuild, CodeDeploy), 보안 취약점 자동 탐지, AWS Well-Architected Framework 기반 권장사항"
+excerpt: "Amazon Q Developer와 GitHub Advanced Security로 코드 보안 강화 및 AWS 최적화"
 comments: true
 original_url: https://twodragon.tistory.com/685
 image: /assets/images/2025-05-24-Amazon_Q_Developerand_GitHub_Advanced_Security_Security_and_AWS.svg
 image_alt: "Code Security Enhancement and AWS Optimization Using Amazon Q Developer and GitHub Advanced Security"
 toc: true
+description: "Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 검토 및 AWS 최적화 제안. AI 기반 코드 생성, 보안 취약점 자동 탐지, DevSecOps 모범 사례, 2025년 트렌드까지 정리."
+keywords: [Amazon-Q, GitHub-Advanced-Security, Code-Security, AWS, DevSecOps]
+author: Twodragon
 ---
 
 <div class="ai-summary-card">

@@ -4,12 +4,15 @@ title: "클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps"
 date: 2025-05-02 00:41:54 +0900
 categories: [cloud]
 tags: [AWS, FinOps, Cloud-Security, Cost-Optimization, Well-Architected]
-excerpt: "클라우드 시큐리티 과정 7기 3주차: AWS 보안 서비스 전체 구조(IAM Identity Center, Organizations SCP, CloudTrail 감사, Config 규칙, Security Hub 중앙 집중 보안, GuardDuty 위협 탐지, Inspector 취약점, Macie 데이터, Detective 포렌식, WAF/Shield/Firewall Manager, KMS/Secrets Manager), IAM 보안 모범 사례(최소 권한, IP 기반 접근 제어, MFA 필수, 조건부 정책, VPC 보안 Security Group/NACL/Flow Logs, GuardDuty 자동 대응 Lambda/SNS), FinOps 프레임워크(Inform 가시성/Optimize 비용 최적화/Operate 운영 관리, 비용 할당/태깅/예산/예측/이상 탐지/Reserved Instance/Savings Plans/Right Sizing), 비용 최적화 전략(일관된 리소스 태깅, Cost Explorer API, 월간 비용 분석), AWS Well-Architected Framework까지 정리."
+excerpt: "AWS 보안 및 FinOps 완벽 가이드. GuardDuty, Security Hub, IAM 보안 설정 및 비용 최적화 전략 실무 정리."
 comments: true
 original_url: https://twodragon.tistory.com/679
 image: /assets/images/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_and_Finops.svg
 image_alt: "Cloud Security Course 7Batch 3Week: AWS Security and FinOps"
 toc: true
+description: 클라우드 시큐리티 7기 3주차. AWS 보안 서비스 전체 구조(IAM, Organizations, CloudTrail, GuardDuty, Security Hub), FinOps 프레임워크, 비용 최적화 전략, AWS Well-Architected Framework 실무 적용.
+keywords: [AWS, FinOps, GuardDuty, Security-Hub, IAM, CloudTrail, Cost-Optimization, Well-Architected, 비용최적화, 클라우드보안]
+author: Twodragon
 certifications: [aws-saa]
 ---
 

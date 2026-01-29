@@ -4,13 +4,16 @@ title: "AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하�
 date: 2025-10-03 00:10:37 +0900
 categories: [cloud]
 tags: [AWS, NLB, Security-Group, Database, Network]
-excerpt: "AWS 데이터베이스 접근 게이트웨이 구축: Network Load Balancer(NLB)와 Security Group을 활용한 Zero Trust 아키텍처, Terraform 기반 인프라 자동화, 다중 데이터베이스 지원(RDS, ElastiCache, DocumentDB, Redshift), 보안 강화(IP 기반 접근 제어, 암호화, 중앙화된 모니터링), 고가용성 설계까지 실무 중심 정리."
+excerpt: "AWS NLB와 Security Group을 활용한 Zero Trust 데이터베이스 게이트웨이 구축."
 comments: true
 original_url: https://twodragon.tistory.com/696
 image: /assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.svg
 image_alt: "Building Secure Database Access Gateway on AWS: NLB Security Group Complete Guide"
 certifications: [aws-saa]
 toc: true
+description: AWS Network Load Balancer와 Security Group을 활용한 Zero Trust 데이터베이스 접근 게이트웨이 구축 가이드. Terraform 자동화 및 보안 설정을 다룹니다.
+keywords: [AWS, NLB, Security-Group, Database, Terraform, Zero-Trust]
+author: Twodragon
 ---
 
 <div class="ai-summary-card">

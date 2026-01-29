@@ -4,12 +4,15 @@ title: "클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리
 date: 2025-06-13 23:48:33 +0900
 categories: [devsecops]
 tags: [DevSecOps, Integration, Cloud-Security, SDLC, Security-Automation]
-excerpt: "클라우드 시큐리티 과정 7기 9주차: DevSecOps 통합 정리. DevSecOps 파이프라인 전체 아키텍처(Plan->Code->Build->Test->Release->Deploy->Operate->Monitor), 보안 도구 매핑(STRIDE/OWASP Threat Dragon, Semgrep/SonarQube/Gitleaks, Trivy/Snyk, OWASP ZAP/Burp Suite, Cosign/Syft, Checkov/OPA/Kyverno, Falco/Sysdig, Datadog/Splunk/ELK), AWS 보안 서비스 통합(GuardDuty 자동 대응 Lambda 기반 격리/SNS 알림, Security Hub 통합 보안 관리, EventBridge 이벤트 기반 자동화, CloudWatch 로그 분석), DevSecOps 성숙도 모델(단계별 도입 전략 초기->성장->성숙->최적화, 보안 통합 수준 평가, 문화 및 프로세스 변화), 완전한 CI/CD 보안 파이프라인(코드 보안 분석 Secret Scanning/SAST, 빌드 보안 SCA/이미지 스캔, 배포 보안 IaC 스캔/Policy 검증, 운영 보안 런타임 보안/모니터링), 실무 적용 체크리스트까지 정리."
+excerpt: "DevSecOps 통합 정리: 파이프라인 아키텍처부터 실무 적용까지"
 comments: true
 original_url: https://twodragon.tistory.com/691
 image: /assets/images/2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration.svg
 image_alt: "Cloud Security Course 7Batch 9Week: DevSecOps Integration Summary"
 toc: true
+description: "DevSecOps 파이프라인 전체 아키텍처, 보안 도구 매핑, AWS 보안 서비스 통합, DevSecOps 성숙도 모델, 완전한 CI/CD 보안 파이프라인, 실무 적용 체크리스트까지 정리."
+keywords: [DevSecOps, Integration, Cloud-Security, SDLC, Security-Automation]
+author: Twodragon
 ---
 
 <div class="ai-summary-card">

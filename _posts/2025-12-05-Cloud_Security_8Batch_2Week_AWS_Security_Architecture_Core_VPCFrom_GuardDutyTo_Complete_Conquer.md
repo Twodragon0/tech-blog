@@ -5,13 +5,16 @@ date: 2025-12-05 17:07:53 +0900
 category: cloud
 categories: [cloud]
 tags: [AWS, VPC, GuardDuty, Security-Architecture]
-excerpt: "클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처 핵심 구성요소(VPC 네트워크 격리, IAM 접근 제어, S3 데이터 보호, GuardDuty 위협 탐지), 2025년 AWS re:Invent 보안 발표(GuardDuty Extended Threat Detection, Security Hub GA, IAM Policy Autopilot), 실무 보안 모범 사례(최소 권한 원칙, 자동화된 보안 스캔)까지 실무 중심 정리."
+excerpt: "VPC, IAM, S3, GuardDuty 등 AWS 보안 아키텍처와 2025년 신규 서비스 실무 완벽 정복"
 comments: true
 original_url: https://twodragon.tistory.com/702
 image: /assets/images/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer.svg
 image_alt: "Cloud Security 8Batch 2Week: Complete Mastery of AWS Security Architecture Core from VPC to GuardDuty"
 certifications: [aws-saa]
 toc: true
+description: "VPC, IAM, S3, GuardDuty 등 AWS 보안 아키텍처 핵심 구성요소와 2025년 re:Invent 신규 보안 서비스를 실무 중심으로 완벽 정복하세요."
+keywords: [AWS, VPC, IAM, GuardDuty, Security-Architecture, S3, AWS보안, 보안아키텍처, IAM Policy]
+author: Twodragon
 ---
 
 <div class="ai-summary-card">

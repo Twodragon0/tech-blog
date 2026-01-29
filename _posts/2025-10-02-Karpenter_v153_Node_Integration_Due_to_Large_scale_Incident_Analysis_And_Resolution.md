@@ -4,12 +4,15 @@ title: "Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 
 date: 2025-10-02 17:25:43 +0900
 categories: [incident]
 tags: [Karpenter, Kubernetes, AWS, Post-Mortem, Incident, EKS]
-excerpt: "Karpenter v1.5.3 노드 통합 장애 분석: 공격적 Consolidation 정책과 PodDisruptionBudget 미설정으로 20개 이상 Pod 동시 재시작, 약 10분간 서비스 장애 발생. 근본 원인 분석, NodePool 설정 수정(Consolidation 정책 조정), PodDisruptionBudget 적용을 통한 재발 방지 대책, Karpenter v1.0 GA 업데이트 반영까지 실무 중심 정리."
+excerpt: "Karpenter v1.5.3 노드 통합 장애 분석. PDB 적용을 통한 재발 방지."
 comments: true
 original_url: https://twodragon.tistory.com/695
 image: /assets/images/2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large-scale_Incident_Analysis_and_Resolution.svg
 image_alt: "Karpenter v1.5.3 Large-Scale Incident Analysis and Resolution Due to Node Integration"
 toc: true
+description: Karpenter v1.5.3 공격적 노드 통합 정책으로 인한 장애 분석과 PodDisruptionBudget 적용을 통한 재발 방지 방안을 다룹니다.
+keywords: [Karpenter, Kubernetes, AWS, EKS, PodDisruptionBudget, Post-Mortem]
+author: Twodragon
 ---
 
 <div class="ai-summary-card">

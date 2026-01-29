@@ -4,11 +4,14 @@ title: "클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes �
 date: 2025-05-30 00:04:58 +0900
 categories: [kubernetes]
 tags: [Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps]
-excerpt: "Docker 기초: 이미지/컨테이너/Dockerfile 개념, 기본 Docker 명령어(pull, run, ps, logs, stop, rm), Registry(Docker Hub), 컨테이너 격리 및 실행 환경"
+excerpt: "Docker 및 Kubernetes 기초와 보안 Best Practices 정리"
 original_url: https://twodragon.tistory.com/686
 image: /assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes.svg
 image_alt: "Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understanding"
 toc: true
+description: "Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node, Pod), 컨테이너 보안 Best Practices, 런타임 보안(Trivy, Falco), 2025년 업데이트까지 실무 중심 정리."
+keywords: [Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps]
+author: Twodragon
 certifications: [ckad, cka]
 ---
 

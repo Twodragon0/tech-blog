@@ -4,12 +4,15 @@ title: "클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZT
 date: 2025-05-16 00:53:10 +0900
 categories: [cloud]
 tags: [AWS, Control-Tower, ZTNA, Zero-Trust]
-excerpt: "클라우드 시큐리티 과정 7기 5주차: AWS Control Tower 멀티 계정 관리(Landing Zone 자동 설정, Guardrails 정책 적용 필수/권장/선택, 계정 팩토리 자동 계정 생성, Organizations 및 SCP 활용, 2025년 업데이트 계정 마이그레이션 개선 standalone 분리 불필요), ZTNA(Zero Trust Network Access) 개념 및 AWS 구현 방법(PrivateLink, VPC Endpoint, Security Group 최소 권한), 클라우드 환경 제로 트러스트 보안 모델 적용, 2025년 AWS 거버넌스 업데이트(Organizations 계정 마이그레이션 개선, Control Tower Guardrails 확장, SCP 정책 자동화), 실무 적용(멀티 계정 아키텍처 설계, 거버넌스 정책 자동화, 제로 트러스트 네트워크 구성)까지 실무 중심 정리."
+excerpt: "AWS Control Tower 및 ZTNA 완벽 가이드. 멀티 계정 거버넌스, Zero Trust 구현 실무 정리."
 comments: true
 original_url: https://twodragon.tistory.com/683
 image: /assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA.svg
 image_alt: "Cloud Security Course 7Batch 5Week: AWS Control Tower and ZTNA"
 toc: true
+description: 클라우드 시큐리티 7기 5주차. AWS Control Tower 멀티 계정 관리(Landing Zone, Guardrails, SCP), ZTNA(Zero Trust Network Access) 개념 및 AWS 구현, 2025년 거버넌스 업데이트 실무 정리.
+keywords: [AWS, Control-Tower, ZTNA, Zero-Trust, Landing-Zone, Guardrails, SCP, 멀티계정, Organizations, 제로트러스트]
+author: Twodragon
 certifications: [aws-saa]
 ---
 

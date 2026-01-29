@@ -4,12 +4,15 @@ title: "[12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 
 date: 2025-12-17 12:26:37 +0900
 categories: [cloud]
 tags: [AWSKRUG, OWASP, Datadog, AI, Conference]
-excerpt: "12월 컨퍼런스 회고: AWSKRUG AI IDE Kiro Launch Party, OWASP Seoul Chapter 송년회, Datadog Security 101 세미나 참석 후기. 2025년 보안 트렌드(AI 공격 93% 리더 예상, Shadow AI, Supply Chain 공격), AWS re:Invent 2025 보안 발표(Security Agent, GuardDuty Extended, IAM Policy Autopilot), Zero Trust 표준화, Post-quantum 암호화(Cloudflare 52% 적용) 현실화까지 정리."
+excerpt: "AWSKRUG, OWASP, Datadog 컨퍼런스로 보는 2025년 AI 보안 트렌드와 실무 적용 방안"
 comments: true
 original_url: https://twodragon.tistory.com/704
 image: /assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence.svg
 image_alt: "December Conference Review: Previewing 2025 AI and Security Coexistence with AWSKRUG OWASP Datadog"
 toc: true
+description: "AWSKRUG, OWASP, Datadog 컨퍼런스를 통해 2025년 AI와 보안의 공존, AWS re:Invent 보안 발표, Zero Trust 표준화 등 최신 트렌드를 확인하세요."
+keywords: [AWSKRUG, OWASP, Datadog, AI, Conference, AWS보안, 컨퍼런스후기, AI보안, Zero Trust]
+author: Twodragon
 ---
 
 <div class="ai-summary-card">

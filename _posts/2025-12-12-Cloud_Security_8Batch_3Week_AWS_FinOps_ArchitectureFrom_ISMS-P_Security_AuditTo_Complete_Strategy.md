@@ -5,13 +5,16 @@ date: 2025-12-12 14:45:05 +0900
 category: finops
 categories: [finops]
 tags: [AWS, FinOps, ISMS-P, Audit, Cost-Optimization]
-excerpt: "클라우드 시큐리티 8기 3주차: 2025년 FinOps 트렌드(AI/ML 비용 최적화 GPU 인스턴스/Spot Instance 최대 90% 절감, GreenOps 통합 Customer Carbon Footprint Tool, Unit Economics Cost per Transaction/User, Real-time Cost Visibility Cost Anomaly Detection), AWS 비용 관리 도구(Cost Optimization Hub 통합 대시보드, Compute Optimizer AI 기반 right-sizing, Application Cost Profiler 테넌트별 비용 배분, Cost Anomaly Detection ML 기반 탐지), ISMS-P 인증 대응(AWS Artifact/Config Rules/Security Hub/CloudTrail), FinOps+보안 통합, Commitment Management 자동화까지 실무 중심 정리."
+excerpt: "2025년 FinOps와 AWS 비용 관리, ISMS-P 인증 대응으로 비용 최적화와 보안을 동시에 달성"
 comments: true
 original_url: https://twodragon.tistory.com/703
 image: /assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.svg
 image_alt: "Cloud Security 8Batch 3Week: Complete Strategy from AWS FinOps Architecture to ISMS-P Security Audit"
 certifications: [isms-p, aws-saa]
 toc: true
+description: "2025년 FinOps 트렌드와 AWS 비용 관리 도구 활용법, ISMS-P 인증 대응 전략을 실무 중심으로 학습하여 비용 최적화와 보안을 동시에 달성하세요."
+keywords: [AWS, FinOps, ISMS-P, Audit, Cost-Optimization, 비용최적화, 보안감사, Compute Optimizer]
+author: Twodragon
 ---
 
 <div class="ai-summary-card">

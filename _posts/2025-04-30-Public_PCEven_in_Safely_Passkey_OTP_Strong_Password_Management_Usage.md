@@ -4,12 +4,15 @@ title: "공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관�
 date: 2025-04-30 19:51:25 +0900
 categories: [security]
 tags: [Passkey, OTP, Password-Manager, Authentication]
-excerpt: "공용 PC 보안 가이드: 패스키(Passkey) WebAuthn 기반 비밀번호 없는 인증(피싱 방지 도메인 바인딩, 생체 인증, 크로스 플랫폼 동기화, 2025년 주요 빅테크 기본 지원), OTP(One-Time Password) 2FA 강화(TOTP 앱 Google/Microsoft Authenticator, SMS OTP 취약점 대안, 하드웨어 보안 키 YubiKey, FIDO2/WebAuthn 피싱 방지 MFA), 암호 관리자 안전한 비밀번호 관리, 공용 PC 보안 모범 사례(로그아웃/브라우저 캐시 관리, 시크릿 모드, 개인정보 입력 최소화), 2025년 인증 보안 트렌드(Passkey 채택 확대, Phishing-Resistant MFA 표준화, AI 기반 피싱 공격 대응)까지 정리."
+excerpt: "공용 PC 보안 완벽 가이드. 패스키, OTP, 암호 관리자 활용법. AI 피싱 대응 전략 포함."
 comments: true
 original_url: https://twodragon.tistory.com/678
 image: /assets/images/2025-04-30-Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage.svg
 image_alt: "Safely on Public PC: Passkey OTP Strong Password Management Usage"
 toc: true
+description: 공용 PC 보안 완벽 가이드. 패스키(Passkey) WebAuthn 인증, OTP 2FA 강화, 암호 관리자 활용, 공용 PC 보안 모범 사례, 2025년 인증 보안 트렌드(FIDO2, AI 피싱 대응)까지 상세 정리.
+keywords: [Passkey, WebAuthn, OTP, TOTP, FIDO2, 암호관리자, 공용PC보안, 2FA, MFA, 피싱방지]
+author: Twodragon
 ---
 
 <div class="ai-summary-card">
