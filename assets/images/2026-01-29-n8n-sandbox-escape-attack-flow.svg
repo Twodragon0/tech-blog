@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ea580c"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="900" height="420" fill="url(#bg)"/>
+  <!-- Title -->
+  <text x="450" y="35" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">CVE-2026-1470: n8n JavaScript Sandbox Escape Attack Flow</text>
+  <text x="450" y="55" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">CVSS 9.9 - Function Constructor Bypass via with Statement</text>
+  <!-- Step 1: Code Node -->
+  <g transform="translate(30,80)" filter="url(#shadow)">
+    <rect width="170" height="110" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="170" height="32" rx="12" fill="url(#red)"/>
+    <rect y="20" width="170" height="12" fill="url(#red)"/>
+    <text x="85" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">STEP 1</text>
+    <text x="85" y="58" font-family="system-ui" font-size="13" font-weight="600" fill="#f8fafc" text-anchor="middle">n8n Code Node</text>
+    <text x="85" y="78" font-family="system-ui" font-size="11" fill="#fca5a5" text-anchor="middle">Inject with() statement</text>
+    <text x="85" y="96" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">User-controlled JS code</text>
+  </g>
+  <!-- Arrow 1 -->
+  <g transform="translate(200,130)">
+    <line x1="0" y1="0" x2="50" y2="0" stroke="#ef4444" stroke-width="2"/>
+    <polygon points="50,-5 60,0 50,5" fill="#ef4444"/>
+  </g>
+  <!-- Step 2: Scope Chain -->
+  <g transform="translate(260,80)" filter="url(#shadow)">
+    <rect width="170" height="110" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <rect width="170" height="32" rx="12" fill="url(#orange)"/>
+    <rect y="20" width="170" height="12" fill="url(#orange)"/>
+    <text x="85" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">STEP 2</text>
+    <text x="85" y="58" font-family="system-ui" font-size="13" font-weight="600" fill="#f8fafc" text-anchor="middle">Scope Chain</text>
+    <text x="85" y="78" font-family="system-ui" font-size="11" fill="#fdba74" text-anchor="middle">Manipulate with()</text>
+    <text x="85" y="96" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Access outer scope</text>
+  </g>
+  <!-- Arrow 2 -->
+  <g transform="translate(430,130)">
+    <line x1="0" y1="0" x2="50" y2="0" stroke="#f97316" stroke-width="2"/>
+    <polygon points="50,-5 60,0 50,5" fill="#f97316"/>
+  </g>
+  <!-- Step 3: Function Constructor -->
+  <g transform="translate(490,80)" filter="url(#shadow)">
+    <rect width="170" height="110" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect width="170" height="32" rx="12" fill="url(#purple)"/>
+    <rect y="20" width="170" height="12" fill="url(#purple)"/>
+    <text x="85" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">STEP 3</text>
+    <text x="85" y="58" font-family="system-ui" font-size="13" font-weight="600" fill="#f8fafc" text-anchor="middle">Function Constructor</text>
+    <text x="85" y="78" font-family="system-ui" font-size="11" fill="#c4b5fd" text-anchor="middle">Bypass sandbox via</text>
+    <text x="85" y="96" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Function() constructor</text>
+  </g>
+  <!-- Arrow 3 -->
+  <g transform="translate(660,130)">
+    <line x1="0" y1="0" x2="50" y2="0" stroke="#8b5cf6" stroke-width="2"/>
+    <polygon points="50,-5 60,0 50,5" fill="#8b5cf6"/>
+  </g>
+  <!-- Step 4: RCE -->
+  <g transform="translate(710,80)" filter="url(#shadow)">
+    <rect width="160" height="110" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="160" height="32" rx="12" fill="url(#red)"/>
+    <rect y="20" width="160" height="12" fill="url(#red)"/>
+    <text x="80" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">STEP 4</text>
+    <text x="80" y="58" font-family="system-ui" font-size="13" font-weight="600" fill="#f8fafc" text-anchor="middle">Host System RCE</text>
+    <text x="80" y="78" font-family="system-ui" font-size="11" fill="#fca5a5" text-anchor="middle">Execute arbitrary</text>
+    <text x="80" y="96" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">commands as n8n user</text>
+  </g>
+  <!-- Python Path (Bottom) -->
+  <text x="450" y="230" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#f97316" text-anchor="middle">CVE-2026-0863: Python AST Sandbox Escape (CVSS 8.5)</text>
+  <!-- Python Steps -->
+  <g transform="translate(30,250)" filter="url(#shadow)">
+    <rect width="200" height="90" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+    <text x="100" y="28" font-family="system-ui" font-size="12" font-weight="700" fill="#fdba74" text-anchor="middle">1. Format String</text>
+    <text x="100" y="48" font-family="system-ui" font-size="11" fill="#e2e8f0" text-anchor="middle">Trigger AttributeError</text>
+    <text x="100" y="66" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">via format-string payload</text>
+  </g>
+  <g transform="translate(240,295)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#f97316" stroke-width="2"/>
+    <polygon points="40,-5 50,0 40,5" fill="#f97316"/>
+  </g>
+  <g transform="translate(290,250)" filter="url(#shadow)">
+    <rect width="200" height="90" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+    <text x="100" y="28" font-family="system-ui" font-size="12" font-weight="700" fill="#fdba74" text-anchor="middle">2. .obj Property</text>
+    <text x="100" y="48" font-family="system-ui" font-size="11" fill="#e2e8f0" text-anchor="middle">Traverse object tree via</text>
+    <text x="100" y="66" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">AttributeError.obj</text>
+  </g>
+  <g transform="translate(500,295)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#f97316" stroke-width="2"/>
+    <polygon points="40,-5 50,0 40,5" fill="#f97316"/>
+  </g>
+  <g transform="translate(550,250)" filter="url(#shadow)">
+    <rect width="200" height="90" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+    <text x="100" y="28" font-family="system-ui" font-size="12" font-weight="700" fill="#fdba74" text-anchor="middle">3. __builtins__</text>
+    <text x="100" y="48" font-family="system-ui" font-size="11" fill="#e2e8f0" text-anchor="middle">Access exec()/eval()</text>
+    <text x="100" y="66" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Full sandbox escape</text>
+  </g>
+  <!-- Severity Badge -->
+  <g transform="translate(30,370)">
+    <rect width="90" height="28" rx="14" fill="#dc2626"/>
+    <text x="45" y="19" font-family="system-ui" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">CRITICAL</text>
+  </g>
+  <text x="135" y="389" font-family="system-ui" font-size="11" fill="#94a3b8">Patch: v1.123.17+ / v2.4.5+ / v2.5.1+</text>
+  <!-- Footer -->
+  <text x="870" y="405" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="sh2"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="320" fill="url(#bg2)"/>
+  <text x="450" y="32" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">ADK + Datadog LLM Observability Integration</text>
+  <text x="450" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Google Agent Development Kit | Auto-Instrumentation | Full-Stack AI Monitoring</text>
+  <!-- ADK Agent -->
+  <g transform="translate(40,80)" filter="url(#sh2)">
+    <rect width="200" height="100" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="100" y="30" font-family="system-ui" font-size="14" font-weight="700" fill="#60a5fa" text-anchor="middle">ADK Agent</text>
+    <text x="100" y="50" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Application</text>
+    <line x1="20" y1="60" x2="180" y2="60" stroke="#334155" stroke-width="1"/>
+    <text x="100" y="78" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">LLM calls, tool use,</text>
+    <text x="100" y="92" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">agent orchestration</text>
+  </g>
+  <!-- Arrow -->
+  <g transform="translate(240,125)">
+    <line x1="0" y1="0" x2="70" y2="0" stroke="#60a5fa" stroke-width="2"/>
+    <polygon points="70,-5 80,0 70,5" fill="#60a5fa"/>
+    <text x="35" y="-8" font-family="system-ui" font-size="9" fill="#60a5fa" text-anchor="middle">Auto-instrument</text>
+  </g>
+  <!-- Datadog LLM Observability -->
+  <g transform="translate(320,65)" filter="url(#sh2)">
+    <rect width="550" height="130" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect width="550" height="32" rx="12" fill="#8b5cf6" opacity="0.15"/>
+    <rect y="20" width="550" height="12" fill="#8b5cf6" opacity="0.15"/>
+    <text x="275" y="24" font-family="system-ui" font-size="14" font-weight="700" fill="#c4b5fd" text-anchor="middle">Datadog LLM Observability</text>
+    <!-- 4 feature boxes -->
+    <g transform="translate(15,42)">
+      <rect width="120" height="75" rx="8" fill="#0f172a" stroke="#22c55e" stroke-width="1"/>
+      <text x="60" y="22" font-family="system-ui" font-size="10" font-weight="600" fill="#4ade80" text-anchor="middle">Agent Tracing</text>
+      <text x="60" y="42" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">Execution flow</text>
+      <text x="60" y="56" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">visualization</text>
+      <text x="60" y="70" font-family="system-ui" font-size="9" fill="#64748b" text-anchor="middle">End-to-end trace</text>
+    </g>
+    <g transform="translate(145,42)">
+      <rect width="120" height="75" rx="8" fill="#0f172a" stroke="#f97316" stroke-width="1"/>
+      <text x="60" y="22" font-family="system-ui" font-size="10" font-weight="600" fill="#fdba74" text-anchor="middle">Tool Monitoring</text>
+      <text x="60" y="42" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">Tool call tracking</text>
+      <text x="60" y="56" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">latency metrics</text>
+      <text x="60" y="70" font-family="system-ui" font-size="9" fill="#64748b" text-anchor="middle">Success/failure rate</text>
+    </g>
+    <g transform="translate(275,42)">
+      <rect width="120" height="75" rx="8" fill="#0f172a" stroke="#eab308" stroke-width="1"/>
+      <text x="60" y="22" font-family="system-ui" font-size="10" font-weight="600" fill="#fde047" text-anchor="middle">Cost Tracking</text>
+      <text x="60" y="42" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">Token usage per</text>
+      <text x="60" y="56" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">agent + model</text>
+      <text x="60" y="70" font-family="system-ui" font-size="9" fill="#64748b" text-anchor="middle">Budget alerts</text>
+    </g>
+    <g transform="translate(405,42)">
+      <rect width="130" height="75" rx="8" fill="#0f172a" stroke="#ef4444" stroke-width="1"/>
+      <text x="65" y="22" font-family="system-ui" font-size="10" font-weight="600" fill="#fca5a5" text-anchor="middle">Anomaly Detection</text>
+      <text x="65" y="42" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">Behavioral drift</text>
+      <text x="65" y="56" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">detection</text>
+      <text x="65" y="70" font-family="system-ui" font-size="9" fill="#64748b" text-anchor="middle">Real-time alerts</text>
+    </g>
+  </g>
+  <!-- Benefits bar -->
+  <g transform="translate(40,220)" filter="url(#sh2)">
+    <rect width="830" height="70" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="25" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80">Key Benefits for DevSecOps</text>
+    <text x="25" y="50" font-family="system-ui" font-size="10" fill="#94a3b8">Full observability of AI agents</text>
+    <text x="240" y="50" font-family="system-ui" font-size="10" fill="#94a3b8">Cost optimization per workflow</text>
+    <text x="470" y="50" font-family="system-ui" font-size="10" fill="#94a3b8">Security anomaly detection</text>
+    <text x="685" y="50" font-family="system-ui" font-size="10" fill="#94a3b8">SLA compliance</text>
+  </g>
+  <text x="870" y="312" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

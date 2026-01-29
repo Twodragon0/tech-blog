@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="sh4">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="900" height="440" fill="url(#bg4)"/>
+  <text x="450" y="35" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">NHI (Non-Human Identity) Cloud Breach Attack Chain</text>
+  <text x="450" y="55" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">NHI:Human Ratio 45:1 | 68% of 2025 Cloud Breaches | Avg NHI Lifespan: 293 Days</text>
+  <!-- Phase 1 -->
+  <g transform="translate(30,80)" filter="url(#sh4)">
+    <rect width="195" height="140" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="195" height="32" rx="12" fill="#ef4444" opacity="0.2"/>
+    <rect y="20" width="195" height="12" fill="#ef4444" opacity="0.2"/>
+    <text x="97" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#fca5a5" text-anchor="middle">Phase 1: Initial Access</text>
+    <text x="20" y="55" font-family="system-ui" font-size="10" fill="#e2e8f0">Exposed API keys</text>
+    <text x="20" y="72" font-family="system-ui" font-size="10" fill="#94a3b8">(GitHub, logs, configs)</text>
+    <text x="20" y="95" font-family="system-ui" font-size="10" fill="#e2e8f0">Hardcoded secrets</text>
+    <text x="20" y="112" font-family="system-ui" font-size="10" fill="#94a3b8">(source code, Docker images)</text>
+    <text x="20" y="132" font-family="system-ui" font-size="10" fill="#e2e8f0">CI/CD pipeline tokens</text>
+  </g>
+  <!-- Arrow 1->2 -->
+  <g transform="translate(225,145)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#ef4444" stroke-width="2"/>
+    <polygon points="40,-5 50,0 40,5" fill="#ef4444"/>
+  </g>
+  <!-- Phase 2 -->
+  <g transform="translate(275,80)" filter="url(#sh4)">
+    <rect width="195" height="140" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <rect width="195" height="32" rx="12" fill="#f97316" opacity="0.2"/>
+    <rect y="20" width="195" height="12" fill="#f97316" opacity="0.2"/>
+    <text x="97" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#fdba74" text-anchor="middle">Phase 2: Privilege Escalation</text>
+    <text x="20" y="55" font-family="system-ui" font-size="10" fill="#e2e8f0">Over-privileged service</text>
+    <text x="20" y="72" font-family="system-ui" font-size="10" fill="#94a3b8">accounts (Admin roles)</text>
+    <text x="20" y="95" font-family="system-ui" font-size="10" fill="#e2e8f0">IAM role chaining</text>
+    <text x="20" y="112" font-family="system-ui" font-size="10" fill="#94a3b8">(cross-account assume)</text>
+    <text x="20" y="132" font-family="system-ui" font-size="10" fill="#e2e8f0">Long-lived tokens (293d avg)</text>
+  </g>
+  <!-- Arrow 2->3 -->
+  <g transform="translate(470,145)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#f97316" stroke-width="2"/>
+    <polygon points="40,-5 50,0 40,5" fill="#f97316"/>
+  </g>
+  <!-- Phase 3 -->
+  <g transform="translate(510,80)" filter="url(#sh4)">
+    <rect width="175" height="140" rx="12" fill="#1e293b" stroke="#eab308" stroke-width="2"/>
+    <rect width="175" height="32" rx="12" fill="#eab308" opacity="0.2"/>
+    <rect y="20" width="175" height="12" fill="#eab308" opacity="0.2"/>
+    <text x="87" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#fde047" text-anchor="middle">Phase 3: Lateral Move</text>
+    <text x="20" y="55" font-family="system-ui" font-size="10" fill="#e2e8f0">Service account token</text>
+    <text x="20" y="72" font-family="system-ui" font-size="10" fill="#94a3b8">theft (SSRF, metadata)</text>
+    <text x="20" y="95" font-family="system-ui" font-size="10" fill="#e2e8f0">IMDS v1 exploitation</text>
+    <text x="20" y="112" font-family="system-ui" font-size="10" fill="#94a3b8">(169.254.169.254)</text>
+    <text x="20" y="132" font-family="system-ui" font-size="10" fill="#e2e8f0">Cross-service pivoting</text>
+  </g>
+  <!-- Arrow 3->4 -->
+  <g transform="translate(685,145)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#eab308" stroke-width="2"/>
+    <polygon points="40,-5 50,0 40,5" fill="#eab308"/>
+  </g>
+  <!-- Phase 4 -->
+  <g transform="translate(725,80)" filter="url(#sh4)">
+    <rect width="150" height="140" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="150" height="32" rx="12" fill="#ef4444" opacity="0.2"/>
+    <rect y="20" width="150" height="12" fill="#ef4444" opacity="0.2"/>
+    <text x="75" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#fca5a5" text-anchor="middle">Phase 4: Exfiltration</text>
+    <text x="20" y="55" font-family="system-ui" font-size="10" fill="#e2e8f0">S3 bucket access</text>
+    <text x="20" y="72" font-family="system-ui" font-size="10" fill="#94a3b8">Database dumps</text>
+    <text x="20" y="95" font-family="system-ui" font-size="10" fill="#e2e8f0">Sensitive data</text>
+    <text x="20" y="112" font-family="system-ui" font-size="10" fill="#94a3b8">extraction</text>
+    <text x="20" y="132" font-family="system-ui" font-size="10" fill="#e2e8f0">Log deletion</text>
+  </g>
+  <!-- Attack Vectors (Bottom) -->
+  <text x="450" y="260" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#fca5a5" text-anchor="middle">Top 5 NHI Attack Vectors</text>
+  <!-- Vector Boxes -->
+  <g transform="translate(30,278)" filter="url(#sh4)">
+    <rect width="160" height="55" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+    <text x="15" y="22" font-family="system-ui" font-size="11" font-weight="600" fill="#fca5a5">A. Hardcoded Secrets</text>
+    <text x="15" y="40" font-family="system-ui" font-size="9" fill="#94a3b8">Source code, Docker images</text>
+  </g>
+  <g transform="translate(200,278)" filter="url(#sh4)">
+    <rect width="160" height="55" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+    <text x="15" y="22" font-family="system-ui" font-size="11" font-weight="600" fill="#fca5a5">B. Over-privileged IAM</text>
+    <text x="15" y="40" font-family="system-ui" font-size="9" fill="#94a3b8">Admin, PowerUser roles</text>
+  </g>
+  <g transform="translate(370,278)" filter="url(#sh4)">
+    <rect width="160" height="55" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1"/>
+    <text x="15" y="22" font-family="system-ui" font-size="11" font-weight="600" fill="#fdba74">C. Long-lived Tokens</text>
+    <text x="15" y="40" font-family="system-ui" font-size="9" fill="#94a3b8">Legacy service accounts</text>
+  </g>
+  <g transform="translate(540,278)" filter="url(#sh4)">
+    <rect width="160" height="55" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1"/>
+    <text x="15" y="22" font-family="system-ui" font-size="11" font-weight="600" fill="#fdba74">D. IMDS v1 Abuse</text>
+    <text x="15" y="40" font-family="system-ui" font-size="9" fill="#94a3b8">Metadata service exploit</text>
+  </g>
+  <g transform="translate(710,278)" filter="url(#sh4)">
+    <rect width="160" height="55" rx="8" fill="#1e293b" stroke="#eab308" stroke-width="1"/>
+    <text x="15" y="22" font-family="system-ui" font-size="11" font-weight="600" fill="#fde047">E. CI/CD Token Theft</text>
+    <text x="15" y="40" font-family="system-ui" font-size="9" fill="#94a3b8">Environment variables</text>
+  </g>
+  <!-- Defense -->
+  <g transform="translate(30,360)" filter="url(#sh4)">
+    <rect width="840" height="55" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="25" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80">Defense Strategy</text>
+    <text x="25" y="42" font-family="system-ui" font-size="10" fill="#94a3b8">Automated key rotation (90d)</text>
+    <text x="225" y="42" font-family="system-ui" font-size="10" fill="#94a3b8">Enforce IMDSv2</text>
+    <text x="365" y="42" font-family="system-ui" font-size="10" fill="#94a3b8">Least-privilege IAM</text>
+    <text x="530" y="42" font-family="system-ui" font-size="10" fill="#94a3b8">Secrets Manager migration</text>
+    <text x="720" y="42" font-family="system-ui" font-size="10" fill="#94a3b8">NHI governance</text>
+  </g>
+  <text x="870" y="432" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

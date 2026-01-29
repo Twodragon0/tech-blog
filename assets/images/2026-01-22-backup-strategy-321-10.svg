@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <linearGradient id="bgR4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="shR4"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="400" fill="url(#bgR4)"/>
+  <text x="450" y="32" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">3-2-1-1-0 Backup Strategy for Ransomware Defense</text>
+  <text x="450" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Enhanced Backup Rule | Immutable Storage | Air-Gapped Copies | Zero Error Recovery</text>
+  <!-- 5 numbered cards -->
+  <g transform="translate(30,75)" filter="url(#shR4)">
+    <rect width="165" height="210" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="82" cy="30" r="22" fill="#3b82f6" opacity="0.2" stroke="#3b82f6" stroke-width="2"/>
+    <text x="82" y="36" font-family="system-ui" font-size="22" font-weight="700" fill="#60a5fa" text-anchor="middle">3</text>
+    <text x="82" y="72" font-family="system-ui" font-size="12" font-weight="700" fill="#60a5fa" text-anchor="middle">Copies</text>
+    <line x1="20" y1="82" x2="145" y2="82" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="105" font-family="system-ui" font-size="10" fill="#e2e8f0">Production data</text>
+    <text x="20" y="125" font-family="system-ui" font-size="10" fill="#e2e8f0">Local backup</text>
+    <text x="20" y="145" font-family="system-ui" font-size="10" fill="#e2e8f0">Remote backup</text>
+    <line x1="20" y1="160" x2="145" y2="160" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="180" font-family="system-ui" font-size="9" fill="#94a3b8">Keep 3 separate</text>
+    <text x="20" y="196" font-family="system-ui" font-size="9" fill="#94a3b8">copies of all data</text>
+  </g>
+  <g transform="translate(205,75)" filter="url(#shR4)">
+    <rect width="165" height="210" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <circle cx="82" cy="30" r="22" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="82" y="36" font-family="system-ui" font-size="22" font-weight="700" fill="#c4b5fd" text-anchor="middle">2</text>
+    <text x="82" y="72" font-family="system-ui" font-size="12" font-weight="700" fill="#c4b5fd" text-anchor="middle">Media Types</text>
+    <line x1="20" y1="82" x2="145" y2="82" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="105" font-family="system-ui" font-size="10" fill="#e2e8f0">Disk-based backup</text>
+    <text x="20" y="125" font-family="system-ui" font-size="10" fill="#e2e8f0">Tape / Cloud backup</text>
+    <line x1="20" y1="145" x2="145" y2="145" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="168" font-family="system-ui" font-size="9" fill="#94a3b8">Different media</text>
+    <text x="20" y="184" font-family="system-ui" font-size="9" fill="#94a3b8">prevents single</text>
+    <text x="20" y="200" font-family="system-ui" font-size="9" fill="#94a3b8">point of failure</text>
+  </g>
+  <g transform="translate(380,75)" filter="url(#shR4)">
+    <rect width="165" height="210" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <circle cx="82" cy="30" r="22" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="2"/>
+    <text x="82" y="36" font-family="system-ui" font-size="22" font-weight="700" fill="#4ade80" text-anchor="middle">1</text>
+    <text x="82" y="72" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80" text-anchor="middle">Offsite</text>
+    <line x1="20" y1="82" x2="145" y2="82" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="105" font-family="system-ui" font-size="10" fill="#e2e8f0">Geographically</text>
+    <text x="20" y="125" font-family="system-ui" font-size="10" fill="#e2e8f0">separated location</text>
+    <line x1="20" y1="145" x2="145" y2="145" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="168" font-family="system-ui" font-size="9" fill="#94a3b8">Disaster recovery</text>
+    <text x="20" y="184" font-family="system-ui" font-size="9" fill="#94a3b8">site or cross-</text>
+    <text x="20" y="200" font-family="system-ui" font-size="9" fill="#94a3b8">region cloud</text>
+  </g>
+  <g transform="translate(555,75)" filter="url(#shR4)">
+    <rect width="165" height="210" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <circle cx="82" cy="30" r="22" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="2"/>
+    <text x="82" y="36" font-family="system-ui" font-size="22" font-weight="700" fill="#fdba74" text-anchor="middle">1</text>
+    <text x="82" y="72" font-family="system-ui" font-size="12" font-weight="700" fill="#fdba74" text-anchor="middle">Immutable</text>
+    <line x1="20" y1="82" x2="145" y2="82" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="105" font-family="system-ui" font-size="10" fill="#e2e8f0">WORM storage</text>
+    <text x="20" y="125" font-family="system-ui" font-size="10" fill="#e2e8f0">S3 Object Lock</text>
+    <text x="20" y="145" font-family="system-ui" font-size="10" fill="#e2e8f0">Air-gapped backup</text>
+    <line x1="20" y1="160" x2="145" y2="160" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="180" font-family="system-ui" font-size="9" fill="#94a3b8">Cannot be modified</text>
+    <text x="20" y="196" font-family="system-ui" font-size="9" fill="#94a3b8">or deleted</text>
+  </g>
+  <g transform="translate(730,75)" filter="url(#shR4)">
+    <rect width="140" height="210" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="70" cy="30" r="22" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="2"/>
+    <text x="70" y="36" font-family="system-ui" font-size="22" font-weight="700" fill="#fca5a5" text-anchor="middle">0</text>
+    <text x="70" y="72" font-family="system-ui" font-size="12" font-weight="700" fill="#fca5a5" text-anchor="middle">Errors</text>
+    <line x1="15" y1="82" x2="125" y2="82" stroke="#334155" stroke-width="1"/>
+    <text x="15" y="105" font-family="system-ui" font-size="10" fill="#e2e8f0">Monthly restore</text>
+    <text x="15" y="125" font-family="system-ui" font-size="10" fill="#e2e8f0">tests</text>
+    <text x="15" y="145" font-family="system-ui" font-size="10" fill="#e2e8f0">Quarterly full</text>
+    <text x="15" y="165" font-family="system-ui" font-size="10" fill="#e2e8f0">simulation</text>
+    <line x1="15" y1="180" x2="125" y2="180" stroke="#334155" stroke-width="1"/>
+    <text x="15" y="200" font-family="system-ui" font-size="9" fill="#94a3b8">RTO/RPO verified</text>
+  </g>
+  <!-- Bottom recommendation -->
+  <g transform="translate(30,310)" filter="url(#shR4)">
+    <rect width="840" height="60" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="25" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80">Implementation Tools</text>
+    <text x="25" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">AWS S3 Object Lock (COMPLIANCE mode)</text>
+    <text x="280" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">Azure Immutable Blob Storage</text>
+    <text x="510" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">Veeam + WORM</text>
+    <text x="660" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">Commvault Air Gap</text>
+  </g>
+  <text x="870" y="392" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

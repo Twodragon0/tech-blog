@@ -139,6 +139,8 @@ n8n의 Code Node는 사용자 정의 JavaScript 코드를 실행할 수 있지�
 
 **공격 원리:**
 
+![n8n JavaScript Sandbox Escape Attack Flow](/assets/images/2026-01-29-n8n-sandbox-escape-attack-flow.svg)
+
 ```
 n8n Code Node     JavaScript Engine     Host System
      |                  |                    |
@@ -405,6 +407,8 @@ D-Link의 **단종된(End-of-Life)** DSL 모뎀/라우터에서 **패치 불가�
 
 #### 공격 체인
 
+![D-Link Command Injection Attack Chain](/assets/images/2026-01-29-dlink-command-injection-attack-chain.svg)
+
 ```
 공격자                  D-Link DSL Router           내부 네트워크
   |                         |                          |
@@ -616,6 +620,8 @@ Tigera CEO Ratan Tipirneni가 2026년 Kubernetes 보안 전망에서 **AI 에이
 | StackRox 오픈소스 부활 | 2026년 1월 | Red Hat |
 
 ### AI 에이전트가 K8s에 미치는 보안 영향
+
+![Kubernetes Traditional Container vs AI Agent Workloads](/assets/images/2026-01-29-k8s-ai-agent-vs-traditional.svg)
 
 ```
 기존 컨테이너 워크로드           AI 에이전트 워크로드
@@ -995,6 +1001,8 @@ Tenable의 2026년 보안 예측에서 **비인간 ID(Non-Human Identity, NHI)**
 | 과도 권한 NHI 비율 | 73% |
 
 ### 공격 체인
+
+![NHI Cloud Breach Attack Chain](/assets/images/2026-01-29-nhi-cloud-breach-attack-chain.svg)
 
 ```
 NHI 침해 시나리오

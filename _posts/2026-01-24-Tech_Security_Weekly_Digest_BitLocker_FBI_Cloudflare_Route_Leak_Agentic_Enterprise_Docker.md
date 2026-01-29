@@ -487,6 +487,11 @@ OpenAI가 **Codex의 Agent Loop 내부 아키텍처**를 상세 공개했습니�
 
 #### Agent Loop 핵심 구조
 
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-24-codex-agent-loop.svg" alt="OpenAI Codex Agent Loop Architecture - Parallel Execution with Planning and Verification" class="post-image">
+  <p class="image-caption">OpenAI Codex Agent Loop 아키텍처 - 병렬 에이전트 실행 구조</p>
+</div>
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                   OpenAI Codex Agent Loop Architecture               │
@@ -631,6 +636,11 @@ Google Cloud에서 **Apache Airflow 3.1**을 Cloud Composer에서 지원하고, 
 | **보안 강화** | RBAC 및 인증 개선 | 엔터프라이즈 적합 |
 
 #### ADK + Datadog LLM Observability
+
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-24-adk-datadog-integration.svg" alt="ADK + Datadog LLM Observability Integration Architecture" class="post-image">
+  <p class="image-caption">ADK + Datadog LLM Observability 통합 아키텍처</p>
+</div>
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐

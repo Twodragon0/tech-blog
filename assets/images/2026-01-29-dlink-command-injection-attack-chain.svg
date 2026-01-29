@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="sh2">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="900" height="460" fill="url(#bg2)"/>
+  <!-- Title -->
+  <text x="450" y="35" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">CVE-2026-0625: D-Link DSL Command Injection Attack Chain</text>
+  <text x="450" y="55" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">CVSS 9.3 - End-of-Life Device, No Patch Available, Active Exploitation</text>
+  <!-- Attacker -->
+  <g transform="translate(50,80)" filter="url(#sh2)">
+    <rect width="160" height="100" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="80" cy="35" r="18" fill="#ef4444" opacity="0.2"/>
+    <text x="80" y="40" font-family="system-ui" font-size="18" text-anchor="middle">&#x1F3AD;</text>
+    <text x="80" y="68" font-family="system-ui" font-size="13" font-weight="700" fill="#fca5a5" text-anchor="middle">Attacker</text>
+    <text x="80" y="86" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">dnscfg.cgi request</text>
+  </g>
+  <!-- Arrow to Router -->
+  <g transform="translate(210,125)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,3"/>
+    <polygon points="80,-5 90,0 80,5" fill="#ef4444"/>
+    <text x="40" y="-8" font-family="system-ui" font-size="9" fill="#fca5a5" text-anchor="middle">DNS param injection</text>
+  </g>
+  <!-- D-Link Router -->
+  <g transform="translate(300,70)" filter="url(#sh2)">
+    <rect width="200" height="120" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <rect width="200" height="32" rx="12" fill="#f97316" opacity="0.2"/>
+    <rect y="20" width="200" height="12" fill="#f97316" opacity="0.2"/>
+    <text x="100" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#fdba74" text-anchor="middle">D-Link DSL Router</text>
+    <text x="100" y="56" font-family="system-ui" font-size="11" fill="#e2e8f0" text-anchor="middle">DSL-2740R / 2640B</text>
+    <text x="100" y="74" font-family="system-ui" font-size="11" fill="#e2e8f0" text-anchor="middle">DSL-2780B / 526B</text>
+    <text x="100" y="96" font-family="system-ui" font-size="10" fill="#fca5a5" text-anchor="middle">No input validation</text>
+    <text x="100" y="112" font-family="system-ui" font-size="10" fill="#fca5a5" text-anchor="middle">Root shell execution</text>
+  </g>
+  <!-- Arrow to Network -->
+  <g transform="translate(500,125)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#f97316" stroke-width="2" stroke-dasharray="6,3"/>
+    <polygon points="80,-5 90,0 80,5" fill="#f97316"/>
+    <text x="40" y="-8" font-family="system-ui" font-size="9" fill="#fdba74" text-anchor="middle">Pivot to LAN</text>
+  </g>
+  <!-- Internal Network -->
+  <g transform="translate(590,80)" filter="url(#sh2)">
+    <rect width="160" height="100" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <text x="80" y="35" font-family="system-ui" font-size="13" font-weight="700" fill="#4ade80" text-anchor="middle">Internal Network</text>
+    <text x="80" y="58" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Lateral movement</text>
+    <text x="80" y="76" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Traffic interception</text>
+    <text x="80" y="94" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">DNS hijacking</text>
+  </g>
+  <!-- Exploitation Scenarios -->
+  <text x="450" y="230" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#fca5a5" text-anchor="middle">Active Exploitation Scenarios</text>
+  <!-- Scenario boxes -->
+  <g transform="translate(30,250)" filter="url(#sh2)">
+    <rect width="200" height="80" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+    <circle cx="25" cy="25" r="12" fill="#ef4444" opacity="0.2"/>
+    <text x="25" y="30" font-family="system-ui" font-size="14" text-anchor="middle">A</text>
+    <text x="110" y="30" font-family="system-ui" font-size="12" font-weight="600" fill="#fca5a5" text-anchor="middle">DDoS Botnet</text>
+    <text x="100" y="52" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Device recruited as</text>
+    <text x="100" y="66" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">DDoS attack infrastructure</text>
+  </g>
+  <g transform="translate(240,250)" filter="url(#sh2)">
+    <rect width="200" height="80" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+    <circle cx="25" cy="25" r="12" fill="#ef4444" opacity="0.2"/>
+    <text x="25" y="30" font-family="system-ui" font-size="14" text-anchor="middle">B</text>
+    <text x="110" y="30" font-family="system-ui" font-size="12" font-weight="600" fill="#fca5a5" text-anchor="middle">DNS Hijacking</text>
+    <text x="100" y="52" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Manipulate DNS responses</text>
+    <text x="100" y="66" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">for phishing/malware</text>
+  </g>
+  <g transform="translate(450,250)" filter="url(#sh2)">
+    <rect width="200" height="80" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+    <circle cx="25" cy="25" r="12" fill="#f97316" opacity="0.2"/>
+    <text x="25" y="30" font-family="system-ui" font-size="14" text-anchor="middle">C</text>
+    <text x="110" y="30" font-family="system-ui" font-size="12" font-weight="600" fill="#fdba74" text-anchor="middle">MitM Attack</text>
+    <text x="100" y="52" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Intercept all traffic</text>
+    <text x="100" y="66" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">through compromised router</text>
+  </g>
+  <g transform="translate(660,250)" filter="url(#sh2)">
+    <rect width="200" height="80" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+    <circle cx="25" cy="25" r="12" fill="#f97316" opacity="0.2"/>
+    <text x="25" y="30" font-family="system-ui" font-size="14" text-anchor="middle">D</text>
+    <text x="110" y="30" font-family="system-ui" font-size="12" font-weight="600" fill="#fdba74" text-anchor="middle">LAN Scanning</text>
+    <text x="100" y="52" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Internal network recon</text>
+    <text x="100" y="66" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">and lateral movement</text>
+  </g>
+  <!-- Remediation -->
+  <g transform="translate(30,365)" filter="url(#sh2)">
+    <rect width="840" height="65" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="25" y="25" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80">Remediation (No Patch Available - EOL since 2020)</text>
+    <text x="25" y="48" font-family="system-ui" font-size="11" fill="#94a3b8">1. Immediately isolate from network</text>
+    <text x="300" y="48" font-family="system-ui" font-size="11" fill="#94a3b8">2. Block external access (ACL/FW)</text>
+    <text x="575" y="48" font-family="system-ui" font-size="11" fill="#94a3b8">3. Replace with supported device</text>
+  </g>
+  <text x="870" y="450" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

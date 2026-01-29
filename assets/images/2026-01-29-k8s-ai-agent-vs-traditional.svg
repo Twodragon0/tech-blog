@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="sh3">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="900" height="420" fill="url(#bg3)"/>
+  <text x="450" y="35" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">Kubernetes Security: Traditional Container vs AI Agent Workloads</text>
+  <text x="450" y="55" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Why Static Security Models Fail for Non-Deterministic AI Agents</text>
+  <!-- Traditional Side -->
+  <g transform="translate(30,75)" filter="url(#sh3)">
+    <rect width="400" height="280" rx="14" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="400" height="36" rx="14" fill="#3b82f6" opacity="0.15"/>
+    <rect y="22" width="400" height="14" fill="#3b82f6" opacity="0.15"/>
+    <text x="200" y="26" font-family="system-ui" font-size="14" font-weight="700" fill="#60a5fa" text-anchor="middle">Traditional Container Workloads</text>
+    <g transform="translate(20,50)">
+      <circle cx="12" cy="10" r="6" fill="#22c55e"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Deterministic behavior</text>
+    </g>
+    <g transform="translate(20,80)">
+      <circle cx="12" cy="10" r="6" fill="#22c55e"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Predictable network patterns</text>
+    </g>
+    <g transform="translate(20,110)">
+      <circle cx="12" cy="10" r="6" fill="#22c55e"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Static resource requests</text>
+    </g>
+    <g transform="translate(20,140)">
+      <circle cx="12" cy="10" r="6" fill="#22c55e"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Fixed API call patterns</text>
+    </g>
+    <g transform="translate(20,170)">
+      <circle cx="12" cy="10" r="6" fill="#22c55e"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Pre-defined permissions</text>
+    </g>
+    <g transform="translate(20,200)">
+      <circle cx="12" cy="10" r="6" fill="#22c55e"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Auditable actions</text>
+    </g>
+    <!-- Security Model -->
+    <g transform="translate(20,235)">
+      <rect width="360" height="30" rx="8" fill="#3b82f6" opacity="0.15"/>
+      <text x="180" y="20" font-family="system-ui" font-size="11" font-weight="700" fill="#60a5fa" text-anchor="middle">Static NetworkPolicy + RBAC = Sufficient</text>
+    </g>
+  </g>
+  <!-- VS -->
+  <g transform="translate(435,200)">
+    <circle cx="15" cy="15" r="20" fill="#475569" opacity="0.5"/>
+    <text x="15" y="21" font-family="system-ui" font-size="14" font-weight="800" fill="#f8fafc" text-anchor="middle">VS</text>
+  </g>
+  <!-- AI Agent Side -->
+  <g transform="translate(470,75)" filter="url(#sh3)">
+    <rect width="400" height="280" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="400" height="36" rx="14" fill="#ef4444" opacity="0.15"/>
+    <rect y="22" width="400" height="14" fill="#ef4444" opacity="0.15"/>
+    <text x="200" y="26" font-family="system-ui" font-size="14" font-weight="700" fill="#fca5a5" text-anchor="middle">AI Agent Workloads</text>
+    <g transform="translate(20,50)">
+      <circle cx="12" cy="10" r="6" fill="#ef4444"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Non-deterministic behavior</text>
+    </g>
+    <g transform="translate(20,80)">
+      <circle cx="12" cy="10" r="6" fill="#ef4444"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Dynamic network patterns</text>
+    </g>
+    <g transform="translate(20,110)">
+      <circle cx="12" cy="10" r="6" fill="#ef4444"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Variable resource requests</text>
+    </g>
+    <g transform="translate(20,140)">
+      <circle cx="12" cy="10" r="6" fill="#ef4444"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Autonomous API exploration</text>
+    </g>
+    <g transform="translate(20,170)">
+      <circle cx="12" cy="10" r="6" fill="#ef4444"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Dynamic permission requests</text>
+    </g>
+    <g transform="translate(20,200)">
+      <circle cx="12" cy="10" r="6" fill="#ef4444"/>
+      <text x="28" y="14" font-family="system-ui" font-size="12" fill="#e2e8f0">Inference-based actions</text>
+    </g>
+    <!-- Security Model -->
+    <g transform="translate(20,235)">
+      <rect width="360" height="30" rx="8" fill="#ef4444" opacity="0.15"/>
+      <text x="180" y="20" font-family="system-ui" font-size="11" font-weight="700" fill="#fca5a5" text-anchor="middle">eBPF Runtime Observation + Behavioral Analysis Required</text>
+    </g>
+  </g>
+  <!-- eBPF Tools -->
+  <g transform="translate(30,375)">
+    <text x="0" y="14" font-family="system-ui" font-size="11" font-weight="700" fill="#4ade80">eBPF Tools:</text>
+    <rect x="85" y="0" width="65" height="22" rx="11" fill="#22c55e" opacity="0.15"/>
+    <text x="117" y="15" font-family="system-ui" font-size="10" fill="#4ade80" text-anchor="middle">Cilium</text>
+    <rect x="158" y="0" width="75" height="22" rx="11" fill="#22c55e" opacity="0.15"/>
+    <text x="195" y="15" font-family="system-ui" font-size="10" fill="#4ade80" text-anchor="middle">Tetragon</text>
+    <rect x="241" y="0" width="55" height="22" rx="11" fill="#22c55e" opacity="0.15"/>
+    <text x="268" y="15" font-family="system-ui" font-size="10" fill="#4ade80" text-anchor="middle">Falco</text>
+    <rect x="304" y="0" width="82" height="22" rx="11" fill="#22c55e" opacity="0.15"/>
+    <text x="345" y="15" font-family="system-ui" font-size="10" fill="#4ade80" text-anchor="middle">Kubescape</text>
+    <rect x="394" y="0" width="75" height="22" rx="11" fill="#22c55e" opacity="0.15"/>
+    <text x="431" y="15" font-family="system-ui" font-size="10" fill="#4ade80" text-anchor="middle">StackRox</text>
+  </g>
+  <text x="870" y="410" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

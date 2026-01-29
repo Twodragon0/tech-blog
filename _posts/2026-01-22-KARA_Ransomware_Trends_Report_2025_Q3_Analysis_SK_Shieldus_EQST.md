@@ -124,6 +124,11 @@ toc: true
 
 랜섬웨어 생태계는 점점 더 **분절화**되고 있습니다:
 
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-22-ransomware-ecosystem-2025q3.svg" alt="Ransomware Ecosystem Fragmentation 2025 Q3 - 77 Active Groups" class="post-image">
+  <p class="image-caption">2025년 3분기 랜섬웨어 생태계 분절화 - 활동 그룹 77개로 급증</p>
+</div>
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │              2025년 3분기 랜섬웨어 생태계 변화                    │
@@ -362,6 +367,11 @@ show version
 
 2025년 새롭게 부각된 **4중 협박** 전술:
 
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-22-quadruple-extortion.svg" alt="Quadruple Extortion Tactics - 4-Layer Ransomware Pressure Strategy" class="post-image">
+  <p class="image-caption">4중 협박(Quadruple Extortion) 전술 - 단계별 압박 전략</p>
+</div>
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │              4중 협박(Quadruple Extortion) 전술                  │
@@ -482,6 +492,11 @@ edr_evasion_techniques:
 
 ### 4.2 제조업 공격 급증 원인 분석
 
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-22-manufacturing-targeting.svg" alt="Why Manufacturing is Ransomware Target Number 1 - 4 Key Reasons" class="post-image">
+  <p class="image-caption">제조업이 랜섬웨어 #1 타겟인 4가지 이유</p>
+</div>
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │              제조업이 랜섬웨어 #1 타겟인 이유                     │
@@ -589,6 +604,11 @@ zero_trust_implementation:
 ```
 
 ### 5.2 3-2-1-1-0 백업 전략
+
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-22-backup-strategy-321-10.svg" alt="3-2-1-1-0 Backup Strategy for Ransomware Defense" class="post-image">
+  <p class="image-caption">3-2-1-1-0 백업 전략 - 랜섬웨어 방어를 위한 강화된 백업 규칙</p>
+</div>
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐

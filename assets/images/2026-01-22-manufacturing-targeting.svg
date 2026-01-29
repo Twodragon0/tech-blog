@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440">
+  <defs>
+    <linearGradient id="bgR3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="shR3"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="440" fill="url(#bgR3)"/>
+  <text x="450" y="32" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">Why Manufacturing is Ransomware Target #1</text>
+  <text x="450" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">26% of All Attacks | +56% YoY | Akira, Play, INC Groups | OT/IT Convergence Risk</text>
+  <!-- 4 Reason boxes -->
+  <g transform="translate(30,75)" filter="url(#shR3)">
+    <rect width="410" height="110" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="35" cy="30" r="18" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="35" y="35" font-family="system-ui" font-size="14" font-weight="700" fill="#fca5a5" text-anchor="middle">1</text>
+    <text x="65" y="28" font-family="system-ui" font-size="13" font-weight="700" fill="#fca5a5">Extreme Downtime Cost</text>
+    <text x="65" y="50" font-family="system-ui" font-size="10" fill="#e2e8f0">Hundreds of thousands of dollars per minute</text>
+    <text x="65" y="68" font-family="system-ui" font-size="10" fill="#e2e8f0">Production line shutdown = delivery delays</text>
+    <text x="65" y="86" font-family="system-ui" font-size="10" fill="#94a3b8">Cascading impact across entire supply chain</text>
+    <text x="65" y="102" font-family="system-ui" font-size="9" fill="#64748b">JIT manufacturing vulnerability</text>
+  </g>
+  <g transform="translate(460,75)" filter="url(#shR3)">
+    <rect width="410" height="110" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <circle cx="35" cy="30" r="18" fill="#f97316" opacity="0.2" stroke="#f97316" stroke-width="1.5"/>
+    <text x="35" y="35" font-family="system-ui" font-size="14" font-weight="700" fill="#fdba74" text-anchor="middle">2</text>
+    <text x="65" y="28" font-family="system-ui" font-size="13" font-weight="700" fill="#fdba74">OT/IT Convergence Risk</text>
+    <text x="65" y="50" font-family="system-ui" font-size="10" fill="#e2e8f0">Legacy SCADA/ICS system vulnerabilities</text>
+    <text x="65" y="68" font-family="system-ui" font-size="10" fill="#e2e8f0">IT network to OT network pivot possible</text>
+    <text x="65" y="86" font-family="system-ui" font-size="10" fill="#94a3b8">Long patch cycles or unpatchable systems</text>
+    <text x="65" y="102" font-family="system-ui" font-size="9" fill="#64748b">Expanding attack surface</text>
+  </g>
+  <g transform="translate(30,200)" filter="url(#shR3)">
+    <rect width="410" height="110" rx="12" fill="#1e293b" stroke="#eab308" stroke-width="2"/>
+    <circle cx="35" cy="30" r="18" fill="#eab308" opacity="0.2" stroke="#eab308" stroke-width="1.5"/>
+    <text x="35" y="35" font-family="system-ui" font-size="14" font-weight="700" fill="#fde047" text-anchor="middle">3</text>
+    <text x="65" y="28" font-family="system-ui" font-size="13" font-weight="700" fill="#fde047">Maximum Payment Pressure</text>
+    <text x="65" y="50" font-family="system-ui" font-size="10" fill="#e2e8f0">Contract penalties from delivery failures</text>
+    <text x="65" y="68" font-family="system-ui" font-size="10" fill="#e2e8f0">Customer trust damage concerns</text>
+    <text x="65" y="86" font-family="system-ui" font-size="10" fill="#94a3b8">Revenue loss from idle machinery</text>
+    <text x="65" y="102" font-family="system-ui" font-size="9" fill="#64748b">High ransom payment incentive</text>
+  </g>
+  <g transform="translate(460,200)" filter="url(#shR3)">
+    <rect width="410" height="110" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <circle cx="35" cy="30" r="18" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="35" y="35" font-family="system-ui" font-size="14" font-weight="700" fill="#c4b5fd" text-anchor="middle">4</text>
+    <text x="65" y="28" font-family="system-ui" font-size="13" font-weight="700" fill="#c4b5fd">Low Security Maturity</text>
+    <text x="65" y="50" font-family="system-ui" font-size="10" fill="#e2e8f0">IT security investment vs OT security gap</text>
+    <text x="65" y="68" font-family="system-ui" font-size="10" fill="#e2e8f0">Security personnel shortage</text>
+    <text x="65" y="86" font-family="system-ui" font-size="10" fill="#94a3b8">Lack of awareness training</text>
+    <text x="65" y="102" font-family="system-ui" font-size="9" fill="#64748b">Limited budget allocation</text>
+  </g>
+  <!-- Defense Strategy -->
+  <g transform="translate(30,340)" filter="url(#shR3)">
+    <rect width="840" height="70" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="25" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80">Defense Strategy for Manufacturing</text>
+    <text x="25" y="50" font-family="system-ui" font-size="10" fill="#94a3b8">OT/IT network separation</text>
+    <text x="210" y="50" font-family="system-ui" font-size="10" fill="#94a3b8">Industrial firewall + IDS/IPS</text>
+    <text x="420" y="50" font-family="system-ui" font-size="10" fill="#94a3b8">OT-specific EDR deployment</text>
+    <text x="640" y="50" font-family="system-ui" font-size="10" fill="#94a3b8">Regular OT security assessment</text>
+  </g>
+  <text x="870" y="432" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

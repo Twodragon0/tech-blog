@@ -293,6 +293,11 @@ Google이 2025년 6월에 발표한 Prompt Injection 다층 방어 전략은 LLM
 
 아래 다이어그램은 Prompt Injection 방어 클래스의 처리 흐름을 보여줍니다:
 
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-26-prompt-defense-architecture.svg" alt="PromptDefense Class Architecture - 3-Layer Defense System" class="post-image">
+  <p class="image-caption">PromptDefense 클래스 아키텍처 - 3계층 방어 시스템</p>
+</div>
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                        PromptDefense Class Architecture                      │

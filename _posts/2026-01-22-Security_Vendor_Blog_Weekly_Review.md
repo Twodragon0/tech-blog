@@ -199,6 +199,12 @@ toc: true
 - AI 에이전트 시대의 기술적 거버넌스 전략
 
 **DevSecOps 관점**:
+
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-22-ai-security-paradigm-shift.svg" alt="AI Security Paradigm Shift - Human-Speed to Machine-Speed Security" class="post-image">
+  <p class="image-caption">AI 보안 패러다임 전환: Human-Speed에서 Machine-Speed로</p>
+</div>
+
 ```
 ┌────────────────────────────────────────────────────────┐
 │                AI 보안 패러다임 전환                    │
@@ -242,6 +248,12 @@ HashiCorp는 이번 주 20개 이상의 블로그 포스팅을 발행했습니�
 > Secure your agentic AI systems by applying zero trust principles to NHIs. This means dynamic secrets, auditing, PKI, secret scanning, and several other actions.
 
 **Non-Human Identity(NHI) 관리 전략**:
+
+<div class="post-image-container">
+  <img src="/assets/images/2026-01-22-zero-trust-ai-agents.svg" alt="Zero Trust for AI Agents - NHI Management Strategy with 4 Pillars" class="post-image">
+  <p class="image-caption">Zero Trust for AI Agents - NHI 관리 전략 4대 기둥</p>
+</div>
+
 ```
 ┌────────────────────────────────────────────────────────┐
 │            Zero Trust for AI Agents                    │

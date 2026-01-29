@@ -174,6 +174,8 @@ grep -i "failed" /var/log/vmware/vpxd/vpxd.log | tail -20
 
 ### 공격 흐름
 
+![Fortinet FortiGate SSO Bypass Attack Flow](/assets/images/2026-01-25-fortinet-sso-bypass-attack-flow.svg)
+
 ```
 ┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐
 │  공격자         │ ──▶  │ FortiCloud SSO  │ ──▶  │ FortiGate Admin │
@@ -237,6 +239,8 @@ diagnose debug authd fsso list
 | **공격 목적** | 시스템 파괴 및 운영 중단 |
 
 ### DynoWiper 악성코드 분석
+
+![DynoWiper Attack Chain - Sandworm APT](/assets/images/2026-01-25-dynowiper-attack-chain.svg)
 
 ```
 ┌──────────────────────────────────────────────────────────────┐

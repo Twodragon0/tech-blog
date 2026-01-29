@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350">
+  <defs>
+    <linearGradient id="bg4z" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="sh4z"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="350" fill="url(#bg4z)"/>
+  <text x="450" y="32" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">Zero Trust for AI Agents - NHI Management Strategy</text>
+  <text x="450" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">HashiCorp Vault-Based Non-Human Identity Security | 4 Core Pillars</text>
+  <!-- 4 Pillars -->
+  <g transform="translate(30,75)" filter="url(#sh4z)">
+    <rect width="200" height="160" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="200" height="30" rx="12" fill="#3b82f6" opacity="0.15"/>
+    <rect y="18" width="200" height="12" fill="#3b82f6" opacity="0.15"/>
+    <text x="100" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#60a5fa" text-anchor="middle">1. Dynamic Secrets</text>
+    <text x="20" y="52" font-family="system-ui" font-size="10" fill="#e2e8f0">Temporary credentials</text>
+    <text x="20" y="70" font-family="system-ui" font-size="10" fill="#e2e8f0">via Vault</text>
+    <line x1="20" y1="80" x2="180" y2="80" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="98" font-family="system-ui" font-size="9" fill="#94a3b8">Short-lived tokens</text>
+    <text x="20" y="114" font-family="system-ui" font-size="9" fill="#94a3b8">Auto-rotation</text>
+    <text x="20" y="130" font-family="system-ui" font-size="9" fill="#94a3b8">Least privilege access</text>
+    <text x="20" y="150" font-family="system-ui" font-size="9" fill="#64748b">Tool: HashiCorp Vault</text>
+  </g>
+  <g transform="translate(245,75)" filter="url(#sh4z)">
+    <rect width="200" height="160" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect width="200" height="30" rx="12" fill="#8b5cf6" opacity="0.15"/>
+    <rect y="18" width="200" height="12" fill="#8b5cf6" opacity="0.15"/>
+    <text x="100" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#c4b5fd" text-anchor="middle">2. Auditing</text>
+    <text x="20" y="52" font-family="system-ui" font-size="10" fill="#e2e8f0">All NHI activity</text>
+    <text x="20" y="70" font-family="system-ui" font-size="10" fill="#e2e8f0">logging + monitoring</text>
+    <line x1="20" y1="80" x2="180" y2="80" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="98" font-family="system-ui" font-size="9" fill="#94a3b8">Real-time event streams</text>
+    <text x="20" y="114" font-family="system-ui" font-size="9" fill="#94a3b8">Anomaly detection</text>
+    <text x="20" y="130" font-family="system-ui" font-size="9" fill="#94a3b8">Compliance reporting</text>
+    <text x="20" y="150" font-family="system-ui" font-size="9" fill="#64748b">Tool: SIEM + Vault Audit</text>
+  </g>
+  <g transform="translate(460,75)" filter="url(#sh4z)">
+    <rect width="200" height="160" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <rect width="200" height="30" rx="12" fill="#22c55e" opacity="0.15"/>
+    <rect y="18" width="200" height="12" fill="#22c55e" opacity="0.15"/>
+    <text x="100" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80" text-anchor="middle">3. PKI</text>
+    <text x="20" y="52" font-family="system-ui" font-size="10" fill="#e2e8f0">Certificate-based</text>
+    <text x="20" y="70" font-family="system-ui" font-size="10" fill="#e2e8f0">AI agent authentication</text>
+    <line x1="20" y1="80" x2="180" y2="80" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="98" font-family="system-ui" font-size="9" fill="#94a3b8">Mutual TLS (mTLS)</text>
+    <text x="20" y="114" font-family="system-ui" font-size="9" fill="#94a3b8">Auto certificate renewal</text>
+    <text x="20" y="130" font-family="system-ui" font-size="9" fill="#94a3b8">Identity verification</text>
+    <text x="20" y="150" font-family="system-ui" font-size="9" fill="#64748b">Tool: Vault PKI Engine</text>
+  </g>
+  <g transform="translate(675,75)" filter="url(#sh4z)">
+    <rect width="200" height="160" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="200" height="30" rx="12" fill="#ef4444" opacity="0.15"/>
+    <rect y="18" width="200" height="12" fill="#ef4444" opacity="0.15"/>
+    <text x="100" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#fca5a5" text-anchor="middle">4. Secret Scanning</text>
+    <text x="20" y="52" font-family="system-ui" font-size="10" fill="#e2e8f0">Hardcoded credential</text>
+    <text x="20" y="70" font-family="system-ui" font-size="10" fill="#e2e8f0">detection in code</text>
+    <line x1="20" y1="80" x2="180" y2="80" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="98" font-family="system-ui" font-size="9" fill="#94a3b8">CI/CD pipeline scan</text>
+    <text x="20" y="114" font-family="system-ui" font-size="9" fill="#94a3b8">Git pre-commit hooks</text>
+    <text x="20" y="130" font-family="system-ui" font-size="9" fill="#94a3b8">Runtime detection</text>
+    <text x="20" y="150" font-family="system-ui" font-size="9" fill="#64748b">Tool: HCP Vault Radar</text>
+  </g>
+  <!-- Bottom bar -->
+  <g transform="translate(30,260)" filter="url(#sh4z)">
+    <rect width="845" height="60" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+    <text x="25" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#fdba74">Implementation Priority</text>
+    <text x="25" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">1. Migrate static keys to Vault</text>
+    <text x="245" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">2. Enable audit logging</text>
+    <text x="445" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">3. Deploy mTLS for agents</text>
+    <text x="660" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">4. Scan all repos</text>
+  </g>
+  <text x="870" y="342" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

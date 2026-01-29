@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="sh1"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="500" fill="url(#bg1)"/>
+  <text x="450" y="32" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">OpenAI Codex Agent Loop Architecture</text>
+  <text x="450" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Parallel Execution | Task Decomposition | Iterative Refinement | Context Isolation</text>
+  <!-- User Request -->
+  <g transform="translate(340,70)" filter="url(#sh1)">
+    <rect width="220" height="50" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="110" y="22" font-family="system-ui" font-size="13" font-weight="700" fill="#60a5fa" text-anchor="middle">User Request</text>
+    <text x="110" y="40" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">"Implement user authentication"</text>
+  </g>
+  <!-- Arrow down -->
+  <g transform="translate(450,120)"><line x1="0" y1="0" x2="0" y2="25" stroke="#60a5fa" stroke-width="2"/><polygon points="-5,25 0,33 5,25" fill="#60a5fa"/></g>
+  <!-- Planning Agent -->
+  <g transform="translate(290,155)" filter="url(#sh1)">
+    <rect width="320" height="70" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="160" y="25" font-family="system-ui" font-size="13" font-weight="700" fill="#c4b5fd" text-anchor="middle">Planning Agent</text>
+    <text x="160" y="45" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Task Decomposition + Dependency Analysis</text>
+    <text x="160" y="60" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">Identifies parallelizable tasks</text>
+  </g>
+  <!-- 3 arrows down -->
+  <g transform="translate(330,225)"><line x1="0" y1="0" x2="0" y2="25" stroke="#c4b5fd" stroke-width="2"/><polygon points="-4,25 0,33 4,25" fill="#c4b5fd"/></g>
+  <g transform="translate(450,225)"><line x1="0" y1="0" x2="0" y2="25" stroke="#c4b5fd" stroke-width="2"/><polygon points="-4,25 0,33 4,25" fill="#c4b5fd"/></g>
+  <g transform="translate(570,225)"><line x1="0" y1="0" x2="0" y2="25" stroke="#c4b5fd" stroke-width="2"/><polygon points="-4,25 0,33 4,25" fill="#c4b5fd"/></g>
+  <!-- 3 Code Agents -->
+  <g transform="translate(250,260)" filter="url(#sh1)">
+    <rect width="160" height="65" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <text x="80" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80" text-anchor="middle">Code Agent 1</text>
+    <text x="80" y="40" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Model Layer</text>
+    <text x="80" y="55" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">(User model, validation)</text>
+  </g>
+  <g transform="translate(370,260)" filter="url(#sh1)">
+    <rect width="160" height="65" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <text x="80" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80" text-anchor="middle">Code Agent 2</text>
+    <text x="80" y="40" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Controller</text>
+    <text x="80" y="55" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">(Auth login/logout)</text>
+  </g>
+  <g transform="translate(490,260)" filter="url(#sh1)">
+    <rect width="160" height="65" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <text x="80" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80" text-anchor="middle">Code Agent 3</text>
+    <text x="80" y="40" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Database</text>
+    <text x="80" y="55" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">(Schema, migrations)</text>
+  </g>
+  <!-- Parallel indicator -->
+  <line x1="260" y1="258" x2="640" y2="258" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <text x="185" y="295" font-family="system-ui" font-size="9" fill="#22c55e" font-style="italic">Parallel</text>
+  <!-- 3 arrows merge -->
+  <g transform="translate(330,325)"><line x1="0" y1="0" x2="0" y2="25" stroke="#22c55e" stroke-width="2"/></g>
+  <g transform="translate(450,325)"><line x1="0" y1="0" x2="0" y2="25" stroke="#22c55e" stroke-width="2"/></g>
+  <g transform="translate(570,325)"><line x1="0" y1="0" x2="0" y2="25" stroke="#22c55e" stroke-width="2"/></g>
+  <line x1="330" y1="350" x2="570" y2="350" stroke="#22c55e" stroke-width="2"/>
+  <g transform="translate(450,350)"><line x1="0" y1="0" x2="0" y2="15" stroke="#22c55e" stroke-width="2"/><polygon points="-4,15 0,23 4,15" fill="#22c55e"/></g>
+  <!-- Verification Agent -->
+  <g transform="translate(290,375)" filter="url(#sh1)">
+    <rect width="320" height="60" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <text x="160" y="25" font-family="system-ui" font-size="13" font-weight="700" fill="#fdba74" text-anchor="middle">Verification Agent</text>
+    <text x="160" y="45" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Code Review + Test Execution + Integration Check</text>
+  </g>
+  <!-- Pass / Fail -->
+  <g transform="translate(340,435)">
+    <line x1="0" y1="0" x2="-40" y2="25" stroke="#22c55e" stroke-width="2"/>
+    <text x="-60" y="42" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80">Pass</text>
+    <rect x="-100" y="48" width="80" height="30" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="-60" y="68" font-family="system-ui" font-size="11" fill="#4ade80" text-anchor="middle">Complete</text>
+  </g>
+  <g transform="translate(560,435)">
+    <line x1="0" y1="0" x2="40" y2="25" stroke="#ef4444" stroke-width="2"/>
+    <text x="25" y="42" font-family="system-ui" font-size="12" font-weight="700" fill="#fca5a5">Fail</text>
+    <rect x="0" y="48" width="120" height="30" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="60" y="68" font-family="system-ui" font-size="11" fill="#fca5a5" text-anchor="middle">Loop Back</text>
+  </g>
+  <!-- Loop back arrow -->
+  <path d="M 680,463 Q 750,463 750,200 Q 750,155 610,190" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="612,186 610,194 618,190" fill="#ef4444"/>
+  <text x="770" y="300" font-family="system-ui" font-size="9" fill="#fca5a5" transform="rotate(90,770,300)">Iterative Refinement</text>
+  <!-- Key features -->
+  <g transform="translate(30,80)" filter="url(#sh1)">
+    <rect width="180" height="120" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="90" y="22" font-family="system-ui" font-size="11" font-weight="700" fill="#94a3b8" text-anchor="middle">Key Features</text>
+    <line x1="15" y1="30" x2="165" y2="30" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="50" font-family="system-ui" font-size="10" fill="#60a5fa">Task Decomposition</text>
+    <text x="20" y="70" font-family="system-ui" font-size="10" fill="#22c55e">Parallel Execution</text>
+    <text x="20" y="90" font-family="system-ui" font-size="10" fill="#fdba74">Iterative Refinement</text>
+    <text x="20" y="110" font-family="system-ui" font-size="10" fill="#c4b5fd">Context Isolation</text>
+  </g>
+  <text x="870" y="492" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

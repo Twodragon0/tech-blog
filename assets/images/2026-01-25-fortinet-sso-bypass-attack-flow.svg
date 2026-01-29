@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="sh6"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="300" fill="url(#bg6)"/>
+  <text x="450" y="32" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">Fortinet FortiGate SSO Bypass Attack Flow</text>
+  <text x="450" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">FortiCloud SSO Authentication Bypass - Even Fully Patched Environments Vulnerable</text>
+  <!-- Attacker -->
+  <g transform="translate(40,80)" filter="url(#sh6)">
+    <rect width="160" height="90" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="80" y="35" font-family="system-ui" font-size="13" font-weight="700" fill="#fca5a5" text-anchor="middle">Attacker</text>
+    <text x="80" y="58" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">SSO token manipulation</text>
+    <text x="80" y="76" font-family="system-ui" font-size="10" fill="#94a3b8" text-anchor="middle">or auth bypass</text>
+  </g>
+  <g transform="translate(200,120)"><line x1="0" y1="0" x2="60" y2="0" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,3"/><polygon points="60,-5 70,0 60,5" fill="#ef4444"/></g>
+  <!-- FortiCloud SSO -->
+  <g transform="translate(270,80)" filter="url(#sh6)">
+    <rect width="180" height="90" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <text x="90" y="35" font-family="system-ui" font-size="13" font-weight="700" fill="#fdba74" text-anchor="middle">FortiCloud SSO</text>
+    <text x="90" y="58" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Authentication bypass</text>
+    <text x="90" y="76" font-family="system-ui" font-size="10" fill="#fca5a5" text-anchor="middle">No input validation</text>
+  </g>
+  <g transform="translate(450,120)"><line x1="0" y1="0" x2="60" y2="0" stroke="#f97316" stroke-width="2" stroke-dasharray="6,3"/><polygon points="60,-5 70,0 60,5" fill="#f97316"/></g>
+  <!-- FortiGate Admin -->
+  <g transform="translate(520,80)" filter="url(#sh6)">
+    <rect width="160" height="90" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="80" y="35" font-family="system-ui" font-size="13" font-weight="700" fill="#fca5a5" text-anchor="middle">FortiGate Admin</text>
+    <text x="80" y="58" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Full admin access</text>
+    <text x="80" y="76" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">gained</text>
+  </g>
+  <g transform="translate(680,120)"><line x1="0" y1="0" x2="60" y2="0" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,3"/><polygon points="60,-5 70,0 60,5" fill="#ef4444"/></g>
+  <!-- Impact -->
+  <g transform="translate(740,70)" filter="url(#sh6)">
+    <rect width="140" height="110" rx="12" fill="#1e293b" stroke="#dc2626" stroke-width="2"/>
+    <rect width="140" height="28" rx="12" fill="#dc2626" opacity="0.2"/>
+    <rect y="16" width="140" height="12" fill="#dc2626" opacity="0.2"/>
+    <text x="70" y="22" font-family="system-ui" font-size="11" font-weight="700" fill="#fca5a5" text-anchor="middle">Impact</text>
+    <text x="18" y="50" font-family="system-ui" font-size="10" fill="#e2e8f0">Policy changes</text>
+    <text x="18" y="68" font-family="system-ui" font-size="10" fill="#e2e8f0">Backdoor install</text>
+    <text x="18" y="86" font-family="system-ui" font-size="10" fill="#e2e8f0">FW rule disable</text>
+    <text x="18" y="104" font-family="system-ui" font-size="10" fill="#e2e8f0">Network exposure</text>
+  </g>
+  <!-- Remediation -->
+  <g transform="translate(40,210)" filter="url(#sh6)">
+    <rect width="840" height="60" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="25" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80">Immediate Remediation</text>
+    <text x="25" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">1. Disable FortiCloud SSO</text>
+    <text x="210" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">2. Switch to local auth</text>
+    <text x="390" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">3. Restrict admin IP access</text>
+    <text x="600" y="44" font-family="system-ui" font-size="10" fill="#94a3b8">4. Enable MFA + audit logs</text>
+  </g>
+  <text x="870" y="290" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>
