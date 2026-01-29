@@ -386,10 +386,18 @@ function googleTranslateElementInit() {
       }
     }, true);
 
-    // 현재 언어 감지 및 표시
+    // 현재 언어 감지 및 표시 (localStorage 우선, 쿠키 보조)
     var currentLang = getCurrentLang();
-    if (LANG_MAP[currentLang] && currentLangSpan) {
-      currentLangSpan.textContent = LANG_MAP[currentLang];
+    var savedPref = safeLocalStorageGet('preferredLang');
+    var displayLang = currentLang;
+
+    // localStorage에 사용자가 명시적으로 선택한 언어가 있으면 우선 적용
+    if (savedPref && savedPref !== 'system' && LANG_MAP[savedPref]) {
+      displayLang = savedPref;
+    }
+
+    if (LANG_MAP[displayLang] && currentLangSpan) {
+      currentLangSpan.textContent = LANG_MAP[displayLang];
     }
 
     // 시스템 언어 자동 적용
@@ -397,25 +405,31 @@ function googleTranslateElementInit() {
   }
 
   function getCurrentLang() {
-    // 쿠키에서 언어 정보 읽기 (안전한 방법)
+    // 쿠키에서 언어 정보 읽기 (다양한 형식 지원)
     try {
       var cookie = getCookie('googtrans');
       if (cookie) {
-        var match = cookie.match(/\/ko\/([^\/]+)/);
+        // /ko/[lang] 형식
+        var match = cookie.match(/\/ko\/([^\/;]+)/);
+        if (match && match[1]) {
+          return match[1];
+        }
+        // /auto/[lang] 또는 /[any]/[lang] 형식 (Google Translate가 변경할 수 있음)
+        match = cookie.match(/\/[^\/]+\/([^\/;]+)/);
         if (match && match[1]) {
           return match[1];
         }
       }
-      
-      // 대체 방법: document.cookie 직접 읽기
-      var match = document.cookie.match(/googtrans=\/ko\/([^;]+)/);
-      if (match && match[1]) {
-        return match[1];
+
+      // 대체 방법: document.cookie 직접 읽기 (다양한 형식)
+      var directMatch = document.cookie.match(/googtrans=\/[^\/]+\/([^;\/]+)/);
+      if (directMatch && directMatch[1]) {
+        return directMatch[1];
       }
     } catch (e) {
       // 쿠키 읽기 실패 시 한국어로 간주
     }
-    
+
     // 쿠키가 없으면 한국어로 간주
     return 'ko';
   }
@@ -429,20 +443,36 @@ function googleTranslateElementInit() {
     }
 
     var currentLang = getCurrentLang();
-    var preferredLang = getPreferredLanguage();
     var savedPref = safeLocalStorageGet('preferredLang');
 
-    // 사용자가 수동으로 선택한 경우 그 설정 유지
-    if (savedPref && savedPref !== 'system' && savedPref === currentLang) {
+    // 사용자가 수동으로 선택한 언어가 있으면 그 설정을 우선 적용
+    if (savedPref && savedPref !== 'system') {
       safeSessionStorageSet('langApplied', 'true');
+
+      // 현재 언어와 저장된 선택이 다르면 저장된 선택으로 변경
+      if (savedPref !== currentLang) {
+        if (savedPref !== 'ko') {
+          loadTranslateScript(function() {
+            setTimeout(function() {
+              changeLang(savedPref);
+            }, 300);
+          });
+        } else if (currentLang !== 'ko') {
+          changeLang('ko');
+        }
+      } else if (savedPref !== 'ko' && !translateScriptLoaded) {
+        loadTranslateScript();
+      }
       return;
     }
 
-    // 시스템 언어와 현재 언어가 다르면 변경
+    // 저장된 선택이 없으면 시스템 언어 적용
+    var preferredLang = getPreferredLanguage();
+
     if (preferredLang !== currentLang) {
       // 플래그 설정 (무한 루프 방지)
       safeSessionStorageSet('langApplied', 'true');
-      
+
       // Google Translate 스크립트 로딩 후 언어 변경
       if (preferredLang !== 'ko') {
         loadTranslateScript(function() {
@@ -451,15 +481,13 @@ function googleTranslateElementInit() {
           }, 300);
         });
       } else if (currentLang !== 'ko') {
-        // 시스템 언어가 한국어인데 현재 다른 언어로 번역되어 있으면 원본으로
         changeLang('ko');
       }
     } else {
       // 이미 올바른 언어면 플래그 설정
       safeSessionStorageSet('langApplied', 'true');
-      
+
       if (preferredLang !== 'ko' && !translateScriptLoaded) {
-        // 이미 올바른 언어지만 스크립트 로딩 필요
         loadTranslateScript();
       }
     }
@@ -478,7 +506,9 @@ function googleTranslateElementInit() {
     if (lang === 'ko') {
       // 한국어로 복귀: 쿠키 삭제
       deleteCookie('googtrans');
-      
+      safeSessionStorageSet('langChanging', 'false');
+      safeSessionStorageSet('langApplied', 'true');
+
       // 쿠키 삭제 후 짧은 지연 후 리로드
       setTimeout(function() {
         location.reload();
@@ -489,7 +519,13 @@ function googleTranslateElementInit() {
     // 다른 언어로 변경: 쿠키 설정
     var cookieVal = '/ko/' + lang;
     var cookieSet = setCookie('googtrans', cookieVal, 365);
-    
+
+    // 버튼 텍스트 즉시 업데이트 (reload 전에도 반영)
+    var currentLangSpan = document.getElementById('current-lang');
+    if (LANG_MAP[lang] && currentLangSpan) {
+      currentLangSpan.textContent = LANG_MAP[lang];
+    }
+
     // 쿠키 설정 실패 시에도 계속 진행 (시크릿 모드에서도 작동하도록)
     var select = document.querySelector('.goog-te-combo');
     if (select && translateScriptLoaded) {
@@ -518,6 +554,8 @@ function googleTranslateElementInit() {
       }
     } else {
       // 쿠키 설정 후 짧은 지연 후 리로드 (쿠키가 확실히 설정되도록)
+      safeSessionStorageSet('langChanging', 'false');
+      safeSessionStorageSet('langApplied', 'true');
       setTimeout(function() {
         location.reload();
       }, 150);
