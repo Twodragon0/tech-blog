@@ -1,0 +1,337 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="50%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f85149"/>
+      <stop offset="33%" stop-color="#d29922"/>
+      <stop offset="66%" stop-color="#3fb950"/>
+      <stop offset="100%" stop-color="#58a6ff"/>
+    </linearGradient>
+    <linearGradient id="redGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f85149"/>
+      <stop offset="100%" stop-color="#da3633"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#21262d" stroke-width="0.5"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="120" cy="120" r="70" fill="none" stroke="#f85149" stroke-width="1" opacity="0.08"/>
+  <circle cx="120" cy="120" r="90" fill="none" stroke="#f85149" stroke-width="0.5" opacity="0.04"/>
+  <circle cx="1080" cy="510" r="60" fill="none" stroke="#58a6ff" stroke-width="1" opacity="0.08"/>
+
+  <!-- Header Section -->
+  <g transform="translate(50, 30)">
+    <!-- Critical Badge -->
+    <rect width="120" height="38" rx="19" fill="url(#redGlow)" filter="url(#shadow)"/>
+    <circle cx="25" cy="19" r="6" fill="#fff">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="65" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3 CRITICAL</text>
+
+    <!-- Date Badge -->
+    <g transform="translate(135, 0)">
+      <rect width="130" height="38" rx="19" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <text x="65" y="25" font-family="system-ui" font-size="13" font-weight="600" fill="#8b949e" text-anchor="middle">2026.01.29</text>
+    </g>
+
+    <!-- Topics Badge -->
+    <g transform="translate(280, 0)">
+      <rect width="140" height="38" rx="19" fill="#0d419d" stroke="#1f6feb" stroke-width="1"/>
+      <text x="70" y="25" font-family="system-ui" font-size="12" font-weight="600" fill="#58a6ff" text-anchor="middle">5 Topics Covered</text>
+    </g>
+  </g>
+
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="800" fill="#f0f6fc" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
+  <text x="600" y="142" font-family="system-ui" font-size="16" fill="#8b949e" text-anchor="middle">n8n RCE | D-Link Zero-Day | K8s AI Security | Swiss Cloud | NHI Breach</text>
+
+  <!-- Accent line -->
+  <rect x="320" y="158" width="560" height="3" rx="1.5" fill="url(#accent)"/>
+
+  <!-- Card 1: n8n RCE (Critical) -->
+  <g transform="translate(30, 185)">
+    <rect width="360" height="200" rx="16" fill="url(#cardBg)" stroke="#f85149" stroke-width="2" filter="url(#shadow)"/>
+
+    <!-- Header bar -->
+    <rect x="0" y="0" width="360" height="50" rx="16" fill="#f85149" opacity="0.12"/>
+
+    <!-- Alert icon -->
+    <circle cx="28" cy="25" r="14" fill="#f85149"/>
+    <text x="28" y="31" font-family="system-ui" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">!</text>
+
+    <text x="52" y="30" font-family="system-ui" font-size="14" font-weight="700" fill="#ffa198">CVE-2026-1470</text>
+    <text x="260" y="30" font-family="system-ui" font-size="11" fill="#ff7b72">CVSS 9.9 Critical</text>
+
+    <!-- Content -->
+    <text x="20" y="75" font-family="system-ui" font-size="16" font-weight="700" fill="#f0f6fc">n8n Workflow RCE</text>
+    <text x="20" y="98" font-family="system-ui" font-size="12" fill="#8b949e">JavaScript Sandbox Escape</text>
+
+    <!-- Attack vector -->
+    <g transform="translate(20, 115)">
+      <rect width="80" height="22" rx="4" fill="#1f6feb" opacity="0.2"/>
+      <text x="40" y="15" font-family="system-ui" font-size="9" fill="#58a6ff" text-anchor="middle">Malicious</text>
+    </g>
+    <text x="108" y="130" font-family="system-ui" font-size="11" fill="#484f58">→</text>
+    <g transform="translate(120, 115)">
+      <rect width="75" height="22" rx="4" fill="#9e6a03" opacity="0.2"/>
+      <text x="37" y="15" font-family="system-ui" font-size="9" fill="#d29922" text-anchor="middle">Workflow</text>
+    </g>
+    <text x="203" y="130" font-family="system-ui" font-size="11" fill="#484f58">→</text>
+    <g transform="translate(215, 115)">
+      <rect width="65" height="22" rx="4" fill="#a40e26" opacity="0.3"/>
+      <text x="32" y="15" font-family="system-ui" font-size="9" fill="#ff7b72" text-anchor="middle">RCE</text>
+    </g>
+
+    <text x="20" y="160" font-family="system-ui" font-size="11" fill="#8b949e">Affects: n8n v1.68.0 and earlier</text>
+
+    <!-- Action button -->
+    <g transform="translate(20, 170)">
+      <rect width="90" height="26" rx="6" fill="#da3633"/>
+      <text x="45" y="18" font-family="system-ui" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">UPDATE NOW</text>
+    </g>
+    <g transform="translate(120, 170)">
+      <rect width="100" height="26" rx="6" fill="#1f6feb" opacity="0.2" stroke="#1f6feb" stroke-width="1"/>
+      <text x="50" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#58a6ff" text-anchor="middle">Patch v1.68.1</text>
+    </g>
+  </g>
+
+  <!-- Card 2: D-Link Zero-Day -->
+  <g transform="translate(405, 185)">
+    <rect width="360" height="200" rx="16" fill="url(#cardBg)" stroke="#f85149" stroke-width="2" filter="url(#shadow)"/>
+
+    <rect x="0" y="0" width="360" height="50" rx="16" fill="#f85149" opacity="0.12"/>
+
+    <circle cx="28" cy="25" r="14" fill="#f85149"/>
+    <text x="28" y="31" font-family="system-ui" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">!</text>
+
+    <text x="52" y="30" font-family="system-ui" font-size="14" font-weight="700" fill="#ffa198">CVE-2026-0625</text>
+    <text x="260" y="30" font-family="system-ui" font-size="11" fill="#ff7b72">CVSS 9.3 Critical</text>
+
+    <text x="20" y="75" font-family="system-ui" font-size="16" font-weight="700" fill="#f0f6fc">D-Link EoL Router Zero-Day</text>
+    <text x="20" y="98" font-family="system-ui" font-size="12" fill="#8b949e">Command Injection (No Patch)</text>
+
+    <!-- Affected models -->
+    <g transform="translate(20, 115)">
+      <rect width="70" height="22" rx="4" fill="#a40e26" opacity="0.2"/>
+      <text x="35" y="15" font-family="system-ui" font-size="9" fill="#ff7b72" text-anchor="middle">DIR-846</text>
+    </g>
+    <g transform="translate(95, 115)">
+      <rect width="70" height="22" rx="4" fill="#a40e26" opacity="0.2"/>
+      <text x="35" y="15" font-family="system-ui" font-size="9" fill="#ff7b72" text-anchor="middle">DIR-878</text>
+    </g>
+    <g transform="translate(170, 115)">
+      <rect width="70" height="22" rx="4" fill="#a40e26" opacity="0.2"/>
+      <text x="35" y="15" font-family="system-ui" font-size="9" fill="#ff7b72" text-anchor="middle">DIR-895</text>
+    </g>
+
+    <text x="20" y="160" font-family="system-ui" font-size="11" fill="#8b949e">Status: End-of-Life - No security updates</text>
+
+    <g transform="translate(20, 170)">
+      <rect width="100" height="26" rx="6" fill="#da3633"/>
+      <text x="50" y="18" font-family="system-ui" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">REPLACE ASAP</text>
+    </g>
+    <g transform="translate(130, 170)">
+      <rect width="110" height="26" rx="6" fill="#9e6a03" opacity="0.2" stroke="#d29922" stroke-width="1"/>
+      <text x="55" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#d29922" text-anchor="middle">Isolate Network</text>
+    </g>
+  </g>
+
+  <!-- Card 3: K8s AI Security -->
+  <g transform="translate(780, 185)">
+    <rect width="390" height="200" rx="16" fill="url(#cardBg)" stroke="#58a6ff" stroke-width="1.5" filter="url(#shadow)"/>
+
+    <rect x="0" y="0" width="390" height="50" rx="16" fill="#58a6ff" opacity="0.1"/>
+
+    <text x="20" y="30" font-family="system-ui" font-size="14" font-weight="700" fill="#58a6ff">Kubernetes AI Agent Security</text>
+    <text x="280" y="30" font-family="system-ui" font-size="10" fill="#8b949e">Emerging Tools</text>
+
+    <text x="20" y="75" font-family="system-ui" font-size="13" font-weight="600" fill="#f0f6fc">eBPF-Based Security Monitoring</text>
+
+    <!-- Tools -->
+    <g transform="translate(20, 90)">
+      <rect width="75" height="22" rx="4" fill="#238636" opacity="0.2"/>
+      <text x="37" y="15" font-family="system-ui" font-size="9" fill="#3fb950" text-anchor="middle">Tetragon</text>
+    </g>
+    <g transform="translate(100, 90)">
+      <rect width="75" height="22" rx="4" fill="#1f6feb" opacity="0.2"/>
+      <text x="37" y="15" font-family="system-ui" font-size="9" fill="#58a6ff" text-anchor="middle">Falco</text>
+    </g>
+    <g transform="translate(180, 90)">
+      <rect width="85" height="22" rx="4" fill="#8957e5" opacity="0.2"/>
+      <text x="42" y="15" font-family="system-ui" font-size="9" fill="#a371f7" text-anchor="middle">OpenTelemetry</text>
+    </g>
+
+    <text x="20" y="135" font-family="system-ui" font-size="12" font-weight="600" fill="#f0f6fc">Key Features:</text>
+    <text x="20" y="155" font-family="system-ui" font-size="11" fill="#8b949e">- Runtime threat detection</text>
+    <text x="20" y="173" font-family="system-ui" font-size="11" fill="#8b949e">- Syscall-level monitoring</text>
+    <text x="200" y="155" font-family="system-ui" font-size="11" fill="#8b949e">- Policy enforcement</text>
+    <text x="200" y="173" font-family="system-ui" font-size="11" fill="#8b949e">- AI workload isolation</text>
+  </g>
+
+  <!-- Card 4: Swiss Sovereign Cloud -->
+  <g transform="translate(30, 400)">
+    <rect width="565" height="110" rx="16" fill="url(#cardBg)" stroke="#3fb950" stroke-width="1.5" filter="url(#shadow)"/>
+
+    <rect x="0" y="0" width="565" height="42" rx="16" fill="#3fb950" opacity="0.1"/>
+
+    <text x="20" y="27" font-family="system-ui" font-size="14" font-weight="700" fill="#3fb950">Swiss Sovereign Cloud Launch</text>
+    <text x="300" y="27" font-family="system-ui" font-size="11" fill="#8b949e">Infomaniak Infrastructure</text>
+
+    <text x="20" y="63" font-family="system-ui" font-size="12" fill="#8b949e">Enterprise K8s + GPU + AI Platform | 100% Swiss Data Residency</text>
+
+    <g transform="translate(20, 75)">
+      <rect width="90" height="22" rx="4" fill="#1f6feb" opacity="0.2"/>
+      <text x="45" y="15" font-family="system-ui" font-size="9" fill="#58a6ff" text-anchor="middle">Kubernetes</text>
+    </g>
+    <g transform="translate(115, 75)">
+      <rect width="75" height="22" rx="4" fill="#8957e5" opacity="0.2"/>
+      <text x="37" y="15" font-family="system-ui" font-size="9" fill="#a371f7" text-anchor="middle">NVIDIA GPU</text>
+    </g>
+    <g transform="translate(195, 75)">
+      <rect width="95" height="22" rx="4" fill="#238636" opacity="0.2"/>
+      <text x="47" y="15" font-family="system-ui" font-size="9" fill="#3fb950" text-anchor="middle">AI/ML Workloads</text>
+    </g>
+    <g transform="translate(295, 75)">
+      <rect width="110" height="22" rx="4" fill="#9e6a03" opacity="0.2"/>
+      <text x="55" y="15" font-family="system-ui" font-size="9" fill="#d29922" text-anchor="middle">GDPR Compliant</text>
+    </g>
+    <g transform="translate(410, 75)">
+      <rect width="130" height="22" rx="4" fill="#0d419d" opacity="0.2"/>
+      <text x="65" y="15" font-family="system-ui" font-size="9" fill="#58a6ff" text-anchor="middle">Zero Carbon Footprint</text>
+    </g>
+  </g>
+
+  <!-- Card 5: NHI Cloud Breach -->
+  <g transform="translate(610, 400)">
+    <rect width="560" height="110" rx="16" fill="url(#cardBg)" stroke="#d29922" stroke-width="1.5" filter="url(#shadow)"/>
+
+    <rect x="0" y="0" width="560" height="42" rx="16" fill="#d29922" opacity="0.1"/>
+
+    <text x="20" y="27" font-family="system-ui" font-size="14" font-weight="700" fill="#d29922">NHI as Cloud Breach Vector</text>
+    <text x="320" y="27" font-family="system-ui" font-size="11" fill="#8b949e">Non-Human Identity Risks</text>
+
+    <text x="20" y="63" font-family="system-ui" font-size="12" fill="#8b949e">Service Accounts, API Keys, OAuth Tokens - Growing Attack Surface</text>
+
+    <g transform="translate(20, 75)">
+      <rect width="105" height="22" rx="4" fill="#a40e26" opacity="0.2"/>
+      <text x="52" y="15" font-family="system-ui" font-size="9" fill="#ff7b72" text-anchor="middle">Service Account</text>
+    </g>
+    <g transform="translate(130, 75)">
+      <rect width="85" height="22" rx="4" fill="#9e6a03" opacity="0.2"/>
+      <text x="42" y="15" font-family="system-ui" font-size="9" fill="#d29922" text-anchor="middle">API Keys</text>
+    </g>
+    <g transform="translate(220, 75)">
+      <rect width="90" height="22" rx="4" fill="#1f6feb" opacity="0.2"/>
+      <text x="45" y="15" font-family="system-ui" font-size="9" fill="#58a6ff" text-anchor="middle">OAuth Tokens</text>
+    </g>
+    <g transform="translate(315, 75)">
+      <rect width="110" height="22" rx="4" fill="#8957e5" opacity="0.2"/>
+      <text x="55" y="15" font-family="system-ui" font-size="9" fill="#a371f7" text-anchor="middle">Machine Identities</text>
+    </g>
+    <g transform="translate(430, 75)">
+      <rect width="110" height="22" rx="4" fill="#238636" opacity="0.2"/>
+      <text x="55" y="15" font-family="system-ui" font-size="9" fill="#3fb950" text-anchor="middle">Identity Lifecycle</text>
+    </g>
+  </g>
+
+  <!-- Stats Bar -->
+  <g transform="translate(30, 525)">
+    <rect width="1140" height="65" rx="16" fill="url(#cardBg)" filter="url(#shadow)"/>
+
+    <g transform="translate(60, 15)">
+      <text x="0" y="0" font-family="system-ui" font-size="28" font-weight="800" fill="#f85149">5</text>
+      <text x="0" y="20" font-family="system-ui" font-size="11" fill="#ffa198">Topics</text>
+    </g>
+
+    <line x1="140" y1="15" x2="140" y2="50" stroke="#21262d" stroke-width="1"/>
+
+    <g transform="translate(180, 15)">
+      <text x="0" y="0" font-family="system-ui" font-size="28" font-weight="800" fill="#f85149">3</text>
+      <text x="0" y="20" font-family="system-ui" font-size="11" fill="#ffa198">Critical CVEs</text>
+    </g>
+
+    <line x1="310" y1="15" x2="310" y2="50" stroke="#21262d" stroke-width="1"/>
+
+    <g transform="translate(350, 15)">
+      <text x="0" y="0" font-family="system-ui" font-size="28" font-weight="800" fill="#58a6ff">K8s</text>
+      <text x="0" y="20" font-family="system-ui" font-size="11" fill="#58a6ff">AI Security</text>
+    </g>
+
+    <line x1="470" y1="15" x2="470" y2="50" stroke="#21262d" stroke-width="1"/>
+
+    <g transform="translate(510, 15)">
+      <text x="0" y="0" font-family="system-ui" font-size="28" font-weight="800" fill="#3fb950">Cloud</text>
+      <text x="0" y="20" font-family="system-ui" font-size="11" fill="#3fb950">Sovereign</text>
+    </g>
+
+    <line x1="640" y1="15" x2="640" y2="50" stroke="#21262d" stroke-width="1"/>
+
+    <g transform="translate(680, 15)">
+      <text x="0" y="0" font-family="system-ui" font-size="28" font-weight="800" fill="#d29922">NHI</text>
+      <text x="0" y="20" font-family="system-ui" font-size="11" fill="#d29922">Identity Risk</text>
+    </g>
+
+    <line x1="800" y1="15" x2="800" y2="50" stroke="#21262d" stroke-width="1"/>
+
+    <g transform="translate(840, 15)">
+      <text x="0" y="0" font-family="system-ui" font-size="28" font-weight="800" fill="#a371f7">eBPF</text>
+      <text x="0" y="20" font-family="system-ui" font-size="11" fill="#a371f7">Monitoring</text>
+    </g>
+
+    <g transform="translate(990, 10)">
+      <rect width="130" height="42" rx="12" fill="url(#accent)" filter="url(#shadow)"/>
+      <text x="65" y="27" font-family="system-ui" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">DevSecOps</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <rect x="0" y="605" width="1200" height="25" fill="#010409"/>
+
+  <text x="50" y="621" font-family="system-ui" font-size="12" font-weight="700" fill="#f0f6fc">tech.2twodragon.com</text>
+
+  <g transform="translate(300, 609)">
+    <rect width="95" height="18" rx="9" fill="#a40e26" opacity="0.3"/>
+    <text x="47" y="13" font-family="system-ui" font-size="9" font-weight="600" fill="#ffa198" text-anchor="middle">#ZeroDay</text>
+  </g>
+  <g transform="translate(405, 609)">
+    <rect width="95" height="18" rx="9" fill="#0d419d" opacity="0.3"/>
+    <text x="47" y="13" font-family="system-ui" font-size="9" font-weight="600" fill="#58a6ff" text-anchor="middle">#DevSecOps</text>
+  </g>
+  <g transform="translate(510, 609)">
+    <rect width="85" height="18" rx="9" fill="#044f1e" opacity="0.3"/>
+    <text x="42" y="13" font-family="system-ui" font-size="9" font-weight="600" fill="#3fb950" text-anchor="middle">#Cloud</text>
+  </g>
+  <g transform="translate(605, 609)">
+    <rect width="110" height="18" rx="9" fill="#5a1e91" opacity="0.3"/>
+    <text x="55" y="13" font-family="system-ui" font-size="9" font-weight="600" fill="#a371f7" text-anchor="middle">#Kubernetes</text>
+  </g>
+
+  <!-- Bottom accent bar -->
+  <rect x="0" y="626" width="1200" height="4" fill="url(#accent)"/>
+</svg>
