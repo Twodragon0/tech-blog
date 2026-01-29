@@ -4,7 +4,10 @@ title: "2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도
 date: 2026-01-22 12:00:00 +0900
 categories: [security, kubernetes]
 tags: [Kubernetes, Cloud-Security, CNCF, VS-Code-Security, Platform-Engineering, GPU-Scheduling, CRI-O-Audit, Net-NTLMv1, DevSecOps, "2026"]
-excerpt: "2026년 1월 클라우드 보안 핵심 동향 분석. CNCF 연례 조사에서 Kubernetes 프로덕션 사용률 82% 달성, VS Code 악용 위협 확대, CRI-O 보안 감사 완료, Net-NTLMv1 레인보우 테이블 공개 등 주요 보안 이슈와 대응 방안 정리."
+excerpt: "Kubernetes 82% 프로덕션 도입, VS Code 악용 위협, CNCF 조사 분석 등 클라우드 보안 동향"
+description: "2026년 1월 클라우드 보안 핵심 동향. CNCF 연례 조사 Kubernetes 프로덕션 82% 달성, VS Code 터널 악용 위협 확대, CRI-O 보안 감사 완료, Net-NTLMv1 레인보우 테이블 공개 등 주요 보안 이슈와 대응 방안"
+keywords: [Kubernetes, Cloud Security, CNCF, VS Code Security, Platform Engineering, CRI-O, Net-NTLMv1, DevSecOps]
+author: Twodragon
 comments: true
 image: /assets/images/2026-01-22-Cloud_Security_Trends_January_2026.svg
 image_alt: "Cloud Security Trends January 2026 - Kubernetes, VS Code Threats, CNCF Survey"
