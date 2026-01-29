@@ -976,7 +976,7 @@ def main():
     parser.add_argument(
         "--output",
         type=str,
-        default="data/collected_news.json",
+        default="_data/collected_news.json",
         help="Output JSON file path",
     )
     parser.add_argument(

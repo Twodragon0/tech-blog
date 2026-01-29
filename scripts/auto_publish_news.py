@@ -215,7 +215,10 @@ title: "Tech & Security Weekly Digest ({date_str})"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [security, devsecops]
 tags: [{", ".join(tags)}]
-excerpt: "{date_str} 주요 기술/보안 뉴스 심층 분석: DevSecOps 실무에 필요한 보안 위협, 클라우드 업데이트, AI/ML 동향을 정리했습니다. 총 {total}개 뉴스 중 핵심 내용만 선별하여 분석합니다."
+excerpt: "{date_str} 주요 기술/보안 뉴스 {total}건 심층 분석"
+description: "{date_str} 보안/기술 뉴스: DevSecOps 실무에 필요한 보안 위협, 클라우드 업데이트, AI/ML 동향을 정리했습니다. 총 {total}개 뉴스 중 핵심 내용만 선별하여 분석합니다."
+keywords: [Security-Weekly, DevSecOps, Cloud-Security, Zero-Trust, AI-Security, Weekly-Digest]
+author: Twodragon
 comments: true
 image: /assets/images/{date_file}-Tech_Security_Weekly_Digest.svg
 image_alt: "Tech and Security Weekly Digest {date.strftime("%B %Y")}"

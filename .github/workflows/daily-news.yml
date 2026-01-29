@@ -64,28 +64,39 @@ jobs:
           pip install feedparser requests beautifulsoup4 python-frontmatter PyYAML
       
       - name: Create directories
-        run: mkdir -p data _posts assets/images
+        run: mkdir -p _data data _posts assets/images
       
       - name: Collect tech news from RSS
         id: collect
         run: |
           HOURS="${{ github.event.inputs.hours || '24' }}"
           echo "Collecting news from last $HOURS hours..."
-          
+
           # RSS 수집 실행 (타임아웃 5분)
-          timeout 300 python3 scripts/collect_tech_news.py --hours $HOURS --output data/collected_news.json || {
+          timeout 300 python3 scripts/collect_tech_news.py --hours $HOURS --output _data/collected_news.json || {
             echo "::warning::RSS collection timed out or failed, checking existing data..."
           }
+
+          # _data에 수집 실패 시 기존 data/ 폴더에서 복사 (하위 호환)
+          if [ ! -f "_data/collected_news.json" ] && [ -f "data/collected_news.json" ]; then
+            cp data/collected_news.json _data/collected_news.json
+            echo "::notice::Copied existing news data from data/ to _data/"
+          fi
+
+          # 수집 성공 시 data/에도 동기화 (git 추적용)
+          if [ -f "_data/collected_news.json" ]; then
+            cp _data/collected_news.json data/collected_news.json
+          fi
       
       - name: Check collected news
         id: check_news
         run: |
-          # data/ 디렉토리 확인 (기존 프로젝트 구조)
-          if [ -f "data/collected_news.json" ]; then
-            TOTAL=$(python3 -c "import json; d=json.load(open('data/collected_news.json')); print(d.get('total_items', 0))")
+          # _data/ 디렉토리 확인 (Jekyll 표준 데이터 디렉토리)
+          if [ -f "_data/collected_news.json" ]; then
+            TOTAL=$(python3 -c "import json; d=json.load(open('_data/collected_news.json')); print(d.get('total_items', 0))")
             echo "news_count=$TOTAL" >> $GITHUB_OUTPUT
             echo "✅ Collected $TOTAL news items"
-            
+
             if [ "$TOTAL" -ge 5 ]; then
               echo "has_enough_news=true" >> $GITHUB_OUTPUT
             else
@@ -95,7 +106,7 @@ jobs:
           else
             echo "news_count=0" >> $GITHUB_OUTPUT
             echo "has_enough_news=false" >> $GITHUB_OUTPUT
-            echo "❌ No news collected - data/collected_news.json not found"
+            echo "❌ No news collected - _data/collected_news.json not found"
           fi
       
       - name: Auto publish news post
@@ -163,8 +174,9 @@ jobs:
           # 새 포스트와 이미지, 수집 데이터 추가
           git add _posts/${TODAY}*.md 2>/dev/null || true
           git add assets/images/${TODAY}*.svg 2>/dev/null || true
+          git add _data/collected_news.json 2>/dev/null || true
           git add data/collected_news.json 2>/dev/null || true
-          
+
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
