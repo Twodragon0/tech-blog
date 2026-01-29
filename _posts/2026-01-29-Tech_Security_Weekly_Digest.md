@@ -72,15 +72,18 @@ toc: true
 
 2026년 1월 29일 기준, 지난 48시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다. 이번 주는 **워크플로우 자동화 플랫폼의 Critical 취약점**, **단종 장비의 Zero-Day 위협**, 그리고 **Kubernetes 환경에서 AI 에이전트 보안 과제**가 핵심 화두였습니다.
 
+> **긴급 알림**: n8n 자체 호스팅 인스턴스 운영 중이라면 **CVSS 9.9 RCE 취약점**(CVE-2026-1470)이 공개되었습니다. 즉시 1.123.17+ / 2.4.5+ / 2.5.1+로 업데이트하세요. D-Link DSL-2740R/2640B/2780B/526B 사용 중이라면 **패치 불가 Zero-Day**(CVE-2026-0625)가 활발히 악용 중이므로 즉시 교체가 필요합니다.
+
 **이번 주 핵심 테마:**
-- **Critical RCE**: n8n 워크플로우 자동화 플랫폼 CVSS 9.9 원격 코드 실행
-- **Zero-Day 위협**: D-Link 단종 장비 커맨드 인젝션, 패치 불가
-- **AI 보안 과제**: Kubernetes 클러스터 내 AI 에이전트 비결정적 행동 대응
-- **데이터 주권**: Infomaniak Swiss Sovereign Cloud, 유럽 데이터 주권 확보
+- **Critical RCE**: n8n 워크플로우 자동화 플랫폼 CVSS 9.9 - JavaScript/Python sandbox escape
+- **Zero-Day 위협**: D-Link 단종 장비 커맨드 인젝션, 패치 불가, 실제 악용 중
+- **AI 보안 과제**: Kubernetes 클러스터 내 AI 에이전트 비결정적 행동 → eBPF 기반 대응
+- **데이터 주권**: Infomaniak Swiss Sovereign Cloud - K8s/GPU/AI 관리형 서비스
 - **클라우드 침해**: 비인간 ID(NHI)가 2026년 주요 침해 벡터로 부상
 
 **수집 소스**: 47개 RSS 피드에서 218개 뉴스 수집
 **분석 기준**: DevSecOps 실무 영향도, 기술적 깊이, 즉시 적용 가능성
+**참고**: 이전 보안 다이제스트는 [2026-01-28 Microsoft Office Zero-Day 분석](/posts/2026/01/Tech_Security_Weekly_Digest/)에서 확인하세요.
 
 이번 포스팅에서는 다음 내용을 다룹니다:
 
@@ -1272,20 +1275,33 @@ index=cloudtrail sourcetype=aws:cloudtrail
 
 이번 주 보안 뉴스에서 가장 주목할 점은 **자동화 도구와 레거시 장비의 보안 위협**입니다.
 
-**n8n CVSS 9.9 RCE**는 워크플로우 자동화 도구가 공격 표면이 될 수 있음을 보여줍니다. 자체 호스팅 인스턴스를 운영하는 조직은 **즉시 패치를 적용**해야 합니다. **D-Link Zero-Day**는 단종 장비의 위험성을 다시 한번 상기시킵니다. 패치가 불가능한 장비는 **교체만이 유일한 해결책**입니다.
+### 핵심 요약
 
-한편, **Kubernetes 환경에서 AI 에이전트 보안**은 2026년 가장 중요한 과제 중 하나입니다. 비결정적 AI 행동을 모니터링하기 위해 **eBPF 기반 도구(Cilium, Tetragon, Falco)**의 도입이 필수적입니다. **비인간 ID(NHI)**가 클라우드 침해의 주요 벡터로 부상함에 따라, 서비스 계정과 API 키에 대한 **체계적 거버넌스**가 필요합니다.
+| 순위 | 위협 | 심각도 | 즉시 조치 |
+|------|------|--------|-----------|
+| 1 | **n8n RCE** (CVE-2026-1470) | CVSS 9.9 | 자체 호스팅 인스턴스 즉시 패치 |
+| 2 | **D-Link Zero-Day** (CVE-2026-0625) | CVSS 9.3 | 단종 장비 즉시 교체 또는 격리 |
+| 3 | **K8s AI 에이전트 보안** | - | eBPF 도구 도입 및 RBAC 강화 |
+| 4 | **NHI 클라우드 침해** | - | 서비스 계정/API 키 인벤토리 점검 |
+
+**n8n CVSS 9.9 RCE**는 워크플로우 자동화 도구가 공격 표면이 될 수 있음을 보여줍니다. JavaScript/Python sandbox escape가 모두 가능하므로, 자체 호스팅 인스턴스를 운영하는 조직은 **즉시 패치를 적용**하거나 Code Node를 비활성화해야 합니다. **D-Link Zero-Day**는 단종 장비의 위험성을 다시 한번 상기시킵니다. 2020년에 EOL된 장비가 여전히 인터넷에 노출되어 있으며, 패치가 불가능하므로 **교체만이 유일한 해결책**입니다.
+
+**Kubernetes 환경에서 AI 에이전트 보안**은 2026년 가장 중요한 과제 중 하나입니다. AI 에이전트의 비결정적 행동은 기존 정적 보안 모델로 대응할 수 없으므로, **eBPF 기반 도구(Cilium, Tetragon, Falco)**를 통한 런타임 관찰이 필수적입니다. **비인간 ID(NHI)**가 클라우드 침해의 주요 벡터로 부상함에 따라, 서비스 계정과 API 키에 대한 **체계적 거버넌스와 자동 교체 정책**이 필요합니다.
+
+### 관련 포스팅
+
+- [CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계](/posts/2026/01/Claude_MD_Security_Guide/) - AI 에이전트 보안 가이드라인
+- [2026-01-28 Microsoft Office Zero-Day 분석](/posts/2026/01/Tech_Security_Weekly_Digest/) - CVE-2026-21509 심층 분석
+- [OWASP 2025 최신 업데이트 완벽 가이드](/posts/2026/01/OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security/) - 에이전틱 AI 보안 위협
 
 ### 다음 주 주목 포인트
 
-1. **n8n 후속 패치**: 추가 sandbox escape 벡터 발견 가능성
+1. **n8n 후속 패치**: 추가 sandbox escape 벡터 발견 가능성, 60K+ 인스턴스 패치 현황
 2. **D-Link ISP 대응**: 단종 장비 교체 프로그램 진행 상황
 3. **KubeCon 보안 트랙**: eBPF 기반 보안 도구 신규 발표 예상
 4. **NHI 표준화**: OWASP Non-Human Identity Top 10 업데이트
 
 ---
-
-**이 포스팅이 도움이 되셨다면** 댓글과 공유 부탁드립니다. 매일 최신 기술/보안 뉴스를 정리하여 공유하겠습니다.
 
 **질문이나 피드백**은 댓글이나 [GitHub Issues](https://github.com/Twodragon0/tech-blog/issues)로 남겨주세요.
 
