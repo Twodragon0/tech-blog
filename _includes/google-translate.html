@@ -163,11 +163,35 @@ function googleTranslateElementInit() {
     }
   }
 
-  // 쿠키 삭제
+  // 쿠키 삭제 (Google Translate가 다양한 방식으로 설정하므로 모든 조합 시도)
   function deleteCookie(name) {
     try {
-      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax';
-      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + location.hostname + '; SameSite=Lax';
+      var hostname = location.hostname;
+      var isSecure = location.protocol === 'https:';
+      var expiry = '; expires=Thu, 01 Jan 1970 00:00:00 UTC';
+
+      // Google Translate가 설정할 수 있는 모든 도메인 조합
+      var domains = ['', hostname, '.' + hostname];
+      var parts = hostname.split('.');
+      if (parts.length > 2) {
+        var parent = parts.slice(1).join('.');
+        domains.push(parent);
+        domains.push('.' + parent);
+      }
+
+      domains.forEach(function(domain) {
+        var base = name + '=' + expiry + '; path=/';
+        if (domain) base += '; domain=' + domain;
+
+        // SameSite 없이, Lax, None 모두 시도
+        document.cookie = base;
+        document.cookie = base + '; SameSite=Lax';
+        if (isSecure) {
+          document.cookie = base + '; Secure';
+          document.cookie = base + '; SameSite=Lax; Secure';
+          document.cookie = base + '; SameSite=None; Secure';
+        }
+      });
       return true;
     } catch (e) {
       return false;
@@ -504,15 +528,44 @@ function googleTranslateElementInit() {
     safeSessionStorageSet('langChanging', 'true');
     
     if (lang === 'ko') {
-      // 한국어로 복귀: 쿠키 삭제
+      // 한국어로 복귀: Google Translate 자체 복원 + 쿠키 완전 삭제
+
+      // 1. Google Translate select를 원래 언어로 복원 (가장 확실한 방법)
+      var select = document.querySelector('.goog-te-combo');
+      if (select && translateScriptLoaded) {
+        try {
+          select.value = '';  // 빈 값 = 원본 언어(한국어) 복원
+          var evt = document.createEvent('HTMLEvents');
+          evt.initEvent('change', true, true);
+          select.dispatchEvent(evt);
+        } catch (e) {}
+      }
+
+      // 2. googtrans 쿠키 완전 삭제 (모든 도메인/속성 조합)
       deleteCookie('googtrans');
+
+      // 3. Google Translate iframe/banner 제거
+      var gtBanner = document.querySelector('.goog-te-banner-frame');
+      if (gtBanner) { try { gtBanner.remove(); } catch (e) {} }
+
+      // 4. body top 리셋 (Google Translate가 body를 밀어내는 경우)
+      if (document.body) {
+        document.body.style.top = '0';
+        document.body.style.position = '';
+      }
+
       safeSessionStorageSet('langChanging', 'false');
       safeSessionStorageSet('langApplied', 'true');
 
-      // 쿠키 삭제 후 짧은 지연 후 리로드
+      // 5. URL 해시에서 googtrans 제거 후 클린 리로드
       setTimeout(function() {
-        location.reload();
-      }, 150);
+        var cleanUrl = location.href.replace(/#googtrans\([^)]*\)/g, '').replace(/#$/, '');
+        if (cleanUrl !== location.href) {
+          window.location.href = cleanUrl;
+        } else {
+          location.reload();
+        }
+      }, 200);
       return;
     }
 
@@ -758,13 +811,16 @@ function googleTranslateElementInit() {
     });
   }
 
-  // 한국어 사이트이고 시스템 언어도 한국어면 스크립트 로딩 안함
-  // 다른 언어면 필요시 로딩
+  // 번역이 필요한 경우에만 스크립트 로딩
+  // 사용자가 명시적으로 한국어를 선택한 경우 로딩하지 않음
   var sysLang = getSystemLanguage();
   var currentLang = getCurrentLang();
+  var userPref = safeLocalStorageGet('preferredLang');
+  var needsTranslate = (userPref && userPref !== 'system' && userPref !== 'ko') ||
+                       (!userPref && sysLang !== 'ko') ||
+                       (currentLang !== 'ko');
 
-  // 번역이 필요한 경우에만 스크립트 로딩
-  if (sysLang !== 'ko' || currentLang !== 'ko') {
+  if (needsTranslate) {
     // 페이지 로드 완료 후 지연 로딩
     if (document.readyState === 'complete') {
       setTimeout(loadTranslateScript, 100);
