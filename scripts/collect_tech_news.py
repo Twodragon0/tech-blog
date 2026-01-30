@@ -117,6 +117,14 @@ NEWS_SOURCES = {
         "language": "en",
         "priority": 1,
     },
+    "microsoft_intune": {
+        "name": "Microsoft Intune Blog",
+        "url": "https://techcommunity.microsoft.com/t5/microsoft-intune-blog/bg-p/MicrosoftEndpointManagerBlog",
+        "feed_url": "https://techcommunity.microsoft.com/plugins/custom/microsoft/o365/custom-blog-rss?tid=-292701202&board=MicrosoftEndpointManagerBlog&size=20",
+        "category": "security",
+        "language": "en",
+        "priority": 1,
+    },
     # 보안 기관
     "cisa": {
         "name": "CISA",

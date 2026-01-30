@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380">
+  <defs>
+    <linearGradient id="bg-ot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="sh-ot"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="380" fill="url(#bg-ot)"/>
+
+  <!-- Title and subtitle -->
+  <text x="450" y="32" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">OT Energy Systems - Critical Cybersecurity Gaps</text>
+  <text x="450" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">OMICRON Survey | 100+ Installations | Substations, Power Plants, Control Centers</text>
+
+  <!-- Column 1: Technical Gaps (red) -->
+  <g transform="translate(30,75)" filter="url(#sh-ot)">
+    <rect width="270" height="220" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="270" height="35" rx="12" fill="#ef4444" opacity="0.15"/>
+    <rect y="20" width="270" height="15" fill="#ef4444" opacity="0.15"/>
+    <text x="135" y="26" font-family="system-ui" font-size="13" font-weight="700" fill="#fca5a5" text-anchor="middle">Technical Gaps</text>
+    <line x1="20" y1="50" x2="250" y2="50" stroke="#334155" stroke-width="1"/>
+
+    <text x="20" y="72" font-family="system-ui" font-size="10" fill="#e2e8f0">Unpatched PAC devices</text>
+    <text x="20" y="94" font-family="system-ui" font-size="10" fill="#e2e8f0">CVE-2015-5374 on relays</text>
+    <text x="20" y="116" font-family="system-ui" font-size="10" fill="#e2e8f0">50+ external TCP connections</text>
+    <text x="20" y="138" font-family="system-ui" font-size="10" fill="#e2e8f0">Flat network topology</text>
+    <text x="20" y="160" font-family="system-ui" font-size="10" fill="#e2e8f0">Unused NetBIOS/IPv6</text>
+
+    <rect y="180" width="270" height="40" rx="8" fill="#7f1d1d" opacity="0.3"/>
+    <text x="135" y="204" font-family="system-ui" font-size="9" fill="#fca5a5" text-anchor="middle">Critical: Legacy vulnerabilities</text>
+  </g>
+
+  <!-- Column 2: Organizational Gaps (orange) -->
+  <g transform="translate(315,75)" filter="url(#sh-ot)">
+    <rect width="270" height="220" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <rect width="270" height="35" rx="12" fill="#f97316" opacity="0.15"/>
+    <rect y="20" width="270" height="15" fill="#f97316" opacity="0.15"/>
+    <text x="135" y="26" font-family="system-ui" font-size="13" font-weight="700" fill="#fdba74" text-anchor="middle">Organizational Gaps</text>
+    <line x1="20" y1="50" x2="250" y2="50" stroke="#334155" stroke-width="1"/>
+
+    <text x="20" y="72" font-family="system-ui" font-size="10" fill="#e2e8f0">IT/OT team silos</text>
+    <text x="20" y="94" font-family="system-ui" font-size="10" fill="#e2e8f0">No dedicated OT security</text>
+    <text x="20" y="116" font-family="system-ui" font-size="10" fill="#e2e8f0">Resource constraints</text>
+    <text x="20" y="138" font-family="system-ui" font-size="10" fill="#e2e8f0">Unclear responsibilities</text>
+
+    <rect y="180" width="270" height="40" rx="8" fill="#7c2d12" opacity="0.3"/>
+    <text x="135" y="204" font-family="system-ui" font-size="9" fill="#fdba74" text-anchor="middle">Critical: Coordination failures</text>
+  </g>
+
+  <!-- Column 3: Operational Gaps (yellow) -->
+  <g transform="translate(600,75)" filter="url(#sh-ot)">
+    <rect width="270" height="220" rx="12" fill="#1e293b" stroke="#eab308" stroke-width="2"/>
+    <rect width="270" height="35" rx="12" fill="#eab308" opacity="0.15"/>
+    <rect y="20" width="270" height="15" fill="#eab308" opacity="0.15"/>
+    <text x="135" y="26" font-family="system-ui" font-size="13" font-weight="700" fill="#fde047" text-anchor="middle">Operational Gaps</text>
+    <line x1="20" y1="50" x2="250" y2="50" stroke="#334155" stroke-width="1"/>
+
+    <text x="20" y="72" font-family="system-ui" font-size="10" fill="#e2e8f0">VLAN misconfigurations</text>
+    <text x="20" y="94" font-family="system-ui" font-size="10" fill="#e2e8f0">RTU/SCD mismatches</text>
+    <text x="20" y="116" font-family="system-ui" font-size="10" fill="#e2e8f0">Time sync errors</text>
+    <text x="20" y="138" font-family="system-ui" font-size="10" fill="#e2e8f0">Redundancy failures</text>
+
+    <rect y="180" width="270" height="40" rx="8" fill="#713f12" opacity="0.3"/>
+    <text x="135" y="204" font-family="system-ui" font-size="9" fill="#fde047" text-anchor="middle">Critical: Config drift</text>
+  </g>
+
+  <!-- Bottom bar: Key Finding -->
+  <g transform="translate(30,320)" filter="url(#sh-ot)">
+    <rect width="840" height="40" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <rect width="840" height="40" rx="10" fill="#22c55e" opacity="0.1"/>
+    <text x="25" y="27" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80">Key Finding:</text>
+    <text x="120" y="27" font-family="system-ui" font-size="11" fill="#e2e8f0">Critical issues found within 30 minutes of IDS deployment</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="870" y="372" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

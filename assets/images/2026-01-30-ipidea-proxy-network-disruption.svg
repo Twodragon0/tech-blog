@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <defs>
+    <linearGradient id="bgipidea" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="shipidea"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="420" fill="url(#bgipidea)"/>
+  <text x="450" y="32" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">Google Disrupts IPIDEA - World's Largest Residential Proxy</text>
+  <text x="450" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">6.1M Daily IPs | 550+ Threat Groups | 7,400 C2 Servers | GTIG + Partners</text>
+
+  <!-- Top: Infection Vectors -->
+  <text x="450" y="80" font-family="system-ui" font-size="13" font-weight="700" fill="#60a5fa" text-anchor="middle">Infection Vectors</text>
+
+  <!-- Vector 1 -->
+  <g transform="translate(40,95)" filter="url(#shipidea)">
+    <rect width="190" height="80" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="190" height="24" rx="8" fill="#ef4444" opacity="0.15"/>
+    <text x="95" y="18" font-family="system-ui" font-size="11" font-weight="700" fill="#fca5a5" text-anchor="middle">Pre-installed Malware</text>
+    <text x="95" y="45" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Android TV Boxes</text>
+    <text x="95" y="65" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">Factory-embedded trojans</text>
+  </g>
+
+  <!-- Vector 2 -->
+  <g transform="translate(245,95)" filter="url(#shipidea)">
+    <rect width="190" height="80" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <rect width="190" height="24" rx="8" fill="#f97316" opacity="0.15"/>
+    <text x="95" y="18" font-family="system-ui" font-size="11" font-weight="700" fill="#fdba74" text-anchor="middle">Fake Monetization Apps</text>
+    <text x="95" y="45" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Easy Cash SDKs</text>
+    <text x="95" y="65" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">Deceptive revenue promise</text>
+  </g>
+
+  <!-- Vector 3 -->
+  <g transform="translate(450,95)" filter="url(#shipidea)">
+    <rect width="190" height="80" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <rect width="190" height="24" rx="8" fill="#f97316" opacity="0.15"/>
+    <text x="95" y="18" font-family="system-ui" font-size="11" font-weight="700" fill="#fdba74" text-anchor="middle">SDK Embedding</text>
+    <text x="95" y="38" font-family="system-ui" font-size="9" fill="#e2e8f0" text-anchor="middle">Castar, Earn,</text>
+    <text x="95" y="52" font-family="system-ui" font-size="9" fill="#e2e8f0" text-anchor="middle">Hex, Packet</text>
+    <text x="95" y="68" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">600+ Android apps</text>
+  </g>
+
+  <!-- Vector 4 -->
+  <g transform="translate(655,95)" filter="url(#shipidea)">
+    <rect width="190" height="80" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="190" height="24" rx="8" fill="#ef4444" opacity="0.15"/>
+    <text x="95" y="18" font-family="system-ui" font-size="11" font-weight="700" fill="#fca5a5" text-anchor="middle">Windows Trojans</text>
+    <text x="95" y="38" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Fake OneDrive/</text>
+    <text x="95" y="52" font-family="system-ui" font-size="10" fill="#e2e8f0" text-anchor="middle">Update Tools</text>
+    <text x="95" y="68" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">3,075 binaries</text>
+  </g>
+
+  <!-- Arrows pointing down -->
+  <path d="M 135 180 L 135 210" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#arrowipidea)"/>
+  <path d="M 340 180 L 340 210" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#arrowipidea)"/>
+  <path d="M 545 180 L 545 210" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#arrowipidea)"/>
+  <path d="M 750 180 L 750 210" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#arrowipidea)"/>
+
+  <defs>
+    <marker id="arrowipidea" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#60a5fa"/>
+    </marker>
+  </defs>
+
+  <!-- Middle: IPIDEA Infrastructure -->
+  <g transform="translate(90,215)" filter="url(#shipidea)">
+    <rect width="520" height="100" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="3"/>
+    <rect width="520" height="30" rx="12" fill="#8b5cf6" opacity="0.15"/>
+    <text x="260" y="24" font-family="system-ui" font-size="14" font-weight="700" fill="#c4b5fd" text-anchor="middle">IPIDEA Infrastructure</text>
+    <text x="30" y="52" font-family="system-ui" font-size="10" fill="#e2e8f0">6.1M Daily IPs</text>
+    <text x="180" y="52" font-family="system-ui" font-size="10" fill="#e2e8f0">69K New IPs/Day</text>
+    <text x="350" y="52" font-family="system-ui" font-size="10" fill="#e2e8f0">7,400 C2 Servers</text>
+    <text x="30" y="72" font-family="system-ui" font-size="10" fill="#e2e8f0">3,075 Windows Binaries</text>
+    <text x="220" y="72" font-family="system-ui" font-size="10" fill="#e2e8f0">600 Android Apps</text>
+    <text x="380" y="72" font-family="system-ui" font-size="10" fill="#e2e8f0">Global Residential Proxy</text>
+    <text x="260" y="90" font-family="system-ui" font-size="9" fill="#64748b" text-anchor="middle">World's largest proxy botnet</text>
+  </g>
+
+  <!-- Arrow pointing right -->
+  <path d="M 615 265 L 655 265" stroke="#60a5fa" stroke-width="3" fill="none" marker-end="url(#arrowipidea)"/>
+
+  <!-- Threat Actors -->
+  <g transform="translate(660,215)" filter="url(#shipidea)">
+    <rect width="200" height="100" rx="12" fill="#1e293b" stroke="#facc15" stroke-width="2"/>
+    <rect width="200" height="30" rx="12" fill="#facc15" opacity="0.15"/>
+    <text x="100" y="24" font-family="system-ui" font-size="14" font-weight="700" fill="#fde047" text-anchor="middle">Threat Actors</text>
+    <text x="20" y="52" font-family="system-ui" font-size="10" fill="#e2e8f0">550+ Groups</text>
+    <text x="20" y="70" font-family="system-ui" font-size="10" fill="#94a3b8">Proxy Resale</text>
+    <text x="20" y="85" font-family="system-ui" font-size="10" fill="#94a3b8">Attack Relay</text>
+    <text x="130" y="70" font-family="system-ui" font-size="10" fill="#94a3b8">Traffic</text>
+    <text x="130" y="85" font-family="system-ui" font-size="10" fill="#94a3b8">Anonymization</text>
+  </g>
+
+  <!-- Bottom: Google Response -->
+  <g transform="translate(40,340)" filter="url(#shipidea)">
+    <rect width="820" height="50" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <rect width="820" height="26" rx="10" fill="#22c55e" opacity="0.15"/>
+    <text x="410" y="20" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80" text-anchor="middle">Google Response</text>
+    <text x="50" y="40" font-family="system-ui" font-size="10" fill="#94a3b8">Legal Action</text>
+    <text x="240" y="40" font-family="system-ui" font-size="10" fill="#94a3b8">Domain Takedown</text>
+    <text x="440" y="40" font-family="system-ui" font-size="10" fill="#94a3b8">Play Protect Blocks</text>
+    <text x="650" y="40" font-family="system-ui" font-size="10" fill="#94a3b8">Partner Coordination</text>
+  </g>
+
+  <text x="870" y="412" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

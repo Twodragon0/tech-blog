@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <linearGradient id="bgOllama" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="shOllama"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="400" fill="url(#bgOllama)"/>
+  <text x="450" y="32" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#f8fafc" text-anchor="middle">175K Exposed Ollama AI Servers - Threat Landscape</text>
+  <text x="450" y="52" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">SentinelOne + Censys Research | 130 Countries | LLMjacking Attack Chain</text>
+
+  <!-- Left: Exposed Ollama Hosts -->
+  <g transform="translate(30,75)" filter="url(#shOllama)">
+    <rect width="200" height="180" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="200" height="30" rx="12" fill="#3b82f6" opacity="0.15"/>
+    <rect y="18" width="200" height="12" fill="#3b82f6" opacity="0.15"/>
+    <text x="100" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#60a5fa" text-anchor="middle">Exposed Ollama Hosts</text>
+    <text x="20" y="52" font-family="system-ui" font-size="11" font-weight="600" fill="#e2e8f0">175,000 instances</text>
+    <line x1="20" y1="62" x2="180" y2="62" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="82" font-family="system-ui" font-size="10" fill="#94a3b8">No Authentication</text>
+    <text x="20" y="102" font-family="system-ui" font-size="10" fill="#94a3b8">48% Tool-Calling</text>
+    <text x="20" y="117" font-family="system-ui" font-size="10" fill="#94a3b8">Enabled</text>
+    <text x="20" y="142" font-family="system-ui" font-size="10" fill="#94a3b8">201 Uncensored</text>
+    <text x="20" y="157" font-family="system-ui" font-size="10" fill="#94a3b8">Models</text>
+    <circle cx="15" cy="78" r="3" fill="#ef4444"/>
+    <circle cx="15" cy="99" r="3" fill="#f97316"/>
+    <circle cx="15" cy="139" r="3" fill="#ef4444"/>
+  </g>
+
+  <!-- Arrow 1 -->
+  <path d="M 240 165 L 315 165" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Middle: Attack Methods -->
+  <g transform="translate(325,75)" filter="url(#shOllama)">
+    <rect width="180" height="56" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="90" y="22" font-family="system-ui" font-size="11" font-weight="700" fill="#fca5a5" text-anchor="middle">LLMjacking</text>
+    <text x="15" y="40" font-family="system-ui" font-size="9" fill="#94a3b8">Crypto mining via AI</text>
+  </g>
+
+  <g transform="translate(325,139)" filter="url(#shOllama)">
+    <rect width="180" height="56" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <text x="90" y="22" font-family="system-ui" font-size="11" font-weight="700" fill="#fdba74" text-anchor="middle">Data Exfiltration</text>
+    <text x="15" y="40" font-family="system-ui" font-size="9" fill="#94a3b8">Sensitive data extraction</text>
+  </g>
+
+  <g transform="translate(325,203)" filter="url(#shOllama)">
+    <rect width="180" height="56" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="90" y="22" font-family="system-ui" font-size="11" font-weight="700" fill="#fca5a5" text-anchor="middle">Code Execution</text>
+    <text x="15" y="40" font-family="system-ui" font-size="9" fill="#94a3b8">Remote command injection</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <path d="M 515 165 L 590 165" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Right: Criminal Ecosystem -->
+  <g transform="translate(600,75)" filter="url(#shOllama)">
+    <rect width="270" height="180" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect width="270" height="30" rx="12" fill="#8b5cf6" opacity="0.15"/>
+    <rect y="18" width="270" height="12" fill="#8b5cf6" opacity="0.15"/>
+    <text x="135" y="24" font-family="system-ui" font-size="12" font-weight="700" fill="#c4b5fd" text-anchor="middle">Criminal Ecosystem</text>
+    <text x="20" y="52" font-family="system-ui" font-size="11" font-weight="600" fill="#e2e8f0">Operation Bizarre Bazaar</text>
+    <line x1="20" y1="62" x2="250" y2="62" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="82" font-family="system-ui" font-size="10" fill="#94a3b8">6.1M Daily IPs</text>
+    <text x="20" y="102" font-family="system-ui" font-size="10" fill="#94a3b8">silver[.]inc Marketplace</text>
+    <text x="20" y="127" font-family="system-ui" font-size="10" fill="#94a3b8">Threat Actor: Hecker</text>
+    <rect x="20" y="140" width="230" height="24" rx="4" fill="#8b5cf6" opacity="0.1"/>
+    <text x="135" y="156" font-family="system-ui" font-size="9" fill="#a78bfa" text-anchor="middle">Advanced persistent threat group</text>
+  </g>
+
+  <!-- Bottom bar: Defense Strategy -->
+  <g transform="translate(30,280)" filter="url(#shOllama)">
+    <rect width="840" height="85" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="25" y="22" font-family="system-ui" font-size="12" font-weight="700" fill="#4ade80">Defense Strategy</text>
+    <line x1="25" y1="28" x2="180" y2="28" stroke="#22c55e" stroke-width="2"/>
+
+    <g transform="translate(25,35)">
+      <circle cx="5" cy="10" r="4" fill="#22c55e"/>
+      <text x="18" y="15" font-family="system-ui" font-size="10" fill="#e2e8f0">Enable Authentication</text>
+      <text x="18" y="30" font-family="system-ui" font-size="9" fill="#94a3b8">API keys + OAuth</text>
+    </g>
+
+    <g transform="translate(235,35)">
+      <circle cx="5" cy="10" r="4" fill="#22c55e"/>
+      <text x="18" y="15" font-family="system-ui" font-size="10" fill="#e2e8f0">Network Segmentation</text>
+      <text x="18" y="30" font-family="system-ui" font-size="9" fill="#94a3b8">Firewall + VPN only</text>
+    </g>
+
+    <g transform="translate(445,35)">
+      <circle cx="5" cy="10" r="4" fill="#22c55e"/>
+      <text x="18" y="15" font-family="system-ui" font-size="10" fill="#e2e8f0">Monitor API Access</text>
+      <text x="18" y="30" font-family="system-ui" font-size="9" fill="#94a3b8">Real-time logging</text>
+    </g>
+
+    <g transform="translate(635,35)">
+      <circle cx="5" cy="10" r="4" fill="#22c55e"/>
+      <text x="18" y="15" font-family="system-ui" font-size="10" fill="#e2e8f0">Remove Uncensored</text>
+      <text x="18" y="30" font-family="system-ui" font-size="9" fill="#94a3b8">Models audit + cleanup</text>
+    </g>
+  </g>
+
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <text x="870" y="392" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>

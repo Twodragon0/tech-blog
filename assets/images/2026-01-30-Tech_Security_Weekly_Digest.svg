@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bgWeekly" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1f35"/>
+    </linearGradient>
+    <filter id="shWeekly"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="500" fill="url(#bgWeekly)"/>
+  <text x="450" y="32" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#f8fafc" text-anchor="middle">Tech Security Weekly Digest - January 30, 2026</text>
+  <text x="450" y="54" font-family="system-ui,sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Ollama AI Exposure | SolarWinds Critical RCE | Google IPIDEA Takedown | AI Threat Detection | OT Security Gaps</text>
+
+  <!-- Story Card 1: Top-left (red border) -->
+  <g transform="translate(30,80)" filter="url(#shWeekly)">
+    <rect width="410" height="145" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="410" height="36" rx="12" fill="#ef4444" opacity="0.15"/>
+    <rect y="22" width="410" height="14" fill="#ef4444" opacity="0.15"/>
+    <circle cx="25" cy="20" r="6" fill="#ef4444"/>
+    <text x="40" y="26" font-family="system-ui" font-size="14" font-weight="700" fill="#fca5a5">175K Exposed Ollama AI Servers</text>
+    <text x="20" y="56" font-family="system-ui" font-size="11" fill="#e2e8f0">Global AI Infrastructure Risk</text>
+    <line x1="20" y1="66" x2="390" y2="66" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="86" font-family="system-ui" font-size="10" fill="#94a3b8">130 Countries, 48% Tool-Calling Enabled</text>
+    <text x="20" y="104" font-family="system-ui" font-size="10" fill="#94a3b8">No authentication, arbitrary code execution</text>
+    <text x="20" y="122" font-family="system-ui" font-size="10" fill="#94a3b8">Model exfiltration, prompt injection vectors</text>
+    <text x="390" y="138" font-family="system-ui" font-size="9" fill="#64748b" text-anchor="end">Source: Wiz Research</text>
+  </g>
+
+  <!-- Story Card 2: Top-right (orange border) -->
+  <g transform="translate(460,80)" filter="url(#shWeekly)">
+    <rect width="410" height="145" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <rect width="410" height="36" rx="12" fill="#f97316" opacity="0.15"/>
+    <rect y="22" width="410" height="14" fill="#f97316" opacity="0.15"/>
+    <circle cx="25" cy="20" r="6" fill="#f97316"/>
+    <text x="40" y="26" font-family="system-ui" font-size="14" font-weight="700" fill="#fdba74">SolarWinds WHD 6 CVEs</text>
+    <text x="20" y="56" font-family="system-ui" font-size="11" fill="#e2e8f0">Critical RCE Vulnerabilities</text>
+    <line x1="20" y1="66" x2="390" y2="66" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="86" font-family="system-ui" font-size="10" fill="#94a3b8">4x CVSS 9.8, Unauthenticated RCE</text>
+    <text x="20" y="104" font-family="system-ui" font-size="10" fill="#94a3b8">SQL injection, command injection chains</text>
+    <text x="20" y="122" font-family="system-ui" font-size="10" fill="#94a3b8">Immediate patching required (versions 12.7.7+)</text>
+    <text x="390" y="138" font-family="system-ui" font-size="9" fill="#64748b" text-anchor="end">Source: SolarWinds Security Advisory</text>
+  </g>
+
+  <!-- Story Card 3: Middle-center (blue border) -->
+  <g transform="translate(30,245)" filter="url(#shWeekly)">
+    <rect width="410" height="145" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <rect width="410" height="36" rx="12" fill="#3b82f6" opacity="0.15"/>
+    <rect y="22" width="410" height="14" fill="#3b82f6" opacity="0.15"/>
+    <circle cx="25" cy="20" r="6" fill="#3b82f6"/>
+    <text x="40" y="26" font-family="system-ui" font-size="14" font-weight="700" fill="#60a5fa">Google Disrupts IPIDEA</text>
+    <text x="20" y="56" font-family="system-ui" font-size="11" fill="#e2e8f0">Massive Proxy Botnet Takedown</text>
+    <line x1="20" y1="66" x2="390" y2="66" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="86" font-family="system-ui" font-size="10" fill="#94a3b8">6.1M IPs, 550+ Threat Groups Affected</text>
+    <text x="20" y="104" font-family="system-ui" font-size="10" fill="#94a3b8">Credential stuffing, malware delivery disrupted</text>
+    <text x="20" y="122" font-family="system-ui" font-size="10" fill="#94a3b8">130M+ compromised accounts leveraged</text>
+    <text x="390" y="138" font-family="system-ui" font-size="9" fill="#64748b" text-anchor="end">Source: Google Threat Intelligence</text>
+  </g>
+
+  <!-- Story Card 4: Bottom-left (purple border) -->
+  <g transform="translate(460,245)" filter="url(#shWeekly)">
+    <rect width="200" height="145" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect width="200" height="36" rx="12" fill="#8b5cf6" opacity="0.15"/>
+    <rect y="22" width="200" height="14" fill="#8b5cf6" opacity="0.15"/>
+    <circle cx="25" cy="20" r="6" fill="#8b5cf6"/>
+    <text x="40" y="26" font-family="system-ui" font-size="13" font-weight="700" fill="#c4b5fd">Microsoft AI Detection</text>
+    <text x="20" y="56" font-family="system-ui" font-size="10" fill="#e2e8f0">TTP Extract + Coverage Map</text>
+    <line x1="20" y1="66" x2="180" y2="66" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="86" font-family="system-ui" font-size="9" fill="#94a3b8">Automated threat analysis</text>
+    <text x="20" y="102" font-family="system-ui" font-size="9" fill="#94a3b8">MITRE mapping</text>
+    <text x="20" y="118" font-family="system-ui" font-size="9" fill="#94a3b8">Security Copilot integration</text>
+    <text x="180" y="138" font-family="system-ui" font-size="8" fill="#64748b" text-anchor="end">Source: MS Security</text>
+  </g>
+
+  <!-- Story Card 5: Bottom-right (green border) -->
+  <g transform="translate(670,245)" filter="url(#shWeekly)">
+    <rect width="200" height="145" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <rect width="200" height="36" rx="12" fill="#22c55e" opacity="0.15"/>
+    <rect y="22" width="200" height="14" fill="#22c55e" opacity="0.15"/>
+    <circle cx="25" cy="20" r="6" fill="#22c55e"/>
+    <text x="40" y="26" font-family="system-ui" font-size="13" font-weight="700" fill="#4ade80">OT Energy Sec Gaps</text>
+    <text x="20" y="56" font-family="system-ui" font-size="10" fill="#e2e8f0">100+ Installations Surveyed</text>
+    <line x1="20" y1="66" x2="180" y2="66" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="86" font-family="system-ui" font-size="9" fill="#94a3b8">Legacy system risks</text>
+    <text x="20" y="102" font-family="system-ui" font-size="9" fill="#94a3b8">Network segmentation gaps</text>
+    <text x="20" y="118" font-family="system-ui" font-size="9" fill="#94a3b8">ICS/SCADA vulnerabilities</text>
+    <text x="180" y="138" font-family="system-ui" font-size="8" fill="#64748b" text-anchor="end">Source: ICS-CERT</text>
+  </g>
+
+  <text x="870" y="490" font-family="system-ui" font-size="10" fill="#475569" text-anchor="end">tech.2twodragon.com</text>
+</svg>
