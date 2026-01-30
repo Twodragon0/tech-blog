@@ -186,8 +186,21 @@ jobs:
               -m "News collected: ${NEWS_COUNT}" \
               -m "Post: ${POST_FILE}" \
               -m "Triggered by: ${{ github.event_name }}"
-            git push
-            echo "✅ Changes committed and pushed"
+
+            # 동시 실행 시 push 충돌 방지 (최대 3회 재시도)
+            for i in 1 2 3; do
+              if git push; then
+                echo "✅ Changes committed and pushed (attempt $i)"
+                break
+              else
+                echo "⚠️ Push failed (attempt $i), pulling latest..."
+                git pull --rebase origin main || true
+                if [ $i -eq 3 ]; then
+                  echo "❌ Push failed after 3 attempts"
+                  exit 1
+                fi
+              fi
+            done
           fi
       
       - name: Summary
