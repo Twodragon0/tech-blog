@@ -72,8 +72,8 @@ jobs:
           HOURS="${{ github.event.inputs.hours || '24' }}"
           echo "Collecting news from last $HOURS hours..."
 
-          # RSS 수집 실행 (타임아웃 5분)
-          timeout 300 python3 scripts/collect_tech_news.py --hours $HOURS --output _data/collected_news.json || {
+          # RSS 수집 실행 (타임아웃 8분, 개별 피드 타임아웃 15초)
+          timeout 480 python3 scripts/collect_tech_news.py --hours $HOURS --output _data/collected_news.json --feed-timeout 15 || {
             echo "::warning::RSS collection timed out or failed, checking existing data..."
           }
 

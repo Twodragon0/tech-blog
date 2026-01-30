@@ -23,9 +23,14 @@ from pathlib import Path
 from typing import Dict, List, Optional
 from urllib.parse import urljoin, urlparse
 
+import socket
+
 import feedparser
 import requests
 from bs4 import BeautifulSoup
+
+# 기본 소켓 타임아웃 설정 (개별 피드 행 방지)
+DEFAULT_FEED_TIMEOUT = 30  # seconds
 
 
 # ============================================================================
@@ -775,12 +780,16 @@ def _parse_skshieldus_report(
 def fetch_rss_feed(
     source_key: str, source_config: dict, hours: int = 24, timeout: int = 30
 ) -> List[NewsItem]:
-    """RSS 피드에서 뉴스 수집"""
+    """RSS 피드에서 뉴스 수집 (per-feed socket timeout 적용)"""
     items = []
     feed_url = source_config.get("feed_url")
 
     if not feed_url:
         return items
+
+    # per-feed socket timeout 설정
+    old_timeout = socket.getdefaulttimeout()
+    socket.setdefaulttimeout(timeout)
 
     try:
         print(f"  Fetching: {source_config['name']}...")
@@ -869,14 +878,20 @@ def fetch_rss_feed(
 
         print(f"    Found {len(items)} items")
 
+    except socket.timeout:
+        print(f"    Timeout: {source_config['name']} ({timeout}s)")
     except Exception as e:
         print(f"    Error: {e}")
+    finally:
+        socket.setdefaulttimeout(old_timeout)
 
     return items
 
 
 def fetch_all_news(
-    sources: Optional[List[str]] = None, hours: int = 24
+    sources: Optional[List[str]] = None,
+    hours: int = 24,
+    feed_timeout: int = DEFAULT_FEED_TIMEOUT,
 ) -> List[NewsItem]:
     """모든 소스에서 뉴스 수집"""
     all_items = []
@@ -888,7 +903,7 @@ def fetch_all_news(
         active_sources = NEWS_SOURCES
 
     print(
-        f"\nCollecting news from {len(active_sources)} sources (last {hours} hours)...\n"
+        f"\nCollecting news from {len(active_sources)} sources (last {hours} hours, timeout {feed_timeout}s/feed)...\n"
     )
 
     for source_key, source_config in active_sources.items():
@@ -896,7 +911,7 @@ def fetch_all_news(
         if scraper and scraper.startswith("skshieldus"):
             items = fetch_skshieldus_insight(source_key, source_config, hours)
         else:
-            items = fetch_rss_feed(source_key, source_config, hours)
+            items = fetch_rss_feed(source_key, source_config, hours, timeout=feed_timeout)
         all_items.extend(items)
 
     # 중복 제거 (URL 기준)
@@ -997,6 +1012,12 @@ def main():
         action="store_true",
         help="Filter out already processed news",
     )
+    parser.add_argument(
+        "--feed-timeout",
+        type=int,
+        default=DEFAULT_FEED_TIMEOUT,
+        help=f"Per-feed socket timeout in seconds (default: {DEFAULT_FEED_TIMEOUT})",
+    )
 
     args = parser.parse_args()
 
@@ -1022,7 +1043,9 @@ def main():
             sys.exit(1)
 
     # 뉴스 수집
-    items = fetch_all_news(sources=sources, hours=args.hours)
+    items = fetch_all_news(
+        sources=sources, hours=args.hours, feed_timeout=args.feed_timeout
+    )
 
     # 이미 처리된 뉴스 필터링
     if args.filter_processed:

@@ -96,15 +96,61 @@ def load_collected_news() -> Dict:
 
 
 def filter_and_prioritize_news(news_data: Dict, hours: int = 24) -> List[Dict]:
-    """뉴스 필터링 및 우선순위 정렬"""
+    """뉴스 필터링 및 우선순위 정렬 (프로그레시브 완화 포함)"""
     items = news_data.get("items", [])
     if not items:
         return []
 
-    # 시간 필터링
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
-    filtered = []
+    # collected_at 기준으로 데이터 신선도 확인
+    collected_at_str = news_data.get("collected_at", "")
+    data_age_hours = 0
+    if collected_at_str:
+        try:
+            collected_at = datetime.fromisoformat(
+                collected_at_str.replace("Z", "+00:00")
+            )
+            data_age_hours = (
+                datetime.now(timezone.utc) - collected_at
+            ).total_seconds() / 3600
+            print(f"  📅 Data age: {data_age_hours:.1f}h (collected at {collected_at_str})")
+        except (ValueError, TypeError):
+            pass
 
+    # 데이터가 오래된 경우 시간 윈도우를 자동 확장
+    effective_hours = hours + data_age_hours
+
+    # 프로그레시브 완화: hours → hours*2 → hours*3 → 전체
+    time_windows = [hours, effective_hours, hours * 2, hours * 3]
+
+    for window in time_windows:
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=window)
+        filtered = _filter_by_cutoff(items, cutoff)
+        if len(filtered) >= MIN_NEWS_COUNT:
+            if window > hours:
+                print(f"  ⏰ Time window relaxed: {hours}h → {window:.0f}h ({len(filtered)} items)")
+            break
+    else:
+        # 모든 윈도우에서 부족하면 전체 아이템을 날짜순 정렬 후 사용
+        print(f"  ⚠️ All time windows insufficient. Using all {len(items)} items sorted by date.")
+        filtered = sorted(
+            items,
+            key=lambda x: x.get("published", ""),
+            reverse=True,
+        )
+
+    # 우선순위 정렬
+    def get_priority(item):
+        source_priority = SOURCE_PRIORITY.get(item.get("source", ""), 5)
+        category_priority = CATEGORY_PRIORITY.get(item.get("category", "tech"), 5)
+        return (source_priority, category_priority)
+
+    filtered.sort(key=get_priority)
+    return filtered
+
+
+def _filter_by_cutoff(items: List[Dict], cutoff: datetime) -> List[Dict]:
+    """cutoff 시간 기준으로 뉴스 필터링"""
+    filtered = []
     for item in items:
         try:
             pub_date = datetime.fromisoformat(
@@ -115,14 +161,6 @@ def filter_and_prioritize_news(news_data: Dict, hours: int = 24) -> List[Dict]:
         except (ValueError, TypeError):
             # 날짜 파싱 실패 시 포함
             filtered.append(item)
-
-    # 우선순위 정렬
-    def get_priority(item):
-        source_priority = SOURCE_PRIORITY.get(item.get("source", ""), 5)
-        category_priority = CATEGORY_PRIORITY.get(item.get("category", "tech"), 5)
-        return (source_priority, category_priority)
-
-    filtered.sort(key=get_priority)
     return filtered
 
 
@@ -686,7 +724,22 @@ def main():
     news_data = load_collected_news()
     print(f"✅ Loaded {news_data.get('total_items', 0)} news items")
 
-    # 필터링 및 분류
+    # 데이터 신선도 체크
+    collected_at_str = news_data.get("collected_at", "")
+    if collected_at_str:
+        try:
+            collected_at = datetime.fromisoformat(
+                collected_at_str.replace("Z", "+00:00")
+            )
+            data_age_hours = (
+                datetime.now(timezone.utc) - collected_at
+            ).total_seconds() / 3600
+            if data_age_hours > 24:
+                print(f"⚠️ Data is {data_age_hours:.1f}h old. Time filter will be relaxed automatically.")
+        except (ValueError, TypeError):
+            pass
+
+    # 필터링 및 분류 (프로그레시브 완화 포함)
     filtered = filter_and_prioritize_news(news_data, hours=args.hours)
     if len(filtered) < MIN_NEWS_COUNT:
         print(f"⚠️ Not enough news ({len(filtered)} < {MIN_NEWS_COUNT}). Skipping.")
