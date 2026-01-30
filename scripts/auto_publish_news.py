@@ -766,6 +766,17 @@ def main():
     svg_filename = f"{date_str}-Tech_Security_Weekly_Digest.svg"
     svg_path = IMAGES_DIR / svg_filename
 
+    # 기존 포스트 존재 확인 (수동 작성된 고품질 포스트 보호)
+    if post_path.exists():
+        existing_size = post_path.stat().st_size
+        new_size = len(post_content.encode("utf-8"))
+        if existing_size > new_size:
+            print(f"⏭️ Existing post is larger ({existing_size}B > {new_size}B). Skipping to preserve manual post.")
+            print(f"   File: {post_path}")
+            return
+        else:
+            print(f"📝 Overwriting existing post ({existing_size}B → {new_size}B)")
+
     if args.dry_run:
         print("\n📝 [DRY RUN] Would create:")
         print(f"   - Post: {post_path}")
