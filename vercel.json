@@ -158,6 +158,9 @@
   "functions": {
     "api/chat.js": {
       "maxDuration": 60
+    },
+    "api/search.js": {
+      "maxDuration": 10
     }
   },
   "rewrites": [
@@ -180,6 +183,14 @@
     {
       "source": "/api/chat/",
       "destination": "/api/chat.js"
+    },
+    {
+      "source": "/api/search",
+      "destination": "/api/search.js"
+    },
+    {
+      "source": "/api/search/",
+      "destination": "/api/search.js"
     }
   ]
 }

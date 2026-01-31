@@ -1,0 +1,48 @@
+// Prisma schema for tech-blog search index
+// Uses Prisma Accelerate for connection pooling in serverless
+// PostgreSQL full-text search with tsvector for Korean + English content
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+/// Blog post search index - mirrors _posts/*.md content
+model BlogPost {
+  id            Int      @id @default(autoincrement())
+  slug          String   @unique /// YYYY-MM-DD-title (filename without .md)
+  title         String
+  excerpt       String?  /// From frontmatter excerpt field
+  content       String   /// Full markdown content (stripped of HTML)
+  contentPlain  String?  /// Plain text version for search snippets
+  category      String?
+  tags          String[] /// PostgreSQL array type
+  publishedDate DateTime
+  imageUrl      String?
+  url           String   /// Jekyll-generated URL path
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([slug])
+  @@index([category])
+  @@index([publishedDate(sort: Desc)])
+}
+
+/// Search analytics - track popular queries for cache warming
+model SearchQuery {
+  id        Int      @id @default(autoincrement())
+  query     String
+  results   Int      @default(0) /// Number of results returned
+  cached    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([query])
+  @@index([createdAt])
+}

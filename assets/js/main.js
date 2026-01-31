@@ -794,99 +794,222 @@
     });
   });
 
-    // Search Functionality (deferred)
+    // Hybrid Search: Client-side (Fuse.js) + Server-side (PostgreSQL FTS)
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
-    
-    // searchContainer를 안전하게 찾기 (searchInput이 있을 때만)
+
     let searchContainer = null;
     if (searchInput) {
       searchContainer = searchInput.closest('.search-container');
     }
 
     if (searchInput && searchResults) {
+    if (!document.getElementById('search-enhanced-styles')) {
+      const style = document.createElement('style');
+      style.id = 'search-enhanced-styles';
+      style.textContent = `
+        .search-source-badge{font-size:.7rem;color:var(--text-secondary,#888);padding:4px 8px;text-align:right;opacity:.7}
+        .search-category{background:var(--accent-color,#4a9eff);color:#fff;font-size:.7rem;padding:1px 6px;border-radius:3px;margin-right:4px}
+        .search-tag{background:var(--bg-secondary,#f0f0f0);color:var(--text-secondary,#666);font-size:.65rem;padding:1px 5px;border-radius:3px;margin-right:3px}
+        .search-result-item.active{background:var(--bg-secondary,#f5f5f5)}
+        .search-result-item mark{background:rgba(255,200,0,.3);color:inherit;padding:0 1px;border-radius:2px}
+      `;
+      document.head.appendChild(style);
+    }
+
     let searchData = [];
     let searchDataLoaded = false;
+    let fuseInstance = null;
+    let serverSearchController = null;
+    let searchDebounceTimer = null;
+    let activeResultIndex = -1;
 
-    // Get baseurl dynamically
     function getBaseUrl() {
-      // Try to detect from current path
       const pathname = window.location.pathname;
-      if (pathname.startsWith('/tech-blog')) {
-        return '/tech-blog';
-      }
+      if (pathname.startsWith('/tech-blog')) return '/tech-blog';
       return '';
     }
 
     const baseUrl = getBaseUrl();
-    const searchJsonUrl = baseUrl + '/search.json';
 
-    // Load search data
-    fetch(searchJsonUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-        }
-        return response.json();
-      })
+    fetch(baseUrl + '/search.json')
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
       .then(data => {
         searchData = data;
         searchDataLoaded = true;
+        initFuse();
       })
       .catch(err => {
-        // 개발 환경에서만 상세 에러 표시
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-          console.warn('검색 데이터를 불러올 수 없습니다:', err.message);
+          console.warn('Search data load failed:', err.message);
         }
-        // 프로덕션에서는 조용히 실패하고 사용자에게 알림
         searchInput.placeholder = '검색 데이터 로드 실패';
       });
 
-    searchInput.addEventListener('input', function(e) {
-      const query = e.target.value.trim().toLowerCase();
+    function loadFuseJs() {
+      if (window.Fuse) return Promise.resolve();
+      return new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js';
+        script.onload = resolve;
+        script.onerror = () => resolve();
+        document.head.appendChild(script);
+      });
+    }
 
-      if (query.length < 2) {
-        searchResults.innerHTML = '';
-        searchResults.style.display = 'none';
-        return;
+    function initFuse() {
+      if (!window.Fuse || searchData.length === 0) return;
+      fuseInstance = new Fuse(searchData, {
+        keys: [
+          { name: 'title', weight: 0.4 },
+          { name: 'content', weight: 0.3 },
+          { name: 'tags', weight: 0.2 },
+          { name: 'category', weight: 0.1 }
+        ],
+        threshold: 0.35,
+        includeScore: true,
+        minMatchCharLength: 2,
+      });
+    }
+
+    searchInput.addEventListener('focus', function onFirstFocus() {
+      loadFuseJs().then(() => initFuse());
+      searchInput.removeEventListener('focus', onFirstFocus);
+    }, { once: true });
+
+    function clientSearch(query) {
+      if (!searchDataLoaded || searchData.length === 0) return [];
+      if (fuseInstance) {
+        return fuseInstance.search(query).slice(0, 10).map(r => ({ ...r.item, score: r.score }));
       }
-
-      if (!searchDataLoaded || searchData.length === 0) {
-        searchResults.innerHTML = '<div class="search-result-item">검색 데이터를 로드 중...</div>';
-        searchResults.style.display = 'block';
-        return;
-      }
-
-      const results = searchData.filter(item => {
+      const q = query.toLowerCase();
+      return searchData.filter(item => {
         const title = (item.title || '').toLowerCase();
         const content = (item.content || '').toLowerCase();
         const tags = Array.isArray(item.tags) ? item.tags.join(' ').toLowerCase() : '';
-        return title.includes(query) || content.includes(query) || tags.includes(query);
-      }).slice(0, 8);
+        const category = (item.category || '').toLowerCase();
+        return title.includes(q) || content.includes(q) || tags.includes(q) || category.includes(q);
+      }).slice(0, 10);
+    }
 
-      if (results.length > 0) {
-        searchResults.innerHTML = results.map(item => `
-          <a href="${item.url}" class="search-result-item">
-            <div class="search-result-title">${highlightMatch(item.title, query)}</div>
-            <div class="search-result-meta">${item.date || ''} ${item.category ? '· ' + item.category : ''}</div>
-            <div class="search-result-excerpt">${(item.content || '').substring(0, 80)}...</div>
-          </a>
-        `).join('');
-        searchResults.style.display = 'block';
-      } else {
+    async function serverSearch(query) {
+      if (serverSearchController) serverSearchController.abort();
+      serverSearchController = new AbortController();
+      try {
+        const resp = await fetch(`${baseUrl}/api/search?q=${encodeURIComponent(query)}`, {
+          signal: serverSearchController.signal,
+          headers: { 'Accept': 'application/json' },
+        });
+        if (!resp.ok) return null;
+        const data = await resp.json();
+        return data.results || [];
+      } catch (err) {
+        if (err.name === 'AbortError') return null;
+        return null;
+      }
+    }
+
+    function escapeRegex(str) {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function highlightMatch(text, query) {
+      if (!text || !query) return text || '';
+      const escaped = escapeRegex(query);
+      return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
+    }
+
+    function getExcerpt(item, query) {
+      const content = item.excerpt || item.content || '';
+      const idx = content.toLowerCase().indexOf(query.toLowerCase());
+      if (idx > -1) {
+        const start = Math.max(0, idx - 40);
+        const end = Math.min(content.length, idx + query.length + 80);
+        return (start > 0 ? '...' : '') + content.substring(start, end) + (end < content.length ? '...' : '');
+      }
+      return content.substring(0, 120) + (content.length > 120 ? '...' : '');
+    }
+
+    function mergeResults(serverResults, clientResults) {
+      const seen = new Set();
+      const merged = [];
+      for (const item of serverResults) {
+        if (!seen.has(item.url)) { seen.add(item.url); merged.push(item); }
+      }
+      for (const item of clientResults) {
+        if (!seen.has(item.url)) { seen.add(item.url); merged.push(item); }
+      }
+      return merged;
+    }
+
+    function renderResults(results, query, isServer) {
+      activeResultIndex = -1;
+      if (!results || results.length === 0) {
         searchResults.innerHTML = '<div class="search-result-item no-results">검색 결과가 없습니다.</div>';
         searchResults.style.display = 'block';
+        return;
+      }
+      const badge = isServer ? '<div class="search-source-badge">Full-text search</div>' : '';
+      searchResults.innerHTML = badge + results.slice(0, 10).map(item => `
+        <a href="${item.url}" class="search-result-item" data-url="${item.url}">
+          <div class="search-result-title">${highlightMatch(item.title || '', query)}</div>
+          <div class="search-result-meta">
+            ${item.date || ''}
+            ${item.category ? ' <span class="search-category">' + item.category + '</span>' : ''}
+            ${Array.isArray(item.tags) ? item.tags.slice(0, 3).map(t => '<span class="search-tag">' + t + '</span>').join('') : ''}
+          </div>
+          <div class="search-result-excerpt">${highlightMatch(getExcerpt(item, query), query)}</div>
+        </a>
+      `).join('');
+      searchResults.style.display = 'block';
+    }
+
+    searchInput.addEventListener('input', function(e) {
+      const query = e.target.value.trim();
+      if (query.length < 2) {
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'none';
+        clearTimeout(searchDebounceTimer);
+        return;
+      }
+
+      const clientResults = clientSearch(query);
+      renderResults(clientResults, query, false);
+
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        serverSearch(query).then(serverResults => {
+          if (serverResults && serverResults.length > 0) {
+            renderResults(mergeResults(serverResults, clientResults), query, true);
+          }
+        });
+      }, 300);
+    });
+
+    searchInput.addEventListener('keydown', function(e) {
+      const items = searchResults.querySelectorAll('.search-result-item:not(.no-results)');
+      if (items.length === 0) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        activeResultIndex = Math.min(activeResultIndex + 1, items.length - 1);
+        items.forEach((el, i) => el.classList.toggle('active', i === activeResultIndex));
+        items[activeResultIndex]?.scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        activeResultIndex = Math.max(activeResultIndex - 1, 0);
+        items.forEach((el, i) => el.classList.toggle('active', i === activeResultIndex));
+        items[activeResultIndex]?.scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'Enter' && activeResultIndex >= 0) {
+        e.preventDefault();
+        const url = items[activeResultIndex]?.getAttribute('data-url') || items[activeResultIndex]?.href;
+        if (url) window.location.href = url;
+      } else if (e.key === 'Escape') {
+        searchResults.style.display = 'none';
+        searchInput.blur();
       }
     });
 
-    // Highlight matching text
-    function highlightMatch(text, query) {
-      if (!text || !query) return text;
-      const regex = new RegExp(`(${query})`, 'gi');
-      return text.replace(regex, '<mark>$1</mark>');
-    }
-
-    // Hide search results when clicking outside
     if (searchContainer) {
       document.addEventListener('click', function(event) {
         if (!searchContainer.contains(event.target)) {

@@ -93,3 +93,4 @@ referenced_images.txt
 .claude/
 .cursor/
 .sisyphus/
+.env.backup
