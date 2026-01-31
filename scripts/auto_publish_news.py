@@ -206,14 +206,14 @@ def select_top_news(
 
 
 def generate_post_content(
-    news_items: List[Dict], categorized: Dict[str, List[Dict]], date: datetime
+    news_items: List[Dict], categorized: Dict[str, List[Dict]], date: datetime, topics_slug: str = ""
 ) -> str:
     """고품질 포스트 컨텐츠 생성"""
 
     date_str = date.strftime("%Y년 %m월 %d일")
     date_file = date.strftime("%Y-%m-%d")
+    image_filename = f"{date_file}-Tech_Security_Weekly_Digest_{topics_slug}.svg" if topics_slug else f"{date_file}-Tech_Security_Weekly_Digest.svg"
 
-    # 카테고리별 통계
     stats = {cat: len(items) for cat, items in categorized.items()}
     total = sum(stats.values())
 
@@ -258,7 +258,7 @@ description: "{date_str} 보안/기술 뉴스: DevSecOps 실무에 필요한 보
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Zero-Trust, AI-Security, Weekly-Digest]
 author: Twodragon
 comments: true
-image: /assets/images/{date_file}-Tech_Security_Weekly_Digest.svg
+image: /assets/images/{image_filename}
 image_alt: "Tech and Security Weekly Digest {date.strftime("%B %Y")}"
 toc: true
 ---
@@ -851,14 +851,16 @@ def main():
     now = datetime.now(timezone(timedelta(hours=9)))  # KST
     date_str = now.strftime("%Y-%m-%d")
 
-    # 포스트 생성
-    post_content = generate_post_content(selected, categorized, now)
-    post_filename = f"{date_str}-Tech_Security_Weekly_Digest.md"
+    topics = _extract_key_topics(selected)
+    topics_slug = "_".join(topics[:4]) if topics else "News"
+    
+    post_content = generate_post_content(selected, categorized, now, topics_slug)
+    post_filename = f"{date_str}-Tech_Security_Weekly_Digest_{topics_slug}.md"
     post_path = POSTS_DIR / post_filename
 
     # SVG 이미지 생성
     svg_content = generate_svg_image(now, categorized, selected)
-    svg_filename = f"{date_str}-Tech_Security_Weekly_Digest.svg"
+    svg_filename = f"{date_str}-Tech_Security_Weekly_Digest_{topics_slug}.svg"
     svg_path = IMAGES_DIR / svg_filename
 
     # 기존 포스트 존재 확인 (수동 작성된 고품질 포스트 보호)
