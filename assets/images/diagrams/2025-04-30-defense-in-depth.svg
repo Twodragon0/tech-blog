@@ -1,0 +1,67 @@
+<svg viewBox="0 0 650 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5b21b6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="650" height="320" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="325" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Defense in Depth - Public PC Security
+  </text>
+  
+  <!-- Layer 1: Anti-Phishing Auth (Green) -->
+  <rect x="75" y="55" width="500" height="50" rx="10" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="100" y="78" font-size="13" font-weight="bold" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Layer 1: Anti-Phishing Auth
+  </text>
+  <text x="350" y="78" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Passkey
+  </text>
+  
+  <!-- Layer 2: Multi-Factor Auth (Blue) -->
+  <rect x="75" y="120" width="500" height="50" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="100" y="143" font-size="13" font-weight="bold" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Layer 2: Multi-Factor Auth
+  </text>
+  <text x="350" y="143" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    FIDO2 / OTP
+  </text>
+  
+  <!-- Layer 3: Session Management (Purple) -->
+  <rect x="75" y="185" width="500" height="50" rx="10" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+  <text x="100" y="208" font-size="13" font-weight="bold" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Layer 3: Session Management
+  </text>
+  <text x="350" y="208" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Private Browsing
+  </text>
+  
+  <!-- Layer 4: Password Manager (Amber) -->
+  <rect x="75" y="250" width="500" height="50" rx="10" fill="url(#amberGrad)" filter="url(#shadow)"/>
+  <text x="100" y="273" font-size="13" font-weight="bold" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Layer 4: Password Manager
+  </text>
+  <text x="350" y="273" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Zero Knowledge
+  </text>
+</svg>

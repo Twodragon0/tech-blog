@@ -87,17 +87,20 @@ author: Twodragon
 
 공용 PC 보안은 여러 레이어로 구성된 다층 방어 전략이 필요합니다:
 
-```plaintext
-┌─────────────────────────────────────────┐
-│     Layer 1: 피싱 방지 인증 (Passkey)      │
-├─────────────────────────────────────────┤
-│     Layer 2: 다중 인증 (FIDO2/OTP)        │
-├─────────────────────────────────────────┤
-│     Layer 3: 세션 관리 (시크릿 모드)        │
-├─────────────────────────────────────────┤
-│     Layer 4: 암호 관리자 (Zero Knowledge)  │
-└─────────────────────────────────────────┘
+![Defense in Depth - 4 security layers for public PC safety](/assets/images/diagrams/2025-04-30-defense-in-depth.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
+Defense in Depth - Public PC Security:
+Layer 1: Anti-Phishing Auth (Passkey)
+Layer 2: Multi-Factor Auth (FIDO2/OTP)
+Layer 3: Session Management (Private Browsing)
+Layer 4: Password Manager (Zero Knowledge)
+```
+
+</details>
 
 ### 1.3 공용 PC 사용 체크리스트
 

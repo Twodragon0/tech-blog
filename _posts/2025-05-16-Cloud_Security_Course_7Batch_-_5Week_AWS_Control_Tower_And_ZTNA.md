@@ -89,16 +89,19 @@ certifications: [aws-saa]
 
 ### 1.2 AWS Control Tower 핵심 개념
 
-```plaintext
-┌─────────────────────────────────────────────────────┐
-│              AWS Control Tower                       │
-├─────────────────────────────────────────────────────┤
-│  ┌─────────────┐   ┌─────────────┐   ┌───────────┐ │
-│  │ Landing Zone│   │    SCP      │   │ Guardrails│ │
-│  │ (기반 환경)  │   │ (서비스제어) │   │  (가드레일) │ │
-│  └─────────────┘   └─────────────┘   └───────────┘ │
-└─────────────────────────────────────────────────────┘
+![AWS Control Tower - Landing Zone, SCP, Guardrails](/assets/images/diagrams/2025-05-16-aws-control-tower.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
+AWS Control Tower Components:
+- Landing Zone (Base Environment)
+- SCP (Service Control Policy)
+- Guardrails (Governance Rules)
+```
+
+</details>
 
 ### 1.3 Zero Trust 아키텍처 원칙
 

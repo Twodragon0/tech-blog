@@ -304,16 +304,20 @@ class CDNFailover:
 
 ### 6.2 Post-Quantum Encryption 현황
 
+![Post-Quantum Encryption Adoption - 52% of human traffic protected](/assets/images/diagrams/2025-11-19-post-quantum-encryption.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
-┌─────────────────────────────────────────────┐
-│     Post-Quantum Encryption 적용 현황       │
-├─────────────────────────────────────────────┤
-│  Human Traffic 보호율: 52% 달성             │
-│  ├── HTTPS 연결의 과반수가 양자내성 암호화  │
-│  ├── Kyber/ML-KEM 알고리즘 적용             │
-│  └── 향후 100% 적용 목표                    │
-└─────────────────────────────────────────────┘
+Post-Quantum Encryption Status:
+- Human Traffic Protection: 52% achieved
+- Majority of HTTPS connections using quantum-resistant encryption
+- Algorithm: Kyber/ML-KEM
+- Target: 100% coverage
 ```
+
+</details>
 
 양자 컴퓨터의 위협에 대비한 Post-Quantum Cryptography(PQC) 적용이 빠르게 진행 중입니다. 현재 전체 사람 트래픽의 **52%가 양자내성 암호화로 보호**되고 있습니다.
 

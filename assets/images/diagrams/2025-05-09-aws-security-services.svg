@@ -1,0 +1,67 @@
+<svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="200" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="350" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    AWS Security Services
+  </text>
+  
+  <!-- Service 1: Inspector -->
+  <rect x="25" y="60" width="145" height="110" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="97.5" y="85" font-size="12" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Inspector
+  </text>
+  <text x="97.5" y="105" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Vulnerability
+  </text>
+  <text x="97.5" y="120" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Scan
+  </text>
+  
+  <!-- Service 2: SecurityHub -->
+  <rect x="190" y="60" width="145" height="110" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="262.5" y="85" font-size="12" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    SecurityHub
+  </text>
+  <text x="262.5" y="105" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Unified
+  </text>
+  <text x="262.5" y="120" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Dashboard
+  </text>
+  
+  <!-- Service 3: Config -->
+  <rect x="355" y="60" width="145" height="110" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="427.5" y="85" font-size="12" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Config
+  </text>
+  <text x="427.5" y="105" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Compliance
+  </text>
+  <text x="427.5" y="120" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Tracking
+  </text>
+  
+  <!-- Service 4: GuardDuty -->
+  <rect x="520" y="60" width="155" height="110" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="597.5" y="85" font-size="12" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    GuardDuty
+  </text>
+  <text x="597.5" y="105" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Threat
+  </text>
+  <text x="597.5" y="120" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Detection
+  </text>
+</svg>
