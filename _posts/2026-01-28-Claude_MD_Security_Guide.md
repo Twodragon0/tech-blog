@@ -94,19 +94,19 @@ toc: true
 
 ### 1.1 AI 에이전트 지시 파일의 진화
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    AI AGENT INSTRUCTION FILE EVOLUTION                       │
-└─────────────────────────────────────────────────────────────────────────────┘
+![AI Agent Instruction File Evolution - From .editorconfig to CLAUDE.md/AGENTS.md](/assets/images/diagrams/2026-01-28-ai-agent-instruction-evolution.svg)
 
-2023                    2024                    2025-2026
-┌──────────────┐    ┌──────────────┐    ┌──────────────────────────┐
-│  .editorconfig│    │ .cursorrules │    │ CLAUDE.md / AGENTS.md    │
-│              │    │              │    │                          │
-│ 단순 포맷팅   │───▶│ AI 기본 지시 │───▶│ 보안 + 비용 + 운영 통합 │
-│              │    │              │    │                          │
-└──────────────┘    └──────────────┘    └──────────────────────────┘
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
+AI Agent Instruction File Evolution:
+2023: .editorconfig → Simple formatting rules
+2024: .cursorrules → Basic AI instructions
+2025-2026: CLAUDE.md / AGENTS.md → Security + Cost + Operations integrated
+```
+
+</details>
 
 **CLAUDE.md**는 Claude Code CLI가 프로젝트에서 작업할 때 참조하는 **지시 파일**입니다. 단순한 코딩 스타일 가이드를 넘어, **보안 정책**, **비용 최적화**, **운영 효율성**을 모두 포함하는 종합 가이드라인입니다.
 
@@ -417,24 +417,20 @@ except Exception as e:
 
 **AGENTS.md**는 Claude뿐만 아니라 **모든 AI 에이전트**가 참조할 수 있는 범용 가이드라인입니다.
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         AI AGENT HIERARCHY                                   │
-└─────────────────────────────────────────────────────────────────────────────┘
+![AI Agent File Hierarchy - AGENTS.md as universal guide with tool-specific children](/assets/images/diagrams/2026-01-28-ai-agent-hierarchy.svg)
 
-                            ┌─────────────────┐
-                            │    AGENTS.md    │
-                            │   (범용 가이드)   │
-                            └────────┬────────┘
-                                     │
-           ┌─────────────────────────┼─────────────────────────┐
-           │                         │                         │
-           ▼                         ▼                         ▼
-    ┌─────────────┐          ┌─────────────┐          ┌─────────────┐
-    │  CLAUDE.md  │          │.cursorrules │          │ copilot.yml │
-    │ Claude 전용  │          │ Cursor 전용  │          │ Copilot 전용 │
-    └─────────────┘          └─────────────┘          └─────────────┘
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
+AI Agent File Hierarchy:
+AGENTS.md (Universal Guide)
+├── CLAUDE.md (Claude-specific)
+├── .cursorrules (Cursor-specific)
+└── copilot.yml (Copilot-specific)
+```
+
+</details>
 
 ### 4.2 보안 섹션 예시
 
@@ -667,24 +663,20 @@ AI가 생성한 코드를 리뷰할 때 확인할 사항:
 
 ### 6.3 AI 생성 코드 검증 플로우
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    AI-GENERATED CODE VALIDATION FLOW                         │
-└─────────────────────────────────────────────────────────────────────────────┘
+![AI-Generated Code Validation Flow - From generation through automated scans and human review to merge](/assets/images/diagrams/2026-01-28-ai-code-validation-flow.svg)
 
-┌──────────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│ AI generates │───▶│ Automated    │───▶│ Human Review │───▶│ Merge to     │
-│    code      │    │   Scans      │    │              │    │    main      │
-└──────────────┘    └──────┬───────┘    └──────┬───────┘    └──────────────┘
-                           │                   │
-                           ▼                   ▼
-                    ┌─────────────┐    ┌─────────────────┐
-                    │ • Gitleaks  │    │ • Security       │
-                    │ • Semgrep   │    │   checklist     │
-                    │ • npm audit │    │ • OWASP Top 10  │
-                    │ • Bandit    │    │ • Business logic│
-                    └─────────────┘    └─────────────────┘
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
+AI-Generated Code Validation Flow:
+1. AI Generates Code
+2. Automated Scans (Gitleaks, Semgrep, npm audit, Bandit)
+3. Human Review (Security checklist, OWASP Top 10, Business logic)
+4. Merge to Main
+```
+
+</details>
 
 ---
 

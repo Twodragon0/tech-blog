@@ -1,0 +1,143 @@
+<svg viewBox="0 0 750 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pillar1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="pillar2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="pillar3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="pillar4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:0.6" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="750" height="380" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="375" y="35" font-size="24" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Zero Trust for AI Agents
+  </text>
+  
+  <!-- Pillar 1: Dynamic Secrets -->
+  <rect x="30" y="70" width="160" height="280" rx="10" fill="url(#pillar1)" stroke="#7c3aed" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="110" cy="100" r="18" fill="#7c3aed" opacity="0.8"/>
+  <text x="110" y="108" font-size="20" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    1
+  </text>
+  <text x="110" y="140" font-size="14" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Dynamic Secrets
+  </text>
+  <text x="110" y="165" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Temporary
+  </text>
+  <text x="110" y="180" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    credentials via
+  </text>
+  <text x="110" y="195" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Vault
+  </text>
+  <text x="110" y="225" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Auto-rotate
+  </text>
+  <text x="110" y="240" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    credentials
+  </text>
+  <text x="110" y="255" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    every hour
+  </text>
+  
+  <!-- Pillar 2: Auditing -->
+  <rect x="210" y="70" width="160" height="280" rx="10" fill="url(#pillar2)" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="290" cy="100" r="18" fill="#3b82f6" opacity="0.8"/>
+  <text x="290" y="108" font-size="20" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    2
+  </text>
+  <text x="290" y="140" font-size="14" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Auditing
+  </text>
+  <text x="290" y="165" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    All NHI activity
+  </text>
+  <text x="290" y="180" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    logging and
+  </text>
+  <text x="290" y="195" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    monitoring
+  </text>
+  <text x="290" y="225" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Real-time
+  </text>
+  <text x="290" y="240" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    visibility into
+  </text>
+  <text x="290" y="255" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    agent actions
+  </text>
+  
+  <!-- Pillar 3: PKI -->
+  <rect x="390" y="70" width="160" height="280" rx="10" fill="url(#pillar3)" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="470" cy="100" r="18" fill="#10b981" opacity="0.8"/>
+  <text x="470" y="108" font-size="20" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    3
+  </text>
+  <text x="470" y="140" font-size="14" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    PKI
+  </text>
+  <text x="470" y="165" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Certificate-based
+  </text>
+  <text x="470" y="180" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    AI agent
+  </text>
+  <text x="470" y="195" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    authentication
+  </text>
+  <text x="470" y="225" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Mutual TLS
+  </text>
+  <text x="470" y="240" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    for secure
+  </text>
+  <text x="470" y="255" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    communication
+  </text>
+  
+  <!-- Pillar 4: Secret Scanning -->
+  <rect x="570" y="70" width="160" height="280" rx="10" fill="url(#pillar4)" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="650" cy="100" r="18" fill="#f59e0b" opacity="0.8"/>
+  <text x="650" y="108" font-size="20" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    4
+  </text>
+  <text x="650" y="140" font-size="14" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Secret Scanning
+  </text>
+  <text x="650" y="165" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Detect hardcoded
+  </text>
+  <text x="650" y="180" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    credentials in
+  </text>
+  <text x="650" y="195" font-size="11" fill="#cbd5e1" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    code
+  </text>
+  <text x="650" y="225" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Pre-commit
+  </text>
+  <text x="650" y="240" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    scanning and
+  </text>
+  <text x="650" y="255" font-size="10" fill="#94a3b8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    remediation
+  </text>
+</svg>

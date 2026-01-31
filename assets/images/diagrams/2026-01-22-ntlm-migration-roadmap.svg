@@ -1,0 +1,97 @@
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="phase1Gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.9" />
+    </linearGradient>
+    <linearGradient id="phase2Gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.9" />
+    </linearGradient>
+    <linearGradient id="phase3Gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.9" />
+    </linearGradient>
+    <linearGradient id="phase4Gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.9" />
+    </linearGradient>
+    <linearGradient id="actionGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.7" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#94a3b8" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="480" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="350" y="30" font-size="24" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    NTLM Migration Roadmap
+  </text>
+  
+  <!-- Phase 1 -->
+  <rect x="50" y="60" width="600" height="90" rx="10" fill="url(#phase1Gradient)" filter="url(#shadow)"/>
+  <circle cx="80" cy="105" r="20" fill="#0d1117" stroke="#f1f5f9" stroke-width="2"/>
+  <text x="80" y="112" font-size="18" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">1</text>
+  <text x="120" y="85" font-size="16" font-weight="bold" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Detection &amp; Audit
+  </text>
+  <text x="120" y="110" font-size="13" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Identify NTLM usage across infrastructure
+  </text>
+  <text x="120" y="130" font-size="13" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Collect authentication logs and analyze patterns
+  </text>
+  
+  <!-- Arrow 1 -->
+  <line x1="350" y1="150" x2="350" y2="180" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Phase 2 -->
+  <rect x="50" y="180" width="600" height="90" rx="10" fill="url(#phase2Gradient)" filter="url(#shadow)"/>
+  <circle cx="80" cy="225" r="20" fill="#0d1117" stroke="#f1f5f9" stroke-width="2"/>
+  <text x="80" y="232" font-size="18" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">2</text>
+  <text x="120" y="205" font-size="16" font-weight="bold" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Switch to NTLMv2
+  </text>
+  <text x="120" y="230" font-size="13" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Set LmCompatibilityLevel to 3 or higher
+  </text>
+  <text x="120" y="250" font-size="13" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Perform compatibility testing across systems
+  </text>
+  
+  <!-- Arrow 2 -->
+  <line x1="350" y1="270" x2="350" y2="300" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Phase 3 -->
+  <rect x="50" y="300" width="600" height="90" rx="10" fill="url(#phase3Gradient)" filter="url(#shadow)"/>
+  <circle cx="80" cy="345" r="20" fill="#0d1117" stroke="#f1f5f9" stroke-width="2"/>
+  <text x="80" y="352" font-size="18" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">3</text>
+  <text x="120" y="325" font-size="16" font-weight="bold" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Kerberos-First Policy
+  </text>
+  <text x="120" y="350" font-size="13" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Review SPN configuration and validate Kerberos setup
+  </text>
+  <text x="120" y="370" font-size="13" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Enable Kerberos authentication as primary method
+  </text>
+  
+  <!-- Arrow 3 -->
+  <line x1="350" y1="390" x2="350" y2="420" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Phase 4 -->
+  <rect x="50" y="420" width="600" height="30" rx="10" fill="url(#phase4Gradient)" filter="url(#shadow)"/>
+  <circle cx="80" cy="435" r="20" fill="#0d1117" stroke="#f1f5f9" stroke-width="2"/>
+  <text x="80" y="442" font-size="18" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">4</text>
+  <text x="120" y="445" font-size="16" font-weight="bold" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    NTLM Restriction/Disable - Apply group policies and manage exception lists
+  </text>
+</svg>

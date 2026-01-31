@@ -1,0 +1,114 @@
+<svg viewBox="0 0 700 550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="smsGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="emailGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#1f2937;stop-opacity:0.6" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="550" fill="#0d1117"/>
+  
+  <!-- Title -->
+  <text x="350" y="35" font-size="24" font-weight="bold" fill="#f1f5f9" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    Phishing Detection Checklist
+  </text>
+  
+  <!-- Card 1: SMS Phishing (Smishing) -->
+  <rect x="30" y="55" width="640" height="150" rx="10" fill="url(#smsGradient)" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+  
+  <text x="60" y="85" font-size="16" font-weight="bold" fill="#f59e0b" font-family="system-ui, -apple-system, sans-serif">
+    SMS Phishing (Smishing) Indicators
+  </text>
+  
+  <!-- Checkbox 1 -->
+  <rect x="60" y="105" width="14" height="14" rx="2" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="85" y="117" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Sender number differs from official number
+  </text>
+  
+  <!-- Checkbox 2 -->
+  <rect x="60" y="130" width="14" height="14" rx="2" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="85" y="142" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Contains shortened URLs (bit.ly, tinyurl, etc.)
+  </text>
+  
+  <!-- Checkbox 3 -->
+  <rect x="60" y="155" width="14" height="14" rx="2" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="85" y="167" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Demands urgent action ("verify immediately", "urgent")
+  </text>
+  
+  <!-- Checkbox 4 -->
+  <rect x="380" y="105" width="14" height="14" rx="2" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="405" y="117" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Prompts app installation
+  </text>
+  
+  <!-- Card 2: Phishing Email -->
+  <rect x="30" y="225" width="640" height="150" rx="10" fill="url(#emailGradient)" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
+  
+  <text x="60" y="255" font-size="16" font-weight="bold" fill="#ef4444" font-family="system-ui, -apple-system, sans-serif">
+    Phishing Email Indicators
+  </text>
+  
+  <!-- Checkbox 1 -->
+  <rect x="60" y="275" width="14" height="14" rx="2" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="85" y="287" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Sender domain differs from official domain
+  </text>
+  
+  <!-- Checkbox 2 -->
+  <rect x="60" y="300" width="14" height="14" rx="2" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="85" y="312" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Login page URL differs from legitimate URL
+  </text>
+  
+  <!-- Checkbox 3 -->
+  <rect x="60" y="325" width="14" height="14" rx="2" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="85" y="337" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Grammar/spelling errors
+  </text>
+  
+  <!-- Checkbox 4 -->
+  <rect x="380" y="275" width="14" height="14" rx="2" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="405" y="287" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Requests to run attachments
+  </text>
+  
+  <!-- Card 3: Fake Customer Service -->
+  <rect x="30" y="395" width="640" height="130" rx="10" fill="url(#phoneGradient)" stroke="#7c3aed" stroke-width="2" filter="url(#shadow)"/>
+  
+  <text x="60" y="425" font-size="16" font-weight="bold" fill="#7c3aed" font-family="system-ui, -apple-system, sans-serif">
+    Fake Customer Service Indicators
+  </text>
+  
+  <!-- Checkbox 1 -->
+  <rect x="60" y="445" width="14" height="14" rx="2" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="85" y="457" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    They call you first (normal: customer initiates)
+  </text>
+  
+  <!-- Checkbox 2 -->
+  <rect x="60" y="470" width="14" height="14" rx="2" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="85" y="482" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Requests remote control software installation
+  </text>
+  
+  <!-- Checkbox 3 -->
+  <rect x="380" y="445" width="14" height="14" rx="2" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="405" y="457" font-size="12" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Asks for personal/financial information
+  </text>
+</svg>

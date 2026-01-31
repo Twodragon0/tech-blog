@@ -205,20 +205,18 @@ toc: true
   <p class="image-caption">AI 보안 패러다임 전환: Human-Speed에서 Machine-Speed로</p>
 </div>
 
+![AI Security Paradigm Shift - From Human-Speed to Machine-Speed Security](/assets/images/diagrams/2026-01-22-ai-security-paradigm-shift.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
-┌────────────────────────────────────────────────────────┐
-│                AI 보안 패러다임 전환                    │
-├────────────────────────────────────────────────────────┤
-│                                                        │
-│   과거: Human-Speed Security                           │
-│   └─> 분석가가 위협 분석, 수동 대응                    │
-│                                                        │
-│   현재: Machine-Speed Security                         │
-│   └─> AI가 위협 탐지, 자동 대응                        │
-│   └─> 실시간 가시성 및 거버넌스 필수                   │
-│                                                        │
-└────────────────────────────────────────────────────────┘
+AI Security Paradigm Shift:
+- Past: Human-Speed Security → Analysts manually analyze threats, manual response
+- Present: Machine-Speed Security → AI detects threats, automated response, real-time visibility & governance required
 ```
+
+</details>
 
 ---
 
@@ -254,25 +252,20 @@ HashiCorp는 이번 주 20개 이상의 블로그 포스팅을 발행했습니�
   <p class="image-caption">Zero Trust for AI Agents - NHI 관리 전략 4대 기둥</p>
 </div>
 
+![Zero Trust for AI Agents - 4 Pillars: Dynamic Secrets, Auditing, PKI, Secret Scanning](/assets/images/diagrams/2026-01-22-zero-trust-ai-agents.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
-┌────────────────────────────────────────────────────────┐
-│            Zero Trust for AI Agents                    │
-├────────────────────────────────────────────────────────┤
-│                                                        │
-│   1. Dynamic Secrets (동적 시크릿)                     │
-│      └─> Vault를 통한 임시 자격 증명 발급              │
-│                                                        │
-│   2. Auditing (감사)                                   │
-│      └─> 모든 NHI 활동 로깅 및 모니터링               │
-│                                                        │
-│   3. PKI (공개키 인프라)                               │
-│      └─> 인증서 기반 AI 에이전트 인증                  │
-│                                                        │
-│   4. Secret Scanning (시크릿 스캐닝)                   │
-│      └─> 코드 내 하드코딩된 자격 증명 탐지            │
-│                                                        │
-└────────────────────────────────────────────────────────┘
+Zero Trust for AI Agents - NHI Management Strategy:
+1. Dynamic Secrets → Temporary credentials via Vault
+2. Auditing → All NHI activity logging & monitoring
+3. PKI (Public Key Infrastructure) → Certificate-based AI agent authentication
+4. Secret Scanning → Detect hardcoded credentials in code
 ```
+
+</details>
 
 ---
 

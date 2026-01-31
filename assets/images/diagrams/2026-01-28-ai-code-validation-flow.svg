@@ -1,0 +1,124 @@
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="dropShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <linearGradient id="gradPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5b21b6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradAmber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradDetail" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#334155;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="380" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    AI-Generated Code Validation Flow
+  </text>
+
+  <!-- Stage 1: AI Generates Code -->
+  <rect x="20" y="70" width="160" height="80" rx="10" fill="url(#gradPurple)" filter="url(#dropShadow)"/>
+  <text x="100" y="100" font-size="13" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    AI Generates
+  </text>
+  <text x="100" y="120" font-size="13" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Code
+  </text>
+
+  <!-- Arrow 1 -->
+  <line x1="190" y1="110" x2="240" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 2: Automated Scans -->
+  <rect x="240" y="70" width="160" height="80" rx="10" fill="url(#gradBlue)" filter="url(#dropShadow)"/>
+  <text x="320" y="100" font-size="13" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Automated
+  </text>
+  <text x="320" y="120" font-size="13" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Scans
+  </text>
+
+  <!-- Detail boxes for Stage 2 -->
+  <rect x="240" y="170" width="160" height="120" rx="8" fill="url(#gradDetail)" filter="url(#dropShadow)"/>
+  <text x="320" y="190" font-size="11" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Security Tools:
+  </text>
+  <text x="320" y="210" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    • Gitleaks
+  </text>
+  <text x="320" y="228" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    • Semgrep
+  </text>
+  <text x="320" y="246" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    • npm audit
+  </text>
+  <text x="320" y="264" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    • Bandit
+  </text>
+
+  <!-- Arrow 2 -->
+  <line x1="410" y1="110" x2="460" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 3: Human Review -->
+  <rect x="460" y="70" width="160" height="80" rx="10" fill="url(#gradGreen)" filter="url(#dropShadow)"/>
+  <text x="540" y="100" font-size="13" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Human
+  </text>
+  <text x="540" y="120" font-size="13" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Review
+  </text>
+
+  <!-- Detail boxes for Stage 3 -->
+  <rect x="460" y="170" width="160" height="120" rx="8" fill="url(#gradDetail)" filter="url(#dropShadow)"/>
+  <text x="540" y="190" font-size="11" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Review Checklist:
+  </text>
+  <text x="540" y="210" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    • Security checklist
+  </text>
+  <text x="540" y="228" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    • OWASP Top 10
+  </text>
+  <text x="540" y="246" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    • Business logic
+  </text>
+  <text x="540" y="264" font-size="10" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    • Code quality
+  </text>
+
+  <!-- Arrow 3 -->
+  <line x1="630" y1="110" x2="680" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 4: Merge to Main -->
+  <rect x="680" y="70" width="100" height="80" rx="10" fill="url(#gradAmber)" filter="url(#dropShadow)"/>
+  <text x="730" y="100" font-size="13" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Merge to
+  </text>
+  <text x="730" y="120" font-size="13" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Main
+  </text>
+
+  <!-- Footer note -->
+  <text x="400" y="360" font-size="11" text-anchor="middle" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif">
+    Multi-layer validation ensures secure, high-quality code integration
+  </text>
+</svg>

@@ -1,0 +1,136 @@
+<svg viewBox="0 0 750 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueGradAPAC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="amberGradAPAC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.7" />
+    </linearGradient>
+    <filter id="shadowAPAC">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glowAPAC">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowheadAPAC" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="750" height="500" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="375" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Google Cloud Asia Pacific Regions
+  </text>
+
+  <!-- Connection lines between regions -->
+  <line x1="150" y1="100" x2="220" y2="140" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="220" y1="140" x2="280" y2="100" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="280" y1="100" x2="340" y2="140" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="340" y1="140" x2="400" y2="100" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="400" y1="100" x2="460" y2="140" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="460" y1="140" x2="520" y2="100" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="520" y1="100" x2="580" y2="140" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="150" y1="100" x2="150" y2="200" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="220" y1="140" x2="220" y2="240" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="280" y1="100" x2="280" y2="200" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="340" y1="140" x2="340" y2="240" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="400" y1="100" x2="400" y2="200" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="460" y1="140" x2="460" y2="240" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="520" y1="100" x2="520" y2="200" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="150" y1="200" x2="220" y2="240" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="280" y1="200" x2="340" y2="240" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="400" y1="200" x2="460" y2="240" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="520" y1="200" x2="580" y2="240" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="220" y1="240" x2="280" y2="280" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="340" y1="240" x2="400" y2="280" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="460" y1="240" x2="520" y2="280" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Row 1: Tokyo, Osaka, Seoul, Hong Kong, Taiwan, Singapore -->
+  <!-- Tokyo (ap-ne1) -->
+  <rect x="120" y="70" width="60" height="60" fill="url(#blueGradAPAC)" stroke="#3b82f6" stroke-width="2" rx="8" filter="url(#shadowAPAC)"/>
+  <text x="150" y="92" font-size="10" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">Tokyo</text>
+  <text x="150" y="108" font-size="8" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">ap-ne1</text>
+
+  <!-- Osaka (ap-ne2) -->
+  <rect x="190" y="110" width="60" height="60" fill="url(#blueGradAPAC)" stroke="#3b82f6" stroke-width="2" rx="8" filter="url(#shadowAPAC)"/>
+  <text x="220" y="132" font-size="10" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">Osaka</text>
+  <text x="220" y="148" font-size="8" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">ap-ne2</text>
+
+  <!-- Seoul (ap-ne3) -->
+  <rect x="250" y="70" width="60" height="60" fill="url(#blueGradAPAC)" stroke="#3b82f6" stroke-width="2" rx="8" filter="url(#shadowAPAC)"/>
+  <text x="280" y="92" font-size="10" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">Seoul</text>
+  <text x="280" y="108" font-size="8" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">ap-ne3</text>
+
+  <!-- Hong Kong (ap-e2) -->
+  <rect x="310" y="110" width="60" height="60" fill="url(#blueGradAPAC)" stroke="#3b82f6" stroke-width="2" rx="8" filter="url(#shadowAPAC)"/>
+  <text x="340" y="132" font-size="10" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">Hong Kong</text>
+  <text x="340" y="148" font-size="8" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">ap-e2</text>
+
+  <!-- Taiwan (ap-e1) -->
+  <rect x="370" y="70" width="60" height="60" fill="url(#blueGradAPAC)" stroke="#3b82f6" stroke-width="2" rx="8" filter="url(#shadowAPAC)"/>
+  <text x="400" y="92" font-size="10" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">Taiwan</text>
+  <text x="400" y="108" font-size="8" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">ap-e1</text>
+
+  <!-- Singapore (ap-se1) -->
+  <rect x="430" y="110" width="60" height="60" fill="url(#blueGradAPAC)" stroke="#3b82f6" stroke-width="2" rx="8" filter="url(#shadowAPAC)"/>
+  <text x="460" y="132" font-size="10" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">Singapore</text>
+  <text x="460" y="148" font-size="8" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">ap-se1</text>
+
+  <!-- Row 2: Bangkok (NEW!), Jakarta, Mumbai, Delhi, Sydney -->
+  <!-- Bangkok (NEW!) with glow -->
+  <circle cx="220" cy="270" r="35" fill="url(#amberGradAPAC)" stroke="#f59e0b" stroke-width="2" filter="url(#glowAPAC)"/>
+  <text x="220" y="268" font-size="10" font-weight="bold" text-anchor="middle" fill="#0d1117" font-family="system-ui, -apple-system, sans-serif">Bangkok</text>
+  <text x="220" y="284" font-size="8" text-anchor="middle" fill="#0d1117" font-family="system-ui, -apple-system, sans-serif">ap-se3</text>
+  <!-- NEW! Badge -->
+  <rect x="200" y="240" width="40" height="20" fill="#f59e0b" stroke="#d97706" stroke-width="1" rx="4"/>
+  <text x="220" y="253" font-size="9" font-weight="bold" text-anchor="middle" fill="#0d1117" font-family="system-ui, -apple-system, sans-serif">NEW!</text>
+
+  <!-- Jakarta (ap-se2) -->
+  <rect x="280" y="250" width="60" height="60" fill="url(#blueGradAPAC)" stroke="#3b82f6" stroke-width="2" rx="8" filter="url(#shadowAPAC)"/>
+  <text x="310" y="272" font-size="10" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">Jakarta</text>
+  <text x="310" y="288" font-size="8" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">ap-se2</text>
+
+  <!-- Mumbai (ap-s1) -->
+  <rect x="370" y="250" width="60" height="60" fill="url(#blueGradAPAC)" stroke="#3b82f6" stroke-width="2" rx="8" filter="url(#shadowAPAC)"/>
+  <text x="400" y="272" font-size="10" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">Mumbai</text>
+  <text x="400" y="288" font-size="8" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">ap-s1</text>
+
+  <!-- Delhi (ap-s2) -->
+  <rect x="460" y="250" width="60" height="60" fill="url(#blueGradAPAC)" stroke="#3b82f6" stroke-width="2" rx="8" filter="url(#shadowAPAC)"/>
+  <text x="490" y="272" font-size="10" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">Delhi</text>
+  <text x="490" y="288" font-size="8" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">ap-s2</text>
+
+  <!-- Sydney (ap-se4) -->
+  <rect x="550" y="250" width="60" height="60" fill="url(#blueGradAPAC)" stroke="#3b82f6" stroke-width="2" rx="8" filter="url(#shadowAPAC)"/>
+  <text x="580" y="272" font-size="10" font-weight="bold" text-anchor="middle" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">Sydney</text>
+  <text x="580" y="288" font-size="8" text-anchor="middle" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">ap-se4</text>
+
+  <!-- Legend -->
+  <rect x="50" y="380" width="650" height="100" fill="#1e293b" stroke="#3b82f6" stroke-width="1" rx="8"/>
+  <text x="70" y="405" font-size="12" font-weight="bold" fill="#f1f5f9" font-family="system-ui, -apple-system, sans-serif">
+    Region Coverage
+  </text>
+  <rect x="70" y="420" width="12" height="12" fill="url(#blueGradAPAC)" stroke="#3b82f6" stroke-width="1" rx="2"/>
+  <text x="90" y="430" font-size="10" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    Existing Regions (11 locations)
+  </text>
+  <rect x="350" y="420" width="12" height="12" fill="url(#amberGradAPAC)" stroke="#f59e0b" stroke-width="1" rx="2"/>
+  <text x="370" y="430" font-size="10" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif">
+    New Bangkok Region (ap-se3) - 2026
+  </text>
+  <text x="70" y="455" font-size="9" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif">
+    Connected network enables low-latency multi-region deployments across Asia Pacific
+  </text>
+  <text x="70" y="470" font-size="9" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif">
+    Bangkok expansion provides improved coverage for Southeast Asia and ASEAN markets
+  </text>
+</svg>
