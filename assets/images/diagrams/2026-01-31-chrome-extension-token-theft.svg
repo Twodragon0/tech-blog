@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420">
+  <defs>
+    <marker id="arr2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <filter id="sh2">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="820" height="420" rx="12" fill="#0d1117"/>
+  <text x="410" y="32" text-anchor="middle" fill="#f1f5f9" font-family="system-ui,sans-serif" font-size="18" font-weight="700" letter-spacing="1">CHROME EXTENSION TOKEN THEFT FLOW</text>
+  <text x="410" y="52" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="12">Browser Supply Chain Attack</text>
+  <!-- Row 1: 3 boxes -->
+  <rect x="30" y="75" width="230" height="80" rx="10" fill="#dc2626" filter="url(#sh2)"/>
+  <text x="145" y="108" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Malicious Extension</text>
+  <text x="145" y="128" text-anchor="middle" fill="#fecaca" font-family="system-ui,sans-serif" font-size="11">Chrome Web Store</text>
+  <line x1="260" y1="115" x2="290" y2="115" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr2)"/>
+  <rect x="295" y="75" width="230" height="80" rx="10" fill="#ea580c" filter="url(#sh2)"/>
+  <text x="410" y="108" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="14" font-weight="700">content_scripts.js</text>
+  <text x="410" y="128" text-anchor="middle" fill="#fed7aa" font-family="system-ui,sans-serif" font-size="11">Injection Execution</text>
+  <line x1="525" y1="115" x2="555" y2="115" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr2)"/>
+  <rect x="560" y="75" width="230" height="80" rx="10" fill="#2563eb" filter="url(#sh2)"/>
+  <text x="675" y="108" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="14" font-weight="700">chat.openai.com</text>
+  <text x="675" y="128" text-anchor="middle" fill="#bfdbfe" font-family="system-ui,sans-serif" font-size="11">Cookie / Token Access</text>
+  <!-- Arrow down from step 3 -->
+  <path d="M 675 155 L 675 195 L 250 195 L 250 215" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arr2)" stroke-dasharray="6,3"/>
+  <!-- Row 2 -->
+  <rect x="110" y="220" width="280" height="80" rx="10" fill="#7c3aed" filter="url(#sh2)"/>
+  <text x="250" y="253" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Session / Local Storage</text>
+  <text x="250" y="273" text-anchor="middle" fill="#ddd6fe" font-family="system-ui,sans-serif" font-size="11">Cookie Collection</text>
+  <line x1="390" y1="260" x2="430" y2="260" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr2)"/>
+  <rect x="435" y="220" width="280" height="80" rx="10" fill="#9f1239" filter="url(#sh2)"/>
+  <text x="575" y="253" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="14" font-weight="700">C2 Server</text>
+  <text x="575" y="273" text-anchor="middle" fill="#fecdd3" font-family="system-ui,sans-serif" font-size="11">Token + Chat History Exfiltration</text>
+  <!-- Stolen Data Box -->
+  <rect x="110" y="320" width="605" height="80" rx="8" fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="120" y="342" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="12" font-weight="600">Stolen Data:</text>
+  <circle cx="130" cy="358" r="3" fill="#ef4444"/>
+  <text x="140" y="362" fill="#cbd5e1" font-family="system-ui,monospace" font-size="11">__Secure-next-auth.session-token</text>
+  <circle cx="430" cy="358" r="3" fill="#f97316"/>
+  <text x="440" y="362" fill="#cbd5e1" font-family="system-ui,monospace" font-size="11">API Keys (localStorage)</text>
+  <circle cx="130" cy="382" r="3" fill="#a855f7"/>
+  <text x="140" y="386" fill="#cbd5e1" font-family="system-ui,monospace" font-size="11">Chat History (Enterprise Secrets)</text>
+  <circle cx="430" cy="382" r="3" fill="#eab308"/>
+  <text x="440" y="386" fill="#cbd5e1" font-family="system-ui,monospace" font-size="11">Affiliate Links</text>
+</svg>

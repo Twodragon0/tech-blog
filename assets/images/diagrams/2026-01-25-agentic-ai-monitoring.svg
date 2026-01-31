@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#5b21b6"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="10" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="108%" height="108%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="700" height="400" fill="#0d1117" rx="8"/>
+
+  <!-- Top: Google ADK Application -->
+  <rect x="40" y="15" width="620" height="180" rx="10" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+  <text x="350" y="40" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="bold">Google ADK Application</text>
+
+  <!-- Agents -->
+  <rect x="80" y="60" width="150" height="55" rx="8" fill="#4c1d95" opacity="0.7"/>
+  <text x="155" y="82" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Agent 1</text>
+  <text x="155" y="102" text-anchor="middle" fill="#c4b5fd" font-size="11">(Plan)</text>
+
+  <line x1="230" y1="87" x2="260" y2="87" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="270" y="60" width="150" height="55" rx="8" fill="#4c1d95" opacity="0.7"/>
+  <text x="345" y="82" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Agent 2</text>
+  <text x="345" y="102" text-anchor="middle" fill="#c4b5fd" font-size="11">(Execute)</text>
+
+  <line x1="420" y1="87" x2="450" y2="87" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="460" y="60" width="150" height="55" rx="8" fill="#4c1d95" opacity="0.7"/>
+  <text x="535" y="82" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Agent 3</text>
+  <text x="535" y="102" text-anchor="middle" fill="#c4b5fd" font-size="11">(Verify)</text>
+
+  <!-- Datadog Agent (inside ADK) -->
+  <line x1="155" y1="115" x2="155" y2="135" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="345" y1="115" x2="345" y2="135" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="535" y1="115" x2="535" y2="135" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="155" y1="135" x2="535" y2="135" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="345" y1="135" x2="345" y2="150" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="240" y="155" width="220" height="30" rx="6" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="350" y="175" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="bold">Datadog Agent (Auto-Instrumented)</text>
+
+  <!-- Arrow down -->
+  <line x1="350" y1="195" x2="350" y2="230" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Bottom: Datadog LLM Observability -->
+  <rect x="40" y="240" width="620" height="140" rx="10" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="350" y="268" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="bold">Datadog LLM Observability</text>
+  
+  <rect x="70" y="282" width="260" height="35" rx="6" fill="#14532d" opacity="0.6"/>
+  <text x="200" y="304" text-anchor="middle" fill="#bbf7d0" font-size="12">Token Usage &amp; Cost Tracking</text>
+  <rect x="370" y="282" width="260" height="35" rx="6" fill="#14532d" opacity="0.6"/>
+  <text x="500" y="304" text-anchor="middle" fill="#bbf7d0" font-size="12">Latency Distribution</text>
+  <rect x="70" y="327" width="260" height="35" rx="6" fill="#14532d" opacity="0.6"/>
+  <text x="200" y="349" text-anchor="middle" fill="#bbf7d0" font-size="12">Error Rate &amp; Root Cause</text>
+  <rect x="370" y="327" width="260" height="35" rx="6" fill="#14532d" opacity="0.6"/>
+  <text x="500" y="349" text-anchor="middle" fill="#bbf7d0" font-size="12">Agent Decision Path Tracing</text>
+</svg>

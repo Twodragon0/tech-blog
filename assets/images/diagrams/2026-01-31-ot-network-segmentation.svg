@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560">
+  <defs>
+    <marker id="arr3" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <filter id="sh3">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="720" height="560" rx="12" fill="#0d1117"/>
+  <text x="360" y="32" text-anchor="middle" fill="#f1f5f9" font-family="system-ui,sans-serif" font-size="18" font-weight="700" letter-spacing="1">IT/OT NETWORK SEGMENTATION</text>
+  <text x="360" y="52" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="12">Purdue Model - Defense in Depth</text>
+  <!-- Zone 1: Enterprise -->
+  <rect x="30" y="70" width="660" height="120" rx="10" fill="#1e3a5f" filter="url(#sh3)"/>
+  <text x="50" y="92" fill="#93c5fd" font-family="system-ui,sans-serif" font-size="13" font-weight="700">ENTERPRISE ZONE (Level 4-5)</text>
+  <rect x="60" y="105" width="180" height="60" rx="8" fill="#2563eb" opacity="0.7"/>
+  <text x="150" y="135" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Active Directory</text>
+  <text x="150" y="152" text-anchor="middle" fill="#bfdbfe" font-family="system-ui,sans-serif" font-size="10">Identity Management</text>
+  <rect x="270" y="105" width="180" height="60" rx="8" fill="#2563eb" opacity="0.7"/>
+  <text x="360" y="135" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Email Server</text>
+  <text x="360" y="152" text-anchor="middle" fill="#bfdbfe" font-family="system-ui,sans-serif" font-size="10">Exchange / M365</text>
+  <rect x="480" y="105" width="180" height="60" rx="8" fill="#2563eb" opacity="0.7"/>
+  <text x="570" y="135" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Web Server</text>
+  <text x="570" y="152" text-anchor="middle" fill="#bfdbfe" font-family="system-ui,sans-serif" font-size="10">Business Apps</text>
+  <!-- Separator 1: DMZ -->
+  <line x1="60" y1="205" x2="300" y2="205" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="300" y="195" width="120" height="20" rx="4" fill="#1e293b"/>
+  <text x="360" y="209" text-anchor="middle" fill="#f59e0b" font-family="system-ui,sans-serif" font-size="10" font-weight="600">DMZ / Data Diode</text>
+  <line x1="420" y1="205" x2="660" y2="205" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="360" y1="190" x2="360" y2="195" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr3)"/>
+  <!-- Zone 2: Supervisory -->
+  <rect x="30" y="225" width="660" height="120" rx="10" fill="#1a3a1a" filter="url(#sh3)"/>
+  <text x="50" y="247" fill="#86efac" font-family="system-ui,sans-serif" font-size="13" font-weight="700">OT SUPERVISORY ZONE (Level 3)</text>
+  <rect x="60" y="260" width="180" height="60" rx="8" fill="#15803d" opacity="0.7"/>
+  <text x="150" y="290" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="600">SCADA Server</text>
+  <text x="150" y="307" text-anchor="middle" fill="#bbf7d0" font-family="system-ui,sans-serif" font-size="10">Process Control</text>
+  <rect x="270" y="260" width="180" height="60" rx="8" fill="#15803d" opacity="0.7"/>
+  <text x="360" y="290" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Historian Server</text>
+  <text x="360" y="307" text-anchor="middle" fill="#bbf7d0" font-family="system-ui,sans-serif" font-size="10">Data Collection</text>
+  <rect x="480" y="260" width="180" height="60" rx="8" fill="#15803d" opacity="0.7"/>
+  <text x="570" y="290" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="600">HMI Stations</text>
+  <text x="570" y="307" text-anchor="middle" fill="#bbf7d0" font-family="system-ui,sans-serif" font-size="10">Operator Interface</text>
+  <!-- Separator 2: Firewall -->
+  <line x1="60" y1="360" x2="280" y2="360" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="280" y="350" width="160" height="20" rx="4" fill="#1e293b"/>
+  <text x="360" y="364" text-anchor="middle" fill="#f59e0b" font-family="system-ui,sans-serif" font-size="10" font-weight="600">Firewall (Allowlist Only)</text>
+  <line x1="440" y1="360" x2="660" y2="360" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="360" y1="345" x2="360" y2="350" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr3)"/>
+  <!-- Zone 3: Control -->
+  <rect x="30" y="380" width="660" height="120" rx="10" fill="#3b1a1a" filter="url(#sh3)"/>
+  <text x="50" y="402" fill="#fca5a5" font-family="system-ui,sans-serif" font-size="13" font-weight="700">OT CONTROL ZONE (Level 0-2)</text>
+  <rect x="60" y="415" width="180" height="60" rx="8" fill="#991b1b" opacity="0.7"/>
+  <text x="150" y="445" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="600">PLC Controllers</text>
+  <text x="150" y="462" text-anchor="middle" fill="#fecaca" font-family="system-ui,sans-serif" font-size="10">Logic Control</text>
+  <rect x="270" y="415" width="180" height="60" rx="8" fill="#991b1b" opacity="0.7"/>
+  <text x="360" y="445" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="600">RTU Units</text>
+  <text x="360" y="462" text-anchor="middle" fill="#fecaca" font-family="system-ui,sans-serif" font-size="10">Remote Telemetry</text>
+  <rect x="480" y="415" width="180" height="60" rx="8" fill="#991b1b" opacity="0.7"/>
+  <text x="570" y="445" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="600">IED Devices</text>
+  <text x="570" y="462" text-anchor="middle" fill="#fecaca" font-family="system-ui,sans-serif" font-size="10">Protection Relays</text>
+  <!-- Footer -->
+  <text x="10" y="540" fill="#475569" font-family="system-ui,sans-serif" font-size="10">IEC 62443 / Purdue Enterprise Reference Architecture (PERA)</text>
+</svg>

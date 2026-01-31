@@ -98,25 +98,18 @@ Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters**
 
 ### 1.2 공격 체인 분석
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                   SHINYHUNTERS VISHING ATTACK CHAIN                    │
-└────────────────────────────────────────────────────────────────────────┘
+![ShinyHunters Vishing Attack Chain - 6-step flow from Reconnaissance through MFA Intercept to Data Exfiltration](/assets/images/diagrams/2026-01-31-shinyhunters-vishing-attack-chain.svg)
 
-┌──────────────┐    ┌─────────────────┐    ┌────────────────────┐
-│  1. 정찰     │───▶│  2. 비싱 콜     │───▶│  3. MFA 인터셉트  │
-│ (OSINT/      │    │ (IT 헬프데스크  │    │ (실시간 프록시     │
-│  LinkedIn)   │    │  사칭)          │    │  릴레이)           │
-└──────────────┘    └─────────────────┘    └─────────┬──────────┘
-                                                      │
-              ┌───────────────────────────────────────┘
-              ▼
-┌──────────────────┐    ┌──────────────────┐    ┌────────────────────┐
-│ 4. SaaS 접근     │───▶│ 5. 권한 상승    │───▶│ 6. 데이터 갈취/    │
-│ (Okta, Azure AD) │    │ (관리자 계정    │    │    랜섬웨어         │
-│                  │    │  Pivoting)      │    │                    │
-└──────────────────┘    └──────────────────┘    └────────────────────┘
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
+ShinyHunters Vishing Attack Chain:
+1. Reconnaissance (OSINT/LinkedIn) → 2. Vishing Call (IT Helpdesk Impersonation) → 3. MFA Intercept (Real-time Proxy Relay)
+→ 4. SaaS Access (Okta, Azure AD) → 5. Privilege Escalation (Admin Account Pivoting) → 6. Data Exfiltration / Ransomware
+```
+
+</details>
 
 ### 1.3 비싱 공격의 기술적 상세
 
@@ -272,20 +265,18 @@ mitre_attack:
 
 **ChatGPT 토큰 탈취 흐름:**
 
+![Chrome Extension Token Theft Flow - Malicious extension injects content script to steal ChatGPT session tokens and send to C2 server](/assets/images/diagrams/2026-01-31-chrome-extension-token-theft.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
-┌──────────────────┐    ┌─────────────────────┐    ┌───────────────────┐
-│  악성 확장 설치   │───▶│ content_scripts.js  │───▶│  chat.openai.com  │
-│ (Chrome Store)   │    │ 인젝션 실행          │    │  쿠키/토큰 접근    │
-└──────────────────┘    └─────────────────────┘    └────────┬──────────┘
-                                                             │
-                         ┌───────────────────────────────────┘
-                         ▼
-              ┌───────────────────┐    ┌──────────────────────────┐
-              │ sessionStorage    │───▶│ C2 서버로 전송            │
-              │ localStorage      │    │ (토큰 + 대화 기록)       │
-              │ Cookie 수집       │    │                          │
-              └───────────────────┘    └──────────────────────────┘
+Chrome Extension Token Theft Flow:
+Malicious Extension Install (Chrome Store) → content_scripts.js Injection → chat.openai.com Cookie/Token Access
+→ sessionStorage / localStorage / Cookie Collection → C2 Server Exfiltration (Tokens + Chat History)
 ```
+
+</details>
 
 **탈취되는 데이터:**
 1. **OpenAI 세션 토큰** (`__Secure-next-auth.session-token`)
@@ -429,33 +420,21 @@ mitre_attack:
 
 #### IT/OT 네트워크 세그멘테이션
 
+![OT Network Segmentation - 3-zone architecture: Enterprise Zone, OT Supervisory Zone, OT Control Zone with DMZ and Firewall separation](/assets/images/diagrams/2026-01-31-ot-network-segmentation.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
-┌──────────────────────────────────────────────────────────────────┐
-│                        ENTERPRISE ZONE                            │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐                       │
-│  │ Active   │  │  Email   │  │   Web    │                       │
-│  │Directory │  │  Server  │  │  Server  │                       │
-│  └──────────┘  └──────────┘  └──────────┘                       │
-└──────────────────────────┬───────────────────────────────────────┘
-                           │ DMZ / Data Diode
-                           ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                    OT SUPERVISORY ZONE                            │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐                       │
-│  │  SCADA   │  │ Historian│  │ HMI      │                       │
-│  │  Server  │  │  Server  │  │ Stations │                       │
-│  └──────────┘  └──────────┘  └──────────┘                       │
-└──────────────────────────┬───────────────────────────────────────┘
-                           │ Firewall (Allowlist Only)
-                           ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                    OT CONTROL ZONE                                │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐                       │
-│  │   PLC    │  │   RTU    │  │  IED     │                       │
-│  │Controllers│ │  Units   │  │ Devices  │                       │
-│  └──────────┘  └──────────┘  └──────────┘                       │
-└──────────────────────────────────────────────────────────────────┘
+OT Network Segmentation (IEC 62443 / Purdue Model):
+Enterprise Zone (Active Directory, Email Server, Web Server)
+  ↓ DMZ / Data Diode
+OT Supervisory Zone (SCADA Server, Historian Server, HMI Stations)
+  ↓ Firewall (Allowlist Only)
+OT Control Zone (PLC Controllers, RTU Units, IED Devices)
 ```
+
+</details>
 
 #### OT 환경 보안 점검 스크립트
 

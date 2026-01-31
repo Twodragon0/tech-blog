@@ -1004,30 +1004,20 @@ Tenable의 2026년 보안 예측에서 **비인간 ID(Non-Human Identity, NHI)**
 
 ![NHI Cloud Breach Attack Chain](/assets/images/2026-01-29-nhi-cloud-breach-attack-chain.svg)
 
+![NHI Attack Scenario - 4-quadrant attack flow: Initial Access, Privilege Escalation, Data Exfiltration, Lateral Movement](/assets/images/diagrams/2026-01-29-nhi-attack-scenario.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
-NHI 침해 시나리오
-===============
+NHI (Non-Human Identity) Attack Scenario:
+1. Initial Access: Exposed API Keys (GitHub, Logs, Config Files)
+→ 2. Privilege Escalation: Over-privileged Service Account (Admin CI/CD)
+→ 3. Data Exfiltration: S3 Bucket/DB Access, Log Deletion
+→ 4. Lateral Movement: Other Service Account Token Theft (SSRF, IMDS)
+```
 
-1. 초기 접근                    2. 권한 상승
-   ┌─────────────────┐            ┌──────────────────────┐
-   │ 노출된 API 키    │            │ 과도 권한 서비스 계정  │
-   │ (GitHub, 로그,   │───────────>│ (Admin 역할 부여된    │
-   │  설정 파일)      │            │  CI/CD 서비스 계정)   │
-   └─────────────────┘            └──────────┬───────────┘
-                                             │
-3. 수평 이동                    4. 데이터 유출
-   ┌─────────────────┐            ┌──────────────────────┐
-   │ 다른 서비스 계정  │            │ S3 버킷, DB 접근      │
-   │ 토큰 탈취        │<───────────│ 민감 데이터 추출       │
-   │ (SSRF, 메타데이터)│            │ 로그 삭제             │
-   └─────────────────┘            └──────────────────────┘
-
-주요 공격 경로:
-A. 하드코딩된 API 키/시크릿 (소스 코드, Docker 이미지)
-B. 과도 권한 IAM 역할 (Admin, PowerUser)
-C. 만료되지 않는 장기 토큰 (Legacy 서비스 계정)
-D. 메타데이터 서비스 악용 (IMDS v1, 169.254.169.254)
-E. CI/CD 파이프라인 토큰 탈취 (환경 변수)
+Key Attack Vectors: Hardcoded Secrets | Over-privileged IAM | Non-expiring Tokens | IMDS v1
 ```
 
 ### NHI 보안 강화 전략

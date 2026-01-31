@@ -548,37 +548,19 @@ SolarWinds WHD는 Java 기반 웹 애플리케이션으로, 역직렬화 처리 
 
 **역직렬화 공격 원리:**
 
-```
-악성 직렬화 객체 구성
-========================
+![SolarWinds WHD Deserialization Attack - Java object deserialization leading to SYSTEM-level RCE](/assets/images/diagrams/2026-01-30-solarwinds-deserialization-attack.svg)
 
-1. 공격자 페이로드 구성:
-   ┌──────────────────────────────┐
-   │ Serialized Java Object       │
-   │ ┌──────────────────────────┐ │
-   │ │ Gadget Chain             │ │
-   │ │ (Commons Collections,    │ │
-   │ │  Commons BeanUtils, etc.)│ │
-   │ └──────────────────────────┘ │
-   │ ┌──────────────────────────┐ │
-   │ │ Payload: Runtime.exec() │ │
-   │ │ "cmd /c whoami"          │ │
-   │ └──────────────────────────┘ │
-   └──────────────────────────────┘
-              |
-              v
-2. HTTP 요청으로 전송:
-   POST /helpdesk/WebObjects/Helpdesk.woa
-   Content-Type: application/x-java-serialized-object
-   [악성 직렬화 바이트스트림]
-              |
-              v
-3. 서버 역직렬화 처리:
-   ObjectInputStream.readObject()
-    -> Gadget Chain 실행
-     -> Runtime.getRuntime().exec()
-      -> 임의 명령 실행 (SYSTEM 권한)
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
+SolarWinds WHD Deserialization Attack:
+1. Attacker crafts Serialized Java Object (Gadget Chain + Runtime.exec payload)
+2. HTTP POST to /helpdesk/WebObjects/Helpdesk.woa
+3. Server deserializes → Gadget Chain → Runtime.exec() → SYSTEM execution
+```
+
+</details>
 
 #### CVE-2025-40552 / CVE-2025-40554: 인증 우회
 
@@ -815,35 +797,19 @@ Google Threat Intelligence Group(GTIG)이 세계 최대 규모의 레지덴셜 �
   <img src="/assets/images/2026-01-30-ipidea-proxy-network-disruption.svg" alt="Google Disrupts IPIDEA Residential Proxy Network Architecture" loading="lazy">
 </div>
 
-```
-IPIDEA 레지덴셜 프록시 네트워크 구조
-======================================
+![IPIDEA Residential Proxy Network - 5 infection vectors feeding 6.1M IP proxy infrastructure used by 550+ threat groups](/assets/images/diagrams/2026-01-30-ipidea-proxy-network.svg)
 
-감염 경로                     프록시 인프라               악용 체인
-===========                  =============              ==========
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
 
-[Android TV 박스]             ┌─────────────┐
- - 사전 설치 악성코드  ─────>│             │
-                             │   IPIDEA    │
-[가짜 수익 앱]               │   Proxy     │          [위협 그룹 550+]
- - Earn/Hex 브랜드    ─────>│   Network   │─────────> 광고 사기
-                             │             │           크리덴셜 스터핑
-[SDK 내장 앱]                │  6.1M IPs   │           DDoS 공격
- - Castar SDK         ─────>│  (Daily)    │           스팸 캠페인
- - Packet SDK                │             │           계정 탈취
-                             │  69K New    │
-[Windows 트로이목마]          │  IPs/Day   │
- - 가짜 OneDrive      ─────>│             │
- - 가짜 Windows Update       │  7,400      │
-                             │  C2 Servers │
-[Play Store 앱 600+]         │             │
- - 정상 앱 위장       ─────>│  3,075      │
-                             │  Win Bins   │
-                             └─────────────┘
-                                   |
-                        Google Play Protect
-                        경고 및 제거 조치
 ```
+IPIDEA Residential Proxy Network:
+Infection Vectors: Android TV Boxes, Fake Earning Apps, SDK-Embedded Apps, Windows Trojans, Play Store Apps (600+)
+→ IPIDEA Proxy Network: 6.1M IPs Daily, 69K New IPs/Day, 7,400 C2 Servers
+→ Abuse: Ad Fraud, Credential Stuffing, DDoS, Spam, Account Takeover (550+ Threat Groups)
+```
+
+</details>
 
 #### 감염 벡터 상세 분석
 
@@ -857,42 +823,20 @@ IPIDEA 레지덴셜 프록시 네트워크 구조
 
 #### 감염 SDK 동작 원리
 
-```
-SDK 기반 감염 프로세스
-========================
+![SDK-Based Proxy Infection Process - 7-step flow from legitimate developer to IPIDEA proxy pool registration](/assets/images/diagrams/2026-01-30-sdk-infection-process.svg)
 
-정상 앱 개발자
-     |
-     | 1. SDK 통합 (수익화 목적)
-     |    Castar/Packet SDK
-     v
-앱 빌드 + SDK 포함
-     |
-     | 2. Google Play 배포
-     v
-사용자 장비 설치
-     |
-     | 3. SDK 초기화
-     v
-┌────────────────────────────────┐
-│ SDK 악성 동작                   │
-│                                 │
-│ a. C2 서버 연결                │
-│    (7,400 Tier 2 서버)         │
-│ b. 장비 등록                    │
-│    (IP, 위치, 대역폭 전송)     │
-│ c. SOCKS5 프록시 활성화        │
-│    (백그라운드 실행)            │
-│ d. 트래픽 릴레이 시작           │
-│    (위협 그룹 트래픽 중계)     │
-│ e. 주기적 상태 보고             │
-│    (가용 대역폭, 온라인 상태)  │
-└────────────────────────────────┘
-     |
-     v
-IPIDEA 프록시 풀에 등록
-(6.1M IP 중 하나로 활용)
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
+SDK-Based Proxy Infection Process:
+1. Legitimate App Developer → 2. SDK Integration (Castar/Packet) → 3. App Build
+→ 4. Google Play Distribution → 5. User Device Installation
+→ 6. SDK Malicious Behavior (C2, SOCKS5 Proxy, Traffic Relay)
+→ 7. Registered in IPIDEA Proxy Pool (6.1M IPs)
+```
+
+</details>
 
 ### 탐지 및 대응
 
@@ -1181,30 +1125,19 @@ Microsoft Security 팀이 **위협 보고서를 탐지 규칙으로 자동 변�
 
 ### AI 위협 탐지 워크플로우 아키텍처
 
-```
-Microsoft AI 위협 탐지 파이프라인
-==================================
+![Microsoft AI Threat Detection Pipeline - 3-column architecture: Input sources, AI Processing engines, Output rules and reports](/assets/images/diagrams/2026-01-30-ai-threat-detection-pipeline.svg)
 
-INPUT                    AI PROCESSING              OUTPUT
-=====                    =============              ======
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
 
-위협 보고서              ┌─────────────────┐
-(The Hacker News,       │                 │        탐지 규칙
-CISA Advisories,  ─────>│ 1. TTP 추출     │───┐    (KQL/Sigma/YARA)
-Vendor Advisories)      │    AI Engine    │   │
-                        └─────────────────┘   │
-                                              │   ┌──────────────┐
-                        ┌─────────────────┐   ├──>│ Detection    │
-기존 탐지 규칙    ─────>│ 2. 커버리지     │   │   │ Rules        │
-(Sentinel Rules,        │    매핑 엔진    │───┤   │ (자동 생성)   │
- Defender Rules)        └─────────────────┘   │   └──────────────┘
-                                              │
-                        ┌─────────────────┐   │   ┌──────────────┐
-MITRE ATT&CK     ─────>│ 3. 갭 식별     │───┘   │ Coverage     │
-매트릭스                │    분석 엔진    │──────>│ Gap Report   │
-                        └─────────────────┘       │ (우선순위)    │
-                                                  └──────────────┘
 ```
+Microsoft AI Threat Detection Pipeline:
+INPUT: Threat Reports, Existing Detection Rules, MITRE ATT&CK Matrix
+→ AI PROCESSING: 1. TTP Extraction Engine, 2. Coverage Mapping, 3. Gap Analysis
+→ OUTPUT: Detection Rules (KQL/Sigma/YARA), Coverage Gap Report (Prioritized)
+```
+
+</details>
 
 ### 3대 핵심 기능
 
@@ -1212,28 +1145,22 @@ MITRE ATT&CK     ─────>│ 3. 갭 식별     │───┘   │ Cov
 
 AI 엔진이 비정형 위협 보고서에서 MITRE ATT&CK 프레임워크에 매핑되는 TTP를 자동 추출합니다.
 
-```
-TTP 자동 추출 예시
-===================
+![AI TTP Extraction Result - MITRE ATT&CK mapping table showing 4 tactics extracted from threat report](/assets/images/diagrams/2026-01-30-mitre-attack-extraction.svg)
 
-입력 (위협 보고서 텍스트):
-"The threat actor used spear-phishing emails with malicious
- Excel attachments containing macros. After initial access,
- they deployed Cobalt Strike beacons via PowerShell and
- established persistence through scheduled tasks."
+**입력 예시 (위협 보고서):**
+> "The threat actor used spear-phishing emails with malicious Excel attachments containing macros. After initial access, they deployed Cobalt Strike beacons via PowerShell and established persistence through scheduled tasks."
 
-AI 추출 결과:
-┌────────────────────────────────────────────────────┐
-│ Tactic          │ Technique       │ Sub-technique  │
-├─────────────────┼─────────────────┼────────────────┤
-│ Initial Access  │ T1566.001      │ Spear-phishing │
-│                 │                 │ Attachment     │
-│ Execution       │ T1059.001      │ PowerShell     │
-│ Persistence     │ T1053.005      │ Scheduled Task │
-│ Command & Ctrl  │ T1071.001      │ Web Protocols  │
-│                 │                 │ (Cobalt Strike)│
-└────────────────────────────────────────────────────┘
-```
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
+| Tactic | Technique | Sub-technique |
+|--------|-----------|---------------|
+| Initial Access | T1566.001 | Spear-phishing Attachment |
+| Execution | T1059.001 | PowerShell |
+| Persistence | T1053.005 | Scheduled Task |
+| Command & Control | T1071.001 | Web Protocols (Cobalt Strike) |
+
+</details>
 
 #### 2. 탐지 커버리지 매핑
 
@@ -1718,55 +1645,20 @@ alert tcp any any -> $OT_NETWORK $MODBUS_PORTS (
 
 ### IT/OT 세그멘테이션 아키텍처 권장
 
-```
-IT/OT 세그멘테이션 모범 아키텍처
-==================================
+![IT/OT Segmentation Architecture - 4-tier Purdue model: IT Network, DMZ, OT Network, Control Network with firewall layers](/assets/images/diagrams/2026-01-30-it-ot-segmentation-architecture.svg)
 
-인터넷
-  |
-  | [방화벽 Layer 1]
-  v
-┌─────────────────────────────────┐
-│          IT 네트워크             │
-│  - 업무 PC, 이메일, 웹          │
-│  - VLAN 10, 20, 30              │
-└─────────────────┬───────────────┘
-                  |
-         [방화벽 Layer 2]
-         [DMZ / Data Diode]
-                  |
-┌─────────────────┴───────────────┐
-│      IT/OT DMZ (Level 3.5)     │
-│  - Historian Server             │
-│  - Patch Management             │
-│  - AV Update Server             │
-│  - Jump Server (MFA 필수)      │
-└─────────────────┬───────────────┘
-                  |
-         [방화벽 Layer 3]
-         [단방향 게이트웨이]
-                  |
-┌─────────────────┴───────────────┐
-│      OT 네트워크 (Level 2-3)    │
-│  - SCADA 서버                   │
-│  - HMI 워크스테이션             │
-│  - Engineering 워크스테이션      │
-│  - VLAN 100, 110                │
-│                                  │
-│  [IDS 배포: Suricata/Zeek]     │
-│  [자산관리: OT Asset Inventory] │
-└─────────────────┬───────────────┘
-                  |
-         [방화벽 Layer 4]
-                  |
-┌─────────────────┴───────────────┐
-│      제어 네트워크 (Level 0-1)   │
-│  - PLC, RTU, IED                │
-│  - 보호 릴레이                   │
-│  - 필드 장비                     │
-│  - VLAN 200 (완전 격리)         │
-└─────────────────────────────────┘
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
+IT/OT Segmentation Architecture (Purdue Model):
+Internet → [Firewall L1] → IT Network (VLAN 10-30)
+→ [Firewall L2 / DMZ] → IT/OT DMZ Level 3.5 (Historian, Patch Mgmt, Jump Server)
+→ [Firewall L3 / Unidirectional Gateway] → OT Network Level 2-3 (SCADA, HMI, IDS)
+→ [Firewall L4] → Control Network Level 0-1 (PLC, RTU, IED - Fully Isolated VLAN 200)
+```
+
+</details>
 
 ### 참고 링크
 

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+    <linearGradient id="darkRedGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#b91c1c"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="10" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="320" fill="#0d1117" rx="8"/>
+  <text x="400" y="32" text-anchor="middle" fill="#f1f5f9" font-size="18" font-weight="bold">Fortinet FortiGate SSO Bypass Attack Flow</text>
+
+  <!-- Step 1: Attacker -->
+  <rect x="30" y="65" width="200" height="75" rx="10" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <text x="130" y="95" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="bold">Attacker</text>
+  <text x="130" y="118" text-anchor="middle" fill="#fca5a5" font-size="11">Unauthenticated access</text>
+
+  <line x1="230" y1="102" x2="280" y2="102" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: FortiCloud SSO -->
+  <rect x="290" y="65" width="220" height="75" rx="10" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <text x="400" y="95" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="bold">FortiCloud SSO</text>
+  <text x="400" y="118" text-anchor="middle" fill="#fca5a5" font-size="11">Authentication Bypass</text>
+
+  <line x1="510" y1="102" x2="560" y2="102" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: FortiGate Admin -->
+  <rect x="570" y="65" width="200" height="75" rx="10" fill="url(#darkRedGrad)" filter="url(#shadow)"/>
+  <text x="670" y="95" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="bold">FortiGate Admin</text>
+  <text x="670" y="118" text-anchor="middle" fill="#fca5a5" font-size="11">Super-admin access</text>
+
+  <!-- Arrow down from Admin to Policy -->
+  <line x1="670" y1="140" x2="670" y2="185" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: Policy Change -->
+  <rect x="470" y="195" width="300" height="75" rx="10" fill="url(#darkRedGrad)" filter="url(#shadow)"/>
+  <text x="620" y="225" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="bold">Policy Change / Disable</text>
+  <text x="620" y="248" text-anchor="middle" fill="#fca5a5" font-size="11">Backdoor installation</text>
+
+  <!-- Direct arrow from Attacker to Policy (long bypass) -->
+  <path d="M 130 140 L 130 235 L 460 235" stroke="#f87171" stroke-width="1.5" fill="none" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+  <text x="280" y="252" text-anchor="middle" fill="#f87171" font-size="10">Direct policy manipulation</text>
+
+  <!-- CVE badge -->
+  <rect x="270" y="288" width="260" height="22" rx="11" fill="#7f1d1d" stroke="#ef4444" stroke-width="1"/>
+  <text x="400" y="303" text-anchor="middle" fill="#fca5a5" font-size="11">FortiOS + FortiProxy | Super-Admin Hijack</text>
+</svg>

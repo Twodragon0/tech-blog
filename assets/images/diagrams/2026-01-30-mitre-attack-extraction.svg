@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 290" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="700" height="290" fill="#0d1117" rx="8"/>
+  <text x="350" y="30" text-anchor="middle" fill="#f1f5f9" font-size="18" font-weight="bold">AI TTP Extraction Result</text>
+  <text x="350" y="48" text-anchor="middle" fill="#64748b" font-size="11">MITRE ATT&amp;CK Framework Mapping</text>
+
+  <!-- Table header -->
+  <rect x="50" y="65" width="200" height="35" rx="4" fill="#1e40af"/>
+  <rect x="250" y="65" width="200" height="35" rx="0" fill="#1e40af"/>
+  <rect x="450" y="65" width="200" height="35" rx="4" fill="#1e40af"/>
+  <text x="150" y="87" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Tactic</text>
+  <text x="350" y="87" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Technique</text>
+  <text x="550" y="87" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Sub-technique</text>
+
+  <!-- Row 1 -->
+  <rect x="50" y="100" width="200" height="40" fill="#1e293b"/>
+  <rect x="250" y="100" width="200" height="40" fill="#1e293b"/>
+  <rect x="450" y="100" width="200" height="40" fill="#1e293b"/>
+  <text x="150" y="124" text-anchor="middle" fill="#f87171" font-size="12" font-weight="bold">Initial Access</text>
+  <text x="350" y="124" text-anchor="middle" fill="#e2e8f0" font-size="12">T1566.001</text>
+  <text x="550" y="124" text-anchor="middle" fill="#94a3b8" font-size="11">Spear-phishing Attachment</text>
+
+  <!-- Row 2 -->
+  <rect x="50" y="140" width="200" height="40" fill="#0f172a"/>
+  <rect x="250" y="140" width="200" height="40" fill="#0f172a"/>
+  <rect x="450" y="140" width="200" height="40" fill="#0f172a"/>
+  <text x="150" y="164" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="bold">Execution</text>
+  <text x="350" y="164" text-anchor="middle" fill="#e2e8f0" font-size="12">T1059.001</text>
+  <text x="550" y="164" text-anchor="middle" fill="#94a3b8" font-size="11">PowerShell</text>
+
+  <!-- Row 3 -->
+  <rect x="50" y="180" width="200" height="40" fill="#1e293b"/>
+  <rect x="250" y="180" width="200" height="40" fill="#1e293b"/>
+  <rect x="450" y="180" width="200" height="40" fill="#1e293b"/>
+  <text x="150" y="204" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="bold">Persistence</text>
+  <text x="350" y="204" text-anchor="middle" fill="#e2e8f0" font-size="12">T1053.005</text>
+  <text x="550" y="204" text-anchor="middle" fill="#94a3b8" font-size="11">Scheduled Task</text>
+
+  <!-- Row 4 -->
+  <rect x="50" y="220" width="200" height="40" fill="#0f172a"/>
+  <rect x="250" y="220" width="200" height="40" fill="#0f172a"/>
+  <rect x="450" y="220" width="200" height="40" fill="#0f172a"/>
+  <text x="150" y="244" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="bold">Command &amp; Control</text>
+  <text x="350" y="244" text-anchor="middle" fill="#e2e8f0" font-size="12">T1071.001</text>
+  <text x="550" y="244" text-anchor="middle" fill="#94a3b8" font-size="11">Web Protocols (Cobalt Strike)</text>
+
+  <!-- Table border -->
+  <rect x="50" y="65" width="600" height="195" rx="4" fill="none" stroke="#334155" stroke-width="1"/>
+  <line x1="250" y1="65" x2="250" y2="260" stroke="#334155" stroke-width="0.5"/>
+  <line x1="450" y1="65" x2="450" y2="260" stroke="#334155" stroke-width="0.5"/>
+</svg>
