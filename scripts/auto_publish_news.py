@@ -494,69 +494,165 @@ def _generate_devops_template() -> str:
 
 
 # ============================================================================
-# SVG 이미지 생성
+# SVG 이미지 생성 - 고품질 카드 기반 레이아웃
 # ============================================================================
+
+# 카테고리별 그라디언트 및 아이콘 설정
+CATEGORY_SVG_CONFIG = {
+    "security": {
+        "gradient": ("dc2626", "991b1b"),  # red
+        "label": "SECURITY",
+        "icon": "!",
+        "icon_color": "#dc2626",
+    },
+    "cloud": {
+        "gradient": ("10b981", "059669"),  # green
+        "label": "CLOUD",
+        "icon": "AWS",
+        "icon_color": "#10b981",
+    },
+    "devops": {
+        "gradient": ("f59e0b", "d97706"),  # orange
+        "label": "DEVOPS",
+        "icon": "DEV",
+        "icon_color": "#f59e0b",
+    },
+    "tech": {
+        "gradient": ("3b82f6", "1d4ed8"),  # blue
+        "label": "TECH",
+        "icon": "AI",
+        "icon_color": "#3b82f6",
+    },
+    "devsecops": {
+        "gradient": ("8b5cf6", "6d28d9"),  # purple
+        "label": "DEVSECOPS",
+        "icon": "SEC",
+        "icon_color": "#8b5cf6",
+    },
+}
+
+
+def _escape_svg_text(text: str) -> str:
+    """SVG 텍스트 이스케이프 처리"""
+    return (
+        text.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+        .replace("'", "&#39;")
+    )
+
+
+def _truncate_text(text: str, max_len: int) -> str:
+    """텍스트 길이 제한 (영문 기준)"""
+    if len(text) <= max_len:
+        return text
+    return text[: max_len - 3] + "..."
+
+
+def _extract_key_topics(news_items: List[Dict]) -> List[str]:
+    """뉴스에서 핵심 토픽 추출"""
+    topics = []
+    keywords = [
+        "Zero-Day",
+        "CVE",
+        "Vulnerability",
+        "Patch",
+        "Update",
+        "AI",
+        "ML",
+        "Cloud",
+        "Kubernetes",
+        "Docker",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Security",
+        "Threat",
+        "Malware",
+        "Ransomware",
+        "Botnet",
+    ]
+
+    for item in news_items[:6]:
+        title = item.get("title", "")
+        for kw in keywords:
+            if kw.lower() in title.lower() and kw not in topics:
+                topics.append(kw)
+                if len(topics) >= 4:
+                    return topics
+    return topics[:4] if topics else ["Security", "Cloud", "DevOps", "AI"]
 
 
 def generate_svg_image(
     date: datetime, categorized: Dict[str, List[Dict]], news_items: List[Dict]
 ) -> str:
-    """고품질 SVG 이미지 생성 (영어)"""
+    """고품질 SVG 이미지 생성 - 카드 기반 레이아웃"""
 
-    date_str = date.strftime("%Y.%m.%d")
-    month_year = date.strftime("%B %Y")
+    date_display = date.strftime("%B %d, %Y")
+    date_short = date.strftime("%Y.%m.%d")
 
     # 통계 계산
     total = sum(len(items) for items in categorized.values())
-    security_count = len(categorized.get("security", []))
-    cloud_count = len(categorized.get("cloud", []))
-    devops_count = len(categorized.get("devops", []))
-    tech_count = len(categorized.get("tech", []))
+    stats = {cat: len(items) for cat, items in categorized.items()}
 
-    # 상위 뉴스 제목 (영어만 사용)
-    top_news = []
-    for item in news_items[:3]:
-        title = item.get("title", "")[:50]
-        source = item.get("source_name", "")[:15]
-        category = item.get("category", "tech")
-        top_news.append((title, source, category))
+    # 핵심 토픽 추출
+    topics = _extract_key_topics(news_items)
+    subtitle_topics = " | ".join(topics)
 
-    # 첫 번째 보안 뉴스를 Critical로 표시
-    first_security = None
-    for item in news_items:
-        if item.get("category") in ("security", "devsecops"):
-            first_security = item.get("title", "")[:45]
-            break
+    # 상위 뉴스 6개 선택 (카드용)
+    top_items = news_items[:6]
 
+    # SVG 헤더 및 정의
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0f1a"/>
-      <stop offset="30%" style="stop-color:#1a1f35"/>
-      <stop offset="70%" style="stop-color:#0f172a"/>
-      <stop offset="100%" style="stop-color:#0a0f1a"/>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="50%" style="stop-color:#1a1a3e"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="25%" style="stop-color:#f97316"/>
-      <stop offset="50%" style="stop-color:#eab308"/>
-      <stop offset="75%" style="stop-color:#22c55e"/>
-      <stop offset="100%" style="stop-color:#3b82f6"/>
-    </linearGradient>
-    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1e293b"/>
       <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="alertGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#dc2626"/>
+    
+    <!-- Category Gradients -->
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    
+    <!-- Glow Filter -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-opacity="0.4"/>
+    
+    <!-- Shadow Filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
     </filter>
     <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
       <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.3" opacity="0.4"/>
@@ -565,139 +661,138 @@ def generate_svg_image(
       <circle cx="2" cy="2" r="0.8" fill="#475569" opacity="0.3"/>
     </pattern>
   </defs>
-
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
-  <rect width="1200" height="630" fill="url(#dots)"/>
-
-  <circle cx="0" cy="0" r="300" fill="#ef4444" opacity="0.03"/>
-  <circle cx="1200" cy="630" r="350" fill="#3b82f6" opacity="0.03"/>
-
-  <rect x="0" y="0" width="1200" height="5" fill="url(#accentGrad)"/>
-
-  <g transform="translate(40, 25)">
-    <rect width="120" height="40" rx="20" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-    <text x="60" y="26" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">{date_str}</text>
-  </g>
-
-  <text x="600" y="100" font-family="system-ui, sans-serif" font-size="44" font-weight="800" fill="#f8fafc" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="140" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">DevSecOps Insights - {total} News Analyzed</text>
-
-  <rect x="350" y="160" width="500" height="2" fill="url(#accentGrad)" rx="1"/>
+  
+  <!-- Decorative Circles -->
+  <circle cx="100" cy="100" r="200" fill="#3b82f6" fill-opacity="0.05"/>
+  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
+  <circle cx="600" cy="315" r="300" fill="#dc2626" fill-opacity="0.03"/>
+  
+  <!-- Header Section -->
+  <rect x="40" y="30" width="200" height="36" rx="18" fill="url(#redGradient)" filter="url(#shadow)"/>
+  <text x="140" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">WEEKLY DIGEST</text>
+  
+  <!-- Date Badge -->
+  <rect x="960" y="30" width="200" height="36" rx="18" fill="url(#blueGradient)" filter="url(#shadow)"/>
+  <text x="1060" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">{date_display}</text>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
+  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">{_escape_svg_text(subtitle_topics)}</text>
 '''
 
-    # Critical Alert Card (if security news exists)
-    if first_security:
+    # 카드 레이아웃 생성 (최대 6개 카드, 3x2 그리드)
+    card_positions = [
+        (50, 190, 340, 180),  # Row 1, Card 1
+        (430, 190, 340, 180),  # Row 1, Card 2
+        (810, 190, 340, 180),  # Row 1, Card 3
+        (50, 400, 340, 160),  # Row 2, Card 1
+        (430, 400, 340, 160),  # Row 2, Card 2
+        (810, 400, 340, 160),  # Row 2, Card 3
+    ]
+
+    gradient_map = {
+        "security": "redGradient",
+        "devsecops": "purpleGradient",
+        "cloud": "greenGradient",
+        "devops": "orangeGradient",
+        "tech": "blueGradient",
+    }
+
+    for idx, item in enumerate(top_items):
+        if idx >= len(card_positions):
+            break
+
+        x, y, width, height = card_positions[idx]
+        category = item.get("category", "tech")
+        if category in ("security", "devsecops"):
+            category_display = "security"
+        elif category in ("devops", "kubernetes"):
+            category_display = "devops"
+        else:
+            category_display = category
+
+        config = CATEGORY_SVG_CONFIG.get(category_display, CATEGORY_SVG_CONFIG["tech"])
+        gradient = gradient_map.get(category_display, "blueGradient")
+
+        title = _escape_svg_text(_truncate_text(item.get("title", "News Update"), 35))
+        source = _escape_svg_text(
+            _truncate_text(item.get("source_name", item.get("source", "Source")), 15)
+        )
+
+        # 요약 또는 컨텐츠에서 핵심 정보 추출
+        summary = item.get("summary", item.get("content", ""))
+        summary_lines = []
+        if summary:
+            words = summary.split()
+            line = ""
+            for word in words:
+                if len(line + " " + word) > 40:
+                    summary_lines.append(line.strip())
+                    line = word
+                    if len(summary_lines) >= 2:
+                        break
+                else:
+                    line = line + " " + word if line else word
+            if line and len(summary_lines) < 2:
+                summary_lines.append(line.strip())
+
         svg += f'''
-  <g transform="translate(50, 190)">
-    <rect width="350" height="180" rx="16" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#ef4444" stroke-width="2"/>
-    <rect x="0" y="0" width="350" height="40" rx="16" fill="#ef4444" opacity="0.15"/>
-    <rect x="0" y="25" width="350" height="15" fill="#ef4444" opacity="0.15"/>
-    <g transform="translate(15, 10)">
-      <circle cx="10" cy="10" r="10" fill="#ef4444"/>
-      <text x="10" y="15" font-family="system-ui" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">!</text>
-    </g>
-    <text x="45" y="26" font-family="system-ui" font-size="14" font-weight="700" fill="#fca5a5">SECURITY ALERT</text>
-    <text x="20" y="65" font-family="system-ui" font-size="12" font-weight="600" fill="#f8fafc">{first_security[:40]}...</text>
-    <text x="20" y="90" font-family="system-ui" font-size="11" fill="#94a3b8">Review and apply patches immediately</text>
-    <g transform="translate(20, 110)">
-      <rect width="80" height="24" rx="6" fill="#dc2626"/>
-      <text x="40" y="16" font-family="system-ui" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">CRITICAL</text>
-    </g>
-    <g transform="translate(110, 110)">
-      <rect width="90" height="24" rx="6" fill="#f97316" opacity="0.2"/>
-      <text x="45" y="16" font-family="system-ui" font-size="10" font-weight="600" fill="#fb923c" text-anchor="middle">PATCH NOW</text>
-    </g>
-    <text x="20" y="165" font-family="system-ui" font-size="10" fill="#64748b">Source: The Hacker News</text>
+  <!-- Card {idx + 1}: {config["label"]} -->
+  <g transform="translate({x}, {y})">
+    <rect width="{width}" height="{height}" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="{width}" height="6" rx="3" fill="url(#{gradient})"/>
+    
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="url(#{gradient})" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="{config["icon_color"]}" text-anchor="middle">{config["icon"]}</text>
+    
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="{config["icon_color"]}">{config["label"]}</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">{title}</text>
+'''
+
+        # 요약 라인 추가
+        for line_idx, line in enumerate(summary_lines[:2]):
+            y_offset = 95 + line_idx * 18
+            svg += f'    <text x="20" y="{y_offset}" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">{_escape_svg_text(line)}</text>\n'
+
+        # 소스 배지
+        badge_y = height - 25 if height > 160 else height - 20
+        svg += f'''
+    <rect x="20" y="{badge_y}" width="100" height="18" rx="9" fill="url(#{gradient})" fill-opacity="0.2"/>
+    <text x="70" y="{badge_y + 13}" font-family="Arial, sans-serif" font-size="10" fill="{config["icon_color"]}" text-anchor="middle">{source}</text>
   </g>
 '''
 
-    # Top Headlines Card
+    # Footer 섹션
     svg += f'''
-  <g transform="translate(420, 190)">
-    <rect width="730" height="180" rx="16" fill="url(#cardGrad)" filter="url(#shadow)"/>
-    <text x="365" y="30" font-family="system-ui" font-size="16" font-weight="600" fill="#f8fafc" text-anchor="middle">Top Headlines</text>
-'''
-
-    colors = {"security": "#ef4444", "devsecops": "#ef4444", "cloud": "#22c55e", "devops": "#f59e0b", "tech": "#3b82f6"}
-    for i, (title, source, category) in enumerate(top_news):
-        y_pos = 55 + i * 40
-        color = colors.get(category, "#3b82f6")
-        svg += f'''    <g transform="translate(20, {y_pos})">
-      <circle cx="8" cy="8" r="6" fill="{color}"/>
-      <text x="25" y="12" font-family="system-ui" font-size="12" font-weight="600" fill="#e2e8f0">{title}...</text>
-      <text x="680" y="12" font-family="system-ui" font-size="10" fill="#64748b" text-anchor="end">{source}</text>
-    </g>
-'''
-
-    svg += """  </g>
-"""
-
-    # Stats Section
-    svg += f'''
-  <g transform="translate(50, 390)">
-    <rect width="1100" height="100" rx="16" fill="url(#cardGrad)" filter="url(#shadow)"/>
-    <g transform="translate(80, 25)">
-      <text x="0" y="0" font-family="system-ui" font-size="32" font-weight="800" fill="#f8fafc">{total}</text>
-      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#94a3b8">Total News</text>
-    </g>
-    <g transform="translate(250, 25)">
-      <text x="0" y="0" font-family="system-ui" font-size="32" font-weight="800" fill="#ef4444">{security_count}</text>
-      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#fca5a5">Security</text>
-      <rect x="0" y="35" width="100" height="6" rx="3" fill="#1e293b"/>
-      <rect x="0" y="35" width="{min(security_count * 20, 100)}" height="6" rx="3" fill="#ef4444"/>
-    </g>
-    <g transform="translate(450, 25)">
-      <text x="0" y="0" font-family="system-ui" font-size="32" font-weight="800" fill="#22c55e">{cloud_count}</text>
-      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#4ade80">Cloud</text>
-      <rect x="0" y="35" width="100" height="6" rx="3" fill="#1e293b"/>
-      <rect x="0" y="35" width="{min(cloud_count * 20, 100)}" height="6" rx="3" fill="#22c55e"/>
-    </g>
-    <g transform="translate(650, 25)">
-      <text x="0" y="0" font-family="system-ui" font-size="32" font-weight="800" fill="#f59e0b">{devops_count}</text>
-      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#fbbf24">DevOps</text>
-      <rect x="0" y="35" width="100" height="6" rx="3" fill="#1e293b"/>
-      <rect x="0" y="35" width="{min(devops_count * 20, 100)}" height="6" rx="3" fill="#f59e0b"/>
-    </g>
-    <g transform="translate(850, 25)">
-      <text x="0" y="0" font-family="system-ui" font-size="32" font-weight="800" fill="#3b82f6">{tech_count}</text>
-      <text x="0" y="22" font-family="system-ui" font-size="11" fill="#60a5fa">Tech</text>
-      <rect x="0" y="35" width="100" height="6" rx="3" fill="#1e293b"/>
-      <rect x="0" y="35" width="{min(tech_count * 20, 100)}" height="6" rx="3" fill="#3b82f6"/>
-    </g>
+  <!-- Footer -->
+  <line x1="50" y1="585" x2="1150" y2="585" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Stats -->
+  <g transform="translate(50, 600)">
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">{total} News Collected</text>
   </g>
-'''
-
-    # Footer
-    svg += f'''
-  <rect x="0" y="510" width="1200" height="120" fill="#0a0f1a" opacity="0.9"/>
-
-  <text x="60" y="555" font-family="system-ui" font-size="24" font-weight="800" fill="#f8fafc">Twodragon</text>
-  <text x="60" y="580" font-family="system-ui" font-size="13" fill="#64748b">tech.2twodragon.com</text>
-
-  <g transform="translate(350, 545)">
-    <rect width="85" height="26" rx="13" fill="#ef4444" opacity="0.2"/>
-    <text x="42" y="18" font-family="system-ui" font-size="10" fill="#fca5a5" text-anchor="middle">#Security</text>
+  <g transform="translate(250, 600)">
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">{stats.get("security", 0)} Security</text>
   </g>
-  <g transform="translate(445, 545)">
-    <rect width="95" height="26" rx="13" fill="#3b82f6" opacity="0.2"/>
-    <text x="47" y="18" font-family="system-ui" font-size="10" fill="#60a5fa" text-anchor="middle">#DevSecOps</text>
+  <g transform="translate(400, 600)">
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">{stats.get("cloud", 0)} Cloud</text>
   </g>
-  <g transform="translate(550, 545)">
-    <rect width="70" height="26" rx="13" fill="#22c55e" opacity="0.2"/>
-    <text x="35" y="18" font-family="system-ui" font-size="10" fill="#4ade80" text-anchor="middle">#Cloud</text>
+  <g transform="translate(520, 600)">
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">{stats.get("devops", 0)} DevOps</text>
   </g>
-  <g transform="translate(630, 545)">
-    <rect width="75" height="26" rx="13" fill="#8b5cf6" opacity="0.2"/>
-    <text x="37" y="18" font-family="system-ui" font-size="10" fill="#a78bfa" text-anchor="middle">#Weekly</text>
-  </g>
-
-  <g transform="translate(1020, 540)">
-    <rect width="130" height="42" rx="21" fill="url(#accentGrad)" filter="url(#shadow)"/>
-    <text x="65" y="27" font-family="system-ui" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Read More</text>
-  </g>
-
-  <rect x="0" y="625" width="1200" height="5" fill="url(#accentGrad)"/>
+  
+  <!-- Blog Info -->
+  <text x="1150" y="612" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>'''
 
     return svg

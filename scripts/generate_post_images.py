@@ -750,6 +750,280 @@ def generate_video(image_path: Path, audio_path: Path, output_path: Path) -> boo
         return False
 
 
+# ============================================================================
+# SVG 폴백 이미지 생성 - API 없이도 고품질 이미지 생성
+# ============================================================================
+
+CATEGORY_SVG_CONFIG = {
+    "security": {
+        "gradient_start": "#dc2626",
+        "gradient_end": "#991b1b",
+        "gradient_id": "redGradient",
+        "label": "SECURITY",
+        "icon": "!",
+        "accent": "#ef4444",
+    },
+    "devsecops": {
+        "gradient_start": "#8b5cf6",
+        "gradient_end": "#6d28d9",
+        "gradient_id": "purpleGradient",
+        "label": "DEVSECOPS",
+        "icon": "SEC",
+        "accent": "#a78bfa",
+    },
+    "cloud": {
+        "gradient_start": "#10b981",
+        "gradient_end": "#059669",
+        "gradient_id": "greenGradient",
+        "label": "CLOUD",
+        "icon": "AWS",
+        "accent": "#34d399",
+    },
+    "devops": {
+        "gradient_start": "#f59e0b",
+        "gradient_end": "#d97706",
+        "gradient_id": "orangeGradient",
+        "label": "DEVOPS",
+        "icon": "DEV",
+        "accent": "#fbbf24",
+    },
+    "kubernetes": {
+        "gradient_start": "#3b82f6",
+        "gradient_end": "#1d4ed8",
+        "gradient_id": "blueGradient",
+        "label": "KUBERNETES",
+        "icon": "K8S",
+        "accent": "#60a5fa",
+    },
+    "finops": {
+        "gradient_start": "#14b8a6",
+        "gradient_end": "#0d9488",
+        "gradient_id": "tealGradient",
+        "label": "FINOPS",
+        "icon": "$",
+        "accent": "#2dd4bf",
+    },
+    "incident": {
+        "gradient_start": "#ef4444",
+        "gradient_end": "#b91c1c",
+        "gradient_id": "alertGradient",
+        "label": "INCIDENT",
+        "icon": "!!",
+        "accent": "#f87171",
+    },
+    "tech": {
+        "gradient_start": "#3b82f6",
+        "gradient_end": "#1d4ed8",
+        "gradient_id": "blueGradient",
+        "label": "TECH",
+        "icon": "AI",
+        "accent": "#60a5fa",
+    },
+}
+
+
+def _escape_svg_text(text: str) -> str:
+    """SVG 텍스트 이스케이프"""
+    if not text:
+        return ""
+    return (
+        text.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+        .replace("'", "&#39;")
+    )
+
+
+def _truncate_title(title: str, max_len: int = 50) -> str:
+    """제목 길이 제한"""
+    if not title:
+        return "Tech Blog Post"
+    if len(title) <= max_len:
+        return title
+    return title[: max_len - 3] + "..."
+
+
+def _extract_keywords_from_title(title: str) -> list:
+    """제목에서 키워드 추출"""
+    keywords = []
+    tech_terms = [
+        "AI",
+        "ML",
+        "Security",
+        "Cloud",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Kubernetes",
+        "K8s",
+        "Docker",
+        "DevOps",
+        "DevSecOps",
+        "API",
+        "Terraform",
+        "CI/CD",
+        "Zero-Day",
+        "CVE",
+        "Vulnerability",
+        "Patch",
+        "Update",
+        "Release",
+    ]
+    for term in tech_terms:
+        if term.lower() in title.lower():
+            keywords.append(term)
+        if len(keywords) >= 4:
+            break
+    return keywords if keywords else ["Tech", "Blog", "Update"]
+
+
+def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
+    """API 없이 고품질 SVG 이미지 생성"""
+    try:
+        title = post_info.get("title", "Tech Blog Post")
+        category = post_info.get("category", "tech").lower()
+        tags = post_info.get("tags", [])
+        excerpt = post_info.get("excerpt", "")
+        highlights = post_info.get("highlights", [])
+
+        config = CATEGORY_SVG_CONFIG.get(category, CATEGORY_SVG_CONFIG["tech"])
+
+        display_title = _escape_svg_text(_truncate_title(title, 45))
+        keywords = _extract_keywords_from_title(title)
+        subtitle = " | ".join(keywords[:4])
+
+        display_tags = tags[:4] if tags else keywords[:4]
+
+        summary_lines = []
+        if highlights:
+            for h in highlights[:3]:
+                clean_h = re.sub(r"<[^>]+>", "", h)
+                if len(clean_h) > 60:
+                    clean_h = clean_h[:57] + "..."
+                summary_lines.append(_escape_svg_text(clean_h))
+        elif excerpt:
+            words = excerpt.split()
+            line = ""
+            for word in words:
+                test_line = f"{line} {word}".strip()
+                if len(test_line) > 60:
+                    summary_lines.append(_escape_svg_text(line))
+                    line = word
+                    if len(summary_lines) >= 3:
+                        break
+                else:
+                    line = test_line
+            if line and len(summary_lines) < 3:
+                summary_lines.append(_escape_svg_text(line))
+
+        date_str = datetime.now().strftime("%B %d, %Y")
+
+        svg_content = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="50%" style="stop-color:#1a1a3e"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="{config["gradient_id"]}" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:{config["gradient_start"]}"/>
+      <stop offset="100%" style="stop-color:{config["gradient_end"]}"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#ec4899"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <circle cx="100" cy="100" r="200" fill="{config["accent"]}" fill-opacity="0.05"/>
+  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
+  <circle cx="600" cy="315" r="300" fill="{config["gradient_start"]}" fill-opacity="0.03"/>
+
+  <rect x="40" y="30" width="180" height="36" rx="18" fill="url(#{config["gradient_id"]})" filter="url(#shadow)"/>
+  <text x="130" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">{config["label"]}</text>
+
+  <rect x="980" y="30" width="180" height="36" rx="18" fill="url(#accentGradient)" filter="url(#shadow)"/>
+  <text x="1070" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">{date_str}</text>
+
+  <text x="600" y="120" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{display_title}</text>
+  <text x="600" y="160" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">{_escape_svg_text(subtitle)}</text>
+
+  <rect x="350" y="185" width="500" height="3" fill="url(#accentGradient)" rx="1.5"/>
+
+  <g transform="translate(100, 220)">
+    <rect width="1000" height="280" rx="20" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1000" height="8" rx="4" fill="url(#{config["gradient_id"]})"/>
+
+    <circle cx="60" cy="70" r="35" fill="url(#{config["gradient_id"]})" fill-opacity="0.2"/>
+    <text x="60" y="78" font-family="Arial, sans-serif" font-size="20" fill="{config["accent"]}" text-anchor="middle">{config["icon"]}</text>
+
+    <text x="120" y="60" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="{config["accent"]}">{config["label"]} POST</text>
+    <text x="120" y="85" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Featured Content</text>
+'''
+
+        if summary_lines:
+            for idx, line in enumerate(summary_lines[:3]):
+                y_offset = 130 + idx * 28
+                svg_content += f'    <text x="40" y="{y_offset}" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">{line}</text>\n'
+        else:
+            svg_content += '    <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Read the full article for detailed insights and analysis.</text>\n'
+            svg_content += '    <text x="40" y="158" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Stay updated with the latest tech and security news.</text>\n'
+
+        tag_x = 40
+        for idx, tag in enumerate(display_tags[:4]):
+            tag_text = _escape_svg_text(f"#{tag}" if not tag.startswith("#") else tag)
+            tag_width = len(tag_text) * 8 + 20
+            svg_content += f'''
+    <rect x="{tag_x}" y="220" width="{tag_width}" height="26" rx="13" fill="{config["accent"]}" fill-opacity="0.2"/>
+    <text x="{tag_x + tag_width // 2}" y="238" font-family="Arial, sans-serif" font-size="12" fill="{config["accent"]}" text-anchor="middle">{tag_text}</text>
+'''
+            tag_x += tag_width + 15
+
+        svg_content += '''
+    <rect x="820" y="210" width="140" height="45" rx="22" fill="url(#accentGradient)"/>
+    <text x="890" y="238" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+  </g>
+
+  <line x1="50" y1="560" x2="1150" y2="560" stroke="#334155" stroke-width="1"/>
+
+  <text x="60" y="590" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="60" y="612" font-family="Arial, sans-serif" font-size="13" fill="#64748b">tech.2twodragon.com</text>
+
+  <text x="1150" y="600" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security</text>
+</svg>'''
+
+        output_svg = output_path.with_suffix(".svg")
+        with open(output_svg, "w", encoding="utf-8") as f:
+            f.write(svg_content)
+
+        log_message(f"✅ SVG 폴백 이미지 생성 완료: {output_svg.name}", "SUCCESS")
+        return True
+
+    except Exception as e:
+        log_message(f"❌ SVG 폴백 이미지 생성 실패: {str(e)}", "ERROR")
+        return False
+
+
 def process_post(
     post_file: Path, force: bool = False, optimize_only: bool = False
 ) -> bool:
@@ -795,10 +1069,15 @@ def process_post(
     prompt = generate_image_prompt(post_info)
     log_message(f"📝 이미지 생성 프롬프트 생성 완료", "SUCCESS")
 
+    image_generated = False
     if GEMINI_API_KEY:
-        generate_image_with_gemini(prompt, output_path)
-    else:
-        save_prompt_file(prompt, output_path)
+        image_generated = generate_image_with_gemini(prompt, output_path)
+
+    if not image_generated:
+        log_message("🎨 SVG 폴백 이미지 생성 시도...", "INFO")
+        image_generated = generate_fallback_svg(post_info, output_path)
+        if not image_generated:
+            save_prompt_file(prompt, output_path)
 
     png_path = output_path.with_suffix(".png")
     if output_path.suffix == ".svg":

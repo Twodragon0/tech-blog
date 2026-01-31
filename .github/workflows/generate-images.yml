@@ -1,14 +1,14 @@
 name: Generate Post Images
 
 on:
-  workflow_dispatch:  # 수동 실행만 허용 (비용 관리)
+  workflow_dispatch:
     inputs:
       post_file:
-        description: '포스트 파일명 (예: 2026-01-10-2026년_DevSecOps_로드맵_완벽_가이드.md)'
+        description: 'Post filename (e.g., 2026-01-27-Post_Title.md)'
         required: false
         type: string
       image_type:
-        description: '이미지 생성 타입'
+        description: 'Image generation type'
         required: false
         type: choice
         options:
@@ -17,31 +17,38 @@ on:
           - both
         default: 'post'
       force:
-        description: '이미지가 있어도 강제로 재생성'
+        description: 'Force regenerate even if image exists'
         required: false
         type: boolean
         default: false
-  # push 이벤트는 주석 처리 (비용 관리)
-  # push:
-  #   paths:
-  #     - '_posts/**'
+      use_api:
+        description: 'Use Gemini API (false = SVG fallback only)'
+        required: false
+        type: boolean
+        default: false
+  
+  push:
+    branches: [main]
+    paths:
+      - '_posts/**'
 
 jobs:
   generate-images:
     runs-on: ubuntu-latest
-    # 보안: 최소 권한 원칙 적용
     permissions:
-      contents: read
+      contents: write
       actions: read
-    # 비용 관리: 실패 시 즉시 중단
     continue-on-error: false
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
@@ -53,147 +60,185 @@ jobs:
           if [ -f "scripts/requirements.txt" ]; then
             pip install -r scripts/requirements.txt
           else
-            pip install requests frontmatter pillow
+            pip install requests python-frontmatter pillow
           fi
 
-      - name: Verify GEMINI_API_KEY
+      - name: Check API Key Status
+        id: api_check
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          USE_API: ${{ github.event.inputs.use_api || 'false' }}
         run: |
-          # 보안: GitHub Secrets에 반드시 설정해야 함
-          if [ -z "$GEMINI_API_KEY" ]; then
-            echo "❌ GEMINI_API_KEY가 설정되지 않았습니다."
-            echo "GitHub Secrets에 GEMINI_API_KEY를 설정해주세요."
-            echo "설정 방법: .github/SECRETS_MANAGEMENT.md 참고"
-            echo ""
-            echo "GitHub CLI로 설정:"
-            echo "  gh secret set GEMINI_API_KEY --body 'your-gemini-api-key'"
-            exit 1
+          if [ "$USE_API" = "true" ] && [ -n "$GEMINI_API_KEY" ] && [ ${#GEMINI_API_KEY} -ge 20 ]; then
+            echo "api_available=true" >> $GITHUB_OUTPUT
+            echo "✅ Gemini API key available - will use API for image generation"
+          else
+            echo "api_available=false" >> $GITHUB_OUTPUT
+            echo "📝 Using SVG fallback generator (no API cost)"
+            if [ "$USE_API" = "true" ] && [ -z "$GEMINI_API_KEY" ]; then
+              echo "⚠️ API requested but GEMINI_API_KEY not set"
+            fi
           fi
+
+      - name: Find posts needing images
+        id: find_posts
+        if: github.event_name == 'push'
+        run: |
+          echo "🔍 Checking for posts without images..."
+          MISSING_IMAGES=""
           
-          # API 키 형식 검증 (보안 강화)
-          if [ ${#GEMINI_API_KEY} -lt 20 ]; then
-            echo "⚠️ GEMINI_API_KEY 형식이 올바르지 않을 수 있습니다. (최소 20자)"
-            echo "⚠️ 워크플로우는 계속 진행하지만 실패할 수 있습니다."
+          for post in _posts/*.md; do
+            if [ -f "$post" ]; then
+              IMAGE_PATH=$(grep -m1 "^image:" "$post" | sed 's/image: *//' | tr -d '"' | tr -d "'" || true)
+              if [ -n "$IMAGE_PATH" ]; then
+                ACTUAL_PATH="${IMAGE_PATH#/}"
+                if [ ! -f "$ACTUAL_PATH" ]; then
+                  MISSING_IMAGES="$MISSING_IMAGES $post"
+                fi
+              fi
+            fi
+          done
+          
+          if [ -n "$MISSING_IMAGES" ]; then
+            echo "posts_need_images=true" >> $GITHUB_OUTPUT
+            echo "posts=$MISSING_IMAGES" >> $GITHUB_OUTPUT
+            echo "Found posts needing images:$MISSING_IMAGES"
+          else
+            echo "posts_need_images=false" >> $GITHUB_OUTPUT
+            echo "All posts have images"
           fi
-          
-          echo "✅ GEMINI_API_KEY 검증 완료"
-          echo "🔒 보안: API 키 값은 로그에 출력되지 않습니다."
 
       - name: Generate Post Images
-        if: github.event.inputs.image_type == 'post' || github.event.inputs.image_type == 'both' || github.event.inputs.image_type == ''
+        if: |
+          (github.event_name == 'workflow_dispatch' && 
+           (github.event.inputs.image_type == 'post' || github.event.inputs.image_type == 'both' || github.event.inputs.image_type == '')) ||
+          (github.event_name == 'push' && steps.find_posts.outputs.posts_need_images == 'true')
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ steps.api_check.outputs.api_available == 'true' && secrets.GEMINI_API_KEY || '' }}
           USE_GEMINI_PRO_IMAGE: ${{ secrets.USE_GEMINI_PRO_IMAGE || 'false' }}
         run: |
-          echo "🎨 포스트 이미지 생성 시작..."
-          echo "💰 비용 관리: Gemini API 사용량 모니터링 권장"
-          echo "📊 사용량 확인: https://makersuite.google.com/app/apikey"
+          echo "🎨 Generating post images..."
+          
+          if [ "${{ steps.api_check.outputs.api_available }}" = "true" ]; then
+            echo "📡 Mode: Gemini API (with SVG fallback)"
+          else
+            echo "📝 Mode: SVG fallback only (no API cost)"
+          fi
           echo ""
           
           if [ -n "${{ github.event.inputs.post_file }}" ]; then
-            # 특정 포스트 파일 처리
             POST_FILE="_posts/${{ github.event.inputs.post_file }}"
             if [ ! -f "$POST_FILE" ]; then
-              echo "❌ 포스트 파일을 찾을 수 없습니다: $POST_FILE"
+              echo "❌ Post file not found: $POST_FILE"
               exit 1
             fi
-            echo "📄 처리할 포스트: $POST_FILE"
+            echo "📄 Processing: $POST_FILE"
             
             if [ "${{ github.event.inputs.force }}" = "true" ]; then
               python3 scripts/generate_post_images.py "$POST_FILE" --force
             else
               python3 scripts/generate_post_images.py "$POST_FILE"
             fi
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            echo "📄 Processing posts from push event..."
+            python3 scripts/generate_post_images.py --missing --recent 5
           else
-            # 최근 포스트 처리
-            echo "📄 최근 포스트 이미지 생성 중..."
+            echo "📄 Processing recent posts..."
             if [ "${{ github.event.inputs.force }}" = "true" ]; then
               python3 scripts/generate_post_images.py --recent 1 --force
             else
-              python3 scripts/generate_post_images.py --recent 1
+              python3 scripts/generate_post_images.py --recent 1 --missing
             fi
           fi
           
-          # 생성된 이미지 파일 확인
-          if [ -d "assets/images" ]; then
-            echo ""
-            echo "📦 생성된 이미지 파일:"
-            ls -lh assets/images/*.png assets/images/*.jpg 2>/dev/null | tail -n 10 || echo "⚠️ 이미지 파일이 생성되지 않았습니다."
-          fi
+          echo ""
+          echo "📦 Generated image files:"
+          ls -lh assets/images/*.svg assets/images/*.png assets/images/*.jpg 2>/dev/null | tail -n 10 || echo "No new images generated"
 
       - name: Generate Segment Images
         if: github.event.inputs.image_type == 'segment' || github.event.inputs.image_type == 'both'
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ steps.api_check.outputs.api_available == 'true' && secrets.GEMINI_API_KEY || '' }}
           USE_GEMINI_PRO_IMAGE: ${{ secrets.USE_GEMINI_PRO_IMAGE || 'false' }}
         run: |
-          echo "🎨 세그먼트 이미지 생성 시작..."
-          echo "💰 비용 관리: Gemini API 사용량 모니터링 권장"
-          echo "📊 사용량 확인: https://makersuite.google.com/app/apikey"
-          echo ""
+          echo "🎨 Generating segment images..."
           
           if [ -n "${{ github.event.inputs.post_file }}" ]; then
-            # 특정 포스트의 세그먼트 이미지 생성
             POST_BASENAME=$(basename "${{ github.event.inputs.post_file }}" .md)
             SEGMENTS_JSON="output/${POST_BASENAME}_script_segments.json"
             
             if [ ! -f "$SEGMENTS_JSON" ]; then
-              echo "⚠️ 세그먼트 JSON 파일을 찾을 수 없습니다: $SEGMENTS_JSON"
-              echo "💡 먼저 오디오 생성 스크립트를 실행하여 세그먼트 파일을 생성하세요."
+              echo "⚠️ Segment JSON not found: $SEGMENTS_JSON"
+              echo "💡 Run audio generation script first to create segment files."
               exit 1
             fi
             
-            echo "📄 처리할 세그먼트: $SEGMENTS_JSON"
+            echo "📄 Processing: $SEGMENTS_JSON"
             python3 scripts/generate_segment_images.py "$POST_BASENAME"
           else
-            # 최근 세그먼트 파일 찾기
-            RECENT_SEGMENTS=$(find output -name "*_script_segments.json" -type f | sort -r | head -n 1)
+            RECENT_SEGMENTS=$(find output -name "*_script_segments.json" -type f 2>/dev/null | sort -r | head -n 1)
             
             if [ -z "$RECENT_SEGMENTS" ]; then
-              echo "⚠️ 세그먼트 JSON 파일을 찾을 수 없습니다."
-              echo "💡 먼저 오디오 생성 스크립트를 실행하여 세그먼트 파일을 생성하세요."
-              exit 1
+              echo "⚠️ No segment JSON files found."
+              echo "💡 Run audio generation script first to create segment files."
+              exit 0
             fi
             
             POST_BASENAME=$(basename "$RECENT_SEGMENTS" _script_segments.json)
-            echo "📄 처리할 세그먼트: $POST_BASENAME"
+            echo "📄 Processing: $POST_BASENAME"
             python3 scripts/generate_segment_images.py "$POST_BASENAME"
           fi
           
-          # 생성된 이미지 파일 확인
-          if [ -d "assets/images" ]; then
-            echo ""
-            echo "📦 생성된 세그먼트 이미지 파일:"
-            ls -lh assets/images/*segment*.png 2>/dev/null | tail -n 10 || echo "⚠️ 세그먼트 이미지 파일이 생성되지 않았습니다."
+          echo ""
+          echo "📦 Generated segment images:"
+          ls -lh assets/images/*segment*.png 2>/dev/null | tail -n 10 || echo "No segment images generated"
+
+      - name: Commit generated images
+        if: github.event_name == 'push'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          git add assets/images/*.svg 2>/dev/null || true
+          git add assets/images/*.png 2>/dev/null || true
+          
+          if git diff --staged --quiet; then
+            echo "No new images to commit"
+          else
+            git commit -m "feat: auto-generate images for new posts"
+            git push
+            echo "✅ Images committed and pushed"
           fi
 
       - name: Upload Generated Images
         uses: actions/upload-artifact@v4
-        if: success()
+        if: success() && github.event_name == 'workflow_dispatch'
         with:
           name: generated-images
           path: |
+            assets/images/*.svg
             assets/images/*.png
             assets/images/*.jpg
-          retention-days: 7  # 7일간 보관 (비용 관리)
+          retention-days: 7
           if-no-files-found: warn
 
       - name: Show Summary
         if: always()
         run: |
-          echo "## 📊 이미지 생성 작업 요약" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 Image Generation Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### 생성 타입: ${{ github.event.inputs.image_type || 'post' }}" >> $GITHUB_STEP_SUMMARY
+          echo "### Generation Mode" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.api_check.outputs.api_available }}" = "true" ]; then
+            echo "- **Mode**: Gemini API (with SVG fallback)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- **Mode**: SVG Fallback Only (no API cost)" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "- **Type**: ${{ github.event.inputs.image_type || 'post' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ -d "assets/images" ]; then
-            echo "### 생성된 이미지 파일:" >> $GITHUB_STEP_SUMMARY
+            echo "### Generated Files" >> $GITHUB_STEP_SUMMARY
             echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-            ls -lh assets/images/*.png assets/images/*.jpg 2>/dev/null | tail -n 20 >> $GITHUB_STEP_SUMMARY || echo "이미지 파일 없음" >> $GITHUB_STEP_SUMMARY
+            ls -lh assets/images/*.svg assets/images/*.png assets/images/*.jpg 2>/dev/null | tail -n 20 >> $GITHUB_STEP_SUMMARY || echo "No image files found" >> $GITHUB_STEP_SUMMARY
             echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
           fi
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### 다음 단계:" >> $GITHUB_STEP_SUMMARY
-          echo "1. 생성된 이미지 확인: \`assets/images/\` 디렉토리" >> $GITHUB_STEP_SUMMARY
-          echo "2. 포스트의 \`image\` 필드에 이미지 경로 추가" >> $GITHUB_STEP_SUMMARY
-          echo "3. 변경사항 커밋 및 푸시" >> $GITHUB_STEP_SUMMARY
