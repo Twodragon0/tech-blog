@@ -1843,7 +1843,7 @@ Mozilla가 AI 독점에 반대하는 **"AI Rebel Alliance"**를 결성했습니�
 |------|------|-----|
 | **Ollama 노출** | SentinelOne SentinelLABS | [sentinelone.com](https://www.sentinelone.com/labs/ollama-exposure-research/) |
 | **Ollama 노출** | The Hacker News | [thehackernews.com](https://thehackernews.com/2026/01/researchers-find-175000-publicly.html) |
-| **Ollama 보안** | Ollama GitHub | [github.com/ollama](https://github.com/ollama/ollama/blob/main/docs/security.md) |
+| **Ollama 보안** | Ollama GitHub | [github.com/ollama](https://github.com/ollama/ollama#security) |
 | **SolarWinds WHD** | The Hacker News | [thehackernews.com](https://thehackernews.com/2026/01/solarwinds-fixes-four-critical-web-help.html) |
 | **SolarWinds 보안** | SolarWinds Trust Center | [solarwinds.com](https://www.solarwinds.com/trust-center/security-advisories) |
 | **Horizon3.ai** | WHD 취약점 연구 | [horizon3.ai](https://www.horizon3.ai/research/) |
@@ -1856,7 +1856,7 @@ Mozilla가 AI 독점에 반대하는 **"AI Rebel Alliance"**를 결성했습니�
 | **MITRE ATT&CK** | MITRE | [attack.mitre.org](https://attack.mitre.org/) |
 | **OT/에너지 보안** | The Hacker News | [thehackernews.com](https://thehackernews.com/2026/01/survey-of-100-energy-systems-reveals.html) |
 | **OMICRON** | Energy Security | [omicronenergy.com](https://www.omicronenergy.com/) |
-| **ICS 보안** | NIST SP 800-82 | [csrc.nist.gov](https://www.nist.gov/publications/guide-operational-technology-ot-security) |
+| **ICS 보안** | NIST SP 800-82 | [nist.gov](https://www.nist.gov/publications/guide-operational-technology-ot-security) |
 | **CISA ICS** | ICS-CERT | [cisa.gov](https://www.cisa.gov/uscert/ics) |
 
 ---
