@@ -9,7 +9,7 @@ description: "2026년 1월 28일 보안 뉴스: Microsoft Office Zero-Day 취약
 keywords: [CVE-2026-21509, Microsoft Office Zero-Day, CTEM, Grist-Core RCE, 보안 패치, DevSecOps]
 author: Twodragon
 comments: true
-image: /assets/images/2026-01-28-Tech_Security_Weekly_Digest.svg
+image: /assets/images/2026-01-28-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE.svg
 image_alt: "Tech and Security Weekly Digest January 2026 - CVE-2026-21509 MS Office Zero-Day CTEM Framework"
 toc: true
 ---

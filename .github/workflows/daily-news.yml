@@ -35,6 +35,10 @@ on:
         required: false
         default: '10'
 
+concurrency:
+  group: daily-news-publish
+  cancel-in-progress: false
+
 env:
   PYTHON_VERSION: '3.11'
 

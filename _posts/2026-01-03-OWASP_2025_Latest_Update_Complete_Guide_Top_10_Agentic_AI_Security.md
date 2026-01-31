@@ -314,7 +314,7 @@ def encrypt_data(data: bytes, key: bytes) -> tuple[bytes, bytes, bytes]:
 ### 4.2 DevSecOps 파이프라인 통합
 
 > **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security/dependabot) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.](https://github.com/dependabot) - 자동 의존성 업데이트 및 보안 알림
-- [OWASP LLM Security Testing Guide](https://owasp.org/www-project-llm-security-testing-guide/) - LLM 보안 테스트 가이드
+- [OWASP Top 10 for Large Language Model Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) - LLM 보안 테스트 가이드
 
 ### 커뮤니티
 - [OWASP Foundation](https://owasp.org/) - OWASP 공식 웹사이트

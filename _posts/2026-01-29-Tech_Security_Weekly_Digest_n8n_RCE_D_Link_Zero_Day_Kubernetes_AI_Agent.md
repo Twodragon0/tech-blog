@@ -9,7 +9,7 @@ description: "2026년 1월 29일 보안 뉴스: n8n 워크플로우 RCE 취약�
 keywords: [n8n RCE, CVE-2026-1470, D-Link Zero-Day, CVE-2026-0625, Kubernetes Security, AI Agent, eBPF, Sovereign Cloud, NHI, DevSecOps]
 author: Twodragon
 comments: true
-image: /assets/images/2026-01-29-Tech_Security_Weekly_Digest.svg
+image: /assets/images/2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent.svg
 image_alt: "Tech Security Weekly Digest January 29 2026 n8n RCE D-Link Zero-Day Kubernetes AI Agent"
 toc: true
 ---
@@ -895,7 +895,7 @@ roleRef:
 
 - [Tigera: 2026 Kubernetes Security Predictions](https://www.tigera.io/blog/2026-kubernetes-security-predictions/)
 - [CNCF eBPF Landscape](https://ebpf.io/applications/)
-- [StackRox Open Source Revival](https://www.redhat.com/en/blog/stackrox-open-source-2026)
+- [Red Hat Advanced Cluster Security for Kubernetes](https://www.redhat.com/en/technologies/cloud-computing/openshift/advanced-cluster-security-kubernetes)
 - [Cilium Documentation](https://docs.cilium.io/)
 
 ---
@@ -1267,10 +1267,10 @@ index=cloudtrail sourcetype=aws:cloudtrail
 | **D-Link CVE** | NIST NVD | [nvd.nist.gov](https://nvd.nist.gov/vuln/detail/CVE-2026-0625) |
 | **D-Link 공지** | D-Link Support | [supportannouncement.us.dlink.com](https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10432) |
 | **Shadowserver** | D-Link 악용 탐지 | [shadowserver.org](https://www.shadowserver.org/) |
-| **K8s 보안 전망** | Tigera Blog | [tigera.io/blog](https://www.tigera.io/blog/2026-kubernetes-security-predictions/) |
+| **K8s 보안 전망** | Tigera Blog | [tigera.io/blog](https://www.tigera.io/blog/) |
 | **eBPF 생태계** | CNCF eBPF Landscape | [ebpf.io](https://ebpf.io/applications/) |
 | **StackRox** | Red Hat Blog | [redhat.com/blog](https://www.redhat.com/en/blog/stackrox-open-source-2026) |
-| **Swiss Cloud** | Infomaniak | [infomaniak.com](https://www.infomaniak.com/en/hosting/sovereign-cloud) |
+| **Swiss Cloud** | Infomaniak | [infomaniak.com](https://www.infomaniak.com/en/hosting/public-cloud) |
 | **NHI 보안** | Tenable Blog | [tenable.com/blog](https://www.tenable.com/blog/2026-cloud-security-predictions-nhi) |
 | **NHI Top 10** | OWASP | [owasp.org](https://owasp.org/www-project-non-human-identity-top-10/) |
 | **AWS IAM** | AWS Documentation | [docs.aws.amazon.com](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) |

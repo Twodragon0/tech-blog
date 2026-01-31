@@ -930,5 +930,5 @@ UN R155는 유엔 자동차 규정으로, 2024년부터 한국을 포함한 여�
 | **KISA 자동차 사이버 보안 가이드** | 한국 자동차 사이버 보안 가이드라인 | KISA (한국인터넷진흥원) | [링크](https://www.kisa.or.kr/skin/doc.html?fn=20260106_145911_728.pdf&rs=/result/2026-01/) |
 | **ISO 21434:2021** | Road vehicles — Cybersecurity engineering | ISO | [링크](https://www.iso.org/standard/70918.html) |
 | **UN Regulation No. 155** | Cyber security and cyber security management system | UNECE | [링크](https://unece.org/transport/documents/2021/01/standards/un-regulation-no-155-cyber-security-and-cyber-security) |
-| **OWASP Top 10 for Automotive** | 자동차 보안 취약점 Top 10 | OWASP | [링크](https://owasp.org/www-project-top-10-for-automotive/) |
+| **OWASP Internet of Things** | IoT 보안 프로젝트 (자동차 포함) | OWASP | [링크](https://owasp.org/www-project-internet-of-things/) |
 | **SAE J3061** | Cybersecurity Guidebook for Cyber-Physical Vehicle Systems | SAE International | [링크](https://www.sae.org/standards/content/j3061_201601/) |

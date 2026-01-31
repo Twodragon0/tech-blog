@@ -236,30 +236,30 @@ def generate_post_content(
         else "<li>오늘의 주요 뉴스를 확인하세요</li>"
     )
 
-    # 태그 생성
-    tags = [
-        "Security-Weekly",
-        "DevSecOps",
-        "Cloud-Security",
-        "Zero-Trust",
-        "AI-Security",
-        "Weekly-Digest",
-        str(date.year),
-    ]
+    topics = _extract_key_topics(news_items)
+    top_titles = [item.get("title", "")[:40] for item in news_items[:3]]
+    title_keywords = ", ".join(top_titles) if top_titles else "DevSecOps News"
+
+    base_tags = ["Security-Weekly", "DevSecOps", "Cloud-Security", "Weekly-Digest", str(date.year)]
+    topic_tags = [t for t in topics if t not in base_tags]
+    tags = base_tags + topic_tags[:5]
+
+    top_sources = list({item.get("source_name", ""): True for item in news_items[:5]}.keys())[:3]
+    source_list = ", ".join(top_sources)
 
     content = f'''---
 layout: post
-title: "Tech & Security Weekly Digest ({date_str})"
+title: "Tech & Security Weekly Digest: {title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [security, devsecops]
 tags: [{", ".join(tags)}]
-excerpt: "{date_str} 주요 기술/보안 뉴스 {total}건 심층 분석"
-description: "{date_str} 보안/기술 뉴스: DevSecOps 실무에 필요한 보안 위협, 클라우드 업데이트, AI/ML 동향을 정리했습니다. 총 {total}개 뉴스 중 핵심 내용만 선별하여 분석합니다."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Zero-Trust, AI-Security, Weekly-Digest]
+excerpt: "{date_str} 주요 보안/기술 뉴스 {total}건 - {", ".join(topics[:3])}"
+description: "{date_str} 보안 뉴스: {source_list} 등 {total}건. {", ".join(topics[:4])} 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
+keywords: [{", ".join(tags[:8])}]
 author: Twodragon
 comments: true
 image: /assets/images/{image_filename}
-image_alt: "Tech and Security Weekly Digest {date.strftime("%B %Y")}"
+image_alt: "Tech Security Weekly Digest {date.strftime('%B %d %Y')} {' '.join(topics[:3])}"
 toc: true
 ---
 
@@ -445,8 +445,6 @@ def generate_news_section(item: Dict, section_num: str, is_critical: bool = Fals
 
 
 def _generate_security_analysis_template(title: str) -> str:
-    """보안 뉴스 상세 분석 템플릿"""
-    # CVE 패턴 추출
     cve_match = re.search(r'CVE-\d{4}-\d+', title)
     cve_id = cve_match.group(0) if cve_match else "N/A"
 
@@ -456,39 +454,40 @@ def _generate_security_analysis_template(title: str) -> str:
 | 항목 | 내용 |
 |------|------|
 | **CVE ID** | {cve_id} |
-| **영향 범위** | 확인 필요 |
-| **심각도** | 확인 필요 (원문 참조) |
-| **익스플로잇 상태** | 확인 필요 |
+| **영향 범위** | 원문 참조 |
+| **심각도** | 원문 참조 (CVSS 점수 확인 권장) |
+| **대응 우선순위** | P1 - 7일 이내 검토 권장 |
 
 #### 권장 조치
 
-- [ ] 영향받는 시스템 식별
-- [ ] 패치 가용성 확인
-- [ ] 보안 모니터링 강화
-- [ ] 필요시 임시 완화 조치 적용
+- [ ] 영향받는 시스템/소프트웨어 인벤토리 확인
+- [ ] 벤더 패치 및 보안 권고 확인
+- [ ] SIEM/EDR 탐지 룰 업데이트 검토
+- [ ] 필요시 네트워크 격리 또는 임시 완화 조치 적용
+- [ ] 보안팀 내 공유 및 모니터링 강화
 
 """
     return template
 
 
 def _generate_security_brief_template() -> str:
-    """보안 뉴스 간략 분석 템플릿"""
     return """
 #### 실무 영향
 
-보안 담당자는 해당 내용을 검토하고 필요시 조치 계획을 수립하시기 바랍니다.
+- 보안 담당자는 원문을 검토하여 자사 환경 해당 여부를 확인하시기 바랍니다
+- 영향받는 시스템이 있는 경우 벤더 권고에 따라 패치 또는 완화 조치를 적용하세요
+- SIEM 탐지 룰에 관련 IOC를 추가하는 것을 권장합니다
 
 """
 
 
 def _generate_devops_template() -> str:
-    """DevOps/Cloud 뉴스 템플릿"""
     return """
 #### 실무 적용 포인트
 
-- 인프라 및 운영 환경에 대한 영향 검토
-- 기존 워크플로우와의 통합 가능성 확인
-- 팀 내 공유 및 테스트 계획 수립
+- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
+- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
+- 팀 내 기술 공유 및 도입 로드맵 논의
 
 """
 

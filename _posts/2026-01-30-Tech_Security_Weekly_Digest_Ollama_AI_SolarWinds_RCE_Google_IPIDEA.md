@@ -9,7 +9,7 @@ description: "2026년 1월 30일 보안 뉴스: Ollama AI 서버 175,000대 인�
 keywords: [Ollama, LLMjacking, SolarWinds WHD, CVE-2025-40551, IPIDEA, Google GTIG, Residential Proxy, Microsoft AI Threat Detection, OT Security, ICS, Energy Cybersecurity, DevSecOps]
 author: Twodragon
 comments: true
-image: /assets/images/2026-01-30-Tech_Security_Weekly_Digest.svg
+image: /assets/images/2026-01-30-Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA.svg
 image_alt: "Tech Security Weekly Digest January 30 2026 Ollama AI Exposure SolarWinds RCE Google IPIDEA Disruption"
 toc: true
 ---
@@ -476,7 +476,7 @@ falsepositives:
 - [SentinelOne SentinelLABS: Ollama Exposure Research](https://www.sentinelone.com/labs/ollama-exposure-research/)
 - [The Hacker News: 175,000 Publicly Exposed Ollama Hosts](https://thehackernews.com/2026/01/researchers-find-175000-publicly.html)
 - [Censys: Ollama Internet Scan](https://censys.io/)
-- [Ollama Security Documentation](https://github.com/ollama/ollama/blob/main/docs/security.md)
+- [Ollama GitHub Repository](https://github.com/ollama/ollama#security)
 
 ---
 
@@ -1772,7 +1772,7 @@ IT/OT 세그멘테이션 모범 아키텍처
 
 - [The Hacker News: Survey of 100+ Energy Systems](https://thehackernews.com/2026/01/survey-of-100-energy-systems-reveals.html)
 - [OMICRON Energy Security Research](https://www.omicronenergy.com/)
-- [NIST SP 800-82 Guide to ICS Security](https://csrc.nist.gov/publications/detail/sp/800-82/rev-3/final)
+- [NIST SP 800-82 Guide to ICS Security](https://www.nist.gov/publications/guide-operational-technology-ot-security)
 - [IEC 62351 Power Systems Security](https://www.iec.ch/smartgrid/standards/)
 - [CISA ICS-CERT Advisories](https://www.cisa.gov/uscert/ics)
 
@@ -1856,7 +1856,7 @@ Mozilla가 AI 독점에 반대하는 **"AI Rebel Alliance"**를 결성했습니�
 | **MITRE ATT&CK** | MITRE | [attack.mitre.org](https://attack.mitre.org/) |
 | **OT/에너지 보안** | The Hacker News | [thehackernews.com](https://thehackernews.com/2026/01/survey-of-100-energy-systems-reveals.html) |
 | **OMICRON** | Energy Security | [omicronenergy.com](https://www.omicronenergy.com/) |
-| **ICS 보안** | NIST SP 800-82 | [csrc.nist.gov](https://csrc.nist.gov/publications/detail/sp/800-82/rev-3/final) |
+| **ICS 보안** | NIST SP 800-82 | [csrc.nist.gov](https://www.nist.gov/publications/guide-operational-technology-ot-security) |
 | **CISA ICS** | ICS-CERT | [cisa.gov](https://www.cisa.gov/uscert/ics) |
 
 ---
