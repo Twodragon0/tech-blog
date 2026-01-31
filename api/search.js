@@ -106,12 +106,13 @@ function isAllowedOrigin(origin) {
 
 // 검색 쿼리 정제: SQL injection 방지 + tsquery 호환
 function sanitizeQuery(raw) {
-  return raw
-    .replace(/<[^>]*>/g, '')          // HTML 태그 제거
-    .replace(/[\\'"`;]/g, '')         // SQL 특수문자 제거
-    .replace(/[!&|():*<>~]/g, ' ')    // tsquery 연산자 제거
-    .replace(/\s+/g, ' ')            // 다중 공백 정리
-    .trim();
+  let s = raw.normalize('NFC');
+  s = s.replace(/[\x00-\x1F\x7F]/g, '');
+  s = s.replace(/<[^>]*>/g, '');
+  s = s.replace(/[\\'"`;]/g, '');
+  s = s.replace(/[!&|():*<>~]/g, ' ');
+  s = s.replace(/\s+/g, ' ');
+  return s.trim();
 }
 
 // 검색어를 tsquery 형식으로 변환
@@ -143,6 +144,13 @@ export default async function handler(req, res) {
   }
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', 'false');
+
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('X-Request-ID', requestId);
 
   // Preflight
   if (req.method === 'OPTIONS') {
@@ -157,7 +165,7 @@ export default async function handler(req, res) {
   try {
     // Bot 보호
     const userAgent = req.headers['user-agent'] || '';
-    if (isBotUserAgent(userAgent)) {
+    if (process.env.NODE_ENV === 'production' && isBotUserAgent(userAgent)) {
       return res.status(403).json({ error: 'forbidden' });
     }
 

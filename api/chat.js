@@ -116,7 +116,7 @@ export default async function handler(req, res) {
   ];
   
   const origin = req.headers.origin || req.headers.referer;
-  const isAllowedOrigin = origin && allowedOrigins.some(allowed => origin.startsWith(allowed));
+  const isAllowedOrigin = origin && allowedOrigins.includes(origin);
   
   // CORS 헤더 설정 (보안 강화: 실제 도메인만 허용)
   if (isAllowedOrigin) {
