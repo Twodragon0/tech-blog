@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest (2026년 01월 31일)"
-date: 2026-01-31 19:41:59 +0900
+title: "Tech & Security Weekly Digest: Mandiant Finds ShinyHunters-Style Vishin, CERT Polska Details Coordinated Cyber At, Explore scaling options for AWS Director"
+date: 2026-01-31 19:53:02 +0900
 categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, Cloud-Security, Zero-Trust, AI-Security, Weekly-Digest, 2026]
-excerpt: "2026년 01월 31일 주요 기술/보안 뉴스 18건 심층 분석"
-description: "2026년 01월 31일 보안/기술 뉴스: DevSecOps 실무에 필요한 보안 위협, 클라우드 업데이트, AI/ML 동향을 정리했습니다. 총 18개 뉴스 중 핵심 내용만 선별하여 분석합니다."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Zero-Trust, AI-Security, Weekly-Digest]
+tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Cloud]
+excerpt: "2026년 01월 31일 주요 보안/기술 뉴스 18건 - AI, AWS, Cloud"
+description: "2026년 01월 31일 보안 뉴스: The Hacker News, AWS Security Blog, Google Cloud Blog 등 18건. AI, AWS, Cloud 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
+keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Cloud]
 author: Twodragon
 comments: true
 image: /assets/images/2026-01-31-Tech_Security_Weekly_Digest_AI_AWS_Cloud.svg
-image_alt: "Tech and Security Weekly Digest January 2026"
+image_alt: "Tech Security Weekly Digest January 31 2026 AI AWS Cloud"
 toc: true
 ---
 
@@ -105,16 +105,17 @@ Google-owned Mandiant on Friday said it identified an "expansion in threat activ
 | 항목 | 내용 |
 |------|------|
 | **CVE ID** | N/A |
-| **영향 범위** | 확인 필요 |
-| **심각도** | 확인 필요 (원문 참조) |
-| **익스플로잇 상태** | 확인 필요 |
+| **영향 범위** | 원문 참조 |
+| **심각도** | 원문 참조 (CVSS 점수 확인 권장) |
+| **대응 우선순위** | P1 - 7일 이내 검토 권장 |
 
 #### 권장 조치
 
-- [ ] 영향받는 시스템 식별
-- [ ] 패치 가용성 확인
-- [ ] 보안 모니터링 강화
-- [ ] 필요시 임시 완화 조치 적용
+- [ ] 영향받는 시스템/소프트웨어 인벤토리 확인
+- [ ] 벤더 패치 및 보안 권고 확인
+- [ ] SIEM/EDR 탐지 룰 업데이트 검토
+- [ ] 필요시 네트워크 격리 또는 임시 완화 조치 적용
+- [ ] 보안팀 내 공유 및 모니터링 강화
 
 
 ---
@@ -130,7 +131,9 @@ CERT Polska, the Polish computer emergency response team, revealed that coordina
 
 #### 실무 영향
 
-보안 담당자는 해당 내용을 검토하고 필요시 조치 계획을 수립하시기 바랍니다.
+- 보안 담당자는 원문을 검토하여 자사 환경 해당 여부를 확인하시기 바랍니다
+- 영향받는 시스템이 있는 경우 벤더 권고에 따라 패치 또는 완화 조치를 적용하세요
+- SIEM 탐지 룰에 관련 IOC를 추가하는 것을 권장합니다
 
 
 ---
@@ -148,9 +151,9 @@ Welcome to the second Cloud CISO Perspectives for January 2026. Today, Taylor Le
 
 #### 실무 적용 포인트
 
-- 인프라 및 운영 환경에 대한 영향 검토
-- 기존 워크플로우와의 통합 가능성 확인
-- 팀 내 공유 및 테스트 계획 수립
+- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
+- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
+- 팀 내 기술 공유 및 도입 로드맵 논의
 
 
 ---
@@ -166,9 +169,9 @@ Editor’s note : Want to keep up with the latest from Google Cloud? Check back 
 
 #### 실무 적용 포인트
 
-- 인프라 및 운영 환경에 대한 영향 검토
-- 기존 워크플로우와의 통합 가능성 확인
-- 팀 내 공유 및 테스트 계획 수립
+- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
+- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
+- 팀 내 기술 공유 및 도입 로드맵 논의
 
 
 ---
@@ -186,9 +189,9 @@ Learn how the National Bank of Australia modernized its engineering stack to dri
 
 #### 실무 적용 포인트
 
-- 인프라 및 운영 환경에 대한 영향 검토
-- 기존 워크플로우와의 통합 가능성 확인
-- 팀 내 공유 및 테스트 계획 수립
+- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
+- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
+- 팀 내 기술 공유 및 도입 로드맵 논의
 
 
 ---
@@ -204,9 +207,9 @@ Passwordless access and improved UX for RDP connections are now available in Bou
 
 #### 실무 적용 포인트
 
-- 인프라 및 운영 환경에 대한 영향 검토
-- 기존 워크플로우와의 통합 가능성 확인
-- 팀 내 공유 및 테스트 계획 수립
+- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
+- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
+- 팀 내 기술 공유 및 도입 로드맵 논의
 
 
 ---
