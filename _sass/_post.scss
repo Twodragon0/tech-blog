@@ -45,6 +45,8 @@
   font-size: 0.875rem;
   color: var(--color-text-secondary);
   line-height: 1.6;
+  /* CLS 방지: 메타 영역 최소 높이 확보 */
+  min-height: 1.6em;
 }
 
 .post-meta span,
@@ -674,10 +676,12 @@
   background-color: var(--color-bg-secondary);
 }
 
-/* SVG 이미지는 aspect-ratio 제거 (벡터 이미지는 즉시 렌더링) */
+/* SVG 다이어그램: CLS 방지를 위해 최소 높이 확보 */
 .post-content img[src$=".svg"] {
-  aspect-ratio: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
   background-color: transparent;
+  min-height: 200px;
 }
 
 .post-content .post-image {
