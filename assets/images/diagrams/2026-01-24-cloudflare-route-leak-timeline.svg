@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="10" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="108%" height="108%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="800" height="320" fill="#0d1117" rx="8"/>
+  <text x="400" y="28" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="bold">Cloudflare Route Leak Incident Timeline</text>
+  <text x="400" y="46" text-anchor="middle" fill="#64748b" font-size="11">2026-01-22 UTC | Total Impact: ~19 minutes</text>
+
+  <!-- Timeline line -->
+  <line x1="60" y1="130" x2="740" y2="130" stroke="#334155" stroke-width="2"/>
+
+  <!-- 14:23 -->
+  <circle cx="120" cy="130" r="8" fill="#dc2626"/>
+  <rect x="60" y="155" width="120" height="70" rx="8" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <text x="120" y="100" text-anchor="middle" fill="#f87171" font-size="11" font-weight="bold">14:23</text>
+  <text x="120" y="175" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="bold">BGP Leak Start</text>
+  <text x="120" y="195" text-anchor="middle" fill="#fca5a5" font-size="10">Abnormal route</text>
+  <text x="120" y="210" text-anchor="middle" fill="#fca5a5" font-size="10">propagation</text>
+
+  <!-- 14:25 -->
+  <circle cx="260" cy="130" r="8" fill="#d97706"/>
+  <rect x="200" y="155" width="120" height="70" rx="8" fill="url(#amberGrad)" filter="url(#shadow)"/>
+  <text x="260" y="100" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="bold">14:25</text>
+  <text x="260" y="175" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="bold">Auto Detection</text>
+  <text x="260" y="195" text-anchor="middle" fill="#fde68a" font-size="10">Alert triggered</text>
+  <text x="260" y="210" text-anchor="middle" fill="#fde68a" font-size="10">Pattern anomaly</text>
+
+  <!-- 14:28 -->
+  <circle cx="400" cy="130" r="8" fill="#d97706"/>
+  <rect x="340" y="155" width="120" height="70" rx="8" fill="url(#amberGrad)" filter="url(#shadow)"/>
+  <text x="400" y="100" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="bold">14:28</text>
+  <text x="400" y="175" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="bold">Impact Analysis</text>
+  <text x="400" y="195" text-anchor="middle" fill="#fde68a" font-size="10">Regional traffic</text>
+  <text x="400" y="210" text-anchor="middle" fill="#fde68a" font-size="10">rerouted</text>
+
+  <!-- 14:35 -->
+  <circle cx="540" cy="130" r="8" fill="#16a34a"/>
+  <rect x="480" y="155" width="120" height="70" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="540" y="100" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="bold">14:35</text>
+  <text x="540" y="175" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="bold">Mitigation</text>
+  <text x="540" y="195" text-anchor="middle" fill="#bbf7d0" font-size="10">Peer session</text>
+  <text x="540" y="210" text-anchor="middle" fill="#bbf7d0" font-size="10">adjustments</text>
+
+  <!-- 14:42 -->
+  <circle cx="680" cy="130" r="8" fill="#16a34a"/>
+  <rect x="620" y="155" width="120" height="70" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="680" y="100" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="bold">14:42</text>
+  <text x="680" y="175" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="bold">Full Recovery</text>
+  <text x="680" y="195" text-anchor="middle" fill="#bbf7d0" font-size="10">Normal routing</text>
+  <text x="680" y="210" text-anchor="middle" fill="#bbf7d0" font-size="10">restored</text>
+
+  <!-- Impact duration bar -->
+  <rect x="112" y="248" width="576" height="18" rx="9" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <rect x="112" y="248" width="286" height="18" rx="9" fill="#7f1d1d" opacity="0.6"/>
+  <text x="400" y="261" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="bold">Impact Window: 14:23 - 14:42 (~19 min)</text>
+
+  <text x="400" y="300" text-anchor="middle" fill="#475569" font-size="10">Source: Cloudflare Post-Incident Report</text>
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 520" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#5b21b6"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="10" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="108%" height="108%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="750" height="520" fill="#0d1117" rx="8"/>
+  <text x="375" y="28" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="bold">OpenAI Codex Agent Loop Architecture</text>
+
+  <!-- User Request -->
+  <rect x="200" y="48" width="350" height="45" rx="8" fill="#475569" filter="url(#shadow)"/>
+  <text x="375" y="75" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">User Request: "Implement user authentication"</text>
+  <line x1="375" y1="93" x2="375" y2="113" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Planning Agent -->
+  <rect x="140" y="120" width="470" height="75" rx="10" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+  <text x="375" y="148" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="bold">Planning Agent</text>
+  <text x="375" y="170" text-anchor="middle" fill="#c4b5fd" font-size="11">Task Decomposition | Dependency Analysis | Parallel Task Identification</text>
+
+  <!-- Parallel split -->
+  <line x1="375" y1="195" x2="375" y2="210" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="160" y1="210" x2="590" y2="210" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="160" y1="210" x2="160" y2="230" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="375" y1="210" x2="375" y2="230" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="590" y1="210" x2="590" y2="230" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Code Agents (parallel) -->
+  <rect x="80" y="240" width="160" height="65" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="160" y="267" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Code Agent 1</text>
+  <text x="160" y="289" text-anchor="middle" fill="#bfdbfe" font-size="10">(Model Layer)</text>
+
+  <rect x="295" y="240" width="160" height="65" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="375" y="267" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Code Agent 2</text>
+  <text x="375" y="289" text-anchor="middle" fill="#bfdbfe" font-size="10">(Controller)</text>
+
+  <rect x="510" y="240" width="160" height="65" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="590" y="267" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Code Agent 3</text>
+  <text x="590" y="289" text-anchor="middle" fill="#bfdbfe" font-size="10">(Database)</text>
+
+  <!-- Merge -->
+  <line x1="160" y1="305" x2="160" y2="325" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="375" y1="305" x2="375" y2="325" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="590" y1="305" x2="590" y2="325" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="160" y1="325" x2="590" y2="325" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="375" y1="325" x2="375" y2="345" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Verification Agent -->
+  <rect x="140" y="352" width="470" height="75" rx="10" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+  <text x="375" y="380" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="bold">Verification Agent</text>
+  <text x="375" y="402" text-anchor="middle" fill="#c4b5fd" font-size="11">Code Review | Test Execution | Integration Verification</text>
+
+  <!-- Pass/Fail split -->
+  <line x1="280" y1="427" x2="280" y2="455" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="470" y1="427" x2="470" y2="455" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Complete -->
+  <rect x="200" y="462" width="160" height="40" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="280" y="486" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Pass → Complete</text>
+
+  <!-- Fail → Loop back -->
+  <rect x="390" y="462" width="160" height="40" rx="8" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <text x="470" y="486" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Fail → Re-Plan</text>
+
+  <!-- Loop arrow -->
+  <path d="M 550 482 L 680 482 Q 710 482 710 452 L 710 158 Q 710 128 680 128 L 620 128" stroke="#f87171" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+</svg>

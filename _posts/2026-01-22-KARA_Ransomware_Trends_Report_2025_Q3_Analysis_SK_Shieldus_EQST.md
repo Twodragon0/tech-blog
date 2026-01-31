@@ -129,28 +129,19 @@ toc: true
   <p class="image-caption">2025년 3분기 랜섬웨어 생태계 분절화 - 활동 그룹 77개로 급증</p>
 </div>
 
+![Ransomware Ecosystem Fragmentation - Q1 vs Q3 2025 comparison showing top 10 groups declining from 71% to 56% share](/assets/images/diagrams/2026-01-22-ransomware-ecosystem-fragmentation.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│              2025년 3분기 랜섬웨어 생태계 변화                    │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   2025 Q1                        2025 Q3                        │
-│   ┌─────────────────┐            ┌─────────────────┐           │
-│   │ 상위 10개 그룹   │            │ 상위 10개 그룹   │           │
-│   │     71%         │            │     56%         │           │
-│   └─────────────────┘            └─────────────────┘           │
-│   ┌─────────────────┐            ┌─────────────────┐           │
-│   │ 기타 그룹       │            │ 기타 그룹       │           │
-│   │     29%         │            │     44%         │           │
-│   └─────────────────┘            └─────────────────┘           │
-│                                                                 │
-│   활동 그룹: 49개                 활동 그룹: 77개 (+57%)        │
-│   데이터 유출 사이트: 62개        데이터 유출 사이트: 85개      │
-│                                                                 │
-│   시사점: 소규모 그룹 급증으로 추적 및 대응 복잡도 증가         │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+2025 Ransomware Ecosystem Fragmentation:
+- Q1 2025: Top 10 groups = 71%, Others = 29%, Active groups: 49, Leak sites: 62
+- Q3 2025: Top 10 groups = 56%, Others = 44%, Active groups: 77 (+57%), Leak sites: 85
+- Implication: Rapid growth of small groups increases tracking and response complexity
 ```
+
+</details>
 
 ### 1.3 랜섬 지불률 하락 추세
 
@@ -372,33 +363,23 @@ show version
   <p class="image-caption">4중 협박(Quadruple Extortion) 전술 - 단계별 압박 전략</p>
 </div>
 
+![Quadruple Extortion Tactics - 4 escalating stages from encryption to customer contact](/assets/images/diagrams/2026-01-22-quadruple-extortion.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│              4중 협박(Quadruple Extortion) 전술                  │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │ 1단계: 데이터 암호화 + 랜섬 요구                          │   │
-│  │        └─ "파일 복호화에 $500,000 지불하라"               │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│                          ↓ 거부 시                              │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │ 2단계: 데이터 유출 협박                                   │   │
-│  │        └─ "72시간 내 지불하지 않으면 Dark Web 공개"       │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│                          ↓ 거부 시                              │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │ 3단계: DDoS 공격                                          │   │
-│  │        └─ "서비스를 마비시켜 추가 압박"                   │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│                          ↓ 거부 시                              │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │ 4단계: 고객/파트너/언론 직접 연락                         │   │
-│  │        └─ "귀사의 데이터 유출 사실을 알립니다"            │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+Quadruple Extortion Tactics:
+Stage 1: Data Encryption + Ransom Demand ("Pay $500,000 for decryption")
+  → If refused
+Stage 2: Data Leak Threat ("Will publish on Dark Web in 72 hours")
+  → If refused
+Stage 3: DDoS Attack ("Service disruption for additional pressure")
+  → If refused
+Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data breach")
 ```
+
+</details>
 
 ### 3.2 규제 무기화(Regulatory Weaponization)
 
@@ -497,39 +478,22 @@ edr_evasion_techniques:
   <p class="image-caption">제조업이 랜섬웨어 #1 타겟인 4가지 이유</p>
 </div>
 
+![Why Manufacturing is Ransomware Target #1 - High downtime costs, OT/IT convergence, ransom pressure, low security maturity](/assets/images/diagrams/2026-01-22-manufacturing-ransomware-target.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│              제조업이 랜섬웨어 #1 타겟인 이유                     │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  1. 가동 중단 비용이 극히 높음                                   │
-│     ├─ 분당 수십만 달러 손실 가능                               │
-│     ├─ 생산 라인 중단 시 납기 지연                              │
-│     └─ 공급망 전체에 영향 파급                                  │
-│                                                                 │
-│  2. OT/IT 통합으로 공격 표면 확대                                │
-│     ├─ 레거시 SCADA/ICS 시스템 취약점                           │
-│     ├─ IT 네트워크에서 OT 네트워크로 피벗 가능                  │
-│     └─ 패치 주기가 길거나 불가능한 시스템                       │
-│                                                                 │
-│  3. 랜섬 지불 압박 극대화                                        │
-│     ├─ JIT(Just-In-Time) 생산 방식의 취약성                     │
-│     ├─ 계약 위약금 발생 압박                                    │
-│     └─ 고객사 신뢰 손상 우려                                    │
-│                                                                 │
-│  4. 상대적으로 낮은 보안 성숙도                                  │
-│     ├─ IT 보안 투자 대비 OT 보안 미흡                           │
-│     ├─ 보안 인력 부족                                           │
-│     └─ 인식 교육 부재                                           │
-│                                                                 │
-│  대응 전략:                                                      │
-│  - OT/IT 네트워크 분리 (Air Gap 또는 단방향 게이트웨이)         │
-│  - 산업용 방화벽 및 IDS/IPS 도입                                │
-│  - OT 전용 EDR 솔루션 검토                                      │
-│  - 정기적인 OT 보안 평가 및 모의 훈련                           │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+Why Manufacturing is Ransomware Target #1:
+1. Extremely High Downtime Costs - Hundreds of thousands per minute, production delays, supply chain impact
+2. OT/IT Convergence Expands Attack Surface - Legacy SCADA/ICS vulnerabilities, IT-to-OT pivoting
+3. Maximum Ransom Payment Pressure - JIT manufacturing vulnerability, contract penalties, customer trust
+4. Relatively Low Security Maturity - OT security underinvested, staff shortage, lack of training
+
+Response Strategy: OT/IT network separation, industrial firewalls/IDS/IPS, OT-specific EDR, regular OT security assessments
 ```
+
+</details>
 
 ### 4.3 주요 악용 취약점 (CISA KEV 기준)
 
@@ -610,35 +574,21 @@ zero_trust_implementation:
   <p class="image-caption">3-2-1-1-0 백업 전략 - 랜섬웨어 방어를 위한 강화된 백업 규칙</p>
 </div>
 
+![3-2-1-1-0 Backup Strategy - 3 copies, 2 media types, 1 offsite, 1 immutable, 0 errors in recovery testing](/assets/images/diagrams/2026-01-22-backup-strategy-32110.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│              3-2-1-1-0 백업 전략                                 │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   3 - 데이터의 3개 복사본 유지                                   │
-│       ├─ 프로덕션 데이터                                        │
-│       ├─ 로컬 백업                                              │
-│       └─ 원격 백업                                              │
-│                                                                 │
-│   2 - 2가지 다른 미디어 타입 사용                               │
-│       ├─ 디스크 기반 백업                                       │
-│       └─ 테이프/클라우드 백업                                   │
-│                                                                 │
-│   1 - 1개는 오프사이트(원격지) 저장                             │
-│       └─ 지리적으로 분리된 위치                                 │
-│                                                                 │
-│   1 - 1개는 불변(Immutable) 백업                                │
-│       ├─ WORM(Write Once Read Many)                            │
-│       ├─ Object Lock (AWS S3)                                  │
-│       └─ 에어갭(Air-gapped) 백업                                │
-│                                                                 │
-│   0 - 복구 테스트에서 0개 에러                                   │
-│       ├─ 정기적 복구 테스트 (월 1회 이상)                       │
-│       ├─ 전체 복구 시뮬레이션 (분기 1회)                        │
-│       └─ RTO/RPO 충족 검증                                      │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+3-2-1-1-0 Backup Strategy:
+3 - Keep 3 copies of data (production, local backup, remote backup)
+2 - Use 2 different media types (disk-based, tape/cloud)
+1 - Store 1 copy offsite (geographically separated location)
+1 - Keep 1 immutable backup (WORM, AWS S3 Object Lock, air-gapped)
+0 - Zero errors in recovery testing (monthly restore tests, quarterly full simulation, RTO/RPO verification)
 ```
+
+</details>
 
 #### AWS S3 Immutable 백업 설정
 

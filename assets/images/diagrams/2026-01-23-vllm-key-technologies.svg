@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 480" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#161b22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a2942;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e4d3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a3d2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a2d1e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3d2518;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="480" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Title bar -->
+  <rect x="30" y="20" width="640" height="56" rx="10" fill="url(#headerGrad)" filter="url(#shadow)"/>
+  <text x="350" y="55" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700" filter="url(#glow)">vLLM Key Technology Differentiators</text>
+
+  <!-- Card 1: PagedAttention -->
+  <rect x="30" y="100" width="640" height="105" rx="10" fill="url(#card1Grad)" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="60" cy="125" r="14" fill="#3b82f6" opacity="0.9"/>
+  <text x="60" y="130" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">1</text>
+  <text x="85" y="131" fill="#60a5fa" font-size="18" font-weight="700">PagedAttention</text>
+  <line x1="50" y1="145" x2="650" y2="145" stroke="#3b82f6" stroke-width="0.5" opacity="0.4"/>
+  <circle cx="60" cy="163" r="3" fill="#60a5fa"/>
+  <text x="75" y="168" fill="#cbd5e1" font-size="13">GPU memory managed in page units</text>
+  <circle cx="60" cy="183" r="3" fill="#60a5fa"/>
+  <text x="75" y="188" fill="#cbd5e1" font-size="13">2-4x throughput improvement over traditional approaches</text>
+  <circle cx="350" cy="163" r="3" fill="#60a5fa" opacity="0"/>
+  <circle cx="60" cy="163" r="3" fill="#60a5fa" opacity="0"/>
+
+  <!-- Performance badge -->
+  <rect x="540" y="108" width="120" height="28" rx="14" fill="#3b82f6" opacity="0.25"/>
+  <text x="600" y="127" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="600">2-4x Faster</text>
+
+  <!-- Card 2: Continuous Batching -->
+  <rect x="30" y="225" width="640" height="105" rx="10" fill="url(#card2Grad)" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="60" cy="250" r="14" fill="#10b981" opacity="0.9"/>
+  <text x="60" y="255" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">2</text>
+  <text x="85" y="256" fill="#34d399" font-size="18" font-weight="700">Continuous Batching</text>
+  <line x1="50" y1="270" x2="650" y2="270" stroke="#10b981" stroke-width="0.5" opacity="0.4"/>
+  <circle cx="60" cy="288" r="3" fill="#34d399"/>
+  <text x="75" y="293" fill="#cbd5e1" font-size="13">Dynamically batches incoming requests</text>
+  <circle cx="60" cy="308" r="3" fill="#34d399"/>
+  <text x="75" y="313" fill="#cbd5e1" font-size="13">Optimizes both throughput and latency simultaneously</text>
+
+  <!-- Performance badge -->
+  <rect x="540" y="233" width="120" height="28" rx="14" fill="#10b981" opacity="0.25"/>
+  <text x="600" y="252" text-anchor="middle" fill="#34d399" font-size="12" font-weight="600">Dynamic</text>
+
+  <!-- Card 3: OpenAI Compatible API -->
+  <rect x="30" y="350" width="640" height="105" rx="10" fill="url(#card3Grad)" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="60" cy="375" r="14" fill="#f59e0b" opacity="0.9"/>
+  <text x="60" y="380" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">3</text>
+  <text x="85" y="381" fill="#fbbf24" font-size="18" font-weight="700">OpenAI-Compatible API</text>
+  <line x1="50" y1="395" x2="650" y2="395" stroke="#f59e0b" stroke-width="0.5" opacity="0.4"/>
+  <circle cx="60" cy="413" r="3" fill="#fbbf24"/>
+  <text x="75" y="418" fill="#cbd5e1" font-size="13">Use existing OpenAI code as-is with zero changes</text>
+  <circle cx="60" cy="433" r="3" fill="#fbbf24"/>
+  <text x="75" y="438" fill="#cbd5e1" font-size="13">Minimizes migration costs and developer friction</text>
+
+  <!-- Performance badge -->
+  <rect x="540" y="358" width="120" height="28" rx="14" fill="#f59e0b" opacity="0.25"/>
+  <text x="600" y="377" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="600">Drop-in</text>
+</svg>

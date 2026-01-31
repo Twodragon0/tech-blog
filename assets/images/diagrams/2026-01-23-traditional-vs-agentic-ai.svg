@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 320" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#5b21b6"/>
+    </linearGradient>
+    <filter id="shadow" x="-3%" y="-3%" width="108%" height="108%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="750" height="320" fill="#0d1117" rx="8"/>
+  <text x="375" y="30" text-anchor="middle" fill="#f1f5f9" font-size="18" font-weight="bold">Traditional AI vs Agentic AI</text>
+
+  <!-- Traditional AI -->
+  <rect x="30" y="50" width="330" height="230" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="195" y="78" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="bold">Traditional AI (Reactive)</text>
+  <line x1="60" y1="90" x2="330" y2="90" stroke="#93c5fd" stroke-width="0.5"/>
+  <text x="60" y="115" fill="#bfdbfe" font-size="12">Input → Output (simple processing)</text>
+  <text x="60" y="140" fill="#bfdbfe" font-size="12">Single API call</text>
+  <text x="60" y="165" fill="#bfdbfe" font-size="12">Requires human approval</text>
+  <text x="60" y="190" fill="#bfdbfe" font-size="12">Static permissions</text>
+  <rect x="60" y="215" width="270" height="30" rx="6" fill="#1e40af" opacity="0.5"/>
+  <text x="195" y="235" text-anchor="middle" fill="#93c5fd" font-size="13">Security Complexity: LOW</text>
+  <text x="195" y="268" text-anchor="middle" fill="#60a5fa" font-size="20">★★☆☆☆</text>
+
+  <!-- Agentic AI -->
+  <rect x="390" y="50" width="330" height="230" rx="10" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+  <text x="555" y="78" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="bold">Agentic AI (Autonomous)</text>
+  <line x1="420" y1="90" x2="690" y2="90" stroke="#c4b5fd" stroke-width="0.5"/>
+  <text x="420" y="115" fill="#c4b5fd" font-size="12">Goal → Plan → Execute</text>
+  <text x="420" y="140" fill="#c4b5fd" font-size="12">Multi-tool / API orchestration</text>
+  <text x="420" y="165" fill="#c4b5fd" font-size="12">Independent decision making</text>
+  <text x="420" y="190" fill="#c4b5fd" font-size="12">Dynamic permission requirements</text>
+  <rect x="420" y="215" width="270" height="30" rx="6" fill="#4c1d95" opacity="0.5"/>
+  <text x="555" y="235" text-anchor="middle" fill="#c4b5fd" font-size="13">Security Complexity: HIGH</text>
+  <text x="555" y="268" text-anchor="middle" fill="#a78bfa" font-size="20">★★★★★</text>
+
+  <text x="375" y="308" text-anchor="middle" fill="#475569" font-size="10">Source: HashiCorp Zero Trust for Agentic Systems</text>
+</svg>

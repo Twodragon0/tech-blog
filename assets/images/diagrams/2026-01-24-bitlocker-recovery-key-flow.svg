@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="10" markerHeight="7" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="108%" height="108%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="700" height="400" fill="#0d1117" rx="8"/>
+  <text x="350" y="30" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="bold">BitLocker Recovery Key Storage Paths</text>
+
+  <!-- User PC -->
+  <rect x="30" y="55" width="140" height="50" rx="8" fill="#475569" filter="url(#shadow)"/>
+  <text x="100" y="84" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">User PC</text>
+
+  <!-- Path 1: MS Account (warning) -->
+  <line x1="170" y1="70" x2="230" y2="70" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="240" y="45" width="420" height="55" rx="8" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <text x="265" y="68" fill="#fef2f2" font-size="11" font-weight="bold">[1]</text>
+  <text x="290" y="68" fill="#f1f5f9" font-size="13" font-weight="bold">Microsoft Account Auto-Backup (Default)</text>
+  <text x="290" y="88" fill="#fca5a5" font-size="11">Stored on MS servers — accessible via law enforcement request</text>
+
+  <!-- Path 2: Active Directory -->
+  <line x1="170" y1="80" x2="200" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="200" y1="140" x2="230" y2="140" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="240" y="115" width="420" height="55" rx="8" fill="url(#amberGrad)" filter="url(#shadow)"/>
+  <text x="265" y="138" fill="#fef3c7" font-size="11" font-weight="bold">[2]</text>
+  <text x="290" y="138" fill="#f1f5f9" font-size="13" font-weight="bold">Active Directory (Enterprise)</text>
+  <text x="290" y="158" fill="#fde68a" font-size="11">Managed by organization — org-level access</text>
+
+  <!-- Path 3: Azure AD -->
+  <line x1="170" y1="80" x2="200" y2="210" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="200" y1="210" x2="230" y2="210" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="240" y="185" width="420" height="55" rx="8" fill="url(#amberGrad)" filter="url(#shadow)"/>
+  <text x="265" y="208" fill="#fef3c7" font-size="11" font-weight="bold">[3]</text>
+  <text x="290" y="208" fill="#f1f5f9" font-size="13" font-weight="bold">Azure AD (Cloud Join)</text>
+  <text x="290" y="228" fill="#fde68a" font-size="11">Microsoft / organization accessible</text>
+
+  <!-- Path 4: Local Only (safe) -->
+  <line x1="170" y1="80" x2="200" y2="280" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="200" y1="280" x2="230" y2="280" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="240" y="255" width="420" height="55" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="265" y="278" fill="#dcfce7" font-size="11" font-weight="bold">[4]</text>
+  <text x="290" y="278" fill="#f1f5f9" font-size="13" font-weight="bold">Local Storage Only (Manual Setup)</text>
+  <text x="290" y="298" fill="#bbf7d0" font-size="11">User-only access — no third-party access possible</text>
+
+  <!-- Legend -->
+  <rect x="180" y="340" width="15" height="15" rx="3" fill="#dc2626"/>
+  <text x="205" y="352" fill="#94a3b8" font-size="11">Third-party accessible</text>
+  <rect x="350" y="340" width="15" height="15" rx="3" fill="#d97706"/>
+  <text x="375" y="352" fill="#94a3b8" font-size="11">Organization-level</text>
+  <rect x="510" y="340" width="15" height="15" rx="3" fill="#16a34a"/>
+  <text x="535" y="352" fill="#94a3b8" font-size="11">User-only (Secure)</text>
+
+  <text x="350" y="385" text-anchor="middle" fill="#475569" font-size="10">FBI requested BitLocker recovery key via Path [1]</text>
+</svg>

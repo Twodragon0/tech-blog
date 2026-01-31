@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 430" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <filter id="shadow" x="-3%" y="-3%" width="108%" height="108%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="650" height="430" fill="#0d1117" rx="8"/>
+  <text x="325" y="28" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="bold">3-2-1-1-0 Backup Strategy</text>
+  <text x="325" y="48" text-anchor="middle" fill="#64748b" font-size="11">Enhanced Backup Rule for Ransomware Defense</text>
+
+  <!-- 3 -->
+  <rect x="40" y="65" width="570" height="55" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <circle cx="70" cy="92" r="18" fill="#1e40af"/>
+  <text x="70" y="98" text-anchor="middle" fill="#f1f5f9" font-size="18" font-weight="bold">3</text>
+  <text x="105" y="88" fill="#f1f5f9" font-size="13" font-weight="bold">Keep 3 copies of data</text>
+  <text x="105" y="108" fill="#bfdbfe" font-size="11">Production data + Local backup + Remote backup</text>
+
+  <!-- 2 -->
+  <rect x="40" y="130" width="570" height="55" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <circle cx="70" cy="157" r="18" fill="#1e40af"/>
+  <text x="70" y="163" text-anchor="middle" fill="#f1f5f9" font-size="18" font-weight="bold">2</text>
+  <text x="105" y="153" fill="#f1f5f9" font-size="13" font-weight="bold">Use 2 different media types</text>
+  <text x="105" y="173" fill="#bfdbfe" font-size="11">Disk-based backup + Tape/Cloud backup</text>
+
+  <!-- 1 (offsite) -->
+  <rect x="40" y="195" width="570" height="55" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <circle cx="70" cy="222" r="18" fill="#1e40af"/>
+  <text x="70" y="228" text-anchor="middle" fill="#f1f5f9" font-size="18" font-weight="bold">1</text>
+  <text x="105" y="218" fill="#f1f5f9" font-size="13" font-weight="bold">Store 1 copy offsite</text>
+  <text x="105" y="238" fill="#bfdbfe" font-size="11">Geographically separated location</text>
+
+  <!-- 1 (immutable) -->
+  <rect x="40" y="260" width="570" height="65" rx="10" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <circle cx="70" cy="292" r="18" fill="#14532d"/>
+  <text x="70" y="298" text-anchor="middle" fill="#f1f5f9" font-size="18" font-weight="bold">1</text>
+  <text x="105" y="283" fill="#f1f5f9" font-size="13" font-weight="bold">Keep 1 immutable backup</text>
+  <text x="105" y="303" fill="#bbf7d0" font-size="11">WORM (Write Once Read Many) | S3 Object Lock | Air-gapped</text>
+
+  <!-- 0 -->
+  <rect x="40" y="335" width="570" height="65" rx="10" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <circle cx="70" cy="367" r="18" fill="#14532d"/>
+  <text x="70" y="373" text-anchor="middle" fill="#f1f5f9" font-size="18" font-weight="bold">0</text>
+  <text x="105" y="358" fill="#f1f5f9" font-size="13" font-weight="bold">Zero errors in recovery tests</text>
+  <text x="105" y="378" fill="#bbf7d0" font-size="11">Monthly recovery tests | Quarterly full simulation | RTO/RPO verification</text>
+</svg>

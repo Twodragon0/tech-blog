@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 430" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+    <filter id="shadow" x="-3%" y="-3%" width="108%" height="108%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="700" height="430" fill="#0d1117" rx="8"/>
+  <text x="350" y="28" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="bold">Why Manufacturing is Ransomware Target #1</text>
+
+  <!-- Reason 1 -->
+  <rect x="30" y="50" width="310" height="110" rx="10" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <circle cx="57" cy="77" r="15" fill="#7f1d1d"/>
+  <text x="57" y="82" text-anchor="middle" fill="#fef2f2" font-size="14" font-weight="bold">1</text>
+  <text x="85" y="77" fill="#f1f5f9" font-size="13" font-weight="bold">Extreme Downtime Costs</text>
+  <text x="55" y="100" fill="#fca5a5" font-size="10">Hundreds of thousands $/minute loss</text>
+  <text x="55" y="118" fill="#fca5a5" font-size="10">Production line delays → supply chain impact</text>
+  <text x="55" y="136" fill="#fca5a5" font-size="10">Cascading effects across entire supply chain</text>
+
+  <!-- Reason 2 -->
+  <rect x="360" y="50" width="310" height="110" rx="10" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <circle cx="387" cy="77" r="15" fill="#7f1d1d"/>
+  <text x="387" y="82" text-anchor="middle" fill="#fef2f2" font-size="14" font-weight="bold">2</text>
+  <text x="415" y="77" fill="#f1f5f9" font-size="13" font-weight="bold">Expanded OT/IT Attack Surface</text>
+  <text x="385" y="100" fill="#fca5a5" font-size="10">Legacy SCADA/ICS vulnerabilities</text>
+  <text x="385" y="118" fill="#fca5a5" font-size="10">IT→OT network pivot possible</text>
+  <text x="385" y="136" fill="#fca5a5" font-size="10">Long or impossible patch cycles</text>
+
+  <!-- Reason 3 -->
+  <rect x="30" y="180" width="310" height="110" rx="10" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <circle cx="57" cy="207" r="15" fill="#7f1d1d"/>
+  <text x="57" y="212" text-anchor="middle" fill="#fef2f2" font-size="14" font-weight="bold">3</text>
+  <text x="85" y="207" fill="#f1f5f9" font-size="13" font-weight="bold">Maximum Ransom Pressure</text>
+  <text x="55" y="230" fill="#fca5a5" font-size="10">JIT production vulnerability</text>
+  <text x="55" y="248" fill="#fca5a5" font-size="10">Contract penalty pressure</text>
+  <text x="55" y="266" fill="#fca5a5" font-size="10">Customer trust damage concerns</text>
+
+  <!-- Reason 4 -->
+  <rect x="360" y="180" width="310" height="110" rx="10" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <circle cx="387" cy="207" r="15" fill="#7f1d1d"/>
+  <text x="387" y="212" text-anchor="middle" fill="#fef2f2" font-size="14" font-weight="bold">4</text>
+  <text x="415" y="207" fill="#f1f5f9" font-size="13" font-weight="bold">Lower Security Maturity</text>
+  <text x="385" y="230" fill="#fca5a5" font-size="10">OT security underinvested vs IT</text>
+  <text x="385" y="248" fill="#fca5a5" font-size="10">Security staff shortage</text>
+  <text x="385" y="266" fill="#fca5a5" font-size="10">Lack of awareness training</text>
+
+  <!-- Defense strategies -->
+  <rect x="80" y="315" width="540" height="80" rx="10" fill="#14532d" stroke="#22c55e" stroke-width="1"/>
+  <text x="350" y="340" text-anchor="middle" fill="#86efac" font-size="13" font-weight="bold">Defense Strategies</text>
+  <text x="350" y="362" text-anchor="middle" fill="#bbf7d0" font-size="11">OT/IT Network Segmentation | Industrial IDS/IPS | OT-specific EDR</text>
+  <text x="350" y="382" text-anchor="middle" fill="#bbf7d0" font-size="11">Regular OT Security Assessments | Incident Response Drills</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 350" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+    <filter id="shadow" x="-3%" y="-3%" width="108%" height="108%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="750" height="350" fill="#0d1117" rx="8"/>
+  <text x="375" y="28" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="bold">Ransomware Ecosystem Fragmentation (2025 Q3)</text>
+
+  <!-- Q1 Column -->
+  <text x="200" y="62" text-anchor="middle" fill="#94a3b8" font-size="14" font-weight="bold">2025 Q1</text>
+  <rect x="90" y="78" width="220" height="90" rx="10" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <text x="200" y="108" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="bold">Top 10 Groups</text>
+  <text x="200" y="135" text-anchor="middle" fill="#fca5a5" font-size="28" font-weight="bold">71%</text>
+  <text x="200" y="158" text-anchor="middle" fill="#fca5a5" font-size="11">of all attacks</text>
+
+  <rect x="90" y="180" width="220" height="55" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="200" y="205" text-anchor="middle" fill="#94a3b8" font-size="12">Other Groups: 29%</text>
+  <text x="200" y="225" text-anchor="middle" fill="#64748b" font-size="11">49 active groups | 62 leak sites</text>
+
+  <!-- Arrow -->
+  <text x="375" y="145" text-anchor="middle" fill="#f87171" font-size="24" font-weight="bold">→</text>
+  <text x="375" y="170" text-anchor="middle" fill="#f87171" font-size="11" font-weight="bold">+57%</text>
+
+  <!-- Q3 Column -->
+  <text x="560" y="62" text-anchor="middle" fill="#f87171" font-size="14" font-weight="bold">2025 Q3</text>
+  <rect x="450" y="78" width="220" height="90" rx="10" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+  <text x="560" y="108" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="bold">Top 10 Groups</text>
+  <text x="560" y="135" text-anchor="middle" fill="#fed7aa" font-size="28" font-weight="bold">56%</text>
+  <text x="560" y="158" text-anchor="middle" fill="#fed7aa" font-size="11">of all attacks (-15%)</text>
+
+  <rect x="450" y="180" width="220" height="55" rx="10" fill="#451a03" stroke="#ea580c" stroke-width="1"/>
+  <text x="560" y="205" text-anchor="middle" fill="#fdba74" font-size="12">Other Groups: 44%</text>
+  <text x="560" y="225" text-anchor="middle" fill="#fb923c" font-size="11">77 active groups | 85 leak sites</text>
+
+  <!-- Insight -->
+  <rect x="120" y="268" width="510" height="50" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="375" y="290" text-anchor="middle" fill="#f87171" font-size="12" font-weight="bold">Key Insight: Small group proliferation increases tracking complexity</text>
+  <text x="375" y="308" text-anchor="middle" fill="#94a3b8" font-size="11">Source: KARA (Korean Anti-Ransomware Alliance) Report</text>
+</svg>
