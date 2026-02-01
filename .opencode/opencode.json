@@ -5,113 +5,21 @@
   "autoupdate": true,
   
   "mcp": {
-    "notion": {
-      "type": "remote",
-      "url": "https://mcp.notion.com/mcp",
-      "enabled": false,
-      "timeout": 10000,
-      "description": "Notion hosted MCP server with OAuth 2.0 authentication. Connect via OAuth flow - no API key needed."
-    },
     "playwright": {
       "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-playwright"],
-      "enabled": true,
-      "timeout": 15000
-    },
-    "youtube": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-youtube"],
-      "enabled": false,
-      "environment": {
-        "YOUTUBE_API_KEY": "${YOUTUBE_API_KEY}"
-      },
-      "timeout": 10000,
-      "description": "YouTube MCP server. Can use API key or Google OAuth. For OAuth, use Google Cloud OAuth credentials."
-    },
-    "github": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
-      "enabled": false,
-      "environment": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
-      },
-      "timeout": 10000,
-      "description": "GitHub MCP server. Supports OAuth 2.0 - register OAuth app and use client credentials."
-    },
-    "google-drive": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-google-drive"],
-      "enabled": false,
-      "environment": {
-        "GOOGLE_DRIVE_CREDENTIALS_PATH": "${GOOGLE_DRIVE_CREDENTIALS_PATH}",
-        "GCP_OAUTH_KEYS_PATH": "${GCP_OAUTH_KEYS_PATH:-gcp-oauth.keys.json}"
-      },
-      "timeout": 10000,
-      "description": "Google Drive MCP server with OAuth 2.0. Requires gcp-oauth.keys.json file. Run 'node ./dist auth' after setup."
-    },
-    "slack": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-slack"],
-      "enabled": false,
-      "environment": {
-        "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}",
-        "SLACK_TEAM_ID": "${SLACK_TEAM_ID}"
-      },
-      "timeout": 10000
-    },
-    "brave-search": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-brave-search"],
-      "enabled": false,
-      "environment": {
-        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
-      },
-      "timeout": 10000
+      "command": ["npx", "-y", "@playwright/mcp@latest"]
     },
     "filesystem": {
       "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem"],
-      "enabled": true,
-      "environment": {
-        "ALLOWED_DIRECTORIES": "${PWD}"
-      },
-      "timeout": 5000
-    },
-    "postgres": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-postgres"],
-      "enabled": false,
-      "environment": {
-        "POSTGRES_CONNECTION_STRING": "${POSTGRES_CONNECTION_STRING}"
-      },
-      "timeout": 10000
-    },
-    "sqlite": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-sqlite"],
-      "enabled": false,
-      "environment": {
-        "SQLITE_DB_PATH": "${SQLITE_DB_PATH}"
-      },
-      "timeout": 5000
-    },
-    "puppeteer": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-puppeteer"],
-      "enabled": false,
-      "timeout": 15000
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "."]
     },
     "git": {
       "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-git"],
-      "enabled": true,
-      "timeout": 5000
+      "command": ["npx", "-y", "@modelcontextprotocol/server-git"]
     },
     "memory": {
       "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"],
-      "enabled": true,
-      "timeout": 5000
+      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"]
     }
   },
   

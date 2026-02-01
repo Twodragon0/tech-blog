@@ -188,12 +188,14 @@ resource "aws_lb_target_group" "rds_mysql" {
 
 ### 2.1 Security Group 계층 구조
 
-```
-[Application Security Group]
-    ↓ (허용)
-[NLB Security Group]
-    ↓ (허용)
-[Database Security Group]
+```mermaid
+flowchart TD
+    ASG["Application Security Group"]
+    NSG["NLB Security Group"]
+    DSG["Database Security Group"]
+    
+    ASG -->|Allowed| NSG
+    NSG -->|Allowed| DSG
 ```
 
 ### 2.2 NLB Security Group

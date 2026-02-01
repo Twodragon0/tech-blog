@@ -1,5 +1,26 @@
 /* Layout Styles */
 
+/* Skip Navigation Link (Accessibility) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 10000;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary, #2563eb);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
+  transition: top 0.2s ease;
+
+  &:focus {
+    top: 0;
+    outline: 3px solid var(--color-primary, #2563eb);
+    outline-offset: 2px;
+  }
+}
+
 /* Container */
 .container {
   max-width: var(--container-max-width);

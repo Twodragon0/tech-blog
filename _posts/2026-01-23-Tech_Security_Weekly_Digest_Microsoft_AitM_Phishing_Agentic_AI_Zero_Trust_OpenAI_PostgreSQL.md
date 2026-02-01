@@ -355,19 +355,21 @@ SSH 세션에서 단일 키 입력 시 **예상보다 훨씬 많은 패킷이 �
 
 #### 분석 결과
 
-```
-tcpdump 분석 결과:
-──────────────────
-• 패킷 크기: 36바이트 (반복)
-• 발생 간격: 약 20ms
-• 원인: 2023년 SSH에 추가된 keystroke timing obfuscation 기능
-
-목적:
-• 키 입력 타이밍 분석 공격 방어
-• 패스워드 추론 공격 차단
-
-Trade-off:
-• 보안 ↑ vs 네트워크 효율성 ↓
+```mermaid
+graph TD
+    A["SSH Keystroke Input"] --> B["36-byte Packet<br/>~20ms Interval"]
+    B --> C["2023 SSH Feature:<br/>Keystroke Timing Obfuscation"]
+    C --> D["Purpose"]
+    C --> E["Trade-off"]
+    D --> D1["Defense Against<br/>Timing Analysis"]
+    D --> D2["Block Password<br/>Inference Attacks"]
+    E --> E1["Security ↑"]
+    E --> E2["Network Efficiency ↓"]
+    
+    style A fill:#e1f5ff
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#fce4ec
 ```
 
 > **출처**: [eieio.games - SSH Packets Analysis](https://eieio.games/blog/ssh-sends-100-packets-per-keystroke/)

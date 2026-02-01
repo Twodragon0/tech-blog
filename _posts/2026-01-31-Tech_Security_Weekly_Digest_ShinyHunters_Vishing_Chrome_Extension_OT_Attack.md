@@ -103,10 +103,20 @@ Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters**
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
-ShinyHunters Vishing Attack Chain:
-1. Reconnaissance (OSINT/LinkedIn) → 2. Vishing Call (IT Helpdesk Impersonation) → 3. MFA Intercept (Real-time Proxy Relay)
-→ 4. SaaS Access (Okta, Azure AD) → 5. Privilege Escalation (Admin Account Pivoting) → 6. Data Exfiltration / Ransomware
+```mermaid
+graph LR
+    A["1. Reconnaissance<br/>(OSINT/LinkedIn)"] --> B["2. Vishing Call<br/>(IT Helpdesk Impersonation)"]
+    B --> C["3. MFA Intercept<br/>(Real-time Proxy Relay)"]
+    C --> D["4. SaaS Access<br/>(Okta, Azure AD)"]
+    D --> E["5. Privilege Escalation<br/>(Admin Account Pivoting)"]
+    E --> F["6. Data Exfiltration<br/>/ Ransomware"]
+    
+    style A fill:#ffcccc
+    style B fill:#ffcccc
+    style C fill:#ffcccc
+    style D fill:#ffcccc
+    style E fill:#ffcccc
+    style F fill:#ff6666
 ```
 
 </details>
@@ -270,10 +280,22 @@ mitre_attack:
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
-Chrome Extension Token Theft Flow:
-Malicious Extension Install (Chrome Store) → content_scripts.js Injection → chat.openai.com Cookie/Token Access
-→ sessionStorage / localStorage / Cookie Collection → C2 Server Exfiltration (Tokens + Chat History)
+```mermaid
+sequenceDiagram
+    participant User as User
+    participant ChromeStore as Chrome Web Store
+    participant Extension as Malicious Extension
+    participant ChatGPT as chat.openai.com
+    participant C2 as C2 Server
+    
+    User->>ChromeStore: Install Extension
+    ChromeStore->>Extension: Deploy Extension
+    Extension->>Extension: Inject content_scripts.js
+    Extension->>ChatGPT: Access DOM/Storage
+    ChatGPT->>Extension: sessionStorage/localStorage/Cookies
+    Extension->>Extension: Collect Tokens + Chat History
+    Extension->>C2: Exfiltrate Data
+    C2->>C2: Store Stolen Credentials
 ```
 
 </details>
@@ -425,13 +447,24 @@ mitre_attack:
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
-OT Network Segmentation (IEC 62443 / Purdue Model):
-Enterprise Zone (Active Directory, Email Server, Web Server)
-  ↓ DMZ / Data Diode
-OT Supervisory Zone (SCADA Server, Historian Server, HMI Stations)
-  ↓ Firewall (Allowlist Only)
-OT Control Zone (PLC Controllers, RTU Units, IED Devices)
+```mermaid
+graph TD
+    A["Enterprise Zone<br/>(Active Directory, Email, Web Server)"]
+    B["DMZ / Data Diode<br/>(Unidirectional Gateway)"]
+    C["OT Supervisory Zone<br/>(SCADA, Historian, HMI)"]
+    D["Firewall<br/>(Allowlist Only)"]
+    E["OT Control Zone<br/>(PLC, RTU, IED Devices)"]
+    
+    A -->|Restricted Access| B
+    B -->|One-way Data Flow| C
+    C -->|Strict Rules| D
+    D -->|Critical Control| E
+    
+    style A fill:#e1f5ff
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style D fill:#ffebee
+    style E fill:#c8e6c9
 ```
 
 </details>

@@ -2,6 +2,7 @@ name: Sentry Release
 
 # Sentry Release 생성 워크플로우
 # Free 티어 최적화: 프로덕션 배포 시에만 실행, 소스맵 업로드 제외
+# test-sentry-release 기능 통합: dry_run=true로 검증만 수행 가능
 
 on:
   push:
@@ -16,452 +17,178 @@ on:
       - '_config.yml'
       - 'vercel.json'
       - '.github/workflows/sentry-release.yml'
-  workflow_dispatch: # 수동 실행 가능
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run - verify config only, no release creation'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 jobs:
   create-sentry-release:
     runs-on: ubuntu-latest
-    # 타임아웃 설정 (무한 실행 방지)
     timeout-minutes: 5
     # Free 티어에서는 Release 생성 실패를 치명적 오류로 처리하지 않음
     continue-on-error: true
-    
+
     permissions:
       contents: read
-      # Sentry Release 생성에 필요한 최소 권한만
-      
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 전체 히스토리 필요 (커밋 정보 추출)
-      
-      - name: Setup jq (if needed)
-        continue-on-error: true
-        run: |
-          if ! command -v jq &> /dev/null; then
-            echo "📦 Installing jq for JSON parsing..."
-            # Ubuntu runner에는 jq가 기본 설치되어 있지만, 확인 후 설치
-            if command -v apt-get &> /dev/null; then
-              sudo apt-get update -qq && sudo apt-get install -y jq || {
-                echo "⚠️  jq 설치 실패, 기본 파싱 사용"
-                echo "   JSON 파싱은 jq 없이도 작동하지만 덜 정확할 수 있습니다"
-              }
-            else
-              echo "⚠️  apt-get을 사용할 수 없습니다. jq 없이 진행합니다"
-            fi
-          else
-            echo "✅ jq already installed: $(jq --version)"
-          fi
-      
+          fetch-depth: 0
+
       - name: Verify Sentry Configuration
+        id: verify
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'tech-blog' }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
         run: |
+          # ─── Reusable curl-retry function ───
+          sentry_api() {
+            local url="$1"
+            local method="${2:-GET}"
+            local max_retries=3
+            local retry=0
+            local http_code=""
+            local body=""
+            local response=""
+
+            while [ $retry -lt $max_retries ]; do
+              response=$(curl -s --max-time 15 -w "\n%{http_code}" \
+                -X "$method" \
+                -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+                -H "Content-Type: application/json" \
+                "$url" 2>&1)
+              local exit_code=$?
+
+              http_code=$(echo "$response" | tail -n1)
+              body=$(echo "$response" | sed '$d')
+
+              if [ "$exit_code" -eq 0 ] && echo "$http_code" | grep -qE '^[0-9]{3}$'; then
+                echo "$http_code"
+                return 0
+              fi
+
+              retry=$((retry + 1))
+              if [ $retry -lt $max_retries ]; then
+                echo "⚠️  Retry $retry/$max_retries (curl exit: $exit_code)..." >&2
+                sleep $((retry + 1))
+              fi
+            done
+
+            echo "NETWORK_ERROR"
+            return 1
+          }
+
           echo "🔍 Verifying Sentry configuration..."
           echo "Organization: $SENTRY_ORG"
           echo "Project: $SENTRY_PROJECT"
-          
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Mode: DRY RUN (verification only)"
+          fi
+
           # Token 존재 확인
           if [ -z "$SENTRY_AUTH_TOKEN" ]; then
             echo "❌ SENTRY_AUTH_TOKEN is not set in GitHub Secrets"
-            echo ""
-            echo "💡 해결 방법:"
-            echo "1. Sentry 대시보드에서 Auth Token 생성:"
-            echo "   https://sentry.io/settings/account/api/auth-tokens/"
-            echo "2. Token 생성 시 다음 권한 선택:"
-            echo "   - project:read"
-            echo "   - project:releases (필수!)"
-            echo "   - org:read"
-            echo "3. 생성된 Token을 GitHub Secrets에 추가:"
-            echo "   방법 1 (GitHub CLI):"
-            echo "   gh secret set SENTRY_AUTH_TOKEN --body \"your-token-here\""
-            echo ""
-            echo "   방법 2 (GitHub 웹 UI):"
-            echo "   Settings > Secrets and variables > Actions > New repository secret"
-            echo "   Name: SENTRY_AUTH_TOKEN"
-            echo "   Value: [생성한 Token]"
-            echo ""
-            echo "4. Token 형식 확인:"
-            echo "   - sntryu_로 시작하는 일반 Token"
-            echo "   - sentry-release로 시작하는 Release 전용 Token"
+            echo "💡 Create token at: https://sentry.io/settings/account/api/auth-tokens/"
+            echo "   Required permissions: project:read, project:releases, org:read"
             exit 1
           fi
-          
-          # Token 형식 확인 (보안: 전체 값은 출력하지 않음)
+
+          # Token 형식 확인
           TOKEN_PREFIX="${SENTRY_AUTH_TOKEN:0:15}"
-          echo "Token prefix: ${TOKEN_PREFIX}... (보안상 전체 값은 표시하지 않음)"
-          
-          # Token 형식 확인 (sntryu_ 또는 sentry-release로 시작)
+          echo "Token prefix: ${TOKEN_PREFIX}..."
           if [[ ! "$SENTRY_AUTH_TOKEN" =~ ^(sntryu_|sentry-release) ]]; then
-            echo "⚠️  Token 형식 확인: sntryu_ 또는 sentry-release로 시작해야 합니다"
-            echo "   현재 Token 접두사: ${SENTRY_AUTH_TOKEN:0:20}..."
-            echo "   Token 형식은 유효할 수 있지만, 일반적인 형식과 다릅니다"
+            echo "⚠️  Token format unusual (expected sntryu_ or sentry-release prefix)"
           else
-            echo "✅ Token 형식 확인 완료"
+            echo "✅ Token format OK"
           fi
-          
-          # Sentry API 연결 테스트 (프로젝트 정보 조회)
+
+          # API 연결 테스트
           echo "🔗 Testing Sentry API connection..."
-          
-          # 재시도 로직 포함 (타임아웃 처리)
-          MAX_RETRIES=3
-          RETRY_COUNT=0
-          RESPONSE=""
-          HTTP_CODE=""
-          BODY=""
-          CURL_EXIT_CODE=0
-          
-          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-            RESPONSE=$(curl -s --max-time 15 -w "\n%{http_code}" \
-              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-              -H "Content-Type: application/json" \
-              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/" 2>&1)
-            CURL_EXIT_CODE=$?
-            
-            HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
-            BODY=$(echo "$RESPONSE" | sed '$d')
-            
-            # curl 성공 및 HTTP 코드 유효성 검사
-            if [ "$CURL_EXIT_CODE" -eq 0 ] && echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
-              break  # 성공적으로 응답 받음
-            elif [ "$CURL_EXIT_CODE" -eq 28 ]; then
-              # 타임아웃 에러 (exit code 28)
-              RETRY_COUNT=$((RETRY_COUNT + 1))
-              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-                echo "⚠️  Timeout occurred (attempt $RETRY_COUNT/$MAX_RETRIES), retrying in 2 seconds..."
-                sleep 2
-              else
-                echo "❌ Network timeout after $MAX_RETRIES attempts when connecting to Sentry API"
-                echo "   curl exit code: $CURL_EXIT_CODE"
-                echo "   Response preview: $(echo "$RESPONSE" | head -n 5)"
-                echo ""
-                echo "💡 해결 방법:"
-                echo "1. 네트워크 연결 확인"
-                echo "2. Sentry API 상태 확인: https://status.sentry.io/"
-                echo "3. 잠시 후 다시 시도 (워크플로우 재실행)"
-                exit 1
-              fi
-            else
-              # 다른 curl 에러
-              RETRY_COUNT=$((RETRY_COUNT + 1))
-              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-                echo "⚠️  Network error (curl exit: $CURL_EXIT_CODE, attempt $RETRY_COUNT/$MAX_RETRIES), retrying..."
-                sleep 2
-              else
-                echo "❌ Network error after $MAX_RETRIES attempts when connecting to Sentry API"
-                echo "   curl exit code: $CURL_EXIT_CODE"
-                echo "   Response preview: $(echo "$RESPONSE" | head -n 5)"
-                echo ""
-                echo "💡 해결 방법:"
-                echo "1. 네트워크 연결 확인"
-                echo "2. Sentry API 상태 확인: https://status.sentry.io/"
-                echo "3. 잠시 후 다시 시도 (워크플로우 재실행)"
-                exit 1
-              fi
-            fi
-          done
-          
-          # HTTP 코드 유효성 검사
-          if ! echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
-            echo "❌ Invalid HTTP response code: $HTTP_CODE"
-            echo "   Response preview: $(echo "$RESPONSE" | head -n 10)"
-            exit 1
+          HTTP_CODE=$(sentry_api "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/")
+
+          case "$HTTP_CODE" in
+            200)
+              echo "✅ API connection OK, project access verified"
+
+              # Token 권한 확인 (releases API)
+              echo "🔍 Checking releases permission..."
+              RELEASE_CODE=$(sentry_api "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/")
+
+              case "$RELEASE_CODE" in
+                200|404)
+                  echo "✅ Token has 'project:releases' permission"
+                  ;;
+                403)
+                  echo "⚠️  Token lacks 'project:releases' permission (HTTP 403)"
+                  echo "💡 Update token at: https://sentry.io/settings/account/api/auth-tokens/"
+                  ;;
+                *)
+                  echo "⚠️  Could not verify releases permission ($RELEASE_CODE), continuing..."
+                  ;;
+              esac
+              ;;
+            401)
+              echo "❌ Authentication failed (HTTP 401) - token invalid or expired"
+              echo "💡 Create new token at: https://sentry.io/settings/account/api/auth-tokens/"
+              exit 1
+              ;;
+            403)
+              echo "❌ Access denied (HTTP 403)"
+              # Discover accessible orgs for debugging
+              echo "🔍 Discovering accessible organizations..."
+              sentry_api "https://sentry.io/api/0/organizations/" > /dev/null 2>&1
+              echo "💡 Check org/project names and token permissions"
+              echo "   Current: SENTRY_ORG=$SENTRY_ORG, SENTRY_PROJECT=$SENTRY_PROJECT"
+              exit 1
+              ;;
+            404)
+              echo "❌ Project not found (HTTP 404)"
+              echo "💡 Verify org/project names:"
+              echo "   SENTRY_ORG=$SENTRY_ORG"
+              echo "   SENTRY_PROJECT=$SENTRY_PROJECT"
+              echo "   Dashboard: https://sentry.io/organizations/$SENTRY_ORG/projects/"
+              exit 1
+              ;;
+            NETWORK_ERROR)
+              echo "❌ Network error connecting to Sentry API after retries"
+              echo "💡 Check: https://status.sentry.io/"
+              exit 1
+              ;;
+            *)
+              echo "⚠️  Unexpected response (HTTP $HTTP_CODE), continuing..."
+              ;;
+          esac
+
+          echo "verified=true" >> $GITHUB_OUTPUT
+
+          # Dry run summary
+          if [ "$DRY_RUN" = "true" ]; then
+            echo ""
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "📋 Dry Run Summary"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "✅ Configuration verified"
+            echo "✅ Commit SHA: ${{ github.sha }}"
+            echo "✅ Environment: production"
+            echo "✅ Sourcemaps: false (Free tier)"
+            echo "✅ Ready to create Sentry Release"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           fi
-          
-          if [ "$HTTP_CODE" = "200" ]; then
-            echo "✅ Successfully connected to Sentry API"
-            echo "✅ Project access verified"
-            
-            # Token 권한 확인 (releases API 테스트)
-            echo "🔍 Checking token permissions for releases..."
-            
-            # 재시도 로직 포함 (타임아웃 처리)
-            MAX_RETRIES=3
-            RETRY_COUNT=0
-            RELEASE_TEST_CODE=""
-            CURL_EXIT_CODE=0
-            
-            while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-              RELEASE_TEST_RESPONSE=$(curl -s --max-time 15 -w "\n%{http_code}" \
-                -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-                -H "Content-Type: application/json" \
-                -X GET \
-                "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/" 2>&1)
-              CURL_EXIT_CODE=$?
-              
-              RELEASE_TEST_CODE=$(echo "$RELEASE_TEST_RESPONSE" | tail -n1)
-              RELEASE_TEST_BODY=$(echo "$RELEASE_TEST_RESPONSE" | sed '$d')
-              
-              # curl 성공 및 HTTP 코드 유효성 검사
-              if [ "$CURL_EXIT_CODE" -eq 0 ] && echo "$RELEASE_TEST_CODE" | grep -qE '^[0-9]{3}$'; then
-                break  # 성공적으로 응답 받음
-              elif [ "$CURL_EXIT_CODE" -eq 28 ]; then
-                # 타임아웃 에러 (exit code 28)
-                RETRY_COUNT=$((RETRY_COUNT + 1))
-                if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-                  echo "⚠️  Timeout occurred (attempt $RETRY_COUNT/$MAX_RETRIES), retrying in 2 seconds..."
-                  sleep 2
-                else
-                  echo "⚠️  Timeout after $MAX_RETRIES attempts when checking releases permission"
-                  echo "   This may be due to network issues or Sentry API slowness"
-                  echo "   Continuing workflow anyway (release creation may still work)"
-                  RELEASE_TEST_CODE="TIMEOUT"
-                  break
-                fi
-              else
-                # 다른 curl 에러
-                RETRY_COUNT=$((RETRY_COUNT + 1))
-                if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-                  echo "⚠️  Network error (curl exit: $CURL_EXIT_CODE, attempt $RETRY_COUNT/$MAX_RETRIES), retrying..."
-                  sleep 2
-                else
-                  echo "⚠️  Network error after $MAX_RETRIES attempts (curl exit: $CURL_EXIT_CODE)"
-                  echo "   Continuing workflow anyway"
-                  RELEASE_TEST_CODE="NETWORK_ERROR"
-                  break
-                fi
-              fi
-            done
-            
-            # HTTP 코드 기반 처리
-            if [ "$RELEASE_TEST_CODE" = "200" ] || [ "$RELEASE_TEST_CODE" = "404" ]; then
-              echo "✅ Token has 'project:releases' permission"
-            elif [ "$RELEASE_TEST_CODE" = "403" ]; then
-              echo "❌ Token lacks 'project:releases' permission (HTTP 403)"
-              echo ""
-              echo "💡 해결 방법:"
-              echo "1. Sentry 대시보드에서 기존 Token 수정 또는 새 Token 생성:"
-              echo "   https://sentry.io/settings/account/api/auth-tokens/"
-              echo "2. Token 생성/수정 시 다음 권한을 반드시 선택:"
-              echo "   ✅ project:read"
-              echo "   ✅ project:releases (필수!)"
-              echo "   ✅ org:read"
-              echo "3. 새 Token을 GitHub Secrets에 업데이트:"
-              echo "   Settings > Secrets and variables > Actions > SENTRY_AUTH_TOKEN > Update"
-              # Free 티어에서는 권한 확인 실패를 치명적 오류로 처리하지 않음
-              echo "⚠️  Continuing workflow despite permission check failure"
-            elif [ "$RELEASE_TEST_CODE" = "TIMEOUT" ] || [ "$RELEASE_TEST_CODE" = "NETWORK_ERROR" ]; then
-              echo "⚠️  Could not verify token permissions due to network issues"
-              echo "   Continuing workflow - release creation will be attempted anyway"
-            else
-              if echo "$RELEASE_TEST_CODE" | grep -qE '^[0-9]{3}$'; then
-                echo "⚠️  Unexpected response when checking releases permission (HTTP $RELEASE_TEST_CODE)"
-                echo "   Continuing workflow anyway"
-              else
-                echo "⚠️  Could not determine HTTP status (response: $RELEASE_TEST_CODE)"
-                echo "   Continuing workflow anyway"
-              fi
-            fi
-          elif [ "$HTTP_CODE" = "401" ]; then
-            echo "❌ Authentication failed (HTTP 401)"
-            echo "   Token이 유효하지 않거나 만료되었습니다."
-            echo ""
-            echo "💡 해결 방법:"
-            echo "1. Sentry 대시보드에서 새 Token 생성:"
-            echo "   https://sentry.io/settings/account/api/auth-tokens/"
-            echo "2. GitHub Secrets의 SENTRY_AUTH_TOKEN 업데이트"
-            exit 1
-          elif [ "$HTTP_CODE" = "403" ]; then
-            echo "❌ Access denied (HTTP 403)"
-            echo "   Token에 프로젝트 접근 권한이 없거나 Organization/Project 이름이 잘못되었습니다."
-            echo ""
-            
-            # Token으로 접근 가능한 Organization 목록 조회
-            echo "🔍 Discovering accessible organizations..."
-            ORG_RESPONSE=$(curl -s --max-time 10 -w "\n%{http_code}" \
-              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-              -H "Content-Type: application/json" \
-              "https://sentry.io/api/0/organizations/")
-            
-            ORG_HTTP_CODE=$(echo "$ORG_RESPONSE" | tail -n1)
-            ORG_BODY=$(echo "$ORG_RESPONSE" | sed '$d')
-            
-            if [ "$ORG_HTTP_CODE" = "200" ]; then
-              echo "✅ Token으로 접근 가능한 Organizations:"
-              echo "$ORG_BODY" | jq -r '.[] | "   - \(.slug) (ID: \(.id))"' 2>/dev/null || echo "$ORG_BODY"
-              echo ""
-              
-              # 첫 번째 Organization의 Projects 조회 시도
-              FIRST_ORG=$(echo "$ORG_BODY" | jq -r '.[0].slug' 2>/dev/null)
-              if [ -n "$FIRST_ORG" ] && [ "$FIRST_ORG" != "null" ]; then
-                echo "🔍 Discovering projects in organization: $FIRST_ORG"
-                PROJ_RESPONSE=$(curl -s --max-time 10 -w "\n%{http_code}" \
-                  -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-                  -H "Content-Type: application/json" \
-                  "https://sentry.io/api/0/organizations/$FIRST_ORG/projects/")
-                
-                PROJ_HTTP_CODE=$(echo "$PROJ_RESPONSE" | tail -n1)
-                PROJ_BODY=$(echo "$PROJ_RESPONSE" | sed '$d')
-                
-                if [ "$PROJ_HTTP_CODE" = "200" ]; then
-                  echo "✅ Projects in '$FIRST_ORG':"
-                  echo "$PROJ_BODY" | jq -r '.[] | "   - \(.slug) (ID: \(.id))"' 2>/dev/null || echo "$PROJ_BODY"
-                  echo ""
-                fi
-              fi
-            elif [ "$ORG_HTTP_CODE" = "403" ]; then
-              echo "❌ Token에 'org:read' 권한이 없습니다."
-            else
-              echo "⚠️  Organization 목록 조회 실패 (HTTP $ORG_HTTP_CODE)"
-            fi
-            
-            echo "💡 해결 방법:"
-            echo "1. Sentry 대시보드에서 Token 권한 확인/수정:"
-            echo "   https://sentry.io/settings/account/api/auth-tokens/"
-            echo "2. 다음 권한이 선택되어 있는지 확인:"
-            echo "   ✅ project:read (필수!)"
-            echo "   ✅ project:releases (필수!)"
-            echo "   ✅ org:read (권장, Organization 목록 조회용)"
-            echo "3. 위에 표시된 Organization 및 Project 이름을 확인하고,"
-            echo "   워크플로우의 SENTRY_ORG와 SENTRY_PROJECT 값을 업데이트하세요:"
-            echo "   현재 설정:"
-            echo "   - SENTRY_ORG: $SENTRY_ORG"
-            echo "   - SENTRY_PROJECT: $SENTRY_PROJECT"
-            echo ""
-            echo "4. 또는 GitHub Secrets에 Organization/Project 이름을 추가:"
-            echo "   gh secret set SENTRY_ORG --body \"your-org-slug\""
-            echo "   gh secret set SENTRY_PROJECT --body \"your-project-slug\""
-            exit 1
-          elif [ "$HTTP_CODE" = "404" ]; then
-            echo "❌ Project not found (HTTP 404)"
-            echo "   Organization 또는 Project 이름이 올바르지 않습니다."
-            echo ""
-            
-            # Token으로 접근 가능한 Organization 목록 조회
-            echo "🔍 Discovering accessible organizations..."
-            ORG_RESPONSE=$(curl -s --max-time 10 -w "\n%{http_code}" \
-              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-              -H "Content-Type: application/json" \
-              "https://sentry.io/api/0/organizations/")
-            
-            ORG_HTTP_CODE=$(echo "$ORG_RESPONSE" | tail -n1)
-            ORG_BODY=$(echo "$ORG_RESPONSE" | sed '$d')
-            
-            if [ "$ORG_HTTP_CODE" = "200" ]; then
-              echo "✅ Token으로 접근 가능한 Organizations:"
-              echo "$ORG_BODY" | jq -r '.[] | "   - \(.slug) (ID: \(.id))"' 2>/dev/null || echo "$ORG_BODY"
-              echo ""
-              
-              # 현재 설정된 Organization의 Projects 먼저 조회
-              CURRENT_ORG_FOUND=false
-              ORG_SLUGS=$(echo "$ORG_BODY" | jq -r '.[].slug' 2>/dev/null)
-              
-              if [ -n "$ORG_SLUGS" ]; then
-                # 현재 설정된 Organization이 목록에 있는지 확인
-                for ORG_SLUG in $ORG_SLUGS; do
-                  if [ "$ORG_SLUG" = "$SENTRY_ORG" ]; then
-                    CURRENT_ORG_FOUND=true
-                    echo "🔍 Discovering projects in current organization: $SENTRY_ORG"
-                    PROJ_RESPONSE=$(curl -s --max-time 10 -w "\n%{http_code}" \
-                      -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-                      -H "Content-Type: application/json" \
-                      "https://sentry.io/api/0/organizations/$SENTRY_ORG/projects/")
-                    
-                    PROJ_HTTP_CODE=$(echo "$PROJ_RESPONSE" | tail -n1)
-                    PROJ_BODY=$(echo "$PROJ_RESPONSE" | sed '$d')
-                    
-                    if [ "$PROJ_HTTP_CODE" = "200" ]; then
-                      PROJ_COUNT=$(echo "$PROJ_BODY" | jq 'length' 2>/dev/null || echo "0")
-                      if [ "$PROJ_COUNT" -gt 0 ]; then
-                        echo "✅ Projects in '$SENTRY_ORG':"
-                        echo "$PROJ_BODY" | jq -r '.[] | "   - \(.slug) (ID: \(.id))"' 2>/dev/null || echo "$PROJ_BODY"
-                        echo ""
-                        break  # 현재 Organization에서 프로젝트를 찾았으므로 종료
-                      else
-                        echo "   ℹ️  No projects found in organization '$SENTRY_ORG'"
-                        echo ""
-                      fi
-                    elif [ "$PROJ_HTTP_CODE" = "403" ]; then
-                      echo "   ⚠️  No permission to list projects in organization '$SENTRY_ORG'"
-                      echo ""
-                    fi
-                    break
-                  fi
-                done
-                
-                # 현재 Organization에서 프로젝트를 찾지 못한 경우에만 다른 Organization 조회
-                if [ "$CURRENT_ORG_FOUND" = "false" ]; then
-                  echo "⚠️  Organization '$SENTRY_ORG' not found in accessible organizations"
-                  echo "🔍 Checking first available organization for reference..."
-                  FIRST_ORG=$(echo "$ORG_BODY" | jq -r '.[0].slug' 2>/dev/null)
-                  if [ -n "$FIRST_ORG" ] && [ "$FIRST_ORG" != "null" ]; then
-                    PROJ_RESPONSE=$(curl -s --max-time 10 -w "\n%{http_code}" \
-                      -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-                      -H "Content-Type: application/json" \
-                      "https://sentry.io/api/0/organizations/$FIRST_ORG/projects/")
-                    
-                    PROJ_HTTP_CODE=$(echo "$PROJ_RESPONSE" | tail -n1)
-                    PROJ_BODY=$(echo "$PROJ_RESPONSE" | sed '$d')
-                    
-                    if [ "$PROJ_HTTP_CODE" = "200" ]; then
-                      PROJ_COUNT=$(echo "$PROJ_BODY" | jq 'length' 2>/dev/null || echo "0")
-                      if [ "$PROJ_COUNT" -gt 0 ]; then
-                        echo "✅ Example projects in '$FIRST_ORG':"
-                        echo "$PROJ_BODY" | jq -r '.[] | "   - \(.slug) (ID: \(.id))"' 2>/dev/null || echo "$PROJ_BODY"
-                        echo ""
-                      fi
-                    fi
-                  fi
-                fi
-              fi
-            elif [ "$ORG_HTTP_CODE" = "403" ]; then
-              echo "❌ Token에 'org:read' 권한이 없습니다."
-              echo "   Organization 목록을 조회할 수 없습니다."
-              echo ""
-            else
-              echo "⚠️  Organization 목록 조회 실패 (HTTP $ORG_HTTP_CODE)"
-              echo ""
-            fi
-            
-            echo ""
-            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-            echo "💡 해결 방법"
-            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-            echo ""
-            echo "📋 시나리오 1: 프로젝트가 아직 생성되지 않은 경우"
-            echo "   1. Sentry 대시보드에서 프로젝트 생성:"
-            echo "      👉 https://sentry.io/organizations/$SENTRY_ORG/projects/new/"
-            echo ""
-            echo "   2. 프로젝트 생성 시 설정:"
-            echo "      • Platform: JavaScript 선택"
-            echo "      • Project Name: tech-blog"
-            echo "      • Project Slug: tech-blog (자동 생성되지만 확인 필요)"
-            echo ""
-            echo "📋 시나리오 2: 프로젝트가 이미 있지만 이름이 다른 경우"
-            echo "   1. 위에 표시된 프로젝트 목록에서 정확한 이름 확인"
-            echo "   2. GitHub Secrets 업데이트:"
-            echo ""
-            echo "      GitHub CLI 사용:"
-            echo "      gh secret set SENTRY_ORG --body \"$SENTRY_ORG\""
-            echo "      gh secret set SENTRY_PROJECT --body \"실제-프로젝트-slug\""
-            echo ""
-            echo "      또는 GitHub 웹 UI:"
-            echo "      Settings > Secrets and variables > Actions"
-            echo ""
-            echo "   3. Sentry 대시보드에서 직접 확인:"
-            echo "      👉 https://sentry.io/organizations/$SENTRY_ORG/projects/"
-            echo ""
-            echo "   4. 프로젝트 설정에서 정확한 Slug 확인:"
-            echo "      Project Settings > General > Project Slug"
-            echo ""
-            echo "📋 현재 설정된 값:"
-            echo "   • SENTRY_ORG: $SENTRY_ORG"
-            echo "   • SENTRY_PROJECT: $SENTRY_PROJECT"
-            echo ""
-            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-            exit 1
-          else
-            echo "⚠️  Unexpected response (HTTP $HTTP_CODE)"
-            if [ -n "$BODY" ]; then
-              echo "Response: $BODY"
-            fi
-          fi
-      
+
       - name: Check if Release Exists
         id: check_release
+        if: github.event.inputs.dry_run != 'true'
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
@@ -469,179 +196,57 @@ jobs:
         run: |
           RELEASE_VERSION="${{ github.sha }}"
           echo "🔍 Checking if release $RELEASE_VERSION already exists..."
-          
-          # 재시도 로직 포함 (타임아웃 처리)
+
+          # Reuse curl-retry pattern
           MAX_RETRIES=3
-          RETRY_COUNT=0
+          RETRY=0
           HTTP_CODE=""
-          CURL_EXIT_CODE=0
-          
-          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+
+          while [ $RETRY -lt $MAX_RETRIES ]; do
             HTTP_CODE=$(curl -s --max-time 15 -o /dev/null -w "%{http_code}" \
               -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-              -H "Content-Type: application/json" \
               "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/" 2>&1)
-            CURL_EXIT_CODE=$?
-            
-            # curl 성공 및 HTTP 코드 유효성 검사
-            if [ "$CURL_EXIT_CODE" -eq 0 ] && echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
-              break  # 성공적으로 응답 받음
-            elif [ "$CURL_EXIT_CODE" -eq 28 ]; then
-              # 타임아웃 에러 (exit code 28)
-              RETRY_COUNT=$((RETRY_COUNT + 1))
-              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-                echo "⚠️  Timeout occurred (attempt $RETRY_COUNT/$MAX_RETRIES), retrying in 2 seconds..."
-                sleep 2
-              else
-                echo "⚠️  Timeout after $MAX_RETRIES attempts when checking release"
-                echo "   Will attempt to create release anyway"
-                HTTP_CODE="TIMEOUT"
-                break
-              fi
-            else
-              # 다른 curl 에러
-              RETRY_COUNT=$((RETRY_COUNT + 1))
-              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-                echo "⚠️  Network error (curl exit: $CURL_EXIT_CODE, attempt $RETRY_COUNT/$MAX_RETRIES), retrying..."
-                sleep 2
-              else
-                echo "⚠️  Network error after $MAX_RETRIES attempts (curl exit: $CURL_EXIT_CODE)"
-                echo "   Will attempt to create release anyway"
-                HTTP_CODE="NETWORK_ERROR"
-                break
-              fi
+            EXIT_CODE=$?
+
+            if [ "$EXIT_CODE" -eq 0 ] && echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
+              break
             fi
+
+            RETRY=$((RETRY + 1))
+            [ $RETRY -lt $MAX_RETRIES ] && sleep $((RETRY + 1))
           done
-          
-          # HTTP 코드 기반 처리
+
           if [ "$HTTP_CODE" = "200" ]; then
-            echo "ℹ️  Release $RELEASE_VERSION already exists"
+            echo "ℹ️  Release already exists"
             echo "exists=true" >> $GITHUB_OUTPUT
-          elif [ "$HTTP_CODE" = "404" ]; then
-            echo "✅ Release $RELEASE_VERSION does not exist, will create new"
-            echo "exists=false" >> $GITHUB_OUTPUT
-          elif [ "$HTTP_CODE" = "TIMEOUT" ] || [ "$HTTP_CODE" = "NETWORK_ERROR" ]; then
-            echo "⚠️  Could not check release status due to network issues"
-            echo "   Will attempt to create release anyway"
-            echo "exists=false" >> $GITHUB_OUTPUT
           else
-            if echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
-              echo "⚠️  Unexpected response (HTTP $HTTP_CODE), will attempt to create"
-            else
-              echo "⚠️  Could not determine HTTP status, will attempt to create"
-            fi
+            echo "✅ Release does not exist, will create"
             echo "exists=false" >> $GITHUB_OUTPUT
           fi
-      
+
       - name: Create Sentry Release
         id: create_release
-        if: steps.check_release.outputs.exists != 'true'
-        # Free 티어 최적화: 소스맵 업로드 제외 (비용 절감)
+        if: |
+          github.event.inputs.dry_run != 'true' &&
+          steps.check_release.outputs.exists != 'true'
         continue-on-error: true
         uses: getsentry/action-release@v1
         env:
-          # GitHub Secrets에 저장 필요
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'tech-blog' }}
-          # 디버그 로그 활성화 (문제 해결용)
           SENTRY_LOG_LEVEL: debug
         with:
           environment: production
           version: ${{ github.sha }}
-          # Free 티어 최적화: 소스맵 제외 (Jekyll 정적 사이트이므로 불필요)
           sourcemaps: false
-          # 커밋 정보 추적 (GitHub 통합 필요)
-          # GitHub 통합이 설정되어 있지 않으면 'auto' 대신 'skip' 사용 권장
           set_commits: auto
-          # GitHub 통합을 통한 커밋 정보 자동 연결
           ignore_missing: true
-          # 이미 존재하는 릴리스 무시
           ignore_empty: true
-          # Free 티어 최적화: 최소한의 정보만 전송
           finalize: true
-      
-      - name: Handle Release Creation Result
-        id: handle_release
-        if: always() && steps.create_release.outcome != 'success'
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
-          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'tech-blog' }}
-        run: |
-          RELEASE_VERSION="${{ github.sha }}"
-          echo "⚠️  Release creation had issues, checking final status..."
-          
-          # 최종 상태 확인 (재시도 로직 포함)
-          MAX_RETRIES=3
-          RETRY_COUNT=0
-          HTTP_CODE=""
-          CURL_EXIT_CODE=0
-          
-          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-            sleep $((RETRY_COUNT + 1))  # 점진적 대기 (1초, 2초, 3초)
-            
-            HTTP_CODE=$(curl -s --max-time 15 -o /dev/null -w "%{http_code}" \
-              -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-              -H "Content-Type: application/json" \
-              "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/" 2>&1)
-            CURL_EXIT_CODE=$?
-            
-            # HTTP 코드 유효성 검사
-            if [ "$CURL_EXIT_CODE" -eq 0 ] && echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
-              if [ "$HTTP_CODE" = "200" ]; then
-                echo "✅ Release $RELEASE_VERSION exists (created successfully)"
-                echo "✅ Continuing workflow..."
-                echo "success=true" >> $GITHUB_OUTPUT
-                exit 0
-              else
-                RETRY_COUNT=$((RETRY_COUNT + 1))
-                if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-                  echo "⚠️  Retry $RETRY_COUNT/$MAX_RETRIES: Release not found (HTTP $HTTP_CODE)"
-                fi
-              fi
-            elif [ "$CURL_EXIT_CODE" -eq 28 ]; then
-              # 타임아웃 에러
-              RETRY_COUNT=$((RETRY_COUNT + 1))
-              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-                echo "⚠️  Timeout during retry $RETRY_COUNT/$MAX_RETRIES, retrying..."
-              else
-                echo "⚠️  Timeout after $MAX_RETRIES attempts"
-                HTTP_CODE="TIMEOUT"
-                break
-              fi
-            else
-              # 다른 네트워크 에러
-              RETRY_COUNT=$((RETRY_COUNT + 1))
-              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-                echo "⚠️  Network error during retry $RETRY_COUNT/$MAX_RETRIES (curl exit: $CURL_EXIT_CODE)"
-              else
-                echo "⚠️  Network error after $MAX_RETRIES attempts (curl exit: $CURL_EXIT_CODE)"
-                HTTP_CODE="NETWORK_ERROR"
-                break
-              fi
-            fi
-          done
-          
-          # 모든 재시도 실패 시
-          echo "❌ Release $RELEASE_VERSION does not exist after $MAX_RETRIES retries"
-          echo "❌ HTTP Status: $HTTP_CODE"
-          echo ""
-          echo "Common issues:"
-          echo "1. Token lacks 'project:releases' permission"
-          echo "2. Organization or project name mismatch"
-          echo "3. Rate limiting (free tier) - Sentry Free 티어는 월 5,000 이벤트 제한"
-          echo "4. Network/API issues"
-          echo ""
-          echo "💡 해결 방법:"
-          echo "- Free 티어 제한 내에서 운영 중이면 Release 생성 실패는 정상일 수 있습니다"
-          echo "- 워크플로우는 계속 진행되지만 Release는 생성되지 않았습니다"
-          echo "success=false" >> $GITHUB_OUTPUT
-          # Free 티어에서는 Release 생성 실패를 치명적 오류로 처리하지 않음
-          exit 0
-      
-      - name: Output Release Info
-        if: always()
+
+      - name: Verify Release & Summary
+        if: always() && github.event.inputs.dry_run != 'true'
         continue-on-error: true
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -649,84 +254,37 @@ jobs:
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'tech-blog' }}
         run: |
           RELEASE_VERSION="${{ github.sha }}"
-          
-          # 최종 릴리스 존재 여부 확인 (재시도 포함)
+
+          # Final verification with retry
           MAX_RETRIES=3
-          RETRY_COUNT=0
+          RETRY=0
           HTTP_CODE=""
-          CURL_EXIT_CODE=0
-          
-          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+
+          while [ $RETRY -lt $MAX_RETRIES ]; do
+            sleep $((RETRY + 1))
             HTTP_CODE=$(curl -s --max-time 15 -o /dev/null -w "%{http_code}" \
               -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-              -H "Content-Type: application/json" \
               "https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/releases/$RELEASE_VERSION/" 2>&1)
-            CURL_EXIT_CODE=$?
-            
-            # HTTP 코드 유효성 검사
-            if [ "$CURL_EXIT_CODE" -eq 0 ] && echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$' && [ "$HTTP_CODE" = "200" ]; then
+            EXIT_CODE=$?
+
+            if [ "$EXIT_CODE" -eq 0 ] && [ "$HTTP_CODE" = "200" ]; then
               break
-            elif [ "$CURL_EXIT_CODE" -eq 28 ]; then
-              # 타임아웃 에러
-              RETRY_COUNT=$((RETRY_COUNT + 1))
-              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-                echo "⚠️  Timeout occurred (attempt $RETRY_COUNT/$MAX_RETRIES), retrying in 2 seconds..."
-                sleep 2
-              else
-                echo "⚠️  Timeout after $MAX_RETRIES attempts"
-                HTTP_CODE="TIMEOUT"
-                break
-              fi
-            else
-              # 다른 네트워크 에러
-              RETRY_COUNT=$((RETRY_COUNT + 1))
-              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-                echo "⚠️  Network error (curl exit: $CURL_EXIT_CODE, attempt $RETRY_COUNT/$MAX_RETRIES), retrying..."
-                sleep 2
-              else
-                echo "⚠️  Network error after $MAX_RETRIES attempts"
-                HTTP_CODE="NETWORK_ERROR"
-                break
-              fi
             fi
+
+            RETRY=$((RETRY + 1))
           done
-          
+
           if [ "$HTTP_CODE" = "200" ]; then
             if [ "${{ steps.check_release.outputs.exists }}" = "true" ]; then
               echo "ℹ️  Sentry Release already existed"
             else
               echo "✅ Sentry Release created successfully"
             fi
-            echo ""
             echo "Release: $RELEASE_VERSION"
             echo "Environment: production"
-            echo "Project: tech-blog"
-            echo "Org: twodragon"
-            echo ""
-            echo "View release: https://sentry.io/organizations/twodragon/releases/$RELEASE_VERSION/"
-          elif [ "$HTTP_CODE" = "TIMEOUT" ] || [ "$HTTP_CODE" = "NETWORK_ERROR" ]; then
-            echo "⚠️  Could not verify release status due to network issues"
-            echo "Release: $RELEASE_VERSION"
-            echo "Issue: $HTTP_CODE"
-            echo ""
-            echo "💡 참고:"
-            echo "- 네트워크 문제로 Release 상태를 확인할 수 없습니다"
-            echo "- Release는 생성되었을 수 있지만 확인할 수 없습니다"
-            echo "- 이는 워크플로우 실패로 처리되지 않습니다 (continue-on-error)"
-            echo "- Release가 없어도 Sentry 로그 수집은 정상 작동합니다"
-            echo "- 워크플로우는 성공으로 처리됩니다"
+            echo "View: https://sentry.io/organizations/$SENTRY_ORG/releases/$RELEASE_VERSION/"
           else
-            if echo "$HTTP_CODE" | grep -qE '^[0-9]{3}$'; then
-              echo "⚠️  Sentry Release not found (HTTP $HTTP_CODE)"
-            else
-              echo "⚠️  Could not determine release status (response: $HTTP_CODE)"
-            fi
-            echo "Release: $RELEASE_VERSION"
-            echo "HTTP Status: $HTTP_CODE"
-            echo ""
-            echo "💡 참고:"
-            echo "- Free 티어 제한으로 인해 Release 생성이 실패할 수 있습니다"
-            echo "- 이는 워크플로우 실패로 처리되지 않습니다 (continue-on-error)"
-            echo "- Release가 없어도 Sentry 로그 수집은 정상 작동합니다"
-            echo "- 워크플로우는 성공으로 처리됩니다"
+            echo "⚠️  Release status: HTTP $HTTP_CODE"
+            echo "💡 Free tier limitations may prevent release creation."
+            echo "   Sentry error tracking still works without releases."
           fi

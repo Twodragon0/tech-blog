@@ -188,25 +188,22 @@ Karpenter는 클러스터 비용 최적화를 위해 **노드 통합(Consolidati
 > - `consolidationPolicy: WhenEmptyOrUnderutilized` 사용 시에도 더 보수적으로 동작
 > - PDB를 더 잘 존중하며, Pod readiness를 확인 후 다음 노드 종료 진행
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```mermaid
+flowchart TD
+    subgraph Before["Before Consolidation"]
+        N1["Node 1<br/>2 Pods<br/>CPU: 30%"]
+        N2["Node 2<br/>1 Pod<br/>CPU: 15%"]
+        N3["Node 3<br/>1 Pod<br/>CPU: 20%"]
+    end
+    
+    subgraph After["After Consolidation"]
+        N1A["Node 1<br/>4 Pods<br/>CPU: 65%"]
+        N2A["(deleted)"]
+        N3A["(deleted)"]
+    end
+    
+    Before -->|Consolidation| After
 ```
-Before Consolidation:
-┌─────────────┐ ┌─────────────┐ ┌─────────────┐
-│ Node 1 │ │ Node 2 │ │ Node 3 │
-│ [Pod][Pod] │ │ [Pod] │ │ [Pod] │
-│ CPU: 30% │ │ CPU: 15% │ │ CPU: 20% │
-└─────────────┘ └─────────────┘ └─────────────┘
-
-After Consolidation:
-┌─────────────┐ ┌─────────────┐
-│ Node 1 │ │ (deleted) │
-│ [Pod][Pod] │ │ │
-│ [Pod][Pod] │ │ │
-│ CPU: 65% │ │ │
-└─────────────┘ └─────────────┘
-
-```
--->
 
 ### 2.2 문제의 NodePool 설정
 
@@ -308,28 +305,22 @@ prod 10m Warning Killing pod/order-service-xyz Stopping container...
 
 ### 3.3 영향 범위
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```mermaid
+flowchart TD
+    IA["Impact Analysis"]
+    
+    IA --> AS["Affected Services"]
+    AS --> AG["api-gateway<br/>3/3 pods down<br/>→ All API unavailable"]
+    AS --> OS["order-service<br/>2/2 pods down<br/>→ Order processing failed"]
+    AS --> PS["payment-service<br/>2/2 pods down<br/>→ Payment failed"]
+    AS --> NS["notification<br/>1/1 pod down<br/>→ Notification delayed"]
+    
+    IA --> BI["Business Impact"]
+    BI --> FC["Failed API calls: ~15,000"]
+    BI --> FO["Failed orders: ~200"]
+    BI --> RL["Revenue loss: ~2,000,000 KRW"]
+    BI --> CC["Customer complaints: 50+"]
 ```
-┌────────────────────────────────────────────────────────────────────┐
-│ Impact Analysis │
-├────────────────────────────────────────────────────────────────────┤
-│ │
-│ Affected Services: │
-│ ├── api-gateway (3/3 pods down) ──► 전체 API 불가 │
-│ ├── order-service (2/2 pods down) ──► 주문 처리 불가 │
-│ ├── payment-service (2/2 pods down) ──► 결제 실패 │
-│ └── notification (1/1 pod down) ──► 알림 발송 지연 │
-│ │
-│ Business Impact: │
-│ ├── Failed API calls: ~15,000 │
-│ ├── Failed orders: ~200 │
-│ ├── Estimated revenue loss: ~2,000,000 KRW │
-│ └── Customer complaints: 50+ │
-│ │
-└────────────────────────────────────────────────────────────────────┘
-
-```
--->
 
 ## 4. 긴급 대응
 

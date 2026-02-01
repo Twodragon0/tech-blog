@@ -181,9 +181,18 @@ grep -i "failed" /var/log/vmware/vpxd/vpxd.log | tail -20
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
-Attack Flow: Attacker → FortiCloud SSO Bypass → FortiGate Admin (Super-admin)
-→ Policy Change / Disable → Backdoor Installation
+```mermaid
+graph LR
+    A[공격자] -->|SSO 우회| B["FortiCloud SSO<br/>인증 우회"]
+    B -->|관리자 권한 획득| C["FortiGate Admin<br/>Super-admin"]
+    C -->|정책 변경| D["방화벽 정책<br/>비활성화"]
+    D -->|백도어 설치| E["악성 백도어<br/>설치 완료"]
+    
+    style A fill:#ff6b6b
+    style B fill:#ff8787
+    style C fill:#ffa5a5
+    style D fill:#ffc3c3
+    style E fill:#ffe0e0
 ```
 
 </details>
@@ -246,12 +255,18 @@ diagnose debug authd fsso list
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
-DynoWiper Attack Chain (Sandworm APT):
-Phase 1: Initial Compromise (Spear-phishing, Supply chain)
-Phase 2: Persistence (Service registration, Scheduled tasks)
-Phase 3: Lateral Movement (SMB/RDP scan, Mimikatz credential harvesting)
-Phase 4: Wiper Execution (MBR/GPT overwrite, File system destruction, Log deletion)
+```mermaid
+graph TD
+    A["Phase 1: 초기 침투<br/>(Spear-phishing, Supply chain)"] -->|성공| B["Phase 2: 지속성<br/>(Service registration, Scheduled tasks)"]
+    B -->|확보| C["Phase 3: 횡적 이동<br/>(SMB/RDP scan, Mimikatz)"]
+    C -->|확산| D["Phase 4: 와이퍼 실행<br/>(MBR/GPT overwrite, File destruction)"]
+    D -->|완료| E["시스템 파괴<br/>운영 중단"]
+    
+    style A fill:#ff6b6b
+    style B fill:#ff8787
+    style C fill:#ffa5a5
+    style D fill:#ffc3c3
+    style E fill:#ffe0e0
 ```
 
 </details>
@@ -380,11 +395,35 @@ Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 �
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
-Google ADK Application:
-Agent 1 (Plan) → Agent 2 (Execute) → Agent 3 (Verify)
-    ↓ Datadog Agent (Auto-Instrumented)
-Datadog LLM Observability: Token Usage, Latency, Error Rate, Decision Path Tracing
+```mermaid
+graph TD
+    A["Google ADK Application"]
+    
+    A --> B["Agent 1<br/>Plan"]
+    B --> C["Agent 2<br/>Execute"]
+    C --> D["Agent 3<br/>Verify"]
+    
+    B -.->|Auto-Instrumented| E["Datadog Agent"]
+    C -.->|Auto-Instrumented| E
+    D -.->|Auto-Instrumented| E
+    
+    E --> F["Datadog LLM Observability"]
+    
+    F --> G["Token Usage"]
+    F --> H["Latency"]
+    F --> I["Error Rate"]
+    F --> J["Decision Path Tracing"]
+    
+    style A fill:#e3f2fd
+    style B fill:#bbdefb
+    style C fill:#90caf9
+    style D fill:#64b5f6
+    style E fill:#42a5f5
+    style F fill:#2196f3
+    style G fill:#1976d2
+    style H fill:#1976d2
+    style I fill:#1976d2
+    style J fill:#1976d2
 ```
 
 </details>

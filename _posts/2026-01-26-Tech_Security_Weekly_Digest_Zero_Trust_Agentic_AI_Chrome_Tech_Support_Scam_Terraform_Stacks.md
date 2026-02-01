@@ -120,13 +120,54 @@ HashiCorp가 발표한 "Zero Trust for Agentic Systems" 백서에서는 **AI 에
 
 AI 에이전트가 조직 내에서 자율적으로 작업을 수행함에 따라, 보안 팀은 새로운 도전에 직면합니다:
 
-![AI Agent Identity Management Challenges](/assets/images/2026-01-26-AI_Agent_Identity_Challenges.svg)
+```mermaid
+graph TD
+    A["AI 에이전트 확산"] --> B["도전 과제 1<br/>신원 추적 어려움"]
+    A --> C["도전 과제 2<br/>권한 관리 복잡성"]
+    A --> D["도전 과제 3<br/>감사 추적 부족"]
+    A --> E["도전 과제 4<br/>자격증명 만료 관리"]
+    
+    B --> F["해결책<br/>NHI 인벤토리"]
+    C --> G["해결책<br/>동적 권한"]
+    D --> H["해결책<br/>실시간 로깅"]
+    E --> I["해결책<br/>자동 갱신"]
+    
+    style A fill:#ff6b6b
+    style B fill:#ff8787
+    style C fill:#ff8787
+    style D fill:#ff8787
+    style E fill:#ff8787
+    style F fill:#90ee90
+    style G fill:#90ee90
+    style H fill:#90ee90
+    style I fill:#90ee90
+```
 
 ### 1.3 HashiCorp의 권장 아키텍처
 
 HashiCorp는 Vault를 중심으로 한 NHI 관리 아키텍처를 권장합니다:
 
-![Vault-Based NHI Management Architecture](/assets/images/2026-01-26-Vault_NHI_Management_Architecture.svg)
+```mermaid
+graph LR
+    A["AI 에이전트<br/>Kubernetes Pod"] -->|Kubernetes Auth| B["HashiCorp Vault<br/>Identity & Secrets"]
+    B -->|동적 자격증명| C["API Keys<br/>Database Creds"]
+    B -->|정책 기반| D["권한 제어<br/>RBAC"]
+    
+    C --> E["AWS API"]
+    C --> F["Database"]
+    C --> G["External Services"]
+    
+    D --> H["감사 로그<br/>Audit Trail"]
+    
+    style A fill:#e3f2fd
+    style B fill:#2196f3
+    style C fill:#1976d2
+    style D fill:#1976d2
+    style E fill:#90caf9
+    style F fill:#90caf9
+    style G fill:#90caf9
+    style H fill:#bbdefb
+```
 
 **Vault Agent 설정 예시:**
 
@@ -184,7 +225,25 @@ Google은 2025년 5월부터 Chrome에 **Gemini Nano** 기반 기술지원 사�
 
 Chrome의 새로운 사기 탐지 시스템은 **사용자 프라이버시**를 보호하면서 실시간 보호를 제공합니다:
 
-![Chrome Tech Support Scam Detection](/assets/images/2026-01-26-Chrome_Scam_Detection.svg)
+```mermaid
+graph TD
+    A["사용자 방문<br/>웹페이지"] -->|화면 캡처| B["Gemini Nano<br/>온디바이스 LLM"]
+    B -->|분석| C{사기 탐지<br/>판정}
+    
+    C -->|정상| D["페이지 로드<br/>계속"]
+    C -->|의심| E["경고 표시<br/>사용자 알림"]
+    C -->|위험| F["페이지 차단<br/>접근 차단"]
+    
+    B -.->|로컬 처리| G["프라이버시 보호<br/>데이터 전송 없음"]
+    
+    style A fill:#e3f2fd
+    style B fill:#2196f3
+    style C fill:#1976d2
+    style D fill:#90ee90
+    style E fill:#ffeb3b
+    style F fill:#ff6b6b
+    style G fill:#bbdefb
+```
 
 ### 2.3 Enterprise 환경 적용
 
@@ -287,7 +346,29 @@ Google이 2025년 6월에 발표한 Prompt Injection 다층 방어 전략은 LLM
 
 ### 4.2 다층 방어 아키텍처
 
-![Prompt Injection Defense Layers](/assets/images/2026-01-26-Prompt_Injection_Defense_Layers.svg)
+```mermaid
+graph TD
+    A["사용자 입력"] -->|Layer 1| B["입력 검증<br/>길이, 패턴 검사"]
+    B -->|통과| C["Layer 2<br/>안전한 프롬프트 구성"]
+    C -->|생성| D["LLM 모델<br/>Claude, GPT"]
+    D -->|응답| E["Layer 3<br/>출력 검증"]
+    E -->|검증| F{안전성<br/>판정}
+    
+    F -->|안전| G["사용자에게 반환"]
+    F -->|위험| H["응답 거부<br/>에러 반환"]
+    
+    B -->|실패| I["요청 거부<br/>Injection 탐지"]
+    
+    style A fill:#e3f2fd
+    style B fill:#2196f3
+    style C fill:#1976d2
+    style D fill:#0d47a1
+    style E fill:#1976d2
+    style F fill:#2196f3
+    style G fill:#90ee90
+    style H fill:#ff6b6b
+    style I fill:#ff6b6b
+```
 
 ### 4.3 PromptDefense 클래스 구조
 
@@ -303,12 +384,33 @@ Google이 2025년 6월에 발표한 Prompt Injection 다층 방어 전략은 LLM
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
-PromptDefense Architecture:
-User Input → Layer 1: validate_input() (Length Check → Pattern Matching → ok/err)
-→ Layer 2: build_safe_prompt() (System/User/Assistant template with safety instructions)
-→ Layer 3: validate_output() (Forbidden patterns, Sensitive info, Format compliance)
-→ Safe Output
+```mermaid
+graph LR
+    A["User Input"] -->|Layer 1| B["validate_input()"]
+    B -->|Length Check| C{패턴<br/>매칭}
+    C -->|OK| D["Layer 2<br/>build_safe_prompt()"]
+    C -->|Error| E["거부"]
+    
+    D -->|System/User/Assistant<br/>Template| F["안전 지시사항<br/>포함"]
+    F -->|Layer 3| G["validate_output()"]
+    
+    G -->|금지 패턴| H{검증}
+    G -->|민감 정보| H
+    G -->|형식 준수| H
+    
+    H -->|통과| I["Safe Output"]
+    H -->|실패| J["거부"]
+    
+    style A fill:#e3f2fd
+    style B fill:#2196f3
+    style C fill:#1976d2
+    style D fill:#1976d2
+    style E fill:#ff6b6b
+    style F fill:#0d47a1
+    style G fill:#1976d2
+    style H fill:#2196f3
+    style I fill:#90ee90
+    style J fill:#ff6b6b
 ```
 
 </details>
@@ -395,7 +497,39 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 
 도구 스프롤(Tool Sprawl) 문제 해결을 위한 통합 접근법:
 
-![Security Tool Consolidation Strategy](/assets/images/2026-01-26-Security_Tool_Consolidation.svg)
+```mermaid
+graph TD
+    A["도구 스프롤 문제<br/>15+ 보안 도구 운영"] --> B["통합 전략"]
+    
+    B --> C["SIEM 중앙화<br/>Splunk/ELK"]
+    B --> D["API 통합<br/>Webhook/REST"]
+    B --> E["플랫폼 통합<br/>Datadog/New Relic"]
+    
+    C --> F["로그 수집<br/>정규화"]
+    D --> G["자동화<br/>워크플로우"]
+    E --> H["통합 대시보드<br/>단일 뷰"]
+    
+    F --> I["결과<br/>운영 효율성 증대"]
+    G --> I
+    H --> I
+    
+    I --> J["비용 절감<br/>30-40%"]
+    I --> K["대응 시간 단축<br/>50%"]
+    I --> L["가시성 향상<br/>100%"]
+    
+    style A fill:#ff6b6b
+    style B fill:#ffb74d
+    style C fill:#2196f3
+    style D fill:#2196f3
+    style E fill:#2196f3
+    style F fill:#1976d2
+    style G fill:#1976d2
+    style H fill:#1976d2
+    style I fill:#ffeb3b
+    style J fill:#90ee90
+    style K fill:#90ee90
+    style L fill:#90ee90
+```
 
 ---
 
@@ -436,7 +570,36 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 
 ### 이번 주 액션 아이템
 
-![Weekly Action Items](/assets/images/2026-01-26-Weekly_Action_Items.svg)
+```mermaid
+graph TD
+    A["이번 주 액션 아이템"] 
+    
+    A --> B["P0: 긴급<br/>즉시 실행"]
+    A --> C["P1: 높음<br/>1주 내"]
+    A --> D["P2: 중간<br/>2주 내"]
+    
+    B --> B1["NHI 인벤토리 작성<br/>모든 AI 에이전트 식별"]
+    B --> B2["Chrome 보안 업데이트<br/>Enterprise 배포"]
+    
+    C --> C1["Vault 도입 검토<br/>동적 자격증명 전환"]
+    C --> C2["Terraform Stacks 평가<br/>모노레포 마이그레이션"]
+    C --> C3["LLM 보안 강화<br/>Prompt Injection 방어"]
+    
+    D --> D1["보안 도구 감사<br/>통합 기회 식별"]
+    D --> D2["팀 교육<br/>Zero Trust 개념"]
+    
+    style A fill:#ffeb3b
+    style B fill:#ff6b6b
+    style C fill:#ffb74d
+    style D fill:#90ee90
+    style B1 fill:#ff8787
+    style B2 fill:#ff8787
+    style C1 fill:#ffcc80
+    style C2 fill:#ffcc80
+    style C3 fill:#ffcc80
+    style D1 fill:#a5d6a7
+    style D2 fill:#a5d6a7
+```
 
 다음 포스팅에서는 SK쉴더스의 최신 보안 리포트를 기반으로 한 제로트러스트 데이터 보안 전략을 다루겠습니다.
 

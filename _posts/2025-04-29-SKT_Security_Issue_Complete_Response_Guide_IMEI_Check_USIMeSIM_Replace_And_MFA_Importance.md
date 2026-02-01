@@ -75,19 +75,14 @@ author: Twodragon
 
 SIM 스와핑(SIM Swapping)은 공격자가 피해자의 전화번호를 자신이 제어하는 SIM 카드로 이전시키는 공격입니다.
 
-```plaintext
-공격 흐름도:
-
-[공격자] ──사회공학적 공격──> [통신사 직원/시스템]
-                                    │
-                                    ▼
-                            [번호 이전 승인]
-                                    │
-                                    ▼
-[피해자 SIM 비활성화] <──────────────┘
-         │
-         ▼
-[공격자 SIM 활성화] ──> [SMS OTP 수신] ──> [계정 탈취]
+```mermaid
+flowchart TD
+    A["Attacker"] -->|Social Engineering| B["Carrier Staff/System"]
+    B --> C["Number Transfer Approval"]
+    C --> D["Victim SIM Deactivated"]
+    D --> E["Attacker SIM Activated"]
+    E --> F["SMS OTP Received"]
+    F --> G["Account Takeover"]
 ```
 
 ### 1.2 공격 벡터 분석

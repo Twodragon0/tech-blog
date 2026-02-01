@@ -141,23 +141,18 @@ n8n의 Code Node는 사용자 정의 JavaScript 코드를 실행할 수 있지�
 
 ![n8n JavaScript Sandbox Escape Attack Flow](/assets/images/2026-01-29-n8n-sandbox-escape-attack-flow.svg)
 
-```
-n8n Code Node     JavaScript Engine     Host System
-     |                  |                    |
-     | 1. with 문 삽입  |                    |
-     |----------------->|                    |
-     |                  | 2. Scope chain     |
-     |                  |    조작            |
-     |                  |                    |
-     |                  | 3. Function        |
-     |                  |    constructor     |
-     |                  |    접근            |
-     |                  |------------------->|
-     |                  |                    | 4. Sandbox 외부
-     |                  |                    |    코드 실행
-     |                  |                    |
-     |                  | 5. RCE 달성        |
-     |<-----------------|<-------------------|
+```mermaid
+sequenceDiagram
+    participant n8n as n8n Code Node
+    participant js as JavaScript Engine
+    participant host as Host System
+    
+    n8n->>js: 1. with 문 삽입
+    js->>js: 2. Scope chain 조작
+    js->>js: 3. Function constructor 접근
+    js->>host: 4. Sandbox 외부 코드 실행
+    host->>host: 5. RCE 달성
+    host-->>n8n: 공격 성공
 ```
 
 **공격 메커니즘 상세:**
@@ -184,19 +179,18 @@ Python Code Node에서 format-string과 `AttributeError.obj` 속성을 결합한
 
 **공격 메커니즘:**
 
-```
-Python Code Node    Python Runtime    Sandbox Boundary    Host OS
-      |                  |                  |                |
-      | format-string    |                  |                |
-      |----------------->|                  |                |
-      |                  | AttributeError   |                |
-      |                  | 발생 유도        |                |
-      |                  |----------------->|                |
-      |                  |                  | .obj 속성으로  |
-      |                  |                  | 내부 객체 접근  |
-      |                  |                  |--------------->|
-      |                  |                  |                | RCE
-      |<-----------------|-<----------------|<---------------|
+```mermaid
+sequenceDiagram
+    participant py as Python Code Node
+    participant runtime as Python Runtime
+    participant boundary as Sandbox Boundary
+    participant os as Host OS
+    
+    py->>runtime: format-string 전달
+    runtime->>boundary: AttributeError 발생 유도
+    boundary->>os: .obj 속성으로 내부 객체 접근
+    os->>os: RCE 달성
+    os-->>py: 공격 성공
 ```
 
 1. **format-string 트리거**: 의도적으로 `AttributeError`를 발생시키는 format string 구성
@@ -409,50 +403,38 @@ D-Link의 **단종된(End-of-Life)** DSL 모뎀/라우터에서 **패치 불가�
 
 ![D-Link Command Injection Attack Chain](/assets/images/2026-01-29-dlink-command-injection-attack-chain.svg)
 
-```
-공격자                  D-Link DSL Router           내부 네트워크
-  |                         |                          |
-  | 1. dnscfg.cgi 요청     |                          |
-  | (DNS 파라미터에         |                          |
-  |  OS 명령 삽입)          |                          |
-  |------------------------>|                          |
-  |                         | 2. 파라미터 검증 없이    |
-  |                         |    쉘 명령으로 전달      |
-  |                         |                          |
-  |                         | 3. root 권한으로         |
-  |                         |    명령 실행             |
-  |                         |------------------------->|
-  |                         |                          | 4. 내부 네트워크
-  |                         |                          |    피벗 가능
-  |                         |                          |
-  | 5. Reverse Shell /      |                          |
-  |    Malware Download     |                          |
-  |<------------------------|                          |
-  |                         |                          |
-  | === 악용 시나리오 ===   |                          |
-  |                         |                          |
-  | A. DDoS 봇넷 편입      |                          |
-  | B. DNS 하이재킹 설정    |                          |
-  | C. 트래픽 가로채기      |                          |
-  | D. 내부망 스캐닝        |                          |
+```mermaid
+sequenceDiagram
+    participant attacker as 공격자
+    participant router as D-Link DSL Router
+    participant network as 내부 네트워크
+    
+    attacker->>router: 1. dnscfg.cgi 요청<br/>(DNS 파라미터에 OS 명령 삽입)
+    router->>router: 2. 파라미터 검증 없이<br/>쉘 명령으로 전달
+    router->>router: 3. root 권한으로 명령 실행
+    router->>network: 4. 내부 네트워크 피벗 가능
+    attacker->>router: 5. Reverse Shell /<br/>Malware Download
+    
+    Note over attacker: 악용 시나리오:<br/>A. DDoS 봇넷 편입<br/>B. DNS 하이재킹 설정<br/>C. 트래픽 가로채기<br/>D. 내부망 스캐닝
 ```
 
 #### 공격 원리 상세
 
 `dnscfg.cgi` CGI 스크립트는 DNS 서버 설정을 처리하는데, DNS 파라미터 값을 **검증 없이** 시스템 쉘 명령에 직접 전달합니다.
 
-```
-취약 포인트: dnscfg.cgi의 DNS 설정 파라미터
-- 입력: DNS 서버 주소 (예: 8.8.8.8)
-- 기대 동작: DNS 서버 IP 설정
-- 실제 결함: 입력값을 쉘 명령에 직접 전달
-- 악용: 세미콜론, 파이프 등으로 추가 명령 삽입
-
-예시 공격 벡터:
-  정상 요청: dns_server=8.8.8.8
-  악성 요청: dns_server=8.8.8.8;[악성명령]
-
-  세미콜론 이후 명령이 root 권한으로 실행됨
+```mermaid
+graph TD
+    A["입력: DNS 서버 주소<br/>(예: 8.8.8.8)"] --> B["기대 동작:<br/>DNS 서버 IP 설정"]
+    A --> C["실제 결함:<br/>입력값을 쉘 명령에 직접 전달"]
+    C --> D["악용:<br/>세미콜론, 파이프 등으로<br/>추가 명령 삽입"]
+    D --> E["정상 요청:<br/>dns_server=8.8.8.8"]
+    D --> F["악성 요청:<br/>dns_server=8.8.8.8;[악성명령]"]
+    F --> G["세미콜론 이후 명령이<br/>root 권한으로 실행됨"]
+    
+    style C fill:#ff6b6b
+    style D fill:#ff6b6b
+    style F fill:#ff6b6b
+    style G fill:#ff6b6b
 ```
 
 ### 영향 분석
@@ -623,19 +605,30 @@ Tigera CEO Ratan Tipirneni가 2026년 Kubernetes 보안 전망에서 **AI 에이
 
 ![Kubernetes Traditional Container vs AI Agent Workloads](/assets/images/2026-01-29-k8s-ai-agent-vs-traditional.svg)
 
-```
-기존 컨테이너 워크로드           AI 에이전트 워크로드
-=========================    =========================
-결정적 (Deterministic)        비결정적 (Non-deterministic)
-예측 가능한 네트워크 패턴       동적 네트워크 패턴
-정적 리소스 요청               가변 리소스 요청
-고정 API 호출 패턴             자율적 API 탐색
-사전 정의된 권한                동적 권한 요청
-감사 가능한 행동                추론 기반 행동
-     |                              |
-     v                              v
-정적 NetworkPolicy,             eBPF 기반 동적 관찰,
-RBAC로 충분                    런타임 행동 분석 필요
+```mermaid
+graph LR
+    subgraph traditional["기존 컨테이너 워크로드"]
+        A1["결정적<br/>(Deterministic)"]
+        A2["예측 가능한<br/>네트워크 패턴"]
+        A3["정적 리소스 요청"]
+        A4["고정 API 호출 패턴"]
+        A5["사전 정의된 권한"]
+        A6["감사 가능한 행동"]
+        A1 --> A7["정적 NetworkPolicy,<br/>RBAC로 충분"]
+    end
+    
+    subgraph ai["AI 에이전트 워크로드"]
+        B1["비결정적<br/>(Non-deterministic)"]
+        B2["동적 네트워크 패턴"]
+        B3["가변 리소스 요청"]
+        B4["자율적 API 탐색"]
+        B5["동적 권한 요청"]
+        B6["추론 기반 행동"]
+        B1 --> B7["eBPF 기반 동적 관찰,<br/>런타임 행동 분석 필요"]
+    end
+    
+    style traditional fill:#e3f2fd
+    style ai fill:#fff3e0
 ```
 
 ### eBPF 기반 보안 도구 생태계
@@ -916,28 +909,41 @@ Infomaniak이 2026년 1월 28일 **Swiss Sovereign Cloud**를 공식 출시했�
 
 ### 주요 서비스 구성
 
-```
-Infomaniak Swiss Sovereign Cloud
-├── Managed Kubernetes
-│   ├── K8s Cluster Provisioning
-│   ├── Auto-scaling
-│   └── Integrated Monitoring
-├── Managed Database
-│   ├── PostgreSQL
-│   ├── MySQL
-│   └── Redis
-├── GPU Instances
-│   ├── AI Training
-│   ├── Inference
-│   └── HPC Workloads
-├── AI Services
-│   ├── OpenAI-compatible API
-│   ├── LLM Hosting
-│   └── Vector Database
-└── Storage
-    ├── Object Storage (S3-compatible)
-    ├── Block Storage
-    └── Backup
+```mermaid
+graph TD
+    A["Infomaniak Swiss Sovereign Cloud"]
+    
+    A --> B["Managed Kubernetes"]
+    B --> B1["K8s Cluster Provisioning"]
+    B --> B2["Auto-scaling"]
+    B --> B3["Integrated Monitoring"]
+    
+    A --> C["Managed Database"]
+    C --> C1["PostgreSQL"]
+    C --> C2["MySQL"]
+    C --> C3["Redis"]
+    
+    A --> D["GPU Instances"]
+    D --> D1["AI Training"]
+    D --> D2["Inference"]
+    D --> D3["HPC Workloads"]
+    
+    A --> E["AI Services"]
+    E --> E1["OpenAI-compatible API"]
+    E --> E2["LLM Hosting"]
+    E --> E3["Vector Database"]
+    
+    A --> F["Storage"]
+    F --> F1["Object Storage<br/>(S3-compatible)"]
+    F --> F2["Block Storage"]
+    F --> F3["Backup"]
+    
+    style A fill:#4CAF50,color:#fff
+    style B fill:#2196F3,color:#fff
+    style C fill:#2196F3,color:#fff
+    style D fill:#2196F3,color:#fff
+    style E fill:#2196F3,color:#fff
+    style F fill:#2196F3,color:#fff
 ```
 
 ### 데이터 주권 비교
@@ -1009,16 +1015,23 @@ Tenable의 2026년 보안 예측에서 **비인간 ID(Non-Human Identity, NHI)**
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
-NHI (Non-Human Identity) Attack Scenario:
-1. Initial Access: Exposed API Keys (GitHub, Logs, Config Files)
-→ 2. Privilege Escalation: Over-privileged Service Account (Admin CI/CD)
-→ 3. Data Exfiltration: S3 Bucket/DB Access, Log Deletion
-→ 4. Lateral Movement: Other Service Account Token Theft (SSRF, IMDS)
+```mermaid
+sequenceDiagram
+    participant attacker as 공격자
+    participant access as Initial Access
+    participant escalate as Privilege Escalation
+    participant exfil as Data Exfiltration
+    participant lateral as Lateral Movement
+    
+    attacker->>access: 1. Exposed API Keys<br/>(GitHub, Logs, Config Files)
+    access->>escalate: 2. Over-privileged Service Account<br/>(Admin CI/CD)
+    escalate->>exfil: 3. S3 Bucket/DB Access<br/>Log Deletion
+    exfil->>lateral: 4. Other Service Account<br/>Token Theft (SSRF, IMDS)
+    
+     Note over attacker: Key Attack Vectors:<br/>Hardcoded Secrets | Over-privileged IAM<br/>Non-expiring Tokens | IMDS v1
 ```
 
-Key Attack Vectors: Hardcoded Secrets | Over-privileged IAM | Non-expiring Tokens | IMDS v1
-```
+</details>
 
 ### NHI 보안 강화 전략
 

@@ -101,10 +101,13 @@ Microsoft Office의 **Protected View** 보안 기능을 우회하는 Zero-Day �
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
-CVE-2026-21509 Attack Chain:
-1. Phishing Email → 2. Malicious Document → 3. Protected View BYPASS → 4. Payload Download (C2)
-→ 5. Persistence (Registry/Task) → 6. Data Exfiltration / Ransomware Deploy
+```mermaid
+graph LR
+    A["1. Phishing Email"] --> B["2. Malicious Document"]
+    B --> C["3. Protected View BYPASS"]
+    C --> D["4. Payload Download C2"]
+    D --> E["5. Persistence Registry/Task"]
+    E --> F["6. Data Exfiltration / Ransomware"]
 ```
 
 </details>
@@ -275,11 +278,18 @@ mitre_attack:
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
-CTEM 5-Stage Continuous Cycle (Gartner 2022):
-1. SCOPING (Attack Surface Definition) → 2. DISCOVERY (Vulnerability Detection)
-→ 3. PRIORITIZATION (Risk-Based) → 4. VALIDATION (Exploit Verification)
-→ 5. MOBILIZATION (Response Actions) → Back to 1. SCOPING (Continuous Cycle)
+```mermaid
+graph LR
+    A["1. SCOPING<br/>Attack Surface Definition"] --> B["2. DISCOVERY<br/>Vulnerability Detection"]
+    B --> C["3. PRIORITIZATION<br/>Risk-Based"]
+    C --> D["4. VALIDATION<br/>Exploit Verification"]
+    D --> E["5. MOBILIZATION<br/>Response Actions"]
+    E -.-> A
+    style A fill:#e1f5ff
+    style B fill:#e1f5ff
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#e8f5e9
 ```
 
 </details>

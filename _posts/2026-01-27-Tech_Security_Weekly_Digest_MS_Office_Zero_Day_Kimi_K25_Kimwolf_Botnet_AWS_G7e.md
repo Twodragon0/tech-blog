@@ -126,10 +126,16 @@ Microsoft는 1월 27일 **실제 악용 중인** Office Zero-Day 취약점에 �
 
 ### 기술적 분석
 
-```
-취약점 원인: Microsoft Office의 보안 결정에서 신뢰할 수 없는 입력에 의존
-공격 벡터: 악성 문서 파일 열람 시 보안 기능 우회
-영향: 권한 없는 공격자가 보안 제어를 우회하여 악성 코드 실행 가능
+```mermaid
+graph TD
+    A["Untrusted Input<br/>(악성 문서)"] --> B["Security Decision<br/>(보안 결정)"]
+    B --> C["Security Feature Bypass<br/>(보안 기능 우회)"]
+    C --> D["Malicious Code Execution<br/>(악성 코드 실행)"]
+    
+    style A fill:#ff6b6b
+    style B fill:#ff8c42
+    style C fill:#ffa500
+    style D fill:#cc0000
 ```
 
 ### DevSecOps 대응 전략
@@ -469,12 +475,22 @@ patch_priority:
 | **공격 방법** | 악성 스프레드시트 수식 |
 | **영향** | 원격 코드 실행 |
 
-```
-공격 시나리오:
-1. 공격자가 악성 수식 포함 스프레드시트 생성
-2. 피해자가 스프레드시트 열람
-3. 수식 실행 시 RCE 발생
-4. 서버 완전 장악
+```mermaid
+graph TD
+    A["Attacker<br/>(공격자)"] --> B["Create Malicious Formula<br/>(악성 수식 생성)"]
+    B --> C["Spreadsheet with Formula<br/>(수식 포함 스프레드시트)"]
+    C --> D["Victim Opens File<br/>(피해자 파일 열람)"]
+    D --> E["Formula Execution<br/>(수식 실행)"]
+    E --> F["RCE Triggered<br/>(RCE 발생)"]
+    F --> G["Server Compromised<br/>(서버 완전 장악)"]
+    
+    style A fill:#ff6b6b
+    style B fill:#ff8c42
+    style C fill:#ffa500
+    style D fill:#ffb347
+    style E fill:#ff7f50
+    style F fill:#ff6347
+    style G fill:#cc0000
 ```
 
 ### BigQuery AI - Gemini 3.0 지원

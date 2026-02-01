@@ -138,33 +138,26 @@ NPM 생태계 역사상 최초의 자가 복제 웜 형태 공급망 공격 분�
 
 2025년 11월, 더욱 진화된 **Shai-Hulud 2.0** 변종이 발견되었습니다. 가장 위험한 새 기능은 **Dead Man's Switch**입니다.
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```mermaid
+flowchart TD
+    NORMAL["Normal State<br/>Worm code exists in package"]
+    
+    NORMAL --> TRIGGER["Trigger Condition Detected"]
+    
+    TRIGGER --> T1["Malicious code deletion attempt"]
+    TRIGGER --> T2["Package forced update"]
+    TRIGGER --> T3["npm audit fix execution"]
+    
+    T1 --> ACTIVATE["Dead Man's Switch Activated"]
+    T2 --> ACTIVATE
+    T3 --> ACTIVATE
+    
+    ACTIVATE --> A1["1. Delete local npm cache"]
+    ACTIVATE --> A2["2. Tamper package-lock.json"]
+    ACTIVATE --> A3["3. Inject malicious dependencies"]
+    ACTIVATE --> A4["4. Exfiltrate CI/CD env vars"]
+    ACTIVATE --> A5["5. Steal GitHub/GitLab secrets"]
 ```
-┌─────────────────────────────────────────────────────────────┐
-│           Shai-Hulud 2.0 - Dead Man's Switch                │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│   [정상 상태]                                                │
-│       웜 코드가 패키지 내 존재                               │
-│              │                                               │
-│              ▼                                               │
-│   [트리거 조건 감지]                                         │
-│       - 악성 코드 삭제 시도                                  │
-│       - 패키지 강제 업데이트                                 │
-│       - npm audit fix 실행                                   │
-│              │                                               │
-│              ▼                                               │
-│   [Dead Man's Switch 활성화]                                 │
-│       1. 로컬 npm 캐시 전체 삭제                             │
-│       2. package-lock.json 변조                              │
-│       3. 추가 악성 의존성 자동 주입                          │
-│       4. CI/CD 환경변수 유출 시도                            │
-│       5. GitHub/GitLab secrets 탈취                          │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-
-```
--->
 
 #### Dead Man's Switch 대응 방법
 

@@ -79,36 +79,45 @@ author: Twodragon
 
 ### 1.1 DevSecOps 파이프라인 개요
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```mermaid
+flowchart TD
+    Plan["Plan"]
+    Code["Code"]
+    Build["Build"]
+    Test["Test"]
+    Release["Release"]
+    Deploy["Deploy"]
+    Operate["Operate"]
+    Monitor["Monitor"]
+    
+    TM["Threat Modeling"]
+    SAST["SAST + Secret Scan"]
+    SCA["SCA + Image Scan"]
+    DAST["DAST + IAST"]
+    SR["Signed Release"]
+    
+    IaC["IaC Security"]
+    RS["Runtime Security"]
+    SIEM["SIEM / SOAR / Incident Response"]
+    
+    Plan --> Code
+    Code --> Build
+    Build --> Test
+    Test --> Release
+    Release --> Deploy
+    Deploy --> Operate
+    Operate --> Monitor
+    
+    Plan --> TM
+    Code --> SAST
+    Build --> SCA
+    Test --> DAST
+    Release --> SR
+    
+    Deploy --> IaC
+    Operate --> RS
+    Monitor --> SIEM
 ```
-┌──────────────────────────────────────────────────────────────────────────┐
-│ DevSecOps Pipeline │
-├──────────────────────────────────────────────────────────────────────────┤
-│ │
-│ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ │
-│ │ Plan │───►│ Code │───►│ Build │───►│ Test │───►│ Release │ │
-│ └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘ │
-│ │ │ │ │ │ │
-│ ▼ ▼ ▼ ▼ ▼ │
-│ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ │
-│ │ Threat │ │ SAST │ │ SCA │ │ DAST │ │ Signed │ │
-│ │Modeling │ │ Secret │ │ Image │ │ IAST │ │ Release │ │
-│ │ │ │ Scan │ │ Scan │ │ │ │ │ │
-│ └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘ │
-│ │
-│ ┌─────────┐ ┌─────────┐ ┌─────────────────────────────────────┐ │
-│ │ Deploy │───►│ Operate │───►│ Monitor │ │
-│ └────┬────┘ └────┬────┘ └──────────────────┬──────────────────┘ │
-│ │ │ │ │
-│ ▼ ▼ ▼ │
-│ ┌─────────┐ ┌─────────┐ ┌─────────────────────────────────────┐ │
-│ │ IaC │ │ Runtime │ │ SIEM / SOAR / Incident Response │ │
-│ │Security │ │Security │ │ │ │
-│ └─────────┘ └─────────┘ └─────────────────────────────────────┘ │
-└──────────────────────────────────────────────────────────────────────────┘
-
-```
--->
 
 ### 1.2 보안 도구 매핑
 

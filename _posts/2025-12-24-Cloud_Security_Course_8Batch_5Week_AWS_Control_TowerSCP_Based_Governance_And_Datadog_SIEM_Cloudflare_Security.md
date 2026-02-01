@@ -87,23 +87,36 @@ author: Twodragon
 
 ### 1.2 계정 구조 예시
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```mermaid
+flowchart TD
+    MA["Management Account"]
+    
+    SO["Security OU"]
+    PO["Production OU"]
+    DO["Development OU"]
+    SBO["Sandbox OU"]
+    
+    STA["Security Tools Account"]
+    LAA["Log Archive Account"]
+    PA1["Production Account 1"]
+    PA2["Production Account 2"]
+    DA1["Dev Account 1"]
+    DA2["Dev Account 2"]
+    SA["Sandbox Accounts"]
+    
+    MA --> SO
+    MA --> PO
+    MA --> DO
+    MA --> SBO
+    
+    SO --> STA
+    SO --> LAA
+    PO --> PA1
+    PO --> PA2
+    DO --> DA1
+    DO --> DA2
+    SBO --> SA
 ```
-Management Account (관리 계정)
-├── Security OU (보안 조직 단위)
-│   ├── Security Tools Account
-│   └── Log Archive Account
-├── Production OU (프로덕션)
-│   ├── Production Account 1
-│   └── Production Account 2
-├── Development OU (개발)
-│   ├── Dev Account 1
-│   └── Dev Account 2
-└── Sandbox OU (샌드박스)
-    └── Sandbox Accounts
-
-```
--->
 
 ## 2. AWS Control Tower
 
@@ -344,16 +357,26 @@ Cloudflare는 전 세계에 분산된 CDN 및 보안 서비스를 제공하는 �
 
 > **참고**: AWS 보안 아키텍처 관련 내용은 [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/) 및 [AWS Security Reference Architecture](https://aws.amazon.com/architecture/security-identity-compliance/)를 참조하세요.
 
-```
-[Cloudflare]
-    ↓ (웹 트래픽)
-[AWS ALB]
-    ↓
-[애플리케이션]
-    ↓
-[Datadog SIEM] ← [CloudTrail, VPC Flow Logs, App Logs]
-    ↓
-[알림 및 대응]
+```mermaid
+flowchart TD
+    CF["Cloudflare"]
+    ALB["AWS ALB"]
+    APP["Application"]
+    SIEM["Datadog SIEM"]
+    ALERT["Alerts and Response"]
+    
+    CT["CloudTrail"]
+    VFL["VPC Flow Logs"]
+    AL["App Logs"]
+    
+    CF -->|Web Traffic| ALB
+    ALB --> APP
+    APP --> SIEM
+    SIEM --> ALERT
+    
+    CT --> SIEM
+    VFL --> SIEM
+    AL --> SIEM
 ```
 
 ### 6.2 보안 레이어
@@ -576,23 +599,31 @@ detection_rule:
 
 > **참고**: AWS 통합 거버넌스 아키텍처 관련 내용은 [AWS Control Tower 문서](https://docs.aws.amazon.com/controltower/) 및 [AWS Organizations](https://docs.aws.amazon.com/organizations/)를 참조하세요.
 
-```
-[AWS Organizations]
-    ├── Account Migration (직접 이동 지원)
-    └── [Control Tower]
-            ├── Guardrails
-            ├── SCP
-            └── Account Factory
-                    ↓
-        [AgentCore Identity] ← AI 워크로드 거버넌스
-                    ↓
-        [Security Hub GA] ← 통합 보안 현황
-                    ↓
-        [GuardDuty Extended] ← EC2/ECS 위협 시퀀스
-                    ↓
-        [Datadog SIEM] ← 통합 모니터링
-                    ↓
-        [IAM Policy Autopilot] ← 정책 자동화
+```mermaid
+flowchart TD
+    ORG["AWS Organizations"]
+    CT["Control Tower"]
+    GR["Guardrails"]
+    SCP["SCP"]
+    AF["Account Factory"]
+    AM["Account Migration"]
+    
+    AC["AgentCore Identity"]
+    SH["Security Hub GA"]
+    GD["GuardDuty Extended"]
+    DD["Datadog SIEM"]
+    IAM["IAM Policy Autopilot"]
+    
+    ORG --> CT
+    ORG --> AM
+    CT --> GR
+    CT --> SCP
+    CT --> AF
+    AF --> AC
+    AC --> SH
+    SH --> GD
+    GD --> DD
+    DD --> IAM
 ```
 
 ### 9.6 2025년 업데이트 적용 권장 사항

@@ -112,12 +112,12 @@ Kandji 도입 전 확인 사항:
 
 ### 2.2 ABM/ASM 연동
 
-```plaintext
-[Apple Business Manager] ──MDM 서버 등록──> [Kandji]
-         │                                      │
-         │      자동 디바이스 할당               │
-         ▼                                      ▼
-   [신규 디바이스] ──────제로터치 배포──────> [관리 디바이스]
+```mermaid
+flowchart LR
+    A["Apple Business Manager"] -->|MDM Server Registration| B["Kandji"]
+    A -->|Auto Device Assignment| C["New Devices"]
+    C -->|Zero-Touch Deployment| D["Managed Devices"]
+    B --> D
 ```
 
 ### 2.3 보안 정책 구성
