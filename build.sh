@@ -43,8 +43,16 @@ fi
 # Inject Sentry DSN from Vercel env var (if set, overrides _config.yml)
 if [ -n "$SENTRY_DSN" ]; then
     log "Injecting Sentry DSN from environment variable..."
-    sed -i.bak "s|^sentry_dsn:.*|sentry_dsn: \"$SENTRY_DSN\"|" _config.yml
-    rm -f _config.yml.bak
+    # Use python3 for safe YAML value replacement (avoids sed special char issues with URLs)
+    python3 -c "
+import re, sys
+with open('_config.yml', 'r') as f:
+    content = f.read()
+dsn = sys.argv[1]
+content = re.sub(r'^sentry_dsn:.*$', f'sentry_dsn: \"{dsn}\"', content, flags=re.MULTILINE)
+with open('_config.yml', 'w') as f:
+    f.write(content)
+" "$SENTRY_DSN"
     log "✅ Sentry DSN injected from env var"
 fi
 
