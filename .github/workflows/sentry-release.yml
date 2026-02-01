@@ -28,6 +28,10 @@ on:
           - 'true'
           - 'false'
 
+concurrency:
+  group: sentry-release-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   create-sentry-release:
     runs-on: ubuntu-latest

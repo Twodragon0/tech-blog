@@ -9,6 +9,10 @@ on:
     paths:
       - '_posts/**' # 포스트 변경 시에만 실행
 
+concurrency:
+  group: sns-share-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   share:
     runs-on: ubuntu-latest

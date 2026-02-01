@@ -24,7 +24,6 @@
   "dependencies": {
     "@prisma/client": "^5.22.0",
     "@upstash/redis": "^1.36.1",
-    "@vercel/blob": "^0.27.3",
     "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",
     "prisma": "^5.22.0"

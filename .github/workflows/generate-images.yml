@@ -32,6 +32,10 @@ on:
     paths:
       - '_posts/**'
 
+concurrency:
+  group: generate-images-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   generate-images:
     runs-on: ubuntu-latest
