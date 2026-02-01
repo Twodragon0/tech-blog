@@ -143,91 +143,9 @@
   {% endfor %}
   {% endif %}
   {% endif %}
-  {% comment %}
-    OG 이미지 우선순위 (SNS 공유용):
-    1) page.og_image (포스트에서 명시적으로 지정한 OG 이미지)
-    2) 자동 생성된 OG 이미지 ({post_slug}_og.png) - 존재하는 경우만
-    3) page.image (포스트 대표 이미지) - PNG/JPG만, SVG인 경우 PNG 버전 사용
-    4) site.og_image (/assets/images/og-default.png) - 기본 OG 이미지
-    
-    중요: 모든 SNS 플랫폼(Facebook, LinkedIn, Twitter, KakaoTalk)이 SVG를 지원하지 않음.
-    따라서 최종 og_image_url은 반드시 PNG/JPG/WebP여야 함.
-  {% endcomment %}
-  {% assign og_image = nil %}
-  {% assign og_image_url = nil %}
-  {% assign og_image_type = "image/png" %}
-  
-  {% comment %}1단계: page.og_image (명시적 OG 이미지){% endcomment %}
-  {% if page.og_image %}
-    {% assign og_image = page.og_image %}
-  {% endif %}
-  
-  {% comment %}2단계: 포스트인 경우 자동 생성된 OG 이미지 확인{% endcomment %}
-  {% if og_image == nil and page.layout == 'post' %}
-    {% assign post_slug = page.name | replace: '.md', '' | replace: '.html', '' %}
-    {% assign auto_og_path = '/assets/images/' | append: post_slug | append: '_og.png' %}
-    {% comment %}static_files에서 파일 존재 여부 확인{% endcomment %}
-    {% for file in site.static_files %}
-      {% if file.path == auto_og_path %}
-        {% assign og_image = auto_og_path %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-  
-  {% comment %}3단계: page.image (포스트 대표 이미지){% endcomment %}
-  {% if og_image == nil and page.image %}
-    {% if page.image contains '.svg' %}
-      {% comment %}SVG인 경우: PNG 버전이 실제 존재하는지 확인 (SNS는 SVG 미지원){% endcomment %}
-      {% assign page_image_png = page.image | replace: '.svg', '.png' %}
-      {% for file in site.static_files %}
-        {% if file.path == page_image_png %}
-          {% assign og_image = page_image_png %}
-          {% break %}
-        {% endif %}
-      {% endfor %}
-    {% else %}
-      {% comment %}PNG/JPG/WebP는 바로 사용{% endcomment %}
-      {% assign og_image = page.image %}
-    {% endif %}
-  {% endif %}
-  
-  {% comment %}4단계: site.og_image (기본 OG 이미지 - og-default.png){% endcomment %}
-  {% if og_image == nil %}
-    {% assign og_image = site.og_image | default: "/assets/images/og-default.png" %}
-  {% endif %}
-  
-  {% comment %}이미지 타입 감지{% endcomment %}
-  {% if og_image contains '.jpg' or og_image contains '.jpeg' %}
-    {% assign og_image_url = og_image | absolute_url %}
-    {% assign og_image_type = "image/jpeg" %}
-  {% elsif og_image contains '.webp' %}
-    {% assign og_image_url = og_image | absolute_url %}
-    {% assign og_image_type = "image/webp" %}
-  {% else %}
-    {% assign og_image_url = og_image | absolute_url %}
-    {% assign og_image_type = "image/png" %}
-  {% endif %}
-    
-  <meta property="og:image" content="{{ og_image_url }}">
-  <meta property="og:image:secure_url" content="{{ og_image_url }}">
-  <meta property="og:image:width" content="{{ site.og_image_width | default: 1200 }}">
-  <meta property="og:image:height" content="{{ site.og_image_height | default: 630 }}">
-  <meta property="og:image:type" content="{{ og_image_type }}">
-  <meta property="og:image:alt" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-  {% if site.twitter.username %}
-  <meta name="twitter:site" content="{{ site.twitter.username }}">
-  <meta name="twitter:creator" content="{{ site.twitter.username }}">
-  {% endif %}
-  <meta name="twitter:image" content="{{ og_image_url }}">
-  <meta name="twitter:image:alt" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
-
-  <!-- KakaoTalk Sharing (uses Open Graph) -->
+  <!-- OG image SVG→PNG conversion handled by _plugins/svg_to_png_og.rb -->
+  <!-- jekyll-seo-tag ({% seo %}) outputs og:image, twitter:card, twitter:image -->
+  <!-- KakaoTalk uses standard Open Graph tags -->
   <meta name="format-detection" content="telephone=no">
 
   <!-- Feeds -->
