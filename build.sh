@@ -70,13 +70,15 @@ if [ -n "$BASEURL" ]; then
     log "Using baseurl: $BASEURL"
 fi
 
-bundle exec jekyll build $BUILD_ARGS 2>&1 | tee /tmp/jekyll-build.log
-BUILD_EXIT=${PIPESTATUS[0]}
+set +e
+bundle exec jekyll build $BUILD_ARGS > /tmp/jekyll-build.log 2>&1
+BUILD_EXIT=$?
+set -e
+cat /tmp/jekyll-build.log
 if [ "$BUILD_EXIT" -ne 0 ]; then
-    log "Jekyll build failed (exit code: $BUILD_EXIT). Error lines:"
-    grep -iE "error|exception|fatal|syntax|invalid" /tmp/jekyll-build.log >&2 || true
-    log "--- Last 20 lines of build log ---"
-    tail -n 20 /tmp/jekyll-build.log >&2
+    log "=== JEKYLL BUILD FAILED (exit $BUILD_EXIT) ==="
+    log "=== ERROR LINES ==="
+    grep -iE "error|exception|fatal|invalid" /tmp/jekyll-build.log >&2 || true
     error_exit "Jekyll build failed"
 fi
 
