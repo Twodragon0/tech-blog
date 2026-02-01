@@ -1,1127 +1,293 @@
-<!-- Sentry Error Tracking -->
-<!-- 
-  공식 Loader Script 사용 (권장)
-  DSN: Sentry 프로젝트 설정에서 확인 (실제 DSN으로 교체 필요)
-  
-  Free 티어 최적화 (월 5,000 이벤트 제한):
-  - 프로덕션만 수집 (개발/프리뷰 환경 제외)
-  - 동적 샘플링: 이벤트 수에 따라 자동 조정 (50%-100%)
-  - 트레이스 샘플링: 5% (프로덕션)
-  - 로그: warn, error만 전송 (info, debug 제외)
-  - console.log는 전송하지 않음
-  - 민감 정보 자동 필터링 (강화)
-  - 중복 에러 그룹핑 최적화 (로컬 스토리지 기반)
-  - 이벤트 크기 제한: 8KB (자동 축소)
-  - 월간 이벤트 수 추적 및 경고
-  
-  설정 방법:
-  1. Sentry.io 프로젝트 설정에서 Loader Script 복사
-  2. 아래 스크립트 태그의 src URL 업데이트 (필요시)
-  3. DSN은 Loader Script에 포함되어 있음
--->
-
-<!-- Sentry Loader Script (페이지 상단에 위치 - 에러 추적을 위해 빠른 로딩 필요) -->
-<!--
-  실제 Loader Script URL은 Sentry 프로젝트 설정에서 확인하세요.
-  현재 Sentry가 비활성화되어 있습니다. 활성화하려면:
-  1. Sentry.io에서 프로젝트 생성
-  2. 아래 주석을 해제하고 YOUR_SENTRY_DSN을 실제 DSN으로 교체
--->
-<!--
+{% if site.sentry_dsn and site.sentry_dsn != "" %}
+<!-- Sentry SDK: Error Tracking + Tracing + Session Replay + User Feedback -->
 <script
-  src="https://js.sentry-cdn.com/YOUR_SENTRY_DSN.min.js"
+  src="https://browser.sentry-cdn.com/8.42.0/bundle.tracing.replay.feedback.min.js"
   crossorigin="anonymous"
-  async
 ></script>
--->
-
-<!-- Sentry 초기화 (Loader Script 로드 후 실행) -->
 <script>
 (function() {
   'use strict';
 
-  // Sentry가 로드될 때까지 대기 (비활성화 또는 CSP 위반 시 로드되지 않을 수 있음)
-  if (typeof Sentry === 'undefined') {
-    // Sentry가 비활성화되어 있거나 로드되지 않았습니다
-    // 조용히 종료 (콘솔에 에러 표시하지 않음)
-    return;
+  if (typeof Sentry === 'undefined') return;
+
+  var isProduction = window.location.hostname === 'tech.2twodragon.com';
+  var isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  // Free Tier: monthly event tracking via localStorage
+  var MONTHLY_LIMIT = 5000;
+  var MONTHLY_KEY = 'se_month';
+  var MONTHLY_TS = 'se_ts';
+
+  function getMonthlyCount() {
+    try {
+      var ts = parseInt(localStorage.getItem(MONTHLY_TS) || '0', 10);
+      var count = parseInt(localStorage.getItem(MONTHLY_KEY) || '0', 10);
+      var now = Date.now();
+      if ((now - ts) > 30 * 24 * 60 * 60 * 1000 || ts === 0) {
+        localStorage.setItem(MONTHLY_KEY, '0');
+        localStorage.setItem(MONTHLY_TS, String(now));
+        return 0;
+      }
+      return count;
+    } catch (e) { return 0; }
   }
 
-  // Sentry.onLoad가 없으면 (잘못된 DSN 등) 조용히 종료
-  if (typeof Sentry.onLoad !== 'function') {
-    return;
+  function incrementMonthly() {
+    try {
+      var count = getMonthlyCount() + 1;
+      localStorage.setItem(MONTHLY_KEY, String(count));
+      return count;
+    } catch (e) { return 0; }
   }
 
-  // Sentry.onLoad()를 사용하여 초기화 (Loader Script 방식)
-  Sentry.onLoad(function() {
-    // localStorage 캐시 및 헬퍼 함수 (프리티어 최적화: 메모리 및 성능)
-    const storageCache = {};
-    const storageHelper = {
-      get: function(key) {
-        if (storageCache[key] !== undefined) {
-          return storageCache[key];
-        }
-        try {
-          const value = localStorage.getItem(key);
-          storageCache[key] = value;
-          return value;
-        } catch (e) {
-          return null;
-        }
-      },
-      set: function(key, value) {
-        try {
-          localStorage.setItem(key, value);
-          storageCache[key] = value;
-          // 캐시 크기 제한 (메모리 최적화)
-          const keys = Object.keys(storageCache);
-          if (keys.length > 20) {
-            delete storageCache[keys[0]];
-          }
-        } catch (e) {
-          // localStorage 접근 실패 시 무시
-        }
-      },
-      remove: function(key) {
-        try {
-          localStorage.removeItem(key);
-          delete storageCache[key];
-        } catch (e) {
-          // 무시
-        }
+  // Dynamic sample rate based on monthly usage
+  function getDynamicSampleRate() {
+    if (!isProduction) return 0;
+    var count = getMonthlyCount();
+    if (count > MONTHLY_LIMIT * 0.9) return 0.3;
+    if (count > MONTHLY_LIMIT * 0.8) return 0.5;
+    if (count > MONTHLY_LIMIT * 0.6) return 0.75;
+    return 1.0;
+  }
+
+  // Sensitive data patterns for filtering
+  var sensitivePatterns = [
+    /password/i, /token/i, /secret/i, /api[_-]?key/i,
+    /authorization/i, /bearer/i, /credential/i,
+    /private[_-]?key/i, /sk-[a-zA-Z0-9]+/i
+  ];
+
+  function containsSensitive(text) {
+    if (!text) return false;
+    return sensitivePatterns.some(function(p) { return p.test(text); });
+  }
+
+  // Errors to ignore (noise from extensions, network, CSP)
+  var ignorePatterns = [
+    /content security policy/i, /csp/i,
+    /chrome-extension/i, /moz-extension/i,
+    /resizeobserver loop/i, /network error/i,
+    /script error/i, /failed to load/i,
+    /load link/i, /long task/i, /layout shift/i
+  ];
+
+  function isNoiseError(msg) {
+    if (!msg) return false;
+    var lower = msg.toLowerCase();
+    return ignorePatterns.some(function(p) { return p.test(lower); }) || lower === '' || lower === 'unknown error';
+  }
+
+  // Duplicate error throttling
+  var errorCounts = {};
+
+  function isThrottled(key) {
+    var now = Date.now();
+    var entry = errorCounts[key];
+    if (!entry || (now - entry.ts) > 3600000) {
+      errorCounts[key] = { count: 1, ts: now };
+      return false;
+    }
+    entry.count++;
+    if (entry.count > 8) return Math.random() > 0.3;
+    return false;
+  }
+
+  var integrations = [
+    Sentry.browserTracingIntegration({
+      tracePropagationTargets: ['localhost', /^https:\/\/tech\.2twodragon\.com/]
+    }),
+    Sentry.replayIntegration({
+      maskAllText: true,
+      blockAllMedia: true,
+      maskAllInputs: true
+    })
+  ];
+
+  // User Feedback widget (FREE, unlimited)
+  if (isProduction && typeof Sentry.feedbackIntegration === 'function') {
+    integrations.push(Sentry.feedbackIntegration({
+      colorScheme: 'system',
+      showBranding: false,
+      showName: false,
+      showEmail: false,
+      triggerLabel: '피드백',
+      formTitle: '문제를 알려주세요',
+      submitButtonLabel: '보내기',
+      cancelButtonLabel: '취소',
+      messageLabel: '메시지',
+      messagePlaceholder: '어떤 문제가 있나요?',
+      successMessageText: '감사합니다! 피드백이 전송되었습니다.'
+    }));
+  }
+
+  Sentry.init({
+    dsn: '{{ site.sentry_dsn }}',
+
+    environment: isProduction ? 'production' : isDev ? 'development' : 'preview',
+
+    release: (function() {
+      if (typeof window !== 'undefined' && window.VERCEL_GIT_COMMIT_SHA) {
+        return 'tech-blog@' + window.VERCEL_GIT_COMMIT_SHA.substring(0, 7);
       }
-    };
-    
-    // 월간 이벤트 추적 헬퍼 함수 (중복 코드 제거)
-    const monthlyEventTracker = {
-      get: function() {
-        const monthlyEventsKey = 'sentry_monthly_events';
-        const monthlyTimestampKey = 'sentry_monthly_timestamp';
-        const now = Date.now();
-        const oneMonth = 30 * 24 * 60 * 60 * 1000;
-        
-        let monthlyEvents = parseInt(storageHelper.get(monthlyEventsKey) || '0');
-        let monthlyTimestamp = parseInt(storageHelper.get(monthlyTimestampKey) || '0');
-        
-        // 월이 지나면 리셋
-        if ((now - monthlyTimestamp) > oneMonth || monthlyTimestamp === 0) {
-          monthlyEvents = 0;
-          monthlyTimestamp = now;
-          storageHelper.set(monthlyEventsKey, '0');
-          storageHelper.set(monthlyTimestampKey, now.toString());
-        }
-        
-        return {
-          count: monthlyEvents,
-          timestamp: monthlyTimestamp,
-          increment: function() {
-            monthlyEvents++;
-            storageHelper.set(monthlyEventsKey, monthlyEvents.toString());
-            return monthlyEvents;
-          },
-          getDailyLimit: function() {
-            const freeTierLimit = 5000;
-            const daysInMonth = 30;
-            return freeTierLimit / daysInMonth; // 약 166개/일
-          },
-          getExpectedDailyAverage: function() {
-            const now = Date.now();
-            const currentDay = Math.floor((now - monthlyTimestamp) / (24 * 60 * 60 * 1000)) + 1;
-            return monthlyEvents / currentDay;
-          }
-        };
+      if (isProduction) {
+        var d = new Date();
+        return 'tech-blog@' + d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0');
       }
-    };
-    
-    // User-Agent 해시 처리 (개인정보 보호)
-    const hashUserAgent = function(ua) {
-      if (!ua || ua.length < 10) return 'unknown';
-      // 간단한 해시 (보안: 실제 해시 함수 사용 권장)
-      let hash = 0;
-      for (let i = 0; i < Math.min(ua.length, 50); i++) {
-        const char = ua.charCodeAt(i);
-        hash = ((hash << 5) - hash) + char;
-        hash = hash & hash; // 32bit 정수로 변환
+      return undefined;
+    })(),
+
+    integrations: integrations,
+
+    // Error sampling: dynamic based on monthly usage (Free Tier: 5,000/month)
+    sampleRate: getDynamicSampleRate(),
+
+    // Tracing: 5% production (Free Tier: 5M spans/month)
+    tracesSampleRate: isProduction ? 0.05 : 0,
+    enableTracing: true,
+
+    // Session Replay: error-only recording (Free Tier: 50 replays/month)
+    replaysSessionSampleRate: 0,
+    replaysOnErrorSampleRate: isProduction ? 0.1 : 0,
+
+    maxBreadcrumbs: 30,
+    attachStacktrace: true,
+
+    // Only capture errors from our domain
+    allowUrls: [/https?:\/\/(www\.)?tech\.2twodragon\.com/],
+
+    ignoreErrors: [
+      'fb_xd_fragment', 'top.GLOBALS',
+      /^Non-Error promise rejection/,
+      /ResizeObserver loop/
+    ],
+
+    beforeSend: function(event, hint) {
+      if (!isProduction) return null;
+
+      var error = hint && hint.originalException;
+      if (error && error.message && isNoiseError(error.message)) return null;
+
+      if (event.message && isNoiseError(event.message)) return null;
+
+      // Filter errors without useful stack from our code
+      if (event.exception && event.exception.values && event.exception.values[0]) {
+        var exc = event.exception.values[0];
+        var hasOurCode = exc.stacktrace && exc.stacktrace.frames &&
+          exc.stacktrace.frames.some(function(f) {
+            if (!f.filename) return false;
+            try {
+              if (f.filename.startsWith('/assets/js/')) return true;
+              var url = new URL(f.filename, window.location.origin);
+              return url.hostname === 'tech.2twodragon.com';
+            } catch (e) { return false; }
+          });
+
+        if (!hasOurCode && (!exc.value || isNoiseError(exc.value))) return null;
       }
-      return 'ua_' + Math.abs(hash).toString(36).substring(0, 8);
-    };
-    
-    Sentry.init({
-      // 환경 설정
-      environment: window.location.hostname === 'tech.2twodragon.com' 
-        ? 'production' 
-        : window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-        ? 'development'
-        : 'preview',
-      
-      // Tracing: 성능 모니터링 (Free 티어 최적화: 5% 샘플링)
-      // Free 티어는 월 5,000 이벤트 제한이 있으므로 샘플링을 낮춤
-      tracesSampleRate: window.location.hostname === 'tech.2twodragon.com' 
-        ? 0.05  // 프로덕션: 5% (Free 티어 최적화)
-        : 0.0,  // 개발/프리뷰: 0% (개발 환경은 트레이스 수집 안 함)
-      
-      // Performance Monitoring: Web Vitals 추적
-      // TTFB, LCP, FID, CLS 등 핵심 메트릭 자동 수집
-      enableTracing: true,
-      
-      // BrowserTracing 설정 (Loader Script에서 자동 설정되지만 명시적으로 구성)
-      // 커스텀 트레이싱 옵션은 integrations에서 설정
-      
-      // Session Replay: 에러 발생 시에만 녹화 (Free 티어: 월 50 replays)
-      // 일반 세션은 녹화하지 않고, 에러 발생 시 10%만 녹화하여 월 한도 내 유지
-      replaysSessionSampleRate: 0.0,  // 일반 세션은 녹화 안 함 (비용 절감)
-      replaysOnErrorSampleRate: window.location.hostname === 'tech.2twodragon.com' ? 0.1 : 0.0, // 에러 시 10% (프로덕션만)
-      
-      // Logs: 구조화된 로깅 활성화 (SDK 9.41.0+)
-      enableLogs: true,
-      
-      // Source Maps: 프로덕션에서는 비활성화 (CSP 위반 방지 및 보안)
-      // 개발 환경에서만 source map 로드
-      _experiments: {
-        // Source map 로드 비활성화 (프로덕션)
-        enableSourceMaps: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-      },
-      
-      // 릴리스 정보 (Vercel/GitHub Actions에서 자동 주입)
-      // Vercel 환경 변수: VERCEL_GIT_COMMIT_SHA
-      // GitHub Actions: GITHUB_SHA
-      release: (function() {
-        // Vercel 환경 변수 우선 사용
-        if (typeof window !== 'undefined' && window.VERCEL_GIT_COMMIT_SHA) {
-          return 'tech-blog@' + window.VERCEL_GIT_COMMIT_SHA.substring(0, 7);
-        }
-        // GitHub Pages 환경 변수 (빌드 시 주입 가능)
-        if (typeof window !== 'undefined' && window.BUILD_ID) {
-          return 'tech-blog@' + window.BUILD_ID.substring(0, 7);
-        }
-        // 기본값: 날짜 기반 (프로덕션만)
-        if (window.location.hostname === 'tech.2twodragon.com') {
-          const date = new Date();
-          return 'tech-blog@' + date.getFullYear() + 
-                 String(date.getMonth() + 1).padStart(2, '0') + 
-                 String(date.getDate()).padStart(2, '0');
-        }
-        return undefined; // 개발 환경에서는 릴리스 정보 없음
-      })(),
-      
-      // 에러 필터링 및 보안 - Free 티어 최적화
-      beforeSend(event, hint) {
-        // Free 티어 최적화: 개발 환경 에러는 전송하지 않음
-        if (window.location.hostname !== 'tech.2twodragon.com') {
-          return null; // 프로덕션만 에러 수집
-        }
-        
-        // Unknown error 개선: 에러 메시지가 없거나 불충분한 경우 컨텍스트 추가
-        if (!event.message || event.message === 'Unknown error' || event.message.trim() === '') {
-          // hint에서 원본 에러 정보 추출
-          const originalError = hint.originalException;
-          if (originalError) {
-            if (originalError.message) {
-              event.message = originalError.message;
-            } else if (originalError.toString && originalError.toString() !== '[object Object]') {
-              event.message = originalError.toString();
-            } else if (originalError.__sentry_context__) {
-              event.message = originalError.__sentry_context__.message || 'Unknown error with context';
-            } else {
-              event.message = 'Unknown error - no error message available';
-            }
-            
-            // 스택 트레이스가 있으면 추가
-            if (originalError.stack && !event.exception) {
-              event.exception = {
-                values: [{
-                  type: originalError.name || 'Error',
-                  value: event.message,
-                  stacktrace: {
-                    frames: originalError.stack.split('\n').slice(0, 10).map((line, index) => ({
-                      filename: line.match(/\((.+):\d+:\d+\)/) ? RegExp.$1 : 'unknown',
-                      lineno: line.match(/:(\d+):\d+\)/) ? parseInt(RegExp.$1) : 0,
-                      colno: line.match(/:\d+:(\d+)\)/) ? parseInt(RegExp.$1) : 0,
-                      function: line.match(/at\s+(.+)\s+\(/) ? RegExp.$1 : 'unknown'
-                    }))
+
+      // Throttle duplicate errors
+      var errorKey = event.fingerprint ? event.fingerprint.join('-') :
+        (event.message || (event.exception && event.exception.values && event.exception.values[0] && event.exception.values[0].value) || 'unknown');
+      if (isThrottled(errorKey.substring(0, 60))) return null;
+
+      // Redact sensitive data in request URL
+      if (event.request && event.request.url) {
+        try {
+          var url = new URL(event.request.url);
+          ['token', 'key', 'password', 'secret', 'api_key', 'access_token', 'auth'].forEach(function(p) {
+            url.searchParams.delete(p);
+          });
+          event.request.url = url.toString();
+        } catch (e) {}
+        delete event.request.cookies;
+      }
+
+      // Redact sensitive data in stack frames
+      if (event.exception && event.exception.values) {
+        event.exception.values.forEach(function(exc) {
+          if (exc.stacktrace && exc.stacktrace.frames) {
+            exc.stacktrace.frames.forEach(function(frame) {
+              if (frame.filename) {
+                frame.filename = frame.filename.replace(/\/Users\/[^\/]+/g, '/Users/***');
+                frame.filename = frame.filename.replace(/\/home\/[^\/]+/g, '/home/***');
+              }
+              if (frame.vars) {
+                Object.keys(frame.vars).forEach(function(k) {
+                  if (containsSensitive(k) || containsSensitive(String(frame.vars[k] || ''))) {
+                    frame.vars[k] = '***REDACTED***';
                   }
-                }]
-              };
-            }
-          }
-          
-          // 추가 컨텍스트 정보
-          if (!event.extra) {
-            event.extra = {};
-          }
-          event.extra.errorContext = {
-            url: window.location.href.substring(0, 200), // 길이 제한 (프리티어 최적화)
-            userAgent: hashUserAgent(navigator.userAgent), // 개인정보 보호: 해시 처리
-            timestamp: new Date().toISOString(),
-            referrer: (document.referrer || 'none').substring(0, 200) // 길이 제한
-          };
-        }
-        
-        // Fingerprinting 개선: 에러 타입과 메시지 기반 그룹핑
-        if (event.exception && event.exception.values && event.exception.values.length > 0) {
-          const firstException = event.exception.values[0];
-          const errorType = firstException.type || 'Error';
-          const errorMessage = firstException.value || event.message || 'Unknown';
-          
-          // 에러 타입과 메시지의 첫 부분으로 그룹핑
-          const fingerprint = [
-            errorType,
-            errorMessage.substring(0, 100).replace(/\s+/g, ' ').trim()
-          ];
-          
-          // URL 패턴이 포함된 경우 URL도 fingerprint에 추가 (동적 값 제외)
-          if (event.request && event.request.url) {
-            try {
-              const url = new URL(event.request.url);
-              // 경로만 포함 (쿼리 파라미터 제외)
-              fingerprint.push(url.pathname);
-            } catch (e) {
-              // URL 파싱 실패 시 무시
-            }
-          }
-          
-          event.fingerprint = fingerprint;
-        }
-        
-        // 민감 정보 제거 및 보안 강화
-        if (event.request) {
-          // 쿠키 제거
-          delete event.request.cookies;
-          
-          // URL에서 민감한 쿼리 파라미터 제거
-          if (event.request.url) {
-            try {
-              const url = new URL(event.request.url);
-              const sensitiveParams = [
-                'token', 'key', 'password', 'secret', 'api_key', 'apikey',
-                'access_token', 'refresh_token', 'auth', 'authorization',
-                'credential', 'private_key', 'session', 'sessionid'
-              ];
-              sensitiveParams.forEach(param => {
-                url.searchParams.delete(param);
-              });
-              event.request.url = url.toString();
-            } catch (e) {
-              // URL 파싱 실패 시 그대로 유지
-            }
-          }
-        }
-        
-        // 스택 트레이스에서 민감 정보 제거
-        if (event.exception && event.exception.values) {
-          event.exception.values.forEach(exception => {
-            if (exception.stacktrace && exception.stacktrace.frames) {
-              exception.stacktrace.frames.forEach(frame => {
-                // 파일 경로에서 민감 정보 제거
-                if (frame.filename) {
-                  frame.filename = frame.filename.replace(/\/home\/[^\/]+/g, '/home/***');
-                  frame.filename = frame.filename.replace(/\/Users\/[^\/]+/g, '/Users/***');
-                }
-                // 코드 컨텍스트에서 민감 정보 제거 (강화)
-                if (frame.vars) {
-                  Object.keys(frame.vars).forEach(key => {
-                    const lowerKey = key.toLowerCase();
-                    const value = String(frame.vars[key] || '').toLowerCase();
-                    
-                    // 키 이름 기반 필터링
-                    if (lowerKey.includes('password') || 
-                        lowerKey.includes('token') || 
-                        lowerKey.includes('secret') ||
-                        lowerKey.includes('key') ||
-                        lowerKey.includes('auth') ||
-                        lowerKey.includes('credential') ||
-                        lowerKey.includes('api_key') ||
-                        lowerKey.includes('apikey') ||
-                        lowerKey.includes('private') ||
-                        lowerKey.includes('session')) {
-                      frame.vars[key] = '***REDACTED***';
-                    }
-                    // 값 내용 기반 필터링 (추가 보안)
-                    else if (value.includes('password') ||
-                             value.includes('token') ||
-                             value.includes('secret') ||
-                             value.includes('api_key') ||
-                             value.includes('bearer ') ||
-                             value.match(/[a-zA-Z0-9]{32,}/)) { // 긴 문자열 (토큰 가능성)
-                      frame.vars[key] = '***REDACTED***';
-                    }
-                  });
-                }
-                
-                // 함수 인자에서 민감 정보 제거
-                if (frame.args) {
-                  frame.args = frame.args.map(arg => {
-                    const argStr = String(arg || '');
-                    if (argStr.length > 50 && 
-                        (argStr.includes('token') || 
-                         argStr.includes('password') || 
-                         argStr.includes('secret') ||
-                         argStr.match(/[a-zA-Z0-9]{32,}/))) {
-                      return '***REDACTED***';
-                    }
-                    return arg;
-                  });
-                }
-              });
-            }
-          });
-        }
-        
-        // 특정 에러 무시 (정상적인 보안 에러 및 이미지 로드 실패)
-        if (event.exception) {
-          const error = hint.originalException;
-          if (error && error.message) {
-            const errorMessage = error.message.toLowerCase();
-            // CSP 위반, 확장 프로그램 관련 에러는 무시
-            // 이미지 로드 실패 (404, 한글 파일명 인코딩 문제 등)는 무시
-            // Long task는 성능 경고이지 에러가 아니므로 무시 (성능 모니터링은 별도로 처리)
-            // Unknown error with no useful info is also filtered
-            if (errorMessage.includes('content security policy') ||
-                errorMessage.includes('csp') ||
-                errorMessage.includes('extension') ||
-                errorMessage.includes('chrome-extension') ||
-                errorMessage.includes('moz-extension') ||
-                errorMessage.includes('failed to load') ||
-                errorMessage.includes('load link') ||
-                errorMessage.includes('long task') ||
-                errorMessage.includes('longtask') ||
-                errorMessage.includes('layout shift') ||
-                errorMessage.includes('script error') ||
-                errorMessage.includes('resizeobserver loop') ||
-                errorMessage.includes('network error') ||
-                errorMessage === 'unknown error' ||
-                errorMessage === '' ||
-                (errorMessage.includes('image') && (errorMessage.includes('404') || errorMessage.includes('not found')))) {
-              return null; // 이벤트 무시
-            }
-          }
-          
-          // Filter errors without useful stack trace (likely third-party or cross-origin)
-          const firstException = event.exception.values && event.exception.values[0];
-          if (firstException) {
-            // Security: Use URL parsing instead of substring matching for proper validation
-            const isValidFilename = function(filename) {
-              if (!filename) return false;
-              try {
-                // Check for browser extension URLs
-                if (filename.startsWith('chrome-extension://') ||
-                    filename.startsWith('moz-extension://') ||
-                    filename.startsWith('extension://')) {
-                  return false;
-                }
-                // For relative paths starting with /assets/js/
-                if (filename.startsWith('/assets/js/')) {
-                  return true;
-                }
-                // For absolute URLs, parse and validate hostname
-                const url = new URL(filename, window.location.origin);
-                return url.hostname === 'tech.2twodragon.com' ||
-                       url.pathname.startsWith('/assets/js/');
-              } catch (e) {
-                return false;
-              }
-            };
-            const hasUsefulStack = firstException.stacktrace && 
-                                   firstException.stacktrace.frames && 
-                                   firstException.stacktrace.frames.some(function(frame) {
-                                     return isValidFilename(frame.filename);
-                                   });
-            
-            // If no useful stack and error is "Unknown" or generic, filter it
-            if (!hasUsefulStack && 
-                (!firstException.value || 
-                 firstException.value.toLowerCase() === 'unknown error' ||
-                 firstException.value.toLowerCase() === 'script error' ||
-                 firstException.value.trim() === '')) {
-              return null;
-            }
-          }
-        }
-        
-        // Long task 및 성능 관련 에러 필터링 (커스텀 컨텍스트 기반)
-        if (event.contexts && event.contexts.custom) {
-          const customContext = event.contexts.custom;
-          // Long task는 성능 경고이지 에러가 아님 (100-200ms는 허용 가능한 범위)
-          if (customContext.type === 'performance' && 
-              (customContext.duration !== undefined || customContext.metric === 'CLS')) {
-            return null; // 성능 메트릭은 에러로 보고하지 않음
-          }
-        }
-        
-        // 에러 메시지에서 Long task 패턴 확인 (추가 안전장치)
-        if (event.message) {
-          const message = event.message.toLowerCase();
-          if (message.includes('long task') || message.includes('layout shift')) {
-            return null; // 성능 경고는 에러로 보고하지 않음
-          }
-        }
-        
-        // 이미지 로드 실패 에러 필터링 (request URL 기반)
-        if (event.request && event.request.url) {
-          const url = event.request.url.toLowerCase();
-          // OG 이미지, 한글 파일명 포함 URL은 무시
-          if (url.includes('_og.png') || 
-              url.includes('og.png') || 
-              url.includes('og.jpg') || 
-              url.includes('og.webp') ||
-              url.includes('favicon') ||
-              url.includes('robots.txt') ||
-              /[\uAC00-\uD7A3]/.test(event.request.url)) { // 한글 포함된 URL
-            return null; // 이벤트 무시
-          }
-        }
-        
-        // Free 티어 최적화: 중복 에러 그룹핑 최적화 (프리티어 최적화)
-        // 동일한 에러가 너무 많이 발생하면 샘플링 (로컬 스토리지 기반)
-        const errorKey = event.fingerprint ? event.fingerprint.join('-') : 
-                        (event.message || event.exception?.values?.[0]?.value || 'unknown');
-        const errorKeyHash = errorKey.substring(0, 40).replace(/[^a-zA-Z0-9]/g, '_'); // 50 → 40으로 감소
-        const errorCountKey = 'se_' + errorKeyHash; // 키 이름 단축 (메모리 최적화)
-        const errorTimestampKey = 'set_' + errorKeyHash;
-        
-        try {
-          const errorCount = parseInt(storageHelper.get(errorCountKey) || '0');
-          const lastErrorTime = parseInt(storageHelper.get(errorTimestampKey) || '0');
-          const now = Date.now();
-          const oneHour = 60 * 60 * 1000;
-          
-          // 1시간 이내에 동일한 에러가 8번 이상 발생하면 샘플링 30% (더 공격적, 10 → 8로 감소)
-          if (errorCount > 8 && (now - lastErrorTime) < oneHour) {
-            if (Math.random() > 0.3) {
-              return null; // 70% 샘플링 (50% → 70%로 증가)
-            }
-          }
-          
-          // 에러 카운트 업데이트
-          if ((now - lastErrorTime) > oneHour) {
-            storageHelper.set(errorCountKey, '1');
-          } else {
-            storageHelper.set(errorCountKey, (errorCount + 1).toString());
-          }
-          storageHelper.set(errorTimestampKey, now.toString());
-        } catch (e) {
-          // localStorage 접근 실패 시 무시
-        }
-        
-        // Free 티어 최적화: 이벤트 크기 제한 강화 (프리티어 최적화: 8KB → 6KB)
-        const eventSize = JSON.stringify(event).length;
-        const maxEventSize = 6000; // 6KB 제한 (8KB → 6KB로 감소)
-        
-        if (eventSize > maxEventSize) {
-          // 이벤트 크기 축소
-          if (event.extra) {
-            const extraSize = JSON.stringify(event.extra).length;
-            if (extraSize > 1500) { // 2000 → 1500으로 감소
-              event.extra = { 
-                message: 'Extra data truncated for Free tier optimization',
-                truncated: true
-              };
-            }
-          }
-          
-          // breadcrumbs 제한 (10 → 8로 감소)
-          if (event.breadcrumbs && event.breadcrumbs.length > 8) {
-            event.breadcrumbs = event.breadcrumbs.slice(-8);
-          }
-          
-          // contexts 제한
-          if (event.contexts) {
-            Object.keys(event.contexts).forEach(key => {
-              const contextSize = JSON.stringify(event.contexts[key]).length;
-              if (contextSize > 800) { // 1000 → 800으로 감소
-                event.contexts[key] = { message: 'Context data truncated' };
+                });
               }
             });
           }
-          
-          // 최종 크기 확인 - 여전히 크면 추가 축소
-          const finalSize = JSON.stringify(event).length;
-          if (finalSize > maxEventSize) {
-            // 스택 트레이스 프레임 제한 (20 → 15로 감소)
-            if (event.exception?.values) {
-              event.exception.values.forEach(exception => {
-                if (exception.stacktrace?.frames && exception.stacktrace.frames.length > 15) {
-                  exception.stacktrace.frames = exception.stacktrace.frames.slice(-15);
-                }
-              });
-            }
-          }
-        }
-        
-        return event;
-      },
-      
-      // 로그 필터링 및 보안 (beforeSendLog) - Free 티어 최적화
-      beforeSendLog(log, hint) {
-        // Free 티어 최적화: 개발 환경 로그는 전송하지 않음
-        if (window.location.hostname !== 'tech.2twodragon.com') {
-          return null; // 프로덕션만 로그 수집
-        }
-        
-        // Free 티어 최적화: info, debug 레벨은 전송하지 않음 (warn, error만)
-        // 단, 초기화 확인 로그는 예외 (환경 정보 포함)
-        const isInitializationLog = log.message && 
-          (log.message.includes('Sentry initialized') || 
-           log.message.includes('Logs enabled'));
-        
-        if ((log.level === 'info' || log.level === 'debug' || log.level === 'trace') && !isInitializationLog) {
-          return null; // info, debug, trace는 제외 (Free 티어 최적화)
-        }
-        
-        // 초기화 로그는 info를 warn으로 변환 (beforeSendLog에서 필터링 방지)
-        if (isInitializationLog && log.level === 'info') {
-          log.level = 'warn';
-        }
-        
-        // 로그 컨텍스트 정보 추가 (페이지, 사용자 액션 등, 프리티어 최적화)
-        if (!log.data) {
-          log.data = {};
-        }
-        
-        // 페이지 정보 추가 (길이 제한으로 비용 절감)
-        log.data.page = window.location.pathname.substring(0, 100);
-        log.data.url = window.location.href.substring(0, 200); // URL 길이 제한
-        log.data.referrer = (document.referrer || 'none').substring(0, 200); // Referrer 길이 제한
-        
-        // 사용자 상호작용 정보 추가 (가능한 경우, 최소한만)
-        if (window.performance && window.performance.navigation) {
-          log.data.navType = window.performance.navigation.type; // navigationType → navType (키 이름 단축)
-        }
-        
-        // 타임스탬프 추가 (ISO 형식 유지하되 최소한만)
-        log.data.ts = new Date().toISOString(); // timestamp → ts (키 이름 단축)
-        
-        // 민감 정보 제거
-        if (log.message) {
-          // 민감한 정보가 포함된 로그 필터링
-          const sensitivePatterns = [
-            /password/i,
-            /token/i,
-            /secret/i,
-            /api[_-]?key/i,
-            /apikey/i,
-            /authorization/i,
-            /bearer/i,
-            /credential/i,
-            /private[_-]?key/i,
-            /sk-[a-zA-Z0-9]+/i, // API 키 패턴 (예: sk-xxx)
-            /sntryu_[a-zA-Z0-9]+/i // Sentry 토큰 패턴
-          ];
-          
-          if (sensitivePatterns.some(pattern => pattern.test(log.message))) {
-            return null; // 민감한 로그는 전송하지 않음
-          }
-          
-          // log.data에서도 민감 정보 제거
-          if (log.data && typeof log.data === 'object') {
-            Object.keys(log.data).forEach(key => {
-              const value = String(log.data[key] || '');
-              if (sensitivePatterns.some(pattern => pattern.test(value))) {
-                log.data[key] = '***REDACTED***';
-              }
-            });
-          }
-        }
-        
-        // 중복 로그 필터링: 동일한 메시지가 너무 많으면 제한
-        // (실제로는 Sentry가 자동으로 그룹핑하지만, 추가 필터링)
-        if (log.message && log.message.length > 1000) {
-          // 너무 긴 로그는 잘라서 전송 (비용 절감)
-          log.message = log.message.substring(0, 1000) + '... [truncated]';
-        }
-        
-        // 동일한 로그가 너무 많이 발생하면 샘플링 (로컬 스토리지 기반, 프리티어 최적화)
-        const logKey = log.message ? log.message.substring(0, 80) : 'unknown'; // 100 → 80으로 감소 (메모리 최적화)
-        const logKeyHash = logKey.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 40); // 50 → 40으로 감소
-        const logCountKey = 'sl_' + logKeyHash; // 키 이름 단축 (메모리 최적화)
-        const logTimestampKey = 'st_' + logKeyHash;
-        
-        try {
-          const logCount = parseInt(storageHelper.get(logCountKey) || '0');
-          const lastLogTime = parseInt(storageHelper.get(logTimestampKey) || '0');
-          const now = Date.now();
-          const oneHour = 60 * 60 * 1000;
-          
-          // 1시간 이내에 동일한 로그가 15번 이상 발생하면 샘플링 20% (더 공격적, 20 → 15로 감소)
-          if (logCount > 15 && (now - lastLogTime) < oneHour) {
-            if (Math.random() > 0.2) {
-              return null; // 80% 샘플링 (70% → 80%로 증가)
-            }
-          }
-          
-          // 로그 카운트 업데이트 (1시간마다 리셋)
-          if ((now - lastLogTime) > oneHour) {
-            storageHelper.set(logCountKey, '1');
-          } else {
-            storageHelper.set(logCountKey, (logCount + 1).toString());
-          }
-          storageHelper.set(logTimestampKey, now.toString());
-        } catch (e) {
-          // localStorage 접근 실패 시 무시
-        }
-        
-        // 로그 레벨별 태그 추가 (모니터링 개선)
-        if (!log.tags) {
-          log.tags = {};
-        }
-        log.tags.logLevel = log.level;
-        log.tags.source = log.data && log.data.console ? 'console' : 'logger';
-        
-        return log;
-      },
-      
-      // 샘플링 함수 (에러 수집률) - 동적 샘플링 구현
-      // Free 티어 최적화: 프로덕션만 수집, 개발 환경은 제외
-      // 월 5,000 이벤트 제한을 고려한 동적 샘플링
-      sampleRate: (function() {
-        // 개발/프리뷰 환경은 수집하지 않음
-        if (window.location.hostname !== 'tech.2twodragon.com') {
-          return 0.0;
-        }
-        
-        // 동적 샘플링: 월간 이벤트 수에 따라 자동 조정 (프리티어 최적화)
-        try {
-          const tracker = monthlyEventTracker.get();
-          const freeTierLimit = 5000;
-          const dailyLimit = tracker.getDailyLimit();
-          const expectedDailyAverage = tracker.getExpectedDailyAverage();
-          
-          // 90% 이상 사용 시 샘플링 30% (더 공격적)
-          if (tracker.count > freeTierLimit * 0.9) {
-            return 0.3;
-          }
-          // 80% 이상 사용 시 샘플링 50%
-          else if (tracker.count > freeTierLimit * 0.8) {
-            return 0.5;
-          }
-          // 60% 이상 사용 시 샘플링 75%
-          else if (tracker.count > freeTierLimit * 0.6) {
-            return 0.75;
-          }
-          // 일일 평균이 제한의 95% 이상이면 샘플링 85%
-          else if (expectedDailyAverage > dailyLimit * 0.95) {
-            return 0.85;
-          }
-          // 일일 평균이 제한의 90% 이상이면 샘플링 90%
-          else if (expectedDailyAverage > dailyLimit * 0.9) {
-            return 0.9;
-          }
-          // 일일 평균이 제한의 70% 이상이면 샘플링 95%
-          else if (expectedDailyAverage > dailyLimit * 0.7) {
-            return 0.95;
-          }
-          
-          // 정상 범위: 100% 수집
-          return 1.0;
-        } catch (e) {
-          // localStorage 접근 실패 시 기본값 100% (프라이빗 모드 등)
-          return 1.0;
-        }
-      })(),
-      
-      // 통합 설정
-      // 참고: Loader Script를 사용할 때는 consoleLoggingIntegration을 사용할 수 없음
-      // 대신 beforeSendLog에서 필터링하여 warn, error만 전송 (아래 beforeSendLog 참조)
-      integrations: [
-        // BrowserTracing은 Loader Script에서 자동 설정됨
-        // Console 로깅은 beforeSendLog에서 처리 (Loader Script 제한으로 인해 통합 사용 불가)
-      ],
-      
-      // Breadcrumbs 강화: 에러 발생 시 관련 로그를 자동으로 연결
-      // 최대 50개의 breadcrumb 저장 (프리티어 최적화: 100 → 50으로 감소)
-      maxBreadcrumbs: 50,
-      
-      // Breadcrumb 타입별 필터링
-      beforeBreadcrumb(breadcrumb, hint) {
-        // 프로덕션만 breadcrumb 수집
-        if (window.location.hostname !== 'tech.2twodragon.com') {
-          return null;
-        }
-        
-        // 일부 불필요한 breadcrumb 필터링
-        if (breadcrumb.category === 'console' && breadcrumb.level === 'log') {
-          return null; // console.log는 breadcrumb에서도 제외
-        }
-        
-        // 민감 정보가 포함된 breadcrumb 필터링
-        if (breadcrumb.message) {
-          const sensitivePatterns = [
-            /password/i,
-            /token/i,
-            /secret/i,
-            /api[_-]?key/i,
-            /sk-[a-zA-Z0-9]+/i
-          ];
-          
-          if (sensitivePatterns.some(pattern => pattern.test(breadcrumb.message))) {
-            return null;
-          }
-        }
-        
-        // Breadcrumb에 추가 컨텍스트 정보 추가 (프리티어 최적화: 최소한만)
-        breadcrumb.data = breadcrumb.data || {};
-        breadcrumb.data.page = window.location.pathname.substring(0, 100); // 길이 제한
-        breadcrumb.data.ts = new Date().toISOString(); // timestamp → ts (키 이름 단축)
-        
-        return breadcrumb;
-      },
-    });
-
-    // 사용자 컨텍스트 설정 (선택사항)
-    // Sentry.setUser({
-    //   id: 'anonymous',
-    //   username: 'visitor'
-    // });
-
-    // 개발 환경에서만 로그
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      console.log('[Sentry] Initialized successfully');
-    }
-    
-    // 로그 레벨별 통계 추적 (프로덕션만, 프리티어 최적화: 선택적 전송)
-    if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined') {
-      // 로그 통계를 위한 헬퍼 함수 (메모리 최적화)
-      const logStats = {
-        warn: 0,
-        error: 0,
-        lastReset: Date.now(),
-        // 통계 전송 여부 (프리티어 최적화: 중요 통계만 전송)
-        shouldSend: function() {
-          // warn 또는 error가 10개 이상일 때만 전송 (비용 절감)
-          return this.warn >= 10 || this.error >= 5;
-        }
-      };
-      
-      // 1시간마다 통계 리셋 및 전송 (프리티어 최적화)
-      const statsInterval = setInterval(function() {
-        const now = Date.now();
-        const oneHour = 60 * 60 * 1000;
-        
-        if ((now - logStats.lastReset) > oneHour) {
-          // 통계를 Sentry로 전송 (조건부, 비용 절감)
-          if (logStats.shouldSend()) {
-            try {
-              // 메트릭은 이벤트로 카운트되지 않지만, 과도한 전송 방지
-              Sentry.metrics.distribution('logs.warn', logStats.warn, {
-                unit: 'none',
-                tags: {
-                  page: window.location.pathname.substring(0, 50), // 길이 제한
-                  period: '1h'
-                }
-              });
-              
-              Sentry.metrics.distribution('logs.error', logStats.error, {
-                unit: 'none',
-                tags: {
-                  page: window.location.pathname.substring(0, 50), // 길이 제한
-                  period: '1h'
-                }
-              });
-            } catch (e) {
-              // 메트릭 전송 실패 시 무시
-            }
-          }
-          
-          // 통계 리셋
-          logStats.warn = 0;
-          logStats.error = 0;
-          logStats.lastReset = now;
-        }
-      }, 60 * 60 * 1000); // 1시간마다 실행
-      
-      // 전역 접근을 위한 참조 저장 (최소한의 데이터만)
-      window.__sentryLogStats = logStats;
-      
-      // 페이지 언로드 시 정리
-      window.addEventListener('beforeunload', function() {
-        clearInterval(statsInterval);
-      });
-    }
-    
-    // 전역 에러 핸들러 설정 (Unknown error 방지)
-    window.addEventListener('error', function(event) {
-      // 이미 Sentry가 처리한 에러는 건너뛰기
-      if (event.error && event.error.__sentry_handled__) {
-        return;
+        });
       }
-      
-      // 에러 컨텍스트 수집 (프리티어 최적화: 최소한의 데이터만)
-      const errorContext = {
-        message: (event.message || 'Unknown error').substring(0, 200), // 길이 제한
-        filename: (event.filename || 'unknown').substring(0, 100), // 길이 제한
+
+      // Fingerprint for better grouping
+      if (event.exception && event.exception.values && event.exception.values[0]) {
+        var first = event.exception.values[0];
+        event.fingerprint = [
+          first.type || 'Error',
+          (first.value || 'Unknown').substring(0, 100)
+        ];
+      }
+
+      // Track monthly count
+      var newCount = incrementMonthly();
+      if (isDev && newCount > MONTHLY_LIMIT * 0.8) {
+        console.warn('[Sentry] Monthly event limit warning:', newCount, '/', MONTHLY_LIMIT);
+      }
+
+      // Limit event size (Free Tier optimization)
+      if (event.breadcrumbs && event.breadcrumbs.length > 8) {
+        event.breadcrumbs = event.breadcrumbs.slice(-8);
+      }
+
+      return event;
+    },
+
+    beforeBreadcrumb: function(breadcrumb) {
+      if (!isProduction) return null;
+      if (breadcrumb.category === 'console' && breadcrumb.level === 'log') return null;
+      if (breadcrumb.message && containsSensitive(breadcrumb.message)) return null;
+      return breadcrumb;
+    }
+  });
+
+  if (isDev) console.log('[Sentry] Initialized with all Free Tier features');
+
+  // Global error handler with context enrichment
+  window.addEventListener('error', function(event) {
+    if (!isProduction || typeof Sentry === 'undefined') return;
+    if (event.error && event.error.__sentry_captured__) return;
+
+    var error = event.error || new Error(event.message || 'Unknown error');
+    error.__sentry_captured__ = true;
+
+    Sentry.captureException(error, {
+      tags: { errorType: 'global_error', handled: false },
+      extra: {
+        filename: (event.filename || 'unknown').substring(0, 100),
         lineno: event.lineno || 0,
-        colno: event.colno || 0,
-        error: event.error ? {
-          name: event.error.name,
-          message: (event.error.message || '').substring(0, 200), // 길이 제한
-          stack: event.error.stack ? event.error.stack.substring(0, 1000) : null // 스택 길이 제한
-        } : null,
-        url: window.location.href.substring(0, 200), // 길이 제한
-        userAgent: hashUserAgent(navigator.userAgent), // 개인정보 보호: 해시 처리
-        timestamp: new Date().toISOString()
-      };
-      
-      // Sentry에 에러 전송 (Unknown error를 방지하기 위해 상세 정보 포함)
-      if (typeof Sentry !== 'undefined' && Sentry.captureException) {
-        const error = event.error || new Error(event.message || 'Unknown error');
-        error.__sentry_context__ = errorContext;
-        
-        // 월간 이벤트 수 추적 (Free 티어 제한 모니터링, 통합 헬퍼 사용)
-        try {
-          const tracker = monthlyEventTracker.get();
-          const newCount = tracker.increment();
-          
-          // 80% 이상 사용 시 경고 (개발 환경에서만)
-          if (newCount > 4000 && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
-            console.warn('[Sentry] Monthly event limit warning:', newCount, '/ 5000');
-          }
-        } catch (e) {
-          // localStorage 접근 실패 시 무시
-        }
-        
-        Sentry.captureException(error, {
-          tags: {
-            errorType: 'global_error',
-            handled: false
-          },
-          extra: errorContext,
-          contexts: {
-            browser: {
-              // 개인정보 보호: User-Agent 해시 처리
-              name: hashUserAgent(navigator.userAgent),
-              version: navigator.appVersion ? navigator.appVersion.substring(0, 50) : 'unknown' // 길이 제한
-            }
-          }
-        });
-      }
-    }, true); // capture phase에서도 처리
-    
-    // Promise rejection 핸들러 (Unhandled Promise Rejection 방지)
-    window.addEventListener('unhandledrejection', function(event) {
-      // 이미 Sentry가 처리한 에러는 건너뛰기
-      if (event.reason && event.reason.__sentry_handled__) {
-        return;
-      }
-      
-      // 에러 컨텍스트 수집 (프리티어 최적화: 최소한의 데이터만)
-      const errorContext = {
-        message: (event.reason ? (event.reason.message || String(event.reason)) : 'Unhandled Promise Rejection').substring(0, 200), // 길이 제한
-        type: event.reason ? event.reason.constructor.name : 'Unknown',
-        url: window.location.href.substring(0, 200), // 길이 제한
-        userAgent: hashUserAgent(navigator.userAgent), // 개인정보 보호: 해시 처리
-        timestamp: new Date().toISOString()
-      };
-      
-      // Sentry에 에러 전송
-      if (typeof Sentry !== 'undefined' && Sentry.captureException) {
-        const error = event.reason instanceof Error 
-          ? event.reason 
-          : new Error(String(event.reason || 'Unhandled Promise Rejection'));
-        
-        error.__sentry_context__ = errorContext;
-        
-        // 월간 이벤트 수 추적 (Free 티어 제한 모니터링, 통합 헬퍼 사용)
-        try {
-          monthlyEventTracker.get().increment();
-        } catch (e) {
-          // localStorage 접근 실패 시 무시
-        }
-        
-        Sentry.captureException(error, {
-          tags: {
-            errorType: 'unhandled_promise_rejection',
-            handled: false
-          },
-          extra: errorContext,
-          contexts: {
-            browser: {
-              // 개인정보 보호: User-Agent 해시 처리
-              name: hashUserAgent(navigator.userAgent),
-              version: navigator.appVersion ? navigator.appVersion.substring(0, 50) : 'unknown' // 길이 제한
-            }
-          }
-        });
+        colno: event.colno || 0
       }
     });
-    
-    // Sentry Logs 검증 (프로덕션에서만 - Free 티어 최적화)
-    if (window.location.hostname === 'tech.2twodragon.com') {
-      // 초기화 확인 로그 전송 (한 번만)
-      if (Sentry.logger && typeof Sentry.logger.info === 'function') {
-        // info 레벨은 beforeSendLog에서 필터링되므로 warn으로 전송
-        Sentry.logger.warn('Sentry initialized with Logs enabled', {
-          environment: 'production',
-          timestamp: new Date().toISOString(),
-          sdk: 'browser',
-          version: Sentry.SDK_VERSION || 'unknown'
-        });
-      }
-    }
-    
-    // Console 메서드를 Sentry로 자동 전송 (Loader Script 제한으로 수동 구현)
-    // console.warn, console.error가 자동으로 Sentry 로그로 전송되도록 래핑
-    if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined') {
-      // 원본 console 메서드 저장
-      const originalWarn = console.warn;
-      const originalError = console.error;
-      
-      // console.warn 래핑
-      console.warn = function(...args) {
-        // 원본 console.warn 실행
-        originalWarn.apply(console, args);
-        
-        // Sentry로 전송 (beforeSendLog에서 필터링됨)
-        if (Sentry.logger && typeof Sentry.logger.warn === 'function') {
-          try {
-            // 메시지와 추가 데이터 분리
-            const message = args[0] || 'Warning';
-            const extra = args.length > 1 ? args.slice(1) : {};
-            
-            Sentry.logger.warn(message, {
-              console: true,
-              args: extra,
-              page: window.location.pathname.substring(0, 100), // 길이 제한 (프리티어 최적화)
-              timestamp: new Date().toISOString()
-            });
-            
-            // 로그 통계 업데이트 (프리티어 최적화: 메모리 효율적)
-            if (window.__sentryLogStats) {
-              window.__sentryLogStats.warn++;
-            }
-          } catch (e) {
-            // Sentry 로깅 실패 시 무시 (원본 console.warn은 이미 실행됨)
-          }
-        }
-      };
-      
-      // console.error 래핑
-      console.error = function(...args) {
-        // 원본 console.error 실행
-        originalError.apply(console, args);
-        
-        // Sentry로 전송 (beforeSendLog에서 필터링됨)
-        if (Sentry.logger && typeof Sentry.logger.error === 'function') {
-          try {
-            // 메시지와 추가 데이터 분리
-            const message = args[0] || 'Error';
-            const extra = args.length > 1 ? args.slice(1) : {};
-            
-            // 에러 객체인 경우 추가 처리
-            let errorData = extra;
-            if (args[0] instanceof Error) {
-              errorData = {
-                error: {
-                  name: args[0].name,
-                  message: args[0].message,
-                  stack: args[0].stack
-                },
-                ...(args.length > 1 ? { extra: args.slice(1) } : {})
-              };
-            }
-            
-            Sentry.logger.error(message, {
-              console: true,
-              ...errorData,
-              page: window.location.pathname.substring(0, 100), // 길이 제한 (프리티어 최적화)
-              timestamp: new Date().toISOString()
-            });
-            
-            // 로그 통계 업데이트 (프리티어 최적화: 메모리 효율적)
-            if (window.__sentryLogStats) {
-              window.__sentryLogStats.error++;
-            }
-          } catch (e) {
-            // Sentry 로깅 실패 시 무시 (원본 console.error는 이미 실행됨)
-          }
-        }
-      };
-    }
-    
-    // Web Vitals를 Sentry Performance로 전송
-    if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined') {
-      // TTFB 추적
-      if (window.performance && window.performance.timing) {
-        const timing = window.performance.timing;
-        const ttfb = timing.responseStart - timing.requestStart;
-        
-        if (ttfb > 0) {
-          Sentry.metrics.distribution('ttfb', ttfb, {
-            unit: 'millisecond',
-            tags: {
-              page: window.location.pathname
-            }
-          });
-        }
-      }
-      
-      // LCP, FID, CLS는 Performance Observer를 통해 수집
-      // performance-monitor.html에서 처리하되, Sentry로 전송하도록 개선
-      if ('PerformanceObserver' in window) {
-        // LCP 추적
-        try {
-          const lcpObserver = new PerformanceObserver(function(list) {
-            const entries = list.getEntries();
-            const lastEntry = entries[entries.length - 1];
-            if (lastEntry && lastEntry.renderTime) {
-              Sentry.metrics.distribution('lcp', lastEntry.renderTime, {
-                unit: 'millisecond',
-                tags: {
-                  page: window.location.pathname
-                }
-              });
-            }
-          });
-          lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
-        } catch (e) {
-          // LCP observer not supported
-        }
-        
-        // FID 추적
-        try {
-          const fidObserver = new PerformanceObserver(function(list) {
-            for (const entry of list.getEntries()) {
-              const fid = entry.processingStart - entry.startTime;
-              Sentry.metrics.distribution('fid', fid, {
-                unit: 'millisecond',
-                tags: {
-                  page: window.location.pathname
-                }
-              });
-            }
-          });
-          fidObserver.observe({ entryTypes: ['first-input'] });
-        } catch (e) {
-          // FID observer not supported
-        }
-        
-        // CLS 추적
-        let clsValue = 0;
-        try {
-          const clsObserver = new PerformanceObserver(function(list) {
-            for (const entry of list.getEntries()) {
-              if (!entry.hadRecentInput) {
-                clsValue += entry.value;
-              }
-            }
-          });
-          clsObserver.observe({ entryTypes: ['layout-shift'] });
-          
-          // 페이지 언로드 시 최종 CLS 전송
-          window.addEventListener('beforeunload', function() {
-            if (clsValue > 0) {
-              Sentry.metrics.distribution('cls', clsValue, {
-                unit: 'none',
-                tags: {
-                  page: window.location.pathname
-                }
-              });
-            }
-          });
-        } catch (e) {
-          // CLS observer not supported
-        }
-      }
-    }
+  }, true);
+
+  // Unhandled promise rejection handler
+  window.addEventListener('unhandledrejection', function(event) {
+    if (!isProduction || typeof Sentry === 'undefined') return;
+    if (event.reason && event.reason.__sentry_captured__) return;
+
+    var error = event.reason instanceof Error ? event.reason : new Error(String(event.reason || 'Unhandled Promise Rejection'));
+    error.__sentry_captured__ = true;
+
+    Sentry.captureException(error, {
+      tags: { errorType: 'unhandled_promise_rejection', handled: false }
+    });
   });
 })();
 </script>
+{% else %}
+<!-- Sentry disabled: sentry_dsn not configured in _config.yml -->
+{% endif %}

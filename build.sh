@@ -40,6 +40,14 @@ if ! python3 scripts/generate_favicon.py; then
     fi
 fi
 
+# Inject Sentry DSN from Vercel env var (if set, overrides _config.yml)
+if [ -n "$SENTRY_DSN" ]; then
+    log "Injecting Sentry DSN from environment variable..."
+    sed -i.bak "s|^sentry_dsn:.*|sentry_dsn: \"$SENTRY_DSN\"|" _config.yml
+    rm -f _config.yml.bak
+    log "✅ Sentry DSN injected from env var"
+fi
+
 # Clean previous build
 log "Cleaning previous build output..."
 rm -rf _site || true

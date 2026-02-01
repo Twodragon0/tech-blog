@@ -143,39 +143,71 @@
   {% endfor %}
   {% endif %}
   {% endif %}
-  {% comment %}OG 이미지 우선순위: 1) page.og_image, 2) 자동 생성된 OG 이미지, 3) page.image, 4) site.og_image, 5) site.logo {% endcomment %}
-  {% assign og_image = page.og_image %}
+  {% comment %}
+    OG 이미지 우선순위 (SNS 공유용):
+    1) page.og_image (포스트에서 명시적으로 지정한 OG 이미지)
+    2) 자동 생성된 OG 이미지 ({post_slug}_og.png) - 존재하는 경우만
+    3) page.image (포스트 대표 이미지) - PNG/JPG만, SVG인 경우 PNG 버전 사용
+    4) site.og_image (/assets/images/og-default.png) - 기본 OG 이미지
+    
+    중요: 모든 SNS 플랫폼(Facebook, LinkedIn, Twitter, KakaoTalk)이 SVG를 지원하지 않음.
+    따라서 최종 og_image_url은 반드시 PNG/JPG/WebP여야 함.
+  {% endcomment %}
+  {% assign og_image = nil %}
+  {% assign og_image_url = nil %}
+  {% assign og_image_type = "image/png" %}
   
-  {% comment %}포스트인 경우 자동 생성된 OG 이미지 찾기{% endcomment %}
-  {% if page.layout == 'post' and og_image == nil %}
+  {% comment %}1단계: page.og_image (명시적 OG 이미지){% endcomment %}
+  {% if page.og_image %}
+    {% assign og_image = page.og_image %}
+  {% endif %}
+  
+  {% comment %}2단계: 포스트인 경우 자동 생성된 OG 이미지 확인{% endcomment %}
+  {% if og_image == nil and page.layout == 'post' %}
     {% assign post_slug = page.name | replace: '.md', '' | replace: '.html', '' %}
-    {% comment %}영어 파일명 우선 시도 (한글 파일명은 URL 인코딩 문제 발생 가능){% endcomment %}
-    {% comment %}실제 파일명 패턴: YYYY-MM-DD-Title_og.png (영어, 언더스코어 사용){% endcomment %}
-    {% assign auto_og_image = '/assets/images/' | append: post_slug | append: '_og.png' %}
-    {% assign og_image = auto_og_image %}
+    {% assign auto_og_path = '/assets/images/' | append: post_slug | append: '_og.png' %}
+    {% comment %}static_files에서 파일 존재 여부 확인{% endcomment %}
+    {% for file in site.static_files %}
+      {% if file.path == auto_og_path %}
+        {% assign og_image = auto_og_path %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
   {% endif %}
   
+  {% comment %}3단계: page.image (포스트 대표 이미지){% endcomment %}
+  {% if og_image == nil and page.image %}
+    {% if page.image contains '.svg' %}
+      {% comment %}SVG인 경우: PNG 버전이 실제 존재하는지 확인 (SNS는 SVG 미지원){% endcomment %}
+      {% assign page_image_png = page.image | replace: '.svg', '.png' %}
+      {% for file in site.static_files %}
+        {% if file.path == page_image_png %}
+          {% assign og_image = page_image_png %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      {% comment %}PNG/JPG/WebP는 바로 사용{% endcomment %}
+      {% assign og_image = page.image %}
+    {% endif %}
+  {% endif %}
+  
+  {% comment %}4단계: site.og_image (기본 OG 이미지 - og-default.png){% endcomment %}
   {% if og_image == nil %}
-    {% assign og_image = page.image | default: site.og_image | default: site.logo %}
+    {% assign og_image = site.og_image | default: "/assets/images/og-default.png" %}
   {% endif %}
   
-  {% if og_image %}
-    {% comment %}LinkedIn은 SVG를 지원하지 않으므로 PNG로 변환된 이미지 우선 사용{% endcomment %}
+  {% comment %}이미지 타입 감지{% endcomment %}
+  {% if og_image contains '.jpg' or og_image contains '.jpeg' %}
+    {% assign og_image_url = og_image | absolute_url %}
+    {% assign og_image_type = "image/jpeg" %}
+  {% elsif og_image contains '.webp' %}
+    {% assign og_image_url = og_image | absolute_url %}
+    {% assign og_image_type = "image/webp" %}
+  {% else %}
     {% assign og_image_url = og_image | absolute_url %}
     {% assign og_image_type = "image/png" %}
-    
-    {% if og_image contains '.svg' %}
-      {% comment %}SVG 파일인 경우 PNG 버전 우선 시도{% endcomment %}
-      {% assign og_image_png = og_image | replace: '.svg', '.png' %}
-      {% assign og_image_url = og_image_png | absolute_url %}
-      {% assign og_image_type = "image/png" %}
-    {% elsif og_image contains '.jpg' or og_image contains '.jpeg' %}
-      {% assign og_image_type = "image/jpeg" %}
-    {% elsif og_image contains '.png' %}
-      {% assign og_image_type = "image/png" %}
-    {% elsif og_image contains '.webp' %}
-      {% assign og_image_type = "image/webp" %}
-    {% endif %}
+  {% endif %}
     
   <meta property="og:image" content="{{ og_image_url }}">
   <meta property="og:image:secure_url" content="{{ og_image_url }}">
@@ -183,7 +215,6 @@
   <meta property="og:image:height" content="{{ site.og_image_height | default: 630 }}">
   <meta property="og:image:type" content="{{ og_image_type }}">
   <meta property="og:image:alt" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
-  {% endif %}
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -193,10 +224,8 @@
   <meta name="twitter:site" content="{{ site.twitter.username }}">
   <meta name="twitter:creator" content="{{ site.twitter.username }}">
   {% endif %}
-  {% if og_image %}
-  <meta name="twitter:image" content="{{ og_image | absolute_url }}">
+  <meta name="twitter:image" content="{{ og_image_url }}">
   <meta name="twitter:image:alt" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
-  {% endif %}
 
   <!-- KakaoTalk Sharing (uses Open Graph) -->
   <meta name="format-detection" content="telephone=no">
@@ -225,8 +254,9 @@
   {% comment %}OG 이미지는 메타 태그로만 사용하고, preload는 하지 않음{% endcomment %}
 
   <!-- DNS Prefetch and Preconnect for External Resources (TTFB 최적화) -->
-  <!-- Critical resources: preconnect (DNS + TCP + TLS) - Sentry는 에러 추적을 위해 빠른 로딩 필요 -->
-  <link rel="preconnect" href="https://js.sentry-cdn.com" crossorigin>
+  {% if site.sentry_dsn and site.sentry_dsn != "" %}
+  <link rel="preconnect" href="https://browser.sentry-cdn.com" crossorigin>
+  {% endif %}
   <!-- Google Translate: preconnect for faster widget loading -->
   <link rel="preconnect" href="https://translate.google.com">
   <link rel="preconnect" href="https://translate.googleapis.com">

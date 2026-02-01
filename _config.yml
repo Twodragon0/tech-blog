@@ -190,6 +190,15 @@ twitter:
 # Note: AdSense IDs are meant to be public and are embedded in ad code
 google_adsense: "ca-pub-6788271437088974"
 
+# Sentry Error Tracking (Free Tier - 5,000 errors/month)
+# 활성화 방법:
+#   1. https://sentry.io/signup/ 에서 무료 계정 생성
+#   2. 새 JavaScript 프로젝트 생성
+#   3. Project Settings → Client Keys (DSN) 에서 DSN 복사
+#   4. 아래 값을 실제 DSN으로 교체
+# DSN은 공개 키이므로 소스 코드에 포함해도 안전합니다 (Sentry 공식 권장)
+sentry_dsn: "https://61fd23528aff138753e071de26c5b306@o4510686170710016.ingest.us.sentry.io/4510686177984512"
+
 # Cloudflare Web Analytics (무료, 프라이버시 친화적)
 # 토큰 발급: Cloudflare Dashboard → Analytics & Logs → Web Analytics → Add a site
 # cloudflare_analytics_token: "YOUR_CLOUDFLARE_BEACON_TOKEN"
