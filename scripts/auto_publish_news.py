@@ -107,6 +107,9 @@ SOURCE_PRIORITY = {
     "google_developers": 1,
     "rust_lang": 2,
     "golang": 2,
+    "apple_developer": 1,
+    "apple_newsroom": 2,
+    "webkit": 2,
 }
 
 MIN_NEWS_COUNT = 5  # 최소 뉴스 수

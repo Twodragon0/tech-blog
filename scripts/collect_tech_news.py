@@ -537,6 +537,33 @@ NEWS_SOURCES = {
         "language": "en",
         "priority": 1,
     },
+    # Apple Developer News
+    "apple_developer": {
+        "name": "Apple Developer News",
+        "url": "https://developer.apple.com/news/",
+        "feed_url": "https://developer.apple.com/news/rss/news.rss",
+        "category": "devops",
+        "language": "en",
+        "priority": 1,
+    },
+    # Apple Newsroom
+    "apple_newsroom": {
+        "name": "Apple Newsroom",
+        "url": "https://www.apple.com/newsroom/",
+        "feed_url": "https://www.apple.com/newsroom/rss-feed.rss",
+        "category": "tech",
+        "language": "en",
+        "priority": 2,
+    },
+    # WebKit (Apple Open Source)
+    "webkit": {
+        "name": "WebKit Blog",
+        "url": "https://webkit.org/blog/",
+        "feed_url": "https://webkit.org/feed/",
+        "category": "devops",
+        "language": "en",
+        "priority": 2,
+    },
     # Spotify Engineering
     "spotify_engineering": {
         "name": "Spotify Engineering",
