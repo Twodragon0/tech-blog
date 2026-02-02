@@ -519,14 +519,86 @@ NEWS_SOURCES = {
         "language": "en",
         "priority": 2,
     },
-    # GitHub
-    "github_blog": {
-        "name": "GitHub Blog",
-        "url": "https://github.blog/",
-        "feed_url": "https://github.blog/feed/",
+    # X (Twitter) Engineering
+    "x_engineering": {
+        "name": "X Engineering Blog",
+        "url": "https://blog.x.com/engineering/",
+        "feed_url": "https://blog.x.com/engineering/en_us/blog.rss",
+        "category": "tech",
+        "language": "en",
+        "priority": 1,
+    },
+    # Apple Machine Learning
+    "apple_ml": {
+        "name": "Apple Machine Learning Research",
+        "url": "https://machinelearning.apple.com/",
+        "feed_url": "https://machinelearning.apple.com/rss.xml",
+        "category": "ai",
+        "language": "en",
+        "priority": 1,
+    },
+    # Spotify Engineering
+    "spotify_engineering": {
+        "name": "Spotify Engineering",
+        "url": "https://engineering.atspotify.com/",
+        "feed_url": "https://engineering.atspotify.com/feed/",
+        "category": "tech",
+        "language": "en",
+        "priority": 2,
+    },
+    # Discord
+    "discord": {
+        "name": "Discord Blog",
+        "url": "https://discord.com/blog",
+        "feed_url": "https://discord.com/blog/rss.xml",
+        "category": "tech",
+        "language": "en",
+        "priority": 2,
+    },
+    # Docker
+    "docker": {
+        "name": "Docker Blog",
+        "url": "https://www.docker.com/blog/",
+        "feed_url": "https://www.docker.com/blog/feed/",
         "category": "devops",
         "language": "en",
         "priority": 1,
+    },
+    # GitHub Engineering
+    "github_blog": {
+        "name": "GitHub Engineering Blog",
+        "url": "https://github.blog/engineering/",
+        "feed_url": "https://github.blog/engineering/feed/",
+        "category": "devops",
+        "language": "en",
+        "priority": 1,
+    },
+    # Google Developers
+    "google_developers": {
+        "name": "Google Developers Blog",
+        "url": "https://developers.googleblog.com/",
+        "feed_url": "https://developers.googleblog.com/feeds/posts/default",
+        "category": "devops",
+        "language": "en",
+        "priority": 1,
+    },
+    # Rust
+    "rust_lang": {
+        "name": "Rust Blog",
+        "url": "https://blog.rust-lang.org/",
+        "feed_url": "https://blog.rust-lang.org/feed.xml",
+        "category": "devops",
+        "language": "en",
+        "priority": 2,
+    },
+    # Go
+    "golang": {
+        "name": "Go Blog",
+        "url": "https://go.dev/blog/",
+        "feed_url": "https://go.dev/blog/feed.atom",
+        "category": "devops",
+        "language": "en",
+        "priority": 2,
     },
     # Stripe
     "stripe": {

@@ -99,6 +99,14 @@ SOURCE_PRIORITY = {
     "github_blog": 1,
     "stripe": 2,
     "slack_engineering": 2,
+    "x_engineering": 1,
+    "apple_ml": 1,
+    "spotify_engineering": 2,
+    "discord": 2,
+    "docker": 1,
+    "google_developers": 1,
+    "rust_lang": 2,
+    "golang": 2,
 }
 
 MIN_NEWS_COUNT = 5  # 최소 뉴스 수
@@ -934,6 +942,12 @@ def _extract_key_topics(news_items: List[Dict]) -> List[str]:
         "Agent",
         "Data",
         "Palantir",
+        "Tesla",
+        "Apple",
+        "Rust",
+        "Go",
+        "Open-Source",
+        "API",
     ]
 
     for item in news_items[:6]:
