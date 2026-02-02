@@ -116,9 +116,8 @@ function initSentry() {
 
   // User Feedback widget (FREE, unlimited)
   // autoInject: false — we use a custom button in the bottom toolbar
-  var feedbackInstance = null;
   if (isProduction && typeof Sentry.feedbackIntegration === 'function') {
-    feedbackInstance = Sentry.feedbackIntegration({
+    integrations.push(Sentry.feedbackIntegration({
       autoInject: false,
       colorScheme: 'system',
       showBranding: false,
@@ -130,8 +129,7 @@ function initSentry() {
       messageLabel: '메시지',
       messagePlaceholder: '어떤 문제가 있나요?',
       successMessageText: '감사합니다! 피드백이 전송되었습니다.'
-    });
-    integrations.push(feedbackInstance);
+    }));
   }
 
   Sentry.init({
@@ -272,18 +270,40 @@ function initSentry() {
 
   // Bind custom feedback button to open Sentry feedback form
   var feedbackBtn = document.getElementById('custom-feedback-btn');
-  if (feedbackBtn && feedbackInstance) {
+  if (feedbackBtn && isProduction) {
     feedbackBtn.addEventListener('click', function() {
+      // Get feedback integration AFTER Sentry.init() (not the pre-init definition)
+      var feedback = null;
       try {
-        var formPromise = feedbackInstance.createForm();
-        if (formPromise && typeof formPromise.then === 'function') {
-          formPromise.then(function(form) {
-            form.appendToDom();
-            form.open();
-          });
+        if (typeof Sentry.getFeedback === 'function') feedback = Sentry.getFeedback();
+      } catch (e) {}
+      if (!feedback) {
+        try {
+          var client = Sentry.getClient();
+          if (client) feedback = client.getIntegrationByName('Feedback');
+        } catch (e) {}
+      }
+
+      if (feedback && typeof feedback.createForm === 'function') {
+        try {
+          var result = feedback.createForm();
+          if (result && typeof result.then === 'function') {
+            result.then(function(form) {
+              form.appendToDom();
+              form.open();
+            }).catch(function() {
+              window.open('https://github.com/Twodragon0/tech-blog/issues/new', '_blank');
+            });
+          }
+        } catch (e) {
+          window.open('https://github.com/Twodragon0/tech-blog/issues/new', '_blank');
         }
-      } catch (e) {
-        // Fallback: open GitHub Issues as alternative feedback channel
+      } else if (feedback && typeof feedback.openDialog === 'function') {
+        feedback.openDialog();
+      } else if (feedback && typeof feedback.attachTo === 'function') {
+        feedback.attachTo(feedbackBtn);
+        feedbackBtn.click();
+      } else {
         window.open('https://github.com/Twodragon0/tech-blog/issues/new', '_blank');
       }
     });
