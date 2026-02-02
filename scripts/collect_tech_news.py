@@ -454,29 +454,29 @@ NEWS_SOURCES = {
         "language": "en",
         "priority": 2,
     },
-    # Meta AI
-    "meta_ai": {
-        "name": "Meta AI Blog",
-        "url": "https://ai.meta.com/blog/",
-        "feed_url": "https://ai.meta.com/blog/rss/",
+    # Meta Engineering (Data + AI)
+    "meta_engineering": {
+        "name": "Meta Engineering Blog",
+        "url": "https://engineering.fb.com/",
+        "feed_url": "https://engineering.fb.com/feed/",
         "category": "ai",
         "language": "en",
         "priority": 1,
     },
-    # Databricks (Data + AI)
-    "databricks": {
-        "name": "Databricks Blog",
-        "url": "https://www.databricks.com/blog",
-        "feed_url": "https://www.databricks.com/blog/feed",
+    # Google Research (AI/ML)
+    "google_research": {
+        "name": "Google Research Blog",
+        "url": "https://blog.research.google/",
+        "feed_url": "https://blog.research.google/feeds/posts/default",
         "category": "ai",
         "language": "en",
-        "priority": 2,
+        "priority": 1,
     },
-    # Snowflake (Data Platform)
-    "snowflake": {
-        "name": "Snowflake Blog",
-        "url": "https://www.snowflake.com/blog/",
-        "feed_url": "https://www.snowflake.com/blog/feed/",
+    # Netflix Tech Blog (Data Engineering, ML)
+    "netflix_tech": {
+        "name": "Netflix Tech Blog",
+        "url": "https://netflixtechblog.com/",
+        "feed_url": "https://netflixtechblog.com/feed",
         "category": "ai",
         "language": "en",
         "priority": 2,
@@ -516,15 +516,6 @@ NEWS_SOURCES = {
         "name": "Cointelegraph",
         "url": "https://cointelegraph.com/",
         "feed_url": "https://cointelegraph.com/rss",
-        "category": "blockchain",
-        "language": "en",
-        "priority": 2,
-    },
-    # The Block
-    "theblock": {
-        "name": "The Block",
-        "url": "https://www.theblock.co/",
-        "feed_url": "https://www.theblock.co/rss.xml",
         "category": "blockchain",
         "language": "en",
         "priority": 2,
