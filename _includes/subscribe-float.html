@@ -1,0 +1,56 @@
+<!-- Floating Newsletter Subscribe Button (bottom-left, above Sentry feedback) -->
+<a href="https://buttondown.com/twodragon"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="subscribe-float"
+   aria-label="Subscribe to newsletter">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </svg>
+  <span>Subscribe</span>
+</a>
+<style>
+  .subscribe-float {
+    position: fixed;
+    bottom: 4.5rem;
+    left: 1.5rem;
+    z-index: 998;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: var(--color-primary, #6366f1);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+  }
+  .subscribe-float:hover,
+  .subscribe-float:focus {
+    background: var(--color-primary-dark, #4f46e5);
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  .subscribe-float svg {
+    flex-shrink: 0;
+  }
+  @media (max-width: 768px) {
+    .subscribe-float {
+      bottom: 3.5rem;
+      left: 1rem;
+      padding: 0.45rem 0.8rem;
+      font-size: 0.75rem;
+    }
+    .subscribe-float svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>
