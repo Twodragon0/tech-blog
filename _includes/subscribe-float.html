@@ -106,35 +106,3 @@
     }
   }
 </style>
-
-<script>
-// Attach Sentry feedback to custom button after SDK loads
-(function() {
-  'use strict';
-  var btn = document.getElementById('custom-feedback-btn');
-  if (!btn) return;
-
-  function attachFeedback() {
-    if (typeof Sentry === 'undefined' || typeof Sentry.getFeedback !== 'function') return;
-    var feedback = Sentry.getFeedback();
-    if (feedback && typeof feedback.attachTo === 'function') {
-      feedback.attachTo(btn, {
-        formTitle: '문제를 알려주세요',
-        submitButtonLabel: '보내기',
-        cancelButtonLabel: '취소',
-        messageLabel: '메시지',
-        messagePlaceholder: '어떤 문제가 있나요?',
-        successMessageText: '감사합니다! 피드백이 전송되었습니다.'
-      });
-    }
-  }
-
-  // Try immediately, then retry after Sentry SDK loads
-  if (typeof Sentry !== 'undefined') {
-    attachFeedback();
-  }
-  window.addEventListener('load', function() {
-    setTimeout(attachFeedback, 500);
-  });
-})();
-</script>
