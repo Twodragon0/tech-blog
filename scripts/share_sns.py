@@ -79,7 +79,7 @@ def create_share_message(frontmatter: dict, post_url: str, platform: str) -> str
     category = frontmatter.get('categories', frontmatter.get('category', ''))
 
     # Create hashtags from tags
-    hashtags = ' '.join([f'#{tag.replace("-", "").replace(" ", "")}' for tag in tags[:5]])
+    hashtags = ' '.join([f'#{str(tag).replace("-", "").replace(" ", "")}' for tag in tags[:5]])
 
     if platform == 'twitter':
         # Twitter has 280 character limit
