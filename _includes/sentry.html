@@ -2,23 +2,11 @@
 <!-- Sentry SDK: Error Tracking + Tracing + Session Replay + User Feedback -->
 <!-- Defer loading to reduce FID (First Input Delay) -->
 <style>
-  /* Move Sentry feedback widget to bottom-left to avoid chat widget overlap */
+  /* Hide Sentry's default feedback button - we use a custom one in bottom-toolbar */
   #sentry-feedback,
   [data-sentry-feedback],
-  div:has(> .widget__actor[aria-label="피드백"]) {
-    position: fixed !important;
-    bottom: 1.5rem !important;
-    left: 1.5rem !important;
-    right: auto !important;
-    z-index: 999 !important;
-  }
-  @media (max-width: 768px) {
-    #sentry-feedback,
-    [data-sentry-feedback],
-    div:has(> .widget__actor[aria-label="피드백"]) {
-      bottom: 1rem !important;
-      left: 1rem !important;
-    }
+  div:has(> .widget__actor) {
+    display: none !important;
   }
 </style>
 <script
@@ -130,12 +118,11 @@ function initSentry() {
   // autoInject: false to avoid aria-hidden focus conflict, manually trigger via CSS-positioned button
   if (isProduction && typeof Sentry.feedbackIntegration === 'function') {
     integrations.push(Sentry.feedbackIntegration({
+      autoInject: false,
       colorScheme: 'system',
       showBranding: false,
       showName: false,
       showEmail: false,
-      triggerLabel: '피드백',
-      triggerAriaLabel: 'Send feedback',
       formTitle: '문제를 알려주세요',
       submitButtonLabel: '보내기',
       cancelButtonLabel: '취소',

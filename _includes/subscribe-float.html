@@ -1,56 +1,140 @@
-<!-- Floating Newsletter Subscribe Button (bottom-left, above Sentry feedback) -->
-<a href="https://buttondown.com/twodragon"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="subscribe-float"
-   aria-label="Subscribe to newsletter">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-    <polyline points="22,6 12,13 2,6"/>
-  </svg>
-  <span>Subscribe</span>
-</a>
+<!-- Bottom-Left Toolbar: Subscribe + Feedback (unified widget) -->
+<div class="bottom-toolbar" role="toolbar" aria-label="Quick actions">
+  <a href="https://buttondown.com/twodragon"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="bottom-toolbar__btn bottom-toolbar__btn--subscribe"
+     aria-label="Subscribe to newsletter">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </svg>
+    <span class="bottom-toolbar__label">Subscribe</span>
+  </a>
+  <button type="button"
+          id="custom-feedback-btn"
+          class="bottom-toolbar__btn bottom-toolbar__btn--feedback"
+          aria-label="Send feedback">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      <path d="M8 9h8M8 13h4" opacity="0.6"/>
+    </svg>
+    <span class="bottom-toolbar__label">Feedback</span>
+  </button>
+</div>
+
 <style>
-  .subscribe-float {
+  .bottom-toolbar {
     position: fixed;
-    bottom: 4.5rem;
+    bottom: 1.5rem;
     left: 1.5rem;
     z-index: 998;
+    display: flex;
+    align-items: stretch;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .bottom-toolbar__btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.5rem 1rem;
-    background: var(--color-primary, #6366f1);
-    color: #fff;
-    font-size: 0.8rem;
+    gap: 0.35rem;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.78rem;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
     white-space: nowrap;
+    transition: background 0.2s, filter 0.2s;
+    font-family: inherit;
+    line-height: 1;
   }
-  .subscribe-float:hover,
-  .subscribe-float:focus {
+  .bottom-toolbar__btn svg {
+    flex-shrink: 0;
+  }
+  .bottom-toolbar__btn--subscribe {
+    background: var(--color-primary, #6366f1);
+    color: #fff;
+  }
+  .bottom-toolbar__btn--subscribe:hover,
+  .bottom-toolbar__btn--subscribe:focus-visible {
     background: var(--color-primary-dark, #4f46e5);
     color: #fff;
     text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
-  .subscribe-float svg {
-    flex-shrink: 0;
+  .bottom-toolbar__btn--feedback {
+    background: rgba(100, 116, 139, 0.85);
+    color: #fff;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .bottom-toolbar__btn--feedback:hover,
+  .bottom-toolbar__btn--feedback:focus-visible {
+    background: rgba(71, 85, 105, 0.95);
+    color: #fff;
+  }
+  /* Dark mode */
+  [data-theme="dark"] .bottom-toolbar__btn--feedback {
+    background: rgba(71, 85, 105, 0.9);
+  }
+  [data-theme="dark"] .bottom-toolbar__btn--feedback:hover,
+  [data-theme="dark"] .bottom-toolbar__btn--feedback:focus-visible {
+    background: rgba(51, 65, 85, 1);
   }
   @media (max-width: 768px) {
-    .subscribe-float {
-      bottom: 3.5rem;
+    .bottom-toolbar {
+      bottom: 1rem;
       left: 1rem;
-      padding: 0.45rem 0.8rem;
-      font-size: 0.75rem;
     }
-    .subscribe-float svg {
-      width: 16px;
-      height: 16px;
+    .bottom-toolbar__btn {
+      padding: 0.45rem 0.65rem;
+      font-size: 0.72rem;
+    }
+    .bottom-toolbar__btn svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+  @media (max-width: 380px) {
+    .bottom-toolbar__label {
+      display: none;
+    }
+    .bottom-toolbar__btn {
+      padding: 0.5rem 0.6rem;
     }
   }
 </style>
+
+<script>
+// Attach Sentry feedback to custom button after SDK loads
+(function() {
+  'use strict';
+  var btn = document.getElementById('custom-feedback-btn');
+  if (!btn) return;
+
+  function attachFeedback() {
+    if (typeof Sentry === 'undefined' || typeof Sentry.getFeedback !== 'function') return;
+    var feedback = Sentry.getFeedback();
+    if (feedback && typeof feedback.attachTo === 'function') {
+      feedback.attachTo(btn, {
+        formTitle: '문제를 알려주세요',
+        submitButtonLabel: '보내기',
+        cancelButtonLabel: '취소',
+        messageLabel: '메시지',
+        messagePlaceholder: '어떤 문제가 있나요?',
+        successMessageText: '감사합니다! 피드백이 전송되었습니다.'
+      });
+    }
+  }
+
+  // Try immediately, then retry after Sentry SDK loads
+  if (typeof Sentry !== 'undefined') {
+    attachFeedback();
+  }
+  window.addEventListener('load', function() {
+    setTimeout(attachFeedback, 500);
+  });
+})();
+</script>
