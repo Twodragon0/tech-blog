@@ -115,9 +115,10 @@ function initSentry() {
   ];
 
   // User Feedback widget (FREE, unlimited)
-  // autoInject: false to avoid aria-hidden focus conflict, manually trigger via CSS-positioned button
+  // autoInject: false — we use a custom button in the bottom toolbar
+  var feedbackInstance = null;
   if (isProduction && typeof Sentry.feedbackIntegration === 'function') {
-    integrations.push(Sentry.feedbackIntegration({
+    feedbackInstance = Sentry.feedbackIntegration({
       autoInject: false,
       colorScheme: 'system',
       showBranding: false,
@@ -129,7 +130,8 @@ function initSentry() {
       messageLabel: '메시지',
       messagePlaceholder: '어떤 문제가 있나요?',
       successMessageText: '감사합니다! 피드백이 전송되었습니다.'
-    }));
+    });
+    integrations.push(feedbackInstance);
   }
 
   Sentry.init({
@@ -268,31 +270,23 @@ function initSentry() {
 
   if (isDev) console.log('[Sentry] Initialized with all Free Tier features');
 
-  // Attach feedback form to custom toolbar button (must run after Sentry.init)
+  // Bind custom feedback button to open Sentry feedback form
   var feedbackBtn = document.getElementById('custom-feedback-btn');
-  if (feedbackBtn && isProduction) {
-    var fb = null;
-    // Primary: Sentry.getFeedback() convenience API
-    if (typeof Sentry.getFeedback === 'function') {
-      fb = Sentry.getFeedback();
-    }
-    // Fallback: getClient().getIntegrationByName()
-    if (!fb && typeof Sentry.getClient === 'function') {
-      var client = Sentry.getClient();
-      if (client && typeof client.getIntegrationByName === 'function') {
-        fb = client.getIntegrationByName('Feedback');
+  if (feedbackBtn && feedbackInstance) {
+    feedbackBtn.addEventListener('click', function() {
+      try {
+        var formPromise = feedbackInstance.createForm();
+        if (formPromise && typeof formPromise.then === 'function') {
+          formPromise.then(function(form) {
+            form.appendToDom();
+            form.open();
+          });
+        }
+      } catch (e) {
+        // Fallback: open GitHub Issues as alternative feedback channel
+        window.open('https://github.com/Twodragon0/tech-blog/issues/new', '_blank');
       }
-    }
-    if (fb && typeof fb.attachTo === 'function') {
-      fb.attachTo(feedbackBtn, {
-        formTitle: '문제를 알려주세요',
-        submitButtonLabel: '보내기',
-        cancelButtonLabel: '취소',
-        messageLabel: '메시지',
-        messagePlaceholder: '어떤 문제가 있나요?',
-        successMessageText: '감사합니다! 피드백이 전송되었습니다.'
-      });
-    }
+    });
   }
 
   // Global error handler with context enrichment
