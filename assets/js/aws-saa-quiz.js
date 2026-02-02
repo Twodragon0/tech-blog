@@ -15,7 +15,7 @@
         C: 'Classic Load Balancer를 퍼블릭 서브넷에 배치하고, 애플리케이션 서버를 프라이빗 서브넷에 배치',
         D: 'Application Load Balancer를 프라이빗 서브넷에 배치하고, 애플리케이션 서버를 퍼블릭 서브넷에 배치'
       },
-      explanation: 'Application Load Balancer를 퍼블릭 서브넷에 배치하면 인터넷 트래픽을 받을 수 있고, 프라이빗 서브넷의 애플리케이션 서버는 보안이 강화됩니다. <a href="/posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/" target="_blank" rel="noopener noreferrer">VPC 보안 아키텍처 포스트</a>에서 자세한 설명을 확인하세요.'
+      explanation: 'Application Load Balancer를 퍼블릭 서브넷에 배치하면 인터넷 트래픽을 받을 수 있고, 프라이빗 서브넷의 애플리케이션 서버는 보안이 강화됩니다. <a href="/posts/2025/12/05/Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer/" target="_blank" rel="noopener noreferrer">VPC 보안 아키텍처 포스트</a>에서 자세한 설명을 확인하세요.'
     },
     {
       id: 2,
@@ -28,7 +28,7 @@
         C: 'Resource-based Policy',
         D: 'Security Group'
       },
-      explanation: 'AWS Organizations의 Service Control Policy (SCP)는 조직 레벨에서 모든 계정에 적용되는 정책입니다. <a href="/posts/2025/12/클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안/" target="_blank" rel="noopener noreferrer">AWS Control Tower 및 SCP 포스트</a>에서 자세한 설명을 확인하세요.'
+      explanation: 'AWS Organizations의 Service Control Policy (SCP)는 조직 레벨에서 모든 계정에 적용되는 정책입니다. <a href="/posts/2025/12/24/Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security/" target="_blank" rel="noopener noreferrer">AWS Control Tower 및 SCP 포스트</a>에서 자세한 설명을 확인하세요.'
     }
     // 나머지 문제들은 기존 HTML에서 data 속성으로 읽어옴
   ];

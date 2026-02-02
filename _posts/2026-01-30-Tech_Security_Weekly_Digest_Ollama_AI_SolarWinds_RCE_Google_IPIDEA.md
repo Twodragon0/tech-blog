@@ -82,7 +82,7 @@ toc: true
 
 **수집 소스**: 47개 RSS 피드에서 224개 뉴스 수집
 **분석 기준**: DevSecOps 실무 영향도, 기술적 깊이, 즉시 적용 가능성
-**참고**: 이전 보안 다이제스트는 [2026-01-29 n8n RCE, D-Link Zero-Day 분석](/posts/2026/01/Tech_Security_Weekly_Digest/)에서 확인하세요.
+**참고**: 이전 보안 다이제스트는 [2026-01-29 n8n RCE, D-Link Zero-Day 분석](/posts/2026/01/29/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/)에서 확인하세요.
 
 이번 포스팅에서는 다음 내용을 다룹니다:
 
@@ -1703,9 +1703,9 @@ Mozilla가 AI 독점에 반대하는 **"AI Rebel Alliance"**를 결성했습니�
 
 ### 관련 포스팅
 
-- [2026-01-29 n8n RCE, D-Link Zero-Day, K8s AI 에이전트 보안](/posts/2026/01/Tech_Security_Weekly_Digest/) - 전일 보안 다이제스트
-- [CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계](/posts/2026/01/Claude_MD_Security_Guide/) - AI 에이전트 보안 가이드라인
-- [OWASP 2025 최신 업데이트 완벽 가이드](/posts/2026/01/OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security/) - 에이전틱 AI 보안 위협
+- [2026-01-29 n8n RCE, D-Link Zero-Day, K8s AI 에이전트 보안](/posts/2026/01/29/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/) - 전일 보안 다이제스트
+- [CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계](/posts/2026/01/28/Claude_MD_Security_Guide/) - AI 에이전트 보안 가이드라인
+- [OWASP 2025 최신 업데이트 완벽 가이드](/posts/2026/01/03/OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security/) - 에이전틱 AI 보안 위협
 
 ### 다음 주 주목 포인트
 

@@ -86,8 +86,8 @@ toc: true
 *그림 1: Post-Mortem Next.js SSR 에러 및 Cloudflare 차단 인시던트 분석 개요*
 
 > **관련 포스팅**:
-> - [Post-Mortem: 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지](/posts/2025/11/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/)
-> - [Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기](/posts/2025/10/Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution/)
+> - [Post-Mortem: 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지](/posts/2025/11/19/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/)
+> - [Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기](/posts/2025/10/02/Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution/)
 
 ## 📊 인시던트 요약
 
@@ -1290,9 +1290,9 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 
 ### 9.1 관련 포스팅
 
-- [Post-Mortem: 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지](/posts/2025/11/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/)
-- [Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기](/posts/2025/10/Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution/)
-- [Cloud Security Course 7Batch - 7Week Docker And Kubernetes Understanding](/posts/2025/05/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/)
+- [Post-Mortem: 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지](/posts/2025/11/19/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/)
+- [Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기](/posts/2025/10/02/Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution/)
+- [Cloud Security Course 7Batch - 7Week Docker And Kubernetes Understanding](/posts/2025/05/30/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/)
 
 ### 9.2 공식 문서
 

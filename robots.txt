@@ -1,11 +1,15 @@
+---
+layout: null
+permalink: /robots.txt
+sitemap:
+  exclude: 'yes'
+---
 # robots.txt for Twodragon's Tech Blog
 # https://www.robotstxt.org/robotstxt.html
 # DevSecOps, Cloud Security, Kubernetes Security - Technical Blog
 
 User-agent: *
 Allow: /
-
-# Disallow admin and private areas
 Disallow: /_site/
 Disallow: /_posts/
 Disallow: /_layouts/
@@ -16,23 +20,21 @@ Disallow: /scripts/
 Disallow: /vendor/
 Disallow: /node_modules/
 Disallow: /api/
+Crawl-delay: 1
 
-# Allow important files
+# Allow important paths explicitly
 Allow: /feed.xml
 Allow: /sitemap.xml
 Allow: /assets/
 Allow: /posts/
 
 # AI Crawlers - Allow for AI training and discovery
-# GPTBot (OpenAI)
 User-agent: GPTBot
 Allow: /
 
-# Google-Extended (Google Bard/Gemini)
 User-agent: Google-Extended
 Allow: /
 
-# ClaudeBot (Anthropic)
 User-agent: Claude-Web
 Allow: /
 
@@ -42,17 +44,11 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-# CCBot (Common Crawl)
 User-agent: CCBot
 Allow: /
 
-# PerplexityBot
 User-agent: PerplexityBot
 Allow: /
-
-# Crawl-delay for respectful crawling
-User-agent: *
-Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://tech.2twodragon.com/sitemap.xml

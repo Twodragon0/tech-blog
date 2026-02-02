@@ -34,12 +34,11 @@ function stripHtml(html) {
 }
 
 function generateUrl(filename) {
-  // Jekyll permalink: /posts/:year/:month/:title/
-  // :title = filename part after YYYY-MM-DD-, preserving original case
-  const match = filename.match(/^(\d{4})-(\d{2})-\d{2}-(.+)\.md$/);
+  // Jekyll permalink: /posts/:year/:month/:day/:title/
+  const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$/);
   if (match) {
-    const [, year, month, titleSlug] = match;
-    return `/posts/${year}/${month}/${titleSlug}/`;
+    const [, year, month, day, titleSlug] = match;
+    return `/posts/${year}/${month}/${day}/${titleSlug}/`;
   }
   const slug = filename.replace(/\.md$/, '');
   return `/posts/${slug}/`;

@@ -965,7 +965,7 @@ DevSecOps 엔지니어로서, 자동차가 단순한 운송 수단을 넘어 **�
 | [UN Regulation No. 156](https://unece.org/transport/documents/2021/01/standards/un-regulation-no-156-software-updates-and-software-update) | 소프트웨어 업데이트 규정 | UNECE |
 | [KISA 자동차 사이버보안 가이드](https://www.kisa.or.kr) | 한국 자동차 사이버보안 가이드라인 | KISA (한국인터넷진흥원) |
 | [OWASP IoT Security Top 10](https://owasp.org/www-project-internet-of-things/) | IoT 보안 취약점 Top 10 | OWASP |
-| [DevSecOps가 바라보는 자동차 보안 완벽 가이드](https://tech.2twodragon.com/posts/2026/01/DevSecOps가_바라보는_자동차_보안_완벽_가이드/) | 자동차 보안 DevSecOps 가이드 | 2twodragon Tech Blog |
+| [DevSecOps가 바라보는 자동차 보안 완벽 가이드](https://tech.2twodragon.com/posts/2026/01/06/DevSecOps_Viewing_Automotive_Security_Complete_Guide/) | 자동차 보안 DevSecOps 가이드 | 2twodragon Tech Blog |
 | [Tesla GitHub](https://github.com/teslamotors) | 테슬라 오픈소스 프로젝트 | Tesla |
 | [Tesla Vehicle Command SDK](https://github.com/teslamotors/vehicle-command) | 차량 제어 보안 SDK | Tesla |
 | [Tesla Linux Kernel](https://github.com/teslamotors/linux) | 테슬라 리눅스 커널 소스 | Tesla |
