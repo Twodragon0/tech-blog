@@ -1,25 +1,10 @@
 {
-  "collected_at": "2026-02-02T08:48:32.427730+00:00",
-  "total_items": 94,
+  "collected_at": "2026-02-02T09:02:53.454971+00:00",
+  "total_items": 85,
   "items": [
     {
-      "id": "ce7e8eba0e6b",
-      "title": "Nomura temporarily reduces crypto exposure as Q3 profits drop",
-      "url": "https://cointelegraph.com/news/nomura-temporarily-reducing-crypto-risk-exposure-after-q4-profit-drop?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T06:35:55+00:00",
-      "summary": "Nomura's CFO, Hiroyuki Moriuchi, reportedly reaffirmed the company's long-term commitment to digital assets but said it had to manage short-term risks.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Brian Quarmby",
-      "priority": 2
-    },
-    {
       "id": "9eb8f57ab333",
-      "title": "Crypto stolen hit $370M in January, nearly quadrupling year on year: CertiK",
+      "title": "More than $370M in crypto stolen in January:CertiK",
       "url": "https://cointelegraph.com/news/crypto-stolen-370m-january-quadrupling-year-on-year-certik?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "source": "cointelegraph",
       "source_name": "Cointelegraph",
@@ -56,7 +41,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T05:10:59+00:00",
-      "summary": "Article URL: https://www.wired.com/story/the-red-bull-leaks/ Comments URL: https://news.ycombinator.com/item?id=46852660 Points: 84 # Comments: 17",
+      "summary": "Article URL: https://www.wired.com/story/the-red-bull-leaks/ Comments URL: https://news.ycombinator.com/item?id=46852660 Points: 87 # Comments: 21",
       "content": "",
       "tags": [],
       "author": "smurda",
@@ -93,26 +78,6 @@
       "priority": 2
     },
     {
-      "id": "48e924ce0f88",
-      "title": "Japan’s Nomura cuts down crypto exposure following Q3 losses",
-      "url": "https://www.theblock.co/post/387951/nomura-cuts-crypto-exposure?utm_source=rss&utm_medium=rss",
-      "source": "theblock",
-      "source_name": "The Block",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T03:38:03-05:00",
-      "summary": "Nomura's crypto subsidiary, Laser Digital, saw losses in Q3, leading Nomura to report lower-than-expected quarterly net profit.",
-      "content": "Nomura's crypto subsidiary, Laser Digital, saw losses in Q3, leading Nomura to report lower-than-expected quarterly net profit.",
-      "tags": [
-        "Asia",
-        "Companies",
-        "Laser Digital",
-        "nomura"
-      ],
-      "author": "Danny Park",
-      "priority": 2
-    },
-    {
       "id": "2f8c1e612992",
       "title": "Crypto selloff is likely due to US liquidity drought: Analyst",
       "url": "https://cointelegraph.com/news/liquidity-drought-hurting-crypto-markets-raoul-pal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
@@ -136,7 +101,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T03:29:55+00:00",
-      "summary": "Article URL: https://lapcatsoftware.com/articles/2026/2/1.html Comments URL: https://news.ycombinator.com/item?id=46852096 Points: 78 # Comments: 15",
+      "summary": "Article URL: https://lapcatsoftware.com/articles/2026/2/1.html Comments URL: https://news.ycombinator.com/item?id=46852096 Points: 82 # Comments: 15",
       "content": "",
       "tags": [],
       "author": "zdw",
@@ -151,7 +116,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T03:02:55+00:00",
-      "summary": "Article URL: https://flashblaze.xyz/posts/cloudflare-workers-durable-objects-telegram-bot/ Comments URL: https://news.ycombinator.com/item?id=46851922 Points: 16 # Comments: 2",
+      "summary": "Article URL: https://flashblaze.xyz/posts/cloudflare-workers-durable-objects-telegram-bot/ Comments URL: https://news.ycombinator.com/item?id=46851922 Points: 17 # Comments: 2",
       "content": "",
       "tags": [],
       "author": "flashblaze",
@@ -196,7 +161,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T00:12:19+00:00",
-      "summary": "Article URL: https://xikipedia.org Comments URL: https://news.ycombinator.com/item?id=46850803 Points: 149 # Comments: 60",
+      "summary": "Article URL: https://xikipedia.org Comments URL: https://news.ycombinator.com/item?id=46850803 Points: 157 # Comments: 63",
       "content": "",
       "tags": [],
       "author": "rebane2001",
@@ -226,7 +191,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-01T23:45:18+00:00",
-      "summary": "Article URL: https://martinalderson.com/posts/two-kinds-of-ai-users-are-emerging/ Comments URL: https://news.ycombinator.com/item?id=46850588 Points: 161 # Comments: 140",
+      "summary": "Article URL: https://martinalderson.com/posts/two-kinds-of-ai-users-are-emerging/ Comments URL: https://news.ycombinator.com/item?id=46850588 Points: 166 # Comments: 145",
       "content": "",
       "tags": [],
       "author": "martinald",
@@ -263,27 +228,6 @@
       "priority": 2
     },
     {
-      "id": "3ad71cfdfc45",
-      "title": "Polymarket expands to Solana through Jupiter DEX integration",
-      "url": "https://www.theblock.co/post/387945/jupiter-polymarket-solana?utm_source=rss&utm_medium=rss",
-      "source": "theblock",
-      "source_name": "The Block",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-01T22:37:29-05:00",
-      "summary": "Through a built-in 'Prediction' feature, Jupiter users can now access Polymarket contracts without leaving the app.",
-      "content": "Through a built-in 'Prediction' feature, Jupiter users can now access Polymarket contracts without leaving the app.",
-      "tags": [
-        "Crypto Ecosystems",
-        "DeFi",
-        "Layer 1s",
-        "DEXs",
-        "jupiter"
-      ],
-      "author": "Timmy Shen",
-      "priority": 2
-    },
-    {
       "id": "a281bab95e73",
       "title": "Treasures found on HS2 route stored in secret warehouse",
       "url": "https://www.bbc.com/news/articles/c93v21q5xdvo",
@@ -292,7 +236,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-01T22:14:39+00:00",
-      "summary": "Article URL: https://www.bbc.com/news/articles/c93v21q5xdvo Comments URL: https://news.ycombinator.com/item?id=46849926 Points: 56 # Comments: 21",
+      "summary": "Article URL: https://www.bbc.com/news/articles/c93v21q5xdvo Comments URL: https://news.ycombinator.com/item?id=46849926 Points: 57 # Comments: 21",
       "content": "",
       "tags": [],
       "author": "breve",
@@ -307,7 +251,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-01T21:30:51+00:00",
-      "summary": "Article URL: https://dmitrybrant.com/2026/02/01/defeating-a-40-year-old-copy-protection-dongle Comments URL: https://news.ycombinator.com/item?id=46849567 Points: 480 # Comments: 140",
+      "summary": "Article URL: https://dmitrybrant.com/2026/02/01/defeating-a-40-year-old-copy-protection-dongle Comments URL: https://news.ycombinator.com/item?id=46849567 Points: 490 # Comments: 146",
       "content": "",
       "tags": [],
       "author": "zdw",
@@ -343,7 +287,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-01T20:51:56+00:00",
-      "summary": "Article URL: https://journal.rafaelcosta.me/my-thousand-dollar-iphone-cant-do-math/ Comments URL: https://news.ycombinator.com/item?id=46849258 Points: 267 # Comments: 122",
+      "summary": "Article URL: https://journal.rafaelcosta.me/my-thousand-dollar-iphone-cant-do-math/ Comments URL: https://news.ycombinator.com/item?id=46849258 Points: 273 # Comments: 123",
       "content": "",
       "tags": [],
       "author": "rafaelcosta",
@@ -388,7 +332,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-01T19:00:46+00:00",
-      "summary": "Article URL: https://idiallo.com/blog/teaching-my-neighbor-to-keep-the-volume-down Comments URL: https://news.ycombinator.com/item?id=46848415 Points: 673 # Comments: 314",
+      "summary": "Article URL: https://idiallo.com/blog/teaching-my-neighbor-to-keep-the-volume-down Comments URL: https://news.ycombinator.com/item?id=46848415 Points: 674 # Comments: 315",
       "content": "",
       "tags": [],
       "author": "firefoxd",
@@ -418,7 +362,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-01T18:38:04+00:00",
-      "summary": "Article URL: https://www.fieggen.com/shoelace/ Comments URL: https://news.ycombinator.com/item?id=46848231 Points: 134 # Comments: 23",
+      "summary": "Article URL: https://www.fieggen.com/shoelace/ Comments URL: https://news.ycombinator.com/item?id=46848231 Points: 138 # Comments: 24",
       "content": "",
       "tags": [],
       "author": "righthand",
@@ -448,7 +392,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-01T17:54:55+00:00",
-      "summary": "Article URL: https://forkingmad.blog/wordle-crisis/ Comments URL: https://news.ycombinator.com/item?id=46847924 Points: 88 # Comments: 96",
+      "summary": "Article URL: https://forkingmad.blog/wordle-crisis/ Comments URL: https://news.ycombinator.com/item?id=46847924 Points: 89 # Comments: 96",
       "content": "",
       "tags": [],
       "author": "cyanbane",
@@ -478,31 +422,10 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-01T17:36:57+00:00",
-      "summary": "https://computerhistory.org/wp-content/uploads/2019/10/Apple... Comments URL: https://news.ycombinator.com/item?id=46847780 Points: 222 # Comments: 127",
+      "summary": "https://computerhistory.org/wp-content/uploads/2019/10/Apple... Comments URL: https://news.ycombinator.com/item?id=46847780 Points: 223 # Comments: 127",
       "content": "",
       "tags": [],
       "author": "janandonly",
-      "priority": 2
-    },
-    {
-      "id": "eeacc39a0663",
-      "title": "CrossCurve bridge exploited for approximately $3 million across multiple chains via spoofed messages",
-      "url": "https://www.theblock.co/post/387939/crosscurve-bridge-exploited-for-approximately-3-million-across-multiple-chains-via-spoofed-messages?utm_source=rss&utm_medium=rss",
-      "source": "theblock",
-      "source_name": "The Block",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-01T16:31:31-05:00",
-      "summary": "A missing validation check seemingly allowed multiple attackers to spoof cross-chain messages and drain the protocol's PortalV2 contract.",
-      "content": "A missing validation check seemingly allowed multiple attackers to spoof cross-chain messages and drain the protocol's PortalV2 contract.",
-      "tags": [
-        "Crypto Ecosystems",
-        "Security",
-        "crosscurve",
-        "curve-finance",
-        "Exploits"
-      ],
-      "author": "Zack Abrams",
       "priority": 2
     },
     {
@@ -536,27 +459,6 @@
       "priority": 2
     },
     {
-      "id": "1715915fac9b",
-      "title": "Crypto exchanges sanctioned alongside Iranian officials in Trump administration’s Iran crackdown",
-      "url": "https://www.theblock.co/post/387935/crypto-exchanges-sanctioned-alongside-iranian-officials-in-trump-administrations-iran-crackdown?utm_source=rss&utm_medium=rss",
-      "source": "theblock",
-      "source_name": "The Block",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-01T15:27:31-05:00",
-      "summary": "The sanctions mark the first time digital asset platforms were sanctioned directly by the U.S. government in relation to the Iranian government's actions.",
-      "content": "The sanctions mark the first time digital asset platforms were sanctioned directly by the U.S. government in relation to the Iranian government's actions.",
-      "tags": [
-        "Legal",
-        "Policy",
-        "Regulation",
-        "Anti-Money Laundering",
-        "iran"
-      ],
-      "author": "Zack Abrams",
-      "priority": 2
-    },
-    {
       "id": "96078b933afe",
       "title": "Adventure Game Studio: OSS software for creating adventure games",
       "url": "https://www.adventuregamestudio.co.uk/",
@@ -565,7 +467,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-01T13:56:56+00:00",
-      "summary": "Article URL: https://www.adventuregamestudio.co.uk/ Comments URL: https://news.ycombinator.com/item?id=46846252 Points: 309 # Comments: 61",
+      "summary": "Article URL: https://www.adventuregamestudio.co.uk/ Comments URL: https://news.ycombinator.com/item?id=46846252 Points: 311 # Comments: 61",
       "content": "",
       "tags": [],
       "author": "doener",
@@ -599,27 +501,6 @@
       "content": "",
       "tags": [],
       "author": "Cointelegraph by Amin Haqshanas",
-      "priority": 2
-    },
-    {
-      "id": "b2588b5d5b2e",
-      "title": "UAE Sheikh secretly acquired 49% of Trump’s World Liberty Financial days before inauguration: WSJ",
-      "url": "https://www.theblock.co/post/387931/uae-sheikh-secretly-acquired-49-of-trumps-world-liberty-financial-days-before-inauguration-wsj?utm_source=rss&utm_medium=rss",
-      "source": "theblock",
-      "source_name": "The Block",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-01T09:55:46-05:00",
-      "summary": "The Sheikh has pushed to buy high-powered AI chips from the U.S. for a startup that he owns, and secured the chips months after acquiring the stake.",
-      "content": "The Sheikh has pushed to buy high-powered AI chips from the U.S. for a startup that he owns, and secured the chips months after acquiring the stake.",
-      "tags": [
-        "Companies",
-        "Deals",
-        "People",
-        "Policy",
-        "Private Investments"
-      ],
-      "author": "Zack Abrams",
       "priority": 2
     },
     {
@@ -698,21 +579,6 @@
       "priority": 1
     },
     {
-      "id": "afc696a7d032",
-      "title": "eScan Antivirus Update Servers Compromised to Deliver Multi-Stage Malware",
-      "url": "https://thehackernews.com/2026/02/escan-antivirus-update-servers.html",
-      "source": "thehackernews",
-      "source_name": "The Hacker News",
-      "category": "security",
-      "language": "en",
-      "published": "2026-02-02T11:17:00+05:30",
-      "summary": "The update infrastructure for eScan antivirus, a security solution developed by Indian cybersecurity company MicroWorld Technologies, has been compromised by unknown attackers to deliver a persistent downloader to enterprise and consumer systems. \"Malicious updates were distributed through eScan's legitimate update infrastructure, resulting in the deployment of multi-stage malware to enterprise",
-      "content": "",
-      "tags": [],
-      "author": "info@thehackernews.com (The Hacker News)",
-      "priority": 1
-    },
-    {
       "id": "b23e0ac542ed",
       "title": "자동 프로그래밍",
       "url": "https://news.hada.io/topic?id=26334",
@@ -773,21 +639,6 @@
       "priority": 1
     },
     {
-      "id": "ba27d8e7471e",
-      "title": "Open VSX Supply Chain Attack Used Compromised Dev Account to Spread GlassWorm",
-      "url": "https://thehackernews.com/2026/02/open-vsx-supply-chain-attack-used.html",
-      "source": "thehackernews",
-      "source_name": "The Hacker News",
-      "category": "security",
-      "language": "en",
-      "published": "2026-02-02T10:34:00+05:30",
-      "summary": "Cybersecurity researchers have disclosed details of a supply chain attack targeting the Open VSX Registry in which unidentified threat actors compromised a legitimate developer's resources to push malicious updates to downstream users. \"On January 30, 2026, four established Open VSX extensions published by the oorzc author had malicious versions published to Open VSX that embed the GlassWorm",
-      "content": "",
-      "tags": [],
-      "author": "info@thehackernews.com (The Hacker News)",
-      "priority": 1
-    },
-    {
       "id": "23692c0ffcc5",
       "title": "Claude Code 창시자가 공개한 실전 사용 팁",
       "url": "https://news.hada.io/topic?id=26330",
@@ -803,25 +654,6 @@
       "priority": 1
     },
     {
-      "id": "27f9ed00f8b8",
-      "title": "HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_11%EC%9B%94%ED%98%B8_%EC%82%AC%EC%9D%B4%EB%B2%84%EB%B3%B4%EC%95%88%20%ED%8A%B9%ED%99%94%20Vertical%20AI%20%EA%B5%AC%EC%B6%95%20%EB%B0%A9%EC%95%88.pdf&r_fname=20251127174323358.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-02T08:48:32.423929+00:00",
-      "summary": "SK쉴더스 보안 리포트: HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
-      "content": "",
-      "tags": [
-        "AI보안",
-        "보안리포트",
-        "SK쉴더스"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
       "id": "230483d583e0",
       "title": "Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
       "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2011%EC%9B%94%ED%98%B8%20%EA%B8%B0%EC%A1%B4%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%BD%94%EB%93%9C%EB%A5%BC%20%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%95%9C%20BlackField%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20251127174343776.pdf",
@@ -829,14 +661,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T08:48:32.423791+00:00",
+      "published": "2026-02-02T09:02:53.450881+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
       "content": "",
       "tags": [
-        "보안리포트",
-        "KARA",
+        "SK쉴더스",
         "랜섬웨어",
-        "SK쉴더스"
+        "보안리포트",
+        "KARA"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -849,12 +681,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T08:48:32.423625+00:00",
+      "published": "2026-02-02T09:02:53.450779+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -867,12 +699,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T08:48:32.423501+00:00",
+      "published": "2026-02-02T09:02:53.450679+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 11월호",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -885,12 +717,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T08:48:32.423378+00:00",
+      "published": "2026-02-02T09:02:53.450584+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -903,14 +735,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T08:48:32.423246+00:00",
+      "published": "2026-02-02T09:02:53.450475+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
       "content": "",
       "tags": [
-        "보안리포트",
-        "KARA",
+        "SK쉴더스",
         "랜섬웨어",
-        "SK쉴더스"
+        "보안리포트",
+        "KARA"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -923,12 +755,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T08:48:32.423121+00:00",
+      "published": "2026-02-02T09:02:53.450363+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -941,12 +773,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T08:48:32.422985+00:00",
+      "published": "2026-02-02T09:02:53.450232+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -959,12 +791,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T08:48:32.422866+00:00",
+      "published": "2026-02-02T09:02:53.450135+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -977,14 +809,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T08:48:32.422725+00:00",
+      "published": "2026-02-02T09:02:53.450019+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
       "content": "",
       "tags": [
-        "보안리포트",
-        "KARA",
+        "SK쉴더스",
         "랜섬웨어",
-        "SK쉴더스"
+        "보안리포트",
+        "KARA"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -997,12 +829,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T08:48:32.422564+00:00",
+      "published": "2026-02-02T09:02:53.449900+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1015,14 +847,35 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T08:48:32.422388+00:00",
+      "published": "2026-02-02T09:02:53.449733+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "dfc0c81f7475",
+      "title": "Bitcoin ETF holders, sitting on paper losses, may throw in the towel",
+      "url": "https://www.coindesk.com/markets/2026/02/02/bitcoin-etf-holders-sitting-on-paper-losses-may-throw-in-the-towel",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-02T08:58:20+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "Bitcoin News",
+        "ETFs",
+        "Bitcoin ETF",
+        "News"
+      ],
+      "author": "AI Boost",
       "priority": 1
     },
     {
@@ -1177,25 +1030,6 @@
         "News"
       ],
       "author": "Stephen Alpher",
-      "priority": 1
-    },
-    {
-      "id": "dc56df5e6298",
-      "title": "Amazon Bedrock AgentCore를 활용한 멀티에이전트 운영과 접근제어",
-      "url": "https://aws.amazon.com/ko/blogs/tech/multi-agent-operations-for-airline-agentcore-service/",
-      "source": "aws_korea",
-      "source_name": "AWS Korea Blog",
-      "category": "cloud",
-      "language": "ko",
-      "published": "2026-02-02T01:03:17+00:00",
-      "summary": "AI 에이전트를 처음 구축할 때 가장 단순한 접근 방식은 하나의 에이전트가 외부 서비스(API, MCP)를 직접 호출하도록 구성하는 것 입니다. 이러한 구조는 초기 PoC 단계에서는 구현이 간단하고, 빠르게 아이디어를 검증하는 데 효과적입니다. 그러나 에이전트 기반 시스템을 엔터프라이즈 환경으로 확장하기 시작하면, 이러한 접근 방식은 곧 한계에 부딪히게 됩니다. 에이전트의 수가 증가하고 외부 API, MCP 내부 서비스가 지속적으로 […]",
-      "content": "AI 에이전트를 처음 구축할 때 가장 단순한 접근 방식은 하나의 에이전트가 외부 서비스(API, MCP)를 직접 호출하도록 구성하는 것 입니다. 이러한 구조는 초기 PoC 단계에서는 구현이 간단하고, 빠르게 아이디어를 검증하는 데 효과적입니다. 그러나 에이전트 기반 시스템을 엔터프라이즈 환경으로 확장하기 시작하면, 이러한 접근 방식은 곧 한계에 부딪히게 됩니다. 에이전트의 수가 증가하고 외부 API, MCP 내부 서비스가 지속적으로 추가되면서 각 에이전트가 개별적으로 인증과 호출 로직을 관리하는 구조는 운영 복잡성을 빠르게 증가시킵니다. 엔터프라이즈 환경의 현실 에이전트 수가 1개에서 여러 개로 확장되며, 호출해야 할 외부 API, MCP, 내부 서비스의 수가 지속적으로 증가합니다. 각 시스템은 API Key, OAuth, JWT 등 서로 다른 인증 방식을 사용합니다. 각 에이전트는 사전에 정의된 범위 내에서만 도구를 호출할 수 있어야 하며, 이에 대한 명확한 권한 제어가 필요...",
-      "tags": [
-        "Amazon Bedrock",
-        "Amazon Bedrock AgentCore",
-        "Strands Agents"
-      ],
-      "author": "Minju Park",
       "priority": 1
     },
     {
