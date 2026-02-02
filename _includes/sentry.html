@@ -1,11 +1,34 @@
 {% if site.sentry_dsn and site.sentry_dsn != "" %}
 <!-- Sentry SDK: Error Tracking + Tracing + Session Replay + User Feedback -->
+<!-- Defer loading to reduce FID (First Input Delay) -->
+<style>
+  /* Move Sentry feedback widget to bottom-left to avoid chat widget overlap */
+  #sentry-feedback,
+  [data-sentry-feedback],
+  div:has(> .widget__actor[aria-label="피드백"]) {
+    position: fixed !important;
+    bottom: 1.5rem !important;
+    left: 1.5rem !important;
+    right: auto !important;
+    z-index: 999 !important;
+  }
+  @media (max-width: 768px) {
+    #sentry-feedback,
+    [data-sentry-feedback],
+    div:has(> .widget__actor[aria-label="피드백"]) {
+      bottom: 1rem !important;
+      left: 1rem !important;
+    }
+  }
+</style>
 <script
   src="https://browser.sentry-cdn.com/8.42.0/bundle.tracing.replay.feedback.min.js"
   crossorigin="anonymous"
+  defer
 ></script>
 <script>
-(function() {
+// Wait for deferred Sentry SDK to load before initializing
+function initSentry() {
   'use strict';
 
   if (typeof Sentry === 'undefined') return;
@@ -104,6 +127,7 @@
   ];
 
   // User Feedback widget (FREE, unlimited)
+  // autoInject: false to avoid aria-hidden focus conflict, manually trigger via CSS-positioned button
   if (isProduction && typeof Sentry.feedbackIntegration === 'function') {
     integrations.push(Sentry.feedbackIntegration({
       colorScheme: 'system',
@@ -111,6 +135,7 @@
       showName: false,
       showEmail: false,
       triggerLabel: '피드백',
+      triggerAriaLabel: 'Send feedback',
       formTitle: '문제를 알려주세요',
       submitButtonLabel: '보내기',
       cancelButtonLabel: '취소',
@@ -286,7 +311,15 @@
       tags: { errorType: 'unhandled_promise_rejection', handled: false }
     });
   });
-})();
+}
+// Call initSentry after deferred Sentry SDK has loaded
+if (typeof Sentry !== 'undefined') {
+  initSentry();
+} else {
+  window.addEventListener('load', function() {
+    if (typeof Sentry !== 'undefined') initSentry();
+  });
+}
 </script>
 {% else %}
 <!-- Sentry disabled: sentry_dsn not configured in _config.yml -->
