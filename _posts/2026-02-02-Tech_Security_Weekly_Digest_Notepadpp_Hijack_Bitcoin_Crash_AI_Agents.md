@@ -95,27 +95,52 @@ Notepad++는 단순한 텍스트 에디터를 넘어, **프로그래밍 언어 �
 
 **공격 체인 분석:**
 
-```
-Phase 1: Initial Access (초기 접근)
-├── 배포 인프라 서버 침해 (국가 수준 역량)
-├── 코드 서명 키 또는 빌드 파이프라인 접근 획득
-└── 정상 릴리스 프로세스에 악성 코드 삽입
-
-Phase 2: Execution (실행)
-├── 사용자가 공식 채널에서 Notepad++ 다운로드/업데이트
-├── 정상으로 보이는 설치 프로그램 실행
-└── 백그라운드에서 악성 페이로드 활성화
-
-Phase 3: Persistence & C2 (지속성 및 통신)
-├── 시스템에 영구적 접근 수단 설치
-├── 암호화된 C2 채널 수립
-└── 추가 페이로드 다운로드 가능 상태 유지
-
-Phase 4: Actions on Objectives (목표 달성)
-├── 개발 환경 정보 수집
-├── 소스 코드/인증 정보 탈취
-└── 내부 네트워크 횡이동 거점 확보
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="phase1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#dc2626"/><stop offset="100%" stop-color="#ef4444"/></linearGradient>
+    <linearGradient id="phase2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ea580c"/><stop offset="100%" stop-color="#f97316"/></linearGradient>
+    <linearGradient id="phase3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ca8a04"/><stop offset="100%" stop-color="#eab308"/></linearGradient>
+    <linearGradient id="phase4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/></filter>
+  </defs>
+  <rect width="900" height="520" rx="12" fill="#0f172a"/>
+  <text x="450" y="36" text-anchor="middle" fill="#f8fafc" font-size="18" font-weight="700">Notepad++ Supply Chain Attack Chain Analysis</text>
+  <!-- Phase 1 -->
+  <rect x="30" y="55" width="200" height="36" rx="6" fill="url(#phase1)" filter="url(#shadow)"/>
+  <text x="130" y="78" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 1: Initial Access</text>
+  <rect x="240" y="55" width="630" height="95" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="260" cy="78" r="5" fill="#f87171"/><text x="275" y="82" fill="#e2e8f0" font-size="12">Compromise distribution infrastructure server (state-level capability)</text>
+  <circle cx="260" cy="103" r="5" fill="#f87171"/><text x="275" y="107" fill="#e2e8f0" font-size="12">Obtain code signing key or build pipeline access</text>
+  <circle cx="260" cy="128" r="5" fill="#f87171"/><text x="275" y="132" fill="#e2e8f0" font-size="12">Inject malicious code into legitimate release process</text>
+  <!-- Arrow -->
+  <path d="M450 152 L450 168" stroke="#475569" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <defs><marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#475569"/></marker></defs>
+  <!-- Phase 2 -->
+  <rect x="30" y="170" width="200" height="36" rx="6" fill="url(#phase2)" filter="url(#shadow)"/>
+  <text x="130" y="193" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 2: Execution</text>
+  <rect x="240" y="170" width="630" height="95" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="260" cy="193" r="5" fill="#fb923c"/><text x="275" y="197" fill="#e2e8f0" font-size="12">User downloads/updates Notepad++ from official channel</text>
+  <circle cx="260" cy="218" r="5" fill="#fb923c"/><text x="275" y="222" fill="#e2e8f0" font-size="12">Execute legitimate-looking installer</text>
+  <circle cx="260" cy="243" r="5" fill="#fb923c"/><text x="275" y="247" fill="#e2e8f0" font-size="12">Malicious payload activated in background</text>
+  <!-- Arrow -->
+  <path d="M450 267 L450 283" stroke="#475569" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <!-- Phase 3 -->
+  <rect x="30" y="285" width="200" height="36" rx="6" fill="url(#phase3)" filter="url(#shadow)"/>
+  <text x="130" y="308" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 3: Persistence &amp; C2</text>
+  <rect x="240" y="285" width="630" height="95" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="260" cy="308" r="5" fill="#facc15"/><text x="275" y="312" fill="#e2e8f0" font-size="12">Install persistent access mechanism on system</text>
+  <circle cx="260" cy="333" r="5" fill="#facc15"/><text x="275" y="337" fill="#e2e8f0" font-size="12">Establish encrypted C2 channel</text>
+  <circle cx="260" cy="358" r="5" fill="#facc15"/><text x="275" y="362" fill="#e2e8f0" font-size="12">Maintain capability for additional payload downloads</text>
+  <!-- Arrow -->
+  <path d="M450 382 L450 398" stroke="#475569" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <!-- Phase 4 -->
+  <rect x="30" y="400" width="200" height="36" rx="6" fill="url(#phase4)" filter="url(#shadow)"/>
+  <text x="130" y="423" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 4: Objectives</text>
+  <rect x="240" y="400" width="630" height="95" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="260" cy="423" r="5" fill="#a78bfa"/><text x="275" y="427" fill="#e2e8f0" font-size="12">Collect development environment information</text>
+  <circle cx="260" cy="448" r="5" fill="#a78bfa"/><text x="275" y="452" fill="#e2e8f0" font-size="12">Exfiltrate source code / credentials</text>
+  <circle cx="260" cy="473" r="5" fill="#a78bfa"/><text x="275" y="477" fill="#e2e8f0" font-size="12">Establish foothold for internal network lateral movement</text>
+</svg>
 
 ### 1.3 왜 Notepad++가 표적이 되었나?
 
@@ -146,7 +171,7 @@ Phase 4: Actions on Objectives (목표 달성)
 보안 관제 담당자는 다음 쿼리를 활용하여 Notepad++ 관련 침해 징후를 탐지할 수 있습니다:
 
 ```bash
-# Splunk - Notepad++ 비정상 네트워크 활동 탐지
+# Splunk - Detect Notepad++ Anomalous Network Activity
 index=endpoint sourcetype=sysmon EventCode=3
 process_name="notepad++.exe"
 NOT (dest_ip IN ("10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"))
@@ -154,14 +179,14 @@ NOT (dest_ip IN ("10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"))
 | where count > 5
 | sort -count
 
-# Splunk - Notepad++ 비정상 자식 프로세스 탐지
+# Splunk - Detect Notepad++ Anomalous Child Processes
 index=endpoint sourcetype=sysmon EventCode=1
 parent_process_name="notepad++.exe"
 NOT (process_name IN ("notepad++.exe", "updater.exe"))
 | stats count by process_name, parent_process_name, CommandLine
 | sort -count
 
-# Elastic/KQL - Notepad++ 의심스러운 DLL 로딩 탐지
+# Elastic/KQL - Detect Notepad++ Suspicious DLL Loading
 process.name: "notepad++.exe" AND
 event.category: "library" AND
 NOT dll.path: ("C:\\Program Files\\Notepad++\\*" OR
@@ -170,16 +195,16 @@ NOT dll.path: ("C:\\Program Files\\Notepad++\\*" OR
 ```
 
 ```bash
-# 파일 무결성 검증 - Notepad++ 바이너리 해시 확인
+# File Integrity Verification - Notepad++ Binary Hash Check
 # Windows PowerShell
 Get-FileHash "C:\Program Files\Notepad++\notepad++.exe" -Algorithm SHA256
 
-# 공식 해시와 비교 (Notepad++ 공식 사이트에서 확인)
+# Compare with official hash (verify at Notepad++ official site)
 # https://notepad-plus-plus.org/downloads/
 
-# Linux/Mac에서 다운로드 파일 검증
+# Verify downloaded file on Linux/Mac
 sha256sum notepad++_installer.exe
-# 공식 GPG 서명 검증
+# Verify official GPG signature
 gpg --verify notepad++_installer.exe.sig notepad++_installer.exe
 ```
 
@@ -309,23 +334,39 @@ Google Research가 발표한 이 연구는 AI 에이전트 시스템의 **스케
 
 **청산 연쇄 메커니즘:**
 
-```
-1. Bitcoin 가격 급락 시작
-   ↓
-2. 레버리지 롱 포지션 마진콜 발생
-   ↓
-3. 강제 청산 → 시장 매도 주문 폭증
-   ↓
-4. 추가 가격 하락 → 더 많은 포지션 청산 트리거
-   ↓
-5. DeFi 담보 비율(Collateral Ratio) 하회
-   ↓
-6. Aave/Compound 등에서 자동 청산 실행
-   ↓
-7. 청산 매물이 DEX에 쏟아져 추가 하방 압력
-   ↓
-8. Stablecoin 디페깅 우려 → 추가 패닉
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 520" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="liq-red" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#b91c1c"/><stop offset="100%" stop-color="#dc2626"/></linearGradient>
+    <linearGradient id="liq-org" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#c2410c"/><stop offset="100%" stop-color="#ea580c"/></linearGradient>
+    <linearGradient id="liq-yel" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#a16207"/><stop offset="100%" stop-color="#ca8a04"/></linearGradient>
+    <linearGradient id="liq-pur" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6d28d9"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+    <marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#64748b"/></marker>
+    <filter id="sh2"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.18"/></filter>
+  </defs>
+  <rect width="740" height="520" rx="12" fill="#0f172a"/>
+  <text x="370" y="32" text-anchor="middle" fill="#f8fafc" font-size="17" font-weight="700">DeFi Cascading Liquidation Mechanism</text>
+  <!-- Step boxes -->
+  <g filter="url(#sh2)">
+    <rect x="195" y="46" width="350" height="36" rx="18" fill="url(#liq-red)"/><text x="370" y="69" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">1. Bitcoin Price Crash Begins</text>
+    <path d="M370 82 L370 96" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="195" y="100" width="350" height="36" rx="18" fill="url(#liq-red)"/><text x="370" y="123" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">2. Leveraged Long Positions Margin Called</text>
+    <path d="M370 136 L370 150" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="195" y="154" width="350" height="36" rx="18" fill="url(#liq-org)"/><text x="370" y="177" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">3. Forced Liquidation → Market Sell Flood</text>
+    <path d="M370 190 L370 204" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="195" y="208" width="350" height="36" rx="18" fill="url(#liq-org)"/><text x="370" y="231" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">4. Further Price Drop → More Liquidations</text>
+    <path d="M370 244 L370 258" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="165" y="262" width="410" height="36" rx="18" fill="url(#liq-yel)"/><text x="370" y="285" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">5. DeFi Collateral Ratio Falls Below Threshold</text>
+    <path d="M370 298 L370 312" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="165" y="316" width="410" height="36" rx="18" fill="url(#liq-yel)"/><text x="370" y="339" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">6. Aave/Compound Auto-Liquidation Triggered</text>
+    <path d="M370 352 L370 366" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="165" y="370" width="410" height="36" rx="18" fill="url(#liq-pur)"/><text x="370" y="393" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">7. Liquidation Assets Dumped on DEX → Downward Pressure</text>
+    <path d="M370 406 L370 420" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="195" y="424" width="350" height="36" rx="18" fill="url(#liq-pur)"/><text x="370" y="447" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">8. Stablecoin De-peg Fear → Panic Selloff</text>
+  </g>
+  <!-- Feedback loop arrow -->
+  <path d="M545 447 C680 447, 700 280, 545 69" stroke="#f87171" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arr2)"/>
+  <text x="670" y="268" fill="#f87171" font-size="11" font-weight="600" transform="rotate(-90,670,268)">Feedback Loop</text>
+</svg>
 
 **출처:** [CoinDesk - Single Trader Lost $220M](https://www.coindesk.com/markets/2026/02/01/single-trader-just-lost-usd220-million-as-ether-plunged-10)
 
@@ -377,18 +418,55 @@ HashiCorp Boundary 0.21은 **RDP(Remote Desktop Protocol) 연결의 패스워드
 
 **아키텍처 흐름:**
 
-```
-사용자 → Boundary Client → Boundary Controller (인증/인가)
-                               ↓
-                          Boundary Worker → RDP Target Server
-                          (패스워드리스 인증서 주입)
-
-1. 사용자는 Boundary에 SSO/MFA로 인증
-2. Boundary가 세션별 임시 인증서 생성
-3. Worker가 인증서를 사용하여 RDP 세션 수립
-4. 사용자에게 비밀번호 없이 RDP 세션 제공
-5. 세션 종료 시 인증서 자동 폐기
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="b-blue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1d4ed8"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
+    <linearGradient id="b-green" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#059669"/><stop offset="100%" stop-color="#10b981"/></linearGradient>
+    <linearGradient id="b-purple" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient>
+    <linearGradient id="b-gray" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#475569"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+    <marker id="arr3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#94a3b8"/></marker>
+    <filter id="sh3"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.2"/></filter>
+  </defs>
+  <rect width="820" height="340" rx="12" fill="#0f172a"/>
+  <text x="410" y="30" text-anchor="middle" fill="#f8fafc" font-size="17" font-weight="700">HashiCorp Boundary 0.21 Passwordless RDP Architecture</text>
+  <!-- User -->
+  <rect x="30" y="65" width="120" height="55" rx="10" fill="url(#b-gray)" filter="url(#sh3)"/>
+  <text x="90" y="90" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">User</text>
+  <text x="90" y="106" text-anchor="middle" fill="#cbd5e1" font-size="10">SSO / MFA</text>
+  <!-- Arrow 1 -->
+  <line x1="150" y1="92" x2="195" y2="92" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr3)"/>
+  <text x="172" y="85" text-anchor="middle" fill="#94a3b8" font-size="9">1</text>
+  <!-- Boundary Client -->
+  <rect x="200" y="65" width="140" height="55" rx="10" fill="url(#b-blue)" filter="url(#sh3)"/>
+  <text x="270" y="90" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Boundary Client</text>
+  <text x="270" y="106" text-anchor="middle" fill="#bfdbfe" font-size="10">Desktop App</text>
+  <!-- Arrow 2 -->
+  <line x1="340" y1="92" x2="395" y2="92" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr3)"/>
+  <text x="367" y="85" text-anchor="middle" fill="#94a3b8" font-size="9">2</text>
+  <!-- Boundary Controller -->
+  <rect x="400" y="55" width="170" height="75" rx="10" fill="url(#b-purple)" filter="url(#sh3)"/>
+  <text x="485" y="82" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Boundary Controller</text>
+  <text x="485" y="100" text-anchor="middle" fill="#ddd6fe" font-size="10">AuthN / AuthZ</text>
+  <text x="485" y="116" text-anchor="middle" fill="#ddd6fe" font-size="10">Ephemeral Cert Issue</text>
+  <!-- Arrow 3 down -->
+  <line x1="485" y1="130" x2="485" y2="175" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr3)"/>
+  <text x="495" y="155" fill="#94a3b8" font-size="9">3</text>
+  <!-- Boundary Worker -->
+  <rect x="400" y="180" width="170" height="65" rx="10" fill="url(#b-green)" filter="url(#sh3)"/>
+  <text x="485" y="207" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Boundary Worker</text>
+  <text x="485" y="225" text-anchor="middle" fill="#a7f3d0" font-size="10">Cert-based RDP Proxy</text>
+  <!-- Arrow 4 -->
+  <line x1="570" y1="212" x2="625" y2="212" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr3)"/>
+  <text x="597" y="205" text-anchor="middle" fill="#94a3b8" font-size="9">4</text>
+  <!-- RDP Target -->
+  <rect x="630" y="180" width="155" height="65" rx="10" fill="url(#b-gray)" filter="url(#sh3)"/>
+  <text x="707" y="207" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">RDP Target Server</text>
+  <text x="707" y="225" text-anchor="middle" fill="#cbd5e1" font-size="10">Windows Server</text>
+  <!-- Steps -->
+  <rect x="30" y="270" width="760" height="55" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="50" y="290" fill="#94a3b8" font-size="11" font-weight="600">Flow:</text>
+  <text x="50" y="310" fill="#e2e8f0" font-size="11">1. User authenticates via SSO/MFA → 2. Ephemeral certificate issued per session → 3. Worker establishes RDP via cert → 4. Passwordless RDP session → 5. Cert auto-revoked on disconnect</text>
+</svg>
 
 ### 4.2 VSO: etcd 없이 Kubernetes 시크릿 관리
 

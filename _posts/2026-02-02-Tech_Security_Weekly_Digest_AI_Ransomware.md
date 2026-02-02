@@ -124,20 +124,40 @@ SK쉴더스 리포트에서 제시하는 보안 Vertical AI의 3대 적용 영�
 
 기존 SOC에서 Tier 1 분석가가 수행하는 반복적인 알림 분류(Alert Triage) 작업을 AI가 대체합니다. 하루 수천 건의 알림 중 진짜 위협을 식별하는 데 걸리는 시간을 분 단위에서 초 단위로 단축할 수 있습니다.
 
-```
-SOC Vertical AI Workflow:
-SIEM Alert Received → AI Auto-Classification (True/False Positive)
-                          ↓
-                    If True Positive
-                          ↓
-              Auto Threat Context Enrichment (IOC Correlation)
-                          ↓
-              MITRE ATT&CK TTP Auto-Mapping
-                          ↓
-              Response Playbook Auto-Recommendation/Execution
-                          ↓
-              Deliver Analysis Report to Tier 2/3 Analysts
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 440" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="soc1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1e40af"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
+    <linearGradient id="soc2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0e7490"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient>
+    <linearGradient id="soc3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="soc4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#059669"/><stop offset="100%" stop-color="#34d399"/></linearGradient>
+    <marker id="sa" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#64748b"/></marker>
+    <filter id="ss"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.18"/></filter>
+  </defs>
+  <rect width="700" height="440" rx="12" fill="#0f172a"/>
+  <text x="350" y="32" text-anchor="middle" fill="#f8fafc" font-size="17" font-weight="700">SOC Vertical AI Workflow</text>
+  <g filter="url(#ss)">
+    <rect x="175" y="48" width="350" height="42" rx="21" fill="url(#soc1)"/>
+    <text x="350" y="74" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">SIEM Alert Received</text>
+    <path d="M350 90 L350 108" stroke="#64748b" stroke-width="2" marker-end="url(#sa)"/>
+    <rect x="150" y="112" width="400" height="42" rx="21" fill="url(#soc2)"/>
+    <text x="350" y="138" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">AI Auto-Classification (True / False Positive)</text>
+    <path d="M350 154 L350 172" stroke="#64748b" stroke-width="2" marker-end="url(#sa)"/>
+    <rect x="225" y="176" width="250" height="30" rx="15" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="350" y="196" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="600">If True Positive</text>
+    <path d="M350 206 L350 224" stroke="#64748b" stroke-width="2" marker-end="url(#sa)"/>
+    <rect x="125" y="228" width="450" height="42" rx="21" fill="url(#soc3)"/>
+    <text x="350" y="254" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Threat Context Enrichment + IOC Correlation</text>
+    <path d="M350 270 L350 288" stroke="#64748b" stroke-width="2" marker-end="url(#sa)"/>
+    <rect x="175" y="292" width="350" height="42" rx="21" fill="url(#soc3)"/>
+    <text x="350" y="318" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">MITRE ATT&amp;CK TTP Auto-Mapping</text>
+    <path d="M350 334 L350 352" stroke="#64748b" stroke-width="2" marker-end="url(#sa)"/>
+    <rect x="125" y="356" width="450" height="42" rx="21" fill="url(#soc4)"/>
+    <text x="350" y="375" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Playbook Recommendation → Tier 2/3 Analyst Report</text>
+  </g>
+  <!-- Side labels -->
+  <rect x="15" y="60" width="100" height="24" rx="4" fill="#1e3a5f"/><text x="65" y="77" text-anchor="middle" fill="#93c5fd" font-size="10" font-weight="600">Automated</text>
+  <rect x="585" y="365" width="100" height="24" rx="4" fill="#14532d"/><text x="635" y="382" text-anchor="middle" fill="#6ee7b7" font-size="10" font-weight="600">Human Review</text>
+</svg>
 
 **2) 위협 탐지 AI (Threat Detection)**
 
@@ -205,28 +225,50 @@ BlackField 랜섬웨어의 공격 체인을 MITRE ATT&CK 프레임워크로 매�
 
 **공격 체인 분석:**
 
-```
-Phase 1: Initial Access
-├── Scan/Exploit Public-Facing Service Vulnerabilities (T1190)
-├── Phishing Email for Initial Access (T1566)
-└── Leverage Compromised Credentials (T1078)
-
-Phase 2: Execution & Persistence
-├── PowerShell-based Payload Execution (T1059.001)
-├── Registry Run Keys / Startup Folder Registration (T1547.001)
-└── Process Injection for Evasion (T1055)
-
-Phase 3: Lateral Movement
-├── Network Propagation via SMB/Admin Shares (T1021.002)
-├── Domain Admin Account Compromise Attempt
-└── Identify Critical Servers (AD, File Server, Backup Server)
-
-Phase 4: Impact
-├── Delete VSS/Backups to Prevent Recovery (T1490)
-├── Disable EDR/AV (T1562.001)
-├── Data Exfiltration - Double Extortion Preparation (T1567)
-└── Full File Encryption Execution (T1486)
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bf1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#dc2626"/><stop offset="100%" stop-color="#ef4444"/></linearGradient>
+    <linearGradient id="bf2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ea580c"/><stop offset="100%" stop-color="#f97316"/></linearGradient>
+    <linearGradient id="bf3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ca8a04"/><stop offset="100%" stop-color="#eab308"/></linearGradient>
+    <linearGradient id="bf4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient>
+    <filter id="bfs"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/></filter>
+    <marker id="bfa" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#475569"/></marker>
+  </defs>
+  <rect width="900" height="520" rx="12" fill="#0f172a"/>
+  <text x="450" y="36" text-anchor="middle" fill="#f8fafc" font-size="18" font-weight="700">BlackField Ransomware Attack Chain (MITRE ATT&amp;CK)</text>
+  <!-- Phase 1 -->
+  <rect x="30" y="55" width="200" height="36" rx="6" fill="url(#bf1)" filter="url(#bfs)"/>
+  <text x="130" y="78" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 1: Initial Access</text>
+  <rect x="240" y="55" width="630" height="95" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="260" cy="78" r="5" fill="#f87171"/><text x="275" y="82" fill="#e2e8f0" font-size="12">Scan/Exploit Public-Facing Service Vulnerabilities</text><text x="750" y="82" fill="#f87171" font-size="11" font-weight="600">T1190</text>
+  <circle cx="260" cy="103" r="5" fill="#f87171"/><text x="275" y="107" fill="#e2e8f0" font-size="12">Phishing Email for Initial Access</text><text x="750" y="107" fill="#f87171" font-size="11" font-weight="600">T1566</text>
+  <circle cx="260" cy="128" r="5" fill="#f87171"/><text x="275" y="132" fill="#e2e8f0" font-size="12">Leverage Compromised Credentials</text><text x="750" y="132" fill="#f87171" font-size="11" font-weight="600">T1078</text>
+  <path d="M450 152 L450 168" stroke="#475569" stroke-width="2" marker-end="url(#bfa)"/>
+  <!-- Phase 2 -->
+  <rect x="30" y="170" width="200" height="36" rx="6" fill="url(#bf2)" filter="url(#bfs)"/>
+  <text x="130" y="193" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 2: Execution</text>
+  <rect x="240" y="170" width="630" height="95" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="260" cy="193" r="5" fill="#fb923c"/><text x="275" y="197" fill="#e2e8f0" font-size="12">PowerShell-based Payload Execution</text><text x="750" y="197" fill="#fb923c" font-size="11" font-weight="600">T1059.001</text>
+  <circle cx="260" cy="218" r="5" fill="#fb923c"/><text x="275" y="222" fill="#e2e8f0" font-size="12">Registry Run Keys / Startup Folder Registration</text><text x="750" y="222" fill="#fb923c" font-size="11" font-weight="600">T1547.001</text>
+  <circle cx="260" cy="243" r="5" fill="#fb923c"/><text x="275" y="247" fill="#e2e8f0" font-size="12">Process Injection for Evasion</text><text x="750" y="247" fill="#fb923c" font-size="11" font-weight="600">T1055</text>
+  <path d="M450 267 L450 283" stroke="#475569" stroke-width="2" marker-end="url(#bfa)"/>
+  <!-- Phase 3 -->
+  <rect x="30" y="285" width="200" height="36" rx="6" fill="url(#bf3)" filter="url(#bfs)"/>
+  <text x="130" y="308" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 3: Lateral Move</text>
+  <rect x="240" y="285" width="630" height="95" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="260" cy="308" r="5" fill="#facc15"/><text x="275" y="312" fill="#e2e8f0" font-size="12">Network Propagation via SMB/Admin Shares</text><text x="750" y="312" fill="#facc15" font-size="11" font-weight="600">T1021.002</text>
+  <circle cx="260" cy="333" r="5" fill="#facc15"/><text x="275" y="337" fill="#e2e8f0" font-size="12">Domain Admin Account Compromise Attempt</text>
+  <circle cx="260" cy="358" r="5" fill="#facc15"/><text x="275" y="362" fill="#e2e8f0" font-size="12">Identify Critical Servers (AD, File Server, Backup)</text>
+  <path d="M450 382 L450 398" stroke="#475569" stroke-width="2" marker-end="url(#bfa)"/>
+  <!-- Phase 4 -->
+  <rect x="30" y="400" width="200" height="36" rx="6" fill="url(#bf4)" filter="url(#bfs)"/>
+  <text x="130" y="423" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 4: Impact</text>
+  <rect x="240" y="400" width="630" height="100" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="260" cy="420" r="5" fill="#a78bfa"/><text x="275" y="424" fill="#e2e8f0" font-size="12">Delete VSS/Backups to Prevent Recovery</text><text x="750" y="424" fill="#a78bfa" font-size="11" font-weight="600">T1490</text>
+  <circle cx="260" cy="443" r="5" fill="#a78bfa"/><text x="275" y="447" fill="#e2e8f0" font-size="12">Disable EDR/AV</text><text x="750" y="447" fill="#a78bfa" font-size="11" font-weight="600">T1562.001</text>
+  <circle cx="260" cy="466" r="5" fill="#a78bfa"/><text x="275" y="470" fill="#e2e8f0" font-size="12">Data Exfiltration - Double Extortion</text><text x="750" y="470" fill="#a78bfa" font-size="11" font-weight="600">T1567</text>
+  <circle cx="260" cy="484" r="4" fill="#f87171"/><text x="275" y="488" fill="#fca5a5" font-size="12" font-weight="700">Full File Encryption Execution</text><text x="750" y="488" fill="#f87171" font-size="11" font-weight="700">T1486</text>
+</svg>
 
 #### 탐지 및 대응 가이드
 
@@ -288,33 +330,49 @@ NOT source.ip: destination.ip
 
 #### 데이터 중심 제로트러스트 아키텍처
 
-```
-Data-Centric Zero Trust Layered Architecture:
-
-Layer 1: Data Discovery & Classification
-├── Structured Data: Auto-classify DB, spreadsheets
-├── Unstructured Data: Detect sensitive info in docs, emails, images
-├── Classification Levels: Public / Internal / Confidential / Top Secret
-└── Automation: DLP + AI-based auto-tagging
-
-Layer 2: Data Protection
-├── At Rest: AES-256 encryption, BYOK/HYOK
-├── In Transit: TLS 1.3, mTLS
-├── In Use: Confidential Computing
-└── Tokenization/Masking: De-identification of sensitive data
-
-Layer 3: Data Access Control
-├── ABAC (Attribute-Based Access Control): Dynamic access based on attributes
-├── Context-Aware: Decisions based on time, location, device posture
-├── Just-in-Time Access: Minimum-duration access granted only when needed
-└── Data-Level RBAC: Fine-grained field/row-level access control
-
-Layer 4: Monitoring & Audit
-├── Full data access log recording
-├── Real-time anomalous access pattern detection
-├── Data exfiltration attempt blocking (DLP)
-└── Automated compliance audit reporting
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="zt1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1e40af"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
+    <linearGradient id="zt2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#059669"/><stop offset="100%" stop-color="#10b981"/></linearGradient>
+    <linearGradient id="zt3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="zt4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#b45309"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient>
+    <filter id="zts"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.18"/></filter>
+  </defs>
+  <rect width="800" height="500" rx="12" fill="#0f172a"/>
+  <text x="400" y="32" text-anchor="middle" fill="#f8fafc" font-size="17" font-weight="700">Data-Centric Zero Trust Layered Architecture</text>
+  <!-- Layer 1 -->
+  <rect x="30" y="50" width="740" height="100" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" filter="url(#zts)"/>
+  <rect x="30" y="50" width="8" height="100" rx="4" fill="url(#zt1)"/>
+  <text x="55" y="72" fill="#93c5fd" font-size="14" font-weight="700">Layer 1: Data Discovery &amp; Classification</text>
+  <circle cx="60" cy="92" r="4" fill="#60a5fa"/><text x="75" y="96" fill="#e2e8f0" font-size="12">Structured Data: Auto-classify DB, spreadsheets</text>
+  <circle cx="400" cy="92" r="4" fill="#60a5fa"/><text x="415" y="96" fill="#e2e8f0" font-size="12">Unstructured Data: Sensitive info detection</text>
+  <circle cx="60" cy="116" r="4" fill="#60a5fa"/><text x="75" y="120" fill="#e2e8f0" font-size="12">Levels: Public / Internal / Confidential / Top Secret</text>
+  <circle cx="400" cy="116" r="4" fill="#60a5fa"/><text x="415" y="120" fill="#e2e8f0" font-size="12">Automation: DLP + AI-based auto-tagging</text>
+  <!-- Layer 2 -->
+  <rect x="30" y="162" width="740" height="100" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5" filter="url(#zts)"/>
+  <rect x="30" y="162" width="8" height="100" rx="4" fill="url(#zt2)"/>
+  <text x="55" y="184" fill="#6ee7b7" font-size="14" font-weight="700">Layer 2: Data Protection</text>
+  <circle cx="60" cy="204" r="4" fill="#34d399"/><text x="75" y="208" fill="#e2e8f0" font-size="12">At Rest: AES-256, BYOK/HYOK</text>
+  <circle cx="400" cy="204" r="4" fill="#34d399"/><text x="415" y="208" fill="#e2e8f0" font-size="12">In Transit: TLS 1.3, mTLS</text>
+  <circle cx="60" cy="228" r="4" fill="#34d399"/><text x="75" y="232" fill="#e2e8f0" font-size="12">In Use: Confidential Computing</text>
+  <circle cx="400" cy="228" r="4" fill="#34d399"/><text x="415" y="232" fill="#e2e8f0" font-size="12">Tokenization/Masking: De-identification</text>
+  <!-- Layer 3 -->
+  <rect x="30" y="274" width="740" height="100" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5" filter="url(#zts)"/>
+  <rect x="30" y="274" width="8" height="100" rx="4" fill="url(#zt3)"/>
+  <text x="55" y="296" fill="#c4b5fd" font-size="14" font-weight="700">Layer 3: Data Access Control</text>
+  <circle cx="60" cy="316" r="4" fill="#a78bfa"/><text x="75" y="320" fill="#e2e8f0" font-size="12">ABAC: Dynamic attribute-based access</text>
+  <circle cx="400" cy="316" r="4" fill="#a78bfa"/><text x="415" y="320" fill="#e2e8f0" font-size="12">Context-Aware: Time, location, device posture</text>
+  <circle cx="60" cy="340" r="4" fill="#a78bfa"/><text x="75" y="344" fill="#e2e8f0" font-size="12">Just-in-Time: Minimum-duration access</text>
+  <circle cx="400" cy="340" r="4" fill="#a78bfa"/><text x="415" y="344" fill="#e2e8f0" font-size="12">Data-Level RBAC: Field/row-level control</text>
+  <!-- Layer 4 -->
+  <rect x="30" y="386" width="740" height="100" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" filter="url(#zts)"/>
+  <rect x="30" y="386" width="8" height="100" rx="4" fill="url(#zt4)"/>
+  <text x="55" y="408" fill="#fcd34d" font-size="14" font-weight="700">Layer 4: Monitoring &amp; Audit</text>
+  <circle cx="60" cy="428" r="4" fill="#fbbf24"/><text x="75" y="432" fill="#e2e8f0" font-size="12">Full data access log recording</text>
+  <circle cx="400" cy="428" r="4" fill="#fbbf24"/><text x="415" y="432" fill="#e2e8f0" font-size="12">Real-time anomalous access detection</text>
+  <circle cx="60" cy="452" r="4" fill="#fbbf24"/><text x="75" y="456" fill="#e2e8f0" font-size="12">Exfiltration attempt blocking (DLP)</text>
+  <circle cx="400" cy="452" r="4" fill="#fbbf24"/><text x="415" y="456" fill="#e2e8f0" font-size="12">Automated compliance audit reporting</text>
+</svg>
 
 #### 기존 vs 데이터 중심 제로트러스트
 
