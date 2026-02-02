@@ -53,7 +53,7 @@ sitemap:
   include_categories: true
 
 # Permalinks - Clean URL structure
-permalink: /posts/:year/:month/:title/
+permalink: /posts/:year/:month/:day/:title/
 
 # Collections for categories
 collections:

@@ -815,7 +815,8 @@ def fetch_rss_feed(
                         break
 
             if not published:
-                published = datetime.now(timezone.utc)
+                # Skip items without a publication date - they're likely archive items
+                continue
 
             # timezone-aware로 변환
             if published.tzinfo is None:
@@ -978,6 +979,31 @@ def filter_new_items(items: List[NewsItem], processed_file: Path) -> List[NewsIt
     return new_items
 
 
+def load_recent_post_titles(posts_dir: Path = Path("_posts"), days: int = 7) -> set:
+    """최근 포스트에서 사용된 뉴스 제목들을 로드하여 중복 방지"""
+    titles = set()
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+
+    for post_file in sorted(posts_dir.glob("*.md"), reverse=True)[:14]:  # Last 14 posts
+        try:
+            filename = post_file.name
+            # Extract date from filename
+            date_str = filename[:10]
+            post_date = datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+            if post_date < cutoff:
+                break
+
+            with open(post_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+                # Extract titles from markdown headers (### x.x Title)
+                for match in re.finditer(r'### \d+\.\d+ (.+)', content):
+                    titles.add(match.group(1).strip().lower()[:50])
+        except (ValueError, OSError):
+            continue
+
+    return titles
+
+
 # ============================================================================
 # 메인 함수
 # ============================================================================
@@ -1046,6 +1072,15 @@ def main():
     items = fetch_all_news(
         sources=sources, hours=args.hours, feed_timeout=args.feed_timeout
     )
+
+    # 최근 포스트에서 다룬 뉴스 제목 중복 제거
+    recent_titles = load_recent_post_titles()
+    if recent_titles:
+        before_count = len(items)
+        items = [item for item in items if item.title.strip().lower()[:50] not in recent_titles]
+        dedup_count = before_count - len(items)
+        if dedup_count > 0:
+            print(f"\nDeduplicated: removed {dedup_count} items already covered in recent posts")
 
     # 이미 처리된 뉴스 필터링
     if args.filter_processed:
