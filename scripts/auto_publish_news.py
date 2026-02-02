@@ -81,6 +81,18 @@ SOURCE_PRIORITY = {
     "hackernews": 3,
     "skshieldus": 2,
     "skshieldus_report": 2,
+    "palantir": 1,
+    "openai": 1,
+    "google_ai": 1,
+    "meta_ai": 1,
+    "huggingface": 2,
+    "databricks": 2,
+    "snowflake": 2,
+    "bitcoin_magazine": 1,
+    "cointelegraph": 2,
+    "theblock": 2,
+    "vitalik": 1,
+    "chainalysis": 1,
 }
 
 MIN_NEWS_COUNT = 5  # 최소 뉴스 수
@@ -906,6 +918,16 @@ def _extract_key_topics(news_items: List[Dict]) -> List[str]:
         "Malware",
         "Ransomware",
         "Botnet",
+        "Bitcoin",
+        "Ethereum",
+        "DeFi",
+        "Web3",
+        "Blockchain",
+        "LLM",
+        "GPT",
+        "Agent",
+        "Data",
+        "Palantir",
     ]
 
     for item in news_items[:6]:

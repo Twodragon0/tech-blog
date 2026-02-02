@@ -418,6 +418,69 @@ NEWS_SOURCES = {
         "language": "en",
         "priority": 1,
     },
+    # Palantir
+    "palantir": {
+        "name": "Palantir Blog",
+        "url": "https://blog.palantir.com/",
+        "feed_url": "https://blog.palantir.com/feed",
+        "category": "ai",
+        "language": "en",
+        "priority": 1,
+    },
+    # OpenAI
+    "openai": {
+        "name": "OpenAI Blog",
+        "url": "https://openai.com/blog",
+        "feed_url": "https://openai.com/blog/rss.xml",
+        "category": "ai",
+        "language": "en",
+        "priority": 1,
+    },
+    # Google AI
+    "google_ai": {
+        "name": "Google AI Blog",
+        "url": "https://blog.google/technology/ai/",
+        "feed_url": "https://blog.google/technology/ai/rss/",
+        "category": "ai",
+        "language": "en",
+        "priority": 1,
+    },
+    # Hugging Face
+    "huggingface": {
+        "name": "Hugging Face Blog",
+        "url": "https://huggingface.co/blog",
+        "feed_url": "https://huggingface.co/blog/feed.xml",
+        "category": "ai",
+        "language": "en",
+        "priority": 2,
+    },
+    # Meta AI
+    "meta_ai": {
+        "name": "Meta AI Blog",
+        "url": "https://ai.meta.com/blog/",
+        "feed_url": "https://ai.meta.com/blog/rss/",
+        "category": "ai",
+        "language": "en",
+        "priority": 1,
+    },
+    # Databricks (Data + AI)
+    "databricks": {
+        "name": "Databricks Blog",
+        "url": "https://www.databricks.com/blog",
+        "feed_url": "https://www.databricks.com/blog/feed",
+        "category": "ai",
+        "language": "en",
+        "priority": 2,
+    },
+    # Snowflake (Data Platform)
+    "snowflake": {
+        "name": "Snowflake Blog",
+        "url": "https://www.snowflake.com/blog/",
+        "feed_url": "https://www.snowflake.com/blog/feed/",
+        "category": "ai",
+        "language": "en",
+        "priority": 2,
+    },
     # ============================================================================
     # Blockchain & Cryptocurrency
     # ============================================================================
@@ -435,6 +498,51 @@ NEWS_SOURCES = {
         "name": "CoinDesk",
         "url": "https://www.coindesk.com/",
         "feed_url": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+        "category": "blockchain",
+        "language": "en",
+        "priority": 1,
+    },
+    # Bitcoin Magazine
+    "bitcoin_magazine": {
+        "name": "Bitcoin Magazine",
+        "url": "https://bitcoinmagazine.com/",
+        "feed_url": "https://bitcoinmagazine.com/.rss/full/",
+        "category": "blockchain",
+        "language": "en",
+        "priority": 1,
+    },
+    # Cointelegraph
+    "cointelegraph": {
+        "name": "Cointelegraph",
+        "url": "https://cointelegraph.com/",
+        "feed_url": "https://cointelegraph.com/rss",
+        "category": "blockchain",
+        "language": "en",
+        "priority": 2,
+    },
+    # The Block
+    "theblock": {
+        "name": "The Block",
+        "url": "https://www.theblock.co/",
+        "feed_url": "https://www.theblock.co/rss.xml",
+        "category": "blockchain",
+        "language": "en",
+        "priority": 2,
+    },
+    # Vitalik Buterin Blog
+    "vitalik": {
+        "name": "Vitalik Buterin Blog",
+        "url": "https://vitalik.eth.limo/",
+        "feed_url": "https://vitalik.eth.limo/feed.xml",
+        "category": "blockchain",
+        "language": "en",
+        "priority": 1,
+    },
+    # Chainalysis
+    "chainalysis": {
+        "name": "Chainalysis Blog",
+        "url": "https://www.chainalysis.com/blog/",
+        "feed_url": "https://www.chainalysis.com/blog/feed/",
         "category": "blockchain",
         "language": "en",
         "priority": 1,
