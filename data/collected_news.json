@@ -1,37 +1,7 @@
 {
-  "collected_at": "2026-02-02T09:02:53.454971+00:00",
-  "total_items": 85,
+  "collected_at": "2026-02-02T09:06:07.240704+00:00",
+  "total_items": 81,
   "items": [
-    {
-      "id": "9eb8f57ab333",
-      "title": "More than $370M in crypto stolen in January:CertiK",
-      "url": "https://cointelegraph.com/news/crypto-stolen-370m-january-quadrupling-year-on-year-certik?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T05:56:31+00:00",
-      "summary": "The amount of crypto stolen in January is also a 214% increase from the month before, with a majority of the value lost due to a single phishing incident.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Jesse Coghlan",
-      "priority": 2
-    },
-    {
-      "id": "4dbfcdd55c63",
-      "title": "Average Bitcoin ETF buy underwater as investors pull $2.8B in 2 weeks",
-      "url": "https://cointelegraph.com/news/average-bitcoin-etf-buy-underwater-after-investors-pull-2-8b-2-weeks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T05:51:32+00:00",
-      "summary": "Following its weekend rout, Bitcoin dropped to $74,600 on Monday, marking a nine-month low for the cryptocurrency.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Martin Young",
-      "priority": 2
-    },
     {
       "id": "af5b1226fea2",
       "title": "Leaked Chats Expose the Daily Life of a Scam Compound's Enslaved Workforce",
@@ -255,6 +225,26 @@
       "content": "",
       "tags": [],
       "author": "zdw",
+      "priority": 2
+    },
+    {
+      "id": "3161a6d8ab69",
+      "title": "The Bronx will be breathing a little easier with new Volvo VNR Electric",
+      "url": "https://electrek.co/2026/02/01/the-bronx-will-be-breathing-a-little-easier-with-new-volvo-vnr-electric/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-01T21:28:13+00:00",
+      "summary": "New York City’s largest food rescue organization is helping Bronx residents breathe a little bit easier with the recent acquisition and upcoming deployment of three brand-new, zero emission Volvo VNR Electric semi trucks. more…",
+      "content": "",
+      "tags": [
+        "News",
+        "electric trucks",
+        "heavy equipment",
+        "volvo"
+      ],
+      "author": "Jo Borrás",
       "priority": 2
     },
     {
@@ -654,62 +644,6 @@
       "priority": 1
     },
     {
-      "id": "230483d583e0",
-      "title": "Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2011%EC%9B%94%ED%98%B8%20%EA%B8%B0%EC%A1%B4%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%BD%94%EB%93%9C%EB%A5%BC%20%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%95%9C%20BlackField%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20251127174343776.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-02T09:02:53.450881+00:00",
-      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "랜섬웨어",
-        "보안리포트",
-        "KARA"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "d86768d75288",
-      "title": "Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_11%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EB%8D%B0%EC%9D%B4%ED%84%B0(Data).pdf&r_fname=20251127174412898.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-02T09:02:53.450779+00:00",
-      "summary": "SK쉴더스 보안 리포트: Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "5528f45e0d25",
-      "title": "SK쉴더스 EQST insight 통합 11월호",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_11%EC%9B%94%ED%98%B8.pdf&r_fname=20251127174457418.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-02T09:02:53.450679+00:00",
-      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 11월호",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
       "id": "986e55bc2a7e",
       "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
@@ -717,7 +651,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:02:53.450584+00:00",
+      "published": "2026-02-02T09:06:07.236425+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "content": "",
       "tags": [
@@ -735,12 +669,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:02:53.450475+00:00",
+      "published": "2026-02-02T09:06:07.236300+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
       "content": "",
       "tags": [
-        "SK쉴더스",
         "랜섬웨어",
+        "SK쉴더스",
         "보안리포트",
         "KARA"
       ],
@@ -755,7 +689,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:02:53.450363+00:00",
+      "published": "2026-02-02T09:06:07.236180+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
       "content": "",
       "tags": [
@@ -773,7 +707,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:02:53.450232+00:00",
+      "published": "2026-02-02T09:06:07.236055+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
       "content": "",
       "tags": [
@@ -791,7 +725,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:02:53.450135+00:00",
+      "published": "2026-02-02T09:06:07.235931+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
       "content": "",
       "tags": [
@@ -809,12 +743,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:02:53.450019+00:00",
+      "published": "2026-02-02T09:06:07.235771+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
       "content": "",
       "tags": [
-        "SK쉴더스",
         "랜섬웨어",
+        "SK쉴더스",
         "보안리포트",
         "KARA"
       ],
@@ -829,7 +763,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:02:53.449900+00:00",
+      "published": "2026-02-02T09:06:07.235639+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
       "content": "",
       "tags": [
@@ -847,7 +781,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:02:53.449733+00:00",
+      "published": "2026-02-02T09:06:07.235477+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
       "content": "",
       "tags": [
