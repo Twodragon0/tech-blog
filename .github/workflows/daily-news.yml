@@ -33,7 +33,7 @@ on:
       max_news:
         description: 'Maximum news items to include'
         required: false
-        default: '10'
+        default: '15'
 
 concurrency:
   group: daily-news-publish
@@ -117,7 +117,7 @@ jobs:
         if: steps.check_news.outputs.has_enough_news == 'true'
         run: |
           DRY_RUN="${{ github.event.inputs.dry_run || 'false' }}"
-          MAX_NEWS="${{ github.event.inputs.max_news || '10' }}"
+          MAX_NEWS="${{ github.event.inputs.max_news || '15' }}"
           HOURS="${{ github.event.inputs.hours || '24' }}"
           
           echo "📊 Debug Info:"
@@ -140,7 +140,54 @@ jobs:
           echo "📁 Generated files:"
           ls -la _posts/*.md 2>/dev/null | tail -3 || echo "No posts found"
           ls -la assets/images/*.svg 2>/dev/null | tail -3 || echo "No images found"
-      
+
+      - name: Validate post quality
+        if: steps.check_news.outputs.has_enough_news == 'true'
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          POST_FILE=$(ls _posts/${TODAY}-Tech_Security_Weekly_Digest*.md 2>/dev/null | head -1)
+
+          if [ -n "$POST_FILE" ] && [ -f "$POST_FILE" ]; then
+            echo "📋 Validating post quality..."
+
+            # Check minimum file size (at least 5KB for quality post)
+            FILE_SIZE=$(wc -c < "$POST_FILE")
+            echo "  File size: ${FILE_SIZE} bytes"
+
+            if [ "$FILE_SIZE" -lt 5000 ]; then
+              echo "::warning::Post is too small (${FILE_SIZE} bytes). Quality may be low."
+            fi
+
+            # Check for required sections
+            SECTIONS=0
+            for section in "## 1." "## 2." "실무 체크리스트" "참고 자료" "트렌드 분석"; do
+              if grep -q "$section" "$POST_FILE"; then
+                SECTIONS=$((SECTIONS + 1))
+              fi
+            done
+            echo "  Required sections found: ${SECTIONS}/5"
+
+            # Check for front matter completeness
+            FM_FIELDS=0
+            for field in "title:" "date:" "categories:" "tags:" "excerpt:" "description:" "image:" "toc:"; do
+              if head -20 "$POST_FILE" | grep -q "$field"; then
+                FM_FIELDS=$((FM_FIELDS + 1))
+              fi
+            done
+            echo "  Front matter fields: ${FM_FIELDS}/8"
+
+            # Check for AI summary card
+            if grep -q "ai-summary-card" "$POST_FILE"; then
+              echo "  AI Summary Card: ✅"
+            else
+              echo "::warning::Missing AI Summary Card"
+            fi
+
+            echo "✅ Quality validation complete"
+          else
+            echo "⏭️ No post to validate"
+          fi
+
       - name: Check for new post
         id: check_post
         if: steps.check_news.outputs.has_enough_news == 'true'
@@ -208,24 +255,42 @@ jobs:
           fi
       
       - name: Summary
+        if: always()
         run: |
           echo "## 📰 Daily News Auto Publish Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Date**: $(date +%Y-%m-%d)" >> $GITHUB_STEP_SUMMARY
           echo "- **News Collected**: ${{ steps.check_news.outputs.news_count }}" >> $GITHUB_STEP_SUMMARY
-          
+
           if [ "${{ steps.check_post.outputs.post_created }}" = "true" ]; then
             echo "- **Status**: ✅ Post published successfully" >> $GITHUB_STEP_SUMMARY
             echo "- **File**: \`${{ steps.check_post.outputs.post_file }}\`" >> $GITHUB_STEP_SUMMARY
+
+            # Show post size if available
+            POST_FILE="${{ steps.check_post.outputs.post_file }}"
+            if [ -n "$POST_FILE" ] && [ -f "$POST_FILE" ]; then
+              POST_SIZE=$(wc -c < "$POST_FILE")
+              POST_LINES=$(wc -l < "$POST_FILE")
+              echo "- **Post Size**: ${POST_SIZE} bytes (${POST_LINES} lines)" >> $GITHUB_STEP_SUMMARY
+            fi
           else
             echo "- **Status**: ⏭️ Skipped (not enough news or dry run)" >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Configuration" >> $GITHUB_STEP_SUMMARY
           echo "- Hours lookback: ${{ github.event.inputs.hours || '24' }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Max news: ${{ github.event.inputs.max_news || '10' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Max news: ${{ github.event.inputs.max_news || '15' }}" >> $GITHUB_STEP_SUMMARY
           echo "- Dry run: ${{ github.event.inputs.dry_run || 'false' }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Daily news workflow failed. Check logs for details."
+          echo "## ❌ Daily News Workflow Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The daily news auto-publish workflow encountered an error." >> $GITHUB_STEP_SUMMARY
+          echo "Please check the [workflow run logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details." >> $GITHUB_STEP_SUMMARY
 
   weekly-source-check:
     runs-on: ubuntu-latest

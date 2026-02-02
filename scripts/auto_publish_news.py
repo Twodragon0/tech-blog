@@ -18,11 +18,13 @@ Usage:
 """
 
 import argparse
+import html
 import json
 import os
 import re
 import subprocess
 import sys
+import unicodedata
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -39,26 +41,32 @@ DATA_DIR = Path("_data")  # 실제 데이터 디렉토리
 CATEGORY_PRIORITY = {
     "security": 1,
     "devsecops": 2,
-    "cloud": 3,
-    "devops": 4,
-    "tech": 5,
+    "ai": 3,
+    "cloud": 4,
+    "devops": 5,
+    "blockchain": 6,
+    "tech": 7,
 }
 
 CATEGORY_EMOJI = {
     "security": "🔒",
     "devsecops": "🛡️",
+    "ai": "🤖",
     "cloud": "☁️",
     "devops": "⚙️",
     "tech": "💻",
     "kubernetes": "🚀",
+    "blockchain": "⛓️",
     "finops": "💰",
 }
 
 CATEGORY_COLOR = {
     "security": "#ef4444",
     "devsecops": "#8b5cf6",
+    "ai": "#6366f1",
     "cloud": "#22c55e",
     "devops": "#f59e0b",
+    "blockchain": "#f97316",
     "tech": "#3b82f6",
 }
 
@@ -76,7 +84,7 @@ SOURCE_PRIORITY = {
 }
 
 MIN_NEWS_COUNT = 5  # 최소 뉴스 수
-MAX_NEWS_PER_CATEGORY = 3  # 카테고리당 최대 뉴스 수
+MAX_NEWS_PER_CATEGORY = 5  # 카테고리당 최대 뉴스 수
 
 
 # ============================================================================
@@ -173,17 +181,36 @@ def categorize_news(items: List[Dict]) -> Dict[str, List[Dict]]:
         # security, devsecops는 security로 통합
         if category in ("security", "devsecops"):
             category = "security"
-        elif category in ("devops", "kubernetes"):
+        elif category == "kubernetes":
             category = "devops"
+        # ai, blockchain은 독립 카테고리로 유지
+        # cloud, devops, tech도 그대로 유지
 
         if len(categorized[category]) < MAX_NEWS_PER_CATEGORY:
+            # Filter out stale items for non-security categories
+            if category not in ("security", "devsecops"):
+                # Check URL for old year indicators (e.g., /2023/ or /2024/)
+                url = item.get("url", "")
+                current_year = datetime.now(timezone.utc).year
+                url_year_match = re.search(r'/(\d{4})/', url)
+                if url_year_match:
+                    url_year = int(url_year_match.group(1))
+                    if 2000 <= url_year < current_year - 1:
+                        continue
+                # Also check published date
+                try:
+                    pub_date = datetime.fromisoformat(item.get("published", "").replace("Z", "+00:00"))
+                    if (datetime.now(timezone.utc) - pub_date).days > 90:
+                        continue
+                except (ValueError, TypeError):
+                    pass
             categorized[category].append(item)
 
     return dict(categorized)
 
 
 def select_top_news(
-    categorized: Dict[str, List[Dict]], max_total: int = 10
+    categorized: Dict[str, List[Dict]], max_total: int = 15
 ) -> List[Dict]:
     """상위 뉴스 선택"""
     selected = []
@@ -218,16 +245,23 @@ def generate_post_content(
     total = sum(stats.values())
 
     # 핵심 뉴스 추출
-    security_news = categorized.get("security", [])[:2]
-    cloud_news = categorized.get("cloud", [])[:2]
-    devops_news = categorized.get("devops", [])[:2]
+    security_news = categorized.get("security", [])[:3]
+    ai_news = categorized.get("ai", [])[:3]
+    cloud_news = categorized.get("cloud", [])[:3]
+    devops_news = categorized.get("devops", [])[:3]
+    blockchain_news = categorized.get("blockchain", [])[:2]
     tech_news = categorized.get("tech", [])[:2]
 
     # 핵심 하이라이트 생성
     highlights = []
     for item in (security_news + cloud_news)[:4]:
         source = item.get("source_name", item.get("source", "Unknown"))
-        title = item.get("title", "")[:60]
+        title = item.get("title", "")
+        if len(title) > 60:
+            # Truncate at word boundary
+            title = title[:57].rsplit(" ", 1)[0] + "..."
+        source = html.escape(source)
+        title = html.escape(title)
         highlights.append(f"<li><strong>{source}</strong>: {title}</li>")
 
     highlights_html = (
@@ -237,8 +271,37 @@ def generate_post_content(
     )
 
     topics = _extract_key_topics(news_items)
-    top_titles = [item.get("title", "")[:40] for item in news_items[:3]]
+
+    # 임팩트 높은 뉴스 우선 선택 (CVE, Zero-Day, Critical 키워드 우선)
+    impact_keywords = ["cve", "zero-day", "0-day", "critical", "rce", "제로데이"]
+    scored_items = []
+    for item in news_items:
+        t = item.get("title", "")
+        score = sum(1 for kw in impact_keywords if kw in t.lower())
+        scored_items.append((score, t))
+    scored_items.sort(key=lambda x: x[0], reverse=True)
+
+    # 핵심 키워드만 추출하여 간결한 제목 생성
+    strip_prefixes = ["The ", "How ", "New ", "A "]
+    top_titles = []
+    for _, t in scored_items[:3]:
+        for prefix in strip_prefixes:
+            if t.startswith(prefix):
+                t = t[len(prefix):]
+                break
+        # Extract just the key phrase (up to first comma, colon, or dash after 15 chars)
+        short = t[:45]
+        for sep in [", ", ": ", " - ", " — "]:
+            idx = short.find(sep)
+            if idx > 10:
+                short = short[:idx]
+                break
+        top_titles.append(short.rstrip("., "))
     title_keywords = ", ".join(top_titles) if top_titles else "DevSecOps News"
+
+    # Total title cap: "Tech & Security Weekly Digest: " = 32 chars, so keywords max ~88 chars
+    if len(title_keywords) > 88:
+        title_keywords = title_keywords[:85] + "..."
 
     base_tags = ["Security-Weekly", "DevSecOps", "Cloud-Security", "Weekly-Digest", str(date.year)]
     topic_tags = [t for t in topics if t not in base_tags]
@@ -316,8 +379,10 @@ toc: true
 **수집 통계:**
 - **총 뉴스 수**: {total}개
 - **보안 뉴스**: {stats.get("security", 0)}개
+- **AI/ML 뉴스**: {stats.get("ai", 0)}개
 - **클라우드 뉴스**: {stats.get("cloud", 0)}개
 - **DevOps 뉴스**: {stats.get("devops", 0)}개
+- **블록체인 뉴스**: {stats.get("blockchain", 0)}개
 
 ---
 
@@ -332,37 +397,58 @@ toc: true
     # 하이라이트 테이블 생성
     for item in news_items[:5]:
         source = item.get("source_name", item.get("source", "Unknown"))[:15]
-        title = item.get("title", "")[:40]
+        title = item.get("title", "")[:50]
         category = item.get("category", "tech")
         emoji = CATEGORY_EMOJI.get(category, "📰")
+        severity = _determine_severity(item)
+        severity_emoji = {"Critical": "🔴", "High": "🟠", "Medium": "🟡"}.get(severity, "🟡")
         content += (
-            f"| {emoji} **{category.title()}** | {source} | {title}... | 중간 |\n"
+            f"| {emoji} **{category.title()}** | {source} | {title}... | {severity_emoji} {severity} |\n"
         )
 
     content += "\n---\n\n"
 
+    section_num = 1
+
     # 보안 뉴스 섹션 - 첫 번째는 상세 분석
     if security_news:
-        content += "## 1. 보안 뉴스\n\n"
+        content += f"## {section_num}. 보안 뉴스\n\n"
         for i, item in enumerate(security_news, 1):
             is_critical = (i == 1)  # 첫 번째 뉴스는 상세 분석
-            content += generate_news_section(item, f"1.{i}", is_critical=is_critical)
+            content += generate_news_section(item, f"{section_num}.{i}", is_critical=is_critical)
+        section_num += 1
+
+    # AI/ML 뉴스 섹션
+    if ai_news:
+        content += f"## {section_num}. AI/ML 뉴스\n\n"
+        for i, item in enumerate(ai_news, 1):
+            content += generate_news_section(item, f"{section_num}.{i}")
+        section_num += 1
 
     # 클라우드 뉴스 섹션
     if cloud_news:
-        content += "## 2. 클라우드 & 인프라 뉴스\n\n"
+        content += f"## {section_num}. 클라우드 & 인프라 뉴스\n\n"
         for i, item in enumerate(cloud_news, 1):
-            content += generate_news_section(item, f"2.{i}")
+            content += generate_news_section(item, f"{section_num}.{i}")
+        section_num += 1
 
     # DevOps 뉴스 섹션
     if devops_news:
-        content += "## 3. DevOps & 개발 뉴스\n\n"
+        content += f"## {section_num}. DevOps & 개발 뉴스\n\n"
         for i, item in enumerate(devops_news, 1):
-            content += generate_news_section(item, f"3.{i}")
+            content += generate_news_section(item, f"{section_num}.{i}")
+        section_num += 1
+
+    # 블록체인 뉴스 섹션
+    if blockchain_news:
+        content += f"## {section_num}. 블록체인 뉴스\n\n"
+        for i, item in enumerate(blockchain_news, 1):
+            content += generate_news_section(item, f"{section_num}.{i}")
+        section_num += 1
 
     # 기타 뉴스
     if tech_news:
-        content += "## 4. 기타 주목할 뉴스\n\n"
+        content += f"## {section_num}. 기타 주목할 뉴스\n\n"
         content += "| 제목 | 출처 | 핵심 내용 |\n"
         content += "|------|------|----------|\n"
         for item in tech_news[:5]:
@@ -372,27 +458,16 @@ toc: true
             summary = item.get("summary", "")[:80]
             content += f"| [{title}...]({url}) | {source} | {summary}... |\n"
         content += "\n"
+        section_num += 1
 
-    # 실무 체크리스트 (간결한 버전)
-    content += """---
+    # 트렌드 분석 섹션
+    content += _generate_trend_analysis(news_items, section_num)
+    section_num += 1
 
-## 실무 체크리스트
+    # 뉴스 기반 실무 체크리스트
+    content += _generate_news_specific_checklist(news_items)
 
-### P0 (즉시)
-
-- [ ] 긴급 보안 패치 적용
-- [ ] 취약 시스템 모니터링 강화
-
-### P1 (7일 내)
-
-- [ ] SIEM 탐지 룰 업데이트
-- [ ] 보안 정책 검토
-
-### P2 (30일 내)
-
-- [ ] 공격 표면 인벤토리 갱신
-- [ ] 접근 제어 감사
-
+    content += """
 ---
 
 ## 참고 자료
@@ -411,6 +486,62 @@ toc: true
     return content
 
 
+def _determine_severity(item: Dict) -> str:
+    """뉴스 심각도 결정"""
+    text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+    critical_keywords = [
+        "critical", "rce", "zero-day", "제로데이", "0-day",
+        "cvss 9", "cvss 10", "unauthenticated", "actively exploited",
+    ]
+    high_keywords = [
+        "high", "권한 상승", "privilege escalation",
+        "authentication bypass", "인증 우회", "ssrf", "injection",
+    ]
+
+    for kw in critical_keywords:
+        if kw in text:
+            return "Critical"
+    for kw in high_keywords:
+        if kw in text:
+            return "High"
+    return "Medium"
+
+
+def _extract_cve_ids(item: Dict) -> List[str]:
+    """뉴스 아이템에서 모든 CVE ID 추출"""
+    text = f"{item.get('title', '')} {item.get('summary', '')} {item.get('content', '')}"
+    cves = re.findall(r'CVE-\d{4}-\d+', text)
+    # 중복 제거하면서 순서 유지
+    seen = set()
+    unique = []
+    for cve in cves:
+        if cve not in seen:
+            seen.add(cve)
+            unique.append(cve)
+    return unique
+
+
+def _generate_key_points(item: Dict) -> str:
+    """뉴스 아이템에서 핵심 포인트 추출"""
+    summary = item.get("summary", "")
+    if not summary:
+        return ""
+
+    # 문장 단위로 분리하여 핵심 포인트 생성
+    sentences = re.split(r'[.!?]\s+', summary)
+    sentences = [s.strip() for s in sentences if len(s.strip()) > 15]
+
+    if not sentences:
+        return ""
+
+    points = ""
+    for s in sentences[:4]:
+        # 마침표 제거 후 포인트로
+        s = s.rstrip(".")
+        points += f"- {s}\n"
+    return points
+
+
 def generate_news_section(item: Dict, section_num: str, is_critical: bool = False) -> str:
     """개별 뉴스 섹션 생성 - 고품질 분석 포함"""
     title = item.get("title", "Untitled")
@@ -420,23 +551,41 @@ def generate_news_section(item: Dict, section_num: str, is_critical: bool = Fals
     content_text = item.get("content", "")
     category = item.get("category", "tech")
 
+    severity = _determine_severity(item)
+    cve_ids = _extract_cve_ids(item)
+
     section = f"### {section_num} {title}\n\n"
+
+    # 심각도 및 CVE 뱃지
+    if cve_ids or severity == "Critical":
+        severity_emoji = {"Critical": "🔴", "High": "🟠", "Medium": "🟡"}.get(severity, "🟡")
+        section += f"> {severity_emoji} **심각도**: {severity}"
+        if cve_ids:
+            section += f" | **CVE**: {', '.join(cve_ids[:5])}"
+        section += "\n\n"
 
     # 개요 추가
     section += "#### 개요\n\n"
     if summary:
-        # 전체 summary 사용 (truncate 제거)
         section += f"{summary}\n\n"
     elif content_text:
         section += f"{content_text[:800]}...\n\n"
 
     section += f"> **출처**: [{source}]({url})\n\n"
 
-    # 보안 뉴스의 경우 상세 분석 템플릿 추가
+    # 핵심 포인트
+    key_points = _generate_key_points(item)
+    if key_points:
+        section += "#### 핵심 포인트\n\n"
+        section += key_points + "\n"
+
+    # 카테고리별 상세 분석 템플릿
     if category in ("security", "devsecops") and is_critical:
-        section += _generate_security_analysis_template(title)
+        section += _generate_security_analysis_template(item)
     elif category in ("security", "devsecops"):
         section += _generate_security_brief_template()
+    elif category == "ai":
+        section += _generate_ai_analysis_template(item)
     elif category in ("cloud", "devops", "kubernetes"):
         section += _generate_devops_template()
 
@@ -444,21 +593,65 @@ def generate_news_section(item: Dict, section_num: str, is_critical: bool = Fals
     return section
 
 
-def _generate_security_analysis_template(title: str) -> str:
-    cve_match = re.search(r'CVE-\d{4}-\d+', title)
-    cve_id = cve_match.group(0) if cve_match else "N/A"
+def _generate_security_analysis_template(item: Dict) -> str:
+    """보안 뉴스 상세 분석 템플릿 - 실제 데이터 기반"""
+    cve_ids = _extract_cve_ids(item)
+    severity = _determine_severity(item)
+    text = f"{item.get('title', '')} {item.get('summary', '')} {item.get('content', '')}".lower()
 
-    template = f"""
-#### 위협 분석
+    # 대응 우선순위 결정
+    priority = "P0 - 즉시 대응" if severity == "Critical" else "P1 - 7일 이내 검토 권장"
 
-| 항목 | 내용 |
-|------|------|
-| **CVE ID** | {cve_id} |
-| **영향 범위** | 원문 참조 |
-| **심각도** | 원문 참조 (CVSS 점수 확인 권장) |
-| **대응 우선순위** | P1 - 7일 이내 검토 권장 |
+    template = "\n#### 위협 분석\n\n"
+    template += "| 항목 | 내용 |\n"
+    template += "|------|------|\n"
 
-#### 권장 조치
+    if cve_ids:
+        template += f"| **CVE ID** | {', '.join(cve_ids[:5])} |\n"
+    else:
+        template += "| **CVE ID** | 미공개 또는 해당 없음 |\n"
+
+    template += f"| **심각도** | {severity} |\n"
+    template += f"| **대응 우선순위** | {priority} |\n"
+    template += "\n"
+
+    # SIEM 탐지 힌트 (취약점 유형 기반)
+    siem_hints = []
+    mitre_techniques = []
+
+    if "rce" in text or "remote code execution" in text:
+        siem_hints.append(
+            '```splunk\nindex=security sourcetype=syslog ("exploit" OR "remote code execution" OR "shell")\n| stats count by src_ip, dest_ip, action\n| where count > 3\n```'
+        )
+        mitre_techniques.append("T1203 (Exploitation for Client Execution)")
+    if "authentication" in text or "인증" in text or "auth bypass" in text:
+        siem_hints.append(
+            '```splunk\nindex=security sourcetype=auth ("bypass" OR "unauthorized" OR "failed_login")\n| stats count by user, src_ip\n| where count > 10\n```'
+        )
+        mitre_techniques.append("T1078 (Valid Accounts)")
+    if "injection" in text or "sql" in text or "xss" in text:
+        siem_hints.append(
+            '```splunk\nindex=web sourcetype=access_combined (SELECT OR UNION OR script OR "\\x" OR "%27")\n| stats count by uri, src_ip\n| where count > 5\n```'
+        )
+        mitre_techniques.append("T1190 (Exploit Public-Facing Application)")
+    if "supply chain" in text or "공급망" in text:
+        mitre_techniques.append("T1195 (Supply Chain Compromise)")
+    if "zero-day" in text or "제로데이" in text or "0-day" in text:
+        mitre_techniques.append("T1068 (Exploitation for Privilege Escalation)")
+    if "privilege" in text or "권한 상승" in text:
+        mitre_techniques.append("T1068 (Exploitation for Privilege Escalation)")
+
+    if siem_hints:
+        template += "#### SIEM 탐지 쿼리 (참고용)\n\n"
+        template += siem_hints[0] + "\n\n"
+
+    if mitre_techniques:
+        template += "#### MITRE ATT&CK 매핑\n\n"
+        for tech in mitre_techniques[:3]:
+            template += f"- **{tech}**\n"
+        template += "\n"
+
+    template += """#### 권장 조치
 
 - [ ] 영향받는 시스템/소프트웨어 인벤토리 확인
 - [ ] 벤더 패치 및 보안 권고 확인
@@ -481,6 +674,28 @@ def _generate_security_brief_template() -> str:
 """
 
 
+def _generate_ai_analysis_template(item: Dict) -> str:
+    """AI/ML 관련 뉴스 분석 템플릿"""
+    title = item.get("title", "")
+    summary = item.get("summary", "")
+
+    template = """
+#### AI/ML 보안 영향 분석
+
+- **모델 보안**: AI 모델 무결성 및 적대적 공격 대응 현황 점검
+- **데이터 보안**: 학습 데이터 및 추론 파이프라인 보안 검토 필요
+- **거버넌스**: AI 모델 배포 전 보안 평가 체크리스트 확인
+
+#### 실무 적용
+
+- AI/ML 파이프라인 보안 점검 항목 검토
+- 모델 입출력 검증 로직 추가 검토
+- AI 거버넌스 프레임워크 대비 현황 점검
+
+"""
+    return template
+
+
 def _generate_devops_template() -> str:
     return """
 #### 실무 적용 포인트
@@ -490,6 +705,96 @@ def _generate_devops_template() -> str:
 - 팀 내 기술 공유 및 도입 로드맵 논의
 
 """
+
+
+def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
+    """뉴스 기반 트렌드 분석 섹션 생성"""
+    content = f"\n---\n\n## {section_num}. 트렌드 분석\n\n"
+
+    # 트렌드 키워드 카운트
+    trend_defs = {
+        "AI/ML": ["ai", "ml", "llm", "gpt", "machine learning", "인공지능", "생성형"],
+        "Zero-Day": ["zero-day", "0-day", "제로데이"],
+        "Cloud Security": ["cloud", "aws", "azure", "gcp", "클라우드"],
+        "Supply Chain": ["supply chain", "공급망", "dependency", "package"],
+        "Ransomware": ["ransomware", "랜섬웨어"],
+        "Container/K8s": ["kubernetes", "k8s", "container", "docker", "컨테이너"],
+        "Authentication": ["authentication", "인증", "credential", "identity", "sso"],
+    }
+
+    trend_results = []
+    for trend_name, keywords in trend_defs.items():
+        count = 0
+        matched_kws = set()
+        for item in news_items:
+            text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+            for kw in keywords:
+                if kw in text:
+                    count += 1
+                    matched_kws.add(kw)
+                    break  # 뉴스당 1번만 카운트
+        if count > 0:
+            trend_results.append((trend_name, count, ", ".join(list(matched_kws)[:3])))
+
+    trend_results.sort(key=lambda x: x[1], reverse=True)
+
+    if trend_results:
+        content += "| 트렌드 | 관련 뉴스 수 | 주요 키워드 |\n"
+        content += "|--------|-------------|------------|\n"
+        for name, count, kws in trend_results[:7]:
+            content += f"| **{name}** | {count}건 | {kws} |\n"
+        content += "\n"
+
+        # 트렌드 분석 코멘트
+        top = trend_results[0]
+        content += f"이번 주기에서 가장 많이 언급된 트렌드는 **{top[0]}** ({top[1]}건)입니다. "
+        if len(trend_results) > 1:
+            second = trend_results[1]
+            content += f"그 다음으로 **{second[0]}** ({second[1]}건)이 주목받고 있습니다. "
+        content += "실무에서는 해당 트렌드와 관련된 보안 정책 및 모니터링 체계를 점검하시기 바랍니다.\n\n"
+    else:
+        content += "이번 주기에는 두드러진 트렌드가 감지되지 않았습니다.\n\n"
+
+    return content
+
+
+def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
+    """뉴스 기반 실무 체크리스트 생성"""
+    content = "---\n\n## 실무 체크리스트\n\n"
+
+    p0_items = []
+    p1_items = []
+
+    for item in news_items:
+        severity = _determine_severity(item)
+        title = item.get("title", "")[:60]
+        cve_ids = _extract_cve_ids(item)
+        cve_str = f" ({', '.join(cve_ids[:2])})" if cve_ids else ""
+
+        if severity == "Critical":
+            p0_items.append(f"- [ ] **{title}**{cve_str} 관련 긴급 패치 및 영향도 확인")
+        elif severity == "High":
+            p1_items.append(f"- [ ] **{title}**{cve_str} 관련 보안 검토 및 모니터링")
+
+    content += "### P0 (즉시)\n\n"
+    if p0_items:
+        content += "\n".join(p0_items[:5]) + "\n"
+    else:
+        content += "- [ ] 긴급 보안 패치 적용\n"
+        content += "- [ ] 취약 시스템 모니터링 강화\n"
+
+    content += "\n### P1 (7일 내)\n\n"
+    if p1_items:
+        content += "\n".join(p1_items[:5]) + "\n"
+    else:
+        content += "- [ ] SIEM 탐지 룰 업데이트\n"
+        content += "- [ ] 보안 정책 검토\n"
+
+    content += "\n### P2 (30일 내)\n\n"
+    content += "- [ ] 공격 표면 인벤토리 갱신\n"
+    content += "- [ ] 접근 제어 감사\n"
+
+    return content
 
 
 # ============================================================================
@@ -528,6 +833,18 @@ CATEGORY_SVG_CONFIG = {
         "icon": "SEC",
         "icon_color": "#8b5cf6",
     },
+    "ai": {
+        "gradient": ("6366f1", "4f46e5"),  # indigo
+        "label": "AI/ML",
+        "icon": "AI",
+        "icon_color": "#6366f1",
+    },
+    "blockchain": {
+        "gradient": ("f97316", "ea580c"),  # orange
+        "label": "BLOCKCHAIN",
+        "icon": "BC",
+        "icon_color": "#f97316",
+    },
 }
 
 
@@ -540,6 +857,24 @@ def _escape_svg_text(text: str) -> str:
         .replace('"', "&quot;")
         .replace("'", "&#39;")
     )
+
+
+def _to_english_svg_text(text: str) -> str:
+    """SVG 텍스트에서 비영문 문자 제거 (SVG는 영문만 허용)"""
+    result = []
+    for char in text:
+        if ord(char) < 128:  # ASCII
+            result.append(char)
+        elif unicodedata.category(char).startswith('L'):
+            # Non-ASCII letter - skip (Korean, etc.)
+            continue
+        else:
+            result.append(' ')
+    # Clean up multiple spaces
+    cleaned = ' '.join(''.join(result).split())
+    if not cleaned.strip():
+        return "Security News Update"
+    return cleaned.strip()
 
 
 def _truncate_text(text: str, max_len: int) -> str:
@@ -597,7 +932,7 @@ def generate_svg_image(
 
     # 핵심 토픽 추출
     topics = _extract_key_topics(news_items)
-    subtitle_topics = " | ".join(topics)
+    subtitle_topics = " | ".join(_to_english_svg_text(t) for t in topics)
 
     # 상위 뉴스 6개 선택 (카드용)
     top_items = news_items[:6]
@@ -638,6 +973,10 @@ def generate_svg_image(
     <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#f59e0b"/>
       <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="indigoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
     </linearGradient>
     
     <!-- Glow Filter -->
@@ -701,8 +1040,10 @@ def generate_svg_image(
     gradient_map = {
         "security": "redGradient",
         "devsecops": "purpleGradient",
+        "ai": "indigoGradient",
         "cloud": "greenGradient",
         "devops": "orangeGradient",
+        "blockchain": "orangeGradient",
         "tech": "blueGradient",
     }
 
@@ -716,15 +1057,19 @@ def generate_svg_image(
             category_display = "security"
         elif category in ("devops", "kubernetes"):
             category_display = "devops"
+        elif category == "ai":
+            category_display = "ai"
+        elif category == "blockchain":
+            category_display = "blockchain"
         else:
             category_display = category
 
         config = CATEGORY_SVG_CONFIG.get(category_display, CATEGORY_SVG_CONFIG["tech"])
         gradient = gradient_map.get(category_display, "blueGradient")
 
-        title = _escape_svg_text(_truncate_text(item.get("title", "News Update"), 35))
+        title = _escape_svg_text(_truncate_text(_to_english_svg_text(item.get("title", "News Update")), 35))
         source = _escape_svg_text(
-            _truncate_text(item.get("source_name", item.get("source", "Source")), 15)
+            _truncate_text(_to_english_svg_text(item.get("source_name", item.get("source", "Source"))), 15)
         )
 
         # 요약 또는 컨텐츠에서 핵심 정보 추출
@@ -761,7 +1106,7 @@ def generate_svg_image(
         # 요약 라인 추가
         for line_idx, line in enumerate(summary_lines[:2]):
             y_offset = 95 + line_idx * 18
-            svg += f'    <text x="20" y="{y_offset}" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">{_escape_svg_text(line)}</text>\n'
+            svg += f'    <text x="20" y="{y_offset}" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">{_escape_svg_text(_to_english_svg_text(line))}</text>\n'
 
         # 소스 배지
         badge_y = height - 25 if height > 160 else height - 20
@@ -789,6 +1134,9 @@ def generate_svg_image(
   <g transform="translate(520, 600)">
     <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">{stats.get("devops", 0)} DevOps</text>
   </g>
+  <g transform="translate(650, 600)">
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">{stats.get("ai", 0)} AI/ML</text>
+  </g>
   
   <!-- Blog Info -->
   <text x="1150" y="612" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
@@ -808,7 +1156,7 @@ def main():
         "--dry-run", action="store_true", help="Preview without publishing"
     )
     parser.add_argument("--hours", type=int, default=24, help="Hours to look back")
-    parser.add_argument("--max-news", type=int, default=10, help="Maximum news items")
+    parser.add_argument("--max-news", type=int, default=15, help="Maximum news items")
     args = parser.parse_args()
 
     print("📰 Auto Publish News")
