@@ -92,6 +92,13 @@ SOURCE_PRIORITY = {
     "cointelegraph": 2,
     "vitalik": 1,
     "chainalysis": 1,
+    "microsoft_devblogs": 1,
+    "microsoft_dotnet": 2,
+    "tesla": 1,
+    "electrek": 2,
+    "github_blog": 1,
+    "stripe": 2,
+    "slack_engineering": 2,
 }
 
 MIN_NEWS_COUNT = 5  # 최소 뉴스 수

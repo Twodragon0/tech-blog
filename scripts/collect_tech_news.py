@@ -130,6 +130,23 @@ NEWS_SOURCES = {
         "language": "en",
         "priority": 1,
     },
+    # Microsoft DevBlogs (Engineering)
+    "microsoft_devblogs": {
+        "name": "Microsoft Engineering Blog",
+        "url": "https://devblogs.microsoft.com/engineering-at-microsoft/",
+        "feed_url": "https://devblogs.microsoft.com/engineering-at-microsoft/feed/",
+        "category": "tech",
+        "language": "en",
+        "priority": 1,
+    },
+    "microsoft_dotnet": {
+        "name": "Microsoft .NET Blog",
+        "url": "https://devblogs.microsoft.com/dotnet/",
+        "feed_url": "https://devblogs.microsoft.com/dotnet/feed/",
+        "category": "devops",
+        "language": "en",
+        "priority": 2,
+    },
     # 보안 기관
     "cisa": {
         "name": "CISA",
@@ -478,6 +495,54 @@ NEWS_SOURCES = {
         "url": "https://netflixtechblog.com/",
         "feed_url": "https://netflixtechblog.com/feed",
         "category": "ai",
+        "language": "en",
+        "priority": 2,
+    },
+    # ============================================================================
+    # Tesla & Tech Companies
+    # ============================================================================
+    # Tesla
+    "tesla": {
+        "name": "Tesla Blog",
+        "url": "https://medium.com/@tesla",
+        "feed_url": "https://medium.com/feed/@tesla",
+        "category": "tech",
+        "language": "en",
+        "priority": 1,
+    },
+    # Electrek (EV & Tesla Tech)
+    "electrek": {
+        "name": "Electrek",
+        "url": "https://electrek.co/",
+        "feed_url": "https://electrek.co/feed/",
+        "category": "tech",
+        "language": "en",
+        "priority": 2,
+    },
+    # GitHub
+    "github_blog": {
+        "name": "GitHub Blog",
+        "url": "https://github.blog/",
+        "feed_url": "https://github.blog/feed/",
+        "category": "devops",
+        "language": "en",
+        "priority": 1,
+    },
+    # Stripe
+    "stripe": {
+        "name": "Stripe Blog",
+        "url": "https://stripe.com/blog",
+        "feed_url": "https://stripe.com/blog/feed.rss",
+        "category": "tech",
+        "language": "en",
+        "priority": 2,
+    },
+    # Slack Engineering
+    "slack_engineering": {
+        "name": "Slack Engineering",
+        "url": "https://slack.engineering/",
+        "feed_url": "https://slack.engineering/feed/",
+        "category": "tech",
         "language": "en",
         "priority": 2,
     },
