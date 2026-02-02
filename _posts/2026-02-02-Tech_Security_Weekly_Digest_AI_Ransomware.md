@@ -125,18 +125,18 @@ SK쉴더스 리포트에서 제시하는 보안 Vertical AI의 3대 적용 영�
 기존 SOC에서 Tier 1 분석가가 수행하는 반복적인 알림 분류(Alert Triage) 작업을 AI가 대체합니다. 하루 수천 건의 알림 중 진짜 위협을 식별하는 데 걸리는 시간을 분 단위에서 초 단위로 단축할 수 있습니다.
 
 ```
-SOC Vertical AI 적용 흐름:
-SIEM 알림 수신 → AI 자동 분류 (True/False Positive)
-                    ↓
-              True Positive인 경우
-                    ↓
-         위협 컨텍스트 자동 강화 (IOC 상관 분석)
-                    ↓
-         MITRE ATT&CK TTP 자동 매핑
-                    ↓
-         대응 플레이북 자동 추천/실행
-                    ↓
-         Tier 2/3 분석가에게 판단 보고서 전달
+SOC Vertical AI Workflow:
+SIEM Alert Received → AI Auto-Classification (True/False Positive)
+                          ↓
+                    If True Positive
+                          ↓
+              Auto Threat Context Enrichment (IOC Correlation)
+                          ↓
+              MITRE ATT&CK TTP Auto-Mapping
+                          ↓
+              Response Playbook Auto-Recommendation/Execution
+                          ↓
+              Deliver Analysis Report to Tier 2/3 Analysts
 ```
 
 **2) 위협 탐지 AI (Threat Detection)**
@@ -206,32 +206,32 @@ BlackField 랜섬웨어의 공격 체인을 MITRE ATT&CK 프레임워크로 매�
 **공격 체인 분석:**
 
 ```
-Phase 1: Initial Access (초기 접근)
-├── 공개 서비스 취약점 스캔/악용 (T1190)
-├── 피싱 이메일을 통한 초기 접근 (T1566)
-└── 유출된 자격 증명 활용 (T1078)
+Phase 1: Initial Access
+├── Scan/Exploit Public-Facing Service Vulnerabilities (T1190)
+├── Phishing Email for Initial Access (T1566)
+└── Leverage Compromised Credentials (T1078)
 
-Phase 2: Execution & Persistence (실행 및 지속성)
-├── PowerShell 기반 페이로드 실행 (T1059.001)
-├── 레지스트리/시작 폴더 등록 (T1547.001)
-└── 프로세스 인젝션으로 은닉 (T1055)
+Phase 2: Execution & Persistence
+├── PowerShell-based Payload Execution (T1059.001)
+├── Registry Run Keys / Startup Folder Registration (T1547.001)
+└── Process Injection for Evasion (T1055)
 
-Phase 3: Lateral Movement (횡이동)
-├── SMB/Admin Share를 통한 네트워크 전파 (T1021.002)
-├── 도메인 관리자 계정 탈취 시도
-└── 핵심 서버(AD, 파일서버, 백업서버) 식별
+Phase 3: Lateral Movement
+├── Network Propagation via SMB/Admin Shares (T1021.002)
+├── Domain Admin Account Compromise Attempt
+└── Identify Critical Servers (AD, File Server, Backup Server)
 
-Phase 4: Impact (영향)
-├── VSS/백업 삭제로 복구 차단 (T1490)
-├── EDR/AV 무력화 (T1562.001)
-├── 데이터 유출 - 이중 갈취 준비 (T1567)
-└── 전체 파일 암호화 실행 (T1486)
+Phase 4: Impact
+├── Delete VSS/Backups to Prevent Recovery (T1490)
+├── Disable EDR/AV (T1562.001)
+├── Data Exfiltration - Double Extortion Preparation (T1567)
+└── Full File Encryption Execution (T1486)
 ```
 
 #### 탐지 및 대응 가이드
 
 ```bash
-# Splunk - 랜섬웨어 코드 재활용 징후 탐지 (VSS 삭제)
+# Splunk - Detect Ransomware Code Reuse Indicators (VSS Deletion)
 index=endpoint sourcetype=sysmon EventCode=1
 (CommandLine="*vssadmin*delete*shadows*" OR
  CommandLine="*wmic*shadowcopy*delete*" OR
@@ -239,7 +239,7 @@ index=endpoint sourcetype=sysmon EventCode=1
 | stats count by Computer, User, CommandLine, ParentProcessName
 | where count >= 1
 
-# Splunk - PowerShell 의심 실행 탐지
+# Splunk - Detect Suspicious PowerShell Execution
 index=endpoint sourcetype=sysmon EventCode=1
 process_name="powershell.exe"
 (CommandLine="*-enc*" OR CommandLine="*-e *" OR
@@ -247,7 +247,7 @@ process_name="powershell.exe"
 | stats count by src_ip, User, CommandLine
 | sort -count
 
-# Elastic/KQL - SMB 횡이동 탐지
+# Elastic/KQL - Detect SMB Lateral Movement
 event.category: "network" AND
 destination.port: 445 AND
 source.ip: "10.*" AND
@@ -289,31 +289,31 @@ NOT source.ip: destination.ip
 #### 데이터 중심 제로트러스트 아키텍처
 
 ```
-데이터 중심 제로트러스트 계층 구조:
+Data-Centric Zero Trust Layered Architecture:
 
-Layer 1: 데이터 식별 및 분류 (Data Discovery & Classification)
-├── 정형 데이터: DB, 스프레드시트 자동 분류
-├── 비정형 데이터: 문서, 이메일, 이미지 내 민감 정보 탐지
-├── 분류 등급: 공개 / 내부용 / 대외비 / 극비
-└── 자동화: DLP + AI 기반 자동 태깅
+Layer 1: Data Discovery & Classification
+├── Structured Data: Auto-classify DB, spreadsheets
+├── Unstructured Data: Detect sensitive info in docs, emails, images
+├── Classification Levels: Public / Internal / Confidential / Top Secret
+└── Automation: DLP + AI-based auto-tagging
 
-Layer 2: 데이터 보호 (Data Protection)
-├── 저장 시 보호: AES-256 암호화, BYOK/HYOK
-├── 전송 중 보호: TLS 1.3, mTLS
-├── 사용 중 보호: 기밀 컴퓨팅(Confidential Computing)
-└── 토큰화/마스킹: 민감 데이터 비식별화
+Layer 2: Data Protection
+├── At Rest: AES-256 encryption, BYOK/HYOK
+├── In Transit: TLS 1.3, mTLS
+├── In Use: Confidential Computing
+└── Tokenization/Masking: De-identification of sensitive data
 
-Layer 3: 데이터 접근 제어 (Data Access Control)
-├── ABAC(Attribute-Based Access Control): 속성 기반 동적 접근 제어
-├── 컨텍스트 인식: 시간, 위치, 디바이스 상태 기반 판단
-├── Just-in-Time 접근: 필요 시에만 최소 시간 접근 허용
-└── 데이터 수준 RBAC: 필드/행 단위 세분화된 접근 제어
+Layer 3: Data Access Control
+├── ABAC (Attribute-Based Access Control): Dynamic access based on attributes
+├── Context-Aware: Decisions based on time, location, device posture
+├── Just-in-Time Access: Minimum-duration access granted only when needed
+└── Data-Level RBAC: Fine-grained field/row-level access control
 
-Layer 4: 데이터 모니터링 및 감사 (Monitoring & Audit)
-├── 데이터 접근 로그 전수 기록
-├── 비정상 접근 패턴 실시간 탐지
-├── 데이터 유출 시도 차단 (DLP)
-└── 규정 준수 자동 감사 리포팅
+Layer 4: Monitoring & Audit
+├── Full data access log recording
+├── Real-time anomalous access pattern detection
+├── Data exfiltration attempt blocking (DLP)
+└── Automated compliance audit reporting
 ```
 
 #### 기존 vs 데이터 중심 제로트러스트
