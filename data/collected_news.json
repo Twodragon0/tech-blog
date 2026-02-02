@@ -1,6 +1,6 @@
 {
-  "collected_at": "2026-02-02T09:06:07.240704+00:00",
-  "total_items": 81,
+  "collected_at": "2026-02-02T09:09:22.261823+00:00",
+  "total_items": 76,
   "items": [
     {
       "id": "af5b1226fea2",
@@ -15,36 +15,6 @@
       "content": "",
       "tags": [],
       "author": "smurda",
-      "priority": 2
-    },
-    {
-      "id": "5de5e2b3345e",
-      "title": "Buterin pitches DAOs, prediction markets to reward content creators",
-      "url": "https://cointelegraph.com/news/vitalik-buterin-pitches-idea-creator-coins-model?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T05:01:58+00:00",
-      "summary": "Vitalik Buterin said the current creator token model favors those already popular and rewards mass content creation over high-quality content.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Brayden Lindrea",
-      "priority": 2
-    },
-    {
-      "id": "7e97e01aef83",
-      "title": "BitRiver CEO arrested for alleged tax concealment: Reports",
-      "url": "https://cointelegraph.com/news/bitriver-ceo-arrested-alleged-tax-concealment?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T03:47:04+00:00",
-      "summary": "A Moscow court has reportedly ordered BitRiver CEO Igor Runets to remain under house arrest as investigators pursue tax evasion charges.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Brian Quarmby",
       "priority": 2
     },
     {
@@ -644,62 +614,6 @@
       "priority": 1
     },
     {
-      "id": "986e55bc2a7e",
-      "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-02T09:06:07.236425+00:00",
-      "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "d811fadee334",
-      "title": "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-02T09:06:07.236300+00:00",
-      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
-      "content": "",
-      "tags": [
-        "랜섬웨어",
-        "SK쉴더스",
-        "보안리포트",
-        "KARA"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "46094d971cf5",
-      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-02T09:06:07.236180+00:00",
-      "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
       "id": "3cc1a7b416fc",
       "title": "SK쉴더스 EQST insight 통합 12월호",
       "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
@@ -707,12 +621,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:06:07.236055+00:00",
+      "published": "2026-02-02T09:09:22.256919+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -725,12 +639,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:06:07.235931+00:00",
+      "published": "2026-02-02T09:09:22.256795+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -743,14 +657,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:06:07.235771+00:00",
+      "published": "2026-02-02T09:09:22.256641+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
       "content": "",
       "tags": [
-        "랜섬웨어",
-        "SK쉴더스",
+        "KARA",
         "보안리포트",
-        "KARA"
+        "랜섬웨어",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -763,12 +677,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:06:07.235639+00:00",
+      "published": "2026-02-02T09:09:22.256505+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -781,12 +695,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-02T09:06:07.235477+00:00",
+      "published": "2026-02-02T09:09:22.256326+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1

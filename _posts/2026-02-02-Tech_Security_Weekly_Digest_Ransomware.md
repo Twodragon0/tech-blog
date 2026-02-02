@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향, Keep up with Ransomware 12월호 확산되는 Gentlemen 랜, S..."
-date: 2026-02-02 18:06:07 +0900
+title: "Tech & Security Weekly Digest: SK쉴더스 EQST insight 통합 12월호, HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F, Keep up wi..."
+date: 2026-02-02 18:09:22 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware]
 excerpt: "2026년 02월 02일 주요 보안/기술 뉴스 15건 - Ransomware"
@@ -41,9 +41,9 @@ toc: true
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li><strong>SK쉴더스 보안 리포트</strong>: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향</li>
-      <li><strong>SK쉴더스 보안 리포트</strong>: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협</li>
-      <li><strong>SK쉴더스 보안 리포트</strong>: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility...</li>
+      <li><strong>SK쉴더스 보안 리포트</strong>: SK쉴더스 EQST insight 통합 12월호</li>
+      <li><strong>SK쉴더스 보안 리포트</strong>: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F</li>
+      <li><strong>SK쉴더스 보안 리포트</strong>: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석</li>
     </ul>
   </div>
   <div class="summary-row">
@@ -82,27 +82,27 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | SK쉴더스 보안 리포트 | HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향... | 🟡 Medium |
-| 🔒 **Security** | SK쉴더스 보안 리포트 | Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위... | 🟡 Medium |
-| 🔒 **Security** | SK쉴더스 보안 리포트 | Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibili... | 🟡 Medium |
 | 🔒 **Security** | SK쉴더스 보안 리포트 | SK쉴더스 EQST insight 통합 12월호... | 🟡 Medium |
 | 🔒 **Security** | SK쉴더스 보안 리포트 | HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F... | 🟡 Medium |
+| 🔒 **Security** | SK쉴더스 보안 리포트 | Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의... | 🟡 Medium |
+| 🔒 **Security** | SK쉴더스 보안 리포트 | Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크... | 🟡 Medium |
+| 🔒 **Security** | SK쉴더스 보안 리포트 | SK쉴더스 EQST insight 통합 (목차) 1월호 F... | 🟡 Medium |
 
 ---
 
 ## 1. 보안 뉴스
 
-### 1.1 HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향
+### 1.1 SK쉴더스 EQST insight 통합 12월호
 
 #### 개요
 
-SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향
+SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호
 
-> **출처**: [SK쉴더스 보안 리포트](https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf)
+> **출처**: [SK쉴더스 보안 리포트](https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf)
 
 #### 핵심 포인트
 
-- SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향
+- SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호
 
 
 #### 위협 분석
@@ -124,17 +124,17 @@ SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사
 
 ---
 
-### 1.2 Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협
+### 1.2 HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F
 
 #### 개요
 
-SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협
+SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F
 
-> **출처**: [SK쉴더스 보안 리포트](https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf)
+> **출처**: [SK쉴더스 보안 리포트](https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_1%EC%9B%94%ED%98%B8_%EC%84%A0%EC%A0%9C%EC%A0%81%20%EB%B3%B4%EC%95%88%EA%B3%BC%20%EB%A0%88%EB%93%9C%ED%8C%80%20%EA%B8%B0%EB%B0%98%20%EC%82%AC%EC%9D%B4%EB%B2%84%20%EB%A9%B4%EC%97%AD%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%20%EC%A0%84%EB%9E%B5_F.pdf&r_fname=20260129161055399.pdf)
 
 #### 핵심 포인트
 
-- SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협
+- SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F
 
 
 #### 실무 영향
@@ -146,17 +146,17 @@ SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gent
 
 ---
 
-### 1.3 Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)
+### 1.3 Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석
 
 #### 개요
 
-SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)
+SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석
 
-> **출처**: [SK쉴더스 보안 리포트](https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf)
+> **출처**: [SK쉴더스 보안 리포트](https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%201%EC%9B%94%ED%98%B8%20Sinobi%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%EC%99%80%20Lynx%20%EA%B7%B8%EB%A3%B9%EA%B3%BC%EC%9D%98%20%EC%97%B0%EA%B3%84%20%EC%A0%95%ED%99%A9%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260129161122795.pdf)
 
 #### 핵심 포인트
 
-- SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)
+- SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석
 
 
 #### 실무 영향
@@ -170,32 +170,32 @@ SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안�
 
 ## 2. 블록체인 뉴스
 
-### 2.1 Buterin pitches DAOs, prediction markets to reward content creators
+### 2.1 Crypto selloff is likely due to US liquidity drought: Analyst
 
 #### 개요
 
-Vitalik Buterin said the current creator token model favors those already popular and rewards mass content creation over high-quality content.
+Bitcoin’s decline is mirroring SaaS stocks, proving that it is unlikely a crypto-specific narrative is driving the recent selloff, one analyst argues.
 
-> **출처**: [Cointelegraph](https://cointelegraph.com/news/vitalik-buterin-pitches-idea-creator-coins-model?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
+> **출처**: [Cointelegraph](https://cointelegraph.com/news/liquidity-drought-hurting-crypto-markets-raoul-pal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
 #### 핵심 포인트
 
-- Vitalik Buterin said the current creator token model favors those already popular and rewards mass content creation over high-quality content
+- Bitcoin’s decline is mirroring SaaS stocks, proving that it is unlikely a crypto-specific narrative is driving the recent selloff, one analyst argues
 
 
 ---
 
-### 2.2 BitRiver CEO arrested for alleged tax concealment: Reports
+### 2.2 Strategy’s Saylor signals buy after BTC briefly dips below cost basis
 
 #### 개요
 
-A Moscow court has reportedly ordered BitRiver CEO Igor Runets to remain under house arrest as investigators pursue tax evasion charges.
+The latest crash came after US President Donald Trump nominated Kevin Warsh to replace Federal Reserve chair Jerome Powell, sending Bitcoin down to $75,892 late on Sunday.
 
-> **출처**: [Cointelegraph](https://cointelegraph.com/news/bitriver-ceo-arrested-alleged-tax-concealment?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
+> **출처**: [Cointelegraph](https://cointelegraph.com/news/strategy-hints-bought-bitcoin-after-weekend-crash?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
 #### 핵심 포인트
 
-- A Moscow court has reportedly ordered BitRiver CEO Igor Runets to remain under house arrest as investigators pursue tax evasion charges
+- The latest crash came after US President Donald Trump nominated Kevin Warsh to replace Federal Reserve chair Jerome Powell, sending Bitcoin down to $75,892 late on Sunday
 
 
 ---
@@ -217,6 +217,7 @@ A Moscow court has reportedly ordered BitRiver CEO Igor Runets to remain under h
 | **AI/ML** | 6건 | ai, ml |
 | **Ransomware** | 1건 | ransomware |
 | **Container/K8s** | 1건 | 컨테이너 |
+| **Authentication** | 1건 | 인증 |
 
 이번 주기에서 가장 많이 언급된 트렌드는 **AI/ML** (6건)입니다. 그 다음으로 **Ransomware** (1건)이 주목받고 있습니다. 실무에서는 해당 트렌드와 관련된 보안 정책 및 모니터링 체계를 점검하시기 바랍니다.
 
@@ -231,7 +232,8 @@ A Moscow court has reportedly ordered BitRiver CEO Igor Runets to remain under h
 
 ### P1 (7일 내)
 
-- [ ] **Buterin pitches DAOs, prediction markets to reward content c** 관련 보안 검토 및 모니터링
+- [ ] SIEM 탐지 룰 업데이트
+- [ ] 보안 정책 검토
 
 ### P2 (30일 내)
 
