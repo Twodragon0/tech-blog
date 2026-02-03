@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 역설, DeFi 보안 위협"
+title: "Weekly Tech & AI & Blockchain Digest: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 역설, DeFi 보안, FOSDEM 2026"
 date: 2026-02-02 20:00:00 +0900
 categories: [security, devsecops]
-tags: [Security-Weekly, Apple, Bitcoin-Crash, AI-Creativity, DeFi-Security, Claude-Code, Google-Research, CrossCurve-Exploit, Ethereum-Quantum, "2026"]
-excerpt: "Apple iPhone 16 MLX LLM 버그, Bitcoin $74K 급락과 $19B 청산, AI 창의성 역설 연구, CrossCurve $3M DeFi 익스플로잇, Ethereum 양자 보안"
-description: "2026년 2월 2일 종합 기술 분석: Apple MLX Neural Engine 버그, Bitcoin 주말 대폭락과 Binance 청산 이벤트, 몬트리올대 AI 창의성 연구, DeFi 프로토콜 보안 사고, Claude Code 실전 활용법"
-keywords: [Apple MLX Bug, Bitcoin Crash 2026, AI Creativity Paradox, DeFi Security, CrossCurve Exploit, Claude Code Tips, Google AI Agent, Ethereum Quantum]
+tags: [Security-Weekly, Apple, Bitcoin-Crash, AI-Creativity, DeFi-Security, Claude-Code, Google-Research, CrossCurve-Exploit, Ethereum-Quantum, FOSDEM-2026, "2026"]
+excerpt: "Apple iPhone 16 MLX LLM 버그, Bitcoin $74K 급락과 $19B 청산, AI 창의성 역설 연구, CrossCurve DeFi 익스플로잇, FOSDEM 2026 하이라이트"
+description: "2026년 2월 2일 종합 기술/블록체인 분석: Apple A18 Pro Neural Engine MLX 버그, Bitcoin 주말 대폭락과 $19B 청산, 몬트리올대 AI 창의성 역설, DeFi 보안 사고, Claude Code 실전 팁, FOSDEM 2026"
+keywords: [Apple MLX Bug, Bitcoin Crash 2026, AI Creativity Paradox, DeFi Security, CrossCurve Exploit, Claude Code Tips, Google AI Agent, Ethereum Quantum, FOSDEM 2026]
 author: Twodragon
 comments: true
-image: /assets/images/2026-02-02-Tech_Security_Weekly_Digest_Security_Cloud_DevOps_AI.svg
-image_alt: "Tech Security Weekly Digest Feb 2 2026 Apple Bitcoin AI DeFi"
+image: /assets/images/2026-02-02-Weekly_Tech_AI_Blockchain_Digest.svg
+image_alt: "Weekly Tech AI Blockchain Digest Feb 2 2026"
 toc: true
 ---
 
@@ -21,7 +21,7 @@ toc: true
 <div class="ai-summary-content">
   <div class="summary-row">
     <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 02월 02일 - 오후판)</span>
+    <span class="summary-value">Weekly Tech & AI & Blockchain Digest (2026년 02월 02일)</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">카테고리</span>
@@ -52,6 +52,8 @@ toc: true
   </div>
 </div>
 </div>
+
+> **함께 읽기**: 같은 날짜의 보안 위협 인텔리전스 다이제스트 [Weekly Security Threat Intelligence Digest](/2026-02-02-Weekly_Security_Threat_Intelligence_Digest)에서 Notepad++ 국가 지원 공급망 공격, SK쉴더스 보안 리포트 (Vertical AI, BlackField/Sinobi/Gentlemen 랜섬웨어, 제로트러스트, JWT 보안, 레드팀), HashiCorp 보안 자동화를 심층 분석합니다.
 
 ## 개요
 
@@ -266,7 +268,45 @@ Michael Saylor는 BTC가 Strategy의 평균 매입 단가 아래로 하락하자
 
 **출처:** [Cointelegraph - Saylor signals buy](https://cointelegraph.com/news/strategy-hints-bought-bitcoin-after-weekend-crash), [CoinDesk - Saylor signals another buy](https://www.coindesk.com/markets/2026/02/01/michael-saylor-signals-another-bitcoin-buy-as-btc-price-slumps-to-usd78-000)
 
-### 2.4 정책 및 규제 동향
+### 2.4 DeFi 청산 연쇄 메커니즘
+
+이번 폭락에서 특히 주목할 점은 DeFi 프로토콜의 **연쇄 청산(Cascading Liquidations)**입니다. Aave, Compound, MakerDAO 등 대형 렌딩 프로토콜에서 담보 비율이 임계치 이하로 떨어지면서 자동 청산이 연쇄적으로 발생했습니다.
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 520" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="liq-red" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#b91c1c"/><stop offset="100%" stop-color="#dc2626"/></linearGradient>
+    <linearGradient id="liq-org" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#c2410c"/><stop offset="100%" stop-color="#ea580c"/></linearGradient>
+    <linearGradient id="liq-yel" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#a16207"/><stop offset="100%" stop-color="#ca8a04"/></linearGradient>
+    <linearGradient id="liq-pur" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6d28d9"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+    <marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#64748b"/></marker>
+    <filter id="sh2"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.18"/></filter>
+  </defs>
+  <rect width="740" height="520" rx="12" fill="#0f172a"/>
+  <text x="370" y="32" text-anchor="middle" fill="#f8fafc" font-size="17" font-weight="700">DeFi Cascading Liquidation Mechanism</text>
+  <g filter="url(#sh2)">
+    <rect x="195" y="46" width="350" height="36" rx="18" fill="url(#liq-red)"/><text x="370" y="69" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">1. Bitcoin Price Crash Begins</text>
+    <path d="M370 82 L370 96" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="195" y="100" width="350" height="36" rx="18" fill="url(#liq-red)"/><text x="370" y="123" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">2. Leveraged Long Positions Margin Called</text>
+    <path d="M370 136 L370 150" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="195" y="154" width="350" height="36" rx="18" fill="url(#liq-org)"/><text x="370" y="177" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">3. Forced Liquidation → Market Sell Flood</text>
+    <path d="M370 190 L370 204" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="195" y="208" width="350" height="36" rx="18" fill="url(#liq-org)"/><text x="370" y="231" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">4. Further Price Drop → More Liquidations</text>
+    <path d="M370 244 L370 258" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="165" y="262" width="410" height="36" rx="18" fill="url(#liq-yel)"/><text x="370" y="285" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">5. DeFi Collateral Ratio Falls Below Threshold</text>
+    <path d="M370 298 L370 312" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="165" y="316" width="410" height="36" rx="18" fill="url(#liq-yel)"/><text x="370" y="339" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">6. Aave/Compound Auto-Liquidation Triggered</text>
+    <path d="M370 352 L370 366" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="165" y="370" width="410" height="36" rx="18" fill="url(#liq-pur)"/><text x="370" y="393" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">7. Liquidation Assets Dumped on DEX → Downward Pressure</text>
+    <path d="M370 406 L370 420" stroke="#64748b" stroke-width="2" marker-end="url(#arr2)"/>
+    <rect x="195" y="424" width="350" height="36" rx="18" fill="url(#liq-pur)"/><text x="370" y="447" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">8. Stablecoin De-peg Fear → Panic Selloff</text>
+  </g>
+  <path d="M545 447 C680 447, 700 280, 545 69" stroke="#f87171" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arr2)"/>
+  <text x="670" y="268" fill="#f87171" font-size="11" font-weight="600" transform="rotate(-90,670,268)">Feedback Loop</text>
+</svg>
+
+이 피드백 루프는 주말 유동성이 얇은 환경에서 더욱 증폭되어, $19B 규모의 역사적 청산 이벤트를 만들어냈습니다.
+
+### 2.5 정책 및 규제 동향
 
 폭락과 동시에 글로벌 암호화폐 규제 환경도 빠르게 변화하고 있습니다:
 
@@ -279,7 +319,7 @@ Michael Saylor는 BTC가 Strategy의 평균 매입 단가 아래로 하락하자
 
 **출처:** [CoinDesk - India budget](https://www.coindesk.com/markets/2026/02/02/india-s-budget-2026-keeps-crypto-taxes-tds-unchanged-adds-usd545-penalty-for-lapses), [Cointelegraph - UAE $500M deal](https://cointelegraph.com/news/uae-backed-firm-buys-49-percent-trump-linked-world-liberty-wsj), [CoinDesk - Warren warning](https://www.coindesk.com/policy/2026/02/01/senator-elizabeth-warren-is-sounding-the-alarm-on-trump-s-spy-sheikh-crypto-deal), [CoinDesk - Hong Kong](https://www.coindesk.com/policy/2026/02/01/hong-kong-is-positioning-itself-as-crypto-s-global-connector-says-lawmaker-johnny-ng)
 
-### 2.5 암호화폐 시장 모니터링: SIEM 탐지 쿼리
+### 2.6 암호화폐 시장 모니터링: SIEM 탐지 쿼리
 
 기업에서 암호화폐 관련 서비스를 운영하거나 직원의 암호화폐 활동을 모니터링해야 하는 경우, 다음 SIEM 쿼리가 유용합니다:
 
@@ -609,7 +649,31 @@ AI를 효과적으로 활용하는 사용자와 그렇지 못한 사용자의 �
 
 ---
 
-## 5. 트렌드 분석
+## 5. FOSDEM 2026 & 오픈소스 동향
+
+### 5.1 FOSDEM 2026 Day 1 하이라이트
+
+| 항목 | 내용 |
+|------|------|
+| **행사** | FOSDEM 2026 (Free and Open Source Developers' European Meeting) |
+| **장소** | 벨기에 브뤼셀, ULB 캠퍼스 |
+| **일정** | 2026년 2월 1-2일 |
+| **출처** | [FOSDEM 2026 Blog](https://gyptazy.com/blog/fosdem-2026-opensource-conference-brussels/) |
+
+FOSDEM은 매년 브뤼셀에서 열리는 **유럽 최대 오픈소스 개발자 컨퍼런스**로, 올해 26번째를 맞이했습니다. 10,000명 이상의 개발자가 참가하는 이 행사에서 주목할 트렌드:
+
+| 트랙/주제 | 핵심 내용 | 시사점 |
+|-----------|-----------|--------|
+| **AI/ML DevRoom** | LLM 로컬 실행, 오픈소스 AI 도구 | AI 민주화 가속 |
+| **Security DevRoom** | 공급망 보안(SBOM), Sigstore | Notepad++ 사건과 직결 |
+| **Containers & Cloud** | eBPF, Wasm, 서버리스 | 클라우드 네이티브 진화 |
+| **Legal DevRoom** | EU Cyber Resilience Act | 오픈소스 규제 영향 |
+
+FOSDEM 2026의 Security DevRoom에서 다룬 공급망 보안(SBOM, Sigstore) 주제는 같은 주에 발생한 Notepad++ 국가 지원 공급망 공격과 직접적으로 맞닿아 있어, 오픈소스 보안의 시급성을 재확인합니다. 보안 관련 상세 분석은 [Weekly Security Threat Intelligence Digest](/2026-02-02-Weekly_Security_Threat_Intelligence_Digest)를 참조하세요.
+
+---
+
+## 6. 트렌드 분석
 
 이번 뉴스에서 도출되는 주요 트렌드를 종합 분석합니다.
 
@@ -621,6 +685,7 @@ AI를 효과적으로 활용하는 사용자와 그렇지 못한 사용자의 �
 | **DeFi Security** | 3건 | bridge exploit, CrossCurve, smart contract | High | 즉시 |
 | **Quantum Security** | 2건 | post-quantum signatures, LeanVM, ECDSA | Medium | 장기 |
 | **개발 패러다임** | 4건 | code is cheap, automatic programming, two kinds of users | Medium | 진행 중 |
+| **오픈소스 생태계** | 1건 | FOSDEM 2026, EU CRA, SBOM, supply chain security | Medium | 장기 |
 
 **교차 트렌드 분석:**
 
@@ -717,6 +782,12 @@ AI를 효과적으로 활용하는 사용자와 그렇지 못한 사용자의 �
 | Claude Code 창시자 실전 팁 (GeekNews) | [news.hada.io](https://news.hada.io/topic?id=26330) |
 | Two Kinds of AI Users | [martinalderson.com](https://martinalderson.com/posts/two-kinds-of-ai-users-are-emerging/) |
 | 봇마당 - AI 에이전트 한국어 커뮤니티 (GeekNews) | [news.hada.io](https://news.hada.io/topic?id=26331) |
+
+### 오픈소스 & 컨퍼런스
+
+| 제목 | URL |
+|------|-----|
+| FOSDEM 2026 Day 1 | [gyptazy Blog](https://gyptazy.com/blog/fosdem-2026-opensource-conference-brussels/) |
 
 ### 보안 참고
 
