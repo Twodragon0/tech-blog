@@ -25,12 +25,17 @@
       function loadChatWidget() {
         if (chatWidgetLoaded) return;
         chatWidgetLoaded = true;
-        
+
         const script = document.createElement('script');
         script.src = "{{ "/assets/js/chat-widget.js" | relative_url }}";
         script.defer = true;
+        script.onload = function() {
+          // Auto-toggle chat on first click (script just loaded)
+          if (chatToggle) chatToggle.click();
+        };
         script.onerror = function() {
           console.error('[Chat Widget] Failed to load script');
+          chatWidgetLoaded = false;
         };
         document.body.appendChild(script);
       }

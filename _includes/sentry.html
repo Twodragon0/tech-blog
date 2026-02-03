@@ -242,14 +242,6 @@ function initSentry() {
 
   if (isDev) console.log('[Sentry] Initialized (error tracking + tracing + replay, Free tier optimized)');
 
-  // Feedback button → GitHub Issues (no Sentry Feedback SDK needed)
-  var feedbackBtn = document.getElementById('custom-feedback-btn');
-  if (feedbackBtn) {
-    feedbackBtn.addEventListener('click', function() {
-      window.open('https://github.com/Twodragon0/tech-blog/issues/new', '_blank');
-    });
-  }
-
   // Global error handler with context enrichment
   window.addEventListener('error', function(event) {
     if (!isProduction || typeof Sentry === 'undefined') return;
