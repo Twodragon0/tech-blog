@@ -331,6 +331,7 @@ function initSentry() {
   window.addEventListener('unhandledrejection', function(event) {
     if (!isProduction || typeof Sentry === 'undefined') return;
     if (event.reason && event.reason.__sentry_captured__) return;
+    if (event.defaultPrevented) return;
 
     var error = event.reason instanceof Error ? event.reason : new Error(String(event.reason || 'Unhandled Promise Rejection'));
     error.__sentry_captured__ = true;

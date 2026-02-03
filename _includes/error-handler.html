@@ -153,6 +153,7 @@
 
   // Unhandled promise rejection handler
   window.addEventListener('unhandledrejection', function(event) {
+    if (event.defaultPrevented) return;
     // 안전한 에러 객체 생성
     let error = null;
     if (event.reason) {

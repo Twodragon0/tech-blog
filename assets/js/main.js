@@ -534,7 +534,7 @@
         event.preventDefault();
         return;
       }
-    }, { passive: true });
+    });
 
     // 네트워크 요청에서 Firebase Dynamic Links 오류 필터링
     // fetch API 래핑
@@ -544,7 +544,7 @@
       
       // Firebase Dynamic Links 관련 요청은 조용히 실패 처리
       if (/firebaseapp\.com/i.test(url) || /app\.goo\.gl/i.test(url)) {
-        return Promise.reject(new Error('Firebase Dynamic Links service has been discontinued'));
+        return Promise.resolve(new Response('', { status: 200, statusText: 'OK' }));
       }
       
       return originalFetch.apply(this, args).catch(function(error) {
@@ -873,7 +873,7 @@
     }
 
     searchInput.addEventListener('focus', function onFirstFocus() {
-      loadFuseJs().then(() => initFuse());
+      loadFuseJs().then(() => initFuse()).catch(() => {});
       searchInput.removeEventListener('focus', onFirstFocus);
     }, { once: true });
 
@@ -982,7 +982,7 @@
           if (serverResults && serverResults.length > 0) {
             renderResults(mergeResults(serverResults, clientResults), query, true);
           }
-        });
+        }).catch(() => {});
       }, 300);
     });
 
