@@ -1,0 +1,279 @@
+name: Sentry Issue Resolution
+
+# Sentry 이슈 해결 워크플로우
+# Free 티어 최적화: continue-on-error, 간단한 에러 처리
+# 두 가지 트리거:
+#   1. workflow_dispatch: 특정 이슈 수동 해결 (TECH-BLOG-4 형식)
+#   2. push to main: 배포 시 오래된 미해결 이슈 자동 해결
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '_includes/**'
+      - '_layouts/**'
+      - '_posts/**'
+      - 'assets/**'
+      - '_config.yml'
+      - 'vercel.json'
+  workflow_dispatch:
+    inputs:
+      issue_id:
+        description: 'Issue short ID (e.g., TECH-BLOG-4)'
+        required: true
+        type: string
+      status:
+        description: 'Resolution status'
+        required: false
+        default: 'resolved'
+        type: choice
+        options:
+          - 'resolved'
+          - 'ignored'
+
+concurrency:
+  group: sentry-resolve-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  resolve-issue:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    continue-on-error: true
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Resolve Sentry Issue
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'tech-blog' }}
+          ISSUE_ID: ${{ github.event.inputs.issue_id }}
+          STATUS: ${{ github.event.inputs.status }}
+        run: |
+          # ─── Reusable curl-retry function ───
+          sentry_api() {
+            local url="$1"
+            local method="${2:-GET}"
+            local data="${3:-}"
+            local max_retries=3
+            local retry=0
+            local http_code=""
+            local body=""
+            local response=""
+
+            while [ $retry -lt $max_retries ]; do
+              if [ -n "$data" ]; then
+                response=$(curl -s --max-time 15 -w "\n%{http_code}" \
+                  -X "$method" \
+                  -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+                  -H "Content-Type: application/json" \
+                  -d "$data" \
+                  "$url" 2>&1)
+              else
+                response=$(curl -s --max-time 15 -w "\n%{http_code}" \
+                  -X "$method" \
+                  -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+                  -H "Content-Type: application/json" \
+                  "$url" 2>&1)
+              fi
+              local exit_code=$?
+
+              http_code=$(echo "$response" | tail -n1)
+              body=$(echo "$response" | sed '$d')
+
+              if [ "$exit_code" -eq 0 ] && echo "$http_code" | grep -qE '^[0-9]{3}$'; then
+                echo "$body"
+                return 0
+              fi
+
+              retry=$((retry + 1))
+              if [ $retry -lt $max_retries ]; then
+                echo "⚠️  Retry $retry/$max_retries (curl exit: $exit_code)..." >&2
+                sleep $((retry + 1))
+              fi
+            done
+
+            echo "NETWORK_ERROR"
+            return 1
+          }
+
+          echo "🔍 Looking up issue: $ISSUE_ID"
+
+          # Token 확인
+          if [ -z "$SENTRY_AUTH_TOKEN" ]; then
+            echo "❌ SENTRY_AUTH_TOKEN not set"
+            exit 1
+          fi
+
+          # Step 1: Lookup issue by short ID
+          LOOKUP_URL="https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/issues/?query=is:unresolved+$ISSUE_ID&shortIdLookup=1"
+          LOOKUP_RESPONSE=$(sentry_api "$LOOKUP_URL")
+
+          if [ "$LOOKUP_RESPONSE" = "NETWORK_ERROR" ]; then
+            echo "❌ Network error looking up issue"
+            exit 1
+          fi
+
+          # Extract numeric issue ID from response
+          ISSUE_NUMERIC_ID=$(echo "$LOOKUP_RESPONSE" | grep -o '"id":"[0-9]*"' | head -1 | grep -o '[0-9]*')
+
+          if [ -z "$ISSUE_NUMERIC_ID" ]; then
+            echo "❌ Issue not found or already resolved: $ISSUE_ID"
+            echo "💡 Check at: https://sentry.io/organizations/$SENTRY_ORG/issues/"
+            exit 1
+          fi
+
+          echo "✅ Found issue: $ISSUE_ID (numeric ID: $ISSUE_NUMERIC_ID)"
+
+          # Step 2: Resolve the issue
+          echo "🔧 Resolving issue as: $STATUS"
+          RESOLVE_URL="https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/issues/?id=$ISSUE_NUMERIC_ID"
+          RESOLVE_DATA='{"status":"'"$STATUS"'"}'
+
+          RESOLVE_RESPONSE=$(sentry_api "$RESOLVE_URL" "PUT" "$RESOLVE_DATA")
+
+          if [ "$RESOLVE_RESPONSE" = "NETWORK_ERROR" ]; then
+            echo "❌ Network error resolving issue"
+            exit 1
+          fi
+
+          # Check if resolution succeeded
+          if echo "$RESOLVE_RESPONSE" | grep -q '"status":"'"$STATUS"'"'; then
+            echo "✅ Issue $ISSUE_ID resolved successfully!"
+            echo "View at: https://sentry.io/organizations/$SENTRY_ORG/issues/$ISSUE_NUMERIC_ID/"
+          else
+            echo "⚠️  Unexpected response from Sentry API"
+            echo "$RESOLVE_RESPONSE"
+          fi
+
+  auto-resolve-on-deploy:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    continue-on-error: true
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Auto-Resolve Old Issues
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT || 'tech-blog' }}
+        run: |
+          # ─── Reusable curl-retry function ───
+          sentry_api() {
+            local url="$1"
+            local method="${2:-GET}"
+            local data="${3:-}"
+            local max_retries=3
+            local retry=0
+            local http_code=""
+            local body=""
+            local response=""
+
+            while [ $retry -lt $max_retries ]; do
+              if [ -n "$data" ]; then
+                response=$(curl -s --max-time 15 -w "\n%{http_code}" \
+                  -X "$method" \
+                  -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+                  -H "Content-Type: application/json" \
+                  -d "$data" \
+                  "$url" 2>&1)
+              else
+                response=$(curl -s --max-time 15 -w "\n%{http_code}" \
+                  -X "$method" \
+                  -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
+                  -H "Content-Type: application/json" \
+                  "$url" 2>&1)
+              fi
+              local exit_code=$?
+
+              http_code=$(echo "$response" | tail -n1)
+              body=$(echo "$response" | sed '$d')
+
+              if [ "$exit_code" -eq 0 ] && echo "$http_code" | grep -qE '^[0-9]{3}$'; then
+                echo "$body"
+                return 0
+              fi
+
+              retry=$((retry + 1))
+              if [ $retry -lt $max_retries ]; then
+                echo "⚠️  Retry $retry/$max_retries (curl exit: $exit_code)..." >&2
+                sleep $((retry + 1))
+              fi
+            done
+
+            echo "NETWORK_ERROR"
+            return 1
+          }
+
+          echo "🚀 Auto-resolving unresolved issues on deploy..."
+
+          # Token 확인
+          if [ -z "$SENTRY_AUTH_TOKEN" ]; then
+            echo "❌ SENTRY_AUTH_TOKEN not set"
+            exit 1
+          fi
+
+          # Get unresolved issues
+          ISSUES_URL="https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/issues/?query=is:unresolved&sort=date"
+          ISSUES_RESPONSE=$(sentry_api "$ISSUES_URL")
+
+          if [ "$ISSUES_RESPONSE" = "NETWORK_ERROR" ]; then
+            echo "❌ Network error fetching issues"
+            exit 1
+          fi
+
+          # Extract issue IDs (limit to 10 to avoid rate limits)
+          ISSUE_IDS=$(echo "$ISSUES_RESPONSE" | grep -o '"id":"[0-9]*"' | grep -o '[0-9]*' | head -10)
+
+          if [ -z "$ISSUE_IDS" ]; then
+            echo "✅ No unresolved issues found"
+            exit 0
+          fi
+
+          ISSUE_COUNT=$(echo "$ISSUE_IDS" | wc -l | tr -d ' ')
+          echo "🔍 Found $ISSUE_COUNT unresolved issue(s) (max 10)"
+
+          RESOLVED_COUNT=0
+          FAILED_COUNT=0
+
+          # Resolve each issue
+          for ISSUE_ID in $ISSUE_IDS; do
+            echo "🔧 Resolving issue $ISSUE_ID..."
+            RESOLVE_URL="https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/issues/?id=$ISSUE_ID"
+            RESOLVE_DATA='{"status":"resolvedInNextRelease"}'
+
+            RESOLVE_RESPONSE=$(sentry_api "$RESOLVE_URL" "PUT" "$RESOLVE_DATA")
+
+            if [ "$RESOLVE_RESPONSE" = "NETWORK_ERROR" ]; then
+              echo "⚠️  Failed to resolve issue $ISSUE_ID (network error)"
+              FAILED_COUNT=$((FAILED_COUNT + 1))
+            elif echo "$RESOLVE_RESPONSE" | grep -q '"status":"resolvedInNextRelease"'; then
+              echo "✅ Resolved issue $ISSUE_ID"
+              RESOLVED_COUNT=$((RESOLVED_COUNT + 1))
+            else
+              echo "⚠️  Unexpected response for issue $ISSUE_ID"
+              FAILED_COUNT=$((FAILED_COUNT + 1))
+            fi
+
+            # Small delay to respect rate limits
+            sleep 0.5
+          done
+
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📊 Auto-Resolve Summary"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Resolved: $RESOLVED_COUNT"
+          echo "⚠️  Failed: $FAILED_COUNT"
+          echo "📝 Total processed: $ISSUE_COUNT"
+          echo "🔗 View issues: https://sentry.io/organizations/$SENTRY_ORG/issues/"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
