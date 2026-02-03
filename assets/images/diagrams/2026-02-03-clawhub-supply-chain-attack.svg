@@ -1,0 +1,137 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f85149;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="dangerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f85149;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#f85149;stop-opacity:0.1" />
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#f85149" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#e6edf3" text-anchor="middle">
+    ClawHub Supply Chain Attack Flow
+  </text>
+
+  <!-- Attacker (Top) -->
+  <g id="attacker">
+    <rect x="320" y="60" width="160" height="50" rx="8" fill="#f85149" stroke="#f85149" stroke-width="2" filter="url(#glow)"/>
+    <text x="400" y="90" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      Attacker
+    </text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="400" y1="110" x2="400" y2="140" stroke="url(#arrowGradient)" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- Malicious Skill Upload -->
+  <g id="upload">
+    <rect x="290" y="140" width="220" height="50" rx="8" fill="#0d1117" stroke="#f85149" stroke-width="2"/>
+    <text x="400" y="170" font-family="Arial, sans-serif" font-size="14" fill="#f85149" text-anchor="middle">
+      Malicious Skill Upload
+    </text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="400" y1="190" x2="400" y2="220" stroke="url(#arrowGradient)" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- ClawHub Marketplace -->
+  <g id="marketplace">
+    <rect x="290" y="220" width="220" height="50" rx="8" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
+    <text x="400" y="250" font-family="Arial, sans-serif" font-size="14" fill="#58a6ff" text-anchor="middle">
+      ClawHub Marketplace
+    </text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <line x1="400" y1="270" x2="400" y2="300" stroke="url(#arrowGradient)" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- User Installs Skill -->
+  <g id="user">
+    <rect x="310" y="300" width="180" height="50" rx="8" fill="#0d1117" stroke="#e6edf3" stroke-width="2"/>
+    <text x="400" y="330" font-family="Arial, sans-serif" font-size="14" fill="#e6edf3" text-anchor="middle">
+      User Installs Skill
+    </text>
+  </g>
+
+  <!-- Arrow 4 -->
+  <line x1="400" y1="350" x2="400" y2="380" stroke="url(#arrowGradient)" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- OpenClaw Single Process (Danger Zone) -->
+  <g id="openclaw">
+    <rect x="270" y="380" width="260" height="60" rx="8" fill="url(#dangerGradient)" stroke="#f85149" stroke-width="2"/>
+    <text x="400" y="407" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#f85149" text-anchor="middle">
+      OpenClaw Single Process
+    </text>
+    <text x="400" y="427" font-family="Arial, sans-serif" font-size="12" fill="#f8514999" text-anchor="middle">
+      Full Filesystem Access
+    </text>
+  </g>
+
+  <!-- Arrows branching to 4 stolen items -->
+  <line x1="320" y1="440" x2="120" y2="480" stroke="#f85149" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="360" y1="440" x2="260" y2="480" stroke="#f85149" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="440" y1="440" x2="540" y2="480" stroke="#f85149" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="480" y1="440" x2="680" y2="480" stroke="#f85149" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Stolen Data Items -->
+  <g id="ssh">
+    <rect x="40" y="480" width="120" height="40" rx="6" fill="#0d1117" stroke="#f85149" stroke-width="2"/>
+    <text x="100" y="505" font-family="Arial, sans-serif" font-size="13" fill="#f85149" text-anchor="middle">
+      SSH Keys
+    </text>
+  </g>
+
+  <g id="aws">
+    <rect x="200" y="480" width="120" height="40" rx="6" fill="#0d1117" stroke="#f85149" stroke-width="2"/>
+    <text x="260" y="505" font-family="Arial, sans-serif" font-size="13" fill="#f85149" text-anchor="middle">
+      AWS Creds
+    </text>
+  </g>
+
+  <g id="env">
+    <rect x="480" y="480" width="120" height="40" rx="6" fill="#0d1117" stroke="#f85149" stroke-width="2"/>
+    <text x="540" y="505" font-family="Arial, sans-serif" font-size="13" fill="#f85149" text-anchor="middle">
+      ENV Vars
+    </text>
+  </g>
+
+  <g id="token">
+    <rect x="640" y="480" width="120" height="40" rx="6" fill="#0d1117" stroke="#f85149" stroke-width="2"/>
+    <text x="700" y="505" font-family="Arial, sans-serif" font-size="13" fill="#f85149" text-anchor="middle">
+      Token Theft
+    </text>
+  </g>
+
+  <!-- Converging arrows to exfiltration -->
+  <line x1="100" y1="520" x2="350" y2="560" stroke="#f85149" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="260" y1="520" x2="370" y2="560" stroke="#f85149" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="540" y1="520" x2="430" y2="560" stroke="#f85149" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="700" y1="520" x2="450" y2="560" stroke="#f85149" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Data Exfiltration (Bottom) -->
+  <g id="exfiltration">
+    <rect x="280" y="560" width="240" height="30" rx="6" fill="#f85149" stroke="#f85149" stroke-width="2" filter="url(#glow)"/>
+    <text x="400" y="580" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      Data Exfiltration / C2 Channel
+    </text>
+  </g>
+</svg>

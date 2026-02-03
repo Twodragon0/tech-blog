@@ -1,0 +1,114 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="800" height="400" fill="#0d1117"/>
+
+  <!-- Title with shield icon -->
+  <g id="title">
+    <!-- Shield icon -->
+    <path d="M 30 25 L 30 40 Q 30 50 40 55 Q 50 60 60 55 Q 70 50 70 40 L 70 25 L 50 15 Z"
+          fill="none" stroke="#3fb950" stroke-width="2"/>
+    <path d="M 45 35 L 50 40 L 60 28" fill="none" stroke="#3fb950" stroke-width="2" stroke-linecap="round"/>
+    <text x="85" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#58a6ff">
+      NanoClaw Architecture - Container Isolation
+    </text>
+  </g>
+
+  <!-- Outer container (Apple Sandboxed) -->
+  <rect x="50" y="70" width="700" height="300" rx="8"
+        fill="none" stroke="#3fb950" stroke-width="3" stroke-dasharray="5,5"/>
+  <text x="60" y="90" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3fb950">
+    Apple Container (Sandboxed)
+  </text>
+
+  <!-- Inner box: NanoClaw Core -->
+  <rect x="280" y="110" width="240" height="150" rx="6"
+        fill="#1f2937" stroke="#58a6ff" stroke-width="2"/>
+  <text x="320" y="135" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#58a6ff">
+    NanoClaw Core (~500 lines)
+  </text>
+
+  <!-- Module boxes inside core -->
+  <rect x="295" y="150" width="100" height="50" rx="4"
+        fill="#1f2937" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="315" y="170" font-family="Arial, sans-serif" font-size="12" fill="#e6edf3">
+    LLM API
+  </text>
+  <text x="310" y="188" font-family="Arial, sans-serif" font-size="11" fill="#8b949e">
+    Module
+  </text>
+
+  <rect x="405" y="150" width="100" height="50" rx="4"
+        fill="#1f2937" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="425" y="170" font-family="Arial, sans-serif" font-size="12" fill="#e6edf3">
+    File I/O
+  </text>
+  <text x="420" y="188" font-family="Arial, sans-serif" font-size="11" fill="#8b949e">
+    Module
+  </text>
+
+  <!-- Security labels below core -->
+  <text x="295" y="230" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b949e">
+    Filtered Network
+  </text>
+  <text x="405" y="230" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b949e">
+    Scoped FS Access
+  </text>
+
+  <!-- Left path: API Allow-list -->
+  <g id="api-allowlist">
+    <!-- Arrow from LLM API module to allow-list -->
+    <path d="M 295 175 L 180 175" fill="none" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <rect x="60" y="140" width="110" height="70" rx="4"
+          fill="#1f2937" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="70" y="160" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3fb950">
+      API Allow-list
+    </text>
+    <text x="70" y="180" font-family="Arial, sans-serif" font-size="10" fill="#3fb950">
+      ✓ api.anthropic.com
+    </text>
+    <text x="70" y="197" font-family="Arial, sans-serif" font-size="10" fill="#3fb950">
+      ✓ api.openai.com
+    </text>
+  </g>
+
+  <!-- Right path: Project Dir Only -->
+  <g id="project-dir">
+    <!-- Arrow from File I/O module to project dir -->
+    <path d="M 505 175 L 620 175" fill="none" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <rect x="630" y="140" width="110" height="120" rx="4"
+          fill="#1f2937" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="640" y="160" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3fb950">
+      Project Dir Only
+    </text>
+    <text x="640" y="180" font-family="Arial, sans-serif" font-size="10" fill="#3fb950">
+      ✓ ~/project/*
+    </text>
+    <text x="640" y="210" font-family="Arial, sans-serif" font-size="10" fill="#f85149" text-decoration="line-through">
+      ✗ ~/.ssh
+    </text>
+    <text x="640" y="230" font-family="Arial, sans-serif" font-size="10" fill="#f85149" text-decoration="line-through">
+      ✗ ~/.aws
+    </text>
+    <text x="640" y="250" font-family="Arial, sans-serif" font-size="10" fill="#f85149" text-decoration="line-through">
+      ✗ /etc/passwd
+    </text>
+  </g>
+
+  <!-- Security badge at bottom -->
+  <g id="security-badge">
+    <rect x="300" y="330" width="200" height="30" rx="15"
+          fill="#1f2937" stroke="#3fb950" stroke-width="2"/>
+    <text x="320" y="351" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3fb950">
+      SECURE: Container Isolation
+    </text>
+  </g>
+
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#58a6ff"/>
+    </marker>
+  </defs>
+</svg>

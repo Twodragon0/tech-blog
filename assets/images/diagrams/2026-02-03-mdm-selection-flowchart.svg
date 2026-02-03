@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" width="800" height="700">
+  <!-- Background -->
+  <rect width="800" height="700" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f0f6fc" text-anchor="middle">
+    MDM Selection Decision Flowchart
+  </text>
+
+  <!-- Start Box -->
+  <rect x="280" y="50" width="240" height="50" rx="10" fill="#58a6ff" opacity="0.2" stroke="#58a6ff" stroke-width="2"/>
+  <text x="400" y="80" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f0f6fc" text-anchor="middle">
+    What devices do you manage?
+  </text>
+
+  <!-- Arrow down -->
+  <path d="M 400 100 L 400 130" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Decision 1: Apple >= 80%? -->
+  <g transform="translate(400, 160)">
+    <path d="M 0,-30 L 80,0 L 0,30 L -80,0 Z" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+    <text x="0" y="-5" font-family="Arial, sans-serif" font-size="13" fill="#f0f6fc" text-anchor="middle">Apple devices</text>
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="13" fill="#f0f6fc" text-anchor="middle">&gt;= 80%?</text>
+  </g>
+
+  <!-- YES arrow left -->
+  <path d="M 320 160 L 200 160" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="260" y="150" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3fb950">YES</text>
+
+  <!-- NO arrow right -->
+  <path d="M 480 160 L 600 160" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="540" y="150" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f85149">NO</text>
+
+  <!-- Decision 2 Left: Deep Apple integration? -->
+  <g transform="translate(200, 160)">
+    <path d="M 0,0 L 0,60" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  </g>
+
+  <g transform="translate(200, 250)">
+    <path d="M 0,-30 L 70,0 L 0,30 L -70,0 Z" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+    <text x="0" y="-5" font-family="Arial, sans-serif" font-size="12" fill="#f0f6fc" text-anchor="middle">Need deep</text>
+    <text x="0" y="8" font-family="Arial, sans-serif" font-size="12" fill="#f0f6fc" text-anchor="middle">Apple integration?</text>
+  </g>
+
+  <!-- YES arrow down left -->
+  <path d="M 200 280 L 200 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="210" y="305" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3fb950">YES</text>
+
+  <!-- NO arrow right from deep integration -->
+  <path d="M 270 250 L 340 250 L 340 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="305" y="240" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f85149">NO</text>
+
+  <!-- Result: Jamf Pro -->
+  <rect x="100" y="320" width="200" height="70" rx="8" fill="#0d1117" stroke="#3fb950" stroke-width="2"/>
+  <text x="200" y="340" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3fb950" text-anchor="middle">
+    Jamf Pro
+  </text>
+  <text x="200" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+    Best for: Apple-first orgs,
+  </text>
+  <text x="200" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+    creative teams, education
+  </text>
+
+  <!-- Result: Jamf + Intune Hybrid -->
+  <rect x="310" y="320" width="230" height="70" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+  <text x="425" y="340" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#d29922" text-anchor="middle">
+    Jamf Pro + Intune Hybrid
+  </text>
+  <text x="425" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+    Best for: Apple-dominant orgs
+  </text>
+  <text x="425" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+    with Windows/Android minority
+  </text>
+
+  <!-- Decision 2 Right: Using Microsoft 365? -->
+  <g transform="translate(600, 160)">
+    <path d="M 0,0 L 0,60" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  </g>
+
+  <g transform="translate(600, 250)">
+    <path d="M 0,-30 L 70,0 L 0,30 L -70,0 Z" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+    <text x="0" y="-5" font-family="Arial, sans-serif" font-size="12" fill="#f0f6fc" text-anchor="middle">Using</text>
+    <text x="0" y="8" font-family="Arial, sans-serif" font-size="12" fill="#f0f6fc" text-anchor="middle">Microsoft 365?</text>
+  </g>
+
+  <!-- YES arrow down from M365 -->
+  <path d="M 600 280 L 600 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="610" y="305" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3fb950">YES</text>
+
+  <!-- NO arrow left from M365 -->
+  <path d="M 530 250 L 470 250 L 470 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="500" y="240" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f85149">NO</text>
+
+  <!-- Result: Intune -->
+  <rect x="550" y="320" width="200" height="70" rx="8" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
+  <text x="650" y="340" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#58a6ff" text-anchor="middle">
+    Intune
+  </text>
+  <text x="650" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+    Best for: M365 orgs,
+  </text>
+  <text x="650" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+    Windows-heavy, cross-platform
+  </text>
+
+  <!-- Result: Other Options -->
+  <rect x="370" y="320" width="200" height="70" rx="8" fill="#0d1117" stroke="#8b949e" stroke-width="2"/>
+  <text x="470" y="340" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b949e" text-anchor="middle">
+    Consider:
+  </text>
+  <text x="470" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+    Workspace ONE, Kandji,
+  </text>
+  <text x="470" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+    Mosyle, or platform-specific MDMs
+  </text>
+
+  <!-- Comparison Table -->
+  <g transform="translate(50, 420)">
+    <text x="350" y="0" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f0f6fc" text-anchor="middle">
+      Quick Comparison
+    </text>
+
+    <!-- Table background -->
+    <rect x="0" y="10" width="700" height="240" rx="8" fill="#1f2937" opacity="0.6"/>
+
+    <!-- Header row -->
+    <rect x="10" y="20" width="130" height="35" fill="#374151"/>
+    <rect x="150" y="20" width="170" height="35" fill="#3fb950" opacity="0.3"/>
+    <rect x="330" y="20" width="170" height="35" fill="#58a6ff" opacity="0.3"/>
+    <rect x="510" y="20" width="170" height="35" fill="#d29922" opacity="0.3"/>
+
+    <!-- Headers -->
+    <text x="75" y="43" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#f0f6fc" text-anchor="middle">Criteria</text>
+    <text x="235" y="43" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3fb950" text-anchor="middle">Jamf Pro</text>
+    <text x="415" y="43" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#58a6ff" text-anchor="middle">Intune</text>
+    <text x="595" y="43" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#d29922" text-anchor="middle">Hybrid</text>
+
+    <!-- Row 1: Apple depth -->
+    <text x="20" y="78" font-family="Arial, sans-serif" font-size="12" fill="#f0f6fc">Apple depth</text>
+    <text x="235" y="78" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★★★</text>
+    <text x="415" y="78" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★☆☆</text>
+    <text x="595" y="78" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★★★</text>
+
+    <!-- Row 2: Windows support -->
+    <text x="20" y="108" font-family="Arial, sans-serif" font-size="12" fill="#f0f6fc">Windows support</text>
+    <text x="235" y="108" font-family="Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="middle">-</text>
+    <text x="415" y="108" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★★★</text>
+    <text x="595" y="108" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★★★</text>
+
+    <!-- Row 3: Android support -->
+    <text x="20" y="138" font-family="Arial, sans-serif" font-size="12" fill="#f0f6fc">Android support</text>
+    <text x="235" y="138" font-family="Arial, sans-serif" font-size="12" fill="#8b949e" text-anchor="middle">-</text>
+    <text x="415" y="138" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★★☆</text>
+    <text x="595" y="138" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★★☆</text>
+
+    <!-- Row 4: M365 integration -->
+    <text x="20" y="168" font-family="Arial, sans-serif" font-size="12" fill="#f0f6fc">M365 integration</text>
+    <text x="235" y="168" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★☆☆</text>
+    <text x="415" y="168" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★★★</text>
+    <text x="595" y="168" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★★★</text>
+
+    <!-- Row 5: Setup simplicity -->
+    <text x="20" y="198" font-family="Arial, sans-serif" font-size="12" fill="#f0f6fc">Setup simplicity</text>
+    <text x="235" y="198" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★★★</text>
+    <text x="415" y="198" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★★☆☆</text>
+    <text x="595" y="198" font-family="Arial, sans-serif" font-size="16" fill="#ffd700" text-anchor="middle">★★☆☆☆</text>
+
+    <!-- Row 6: Cost -->
+    <text x="20" y="228" font-family="Arial, sans-serif" font-size="12" fill="#f0f6fc">Cost</text>
+    <text x="235" y="228" font-family="Arial, sans-serif" font-size="14" fill="#f0f6fc" text-anchor="middle">$$</text>
+    <text x="415" y="228" font-family="Arial, sans-serif" font-size="12" fill="#3fb950" text-anchor="middle">Included with M365</text>
+    <text x="595" y="228" font-family="Arial, sans-serif" font-size="14" fill="#f0f6fc" text-anchor="middle">$$$</text>
+  </g>
+
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#8b949e"/>
+    </marker>
+  </defs>
+</svg>

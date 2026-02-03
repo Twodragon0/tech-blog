@@ -1,0 +1,107 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0d1117"/>
+
+  <!-- Card 1: Security-Restricted-Devices (Red) -->
+  <g id="card1">
+    <!-- Card container -->
+    <rect x="20" y="40" width="240" height="320" rx="8" fill="#1f2937"/>
+    <!-- Top border -->
+    <rect x="20" y="40" width="240" height="6" rx="8" fill="#f85149"/>
+
+    <!-- Card header -->
+    <text x="140" y="75" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Security-Restricted</text>
+    <text x="140" y="95" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Devices</text>
+
+    <!-- Criteria section -->
+    <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b949e">Criteria:</text>
+
+    <!-- Bullet points -->
+    <circle cx="45" cy="153" r="3" fill="#58a6ff"/>
+    <text x="55" y="158" font-family="Arial, sans-serif" font-size="12" fill="#c9d1d9">Department = "Finance"</text>
+
+    <circle cx="45" cy="183" r="3" fill="#58a6ff"/>
+    <text x="55" y="188" font-family="Arial, sans-serif" font-size="12" fill="#c9d1d9">OS Version &lt; 17.3</text>
+
+    <circle cx="45" cy="213" r="3" fill="#58a6ff"/>
+    <text x="55" y="218" font-family="Arial, sans-serif" font-size="12" fill="#c9d1d9">Last Check-in &gt; 7</text>
+    <text x="55" y="233" font-family="Arial, sans-serif" font-size="12" fill="#c9d1d9">days ago</text>
+
+    <!-- Action section -->
+    <line x1="40" y1="265" x2="220" y2="265" stroke="#30363d" stroke-width="1"/>
+
+    <text x="40" y="290" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b949e">Action:</text>
+
+    <!-- Arrow icon -->
+    <path d="M 45 310 L 52 310 L 48.5 314 Z" fill="#f85149"/>
+    <text x="58" y="315" font-family="Arial, sans-serif" font-size="12" fill="#f85149" font-weight="bold">Apply Strict App</text>
+    <text x="58" y="330" font-family="Arial, sans-serif" font-size="12" fill="#f85149" font-weight="bold">Restriction Profile</text>
+  </g>
+
+  <!-- Card 2: BYOD-Personal-Devices (Blue) -->
+  <g id="card2">
+    <!-- Card container -->
+    <rect x="280" y="40" width="240" height="320" rx="8" fill="#1f2937"/>
+    <!-- Top border -->
+    <rect x="280" y="40" width="240" height="6" rx="8" fill="#58a6ff"/>
+
+    <!-- Card header -->
+    <text x="400" y="75" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">BYOD-Personal</text>
+    <text x="400" y="95" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Devices</text>
+
+    <!-- Criteria section -->
+    <text x="300" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b949e">Criteria:</text>
+
+    <!-- Bullet points -->
+    <circle cx="305" cy="153" r="3" fill="#58a6ff"/>
+    <text x="315" y="158" font-family="Arial, sans-serif" font-size="12" fill="#c9d1d9">Enrollment Type =</text>
+    <text x="315" y="173" font-family="Arial, sans-serif" font-size="12" fill="#c9d1d9">"User Enrolled"</text>
+
+    <circle cx="305" cy="198" r="3" fill="#58a6ff"/>
+    <text x="315" y="203" font-family="Arial, sans-serif" font-size="12" fill="#c9d1d9">Supervised = No</text>
+
+    <!-- Action section -->
+    <line x1="300" y1="265" x2="480" y2="265" stroke="#30363d" stroke-width="1"/>
+
+    <text x="300" y="290" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b949e">Action:</text>
+
+    <!-- Arrow icon -->
+    <path d="M 305 310 L 312 310 L 308.5 314 Z" fill="#58a6ff"/>
+    <text x="318" y="315" font-family="Arial, sans-serif" font-size="12" fill="#58a6ff" font-weight="bold">Apply Managed</text>
+    <text x="318" y="330" font-family="Arial, sans-serif" font-size="12" fill="#58a6ff" font-weight="bold">App Only Profile</text>
+  </g>
+
+  <!-- Card 3: Executive-Devices (Gold) -->
+  <g id="card3">
+    <!-- Card container -->
+    <rect x="540" y="40" width="240" height="320" rx="8" fill="#1f2937"/>
+    <!-- Top border -->
+    <rect x="540" y="40" width="240" height="6" rx="8" fill="#d29922"/>
+
+    <!-- Card header -->
+    <text x="660" y="75" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Executive</text>
+    <text x="660" y="95" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">Devices</text>
+
+    <!-- Criteria section -->
+    <text x="560" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b949e">Criteria:</text>
+
+    <!-- Bullet points -->
+    <circle cx="565" cy="153" r="3" fill="#58a6ff"/>
+    <text x="575" y="158" font-family="Arial, sans-serif" font-size="12" fill="#c9d1d9">Department =</text>
+    <text x="575" y="173" font-family="Arial, sans-serif" font-size="12" fill="#c9d1d9">"C-Suite"</text>
+
+    <circle cx="565" cy="198" r="3" fill="#58a6ff"/>
+    <text x="575" y="203" font-family="Arial, sans-serif" font-size="12" fill="#c9d1d9">Device Type =</text>
+    <text x="575" y="218" font-family="Arial, sans-serif" font-size="12" fill="#c9d1d9">"iPhone" OR "iPad"</text>
+
+    <!-- Action section -->
+    <line x1="560" y1="265" x2="740" y2="265" stroke="#30363d" stroke-width="1"/>
+
+    <text x="560" y="290" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b949e">Action:</text>
+
+    <!-- Arrow icon -->
+    <path d="M 565 310 L 572 310 L 568.5 314 Z" fill="#d29922"/>
+    <text x="578" y="315" font-family="Arial, sans-serif" font-size="12" fill="#d29922" font-weight="bold">Apply Premium</text>
+    <text x="578" y="330" font-family="Arial, sans-serif" font-size="12" fill="#d29922" font-weight="bold">Security Profile</text>
+  </g>
+</svg>

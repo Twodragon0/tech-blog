@@ -141,23 +141,7 @@ Cisco는 OpenClaw를 **"치명적 삼중주(Lethal Trifecta)"**라고 표현했�
 
 **보안 위험 요인:**
 
-```
-OpenClaw Architecture (Single Process Model)
-+--------------------------------------------------+
-|  Node.js Process (User Privileges)               |
-|                                                  |
-|  +----------+  +----------+  +----------+        |
-|  | Module 1 |  | Module 2 |  | Module N |  ...   |
-|  | (Tools)  |  | (Plugins)|  | (Exts)   |  52+  |
-|  +----------+  +----------+  +----------+        |
-|       |              |             |              |
-|  [Full FS Access] [Shell Exec] [Network I/O]     |
-|       |              |             |              |
-+---------|------------|-------------|-------------+
-          v            v             v
-   ~/.ssh/id_rsa   rm -rf /     POST secrets
-   ~/.aws/creds    curl evil    to external
-```
+![OpenClaw Architecture - Single process model with 52+ modules running with full user privileges and no isolation](/assets/images/diagrams/2026-02-03-openclaw-architecture.svg)
 
 #### CVE-2026-25253: OpenClaw 원클릭 RCE 취약점
 
@@ -232,25 +216,7 @@ Cisco가 별도로 수행한 대규모 분석에서는 **31,000개 에이전트 
 
 이 사건은 OpenClaw의 아키텍처적 취약점과 결합될 때 특히 위험합니다. 단일 프로세스 모델에서 악성 스킬이 사용자와 동일한 권한으로 실행되므로, `~/.ssh/`, `~/.aws/`, `~/.env` 등 민감한 자격 증명에 무제한 접근이 가능합니다.
 
-```
-ClawHub Supply Chain Attack Flow:
-
-[Attacker] --> [Malicious Skill Upload] --> [ClawHub Marketplace]
-                                                    |
-                                            [User Installs Skill]
-                                                    |
-                                            [OpenClaw Single Process]
-                                                    |
-                                     +------+-------+-------+
-                                     |      |       |       |
-                                  [SSH]  [AWS]  [ENV]  [Token]
-                                  Keys   Creds  Vars   Theft
-                                     |      |       |       |
-                                     +------+-------+-------+
-                                                    |
-                                            [Data Exfiltration]
-                                            [C2 Channel / API]
-```
+![ClawHub Supply Chain Attack Flow - From malicious skill upload to data exfiltration via OpenClaw single process](/assets/images/diagrams/2026-02-03-clawhub-supply-chain-attack.svg)
 
 **MITRE ATT&CK 관련 기법:**
 
@@ -290,25 +256,7 @@ Moltbook의 구조적 문제는 **간접 프롬프트 인젝션(Indirect Prompt 
 | **Shodan 대규모 노출** | 2026년 1월 25일, 자가 호스팅 OpenClaw 인스턴스가 Shodan에 대량 인덱싱. 관리 포트가 인터넷에 노출된 채 운영 | Critical |
 | **SecurityAffairs 400+ 악성 패키지** | Moltbot 스킬을 악용해 수일 만에 400개 이상의 악성 패키지 유포 | High |
 
-```
-OpenClaw/Moltbot Security Incident Timeline (2026 Jan-Feb):
-
-Jan 25 ── Shodan: Mass OpenClaw instance indexing
-           (exposed admin ports, no auth)
-     |
-Jan 27-29 ── ClawHavoc Wave 1: 28 malicious skills
-              + Fake VS Code extension (ScreenConnect RAT)
-     |
-Jan 30 ── CVE-2026-25253 patch released (v2026.1.29)
-     |
-Jan 31-Feb 2 ── ClawHavoc Wave 2: 386 malicious skills
-                 + Moltbook credential leak (Wiz Inc.)
-                 + 400+ malware packages via skills
-     |
-Feb 2 ── Koi Security publishes ClawHavoc report
-          VirusTotal publishes skills weaponization report
-          Cisco publishes 31K skills audit (26% vulnerable)
-```
+![OpenClaw Moltbot Security Incident Timeline Jan-Feb 2026 - From Shodan exposure to ClawHavoc campaign and CVE patch](/assets/images/diagrams/2026-02-03-security-incident-timeline.svg)
 
 ### 1.3 NanoClaw는 어떻게 보안 문제를 해결하는가?
 
@@ -326,24 +274,7 @@ NanoClaw는 보안을 아키텍처 수준에서 해결합니다. OpenClaw의 CVE
 
 **NanoClaw 보안 아키텍처:**
 
-```
-NanoClaw Architecture (Container Isolation)
-+--------------------------------------------------+
-|  Apple Container (Sandboxed)                     |
-|  +--------------------------------------------+  |
-|  |  NanoClaw Core (~500 lines)                |  |
-|  |  +----------+  +----------+                |  |
-|  |  | LLM API  |  | File I/O |                |  |
-|  |  +----------+  +----------+                |  |
-|  +--------------------------------------------+  |
-|       |                    |                      |
-|  [API Allow-list]   [Project Dir Only]            |
-|  - api.anthropic.com  - ~/project/*               |
-|  - api.openai.com     - (no ~/.ssh, ~/.aws)       |
-+--------------------------------------------------+
-        |                    |
-   Filtered Network     Scoped FS Access
-```
+![NanoClaw Architecture - Apple container sandbox with isolated file access and filtered network](/assets/images/diagrams/2026-02-03-nanoclaw-architecture.svg)
 
 ### 1.4 OpenClaw vs NanoClaw: 어떤 AI 에이전트가 더 안전한가?
 
@@ -551,17 +482,7 @@ fi
 
 #### Smart Group 연동: 설치 탐지 디바이스 자동 그룹화
 
-```
-Jamf Pro Smart Group: "OpenClaw Installed Devices"
-+--------------------------------------------------+
-| Criteria:                                        |
-|   OpenClaw Detection  |  like  |  WARNING*       |
-|                                                  |
-| -> Action: Send alert to security team           |
-| -> Action: Apply restriction profile             |
-| -> Action: Create Jira ticket via webhook        |
-+--------------------------------------------------+
-```
+![Jamf Pro Smart Group - OpenClaw installed devices detection with automated alert and restriction actions](/assets/images/diagrams/2026-02-03-jamf-smart-group.svg)
 
 탐지 시 자동으로 다음 조치를 취할 수 있습니다:
 
@@ -652,45 +573,7 @@ NanoClaw는 핵심 코딩 지원에 집중하므로 OpenClaw의 52개 이상 모
 
 조직의 환경에 따라 최적의 MDM 솔루션이 달라집니다. 아래 플로차트를 참고하세요:
 
-```
-MDM Selection Decision Flowchart
-=================================
-
-[Start: What devices do you manage?]
-        |
-        v
-[Apple devices >= 80%?] ---YES---> [Need deep Apple integration?]
-        |                                    |
-        NO                              YES---> [Jamf Pro]
-        |                                    |  Best for: Apple-first orgs,
-        v                                    |  creative teams, education
-[Using Microsoft 365?] ---YES--->            NO
-        |                          |         |
-        NO                         v         v
-        |              [Intune]          [Jamf Pro + Intune
-        v              Best for:          Hybrid Strategy]
-[Multi-platform         M365 orgs,       Best for: Apple devices
- with no M365?]        Windows-heavy,    via Jamf, others via
-        |              cross-platform     Intune
-        v
-[Consider:]
- - Workspace ONE (VMware)
- - Kandji (Apple-focused alt)
- - Mosyle (Education/SMB)
-
-Decision Criteria Summary:
-+------------------+----------+----------+-----------+
-| Criteria         | Jamf Pro | Intune   | Hybrid    |
-+------------------+----------+----------+-----------+
-| Apple depth      | *****    | ***      | *****     |
-| Windows support  | -        | *****    | *****     |
-| Android support  | -        | ****     | ****      |
-| M365 integration | ***      | *****    | *****     |
-| Setup simplicity | *****    | ***      | **        |
-| Cost (standalone)| $$       | Included | $$$       |
-|                  |          | with M365|           |
-+------------------+----------+----------+-----------+
-```
+![MDM Selection Decision Flowchart - Choose between Jamf Pro, Intune, or Hybrid based on device mix and platform needs](/assets/images/diagrams/2026-02-03-mdm-selection-flowchart.svg)
 
 ### 2.3 Jamf Pro: Apple 기기 MDM은 어떻게 설정하는가?
 
@@ -743,31 +626,7 @@ Jamf Pro는 Apple 생태계에 최적화된 MDM으로, Configuration Profile을 
 
 #### Smart Groups 기반 정책 배포
 
-```
-Jamf Pro Smart Group Examples:
-+------------------------------------------+
-| Group: "Security-Restricted-Devices"     |
-| Criteria:                                |
-|   - Department = "Finance"               |
-|   - OS Version < 17.3                    |
-|   - Last Check-in > 7 days ago           |
-| -> Apply: Strict App Restriction Profile |
-+------------------------------------------+
-
-| Group: "BYOD-Personal-Devices"           |
-| Criteria:                                |
-|   - Enrollment Type = "User Enrolled"    |
-|   - Supervised = No                      |
-| -> Apply: Managed App Only Profile       |
-+------------------------------------------+
-
-| Group: "Executive-Devices"               |
-| Criteria:                                |
-|   - Department = "C-Suite"               |
-|   - Device Type = "iPhone" OR "iPad"     |
-| -> Apply: Premium Security Profile       |
-+------------------------------------------+
-```
+![Jamf Pro Smart Group Examples - Security-Restricted, BYOD, and Executive device group configurations](/assets/images/diagrams/2026-02-03-jamf-smart-group-examples.svg)
 
 #### Jamf Pro API로 앱 비활성화
 
@@ -1050,34 +909,7 @@ Microsoft Security 팀이 **macOS와 Python 개발 환경을 타겟으로 한 In
 
 ### 3.5 트렌드 분석: 이번 주 보안 이슈는 어떻게 연결되는가?
 
-```
-2026 Feb Week 1 - Security/DevOps Trend Map:
-
-AI Agent Security ─────────────────── Zero Trust
-     |                                     |
-     +-- CVE-2026-25253 (RCE)             +-- MDM App Control
-     +-- ClawHub 341 Malicious Skills     +-- Conditional Access
-     +-- OWASP Agentic AI Top 10          +-- Device Compliance
-     +-- Sandboxing (NanoClaw)            +-- NTLM Phase-Out
-     +-- Prompt Injection Defense         |
-                    |                     |
-                    +--------+------------+
-                             |
-                   Supply Chain Security
-                             |
-                  +-- SBOM Compliance (US/EU)
-                  +-- SLSA v1.1
-                  +-- Sigstore cosign 3.0
-                  +-- ClawHub Skill Vetting
-                  +-- Container Security
-                             |
-                   Enterprise AI Integration
-                             |
-                  +-- Snowflake-OpenAI ($200M)
-                  +-- Amazon Bedrock Healthcare
-                  +-- Gemini Enterprise Onboarding
-                  +-- Cloud Run GPU Inference
-```
+![2026 Feb Week 1 Security DevOps Trend Map - AI Agent Security, Zero Trust, Supply Chain Security, and Enterprise AI connections](/assets/images/diagrams/2026-02-03-security-devops-trend-map.svg)
 
 이번 주의 핵심 연결고리는 **"AI 에이전트의 보안과 신뢰"**입니다. OpenClaw 취약점과 ClawHub 공급망 공격은 AI 에이전트 보안의 실질적 위험을 보여주고, MDM과 Zero Trust는 이에 대한 엔터프라이즈 대응 전략이며, SBOM/SLSA는 공급망 전체의 무결성을 보장하는 기반입니다.
 

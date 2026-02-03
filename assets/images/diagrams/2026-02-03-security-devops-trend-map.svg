@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="800" height="550">
+  <!-- Dark background -->
+  <rect width="800" height="550" fill="#0d1117"/>
+
+  <!-- Define gradients and filters for glows -->
+  <defs>
+    <filter id="glow-red" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-green" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-gold" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Connection lines (draw first, behind nodes) -->
+  <!-- AI Agent Security to Center -->
+  <line x1="180" y1="110" x2="400" y2="275" stroke="#f85149" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.6"/>
+
+  <!-- Zero Trust to Center -->
+  <line x1="620" y1="110" x2="400" y2="275" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.6"/>
+
+  <!-- Enterprise AI to Center -->
+  <line x1="400" y1="470" x2="400" y2="275" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.6"/>
+
+  <!-- Cross connections for diamond pattern -->
+  <line x1="180" y1="110" x2="620" y2="110" stroke="#8b949e" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="180" y1="110" x2="400" y2="470" stroke="#8b949e" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="620" y1="110" x2="400" y2="470" stroke="#8b949e" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+
+  <!-- CLUSTER 1: AI Agent Security (Top-Left) -->
+  <g id="cluster-ai-agent">
+    <!-- Background glow box -->
+    <rect x="50" y="50" width="260" height="140" rx="8" fill="#f85149" opacity="0.08" filter="url(#glow-red)"/>
+    <rect x="50" y="50" width="260" height="140" rx="8" fill="none" stroke="#f85149" stroke-width="1" opacity="0.3"/>
+
+    <!-- Header circle and text -->
+    <circle cx="180" cy="75" r="45" fill="#f85149" opacity="0.2" filter="url(#glow-red)"/>
+    <circle cx="180" cy="75" r="45" fill="none" stroke="#f85149" stroke-width="2"/>
+    <text x="180" y="80" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f85149" text-anchor="middle">AI Agent</text>
+    <text x="180" y="95" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f85149" text-anchor="middle">Security</text>
+
+    <!-- Sub-items -->
+    <text x="65" y="135" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">CVE-2026-25253 (RCE)</text>
+    <text x="65" y="150" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">ClawHub 341 Malicious Skills</text>
+    <text x="65" y="165" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">OWASP Agentic AI Top 10</text>
+    <text x="65" y="180" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">Sandboxing (NanoClaw)</text>
+  </g>
+
+  <!-- CLUSTER 2: Zero Trust (Top-Right) -->
+  <g id="cluster-zero-trust">
+    <!-- Background glow box -->
+    <rect x="490" y="50" width="260" height="140" rx="8" fill="#3fb950" opacity="0.08" filter="url(#glow-green)"/>
+    <rect x="490" y="50" width="260" height="140" rx="8" fill="none" stroke="#3fb950" stroke-width="1" opacity="0.3"/>
+
+    <!-- Header circle and text -->
+    <circle cx="620" cy="75" r="45" fill="#3fb950" opacity="0.2" filter="url(#glow-green)"/>
+    <circle cx="620" cy="75" r="45" fill="none" stroke="#3fb950" stroke-width="2"/>
+    <text x="620" y="82" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3fb950" text-anchor="middle">Zero Trust</text>
+
+    <!-- Sub-items -->
+    <text x="505" y="135" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">MDM App Control</text>
+    <text x="505" y="150" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">Conditional Access</text>
+    <text x="505" y="165" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">Device Compliance</text>
+    <text x="505" y="180" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">NTLM Phase-Out</text>
+  </g>
+
+  <!-- CENTER: Supply Chain Security (Largest, gold) -->
+  <g id="cluster-supply-chain">
+    <!-- Background glow box -->
+    <rect x="260" y="200" width="280" height="150" rx="8" fill="#d29922" opacity="0.1" filter="url(#glow-gold)"/>
+    <rect x="260" y="200" width="280" height="150" rx="8" fill="none" stroke="#d29922" stroke-width="2" opacity="0.4"/>
+
+    <!-- Header circle and text (larger) -->
+    <circle cx="400" cy="235" r="55" fill="#d29922" opacity="0.25" filter="url(#glow-gold)"/>
+    <circle cx="400" cy="235" r="55" fill="none" stroke="#d29922" stroke-width="2.5"/>
+    <text x="400" y="240" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#d29922" text-anchor="middle">Supply Chain</text>
+    <text x="400" y="258" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#d29922" text-anchor="middle">Security</text>
+
+    <!-- Sub-items -->
+    <text x="275" y="305" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">SBOM Compliance (US/EU)</text>
+    <text x="275" y="320" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">SLSA v1.1</text>
+    <text x="275" y="335" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">Sigstore cosign 3.0</text>
+    <text x="435" y="305" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">ClawHub Skill Vetting</text>
+    <text x="435" y="320" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">Container Security</text>
+  </g>
+
+  <!-- CLUSTER 3: Enterprise AI Integration (Bottom) -->
+  <g id="cluster-enterprise-ai">
+    <!-- Background glow box -->
+    <rect x="240" y="390" width="320" height="130" rx="8" fill="#58a6ff" opacity="0.08" filter="url(#glow-blue)"/>
+    <rect x="240" y="390" width="320" height="130" rx="8" fill="none" stroke="#58a6ff" stroke-width="1" opacity="0.3"/>
+
+    <!-- Header circle and text -->
+    <circle cx="400" cy="420" r="45" fill="#58a6ff" opacity="0.2" filter="url(#glow-blue)"/>
+    <circle cx="400" cy="420" r="45" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <text x="400" y="425" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#58a6ff" text-anchor="middle">Enterprise AI</text>
+    <text x="400" y="440" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#58a6ff" text-anchor="middle">Integration</text>
+
+    <!-- Sub-items -->
+    <text x="255" y="480" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">Snowflake-OpenAI ($200M)</text>
+    <text x="255" y="495" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">Amazon Bedrock Healthcare</text>
+    <text x="255" y="510" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">Gemini Enterprise Onboarding</text>
+    <text x="435" y="495" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">Cloud Run GPU</text>
+    <text x="435" y="510" font-family="Arial, sans-serif" font-size="11" fill="#e6edf3">Inference</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e6edf3" text-anchor="middle">2026 Feb Week 1 - Security/DevOps Trend Map</text>
+</svg>

