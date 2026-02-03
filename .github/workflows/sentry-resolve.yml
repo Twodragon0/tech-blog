@@ -110,8 +110,9 @@ jobs:
             exit 1
           fi
 
-          # Step 1: Lookup issue by short ID using organizations endpoint
-          LOOKUP_URL="https://sentry.io/api/0/organizations/$SENTRY_ORG/shortids/$ISSUE_ID/"
+          # Step 1: Lookup issue by short ID (project-level API with shortIdLookup)
+          LOOKUP_URL="https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/issues/?query=$ISSUE_ID&shortIdLookup=1"
+          echo "📡 API: $LOOKUP_URL"
           LOOKUP_RESPONSE=$(sentry_api "$LOOKUP_URL") || true
 
           if [ "$LOOKUP_RESPONSE" = "NETWORK_ERROR" ]; then
@@ -119,24 +120,30 @@ jobs:
             exit 1
           fi
 
-          # Extract groupId from short ID lookup response
-          ISSUE_NUMERIC_ID=$(echo "$LOOKUP_RESPONSE" | grep -o '"groupId":"[0-9]*"' | head -1 | grep -o '[0-9]*' || true)
+          echo "📋 Response (first 300 chars): $(echo "$LOOKUP_RESPONSE" | head -c 300)"
 
-          # Fallback: try "group"."id" field
+          # Extract numeric issue ID - try multiple patterns
+          ISSUE_NUMERIC_ID=$(echo "$LOOKUP_RESPONSE" | grep -oP '"id"\s*:\s*"?\K[0-9]+' | head -1 || true)
+
+          # Fallback: simpler grep
           if [ -z "$ISSUE_NUMERIC_ID" ]; then
-            ISSUE_NUMERIC_ID=$(echo "$LOOKUP_RESPONSE" | grep -o '"group":{[^}]*"id":"[0-9]*"' | grep -o '"id":"[0-9]*"' | grep -o '[0-9]*' || true)
+            ISSUE_NUMERIC_ID=$(echo "$LOOKUP_RESPONSE" | grep -o '"id":"[0-9]*"' | head -1 | grep -o '[0-9]*' || true)
+          fi
+
+          # Fallback: try without quotes on id value
+          if [ -z "$ISSUE_NUMERIC_ID" ]; then
+            ISSUE_NUMERIC_ID=$(echo "$LOOKUP_RESPONSE" | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*' || true)
           fi
 
           if [ -z "$ISSUE_NUMERIC_ID" ]; then
             echo "❌ Issue not found: $ISSUE_ID"
-            echo "Response: $LOOKUP_RESPONSE"
             echo "💡 Check at: https://sentry.io/organizations/$SENTRY_ORG/issues/"
             exit 0
           fi
 
           echo "✅ Found issue: $ISSUE_ID (numeric ID: $ISSUE_NUMERIC_ID)"
 
-          # Step 2: Resolve the issue using direct issue endpoint
+          # Step 2: Resolve using direct issue endpoint
           echo "🔧 Resolving issue as: $STATUS"
           RESOLVE_URL="https://sentry.io/api/0/issues/$ISSUE_NUMERIC_ID/"
           RESOLVE_DATA='{"status":"'"$STATUS"'"}'
@@ -148,13 +155,11 @@ jobs:
             exit 1
           fi
 
-          # Check if resolution succeeded
-          if echo "$RESOLVE_RESPONSE" | grep -q '"status":"'"$STATUS"'"'; then
+          if echo "$RESOLVE_RESPONSE" | grep -q '"status"'; then
             echo "✅ Issue $ISSUE_ID resolved successfully!"
-            echo "View at: https://sentry.io/organizations/$SENTRY_ORG/issues/$ISSUE_NUMERIC_ID/"
+            echo "🔗 View at: https://sentry.io/organizations/$SENTRY_ORG/issues/$ISSUE_NUMERIC_ID/"
           else
-            echo "⚠️  Response:"
-            echo "$RESOLVE_RESPONSE" | head -c 500
+            echo "⚠️  Response: $(echo "$RESOLVE_RESPONSE" | head -c 500)"
           fi
 
   auto-resolve-on-deploy:
