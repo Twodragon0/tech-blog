@@ -1718,12 +1718,19 @@ def main():
     now = datetime.now(timezone(timedelta(hours=9)))  # KST
     date_str = now.strftime("%Y-%m-%d")
 
-    # Duplicate check
+    # Duplicate check - detect both auto-generated and manual post patterns
     if not args.force:
+        existing = list(POSTS_DIR.glob(f"{date_str}-*.md"))
         if args.mode == "security":
-            existing = list(POSTS_DIR.glob(f"{date_str}-Tech_Security_Weekly_Digest_*.md"))
+            # Keep only security-related digest posts (exclude tech-only posts)
+            existing = [p for p in existing if "Tech_Blog_Weekly" not in p.name
+                        and "Weekly_Tech" not in p.name
+                        and ("Security" in p.name or "Digest" in p.name)]
         else:
-            existing = list(POSTS_DIR.glob(f"{date_str}-Tech_Blog_Weekly_Digest_*.md"))
+            # Keep only tech-blog-related digest posts (exclude security-only posts)
+            existing = [p for p in existing if "Tech_Security_Weekly" not in p.name
+                        and "Weekly_Security" not in p.name
+                        and ("Tech" in p.name or "Digest" in p.name)]
         if existing:
             print(f"⏭️ Same-day {args.mode} post already exists: {existing[0].name}")
             print("   Use --force to override.")

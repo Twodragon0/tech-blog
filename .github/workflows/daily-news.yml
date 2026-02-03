@@ -161,7 +161,7 @@ jobs:
         if: steps.check_news.outputs.has_enough_news == 'true'
         run: |
           TODAY=$(date +%Y-%m-%d)
-          POST_FILE=$(ls _posts/${TODAY}-Tech_Security_Weekly_Digest*.md 2>/dev/null | head -1)
+          POST_FILE=$(ls _posts/${TODAY}-*Digest*.md _posts/${TODAY}-*Weekly*.md 2>/dev/null | sort -u | head -1)
 
           if [ -n "$POST_FILE" ] && [ -f "$POST_FILE" ]; then
             echo "📋 Validating post quality..."

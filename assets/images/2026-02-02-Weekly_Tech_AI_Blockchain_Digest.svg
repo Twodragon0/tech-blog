@@ -9,14 +9,27 @@
       <stop offset="0%" style="stop-color:#1e293b"/>
       <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dc2626"/>
-      <stop offset="100%" style="stop-color:#991b1b"/>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="amberGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d97706"/>
+      <stop offset="100%" style="stop-color:#b45309"/>
+    </linearGradient>
+    <linearGradient id="emeraldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#047857"/>
+    </linearGradient>
+    <linearGradient id="roseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e11d48"/>
+      <stop offset="100%" style="stop-color:#be123c"/>
     </linearGradient>
     <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="50%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#ec4899"/>
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="33%" style="stop-color:#7c3aed"/>
+      <stop offset="66%" style="stop-color:#d97706"/>
+      <stop offset="100%" style="stop-color:#059669"/>
     </linearGradient>
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -34,53 +47,119 @@
   </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
 
-  <circle cx="100" cy="100" r="200" fill="#ef4444" fill-opacity="0.05"/>
-  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
-  <circle cx="600" cy="315" r="300" fill="#dc2626" fill-opacity="0.03"/>
+  <circle cx="120" cy="90" r="190" fill="#2563eb" fill-opacity="0.05"/>
+  <circle cx="1080" cy="540" r="230" fill="#d97706" fill-opacity="0.05"/>
+  <circle cx="600" cy="300" r="300" fill="#7c3aed" fill-opacity="0.03"/>
 
-  <rect x="40" y="30" width="180" height="36" rx="18" fill="url(#redGradient)" filter="url(#shadow)"/>
-  <text x="130" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
+  <!-- Header badges -->
+  <rect x="40" y="28" width="210" height="36" rx="18" fill="url(#blueGradient)" filter="url(#shadow)"/>
+  <text x="145" y="52" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">TECH + AI + BLOCKCHAIN</text>
 
-  <rect x="980" y="30" width="180" height="36" rx="18" fill="url(#accentGradient)" filter="url(#shadow)"/>
-  <text x="1070" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 03, 2026</text>
+  <rect x="960" y="28" width="200" height="36" rx="18" fill="url(#accentGradient)" filter="url(#shadow)"/>
+  <text x="1060" y="52" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 02, 2026</text>
 
-  <text x="600" y="120" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Weekly Tech &amp; AI &amp; Blockchain Digest: Appl...</text>
-  <text x="600" y="160" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">AI | ML</text>
+  <!-- Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Weekly Tech &amp; AI &amp; Blockchain Digest</text>
+  <text x="600" y="148" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Apple MLX Bug | Bitcoin $74K Crash | AI Creativity Paradox | DeFi Security</text>
 
-  <rect x="350" y="185" width="500" height="3" fill="url(#accentGradient)" rx="1.5"/>
+  <rect x="300" y="168" width="600" height="3" fill="url(#accentGradient)" rx="1.5"/>
 
-  <g transform="translate(100, 220)">
-    <rect width="1000" height="280" rx="20" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="1000" height="8" rx="4" fill="url(#redGradient)"/>
-
-    <circle cx="60" cy="70" r="35" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="60" y="78" font-family="Arial, sans-serif" font-size="20" fill="#ef4444" text-anchor="middle">!</text>
-
-    <text x="120" y="60" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">SECURITY POST</text>
-    <text x="120" y="85" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Featured Content</text>
-    <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">Apple iPhone 16 MLX LLM 버그, Bitcoin $74K 급락과 $19B 청산, AI 창의성</text>
-    <text x="40" y="158" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">역설 연구, CrossCurve DeFi 익스플로잇, FOSDEM 2026 하이라이트</text>
-
-    <rect x="40" y="220" width="148" height="26" rx="13" fill="#ef4444" fill-opacity="0.2"/>
-    <text x="114" y="238" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Security-Weekly</text>
-
-    <rect x="203" y="220" width="68" height="26" rx="13" fill="#ef4444" fill-opacity="0.2"/>
-    <text x="237" y="238" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Apple</text>
-
-    <rect x="286" y="220" width="132" height="26" rx="13" fill="#ef4444" fill-opacity="0.2"/>
-    <text x="352" y="238" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Bitcoin-Crash</text>
-
-    <rect x="433" y="220" width="132" height="26" rx="13" fill="#ef4444" fill-opacity="0.2"/>
-    <text x="499" y="238" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#AI-Creativity</text>
-
-    <rect x="820" y="210" width="140" height="45" rx="22" fill="url(#accentGradient)"/>
-    <text x="890" y="238" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+  <!-- Card 1: Apple MLX Bug -->
+  <g transform="translate(40, 190)">
+    <rect width="270" height="195" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="270" height="6" rx="3" fill="url(#blueGradient)"/>
+    <circle cx="35" cy="46" r="20" fill="url(#blueGradient)" fill-opacity="0.25"/>
+    <text x="35" y="52" font-family="Arial, sans-serif" font-size="14" fill="#60a5fa" text-anchor="middle">A</text>
+    <text x="65" y="40" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#60a5fa">HARDWARE BUG</text>
+    <text x="65" y="58" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">Apple A18 Pro MLX</text>
+    <text x="20" y="85" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Neural Engine tensor</text>
+    <text x="20" y="103" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">value corruption in</text>
+    <text x="20" y="121" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">iPhone 16 Pro Max</text>
+    <rect x="20" y="140" width="75" height="20" rx="10" fill="#60a5fa" fill-opacity="0.2"/>
+    <text x="57" y="154" font-family="Arial, sans-serif" font-size="9" fill="#60a5fa" text-anchor="middle">#Apple</text>
+    <rect x="103" y="140" width="85" height="20" rx="10" fill="#60a5fa" fill-opacity="0.2"/>
+    <text x="145" y="154" font-family="Arial, sans-serif" font-size="9" fill="#60a5fa" text-anchor="middle">#MLX-Bug</text>
+    <text x="135" y="185" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="middle">HN 273 pts</text>
   </g>
 
-  <line x1="50" y1="560" x2="1150" y2="560" stroke="#334155" stroke-width="1"/>
+  <!-- Card 2: Bitcoin Crash -->
+  <g transform="translate(330, 190)">
+    <rect width="270" height="195" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="270" height="6" rx="3" fill="url(#amberGradient)"/>
+    <circle cx="35" cy="46" r="20" fill="url(#amberGradient)" fill-opacity="0.25"/>
+    <text x="35" y="53" font-family="Arial, sans-serif" font-size="16" fill="#fbbf24" text-anchor="middle">B</text>
+    <text x="65" y="40" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fbbf24">MARKET CRASH</text>
+    <text x="65" y="58" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">Bitcoin $74K Crash</text>
+    <text x="20" y="85" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">$19B liquidation event</text>
+    <text x="20" y="103" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Warsh Fed nomination</text>
+    <text x="20" y="121" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">IBIT investors in red</text>
+    <rect x="20" y="140" width="110" height="20" rx="10" fill="#fbbf24" fill-opacity="0.2"/>
+    <text x="75" y="154" font-family="Arial, sans-serif" font-size="9" fill="#fbbf24" text-anchor="middle">#Bitcoin-Crash</text>
+    <text x="135" y="185" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="middle">$19B liquidated</text>
+  </g>
 
-  <text x="60" y="590" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
-  <text x="60" y="612" font-family="Arial, sans-serif" font-size="13" fill="#64748b">tech.2twodragon.com</text>
+  <!-- Card 3: AI Creativity -->
+  <g transform="translate(620, 190)">
+    <rect width="270" height="195" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="270" height="6" rx="3" fill="url(#emeraldGradient)"/>
+    <circle cx="35" cy="46" r="20" fill="url(#emeraldGradient)" fill-opacity="0.25"/>
+    <text x="35" y="53" font-family="Arial, sans-serif" font-size="14" fill="#34d399" text-anchor="middle">AI</text>
+    <text x="65" y="40" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#34d399">RESEARCH</text>
+    <text x="65" y="58" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">AI Creativity Paradox</text>
+    <text x="20" y="85" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">100K participant study</text>
+    <text x="20" y="103" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">GPT-4 beats avg human</text>
+    <text x="20" y="121" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Top 10% humans lead</text>
+    <rect x="20" y="140" width="110" height="20" rx="10" fill="#34d399" fill-opacity="0.2"/>
+    <text x="75" y="154" font-family="Arial, sans-serif" font-size="9" fill="#34d399" text-anchor="middle">#AI-Creativity</text>
+    <text x="135" y="185" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="middle">U of Montreal</text>
+  </g>
 
-  <text x="1150" y="600" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security</text>
+  <!-- Card 4: DeFi Security -->
+  <g transform="translate(910, 190)">
+    <rect width="250" height="195" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="250" height="6" rx="3" fill="url(#roseGradient)"/>
+    <circle cx="35" cy="46" r="20" fill="url(#roseGradient)" fill-opacity="0.25"/>
+    <text x="35" y="53" font-family="Arial, sans-serif" font-size="12" fill="#fb7185" text-anchor="middle">D</text>
+    <text x="65" y="40" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fb7185">DEFI EXPLOIT</text>
+    <text x="65" y="58" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">CrossCurve $3M</text>
+    <text x="20" y="85" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Cross-chain bridge</text>
+    <text x="20" y="103" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">smart contract exploit</text>
+    <text x="20" y="121" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">ETH quantum priority</text>
+    <rect x="20" y="140" width="110" height="20" rx="10" fill="#fb7185" fill-opacity="0.2"/>
+    <text x="75" y="154" font-family="Arial, sans-serif" font-size="9" fill="#fb7185" text-anchor="middle">#DeFi-Security</text>
+    <text x="125" y="185" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="middle">$3M stolen</text>
+  </g>
+
+  <!-- Bottom bar -->
+  <g transform="translate(60, 412)">
+    <rect width="1080" height="175" rx="20" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1080" height="4" rx="2" fill="url(#accentGradient)"/>
+
+    <text x="40" y="40" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">Also Featured</text>
+
+    <rect x="40" y="58" width="220" height="85" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="62" cy="82" r="8" fill="#60a5fa" fill-opacity="0.3"/>
+    <text x="62" y="86" font-family="Arial, sans-serif" font-size="10" fill="#60a5fa" text-anchor="middle">+</text>
+    <text x="80" y="85" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Claude Code Tips</text>
+    <text x="52" y="107" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Creator's production</text>
+    <text x="52" y="125" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">workflow best practices</text>
+
+    <rect x="280" y="58" width="220" height="85" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="302" cy="82" r="8" fill="#34d399" fill-opacity="0.3"/>
+    <text x="302" y="86" font-family="Arial, sans-serif" font-size="10" fill="#34d399" text-anchor="middle">+</text>
+    <text x="320" y="85" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Google AI Agent</text>
+    <text x="292" y="107" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">AI-first research and</text>
+    <text x="292" y="125" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">autocode paradigm</text>
+
+    <rect x="520" y="58" width="220" height="85" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="542" cy="82" r="8" fill="#fbbf24" fill-opacity="0.3"/>
+    <text x="542" y="86" font-family="Arial, sans-serif" font-size="10" fill="#fbbf24" text-anchor="middle">+</text>
+    <text x="560" y="85" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">FOSDEM 2026</text>
+    <text x="532" y="107" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Open source community</text>
+    <text x="532" y="125" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">conference highlights</text>
+
+    <rect x="790" y="62" width="240" height="80" rx="22" fill="url(#accentGradient)"/>
+    <text x="910" y="97" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+    <text x="910" y="120" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" text-anchor="middle">tech.2twodragon.com</text>
+  </g>
 </svg>
