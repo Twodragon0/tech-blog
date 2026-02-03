@@ -31,16 +31,27 @@
   // 이미지 경로를 WebP로 변환
   function getWebPUrl(originalUrl) {
     if (!originalUrl) return null;
-    
+
     // 이미 WebP인 경우 그대로 반환
     if (originalUrl.toLowerCase().endsWith('.webp')) {
       return originalUrl;
     }
 
-    // 확장자 교체
+    // Skip SVG - vector graphics don't benefit from WebP
+    if (originalUrl.toLowerCase().endsWith('.svg')) {
+      return null;
+    }
+
+    // WebP conversion is opt-in: only convert if the build pipeline
+    // has generated .webp files. To enable, add a WebP generation step
+    // to the CI/CD pipeline (e.g., using cwebp or sharp) and set
+    // window.IMAGE_OPTIMIZER_WEBP_ENABLED = true in the page head.
+    if (!window.IMAGE_OPTIMIZER_WEBP_ENABLED) {
+      return null;
+    }
+
+    // Replace extension with .webp
     const webpUrl = originalUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-    
-    // 같은 디렉토리에 WebP 파일이 있다고 가정
     return webpUrl;
   }
 

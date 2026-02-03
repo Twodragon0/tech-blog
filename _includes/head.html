@@ -395,29 +395,32 @@
   {% endif %}
 
   {% if site.google_adsense %}
-  <!-- Google AdSense (deferred for performance, Auto Ads disabled) -->
+  <!-- Google AdSense (deferred, graceful degradation) -->
   <script>
-    // Disable Auto Ads by setting page-level setting BEFORE AdSense loads
-    // This prevents google-auto-placed divs from being injected
     window.adsbygoogle = window.adsbygoogle || [];
     window.adsbygoogle.pauseAdRequests = 0;
-    
-    // Defer AdSense loading until after page load
+    window._adsenseLoaded = false;
+
     window.addEventListener('load', function() {
       var script = document.createElement('script');
       script.async = true;
-      // data-overlays="bottom" allows only anchor/vignette ads at bottom, not auto-placed in content
       script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}';
       script.crossOrigin = 'anonymous';
-      // Disable Auto Ads completely - only show manually placed ads
       script.setAttribute('data-ad-frequency-hint', '0');
-      
-      // 에러 핸들링: 403 등 에러 발생 시 조용히 처리
-      script.onerror = function() {
-        // AdSense 로드 실패는 조용히 처리 (계정 문제, CSP 정책 등)
-        // 콘솔 에러를 방지하기 위해 아무것도 하지 않음
+
+      script.onload = function() {
+        window._adsenseLoaded = true;
       };
-      
+      script.onerror = function() {
+        // AdSense load failed (403, network error, ad blocker, etc.)
+        // Remove all ad placeholders to prevent layout shift
+        window._adsenseLoaded = false;
+        var ads = document.querySelectorAll('.adsbygoogle');
+        for (var i = 0; i < ads.length; i++) {
+          ads[i].style.display = 'none';
+        }
+      };
+
       document.head.appendChild(script);
     });
   </script>
