@@ -1,16 +1,8 @@
 {% if site.sentry_dsn and site.sentry_dsn != "" %}
-<!-- Sentry SDK: Error Tracking + Tracing + Session Replay + User Feedback -->
+<!-- Sentry SDK: Error Tracking + Tracing (lightweight bundle for cost optimization) -->
 <!-- Defer loading to reduce FID (First Input Delay) -->
-<style>
-  /* Hide Sentry's default feedback button - we use a custom one in bottom-toolbar */
-  #sentry-feedback,
-  [data-sentry-feedback],
-  div:has(> .widget__actor) {
-    display: none !important;
-  }
-</style>
 <script
-  src="https://browser.sentry-cdn.com/8.42.0/bundle.tracing.replay.feedback.min.js"
+  src="https://browser.sentry-cdn.com/8.42.0/bundle.tracing.min.js"
   crossorigin="anonymous"
   defer
 ></script>
@@ -106,31 +98,8 @@ function initSentry() {
   var integrations = [
     Sentry.browserTracingIntegration({
       tracePropagationTargets: ['localhost', /^https:\/\/tech\.2twodragon\.com/]
-    }),
-    Sentry.replayIntegration({
-      maskAllText: true,
-      blockAllMedia: true,
-      maskAllInputs: true
     })
   ];
-
-  // User Feedback widget (FREE, unlimited)
-  // autoInject: false — we use a custom button in the bottom toolbar
-  if (isProduction && typeof Sentry.feedbackIntegration === 'function') {
-    integrations.push(Sentry.feedbackIntegration({
-      autoInject: false,
-      colorScheme: 'system',
-      showBranding: false,
-      showName: false,
-      showEmail: false,
-      formTitle: '문제를 알려주세요',
-      submitButtonLabel: '보내기',
-      cancelButtonLabel: '취소',
-      messageLabel: '메시지',
-      messagePlaceholder: '어떤 문제가 있나요?',
-      successMessageText: '감사합니다! 피드백이 전송되었습니다.'
-    }));
-  }
 
   Sentry.init({
     dsn: '{{ site.sentry_dsn }}',
@@ -153,13 +122,8 @@ function initSentry() {
     // Error sampling: dynamic based on monthly usage (Free Tier: 5,000/month)
     sampleRate: getDynamicSampleRate(),
 
-    // Tracing: 5% production (Free Tier: 5M spans/month)
-    tracesSampleRate: isProduction ? 0.05 : 0,
-    enableTracing: true,
-
-    // Session Replay: error-only recording (Free Tier: 50 replays/month)
-    replaysSessionSampleRate: 0,
-    replaysOnErrorSampleRate: isProduction ? 0.1 : 0,
+    // Tracing: 1% production (Free Tier: 5M spans/month)
+    tracesSampleRate: isProduction ? 0.01 : 0,
 
     maxBreadcrumbs: 30,
     attachStacktrace: true,
@@ -266,46 +230,13 @@ function initSentry() {
     }
   });
 
-  if (isDev) console.log('[Sentry] Initialized with all Free Tier features');
+  if (isDev) console.log('[Sentry] Initialized (lightweight: error tracking + tracing)');
 
-  // Bind custom feedback button to open Sentry feedback form
+  // Feedback button → GitHub Issues (no Sentry Feedback SDK needed)
   var feedbackBtn = document.getElementById('custom-feedback-btn');
-  if (feedbackBtn && isProduction) {
+  if (feedbackBtn) {
     feedbackBtn.addEventListener('click', function() {
-      // Get feedback integration AFTER Sentry.init() (not the pre-init definition)
-      var feedback = null;
-      try {
-        if (typeof Sentry.getFeedback === 'function') feedback = Sentry.getFeedback();
-      } catch (e) {}
-      if (!feedback) {
-        try {
-          var client = Sentry.getClient();
-          if (client) feedback = client.getIntegrationByName('Feedback');
-        } catch (e) {}
-      }
-
-      if (feedback && typeof feedback.createForm === 'function') {
-        try {
-          var result = feedback.createForm();
-          if (result && typeof result.then === 'function') {
-            result.then(function(form) {
-              form.appendToDom();
-              form.open();
-            }).catch(function() {
-              window.open('https://github.com/Twodragon0/tech-blog/issues/new', '_blank');
-            });
-          }
-        } catch (e) {
-          window.open('https://github.com/Twodragon0/tech-blog/issues/new', '_blank');
-        }
-      } else if (feedback && typeof feedback.openDialog === 'function') {
-        feedback.openDialog();
-      } else if (feedback && typeof feedback.attachTo === 'function') {
-        feedback.attachTo(feedbackBtn);
-        feedbackBtn.click();
-      } else {
-        window.open('https://github.com/Twodragon0/tech-blog/issues/new', '_blank');
-      }
+      window.open('https://github.com/Twodragon0/tech-blog/issues/new', '_blank');
     });
   }
 
