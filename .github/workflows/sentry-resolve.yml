@@ -99,7 +99,7 @@ jobs:
             done
 
             echo "NETWORK_ERROR"
-            return 1
+            return 0
           }
 
           echo "🔍 Looking up issue: $ISSUE_ID"
@@ -111,8 +111,8 @@ jobs:
           fi
 
           # Step 1: Lookup issue by short ID
-          LOOKUP_URL="https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/issues/?query=is:unresolved+$ISSUE_ID&shortIdLookup=1"
-          LOOKUP_RESPONSE=$(sentry_api "$LOOKUP_URL")
+          LOOKUP_URL="https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/issues/?query=$ISSUE_ID&shortIdLookup=1"
+          LOOKUP_RESPONSE=$(sentry_api "$LOOKUP_URL") || true
 
           if [ "$LOOKUP_RESPONSE" = "NETWORK_ERROR" ]; then
             echo "❌ Network error looking up issue"
@@ -120,12 +120,12 @@ jobs:
           fi
 
           # Extract numeric issue ID from response
-          ISSUE_NUMERIC_ID=$(echo "$LOOKUP_RESPONSE" | grep -o '"id":"[0-9]*"' | head -1 | grep -o '[0-9]*')
+          ISSUE_NUMERIC_ID=$(echo "$LOOKUP_RESPONSE" | grep -o '"id":"[0-9]*"' | head -1 | grep -o '[0-9]*' || true)
 
           if [ -z "$ISSUE_NUMERIC_ID" ]; then
-            echo "❌ Issue not found or already resolved: $ISSUE_ID"
+            echo "❌ Issue not found: $ISSUE_ID"
             echo "💡 Check at: https://sentry.io/organizations/$SENTRY_ORG/issues/"
-            exit 1
+            exit 0
           fi
 
           echo "✅ Found issue: $ISSUE_ID (numeric ID: $ISSUE_NUMERIC_ID)"
@@ -135,7 +135,7 @@ jobs:
           RESOLVE_URL="https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/issues/?id=$ISSUE_NUMERIC_ID"
           RESOLVE_DATA='{"status":"'"$STATUS"'"}'
 
-          RESOLVE_RESPONSE=$(sentry_api "$RESOLVE_URL" "PUT" "$RESOLVE_DATA")
+          RESOLVE_RESPONSE=$(sentry_api "$RESOLVE_URL" "PUT" "$RESOLVE_DATA") || true
 
           if [ "$RESOLVE_RESPONSE" = "NETWORK_ERROR" ]; then
             echo "❌ Network error resolving issue"
@@ -211,7 +211,7 @@ jobs:
             done
 
             echo "NETWORK_ERROR"
-            return 1
+            return 0
           }
 
           echo "🚀 Auto-resolving unresolved issues on deploy..."
@@ -224,7 +224,7 @@ jobs:
 
           # Get unresolved issues
           ISSUES_URL="https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/issues/?query=is:unresolved&sort=date"
-          ISSUES_RESPONSE=$(sentry_api "$ISSUES_URL")
+          ISSUES_RESPONSE=$(sentry_api "$ISSUES_URL") || true
 
           if [ "$ISSUES_RESPONSE" = "NETWORK_ERROR" ]; then
             echo "❌ Network error fetching issues"
@@ -232,7 +232,7 @@ jobs:
           fi
 
           # Extract issue IDs (limit to 10 to avoid rate limits)
-          ISSUE_IDS=$(echo "$ISSUES_RESPONSE" | grep -o '"id":"[0-9]*"' | grep -o '[0-9]*' | head -10)
+          ISSUE_IDS=$(echo "$ISSUES_RESPONSE" | grep -o '"id":"[0-9]*"' | grep -o '[0-9]*' | head -10 || true)
 
           if [ -z "$ISSUE_IDS" ]; then
             echo "✅ No unresolved issues found"
@@ -251,7 +251,7 @@ jobs:
             RESOLVE_URL="https://sentry.io/api/0/projects/$SENTRY_ORG/$SENTRY_PROJECT/issues/?id=$ISSUE_ID"
             RESOLVE_DATA='{"status":"resolvedInNextRelease"}'
 
-            RESOLVE_RESPONSE=$(sentry_api "$RESOLVE_URL" "PUT" "$RESOLVE_DATA")
+            RESOLVE_RESPONSE=$(sentry_api "$RESOLVE_URL" "PUT" "$RESOLVE_DATA") || true
 
             if [ "$RESOLVE_RESPONSE" = "NETWORK_ERROR" ]; then
               echo "⚠️  Failed to resolve issue $ISSUE_ID (network error)"
