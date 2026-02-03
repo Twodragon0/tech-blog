@@ -3,10 +3,10 @@ layout: post
 title: "Weekly Security & DevOps Digest: OpenClaw AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스"
 date: 2026-02-03 10:00:00 +0900
 categories: [security, devsecops]
-tags: [Security-Weekly, OpenClaw, NanoClaw, AI-Agent-Security, MDM, Jamf, Intune, OWASP, Kubernetes, DevSecOps, ClawHub, NTLM, CVE-2026-25253, Supply-Chain, Zero-Trust, "2026"]
-excerpt: "OpenClaw CVE-2026-25253 RCE 취약점과 ClawHub 341개 악성 스킬 공급망 공격 분석, Jamf/Intune MDM 앱 비활성화 실무 가이드, Microsoft NTLM 단계적 폐지 등 2026년 2월 첫째 주 보안 핵심 이슈 총정리"
-description: "2026년 2월 3일 보안/DevOps 다이제스트: OpenClaw CVE-2026-25253 원클릭 RCE, ClawHub 341개 악성 스킬 공급망 위협, NanoClaw Apple 컨테이너 격리 비교, Jamf Pro/Intune MDM 앱 제어 의사결정 가이드, Microsoft NTLM 3단계 폐지 계획, Snowflake-OpenAI 2억달러 파트너십, OWASP Agentic AI Top 10 실무 대응"
-keywords: [OpenClaw Security, CVE-2026-25253, ClawHub Malicious Skills, NanoClaw, AI Agent Sandbox, Jamf Pro MDM, Microsoft Intune, App Disable, OWASP Agentic AI, MDM Zero Trust, SIEM MDM Integration, DevSecOps Weekly, NTLM Phase Out, Supply Chain Security]
+tags: [Security-Weekly, OpenClaw, Moltbot, Moltbook, NanoClaw, AI-Agent-Security, MDM, Jamf, Intune, OWASP, Kubernetes, DevSecOps, ClawHub, ClawHavoc, NTLM, CVE-2026-25253, Supply-Chain, Zero-Trust, Atomic-Stealer, "2026"]
+excerpt: "OpenClaw(Moltbot) CVE-2026-25253 RCE, ClawHavoc 335개 Atomic Stealer 캠페인, Moltbook 자격증명 대량 유출, 가짜 VS Code 확장 RAT 배포 등 AI 에이전트 생태계 보안 위기 총정리와 Jamf/Intune MDM 실무 대응 가이드"
+description: "2026년 2월 3일 보안/DevOps 다이제스트: OpenClaw(Clawdbot/Moltbot) CVE-2026-25253 원클릭 RCE, ClawHavoc 캠페인 335개 Atomic Stealer 배포, Moltbook AI 소셜네트워크 자격증명 유출(Wiz), 가짜 VS Code 확장 ScreenConnect RAT, Shodan 대규모 노출, Cisco 31K 스킬 26% 취약점, NanoClaw Apple 컨테이너 격리 비교, Jamf Pro/Intune MDM 앱 제어, Microsoft NTLM 폐지, OWASP Agentic AI Top 10"
+keywords: [OpenClaw Security, Moltbot, Moltbook, CVE-2026-25253, ClawHub Malicious Skills, ClawHavoc, Atomic Stealer, NanoClaw, AI Agent Sandbox, Jamf Pro MDM, Microsoft Intune, App Disable, OWASP Agentic AI, MDM Zero Trust, SIEM MDM Integration, DevSecOps Weekly, NTLM Phase Out, Supply Chain Security, ScreenConnect RAT, Shodan Exposure]
 schema_type: FAQPage
 author: Twodragon
 comments: true
@@ -43,7 +43,10 @@ faq:
     <span class="summary-label">태그</span>
     <span class="summary-value tags">
       <span class="tag">OpenClaw</span>
+      <span class="tag">Moltbot</span>
+      <span class="tag">Moltbook</span>
       <span class="tag">NanoClaw</span>
+      <span class="tag">ClawHavoc</span>
       <span class="tag">AI-Agent-Security</span>
       <span class="tag">MDM</span>
       <span class="tag">Jamf</span>
@@ -59,7 +62,7 @@ faq:
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li><strong>OpenClaw CVE-2026-25253 & ClawHub 공급망 공격</strong>: 원클릭 RCE 취약점(CVSS 8.8)과 ClawHub 341개 악성 스킬 발견, Jamf Extension Attribute 기반 무단 설치 탐지 스크립트 포함</li>
+      <li><strong>OpenClaw(Moltbot) 연쇄 보안 사건</strong>: CVE-2026-25253 원클릭 RCE(CVSS 8.8), ClawHavoc 캠페인 335개 Atomic Stealer 배포, Moltbook 자격증명 대량 유출(Wiz), 가짜 VS Code 확장 ScreenConnect RAT, Shodan 대규모 인스턴스 노출</li>
       <li><strong>MDM 앱 비활성화 실무 가이드</strong>: Jamf Pro Configuration Profile 기반 앱 제한, Microsoft Intune App Protection Policy, MDM 선택 의사결정 플로차트 제공</li>
       <li><strong>금주 뉴스 하이라이트</strong>: Microsoft NTLM 3단계 폐지, Snowflake-OpenAI 2억달러 파트너십, Kubernetes 1.33 보안 강화, SBOM 컴플라이언스 동향</li>
     </ul>
@@ -75,9 +78,15 @@ faq:
 
 ## 개요
 
-2026년 2월 첫째 주, AI 에이전트 생태계에 **연쇄적인 보안 위협**이 현실화되었습니다. 2월 2일 Koi Security 연구팀이 **ClawHub 마켓플레이스에서 341개 악성 스킬**을 발견한 데 이어, 같은 날 OpenClaw 자체에서도 **CVE-2026-25253 원클릭 RCE 취약점**(CVSS 8.8)이 공개되면서 AI 코딩 에이전트의 보안 아키텍처가 근본적으로 재검토되고 있습니다.
+2026년 2월 첫째 주, AI 에이전트 생태계에 **전례 없는 연쇄 보안 위협**이 현실화되었습니다. OpenClaw(구 Clawdbot/Moltbot)를 둘러싼 보안 사건이 **5건 이상 동시다발적으로 발생**하며, AI 코딩 에이전트의 보안 아키텍처가 근본적으로 재검토되고 있습니다:
 
-**AI 코딩 에이전트 OpenClaw(구 Clawdbot/Moltbot)**는 52개 이상의 모듈이 단일 Node.js 프로세스에서 무제한 권한으로 실행되는 구조이며, 이번 주 발견된 두 건의 보안 사건은 이 아키텍처의 위험성을 실증적으로 보여줍니다. 대안으로 **NanoClaw**가 Apple 컨테이너 격리와 최소 권한 원칙을 적용한 ~500줄 핵심 코드로 주목받고 있으며, OWASP Agentic AI Top 10이 프레임워크로 자리잡고 있습니다.
+- **CVE-2026-25253 원클릭 RCE**(CVSS 8.8): depthfirst 연구원 Mav Levin이 발견한 인증 토큰 탈취 기반 원격 코드 실행
+- **ClawHavoc 캠페인**: Koi Security가 ClawHub에서 발견한 341개 악성 스킬 중 **335개가 macOS Atomic Stealer(AMOS)** 배포
+- **Moltbook 자격증명 유출**: Wiz Inc.가 AI 소셜네트워크 Moltbook에서 **수백만 건의 자격증명이 인증 없이 노출**된 것을 발견
+- **가짜 VS Code 확장**: Clawdbot 이름을 사칭한 VS Code 확장이 **ScreenConnect RAT** 설치
+- **Shodan 대규모 노출**: 2026년 1월 25일 자가 호스팅 OpenClaw 인스턴스의 대량 인덱싱 발견
+
+**OpenClaw(구 Clawdbot/Moltbot)**는 원래 2025년 11월 Peter Steinberger가 Clawdbot이라는 이름으로 출시했으며, Anthropic의 상표 요청으로 Moltbot으로 개명한 뒤 다시 OpenClaw로 이름을 변경했습니다. GitHub 스타 145,000+, 포크 20,000+을 기록한 이 프로젝트는 52개 이상의 모듈이 단일 Node.js 프로세스에서 무제한 권한으로 실행되는 구조입니다. Palo Alto Networks는 이를 **"치명적 삼중주(Lethal Trifecta)"** -- 개인 데이터 접근, 신뢰할 수 없는 콘텐츠 노출, 외부 통신 능력 -- 라고 경고했습니다. 대안으로 **NanoClaw**가 Apple 컨테이너 격리와 최소 권한 원칙을 적용한 ~500줄 핵심 코드로 주목받고 있으며, OWASP Agentic AI Top 10이 프레임워크로 자리잡고 있습니다.
 
 엔터프라이즈 환경에서는 이러한 AI 에이전트의 무단 설치를 탐지하고 제어하기 위해 **MDM(Mobile Device Management)을 통한 앱 비활성화/제한**이 Zero Trust 전략의 핵심 구성요소로 부상했습니다. Jamf Pro의 Configuration Profile과 Microsoft Intune의 App Protection Policy를 비교하여, 환경별 최적화된 앱 제어 전략과 의사결정 가이드를 제시합니다.
 
@@ -100,18 +109,35 @@ AI 코딩 에이전트가 개발자의 터미널과 파일 시스템에 직접 �
 | **프롬프트 인젝션** | 악성 코드 코멘트를 통한 에이전트 조작 | High |
 | **공급망 공격** | 서드파티 스킬/플러그인을 통한 악성 코드 주입 | Critical |
 
-### 1.2 OpenClaw(Clawdbot) 아키텍처와 최신 보안 사건 분석
+### 1.2 OpenClaw(Clawdbot/Moltbot) 아키텍처와 최신 보안 사건 분석
 
-OpenClaw는 강력한 기능을 제공하지만, 아키텍처 수준에서 보안 우려가 존재합니다. 2026년 2월 첫째 주에 발견된 두 건의 보안 사건이 이를 실증합니다.
+#### 이름 변천사 및 프로젝트 규모
 
-| 항목 | 내용 |
+OpenClaw는 2025년 11월 **Peter Steinberger**가 **Clawdbot**이라는 이름으로 출시한 오픈소스 AI 개인 에이전트입니다. Anthropic의 Claude를 기반으로 만들어졌으며, 원래 이름은 Claude Code를 로딩할 때 나타나는 캐릭터에서 영감을 받았습니다.
+
+> 출처: [CNBC](https://www.cnbc.com/2026/02/02/openclaw-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html), [Scientific American](https://www.scientificamerican.com/article/moltbot-is-an-open-source-ai-agent-that-runs-your-computer/)
+
+| 시점 | 이름 | 사유 |
+|------|------|------|
+| **2025년 11월** | Clawdbot | 최초 출시 (Peter Steinberger) |
+| **2026년 1월 초** | Moltbot | Anthropic 상표 요청으로 개명 |
+| **2026년 1월 중순** | OpenClaw | 최종 이름 변경 |
+
+| 지표 | 수치 |
 |------|------|
+| **GitHub Stars** | 145,000+ |
+| **GitHub Forks** | 20,000+ |
+| **출시 후 기간** | 약 2개월 만에 100K 스타 달성 |
 | **모듈 수** | 52+ 모듈 (도구, 플러그인, 확장) |
 | **런타임** | 단일 Node.js 프로세스 |
 | **권한 모델** | 사용자와 동일한 권한으로 실행 |
 | **격리** | 프로세스 수준 격리 없음 |
 | **파일 접근** | 전체 파일 시스템 읽기/쓰기 |
 | **네트워크** | 제한 없는 아웃바운드 연결 |
+
+Cisco는 OpenClaw를 **"치명적 삼중주(Lethal Trifecta)"**라고 표현했습니다 -- 개인 데이터 접근, 신뢰할 수 없는 콘텐츠 노출, 외부 통신 능력이 결합되어, 보안 경계를 의도적으로 무너뜨리는 구조입니다. 보안 비평가 Gary Marcus는 **"디바이스 보안이나 데이터 프라이버시를 중시한다면 OpenClaw를 사용하지 마라"**라고 경고했습니다.
+
+> 출처: [Cisco Blogs](https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare), [VentureBeat](https://venturebeat.com/security/openclaw-agentic-ai-security-risk-ciso-guide)
 
 **보안 위험 요인:**
 
@@ -143,10 +169,19 @@ OpenClaw(구 Clawdbot/Moltbot)에서 **악성 링크 클릭만으로 원격 코�
 |------|------|
 | **CVE ID** | CVE-2026-25253 |
 | **CVSS 점수** | 8.8 (High) |
+| **CWE** | CWE-669 (Incorrect Resource Transfer Between Spheres) |
 | **취약점 유형** | 토큰 유출(Token Exfiltration) -> RCE |
-| **공격 벡터** | 악성 링크 원클릭 |
+| **공격 벡터** | 악성 링크 원클릭 (localhost 사용자도 취약) |
+| **발견자** | Mav Levin (depthfirst 보안 연구원) |
+| **취약 버전** | v2026.1.24-1 이하 전 버전 |
 | **패치 버전** | 2026.1.29 (2026년 1월 30일 릴리스) |
-| **영향 범위** | 패치 이전 모든 OpenClaw 버전 |
+| **패치 내용** | Gateway URL 확인 모달 추가 (자동 연결 제거) |
+
+> 출처: [depthfirst](https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys), [SOCRadar](https://socradar.io/blog/cve-2026-25253-rce-openclaw-auth-token/)
+
+**공격 메커니즘 상세:**
+
+취약점의 핵심은 URL 파라미터 처리 로직에 있습니다. 패치 전 OpenClaw는 쿼리 스트링의 `gatewayUrl` 파라미터를 받아 **사용자 확인 없이 자동으로 WebSocket 연결**을 수립하고, 이 과정에서 인증 토큰을 전송했습니다. 공격자가 조작한 링크를 클릭하면 토큰이 밀리초 단위로 탈취되며, 이후 피해자의 로컬 게이트웨이에 연결하여 샌드박스/도구 정책을 변경하고 권한 있는 작업을 실행할 수 있습니다. **localhost에서 실행 중인 인스턴스도 피해자의 브라우저를 통해 로컬 네트워크로 피벗**할 수 있어 인터넷 노출 여부와 관계없이 취약합니다.
 
 **실무 대응 체크리스트:**
 
@@ -165,9 +200,33 @@ Koi Security 연구팀이 ClawHub 마켓플레이스에 대한 보안 감사를 
 |------|------|
 | **감사 대상** | ClawHub 마켓플레이스 2,857개 스킬 |
 | **악성 스킬 수** | 341개 (약 12%) |
-| **공격 유형** | 데이터 탈취, 자격 증명 수집 |
-| **발견 주체** | Koi Security 연구팀 |
+| **캠페인 코드명** | **ClawHavoc** (Koi Security 명명) |
+| **핵심 악성코드** | **Atomic Stealer (AMOS)** - macOS 인포스틸러 |
+| **단일 공격자** | "hightower6eu" 계정 - 314개 악성 스킬 게시 |
+| **공격 타임라인** | 1차: 28개 (1/27-29), 2차: 386개 (1/31-2/2) |
+| **발견 주체** | Koi Security, VirusTotal, Cisco |
 | **MITRE ATT&CK** | T1195 (Supply Chain Compromise) |
+
+> 출처: [Koi Security](https://www.koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found-by-the-bot-they-were-targeting), [VirusTotal](https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html), [CyberInsider](https://cyberinsider.com/341-openclaw-skills-distribute-macos-malware-via-clickfix-instructions/)
+
+**ClawHavoc 캠페인 상세 분석:**
+
+341개 악성 스킬 중 **335개는 단일 캠페인(ClawHavoc)**에서 발생했으며, 가짜 사전 설치 요구사항을 통해 macOS 인포스틸러 **Atomic Stealer(AMOS)**를 설치합니다. 악성 스킬은 고수요 카테고리를 사칭했습니다:
+
+| 사칭 카테고리 | 악성 스킬 수 | 비율 |
+|--------------|-------------|------|
+| **Crypto 유틸리티** | 111개 | 33% |
+| **YouTube 도구** | 57개 | 17% |
+| **금융/소셜 트렌드** | 51개 | 15% |
+| **예측 시장 봇** | 34개 | 10% |
+| **자동 업데이터** | 28개 | 8% |
+| **Google Workspace** | 17개 | 5% |
+
+**타이포스쿼팅(Typosquatting)** 기법도 사용되었습니다 -- 공식 ClawHub CLI 이름을 `clawhub`, `clawhub1`, `clawhubb`, `clawhubcli` 등으로 변형하여 오타 입력 시 악성 패키지로 유도했습니다.
+
+Cisco가 별도로 수행한 대규모 분석에서는 **31,000개 에이전트 스킬 중 26%(약 8,060개)가 최소 1개 이상의 취약점**을 포함하고 있음을 확인했습니다. 특히 한 취약한 스킬은 `curl` 명령을 통해 사용자 모르게 외부 서버로 데이터를 탈취하는 코드가 포함되어 있었습니다.
+
+**플랫폼 대응의 한계:** ClawHub 관리자는 통보를 받은 후에도 **"레지스트리를 보안할 수 없다"**고 인정했으며, 대부분의 악성 스킬이 여전히 온라인 상태입니다. 이는 NPM, PyPI 등 기존 패키지 레지스트리의 보안 모델과 유사한 근본적 한계를 드러냅니다.
 
 **공급망 공격 위험 분석:**
 
@@ -203,6 +262,53 @@ ClawHub Supply Chain Attack Flow:
 | **T1078** | Valid Accounts | 사용자 권한을 그대로 상속 |
 | **T1195** | Supply Chain Compromise | ClawHub 악성 스킬을 통한 침투 |
 | **T1547** | Boot or Logon Autostart Execution | 에이전트 자동 시작 설정 |
+
+#### Moltbook AI 소셜네트워크 자격증명 대량 유출
+
+> 출처: [SiliconANGLE](https://siliconangle.com/2026/02/02/ai-agent-social-network-moltbook-left-millions-credentials-publicly-exposed/), [Fortune](https://fortune.com/2026/01/31/ai-agent-moltbot-clawdbot-openclaw-data-privacy-security-nightmare-moltbook-social-network/)
+
+**Moltbook**은 기업가 Matt Schlicht가 2026년 1월 런칭한 **AI 에이전트 전용 소셜네트워크**로, 사람은 읽기만 가능하고 AI 에이전트만 읽기/쓰기가 가능한 독특한 플랫폼입니다. 출시 한 달 만에 **77만 이상의 활성 에이전트**를 확보했으나, Wiz Inc.가 심각한 보안 결함을 발견했습니다.
+
+| 항목 | 내용 |
+|------|------|
+| **플랫폼** | Moltbook (AI 에이전트 전용 소셜네트워크) |
+| **활성 에이전트** | 770,000+ |
+| **발견 주체** | Wiz Inc. (클라우드 보안 기업) |
+| **결함** | 데이터베이스 인증 제어 부재 - 누구나 접근 가능 |
+| **유출 데이터** | 수백만 건의 민감 자격증명 |
+| **보안 위협** | 간접 프롬프트 인젝션 벡터 (악성 포스트가 에이전트 지시 덮어쓰기) |
+
+Moltbook의 구조적 문제는 **간접 프롬프트 인젝션(Indirect Prompt Injection)**에 취약하다는 점입니다. 에이전트가 다른 에이전트의 비신뢰 데이터를 수집/처리해야 하므로, 악성 포스트가 에이전트의 핵심 지시를 덮어쓸 수 있습니다.
+
+#### 추가 보안 사건: 가짜 VS Code 확장 및 Shodan 노출
+
+> 출처: [The Register](https://www.theregister.com/2026/02/02/openclaw_security_issues/), [SOCPrime](https://socprime.com/active-threats/the-moltbot-clawdbots-epidemic/)
+
+| 사건 | 상세 | 위험도 |
+|------|------|--------|
+| **가짜 VS Code 확장** | Clawdbot 이름을 사칭한 VS Code 확장이 **ScreenConnect RAT**(원격 접근 트로이목마) 설치. 개발자의 브랜드 신뢰를 악용 | Critical |
+| **Shodan 대규모 노출** | 2026년 1월 25일, 자가 호스팅 OpenClaw 인스턴스가 Shodan에 대량 인덱싱. 관리 포트가 인터넷에 노출된 채 운영 | Critical |
+| **SecurityAffairs 400+ 악성 패키지** | Moltbot 스킬을 악용해 수일 만에 400개 이상의 악성 패키지 유포 | High |
+
+```
+OpenClaw/Moltbot Security Incident Timeline (2026 Jan-Feb):
+
+Jan 25 ── Shodan: Mass OpenClaw instance indexing
+           (exposed admin ports, no auth)
+     |
+Jan 27-29 ── ClawHavoc Wave 1: 28 malicious skills
+              + Fake VS Code extension (ScreenConnect RAT)
+     |
+Jan 30 ── CVE-2026-25253 patch released (v2026.1.29)
+     |
+Jan 31-Feb 2 ── ClawHavoc Wave 2: 386 malicious skills
+                 + Moltbook credential leak (Wiz Inc.)
+                 + 400+ malware packages via skills
+     |
+Feb 2 ── Koi Security publishes ClawHavoc report
+          VirusTotal publishes skills weaponization report
+          Cisco publishes 31K skills audit (26% vulnerable)
+```
 
 ### 1.3 NanoClaw는 어떻게 보안 문제를 해결하는가?
 
@@ -298,11 +404,23 @@ incident_response:
   - [ ] 영향 범위 파악 절차 문서화
   - [ ] 자격 증명 교체 절차 준비
 
-supply_chain:  # NEW - ClawHub 사건 대응
+supply_chain:  # ClawHavoc + ClawHub 대응
   - [ ] 서드파티 스킬/플러그인 감사
   - [ ] 설치된 스킬 해시 검증
   - [ ] 스킬 마켓플레이스 접근 제한 정책
   - [ ] 신규 스킬 설치 승인 워크플로
+  - [ ] Koi Security Clawdex 사전 스캔 도구 적용
+  - [ ] Cisco 오픈소스 Skill Scanner 도입
+
+moltbook_exposure:  # Moltbook 자격증명 유출 대응
+  - [ ] Moltbook과 연동된 에이전트 자격증명 즉시 교체
+  - [ ] AI 에이전트 소셜 플랫폼 접근 정책 수립
+  - [ ] 간접 프롬프트 인젝션 방어 체계 검토
+
+shodan_exposure:  # Shodan 노출 대응
+  - [ ] 자가 호스팅 AI 에이전트 인스턴스 인터넷 노출 여부 확인
+  - [ ] 관리 포트 방화벽/ACL 설정 점검
+  - [ ] Shodan/Censys 모니터링 알림 설정
 ```
 
 ### 1.7 탐지: SIEM 쿼리
@@ -1041,6 +1159,20 @@ Microsoft는 **3단계 계획**으로 NTLM을 폐지합니다. **1단계**에서
 | ClawHub 341 Malicious Skills (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html) |
 | OpenClaw CVE-2026-25253 RCE Bug (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/openclaw-bug-enables-one-click-remote.html) |
 | Microsoft NTLM Phase-Out Plan (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/microsoft-begins-ntlm-phase-out-with.html) |
+| CVE-2026-25253 1-Click RCE (depthfirst) | [depthfirst](https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys) |
+| CVE-2026-25253 상세 분석 (SOCRadar) | [SOCRadar](https://socradar.io/blog/cve-2026-25253-rce-openclaw-auth-token/) |
+| ClawHavoc: 341 Malicious Skills (Koi Security) | [Koi Security](https://www.koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found-by-the-bot-they-were-targeting) |
+| OpenClaw Skills Weaponized (VirusTotal) | [VirusTotal Blog](https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html) |
+| OpenClaw Security Nightmare (Cisco) | [Cisco Blogs](https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare) |
+| OpenClaw Agentic AI CISO Guide (VentureBeat) | [VentureBeat](https://venturebeat.com/security/openclaw-agentic-ai-security-risk-ciso-guide) |
+| OpenClaw Security Issues (The Register) | [The Register](https://www.theregister.com/2026/02/02/openclaw_security_issues/) |
+| Clawdbot to OpenClaw (Vectra AI) | [Vectra AI](https://www.vectra.ai/blog/clawdbot-to-moltbot-to-openclaw-when-automation-becomes-a-digital-backdoor) |
+| OpenClaw Sovereign Security Manifest (Penligent) | [Penligent AI](https://www.penligent.ai/hackinglabs/openclaw-sovereign-ai-security-manifest-a-comprehensive-post-mortem-and-architectural-hardening-guide-for-openclaw-ai-2026/) |
+| Clawdbot to OpenClaw (CNBC) | [CNBC](https://www.cnbc.com/2026/02/02/openclaw-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html) |
+| Moltbook Credential Exposure (SiliconANGLE) | [SiliconANGLE](https://siliconangle.com/2026/02/02/ai-agent-social-network-moltbook-left-millions-credentials-publicly-exposed/) |
+| Moltbook AI Social Network (Fortune) | [Fortune](https://fortune.com/2026/01/31/ai-agent-moltbot-clawdbot-openclaw-data-privacy-security-nightmare-moltbook-social-network/) |
+| Moltbot Skills 400+ Malware (SecurityAffairs) | [SecurityAffairs](https://securityaffairs.com/187562/malware/moltbot-skills-exploited-to-distribute-400-malware-packages-in-days.html) |
+| OpenClaw Use Cases & Security (AIMultiple) | [AIMultiple](https://research.aimultiple.com/moltbot/) |
 
 ### AI 및 클라우드
 
