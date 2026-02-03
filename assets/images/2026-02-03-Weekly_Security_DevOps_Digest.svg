@@ -1,135 +1,256 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
+    <!-- Enhanced Background Gradients -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
       <stop offset="50%" style="stop-color:#1a1a3e"/>
       <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
+
+    <!-- Card Gradients -->
     <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e293b"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
+      <stop offset="0%" style="stop-color:#1e2a3a"/>
+      <stop offset="100%" style="stop-color:#0f1620"/>
     </linearGradient>
+
+    <!-- Red Critical Theme -->
     <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+
+    <linearGradient id="redGlow" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#dc2626"/>
       <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
+
+    <!-- Blue Device Theme -->
     <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#2563eb"/>
       <stop offset="100%" style="stop-color:#1d4ed8"/>
     </linearGradient>
+
+    <!-- Purple News Theme -->
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+
+    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9333ea"/>
+      <stop offset="100%" style="stop-color:#6b21a8"/>
+    </linearGradient>
+
+    <!-- Accent Gradients -->
     <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="30%" style="stop-color:#8b5cf6"/>
+      <stop offset="70%" style="stop-color:#d946ef"/>
       <stop offset="100%" style="stop-color:#ec4899"/>
     </linearGradient>
+
+    <linearGradient id="headerAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa"/>
+      <stop offset="50%" style="stop-color:#a78bfa"/>
+      <stop offset="100%" style="stop-color:#f472b6"/>
+    </linearGradient>
+
+    <!-- Premium Filters -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+
+    <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
+
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+
+    <filter id="innerShadow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000" flood-opacity="0.4"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+
+    <pattern id="fineGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ffffff" stroke-opacity="0.02" stroke-width="0.5"/>
+    </pattern>
   </defs>
 
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
-
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
-  </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#fineGrid)"/>
 
-  <circle cx="100" cy="100" r="200" fill="#ef4444" fill-opacity="0.05"/>
-  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
-  <circle cx="600" cy="315" r="300" fill="#2563eb" fill-opacity="0.03"/>
+  <!-- Decorative Background Elements -->
+  <circle cx="120" cy="120" r="220" fill="#ef4444" fill-opacity="0.06" filter="url(#glow)"/>
+  <circle cx="1080" cy="520" r="280" fill="#8b5cf6" fill-opacity="0.06" filter="url(#glow)"/>
+  <circle cx="600" cy="315" r="320" fill="#2563eb" fill-opacity="0.04"/>
+  <circle cx="900" cy="150" r="150" fill="#d946ef" fill-opacity="0.03"/>
 
-  <rect x="40" y="30" width="200" height="36" rx="18" fill="url(#redGradient)" filter="url(#shadow)"/>
-  <text x="140" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY + DEVOPS</text>
-
-  <rect x="980" y="30" width="180" height="36" rx="18" fill="url(#accentGradient)" filter="url(#shadow)"/>
-  <text x="1070" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 03, 2026</text>
-
-  <text x="600" y="115" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Weekly Security and DevOps Digest</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">OpenClaw AI Agent Security | MDM App Control | Weekly News</text>
-
-  <rect x="300" y="175" width="600" height="3" fill="url(#accentGradient)" rx="1.5"/>
-
-  <!-- Card 1: OpenClaw Security -->
-  <g transform="translate(60, 200)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
-    <circle cx="40" cy="50" r="22" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="57" font-family="Arial, sans-serif" font-size="18" fill="#ef4444" text-anchor="middle">!</text>
-    <text x="75" y="47" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ef4444">AI AGENT SECURITY</text>
-    <text x="75" y="67" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">OpenClaw vs NanoClaw</text>
-    <text x="25" y="100" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">52+ modules, single process risk</text>
-    <text x="25" y="122" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Apple container isolation model</text>
-    <text x="25" y="144" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">OWASP Agentic AI Top 10</text>
-    <rect x="25" y="155" width="100" height="20" rx="10" fill="#ef4444" fill-opacity="0.2"/>
-    <text x="75" y="169" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">#AI-Security</text>
+  <!-- Top Header Section -->
+  <g>
+    <!-- Left Badge -->
+    <rect x="50" y="35" width="240" height="42" rx="21" fill="url(#redGradient)" filter="url(#softShadow)"/>
+    <text x="170" y="63" font-family="'Arial Black', Arial, sans-serif" font-size="15" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">SECURITY + DEVOPS</text>
   </g>
 
-  <!-- Card 2: MDM -->
-  <g transform="translate(430, 200)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#blueGradient)"/>
-    <circle cx="40" cy="50" r="22" fill="url(#blueGradient)" fill-opacity="0.2"/>
-    <text x="40" y="57" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle">M</text>
-    <text x="75" y="47" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6">DEVICE MANAGEMENT</text>
-    <text x="75" y="67" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Jamf vs Intune MDM</text>
-    <text x="25" y="100" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">App disable/restrict policies</text>
-    <text x="25" y="122" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Configuration profiles and compliance</text>
-    <text x="25" y="144" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SIEM integration monitoring</text>
-    <rect x="25" y="155" width="60" height="20" rx="10" fill="#3b82f6" fill-opacity="0.2"/>
-    <text x="55" y="169" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">#MDM</text>
-    <rect x="95" y="155" width="60" height="20" rx="10" fill="#3b82f6" fill-opacity="0.2"/>
-    <text x="125" y="169" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">#Jamf</text>
+  <!-- Right Date Badge -->
+  <g>
+    <rect x="970" y="35" width="190" height="42" rx="21" fill="url(#accentGradient)" filter="url(#softShadow)"/>
+    <text x="1065" y="63" font-family="'Arial Black', Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 03, 2026</text>
   </g>
 
-  <!-- Card 3: News -->
-  <g transform="translate(800, 200)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#accentGradient)"/>
-    <circle cx="40" cy="50" r="22" fill="#8b5cf6" fill-opacity="0.2"/>
-    <text x="40" y="57" font-family="Arial, sans-serif" font-size="16" fill="#8b5cf6" text-anchor="middle">N</text>
-    <text x="75" y="47" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8b5cf6">WEEKLY HIGHLIGHTS</text>
-    <text x="75" y="67" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">News and Trends</text>
-    <text x="25" y="100" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Claude 4 and AI agent ecosystem</text>
-    <text x="25" y="122" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Kubernetes security updates</text>
-    <text x="25" y="144" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Cloud-native DevSecOps trends</text>
-    <rect x="25" y="155" width="70" height="20" rx="10" fill="#8b5cf6" fill-opacity="0.2"/>
-    <text x="60" y="169" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">#Trends</text>
+  <!-- Main Title -->
+  <text x="600" y="130" font-family="'Arial Black', Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#strongGlow)">Weekly Security &amp; DevOps Digest</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="165" font-family="Arial, sans-serif" font-size="17" fill="#94a3b8" text-anchor="middle">Critical Insights on AI Security, Device Management &amp; Industry Trends</text>
+
+  <!-- Decorative Line -->
+  <rect x="250" y="185" width="700" height="4" fill="url(#headerAccent)" rx="2" filter="url(#glow)"/>
+
+  <!-- Card 1: OpenClaw AI Agent Security (Red/Critical) -->
+  <g transform="translate(50, 215)">
+    <rect width="360" height="220" rx="18" fill="url(#cardGradient)" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="360" height="8" rx="4" fill="url(#redGradient)"/>
+
+    <!-- Glowing Shield Icon -->
+    <g transform="translate(30, 30)">
+      <circle r="28" fill="url(#redGlow)" fill-opacity="0.15" filter="url(#glow)"/>
+      <path d="M 0 -18 L 12 -12 L 12 2 C 12 8 8 12 0 16 C -8 12 -12 8 -12 2 L -12 -12 Z" fill="url(#redGradient)" filter="url(#softShadow)"/>
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+
+    <text x="75" y="45" font-family="'Arial Black', Arial, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" letter-spacing="0.5">AI AGENT SECURITY</text>
+    <text x="75" y="70" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">OpenClaw Vulnerability</text>
+
+    <text x="30" y="105" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">341 Malicious Skills Detected</text>
+    <text x="30" y="128" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">RCE Vulnerability Exploited</text>
+    <text x="30" y="151" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">OWASP Top 10 Agentic AI</text>
+
+    <!-- Tags -->
+    <rect x="30" y="175" width="90" height="26" rx="13" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="1"/>
+    <text x="75" y="193" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fca5a5" text-anchor="middle">#Critical</text>
+
+    <rect x="130" y="175" width="75" height="26" rx="13" fill="#ef4444" fill-opacity="0.15" stroke="#dc2626" stroke-width="1"/>
+    <text x="167" y="193" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f87171" text-anchor="middle">#RCE</text>
+
+    <rect x="215" y="175" width="110" height="26" rx="13" fill="#dc2626" fill-opacity="0.2" stroke="#991b1b" stroke-width="1"/>
+    <text x="270" y="193" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fca5a5" text-anchor="middle">#OWASP</text>
   </g>
 
-  <!-- Bottom bar -->
-  <g transform="translate(60, 410)">
-    <rect width="1080" height="180" rx="20" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="1080" height="4" rx="2" fill="url(#accentGradient)"/>
+  <!-- Card 2: MDM App Control (Blue) -->
+  <g transform="translate(420, 215)">
+    <rect width="360" height="220" rx="18" fill="url(#cardGradient)" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="360" height="8" rx="4" fill="url(#blueGradient)"/>
 
-    <text x="40" y="45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Key Topics This Week</text>
+    <!-- Device Management Icon -->
+    <g transform="translate(30, 30)">
+      <circle r="28" fill="url(#blueGlow)" fill-opacity="0.15" filter="url(#glow)"/>
+      <rect x="-10" y="-14" width="20" height="28" rx="3" fill="url(#blueGradient)" filter="url(#softShadow)"/>
+      <rect x="-8" y="-11" width="16" height="19" fill="#1e293b"/>
+      <rect x="-3" y="10" width="6" height="2" rx="1" fill="#60a5fa"/>
+    </g>
 
-    <rect x="40" y="65" width="230" height="90" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <circle cx="65" cy="90" r="8" fill="#ef4444" fill-opacity="0.3"/>
-    <text x="65" y="94" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">1</text>
-    <text x="85" y="93" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">AI Agent Sandbox</text>
-    <text x="55" y="115" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Least privilege for</text>
-    <text x="55" y="133" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">autonomous AI tools</text>
+    <text x="75" y="45" font-family="'Arial Black', Arial, sans-serif" font-size="13" font-weight="bold" fill="#3b82f6" letter-spacing="0.5">DEVICE MANAGEMENT</text>
+    <text x="75" y="70" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">MDM App Control</text>
 
-    <rect x="290" y="65" width="230" height="90" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <circle cx="315" cy="90" r="8" fill="#3b82f6" fill-opacity="0.3"/>
-    <text x="315" y="94" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">2</text>
-    <text x="335" y="93" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">MDM Zero Trust</text>
-    <text x="305" y="115" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Enterprise app control</text>
-    <text x="305" y="133" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">with Jamf and Intune</text>
+    <text x="30" y="105" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Jamf Pro &amp; Microsoft Intune</text>
+    <text x="30" y="128" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Zero Trust Architecture</text>
+    <text x="30" y="151" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Policy Compliance Automation</text>
 
-    <rect x="540" y="65" width="230" height="90" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <circle cx="565" cy="90" r="8" fill="#8b5cf6" fill-opacity="0.3"/>
-    <text x="565" y="94" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">3</text>
-    <text x="585" y="93" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Cloud Security</text>
-    <text x="555" y="115" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Kubernetes hardening</text>
-    <text x="555" y="133" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">and SBOM compliance</text>
+    <!-- Tags -->
+    <rect x="30" y="175" width="60" height="26" rx="13" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+    <text x="60" y="193" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#93c5fd" text-anchor="middle">#MDM</text>
 
-    <rect x="810" y="70" width="220" height="80" rx="22" fill="url(#accentGradient)"/>
-    <text x="920" y="105" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
-    <text x="920" y="128" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" text-anchor="middle">tech.2twodragon.com</text>
+    <rect x="100" y="175" width="60" height="26" rx="13" fill="#2563eb" fill-opacity="0.2" stroke="#2563eb" stroke-width="1"/>
+    <text x="130" y="193" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#93c5fd" text-anchor="middle">#Jamf</text>
+
+    <rect x="170" y="175" width="80" height="26" rx="13" fill="#1d4ed8" fill-opacity="0.2" stroke="#1e40af" stroke-width="1"/>
+    <text x="210" y="193" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#93c5fd" text-anchor="middle">#ZeroTrust</text>
+  </g>
+
+  <!-- Card 3: Weekly News (Purple/Gradient) -->
+  <g transform="translate(790, 215)">
+    <rect width="360" height="220" rx="18" fill="url(#cardGradient)" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="360" height="8" rx="4" fill="url(#purpleGradient)"/>
+
+    <!-- News Icon -->
+    <g transform="translate(30, 30)">
+      <circle r="28" fill="url(#purpleGlow)" fill-opacity="0.15" filter="url(#glow)"/>
+      <rect x="-12" y="-10" width="24" height="20" rx="2" fill="url(#purpleGradient)" filter="url(#softShadow)"/>
+      <rect x="-9" y="-6" width="18" height="2" fill="#1e293b" rx="0.5"/>
+      <rect x="-9" y="-2" width="14" height="1.5" fill="#1e293b" rx="0.5"/>
+      <rect x="-9" y="2" width="16" height="1.5" fill="#1e293b" rx="0.5"/>
+      <rect x="-9" y="6" width="12" height="1.5" fill="#1e293b" rx="0.5"/>
+    </g>
+
+    <text x="75" y="45" font-family="'Arial Black', Arial, sans-serif" font-size="13" font-weight="bold" fill="#a855f7" letter-spacing="0.5">WEEKLY HIGHLIGHTS</text>
+    <text x="75" y="70" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Industry News &amp; Trends</text>
+
+    <text x="30" y="105" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">NTLM Protocol Phase-Out 2026</text>
+    <text x="30" y="128" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">Kubernetes 1.33 Released</text>
+    <text x="30" y="151" font-family="Arial, sans-serif" font-size="13" fill="#cbd5e1">SBOM Compliance Standards</text>
+
+    <!-- Tags -->
+    <rect x="30" y="175" width="70" height="26" rx="13" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="1"/>
+    <text x="65" y="193" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#d8b4fe" text-anchor="middle">#News</text>
+
+    <rect x="110" y="175" width="55" height="26" rx="13" fill="#9333ea" fill-opacity="0.2" stroke="#7c3aed" stroke-width="1"/>
+    <text x="137" y="193" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#d8b4fe" text-anchor="middle">#K8s</text>
+
+    <rect x="175" y="175" width="75" height="26" rx="13" fill="#7c3aed" fill-opacity="0.2" stroke="#6b21a8" stroke-width="1"/>
+    <text x="212" y="193" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#d8b4fe" text-anchor="middle">#SBOM</text>
+  </g>
+
+  <!-- Bottom Branding Bar -->
+  <g transform="translate(50, 465)">
+    <rect width="1100" height="130" rx="20" fill="url(#cardGradient)" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="1100" height="6" rx="3" fill="url(#accentGradient)" filter="url(#glow)"/>
+
+    <!-- Branding Text -->
+    <text x="40" y="55" font-family="'Arial Black', Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+    <text x="40" y="85" font-family="Arial, sans-serif" font-size="15" fill="#94a3b8">Your source for Security, DevOps &amp; Cloud Intelligence</text>
+
+    <!-- Decorative Dots -->
+    <circle cx="440" cy="45" r="3" fill="url(#accentGradient)"/>
+    <circle cx="455" cy="45" r="3" fill="url(#accentGradient)" fill-opacity="0.6"/>
+    <circle cx="470" cy="45" r="3" fill="url(#accentGradient)" fill-opacity="0.3"/>
+
+    <!-- CTA Button -->
+    <rect x="880" y="30" width="180" height="70" rx="16" fill="url(#accentGradient)" filter="url(#softShadow)"/>
+    <text x="970" y="65" font-family="'Arial Black', Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+    <text x="970" y="88" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.9)" text-anchor="middle">tech.2twodragon.com</text>
   </g>
 </svg>

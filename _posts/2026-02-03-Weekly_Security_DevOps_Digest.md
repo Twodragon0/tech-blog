@@ -1,17 +1,29 @@
 ---
 layout: post
-title: "Weekly Security & DevOps Digest: OpenClaw AI 에이전트 보안, Jamf/Intune MDM 앱 비활성화, 금주 뉴스 하이라이트"
+title: "Weekly Security & DevOps Digest: OpenClaw AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스"
 date: 2026-02-03 10:00:00 +0900
 categories: [security, devsecops]
-tags: [Security-Weekly, OpenClaw, NanoClaw, AI-Agent-Security, MDM, Jamf, Intune, OWASP, Kubernetes, DevSecOps, "2026"]
-excerpt: "OpenClaw(Clawdbot) vs NanoClaw AI 에이전트 보안 비교, Jamf Extension Attribute 기반 무단 설치 탐지 스크립트, Jamf Pro/Intune MDM 앱 비활성화 실무 가이드"
-description: "2026년 2월 3일 보안/DevOps 다이제스트: AI 에이전트 샌드박싱(OpenClaw 52+ 모듈 위험 vs NanoClaw Apple 컨테이너 격리), Jamf Extension Attribute 무단 설치 탐지, MDM 앱 제어(Jamf Configuration Profile, Intune App Protection Policy), OWASP Agentic AI Top 10"
-keywords: [OpenClaw Security, NanoClaw, AI Agent Sandbox, Jamf Pro MDM, Microsoft Intune, App Disable, OWASP Agentic AI, MDM Zero Trust, SIEM MDM Integration, DevSecOps Weekly]
+tags: [Security-Weekly, OpenClaw, NanoClaw, AI-Agent-Security, MDM, Jamf, Intune, OWASP, Kubernetes, DevSecOps, ClawHub, NTLM, CVE-2026-25253, Supply-Chain, Zero-Trust, "2026"]
+excerpt: "OpenClaw CVE-2026-25253 RCE 취약점과 ClawHub 341개 악성 스킬 공급망 공격 분석, Jamf/Intune MDM 앱 비활성화 실무 가이드, Microsoft NTLM 단계적 폐지 등 2026년 2월 첫째 주 보안 핵심 이슈 총정리"
+description: "2026년 2월 3일 보안/DevOps 다이제스트: OpenClaw CVE-2026-25253 원클릭 RCE, ClawHub 341개 악성 스킬 공급망 위협, NanoClaw Apple 컨테이너 격리 비교, Jamf Pro/Intune MDM 앱 제어 의사결정 가이드, Microsoft NTLM 3단계 폐지 계획, Snowflake-OpenAI 2억달러 파트너십, OWASP Agentic AI Top 10 실무 대응"
+keywords: [OpenClaw Security, CVE-2026-25253, ClawHub Malicious Skills, NanoClaw, AI Agent Sandbox, Jamf Pro MDM, Microsoft Intune, App Disable, OWASP Agentic AI, MDM Zero Trust, SIEM MDM Integration, DevSecOps Weekly, NTLM Phase Out, Supply Chain Security]
+schema_type: FAQPage
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-03-Weekly_Security_DevOps_Digest.svg
 image_alt: "Weekly Security and DevOps Digest Feb 3 2026"
 toc: true
+faq:
+  - question: "OpenClaw CVE-2026-25253 취약점이란 무엇인가요?"
+    answer: "OpenClaw(구 Clawdbot/Moltbot)에서 발견된 CVSS 8.8 고위험도 취약점으로, 악성 링크 클릭만으로 원격 코드 실행(RCE)이 가능합니다. 토큰 유출 취약점을 통해 공격이 이루어지며 2026.1.29 버전에서 패치되었습니다."
+  - question: "ClawHub 악성 스킬 공급망 공격은 어떻게 탐지하나요?"
+    answer: "Koi Security 연구팀이 ClawHub의 2,857개 스킬 중 341개가 악성임을 확인했습니다. Jamf Extension Attribute 스크립트로 OpenClaw 무단 설치를 탐지하고, SIEM 연동으로 비정상 파일 접근과 네트워크 연결을 모니터링할 수 있습니다."
+  - question: "NanoClaw와 OpenClaw의 보안 차이점은 무엇인가요?"
+    answer: "OpenClaw는 52개 이상 모듈이 단일 Node.js 프로세스에서 무제한 권한으로 실행되어 공격 표면이 넓습니다. NanoClaw는 약 500줄 핵심 코드로 Apple 컨테이너 샌드박스 격리와 최소 권한 원칙을 적용하여 파일 접근과 네트워크를 제한합니다."
+  - question: "Jamf Pro와 Microsoft Intune 중 어떤 MDM을 선택해야 하나요?"
+    answer: "Apple 기기 80% 이상 환경이면 Jamf Pro가 최적입니다. Windows/Android 혼합 환경이거나 Microsoft 365를 사용 중이면 Intune이 효율적입니다. 두 플랫폼 모두 사용하는 하이브리드 전략도 가능합니다."
+  - question: "Microsoft NTLM 폐지 일정은 어떻게 되나요?"
+    answer: "Microsoft는 3단계 계획으로 NTLM을 폐지합니다. 1단계에서 Kerberos 대체 인증을 활성화하고, 2단계에서 NTLM 사용량을 줄이며, 3단계에서 완전 비활성화합니다. 릴레이 공격 등 보안 취약점 때문에 진행됩니다."
 ---
 
 <div class="ai-summary-card">
@@ -39,15 +51,17 @@ toc: true
       <span class="tag">OWASP</span>
       <span class="tag">Kubernetes</span>
       <span class="tag">DevSecOps</span>
+      <span class="tag">NTLM</span>
+      <span class="tag">Supply-Chain</span>
       <span class="tag">2026</span>
     </span>
   </div>
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li><strong>OpenClaw vs NanoClaw AI 에이전트 보안</strong>: OpenClaw(Clawdbot) 52+ 모듈 보안 리스크 vs NanoClaw Apple 컨테이너 격리, Jamf Extension Attribute 기반 무단 설치 탐지 스크립트 포함</li>
-      <li><strong>MDM 앱 비활성화 실무 가이드</strong>: Jamf Pro Configuration Profile 기반 앱 제한, Microsoft Intune App Protection Policy, Conditional Access 설정 방법 비교</li>
-      <li><strong>금주 뉴스 하이라이트</strong>: Claude 4/Opus 4.5 에이전트 생태계 확장, Kubernetes 1.33 보안 강화, SBOM 컴플라이언스 동향</li>
+      <li><strong>OpenClaw CVE-2026-25253 & ClawHub 공급망 공격</strong>: 원클릭 RCE 취약점(CVSS 8.8)과 ClawHub 341개 악성 스킬 발견, Jamf Extension Attribute 기반 무단 설치 탐지 스크립트 포함</li>
+      <li><strong>MDM 앱 비활성화 실무 가이드</strong>: Jamf Pro Configuration Profile 기반 앱 제한, Microsoft Intune App Protection Policy, MDM 선택 의사결정 플로차트 제공</li>
+      <li><strong>금주 뉴스 하이라이트</strong>: Microsoft NTLM 3단계 폐지, Snowflake-OpenAI 2억달러 파트너십, Kubernetes 1.33 보안 강화, SBOM 컴플라이언스 동향</li>
     </ul>
   </div>
   <div class="summary-row">
@@ -61,19 +75,21 @@ toc: true
 
 ## 개요
 
-2026년 2월 첫째 주, AI 에이전트의 보안 아키텍처와 엔터프라이즈 디바이스 관리가 핵심 이슈로 부상했습니다.
+2026년 2월 첫째 주, AI 에이전트 생태계에 **연쇄적인 보안 위협**이 현실화되었습니다. 2월 2일 Koi Security 연구팀이 **ClawHub 마켓플레이스에서 341개 악성 스킬**을 발견한 데 이어, 같은 날 OpenClaw 자체에서도 **CVE-2026-25253 원클릭 RCE 취약점**(CVSS 8.8)이 공개되면서 AI 코딩 에이전트의 보안 아키텍처가 근본적으로 재검토되고 있습니다.
 
-**AI 코딩 에이전트 OpenClaw(Clawdbot)**의 아키텍처가 공개되면서, 52개 이상의 모듈이 단일 Node.js 프로세스에서 무제한 권한으로 실행되는 구조의 보안 위험이 재조명되었습니다. 이에 대한 대안으로 **NanoClaw**가 Apple 컨테이너 격리와 최소 권한 원칙을 적용한 ~500줄 핵심 코드로 주목받고 있습니다. OWASP Agentic AI Top 10이 이러한 AI 에이전트 보안의 프레임워크로 자리잡고 있습니다.
+**AI 코딩 에이전트 OpenClaw(구 Clawdbot/Moltbot)**는 52개 이상의 모듈이 단일 Node.js 프로세스에서 무제한 권한으로 실행되는 구조이며, 이번 주 발견된 두 건의 보안 사건은 이 아키텍처의 위험성을 실증적으로 보여줍니다. 대안으로 **NanoClaw**가 Apple 컨테이너 격리와 최소 권한 원칙을 적용한 ~500줄 핵심 코드로 주목받고 있으며, OWASP Agentic AI Top 10이 프레임워크로 자리잡고 있습니다.
 
-엔터프라이즈 환경에서는 **MDM(Mobile Device Management)을 통한 앱 비활성화/제한**이 Zero Trust 전략의 핵심 구성요소로 부상했습니다. Jamf Pro의 Configuration Profile과 Microsoft Intune의 App Protection Policy를 비교하여, Apple 중심 환경과 크로스 플랫폼 환경 각각에 최적화된 앱 제어 전략을 제시합니다.
+엔터프라이즈 환경에서는 이러한 AI 에이전트의 무단 설치를 탐지하고 제어하기 위해 **MDM(Mobile Device Management)을 통한 앱 비활성화/제한**이 Zero Trust 전략의 핵심 구성요소로 부상했습니다. Jamf Pro의 Configuration Profile과 Microsoft Intune의 App Protection Policy를 비교하여, 환경별 최적화된 앱 제어 전략과 의사결정 가이드를 제시합니다.
+
+아울러 **Microsoft의 NTLM 3단계 폐지 계획**, **Snowflake-OpenAI 2억달러 파트너십** 등 금주 주요 보안/기술 뉴스를 심층 분석합니다.
 
 ---
 
-## 1. OpenClaw vs NanoClaw: AI 에이전트 보안 비교 분석
+## 1. OpenClaw AI 에이전트 보안: 어떤 위협이 있는가?
 
-### 1.1 배경: AI 코딩 에이전트의 보안 위협
+### 1.1 배경: AI 코딩 에이전트의 보안 위협은 왜 심각한가?
 
-AI 코딩 에이전트가 개발자의 터미널과 파일 시스템에 직접 접근하면서, **에이전트의 권한 범위와 격리 수준**이 새로운 보안 과제가 되었습니다.
+AI 코딩 에이전트가 개발자의 터미널과 파일 시스템에 직접 접근하면서, **에이전트의 권한 범위와 격리 수준**이 새로운 보안 과제가 되었습니다. 2026년 2월 첫째 주에만 OpenClaw 관련 보안 사건이 2건 동시에 발생하면서, 이 위협이 이론적 가능성이 아닌 **현실적인 공격 벡터**임이 확인되었습니다.
 
 | 위협 요소 | 설명 | 심각도 |
 |-----------|------|--------|
@@ -82,10 +98,11 @@ AI 코딩 에이전트가 개발자의 터미널과 파일 시스템에 직접 �
 | **네트워크 접근** | 외부 API 호출, 데이터 유출 가능 | High |
 | **단일 프로세스 모델** | 모든 모듈이 같은 권한으로 실행 | High |
 | **프롬프트 인젝션** | 악성 코드 코멘트를 통한 에이전트 조작 | High |
+| **공급망 공격** | 서드파티 스킬/플러그인을 통한 악성 코드 주입 | Critical |
 
-### 1.2 OpenClaw(Clawdbot) 아키텍처 분석
+### 1.2 OpenClaw(Clawdbot) 아키텍처와 최신 보안 사건 분석
 
-OpenClaw는 강력한 기능을 제공하지만, 아키텍처 수준에서 보안 우려가 존재합니다.
+OpenClaw는 강력한 기능을 제공하지만, 아키텍처 수준에서 보안 우려가 존재합니다. 2026년 2월 첫째 주에 발견된 두 건의 보안 사건이 이를 실증합니다.
 
 | 항목 | 내용 |
 |------|------|
@@ -116,6 +133,66 @@ OpenClaw Architecture (Single Process Model)
    ~/.aws/creds    curl evil    to external
 ```
 
+#### CVE-2026-25253: OpenClaw 원클릭 RCE 취약점
+
+> 출처: [The Hacker News](https://thehackernews.com/2026/02/openclaw-bug-enables-one-click-remote.html)
+
+OpenClaw(구 Clawdbot/Moltbot)에서 **악성 링크 클릭만으로 원격 코드 실행(RCE)이 가능한 고위험도 취약점**이 공개되었습니다.
+
+| 항목 | 내용 |
+|------|------|
+| **CVE ID** | CVE-2026-25253 |
+| **CVSS 점수** | 8.8 (High) |
+| **취약점 유형** | 토큰 유출(Token Exfiltration) -> RCE |
+| **공격 벡터** | 악성 링크 원클릭 |
+| **패치 버전** | 2026.1.29 (2026년 1월 30일 릴리스) |
+| **영향 범위** | 패치 이전 모든 OpenClaw 버전 |
+
+**실무 대응 체크리스트:**
+
+- [ ] OpenClaw 버전 2026.1.29 이상으로 즉시 업데이트
+- [ ] 조직 내 OpenClaw 설치 현황 인벤토리 확인 (섹션 1.8의 Jamf EA 스크립트 활용)
+- [ ] 의심스러운 링크 클릭 이력이 있는 경우 토큰 교체
+- [ ] SIEM에 CVE-2026-25253 관련 IOC 탐지 룰 추가
+
+#### ClawHub 341개 악성 스킬 공급망 공격
+
+> 출처: [The Hacker News](https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html)
+
+Koi Security 연구팀이 ClawHub 마켓플레이스에 대한 보안 감사를 수행한 결과, **2,857개 스킬 중 341개(약 12%)가 악성**임을 확인했습니다. ClawHub는 OpenClaw 사용자가 서드파티 스킬을 검색하고 설치할 수 있는 마켓플레이스입니다.
+
+| 항목 | 내용 |
+|------|------|
+| **감사 대상** | ClawHub 마켓플레이스 2,857개 스킬 |
+| **악성 스킬 수** | 341개 (약 12%) |
+| **공격 유형** | 데이터 탈취, 자격 증명 수집 |
+| **발견 주체** | Koi Security 연구팀 |
+| **MITRE ATT&CK** | T1195 (Supply Chain Compromise) |
+
+**공급망 공격 위험 분석:**
+
+이 사건은 OpenClaw의 아키텍처적 취약점과 결합될 때 특히 위험합니다. 단일 프로세스 모델에서 악성 스킬이 사용자와 동일한 권한으로 실행되므로, `~/.ssh/`, `~/.aws/`, `~/.env` 등 민감한 자격 증명에 무제한 접근이 가능합니다.
+
+```
+ClawHub Supply Chain Attack Flow:
+
+[Attacker] --> [Malicious Skill Upload] --> [ClawHub Marketplace]
+                                                    |
+                                            [User Installs Skill]
+                                                    |
+                                            [OpenClaw Single Process]
+                                                    |
+                                     +------+-------+-------+
+                                     |      |       |       |
+                                  [SSH]  [AWS]  [ENV]  [Token]
+                                  Keys   Creds  Vars   Theft
+                                     |      |       |       |
+                                     +------+-------+-------+
+                                                    |
+                                            [Data Exfiltration]
+                                            [C2 Channel / API]
+```
+
 **MITRE ATT&CK 관련 기법:**
 
 | MITRE ATT&CK ID | 기법명 | AI 에이전트 적용 |
@@ -124,11 +201,12 @@ OpenClaw Architecture (Single Process Model)
 | **T1005** | Data from Local System | 로컬 파일 시스템에서 민감 정보 수집 |
 | **T1041** | Exfiltration Over C2 Channel | API 호출을 통한 데이터 유출 |
 | **T1078** | Valid Accounts | 사용자 권한을 그대로 상속 |
+| **T1195** | Supply Chain Compromise | ClawHub 악성 스킬을 통한 침투 |
 | **T1547** | Boot or Logon Autostart Execution | 에이전트 자동 시작 설정 |
 
-### 1.3 NanoClaw: 최소 권한 원칙 적용
+### 1.3 NanoClaw는 어떻게 보안 문제를 해결하는가?
 
-NanoClaw는 보안을 아키텍처 수준에서 해결합니다.
+NanoClaw는 보안을 아키텍처 수준에서 해결합니다. OpenClaw의 CVE-2026-25253이나 ClawHub 공급망 공격과 같은 위협에 대해 구조적인 방어력을 갖추고 있습니다.
 
 | 항목 | NanoClaw |
 |------|----------|
@@ -138,6 +216,7 @@ NanoClaw는 보안을 아키텍처 수준에서 해결합니다.
 | **파일 접근** | 프로젝트 디렉토리만 허용 |
 | **네트워크** | 허용 목록 기반 아웃바운드만 |
 | **프로세스** | 격리된 샌드박스 프로세스 |
+| **서드파티 확장** | 제한적 (공격 표면 최소화) |
 
 **NanoClaw 보안 아키텍처:**
 
@@ -160,7 +239,7 @@ NanoClaw Architecture (Container Isolation)
    Filtered Network     Scoped FS Access
 ```
 
-### 1.4 OpenClaw vs NanoClaw 비교
+### 1.4 OpenClaw vs NanoClaw: 어떤 AI 에이전트가 더 안전한가?
 
 | 비교 항목 | OpenClaw | NanoClaw |
 |-----------|----------|----------|
@@ -170,28 +249,29 @@ NanoClaw Architecture (Container Isolation)
 | **파일 접근** | 전체 파일 시스템 | 프로젝트 디렉토리 한정 |
 | **네트워크** | 무제한 | 허용 목록 기반 |
 | **권한 모델** | 사용자 전체 권한 | 최소 권한 원칙 |
+| **공급망 리스크** | 높음 (ClawHub 341개 악성 스킬) | 낮음 (제한된 확장 모델) |
 | **프롬프트 인젝션 내성** | 낮음 (넓은 공격 표면) | 높음 (제한된 기능) |
 | **기능 범위** | 광범위 (IDE 수준) | 핵심 코딩 지원 |
 | **적합 환경** | 개인 개발, 빠른 프로토타이핑 | 엔터프라이즈, 보안 민감 환경 |
 
-### 1.5 OWASP Agentic AI Top 10
+### 1.5 OWASP Agentic AI Top 10이란 무엇인가?
 
-AI 에이전트 보안의 표준 프레임워크로 부상한 OWASP Agentic AI Top 10:
+AI 에이전트 보안의 표준 프레임워크로 부상한 OWASP Agentic AI Top 10은 이번 주 OpenClaw 사건들과 직접 연관됩니다:
 
-| 순위 | 취약점 | OpenClaw 해당 여부 | 대응 방안 |
-|------|--------|-------------------|-----------|
-| 1 | **Excessive Agency** | Yes - 무제한 권한 | 최소 권한 원칙 적용 |
-| 2 | **Prompt Injection** | Yes - 넓은 공격 표면 | 입력 검증, 샌드박싱 |
-| 3 | **Supply Chain Vulnerabilities** | Yes - 52+ 의존성 | SBOM 관리, 의존성 감사 |
-| 4 | **Insecure Output Handling** | Partial | 출력 검증, 실행 전 확인 |
-| 5 | **Data Leakage** | Yes - 전체 FS 접근 | 데이터 접근 범위 제한 |
-| 6 | **Lack of Oversight** | Partial | 실행 로깅, 승인 워크플로 |
-| 7 | **Privilege Escalation** | Yes - 사용자 권한 상속 | 권한 분리, 컨테이너화 |
-| 8 | **Insufficient Monitoring** | Partial | SIEM 연동, 행위 분석 |
-| 9 | **Over-Reliance** | Context-dependent | 코드 리뷰 프로세스 유지 |
-| 10 | **Model Denial of Service** | Low | Rate limiting |
+| 순위 | 취약점 | OpenClaw 해당 여부 | 이번 주 사건 연관성 | 대응 방안 |
+|------|--------|-------------------|-------------------|-----------|
+| 1 | **Excessive Agency** | Yes - 무제한 권한 | CVE-2026-25253 RCE | 최소 권한 원칙 적용 |
+| 2 | **Prompt Injection** | Yes - 넓은 공격 표면 | 악성 스킬 프롬프트 조작 | 입력 검증, 샌드박싱 |
+| 3 | **Supply Chain Vulnerabilities** | Yes - 52+ 의존성 | ClawHub 341개 악성 스킬 | SBOM 관리, 의존성 감사 |
+| 4 | **Insecure Output Handling** | Partial | - | 출력 검증, 실행 전 확인 |
+| 5 | **Data Leakage** | Yes - 전체 FS 접근 | 자격 증명 탈취 | 데이터 접근 범위 제한 |
+| 6 | **Lack of Oversight** | Partial | - | 실행 로깅, 승인 워크플로 |
+| 7 | **Privilege Escalation** | Yes - 사용자 권한 상속 | 토큰 유출 -> RCE | 권한 분리, 컨테이너화 |
+| 8 | **Insufficient Monitoring** | Partial | - | SIEM 연동, 행위 분석 |
+| 9 | **Over-Reliance** | Context-dependent | - | 코드 리뷰 프로세스 유지 |
+| 10 | **Model Denial of Service** | Low | - | Rate limiting |
 
-### 1.6 AI 에이전트 보안 체크리스트
+### 1.6 AI 에이전트 보안 체크리스트: 어떻게 대비해야 하는가?
 
 ```yaml
 # AI Agent Security Checklist
@@ -217,6 +297,12 @@ incident_response:
   - [ ] 에이전트 즉시 종료 프로세스 수립
   - [ ] 영향 범위 파악 절차 문서화
   - [ ] 자격 증명 교체 절차 준비
+
+supply_chain:  # NEW - ClawHub 사건 대응
+  - [ ] 서드파티 스킬/플러그인 감사
+  - [ ] 설치된 스킬 해시 검증
+  - [ ] 스킬 마켓플레이스 접근 제한 정책
+  - [ ] 신규 스킬 설치 승인 워크플로
 ```
 
 ### 1.7 탐지: SIEM 쿼리
@@ -243,11 +329,22 @@ process.parent.name: ("node" or "python3") AND
 event.category: "process" AND
 process.name: ("bash" or "sh" or "zsh") AND
 NOT process.command_line: ("git *" or "npm *" or "python3 *")
+
+# NEW - Splunk: CVE-2026-25253 Token Exfiltration Detection
+index=endpoint sourcetype=sysmon EventCode=3
+process_name="node"
+(dest_port=443 OR dest_port=80)
+| eval suspicious=if(
+    match(dest, "^(?!api\.(anthropic|openai)\.com)"),
+    "SUSPICIOUS", "OK")
+| search suspicious="SUSPICIOUS"
+| stats count by process_name, dest, dest_port, user
+| where count > 3
 ```
 
-### 1.8 Jamf Extension Attribute: OpenClaw/Moltbot 설치 탐지
+### 1.8 Jamf Extension Attribute: OpenClaw/Moltbot 설치를 어떻게 탐지하는가?
 
-엔터프라이즈 환경에서 Jamf Pro를 통해 관리 대상 Mac에 OpenClaw(Clawdbot) 또는 Moltbot이 무단 설치되어 있는지 자동으로 탐지할 수 있습니다. 아래 스크립트를 **Jamf Pro > Settings > Extension Attributes**에 등록하면, 인벤토리 수집 시 각 디바이스의 설치 여부가 자동으로 보고됩니다.
+엔터프라이즈 환경에서 Jamf Pro를 통해 관리 대상 Mac에 OpenClaw(Clawdbot) 또는 Moltbot이 무단 설치되어 있는지 자동으로 탐지할 수 있습니다. 이번 주 ClawHub 악성 스킬 사건(341개 탐지)과 CVE-2026-25253 취약점을 고려하면, 조직 내 OpenClaw 설치 현황 파악이 **즉시 필요한 조치**입니다. 아래 스크립트를 **Jamf Pro > Settings > Extension Attributes**에 등록하면, 인벤토리 수집 시 각 디바이스의 설치 여부가 자동으로 보고됩니다.
 
 #### Extension Attribute 스크립트
 
@@ -396,23 +493,88 @@ ea_value="WARNING*"
 | timechart span=1w count by computer_name
 ```
 
+### 1.9 AI 에이전트 보안 FAQ
+
+**Q1: OpenClaw를 사용 중인데 당장 무엇을 해야 하나요?**
+
+즉시 버전 2026.1.29 이상으로 업데이트하여 CVE-2026-25253을 패치하세요. 설치된 ClawHub 스킬 목록을 점검하고, 출처가 불분명한 스킬은 제거하세요. `~/.ssh/`, `~/.aws/` 등 민감 디렉토리의 접근 로그를 확인하여 이상 징후가 없는지 점검하는 것이 권장됩니다.
+
+**Q2: ClawHub 스킬의 악성 여부를 어떻게 판별하나요?**
+
+Koi Security 연구팀의 보고서에 따르면, 악성 스킬은 주로 자격 증명 수집과 데이터 탈취를 시도합니다. 스킬의 소스 코드에서 `~/.ssh`, `~/.aws`, `~/.env`, `process.env` 등의 문자열 접근 패턴을 확인하세요. 스킬 설치 전 코드 리뷰를 의무화하고, 검증된 퍼블리셔의 스킬만 사용하는 정책을 수립하는 것이 좋습니다.
+
+**Q3: NanoClaw로 전환하면 기존 워크플로에 영향이 있나요?**
+
+NanoClaw는 핵심 코딩 지원에 집중하므로 OpenClaw의 52개 이상 모듈 중 상당수는 지원하지 않습니다. IDE 수준의 광범위한 기능이 필요하면 OpenClaw를 보안 설정과 함께 사용하되, 보안 민감 환경(금융, 의료, 정부)에서는 NanoClaw의 샌드박스 모델이 더 적합합니다.
+
+**Q4: OWASP Agentic AI Top 10을 조직에 어떻게 적용하나요?**
+
+먼저 현재 사용 중인 AI 에이전트의 권한과 접근 범위를 매핑하세요. Top 10 항목별로 해당 여부를 평가하고, 우선순위가 높은 항목(Excessive Agency, Supply Chain Vulnerabilities)부터 대응하세요. 분기별 AI 에이전트 보안 감사를 도입하고, 결과를 경영진에게 보고하는 체계를 수립하는 것을 권장합니다.
+
 ---
 
-## 2. MDM 앱 비활성화: Jamf Pro vs Microsoft Intune
+## 2. MDM 앱 비활성화: 어떤 MDM을 선택해야 하는가?
 
-### 2.1 MDM을 통한 앱 제어의 필요성
+### 2.1 AI 에이전트 시대에 MDM 앱 제어가 왜 중요한가?
 
-엔터프라이즈 환경에서 MDM 앱 제어는 Zero Trust 전략의 핵심입니다.
+섹션 1에서 살펴본 바와 같이, OpenClaw의 CVE-2026-25253 취약점과 ClawHub 악성 스킬 사건은 **AI 에이전트의 무단 설치가 곧 보안 사고의 시작점**이 될 수 있음을 보여줍니다. 엔터프라이즈 환경에서 MDM을 통한 앱 제어는 더 이상 선택이 아닌 Zero Trust 전략의 핵심 필수 요소입니다.
+
+특히 AI 코딩 에이전트는 기존의 일반 앱과 달리 **파일 시스템, 네트워크, 셸 실행 권한**을 모두 요구하므로, 무단 설치 시 공격자에게 개발 환경 전체의 접근 권한을 제공하는 것과 같습니다. MDM의 앱 제한 프로파일과 컴플라이언스 정책을 통해 승인된 도구만 사용할 수 있도록 제어해야 합니다.
 
 | 시나리오 | MDM 앱 제어 대응 |
 |----------|-----------------|
+| **AI 에이전트 무단 설치 방지** | 비인가 AI 도구 차단 목록 (OpenClaw, 미검증 스킬) |
 | 퇴사 예정자 데이터 유출 방지 | 클라우드 스토리지 앱 비활성화 |
 | 규정 미준수 디바이스 격리 | 업무 앱 접근 차단 |
 | 보안 사고 시 긴급 대응 | 원격 앱 잠금/삭제 |
 | BYOD 업무/개인 앱 분리 | 관리 컨테이너 내 앱만 허용 |
 | 임시직원 앱 제한 | 시간 기반 앱 정책 배포 |
 
-### 2.2 Jamf Pro: Apple 기기 MDM
+### 2.2 어떤 MDM을 선택해야 하는가? 의사결정 가이드
+
+조직의 환경에 따라 최적의 MDM 솔루션이 달라집니다. 아래 플로차트를 참고하세요:
+
+```
+MDM Selection Decision Flowchart
+=================================
+
+[Start: What devices do you manage?]
+        |
+        v
+[Apple devices >= 80%?] ---YES---> [Need deep Apple integration?]
+        |                                    |
+        NO                              YES---> [Jamf Pro]
+        |                                    |  Best for: Apple-first orgs,
+        v                                    |  creative teams, education
+[Using Microsoft 365?] ---YES--->            NO
+        |                          |         |
+        NO                         v         v
+        |              [Intune]          [Jamf Pro + Intune
+        v              Best for:          Hybrid Strategy]
+[Multi-platform         M365 orgs,       Best for: Apple devices
+ with no M365?]        Windows-heavy,    via Jamf, others via
+        |              cross-platform     Intune
+        v
+[Consider:]
+ - Workspace ONE (VMware)
+ - Kandji (Apple-focused alt)
+ - Mosyle (Education/SMB)
+
+Decision Criteria Summary:
++------------------+----------+----------+-----------+
+| Criteria         | Jamf Pro | Intune   | Hybrid    |
++------------------+----------+----------+-----------+
+| Apple depth      | *****    | ***      | *****     |
+| Windows support  | -        | *****    | *****     |
+| Android support  | -        | ****     | ****      |
+| M365 integration | ***      | *****    | *****     |
+| Setup simplicity | *****    | ***      | **        |
+| Cost (standalone)| $$       | Included | $$$       |
+|                  |          | with M365|           |
++------------------+----------+----------+-----------+
+```
+
+### 2.3 Jamf Pro: Apple 기기 MDM은 어떻게 설정하는가?
 
 Jamf Pro는 Apple 생태계에 최적화된 MDM으로, Configuration Profile을 통해 세밀한 앱 제어가 가능합니다.
 
@@ -517,7 +679,7 @@ curl -X POST "https://your-jamf.jamfcloud.com/JSSResource/mobiledevicecommands/c
       </mobile_device_command>'
 ```
 
-### 2.3 Microsoft Intune: 크로스 플랫폼 MDM
+### 2.4 Microsoft Intune: 크로스 플랫폼 MDM은 어떻게 구성하는가?
 
 Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 
@@ -625,7 +787,7 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 }
 ```
 
-### 2.4 Jamf Pro vs Microsoft Intune 비교
+### 2.5 Jamf Pro vs Microsoft Intune: 주요 기능은 어떻게 다른가?
 
 | 비교 항목 | Jamf Pro | Microsoft Intune |
 |-----------|----------|------------------|
@@ -639,9 +801,10 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 | **설정 복잡도** | 낮음 (Apple 친화적 UI) | 중간 (다중 플랫폼 고려) |
 | **Apple DEP/ABM** | 네이티브 지원 (최적) | 지원 (Jamf 대비 제한적) |
 | **Windows 관리** | 미지원 | 네이티브 (GPO 대체) |
+| **AI 에이전트 제어** | EA 스크립트 + 프로파일 (섹션 1.8) | Compliance Policy + App Block |
 | **적합 환경** | Apple 중심 기업, 크리에이티브 | 혼합 플랫폼, Microsoft 365 환경 |
 
-### 2.5 SIEM 연동 MDM 모니터링
+### 2.6 SIEM 연동 MDM 모니터링은 어떻게 설정하는가?
 
 ```bash
 # Splunk - Jamf Pro MDM Compliance Events
@@ -674,7 +837,7 @@ event.action: ("restriction_violation" or "app_blocked" or "compliance_failed") 
 NOT device.os.version: "17.*"
 ```
 
-### 2.6 MDM Zero Trust 구현 체크리스트
+### 2.7 MDM Zero Trust 구현 체크리스트
 
 ```yaml
 # MDM Zero Trust Checklist
@@ -687,6 +850,7 @@ app_control:
   - [ ] 관리형 앱 배포 목록 정의
   - [ ] 비인가 앱 차단 목록 업데이트 (분기별)
   - [ ] 앱 버전 최소 요구사항 설정
+  - [ ] AI 에이전트 설치 탐지 EA 등록 (섹션 1.8)
 
 compliance:
   - [ ] OS 최소 버전 정책 (보안 패치 강제)
@@ -703,80 +867,165 @@ monitoring:
 
 ---
 
-## 3. 금주 뉴스 하이라이트
+## 3. 금주 뉴스 하이라이트: 이번 주 보안과 기술 업계에서 무슨 일이 있었는가?
 
-### 3.1 AI 에이전트 생태계
+### 3.1 보안 뉴스 심층 분석
 
-| 뉴스 | 핵심 내용 | 영향도 |
-|------|-----------|--------|
-| **Claude Code / Opus 4.5 에이전트 확장** | Anthropic Claude Code CLI의 에이전트 코딩 기능 강화, 멀티 에이전트 오케스트레이션 패턴 확산 | High |
-| **OpenAI Codex Agent 출시** | 터미널 기반 AI 코딩 에이전트 경쟁 본격화 | High |
-| **Amazon Bedrock AgentCore** | 멀티에이전트 운영 프레임워크, 항공사 사례 공개 | Medium |
-| **OWASP Agentic AI Top 10 v1.0** | AI 에이전트 보안 표준 프레임워크 정식 발표 | High |
+#### Microsoft NTLM 3단계 폐지 계획: 무엇이 변하는가?
 
-### 3.2 클라우드 및 Kubernetes 보안
+> 출처: [The Hacker News](https://thehackernews.com/2026/02/microsoft-begins-ntlm-phase-out-with.html)
 
-| 뉴스 | 핵심 내용 | 영향도 |
-|------|-----------|--------|
-| **Kubernetes 1.33 보안 기능 강화** | Pod Security Admission 개선, Sidecar Container GA | High |
-| **SBOM 컴플라이언스 의무화 확대** | 미국 연방기관 SBOM 제출 의무화 범위 확대, EU CRA 시행 | High |
-| **AWS EKS Security Best Practices 2026** | Pod Identity, IRSA v2, Kyverno 정책 엔진 가이드 | Medium |
-| **GCP Confidential GKE Nodes GA** | 메모리 암호화 기반 노드에서 Kubernetes 워크로드 실행 | Medium |
+Microsoft가 **NTLM(New Technology LAN Manager)을 3단계에 걸쳐 폐지**하고 Kerberos 기반 인증으로 전환하는 계획을 발표했습니다. NTLM은 2년 전부터 폐지가 예고되었으며, 릴레이 공격 등 보안 취약점이 주된 이유입니다.
 
-### 3.3 DevSecOps 동향
+| 단계 | 내용 | 대응 |
+|------|------|------|
+| **1단계** | Kerberos 대체 인증 활성화, NTLM 감사 로깅 시작 | NTLM 사용량 모니터링 시작 |
+| **2단계** | NTLM 사용 제한, Kerberos 우선 정책 적용 | 레거시 앱 NTLM 의존성 파악 및 마이그레이션 |
+| **3단계** | NTLM 완전 비활성화 | 모든 시스템 Kerberos 전환 완료 확인 |
 
-| 뉴스 | 핵심 내용 | 영향도 |
-|------|-----------|--------|
-| **GitOps + Policy-as-Code 융합** | OPA/Kyverno를 GitOps 파이프라인에 네이티브 통합하는 패턴 확산 | High |
-| **Supply Chain Levels for Software Artifacts (SLSA) v1.1** | 빌드 무결성 검증 프레임워크 업데이트 | Medium |
-| **Sigstore cosign 3.0** | 컨테이너 이미지 서명/검증 개선, OCI 레지스트리 네이티브 | Medium |
+**실무 대응 포인트:**
+- Windows 이벤트 로그에서 NTLM 인증 이벤트(Event ID 4624, Logon Type 3)를 모니터링하여 현재 NTLM 사용량을 파악하세요
+- 레거시 애플리케이션의 NTLM 의존성을 사전에 확인하고 마이그레이션 계획을 수립하세요
+- Active Directory 환경에서 Kerberos 인증이 정상 작동하는지 테스트하세요
 
-### 3.4 트렌드 분석
+#### Infostealers: macOS와 Python 개발자를 노리는 새로운 위협
+
+> 출처: Microsoft Security Blog
+
+Microsoft Security 팀이 **macOS와 Python 개발 환경을 타겟으로 한 Infostealer 캠페인**을 분석한 보고서를 발표했습니다. 특히 Python 패키지를 통한 공급망 공격과 macOS 키체인 접근 시도가 증가하고 있어, AI 에이전트 보안(섹션 1)과도 직접적으로 연관됩니다.
+
+#### Weekly Recap: Proxy Botnet, Office Zero-Day, MongoDB 취약점
+
+> 출처: [The Hacker News](https://thehackernews.com/)
+
+이번 주 주요 보안 이벤트를 종합하면, Proxy Botnet 캠페인과 Office Zero-Day 취약점이 활발히 악용되고 있습니다. 보안 팀은 패치 적용 상황을 점검하고 IOC를 SIEM에 반영해야 합니다.
+
+### 3.2 AI 에이전트 및 기술 생태계
+
+| 뉴스 | 핵심 내용 | 영향도 | 분석 |
+|------|-----------|--------|------|
+| **Snowflake-OpenAI 2억달러 파트너십** | 엔터프라이즈 데이터에 프론티어 AI 직접 통합, AI 에이전트와 인사이트를 Snowflake 내에서 제공 | High | 데이터 웨어하우스와 LLM의 결합은 엔터프라이즈 AI 채택을 가속화하며, 동시에 데이터 거버넌스와 접근 제어의 중요성이 커짐 |
+| **Google AI: 멸종위기종 유전정보 보존** | AI를 활용한 멸종위기종 유전 정보 보존 프로젝트 | Medium | 공공 이익 AI 활용 사례로, 기업의 AI 윤리 전략에 참고할 수 있는 모델 |
+| **Clarus Care: Amazon Bedrock 임상 AI** | 헬스케어 컨택 센터에 Bedrock 기반 대화형 AI 적용, 자동 음성봇과 채팅 인터페이스 구축 | Medium | 의료 분야 AI 에이전트 도입 사례로, 규제 준수와 환자 데이터 보호가 핵심 과제 |
+| **Gemini Enterprise 직원 온보딩 자동화** | Google Cloud의 Gemini를 활용한 지능형 직원 온보딩 시스템 구축 가이드 | Medium | 엔터프라이즈 AI 에이전트가 HR 프로세스까지 확장되면서 내부 데이터 접근 권한 관리 이슈 부상 |
+| **Claude Code / Opus 4.5 에이전트 확장** | Anthropic Claude Code CLI의 에이전트 코딩 기능 강화, 멀티 에이전트 오케스트레이션 패턴 확산 | High | 에이전트 생태계가 확대되면서 보안 표준(OWASP Agentic AI)의 적용이 더욱 시급해짐 |
+| **OWASP Agentic AI Top 10 v1.0** | AI 에이전트 보안 표준 프레임워크 정식 발표 | High | 이번 주 OpenClaw 사건들이 Top 10 항목의 실제 사례를 제공, 프레임워크 채택 가속화 전망 |
+
+### 3.3 클라우드 및 Kubernetes 보안
+
+| 뉴스 | 핵심 내용 | 영향도 | 분석 |
+|------|-----------|--------|------|
+| **Kubernetes 1.33 보안 기능 강화** | Pod Security Admission 개선, Sidecar Container GA | High | 사이드카 컨테이너 GA는 서비스 메시 보안 패턴을 공식적으로 지원, Envoy/Istio 기반 mTLS 구성 표준화 |
+| **SBOM 컴플라이언스 의무화 확대** | 미국 연방기관 SBOM 제출 의무화 범위 확대, EU CRA 시행 | High | ClawHub 공급망 공격(341개 악성 스킬)은 SBOM 관리의 필요성을 실증적으로 보여줌 |
+| **AWS EKS Security Best Practices 2026** | Pod Identity, IRSA v2, Kyverno 정책 엔진 가이드 | Medium | EKS 환경에서 최소 권한 원칙 적용을 위한 공식 가이드, IRSA v2로 IAM 역할 관리 개선 |
+| **GCP Confidential GKE Nodes GA** | 메모리 암호화 기반 노드에서 Kubernetes 워크로드 실행 | Medium | TEE(Trusted Execution Environment) 기반 컨테이너 보안의 상용화 단계 진입 |
+| **Cloud Run NVIDIA RTX PRO 6000 지원** | 서버리스 컴퓨팅에서 고성능 GPU 추론, Gemma 3 27B/Llama 3.1 70B 배포 가능 | Medium | AI 모델 서빙의 인프라 추상화가 가속, 보안 팀은 서버리스 AI의 데이터 흐름 모니터링 체계 필요 |
+| **Google Cloud 단일 테넌트 Cloud HSM** | 전용 HSM으로 암호키 독점 관리, 금융/정부 규제 대응 | Medium | 규제 산업의 키 관리 요구사항 충족, 클라우드 제공자도 키 접근 불가한 격리 보장 |
+
+### 3.4 DevSecOps 동향
+
+| 뉴스 | 핵심 내용 | 영향도 | 분석 |
+|------|-----------|--------|------|
+| **GitOps + Policy-as-Code 융합** | OPA/Kyverno를 GitOps 파이프라인에 네이티브 통합하는 패턴 확산 | High | 정책 변경도 Git 워크플로를 통해 버전 관리/리뷰되므로 감사 추적성 대폭 개선 |
+| **SLSA v1.1** | 빌드 무결성 검증 프레임워크 업데이트 | Medium | 공급망 보안 강화의 핵심 도구, CI/CD 파이프라인에 통합하여 빌드 출처 검증 |
+| **Sigstore cosign 3.0** | 컨테이너 이미지 서명/검증 개선, OCI 레지스트리 네이티브 | Medium | 컨테이너 이미지 무결성 보장의 사실상 표준으로 자리잡는 중 |
+
+### 3.5 트렌드 분석: 이번 주 보안 이슈는 어떻게 연결되는가?
 
 ```
-2026년 2월 보안/DevOps 트렌드 맵:
+2026 Feb Week 1 - Security/DevOps Trend Map:
 
 AI Agent Security ─────────────────── Zero Trust
-     │                                     │
-     ├─ Sandboxing (NanoClaw)              ├─ MDM App Control
-     ├─ OWASP Agentic AI                   ├─ Conditional Access
-     └─ Prompt Injection Defense           └─ Device Compliance
-                    │                              │
-                    └──────────┬───────────────────┘
-                               │
-                     Supply Chain Security
-                               │
-                    ├─ SBOM Compliance
-                    ├─ SLSA v1.1
-                    ├─ Sigstore cosign 3.0
-                    └─ Container Security
+     |                                     |
+     +-- CVE-2026-25253 (RCE)             +-- MDM App Control
+     +-- ClawHub 341 Malicious Skills     +-- Conditional Access
+     +-- OWASP Agentic AI Top 10          +-- Device Compliance
+     +-- Sandboxing (NanoClaw)            +-- NTLM Phase-Out
+     +-- Prompt Injection Defense         |
+                    |                     |
+                    +--------+------------+
+                             |
+                   Supply Chain Security
+                             |
+                  +-- SBOM Compliance (US/EU)
+                  +-- SLSA v1.1
+                  +-- Sigstore cosign 3.0
+                  +-- ClawHub Skill Vetting
+                  +-- Container Security
+                             |
+                   Enterprise AI Integration
+                             |
+                  +-- Snowflake-OpenAI ($200M)
+                  +-- Amazon Bedrock Healthcare
+                  +-- Gemini Enterprise Onboarding
+                  +-- Cloud Run GPU Inference
 ```
+
+이번 주의 핵심 연결고리는 **"AI 에이전트의 보안과 신뢰"**입니다. OpenClaw 취약점과 ClawHub 공급망 공격은 AI 에이전트 보안의 실질적 위험을 보여주고, MDM과 Zero Trust는 이에 대한 엔터프라이즈 대응 전략이며, SBOM/SLSA는 공급망 전체의 무결성을 보장하는 기반입니다.
 
 ---
 
-## 4. 실무 체크리스트
+## 4. 실무 체크리스트: 이번 주에 무엇을 해야 하는가?
 
 ### 이번 주 액션 아이템
 
 ```yaml
 # Weekly Action Items - February 3, 2026
 priority_high:
+  - [ ] OpenClaw 버전 2026.1.29 패치 확인 (CVE-2026-25253)
+  - [ ] ClawHub 설치 스킬 감사 (341개 악성 스킬 IOC 대조)
   - [ ] Jamf Extension Attribute 등록: OpenClaw/Moltbot 무단 설치 탐지
   - [ ] AI 코딩 에이전트 권한 감사 (파일/네트워크 접근 범위 확인)
-  - [ ] MDM 앱 차단 목록 분기 업데이트 (비인가 앱 추가)
-  - [ ] SBOM 생성 파이프라인 구축 (syft/trivy 활용)
+  - [ ] NTLM 사용량 모니터링 시작 (Microsoft 폐지 1단계 대비)
+  - [ ] MDM 앱 차단 목록 분기 업데이트 (비인가 AI 도구 추가)
 
 priority_medium:
+  - [ ] SBOM 생성 파이프라인 구축 (syft/trivy 활용)
   - [ ] Smart Group 생성: OpenClaw 탐지 디바이스 자동 그룹화 + 알림
   - [ ] AI 에이전트 실행 로그 SIEM 연동 설정
   - [ ] Jamf/Intune 컴플라이언스 리포트 자동화
   - [ ] Kubernetes RBAC 감사 (최소 권한 확인)
 
 priority_low:
-  - [ ] OWASP Agentic AI Top 10 팀 공유
+  - [ ] OWASP Agentic AI Top 10 팀 공유 및 교육
   - [ ] SLSA v1.1 빌드 무결성 파일럿
   - [ ] 에이전트 보안 정책 문서 초안 작성
+  - [ ] Kerberos 인증 전환 계획 수립 (NTLM 폐지 대비)
 ```
+
+### 이번 주 핵심 질문: 보안 팀이 스스로에게 물어야 할 것
+
+조직의 보안 상태를 점검하기 위해 이번 주 다음 질문에 답할 수 있어야 합니다:
+
+1. **우리 조직에 OpenClaw가 설치된 디바이스가 몇 대인가?** CVE-2026-25253 패치가 적용되었는가?
+2. **승인되지 않은 AI 코딩 에이전트의 설치를 탐지하는 메커니즘이 있는가?** (Jamf EA, EDR 룰 등)
+3. **서드파티 AI 스킬/플러그인의 설치 승인 프로세스가 있는가?** ClawHub와 같은 마켓플레이스에서 설치된 스킬을 추적하고 있는가?
+4. **NTLM 인증을 사용하는 시스템 목록이 있는가?** Microsoft 폐지 계획에 따른 마이그레이션 일정이 수립되어 있는가?
+5. **소프트웨어 공급망의 무결성을 어떻게 검증하고 있는가?** SBOM이 생성/관리되고 있으며 SLSA 레벨은 어느 단계인가?
+
+---
+
+## 자주 묻는 질문 (FAQ)
+
+### OpenClaw CVE-2026-25253 취약점이란 무엇인가요?
+
+OpenClaw(구 Clawdbot/Moltbot)에서 발견된 **CVSS 8.8 고위험도 취약점**으로, 악성 링크 클릭만으로 원격 코드 실행(RCE)이 가능합니다. 토큰 유출(Token Exfiltration) 취약점을 통해 공격이 이루어지며, 2026년 1월 30일에 릴리스된 **버전 2026.1.29에서 패치**되었습니다. 모든 OpenClaw 사용자는 즉시 업데이트해야 합니다.
+
+### ClawHub 악성 스킬 공급망 공격은 어떻게 탐지하나요?
+
+Koi Security 연구팀이 ClawHub 마켓플레이스의 **2,857개 스킬 중 341개(약 12%)가 악성**임을 확인했습니다. 탐지 방법으로는 Jamf Extension Attribute 스크립트(본문 섹션 1.8)로 OpenClaw 무단 설치를 탐지하고, SIEM 연동으로 비정상 파일 접근(`~/.ssh/`, `~/.aws/`)과 의심스러운 네트워크 연결을 모니터링할 수 있습니다. 설치된 스킬의 소스 코드에서 민감 경로 접근 패턴을 검사하는 것도 권장됩니다.
+
+### NanoClaw와 OpenClaw의 보안 차이점은 무엇인가요?
+
+OpenClaw는 52개 이상 모듈이 **단일 Node.js 프로세스에서 무제한 권한으로 실행**되어 공격 표면이 넓습니다. NanoClaw는 약 **500줄 핵심 코드로 Apple 컨테이너 샌드박스 격리와 최소 권한 원칙**을 적용하여 파일 접근(프로젝트 디렉토리만)과 네트워크(허용 목록 기반)를 엄격히 제한합니다. 보안 민감 환경(금융, 의료, 정부)에서는 NanoClaw의 아키텍처가 더 적합합니다.
+
+### Jamf Pro와 Microsoft Intune 중 어떤 MDM을 선택해야 하나요?
+
+**Apple 기기가 80% 이상**인 환경이면 Jamf Pro가 최적입니다. **Windows/Android 혼합 환경**이거나 Microsoft 365를 사용 중이면 Intune이 효율적입니다. 두 플랫폼 모두 사용하는 **하이브리드 전략**(Apple은 Jamf, Windows/Android는 Intune)도 가능하며, 본문 섹션 2.2의 의사결정 플로차트를 참고하세요.
+
+### Microsoft NTLM 폐지 일정은 어떻게 되나요?
+
+Microsoft는 **3단계 계획**으로 NTLM을 폐지합니다. **1단계**에서 Kerberos 대체 인증을 활성화하고 감사 로깅을 시작하고, **2단계**에서 NTLM 사용량을 제한하며, **3단계**에서 완전 비활성화합니다. 릴레이 공격 등 보안 취약점이 주된 폐지 이유이며, 조직은 NTLM 의존 시스템을 파악하고 Kerberos 전환 계획을 수립해야 합니다.
 
 ---
 
@@ -789,6 +1038,18 @@ priority_low:
 | OWASP Agentic AI Top 10 | [OWASP](https://owasp.org/www-project-top-10-for-large-language-model-applications/) |
 | NanoClaw - Minimal AI Agent | [GitHub](https://github.com/anthropics/anthropic-cookbook) |
 | Claude Code Security Model | [Anthropic Docs](https://docs.anthropic.com/en/docs/claude-code/security) |
+| ClawHub 341 Malicious Skills (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html) |
+| OpenClaw CVE-2026-25253 RCE Bug (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/openclaw-bug-enables-one-click-remote.html) |
+| Microsoft NTLM Phase-Out Plan (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/microsoft-begins-ntlm-phase-out-with.html) |
+
+### AI 및 클라우드
+
+| 제목 | URL |
+|------|-----|
+| Snowflake-OpenAI Partnership ($200M) | [OpenAI Blog](https://openai.com/index/snowflake-partnership) |
+| Google AI: Preserving Endangered Species | [Google AI Blog](https://blog.google/innovation-and-ai/technology/ai/ai-to-preserve-endangered-species/) |
+| Clarus Care Amazon Bedrock Clinical AI | [AWS ML Blog](https://aws.amazon.com/blogs/machine-learning/how-clarus-care-uses-amazon-bedrock-to-deliver-conversational-contact-center-interactions/) |
+| Gemini Enterprise Employee Onboarding | [Google Cloud Blog](https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-onboarding-agents-with-gemini-enterprise/) |
 
 ### MDM 관리
 
@@ -814,6 +1075,55 @@ priority_low:
 |------|-----|
 | Weekly Security Threat Intelligence Digest (Feb 2) | [Twodragon Blog](/2026-02-02-Weekly_Security_Threat_Intelligence_Digest) |
 | Weekly Tech & AI & Blockchain Digest (Feb 2) | [Twodragon Blog](/2026-02-02-Weekly_Tech_AI_Blockchain_Digest) |
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "OpenClaw CVE-2026-25253 취약점이란 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OpenClaw(구 Clawdbot/Moltbot)에서 발견된 CVSS 8.8 고위험도 취약점으로, 악성 링크 클릭만으로 원격 코드 실행(RCE)이 가능합니다. 토큰 유출(Token Exfiltration) 취약점을 통해 공격이 이루어지며, 2026년 1월 30일에 릴리스된 버전 2026.1.29에서 패치되었습니다. 모든 OpenClaw 사용자는 즉시 업데이트해야 합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ClawHub 악성 스킬 공급망 공격은 어떻게 탐지하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Koi Security 연구팀이 ClawHub 마켓플레이스의 2,857개 스킬 중 341개(약 12%)가 악성임을 확인했습니다. Jamf Extension Attribute 스크립트로 OpenClaw 무단 설치를 탐지하고, SIEM 연동으로 비정상 파일 접근과 의심스러운 네트워크 연결을 모니터링할 수 있습니다. 설치된 스킬의 소스 코드에서 민감 경로 접근 패턴을 검사하는 것도 권장됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "NanoClaw와 OpenClaw의 보안 차이점은 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OpenClaw는 52개 이상 모듈이 단일 Node.js 프로세스에서 무제한 권한으로 실행되어 공격 표면이 넓습니다. NanoClaw는 약 500줄 핵심 코드로 Apple 컨테이너 샌드박스 격리와 최소 권한 원칙을 적용하여 파일 접근(프로젝트 디렉토리만)과 네트워크(허용 목록 기반)를 엄격히 제한합니다. 보안 민감 환경에서는 NanoClaw의 아키텍처가 더 적합합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jamf Pro와 Microsoft Intune 중 어떤 MDM을 선택해야 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Apple 기기가 80% 이상인 환경이면 Jamf Pro가 최적입니다. Windows/Android 혼합 환경이거나 Microsoft 365를 사용 중이면 Intune이 효율적입니다. 두 플랫폼 모두 사용하는 하이브리드 전략(Apple은 Jamf, Windows/Android는 Intune)도 가능합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Microsoft NTLM 폐지 일정은 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Microsoft는 3단계 계획으로 NTLM을 폐지합니다. 1단계에서 Kerberos 대체 인증을 활성화하고 감사 로깅을 시작하고, 2단계에서 NTLM 사용량을 제한하며, 3단계에서 완전 비활성화합니다. 릴레이 공격 등 보안 취약점이 주된 폐지 이유이며, 조직은 NTLM 의존 시스템을 파악하고 Kerberos 전환 계획을 수립해야 합니다."
+      }
+    }
+  ]
+}
+</script>
 
 ---
 
