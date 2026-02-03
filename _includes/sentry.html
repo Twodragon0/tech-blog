@@ -1,8 +1,8 @@
 {% if site.sentry_dsn and site.sentry_dsn != "" %}
-<!-- Sentry SDK: Error Tracking + Tracing (lightweight bundle for cost optimization) -->
+<!-- Sentry SDK: Error Tracking + Tracing + Replay (Free tier 최대 활용) -->
 <!-- Defer loading to reduce FID (First Input Delay) -->
 <script
-  src="https://browser.sentry-cdn.com/8.42.0/bundle.tracing.min.js"
+  src="https://browser.sentry-cdn.com/8.42.0/bundle.tracing.replay.min.js"
   crossorigin="anonymous"
   defer
 ></script>
@@ -98,6 +98,12 @@ function initSentry() {
   var integrations = [
     Sentry.browserTracingIntegration({
       tracePropagationTargets: ['localhost', /^https:\/\/tech\.2twodragon\.com/]
+    }),
+    Sentry.replayIntegration({
+      maskAllText: true,
+      blockAllMedia: true,
+      maskAllInputs: true,
+      networkDetailAllowUrls: []
     })
   ];
 
@@ -124,6 +130,10 @@ function initSentry() {
 
     // Tracing: 1% production (Free Tier: 5M spans/month)
     tracesSampleRate: isProduction ? 0.01 : 0,
+
+    // Session Replay: error-only (Free Tier: 50 replays/month)
+    replaysSessionSampleRate: 0,
+    replaysOnErrorSampleRate: isProduction ? 0.5 : 0,
 
     maxBreadcrumbs: 30,
     attachStacktrace: true,
@@ -230,7 +240,7 @@ function initSentry() {
     }
   });
 
-  if (isDev) console.log('[Sentry] Initialized (lightweight: error tracking + tracing)');
+  if (isDev) console.log('[Sentry] Initialized (error tracking + tracing + replay, Free tier optimized)');
 
   // Feedback button → GitHub Issues (no Sentry Feedback SDK needed)
   var feedbackBtn = document.getElementById('custom-feedback-btn');

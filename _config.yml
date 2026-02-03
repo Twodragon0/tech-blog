@@ -201,7 +201,7 @@ sentry_dsn: "https://61fd23528aff138753e071de26c5b306@o4510686170710016.ingest.u
 
 # Cloudflare Web Analytics (무료, 프라이버시 친화적)
 # 토큰 발급: Cloudflare Dashboard → Analytics & Logs → Web Analytics → Add a site
-# cloudflare_analytics_token: "YOUR_CLOUDFLARE_BEACON_TOKEN"
+cloudflare_analytics_token: ""
 
 # Open Graph & Social Sharing
 # 기본 이미지는 SVG로 생성되며, PNG로 변환하려면 scripts/generate_og_image.py 실행
