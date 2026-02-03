@@ -4,8 +4,8 @@ title: "Weekly Security & DevOps Digest: OpenClaw AI 에이전트 보안, Jamf/I
 date: 2026-02-03 10:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, OpenClaw, NanoClaw, AI-Agent-Security, MDM, Jamf, Intune, OWASP, Kubernetes, DevSecOps, "2026"]
-excerpt: "OpenClaw(Clawdbot) vs NanoClaw AI 에이전트 보안 비교 분석, Jamf Pro와 Microsoft Intune MDM 앱 비활성화/제한 실무 가이드, 2월 첫째 주 보안/DevOps 뉴스 하이라이트"
-description: "2026년 2월 3일 보안/DevOps 다이제스트: AI 에이전트 샌드박싱(OpenClaw 52+ 모듈 위험 vs NanoClaw Apple 컨테이너 격리), MDM 앱 제어(Jamf Configuration Profile, Intune App Protection Policy), OWASP Agentic AI Top 10, SIEM 연동 모니터링"
+excerpt: "OpenClaw(Clawdbot) vs NanoClaw AI 에이전트 보안 비교, Jamf Extension Attribute 기반 무단 설치 탐지 스크립트, Jamf Pro/Intune MDM 앱 비활성화 실무 가이드"
+description: "2026년 2월 3일 보안/DevOps 다이제스트: AI 에이전트 샌드박싱(OpenClaw 52+ 모듈 위험 vs NanoClaw Apple 컨테이너 격리), Jamf Extension Attribute 무단 설치 탐지, MDM 앱 제어(Jamf Configuration Profile, Intune App Protection Policy), OWASP Agentic AI Top 10"
 keywords: [OpenClaw Security, NanoClaw, AI Agent Sandbox, Jamf Pro MDM, Microsoft Intune, App Disable, OWASP Agentic AI, MDM Zero Trust, SIEM MDM Integration, DevSecOps Weekly]
 author: Twodragon
 comments: true
@@ -45,7 +45,7 @@ toc: true
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
     <ul class="summary-list">
-      <li><strong>OpenClaw vs NanoClaw AI 에이전트 보안</strong>: OpenClaw(Clawdbot) 52+ 모듈, 단일 Node 프로세스, 무제한 권한의 보안 리스크 vs NanoClaw Apple 컨테이너 격리, ~500줄 최소 권한 모델</li>
+      <li><strong>OpenClaw vs NanoClaw AI 에이전트 보안</strong>: OpenClaw(Clawdbot) 52+ 모듈 보안 리스크 vs NanoClaw Apple 컨테이너 격리, Jamf Extension Attribute 기반 무단 설치 탐지 스크립트 포함</li>
       <li><strong>MDM 앱 비활성화 실무 가이드</strong>: Jamf Pro Configuration Profile 기반 앱 제한, Microsoft Intune App Protection Policy, Conditional Access 설정 방법 비교</li>
       <li><strong>금주 뉴스 하이라이트</strong>: Claude 4/Opus 4.5 에이전트 생태계 확장, Kubernetes 1.33 보안 강화, SBOM 컴플라이언스 동향</li>
     </ul>
@@ -243,6 +243,157 @@ process.parent.name: ("node" or "python3") AND
 event.category: "process" AND
 process.name: ("bash" or "sh" or "zsh") AND
 NOT process.command_line: ("git *" or "npm *" or "python3 *")
+```
+
+### 1.8 Jamf Extension Attribute: OpenClaw/Moltbot 설치 탐지
+
+엔터프라이즈 환경에서 Jamf Pro를 통해 관리 대상 Mac에 OpenClaw(Clawdbot) 또는 Moltbot이 무단 설치되어 있는지 자동으로 탐지할 수 있습니다. 아래 스크립트를 **Jamf Pro > Settings > Extension Attributes**에 등록하면, 인벤토리 수집 시 각 디바이스의 설치 여부가 자동으로 보고됩니다.
+
+#### Extension Attribute 스크립트
+
+```bash
+#!/bin/bash
+# Jamf Extension Attribute: OpenClaw/Moltbot Installation Detection
+# Data Type: String | Input Type: Script
+# Purpose: Detect unauthorized AI agent installations on managed Macs
+
+REPORT=""
+FOUND_ANY=false
+
+# 1. Binary check
+check_binary() {
+    local bin_path=$1
+    if [ -f "$bin_path" ]; then
+        REPORT+="[FOUND] Binary: $bin_path\n"
+        FOUND_ANY=true
+    else
+        REPORT+="[Not Found] Binary: $bin_path\n"
+    fi
+}
+
+# 2. User home directory check
+check_user_dir() {
+    local dir_name=$1
+    USERS=$(dscl . list /Users UniqueID | awk '$2 > 500 {print $1}')
+    for user in $USERS; do
+        HOME_DIR=$(dscl . read "/Users/$user" NFSHomeDirectory | awk '{print $2}')
+        if [ -d "$HOME_DIR/$dir_name" ]; then
+            REPORT+="[FOUND] User($user) Folder: ~/$dir_name\n"
+            FOUND_ANY=true
+        else
+            REPORT+="[Not Found] User($user) Folder: ~/$dir_name\n"
+        fi
+    done
+}
+
+# 3. npm global module check
+check_npm_module() {
+    local module_name=$1
+    local npm_path="/usr/local/lib/node_modules/$module_name"
+    if [ -d "$npm_path" ]; then
+        REPORT+="[FOUND] npm Module: $module_name\n"
+        FOUND_ANY=true
+    else
+        REPORT+="[Not Found] npm Module: $module_name\n"
+    fi
+}
+
+REPORT+="--- OpenClaw/Moltbot Inspection Report ---\n"
+
+# Binary inspection
+check_binary "/usr/local/bin/openclaw"
+check_binary "/usr/local/bin/molt"
+check_binary "/usr/local/bin/clawd"
+
+# User config directory inspection
+check_user_dir ".openclaw"
+check_user_dir ".moltbot"
+check_user_dir "clawd"
+
+# npm module inspection
+check_npm_module "openclaw"
+check_npm_module "@openclaw"
+
+REPORT+="------------------------------------------\n"
+
+# Jamf Extension Attribute output
+if [ "$FOUND_ANY" = true ]; then
+    echo -e "<result>WARNING: Installation Detected\n\n$REPORT</result>"
+else
+    echo -e "<result>Clean: No Installation Found\n\n$REPORT</result>"
+fi
+```
+
+#### Jamf Pro 등록 방법
+
+| 단계 | 설정 |
+|------|------|
+| **1. EA 생성** | Jamf Pro > Settings > Extension Attributes > New |
+| **2. 기본 정보** | Display Name: `OpenClaw Detection`, Data Type: `String` |
+| **3. Input Type** | `Script` 선택, 위 스크립트 붙여넣기 |
+| **4. Inventory Scope** | `Computer` |
+| **5. 저장** | Save 후 인벤토리 수집 시 자동 실행 |
+
+#### Smart Group 연동: 설치 탐지 디바이스 자동 그룹화
+
+```
+Jamf Pro Smart Group: "OpenClaw Installed Devices"
++--------------------------------------------------+
+| Criteria:                                        |
+|   OpenClaw Detection  |  like  |  WARNING*       |
+|                                                  |
+| -> Action: Send alert to security team           |
+| -> Action: Apply restriction profile             |
+| -> Action: Create Jira ticket via webhook        |
++--------------------------------------------------+
+```
+
+탐지 시 자동으로 다음 조치를 취할 수 있습니다:
+
+| 자동 대응 | 방법 |
+|-----------|------|
+| **알림** | Smart Group 변경 시 Slack/Teams 웹훅 발송 |
+| **제한** | Restriction Profile 자동 배포 (네트워크 접근 차단) |
+| **제거** | Self Service에서 제거 스크립트 제공 또는 정책 자동 실행 |
+| **로깅** | SIEM 연동으로 설치 이력 추적 |
+
+#### 확장: 추가 AI 에이전트 탐지
+
+동일 패턴으로 다른 AI 코딩 에이전트도 탐지할 수 있습니다:
+
+```bash
+# Additional AI agent binary paths to monitor
+check_binary "/usr/local/bin/cursor"
+check_binary "/usr/local/bin/windsurf"
+check_binary "/usr/local/bin/aider"
+check_binary "/usr/local/bin/copilot"
+
+# Additional config directories
+check_user_dir ".cursor"
+check_user_dir ".windsurf"
+check_user_dir ".aider"
+check_user_dir ".continue"
+
+# Homebrew cask installations
+check_binary "/opt/homebrew/bin/openclaw"
+check_binary "/opt/homebrew/bin/cursor"
+```
+
+#### 탐지 결과 SIEM 연동
+
+```bash
+# Splunk - Jamf EA 기반 OpenClaw 설치 탐지 알림
+index=jamf sourcetype=jamf:computerextensionattributes
+ea_name="OpenClaw Detection"
+ea_value="WARNING*"
+| stats count by computer_name, serial_number, ea_value, _time
+| sort -_time
+
+# Splunk - OpenClaw 설치 트렌드 (주간)
+index=jamf sourcetype=jamf:computerextensionattributes
+ea_name="OpenClaw Detection"
+ea_value="WARNING*"
+| timechart span=1w count by computer_name
 ```
 
 ---
@@ -610,11 +761,13 @@ AI Agent Security ─────────────────── Zero
 ```yaml
 # Weekly Action Items - February 3, 2026
 priority_high:
-  - [ ] AI 코딩 에이전트 권한 감사 (사용 중인 에이전트의 파일/네트워크 접근 범위 확인)
+  - [ ] Jamf Extension Attribute 등록: OpenClaw/Moltbot 무단 설치 탐지
+  - [ ] AI 코딩 에이전트 권한 감사 (파일/네트워크 접근 범위 확인)
   - [ ] MDM 앱 차단 목록 분기 업데이트 (비인가 앱 추가)
   - [ ] SBOM 생성 파이프라인 구축 (syft/trivy 활용)
 
 priority_medium:
+  - [ ] Smart Group 생성: OpenClaw 탐지 디바이스 자동 그룹화 + 알림
   - [ ] AI 에이전트 실행 로그 SIEM 연동 설정
   - [ ] Jamf/Intune 컴플라이언스 리포트 자동화
   - [ ] Kubernetes RBAC 감사 (최소 권한 확인)
