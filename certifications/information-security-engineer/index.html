@@ -199,7 +199,7 @@ permalink: /certifications/information-security-engineer/
         <div class="exam-stats">
           <span class="stat-item">
             <span class="stat-label">진행:</span>
-            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">15</span>
+            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">20</span>
           </span>
           <span class="stat-item">
             <span class="stat-label">정답률:</span>
@@ -1025,6 +1025,261 @@ permalink: /certifications/information-security-engineer/
             <div class="answer-content">
               <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
               <p class="answer-explanation"><strong>해설:</strong> 보안 감사는 객관적이고 체계적으로 수행하고, 발견된 문제에 대해 개선 조치를 취해야 합니다. <a href="/posts/2025/12/12/Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy/" target="_blank" rel="noopener noreferrer">ISMS-P 보안 감사 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="시스템 보안" data-answer="C" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 16</span>
+          <span class="question-topic">시스템 보안</span>
+          <span class="question-status" id="status-16" aria-label="문제 16 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 리눅스 시스템에서 SetUID가 설정된 실행 파일의 권한 표기로 올바른 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-16" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> -rwxr-xr-x</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-16" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> -rwxrwxrwx</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-16" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> -rwsr-xr-x</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-16" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> -rwxr-sr-x</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="16" aria-label="문제 16 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="16" aria-expanded="false" aria-label="문제 16 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-16" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> SetUID가 설정되면 소유자의 실행 권한 위치에 's'가 표시됩니다. -rwsr-xr-x는 소유자에게 SetUID가 설정된 상태를 의미합니다. 반면 -rwxr-sr-x는 그룹에 SetGID가 설정된 경우입니다. SetUID 파일은 실행 시 파일 소유자의 권한으로 실행되므로, 보안 점검 시 불필요한 SetUID 파일을 주기적으로 검사해야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="네트워크 보안" data-answer="A" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 17</span>
+          <span class="question-topic">네트워크 보안</span>
+          <span class="question-status" id="status-17" aria-label="문제 17 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> iptables 방화벽에서 외부에서 들어오는 SSH(22번 포트) 접속을 차단하는 올바른 명령은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-17" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> iptables -A INPUT -p tcp --dport 22 -j DROP</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-17" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> iptables -A OUTPUT -p tcp --sport 22 -j DROP</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-17" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> iptables -A INPUT -p udp --dport 22 -j REJECT</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-17" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> iptables -A FORWARD -p tcp --dport 22 -j ACCEPT</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="17" aria-label="문제 17 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="17" aria-expanded="false" aria-label="문제 17 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-17" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> INPUT 체인은 외부에서 들어오는 패킷을 처리하며, -p tcp --dport 22는 TCP 프로토콜의 목적지 포트 22(SSH)를 지정합니다. -j DROP은 해당 패킷을 폐기합니다. SSH는 TCP 프로토콜을 사용하므로 UDP가 아닌 TCP로 지정해야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="암호학" data-answer="B" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 18</span>
+          <span class="question-topic">암호학</span>
+          <span class="question-status" id="status-18" aria-label="문제 18 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 다음 중 비대칭키(공개키) 암호화 알고리즘이 아닌 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-18" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> RSA</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-18" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> AES</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-18" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> ECC</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-18" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> ElGamal</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="18" aria-label="문제 18 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="18" aria-expanded="false" aria-label="문제 18 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-18" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> AES(Advanced Encryption Standard)는 128/192/256비트 키를 사용하는 대칭키 블록 암호 알고리즘입니다. RSA, ECC(Elliptic Curve Cryptography), ElGamal은 모두 비대칭키(공개키) 암호화 알고리즘입니다. AES는 DES를 대체하기 위해 NIST에서 표준으로 선정한 대칭키 암호입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="애플리케이션 보안" data-answer="D" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 19</span>
+          <span class="question-topic">애플리케이션 보안</span>
+          <span class="question-status" id="status-19" aria-label="문제 19 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> OWASP Top 10(2021)에서 1위로 선정된 웹 애플리케이션 보안 취약점은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-19" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 인젝션(Injection)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-19" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 크로스 사이트 스크립팅(XSS)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-19" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 보안 설정 오류(Security Misconfiguration)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-19" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 취약한 접근 제어(Broken Access Control)</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="19" aria-label="문제 19 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="19" aria-expanded="false" aria-label="문제 19 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-19" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">D</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> OWASP Top 10 2021 버전에서는 Broken Access Control(취약한 접근 제어)이 1위로 선정되었습니다. 이전 2017 버전에서 1위였던 Injection은 3위로 내려갔습니다. 접근 제어 실패는 인가되지 않은 사용자가 제한된 리소스에 접근할 수 있는 취약점입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="정보보안 관리" data-answer="C" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 20</span>
+          <span class="question-topic">정보보안 관리</span>
+          <span class="question-status" id="status-20" aria-label="문제 20 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 개인정보보호법에 따라 개인정보처리자가 개인정보 유출 사실을 알게 된 경우, 정보주체에게 통지해야 하는 기한은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-20" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 즉시</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-20" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 24시간 이내</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-20" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 72시간 이내</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-20" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 7일 이내</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="20" aria-label="문제 20 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="20" aria-expanded="false" aria-label="문제 20 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-20" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 개인정보보호법 제34조에 따르면, 개인정보처리자는 개인정보 유출 사실을 알게 된 때에는 정당한 사유가 없는 한 72시간 이내에 정보주체에게 알려야 합니다. 1,000명 이상의 정보주체에 관한 개인정보가 유출된 경우에는 개인정보보호위원회에도 신고해야 합니다.</p>
             </div>
           </div>
         </div>

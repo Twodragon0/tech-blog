@@ -70,7 +70,7 @@ permalink: /certifications/cka/
         <div class="exam-stats">
           <span class="stat-item">
             <span class="stat-label">진행:</span>
-            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">15</span>
+            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">20</span>
           </span>
           <span class="stat-item">
             <span class="stat-label">정답률:</span>
@@ -521,6 +521,261 @@ permalink: /certifications/cka/
           <div class="question-answer" id="answer-15" hidden>
             <div class="answer-content">
               <p class="answer-explanation"><strong>해설:</strong> kubectl top nodes, kubectl top pods 명령어로 리소스 사용량을 확인하고, kubectl describe node로 상세 정보를 확인합니다. <a href="/posts/2025/05/30/Kubernetes_Minikube_ampamp_K9s_Practice_Guide_Problem_From_Resolution_Practical_TestTo/" target="_blank" rel="noopener noreferrer">Kubernetes 실습 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="클러스터 관리" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 16</span>
+          <span class="question-topic">클러스터 관리</span>
+          <span class="question-status" id="status-16" aria-label="문제 16 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> Kubernetes 클러스터에서 etcd 데이터를 백업하기 위해 사용하는 올바른 etcdctl 명령은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="q16" value="A" class="option-radio">
+              <span class="option-text">A. etcdctl backup --data-dir /var/lib/etcd</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q16" value="B" class="option-radio">
+              <span class="option-text">B. ETCDCTL_API=3 etcdctl snapshot save /tmp/etcd-backup.db --endpoints=https://127.0.0.1:2379 --cacert --cert --key</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q16" value="C" class="option-radio">
+              <span class="option-text">C. etcdctl dump --output /tmp/backup</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q16" value="D" class="option-radio">
+              <span class="option-text">D. kubectl backup etcd --to /tmp/backup</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="16" aria-label="문제 16 답안 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>답안 확인</span>
+            </button>
+            <button type="button" class="explanation-toggle" data-question="16" aria-expanded="false" aria-label="문제 16 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-16" data-correct="B" hidden>
+            <div class="answer-content">
+              <p class="answer-correct">정답: <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> etcd v3 API를 사용하여 스냅샷을 저장하는 것이 올바른 백업 방법입니다. ETCDCTL_API=3 환경변수를 설정하고 snapshot save 명령을 사용하며, TLS 인증서(cacert, cert, key)와 엔드포인트를 지정해야 합니다. 복원 시에는 etcdctl snapshot restore를 사용합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="네트워킹" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 17</span>
+          <span class="question-topic">네트워킹</span>
+          <span class="question-status" id="status-17" aria-label="문제 17 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 특정 네임스페이스의 Pod에 대해 특정 라벨을 가진 Pod에서만 TCP 80 포트 접근을 허용하는 Kubernetes 리소스는?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="q17" value="A" class="option-radio">
+              <span class="option-text">A. NetworkPolicy</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q17" value="B" class="option-radio">
+              <span class="option-text">B. Service</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q17" value="C" class="option-radio">
+              <span class="option-text">C. Ingress</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q17" value="D" class="option-radio">
+              <span class="option-text">D. ResourceQuota</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="17" aria-label="문제 17 답안 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>답안 확인</span>
+            </button>
+            <button type="button" class="explanation-toggle" data-question="17" aria-expanded="false" aria-label="문제 17 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-17" data-correct="A" hidden>
+            <div class="answer-content">
+              <p class="answer-correct">정답: <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> NetworkPolicy는 Pod 간 네트워크 트래픽을 제어하는 리소스입니다. podSelector로 대상 Pod를 지정하고, ingress/egress 규칙으로 허용할 트래픽의 소스/목적지와 포트를 정의합니다. 적용하려면 클러스터에 Calico, Cilium 등 NetworkPolicy를 지원하는 CNI 플러그인이 설치되어 있어야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="RBAC" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 18</span>
+          <span class="question-topic">RBAC</span>
+          <span class="question-status" id="status-18" aria-label="문제 18 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> Kubernetes RBAC에서 특정 네임스페이스 내의 Pod에 대한 읽기 권한을 사용자에게 부여하려면 어떤 리소스 조합을 사용해야 합니까?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="q18" value="A" class="option-radio">
+              <span class="option-text">A. ClusterRole + ClusterRoleBinding</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q18" value="B" class="option-radio">
+              <span class="option-text">B. Role + ClusterRoleBinding</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q18" value="C" class="option-radio">
+              <span class="option-text">C. Role + RoleBinding</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q18" value="D" class="option-radio">
+              <span class="option-text">D. ClusterRole만 사용</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="18" aria-label="문제 18 답안 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>답안 확인</span>
+            </button>
+            <button type="button" class="explanation-toggle" data-question="18" aria-expanded="false" aria-label="문제 18 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-18" data-correct="C" hidden>
+            <div class="answer-content">
+              <p class="answer-correct">정답: <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 특정 네임스페이스에 한정된 권한은 Role(네임스페이스 범위)을 생성하고 RoleBinding으로 사용자에게 바인딩합니다. ClusterRole/ClusterRoleBinding은 클러스터 전체 범위에 사용됩니다. Role에 resources: ["pods"], verbs: ["get", "list", "watch"]를 정의하면 됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="워크로드 관리" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 19</span>
+          <span class="question-topic">워크로드 관리</span>
+          <span class="question-status" id="status-19" aria-label="문제 19 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> Kubernetes에서 노드 유지보수를 위해 해당 노드의 모든 Pod를 안전하게 다른 노드로 이동시키는 명령은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="q19" value="A" class="option-radio">
+              <span class="option-text">A. kubectl delete node worker-1</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q19" value="B" class="option-radio">
+              <span class="option-text">B. kubectl taint node worker-1 key=value:NoSchedule</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q19" value="C" class="option-radio">
+              <span class="option-text">C. kubectl cordon worker-1</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q19" value="D" class="option-radio">
+              <span class="option-text">D. kubectl drain worker-1 --ignore-daemonsets --delete-emptydir-data</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="19" aria-label="문제 19 답안 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>답안 확인</span>
+            </button>
+            <button type="button" class="explanation-toggle" data-question="19" aria-expanded="false" aria-label="문제 19 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-19" data-correct="D" hidden>
+            <div class="answer-content">
+              <p class="answer-correct">정답: <span class="answer-value">D</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> kubectl drain은 노드를 cordon(스케줄링 비활성화)하고 기존 Pod를 안전하게 퇴출(evict)합니다. --ignore-daemonsets는 DaemonSet Pod를 무시하고, --delete-emptydir-data는 emptyDir 볼륨을 가진 Pod도 처리합니다. cordon만 사용하면 새 Pod 스케줄링만 방지하고 기존 Pod는 유지됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="스토리지" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 20</span>
+          <span class="question-topic">스토리지</span>
+          <span class="question-status" id="status-20" aria-label="문제 20 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> Kubernetes에서 PersistentVolumeClaim(PVC)의 accessModes 중 여러 노드에서 동시에 읽기/쓰기가 가능한 모드는?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="q20" value="A" class="option-radio">
+              <span class="option-text">A. ReadWriteOnce</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q20" value="B" class="option-radio">
+              <span class="option-text">B. ReadWriteMany</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q20" value="C" class="option-radio">
+              <span class="option-text">C. ReadOnlyMany</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="q20" value="D" class="option-radio">
+              <span class="option-text">D. ReadWriteOncePod</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="20" aria-label="문제 20 답안 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>답안 확인</span>
+            </button>
+            <button type="button" class="explanation-toggle" data-question="20" aria-expanded="false" aria-label="문제 20 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-20" data-correct="B" hidden>
+            <div class="answer-content">
+              <p class="answer-correct">정답: <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> ReadWriteMany(RWX)는 여러 노드에서 동시에 읽기/쓰기가 가능한 모드입니다. ReadWriteOnce(RWO)는 단일 노드에서만 읽기/쓰기 가능하고, ReadOnlyMany(ROX)는 여러 노드에서 읽기만 가능합니다. ReadWriteOncePod는 단일 Pod에서만 읽기/쓰기가 가능합니다. NFS, CephFS 등이 RWX를 지원합니다.</p>
             </div>
           </div>
         </div>

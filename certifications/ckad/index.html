@@ -74,7 +74,7 @@ permalink: /certifications/ckad/
         <div class="exam-stats">
           <span class="stat-item">
             <span class="stat-label">진행:</span>
-            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">15</span>
+            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">20</span>
           </span>
           <span class="stat-item">
             <span class="stat-label">정답률:</span>
@@ -525,6 +525,261 @@ permalink: /certifications/ckad/
           <div class="question-answer" id="answer-15" hidden>
             <div class="answer-content">
               <p class="answer-explanation"><strong>해설:</strong> kubectl exec 명령어를 사용하여 실행 중인 Pod의 컨테이너에 접속합니다. <a href="/posts/2025/05/30/Kubernetes_Minikube_ampamp_K9s_Practice_Guide_Problem_From_Resolution_Practical_TestTo/" target="_blank" rel="noopener noreferrer">Kubernetes 실습 가이드 포스트</a>에서 자세한 설명을 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="애플리케이션 관찰성 및 유지보수" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 16</span>
+          <span class="question-topic">애플리케이션 관찰성 및 유지보수</span>
+          <span class="question-status" id="status-16" aria-label="문제 16 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> Kubernetes Pod에서 컨테이너가 정상적으로 요청을 처리할 준비가 되었는지 확인하기 위해 사용하는 프로브는?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-16" value="A" class="option-radio">
+              <span class="option-text">A. readinessProbe</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-16" value="B" class="option-radio">
+              <span class="option-text">B. livenessProbe</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-16" value="C" class="option-radio">
+              <span class="option-text">C. startupProbe</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-16" value="D" class="option-radio">
+              <span class="option-text">D. healthCheckProbe</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="16" data-answer="A" aria-label="문제 16 답안 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>답안 확인</span>
+            </button>
+            <button type="button" class="explanation-toggle" data-question="16" aria-expanded="false" aria-label="문제 16 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-16" hidden>
+            <div class="answer-content">
+              <p class="answer-correct">정답: <span class="answer-value">A. readinessProbe</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> readinessProbe는 컨테이너가 트래픽을 수신할 준비가 되었는지 확인합니다. 실패하면 Service의 엔드포인트에서 해당 Pod를 제거하여 트래픽이 전달되지 않습니다. livenessProbe는 컨테이너가 살아있는지 확인하고, 실패 시 컨테이너를 재시작합니다. startupProbe는 컨테이너 시작 시 초기화가 완료되었는지 확인합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="환경, 구성 및 보안" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 17</span>
+          <span class="question-topic">환경, 구성 및 보안</span>
+          <span class="question-status" id="status-17" aria-label="문제 17 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> Kubernetes에서 ConfigMap의 데이터를 Pod 내 특정 경로에 파일로 마운트하려면 어떤 볼륨 타입을 사용해야 합니까?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-17" value="A" class="option-radio">
+              <span class="option-text">A. emptyDir</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-17" value="B" class="option-radio">
+              <span class="option-text">B. hostPath</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-17" value="C" class="option-radio">
+              <span class="option-text">C. configMap</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-17" value="D" class="option-radio">
+              <span class="option-text">D. persistentVolumeClaim</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="17" data-answer="C" aria-label="문제 17 답안 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>답안 확인</span>
+            </button>
+            <button type="button" class="explanation-toggle" data-question="17" aria-expanded="false" aria-label="문제 17 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-17" hidden>
+            <div class="answer-content">
+              <p class="answer-correct">정답: <span class="answer-value">C. configMap</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> configMap 볼륨 타입을 사용하면 ConfigMap의 각 키-값 쌍이 마운트 경로에 파일로 생성됩니다. spec.volumes에 configMap.name을 지정하고, volumeMounts로 마운트 경로를 설정합니다. Secret도 같은 방식으로 secret 볼륨 타입을 사용합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="애플리케이션 배포" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 18</span>
+          <span class="question-topic">애플리케이션 배포</span>
+          <span class="question-status" id="status-18" aria-label="문제 18 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> Helm에서 이미 배포된 릴리스의 values를 변경하여 업그레이드하는 올바른 명령은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-18" value="A" class="option-radio">
+              <span class="option-text">A. helm install my-release ./chart --set replicas=3</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-18" value="B" class="option-radio">
+              <span class="option-text">B. helm upgrade my-release ./chart --set replicas=3</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-18" value="C" class="option-radio">
+              <span class="option-text">C. helm update my-release --values new-values.yaml</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-18" value="D" class="option-radio">
+              <span class="option-text">D. helm rollback my-release --set replicas=3</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="18" data-answer="B" aria-label="문제 18 답안 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>답안 확인</span>
+            </button>
+            <button type="button" class="explanation-toggle" data-question="18" aria-expanded="false" aria-label="문제 18 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-18" hidden>
+            <div class="answer-content">
+              <p class="answer-correct">정답: <span class="answer-value">B. helm upgrade my-release ./chart --set replicas=3</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> helm upgrade는 기존 릴리스를 새로운 차트 버전이나 변경된 값으로 업그레이드합니다. --set 플래그로 개별 값을 오버라이드하거나 -f로 values 파일을 지정할 수 있습니다. helm install은 새 릴리스 설치, helm rollback은 이전 리비전으로 롤백합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="Pod 및 Deployment" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 19</span>
+          <span class="question-topic">Pod 및 Deployment</span>
+          <span class="question-status" id="status-19" aria-label="문제 19 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 매일 새벽 2시에 데이터 정리 작업을 실행하는 Kubernetes 리소스로 적절한 것은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-19" value="A" class="option-radio">
+              <span class="option-text">A. Deployment</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-19" value="B" class="option-radio">
+              <span class="option-text">B. DaemonSet</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-19" value="C" class="option-radio">
+              <span class="option-text">C. Job</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-19" value="D" class="option-radio">
+              <span class="option-text">D. CronJob</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="19" data-answer="D" aria-label="문제 19 답안 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>답안 확인</span>
+            </button>
+            <button type="button" class="explanation-toggle" data-question="19" aria-expanded="false" aria-label="문제 19 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-19" hidden>
+            <div class="answer-content">
+              <p class="answer-correct">정답: <span class="answer-value">D. CronJob</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> CronJob은 cron 스케줄 표현식(예: "0 2 * * *")에 따라 주기적으로 Job을 생성하고 실행합니다. Job은 일회성 작업, Deployment는 지속적으로 실행되는 워크로드, DaemonSet은 모든 노드에서 Pod를 실행합니다. CronJob의 spec.schedule 필드에 스케줄을 정의합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="서비스 및 네트워킹" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 20</span>
+          <span class="question-topic">서비스 및 네트워킹</span>
+          <span class="question-status" id="status-20" aria-label="문제 20 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> Kubernetes Ingress에서 호스트 기반 라우팅을 설정하여 api.example.com 요청을 api-service로, web.example.com 요청을 web-service로 전달하려면 Ingress spec에서 설정해야 하는 필드는?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-20" value="A" class="option-radio">
+              <span class="option-text">A. rules[].host</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-20" value="B" class="option-radio">
+              <span class="option-text">B. rules[].path</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-20" value="C" class="option-radio">
+              <span class="option-text">C. tls[].hosts</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-20" value="D" class="option-radio">
+              <span class="option-text">D. backend.service.name</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="20" data-answer="A" aria-label="문제 20 답안 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>답안 확인</span>
+            </button>
+            <button type="button" class="explanation-toggle" data-question="20" aria-expanded="false" aria-label="문제 20 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-20" hidden>
+            <div class="answer-content">
+              <p class="answer-correct">정답: <span class="answer-value">A. rules[].host</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> Ingress의 rules[].host 필드에 호스트명을 지정하면 호스트 기반 라우팅이 가능합니다. 각 host 하위에 http.paths를 설정하여 해당 호스트로 들어온 요청을 적절한 Service로 전달합니다. path 기반 라우팅은 같은 호스트 내에서 경로별로 분기할 때 사용합니다.</p>
             </div>
           </div>
         </div>

@@ -213,7 +213,7 @@ permalink: /certifications/information-processing-engineer/
         <div class="exam-stats">
           <span class="stat-item">
             <span class="stat-label">진행:</span>
-            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">15</span>
+            <span class="stat-value" id="progress-count">0</span>/<span id="total-questions">20</span>
           </span>
           <span class="stat-item">
             <span class="stat-label">정답률:</span>
@@ -1039,6 +1039,261 @@ permalink: /certifications/information-processing-engineer/
             <div class="answer-content">
               <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
               <p class="answer-explanation"><strong>해설:</strong> 위험 관리는 위험을 식별, 분석하고 대응 계획을 수립하는 것이지, 무시하는 것이 아닙니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="데이터베이스 구축" data-answer="A" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 16</span>
+          <span class="question-topic">데이터베이스 구축</span>
+          <span class="question-status" id="status-16" aria-label="문제 16 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 다음 SQL 문의 실행 결과로 올바른 것은?<br><code>SELECT A.이름, B.과목 FROM 학생 A LEFT OUTER JOIN 수강 B ON A.학번 = B.학번;</code><br>학생 테이블에 (1, 김철수), (2, 이영희), (3, 박민수)가 있고, 수강 테이블에 (1, 수학), (1, 영어), (2, 과학)이 있을 때:</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-16" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 김철수-수학, 김철수-영어, 이영희-과학, 박민수-NULL (4행)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-16" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 김철수-수학, 김철수-영어, 이영희-과학 (3행)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-16" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 김철수-수학, 이영희-과학, 박민수-NULL (3행)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-16" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 김철수-수학, 김철수-영어, 이영희-과학, 박민수-과학 (4행)</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="16" aria-label="문제 16 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="16" aria-expanded="false" aria-label="문제 16 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-16" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> LEFT OUTER JOIN은 왼쪽 테이블(학생)의 모든 행을 포함합니다. 김철수(학번 1)는 수강 테이블에 2개 행이 매칭되어 2행, 이영희(학번 2)는 1행, 박민수(학번 3)는 매칭되는 수강 기록이 없으므로 NULL로 1행이 출력됩니다. INNER JOIN이었다면 박민수는 제외됩니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="소프트웨어 설계" data-answer="B" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 17</span>
+          <span class="question-topic">소프트웨어 설계</span>
+          <span class="question-status" id="status-17" aria-label="문제 17 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> GoF 디자인 패턴에서 객체의 인스턴스를 오직 하나만 생성하여 전역적으로 접근할 수 있도록 하는 생성 패턴은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-17" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> Factory Method</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-17" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> Singleton</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-17" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> Observer</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-17" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> Strategy</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="17" aria-label="문제 17 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="17" aria-expanded="false" aria-label="문제 17 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-17" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">B</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> Singleton 패턴은 클래스의 인스턴스를 하나만 생성하고, 그 인스턴스에 전역적으로 접근할 수 있는 방법을 제공하는 생성(Creational) 패턴입니다. Factory Method는 객체 생성을 서브클래스에 위임하고, Observer와 Strategy는 행위(Behavioral) 패턴입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="정보시스템 구축관리" data-answer="C" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 18</span>
+          <span class="question-topic">정보시스템 구축관리</span>
+          <span class="question-status" id="status-18" aria-label="문제 18 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> 비선점형 SJF(Shortest Job First) 스케줄링에서 프로세스 P1(도착: 0, 실행: 6), P2(도착: 1, 실행: 3), P3(도착: 2, 실행: 1), P4(도착: 3, 실행: 4)의 평균 대기시간은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-18" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 3.0</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-18" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 3.5</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-18" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 4.25</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-18" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 5.0</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="18" aria-label="문제 18 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="18" aria-expanded="false" aria-label="문제 18 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-18" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">C</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> SJF 비선점형에서 P1이 먼저 도착하여 0~6 실행. 이후 대기 중인 P2(3), P3(1), P4(4) 중 실행시간이 가장 짧은 P3 실행(6~7), 다음 P2(7~10), 마지막 P4(10~14). 대기시간: P1=0, P3=6-2=4, P2=7-1=6, P4=10-3=7. 평균=(0+4+6+7)/4=4.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="소프트웨어 설계" data-answer="A" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 19</span>
+          <span class="question-topic">소프트웨어 설계</span>
+          <span class="question-status" id="status-19" aria-label="문제 19 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> UML 다이어그램 중 시스템이 제공하는 기능과 외부 액터 간의 상호작용을 표현하는 다이어그램은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-19" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 유스케이스 다이어그램(Use Case Diagram)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-19" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 시퀀스 다이어그램(Sequence Diagram)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-19" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 클래스 다이어그램(Class Diagram)</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-19" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 컴포넌트 다이어그램(Component Diagram)</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="19" aria-label="문제 19 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="19" aria-expanded="false" aria-label="문제 19 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-19" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">A</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> 유스케이스 다이어그램은 시스템의 기능(유스케이스)과 외부 사용자(액터) 간의 관계를 나타내는 다이어그램으로, 시스템의 요구사항을 분석할 때 주로 사용됩니다. 시퀀스 다이어그램은 객체 간 메시지 교환 순서를, 클래스 다이어그램은 클래스 간 관계를 표현합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-card" data-topic="프로그래밍 언어 활용" data-answer="D" data-converted="true">
+        <div class="question-header">
+          <span class="question-number">문제 20</span>
+          <span class="question-topic">프로그래밍 언어 활용</span>
+          <span class="question-status" id="status-20" aria-label="문제 20 상태"></span>
+        </div>
+        <div class="question-content">
+          <p class="question-text"><strong>Q:</strong> TCP/IP 프로토콜 계층 모델에서 HTTP, FTP, SMTP 프로토콜이 동작하는 계층은?</p>
+          <div class="question-options">
+            <label class="option-label">
+              <input type="radio" name="question-20" value="A" class="option-radio" aria-label="선택지 A">
+              <span class="option-text"><strong>A.</strong> 네트워크 접근 계층</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-20" value="B" class="option-radio" aria-label="선택지 B">
+              <span class="option-text"><strong>B.</strong> 인터넷 계층</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-20" value="C" class="option-radio" aria-label="선택지 C">
+              <span class="option-text"><strong>C.</strong> 전송 계층</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="question-20" value="D" class="option-radio" aria-label="선택지 D">
+              <span class="option-text"><strong>D.</strong> 응용 계층</span>
+            </label>
+          </div>
+          <div class="question-actions">
+            <button type="button" class="check-button" data-question="20" aria-label="문제 20 정답 확인">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              정답 확인
+            </button>
+            <button type="button" class="explanation-toggle" data-question="20" aria-expanded="false" aria-label="문제 20 해설 보기/숨기기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="explanation-text">해설 보기</span>
+            </button>
+          </div>
+          <div class="question-answer" id="answer-20" hidden>
+            <div class="answer-content">
+              <p class="answer-correct"><strong>정답:</strong> <span class="answer-value">D</span></p>
+              <p class="answer-explanation"><strong>해설:</strong> TCP/IP 4계층 모델에서 HTTP(80), FTP(21), SMTP(25) 등은 응용 계층(Application Layer)에서 동작합니다. 전송 계층은 TCP/UDP, 인터넷 계층은 IP/ICMP/ARP, 네트워크 접근 계층은 이더넷 등이 해당됩니다.</p>
             </div>
           </div>
         </div>
