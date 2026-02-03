@@ -647,6 +647,15 @@ AI를 효과적으로 활용하는 사용자와 그렇지 못한 사용자의 �
 | **의의** | 프레임워크 없이 순수 JS로 AI 텍스트 에디터 구현 |
 | **출처** | [GeekNews](https://news.hada.io/topic?id=26338) |
 
+**Sequoia: AT Protocol 기반 오픈 웹 퍼블리싱 도구:**
+
+| 항목 | 내용 |
+|------|------|
+| **프로젝트** | Sequoia - 자체 호스팅 블로그를 AT Protocol(Bluesky 기반)에 퍼블리싱하는 CLI 도구 |
+| **특징** | 기존 블로그 콘텐츠를 ATProto 위에 올려 분산형 소셜 웹에 연결 |
+| **의의** | 중앙 집중 플랫폼에서 분산형 오픈 웹으로의 전환 실험 |
+| **출처** | [GeekNews](https://news.hada.io/topic?id=26336) |
+
 ---
 
 ## 5. FOSDEM 2026 & 오픈소스 동향
