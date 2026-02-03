@@ -1,7 +1,82 @@
 {
-  "collected_at": "2026-02-03T03:33:18.339276+00:00",
-  "total_items": 140,
+  "collected_at": "2026-02-03T05:04:56.223304+00:00",
+  "total_items": 127,
   "items": [
+    {
+      "id": "5f718f57161c",
+      "title": "HYPE pops 20% after Hyperliquid team nods prediction markets plan",
+      "url": "https://cointelegraph.com/news/hyperliquid-supports-predictions-market-proposal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-03T04:52:10+00:00",
+      "summary": "Hyperliquid said the outcome trading feature would function like a form of derivatives trading without leverage, liquidations or margin calls.",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Brayden Lindrea",
+      "priority": 2
+    },
+    {
+      "id": "a98932a8ebce",
+      "title": "Tether expands support for USDT, Tether Gold in Opera’s MiniPay wallet",
+      "url": "https://cointelegraph.com/news/tether-opera-team-up-expand-financial-access-in-emerging-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-03T04:41:45+00:00",
+      "summary": "Stablecoin issuer Tether said the initiative will help millions of users from emerging markets such as Africa, Latin America and Southeast Asia with global financial inclusion.",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Martin Young",
+      "priority": 2
+    },
+    {
+      "id": "2d2fa46b2a21",
+      "title": "Floppinux – An Embedded Linux on a Single Floppy, 2025 Edition",
+      "url": "https://krzysztofjankowski.com/floppinux/floppinux-2025.html",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-03T04:33:25+00:00",
+      "summary": "Article URL: https://krzysztofjankowski.com/floppinux/floppinux-2025.html Comments URL: https://news.ycombinator.com/item?id=46866544 Points: 7 # Comments: 0",
+      "content": "",
+      "tags": [],
+      "author": "GalaxySnail",
+      "priority": 2
+    },
+    {
+      "id": "ede4d9dd26ea",
+      "title": "Tether releases open-source operating system for Bitcoin mining",
+      "url": "https://cointelegraph.com/news/tether-releases-open-source-operating-system-for-bitcoin-miners?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-03T03:48:14+00:00",
+      "summary": "Tether first announced plans for an open-source mining OS in June last year as it wanted Bitcoin miners to \"enter the game\" without expensive third-party vendors.",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Brian Quarmby",
+      "priority": 2
+    },
+    {
+      "id": "27946784ed81",
+      "title": "Tom Lee tips lack of leverage and gold ‘vortex’ for Ether's 21% slump",
+      "url": "https://cointelegraph.com/news/fundstrat-tom-lee-cites-lack-leverage-metals-vortex-ether-slump?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-03T03:38:52+00:00",
+      "summary": "Ether has fallen despite strong fundamentals as leverage remained absent and precious metals diverted risk appetite, according to Fundstrat's research head.",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Martin Young",
+      "priority": 2
+    },
     {
       "id": "b38aae09d20d",
       "title": "Trump denies knowledge of Abu Dhabi royal‘s $500M stake in WLFI",
@@ -56,7 +131,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-03T01:52:21+00:00",
-      "summary": "Article URL: https://attheu.utah.edu/health-medicine/banning-lead-in-gas-worked-the-proof-is-in-our-hair/ Comments URL: https://news.ycombinator.com/item?id=46865275 Points: 26 # Comments: 5",
+      "summary": "Article URL: https://attheu.utah.edu/health-medicine/banning-lead-in-gas-worked-the-proof-is-in-our-hair/ Comments URL: https://news.ycombinator.com/item?id=46865275 Points: 56 # Comments: 8",
       "content": "",
       "tags": [],
       "author": "geox",
@@ -86,7 +161,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-03T00:30:02+00:00",
-      "summary": "Article URL: https://github.com/orgs/community/discussions/185387 Comments URL: https://news.ycombinator.com/item?id=46864517 Points: 43 # Comments: 6",
+      "summary": "Article URL: https://github.com/orgs/community/discussions/185387 Comments URL: https://news.ycombinator.com/item?id=46864517 Points: 76 # Comments: 17",
       "content": "",
       "tags": [],
       "author": "aofeisheng",
@@ -101,7 +176,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-03T00:28:06+00:00",
-      "summary": "Article URL: https://alignment.anthropic.com/2026/hot-mess-of-ai/ Comments URL: https://news.ycombinator.com/item?id=46864498 Points: 98 # Comments: 26",
+      "summary": "Article URL: https://alignment.anthropic.com/2026/hot-mess-of-ai/ Comments URL: https://news.ycombinator.com/item?id=46864498 Points: 132 # Comments: 34",
       "content": "",
       "tags": [],
       "author": "salkahfi",
@@ -125,23 +200,6 @@
       "priority": 2
     },
     {
-      "id": "676d190703e8",
-      "title": "Release Notes for Safari Technology Preview 236",
-      "url": "https://webkit.org/blog/17791/release-notes-for-safari-technology-preview-236/",
-      "source": "webkit",
-      "source_name": "WebKit Blog",
-      "category": "devops",
-      "language": "en",
-      "published": "2026-02-03T00:08:11+00:00",
-      "summary": "Safari Technology Preview Release 236 is now available for download for macOS Tahoe and macOS Sequoia.",
-      "content": "Safari Technology Preview Release 236 is now available for download for macOS Tahoe and macOS Sequoia. If you already have Safari Technology Preview installed, you can update it in System Settings under General → Software Update. This release includes WebKit changes between: 305084@main…305413@main . CSS New Features Fixed performance and correctness issues with shadow DOM in the modern CSS Zoom implementation. ( 305292@main ) (167715972) Resolved Issues Fixed handling of padding and margins ...",
-      "tags": [
-        "Safari Technology Preview"
-      ],
-      "author": "",
-      "priority": 2
-    },
-    {
       "id": "000097af1b30",
       "title": "Firefox Getting New Controls to Turn Off AI Features",
       "url": "https://www.macrumors.com/2026/02/02/firefox-ai-toggle/",
@@ -150,7 +208,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T23:54:02+00:00",
-      "summary": "Article URL: https://www.macrumors.com/2026/02/02/firefox-ai-toggle/ Comments URL: https://news.ycombinator.com/item?id=46864120 Points: 93 # Comments: 39",
+      "summary": "Article URL: https://www.macrumors.com/2026/02/02/firefox-ai-toggle/ Comments URL: https://news.ycombinator.com/item?id=46864120 Points: 122 # Comments: 50",
       "content": "",
       "tags": [],
       "author": "stalfosknight",
@@ -202,7 +260,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T22:57:59+00:00",
-      "summary": "Article URL: https://borretti.me/fiction/julia Comments URL: https://news.ycombinator.com/item?id=46863357 Points: 53 # Comments: 9",
+      "summary": "Article URL: https://borretti.me/fiction/julia Comments URL: https://news.ycombinator.com/item?id=46863357 Points: 72 # Comments: 10",
       "content": "",
       "tags": [],
       "author": "ashergill",
@@ -217,7 +275,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T22:48:10+00:00",
-      "summary": "Article URL: https://www.frommers.com/tips/airfare/the-tsa-new-45-fee-to-fly-without-id-is-illegal-says-regulatory-expert/ Comments URL: https://news.ycombinator.com/item?id=46863162 Points: 233 # Comments: 223",
+      "summary": "Article URL: https://www.frommers.com/tips/airfare/the-tsa-new-45-fee-to-fly-without-id-is-illegal-says-regulatory-expert/ Comments URL: https://news.ycombinator.com/item?id=46863162 Points: 293 # Comments: 307",
       "content": "",
       "tags": [],
       "author": "donohoe",
@@ -249,7 +307,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T22:45:04+00:00",
-      "summary": "Article URL: https://arstechnica.com/science/2026/02/court-orders-restart-of-all-us-offshore-wind-construction/ Comments URL: https://news.ycombinator.com/item?id=46863112 Points: 243 # Comments: 124",
+      "summary": "Article URL: https://arstechnica.com/science/2026/02/court-orders-restart-of-all-us-offshore-wind-construction/ Comments URL: https://news.ycombinator.com/item?id=46863112 Points: 273 # Comments: 163",
       "content": "",
       "tags": [],
       "author": "ck2",
@@ -330,7 +388,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T21:51:22+00:00",
-      "summary": "Article URL: https://www.spacex.com/updates#xai-joins-spacex Comments URL: https://news.ycombinator.com/item?id=46862170 Points: 501 # Comments: 1139",
+      "summary": "Article URL: https://www.spacex.com/updates#xai-joins-spacex Comments URL: https://news.ycombinator.com/item?id=46862170 Points: 565 # Comments: 1245",
       "content": "",
       "tags": [],
       "author": "g-mork",
@@ -345,7 +403,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T21:28:16+00:00",
-      "summary": "Article URL: https://www.githubstatus.com?todayis=2026-02-02 Comments URL: https://news.ycombinator.com/item?id=46861842 Points: 159 # Comments: 40",
+      "summary": "Article URL: https://www.githubstatus.com?todayis=2026-02-02 Comments URL: https://news.ycombinator.com/item?id=46861842 Points: 171 # Comments: 50",
       "content": "",
       "tags": [],
       "author": "bhouston",
@@ -375,7 +433,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T20:48:55+00:00",
-      "summary": "Article URL: https://forums.ankiweb.net/t/ankis-growing-up/68610 Comments URL: https://news.ycombinator.com/item?id=46861313 Points: 258 # Comments: 66",
+      "summary": "Article URL: https://forums.ankiweb.net/t/ankis-growing-up/68610 Comments URL: https://news.ycombinator.com/item?id=46861313 Points: 288 # Comments: 74",
       "content": "",
       "tags": [],
       "author": "trms",
@@ -415,21 +473,6 @@
       "content": "",
       "tags": [],
       "author": "Cointelegraph by Marcel Pechman",
-      "priority": 2
-    },
-    {
-      "id": "9e44b943dd4b",
-      "title": "Stelvio: Ship Python to AWS",
-      "url": "https://github.com/stelviodev/stelvio",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-02T19:59:30+00:00",
-      "summary": "Article URL: https://github.com/stelviodev/stelvio Comments URL: https://news.ycombinator.com/item?id=46860566 Points: 28 # Comments: 40",
-      "content": "",
-      "tags": [],
-      "author": "todsacerdoti",
       "priority": 2
     },
     {
@@ -539,7 +582,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T18:31:36+00:00",
-      "summary": "Article URL: https://tromp.github.io/blog/2026/01/28/largest-number-revised Comments URL: https://news.ycombinator.com/item?id=46859443 Points: 88 # Comments: 62",
+      "summary": "Article URL: https://tromp.github.io/blog/2026/01/28/largest-number-revised Comments URL: https://news.ycombinator.com/item?id=46859443 Points: 95 # Comments: 66",
       "content": "",
       "tags": [],
       "author": "tromp",
@@ -588,7 +631,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T18:02:48+00:00",
-      "summary": "Article URL: https://openai.com/index/introducing-the-codex-app/ Comments URL: https://news.ycombinator.com/item?id=46859054 Points: 550 # Comments: 372",
+      "summary": "Article URL: https://openai.com/index/introducing-the-codex-app/ Comments URL: https://news.ycombinator.com/item?id=46859054 Points: 578 # Comments: 391",
       "content": "",
       "tags": [],
       "author": "meetpateltech",
@@ -618,7 +661,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T17:49:07+00:00",
-      "summary": "Article URL: https://blog.google/innovation-and-ai/models-and-research/google-deepmind/kaggle-game-arena-updates/ Comments URL: https://news.ycombinator.com/item?id=46858873 Points: 114 # Comments: 47",
+      "summary": "Article URL: https://blog.google/innovation-and-ai/models-and-research/google-deepmind/kaggle-game-arena-updates/ Comments URL: https://news.ycombinator.com/item?id=46858873 Points: 116 # Comments: 49",
       "content": "",
       "tags": [],
       "author": "salkahfi",
@@ -633,40 +676,25 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T17:45:27+00:00",
-      "summary": "Article URL: https://lists.linuxfromscratch.org/sympa/arc/lfs-announce/2026-02/msg00000.html Comments URL: https://news.ycombinator.com/item?id=46858829 Points: 98 # Comments: 141",
+      "summary": "Article URL: https://lists.linuxfromscratch.org/sympa/arc/lfs-announce/2026-02/msg00000.html Comments URL: https://news.ycombinator.com/item?id=46858829 Points: 115 # Comments: 163",
       "content": "",
       "tags": [],
       "author": "cf100clunk",
       "priority": 2
     },
     {
-      "id": "1bf9e9b3959a",
+      "id": "b940ecacfb8e",
       "title": "On being sane in insane places (1973) [pdf]",
-      "url": "https://www.weber.edu/wsuimages/psychology/FacultySites/Horvat/OnBeingSaneInInsanePlaces.PDF40",
+      "url": "https://www.weber.edu/wsuimages/psychology/FacultySites/Horvat/OnBeingSaneInInsanePlaces.PDF",
       "source": "hackernews",
       "source_name": "Hacker News",
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T17:43:14+00:00",
-      "summary": "Article URL: https://www.weber.edu/wsuimages/psychology/FacultySites/Horvat/OnBeingSaneInInsanePlaces.PDF40 Comments URL: https://news.ycombinator.com/item?id=46858802 Points: 68 # Comments: 46",
+      "summary": "Article URL: https://www.weber.edu/wsuimages/psychology/FacultySites/Horvat/OnBeingSaneInInsanePlaces.PDF Comments URL: https://news.ycombinator.com/item?id=46858802 Points: 71 # Comments: 47",
       "content": "",
       "tags": [],
       "author": "dbgrman",
-      "priority": 2
-    },
-    {
-      "id": "5b6d58134eaf",
-      "title": "Zig Libc",
-      "url": "https://ziglang.org/devlog/2026/#2026-01-31",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-02T17:28:19+00:00",
-      "summary": "Article URL: https://ziglang.org/devlog/2026/#2026-01-31 Comments URL: https://news.ycombinator.com/item?id=46858622 Points: 163 # Comments: 60",
-      "content": "",
-      "tags": [],
-      "author": "ingve",
       "priority": 2
     },
     {
@@ -678,7 +706,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T17:25:26+00:00",
-      "summary": "Article URL: https://www.millert.dev/ Comments URL: https://news.ycombinator.com/item?id=46858577 Points: 316 # Comments: 183",
+      "summary": "Article URL: https://www.millert.dev/ Comments URL: https://news.ycombinator.com/item?id=46858577 Points: 339 # Comments: 188",
       "content": "",
       "tags": [],
       "author": "wodniok",
@@ -738,60 +766,6 @@
       "priority": 2
     },
     {
-      "id": "9570dfd39b29",
-      "title": "Build intelligent employee onboarding with Gemini Enterprise",
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-onboarding-agents-with-gemini-enterprise/",
-      "source": "gcp",
-      "source_name": "Google Cloud Blog",
-      "category": "cloud",
-      "language": "en",
-      "published": "2026-02-02T17:00:00+00:00",
-      "summary": "Employee onboarding is rarely a linear process. It’s a complex web of dependencies that vary significantly based on an individual’s specific profile. For example, even a simple request for a laptop requires the system to cross-reference the employee’s role, function, and seniority level to determine whether they need a high-powered workstation or a standard mobile device. Similarly, requesting a building pass involves more than just a name tag; it requires integrating data regarding the emplo...",
-      "content": "",
-      "tags": [
-        "AI & Machine Learning",
-        "Developers & Practitioners"
-      ],
-      "author": "Joey Wong",
-      "priority": 2
-    },
-    {
-      "id": "94cc62aab632",
-      "title": "High-performance inference meets serverless compute with NVIDIA RTX PRO 6000 on Cloud Run",
-      "url": "https://cloud.google.com/blog/products/serverless/cloud-run-supports-nvidia-rtx-6000-pro-gpus-for-ai-workloads/",
-      "source": "gcp",
-      "source_name": "Google Cloud Blog",
-      "category": "cloud",
-      "language": "en",
-      "published": "2026-02-02T17:00:00+00:00",
-      "summary": "Running large-scale inference models can involve significant operational toil, including cluster management and manual VM maintenance. One solution is to leverage a serverless compute platform to abstract away the underlying infrastructure. Today, we’re bringing the serverless experience to high-end inference with support for NVIDIA RTX PRO™ 6000 Blackwell Server Edition GPUs on Cloud Run. Now in preview, you can deploy massive models like Gemma 3 27B or Llama 3.1 70B with the 'deploy and for...",
-      "content": "",
-      "tags": [
-        "AI & Machine Learning",
-        "Compute",
-        "Serverless"
-      ],
-      "author": "Oded Shahar",
-      "priority": 2
-    },
-    {
-      "id": "a6e8e3233e34",
-      "title": "Introducing Single-tenant Cloud HSM to support more data encryption control",
-      "url": "https://cloud.google.com/blog/products/identity-security/introducing-single-tenant-cloud-hsm-for-more-data-encryption-control/",
-      "source": "gcp",
-      "source_name": "Google Cloud Blog",
-      "category": "cloud",
-      "language": "en",
-      "published": "2026-02-02T17:00:00+00:00",
-      "summary": "Organizations that handle sensitive data in highly-regulated sectors often face a difficult choice: Build and manage physical hardware to meet strict compliance needs, or use cloud services that might not offer the specific level of isolation they require. These organizations, often in financial services, defense, healthcare, insurance, and government, require a key management service to provide cryptographic assurances that no one else — including their cloud provider — can access their keys...",
-      "content": "",
-      "tags": [
-        "Security & Identity"
-      ],
-      "author": "Jai Rad",
-      "priority": 2
-    },
-    {
       "id": "e69a38acf483",
       "title": "NY prosecutors raise alarm over GENIUS Act on fraud: Report",
       "url": "https://cointelegraph.com/news/ny-prosecutors-raise-alarm-over-genius-act-fraud-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
@@ -807,6 +781,27 @@
       "priority": 2
     },
     {
+      "id": "aeb8206159a9",
+      "title": "Please Don’t Feed the Scattered Lapsus ShinyHunters",
+      "url": "https://krebsonsecurity.com/2026/02/please-dont-feed-the-scattered-lapsus-shiny-hunters/",
+      "source": "krebsonsecurity",
+      "source_name": "Krebs on Security",
+      "category": "security",
+      "language": "en",
+      "published": "2026-02-02T16:15:16+00:00",
+      "summary": "A prolific data ransom gang that calls itself Scattered Lapsus ShinyHunters (SLSH) has a distinctive playbook when it seeks to extort payment from victim firms: Harassing, threatening and even swatting executives and their families, all while notifying journalists and regulators… Read More »",
+      "content": "A prolific data ransom gang that calls itself Scattered Lapsus ShinyHunters (SLSH) has a distinctive playbook when it seeks to extort payment from victim firms: Harassing, threatening and even swatting executives and their families, all while notifying journalists and regulators about the extent of the intrusion. Some victims reportedly are paying — perhaps as much to contain the stolen data as to stop the escalating personal attacks. But a top SLSH expert warns that engaging at all beyond a ...",
+      "tags": [
+        "Data Breaches",
+        "Latest Warnings",
+        "Ransomware",
+        "The Coming Storm",
+        "Allison Nixon"
+      ],
+      "author": "BrianKrebs",
+      "priority": 2
+    },
+    {
       "id": "3f0301148489",
       "title": "Hacking Moltbook",
       "url": "https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys",
@@ -815,7 +810,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-02T16:08:36+00:00",
-      "summary": "https://www.reuters.com/legal/litigation/moltbook-social-med... Comments URL: https://news.ycombinator.com/item?id=46857615 Points: 254 # Comments: 161",
+      "summary": "https://www.reuters.com/legal/litigation/moltbook-social-med... Comments URL: https://news.ycombinator.com/item?id=46857615 Points: 270 # Comments: 164",
       "content": "",
       "tags": [],
       "author": "galnagli",
@@ -950,63 +945,18 @@
       "priority": 2
     },
     {
-      "id": "2f80a57b2c44",
-      "title": "Trump's Fed nomination a ‘mixed’ signal for Bitcoin, US liquidity: Analyst",
-      "url": "https://cointelegraph.com/news/trump-fed-nomination-mixed-signal-bitcoin-liquidity?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
+      "id": "b853f8a571e0",
+      "title": "Geologists may have solved mystery of Green River's 'uphill' route",
+      "url": "https://phys.org/news/2026-01-geologists-mystery-green-river-uphill.html",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
       "language": "en",
-      "published": "2026-02-02T13:56:46+00:00",
-      "summary": "Warsh’s nomination as the new Fed chair has ignited US liquidity drought concerns, but his interest rate policy may hold the silver lining for risk asset recovery, according to market analysts.",
+      "published": "2026-02-02T13:29:13+00:00",
+      "summary": "Article URL: https://phys.org/news/2026-01-geologists-mystery-green-river-uphill.html Comments URL: https://news.ycombinator.com/item?id=46855803 Points: 152 # Comments: 40",
       "content": "",
       "tags": [],
-      "author": "Cointelegraph by Zoltan Vardai",
-      "priority": 2
-    },
-    {
-      "id": "ad478e9d48f1",
-      "title": "Saylor’s Strategy buys $75.3M in BTC as prices briefly dip below $75K",
-      "url": "https://cointelegraph.com/news/saylor-strategy-buys-75m-btc-dip-below-75k?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T13:44:08+00:00",
-      "summary": "Latest filings show Strategy bought 855 Bitcoin at about $88,000 each last week, as BTC briefly fell below its average cost for the first time since 2023.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Helen Partz",
-      "priority": 2
-    },
-    {
-      "id": "6c993ed753d7",
-      "title": "South Korean watchdog expands AI systems to track crypto manipulation",
-      "url": "https://cointelegraph.com/news/south-korea-fss-expands-ai-crypto-market-surveillance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T13:20:38+00:00",
-      "summary": "The Financial Supervisory Service said automated models now scan crypto trading activity across timeframes, reducing reliance on manual investigations.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Ezra Reguerra",
-      "priority": 2
-    },
-    {
-      "id": "78c893d057e6",
-      "title": "XRP price risks repeating 2022 crash as new buyers go underwater",
-      "url": "https://cointelegraph.com/news/xrp-price-risks-repeating-2022-crash-new-buyers-underwater?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T12:57:25+00:00",
-      "summary": "XRP is below the average buy price of the past year, putting many holders in the red and increasing downside risk in the near term.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Yashu Gola",
+      "author": "defrost",
       "priority": 2
     },
     {
@@ -1024,23 +974,6 @@
         "News"
       ],
       "author": "Micah Toll",
-      "priority": 2
-    },
-    {
-      "id": "40ed00cbf88f",
-      "title": "OpenTelemetry Collector vs agent: How to choose the right telemetry approach",
-      "url": "https://www.cncf.io/blog/2026/02/02/opentelemetry-collector-vs-agent-how-to-choose-the-right-telemetry-approach/",
-      "source": "cncf",
-      "source_name": "CNCF Blog",
-      "category": "devops",
-      "language": "en",
-      "published": "2026-02-02T12:00:00+00:00",
-      "summary": "As cloud-native architectures continue to mature, observability has become a foundational requirement rather than an optional add-on. According to the Cloud Native Computing Foundation, OpenTelemetry continues to grow its contributor base and remains the second highest...",
-      "content": "As cloud-native architectures continue to mature, observability has become a foundational requirement rather than an optional add-on. According to the Cloud Native Computing Foundation, OpenTelemetry continues to grow its contributor base and remains the second highest velocity project in CNCF, becoming the “kubernetes” of the o11y world. Its rapid growth and strong community momentum reflect accelerating adoption among Kubernetes and cloud-native teams. As organizations standardize on OpenTe...",
-      "tags": [
-        "Blog"
-      ],
-      "author": "Neel Shah, Developer Advocate at Middleware",
       "priority": 2
     },
     {
@@ -1071,6 +1004,21 @@
       "content": "개인적인 불편함에서 시작한 프로젝트를 공유합니다. 저는 작업에 따라 ChatGPT, Claude, Gemini, 로컬 LLM을 계속 바꿔 씁니다. 그런데 모델을 옮길 때마다 “제가 누구인지, 지금 뭘 하고 있는지” 다시 설명해야 하는 게 늘 스트레스였습니다. 그래서 맥락을 모델이 아니라,...",
       "tags": [],
       "author": "haebom",
+      "priority": 1
+    },
+    {
+      "id": "6313e0cdee3f",
+      "title": "Notepad++ Hosting Breach Attributed to China-Linked Lotus Blossom Hacking Group",
+      "url": "https://thehackernews.com/2026/02/notepad-hosting-breach-attributed-to.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-02-03T10:25:00+05:30",
+      "summary": "A China-linked threat actor known as Lotus Blossom has been attributed with medium confidence to the recently discovered compromise of the infrastructure hosting Notepad++. The attack enabled the state-sponsored hacking group to deliver a previously undocumented backdoor codenamed Chrysalis to users of the open-source editor, according to new findings from Rapid7. The development comes shortly",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
       "priority": 1
     },
     {
@@ -1216,13 +1164,13 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.335386+00:00",
+      "published": "2026-02-03T05:04:56.219317+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
       "content": "",
       "tags": [
+        "보안리포트",
         "AI보안",
-        "SK쉴더스",
-        "보안리포트"
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1235,14 +1183,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.335260+00:00",
+      "published": "2026-02-03T05:04:56.219186+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
       "content": "",
       "tags": [
-        "랜섬웨어",
-        "SK쉴더스",
         "보안리포트",
-        "KARA"
+        "KARA",
+        "랜섬웨어",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1255,12 +1203,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.335109+00:00",
+      "published": "2026-02-03T05:04:56.219060+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1273,12 +1221,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.334987+00:00",
+      "published": "2026-02-03T05:04:56.218940+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 11월호",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1291,12 +1239,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.334868+00:00",
+      "published": "2026-02-03T05:04:56.218820+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1309,14 +1257,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.334738+00:00",
+      "published": "2026-02-03T05:04:56.218640+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
       "content": "",
       "tags": [
-        "랜섬웨어",
-        "SK쉴더스",
         "보안리포트",
-        "KARA"
+        "KARA",
+        "랜섬웨어",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1329,12 +1277,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.334613+00:00",
+      "published": "2026-02-03T05:04:56.218518+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1347,12 +1295,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.334484+00:00",
+      "published": "2026-02-03T05:04:56.218390+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1365,12 +1313,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.334363+00:00",
+      "published": "2026-02-03T05:04:56.218273+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1383,14 +1331,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.334214+00:00",
+      "published": "2026-02-03T05:04:56.218138+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
       "content": "",
       "tags": [
-        "랜섬웨어",
-        "SK쉴더스",
         "보안리포트",
-        "KARA"
+        "KARA",
+        "랜섬웨어",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1403,12 +1351,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.334043+00:00",
+      "published": "2026-02-03T05:04:56.217997+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1421,14 +1369,55 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-03T03:33:18.333856+00:00",
+      "published": "2026-02-03T05:04:56.217819+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "7d6b7f58da45",
+      "title": "Musk's SpaceX–xAI mega deal sharpens focus on bitcoin accounting ahead of IPO",
+      "url": "https://www.coindesk.com/markets/2026/02/03/musk-s-spacex-xai-mega-deal-sharpens-focus-on-bitcoin-accounting-ahead-of-ipo",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-03T04:53:36+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "Elon Musk",
+        "SpaceX",
+        "Xai",
+        "Tesla"
+      ],
+      "author": "Shaurya Malwa",
+      "priority": 1
+    },
+    {
+      "id": "13c4cfedcb9d",
+      "title": "Bitcoin, ether and major tokens stage relief rally after weekend bloodbath",
+      "url": "https://www.coindesk.com/markets/2026/02/03/bitcoin-ether-and-major-tokens-stage-relief-rally-after-weekend-bloodbath",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-03T04:41:31+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "btc",
+        "Bitcoin News",
+        "News"
+      ],
+      "author": "Shaurya Malwa",
       "priority": 1
     },
     {
@@ -1490,21 +1479,6 @@
       "priority": 1
     },
     {
-      "id": "bb2f0be4112c",
-      "title": "Researchers Find 341 Malicious ClawHub Skills Stealing Data from OpenClaw Users",
-      "url": "https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html",
-      "source": "thehackernews",
-      "source_name": "The Hacker News",
-      "category": "security",
-      "language": "en",
-      "published": "2026-02-02T23:19:00+05:30",
-      "summary": "A security audit of 2,857 skills on ClawHub has found 341 malicious skills across multiple campaigns, according to new findings from Koi Security, exposing users to new supply chain risks. ClawHub is a marketplace designed to make it easy for OpenClaw users to find and install third-party skills. It's an extension to the OpenClaw project, a self-hosted artificial intelligence (AI) assistant",
-      "content": "",
-      "tags": [],
-      "author": "info@thehackernews.com (The Hacker News)",
-      "priority": 1
-    },
-    {
       "id": "90ee0299d546",
       "title": "CZ pushes back against Binance 'FUD' as blame game for crypto crash persists",
       "url": "https://www.coindesk.com/business/2026/02/02/cz-pushes-back-against-binance-fud-as-blame-game-for-crypto-crash-persists",
@@ -1542,36 +1516,6 @@
         "News"
       ],
       "author": "Stephen Alpher",
-      "priority": 1
-    },
-    {
-      "id": "2ff038e0042b",
-      "title": "OpenClaw Bug Enables One-Click Remote Code Execution via Malicious Link",
-      "url": "https://thehackernews.com/2026/02/openclaw-bug-enables-one-click-remote.html",
-      "source": "thehackernews",
-      "source_name": "The Hacker News",
-      "category": "security",
-      "language": "en",
-      "published": "2026-02-02T21:58:00+05:30",
-      "summary": "A high-severity security flaw has been disclosed in OpenClaw (formerly referred to as Clawdbot and Moltbot) that could allow remote code execution (RCE) through a crafted malicious link. The issue, which is tracked as CVE-2026-25253 (CVSS score: 8.8), has been addressed in version 2026.1.29 released on January 30, 2026. It has been described as a token exfiltration vulnerability that leads to",
-      "content": "",
-      "tags": [],
-      "author": "info@thehackernews.com (The Hacker News)",
-      "priority": 1
-    },
-    {
-      "id": "71b7987bc4d7",
-      "title": "Microsoft Begins NTLM Phase-Out With Three-Stage Plan to Move Windows to Kerberos",
-      "url": "https://thehackernews.com/2026/02/microsoft-begins-ntlm-phase-out-with.html",
-      "source": "thehackernews",
-      "source_name": "The Hacker News",
-      "category": "security",
-      "language": "en",
-      "published": "2026-02-02T21:29:00+05:30",
-      "summary": "Microsoft has announced a three-phase approach to phase out New Technology LAN Manager (NTLM) as part of its efforts to shift Windows environments toward stronger, Kerberos-based options. The development comes more than two years after the tech giant revealed its plans to deprecate the legacy technology, citing its susceptibility to weaknesses that could facilitate relay attacks and allow bad",
-      "content": "",
-      "tags": [],
-      "author": "info@thehackernews.com (The Hacker News)",
       "priority": 1
     },
     {
@@ -1632,27 +1576,6 @@
       "priority": 1
     },
     {
-      "id": "6fd14020b619",
-      "title": "U.S. Government Takes Control of $400M in Bitcoin, Assets Tied to Helix Mixer",
-      "url": "https://bitcoinmagazine.com/news/u-s-takes-control-of-400m-in-bitcoin",
-      "source": "bitcoin_magazine",
-      "source_name": "Bitcoin Magazine",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T20:59:18+00:00",
-      "summary": "Bitcoin Magazine U.S. Government Takes Control of $400M in Bitcoin, Assets Tied to Helix Mixer The U.S. government has finalized the forfeiture of over $400 million in cryptocurrency, cash, and property linked to Helix, a major darknet bitcoin mixer, following the conviction of its operator, Larry Dean Harmon. This post U.S. Government Takes Control of $400M in Bitcoin, Assets Tied to Helix Mixer first appeared on Bitcoin Magazine and is written by Micah Zimmerman .",
-      "content": "Bitcoin Magazine U.S. Government Takes Control of $400M in Bitcoin, Assets Tied to Helix Mixer The U.S. government has taken full legal ownership of more than $400 million in seized cryptocurrency, cash, and real estate tied to Helix, once one of the most widely used bitcoin mixing services on the darknet. A federal judge in Washington, D.C., entered a final order of forfeiture on Jan. 21, transferring the assets to the government following the conviction of Helix operator Larry Dean Harmon. ...",
-      "tags": [
-        "NEWS",
-        "Bitcoin",
-        "Government",
-        "helix",
-        "Reserve"
-      ],
-      "author": "Micah Zimmerman",
-      "priority": 1
-    },
-    {
       "id": "8802f81ba169",
       "title": "Family offices shun crypto despite hype, with 89% holding no digital assets: JPMorgan Private Bank",
       "url": "https://www.coindesk.com/business/2026/02/02/jpmorgan-private-bank-despite-geopolitical-fears-family-offices-mostly-avoid-crypto",
@@ -1689,27 +1612,6 @@
         "News"
       ],
       "author": "Krisztian Sandor",
-      "priority": 1
-    },
-    {
-      "id": "e809ee3e3fa1",
-      "title": "U.S. Manufacturing Data Turns Positive as Bitcoin Searches for a Bottom",
-      "url": "https://bitcoinmagazine.com/markets/manufacturing-data-positive-as-bitcoin",
-      "source": "bitcoin_magazine",
-      "source_name": "Bitcoin Magazine",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T18:53:12+00:00",
-      "summary": "Bitcoin Magazine U.S. Manufacturing Data Turns Positive as Bitcoin Searches for a Bottom U.S. manufacturing surprised to the upside last month, signaling economic growth as bitcoin struggles to stabilize after a sharp sell-off. This post U.S. Manufacturing Data Turns Positive as Bitcoin Searches for a Bottom first appeared on Bitcoin Magazine and is written by Micah Zimmerman .",
-      "content": "Bitcoin Magazine U.S. Manufacturing Data Turns Positive as Bitcoin Searches for a Bottom Earlier today, as bitcoin recovered from a rocky weekend, the U.S. manufacturing sector delivered a starkly bullish surprise to markets, with the Institute for Supply Management (ISM) Manufacturing Purchasing Managers’ Index (PMI) jumping to 52.6 in January, nearly 4 points above the 48.5 consensus estimate and marking its return to expansion territory for the first time in over a year. A PMI above 50 sig...",
-      "tags": [
-        "MARKETS",
-        "Economics",
-        "Manufacturing",
-        "Markets",
-        "PMI"
-      ],
-      "author": "Micah Zimmerman",
       "priority": 1
     },
     {
@@ -1751,24 +1653,6 @@
         "Technical analysis"
       ],
       "author": "Ethan Greene - Feral Analysis&nbsp;and&nbsp;Juan Galt",
-      "priority": 1
-    },
-    {
-      "id": "a91db7797e09",
-      "title": "How we’re helping preserve the genetic information of endangered species with AI",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-to-preserve-endangered-species/",
-      "source": "google_ai",
-      "source_name": "Google AI Blog",
-      "category": "ai",
-      "language": "en",
-      "published": "2026-02-02T18:00:00+00:00",
-      "summary": "A four-part vertical collage showing a cotton-top tamarin, an ibex, a golden lion tamarin, and a penguin.",
-      "content": "Scientists are working to sequence the genome of every known species on Earth.",
-      "tags": [
-        "Google Research",
-        "AI"
-      ],
-      "author": "Andrew Carroll",
       "priority": 1
     },
     {
@@ -1898,27 +1782,6 @@
         "Technical Analysis"
       ],
       "author": "Omkar Godbole",
-      "priority": 1
-    },
-    {
-      "id": "a27ecaa21dfb",
-      "title": "How Clarus Care uses Amazon Bedrock to deliver conversational contact center interactions",
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-clarus-care-uses-amazon-bedrock-to-deliver-conversational-contact-center-interactions/",
-      "source": "aws_ml",
-      "source_name": "AWS Machine Learning Blog",
-      "category": "ai",
-      "language": "en",
-      "published": "2026-02-02T16:34:21+00:00",
-      "summary": "In this post, we illustrate how Clarus Care, a healthcare contact center solutions provider, worked with the AWS Generative AI Innovation Center (GenAIIC) team to develop a generative AI-powered contact center prototype. This solution enables conversational interaction and multi-intent resolution through an automated voicebot and chat interface. It also incorporates a scalable service model to support growth, human transfer capabilities--when requested or for urgent cases--and an analytics pi...",
-      "content": "This post was cowritten by Rishi Srivastava and Scott Reynolds from Clarus Care. Many healthcare practices today struggle with managing high volumes of patient calls efficiently. From appointment scheduling and prescription refills to billing inquiries and urgent medical concerns, practices face the challenge of providing timely responses while maintaining quality patient care. Traditional phone systems often lead to long hold times, frustrated patients, and overwhelmed staff who manually pro...",
-      "tags": [
-        "Amazon Bedrock",
-        "Amazon Connect",
-        "Amazon Lex",
-        "Amazon Nova",
-        "AWS Lambda"
-      ],
-      "author": "Rishi Srivastava, Scott Reynolds",
       "priority": 1
     },
     {
@@ -2101,48 +1964,6 @@
       "priority": 1
     },
     {
-      "id": "4eace4cc4358",
-      "title": "Michael Saylor's Strategy added $75 million in bitcoin to holdings prior to last week's crash",
-      "url": "https://www.coindesk.com/markets/2026/02/02/michael-saylor-s-strategy-added-usd75-million-in-bitcoin-to-holdings-prior-to-last-week-s-crash",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T13:14:49+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Markets",
-        "Bitcoin News",
-        "MicroStrategy",
-        "Saylor",
-        "News"
-      ],
-      "author": "James Van Straten",
-      "priority": 1
-    },
-    {
-      "id": "72daf9ce9afa",
-      "title": "Nomura to tighten risk controls at Laser Digital after crypto-related losses",
-      "url": "https://www.coindesk.com/business/2026/02/02/nomura-to-tighten-risk-controls-at-laser-digital-after-crypto-related-losses",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-02T12:42:21+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Finance",
-        "Nomura",
-        "Cryptocurrency",
-        "Laser Digital",
-        "News"
-      ],
-      "author": "Olivier Acuna",
-      "priority": 1
-    },
-    {
       "id": "afc696a7d032",
       "title": "eScan Antivirus Update Servers Compromised to Deliver Multi-Stage Malware",
       "url": "https://thehackernews.com/2026/02/escan-antivirus-update-servers.html",
@@ -2155,53 +1976,6 @@
       "content": "",
       "tags": [],
       "author": "info@thehackernews.com (The Hacker News)",
-      "priority": 1
-    },
-    {
-      "id": "ba27d8e7471e",
-      "title": "Open VSX Supply Chain Attack Used Compromised Dev Account to Spread GlassWorm",
-      "url": "https://thehackernews.com/2026/02/open-vsx-supply-chain-attack-used.html",
-      "source": "thehackernews",
-      "source_name": "The Hacker News",
-      "category": "security",
-      "language": "en",
-      "published": "2026-02-02T10:34:00+05:30",
-      "summary": "Cybersecurity researchers have disclosed details of a supply chain attack targeting the Open VSX Registry in which unidentified threat actors compromised a legitimate developer's resources to push malicious updates to downstream users. \"On January 30, 2026, four established Open VSX extensions published by the oorzc author had malicious versions published to Open VSX that embed the GlassWorm",
-      "content": "",
-      "tags": [],
-      "author": "info@thehackernews.com (The Hacker News)",
-      "priority": 1
-    },
-    {
-      "id": "cb03906252fb",
-      "title": "Snowflake and OpenAI partner to bring frontier intelligence to enterprise data",
-      "url": "https://openai.com/index/snowflake-partnership",
-      "source": "openai",
-      "source_name": "OpenAI Blog",
-      "category": "ai",
-      "language": "en",
-      "published": "2026-02-02T06:00:00+00:00",
-      "summary": "OpenAI and Snowflake partner in a $200M agreement to bring frontier intelligence into enterprise data, enabling AI agents and insights directly in Snowflake.",
-      "content": "",
-      "tags": [
-        "Global Affairs"
-      ],
-      "author": "",
-      "priority": 1
-    },
-    {
-      "id": "fb0882400de1",
-      "title": "Snyk Advisor is Reshaping Package Intelligence on Snyk Security Database",
-      "url": "https://snyk.io/blog/snyk-advisor-security-database/",
-      "source": "snyk",
-      "source_name": "Snyk Blog",
-      "category": "devsecops",
-      "language": "en",
-      "published": "2026-02-02T05:00:00+00:00",
-      "summary": "Snyk Advisor is moving! Package intelligence, including Popularity, Maintenance, Security, and Community metrics, is now unified with vulnerability data on security.snyk.io for a better developer and AppSec experience.",
-      "content": "",
-      "tags": [],
-      "author": "",
       "priority": 1
     },
     {
