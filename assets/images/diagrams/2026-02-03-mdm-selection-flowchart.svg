@@ -43,34 +43,34 @@
   </g>
 
   <!-- YES arrow down left -->
-  <path d="M 200 280 L 200 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <text x="210" y="305" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3fb950">YES</text>
+  <path d="M 200 280 L 200 300 L 120 300 L 120 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="210" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3fb950">YES</text>
 
   <!-- NO arrow right from deep integration -->
-  <path d="M 270 250 L 340 250 L 340 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <text x="305" y="240" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f85149">NO</text>
+  <path d="M 270 250 L 310 250 L 310 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="290" y="240" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f85149">NO</text>
 
   <!-- Result: Jamf Pro -->
-  <rect x="100" y="320" width="200" height="70" rx="8" fill="#0d1117" stroke="#3fb950" stroke-width="2"/>
-  <text x="200" y="340" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3fb950" text-anchor="middle">
+  <rect x="30" y="320" width="180" height="70" rx="8" fill="#0d1117" stroke="#3fb950" stroke-width="2"/>
+  <text x="120" y="340" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3fb950" text-anchor="middle">
     Jamf Pro
   </text>
-  <text x="200" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+  <text x="120" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
     Best for: Apple-first orgs,
   </text>
-  <text x="200" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+  <text x="120" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
     creative teams, education
   </text>
 
   <!-- Result: Jamf + Intune Hybrid -->
-  <rect x="310" y="320" width="230" height="70" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
-  <text x="425" y="340" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#d29922" text-anchor="middle">
-    Jamf Pro + Intune Hybrid
+  <rect x="220" y="320" width="180" height="70" rx="8" fill="#0d1117" stroke="#d29922" stroke-width="2"/>
+  <text x="310" y="340" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#d29922" text-anchor="middle">
+    Jamf + Intune Hybrid
   </text>
-  <text x="425" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+  <text x="310" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
     Best for: Apple-dominant orgs
   </text>
-  <text x="425" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+  <text x="310" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
     with Windows/Android minority
   </text>
 
@@ -86,34 +86,34 @@
   </g>
 
   <!-- YES arrow down from M365 -->
-  <path d="M 600 280 L 600 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <text x="610" y="305" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3fb950">YES</text>
+  <path d="M 600 280 L 600 300 L 690 300 L 690 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="610" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3fb950">YES</text>
 
   <!-- NO arrow left from M365 -->
-  <path d="M 530 250 L 470 250 L 470 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <text x="500" y="240" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f85149">NO</text>
+  <path d="M 530 250 L 500 250 L 500 320" stroke="#8b949e" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="515" y="240" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f85149">NO</text>
 
   <!-- Result: Intune -->
-  <rect x="550" y="320" width="200" height="70" rx="8" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
-  <text x="650" y="340" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#58a6ff" text-anchor="middle">
+  <rect x="600" y="320" width="180" height="70" rx="8" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
+  <text x="690" y="340" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#58a6ff" text-anchor="middle">
     Intune
   </text>
-  <text x="650" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+  <text x="690" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
     Best for: M365 orgs,
   </text>
-  <text x="650" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+  <text x="690" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
     Windows-heavy, cross-platform
   </text>
 
   <!-- Result: Other Options -->
-  <rect x="370" y="320" width="200" height="70" rx="8" fill="#0d1117" stroke="#8b949e" stroke-width="2"/>
-  <text x="470" y="340" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b949e" text-anchor="middle">
+  <rect x="410" y="320" width="180" height="70" rx="8" fill="#0d1117" stroke="#8b949e" stroke-width="2"/>
+  <text x="500" y="340" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8b949e" text-anchor="middle">
     Consider:
   </text>
-  <text x="470" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+  <text x="500" y="360" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
     Workspace ONE, Kandji,
   </text>
-  <text x="470" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
+  <text x="500" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">
     Mosyle, or platform-specific MDMs
   </text>
 
