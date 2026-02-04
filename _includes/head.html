@@ -436,39 +436,72 @@
   {% if site.google_adsense %}
   <!-- Google AdSense (deferred to idle, graceful degradation) -->
   <script>
-    window.adsbygoogle = window.adsbygoogle || [];
-    window.adsbygoogle.pauseAdRequests = 0;
-    window._adsenseLoaded = false;
+    (function() {
+      'use strict';
 
-    var loadAdSense = function() {
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}';
-      script.crossOrigin = 'anonymous';
-      script.setAttribute('data-ad-frequency-hint', '0');
-
-      script.onload = function() {
-        window._adsenseLoaded = true;
-      };
-      script.onerror = function() {
-        // AdSense load failed (403, network error, ad blocker, etc.)
-        // Remove all ad placeholders to prevent layout shift
+      try {
+        window.adsbygoogle = window.adsbygoogle || [];
+        window.adsbygoogle.pauseAdRequests = 0;
         window._adsenseLoaded = false;
-        var ads = document.querySelectorAll('.adsbygoogle');
-        for (var i = 0; i < ads.length; i++) {
-          ads[i].style.display = 'none';
+
+        var loadAdSense = function() {
+          try {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}';
+            script.crossOrigin = 'anonymous';
+            script.setAttribute('data-ad-frequency-hint', '0');
+
+            script.onload = function() {
+              try {
+                window._adsenseLoaded = true;
+              } catch (e) {
+                // Ignore onload error
+              }
+            };
+
+            script.onerror = function() {
+              try {
+                // AdSense load failed (403, network error, ad blocker, etc.)
+                // Remove all ad placeholders to prevent layout shift
+                window._adsenseLoaded = false;
+                var ads = document.querySelectorAll('.adsbygoogle');
+                for (var i = 0; i < ads.length; i++) {
+                  ads[i].style.display = 'none';
+                }
+              } catch (e) {
+                // Ignore onerror processing error
+              }
+            };
+
+            if (document.head) {
+              document.head.appendChild(script);
+            }
+          } catch (e) {
+            // Silently fail if AdSense script creation fails
+            window._adsenseLoaded = false;
+          }
+        };
+
+        // Use requestIdleCallback for non-blocking deferred load
+        try {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadAdSense, { timeout: 5000 });
+          } else {
+            window.addEventListener('load', loadAdSense);
+          }
+        } catch (e) {
+          // Fallback: load immediately if requestIdleCallback fails
+          try {
+            loadAdSense();
+          } catch (err) {
+            // Final fallback: silently fail
+          }
         }
-      };
-
-      document.head.appendChild(script);
-    };
-
-    // Use requestIdleCallback for non-blocking deferred load
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadAdSense, { timeout: 5000 });
-    } else {
-      window.addEventListener('load', loadAdSense);
-    }
+      } catch (e) {
+        // Global AdSense initialization failure - silently ignore
+      }
+    })();
   </script>
   
   <style>
