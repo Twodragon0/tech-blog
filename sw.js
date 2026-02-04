@@ -1,9 +1,9 @@
 // Service Worker for Offline Support and Caching
 // 버전 업데이트 시 CACHE_NAME 변경하여 캐시 무효화
-// v12: 챗봇 완전 차단 - 인라인 스타일 제거 + 공격적 MutationObserver
-const CACHE_NAME = 'tech-blog-v12';
-const STATIC_CACHE = 'tech-blog-static-v12';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v12';
+// v13: WebP 참조 제거 - HTML 캐시 완전 삭제
+const CACHE_NAME = 'tech-blog-v13';
+const STATIC_CACHE = 'tech-blog-static-v13';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v13';
 
 // 캐시할 정적 리소스
 const STATIC_ASSETS = [
