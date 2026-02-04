@@ -11,7 +11,7 @@
     // Use requestIdleCallback to defer non-critical console filtering
     var setupConsoleFilter = function() {
       var _e=console.error,_w=console.warn,_l=console.log;
-    // 노이즈 패턴: 확장프로그램, CSP, Giscus 404, AdSense 400, SES/MetaMask
+    // 노이즈 패턴: 확장프로그램, CSP, Giscus 404, AdSense 400/403, SES/MetaMask
     var noisePatterns = [
       /runtime\.lastError/i,
       /message port closed/i,
@@ -29,7 +29,7 @@
       /SES Removing unpermitted intrinsics/i,
       /lockdown-install/i,
       /lockdown-install\.js/i,
-      // Google AdSense 400 에러 (광고가 없거나 계정 문제일 수 있음)
+      // Google AdSense 400/403 에러 (광고가 없거나 계정 문제, 광고 차단기)
       /googleads.*400/i,
       /googlesyndication.*400/i,
       /doubleclick.*400/i,
@@ -40,6 +40,14 @@
       /Failed to load resource.*status of 400.*googleads/i,
       /Failed to load resource.*status of 400.*doubleclick/i,
       /Failed to load resource.*status of 400.*googlesyndication/i,
+      // Google AdSense 403 에러 (광고 차단기 또는 계정 문제)
+      /googleads.*403/i,
+      /googlesyndication.*403/i,
+      /pagead2\.googlesyndication.*403/i,
+      /Failed to load resource.*status of 403.*ads/i,
+      /Failed to load resource.*status of 403.*googleads/i,
+      /Failed to load resource.*status of 403.*googlesyndication/i,
+      /pagead2\.googlesyndication\.com.*403/i,
       /Unexpected token.*at.*:\d+.*:\d+/i
     ];
     function isNoise(m){
@@ -172,10 +180,14 @@
   <!-- Fallback: SVG 아이콘 (PNG 로드 실패 시) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
 
-  <!-- Fonts: Noto Sans KR (한글 가독성, font-display: swap) -->
+  <!-- Fonts: Noto Sans KR (한글 가독성, font-display: swap, 필수 글꼴만) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- 초기 로딩 최적화: 400, 700만 먼저 로드 (나머지는 지연) -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <!-- 추가 글꼴 가중치는 지연 로딩 -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;600&display=swap" rel="stylesheet"></noscript>
 
   <!-- Prefetch Resources (preload 경고 방지를 위해 prefetch 사용) -->
   <!-- main.js는 페이지 하단에서 로드되므로 prefetch로 미리 캐시 -->

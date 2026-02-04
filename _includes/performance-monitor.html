@@ -56,8 +56,19 @@
           const lastEntry = entries[entries.length - 1];
           if (lastEntry && lastEntry.renderTime) {
             const lcp = lastEntry.renderTime;
-            if (lcp > 2500) { // LCP should be < 2.5s
-              console.warn('[Performance] LCP is slow:', lcp + 'ms');
+            // LCP 임계값: 4000ms (매우 느림), 2500ms (경고)
+            // 개발 환경에서만 상세 로깅
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+              if (lcp > 4000) {
+                console.error('[Performance] LCP is very slow:', Math.round(lcp) + 'ms (target: <2500ms)');
+              } else if (lcp > 2500) {
+                console.warn('[Performance] LCP is slow:', Math.round(lcp) + 'ms (target: <2500ms)');
+              }
+            } else {
+              // 프로덕션에서는 매우 느린 경우에만 경고
+              if (lcp > 4000) {
+                console.warn('[Performance] LCP is slow:', Math.round(lcp) + 'ms');
+              }
             }
           }
         });
