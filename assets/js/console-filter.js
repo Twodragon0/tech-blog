@@ -159,6 +159,9 @@
       /Slow resource.*giscus/i,
       /Slow resource.*googlesyndication/i,
 
+      // SVG diagram loading performance warnings (slow loading is normal for large diagrams)
+      /https:\/\/tech\.2twodragon\.com\/assets\/images\/diagrams\/.*\.svg.*\d+ms/i,
+
       // Vercel Speed Insights rate limiting
       /speed-insights.*429/i,
       /vitals.*429/i,

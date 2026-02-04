@@ -400,6 +400,11 @@
               }
             };
 
+            // Suppress fetch/network error logs for AdSense 403/400 errors
+            script.addEventListener('error', function() {
+              // Silently handled above - prevent additional console output
+            }, { once: true });
+
             if (document.head) {
               document.head.appendChild(script);
             }
