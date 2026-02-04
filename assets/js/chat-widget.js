@@ -43,13 +43,18 @@
     // Remove all opening classes
     chatWindow.classList.remove('chat-widget-window-open');
     chatWindow.classList.remove('chat-widget-user-opened');
+
+    // CRITICAL: Ensure hidden attribute is present (prevents auto-opening)
+    chatWindow.setAttribute('hidden', '');
+    chatWindow.setAttribute('aria-hidden', 'true');
+
     isOpen = false;
     if (chatToggle) {
       chatToggle.setAttribute('aria-expanded', 'false');
     }
 
     // AGGRESSIVE MutationObserver: Block ALL attempts to open window without user action
-    // This watches for ANY attempts to modify display or add opening classes
+    // This watches for ANY attempts to modify display, add opening classes, or remove hidden attribute
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === 'style') {
@@ -71,6 +76,13 @@
             if (chatToggle) {
               chatToggle.setAttribute('aria-expanded', 'false');
             }
+          }
+        }
+        if (mutation.attributeName === 'hidden') {
+          // If window is closed but hidden attribute was removed, restore it
+          if (!isOpen && !chatWindow.hasAttribute('hidden')) {
+            chatWindow.setAttribute('hidden', '');
+            chatWindow.setAttribute('aria-hidden', 'true');
           }
         }
       });
@@ -120,8 +132,12 @@
     isOpen = !isOpen;
 
     if (isOpen) {
+      // CRITICAL: Remove hidden attribute FIRST to allow CSS to show window
+      chatWindow.removeAttribute('hidden');
+      chatWindow.setAttribute('aria-hidden', 'false');
+
       // CRITICAL: Add BOTH classes required by CSS (no inline styles)
-      // CSS rule requires: .chat-widget-window.chat-widget-window-open.chat-widget-user-opened
+      // CSS rule requires: .chat-widget-window.chat-widget-window-open.chat-widget-user-opened:not([hidden])
       requestAnimationFrame(() => {
         chatWindow.classList.add('chat-widget-window-open');
         chatWindow.classList.add('chat-widget-user-opened'); // Requires explicit user action
@@ -139,6 +155,11 @@
       // Remove BOTH classes
       chatWindow.classList.remove('chat-widget-window-open');
       chatWindow.classList.remove('chat-widget-user-opened');
+
+      // CRITICAL: Add hidden attribute AFTER removing classes to ensure window is hidden
+      chatWindow.setAttribute('hidden', '');
+      chatWindow.setAttribute('aria-hidden', 'true');
+
       // Update toggle button state
       if (chatToggle) {
         chatToggle.setAttribute('aria-expanded', 'false');

@@ -150,8 +150,16 @@
   z-index: var(--z-modal, 1000);
   backdrop-filter: blur(10px);
 
-  /* CRITICAL: Only show when BOTH conditions met (requires explicit user action) */
-  &.chat-widget-window-open.chat-widget-user-opened {
+  /* CRITICAL: hidden attribute takes ABSOLUTE PRIORITY - prevents auto-opening */
+  &[hidden] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* CRITICAL: Only show when BOTH conditions met AND hidden attribute removed (requires explicit user action) */
+  &.chat-widget-window-open.chat-widget-user-opened:not([hidden]) {
     display: flex !important;
     opacity: 1;
     transform: translateY(0) scale(1);
