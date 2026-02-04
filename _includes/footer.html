@@ -44,7 +44,49 @@
   </div>
 </footer>
 
-<script src="{{ "/assets/js/main.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+<!-- Core JavaScript (모든 페이지에서 로드) -->
+<script src="{{ "/assets/js/main-core.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+
+<!-- Post-specific JavaScript (포스트 페이지에서만 로드) -->
+{% if page.layout == 'post' %}
+<script src="{{ "/assets/js/main-post.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+{% endif %}
+
+<!-- Search & Translation JavaScript (지연 로드) -->
+<script>
+  // Search input focus 시 지연 로드
+  (function() {
+    'use strict';
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+      let searchScriptLoaded = false;
+      const loadSearchScript = function() {
+        if (searchScriptLoaded) return;
+        searchScriptLoaded = true;
+        const script = document.createElement('script');
+        script.src = "{{ "/assets/js/main-search.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}";
+        script.defer = true;
+        script.onerror = function() {
+          console.warn('[Search] Failed to load search script');
+          searchScriptLoaded = false;
+        };
+        document.body.appendChild(script);
+      };
+      // 검색 입력 포커스 시 로드
+      searchInput.addEventListener('focus', loadSearchScript, { once: true, passive: true });
+      // 또는 페이지 로드 후 3초 뒤 지연 로드 (사용자가 아직 페이지에 있는 경우)
+      setTimeout(function() {
+        if (document.visibilityState === 'visible' && !searchScriptLoaded) {
+          if (typeof requestIdleCallback !== 'undefined') {
+            requestIdleCallback(loadSearchScript, { timeout: 2000 });
+          } else {
+            setTimeout(loadSearchScript, 0);
+          }
+        }
+      }, 3000);
+    }
+  })();
+</script>
 
 <!-- Vercel Analytics & Speed Insights (페이지 하단에서 로드, 에러 핸들링 포함) -->
 <script>

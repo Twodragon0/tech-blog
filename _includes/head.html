@@ -125,8 +125,12 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;600&display=swap" rel="stylesheet"></noscript>
 
   <!-- Prefetch Resources (preload 경고 방지를 위해 prefetch 사용) -->
-  <!-- main.js는 페이지 하단에서 로드되므로 prefetch로 미리 캐시 -->
-  <link rel="prefetch" href="{{ "/assets/js/main.js" | relative_url }}" as="script">
+  <!-- 분할된 JavaScript 파일들을 prefetch로 미리 캐시 -->
+  <link rel="prefetch" href="{{ "/assets/js/main-core.js" | relative_url }}" as="script">
+  {% if page.layout == 'post' %}
+  <link rel="prefetch" href="{{ "/assets/js/main-post.js" | relative_url }}" as="script">
+  {% endif %}
+  <link rel="prefetch" href="{{ "/assets/js/main-search.js" | relative_url }}" as="script">
   {% comment %}OG 이미지 preload는 제거 (404 오류 및 성능 문제 방지){% endcomment %}
   {% comment %}OG 이미지는 메타 태그로만 사용하고, preload는 하지 않음{% endcomment %}
 
