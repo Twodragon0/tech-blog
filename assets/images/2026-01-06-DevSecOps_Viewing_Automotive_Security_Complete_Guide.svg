@@ -1,479 +1,191 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="50%" style="stop-color:#1e293b"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
+    </linearGradient>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="devsecopsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
       <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="50%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#06b6d4"/>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    <linearGradient id="threatGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#dc2626"/>
-    </linearGradient>
-    <linearGradient id="secGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#22c55e"/>
-      <stop offset="100%" style="stop-color:#16a34a"/>
-    </linearGradient>
-    <linearGradient id="regGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#a855f7"/>
-      <stop offset="100%" style="stop-color:#9333ea"/>
-    </linearGradient>
-    <linearGradient id="toolsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f97316"/>
-      <stop offset="100%" style="stop-color:#ea580c"/>
-    </linearGradient>
-    <linearGradient id="sdvGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#06b6d4"/>
-      <stop offset="100%" style="stop-color:#0891b2"/>
-    </linearGradient>
-    <linearGradient id="carGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#8b5cf6"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="shadow">
-      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.5" opacity="0.3"/>
-    </pattern>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
-  
+
   <!-- Background -->
-  <rect width="1400" height="1000" fill="url(#bgGrad)"/>
-  <rect width="1400" height="1000" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
   
-  <!-- Header -->
-  <rect x="50" y="20" width="1300" height="80" rx="15" fill="url(#headerGrad)" filter="url(#shadow)"/>
-  <text x="700" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">DevSecOps Automotive Security Complete Guide</text>
-  <text x="700" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#e0e0ff">Connected Car Era | SDV Security | UN R155/R156 | ISO 21434 | V2X Security | AUTOSAR Adaptive</text>
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#a78bfa" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
   
-  <!-- Stats Row -->
-  <g transform="translate(50, 115)">
-    <rect x="0" y="0" width="180" height="45" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
-    <text x="90" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#60a5fa">150M+</text>
-    <text x="90" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Lines of Code/Vehicle</text>
-  </g>
-  <g transform="translate(245, 115)">
-    <rect x="0" y="0" width="180" height="45" rx="8" fill="#1e3a5f" stroke="#ef4444" stroke-width="2"/>
-    <text x="90" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f87171">+30%</text>
-    <text x="90" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Security Vuln Increase (2023)</text>
-  </g>
-  <g transform="translate(440, 115)">
-    <rect x="0" y="0" width="180" height="45" rx="8" fill="#1e3a5f" stroke="#22c55e" stroke-width="2"/>
-    <text x="90" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#4ade80">60%+</text>
-    <text x="90" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Open Source Dependency</text>
-  </g>
-  <g transform="translate(635, 115)">
-    <rect x="0" y="0" width="180" height="45" rx="8" fill="#1e3a5f" stroke="#a855f7" stroke-width="2"/>
-    <text x="90" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#c084fc">2025</text>
-    <text x="90" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">UN R155/R156 Global</text>
-  </g>
-  <g transform="translate(830, 115)">
-    <rect x="0" y="0" width="180" height="45" rx="8" fill="#1e3a5f" stroke="#f97316" stroke-width="2"/>
-    <text x="90" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fb923c">100+</text>
-    <text x="90" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">ECUs per Vehicle</text>
-  </g>
-  <g transform="translate(1025, 115)">
-    <rect x="0" y="0" width="325" height="45" rx="8" fill="#1e3a5f" stroke="#06b6d4" stroke-width="2"/>
-    <text x="162" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#22d3ee">SDV Era: Software Defined Vehicle</text>
-    <text x="162" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Central Computing | SOA | OTA Updates | Zero Trust</text>
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#8b5cf6" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#7c3aed" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#8b5cf6" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#devsecopsGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">DEVSECOPS</text>
   </g>
   
-  <!-- Section 1: Threat Types (Red) -->
-  <g transform="translate(50, 175)">
-    <rect x="0" y="0" width="320" height="280" rx="12" fill="#0f1729" stroke="#ef4444" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="320" height="35" rx="12" fill="url(#threatGrad)"/>
-    <rect x="0" y="20" width="320" height="15" fill="url(#threatGrad)"/>
-    <text x="160" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">SECURITY THREATS</text>
-    
-    <!-- Network Attack -->
-    <rect x="15" y="45" width="290" height="50" rx="6" fill="#2a0f0f" stroke="#ef4444" stroke-width="1"/>
-    <text x="25" y="62" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f87171">Network Attacks</text>
-    <text x="25" y="77" font-family="Arial, sans-serif" font-size="8" fill="#fecaca">Wi-Fi / Bluetooth / 4G-5G / V2X Communication</text>
-    <text x="25" y="90" font-family="Arial, sans-serif" font-size="8" fill="#fecaca">OTA Update Hijacking / Man-in-the-Middle</text>
-    
-    <!-- Physical Attack -->
-    <rect x="15" y="100" width="290" height="45" rx="6" fill="#2a0f0f" stroke="#ef4444" stroke-width="1"/>
-    <text x="25" y="117" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f87171">Physical Attacks</text>
-    <text x="25" y="132" font-family="Arial, sans-serif" font-size="8" fill="#fecaca">OBD-II Port / ECU Tampering / Key Cloning</text>
-    
-    <!-- Software Vuln -->
-    <rect x="15" y="150" width="290" height="50" rx="6" fill="#2a0f0f" stroke="#ef4444" stroke-width="1"/>
-    <text x="25" y="167" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f87171">Software Vulnerabilities</text>
-    <text x="25" y="182" font-family="Arial, sans-serif" font-size="8" fill="#fecaca">Memory: Buffer Overflow, Use-After-Free</text>
-    <text x="25" y="195" font-family="Arial, sans-serif" font-size="8" fill="#fecaca">Crypto: Weak Algorithm, Hardcoded Keys</text>
-    
-    <!-- Supply Chain -->
-    <rect x="15" y="205" width="290" height="65" rx="6" fill="#2a0f0f" stroke="#ef4444" stroke-width="1"/>
-    <text x="25" y="222" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f87171">Supply Chain Attacks</text>
-    <text x="25" y="237" font-family="Arial, sans-serif" font-size="8" fill="#fecaca">Malicious Code Injection (OEM-Tier1-Tier2-Tier3)</text>
-    <text x="25" y="250" font-family="Arial, sans-serif" font-size="8" fill="#fecaca">Dependency Vulnerabilities (OSS 60%+)</text>
-    <text x="25" y="263" font-family="Arial, sans-serif" font-size="8" fill="#fecaca">Firmware Manipulation at Manufacturing</text>
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
   </g>
   
-  <!-- Section 2: SDV Architecture (Cyan) -->
-  <g transform="translate(385, 175)">
-    <rect x="0" y="0" width="320" height="280" rx="12" fill="#0f1729" stroke="#06b6d4" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="320" height="35" rx="12" fill="url(#sdvGrad)"/>
-    <rect x="0" y="20" width="320" height="15" fill="url(#sdvGrad)"/>
-    <text x="160" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">SDV SECURITY ARCHITECTURE</text>
-    
-    <!-- Application Domain -->
-    <text x="15" y="55" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#22d3ee">Application Domains</text>
-    <rect x="15" y="62" width="70" height="25" rx="4" fill="#0f2a37" stroke="#06b6d4" stroke-width="1"/>
-    <text x="50" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#67e8f9">ADAS</text>
-    <rect x="90" y="62" width="70" height="25" rx="4" fill="#0f2a37" stroke="#06b6d4" stroke-width="1"/>
-    <text x="125" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#67e8f9">Infotain</text>
-    <rect x="165" y="62" width="70" height="25" rx="4" fill="#0f2a37" stroke="#06b6d4" stroke-width="1"/>
-    <text x="200" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#67e8f9">Body Ctrl</text>
-    <rect x="240" y="62" width="65" height="25" rx="4" fill="#0f2a37" stroke="#06b6d4" stroke-width="1"/>
-    <text x="272" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#67e8f9">Powertrain</text>
-    
-    <!-- Security Middleware -->
-    <text x="15" y="105" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#22d3ee">Security Middleware</text>
-    <rect x="15" y="112" width="290" height="40" rx="6" fill="#0f2a37"/>
-    <rect x="20" y="117" width="85" height="30" rx="4" fill="#164e63"/>
-    <text x="62" y="136" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#cffafe">Access Control</text>
-    <rect x="110" y="117" width="85" height="30" rx="4" fill="#164e63"/>
-    <text x="152" y="136" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#cffafe">Encryption</text>
-    <rect x="200" y="117" width="100" height="30" rx="4" fill="#164e63"/>
-    <text x="250" y="136" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#cffafe">Secure Boot</text>
-    
-    <!-- Secure Gateway -->
-    <text x="15" y="170" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#22d3ee">Secure Gateway</text>
-    <rect x="15" y="177" width="290" height="30" rx="6" fill="#0f2a37" stroke="#22c55e" stroke-width="1"/>
-    <text x="160" y="196" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#4ade80">Network Segmentation | Traffic Inspection | IDS/IPS</text>
-    
-    <!-- External Connections -->
-    <text x="15" y="225" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#22d3ee">External Connections</text>
-    <rect x="15" y="232" width="90" height="35" rx="4" fill="#0f2a37" stroke="#a855f7" stroke-width="1"/>
-    <text x="60" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#c084fc">V2X Module</text>
-    <text x="60" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#d8b4fe">PKI Auth</text>
-    <rect x="110" y="232" width="90" height="35" rx="4" fill="#0f2a37" stroke="#a855f7" stroke-width="1"/>
-    <text x="155" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#c084fc">Cloud Backend</text>
-    <text x="155" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#d8b4fe">TLS 1.3</text>
-    <rect x="205" y="232" width="100" height="35" rx="4" fill="#0f2a37" stroke="#a855f7" stroke-width="1"/>
-    <text x="255" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#c084fc">OTA Server</text>
-    <text x="255" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#d8b4fe">Signature Verify</text>
-  </g>
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략</text>
   
-  <!-- Section 3: Regulations (Purple) -->
-  <g transform="translate(720, 175)">
-    <rect x="0" y="0" width="310" height="280" rx="12" fill="#0f1729" stroke="#a855f7" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="310" height="35" rx="12" fill="url(#regGrad)"/>
-    <rect x="0" y="20" width="310" height="15" fill="url(#regGrad)"/>
-    <text x="155" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">REGULATIONS &amp; COMPLIANCE</text>
-    
-    <!-- UN R155 -->
-    <rect x="15" y="45" width="280" height="50" rx="6" fill="#1a0f2a" stroke="#ef4444" stroke-width="2"/>
-    <text x="25" y="62" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f87171">UN R155 (CSMS) - MANDATORY 2025</text>
-    <text x="25" y="77" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">Cyber Security Management System</text>
-    <text x="25" y="90" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">Risk Assessment | Incident Response | Monitoring</text>
-    
-    <!-- UN R156 -->
-    <rect x="15" y="100" width="280" height="45" rx="6" fill="#1a0f2a" stroke="#ef4444" stroke-width="2"/>
-    <text x="25" y="117" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f87171">UN R156 (SUMS) - MANDATORY 2025</text>
-    <text x="25" y="132" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">Software Update Management System</text>
-    <text x="25" y="142" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">OTA Security | Version Control | Rollback</text>
-    
-    <!-- ISO 21434 -->
-    <rect x="15" y="150" width="280" height="40" rx="6" fill="#1a0f2a" stroke="#a855f7" stroke-width="1"/>
-    <text x="25" y="167" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c084fc">ISO/SAE 21434</text>
-    <text x="25" y="182" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">Automotive Cybersecurity Engineering | TARA</text>
-    
-    <!-- V2X Security -->
-    <rect x="15" y="195" width="280" height="35" rx="6" fill="#1a0f2a" stroke="#a855f7" stroke-width="1"/>
-    <text x="25" y="212" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c084fc">V2X Security Standards</text>
-    <text x="25" y="225" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">IEEE 1609.2 | SCMS | PKI Certificate</text>
-    
-    <!-- AUTOSAR -->
-    <rect x="15" y="235" width="280" height="35" rx="6" fill="#1a0f2a" stroke="#a855f7" stroke-width="1"/>
-    <text x="25" y="252" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c084fc">AUTOSAR Adaptive Platform</text>
-    <text x="25" y="265" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">Secure Communication | Identity Management</text>
-  </g>
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
   
-  <!-- Section 4: Security Tools (Orange) -->
-  <g transform="translate(1045, 175)">
-    <rect x="0" y="0" width="305" height="280" rx="12" fill="#0f1729" stroke="#f97316" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="305" height="35" rx="12" fill="url(#toolsGrad)"/>
-    <rect x="0" y="20" width="305" height="15" fill="url(#toolsGrad)"/>
-    <text x="152" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">SECURITY TOOLS STACK</text>
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
     
-    <!-- SAST -->
-    <rect x="15" y="45" width="275" height="35" rx="6" fill="#2a1a0f"/>
-    <text x="25" y="60" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fb923c">SAST (Static Analysis)</text>
-    <text x="25" y="75" font-family="Arial, sans-serif" font-size="8" fill="#fed7aa">SonarQube | Semgrep | Clang Static Analyzer</text>
-    
-    <!-- Secret Scan -->
-    <rect x="15" y="85" width="275" height="30" rx="6" fill="#2a1a0f"/>
-    <text x="25" y="100" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fb923c">Secret Scanning</text>
-    <text x="25" y="112" font-family="Arial, sans-serif" font-size="8" fill="#fed7aa">Gitleaks | GitGuardian | TruffleHog</text>
-    
-    <!-- SCA -->
-    <rect x="15" y="120" width="275" height="30" rx="6" fill="#2a1a0f"/>
-    <text x="25" y="135" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fb923c">SCA (Composition)</text>
-    <text x="25" y="147" font-family="Arial, sans-serif" font-size="8" fill="#fed7aa">Trivy | Snyk | Grype | Dependabot</text>
-    
-    <!-- DAST -->
-    <rect x="15" y="155" width="275" height="30" rx="6" fill="#2a1a0f"/>
-    <text x="25" y="170" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fb923c">DAST (Dynamic)</text>
-    <text x="25" y="182" font-family="Arial, sans-serif" font-size="8" fill="#fed7aa">OWASP ZAP | Burp Suite | Nikto</text>
-    
-    <!-- Fuzz -->
-    <rect x="15" y="190" width="275" height="30" rx="6" fill="#2a1a0f"/>
-    <text x="25" y="205" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fb923c">Fuzz Testing</text>
-    <text x="25" y="217" font-family="Arial, sans-serif" font-size="8" fill="#fed7aa">AFL | LibFuzzer | Honggfuzz</text>
-    
-    <!-- SBOM -->
-    <rect x="15" y="225" width="275" height="30" rx="6" fill="#2a1a0f"/>
-    <text x="25" y="240" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fb923c">SBOM Generation</text>
-    <text x="25" y="252" font-family="Arial, sans-serif" font-size="8" fill="#fed7aa">Syft | SPDX | CycloneDX</text>
-    
-    <!-- Runtime -->
-    <rect x="15" y="260" width="275" height="15" rx="4" fill="#2a1a0f"/>
-    <text x="25" y="272" font-family="Arial, sans-serif" font-size="8" fill="#fed7aa">Runtime: Falco | Sysdig | TEE | HSM</text>
-  </g>
-  
-  <!-- DevSecOps Lifecycle -->
-  <g transform="translate(50, 470)">
-    <rect x="0" y="0" width="1300" height="170" rx="12" fill="#0f1729" stroke="#22c55e" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="1300" height="35" rx="12" fill="url(#secGrad)"/>
-    <rect x="0" y="20" width="1300" height="15" fill="url(#secGrad)"/>
-    <text x="650" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">AUTOMOTIVE DevSecOps LIFECYCLE</text>
-    
-    <!-- Plan -->
-    <rect x="20" y="45" width="165" height="115" rx="8" fill="#0f2a1a" stroke="#3b82f6" stroke-width="2"/>
-    <text x="102" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#60a5fa">PLAN</text>
-    <text x="30" y="82" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">Threat Modeling</text>
-    <text x="30" y="95" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- STRIDE / TARA Analysis</text>
-    <text x="30" y="108" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Security Requirements</text>
-    <text x="30" y="121" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Risk Assessment</text>
-    <text x="30" y="134" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Compliance Check</text>
-    <text x="30" y="150" font-family="Arial, sans-serif" font-size="7" fill="#86efac">Tool: MS Threat Modeling</text>
-    
-    <!-- Code -->
-    <rect x="195" y="45" width="165" height="115" rx="8" fill="#0f2a1a" stroke="#8b5cf6" stroke-width="2"/>
-    <text x="277" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#a78bfa">CODE</text>
-    <text x="205" y="82" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">Static Analysis</text>
-    <text x="205" y="95" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- SAST Scanning</text>
-    <text x="205" y="108" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Secret Detection</text>
-    <text x="205" y="121" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Code Review</text>
-    <text x="205" y="134" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Secure Coding</text>
-    <text x="205" y="150" font-family="Arial, sans-serif" font-size="7" fill="#86efac">Tool: SonarQube, Gitleaks</text>
-    
-    <!-- Build -->
-    <rect x="370" y="45" width="165" height="115" rx="8" fill="#0f2a1a" stroke="#06b6d4" stroke-width="2"/>
-    <text x="452" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#22d3ee">BUILD</text>
-    <text x="380" y="82" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">Dependency Security</text>
-    <text x="380" y="95" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- SCA Scanning</text>
-    <text x="380" y="108" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Image Scanning</text>
-    <text x="380" y="121" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- License Compliance</text>
-    <text x="380" y="134" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- SBOM Generation</text>
-    <text x="380" y="150" font-family="Arial, sans-serif" font-size="7" fill="#86efac">Tool: Trivy, Snyk, Syft</text>
-    
-    <!-- Test -->
-    <rect x="545" y="45" width="165" height="115" rx="8" fill="#0f2a1a" stroke="#f97316" stroke-width="2"/>
-    <text x="627" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fb923c">TEST</text>
-    <text x="555" y="82" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">Dynamic Testing</text>
-    <text x="555" y="95" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- DAST / IAST</text>
-    <text x="555" y="108" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Fuzz Testing</text>
-    <text x="555" y="121" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Penetration Test</text>
-    <text x="555" y="134" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- API Security Test</text>
-    <text x="555" y="150" font-family="Arial, sans-serif" font-size="7" fill="#86efac">Tool: OWASP ZAP, AFL</text>
-    
-    <!-- Release -->
-    <rect x="720" y="45" width="165" height="115" rx="8" fill="#0f2a1a" stroke="#22c55e" stroke-width="2"/>
-    <text x="802" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#4ade80">RELEASE</text>
-    <text x="730" y="82" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">Secure Release</text>
-    <text x="730" y="95" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Code Signing</text>
-    <text x="730" y="108" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- SBOM Attach</text>
-    <text x="730" y="121" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Encryption</text>
-    <text x="730" y="134" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Version Control</text>
-    <text x="730" y="150" font-family="Arial, sans-serif" font-size="7" fill="#86efac">Tool: GPG, Sigstore</text>
-    
-    <!-- Deploy -->
-    <rect x="895" y="45" width="165" height="115" rx="8" fill="#0f2a1a" stroke="#ef4444" stroke-width="2"/>
-    <text x="977" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f87171">DEPLOY</text>
-    <text x="905" y="82" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">Secure Deployment</text>
-    <text x="905" y="95" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Secure Boot Chain</text>
-    <text x="905" y="108" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Integrity Verify</text>
-    <text x="905" y="121" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- TEE / HSM</text>
-    <text x="905" y="134" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- OTA Security</text>
-    <text x="905" y="150" font-family="Arial, sans-serif" font-size="7" fill="#86efac">Tool: UEFI, ARM TrustZone</text>
-    
-    <!-- Monitor -->
-    <rect x="1070" y="45" width="215" height="115" rx="8" fill="#0f2a1a" stroke="#a855f7" stroke-width="2"/>
-    <text x="1177" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#c084fc">MONITOR</text>
-    <text x="1080" y="82" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">Runtime Security</text>
-    <text x="1080" y="95" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Intrusion Detection</text>
-    <text x="1080" y="108" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Anomaly Detection (ML)</text>
-    <text x="1080" y="121" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Security Event Logging</text>
-    <text x="1080" y="134" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">- Incident Response</text>
-    <text x="1080" y="150" font-family="Arial, sans-serif" font-size="7" fill="#86efac">Tool: Falco, Sysdig, SIEM</text>
-    
-    <!-- Arrows -->
-    <path d="M 185 100 L 195 100" stroke="#64748b" stroke-width="2" fill="none"/>
-    <path d="M 360 100 L 370 100" stroke="#64748b" stroke-width="2" fill="none"/>
-    <path d="M 535 100 L 545 100" stroke="#64748b" stroke-width="2" fill="none"/>
-    <path d="M 710 100 L 720 100" stroke="#64748b" stroke-width="2" fill="none"/>
-    <path d="M 885 100 L 895 100" stroke="#64748b" stroke-width="2" fill="none"/>
-    <path d="M 1060 100 L 1070 100" stroke="#64748b" stroke-width="2" fill="none"/>
-  </g>
-  
-  <!-- SDV Security Best Practices -->
-  <g transform="translate(50, 655)">
-    <rect x="0" y="0" width="650" height="160" rx="12" fill="#0f1729" stroke="#eab308" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="650" height="30" rx="12" fill="#854d0e"/>
-    <rect x="0" y="15" width="650" height="15" fill="#854d0e"/>
-    <text x="325" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fef08a">SDV SECURITY BEST PRACTICES</text>
-    
-    <!-- Architecture -->
-    <rect x="15" y="40" width="200" height="110" rx="8" fill="#1a1a0f" stroke="#eab308" stroke-width="1"/>
-    <text x="25" y="57" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fde047">Architecture</text>
-    <text x="25" y="73" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Central Security Policy Mgmt</text>
-    <text x="25" y="86" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Zero Trust Internal Comm</text>
-    <text x="25" y="99" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">HSM Integration</text>
-    <text x="25" y="112" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Network Segmentation</text>
-    <text x="25" y="125" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">API Security Gateway</text>
-    <text x="25" y="140" font-family="Arial, sans-serif" font-size="7" fill="#fde68a">Container Runtime Security</text>
-    
-    <!-- Software -->
-    <rect x="225" y="40" width="200" height="110" rx="8" fill="#1a1a0f" stroke="#eab308" stroke-width="1"/>
-    <text x="235" y="57" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fde047">Software</text>
-    <text x="235" y="73" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Secure Boot Chain</text>
-    <text x="235" y="86" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Runtime Integrity Check</text>
-    <text x="235" y="99" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Secure OTA Mechanism</text>
-    <text x="235" y="112" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Code Signing &amp; Verification</text>
-    <text x="235" y="125" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Memory Safe Languages</text>
-    <text x="235" y="140" font-family="Arial, sans-serif" font-size="7" fill="#fde68a">Rust/Go for Safety-Critical</text>
-    
-    <!-- Monitoring -->
-    <rect x="435" y="40" width="200" height="110" rx="8" fill="#1a1a0f" stroke="#eab308" stroke-width="1"/>
-    <text x="445" y="57" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fde047">Monitoring</text>
-    <text x="445" y="73" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Real-time Threat Detection</text>
-    <text x="445" y="86" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Security Event Logging</text>
-    <text x="445" y="99" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">ML-based Anomaly Detection</text>
-    <text x="445" y="112" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Incident Response Automation</text>
-    <text x="445" y="125" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">SOC Integration</text>
-    <text x="445" y="140" font-family="Arial, sans-serif" font-size="7" fill="#fde68a">V-SOC (Vehicle SOC)</text>
-  </g>
-  
-  <!-- Connected Car Diagram -->
-  <g transform="translate(715, 655)">
-    <rect x="0" y="0" width="635" height="160" rx="12" fill="#0f1729" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="635" height="30" rx="12" fill="#1d4ed8"/>
-    <rect x="0" y="15" width="635" height="15" fill="#1d4ed8"/>
-    <text x="317" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#bfdbfe">CONNECTED CAR SECURITY ARCHITECTURE</text>
-    
-    <!-- Car Icon -->
-    <g transform="translate(40, 55)">
-      <path d="M15 60 L30 30 L90 30 L105 60 L120 60 L120 90 L0 90 L0 60 Z" fill="url(#carGrad)" opacity="0.9"/>
-      <path d="M33 33 L40 55 L80 55 L87 33 Z" fill="#1e293b"/>
-      <circle cx="30" cy="90" r="15" fill="#374151"/>
-      <circle cx="30" cy="90" r="7" fill="#6b7280"/>
-      <circle cx="90" cy="90" r="15" fill="#374151"/>
-      <circle cx="90" cy="90" r="7" fill="#6b7280"/>
-      <rect x="112" y="65" width="8" height="12" rx="2" fill="#fbbf24"/>
+    <!-- Shield with Code -->
+    <g transform="translate(80, 275)">
+      <path d="M50 5 L95 25 L95 65 Q95 100 50 120 Q5 100 5 65 L5 25 Z" 
+            fill="url(#devsecopsGradient)" stroke="#8b5cf6" stroke-width="2" opacity="0.9"/>
+      <text x="50" y="75" font-family="monospace" font-size="28" font-weight="bold" fill="white" text-anchor="middle">&lt;/&gt;</text>
     </g>
     
-    <!-- Connection Lines -->
-    <g stroke="#22c55e" stroke-width="2" fill="none" opacity="0.8">
-      <path d="M 175 85 Q 200 70 230 70">
-        <animate attributeName="stroke-dasharray" values="0,100;50,50;100,0" dur="2s" repeatCount="indefinite"/>
-      </path>
-      <path d="M 175 95 Q 200 110 230 110"/>
+    <!-- Pipeline Arrow -->
+    <g transform="translate(200, 300)">
+      <rect x="0" y="20" width="30" height="30" rx="5" fill="#3b82f6"/>
+      <text x="15" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">D</text>
+      <path d="M35 35 L50 35" stroke="#64748b" stroke-width="3"/>
+      <rect x="55" y="20" width="30" height="30" rx="5" fill="#8b5cf6"/>
+      <text x="70" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">S</text>
+      <path d="M90 35 L105 35" stroke="#64748b" stroke-width="3"/>
+      <rect x="110" y="20" width="30" height="30" rx="5" fill="#22c55e"/>
+      <text x="125" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">O</text>
     </g>
     
-    <!-- Security Components -->
-    <rect x="235" y="45" width="175" height="100" rx="8" fill="#0f2a1a" stroke="#22c55e" stroke-width="1"/>
-    <text x="322" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#4ade80">In-Vehicle Security</text>
-    <text x="245" y="78" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">Secure Gateway / IDS / IPS</text>
-    <text x="245" y="90" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">ECU Authentication</text>
-    <text x="245" y="102" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">CAN Bus Encryption</text>
-    <text x="245" y="114" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">Secure Boot / TEE / HSM</text>
-    <text x="245" y="126" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">Runtime Integrity Monitor</text>
-    <text x="245" y="138" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">Anomaly Detection (AI/ML)</text>
+    <!-- Security Scanner -->
+    <g transform="translate(360, 290)">
+      <circle cx="30" cy="35" r="25" fill="none" stroke="#ef4444" stroke-width="3"/>
+      <line x1="48" y1="53" x2="65" y2="70" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+      <path d="M20 35 L25 40 L40 25" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
     
-    <!-- External Connections -->
-    <rect x="425" y="45" width="195" height="100" rx="8" fill="#0f172a" stroke="#a855f7" stroke-width="1"/>
-    <text x="522" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#c084fc">External Connections</text>
-    <text x="435" y="78" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">V2V: Vehicle-to-Vehicle (PKI)</text>
-    <text x="435" y="90" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">V2I: Vehicle-to-Infrastructure</text>
-    <text x="435" y="102" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">V2C: Vehicle-to-Cloud (TLS 1.3)</text>
-    <text x="435" y="114" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">V2P: Vehicle-to-Pedestrian</text>
-    <text x="435" y="126" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">OTA Update (Signed + Encrypted)</text>
-    <text x="435" y="138" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Telematics (Mutual Auth)</text>
   </g>
   
-  <!-- Key Checklist -->
-  <g transform="translate(50, 830)">
-    <rect x="0" y="0" width="1300" height="145" rx="12" fill="#0f1729" stroke="#22c55e" stroke-width="2" filter="url(#shadow)"/>
-    <text x="650" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#4ade80">AUTOMOTIVE SECURITY CHECKLIST</text>
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
     
-    <!-- Column 1 -->
-    <g transform="translate(30, 45)">
-      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#60a5fa">Development Phase</text>
-      <text x="0" y="18" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Threat Modeling (STRIDE/TARA)</text>
-      <text x="0" y="33" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] SAST Integration (SonarQube)</text>
-      <text x="0" y="48" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Secret Scanning (Gitleaks)</text>
-      <text x="0" y="63" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Secure Coding Guidelines</text>
-      <text x="0" y="78" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Code Review Process</text>
-      <text x="0" y="93" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Memory Safety (Rust/MISRA-C)</text>
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#devsecopsGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#a78bfa">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#a78bfa"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">DevSecOps 자동차 보안 완벽 가이드 SDV 시대</text>
     </g>
     
-    <!-- Column 2 -->
-    <g transform="translate(280, 45)">
-      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fb923c">Build &amp; Test Phase</text>
-      <text x="0" y="18" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] SCA Scanning (Trivy/Snyk)</text>
-      <text x="0" y="33" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] SBOM Generation (Syft/SPDX)</text>
-      <text x="0" y="48" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] DAST/IAST Testing</text>
-      <text x="0" y="63" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Fuzz Testing (AFL/LibFuzzer)</text>
-      <text x="0" y="78" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Penetration Testing</text>
-      <text x="0" y="93" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] License Compliance Check</text>
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="114" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="57" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#DevSecOps</text>
+      <rect x="126" y="0" width="204" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="228" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#Automotive-Security</text>
+      <rect x="342" y="0" width="150" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="417" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#Connected-Car</text>
+      <rect x="504" y="0" width="69" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="538" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#SAST</text>
     </g>
     
-    <!-- Column 3 -->
-    <g transform="translate(530, 45)">
-      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#22c55e">Deployment Phase</text>
-      <text x="0" y="18" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Secure Boot Implementation</text>
-      <text x="0" y="33" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Code Signing (GPG/Sigstore)</text>
-      <text x="0" y="48" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] OTA Update Security</text>
-      <text x="0" y="63" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] HSM/TEE Integration</text>
-      <text x="0" y="78" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Rollback Mechanism</text>
-      <text x="0" y="93" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Version Management</text>
-    </g>
-    
-    <!-- Column 4 -->
-    <g transform="translate(780, 45)">
-      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c084fc">Operations Phase</text>
-      <text x="0" y="18" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Runtime Security Monitor</text>
-      <text x="0" y="33" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] IDS/IPS Deployment</text>
-      <text x="0" y="48" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Security Event Logging</text>
-      <text x="0" y="63" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Anomaly Detection (ML)</text>
-      <text x="0" y="78" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Incident Response Plan</text>
-      <text x="0" y="93" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] V-SOC Integration</text>
-    </g>
-    
-    <!-- Column 5 -->
-    <g transform="translate(1030, 45)">
-      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f87171">Compliance</text>
-      <text x="0" y="18" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] UN R155 CSMS</text>
-      <text x="0" y="33" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] UN R156 SUMS</text>
-      <text x="0" y="48" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] ISO/SAE 21434</text>
-      <text x="0" y="63" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] AUTOSAR Adaptive</text>
-      <text x="0" y="78" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] IEEE 1609.2 (V2X)</text>
-      <text x="0" y="93" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] GDPR / Privacy</text>
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
     </g>
   </g>
   
-  <!-- Footer -->
-  <text x="700" y="990" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">DevSecOps Automotive Security Complete Guide | Connected Car Era | Twodragon's Tech Blog | tech.2twodragon.com</text>
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#devsecopsGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

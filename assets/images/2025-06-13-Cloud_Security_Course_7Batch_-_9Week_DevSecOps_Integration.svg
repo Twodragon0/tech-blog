@@ -1,123 +1,191 @@
-<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <filter id="shadow">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="2" dy="2" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3"/>
-      </feComponentTransfer>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="devsecopsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
-        <feMergeNode/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
-  <rect width="1200" height="800" fill="url(#grad1)"/>
-  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">DevSecOps Integration: Complete Pipeline Architecture</text>
-  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">Cloud Security Course 7Batch Week 9: Security from Plan to Monitor</text>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
   
-  <!-- DevSecOps Pipeline -->
-  <rect x="50" y="100" width="1100" height="200" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="600" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">DevSecOps Pipeline: Plan -&gt; Code -&gt; Build -&gt; Test -&gt; Release -&gt; Deploy -&gt; Operate -&gt; Monitor</text>
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#a78bfa" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
   
-  <rect x="80" y="150" width="120" height="50" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="140" y="175" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Plan</text>
-  <text x="140" y="190" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Threat Model</text>
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#8b5cf6" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#7c3aed" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#8b5cf6" fill-opacity="0.02"/>
   
-  <rect x="220" y="150" width="120" height="50" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="280" y="175" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Code</text>
-  <text x="280" y="190" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SAST/Secret</text>
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
   
-  <rect x="360" y="150" width="120" height="50" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="420" y="175" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Build</text>
-  <text x="420" y="190" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SCA/Image</text>
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
   
-  <rect x="500" y="150" width="120" height="50" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="560" y="175" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Test</text>
-  <text x="560" y="190" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">DAST/IAST</text>
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#devsecopsGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">DEVSECOPS</text>
+  </g>
   
-  <rect x="640" y="150" width="120" height="50" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="700" y="175" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Release</text>
-  <text x="700" y="190" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Signed</text>
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
+  </g>
   
-  <rect x="780" y="150" width="120" height="50" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="840" y="175" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Deploy</text>
-  <text x="840" y="190" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">IaC Scan</text>
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리</text>
   
-  <rect x="920" y="150" width="120" height="50" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="980" y="175" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Operate</text>
-  <text x="980" y="190" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Runtime</text>
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
   
-  <rect x="1060" y="150" width="80" height="50" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="1100" y="175" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Monitor</text>
-  <text x="1100" y="190" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SIEM</text>
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield with Code -->
+    <g transform="translate(80, 275)">
+      <path d="M50 5 L95 25 L95 65 Q95 100 50 120 Q5 100 5 65 L5 25 Z" 
+            fill="url(#devsecopsGradient)" stroke="#8b5cf6" stroke-width="2" opacity="0.9"/>
+      <text x="50" y="75" font-family="monospace" font-size="28" font-weight="bold" fill="white" text-anchor="middle">&lt;/&gt;</text>
+    </g>
+    
+    <!-- Pipeline Arrow -->
+    <g transform="translate(200, 300)">
+      <rect x="0" y="20" width="30" height="30" rx="5" fill="#3b82f6"/>
+      <text x="15" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">D</text>
+      <path d="M35 35 L50 35" stroke="#64748b" stroke-width="3"/>
+      <rect x="55" y="20" width="30" height="30" rx="5" fill="#8b5cf6"/>
+      <text x="70" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">S</text>
+      <path d="M90 35 L105 35" stroke="#64748b" stroke-width="3"/>
+      <rect x="110" y="20" width="30" height="30" rx="5" fill="#22c55e"/>
+      <text x="125" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">O</text>
+    </g>
+    
+    <!-- Security Scanner -->
+    <g transform="translate(360, 290)">
+      <circle cx="30" cy="35" r="25" fill="none" stroke="#ef4444" stroke-width="3"/>
+      <line x1="48" y1="53" x2="65" y2="70" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+      <path d="M20 35 L25 40 L40 25" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+  </g>
   
-  <rect x="80" y="220" width="1060" height="70" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="610" y="250" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Security Tools: STRIDE/Threat Dragon | Semgrep/SonarQube/Gitleaks | Trivy/Snyk | OWASP ZAP/Burp | Cosign/Syft | Checkov/OPA/Kyverno | Falco/Sysdig | Datadog/Splunk/ELK</text>
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#devsecopsGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#a78bfa">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#a78bfa"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">DevSecOps 통합 정리: 파이프라인 아키텍처부터 실무 적용까지</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="114" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="57" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#DevSecOps</text>
+      <rect x="126" y="0" width="132" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="192" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#Integration</text>
+      <rect x="270" y="0" width="159" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="349" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#Cloud-Security</text>
+      <rect x="441" y="0" width="69" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="475" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#SDLC</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+    </g>
+  </g>
   
-  <!-- AWS Security Integration -->
-  <rect x="50" y="330" width="550" height="250" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="325" y="360" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">AWS Security Service Integration</text>
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
   
-  <rect x="80" y="380" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
-  <text x="160" y="405" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">GuardDuty</text>
-  <text x="160" y="425" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Auto Response</text>
-  <text x="160" y="440" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Lambda</text>
-  <text x="160" y="455" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SNS Alert</text>
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#devsecopsGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
   
-  <rect x="260" y="380" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
-  <text x="340" y="405" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Security Hub</text>
-  <text x="340" y="425" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Unified</text>
-  <text x="340" y="440" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Security</text>
-  <text x="340" y="455" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Management</text>
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
   
-  <rect x="440" y="380" width="160" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="520" y="405" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">EventBridge</text>
-  <text x="520" y="425" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Event-Based</text>
-  <text x="520" y="440" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Automation</text>
-  <text x="520" y="455" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Workflows</text>
-  
-  <rect x="80" y="480" width="520" height="90" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="340" y="510" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">CloudWatch: Log Analysis | Metrics | Alarms | Integration with Security Hub</text>
-  <text x="340" y="535" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">AWS Security Integration: GuardDuty Auto-Response (Lambda Isolation, SNS Notification) | Security Hub Centralized Management</text>
-  <text x="340" y="560" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">EventBridge Event-Based Automation | CloudWatch Log Analysis &amp; Monitoring</text>
-  
-  <!-- DevSecOps Maturity -->
-  <rect x="650" y="330" width="500" height="250" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="900" y="360" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">DevSecOps Maturity Model</text>
-  
-  <rect x="680" y="380" width="100" height="80" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1"/>
-  <text x="730" y="405" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Initial</text>
-  <text x="730" y="425" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Manual</text>
-  <text x="730" y="440" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Process</text>
-  <text x="730" y="455" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Basic</text>
-  
-  <rect x="800" y="380" width="100" height="80" rx="5" fill="#1a1a2e" stroke="#ffd43b" stroke-width="1"/>
-  <text x="850" y="405" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffd43b" text-anchor="middle">Growth</text>
-  <text x="850" y="425" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Partial</text>
-  <text x="850" y="440" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Automation</text>
-  <text x="850" y="455" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Tooling</text>
-  
-  <rect x="920" y="380" width="100" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="970" y="405" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Mature</text>
-  <text x="970" y="425" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Integrated</text>
-  <text x="970" y="440" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Pipeline</text>
-  <text x="970" y="455" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Full Auto</text>
-  
-  <rect x="1040" y="380" width="100" height="80" rx="5" fill="#1a1a2e" stroke="#845ef7" stroke-width="1"/>
-  <text x="1090" y="405" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#845ef7" text-anchor="middle">Optimized</text>
-  <text x="1090" y="425" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Continuous</text>
-  <text x="1090" y="440" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Improvement</text>
-  <text x="1090" y="455" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Advanced</text>
-  
-  <rect x="680" y="480" width="460" height="90" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="910" y="510" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Maturity Stages: Initial -&gt; Growth -&gt; Mature -&gt; Optimized</text>
-  <text x="910" y="535" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Adoption Strategy: Security Integration Level Assessment | Culture &amp; Process Change | Practical Application Checklist</text>
-  <text x="910" y="560" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Complete CI/CD Security Pipeline: Code Security (Secret Scanning, SAST) | Build Security (SCA, Image Scan) | Deploy Security (IaC Scan, Policy) | Operate Security (Runtime, Monitoring)</text>
-  
-  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">DevSecOps Pipeline | AWS Security Integration | Maturity Model | Complete Security Lifecycle</text>
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

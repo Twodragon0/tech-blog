@@ -1,276 +1,189 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="dockerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0db7ed;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#066da5;stop-opacity:1" />
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <linearGradient id="k8sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#326ce5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="safeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    <filter id="shadow">
-      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
+    </filter>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1400" height="1000" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
   
-  <!-- Grid Pattern -->
-  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
   </pattern>
-  <rect width="1400" height="1000" fill="url(#grid)"/>
-
-  <!-- Title -->
-  <g transform="translate(700, 50)">
-    <text x="0" y="0" text-anchor="middle" font-size="36" font-weight="bold" fill="#ffffff" filter="url(#glow)">Docker &amp; Kubernetes Security</text>
-    <text x="0" y="35" text-anchor="middle" font-size="20" fill="#94a3b8">Cloud Security Course - Week 7 Practical Guide</text>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
   </g>
-
-  <!-- Docker Section -->
-  <g transform="translate(50, 110)">
-    <rect x="0" y="0" width="640" height="400" rx="15" fill="#1e293b" stroke="url(#dockerGrad)" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="640" height="45" rx="15" fill="url(#dockerGrad)"/>
-    <rect x="0" y="30" width="640" height="15" fill="#1e293b"/>
-    <text x="320" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Docker Container Security</text>
-
-    <!-- Docker Security Layers -->
-    <g transform="translate(20, 60)">
-      <!-- Layer 1: Image Security -->
-      <rect x="0" y="0" width="290" height="150" rx="10" fill="#0f172a" stroke="#0db7ed" stroke-width="1"/>
-      <text x="145" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#0db7ed">Image Security</text>
-      <text x="15" y="50" font-size="10" fill="#94a3b8">- Base image from trusted registry</text>
-      <text x="15" y="68" font-size="10" fill="#94a3b8">- Multi-stage builds</text>
-      <text x="15" y="86" font-size="10" fill="#94a3b8">- Trivy/Grype scanning</text>
-      <text x="15" y="104" font-size="10" fill="#94a3b8">- No root user (USER directive)</text>
-      <text x="15" y="122" font-size="10" fill="#22c55e">COPY --chown=app:app</text>
-      <text x="15" y="140" font-size="10" fill="#f59e0b">Distroless/Alpine preferred</text>
-
-      <!-- Layer 2: Runtime Security -->
-      <rect x="310" y="0" width="290" height="150" rx="10" fill="#0f172a" stroke="#0db7ed" stroke-width="1"/>
-      <text x="455" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#0db7ed">Runtime Security</text>
-      <text x="325" y="50" font-size="10" fill="#94a3b8">- --read-only filesystem</text>
-      <text x="325" y="68" font-size="10" fill="#94a3b8">- --cap-drop=ALL</text>
-      <text x="325" y="86" font-size="10" fill="#94a3b8">- --security-opt=no-new-privileges</text>
-      <text x="325" y="104" font-size="10" fill="#94a3b8">- Resource limits (--memory, --cpus)</text>
-      <text x="325" y="122" font-size="10" fill="#22c55e">seccomp/AppArmor profiles</text>
-      <text x="325" y="140" font-size="10" fill="#f59e0b">PID/Network namespace isolation</text>
-    </g>
-
-    <!-- Dockerfile Best Practices -->
-    <g transform="translate(20, 225)">
-      <rect x="0" y="0" width="600" height="155" rx="10" fill="#0f172a" stroke="#22c55e" stroke-width="1"/>
-      <text x="300" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#22c55e">Secure Dockerfile Example</text>
-      <text x="15" y="48" font-size="9" fill="#64748b" font-family="monospace"># Multi-stage build</text>
-      <text x="15" y="63" font-size="9" fill="#0db7ed" font-family="monospace">FROM node:20-alpine AS builder</text>
-      <text x="15" y="78" font-size="9" fill="#94a3b8" font-family="monospace">WORKDIR /app &amp;&amp; COPY package*.json ./</text>
-      <text x="15" y="93" font-size="9" fill="#94a3b8" font-family="monospace">RUN npm ci --only=production</text>
-      <text x="15" y="108" font-size="9" fill="#64748b" font-family="monospace"># Final stage - distroless</text>
-      <text x="15" y="123" font-size="9" fill="#0db7ed" font-family="monospace">FROM gcr.io/distroless/nodejs20-debian12</text>
-      <text x="15" y="138" font-size="9" fill="#f59e0b" font-family="monospace">USER nonroot:nonroot</text>
-      <text x="15" y="153" font-size="9" fill="#22c55e" font-family="monospace">CMD ["app.js"]</text>
-    </g>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
   </g>
-
-  <!-- Kubernetes Section -->
-  <g transform="translate(710, 110)">
-    <rect x="0" y="0" width="640" height="400" rx="15" fill="#1e293b" stroke="url(#k8sGrad)" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="640" height="45" rx="15" fill="url(#k8sGrad)"/>
-    <rect x="0" y="30" width="640" height="15" fill="#1e293b"/>
-    <text x="320" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Kubernetes Cluster Security</text>
-
-    <!-- K8s Security Layers -->
-    <g transform="translate(20, 60)">
-      <!-- RBAC -->
-      <rect x="0" y="0" width="190" height="150" rx="10" fill="#0f172a" stroke="#326ce5" stroke-width="1"/>
-      <text x="95" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#326ce5">RBAC</text>
-      <text x="10" y="48" font-size="9" fill="#94a3b8">Role/ClusterRole</text>
-      <text x="10" y="65" font-size="9" fill="#94a3b8">RoleBinding</text>
-      <text x="10" y="82" font-size="9" fill="#94a3b8">ServiceAccount</text>
-      <text x="10" y="99" font-size="9" fill="#22c55e">Least privilege</text>
-      <text x="10" y="116" font-size="9" fill="#f59e0b">Audit logging</text>
-      <text x="10" y="140" font-size="8" fill="#64748b">kubectl auth can-i</text>
-
-      <!-- Network Policy -->
-      <rect x="205" y="0" width="190" height="150" rx="10" fill="#0f172a" stroke="#326ce5" stroke-width="1"/>
-      <text x="300" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#326ce5">Network Policy</text>
-      <text x="215" y="48" font-size="9" fill="#94a3b8">Ingress rules</text>
-      <text x="215" y="65" font-size="9" fill="#94a3b8">Egress rules</text>
-      <text x="215" y="82" font-size="9" fill="#94a3b8">Pod selector</text>
-      <text x="215" y="99" font-size="9" fill="#22c55e">Namespace isolation</text>
-      <text x="215" y="116" font-size="9" fill="#f59e0b">Default deny</text>
-      <text x="215" y="140" font-size="8" fill="#64748b">Calico/Cilium CNI</text>
-
-      <!-- Pod Security -->
-      <rect x="410" y="0" width="190" height="150" rx="10" fill="#0f172a" stroke="#326ce5" stroke-width="1"/>
-      <text x="505" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#326ce5">Pod Security</text>
-      <text x="420" y="48" font-size="9" fill="#94a3b8">SecurityContext</text>
-      <text x="420" y="65" font-size="9" fill="#94a3b8">runAsNonRoot: true</text>
-      <text x="420" y="82" font-size="9" fill="#94a3b8">readOnlyRootFS</text>
-      <text x="420" y="99" font-size="9" fill="#22c55e">allowPrivilegeEsc: false</text>
-      <text x="420" y="116" font-size="9" fill="#f59e0b">PSS: restricted</text>
-      <text x="420" y="140" font-size="8" fill="#64748b">OPA Gatekeeper</text>
-    </g>
-
-    <!-- Pod Security Standards -->
-    <g transform="translate(20, 225)">
-      <rect x="0" y="0" width="600" height="155" rx="10" fill="#0f172a" stroke="#8b5cf6" stroke-width="1"/>
-      <text x="300" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#8b5cf6">Pod Security Standards (PSS)</text>
-      
-      <!-- Privileged -->
-      <rect x="15" y="40" width="180" height="100" rx="6" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="1"/>
-      <text x="105" y="60" text-anchor="middle" font-size="11" font-weight="bold" fill="#ef4444">Privileged</text>
-      <text x="105" y="78" text-anchor="middle" font-size="9" fill="#94a3b8">No restrictions</text>
-      <text x="105" y="94" text-anchor="middle" font-size="9" fill="#94a3b8">System workloads</text>
-      <text x="105" y="115" text-anchor="middle" font-size="8" fill="#ef4444">NOT recommended</text>
-      
-      <!-- Baseline -->
-      <rect x="210" y="40" width="180" height="100" rx="6" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
-      <text x="300" y="60" text-anchor="middle" font-size="11" font-weight="bold" fill="#f59e0b">Baseline</text>
-      <text x="300" y="78" text-anchor="middle" font-size="9" fill="#94a3b8">Minimal restrictions</text>
-      <text x="300" y="94" text-anchor="middle" font-size="9" fill="#94a3b8">Known privilege esc</text>
-      <text x="300" y="115" text-anchor="middle" font-size="8" fill="#f59e0b">Default for most</text>
-      
-      <!-- Restricted -->
-      <rect x="405" y="40" width="180" height="100" rx="6" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="1"/>
-      <text x="495" y="60" text-anchor="middle" font-size="11" font-weight="bold" fill="#22c55e">Restricted</text>
-      <text x="495" y="78" text-anchor="middle" font-size="9" fill="#94a3b8">Hardened best practices</text>
-      <text x="495" y="94" text-anchor="middle" font-size="9" fill="#94a3b8">Non-root, drop caps</text>
-      <text x="495" y="115" text-anchor="middle" font-size="8" fill="#22c55e">RECOMMENDED</text>
-    </g>
-  </g>
-
-  <!-- Security Tools Section -->
-  <g transform="translate(50, 530)">
-    <rect x="0" y="0" width="1300" height="200" rx="15" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
-    <text x="650" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#f59e0b">Container Security Tools Pipeline</text>
-
-    <!-- CI/CD Pipeline -->
-    <g transform="translate(30, 55)">
-      <!-- Build -->
-      <rect x="0" y="0" width="150" height="120" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1"/>
-      <text x="75" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="#3b82f6">BUILD</text>
-      <text x="75" y="45" text-anchor="middle" font-size="9" fill="#94a3b8">Hadolint</text>
-      <text x="75" y="60" text-anchor="middle" font-size="9" fill="#94a3b8">Dockerfile lint</text>
-      <text x="75" y="80" text-anchor="middle" font-size="9" fill="#22c55e">Dockle</text>
-      <text x="75" y="95" text-anchor="middle" font-size="9" fill="#94a3b8">Best practices</text>
-      <text x="75" y="115" text-anchor="middle" font-size="8" fill="#64748b">CIS Benchmark</text>
-
-      <path d="M160 60 L190 60" stroke="#f59e0b" stroke-width="2"/>
-      <polygon points="190,56 200,60 190,64" fill="#f59e0b"/>
-
-      <!-- Scan -->
-      <rect x="210" y="0" width="150" height="120" rx="8" fill="#0f172a" stroke="#8b5cf6" stroke-width="1"/>
-      <text x="285" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="#8b5cf6">SCAN</text>
-      <text x="285" y="45" text-anchor="middle" font-size="9" fill="#94a3b8">Trivy</text>
-      <text x="285" y="60" text-anchor="middle" font-size="9" fill="#94a3b8">Grype</text>
-      <text x="285" y="80" text-anchor="middle" font-size="9" fill="#22c55e">Snyk Container</text>
-      <text x="285" y="95" text-anchor="middle" font-size="9" fill="#94a3b8">CVE detection</text>
-      <text x="285" y="115" text-anchor="middle" font-size="8" fill="#64748b">SBOM generation</text>
-
-      <path d="M370 60 L400 60" stroke="#f59e0b" stroke-width="2"/>
-      <polygon points="400,56 410,60 400,64" fill="#f59e0b"/>
-
-      <!-- Registry -->
-      <rect x="420" y="0" width="150" height="120" rx="8" fill="#0f172a" stroke="#ec4899" stroke-width="1"/>
-      <text x="495" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="#ec4899">REGISTRY</text>
-      <text x="495" y="45" text-anchor="middle" font-size="9" fill="#94a3b8">Harbor</text>
-      <text x="495" y="60" text-anchor="middle" font-size="9" fill="#94a3b8">Image signing</text>
-      <text x="495" y="80" text-anchor="middle" font-size="9" fill="#22c55e">Notary/Cosign</text>
-      <text x="495" y="95" text-anchor="middle" font-size="9" fill="#94a3b8">Vulnerability DB</text>
-      <text x="495" y="115" text-anchor="middle" font-size="8" fill="#64748b">Retention policy</text>
-
-      <path d="M580 60 L610 60" stroke="#f59e0b" stroke-width="2"/>
-      <polygon points="610,56 620,60 610,64" fill="#f59e0b"/>
-
-      <!-- Deploy -->
-      <rect x="630" y="0" width="150" height="120" rx="8" fill="#0f172a" stroke="#22c55e" stroke-width="1"/>
-      <text x="705" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="#22c55e">DEPLOY</text>
-      <text x="705" y="45" text-anchor="middle" font-size="9" fill="#94a3b8">OPA Gatekeeper</text>
-      <text x="705" y="60" text-anchor="middle" font-size="9" fill="#94a3b8">Kyverno</text>
-      <text x="705" y="80" text-anchor="middle" font-size="9" fill="#22c55e">Admission control</text>
-      <text x="705" y="95" text-anchor="middle" font-size="9" fill="#94a3b8">Policy enforcement</text>
-      <text x="705" y="115" text-anchor="middle" font-size="8" fill="#64748b">GitOps (ArgoCD)</text>
-
-      <path d="M790 60 L820 60" stroke="#f59e0b" stroke-width="2"/>
-      <polygon points="820,56 830,60 820,64" fill="#f59e0b"/>
-
-      <!-- Runtime -->
-      <rect x="840" y="0" width="150" height="120" rx="8" fill="#0f172a" stroke="#ef4444" stroke-width="1"/>
-      <text x="915" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="#ef4444">RUNTIME</text>
-      <text x="915" y="45" text-anchor="middle" font-size="9" fill="#94a3b8">Falco</text>
-      <text x="915" y="60" text-anchor="middle" font-size="9" fill="#94a3b8">Sysdig</text>
-      <text x="915" y="80" text-anchor="middle" font-size="9" fill="#22c55e">Threat detection</text>
-      <text x="915" y="95" text-anchor="middle" font-size="9" fill="#94a3b8">Syscall monitoring</text>
-      <text x="915" y="115" text-anchor="middle" font-size="8" fill="#64748b">eBPF-based</text>
-
-      <path d="M1000 60 L1030 60" stroke="#f59e0b" stroke-width="2"/>
-      <polygon points="1030,56 1040,60 1030,64" fill="#f59e0b"/>
-
-      <!-- Monitor -->
-      <rect x="1050" y="0" width="150" height="120" rx="8" fill="#0f172a" stroke="#06b6d4" stroke-width="1"/>
-      <text x="1125" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="#06b6d4">MONITOR</text>
-      <text x="1125" y="45" text-anchor="middle" font-size="9" fill="#94a3b8">Prometheus</text>
-      <text x="1125" y="60" text-anchor="middle" font-size="9" fill="#94a3b8">Grafana</text>
-      <text x="1125" y="80" text-anchor="middle" font-size="9" fill="#22c55e">Alert rules</text>
-      <text x="1125" y="95" text-anchor="middle" font-size="9" fill="#94a3b8">SIEM integration</text>
-      <text x="1125" y="115" text-anchor="middle" font-size="8" fill="#64748b">Incident response</text>
-    </g>
-  </g>
-
-  <!-- Checklist Section -->
-  <g transform="translate(50, 750)">
-    <rect x="0" y="0" width="1300" height="130" rx="15" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
-    <text x="650" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#22c55e">Security Checklist - Practical Implementation</text>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">🚀 클라우드 보안 과정 8기 7주차: Docker &amp; Kubernetes 보안 실...</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
     
-    <g transform="translate(30, 45)">
-      <text x="0" y="15" font-size="10" fill="#e2e8f0">[ ] Use multi-stage builds with distroless/alpine base</text>
-      <text x="0" y="35" font-size="10" fill="#e2e8f0">[ ] Run containers as non-root user (UID 1000+)</text>
-      <text x="0" y="55" font-size="10" fill="#e2e8f0">[ ] Enable read-only root filesystem</text>
-      <text x="0" y="75" font-size="10" fill="#e2e8f0">[ ] Drop all capabilities, add only required ones</text>
-      
-      <text x="350" y="15" font-size="10" fill="#e2e8f0">[ ] Implement RBAC with least privilege principle</text>
-      <text x="350" y="35" font-size="10" fill="#e2e8f0">[ ] Apply Network Policies (default deny)</text>
-      <text x="350" y="55" font-size="10" fill="#e2e8f0">[ ] Use Pod Security Standards (restricted)</text>
-      <text x="350" y="75" font-size="10" fill="#e2e8f0">[ ] Enable audit logging for K8s API server</text>
-      
-      <text x="700" y="15" font-size="10" fill="#e2e8f0">[ ] Scan images in CI/CD with Trivy/Grype</text>
-      <text x="700" y="35" font-size="10" fill="#e2e8f0">[ ] Sign images with Cosign/Notary</text>
-      <text x="700" y="55" font-size="10" fill="#e2e8f0">[ ] Deploy OPA Gatekeeper/Kyverno policies</text>
-      <text x="700" y="75" font-size="10" fill="#e2e8f0">[ ] Monitor runtime with Falco/Sysdig</text>
-      
-      <text x="1050" y="15" font-size="10" fill="#22c55e">Priority: HIGH</text>
-      <text x="1050" y="35" font-size="10" fill="#f59e0b">Week 7 Focus</text>
-      <text x="1050" y="55" font-size="10" fill="#94a3b8">Practical labs</text>
-      <text x="1050" y="75" font-size="10" fill="#94a3b8">Hands-on exercises</text>
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
+  </g>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">Docker/K8s 보안, Pod Security Standards, User Namespaces, 이미지 스캔, 런타임</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">모니터링</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="87" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="43" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Docker</text>
+      <rect x="99" y="0" width="123" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="160" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Kubernetes</text>
+      <rect x="234" y="0" width="195" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="331" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Container-Security</text>
+      <rect x="441" y="0" width="60" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="471" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#K8s</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
     </g>
   </g>
-
-  <!-- Key Message -->
-  <g transform="translate(50, 900)">
-    <rect x="0" y="0" width="1300" height="50" rx="10" fill="#0db7ed" opacity="0.15" stroke="#0db7ed" stroke-width="2"/>
-    <text x="650" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#0db7ed">DEFENSE IN DEPTH: Image Security + Runtime Security + Network Isolation + Policy Enforcement + Continuous Monitoring</text>
-    <text x="650" y="40" text-anchor="middle" font-size="10" fill="#94a3b8">Cloud Security Course 8th Batch - Week 7 | Docker &amp; Kubernetes Security Practical Guide | tech.2twodragon.com</text>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

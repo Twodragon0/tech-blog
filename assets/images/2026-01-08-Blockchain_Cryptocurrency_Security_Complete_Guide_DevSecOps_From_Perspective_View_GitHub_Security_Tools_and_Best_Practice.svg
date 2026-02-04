@@ -1,223 +1,185 @@
-<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#0f3460;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <filter id="shadow">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="2" dy="2" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3"/>
-      </feComponentTransfer>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
-        <feMergeNode/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
-  
+
   <!-- Background -->
-  <rect width="1200" height="800" fill="url(#grad1)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
   
-  <!-- Title -->
-  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">
-    Blockchain Cryptocurrency Security: DevSecOps Pipeline
-  </text>
-  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">
-    GitHub Security Tools Integration &amp; Best Practices
-  </text>
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
   
-  <!-- CI/CD Pipeline Flow -->
-  <!-- Stage 1: Code Commit -->
-  <rect x="50" y="120" width="150" height="80" rx="10" fill="#0f3460" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="125" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e94560" text-anchor="middle">Code Commit</text>
-  <text x="125" y="175" font-family="Arial, sans-serif" font-size="11" fill="#a8dadc" text-anchor="middle">GitHub Repository</text>
-  <text x="125" y="190" font-family="Arial, sans-serif" font-size="11" fill="#a8dadc" text-anchor="middle">Solidity Contracts</text>
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
   
-  <!-- Arrow -->
-  <path d="M 200 160 L 250 160" stroke="#e94560" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
   
-  <!-- Stage 2: GitHub Actions Trigger -->
-  <rect x="250" y="120" width="150" height="80" rx="10" fill="#0f3460" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="325" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e94560" text-anchor="middle">GitHub Actions</text>
-  <text x="325" y="175" font-family="Arial, sans-serif" font-size="11" fill="#a8dadc" text-anchor="middle">CI/CD Pipeline</text>
-  <text x="325" y="190" font-family="Arial, sans-serif" font-size="11" fill="#a8dadc" text-anchor="middle">Automated Security</text>
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
   
-  <!-- Arrow -->
-  <path d="M 400 160 L 450 160" stroke="#e94560" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
+  </g>
   
-  <!-- Stage 3: Security Tools -->
-  <rect x="450" y="100" width="300" height="120" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="600" y="125" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e94560" text-anchor="middle">Security Analysis Tools</text>
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
+  </g>
   
-  <!-- Slither -->
-  <rect x="470" y="140" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="530" y="160" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">Slither</text>
-  <text x="530" y="180" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Static Analysis</text>
-  <text x="530" y="195" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Fast Scan</text>
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub ...</text>
   
-  <!-- Mythril -->
-  <rect x="610" y="140" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="670" y="160" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">Mythril</text>
-  <text x="670" y="180" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Symbolic Exec</text>
-  <text x="670" y="195" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Deep Analysis</text>
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
   
-  <!-- Securify -->
-  <rect x="470" y="220" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="530" y="240" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">Securify 2.0</text>
-  <text x="530" y="260" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Pattern Match</text>
-  <text x="530" y="275" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">High Accuracy</text>
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
+  </g>
   
-  <!-- Medusa -->
-  <rect x="610" y="220" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="670" y="240" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">Medusa 2025</text>
-  <text x="670" y="260" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Fuzzing</text>
-  <text x="670" y="275" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Coverage Based</text>
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">블록체인 암호화폐 보안 DevSecOps 완벽 가이드</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="123" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="61" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Blockchain</text>
+      <rect x="135" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="214" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Cryptocurrency</text>
+      <rect x="306" y="0" width="96" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="354" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Bitcoin</text>
+      <rect x="414" y="0" width="105" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="466" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Ethereum</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+    </g>
+  </g>
   
-  <!-- Arrow -->
-  <path d="M 750 160 L 800 160" stroke="#e94560" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
   
-  <!-- Stage 4: Dependency Scan -->
-  <rect x="800" y="120" width="150" height="80" rx="10" fill="#0f3460" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="875" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e94560" text-anchor="middle">Dependency Scan</text>
-  <text x="875" y="175" font-family="Arial, sans-serif" font-size="11" fill="#a8dadc" text-anchor="middle">npm audit</text>
-  <text x="875" y="190" font-family="Arial, sans-serif" font-size="11" fill="#a8dadc" text-anchor="middle">Vulnerability Check</text>
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
   
-  <!-- Arrow -->
-  <path d="M 950 160 L 1000 160" stroke="#e94560" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
   
-  <!-- Stage 5: Deployment -->
-  <rect x="1000" y="120" width="150" height="80" rx="10" fill="#0f3460" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="1075" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e94560" text-anchor="middle">Deploy</text>
-  <text x="1075" y="175" font-family="Arial, sans-serif" font-size="11" fill="#a8dadc" text-anchor="middle">Mainnet</text>
-  <text x="1075" y="190" font-family="Arial, sans-serif" font-size="11" fill="#a8dadc" text-anchor="middle">Production</text>
-  
-  <!-- Security Threats Section -->
-  <rect x="50" y="280" width="500" height="200" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="300" y="310" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Common Security Threats</text>
-  
-  <!-- Threat 1: Reentrancy -->
-  <rect x="70" y="330" width="110" height="60" rx="5" fill="#1a1a2e" stroke="#e94560" stroke-width="1"/>
-  <text x="125" y="350" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Reentrancy</text>
-  <text x="125" y="370" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Function Re-entry</text>
-  <text x="125" y="385" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Fund Drain</text>
-  
-  <!-- Threat 2: Integer Overflow -->
-  <rect x="200" y="330" width="110" height="60" rx="5" fill="#1a1a2e" stroke="#e94560" stroke-width="1"/>
-  <text x="255" y="350" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Integer Overflow</text>
-  <text x="255" y="370" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Math Error</text>
-  <text x="255" y="385" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Asset Manipulation</text>
-  
-  <!-- Threat 3: Access Control -->
-  <rect x="330" y="330" width="110" height="60" rx="5" fill="#1a1a2e" stroke="#e94560" stroke-width="1"/>
-  <text x="385" y="350" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Access Control</text>
-  <text x="385" y="370" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Unauthorized</text>
-  <text x="385" y="385" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Access</text>
-  
-  <!-- Threat 4: Oracle Manipulation -->
-  <rect x="460" y="330" width="110" height="60" rx="5" fill="#1a1a2e" stroke="#e94560" stroke-width="1"/>
-  <text x="515" y="350" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Oracle Manip</text>
-  <text x="515" y="370" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Data Source</text>
-  <text x="515" y="385" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Tampering</text>
-  
-  <!-- Threat 5: Front-running -->
-  <rect x="70" y="410" width="110" height="60" rx="5" fill="#1a1a2e" stroke="#e94560" stroke-width="1"/>
-  <text x="125" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Front-running</text>
-  <text x="125" y="450" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Transaction</text>
-  <text x="125" y="465" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Order Manipulation</text>
-  
-  <!-- Threat 6: 51% Attack -->
-  <rect x="200" y="410" width="110" height="60" rx="5" fill="#1a1a2e" stroke="#e94560" stroke-width="1"/>
-  <text x="255" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">51% Attack</text>
-  <text x="255" y="450" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Network</text>
-  <text x="255" y="465" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Consensus Attack</text>
-  
-  <!-- Statistics Section -->
-  <rect x="600" y="280" width="550" height="200" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="875" y="310" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">2024-2025 Security Statistics</text>
-  
-  <!-- Stat 1: Total Loss -->
-  <rect x="620" y="330" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#e94560" stroke-width="1"/>
-  <text x="700" y="355" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e94560" text-anchor="middle">Total Loss</text>
-  <text x="700" y="375" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">$3.4B</text>
-  <text x="700" y="395" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">2024-2025</text>
-  
-  <!-- Stat 2: Bybit Hack -->
-  <rect x="800" y="330" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#e94560" stroke-width="1"/>
-  <text x="880" y="355" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e94560" text-anchor="middle">Bybit Hack</text>
-  <text x="880" y="375" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">$1.5B</text>
-  <text x="880" y="395" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Feb 2025</text>
-  
-  <!-- Stat 3: Smart Contract -->
-  <rect x="980" y="330" width="160" height="70" rx="5" fill="#1a1a2e" stroke="#e94560" stroke-width="1"/>
-  <text x="1060" y="355" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#e94560" text-anchor="middle">Smart Contract</text>
-  <text x="1060" y="375" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f1faee" text-anchor="middle">60%</text>
-  <text x="1060" y="395" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Vulnerabilities</text>
-  
-  <!-- Threat Distribution -->
-  <rect x="620" y="410" width="250" height="60" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="745" y="430" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">Threat Distribution</text>
-  <text x="745" y="450" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Smart Contract: 60% | Exchange: 30% | Wallet: 10%</text>
-  
-  <!-- Best Practices Section -->
-  <rect x="50" y="520" width="1100" height="250" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="600" y="550" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">Security Best Practices</text>
-  
-  <!-- Practice 1: Multi-Tool Approach -->
-  <rect x="70" y="570" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="170" y="595" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">Multi-Tool Approach</text>
-  <text x="170" y="615" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Combine Slither, Mythril,</text>
-  <text x="170" y="630" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Securify for comprehensive</text>
-  <text x="170" y="645" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">security coverage</text>
-  
-  <!-- Practice 2: Automated Testing -->
-  <rect x="290" y="570" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="390" y="595" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">Automated Testing</text>
-  <text x="390" y="615" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Fuzz testing with Foundry,</text>
-  <text x="390" y="630" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Medusa. Property-based</text>
-  <text x="390" y="645" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">testing with Echidna</text>
-  
-  <!-- Practice 3: CI/CD Integration -->
-  <rect x="510" y="570" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="610" y="595" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">CI/CD Integration</text>
-  <text x="610" y="615" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">GitHub Actions automated</text>
-  <text x="610" y="630" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">security scans on every</text>
-  <text x="610" y="645" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">commit and PR</text>
-  
-  <!-- Practice 4: Defense in Depth -->
-  <rect x="730" y="570" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="830" y="595" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">Defense in Depth</text>
-  <text x="830" y="615" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Multiple security layers:</text>
-  <text x="830" y="630" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Code, Network, Wallet,</text>
-  <text x="830" y="645" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Exchange levels</text>
-  
-  <!-- Practice 5: Regular Audits -->
-  <rect x="950" y="570" width="200" height="80" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="1050" y="595" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">Regular Audits</text>
-  <text x="1050" y="615" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">External security audits</text>
-  <text x="1050" y="630" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">before mainnet deployment.</text>
-  <text x="1050" y="645" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Bug bounty programs</text>
-  
-  <!-- Security Checklist -->
-  <rect x="70" y="670" width="1080" height="90" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="610" y="695" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">Security Checklist</text>
-  <text x="610" y="720" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Reentrancy Protection | Integer Overflow Check | Access Control | Oracle Validation | Front-running Mitigation</text>
-  <text x="610" y="740" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Emergency Pause | Time Lock | Multi-signature | Key Management | Regular Updates</text>
-  
-  <!-- Arrow marker definition -->
-  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#e94560"/>
-    </marker>
-  </defs>
-  
-  <!-- Footer -->
-  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">
-    DevSecOps Approach: Security from Development to Deployment | 2024-2025 Statistics
-  </text>
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

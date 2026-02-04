@@ -1,177 +1,191 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <!-- Gradients -->
+    <!-- Background Gradients -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0066CC;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#004499;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00AA44;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#008833;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FF6600;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#CC5500;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#9D4EDD;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#7B2CBF;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
     
-    <!-- Glow effects -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <!-- Category Gradient -->
+    <linearGradient id="devsecopsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
     
-    <!-- Arrow marker definition -->
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#00AA44"/>
-    </marker>
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
-  
+
   <!-- Background -->
-  <rect width="1200" height="800" fill="url(#bgGradient)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
   
-  <!-- Grid pattern (subtle) -->
-  <defs>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect width="1200" height="800" fill="url(#grid)"/>
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#a78bfa" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#8b5cf6" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#7c3aed" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#8b5cf6" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#devsecopsGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">DEVSECOPS</text>
+  </g>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
+  </g>
   
   <!-- Main Title -->
-  <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF">
-    <tspan x="600" dy="0">AI Music Video Generation</tspan>
-    <tspan x="600" dy="60">Complete Guide</tspan>
-  </text>
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI 기반 음악 비디오 생성 완벽 가이드: DevSecOps 관점에서 본 생성형 ...</text>
   
-  <!-- Subtitle -->
-  <text x="600" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#B0B0B0">
-    DevSecOps Perspective on Generative AI
-  </text>
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
   
-  <!-- Pipeline Flow -->
-  <!-- Step 1: Image Generation -->
-  <g transform="translate(150, 320)">
-    <rect x="0" y="0" width="180" height="140" rx="12" fill="url(#blueGradient)" opacity="0.9" filter="url(#glow)"/>
-    <circle cx="90" cy="40" r="25" fill="#FFFFFF" opacity="0.2"/>
-    <path d="M 70 40 L 85 55 L 110 30" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <text x="90" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">Image Generation</text>
-    <text x="90" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E0E0E0">Midjourney</text>
-    <text x="90" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E0E0E0">Nano Banana</text>
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield with Code -->
+    <g transform="translate(80, 275)">
+      <path d="M50 5 L95 25 L95 65 Q95 100 50 120 Q5 100 5 65 L5 25 Z" 
+            fill="url(#devsecopsGradient)" stroke="#8b5cf6" stroke-width="2" opacity="0.9"/>
+      <text x="50" y="75" font-family="monospace" font-size="28" font-weight="bold" fill="white" text-anchor="middle">&lt;/&gt;</text>
+    </g>
+    
+    <!-- Pipeline Arrow -->
+    <g transform="translate(200, 300)">
+      <rect x="0" y="20" width="30" height="30" rx="5" fill="#3b82f6"/>
+      <text x="15" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">D</text>
+      <path d="M35 35 L50 35" stroke="#64748b" stroke-width="3"/>
+      <rect x="55" y="20" width="30" height="30" rx="5" fill="#8b5cf6"/>
+      <text x="70" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">S</text>
+      <path d="M90 35 L105 35" stroke="#64748b" stroke-width="3"/>
+      <rect x="110" y="20" width="30" height="30" rx="5" fill="#22c55e"/>
+      <text x="125" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">O</text>
+    </g>
+    
+    <!-- Security Scanner -->
+    <g transform="translate(360, 290)">
+      <circle cx="30" cy="35" r="25" fill="none" stroke="#ef4444" stroke-width="3"/>
+      <line x1="48" y1="53" x2="65" y2="70" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+      <path d="M20 35 L25 40 L40 25" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
   </g>
   
-  <!-- Arrow 1 -->
-  <path d="M 330 390 L 370 390" stroke="#00AA44" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Step 2: Music Generation -->
-  <g transform="translate(390, 320)">
-    <rect x="0" y="0" width="180" height="140" rx="12" fill="url(#greenGradient)" opacity="0.9" filter="url(#glow)"/>
-    <circle cx="90" cy="40" r="25" fill="#FFFFFF" opacity="0.2"/>
-    <path d="M 75 30 L 75 50 M 85 30 L 85 50 M 95 30 L 95 50 M 105 30 L 105 50" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <text x="90" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">Music Generation</text>
-    <text x="90" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E0E0E0">Suno V5</text>
-    <text x="90" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E0E0E0">MIDI Export</text>
-  </g>
-  
-  <!-- Arrow 2 -->
-  <path d="M 570 390 L 610 390" stroke="#00AA44" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Step 3: Animation -->
-  <g transform="translate(630, 320)">
-    <rect x="0" y="0" width="180" height="140" rx="12" fill="url(#orangeGradient)" opacity="0.9" filter="url(#glow)"/>
-    <circle cx="90" cy="40" r="25" fill="#FFFFFF" opacity="0.2"/>
-    <rect x="75" y="25" width="30" height="30" rx="4" stroke="#FFFFFF" stroke-width="2" fill="none"/>
-    <circle cx="85" cy="35" r="2" fill="#FFFFFF"/>
-    <circle cx="95" cy="35" r="2" fill="#FFFFFF"/>
-    <path d="M 80 45 L 100 45" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
-    <text x="90" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">Animation</text>
-    <text x="90" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E0E0E0">Veo 3</text>
-    <text x="90" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E0E0E0">1080p Multishot</text>
-  </g>
-  
-  <!-- Arrow 3 -->
-  <path d="M 810 390 L 850 390" stroke="#00AA44" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Step 4: Final Video -->
-  <g transform="translate(870, 320)">
-    <rect x="0" y="0" width="180" height="140" rx="12" fill="url(#purpleGradient)" opacity="0.9" filter="url(#glow)"/>
-    <circle cx="90" cy="40" r="25" fill="#FFFFFF" opacity="0.2"/>
-    <rect x="75" y="25" width="30" height="20" rx="2" fill="#FFFFFF" opacity="0.8"/>
-    <polygon points="85,30 95,35 85,40" fill="#1a1a2e"/>
-    <text x="90" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">Final Video</text>
-    <text x="90" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E0E0E0">Integration</text>
-    <text x="90" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#E0E0E0">Quality Check</text>
-  </g>
-  
-  <!-- Security Layer (Bottom) -->
-  <g transform="translate(0, 520)">
-    <rect x="150" y="0" width="900" height="200" rx="12" fill="rgba(0,170,68,0.1)" stroke="#00AA44" stroke-width="2" stroke-dasharray="5,5"/>
-    <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#00AA44">DevSecOps Security Layer</text>
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
     
-    <!-- Security Items -->
-    <g transform="translate(200, 70)">
-      <circle cx="0" cy="0" r="8" fill="#00AA44"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" font-size="14" fill="#E0E0E0">API Key Management</text>
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#devsecopsGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#a78bfa">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#a78bfa"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">AI 음악 비디오 생성 DevSecOps 보안 가이드</text>
     </g>
     
-    <g transform="translate(200, 100)">
-      <circle cx="0" cy="0" r="8" fill="#00AA44"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" font-size="14" fill="#E0E0E0">Data Privacy</text>
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="51" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="25" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#AI</text>
+      <rect x="63" y="0" width="150" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="138" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#Generative-AI</text>
+      <rect x="225" y="0" width="132" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="291" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#Music-Video</text>
+      <rect x="369" y="0" width="114" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="426" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#DevSecOps</text>
     </g>
     
-    <g transform="translate(200, 130)">
-      <circle cx="0" cy="0" r="8" fill="#00AA44"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" font-size="14" fill="#E0E0E0">Copyright Protection</text>
-    </g>
-    
-    <g transform="translate(500, 70)">
-      <circle cx="0" cy="0" r="8" fill="#00AA44"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" font-size="14" fill="#E0E0E0">AI Model Security</text>
-    </g>
-    
-    <g transform="translate(500, 100)">
-      <circle cx="0" cy="0" r="8" fill="#00AA44"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" font-size="14" fill="#E0E0E0">Content Verification</text>
-    </g>
-    
-    <g transform="translate(500, 130)">
-      <circle cx="0" cy="0" r="8" fill="#00AA44"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" font-size="14" fill="#E0E0E0">Zero-Trust Architecture</text>
-    </g>
-    
-    <g transform="translate(800, 70)">
-      <circle cx="0" cy="0" r="8" fill="#00AA44"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" font-size="14" fill="#E0E0E0">Cost Monitoring</text>
-    </g>
-    
-    <g transform="translate(800, 100)">
-      <circle cx="0" cy="0" r="8" fill="#00AA44"/>
-      <text x="20" y="5" font-family="Arial, sans-serif" font-size="14" fill="#E0E0E0">Continuous Monitoring</text>
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
     </g>
   </g>
   
-  <!-- Decorative elements -->
-  <circle cx="100" cy="100" r="3" fill="#0066CC" opacity="0.5">
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1100" cy="150" r="3" fill="#FF6600" opacity="0.5">
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" begin="0.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1050" cy="700" r="3" fill="#9D4EDD" opacity="0.5">
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" begin="1s" repeatCount="indefinite"/>
-  </circle>
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
   
-  <!-- Footer -->
-  <text x="1150" y="790" text-anchor="end" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.3)">2026</text>
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#devsecopsGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

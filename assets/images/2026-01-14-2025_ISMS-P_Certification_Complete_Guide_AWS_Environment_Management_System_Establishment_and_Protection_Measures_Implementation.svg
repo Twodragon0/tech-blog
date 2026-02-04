@@ -1,467 +1,185 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="50%" style="stop-color:#1e293b"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
+    </linearGradient>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
       <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1a237e"/>
-      <stop offset="50%" style="stop-color:#283593"/>
-      <stop offset="100%" style="stop-color:#3949ab"/>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#FF9900"/>
-      <stop offset="100%" style="stop-color:#FF6600"/>
-    </linearGradient>
-    <linearGradient id="ismspGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#00AA44"/>
-      <stop offset="100%" style="stop-color:#008833"/>
-    </linearGradient>
-    <linearGradient id="nistGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
-    </linearGradient>
-    <linearGradient id="protectGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#a855f7"/>
-      <stop offset="100%" style="stop-color:#9333ea"/>
-    </linearGradient>
-    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ec4899"/>
-      <stop offset="100%" style="stop-color:#db2777"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="shadow">
-      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.5" opacity="0.3"/>
-    </pattern>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
-  
+
   <!-- Background -->
-  <rect width="1400" height="1000" fill="url(#bgGrad)"/>
-  <rect width="1400" height="1000" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
   
-  <!-- Header -->
-  <rect x="50" y="20" width="1300" height="80" rx="15" fill="url(#headerGrad)" filter="url(#shadow)"/>
-  <text x="700" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">2025 ISMS-P Certification Complete Guide</text>
-  <text x="700" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#e0e0ff">AWS Environment | Management System Establishment | Protection Measures | NIST CSF 2.0 | 101 Criteria</text>
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
   
-  <!-- Stats Row -->
-  <g transform="translate(50, 115)">
-    <rect x="0" y="0" width="200" height="45" rx="8" fill="#1e3a5f" stroke="#00AA44" stroke-width="2"/>
-    <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#4ade80">101</text>
-    <text x="100" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Total Criteria</text>
-  </g>
-  <g transform="translate(265, 115)">
-    <rect x="0" y="0" width="200" height="45" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
-    <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#60a5fa">16</text>
-    <text x="100" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Management System</text>
-  </g>
-  <g transform="translate(480, 115)">
-    <rect x="0" y="0" width="200" height="45" rx="8" fill="#1e3a5f" stroke="#a855f7" stroke-width="2"/>
-    <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#c084fc">64</text>
-    <text x="100" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Protection Measures</text>
-  </g>
-  <g transform="translate(695, 115)">
-    <rect x="0" y="0" width="200" height="45" rx="8" fill="#1e3a5f" stroke="#ec4899" stroke-width="2"/>
-    <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f472b6">21</text>
-    <text x="100" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Personal Info Protection</text>
-  </g>
-  <g transform="translate(910, 115)">
-    <rect x="0" y="0" width="200" height="45" rx="8" fill="#1e3a5f" stroke="#FF9900" stroke-width="2"/>
-    <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fbbf24">3 Years</text>
-    <text x="100" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Certification Validity</text>
-  </g>
-  <g transform="translate(1125, 115)">
-    <rect x="0" y="0" width="225" height="45" rx="8" fill="#1e3a5f" stroke="#22c55e" stroke-width="2"/>
-    <text x="112" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#4ade80">KISA Certified</text>
-    <text x="112" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Korea Internet Security Agency</text>
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
   </g>
   
-  <!-- Main Content Row 1 -->
-  <!-- ISMS-P Structure -->
-  <g transform="translate(50, 175)">
-    <rect x="0" y="0" width="430" height="250" rx="12" fill="#0f1729" stroke="#00AA44" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="430" height="35" rx="12" fill="url(#ismspGrad)"/>
-    <rect x="0" y="20" width="430" height="15" fill="url(#ismspGrad)"/>
-    <text x="215" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">ISMS-P 101 CRITERIA STRUCTURE</text>
-    
-    <!-- Management System -->
-    <rect x="15" y="45" width="195" height="90" rx="8" fill="#0f2a1a" stroke="#4ade80" stroke-width="1"/>
-    <text x="112" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4ade80">Management System (16)</text>
-    <text x="25" y="83" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">Policy Establishment</text>
-    <text x="25" y="96" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">Organization Structure</text>
-    <text x="25" y="109" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">Risk Management</text>
-    <text x="25" y="122" font-family="Arial, sans-serif" font-size="8" fill="#bbf7d0">Continuous Improvement</text>
-    
-    <!-- Protection Measures -->
-    <rect x="220" y="45" width="195" height="90" rx="8" fill="#1a0f2a" stroke="#c084fc" stroke-width="1"/>
-    <text x="317" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c084fc">Protection Measures (64)</text>
-    <text x="230" y="83" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">Access Control</text>
-    <text x="230" y="96" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">Encryption</text>
-    <text x="230" y="109" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">Network Security</text>
-    <text x="230" y="122" font-family="Arial, sans-serif" font-size="8" fill="#e9d5ff">Incident Response</text>
-    
-    <!-- Personal Info -->
-    <rect x="15" y="145" width="400" height="95" rx="8" fill="#2a0f1a" stroke="#f472b6" stroke-width="1"/>
-    <text x="215" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f472b6">Personal Information Protection (21)</text>
-    <g transform="translate(25, 180)">
-      <rect x="0" y="0" width="85" height="50" rx="4" fill="#3b0f2a"/>
-      <text x="42" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fce7f3">Collection</text>
-      <text x="42" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fce7f3">Consent</text>
-      <text x="42" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fce7f3">Minimal Data</text>
-    </g>
-    <g transform="translate(120, 180)">
-      <rect x="0" y="0" width="85" height="50" rx="4" fill="#3b0f2a"/>
-      <text x="42" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fce7f3">Usage</text>
-      <text x="42" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fce7f3">Purpose Limit</text>
-      <text x="42" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fce7f3">Access Log</text>
-    </g>
-    <g transform="translate(215, 180)">
-      <rect x="0" y="0" width="85" height="50" rx="4" fill="#3b0f2a"/>
-      <text x="42" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fce7f3">Transfer</text>
-      <text x="42" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fce7f3">3rd Party Mgmt</text>
-      <text x="42" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fce7f3">Cross-Border</text>
-    </g>
-    <g transform="translate(310, 180)">
-      <rect x="0" y="0" width="85" height="50" rx="4" fill="#3b0f2a"/>
-      <text x="42" y="18" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fce7f3">Destruction</text>
-      <text x="42" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fce7f3">Retention Period</text>
-      <text x="42" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fce7f3">Secure Delete</text>
-    </g>
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
   </g>
   
-  <!-- NIST CSF 2.0 Mapping -->
-  <g transform="translate(495, 175)">
-    <rect x="0" y="0" width="430" height="250" rx="12" fill="#0f1729" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="430" height="35" rx="12" fill="url(#nistGrad)"/>
-    <rect x="0" y="20" width="430" height="15" fill="url(#nistGrad)"/>
-    <text x="215" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">NIST CSF 2.0 MAPPING</text>
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호...</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
     
-    <!-- 6 Functions -->
-    <g transform="translate(15, 50)">
-      <rect x="0" y="0" width="125" height="55" rx="6" fill="#1e3a5f" stroke="#ef4444" stroke-width="2"/>
-      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f87171">GOVERN</text>
-      <text x="62" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fecaca">Policy, Organization</text>
-      <text x="62" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fecaca">Risk Management</text>
-    </g>
-    <g transform="translate(150, 50)">
-      <rect x="0" y="0" width="125" height="55" rx="6" fill="#1e3a5f" stroke="#f97316" stroke-width="2"/>
-      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fb923c">IDENTIFY</text>
-      <text x="62" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fed7aa">Asset Management</text>
-      <text x="62" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fed7aa">Risk Assessment</text>
-    </g>
-    <g transform="translate(285, 50)">
-      <rect x="0" y="0" width="125" height="55" rx="6" fill="#1e3a5f" stroke="#22c55e" stroke-width="2"/>
-      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4ade80">PROTECT</text>
-      <text x="62" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">Access Control</text>
-      <text x="62" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">Encryption</text>
-    </g>
-    <g transform="translate(15, 115)">
-      <rect x="0" y="0" width="125" height="55" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
-      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#60a5fa">DETECT</text>
-      <text x="62" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#93c5fd">Monitoring</text>
-      <text x="62" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#93c5fd">Anomaly Detection</text>
-    </g>
-    <g transform="translate(150, 115)">
-      <rect x="0" y="0" width="125" height="55" rx="6" fill="#1e3a5f" stroke="#a855f7" stroke-width="2"/>
-      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c084fc">RESPOND</text>
-      <text x="62" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Incident Response</text>
-      <text x="62" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Communication</text>
-    </g>
-    <g transform="translate(285, 115)">
-      <rect x="0" y="0" width="125" height="55" rx="6" fill="#1e3a5f" stroke="#ec4899" stroke-width="2"/>
-      <text x="62" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f472b6">RECOVER</text>
-      <text x="62" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fce7f3">Recovery Plan</text>
-      <text x="62" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#fce7f3">Improvements</text>
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
     
-    <!-- 2025 Update Note -->
-    <rect x="15" y="180" width="400" height="60" rx="6" fill="#1e3a5f" stroke="#fbbf24" stroke-width="1"/>
-    <text x="215" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fde047">2025 Key Updates</text>
-    <text x="25" y="215" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">GOVERN Function Added | AI Security Requirements | Cloud Security Enhanced</text>
-    <text x="25" y="230" font-family="Arial, sans-serif" font-size="8" fill="#fef9c3">Encryption Mandatory (Transit/Rest) | ISMS-P + NIST CSF 2.0 Integration</text>
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
   </g>
   
-  <!-- AWS Implementation -->
-  <g transform="translate(940, 175)">
-    <rect x="0" y="0" width="410" height="250" rx="12" fill="#0f1729" stroke="#FF9900" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="410" height="35" rx="12" fill="url(#awsGrad)"/>
-    <rect x="0" y="20" width="410" height="15" fill="url(#awsGrad)"/>
-    <text x="205" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">AWS COMPLIANCE IMPLEMENTATION</text>
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
     
-    <!-- IAM -->
-    <rect x="15" y="45" width="185" height="95" rx="6" fill="#2a1a0f" stroke="#fbbf24" stroke-width="1"/>
-    <text x="107" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fbbf24">Access Control</text>
-    <text x="25" y="78" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">IAM: Role-based Access</text>
-    <text x="25" y="91" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">Security Groups: Network</text>
-    <text x="25" y="104" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">NACL: Subnet Level</text>
-    <text x="25" y="117" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">MFA: Multi-Factor Auth</text>
-    <text x="25" y="130" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">Least Privilege Principle</text>
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
     
-    <!-- Encryption -->
-    <rect x="210" y="45" width="185" height="95" rx="6" fill="#2a1a0f" stroke="#fbbf24" stroke-width="1"/>
-    <text x="302" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fbbf24">Encryption</text>
-    <text x="220" y="78" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">KMS: Key Management</text>
-    <text x="220" y="91" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">S3: SSE-S3, SSE-KMS</text>
-    <text x="220" y="104" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">RDS: Encryption at Rest</text>
-    <text x="220" y="117" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">TLS 1.2+: In Transit</text>
-    <text x="220" y="130" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">ACM: Certificate Mgmt</text>
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">Key Highlights</text>
     
-    <!-- Monitoring -->
-    <rect x="15" y="150" width="185" height="90" rx="6" fill="#2a1a0f" stroke="#fbbf24" stroke-width="1"/>
-    <text x="107" y="167" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fbbf24">Monitoring &amp; Logging</text>
-    <text x="25" y="183" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">CloudTrail: API Logging</text>
-    <text x="25" y="196" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">CloudWatch: Metrics/Alarms</text>
-    <text x="25" y="209" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">Security Hub: Findings</text>
-    <text x="25" y="222" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">GuardDuty: Threat Detect</text>
-    <text x="25" y="235" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">Config: Compliance Rules</text>
-    
-    <!-- Network -->
-    <rect x="210" y="150" width="185" height="90" rx="6" fill="#2a1a0f" stroke="#fbbf24" stroke-width="1"/>
-    <text x="302" y="167" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fbbf24">Network Security</text>
-    <text x="220" y="183" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">VPC: Isolated Network</text>
-    <text x="220" y="196" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">Subnet: Public/Private</text>
-    <text x="220" y="209" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">NAT Gateway: Outbound</text>
-    <text x="220" y="222" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">WAF: Web Protection</text>
-    <text x="220" y="235" font-family="Arial, sans-serif" font-size="8" fill="#fef3c7">Shield: DDoS Protection</text>
-  </g>
-  
-  <!-- Defense in Depth Architecture -->
-  <g transform="translate(50, 440)">
-    <rect x="0" y="0" width="1300" height="200" rx="12" fill="#0f1729" stroke="#22c55e" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="1300" height="35" rx="12" fill="#16a34a"/>
-    <rect x="0" y="20" width="1300" height="15" fill="#16a34a"/>
-    <text x="650" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">AWS DEFENSE IN DEPTH ARCHITECTURE</text>
-    
-    <!-- Layer 1: Perimeter -->
-    <rect x="20" y="50" width="240" height="140" rx="10" fill="#0f2a1a" stroke="#ef4444" stroke-width="2"/>
-    <text x="140" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f87171">Layer 1: Perimeter</text>
-    <text x="30" y="92" font-family="Arial, sans-serif" font-size="9" fill="#fecaca">AWS Shield (DDoS Protection)</text>
-    <text x="30" y="107" font-family="Arial, sans-serif" font-size="9" fill="#fecaca">AWS WAF (Web Application FW)</text>
-    <text x="30" y="122" font-family="Arial, sans-serif" font-size="9" fill="#fecaca">CloudFront (CDN + Edge)</text>
-    <text x="30" y="137" font-family="Arial, sans-serif" font-size="9" fill="#fecaca">Route 53 (DNS Security)</text>
-    <text x="30" y="152" font-family="Arial, sans-serif" font-size="9" fill="#fecaca">API Gateway (Rate Limit)</text>
-    <text x="30" y="175" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">Edge Protection Layer</text>
-    
-    <!-- Layer 2: Network -->
-    <rect x="280" y="50" width="240" height="140" rx="10" fill="#0f2a1a" stroke="#f97316" stroke-width="2"/>
-    <text x="400" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fb923c">Layer 2: Network</text>
-    <text x="290" y="92" font-family="Arial, sans-serif" font-size="9" fill="#fed7aa">VPC (Virtual Private Cloud)</text>
-    <text x="290" y="107" font-family="Arial, sans-serif" font-size="9" fill="#fed7aa">Subnets (Public/Private)</text>
-    <text x="290" y="122" font-family="Arial, sans-serif" font-size="9" fill="#fed7aa">NACL (Network ACL)</text>
-    <text x="290" y="137" font-family="Arial, sans-serif" font-size="9" fill="#fed7aa">Security Groups</text>
-    <text x="290" y="152" font-family="Arial, sans-serif" font-size="9" fill="#fed7aa">VPC Flow Logs</text>
-    <text x="290" y="175" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">Network Segmentation</text>
-    
-    <!-- Layer 3: Compute -->
-    <rect x="540" y="50" width="240" height="140" rx="10" fill="#0f2a1a" stroke="#eab308" stroke-width="2"/>
-    <text x="660" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fde047">Layer 3: Compute</text>
-    <text x="550" y="92" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">EC2 Instance Security</text>
-    <text x="550" y="107" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">ECS/EKS Container Security</text>
-    <text x="550" y="122" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">Lambda Function Security</text>
-    <text x="550" y="137" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">Systems Manager (SSM)</text>
-    <text x="550" y="152" font-family="Arial, sans-serif" font-size="9" fill="#fef9c3">Inspector (Vulnerability)</text>
-    <text x="550" y="175" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">Workload Protection</text>
-    
-    <!-- Layer 4: Application -->
-    <rect x="800" y="50" width="240" height="140" rx="10" fill="#0f2a1a" stroke="#22c55e" stroke-width="2"/>
-    <text x="920" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#4ade80">Layer 4: Application</text>
-    <text x="810" y="92" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">IAM (Identity Access)</text>
-    <text x="810" y="107" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Cognito (User Auth)</text>
-    <text x="810" y="122" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Secrets Manager</text>
-    <text x="810" y="137" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">Parameter Store</text>
-    <text x="810" y="152" font-family="Arial, sans-serif" font-size="9" fill="#bbf7d0">CodeGuru (Code Review)</text>
-    <text x="810" y="175" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">Application Security</text>
-    
-    <!-- Layer 5: Data -->
-    <rect x="1060" y="50" width="220" height="140" rx="10" fill="#0f2a1a" stroke="#a855f7" stroke-width="2"/>
-    <text x="1170" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#c084fc">Layer 5: Data</text>
-    <text x="1070" y="92" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">KMS (Key Management)</text>
-    <text x="1070" y="107" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">S3 Encryption (SSE)</text>
-    <text x="1070" y="122" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">RDS Encryption</text>
-    <text x="1070" y="137" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">Macie (Data Discovery)</text>
-    <text x="1070" y="152" font-family="Arial, sans-serif" font-size="9" fill="#e9d5ff">Backup &amp; Recovery</text>
-    <text x="1070" y="175" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">Data Protection</text>
-    
-    <!-- Arrows -->
-    <path d="M 260 120 L 280 120" stroke="#64748b" stroke-width="2" fill="none"/>
-    <path d="M 520 120 L 540 120" stroke="#64748b" stroke-width="2" fill="none"/>
-    <path d="M 780 120 L 800 120" stroke="#64748b" stroke-width="2" fill="none"/>
-    <path d="M 1040 120 L 1060 120" stroke="#64748b" stroke-width="2" fill="none"/>
-  </g>
-  
-  <!-- Certification Process -->
-  <g transform="translate(50, 655)">
-    <rect x="0" y="0" width="650" height="160" rx="12" fill="#0f1729" stroke="#a855f7" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="650" height="30" rx="12" fill="url(#protectGrad)"/>
-    <rect x="0" y="15" width="650" height="15" fill="url(#protectGrad)"/>
-    <text x="325" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">ISMS-P CERTIFICATION PROCESS</text>
-    
-    <!-- Step 1 -->
-    <rect x="15" y="40" width="115" height="110" rx="6" fill="#1a0f2a" stroke="#c084fc" stroke-width="1"/>
-    <text x="72" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c084fc">1. Application</text>
-    <text x="25" y="75" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">KISA Submission</text>
-    <text x="25" y="88" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Scope Definition</text>
-    <text x="25" y="101" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Document Prep</text>
-    <text x="25" y="114" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Fee Payment</text>
-    <text x="72" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">1-2 weeks</text>
-    
-    <!-- Step 2 -->
-    <rect x="140" y="40" width="115" height="110" rx="6" fill="#1a0f2a" stroke="#c084fc" stroke-width="1"/>
-    <text x="197" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c084fc">2. Document</text>
-    <text x="150" y="75" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Policy Review</text>
-    <text x="150" y="88" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Procedure Check</text>
-    <text x="150" y="101" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Evidence Review</text>
-    <text x="150" y="114" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Gap Analysis</text>
-    <text x="197" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">2-4 weeks</text>
-    
-    <!-- Step 3 -->
-    <rect x="265" y="40" width="115" height="110" rx="6" fill="#1a0f2a" stroke="#c084fc" stroke-width="1"/>
-    <text x="322" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c084fc">3. On-site</text>
-    <text x="275" y="75" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Technical Audit</text>
-    <text x="275" y="88" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Interview</text>
-    <text x="275" y="101" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">System Review</text>
-    <text x="275" y="114" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Evidence Verify</text>
-    <text x="322" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">1-2 weeks</text>
-    
-    <!-- Step 4 -->
-    <rect x="390" y="40" width="115" height="110" rx="6" fill="#1a0f2a" stroke="#c084fc" stroke-width="1"/>
-    <text x="447" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c084fc">4. Remediation</text>
-    <text x="400" y="75" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Finding Resolution</text>
-    <text x="400" y="88" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Evidence Submit</text>
-    <text x="400" y="101" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Re-verification</text>
-    <text x="400" y="114" font-family="Arial, sans-serif" font-size="7" fill="#e9d5ff">Final Report</text>
-    <text x="447" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">2-4 weeks</text>
-    
-    <!-- Step 5 -->
-    <rect x="515" y="40" width="120" height="110" rx="6" fill="#1a0f2a" stroke="#22c55e" stroke-width="2"/>
-    <text x="575" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4ade80">5. Certification</text>
-    <text x="525" y="75" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">Committee Review</text>
-    <text x="525" y="88" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">Certificate Issue</text>
-    <text x="525" y="101" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">3 Year Validity</text>
-    <text x="525" y="114" font-family="Arial, sans-serif" font-size="7" fill="#bbf7d0">Annual Surveillance</text>
-    <text x="575" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">2-3 weeks</text>
-    
-    <!-- Arrows -->
-    <path d="M 130 95 L 140 95" stroke="#64748b" stroke-width="2" fill="none"/>
-    <path d="M 255 95 L 265 95" stroke="#64748b" stroke-width="2" fill="none"/>
-    <path d="M 380 95 L 390 95" stroke="#64748b" stroke-width="2" fill="none"/>
-    <path d="M 505 95 L 515 95" stroke="#64748b" stroke-width="2" fill="none"/>
-  </g>
-  
-  <!-- AI Security Requirements -->
-  <g transform="translate(715, 655)">
-    <rect x="0" y="0" width="635" height="160" rx="12" fill="#0f1729" stroke="#ec4899" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="635" height="30" rx="12" fill="url(#aiGrad)"/>
-    <rect x="0" y="15" width="635" height="15" fill="url(#aiGrad)"/>
-    <text x="317" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">2025 AI SECURITY REQUIREMENTS (NEW)</text>
-    
-    <!-- AI Model Security -->
-    <rect x="15" y="40" width="195" height="110" rx="6" fill="#2a0f1a" stroke="#f472b6" stroke-width="1"/>
-    <text x="112" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f472b6">AI Model Security</text>
-    <text x="25" y="75" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Training Data Protection</text>
-    <text x="25" y="90" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Model Integrity Verification</text>
-    <text x="25" y="105" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Adversarial Attack Defense</text>
-    <text x="25" y="120" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Model Version Control</text>
-    <text x="25" y="135" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Access Logging</text>
-    
-    <!-- Data Protection -->
-    <rect x="220" y="40" width="195" height="110" rx="6" fill="#2a0f1a" stroke="#f472b6" stroke-width="1"/>
-    <text x="317" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f472b6">Data Protection</text>
-    <text x="230" y="75" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Training Data Encryption</text>
-    <text x="230" y="90" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Data Anonymization</text>
-    <text x="230" y="105" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Access Control (IAM)</text>
-    <text x="230" y="120" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Data Lineage Tracking</text>
-    <text x="230" y="135" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Retention Policy</text>
-    
-    <!-- Privacy Protection -->
-    <rect x="425" y="40" width="195" height="110" rx="6" fill="#2a0f1a" stroke="#f472b6" stroke-width="1"/>
-    <text x="522" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f472b6">Privacy Protection</text>
-    <text x="435" y="75" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">PII Detection &amp; Masking</text>
-    <text x="435" y="90" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Differential Privacy</text>
-    <text x="435" y="105" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Consent Management</text>
-    <text x="435" y="120" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Right to Erasure</text>
-    <text x="435" y="135" font-family="Arial, sans-serif" font-size="8" fill="#fce7f3">Explainable AI (XAI)</text>
-  </g>
-  
-  <!-- Compliance Checklist -->
-  <g transform="translate(50, 830)">
-    <rect x="0" y="0" width="1300" height="145" rx="12" fill="#0f1729" stroke="#eab308" stroke-width="2" filter="url(#shadow)"/>
-    <text x="650" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fde047">AWS ISMS-P COMPLIANCE CHECKLIST</text>
-    
-    <!-- Column 1 -->
-    <g transform="translate(30, 45)">
-      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#60a5fa">Access Control</text>
-      <text x="0" y="18" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] IAM Role-based Access</text>
-      <text x="0" y="33" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] MFA Enabled (All Users)</text>
-      <text x="0" y="48" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Least Privilege Policy</text>
-      <text x="0" y="63" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Security Groups Config</text>
-      <text x="0" y="78" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] NACL Rules</text>
-      <text x="0" y="93" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Access Review (Quarterly)</text>
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">2025년 ISMS-P 인증 AWS 환경 완벽 가이드</text>
     </g>
     
-    <!-- Column 2 -->
-    <g transform="translate(250, 45)">
-      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fb923c">Encryption</text>
-      <text x="0" y="18" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] KMS Key Rotation</text>
-      <text x="0" y="33" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] S3 Bucket Encryption</text>
-      <text x="0" y="48" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] RDS Encryption at Rest</text>
-      <text x="0" y="63" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] TLS 1.2+ (In Transit)</text>
-      <text x="0" y="78" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] EBS Volume Encryption</text>
-      <text x="0" y="93" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] ACM Certificate Mgmt</text>
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="87" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="43" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#ISMS-P</text>
+      <rect x="99" y="0" width="60" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="129" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#AWS</text>
+      <rect x="171" y="0" width="105" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="223" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Security</text>
+      <rect x="288" y="0" width="123" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="349" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Compliance</text>
     </g>
     
-    <!-- Column 3 -->
-    <g transform="translate(470, 45)">
-      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#22c55e">Monitoring</text>
-      <text x="0" y="18" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] CloudTrail Enabled</text>
-      <text x="0" y="33" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] CloudWatch Alarms</text>
-      <text x="0" y="48" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Security Hub Active</text>
-      <text x="0" y="63" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] GuardDuty Enabled</text>
-      <text x="0" y="78" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Config Rules</text>
-      <text x="0" y="93" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] VPC Flow Logs</text>
-    </g>
-    
-    <!-- Column 4 -->
-    <g transform="translate(690, 45)">
-      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c084fc">Network Security</text>
-      <text x="0" y="18" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] VPC Design (Segmented)</text>
-      <text x="0" y="33" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Private Subnets</text>
-      <text x="0" y="48" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] NAT Gateway</text>
-      <text x="0" y="63" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] WAF Rules</text>
-      <text x="0" y="78" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Shield Standard/Adv</text>
-      <text x="0" y="93" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] PrivateLink</text>
-    </g>
-    
-    <!-- Column 5 -->
-    <g transform="translate(910, 45)">
-      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f472b6">Data &amp; Backup</text>
-      <text x="0" y="18" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] S3 Versioning</text>
-      <text x="0" y="33" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] RDS Auto Backup</text>
-      <text x="0" y="48" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] EBS Snapshots</text>
-      <text x="0" y="63" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Cross-Region Backup</text>
-      <text x="0" y="78" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Macie (PII Detect)</text>
-      <text x="0" y="93" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Lifecycle Policy</text>
-    </g>
-    
-    <!-- Column 6 -->
-    <g transform="translate(1130, 45)">
-      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f87171">Incident Response</text>
-      <text x="0" y="18" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] IR Plan Document</text>
-      <text x="0" y="33" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] SNS Alerts Config</text>
-      <text x="0" y="48" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Lambda Automation</text>
-      <text x="0" y="63" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Runbook (SSM)</text>
-      <text x="0" y="78" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Detective Service</text>
-      <text x="0" y="93" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8">[ ] Forensic Capability</text>
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
     </g>
   </g>
   
-  <!-- Footer -->
-  <text x="700" y="990" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">2025 ISMS-P Certification Complete Guide | AWS Environment | NIST CSF 2.0 | Twodragon's Tech Blog | tech.2twodragon.com</text>
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

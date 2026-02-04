@@ -1,210 +1,194 @@
-<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <filter id="shadow">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="2" dy="2" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3"/>
-      </feComponentTransfer>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#0284c7"/>
+    </linearGradient>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
-        <feMergeNode/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
-  
+
   <!-- Background -->
-  <rect width="1200" height="800" fill="url(#grad1)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
   
-  <!-- Title -->
-  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e94560" text-anchor="middle" filter="url(#shadow)">
-    AWS Security &amp; FinOps: Complete Architecture Guide
-  </text>
-  <text x="600" y="65" font-family="Arial, sans-serif" font-size="16" fill="#a8dadc" text-anchor="middle">
-    Cloud Security Course 7Batch Week 3: Security Services &amp; Cost Optimization
-  </text>
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#38bdf8" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
   
-  <!-- AWS Security Services -->
-  <rect x="50" y="100" width="550" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="325" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">AWS Security Services Architecture</text>
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#0ea5e9" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#0284c7" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#0ea5e9" fill-opacity="0.02"/>
   
-  <!-- Identity & Access -->
-  <rect x="80" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="140" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">IAM</text>
-  <text x="140" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Identity Center</text>
-  <text x="140" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Access Control</text>
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#38bdf8" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#38bdf8" stroke-width="1" opacity="0.3"/>
   
-  <!-- Organizations -->
-  <rect x="220" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="280" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Organizations</text>
-  <text x="280" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">SCP</text>
-  <text x="280" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Multi-Account</text>
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
   
-  <!-- CloudTrail -->
-  <rect x="360" y="150" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="420" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">CloudTrail</text>
-  <text x="420" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Audit Logs</text>
-  <text x="420" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Compliance</text>
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#cloudGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">CLOUD</text>
+  </g>
   
-  <!-- Config -->
-  <rect x="500" y="150" width="80" height="70" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="540" y="175" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Config</text>
-  <text x="540" y="195" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Rules</text>
-  <text x="540" y="210" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Monitor</text>
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
+  </g>
   
-  <!-- Security Hub -->
-  <rect x="80" y="240" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
-  <text x="140" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Security Hub</text>
-  <text x="140" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Centralized</text>
-  <text x="140" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">GA 2025</text>
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps</text>
   
-  <!-- GuardDuty -->
-  <rect x="220" y="240" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="2"/>
-  <text x="280" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">GuardDuty</text>
-  <text x="280" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Threat Detection</text>
-  <text x="280" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Extended</text>
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
   
-  <!-- Inspector -->
-  <rect x="360" y="240" width="120" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1"/>
-  <text x="420" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Inspector</text>
-  <text x="420" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Vulnerability</text>
-  <text x="420" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Scan</text>
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Cloud Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M30 80 Q10 80 10 60 Q10 40 30 40 Q30 20 55 20 Q80 20 80 45 Q100 45 100 65 Q100 80 80 80 Z" 
+            fill="url(#cloudGradient)" stroke="#0ea5e9" stroke-width="2" opacity="0.9"/>
+    </g>
+    
+    <!-- Server Stack -->
+    <g transform="translate(200, 290)">
+      <rect x="10" y="10" width="60" height="20" rx="3" fill="#14b8a6" stroke="#0d9488" stroke-width="2"/>
+      <rect x="10" y="35" width="60" height="20" rx="3" fill="#14b8a6" stroke="#0d9488" stroke-width="2"/>
+      <rect x="10" y="60" width="60" height="20" rx="3" fill="#14b8a6" stroke="#0d9488" stroke-width="2"/>
+      <circle cx="55" cy="20" r="4" fill="#22d3ee"/>
+      <circle cx="55" cy="45" r="4" fill="#22d3ee"/>
+      <circle cx="55" cy="70" r="4" fill="#22d3ee"/>
+    </g>
+    
+    <!-- Network Node -->
+    <g transform="translate(330, 300)">
+      <circle cx="30" cy="30" r="20" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+      <circle cx="30" cy="30" r="8" fill="white"/>
+      <line x1="10" y1="30" x2="-10" y2="30" stroke="#0284c7" stroke-width="2"/>
+      <line x1="50" y1="30" x2="70" y2="30" stroke="#0284c7" stroke-width="2"/>
+      <line x1="30" y1="10" x2="30" y2="-10" stroke="#0284c7" stroke-width="2"/>
+    </g>
+    
+  </g>
   
-  <!-- Macie -->
-  <rect x="500" y="240" width="80" height="70" rx="5" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1"/>
-  <text x="540" y="265" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff6b6b" text-anchor="middle">Macie</text>
-  <text x="540" y="285" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Data</text>
-  <text x="540" y="300" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Protection</text>
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#cloudGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#38bdf8">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#38bdf8"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">AWS 보안 및 FinOps 완벽 가이드. GuardDuty, Security Hub, IAM 보안 설정 및 비용 최적화 전략</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#38bdf8"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">실무 정리.</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="60" height="30" rx="15" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="30" y="20" font-family="Arial, sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle">#AWS</text>
+      <rect x="72" y="0" width="87" height="30" rx="15" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="115" y="20" font-family="Arial, sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle">#FinOps</text>
+      <rect x="171" y="0" width="159" height="30" rx="15" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="250" y="20" font-family="Arial, sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle">#Cloud-Security</text>
+      <rect x="342" y="0" width="186" height="30" rx="15" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="435" y="20" font-family="Arial, sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle">#Cost-Optimization</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+    </g>
+  </g>
   
-  <!-- WAF/Shield -->
-  <rect x="80" y="330" width="120" height="60" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
-  <text x="140" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">WAF/Shield</text>
-  <text x="140" y="375" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">DDoS Protection</text>
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
   
-  <!-- KMS/Secrets -->
-  <rect x="220" y="330" width="120" height="60" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
-  <text x="280" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">KMS/Secrets</text>
-  <text x="280" y="375" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Encryption</text>
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#cloudGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
   
-  <!-- Detective -->
-  <rect x="360" y="330" width="120" height="60" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
-  <text x="420" y="355" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4dabf7" text-anchor="middle">Detective</text>
-  <text x="420" y="375" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Forensics</text>
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
   
-  <!-- FinOps Framework -->
-  <rect x="650" y="100" width="500" height="300" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="900" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">FinOps Framework</text>
-  
-  <!-- Inform -->
-  <rect x="680" y="150" width="140" height="80" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="750" y="175" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#51cf66" text-anchor="middle">Inform</text>
-  <text x="750" y="195" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Visibility</text>
-  <text x="750" y="215" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Cost Allocation</text>
-  <text x="750" y="230" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Tagging Strategy</text>
-  
-  <!-- Optimize -->
-  <rect x="840" y="150" width="140" height="80" rx="5" fill="#1a1a2e" stroke="#ffd43b" stroke-width="1"/>
-  <text x="910" y="175" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffd43b" text-anchor="middle">Optimize</text>
-  <text x="910" y="195" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Cost Reduction</text>
-  <text x="910" y="215" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">RI/Savings Plans</text>
-  <text x="910" y="230" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Right Sizing</text>
-  
-  <!-- Operate -->
-  <rect x="1000" y="150" width="140" height="80" rx="5" fill="#1a1a2e" stroke="#845ef7" stroke-width="1"/>
-  <text x="1070" y="175" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#845ef7" text-anchor="middle">Operate</text>
-  <text x="1070" y="195" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">Operations</text>
-  <text x="1070" y="215" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Budget Alerts</text>
-  <text x="1070" y="230" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Anomaly Detection</text>
-  
-  <!-- Cost Optimization Tools -->
-  <rect x="680" y="250" width="460" height="140" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="910" y="275" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e94560" text-anchor="middle">AWS Cost Optimization Tools</text>
-  
-  <!-- Cost Explorer -->
-  <rect x="700" y="290" width="100" height="80" rx="5" fill="#0f3460" stroke="#51cf66" stroke-width="1"/>
-  <text x="750" y="315" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Cost Explorer</text>
-  <text x="750" y="335" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">API</text>
-  <text x="750" y="350" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Analysis</text>
-  
-  <!-- Budgets -->
-  <rect x="820" y="290" width="100" height="80" rx="5" fill="#0f3460" stroke="#51cf66" stroke-width="1"/>
-  <text x="870" y="315" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Budgets</text>
-  <text x="870" y="335" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Alerts</text>
-  <text x="870" y="350" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Forecast</text>
-  
-  <!-- RI/Savings -->
-  <rect x="940" y="290" width="100" height="80" rx="5" fill="#0f3460" stroke="#51cf66" stroke-width="1"/>
-  <text x="990" y="315" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">RI/Savings</text>
-  <text x="990" y="335" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Plans</text>
-  <text x="990" y="350" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">90% Savings</text>
-  
-  <!-- Compute Optimizer -->
-  <rect x="1060" y="290" width="80" height="80" rx="5" fill="#0f3460" stroke="#51cf66" stroke-width="1"/>
-  <text x="1100" y="315" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Compute</text>
-  <text x="1100" y="330" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Optimizer</text>
-  <text x="1100" y="350" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Right Sizing</text>
-  
-  <!-- IAM Best Practices -->
-  <rect x="50" y="430" width="550" height="180" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="325" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">IAM Security Best Practices</text>
-  
-  <!-- Practice 1 -->
-  <rect x="80" y="480" width="160" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="160" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">Least Privilege</text>
-  <text x="160" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Minimal Access</text>
-  <text x="160" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">RBAC</text>
-  
-  <!-- Practice 2 -->
-  <rect x="260" y="480" width="160" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="340" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">MFA Required</text>
-  <text x="340" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">2FA</text>
-  <text x="340" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Hardware Key</text>
-  
-  <!-- Practice 3 -->
-  <rect x="440" y="480" width="160" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="520" y="505" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#51cf66" text-anchor="middle">IP-Based Access</text>
-  <text x="520" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Conditional</text>
-  <text x="520" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Policy</text>
-  
-  <!-- VPC Security -->
-  <rect x="80" y="560" width="520" height="40" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="340" y="585" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">VPC Security: Security Groups | NACL | Flow Logs | GuardDuty Auto-Response</text>
-  
-  <!-- Well-Architected Framework -->
-  <rect x="650" y="430" width="500" height="180" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
-  <text x="900" y="460" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560" text-anchor="middle">AWS Well-Architected Framework</text>
-  
-  <!-- Pillars -->
-  <rect x="680" y="480" width="100" height="60" rx="5" fill="#1a1a2e" stroke="#51cf66" stroke-width="1"/>
-  <text x="730" y="505" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#51cf66" text-anchor="middle">Security</text>
-  <text x="730" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Defense</text>
-  <text x="730" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">in Depth</text>
-  
-  <rect x="800" y="480" width="100" height="60" rx="5" fill="#1a1a2e" stroke="#ffd43b" stroke-width="1"/>
-  <text x="850" y="505" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ffd43b" text-anchor="middle">Cost</text>
-  <text x="850" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Optimization</text>
-  <text x="850" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">FinOps</text>
-  
-  <rect x="920" y="480" width="100" height="60" rx="5" fill="#1a1a2e" stroke="#4dabf7" stroke-width="1"/>
-  <text x="970" y="505" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4dabf7" text-anchor="middle">Reliability</text>
-  <text x="970" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">High</text>
-  <text x="970" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Availability</text>
-  
-  <rect x="1040" y="480" width="100" height="60" rx="5" fill="#1a1a2e" stroke="#845ef7" stroke-width="1"/>
-  <text x="1090" y="505" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#845ef7" text-anchor="middle">Performance</text>
-  <text x="1090" y="525" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Efficiency</text>
-  <text x="1090" y="540" font-family="Arial, sans-serif" font-size="9" fill="#a8dadc" text-anchor="middle">Scalability</text>
-  
-  <!-- Balance -->
-  <rect x="680" y="560" width="460" height="40" rx="5" fill="#1a1a2e" stroke="#a8dadc" stroke-width="1"/>
-  <text x="910" y="585" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e94560" text-anchor="middle">Security &amp; Cost Balance: Defense in Depth + FinOps Integration</text>
-  
-  <!-- Footer -->
-  <text x="600" y="790" font-family="Arial, sans-serif" font-size="10" fill="#a8dadc" text-anchor="middle">
-    AWS Security Services | FinOps Framework | Well-Architected Framework | 2025 Updates
-  </text>
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

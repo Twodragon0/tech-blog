@@ -1,153 +1,189 @@
-<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0e27;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#1a1040;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0d1b2a;stop-opacity:1" />
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#7b2ff7;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff006e;stop-opacity:1" />
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#0f2035;stop-opacity:0.9" />
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <linearGradient id="card2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3a1e5f;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#1f0f35;stop-opacity:0.9" />
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="card3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#5f1e2a;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#350f15;stop-opacity:0.9" />
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <filter id="softglow">
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
       <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1a2744" stroke-width="0.5" opacity="0.4"/>
-    </pattern>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
-
-  <!-- Decorative circles -->
-  <circle cx="100" cy="100" r="200" fill="#7b2ff7" opacity="0.04"/>
-  <circle cx="1100" cy="530" r="250" fill="#00d4ff" opacity="0.03"/>
-  <circle cx="600" cy="50" r="150" fill="#ff006e" opacity="0.03"/>
-
-  <!-- Top accent bar -->
-  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
-
-  <!-- Date badge -->
-  <rect x="40" y="24" width="160" height="32" rx="16" fill="#00d4ff" opacity="0.15"/>
-  <text x="120" y="45" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#00d4ff" text-anchor="middle">2026.02.01</text>
-
-  <!-- Series badge -->
-  <rect x="220" y="24" width="240" height="32" rx="16" fill="#7b2ff7" opacity="0.15"/>
-  <text x="340" y="45" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#c084fc" text-anchor="middle">Tech &amp; Security Weekly</text>
-
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
+  </g>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
+  </g>
+  
   <!-- Main Title -->
-  <text x="600" y="110" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="#ffffff" text-anchor="middle" filter="url(#glow)">
-    AI Discovers 12 OpenSSL Zero-Days
-  </text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="28" font-weight="600" fill="#b0c4de" text-anchor="middle">
-    OWASP Agentic AI Framework | Fortinet SSO Zero-Day
-  </text>
-
-  <!-- Three topic cards -->
-  <!-- Card 1: AI Security -->
-  <rect x="40" y="190" width="360" height="320" rx="16" fill="url(#card1)" stroke="#00d4ff" stroke-width="1" opacity="0.9"/>
-  <!-- AI Brain icon -->
-  <circle cx="80" cy="230" r="22" fill="none" stroke="#00d4ff" stroke-width="2"/>
-  <path d="M68 230 Q74 218 80 230 Q86 218 92 230" fill="none" stroke="#00d4ff" stroke-width="1.5"/>
-  <circle cx="75" cy="226" r="2" fill="#00d4ff"/>
-  <circle cx="85" cy="226" r="2" fill="#00d4ff"/>
-  <line x1="80" y1="252" x2="80" y2="265" stroke="#00d4ff" stroke-width="1.5"/>
-  <line x1="65" y1="258" x2="80" y2="252" stroke="#00d4ff" stroke-width="1"/>
-  <line x1="95" y1="258" x2="80" y2="252" stroke="#00d4ff" stroke-width="1"/>
-
-  <text x="115" y="228" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#00d4ff">AI SECURITY</text>
-  <text x="115" y="248" font-family="Arial, sans-serif" font-size="11" fill="#6b8ab0">New Era of Vulnerability Discovery</text>
-
-  <line x1="60" y1="275" x2="380" y2="275" stroke="#1a3a5f" stroke-width="1"/>
-
-  <text x="60" y="300" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0">AISLE AI: 12 OpenSSL 0-days</text>
-  <text x="60" y="322" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Historic first: AI system finds all</text>
-  <text x="60" y="340" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">12 new OpenSSL vulnerabilities</text>
-
-  <text x="60" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0">OWASP Agentic AI Top 10</text>
-  <text x="60" y="392" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Official framework for AI agent</text>
-  <text x="60" y="410" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">application security (2026)</text>
-
-  <text x="60" y="440" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0">Microsoft NIST AI Governance</text>
-  <text x="60" y="462" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">NIST-based security governance</text>
-  <text x="60" y="480" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">framework for AI agents</text>
-
-  <!-- Card 2: Cloud/Infra -->
-  <rect x="420" y="190" width="360" height="320" rx="16" fill="url(#card2)" stroke="#7b2ff7" stroke-width="1" opacity="0.9"/>
-  <!-- Cloud icon -->
-  <path d="M450 240 Q450 222 465 222 Q478 210 492 215 Q505 210 515 222 Q530 222 530 240 L530 248 L450 248 Z" fill="none" stroke="#c084fc" stroke-width="2"/>
-  <text x="545" y="228" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#c084fc">CLOUD &amp; INFRA</text>
-  <text x="545" y="248" font-family="Arial, sans-serif" font-size="11" fill="#8b6baa">Critical CVEs &amp; Zero-Days</text>
-
-  <line x1="440" y1="275" x2="760" y2="275" stroke="#2a1a4f" stroke-width="1"/>
-
-  <text x="440" y="300" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0">CVE-2026-24858 Fortinet 0-day</text>
-  <text x="440" y="322" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">FortiCloud SSO auth bypass</text>
-  <text x="440" y="340" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Active exploitation confirmed</text>
-
-  <text x="440" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0">CVE-2026-24304 Azure RM (9.9)</text>
-  <text x="440" y="392" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">CVSS 9.9 privilege escalation</text>
-  <text x="440" y="410" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">in Azure Resource Manager</text>
-
-  <text x="440" y="440" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0">CVE-2026-22039 Kyverno</text>
-  <text x="440" y="462" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">K8s policy engine critical</text>
-  <text x="440" y="480" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">authorization bypass</text>
-
-  <!-- Card 3: Supply Chain -->
-  <rect x="800" y="190" width="360" height="320" rx="16" fill="url(#card3)" stroke="#ff006e" stroke-width="1" opacity="0.9"/>
-  <!-- Chain icon -->
-  <ellipse cx="840" cy="232" rx="12" ry="8" fill="none" stroke="#ff6b9d" stroke-width="2"/>
-  <ellipse cx="862" cy="232" rx="12" ry="8" fill="none" stroke="#ff6b9d" stroke-width="2"/>
-  <text x="885" y="228" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#ff6b9d">SUPPLY CHAIN</text>
-  <text x="885" y="248" font-family="Arial, sans-serif" font-size="11" fill="#aa6b7f">Breaches &amp; Compromises</text>
-
-  <line x1="820" y1="275" x2="1140" y2="275" stroke="#3f1a2a" stroke-width="1"/>
-
-  <text x="820" y="300" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0">eScan AV Supply Chain Breach</text>
-  <text x="820" y="322" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Signed malicious updates pushed</text>
-  <text x="820" y="340" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">to enterprise customers globally</text>
-
-  <text x="820" y="370" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0">Podman Desktop Auth Bypass</text>
-  <text x="820" y="392" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">CVE-2026-24835: Extensions</text>
-  <text x="820" y="410" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">bypass all permission checks</text>
-
-  <text x="820" y="440" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0">EU AI Act Deadline Aug 2026</text>
-  <text x="820" y="462" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">6 months to major compliance</text>
-  <text x="820" y="480" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">deadline for AI systems</text>
-
-  <!-- Bottom bar -->
-  <rect x="0" y="530" width="1200" height="100" fill="#060a1a" opacity="0.7"/>
-  <rect x="0" y="530" width="1200" height="2" fill="url(#accent)" opacity="0.6"/>
-
-  <!-- Severity indicators -->
-  <circle cx="80" cy="570" r="8" fill="#ef4444"/>
-  <text x="95" y="575" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#ef4444">CRITICAL x4</text>
-  <circle cx="240" cy="570" r="8" fill="#f59e0b"/>
-  <text x="255" y="575" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">HIGH x5</text>
-  <circle cx="380" cy="570" r="8" fill="#3b82f6"/>
-  <text x="395" y="575" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#3b82f6">NEW FRAMEWORKS x3</text>
-
-  <!-- Blog info -->
-  <text x="1160" y="565" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="end">Twodragon's Tech Blog</text>
-  <text x="1160" y="585" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">https://tech.2twodragon.com</text>
-  <text x="1160" y="605" font-family="Arial, sans-serif" font-size="11" fill="#4a5568" text-anchor="end">DevSecOps | Cloud Security | AI Security</text>
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest: AI가 OpenSSL 제로...</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
+  </g>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">AISLE AI가 OpenSSL 제로데이 12건 전량 발견(역사적 최초), OWASP Agentic AI Top 10</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">프레임워크 발표, CVE-2026-24858 Fortinet FortiCloud SSO 인증 우회 제로데이 심층 분석</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="168" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="84" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Security-Weekly</text>
+      <rect x="180" y="0" width="114" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="237" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#DevSecOps</text>
+      <rect x="306" y="0" width="132" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="372" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#AI-Security</text>
+      <rect x="450" y="0" width="96" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="498" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#OpenSSL</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
+    </g>
+  </g>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

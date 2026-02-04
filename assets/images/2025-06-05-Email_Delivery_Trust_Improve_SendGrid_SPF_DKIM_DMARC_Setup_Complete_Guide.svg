@@ -1,235 +1,185 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="100%" style="stop-color:#1e293b"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="spfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#22c55e"/>
-      <stop offset="100%" style="stop-color:#16a34a"/>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <linearGradient id="dkimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#2563eb"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <linearGradient id="dmarcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a855f7"/>
-      <stop offset="100%" style="stop-color:#7c3aed"/>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#64748b"/>
-    </marker>
-    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#22c55e"/>
-    </marker>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="800" fill="url(#bgGrad)"/>
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.02"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
   </pattern>
-  <rect width="1200" height="800" fill="url(#grid)"/>
-
-  <!-- Title -->
-  <text x="600" y="45" text-anchor="middle" font-size="30" font-weight="bold" fill="#ffffff" filter="url(#glow)">Email Authentication: SPF + DKIM + DMARC</text>
-  <text x="600" y="75" text-anchor="middle" font-size="16" fill="#94a3b8">SendGrid Email Delivery Trust Setup Guide</text>
-
-  <!-- Email Flow Diagram -->
-  <g transform="translate(50, 110)">
-    <!-- Sender -->
-    <g transform="translate(0, 100)">
-      <rect x="0" y="0" width="140" height="100" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
-      <text x="70" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#f59e0b">Sender</text>
-      <text x="70" y="55" text-anchor="middle" font-size="12" fill="#94a3b8">Your Server</text>
-      <text x="70" y="75" text-anchor="middle" font-size="11" fill="#64748b">+ SendGrid</text>
-    </g>
-
-    <!-- Arrow to DNS -->
-    <path d="M 140 150 L 200 150" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
-
-    <!-- DNS Lookup Box -->
-    <g transform="translate(210, 60)">
-      <rect x="0" y="0" width="200" height="180" rx="10" fill="#1e293b" stroke="#334155" stroke-width="2"/>
-      <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">DNS Records</text>
-      
-      <!-- SPF Record -->
-      <rect x="15" y="40" width="170" height="40" rx="6" fill="url(#spfGrad)" opacity="0.9"/>
-      <text x="100" y="55" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">SPF TXT</text>
-      <text x="100" y="70" text-anchor="middle" font-size="9" fill="#e0e7ff">v=spf1 include:sendgrid.net</text>
-      
-      <!-- DKIM Record -->
-      <rect x="15" y="90" width="170" height="40" rx="6" fill="url(#dkimGrad)" opacity="0.9"/>
-      <text x="100" y="105" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">DKIM TXT</text>
-      <text x="100" y="120" text-anchor="middle" font-size="9" fill="#e0e7ff">s1._domainkey (Public Key)</text>
-      
-      <!-- DMARC Record -->
-      <rect x="15" y="140" width="170" height="30" rx="6" fill="url(#dmarcGrad)" opacity="0.9"/>
-      <text x="100" y="160" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">DMARC TXT: p=quarantine</text>
-    </g>
-
-    <!-- Arrow to Verification -->
-    <path d="M 410 150 L 470 150" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
-
-    <!-- Verification Process -->
-    <g transform="translate(480, 50)">
-      <rect x="0" y="0" width="280" height="200" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
-      <text x="140" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#22c55e">Verification</text>
-      
-      <!-- Check 1: SPF -->
-      <g transform="translate(20, 45)">
-        <circle cx="15" cy="15" r="15" fill="url(#spfGrad)"/>
-        <text x="15" y="20" text-anchor="middle" font-size="16" fill="#ffffff">1</text>
-        <text x="45" y="15" font-size="12" font-weight="bold" fill="#22c55e">SPF Check</text>
-        <text x="45" y="30" font-size="10" fill="#94a3b8">IP in allowed list?</text>
-      </g>
-      
-      <!-- Check 2: DKIM -->
-      <g transform="translate(20, 95)">
-        <circle cx="15" cy="15" r="15" fill="url(#dkimGrad)"/>
-        <text x="15" y="20" text-anchor="middle" font-size="16" fill="#ffffff">2</text>
-        <text x="45" y="15" font-size="12" font-weight="bold" fill="#3b82f6">DKIM Check</text>
-        <text x="45" y="30" font-size="10" fill="#94a3b8">Signature valid?</text>
-      </g>
-      
-      <!-- Check 3: DMARC -->
-      <g transform="translate(20, 145)">
-        <circle cx="15" cy="15" r="15" fill="url(#dmarcGrad)"/>
-        <text x="15" y="20" text-anchor="middle" font-size="16" fill="#ffffff">3</text>
-        <text x="45" y="15" font-size="12" font-weight="bold" fill="#a855f7">DMARC Policy</text>
-        <text x="45" y="30" font-size="10" fill="#94a3b8">Apply enforcement</text>
-      </g>
-      
-      <!-- Pass indicators -->
-      <g transform="translate(200, 55)">
-        <circle cx="0" cy="0" r="10" fill="#22c55e"/>
-        <text x="0" y="4" text-anchor="middle" font-size="12" fill="#ffffff">OK</text>
-      </g>
-      <g transform="translate(200, 105)">
-        <circle cx="0" cy="0" r="10" fill="#22c55e"/>
-        <text x="0" y="4" text-anchor="middle" font-size="12" fill="#ffffff">OK</text>
-      </g>
-      <g transform="translate(200, 155)">
-        <circle cx="0" cy="0" r="10" fill="#22c55e"/>
-        <text x="0" y="4" text-anchor="middle" font-size="12" fill="#ffffff">OK</text>
-      </g>
-    </g>
-
-    <!-- Arrow to Inbox -->
-    <path d="M 760 150 L 820 150" stroke="#22c55e" stroke-width="3" marker-end="url(#arrowGreen)"/>
-
-    <!-- Receiver Inbox -->
-    <g transform="translate(830, 80)">
-      <rect x="0" y="0" width="160" height="140" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
-      <text x="80" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#22c55e">Inbox</text>
-      <rect x="20" y="50" width="120" height="35" rx="6" fill="#0f172a" stroke="#22c55e" stroke-width="1"/>
-      <text x="80" y="72" text-anchor="middle" font-size="11" fill="#22c55e">Delivered</text>
-      <rect x="20" y="95" width="120" height="35" rx="6" fill="#0f172a" stroke="#64748b" stroke-width="1"/>
-      <text x="80" y="117" text-anchor="middle" font-size="11" fill="#64748b">Not Spam</text>
-    </g>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
   </g>
-
-  <!-- Three Protocol Details -->
-  <g transform="translate(50, 380)">
-    <!-- SPF Detail -->
-    <g transform="translate(0, 0)">
-      <rect x="0" y="0" width="360" height="190" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
-      <rect x="0" y="0" width="360" height="40" rx="12" fill="url(#spfGrad)"/>
-      <rect x="0" y="28" width="360" height="12" fill="url(#spfGrad)"/>
-      <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">SPF - Sender Policy</text>
-      
-      <text x="20" y="65" font-size="12" font-weight="bold" fill="#22c55e">Purpose:</text>
-      <text x="90" y="65" font-size="11" fill="#94a3b8">Authorize sending IPs</text>
-      
-      <text x="20" y="90" font-size="12" font-weight="bold" fill="#22c55e">DNS Record:</text>
-      <rect x="20" y="100" width="320" height="30" rx="4" fill="#0f172a"/>
-      <text x="180" y="120" text-anchor="middle" font-size="10" fill="#22c55e" font-family="monospace">v=spf1 include:sendgrid.net ~all</text>
-      
-      <text x="20" y="155" font-size="12" font-weight="bold" fill="#22c55e">Result:</text>
-      <text x="90" y="155" font-size="11" fill="#94a3b8">pass | fail | softfail | neutral</text>
-      <text x="20" y="175" font-size="11" fill="#64748b">Tip: Use ~all (softfail) during testing</text>
-    </g>
-
-    <!-- DKIM Detail -->
-    <g transform="translate(390, 0)">
-      <rect x="0" y="0" width="360" height="190" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
-      <rect x="0" y="0" width="360" height="40" rx="12" fill="url(#dkimGrad)"/>
-      <rect x="0" y="28" width="360" height="12" fill="url(#dkimGrad)"/>
-      <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">DKIM - Digital Signature</text>
-      
-      <text x="20" y="65" font-size="12" font-weight="bold" fill="#3b82f6">Purpose:</text>
-      <text x="90" y="65" font-size="11" fill="#94a3b8">Verify email integrity</text>
-      
-      <text x="20" y="90" font-size="12" font-weight="bold" fill="#3b82f6">DNS Record:</text>
-      <rect x="20" y="100" width="320" height="30" rx="4" fill="#0f172a"/>
-      <text x="180" y="120" text-anchor="middle" font-size="10" fill="#3b82f6" font-family="monospace">s1._domainkey.domain.com TXT</text>
-      
-      <text x="20" y="155" font-size="12" font-weight="bold" fill="#3b82f6">Key:</text>
-      <text x="60" y="155" font-size="11" fill="#94a3b8">2048-bit RSA public key</text>
-      <text x="20" y="175" font-size="11" fill="#64748b">Tip: Rotate keys annually</text>
-    </g>
-
-    <!-- DMARC Detail -->
-    <g transform="translate(780, 0)">
-      <rect x="0" y="0" width="360" height="190" rx="12" fill="#1e293b" stroke="#a855f7" stroke-width="2"/>
-      <rect x="0" y="0" width="360" height="40" rx="12" fill="url(#dmarcGrad)"/>
-      <rect x="0" y="28" width="360" height="12" fill="url(#dmarcGrad)"/>
-      <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">DMARC - Policy Control</text>
-      
-      <text x="20" y="65" font-size="12" font-weight="bold" fill="#a855f7">Purpose:</text>
-      <text x="90" y="65" font-size="11" fill="#94a3b8">Define failure handling</text>
-      
-      <text x="20" y="90" font-size="12" font-weight="bold" fill="#a855f7">DNS Record:</text>
-      <rect x="20" y="100" width="320" height="30" rx="4" fill="#0f172a"/>
-      <text x="180" y="120" text-anchor="middle" font-size="10" fill="#a855f7" font-family="monospace">v=DMARC1; p=quarantine; rua=mailto:</text>
-      
-      <text x="20" y="155" font-size="12" font-weight="bold" fill="#a855f7">Policy:</text>
-      <text x="75" y="155" font-size="11" fill="#94a3b8">none</text>
-      <text x="115" y="155" font-size="11" fill="#64748b">-></text>
-      <text x="135" y="155" font-size="11" fill="#f59e0b">quarantine</text>
-      <text x="205" y="155" font-size="11" fill="#64748b">-></text>
-      <text x="225" y="155" font-size="11" fill="#ef4444">reject</text>
-      <text x="20" y="175" font-size="11" fill="#64748b">Tip: Start with p=none, monitor reports</text>
-    </g>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
   </g>
-
-  <!-- Benefits Summary -->
-  <g transform="translate(50, 600)">
-    <rect x="0" y="0" width="1100" height="90" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
-    <text x="550" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Implementation Benefits</text>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 ...</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
     
-    <g transform="translate(60, 50)">
-      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Inbox delivery rate</text>
-      <text x="145" y="5" font-size="12" font-weight="bold" fill="#22c55e">+20-30%</text>
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
-    <g transform="translate(300, 50)">
-      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Spam classification</text>
-      <text x="145" y="5" font-size="12" font-weight="bold" fill="#22c55e">-80%</text>
+    
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
     </g>
-    <g transform="translate(530, 50)">
-      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Phishing protection</text>
-      <text x="140" y="5" font-size="12" font-weight="bold" fill="#22c55e">Enhanced</text>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
     </g>
-    <g transform="translate(770, 50)">
-      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Brand reputation</text>
-      <text x="125" y="5" font-size="12" font-weight="bold" fill="#22c55e">Protected</text>
+    
+  </g>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">SendGrid SPF, DKIM, DMARC 설정으로 이메일 발송 신뢰도 향상</text>
     </g>
-    <g transform="translate(970, 50)">
-      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Gmail/O365</text>
-      <text x="85" y="5" font-size="12" font-weight="bold" fill="#22c55e">Required</text>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="105" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="52" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#SendGrid</text>
+      <rect x="117" y="0" width="60" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="147" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#SPF</text>
+      <rect x="189" y="0" width="69" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="223" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#DKIM</text>
+      <rect x="270" y="0" width="78" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="309" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#DMARC</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
     </g>
   </g>
-
-  <!-- Footer -->
-  <text x="600" y="785" text-anchor="middle" font-size="11" fill="#64748b">SendGrid | SPF + DKIM + DMARC | Email Authentication | Delivery Trust</text>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
+  </g>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

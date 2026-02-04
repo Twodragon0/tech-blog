@@ -1,262 +1,189 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="'Segoe UI', Roboto, 'Noto Sans', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a0e27"/>
-      <stop offset="50%" stop-color="#1a1f4e"/>
-      <stop offset="100%" stop-color="#0d1233"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#6366f1"/>
-      <stop offset="100%" stop-color="#8b5cf6"/>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
     </linearGradient>
-    <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#ef4444"/>
-      <stop offset="100%" stop-color="#f97316"/>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <linearGradient id="greenGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#10b981"/>
-      <stop offset="100%" stop-color="#34d399"/>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#60a5fa"/>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
     </linearGradient>
-    <linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#06b6d4"/>
-      <stop offset="100%" stop-color="#22d3ee"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="softGlow">
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
       <feGaussianBlur stdDeviation="8" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e2560" stroke-width="0.5" opacity="0.3"/>
-    </pattern>
-    <clipPath id="roundClip">
-      <rect x="0" y="0" width="1200" height="630" rx="0"/>
-    </clipPath>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ef4444" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
-
-  <!-- Decorative circles -->
-  <circle cx="100" cy="520" r="200" fill="#6366f1" opacity="0.03"/>
-  <circle cx="1100" cy="100" r="250" fill="#8b5cf6" opacity="0.04"/>
-  <circle cx="600" cy="315" r="350" fill="#3b82f6" opacity="0.02"/>
-
-  <!-- Neural network decorative lines -->
-  <g opacity="0.12" stroke="#6366f1" stroke-width="1">
-    <line x1="50" y1="100" x2="200" y2="200"/>
-    <line x1="200" y1="200" x2="350" y2="150"/>
-    <line x1="350" y1="150" x2="500" y2="250"/>
-    <line x1="1050" y1="450" x2="1150" y2="530"/>
-    <line x1="900" y1="500" x2="1050" y2="450"/>
-    <line x1="800" y1="550" x2="900" y2="500"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#dc2626" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#securityGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
   </g>
-  <g opacity="0.15">
-    <circle cx="50" cy="100" r="3" fill="#6366f1"/>
-    <circle cx="200" cy="200" r="3" fill="#8b5cf6"/>
-    <circle cx="350" cy="150" r="3" fill="#6366f1"/>
-    <circle cx="500" cy="250" r="3" fill="#8b5cf6"/>
-    <circle cx="1050" cy="450" r="3" fill="#6366f1"/>
-    <circle cx="1150" cy="530" r="3" fill="#8b5cf6"/>
-    <circle cx="900" cy="500" r="3" fill="#6366f1"/>
-    <circle cx="800" cy="550" r="3" fill="#8b5cf6"/>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
   </g>
-
-  <!-- Top accent bar -->
-  <rect x="0" y="0" width="1200" height="4" fill="url(#accentGrad)"/>
-
-  <!-- Date badge -->
-  <rect x="40" y="30" width="150" height="32" rx="16" fill="#6366f1" opacity="0.2"/>
-  <rect x="40" y="30" width="150" height="32" rx="16" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.5"/>
-  <text x="115" y="51" text-anchor="middle" fill="#a5b4fc" font-size="13" font-weight="600">2026.02.01</text>
-
-  <!-- Category badges -->
-  <rect x="200" y="30" width="80" height="32" rx="16" fill="#ef4444" opacity="0.15"/>
-  <rect x="200" y="30" width="80" height="32" rx="16" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.4"/>
-  <text x="240" y="51" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="600">Security</text>
-
-  <rect x="290" y="30" width="95" height="32" rx="16" fill="#3b82f6" opacity="0.15"/>
-  <rect x="290" y="30" width="95" height="32" rx="16" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
-  <text x="337" y="51" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="600">DevSecOps</text>
-
+  
   <!-- Main Title -->
-  <text x="600" y="125" text-anchor="middle" fill="#ffffff" font-size="40" font-weight="800" letter-spacing="-0.5" filter="url(#glow)">Agentic AI Security 2026</text>
-  <text x="600" y="168" text-anchor="middle" fill="#c4b5fd" font-size="22" font-weight="400" letter-spacing="0.5">Attack Vectors &amp; Defense Architecture</text>
-
-  <!-- Divider line -->
-  <line x1="350" y1="190" x2="850" y2="190" stroke="url(#accentGrad)" stroke-width="2" opacity="0.5"/>
-
-  <!-- Central Shield Icon -->
-  <g transform="translate(555, 225)" filter="url(#softGlow)">
-    <path d="M45 0 L90 25 L90 55 C90 85 68 110 45 120 C22 110 0 85 0 55 L0 25 Z" fill="none" stroke="url(#accentGrad)" stroke-width="2.5" opacity="0.8"/>
-    <path d="M45 10 L80 30 L80 55 C80 78 63 98 45 108 C27 98 10 78 10 55 L10 30 Z" fill="#6366f1" opacity="0.15"/>
-    <!-- AI brain icon inside shield -->
-    <circle cx="45" cy="55" r="18" fill="none" stroke="#a5b4fc" stroke-width="1.5"/>
-    <path d="M35 50 Q40 42 45 50 Q50 42 55 50" fill="none" stroke="#c4b5fd" stroke-width="1.5"/>
-    <path d="M35 58 Q40 65 45 58 Q50 65 55 58" fill="none" stroke="#c4b5fd" stroke-width="1.5"/>
-    <circle cx="38" cy="54" r="2" fill="#a5b4fc"/>
-    <circle cx="52" cy="54" r="2" fill="#a5b4fc"/>
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">에이전틱 AI 보안 2026: AI Agent 공격 벡터와 방어 아키텍처 완전 가이드</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
+            fill="url(#securityGradient)" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+      <path d="M35 60 L45 75 L70 45" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Lock Icon -->
+    <g transform="translate(200, 300)">
+      <rect x="15" y="35" width="50" height="40" rx="5" fill="#dc2626" opacity="0.8"/>
+      <path d="M25 35 L25 25 Q25 10 40 10 Q55 10 55 25 L55 35" fill="none" stroke="#dc2626" stroke-width="4"/>
+      <circle cx="40" cy="55" r="6" fill="white"/>
+    </g>
+    
+    <!-- Alert Triangle -->
+    <g transform="translate(320, 290)">
+      <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
+    </g>
+    
   </g>
-
-  <!-- Attack Vectors (Left side) -->
-  <g transform="translate(40, 240)">
-    <rect x="0" y="0" width="320" height="200" rx="12" fill="#1a1f3d" opacity="0.7"/>
-    <rect x="0" y="0" width="320" height="200" rx="12" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
-    <rect x="0" y="0" width="320" height="38" rx="12" fill="url(#redGrad)" opacity="0.15"/>
-    <path d="M0 38 L320 38" stroke="#ef4444" stroke-width="0.5" opacity="0.3"/>
-
-    <!-- Warning icon -->
-    <text x="16" y="27" fill="#fca5a5" font-size="16">&#9888;</text>
-    <text x="38" y="26" fill="#fca5a5" font-size="14" font-weight="700">ATTACK VECTORS</text>
-
-    <!-- Attack items -->
-    <g transform="translate(16, 55)">
-      <circle cx="6" cy="6" r="6" fill="#ef4444" opacity="0.3"/>
-      <circle cx="6" cy="6" r="3" fill="#ef4444"/>
-      <text x="20" y="10" fill="#ffffff" font-size="13" font-weight="600">Tool Poisoning</text>
-      <text x="20" y="26" fill="#94a3b8" font-size="11">Hidden instructions in tool descriptions</text>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#ef4444" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#securityGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">2026년 에이전틱 AI 시대의 새로운 공격 벡터(Tool Poisoning, Tool Chain Attack, Prompt</text>
     </g>
-
-    <g transform="translate(16, 95)">
-      <circle cx="6" cy="6" r="6" fill="#f97316" opacity="0.3"/>
-      <circle cx="6" cy="6" r="3" fill="#f97316"/>
-      <text x="20" y="10" fill="#ffffff" font-size="13" font-weight="600">Tool Chain Attack</text>
-      <text x="20" y="26" fill="#94a3b8" font-size="11">Supply chain compromise via agent tools</text>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#ef4444"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">Injection)와 Google Chrome·CrowdStrike Falcon의 방어 아키텍처를 심층 분석합니다.</text>
     </g>
-
-    <g transform="translate(16, 135)">
-      <circle cx="6" cy="6" r="6" fill="#eab308" opacity="0.3"/>
-      <circle cx="6" cy="6" r="3" fill="#eab308"/>
-      <text x="20" y="10" fill="#ffffff" font-size="13" font-weight="600">Prompt Injection</text>
-      <text x="20" y="26" fill="#94a3b8" font-size="11">Indirect injection via external data</text>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="123" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="61" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Agentic-AI</text>
+      <rect x="135" y="0" width="132" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="201" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#AI-Security</text>
+      <rect x="279" y="0" width="159" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="358" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Tool-Poisoning</text>
+      <rect x="450" y="0" width="177" height="30" rx="15" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="538" y="20" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Prompt-Injection</text>
     </g>
-
-    <g transform="translate(16, 168)">
-      <circle cx="6" cy="6" r="6" fill="#a855f7" opacity="0.3"/>
-      <circle cx="6" cy="6" r="3" fill="#a855f7"/>
-      <text x="20" y="10" fill="#ffffff" font-size="13" font-weight="600">Excessive Agency</text>
-      <text x="20" y="24" fill="#94a3b8" font-size="11">Overprivileged agent autonomy</text>
-    </g>
-  </g>
-
-  <!-- Defense Architecture (Right side) -->
-  <g transform="translate(840, 240)">
-    <rect x="0" y="0" width="320" height="200" rx="12" fill="#1a1f3d" opacity="0.7"/>
-    <rect x="0" y="0" width="320" height="200" rx="12" fill="none" stroke="#10b981" stroke-width="1" opacity="0.3"/>
-    <rect x="0" y="0" width="320" height="38" rx="12" fill="url(#greenGrad)" opacity="0.15"/>
-    <path d="M0 38 L320 38" stroke="#10b981" stroke-width="0.5" opacity="0.3"/>
-
-    <!-- Shield icon -->
-    <text x="16" y="27" fill="#6ee7b7" font-size="16">&#9737;</text>
-    <text x="38" y="26" fill="#6ee7b7" font-size="14" font-weight="700">DEFENSE ARCHITECTURE</text>
-
-    <!-- Defense items -->
-    <g transform="translate(16, 55)">
-      <circle cx="6" cy="6" r="6" fill="#10b981" opacity="0.3"/>
-      <circle cx="6" cy="6" r="3" fill="#10b981"/>
-      <text x="20" y="10" fill="#ffffff" font-size="13" font-weight="600">Sandbox Isolation</text>
-      <text x="20" y="26" fill="#94a3b8" font-size="11">Chrome agentic sandbox per tab</text>
-    </g>
-
-    <g transform="translate(16, 95)">
-      <circle cx="6" cy="6" r="6" fill="#34d399" opacity="0.3"/>
-      <circle cx="6" cy="6" r="3" fill="#34d399"/>
-      <text x="20" y="10" fill="#ffffff" font-size="13" font-weight="600">Layered Defense</text>
-      <text x="20" y="26" fill="#94a3b8" font-size="11">Google multi-layer prompt protection</text>
-    </g>
-
-    <g transform="translate(16, 135)">
-      <circle cx="6" cy="6" r="6" fill="#22d3ee" opacity="0.3"/>
-      <circle cx="6" cy="6" r="3" fill="#22d3ee"/>
-      <text x="20" y="10" fill="#ffffff" font-size="13" font-weight="600">Agentic SOC</text>
-      <text x="20" y="26" fill="#94a3b8" font-size="11">CrowdStrike Falcon AI-driven defense</text>
-    </g>
-
-    <g transform="translate(16, 168)">
-      <circle cx="6" cy="6" r="6" fill="#60a5fa" opacity="0.3"/>
-      <circle cx="6" cy="6" r="3" fill="#60a5fa"/>
-      <text x="20" y="10" fill="#ffffff" font-size="13" font-weight="600">Zero Trust Identity</text>
-      <text x="20" y="24" fill="#94a3b8" font-size="11">SGNL just-in-time access control</text>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
     </g>
   </g>
-
-  <!-- Connecting arrows (Attack → Shield → Defense) -->
-  <g opacity="0.5">
-    <!-- Left arrows (attacks) -->
-    <line x1="370" y1="320" x2="540" y2="290" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,4"/>
-    <line x1="370" y1="360" x2="540" y2="310" stroke="#f97316" stroke-width="1.5" stroke-dasharray="6,4"/>
-
-    <!-- Right arrows (defenses) -->
-    <line x1="660" y1="290" x2="830" y2="320" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6,4"/>
-    <line x1="660" y1="310" x2="830" y2="360" stroke="#34d399" stroke-width="1.5" stroke-dasharray="6,4"/>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#securityGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
-
-  <!-- Bottom Sources Bar -->
-  <rect x="0" y="480" width="1200" height="150" fill="#0d1030" opacity="0.6"/>
-  <line x1="0" y1="480" x2="1200" y2="480" stroke="#6366f1" stroke-width="0.5" opacity="0.3"/>
-
-  <!-- Source logos/text -->
-  <g transform="translate(0, 500)">
-    <!-- Source 1: CrowdStrike -->
-    <g transform="translate(80, 0)">
-      <rect x="0" y="0" width="180" height="65" rx="8" fill="#1a1f3d" opacity="0.5"/>
-      <rect x="0" y="0" width="180" height="65" rx="8" fill="none" stroke="#ef4444" stroke-width="0.5" opacity="0.3"/>
-      <text x="90" y="25" text-anchor="middle" fill="#fca5a5" font-size="13" font-weight="700">CrowdStrike</text>
-      <text x="90" y="42" text-anchor="middle" fill="#94a3b8" font-size="10">Tool Poisoning</text>
-      <text x="90" y="56" text-anchor="middle" fill="#94a3b8" font-size="10">Agentic Tool Chain</text>
-    </g>
-
-    <!-- Source 2: Google -->
-    <g transform="translate(310, 0)">
-      <rect x="0" y="0" width="180" height="65" rx="8" fill="#1a1f3d" opacity="0.5"/>
-      <rect x="0" y="0" width="180" height="65" rx="8" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
-      <text x="90" y="25" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="700">Google Security</text>
-      <text x="90" y="42" text-anchor="middle" fill="#94a3b8" font-size="10">Chrome Agentic Sandbox</text>
-      <text x="90" y="56" text-anchor="middle" fill="#94a3b8" font-size="10">Prompt Injection Defense</text>
-    </g>
-
-    <!-- Source 3: SK Shieldus -->
-    <g transform="translate(540, 0)">
-      <rect x="0" y="0" width="180" height="65" rx="8" fill="#1a1f3d" opacity="0.5"/>
-      <rect x="0" y="0" width="180" height="65" rx="8" fill="none" stroke="#8b5cf6" stroke-width="0.5" opacity="0.3"/>
-      <text x="90" y="25" text-anchor="middle" fill="#c4b5fd" font-size="13" font-weight="700">SK Shieldus EQST</text>
-      <text x="90" y="42" text-anchor="middle" fill="#94a3b8" font-size="10">LLM Vulnerability Guide</text>
-      <text x="90" y="56" text-anchor="middle" fill="#94a3b8" font-size="10">JWT Key Leak Response</text>
-    </g>
-
-    <!-- Source 4: HashiCorp -->
-    <g transform="translate(770, 0)">
-      <rect x="0" y="0" width="180" height="65" rx="8" fill="#1a1f3d" opacity="0.5"/>
-      <rect x="0" y="0" width="180" height="65" rx="8" fill="none" stroke="#06b6d4" stroke-width="0.5" opacity="0.3"/>
-      <text x="90" y="25" text-anchor="middle" fill="#67e8f9" font-size="13" font-weight="700">HashiCorp</text>
-      <text x="90" y="42" text-anchor="middle" fill="#94a3b8" font-size="10">Linux Threat Landscape</text>
-      <text x="90" y="56" text-anchor="middle" fill="#94a3b8" font-size="10">Terraform MCP Server</text>
-    </g>
-
-    <!-- Source 5: OWASP -->
-    <g transform="translate(1000, 0)">
-      <rect x="0" y="0" width="130" height="65" rx="8" fill="#1a1f3d" opacity="0.5"/>
-      <rect x="0" y="0" width="130" height="65" rx="8" fill="none" stroke="#10b981" stroke-width="0.5" opacity="0.3"/>
-      <text x="65" y="25" text-anchor="middle" fill="#6ee7b7" font-size="13" font-weight="700">OWASP</text>
-      <text x="65" y="42" text-anchor="middle" fill="#94a3b8" font-size="10">LLM Top 10</text>
-      <text x="65" y="56" text-anchor="middle" fill="#94a3b8" font-size="10">Agentic AI Top 10</text>
-    </g>
-  </g>
-
-  <!-- Blog branding -->
-  <text x="1160" y="620" text-anchor="end" fill="#6366f1" font-size="11" font-weight="500" opacity="0.7">tech.2twodragon.com</text>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

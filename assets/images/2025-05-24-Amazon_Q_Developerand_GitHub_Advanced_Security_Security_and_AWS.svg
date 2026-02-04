@@ -1,237 +1,191 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="100%" style="stop-color:#1e293b"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff9900"/>
-      <stop offset="100%" style="stop-color:#ec7211"/>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="devsecopsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
     </linearGradient>
-    <linearGradient id="githubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6e5494"/>
-      <stop offset="100%" style="stop-color:#4c3575"/>
-    </linearGradient>
-    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#22c55e"/>
-      <stop offset="100%" style="stop-color:#16a34a"/>
-    </linearGradient>
-    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#2563eb"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#64748b"/>
-    </marker>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="800" fill="url(#bgGrad)"/>
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.02"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#a78bfa" stroke-opacity="0.05" stroke-width="1"/>
   </pattern>
-  <rect width="1200" height="800" fill="url(#grid)"/>
-
-  <!-- Title -->
-  <text x="600" y="45" text-anchor="middle" font-size="30" font-weight="bold" fill="#ffffff" filter="url(#glow)">Amazon Q Developer + GitHub Advanced Security</text>
-  <text x="600" y="75" text-anchor="middle" font-size="16" fill="#94a3b8">AI-Powered Code Security and AWS DevSecOps Integration</text>
-
-  <!-- Left: Amazon Q Developer -->
-  <g transform="translate(50, 100)">
-    <rect x="0" y="0" width="530" height="320" rx="16" fill="#1e293b" stroke="#ff9900" stroke-width="2"/>
-    <rect x="0" y="0" width="530" height="50" rx="16" fill="url(#awsGrad)"/>
-    <rect x="0" y="35" width="530" height="15" fill="url(#awsGrad)"/>
-    <text x="265" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">Amazon Q Developer</text>
-
-    <!-- Features Grid -->
-    <g transform="translate(20, 70)">
-      <!-- AI Code Review -->
-      <rect x="0" y="0" width="155" height="110" rx="10" fill="#0f172a" stroke="#ff9900" stroke-width="1"/>
-      <text x="77" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#ff9900">AI Code Review</text>
-      <text x="77" y="50" text-anchor="middle" font-size="11" fill="#94a3b8">Security Analysis</text>
-      <text x="77" y="70" text-anchor="middle" font-size="11" fill="#94a3b8">Best Practices</text>
-      <text x="77" y="90" text-anchor="middle" font-size="11" fill="#94a3b8">Bug Detection</text>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#8b5cf6" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#7c3aed" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#8b5cf6" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#devsecopsGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">DEVSECOPS</text>
+  </g>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Amazon Q Developer와 GitHub Advanced Security를...</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
+    
+    <!-- Shield with Code -->
+    <g transform="translate(80, 275)">
+      <path d="M50 5 L95 25 L95 65 Q95 100 50 120 Q5 100 5 65 L5 25 Z" 
+            fill="url(#devsecopsGradient)" stroke="#8b5cf6" stroke-width="2" opacity="0.9"/>
+      <text x="50" y="75" font-family="monospace" font-size="28" font-weight="bold" fill="white" text-anchor="middle">&lt;/&gt;</text>
     </g>
-
-    <g transform="translate(185, 70)">
-      <!-- AWS Integration -->
-      <rect x="0" y="0" width="155" height="110" rx="10" fill="#0f172a" stroke="#ff9900" stroke-width="1"/>
-      <text x="77" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#ff9900">AWS Services</text>
-      <text x="77" y="50" text-anchor="middle" font-size="11" fill="#94a3b8">CodeCommit</text>
-      <text x="77" y="70" text-anchor="middle" font-size="11" fill="#94a3b8">CodeBuild</text>
-      <text x="77" y="90" text-anchor="middle" font-size="11" fill="#94a3b8">CodePipeline</text>
+    
+    <!-- Pipeline Arrow -->
+    <g transform="translate(200, 300)">
+      <rect x="0" y="20" width="30" height="30" rx="5" fill="#3b82f6"/>
+      <text x="15" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">D</text>
+      <path d="M35 35 L50 35" stroke="#64748b" stroke-width="3"/>
+      <rect x="55" y="20" width="30" height="30" rx="5" fill="#8b5cf6"/>
+      <text x="70" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">S</text>
+      <path d="M90 35 L105 35" stroke="#64748b" stroke-width="3"/>
+      <rect x="110" y="20" width="30" height="30" rx="5" fill="#22c55e"/>
+      <text x="125" y="42" font-family="Arial" font-size="16" fill="white" text-anchor="middle">O</text>
     </g>
-
-    <g transform="translate(350, 70)">
-      <!-- Well-Architected -->
-      <rect x="0" y="0" width="155" height="110" rx="10" fill="#0f172a" stroke="#ff9900" stroke-width="1"/>
-      <text x="77" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#ff9900">Well-Architected</text>
-      <text x="77" y="50" text-anchor="middle" font-size="11" fill="#94a3b8">Security Pillar</text>
-      <text x="77" y="70" text-anchor="middle" font-size="11" fill="#94a3b8">Cost Optimization</text>
-      <text x="77" y="90" text-anchor="middle" font-size="11" fill="#94a3b8">Recommendations</text>
+    
+    <!-- Security Scanner -->
+    <g transform="translate(360, 290)">
+      <circle cx="30" cy="35" r="25" fill="none" stroke="#ef4444" stroke-width="3"/>
+      <line x1="48" y1="53" x2="65" y2="70" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+      <path d="M20 35 L25 40 L40 25" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
-
-    <!-- Key Stats -->
-    <g transform="translate(20, 195)">
-      <rect x="0" y="0" width="490" height="100" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
-      <text x="245" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">Key Capabilities</text>
-      
-      <g transform="translate(30, 45)">
-        <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-        <text x="15" y="5" font-size="11" fill="#94a3b8">Natural language to code</text>
-      </g>
-      <g transform="translate(30, 70)">
-        <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-        <text x="15" y="5" font-size="11" fill="#94a3b8">Vulnerability auto-detection</text>
-      </g>
-      <g transform="translate(250, 45)">
-        <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-        <text x="15" y="5" font-size="11" fill="#94a3b8">IAM policy generation</text>
-      </g>
-      <g transform="translate(250, 70)">
-        <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-        <text x="15" y="5" font-size="11" fill="#94a3b8">CloudFormation review</text>
-      </g>
+    
+  </g>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#devsecopsGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#a78bfa">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#a78bfa"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">Amazon Q Developer와 GitHub Advanced Security로 코드 보안 강화 및 AWS 최적화</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="105" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="52" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#Amazon-Q</text>
+      <rect x="117" y="0" width="249" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="241" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#GitHub-Advanced-Security</text>
+      <rect x="378" y="0" width="150" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="453" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#Code-Security</text>
+      <rect x="540" y="0" width="60" height="30" rx="15" fill="#a78bfa" fill-opacity="0.15" stroke="#a78bfa" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="570" y="20" font-family="Arial, sans-serif" font-size="12" fill="#a78bfa" text-anchor="middle">#AWS</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
     </g>
   </g>
-
-  <!-- Right: GitHub Advanced Security -->
-  <g transform="translate(620, 100)">
-    <rect x="0" y="0" width="530" height="320" rx="16" fill="#1e293b" stroke="#6e5494" stroke-width="2"/>
-    <rect x="0" y="0" width="530" height="50" rx="16" fill="url(#githubGrad)"/>
-    <rect x="0" y="35" width="530" height="15" fill="url(#githubGrad)"/>
-    <text x="265" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">GitHub Advanced Security</text>
-
-    <!-- Features Grid -->
-    <g transform="translate(20, 70)">
-      <!-- CodeQL -->
-      <rect x="0" y="0" width="155" height="110" rx="10" fill="#0f172a" stroke="#6e5494" stroke-width="1"/>
-      <text x="77" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#a78bfa">CodeQL</text>
-      <text x="77" y="50" text-anchor="middle" font-size="11" fill="#94a3b8">SAST Scanning</text>
-      <text x="77" y="70" text-anchor="middle" font-size="11" fill="#94a3b8">Custom Queries</text>
-      <text x="77" y="90" text-anchor="middle" font-size="11" fill="#94a3b8">70+ Languages</text>
-    </g>
-
-    <g transform="translate(185, 70)">
-      <!-- Dependabot -->
-      <rect x="0" y="0" width="155" height="110" rx="10" fill="#0f172a" stroke="#6e5494" stroke-width="1"/>
-      <text x="77" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#a78bfa">Dependabot</text>
-      <text x="77" y="50" text-anchor="middle" font-size="11" fill="#94a3b8">Dependency Scan</text>
-      <text x="77" y="70" text-anchor="middle" font-size="11" fill="#94a3b8">Auto PR Updates</text>
-      <text x="77" y="90" text-anchor="middle" font-size="11" fill="#94a3b8">CVE Alerts</text>
-    </g>
-
-    <g transform="translate(350, 70)">
-      <!-- Secret Scanning -->
-      <rect x="0" y="0" width="155" height="110" rx="10" fill="#0f172a" stroke="#ef4444" stroke-width="1"/>
-      <text x="77" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#ef4444">Secret Scanning</text>
-      <text x="77" y="50" text-anchor="middle" font-size="11" fill="#94a3b8">200+ Patterns</text>
-      <text x="77" y="70" text-anchor="middle" font-size="11" fill="#94a3b8">Push Protection</text>
-      <text x="77" y="90" text-anchor="middle" font-size="11" fill="#94a3b8">Custom Patterns</text>
-    </g>
-
-    <!-- Key Stats -->
-    <g transform="translate(20, 195)">
-      <rect x="0" y="0" width="490" height="100" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
-      <text x="245" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">Security Coverage</text>
-      
-      <g transform="translate(30, 45)">
-        <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-        <text x="15" y="5" font-size="11" fill="#94a3b8">AI code suggestions review</text>
-      </g>
-      <g transform="translate(30, 70)">
-        <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-        <text x="15" y="5" font-size="11" fill="#94a3b8">Security advisories</text>
-      </g>
-      <g transform="translate(250, 45)">
-        <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-        <text x="15" y="5" font-size="11" fill="#94a3b8">CI/CD integration</text>
-      </g>
-      <g transform="translate(250, 70)">
-        <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-        <text x="15" y="5" font-size="11" fill="#94a3b8">Copilot security checks</text>
-      </g>
-    </g>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#devsecopsGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
-
-  <!-- Center: Integration Flow -->
-  <g transform="translate(550, 250)">
-    <circle cx="50" cy="50" r="40" fill="url(#securityGrad)" opacity="0.9" filter="url(#glow)"/>
-    <text x="50" y="45" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">DevSecOps</text>
-    <text x="50" y="60" text-anchor="middle" font-size="10" fill="#e0e7ff">Integration</text>
-  </g>
-
-  <!-- Bottom: Security Pipeline -->
-  <g transform="translate(50, 450)">
-    <rect x="0" y="0" width="1100" height="200" rx="16" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
-    <text x="550" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#22c55e">Unified Security Pipeline</text>
-
-    <!-- Pipeline Steps -->
-    <g transform="translate(50, 60)">
-      <!-- Step 1 -->
-      <rect x="0" y="0" width="180" height="110" rx="10" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
-      <circle cx="20" cy="20" r="15" fill="url(#aiGrad)"/>
-      <text x="20" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">1</text>
-      <text x="100" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#3b82f6">Code Write</text>
-      <text x="90" y="45" text-anchor="middle" font-size="10" fill="#94a3b8">Amazon Q generates code</text>
-      <text x="90" y="65" text-anchor="middle" font-size="10" fill="#94a3b8">Copilot suggestions</text>
-      <text x="90" y="85" text-anchor="middle" font-size="10" fill="#94a3b8">AI-assisted development</text>
-    </g>
-
-    <path d="M 230 115 L 270 115" stroke="#22c55e" stroke-width="3" marker-end="url(#arrow)"/>
-
-    <g transform="translate(280, 60)">
-      <!-- Step 2 -->
-      <rect x="0" y="0" width="180" height="110" rx="10" fill="#0f172a" stroke="#6e5494" stroke-width="2"/>
-      <circle cx="20" cy="20" r="15" fill="url(#githubGrad)"/>
-      <text x="20" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">2</text>
-      <text x="100" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#a78bfa">Code Scan</text>
-      <text x="90" y="45" text-anchor="middle" font-size="10" fill="#94a3b8">CodeQL analysis</text>
-      <text x="90" y="65" text-anchor="middle" font-size="10" fill="#94a3b8">Secret scanning</text>
-      <text x="90" y="85" text-anchor="middle" font-size="10" fill="#94a3b8">Dependency check</text>
-    </g>
-
-    <path d="M 460 115 L 500 115" stroke="#22c55e" stroke-width="3" marker-end="url(#arrow)"/>
-
-    <g transform="translate(510, 60)">
-      <!-- Step 3 -->
-      <rect x="0" y="0" width="180" height="110" rx="10" fill="#0f172a" stroke="#ff9900" stroke-width="2"/>
-      <circle cx="20" cy="20" r="15" fill="url(#awsGrad)"/>
-      <text x="20" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">3</text>
-      <text x="100" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#ff9900">Deploy</text>
-      <text x="90" y="45" text-anchor="middle" font-size="10" fill="#94a3b8">AWS CodePipeline</text>
-      <text x="90" y="65" text-anchor="middle" font-size="10" fill="#94a3b8">IAM least privilege</text>
-      <text x="90" y="85" text-anchor="middle" font-size="10" fill="#94a3b8">Security validation</text>
-    </g>
-
-    <path d="M 690 115 L 730 115" stroke="#22c55e" stroke-width="3" marker-end="url(#arrow)"/>
-
-    <g transform="translate(740, 60)">
-      <!-- Step 4 -->
-      <rect x="0" y="0" width="180" height="110" rx="10" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
-      <circle cx="20" cy="20" r="15" fill="url(#securityGrad)"/>
-      <text x="20" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">4</text>
-      <text x="100" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#22c55e">Monitor</text>
-      <text x="90" y="45" text-anchor="middle" font-size="10" fill="#94a3b8">Security Hub</text>
-      <text x="90" y="65" text-anchor="middle" font-size="10" fill="#94a3b8">GuardDuty alerts</text>
-      <text x="90" y="85" text-anchor="middle" font-size="10" fill="#94a3b8">Continuous audit</text>
-    </g>
-
-    <!-- Stats bar -->
-    <g transform="translate(950, 70)">
-      <text x="50" y="20" text-anchor="middle" font-size="24" font-weight="bold" fill="#22c55e">85%</text>
-      <text x="50" y="45" text-anchor="middle" font-size="10" fill="#94a3b8">Vulnerability</text>
-      <text x="50" y="60" text-anchor="middle" font-size="10" fill="#94a3b8">Reduction</text>
-      <text x="50" y="95" text-anchor="middle" font-size="20" font-weight="bold" fill="#3b82f6">10x</text>
-      <text x="50" y="115" text-anchor="middle" font-size="10" fill="#94a3b8">Faster Review</text>
-    </g>
-  </g>
-
-  <!-- Footer -->
-  <text x="600" y="785" text-anchor="middle" font-size="11" fill="#64748b">Amazon Q Developer | GitHub Advanced Security | DevSecOps | AI Code Security</text>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

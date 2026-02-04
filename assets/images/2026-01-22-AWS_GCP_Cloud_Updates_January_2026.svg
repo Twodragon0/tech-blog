@@ -1,268 +1,194 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="100%" style="stop-color:#1e293b"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff9900"/>
-      <stop offset="100%" style="stop-color:#ec7211"/>
+    
+    <!-- Category Gradient -->
+    <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#0284c7"/>
     </linearGradient>
-    <linearGradient id="gcpGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#4285f4"/>
-      <stop offset="100%" style="stop-color:#34a853"/>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1400" height="900" fill="url(#bgGrad)"/>
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.02"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#38bdf8" stroke-opacity="0.05" stroke-width="1"/>
   </pattern>
-  <rect width="1400" height="900" fill="url(#grid)"/>
-
-  <!-- Header -->
-  <text x="700" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="38" font-weight="bold" fill="#ffffff">AWS &amp; GCP Cloud Updates - January 2026</text>
-  <text x="700" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8">Key Infrastructure &amp; AI Service Releases</text>
-  <line x1="100" y1="105" x2="1300" y2="105" stroke="#334155" stroke-width="2"/>
-
-  <!-- AWS Section -->
-  <g transform="translate(80, 125)">
-    <rect width="600" height="365" rx="16" fill="#1e293b" stroke="#ff9900" stroke-width="3"/>
-    <rect x="0" y="0" width="600" height="50" rx="16" fill="#ff9900"/>
-    <rect x="0" y="25" width="600" height="25" fill="#ff9900"/>
-    <text x="300" y="33" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#0f172a">AWS Updates</text>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#0ea5e9" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#0284c7" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#0ea5e9" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#38bdf8" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#38bdf8" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#cloudGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">CLOUD</text>
+  </g>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, B...</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
     
-    <!-- EC2 G7e -->
-    <g transform="translate(20, 70)">
-      <rect width="270" height="130" rx="10" fill="#0f172a" stroke="#76a9fa" stroke-width="2"/>
-      <text x="135" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#76a9fa">EC2 G7e</text>
-      <text x="135" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">NVIDIA Blackwell GPU</text>
-      <text x="135" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#22c55e" filter="url(#glow)">2.3x</text>
-      <text x="135" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">AI Inference Speed</text>
-      <g transform="translate(50, 105)">
-        <rect width="55" height="18" rx="4" fill="#22c55e" opacity="0.2"/>
-        <text x="27" y="13" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#22c55e">GenAI</text>
-      </g>
-      <g transform="translate(115, 105)">
-        <rect width="55" height="18" rx="4" fill="#38bdf8" opacity="0.2"/>
-        <text x="27" y="13" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#38bdf8">Spatial</text>
-      </g>
-      <g transform="translate(180, 105)">
-        <rect width="55" height="18" rx="4" fill="#a78bfa" opacity="0.2"/>
-        <text x="27" y="13" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#a78bfa">Science</text>
-      </g>
+    <!-- Cloud Icon -->
+    <g transform="translate(80, 280)">
+      <path d="M30 80 Q10 80 10 60 Q10 40 30 40 Q30 20 55 20 Q80 20 80 45 Q100 45 100 65 Q100 80 80 80 Z" 
+            fill="url(#cloudGradient)" stroke="#0ea5e9" stroke-width="2" opacity="0.9"/>
     </g>
     
-    <!-- EC2 X8i -->
-    <g transform="translate(310, 70)">
-      <rect width="270" height="130" rx="10" fill="#0f172a" stroke="#76a9fa" stroke-width="2"/>
-      <text x="135" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#76a9fa">EC2 X8i</text>
-      <text x="135" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Intel Xeon 6 Custom</text>
-      <text x="135" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#38bdf8" filter="url(#glow)">Memory</text>
-      <text x="135" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Intensive Workloads</text>
-      <g transform="translate(35, 105)">
-        <rect width="60" height="18" rx="4" fill="#f97316" opacity="0.2"/>
-        <text x="30" y="13" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#f97316">Database</text>
-      </g>
-      <g transform="translate(105, 105)">
-        <rect width="60" height="18" rx="4" fill="#ec4899" opacity="0.2"/>
-        <text x="30" y="13" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ec4899">In-Mem</text>
-      </g>
-      <g transform="translate(175, 105)">
-        <rect width="60" height="18" rx="4" fill="#14b8a6" opacity="0.2"/>
-        <text x="30" y="13" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#14b8a6">Analytics</text>
-      </g>
+    <!-- Server Stack -->
+    <g transform="translate(200, 290)">
+      <rect x="10" y="10" width="60" height="20" rx="3" fill="#14b8a6" stroke="#0d9488" stroke-width="2"/>
+      <rect x="10" y="35" width="60" height="20" rx="3" fill="#14b8a6" stroke="#0d9488" stroke-width="2"/>
+      <rect x="10" y="60" width="60" height="20" rx="3" fill="#14b8a6" stroke="#0d9488" stroke-width="2"/>
+      <circle cx="55" cy="20" r="4" fill="#22d3ee"/>
+      <circle cx="55" cy="45" r="4" fill="#22d3ee"/>
+      <circle cx="55" cy="70" r="4" fill="#22d3ee"/>
     </g>
     
-    <!-- European Sovereign Cloud -->
-    <g transform="translate(20, 215)">
-      <rect width="560" height="130" rx="10" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
-      <text x="280" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#3b82f6">European Sovereign Cloud</text>
-      
-      <!-- EU Flag simplified -->
-      <g transform="translate(35, 45)">
-        <rect width="80" height="55" rx="6" fill="#003399"/>
-        <circle cx="40" cy="27" r="15" fill="none" stroke="#ffcc00" stroke-width="2"/>
-        <g fill="#ffcc00">
-          <polygon points="40,10 41,14 45,14 42,17 43,21 40,19 37,21 38,17 35,14 39,14"/>
-          <polygon points="40,44 41,40 45,40 42,37 43,33 40,35 37,33 38,37 35,40 39,40"/>
-          <polygon points="24,27 28,28 28,32 31,29 35,30 33,27 35,24 31,25 28,22 28,26"/>
-          <polygon points="56,27 52,28 52,32 49,29 45,30 47,27 45,24 49,25 52,22 52,26"/>
-        </g>
-      </g>
-      
-      <g transform="translate(130, 50)">
-        <text x="0" y="0" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">EU Data Sovereignty</text>
-        <text x="0" y="22" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">EU staff operated | Data residency | GDPR compliant</text>
-        <text x="0" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Regulated industries: Finance, Healthcare, Public Sector</text>
-      </g>
-      
-      <g transform="translate(400, 45)">
-        <rect width="140" height="60" rx="8" fill="#1e3a5f" stroke="#3b82f6"/>
-        <text x="70" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6">Frankfurt</text>
-        <text x="70" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">First EU Region</text>
-      </g>
+    <!-- Network Node -->
+    <g transform="translate(330, 300)">
+      <circle cx="30" cy="30" r="20" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+      <circle cx="30" cy="30" r="8" fill="white"/>
+      <line x1="10" y1="30" x2="-10" y2="30" stroke="#0284c7" stroke-width="2"/>
+      <line x1="50" y1="30" x2="70" y2="30" stroke="#0284c7" stroke-width="2"/>
+      <line x1="30" y1="10" x2="30" y2="-10" stroke="#0284c7" stroke-width="2"/>
+    </g>
+    
+  </g>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#cloudGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#38bdf8">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#38bdf8"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">EC2 G7e Blackwell GPU, X8i SAP, EU Sovereign Cloud, Bangkok 리전, Gemini</text>
+    </g>
+    <g transform="translate(30, 125)">
+      <circle cx="8" cy="8" r="4" fill="#38bdf8"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">3 Flash</text>
+    </g>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="60" height="30" rx="15" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="30" y="20" font-family="Arial, sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle">#AWS</text>
+      <rect x="72" y="0" width="60" height="30" rx="15" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="102" y="20" font-family="Arial, sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle">#GCP</text>
+      <rect x="144" y="0" width="96" height="30" rx="15" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="192" y="20" font-family="Arial, sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle">#EC2-G7e</text>
+      <rect x="252" y="0" width="96" height="30" rx="15" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="300" y="20" font-family="Arial, sans-serif" font-size="12" fill="#38bdf8" text-anchor="middle">#EC2-X8i</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
     </g>
   </g>
-
-  <!-- GCP Section -->
-  <g transform="translate(720, 125)">
-    <rect width="600" height="365" rx="16" fill="#1e293b" stroke="#4285f4" stroke-width="3"/>
-    <defs>
-      <linearGradient id="gcpHeader" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" style="stop-color:#4285f4"/>
-        <stop offset="33%" style="stop-color:#34a853"/>
-        <stop offset="66%" style="stop-color:#fbbc04"/>
-        <stop offset="100%" style="stop-color:#ea4335"/>
-      </linearGradient>
-    </defs>
-    <rect x="0" y="0" width="600" height="50" rx="16" fill="url(#gcpHeader)"/>
-    <rect x="0" y="25" width="600" height="25" fill="url(#gcpHeader)"/>
-    <text x="300" y="33" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#0f172a">Google Cloud Updates</text>
-    
-    <!-- Bangkok Region -->
-    <g transform="translate(20, 70)">
-      <rect width="270" height="130" rx="10" fill="#0f172a" stroke="#34a853" stroke-width="2"/>
-      <text x="135" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#34a853">Bangkok Region</text>
-      <text x="135" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">asia-southeast2</text>
-      <text x="135" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#22c55e" filter="url(#glow)">$1B</text>
-      <text x="135" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Investment</text>
-      <g transform="translate(45, 105)">
-        <rect width="70" height="18" rx="4" fill="#22c55e" opacity="0.2"/>
-        <text x="35" y="13" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#22c55e">Low Latency</text>
-      </g>
-      <g transform="translate(125, 105)">
-        <rect width="70" height="18" rx="4" fill="#f59e0b" opacity="0.2"/>
-        <text x="35" y="13" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#f59e0b">SEA Market</text>
-      </g>
-    </g>
-    
-    <!-- Gemini 3 Flash -->
-    <g transform="translate(310, 70)">
-      <rect width="270" height="130" rx="10" fill="#0f172a" stroke="#fbbc04" stroke-width="2"/>
-      <text x="135" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#fbbc04">Gemini 3 Flash</text>
-      <text x="135" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Latest Inference Model</text>
-      <text x="135" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#a78bfa" filter="url(#glow)">Agent Ready</text>
-      <text x="135" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Agentic Workflows</text>
-      <g transform="translate(35, 105)">
-        <rect width="60" height="18" rx="4" fill="#a78bfa" opacity="0.2"/>
-        <text x="30" y="13" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#a78bfa">Fast</text>
-      </g>
-      <g transform="translate(105, 105)">
-        <rect width="60" height="18" rx="4" fill="#ec4899" opacity="0.2"/>
-        <text x="30" y="13" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ec4899">Multimodal</text>
-      </g>
-      <g transform="translate(175, 105)">
-        <rect width="60" height="18" rx="4" fill="#14b8a6" opacity="0.2"/>
-        <text x="30" y="13" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#14b8a6">Efficient</text>
-      </g>
-    </g>
-    
-    <!-- BigQuery -->
-    <g transform="translate(20, 215)">
-      <rect width="560" height="130" rx="10" fill="#0f172a" stroke="#ea4335" stroke-width="2"/>
-      <text x="280" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#ea4335">BigQuery Advanced Query Engine</text>
-      
-      <g transform="translate(30, 50)">
-        <rect width="110" height="60" rx="8" fill="#1e3a5f" stroke="#4285f4"/>
-        <text x="55" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#4285f4">100+</text>
-        <text x="55" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">New Functions</text>
-      </g>
-      
-      <g transform="translate(160, 50)">
-        <rect width="110" height="60" rx="8" fill="#1e3a5f" stroke="#34a853"/>
-        <text x="55" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#34a853">Hugging Face</text>
-        <text x="55" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Model Integration</text>
-      </g>
-      
-      <g transform="translate(290, 50)">
-        <rect width="110" height="60" rx="8" fill="#1e3a5f" stroke="#fbbc04"/>
-        <text x="55" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#fbbc04">SQL Native</text>
-        <text x="55" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">AI Inference</text>
-      </g>
-      
-      <g transform="translate(420, 50)">
-        <rect width="110" height="60" rx="8" fill="#1e3a5f" stroke="#ea4335"/>
-        <text x="55" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ea4335">Firestore</text>
-        <text x="55" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Semantic Cache</text>
-      </g>
-    </g>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#cloudGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
-
-  <!-- Key Takeaways -->
-  <g transform="translate(80, 520)">
-    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">Key Takeaways for DevSecOps &amp; FinOps</text>
-    
-    <g transform="translate(0, 30)">
-      <rect width="1240" height="250" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
-      
-      <!-- AI Infrastructure -->
-      <g transform="translate(30, 25)">
-        <rect width="280" height="200" rx="10" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
-        <text x="140" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#22c55e">AI Infrastructure</text>
-        <line x1="20" y1="45" x2="260" y2="45" stroke="#334155"/>
-        <text x="25" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">G7e: 2.3x faster AI inference</text>
-        <text x="25" y="92" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Blackwell GPU = GenAI ready</text>
-        <text x="25" y="114" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Gemini 3 Flash for agents</text>
-        <text x="25" y="136" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">BigQuery ML integration</text>
-        <g transform="translate(25, 155)">
-          <rect width="230" height="28" rx="6" fill="#22c55e" opacity="0.15"/>
-          <text x="115" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#22c55e">Consider GPU instance upgrade</text>
-        </g>
-      </g>
-      
-      <!-- Data Sovereignty -->
-      <g transform="translate(340, 25)">
-        <rect width="280" height="200" rx="10" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
-        <text x="140" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#3b82f6">Data Sovereignty</text>
-        <line x1="20" y1="45" x2="260" y2="45" stroke="#334155"/>
-        <text x="25" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">EU Sovereign Cloud = GDPR</text>
-        <text x="25" y="92" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">EU staff operated only</text>
-        <text x="25" y="114" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Data residency guaranteed</text>
-        <text x="25" y="136" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Regulated industry focus</text>
-        <g transform="translate(25, 155)">
-          <rect width="230" height="28" rx="6" fill="#3b82f6" opacity="0.15"/>
-          <text x="115" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#3b82f6">Evaluate for EU compliance</text>
-        </g>
-      </g>
-      
-      <!-- Regional Expansion -->
-      <g transform="translate(650, 25)">
-        <rect width="280" height="200" rx="10" fill="#0f172a" stroke="#f97316" stroke-width="2"/>
-        <text x="140" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#f97316">Regional Expansion</text>
-        <line x1="20" y1="45" x2="260" y2="45" stroke="#334155"/>
-        <text x="25" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Bangkok = SEA low latency</text>
-        <text x="25" y="92" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">$1B GCP investment</text>
-        <text x="25" y="114" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Multi-region DR options</text>
-        <text x="25" y="136" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Edge compute expansion</text>
-        <g transform="translate(25, 155)">
-          <rect width="230" height="28" rx="6" fill="#f97316" opacity="0.15"/>
-          <text x="115" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f97316">Review latency optimization</text>
-        </g>
-      </g>
-      
-      <!-- FinOps -->
-      <g transform="translate(960, 25)">
-        <rect width="250" height="200" rx="10" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
-        <text x="125" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#a78bfa">FinOps Impact</text>
-        <line x1="20" y1="45" x2="230" y2="45" stroke="#334155"/>
-        <text x="25" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">GPU cost efficiency review</text>
-        <text x="25" y="92" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Region selection for cost</text>
-        <text x="25" y="114" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Spot/Preemptible strategy</text>
-        <text x="25" y="136" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Reserved capacity planning</text>
-        <g transform="translate(25, 155)">
-          <rect width="200" height="28" rx="6" fill="#a78bfa" opacity="0.15"/>
-          <text x="100" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#a78bfa">Update cost models</text>
-        </g>
-      </g>
-    </g>
-  </g>
-
-  <!-- Footer -->
-  <text x="700" y="860" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Source: AWS Blog, Google Cloud Blog | January 2026 | tech.2twodragon.com</text>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>

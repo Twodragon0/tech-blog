@@ -1,211 +1,189 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a"/>
-      <stop offset="100%" style="stop-color:#1e293b"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="30%" style="stop-color:#0f1629"/>
+      <stop offset="70%" style="stop-color:#1a1f3a"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-    <linearGradient id="errorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    
+    <!-- Category Gradient -->
+    <linearGradient id="incidentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ef4444"/>
-      <stop offset="100%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#b91c1c"/>
     </linearGradient>
-    <linearGradient id="fixGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#22c55e"/>
-      <stop offset="100%" style="stop-color:#16a34a"/>
+    
+    <!-- Accent Gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="33%" style="stop-color:#8b5cf6"/>
+      <stop offset="66%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
     </linearGradient>
-    <linearGradient id="k8sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#326ce5"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    
+    <!-- Card Gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    
+    <!-- Fire Gradient for Incident -->
+    <linearGradient id="fireGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="50%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    
+    <!-- Glow Effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#64748b"/>
-    </marker>
-    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#ef4444"/>
-    </marker>
+    
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner Glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="0"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend in2="SourceGraphic"/>
+    </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="800" fill="url(#bgGrad)"/>
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.02"/>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Grid Pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#f87171" stroke-opacity="0.05" stroke-width="1"/>
   </pattern>
-  <rect width="1200" height="800" fill="url(#grid)"/>
-
-  <!-- Title -->
-  <text x="600" y="45" text-anchor="middle" font-size="28" font-weight="bold" fill="#ef4444" filter="url(#glow)">Karpenter v1.5.3 Incident Post-Mortem</text>
-  <text x="600" y="75" text-anchor="middle" font-size="16" fill="#94a3b8">Node Consolidation Incident Analysis and Resolution</text>
-
-  <!-- Incident Summary Cards -->
-  <g transform="translate(50, 100)">
-    <rect x="0" y="0" width="270" height="100" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
-    <text x="135" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#ef4444">Incident Overview</text>
-    <text x="20" y="55" font-size="12" fill="#94a3b8">Date:</text>
-    <text x="100" y="55" font-size="12" fill="#ffffff">2025-10-02 15:43 KST</text>
-    <text x="20" y="75" font-size="12" fill="#94a3b8">Duration:</text>
-    <text x="100" y="75" font-size="12" fill="#ffffff">~10 minutes</text>
-    <text x="20" y="95" font-size="12" fill="#94a3b8">Severity:</text>
-    <text x="100" y="95" font-size="12" font-weight="bold" fill="#ef4444">HIGH</text>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Background Decorative Elements -->
+  <circle cx="0" cy="0" r="300" fill="#ef4444" fill-opacity="0.03"/>
+  <circle cx="1200" cy="630" r="350" fill="#dc2626" fill-opacity="0.04"/>
+  <circle cx="600" cy="315" r="400" fill="#ef4444" fill-opacity="0.02"/>
+  
+  <!-- Decorative Lines -->
+  <line x1="0" y1="200" x2="150" y2="200" stroke="#f87171" stroke-width="1" opacity="0.3"/>
+  <line x1="1050" y1="430" x2="1200" y2="430" stroke="#f87171" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Top Header Bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
+  
+  <!-- Category Badge -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="25" width="160" height="40" rx="20" fill="url(#incidentGradient)"/>
+    <text x="120" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">INCIDENT</text>
   </g>
-
-  <g transform="translate(350, 100)">
-    <rect x="0" y="0" width="270" height="100" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
-    <text x="135" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#ef4444">Impact</text>
-    <text x="20" y="55" font-size="12" fill="#94a3b8">Pods Affected:</text>
-    <text x="130" y="55" font-size="12" font-weight="bold" fill="#ef4444">20+</text>
-    <text x="20" y="75" font-size="12" fill="#94a3b8">Services:</text>
-    <text x="100" y="75" font-size="12" fill="#ffffff">API Gateway</text>
-    <text x="20" y="95" font-size="12" fill="#94a3b8">Node:</text>
-    <text x="70" y="95" font-size="12" fill="#ffffff">m5.large terminated</text>
+  
+  <!-- Date Badge -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="25" width="160" height="40" rx="20" fill="url(#accentGradient)"/>
+    <text x="1080" y="51" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">February 04, 2026</text>
   </g>
-
-  <g transform="translate(650, 100)">
-    <rect x="0" y="0" width="500" height="100" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
-    <text x="250" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#ef4444">Root Cause</text>
-    <text x="20" y="55" font-size="12" fill="#94a3b8">Config:</text>
-    <text x="70" y="55" font-size="12" fill="#ef4444" font-family="monospace">consolidationPolicy: WhenEmptyOrUnderutilized</text>
-    <text x="20" y="75" font-size="12" fill="#94a3b8">Issue:</text>
-    <text x="70" y="75" font-size="12" fill="#ffffff">Aggressive consolidation + No PDB</text>
-    <text x="20" y="95" font-size="12" fill="#94a3b8">Trigger:</text>
-    <text x="80" y="95" font-size="12" fill="#ffffff">30s consolidateAfter, 100% budget</text>
-  </g>
-
-  <!-- Visual Timeline -->
-  <g transform="translate(50, 230)">
-    <rect x="0" y="0" width="1100" height="160" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
-    <text x="550" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">Incident Timeline</text>
-
-    <!-- Timeline Line -->
-    <line x1="100" y1="90" x2="1000" y2="90" stroke="#334155" stroke-width="4"/>
+  
+  <!-- Main Title -->
+  <text x="600" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기</text>
+  
+  <!-- Subtitle Line -->
+  <rect x="400" y="135" width="400" height="4" rx="2" fill="url(#accentGradient)"/>
+  
+  <!-- Icon Section - Left Side -->
+  <g opacity="0.95">
     
-    <!-- Timeline Points -->
-    <g transform="translate(100, 90)">
-      <circle cx="0" cy="0" r="15" fill="url(#errorGrad)"/>
-      <text x="0" y="5" text-anchor="middle" font-size="10" fill="#ffffff">1</text>
-      <text x="0" y="-25" text-anchor="middle" font-size="11" font-weight="bold" fill="#ef4444">15:43:00</text>
-      <text x="0" y="35" text-anchor="middle" font-size="10" fill="#94a3b8">Consolidation</text>
-      <text x="0" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">Triggered</text>
+    <!-- Warning Bell -->
+    <g transform="translate(80, 280)">
+      <path d="M50 15 Q30 15 30 40 L30 65 L20 75 L80 75 L70 65 L70 40 Q70 15 50 15" 
+            fill="#ef4444" stroke="#dc2626" stroke-width="2"/>
+      <circle cx="50" cy="85" r="8" fill="#ef4444"/>
+      <line x1="50" y1="5" x2="50" y2="15" stroke="#ef4444" stroke-width="3"/>
+      <circle cx="50" cy="3" r="3" fill="#ef4444"/>
     </g>
-
-    <g transform="translate(300, 90)">
-      <circle cx="0" cy="0" r="15" fill="url(#errorGrad)"/>
-      <text x="0" y="5" text-anchor="middle" font-size="10" fill="#ffffff">2</text>
-      <text x="0" y="-25" text-anchor="middle" font-size="11" font-weight="bold" fill="#ef4444">15:43:20</text>
-      <text x="0" y="35" text-anchor="middle" font-size="10" fill="#94a3b8">20+ Pods</text>
-      <text x="0" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">Terminating</text>
+    
+    <!-- Timeline -->
+    <g transform="translate(200, 310)">
+      <line x1="0" y1="30" x2="140" y2="30" stroke="#64748b" stroke-width="3"/>
+      <circle cx="0" cy="30" r="8" fill="#ef4444"/>
+      <circle cx="50" cy="30" r="8" fill="#f59e0b"/>
+      <circle cx="100" cy="30" r="8" fill="#22c55e"/>
+      <circle cx="140" cy="30" r="8" fill="#3b82f6"/>
     </g>
-
-    <g transform="translate(500, 90)">
-      <circle cx="0" cy="0" r="15" fill="url(#errorGrad)"/>
-      <text x="0" y="5" text-anchor="middle" font-size="10" fill="#ffffff">3</text>
-      <text x="0" y="-25" text-anchor="middle" font-size="11" font-weight="bold" fill="#ef4444">15:44:00</text>
-      <text x="0" y="35" text-anchor="middle" font-size="10" fill="#94a3b8">Service</text>
-      <text x="0" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">DOWN</text>
+    
+    <!-- Fire Icon -->
+    <g transform="translate(370, 285)">
+      <path d="M30 70 Q10 50 20 30 Q25 40 35 35 Q30 20 40 5 Q50 25 55 20 Q65 35 60 50 Q70 55 65 70 Z" 
+            fill="url(#fireGradient)" stroke="#dc2626" stroke-width="2"/>
     </g>
-
-    <g transform="translate(700, 90)">
-      <circle cx="0" cy="0" r="15" fill="#f59e0b"/>
-      <text x="0" y="5" text-anchor="middle" font-size="10" fill="#ffffff">4</text>
-      <text x="0" y="-25" text-anchor="middle" font-size="11" font-weight="bold" fill="#f59e0b">15:50:00</text>
-      <text x="0" y="35" text-anchor="middle" font-size="10" fill="#94a3b8">Manual</text>
-      <text x="0" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">Recovery</text>
+    
+  </g>
+  
+  <!-- Main Content Card -->
+  <g transform="translate(450, 180)" filter="url(#shadow)">
+    <rect width="720" height="340" rx="16" fill="url(#cardGradient)" stroke="#f87171" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Card Header Accent -->
+    <rect x="0" y="0" width="720" height="8" rx="4" fill="url(#incidentGradient)"/>
+    
+    <!-- Card Title -->
+    <text x="30" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f87171">Key Highlights</text>
+    
+    <!-- Summary Content -->
+    <g transform="translate(30, 90)">
+      <circle cx="8" cy="8" r="4" fill="#f87171"/>
+      <text x="25" y="13" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0">Karpenter v1.5.3 노드 통합 장애 분석. PDB 적용을 통한 재발 방지.</text>
     </g>
-
-    <g transform="translate(900, 90)">
-      <circle cx="0" cy="0" r="15" fill="url(#fixGrad)"/>
-      <text x="0" y="5" text-anchor="middle" font-size="10" fill="#ffffff">5</text>
-      <text x="0" y="-25" text-anchor="middle" font-size="11" font-weight="bold" fill="#22c55e">15:53:00</text>
-      <text x="0" y="35" text-anchor="middle" font-size="10" fill="#94a3b8">Service</text>
-      <text x="0" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">RESTORED</text>
+    
+    <!-- Tags Section -->
+    <g transform="translate(30, 230)">
+      <rect x="0" y="0" width="114" height="30" rx="15" fill="#f87171" fill-opacity="0.15" stroke="#f87171" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="57" y="20" font-family="Arial, sans-serif" font-size="12" fill="#f87171" text-anchor="middle">#Karpenter</text>
+      <rect x="126" y="0" width="123" height="30" rx="15" fill="#f87171" fill-opacity="0.15" stroke="#f87171" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="187" y="20" font-family="Arial, sans-serif" font-size="12" fill="#f87171" text-anchor="middle">#Kubernetes</text>
+      <rect x="261" y="0" width="60" height="30" rx="15" fill="#f87171" fill-opacity="0.15" stroke="#f87171" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="291" y="20" font-family="Arial, sans-serif" font-size="12" fill="#f87171" text-anchor="middle">#AWS</text>
+      <rect x="333" y="0" width="132" height="30" rx="15" fill="#f87171" fill-opacity="0.15" stroke="#f87171" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="399" y="20" font-family="Arial, sans-serif" font-size="12" fill="#f87171" text-anchor="middle">#Post-Mortem</text>
+    </g>
+    
+    <!-- CTA Button -->
+    <g transform="translate(540, 280)">
+      <rect width="150" height="45" rx="22" fill="url(#accentGradient)" filter="url(#glow)"/>
+      <text x="75" y="29" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
     </g>
   </g>
-
-  <!-- Before/After Config Comparison -->
-  <g transform="translate(50, 420)">
-    <!-- Before (Problem) -->
-    <rect x="0" y="0" width="530" height="200" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
-    <rect x="0" y="0" width="530" height="40" rx="12" fill="url(#errorGrad)"/>
-    <rect x="0" y="28" width="530" height="12" fill="url(#errorGrad)"/>
-    <text x="265" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">BEFORE (Problem)</text>
-
-    <g transform="translate(20, 55)">
-      <text x="0" y="0" font-size="12" fill="#94a3b8" font-family="monospace">NodePool Config:</text>
-      <rect x="0" y="10" width="490" height="120" rx="6" fill="#0f172a"/>
-      <text x="15" y="30" font-size="11" fill="#ef4444" font-family="monospace">consolidationPolicy: WhenEmptyOrUnderutilized</text>
-      <text x="15" y="50" font-size="11" fill="#ef4444" font-family="monospace">consolidateAfter: 30s</text>
-      <text x="15" y="70" font-size="11" fill="#ef4444" font-family="monospace">budgets:</text>
-      <text x="15" y="90" font-size="11" fill="#ef4444" font-family="monospace">  - nodes: "100%"</text>
-      <text x="15" y="110" font-size="11" fill="#ef4444" font-family="monospace"># PDB: NOT CONFIGURED</text>
-    </g>
+  
+  <!-- Bottom Section -->
+  <line x1="40" y1="560" x2="1160" y2="560" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Blog Branding -->
+  <g transform="translate(50, 575)">
+    <rect width="45" height="45" rx="10" fill="url(#incidentGradient)" filter="url(#shadow)"/>
+    <text x="22" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">TD</text>
   </g>
-
-  <!-- After (Fix) -->
-  <g transform="translate(620, 420)">
-    <rect x="0" y="0" width="530" height="200" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
-    <rect x="0" y="0" width="530" height="40" rx="12" fill="url(#fixGrad)"/>
-    <rect x="0" y="28" width="530" height="12" fill="url(#fixGrad)"/>
-    <text x="265" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">AFTER (Fixed)</text>
-
-    <g transform="translate(20, 55)">
-      <text x="0" y="0" font-size="12" fill="#94a3b8" font-family="monospace">NodePool Config + PDB:</text>
-      <rect x="0" y="10" width="490" height="120" rx="6" fill="#0f172a"/>
-      <text x="15" y="30" font-size="11" fill="#22c55e" font-family="monospace">consolidationPolicy: WhenEmpty</text>
-      <text x="15" y="50" font-size="11" fill="#22c55e" font-family="monospace">consolidateAfter: 5m</text>
-      <text x="15" y="70" font-size="11" fill="#22c55e" font-family="monospace">budgets:</text>
-      <text x="15" y="90" font-size="11" fill="#22c55e" font-family="monospace">  - nodes: "10%"</text>
-      <text x="15" y="110" font-size="11" fill="#22c55e" font-family="monospace">PDB: minAvailable: 50%</text>
-    </g>
-  </g>
-
-  <!-- Arrow between configs -->
-  <g transform="translate(580, 520)">
-    <path d="M 0 0 L 40 0" stroke="#22c55e" stroke-width="4" marker-end="url(#arrow)"/>
-  </g>
-
-  <!-- Lessons Learned -->
-  <g transform="translate(50, 650)">
-    <rect x="0" y="0" width="1100" height="100" rx="12" fill="#1e293b" stroke="#326ce5" stroke-width="2"/>
-    <text x="550" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#326ce5">Key Takeaways</text>
-
-    <g transform="translate(50, 50)">
-      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Always configure PodDisruptionBudget</text>
-    </g>
-    <g transform="translate(300, 50)">
-      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Use WhenEmpty policy for safety</text>
-    </g>
-    <g transform="translate(530, 50)">
-      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Set conservative budgets (10%)</text>
-    </g>
-    <g transform="translate(770, 50)">
-      <circle cx="0" cy="0" r="6" fill="#22c55e"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Increase consolidateAfter (5m+)</text>
-    </g>
-
-    <g transform="translate(50, 75)">
-      <circle cx="0" cy="0" r="6" fill="#3b82f6"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Monitor node events with alerts</text>
-    </g>
-    <g transform="translate(300, 75)">
-      <circle cx="0" cy="0" r="6" fill="#3b82f6"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Test in staging first</text>
-    </g>
-    <g transform="translate(530, 75)">
-      <circle cx="0" cy="0" r="6" fill="#3b82f6"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Have rollback plan ready</text>
-    </g>
-    <g transform="translate(770, 75)">
-      <circle cx="0" cy="0" r="6" fill="#3b82f6"/>
-      <text x="15" y="5" font-size="12" fill="#94a3b8">Update to Karpenter v1.0 GA</text>
-    </g>
-  </g>
-
-  <!-- Footer -->
-  <text x="600" y="785" text-anchor="middle" font-size="11" fill="#64748b">Karpenter v1.5.3 | Post-Mortem | Node Consolidation | PodDisruptionBudget | Kubernetes</text>
+  
+  <text x="110" y="595" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
+  <text x="110" y="615" font-family="Arial, sans-serif" font-size="12" fill="#64748b">tech.2twodragon.com</text>
+  
+  <!-- Tech Stack -->
+  <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
+  <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
 </svg>
