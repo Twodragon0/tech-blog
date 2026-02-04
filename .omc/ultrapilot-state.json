@@ -1,69 +1,56 @@
 {
   "active": true,
   "mode": "ultrapilot",
-  "phase": "integration",
-  "started_at": "2026-02-05T02:45:00Z",
-  "session": "remaining-optimizations",
+  "phase": "validation",
+  "started_at": "2026-02-05T03:00:00Z",
+  "completed_at": "2026-02-05T03:15:00Z",
+  "duration_minutes": 15,
+  "session": "recent-posts-improvement",
   "workers": [
     {
       "id": "w1",
       "status": "completed",
-      "task": "Verify and finalize main.js split",
-      "files": ["assets/js/main-core.js", "assets/js/main-post.js", "assets/js/main-search.js", "_includes/footer.html"],
-      "agent_type": "executor",
-      "model": "sonnet",
-      "agent_id": "a9bd12f",
-      "results": {
-        "syntax_errors_fixed": 1,
-        "file_sizes": {
-          "main-core.js": "15 KB",
-          "main-post.js": "27 KB",
-          "main-search.js": "49 KB"
-        },
-        "size_reduction": "83% for non-post pages (15 KB vs 85 KB)",
-        "loading_strategy": "Core: always, Post: conditional, Search: lazy"
-      }
+      "task": "Fix dummy links in Jan 22-25 posts",
+      "files": ["8 posts"],
+      "agent_id": "a666d26",
+      "results": {"dummy_links_fixed": 0, "posts_scanned": 8}
     },
     {
       "id": "w2",
       "status": "completed",
-      "task": "Complete Vercel monitoring setup",
-      "files": ["scripts/monitor_vercel_builds.sh", "docs/monitoring.md", ".github/workflows/monitoring.yml"],
-      "agent_type": "executor-low",
-      "model": "haiku",
-      "agent_id": "af007d5",
-      "results": {
-        "files_created": 3,
-        "lines_added": 605,
-        "features": [
-          "Core Web Vitals monitoring (LCP, FID, CLS)",
-          "Sentry error dashboard integration",
-          "GitHub Actions workflow (6-hour schedule)",
-          "Color-coded alert system",
-          "Automatic issue creation on failures"
-        ]
-      }
+      "task": "Fix dummy links in Jan 26-31 posts",
+      "files": ["7 posts"],
+      "agent_id": "aa035ed",
+      "results": {"dummy_links_fixed": 0, "posts_scanned": 7}
     },
     {
       "id": "w3",
       "status": "completed",
-      "task": "Run image optimization",
-      "files": ["scripts/optimize_images.py", "assets/images/**"],
-      "agent_type": "executor-low",
-      "model": "haiku",
-      "agent_id": "a1259af",
-      "results": {
-        "images_optimized": 112,
-        "format": "WebP quality 85",
-        "size_reduction_estimated": "110-150 MB",
-        "originals_preserved": true,
-        "svg_files_preserved": true
-      }
+      "task": "Fix dummy links in Feb 1-3 posts",
+      "files": ["5 posts"],
+      "agent_id": "a574eba",
+      "results": {"dummy_links_fixed": 0, "posts_scanned": 5}
+    },
+    {
+      "id": "w4",
+      "status": "completed",
+      "task": "Fix dummy links in comprehensive guides",
+      "files": ["5 guides"],
+      "agent_id": "ad80adf",
+      "results": {"dummy_links_fixed": 0, "posts_scanned": 5}
+    },
+    {
+      "id": "w5",
+      "status": "completed",
+      "task": "Fix latest posts + AI workflow guide",
+      "files": ["3 posts"],
+      "agent_id": "a5ee0d6",
+      "results": {"dummy_links_fixed": 1, "posts_modified": 1}
     }
   ],
-  "shared_files": [],
-  "total_workers": 3,
-  "completed_workers": 3,
-  "completion_time": "2026-02-05T02:52:00Z",
-  "duration_minutes": 7
+  "total_workers": 5,
+  "completed_workers": 5,
+  "total_posts_scanned": 28,
+  "total_fixes": 1,
+  "posts_already_clean": 27
 }

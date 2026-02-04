@@ -12,6 +12,10 @@ author: "Yongho Ha"
 toc: true
 ---
 
+> **🤖 AI 요약**
+>
+> 이 가이드는 2026년 최신 AI 도구를 활용한 완전 자동화 콘텐츠 생성 워크플로우를 다룹니다. Claude Opus 4.5로 블로그 작성, Suno AI로 음악 생성, Runway Gen-3로 영상 제작, D-ID로 애니메이션 추가까지 - 실전 Python 파이프라인과 3개 Case Study 포함. DevSecOps 관점의 보안 및 비용 최적화 (월 $55-166, ROI 4,877%) 가이드.
+
 ## 1. 서론: 2026년 콘텐츠 크리에이터의 새로운 현실
 
 2026년, 콘텐츠 크리에이터의 일상이 완전히 바뀌었습니다. 과거 3일이 걸리던 블로그 포스트 작성이 3시간으로, 2주가 걸리던 영상 제작이 하루로 단축되었습니다. 이 혁명의 중심에는 **AI 자동화 워크플로우**가 있습니다.
@@ -1573,7 +1577,7 @@ Week 11-12: 파이프라인 통합
 
 ### 학습 리소스
 - [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
-- [Prompt Engineering Guide](https://www.promptingguide.ai/)
+- [Prompt Engineering Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)
 - [AI Content Creation Community](https://www.reddit.com/r/AIContentCreation/)
 
 ### 보안 및 컴플라이언스
