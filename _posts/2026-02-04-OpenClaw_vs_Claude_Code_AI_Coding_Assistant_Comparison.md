@@ -99,7 +99,7 @@ AI 코딩 어시스턴트 시장의 급성장과 함께 수많은 도구가 등�
 
 **공격 시나리오:**
 
-```
+```text
 공격자 → 악성 스킬 게시 → 사용자 설치 → One-click RCE
 ```
 
@@ -236,7 +236,7 @@ claude config set network_access "restricted"
 
 ### 2.4 의사결정 매트릭스: 보안 요구사항별 선택
 
-```
+```text
 보안 등급별 도구 선택:
 
 [SOC 2/ISO 27001 필수] ────────── Claude Code (유일한 선택)

@@ -113,7 +113,7 @@ Shai-Hulud 웜 공격의 자가 복제 메커니즘:
 | **SBOM 생성** | ✅ 권장 | 소프트웨어 구성 요소 추적 |
 | **자동 스캔** | ✅ 권장 | CI/CD 파이프라인 통합 |
 
-<img src="{{ '/assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis_image.webp' | relative_url }}" alt="NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale Supply Chain Attack with 180+ Compromised Packages" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis.svg' | relative_url }}" alt="NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale Supply Chain Attack with 180+ Compromised Packages" loading="lazy" class="post-image">
 
 ## 1. 개요
 
