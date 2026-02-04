@@ -1,9 +1,9 @@
 // Service Worker for Offline Support and Caching
 // 버전 업데이트 시 CACHE_NAME 변경하여 캐시 무효화
-// v9: WebP 코드 제거 - CLS 최적화만 유지
-const CACHE_NAME = 'tech-blog-v9';
-const STATIC_CACHE = 'tech-blog-static-v9';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v9';
+// v11: 챗봇 자동 팝업 완전 차단 (두 클래스 조건 필수)
+const CACHE_NAME = 'tech-blog-v11';
+const STATIC_CACHE = 'tech-blog-static-v11';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v11';
 
 // 캐시할 정적 리소스
 const STATIC_ASSETS = [

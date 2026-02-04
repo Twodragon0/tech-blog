@@ -38,6 +38,7 @@
   if (chatWindow) {
     chatWindow.style.display = 'none';
     chatWindow.classList.remove('chat-widget-window-open');
+    chatWindow.classList.remove('chat-widget-user-opened');
     isOpen = false;
     if (chatToggle) {
       chatToggle.setAttribute('aria-expanded', 'false');
@@ -52,6 +53,7 @@
           if (!isOpen && (chatWindow.style.display !== 'none' || chatWindow.classList.contains('chat-widget-window-open'))) {
             chatWindow.style.display = 'none';
             chatWindow.classList.remove('chat-widget-window-open');
+            chatWindow.classList.remove('chat-widget-user-opened');
             if (chatToggle) {
               chatToggle.setAttribute('aria-expanded', 'false');
             }
@@ -101,7 +103,7 @@
   function toggleChat() {
     const wasOpen = isOpen;
     isOpen = !isOpen;
-    
+
     if (isOpen) {
       chatWindow.style.display = 'flex';
       // Force reflow to ensure display change is applied
@@ -109,6 +111,7 @@
       // Use requestAnimationFrame for smoother animation
       requestAnimationFrame(() => {
         chatWindow.classList.add('chat-widget-window-open');
+        chatWindow.classList.add('chat-widget-user-opened'); // NEW: Require explicit user action
         chatInput.focus();
         // Scroll to bottom with smooth animation
         setTimeout(() => {
@@ -121,6 +124,7 @@
       }
     } else {
       chatWindow.classList.remove('chat-widget-window-open');
+      chatWindow.classList.remove('chat-widget-user-opened'); // NEW: Remove user-opened class
       // Update toggle button state
       if (chatToggle) {
         chatToggle.setAttribute('aria-expanded', 'false');
