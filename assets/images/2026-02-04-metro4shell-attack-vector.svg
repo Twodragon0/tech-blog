@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Segoe UI', 'Noto Sans KR', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#1a1f3a"/>
+    </linearGradient>
+    <linearGradient id="red2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff4444"/>
+      <stop offset="100%" stop-color="#cc0000"/>
+    </linearGradient>
+    <linearGradient id="orange2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff8c00"/>
+      <stop offset="100%" stop-color="#e67300"/>
+    </linearGradient>
+    <linearGradient id="purple2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9c27b0"/>
+      <stop offset="100%" stop-color="#6a1b9a"/>
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow2">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff4444"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bg2)" rx="12"/>
+  <rect x="2" y="2" width="896" height="496" fill="none" stroke="#2a3055" stroke-width="2" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#ff4444" font-size="22" font-weight="bold" filter="url(#glow2)">Metro4Shell Attack Vector (CVE-2025-11953)</text>
+  <text x="450" y="62" text-anchor="middle" fill="#8892b0" font-size="13">CVSS 9.8 Critical - React Native CLI Remote Code Execution</text>
+
+  <!-- CVSS Badge -->
+  <rect x="370" y="74" width="160" height="26" rx="13" fill="#b71c1c"/>
+  <text x="450" y="92" text-anchor="middle" fill="white" font-size="12" font-weight="bold">CVSS 9.8 CRITICAL</text>
+
+  <!-- Step 1: Attacker -->
+  <rect x="50" y="130" width="240" height="140" rx="12" fill="url(#red2)" filter="url(#shadow2)" opacity="0.95"/>
+  <rect x="50" y="130" width="240" height="32" rx="12" fill="rgba(0,0,0,0.2)"/>
+  <rect x="50" y="150" width="240" height="0" fill="transparent"/>
+  <text x="170" y="152" text-anchor="middle" fill="white" font-size="14" font-weight="bold">1. Attacker</text>
+  <text x="70" y="186" fill="#ffe0e0" font-size="12">Crafted HTTP Request</text>
+  <text x="70" y="206" fill="#ffb0b0" font-size="11">- Malicious Payload Injection</text>
+  <text x="70" y="224" fill="#ffb0b0" font-size="11">- No Authentication Required</text>
+  <text x="70" y="242" fill="#ffb0b0" font-size="11">- Remote Network Attack</text>
+  <text x="70" y="260" fill="#ffb0b0" font-size="11">- Target: Port 8081 (default)</text>
+
+  <!-- Arrow 1->2 -->
+  <line x1="290" y1="200" x2="340" y2="200" stroke="#ff4444" stroke-width="3" marker-end="url(#arrow2)"/>
+  <text x="315" y="192" text-anchor="middle" fill="#ff4444" font-size="10">HTTP</text>
+
+  <!-- Step 2: Metro Dev Server -->
+  <rect x="350" y="130" width="240" height="140" rx="12" fill="url(#orange2)" filter="url(#shadow2)" opacity="0.95"/>
+  <rect x="350" y="130" width="240" height="32" rx="12" fill="rgba(0,0,0,0.2)"/>
+  <text x="470" y="152" text-anchor="middle" fill="white" font-size="14" font-weight="bold">2. Metro Dev Server</text>
+  <text x="370" y="186" fill="#fff3e0" font-size="12">Port 8081 (Default)</text>
+  <text x="370" y="206" fill="#ffe0b0" font-size="11">- No Authentication</text>
+  <text x="370" y="224" fill="#ffe0b0" font-size="11">- Network Exposed</text>
+  <text x="370" y="242" fill="#ffe0b0" font-size="11">- JNDI / Deserialization</text>
+  <text x="370" y="260" fill="#ffe0b0" font-size="11">- JS Bundle Server</text>
+
+  <!-- Arrow 2->3 -->
+  <line x1="590" y1="200" x2="640" y2="200" stroke="#ff4444" stroke-width="3" marker-end="url(#arrow2)"/>
+  <text x="615" y="192" text-anchor="middle" fill="#ff4444" font-size="10">RCE</text>
+
+  <!-- Step 3: Dev Environment -->
+  <rect x="650" y="130" width="220" height="140" rx="12" fill="url(#purple2)" filter="url(#shadow2)" opacity="0.95"/>
+  <rect x="650" y="130" width="220" height="32" rx="12" fill="rgba(0,0,0,0.2)"/>
+  <text x="760" y="152" text-anchor="middle" fill="white" font-size="14" font-weight="bold">3. Dev Environment</text>
+  <text x="670" y="186" fill="#f3e5f5" font-size="12">Full System Access</text>
+  <text x="670" y="206" fill="#ce93d8" font-size="11">- Source Code Access</text>
+  <text x="670" y="224" fill="#ce93d8" font-size="11">- Environment Variables</text>
+  <text x="670" y="242" fill="#ce93d8" font-size="11">- System Command Exec</text>
+  <text x="670" y="260" fill="#ce93d8" font-size="11">- Credential Theft</text>
+
+  <!-- Timeline -->
+  <rect x="50" y="310" width="820" height="140" rx="10" fill="#1e2440" stroke="#2a3055" stroke-width="1.5"/>
+  <text x="70" y="338" fill="#2196F3" font-size="14" font-weight="bold">Attack Timeline: Log4Shell vs Metro4Shell</text>
+  <line x1="70" y1="348" x2="850" y2="348" stroke="#2a3055" stroke-width="1"/>
+
+  <!-- Log4Shell timeline -->
+  <text x="70" y="370" fill="#ff8c00" font-size="11" font-weight="bold">Log4Shell (2021)</text>
+  <line x1="200" y1="366" x2="820" y2="366" stroke="#ff8c00" stroke-width="2"/>
+  <circle cx="270" cy="366" r="5" fill="#ff8c00"/>
+  <text x="270" y="385" text-anchor="middle" fill="#8892b0" font-size="9">11/24</text>
+  <text x="270" y="396" text-anchor="middle" fill="#666" font-size="8">Discovered</text>
+  <circle cx="410" cy="366" r="5" fill="#ff8c00"/>
+  <text x="410" y="385" text-anchor="middle" fill="#8892b0" font-size="9">12/01</text>
+  <text x="410" y="396" text-anchor="middle" fill="#666" font-size="8">First Exploit</text>
+  <circle cx="550" cy="366" r="5" fill="#ff8c00"/>
+  <text x="550" y="385" text-anchor="middle" fill="#8892b0" font-size="9">12/09</text>
+  <text x="550" y="396" text-anchor="middle" fill="#666" font-size="8">CVE Assigned</text>
+  <circle cx="690" cy="366" r="5" fill="#4caf50"/>
+  <text x="690" y="385" text-anchor="middle" fill="#8892b0" font-size="9">12/18</text>
+  <text x="690" y="396" text-anchor="middle" fill="#666" font-size="8">Final Patch</text>
+
+  <!-- Metro4Shell timeline -->
+  <text x="70" y="424" fill="#ff4444" font-size="11" font-weight="bold">Metro4Shell (2025-2026)</text>
+  <line x1="200" y1="420" x2="820" y2="420" stroke="#ff4444" stroke-width="2"/>
+  <circle cx="270" cy="420" r="5" fill="#ff4444"/>
+  <text x="270" y="438" text-anchor="middle" fill="#8892b0" font-size="9">12/21</text>
+  <text x="270" y="449" text-anchor="middle" fill="#666" font-size="8">First Exploit</text>
+  <circle cx="410" cy="420" r="5" fill="#ff4444"/>
+  <text x="410" y="438" text-anchor="middle" fill="#8892b0" font-size="9">12/23</text>
+  <text x="410" y="449" text-anchor="middle" fill="#666" font-size="8">CVE Assigned</text>
+  <circle cx="550" cy="420" r="5" fill="#ff4444"/>
+  <text x="550" y="438" text-anchor="middle" fill="#8892b0" font-size="9">01/mid</text>
+  <text x="550" y="449" text-anchor="middle" fill="#666" font-size="8">PoC Released</text>
+  <circle cx="690" cy="420" r="5" fill="#ff4444"/>
+  <text x="690" y="438" text-anchor="middle" fill="#8892b0" font-size="9">02/04</text>
+  <text x="690" y="449" text-anchor="middle" fill="#666" font-size="8">Active Attacks</text>
+  <text x="780" y="424" fill="#ff4444" font-size="10">Ongoing...</text>
+
+  <!-- Footer -->
+  <text x="450" y="488" text-anchor="middle" fill="#4a5080" font-size="10">Source: VulnCheck / The Hacker News | CVE-2025-11953 | 2026-02-04 Weekly Security Digest</text>
+</svg>

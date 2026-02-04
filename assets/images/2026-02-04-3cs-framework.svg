@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="'Segoe UI', 'Noto Sans KR', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#1a1f3a"/>
+    </linearGradient>
+    <linearGradient id="c1Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1565C0"/>
+      <stop offset="100%" stop-color="#0d47a1"/>
+    </linearGradient>
+    <linearGradient id="c2Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e65100"/>
+      <stop offset="100%" stop-color="#bf360c"/>
+    </linearGradient>
+    <linearGradient id="c3Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2e7d32"/>
+      <stop offset="100%" stop-color="#1b5e20"/>
+    </linearGradient>
+    <filter id="shadow4">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" fill="url(#bg4)" rx="12"/>
+  <rect x="2" y="2" width="896" height="516" fill="none" stroke="#2a3055" stroke-width="2" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" fill="#2196F3" font-size="22" font-weight="bold" filter="url(#glow4)">3Cs Security Framework for AI Agents</text>
+  <text x="450" y="60" text-anchor="middle" fill="#8892b0" font-size="13">Docker's AI Agent Security Model: Container - Credential - Code</text>
+
+  <!-- Framework border -->
+  <rect x="30" y="80" width="840" height="400" rx="12" fill="none" stroke="#2a3055" stroke-width="2"/>
+  <text x="450" y="100" text-anchor="middle" fill="#4a5080" font-size="11">3Cs Security Framework</text>
+
+  <!-- C1: Container -->
+  <rect x="55" y="115" width="255" height="340" rx="12" fill="url(#c1Grad)" filter="url(#shadow4)" opacity="0.95"/>
+  <rect x="55" y="115" width="255" height="45" rx="12" fill="rgba(0,0,0,0.2)"/>
+  <text x="182" y="132" text-anchor="middle" fill="white" font-size="10" letter-spacing="2">C1</text>
+  <text x="182" y="150" text-anchor="middle" fill="white" font-size="17" font-weight="bold">CONTAINER</text>
+
+  <text x="75" y="182" fill="#bbdefb" font-size="13" font-weight="bold">Isolation</text>
+  <line x1="75" y1="190" x2="290" y2="190" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+  <rect x="75" y="200" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="85" y="221" fill="#e3f2fd" font-size="11">Sandbox Execution</text>
+
+  <rect x="75" y="240" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="85" y="261" fill="#e3f2fd" font-size="11">Network Isolation</text>
+
+  <rect x="75" y="280" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="85" y="301" fill="#e3f2fd" font-size="11">Resource Limits (CPU/Mem/PID)</text>
+
+  <rect x="75" y="320" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="85" y="341" fill="#e3f2fd" font-size="11">Read-only Filesystem</text>
+
+  <rect x="75" y="360" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="85" y="381" fill="#e3f2fd" font-size="11">--cap-drop ALL</text>
+
+  <rect x="75" y="400" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="85" y="421" fill="#e3f2fd" font-size="11">no-new-privileges</text>
+
+  <!-- C2: Credential -->
+  <rect x="325" y="115" width="255" height="340" rx="12" fill="url(#c2Grad)" filter="url(#shadow4)" opacity="0.95"/>
+  <rect x="325" y="115" width="255" height="45" rx="12" fill="rgba(0,0,0,0.2)"/>
+  <text x="452" y="132" text-anchor="middle" fill="white" font-size="10" letter-spacing="2">C2</text>
+  <text x="452" y="150" text-anchor="middle" fill="white" font-size="17" font-weight="bold">CREDENTIAL</text>
+
+  <text x="345" y="182" fill="#ffe0b2" font-size="13" font-weight="bold">Secrets Management</text>
+  <line x1="345" y1="190" x2="560" y2="190" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+  <rect x="345" y="200" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="355" y="221" fill="#fff3e0" font-size="11">Least-Privilege Tokens</text>
+
+  <rect x="345" y="240" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="355" y="261" fill="#fff3e0" font-size="11">Temporary Credentials (5m TTL)</text>
+
+  <rect x="345" y="280" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="355" y="301" fill="#fff3e0" font-size="11">Automatic Rotation</text>
+
+  <rect x="345" y="320" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="355" y="341" fill="#fff3e0" font-size="11">Vault / Secrets Manager</text>
+
+  <rect x="345" y="360" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="355" y="381" fill="#fff3e0" font-size="11">Audit Logging (Who/When/What)</text>
+
+  <rect x="345" y="400" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="355" y="421" fill="#fff3e0" font-size="11">Revoke on Completion</text>
+
+  <!-- C3: Code -->
+  <rect x="595" y="115" width="255" height="340" rx="12" fill="url(#c3Grad)" filter="url(#shadow4)" opacity="0.95"/>
+  <rect x="595" y="115" width="255" height="45" rx="12" fill="rgba(0,0,0,0.2)"/>
+  <text x="722" y="132" text-anchor="middle" fill="white" font-size="10" letter-spacing="2">C3</text>
+  <text x="722" y="150" text-anchor="middle" fill="white" font-size="17" font-weight="bold">CODE</text>
+
+  <text x="615" y="182" fill="#c8e6c9" font-size="13" font-weight="bold">Code Security</text>
+  <line x1="615" y1="190" x2="830" y2="190" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+  <rect x="615" y="200" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="625" y="221" fill="#e8f5e9" font-size="11">Code Signing</text>
+
+  <rect x="615" y="240" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="625" y="261" fill="#e8f5e9" font-size="11">Input Validation</text>
+
+  <rect x="615" y="280" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="625" y="301" fill="#e8f5e9" font-size="11">Output Filtering / Masking</text>
+
+  <rect x="615" y="320" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="625" y="341" fill="#e8f5e9" font-size="11">Dependency Audit (SBOM)</text>
+
+  <rect x="615" y="360" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="625" y="381" fill="#e8f5e9" font-size="11">SAST / DAST Pipeline</text>
+
+  <rect x="615" y="400" width="215" height="32" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="625" y="421" fill="#e8f5e9" font-size="11">Sandbox Testing Before Exec</text>
+
+  <!-- Footer -->
+  <text x="450" y="505" text-anchor="middle" fill="#4a5080" font-size="10">Source: Docker Blog - The 3Cs: A Framework for AI Agent Security | 2026-02-04 Weekly Security Digest</text>
+</svg>

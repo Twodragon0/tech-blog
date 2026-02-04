@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="'Segoe UI', 'Noto Sans KR', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#1a1f3a"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff4444"/>
+      <stop offset="100%" stop-color="#cc0000"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff8c00"/>
+      <stop offset="100%" stop-color="#e67300"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2196F3"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="darkRedGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b71c1c"/>
+      <stop offset="100%" stop-color="#880e0e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff4444"/>
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff8c00"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="url(#bgGrad)" rx="12"/>
+  <rect x="2" y="2" width="896" height="696" fill="none" stroke="#2a3055" stroke-width="2" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="42" text-anchor="middle" fill="#ff4444" font-size="22" font-weight="bold" filter="url(#glow)">DockerDash Attack Scenario</text>
+  <text x="450" y="65" text-anchor="middle" fill="#8892b0" font-size="13">Docker Ask Gordon AI - 6-Step Attack Flow</text>
+
+  <!-- Step 1: Attacker -->
+  <rect x="50" y="100" width="220" height="80" rx="10" fill="url(#redGrad)" filter="url(#shadow)" opacity="0.95"/>
+  <text x="70" y="126" fill="white" font-size="13" font-weight="bold">STEP 1</text>
+  <text x="70" y="146" fill="#ffe0e0" font-size="12">Attacker: Build Malicious Image</text>
+  <text x="70" y="164" fill="#ffb0b0" font-size="11">Insert Payload in Metadata</text>
+
+  <!-- Arrow 1->2 -->
+  <line x1="270" y1="140" x2="330" y2="140" stroke="#ff4444" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+
+  <!-- Step 2: Docker Hub -->
+  <rect x="340" y="100" width="220" height="80" rx="10" fill="url(#orangeGrad)" filter="url(#shadow)" opacity="0.95"/>
+  <text x="360" y="126" fill="white" font-size="13" font-weight="bold">STEP 2</text>
+  <text x="360" y="146" fill="#fff3e0" font-size="12">Docker Hub / Registry</text>
+  <text x="360" y="164" fill="#ffe0b0" font-size="11">Image Hosting</text>
+
+  <!-- Arrow 2->3 -->
+  <line x1="560" y1="140" x2="620" y2="140" stroke="#ff8c00" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+
+  <!-- Step 3: Victim Pull -->
+  <rect x="630" y="100" width="220" height="80" rx="10" fill="url(#blueGrad)" filter="url(#shadow)" opacity="0.95"/>
+  <text x="650" y="126" fill="white" font-size="13" font-weight="bold">STEP 3</text>
+  <text x="650" y="146" fill="#e3f2fd" font-size="12">Victim: docker pull</text>
+  <text x="650" y="164" fill="#bbdefb" font-size="11">Download Image</text>
+
+  <!-- Arrow 3->4 (down) -->
+  <line x1="740" y1="180" x2="740" y2="240" stroke="#ff4444" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+
+  <!-- Step 4: Ask Gordon -->
+  <rect x="630" y="250" width="220" height="80" rx="10" fill="url(#orangeGrad)" filter="url(#shadow)" opacity="0.95"/>
+  <text x="650" y="276" fill="white" font-size="13" font-weight="bold">STEP 4</text>
+  <text x="650" y="296" fill="#fff3e0" font-size="12">Ask Gordon AI Invoked</text>
+  <text x="650" y="314" fill="#ffe0b0" font-size="11">"Analyze this image"</text>
+
+  <!-- Arrow 4->5 (down) -->
+  <line x1="740" y1="330" x2="740" y2="390" stroke="#ff4444" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+
+  <!-- Step 5: Code Execution -->
+  <rect x="630" y="400" width="220" height="80" rx="10" fill="url(#redGrad)" filter="url(#shadow)" opacity="0.95"/>
+  <text x="650" y="426" fill="white" font-size="13" font-weight="bold">STEP 5</text>
+  <text x="650" y="446" fill="#ffe0e0" font-size="12">Malicious Code Execution</text>
+  <text x="650" y="464" fill="#ffb0b0" font-size="11">During Metadata Parsing</text>
+
+  <!-- Arrow 5->6 (down) -->
+  <line x1="740" y1="480" x2="740" y2="540" stroke="#ff4444" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+
+  <!-- Step 6: Data Exfiltration -->
+  <rect x="630" y="550" width="220" height="100" rx="10" fill="url(#darkRedGrad)" filter="url(#shadow)" opacity="0.95"/>
+  <text x="650" y="578" fill="white" font-size="13" font-weight="bold">STEP 6</text>
+  <text x="650" y="598" fill="#ffe0e0" font-size="12">Data Exfiltration</text>
+  <text x="650" y="616" fill="#ffb0b0" font-size="11">- Environment Variables</text>
+  <text x="650" y="632" fill="#ffb0b0" font-size="11">- Credentials / Host Files</text>
+
+  <!-- Left side labels -->
+  <rect x="50" y="250" width="260" height="200" rx="10" fill="#1e2440" stroke="#2a3055" stroke-width="1.5"/>
+  <text x="70" y="278" fill="#ff8c00" font-size="14" font-weight="bold">Attack Vector Details</text>
+  <line x1="70" y1="288" x2="290" y2="288" stroke="#2a3055" stroke-width="1"/>
+  <text x="70" y="310" fill="#8892b0" font-size="11">Type: Prompt Injection via</text>
+  <text x="70" y="328" fill="#8892b0" font-size="11">      Image Metadata (Labels)</text>
+  <text x="70" y="352" fill="#8892b0" font-size="11">Severity: Critical</text>
+  <text x="70" y="374" fill="#8892b0" font-size="11">Impact: Arbitrary Code Execution</text>
+  <text x="70" y="396" fill="#8892b0" font-size="11">Scope: Docker Desktop + CLI</text>
+  <text x="70" y="418" fill="#4caf50" font-size="11">Status: Patched</text>
+  <text x="70" y="440" fill="#8892b0" font-size="11">Discoverer: Noma Labs</text>
+
+  <!-- MITRE ATT&CK mapping -->
+  <rect x="50" y="470" width="260" height="180" rx="10" fill="#1e2440" stroke="#2a3055" stroke-width="1.5"/>
+  <text x="70" y="498" fill="#2196F3" font-size="14" font-weight="bold">MITRE ATT&amp;CK Mapping</text>
+  <line x1="70" y1="508" x2="290" y2="508" stroke="#2a3055" stroke-width="1"/>
+  <text x="70" y="530" fill="#ff8c00" font-size="10">T1195.002</text>
+  <text x="145" y="530" fill="#8892b0" font-size="10">Supply Chain Compromise</text>
+  <text x="70" y="550" fill="#ff8c00" font-size="10">T1059</text>
+  <text x="145" y="550" fill="#8892b0" font-size="10">Command Interpreter</text>
+  <text x="70" y="570" fill="#ff8c00" font-size="10">T1204.003</text>
+  <text x="145" y="570" fill="#8892b0" font-size="10">Malicious Image</text>
+  <text x="70" y="590" fill="#ff8c00" font-size="10">T1036</text>
+  <text x="145" y="590" fill="#8892b0" font-size="10">Masquerading</text>
+  <text x="70" y="610" fill="#ff8c00" font-size="10">T1041</text>
+  <text x="145" y="610" fill="#8892b0" font-size="10">Exfiltration Over C2</text>
+  <text x="70" y="630" fill="#ff8c00" font-size="10">T1552.001</text>
+  <text x="145" y="630" fill="#8892b0" font-size="10">Credentials in Files</text>
+
+  <!-- Connection lines (decorative) -->
+  <line x1="310" y1="350" x2="630" y2="290" stroke="#2a3055" stroke-width="1" stroke-dasharray="5,5" opacity="0.5"/>
+  <line x1="310" y1="400" x2="630" y2="440" stroke="#2a3055" stroke-width="1" stroke-dasharray="5,5" opacity="0.5"/>
+
+  <!-- Footer -->
+  <text x="450" y="685" text-anchor="middle" fill="#4a5080" font-size="10">Source: Noma Labs / The Hacker News | 2026-02-04 Weekly Security Digest</text>
+</svg>

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="'Segoe UI', 'Noto Sans KR', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#1a1f3a"/>
+    </linearGradient>
+    <linearGradient id="lvl5" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1b5e20"/>
+      <stop offset="100%" stop-color="#4caf50"/>
+    </linearGradient>
+    <linearGradient id="lvl4" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0d47a1"/>
+      <stop offset="100%" stop-color="#2196F3"/>
+    </linearGradient>
+    <linearGradient id="lvl3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4a148c"/>
+      <stop offset="100%" stop-color="#9c27b0"/>
+    </linearGradient>
+    <linearGradient id="lvl2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e65100"/>
+      <stop offset="100%" stop-color="#ff9800"/>
+    </linearGradient>
+    <linearGradient id="lvl1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#b71c1c"/>
+      <stop offset="100%" stop-color="#f44336"/>
+    </linearGradient>
+    <linearGradient id="lvl0" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#424242"/>
+      <stop offset="100%" stop-color="#757575"/>
+    </linearGradient>
+    <filter id="shadow6">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow6">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="url(#bg6)" rx="12"/>
+  <rect x="2" y="2" width="896" height="696" fill="none" stroke="#2a3055" stroke-width="2" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" fill="#4caf50" font-size="22" font-weight="bold" filter="url(#glow6)">3Cs Security Maturity Model</text>
+  <text x="450" y="58" text-anchor="middle" fill="#8892b0" font-size="13">AI Agent Security Level 0 - 5</text>
+
+  <!-- Vertical arrow on left -->
+  <line x1="45" y1="650" x2="45" y2="80" stroke="#4a5080" stroke-width="2"/>
+  <polygon points="45,75 40,88 50,88" fill="#4a5080"/>
+  <text x="25" y="380" text-anchor="middle" fill="#4a5080" font-size="11" transform="rotate(-90 25 380)">Maturity Level</text>
+
+  <!-- Level 5: Optimized -->
+  <rect x="70" y="78" width="800" height="85" rx="10" fill="url(#lvl5)" filter="url(#shadow6)" opacity="0.92"/>
+  <rect x="70" y="78" width="60" height="85" rx="10" fill="rgba(0,0,0,0.2)"/>
+  <text x="100" y="110" text-anchor="middle" fill="white" font-size="22" font-weight="bold">5</text>
+  <text x="100" y="130" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">OPTIMIZED</text>
+  <text x="155" y="102" fill="white" font-size="14" font-weight="bold">Optimized</text>
+  <text x="155" y="122" fill="#c8e6c9" font-size="11">C1: Autonomous container security operations</text>
+  <text x="155" y="140" fill="#c8e6c9" font-size="11">C2: Full Zero Trust implementation</text>
+  <text x="155" y="158" fill="#c8e6c9" font-size="11">C3: Self-healing code pipeline</text>
+
+  <!-- Level 4: Managed -->
+  <rect x="70" y="172" width="800" height="85" rx="10" fill="url(#lvl4)" filter="url(#shadow6)" opacity="0.92"/>
+  <rect x="70" y="172" width="60" height="85" rx="10" fill="rgba(0,0,0,0.2)"/>
+  <text x="100" y="204" text-anchor="middle" fill="white" font-size="22" font-weight="bold">4</text>
+  <text x="100" y="224" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">MANAGED</text>
+  <text x="155" y="196" fill="white" font-size="14" font-weight="bold">Managed</text>
+  <text x="155" y="216" fill="#bbdefb" font-size="11">C1: Dynamic container security policies</text>
+  <text x="155" y="234" fill="#bbdefb" font-size="11">C2: Automatic credential rotation (5min TTL)</text>
+  <text x="155" y="252" fill="#bbdefb" font-size="11">C3: Continuous code verification (SAST/DAST)</text>
+
+  <!-- Level 3: Defined -->
+  <rect x="70" y="266" width="800" height="85" rx="10" fill="url(#lvl3)" filter="url(#shadow6)" opacity="0.92"/>
+  <rect x="70" y="266" width="60" height="85" rx="10" fill="rgba(0,0,0,0.2)"/>
+  <text x="100" y="298" text-anchor="middle" fill="white" font-size="22" font-weight="bold">3</text>
+  <text x="100" y="318" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">DEFINED</text>
+  <text x="155" y="290" fill="white" font-size="14" font-weight="bold">Defined</text>
+  <text x="155" y="310" fill="#e1bee7" font-size="11">C1: Standardized secure container templates</text>
+  <text x="155" y="328" fill="#e1bee7" font-size="11">C2: Central secret management (Vault)</text>
+  <text x="155" y="346" fill="#e1bee7" font-size="11">C3: CI/CD security gate integration</text>
+
+  <!-- Target marker -->
+  <rect x="750" y="286" width="100" height="24" rx="12" fill="#ffd700"/>
+  <text x="800" y="302" text-anchor="middle" fill="#1a1f3a" font-size="10" font-weight="bold">12wk Target</text>
+
+  <!-- Level 2: Repeatable -->
+  <rect x="70" y="360" width="800" height="85" rx="10" fill="url(#lvl2)" filter="url(#shadow6)" opacity="0.92"/>
+  <rect x="70" y="360" width="60" height="85" rx="10" fill="rgba(0,0,0,0.2)"/>
+  <text x="100" y="392" text-anchor="middle" fill="white" font-size="22" font-weight="bold">2</text>
+  <text x="100" y="412" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">REPEATABLE</text>
+  <text x="155" y="384" fill="white" font-size="14" font-weight="bold">Repeatable</text>
+  <text x="155" y="404" fill="#ffe0b2" font-size="11">C1: Basic isolation (read-only, cap-drop)</text>
+  <text x="155" y="422" fill="#ffe0b2" font-size="11">C2: Manual credential management</text>
+  <text x="155" y="440" fill="#ffe0b2" font-size="11">C3: Post-hoc code review</text>
+
+  <!-- Level 1: Initial -->
+  <rect x="70" y="454" width="800" height="85" rx="10" fill="url(#lvl1)" filter="url(#shadow6)" opacity="0.92"/>
+  <rect x="70" y="454" width="60" height="85" rx="10" fill="rgba(0,0,0,0.2)"/>
+  <text x="100" y="486" text-anchor="middle" fill="white" font-size="22" font-weight="bold">1</text>
+  <text x="100" y="506" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">INITIAL</text>
+  <text x="155" y="478" fill="white" font-size="14" font-weight="bold">Initial</text>
+  <text x="155" y="498" fill="#ffcdd2" font-size="11">C1: No container isolation</text>
+  <text x="155" y="516" fill="#ffcdd2" font-size="11">C2: Hardcoded credentials</text>
+  <text x="155" y="534" fill="#ffcdd2" font-size="11">C3: No code verification</text>
+
+  <!-- Level 0: None -->
+  <rect x="70" y="548" width="800" height="65" rx="10" fill="url(#lvl0)" filter="url(#shadow6)" opacity="0.92"/>
+  <rect x="70" y="548" width="60" height="65" rx="10" fill="rgba(0,0,0,0.2)"/>
+  <text x="100" y="580" text-anchor="middle" fill="white" font-size="22" font-weight="bold">0</text>
+  <text x="100" y="600" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">NONE</text>
+  <text x="155" y="578" fill="white" font-size="14" font-weight="bold">None</text>
+  <text x="155" y="598" fill="#bdbdbd" font-size="11">No AI agent security awareness</text>
+
+  <!-- Column headers -->
+  <text x="500" y="646" text-anchor="middle" fill="#4a5080" font-size="10">C1: Container (Isolation) | C2: Credential (Secrets) | C3: Code (Verification)</text>
+
+  <!-- Risk indicator -->
+  <rect x="770" y="454" width="80" height="24" rx="12" fill="#f44336"/>
+  <text x="810" y="470" text-anchor="middle" fill="white" font-size="9" font-weight="bold">HIGH RISK</text>
+  <rect x="770" y="548" width="80" height="24" rx="12" fill="#b71c1c"/>
+  <text x="810" y="564" text-anchor="middle" fill="white" font-size="9" font-weight="bold">CRITICAL</text>
+
+  <!-- Footer -->
+  <text x="450" y="685" text-anchor="middle" fill="#4a5080" font-size="10">Source: Docker 3Cs Framework | 2026-02-04 Weekly Security Digest</text>
+</svg>

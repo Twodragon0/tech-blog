@@ -63,6 +63,61 @@ toc: true
 </div>
 </div>
 
+## Executive Summary (경영진 브리핑)
+
+### TL;DR - 위험 스코어카드
+
+```
++================================================================+
+|          2026-02-04 주간 보안 위험 스코어카드                      |
++================================================================+
+|                                                                |
+|  항목                    위험도   점수    조치 시급도             |
+|  ----------------------------------------------------------   |
+|  Docker DockerDash       ████████░░  8/10   [즉시]             |
+|  CVE-2025-11953          █████████░  9/10   [즉시]             |
+|  AWS IAM Multi-Region    ██████░░░░  6/10   [7일 이내]          |
+|  AI Agent 3Cs            ███████░░░  7/10   [30일 이내]         |
+|  ----------------------------------------------------------   |
+|  종합 위험 수준: ████████░░ HIGH (8/10)                         |
+|                                                                |
++================================================================+
+```
+
+### 이사회/경영진 보고 포인트
+
+| 구분 | 핵심 메시지 | 예상 비즈니스 영향 |
+|------|------------|-------------------|
+| **즉시 위협** | Docker AI 비서와 React Native 개발도구에서 Critical 취약점 발견, 활발한 공격 진행 중 | 개발 환경 침해 시 소스코드 유출, 공급망 공격 확대 위험 |
+| **규제 영향** | AWS IAM 멀티리전 복제로 데이터 주권 검토 필요 | 개인정보보호법/정보통신망법 위반 시 매출액 3% 이하 과징금 |
+| **전략 과제** | AI 에이전트 보안 프레임워크(3Cs) 도입 필요 | AI 에이전트 미보호 시 내부 시스템 전체 노출 가능 |
+| **투자 필요** | SIEM 탐지 룰 업데이트, 컨테이너 보안 강화 | 예상 소요: 인력 2명-월, 도구 도입비 약 5,000만원 |
+
+### 경영진 대시보드 (Text-Based)
+
+```
++================================================================+
+|        보안 현황 대시보드 - 2026년 2월 4일                         |
++================================================================+
+|                                                                |
+|  [위협 현황]              [패치 현황]         [컴플라이언스]       |
+|  +-----------+           +-----------+      +-----------+      |
+|  | Critical 2|           | 적용완료 1|      | 적합   3  |      |
+|  | High     2|           | 적용필요 1|      | 검토중  1 |      |
+|  | Medium   0|           | 평가중  2 |      | 미대응  0 |      |
+|  +-----------+           +-----------+      +-----------+      |
+|                                                                |
+|  [MTTR 목표]              [금주 KPI]                            |
+|  Critical: < 4시간        탐지율: 92%                           |
+|  High:     < 24시간       오탐률: 8%                            |
+|  Medium:   < 7일          패치 적용률: 50%                      |
+|                           SIEM 룰 커버리지: 85%                 |
+|                                                                |
++================================================================+
+```
+
+---
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.
@@ -101,36 +156,8 @@ toc: true
 
 DockerDash 공격은 Docker 이미지의 메타데이터(Dockerfile 라벨, 이미지 설명 등)에 악성 페이로드를 삽입하여, Ask Gordon AI가 이를 처리할 때 코드가 실행되는 방식입니다.
 
-```
-+------------------+     +-------------------+     +------------------+
-| 1. 공격자        |     | 2. Docker Hub/    |     | 3. 피해자        |
-| 악성 이미지 빌드  | --> | Registry          | --> | docker pull      |
-| 메타데이터에      |     | 이미지 호스팅      |     | 이미지 다운로드   |
-| 페이로드 삽입     |     |                   |     |                  |
-+------------------+     +-------------------+     +------------------+
-                                                          |
-                                                          v
-                                                   +------------------+
-                                                   | 4. Ask Gordon    |
-                                                   | AI 비서 호출      |
-                                                   | "이 이미지 분석해"|
-                                                   +------------------+
-                                                          |
-                                                          v
-                                                   +------------------+
-                                                   | 5. 메타데이터    |
-                                                   | 파싱 중 악성     |
-                                                   | 코드 실행        |
-                                                   +------------------+
-                                                          |
-                                                          v
-                                                   +------------------+
-                                                   | 6. 데이터 유출   |
-                                                   | - 환경 변수       |
-                                                   | - 자격증명        |
-                                                   | - 호스트 파일     |
-                                                   +------------------+
-```
+![DockerDash 공격 시나리오](/assets/images/2026-02-04-dockerdash-attack-flow.svg)
+*그림 1: DockerDash 공격 시나리오 - 6단계 공격 흐름 (Attacker -> Docker Hub -> Victim -> Ask Gordon AI -> Code Execution -> Data Exfiltration)*
 
 #### 공격 단계 상세
 
@@ -274,6 +301,224 @@ mitre_attack:
     - T1552.001  # Unsecured Credentials: Credentials in Files
 ```
 
+### 1.7 유사 AI 비서 취약점 비교 분석
+
+DockerDash는 AI 비서 통합 도구에서 발생하는 프롬프트 인젝션/코드 실행 취약점의 대표적 사례입니다. 유사 사례와 비교하면 다음과 같습니다.
+
+| 취약점 | 대상 도구 | 공격 벡터 | CVSS | 영향 범위 | 패치 소요 |
+|--------|----------|-----------|------|----------|----------|
+| **DockerDash** | Docker Ask Gordon | 이미지 메타데이터 인젝션 | Critical | Docker Desktop 전체 | 수일 |
+| **Copilot Prompt Leak** | GitHub Copilot | 프롬프트 인젝션 | Medium | 코드 생성 맥락 노출 | 수주 |
+| **ChatGPT Plugin RCE** | ChatGPT Plugins | 악성 API 응답 조작 | High | 사용자 세션 탈취 | 수일 |
+| **Cursor MCP Exploit** | Cursor IDE | MCP 서버 악성 도구 | High | 로컬 파일시스템 접근 | 진행 중 |
+
+**핵심 교훈**: AI 비서가 외부 데이터(이미지 메타데이터, API 응답, 웹 콘텐츠)를 처리할 때 신뢰 경계(Trust Boundary)를 반드시 설정해야 합니다.
+
+### 1.8 Docker Compose 보안 강화 설정
+
+프로덕션 환경에서 Docker Compose를 사용할 때 DockerDash 유형 공격을 방어하기 위한 보안 설정입니다.
+
+```yaml
+# docker-compose.secure.yml - 보안 강화 구성
+version: '3.8'
+
+services:
+  app:
+    image: myapp:latest
+    security_opt:
+      - no-new-privileges:true
+      - seccomp:seccomp-profile.json
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE  # 필요한 최소 기능만 추가
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
+    networks:
+      - app-internal
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "service,environment"
+
+  # 이미지 메타데이터 검사 사이드카
+  image-scanner:
+    image: anchore/syft:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    command: >
+      scan docker:myapp:latest --output json
+    profiles:
+      - security-scan
+
+networks:
+  app-internal:
+    driver: bridge
+    internal: true  # 외부 인터넷 접근 차단
+```
+
+### 1.9 비용-편익 분석: 대응 vs 침해
+
+![비용-효과 분석](/assets/images/2026-02-04-cost-benefit-analysis.svg)
+*그림 2: DockerDash 대응 비용 vs 침해 시 피해 비용 분석 - 예방 비용 약 200만원 vs 침해 비용 65~270억원*
+
+| 항목 | 대응(예방) 비용 | 미대응 시 침해 비용 | ROI |
+|------|---------------|-------------------|-----|
+| Docker 업데이트 | 50만원 | 소스코드 유출: 10~50억원 | 2,000~10,000% |
+| 이미지 스캐닝 도구 | 100만원/년 (Trivy 무료) | 공급망 2차 피해: 50~200억원 | 50,000%+ |
+| SIEM 탐지 룰 추가 | 50만원 | 탐지 지연에 따른 추가 피해: 5~20억원 | 10,000%+ |
+| **합계** | **~200만원** | **65~270억원** | **3,250~13,500%** |
+
+### 1.10 DockerDash 사고 대응 플레이북
+
+#### 사고 대응 흐름도
+
+![사고 대응 플로우](/assets/images/2026-02-04-incident-response-flow.svg)
+*그림 3: DockerDash 사고 대응 절차 - 7단계 IR 프로세스 (Detection -> Triage -> Containment -> Investigation -> Eradication -> Recovery -> Post-Incident)*
+
+#### 단계별 상세 절차
+
+**1단계 - 탐지 (Detection)**
+
+```bash
+# 자동 탐지: SIEM에서 DockerDash IOC 매칭 알림
+# 수동 탐지: 다음 명령으로 의심스러운 활동 확인
+
+# 최근 24시간 Docker 이벤트 중 의심 활동 조회
+docker events --since 24h --filter 'type=container' --format \
+  '{{.Time}} {{.Action}} {{.Actor.Attributes.name}} {{.Actor.Attributes.image}}'
+
+# Ask Gordon 관련 프로세스 확인
+ps aux | grep -i gordon
+```
+
+**2단계 - 분류 (Triage)**
+
+| 분류 기준 | 심각도 | 에스컬레이션 |
+|----------|--------|------------|
+| 의심스러운 라벨만 발견, 실행 흔적 없음 | Low | SOC L1 자체 처리 |
+| 악성 명령 실행 흔적 확인 | High | SOC L2 + 보안팀 리더 |
+| 데이터 유출 확인 (외부 통신 증거) | Critical | CISO + 법무팀 + 외부 IR 업체 |
+
+**3단계 - 격리 (Containment)**
+
+```bash
+# 영향 컨테이너 즉시 정지
+docker stop $(docker ps -q --filter "ancestor=suspicious-image")
+
+# 네트워크 격리
+docker network disconnect bridge <container_id>
+
+# 증거 보존을 위한 컨테이너 스냅샷
+docker commit <container_id> evidence-$(date +%Y%m%d-%H%M%S)
+docker export <container_id> > evidence-container-$(date +%Y%m%d).tar
+```
+
+**4~5단계 - 조사 및 제거**
+
+```bash
+# 이미지 메타데이터 포렌식 분석
+docker inspect <image_id> --format '{{json .Config}}' | \
+  python3 -c "
+import sys, json
+config = json.load(sys.stdin)
+print('=== Labels ===')
+for k, v in (config.get('Labels') or {}).items():
+    print(f'  {k}: {v}')
+print('=== Env ===')
+for e in (config.get('Env') or []):
+    print(f'  {e}')
+print('=== Cmd ===')
+print(f'  {config.get(\"Cmd\")}')
+print('=== Entrypoint ===')
+print(f'  {config.get(\"Entrypoint\")}')
+"
+
+# 영향받은 자격증명 목록 생성 및 교체
+echo "[ACTION] 다음 자격증명을 즉시 교체하십시오:"
+echo "  - Docker Hub 토큰"
+echo "  - 환경 변수에 포함된 API 키"
+echo "  - SSH 키 (호스트 접근 시)"
+echo "  - 클라우드 서비스 자격증명"
+```
+
+#### 커뮤니케이션 템플릿
+
+**내부 보고 (보안팀 -> 경영진)**
+
+```
+제목: [보안사고] DockerDash 취약점 관련 사고 보고 (사고번호: INC-2026-XXXX)
+
+1. 사고 개요
+   - 일시: 2026-02-XX HH:MM (KST)
+   - 유형: Docker AI 비서 악용을 통한 코드 실행
+   - 영향 범위: [서버/개발자 수]
+   - 현재 상태: [탐지/격리/조사/제거/복구]
+
+2. 비즈니스 영향
+   - 데이터 유출 여부: [확인 중/없음/있음]
+   - 서비스 영향: [없음/제한적/심각]
+   - 예상 복구 시간: [X시간]
+
+3. 조치 현황
+   - [완료] 영향 컨테이너 격리
+   - [진행 중] 포렌식 분석
+   - [예정] 자격증명 교체
+
+4. 후속 조치 계획
+   - Docker Desktop 전사 패치 (D+1)
+   - SIEM 탐지 룰 업데이트 (D+2)
+   - 전사 보안 공지 (D+1)
+```
+
+**외부 통보 (규제 기관/고객)**
+
+```
+제목: 보안 사고 통보 (개인정보보호위원회 신고용)
+
+1. 개인정보처리자 정보
+   - 기관명: [회사명]
+   - 담당자: [이름/연락처]
+
+2. 사고 내용
+   - 침해 유형: Docker 개발 도구 취약점을 통한 비인가 접근
+   - 침해 일시: 2026-02-XX
+   - 영향받은 정보주체 수: [확인 중/N명]
+   - 유출 항목: [해당 사항 기술]
+
+3. 대응 조치
+   - 취약점 패치 적용 완료
+   - 영향 시스템 격리 및 재구축
+   - 모니터링 강화
+
+※ 개인정보보호법 제34조에 따라 72시간 이내 신고
+```
+
+#### 에스컬레이션 매트릭스
+
+| 심각도 | 최초 응답 | 1차 에스컬레이션 | 2차 에스컬레이션 | 외부 통보 |
+|--------|----------|----------------|----------------|----------|
+| **Low** | SOC L1 (15분) | SOC L2 (1시간) | - | - |
+| **Medium** | SOC L2 (15분) | 보안팀 리더 (30분) | CISO (4시간) | - |
+| **High** | 보안팀 리더 (10분) | CISO (30분) | CTO (2시간) | 관련 벤더 |
+| **Critical** | CISO (즉시) | CEO/CTO (30분) | 이사회 (4시간) | 규제기관(72h), 고객 |
+
 ---
 
 ## 2. CVE-2025-11953 Metro4Shell: React Native CLI RCE 심층 분석
@@ -312,14 +557,8 @@ mitre_attack:
 
 Metro Development Server는 React Native 개발 시 JavaScript 번들링과 핫 리로딩을 담당하는 서버입니다. 이 서버가 네트워크에 노출되면, 공격자가 특수하게 조작된 요청을 통해 서버측 코드 실행을 달성할 수 있습니다.
 
-```
-+------------------+     +---------------------+     +------------------+
-| 1. 공격자        |     | 2. Metro Dev Server |     | 3. 개발 환경     |
-| 조작된 HTTP      | --> | 포트 8081 (기본)     | --> | 소스코드 접근     |
-| 요청 전송        |     | 인증 없이 노출       |     | 환경 변수 탈취    |
-|                  |     | JNDI/역직렬화 공격   |     | 시스템 명령 실행   |
-+------------------+     +---------------------+     +------------------+
-```
+![Metro4Shell 공격 벡터](/assets/images/2026-02-04-metro4shell-attack-vector.svg)
+*그림 4: Metro4Shell(CVE-2025-11953) 공격 벡터 - CVSS 9.8 Critical, 3단계 공격 흐름 및 Log4Shell 타임라인 비교*
 
 #### 공격 타임라인
 
@@ -453,6 +692,201 @@ mitre_attack:
     - T1499      # Endpoint Denial of Service
 ```
 
+### 2.7 Log4Shell과의 비교 분석
+
+Metro4Shell(CVE-2025-11953)은 그 이름에서 알 수 있듯이 2021년의 Log4Shell(CVE-2021-44228)과 유사한 패턴을 가집니다. 두 취약점의 상세 비교는 다음과 같습니다.
+
+| 비교 항목 | **Log4Shell** (CVE-2021-44228) | **Metro4Shell** (CVE-2025-11953) |
+|----------|-------------------------------|----------------------------------|
+| **CVSS** | 10.0 | 9.8 |
+| **대상** | Apache Log4j 2 (Java 로깅) | Metro Dev Server (React Native) |
+| **공격 벡터** | JNDI Lookup 인젝션 | HTTP 요청 조작 |
+| **인증 필요** | 불필요 | 불필요 |
+| **영향 범위** | 전세계 Java 애플리케이션 | React Native 개발 환경 |
+| **영향 생태계** | Maven Central (수만 패키지) | npm (React Native 생태계) |
+| **최초 악용** | 2021-12-01 | 2025-12-21 |
+| **패치 소요** | 10일 (12/9 공개 -> 12/18 최종) | 진행 중 |
+| **IOC 공유** | 광범위 (CISA, FBI) | 제한적 (VulnCheck) |
+| **장기 영향** | SBOM 의무화 촉진 | npm 공급망 보안 강화 예상 |
+
+<!-- 공격 진행 타임라인 비교는 그림 4의 Metro4Shell 공격 벡터 SVG에 포함되어 있습니다 -->
+
+**핵심 차이점**: Log4Shell은 프로덕션 서버를 직접 타겟으로 했지만, Metro4Shell은 개발 환경을 표적으로 합니다. 개발 환경은 보안 수준이 낮은 경우가 많아, 공급망 공격의 진입점으로 활용될 위험이 더 높습니다.
+
+### 2.8 노출된 Metro 서버 탐지 (Shodan/Censys)
+
+#### Shodan 검색 쿼리
+
+```
+# Metro Development Server 검색
+port:8081 "React Native" http.title:"Metro"
+
+# 상세 검색 (국가 필터)
+port:8081 country:"KR" "debugger-ui"
+
+# HTTP 응답 기반 탐지
+http.html:"React Native" port:8081
+
+# 조직/ASN 기반 탐지 (자사 네트워크)
+port:8081 org:"YOUR_ORG_NAME" "symbolicate"
+```
+
+#### Censys 검색 쿼리
+
+```
+# Censys Search 2.0 문법
+services.port=8081 AND services.http.response.body:"React Native"
+
+# 한국 리전 한정
+services.port=8081 AND location.country="South Korea"
+```
+
+#### 자동화 탐지 스크립트
+
+```bash
+# 내부 네트워크 Metro 서버 스캔 (nmap 기반)
+nmap -sV -p 8081 --script=http-title 192.168.0.0/16 2>/dev/null | \
+  grep -B 3 -A 2 "Metro\|React Native\|symbolicate"
+
+# 결과 리포팅
+echo "[$(date)] Metro Server Scan Report" >> metro-scan-$(date +%Y%m%d).log
+echo "노출된 서버 수: $(nmap -sV -p 8081 --open 10.0.0.0/8 2>/dev/null | grep -c 'open')" \
+  >> metro-scan-$(date +%Y%m%d).log
+```
+
+### 2.9 npm 의존성 트리 시각화
+
+React Native 프로젝트에서 CVE-2025-11953에 영향받는 의존성 경로를 파악하기 위한 트리 시각화입니다.
+
+```
++================================================================+
+|         npm 의존성 트리 - CVE-2025-11953 영향 경로                 |
++================================================================+
+|                                                                |
+|  your-react-native-app                                         |
+|  +-- react-native@0.76.x                                      |
+|  |   +-- @react-native-community/cli@15.x.x  [VULNERABLE]     |
+|  |   |   +-- @react-native-community/cli-server-api@15.x.x    |
+|  |   |   |   +-- metro@0.81.x  [VULNERABLE - CVE-2025-11953]  |
+|  |   |   |   |   +-- metro-core@0.81.x                        |
+|  |   |   |   |   +-- metro-runtime@0.81.x                     |
+|  |   |   |   |   +-- metro-resolver@0.81.x                    |
+|  |   |   |   |   +-- metro-config@0.81.x                      |
+|  |   |   |   +-- metro-inspector-proxy@0.81.x                 |
+|  |   |   +-- @react-native-community/cli-debugger-ui           |
+|  |   |   +-- @react-native-community/cli-tools                 |
+|  |   +-- react-native-codegen                                  |
+|  +-- expo@52.x.x (Expo 사용 시)                                |
+|      +-- @expo/cli                                             |
+|          +-- metro@0.81.x  [VULNERABLE - 간접 의존]             |
+|                                                                |
+|  [LEGEND]                                                      |
+|  [VULNERABLE] = CVE-2025-11953 직접 영향                        |
+|  일반 = 취약하지 않으나 의존성 경로 상 존재                         |
+|                                                                |
++================================================================+
+```
+
+```bash
+# 프로젝트 의존성 트리에서 취약 패키지 검색
+npm ls metro 2>/dev/null
+npm ls @react-native-community/cli 2>/dev/null
+
+# 의존성 그래프 시각화 (npm-remote-ls 활용)
+npx npm-remote-ls @react-native-community/cli --flatten | \
+  grep -E "metro|cli-server"
+
+# lock 파일에서 취약 버전 직접 확인
+grep -A 2 '"metro"' package-lock.json 2>/dev/null | \
+  grep '"version"'
+```
+
+### 2.10 Metro4Shell 사고 대응 플레이북
+
+#### Quick Win: 즉시 적용 가능한 완화 조치
+
+| 순서 | 조치 | 소요 시간 | 효과 |
+|------|------|----------|------|
+| 1 | Metro 서버 포트(8081) 방화벽 차단 | 5분 | 외부 공격 즉시 차단 |
+| 2 | `npm audit fix` 실행 | 10분 | 알려진 취약 버전 패치 |
+| 3 | Metro 서버 `--host localhost` 바인딩 | 2분 | 네트워크 노출 제한 |
+| 4 | 개발 서버 VPN 뒤로 이동 | 30분 | 비인가 접근 차단 |
+| 5 | CI/CD에 `npm audit` 게이트 추가 | 15분 | 향후 취약 패키지 유입 차단 |
+
+#### 사고 대응 의사결정 트리
+
+```
++================================================================+
+|        Metro4Shell 보안 팀 의사결정 트리                           |
++================================================================+
+|                                                                |
+|  Q1: Metro Dev Server가 외부에 노출되어 있는가?                   |
+|       |                          |                             |
+|      Yes                        No                             |
+|       |                          |                             |
+|       v                          v                             |
+|  [Critical] 즉시 차단         Q2: 내부 네트워크에서                |
+|  + 포렌식 조사 개시               접근 가능한가?                   |
+|  + CISO 보고                     |              |              |
+|                                 Yes            No              |
+|                                  |              |              |
+|                                  v              v              |
+|                             [High]          [Medium]           |
+|                          내부 방화벽 룰    npm audit 실행        |
+|                          + 접근 로그 분석  + 패키지 업데이트      |
+|                          + 7일 이내 패치   + 30일 이내 패치      |
+|                                                                |
++================================================================+
+```
+
+#### SIEM 상관 분석 룰 (Cross-Correlation)
+
+```spl
+# Splunk: Metro4Shell + 후속 공격 상관 분석
+# 1단계: Metro 포트 스캔 후 내부 이동 탐지
+index=network sourcetype=firewall
+| eval stage=case(
+    dest_port=8081 AND action="allowed", "metro_access",
+    dest_port IN (22, 3389, 5985) AND action="allowed", "lateral_movement",
+    dest_port IN (443, 80) AND bytes_out > 1000000, "data_exfil"
+  )
+| where isnotnull(stage)
+| stats earliest(_time) as first_seen, latest(_time) as last_seen,
+    values(stage) as attack_stages, dc(dest_ip) as targets
+    by src_ip
+| where mvcount(attack_stages) >= 2
+| eval kill_chain_progress=case(
+    mvfind(attack_stages, "data_exfil") >= 0, "CRITICAL - Exfiltration",
+    mvfind(attack_stages, "lateral_movement") >= 0, "HIGH - Lateral Movement",
+    1=1, "MEDIUM - Initial Access"
+  )
+| table src_ip, first_seen, last_seen, attack_stages, targets, kill_chain_progress
+```
+
+#### IOC (Indicators of Compromise)
+
+```
+# Metro4Shell IOC 목록 (2026-02-04 기준)
+# Type: Network
+port: 8081/tcp (Metro Development Server)
+uri_path: /symbolicate (악용 엔드포인트)
+uri_path: /debugger-ui (정보 수집)
+uri_path: /../../../etc/passwd (경로 순회 시도)
+
+# Type: User-Agent (공격 도구)
+user-agent: python-requests/*
+user-agent: curl/*
+user-agent: Go-http-client/*
+user-agent: scanner/*
+
+# Type: File Hash (악성 패키지 - 예시)
+# 실제 IOC는 VulnCheck 피드 참조
+sha256: [VulnCheck 위협 인텔리전스 피드에서 최신 IOC 확인]
+
+# 위협 인텔리전스 피드 연동
+feed_url: https://vulncheck.com/api/v1/advisories/CVE-2025-11953
+```
+
 ---
 
 ## 3. AWS IAM Identity Center 멀티리전 복제: 보안 아키텍처 영향 분석
@@ -472,27 +906,8 @@ mitre_attack:
 
 ### 3.2 보안 아키텍처 영향 분석
 
-```
-+-------------------------------------------+
-|        AWS IAM Identity Center            |
-|        (Primary Region: us-east-1)        |
-|  +-------+  +--------+  +-----------+    |
-|  | Users |  | Groups |  | Permission|    |
-|  |       |  |        |  | Sets      |    |
-|  +---+---+  +---+----+  +-----+-----+    |
-|      |          |              |           |
-+------|----------|--------------|----------+
-       |          |              |
-  +----v----------v--------------v----+
-  |     Multi-Region Replication      |
-  +----+----------+-------------+----+
-       |          |             |
-+------v--+ +----v-----+ +----v--------+
-| us-west-2| | eu-west-1| | ap-north-2  |
-| (Oregon) | | (Ireland)| | (Seoul)     |
-| Replica  | | Replica  | | Replica     |
-+----------+ +----------+ +-------------+
-```
+![AWS IAM 멀티리전 아키텍처](/assets/images/2026-02-04-aws-iam-multiregion.svg)
+*그림 5: AWS IAM Identity Center 멀티리전 복제 아키텍처 - Primary(us-east-1) + 3개 Replica(Oregon, Ireland, Seoul)*
 
 #### 핵심 보안 고려사항
 
@@ -550,6 +965,133 @@ for t in trails:
 | 리전별 규제 대응 | 리전마다 별도 ID 프로바이더 구성 | 중앙 관리 + 리전 복제 |
 | 사용자 지연시간 | 원격 리전 사용자 로그인 지연 | 가까운 리전에서 인증 처리 |
 
+### 3.4 멀티리전 비용 비교 분석
+
+#### 리전별 비용 구조 (IAM Identity Center 관련)
+
+| 비용 항목 | 단일 리전 (ap-northeast-2) | 멀티리전 (3개 리전) | 차이 |
+|----------|--------------------------|-------------------|------|
+| IAM Identity Center | 무료 | 무료 | 0원 |
+| CloudTrail 로깅 | $2.00/100K events | $6.00/100K events | 3배 |
+| S3 로그 저장소 | ~$23/TB/월 | ~$69/TB/월 | 3배 |
+| 크로스리전 데이터 전송 | 0 | ~$0.09/GB | 신규 |
+| Config 규칙 평가 | $1.00/1K evaluations | $3.00/1K evaluations | 3배 |
+| **월간 예상 비용 (1000 사용자)** | **~$50** | **~$180** | **+$130** |
+
+```
++================================================================+
+|       멀티리전 비용 vs 가용성 트레이드오프                          |
++================================================================+
+|                                                                |
+|  비용($/월)                                                     |
+|   ^                                                            |
+|   |                                          * 5리전            |
+|   |                                                            |
+|   |                              * 4리전                        |
+| 300|                                                            |
+|   |                   * 3리전 (권장)                             |
+|   |                                                            |
+| 180|-------------------+------                                  |
+|   |                                                            |
+|   |    * 2리전                                                  |
+| 100|                                                            |
+|   | * 1리전                                                     |
+|  50|--+---                                                      |
+|   +-----+-----+-----+-----+------> 리전 수                     |
+|         1     2     3     4     5                               |
+|                                                                |
+|  가용성: 99.9% -> 99.95% -> 99.99% -> 99.995% -> 99.999%       |
+|                                                                |
++================================================================+
+```
+
+### 3.5 한국 리전(ap-northeast-2) 특화 고려사항
+
+| 항목 | 상세 내용 | 권장 사항 |
+|------|----------|----------|
+| **데이터 주권** | 개인정보보호법상 개인정보의 국외 이전 시 정보주체 동의 필요 | Primary 리전을 ap-northeast-2로 설정 |
+| **규제 기관** | KISA, 개인정보보호위원회, 금융감독원 | 규제별 데이터 거주 요건 사전 확인 |
+| **지연 시간** | 서울 <-> 도쿄: ~30ms, 서울 <-> 미국: ~150ms | DR 리전은 ap-northeast-1(도쿄) 권장 |
+| **비용 효율** | ap-northeast-2는 미국 리전 대비 ~10-15% 비쌈 | CloudTrail 로그 Glacier 티어 활용 |
+| **가용 서비스** | IAM Identity Center 멀티리전 지원 확인 필요 | AWS 서비스 가용성 페이지 정기 확인 |
+
+#### 한국 금융권 특수 요구사항
+
+![금융권 시나리오 아키텍처](/assets/images/2026-02-04-financial-sector-architecture.svg)
+*그림 8: 금융권 IAM Identity Center 멀티리전 아키텍처 - 서울(Primary) + 도쿄(DR Only), 원거리 리전 복제 금지*
+
+### 3.6 페일오버 테스트 스크립트
+
+```bash
+#!/bin/bash
+# IAM Identity Center 멀티리전 페일오버 테스트
+# 실행 전 주의: 프로덕션 환경에서는 변경 창(Change Window) 내 실행
+
+PRIMARY_REGION="ap-northeast-2"
+DR_REGION="ap-northeast-1"
+INSTANCE_ARN="arn:aws:sso:::instance/ssoins-XXXXXXXXXX"
+TEST_USER="failover-test@company.com"
+LOG_FILE="failover-test-$(date +%Y%m%d-%H%M%S).log"
+
+echo "=== IAM Identity Center Failover Test ===" | tee "$LOG_FILE"
+echo "Test Start: $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee -a "$LOG_FILE"
+
+# 1단계: Primary 리전 상태 확인
+echo "[1/5] Primary Region ($PRIMARY_REGION) Status" | tee -a "$LOG_FILE"
+aws sso-admin list-instances --region "$PRIMARY_REGION" 2>&1 | tee -a "$LOG_FILE"
+
+# 2단계: DR 리전 복제 상태 확인
+echo "[2/5] DR Region ($DR_REGION) Replication Status" | tee -a "$LOG_FILE"
+aws sso-admin describe-instance \
+    --instance-arn "$INSTANCE_ARN" \
+    --region "$DR_REGION" 2>&1 | tee -a "$LOG_FILE"
+
+# 3단계: Primary에서 인증 테스트
+echo "[3/5] Authentication Test - Primary" | tee -a "$LOG_FILE"
+PRIMARY_START=$(date +%s%N)
+aws sso get-role-credentials \
+    --account-id "$(aws sts get-caller-identity --query Account --output text)" \
+    --role-name "ReadOnly" \
+    --access-token "TEST_TOKEN" \
+    --region "$PRIMARY_REGION" 2>&1 | head -5 | tee -a "$LOG_FILE"
+PRIMARY_END=$(date +%s%N)
+echo "Primary Latency: $(( (PRIMARY_END - PRIMARY_START) / 1000000 ))ms" | tee -a "$LOG_FILE"
+
+# 4단계: DR에서 인증 테스트
+echo "[4/5] Authentication Test - DR" | tee -a "$LOG_FILE"
+DR_START=$(date +%s%N)
+aws sso get-role-credentials \
+    --account-id "$(aws sts get-caller-identity --query Account --output text)" \
+    --role-name "ReadOnly" \
+    --access-token "TEST_TOKEN" \
+    --region "$DR_REGION" 2>&1 | head -5 | tee -a "$LOG_FILE"
+DR_END=$(date +%s%N)
+echo "DR Latency: $(( (DR_END - DR_START) / 1000000 ))ms" | tee -a "$LOG_FILE"
+
+# 5단계: 권한 세트 일관성 검증
+echo "[5/5] Permission Set Consistency Check" | tee -a "$LOG_FILE"
+PRIMARY_PS=$(aws sso-admin list-permission-sets \
+    --instance-arn "$INSTANCE_ARN" \
+    --region "$PRIMARY_REGION" --output json 2>/dev/null | \
+    python3 -c "import sys,json; print(len(json.load(sys.stdin).get('PermissionSets',[])))")
+DR_PS=$(aws sso-admin list-permission-sets \
+    --instance-arn "$INSTANCE_ARN" \
+    --region "$DR_REGION" --output json 2>/dev/null | \
+    python3 -c "import sys,json; print(len(json.load(sys.stdin).get('PermissionSets',[])))")
+
+echo "Primary Permission Sets: $PRIMARY_PS" | tee -a "$LOG_FILE"
+echo "DR Permission Sets: $DR_PS" | tee -a "$LOG_FILE"
+
+if [ "$PRIMARY_PS" = "$DR_PS" ]; then
+    echo "[PASS] Permission sets are consistent" | tee -a "$LOG_FILE"
+else
+    echo "[FAIL] Permission set mismatch! Primary=$PRIMARY_PS, DR=$DR_PS" | tee -a "$LOG_FILE"
+fi
+
+echo "Test End: $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee -a "$LOG_FILE"
+echo "Full log: $LOG_FILE"
+```
+
 ---
 
 ## 4. AI 에이전트 보안: 3Cs 프레임워크 심층 분석
@@ -569,23 +1111,8 @@ for t in trails:
 
 ### 4.2 3Cs 모델 상세
 
-```
-+==============================================================+
-|                    3Cs Security Framework                     |
-+==============================================================+
-|                                                              |
-|  +------------------+  +------------------+  +--------------+ |
-|  |   CONTAINER      |  |   CREDENTIAL     |  |    CODE      | |
-|  |   (격리)          |  |   (자격증명)      |  |    (코드)    | |
-|  +------------------+  +------------------+  +--------------+ |
-|  | - 샌드박스 실행    |  | - 최소 권한 토큰  |  | - 코드 서명  | |
-|  | - 네트워크 격리    |  | - 임시 자격증명   |  | - 입력 검증  | |
-|  | - 리소스 제한      |  | - 자격증명 회전   |  | - 출력 필터링| |
-|  | - 읽기 전용 FS     |  | - 비밀 관리 연동  |  | - 의존성 감사| |
-|  +------------------+  +------------------+  +--------------+ |
-|                                                              |
-+==============================================================+
-```
+![3Cs 프레임워크 모델](/assets/images/2026-02-04-3cs-framework.svg)
+*그림 6: 3Cs Security Framework - Container(격리) / Credential(자격증명) / Code(코드) 3개 계층 보안 모델*
 
 #### C1: Container (컨테이너 격리)
 
@@ -721,6 +1248,119 @@ index=kubernetes sourcetype=kube:container:log namespace="ai-agents"
 | table _time, container_name, anomaly, count
 ```
 
+### 4.5 3Cs 성숙도 모델 (Level 0~5)
+
+조직의 AI 에이전트 보안 수준을 객관적으로 평가하기 위한 성숙도 모델입니다.
+
+![3Cs 성숙도 모델](/assets/images/2026-02-04-3cs-maturity-model.svg)
+*그림 7: 3Cs Security Maturity Model - Level 0(부재)부터 Level 5(최적화)까지 AI 에이전트 보안 성숙도 평가 모델*
+
+#### 성숙도 자가 평가 체크리스트
+
+| 영역 | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
+|------|---------|---------|---------|---------|---------|
+| **C1: Container** | 에이전트 인벤토리 존재 | read-only FS, cap-drop 적용 | 보안 템플릿 표준화 | 동적 정책 적용 | 자율 보안 운영 |
+| **C2: Credential** | 자격증명 목록 관리 | 환경변수 분리 | Vault/Secrets Manager 통합 | 5분 TTL 자동 회전 | 제로 트러스트 |
+| **C3: Code** | 코드 리뷰 수행 | SAST 도구 도입 | CI/CD 보안 게이트 | 지속적 SAST+DAST | 자가 치유 파이프라인 |
+| **모니터링** | 로그 수집 | 알림 설정 | SIEM 통합 | 상관 분석 | AI 기반 이상 탐지 |
+| **거버넌스** | 정책 문서화 | 정기 감사 | 자동 컴플라이언스 | 실시간 규정 준수 | 예측적 거버넌스 |
+
+### 4.6 12주 구현 로드맵
+
+```
++================================================================+
+|          3Cs 프레임워크 12주 구현 로드맵                           |
++================================================================+
+|                                                                |
+|  Phase 1: 기반 구축 (1~4주)                                    |
+|  ===================================                           |
+|  주1  [C1] AI 에이전트 인벤토리 작성                              |
+|       [C2] 현재 자격증명 관리 현황 파악                            |
+|  주2  [C1] 컨테이너 보안 베이스라인 정의                           |
+|       [C3] 코드 검증 도구 선정                                   |
+|  주3  [C1] 보안 컨테이너 템플릿 작성                              |
+|       [C2] Vault/Secrets Manager PoC                           |
+|  주4  [전체] 1차 보안 평가 및 Gap 분석                            |
+|                                                                |
+|  Phase 2: 핵심 구현 (5~8주)                                    |
+|  ===================================                           |
+|  주5  [C1] 프로덕션 에이전트 컨테이너 마이그레이션 시작             |
+|       [C2] Vault 프로덕션 배포                                   |
+|  주6  [C3] SAST 파이프라인 구축                                  |
+|       [C1] 네트워크 정책 적용                                    |
+|  주7  [C2] 자동 자격증명 회전 구현                                |
+|       [C3] CI/CD 보안 게이트 통합                                |
+|  주8  [전체] 2차 보안 평가 (Level 3 목표)                        |
+|                                                                |
+|  Phase 3: 고도화 (9~12주)                                      |
+|  ===================================                           |
+|  주9  [C1] 동적 컨테이너 정책 엔진 도입                           |
+|       [C2] 제로 트러스트 아키텍처 설계                            |
+|  주10 [C3] DAST + 퍼징 테스트 추가                               |
+|       [전체] SIEM 탐지 룰 고도화                                 |
+|  주11 [전체] 모의 침투 테스트 (Red Team)                         |
+|  주12 [전체] 최종 평가 + 운영 인수인계                            |
+|       보고서 작성 및 경영진 보고                                  |
+|                                                                |
++================================================================+
+```
+
+#### 주차별 산출물 및 KPI
+
+| 주차 | 산출물 | 측정 KPI | 목표 |
+|------|--------|---------|------|
+| 1~2주 | 에이전트 인벤토리, 보안 현황 보고서 | 식별된 에이전트 수 | 100% 식별 |
+| 3~4주 | 보안 템플릿, Gap 분석 보고서 | 성숙도 레벨 | 현재 수준 측정 |
+| 5~6주 | 컨테이너 마이그레이션 완료율 | 보안 컨테이너 적용률 | 80% 이상 |
+| 7~8주 | 자격증명 자동화, CI/CD 게이트 | 평균 자격증명 수명 | < 24시간 |
+| 9~10주 | 동적 정책, 테스트 자동화 | 취약점 탐지율 | 95% 이상 |
+| 11~12주 | 침투 테스트 결과, 최종 보고서 | 성숙도 레벨 | Level 3 이상 |
+
+#### 예산 계획 (한국 중견기업 기준)
+
+| 항목 | 도구/서비스 | 연간 비용 (예상) | 비고 |
+|------|-----------|----------------|------|
+| **C1: 컨테이너** | Docker Business | 2,400만원 (200명 기준) | 월 $10/user |
+| **C1: 오케스트레이션** | EKS/AKS | 1,200만원 | 관리형 K8s |
+| **C2: 비밀 관리** | HashiCorp Vault Enterprise | 3,600만원 | 또는 AWS Secrets Manager |
+| **C3: SAST** | SonarQube Enterprise | 1,800만원 | 또는 Snyk Business |
+| **C3: DAST** | OWASP ZAP (무료) + Burp Suite | 600만원 | Burp Suite Pro |
+| **모니터링** | Splunk/ELK | 2,400만원 | 기존 SIEM 활용 시 절감 |
+| **인력** | 보안 엔지니어 2명 (3개월) | 4,500만원 | 외부 컨설팅 포함 |
+| **교육** | 팀 교육 및 인증 | 600만원 | CKS, CCSP 등 |
+| **합계** | | **~1.7억원** | 조직 규모에 따라 조정 |
+
+### 4.7 벤더 평가 체크리스트
+
+AI 에이전트 보안 솔루션 도입 시 벤더 평가를 위한 체크리스트입니다.
+
+| 평가 항목 | 가중치 | 평가 기준 | 점수 (1~5) |
+|----------|--------|----------|-----------|
+| **C1: 컨테이너 격리** | 20% | | |
+| - 읽기 전용 파일시스템 지원 | | 필수 기능 | |
+| - 리소스 제한 (CPU/메모리/PID) | | 세분화 수준 | |
+| - 네트워크 격리 정책 | | 마이크로세그멘테이션 지원 | |
+| **C2: 자격증명 관리** | 25% | | |
+| - 임시 토큰 발급 (TTL 설정) | | TTL 최소값, 자동 회전 | |
+| - 비밀 관리 시스템 연동 | | Vault, AWS SM, Azure KV | |
+| - 감사 로그 (누가, 언제, 무엇을) | | 로그 상세도, 보존 기간 | |
+| **C3: 코드 보안** | 20% | | |
+| - 정적 분석 (SAST) 통합 | | 지원 언어 수, 정확도 | |
+| - 의존성 취약점 스캐닝 | | CVE DB 업데이트 주기 | |
+| - 코드 서명 및 무결성 검증 | | 서명 알고리즘, 자동화 | |
+| **운영성** | 15% | | |
+| - 한국어 기술 지원 | | 24/7 한국어 지원 여부 | |
+| - 국내 데이터센터 유무 | | ap-northeast-2 지원 | |
+| - SLA (서비스 수준 계약) | | 가용성 99.9% 이상 | |
+| **비용** | 10% | | |
+| - 라이선스 모델 | | per-user, per-agent, 정액 | |
+| - 무료 티어/PoC 지원 | | PoC 기간 및 범위 | |
+| - TCO (총소유비용) | | 3년 TCO 산정 | |
+| **확장성** | 10% | | |
+| - API/SDK 지원 | | REST API, SDK 언어 지원 | |
+| - 멀티클라우드 지원 | | AWS, Azure, GCP, 온프레미스 | |
+| - 에이전트 수 확장성 | | 1000+ 에이전트 지원 여부 | |
+
 ---
 
 ## 5. SOC 현대화: Smarter SOC Blueprint
@@ -826,17 +1466,302 @@ CNCF가 **KubeCon + CloudNativeCon**의 에너지, 커뮤니티, 다양성을 �
 
 ---
 
-## 11. 트렌드 분석
+## 11. 한국 규제 컴플라이언스 매핑
 
-| 트렌드 | 관련 뉴스 수 | 주요 키워드 | 실무 영향 |
-|--------|-------------|------------|-----------|
-| **AI/ML 보안** | 10건 | AI Agent, Docker, Bedrock | AI 에이전트 보안 프레임워크 도입 시급 |
-| **클라우드 보안** | 5건 | AWS IAM, Multi-Region, Cloud Outage | 멀티리전 보안 정책 검토 필요 |
-| **공급망 보안** | 3건 | npm, Docker Image, RCE | 의존성 감사 및 SBOM 관리 강화 |
-| **인증/자격증명** | 2건 | IAM Identity Center, Credential | 자격증명 관리 체계 고도화 |
-| **컨테이너/K8s** | 2건 | Docker, KubeCon | 컨테이너 보안 정책 업데이트 |
+이번 주 보안 이슈가 한국 주요 법규에 미치는 영향을 체계적으로 매핑합니다.
+
+### 11.1 규제별 영향 분석
+
+| 법규 | 관련 조항 | 이번 주 관련 이슈 | 미준수 시 제재 |
+|------|----------|-----------------|--------------|
+| **개인정보보호법** | 제29조 (안전조치의무) | DockerDash: 개발환경 내 개인정보 유출 위험 | 매출액 3% 이하 과징금 |
+| **개인정보보호법** | 제17조 (제3자 제공) | AWS IAM 멀티리전: 해외 리전 복제 시 동의 필요 | 5년 이하 징역, 5천만원 이하 벌금 |
+| **정보통신망법** | 제28조 (개인정보 보호조치) | Metro4Shell: 개발 서버 네트워크 노출 | 3천만원 이하 과태료 |
+| **정보통신망법** | 제48조의2 (침해사고 신고) | 모든 Critical 취약점 악용 시 | 미신고 시 1천만원 이하 과태료 |
+| **클라우드컴퓨팅법** | 제27조 (이용자 보호) | AWS IAM 멀티리전 서비스 변경 | 시정명령 |
+| **전자금융거래법** | 제21조의3 (전자금융사고 보고) | 금융기관의 Docker/npm 취약점 악용 시 | 과태료 + 영업정지 |
+| **ISMS-P** | 2.6.1 (네트워크 보안) | Metro4Shell: 개발 포트 노출 | 인증 취소 가능 |
+| **ISMS-P** | 2.9.1 (변경관리) | Docker Desktop 패치 미적용 | 인증 취소 가능 |
+
+### 11.2 업종별 가상 시나리오
+
+#### 시나리오 1: 금융권 (은행/카드사)
+
+```
++================================================================+
+|   [시나리오] XX은행 모바일 뱅킹 앱 개발팀 - Metro4Shell 피해       |
++================================================================+
+|                                                                |
+|  상황:                                                          |
+|  - React Native 기반 모바일 뱅킹 앱 개발 중                      |
+|  - 개발 서버(Metro) 포트 8081이 사내 네트워크에 노출               |
+|  - 공격자가 VPN 침투 후 Metro4Shell 악용                         |
+|                                                                |
+|  피해:                                                          |
+|  - 뱅킹 앱 소스코드 전체 유출                                    |
+|  - API 키 및 인증서 탈취                                        |
+|  - 고객 테스트 데이터(10만건) 노출                               |
+|                                                                |
+|  규제 영향:                                                     |
+|  +-----------------------------+                               |
+|  | 전자금융거래법 제21조의3      | -> 금감원 사고보고 (즉시)     |
+|  | 개인정보보호법 제34조         | -> 72시간 이내 신고          |
+|  | 여신전문금융업법              | -> 카드사 추가 보고          |
+|  | ISMS-P 2.6.1               | -> 재인증 심사 리스크         |
+|  +-----------------------------+                               |
+|                                                                |
+|  예상 피해 비용:                                                 |
+|  - 과징금: ~30억원 (매출 3%)                                    |
+|  - 소송/보상: ~50억원                                           |
+|  - 평판 손실: ~100억원                                          |
+|  - 재개발/보안강화: ~20억원                                     |
+|  - 합계: ~200억원                                               |
++================================================================+
+```
+
+#### 시나리오 2: 제조업 (반도체/자동차)
+
+```
++================================================================+
+|   [시나리오] YY반도체 - DockerDash를 통한 설계 데이터 유출          |
++================================================================+
+|                                                                |
+|  상황:                                                          |
+|  - Docker Desktop으로 EDA 도구 컨테이너화 운영                    |
+|  - 엔지니어가 Ask Gordon에 공개 이미지 분석 요청                  |
+|  - 악성 이미지 메타데이터를 통해 호스트 접근                       |
+|                                                                |
+|  피해:                                                          |
+|  - 차세대 공정 설계 파일(GDS) 유출                               |
+|  - 제조 레시피 데이터 탈취                                       |
+|  - 협력사 NDA 정보 노출                                         |
+|                                                                |
+|  규제 영향:                                                     |
+|  +-----------------------------+                               |
+|  | 산업기술유출방지법 제14조      | -> 산업부 신고               |
+|  | 부정경쟁방지법                | -> 영업비밀 침해             |
+|  | 수출통제법 (EAR/ITAR)        | -> 미국 수출통제 위반 가능    |
+|  +-----------------------------+                               |
+|                                                                |
+|  예상 피해 비용:                                                 |
+|  - 기술 유출 피해: ~500억원                                     |
+|  - 경쟁사 이점 상실: 산정 불가                                   |
+|  - 수출통제 위반 벌금: ~100억원                                  |
+|  - 합계: 600억원+                                               |
++================================================================+
+```
+
+#### 시나리오 3: 공공 부문 (정부/공기업)
+
+```
++================================================================+
+|   [시나리오] ZZ부처 - AWS IAM 멀티리전 미설정으로 서비스 장애       |
++================================================================+
+|                                                                |
+|  상황:                                                          |
+|  - 전자정부 클라우드(G-Cloud)에서 AWS 서울 리전 단독 운영          |
+|  - 서울 리전 장애 발생 시 SSO 접근 불가                           |
+|  - 멀티리전 미구성으로 수동 복구에 6시간 소요                      |
+|                                                                |
+|  피해:                                                          |
+|  - 대민 서비스 6시간 중단                                        |
+|  - 내부 업무 시스템 접근 불가                                    |
+|  - 긴급 상황 대응 지연                                           |
+|                                                                |
+|  규제 영향:                                                     |
+|  +-----------------------------+                               |
+|  | 전자정부법 제56조             | -> 장애 보고 및 조치          |
+|  | 클라우드컴퓨팅법 제25조       | -> 서비스 중단 보상           |
+|  | 국가정보보안기본지침          | -> 보안 사고 보고             |
+|  +-----------------------------+                               |
+|                                                                |
+|  예상 피해:                                                     |
+|  - 서비스 중단 비용: ~5억원                                      |
+|  - 감사원 지적: 행정 제재                                        |
+|  - 국민 불편/민원: 정치적 비용                                   |
++================================================================+
+```
+
+---
+
+## 12. 보안 메트릭 및 KPI 권장 사항
+
+이번 주 이슈에 대한 측정 가능한 보안 지표와 SLA/SLO 권장 사항입니다.
+
+### 12.1 핵심 보안 메트릭
+
+| 메트릭 | 정의 | 측정 방법 | 목표 | 현재 벤치마크 |
+|--------|------|----------|------|-------------|
+| **MTTD** (Mean Time To Detect) | 위협 발생~탐지 소요시간 | SIEM 알림 타임스탬프 | Critical: < 1시간 | 업계 평균: 197일 |
+| **MTTR** (Mean Time To Respond) | 탐지~대응완료 소요시간 | IR 티켓 타임스탬프 | Critical: < 4시간 | 업계 평균: 69일 |
+| **MTTP** (Mean Time To Patch) | 패치 공개~적용 소요시간 | 패치 관리 시스템 | Critical: < 24시간 | 업계 평균: 60일 |
+| **패치 적용률** | 패치 적용 완료 비율 | 자산관리 시스템 | 7일: 95%, 30일: 100% | 업계 평균: 30일 내 50% |
+| **취약점 재발률** | 동일 취약점 재발 비율 | 취약점 스캐너 | < 5% | 업계 평균: 15% |
+| **오탐률** | SIEM 알림 중 오탐 비율 | SIEM 분석 | < 10% | 업계 평균: 40% |
+| **컨테이너 격리율** | 보안 컨테이너 운영 비율 | K8s 감사 | 100% (AI 에이전트) | 측정 시작 필요 |
+| **자격증명 평균 수명** | 자격증명 교체 주기 | Vault 메트릭 | < 24시간 (에이전트) | 측정 시작 필요 |
+
+### 12.2 SLA/SLO 권장 사항
+
+```
++================================================================+
+|          보안 SLA/SLO 매트릭스                                    |
++================================================================+
+|                                                                |
+|  [취약점 대응 SLA]                                               |
+|  +-----+----------+---------+----------+                       |
+|  |     | Critical | High    | Medium   |                       |
+|  +-----+----------+---------+----------+                       |
+|  | 탐지 | 1시간    | 4시간   | 24시간   |                       |
+|  | 분류 | 15분     | 1시간   | 4시간    |                       |
+|  | 격리 | 30분     | 4시간   | 24시간   |                       |
+|  | 패치 | 24시간   | 7일     | 30일     |                       |
+|  | 검증 | 48시간   | 14일    | 45일     |                       |
+|  +-----+----------+---------+----------+                       |
+|                                                                |
+|  [서비스 가용성 SLO]                                             |
+|  +---------------------+----------+                            |
+|  | IAM Identity Center | 99.99%   |                            |
+|  | SIEM 플랫폼         | 99.95%   |                            |
+|  | 비밀 관리 시스템     | 99.99%   |                            |
+|  | CI/CD 보안 게이트    | 99.9%    |                            |
+|  +---------------------+----------+                            |
+|                                                                |
+|  [MTTR 목표 (심각도별)]                                         |
+|  Critical  ████░░░░░░  < 4시간                                 |
+|  High      ██████░░░░  < 24시간                                |
+|  Medium    ████████░░  < 7일                                   |
+|  Low       ██████████  < 30일                                  |
+|                                                                |
++================================================================+
+```
+
+### 12.3 이번 주 이슈별 측정 대상
+
+| 이슈 | 핵심 KPI | 측정 도구 | 보고 주기 |
+|------|---------|----------|----------|
+| **DockerDash** | Docker Desktop 패치 적용률 | SCCM/Intune | 일 1회 |
+| **DockerDash** | 악성 이미지 메타데이터 탐지 수 | SIEM | 실시간 |
+| **Metro4Shell** | npm audit critical 취약점 수 | npm audit + CI/CD | PR마다 |
+| **Metro4Shell** | 포트 8081 외부 노출 서버 수 | Shodan API + 내부 스캔 | 주 1회 |
+| **AWS IAM MR** | 멀티리전 복제 일관성 | AWS Config | 일 1회 |
+| **AWS IAM MR** | 크로스리전 인증 지연시간 | CloudWatch | 실시간 |
+| **3Cs Framework** | 에이전트 보안 성숙도 레벨 | 자가 평가 | 분기 1회 |
+| **3Cs Framework** | 에이전트 이상 행위 탐지 수 | SIEM | 실시간 |
+
+### 12.4 Threat Hunting 쿼리 (사전 탐지)
+
+기존 탐지 룰 외에, 사전적(Proactive) 위협 헌팅을 위한 쿼리입니다.
+
+#### Docker 환경 위협 헌팅
+
+```spl
+# Splunk: 비정상 Docker 이미지 사용 패턴 헌팅
+index=docker sourcetype=docker:events action="pull"
+| eval image_source=case(
+    match(image_name, "^docker\.io/library/"), "official",
+    match(image_name, "^docker\.io/"), "dockerhub_user",
+    match(image_name, "^[a-z]+\.azurecr\.io/"), "azure_acr",
+    match(image_name, "^[0-9]+\.dkr\.ecr\."), "aws_ecr",
+    match(image_name, "^gcr\.io/"), "gcp_gcr",
+    1=1, "unknown"
+  )
+| where image_source IN ("dockerhub_user", "unknown")
+| stats count dc(host) as affected_hosts values(image_name) as images by image_source
+| where count > 0
+| sort -count
+```
+
+#### npm 공급망 위협 헌팅
+
+```spl
+# Splunk: 비정상 npm 패키지 설치 패턴 헌팅
+index=devops sourcetype=cicd
+| search "npm install" OR "npm i " OR "yarn add"
+| rex field=_raw "(?:npm i(?:nstall)?|yarn add)\s+(?<pkg_name>[^\s@]+)(?:@(?<pkg_version>[^\s]+))?"
+| lookup known_packages.csv package_name as pkg_name OUTPUT is_known
+| where isnull(is_known) OR is_known="false"
+| stats count values(pkg_name) as unknown_packages values(host) as hosts by user
+| where count > 3
+| table user, unknown_packages, hosts, count
+```
+
+#### 크로스 이벤트 상관 분석 (Kill Chain)
+
+```spl
+# Splunk: Docker + Network + Endpoint 상관 분석
+# 목표: Docker 이미지 pull -> 비정상 네트워크 -> 데이터 유출 패턴 탐지
+index=docker OR index=network OR index=endpoint
+| eval event_type=case(
+    index="docker" AND action="pull", "1_image_pull",
+    index="docker" AND action="exec_start", "2_exec_start",
+    index="network" AND dest_port IN (4444, 5555, 8888, 9001), "3_suspicious_port",
+    index="network" AND bytes_out > 10000000 AND NOT cidrmatch("10.0.0.0/8", dest_ip), "4_large_upload",
+    index="endpoint" AND process_name IN ("curl", "wget", "nc", "ncat"), "5_data_tool",
+    1=1, null()
+  )
+| where isnotnull(event_type)
+| transaction host maxspan=1h maxpause=10m
+| where eventcount >= 3
+| eval risk_score=case(
+    mvfind(event_type, "4_large_upload") >= 0, "CRITICAL",
+    mvfind(event_type, "3_suspicious_port") >= 0, "HIGH",
+    1=1, "MEDIUM"
+  )
+| table _time, host, event_type, eventcount, risk_score, duration
+| sort -risk_score
+```
+
+---
+
+## 13. 트렌드 분석
+
+| 트렌드 | 관련 뉴스 수 | 주요 키워드 | 실무 영향 | 대응 우선순위 |
+|--------|-------------|------------|-----------|-------------|
+| **AI/ML 보안** | 10건 | AI Agent, Docker, Bedrock | AI 에이전트 보안 프레임워크 도입 시급 | P0 - 즉시 |
+| **클라우드 보안** | 5건 | AWS IAM, Multi-Region, Cloud Outage | 멀티리전 보안 정책 검토 필요 | P1 - 7일 |
+| **공급망 보안** | 3건 | npm, Docker Image, RCE | 의존성 감사 및 SBOM 관리 강화 | P0 - 즉시 |
+| **인증/자격증명** | 2건 | IAM Identity Center, Credential | 자격증명 관리 체계 고도화 | P1 - 7일 |
+| **컨테이너/K8s** | 2건 | Docker, KubeCon | 컨테이너 보안 정책 업데이트 | P2 - 30일 |
 
 이번 주기의 핵심 트렌드는 **AI/ML 보안**입니다. Docker DockerDash 취약점과 3Cs 프레임워크 발표에서 볼 수 있듯이, AI 에이전트의 보안이 엔터프라이즈 보안의 새로운 핵심 과제로 부상하고 있습니다. **공급망 보안** 역시 Metro4Shell(CVE-2025-11953)의 활발한 악용과 함께 지속적인 주의가 필요합니다.
+
+### 13.1 보안 투자 비용-편익 종합 분석
+
+| 투자 영역 | 연간 투자 비용 | 미투자 시 예상 피해 | ROI | 추천 도구 |
+|----------|--------------|-------------------|-----|----------|
+| 컨테이너 보안 강화 | 3,000만원 | 소스코드 유출: 10~50억원 | 3,300~16,600% | Trivy(무료), Falco |
+| npm 공급망 보안 | 1,200만원 | 공급망 공격: 50~200억원 | 41,600~166,000% | Socket.dev, Snyk |
+| IAM 멀티리전 DR | 1,560만원 | 서비스 중단: 5~30억원 | 3,100~19,200% | AWS native |
+| AI 에이전트 보안 | 1.7억원 | 내부 시스템 침해: 100억원+ | 5,800%+ | 3Cs Framework |
+| SIEM 고도화 | 2,400만원 | 탐지 지연: 20~50억원 | 8,200~20,800% | Splunk, ELK |
+
+```
++================================================================+
+|    보안 투자 우선순위 매트릭스 (비용 vs 위험 감소)                   |
++================================================================+
+|                                                                |
+|  위험감소(%)                                                    |
+|   ^                                                            |
+|   |                                                            |
+| 90|     * npm 공급망 보안                                       |
+|   |        (1,200만원)                                          |
+| 80|                         * SIEM 고도화                       |
+|   |                           (2,400만원)                       |
+| 70|  * 컨테이너 보안                                            |
+|   |    (3,000만원)                                              |
+| 60|                                                            |
+|   |                                    * AI 에이전트 보안        |
+| 50|                                      (1.7억원)              |
+|   |                                                            |
+| 40|              * IAM 멀티리전                                 |
+|   |                (1,560만원)                                  |
+|   +----+----+----+----+----+----+----+-----> 비용(억원)         |
+|        0.1  0.3  0.5  1.0  1.5  2.0  2.5                      |
+|                                                                |
+|  [권장] 좌상단 영역(높은 효과, 낮은 비용) 우선 투자                |
++================================================================+
+```
 
 ---
 
