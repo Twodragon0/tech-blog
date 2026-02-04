@@ -770,7 +770,14 @@
   // Initialize
   initSession();
   showChatIcon();
-  
+
+  // Force close window on page load (defensive check)
+  if (chatWindow) {
+    chatWindow.style.display = 'none';
+    chatWindow.classList.remove('chat-widget-window-open');
+    isOpen = false;
+  }
+
   // Add welcome message if no messages
   if (messages.length === 0) {
     // Welcome message is already in HTML

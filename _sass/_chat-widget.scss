@@ -140,7 +140,7 @@
   background: var(--color-bg-primary, #ffffff);
   border-radius: var(--border-radius-xl, 16px);
   box-shadow: var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04));
-  display: none; /* 기본적으로 숨김 */
+  display: none !important; /* Force hide until explicitly opened */
   flex-direction: column;
   overflow: hidden;
   opacity: 0;
@@ -152,6 +152,7 @@
 }
 
 .chat-widget-window-open {
+  display: flex !important; /* Override force hide */
   opacity: 1;
   transform: translateY(0) scale(1);
   animation: windowSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);

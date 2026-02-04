@@ -48,14 +48,17 @@
 
 <!-- Vercel Analytics & Speed Insights (페이지 하단에서 로드, 에러 핸들링 포함) -->
 <script>
-  // Vercel Analytics & Speed Insights 로드 (에러 핸들링 포함)
+  // Vercel Analytics & Speed Insights 로드 (에러 핸들링 + 샘플링 포함)
   (function() {
     // 프로덕션 환경에서만 로드
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
       return; // 개발 환경에서는 로드하지 않음
     }
-    
-    // Analytics 스크립트 로드
+
+    // 10% 샘플링 (Free tier 최적화)
+    var shouldSample = Math.random() < 0.1;
+
+    // Analytics 스크립트 로드 (샘플링 적용 안 함 - 페이지뷰 추적은 유지)
     var analyticsScript = document.createElement('script');
     analyticsScript.defer = true;
     analyticsScript.src = 'https://va.vercel-scripts.com/v1/script.js';
@@ -63,25 +66,32 @@
       // Analytics 로드 실패는 조용히 처리 (Rate Limiting, 네트워크 문제 등)
     };
     document.head.appendChild(analyticsScript);
-    
-    // Speed Insights 스크립트 로드 (에러 핸들링 포함)
-    var speedInsightsScript = document.createElement('script');
-    speedInsightsScript.defer = true;
-    speedInsightsScript.src = 'https://va.vercel-scripts.com/v1/speed-insights/script.js';
-    speedInsightsScript.onerror = function() {
-      // Speed Insights 로드 실패는 조용히 처리 (429 Rate Limiting 등)
-    };
-    document.head.appendChild(speedInsightsScript);
-    
+
+    // Speed Insights 스크립트 로드 (샘플링 적용 - vitals만 전송)
+    if (shouldSample) {
+      var speedInsightsScript = document.createElement('script');
+      speedInsightsScript.defer = true;
+      speedInsightsScript.src = 'https://va.vercel-scripts.com/v1/speed-insights/script.js';
+      speedInsightsScript.onerror = function() {
+        // Speed Insights 로드 실패는 조용히 처리 (429 Rate Limiting 등)
+      };
+      document.head.appendChild(speedInsightsScript);
+    }
+
     // Speed Insights vitals 엔드포인트 429 에러 처리
     if (window.fetch) {
       var originalFetch = window.fetch;
       window.fetch = function() {
         var args = Array.prototype.slice.call(arguments);
         var url = args[0];
-        
+
         // Speed Insights vitals 엔드포인트인 경우
         if (typeof url === 'string' && url.includes('/_vercel/speed-insights/vitals')) {
+          // 샘플링되지 않은 경우 요청 차단 (429 방지)
+          if (!shouldSample) {
+            return Promise.resolve(new Response(null, { status: 200, statusText: 'OK' }));
+          }
+
           return originalFetch.apply(this, args)
             .then(function(response) {
               // 429 응답은 조용히 처리 (Rate Limiting - 정상 동작)
@@ -95,7 +105,7 @@
               return new Response(null, { status: 200, statusText: 'OK' });
             });
         }
-        
+
         return originalFetch.apply(this, args);
       };
     }

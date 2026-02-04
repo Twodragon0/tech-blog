@@ -56,14 +56,14 @@
 
     document.documentElement.setAttribute('data-theme', getEffectiveTheme());
 
-    // 시스템 테마 변경 감지 (실시간 반영)
+    // 시스템 테마 변경 감지 (실시간 반영) - passive for better FID
     systemPrefersDark.addEventListener('change', (e) => {
       const currentSaved = localStorage.getItem('theme');
       // 저장된 값이 없거나 'system'이면 시스템 변경 따름
       if (!currentSaved || currentSaved === 'system') {
         document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
       }
-    });
+    }, { passive: true });
 
     if (themeToggle) {
       themeToggle.addEventListener('click', function() {
@@ -713,8 +713,8 @@
   // Run critical initialization immediately
   initCritical();
   
-  // Non-critical initialization (runs when idle)
-  const initNonCritical = () => {
+  // Non-critical initialization (runs when idle, split into chunks to prevent long tasks)
+  const initNonCritical = async () => {
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileNav = document.getElementById('mobile-nav');
@@ -734,6 +734,9 @@
         }
       }, { passive: true });
     }
+
+    // Yield to main thread after mobile menu setup (prevents long tasks)
+    await yieldToMain();
 
   // Smooth Scroll for Anchor Links
   // 숫자로 시작하는 ID를 안전하게 처리하는 헬퍼 함수
@@ -1042,6 +1045,9 @@
       observer.observe(card);
     });
 
+    // Yield to main thread after observer setup
+    await yieldToMain();
+
   // Reading Progress Bar (for post pages)
   const postArticle = document.querySelector('.post-article');
   if (postArticle) {
@@ -1059,13 +1065,14 @@
     `;
     document.body.appendChild(progressBar);
 
+    // Use passive listener for scroll events (improves FID)
     window.addEventListener('scroll', function() {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
       progressBar.style.width = Math.min(progress, 100) + '%';
-    });
+    }, { passive: true });
   }
 
   // Copy to Clipboard Function
@@ -1454,6 +1461,9 @@
     }
   });
 
+  // Yield before heavy image lazy loading setup
+  await yieldToMain();
+
   // Lazy Loading Images
   if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -1476,10 +1486,13 @@
 
     console.debug('Tech Blog UI initialized (non-critical)');
 
+  // Yield before language dropdown initialization
+  await yieldToMain();
+
   // ============================================
   // Language Dropdown and Translation
   // ============================================
-  (function initLanguageDropdown() {
+  (async function initLanguageDropdown() {
     const langToggle = document.getElementById('lang-toggle');
     const langDropdown = document.getElementById('lang-dropdown');
     const langDropdownOverlay = document.getElementById('lang-dropdown-overlay');
@@ -2658,16 +2671,16 @@
         
         let scrollTimeout;
         
-        // 스크롤 시작 시 힌트 숨김
+        // 스크롤 시작 시 힌트 숨김 - passive for better FID
         wrapper.addEventListener('scroll', () => {
           // 스크롤 중 표시
           wrapper.classList.add('is-scrolling');
-          
+
           // 기존 타이머 클리어
           if (scrollTimeout) {
             clearTimeout(scrollTimeout);
           }
-          
+
           // 스크롤 종료 후 1.5초 뒤 힌트 다시 표시
           scrollTimeout = setTimeout(() => {
             wrapper.classList.remove('is-scrolling');

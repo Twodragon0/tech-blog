@@ -5,9 +5,12 @@
   <meta name="google" content="notranslate">
 
   <!-- Early console noise filter: 확장 프로그램/CSP/Giscus/AdSense/SES 노이즈 (Chrome, Safari) -->
+  <!-- Deferred to reduce FID impact -->
   <script>
   (function(){
-    var _e=console.error,_w=console.warn,_l=console.log;
+    // Use requestIdleCallback to defer non-critical console filtering
+    var setupConsoleFilter = function() {
+      var _e=console.error,_w=console.warn,_l=console.log;
     // 노이즈 패턴: 확장프로그램, CSP, Giscus 404, AdSense 400, SES/MetaMask
     var noisePatterns = [
       /runtime\.lastError/i,
@@ -66,6 +69,15 @@
       if(args.length>0&&isNoise(args[0]))return;
       _l.apply(console,args);
     };
+    };
+
+    // Defer console filter setup using requestIdleCallback (improves FID)
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(setupConsoleFilter, { timeout: 1000 });
+    } else {
+      // Fallback: defer with setTimeout
+      setTimeout(setupConsoleFilter, 100);
+    }
   })();
   </script>
 
@@ -291,10 +303,11 @@
     }
   </script>
 
-  <!-- Service Worker Registration -->
+  <!-- Service Worker Registration (deferred to idle) -->
   <script>
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
+    // Use requestIdleCallback to defer non-critical SW registration
+    var registerSW = function() {
       navigator.serviceWorker.register('/sw.js')
         .then(function(registration) {
           registration.addEventListener('updatefound', function() {
@@ -308,11 +321,18 @@
           });
         })
         .catch(function() {});
-      
+
       if (navigator.serviceWorker.controller) {
         navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
       }
-    });
+    };
+
+    // Defer SW registration using requestIdleCallback (non-blocking)
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(registerSW, { timeout: 2000 });
+    } else {
+      window.addEventListener('load', registerSW);
+    }
   }
   </script>
 
@@ -369,15 +389,15 @@
   </script>
 
   {% if site.google_analytics %}
-  <!-- Google Analytics (deferred for performance) -->
+  <!-- Google Analytics (deferred to idle for better FID) -->
   <script>
-    // Defer Google Analytics loading until after page load
-    window.addEventListener('load', function() {
+    // Defer Google Analytics loading using requestIdleCallback (non-blocking)
+    var loadGoogleAnalytics = function() {
       var script = document.createElement('script');
       script.async = true;
       script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}';
       document.head.appendChild(script);
-      
+
       script.onload = function() {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -390,18 +410,25 @@
           'page_path': window.location.pathname + window.location.search
         });
       };
-    });
+    };
+
+    // Use requestIdleCallback for non-blocking deferred load
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGoogleAnalytics, { timeout: 3000 });
+    } else {
+      window.addEventListener('load', loadGoogleAnalytics);
+    }
   </script>
   {% endif %}
 
   {% if site.google_adsense %}
-  <!-- Google AdSense (deferred, graceful degradation) -->
+  <!-- Google AdSense (deferred to idle, graceful degradation) -->
   <script>
     window.adsbygoogle = window.adsbygoogle || [];
     window.adsbygoogle.pauseAdRequests = 0;
     window._adsenseLoaded = false;
 
-    window.addEventListener('load', function() {
+    var loadAdSense = function() {
       var script = document.createElement('script');
       script.async = true;
       script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense }}';
@@ -422,7 +449,14 @@
       };
 
       document.head.appendChild(script);
-    });
+    };
+
+    // Use requestIdleCallback for non-blocking deferred load
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadAdSense, { timeout: 5000 });
+    } else {
+      window.addEventListener('load', loadAdSense);
+    }
   </script>
   
   <style>
