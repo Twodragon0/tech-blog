@@ -1,9 +1,9 @@
 // Service Worker for Offline Support and Caching
 // 버전 업데이트 시 CACHE_NAME 변경하여 캐시 무효화
-// v8: WebP 404 에러 수정 - image-optimizer.js 조기 반환 로직 추가
-const CACHE_NAME = 'tech-blog-v8';
-const STATIC_CACHE = 'tech-blog-static-v8';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v8';
+// v9: WebP 코드 제거 - CLS 최적화만 유지
+const CACHE_NAME = 'tech-blog-v9';
+const STATIC_CACHE = 'tech-blog-static-v9';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v9';
 
 // 캐시할 정적 리소스
 const STATIC_ASSETS = [
