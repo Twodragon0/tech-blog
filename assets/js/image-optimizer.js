@@ -95,14 +95,25 @@
     if (!img || typeof img !== 'object') {
       return;
     }
-    
+
     // IMG 요소인지 확인
     if (img.nodeType !== 1 || img.tagName !== 'IMG') {
       return;
     }
-    
+
     // 이미 처리된 이미지 스킵
     if (img.dataset && img.dataset.optimized === 'true') {
+      return;
+    }
+
+    // Early exit if WebP optimization is not enabled
+    if (!window.IMAGE_OPTIMIZER_WEBP_ENABLED) {
+      // Still apply CLS optimization
+      setImageSizeHint(img);
+      if (img.dataset) {
+        img.dataset.optimized = 'true';
+        img.dataset.format = 'original';
+      }
       return;
     }
 
