@@ -33,10 +33,14 @@
     return; // Widget not found, exit
   }
 
-  // Force close window immediately on script load (defensive check)
+  // CRITICAL: Force close window immediately on script load
   // This must happen BEFORE any other initialization to prevent auto-opening
   if (chatWindow) {
-    chatWindow.style.display = 'none';
+    // REMOVE inline display style completely (external scripts may add it)
+    chatWindow.style.removeProperty('display');
+    chatWindow.removeAttribute('style');
+
+    // Remove all opening classes
     chatWindow.classList.remove('chat-widget-window-open');
     chatWindow.classList.remove('chat-widget-user-opened');
     isOpen = false;
@@ -44,14 +48,24 @@
       chatToggle.setAttribute('aria-expanded', 'false');
     }
 
-    // Add MutationObserver as backup defense against external code
-    // This watches for any attempts to modify the window's display or class attributes
+    // AGGRESSIVE MutationObserver: Block ALL attempts to open window without user action
+    // This watches for ANY attempts to modify display or add opening classes
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'style' || mutation.attributeName === 'class') {
-          // If window is not supposed to be open but something tried to open it
-          if (!isOpen && (chatWindow.style.display !== 'none' || chatWindow.classList.contains('chat-widget-window-open'))) {
-            chatWindow.style.display = 'none';
+        if (mutation.attributeName === 'style') {
+          // If window is closed, REMOVE any inline display style (external scripts)
+          if (!isOpen && chatWindow.hasAttribute('style')) {
+            const currentStyle = chatWindow.getAttribute('style');
+            if (currentStyle && currentStyle.includes('display')) {
+              // Remove entire style attribute to prevent inline style override
+              chatWindow.removeAttribute('style');
+            }
+          }
+        }
+        if (mutation.attributeName === 'class') {
+          // If window is not supposed to be open but opening class was added
+          if (!isOpen && (chatWindow.classList.contains('chat-widget-window-open') ||
+                          chatWindow.classList.contains('chat-widget-user-opened'))) {
             chatWindow.classList.remove('chat-widget-window-open');
             chatWindow.classList.remove('chat-widget-user-opened');
             if (chatToggle) {
@@ -61,7 +75,8 @@
         }
       });
     });
-    observer.observe(chatWindow, { attributes: true, attributeFilter: ['style', 'class'] });
+    // Watch ALL attribute changes, not just style and class
+    observer.observe(chatWindow, { attributes: true });
   }
 
   // Initialize session ID
@@ -99,19 +114,17 @@
     }
   }
 
-  // Toggle chat window
+  // Toggle chat window (NEVER use inline styles - CSS classes only)
   function toggleChat() {
     const wasOpen = isOpen;
     isOpen = !isOpen;
 
     if (isOpen) {
-      chatWindow.style.display = 'flex';
-      // Force reflow to ensure display change is applied
-      chatWindow.offsetHeight;
-      // Use requestAnimationFrame for smoother animation
+      // CRITICAL: Add BOTH classes required by CSS (no inline styles)
+      // CSS rule requires: .chat-widget-window.chat-widget-window-open.chat-widget-user-opened
       requestAnimationFrame(() => {
         chatWindow.classList.add('chat-widget-window-open');
-        chatWindow.classList.add('chat-widget-user-opened'); // NEW: Require explicit user action
+        chatWindow.classList.add('chat-widget-user-opened'); // Requires explicit user action
         chatInput.focus();
         // Scroll to bottom with smooth animation
         setTimeout(() => {
@@ -123,8 +136,9 @@
         preventBodyScroll(true);
       }
     } else {
+      // Remove BOTH classes
       chatWindow.classList.remove('chat-widget-window-open');
-      chatWindow.classList.remove('chat-widget-user-opened'); // NEW: Remove user-opened class
+      chatWindow.classList.remove('chat-widget-user-opened');
       // Update toggle button state
       if (chatToggle) {
         chatToggle.setAttribute('aria-expanded', 'false');
@@ -135,9 +149,6 @@
           preventBodyScroll(false);
         }, 300);
       }
-      setTimeout(() => {
-        chatWindow.style.display = 'none';
-      }, 300);
     }
     // Update ARIA attributes
     if (chatToggle) {
