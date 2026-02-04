@@ -179,6 +179,14 @@ image: /assets/images/YYYY-MM-DD-English_Title.svg
 - **<3 lines**: Keep original
 - **Mask** sensitive data: `YOUR_API_KEY`, `***MASKED***`
 
+### Content Structure
+- **NO FAQ sections**: Do not add FAQ (자주 묻는 질문) sections to blog posts
+  - FAQ content is unnecessary and adds no value
+  - Do not include `schema_type: FAQPage` in front matter
+  - Do not include JSON-LD FAQPage structured data
+  - SEO/AEO optimization does NOT require FAQ sections
+- Focus on core technical content and actionable insights instead
+
 ## Image Rules
 
 ### Filenames

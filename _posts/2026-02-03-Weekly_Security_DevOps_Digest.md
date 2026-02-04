@@ -7,7 +7,6 @@ tags: [Security-Weekly, OpenClaw, Moltbot, Moltbook, NanoClaw, AI-Agent-Security
 excerpt: "OpenClaw(Moltbot) CVE-2026-25253 RCE, ClawHavoc 335개 Atomic Stealer 캠페인, Moltbook 자격증명 대량 유출, 가짜 VS Code 확장 RAT 배포 등 AI 에이전트 생태계 보안 위기 총정리와 Jamf/Intune MDM 실무 대응 가이드"
 description: "2026년 2월 3일 보안/DevOps 다이제스트: OpenClaw(Clawdbot/Moltbot) CVE-2026-25253 원클릭 RCE, ClawHavoc 캠페인 335개 Atomic Stealer 배포, Moltbook AI 소셜네트워크 자격증명 유출(Wiz), 가짜 VS Code 확장 ScreenConnect RAT, Shodan 대규모 노출, Cisco 31K 스킬 26% 취약점, NanoClaw Apple 컨테이너 격리 비교, Jamf Pro/Intune MDM 앱 제어, Microsoft NTLM 폐지, OWASP Agentic AI Top 10"
 keywords: [OpenClaw Security, Moltbot, Moltbook, CVE-2026-25253, ClawHub Malicious Skills, ClawHavoc, Atomic Stealer, NanoClaw, AI Agent Sandbox, Jamf Pro MDM, Microsoft Intune, App Disable, OWASP Agentic AI, MDM Zero Trust, SIEM MDM Integration, DevSecOps Weekly, NTLM Phase Out, Supply Chain Security, ScreenConnect RAT, Shodan Exposure]
-schema_type: FAQPage
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-03-Weekly_Security_DevOps_Digest.svg
@@ -955,30 +954,6 @@ priority_low:
 
 ---
 
-## 자주 묻는 질문 (FAQ)
-
-### OpenClaw CVE-2026-25253 취약점이란 무엇인가요?
-
-OpenClaw(구 Clawdbot/Moltbot)에서 발견된 **CVSS 8.8 고위험도 취약점**으로, 악성 링크 클릭만으로 원격 코드 실행(RCE)이 가능합니다. 토큰 유출(Token Exfiltration) 취약점을 통해 공격이 이루어지며, 2026년 1월 30일에 릴리스된 **버전 2026.1.29에서 패치**되었습니다. 모든 OpenClaw 사용자는 즉시 업데이트해야 합니다.
-
-### ClawHub 악성 스킬 공급망 공격은 어떻게 탐지하나요?
-
-Koi Security 연구팀이 ClawHub 마켓플레이스의 **2,857개 스킬 중 341개(약 12%)가 악성**임을 확인했습니다. 탐지 방법으로는 Jamf Extension Attribute 스크립트(본문 섹션 1.8)로 OpenClaw 무단 설치를 탐지하고, SIEM 연동으로 비정상 파일 접근(`~/.ssh/`, `~/.aws/`)과 의심스러운 네트워크 연결을 모니터링할 수 있습니다. 설치된 스킬의 소스 코드에서 민감 경로 접근 패턴을 검사하는 것도 권장됩니다.
-
-### NanoClaw와 OpenClaw의 보안 차이점은 무엇인가요?
-
-OpenClaw는 52개 이상 모듈이 **단일 Node.js 프로세스에서 무제한 권한으로 실행**되어 공격 표면이 넓습니다. NanoClaw는 약 **500줄 핵심 코드로 Apple 컨테이너 샌드박스 격리와 최소 권한 원칙**을 적용하여 파일 접근(프로젝트 디렉토리만)과 네트워크(허용 목록 기반)를 엄격히 제한합니다. 보안 민감 환경(금융, 의료, 정부)에서는 NanoClaw의 아키텍처가 더 적합합니다.
-
-### Jamf Pro와 Microsoft Intune 중 어떤 MDM을 선택해야 하나요?
-
-**Apple 기기가 80% 이상**인 환경이면 Jamf Pro가 최적입니다. **Windows/Android 혼합 환경**이거나 Microsoft 365를 사용 중이면 Intune이 효율적입니다. 두 플랫폼 모두 사용하는 **하이브리드 전략**(Apple은 Jamf, Windows/Android는 Intune)도 가능하며, 본문 섹션 2.2의 의사결정 플로차트를 참고하세요.
-
-### Microsoft NTLM 폐지 일정은 어떻게 되나요?
-
-Microsoft는 **3단계 계획**으로 NTLM을 폐지합니다. **1단계**에서 Kerberos 대체 인증을 활성화하고 감사 로깅을 시작하고, **2단계**에서 NTLM 사용량을 제한하며, **3단계**에서 완전 비활성화합니다. 릴레이 공격 등 보안 취약점이 주된 폐지 이유이며, 조직은 NTLM 의존 시스템을 파악하고 Kerberos 전환 계획을 수립해야 합니다.
-
----
-
 ## 참고 자료
 
 ### AI 에이전트 보안
@@ -1039,55 +1014,6 @@ Microsoft는 **3단계 계획**으로 NTLM을 폐지합니다. **1단계**에서
 |------|-----|
 | Weekly Security Threat Intelligence Digest (Feb 2) | [Twodragon Blog](/2026-02-02-Weekly_Security_Threat_Intelligence_Digest) |
 | Weekly Tech & AI & Blockchain Digest (Feb 2) | [Twodragon Blog](/2026-02-02-Weekly_Tech_AI_Blockchain_Digest) |
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "OpenClaw CVE-2026-25253 취약점이란 무엇인가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OpenClaw(구 Clawdbot/Moltbot)에서 발견된 CVSS 8.8 고위험도 취약점으로, 악성 링크 클릭만으로 원격 코드 실행(RCE)이 가능합니다. 토큰 유출(Token Exfiltration) 취약점을 통해 공격이 이루어지며, 2026년 1월 30일에 릴리스된 버전 2026.1.29에서 패치되었습니다. 모든 OpenClaw 사용자는 즉시 업데이트해야 합니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ClawHub 악성 스킬 공급망 공격은 어떻게 탐지하나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Koi Security 연구팀이 ClawHub 마켓플레이스의 2,857개 스킬 중 341개(약 12%)가 악성임을 확인했습니다. Jamf Extension Attribute 스크립트로 OpenClaw 무단 설치를 탐지하고, SIEM 연동으로 비정상 파일 접근과 의심스러운 네트워크 연결을 모니터링할 수 있습니다. 설치된 스킬의 소스 코드에서 민감 경로 접근 패턴을 검사하는 것도 권장됩니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "NanoClaw와 OpenClaw의 보안 차이점은 무엇인가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OpenClaw는 52개 이상 모듈이 단일 Node.js 프로세스에서 무제한 권한으로 실행되어 공격 표면이 넓습니다. NanoClaw는 약 500줄 핵심 코드로 Apple 컨테이너 샌드박스 격리와 최소 권한 원칙을 적용하여 파일 접근(프로젝트 디렉토리만)과 네트워크(허용 목록 기반)를 엄격히 제한합니다. 보안 민감 환경에서는 NanoClaw의 아키텍처가 더 적합합니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Jamf Pro와 Microsoft Intune 중 어떤 MDM을 선택해야 하나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Apple 기기가 80% 이상인 환경이면 Jamf Pro가 최적입니다. Windows/Android 혼합 환경이거나 Microsoft 365를 사용 중이면 Intune이 효율적입니다. 두 플랫폼 모두 사용하는 하이브리드 전략(Apple은 Jamf, Windows/Android는 Intune)도 가능합니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Microsoft NTLM 폐지 일정은 어떻게 되나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Microsoft는 3단계 계획으로 NTLM을 폐지합니다. 1단계에서 Kerberos 대체 인증을 활성화하고 감사 로깅을 시작하고, 2단계에서 NTLM 사용량을 제한하며, 3단계에서 완전 비활성화합니다. 릴레이 공격 등 보안 취약점이 주된 폐지 이유이며, 조직은 NTLM 의존 시스템을 파악하고 Kerberos 전환 계획을 수립해야 합니다."
-      }
-    }
-  ]
-}
-</script>
 
 ---
 
