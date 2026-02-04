@@ -33,6 +33,35 @@
     return; // Widget not found, exit
   }
 
+  // Force close window immediately on script load (defensive check)
+  // This must happen BEFORE any other initialization to prevent auto-opening
+  if (chatWindow) {
+    chatWindow.style.display = 'none';
+    chatWindow.classList.remove('chat-widget-window-open');
+    isOpen = false;
+    if (chatToggle) {
+      chatToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    // Add MutationObserver as backup defense against external code
+    // This watches for any attempts to modify the window's display or class attributes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'style' || mutation.attributeName === 'class') {
+          // If window is not supposed to be open but something tried to open it
+          if (!isOpen && (chatWindow.style.display !== 'none' || chatWindow.classList.contains('chat-widget-window-open'))) {
+            chatWindow.style.display = 'none';
+            chatWindow.classList.remove('chat-widget-window-open');
+            if (chatToggle) {
+              chatToggle.setAttribute('aria-expanded', 'false');
+            }
+          }
+        }
+      });
+    });
+    observer.observe(chatWindow, { attributes: true, attributeFilter: ['style', 'class'] });
+  }
+
   // Initialize session ID
   function initSession() {
     sessionId = localStorage.getItem('chatSessionId');
@@ -770,13 +799,6 @@
   // Initialize
   initSession();
   showChatIcon();
-
-  // Force close window on page load (defensive check)
-  if (chatWindow) {
-    chatWindow.style.display = 'none';
-    chatWindow.classList.remove('chat-widget-window-open');
-    isOpen = false;
-  }
 
   // Add welcome message if no messages
   if (messages.length === 0) {
