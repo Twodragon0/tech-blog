@@ -23,6 +23,7 @@ author:
 markdown: kramdown
 highlighter: rouge
 future: true  # Show posts with future dates
+incremental: false  # Disable incremental build for Vercel (full rebuild)
 kramdown:
   auto_ids: true
   header_offset: 0
