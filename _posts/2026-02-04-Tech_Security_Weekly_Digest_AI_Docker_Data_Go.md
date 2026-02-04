@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go.svg
 image_alt: "Tech Security Weekly Digest February 04 2026 Docker AI Metro4Shell AWS IAM"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

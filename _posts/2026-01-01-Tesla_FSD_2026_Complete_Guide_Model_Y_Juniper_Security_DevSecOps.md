@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-01-Tesla_FSD_2026_Complete_Guide_Model_Y_Juniper_Security_DevSecOps.svg
 image_alt: "Tesla FSD 2026 Complete Guide: Model Y Juniper Cost Hardware Security from DevSecOps Perspective"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

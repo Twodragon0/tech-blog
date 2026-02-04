@@ -791,20 +791,15 @@ function googleTranslateElementInit() {
     }, 100);
   }
 
-  // 주기적으로 정리 실행 (간격 늘림 - 성능 최적화)
-  setInterval(function() {
-    cleanupFontTags();
-    restoreLangStructure();
-    hideGoogleTranslateBanner();
-    addAttributesToTranslateSelect();
-  }, 2000);
-
   // Google Translate select 요소가 동적으로 생성될 때 속성 추가 (MutationObserver)
   if ('MutationObserver' in window) {
     var observer = new MutationObserver(function(mutations) {
+      cleanupFontTags();
+      restoreLangStructure();
+      hideGoogleTranslateBanner();
       addAttributesToTranslateSelect();
     });
-    
+
     observer.observe(document.body, {
       childList: true,
       subtree: true

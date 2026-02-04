@@ -4,87 +4,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google" content="notranslate">
 
-  <!-- Early console noise filter: 확장 프로그램/CSP/Giscus/AdSense/SES 노이즈 (Chrome, Safari) -->
-  <!-- Deferred to reduce FID impact -->
+  <!-- Console Filter Module (consolidated, deferred to reduce FID impact) -->
+  <script src="{{ "/assets/js/console-filter.js" | relative_url }}"></script>
   <script>
   (function(){
-    // Use requestIdleCallback to defer non-critical console filtering
-    var setupConsoleFilter = function() {
-      var _e=console.error,_w=console.warn,_l=console.log;
-    // 노이즈 패턴: 확장프로그램, CSP, Giscus 404, AdSense 400/403, SES/MetaMask
-    var noisePatterns = [
-      /runtime\.lastError/i,
-      /message port closed/i,
-      /Framing.*violates.*Content Security Policy/i,
-      /frame-ancestors/i,
-      /violation has been logged/i,
-      // Giscus 404 에러 (토론이 아직 생성되지 않은 경우 정상)
-      /giscus\.app.*404/i,
-      /discussions.*404/i,
-      /GET.*giscus\.app.*404/i,
-      /giscus\.app\/api\/discussions.*404/i,
-      /Failed to load resource.*giscus.*404/i,
-      /widget.*giscus.*404/i,
-      // SES (Secure EcmaScript) - Google AdSense 보안 메커니즘
-      /SES Removing unpermitted intrinsics/i,
-      /lockdown-install/i,
-      /lockdown-install\.js/i,
-      // Google AdSense 400/403 에러 (광고가 없거나 계정 문제, 광고 차단기)
-      /googleads.*400/i,
-      /googlesyndication.*400/i,
-      /doubleclick.*400/i,
-      /doublecl.*400/i,
-      /ads\?client.*400/i,
-      /pagead\/ads.*400/i,
-      /Failed to load resource.*status of 400.*ads/i,
-      /Failed to load resource.*status of 400.*googleads/i,
-      /Failed to load resource.*status of 400.*doubleclick/i,
-      /Failed to load resource.*status of 400.*googlesyndication/i,
-      // Google AdSense 403 에러 (광고 차단기 또는 계정 문제)
-      /googleads.*403/i,
-      /googlesyndication.*403/i,
-      /pagead2\.googlesyndication.*403/i,
-      /Failed to load resource.*status of 403.*ads/i,
-      /Failed to load resource.*status of 403.*googleads/i,
-      /Failed to load resource.*status of 403.*googlesyndication/i,
-      /pagead2\.googlesyndication\.com.*403/i,
-      /Unexpected token.*at.*:\d+.*:\d+/i
-    ];
-    function isNoise(m){
-      if(typeof m!=='string'){
-        // 에러 객체나 다른 타입 처리
-        var msgStr = (m&&m.message)||(m&&m.toString&&m.toString())||String(m);
-        // 스택 트레이스도 확인
-        if(m&&m.stack){
-          msgStr += ' ' + m.stack;
-        }
-        m = msgStr;
+    // Defer console filter initialization using requestIdleCallback (improves FID)
+    var initFilter = function() {
+      if (window.initConsoleFilter) {
+        window.initConsoleFilter();
       }
-      return noisePatterns.some(function(p){return p.test(m);});
-    }
-    console.error=function(){
-      var args = Array.prototype.slice.call(arguments);
-      if(args.length>0&&isNoise(args[0]))return;
-      _e.apply(console,args);
-    };
-    console.warn=function(){
-      var args = Array.prototype.slice.call(arguments);
-      if(args.length>0&&isNoise(args[0]))return;
-      _w.apply(console,args);
-    };
-    console.log=function(){
-      var args = Array.prototype.slice.call(arguments);
-      if(args.length>0&&isNoise(args[0]))return;
-      _l.apply(console,args);
-    };
     };
 
-    // Defer console filter setup using requestIdleCallback (improves FID)
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(setupConsoleFilter, { timeout: 1000 });
+      requestIdleCallback(initFilter, { timeout: 1000 });
     } else {
       // Fallback: defer with setTimeout
-      setTimeout(setupConsoleFilter, 100);
+      setTimeout(initFilter, 100);
     }
   })();
   </script>
@@ -219,9 +154,6 @@
   {% if page.layout == 'post' %}
   {% endif %}
 
-  <!-- Image Optimizer (DISABLED - WebP conversion removed, only CLS optimization remains) -->
-  <!-- <script src="{{ "/assets/js/image-optimizer.js" | relative_url }}" defer></script> -->
-  
   <!-- Ad Optimizer (CLS 방지, deferred for performance) -->
   <script src="{{ "/assets/js/ad-optimizer.js" | relative_url }}" defer></script>
   
@@ -238,16 +170,10 @@
     .post-article { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
     .post-title { font-size: 2rem; font-weight: 700; margin: 1rem 0; line-height: 1.2; }
     .post-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; font-size: 0.875rem; color: var(--color-text-secondary); }
-    /* Prevent FOUC */
-    body { visibility: hidden; }
-    body.loaded { visibility: visible; }
   </style>
   {% endif %}
 
-  <!-- Font Optimizer -->
-  {% include font-optimizer.html %}
-
-  <!-- Styles - Primary with GitHub Pages fallback -->
+<!-- Styles - Primary with GitHub Pages fallback -->
   <!-- Critical CSS for layout stability (inline) -->
   <style>
     /* Prevent FOUC and layout shifts */
@@ -279,7 +205,7 @@
   </style>
 
   <!-- Main CSS with improved fallback -->
-  <link rel="stylesheet" href="https://twodragon0.github.io/tech-blog/assets/css/main.css?v={{ site.time | date: '%s' }}" id="main-stylesheet" onerror="
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}" id="main-stylesheet" onerror="
     console.warn('Primary CSS failed, loading inline fallback...');
     // Inline critical CSS as fallback
     const inlineCSS = `
@@ -301,7 +227,7 @@
     document.head.appendChild(style);
     this.remove();
   ">
-  <noscript><link rel="stylesheet" href="https://twodragon0.github.io/tech-blog/assets/css/main.css"></noscript>
+  <noscript><link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"></noscript>
 
   <!-- Body loaded class for FOUC prevention -->
   <script>

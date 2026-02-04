@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg
 image_alt: "2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

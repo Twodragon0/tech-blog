@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-30-Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA.svg
 image_alt: "Tech Security Weekly Digest January 30 2026 Ollama AI Exposure SolarWinds RCE Google IPIDEA Disruption"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

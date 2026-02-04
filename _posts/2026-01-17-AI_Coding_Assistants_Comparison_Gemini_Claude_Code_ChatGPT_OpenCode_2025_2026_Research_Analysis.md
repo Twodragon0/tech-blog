@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-17-AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis.svg
 image_alt: "AI Coding Assistants Comparison: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026 Research Analysis"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

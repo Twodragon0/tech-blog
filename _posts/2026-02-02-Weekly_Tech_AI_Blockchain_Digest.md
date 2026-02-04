@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-02-02-Weekly_Tech_AI_Blockchain_Digest.svg
 image_alt: "Weekly Tech AI Blockchain Digest Feb 2 2026"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

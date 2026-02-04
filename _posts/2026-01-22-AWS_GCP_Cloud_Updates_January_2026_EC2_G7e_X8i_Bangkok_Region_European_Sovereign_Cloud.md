@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-22-AWS_GCP_Cloud_Updates_January_2026.svg
 image_alt: "AWS GCP Cloud Updates January 2026 - EC2 G7e X8i, Bangkok Region, European Sovereign Cloud"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

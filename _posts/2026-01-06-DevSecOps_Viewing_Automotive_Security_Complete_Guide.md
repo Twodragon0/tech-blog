@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg
 image_alt: "DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era Security Strategy"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

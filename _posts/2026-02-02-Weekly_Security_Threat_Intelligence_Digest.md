@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-02-02-Weekly_Security_Threat_Intelligence_Digest.svg
 image_alt: "Weekly Security Threat Intelligence Digest Feb 2 2026"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

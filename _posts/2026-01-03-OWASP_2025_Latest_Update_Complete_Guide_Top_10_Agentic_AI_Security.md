@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-03-OWASP_2025_Complete_Guide_Top_10_AI_Security.svg
 image_alt: "OWASP 2025 Latest Update Complete Guide: Top 10 and Agentic AI Security"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

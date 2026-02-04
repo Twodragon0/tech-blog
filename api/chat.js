@@ -115,7 +115,14 @@ export default async function handler(req, res) {
     ...(process.env.NODE_ENV === 'development' ? ['http://localhost:4000', 'http://127.0.0.1:4000'] : [])
   ];
   
-  const origin = req.headers.origin || req.headers.referer;
+  let origin = req.headers.origin;
+  if (!origin && req.headers.referer) {
+    try {
+      origin = new URL(req.headers.referer).origin;
+    } catch (e) {
+      origin = null;
+    }
+  }
   const isAllowedOrigin = origin && allowedOrigins.includes(origin);
   
   // CORS 헤더 설정 (보안 강화: 실제 도메인만 허용)
@@ -140,7 +147,7 @@ export default async function handler(req, res) {
   }
   
   // Origin 검증 (POST 요청 시)
-  if (req.method === 'POST' && !isAllowedOrigin && process.env.NODE_ENV === 'production') {
+  if (req.method === 'POST' && !isAllowedOrigin && process.env.VERCEL_ENV === 'production') {
     return res.status(403).json({ error: 'Forbidden: Invalid origin' });
   }
 
@@ -511,7 +518,7 @@ export default async function handler(req, res) {
     // 성공 응답 (비용 최적화 정보 포함)
     return res.status(200).json({
       response: sanitizedResponse,
-      sessionId: sessionKey,
+      sessionId: sessionId,
       provider: 'deepseek',
       // 비용 최적화 정보 (선택적, 개발 환경에서만 상세 정보 제공)
       ...(process.env.NODE_ENV === 'development' ? {

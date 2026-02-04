@@ -19,6 +19,9 @@
   let messages = [];
   let sessionId = null;
 
+  // Development environment detection (browser-compatible)
+  const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
   // DOM Elements
   const chatWidget = document.getElementById('deepseek-chat-widget');
   const chatToggle = document.getElementById('chat-widget-toggle');
@@ -672,7 +675,7 @@
         }
         
         // 개발 환경에서 비용 최적화 정보 표시 (선택적)
-        if (data.usage && process.env.NODE_ENV === 'development') {
+        if (data.usage && isDev) {
           console.log('[Chat Widget] Usage:', {
             promptTokens: data.usage.promptTokens,
             completionTokens: data.usage.completionTokens,
@@ -690,7 +693,7 @@
       
       if (error.name === 'AbortError' || error.name === 'TimeoutError' || error.message.includes('시간이 오래 걸리고')) {
         // 서버에서 더 자세한 메시지를 받은 경우 사용
-        const timeoutData = error.timeoutData || errorData;
+        const timeoutData = error.timeoutData;
         if (timeoutData && timeoutData.suggestion) {
           errorMessage = timeoutData.error + '\n\n💡 ' + timeoutData.suggestion;
         } else {
@@ -709,9 +712,9 @@
           shouldRetry = false;
         }
       }
-      
+
       // 콘솔에 상세 오류 로깅 (디버깅용)
-      if (process.env.NODE_ENV === 'development') {
+      if (isDev) {
         console.error('[Chat Widget] 오류 발생:', {
           name: error.name,
           message: error.message,
@@ -814,12 +817,41 @@
     }, { passive: true });
   }
   
-  // Close on Escape key
+  // Focus trap for modal dialog accessibility
+  function handleFocusTrap(e) {
+    if (!isOpen) return;
+
+    // Get all focusable elements within the chat window
+    const focusableElements = chatWindow.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstFocusable = focusableElements[0]; // Close button
+    const lastFocusable = focusableElements[focusableElements.length - 1]; // Send button
+
+    // Handle Tab key
+    if (e.key === 'Tab') {
+      // Shift + Tab on first element -> wrap to last
+      if (e.shiftKey && document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable.focus();
+      }
+      // Tab on last element -> wrap to first
+      else if (!e.shiftKey && document.activeElement === lastFocusable) {
+        e.preventDefault();
+        firstFocusable.focus();
+      }
+    }
+  }
+
+  // Close on Escape key and manage focus trap
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isOpen) {
       e.preventDefault();
       toggleChat();
     }
+
+    // Activate focus trap when chat is open
+    handleFocusTrap(e);
   });
 
   // Close when clicking outside (optional) - improved with better event handling

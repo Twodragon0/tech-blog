@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack.svg
 image_alt: "Security Digest - ShinyHunters Vishing Chrome Extension OT Attack Analysis"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

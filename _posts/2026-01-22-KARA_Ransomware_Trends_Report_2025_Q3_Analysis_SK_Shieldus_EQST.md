@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-22-KARA_Ransomware_Trends_2025_Q3.svg
 image_alt: "KARA Ransomware Trends Report 2025 Q3 Analysis - Attack Statistics, Major Groups, Defense Strategies"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

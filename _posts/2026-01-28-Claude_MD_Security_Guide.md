@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-28-Claude_MD_Security_Guide.svg
 image_alt: "CLAUDE.md Security Guide - AI Agent Security Guidelines Never Hardcode Secrets Log Masking Input Validation"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

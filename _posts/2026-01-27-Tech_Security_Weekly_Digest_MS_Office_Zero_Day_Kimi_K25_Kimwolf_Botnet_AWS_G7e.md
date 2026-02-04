@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Kimi_Kimwolf_AWS.svg
 image_alt: "Tech and Security Weekly Digest January 27 2026 - MS Office Zero Day, Kimi K2.5, Kimwolf Botnet, AWS G7e"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-22-Cloud_Security_Trends_January_2026.svg
 image_alt: "Cloud Security Trends January 2026 - Kubernetes, VS Code Threats, CNCF Survey"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

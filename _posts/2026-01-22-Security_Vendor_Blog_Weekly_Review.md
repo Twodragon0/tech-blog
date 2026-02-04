@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-22-Security_Vendor_Blog_Weekly_Review.svg
 image_alt: "Security Vendor Blog Weekly Review January 2026"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

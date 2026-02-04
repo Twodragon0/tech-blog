@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet.svg
 image_alt: "Security Digest - AI OpenSSL Zero-Day OWASP Agentic AI Fortinet Analysis"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

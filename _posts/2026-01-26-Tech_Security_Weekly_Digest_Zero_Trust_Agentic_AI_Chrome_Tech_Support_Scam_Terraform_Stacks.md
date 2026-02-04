@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Terraform.svg
 image_alt: "Tech and Security Weekly Digest January 2026 - Zero Trust for AI Agents, Chrome Scam Detection, Terraform Stacks"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

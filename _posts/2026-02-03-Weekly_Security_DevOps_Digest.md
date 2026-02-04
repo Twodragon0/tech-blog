@@ -12,17 +12,7 @@ comments: true
 image: /assets/images/2026-02-03-Weekly_Security_DevOps_Digest.svg
 image_alt: "Weekly Security and DevOps Digest Feb 3 2026"
 toc: true
-faq:
-  - question: "OpenClaw CVE-2026-25253 취약점이란 무엇인가요?"
-    answer: "OpenClaw(구 Clawdbot/Moltbot)에서 발견된 CVSS 8.8 고위험도 취약점으로, 악성 링크 클릭만으로 원격 코드 실행(RCE)이 가능합니다. 토큰 유출 취약점을 통해 공격이 이루어지며 2026.1.29 버전에서 패치되었습니다."
-  - question: "ClawHub 악성 스킬 공급망 공격은 어떻게 탐지하나요?"
-    answer: "Koi Security 연구팀이 ClawHub의 2,857개 스킬 중 341개가 악성임을 확인했습니다. Jamf Extension Attribute 스크립트로 OpenClaw 무단 설치를 탐지하고, SIEM 연동으로 비정상 파일 접근과 네트워크 연결을 모니터링할 수 있습니다."
-  - question: "NanoClaw와 OpenClaw의 보안 차이점은 무엇인가요?"
-    answer: "OpenClaw는 52개 이상 모듈이 단일 Node.js 프로세스에서 무제한 권한으로 실행되어 공격 표면이 넓습니다. NanoClaw는 약 500줄 핵심 코드로 Apple 컨테이너 샌드박스 격리와 최소 권한 원칙을 적용하여 파일 접근과 네트워크를 제한합니다."
-  - question: "Jamf Pro와 Microsoft Intune 중 어떤 MDM을 선택해야 하나요?"
-    answer: "Apple 기기 80% 이상 환경이면 Jamf Pro가 최적입니다. Windows/Android 혼합 환경이거나 Microsoft 365를 사용 중이면 Intune이 효율적입니다. 두 플랫폼 모두 사용하는 하이브리드 전략도 가능합니다."
-  - question: "Microsoft NTLM 폐지 일정은 어떻게 되나요?"
-    answer: "Microsoft는 3단계 계획으로 NTLM을 폐지합니다. 1단계에서 Kerberos 대체 인증을 활성화하고, 2단계에서 NTLM 사용량을 줄이며, 3단계에서 완전 비활성화합니다. 릴레이 공격 등 보안 취약점 때문에 진행됩니다."
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

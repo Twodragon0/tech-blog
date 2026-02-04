@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-25-Tech_Security_Weekly_Digest.svg
 image_alt: "Tech and Security Weekly Digest January 2026 - VMware vCenter KEV, Fortinet SSO Bypass, Sandworm DynoWiper"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.svg
 image_alt: "Post-Mortem Next.js SSR Error Cloudflare Blocking ALB 5XX Incident Analysis"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

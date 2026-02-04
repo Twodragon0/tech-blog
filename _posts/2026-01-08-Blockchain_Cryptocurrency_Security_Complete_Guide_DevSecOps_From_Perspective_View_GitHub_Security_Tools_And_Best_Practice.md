@@ -13,6 +13,7 @@ original_url: https://twodragon.tistory.com
 image: /assets/images/2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_and_Best_Practice.svg
 image_alt: "Blockchain Cryptocurrency Security Complete Guide: DevSecOps Perspective on GitHub Security Tools and Best Practices"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

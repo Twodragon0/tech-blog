@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-22-KISA_Security_Advisory_Ransomware_Linux_Rootkit.svg
 image_alt: "KISA Security Advisory - Ransomware Prevention and Linux Rootkit Detection Guide"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

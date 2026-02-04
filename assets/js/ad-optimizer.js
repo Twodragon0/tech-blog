@@ -34,19 +34,25 @@
     adElement.parentNode.insertBefore(container, adElement);
     container.appendChild(adElement);
 
-    // 광고 로드 완료 감지
-    const checkAdLoaded = setInterval(function() {
+    // MutationObserver로 광고 로드 감지 (iframe 추가 감지)
+    const observer = new MutationObserver(function(mutations) {
       const iframe = container.querySelector('iframe');
       if (iframe && iframe.offsetHeight > 0) {
-        // 광고가 로드되면 플레이스홀더 제거
         container.style.minHeight = 'auto';
-        clearInterval(checkAdLoaded);
+        observer.disconnect();
       }
-    }, 100);
+    });
+
+    observer.observe(container, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['style']
+    });
 
     // 10초 후 타임아웃
     setTimeout(function() {
-      clearInterval(checkAdLoaded);
+      observer.disconnect();
       // 광고가 로드되지 않아도 최소 높이 유지 (CLS 방지)
     }, 10000);
   }
@@ -147,17 +153,23 @@
       // 이미 로드된 경우
       setTimeout(optimizeAds, 1000);
     } else {
-      // 로드 대기
-      const checkAdSense = setInterval(function() {
+      // MutationObserver로 전역 변수 추가 감지
+      const adSenseObserver = new MutationObserver(function() {
         if (window.adsbygoogle) {
-          clearInterval(checkAdSense);
+          adSenseObserver.disconnect();
           setTimeout(optimizeAds, 1000);
         }
-      }, 100);
+      });
+
+      // window 객체에 adsbygoogle 추가를 간접 감지하기 위해 document 변화 관찰
+      adSenseObserver.observe(document.documentElement, {
+        childList: true,
+        subtree: true
+      });
 
       // 5초 후 타임아웃
       setTimeout(function() {
-        clearInterval(checkAdSense);
+        adSenseObserver.disconnect();
         optimizeAds(); // 타임아웃 후에도 실행
       }, 5000);
     }

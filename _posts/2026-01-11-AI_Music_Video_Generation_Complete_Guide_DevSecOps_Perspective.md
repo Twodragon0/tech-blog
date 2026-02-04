@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.svg
 image_alt: "AI Music Video Generation Complete Guide: DevSecOps Perspective"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

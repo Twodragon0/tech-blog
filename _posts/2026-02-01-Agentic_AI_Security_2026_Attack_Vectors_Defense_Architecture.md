@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture.svg
 image_alt: "Agentic AI Security 2026 - Attack Vectors and Defense Architecture Guide"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

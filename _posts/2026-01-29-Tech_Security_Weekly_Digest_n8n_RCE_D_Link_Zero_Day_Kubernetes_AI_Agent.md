@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent.svg
 image_alt: "Tech Security Weekly Digest January 29 2026 n8n RCE D-Link Zero-Day Kubernetes AI Agent"
 toc: true
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

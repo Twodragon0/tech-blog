@@ -18,9 +18,21 @@
   // Clean old errors
   function cleanOldErrors() {
     const now = Date.now();
-    ERROR_CONFIG.errors = ERROR_CONFIG.errors.filter(err => 
+    ERROR_CONFIG.errors = ERROR_CONFIG.errors.filter(err =>
       now - err.timestamp < ERROR_CONFIG.errorWindow
     );
+  }
+
+  // Scrub sensitive query parameters from URLs
+  function scrubUrl(href) {
+    try {
+      var url = new URL(href);
+      var sensitiveParams = ['token', 'key', 'password', 'secret', 'api_key', 'access_token', 'auth'];
+      sensitiveParams.forEach(function(p) { url.searchParams.delete(p); });
+      return url.toString();
+    } catch (e) {
+      return href.split('?')[0];
+    }
   }
 
   // Log error to console (development only)
@@ -75,7 +87,7 @@
       message: errorMessage,
       stack: errorStack,
       context: context || {},
-      url: window.location.href,
+      url: scrubUrl(window.location.href),
       userAgent: navigator.userAgent,
       timestamp: Date.now()
     };
@@ -91,9 +103,12 @@
         // 에러는 captureException으로 전송
         if (typeof window.Sentry.captureException === 'function') {
           const sentryError = errorObj || new Error(errorMessage);
-          window.Sentry.captureException(sentryError, { 
-            contexts: { custom: context || {} } 
-          });
+          if (!sentryError.__sentry_captured__) {
+            sentryError.__sentry_captured__ = true;
+            window.Sentry.captureException(sentryError, {
+              contexts: { custom: context || {} }
+            });
+          }
         }
         
         // 로그도 함께 전송 (Sentry Logs 기능 사용) - error 레벨만
@@ -102,7 +117,7 @@
           window.Sentry.logger.error(errorMessage, {
             ...context,
             stack: errorStack,
-            url: window.location.href
+            url: scrubUrl(window.location.href)
           });
         }
       } catch (e) {
@@ -218,50 +233,5 @@
       }
     }
   }, true);
-
-  // Performance monitoring
-  if ('PerformanceObserver' in window) {
-    try {
-      // Long task monitoring (150ms 이상만 보고 - 100ms 이하는 허용 가능한 범위)
-      // 참고: 브라우저의 기본 임계값은 50ms이지만, 100-150ms는 일반적으로 허용 가능
-      // 150ms 이상은 실제 성능 문제로 간주하여 모니터링
-      const longTaskObserver = new PerformanceObserver(function(list) {
-        for (const entry of list.getEntries()) {
-          // 150ms 이상의 긴 작업만 보고 (100-150ms는 허용 가능한 범위)
-          // 브라우저 확장 프로그램이나 광고 스크립트로 인한 긴 작업은 무시
-          if (entry.duration >= 150 && entry.name && !entry.name.includes('chrome-extension') && !entry.name.includes('moz-extension')) {
-            // 성능 경고로만 기록 (Sentry에서는 필터링됨)
-            reportError(`Long task detected: ${Math.round(entry.duration)}ms`, {
-              type: 'performance',
-              duration: entry.duration,
-              startTime: entry.startTime,
-              name: entry.name || 'unknown'
-            });
-          }
-        }
-      });
-      longTaskObserver.observe({ entryTypes: ['longtask'] });
-    } catch (e) {
-      // Long task observer not supported
-    }
-
-    // Layout shift monitoring (CLS)
-    try {
-      const layoutShiftObserver = new PerformanceObserver(function(list) {
-        for (const entry of list.getEntries()) {
-          if (!entry.hadRecentInput && entry.value > 0.1) {
-            reportError(`Layout shift detected: ${entry.value}`, {
-              type: 'performance',
-              metric: 'CLS',
-              value: entry.value
-            });
-          }
-        }
-      });
-      layoutShiftObserver.observe({ entryTypes: ['layout-shift'] });
-    } catch (e) {
-      // Layout shift observer not supported
-    }
-  }
 })();
 </script>
