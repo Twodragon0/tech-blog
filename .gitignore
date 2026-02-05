@@ -94,3 +94,10 @@ referenced_images.txt
 .cursor/
 .sisyphus/
 .env.backup
+
+# OMC (oh-my-claudecode) state files - temporary session data
+.omc/
+.omc/state/
+.omc/sessions/
+.omc/notepads/
+.omc/checkpoints/
