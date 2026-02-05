@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.05" />
+    </linearGradient>
+    <!-- Arrow marker -->
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="white" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="600" y="50" font-size="32" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial, sans-serif">
+    AI Content Creator Workflow - 5 Phases
+  </text>
+
+  <!-- Phase 1: Idea to Blog -->
+  <rect x="30" y="100" width="200" height="260" rx="15" fill="url(#cardGrad)" stroke="white" stroke-width="2"/>
+  <text x="130" y="135" font-size="18" font-weight="bold" fill="#fbbf24" text-anchor="middle">Phase 1</text>
+  <text x="130" y="165" font-size="16" fill="white" text-anchor="middle">Idea → Blog</text>
+  <text x="130" y="195" font-size="13" fill="#e0e7ff" text-anchor="middle">Claude Opus 4.5</text>
+  <text x="130" y="220" font-size="12" fill="#cbd5e1" text-anchor="middle">200K context</text>
+  <text x="130" y="240" font-size="12" fill="#cbd5e1" text-anchor="middle">SEO optimized</text>
+  <text x="130" y="260" font-size="12" fill="#cbd5e1" text-anchor="middle">Markdown output</text>
+  <circle cx="130" cy="300" r="35" fill="#4f46e5" stroke="white" stroke-width="2"/>
+  <text x="130" y="312" font-size="28" fill="white" text-anchor="middle">✍️</text>
+
+  <!-- Arrow 1 -->
+  <path d="M 235 230 L 285 230" stroke="white" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Phase 2: Blog to Script -->
+  <rect x="290" y="100" width="200" height="260" rx="15" fill="url(#cardGrad)" stroke="white" stroke-width="2"/>
+  <text x="390" y="135" font-size="18" font-weight="bold" fill="#10b981" text-anchor="middle">Phase 2</text>
+  <text x="390" y="165" font-size="16" fill="white" text-anchor="middle">Blog → Script</text>
+  <text x="390" y="195" font-size="13" fill="#e0e7ff" text-anchor="middle">AI Conversion</text>
+  <text x="390" y="220" font-size="12" fill="#cbd5e1" text-anchor="middle">Section extraction</text>
+  <text x="390" y="240" font-size="12" fill="#cbd5e1" text-anchor="middle">Timing calculation</text>
+  <text x="390" y="260" font-size="12" fill="#cbd5e1" text-anchor="middle">Scene planning</text>
+  <circle cx="390" cy="300" r="35" fill="#059669" stroke="white" stroke-width="2"/>
+  <text x="390" y="312" font-size="28" fill="white" text-anchor="middle">📝</text>
+
+  <!-- Arrow 2 -->
+  <path d="M 495 230 L 545 230" stroke="white" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Phase 3: Script to Video -->
+  <rect x="550" y="100" width="200" height="260" rx="15" fill="url(#cardGrad)" stroke="white" stroke-width="2"/>
+  <text x="650" y="135" font-size="18" font-weight="bold" fill="#f59e0b" text-anchor="middle">Phase 3</text>
+  <text x="650" y="165" font-size="16" fill="white" text-anchor="middle">Script → Video</text>
+  <text x="650" y="195" font-size="13" fill="#e0e7ff" text-anchor="middle">Runway Gen-3</text>
+  <text x="650" y="220" font-size="12" fill="#cbd5e1" text-anchor="middle">OBS recording</text>
+  <text x="650" y="240" font-size="12" fill="#cbd5e1" text-anchor="middle">Qwen3-TTS voice</text>
+  <text x="650" y="260" font-size="12" fill="#cbd5e1" text-anchor="middle">Auto editing</text>
+  <circle cx="650" cy="300" r="35" fill="#ea580c" stroke="white" stroke-width="2"/>
+  <text x="650" y="312" font-size="28" fill="white" text-anchor="middle">🎬</text>
+
+  <!-- Arrow 3 -->
+  <path d="M 755 230 L 805 230" stroke="white" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Phase 4: Music Generation -->
+  <rect x="810" y="100" width="160" height="260" rx="15" fill="url(#cardGrad)" stroke="white" stroke-width="2"/>
+  <text x="890" y="135" font-size="18" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Phase 4</text>
+  <text x="890" y="165" font-size="16" fill="white" text-anchor="middle">Music</text>
+  <text x="890" y="195" font-size="13" fill="#e0e7ff" text-anchor="middle">Suno AI v4</text>
+  <text x="890" y="220" font-size="12" fill="#cbd5e1" text-anchor="middle">BGM generation</text>
+  <text x="890" y="240" font-size="12" fill="#cbd5e1" text-anchor="middle">100+ genres</text>
+  <text x="890" y="260" font-size="12" fill="#cbd5e1" text-anchor="middle">Loopable</text>
+  <circle cx="890" cy="300" r="35" fill="#7c3aed" stroke="white" stroke-width="2"/>
+  <text x="890" y="312" font-size="28" fill="white" text-anchor="middle">🎵</text>
+
+  <!-- Arrow 4 -->
+  <path d="M 975 230 L 1025 230" stroke="white" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Phase 5: Animation -->
+  <rect x="1010" y="100" width="160" height="260" rx="15" fill="url(#cardGrad)" stroke="white" stroke-width="2"/>
+  <text x="1090" y="135" font-size="18" font-weight="bold" fill="#ec4899" text-anchor="middle">Phase 5</text>
+  <text x="1090" y="165" font-size="16" fill="white" text-anchor="middle">Animation</text>
+  <text x="1090" y="195" font-size="13" fill="#e0e7ff" text-anchor="middle">D-ID</text>
+  <text x="1090" y="220" font-size="12" fill="#cbd5e1" text-anchor="middle">Avatar lipsync</text>
+  <text x="1090" y="240" font-size="12" fill="#cbd5e1" text-anchor="middle">30s-5min</text>
+  <text x="1090" y="260" font-size="12" fill="#cbd5e1" text-anchor="middle">Auto sync</text>
+  <circle cx="1090" cy="300" r="35" fill="#db2777" stroke="white" stroke-width="2"/>
+  <text x="1090" y="312" font-size="28" fill="white" text-anchor="middle">✨</text>
+</svg>

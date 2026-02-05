@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="ecosystemBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.05" />
+    </linearGradient>
+    <!-- Connection lines -->
+    <marker id="arrowEco" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#a5b4fc" opacity="0.6" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#ecosystemBg)"/>
+
+  <!-- Title -->
+  <text x="600" y="50" font-size="32" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial, sans-serif">
+    2026 AI Content Creation Ecosystem
+  </text>
+
+  <!-- Center: Content Creator -->
+  <circle cx="600" cy="400" r="80" fill="#6366f1" stroke="white" stroke-width="3"/>
+  <text x="600" y="395" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Content</text>
+  <text x="600" y="415" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Creator</text>
+
+  <!-- Text Generation (Top Left) -->
+  <rect x="100" y="120" width="220" height="140" rx="12" fill="url(#cardGradient)" stroke="#fbbf24" stroke-width="2"/>
+  <text x="210" y="150" font-size="16" font-weight="bold" fill="#fbbf24" text-anchor="middle">Text Generation</text>
+  <text x="210" y="180" font-size="13" fill="white" text-anchor="middle">Claude Opus 4.5</text>
+  <text x="210" y="200" font-size="13" fill="white" text-anchor="middle">GPT-4o</text>
+  <text x="210" y="220" font-size="13" fill="white" text-anchor="middle">Gemini 2.0</text>
+  <text x="210" y="240" font-size="13" fill="white" text-anchor="middle">DeepSeek R1</text>
+  <path d="M 320 190 Q 460 290 540 360" stroke="#a5b4fc" stroke-width="2" fill="none" marker-end="url(#arrowEco)" opacity="0.6"/>
+
+  <!-- Image Generation (Top Right) -->
+  <rect x="880" y="120" width="220" height="140" rx="12" fill="url(#cardGradient)" stroke="#10b981" stroke-width="2"/>
+  <text x="990" y="150" font-size="16" font-weight="bold" fill="#10b981" text-anchor="middle">Image Generation</text>
+  <text x="990" y="180" font-size="13" fill="white" text-anchor="middle">Midjourney v7</text>
+  <text x="990" y="200" font-size="13" fill="white" text-anchor="middle">DALL-E 3</text>
+  <text x="990" y="220" font-size="13" fill="white" text-anchor="middle">Stable Diffusion XL</text>
+  <text x="990" y="240" font-size="13" fill="white" text-anchor="middle">Adobe Firefly</text>
+  <path d="M 880 190 Q 740 290 660 360" stroke="#a5b4fc" stroke-width="2" fill="none" marker-end="url(#arrowEco)" opacity="0.6"/>
+
+  <!-- Video Generation (Bottom Right) -->
+  <rect x="880" y="540" width="220" height="140" rx="12" fill="url(#cardGradient)" stroke="#f59e0b" stroke-width="2"/>
+  <text x="990" y="570" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle">Video Generation</text>
+  <text x="990" y="600" font-size="13" fill="white" text-anchor="middle">Sora (OpenAI)</text>
+  <text x="990" y="620" font-size="13" fill="white" text-anchor="middle">Runway Gen-3</text>
+  <text x="990" y="640" font-size="13" fill="white" text-anchor="middle">Pika 2.0</text>
+  <text x="990" y="660" font-size="13" fill="white" text-anchor="middle">DaVinci Resolve</text>
+  <path d="M 880 610 Q 740 510 660 440" stroke="#a5b4fc" stroke-width="2" fill="none" marker-end="url(#arrowEco)" opacity="0.6"/>
+
+  <!-- Music Generation (Bottom Left) -->
+  <rect x="100" y="540" width="220" height="140" rx="12" fill="url(#cardGradient)" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="210" y="570" font-size="16" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Music Generation</text>
+  <text x="210" y="600" font-size="13" fill="white" text-anchor="middle">Suno AI v4</text>
+  <text x="210" y="620" font-size="13" fill="white" text-anchor="middle">AIVA</text>
+  <text x="210" y="640" font-size="13" fill="white" text-anchor="middle">Loudly</text>
+  <text x="210" y="660" font-size="13" fill="white" text-anchor="middle">MusicGen</text>
+  <path d="M 320 610 Q 460 510 540 440" stroke="#a5b4fc" stroke-width="2" fill="none" marker-end="url(#arrowEco)" opacity="0.6"/>
+
+  <!-- Voice/TTS (Left Center) -->
+  <rect x="50" y="330" width="180" height="120" rx="12" fill="url(#cardGradient)" stroke="#ec4899" stroke-width="2"/>
+  <text x="140" y="360" font-size="16" font-weight="bold" fill="#ec4899" text-anchor="middle">Voice/TTS</text>
+  <text x="140" y="390" font-size="13" fill="white" text-anchor="middle">Qwen3-TTS</text>
+  <text x="140" y="410" font-size="13" fill="white" text-anchor="middle">ElevenLabs</text>
+  <text x="140" y="430" font-size="13" fill="white" text-anchor="middle">Azure TTS</text>
+  <path d="M 230 390 L 520 400" stroke="#a5b4fc" stroke-width="2" fill="none" marker-end="url(#arrowEco)" opacity="0.6"/>
+
+  <!-- Animation (Right Center) -->
+  <rect x="970" y="330" width="180" height="120" rx="12" fill="url(#cardGradient)" stroke="#14b8a6" stroke-width="2"/>
+  <text x="1060" y="360" font-size="16" font-weight="bold" fill="#14b8a6" text-anchor="middle">Animation</text>
+  <text x="1060" y="390" font-size="13" fill="white" text-anchor="middle">D-ID</text>
+  <text x="1060" y="410" font-size="13" fill="white" text-anchor="middle">Synthesia</text>
+  <text x="1060" y="430" font-size="13" fill="white" text-anchor="middle">Adobe Animator</text>
+  <path d="M 970 390 L 680 400" stroke="#a5b4fc" stroke-width="2" fill="none" marker-end="url(#arrowEco)" opacity="0.6"/>
+
+  <!-- Automation Layer (Bottom Center) -->
+  <rect x="420" y="650" width="360" height="80" rx="12" fill="#4f46e5" stroke="white" stroke-width="2"/>
+  <text x="600" y="680" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Automation Pipeline</text>
+  <text x="600" y="705" font-size="14" fill="#a5b4fc" text-anchor="middle">Python + asyncio + FastAPI</text>
+  <path d="M 600 480 L 600 650" stroke="white" stroke-width="3" fill="none" marker-end="url(#arrowEco)"/>
+
+  <!-- Stats Box (Top Center) -->
+  <rect x="390" y="100" width="420" height="60" rx="8" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
+  <text x="600" y="125" font-size="14" fill="#60a5fa" text-anchor="middle">Monthly Cost: $55-166 | ROI: 4,877% | Time Savings: 75%</text>
+  <text x="600" y="145" font-size="12" fill="#94a3b8" text-anchor="middle">200K context | 97ms TTS | 10s video generation | Unlimited music</text>
+</svg>

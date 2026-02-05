@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="pipeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="phaseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.3" />
+    </linearGradient>
+    <marker id="pipeArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#60a5fa" />
+    </marker>
+  </defs>
+
+  <rect width="1000" height="700" fill="url(#pipeBg)"/>
+
+  <!-- Title -->
+  <text x="500" y="40" font-size="28" font-weight="bold" fill="white" text-anchor="middle" font-family="monospace">
+    ContentPipeline Architecture
+  </text>
+
+  <!-- Phase 1: Blog Generation -->
+  <rect x="50" y="90" width="180" height="100" rx="8" fill="url(#phaseGrad)" stroke="#3b82f6" stroke-width="2"/>
+  <text x="140" y="115" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">Phase 1</text>
+  <text x="140" y="135" font-size="13" fill="white" text-anchor="middle">generate_blog_post()</text>
+  <text x="140" y="155" font-size="11" fill="#94a3b8" text-anchor="middle">Claude Opus 4.5</text>
+  <text x="140" y="172" font-size="11" fill="#94a3b8" text-anchor="middle">30-60s | $0.10</text>
+
+  <!-- Arrow 1 -->
+  <path d="M 230 140 L 295 140" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  <text x="262" y="130" font-size="10" fill="#94a3b8" text-anchor="middle">markdown</text>
+
+  <!-- Phase 2: Video Script -->
+  <rect x="300" y="90" width="180" height="100" rx="8" fill="url(#phaseGrad)" stroke="#10b981" stroke-width="2"/>
+  <text x="390" y="115" font-size="14" font-weight="bold" fill="#10b981" text-anchor="middle">Phase 2 (Optional)</text>
+  <text x="390" y="135" font-size="13" fill="white" text-anchor="middle">create_video_script()</text>
+  <text x="390" y="155" font-size="11" fill="#94a3b8" text-anchor="middle">Claude Sonnet 4</text>
+  <text x="390" y="172" font-size="11" fill="#94a3b8" text-anchor="middle">+30s | $0.05</text>
+
+  <!-- Arrow 2 -->
+  <path d="M 480 140 L 545 140" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  <text x="512" y="130" font-size="10" fill="#94a3b8" text-anchor="middle">JSON</text>
+
+  <!-- Phase 3: Music -->
+  <rect x="550" y="90" width="180" height="100" rx="8" fill="url(#phaseGrad)" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="640" y="115" font-size="14" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Phase 3 (Optional)</text>
+  <text x="640" y="135" font-size="13" fill="white" text-anchor="middle">generate_music()</text>
+  <text x="640" y="155" font-size="11" fill="#94a3b8" text-anchor="middle">Suno AI</text>
+  <text x="640" y="172" font-size="11" fill="#94a3b8" text-anchor="middle">Manual | $0</text>
+
+  <!-- Arrow 3 -->
+  <path d="M 730 140 L 795 140" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  <text x="762" y="130" font-size="10" fill="#94a3b8" text-anchor="middle">MP3</text>
+
+  <!-- Phase 4: Animation -->
+  <rect x="800" y="90" width="160" height="100" rx="8" fill="url(#phaseGrad)" stroke="#ec4899" stroke-width="2"/>
+  <text x="880" y="115" font-size="14" font-weight="bold" fill="#ec4899" text-anchor="middle">Phase 4 (Opt)</text>
+  <text x="880" y="135" font-size="13" fill="white" text-anchor="middle">create_anim()</text>
+  <text x="880" y="155" font-size="11" fill="#94a3b8" text-anchor="middle">D-ID</text>
+  <text x="880" y="172" font-size="11" fill="#94a3b8" text-anchor="middle">Manual | $0</text>
+
+  <!-- Arrow down to deployment -->
+  <path d="M 500 190 L 500 265" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+
+  <!-- Phase 5: Deployment -->
+  <rect x="350" y="270" width="300" height="80" rx="8" fill="#1e40af" stroke="#3b82f6" stroke-width="2"/>
+  <text x="500" y="295" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">Phase 5: deploy_to_git()</text>
+  <text x="500" y="315" font-size="13" fill="white" text-anchor="middle">git add + commit + push</text>
+  <text x="500" y="335" font-size="11" fill="#94a3b8" text-anchor="middle">Vercel Auto-Deploy | GitHub Actions</text>
+
+  <!-- Data Models -->
+  <rect x="50" y="400" width="280" height="250" rx="8" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <text x="190" y="425" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">Data Models (Pydantic)</text>
+
+  <text x="70" y="455" font-size="12" fill="#fbbf24" font-family="monospace">class ContentConfig:</text>
+  <text x="90" y="475" font-size="11" fill="#94a3b8" font-family="monospace">topic: str</text>
+  <text x="90" y="490" font-size="11" fill="#94a3b8" font-family="monospace">category: str</text>
+  <text x="90" y="505" font-size="11" fill="#94a3b8" font-family="monospace">generate_video: bool</text>
+  <text x="90" y="520" font-size="11" fill="#94a3b8" font-family="monospace">generate_music: bool</text>
+
+  <text x="70" y="550" font-size="12" fill="#10b981" font-family="monospace">class BlogPost:</text>
+  <text x="90" y="570" font-size="11" fill="#94a3b8" font-family="monospace">filename: str</text>
+  <text x="90" y="585" font-size="11" fill="#94a3b8" font-family="monospace">content: str</text>
+  <text x="90" y="600" font-size="11" fill="#94a3b8" font-family="monospace">metadata: dict</text>
+  <text x="90" y="615" font-size="11" fill="#94a3b8" font-family="monospace">cost: float</text>
+
+  <!-- Core Features -->
+  <rect x="380" y="400" width="280" height="250" rx="8" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <text x="520" y="425" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">Core Features</text>
+
+  <circle cx="405" cy="458" r="4" fill="#10b981"/>
+  <text x="420" y="462" font-size="12" fill="white">Async/Await Support</text>
+
+  <circle cx="405" cy="483" r="4" fill="#10b981"/>
+  <text x="420" y="487" font-size="12" fill="white">Prompt Caching (90% savings)</text>
+
+  <circle cx="405" cy="508" r="4" fill="#10b981"/>
+  <text x="420" y="512" font-size="12" fill="white">Cost Tracking (per-phase)</text>
+
+  <circle cx="405" cy="533" r="4" fill="#10b981"/>
+  <text x="420" y="537" font-size="12" fill="white">Error Retry (exp backoff)</text>
+
+  <circle cx="405" cy="558" r="4" fill="#10b981"/>
+  <text x="420" y="562" font-size="12" fill="white">Security Validation</text>
+
+  <circle cx="405" cy="583" r="4" fill="#10b981"/>
+  <text x="420" y="587" font-size="12" fill="white">SEO Optimization</text>
+
+  <circle cx="405" cy="608" r="4" fill="#10b981"/>
+  <text x="420" y="612" font-size="12" fill="white">Git Auto-Deploy</text>
+
+  <!-- Performance Metrics -->
+  <rect x="710" y="400" width="240" height="250" rx="8" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  <text x="830" y="425" font-size="14" font-weight="bold" fill="#60a5fa" text-anchor="middle">Performance</text>
+
+  <text x="730" y="460" font-size="12" fill="#fbbf24" font-weight="bold">Blog Only:</text>
+  <text x="745" y="480" font-size="11" fill="#94a3b8">Time: 30-60s</text>
+  <text x="745" y="495" font-size="11" fill="#94a3b8">Cost: $0.10</text>
+
+  <text x="730" y="525" font-size="12" fill="#10b981" font-weight="bold">Full Pipeline:</text>
+  <text x="745" y="545" font-size="11" fill="#94a3b8">Time: 5-10 min</text>
+  <text x="745" y="560" font-size="11" fill="#94a3b8">Cost: $0.15-0.20</text>
+  <text x="745" y="575" font-size="11" fill="#94a3b8">(manual steps incl.)</text>
+
+  <text x="730" y="605" font-size="12" fill="#ec4899" font-weight="bold">Time Savings:</text>
+  <text x="745" y="625" font-size="11" fill="#94a3b8">75% vs manual</text>
+
+  <!-- Tech Stack Badge -->
+  <rect x="350" y="670" width="300" height="20" rx="4" fill="#1e40af"/>
+  <text x="500" y="684" font-size="11" fill="white" text-anchor="middle" font-family="monospace">
+    Python 3.11+ | anthropic | pydantic | asyncio | FastAPI
+  </text>
+</svg>

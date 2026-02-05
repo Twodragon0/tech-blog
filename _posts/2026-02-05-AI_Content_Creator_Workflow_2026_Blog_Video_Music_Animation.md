@@ -87,6 +87,9 @@ toc: true
 
 ## 2. 2025-2026 AI 콘텐츠 생성 트렌드
 
+![2026 AI Content Creation Ecosystem](/assets/images/2026-02-05-AI-Tools-Ecosystem.svg)
+*2026년 AI 콘텐츠 생성 생태계: 텍스트, 이미지, 영상, 음악, 음성, 애니메이션 도구의 통합*
+
 ### 2.1 텍스트 생성: LLM의 폭발적 발전
 
 | 모델 | 특징 | 최적 용도 | 비용 (입력/출력) |
@@ -275,6 +278,9 @@ def secure_voice_clone(audio_path):
 ---
 
 ## 3. 완전 자동화 워크플로우 설계
+
+![AI Content Creator Workflow - 5 Phases](/assets/images/2026-02-05-AI-Workflow-5-Phases.svg)
+*AI 콘텐츠 크리에이터 워크플로우: 아이디어부터 완성된 콘텐츠까지 5단계 자동화*
 
 ### 3.1 Phase 1: 아이디어 → 블로그 포스트
 
@@ -469,6 +475,9 @@ def create_talking_avatar(image_path: str, audio_path: str) -> str:
 | **보안** | GitHub Secrets, Pydantic 검증, CSP 헤더 |
 
 ### 4.2 End-to-End Python Pipeline
+
+![Python Pipeline Architecture](/assets/images/2026-02-05-Python-Pipeline-Architecture.svg)
+*ContentPipeline 클래스 아키텍처: 5단계 자동화 파이프라인과 핵심 기능*
 
 **아키텍처 개요:**
 
@@ -786,6 +795,9 @@ logger.info(safe_log)  # "Connecting to API with key: sk-ant-api***MASKED***"
 ```
 
 ### 6.2 비용 최적화 전략
+
+![Cost Optimization Comparison](/assets/images/2026-02-05-Cost-Optimization-Chart.svg)
+*월간 비용 비교: 오픈소스 우선 ($55-60) vs 기본 스택 ($65) vs 프로 스택 ($166)*
 
 #### 월간 AI 도구 비용 예상 (실측 데이터)
 
