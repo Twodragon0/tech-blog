@@ -150,10 +150,6 @@
         category: "{{ site.giscus.category }}",
         categoryId: "{{ site.giscus.category_id }}",
         mapping: "{{ site.giscus.mapping }}",
-        {% if site.giscus.mapping == "title" %}
-        // 한글 제목을 그대로 전달 - Giscus가 자체적으로 처리
-        term: "{{ page.title | escape }}",
-        {% endif %}
         strict: "0",
         reactionsEnabled: "1",
         emitMetadata: "1",
@@ -188,10 +184,6 @@
         script.setAttribute('data-category', giscusConfig.category);
         script.setAttribute('data-category-id', giscusConfig.categoryId);
         script.setAttribute('data-mapping', giscusConfig.mapping);
-        if (giscusConfig.term) {
-          // term은 이미 encodeURIComponent로 인코딩되었으므로 그대로 사용
-          script.setAttribute('data-term', giscusConfig.term);
-        }
         script.setAttribute('data-strict', giscusConfig.strict);
         script.setAttribute('data-reactions-enabled', giscusConfig.reactionsEnabled);
         script.setAttribute('data-emit-metadata', giscusConfig.emitMetadata);
