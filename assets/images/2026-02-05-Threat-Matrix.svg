@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 600" role="img" aria-labelledby="threat-matrix-title threat-matrix-desc">
+  <title id="threat-matrix-title">Threat Severity Matrix</title>
+  <desc id="threat-matrix-desc">2D scatter plot showing security threats plotted by exploitability and impact</desc>
+
+  <defs>
+    <style>
+      .axis-line { stroke: #2c3e50; stroke-width: 2; fill: none; }
+      .grid-line { stroke: #e0e0e0; stroke-width: 1; fill: none; stroke-dasharray: 5,5; }
+      .quadrant { opacity: 0.1; }
+      .q-critical { fill: #e74c3c; }
+      .q-high { fill: #e67e22; }
+      .q-medium { fill: #f39c12; }
+      .q-low { fill: #27ae60; }
+      .threat-bubble { stroke: #2c3e50; stroke-width: 2; opacity: 0.85; }
+      .threat-critical { fill: #e74c3c; }
+      .threat-high { fill: #e67e22; }
+      .threat-medium { fill: #f39c12; }
+      .threat-low { fill: #95a5a6; }
+      .label { font-family: 'Segoe UI', Tahoma, sans-serif; fill: #2c3e50; }
+      .label-title { font-size: 20px; font-weight: 700; }
+      .label-axis { font-size: 14px; font-weight: 600; }
+      .label-threat { font-size: 11px; font-weight: 600; }
+      .label-quadrant { font-size: 13px; font-weight: 600; opacity: 0.6; }
+      .label-tick { font-size: 11px; fill: #7f8c8d; }
+    </style>
+
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="600" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="350" y="30" class="label label-title" text-anchor="middle">Threat Severity Matrix</text>
+
+  <!-- Quadrants -->
+  <rect x="100" y="80" width="250" height="220" class="quadrant q-medium"/>
+  <rect x="350" y="80" width="280" height="220" class="quadrant q-critical"/>
+  <rect x="100" y="300" width="250" height="220" class="quadrant q-low"/>
+  <rect x="350" y="300" width="280" height="220" class="quadrant q-high"/>
+
+  <!-- Quadrant Labels -->
+  <text x="225" y="110" class="label label-quadrant" text-anchor="middle">Planned Response</text>
+  <text x="490" y="110" class="label label-quadrant" text-anchor="middle">Immediate Action</text>
+  <text x="225" y="510" class="label label-quadrant" text-anchor="middle">Low Priority</text>
+  <text x="490" y="510" class="label label-quadrant" text-anchor="middle">Monitoring Required</text>
+
+  <!-- Grid Lines -->
+  <line x1="100" y1="190" x2="630" y2="190" class="grid-line"/>
+  <line x1="100" y1="300" x2="630" y2="300" class="grid-line"/>
+  <line x1="100" y1="410" x2="630" y2="410" class="grid-line"/>
+
+  <line x1="225" y1="80" x2="225" y2="520" class="grid-line"/>
+  <line x1="350" y1="80" x2="350" y2="520" class="grid-line"/>
+  <line x1="475" y1="80" x2="475" y2="520" class="grid-line"/>
+
+  <!-- Axes -->
+  <line x1="100" y1="80" x2="100" y2="520" class="axis-line"/>
+  <line x1="100" y1="520" x2="630" y2="520" class="axis-line"/>
+
+  <!-- Axis Labels -->
+  <text x="365" y="555" class="label label-axis" text-anchor="middle">Exploitability (Attack Ease)</text>
+  <text x="50" y="300" class="label label-axis" text-anchor="middle" transform="rotate(-90 50 300)">Impact (Severity)</text>
+
+  <!-- Y-axis Ticks -->
+  <text x="90" y="85" class="label label-tick" text-anchor="end">Critical</text>
+  <text x="90" y="195" class="label label-tick" text-anchor="end">High</text>
+  <text x="90" y="305" class="label label-tick" text-anchor="end">Medium</text>
+  <text x="90" y="415" class="label label-tick" text-anchor="end">Low</text>
+  <text x="90" y="525" class="label label-tick" text-anchor="end">Minimal</text>
+
+  <!-- X-axis Ticks -->
+  <text x="100" y="540" class="label label-tick" text-anchor="middle">Low</text>
+  <text x="225" y="540" class="label label-tick" text-anchor="middle">Medium</text>
+  <text x="350" y="540" class="label label-tick" text-anchor="middle">High</text>
+  <text x="475" y="540" class="label label-tick" text-anchor="middle">Very High</text>
+  <text x="600" y="540" class="label label-tick" text-anchor="middle">Critical</text>
+
+  <!-- Threat Bubbles -->
+
+  <!-- 1. CVE-2026-25049 (n8n) - High impact, High exploitability -->
+  <circle cx="520" cy="150" r="45" class="threat-bubble threat-critical" filter="url(#shadow)"/>
+  <text x="520" y="145" class="label label-threat" text-anchor="middle">CVE-2026-25049</text>
+  <text x="520" y="160" class="label label-threat" text-anchor="middle">(n8n)</text>
+
+  <!-- 2. Amaranth-Dragon (WinRAR) - Critical impact, Medium exploitability -->
+  <circle cx="280" cy="110" r="50" class="threat-bubble threat-critical" filter="url(#shadow)"/>
+  <text x="280" y="105" class="label label-threat" text-anchor="middle">Amaranth-Dragon</text>
+  <text x="280" y="120" class="label label-threat" text-anchor="middle">(WinRAR)</text>
+
+  <!-- 3. NGINX Hijacking - Medium impact, High exploitability -->
+  <circle cx="500" cy="380" r="35" class="threat-bubble threat-medium" filter="url(#shadow)"/>
+  <text x="500" y="375" class="label label-threat" text-anchor="middle">NGINX</text>
+  <text x="500" y="390" class="label label-threat" text-anchor="middle">Hijacking</text>
+
+  <!-- 4. AsyncRAT - Medium impact, Medium exploitability -->
+  <circle cx="300" cy="340" r="32" class="threat-bubble threat-medium" filter="url(#shadow)"/>
+  <text x="300" y="340" class="label label-threat" text-anchor="middle">AsyncRAT</text>
+
+  <!-- 5. MS LLM Scanner - Low impact, Low exploitability -->
+  <circle cx="160" cy="450" r="28" class="threat-bubble threat-low" filter="url(#shadow)"/>
+  <text x="160" y="445" class="label label-threat" text-anchor="middle">MS LLM</text>
+  <text x="160" y="460" class="label label-threat" text-anchor="middle">Scanner</text>
+
+  <!-- Legend -->
+  <g transform="translate(100, 570)">
+    <text x="0" y="0" class="label" style="font-size: 12px; font-weight: 600;">Severity:</text>
+    <circle cx="60" cy="-4" r="8" class="threat-bubble threat-critical"/>
+    <text x="73" y="0" class="label" style="font-size: 11px;">Critical</text>
+
+    <circle cx="135" cy="-4" r="8" class="threat-bubble threat-high"/>
+    <text x="148" y="0" class="label" style="font-size: 11px;">High</text>
+
+    <circle cx="195" cy="-4" r="8" class="threat-bubble threat-medium"/>
+    <text x="208" y="0" class="label" style="font-size: 11px;">Medium</text>
+
+    <circle cx="270" cy="-4" r="8" class="threat-bubble threat-low"/>
+    <text x="283" y="0" class="label" style="font-size: 11px;">Low</text>
+  </g>
+</svg>

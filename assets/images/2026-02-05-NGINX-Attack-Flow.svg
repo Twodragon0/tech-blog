@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, sans-serif; font-size: 20px; font-weight: 700; fill: #1f2937; }
+      .subtitle { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; fill: #6b7280; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 500; fill: #374151; }
+      .label-small { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 500; fill: #6b7280; }
+      .alert { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 700; fill: #dc2626; }
+      .box-normal { fill: #ecfdf5; stroke: #10b981; stroke-width: 2; }
+      .box-attack { fill: #fef2f2; stroke: #dc2626; stroke-width: 2; }
+      .box-attacker { fill: #fffbeb; stroke: #f59e0b; stroke-width: 2.5; }
+      .arrow-normal { stroke: #10b981; stroke-width: 2.5; fill: none; marker-end: url(#arrow-normal); }
+      .arrow-attack { stroke: #dc2626; stroke-width: 2.5; fill: none; marker-end: url(#arrow-attack); stroke-dasharray: 5,3; }
+      .arrow-attacker { stroke: #f59e0b; stroke-width: 2.5; fill: none; marker-end: url(#arrow-attacker); }
+      .phase-box { fill: #f3f4f6; stroke: #9ca3af; stroke-width: 1; rx: 4; }
+    </style>
+    <marker id="arrow-normal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#10b981" />
+    </marker>
+    <marker id="arrow-attack" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#dc2626" />
+    </marker>
+    <marker id="arrow-attacker" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f59e0b" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" class="title">NGINX Traffic Hijacking Attack Flow</text>
+  <text x="450" y="50" text-anchor="middle" class="subtitle">CVE-2025-55182 (CVSS 10.0) Exploitation</text>
+
+  <!-- Normal Path Section -->
+  <rect x="50" y="80" width="800" height="150" class="phase-box" />
+  <text x="60" y="100" class="subtitle">Normal Traffic Flow</text>
+
+  <!-- Normal: User -->
+  <rect x="80" y="120" width="120" height="60" class="box-normal" rx="8" />
+  <text x="140" y="145" text-anchor="middle" class="label">User</text>
+  <text x="140" y="165" text-anchor="middle" class="label-small">Request</text>
+
+  <!-- Normal: NGINX -->
+  <rect x="280" y="120" width="140" height="60" class="box-normal" rx="8" />
+  <text x="350" y="145" text-anchor="middle" class="label">Normal NGINX</text>
+  <text x="350" y="165" text-anchor="middle" class="label-small">Proxy Server</text>
+
+  <!-- Normal: Backend -->
+  <rect x="500" y="120" width="140" height="60" class="box-normal" rx="8" />
+  <text x="570" y="145" text-anchor="middle" class="label">Backend Service</text>
+  <text x="570" y="165" text-anchor="middle" class="label-small">Application</text>
+
+  <!-- Normal Arrows -->
+  <path d="M 200 150 L 270 150" class="arrow-normal" />
+  <path d="M 420 150 L 490 150" class="arrow-normal" />
+
+  <!-- Status Label -->
+  <text x="700" y="155" class="label" fill="#10b981" font-weight="700">Secure Connection</text>
+
+  <!-- Attack Path Section -->
+  <rect x="50" y="260" width="800" height="210" class="phase-box" />
+  <text x="60" y="280" class="subtitle">Compromised Traffic Flow</text>
+
+  <!-- Attack: User -->
+  <rect x="80" y="300" width="120" height="60" class="box-normal" rx="8" />
+  <text x="140" y="325" text-anchor="middle" class="label">User</text>
+  <text x="140" y="345" text-anchor="middle" class="label-small">Victim Request</text>
+
+  <!-- Attack: Compromised NGINX -->
+  <rect x="280" y="300" width="140" height="60" class="box-attack" rx="8" />
+  <text x="350" y="320" text-anchor="middle" class="label">Compromised NGINX</text>
+  <text x="350" y="340" text-anchor="middle" class="alert">CVE-2025-55182</text>
+  <text x="350" y="355" text-anchor="middle" class="label-small">Hijacked Config</text>
+
+  <!-- Attack: Attacker Proxy -->
+  <rect x="280" y="390" width="140" height="60" class="box-attacker" rx="8" />
+  <text x="350" y="410" text-anchor="middle" class="label">Attacker Proxy</text>
+  <text x="350" y="430" text-anchor="middle" class="label-small">Traffic Interception</text>
+
+  <!-- Attack: Backend -->
+  <rect x="500" y="300" width="140" height="60" class="box-normal" rx="8" />
+  <text x="570" y="325" text-anchor="middle" class="label">Backend Service</text>
+  <text x="570" y="345" text-anchor="middle" class="label-small">Unaware Target</text>
+
+  <!-- Attack Arrows -->
+  <path d="M 200 330 L 270 330" class="arrow-attack" />
+  <path d="M 350 360 L 350 385" class="arrow-attacker" />
+  <path d="M 420 420 L 490 340" class="arrow-attacker" />
+
+  <!-- Injection Points -->
+  <rect x="700" y="295" width="140" height="155" fill="#fef2f2" stroke="#dc2626" stroke-width: 1.5; rx="6" />
+  <text x="770" y="315" text-anchor="middle" class="alert">Attack Vector</text>
+
+  <text x="710" y="340" class="label-small" fill="#dc2626">1. Baota Panel</text>
+  <text x="710" y="358" class="label-small" fill="#dc2626">   Compromise</text>
+
+  <text x="710" y="385" class="label-small" fill="#dc2626">2. Malicious Config</text>
+  <text x="710" y="403" class="label-small" fill="#dc2626">   Injection</text>
+
+  <text x="710" y="430" class="label-small" fill="#dc2626">3. Traffic</text>
+  <text x="710" y="448" class="label-small" fill="#dc2626">   Interception</text>
+
+  <!-- Attack Flow Arrow -->
+  <path d="M 690 370 L 430 330" class="arrow-attack" />
+
+</svg>
