@@ -13,8 +13,9 @@ image_alt: "Cloud Security Course 7Batch 8Week: CI/CD and Kubernetes Security Pr
 toc: true
 description: "CI/CD 파이프라인 보안(GitHub Actions, SAST/DAST, Secret 스캐닝), Kubernetes 클러스터 보안(RBAC, Pod Security Standards, Network Policy), 이미지 서명, 런타임 보안까지 정리."
 keywords: [CI/CD, Kubernetes, Security, DevSecOps, GitOps, Pipeline-Security]
-author: Twodragon
+author: "Yongho Ha"
 certifications: [ckad, cka]
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

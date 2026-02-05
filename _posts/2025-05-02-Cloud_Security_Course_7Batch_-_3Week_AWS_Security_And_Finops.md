@@ -12,8 +12,9 @@ image_alt: "Cloud Security Course 7Batch 3Week: AWS Security and FinOps"
 toc: true
 description: 클라우드 시큐리티 7기 3주차. AWS 보안 서비스 전체 구조(IAM, Organizations, CloudTrail, GuardDuty, Security Hub), FinOps 프레임워크, 비용 최적화 전략, AWS Well-Architected Framework 실무 적용.
 keywords: [AWS, FinOps, GuardDuty, Security-Hub, IAM, CloudTrail, Cost-Optimization, Well-Architected, 비용최적화, 클라우드보안]
-author: Twodragon
+author: "Yongho Ha"
 certifications: [aws-saa]
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

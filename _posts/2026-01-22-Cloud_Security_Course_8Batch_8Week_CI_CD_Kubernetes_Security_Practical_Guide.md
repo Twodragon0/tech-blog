@@ -13,6 +13,7 @@ original_url: https://twodragon.tistory.com/708
 image: /assets/images/2026-01-22-Cloud_Security_Course_8Batch_8Week_CI_CD_Kubernetes_Security_Practical_Guide.svg
 image_alt: "Cloud Security Course 8Batch 8Week: CI/CD and Kubernetes Security Practical Guide"
 toc: true
+schema_type: Article
 category: devsecops
 ---
 

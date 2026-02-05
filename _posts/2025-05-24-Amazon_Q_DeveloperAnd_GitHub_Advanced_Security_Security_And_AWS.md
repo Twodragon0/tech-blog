@@ -12,7 +12,8 @@ image_alt: "Code Security Enhancement and AWS Optimization Using Amazon Q Develo
 toc: true
 description: "Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 검토 및 AWS 최적화 제안. AI 기반 코드 생성, 보안 취약점 자동 탐지, DevSecOps 모범 사례, 2025년 트렌드까지 정리."
 keywords: [Amazon-Q, GitHub-Advanced-Security, Code-Security, AWS, DevSecOps]
-author: Twodragon
+author: "Yongho Ha"
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

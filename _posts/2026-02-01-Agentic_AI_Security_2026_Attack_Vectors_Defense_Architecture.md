@@ -62,8 +62,6 @@ schema_type: Article
 
 ## 서론
 
-안녕하세요, **Twodragon**입니다.
-
 2026년은 AI가 단순한 챗봇을 넘어 **자율적으로 도구를 호출하고 작업을 수행하는 에이전틱(Agentic) AI 시대**로 진입한 해입니다. CrowdStrike, Google, Microsoft, OWASP 등 주요 보안 기업과 기관들이 에이전틱 AI의 새로운 위협 벡터에 대한 연구 결과를 잇따라 발표하고 있습니다.
 
 이 포스트에서는 2026년 1월 발표된 최신 연구를 기반으로, AI 에이전트에 대한 **공격 벡터(Attack Vector)**와 이에 대응하는 **방어 아키텍처(Defense Architecture)**를 실무 관점에서 심층 분석합니다.

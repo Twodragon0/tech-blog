@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_Environment_Management_System_Establishment_and_Protection_Measures_Implementation.svg
 image_alt: "2025 ISMS-P Certification Complete Guide: AWS Environment Management System Establishment and Protection Measures Implementation"
 toc: true
+schema_type: Article
 certifications: [isms-p]
 ---
 

@@ -12,7 +12,8 @@ image_alt: "Cloud Security Course 7Batch 9Week: DevSecOps Integration Summary"
 toc: true
 description: "DevSecOps 파이프라인 전체 아키텍처, 보안 도구 매핑, AWS 보안 서비스 통합, DevSecOps 성숙도 모델, 완전한 CI/CD 보안 파이프라인, 실무 적용 체크리스트까지 정리."
 keywords: [DevSecOps, Integration, Cloud-Security, SDLC, Security-Automation]
-author: Twodragon
+author: "Yongho Ha"
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

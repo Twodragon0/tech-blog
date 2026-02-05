@@ -58,7 +58,7 @@ schema_type: Article
 
 ## 개요
 
-2026년 2월 2일, Apple 하드웨어에서 예상치 못한 AI 추론 결함이 발견되어 온디바이스 AI 전략에 물음표가 붙었고, 암호화폐 시장에서는 역대급 주말 폭락이 이어졌습니다. **iPhone 16 Pro Max의 A18 Pro Neural Engine이 MLX LLM 실행 시 텐서 값을 한 자릿수 이상 왜곡**하는 버그가 Hacker News에서 273 포인트를 기록하며 큰 반향을 일으켰습니다. 동일 코드가 iPhone 15 Pro(A17 Pro)와 MacBook Pro(M-series)에서는 정상 동작하여, A18 Pro 칩의 Neural Engine 하드웨어 또는 펌웨어 수준 결함이 확실시되고 있습니다.
+2026년 2월 2일, Apple 하드웨어에서 예상치 못한 AI 추론 결함이 발견되었고, 암호화폐 시장에서는 큰 변동이 있었습니다. **iPhone 16 Pro Max의 A18 Pro Neural Engine이 MLX LLM 실행 시 텐서 값을 왜곡**하는 버그가 Hacker News에서 높은 점수를 기록했습니다. 동일 코드가 iPhone 15 Pro(A17 Pro)와 MacBook Pro(M-series)에서는 정상 동작하여, A18 Pro 칩의 하드웨어 또는 펌웨어 수준 결함의 가능성이 제기되고 있습니다.
 
 암호화폐 시장에서는 **Bitcoin이 $74,000 근처까지 급락**하며 역대 최대 수준의 주말 청산 이벤트가 발생했습니다. Donald Trump 대통령의 Kevin Warsh Fed 의장 후보 지명이 촉발한 매도세가 Binance의 유동성 부족과 맞물리며 **$19B 규모의 청산**으로 확대되었습니다. BlackRock IBIT 투자자의 달러 가중 수익률이 적자로 전환되었고, Strategy(구 MicroStrategy)의 Michael Saylor는 원가 아래로 떨어진 BTC에 대해 매수 시그널을 보냈습니다.
 

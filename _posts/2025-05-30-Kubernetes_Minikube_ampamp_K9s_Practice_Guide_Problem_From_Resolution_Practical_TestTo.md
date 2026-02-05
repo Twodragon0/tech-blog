@@ -12,8 +12,9 @@ image_alt: "Kubernetes Minikube and K9s Practical Guide: From Problem Solving to
 toc: true
 description: "Minikube 1.37.0+ 설치 및 설정, K9s 터미널 UI 활용, Kubernetes 2024-2025 보안 강화(User Namespaces, Bound Service Account Tokens), 실전 테스트 시나리오까지 실무 중심 정리."
 keywords: [Kubernetes, Minikube, K9s, K8s, Troubleshooting]
-author: Twodragon
+author: "Yongho Ha"
 certifications: [ckad, cka]
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

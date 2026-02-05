@@ -12,7 +12,8 @@ image_alt: "Safely on Public PC: Passkey OTP Strong Password Management Usage"
 toc: true
 description: 공용 PC 보안 완벽 가이드. 패스키(Passkey) WebAuthn 인증, OTP 2FA 강화, 암호 관리자 활용, 공용 PC 보안 모범 사례, 2025년 인증 보안 트렌드(FIDO2, AI 피싱 대응)까지 상세 정리.
 keywords: [Passkey, WebAuthn, OTP, TOTP, FIDO2, 암호관리자, 공용PC보안, 2FA, MFA, 피싱방지]
-author: Twodragon
+author: "Yongho Ha"
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-14-GCP_Cloud_Security_Complete_Guide_IAM_to_GKE_Practical_Security_Architecture.svg
 image_alt: "GCP Cloud Security Complete Guide: IAM to GKE Practical Security Architecture"
 toc: true
+schema_type: Article
 certifications: [isms-p]
 ---
 

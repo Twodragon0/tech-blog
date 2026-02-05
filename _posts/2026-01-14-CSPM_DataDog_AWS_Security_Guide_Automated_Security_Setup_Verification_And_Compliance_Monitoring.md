@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Configuration_Verification_and_Compliance_Monitoring.svg
 image_alt: "CSPM DataDog AWS Security Guide: Automated Security Configuration Verification and Compliance Monitoring"
 toc: true
+schema_type: Article
 certifications: [isms-p, aws-saa]
 ---
 

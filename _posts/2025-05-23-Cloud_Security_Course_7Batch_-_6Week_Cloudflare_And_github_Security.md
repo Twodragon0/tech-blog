@@ -13,7 +13,8 @@ image_alt: "Cloud Security Course 7Batch 6Week: Cloudflare and GitHub Security"
 toc: true
 description: 클라우드 시큐리티 7기 6주차. AWS WAF 보안 강화(웹 ACL, Rate Limiting), Cloudflare 종합 보안(DDoS, WAF, SSL/TLS), GitHub 보안 자동화(Dependabot, CodeQL, Secret Scanning) 실무 정리.
 keywords: [AWS, WAF, Cloudflare, DDoS, CDN, GitHub, CodeQL, Dependabot, SAST, Secret-Scanning, 웹보안, 코드보안]
-author: Twodragon
+author: "Yongho Ha"
+schema_type: Article
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">

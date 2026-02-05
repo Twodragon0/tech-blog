@@ -12,8 +12,9 @@ image_alt: "Email Delivery Trust Improvement: SendGrid SPF DKIM DMARC Setup Comp
 toc: true
 description: "SendGrid 이메일 인증 완벽 가이드. SPF, DKIM, DMARC 설정으로 발신 서버 인증, 이메일 무결성 검증, 정책 기반 인증 및 보고. 스팸 방지, 발송률 향상, 실무 DNS 설정까지 정리."
 keywords: [SendGrid, SPF, DKIM, DMARC, Email-Security]
-author: Twodragon
+author: "Yongho Ha"
 audio_file: /assets/audio/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.mp3
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

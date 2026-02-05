@@ -12,7 +12,8 @@ image_alt: "SKT Security Issue Complete Response Guide: IMEI Check USIM eSIM Rep
 toc: true
 description: SK텔레콤 USIM 정보 유출 사태 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 활성화, SIM 스와핑 위험성, OTP/MFA 중요성, 통신사 보안 강화 조치, 개인/기업 보안 시사점까지 실무 중심 정리.
 keywords: [SKT, USIM, eSIM, MFA, SIM-스와핑, IMEI, OTP, 보안사고, 통신사보안, 금융보안]
-author: Twodragon
+author: "Yongho Ha"
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

@@ -67,7 +67,7 @@ schema_type: Article
 
 ## 개요
 
-2026년 2월 첫째 주, AI 에이전트 생태계에 **전례 없는 연쇄 보안 위협**이 현실화되었습니다. OpenClaw(구 Clawdbot/Moltbot)를 둘러싼 보안 사건이 **5건 이상 동시다발적으로 발생**하며, AI 코딩 에이전트의 보안 아키텍처가 근본적으로 재검토되고 있습니다:
+2026년 2월 첫째 주, AI 에이전트 생태계에 **연쇄 보안 위협**이 현실화되었습니다. OpenClaw(구 Clawdbot/Moltbot)를 둘러싼 보안 사건이 **여러 건 동시다발적으로 발생**하며, AI 코딩 에이전트의 보안이 중요해지고 있습니다:
 
 - **CVE-2026-25253 원클릭 RCE**(CVSS 8.8): depthfirst 연구원 Mav Levin이 발견한 인증 토큰 탈취 기반 원격 코드 실행
 - **ClawHavoc 캠페인**: Koi Security가 ClawHub에서 발견한 341개 악성 스킬 중 **335개가 macOS Atomic Stealer(AMOS)** 배포

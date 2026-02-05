@@ -12,8 +12,9 @@ image_alt: "Cloud Security Course 7Batch 5Week: AWS Control Tower and ZTNA"
 toc: true
 description: 클라우드 시큐리티 7기 5주차. AWS Control Tower 멀티 계정 관리(Landing Zone, Guardrails, SCP), ZTNA(Zero Trust Network Access) 개념 및 AWS 구현, 2025년 거버넌스 업데이트 실무 정리.
 keywords: [AWS, Control-Tower, ZTNA, Zero-Trust, Landing-Zone, Guardrails, SCP, 멀티계정, Organizations, 제로트러스트]
-author: Twodragon
+author: "Yongho Ha"
 certifications: [aws-saa]
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

@@ -13,6 +13,7 @@ original_url: https://twodragon.tistory.com/707
 image: /assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg
 image_alt: "Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture and GitHub DevSecOps Practical"
 toc: true
+schema_type: Article
 certifications: [aws-saa]
 ---
 

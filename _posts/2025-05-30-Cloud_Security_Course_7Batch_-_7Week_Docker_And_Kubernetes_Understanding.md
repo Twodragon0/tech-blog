@@ -11,8 +11,9 @@ image_alt: "Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understand
 toc: true
 description: "Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node, Pod), 컨테이너 보안 Best Practices, 런타임 보안(Trivy, Falco), 2025년 업데이트까지 실무 중심 정리."
 keywords: [Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps]
-author: Twodragon
+author: "Yongho Ha"
 certifications: [ckad, cka]
+schema_type: Article
 ---
 
 <div class="ai-summary-card">

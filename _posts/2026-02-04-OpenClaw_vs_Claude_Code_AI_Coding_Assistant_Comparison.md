@@ -949,7 +949,7 @@ cd your-project
 claude
 
 # Step 4: 초기 설정 (자동)
-# - Anthropic 계정 인증 (브라우저 팝업)
+# - Anthropic 계정 인증 시작
 # - 프로젝트 구조 자동 분석
 # - CLAUDE.md 생성 (선택)
 

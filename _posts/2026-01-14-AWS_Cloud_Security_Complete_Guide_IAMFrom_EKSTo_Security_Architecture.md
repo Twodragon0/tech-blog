@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-01-14-AWS_Cloud_Security_Complete_Guide_IAM_to_EKS_Practical_Security_Architecture.svg
 image_alt: "AWS Cloud Security Complete Guide: IAM to EKS Practical Security Architecture"
 toc: true
+schema_type: Article
 certifications: [aws-saa]
 ---
 
