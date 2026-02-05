@@ -2,8 +2,9 @@ name: Production Monitoring
 
 on:
   schedule:
-    # Run monitoring every 6 hours
-    - cron: '0 */6 * * *'
+    # 매일 오전 10시 KST = UTC 01:00
+    # GitHub Actions cron은 큐 지연이 있을 수 있음 (최대 15-30분)
+    - cron: '0 1 * * *'
   # Also allow manual trigger
   workflow_dispatch:
 
