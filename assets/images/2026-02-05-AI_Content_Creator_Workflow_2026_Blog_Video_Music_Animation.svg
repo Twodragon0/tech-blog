@@ -94,7 +94,7 @@
   <text x="600" y="570" font-size="14" fill="#e0e7ff" text-anchor="middle">Total Tool Cost</text>
 
   <!-- Stat 3: Time Saved -->
-  <text x="920" y="510" font-size="52" font-weight="bold" fill="#60a5fa" text-anchor="middle">80%</text>
+  <text x="920" y="510" font-size="52" font-weight="bold" fill="#60a5fa" text-anchor="middle">75%</text>
   <text x="920" y="545" font-size="20" fill="white" text-anchor="middle">Time Saved</text>
   <text x="920" y="570" font-size="14" fill="#e0e7ff" text-anchor="middle">vs Manual Process</text>
 
