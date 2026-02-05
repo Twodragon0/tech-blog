@@ -125,6 +125,8 @@ schema_type: Article
 
 2026년 2월 4일 기준 주요 기술 및 보안 뉴스를 심층 분석했습니다. 이번 주는 Docker AI 비서(Ask Gordon)의 치명적 코드 실행 취약점과 React Native CLI의 Metro4Shell RCE(CVE-2025-11953)가 핵심 이슈입니다. 또한 AWS IAM Identity Center의 멀티리전 복제 기능과 AI 에이전트 보안을 위한 3Cs 프레임워크를 분석합니다.
 
+AI 에이전트 보안에 대한 더 깊은 분석은 [에이전틱 AI 보안 2026: AI Agent 공격 벡터와 방어 아키텍처 완전 가이드]({% post_url 2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture %})와 [Tech & Security Weekly Digest: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크]({% post_url 2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet %})에서 확인할 수 있습니다.
+
 ### 이번 주 핵심 위협
 
 | 위협 | 심각도 | 상태 | 즉시 조치 |
@@ -141,6 +143,8 @@ schema_type: Article
 ### 1.1 개요
 
 사이버 보안 기업 **Noma Labs**가 **Docker Desktop** 및 **Docker CLI**에 내장된 AI 비서 **Ask Gordon**에서 치명적 보안 취약점을 발견하여 공개했습니다. **DockerDash**로 명명된 이 취약점은 악의적으로 조작된 Docker 이미지 메타데이터를 통해 임의 코드를 실행하고 민감한 데이터를 유출할 수 있는 심각한 결함입니다. Docker는 해당 취약점을 인지한 후 패치를 배포했습니다.
+
+이러한 AI 통합 도구의 보안 위험에 대한 전반적인 이해는 [OpenClaw AI Agent 보안 취약점 분석]({% post_url 2026-02-03-Weekly_Security_DevOps_Digest %})에서 다룬 내용과 맥락을 같이합니다.
 
 | 항목 | 상세 내용 |
 |------|-----------|
@@ -205,6 +209,11 @@ docker desktop version 2>/dev/null || echo "Docker Desktop CLI 미설치"
 # 2. Docker Desktop 최신 버전 업데이트
 # macOS
 brew upgrade --cask docker
+
+# ✅ Verification: 패치된 버전 확인
+# Docker Desktop 4.37.0 이상인지 확인
+docker --version
+# 예상 출력: Docker version 4.37.0 이상
 
 # 3. Ask Gordon 기능 비활성화 (임시 완화)
 # Docker Desktop > Settings > Features in Development > Ask Gordon 해제
@@ -533,11 +542,14 @@ echo "  - 클라우드 서비스 자격증명"
 | **CVE ID** | CVE-2025-11953 |
 | **별칭** | Metro4Shell |
 | **CVSS 점수** | 9.8 (Critical) |
+| **EPSS 점수** | 0.42 (42% exploitation probability within 30 days) |
 | **영향 패키지** | `@react-native-community/cli` |
 | **영향 컴포넌트** | Metro Development Server |
 | **최초 악용 관측** | 2025년 12월 21일 |
 | **발견 기관** | VulnCheck |
 | **공격 유형** | Remote Code Execution (원격 코드 실행) |
+
+**EPSS (Exploit Prediction Scoring System)**: FIRST에서 개발한 취약점 악용 가능성 예측 지표. 0.42는 향후 30일 내 실제 공격으로 악용될 확률이 42%임을 의미하며, 이는 매우 높은 수치입니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/hackers-exploit-metro4shell-rce-flaw-in.html)
 
@@ -612,6 +624,14 @@ lsof -i :8081 -P -n 2>/dev/null | grep LISTEN
 # 5. 패키지 업데이트
 npm update @react-native-community/cli
 npm audit fix --force
+
+# ✅ Verification: 패치 적용 검증
+# Metro CLI 버전 확인 (0.81.0 이상이어야 함)
+npm list @react-native-community/cli
+
+# Critical/High 취약점 잔존 여부 확인
+npm audit --production | grep "critical\|high"
+# 예상 출력: CVE-2025-11953 관련 항목이 없어야 함
 ```
 
 ### 2.5 탐지 쿼리
@@ -1019,7 +1039,7 @@ for t in trails:
 #### 한국 금융권 특수 요구사항
 
 ![금융권 시나리오 아키텍처](/assets/images/2026-02-04-financial-sector-architecture.svg)
-*그림 8: 금융권 IAM Identity Center 멀티리전 아키텍처 - 서울(Primary) + 도쿄(DR Only), 원거리 리전 복제 금지*
+*그림 6: 금융권 IAM Identity Center 멀티리전 아키텍처 - 서울(Primary) + 도쿄(DR Only), 원거리 리전 복제 금지*
 
 ### 3.6 페일오버 테스트 스크립트
 
@@ -1101,6 +1121,8 @@ echo "Full log: $LOG_FILE"
 
 **Docker**가 AI 에이전트 보안을 위한 **3Cs 프레임워크**를 발표했습니다. 실행 모델이 변할 때마다 보안 프레임워크도 함께 변해야 한다는 원칙 아래, AI 에이전트가 가져오는 새로운 보안 패러다임을 정의합니다. Docker는 이를 "무인 노트북 문제(Unattended Laptop Problem)"에 비유합니다. 개발자가 잠금 해제된 노트북을 방치하지 않듯, AI 에이전트에게도 동일한 수준의 보안 통제가 필요합니다.
 
+이 프레임워크는 [에이전틱 AI 보안 2026: AI Agent 공격 벡터와 방어 아키텍처]({% post_url 2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture %})에서 다룬 AI 에이전트 공격 벡터와 [OWASP Agentic AI 프레임워크]({% post_url 2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet %})의 실무 대응 방안을 보완합니다.
+
 | 항목 | 상세 내용 |
 |------|-----------|
 | **발표 기관** | Docker |
@@ -1113,7 +1135,7 @@ echo "Full log: $LOG_FILE"
 ### 4.2 3Cs 모델 상세
 
 ![3Cs 프레임워크 모델](/assets/images/2026-02-04-3cs-framework.svg)
-*그림 6: 3Cs Security Framework - Container(격리) / Credential(자격증명) / Code(코드) 3개 계층 보안 모델*
+*그림 7: 3Cs Security Framework - Container(격리) / Credential(자격증명) / Code(코드) 3개 계층 보안 모델*
 
 #### C1: Container (컨테이너 격리)
 
@@ -1254,7 +1276,7 @@ index=kubernetes sourcetype=kube:container:log namespace="ai-agents"
 조직의 AI 에이전트 보안 수준을 객관적으로 평가하기 위한 성숙도 모델입니다.
 
 ![3Cs 성숙도 모델](/assets/images/2026-02-04-3cs-maturity-model.svg)
-*그림 7: 3Cs Security Maturity Model - Level 0(부재)부터 Level 5(최적화)까지 AI 에이전트 보안 성숙도 평가 모델*
+*그림 8: 3Cs Security Maturity Model - Level 0(부재)부터 Level 5(최적화)까지 AI 에이전트 보안 성숙도 평가 모델*
 
 #### 성숙도 자가 평가 체크리스트
 
@@ -1459,8 +1481,6 @@ CNCF가 **KubeCon + CloudNativeCon**의 에너지, 커뮤니티, 다양성을 �
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Boston Public Schools DC Fast Charger 설치](https://electrek.co/2026/02/03/boston-public-schools-is-installing-105-dc-fast-chargers/) | Electrek | Boston 공립학교에 105대 DC 급속 충전기 설치, 전기 스쿨버스 인프라 확장 |
-| [Kia 전기 밴 미국 목격](https://electrek.co/2026/02/03/kias-electric-van-shows-up-in-the-us-again-but-this-one-is-different/) | Electrek | Kia의 미래형 전기 밴이 미시간에서 주행 테스트 중 포착 |
 | [클라우드 장애의 인터넷 파급 효과](https://thehackernews.com/2026/02/when-cloud-outages-ripple-across.html) | The Hacker News | 클라우드 장애가 인터넷 전반에 미치는 연쇄 효과 분석 |
 | [Microsoft SDL: AI 시대 보안 실천 진화](https://www.microsoft.com/en-us/security/blog/2026/02/03/microsoft-sdl-evolving-security-practices/) | Microsoft Security | Microsoft SDL의 AI 시대 대응 보안 개발 생명주기 업데이트 |
 | [Amazon Quick Suite - Google Drive 연동](https://aws.amazon.com/blogs/machine-learning/use-amazon-quick-suite-custom-action-connectors-to-upload-text-files-to-google-drive-using-openapi-specification/) | AWS ML Blog | Amazon Quick Suite 커스텀 커넥터로 Google Drive 파일 업로드 구축 |
