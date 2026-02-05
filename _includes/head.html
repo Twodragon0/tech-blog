@@ -101,7 +101,25 @@
   <!-- OG image: SVG to PNG conversion by _plugins/svg_to_png_og.rb -->
   <!-- SEO meta tags (og:image, twitter:card) output by jekyll-seo-tag plugin -->
   <!-- KakaoTalk uses standard Open Graph tags -->
+  <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/images/og-default.svg' | absolute_url }}{% endif %}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="{{ page.image_alt | default: page.title }}">
+
+  <!-- KakaoTalk -->
+  <meta property="thumbnail:url" content="{{ page.image | default: '/assets/images/og-default.svg' | absolute_url }}">
+
   <meta name="format-detection" content="telephone=no">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@yourhandle">
+  <meta name="twitter:creator" content="@yourhandle">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/images/og-default.svg' | absolute_url }}{% endif %}">
+  <meta name="twitter:image:alt" content="{% if page.image_alt %}{{ page.image_alt }}{% else %}{{ page.title | default: site.title }}{% endif %}">
 
   <!-- Feeds -->
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
