@@ -1,86 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <!-- Background gradient -->
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f0f23"/>
-      <stop offset="50%" style="stop-color:#1a1a3e"/>
-      <stop offset="100%" style="stop-color:#0d1117"/>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e293b"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
+    <linearGradient id="gradBox" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1" />
     </linearGradient>
-    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
-    </linearGradient>
-    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="50%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#ec4899"/>
-    </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="white" />
+    </marker>
   </defs>
 
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#grad1)"/>
 
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
-  </pattern>
-  <rect width="1200" height="630" fill="url(#grid)"/>
+  <!-- Title -->
+  <text x="600" y="70" font-size="42" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial, sans-serif">
+    AI Content Creator Workflow 2026
+  </text>
 
-  <circle cx="100" cy="100" r="200" fill="#60a5fa" fill-opacity="0.05"/>
-  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
-  <circle cx="600" cy="315" r="300" fill="#3b82f6" fill-opacity="0.03"/>
+  <!-- Subtitle -->
+  <text x="600" y="110" font-size="22" fill="#e0e7ff" text-anchor="middle" font-family="Arial, sans-serif">
+    Blog - Video - Music - Animation Full Automation
+  </text>
 
-  <rect x="40" y="30" width="180" height="36" rx="18" fill="url(#blueGradient)" filter="url(#shadow)"/>
-  <text x="130" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">TECH</text>
+  <!-- 5-step workflow with icons and arrows -->
 
-  <rect x="980" y="30" width="180" height="36" rx="18" fill="url(#accentGradient)" filter="url(#shadow)"/>
-  <text x="1070" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 05, 2026</text>
+  <!-- Phase 1: Blog Writing -->
+  <circle cx="120" cy="280" r="45" fill="#4f46e5" stroke="white" stroke-width="3"/>
+  <text x="120" y="295" font-size="40" fill="white" text-anchor="middle">&#9997;</text>
+  <text x="120" y="350" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Blog Writing</text>
+  <text x="120" y="370" font-size="13" fill="#e0e7ff" text-anchor="middle">Claude Opus 4.5</text>
 
-  <text x="600" y="120" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI로 완성하는 콘텐츠 크리에이터 워크플로우 2026 - 블로그부터 영상, ...</text>
-  <text x="600" y="160" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">AI</text>
+  <!-- Arrow 1 -->
+  <path d="M 170 280 L 240 280" stroke="white" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
 
-  <rect x="350" y="185" width="500" height="3" fill="url(#accentGradient)" rx="1.5"/>
+  <!-- Phase 2: Script Generation -->
+  <circle cx="300" cy="280" r="45" fill="#5b21b6" stroke="white" stroke-width="3"/>
+  <text x="300" y="295" font-size="40" fill="white" text-anchor="middle">&#128221;</text>
+  <text x="300" y="350" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Script</text>
+  <text x="300" y="370" font-size="13" fill="#e0e7ff" text-anchor="middle">AI Convert</text>
 
-  <g transform="translate(100, 220)">
-    <rect width="1000" height="280" rx="20" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="1000" height="8" rx="4" fill="url(#blueGradient)"/>
+  <!-- Arrow 2 -->
+  <path d="M 350 280 L 420 280" stroke="white" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
 
-    <circle cx="60" cy="70" r="35" fill="url(#blueGradient)" fill-opacity="0.2"/>
-    <text x="60" y="78" font-family="Arial, sans-serif" font-size="20" fill="#60a5fa" text-anchor="middle">AI</text>
+  <!-- Phase 3: Video Production -->
+  <circle cx="480" cy="280" r="45" fill="#7c3aed" stroke="white" stroke-width="3"/>
+  <text x="480" y="295" font-size="40" fill="white" text-anchor="middle">&#127916;</text>
+  <text x="480" y="350" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Video</text>
+  <text x="480" y="370" font-size="13" fill="#e0e7ff" text-anchor="middle">Runway Gen-3</text>
 
-    <text x="120" y="60" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#60a5fa">TECH POST</text>
-    <text x="120" y="85" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Featured Content</text>
-    <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">2026년 최신 AI 도구를 활용한 완전 자동화 콘텐츠 생성 워크플로우. 기술 블로그 작성, 교육용 영상</text>
-    <text x="40" y="158" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">제작, AI 음악 생성, 애니메이션까지 - 실전 가이드와 사용 사례.</text>
+  <!-- Arrow 3 -->
+  <path d="M 530 280 L 600 280" stroke="white" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
 
-    <rect x="40" y="220" width="44" height="26" rx="13" fill="#60a5fa" fill-opacity="0.2"/>
-    <text x="62" y="238" font-family="Arial, sans-serif" font-size="12" fill="#60a5fa" text-anchor="middle">#AI</text>
+  <!-- Phase 4: Music Generation -->
+  <circle cx="660" cy="280" r="45" fill="#9333ea" stroke="white" stroke-width="3"/>
+  <text x="660" y="295" font-size="40" fill="white" text-anchor="middle">&#127925;</text>
+  <text x="660" y="350" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Music</text>
+  <text x="660" y="370" font-size="13" fill="#e0e7ff" text-anchor="middle">Suno AI v4</text>
 
-    <rect x="99" y="220" width="76" height="26" rx="13" fill="#60a5fa" fill-opacity="0.2"/>
-    <text x="137" y="238" font-family="Arial, sans-serif" font-size="12" fill="#60a5fa" text-anchor="middle">#Claude</text>
+  <!-- Arrow 4 -->
+  <path d="M 710 280 L 780 280" stroke="white" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
 
-    <rect x="190" y="220" width="84" height="26" rx="13" fill="#60a5fa" fill-opacity="0.2"/>
-    <text x="232" y="238" font-family="Arial, sans-serif" font-size="12" fill="#60a5fa" text-anchor="middle">#Suno AI</text>
+  <!-- Phase 5: Animation -->
+  <circle cx="840" cy="280" r="45" fill="#a855f7" stroke="white" stroke-width="3"/>
+  <text x="840" y="295" font-size="40" fill="white" text-anchor="middle">&#10024;</text>
+  <text x="840" y="350" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Animation</text>
+  <text x="840" y="370" font-size="13" fill="#e0e7ff" text-anchor="middle">D-ID</text>
 
-    <rect x="289" y="220" width="100" height="26" rx="13" fill="#60a5fa" fill-opacity="0.2"/>
-    <text x="339" y="238" font-family="Arial, sans-serif" font-size="12" fill="#60a5fa" text-anchor="middle">#Animation</text>
+  <!-- Arrow 5 (completion) -->
+  <path d="M 890 280 L 960 280" stroke="white" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
 
-    <rect x="820" y="210" width="140" height="45" rx="22" fill="url(#accentGradient)"/>
-    <text x="890" y="238" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
-  </g>
+  <!-- Final Output -->
+  <circle cx="1020" cy="280" r="45" fill="#c084fc" stroke="white" stroke-width="3"/>
+  <text x="1020" y="295" font-size="40" fill="white" text-anchor="middle">&#127881;</text>
+  <text x="1020" y="350" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Complete</text>
 
-  <line x1="50" y1="560" x2="1150" y2="560" stroke="#334155" stroke-width="1"/>
+  <!-- Statistics box -->
+  <rect x="80" y="440" width="1040" height="180" rx="15" fill="url(#gradBox)" stroke="white" stroke-width="2"/>
 
-  <text x="60" y="590" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
-  <text x="60" y="612" font-family="Arial, sans-serif" font-size="13" fill="#64748b">tech.2twodragon.com</text>
+  <!-- Stat 1: ROI -->
+  <text x="280" y="510" font-size="52" font-weight="bold" fill="#fbbf24" text-anchor="middle">4,877%</text>
+  <text x="280" y="545" font-size="20" fill="white" text-anchor="middle">ROI</text>
+  <text x="280" y="570" font-size="14" fill="#e0e7ff" text-anchor="middle">Return on Investment</text>
 
-  <text x="1150" y="600" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security</text>
+  <!-- Stat 2: Cost -->
+  <text x="600" y="510" font-size="52" font-weight="bold" fill="#10b981" text-anchor="middle">$55-166</text>
+  <text x="600" y="545" font-size="20" fill="white" text-anchor="middle">per Month</text>
+  <text x="600" y="570" font-size="14" fill="#e0e7ff" text-anchor="middle">Total Tool Cost</text>
+
+  <!-- Stat 3: Time Saved -->
+  <text x="920" y="510" font-size="52" font-weight="bold" fill="#60a5fa" text-anchor="middle">80%</text>
+  <text x="920" y="545" font-size="20" fill="white" text-anchor="middle">Time Saved</text>
+  <text x="920" y="570" font-size="14" fill="#e0e7ff" text-anchor="middle">vs Manual Process</text>
+
+  <!-- DevSecOps Badge -->
+  <rect x="480" y="595" width="240" height="45" rx="22" fill="#ef4444" stroke="white" stroke-width="2"/>
+  <text x="600" y="625" font-size="18" font-weight="bold" fill="white" text-anchor="middle">DevSecOps Guide</text>
 </svg>
