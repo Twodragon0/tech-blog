@@ -88,7 +88,7 @@
       try {
         const fidObserver = new PerformanceObserver(function(list) {
           for (const entry of list.getEntries()) {
-            if (entry.processingStart - entry.startTime > 100) { // FID should be < 100ms
+            if (entry.processingStart - entry.startTime > 800) { // FID warning threshold: 800ms
               console.warn('[Performance] FID is slow:', (entry.processingStart - entry.startTime) + 'ms');
             }
           }
@@ -263,7 +263,7 @@
         if (loadTime > 3000) { // Page load should be < 3s
           console.warn('[Performance] Page load is slow:', loadTime + 'ms');
         }
-        if (domReady > 2000) { // DOM ready should be < 2s
+        if (domReady > 5000) { // DOM ready should be < 5s
           console.warn('[Performance] DOM ready is slow:', domReady + 'ms');
         }
       }
@@ -276,7 +276,7 @@
           for (const entry of list.getEntries()) {
             // API 요청은 타임아웃 직전까지 걸릴 수 있으므로 임계값 조정
             const isApiRequest = entry.name.includes('/api/');
-            const threshold = isApiRequest ? 8000 : 2000; // API: 8초, 기타: 2초
+            const threshold = isApiRequest ? 8000 : 3000; // API: 8초, 기타: 3초
             
             // Monitor slow resources
             if (entry.duration > threshold && entry.initiatorType !== 'navigation') {

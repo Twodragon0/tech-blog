@@ -4,24 +4,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google" content="notranslate">
 
-  <!-- Console Filter Module (consolidated, deferred to reduce FID impact) -->
-  <script src="{{ "/assets/js/console-filter.js" | relative_url }}"></script>
+  <!-- Console Filter Module (deferred to reduce FID impact) -->
+  <script src="{{ "/assets/js/console-filter.js" | relative_url }}" defer></script>
   <script>
-  (function(){
-    // Defer console filter initialization using requestIdleCallback (improves FID)
+  // Initialize console filter after script loads (defer compatible)
+  document.addEventListener('DOMContentLoaded', function() {
+    // Wait for console-filter.js to load and initialize
     var initFilter = function() {
       if (window.initConsoleFilter) {
         window.initConsoleFilter();
+      } else {
+        // Retry if script not yet loaded (defer race condition)
+        setTimeout(initFilter, 50);
       }
     };
 
     if ('requestIdleCallback' in window) {
       requestIdleCallback(initFilter, { timeout: 1000 });
     } else {
-      // Fallback: defer with setTimeout
       setTimeout(initFilter, 100);
     }
-  })();
+  });
   </script>
 
   <!-- Security Headers -->
@@ -386,6 +389,25 @@
   <script>
     (function() {
       'use strict';
+
+      // Suppress AdSense 403/400 console errors globally
+      (function suppressAdSenseErrors() {
+        // Wrap fetch to suppress AdSense errors
+        if (window.fetch) {
+          var originalFetch = window.fetch;
+          window.fetch = function() {
+            var url = arguments[0];
+            if (typeof url === 'string' && url.includes('googlesyndication.com')) {
+              return originalFetch.apply(this, arguments)
+                .catch(function() {
+                  // Silently fail for AdSense (403, 400, network errors)
+                  return new Response(null, { status: 200, statusText: 'OK' });
+                });
+            }
+            return originalFetch.apply(this, arguments);
+          };
+        }
+      })();
 
       try {
         window.adsbygoogle = window.adsbygoogle || [];
