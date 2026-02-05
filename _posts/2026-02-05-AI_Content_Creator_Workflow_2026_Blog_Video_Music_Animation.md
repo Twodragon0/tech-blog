@@ -9,7 +9,7 @@ description: "2026년 AI 콘텐츠 크리에이터 워크플로우: Claude Opus 
 image: /assets/images/2026-02-05-AI_Content_Creator_Workflow_2026_Blog_Video_Music_Animation.svg
 image_alt: "AI Content Creator Workflow 2026 Blog Video Music Animation"
 schema_type: Article
-author: "Yongho Ha"
+author: Twodragon
 toc: true
 ---
 
@@ -166,7 +166,7 @@ minimal beats, focus-friendly, no vocals,
 orchestral with electronic elements, 15 seconds"
 ```
 
-#### 2.4.2 음성 합성 (TTS): 오픈소스의 반격
+### 2.5 음성 합성 (TTS): 오픈소스의 반격
 
 2026년 TTS 시장에 **오픈소스 혁명**이 일어났습니다. 알리바바의 [Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS)가 Apache-2.0 라이선스로 공개되면서 상업용 TTS 서비스의 대안으로 급부상했습니다.
 
@@ -266,7 +266,7 @@ def secure_voice_clone(audio_path):
 - **실시간 스트리밍**: 97ms 지연으로 라이브 방송/팟캐스트 실시간 TTS 가능
 - **감정 AI 통합**: 텍스트 감정 분석 → 자동 음색/운율 조정
 
-### 2.5 애니메이션: 정적 콘텐츠의 생명 불어넣기
+### 2.6 애니메이션: 정적 콘텐츠의 생명 불어넣기
 
 | 도구 | 용도 | 비용 | 특징 |
 |------|------|------|------|
@@ -314,7 +314,7 @@ def generate_blog_post(topic: str) -> dict:
     return {"filename": f"{date}-{topic}.md", "content": content}
 ```
 
-**전체 구현**: [GitHub - AI Content Pipeline](https://github.com/Twodragon0/tech-blog/tree/main/examples/ai-content-pipeline)
+**전체 구현 예시 코드는 본문 참조**
 
 ### 3.2 Phase 2: 블로그 → 영상 스크립트
 
@@ -346,7 +346,7 @@ def blog_to_video_script(markdown_content: str) -> dict:
     return script
 ```
 
-**SRT 자막 자동 생성 로직은 전체 코드 참조**: [GitHub Repository](https://github.com/Twodragon0/tech-blog/tree/main/examples/ai-content-pipeline)
+**SRT 자막 자동 생성 로직은 위 코드 참조**
 
 ### 3.3 Phase 3: 스크립트 → 영상 제작
 
@@ -379,7 +379,7 @@ def blog_to_video_script(markdown_content: str) -> dict:
 - Encoder: NVIDIA NVENC H.264 (GPU 가속) 또는 x264
 - Audio: 48kHz, Stereo
 
-**전체 설정 스크립트**: [OBS 자동화 가이드](https://github.com/Twodragon0/tech-blog/tree/main/examples/obs-automation)
+**전체 설정 방법은 OBS Studio 공식 문서 참조**
 
 ### 3.4 Phase 4: 음악 생성 (Suno AI)
 
@@ -540,7 +540,7 @@ config = ContentConfig(
 - 블로그만: 30-60초
 - 전체 파이프라인 (수동 단계 포함): 5-10분
 
-**전체 소스 코드**: [GitHub - Content Pipeline (400줄, 주석 포함)](https://github.com/Twodragon0/tech-blog/tree/main/examples/ai-content-pipeline/content_pipeline.py)
+**핵심 로직은 위 코드 예시 참조** (전체 구현 시 약 400줄)
 
 **사용법:**
 
@@ -691,7 +691,7 @@ schedule.every().sunday.at("18:00").do(publish)
 - Jekyll 포맷 자동 생성 (Front matter 포함)
 - Git 자동 배포
 
-**전체 구현**: [GitHub - Weekly Digest Automation](https://github.com/Twodragon0/tech-blog/tree/main/examples/weekly-digest)
+**핵심 구현 로직은 위 코드 참조**
 
 **결과:**
 - **100% 자동화** (수동 개입 없음)
