@@ -64,7 +64,54 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install feedparser requests beautifulsoup4 python-frontmatter PyYAML
-      
+
+      - name: Install Gemini CLI
+        run: |
+          # Python google-generativeai 패키지 설치
+          pip install --upgrade google-generativeai
+
+          # gemini CLI wrapper 생성
+          sudo tee /usr/local/bin/gemini > /dev/null << 'EOF'
+          #!/usr/bin/env python3
+          import sys
+          import os
+          import google.generativeai as genai
+
+          # API 키 설정
+          api_key = os.getenv("GEMINI_API_KEY")
+          if not api_key:
+              print("Error: GEMINI_API_KEY environment variable not set", file=sys.stderr)
+              sys.exit(1)
+
+          genai.configure(api_key=api_key)
+          model = genai.GenerativeModel('gemini-pro')
+
+          # -p 플래그로 프롬프트 받기
+          if len(sys.argv) > 2 and sys.argv[1] == "-p":
+              prompt = sys.argv[2]
+              try:
+                  response = model.generate_content(prompt)
+                  print(response.text)
+              except Exception as e:
+                  print(f"Error: {e}", file=sys.stderr)
+                  sys.exit(1)
+          elif "--version" in sys.argv:
+              print("Gemini CLI wrapper v1.0")
+              sys.exit(0)
+          else:
+              print("Usage: gemini -p 'prompt text'", file=sys.stderr)
+              sys.exit(1)
+          EOF
+
+          sudo chmod +x /usr/local/bin/gemini
+
+          # 설치 확인
+          if gemini --version > /dev/null 2>&1; then
+            echo "✅ Gemini CLI installed successfully"
+          else
+            echo "⚠️ Gemini CLI installation verification failed"
+          fi
+
       - name: Create directories
         run: mkdir -p _data data _posts assets/images
       
@@ -113,6 +160,8 @@ jobs:
       
       - name: Auto publish daily digest (single post per day)
         if: steps.check_news.outputs.has_enough_news == 'true'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           DRY_RUN="${{ github.event.inputs.dry_run || 'false' }}"
           MAX_NEWS="${{ github.event.inputs.max_news || '15' }}"
