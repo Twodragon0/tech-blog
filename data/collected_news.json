@@ -1,7 +1,189 @@
 {
-  "collected_at": "2026-02-06T03:30:12.751070+00:00",
-  "total_items": 156,
+  "collected_at": "2026-02-06T08:44:13.528400+00:00",
+  "total_items": 142,
   "items": [
+    {
+      "id": "f442f87cddd5",
+      "title": "IEA: Electricity demand is rising fast, and grids can’t keep up",
+      "url": "https://electrek.co/2026/02/05/iea-electricity-demand-is-rising-fast-and-grids-cant-keep-up/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-06T06:00:00+00:00",
+      "summary": "Global electricity demand is surging, and the grid is struggling to keep up, according to a new report from the International Energy Agency (IEA). more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Michelle Lewis",
+      "priority": 2
+    },
+    {
+      "id": "e78dd7f53993",
+      "title": "Large Bitcoin holders’ share of supply hits 9-month low amid price drop",
+      "url": "https://cointelegraph.com/news/bitcoin-price-plunge-large-holders-supply-drops-santiment?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-06T05:58:41+00:00",
+      "summary": "Santiment says the pattern of large holders selling while retail scoops up Bitcoin is “what historically creates bear cycles.”",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Ciaran Lyons",
+      "priority": 2
+    },
+    {
+      "id": "d0fb5cb81fe4",
+      "title": "Things Unix can do atomically (2010)",
+      "url": "https://rcrowley.org/2010/01/06/things-unix-can-do-atomically.html",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-06T05:29:55+00:00",
+      "summary": "Article URL: https://rcrowley.org/2010/01/06/things-unix-can-do-atomically.html Comments URL: https://news.ycombinator.com/item?id=46909468 Points: 66 # Comments: 23",
+      "content": "",
+      "tags": [],
+      "author": "onurkanbkrc",
+      "priority": 2
+    },
+    {
+      "id": "79e455f2e722",
+      "title": "Systems Thinking",
+      "url": "http://theprogrammersparadox.blogspot.com/2026/02/systems-thinking.html",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-06T05:24:36+00:00",
+      "summary": "Article URL: http://theprogrammersparadox.blogspot.com/2026/02/systems-thinking.html Comments URL: https://news.ycombinator.com/item?id=46909439 Points: 66 # Comments: 28",
+      "content": "",
+      "tags": [],
+      "author": "r4um",
+      "priority": 2
+    },
+    {
+      "id": "0c5c1b5132e0",
+      "title": "Tether makes $150M investment in Gold.com in latest gold play",
+      "url": "https://cointelegraph.com/news/tether-invests-150-million-in-gold-com?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-06T05:19:37+00:00",
+      "summary": "Tether and Gold.com are exploring options to allow the use of Tether’s stablecoins to purchase physical gold.",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Brayden Lindrea",
+      "priority": 2
+    },
+    {
+      "id": "abdcb7f03959",
+      "title": "Banks and crypto could offer similar products in time: Bessent",
+      "url": "https://cointelegraph.com/news/banks-crypto-could-offer-similar-products-in-time-bessent?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-06T05:05:58+00:00",
+      "summary": "US Treasury Secretary Scott Bessent says banks and crypto may begin to offer similar products, and pledged to prevent deposit flight concerns that are stalling a key crypto bill.",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Martin Young",
+      "priority": 2
+    },
+    {
+      "id": "a91162db0a05",
+      "title": "Bitcoin miners IREN, CleanSpark shares plunge as earnings fall short",
+      "url": "https://cointelegraph.com/news/bitcoin-miners-iren-cleanspark-financial-earnings-short?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-06T04:45:26+00:00",
+      "summary": "Crypto mining stocks have declined across the board the value of the entire crypto market fell almost 9% on Thursday.",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Ciaran Lyons",
+      "priority": 2
+    },
+    {
+      "id": "78dafbb10e26",
+      "title": "Generative Pen-Trained Transformer",
+      "url": "https://theodore.net/projects/Polargraph/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-06T04:28:08+00:00",
+      "summary": "Article URL: https://theodore.net/projects/Polargraph/ Comments URL: https://news.ycombinator.com/item?id=46909122 Points: 9 # Comments: 0",
+      "content": "",
+      "tags": [],
+      "author": "Twarner",
+      "priority": 2
+    },
+    {
+      "id": "328c7433e958",
+      "title": "Show HN: Artifact Keeper – Open-Source Artifactory/Nexus Alternative in Rust",
+      "url": "https://github.com/artifact-keeper",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-06T04:12:59+00:00",
+      "summary": "I'm a software engineer who keeps getting pulled into DevOps no matter how hard I try to escape it. I recently moved into a Lead DevOps Engineer role writing tooling to automate a lot of the pain away. On my own time outside of work, I built Artifact Keeper — a self-hosted artifact registry that supports 45+ package formats. Security scanning, SSO, replication, WASM plugins — it's all in the MIT-licensed release. No enterprise tier. No feature gates. No surprise invoices. Your package manager...",
+      "content": "",
+      "tags": [],
+      "author": "bsgeraci",
+      "priority": 2
+    },
+    {
+      "id": "dd61e13e6119",
+      "title": "Kalshi boosts surveillance ahead of Super Bowl with independent committee",
+      "url": "https://cointelegraph.com/news/kalshi-boosts-predictions-markets-surveillance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-06T03:47:58+00:00",
+      "summary": "Kalshi has seen nearly $170 million in Super Bowl-related bets, and its move to boost oversight comes amid scrutiny of prediction markets by regulators and Congress.",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Brayden Lindrea",
+      "priority": 2
+    },
+    {
+      "id": "38a7c25472de",
+      "title": "Waiting for Postgres 19: Better planner hints with path generation strategies [video]",
+      "url": "https://www.youtube.com/watch?v=QLb3nhIy2Lc",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-06T03:25:51+00:00",
+      "summary": "Article URL: https://www.youtube.com/watch?v=QLb3nhIy2Lc Comments URL: https://news.ycombinator.com/item?id=46908700 Points: 27 # Comments: 1",
+      "content": "",
+      "tags": [],
+      "author": "sbuttgereit",
+      "priority": 2
+    },
+    {
+      "id": "9e70bba8f0aa",
+      "title": "I reversed Tower of Fantasy's anti-cheat driver: a BYOVD toolkit never loaded",
+      "url": "https://vespalec.com/blog/tower-of-flaws/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-06T03:22:29+00:00",
+      "summary": "Article URL: https://vespalec.com/blog/tower-of-flaws/ Comments URL: https://news.ycombinator.com/item?id=46908671 Points: 52 # Comments: 19",
+      "content": "",
+      "tags": [],
+      "author": "svespalec",
+      "priority": 2
+    },
     {
       "id": "7d880f96066d",
       "title": "Crypto sentiment at lowest point since 2022 crash as Bitcoin tanks to $60K",
@@ -18,6 +200,21 @@
       "priority": 2
     },
     {
+      "id": "38ca74d461f5",
+      "title": "GitHub Actions is slowly killing engineering teams",
+      "url": "https://www.iankduncan.com/engineering/2026-02-05-github-actions-killing-your-team/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-06T02:58:31+00:00",
+      "summary": "Article URL: https://www.iankduncan.com/engineering/2026-02-05-github-actions-killing-your-team/ Comments URL: https://news.ycombinator.com/item?id=46908491 Points: 208 # Comments: 90",
+      "content": "",
+      "tags": [],
+      "author": "codesuki",
+      "priority": 2
+    },
+    {
       "id": "5f92794b3f83",
       "title": "BlackRock’s IBIT hits daily volume record of $10B amid Bitcoin crash",
       "url": "https://cointelegraph.com/news/blackrock-ibit-daily-volume-record-10-billion-bitcoin-crash?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
@@ -30,38 +227,6 @@
       "content": "",
       "tags": [],
       "author": "Cointelegraph by Brian Quarmby",
-      "priority": 2
-    },
-    {
-      "id": "cf95674cba4e",
-      "title": "C isn't a programming language anymore (2022)",
-      "url": "https://faultlore.com/blah/c-isnt-a-language/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-06T00:15:55+00:00",
-      "summary": "Article URL: https://faultlore.com/blah/c-isnt-a-language/ Comments URL: https://news.ycombinator.com/item?id=46907350 Points: 31 # Comments: 39",
-      "content": "",
-      "tags": [],
-      "author": "stickynotememo",
-      "priority": 2
-    },
-    {
-      "id": "675e47d653fb",
-      "title": "Dragonfly v2.4.0 is released",
-      "url": "https://www.cncf.io/blog/2026/02/05/dragonfly-v2-4-0-is-released/",
-      "source": "cncf",
-      "source_name": "CNCF Blog",
-      "category": "devops",
-      "language": "en",
-      "published": "2026-02-06T00:00:00+00:00",
-      "summary": "Dragonfly v2.4.0 is released! Thanks to all of the contributors who made this Dragonfly release happen. New features and enhancements load-aware scheduling algorithm A two-stage scheduling algorithm combining central scheduling with node-level secondary scheduling to optimize...",
-      "content": "Dragonfly v2.4.0 is released! Thanks to all of the contributors who made this Dragonfly release happen. New features and enhancements load-aware scheduling algorithm A two-stage scheduling algorithm combining central scheduling with node-level secondary scheduling to optimize P2P download performance, based on real-time load awareness. For more information, please refer to the Scheduling . Vortex protocol support for P2P file transfer Dragonfly provides the new Vortex transfer protocol based ...",
-      "tags": [
-        "Blog"
-      ],
-      "author": "epower",
       "priority": 2
     },
     {
@@ -103,25 +268,10 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-05T23:29:18+00:00",
-      "summary": "Article URL: https://mrbruh.com/amd/ Comments URL: https://news.ycombinator.com/item?id=46906947 Points: 70 # Comments: 38",
+      "summary": "Article URL: https://mrbruh.com/amd/ Comments URL: https://news.ycombinator.com/item?id=46906947 Points: 180 # Comments: 70",
       "content": "",
       "tags": [],
       "author": "MrBruh",
-      "priority": 2
-    },
-    {
-      "id": "1b673da589de",
-      "title": "Show HN: Calfkit – an SDK to build distributed, event-driven AI agents",
-      "url": "https://github.com/calf-ai/calfkit-sdk",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-05T23:10:12+00:00",
-      "summary": "I think agents should work like real teams, with independent, distinct roles, async communication, and the ability to onboard new teammates or tools without restructuring the whole org. I built backend systems at Yahoo and TikTok so event-driven agents felt obvious. But no agent SDKs were using this pattern, so I made Calfkit. Calfkit breaks down agents into independent services (LLM inference, tools, and routing) that communicate asynchronously through Kafka. Agents, tool services, and downs...",
-      "content": "",
-      "tags": [],
-      "author": "ryanyu",
       "priority": 2
     },
     {
@@ -184,7 +334,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-05T21:51:51+00:00",
-      "summary": "Article URL: https://blog.janestreet.com/the-joy-of-expect-tests/ Comments URL: https://news.ycombinator.com/item?id=46905896 Points: 39 # Comments: 14",
+      "summary": "Article URL: https://blog.janestreet.com/the-joy-of-expect-tests/ Comments URL: https://news.ycombinator.com/item?id=46905896 Points: 65 # Comments: 24",
       "content": "",
       "tags": [],
       "author": "ryanhn",
@@ -214,25 +364,10 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-05T21:39:57+00:00",
-      "summary": "Article URL: https://www.newworker.org/ncptrory/1984.htm Comments URL: https://news.ycombinator.com/item?id=46905761 Points: 96 # Comments: 43",
+      "summary": "Article URL: https://www.newworker.org/ncptrory/1984.htm Comments URL: https://news.ycombinator.com/item?id=46905761 Points: 146 # Comments: 73",
       "content": "",
       "tags": [],
       "author": "doruk101",
-      "priority": 2
-    },
-    {
-      "id": "1561a4f07bc8",
-      "title": "It's 2026, Just Use Postgres",
-      "url": "https://www.tigerdata.com/blog/its-2026-just-use-postgres",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-05T21:24:03+00:00",
-      "summary": "Article URL: https://www.tigerdata.com/blog/its-2026-just-use-postgres Comments URL: https://news.ycombinator.com/item?id=46905555 Points: 451 # Comments: 255",
-      "content": "",
-      "tags": [],
-      "author": "turtles3",
       "priority": 2
     },
     {
@@ -274,7 +409,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-05T20:15:48+00:00",
-      "summary": "Article URL: https://support.claude.com/en/articles/13613973-claude-opus-4-6-extra-usage-promo Comments URL: https://news.ycombinator.com/item?id=46904569 Points: 117 # Comments: 37",
+      "summary": "Article URL: https://support.claude.com/en/articles/13613973-claude-opus-4-6-extra-usage-promo Comments URL: https://news.ycombinator.com/item?id=46904569 Points: 155 # Comments: 48",
       "content": "",
       "tags": [],
       "author": "rob",
@@ -304,7 +439,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-05T20:00:39+00:00",
-      "summary": "Article URL: https://github.com/mdp/linkedin-extension-fingerprinting Comments URL: https://news.ycombinator.com/item?id=46904361 Points: 313 # Comments: 146",
+      "summary": "Article URL: https://github.com/mdp/linkedin-extension-fingerprinting Comments URL: https://news.ycombinator.com/item?id=46904361 Points: 389 # Comments: 187",
       "content": "",
       "tags": [],
       "author": "mdp",
@@ -349,6 +484,21 @@
       "priority": 2
     },
     {
+      "id": "1f0019bb056c",
+      "title": "The time I didn't meet Jeffrey Epstein",
+      "url": "https://scottaaronson.blog/?p=9534",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-05T19:29:41+00:00",
+      "summary": "Article URL: https://scottaaronson.blog/?p=9534 Comments URL: https://news.ycombinator.com/item?id=46903929 Points: 161 # Comments: 140",
+      "content": "",
+      "tags": [],
+      "author": "pfdietz",
+      "priority": 2
+    },
+    {
       "id": "57dc6ba6206e",
       "title": "We tasked Opus 4.6 using agent teams to build a C Compiler",
       "url": "https://www.anthropic.com/engineering/building-c-compiler",
@@ -357,7 +507,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-05T19:07:51+00:00",
-      "summary": "Article URL: https://www.anthropic.com/engineering/building-c-compiler Comments URL: https://news.ycombinator.com/item?id=46903616 Points: 397 # Comments: 381",
+      "summary": "Article URL: https://www.anthropic.com/engineering/building-c-compiler Comments URL: https://news.ycombinator.com/item?id=46903616 Points: 511 # Comments: 478",
       "content": "",
       "tags": [],
       "author": "modeless",
@@ -372,25 +522,10 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-05T19:04:40+00:00",
-      "summary": "Article URL: https://mitchellh.com/writing/my-ai-adoption-journey Comments URL: https://news.ycombinator.com/item?id=46903558 Points: 378 # Comments: 104",
+      "summary": "Article URL: https://mitchellh.com/writing/my-ai-adoption-journey Comments URL: https://news.ycombinator.com/item?id=46903558 Points: 557 # Comments: 181",
       "content": "",
       "tags": [],
       "author": "anurag",
-      "priority": 2
-    },
-    {
-      "id": "b341235b0ed4",
-      "title": "Flock CEO calls Deflock a “terrorist organization” (2025) [video]",
-      "url": "https://www.youtube.com/watch?v=l-kZGrDz7PU",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-05T19:04:37+00:00",
-      "summary": "Article URL: https://www.youtube.com/watch?v=l-kZGrDz7PU Comments URL: https://news.ycombinator.com/item?id=46903556 Points: 512 # Comments: 360",
-      "content": "",
-      "tags": [],
-      "author": "cdrnsf",
       "priority": 2
     },
     {
@@ -428,21 +563,6 @@
       "priority": 2
     },
     {
-      "id": "5f4808624674",
-      "title": "Ardour 9.0",
-      "url": "https://ardour.org/whatsnew.html",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-05T18:30:16+00:00",
-      "summary": "Article URL: https://ardour.org/whatsnew.html Comments URL: https://news.ycombinator.com/item?id=46903001 Points: 245 # Comments: 56",
-      "content": "",
-      "tags": [],
-      "author": "PaulDavisThe1st",
-      "priority": 2
-    },
-    {
       "id": "d8d4699d89bf",
       "title": "Subaru is now building EVs in-house, starting with a new electric SUV",
       "url": "https://electrek.co/2026/02/05/subaru-builds-first-in-house-ev-new-electric-suv/",
@@ -460,21 +580,6 @@
       "priority": 2
     },
     {
-      "id": "32b44b9c5f94",
-      "title": "PsiACE/Skills – A small, shared skill library",
-      "url": "https://github.com/PsiACE/skills",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-05T18:17:14+00:00",
-      "summary": "Article URL: https://github.com/PsiACE/skills Comments URL: https://news.ycombinator.com/item?id=46902789 Points: 46 # Comments: 4",
-      "content": "",
-      "tags": [],
-      "author": "recrush",
-      "priority": 2
-    },
-    {
       "id": "068683f1f425",
       "title": "GPT-5.3-Codex",
       "url": "https://openai.com/index/introducing-gpt-5-3-codex/",
@@ -483,46 +588,10 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-05T18:08:08+00:00",
-      "summary": "Article URL: https://openai.com/index/introducing-gpt-5-3-codex/ Comments URL: https://news.ycombinator.com/item?id=46902638 Points: 1089 # Comments: 413",
+      "summary": "Article URL: https://openai.com/index/introducing-gpt-5-3-codex/ Comments URL: https://news.ycombinator.com/item?id=46902638 Points: 1270 # Comments: 475",
       "content": "",
       "tags": [],
       "author": "meetpateltech",
-      "priority": 2
-    },
-    {
-      "id": "11c084cbcb56",
-      "title": "Announcing Claude Opus 4.6 on Vertex AI",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-vertex-ai-with-claude-opus-4-6/",
-      "source": "gcp",
-      "source_name": "Google Cloud Blog",
-      "category": "cloud",
-      "language": "en",
-      "published": "2026-02-05T18:00:00+00:00",
-      "summary": "At Google Cloud, we’re committed to providing customers with the leading selection of models to build and scale production-ready AI apps and agents on a platform optimized for performance, trust, and global scale. Today, we’re further expanding Vertex AI’s curated collection of models with the addition of Anthropic’s newest release : Claude Opus 4.6 . Claude Opus 4.6 is Anthropic’s most powerful model yet. In addition to excelling at complex coding tasks and creating sophisticated agents, Opu...",
-      "content": "",
-      "tags": [
-        "AI & Machine Learning"
-      ],
-      "author": "Michael Gerstenhaber",
-      "priority": 2
-    },
-    {
-      "id": "57a488f83a47",
-      "title": ".NET Framework 3.5 Moves to Standalone Deployment in new versions of Windows",
-      "url": "https://devblogs.microsoft.com/dotnet/dotnet-framework-3-5-moves-to-standalone-deployment-in-new-versions-of-windows/",
-      "source": "microsoft_dotnet",
-      "source_name": "Microsoft .NET Blog",
-      "category": "devops",
-      "language": "en",
-      "published": "2026-02-05T18:00:00+00:00",
-      "summary": "An announcement of .NET Framework 3.5 servicing updates on new versions of Windows. The post .NET Framework 3.5 Moves to Standalone Deployment in new versions of Windows appeared first on .NET Blog .",
-      "content": "The deployment model of .NET Framework 3.5 for future versions of Windows is changing. Starting with Windows 11 Insider Preview Build 27965, .NET Framework 3.5 must be obtained as a standalone installer and is no longer included as an optional Windows component. .NET Framework 3.5 is now available as a standalone installer for legacy applications that require it on newer major versions of Windows. This change applies to Insider Preview Build 27965 and future platform releases of Windows. It d...",
-      "tags": [
-        ".NET",
-        ".NET Framework",
-        ".net framework"
-      ],
-      "author": "Tara Overfield, Brett Lopez",
       "priority": 2
     },
     {
@@ -534,7 +603,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-05T17:49:54+00:00",
-      "summary": "Article URL: https://code.claude.com/docs/en/agent-teams Comments URL: https://news.ycombinator.com/item?id=46902368 Points: 315 # Comments: 175",
+      "summary": "Article URL: https://code.claude.com/docs/en/agent-teams Comments URL: https://news.ycombinator.com/item?id=46902368 Points: 346 # Comments: 193",
       "content": "",
       "tags": [],
       "author": "davidbarker",
@@ -564,7 +633,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-05T17:38:53+00:00",
-      "summary": "Article URL: https://www.anthropic.com/news/claude-opus-4-6 Comments URL: https://news.ycombinator.com/item?id=46902223 Points: 1643 # Comments: 702",
+      "summary": "Article URL: https://www.anthropic.com/news/claude-opus-4-6 Comments URL: https://news.ycombinator.com/item?id=46902223 Points: 1895 # Comments: 798",
       "content": "",
       "tags": [],
       "author": "HellsMaddy",
@@ -645,21 +714,6 @@
       "content": "",
       "tags": [],
       "author": "mxrns",
-      "priority": 2
-    },
-    {
-      "id": "29a8aa5e067a",
-      "title": "Hypernetworks: Neural Networks for Hierarchical Data",
-      "url": "https://blog.sturdystatistics.com/posts/hnet_part_I/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-05T16:55:38+00:00",
-      "summary": "Article URL: https://blog.sturdystatistics.com/posts/hnet_part_I/ Comments URL: https://news.ycombinator.com/item?id=46901716 Points: 37 # Comments: 2",
-      "content": "",
-      "tags": [],
-      "author": "mkmccjr",
       "priority": 2
     },
     {
@@ -830,53 +884,6 @@
       "priority": 2
     },
     {
-      "id": "919723736de5",
-      "title": "Record $1M Lightning transfer tests Bitcoin payments for institutions",
-      "url": "https://cointelegraph.com/news/lightning-payment-bitcoin-layer-2-institutional?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T13:06:59+00:00",
-      "summary": "A $1 million Lightning transfer between SDM and Kraken was used to test whether Bitcoin’s main scaling layer could handle seven‑figure, institutional‑grade payments.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Christina Comben",
-      "priority": 2
-    },
-    {
-      "id": "3e2cf4effacf",
-      "title": "Trump-linked WLFI faces probe over $500M UAE crypto deal",
-      "url": "https://cointelegraph.com/news/trump-wlfi-probe-500-million-investment-from-uae-official?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T12:56:34+00:00",
-      "summary": "House Democrats probe $500 million UAE investment in Trump-linked WLFI, highlighting questions over dealings with the country's national security adviser.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Helen Partz",
-      "priority": 2
-    },
-    {
-      "id": "42c9193f074b",
-      "title": "Getting Started with Gemini 3: Unlocking the Cloud with the Free Trial",
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/getting-started-with-gemini-3-unlocking-the-cloud-with-the-free-trial/",
-      "source": "gcp",
-      "source_name": "Google Cloud Blog",
-      "category": "cloud",
-      "language": "en",
-      "published": "2026-02-05T12:54:00+00:00",
-      "summary": "In the previous post, we dipped our toes into the AI waters. We grabbed a Gemini API key to build your first \"Hello World\" AI app and then used the magic of Vibe Coding in Google AI Studio to create and deploy a web app to Cloud Run . But if you tried to hit that \"Deploy\" button in Part 2 without a Google Cloud Project set up, you might have hit a small speed bump. A Google Cloud Project unlocks the ability to host AI apps, store massive datasets, and yes, unleashes the full range of the Gemi...",
-      "content": "",
-      "tags": [
-        "Developers & Practitioners"
-      ],
-      "author": "Remigiusz Samborski",
-      "priority": 2
-    },
-    {
       "id": "77c0f652f67a",
       "title": "Tesla drops plans for robo-charging site for the SF robotaxis it doesn’t have",
       "url": "https://electrek.co/2026/02/05/tesla-drops-plans-for-robo-charging-site-for-the-sf-robotaxis-it-doesnt-have/",
@@ -891,83 +898,6 @@
         "News"
       ],
       "author": "Jameson Dow",
-      "priority": 2
-    },
-    {
-      "id": "ff3e70544eca",
-      "title": "Freshpaint (YC S19) Is Hiring a Senior SWE, Data",
-      "url": "https://www.freshpaint.io/about?ashby_jid=3a7926ba-cf51-4084-9196-4361a7e97761",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-05T12:00:03+00:00",
-      "summary": "Article URL: https://www.freshpaint.io/about?ashby_jid=3a7926ba-cf51-4084-9196-4361a7e97761 Comments URL: https://news.ycombinator.com/item?id=46898713 Points: 0 # Comments: 0",
-      "content": "",
-      "tags": [],
-      "author": "malisper",
-      "priority": 2
-    },
-    {
-      "id": "31c1123b5478",
-      "title": "AI surveillance marks a new phase for South Korea’s crypto markets",
-      "url": "https://cointelegraph.com/news/crypto-markets-ai-scrutiny-south-korea-surveillance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T11:22:58+00:00",
-      "summary": "Recent volatility reviews, new surveillance systems and a landmark court ruling show how South Korea is enforcing stricter oversight of crypto markets.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Ezra Reguerra",
-      "priority": 2
-    },
-    {
-      "id": "3fa33c6208de",
-      "title": "Vitalik Buterin sells $6.6M in ETH after flagging planned withdrawals",
-      "url": "https://cointelegraph.com/news/vitalik-buterin-sells-eth-after-flagging-planned-withdrawals?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T11:12:59+00:00",
-      "summary": "Vitalik Buterin sold almost 3,000 ETH worth $6.6 million through a series of swaps days after saying withdrawals from his holdings were coming.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Amin Haqshanas",
-      "priority": 2
-    },
-    {
-      "id": "cfcd33022217",
-      "title": "Bitcoin ETFs extend losses with $545M outflows as BTC nears $70K",
-      "url": "https://cointelegraph.com/news/bitcoin-etf-545-million-outflows-btc-nears-70k?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T10:02:22+00:00",
-      "summary": "Bitcoin ETFs saw $545 million in daily outflows as BTC neared $70,000, though analysts said most investors were holding positions despite market weakness.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Helen Partz",
-      "priority": 2
-    },
-    {
-      "id": "85cae28b5c92",
-      "title": "Agent Factory Recap: Build an AI Workforce with Gemini 3",
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/agent-factory-recap-build-an-ai-workforce-with-gemini-3/",
-      "source": "gcp",
-      "source_name": "Google Cloud Blog",
-      "category": "cloud",
-      "language": "en",
-      "published": "2026-02-05T09:04:00+00:00",
-      "summary": "In this episode of the Agent Factory , Smitha Kolan and Vlad Kolesnikov are joined by Brandon Hancock, a full-stack engineer and the creator behind the YouTube channel AI with Brandon , where he teaches AI concepts to over 80,000 developers. This was a very special recording, taking place just hours after Google released several major updates, including the new flagship model Gemini 3 , the Antigravity coding environment, and updates to the Gemini CLI . We spent the episode exploring these ne...",
-      "content": "",
-      "tags": [
-        "Developers & Practitioners"
-      ],
-      "author": "Smitha Kolan",
       "priority": 2
     },
     {
@@ -986,21 +916,64 @@
       "priority": 2
     },
     {
-      "id": "c14f5a0ee947",
-      "title": "Ship Production Ready AI and Survive the Multimodal Frontier This February",
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/ship-production-ready-ai-and-survive-the-multimodal-frontier-this-february/",
-      "source": "gcp",
-      "source_name": "Google Cloud Blog",
-      "category": "cloud",
-      "language": "en",
-      "published": "2026-02-05T08:04:00+00:00",
-      "summary": "The AI landscape is moving at breakneck speed. One day you’re figuring out how to secure a basic chatbot, and the next, you’re looking at agents that can see, hear, and react in real-time. This February and March, the Google Cloud is bringing you the best of both worlds. We are launching a high-octane roadshow across North America featuring two distinct, specialized workshops. Whether you need to solve the high-stakes challenges of Enterprise Scale or you want to pioneer the next generation o...",
-      "content": "",
-      "tags": [
-        "Developers & Practitioners"
-      ],
-      "author": "Christina Lin",
-      "priority": 2
+      "id": "5af7d1a14d58",
+      "title": "BMW의 '새 혁신'은 사실상 수리할 권리에 대한 '중지'",
+      "url": "https://news.hada.io/topic?id=26458",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-02-06T16:10:09+09:00",
+      "summary": "BMW가 자사 로고 모양의 독점 보안 나사 에 대한 특허를 출원, 이는 차량 소유자가 직접 수리하지 못하도록 설계된 구조 이 나사는 브랜드 로고를 우선시한 디자인 으로, 일반 공구로는 토크를 견디지 못해 나사나 비트가 쉽게 손상됨 특허 문서에는 “",
+      "content": "BMW가 자사 로고 모양의 독점 보안 나사 에 대한 특허를 출원, 이는 차량 소유자가 직접 수리하지 못하도록 설계된 구조 이 나사는 브랜드 로고를 우선시한 디자인 으로, 일반 공구로는 토크를 견디지 못해 나사나 비트가 쉽게 손상됨 특허 문서에는 “",
+      "tags": [],
+      "author": "xguru",
+      "priority": 1
+    },
+    {
+      "id": "33e0286e2c59",
+      "title": "Craft Agents, CLI 없이 Claude Code를 쓰는 오픈소스 에이전트 UI",
+      "url": "https://news.hada.io/topic?id=26457",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-02-06T16:02:11+09:00",
+      "summary": "Claude Code의 터미널 불편함을 해결한 오픈소스 GUI 데스크톱 앱 개발자: Craft CTO 발린트 오로스 (Valint Orosz) → Apache 2.0 라이선스 공개 문제점 (기존 Claude Code) 플랜 검토 어려움 변경 이유 파악 힘듦 멀티태스킹 제한",
+      "content": "Claude Code의 터미널 불편함을 해결한 오픈소스 GUI 데스크톱 앱 개발자: Craft CTO 발린트 오로스 (Valint Orosz) → Apache 2.0 라이선스 공개 문제점 (기존 Claude Code) 플랜 검토 어려움 변경 이유 파악 힘듦 멀티태스킹 제한",
+      "tags": [],
+      "author": "davespark",
+      "priority": 1
+    },
+    {
+      "id": "706bcd3f75d7",
+      "title": "LinkedIn이 2,953개의 브라우저 확장을 검사함",
+      "url": "https://news.hada.io/topic?id=26454",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-02-06T15:32:53+09:00",
+      "summary": "LinkedIn 웹사이트가 페이지를 불러올 때마다 2,953개의 Chrome 확장 프로그램 존재 여부를 탐지 함 저장소는 LinkedIn이 확인하는 모든 확장 ID와 이름, Chrome Web Store 링크 를 문서화함 전체 확장 중 약 78%는 Chrome Web Store에서 ,...",
+      "content": "LinkedIn 웹사이트가 페이지를 불러올 때마다 2,953개의 Chrome 확장 프로그램 존재 여부를 탐지 함 저장소는 LinkedIn이 확인하는 모든 확장 ID와 이름, Chrome Web Store 링크 를 문서화함 전체 확장 중 약 78%는 Chrome Web Store에서 ,...",
+      "tags": [],
+      "author": "neo",
+      "priority": 1
+    },
+    {
+      "id": "a384a0284c5f",
+      "title": "Abilities에서 AI 에이전트로: WordPress MCP Adapter 소개",
+      "url": "https://news.hada.io/topic?id=26453",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-02-06T15:14:11+09:00",
+      "summary": "핵심 요약 WordPress는 AI 에이전트 시대를 맞아 Abilities API (WordPress 6.9부터 도입)를 기반으로 한 새로운 공식 도구인 WordPress MCP Adapter 를 발표. 이 어댑터는 WordPress 내부의 기능(Abilities)을 Model Context Protocol (MCP)",
+      "content": "핵심 요약 WordPress는 AI 에이전트 시대를 맞아 Abilities API (WordPress 6.9부터 도입)를 기반으로 한 새로운 공식 도구인 WordPress MCP Adapter 를 발표. 이 어댑터는 WordPress 내부의 기능(Abilities)을 Model Context Protocol (MCP)",
+      "tags": [],
+      "author": "davespark",
+      "priority": 1
     },
     {
       "id": "c207b95234ed",
@@ -1015,6 +988,21 @@
       "content": "공식 가이드 페이지 현재: https://postcode.map.daum.net/guide 2026-03-10 이후: postcode.map.kakao.com 으로 이전 예정 CDN 도메인 변경 (적용 완료) 기...",
       "tags": [],
       "author": "rkjun",
+      "priority": 1
+    },
+    {
+      "id": "9f618b4085c2",
+      "title": "Claude Opus 4.6 Finds 500+ High-Severity Flaws Across Major Open-Source Libraries",
+      "url": "https://thehackernews.com/2026/02/claude-opus-46-finds-500-high-severity.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-02-06T11:19:00+05:30",
+      "summary": "Artificial intelligence (AI) company Anthropic revealed that its latest large language model (LLM), Claude Opus 4.6, has found more than 500 previously unknown high-severity security flaws in open-source libraries, including Ghostscript, OpenSC, and CGIF. Claude Opus 4.6, which was launched on Thursday, comes with improved coding skills, including code review and debugging capabilities, along",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
       "priority": 1
     },
     {
@@ -1213,6 +1201,249 @@
       "priority": 1
     },
     {
+      "id": "27f9ed00f8b8",
+      "title": "HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_11%EC%9B%94%ED%98%B8_%EC%82%AC%EC%9D%B4%EB%B2%84%EB%B3%B4%EC%95%88%20%ED%8A%B9%ED%99%94%20Vertical%20AI%20%EA%B5%AC%EC%B6%95%20%EB%B0%A9%EC%95%88.pdf&r_fname=20251127174323358.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.523666+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트",
+        "AI보안"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "230483d583e0",
+      "title": "Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2011%EC%9B%94%ED%98%B8%20%EA%B8%B0%EC%A1%B4%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%BD%94%EB%93%9C%EB%A5%BC%20%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%95%9C%20BlackField%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20251127174343776.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.523540+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트",
+        "랜섬웨어",
+        "KARA"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "d86768d75288",
+      "title": "Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_11%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EB%8D%B0%EC%9D%B4%ED%84%B0(Data).pdf&r_fname=20251127174412898.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.523406+00:00",
+      "summary": "SK쉴더스 보안 리포트: Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "5528f45e0d25",
+      "title": "SK쉴더스 EQST insight 통합 11월호",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_11%EC%9B%94%ED%98%B8.pdf&r_fname=20251127174457418.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.523279+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 11월호",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "986e55bc2a7e",
+      "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.523158+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "d811fadee334",
+      "title": "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.523026+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트",
+        "랜섬웨어",
+        "KARA"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "46094d971cf5",
+      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.522899+00:00",
+      "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "3cc1a7b416fc",
+      "title": "SK쉴더스 EQST insight 통합 12월호",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.522762+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "a28815273f1a",
+      "title": "HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_1%EC%9B%94%ED%98%B8_%EC%84%A0%EC%A0%9C%EC%A0%81%20%EB%B3%B4%EC%95%88%EA%B3%BC%20%EB%A0%88%EB%93%9C%ED%8C%80%20%EA%B8%B0%EB%B0%98%20%EC%82%AC%EC%9D%B4%EB%B2%84%20%EB%A9%B4%EC%97%AD%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%20%EC%A0%84%EB%9E%B5_F.pdf&r_fname=20260129161055399.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.522609+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "d11cf7a9c759",
+      "title": "Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%201%EC%9B%94%ED%98%B8%20Sinobi%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%EC%99%80%20Lynx%20%EA%B7%B8%EB%A3%B9%EA%B3%BC%EC%9D%98%20%EC%97%B0%EA%B3%84%20%EC%A0%95%ED%99%A9%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260129161122795.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.522464+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트",
+        "랜섬웨어",
+        "KARA"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "b6fa6b27e1a7",
+      "title": "Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%201%EC%9B%94%ED%98%B8_JWT%20%EC%84%9C%EB%AA%85%ED%82%A4%20%EC%9C%A0%EC%B6%9C%EC%9D%B4%20%EC%B4%88%EB%9E%98%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%A6%9D%20%EC%9C%84%ED%98%91%EA%B3%BC%20%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20260129161142327.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.522316+00:00",
+      "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "ad4f1e9b7f7b",
+      "title": "SK쉴더스 EQST insight 통합 (목차) 1월호 F",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_1%EC%9B%94%ED%98%B8_F.pdf&r_fname=20260129161206425.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-06T08:44:13.522117+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "f09a8a7a33c4",
+      "title": "Jefferies sees few signs of a crypto bottom yet flags upside for tokens with fundamentals",
+      "url": "https://www.coindesk.com/markets/2026/02/06/jefferies-sees-few-signs-of-a-crypto-bottom-yet-flags-upside-for-tokens-with-fundamentals",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-06T07:30:59+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "btc crash",
+        "ether ETF",
+        "News"
+      ],
+      "author": "Sam Reynolds",
+      "priority": 1
+    },
+    {
       "id": "6e32f62b2ce8",
       "title": "Show GN: Linear MCP Fast – 로컬 캐시에서 읽는 10x 빠른 Linear MCP",
       "url": "https://news.hada.io/topic?id=26436",
@@ -1225,6 +1456,43 @@
       "content": "Linear로 업무 관리하는 용도로 Claude Code를 쓰고 있는데요. 이슈를 가져올 때마다 Linear MCP로 호출하다보니 Context Window를 너무 많이 사용하고, 시간도 오래 걸리는게 너무 불편했습니다. 그래서 Linear 앱의 로컬 캐시를 직접 읽어 API 호출 없이 Linear를 훑어볼 수 있는 MCP를 만들었습니다. API 호",
       "tags": [],
       "author": "liabilityuk0",
+      "priority": 1
+    },
+    {
+      "id": "bd282ec2a2bb",
+      "title": "Bitcoin’s crash to $60,000 has traders hunting for a hidden fund blowup",
+      "url": "https://www.coindesk.com/markets/2026/02/06/bitcoin-s-crash-to-usd60-000-has-traders-hunting-for-a-hidden-fund-blowup",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-06T06:52:29+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "btc crash",
+        "News"
+      ],
+      "author": "Shaurya Malwa",
+      "priority": 1
+    },
+    {
+      "id": "74925908a339",
+      "title": "Amazon EKS에서 Friendli Container로 LLM 추론 최적화하기",
+      "url": "https://aws.amazon.com/ko/blogs/tech/optimizing-llm-inference-using-friendli-container-on-amazon-eks/",
+      "source": "aws_korea",
+      "source_name": "AWS Korea Blog",
+      "category": "cloud",
+      "language": "ko",
+      "published": "2026-02-06T06:48:40+00:00",
+      "summary": "FriendliAI는 AI 추론 효율을 크게 개선하는 고성능 서빙 엔진을 서비스하는 기업입니다. FriendliAI의 엔진은 높은 Throughput과 비용 절감 효과를 통해 기업이 생성형 AI 서비스를 효율적으로 운영할 수 있도록 지원합니다. Figure 1: Friendli Container Logo Friendli Container Amazon EKS Add-on은 AWS 인프라를 기반으로 생성형 AI 서비스를 확장하면서, Inference 효율을 극대화하는 솔루션입니다. 이 Add-on을 추가하면 기존 Amazon EKS […]",
+      "content": "FriendliAI 는 AI 추론 효율을 크게 개선하는 고성능 서빙 엔진을 서비스하는 기업입니다. FriendliAI의 엔진은 높은 Throughput과 비용 절감 효과를 통해 기업이 생성형 AI 서비스를 효율적으로 운영할 수 있도록 지원합니다. Figure 1: Friendli Container Logo Friendli Container Amazon EKS Add-on 은 AWS 인프라를 기반으로 생성형 AI 서비스를 확장하면서, Inference 효율을 극대화하는 솔루션입니다. 이 Add-on을 추가하면 기존 Amazon EKS 워크플로우에 Friendli Container를 즉시 통합할 수 있으며, 모든 비용은 AWS 통합 빌링 시스템을 통해 편리하게 관리됩니다. 이를 통해 Inference 비용 절감, 빠른 확장성(Scaling), 그리고 향상된 Throughput을 여러분의 워크로드에 즉각 적용할 수 있습니다. 지금부터 Friendli Container Add-on을 ...",
+      "tags": [
+        "Amazon Elastic Kubernetes Service",
+        "Artificial Intelligence"
+      ],
+      "author": "YongHwan Yoo",
       "priority": 1
     },
     {
@@ -1243,286 +1511,59 @@
       "priority": 1
     },
     {
-      "id": "3e3b2e172943",
-      "title": "GPT-5.3-Codex 공개",
-      "url": "https://news.hada.io/topic?id=26434",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-06T06:24:14+09:00",
-      "summary": "GPT-5.2-Codex의 코딩 성능과 GPT-5.2의 추론·전문 지식 을 한 모델로 결합, 25% 더 빠른 속도 제공 Codex의 에이전틱 작업 범위를 장기 실행 작업 까지 확장하고, 작업 중간에도 방향을 바꾸고 피드백을 반영하는 실시간 상호작용 협업",
-      "content": "GPT-5.2-Codex의 코딩 성능과 GPT-5.2의 추론·전문 지식 을 한 모델로 결합, 25% 더 빠른 속도 제공 Codex의 에이전틱 작업 범위를 장기 실행 작업 까지 확장하고, 작업 중간에도 방향을 바꾸고 피드백을 반영하는 실시간 상호작용 협업",
-      "tags": [],
-      "author": "xguru",
-      "priority": 1
-    },
-    {
-      "id": "b21e0cf4e371",
-      "title": "Claude Opus 4.6 공개",
-      "url": "https://news.hada.io/topic?id=26433",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-06T06:22:37+09:00",
-      "summary": "향상된 코딩 능력과 장기적 작업 지속성 을 갖춘 Anthropic의 최신 AI 모델로, 1M 토큰 컨텍스트 윈도우를 베타로 지원 주요 벤치마크에서 업계 최고 수준의 점수를 기록하며, GPT-5.2보다 약 144 Elo 포인트 우위 코드 리뷰·디버깅 , 대규모 코드...",
-      "content": "향상된 코딩 능력과 장기적 작업 지속성 을 갖춘 Anthropic의 최신 AI 모델로, 1M 토큰 컨텍스트 윈도우를 베타로 지원 주요 벤치마크에서 업계 최고 수준의 점수를 기록하며, GPT-5.2보다 약 144 Elo 포인트 우위 코드 리뷰·디버깅 , 대규모 코드...",
-      "tags": [],
-      "author": "xguru",
-      "priority": 1
-    },
-    {
-      "id": "d00bd9a0a611",
-      "title": "워싱턴포스트를 무너뜨린 제프 베이조스",
-      "url": "https://news.hada.io/topic?id=26432",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-06T05:33:31+09:00",
-      "summary": "아마존 창업자 제프 베이조스 가 2013년 워싱턴포스트를 인수했으나, 2026년 대규모 해고로 인해 신문이 심각한 쇠퇴 국면에 들어섬 2023년과 2024년에 각각 7,700만 달러와 1억 달러의 손실 을 기록한 뒤, 베이조스는 더 이상 적자를 감내하지 않고 인력 감축을 단행...",
-      "content": "아마존 창업자 제프 베이조스 가 2013년 워싱턴포스트를 인수했으나, 2026년 대규모 해고로 인해 신문이 심각한 쇠퇴 국면에 들어섬 2023년과 2024년에 각각 7,700만 달러와 1억 달러의 손실 을 기록한 뒤, 베이조스는 더 이상 적자를 감내하지 않고 인력 감축을 단행...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1
-    },
-    {
-      "id": "12f9c8713a0a",
-      "title": "나이 많은 직원을 유지하는 장점에 대해 더 많은 기업이 주목하는 이유",
-      "url": "https://news.hada.io/topic?id=26431",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-06T04:37:29+09:00",
-      "summary": "숙련된 중장년층 인력의 가치 가 재조명되며, 기업들이 이들을 유지하려는 움직임이 확산 중임 B&Q와 BMW 사례에서 고령 근로자 중심의 실험이 생산성과 수익성 향상 으로 이어졌음 AARP, OECD, BCG 연구 는 50세 이상 근로자가 많은...",
-      "content": "숙련된 중장년층 인력의 가치 가 재조명되며, 기업들이 이들을 유지하려는 움직임이 확산 중임 B&Q와 BMW 사례에서 고령 근로자 중심의 실험이 생산성과 수익성 향상 으로 이어졌음 AARP, OECD, BCG 연구 는 50세 이상 근로자가 많은...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1
-    },
-    {
-      "id": "27f9ed00f8b8",
-      "title": "HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_11%EC%9B%94%ED%98%B8_%EC%82%AC%EC%9D%B4%EB%B2%84%EB%B3%B4%EC%95%88%20%ED%8A%B9%ED%99%94%20Vertical%20AI%20%EA%B5%AC%EC%B6%95%20%EB%B0%A9%EC%95%88.pdf&r_fname=20251127174323358.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.746945+00:00",
-      "summary": "SK쉴더스 보안 리포트: HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
+      "id": "0bfe99d25d52",
+      "title": "BlackRock's bitcoin fund hits $10 billion volume record, hinting at peak selling",
+      "url": "https://www.coindesk.com/markets/2026/02/06/blackrock-s-bitcoin-etf-hits-usd10-billion-volume-record-hinting-at-capitulation",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-06T05:36:09+00:00",
+      "summary": "",
       "content": "",
       "tags": [
-        "AI보안",
-        "SK쉴더스",
-        "보안리포트"
+        "Markets",
+        "Bitcoin News",
+        "bitcoin spot ETF",
+        "News"
       ],
-      "author": "SK쉴더스",
+      "author": "Omkar Godbole",
       "priority": 1
     },
     {
-      "id": "230483d583e0",
-      "title": "Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2011%EC%9B%94%ED%98%B8%20%EA%B8%B0%EC%A1%B4%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%BD%94%EB%93%9C%EB%A5%BC%20%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%95%9C%20BlackField%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20251127174343776.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.746823+00:00",
-      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
+      "id": "bd58c590954c",
+      "title": "Bitcoin miner MARA moves $87 million BTC to various trading desks and exchanges: Arkham",
+      "url": "https://www.coindesk.com/markets/2026/02/06/bitcoin-miner-mara-moves-usd87-million-btc-to-various-trading-desks-and-exchanges",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-06T04:43:30+00:00",
+      "summary": "",
       "content": "",
       "tags": [
-        "KARA",
-        "SK쉴더스",
-        "랜섬웨어",
-        "보안리포트"
+        "Markets",
+        "News"
       ],
-      "author": "SK쉴더스",
+      "author": "Shaurya Malwa",
       "priority": 1
     },
     {
-      "id": "d86768d75288",
-      "title": "Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_11%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EB%8D%B0%EC%9D%B4%ED%84%B0(Data).pdf&r_fname=20251127174412898.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.746683+00:00",
-      "summary": "SK쉴더스 보안 리포트: Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
+      "id": "c75316a1bc1d",
+      "title": "Crypto sentiment gauge hits FTX-era lows as 'extreme fear' reaches a 9 reading",
+      "url": "https://www.coindesk.com/markets/2026/02/06/crypto-sentiment-gauge-hits-ftx-era-lows-as-extreme-fear-reaches-a-9-reading",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-06T04:31:09+00:00",
+      "summary": "",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "Markets",
+        "News"
       ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "5528f45e0d25",
-      "title": "SK쉴더스 EQST insight 통합 11월호",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_11%EC%9B%94%ED%98%B8.pdf&r_fname=20251127174457418.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.746565+00:00",
-      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 11월호",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "986e55bc2a7e",
-      "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.746449+00:00",
-      "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "d811fadee334",
-      "title": "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.746322+00:00",
-      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
-      "content": "",
-      "tags": [
-        "KARA",
-        "SK쉴더스",
-        "랜섬웨어",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "46094d971cf5",
-      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.746199+00:00",
-      "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "3cc1a7b416fc",
-      "title": "SK쉴더스 EQST insight 통합 12월호",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.746071+00:00",
-      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "a28815273f1a",
-      "title": "HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_1%EC%9B%94%ED%98%B8_%EC%84%A0%EC%A0%9C%EC%A0%81%20%EB%B3%B4%EC%95%88%EA%B3%BC%20%EB%A0%88%EB%93%9C%ED%8C%80%20%EA%B8%B0%EB%B0%98%20%EC%82%AC%EC%9D%B4%EB%B2%84%20%EB%A9%B4%EC%97%AD%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%20%EC%A0%84%EB%9E%B5_F.pdf&r_fname=20260129161055399.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.745951+00:00",
-      "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "d11cf7a9c759",
-      "title": "Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%201%EC%9B%94%ED%98%B8%20Sinobi%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%EC%99%80%20Lynx%20%EA%B7%B8%EB%A3%B9%EA%B3%BC%EC%9D%98%20%EC%97%B0%EA%B3%84%20%EC%A0%95%ED%99%A9%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260129161122795.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.745808+00:00",
-      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
-      "content": "",
-      "tags": [
-        "KARA",
-        "SK쉴더스",
-        "랜섬웨어",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "b6fa6b27e1a7",
-      "title": "Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%201%EC%9B%94%ED%98%B8_JWT%20%EC%84%9C%EB%AA%85%ED%82%A4%20%EC%9C%A0%EC%B6%9C%EC%9D%B4%20%EC%B4%88%EB%9E%98%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%A6%9D%20%EC%9C%84%ED%98%91%EA%B3%BC%20%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20260129161142327.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.745655+00:00",
-      "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "ad4f1e9b7f7b",
-      "title": "SK쉴더스 EQST insight 통합 (목차) 1월호 F",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_1%EC%9B%94%ED%98%B8_F.pdf&r_fname=20260129161206425.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-06T03:30:12.745487+00:00",
-      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
+      "author": "Shaurya Malwa",
       "priority": 1
     },
     {
@@ -1613,7 +1654,9 @@
       "published": "2026-02-06T00:00:00+00:00",
       "summary": "Learn how Elastic Defend's ransomware protection successfully detects and prevents DYNOWIPER execution using canary file monitoring.",
       "content": "Summary On December 29, 2025, a coordinated campaign of destructive cyberattacks targeted Poland's energy infrastructure, affecting over 30 renewable energy facilities and a major combined heat and power (CHP) plant A custom wiper malware dubbed DYNOWIPER was used to irreversibly destroy data across compromised networks CERT Polska attributes the attack infrastructure to the threat cluster Cisco refers to as Static Tundra, Crowdstrike refers to as Berserk Bear, Microsoft calls Ghost Blizzard,...",
-      "tags": [],
+      "tags": [
+        "security-labs"
+      ],
       "author": "",
       "priority": 1
     },
@@ -1636,42 +1679,6 @@
         "Eric balchunas"
       ],
       "author": "AI Boost",
-      "priority": 1
-    },
-    {
-      "id": "8fd60f57b6ba",
-      "title": "Reduce Vulnerability Noise with VEX: Wiz + Docker Hardened Images",
-      "url": "https://www.docker.com/blog/reduce-vulnerability-noise-with-vex-wiz-docker-hardened-images/",
-      "source": "docker",
-      "source_name": "Docker Blog",
-      "category": "devops",
-      "language": "en",
-      "published": "2026-02-05T23:25:55+00:00",
-      "summary": "Open source components power most modern applications. A new generation of hardened container images can establish a more secure foundation, but even with hardened images, vulnerability scanners often return dozens or hundreds of CVEs with little prioritization. This noise slows teams down and complicates security triage. The VEX (Vulnerability Exploitability eXchange) standard addresses the problem...",
-      "content": "Open source components power most modern applications. A new generation of hardened container images can establish a more secure foundation, but even with hardened images, vulnerability scanners often return dozens or hundreds of CVEs with little prioritization. This noise slows teams down and complicates security triage. The VEX (Vulnerability Exploitability eXchange) standard addresses the problem by providing information on whether a specific vulnerability actually impacts an organization’...",
-      "tags": [
-        "Partnerships",
-        "Products",
-        "CVE false positives",
-        "Docker Hardened Images",
-        "FedRAMP VEX coverage"
-      ],
-      "author": "Dan Berezin Stelzer",
-      "priority": 1
-    },
-    {
-      "id": "c072b8debda1",
-      "title": "AISURU/Kimwolf Botnet Launches Record-Setting 31.4 Tbps DDoS Attack",
-      "url": "https://thehackernews.com/2026/02/aisurukimwolf-botnet-launches-record.html",
-      "source": "thehackernews",
-      "source_name": "The Hacker News",
-      "category": "security",
-      "language": "en",
-      "published": "2026-02-05T22:55:00+05:30",
-      "summary": "The distributed denial-of-service (DDoS) botnet known as AISURU/Kimwolf has been attributed to a record-setting attack that peaked at 31.4 Terabits per second (Tbps) and lasted only 35 seconds. Cloudflare, which automatically detected and mitigated the activity, said it's part of a growing number of hyper-volumetric HTTP DDoS attacks mounted by the botnet in the fourth quarter of 2025. The",
-      "content": "",
-      "tags": [],
-      "author": "info@thehackernews.com (The Hacker News)",
       "priority": 1
     },
     {
@@ -1733,27 +1740,6 @@
         "News"
       ],
       "author": "Helene Braun",
-      "priority": 1
-    },
-    {
-      "id": "6c852f072e2a",
-      "title": "Paystand: The Payments Giants Quietly Supporting Bitcoin Circular Economies",
-      "url": "https://bitcoinmagazine.com/business/paystand-the-payments-giants-quietly-supporting-bitcoin-circular-economies",
-      "source": "bitcoin_magazine",
-      "source_name": "Bitcoin Magazine",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T20:49:24+00:00",
-      "summary": "Bitcoin Magazine Paystand: The Payments Giants Quietly Supporting Bitcoin Circular Economies Paystand CEO Jeremy Almond revealed massive Bitcoin mining operation, teases B2B layer two protocol and his strategy to orange pill corporate America. This post Paystand: The Payments Giants Quietly Supporting Bitcoin Circular Economies first appeared on Bitcoin Magazine and is written by Juan Galt .",
-      "content": "Bitcoin Magazine Paystand: The Payments Giants Quietly Supporting Bitcoin Circular Economies While many hyper focus on the bitcoin price and its occasional intense volatility, there is a whole cohort of Bitcoiners that are quietly building Bitcoin circular economies with deep social impact around the world, in areas where Bitcoin is a save heaven asset today, compared to the local economies and circumstances. One such company is Paystand, a B2B payments giant that has gone under the radar as ...",
-      "tags": [
-        "BUSINESS",
-        "FEATURED",
-        "almond",
-        "b2b",
-        "bce"
-      ],
-      "author": "Juan Galt",
       "priority": 1
     },
     {
@@ -1878,27 +1864,6 @@
       "priority": 1
     },
     {
-      "id": "05a69b49556b",
-      "title": "JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold Long Term",
-      "url": "https://bitcoinmagazine.com/news/bitcoin-is-now-more-attractive-than-gold",
-      "source": "bitcoin_magazine",
-      "source_name": "Bitcoin Magazine",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T19:23:16+00:00",
-      "summary": "Bitcoin Magazine JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold Long Term JPMorgan says Bitcoin’s long-term case versus gold is strengthening despite its historic sell-off. This post JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold Long Term first appeared on Bitcoin Magazine and is written by Micah Zimmerman .",
-      "content": "Bitcoin Magazine JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold Long Term Bitcoin’s long-term investment case relative to gold has strengthened, according to JPMorgan, even as the cryptocurrency suffers one of the sharpest market pullbacks in its history. In a new note, JPMorgan analysts reportedly said Bitcoin’s risk-adjusted profile versus gold has improved after gold’s strong outperformance over the past year and a notable rise in volatility for the traditional safe-haven ...",
-      "tags": [
-        "NEWS",
-        "Bitcoin",
-        "Gold",
-        "Gold standard",
-        "Jpmorgan"
-      ],
-      "author": "Micah Zimmerman",
-      "priority": 1
-    },
-    {
       "id": "8b0dd1778c77",
       "title": "The v2 Transport: Bitcoin P2P Traffic Goes Dark",
       "url": "https://bitcoinmagazine.com/print/the-v2-transport-bitcoin-p2p-traffic-goes-dark",
@@ -1917,36 +1882,6 @@
         "P2P protocol"
       ],
       "author": "Pieter Wuille",
-      "priority": 1
-    },
-    {
-      "id": "fbd9f9297981",
-      "title": "New Clickfix variant ‘CrashFix’ deploying Python Remote Access Trojan",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/02/05/clickfix-variant-crashfix-deploying-python-rat-trojan/",
-      "source": "microsoft_security",
-      "source_name": "Microsoft Security Blog",
-      "category": "security",
-      "language": "en",
-      "published": "2026-02-05T18:51:39+00:00",
-      "summary": "CrashFix crashes browsers to coerce users into executing commands that deploy a Python RAT, abusing finger.exe and portable Python to evade detection and persist on high‑value systems. The post New Clickfix variant ‘CrashFix’ deploying Python Remote Access Trojan appeared first on Microsoft Security Blog .",
-      "content": "In January 2026, Microsoft Defender Experts identified a new evolution in the ongoing ClickFix campaign. This updated tactic deliberately crashes victims’ browsers and then attempts to lure users into executing malicious commands under the pretext of restoring normal functionality. This variant represents a notable escalation in ClickFix tradecraft, combining user disruption with social engineering to increase execution success while reducing reliance on traditional exploit techniques. The ne...",
-      "tags": [],
-      "author": "Microsoft Defender Security Research Team",
-      "priority": 1
-    },
-    {
-      "id": "e4f49d1491d0",
-      "title": "ThreatsDay Bulletin: Codespaces RCE, AsyncRAT C2, BYOVD Abuse, AI Cloud Intrusions & 15+ Stories",
-      "url": "https://thehackernews.com/2026/02/threatsday-bulletin-codespaces-rce.html",
-      "source": "thehackernews",
-      "source_name": "The Hacker News",
-      "category": "security",
-      "language": "en",
-      "published": "2026-02-05T18:27:00+05:30",
-      "summary": "This week didn’t produce one big headline. It produced many small signals — the kind that quietly shape what attacks will look like next. Researchers tracked intrusions that start in ordinary places: developer workflows, remote tools, cloud access, identity paths, and even routine user actions. Nothing looked dramatic on the surface. That’s the point. Entry is becoming less visible while impact",
-      "content": "",
-      "tags": [],
-      "author": "info@thehackernews.com (The Hacker News)",
       "priority": 1
     },
     {
@@ -2100,26 +2035,6 @@
       "priority": 1
     },
     {
-      "id": "e42f6ff46ee0",
-      "title": "Natively Adaptive Interfaces: A new framework for AI accessibility",
-      "url": "https://blog.google/company-news/outreach-and-initiatives/accessibility/natively-adaptive-interfaces-ai-accessibility/",
-      "source": "google_ai",
-      "source_name": "Google AI Blog",
-      "category": "ai",
-      "language": "en",
-      "published": "2026-02-05T17:00:00+00:00",
-      "summary": "A collage of four images, the first of a woman with curly hair in front of a silver laptop, the second of the same woman and a man with short black hair speaking on a stairwell, the third of a the same man with glasses, and an aerial image of NTID",
-      "content": "Learn how Google's NAI framework uses AI to make technology more adaptive, inclusive and helpful for everyone.",
-      "tags": [
-        "Accessibility",
-        "Google.org",
-        "Google Research",
-        "AI"
-      ],
-      "author": "Sam Sepah",
-      "priority": 1
-    },
-    {
       "id": "276f66c9eb08",
       "title": "Strategy has $6.5 billion loss on BTC, but continues trading at premium to value of its assets",
       "url": "https://www.coindesk.com/markets/2026/02/05/strategy-has-usd6-5-billion-loss-on-btc-but-continues-trading-at-premium-to-value-of-its-assets",
@@ -2181,86 +2096,6 @@
       "priority": 1
     },
     {
-      "id": "9e4ffeb5581f",
-      "title": "Solana Foundation's Liu: Focus on finance, not gaming 'misadventures'",
-      "url": "https://www.coindesk.com/tech/2026/02/05/solana-foundation-s-liu-urges-refocus-on-finance-as-crypto-slides-and-narratives-narrow",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T16:16:39+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Tech",
-        "Solana Foundation",
-        "Solana News",
-        "News"
-      ],
-      "author": "AI Boost",
-      "priority": 1
-    },
-    {
-      "id": "ed7c2fc82cd7",
-      "title": "Tom Lee's Bitmine may be buying ETH, but Vitalik Buterin and everyone else appears to be selling",
-      "url": "https://www.coindesk.com/markets/2026/02/04/everyone-is-selling-eth-apart-from-tom-lee-s-bitmine",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T16:15:45+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Markets",
-        "Ether Price",
-        "Ethereum Futures",
-        "Bitmine",
-        "Vitalik Buterin"
-      ],
-      "author": "Oliver Knight",
-      "priority": 1
-    },
-    {
-      "id": "828c66e897f9",
-      "title": "How Google Cloud is helping Team USA elevate their tricks with AI",
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/us-ski-snowboard-tool-winter-olympics-2026/",
-      "source": "google_ai",
-      "source_name": "Google AI Blog",
-      "category": "ai",
-      "language": "en",
-      "published": "2026-02-05T16:00:00+00:00",
-      "summary": "A woman outdoors in the snow looks at a tablet. A half pipe is behind her.",
-      "content": "Google Cloud built an industry-first AI tool to help U.S. Ski and Snowboard athletes.",
-      "tags": [
-        "Google Cloud",
-        "AI"
-      ],
-      "author": "Keyword Team",
-      "priority": 1
-    },
-    {
-      "id": "f04b014e8d11",
-      "title": "Crypto for Advisors: Rethinking crypto diversification",
-      "url": "https://www.coindesk.com/coindesk-indices/2026/02/04/crypto-for-advisors-rethinking-crypto-diversification",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T16:00:00+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "CoinDesk Indices",
-        "Financial Advisors",
-        "Crypto for Advisors",
-        "CoinDesk Indices",
-        "CoinDesk 20"
-      ],
-      "author": "Glenn Williams Jr.",
-      "priority": 1
-    },
-    {
       "id": "e8f8725ff577",
       "title": "Infy Hackers Resume Operations with New C2 Servers After Iran Internet Blackout Ends",
       "url": "https://thehackernews.com/2026/02/infy-hackers-resume-operations-with-new.html",
@@ -2273,44 +2108,6 @@
       "content": "",
       "tags": [],
       "author": "info@thehackernews.com (The Hacker News)",
-      "priority": 1
-    },
-    {
-      "id": "948dbcf7ca28",
-      "title": "XRP plunges 16% in worst drop among bitcoin, ether and major tokens",
-      "url": "https://www.coindesk.com/markets/2026/02/05/xrp-plunges-16-in-worst-drop-among-bitcoin-ether-and-major-tokens",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T15:48:10+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Markets",
-        "News"
-      ],
-      "author": "Shaurya Malwa",
-      "priority": 1
-    },
-    {
-      "id": "7e07e8ac42de",
-      "title": "Bitcoin's rising leveraged position points to continued dip buying, but may not yet signal price bottom",
-      "url": "https://www.coindesk.com/markets/2026/02/05/bitcoin-s-rising-leveraged-position-points-to-continued-dip-buying-but-may-not-yet-signal-price-bottom",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-05T15:32:42+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Markets",
-        "Bitcoin News",
-        "Bitfinex",
-        "News"
-      ],
-      "author": "James Van Straten",
       "priority": 1
     },
     {
@@ -2332,25 +2129,6 @@
         "Virginia"
       ],
       "author": "Micah Zimmerman",
-      "priority": 1
-    },
-    {
-      "id": "f9c339bacc05",
-      "title": "Watch our new Gemini ad ahead of football’s biggest weekend",
-      "url": "https://blog.google/company-news/inside-google/company-announcements/gemini-ad-new-home/",
-      "source": "google_ai",
-      "source_name": "Google AI Blog",
-      "category": "ai",
-      "language": "en",
-      "published": "2026-02-05T14:30:00+00:00",
-      "summary": "A toddler in a blue and yellow striped shirt sits on a kitchen counter eating a red apple. Text in the corner reads: 'New Home, Google Gemini SB Commercial’",
-      "content": "Learn more about Google’s new ad that will run during football’s Big Game on February 8.",
-      "tags": [
-        "Gemini",
-        "Photos",
-        "AI"
-      ],
-      "author": "Marvin Chow",
       "priority": 1
     },
     {
@@ -2447,38 +2225,6 @@
       "tags": [
         "Security"
       ],
-      "author": "",
-      "priority": 1
-    },
-    {
-      "id": "1a4bc4ca0280",
-      "title": "Introducing OpenAI Frontier",
-      "url": "https://openai.com/index/introducing-openai-frontier",
-      "source": "openai",
-      "source_name": "OpenAI Blog",
-      "category": "ai",
-      "language": "en",
-      "published": "2026-02-05T06:00:00+00:00",
-      "summary": "OpenAI Frontier is an enterprise platform for building, deploying, and managing AI agents with shared context, onboarding, permissions, and governance.",
-      "content": "",
-      "tags": [
-        "Product"
-      ],
-      "author": "",
-      "priority": 1
-    },
-    {
-      "id": "6764cfd40e61",
-      "title": "Snyk Finds Prompt Injection in 36%, 1467 Malicious Payloads in a ToxicSkills Study of Agent Skills Supply Chain Compromise",
-      "url": "https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/",
-      "source": "snyk",
-      "source_name": "Snyk Blog",
-      "category": "devsecops",
-      "language": "en",
-      "published": "2026-02-05T05:00:00+00:00",
-      "summary": "Snyk’s ToxicSkills research reveals 36% of AI agent skills contain security flaws, including 1,467 vulnerable skills and active malicious payloads targeting OpenClaw, Claude Code, and Cursor users.",
-      "content": "",
-      "tags": [],
       "author": "",
       "priority": 1
     },
