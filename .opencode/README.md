@@ -25,16 +25,25 @@ opencode sisyphus
 ## Agents
 
 ### Model Selection Strategy
-**Cost-Optimized Approach**: Use high-quality models (Opus 4.5) only for complex tasks requiring code generation or high-quality content. Use cost-efficient models (Sonnet 4) for validation, analysis, and read-only tasks.
+**Cost-Optimized Approach**: Use high-quality models (Opus 4.5/4.6) only for complex tasks requiring code generation or high-quality content. Use cost-efficient models (Sonnet 4) for validation, analysis, and read-only tasks.
+
+**Opus 4.6 최적화**: Opus 4.6는 향상된 맥락 이해와 끈기 있는 작업 능력을 제공합니다. 효과적으로 활용하기 위해:
+- **명확한 지시사항**: 반복 지시 불필요, 의도 설명 포함
+- **맥락 제공**: 복잡한 작업 전에 관련 파일/문서 공유
+- **확인 지점 설정**: 다단계 작업에 단계별 체크포인트
+- **대안 탐색**: "이걸 접근하는 세 가지 방법이 뭐가 있을까?" 같은 질문 활용
+
+자세한 내용은 `CLAUDE.md`의 "Opus 4.6 최대한 활용하기" 섹션을 참조하세요.
 
 ### Primary Agent
 - **Purpose**: Main content improvement and generation (complex tasks)
 - **Mode**: Primary (Sisyphus orchestrator)
-- **Model**: Claude Opus 4.5 ⭐ (high-quality for content/code generation)
+- **Model**: Claude Opus 4.5/4.6 ⭐ (high-quality for content/code generation)
 - **Permissions**: Full (write, edit, bash)
 - **Max Steps**: 50
 - **Temperature**: 0.3 (balanced creativity)
 - **Use Cases**: Content generation, complex coding, image generation
+- **Opus 4.6 활용**: 맥락 파악 우선, 끈기 있는 작업, 적극적 의견 제시
 
 ### Explore Agent
 - **Purpose**: Codebase analysis and discovery (read-only, cost-optimized)
@@ -57,11 +66,12 @@ opencode sisyphus
 ### Code Agent
 - **Purpose**: Complex coding tasks (high-quality for code work)
 - **Mode**: Subagent
-- **Model**: Claude Opus 4.5 ⭐ (high-quality for coding)
+- **Model**: Claude Opus 4.5/4.6 ⭐ (high-quality for coding)
 - **Permissions**: Write, edit, bash (with ask for bash)
 - **Max Steps**: 30
 - **Temperature**: 0.2 (focused coding)
 - **Use Cases**: Code writing, refactoring, bug fixing
+- **Opus 4.6 활용**: 행동하기 전에 전체 그림 파악, 어려운 작업에서 끈기 있게 작업
 
 ## Commands
 
@@ -172,11 +182,13 @@ Fix bugs and security issues.
 
 | Task Type | Model | Rationale |
 |-----------|-------|-----------|
-| Content/Code Generation | Opus 4.5 ⭐ | High-quality output required |
-| Code Writing/Refactoring | Opus 4.5 ⭐ | Complex logic, best practices |
+| Content/Code Generation | Opus 4.5/4.6 ⭐ | High-quality output required, better context understanding |
+| Code Writing/Refactoring | Opus 4.5/4.6 ⭐ | Complex logic, best practices, persistent problem-solving |
 | Validation/Analysis | Sonnet 4 💰 | Rule-based, cost-efficient |
 | Read-only Exploration | Sonnet 4 💰 | Analysis only, no generation |
 | Security Audits | Sonnet 4 💰 | Pattern matching, cost-efficient |
+
+**Opus 4.6 장점**: 향상된 맥락 이해, 더 정확한 지시 따름, 끈기 있는 작업, 적극적 의견 제시
 
 ### Pricing Comparison
 - **Claude Opus 4.5**: $5/M input, $25/M output (high-quality)

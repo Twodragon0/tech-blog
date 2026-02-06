@@ -1,6 +1,6 @@
 # AGENTS.md - AI Agent Coding Guidelines
 
-**Last updated**: 2026-01-22
+**Last updated**: 2026-02-06
 
 Coding guidelines for AI agents (Claude, Cursor, Copilot, etc.) working on this Jekyll-based DevSecOps technical blog.
 
@@ -428,7 +428,64 @@ opencode sisyphus
 
 ---
 
-## 15. Summary
+## 15. Opus 4.6 최대한 활용하기
+
+Claude Opus 4.6는 의미 있는 업그레이드입니다. 복잡한 작업을 위해 맥락을 수집하고, 어려운 작업에 더 오래 매달리며, 독립적으로 작업할 때와 사용자에게 확인을 구할 때를 더 잘 판단합니다.
+
+### 핵심 활용 원칙
+
+| 원칙 | 설명 | 활용 방법 |
+|------|------|----------|
+| **정확한 지시 따름** | 반복 지시 불필요, 적은 예시로도 패턴 파악 | 한 번만 말하고, 의도 설명 포함 |
+| **맥락 파악 우선** | 행동하기 전에 전체 그림 파악 | 관련 파일 공유, 간단한 작업은 범위 좁히기 |
+| **끈기 있는 작업** | 어려운 작업에 더 오래 매달림 | 확인 지점 설정, 루프 인식, 협업 요청 |
+| **적극적 의견 제시** | 빠른 결정, 대안 제안 | 대안 탐색 요청, 스트레스 테스트 |
+| **강력한 글쓰기** | 스타일 매칭, 목소리 유지 | 예시 제공, 피해야 할 것 명시 |
+
+### 지시사항 작성 가이드
+
+**✅ 좋은 예시**:
+```markdown
+"보안을 최우선으로 고려하여 API 키는 환경 변수로 관리하고, 
+로그에는 민감 정보가 노출되지 않도록 마스킹을 적용해줘. 
+이렇게 하면 실수로 커밋되거나 로그에 노출되는 위험을 방지할 수 있어."
+```
+
+**❌ 나쁜 예시**:
+```markdown
+"API 키는 환경 변수로 관리해줘. 그리고 잊지 말고 로그에는 마스킹을 적용해줘. 
+그리고 API 키는 절대 하드코딩하지 말아줘."
+```
+
+### 맥락 제공 전략
+
+1. **복잡한 작업**: 관련 파일, 문서, 시스템 구조 설명
+2. **간단한 작업**: "이 파일만 봐주세요" 또는 "정확히 이것만 필요해요"
+3. **이해 확인**: "이 구조가 어떻게 되어 있는지 설명해주고 나서 X를 업데이트해줘"
+
+### 확인 지점 설정
+
+복잡한 작업의 경우 단계별 확인 지점을 설정:
+```markdown
+"각 주요 단계 후에 확인해줘:
+1. 파일 구조 분석 후 확인
+2. 개선 로직 설계 후 확인
+3. 구현 후 확인"
+```
+
+### 대안 탐색 및 스트레스 테스트
+
+- **대안 탐색**: "이걸 접근하는 세 가지 방법이 뭐가 있을까?"
+- **스트레스 테스트**: "이 계획의 문제점은 뭐야?" 또는 "내가 놓치고 있는 게 뭐야?"
+- **결정 완료 시**: "대안은 이미 고려했어. 이 접근 방식으로 진행해줘."
+
+### 글쓰기 스타일 가이드
+
+- **예시 제공**: 원하는 스타일의 샘플 공유
+- **제약 명시**: 피해야 할 것 명확히 지정
+- **일관성 유지**: 이전 작업의 스타일 매칭 요청
+
+## 16. Summary
 
 1. **Security First**: Mask sensitive info, use env vars, validate inputs
 2. **English Filenames**: Images and SVG text must be English
@@ -446,3 +503,9 @@ opencode sisyphus
    - `/improve-posts` for continuous content improvement
    - Model selection based on task type (cost optimization)
    - Security-first approach with least privilege
+10. **Opus 4.6 Optimization**:
+    - Single clear instruction (no repetition needed)
+    - Provide context upfront for complex tasks
+    - Set checkpoints for multi-step work
+    - Request alternatives and stress tests
+    - Provide style examples for writing tasks

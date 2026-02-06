@@ -99,10 +99,29 @@ These files remain in the project root for quick access and convention complianc
 | File | Purpose |
 |------|---------|
 | `README.md` | Project overview and quick start |
-| `CLAUDE.md` | Claude Code instructions |
-| `AGENTS.md` | AI agent coding guidelines |
-| `.cursorrules` | Cursor AI rules |
+| `CLAUDE.md` | Claude Code instructions (includes Opus 4.6 optimization guide) |
+| `AGENTS.md` | AI agent coding guidelines (includes Opus 4.6 best practices) |
+| `.cursorrules` | Cursor AI rules (includes Opus 4.6 optimization principles) |
 | `SECURITY.md` | Security policy |
+
+## AI Assistant Optimization
+
+### Opus 4.6 최대한 활용하기
+
+Claude Opus 4.6는 의미 있는 업그레이드입니다. 프로젝트의 주요 AI 관련 문서에 Opus 4.6 활용 가이드가 포함되어 있습니다:
+
+- **CLAUDE.md**: Opus 4.6 최대한 활용하기 섹션 (5가지 핵심 원칙)
+- **AGENTS.md**: Opus 4.6 최대한 활용하기 섹션 (표 형식 요약)
+- **.cursorrules**: Opus 4.6 최적화 원칙 (프롬프트 작성 가이드)
+
+**핵심 원칙**:
+1. **지시사항을 더 정확하게 따름**: 반복 지시 불필요, 의도 설명 포함
+2. **행동하기 전에 맥락을 파악**: 관련 파일 공유, 간단한 작업은 범위 좁히기
+3. **어려운 작업에서 끈기 있게 작업**: 확인 지점 설정, 협업 요청
+4. **더 적극적으로 의견을 제시**: 대안 탐색, 스트레스 테스트
+5. **더 강력한 글쓰기**: 스타일 매칭, 목소리 유지
+
+자세한 내용은 각 문서의 해당 섹션을 참조하세요.
 
 ## See Also
 
