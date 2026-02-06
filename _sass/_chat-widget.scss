@@ -17,7 +17,7 @@
 
 /* Chat Toggle Button */
 .chat-widget-toggle {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 56px;
@@ -29,17 +29,17 @@
   cursor: pointer;
   box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05));
   transition: all var(--transition-base, 0.3s cubic-bezier(0.4, 0, 0.2, 1));
-  position: fixed; /* 토글 버튼도 fixed로 설정 */
+  position: fixed;
   bottom: 2rem;
   right: 2rem;
-  z-index: calc(var(--z-modal, 1000) + 1); /* 윈도우보다 위에 표시 */
+  z-index: calc(var(--z-modal, 1000) + 1);
   opacity: 0;
   transform: scale(0.8) translateY(10px);
   overflow: visible;
+  animation: chatToggleAppear 0.4s cubic-bezier(0.4, 0, 0.2, 1) 2s forwards;
 }
 
 .chat-widget-toggle-visible {
-  display: flex;
   animation: chatWidgetFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
@@ -57,8 +57,22 @@
   }
 }
 
-/* 펄스 애니메이션 (사용자 주의 유도) */
-.chat-widget-toggle-visible::before {
+@keyframes chatToggleAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  60% {
+    transform: scale(1.05) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 펄스 애니메이션 (사용자 주의 유도) - CSS only, no JS needed */
+.chat-widget-toggle::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -585,7 +599,6 @@
   .chat-table-wrap {
     margin: 0.5em 0;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     border-radius: 6px;
     border: 1px solid var(--color-border, #e2e8f0);
   }
@@ -712,7 +725,7 @@
   }
 
   /* 모바일에서 펄스 애니메이션 약화 */
-  .chat-widget-toggle-visible::before {
+  .chat-widget-toggle::before {
     animation-duration: 3s;
   }
 }

@@ -8,7 +8,6 @@
     apiEndpoint: '/api/chat',
     maxRetries: 1, // 재시도 횟수 (타임아웃 시 재시도는 비효율적)
     timeout: 30000, // 30초 (서버 타임아웃 25초 + 네트워크 여유 5초)
-    showIconDelay: 5000, // 5 seconds
     retryDelay: 2000, // 재시도 전 대기 시간 (ms)
     maxMessageLength: 2000, // 서버와 동일한 제한
   };
@@ -103,18 +102,11 @@
     }
   }
 
-  // Show chat icon with delay
+  // Ensure chat icon is visible (CSS handles initial appearance animation)
   function showChatIcon() {
-    setTimeout(() => {
-      if (chatToggle) {
-        chatToggle.style.display = 'flex';
-        // Force reflow for animation
-        chatToggle.offsetHeight;
-        requestAnimationFrame(() => {
-          chatToggle.classList.add('chat-widget-toggle-visible');
-        });
-      }
-    }, CONFIG.showIconDelay);
+    if (chatToggle) {
+      chatToggle.classList.add('chat-widget-toggle-visible');
+    }
   }
 
   // Prevent body scroll when chat is open on mobile
@@ -626,7 +618,14 @@
           sessionId: sessionId,
           conversationHistory: conversationHistory.length > 0 ? conversationHistory : undefined, // 빈 배열은 전송하지 않음
         }),
-        signal: AbortSignal.timeout(CONFIG.timeout),
+        signal: (() => {
+          if (typeof AbortSignal.timeout === 'function') {
+            return AbortSignal.timeout(CONFIG.timeout);
+          }
+          const controller = new AbortController();
+          setTimeout(() => controller.abort(), CONFIG.timeout);
+          return controller.signal;
+        })(),
       });
       
       if (!response.ok) {

@@ -1,16 +1,15 @@
 // Service Worker for Offline Support and Caching
 // 버전 업데이트 시 CACHE_NAME 변경하여 캐시 무효화
-// v14: image-optimizer.js 완전 비활성화 - WebP 에러 근본 해결
-const CACHE_NAME = 'tech-blog-v14';
-const STATIC_CACHE = 'tech-blog-static-v14';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v14';
+// v15: JS 스플릿 최적화 - main-core.js/main-search.js 분리, 빈 catch 제거
+const CACHE_NAME = 'tech-blog-v15';
+const STATIC_CACHE = 'tech-blog-static-v15';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v15';
 
 // 캐시할 정적 리소스
 const STATIC_ASSETS = [
   '/',
   '/assets/css/main.css',
-  '/assets/js/main.js',
-  '/assets/js/chat-widget.js',
+  '/assets/js/main-core.js',
   // image-optimizer.js 제거 (WebP 변환 비활성화)
   '/assets/images/favicon.png'
 ];

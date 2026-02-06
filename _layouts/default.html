@@ -40,20 +40,9 @@
         document.body.appendChild(script);
       }
       
-      // Load on toggle click or after 3 seconds (if user is still on page)
+      // Load ONLY on user click - never auto-preload
       if (chatToggle) {
         chatToggle.addEventListener('click', loadChatWidget, { once: true, passive: true });
-        
-        // Also load after 3 seconds if user hasn't left (non-blocking)
-        setTimeout(function() {
-          if (document.visibilityState === 'visible' && !chatWidgetLoaded) {
-            if (typeof requestIdleCallback !== 'undefined') {
-              requestIdleCallback(loadChatWidget, { timeout: 2000 });
-            } else {
-              setTimeout(loadChatWidget, 0);
-            }
-          }
-        }, 3000);
       }
     })();
   </script>

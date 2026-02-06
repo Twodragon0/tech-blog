@@ -91,7 +91,11 @@
     }
 
     searchInput.addEventListener('focus', function onFirstFocus() {
-      loadFuseJs().then(() => initFuse()).catch(() => {});
+      loadFuseJs().then(() => initFuse()).catch(function(err) {
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          console.warn('[Search] Fuse.js load failed:', err);
+        }
+      });
       searchInput.removeEventListener('focus', onFirstFocus);
     }, { once: true });
 
@@ -200,7 +204,13 @@
           if (serverResults && serverResults.length > 0) {
             renderResults(mergeResults(serverResults, clientResults), query, true);
           }
-        }).catch(() => {});
+        }).catch(function(err) {
+          if (err && err.name !== 'AbortError') {
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+              console.warn('[Search] Server search failed:', err);
+            }
+          }
+        });
       }, 300);
     });
 
