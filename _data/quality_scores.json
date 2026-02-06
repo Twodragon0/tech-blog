@@ -1,0 +1,44 @@
+{
+  "scores": [
+    {
+      "date": "2026-02-06T14:37:59.923828",
+      "file": "2026-02-05-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go.md",
+      "score": 86,
+      "breakdown": {
+        "front_matter": 11,
+        "ai_summary": 10,
+        "executive_summary": 10,
+        "risk_scorecard": 10,
+        "sections": 15,
+        "checklists": 10,
+        "tables": 10,
+        "code_blocks": 0,
+        "cross_refs": 5,
+        "length": 5
+      },
+      "lines": 1008
+    },
+    {
+      "date": "2026-02-06T14:38:40.336679",
+      "file": "2026-02-05-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go.md",
+      "score": 86,
+      "breakdown": {
+        "front_matter": 11,
+        "ai_summary": 10,
+        "executive_summary": 10,
+        "risk_scorecard": 10,
+        "sections": 15,
+        "checklists": 10,
+        "tables": 10,
+        "code_blocks": 0,
+        "cross_refs": 5,
+        "length": 5
+      },
+      "lines": 1008
+    }
+  ],
+  "_meta": {
+    "version": "1.0",
+    "description": "\ud3ec\uc2a4\ud2b8 \ud488\uc9c8 \uc810\uc218 \ucd94\uc774"
+  }
+}
