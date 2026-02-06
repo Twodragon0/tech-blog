@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "ttl_days": 7,
+    "description": "AI 강화 결과 캐시 (7일 TTL)",
+    "created": "2026-02-06",
+    "notes": "이 파일은 AI 분석 결과를 캐싱하여 비용과 시간을 절약합니다."
+  },
+  "3b2435942924e748": {
+    "url": "https://example.com/security-news",
+    "analysis": "This is a test AI analysis result for caching validation.",
+    "timestamp": "2026-02-06T14:36:16.644994"
+  }
+}
