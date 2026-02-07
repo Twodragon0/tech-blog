@@ -219,9 +219,9 @@ docker --version
 # Docker Desktop > Settings > Features in Development > Ask Gordon 해제
 
 # 4. Docker 이미지 메타데이터 검사 스크립트
-for img in $(docker images --format '{{.Repository}}:{{.Tag}}' | head -20); do
+for img in $(docker images --format '{% raw %}{{.Repository}}:{{.Tag}}{% endraw %}' | head -20); do
     echo "=== ${img} ==="
-    docker inspect "${img}" --format '{{json .Config.Labels}}' 2>/dev/null | \
+    docker inspect "${img}" --format '{% raw %}{{json .Config.Labels}}{% endraw %}' 2>/dev/null | \
         python3 -c "
 import sys, json
 try:
@@ -412,7 +412,7 @@ networks:
 
 # 최근 24시간 Docker 이벤트 중 의심 활동 조회
 docker events --since 24h --filter 'type=container' --format \
-  '{{.Time}} {{.Action}} {{.Actor.Attributes.name}} {{.Actor.Attributes.image}}'
+  '{% raw %}{{.Time}} {{.Action}} {{.Actor.Attributes.name}} {{.Actor.Attributes.image}}{% endraw %}'
 
 # Ask Gordon 관련 프로세스 확인
 ps aux | grep -i gordon
@@ -444,7 +444,7 @@ docker export <container_id> > evidence-container-$(date +%Y%m%d).tar
 
 ```bash
 # 이미지 메타데이터 포렌식 분석
-docker inspect <image_id> --format '{{json .Config}}' | \
+docker inspect <image_id> --format '{% raw %}{{json .Config}}{% endraw %}' | \
   python3 -c "
 import sys, json
 config = json.load(sys.stdin)

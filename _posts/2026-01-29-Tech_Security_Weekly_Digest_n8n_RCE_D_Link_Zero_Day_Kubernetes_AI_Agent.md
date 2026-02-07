@@ -203,6 +203,7 @@ sequenceDiagram
 #### 버전 확인 스크립트
 
 ```bash
+{% raw %}
 #!/bin/bash
 # n8n 버전 확인 및 취약 여부 판단
 
@@ -247,6 +248,7 @@ if [ -n "$N8N_VERSION" ]; then
 else
     echo "[-] n8n이 설치되지 않았거나 확인할 수 없습니다."
 fi
+{% endraw %}
 ```
 
 #### Splunk SIEM 탐지 룰

@@ -101,6 +101,7 @@
   /* CLS 최적화: 헤더 이미지 영역 확보 */
   min-height: 200px;
   contain: layout style;
+  cursor: zoom-in;
 }
 
 .post-header .post-image img {
@@ -118,6 +119,7 @@
   aspect-ratio: auto;
   object-fit: contain;
   background-color: transparent;
+  max-height: 500px;
 }
 
 /* Post content: 본문 가독성 (한글·영문 혼용) */
@@ -697,17 +699,18 @@
   display: block;
   margin: 1.5em auto;
   /* CLS 최적화: 이미지 로딩 전 공간 확보 */
-  aspect-ratio: 16 / 9;
+  aspect-ratio: auto;
   object-fit: contain;
   background-color: var(--color-bg-secondary);
 }
 
 /* SVG 다이어그램: CLS 방지를 위해 최소 높이 확보 */
 .post-content img[src$=".svg"] {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
   object-fit: contain;
   background-color: transparent;
   min-height: 200px;
+  max-height: 600px;
 }
 
 .post-content .post-image {
