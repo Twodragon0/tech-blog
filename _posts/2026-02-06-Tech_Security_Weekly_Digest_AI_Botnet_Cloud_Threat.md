@@ -350,6 +350,45 @@ AISURU/Kimwolf로 알려진 DDoS 봇넷이 **31.4 Tbps(Terabits per second)**에
 +================================================================+
 ```
 
+```text
++==================================================================+
+|              AISURU/Kimwolf DDoS 공격 흐름도                        |
++==================================================================+
+|                                                                    |
+|  [IoT Botnet Nodes]                                                |
+|  +------+ +------+ +------+ +------+                              |
+|  | CCTV | | DVR  | |Router| | NAS  |  ... (Thousands of devices)  |
+|  +--+---+ +--+---+ +--+---+ +--+---+                              |
+|     |        |        |        |                                   |
+|     +--------+--------+--------+                                   |
+|              |                                                     |
+|              v                                                     |
+|     +------------------+                                           |
+|     | C2 Command Server|                                           |
+|     |  (AISURU/Kimwolf)|                                           |
+|     +--------+---------+                                           |
+|              |                                                     |
+|              | Attack Command                                      |
+|              v                                                     |
+|     +------------------+                                           |
+|     | 31.4 Tbps Traffic|  <-- Record-breaking volume               |
+|     | (35 sec burst)   |  <-- Ultra-short attack duration          |
+|     +--------+---------+                                           |
+|              |                                                     |
+|              v                                                     |
+|     +------------------+          +------------------+             |
+|     | Target Origin    | -------> | CDN/DDoS Shield  |             |
+|     | Server           |          | (Cloudflare etc) |             |
+|     +------------------+          +--------+---------+             |
+|                                            |                       |
+|                          Auto-mitigation --+                       |
+|                                            v                       |
+|                                   [Traffic Scrubbed]               |
+|                                   [Clean traffic to origin]        |
+|                                                                    |
++==================================================================+
+```
+
 #### 핵심 포인트
 
 | 항목 | 내용 |
@@ -440,6 +479,50 @@ The Hacker News의 ThreatsDay Bulletin에서 **GitHub Codespaces RCE(Remote Code
 | **AsyncRAT C2** | 피싱 이메일 통한 AsyncRAT 배포, IPFS 기반 C2 | 원격 접근, 키로깅, 화면 캡처, 자격 증명 탈취 | T1219, T1071 |
 | **BYOVD** | 취약한 커널 드라이버 설치 후 권한 상승 | EDR/AV 무력화, 커널 수준 접근 권한 획득 | T1068, T1543.003 |
 | **AI Cloud Intrusion** | 클라우드 AI 서비스 자격 증명 탈취 | AI 모델 접근, API 키 악용, 대규모 컴퓨팅 비용 발생 | T1078, T1496 |
+
+```text
++==================================================================+
+|       Codespaces/AsyncRAT/BYOVD Compound Threat Flow              |
++==================================================================+
+|                                                                    |
+|  Attack Vector 1: Codespaces RCE                                   |
+|  [Malicious devcontainer.json]                                     |
+|       |                                                            |
+|       v                                                            |
+|  [Codespace Created] --> [postCreateCommand executes]              |
+|       |                                                            |
+|       v                                                            |
+|  [Arbitrary Code Execution in Dev Environment]                     |
+|       |                                                            |
+|       +---> Source Code Theft                                      |
+|       +---> Secret/Token Extraction                                |
+|       +---> CI/CD Pipeline Compromise                              |
+|                                                                    |
+|  Attack Vector 2: AsyncRAT C2                                      |
+|  [Phishing Email] --> [AsyncRAT Dropper]                           |
+|       |                                                            |
+|       v                                                            |
+|  [IPFS-based C2 Communication]                                     |
+|       |                                                            |
+|       +---> Keylogging                                             |
+|       +---> Screen Capture                                         |
+|       +---> Credential Theft                                       |
+|                                                                    |
+|  Attack Vector 3: BYOVD                                            |
+|  [Signed Vulnerable Driver Install]                                |
+|       |                                                            |
+|       v                                                            |
+|  [Kernel-Level Access Gained]                                      |
+|       |                                                            |
+|       +---> EDR/AV Process Termination                             |
+|       +---> Security Tool Bypass                                   |
+|       +---> Unrestricted System Access                             |
+|                                                                    |
+|  Combined Impact: Dev Environment + Endpoint + Kernel = Full       |
+|  compromise with minimal detection across all security layers      |
+|                                                                    |
++==================================================================+
+```
 
 #### 핵심 포인트
 
@@ -616,6 +699,38 @@ Claude Opus 4.6의 향상된 에이전트 능력은 OWASP Agentic AI Top 10에�
 | Excessive Agency | 고도화된 에이전트가 더 많은 도구와 API 접근 | 최소 권한 원칙 + Human-in-the-Loop |
 | Indirect Prompt Injection | 향상된 맥락 파악 = 더 넓은 입력 표면 | 입력 검증 파이프라인 강화 |
 | Insecure Tool Use | 에이전트의 외부 도구 호출 범위 확대 | 도구별 입력/출력 스키마 검증 |
+
+```text
++==================================================================+
+|        AI Agent Security Risk Flow (OWASP Agentic AI)              |
++==================================================================+
+|                                                                    |
+|  [User Prompt] --> [AI Agent (Claude Opus 4.6)]                    |
+|                         |                                          |
+|           +-------------+-------------+                            |
+|           |             |             |                             |
+|           v             v             v                             |
+|     [Tool Call]   [API Access]  [Data Query]                       |
+|           |             |             |                             |
+|           v             v             v                             |
+|  +------------------------------------------+                      |
+|  |        Security Checkpoints               |                      |
+|  |  +------+ +--------+ +--------+ +------+ |                      |
+|  |  | Least| | Input  | | Output | | Audit| |                      |
+|  |  |Privil| |Validat.| |Validat.| | Log  | |                      |
+|  |  +------+ +--------+ +--------+ +------+ |                      |
+|  +------------------------------------------+                      |
+|                         |                                          |
+|                         v                                          |
+|                  [Safe Execution]                                   |
+|                                                                    |
+|  Risks without checkpoints:                                        |
+|  - Excessive Agency: Agent accesses unauthorized resources          |
+|  - Prompt Injection: Malicious input hijacks agent behavior         |
+|  - Insecure Tool Use: Unvalidated tool calls cause damage           |
+|                                                                    |
++==================================================================+
+```
 
 #### 실무 적용 포인트
 
