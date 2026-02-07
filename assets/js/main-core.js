@@ -329,7 +329,7 @@
           text: description || '',
           url: url
         }).catch(err => {
-          console.log('공유 취소됨:', err);
+          // Share cancelled by user
         });
       } else {
         // Web Share API를 지원하지 않는 경우 링크 복사
@@ -368,7 +368,7 @@
         setTimeout(() => toast.remove(), 300);
       }, 2000);
     } catch (err) {
-      console.error('Failed to copy:', err);
+      // Clipboard copy failed
     }
   };
 
@@ -397,6 +397,4 @@
       });
     }
   });
-
-  console.debug('Tech Blog Core UI initialized');
 })();

@@ -657,6 +657,4 @@
       subtree: true
     });
   });
-
-  console.debug('Tech Blog Post Features initialized');
 })();

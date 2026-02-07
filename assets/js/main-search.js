@@ -750,7 +750,6 @@
           }
           showToast(`번역 중... ${Math.round((translatedItems / totalItems) * 100)}%`, 'loading');
         } catch (error) {
-          console.warn('Title translation failed:', error);
           translation.postTitle = originalContent.postTitle;
         }
       }
@@ -765,7 +764,6 @@
           }
           showToast(`번역 중... ${Math.round((translatedItems / totalItems) * 100)}%`, 'loading');
         } catch (error) {
-          console.warn('Certification title translation failed:', error);
           translation.certTitle = originalContent.certTitle;
         }
       }
@@ -1060,7 +1058,6 @@
           }
           currentLang = targetLang;
         } catch (error) {
-          console.error('Translation error:', error);
           showToast('번역 실패. 다시 시도해주세요.', 'error');
         }
       });
@@ -1084,6 +1081,4 @@
       });
     });
   })();
-
-  console.debug('Tech Blog Search & Translation initialized');
 })();

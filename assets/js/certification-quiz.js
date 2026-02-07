@@ -770,7 +770,7 @@
       localStorage.setItem(`${certId}-checked`, JSON.stringify(state.checked));
       localStorage.setItem(`${certId}-stats`, JSON.stringify(state.stats));
     } catch (e) {
-      console.warn('답안 저장 실패:', e);
+      // localStorage not available
     }
   }
 
@@ -825,10 +825,10 @@
           }
         }
       });
-      
+
       updateStats();
     } catch (e) {
-      console.warn('답안 불러오기 실패:', e);
+      // localStorage not available
     }
   }
 
