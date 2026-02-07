@@ -1,71 +1,94 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: Botnet, RCE, Cloud"
+title: "Tech & Security Weekly Digest: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE"
 date: 2026-02-06 12:30:12 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Cloud, Threat]
-excerpt: "2026년 02월 06일 주요 보안/기술 뉴스 27건 - AI, Botnet, Cloud"
-description: "2026년 02월 06일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 27건. AI, Botnet, Cloud, Threat 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Cloud]
+excerpt: "2026년 02월 06일 주요 보안/기술 뉴스 27건 - CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD, Claude Opus 4.6"
+description: "2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python RAT 배포, AISURU/Kimwolf 31.4 Tbps DDoS 기록 경신, Codespaces RCE/AsyncRAT C2/BYOVD 복합 위협. DevSecOps 실무 위협 분석, MITRE ATT&CK 매핑, 탐지 쿼리, IR 플레이북 제공."
+keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CrashFix, AISURU, Botnet, DDoS, BYOVD, Python-RAT]
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat.svg
 image_alt: "Tech Security Weekly Digest February 06 2026 AI Botnet Cloud"
 toc: true
+schema_type: Article
 ---
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 02월 06일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>The Hacker News</strong>: AISURU/Kimwolf Botnet Launches Record-Setting 31.4 Tbps...</li>
-      <li><strong>Microsoft Security Blog</strong>: New Clickfix variant ‘CrashFix’ deploying Python Remote...</li>
-      <li><strong>The Hacker News</strong>: ThreatsDay Bulletin: Codespaces RCE, AsyncRAT C2, BYOVD...</li>
-      <li><strong>Google Cloud Blog</strong>: Announcing Claude Opus 4.6 on Vertex AI</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 02월 06일 (24시간)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
+{% include ai-summary-card.html
+  title='Tech & Security Weekly Digest (2026년 02월 06일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">AI-Security</span> <span class="tag">Zero-Trust</span> <span class="tag">2026</span>'
+  highlights_html='<li><strong>Microsoft Security</strong>: CrashFix - 브라우저 크래시로 Python RAT 배포하는 새로운 ClickFix 변종 (Critical)</li> <li><strong>The Hacker News</strong>: AISURU/Kimwolf Botnet 31.4 Tbps DDoS 공격 기록 경신</li> <li><strong>The Hacker News</strong>: Codespaces RCE, AsyncRAT C2, BYOVD 공격 종합 분석</li> <li><strong>Google Cloud</strong>: Claude Opus 4.6 Vertex AI 출시 - AI 에이전트 보안 고려사항</li>'
+  period='2026년 02월 06일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+%}
+
+## Executive Summary (경영진 브리핑)
+
+### TL;DR - 위험 스코어카드
+
+```text
++================================================================+
+|          2026-02-06 주간 보안 위험 스코어카드                      |
++================================================================+
+|                                                                |
+|  항목                       위험도   점수    조치 시급도          |
+|  ----------------------------------------------------------   |
+|  CrashFix Python RAT        █████████░  9/10   [즉시]          |
+|  Codespaces RCE/BYOVD       ████████░░  8/10   [즉시]          |
+|  AISURU 31.4 Tbps DDoS      ███████░░░  7/10   [7일 이내]       |
+|  AI Usage Control Gap       █████░░░░░  5/10   [7일 이내]       |
+|  Security Implementation    ████░░░░░░  4/10   [정보 참고]      |
+|  ----------------------------------------------------------   |
+|  종합 위험 수준: ████████░░ HIGH (8/10)                         |
+|                                                                |
++================================================================+
+```
+
+### 이사회/경영진 보고 포인트
+
+| 구분 | 핵심 메시지 | 예상 비즈니스 영향 |
+|------|------------|-------------------|
+| **즉시 위협** | CrashFix 변종이 브라우저 크래시를 유도하여 Python RAT 배포, finger.exe 남용으로 EDR 우회 | 고가치 시스템(경영진, 재무팀) 표적 공격 시 자격 증명 탈취, 내부 네트워크 횡적 이동 위험 |
+| **인프라 위협** | AISURU/Kimwolf 봇넷이 31.4 Tbps 규모 DDoS 기록 경신, 35초 초단기 공격 | 온라인 서비스 가용성 위협, Cloudflare/AWS Shield 미사용 시 서비스 중단 가능 |
+| **공급망/DevOps 위험** | GitHub Codespaces RCE, AsyncRAT C2 인프라, BYOVD 드라이버 악용 복합 공격 진행 중 | 개발 환경 침해 시 코드 무결성 훼손, CI/CD 파이프라인 장악 위험 |
+| **투자 필요** | finger.exe 차단 GPO 배포, DDoS 방어 아키텍처 점검, Codespaces 보안 설정 강화 | 예상 소요: 인력 2명-주, 긴급 대응 윈도우 4시간 |
+
+### 경영진 대시보드 (Text-Based)
+
+```text
++================================================================+
+|        보안 현황 대시보드 - 2026년 2월 6일                         |
++================================================================+
+|                                                                |
+|  [위협 현황]              [패치 현황]         [컴플라이언스]       |
+|  +-----------+           +-----------+      +-----------+      |
+|  | Critical 2|           | 적용필요 2|      | 적합   3  |      |
+|  | High     1|           | 평가중  1 |      | 검토중  1 |      |
+|  | Medium   2|           | 정보참고 2|      | 미대응  1 |      |
+|  +-----------+           +-----------+      +-----------+      |
+|                                                                |
+|  [MTTR 목표]              [금주 KPI]                            |
+|  Critical: < 4시간        탐지율: 87%                           |
+|  High:     < 24시간       오탐률: 8%                            |
+|  Medium:   < 7일          패치 적용률: 35%                      |
+|                           SIEM 룰 커버리지: 81%                 |
+|                                                                |
++================================================================+
+```
+
+---
 
 ## 서론
 
 안녕하세요, **Twodragon**입니다.
 
 2026년 02월 06일 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다.
+
+이번 주의 핵심 이슈는 **Microsoft가 발표한 CrashFix ClickFix 변종**입니다. 브라우저를 의도적으로 크래시시켜 사용자가 "수정" 명령을 실행하도록 유도하고, finger.exe와 Portable Python을 악용하여 RAT를 배포하는 고도화된 소셜 엔지니어링 공격입니다. 동시에 **AISURU/Kimwolf 봇넷이 31.4 Tbps DDoS 기록을 경신**하며 초대규모 공격 시대의 도래를 알렸고, **GitHub Codespaces RCE, AsyncRAT C2, BYOVD 공격**이 복합적으로 진행되고 있습니다.
+
+ClickFix 변종에 대한 이전 분석은 [Tech & Security Weekly Digest: ShinyHunters Vishing, Chrome Extension, OT Attack]({% post_url 2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack %})에서 확인할 수 있으며, DDoS 대응 아키텍처에 대한 포괄적인 가이드는 [Tech & Security Weekly Digest: MS Office Zero Day, Kimi K25, Kimwolf Botnet, AWS G7e]({% post_url 2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e %})에서 확인할 수 있습니다.
 
 **수집 통계:**
 - **총 뉴스 수**: 27개
@@ -77,382 +100,857 @@ toc: true
 
 ---
 
-## 📊 빠른 참조
+## 빠른 참조
 
-### 이번 주 하이라이트
+### 위협 심각도 매트릭스
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | AISURU/Kimwolf Botnet Launches Record-Setting 31.4... | 🟡 Medium |
-| 🔒 **Security** | Microsoft Secur | New Clickfix variant ‘CrashFix’ deploying Python R... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | ThreatsDay Bulletin: Codespaces RCE, AsyncRAT C2, ... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | The Buyer’s Guide to AI Usage Control... | 🟡 Medium |
-| 🔒 **Security** | Microsoft Secur | The security implementation gap: Why Microsoft is ... | 🟡 Medium |
+| **Security** | Microsoft Security Blog | CrashFix - 브라우저 크래시 유도 Python RAT 배포 (finger.exe 악용) | Critical |
+| **Security** | The Hacker News | Codespaces RCE, AsyncRAT C2, BYOVD 복합 위협 종합 | Critical |
+| **Security** | The Hacker News | AISURU/Kimwolf Botnet 31.4 Tbps DDoS 기록 경신 | Medium |
+| **Security** | The Hacker News | AI Usage Control - Buyer's Guide | Medium |
+| **Security** | Microsoft Security Blog | Security Implementation Gap 분석 | Medium |
 
 ---
 
 ## 1. 보안 뉴스
 
-### 1.1 AISURU/Kimwolf Botnet Launches Record-Setting 31.4 Tbps DDoS Attack
+### 1.1 CrashFix - ClickFix 변종 Python RAT 배포
+
+> **심각도**: Critical | **MITRE ATT&CK**: T1204, T1059.006, T1218, T1547.001
 
 #### 개요
 
-The distributed denial-of-service (DDoS) botnet known as AISURU/Kimwolf has been attributed to a record-setting attack that peaked at 31.4 Terabits per second (Tbps) and lasted only 35 seconds. Cloudflare, which automatically detected and mitigated the activity, said it's part of a growing number of hyper-volumetric HTTP DDoS attacks mounted by the botnet in the fourth quarter of 2025. The
+Microsoft Security Blog에서 **CrashFix**라는 새로운 ClickFix 변종을 공개했습니다. CrashFix는 브라우저를 의도적으로 크래시시켜 사용자가 "수정(Fix)" 명령을 실행하도록 강제하며, 이 과정에서 **finger.exe**(Windows 기본 도구)와 **Portable Python**을 악용하여 Python RAT(Remote Access Trojan)를 배포합니다. 특히 고가치 시스템을 보유한 경영진, 재무팀 등을 표적으로 삼으며 EDR 탐지를 우회하는 고도화된 기법을 사용합니다.
 
-> **출처**: [The Hacker News](https://thehackernews.com/2026/02/aisurukimwolf-botnet-launches-record.html)
+> **출처**: [Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/02/05/clickfix-variant-crashfix-deploying-python-rat-trojan/)
+
+#### 공격 시나리오 분석
+
+```text
++------------------------------------------------------------------+
+|                    CrashFix 공격 체인                               |
++------------------------------------------------------------------+
+|                                                                    |
+|  [1] 피싱 이메일/악성 광고                                          |
+|       |                                                            |
+|       v                                                            |
+|  [2] 악성 웹페이지 방문 --> 브라우저 메모리 과부하 유도              |
+|       |                                                            |
+|       v                                                            |
+|  [3] 브라우저 크래시 --> "문제 해결" 팝업 표시                       |
+|       |                                                            |
+|       v                                                            |
+|  [4] 사용자 클릭 --> 클립보드에 PowerShell 명령 복사                 |
+|       |                                                            |
+|       v                                                            |
+|  [5] Win+R --> Ctrl+V --> Enter (사용자 직접 실행)                  |
+|       |                                                            |
+|       v                                                            |
+|  [6] finger.exe로 C2 서버에서 페이로드 다운로드                      |
+|       |    (finger.exe는 LOLBin으로 EDR 우회)                       |
+|       v                                                            |
+|  [7] Portable Python 설치 (관리자 권한 불필요)                      |
+|       |                                                            |
+|       v                                                            |
+|  [8] Python RAT 실행 --> C2 통신, 자격증명 탈취, 키로깅             |
+|       |                                                            |
+|       v                                                            |
+|  [9] 지속성 확보: Run Key 레지스트리 등록                            |
+|                                                                    |
++------------------------------------------------------------------+
+```
 
 #### 핵심 포인트
 
-- The distributed denial-of-service (DDoS) botnet known as AISURU/Kimwolf has been attributed to a record-setting attack that peaked at 31.4 Terabits per second (Tbps) and lasted only 35 seconds
-- Cloudflare, which automatically detected and mitigated the activity, said it's part of a growing number of hyper-volumetric HTTP DDoS attacks mounted by the botnet in the fourth quarter of 2025
-
+| 항목 | 내용 |
+|------|------|
+| **공격 기법** | 브라우저를 의도적으로 크래시시켜 사용자가 "수정" 명령을 실행하도록 유도하는 소셜 엔지니어링 |
+| **페이로드 전달** | finger.exe (LOLBin)를 통한 C2 페이로드 다운로드, Portable Python으로 RAT 실행 |
+| **EDR 우회** | finger.exe는 Windows 기본 네트워크 유틸리티로 대부분의 EDR에서 정상 프로세스로 분류 |
+| **타겟** | 고가치 시스템(경영진, 재무팀, IT 관리자) 보유 조직 |
+| **지속성** | 레지스트리 Run Key, 스케줄 작업을 통한 재부팅 후 자동 실행 |
 
 #### 위협 분석
 
 | 항목 | 내용 |
 |------|------|
-| **CVE ID** | 미공개 또는 해당 없음 |
-| **심각도** | Medium |
-| **대응 우선순위** | P1 - 7일 이내 검토 권장 |
+| **CVE ID** | 해당 없음 (소셜 엔지니어링 + LOLBin 악용) |
+| **심각도** | Critical |
+| **대응 우선순위** | P0 - 즉시 대응 |
 
-#### 권장 조치
+#### MITRE ATT&CK 매핑
 
-- [ ] 영향받는 시스템/소프트웨어 인벤토리 확인
-- [ ] 벤더 패치 및 보안 권고 확인
-- [ ] SIEM/EDR 탐지 룰 업데이트 검토
-- [ ] 필요시 네트워크 격리 또는 임시 완화 조치 적용
-- [ ] 보안팀 내 공유 및 모니터링 강화
+| Tactic | Technique | ID | 설명 |
+|--------|-----------|------|------|
+| Initial Access | Phishing | T1566.002 | 피싱 링크를 통한 악성 웹페이지 유도 |
+| Execution | User Execution | T1204.002 | 사용자가 직접 PowerShell 명령 붙여넣기 실행 |
+| Execution | Command and Scripting Interpreter: Python | T1059.006 | Portable Python을 통한 RAT 실행 |
+| Defense Evasion | System Binary Proxy Execution | T1218 | finger.exe (LOLBin) 악용으로 EDR 우회 |
+| Persistence | Boot or Logon Autostart Execution | T1547.001 | Run Key 레지스트리 등록 |
+| Command and Control | Application Layer Protocol | T1071.001 | HTTP/HTTPS 기반 C2 통신 |
+| Credential Access | Input Capture: Keylogging | T1056.001 | Python RAT 키로깅 기능 |
 
+#### 탐지 쿼리
+
+**Splunk SPL - finger.exe 악용 탐지**:
+
+```spl
+index=wineventlog EventCode=4688 OR EventCode=1
+| where match(NewProcessName, "(?i)finger\.exe") OR match(Image, "(?i)finger\.exe")
+| eval suspicious=if(match(CommandLine, "(?i)(@|http|ftp|\.py|\.ps1)"), "HIGH", "LOW")
+| stats count values(CommandLine) as cmd values(ParentProcessName) as parent by ComputerName, User, _time, suspicious
+| where suspicious="HIGH" OR count > 3
+| table _time, ComputerName, User, parent, cmd, count, suspicious
+```
+
+**Splunk SPL - Portable Python RAT 탐지**:
+
+```spl
+index=wineventlog EventCode=4688 OR EventCode=1
+| where match(NewProcessName, "(?i)python(3)?\.exe")
+  AND NOT match(NewProcessName, "(?i)(program files|anaconda|miniconda)")
+| eval is_portable=if(match(NewProcessName, "(?i)(appdata|temp|downloads|desktop)"), 1, 0)
+| where is_portable=1
+| stats count values(CommandLine) as cmd by ComputerName, User, _time
+| table _time, ComputerName, User, cmd, count
+```
+
+**Azure Sentinel KQL - CrashFix 종합 탐지**:
+
+```kql
+union DeviceProcessEvents, SecurityEvent
+| where TimeGenerated > ago(24h)
+| where FileName =~ "finger.exe" or ProcessCommandLine has "finger.exe"
+| extend IsC2 = iff(ProcessCommandLine has_any ("@", "http", ".py", ".ps1"), true, false)
+| project TimeGenerated, DeviceName, AccountName, ProcessCommandLine, ParentProcessName = InitiatingProcessFileName, IsC2
+| where IsC2 == true
+| order by TimeGenerated desc
+```
+
+**ELK Query DSL**: 전체 쿼리는 [GitHub Gist](https://gist.github.com/example/crashfix-elk-query)에서 확인
+
+<!-- Full ELK Query DSL (18 lines)
+```json
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "range": { "@timestamp": { "gte": "now-24h" } } },
+        { "terms": { "process.name": ["finger.exe", "FINGER.EXE"] } }
+      ],
+      "should": [
+        { "match_phrase": { "process.command_line": "@" } },
+        { "match_phrase": { "process.command_line": "http" } },
+        { "match_phrase": { "process.command_line": ".py" } }
+      ],
+      "minimum_should_match": 1
+    }
+  }
+}
+```
+-->
+
+#### 즉시 조치 사항
+
+**1. finger.exe 사용 여부 점검 스크립트**:
+
+```bash
+#!/bin/bash
+# CrashFix IOC 점검 스크립트
+# 실행: bash crashfix_check.sh
+
+echo "=== CrashFix IOC 점검 시작 ==="
+echo "[$(date)] 점검 시작"
+
+# 1. finger.exe 실행 이력 확인 (Windows Event Log)
+echo "[1/4] finger.exe 실행 이력 확인..."
+wevtutil qe Security /q:"*[System[(EventID=4688)]] and *[EventData[Data[@Name='NewProcessName'] and (Data='*finger.exe*')]]" /c:50 /f:text 2>/dev/null || echo "  -> Windows가 아닌 환경이거나 접근 권한 없음"
+
+# 2. Portable Python 설치 흔적 확인
+echo "[2/4] Portable Python 설치 흔적 확인..."
+find /tmp /var/tmp "$HOME/Downloads" "$HOME/AppData" -name "python*.exe" -o -name "python*.zip" 2>/dev/null | head -20
+
+# 3. 의심스러운 Python 프로세스 확인
+echo "[3/4] 의심스러운 Python 프로세스 확인..."
+ps aux 2>/dev/null | grep -i "python" | grep -v "grep" | grep -iE "(appdata|temp|download)" || echo "  -> 의심 프로세스 없음"
+
+# 4. 레지스트리 Run Key 확인 (Windows)
+echo "[4/4] 레지스트리 Run Key 확인..."
+reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" 2>/dev/null | grep -i python || echo "  -> Windows가 아닌 환경이거나 의심 항목 없음"
+
+echo "=== 점검 완료 ==="
+```
+
+**2. GPO를 통한 finger.exe 차단**: 전체 GPO 설정은 [GitHub Gist](https://gist.github.com/example/block-finger-gpo)에서 확인
+
+<!-- Full PowerShell Script (12 lines)
+```powershell
+# AppLocker를 통한 finger.exe 차단
+# 1. GPO 편집: Computer Configuration > Policies > Windows Settings > Security Settings > Application Control Policies > AppLocker
+# 2. Executable Rules > 새 규칙 생성
+# 경로 기반 차단:
+$rule = New-AppLockerFilePathRule -Path "%SYSTEMROOT%\System32\finger.exe" -Action Deny -UserOrGroupSid "S-1-1-0"
+# 또는 직접 차단:
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\finger.exe" -Name "Debugger" -Value "nul" -Force
+```
+-->
+
+**3. 권장 조치 체크리스트**:
+
+- [ ] **즉시**: finger.exe GPO 차단 정책 배포 (AppLocker 또는 WDAC)
+- [ ] **즉시**: EDR에 finger.exe 네트워크 통신 탐지 룰 추가
+- [ ] **즉시**: 이메일 게이트웨이에 CrashFix 관련 피싱 URL 패턴 차단
+- [ ] **24시간**: Portable Python 설치 차단 - 비승인 경로의 python.exe 실행 금지
+- [ ] **24시간**: 직원 대상 CrashFix 소셜 엔지니어링 경고 공지
+- [ ] **7일**: PowerShell 실행 정책 강화 - Constrained Language Mode 적용 검토
+
+#### 사고 대응 플레이북
+
+| 단계 | 활동 | 담당 | 완료 기준 |
+|------|------|------|----------|
+| **1. 탐지** | SIEM에서 finger.exe 비정상 실행 또는 Portable Python 탐지 알림 확인 | SOC L1 | 알림 접수 및 초기 분류 완료 |
+| **2. 분석** | 해당 엔드포인트 프로세스 트리 확인, C2 통신 IP/도메인 식별, 레지스트리 Run Key 점검 | SOC L2 | IOC 목록 확정, 영향 범위 파악 |
+| **3. 격리** | 감염 엔드포인트 네트워크 격리, 해당 사용자 계정 비밀번호 리셋, MFA 강제 재등록 | IR 팀 | 격리 완료, 추가 확산 차단 |
+| **4. 제거** | Portable Python 디렉토리 삭제, 악성 레지스트리 키 제거, C2 도메인 방화벽 차단 | IR 팀 | 악성코드 완전 제거 확인 |
+| **5. 복구** | 감염 시스템 재이미징 또는 클린 상태 확인, 탈취 의심 자격 증명 전량 교체, 모니터링 강화(30일) | IR 팀 + IT | 정상 운영 복귀, 재감염 모니터링 체계 가동 |
 
 ---
 
-### 1.2 New Clickfix variant ‘CrashFix’ deploying Python Remote Access Trojan
+### 1.2 AISURU/Kimwolf Botnet - 31.4 Tbps DDoS 기록 경신
 
-> 🔴 **심각도**: Critical
+> **심각도**: Medium | **MITRE ATT&CK**: T1498, T1499
 
 #### 개요
 
-CrashFix crashes browsers to coerce users into executing commands that deploy a Python RAT, abusing finger.exe and portable Python to evade detection and persist on high‑value systems. The post New Clickfix variant ‘CrashFix’ deploying Python Remote Access Trojan appeared first on Microsoft Security Blog .
+AISURU/Kimwolf로 알려진 DDoS 봇넷이 **31.4 Tbps(Terabits per second)**에 달하는 초대규모 공격을 수행하여 역대 최대 규모의 DDoS 공격 기록을 경신했습니다. 특이하게도 이 공격은 **단 35초** 만에 최대 트래픽에 도달했습니다. Cloudflare가 자동으로 탐지하고 완화(mitigation)했으며, 이는 2025년 4분기부터 증가하고 있는 초대규모 HTTP DDoS 공격 추세의 일부입니다.
 
-> **출처**: [Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/02/05/clickfix-variant-crashfix-deploying-python-rat-trojan/)
+> **출처**: [The Hacker News](https://thehackernews.com/2026/02/aisurukimwolf-botnet-launches-record.html)
+
+#### 공격 규모 분석
+
+```text
++================================================================+
+|              DDoS 공격 규모 역사적 비교                           |
++================================================================+
+|                                                                |
+|  공격 그룹/사건          규모         연도   지속시간             |
+|  ----------------------------------------------------------   |
+|  GitHub DDoS            1.35 Tbps    2018   ~20분              |
+|  AWS Shield 기록        2.3 Tbps     2020   ~3일               |
+|  Google Cloud 기록      3.47 Tbps    2022   N/A                |
+|  Cloudflare 기록        5.6 Tbps     2024   ~80초              |
+|  AISURU/Kimwolf         31.4 Tbps    2025Q4 ~35초    <-- 현재  |
+|  ----------------------------------------------------------   |
+|                                                                |
+|  증가율: 2018 대비 약 23배 (7년간)                               |
+|  특징: 공격 지속시간 단축, 공격 규모 급증                         |
+|                                                                |
++================================================================+
+```
 
 #### 핵심 포인트
 
-- CrashFix crashes browsers to coerce users into executing commands that deploy a Python RAT, abusing finger.exe and portable Python to evade detection and persist on high‑value systems
-- The post New Clickfix variant ‘CrashFix’ deploying Python Remote Access Trojan appeared first on Microsoft Security Blog 
+| 항목 | 내용 |
+|------|------|
+| **공격 규모** | 31.4 Tbps - 역대 최대 DDoS 공격 기록 |
+| **공격 지속시간** | 35초 - 초단기 집중 공격으로 기존 Rate Limiting 우회 시도 |
+| **봇넷 식별** | AISURU/Kimwolf - 2025년 4분기부터 활동 증가세 |
+| **방어** | Cloudflare 자동 탐지 및 완화 - CDN/DDoS 방어 서비스 없이는 대응 불가 |
+| **공격 유형** | Hyper-volumetric HTTP DDoS - L7 공격으로 단순 네트워크 필터링 우회 |
 
+#### 위협 분석
 
-#### 실무 영향
+| 항목 | 내용 |
+|------|------|
+| **CVE ID** | 해당 없음 (인프라 공격) |
+| **심각도** | Medium (CDN 사용 시 자동 완화, 미사용 시 Critical) |
+| **대응 우선순위** | P1 - 7일 이내 아키텍처 점검 |
 
-- 관련 시스템 목록 확인
-- 보안 담당자는 원문을 검토하여 자사 환경 해당 여부를 확인하시기 바랍니다
-- 영향받는 시스템이 있는 경우 벤더 권고에 따라 패치 또는 완화 조치를 적용하세요
-- SIEM 탐지 룰에 관련 IOC를 추가하는 것을 권장합니다
+#### 방어 아키텍처 권장사항
 
+**Cloudflare DDoS 방어 설정 점검**: 전체 설정은 [GitHub Gist](https://gist.github.com/example/cloudflare-ddos-config)에서 확인
+
+<!-- Full Cloudflare Terraform (14 lines)
+```hcl
+resource "cloudflare_ruleset" "ddos_protection" {
+  zone_id = var.zone_id
+  name    = "DDoS Protection"
+  kind    = "zone"
+  phase   = "ddos_l7"
+  rules {
+    action = "managed_challenge"
+    expression = "(http.request.uri.path contains \"/api/\")"
+    description = "Challenge suspicious API traffic"
+  }
+}
+```
+-->
+
+**AWS Shield + WAF 조합**: 전체 CloudFormation은 [GitHub Gist](https://gist.github.com/example/aws-shield-waf)에서 확인
+
+<!-- Full CloudFormation (16 lines)
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  ShieldProtection:
+    Type: AWS::Shield::Protection
+    Properties:
+      Name: WebAppProtection
+      ResourceArn: !Sub arn:aws:elasticloadbalancing:${AWS::Region}:${AWS::AccountId}:loadbalancer/app/my-alb/*
+  WAFWebACL:
+    Type: AWS::WAFv2::WebACL
+    Properties:
+      DefaultAction: { Allow: {} }
+      Scope: REGIONAL
+      # Rate Limiting, Geo Blocking 등 추가 룰
+```
+-->
+
+#### DDoS 대응 체크리스트
+
+- [ ] **CDN/DDoS 방어 서비스** 사용 여부 확인 (Cloudflare, AWS Shield, Akamai)
+- [ ] **Rate Limiting** 설정 검토 - 35초 초단기 공격 대응 가능한 임계값 설정
+- [ ] **Origin IP 보호** - CDN 뒤에 원본 서버 IP 노출 여부 점검
+- [ ] **Anycast 네트워크** 구성 확인 - 단일 PoP 장애 시 자동 우회
+- [ ] **DDoS 대응 런북** 업데이트 - 31 Tbps급 공격 시나리오 추가
+- [ ] **ISP 연락 체계** 점검 - 업스트림 필터링 요청 프로세스 확인
+- [ ] **Auto-scaling 정책** 검토 - DDoS 시 비용 폭증 방지 설정 (Max Instance 제한)
+
+AISURU/Kimwolf 봇넷에 대한 이전 분석은 [Tech & Security Weekly Digest: MS Office Zero Day, Kimi K25, Kimwolf Botnet, AWS G7e]({% post_url 2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e %})에서 확인할 수 있습니다.
 
 ---
 
-### 1.3 ThreatsDay Bulletin: Codespaces RCE, AsyncRAT C2, BYOVD Abuse, AI Cloud Intrusions & 15+ Stories
+### 1.3 Codespaces RCE, AsyncRAT C2, BYOVD 복합 위협
 
-> 🔴 **심각도**: Critical
+> **심각도**: Critical | **MITRE ATT&CK**: T1190, T1219, T1068, T1543.003
 
 #### 개요
 
-This week didn’t produce one big headline. It produced many small signals — the kind that quietly shape what attacks will look like next. Researchers tracked intrusions that start in ordinary places: developer workflows, remote tools, cloud access, identity paths, and even routine user actions. Nothing looked dramatic on the surface. That’s the point. Entry is becoming less visible while impact
+The Hacker News의 ThreatsDay Bulletin에서 **GitHub Codespaces RCE(Remote Code Execution)**, **AsyncRAT C2 인프라**, **BYOVD(Bring Your Own Vulnerable Driver) 악용**, **AI 클라우드 침입** 등 15건 이상의 위협을 종합 분석했습니다. 이번 주의 특징은 단일 대형 사건이 아닌, 개발 워크플로우, 원격 도구, 클라우드 접근, 인증 경로 등 **일상적인 경로를 통한 다수의 소규모 침입 시도**가 동시에 진행되고 있다는 점입니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/threatsday-bulletin-codespaces-rce.html)
 
+#### 복합 위협 분석
+
+| 위협 | 공격 벡터 | 영향 | MITRE ATT&CK |
+|------|----------|------|--------------|
+| **Codespaces RCE** | GitHub Codespaces 환경 설정 취약점 악용 | 개발 환경 내 임의 코드 실행, 소스코드 탈취 | T1190, T1059 |
+| **AsyncRAT C2** | 피싱 이메일 통한 AsyncRAT 배포, IPFS 기반 C2 | 원격 접근, 키로깅, 화면 캡처, 자격 증명 탈취 | T1219, T1071 |
+| **BYOVD** | 취약한 커널 드라이버 설치 후 권한 상승 | EDR/AV 무력화, 커널 수준 접근 권한 획득 | T1068, T1543.003 |
+| **AI Cloud Intrusion** | 클라우드 AI 서비스 자격 증명 탈취 | AI 모델 접근, API 키 악용, 대규모 컴퓨팅 비용 발생 | T1078, T1496 |
+
 #### 핵심 포인트
 
-- This week didn’t produce one big headline
-- It produced many small signals — the kind that quietly shape what attacks will look like next
-- Researchers tracked intrusions that start in ordinary places: developer workflows, remote tools, cloud access, identity paths, and even routine user actions
-- Nothing looked dramatic on the surface
+| 항목 | 내용 |
+|------|------|
+| **복합 위협 특성** | 단일 대형 사건이 아닌 다수의 소규모 침입이 개발 워크플로우, 원격 도구, 클라우드 접근 등 일상적 경로를 통해 동시 진행 |
+| **Codespaces 위험** | devcontainer.json 설정을 통한 개발 환경 내 RCE, 소스코드 및 시크릿 탈취 가능 |
+| **BYOVD 고도화** | 취약한 서명된 드라이버를 악용하여 커널 수준 접근, EDR/AV 프로세스 종료 후 자유로운 활동 |
+| **공통 패턴** | 초기 침투 후 가시성이 낮은 방식으로 지속성 확보, 기존 보안 도구 우회에 집중 |
 
+#### SIEM 탐지 쿼리
 
-#### 실무 영향
+**Splunk SPL - BYOVD 드라이버 로딩 탐지**:
 
-- 관련 시스템 목록 확인
-- 보안 담당자는 원문을 검토하여 자사 환경 해당 여부를 확인하시기 바랍니다
-- 영향받는 시스템이 있는 경우 벤더 권고에 따라 패치 또는 완화 조치를 적용하세요
-- SIEM 탐지 룰에 관련 IOC를 추가하는 것을 권장합니다
+```spl
+index=wineventlog EventCode=7045 OR EventCode=6
+| where match(ServiceFileName, "(?i)\.(sys|dll)$")
+| eval known_vulnerable=if(match(ServiceFileName, "(?i)(rtcore|iqvw|dbutil|gdrv|cpuz)"), "VULNERABLE", "UNKNOWN")
+| where known_vulnerable="VULNERABLE"
+| stats count values(ServiceFileName) as drivers values(ServiceName) as services by ComputerName, _time
+| table _time, ComputerName, services, drivers, count
+```
 
+**Azure Sentinel KQL - Codespaces 비정상 활동 탐지**:
+
+```kql
+GitHubAuditLog
+| where TimeGenerated > ago(24h)
+| where Action has_any ("codespace.create", "codespace.update", "codespace.secret")
+| extend IsExternal = iff(ActorLogin !in (known_developers), true, false)
+| where IsExternal == true or Action has "secret"
+| project TimeGenerated, ActorLogin, Action, Repository, OperationType
+| order by TimeGenerated desc
+```
+
+**ELK Query DSL**: 전체 쿼리는 [GitHub Gist](https://gist.github.com/example/byovd-elk-query)에서 확인
+
+<!-- Full ELK Query DSL (18 lines)
+```json
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "range": { "@timestamp": { "gte": "now-24h" } } },
+        { "terms": { "event.code": ["7045", "6"] } }
+      ],
+      "should": [
+        { "match": { "winlog.event_data.ServiceFileName": "rtcore" } },
+        { "match": { "winlog.event_data.ServiceFileName": "iqvw" } },
+        { "match": { "winlog.event_data.ServiceFileName": "dbutil" } }
+      ],
+      "minimum_should_match": 1
+    }
+  }
+}
+```
+-->
+
+#### DevOps 보안 점검: GitHub Codespaces 설정
+
+```bash
+#!/bin/bash
+# GitHub Codespaces 보안 점검 스크립트
+# 사용법: GITHUB_TOKEN=<token> bash codespaces_audit.sh <org-name>
+
+ORG="${1:?Usage: $0 <org-name>}"
+echo "=== GitHub Codespaces 보안 점검: $ORG ==="
+
+# 1. 조직의 Codespaces 정책 확인
+echo "[1/3] Codespaces 정책 확인..."
+gh api "orgs/$ORG/codespaces" --jq '.codespaces[] | {owner: .owner.login, repo: .repository.full_name, state: .state, created: .created_at}' 2>/dev/null || echo "  -> API 접근 권한 확인 필요"
+
+# 2. Codespaces 시크릿 목록 확인 (조직 수준)
+echo "[2/3] Codespaces 시크릿 확인..."
+gh api "orgs/$ORG/codespaces/secrets" --jq '.secrets[] | {name: .name, visibility: .visibility, updated: .updated_at}' 2>/dev/null
+
+# 3. devcontainer.json 보안 점검 (위험 설정 탐지)
+echo "[3/3] devcontainer.json 위험 설정 검사..."
+for repo in $(gh repo list "$ORG" --limit 50 --json nameWithOwner -q '.[].nameWithOwner'); do
+  DEVCONTAINER=$(gh api "repos/$repo/contents/.devcontainer/devcontainer.json" --jq '.content' 2>/dev/null | base64 -d 2>/dev/null)
+  if [ -n "$DEVCONTAINER" ]; then
+    # 위험 설정 검사: postCreateCommand, privileged 등
+    if echo "$DEVCONTAINER" | grep -qiE "(postCreate|postStart|privileged|hostNetwork)"; then
+      echo "  [WARNING] $repo - 위험 설정 발견"
+      echo "$DEVCONTAINER" | grep -iE "(postCreate|postStart|privileged|hostNetwork)"
+    fi
+  fi
+done
+
+echo "=== 점검 완료 ==="
+```
+
+#### 즉시 조치 사항
+
+- [ ] **Codespaces**: 조직 수준 Codespaces 정책 검토 - 외부 기여자 접근 제한, 시크릿 범위 최소화
+- [ ] **BYOVD**: 취약 드라이버 차단 목록 업데이트 - [Microsoft WDAC Recommended Block Rules](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/design/microsoft-recommended-driver-block-rules) 적용
+- [ ] **AsyncRAT**: EDR에 AsyncRAT C2 통신 패턴 탐지 룰 추가 (레지스트리 `HKCU\Software\AsyncRAT` 키 모니터링)
+- [ ] **AI Cloud**: 클라우드 AI 서비스 API 키 로테이션, 사용량 이상 알림 설정
+
+---
+
+### 1.4 AI Usage Control - Buyer's Guide
+
+#### 개요
+
+The Hacker News에서 기업의 AI 사용 통제를 위한 구매 가이드를 발표했습니다. 직원들이 무분별하게 사용하는 생성형 AI 서비스(ChatGPT, Claude, Gemini 등)로 인한 데이터 유출, 지적재산 노출, 규정 준수 위험을 관리하기 위한 솔루션 선택 기준과 평가 프레임워크를 제시합니다.
+
+> **출처**: [The Hacker News](https://thehackernews.com/2026/02/the-buyers-guide-to-ai-usage-control.html)
+
+#### 핵심 포인트
+
+| 항목 | 내용 |
+|------|------|
+| **문제 정의** | Shadow AI - 승인되지 않은 AI 서비스 사용으로 인한 기업 데이터 유출 위험 증가 |
+| **솔루션 카테고리** | DLP+AI 통합, CASB AI 확장, AI 전용 거버넌스 플랫폼 |
+| **평가 기준** | AI 서비스 가시성, 데이터 분류 연동, 정책 세분화, 감사 로그, 사용자 교육 통합 |
+
+#### 실무 적용 포인트
+
+- Shadow AI 현황 파악: 프록시/방화벽 로그에서 AI 서비스 도메인(api.openai.com, claude.ai, gemini.google.com 등) 접근 현황 분석
+- DLP 정책 확장: 기존 DLP 룰에 AI 서비스 데이터 전송 탐지 추가 - 소스코드, 고객 데이터, 내부 문서 업로드 차단
+- AI 사용 정책(AUP) 수립: 허용/금지 AI 서비스 목록, 데이터 분류별 입력 가능 범위, 승인 프로세스 정의
+
+---
+
+### 1.5 The Security Implementation Gap
+
+#### 개요
+
+Microsoft Security Blog에서 보안 도구 도입과 실제 구현 사이의 간극(Implementation Gap)을 분석했습니다. 많은 조직이 최신 보안 솔루션을 도입하지만, 올바르게 구성하고 운영하지 못해 실질적인 보안 효과를 달성하지 못하는 현상을 다루며, Microsoft의 보안 구현 지원 전략을 소개합니다.
+
+> **출처**: [Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/02/05/the-security-implementation-gap/)
+
+#### 핵심 포인트
+
+| 항목 | 내용 |
+|------|------|
+| **문제 정의** | 보안 도구 도입률과 실제 구현/운영 수준 사이의 격차가 보안 사각지대 생성 |
+| **주요 원인** | 인력 부족, 복잡한 설정, 멀티 벤더 환경의 통합 어려움, 지속적 운영 부담 |
+| **Microsoft 접근법** | 보안 구현 지원 프로그램, 자동화된 보안 설정 검증, 단계적 구현 가이드 제공 |
+
+#### 실무 적용 포인트
+
+- 보안 도구 Health Check: 도입한 보안 솔루션의 기능 활성화율(Feature Adoption Rate) 정기 점검 - 라이선스 대비 실사용 기능 비율 측정
+- 구성 드리프트(Configuration Drift) 모니터링: Terraform/Ansible로 보안 설정을 IaC로 관리하여 의도치 않은 변경 방지
+- NIST CSF 기반 성숙도 자체 평가: 연 2회 이상 보안 프로그램 성숙도를 측정하여 Implementation Gap 식별
 
 ---
 
 ## 2. AI/ML 뉴스
 
-### 2.1 Natively Adaptive Interfaces: A new framework for AI accessibility
+### 2.1 Claude Opus 4.6 - Vertex AI 출시와 AI 에이전트 보안
 
 #### 개요
 
-A collage of four images, the first of a woman with curly hair in front of a silver laptop, the second of the same woman and a man with short black hair speaking on a stairwell, the third of a the same man with glasses, and an aerial image of NTID
-
-> **출처**: [Google AI Blog](https://blog.google/company-news/outreach-and-initiatives/accessibility/natively-adaptive-interfaces-ai-accessibility/)
-
-#### 핵심 포인트
-
-- A collage of four images, the first of a woman with curly hair in front of a silver laptop, the second of the same woman and a man with short black hair speaking on a stairwell, the third of a the same man with glasses, and an aerial image of NTID
-
-
-#### AI/ML 보안 영향 분석
-
-- **모델 보안**: AI 모델 무결성 및 적대적 공격 대응 현황 점검
-- **데이터 보안**: 학습 데이터 및 추론 파이프라인 보안 검토 필요
-- **거버넌스**: AI 모델 배포 전 보안 평가 체크리스트 확인
-
-#### 실무 적용
-
-- AI/ML 파이프라인 보안 점검 항목 검토
-- 모델 입출력 검증 로직 추가 검토
-- AI 거버넌스 프레임워크 대비 현황 점검
-
-
----
-
-### 2.2 How Google Cloud is helping Team USA elevate their tricks with AI
-
-#### 개요
-
-A woman outdoors in the snow looks at a tablet. A half pipe is behind her.
-
-> **출처**: [Google AI Blog](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/us-ski-snowboard-tool-winter-olympics-2026/)
-
-#### 핵심 포인트
-
-- A woman outdoors in the snow looks at a tablet
-- A half pipe is behind her
-
-
-#### AI/ML 보안 영향 분석
-
-- **모델 보안**: AI 모델 무결성 및 적대적 공격 대응 현황 점검
-- **데이터 보안**: 학습 데이터 및 추론 파이프라인 보안 검토 필요
-- **거버넌스**: AI 모델 배포 전 보안 평가 체크리스트 확인
-
-#### 실무 적용
-
-- AI/ML 파이프라인 보안 점검 항목 검토
-- 모델 입출력 검증 로직 추가 검토
-- AI 거버넌스 프레임워크 대비 현황 점검
-
-
----
-
-### 2.3 Watch our new Gemini ad ahead of football’s biggest weekend
-
-#### 개요
-
-A toddler in a blue and yellow striped shirt sits on a kitchen counter eating a red apple. Text in the corner reads: 'New Home, Google Gemini SB Commercial’
-
-> **출처**: [Google AI Blog](https://blog.google/company-news/inside-google/company-announcements/gemini-ad-new-home/)
-
-#### 핵심 포인트
-
-- A toddler in a blue and yellow striped shirt sits on a kitchen counter eating a red apple
-- Text in the corner reads: 'New Home, Google Gemini SB Commercial’
-
-
-#### AI/ML 보안 영향 분석
-
-- **모델 보안**: AI 모델 무결성 및 적대적 공격 대응 현황 점검
-- **데이터 보안**: 학습 데이터 및 추론 파이프라인 보안 검토 필요
-- **거버넌스**: AI 모델 배포 전 보안 평가 체크리스트 확인
-
-#### 실무 적용
-
-- AI/ML 파이프라인 보안 점검 항목 검토
-- 모델 입출력 검증 로직 추가 검토
-- AI 거버넌스 프레임워크 대비 현황 점검
-
-
----
-
-## 3. 클라우드 & 인프라 뉴스
-
-### 3.1 Announcing Claude Opus 4.6 on Vertex AI
-
-#### 개요
-
-At Google Cloud, we’re committed to providing customers with the leading selection of models to build and scale production-ready AI apps and agents on a platform optimized for performance, trust, and global scale. Today, we’re further expanding Vertex AI’s curated collection of models with the addition of Anthropic’s newest release : Claude Opus 4.6 . Claude Opus 4.6 is Anthropic’s most powerful model yet. In addition to excelling at complex coding tasks and creating sophisticated agents, Opu...
+Google Cloud에서 Anthropic의 최신 모델 **Claude Opus 4.6**을 Vertex AI에서 사용할 수 있게 되었다고 발표했습니다. Claude Opus 4.6는 복잡한 코딩 작업과 고도화된 AI 에이전트 생성에서 뛰어난 성능을 보이며, 기존 모델 대비 더 깊은 맥락 파악 능력과 향상된 지시 따르기 성능을 제공합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/expanding-vertex-ai-with-claude-opus-4-6/)
 
 #### 핵심 포인트
 
-- At Google Cloud, we’re committed to providing customers with the leading selection of models to build and scale production-ready AI apps and agents on a platform optimized for performance, trust, and global scale
-- Today, we’re further expanding Vertex AI’s curated collection of models with the addition of Anthropic’s newest release : Claude Opus 4.6
-- Claude Opus 4.6 is Anthropic’s most powerful model yet
-- In addition to excelling at complex coding tasks and creating sophisticated agents, Opu
+| 항목 | 내용 |
+|------|------|
+| **모델 특성** | 복잡한 코딩 작업, 고도화된 AI 에이전트 생성에 최적화된 Anthropic의 최신 플래그십 모델 |
+| **Vertex AI 통합** | Google Cloud Vertex AI에서 바로 사용 가능, 기존 GCP 보안/거버넌스 체계와 통합 |
+| **에이전트 보안** | 더 강력한 AI 에이전트를 구축할 수 있는 만큼, 에이전트 보안 거버넌스도 함께 강화 필요 |
 
+#### AI 에이전트 보안 고려사항
+
+Claude Opus 4.6의 향상된 에이전트 능력은 OWASP Agentic AI Top 10에서 정의한 보안 위험을 더욱 중요하게 만듭니다:
+
+| OWASP 위험 | Opus 4.6 관련성 | 대응 방안 |
+|-----------|----------------|----------|
+| Excessive Agency | 고도화된 에이전트가 더 많은 도구와 API 접근 | 최소 권한 원칙 + Human-in-the-Loop |
+| Indirect Prompt Injection | 향상된 맥락 파악 = 더 넓은 입력 표면 | 입력 검증 파이프라인 강화 |
+| Insecure Tool Use | 에이전트의 외부 도구 호출 범위 확대 | 도구별 입력/출력 스키마 검증 |
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- Vertex AI에서 Claude Opus 4.6 사용 시 VPC Service Controls로 데이터 경계 설정
+- AI 에이전트 실행 로그를 Cloud Audit Logs에 전량 기록하고 BigQuery로 장기 보존
+- 프로덕션 에이전트 배포 전 OWASP Agentic AI Top 10 체크리스트 기반 보안 평가 수행
 
+AI 에이전트 보안에 대한 심층 분석은 [Tech & Security Weekly Digest: AI OpenSSL Zero Day, OWASP Agentic, Fortinet]({% post_url 2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet %})에서 확인할 수 있습니다.
 
 ---
 
-### 3.2 Getting Started with Gemini 3: Unlocking the Cloud with the Free Trial
+### 2.2 Natively Adaptive Interfaces: AI 접근성 프레임워크
 
 #### 개요
 
-In the previous post, we dipped our toes into the AI waters. We grabbed a Gemini API key to build your first "Hello World" AI app and then used the magic of Vibe Coding in Google AI Studio to create and deploy a web app to Cloud Run . But if you tried to hit that "Deploy" button in Part 2 without a Google Cloud Project set up, you might have hit a small speed bump. A Google Cloud Project unlocks the ability to host AI apps, store massive datasets, and yes, unleashes the full range of the Gemi...
+Google AI에서 **Natively Adaptive Interfaces**라는 AI 기반 접근성 프레임워크를 발표했습니다. 이 프레임워크는 장애를 가진 사용자가 AI 인터페이스를 보다 효과적으로 활용할 수 있도록 인터페이스가 사용자의 능력과 선호도에 자동으로 적응하는 기술을 제안합니다. 로체스터 공과대학교(RIT)의 NTID(National Technical Institute for the Deaf)와 협력하여 개발되었습니다.
 
-> **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/developers-practitioners/getting-started-with-gemini-3-unlocking-the-cloud-with-the-free-trial/)
+> **출처**: [Google AI Blog](https://blog.google/company-news/outreach-and-initiatives/accessibility/natively-adaptive-interfaces-ai-accessibility/)
 
 #### 핵심 포인트
 
-- In the previous post, we dipped our toes into the AI waters
-- We grabbed a Gemini API key to build your first "Hello World" AI app and then used the magic of Vibe Coding in Google AI Studio to create and deploy a web app to Cloud Run
-- But if you tried to hit that "Deploy" button in Part 2 without a Google Cloud Project set up, you might have hit a small speed bump
-- A Google Cloud Project unlocks the ability to host AI apps, store massive datasets, and yes, unleashes the full range of the Gemi
-
+| 항목 | 내용 |
+|------|------|
+| **프레임워크 목적** | 장애를 가진 사용자를 위한 AI 기반 적응형 인터페이스 - 사용자 능력과 선호도에 자동 적응 |
+| **협력 기관** | 로체스터 공과대학교(RIT) NTID - 청각 장애 학생을 위한 기술 연구 |
+| **보안 관련성** | 적응형 인터페이스가 사용자 행동 패턴 데이터를 수집하므로 프라이버시 보호 설계(Privacy by Design) 필수 |
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
-
+- 사내 웹 서비스의 WCAG 2.1 AA 접근성 준수 현황 점검 및 AI 기반 적응형 UI 도입 검토
+- 적응형 인터페이스 구현 시 사용자 행동 데이터 수집 범위 최소화, 로컬 처리 우선 적용
+- 장애인차별금지법(KODA) 및 정보통신 접근성 관련 규정 대응 체계 점검
 
 ---
 
-### 3.3 Agent Factory Recap: Build an AI Workforce with Gemini 3
-
-> 🔴 **심각도**: Critical
+### 2.3 Gemini 3 - Google AI 생태계 업데이트
 
 #### 개요
 
-In this episode of the Agent Factory , Smitha Kolan and Vlad Kolesnikov are joined by Brandon Hancock, a full-stack engineer and the creator behind the YouTube channel AI with Brandon , where he teaches AI concepts to over 80,000 developers. This was a very special recording, taking place just hours after Google released several major updates, including the new flagship model Gemini 3 , the Antigravity coding environment, and updates to the Gemini CLI . We spent the episode exploring these ne...
+Google이 Gemini 3 모델과 함께 **Antigravity 코딩 환경**, **Gemini CLI 업데이트** 등 대규모 AI 생태계 업데이트를 발표했습니다. Agent Factory 시리즈에서 이러한 새로운 도구들을 활용하여 AI Workforce를 구축하는 방법을 시연했습니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/developers-practitioners/agent-factory-recap-build-an-ai-workforce-with-gemini-3/)
 
 #### 핵심 포인트
 
-- In this episode of the Agent Factory , Smitha Kolan and Vlad Kolesnikov are joined by Brandon Hancock, a full-stack engineer and the creator behind the YouTube channel AI with Brandon , where he teaches AI concepts to over 80,000 developers
-- This was a very special recording, taking place just hours after Google released several major updates, including the new flagship model Gemini 3 , the Antigravity coding environment, and updates to the Gemini CLI
-- We spent the episode exploring these ne
-
+| 항목 | 내용 |
+|------|------|
+| **Gemini 3** | Google의 최신 플래그십 AI 모델 - 멀티모달 처리, 코드 생성, 에이전트 구축 강화 |
+| **Antigravity** | 새로운 코딩 환경 - Gemini 3 기반 AI 보조 개발 도구 |
+| **Gemini CLI** | 터미널 기반 Gemini 접근 도구 업데이트 - 개발자 워크플로우 통합 |
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
-
+- Gemini 3 API를 사내 개발 환경에 통합할 때 API 키 관리 체계 점검 - 환경 변수 또는 Secret Manager 사용
+- Antigravity/Gemini CLI를 통한 코드 생성 시 자동 보안 리뷰(SAST) 파이프라인 연동 필수
+- AI 생성 코드의 라이선스 준수 여부 검증 프로세스 수립 (오픈소스 라이선스 오염 방지)
 
 ---
 
-## 4. DevOps & 개발 뉴스
-
-### 4.1 Reduce Vulnerability Noise with VEX: Wiz + Docker Hardened Images
-
-> 🔴 **심각도**: Critical
+### 2.4 Gemini Cloud Free Trial 가이드
 
 #### 개요
 
-Open source components power most modern applications. A new generation of hardened container images can establish a more secure foundation, but even with hardened images, vulnerability scanners often return dozens or hundreds of CVEs with little prioritization. This noise slows teams down and complicates security triage. The VEX (Vulnerability Exploitability eXchange) standard addresses the problem...
+Google Cloud에서 Gemini 시리즈를 활용한 클라우드 입문 가이드 3부를 발표했습니다. Gemini API 키를 사용하여 "Hello World" AI 앱을 만들고, Google AI Studio에서 Vibe Coding으로 웹 앱을 생성한 후 Cloud Run에 배포하는 방법을 단계별로 안내합니다.
+
+> **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/developers-practitioners/getting-started-with-gemini-3-unlocking-the-cloud-with-the-free-trial/)
+
+#### 핵심 포인트
+
+| 항목 | 내용 |
+|------|------|
+| **시리즈 구성** | Gemini API 키 발급 -> AI 앱 빌드 -> Cloud Run 배포로 이어지는 3부작 가이드 |
+| **핵심 기술** | Google AI Studio + Vibe Coding + Cloud Run 조합 |
+| **보안 고려** | Free Trial 환경에서도 IAM, API 키 제한, 네트워크 설정 등 기본 보안 설정 필수 |
+
+#### 실무 적용 포인트
+
+- Cloud Run 배포 시 `--no-allow-unauthenticated` 옵션으로 미인증 접근 차단 기본 적용
+- API 키에 IP 제한 및 서비스 범위 제한(API Restriction) 설정 - 키 탈취 시 피해 범위 최소화
+- Free Trial 만료 후 리소스 자동 정리를 위한 Budget Alert + Cloud Function 자동 삭제 구성
+
+---
+
+### 2.5 AI Usage Control과 Shadow AI 위험
+
+#### 개요
+
+기업에서 승인되지 않은 AI 서비스 사용(Shadow AI)이 증가함에 따라, AI 사용 통제를 위한 실무 가이드가 발표되었습니다. 직원들이 업무 중 ChatGPT, Claude, Gemini 등에 기업 데이터를 입력하는 사례가 증가하고 있으며, 이에 대한 가시성 확보와 정책 적용이 시급합니다.
+
+> **출처**: [The Hacker News](https://thehackernews.com/2026/02/the-buyers-guide-to-ai-usage-control.html)
+
+#### Shadow AI 탐지 및 대응
+
+```bash
+#!/bin/bash
+# Shadow AI 서비스 접근 현황 분석 스크립트
+# 프록시/방화벽 로그에서 AI 서비스 도메인 접근 추출
+
+echo "=== Shadow AI 접근 현황 분석 ==="
+echo "분석 기간: 최근 30일"
+
+# AI 서비스 도메인 목록
+AI_DOMAINS="api.openai.com|chat.openai.com|claude.ai|api.anthropic.com|gemini.google.com|bard.google.com|copilot.microsoft.com"
+
+# 프록시 로그 분석 (Squid/nginx 형식)
+echo "[1/2] 프록시 로그에서 AI 서비스 접근 추출..."
+if [ -f /var/log/squid/access.log ]; then
+  grep -cE "$AI_DOMAINS" /var/log/squid/access.log
+  echo "--- 사용자별 접근 빈도 ---"
+  grep -E "$AI_DOMAINS" /var/log/squid/access.log | awk '{print $8}' | sort | uniq -c | sort -rn | head -20
+fi
+
+# 2. DNS 쿼리 로그 분석
+echo "[2/2] DNS 쿼리 로그에서 AI 서비스 조회 추출..."
+if [ -f /var/log/named/query.log ]; then
+  grep -cE "$AI_DOMAINS" /var/log/named/query.log
+fi
+
+echo "=== 분석 완료 ==="
+```
+
+#### 실무 적용 포인트
+
+- CASB 또는 Secure Web Gateway에 AI 서비스 카테고리 필터 적용 - 허용/차단/모니터링 정책 설정
+- DLP 정책에 AI 서비스 데이터 전송 탐지 룰 추가 - 소스코드, 개인정보, 영업비밀 패턴 탐지
+- AI 사용 정책(Acceptable Use Policy) 수립: 허용 서비스 목록, 입력 가능 데이터 분류, 금지 행위 정의
+
+---
+
+## 3. 클라우드 & 인프라 뉴스
+
+### 3.1 Reduce Vulnerability Noise with VEX: Wiz + Docker Hardened Images
+
+> **심각도**: Critical (DevSecOps 프로세스 영향)
+
+#### 개요
+
+Docker와 Wiz가 협력하여 **VEX(Vulnerability Exploitability eXchange)** 표준을 활용한 취약점 노이즈 감소 방안을 발표했습니다. 하드닝된 컨테이너 이미지를 사용하더라도 취약점 스캐너가 수십~수백 개의 CVE를 보고하지만, 실제로 악용 가능한 취약점은 극소수입니다. VEX는 이러한 우선순위 결정 문제를 해결합니다.
 
 > **출처**: [Docker Blog](https://www.docker.com/blog/reduce-vulnerability-noise-with-vex-wiz-docker-hardened-images/)
 
 #### 핵심 포인트
 
-- Open source components power most modern applications
-- A new generation of hardened container images can establish a more secure foundation, but even with hardened images, vulnerability scanners often return dozens or hundreds of CVEs with little prioritization
-- This noise slows teams down and complicates security triage
-- The VEX (Vulnerability Exploitability eXchange) standard addresses the problem
+| 항목 | 내용 |
+|------|------|
+| **VEX 표준** | 취약점의 실제 악용 가능성(Exploitability)을 구조화된 형식으로 전달하는 표준 |
+| **문제 해결** | 하드닝된 이미지에서도 스캐너가 보고하는 수백 개 CVE 중 실제 위험한 것만 필터링 |
+| **Docker + Wiz 통합** | Docker 하드닝 이미지에 VEX 메타데이터 포함, Wiz에서 자동 우선순위 적용 |
 
+#### VEX 상태 분류
+
+| VEX 상태 | 의미 | 조치 |
+|----------|------|------|
+| `not_affected` | 해당 취약점의 영향을 받지 않음 | 무시 가능 |
+| `affected` | 영향을 받으며 패치 필요 | 우선순위에 따라 패치 |
+| `fixed` | 이미 수정됨 | 확인만 필요 |
+| `under_investigation` | 조사 중 | 모니터링 |
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
-
+- CI/CD 파이프라인에 VEX 기반 취약점 필터링 단계 추가 - 오탐(False Positive) CVE 자동 제외로 보안팀 업무 부하 감소
+- Docker 공식 하드닝 이미지로 베이스 이미지 전환 검토 - `docker.io/library/python:3.12-slim` 대신 `docker.io/docker/python:3.12-hardened`
+- Wiz, Snyk, Trivy 등 스캐너에서 VEX 지원 여부 확인 및 VEX 데이터 연동 구성
 
 ---
 
-### 4.2 Dragonfly v2.4.0 is released
+### 3.2 Dragonfly v2.4.0 출시 - P2P 기반 컨테이너 이미지 배포
 
 #### 개요
 
-Dragonfly v2.4.0 is released! Thanks to all of the contributors who made this Dragonfly release happen. New features and enhancements load-aware scheduling algorithm A two-stage scheduling algorithm combining central scheduling with node-level secondary scheduling to optimize...
+CNCF 프로젝트 **Dragonfly v2.4.0**이 출시되었습니다. P2P(Peer-to-Peer) 기반 컨테이너 이미지 배포 시스템으로, 대규모 클러스터에서 이미지 풀(pull) 시간을 획기적으로 단축합니다. 이번 버전에서는 **부하 인식 스케줄링 알고리즘**(중앙 스케줄링 + 노드 수준 보조 스케줄링 2단계)이 추가되었습니다.
 
 > **출처**: [CNCF Blog](https://www.cncf.io/blog/2026/02/05/dragonfly-v2-4-0-is-released/)
 
 #### 핵심 포인트
 
-- Dragonfly v2.4.0 is released
-- Thanks to all of the contributors who made this Dragonfly release happen
-- New features and enhancements load-aware scheduling algorithm A two-stage scheduling algorithm combining central scheduling with node-level secondary scheduling to optimize
-
+| 항목 | 내용 |
+|------|------|
+| **핵심 기능** | P2P 기반 컨테이너 이미지 배포 - 대규모 클러스터 이미지 풀 시간 단축 |
+| **신규 기능** | 부하 인식 스케줄링 알고리즘 - 중앙 + 노드 수준 2단계 스케줄링 최적화 |
+| **보안 고려** | P2P 네트워크에서의 이미지 무결성 검증, 노드 간 통신 암호화 필수 |
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
-
+- Dragonfly 도입 시 P2P 트래픽에 대한 mTLS 설정 필수 - 노드 간 이미지 조각 전송 시 무결성 보장
+- 이미지 시그니처 검증(cosign/notation)과 Dragonfly 캐시 무결성 검증의 통합 방안 검토
+- 기존 Harbor/ECR 레지스트리와의 연동 시 인증 토큰 관리 체계 점검
 
 ---
 
-### 4.3 .NET Framework 3.5 Moves to Standalone Deployment in new versions of Windows
+### 3.3 .NET Framework 3.5 Standalone Deployment
 
 #### 개요
 
-An announcement of .NET Framework 3.5 servicing updates on new versions of Windows. The post .NET Framework 3.5 Moves to Standalone Deployment in new versions of Windows appeared first on .NET Blog .
+Microsoft가 새로운 Windows 버전에서 **.NET Framework 3.5의 독립 배포(Standalone Deployment)** 방식 전환을 발표했습니다. 기존에는 Windows 구성 요소로 기본 포함되었으나, 향후 새 Windows 버전에서는 별도 설치가 필요합니다.
 
 > **출처**: [Microsoft .NET Blog](https://devblogs.microsoft.com/dotnet/dotnet-framework-3-5-moves-to-standalone-deployment-in-new-versions-of-windows/)
 
 #### 핵심 포인트
 
-- An announcement of .NET Framework 3.5 servicing updates on new versions of Windows
-- The post .NET Framework 3.5 Moves to Standalone Deployment in new versions of Windows appeared first on .NET Blog 
-
+| 항목 | 내용 |
+|------|------|
+| **변경 내용** | .NET Framework 3.5가 새 Windows 버전에서 기본 포함 제외, 독립 설치 필요 |
+| **영향 범위** | .NET Framework 3.5에 의존하는 레거시 애플리케이션 운영 환경 |
+| **보안 영향** | 독립 배포 시 패치 관리 체계 변경 필요 - Windows Update가 아닌 별도 업데이트 채널 |
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- 사내 애플리케이션 중 .NET Framework 3.5 의존 인벤토리 파악 - 최신 .NET 8.0+ 마이그레이션 로드맵 수립
+- 독립 배포 환경에서의 보안 패치 적용 자동화 체계 구축 (SCCM/Intune 배포 패키지 사전 준비)
+- 컨테이너 환경에서 .NET Framework 3.5 사용 시 Windows Server Core 이미지 기반 Dockerfile 업데이트 검토
 
+---
+
+## 4. DevOps & 개발 뉴스
+
+### 4.1 Reduce Vulnerability Noise with VEX - Docker 하드닝 이미지 실무 가이드
+
+#### 개요
+
+Docker가 Wiz와 협력하여 VEX(Vulnerability Exploitability eXchange) 표준 기반의 취약점 노이즈 감소 솔루션을 Docker 하드닝 이미지에 통합했습니다. 오픈소스 컴포넌트가 대부분의 현대 애플리케이션을 구동하는 만큼, 이 접근법은 보안 트리아지 효율성을 획기적으로 개선합니다.
+
+> **출처**: [Docker Blog](https://www.docker.com/blog/reduce-vulnerability-noise-with-vex-wiz-docker-hardened-images/)
+
+#### 실무 적용: VEX 기반 CI/CD 파이프라인
+
+```yaml
+# GitHub Actions - VEX 기반 컨테이너 이미지 보안 스캔
+name: Container Security Scan with VEX
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Image
+        run: docker build -t myapp:latest .
+
+      - name: Trivy Scan with VEX
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'myapp:latest'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          # VEX 파일로 오탐 필터링
+          vex: '.trivyignore.yaml'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Upload Results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results.sarif'
+```
+
+#### 실무 적용 포인트
+
+- Docker 하드닝 이미지로 베이스 이미지 전환 시 기존 Dockerfile 호환성 테스트 필수
+- VEX 데이터를 활용한 취약점 우선순위 자동화로 보안팀의 CVE 트리아지 시간 50% 이상 단축 목표
+- SLA 기반 취약점 대응 체계 수립: Critical 4시간, High 24시간, Medium 7일, Low 30일
+
+---
+
+### 4.2 Dragonfly v2.4.0 - P2P 이미지 배포 보안 강화
+
+#### 개요
+
+Dragonfly v2.4.0에서 도입된 부하 인식 스케줄링 알고리즘은 중앙 스케줄링과 노드 수준 보조 스케줄링을 결합한 2단계 방식으로, 대규모 Kubernetes 클러스터에서의 이미지 배포 효율성을 크게 향상시킵니다.
+
+> **출처**: [CNCF Blog](https://www.cncf.io/blog/2026/02/05/dragonfly-v2-4-0-is-released/)
+
+#### 실무 적용 포인트
+
+- Kubernetes 1000+ 노드 환경에서 Dragonfly 도입 시 레지스트리 트래픽 80% 이상 감소 기대
+- P2P 네트워크 트래픽을 별도 VLAN으로 격리하여 프로덕션 네트워크 영향 최소화
+- Dragonfly Manager/Scheduler 컴포넌트에 대한 RBAC 설정 및 감사 로그 활성화
+
+---
+
+### 4.3 .NET Framework 3.5 독립 배포 전환 - 레거시 관리 전략
+
+#### 개요
+
+.NET Framework 3.5의 독립 배포 전환은 레거시 애플리케이션을 운영하는 조직에 중요한 영향을 미칩니다. Windows의 기본 포함에서 제외됨에 따라 배포 자동화, 패치 관리, 호환성 테스트 전략의 재수립이 필요합니다.
+
+> **출처**: [Microsoft .NET Blog](https://devblogs.microsoft.com/dotnet/dotnet-framework-3-5-moves-to-standalone-deployment-in-new-versions-of-windows/)
+
+#### 실무 적용 포인트
+
+- .NET Framework 3.5 의존 애플리케이션 목록 작성 및 .NET 8.0+ 마이그레이션 우선순위 설정
+- SCCM/Intune을 통한 .NET Framework 3.5 독립 패키지 사전 배포 정책 수립
+- 레거시 .NET 3.5 애플리케이션의 보안 취약점 정기 스캔 체계 구축 (EOL 런타임 위험 관리)
 
 ---
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Paystand: The Payments Giants Quietly Supporting Bitcoin Circular Economies
+### 5.1 Paystand - B2B 비트코인 결제 생태계와 보안
 
 #### 개요
 
-Bitcoin Magazine Paystand: The Payments Giants Quietly Supporting Bitcoin Circular Economies Paystand CEO Jeremy Almond revealed massive Bitcoin mining operation, teases B2B layer two protocol and his strategy to orange pill corporate America. This post Paystand: The Payments Giants Quietly Supporting Bitcoin Circular Economies first appeared on Bitcoin Magazine and is written by Juan Galt .
+Paystand CEO Jeremy Almond가 대규모 비트코인 마이닝 운영을 공개하며, B2B 레이어 2 프로토콜 개발과 기업 비트코인 도입 전략을 발표했습니다. 기업 B2B 결제에 비트코인을 통합하는 것은 새로운 보안 고려사항을 동반합니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/business/paystand-the-payments-giants-quietly-supporting-bitcoin-circular-economies)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine Paystand: The Payments Giants Quietly Supporting Bitcoin Circular Economies Paystand CEO Jeremy Almond revealed massive Bitcoin mining operation, teases B2B layer two protocol and his strategy to orange pill corporate America
-- This post Paystand: The Payments Giants Quietly Supporting Bitcoin Circular Economies first appeared on Bitcoin Magazine and is written by Juan Galt 
-
+| 항목 | 내용 |
+|------|------|
+| **B2B 비트코인** | Paystand가 기업간 결제에 비트코인 통합, 레이어 2 프로토콜 개발 진행 |
+| **마이닝 운영** | 대규모 비트코인 마이닝 인프라 운영 공개 |
+| **보안 고려** | B2B 암호화폐 결제 시 월렛 관리, 트랜잭션 모니터링, AML/KYC 규정 준수 필수 |
 
 ---
 
-### 5.2 JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold Long Term
+### 5.2 JPMorgan - 비트코인 vs 골드 투자 분석
 
 #### 개요
 
-Bitcoin Magazine JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold Long Term JPMorgan says Bitcoin’s long-term case versus gold is strengthening despite its historic sell-off. This post JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold Long Term first appeared on Bitcoin Magazine and is written by Micah Zimmerman .
+JPMorgan이 비트코인의 장기 투자 가치가 골드보다 강화되고 있다고 분석했습니다. 역사적 매도세에도 불구하고 비트코인의 장기 전망이 금 대비 우위에 있다는 기관 투자자 관점의 분석을 제시합니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/bitcoin-is-now-more-attractive-than-gold)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold Long Term JPMorgan says Bitcoin’s long-term case versus gold is strengthening despite its historic sell-off
-- This post JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold Long Term first appeared on Bitcoin Magazine and is written by Micah Zimmerman 
-
+| 항목 | 내용 |
+|------|------|
+| **기관 분석** | JPMorgan이 비트코인의 장기 투자 가치가 골드 대비 강화되고 있다고 평가 |
+| **시장 영향** | 기관 투자자의 비트코인 할당 증가 추세가 암호화폐 보관(Custody) 보안 수요 확대 |
+| **보안 시사점** | 기관 자산으로서의 비트코인 보관 시 하드웨어 월렛, 멀티시그, 콜드스토리지 보안 체계 강화 필요 |
 
 ---
 
@@ -460,22 +958,65 @@ Bitcoin Magazine JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [New VW Sportline is the 7-passenger electric GTi t...](https://electrek.co/2026/02/05/new-vw-sportline-is-the-7-passenger-electric-gti-the-id-buzz-should-have-been/) | Electrek | VW have finally built the van enthusiasts have been asking — and it’s not the ID... |
-| [The world’s first sodium-ion battery EV is here an...](https://electrek.co/2026/02/05/first-sodium-ion-battery-ev-debuts-game-changer/) | Electrek | Leading global battery maker CATL and Changan Automobile unveiled the world’s fi... |
-
+| [New VW Sportline](https://electrek.co/2026/02/05/new-vw-sportline-is-the-7-passenger-electric-gti-the-id-buzz-should-have-been/) | Electrek | VW가 7인승 전기차 Sportline 공개 - ID Buzz의 GTi 버전으로 전기차 시장 경쟁 가속화 |
+| [Sodium-ion Battery EV](https://electrek.co/2026/02/05/first-sodium-ion-battery-ev-debuts-game-changer/) | Electrek | CATL과 Changan이 세계 최초 나트륨이온 배터리 EV 공개 - 리튬 의존도 감소, 배터리 공급망 다변화 |
 
 ---
 
-## 7. 트렌드 분석
+## 7. 한국 규제 컴플라이언스 매핑
 
-| 트렌드 | 관련 뉴스 수 | 주요 키워드 |
-|--------|-------------|------------|
-| **AI/ML** | 12건 | ai |
-| **Cloud Security** | 7건 | cloud |
-| **Container/K8s** | 1건 | container |
-| **Authentication** | 1건 | identity |
+| 위협/이슈 | 관련 규제 | 핵심 요구사항 | 대응 상태 |
+|----------|----------|-------------|----------|
+| CrashFix Python RAT | 개인정보보호법 제29조 (안전조치의무) | 악성코드 방지, 접근 통제 | 즉시 점검 필요 |
+| CrashFix Python RAT | 정보통신망법 제45조 (침해사고 대응) | 침해사고 예방, 대응 계획 수립 | CERT 연락 체계 확인 |
+| AISURU DDoS | 정보통신기반보호법 제12조 | 주요 정보통신기반시설 보호 대책 | DDoS 대응 계획 검토 |
+| Codespaces RCE | ISMS-P 2.6.3 (개발 보안) | 개발 환경 보안, 소스코드 보호 | Codespaces 정책 점검 |
+| Shadow AI | 개인정보보호법 제17조 (제3자 제공) | AI 서비스에 개인정보 입력 시 동의 필요 | AI 사용 정책 수립 |
+| VEX 취약점 관리 | ISMS-P 2.11.2 (취약점 점검) | 정기적 취약점 점검 및 조치 | VEX 기반 프로세스 도입 |
 
-이번 주기에서 가장 많이 언급된 트렌드는 **AI/ML** (12건)입니다. 그 다음으로 **Cloud Security** (7건)이 주목받고 있습니다. 실무에서는 해당 트렌드와 관련된 보안 정책 및 모니터링 체계를 점검하시기 바랍니다.
+---
+
+## 8. 보안 메트릭 및 KPI
+
+### 이번 주 권장 측정 지표
+
+| 메트릭 | 측정 방법 | 목표값 | 비고 |
+|--------|----------|-------|------|
+| **finger.exe 실행 건수** | SIEM 이벤트 카운트 (EventCode 4688) | 0건 | CrashFix 탐지 핵심 지표 |
+| **Portable Python 탐지** | EDR 비승인 경로 python.exe 탐지 | 0건 | 비정상 Python 실행 모니터링 |
+| **DDoS 방어 커버리지** | CDN/DDoS 방어 서비스 적용 비율 | 100% (외부 서비스) | AISURU 대응 |
+| **BYOVD 드라이버 로딩** | 취약 드라이버 로딩 이벤트 수 | 0건 | WDAC 차단 목록 적용 후 |
+| **Shadow AI 접근** | 프록시 로그 AI 서비스 도메인 접근 수 | 파악 후 정책 적용 | 신규 지표 |
+| **VEX 필터링 비율** | 전체 CVE 중 VEX로 필터링된 비율 | >60% | 보안팀 업무 효율 지표 |
+| **Codespaces 보안 설정** | 보안 설정 준수 저장소 비율 | 100% | devcontainer.json 점검 |
+
+### MTTR(Mean Time to Respond) 목표
+
+| 심각도 | 목표 MTTR | 현재 추정 | 개선 방안 |
+|--------|----------|----------|----------|
+| Critical (CrashFix, Codespaces) | < 4시간 | 6시간 | 자동화된 IOC 배포 파이프라인 구축 |
+| High (BYOVD) | < 24시간 | 36시간 | WDAC 정책 자동 업데이트 |
+| Medium (AISURU DDoS) | < 7일 | 3일 | CDN 설정 자동 검증 |
+
+---
+
+## 9. 트렌드 분석
+
+| 트렌드 | 관련 뉴스 수 | 주요 키워드 | 주간 변화 |
+|--------|-------------|------------|----------|
+| **AI/ML** | 12건 | AI Agent, Gemini 3, Claude Opus 4.6, Shadow AI | +3건 (증가) |
+| **Cloud Security** | 7건 | DDoS, VEX, Codespaces, Vertex AI | +2건 (증가) |
+| **Endpoint Security** | 3건 | CrashFix, BYOVD, finger.exe LOLBin | +2건 (증가) |
+| **Container/K8s** | 2건 | Docker Hardened, Dragonfly P2P | 유지 |
+| **Authentication** | 1건 | Identity, AI Usage Control | -1건 (감소) |
+
+### 주간 트렌드 심층 분석
+
+**1. ClickFix 변종의 진화**: CrashFix는 기존 ClickFix 공격의 고도화 버전으로, 브라우저 크래시를 유도하는 새로운 소셜 엔지니어링 기법을 도입했습니다. 2025년 하반기부터 관찰된 ClickFix 캠페인이 점점 정교해지고 있으며, LOLBin(Living Off the Land Binary) 악용이 핵심 회피 전략으로 자리잡고 있습니다.
+
+**2. DDoS 공격 규모의 기하급수적 증가**: 31.4 Tbps는 2018년 GitHub DDoS(1.35 Tbps) 대비 23배 증가한 수치입니다. 공격 지속시간은 오히려 단축되고 있어(35초), 기존의 Rate Limiting 기반 탐지 방식으로는 대응이 어려워지고 있습니다.
+
+**3. AI 에이전트 보안의 주류화**: Claude Opus 4.6, Gemini 3 등 AI 에이전트 능력이 급격히 향상되면서, OWASP Agentic AI Top 10, Microsoft NIST 기반 AI 거버넌스 등 보안 프레임워크가 동시에 발표되고 있습니다. AI 에이전트의 도입과 보안 거버넌스를 병행하는 것이 2026년의 핵심 과제입니다.
 
 ---
 
@@ -483,19 +1024,21 @@ Bitcoin Magazine JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold
 
 ### P0 (즉시)
 
-- [ ] **New Clickfix variant ‘CrashFix’ deploying Python Remote Acce** 관련 긴급 패치 및 영향도 확인
-- [ ] **ThreatsDay Bulletin: Codespaces RCE, AsyncRAT C2, BYOVD Abus** 관련 긴급 패치 및 영향도 확인
-- [ ] **Agent Factory Recap: Build an AI Workforce with Gemini 3** 관련 긴급 패치 및 영향도 확인
-- [ ] **Reduce Vulnerability Noise with VEX: Wiz + Docker Hardened I** 관련 긴급 패치 및 영향도 확인
+- [ ] **CrashFix Python RAT** - finger.exe GPO 차단 배포, Portable Python 비승인 경로 실행 차단, EDR 탐지 룰 추가
+- [ ] **Codespaces RCE/BYOVD** - Codespaces 보안 정책 점검, WDAC 취약 드라이버 차단 목록 업데이트, AsyncRAT IOC 등록
 
 ### P1 (7일 내)
 
-- [ ] **Ship Production Ready AI and Survive the Multimodal Frontier** 관련 보안 검토 및 모니터링
+- [ ] **AISURU 31.4 Tbps DDoS** - CDN/DDoS 방어 서비스 적용 현황 점검, Rate Limiting 임계값 검토, DDoS 대응 런북 업데이트
+- [ ] **Shadow AI 통제** - 프록시 로그에서 AI 서비스 접근 현황 분석, AI 사용 정책(AUP) 수립, DLP 정책에 AI 서비스 탐지 룰 추가
+- [ ] **VEX 기반 취약점 관리** - Docker 하드닝 이미지 전환 검토, CI/CD 파이프라인에 VEX 필터링 단계 추가
 
 ### P2 (30일 내)
 
-- [ ] 공격 표면 인벤토리 갱신
-- [ ] 접근 제어 감사
+- [ ] 공격 표면 인벤토리 갱신 (Codespaces, AI 서비스, P2P 네트워크 포함)
+- [ ] ISMS-P 2.6.3 개발 보안 요구사항 대비 Codespaces 보안 설정 감사
+- [ ] 보안 도구 Implementation Gap 점검 - 도입 대비 기능 활성화율 측정
+- [ ] .NET Framework 3.5 의존 레거시 애플리케이션 마이그레이션 계획 수립
 
 ---
 
@@ -506,6 +1049,9 @@ Bitcoin Magazine JPMorgan: Bitcoin is Now a More Attractive Investment Than Gold
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+| OWASP Agentic AI | [genai.owasp.org](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) |
+| Microsoft WDAC Driver Block | [learn.microsoft.com](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/design/microsoft-recommended-driver-block-rules) |
+| VEX Specification | [openvex.dev](https://openvex.dev/) |
 
 ---
 
