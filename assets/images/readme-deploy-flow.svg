@@ -1,128 +1,160 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif">
   <defs>
-    <linearGradient id="stepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea"/>
-      <stop offset="100%" style="stop-color:#764ba2"/>
+    <linearGradient id="dfBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#111827"/>
     </linearGradient>
-    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f093fb"/>
-      <stop offset="100%" style="stop-color:#f5576c"/>
+    <linearGradient id="dfStep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
     </linearGradient>
-    <linearGradient id="actionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#4facfe"/>
-      <stop offset="100%" style="stop-color:#00f2fe"/>
+    <linearGradient id="dfArrow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f43f5e"/>
     </linearGradient>
-    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#f5576c"/>
+    <linearGradient id="dfAction" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#0891b2"/>
+    </linearGradient>
+    <linearGradient id="dfLive" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <filter id="dfGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="dfShadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="dfArrowHead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="url(#dfArrow)"/>
     </marker>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <filter id="shadow">
-      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.3"/>
-    </filter>
+    <pattern id="dfGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+    </pattern>
   </defs>
 
-  <!-- Background -->
-  <rect width="900" height="400" fill="#0d1117"/>
+  <rect width="1000" height="450" fill="url(#dfBg)"/>
+  <rect width="1000" height="450" fill="url(#dfGrid)" opacity="0.3"/>
 
   <!-- Title -->
-  <text x="450" y="35" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="bold">Deployment Flow</text>
+  <text x="500" y="40" text-anchor="middle" fill="#fff" font-size="24" font-weight="700" filter="url(#dfGlow)">Deployment Flow</text>
+  <text x="500" y="62" text-anchor="middle" fill="#94a3b8" font-size="12">Automated 4-step pipeline from writing to production</text>
 
   <!-- Main flow boxes -->
-  <!-- Step 1: Write Post -->
-  <rect x="50" y="70" width="130" height="80" rx="10" fill="#161b22" stroke="url(#stepGrad)" stroke-width="3" filter="url(#shadow)"/>
-  <text x="115" y="105" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">Write</text>
-  <text x="115" y="125" text-anchor="middle" fill="#8b949e" font-size="12">Post</text>
-  <circle cx="115" y="165" r="15" fill="url(#stepGrad)"/>
-  <text x="115" y="170" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">1</text>
+  <!-- Step 1 -->
+  <g filter="url(#dfShadow)">
+    <rect x="40" y="85" width="150" height="95" rx="14" fill="#1e293b" stroke="url(#dfStep)" stroke-width="2"/>
+  </g>
+  <circle cx="115" cy="195" r="18" fill="url(#dfStep)" filter="url(#dfGlow)"/>
+  <text x="115" y="201" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">1</text>
+  <text x="115" y="120" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="600">Write</text>
+  <text x="115" y="142" text-anchor="middle" fill="#94a3b8" font-size="12">Post</text>
+  <text x="115" y="160" text-anchor="middle" fill="#64748b" font-size="10">Markdown</text>
 
-  <!-- Arrow 1 -->
-  <line x1="180" y1="110" x2="230" y2="110" stroke="url(#arrowGrad)" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="190" y1="132" x2="250" y2="132" stroke="url(#dfArrow)" stroke-width="3" marker-end="url(#dfArrowHead)"/>
 
-  <!-- Step 2: Push to GitHub -->
-  <rect x="235" y="70" width="130" height="80" rx="10" fill="#161b22" stroke="url(#stepGrad)" stroke-width="3" filter="url(#shadow)"/>
-  <text x="300" y="105" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">Push</text>
-  <text x="300" y="125" text-anchor="middle" fill="#8b949e" font-size="12">to GitHub</text>
-  <circle cx="300" y="165" r="15" fill="url(#stepGrad)"/>
-  <text x="300" y="170" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">2</text>
+  <!-- Step 2 -->
+  <g filter="url(#dfShadow)">
+    <rect x="260" y="85" width="150" height="95" rx="14" fill="#1e293b" stroke="url(#dfStep)" stroke-width="2"/>
+  </g>
+  <circle cx="335" cy="195" r="18" fill="url(#dfStep)" filter="url(#dfGlow)"/>
+  <text x="335" y="201" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">2</text>
+  <text x="335" y="120" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="600">Push</text>
+  <text x="335" y="142" text-anchor="middle" fill="#94a3b8" font-size="12">to GitHub</text>
+  <text x="335" y="160" text-anchor="middle" fill="#64748b" font-size="10">main branch</text>
 
-  <!-- Arrow 2 -->
-  <line x1="365" y1="110" x2="415" y2="110" stroke="url(#arrowGrad)" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="410" y1="132" x2="470" y2="132" stroke="url(#dfArrow)" stroke-width="3" marker-end="url(#dfArrowHead)"/>
 
-  <!-- Step 3: Build Jekyll -->
-  <rect x="420" y="70" width="130" height="80" rx="10" fill="#161b22" stroke="url(#stepGrad)" stroke-width="3" filter="url(#shadow)"/>
-  <text x="485" y="105" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">Build</text>
-  <text x="485" y="125" text-anchor="middle" fill="#8b949e" font-size="12">Jekyll</text>
-  <circle cx="485" y="165" r="15" fill="url(#stepGrad)"/>
-  <text x="485" y="170" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">3</text>
+  <!-- Step 3 -->
+  <g filter="url(#dfShadow)">
+    <rect x="480" y="85" width="150" height="95" rx="14" fill="#1e293b" stroke="url(#dfStep)" stroke-width="2"/>
+  </g>
+  <circle cx="555" cy="195" r="18" fill="url(#dfStep)" filter="url(#dfGlow)"/>
+  <text x="555" y="201" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">3</text>
+  <text x="555" y="120" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="600">Build</text>
+  <text x="555" y="142" text-anchor="middle" fill="#94a3b8" font-size="12">Jekyll</text>
+  <text x="555" y="160" text-anchor="middle" fill="#64748b" font-size="10">build.sh</text>
 
-  <!-- Arrow 3 -->
-  <line x1="550" y1="110" x2="600" y2="110" stroke="url(#arrowGrad)" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="630" y1="132" x2="690" y2="132" stroke="url(#dfArrow)" stroke-width="3" marker-end="url(#dfArrowHead)"/>
 
-  <!-- Step 4: Deploy to Vercel -->
-  <rect x="605" y="70" width="130" height="80" rx="10" fill="#161b22" stroke="url(#stepGrad)" stroke-width="3" filter="url(#shadow)"/>
-  <text x="670" y="105" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">Deploy</text>
-  <text x="670" y="125" text-anchor="middle" fill="#8b949e" font-size="12">to Vercel</text>
-  <circle cx="670" y="165" r="15" fill="url(#stepGrad)"/>
-  <text x="670" y="170" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">4</text>
+  <!-- Step 4 -->
+  <g filter="url(#dfShadow)">
+    <rect x="700" y="85" width="150" height="95" rx="14" fill="#1e293b" stroke="url(#dfStep)" stroke-width="2"/>
+  </g>
+  <circle cx="775" cy="195" r="18" fill="url(#dfStep)" filter="url(#dfGlow)"/>
+  <text x="775" y="201" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">4</text>
+  <text x="775" y="120" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="600">Deploy</text>
+  <text x="775" y="142" text-anchor="middle" fill="#94a3b8" font-size="12">to Vercel</text>
+  <text x="775" y="160" text-anchor="middle" fill="#64748b" font-size="10">Edge CDN</text>
 
-  <!-- Arrow to Production -->
-  <line x1="735" y1="110" x2="785" y2="110" stroke="url(#arrowGrad)" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="850" y1="132" x2="910" y2="132" stroke="url(#dfArrow)" stroke-width="3" marker-end="url(#dfArrowHead)"/>
 
   <!-- Production Site -->
-  <rect x="790" y="70" width="90" height="80" rx="10" fill="#238636" filter="url(#shadow)"/>
-  <text x="835" y="105" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">LIVE</text>
-  <text x="835" y="125" text-anchor="middle" fill="#fff" font-size="9">tech.2two</text>
-  <text x="835" y="140" text-anchor="middle" fill="#fff" font-size="9">dragon.com</text>
+  <g filter="url(#dfShadow)">
+    <rect x="920" y="90" width="70" height="85" rx="12" fill="url(#dfLive)"/>
+  </g>
+  <text x="955" y="125" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">LIVE</text>
+  <text x="955" y="145" text-anchor="middle" fill="#d1fae5" font-size="9">tech.2two</text>
+  <text x="955" y="158" text-anchor="middle" fill="#d1fae5" font-size="9">dragon.com</text>
 
   <!-- Parallel Actions from Push -->
-  <line x1="300" y1="150" x2="300" y2="200" stroke="#4facfe" stroke-width="2"/>
+  <line x1="335" y1="180" x2="335" y2="235" stroke="#06b6d4" stroke-width="2" stroke-dasharray="6,3"/>
 
   <!-- GitHub Actions Box -->
-  <rect x="150" y="210" width="300" height="170" rx="10" fill="#161b22" stroke="#4facfe" stroke-width="2" filter="url(#shadow)"/>
-  <rect x="150" y="210" width="300" height="35" rx="10" fill="url(#actionGrad)"/>
-  <rect x="150" y="235" width="300" height="10" fill="#161b22"/>
-  <text x="300" y="235" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">GitHub Actions</text>
+  <g filter="url(#dfShadow)">
+    <rect x="120" y="245" width="430" height="185" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    <rect x="120" y="245" width="430" height="42" rx="14" fill="url(#dfAction)"/>
+    <rect x="120" y="275" width="430" height="12" fill="#0f172a"/>
+  </g>
+  <text x="335" y="274" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">GitHub Actions</text>
 
   <!-- Action items -->
-  <rect x="170" y="260" width="120" height="45" rx="6" fill="#21262d" stroke="#30363d"/>
-  <text x="230" y="280" text-anchor="middle" fill="#c9d1d9" font-size="11">SNS Auto Share</text>
-  <text x="230" y="295" text-anchor="middle" fill="#8b949e" font-size="9">Twitter, FB, LinkedIn</text>
-
-  <rect x="310" y="260" width="120" height="45" rx="6" fill="#21262d" stroke="#30363d"/>
-  <text x="370" y="280" text-anchor="middle" fill="#c9d1d9" font-size="11">RSS Update</text>
-  <text x="370" y="295" text-anchor="middle" fill="#8b949e" font-size="9">Buttondown Email</text>
-
-  <rect x="170" y="315" width="120" height="45" rx="6" fill="#21262d" stroke="#30363d"/>
-  <text x="230" y="335" text-anchor="middle" fill="#c9d1d9" font-size="11">Pages Deploy</text>
-  <text x="230" y="350" text-anchor="middle" fill="#8b949e" font-size="9">Backup Site</text>
-
-  <rect x="310" y="315" width="120" height="45" rx="6" fill="#21262d" stroke="#30363d"/>
-  <text x="370" y="335" text-anchor="middle" fill="#c9d1d9" font-size="11">Daily News</text>
-  <text x="370" y="350" text-anchor="middle" fill="#8b949e" font-size="9">Auto Collect</text>
+  <g>
+    <rect x="145" y="305" width="180" height="50" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="235" y="330" text-anchor="middle" fill="#f1f5f9" font-size="12" font-weight="500">SNS Auto Share</text>
+    <text x="235" y="346" text-anchor="middle" fill="#64748b" font-size="10">Twitter, Facebook, LinkedIn</text>
+  </g>
+  <g>
+    <rect x="345" y="305" width="180" height="50" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="435" y="330" text-anchor="middle" fill="#f1f5f9" font-size="12" font-weight="500">RSS Update</text>
+    <text x="435" y="346" text-anchor="middle" fill="#64748b" font-size="10">Buttondown Email</text>
+  </g>
+  <g>
+    <rect x="145" y="365" width="180" height="50" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="235" y="390" text-anchor="middle" fill="#f1f5f9" font-size="12" font-weight="500">Pages Deploy</text>
+    <text x="235" y="406" text-anchor="middle" fill="#64748b" font-size="10">Backup Site</text>
+  </g>
+  <g>
+    <rect x="345" y="365" width="180" height="50" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="435" y="390" text-anchor="middle" fill="#f1f5f9" font-size="12" font-weight="500">Sentry Release</text>
+    <text x="435" y="406" text-anchor="middle" fill="#64748b" font-size="10">Error Tracking</text>
+  </g>
 
   <!-- Arrows from Actions to outputs -->
-  <line x1="450" y1="282" x2="500" y2="282" stroke="#4facfe" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="550" y1="330" x2="590" y2="330" stroke="#06b6d4" stroke-width="2" marker-end="url(#dfArrowHead)"/>
 
   <!-- Output boxes -->
-  <rect x="510" y="230" width="130" height="50" rx="8" fill="#1da1f2" filter="url(#shadow)"/>
-  <text x="575" y="255" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">Social Media</text>
-  <text x="575" y="270" text-anchor="middle" fill="#fff" font-size="9">Auto Posted</text>
+  <g filter="url(#dfShadow)">
+    <rect x="600" y="260" width="160" height="55" rx="10" fill="#1da1f2"/>
+  </g>
+  <text x="680" y="287" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Social Media</text>
+  <text x="680" y="304" text-anchor="middle" fill="#bae6fd" font-size="10">Auto Posted</text>
 
-  <rect x="510" y="290" width="130" height="50" rx="8" fill="#f5576c" filter="url(#shadow)"/>
-  <text x="575" y="315" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">Newsletter</text>
-  <text x="575" y="330" text-anchor="middle" fill="#fff" font-size="9">Email Sent</text>
+  <g filter="url(#dfShadow)">
+    <rect x="600" y="325" width="160" height="55" rx="10" fill="#ec4899"/>
+  </g>
+  <text x="680" y="352" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Newsletter</text>
+  <text x="680" y="369" text-anchor="middle" fill="#fce7f3" font-size="10">Email Sent</text>
 
-  <rect x="510" y="350" width="130" height="50" rx="8" fill="#238636" filter="url(#shadow)"/>
-  <text x="575" y="375" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">Backup</text>
-  <text x="575" y="390" text-anchor="middle" fill="#fff" font-size="9">GitHub Pages</text>
+  <g filter="url(#dfShadow)">
+    <rect x="600" y="390" width="160" height="55" rx="10" fill="url(#dfLive)"/>
+  </g>
+  <text x="680" y="417" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Backup</text>
+  <text x="680" y="434" text-anchor="middle" fill="#d1fae5" font-size="10">GitHub Pages</text>
 
   <!-- Connecting lines -->
-  <line x1="450" y1="337" x2="510" y2="315" stroke="#4facfe" stroke-width="1.5" stroke-dasharray="4"/>
-  <line x1="450" y1="337" x2="510" y2="375" stroke="#4facfe" stroke-width="1.5" stroke-dasharray="4"/>
+  <line x1="550" y1="390" x2="590" y2="352" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4"/>
+  <line x1="550" y1="390" x2="590" y2="417" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4"/>
 </svg>

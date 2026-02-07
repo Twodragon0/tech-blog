@@ -63,6 +63,22 @@ GEMINI_IMAGE_PRO_API_URL = "https://generativelanguage.googleapis.com/v1beta/mod
 # 모델 선택 (환경 변수로 제어 가능)
 USE_PRO_MODEL = os.getenv("USE_GEMINI_PRO_IMAGE", "false").lower() == "true"
 
+# Professional style: clean infographic, no characters/mascots, English text only
+USE_PROFESSIONAL_STYLE = os.getenv("USE_PROFESSIONAL_IMAGE_STYLE", "true").lower() == "true"
+PROFESSIONAL_STYLE = """
+Style: Clean professional infographic
+- White/light gray background
+- Modern flat icons and diagrams
+- Category-specific accent colors:
+  - Security: #DC2626 (red)
+  - DevSecOps: #7C3AED (purple)
+  - Cloud: #2563EB (blue)
+  - Kubernetes: #326CE5 (k8s blue)
+- English text only
+- No characters or mascots
+- Technical diagram aesthetic
+"""
+
 
 def _validate_masked_text(text: str) -> bool:
     """
@@ -303,17 +319,27 @@ def generate_image_prompt(post_info: Dict) -> str:
 
     style = category_styles.get(category, "minimalist tech blog illustration")
 
-    # 색상 팔레트
+    # 색상 팔레트 (Professional: plan accent colors)
     color_palettes = {
+        "security": "Accent #DC2626 (red), neutral grays, white/light gray background",
+        "devsecops": "Accent #7C3AED (purple), neutral grays, white/light gray background",
+        "devops": "Blue (#2563EB), neutral grays, white/light gray background",
+        "cloud": "Accent #2563EB (blue), neutral grays, white/light gray background",
+        "kubernetes": "Accent #326CE5 (k8s blue), neutral grays, white/light gray background",
+        "finops": "Green (#059669), neutral grays, white/light gray background",
+        "incident": "Red (#DC2626) for incident, amber for response, green for recovery, white/light gray background",
+    }
+    color_palettes_legacy = {
         "security": "Red (#CC0000) for threats, Green (#00AA44) for security measures, Blue (#0066CC) for infrastructure",
         "devsecops": "Blue (#0066CC) for CI/CD, Green (#00AA44) for security, Orange (#FF6600) for deployment",
         "cloud": "AWS orange (#FF9900), Blue (#0066CC) for networking, Green (#00AA44) for security",
         "kubernetes": "Kubernetes blue (#326CE5), Green (#00AA44) for pods, Orange (#FF6600) for services",
+        "finops": "Green (#059669) for cost/savings, Blue (#0066CC) for metrics, neutral grays",
         "incident": "Red (#CC0000) for incident start, Orange (#FF6600) for investigation, Yellow (#FFCC00) for response, Green (#00AA44) for recovery",
     }
-
-    colors = color_palettes.get(
-        category, "Blue (#0066CC), Green (#00AA44), Orange (#FF6600)"
+    palettes = color_palettes if USE_PROFESSIONAL_STYLE else color_palettes_legacy
+    colors = palettes.get(
+        category, "Blue (#2563EB), neutral grays, white/light gray background"
     )
 
     # 핵심 내용 요약
@@ -324,7 +350,26 @@ def generate_image_prompt(post_info: Dict) -> str:
         content_summary = excerpt[:200]  # 최대 200자
 
     # 프롬프트 생성 (GEMINI_IMAGE_GUIDE.md 가이드라인 반영)
-    prompt = f"""Create a nano banana style illustration for a tech blog post.
+    if USE_PROFESSIONAL_STYLE:
+        style_block = PROFESSIONAL_STYLE.strip()
+        prompt = f"""Create a clean professional infographic image for a tech blog post.
+
+Title: {title}
+Category: {category}
+Content Summary: {content_summary}
+
+{style_block}
+
+Layout and content:
+- Layout: horizontal, blog post header image (1200x800px recommended, 300 DPI)
+- Colors: {colors}
+- All labels and text in the image must be in English only
+- Represent the main topic: {title}
+- Use modern flat icons and diagrams, no characters or mascots
+- Technical diagram aesthetic, suitable for technical blog header
+"""
+    else:
+        prompt = f"""Create a nano banana style illustration for a tech blog post.
 
 Title: {title}
 Category: {category}

@@ -32,7 +32,7 @@ from buttondown_notify import (
 )
 
 
-def test_email_send(post_path: str, dry_run: bool = False):
+def test_email_send(post_path: str, dry_run: bool = False, yes: bool = False):
     """Test sending email for a post."""
     post_file = Path(post_path)
     
@@ -102,15 +102,18 @@ def test_email_send(post_path: str, dry_run: bool = False):
         print("💡 To actually send the email, run without --dry-run flag")
         return True
     
-    # Confirm before sending
-    print("=" * 70)
-    print("⚠️  WARNING: This will send an email to all subscribers!")
-    print("=" * 70)
-    response = input("Continue? (yes/no): ").strip().lower()
-    
-    if response not in ['yes', 'y']:
-        print("❌ Cancelled by user")
-        return False
+    # Confirm before sending (skip if --yes or TECH_BLOG_AUTO_YES/CI)
+    auto_yes = yes or os.environ.get("TECH_BLOG_AUTO_YES") or os.environ.get("CI")
+    if not auto_yes:
+        print("=" * 70)
+        print("⚠️  WARNING: This will send an email to all subscribers!")
+        print("=" * 70)
+        response = input("Continue? (yes/no): ").strip().lower()
+        if response not in ['yes', 'y']:
+            print("❌ Cancelled by user")
+            return False
+    else:
+        print("   Auto-confirmed (--yes / TECH_BLOG_AUTO_YES / CI)")
     
     # Send email
     print("")
@@ -149,10 +152,12 @@ Examples:
     parser.add_argument('post_path', help='Path to the blog post file')
     parser.add_argument('--dry-run', action='store_true', 
                        help='Preview email without sending')
+    parser.add_argument('--yes', '-y', action='store_true',
+                       help='Skip confirmation prompt (auto-yes for project/tmp)')
     
     args = parser.parse_args()
     
-    success = test_email_send(args.post_path, dry_run=args.dry_run)
+    success = test_email_send(args.post_path, dry_run=args.dry_run, yes=args.yes)
     sys.exit(0 if success else 1)
 
 

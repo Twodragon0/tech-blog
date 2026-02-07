@@ -10,21 +10,64 @@
 
 ## 🏗️ 아키텍처
 
+아래 다이어그램은 콘텐츠 작성부터 배포, 사용자 참여·모니터링까지 전체 시스템 구성을 보여줍니다.
+
 ![Tech Blog Architecture](assets/images/readme-architecture.svg)
 
-**3단계 파이프라인:**
-1. **Content Creation** - Markdown, Cursor AI, Gemini, Claude Code로 콘텐츠 작성
-2. **Build & Deploy** - GitHub Actions로 Jekyll 빌드, Vercel 배포, SNS 자동 공유
-3. **User Engagement** - Giscus 댓글, Buttondown 뉴스레터, RSS 피드
+*그림 1: Tech Blog 아키텍처 (Content Creation → Build & Deploy → User Engagement & Observability)*
+
+**3단계 구성:**
+1. **Content Creation** — Markdown, Cursor AI, Gemini(이미지), Claude Code, OpenCode Ralph로 콘텐츠 작성
+2. **Build & Deploy** — GitHub Actions(Jekyll, SNS, Buttondown, Sentry), Vercel(프로덕션 + DeepSeek Chat API) 배포
+3. **User Engagement & Observability** — Giscus, Buttondown, RSS, DeepSeek 채팅 위젯, Sentry·Vercel Analytics, GitHub Pages 백업
+
+---
+
+## 📈 전체 흐름 (End-to-End)
+
+작성부터 독자 도달까지 한 번에 보는 흐름도입니다.
+
+![End-to-End Flow](assets/images/readme-overall-flow.svg)
+
+*그림 2: 작성 → 버전관리 → 빌드/배포 → 전달 → 독자 (및 푸시 시 병렬 자동화)*
+
+- **상단**: Authoring → Version Control → Build & Deploy → Delivery → Reader
+- **중단**: Push 시 GitHub Actions(SNS, 뉴스레터, 백업, Daily News)와 Vercel(프로덕션, DeepSeek API) 병렬 실행
+- **하단**: 콘텐츠/데이터, 시크릿·환경변수, 모니터링, 스크립트·자동화 역할 정리
+
+---
 
 ## 📊 배포 흐름
 
+Write → Push → Build → Deploy 4단계와 푸시 후 자동 액션을 시각화한 다이어그램입니다.
+
 ![Deployment Flow](assets/images/readme-deploy-flow.svg)
 
-**자동화된 배포 프로세스:**
+*그림 3: 배포 4단계 및 GitHub Actions 연동*
+
 - **Write → Push → Build → Deploy** 4단계 자동 파이프라인
-- GitHub Actions가 SNS 공유, 뉴스레터 발송, 백업 사이트 배포 자동 처리
-- Vercel Edge CDN으로 글로벌 배포
+- GitHub Actions: SNS 공유, 뉴스레터 발송, 백업 사이트 배포
+- Vercel Edge CDN 글로벌 배포
+
+---
+
+## 🔄 CI/CD 파이프라인
+
+GitHub Actions 워크플로우 트리거와 역할을 정리한 다이어그램입니다.
+
+![CI/CD Pipeline](assets/images/readme-ci-pipeline.svg)
+
+*그림 4: GitHub Actions 트리거(Push / Schedule) 및 워크플로우 요약*
+
+| 트리거 | 워크플로우 | 용도 |
+|--------|------------|------|
+| **push (main)** | jekyll.yml | Jekyll 빌드, GitHub Pages 백업 |
+| **push (_posts/**)** | sns-share.yml | Twitter, Facebook, LinkedIn 자동 공유 |
+| **push (_posts/**)** | buttondown-notify.yml | RSS → 이메일(Buttondown) 발송 |
+| **push (content paths)** | sentry-release.yml | Sentry 릴리스 생성 |
+| **cron (01:00 UTC)** | daily-news.yml | 뉴스 수집·드래프트 생성 |
+| **cron (01:00 UTC)** | monitoring.yml | Sentry 할당량·헬스 체크 |
+| **workflow_dispatch** | generate-images, ai-video-gen, vercel-deploy | 수동: 이미지/영상 생성, Sentry 알림 |
 
 ## 🎯 주요 주제
 

@@ -1,6 +1,6 @@
 # AGENTS.md - AI Agent Coding Guidelines
 
-**Last updated**: 2026-02-06
+**Last updated**: 2026-02-07
 
 Coding guidelines for AI agents (Claude, Cursor, Copilot, etc.) working on this Jekyll-based DevSecOps technical blog.
 
@@ -92,6 +92,7 @@ tech-blog/
 ├── _posts/              # Blog posts (YYYY-MM-DD-Title.md)
 ├── _layouts/            # Jekyll layouts
 ├── _includes/           # Reusable components
+├── _data/               # Jekyll data (e.g. collected_news.json)
 ├── assets/
 │   ├── css/             # Stylesheets
 │   ├── js/              # JavaScript
@@ -105,8 +106,9 @@ tech-blog/
 │   ├── setup/           # Setup and configuration
 │   └── troubleshooting/ # Troubleshooting guides
 ├── api/                 # Vercel Serverless Functions
+├── .opencode/           # OpenCode Sisyphus + Ralph Loop config
 ├── .cursorrules         # Cursor AI rules (detailed)
-├── CLAUDE.md            # Claude Code instructions
+├── CLAUDE.md            # Claude Code instructions (workflow, Plan Mode, Opus 4.6)
 ├── AGENTS.md            # This file
 └── SECURITY.md          # Security policy
 ```
@@ -146,7 +148,7 @@ image: /assets/images/YYYY-MM-DD-English_Title.svg
 | Rule | Requirement |
 |------|-------------|
 | Filename | **English only** - No Korean characters |
-| Format | `YYYY-MM-DD-English_Title.svg\|png\|jpg` |
+| Format | `YYYY-MM-DD-English_Title` (svg, png, jpg) |
 | SVG text | **English only** |
 | Conversion | `scripts/rename_images_to_english.py` |
 
@@ -166,6 +168,11 @@ image: /assets/images/YYYY-MM-DD-English_Title.svg
 ### Commits
 - **No** `Co-Authored-By: Claude` in messages
 - Korean or English, concise
+
+### Auto-Yes (project / tmp)
+- **In-repo or tmp**: For any work inside this project or under `/tmp`, treat confirmations as **yes**.
+- **Scripts**: When running scripts that ask for confirmation, use `--yes` or `-y` (e.g. `rename_images_to_english.py --yes`).
+- **Env**: `TECH_BLOG_AUTO_YES=1` or `CI=1` skips confirmation in supported scripts (Claude/Cursor/CI).
 
 ---
 
@@ -258,7 +265,7 @@ python3 scripts/generate_news_draft.py --use-ai --max-posts 10
 npm audit --audit-level=moderate
 bundle audit --update
 
-# Dependabot enabled for auto-updates
+# Dependabot: enable in repo for auto dependency updates
 ```
 
 ## 11. Cost Optimization

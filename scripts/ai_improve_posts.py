@@ -18,6 +18,7 @@ import subprocess
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
 LOG_FILE = Path(__file__).parent.parent / "ai_improvement_log.txt"
 RUN_DURATION = 3600  # 1시간
+QUALITY_THRESHOLD = 80  # 80점 미만이면 개선 대상
 
 # API 키 설정 (환경 변수에서 읽기)
 # lgtm[py/clear-text-storage-sensitive-data] - Environment variables, not hardcoded
@@ -307,8 +308,36 @@ def extract_post_info(file_path: Path) -> Optional[Dict]:
         return None
 
 
+def compute_quality_score(post_info: Dict) -> int:
+    """포스트 품질 점수 (0~100). 표, 코드 블록, 구조, 길이 반영."""
+    if not post_info:
+        return 0
+    body = post_info.get("body", "")
+    length = post_info.get("body_length", 0)
+    score = 0
+    # 길이 (최대 25점): 1500+ 10점, 3000+ 20점, 5000+ 25점
+    if length >= 5000:
+        score += 25
+    elif length >= 3000:
+        score += 20
+    elif length >= 1500:
+        score += 10
+    # 구조 (최대 25점): 서론/1. 15점, 결론 10점
+    if "## 서론" in body or "## 1." in body:
+        score += 15
+    if "## 결론" in body:
+        score += 10
+    # 표 (최대 25점): 표 행 수
+    table_rows = len(re.findall(r"\|.*\|", body))
+    score += min(25, int(table_rows / 2))
+    # 코드 블록 (최대 25점): 언어 태그 있는 블록
+    code_blocks = len(re.findall(r"```[a-z]+.*?```", body, re.DOTALL))
+    score += min(25, code_blocks * 5)
+    return min(100, score)
+
+
 def needs_improvement(post_info: Dict) -> bool:
-    """개선이 필요한지 판단"""
+    """개선이 필요한지 판단 (품질 80점 미만 또는 구조/길이 부족)"""
     if not post_info:
         return False
 
@@ -318,6 +347,10 @@ def needs_improvement(post_info: Dict) -> bool:
 
     # 본문에 "서론" 섹션이 없는 경우
     if "## 서론" not in post_info["body"] and "## 1." not in post_info["body"]:
+        return True
+
+    # 품질 점수 80점 미만
+    if compute_quality_score(post_info) < QUALITY_THRESHOLD:
         return True
 
     return False
@@ -345,12 +378,14 @@ def improve_with_claude(post_info: Dict) -> Optional[str]:
 
 요구사항:
 1. 실무 중심의 구체적인 내용으로 작성
-2. 코드 예제와 설정 예시 포함
+2. 코드 예제와 설정 예시 포함 (10줄 초과 시 참고 링크로 대체하고 짧은 예시만 유지)
 3. 보안 모범 사례 강조
 4. 단계별 가이드 제공
 5. 문제 해결 섹션 포함
 6. 마크다운 형식으로 작성
 7. 한글로 작성
+8. 프로세스/워크플로우·체크리스트·위험도별 정책은 표로 정리 (단계|프로세스|설명|결과 등)
+9. 코드 블록은 언어 태그 필수(```python, ```yaml 등), 긴 코드는 공식 문서/GitHub 링크 참조 문구 추가
 
 다음 구조로 작성해주세요:
 ## 서론
@@ -438,12 +473,14 @@ def improve_with_gemini(post_info: Dict) -> Optional[str]:
 
 요구사항:
 1. 실무 중심의 구체적인 내용으로 작성
-2. 코드 예제와 설정 예시 포함
+2. 코드 예제와 설정 예시 포함 (10줄 초과 시 참고 링크로 대체하고 짧은 예시만 유지)
 3. 보안 모범 사례 강조
 4. 단계별 가이드 제공
 5. 문제 해결 섹션 포함
 6. 마크다운 형식으로 작성
 7. 한글로 작성
+8. 프로세스/워크플로우·체크리스트·위험도별 정책은 표로 정리 (단계|프로세스|설명|결과 등)
+9. 코드 블록은 언어 태그 필수(```python, ```yaml 등), 긴 코드는 공식 문서/GitHub 링크 참조 문구 추가
 
 다음 구조로 작성해주세요:
 ## 서론
@@ -855,8 +892,9 @@ def main():
 
             if needs_improvement(post_info):
                 posts_to_improve.append(post_info)
+                score = compute_quality_score(post_info)
                 log_message(
-                    f"  개선 필요: {post_file.name} (본문: {post_info['body_length']}자)"
+                    f"  개선 필요: {post_file.name} (본문: {post_info['body_length']}자, 품질점수: {score}/100)"
                 )
         except Exception as e:
             # 예외 메시지에 민감 정보가 포함될 수 있으므로 마스킹

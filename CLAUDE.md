@@ -2,7 +2,7 @@
 
 Instructions for Claude Code when working on this project.
 
-**Last updated**: 2026-02-06
+**Last updated**: 2026-02-07
 
 ## Quick Reference
 
@@ -11,6 +11,7 @@ Instructions for Claude Code when working on this project.
 | **Production** | https://tech.2twodragon.com |
 | **Backup** | https://twodragon0.github.io/tech-blog |
 | **GitHub** | https://github.com/Twodragon0/tech-blog |
+| **RSS** | https://tech.2twodragon.com/feed.xml |
 
 ## Project Overview
 
@@ -214,6 +215,11 @@ Opus 4.6는 더 많은 것을 처리하므로 더 크게 생각할 수 있습니
 
 스킬 파일 위치: `.claude/commands/`
 
+## Auto-Yes for project / tmp (Claude Code, Cursor)
+- **Scope**: Work inside this repo or under `/tmp` → treat all confirmations as **yes**.
+- **Scripts**: Run confirmation prompts with `--yes` / `-y` when available (e.g. `rename_images_to_english.py --yes`).
+- **Env**: Set or assume `TECH_BLOG_AUTO_YES=1` or `CI=1` so supported scripts skip interactive prompts.
+
 ## Core Principles
 
 ### 1. Security First
@@ -272,6 +278,7 @@ tech-blog/
 ├── _posts/              # Blog posts (YYYY-MM-DD-Title.md)
 ├── _layouts/            # Jekyll layouts
 ├── _includes/           # Reusable components
+├── _data/               # Jekyll data (e.g. collected_news.json)
 ├── assets/
 │   ├── css/             # Stylesheets
 │   ├── js/              # JavaScript
@@ -286,6 +293,7 @@ tech-blog/
 ├── api/                 # Vercel Serverless Functions
 ├── .claude/
 │   └── commands/        # Custom skills (/new-post, /validate-post, etc.)
+├── .opencode/           # OpenCode Sisyphus + Ralph Loop config
 ├── notes/               # 작업별 학습/결정/이슈 기록 (TIP 3)
 │   ├── learnings.md     # 기술적 발견, 패턴
 │   ├── decisions.md     # 아키텍처 결정 기록
@@ -352,8 +360,9 @@ bash scripts/setup-worktrees.sh setup    # 워크트리 생성
 bash scripts/setup-worktrees.sh aliases  # .zshrc alias 출력
 bash scripts/setup-worktrees.sh status   # 상태 확인
 
-# Local development
-bundle exec jekyll serve --livereload
+# Local development (AGENTS.md에 상세 빌드/린트 명령 있음)
+bundle exec jekyll serve --host 0.0.0.0 --port 4000 --livereload
+bundle exec jekyll build --destination _site
 
 # Convert image filenames to English
 python3 scripts/rename_images_to_english.py --yes
@@ -393,16 +402,20 @@ This project uses OpenCode with Sisyphus mode and Ralph Loop for automated conte
 # Start OpenCode in Sisyphus mode
 opencode sisyphus
 
-# Run Ralph Loop commands
+# Ralph Loop commands (see AGENTS.md §14 for full list)
 /improve-posts
 /collect-news
 /validate-posts
 /generate-images
+/security-audit
+/write-code
+/refactor
+/fix-bugs
 ```
 
 #### Model Selection Strategy
-- **High-Quality Tasks** (Opus 4.5): Content generation, code writing, image generation
-- **Cost-Efficient Tasks** (Sonnet 4): Validation, analysis, read-only operations
+- **High-Quality Tasks** (Opus 4.5): Content generation, code writing, image generation, refactor, fix-bugs
+- **Cost-Efficient Tasks** (Sonnet 4): Validation, analysis, read-only operations, security-audit
 
 #### Cost Optimization
 1. **Cache First**: Check `_data/collected_news.json` (7-day TTL) before API calls
@@ -423,7 +436,7 @@ See `.opencode/README.md` for detailed documentation.
 | Document | Purpose |
 |----------|---------|
 | `.cursorrules` | Detailed Cursor AI rules (comprehensive) |
-| `AGENTS.md` | AI agent coding guidelines |
+| `AGENTS.md` | AI agent coding guidelines; build/lint/test 명령 정리 |
 | `.opencode/README.md` | OpenCode configuration and usage |
 | `SECURITY.md` | Security policy |
 | `notes/` | 작업별 학습/결정/이슈 기록 (TIP 3) |

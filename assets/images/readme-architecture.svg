@@ -1,118 +1,254 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif">
   <defs>
-    <linearGradient id="contentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea"/>
-      <stop offset="100%" style="stop-color:#764ba2"/>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="50%" style="stop-color:#0d1321"/>
+      <stop offset="100%" style="stop-color:#111827"/>
     </linearGradient>
-    <linearGradient id="buildGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f093fb"/>
-      <stop offset="100%" style="stop-color:#f5576c"/>
+    <linearGradient id="contentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
     </linearGradient>
-    <linearGradient id="engageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#4facfe"/>
-      <stop offset="100%" style="stop-color:#00f2fe"/>
+    <linearGradient id="buildGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f43f5e"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.2"/>
+    <linearGradient id="engageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="glowPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="glowPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#f43f5e;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="glowCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0"/>
+    </linearGradient>
+    <!-- Filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <filter id="innerGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="0" dy="2" result="offsetBlur"/>
+      <feComposite in="SourceGraphic" in2="offsetBlur" operator="over"/>
+    </filter>
+    <!-- Patterns -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.5"/>
+    </pattern>
   </defs>
 
   <!-- Background -->
-  <rect width="900" height="700" fill="#0d1117"/>
+  <rect width="1100" height="800" fill="url(#bgGrad)"/>
+  <rect width="1100" height="800" fill="url(#grid)" opacity="0.3"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="200" fill="url(#glowPurple)" opacity="0.5"/>
+  <circle cx="1000" cy="700" r="250" fill="url(#glowCyan)" opacity="0.4"/>
+  <circle cx="550" cy="400" r="300" fill="url(#glowPink)" opacity="0.2"/>
 
   <!-- Title -->
-  <text x="450" y="40" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="bold">Tech Blog Architecture</text>
+  <text x="550" y="52" text-anchor="middle" fill="#ffffff" font-size="32" font-weight="700" filter="url(#glow)">Tech Blog Architecture</text>
+  <text x="550" y="78" text-anchor="middle" fill="#94a3b8" font-size="14">DevSecOps Blog - Content Creation to User Engagement</text>
 
-  <!-- CONTENT CREATION Section -->
-  <rect x="30" y="60" width="840" height="180" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2" filter="url(#shadow)"/>
-  <rect x="30" y="60" width="840" height="40" rx="12" fill="url(#contentGrad)"/>
-  <rect x="30" y="88" width="840" height="12" fill="#161b22"/>
-  <text x="450" y="88" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">CONTENT CREATION</text>
+  <!-- SECTION 1: CONTENT CREATION -->
+  <g filter="url(#softShadow)">
+    <rect x="40" y="100" width="1020" height="185" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    <rect x="40" y="100" width="1020" height="50" rx="16" fill="url(#contentGrad)"/>
+    <rect x="40" y="134" width="1020" height="16" fill="#0f172a"/>
+  </g>
+  <circle cx="70" cy="125" r="12" fill="#fff" opacity="0.9"/>
+  <text x="92" y="131" fill="#fff" font-size="18" font-weight="700">CONTENT CREATION</text>
+  <text x="920" y="131" fill="#e2e8f0" font-size="12" opacity="0.8">AI-Powered Authoring</text>
 
   <!-- Content boxes -->
-  <rect x="80" y="120" width="140" height="70" rx="8" fill="#21262d" stroke="#667eea" stroke-width="2"/>
-  <text x="150" y="150" text-anchor="middle" fill="#c9d1d9" font-size="13" font-weight="bold">Markdown</text>
-  <text x="150" y="170" text-anchor="middle" fill="#8b949e" font-size="11">Posts</text>
+  <g>
+    <rect x="70" y="165" width="150" height="100" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="70" y="165" width="150" height="4" rx="2" fill="#a855f7"/>
+    <text x="145" y="200" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="600">Markdown</text>
+    <text x="145" y="222" text-anchor="middle" fill="#94a3b8" font-size="12">_posts/*.md</text>
+    <text x="145" y="242" text-anchor="middle" fill="#64748b" font-size="11">68+ Posts</text>
+  </g>
+  <g>
+    <rect x="240" y="165" width="150" height="100" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="240" y="165" width="150" height="4" rx="2" fill="#8b5cf6"/>
+    <text x="315" y="200" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="600">Cursor AI</text>
+    <text x="315" y="222" text-anchor="middle" fill="#94a3b8" font-size="12">IDE + AI Editor</text>
+    <text x="315" y="242" text-anchor="middle" fill="#64748b" font-size="11">.cursorrules</text>
+  </g>
+  <g>
+    <rect x="410" y="165" width="150" height="100" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="410" y="165" width="150" height="4" rx="2" fill="#6366f1"/>
+    <text x="485" y="200" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="600">Gemini</text>
+    <text x="485" y="222" text-anchor="middle" fill="#94a3b8" font-size="12">Image Generation</text>
+    <text x="485" y="242" text-anchor="middle" fill="#64748b" font-size="11">SVG, PNG</text>
+  </g>
+  <g>
+    <rect x="580" y="165" width="150" height="100" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="580" y="165" width="150" height="4" rx="2" fill="#7c3aed"/>
+    <text x="655" y="200" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="600">Claude Code</text>
+    <text x="655" y="222" text-anchor="middle" fill="#94a3b8" font-size="12">Automation</text>
+    <text x="655" y="242" text-anchor="middle" fill="#64748b" font-size="11">CLAUDE.md</text>
+  </g>
+  <g>
+    <rect x="750" y="165" width="180" height="100" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="750" y="165" width="180" height="4" rx="2" fill="#c084fc"/>
+    <text x="840" y="200" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="600">OpenCode Ralph</text>
+    <text x="840" y="222" text-anchor="middle" fill="#94a3b8" font-size="12">/improve-posts</text>
+    <text x="840" y="242" text-anchor="middle" fill="#64748b" font-size="11">Sisyphus Loop</text>
+  </g>
+  <g>
+    <rect x="950" y="165" width="90" height="100" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect x="950" y="165" width="90" height="4" rx="2" fill="#818cf8"/>
+    <text x="995" y="200" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="600">Scripts</text>
+    <text x="995" y="222" text-anchor="middle" fill="#94a3b8" font-size="11">89 Python</text>
+    <text x="995" y="242" text-anchor="middle" fill="#64748b" font-size="11">20 Shell</text>
+  </g>
 
-  <rect x="280" y="120" width="140" height="70" rx="8" fill="#21262d" stroke="#667eea" stroke-width="2"/>
-  <text x="350" y="150" text-anchor="middle" fill="#c9d1d9" font-size="13" font-weight="bold">Cursor</text>
-  <text x="350" y="170" text-anchor="middle" fill="#8b949e" font-size="11">AI Editor</text>
+  <!-- Arrow -->
+  <path d="M550 295 L550 320 L540 310 M550 320 L560 310" stroke="#8b5cf6" stroke-width="3" fill="none" filter="url(#glow)"/>
+  <text x="590" y="312" fill="#a5b4fc" font-size="12" font-weight="500">Git Push</text>
 
-  <rect x="480" y="120" width="140" height="70" rx="8" fill="#21262d" stroke="#667eea" stroke-width="2"/>
-  <text x="550" y="150" text-anchor="middle" fill="#c9d1d9" font-size="13" font-weight="bold">Gemini</text>
-  <text x="550" y="170" text-anchor="middle" fill="#8b949e" font-size="11">Images</text>
-
-  <rect x="680" y="120" width="140" height="70" rx="8" fill="#21262d" stroke="#667eea" stroke-width="2"/>
-  <text x="750" y="150" text-anchor="middle" fill="#c9d1d9" font-size="13" font-weight="bold">Claude Code</text>
-  <text x="750" y="170" text-anchor="middle" fill="#8b949e" font-size="11">Automation</text>
-
-  <!-- Arrow down -->
-  <path d="M450 200 L450 240 L440 230 M450 240 L460 230" stroke="#667eea" stroke-width="3" fill="none"/>
-  <text x="500" y="225" fill="#8b949e" font-size="11">Git Push</text>
-
-  <!-- BUILD & DEPLOY Section -->
-  <rect x="30" y="250" width="840" height="220" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2" filter="url(#shadow)"/>
-  <rect x="30" y="250" width="840" height="40" rx="12" fill="url(#buildGrad)"/>
-  <rect x="30" y="278" width="840" height="12" fill="#161b22"/>
-  <text x="450" y="278" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">BUILD &amp; DEPLOY</text>
+  <!-- SECTION 2: BUILD & DEPLOY -->
+  <g filter="url(#softShadow)">
+    <rect x="40" y="330" width="1020" height="215" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    <rect x="40" y="330" width="1020" height="50" rx="16" fill="url(#buildGrad)"/>
+    <rect x="40" y="364" width="1020" height="16" fill="#0f172a"/>
+  </g>
+  <circle cx="70" cy="355" r="12" fill="#fff" opacity="0.9"/>
+  <text x="92" y="361" fill="#fff" font-size="18" font-weight="700">BUILD &amp; DEPLOY</text>
+  <text x="920" y="361" fill="#fce7f3" font-size="12" opacity="0.8">Automated CI/CD Pipeline</text>
 
   <!-- GitHub Actions -->
-  <rect x="60" y="305" width="380" height="145" rx="8" fill="#21262d" stroke="#f5576c" stroke-width="2"/>
-  <text x="250" y="330" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">GitHub Actions</text>
-
-  <rect x="80" y="345" width="100" height="45" rx="6" fill="#161b22" stroke="#30363d"/>
-  <text x="130" y="365" text-anchor="middle" fill="#8b949e" font-size="10">Jekyll Build</text>
-  <text x="130" y="380" text-anchor="middle" fill="#58a6ff" font-size="9">jekyll.yml</text>
-
-  <rect x="200" y="345" width="100" height="45" rx="6" fill="#161b22" stroke="#30363d"/>
-  <text x="250" y="365" text-anchor="middle" fill="#8b949e" font-size="10">SNS Share</text>
-  <text x="250" y="380" text-anchor="middle" fill="#58a6ff" font-size="9">sns-share.yml</text>
-
-  <rect x="320" y="345" width="100" height="45" rx="6" fill="#161b22" stroke="#30363d"/>
-  <text x="370" y="365" text-anchor="middle" fill="#8b949e" font-size="10">Pages Deploy</text>
-  <text x="370" y="380" text-anchor="middle" fill="#58a6ff" font-size="9">backup site</text>
-
+  <g filter="url(#innerGlow)">
+    <rect x="60" y="395" width="480" height="135" rx="12" fill="#1e293b" stroke="#f472b6" stroke-width="1"/>
+  </g>
+  <text x="300" y="422" text-anchor="middle" fill="#f9a8d4" font-size="14" font-weight="600">GitHub Actions</text>
+  <g>
+    <rect x="80" y="435" width="105" height="42" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="132" y="458" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="500">Jekyll Build</text>
+    <text x="132" y="472" text-anchor="middle" fill="#64748b" font-size="9">jekyll.yml</text>
+  </g>
+  <g>
+    <rect x="195" y="435" width="105" height="42" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="247" y="458" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="500">SNS Share</text>
+    <text x="247" y="472" text-anchor="middle" fill="#64748b" font-size="9">sns-share.yml</text>
+  </g>
+  <g>
+    <rect x="310" y="435" width="105" height="42" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="362" y="458" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="500">Newsletter</text>
+    <text x="362" y="472" text-anchor="middle" fill="#64748b" font-size="9">buttondown.yml</text>
+  </g>
+  <g>
+    <rect x="425" y="435" width="105" height="42" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="477" y="458" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="500">Sentry</text>
+    <text x="477" y="472" text-anchor="middle" fill="#64748b" font-size="9">sentry-release.yml</text>
+  </g>
   <!-- SNS icons -->
-  <rect x="80" y="400" width="60" height="35" rx="4" fill="#1da1f2"/>
-  <text x="110" y="422" text-anchor="middle" fill="#fff" font-size="10">Twitter</text>
-
-  <rect x="150" y="400" width="60" height="35" rx="4" fill="#4267b2"/>
-  <text x="180" y="422" text-anchor="middle" fill="#fff" font-size="10">Facebook</text>
-
-  <rect x="220" y="400" width="60" height="35" rx="4" fill="#0077b5"/>
-  <text x="250" y="422" text-anchor="middle" fill="#fff" font-size="10">LinkedIn</text>
+  <rect x="80" y="485" width="70" height="32" rx="6" fill="#1da1f2"/>
+  <text x="115" y="506" text-anchor="middle" fill="#fff" font-size="10" font-weight="500">Twitter</text>
+  <rect x="160" y="485" width="70" height="32" rx="6" fill="#1877f2"/>
+  <text x="195" y="506" text-anchor="middle" fill="#fff" font-size="10" font-weight="500">Facebook</text>
+  <rect x="240" y="485" width="70" height="32" rx="6" fill="#0a66c2"/>
+  <text x="275" y="506" text-anchor="middle" fill="#fff" font-size="10" font-weight="500">LinkedIn</text>
 
   <!-- Vercel -->
-  <rect x="460" y="305" width="380" height="145" rx="8" fill="#21262d" stroke="#f5576c" stroke-width="2"/>
-  <text x="650" y="330" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">Vercel</text>
+  <g filter="url(#innerGlow)">
+    <rect x="560" y="395" width="480" height="135" rx="12" fill="#1e293b" stroke="#fb7185" stroke-width="1"/>
+  </g>
+  <text x="800" y="422" text-anchor="middle" fill="#fda4af" font-size="14" font-weight="600">Vercel (Production)</text>
+  <text x="580" y="450" fill="#94a3b8" font-size="12">Build: build.sh (Jekyll 4.3) | Output: _site</text>
+  <text x="580" y="470" fill="#38bdf8" font-size="12" font-weight="500">Domain: tech.2twodragon.com</text>
+  <text x="580" y="490" fill="#94a3b8" font-size="12">Edge CDN | SSL | CSP | HSTS headers</text>
+  <g>
+    <rect x="580" y="500" width="140" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="650" y="518" text-anchor="middle" fill="#22d3ee" font-size="11">DeepSeek Chat API</text>
+  </g>
+  <g>
+    <rect x="730" y="500" width="120" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="790" y="518" text-anchor="middle" fill="#a78bfa" font-size="11">Sentry Release</text>
+  </g>
+  <g>
+    <rect x="860" y="500" width="100" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="910" y="518" text-anchor="middle" fill="#4ade80" font-size="11">Analytics</text>
+  </g>
 
-  <text x="480" y="360" fill="#8b949e" font-size="11">Auto Deploy on Push</text>
-  <text x="480" y="380" fill="#8b949e" font-size="11">Jekyll Build (build.sh)</text>
-  <text x="480" y="400" fill="#58a6ff" font-size="11">tech.2twodragon.com</text>
-  <text x="480" y="420" fill="#8b949e" font-size="11">Edge CDN &amp; SSL</text>
+  <!-- Arrow -->
+  <path d="M550 555 L550 580 L540 570 M550 580 L560 570" stroke="#06b6d4" stroke-width="3" fill="none" filter="url(#glow)"/>
 
-  <!-- Arrow down -->
-  <path d="M450 480 L450 500 L440 490 M450 500 L460 490" stroke="#4facfe" stroke-width="3" fill="none"/>
-
-  <!-- USER ENGAGEMENT Section -->
-  <rect x="30" y="510" width="840" height="160" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2" filter="url(#shadow)"/>
-  <rect x="30" y="510" width="840" height="40" rx="12" fill="url(#engageGrad)"/>
-  <rect x="30" y="538" width="840" height="12" fill="#161b22"/>
-  <text x="450" y="538" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">USER ENGAGEMENT</text>
+  <!-- SECTION 3: USER ENGAGEMENT & OBSERVABILITY -->
+  <g filter="url(#softShadow)">
+    <rect x="40" y="590" width="1020" height="195" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    <rect x="40" y="590" width="1020" height="50" rx="16" fill="url(#engageGrad)"/>
+    <rect x="40" y="624" width="1020" height="16" fill="#0f172a"/>
+  </g>
+  <circle cx="70" cy="615" r="12" fill="#fff" opacity="0.9"/>
+  <text x="92" y="621" fill="#fff" font-size="18" font-weight="700">USER ENGAGEMENT &amp; OBSERVABILITY</text>
+  <text x="880" y="621" fill="#cffafe" font-size="12" opacity="0.8">Reader Experience + Monitoring</text>
 
   <!-- Engagement boxes -->
-  <rect x="80" y="565" width="200" height="85" rx="8" fill="#21262d" stroke="#4facfe" stroke-width="2"/>
-  <text x="180" y="595" text-anchor="middle" fill="#c9d1d9" font-size="13" font-weight="bold">Giscus Comments</text>
-  <text x="180" y="615" text-anchor="middle" fill="#8b949e" font-size="11">GitHub Discussions</text>
-  <text x="180" y="635" text-anchor="middle" fill="#58a6ff" font-size="10">Interactive Q&amp;A</text>
+  <g>
+    <rect x="60" y="655" width="180" height="80" rx="10" fill="#1e293b" stroke="#22d3ee" stroke-width="1"/>
+    <rect x="60" y="655" width="180" height="4" rx="2" fill="#22d3ee"/>
+    <text x="150" y="690" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="600">Giscus</text>
+    <text x="150" y="710" text-anchor="middle" fill="#94a3b8" font-size="11">GitHub Discussions</text>
+    <text x="150" y="726" text-anchor="middle" fill="#22d3ee" font-size="10">Comments</text>
+  </g>
+  <g>
+    <rect x="260" y="655" width="180" height="80" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
+    <rect x="260" y="655" width="180" height="4" rx="2" fill="#3b82f6"/>
+    <text x="350" y="690" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="600">Buttondown</text>
+    <text x="350" y="710" text-anchor="middle" fill="#94a3b8" font-size="11">Newsletter</text>
+    <text x="350" y="726" text-anchor="middle" fill="#3b82f6" font-size="10">RSS-to-Email</text>
+  </g>
+  <g>
+    <rect x="460" y="655" width="180" height="80" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="1"/>
+    <rect x="460" y="655" width="180" height="4" rx="2" fill="#6366f1"/>
+    <text x="550" y="690" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="600">RSS Feed</text>
+    <text x="550" y="710" text-anchor="middle" fill="#94a3b8" font-size="11">/feed.xml</text>
+    <text x="550" y="726" text-anchor="middle" fill="#6366f1" font-size="10">Syndication</text>
+  </g>
+  <g>
+    <rect x="660" y="655" width="160" height="80" rx="10" fill="#1e293b" stroke="#a855f7" stroke-width="1"/>
+    <rect x="660" y="655" width="160" height="4" rx="2" fill="#a855f7"/>
+    <text x="740" y="690" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="600">DeepSeek</text>
+    <text x="740" y="710" text-anchor="middle" fill="#94a3b8" font-size="11">Chat Widget</text>
+    <text x="740" y="726" text-anchor="middle" fill="#a855f7" font-size="10">/api/chat</text>
+  </g>
+  <g>
+    <rect x="840" y="655" width="200" height="80" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+    <rect x="840" y="655" width="200" height="4" rx="2" fill="#10b981"/>
+    <text x="940" y="690" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="600">Backup</text>
+    <text x="940" y="710" text-anchor="middle" fill="#94a3b8" font-size="11">GitHub Pages</text>
+    <text x="940" y="726" text-anchor="middle" fill="#10b981" font-size="10">twodragon0.github.io</text>
+  </g>
 
-  <rect x="350" y="565" width="200" height="85" rx="8" fill="#21262d" stroke="#4facfe" stroke-width="2"/>
-  <text x="450" y="595" text-anchor="middle" fill="#c9d1d9" font-size="13" font-weight="bold">Buttondown</text>
-  <text x="450" y="615" text-anchor="middle" fill="#8b949e" font-size="11">Newsletter</text>
-  <text x="450" y="635" text-anchor="middle" fill="#58a6ff" font-size="10">RSS-to-Email</text>
-
-  <rect x="620" y="565" width="200" height="85" rx="8" fill="#21262d" stroke="#4facfe" stroke-width="2"/>
-  <text x="720" y="595" text-anchor="middle" fill="#c9d1d9" font-size="13" font-weight="bold">RSS Feed</text>
-  <text x="720" y="615" text-anchor="middle" fill="#8b949e" font-size="11">/feed.xml</text>
-  <text x="720" y="635" text-anchor="middle" fill="#58a6ff" font-size="10">Content Syndication</text>
+  <!-- Monitoring row -->
+  <g>
+    <rect x="60" y="745" width="250" height="36" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="185" y="768" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="500">Sentry - Errors, Release, Log Drains</text>
+  </g>
+  <g>
+    <rect x="330" y="745" width="250" height="36" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="455" y="768" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="500">Vercel Analytics - Web Vitals</text>
+  </g>
+  <g>
+    <rect x="600" y="745" width="250" height="36" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="725" y="768" text-anchor="middle" fill="#f472b6" font-size="12" font-weight="500">Core Web Vitals - LCP, FID, CLS</text>
+  </g>
+  <g>
+    <rect x="870" y="745" width="170" height="36" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="955" y="768" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="500">Daily Monitoring</text>
+  </g>
 </svg>

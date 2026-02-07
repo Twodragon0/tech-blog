@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 520" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif">
+  <defs>
+    <linearGradient id="ofBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="100%" style="stop-color:#111827"/>
+    </linearGradient>
+    <linearGradient id="ofStep1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/><stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <linearGradient id="ofStep2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/><stop offset="100%" style="stop-color:#818cf8"/>
+    </linearGradient>
+    <linearGradient id="ofStep3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899"/><stop offset="100%" style="stop-color:#f472b6"/>
+    </linearGradient>
+    <linearGradient id="ofStep4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/><stop offset="100%" style="stop-color:#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="ofStep5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/><stop offset="100%" style="stop-color:#34d399"/>
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/><stop offset="100%" style="stop-color:#22d3ee"/>
+    </linearGradient>
+    <filter id="ofGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ofShadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="ofArrow" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L12,4 L0,8 L3,4 Z" fill="url(#arrowGrad)"/>
+    </marker>
+    <pattern id="ofGrid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <rect width="1100" height="520" fill="url(#ofBg)"/>
+  <rect width="1100" height="520" fill="url(#ofGrid)" opacity="0.3"/>
+
+  <!-- Title -->
+  <text x="550" y="42" text-anchor="middle" fill="#fff" font-size="26" font-weight="700" filter="url(#ofGlow)">End-to-End Flow: From Author to Reader</text>
+  <text x="550" y="66" text-anchor="middle" fill="#94a3b8" font-size="13">Complete journey from content creation to user engagement</text>
+
+  <!-- Main flow steps -->
+  <g filter="url(#ofShadow)">
+    <rect x="30" y="90" width="170" height="90" rx="14" fill="#1e293b" stroke="url(#ofStep1)" stroke-width="2"/>
+    <rect x="30" y="90" width="170" height="6" rx="3" fill="url(#ofStep1)"/>
+  </g>
+  <circle cx="55" cy="115" r="14" fill="url(#ofStep1)"/>
+  <text x="55" y="120" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">1</text>
+  <text x="115" y="130" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="600">Authoring</text>
+  <text x="115" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">Markdown, Cursor,</text>
+  <text x="115" y="166" text-anchor="middle" fill="#94a3b8" font-size="11">Gemini, Claude</text>
+
+  <line x1="200" y1="135" x2="260" y2="135" stroke="url(#arrowGrad)" stroke-width="3" marker-end="url(#ofArrow)"/>
+
+  <g filter="url(#ofShadow)">
+    <rect x="270" y="90" width="170" height="90" rx="14" fill="#1e293b" stroke="url(#ofStep2)" stroke-width="2"/>
+    <rect x="270" y="90" width="170" height="6" rx="3" fill="url(#ofStep2)"/>
+  </g>
+  <circle cx="295" cy="115" r="14" fill="url(#ofStep2)"/>
+  <text x="295" y="120" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">2</text>
+  <text x="355" y="130" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="600">Version Control</text>
+  <text x="355" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">Git push to</text>
+  <text x="355" y="166" text-anchor="middle" fill="#94a3b8" font-size="11">main branch</text>
+
+  <line x1="440" y1="135" x2="500" y2="135" stroke="url(#arrowGrad)" stroke-width="3" marker-end="url(#ofArrow)"/>
+
+  <g filter="url(#ofShadow)">
+    <rect x="510" y="90" width="190" height="90" rx="14" fill="#1e293b" stroke="url(#ofStep3)" stroke-width="2"/>
+    <rect x="510" y="90" width="190" height="6" rx="3" fill="url(#ofStep3)"/>
+  </g>
+  <circle cx="535" cy="115" r="14" fill="url(#ofStep3)"/>
+  <text x="535" y="120" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">3</text>
+  <text x="605" y="130" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="600">Build &amp; Deploy</text>
+  <text x="605" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">Vercel + Jekyll</text>
+  <text x="605" y="166" text-anchor="middle" fill="#94a3b8" font-size="11">GitHub Actions</text>
+
+  <line x1="700" y1="135" x2="760" y2="135" stroke="url(#arrowGrad)" stroke-width="3" marker-end="url(#ofArrow)"/>
+
+  <g filter="url(#ofShadow)">
+    <rect x="770" y="90" width="160" height="90" rx="14" fill="#1e293b" stroke="url(#ofStep4)" stroke-width="2"/>
+    <rect x="770" y="90" width="160" height="6" rx="3" fill="url(#ofStep4)"/>
+  </g>
+  <circle cx="795" cy="115" r="14" fill="url(#ofStep4)"/>
+  <text x="795" y="120" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">4</text>
+  <text x="850" y="130" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="600">Delivery</text>
+  <text x="850" y="150" text-anchor="middle" fill="#94a3b8" font-size="11">Edge CDN</text>
+  <text x="850" y="166" text-anchor="middle" fill="#94a3b8" font-size="11">Global Static</text>
+
+  <line x1="930" y1="135" x2="990" y2="135" stroke="url(#arrowGrad)" stroke-width="3" marker-end="url(#ofArrow)"/>
+
+  <g filter="url(#ofShadow)">
+    <rect x="1000" y="90" width="80" height="90" rx="14" fill="url(#ofStep5)"/>
+  </g>
+  <text x="1040" y="135" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">Reader</text>
+  <text x="1040" y="155" text-anchor="middle" fill="#d1fae5" font-size="11">Live Site</text>
+
+  <!-- Label -->
+  <text x="550" y="208" text-anchor="middle" fill="#64748b" font-size="12" font-weight="500">On push: parallel automation triggered</text>
+
+  <!-- Parallel automation section -->
+  <g filter="url(#ofShadow)">
+    <rect x="30" y="225" width="340" height="130" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  </g>
+  <text x="200" y="252" text-anchor="middle" fill="#a5b4fc" font-size="13" font-weight="600">GitHub Actions</text>
+  <rect x="50" y="265" width="145" height="36" rx="6" fill="#1e293b" stroke="#334155"/>
+  <text x="122" y="287" text-anchor="middle" fill="#e2e8f0" font-size="11">SNS Auto Share</text>
+  <rect x="205" y="265" width="145" height="36" rx="6" fill="#1e293b" stroke="#334155"/>
+  <text x="277" y="287" text-anchor="middle" fill="#e2e8f0" font-size="11">Newsletter</text>
+  <rect x="50" y="308" width="145" height="36" rx="6" fill="#1e293b" stroke="#334155"/>
+  <text x="122" y="330" text-anchor="middle" fill="#e2e8f0" font-size="11">Pages Backup</text>
+  <rect x="205" y="308" width="145" height="36" rx="6" fill="#1e293b" stroke="#334155"/>
+  <text x="277" y="330" text-anchor="middle" fill="#e2e8f0" font-size="11">Daily News</text>
+
+  <g filter="url(#ofShadow)">
+    <rect x="390" y="225" width="380" height="130" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  </g>
+  <text x="580" y="252" text-anchor="middle" fill="#f9a8d4" font-size="13" font-weight="600">Vercel (Production)</text>
+  <text x="410" y="278" fill="#94a3b8" font-size="11">Build: build.sh (Jekyll) | Output: _site</text>
+  <text x="410" y="298" fill="#38bdf8" font-size="11" font-weight="500">Domain: tech.2twodragon.com</text>
+  <text x="410" y="318" fill="#94a3b8" font-size="11">Serverless: /api/chat (DeepSeek) | CSP, HSTS</text>
+  <text x="410" y="338" fill="#94a3b8" font-size="11">Cache: assets 1yr, HTML 2hr | Edge CDN global</text>
+
+  <g filter="url(#ofShadow)">
+    <rect x="790" y="225" width="280" height="130" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  </g>
+  <text x="930" y="252" text-anchor="middle" fill="#67e8f9" font-size="13" font-weight="600">User-Facing Services</text>
+  <text x="810" y="280" fill="#94a3b8" font-size="11">Giscus (GitHub Discussions comments)</text>
+  <text x="810" y="300" fill="#94a3b8" font-size="11">RSS Feed /feed.xml</text>
+  <text x="810" y="320" fill="#94a3b8" font-size="11">Buttondown newsletter email</text>
+  <text x="810" y="340" fill="#94a3b8" font-size="11">DeepSeek AI chat widget</text>
+
+  <!-- Data & observability section -->
+  <text x="550" y="385" text-anchor="middle" fill="#64748b" font-size="12" font-weight="500">Data &amp; Observability Layer</text>
+
+  <g filter="url(#ofShadow)">
+    <rect x="30" y="400" width="240" height="105" rx="10" fill="#0f172a" stroke="#1e293b"/>
+  </g>
+  <rect x="30" y="400" width="240" height="5" rx="2" fill="#a855f7"/>
+  <text x="150" y="428" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="600">Content &amp; Data</text>
+  <text x="50" y="452" fill="#94a3b8" font-size="10">_posts/*.md (68+ posts)</text>
+  <text x="50" y="470" fill="#94a3b8" font-size="10">_data/*.json (collected_news)</text>
+  <text x="50" y="488" fill="#94a3b8" font-size="10">certifications, docs, scripts</text>
+
+  <g filter="url(#ofShadow)">
+    <rect x="290" y="400" width="240" height="105" rx="10" fill="#0f172a" stroke="#1e293b"/>
+  </g>
+  <rect x="290" y="400" width="240" height="5" rx="2" fill="#f472b6"/>
+  <text x="410" y="428" text-anchor="middle" fill="#f9a8d4" font-size="12" font-weight="600">Secrets &amp; Environment</text>
+  <text x="310" y="452" fill="#94a3b8" font-size="10">Vercel: DEEPSEEK_API_KEY</text>
+  <text x="310" y="470" fill="#94a3b8" font-size="10">GHA: TWITTER_*, BUTTONDOWN_*</text>
+  <text x="310" y="488" fill="#94a3b8" font-size="10">Sentry DSN, SNS tokens</text>
+
+  <g filter="url(#ofShadow)">
+    <rect x="550" y="400" width="240" height="105" rx="10" fill="#0f172a" stroke="#1e293b"/>
+  </g>
+  <rect x="550" y="400" width="240" height="5" rx="2" fill="#22d3ee"/>
+  <text x="670" y="428" text-anchor="middle" fill="#67e8f9" font-size="12" font-weight="600">Monitoring</text>
+  <text x="570" y="452" fill="#94a3b8" font-size="10">Sentry (errors, release tracking)</text>
+  <text x="570" y="470" fill="#94a3b8" font-size="10">Vercel Analytics, Log Drains</text>
+  <text x="570" y="488" fill="#94a3b8" font-size="10">Core Web Vitals (LCP, FID, CLS)</text>
+
+  <g filter="url(#ofShadow)">
+    <rect x="810" y="400" width="260" height="105" rx="10" fill="#0f172a" stroke="#1e293b"/>
+  </g>
+  <rect x="810" y="400" width="260" height="5" rx="2" fill="#4ade80"/>
+  <text x="940" y="428" text-anchor="middle" fill="#86efac" font-size="12" font-weight="600">Scripts &amp; Automation</text>
+  <text x="830" y="452" fill="#94a3b8" font-size="10">check_posts, fix_links, verify_images</text>
+  <text x="830" y="470" fill="#94a3b8" font-size="10">ai_improve_posts, generate_post_images</text>
+  <text x="830" y="488" fill="#94a3b8" font-size="10">OpenCode Ralph Loop (/improve-posts)</text>
+</svg>

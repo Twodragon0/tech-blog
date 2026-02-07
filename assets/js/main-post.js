@@ -170,13 +170,20 @@
     `;
     document.body.appendChild(progressBar);
 
-    // Use passive listener for scroll events (improves FID)
+    // Use passive listener with rAF throttling for scroll events (improves FID)
+    let ticking = false;
     window.addEventListener('scroll', function() {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
-      progressBar.style.width = Math.min(progress, 100) + '%';
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          const windowHeight = window.innerHeight;
+          const documentHeight = document.documentElement.scrollHeight;
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
+          progressBar.style.width = Math.min(progress, 100) + '%';
+          ticking = false;
+        });
+        ticking = true;
+      }
     }, { passive: true });
   }
 

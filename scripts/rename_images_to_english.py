@@ -390,13 +390,14 @@ def main():
     print("   This will also update all references in post files.")
     print()
     
-    if not args.yes:
+    auto_yes = args.yes or os.environ.get("TECH_BLOG_AUTO_YES") or os.environ.get("CI")
+    if not auto_yes:
         response = input("Continue? (yes/no): ").strip().lower()
         if response not in ['yes', 'y']:
             print("❌ Cancelled.")
             return
     else:
-        print("   Auto-confirmed (--yes flag)")
+        print("   Auto-confirmed (--yes / TECH_BLOG_AUTO_YES / CI)")
         print()
     
     # Perform renaming
