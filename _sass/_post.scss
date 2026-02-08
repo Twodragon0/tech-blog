@@ -1312,6 +1312,43 @@
   background-color: var(--color-bg-secondary);
 }
 
+/* Share buttons - brand specific colors */
+.share-buttons .share-twitter:hover {
+  border-color: #1da1f2;
+  color: #1da1f2;
+  background-color: rgba(29, 161, 242, 0.08);
+}
+
+.share-buttons .share-linkedin:hover {
+  border-color: #0a66c2;
+  color: #0a66c2;
+  background-color: rgba(10, 102, 194, 0.08);
+}
+
+.share-buttons .share-facebook:hover {
+  border-color: #1877f2;
+  color: #1877f2;
+  background-color: rgba(24, 119, 242, 0.08);
+}
+
+.share-buttons .share-kakao:hover {
+  border-color: #fee500;
+  color: #3c1e1e;
+  background-color: rgba(254, 229, 0, 0.15);
+}
+
+.share-buttons .share-naver:hover {
+  border-color: #03c75a;
+  color: #03c75a;
+  background-color: rgba(3, 199, 90, 0.08);
+}
+
+.share-buttons .share-band:hover {
+  border-color: #6bc43f;
+  color: #6bc43f;
+  background-color: rgba(107, 196, 63, 0.08);
+}
+
 /* Comments Section - Modern Tech Blog Design */
 .comments-section {
   margin-top: 4rem;
@@ -1876,6 +1913,42 @@
 [data-theme="dark"] .share-buttons button {
   background-color: var(--color-bg-secondary);
   border-color: var(--color-border);
+}
+
+[data-theme="dark"] .share-buttons .share-twitter:hover {
+  border-color: #1da1f2;
+  color: #1da1f2;
+  background-color: rgba(29, 161, 242, 0.12);
+}
+
+[data-theme="dark"] .share-buttons .share-linkedin:hover {
+  border-color: #0a66c2;
+  color: #4fa3f7;
+  background-color: rgba(10, 102, 194, 0.12);
+}
+
+[data-theme="dark"] .share-buttons .share-facebook:hover {
+  border-color: #1877f2;
+  color: #4fa3f7;
+  background-color: rgba(24, 119, 242, 0.12);
+}
+
+[data-theme="dark"] .share-buttons .share-kakao:hover {
+  border-color: #fee500;
+  color: #fee500;
+  background-color: rgba(254, 229, 0, 0.12);
+}
+
+[data-theme="dark"] .share-buttons .share-naver:hover {
+  border-color: #03c75a;
+  color: #03c75a;
+  background-color: rgba(3, 199, 90, 0.12);
+}
+
+[data-theme="dark"] .share-buttons .share-band:hover {
+  border-color: #6bc43f;
+  color: #6bc43f;
+  background-color: rgba(107, 196, 63, 0.12);
 }
 
 [data-theme="dark"] .quick-reactions {

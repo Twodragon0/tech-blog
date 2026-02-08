@@ -109,9 +109,10 @@
   {% assign og_image = og_image | replace: '.svg', '.png' %}
   {% endif %}
   <meta property="og:image" content="{{ og_image | absolute_url }}">
+  <meta property="og:image:secure_url" content="{{ og_image | absolute_url }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="{% if page.image contains '.svg' %}image/svg+xml{% elsif page.image contains '.png' %}image/png{% else %}image/jpeg{% endif %}">
+  <meta property="og:image:type" content="{% if og_image contains '.png' %}image/png{% elsif og_image contains '.jpg' or og_image contains '.jpeg' %}image/jpeg{% elsif og_image contains '.webp' %}image/webp{% else %}image/png{% endif %}">
   <meta property="og:image:alt" content="{{ page.image_alt | default: page.title }}">
 
   <!-- KakaoTalk -->
