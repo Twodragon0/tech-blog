@@ -84,7 +84,7 @@
 
   <!-- Main Title -->
   <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">AI | Ransomware | Data</text>
+  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Signal Phishing | Ransomware | Zero Trust</text>
 
   <!-- Card 1: SECURITY -->
   <g transform="translate(50, 190)">
@@ -96,9 +96,9 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">German Agencies Warn of Signal P...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Germany&#39;s Federal Office for the</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Protection of the Constitution (aka</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Signal Linked Device Phishing...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">German BfV/BSI warns of Russian</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">state-sponsored Signal QR phishing</text>
 
     <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
     <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">The Hacker News</text>
@@ -114,12 +114,12 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">HeadLine 11 Vertical AI</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : HeadLine 11</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Vertical AI</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Vertical AI for Cybersecurity</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK Shielders EQST Headline 11</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">AI-powered security operations</text>
 
     <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
+    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK Shielders</text>
   </g>
 
   <!-- Card 3: SECURITY -->
@@ -132,12 +132,12 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Keep up with Ransomware 11 Black...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : Keep up with Ransomware</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">11 BlackField</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">BlackField Ransomware Analysis</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Code reuse from LockBit/Conti</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">source code leaks detected</text>
 
     <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
+    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK Shielders</text>
   </g>
 
   <!-- Card 4: SECURITY -->
@@ -150,12 +150,12 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Special Report 11 (Data)</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : Special Report 11</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">(Data)</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Zero Trust Data-Centric Security</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Data classification with ABAC</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Korean regulatory compliance</text>
 
     <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
+    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK Shielders</text>
   </g>
 
   <!-- Card 5: SECURITY -->
@@ -168,11 +168,12 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">SK EQST insight 11</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : SK EQST insight 11</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">EQST Insight Issue 11 Report</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Comprehensive threat landscape</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">analysis and recommendations</text>
 
     <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
+    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK Shielders</text>
   </g>
 
   <!-- Card 6: BLOCKCHAIN -->
@@ -185,9 +186,9 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Over 23% of traders now expect i...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">The number of traders expecting a rate</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">cut at the March Federal Open Market</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Fed Rate Cut Expectations Rise...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Over 23% traders now expect March</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">FOMC rate cut - crypto impact</text>
 
     <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
     <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Cointelegraph</text>
@@ -201,7 +202,7 @@
     <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">15 News Collected</text>
   </g>
   <g transform="translate(250, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">5 Security</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">10 Security</text>
   </g>
   <g transform="translate(400, 600)">
     <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 Cloud</text>
@@ -210,7 +211,10 @@
     <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 DevOps</text>
   </g>
   <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 AI/ML</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">2 AI/ML</text>
+  </g>
+  <g transform="translate(760, 600)">
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">3 Blockchain</text>
   </g>
 
   <!-- Blog Info -->
