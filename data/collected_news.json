@@ -1,7 +1,37 @@
 {
-  "collected_at": "2026-02-08T01:58:45.889865+00:00",
-  "total_items": 87,
+  "collected_at": "2026-02-08T03:53:10.346324+00:00",
+  "total_items": 85,
   "items": [
+    {
+      "id": "366cd9e63509",
+      "title": "Vouch",
+      "url": "https://twitter.com/mitchellh/status/2020252149117313349",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-08T03:09:28+00:00",
+      "summary": "Article URL: https://twitter.com/mitchellh/status/2020252149117313349 Comments URL: https://news.ycombinator.com/item?id=46930961 Points: 30 # Comments: 5",
+      "content": "",
+      "tags": [],
+      "author": "chwtutha",
+      "priority": 2
+    },
+    {
+      "id": "f3cf082dd242",
+      "title": "Haskell for all: Beyond agentic coding",
+      "url": "https://haskellforall.com/2026/02/beyond-agentic-coding",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-08T01:55:09+00:00",
+      "summary": "Article URL: https://haskellforall.com/2026/02/beyond-agentic-coding Comments URL: https://news.ycombinator.com/item?id=46930565 Points: 18 # Comments: 3",
+      "content": "",
+      "tags": [],
+      "author": "RebelPotato",
+      "priority": 2
+    },
     {
       "id": "429441d742f3",
       "title": "Crypto retail investors are trying to 'meta-analyze' crypto crash: Santiment",
@@ -15,6 +45,51 @@
       "content": "",
       "tags": [],
       "author": "Cointelegraph by Ciaran Lyons",
+      "priority": 2
+    },
+    {
+      "id": "348cfcf04ff4",
+      "title": "Show HN: LocalGPT – A local-first AI assistant in Rust with persistent memory",
+      "url": "https://github.com/localgpt-app/localgpt",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-08T01:26:38+00:00",
+      "summary": "I built LocalGPT over 4 nights as a Rust reimagining of the OpenClaw assistant pattern (markdown-based persistent memory, autonomous heartbeat tasks, skills system). It compiles to a single ~27MB binary — no Node.js, Docker, or Python required. Key features: - Persistent memory via markdown files (MEMORY, HEARTBEAT, SOUL markdown files) — compatible with OpenClaw's format - Full-text search (SQLite FTS5) + semantic search (local embeddings, no API key needed) - Autonomous heartbeat runner tha...",
+      "content": "",
+      "tags": [],
+      "author": "yi_wang",
+      "priority": 2
+    },
+    {
+      "id": "85e420b583d0",
+      "title": "The silent death of good code",
+      "url": "https://amit.prasad.me/blog/rip-good-code",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-07T23:23:01+00:00",
+      "summary": "Article URL: https://amit.prasad.me/blog/rip-good-code Comments URL: https://news.ycombinator.com/item?id=46929391 Points: 76 # Comments: 76",
+      "content": "",
+      "tags": [],
+      "author": "amitprasad",
+      "priority": 2
+    },
+    {
+      "id": "3a9029554fdf",
+      "title": "GitBlack: Tracing America's Foundation",
+      "url": "https://gitblack.vercel.app/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-07T22:32:59+00:00",
+      "summary": "Article URL: https://gitblack.vercel.app/ Comments URL: https://news.ycombinator.com/item?id=46928894 Points: 25 # Comments: 3",
+      "content": "",
+      "tags": [],
+      "author": "martialg",
       "priority": 2
     },
     {
@@ -47,55 +122,10 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T22:25:03+00:00",
-      "summary": "Article URL: https://www.fda.gov/news-events/press-announcements/fda-intends-take-action-against-non-fda-approved-glp-1-drugs Comments URL: https://news.ycombinator.com/item?id=46928810 Points: 70 # Comments: 112",
+      "summary": "Article URL: https://www.fda.gov/news-events/press-announcements/fda-intends-take-action-against-non-fda-approved-glp-1-drugs Comments URL: https://news.ycombinator.com/item?id=46928810 Points: 93 # Comments: 203",
       "content": "",
       "tags": [],
       "author": "randycupertino",
-      "priority": 2
-    },
-    {
-      "id": "fc61f1f7d385",
-      "title": "Over 23% of traders now expect interest rate cut at next FOMC meeting",
-      "url": "https://cointelegraph.com/news/23expect-interest-rate-cut-fomc-march?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-07T22:09:21+00:00",
-      "summary": "The number of traders expecting a rate cut at the March Federal Open Market Committee meeting rose following fears of a hawkish Fed nominee.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Vince Quill",
-      "priority": 2
-    },
-    {
-      "id": "c719f053fcb8",
-      "title": "Tiny C Compiler",
-      "url": "https://bellard.org/tcc/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-07T21:45:54+00:00",
-      "summary": "Article URL: https://bellard.org/tcc/ Comments URL: https://news.ycombinator.com/item?id=46928435 Points: 119 # Comments: 53",
-      "content": "",
-      "tags": [],
-      "author": "guerrilla",
-      "priority": 2
-    },
-    {
-      "id": "7ef0797a5914",
-      "title": "CFTC expands payment stablecoin criteria to include national trust banks",
-      "url": "https://cointelegraph.com/news/cftc-stablecoins-national-trust-banks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-07T20:49:39+00:00",
-      "summary": "The Commodity Futures Trading Commission (CFTC) revised a previous staff letter to reflect the regulations in the GENIUS stablecoin framework.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Vince Quill",
       "priority": 2
     },
     {
@@ -107,7 +137,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T19:51:56+00:00",
-      "summary": "Article URL: https://www.windowscentral.com/microsoft/windows-11/windows-locked-me-out-of-notepad-is-the-thin-client-era-ruining-pcs Comments URL: https://news.ycombinator.com/item?id=46927098 Points: 94 # Comments: 117",
+      "summary": "Article URL: https://www.windowscentral.com/microsoft/windows-11/windows-locked-me-out-of-notepad-is-the-thin-client-era-ruining-pcs Comments URL: https://news.ycombinator.com/item?id=46927098 Points: 120 # Comments: 150",
       "content": "",
       "tags": [],
       "author": "josephcsible",
@@ -122,7 +152,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T19:07:27+00:00",
-      "summary": "Article URL: https://www.hpcwire.com/off-the-wire/brookhaven-labs-rhic-concludes-25-year-run-with-final-collisions/ Comments URL: https://news.ycombinator.com/item?id=46926576 Points: 44 # Comments: 48",
+      "summary": "Article URL: https://www.hpcwire.com/off-the-wire/brookhaven-labs-rhic-concludes-25-year-run-with-final-collisions/ Comments URL: https://news.ycombinator.com/item?id=46926576 Points: 58 # Comments: 55",
       "content": "",
       "tags": [],
       "author": "gnufx",
@@ -152,7 +182,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T18:08:23+00:00",
-      "summary": "Article URL: https://code.claude.com/docs/en/fast-mode Comments URL: https://news.ycombinator.com/item?id=46926043 Points: 117 # Comments: 122",
+      "summary": "Article URL: https://code.claude.com/docs/en/fast-mode Comments URL: https://news.ycombinator.com/item?id=46926043 Points: 140 # Comments: 143",
       "content": "",
       "tags": [],
       "author": "surprisetalk",
@@ -167,7 +197,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T17:45:27+00:00",
-      "summary": "Two clip-paths, over the navigation: - The first clip-path is a circle (top-left corner) - The second clip-path is a polygon, that acts like a ray (hardcoded, can be improved) The original work by Iventions Events https://iventions.com/ uses JavaScript, but I found CSS-only approach more fun Here's a demo and the codebase: https://github.com/Momciloo/fun-with-clip-path Comments URL: https://news.ycombinator.com/item?id=46925811 Points: 55 # Comments: 10",
+      "summary": "Two clip-paths, over the navigation: - The first clip-path is a circle (top-left corner) - The second clip-path is a polygon, that acts like a ray (hardcoded, can be improved) The original work by Iventions Events https://iventions.com/ uses JavaScript, but I found CSS-only approach more fun Here's a demo and the codebase: https://github.com/Momciloo/fun-with-clip-path Comments URL: https://news.ycombinator.com/item?id=46925811 Points: 68 # Comments: 13",
       "content": "",
       "tags": [],
       "author": "momciloo",
@@ -182,7 +212,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T17:45:25+00:00",
-      "summary": "Article URL: https://jonathanwhiting.com/writing/blog/games_in_c/ Comments URL: https://news.ycombinator.com/item?id=46925808 Points: 175 # Comments: 164",
+      "summary": "Article URL: https://jonathanwhiting.com/writing/blog/games_in_c/ Comments URL: https://news.ycombinator.com/item?id=46925808 Points: 178 # Comments: 165",
       "content": "",
       "tags": [],
       "author": "valyala",
@@ -190,14 +220,14 @@
     },
     {
       "id": "48b0c5d29c56",
-      "title": "SectorC: A C Compiler in 512 bytes",
+      "title": "SectorC: A C Compiler in 512 bytes (2023)",
       "url": "https://xorvoid.com/sectorc.html",
       "source": "hackernews",
       "source_name": "Hacker News",
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T17:39:53+00:00",
-      "summary": "Article URL: https://xorvoid.com/sectorc.html Comments URL: https://news.ycombinator.com/item?id=46925741 Points: 201 # Comments: 38",
+      "summary": "Article URL: https://xorvoid.com/sectorc.html Comments URL: https://news.ycombinator.com/item?id=46925741 Points: 228 # Comments: 43",
       "content": "",
       "tags": [],
       "author": "valyala",
@@ -233,7 +263,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T15:52:42+00:00",
-      "summary": "Article URL: https://spillhistorie.no/2026/02/06/interview-with-sierra-veteran-al-lowe/ Comments URL: https://news.ycombinator.com/item?id=46924790 Points: 87 # Comments: 18",
+      "summary": "Article URL: https://spillhistorie.no/2026/02/06/interview-with-sierra-veteran-al-lowe/ Comments URL: https://news.ycombinator.com/item?id=46924790 Points: 96 # Comments: 21",
       "content": "",
       "tags": [],
       "author": "thelok",
@@ -268,7 +298,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T15:25:49+00:00",
-      "summary": "Article URL: https://arxiv.org/abs/2602.05192 Comments URL: https://news.ycombinator.com/item?id=46924591 Points: 102 # Comments: 67",
+      "summary": "Article URL: https://arxiv.org/abs/2602.05192 Comments URL: https://news.ycombinator.com/item?id=46924591 Points: 121 # Comments: 74",
       "content": "",
       "tags": [],
       "author": "samasblack",
@@ -283,7 +313,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T15:05:56+00:00",
-      "summary": "See also https://simonwillison.net/2026/Feb/7/software-factory/ Comments URL: https://news.ycombinator.com/item?id=46924426 Points: 139 # Comments: 299",
+      "summary": "See also https://simonwillison.net/2026/Feb/7/software-factory/ Comments URL: https://news.ycombinator.com/item?id=46924426 Points: 174 # Comments: 330",
       "content": "",
       "tags": [],
       "author": "mellosouls",
@@ -330,7 +360,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T14:42:16+00:00",
-      "summary": "Article URL: https://susam.net/twenty-five-years-of-computing.html Comments URL: https://news.ycombinator.com/item?id=46924264 Points: 135 # Comments: 16",
+      "summary": "Article URL: https://susam.net/twenty-five-years-of-computing.html Comments URL: https://news.ycombinator.com/item?id=46924264 Points: 151 # Comments: 16",
       "content": "",
       "tags": [],
       "author": "vinhnx",
@@ -345,7 +375,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T12:53:39+00:00",
-      "summary": "https://arxiv.org/abs/2504.12501 Comments URL: https://news.ycombinator.com/item?id=46923463 Points: 113 # Comments: 5",
+      "summary": "https://arxiv.org/abs/2504.12501 Comments URL: https://news.ycombinator.com/item?id=46923463 Points: 115 # Comments: 5",
       "content": "",
       "tags": [],
       "author": "onurkanbkrc",
@@ -375,7 +405,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T12:18:20+00:00",
-      "summary": "Article URL: https://www.spritely.institute/hoot/ Comments URL: https://news.ycombinator.com/item?id=46923254 Points: 167 # Comments: 29",
+      "summary": "Article URL: https://www.spritely.institute/hoot/ Comments URL: https://news.ycombinator.com/item?id=46923254 Points: 172 # Comments: 31",
       "content": "",
       "tags": [],
       "author": "AlexeyBrin",
@@ -422,7 +452,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T11:21:29+00:00",
-      "summary": "Article URL: https://www.washingtonpost.com/technology/2026/02/07/ai-spending-economy-shortages/ Comments URL: https://news.ycombinator.com/item?id=46922969 Points: 254 # Comments: 405",
+      "summary": "Article URL: https://www.washingtonpost.com/technology/2026/02/07/ai-spending-economy-shortages/ Comments URL: https://news.ycombinator.com/item?id=46922969 Points: 282 # Comments: 461",
       "content": "",
       "tags": [],
       "author": "1vuio0pswjnm7",
@@ -467,7 +497,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-07T07:37:03+00:00",
-      "summary": "Article URL: https://jesperordrup.github.io/vocal-guide/ Comments URL: https://news.ycombinator.com/item?id=46922049 Points: 270 # Comments: 86",
+      "summary": "Article URL: https://jesperordrup.github.io/vocal-guide/ Comments URL: https://news.ycombinator.com/item?id=46922049 Points: 296 # Comments: 94",
       "content": "",
       "tags": [],
       "author": "jesperordrup",
@@ -504,31 +534,31 @@
       "priority": 2
     },
     {
-      "id": "642a5886b287",
-      "title": "Bitcoin’s next bull market may not come from more 'accommodative policies'",
-      "url": "https://cointelegraph.com/news/bitcoin-bull-market-catalyst-us-federal-reserve-interest-rates-fall?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-07T03:11:15+00:00",
-      "summary": "Bitcoin reaching a point where its price keeps rising even as the US Federal Reserve hikes interest rates would be \"the endgame,\" according to crypto executive Jeff Park.",
-      "content": "",
+      "id": "5001cc26fdbc",
+      "title": "AI 열풍이 다른 산업 전반에 걸쳐 공급 부족을 초래하고 있음",
+      "url": "https://news.hada.io/topic?id=26498",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-02-08T10:36:09+09:00",
+      "summary": "주요 AI 기업 5곳의 올해 투자 규모가 약 7,000억 달러 에 달하며, 이는 2025년 지출의 거의 두 배이자 미국 국방 예산의 3/4에 해당하는 전례 없는 수준 데이터센터 건설에 자원이 집중되면서 전기기사 부족 , 메모리 칩 가격 상승, 스마트폰·PC 가격 인상 등 다른 ...",
+      "content": "주요 AI 기업 5곳의 올해 투자 규모가 약 7,000억 달러 에 달하며, 이는 2025년 지출의 거의 두 배이자 미국 국방 예산의 3/4에 해당하는 전례 없는 수준 데이터센터 건설에 자원이 집중되면서 전기기사 부족 , 메모리 칩 가격 상승, 스마트폰·PC 가격 인상 등 다른 ...",
       "tags": [],
-      "author": "Cointelegraph by Ciaran Lyons",
-      "priority": 2
+      "author": "xguru",
+      "priority": 1
     },
     {
       "id": "b094f1fe9440",
-      "title": "우리의 장인을 애도한다",
+      "title": "우리의 장인 정신을 애도합니다",
       "url": "https://news.hada.io/topic?id=26497",
       "source": "geeknews",
       "source_name": "GeekNews (긱뉴스)",
       "category": "tech",
       "language": "ko",
       "published": "2026-02-08T09:37:37+09:00",
-      "summary": "AI 코드 생성 도구의 부상 으로 인해 프로그래머의 역할이 단순한 검수자로 축소되고 있음 젊은 세대는 이미 Warp, Cursor, Claude, ChatGPT 등 도구를 일상적으로 사용하며 생산성을 높이고 있음 반면 중견 개발자들은 직업적 정체성과 생계 사이...",
-      "content": "AI 코드 생성 도구의 부상 으로 인해 프로그래머의 역할이 단순한 검수자로 축소되고 있음 젊은 세대는 이미 Warp, Cursor, Claude, ChatGPT 등 도구를 일상적으로 사용하며 생산성을 높이고 있음 반면 중견 개발자들은 직업적 정체성과 생계 사이...",
+      "summary": "AI 코드 생성 도구의 부상 으로 인해 프로그래머의 역할이 단순한 검수자로 축소되고 있음 AI 코딩 도구의 가장 불편한 진실은 실제로 작동한다 는 것이며, 이를 믿지 않는다면 6개월만 기다리면 됨 시니어 개발자가 도덕적 원칙으로 AI 사용을 거부할 수 ...",
+      "content": "AI 코드 생성 도구의 부상 으로 인해 프로그래머의 역할이 단순한 검수자로 축소되고 있음 AI 코딩 도구의 가장 불편한 진실은 실제로 작동한다 는 것이며, 이를 믿지 않는다면 6개월만 기다리면 됨 시니어 개발자가 도덕적 원칙으로 AI 사용을 거부할 수 ...",
       "tags": [],
       "author": "neo",
       "priority": 1
@@ -654,21 +684,6 @@
       "priority": 1
     },
     {
-      "id": "ae820c6bc240",
-      "title": "AI가 본 적 없는 .NET UI 프레임워크로 IDE를 만들 때, 에이전트는 어떻게 API를 파악하는가",
-      "url": "https://news.hada.io/topic?id=26487",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-08T02:49:40+09:00",
-      "summary": "AI 학습 데이터에 없는 신생 .NET UI 프레임워크로 IDE를 만들 때, HandMirror MCP로 어셈블리를 직접 검사해 첫 빌드 오류를 3개로 줄인 경험을 공유합니다. HandMirror MCP로 NuGet 패키지의 컴파일된 어셈블리를 직접 검사하면, AI가 학습한 적 없는 신생 프레임워크에서도 정확한 API 시그니처를 파악해 첫",
-      "content": "AI 학습 데이터에 없는 신생 .NET UI 프레임워크로 IDE를 만들 때, HandMirror MCP로 어셈블리를 직접 검사해 첫 빌드 오류를 3개로 줄인 경험을 공유합니다. HandMirror MCP로 NuGet 패키지의 컴파일된 어셈블리를 직접 검사하면, AI가 학습한 적 없는 신생 프레임워크에서도 정확한 API 시그니처를 파악해 첫",
-      "tags": [],
-      "author": "rkttu",
-      "priority": 1
-    },
-    {
       "id": "27f9ed00f8b8",
       "title": "HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
       "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_11%EC%9B%94%ED%98%B8_%EC%82%AC%EC%9D%B4%EB%B2%84%EB%B3%B4%EC%95%88%20%ED%8A%B9%ED%99%94%20Vertical%20AI%20%EA%B5%AC%EC%B6%95%20%EB%B0%A9%EC%95%88.pdf&r_fname=20251127174323358.pdf",
@@ -676,12 +691,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.885412+00:00",
+      "published": "2026-02-08T03:53:10.341812+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
       "content": "",
       "tags": [
-        "보안리포트",
         "SK쉴더스",
+        "보안리포트",
         "AI보안"
       ],
       "author": "SK쉴더스",
@@ -695,14 +710,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.885292+00:00",
+      "published": "2026-02-08T03:53:10.341661+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
       "content": "",
       "tags": [
-        "랜섬웨어",
-        "KARA",
+        "SK쉴더스",
         "보안리포트",
-        "SK쉴더스"
+        "KARA",
+        "랜섬웨어"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -715,12 +730,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.885167+00:00",
+      "published": "2026-02-08T03:53:10.341539+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -733,12 +748,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.885048+00:00",
+      "published": "2026-02-08T03:53:10.341421+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 11월호",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -751,12 +766,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.884933+00:00",
+      "published": "2026-02-08T03:53:10.341304+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -769,14 +784,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.884800+00:00",
+      "published": "2026-02-08T03:53:10.341179+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
       "content": "",
       "tags": [
-        "랜섬웨어",
-        "KARA",
+        "SK쉴더스",
         "보안리포트",
-        "SK쉴더스"
+        "KARA",
+        "랜섬웨어"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -789,12 +804,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.884672+00:00",
+      "published": "2026-02-08T03:53:10.341059+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -807,12 +822,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.884524+00:00",
+      "published": "2026-02-08T03:53:10.340934+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -825,12 +840,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.884407+00:00",
+      "published": "2026-02-08T03:53:10.340813+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -843,14 +858,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.884273+00:00",
+      "published": "2026-02-08T03:53:10.340659+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
       "content": "",
       "tags": [
-        "랜섬웨어",
-        "KARA",
+        "SK쉴더스",
         "보안리포트",
-        "SK쉴더스"
+        "KARA",
+        "랜섬웨어"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -863,12 +878,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.884139+00:00",
+      "published": "2026-02-08T03:53:10.340526+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -881,14 +896,29 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-08T01:58:45.883922+00:00",
+      "published": "2026-02-08T03:53:10.340363+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "ae820c6bc240",
+      "title": "AI가 본 적 없는 .NET UI 프레임워크로 IDE를 만들 때, 에이전트는 어떻게 API를 파악하는가",
+      "url": "https://news.hada.io/topic?id=26487",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-02-08T02:49:40+09:00",
+      "summary": "AI 학습 데이터에 없는 신생 .NET UI 프레임워크로 IDE를 만들 때, HandMirror MCP로 어셈블리를 직접 검사해 첫 빌드 오류를 3개로 줄인 경험을 공유합니다. HandMirror MCP로 NuGet 패키지의 컴파일된 어셈블리를 직접 검사하면, AI가 학습한 적 없는 신생 프레임워크에서도 정확한 API 시그니처를 파악해 첫",
+      "content": "AI 학습 데이터에 없는 신생 .NET UI 프레임워크로 IDE를 만들 때, HandMirror MCP로 어셈블리를 직접 검사해 첫 빌드 오류를 3개로 줄인 경험을 공유합니다. HandMirror MCP로 NuGet 패키지의 컴파일된 어셈블리를 직접 검사하면, AI가 학습한 적 없는 신생 프레임워크에서도 정확한 API 시그니처를 파악해 첫",
+      "tags": [],
+      "author": "rkttu",
       "priority": 1
     },
     {
@@ -1053,21 +1083,6 @@
       "priority": 1
     },
     {
-      "id": "473ad0e96121",
-      "title": "German Agencies Warn of Signal Phishing Targeting Politicians, Military, Journalists",
-      "url": "https://thehackernews.com/2026/02/german-agencies-warn-of-signal-phishing.html",
-      "source": "thehackernews",
-      "source_name": "The Hacker News",
-      "category": "security",
-      "language": "en",
-      "published": "2026-02-07T16:45:00+05:30",
-      "summary": "Germany's Federal Office for the Protection of the Constitution (aka Bundesamt für Verfassungsschutz or BfV) and Federal Office for Information Security (BSI) have issued a joint advisory warning of a malicious cyber campaign undertaken by a likely state-sponsored threat actor that involves carrying out phishing attacks over the Signal messaging app. \"The focus is on high-ranking targets in",
-      "content": "",
-      "tags": [],
-      "author": "info@thehackernews.com (The Hacker News)",
-      "priority": 1
-    },
-    {
       "id": "41e53563575a",
       "title": "Bitcoin slips below $70,000 after erasing post-election gains during 'sell at any price' rout",
       "url": "https://www.coindesk.com/markets/2026/02/07/bitcoin-falls-below-usd70-000-after-erasing-post-election-gains-during-sell-at-any-price-rout",
@@ -1170,36 +1185,6 @@
       "priority": 1
     },
     {
-      "id": "5087e5f00d14",
-      "title": "문명 III의 오픈소스, 크로스플랫폼 재구현 프로젝트 OpenCiv3",
-      "url": "https://news.hada.io/topic?id=26478",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-07T12:33:01+09:00",
-      "summary": "팬 커뮤니티가 Godot 엔진과 C# 으로 개발 중인 오픈소스 프로젝트로, _Civilization III_를 현대적으로 재구성한 형태 기존 게임의 임의적 제한 제거 , 버그 수정 , 모드 확장성 강화 , 현대 그래픽 및 플랫폼 지원",
-      "content": "팬 커뮤니티가 Godot 엔진과 C# 으로 개발 중인 오픈소스 프로젝트로, _Civilization III_를 현대적으로 재구성한 형태 기존 게임의 임의적 제한 제거 , 버그 수정 , 모드 확장성 강화 , 현대 그래픽 및 플랫폼 지원",
-      "tags": [],
-      "author": "neo",
-      "priority": 1
-    },
-    {
-      "id": "cade6566a3b0",
-      "title": "Show GN: Terminal Hub – AI Agent 수십 개를 백그라운드로 돌리기 위한 웹 터미널",
-      "url": "https://news.hada.io/topic?id=26477",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-07T12:06:39+09:00",
-      "summary": "웹브라우져에서 터미널 환경을 사용할 수 있도록 만들었습니다. 터미널을 여러개 띄울 수 있고 터미널마다 이름을 붙일 수 있으며 웹 브라우져를 닫아도 터미널 세션은 유지되며 모바일 환경에서도 충분히 사용할 수 있습니다 직접 써보고싶으신 분들은 gosud",
-      "content": "웹브라우져에서 터미널 환경을 사용할 수 있도록 만들었습니다. 터미널을 여러개 띄울 수 있고 터미널마다 이름을 붙일 수 있으며 웹 브라우져를 닫아도 터미널 세션은 유지되며 모바일 환경에서도 충분히 사용할 수 있습니다 직접 써보고싶으신 분들은 gosud",
-      "tags": [],
-      "author": "iwanhae",
-      "priority": 1
-    },
-    {
       "id": "93343883fab7",
       "title": "Ether's recent crash below $2,000 leaves $686 million gaping hole in trading firm's book",
       "url": "https://www.coindesk.com/markets/2026/02/07/ether-s-recent-crash-below-usd2-000-leaves-usd686-million-gaping-hole-in-trading-firm-s-book",
@@ -1213,27 +1198,6 @@
       "tags": [
         "Markets",
         "Ether",
-        "News"
-      ],
-      "author": "AI Boost",
-      "priority": 1
-    },
-    {
-      "id": "d39b0f67b082",
-      "title": "BlackRock bitcoin ETF options saw record activity during crash, sparking theories of hedge fund blowup",
-      "url": "https://www.coindesk.com/markets/2026/02/07/blackrock-bitcoin-etf-options-errupt-in-crash-hedge-fund-blowup-or-just-market-madness",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-07T02:25:31+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Markets",
-        "BlackRock",
-        "Bitcoin ETF",
-        "Bitcoin Options",
         "News"
       ],
       "author": "AI Boost",
