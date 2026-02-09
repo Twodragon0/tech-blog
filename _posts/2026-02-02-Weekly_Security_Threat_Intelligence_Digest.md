@@ -60,6 +60,30 @@ schema_type: Article
 
 > **함께 읽기**: 같은 날짜의 기술/AI/블록체인 다이제스트 [Weekly Tech & AI & Blockchain Digest](/2026-02-02-Weekly_Tech_AI_Blockchain_Digest)에서 Apple MLX 버그, Bitcoin $74K 대폭락, AI 창의성 역설, DeFi 보안, FOSDEM 2026을 심층 분석합니다.
 
+## Executive Summary
+
+### 위험 평가 스코어카드
+
+| 위협 | 심각도 | 영향 범위 | 대응 시급성 | MITRE ATT&CK |
+|------|--------|-----------|------------|--------------|
+| **Notepad++ 공급망 공격** | Critical | 전 세계 수백만 개발자 | 즉시 | T1195.002 |
+| **BlackField 랜섬웨어** | Critical | 코드 재활용 생태계 | 즉시 | T1486 |
+| **Sinobi-Lynx 랜섬웨어** | Critical | 글로벌 위협 | 즉시 | T1486 |
+| **JWT 서명키 유출** | High | 인증 체계 전반 | 단기 | T1078 |
+| **제로트러스트 데이터** | High | 데이터 보호 전략 | 중기 | - |
+| **Vertical AI SOC** | Medium | 보안 운영 자동화 | 중기 | - |
+| **HashiCorp 패스워드리스** | Medium | 접근 제어 현대화 | 중기 | - |
+
+### 핵심 요약
+
+**공급망 공격의 신기원**: 국가 지원 해킹 그룹이 Notepad++의 배포 인프라를 침해하여 전 세계 수백만 개발자를 대상으로 공급망 공격을 감행했습니다. 널리 사용되는 오픈소스 도구조차 국가 수준의 위협으로부터 안전하지 않다는 현실을 보여줍니다.
+
+**랜섬웨어 생태계 변화**: BlackField는 LockBit, Babuk, Conti 유출 코드를 복합 재활용하여 제작되었으며, Sinobi는 Lynx 위협 그룹과 코드/인프라/TTP 수준에서 연계되어 있습니다. 유출된 랜섬웨어 소스코드가 새로운 위협의 빌딩 블록이 되는 악순환이 가속화되고 있습니다.
+
+**인증 체계 근본 위협**: JWT 서명키 유출은 토큰 위조, 세션 하이재킹, 권한 상승의 공격 체인을 형성합니다. HS256 대칭키 알고리즘 사용 시 키 유출 즉시 전체 인증 체계가 무력화됩니다.
+
+**보안 패러다임 전환**: SK쉴더스는 데이터 중심 제로트러스트, Vertical AI 기반 SOC 자동화, 레드팀 기반 사이버 면역 체계 구축 전략을 제시하며 사후 대응에서 선제적 보안으로의 전환을 강조합니다.
+
 ## 개요
 
 2026년 2월 첫째 주, 보안 분야에서 국가 수준의 공급망 공격부터 랜섬웨어 생태계의 변화까지 중대한 이벤트가 이어졌습니다.
@@ -148,7 +172,129 @@ SK쉴더스 EQST는 **11월~1월호 보안 리포트 10건**을 발행하며, Ve
 | **XZ Utils** | 2024 | 리눅스 전체 | 미상 (국가급) | SSH 백도어 (사전 차단) |
 | **Notepad++** | 2026 | 수백만 사용자 | 국가 지원 그룹 | 개발자/관리자 환경 침해 |
 
-### 1.5 탐지: SIEM/EDR 쿼리
+### 1.5 공격 흐름도 (Attack Flow)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                   Notepad++ Supply Chain Attack Flow                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Phase 1: Initial Compromise
+┌──────────────────────┐
+│  State-Sponsored     │
+│  Threat Actor        │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐     ┌─────────────────────────┐
+│ Compromise           │────▶│ Obtain Signing Keys/    │
+│ Distribution Server  │     │ Build Pipeline Access   │
+└──────────┬───────────┘     └─────────────────────────┘
+           │
+           ▼
+Phase 2: Malicious Injection
+┌──────────────────────┐     ┌─────────────────────────┐
+│ Inject Malicious     │────▶│ Sign with Legitimate    │
+│ Code into Build      │     │ Certificate             │
+└──────────┬───────────┘     └─────────────────────────┘
+           │
+           ▼
+Phase 3: Distribution
+┌──────────────────────┐     ┌─────────────────────────┐
+│ Official Download    │────▶│ Millions of Users       │
+│ Channel Serves       │     │ Download Compromised    │
+│ Trojanized Binary    │     │ Version                 │
+└──────────┬───────────┘     └─────────┬───────────────┘
+           │                           │
+           └───────────┬───────────────┘
+                       ▼
+Phase 4: Execution & Impact
+┌──────────────────────┐     ┌─────────────────────────┐
+│ Malware Executes     │────▶│ Establish C2 Channel    │
+│ on Developer Systems │     │ & Persistence           │
+└──────────┬───────────┘     └─────────┬───────────────┘
+           │                           │
+           ▼                           ▼
+┌──────────────────────┐     ┌─────────────────────────┐
+│ Exfiltrate Source    │     │ Lateral Movement to     │
+│ Code & Credentials   │     │ Corporate Networks      │
+└──────────────────────┘     └─────────────────────────┘
+
+MITRE ATT&CK Mapping:
+T1195.002 → T1036.005 → T1071.001 → T1059 → T1078 → T1021 → T1567
+```
+
+### 1.6 위협 헌팅 쿼리
+
+<!-- SIEM Detection Queries (Security Operations Reference)
+
+#### Splunk SPL
+
+```spl
+# Hunt for Notepad++ with anomalous file modifications
+index=endpoint sourcetype=sysmon EventCode=11
+Image="*notepad++.exe"
+TargetFilename!="C:\\Program Files\\Notepad++\\*"
+TargetFilename!="C:\\Users\\*\\AppData\\*\\Notepad++\\*"
+| stats count by Computer, Image, TargetFilename
+| where count > 10
+| sort -count
+
+# Hunt for Notepad++ spawning unusual child processes
+index=endpoint sourcetype=sysmon EventCode=1
+ParentImage="*notepad++.exe"
+NOT (Image IN ("*notepad++.exe", "*GUP.exe", "*updater.exe"))
+| stats count values(CommandLine) as cmds by Computer, Image, ParentImage
+| sort -count
+
+# Hunt for Notepad++ loading suspicious DLLs
+index=endpoint sourcetype=sysmon EventCode=7
+Image="*notepad++.exe"
+NOT (ImageLoaded IN ("C:\\Program Files\\Notepad++\\*",
+                     "C:\\Windows\\System32\\*",
+                     "C:\\Windows\\SysWOW64\\*"))
+| stats count by Computer, ImageLoaded
+| sort -count
+```
+
+#### Azure Sentinel KQL
+
+```kql
+// Hunt for Notepad++ network connections to external IPs
+SecurityEvent
+| where EventID == 3 // Sysmon Network Connection
+| where ProcessName contains "notepad++"
+| where DestinationIp !startswith "10."
+| where DestinationIp !startswith "172.16."
+| where DestinationIp !startswith "192.168."
+| summarize ConnectionCount = count() by Computer, DestinationIp, DestinationPort
+| where ConnectionCount > 5
+| order by ConnectionCount desc
+
+// Hunt for Notepad++ with code injection indicators
+SecurityEvent
+| where EventID == 8 // Sysmon CreateRemoteThread
+| where TargetImage contains "notepad++"
+| summarize InjectionCount = count() by Computer, SourceImage, TargetImage
+| order by InjectionCount desc
+```
+
+#### Elastic Query (KQL)
+
+```kql
+# Hunt for registry persistence from Notepad++ process
+process.name: "notepad++.exe" AND
+event.category: "registry" AND
+registry.path: (*\\Run OR *\\RunOnce OR *\\Services OR *\\Winlogon*)
+
+# Hunt for Notepad++ accessing sensitive files
+process.name: "notepad++.exe" AND
+file.path: (*\\credentials* OR *\\passwords* OR *\\.ssh\\* OR *\\.aws\\* OR *id_rsa*)
+```
+
+-->
+
+### 1.7 탐지: SIEM/EDR 쿼리
 
 ```bash
 # Splunk - Detect Notepad++ Anomalous Network Activity
@@ -227,6 +373,141 @@ SK쉴더스 12월호에서는 확산 중인 **Gentlemen 랜섬웨어** 위협을
 | **T1490** | Inhibit System Recovery | VSS 삭제, 백업 파괴 |
 | **T1567** | Exfiltration Over Web Service | 이중 갈취 - 데이터 유출 |
 | **T1486** | Data Encrypted for Impact | 파일 암호화 (핵심 목적) |
+
+#### 공격 흐름도 (Attack Flow)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│              Modern Ransomware Attack Chain (2026)                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Stage 1: Initial Access (T1190 / T1566.001)
+┌──────────────────────┐     ┌─────────────────────────┐
+│ Exploit Public-      │     │ Spearphishing           │
+│ Facing Application   │ OR  │ Attachment              │
+└──────────┬───────────┘     └─────────┬───────────────┘
+           │                           │
+           └───────────┬───────────────┘
+                       ▼
+Stage 2: Execution & Privilege Escalation (T1059.001 / T1078)
+┌──────────────────────┐     ┌─────────────────────────┐
+│ PowerShell Scripts   │────▶│ Credential Dumping      │
+│ Execute              │     │ (Mimikatz, etc.)        │
+└──────────┬───────────┘     └─────────┬───────────────┘
+           │                           │
+           ▼                           ▼
+┌──────────────────────┐     ┌─────────────────────────┐
+│ Obtain Valid         │────▶│ Lateral Movement        │
+│ Admin Accounts       │     │ (SMB/RDP) T1021.002     │
+└──────────────────────┘     └─────────┬───────────────┘
+                                       │
+                                       ▼
+Stage 3: Defense Evasion (T1562.001)
+┌──────────────────────┐     ┌─────────────────────────┐
+│ Disable EDR/AV       │────▶│ Kill Security Processes │
+│ Services             │     │ & Delete Logs           │
+└──────────┬───────────┘     └─────────────────────────┘
+           │
+           ▼
+Stage 4: Data Exfiltration (T1567 - Double Extortion)
+┌──────────────────────┐     ┌─────────────────────────┐
+│ Identify & Compress  │────▶│ Exfiltrate to Attacker  │
+│ Sensitive Data       │     │ Controlled Servers      │
+└──────────┬───────────┘     └─────────────────────────┘
+           │
+           ▼
+Stage 5: Impact (T1490 / T1486)
+┌──────────────────────┐     ┌─────────────────────────┐
+│ Delete VSS Backups   │────▶│ Encrypt Files Across    │
+│ Disable Recovery     │     │ All Accessible Systems  │
+└──────────┬───────────┘     └─────────┬───────────────┘
+           │                           │
+           └───────────┬───────────────┘
+                       ▼
+┌──────────────────────────────────────────────────────┐
+│ Drop Ransom Note & Demand Payment                    │
+│ Threaten Data Leak if Not Paid                       │
+└──────────────────────────────────────────────────────┘
+
+MITRE ATT&CK Chain:
+T1190/T1566 → T1059.001 → T1078 → T1021.002 → T1562.001 → T1567 → T1490 → T1486
+```
+
+#### 위협 헌팅 쿼리
+
+<!-- SIEM Detection Queries (Security Operations Reference)
+
+##### Splunk SPL
+
+```spl
+# Hunt for credential dumping tools
+index=endpoint sourcetype=sysmon EventCode=1
+(CommandLine="*mimikatz*" OR CommandLine="*procdump*lsass*" OR
+ CommandLine="*sekurlsa*" OR Image="*pwdump*.exe" OR
+ OriginalFileName IN ("mimikatz.exe", "procdump.exe", "pwdumpx.exe"))
+| stats count by Computer, User, CommandLine, ParentImage
+| sort -count
+
+# Hunt for NTLM relay attacks
+index=auth sourcetype=windows_security EventCode=4624
+Logon_Type=3 Account_Name!=*$ Source_Network_Address!="-"
+| stats dc(Computer) as target_count by Account_Name, Source_Network_Address
+| where target_count > 5
+| sort -target_count
+
+# Hunt for suspicious service installations (persistence)
+index=endpoint sourcetype=windows_security EventCode=7045
+Service_Name!="*Windows*" Service_Name!="*Microsoft*"
+Service_File_Name="*:\\Users\\*" OR Service_File_Name="*:\\ProgramData\\*"
+| stats count by Computer, Service_Name, Service_File_Name, Account_Name
+| sort -count
+```
+
+##### Azure Sentinel KQL
+
+```kql
+// Hunt for mass file encryption events
+SecurityEvent
+| where EventID == 11 // File Created
+| where FileName endswith ".encrypted" or FileName endswith ".locked"
+   or FileName contains "README" and FileName contains "ransom"
+| summarize FileCount = dcount(FileName) by Computer, Image
+| where FileCount > 100
+| order by FileCount desc
+
+// Hunt for backup deletion commands
+SecurityEvent
+| where EventID == 1 // Process Creation
+| where CommandLine contains "vssadmin" and CommandLine contains "delete"
+   or CommandLine contains "wmic" and CommandLine contains "shadowcopy"
+   or CommandLine contains "bcdedit" and CommandLine contains "recoveryenabled"
+| project TimeGenerated, Computer, Account, CommandLine, ParentProcessName
+| order by TimeGenerated desc
+
+// Hunt for lateral movement via SMB
+SecurityEvent
+| where EventID == 5145 // Network Share Access
+| where ShareName endswith "$" and ShareName != "IPC$"
+| summarize AccessCount = count() by Account, Computer, ShareName, IpAddress
+| where AccessCount > 50
+| order by AccessCount desc
+```
+
+##### Elastic Query (KQL)
+
+```kql
+# Hunt for EDR tampering
+process.name: ("net.exe" OR "sc.exe" OR "taskkill.exe" OR "powershell.exe") AND
+process.command_line: (*defender* OR *sentinel* OR *crowdstrike* OR
+                       *carbonblack* OR *sophos* OR *stop* OR *delete*)
+
+# Hunt for large data compression (pre-exfiltration)
+process.name: ("7z.exe" OR "winrar.exe" OR "powershell.exe") AND
+process.command_line: (*.zip OR *.7z OR *.rar OR *Compress-Archive*) AND
+file.size > 104857600 // 100MB+
+```
+
+-->
 
 #### 랜섬웨어 탐지: SIEM 쿼리
 
@@ -455,6 +736,102 @@ Kubernetes 기본 Secret은 **etcd에 base64 인코딩(암호화 아님!)으로 
 
 ---
 
+## 5. 한국 영향 분석 (Impact Analysis for Korea)
+
+### 5.1 Notepad++ 공급망 공격 국내 영향
+
+| 평가 항목 | 영향도 | 상세 |
+|-----------|--------|------|
+| **국내 사용자 규모** | High | 국내 개발자/IT 관리자 중 Notepad++ 사용자 추정 수십만 명 |
+| **주요 영향 조직** | Critical | 금융권, 대기업, 공공기관 개발자 환경 침해 가능성 |
+| **공급망 연쇄 위험** | Critical | 침해된 개발자 시스템 → 내부 소스코드 유출 → 추가 공격 |
+| **국내 대응 현황** | Medium | KISA/보안기업 IOC 공유 중, 침해 여부 자체 점검 필요 |
+
+**긴급 조치 사항**:
+- 전사 Notepad++ 설치 현황 조사 및 파일 해시 검증
+- 개발자 워크스테이션 EDR 로그 소급 분석 (지난 3개월)
+- 소스코드 저장소 접근 로그 이상 여부 확인
+- 개발 환경 격리 정책 재점검 (VDI, 특권 계정 분리)
+
+### 5.2 랜섬웨어 국내 위협 동향
+
+**SK쉴더스 KARA 분석 기준 국내 주요 위협**:
+
+| 랜섬웨어 | 국내 영향 | 주요 타겟 | 대응 전략 |
+|----------|-----------|-----------|-----------|
+| **BlackField** | High | 제조업, 건설업 | 유출 코드 기반 변종 탐지 강화, EDR 행위 기반 탐지 |
+| **Sinobi** | High | 중견기업, SMB | Lynx 그룹 IOC 반영, 초기 접근 차단 (VPN/RDP) |
+| **Gentlemen** | Medium | 다양한 산업군 | 위협 인텔리전스 피드 구독, 백업 오프라인 격리 |
+
+**국내 랜섬웨어 대응 생태계**:
+- **KISA 한국인터넷진흥원**: KISA Ransomware Response Center, IOC 공유
+- **SK쉴더스 KARA**: 랜섬웨어 분석/대응 전문 조직, 월간 위협 리포트
+- **금융보안원**: 금융권 특화 위협 인텔리전스 및 공동 대응
+- **NCSC 국가사이버안보센터**: 국가 기반 시설 보호, 국가급 위협 대응
+
+### 5.3 제로트러스트 국내 도입 현황
+
+**국내 주요 기관 제로트러스트 추진 현황** (2026년 2월 기준):
+
+| 분야 | 추진 현황 | 주요 이니셔티브 |
+|------|-----------|-----------------|
+| **공공** | Medium | 행정안전부 「제로트러스트 기반 정부 보안체계 구축 가이드」 발간 |
+| **금융** | High | 금융위원회/금융보안원 주도 제로트러스트 실증 사업 진행 |
+| **통신** | High | SKT, KT, LG U+ 사내 제로트러스트 아키텍처 구축 중 |
+| **제조** | Low | PoC 단계, IT 영역 우선 적용 후 OT 확장 계획 |
+
+**SK쉴더스 데이터 중심 제로트러스트 전략의 국내 적용**:
+- 개인정보보호법/신용정보법 컴플라이언스 자동 감사
+- 금융권 전자금융거래법 준수를 위한 필드 레벨 암호화
+- 공공기관 정보통신망법 준수 데이터 접근 제어
+
+### 5.4 국내 보안 시장 트렌드
+
+| 트렌드 | 국내 주요 플레이어 | 시사점 |
+|--------|-------------------|--------|
+| **Vertical AI 보안** | SK쉴더스, 이글루코퍼레이션, 안랩 | SOC 자동화 경쟁 가속화 |
+| **XDR 통합 플랫폼** | 안랩 MDS, 지니언스 XDR, 파이오링크 | SIEM+EDR+NDR 통합 추세 |
+| **제로트러스트** | 펜타시큐리티, 시큐레터, 이글루코퍼레이션 | 금융권 중심 확산 → 전 산업으로 확대 |
+| **OT 보안** | SK쉴더스, S-OIL, 포스코ICT | 스마트공장/스마트시티 보안 수요 증가 |
+
+---
+
+## 6. 경영진 보고 형식 (Board Reporting Format)
+
+### 주간 보안 요약 (Executive Brief)
+
+**보고 기간**: 2026년 2월 2일 주간
+**보고 대상**: CISO, CIO, 경영진
+
+#### 핵심 위험 (Top Risks)
+
+| # | 위험 | 영향 | 조치 상태 |
+|---|------|------|-----------|
+| 1 | **Notepad++ 공급망 침해** | 전사 개발자 환경 노출 가능 | 긴급 점검 진행 중 |
+| 2 | **랜섬웨어 위협 고도화** | 이중 갈취, 코드 재활용 확산 | 백업 검증 완료, 탐지 룰 강화 |
+| 3 | **JWT 인증 취약점** | 자격 증명 탈취 → 권한 상승 | HS256 사용 서비스 전환 계획 수립 |
+
+#### 투자 권고 (Investment Recommendations)
+
+| 분야 | 권고 사항 | 예상 비용 | 기대 효과 |
+|------|-----------|-----------|-----------|
+| **공급망 보안** | SBOM 관리 도구 도입, 코드 서명 검증 프로세스 | 중간 | 공급망 공격 탐지/차단 |
+| **제로트러스트** | 데이터 중심 보안 아키텍처 구축 | 높음 | 내부 위협 대응력 향상 |
+| **Vertical AI SOC** | 보안 특화 AI 파일럿 (SK쉴더스 등) | 중간 | SOC 운영 비용 30% 절감 |
+| **레드팀 프로그램** | 연간 침투 테스트 및 방어 검증 | 낮음 | 실전 대응 능력 검증 |
+
+#### 규제/컴플라이언스 영향
+
+- **개인정보보호법**: 랜섬웨어 침해 시 대규모 유출 신고 의무 (72시간 이내)
+- **전자금융거래법**: JWT 취약점 금융권 영향, 금융위 보안 가이드 준수 필요
+- **정보통신망법**: 공급망 침해 시 침해사고 신고 의무
+
+#### 한 줄 요약 (One-Liner for CEO)
+
+> "이번 주 Notepad++ 공급망 공격은 널리 사용되는 오픈소스 도구조차 국가 수준 위협에 노출됨을 증명했습니다. 당사 개발 환경 긴급 점검 및 공급망 보안 강화가 필요합니다."
+
+---
+
 ## 트렌드 분석
 
 | 트렌드 | 관련 내용 | 영향도 | 대응 시급성 |
@@ -473,6 +850,51 @@ Kubernetes 기본 Secret은 **etcd에 base64 인코딩(암호화 아님!)으로 
 ---
 
 ## 실무 체크리스트
+
+### 보안 운영 통합 절차
+
+**탐지 → 분석 → 대응 → 복구** 통합 워크플로우:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    Security Operations Workflow                 │
+└─────────────────────────────────────────────────────────────────┘
+
+1. DETECTION (탐지)
+   ├─ SIEM/EDR 이상 징후 알림 수신
+   ├─ 위협 인텔리전스 IOC 매칭
+   └─ Vertical AI 자동 분류 (Tier 1 알림)
+
+2. ANALYSIS (분석)
+   ├─ MITRE ATT&CK TTP 매핑
+   ├─ 공격 체인 재구성 (Kill Chain Analysis)
+   ├─ 영향 범위 판단 (Blast Radius)
+   └─ 심각도 판정 (Critical/High/Medium/Low)
+
+3. CONTAINMENT (격리)
+   ├─ 침해 시스템 네트워크 격리
+   ├─ 계정 비활성화 (의심 자격 증명)
+   ├─ EDR Isolation 모드 활성화
+   └─ 추가 피해 확산 차단
+
+4. ERADICATION (제거)
+   ├─ 악성코드 제거 (EDR/AV)
+   ├─ 지속성(Persistence) 메커니즘 제거
+   ├─ 취약점 패치 적용
+   └─ 시스템 무결성 검증
+
+5. RECOVERY (복구)
+   ├─ 백업에서 데이터 복원
+   ├─ 시스템 재이미징 (필요 시)
+   ├─ 자격 증명 전면 재발급
+   └─ 서비스 정상화
+
+6. LESSONS LEARNED (사후 분석)
+   ├─ 침해 원인 근본 분석
+   ├─ 탐지 룰 개선 (False Negative 제거)
+   ├─ 방어 체계 강화 계획 수립
+   └─ 레드팀 시뮬레이션으로 재검증
+```
 
 ### P0 - 즉시
 
@@ -504,47 +926,102 @@ Kubernetes 기본 Secret은 **etcd에 base64 인코딩(암호화 아님!)으로 
 
 ### 공급망 보안
 
-| 제목 | URL |
-|------|-----|
-| Notepad++ Hijacked Incident Info Update | [Notepad++](https://notepad-plus-plus.org/news/hijacked-incident-info-update/) |
-| MITRE ATT&CK T1195 - Supply Chain Compromise | [MITRE](https://attack.mitre.org/techniques/T1195/) |
+| 제목 | URL | 발행처 |
+|------|-----|--------|
+| Notepad++ Hijacked Incident Info Update | https://notepad-plus-plus.org/news/hijacked-incident-info-update/ | Notepad++ 공식 |
+| MITRE ATT&CK T1195 - Supply Chain Compromise | https://attack.mitre.org/techniques/T1195/ | MITRE Corporation |
+| MITRE ATT&CK T1195.002 - Compromise Software Supply Chain | https://attack.mitre.org/techniques/T1195/002/ | MITRE Corporation |
+| SolarWinds Supply Chain Attack Analysis | https://www.mandiant.com/resources/blog/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor | Mandiant |
+| NIST SP 800-161 Rev. 1 - Cyber Supply Chain Risk Management | https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final | NIST |
 
-### SK쉴더스 보안 리포트
+### SK쉴더스 보안 리포트 (2025.11 - 2026.01)
 
-| 리포트 | URL |
-|--------|-----|
-| HeadLine 11월호 - Vertical AI 구축 방안 | [SK쉴더스](https://www.skshieldus.com) |
-| HeadLine 12월호 - 제조사 OT 보안 동향 | [SK쉴더스](https://www.skshieldus.com) |
-| HeadLine 1월호 - 레드팀 사이버 면역 체계 | [SK쉴더스](https://www.skshieldus.com) |
-| Ransomware 11월호 - BlackField 코드 재활용 | [SK쉴더스](https://www.skshieldus.com) |
-| Ransomware 12월호 - Gentlemen 랜섬웨어 | [SK쉴더스](https://www.skshieldus.com) |
-| Ransomware 1월호 - Sinobi + Lynx 연계 | [SK쉴더스](https://www.skshieldus.com) |
-| Special Report 11월호 - 제로트러스트 데이터 | [SK쉴더스](https://www.skshieldus.com) |
-| Special Report 12월호 - 가시성 및 분석 | [SK쉴더스](https://www.skshieldus.com) |
-| Research Technique 1월호 - JWT 인증 위협 | [SK쉴더스](https://www.skshieldus.com) |
+| 리포트 | 발행월 | URL | 주요 내용 |
+|--------|--------|-----|-----------|
+| **HeadLine 11월호** | 2025.11 | https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_11%EC%9B%94%ED%98%B8_%EC%82%AC%EC%9D%B4%EB%B2%84%EB%B3%B4%EC%95%88%20%ED%8A%B9%ED%99%94%20Vertical%20AI%20%EA%B5%AC%EC%B6%95%20%EB%B0%A9%EC%95%88.pdf&r_fname=20251127174323358.pdf | Vertical AI 구축 방안 |
+| **HeadLine 12월호** | 2025.12 | https://www.skshieldus.com | 제조사 OT 보안 동향 |
+| **HeadLine 1월호** | 2026.01 | https://www.skshieldus.com | 레드팀 사이버 면역 체계 |
+| **Keep up with Ransomware 11월호** | 2025.11 | https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2011%EC%9B%94%ED%98%B8%20%EA%B8%B0%EC%A1%B4%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%BD%94%EB%93%9C%EB%A5%BC%20%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%95%9C%20BlackField%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20251127174343776.pdf | BlackField 랜섬웨어 코드 재활용 |
+| **Keep up with Ransomware 12월호** | 2025.12 | https://www.skshieldus.com | Gentlemen 랜섬웨어 |
+| **Keep up with Ransomware 1월호** | 2026.01 | https://www.skshieldus.com | Sinobi + Lynx 연계 분석 |
+| **Special Report 11월호** | 2025.11 | https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_11%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EB%8D%B0%EC%9D%B4%ED%84%B0(Data).pdf&r_fname=20251127174412898.pdf | 제로트러스트 보안전략 - 데이터 |
+| **Special Report 12월호** | 2025.12 | https://www.skshieldus.com | 제로트러스트 - 가시성 및 분석 |
+| **Research Technique 1월호** | 2026.01 | https://www.skshieldus.com | JWT 인증 위협 |
+| **EQST Insight 11월호** | 2025.11 | https://www.skshieldus.com | 분기별 위협 동향 종합 |
+| **EQST Insight 12월호** | 2025.12 | https://www.skshieldus.com | 2025 Q4 위협 종합, 2026 전망 |
+| **EQST Insight 1월호** | 2026.01 | https://www.skshieldus.com | 1월 보안 인사이트 |
+
+### 랜섬웨어 위협 인텔리전스
+
+| 제목 | URL | 발행처 |
+|------|-----|--------|
+| LockBit 3.0 Builder Leak Analysis | https://www.bleepingcomputer.com/news/security/lockbit-30-ransomware-builder-leaked-online/ | BleepingComputer |
+| Babuk Ransomware Source Code Leak | https://www.bleepingcomputer.com/news/security/babuk-ransomwares-full-source-code-leaked-on-hacker-forum/ | BleepingComputer |
+| Conti Ransomware Leak Analysis | https://www.intel471.com/blog/conti-ransomware-leadership-exposure | Intel471 |
+| MITRE ATT&CK T1486 - Data Encrypted for Impact | https://attack.mitre.org/techniques/T1486/ | MITRE Corporation |
+| MITRE ATT&CK T1490 - Inhibit System Recovery | https://attack.mitre.org/techniques/T1490/ | MITRE Corporation |
+| IBM Cost of a Data Breach Report 2025 | https://www.ibm.com/security/data-breach | IBM Security |
+
+### 제로트러스트 아키텍처
+
+| 제목 | URL | 발행처 |
+|------|-----|--------|
+| NIST SP 800-207 - Zero Trust Architecture | https://csrc.nist.gov/publications/detail/sp/800-207/final | NIST |
+| CISA Zero Trust Maturity Model | https://www.cisa.gov/zero-trust-maturity-model | CISA |
+| 행정안전부 제로트러스트 가이드 | https://www.mois.go.kr | 행정안전부 |
+| 금융보안원 제로트러스트 가이드라인 | https://www.fsec.or.kr | 금융보안원 |
+
+### JWT 보안
+
+| 제목 | URL | 발행처 |
+|------|-----|--------|
+| RFC 7519 - JSON Web Token (JWT) | https://datatracker.ietf.org/doc/html/rfc7519 | IETF |
+| OWASP JWT Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html | OWASP |
+| MITRE ATT&CK T1078 - Valid Accounts | https://attack.mitre.org/techniques/T1078/ | MITRE Corporation |
 
 ### DevOps 보안
 
-| 제목 | URL |
-|------|-----|
-| HashiCorp Boundary 0.21 - Passwordless RDP | [HashiCorp](https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections) |
-| VSO - K8s Secrets without etcd | [HashiCorp](https://www.hashicorp.com/blog/deliver-secrets-to-kubernetes-pods-without-storing-in-etcd-using-vso) |
+| 제목 | URL | 발행처 |
+|------|-----|--------|
+| HashiCorp Boundary 0.21 - Passwordless RDP | https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections | HashiCorp |
+| HashiCorp VSO - K8s Secrets without etcd | https://www.hashicorp.com/blog/deliver-secrets-to-kubernetes-pods-without-storing-in-etcd-using-vso | HashiCorp |
+| Kubernetes Security Best Practices | https://kubernetes.io/docs/concepts/security/security-best-practices/ | Kubernetes |
 
 ### AI 에이전트 보안
 
-| 제목 | URL |
-|------|-----|
-| Amazon Bedrock AgentCore 멀티에이전트 운영 | [AWS Korea](https://aws.amazon.com/ko/blogs/tech/multi-agent-operations-for-airline-agentcore-service/) |
-| OWASP Agentic AI Top 10 | [OWASP](https://owasp.org/www-project-top-10-for-large-language-model-applications/) |
+| 제목 | URL | 발행처 |
+|------|-----|--------|
+| Amazon Bedrock AgentCore 멀티에이전트 운영 | https://aws.amazon.com/ko/blogs/tech/multi-agent-operations-for-airline-agentcore-service/ | AWS Korea |
+| OWASP Agentic AI Top 10 | https://owasp.org/www-project-top-10-for-large-language-model-applications/ | OWASP |
+| NIST AI Risk Management Framework | https://www.nist.gov/itl/ai-risk-management-framework | NIST |
 
-### 보안 프레임워크
+### 보안 프레임워크 및 표준
 
-| 리소스 | URL |
-|--------|-----|
-| MITRE ATT&CK Framework | [attack.mitre.org](https://attack.mitre.org/) |
-| MITRE ATT&CK T1486 - Data Encrypted for Impact | [MITRE](https://attack.mitre.org/techniques/T1486/) |
-| NIST Zero Trust Architecture (SP 800-207) | [NIST](https://csrc.nist.gov/publications/detail/sp/800-207/final) |
-| CISA KEV | [CISA](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
+| 리소스 | URL | 발행처 |
+|--------|-----|--------|
+| MITRE ATT&CK Framework | https://attack.mitre.org/ | MITRE Corporation |
+| MITRE ATT&CK Navigator | https://mitre-attack.github.io/attack-navigator/ | MITRE Corporation |
+| CISA Known Exploited Vulnerabilities (KEV) | https://www.cisa.gov/known-exploited-vulnerabilities-catalog | CISA |
+| CIS Controls v8 | https://www.cisecurity.org/controls/v8 | Center for Internet Security |
+| NIST Cybersecurity Framework (CSF) 2.0 | https://www.nist.gov/cyberframework | NIST |
+
+### 국내 보안 기관 및 리소스
+
+| 기관 | URL | 역할 |
+|------|-----|------|
+| KISA 한국인터넷진흥원 | https://www.kisa.or.kr | 랜섬웨어 대응센터, 침해사고 지원 |
+| NCSC 국가사이버안보센터 | https://www.ncsc.go.kr | 국가 기반시설 보호 |
+| 금융보안원 | https://www.fsec.or.kr | 금융권 보안 가이드라인 |
+| 보안뉴스 | https://www.boannews.com | 국내 보안 뉴스 |
+
+### 위협 인텔리전스 피드
+
+| 서비스 | URL | 제공 정보 |
+|--------|-----|-----------|
+| MISP Threat Sharing | https://www.misp-project.org | 오픈소스 위협 인텔리전스 플랫폼 |
+| AlienVault OTX | https://otx.alienvault.com | 커뮤니티 위협 인텔리전스 |
+| VirusTotal | https://www.virustotal.com | 파일/URL 위협 분석 |
+| ANY.RUN | https://any.run | 인터랙티브 멀웨어 샌드박스 |
 
 ---
 

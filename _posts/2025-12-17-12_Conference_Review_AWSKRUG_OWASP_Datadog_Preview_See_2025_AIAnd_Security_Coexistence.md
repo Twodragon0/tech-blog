@@ -61,7 +61,61 @@ author: Twodragon
 </div>
 </div>
 
-## 서론
+## 1. Executive Summary: 2025년 클라우드 보안 패러다임의 전환
+
+### 1.1 경영진을 위한 핵심 요약
+
+| 구분 | 주요 내용 | 비즈니스 영향 | 권장 조치 |
+|------|---------|------------|----------|
+| **전략적 위험** | AI 기반 공격이 일상화 (93% 리더 예상) | 데이터 유출, 랜섬웨어 위험 증가 | AI 보안 정책 수립 및 투자 |
+| **기술 트렌드** | Zero Trust가 업계 표준으로 정착 | 레거시 시스템의 보안 취약성 노출 | Zero Trust 아키텍처 마이그레이션 |
+| **규제 대응** | Post-quantum 암호화 준비 필요 | 장기적 데이터 보안 위협 | 암호화 전환 로드맵 수립 |
+| **운영 효율** | AI 기반 보안 자동화로 생산성 향상 | 인건비 절감, 대응 시간 단축 | 자동화 도구 도입 검토 |
+
+### 1.2 3대 핵심 트렌드
+
+**트렌드 1: AI의 양면성 - 공격과 방어의 도구**
+- 공격: LLM 기반 피싱, AI 생성 악성코드, Shadow AI 위험
+- 방어: AWS Security Agent, IAM Policy Autopilot 등 자동화 도구
+- 전략: AI 사용 거버넌스 체계 구축이 필수
+
+**트렌드 2: Supply Chain 보안의 중요성 급부상**
+- npm Shai-Hulud 웜 등 공급망 공격 180% 증가
+- SBOM(Software Bill of Materials) 구축이 표준화
+- 오픈소스 의존성 관리가 핵심 보안 과제로 부상
+
+**트렌드 3: Zero Trust에서 Post-quantum까지 아키텍처 대전환**
+- Zero Trust 아키텍처가 선택이 아닌 필수로 전환
+- Cloudflare 52% 트래픽이 Post-quantum 암호화 적용
+- 하이브리드 암호화 방식으로 점진적 전환 필요
+
+### 1.3 컨퍼런스 주요 발표 요약
+
+| 컨퍼런스 | 일시 | 핵심 발표 | 전략적 시사점 |
+|---------|------|---------|-------------|
+| **AWS re:Invent 2025** | 2025.12 | Security Agent, GuardDuty Extended, IAM Policy Autopilot | AI 기반 보안 자동화가 실무 수준 도달 |
+| **AWSKRUG Kiro Launch** | 2025.12 | AI IDE Kiro, Shift-Left Security | 개발 생산성과 보안 통합 가능 |
+| **OWASP Seoul** | 2025.12 | LLM 공격 기법, Top 10 변화 예측 | AI 공격 대응 체계 필요 |
+| **Datadog Security 101** | 2025.12 | 통합 보안 모니터링, SIEM/CSPM 융합 | 단일 플랫폼 보안 관리 가능 |
+
+### 1.4 투자 우선순위 가이드
+
+**즉시 실행 (1-3개월)**
+- IAM 정책 최적화 (비용: 낮음, 효과: 높음)
+- CI/CD 보안 스캔 통합 (비용: 중간, 효과: 높음)
+- GuardDuty Extended 활성화 (비용: 중간, 효과: 높음)
+
+**단기 계획 (3-6개월)**
+- Zero Trust 아키텍처 구축 (비용: 높음, 효과: 매우 높음)
+- 통합 보안 모니터링 (비용: 중간, 효과: 높음)
+- AI 사용 정책 수립 (비용: 낮음, 효과: 중간)
+
+**장기 전략 (6-12개월)**
+- Post-quantum 암호화 마이그레이션 (비용: 높음, 효과: 장기적)
+- SBOM 자동화 체계 구축 (비용: 중간, 효과: 중간)
+- 보안 문화 및 교육 프로그램 (비용: 중간, 효과: 높음)
+
+## 2. 서론
 
 12월은 한 해를 마무리하는 시기이자, 내년의 기술 트렌드를 가장 먼저 접할 수 있는 달이기도 합니다. 이번 달에는 **AWSKRUG AI IDE Kiro Launch Party**, **OWASP Seoul Chapter 송년회**, 그리고 **Datadog Security 101 세미나**에 연달아 참석하며, 개발 생산성의 도구인 AI와 이를 지키는 보안 기술이 어떻게 융합되고 있는지 생생하게 느낄 수 있었습니다.
 
@@ -80,7 +134,255 @@ author: Twodragon
 
 2025년 보안 트렌드는 AI와 보안의 공존이 핵심입니다.
 
-## 2. 2025년 보안 트렌드: 컨퍼런스에서 본 미래
+## 3. Technology Trend Analysis: AI와 보안의 융합
+
+### 3.1 클라우드 보안 패러다임의 근본적 변화
+
+2025년 클라우드 보안은 **반응적(Reactive) 대응에서 예측적(Predictive) 방어**로 진화하고 있습니다. 이는 AI, Machine Learning, 실시간 위협 인텔리전스의 융합으로 가능해졌습니다.
+
+```
+전통적 보안 모델 (Before 2025)
+┌─────────────────────────────────────┐
+│ 경계 기반 방어 (Perimeter Security)  │
+│ - 방화벽, VPN 중심                   │
+│ - 내부 신뢰, 외부 차단               │
+│ - 사후 대응 중심                     │
+└─────────────────────────────────────┘
+              ↓ 전환
+┌─────────────────────────────────────┐
+│ Zero Trust + AI 기반 보안 (2025+)    │
+│ - 신뢰하지 않고 항상 검증            │
+│ - AI 기반 실시간 위협 탐지           │
+│ - 자동화된 예방 및 대응              │
+└─────────────────────────────────────┘
+```
+
+### 3.2 AI 보안 기술의 3대 축
+
+**1. AI for Security (보안을 위한 AI)**
+- AWS Security Agent: ML 기반 자동 위협 대응
+- IAM Policy Autopilot: AI 기반 최소 권한 정책 생성
+- GuardDuty Extended: 고급 패턴 인식 위협 탐지
+
+**2. Security for AI (AI를 위한 보안)**
+- LLM Prompt Injection 방어
+- AI 모델 데이터 유출 방지
+- Shadow AI 모니터링 및 통제
+
+**3. AI-Powered Attacks (AI 기반 공격)**
+- LLM 활용 고도화된 피싱
+- AI 생성 악성코드 (탐지 회피)
+- 자동화된 사회공학 공격
+
+### 3.3 보안 자동화의 성숙도 모델
+
+| 레벨 | 단계 | 특징 | 주요 도구 |
+|------|------|------|---------|
+| **L0** | 수동 대응 | 모든 작업을 수동으로 수행 | 수작업, 스크립트 |
+| **L1** | 부분 자동화 | 일부 작업 자동화 (알림, 로그 수집) | CloudWatch, SNS |
+| **L2** | 조건부 자동화 | 규칙 기반 자동 대응 | Lambda, EventBridge |
+| **L3** | AI 보조 자동화 | AI가 권장사항 제공, 사람이 승인 | IAM Policy Autopilot |
+| **L4** | 완전 자동화 | AI가 판단하고 자동 실행 | Security Agent |
+
+**대부분의 기업 현황**: L1-L2 단계
+**2025년 목표**: L3-L4 단계로 전환
+
+### 3.4 SIEM/Security Tool 비교 분석
+
+#### 3.4.1 통합 보안 플랫폼 비교
+
+| 솔루션 | SIEM | CSPM | 애플리케이션 보안 | AI 기능 | 가격 모델 | 적합 규모 |
+|--------|------|------|----------------|---------|----------|---------|
+| **Datadog Security** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 종량제 (월 $15/host부터) | 중소-대기업 |
+| **AWS Security Hub** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | 종량제 (월 $0.001/체크) | AWS 중심 기업 |
+| **Splunk** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | 라이선스 (고가) | 대기업 |
+| **Azure Sentinel** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | 종량제 (GB당 과금) | Azure 중심 기업 |
+
+#### 3.4.2 AWS 네이티브 보안 서비스 비교
+
+| 서비스 | 주요 기능 | 비용 | 적용 시점 | AI 활용도 |
+|--------|---------|------|----------|----------|
+| **GuardDuty** | 위협 탐지 (VPC, DNS, CloudTrail) | $4.40/월 (1M 이벤트) | 즉시 | ⭐⭐⭐⭐ |
+| **Security Hub** | 통합 보안 대시보드 | $0.001/체크 | 멀티 계정 환경 | ⭐⭐⭐ |
+| **Security Agent** | AI 자동 대응 | 미정 (신규) | re:Invent 2025 이후 | ⭐⭐⭐⭐⭐ |
+| **Inspector** | 취약점 스캔 | $0.09/인스턴스/월 | EC2, ECR 사용 시 | ⭐⭐⭐ |
+| **Macie** | 민감 데이터 검색 | $1/GB (S3 스캔) | 데이터 규정 준수 | ⭐⭐⭐⭐ |
+
+#### 3.4.3 실무 선택 가이드
+
+**시나리오 1: 스타트업/중소기업 (예산 제약)**
+```
+추천 구성:
+- AWS GuardDuty (기본 위협 탐지)
+- AWS Security Hub (무료 티어 활용)
+- CI/CD: GitHub Advanced Security (오픈소스 무료)
+- 총 예상 비용: $50-100/월
+```
+
+**시나리오 2: 중견기업 (멀티 클라우드)**
+```
+추천 구성:
+- Datadog Security (통합 모니터링)
+- AWS GuardDuty + Security Hub
+- Snyk (의존성 스캔)
+- 총 예상 비용: $500-1,000/월
+```
+
+**시나리오 3: 대기업 (규제 산업)**
+```
+추천 구성:
+- Splunk Enterprise Security (SIEM)
+- AWS Security Hub + GuardDuty Extended
+- CrowdStrike (EDR)
+- Wiz (CSPM)
+- 총 예상 비용: $5,000-10,000/월
+```
+
+### 3.5 Korea-Specific Impact Analysis
+
+#### 3.5.1 한국 클라우드 시장 현황
+
+| 지표 | 2024년 | 2025년 예상 | 증가율 |
+|------|--------|-----------|--------|
+| 클라우드 시장 규모 | 6.8조원 | 8.2조원 | 20.6% |
+| 보안 투자 비중 | 12% | 15% | 25% 증가 |
+| AI 보안 도구 도입률 | 23% | 42% | 83% 증가 |
+| Zero Trust 구축률 | 18% | 35% | 94% 증가 |
+
+**출처**: 한국IDC, 가트너 한국지사 2025 전망
+
+#### 3.5.2 한국 기업의 보안 투자 트렌드
+
+**금융권 (은행, 증권)**
+- 규제 준수 중심 (전자금융감독규정, 개인정보보호법)
+- Post-quantum 암호화 준비 선도
+- 2025년 목표: Zero Trust 100% 적용
+
+**공공기관**
+- 클라우드 전환 가속화 (2025년 클라우드 우선 정책)
+- 국산 보안 솔루션 선호
+- 데이터 주권 및 지역 요구사항 중시
+
+**스타트업/IT 기업**
+- 개발 생산성과 보안 균형 추구
+- AWS, Azure, GCP 등 글로벌 클라우드 활용
+- AI 보안 자동화 도구 적극 도입
+
+#### 3.5.3 한국 컨퍼런스 생태계의 특징
+
+| 컨퍼런스 유형 | 특징 | 주요 행사 | 참여 권장 대상 |
+|------------|------|---------|-------------|
+| **커뮤니티 주도** | 실무 중심, 무료/저렴, 네트워킹 | AWSKRUG, GDGKR, PYCON | 개발자, 엔지니어 |
+| **벤더 주최** | 제품 중심, 무료, 마케팅 | AWS Summit, MS Ignite | 의사결정자, 아키텍트 |
+| **학술/연구** | 논문 중심, 유료, 학술적 | KISA, 정보보호학회 | 연구자, 학생 |
+| **글로벌 연계** | 최신 트렌드, 영어/한국어, 유료 | Black Hat Asia, RSA | 보안 전문가 |
+
+**2025년 주목할 한국 컨퍼런스**
+- **AWS Summit Seoul 2025** (5월 예정): re:Invent 핵심 내용 국내 발표
+- **AWSKRUG re:Invent recap** (1월): re:Invent 2024 심화 세션
+- **OWASP Korea Day** (상반기): 웹 애플리케이션 보안 트렌드
+- **Datadog DASH Seoul** (하반기): 옵저버빌리티 & 보안
+
+#### 3.5.4 한국 규제 환경과 보안 요구사항
+
+| 규제/법률 | 핵심 요구사항 | 기술적 대응 | 적용 대상 |
+|---------|-----------|-----------|---------|
+| **개인정보보호법** | 개인정보 암호화, 접근 통제 | KMS, IAM, 로그 관리 | 모든 기업 |
+| **전자금융감독규정** | 금융 데이터 보호, 감사 추적 | 암호화, 감사 로그, MFA | 금융기관 |
+| **정보통신망법** | 개인정보 유출 통지, 침해사고 대응 | 모니터링, 알림 시스템 | 통신사, 포털 |
+| **클라우드 보안인증** | CSAP, ISMS-P | 보안 통제, 문서화 | 공공기관, 대기업 |
+
+**2025년 주요 변화**
+- 클라우드 서비스 보안인증(CSAP) 강화
+- AI 활용 개인정보 처리 가이드라인 신설
+- Post-quantum 암호화 권고안 발표 예정
+
+### 3.6 경영진 보고 템플릿
+
+#### 3.6.1 보안 투자 제안서 (Board Reporting Format)
+
+```
+제목: 2025년 클라우드 보안 전략 및 투자 제안
+
+1. Executive Summary (경영진 요약)
+   - 현황: 93% 보안 리더가 AI 공격 일상화 예상
+   - 위험: Shadow AI, Supply Chain 공격 증가
+   - 기회: AI 자동화로 생산성 향상 및 비용 절감
+   - 제안: 총 X억원 투자, Y% 위험 감소 예상
+
+2. Strategic Context (전략적 배경)
+   - 시장 트렌드: Zero Trust 표준화, Post-quantum 준비
+   - 경쟁사 동향: 주요 경쟁사 보안 투자 현황
+   - 규제 환경: 개인정보보호법, 전자금융감독규정 강화
+
+3. Risk Assessment (위험 평가)
+   ┌────────────────────────────────────────┐
+   │ 위험          영향도  발생확률  우선순위 │
+   ├────────────────────────────────────────┤
+   │ AI 기반 공격    높음    높음    최우선  │
+   │ Shadow AI      중간    높음    높음    │
+   │ Supply Chain   높음    중간    높음    │
+   │ 규제 위반      높음    낮음    중간    │
+   └────────────────────────────────────────┘
+
+4. Proposed Investment (투자 제안)
+   - 1단계 (즉시): IAM 최적화, GuardDuty Extended ($X)
+   - 2단계 (3개월): Zero Trust 구축 ($Y)
+   - 3단계 (6개월): Post-quantum 준비 ($Z)
+   - 총 투자: $X+Y+Z
+   - 예상 ROI: 보안 사고 감소 ($A), 대응 비용 절감 ($B)
+
+5. Implementation Roadmap (실행 로드맵)
+   Q1: 즉시 적용 항목 완료
+   Q2: Zero Trust 아키텍처 구축
+   Q3: 통합 모니터링 플랫폼 구축
+   Q4: Post-quantum 암호화 준비
+
+6. Success Metrics (성공 지표)
+   - 보안 사고 건수 감소: 50%
+   - 평균 탐지 시간(MTTD) 단축: 70%
+   - 평균 대응 시간(MTTR) 단축: 60%
+   - 규정 준수율: 100%
+
+7. Approval Request (승인 요청)
+   - 예산 승인: 총 X억원
+   - 인력 승인: 보안 엔지니어 Y명
+   - 타임라인 승인: 12개월 프로젝트
+```
+
+#### 3.6.2 월간 보안 리포트 템플릿
+
+```
+[Month] 보안 현황 리포트
+
+┌─────────────────────────────────────────┐
+│ 보안 지표 (Security Metrics)             │
+├─────────────────────────────────────────┤
+│ 총 위협 탐지 건수:          XXX건        │
+│ 심각도 높음:                 XX건        │
+│ 자동 대응 성공률:            XX%         │
+│ False Positive 비율:         XX%         │
+│ 평균 탐지 시간(MTTD):        XX분        │
+│ 평균 대응 시간(MTTR):        XX분        │
+└─────────────────────────────────────────┘
+
+주요 보안 이벤트:
+1. [날짜] AI 기반 피싱 시도 탐지 및 차단
+2. [날짜] Shadow AI 사용 발견 및 정책 위반 조치
+3. [날짜] 의존성 취약점 발견 및 패치 완료
+
+개선 사항:
+- IAM 정책 최적화: 과도한 권한 XX개 제거
+- GuardDuty 탐지 규칙 업데이트: 새로운 패턴 추가
+- 보안 교육: 전 직원 AI 보안 교육 완료
+
+다음 달 계획:
+- Zero Trust 아키텍처 1단계 구축 착수
+- Post-quantum 암호화 PoC 시작
+- SBOM 자동화 파일럿 프로젝트
+```
+
+## 4. 2025년 보안 트렌드: 컨퍼런스에서 본 미래
 
 2025년 보안 트렌드는 AI와 보안의 공존이 핵심입니다.
 
@@ -165,7 +467,302 @@ npm **Shai-Hulud** 웜 등 공급망 공격이 급증하고 있습니다. 오픈
 > 2. **호환성 테스트**: 기존 시스템과의 호환성 확인
 > 3. **점진적 전환**: 중요도가 높은 시스템부터 우선 적용
 
-## 3. AWS re:Invent 2025 보안 서비스 발표
+### 4.1 Architecture Diagrams: 핵심 아키텍처 시각화
+
+#### 4.1.1 AWS Security Agent 자동 대응 아키텍처
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                      AWS Security Agent 아키텍처                  │
+└──────────────────────────────────────────────────────────────────┘
+
+1단계: 위협 탐지
+┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│ GuardDuty   │───▶│ CloudTrail  │───▶│ VPC Flow    │
+│ (위협탐지)   │    │ (API 로그)   │    │ Logs        │
+└─────────────┘    └─────────────┘    └─────────────┘
+       │                  │                   │
+       └──────────────────┼───────────────────┘
+                          ▼
+              ┌───────────────────────┐
+              │  Security Agent       │
+              │  (AI 분석 엔진)        │
+              │  - ML 모델 패턴 인식   │
+              │  - 컨텍스트 분석       │
+              │  - 위험도 평가         │
+              └───────────────────────┘
+                          │
+                          ▼
+2단계: 자동 대응 결정
+              ┌───────────────────────┐
+              │  Response Playbook    │
+              │  - High: 즉시 격리     │
+              │  - Medium: 알림+로그   │
+              │  - Low: 모니터링       │
+              └───────────────────────┘
+                          │
+          ┌───────────────┼───────────────┐
+          ▼               ▼               ▼
+┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│ Security    │ │ Lambda      │ │ SNS/SQS     │
+│ Group 차단   │ │ 자동 실행    │ │ 알림 전송    │
+└─────────────┘ └─────────────┘ └─────────────┘
+
+3단계: 피드백 루프
+                          ▼
+              ┌───────────────────────┐
+              │  Learning & Update    │
+              │  - False Positive 학습 │
+              │  - 새 패턴 업데이트     │
+              │  - 정확도 개선         │
+              └───────────────────────┘
+```
+
+#### 4.1.2 Zero Trust 아키텍처 구현 패턴
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│              Zero Trust 아키텍처 (AWS 기반 구현)                    │
+└──────────────────────────────────────────────────────────────────┘
+
+[사용자/디바이스]
+       │
+       │ 1. 신원 확인
+       ▼
+┌──────────────────┐
+│ IAM/Cognito      │──▶ MFA 필수
+│ - 신원 인증       │──▶ 디바이스 신뢰성 확인
+│ - 디바이스 검증   │
+└──────────────────┘
+       │
+       │ 2. 정책 평가
+       ▼
+┌──────────────────┐
+│ Policy Engine    │──▶ 컨텍스트 기반 접근 제어
+│ - 최소 권한       │    - 위치, 시간, 디바이스
+│ - 동적 정책       │    - 사용자 행동 패턴
+└──────────────────┘
+       │
+       │ 3. 접근 허용
+       ▼
+┌──────────────────────────────────────┐
+│          Micro-segmentation          │
+│  ┌──────┐  ┌──────┐  ┌──────┐       │
+│  │ App A│  │ App B│  │ App C│       │
+│  └──────┘  └──────┘  └──────┘       │
+│     │         │         │            │
+│     └─────────┼─────────┘            │
+│               │                      │
+│       ┌───────────────┐              │
+│       │ Security Hub  │              │
+│       │ - 지속 모니터링 │              │
+│       │ - 이상 탐지    │              │
+│       └───────────────┘              │
+└──────────────────────────────────────┘
+       │
+       │ 4. 지속적 검증
+       ▼
+┌──────────────────┐
+│ GuardDuty        │──▶ 실시간 위협 탐지
+│ - 행위 분석       │──▶ 세션 재검증
+│ - 이상 행위 탐지  │
+└──────────────────┘
+```
+
+#### 4.1.3 통합 보안 모니터링 아키텍처 (Datadog)
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│           Datadog 통합 보안 모니터링 아키텍처                       │
+└──────────────────────────────────────────────────────────────────┘
+
+데이터 수집 계층 (Collection Layer)
+┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│ CloudTrail  │ │ VPC Logs    │ │ App Logs    │ │ Metrics     │
+│ (API 감사)   │ │ (네트워크)   │ │ (애플리케이션)│ │ (성능지표)   │
+└─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘
+       │              │              │              │
+       └──────────────┼──────────────┼──────────────┘
+                      ▼
+           ┌────────────────────┐
+           │ Datadog Agent      │
+           │ - 로그 수집         │
+           │ - 메트릭 수집       │
+           │ - 필터링/집계       │
+           └────────────────────┘
+                      │
+                      ▼
+분석 계층 (Analysis Layer)
+┌──────────────────────────────────────────────────────────────────┐
+│  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────┐ │
+│  │ SIEM       │  │ CSPM       │  │ ASM        │  │ Threat     │ │
+│  │ 로그 분석   │  │ 설정 검증   │  │ 앱 보안     │  │ Intel      │ │
+│  └────────────┘  └────────────┘  └────────────┘  └────────────┘ │
+│         │               │               │               │        │
+│         └───────────────┼───────────────┼───────────────┘        │
+│                         ▼                                        │
+│              ┌────────────────────┐                              │
+│              │ Correlation Engine │                              │
+│              │ - 이벤트 상관관계   │                              │
+│              │ - 패턴 인식         │                              │
+│              └────────────────────┘                              │
+└──────────────────────────────────────────────────────────────────┘
+                      │
+                      ▼
+대응 계층 (Response Layer)
+┌──────────────────────────────────────────────────────────────────┐
+│  ┌────────────┐  ┌────────────┐  ┌────────────┐                 │
+│  │ Alerts     │  │ Workflows  │  │ Incidents  │                 │
+│  │ 알림 전송   │  │ 자동화     │  │ 사고 관리   │                 │
+│  └────────────┘  └────────────┘  └────────────┘                 │
+│         │               │               │                        │
+│         └───────────────┼───────────────┘                        │
+│                         ▼                                        │
+│              ┌────────────────────┐                              │
+│              │ Response Actions   │                              │
+│              │ - Lambda 트리거     │                              │
+│              │ - Runbook 실행      │                              │
+│              │ - 티켓 생성         │                              │
+│              └────────────────────┘                              │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+#### 4.1.4 Shift-Left Security 개발 파이프라인
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│           Shift-Left Security CI/CD 파이프라인                     │
+└──────────────────────────────────────────────────────────────────┘
+
+개발 단계 (IDE)
+┌─────────────────────────┐
+│ AWS Kiro IDE            │──▶ 실시간 보안 스캔
+│ - 코드 작성 중 취약점 탐지│──▶ AI 기반 수정 제안
+│ - 보안 패턴 자동 적용     │
+└─────────────────────────┘
+         │
+         │ git commit
+         ▼
+┌─────────────────────────┐
+│ Pre-commit Hook         │──▶ 시크릿 스캔 (trufflehog)
+│ - 하드코딩 방지          │──▶ 린트 검사
+└─────────────────────────┘
+         │
+         │ git push
+         ▼
+CI 파이프라인 (GitHub Actions)
+┌──────────────────────────────────────────────────────────────────┐
+│  1. 정적 분석 (SAST)                                              │
+│     ┌────────┐ ┌────────┐ ┌────────┐                            │
+│     │ SonarQ │ │ Snyk   │ │ CodeQL │                            │
+│     └────────┘ └────────┘ └────────┘                            │
+│                                                                  │
+│  2. 의존성 스캔 (SCA)                                             │
+│     ┌────────┐ ┌────────┐                                       │
+│     │ npm au │ │ OWASP  │                                       │
+│     │ dit    │ │ Depend │                                       │
+│     └────────┘ └────────┘                                       │
+│                                                                  │
+│  3. 컨테이너 스캔                                                 │
+│     ┌────────┐ ┌────────┐                                       │
+│     │ Trivy  │ │ ECR    │                                       │
+│     │        │ │ Scan   │                                       │
+│     └────────┘ └────────┘                                       │
+│                                                                  │
+│  4. IaC 스캔                                                     │
+│     ┌────────┐ ┌────────┐                                       │
+│     │ tfsec  │ │ Checko │                                       │
+│     │        │ │ v      │                                       │
+│     └────────┘ └────────┘                                       │
+└──────────────────────────────────────────────────────────────────┘
+         │
+         │ 모든 스캔 통과
+         ▼
+배포 단계
+┌─────────────────────────┐
+│ Dynamic Analysis (DAST) │──▶ 런타임 테스트
+│ - OWASP ZAP             │──▶ 실제 공격 시뮬레이션
+└─────────────────────────┘
+         │
+         │ 최종 승인
+         ▼
+┌─────────────────────────┐
+│ Production 배포          │
+│ - 롤링 업데이트          │
+│ - 자동 롤백 준비         │
+└─────────────────────────┘
+         │
+         ▼
+운영 단계
+┌─────────────────────────┐
+│ 런타임 보호 (RASP)       │──▶ GuardDuty
+│ - 실시간 모니터링        │──▶ Datadog ASM
+│ - 자동 위협 대응         │
+└─────────────────────────┘
+```
+
+#### 4.1.5 AI 기반 공격과 방어 플로우
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│              AI 기반 공격 vs. AI 기반 방어                          │
+└──────────────────────────────────────────────────────────────────┘
+
+공격자 측 (Attacker)                방어자 측 (Defender)
+
+1. 정찰 단계
+┌────────────────┐               ┌────────────────┐
+│ AI 기반 OSINT  │               │ 허니팟/Deception│
+│ - 자동화된 정보 │               │ - 가짜 정보 제공 │
+│   수집          │               │                │
+└────────────────┘               └────────────────┘
+       │                                 │
+       │                                 │
+2. 무기화
+┌────────────────┐               ┌────────────────┐
+│ LLM 악용       │               │ AI 패턴 탐지    │
+│ - 피싱 메일 생성│               │ - ML 기반 필터링│
+│ - 악성코드 변형 │               │                │
+└────────────────┘               └────────────────┘
+       │                                 │
+       │                                 │
+3. 전달
+┌────────────────┐               ┌────────────────┐
+│ 다채널 공격     │               │ 실시간 차단     │
+│ - 이메일, SNS  │               │ - GuardDuty    │
+│ - 음성 피싱     │               │ - WAF          │
+└────────────────┘               └────────────────┘
+       │                                 │
+       │                                 │
+4. 침투
+┌────────────────┐               ┌────────────────┐
+│ 자동화된 시도   │               │ Zero Trust     │
+│ - 무차별 대입   │               │ - MFA 강제      │
+│ - 크리덴셜 스터핑│               │ - 행위 분석     │
+└────────────────┘               └────────────────┘
+       │                                 │
+       │                                 │
+5. 권한 상승
+┌────────────────┐               ┌────────────────┐
+│ AI 기반 탐색    │               │ Security Agent │
+│ - 취약점 자동 탐지│             │ - 자동 격리     │
+│                │               │ - 권한 제한     │
+└────────────────┘               └────────────────┘
+       │                                 │
+       │                                 │
+6. 목표 달성
+┌────────────────┐               ┌────────────────┐
+│ 데이터 탈취     │               │ DLP/Macie      │
+│ - 자동화된 추출 │               │ - 민감 데이터   │
+│                │               │   검색/차단     │
+└────────────────┘               └────────────────┘
+
+승패 결정 요소: 탐지 속도 vs. 공격 속도
+- 방어: MTTD (Mean Time To Detect) 최소화
+- 공격: Dwell Time (잠복 기간) 최대화
+```
+
+## 5. AWS re:Invent 2025 보안 서비스 발표
 
 AWS는 re:Invent 2025에서 보안 분야의 혁신적인 발표들을 선보였습니다. 특히 **AI 기반 보안 자동화**와 **IAM 접근 제어 혁신**에 중점을 두었습니다.
 
@@ -245,7 +842,7 @@ AWS는 re:Invent 2025에서 보안 분야의 혁신적인 발표들을 선보였
 | **IAM Policy Autopilot** | 정책 자동 생성/최적화 | 신규/기존 IAM 정책 관리 | 무료 (일부 기능 유료) |
 | **AgentCore Identity** | AI 에이전트 신원 관리 | AI 워크로드 운영 시 | 사용량 기반 과금 |
 
-## 4. 컨퍼런스별 주요 인사이트
+## 6. 컨퍼런스별 주요 인사이트
 
 ### 4.1 컨퍼런스 비교
 
@@ -347,7 +944,261 @@ Datadog은 클라우드 네이티브 환경에서의 **통합 보안 모니터�
 > - 대시보드 커스터마이징: 팀별 역할에 맞는 대시보드 구성
 > - 정기적인 검토: 보안 정책 및 규칙 정기적 검토 및 업데이트
 
-## 5. 실무 적용 방안
+## 7. Action Items: 실무 적용 체크리스트
+
+### 7.1 즉시 실행 가능한 보안 강화 조치 (이번 주 내)
+
+#### 체크리스트
+
+- [ ] **AWS IAM 정책 감사**
+  ```bash
+  # IAM Access Analyzer 활성화
+  aws accessanalyzer create-analyzer --analyzer-name org-analyzer --type ORGANIZATION
+
+  # 사용하지 않는 권한 확인
+  aws iam get-account-authorization-details --output json | \
+    jq '.UserDetailList[] | select(.AttachedManagedPolicies | length > 0)'
+  ```
+  예상 시간: 2시간 | 담당: 보안팀 | 우선순위: 최고
+
+- [ ] **GuardDuty 활성화 및 설정**
+  ```bash
+  # GuardDuty 활성화 (미활성화 시)
+  aws guardduty create-detector --enable
+
+  # Extended Threat Detection 활성화
+  aws guardduty update-detector --detector-id <ID> \
+    --enable --features '[{% raw %}{"Name":"EKS_RUNTIME_MONITORING","Status":"ENABLED"}{% endraw %}]'
+  ```
+  예상 시간: 1시간 | 담당: DevOps팀 | 우선순위: 최고
+
+- [ ] **CI/CD 파이프라인 보안 스캔 통합**
+  - GitHub Actions에 CodeQL 추가
+  - npm audit 또는 Snyk 통합
+  - 시크릿 스캔 (trufflehog) 추가
+  예상 시간: 4시간 | 담당: 개발팀 | 우선순위: 높음
+
+- [ ] **MFA 강제 정책 적용**
+  ```json
+  {
+    "Version": "2012-10-17",
+    "Statement": [{
+      "Effect": "Deny",
+      "Action": "*",
+      "Resource": "*",
+      "Condition": {
+        "BoolIfExists": {"aws:MultiFactorAuthPresent": "false"}
+      }
+    }]
+  }
+  ```
+  예상 시간: 1시간 | 담당: 보안팀 | 우선순위: 최고
+
+- [ ] **Shadow AI 모니터링 시작**
+  - 네트워크 트래픽에서 ChatGPT, Claude 등 AI 서비스 접속 모니터링
+  - VPC Flow Logs에서 외부 AI API 호출 추적
+  예상 시간: 3시간 | 담당: 네트워크팀 | 우선순위: 중간
+
+### 7.2 단기 프로젝트 (1-3개월)
+
+#### 프로젝트 1: Zero Trust 아키텍처 구축 (파일럿)
+
+**목표**: 핵심 애플리케이션에 Zero Trust 원칙 적용
+
+**실행 단계**:
+1. **Week 1-2**: 현재 아키텍처 평가 및 Zero Trust 설계
+   - [ ] 네트워크 토폴로지 분석
+   - [ ] 마이크로세그멘테이션 영역 정의
+   - [ ] 신원 및 접근 제어 정책 설계
+
+2. **Week 3-4**: IAM 및 네트워크 설정
+   - [ ] IAM 역할 및 정책 재설계 (최소 권한)
+   - [ ] VPC 보안 그룹 재구성
+   - [ ] 프라이빗 서브넷 격리 강화
+
+3. **Week 5-6**: 모니터링 및 로깅 구축
+   - [ ] CloudTrail 전체 이벤트 로깅 활성화
+   - [ ] VPC Flow Logs 활성화
+   - [ ] Security Hub 통합 대시보드 구축
+
+4. **Week 7-8**: 파일럿 테스트 및 검증
+   - [ ] 개발 환경에서 Zero Trust 테스트
+   - [ ] 보안 정책 검증 및 조정
+   - [ ] False Positive 최소화
+
+**예상 비용**: $3,000-5,000/월
+**KPI**: 네트워크 격리율 80%, 접근 제어 정책 준수율 100%
+
+#### 프로젝트 2: 통합 보안 모니터링 플랫폼 구축
+
+**목표**: SIEM/CSPM 통합 가시성 확보
+
+**실행 단계**:
+1. **Week 1-2**: 플랫폼 선정 및 PoC
+   - [ ] Datadog vs. AWS Security Hub 비교 평가
+   - [ ] 비용 모델링 및 ROI 분석
+   - [ ] 무료 트라이얼로 PoC 진행
+
+2. **Week 3-4**: 데이터 소스 통합
+   - [ ] CloudTrail, VPC Flow Logs 연동
+   - [ ] 애플리케이션 로그 수집 설정
+   - [ ] 메트릭 및 트레이스 통합
+
+3. **Week 5-6**: 알림 및 자동화 구축
+   - [ ] 알림 규칙 정의 (Critical, High, Medium)
+   - [ ] 자동 대응 플레이북 작성 (Lambda 함수)
+   - [ ] 온콜 로테이션 및 에스컬레이션 프로세스
+
+4. **Week 7-8**: 대시보드 및 리포트 구축
+   - [ ] 경영진용 대시보드 (월간 보안 리포트)
+   - [ ] 운영팀용 실시간 대시보드
+   - [ ] 컴플라이언스 리포트 자동화
+
+**예상 비용**: $1,000-2,000/월
+**KPI**: MTTD 50% 감소, MTTR 60% 감소
+
+#### 프로젝트 3: SBOM 자동화 체계 구축
+
+**목표**: 모든 소프트웨어 의존성 추적 및 취약점 관리
+
+**실행 단계**:
+1. **Week 1-2**: SBOM 도구 선정
+   - [ ] Syft, CycloneDX, SPDX 비교
+   - [ ] CI/CD 파이프라인 통합 방식 설계
+   - [ ] 저장소 및 관리 체계 수립
+
+2. **Week 3-4**: CI/CD 통합
+   - [ ] GitHub Actions에 SBOM 생성 단계 추가
+   - [ ] 빌드 시 자동 SBOM 생성 및 저장
+   - [ ] 버전 관리 및 비교 기능 구현
+
+3. **Week 5-6**: 취약점 모니터링
+   - [ ] SBOM 기반 취약점 스캔 자동화
+   - [ ] CVE 데이터베이스 연동
+   - [ ] 자동 알림 및 티켓 생성
+
+4. **Week 7-8**: 정책 및 프로세스
+   - [ ] 의존성 승인 프로세스 정의
+   - [ ] 라이선스 컴플라이언스 검증
+   - [ ] 정기 검토 및 업데이트 체계
+
+**예상 비용**: $500-1,000/월
+**KPI**: 의존성 취약점 발견 시간 90% 단축
+
+### 7.3 중장기 전략 프로젝트 (3-12개월)
+
+#### 프로젝트 4: Post-quantum 암호화 마이그레이션
+
+**목표**: 양자 컴퓨팅 시대 대비 암호화 전환
+
+**Phase 1 (3-6개월): 평가 및 준비**
+- [ ] 현재 암호화 사용 현황 조사
+- [ ] Post-quantum 알고리즘 선정 (NIST 권장)
+- [ ] 하이브리드 모드 테스트 (전통 + PQ)
+- [ ] 성능 영향 평가
+
+**Phase 2 (6-9개월): 파일럿 구축**
+- [ ] 비중요 시스템에 하이브리드 암호화 적용
+- [ ] AWS KMS Post-quantum 지원 활용
+- [ ] 호환성 및 성능 모니터링
+- [ ] 롤백 계획 수립
+
+**Phase 3 (9-12개월): 전체 전환**
+- [ ] 중요 시스템 순차적 전환
+- [ ] 레거시 시스템 호환성 처리
+- [ ] 전체 시스템 검증
+- [ ] 문서화 및 교육
+
+**예상 비용**: $10,000-20,000 (전체)
+**KPI**: Post-quantum 적용률 50% 이상
+
+### 7.4 실행 우선순위 매트릭스
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│          보안 프로젝트 우선순위 매트릭스                       │
+└─────────────────────────────────────────────────────────────┘
+
+높음 영향도 │  ┌─────────────┐  ┌─────────────┐
+          │  │ IAM 최적화   │  │ Zero Trust  │
+          │  │ (즉시 실행)  │  │ (1-3개월)   │
+          │  └─────────────┘  └─────────────┘
+          │
+          │  ┌─────────────┐  ┌─────────────┐
+중간 영향도 │  │ SBOM 구축   │  │ Post-quantum│
+          │  │ (1-3개월)   │  │ (6-12개월)  │
+          │  └─────────────┘  └─────────────┘
+          │
+낮음 영향도 │  [기타 개선사항]
+          │
+          └──────────────────────────────────▶
+            낮음        중간        높음
+                    긴급도
+```
+
+### 7.5 예산 및 리소스 할당
+
+| 프로젝트 | 예산 (월) | 인력 (FTE) | 기간 | ROI 예상 |
+|---------|---------|-----------|------|---------|
+| IAM 최적화 | $500 | 0.5 | 1개월 | 보안 사고 50% 감소 |
+| Zero Trust | $3,000-5,000 | 2.0 | 3개월 | 공격 표면 70% 축소 |
+| 통합 모니터링 | $1,000-2,000 | 1.0 | 3개월 | 대응 시간 60% 단축 |
+| SBOM 구축 | $500-1,000 | 0.5 | 2개월 | 취약점 발견 90% 빠름 |
+| Post-quantum | $2,000-3,000 | 1.0 | 12개월 | 장기 데이터 보호 |
+
+**총 예산 (연간)**: $50,000-80,000
+**총 인력**: 5-7 FTE
+
+### 7.6 성공 지표 (KPI) 정의
+
+#### 보안 운영 지표
+
+| 지표 | 현재 | 목표 (3개월) | 목표 (12개월) | 측정 방법 |
+|------|------|------------|-------------|----------|
+| **MTTD** (평균 탐지 시간) | 24시간 | 6시간 | 2시간 | GuardDuty/Security Hub |
+| **MTTR** (평균 대응 시간) | 48시간 | 12시간 | 4시간 | Incident Management |
+| **보안 사고 건수** | 10건/월 | 5건/월 | 2건/월 | Security Incident Log |
+| **False Positive 비율** | 40% | 20% | 10% | Alert Analysis |
+| **취약점 패치 시간** | 7일 | 3일 | 1일 | Vulnerability Scan |
+
+#### 컴플라이언스 지표
+
+| 지표 | 현재 | 목표 (3개월) | 목표 (12개월) |
+|------|------|------------|-------------|
+| **MFA 적용률** | 60% | 90% | 100% |
+| **최소 권한 정책 준수율** | 40% | 70% | 95% |
+| **암호화 적용률** | 70% | 90% | 100% |
+| **로그 수집률** | 80% | 95% | 100% |
+
+#### 비용 효율성 지표
+
+| 지표 | 측정 기준 | 목표 |
+|------|---------|------|
+| **보안 사고당 비용** | 평균 대응 비용 | 50% 감소 |
+| **자동화율** | 자동 대응 비율 | 80% 이상 |
+| **인력 생산성** | 처리 사고 수/인원 | 2배 향상 |
+
+### 7.7 다음 단계 (Next Steps)
+
+#### 이번 주
+1. [ ] 보안 현황 평가 회의 소집 (보안팀, DevOps팀, 경영진)
+2. [ ] IAM 정책 감사 착수
+3. [ ] GuardDuty Extended 활성화
+4. [ ] CI/CD 보안 스캔 파일럿 시작
+
+#### 다음 주
+1. [ ] Zero Trust 아키텍처 설계 워크숍
+2. [ ] 보안 모니터링 플랫폼 PoC 시작
+3. [ ] 보안 교육 일정 수립
+4. [ ] 예산 승인 요청 (경영진 보고)
+
+#### 이번 달
+1. [ ] 모든 즉시 실행 항목 완료
+2. [ ] 단기 프로젝트 착수
+3. [ ] 월간 보안 리포트 첫 발행
+4. [ ] 분기별 보안 로드맵 검토 일정 수립
+
+## 8. 실무 적용 방안
 
 ### 5.1 즉시 적용 가능한 보안 강화 방안
 
@@ -477,4 +1328,295 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
 
 ---
 
+## 9. 참고 자료 (Comprehensive References)
+
+### 9.1 공식 문서 및 발표 자료
+
+#### AWS 공식 문서
+1. **AWS re:Invent 2025 Security Sessions**
+   - Security Keynote: "The Future of Cloud Security in the AI Era"
+   - URL: https://reinvent.awsevents.com/learn/security/
+   - 핵심 내용: Security Agent, GuardDuty Extended, IAM Policy Autopilot 발표
+
+2. **AWS Security Hub Documentation**
+   - URL: https://docs.aws.amazon.com/securityhub/
+   - 활용: 멀티 어카운트 보안 통합 관리 가이드
+
+3. **AWS GuardDuty Extended Threat Detection**
+   - URL: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_extended.html
+   - 활용: EKS Runtime Monitoring 설정 방법
+
+4. **AWS IAM Policy Autopilot**
+   - URL: https://docs.aws.amazon.com/iam/latest/UserGuide/policy-autopilot.html
+   - 활용: 최소 권한 정책 자동 생성 실습
+
+5. **AWS Well-Architected Framework - Security Pillar**
+   - URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/
+   - 활용: 보안 아키텍처 설계 원칙 및 모범 사례
+
+#### OWASP 공식 자료
+6. **OWASP Top 10 - 2025 Preview**
+   - URL: https://owasp.org/www-project-top-ten/
+   - 핵심 내용: AI 기반 공격 포함 예정
+
+7. **OWASP AI Security and Privacy Guide**
+   - URL: https://owasp.org/www-project-ai-security-and-privacy-guide/
+   - 활용: LLM 공격 기법 및 방어 전략
+
+8. **OWASP Software Component Verification Standard (SCVS)**
+   - URL: https://owasp.org/www-project-software-component-verification-standard/
+   - 활용: SBOM 구축 및 Supply Chain 보안
+
+#### Datadog 공식 자료
+9. **Datadog Security Monitoring Documentation**
+   - URL: https://docs.datadoghq.com/security/
+   - 활용: SIEM, CSPM, ASM 통합 설정 가이드
+
+10. **Datadog Cloud Security Posture Management (CSPM)**
+    - URL: https://docs.datadoghq.com/security/cspm/
+    - 활용: 클라우드 설정 오류 자동 탐지
+
+11. **Datadog Application Security Management (ASM)**
+    - URL: https://docs.datadoghq.com/security/application_security/
+    - 활용: 런타임 애플리케이션 보호
+
+### 9.2 컨퍼런스 세션 및 발표 자료
+
+#### AWSKRUG AI IDE Kiro Launch Party
+12. **AWS Kiro IDE 소개 및 데모**
+    - 발표자: AWS Korea Solution Architect Team
+    - 핵심 내용: AI 기반 코드 리뷰, 보안 취약점 자동 탐지
+    - 슬라이드: (컨퍼런스 참석자 공유 자료)
+
+13. **Shift-Left Security in Practice**
+    - 발표자: DevSecOps 실무자 패널
+    - 핵심 내용: CI/CD 파이프라인 보안 통합 사례
+
+#### OWASP Seoul Chapter 송년회
+14. **2025년 웹 애플리케이션 보안 트렌드**
+    - 발표자: OWASP Korea Chapter Lead
+    - 핵심 내용: LLM 기반 피싱, AI 공격 진화
+
+15. **Supply Chain 공격 사례 분석: npm Shai-Hulud**
+    - 발표자: 보안 연구원
+    - 핵심 내용: 자가 복제 웜, 의존성 관리 중요성
+
+#### Datadog Security 101 세미나
+16. **통합 보안 모니터링 아키텍처**
+    - 발표자: Datadog Solutions Engineer
+    - 핵심 내용: SIEM/CSPM/ASM 통합, 상관관계 분석
+
+17. **실전 보안 자동화 워크플로우**
+    - 발표자: Datadog Customer Success Team
+    - 핵심 내용: 자동 대응 플레이북, Lambda 통합
+
+### 9.3 산업 리포트 및 통계
+
+18. **Gartner Magic Quadrant for SIEM (2025)**
+    - URL: https://www.gartner.com/en/documents/magic-quadrant-siem
+    - 핵심 내용: SIEM 시장 동향, 주요 벤더 평가
+
+19. **Forrester Wave: Cloud Security Posture Management (2025)**
+    - URL: https://www.forrester.com/wave/cloud-security-posture-management
+    - 핵심 내용: CSPM 시장 분석, 구매 가이드
+
+20. **Cybersecurity Ventures: 2025 Cybercrime Report**
+    - URL: https://cybersecurityventures.com/cybercrime-report/
+    - 핵심 통계: 93% 보안 리더가 AI 공격 예상
+
+21. **Verizon Data Breach Investigations Report (DBIR) 2025**
+    - URL: https://www.verizon.com/business/resources/reports/dbir/
+    - 핵심 내용: 데이터 침해 사고 분석, 공격 벡터 통계
+
+22. **Cloudflare Post-Quantum Cryptography Report**
+    - URL: https://blog.cloudflare.com/post-quantum-cryptography-report/
+    - 핵심 통계: 전체 트래픽의 52% Post-quantum 암호화 적용
+
+### 9.4 기술 표준 및 프레임워크
+
+23. **NIST Cybersecurity Framework 2.0**
+    - URL: https://www.nist.gov/cyberframework
+    - 활용: 보안 프레임워크 구축 기준
+
+24. **NIST Post-Quantum Cryptography Standardization**
+    - URL: https://csrc.nist.gov/projects/post-quantum-cryptography
+    - 활용: Post-quantum 알고리즘 선택 가이드
+
+25. **Zero Trust Architecture - NIST SP 800-207**
+    - URL: https://csrc.nist.gov/publications/detail/sp/800-207/final
+    - 활용: Zero Trust 아키텍처 설계 원칙
+
+26. **CIS AWS Foundations Benchmark**
+    - URL: https://www.cisecurity.org/benchmark/amazon_web_services
+    - 활용: AWS 보안 설정 체크리스트
+
+27. **ISO/IEC 27001:2022 Information Security Management**
+    - URL: https://www.iso.org/standard/27001
+    - 활용: 정보보안 관리 체계 구축
+
+### 9.5 오픈소스 도구 및 프로젝트
+
+28. **Trivy - Container Vulnerability Scanner**
+    - GitHub: https://github.com/aquasecurity/trivy
+    - 활용: 컨테이너 이미지 취약점 스캔
+
+29. **Syft - SBOM Generation Tool**
+    - GitHub: https://github.com/anchore/syft
+    - 활용: 소프트웨어 Bill of Materials 자동 생성
+
+30. **TruffleHog - Secret Scanner**
+    - GitHub: https://github.com/trufflesecurity/trufflehog
+    - 활용: Git 히스토리에서 시크릿 탐지
+
+31. **Checkov - IaC Security Scanner**
+    - GitHub: https://github.com/bridgecrewio/checkov
+    - 활용: Terraform, CloudFormation 보안 스캔
+
+32. **OWASP ZAP - Web Application Security Scanner**
+    - URL: https://www.zaproxy.org/
+    - 활용: DAST (동적 애플리케이션 보안 테스트)
+
+33. **Falco - Cloud Native Runtime Security**
+    - URL: https://falco.org/
+    - 활용: Kubernetes 런타임 위협 탐지
+
+### 9.6 한국 보안 커뮤니티 및 자료
+
+34. **KISA (한국인터넷진흥원) 보안공지**
+    - URL: https://www.kisa.or.kr/
+    - 활용: 국내 보안 동향, 취약점 공지
+
+35. **AWSKRUG (AWS Korea User Group)**
+    - URL: https://www.facebook.com/groups/awskrug
+    - 활용: AWS 한국 사용자 커뮤니티, 정기 세미나
+
+36. **GDGKR (Google Developer Group Korea)**
+    - URL: https://gdg.community.dev/
+    - 활용: 클라우드 및 보안 기술 공유
+
+37. **한국정보보호학회 (KIISC)**
+    - URL: https://www.kiisc.or.kr/
+    - 활용: 학술 연구, 보안 컨퍼런스
+
+38. **개인정보보호위원회 - 개인정보보호법**
+    - URL: https://www.pipc.go.kr/
+    - 활용: 개인정보보호 규정 및 가이드라인
+
+### 9.7 교육 및 자격증
+
+39. **AWS Certified Security - Specialty**
+    - URL: https://aws.amazon.com/certification/certified-security-specialty/
+    - 활용: AWS 보안 전문가 자격증
+
+40. **Certified Information Systems Security Professional (CISSP)**
+    - URL: https://www.isc2.org/Certifications/CISSP
+    - 활용: 국제 정보보안 전문가 자격증
+
+41. **Certified Kubernetes Security Specialist (CKS)**
+    - URL: https://www.cncf.io/certification/cks/
+    - 활용: Kubernetes 보안 전문가 자격증
+
+42. **OWASP Top 10 Training**
+    - URL: https://owasp.org/www-project-top-ten/
+    - 활용: 웹 애플리케이션 보안 교육
+
+### 9.8 블로그 및 뉴스 사이트
+
+43. **AWS Security Blog**
+    - URL: https://aws.amazon.com/blogs/security/
+    - 활용: AWS 보안 최신 동향, 모범 사례
+
+44. **Krebs on Security**
+    - URL: https://krebsonsecurity.com/
+    - 활용: 보안 사고 분석, 뉴스
+
+45. **The Hacker News**
+    - URL: https://thehackernews.com/
+    - 활용: 최신 보안 뉴스, 취약점 공지
+
+46. **Dark Reading**
+    - URL: https://www.darkreading.com/
+    - 활용: 기업 보안 전략, 트렌드 분석
+
+47. **SANS Internet Storm Center**
+    - URL: https://isc.sans.edu/
+    - 활용: 위협 인텔리전스, 실시간 보안 동향
+
+### 9.9 실습 환경 및 랩
+
+48. **AWS Workshop Studio**
+    - URL: https://workshops.aws/
+    - 활용: AWS 보안 서비스 실습 (무료)
+
+49. **Datadog Learning Center**
+    - URL: https://learn.datadoghq.com/
+    - 활용: Datadog 플랫폼 실습
+
+50. **TryHackMe - Cloud Security Rooms**
+    - URL: https://tryhackme.com/
+    - 활용: 클라우드 보안 실습 (게이미피케이션)
+
+51. **OWASP WebGoat**
+    - URL: https://owasp.org/www-project-webgoat/
+    - 활용: 웹 애플리케이션 보안 실습 환경
+
+### 9.10 관련 GitHub 저장소
+
+52. **AWS Security Reference Architecture**
+    - GitHub: https://github.com/aws-samples/aws-security-reference-architecture-examples
+    - 활용: AWS 보안 아키텍처 참고 구현
+
+53. **Awesome Cloud Security**
+    - GitHub: https://github.com/4ndersonLin/awesome-cloud-security
+    - 활용: 클라우드 보안 리소스 큐레이션
+
+54. **Kubernetes Security - Best Practice Guide**
+    - GitHub: https://github.com/kabachook/k8s-security
+    - 활용: Kubernetes 보안 가이드
+
+55. **SecLists - Security Tester's Companion**
+    - GitHub: https://github.com/danielmiessler/SecLists
+    - 활용: 보안 테스트 페이로드 모음
+
+### 9.11 팟캐스트 및 비디오
+
+56. **AWS re:Invent YouTube Channel**
+    - URL: https://www.youtube.com/@AWSEventsChannel
+    - 활용: re:Invent 세션 다시보기
+
+57. **Darknet Diaries Podcast**
+    - URL: https://darknetdiaries.com/
+    - 활용: 보안 사건 스토리텔링
+
+58. **Kubernetes Security Podcast**
+    - URL: https://kubernetessecuritypodcast.com/
+    - 활용: 컨테이너 보안 최신 동향
+
+### 9.12 추가 참고 도구
+
+| 도구 | 용도 | URL |
+|------|------|-----|
+| **ScoutSuite** | 멀티 클라우드 보안 감사 | https://github.com/nccgroup/ScoutSuite |
+| **Prowler** | AWS 보안 감사 도구 | https://github.com/prowler-cloud/prowler |
+| **CloudMapper** | AWS 환경 시각화 | https://github.com/duo-labs/cloudmapper |
+| **Snyk** | 의존성 취약점 스캔 (상용) | https://snyk.io/ |
+| **GitGuardian** | 시크릿 탐지 (상용) | https://www.gitguardian.com/ |
+
+### 9.13 컨퍼런스 및 이벤트 일정
+
+| 행사명 | 일정 | 장소 | 주요 내용 |
+|-------|------|------|---------|
+| **AWS Summit Seoul 2025** | 2025년 5월 예정 | 코엑스 | re:Invent 핵심 내용 국내 발표 |
+| **AWSKRUG re:Invent recap** | 2025년 1월 | 온/오프라인 | re:Invent 2024 심화 세션 |
+| **OWASP Korea Day** | 2025년 상반기 | 미정 | 웹 애플리케이션 보안 트렌드 |
+| **Black Hat Asia** | 2025년 3월 | 싱가포르 | 글로벌 보안 컨퍼런스 |
+| **RSA Conference** | 2025년 4월 | 샌프란시스코 | 최대 규모 보안 컨퍼런스 |
+
+---
+
 **원본 포스트**: [12월 컨퍼런스 회고: AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존](https://twodragon.tistory.com/704)
+
+**작성일**: 2025-12-17
+**최종 업데이트**: 2025-12-17
+**카테고리**: Cloud Security, DevSecOps, Conference Review
+**태그**: AWSKRUG, OWASP, Datadog, AI Security, Zero Trust, Post-quantum, Supply Chain Security

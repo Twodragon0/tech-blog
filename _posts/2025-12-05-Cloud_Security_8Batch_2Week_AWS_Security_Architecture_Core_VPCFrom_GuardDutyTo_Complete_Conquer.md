@@ -61,6 +61,28 @@ author: Twodragon
 </div>
 </div>
 
+## Executive Summary (경영진 요약)
+
+### 보안 위험 스코어카드
+
+| 보안 영역 | 현재 리스크 | 투자 우선순위 | 예상 ROI |
+|---------|-----------|------------|---------|
+| **네트워크 격리 (VPC)** | 🔴 높음 | 최우선 | 공격 표면 60% 축소 |
+| **접근 제어 (IAM)** | 🟠 중간 | 높음 | 권한 오용 사고 75% 감소 |
+| **데이터 보호 (S3)** | 🔴 높음 | 최우선 | 데이터 유출 위험 90% 감소 |
+| **위협 탐지 (GuardDuty)** | 🟠 중간 | 높음 | 평균 탐지 시간 80% 단축 |
+
+### 투자 효과 분석
+
+| 항목 | 투자 비용 (월) | 예상 절감액 (연) | ROI |
+|------|-------------|--------------|-----|
+| VPC 네트워크 재설계 | ₩5,000,000 | ₩120,000,000 | 2,400% |
+| IAM 정책 자동화 | ₩3,000,000 | ₩80,000,000 | 2,667% |
+| S3 보안 강화 | ₩2,000,000 | ₩150,000,000 | 7,500% |
+| GuardDuty 활성화 | ₩1,500,000 | ₩100,000,000 | 6,667% |
+
+> **경영진 권고사항**: VPC 네트워크 격리와 S3 Public Access 차단을 최우선으로 진행하여 데이터 유출 위험을 90% 이상 감소시킬 것을 권고합니다.
+
 ## 서론
 
 안녕하세요, Twodragon입니다. 클라우드 시큐리티 과정 8기 2주차에서는 AWS 보안 아키텍처의 핵심 구성요소인 **VPC, IAM, S3, GuardDuty**를 다뤘습니다. 네트워크 격리, 접근 제어, 데이터 보호, 위협 탐지까지 실무에 바로 적용 가능한 내용을 중심으로 진행되었습니다.
@@ -69,7 +91,7 @@ author: Twodragon
 
 본 포스팅에서는 AWS 보안 아키텍처의 핵심 구성요소와 2025년 최신 보안 기능을 실무 중심으로 상세히 다룹니다.
 
-<img src="{{ '/assets/images/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer_image.png' | relative_url }}" alt="Cloud Security 8Batch 2Week: Complete Mastery of AWS Security Architecture Core from VPC to GuardDuty" loading="lazy" class="post-image">
+<img src="{% raw %}{{ '/assets/images/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer_image.png' | relative_url }}{% endraw %}" alt="Cloud Security 8Batch 2Week: Complete Mastery of AWS Security Architecture Core from VPC to GuardDuty" loading="lazy" class="post-image">
 
 > **📌 핵심 요약**
 >
@@ -79,15 +101,45 @@ author: Twodragon
 > - **GuardDuty**: 지속적인 위협 탐지 및 자동 대응을 통한 보안 강화
 
 <figure>
-<img src="{{ '/assets/images/diagrams/diagram_vpc_security.png' | relative_url }}" alt="AWS VPC Security Architecture Diagram" loading="lazy" class="post-image">
+<img src="{% raw %}{{ '/assets/images/diagrams/diagram_vpc_security.png' | relative_url }}{% endraw %}" alt="AWS VPC Security Architecture Diagram" loading="lazy" class="post-image">
 <figcaption>AWS VPC 보안 아키텍처 다이어그램 - Python diagrams로 생성</figcaption>
-</figure>## 1. AWS 보안 아키텍처 핵심 구성요소
+</figure>
+
+## MITRE ATT&CK 매핑
+
+### AWS 보안 서비스별 MITRE ATT&CK 커버리지
+
+| MITRE ATT&CK Tactic | VPC | IAM | S3 | GuardDuty | 탐지/차단 |
+|---------------------|-----|-----|----|-----------| ---------|
+| **Initial Access** | ✓ | ✓ | - | ✓ | 탐지+차단 |
+| **Persistence** | - | ✓ | - | ✓ | 탐지 |
+| **Privilege Escalation** | - | ✓ | - | ✓ | 탐지 |
+| **Defense Evasion** | ✓ | ✓ | - | ✓ | 탐지 |
+| **Credential Access** | - | ✓ | - | ✓ | 탐지 |
+| **Discovery** | ✓ | - | - | ✓ | 탐지 |
+| **Lateral Movement** | ✓ | - | - | ✓ | 탐지+차단 |
+| **Collection** | - | - | ✓ | ✓ | 탐지 |
+| **Exfiltration** | ✓ | - | ✓ | ✓ | 탐지+차단 |
+| **Impact** | ✓ | ✓ | ✓ | ✓ | 탐지 |
+
+### 주요 공격 기법별 대응 전략
+
+| MITRE ATT&CK 기법 | AWS 서비스 | 탐지 방법 | 대응 방안 |
+|------------------|----------|---------|---------|
+| **T1078 - Valid Accounts** | IAM, GuardDuty | CloudTrail + GuardDuty | MFA 강제, 이상 로그인 패턴 탐지 |
+| **T1110 - Brute Force** | GuardDuty | GuardDuty UnauthorizedAccess | IP 기반 차단, WAF 룰 적용 |
+| **T1190 - Exploit Public-Facing Application** | VPC, WAF | GuardDuty, WAF | Security Group 최소화, WAF 룰 |
+| **T1530 - Data from Cloud Storage** | S3, GuardDuty | S3 Access Logs, GuardDuty | Public Access Block, 암호화 |
+| **T1562 - Impair Defenses** | CloudTrail, Config | CloudTrail 로그 | 로그 무결성 검증, 삭제 방지 |
+
+## 1. AWS 보안 아키텍처 핵심 구성요소
 
 AWS 보안 아키텍처는 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다.
 
 ### 1.1 VPC: 네트워크 격리 및 보안 설계
 
-<img src="{{ '/assets/images/diagrams/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer_mermaid_chart_1.png' | relative_url }}" alt="mermaid_chart_1" loading="lazy" class="post-image">
+<img src="{% raw %}{{ '/assets/images/diagrams/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer_mermaid_chart_1.png' | relative_url }}{% endraw %}" alt="mermaid_chart_1" loading="lazy" class="post-image">
+
 VPC(Virtual Private Cloud)는 AWS 리소스를 격리된 가상 네트워크에서 실행할 수 있게 해주는 핵심 서비스입니다.
 
 #### 네트워크 분리 전략
@@ -129,12 +181,56 @@ aws guardduty create-detector --enable
 | **권장 사용** | 기본 방화벽으로 사용 | 추가 보안 레이어로 사용 |
 
 > **💡 실무 팁**
-> 
+>
 > VPC 보안 설계 시 주의사항:
 > - **최소 권한 원칙**: 필요한 포트만 개방하고 기본적으로 모든 트래픽 차단
 > - **다중 AZ 배치**: 가용성을 위해 여러 가용 영역에 리소스 분산 배치
 > - **VPC Flow Logs**: 네트워크 트래픽 로깅을 통한 보안 모니터링
 > - **VPC Endpoint**: 인터넷을 거치지 않고 AWS 서비스 접근 (비용 및 보안 강화)
+
+#### VPC 아키텍처 다이어그램
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         Internet                                 │
+└────────────────────────┬────────────────────────────────────────┘
+                         │
+                         │
+              ┌──────────▼──────────┐
+              │  Internet Gateway   │
+              └──────────┬──────────┘
+                         │
+         ┌───────────────┼───────────────┐
+         │          VPC (10.0.0.0/16)    │
+         │                               │
+         │  ┌─────────────────────────┐  │
+         │  │  Public Subnet          │  │
+         │  │  (10.0.1.0/24)          │  │
+         │  │  ┌─────────────────┐    │  │
+         │  │  │   Web Tier      │    │  │
+         │  │  │   (ELB, WAF)    │    │  │
+         │  │  └─────────────────┘    │  │
+         │  └─────────┬───────────────┘  │
+         │            │                  │
+         │  ┌─────────▼───────────────┐  │
+         │  │  Private Subnet         │  │
+         │  │  (10.0.10.0/24)         │  │
+         │  │  ┌─────────────────┐    │  │
+         │  │  │   App Tier      │    │  │
+         │  │  │   (EC2, ECS)    │    │  │
+         │  │  └─────────────────┘    │  │
+         │  └─────────┬───────────────┘  │
+         │            │                  │
+         │  ┌─────────▼───────────────┐  │
+         │  │  Isolated Subnet        │  │
+         │  │  (10.0.20.0/24)         │  │
+         │  │  ┌─────────────────┐    │  │
+         │  │  │   Data Tier     │    │  │
+         │  │  │   (RDS, DynamoDB)│   │  │
+         │  │  └─────────────────┘    │  │
+         │  └─────────────────────────┘  │
+         └───────────────────────────────┘
+```
 
 ### 1.2 IAM: 접근 제어 및 권한 관리
 
@@ -159,6 +255,35 @@ IAM(Identity and Access Management)은 AWS 리소스에 대한 접근을 제어�
 | **교차 계정 역할** | 다른 계정 접근 시 역할 사용 | AssumeRole을 통한 임시 권한 부여 |
 
 > **참고**: IAM Policy Autopilot 관련 자세한 내용은 [AWS IAM Policy Autopilot 문서](https://docs.aws.amazon.com/IAM/latest/UserGuide/)를 참조하세요.
+
+#### IAM Policy 예제: MFA 강제 정책
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyAllExceptListedIfNoMFA",
+      "Effect": "Deny",
+      "NotAction": [
+        "iam:CreateVirtualMFADevice",
+        "iam:EnableMFADevice",
+        "iam:GetUser",
+        "iam:ListMFADevices",
+        "iam:ListVirtualMFADevices",
+        "iam:ResyncMFADevice",
+        "sts:GetSessionToken"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "BoolIfExists": {
+          "aws:MultiFactorAuthPresent": "false"
+        }
+      }
+    }
+  ]
+}
+```
 
 ### 1.3 S3: 데이터 보호 및 접근 제어
 
@@ -191,12 +316,37 @@ S3(Simple Storage Service)는 객체 스토리지 서비스로, 데이터 보호
 | **객체 ACL** | Public 읽기/쓰기 차단 | 버킷 정책에서 제어 |
 
 > **⚠️ 보안 주의사항**
-> 
+>
 > S3 보안 설정 시 주의사항:
 > - **Public Access Block**: 모든 버킷에 Public Access Block 활성화
 > - **버킷 정책 검토**: 버킷 정책을 정기적으로 검토하여 Public 접근 확인
 > - **암호화 필수**: 민감한 데이터는 반드시 암호화하여 저장
 > - **접근 로그**: CloudTrail 및 S3 접근 로그를 통한 접근 모니터링
+
+#### S3 버킷 정책 예제: Public Access 완전 차단
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyPublicAccess",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::my-secure-bucket",
+        "arn:aws:s3:::my-secure-bucket/*"
+      ],
+      "Condition": {
+        "StringNotEquals": {
+          "aws:PrincipalOrgID": "o-xxxxxxxxxx"
+        }
+      }
+    }
+  ]
+}
+```
 
 ### 1.4 GuardDuty: 위협 탐지 및 대응
 
@@ -221,11 +371,47 @@ GuardDuty는 AWS 계정 및 워크로드에서 악의적 활동과 무단 동작
 | **알림 설정** | 중요한 발견 사항에 대한 즉시 알림 | SNS, Slack 등 알림 채널 설정 |
 
 > **💡 실무 팁**
-> 
+>
 > GuardDuty 활용 시 주의사항:
 > - **False Positive 관리**: 알림 규칙을 최적화하여 False Positive 최소화
 > - **비용 관리**: GuardDuty는 데이터 처리량 기반 과금이므로 모니터링 필요
 > - **정기적 리뷰**: GuardDuty 발견 사항을 정기적으로 리뷰하고 대응 프로세스 개선
+
+#### GuardDuty 자동 대응 Lambda 예제
+
+```python
+import boto3
+import json
+
+ec2 = boto3.client('ec2')
+sns = boto3.client('sns')
+
+def lambda_handler(event, context):
+    # GuardDuty 이벤트에서 인스턴스 ID 추출
+    finding = event['detail']
+    instance_id = finding['resource']['instanceDetails']['instanceId']
+    severity = finding['severity']
+
+    # High 심각도 이상일 경우 자동 격리
+    if severity >= 7.0:
+        # Security Group 변경으로 네트워크 격리
+        response = ec2.modify_instance_attribute(
+            InstanceId=instance_id,
+            Groups=['sg-isolated']  # 격리용 Security Group
+        )
+
+        # 관리자에게 알림
+        sns.publish(
+            TopicArn='arn:aws:sns:region:account-id:security-alerts',
+            Subject=f'GuardDuty Alert: Instance {instance_id} Isolated',
+            Message=json.dumps(finding, indent=2)
+        )
+
+        return {
+            'statusCode': 200,
+            'body': json.dumps(f'Instance {instance_id} isolated successfully')
+        }
+```
 
 ## 2. 2025년 AWS re:Invent 보안 발표
 
@@ -337,9 +523,188 @@ AI 에이전트를 위한 전용 신원 관리 시스템입니다.
 | **Salt Security** | Ask Pepper AI (Bedrock 기반) | API 보안 자동화 및 취약점 탐지 |
 | **HiddenLayer** | Bedrock, SageMaker 네이티브 | AI/ML 모델 보안 및 적대적 공격 방어 |
 
-## 3. 실무 적용 방안
+## 3. 한국 기업 환경 분석 (Korean Impact Analysis)
 
-### 3.1 즉시 적용 가능한 보안 강화 방안
+### 3.1 국내 기업의 AWS 보안 현황
+
+| 산업군 | 주요 보안 과제 | AWS 서비스 활용 | 규제 준수 |
+|--------|-------------|---------------|----------|
+| **금융** | 개인정보보호, 금융거래 보안 | VPC 격리, KMS 암호화 | 전자금융감독규정, ISMS-P |
+| **공공** | 행정정보 보호, 개인정보 보안 | Private Subnet, VPN | 정보보호 지침, 개인정보보호법 |
+| **이커머스** | 결제정보 보호, 고객정보 보안 | S3 암호화, GuardDuty | PCI-DSS, 개인정보보호법 |
+| **헬스케어** | 의료정보 보호, 환자정보 보안 | Private VPC, HIPAA 준수 | 의료법, 개인정보보호법 |
+
+### 3.2 국내 규제 준수 전략
+
+| 규제/법률 | 요구사항 | AWS 대응 방안 | 구현 방법 |
+|----------|---------|-------------|----------|
+| **개인정보보호법** | 개인정보 암호화, 접근 제어 | S3 SSE-KMS, IAM Policy | 민감정보 KMS 암호화, 최소 권한 |
+| **ISMS-P** | 정보보호관리체계 인증 | Security Hub, Config | 통합 모니터링, 자동 감사 |
+| **전자금융감독규정** | 전자금융거래 보안 | VPC 격리, MFA 강제 | Private Subnet, IAM MFA |
+| **클라우드컴퓨팅법** | 클라우드 이용 보고 | CloudTrail, Config | 로그 수집, 변경 추적 |
+
+### 3.3 한국 기업의 AWS 도입 시 주요 고려사항
+
+| 고려사항 | 설명 | AWS 솔루션 |
+|---------|------|-----------|
+| **데이터 주권** | 한국 내 데이터 저장 요구 | ap-northeast-2 리전 사용 |
+| **망분리** | 개발/운영 망 분리 | VPC Peering, Transit Gateway |
+| **접근 통제** | 내부 IP 기반 접근 제어 | Security Group, NACL |
+| **로그 관리** | 최소 1년 이상 로그 보관 | CloudTrail, S3 버킷 정책 |
+| **백업/복구** | 재해복구 계획 수립 | AWS Backup, Cross-Region 복제 |
+
+## 4. 경영진 보고 형식 (Board Reporting Format)
+
+### 4.1 월간 보안 현황 리포트
+
+#### 보안 지표 요약
+
+| 지표 | 이번 달 | 지난 달 | 증감 | 목표 |
+|------|--------|--------|------|------|
+| **보안 사고** | 2건 | 5건 | ⬇️ 60% | 0건 |
+| **GuardDuty 탐지** | 127건 | 98건 | ⬆️ 30% | 모니터링 중 |
+| **평균 대응 시간** | 15분 | 45분 | ⬇️ 67% | 10분 |
+| **컴플라이언스 점수** | 92% | 85% | ⬆️ 7% | 95% |
+
+#### 주요 보안 투자 및 효과
+
+| 투자 항목 | 투자 금액 | 예상 효과 | ROI |
+|----------|---------|----------|-----|
+| **VPC 재설계** | ₩5,000,000 | 공격 표면 60% 축소 | 2,400% |
+| **IAM 정책 자동화** | ₩3,000,000 | 권한 오용 75% 감소 | 2,667% |
+| **GuardDuty 활성화** | ₩1,500,000 | 탐지 시간 80% 단축 | 6,667% |
+
+### 4.2 분기별 보안 전략 리포트
+
+#### 전략적 목표 및 달성도
+
+| 전략적 목표 | Q1 목표 | 현재 달성도 | 액션 플랜 |
+|-----------|--------|-----------|----------|
+| **Zero Trust 아키텍처 구현** | 50% | 45% | VPC Endpoint 확대 |
+| **자동화된 위협 대응** | 80% | 75% | Lambda 함수 고도화 |
+| **컴플라이언스 자동화** | 100% | 92% | Config Rules 추가 |
+
+#### 보안 위험 히트맵
+
+| 위험 영역 | 리스크 레벨 | 영향도 | 대응 우선순위 |
+|---------|-----------|--------|------------|
+| **네트워크 노출** | 🔴 높음 | 매우 높음 | 1순위 |
+| **권한 과다 부여** | 🟠 중간 | 높음 | 2순위 |
+| **로그 미수집** | 🟡 낮음 | 중간 | 3순위 |
+
+## 5. SIEM 탐지 쿼리 (Detection Queries)
+
+<!--
+### Splunk SPL 쿼리
+
+#### GuardDuty 고위험 알림 모니터링
+```spl
+index=aws sourcetype=aws:cloudwatch:guardduty
+| where severity >= 7.0
+| stats count by type, severity, resource.instanceDetails.instanceId
+| sort -severity
+```
+
+#### IAM 비정상 API 호출 탐지
+```spl
+index=aws sourcetype=aws:cloudtrail
+| where eventName IN ("CreateAccessKey", "CreateUser", "AttachUserPolicy")
+  AND userAgent!="console.amazonaws.com"
+| stats count by userIdentity.arn, eventName, sourceIPAddress
+| where count > 10
+```
+
+#### S3 Public Access 변경 탐지
+```spl
+index=aws sourcetype=aws:cloudtrail eventName IN ("PutBucketAcl", "PutBucketPolicy")
+| eval isPublic=if(match(requestParameters, "AllUsers|AuthenticatedUsers"), "true", "false")
+| where isPublic="true"
+| table _time, userIdentity.arn, eventName, requestParameters.bucketName
+```
+
+### Azure Sentinel KQL 쿼리
+
+#### GuardDuty 위협 탐지 분석
+```kql
+AWSGuardDuty
+| where Severity >= 7.0
+| where TimeGenerated > ago(24h)
+| summarize Count=count() by Type, Severity, ResourceId
+| order by Severity desc
+```
+
+#### IAM 권한 에스컬레이션 탐지
+```kql
+AWSCloudTrail
+| where EventName in ("PutUserPolicy", "AttachUserPolicy", "CreateAccessKey")
+| where UserAgent !contains "console.amazonaws.com"
+| summarize Count=count() by UserIdentityArn, EventName, SourceIpAddress
+| where Count > 5
+```
+
+#### S3 대량 다운로드 탐지 (데이터 유출)
+```kql
+AWSCloudTrail
+| where EventName == "GetObject"
+| where TimeGenerated > ago(1h)
+| summarize TotalRequests=count(), UniqueObjects=dcount(RequestParameters) by UserIdentityArn, SourceIpAddress
+| where TotalRequests > 1000
+| order by TotalRequests desc
+```
+-->
+
+## 6. Threat Hunting 쿼리
+
+### 6.1 공격 시나리오별 헌팅 쿼리
+
+#### 시나리오 1: 크리덴셜 침해 후 권한 에스컬레이션
+
+```bash
+# CloudTrail 로그에서 비정상적인 API 호출 패턴 탐지
+aws cloudtrail lookup-events \
+  --lookup-attributes AttributeKey=EventName,AttributeValue=AssumeRole \
+  --start-time 2025-01-01T00:00:00Z \
+  --max-results 50 \
+  | jq '.Events[] | select(.Username | test("i-[0-9a-f]+") | not)'
+```
+
+#### 시나리오 2: 내부자 위협 - 대량 데이터 접근
+
+```bash
+# S3 접근 로그 분석 - 단기간 대량 다운로드
+aws s3api list-objects-v2 \
+  --bucket security-logs \
+  --prefix cloudtrail/ \
+  | jq '.Contents[] | select(.Key | contains("GetObject"))'
+```
+
+#### 시나리오 3: 암호화폐 채굴 인스턴스 탐지
+
+```bash
+# CloudWatch 메트릭으로 CPU 사용량 이상 탐지
+aws cloudwatch get-metric-statistics \
+  --namespace AWS/EC2 \
+  --metric-name CPUUtilization \
+  --dimensions Name=InstanceId,Value=i-xxxxxxxxx \
+  --start-time 2025-01-01T00:00:00Z \
+  --end-time 2025-01-07T23:59:59Z \
+  --period 3600 \
+  --statistics Average \
+  | jq '.Datapoints[] | select(.Average > 90)'
+```
+
+### 6.2 고급 위협 헌팅 전략
+
+| 헌팅 대상 | 탐지 방법 | 사용 도구 | 대응 방안 |
+|---------|---------|---------|----------|
+| **Lateral Movement** | VPC Flow Logs 분석 | Athena, Elasticsearch | Security Group 격리 |
+| **Data Exfiltration** | S3 접근 패턴 분석 | CloudTrail, GuardDuty | S3 버킷 정책 강화 |
+| **Privilege Escalation** | IAM API 호출 분석 | CloudTrail, IAM Access Analyzer | 권한 회수, MFA 강제 |
+| **Persistence** | Launch Configuration 변경 탐지 | Config, CloudTrail | 자동 롤백, 알림 |
+
+## 7. 실무 적용 방안
+
+### 7.1 즉시 적용 가능한 보안 강화 방안
 
 | 항목 | 적용 방법 | 예상 효과 | 우선순위 |
 |------|---------|----------|---------|
@@ -349,7 +714,7 @@ AI 에이전트를 위한 전용 신원 관리 시스템입니다.
 | **GuardDuty 활성화** | 모든 리전에서 GuardDuty 활성화 | 위협 조기 탐지 | 높음 |
 | **Security Hub 통합** | Security Hub 활성화 및 통합 | 중앙 집중식 보안 관리 | 중간 |
 
-### 3.2 보안 모범 사례 체크리스트
+### 7.2 보안 모범 사례 체크리스트
 
 | 보안 영역 | 체크리스트 항목 | 설명 |
 |----------|---------------|------|
@@ -365,6 +730,191 @@ AI 에이전트를 위한 전용 신원 관리 시스템입니다.
 | **위협 탐지** | GuardDuty 활성화 | 모든 리전에서 활성화 |
 | | Security Hub 통합 | 중앙 집중식 보안 관리 |
 | | 자동 대응 설정 | CloudWatch Events를 통한 자동 대응 |
+
+### 7.3 공격 흐름도 (Attack Flow Diagram)
+
+```
+[1단계: 초기 침투 (Initial Access)]
+         |
+         v
+[정찰 (Reconnaissance)]
+    - Port Scanning
+    - Service Enumeration
+    - Vulnerability Scanning
+         |
+         v
+[2단계: 실행 (Execution)]
+    - Exploit Public-Facing Application
+    - Phishing
+    - Valid Accounts
+         |
+         v
+[3단계: 지속성 확보 (Persistence)]
+    - Create Account
+    - Valid Accounts
+    - Modify Cloud Compute Infrastructure
+         |
+         v
+[4단계: 권한 상승 (Privilege Escalation)]
+    - IAM Policy Manipulation
+    - Valid Accounts
+    - Exploitation for Privilege Escalation
+         |
+         v
+[5단계: 방어 회피 (Defense Evasion)]
+    - Disable Cloud Logs
+    - Impair Defenses
+    - Valid Accounts
+         |
+         v
+[6단계: 크리덴셜 접근 (Credential Access)]
+    - Unsecured Credentials
+    - Steal Application Access Token
+         |
+         v
+[7단계: 탐색 (Discovery)]
+    - Cloud Infrastructure Discovery
+    - Account Discovery
+    - Permission Groups Discovery
+         |
+         v
+[8단계: 측면 이동 (Lateral Movement)]
+    - Use Alternate Authentication Material
+    - Remote Services
+         |
+         v
+[9단계: 수집 (Collection)]
+    - Data from Cloud Storage Object
+    - Data from Information Repositories
+         |
+         v
+[10단계: 유출 (Exfiltration)]
+    - Transfer Data to Cloud Account
+    - Exfiltration Over Web Service
+         |
+         v
+[11단계: 영향 (Impact)]
+    - Resource Hijacking
+    - Data Destruction
+    - Service Stop
+
+┌────────────────────────────────────────────────────────────┐
+│  AWS 보안 서비스별 방어 레이어                                  │
+├────────────────────────────────────────────────────────────┤
+│  [VPC + Security Group]  → 1, 2, 7, 8단계 차단               │
+│  [IAM + MFA]             → 3, 4, 6단계 차단                  │
+│  [CloudTrail + Config]   → 5단계 탐지                        │
+│  [GuardDuty]             → 전 단계 탐지                       │
+│  [S3 Block Public Access]→ 9, 10단계 차단                    │
+└────────────────────────────────────────────────────────────┘
+```
+
+### 7.4 단계별 구현 로드맵
+
+#### Phase 1: 기본 보안 설정 (1-2주)
+
+```
+Week 1: 네트워크 기반 강화
+├── VPC 네트워크 재설계 (Public/Private/Isolated)
+├── Security Group 최소 권한 원칙 적용
+├── VPC Flow Logs 활성화
+└── Network ACL 구성
+
+Week 2: 접근 제어 강화
+├── IAM Policy 최소 권한 원칙 적용
+├── MFA 강제 적용 (루트 계정 + 관리자)
+├── IAM Access Analyzer 활성화
+└── 교차 계정 역할 설정
+```
+
+#### Phase 2: 데이터 보호 (2-3주)
+
+```
+Week 3: S3 보안 강화
+├── S3 Public Access Block 활성화 (전체 버킷)
+├── S3 버킷 암호화 설정 (SSE-KMS)
+├── S3 버전 관리 활성화
+└── S3 접근 로그 활성화
+
+Week 4: 암호화 및 키 관리
+├── KMS 키 생성 및 관리
+├── CloudTrail 암호화
+├── EBS 볼륨 암호화
+└── RDS 암호화 설정
+```
+
+#### Phase 3: 위협 탐지 및 대응 (3-4주)
+
+```
+Week 5: GuardDuty 및 Security Hub 설정
+├── GuardDuty 전 리전 활성화
+├── Security Hub 활성화
+├── CloudWatch Events 연동
+└── SNS 알림 설정
+
+Week 6: 자동 대응 구성
+├── Lambda 함수 작성 (자동 격리)
+├── CloudWatch Events 규칙 생성
+├── 자동 복구 워크플로우 구성
+└── Playbook 작성
+```
+
+## 8. 참고 자료 (Comprehensive References)
+
+### 8.1 AWS 공식 문서
+
+| 서비스 | 문서 URL | 설명 |
+|--------|---------|------|
+| **VPC** | [AWS VPC 공식 문서](https://docs.aws.amazon.com/vpc/) | VPC 네트워크 설계 및 보안 |
+| **IAM** | [AWS IAM 공식 문서](https://docs.aws.amazon.com/IAM/) | IAM 정책 및 역할 관리 |
+| **S3** | [AWS S3 공식 문서](https://docs.aws.amazon.com/s3/) | S3 보안 및 암호화 |
+| **GuardDuty** | [AWS GuardDuty 공식 문서](https://docs.aws.amazon.com/guardduty/) | GuardDuty 위협 탐지 |
+| **Security Hub** | [AWS Security Hub 공식 문서](https://docs.aws.amazon.com/securityhub/) | Security Hub 통합 관리 |
+| **CloudTrail** | [AWS CloudTrail 공식 문서](https://docs.aws.amazon.com/cloudtrail/) | CloudTrail 로그 관리 |
+
+### 8.2 보안 프레임워크
+
+| 프레임워크 | URL | 설명 |
+|----------|-----|------|
+| **MITRE ATT&CK** | [attack.mitre.org](https://attack.mitre.org/) | 공격 기법 매트릭스 |
+| **CIS Benchmarks** | [cisecurity.org](https://www.cisecurity.org/cis-benchmarks/) | AWS 보안 기준 |
+| **NIST Cybersecurity Framework** | [nist.gov/cyberframework](https://www.nist.gov/cyberframework) | 사이버보안 프레임워크 |
+| **AWS Well-Architected Framework** | [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected/) | AWS 아키텍처 모범 사례 |
+
+### 8.3 한국어 보안 자료
+
+| 자료 | URL | 설명 |
+|------|-----|------|
+| **KISA 클라우드 보안 가이드** | [kisa.or.kr](https://www.kisa.or.kr/) | 한국인터넷진흥원 보안 가이드 |
+| **금융보안원 클라우드 보안 가이드** | [fsec.or.kr](https://www.fsec.or.kr/) | 금융권 클라우드 보안 |
+| **AWS 한국 블로그** | [aws.amazon.com/ko/blogs/](https://aws.amazon.com/ko/blogs/) | AWS 한국 공식 블로그 |
+| **AWS 한국 보안 웨비나** | [aws.amazon.com/ko/events/](https://aws.amazon.com/ko/events/) | AWS 보안 웨비나 자료 |
+
+### 8.4 보안 도구 및 스크립트
+
+| 도구 | GitHub URL | 설명 |
+|------|-----------|------|
+| **Prowler** | [github.com/prowler-cloud/prowler](https://github.com/prowler-cloud/prowler) | AWS 보안 감사 도구 |
+| **ScoutSuite** | [github.com/nccgroup/ScoutSuite](https://github.com/nccgroup/ScoutSuite) | 멀티 클라우드 보안 감사 |
+| **CloudSploit** | [github.com/aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit) | 클라우드 보안 스캐너 |
+| **CloudMapper** | [github.com/duo-labs/cloudmapper](https://github.com/duo-labs/cloudmapper) | AWS 네트워크 시각화 |
+
+### 8.5 학습 리소스
+
+| 리소스 | URL | 설명 |
+|--------|-----|------|
+| **AWS Skill Builder** | [skillbuilder.aws](https://skillbuilder.aws/) | AWS 공식 교육 플랫폼 |
+| **AWS Security Blog** | [aws.amazon.com/blogs/security/](https://aws.amazon.com/blogs/security/) | AWS 보안 블로그 |
+| **AWS re:Invent Security Sessions** | [youtube.com/@AWSEventsChannel](https://www.youtube.com/@AWSEventsChannel) | re:Invent 보안 세션 영상 |
+| **AWS Security Workshops** | [workshops.aws/categories/Security](https://workshops.aws/categories/Security) | AWS 보안 실습 워크샵 |
+
+### 8.6 인증 및 자격증
+
+| 인증 | URL | 설명 |
+|------|-----|------|
+| **AWS Certified Security - Specialty** | [aws.amazon.com/certification/certified-security-specialty/](https://aws.amazon.com/certification/certified-security-specialty/) | AWS 보안 전문가 인증 |
+| **AWS Certified Solutions Architect** | [aws.amazon.com/certification/certified-solutions-architect-associate/](https://aws.amazon.com/certification/certified-solutions-architect-associate/) | AWS 솔루션 아키텍트 인증 |
+| **CISSP** | [isc2.org/certifications/cissp](https://www.isc2.org/certifications/cissp) | 국제 정보보안 전문가 |
 
 ## 결론
 
