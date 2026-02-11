@@ -629,6 +629,7 @@ export function ExampleComponent({ itemId, categoryId }: Props) {
 **GitHub Actions 워크플로우 예시**:
 
 ```yaml
+{% raw %}
 # .github/workflows/build-and-deploy.yml
 name: Build and Deploy
 
@@ -697,6 +698,7 @@ jobs:
       #     npm run start &
       #     sleep 10
       #     curl http://localhost:3000/api/healthz
+{% endraw %}
 ```
 
 **배포 후 발생한 문제**:

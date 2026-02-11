@@ -2009,6 +2009,7 @@ kubectl port-forward -n monitoring svc/prometheus-kube-prometheus-prometheus 909
 Prometheus AlertManager를 통한 알림 설정:
 
 ```yaml
+{% raw %}
 # PrometheusRule (알림 규칙 정의)
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
@@ -2061,11 +2062,13 @@ spec:
       annotations:
         summary: "Pod {{ $labels.pod }} is crash looping"
         description: "Pod {{ $labels.pod }} in namespace {{ $labels.namespace }} is restarting frequently."
+{% endraw %}
 ```
 
 **Slack 알림 설정**:
 
 ```yaml
+{% raw %}
 # AlertManager ConfigMap 수정
 apiVersion: v1
 kind: Secret
@@ -2112,6 +2115,7 @@ stringData:
         title: 'WARNING: {{ .GroupLabels.alertname }}'
         text: '{{ range .Alerts }}{{ .Annotations.description }}{{ end }}'
         color: warning
+{% endraw %}
 ```
 
 ### 8.5 커스텀 Grafana 대시보드 생성

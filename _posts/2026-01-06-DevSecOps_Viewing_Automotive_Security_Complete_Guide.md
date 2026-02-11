@@ -334,6 +334,7 @@ SAST는 소스 코드를 분석하여 보안 취약점을 탐지하는 정적 �
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
+{% raw %}
 # .github/workflows/automotive-sast.yml
 name: Automotive SAST Pipeline
 
@@ -348,19 +349,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup C/C++ Build Tools
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential clang
-      
+
       # SonarQube를 통한 정적 분석
       - name: Run SonarQube Analysis
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      
+
       # Semgrep를 통한 패턴 기반 검사
       - name: Run Semgrep
         uses: returntocorp/semgrep-action@v1
@@ -369,12 +370,12 @@ jobs:
             p/owasp-top-ten
             p/cwe-top-25
             p/autonomous-vehicle
-      
+
       # Clang Static Analyzer
       - name: Run Clang Static Analyzer
         run: |
           scan-build make
-      
+
       # 결과 리포트 생성
       - name: Upload SAST Reports
         uses: actions/upload-artifact@v3
@@ -383,6 +384,8 @@ jobs:
           path: |
             sonar-report.json
             semgrep-report.json
+{% endraw %}
+```
 
 -->
 

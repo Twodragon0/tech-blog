@@ -852,7 +852,7 @@ DataDog Monitor: Public S3 버킷 실시간 알림
   "query": {
     "a": "logs(\"@evt.name:PutBucketAcl OR @evt.name:PutBucketPolicy @requestParameters.AccessControlPolicy.AccessControlList.Grant.Grantee.URI:(*AllUsers* OR *AuthenticatedUsers*)\").rollup(\"count\").last(\"5m\")"
   },
-  "message": "Public S3 bucket detected!\nBucket: {{@requestParameters.bucketName}}\nUser: {{@userIdentity.userName}}\nIP: {{@sourceIPAddress}}",
+  "message": "Public S3 bucket detected!\nBucket: {% raw %}{{@requestParameters.bucketName}}{% endraw %}\nUser: {% raw %}{{@userIdentity.userName}}{% endraw %}\nIP: {% raw %}{{@sourceIPAddress}}{% endraw %}",
   "priority": 1,
   "tags": ["security", "cspm", "s3", "public-access"]
 }
@@ -866,7 +866,7 @@ DataDog Monitor: IAM 과도한 권한 부여
   "query": {
     "a": "logs(\"@evt.name:(AttachUserPolicy OR PutUserPolicy OR AttachRolePolicy OR PutRolePolicy) @requestParameters.policyDocument:(*AdministratorAccess* OR *Action:*\")\").rollup(\"count\").last(\"5m\")"
   },
-  "message": "Excessive IAM permissions granted!\nEvent: {{@evt.name}}\nUser: {{@userIdentity.userName}}\nTarget: {{@requestParameters.userName}} {{@requestParameters.roleName}}",
+  "message": "Excessive IAM permissions granted!\nEvent: {% raw %}{{@evt.name}}{% endraw %}\nUser: {% raw %}{{@userIdentity.userName}}{% endraw %}\nTarget: {% raw %}{{@requestParameters.userName}}{% endraw %} {% raw %}{{@requestParameters.roleName}}{% endraw %}",
   "priority": 1,
   "tags": ["security", "cspm", "iam", "privilege-escalation"]
 }
@@ -880,7 +880,7 @@ DataDog Monitor: CloudTrail 비활성화
   "query": {
     "a": "logs(\"@evt.name:(StopLogging OR DeleteTrail OR UpdateTrail)\").rollup(\"count\").last(\"1m\")"
   },
-  "message": "CloudTrail logging disabled!\nEvent: {{@evt.name}}\nUser: {{@userIdentity.userName}}\nTrail: {{@requestParameters.name}}\nIP: {{@sourceIPAddress}}",
+  "message": "CloudTrail logging disabled!\nEvent: {% raw %}{{@evt.name}}{% endraw %}\nUser: {% raw %}{{@userIdentity.userName}}{% endraw %}\nTrail: {% raw %}{{@requestParameters.name}}{% endraw %}\nIP: {% raw %}{{@sourceIPAddress}}{% endraw %}",
   "priority": 1,
   "tags": ["security", "cspm", "cloudtrail", "logging"]
 }

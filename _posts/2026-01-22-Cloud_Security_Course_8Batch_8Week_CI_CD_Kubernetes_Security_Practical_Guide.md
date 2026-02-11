@@ -380,6 +380,7 @@ CI/CD 파이프라인은 개발부터 배포까지의 자동화된 흐름을 제
 > **참고**: 코드 스캔 도구는 [OWASP Top 10](https://owasp.org/www-project-top-ten/) 및 [OWASP CI/CD Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html)를 참조하세요.
 
 ```yaml
+{% raw %}
 # GitHub Actions에서 SonarQube 스캔 예시
 name: Security Scan
 on: [push, pull_request]
@@ -393,6 +394,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+{% endraw %}
 ```
 
 #### **2.3 컨테이너 이미지 보안 스캔**
@@ -569,6 +571,7 @@ AI 도구(Cursor, Claude, GitHub Copilot 등)를 활용하여 DevSecOps 워크�
 ##### **GitHub Actions에서 Claude API 활용**
 
 ```yaml
+{% raw %}
 # .github/workflows/claude-security-review.yml
 name: Claude Security Review
 on:
@@ -579,14 +582,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Run Claude Security Review
         uses: anthropic/claude-code-review@v1
         with:
           api-key: ${{ secrets.CLAUDE_API_KEY }}
           focus: "security, best-practices, kubernetes-security"
           severity: "high,critical"
-      
+
       - name: Post Review Comments
         uses: actions/github-script@v6
         with:
@@ -597,6 +600,7 @@ jobs:
               repo: context.repo.repo,
               body: '## 🔒 Claude Security Review\n\n' + steps.review.outputs.comments
             })
+{% endraw %}
 ```
 
 > **참고**: Claude API 설정은 [Anthropic Console](https://console.anthropic.com/) 및 [Claude API 문서](https://docs.anthropic.com/)를 참조하세요.
@@ -655,6 +659,7 @@ def get_api_key() -> Optional[str]:
 ##### **GitHub Actions AI 통합 예시**
 
 ```yaml
+{% raw %}
 # .github/workflows/ai-powered-security.yml
 name: AI-Powered Security Scan
 on:
@@ -667,7 +672,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       # GitHub Copilot으로 생성된 코드 검증
       - name: Run Security Scan with AI
         uses: github/super-linter@v4
@@ -675,14 +680,14 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: true
-      
+
       # Claude API로 보안 리뷰
       - name: Claude Security Review
         uses: anthropic/claude-code-review@v1
         with:
           api-key: ${{ secrets.CLAUDE_API_KEY }}
           focus: "security"
-      
+
       # Trivy로 이미지 스캔
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
@@ -691,12 +696,13 @@ jobs:
           scan-ref: '.'
           format: 'sarif'
           output: 'trivy-results.sarif'
-      
+
       # 결과를 GitHub Security 탭에 업로드
       - name: Upload Trivy results to GitHub Security
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: 'trivy-results.sarif'
+{% endraw %}
 ```
 
 #### **3.6 AI 기반 보안 모니터링**
@@ -822,6 +828,7 @@ CI/CD 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다. 실제 
 #### **5.1 GitHub Actions 보안 강화 설정**
 
 ```yaml
+{% raw %}
 # .github/workflows/security-scan.yml
 name: Security Scan
 on:
@@ -839,7 +846,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-  
+
   image-scan:
     runs-on: ubuntu-latest
     steps:
@@ -853,6 +860,7 @@ jobs:
           format: 'table'
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
+{% endraw %}
 ```
 
 #### **5.2 Kubernetes 보안 환경 구성**

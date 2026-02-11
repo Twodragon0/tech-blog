@@ -711,6 +711,7 @@ spec:
 #### Trivy 통합 CI/CD 파이프라인
 
 ```yaml
+{% raw %}
 # GitHub Actions 예시
 name: Container Security Scan
 
@@ -744,6 +745,7 @@ jobs:
         if: always()
         with:
           sarif_file: 'trivy-results.sarif'
+{% endraw %}
 ```
 
 #### Cosign 이미지 서명 및 검증

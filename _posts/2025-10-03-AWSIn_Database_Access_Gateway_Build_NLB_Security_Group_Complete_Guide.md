@@ -1457,6 +1457,7 @@ terraform {
 ### CI/CD 파이프라인
 
 ```yaml
+{% raw %}
 # .github/workflows/terraform.yml
 name: Terraform Database Gateway
 
@@ -1509,6 +1510,7 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         working-directory: terraform/environments/production
         run: terraform apply -auto-approve tfplan
+{% endraw %}
 ```
 
 ## 보안 강화 설정

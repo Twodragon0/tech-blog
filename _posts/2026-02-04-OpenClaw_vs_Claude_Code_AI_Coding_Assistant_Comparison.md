@@ -256,6 +256,7 @@ claude config set network_access "restricted"
 Claude Code는 CI/CD 파이프라인에 네이티브로 통합됩니다. [Anthropic 공식 문서](https://docs.anthropic.com/en/docs/claude-code/github-actions)에서 GitHub Actions 연동을 공식 지원합니다:
 
 ```yaml
+{% raw %}
 # .github/workflows/claude-code-review.yml
 # Claude Code를 활용한 자동 코드 리뷰 파이프라인
 name: Claude Code Security Review
@@ -301,6 +302,7 @@ jobs:
           script: |
             const report = require('./security-report.json');
             // PR에 보안 리뷰 결과 코멘트
+{% endraw %}
 ```
 
 ### 3.2 Shift-Left Security 구현

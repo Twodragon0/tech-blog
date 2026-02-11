@@ -568,6 +568,7 @@ if __name__ == "__main__":
 ### 5.3 GitHub Actions 보안 워크플로우
 
 ```yaml
+{% raw %}
 # .github/workflows/security-scan.yml
 name: Security Scan
 
@@ -619,6 +620,7 @@ jobs:
           echo "## Security Scan Summary" >> $GITHUB_STEP_SUMMARY
           echo "- Gitleaks: ${{ steps.gitleaks.outcome }}" >> $GITHUB_STEP_SUMMARY
           echo "- Semgrep: ${{ steps.semgrep.outcome }}" >> $GITHUB_STEP_SUMMARY
+{% endraw %}
 ```
 
 ---

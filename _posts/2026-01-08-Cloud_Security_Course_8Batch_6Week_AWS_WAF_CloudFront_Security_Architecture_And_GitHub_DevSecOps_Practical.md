@@ -617,6 +617,7 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 > **참고**: CodeQL 분석 설정 관련 내용은 [GitHub CodeQL 문서](https://docs.github.com/en/code-security/code-scanning/using-codeql-code-scanning-with-your-ci) 및 [CodeQL Action](https://github.com/github/codeql-action)을 참조하세요.
 
 ```yaml
+{% raw %}
 # .github/workflows/codeql-analysis.yml
 name: "CodeQL Analysis"
 on:
@@ -635,6 +636,7 @@ jobs:
         with: { languages: '${{ matrix.language }}', queries: +security-and-quality }
       - uses: github/codeql-action/autobuild@v3
       - uses: github/codeql-action/analyze@v3
+{% endraw %}
 ```
 
 #### CodeQL 쿼리 커스터마이징

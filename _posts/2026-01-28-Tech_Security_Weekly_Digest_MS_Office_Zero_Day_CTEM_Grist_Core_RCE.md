@@ -894,6 +894,7 @@ networks:
 ### 4.2 CI/CD 보안 파이프라인 예시
 
 ```yaml
+{% raw %}
 # .github/workflows/security-pipeline.yml
 name: Security Pipeline
 
@@ -937,6 +938,7 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           directory: ./terraform
+{% endraw %}
 ```
 
 ---

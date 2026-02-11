@@ -817,7 +817,7 @@ Select-Object TimeCreated, @{Name="User";Expression={$_.Properties[5].Value}},
 **Bash 쿼리**:
 ```bash
 # VS Code 터널 도메인 연결 탐지
-sudo netstat -tnp | grep -E "(devtunnels\.ms|vscode\.dev)" | awk '{% raw %}{{{% endraw %}print $5, $7}{% raw %}}'{% endraw %}
+sudo netstat -tnp | grep -E "(devtunnels\.ms|vscode\.dev)" | awk '{print $5, $7}'
 
 # 또는 ss 명령
 sudo ss -tnp | grep -E "(devtunnels\.ms|vscode\.dev)"
@@ -874,7 +874,7 @@ def hunt_suspicious_certificates(your_domain):
 # ACME 챌린지 요청 중 의심스러운 경로
 grep "/.well-known/acme-challenge/" /var/log/nginx/access.log | \
 grep -E "(\.\.\/|%2e%2e|%5c)" | \
-awk '{% raw %}{{{% endraw %}print $1, $7}{% raw %}}'{% endraw %} | sort | uniq -c | sort -rn
+awk '{print $1, $7}' | sort | uniq -c | sort -rn
 ```
 
 ### 7.3 AI NHI 비정상 활동 헌팅

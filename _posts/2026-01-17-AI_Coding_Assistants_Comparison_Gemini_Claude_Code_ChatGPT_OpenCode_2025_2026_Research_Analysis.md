@@ -540,6 +540,7 @@ opencode config --model deepseek-v3.2 --api-key $DEEPSEEK_API_KEY
 ### 5.3 DevSecOps 통합
 
 ```yaml
+{% raw %}
 # GitHub Actions 보안 검증 워크플로우 예시
 name: AI Code Security Check
 
@@ -555,13 +556,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       # 의존성 스캔
       - name: Run Snyk Security Scan
         uses: snyk/actions/python@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      
+
       # 시크릿 스캔
       - name: Run Secret Scanning
         uses: trufflesecurity/trufflehog@main
@@ -569,10 +570,11 @@ jobs:
           path: ./
           base: ${{ github.event.pull_request.base.sha }}
           head: ${{ github.event.pull_request.head.sha }}
-      
+
       # 정적 분석
       - name: Run CodeQL Analysis
         uses: github/codeql-action/analyze@v2
+{% endraw %}
 ```
 
 > **참고**: AI 생성 코드는 반드시 보안 검증을 거쳐야 합니다. 자동화된 보안 스캔을 CI/CD 파이프라인에 통합하는 것을 권장합니다.
@@ -942,6 +944,7 @@ claude-code analyze --batch --files files.txt  # 1 request
 
 **구현 예시:**
 ```yaml
+{% raw %}
 # GitHub Actions 워크플로우
 name: AI Code Review
 
@@ -954,13 +957,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Run Claude Code Review
         uses: anthropic/claude-code-review@v1
         with:
           api-key: ${{ secrets.CLAUDE_API_KEY }}
           focus: "security, performance, best-practices"
-      
+
       - name: Post Review Comments
         uses: actions/github-script@v6
         with:
@@ -971,6 +974,7 @@ jobs:
               repo: context.repo.repo,
               body: '## AI Code Review Results\n' + steps.review.outputs.comments
             })
+{% endraw %}
 ```
 
 #### 시나리오 2: 온보딩 가속화
@@ -1013,6 +1017,7 @@ gemini-code explain \
 #### GitHub Actions 통합 예시
 
 ```yaml
+{% raw %}
 name: AI-Assisted CI/CD Pipeline
 
 on:
@@ -1027,7 +1032,7 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Generate Code with Claude Code
         uses: anthropic/claude-code-action@v1
         with:
@@ -1038,7 +1043,7 @@ jobs:
             2. Verify dependencies are declared
             3. Suggest improvements
           output-format: markdown
-      
+
       - name: Post PR Comment
         uses: actions/github-script@v6
         with:
@@ -1051,38 +1056,38 @@ jobs:
               repo: context.repo.repo,
               body: review
             })
-  
+
   security-scan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Run Snyk Security Scan
         uses: snyk/actions/python@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         continue-on-error: true
-      
+
       - name: Run CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         with:
           languages: python, javascript
-      
+
       - name: Check for Secrets
         uses: trufflesecurity/trufflehog@main
         with:
           path: ./
-  
+
   reproducibility-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      
+
       - name: Verify Reproducibility
         run: |
           python scripts/verify_reproducibility.py
@@ -1090,11 +1095,12 @@ jobs:
             echo "Reproducibility check failed"
             exit 1
           fi
-      
+
       - name: Test in Clean Environment
         run: |
           docker build -t test-env .
           docker run --rm test-env pytest
+{% endraw %}
 ```
 
 ---
