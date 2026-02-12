@@ -15,8 +15,7 @@
       "BUNDLE_JOBS": "4",
       "BUNDLE_PATH": "vendor/bundle",
       "BUNDLE_RETRY": "3",
-      "JEKYLL_LOG_LEVEL": "warn",
-      "VERCEL_FORCE_NO_BUILD_CACHE": "1"
+      "JEKYLL_LOG_LEVEL": "warn"
     }
   },
   "git": {

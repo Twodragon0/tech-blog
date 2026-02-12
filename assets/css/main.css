@@ -11,4 +11,5 @@
 @import "components";
 @import "post";
 @import "syntax";
+@import "lightbox";
 @import "chat-widget";

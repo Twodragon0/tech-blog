@@ -114,6 +114,17 @@
   }
 }
 
+/* Global Focus Styles (WCAG 2.1 AA) */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Remove outline for mouse/touch interactions */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* Reset & Base Styles */
 *,
 *::before,

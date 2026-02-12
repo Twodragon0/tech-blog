@@ -1,0 +1,123 @@
+name: Security Audit
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9:00 UTC
+  push:
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'Gemfile'
+      - 'Gemfile.lock'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  npm-audit:
+    name: npm Security Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run npm audit
+        id: npm_audit
+        run: |
+          npm audit --audit-level=high --json > npm-audit-report.json 2>&1 || true
+          VULNS=$(cat npm-audit-report.json | jq '.metadata.vulnerabilities.high + .metadata.vulnerabilities.critical' 2>/dev/null || echo "0")
+          echo "vulnerabilities=$VULNS" >> $GITHUB_OUTPUT
+          if [ "$VULNS" -gt "0" ]; then
+            echo "## npm Audit: $VULNS high/critical vulnerabilities found" >> $GITHUB_STEP_SUMMARY
+            npm audit --audit-level=high 2>&1 | head -50 >> $GITHUB_STEP_SUMMARY || true
+          else
+            echo "## npm Audit: No high/critical vulnerabilities" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Create issue on failure
+        if: steps.npm_audit.outputs.vulnerabilities > 0
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `[Security] npm audit: ${process.env.VULNS} high/critical vulnerabilities`;
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'security'
+            });
+            const existing = issues.data.find(i => i.title.includes('npm audit'));
+            if (!existing) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                labels: ['security', 'dependencies'],
+                body: `npm audit detected vulnerabilities.\n\nRun \`npm audit\` locally for details.\nRun \`npm audit fix\` to auto-fix where possible.`
+              });
+            }
+        env:
+          VULNS: ${{ steps.npm_audit.outputs.vulnerabilities }}
+
+  bundle-audit:
+    name: Ruby Gem Security Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Install bundle-audit
+        run: gem install bundler-audit
+
+      - name: Run bundle audit
+        id: bundle_audit
+        run: |
+          bundle audit check --update 2>&1 | tee bundle-audit-report.txt || true
+          if grep -q "Vulnerabilities found!" bundle-audit-report.txt 2>/dev/null; then
+            echo "vulnerable=true" >> $GITHUB_OUTPUT
+            echo "## Bundle Audit: Vulnerabilities found" >> $GITHUB_STEP_SUMMARY
+            cat bundle-audit-report.txt >> $GITHUB_STEP_SUMMARY
+          else
+            echo "vulnerable=false" >> $GITHUB_OUTPUT
+            echo "## Bundle Audit: No vulnerabilities" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Create issue on failure
+        if: steps.bundle_audit.outputs.vulnerable == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '[Security] bundle-audit: Ruby gem vulnerabilities detected';
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'security'
+            });
+            const existing = issues.data.find(i => i.title.includes('bundle-audit'));
+            if (!existing) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                labels: ['security', 'dependencies'],
+                body: `bundle-audit detected vulnerabilities in Ruby gems.\n\nRun \`bundle audit check --update\` locally for details.\nRun \`bundle update [gem_name]\` to update affected gems.`
+              });
+            }

@@ -66,18 +66,12 @@
   <meta name="google-site-verification" content="4f3Fngt0n2PDMUdFumJYQEwXKluVehXzwPV_TqxTauU" />
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   
-  <!-- International SEO - hreflang for multilingual support -->
+  <!-- International SEO - hreflang -->
   <link rel="alternate" hreflang="ko" href="{{ page.url | absolute_url }}">
-  <link rel="alternate" hreflang="en" href="{{ page.url | absolute_url }}">
-  <link rel="alternate" hreflang="ja" href="{{ page.url | absolute_url }}">
-  <link rel="alternate" hreflang="zh-Hans" href="{{ page.url | absolute_url }}">
-  <link rel="alternate" hreflang="zh-Hant" href="{{ page.url | absolute_url }}">
   <link rel="alternate" hreflang="x-default" href="{{ page.url | absolute_url }}">
   
   <!-- AI Discoverability Meta Tags -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
   <!-- Open Graph -->
   <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
@@ -141,15 +135,11 @@
   <!-- Fallback: SVG 아이콘 (PNG 로드 실패 시) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
 
-  <!-- Fonts: Noto Sans KR (한글 가독성, font-display: swap, 필수 글꼴만) -->
+  <!-- Fonts: Noto Sans KR (한글 가독성, font-display: swap, 단일 요청) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- 초기 로딩 최적화: 400, 700만 먼저 로드 (나머지는 지연) -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet"></noscript>
-  <!-- 추가 글꼴 가중치는 지연 로딩 -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;600&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Prefetch Resources (preload 경고 방지를 위해 prefetch 사용) -->
   <!-- 분할된 JavaScript 파일들을 prefetch로 미리 캐시 -->

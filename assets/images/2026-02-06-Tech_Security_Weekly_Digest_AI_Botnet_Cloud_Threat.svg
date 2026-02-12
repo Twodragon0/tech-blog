@@ -42,10 +42,10 @@
   <text x="130" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
 
   <rect x="980" y="30" width="180" height="36" rx="18" fill="url(#accentGradient)" filter="url(#shadow)"/>
-  <text x="1070" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 07, 2026</text>
+  <text x="1070" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 10, 2026</text>
 
-  <text x="600" y="120" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest: Botnet, RCE...</text>
-  <text x="600" y="160" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">Security | Cloud</text>
+  <text x="600" y="120" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest: CrashFix Py...</text>
+  <text x="600" y="160" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">AI | Security</text>
 
   <rect x="350" y="185" width="500" height="3" fill="url(#accentGradient)" rx="1.5"/>
 
@@ -58,7 +58,8 @@
 
     <text x="120" y="60" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ef4444">SECURITY POST</text>
     <text x="120" y="85" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Featured Content</text>
-    <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">2026년 02월 06일 주요 보안/기술 뉴스 27건 - AI, Botnet, Cloud</text>
+    <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">2026년 02월 06일 주요 보안/기술 뉴스 27건 - CrashFix Python RAT, AISURU</text>
+    <text x="40" y="158" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">31.4 Tbps DDoS, Codespaces RCE, BYOVD, Claude Opus 4.6</text>
 
     <rect x="40" y="220" width="148" height="26" rx="13" fill="#ef4444" fill-opacity="0.2"/>
     <text x="114" y="238" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">#Security-Weekly</text>
