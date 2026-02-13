@@ -1,0 +1,237 @@
+// Global Error Handler - Production error tracking and monitoring
+// Extracted from _includes/error-handler.html
+
+(function() {
+  'use strict';
+
+  // Only run in production
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    return;
+  }
+
+  // Error tracking configuration
+  const ERROR_CONFIG = {
+    maxErrors: 10, // 최대 에러 수 (메모리 보호)
+    errorWindow: 60000, // 1분 윈도우
+    errors: []
+  };
+
+  // Clean old errors
+  function cleanOldErrors() {
+    const now = Date.now();
+    ERROR_CONFIG.errors = ERROR_CONFIG.errors.filter(err =>
+      now - err.timestamp < ERROR_CONFIG.errorWindow
+    );
+  }
+
+  // Scrub sensitive query parameters from URLs
+  function scrubUrl(href) {
+    try {
+      var url = new URL(href);
+      var sensitiveParams = ['token', 'key', 'password', 'secret', 'api_key', 'access_token', 'auth'];
+      sensitiveParams.forEach(function(p) { url.searchParams.delete(p); });
+      return url.toString();
+    } catch (e) {
+      return href.split('?')[0];
+    }
+  }
+
+  // Log error to console (development only)
+  function logError(error, context) {
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      console.error('[Error Handler]', error, context);
+    }
+  }
+
+  // Report error (can be extended to send to error tracking service)
+  function reportError(error, context) {
+    // 안전성 체크: error가 없으면 무시
+    if (!error && !context) {
+      return;
+    }
+
+    cleanOldErrors();
+
+    // Prevent error spam
+    if (ERROR_CONFIG.errors.length >= ERROR_CONFIG.maxErrors) {
+      return;
+    }
+
+    // 안전한 에러 정보 추출
+    let errorMessage = 'Unknown error';
+    let errorStack = null;
+    let errorObj = null;
+
+    if (error) {
+      if (typeof error === 'string') {
+        errorMessage = error;
+        errorObj = new Error(error);
+      } else if (error instanceof Error) {
+        errorMessage = error.message || 'Error';
+        errorStack = error.stack || null;
+        errorObj = error;
+      } else if (error && typeof error === 'object') {
+        errorMessage = error.message || error.toString?.() || String(error) || 'Unknown error';
+        errorStack = error.stack || null;
+        errorObj = error instanceof Error ? error : new Error(errorMessage);
+      } else {
+        errorMessage = String(error) || 'Unknown error';
+        errorObj = new Error(errorMessage);
+      }
+    } else if (context && context.message) {
+      // context에 메시지가 있는 경우
+      errorMessage = context.message;
+      errorObj = new Error(errorMessage);
+    }
+
+    const errorInfo = {
+      message: errorMessage,
+      stack: errorStack,
+      context: context || {},
+      url: scrubUrl(window.location.href),
+      userAgent: navigator.userAgent,
+      timestamp: Date.now()
+    };
+
+    ERROR_CONFIG.errors.push(errorInfo);
+
+    // Log to console in development
+    logError(error, context);
+
+    // Send to Sentry if available (Free 티어 최적화: 프로덕션만 전송)
+    if (window.Sentry && window.location.hostname === 'tech.2twodragon.com') {
+      try {
+        // 에러는 captureException으로 전송
+        if (typeof window.Sentry.captureException === 'function') {
+          const sentryError = errorObj || new Error(errorMessage);
+          if (!sentryError.__sentry_captured__) {
+            sentryError.__sentry_captured__ = true;
+            window.Sentry.captureException(sentryError, {
+              contexts: { custom: context || {} }
+            });
+          }
+        }
+
+        // 로그도 함께 전송 (Sentry Logs 기능 사용) - error 레벨만
+        // Free 티어 최적화: error 레벨만 전송 (warn은 제외)
+        if (window.Sentry.logger && typeof window.Sentry.logger.error === 'function') {
+          window.Sentry.logger.error(errorMessage, {
+            ...context,
+            stack: errorStack,
+            url: scrubUrl(window.location.href)
+          });
+        }
+      } catch (e) {
+        // Sentry 전송 실패 시 무시
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          console.warn('[Error Handler] Failed to send to Sentry:', e);
+        }
+      }
+    }
+  }
+
+  // Global error handler
+  window.addEventListener('error', function(event) {
+    // Ignore errors from external scripts (CSP violations, etc.)
+    if (event.filename && !event.filename.includes(window.location.hostname)) {
+      // CSP 위반은 정상적인 보안 동작이므로 무시
+      if (event.message && typeof event.message === 'string' && event.message.includes('Content Security Policy')) {
+        return;
+      }
+      return;
+    }
+
+    // 안전한 에러 객체 생성
+    let error = null;
+    if (event.error) {
+      error = event.error;
+    } else if (event.message) {
+      error = new Error(event.message);
+    } else {
+      error = new Error('Unknown error');
+    }
+
+    // 안전하게 reportError 호출
+    try {
+      reportError(error, {
+        type: 'error',
+        filename: event.filename || 'unknown',
+        lineno: event.lineno || 0,
+        colno: event.colno || 0
+      });
+    } catch (e) {
+      // reportError 자체에서 에러 발생 시 무시 (무한 루프 방지)
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.error('[Error Handler] Failed to report error:', e);
+      }
+    }
+  }, true);
+
+  // Unhandled promise rejection handler
+  window.addEventListener('unhandledrejection', function(event) {
+    if (event.defaultPrevented) return;
+    // 안전한 에러 객체 생성
+    let error = null;
+    if (event.reason) {
+      if (event.reason instanceof Error) {
+        error = event.reason;
+      } else if (typeof event.reason === 'string') {
+        error = new Error(event.reason);
+      } else {
+        error = new Error(String(event.reason));
+      }
+    } else {
+      error = new Error('Unhandled promise rejection');
+    }
+
+    // 안전하게 reportError 호출
+    try {
+      reportError(error, {
+        type: 'unhandledrejection',
+        promise: event.promise ? 'Promise' : 'unknown'
+      });
+    } catch (e) {
+      // reportError 자체에서 에러 발생 시 무시
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.error('[Error Handler] Failed to report promise rejection:', e);
+      }
+    }
+  }, true);
+
+  // Resource loading error handler
+  window.addEventListener('error', function(event) {
+    if (event.target && event.target.tagName) {
+      const tagName = event.target.tagName.toLowerCase();
+      if (['img', 'script', 'link', 'style'].includes(tagName)) {
+        const src = event.target.src || event.target.href || 'unknown';
+
+        // 404 오류는 정상적인 경우가 많으므로 무시
+        // - 이미지 파일 (og.png, 이미지 파일 등)
+        // - 외부 서비스 (giscus.app 등)
+        // - 한글 파일명 관련 에러 (URL 인코딩 문제)
+        if (event.target.tagName.toLowerCase() === 'img' ||
+            src.includes('giscus.app') ||
+            src.includes('_og.png') ||
+            src.includes('og.png') ||
+            src.includes('og.jpg') ||
+            src.includes('og.webp') ||
+            /[\uAC00-\uD7A3]/.test(src)) { // 한글 포함된 URL
+          return; // 정상적인 404는 무시
+        }
+
+        // 중요한 리소스만 에러로 보고 (script, link 등)
+        if (tagName === 'script' || tagName === 'link') {
+          try {
+            reportError(`Failed to load ${tagName}: ${src}`, {
+              type: 'resource',
+              tag: tagName,
+              src: src
+            });
+          } catch (e) {
+            // 무시
+          }
+        }
+      }
+    }
+  }, true);
+})();
