@@ -1,8 +1,8 @@
 // Service Worker for Offline Support and Caching
 // 버전 업데이트 시 캐시명 변경하여 캐시 무효화
-// v17: 인라인 JS 외부 추출 2차 (google-translate, error-handler, toc)
-const STATIC_CACHE = 'tech-blog-static-v17';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v17';
+// v18: 인라인 JS 외부 추출 3차 (mermaid-init)
+const STATIC_CACHE = 'tech-blog-static-v18';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v18';
 
 // 캐시할 정적 리소스 (CSS는 version param 무시하고 매칭)
 const STATIC_ASSETS = [
@@ -12,6 +12,7 @@ const STATIC_ASSETS = [
   '/assets/js/google-translate.js',
   '/assets/js/error-handler.js',
   '/assets/js/toc.js',
+  '/assets/js/mermaid-init.js',
   '/assets/js/performance-monitor.js',
   '/assets/images/favicon.png'
 ];
