@@ -1,14 +1,14 @@
 // Service Worker for Offline Support and Caching
 // 버전 업데이트 시 캐시명 변경하여 캐시 무효화
-// v15: JS 스플릿 최적화 - main-core.js/main-search.js 분리, 빈 catch 제거
-const STATIC_CACHE = 'tech-blog-static-v15';
-const DYNAMIC_CACHE = 'tech-blog-dynamic-v15';
+// v16: post-page.js 추가 (post.html 인라인 JS 외부 추출)
+const STATIC_CACHE = 'tech-blog-static-v16';
+const DYNAMIC_CACHE = 'tech-blog-dynamic-v16';
 
 // 캐시할 정적 리소스 (CSS는 version param 무시하고 매칭)
 const STATIC_ASSETS = [
   '/',
   '/assets/js/main-core.js',
-  // image-optimizer.js 제거 (WebP 변환 비활성화)
+  '/assets/js/post-page.js',
   '/assets/images/favicon.png'
 ];
 

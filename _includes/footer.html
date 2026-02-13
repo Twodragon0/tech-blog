@@ -50,6 +50,7 @@
 <!-- Post-specific JavaScript (포스트 페이지에서만 로드) -->
 {% if page.layout == 'post' %}
 <script src="{{ "/assets/js/main-post.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+<script src="{{ "/assets/js/post-page.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
 {% endif %}
 
 <!-- Search & Translation JavaScript (지연 로드) -->

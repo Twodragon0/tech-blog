@@ -150,44 +150,6 @@
   }
 
   // ============================================
-  // Reading Progress Bar
-  // ============================================
-
-  // Reading Progress Bar (for post pages)
-  const postArticle = document.querySelector('.post-article');
-  if (postArticle) {
-    const progressBar = document.createElement('div');
-    progressBar.className = 'reading-progress';
-    progressBar.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--color-primary), var(--color-devsecops));
-      width: 0%;
-      z-index: 9999;
-      transition: width 0.1s ease;
-    `;
-    document.body.appendChild(progressBar);
-
-    // Use passive listener with rAF throttling for scroll events (improves FID)
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-      if (!ticking) {
-        requestAnimationFrame(function() {
-          const windowHeight = window.innerHeight;
-          const documentHeight = document.documentElement.scrollHeight;
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const progress = (scrollTop / (documentHeight - windowHeight)) * 100;
-          progressBar.style.width = Math.min(progress, 100) + '%';
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-  }
-
-  // ============================================
   // Code Block Enhancement with Copy Button
   // ============================================
 
