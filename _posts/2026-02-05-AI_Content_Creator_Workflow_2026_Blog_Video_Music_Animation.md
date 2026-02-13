@@ -120,7 +120,7 @@ toc: true
 DevSecOps workflow diagram, modern flat design,
 blue and green color scheme, minimalist,
 high quality, 4K, --ar 16:9 --v 7
-```text
+```
 
 ### 2.3 비디오 생성: Text-to-Video의 혁명
 
@@ -164,7 +164,7 @@ minimal beats, focus-friendly, no vocals,
 # 보안 뉴스 팟캐스트용 인트로
 "news intro music, professional, serious tone,
 orchestral with electronic elements, 15 seconds"
-```text
+```
 
 ### 2.5 음성 합성 (TTS): 오픈소스의 반격
 
@@ -221,7 +221,7 @@ audio = model.generate_cloned_voice(
     reference_audio="my_voice_sample.wav",  # 3초면 충분
     reference_text="안녕하세요, 저는 크리에이터입니다."
 )
-```text
+```
 
 **비용 비교 (월 100시간 음성 생성 기준):**
 
@@ -286,7 +286,7 @@ def secure_voice_clone(audio_path):
 
 ```text
 키워드 → Claude Opus 4.5 (아웃라인) → 초안 작성 → SEO 최적화 → 블로그 포스트
-```text
+```
 
 **핵심 구현:**
 
@@ -320,7 +320,7 @@ def generate_blog_post(topic: str) -> dict:
 
 ```text
 블로그 MD → 영상 시나리오 (15분 구조) → 장면별 분할 → SRT 자막 → video_script.json
-```text
+```
 
 **생성 결과 (JSON 형식):**
 - `scenes[]`: 장면별 타임스탬프 + 비주얼 + 나레이션
@@ -355,7 +355,7 @@ def blog_to_video_script(markdown_content: str) -> dict:
          → Audio (Qwen3-TTS/ElevenLabs 음성 + Suno BGM)
          → Editing (DaVinci Resolve 자동 편집)
          → final_video.mp4 (1080p, 15분)
-```text
+```
 
 **자동화 단계:**
 1. OBS Studio 자동 녹화 (F9 핫키)
@@ -372,7 +372,7 @@ def blog_to_video_script(markdown_content: str) -> dict:
 # 1920x1080, 60fps, H.264 인코딩
 # 핫키: F9 (녹화 시작/정지)
 # 출력: MP4 형식
-```text
+```
 
 **상세 설정**: OBS Studio → Settings → Output → Recording
 - Format: MP4
@@ -390,7 +390,7 @@ def blog_to_video_script(markdown_content: str) -> dict:
 **프롬프트 템플릿:**
 ```text
 "{mood} {genre} background music, {instruments}, no vocals, {duration} minutes, loopable"
-```text
+```
 
 **예시:** "focus-friendly ambient electronic, minimal beats, no vocals, 3 minutes"
 
@@ -427,7 +427,7 @@ ROI:
 아바타 이미지 + 음성 → D-ID 립싱크 → MP4 (30초-5분)
 정적 이미지 → Runway Gen-3 모션 → 10초 클립
 → DaVinci Resolve 통합 → 최종 영상
-```text
+```
 
 **핵심 단계:**
 1. D-ID: 아바타 + 음성 → 자동 립싱크 (30초-2분 대기)
@@ -488,7 +488,7 @@ ContentPipeline
 ├─ Phase 3: BGM 생성 (선택, Suno AI)
 ├─ Phase 4: 애니메이션 (선택, D-ID)
 └─ Phase 5: Git 자동 배포
-```text
+```
 
 **핵심 클래스 구조:**
 
@@ -534,7 +534,7 @@ config = ContentConfig(
     generate_music=True,
     generate_animation=True
 )
-```text
+```
 
 **예상 실행 시간:**
 - 블로그만: 30-60초
@@ -560,7 +560,7 @@ python3 content_pipeline.py
 # - 음악 생성: +2분 (수동)
 # - 애니메이션: +2분 (수동)
 # 총: 5-10분 (수동 단계 포함)
-```text
+```
 
 ---
 
@@ -683,7 +683,7 @@ def publish():
 
 # 매주 일요일 오후 6시 자동 실행
 schedule.every().sunday.at("18:00").do(publish)
-```text
+```
 
 **핵심 기능:**
 - RSS 피드 자동 수집 (BleepingComputer, The Hacker News)
@@ -747,7 +747,7 @@ def validate_ai_generated_code(code: str) -> bool:
         return False  # ⚠️ SQL injection risk
 
     return True  # ✅ Safe
-```text
+```
 
 **실전 사용:**
 ```python
@@ -784,7 +784,7 @@ def mask_sensitive_info(text: str) -> str:
     text = re.sub(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+', '***@domain.com', text)  # 이메일
     text = re.sub(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', '***.***.***.***.***', text)  # IP
     return text
-```text
+```
 
 **실전 적용:**
 ```python
@@ -857,7 +857,7 @@ response2 = client.messages.create(
     messages=[{"role": "user", "content": "Write Docker security post"}]
 )
 # 비용: $0.30/MTok x 50K = $0.015 (90% ↓)
-```text
+```
 
 **절감 효과:**
 - 10개 포스트: 캐시 없이 $1.50 → 캐시 사용 $0.285 (81% 절감)
@@ -885,7 +885,7 @@ response2 = client.messages.create(
 ```text
 요청: "Kubernetes 보안 시리즈 10편"
 → Orchestrator → 5개 에이전트 병렬 실행 → 10편 완성 (24시간)
-```text
+```
 
 | Agent | 역할 | 결과 |
 |-------|------|------|

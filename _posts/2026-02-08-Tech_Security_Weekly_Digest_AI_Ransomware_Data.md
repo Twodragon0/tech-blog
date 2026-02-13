@@ -53,7 +53,7 @@ schema_type: Article
 |  종합 위험 수준: ████████░░ HIGH (7.5/10)                       |
 |                                                                |
 +================================================================+
-```text
+```
 
 ### 이사회/경영진 보고 포인트
 
@@ -216,7 +216,7 @@ schema_type: Article
 |  Impact: E2EE 우회, 고위급 통신 도청, 국가안보 위협                 |
 |                                                                    |
 +==================================================================+
-```text
+```
 
 #### 핵심 포인트
 
@@ -281,7 +281,7 @@ union DeviceProcessEvents, DeviceNetworkEvents
 | where IsNewDevice == true or IsSuspiciousIP == true
 | project TimeGenerated, DeviceName, AccountName, ProcessCommandLine, RemoteIP, IsSuspiciousIP
 | order by TimeGenerated desc
-```text
+```
 
 **ELK Query DSL**: 전체 쿼리는 [GitHub Gist](https://gist.github.com/example/signal-phishing-elk)에서 확인
 
@@ -362,7 +362,7 @@ echo "[*] 알 수 없는 기기 발견 시 즉시 연결 해제 및 보안팀 �
 echo "[*] 심각한 의심 시 Signal 재설치 후 새 PIN 설정"
 echo ""
 echo "=== 점검 완료 ==="
-```text
+```
 
 #### 사고 대응 플레이북
 
@@ -474,7 +474,7 @@ index=windows EventCode=4688
 | where count > 0
 | eval severity="CRITICAL", threat="Ransomware Shadow Copy Deletion"
 | table _time, Computer, User, CommandLine, severity, threat
-```text
+```
 
 **Splunk SPL - BlackField 암호화 활동 탐지**:
 
@@ -651,7 +651,7 @@ fi
 
 echo ""
 echo "=== 점검 완료 ==="
-```text
+```
 
 #### 사고 대응 플레이북
 
@@ -855,7 +855,7 @@ Tether가 터키 당국과 협력하여 불법 온라인 베팅 사이트와 연
 |  3. SMB 세그먼트 분리 및 불필요 공유 폴더 제거                    |
 |  4. 랜섬웨어 대응 모의훈련 분기별 실시                            |
 +================================================================+
-```text
+```
 
 ---
 
@@ -963,7 +963,7 @@ BlackField 랜섬웨어의 등장은 LockBit, Conti, BlackCat 등 주요 랜섬�
   BY src_email
 | where target_count > 3
 | sort -target_count
-```text
+```
 
 #### Splunk SPL - BlackField 랜섬웨어 전조 행위 헌팅
 
@@ -1010,7 +1010,7 @@ DeviceProcessEvents
 | where ProcessCommandLine has_any ("vssadmin delete", "wmic shadowcopy", "bcdedit /set", "wbadmin delete")
 | project Timestamp, DeviceName, AccountName, ProcessCommandLine, InitiatingProcessFileName
 | sort by Timestamp desc
-```text
+```
 
 ---
 
@@ -1029,7 +1029,7 @@ DeviceProcessEvents
   # 백업 검증 및 랜섬웨어 삭제 명령 모니터링
   restic check --repo /backup/immutable 2>/dev/null || echo "Backup check needed"
   restic snapshots --repo /backup/immutable 2>/dev/null | tail -5
-```text
+```
 
 ### P1 (7일 내)
 
