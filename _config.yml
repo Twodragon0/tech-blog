@@ -12,7 +12,7 @@ keywords_en: "DevSecOps, Cloud Security, Kubernetes Security, AWS Security, GCP 
 # Author
 author:
   name: "Twodragon"
-  email: "contact@example.com"  # 실제 이메일 주소로 교체 필요
+  email: ""
   bio: "Security Engineer & DevSecOps Specialist"
   avatar: "/assets/images/avatar.png"
   github: "Twodragon0"

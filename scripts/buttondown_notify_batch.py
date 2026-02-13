@@ -19,12 +19,16 @@ PROJECT_ROOT = SCRIPT_DIR.parent
 ENV_FILE = PROJECT_ROOT / '.env'
 
 if ENV_FILE.exists():
-    with open(ENV_FILE, 'r') as f:
+    with open(ENV_FILE, 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
             if line and not line.startswith('#') and '=' in line:
                 key, value = line.split('=', 1)
-                os.environ[key.strip()] = value.strip()
+                key = key.strip()
+                value = value.strip().strip('"').strip("'")
+                # Validate key is a valid identifier before setting
+                if key.isidentifier():
+                    os.environ[key] = value
 
 
 def detect_posts_via_git_diff():

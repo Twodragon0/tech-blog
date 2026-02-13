@@ -255,18 +255,21 @@
 
     // Page load time monitoring
     window.addEventListener('load', function() {
-      if (window.performance && window.performance.timing) {
-        const timing = window.performance.timing;
-        const loadTime = timing.loadEventEnd - timing.navigationStart;
-        const domReady = timing.domContentLoadedEventEnd - timing.navigationStart;
-        
-        if (loadTime > 3000) { // Page load should be < 3s
-          console.warn('[Performance] Page load is slow:', loadTime + 'ms');
+      try {
+        var entries = performance.getEntriesByType('navigation');
+        if (entries && entries.length > 0) {
+          var nav = entries[0];
+          var loadTime = Math.round(nav.loadEventEnd);
+          var domReady = Math.round(nav.domContentLoadedEventEnd);
+
+          if (loadTime > 0 && loadTime < 60000 && loadTime > 3000) {
+            console.warn('[Performance] Page load is slow:', loadTime + 'ms');
+          }
+          if (domReady > 0 && domReady < 60000 && domReady > 5000) {
+            console.warn('[Performance] DOM ready is slow:', domReady + 'ms');
+          }
         }
-        if (domReady > 5000) { // DOM ready should be < 5s
-          console.warn('[Performance] DOM ready is slow:', domReady + 'ms');
-        }
-      }
+      } catch (e) {}
     });
 
     // Resource loading monitoring

@@ -39,18 +39,21 @@ fi
 # LinkedIn Client ID 입력
 read -p "LinkedIn Client ID를 입력하세요: " CLIENT_ID
 if [ ! -z "$CLIENT_ID" ]; then
+    # Escape special sed characters in CLIENT_ID
+    CLIENT_ID_ESCAPED=$(printf '%s\n' "$CLIENT_ID" | sed -e 's/[|&/\\]/\\&/g')
+
     # .env 파일 업데이트
     if grep -q "^LINKEDIN_CLIENT_ID=" "$ENV_FILE"; then
         # macOS와 Linux 호환성을 위한 sed 명령어
         if [[ "$OSTYPE" == "darwin"* ]]; then
-            sed -i '' "s|^LINKEDIN_CLIENT_ID=.*|LINKEDIN_CLIENT_ID=$CLIENT_ID|" "$ENV_FILE"
+            sed -i '' "s|^LINKEDIN_CLIENT_ID=.*|LINKEDIN_CLIENT_ID=$CLIENT_ID_ESCAPED|" "$ENV_FILE"
         else
-            sed -i "s|^LINKEDIN_CLIENT_ID=.*|LINKEDIN_CLIENT_ID=$CLIENT_ID|" "$ENV_FILE"
+            sed -i "s|^LINKEDIN_CLIENT_ID=.*|LINKEDIN_CLIENT_ID=$CLIENT_ID_ESCAPED|" "$ENV_FILE"
         fi
     else
         echo "LINKEDIN_CLIENT_ID=$CLIENT_ID" >> "$ENV_FILE"
     fi
-    
+
     # 셸 RC 파일에도 추가 (선택적)
     sed -i.bak '/^export LINKEDIN_CLIENT_ID=/d' "$SHELL_RC" 2>/dev/null || true
     echo "export LINKEDIN_CLIENT_ID=\"$CLIENT_ID\"" >> "$SHELL_RC"
@@ -62,17 +65,20 @@ fi
 # LinkedIn Client Secret 입력
 read -p "LinkedIn Client Secret을 입력하세요: " CLIENT_SECRET
 if [ ! -z "$CLIENT_SECRET" ]; then
+    # Escape special sed characters in CLIENT_SECRET
+    CLIENT_SECRET_ESCAPED=$(printf '%s\n' "$CLIENT_SECRET" | sed -e 's/[|&/\\]/\\&/g')
+
     # .env 파일 업데이트
     if grep -q "^LINKEDIN_CLIENT_SECRET=" "$ENV_FILE"; then
         if [[ "$OSTYPE" == "darwin"* ]]; then
-            sed -i '' "s|^LINKEDIN_CLIENT_SECRET=.*|LINKEDIN_CLIENT_SECRET=$CLIENT_SECRET|" "$ENV_FILE"
+            sed -i '' "s|^LINKEDIN_CLIENT_SECRET=.*|LINKEDIN_CLIENT_SECRET=$CLIENT_SECRET_ESCAPED|" "$ENV_FILE"
         else
-            sed -i "s|^LINKEDIN_CLIENT_SECRET=.*|LINKEDIN_CLIENT_SECRET=$CLIENT_SECRET|" "$ENV_FILE"
+            sed -i "s|^LINKEDIN_CLIENT_SECRET=.*|LINKEDIN_CLIENT_SECRET=$CLIENT_SECRET_ESCAPED|" "$ENV_FILE"
         fi
     else
         echo "LINKEDIN_CLIENT_SECRET=$CLIENT_SECRET" >> "$ENV_FILE"
     fi
-    
+
     # 셸 RC 파일에도 추가 (선택적)
     sed -i.bak '/^export LINKEDIN_CLIENT_SECRET=/d' "$SHELL_RC" 2>/dev/null || true
     echo "export LINKEDIN_CLIENT_SECRET=\"$CLIENT_SECRET\"" >> "$SHELL_RC"
@@ -85,11 +91,14 @@ fi
 read -p "LinkedIn Redirect URI를 입력하세요 (기본값: http://localhost:8000/auth/linkedin/callback): " REDIRECT_URI
 REDIRECT_URI=${REDIRECT_URI:-http://localhost:8000/auth/linkedin/callback}
 
+# Escape special sed characters in REDIRECT_URI
+REDIRECT_URI_ESCAPED=$(printf '%s\n' "$REDIRECT_URI" | sed -e 's/[|&/\\]/\\&/g')
+
 if grep -q "^LINKEDIN_REDIRECT_URI=" "$ENV_FILE"; then
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        sed -i '' "s|^LINKEDIN_REDIRECT_URI=.*|LINKEDIN_REDIRECT_URI=$REDIRECT_URI|" "$ENV_FILE"
+        sed -i '' "s|^LINKEDIN_REDIRECT_URI=.*|LINKEDIN_REDIRECT_URI=$REDIRECT_URI_ESCAPED|" "$ENV_FILE"
     else
-        sed -i "s|^LINKEDIN_REDIRECT_URI=.*|LINKEDIN_REDIRECT_URI=$REDIRECT_URI|" "$ENV_FILE"
+        sed -i "s|^LINKEDIN_REDIRECT_URI=.*|LINKEDIN_REDIRECT_URI=$REDIRECT_URI_ESCAPED|" "$ENV_FILE"
     fi
 else
     echo "LINKEDIN_REDIRECT_URI=$REDIRECT_URI" >> "$ENV_FILE"
@@ -114,5 +123,5 @@ echo ""
 echo "환경 변수를 로드하려면:"
 echo "  source $SHELL_RC"
 echo "  또는"
-echo "  export \$(cat $ENV_FILE | xargs)"
+echo "  set -a && source $ENV_FILE && set +a"
 echo ""

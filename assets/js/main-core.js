@@ -98,6 +98,7 @@
       // 수동 변경 시 해당 테마 저장 (시스템 자동 따르기 해제)
       localStorage.setItem('theme', newTheme);
       updateThemeToggleAria(newTheme);
+      document.dispatchEvent(new CustomEvent('themeChanged', { detail: newTheme }));
     });
 
     // 더블클릭으로 시스템 설정으로 복귀

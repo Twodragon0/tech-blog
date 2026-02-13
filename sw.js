@@ -1,14 +1,12 @@
 // Service Worker for Offline Support and Caching
-// 버전 업데이트 시 CACHE_NAME 변경하여 캐시 무효화
+// 버전 업데이트 시 캐시명 변경하여 캐시 무효화
 // v15: JS 스플릿 최적화 - main-core.js/main-search.js 분리, 빈 catch 제거
-const CACHE_NAME = 'tech-blog-v15';
 const STATIC_CACHE = 'tech-blog-static-v15';
 const DYNAMIC_CACHE = 'tech-blog-dynamic-v15';
 
-// 캐시할 정적 리소스
+// 캐시할 정적 리소스 (CSS는 version param 무시하고 매칭)
 const STATIC_ASSETS = [
   '/',
-  '/assets/css/main.css',
   '/assets/js/main-core.js',
   // image-optimizer.js 제거 (WebP 변환 비활성화)
   '/assets/images/favicon.png'
@@ -105,13 +103,13 @@ self.addEventListener('fetch', (event) => {
         if (request.method === 'GET' && response.status === 200 && response.type === 'basic') {
           // 캐시 가능한 응답인지 확인
           const contentType = response.headers.get('content-type') || '';
-          const isCacheable = 
+          const isCacheable =
             contentType.includes('text/html') ||
             contentType.includes('text/css') ||
             contentType.includes('application/javascript') ||
             contentType.includes('image/') ||
             contentType.includes('font/');
-          
+
           if (isCacheable) {
             const responseClone = response.clone();
             caches.open(DYNAMIC_CACHE).then((cache) => {
@@ -135,19 +133,20 @@ self.addEventListener('fetch', (event) => {
       .catch((error) => {
         // 네트워크 실패 시 캐시에서 반환 (GET 요청만)
         if (request.method === 'GET') {
-          return caches.match(request).then((cachedResponse) => {
+          // CSS는 version query param 무시하고 매칭
+          return caches.match(request, { ignoreSearch: url.pathname.endsWith('.css') }).then((cachedResponse) => {
             if (cachedResponse) {
               return cachedResponse;
             }
             // 캐시에도 없으면 오프라인 메시지 반환
-            return new Response('Offline', { 
+            return new Response('Offline', {
               status: 503,
               statusText: 'Service Unavailable',
               headers: { 'Content-Type': 'text/plain; charset=utf-8' }
             });
           }).catch(() => {
             // 캐시 매칭 실패 시에도 오프라인 메시지 반환
-            return new Response('Offline', { 
+            return new Response('Offline', {
               status: 503,
               statusText: 'Service Unavailable',
               headers: { 'Content-Type': 'text/plain; charset=utf-8' }
@@ -155,7 +154,7 @@ self.addEventListener('fetch', (event) => {
           });
         }
         // POST 등은 네트워크 오류 그대로 반환 (캐시하지 않음)
-        return new Response('Network error', { 
+        return new Response('Network error', {
           status: 503,
           statusText: 'Service Unavailable',
           headers: { 'Content-Type': 'text/plain; charset=utf-8' }

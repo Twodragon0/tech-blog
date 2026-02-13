@@ -531,7 +531,7 @@ DeviceNetworkEvents
 | summarize ConnectionCount=count(), TargetHosts=dcount(RemoteIP) by DeviceName, AccountName, bin(Timestamp, 1h)
 | where TargetHosts > 5
 | sort by TargetHosts desc
-```text
+```
 
 <!-- ELK Query DSL for BlackField Ransomware Detection
 ```json

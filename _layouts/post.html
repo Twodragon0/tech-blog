@@ -327,9 +327,11 @@ layout: default
   function initReadingTime() {
     const content = document.querySelector('.post-content');
     if (content) {
-      const text = content.textContent || content.innerText;
-      const wordCount = text.trim().split(/\s+/).length;
-      const readingTime = Math.ceil(wordCount / 200);
+      const text = content.textContent || content.innerText || '';
+      // Hybrid reading time: Korean ~500 chars/min, English ~200 words/min
+      const koreanChars = (text.match(/[\uAC00-\uD7A3]/g) || []).length;
+      const englishWords = text.replace(/[\uAC00-\uD7A3]/g, '').trim().split(/\s+/).filter(Boolean).length;
+      const readingTime = Math.max(1, Math.ceil((koreanChars / 500) + (englishWords / 200)));
       const readingTimeEl = document.getElementById('reading-time');
       if (readingTimeEl) {
         readingTimeEl.textContent = readingTime + ' min read';
@@ -409,7 +411,7 @@ window.addEventListener('scroll', function() {
     const progress = Math.min(Math.max((scrollY - articleTop + windowHeight * 0.3) / articleHeight * 100, 0), 100);
     progressBar.style.width = progress + '%';
   }
-});
+}, { passive: true });
 
 // Giscus loading state management
 document.addEventListener('DOMContentLoaded', function() {

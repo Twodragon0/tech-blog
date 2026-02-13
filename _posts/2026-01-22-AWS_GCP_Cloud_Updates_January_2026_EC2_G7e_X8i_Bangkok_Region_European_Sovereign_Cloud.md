@@ -441,7 +441,7 @@ response = model.generate_content(
     You are a DevSecOps expert. Analyze the following Kubernetes 
     deployment and identify security issues:
     
-    ```yaml
+    ```
     apiVersion: apps/v1
     kind: Deployment
     metadata:

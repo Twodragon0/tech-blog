@@ -467,7 +467,7 @@ Fuzz 테스트는 무작위 입력을 생성하여 프로그램의 예외 상황
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-```c
+```
 // AFL (American Fuzzy Lop)를 사용한 Fuzz 테스트
 #include <stdio.h>
 #include <stdlib.h>
@@ -601,7 +601,7 @@ Secure Boot는 부팅 과정에서 펌웨어의 무결성을 검증합니다.
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-```c
+```
 // Secure Boot 검증 예시 (의사 코드)
 int verify_firmware_signature(uint8_t *firmware, size_t len, uint8_t *signature) {
     // 1. 공개키 로드 (하드웨어 보호된 저장소에서)
@@ -667,7 +667,7 @@ int verify_firmware_signature(uint8_t *firmware, size_t len, uint8_t *signature)
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-```python
+```
 # 간단한 CAN 버스 IDS 예시
 import can
 
