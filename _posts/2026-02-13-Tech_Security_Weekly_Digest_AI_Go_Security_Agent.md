@@ -16,20 +16,20 @@ schema_type: Article
 ---
 
 {% include ai-summary-card.html
-  title="Tech & Security Weekly Digest (2026년 02월 13일)"
-  categories_html="<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>"
-  tags_html="<span class="tag">Security-Weekly</span>
+  title='Tech & Security Weekly Digest (2026년 02월 13일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
       <span class="tag">Cloud-Security</span>
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>"
-  highlights_html="<li><strong>The Hacker News</strong>: Google Reports State-Backed Hackers Using Gemini AI for...</li>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>The Hacker News</strong>: Google Reports State-Backed Hackers Using Gemini AI for...</li>
       <li><strong>The Hacker News</strong>: Lazarus Campaign Plants Malicious Packages in npm and...</li>
       <li><strong>Microsoft Security Blog</strong>: Copilot Studio agent security: Top 10 risks you can...</li>
-      <li><strong>Google Cloud Blog</strong>: Simpler billing, clearer savings: A FinOps guide to...</li>"
-  period="2026년 02월 13일 (24시간)"
-  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+      <li><strong>Google Cloud Blog</strong>: Simpler billing, clearer savings: A FinOps guide to...</li>'
+  period='2026년 02월 13일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
 ## Executive Summary

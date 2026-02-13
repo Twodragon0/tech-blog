@@ -16,20 +16,20 @@ schema_type: Article
 ---
 
 {% include ai-summary-card.html
-  title="Tech & Security Weekly Digest (2026년 02월 11일)"
-  categories_html="<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>"
-  tags_html="<span class="tag">Security-Weekly</span>
+  title='Tech & Security Weekly Digest (2026년 02월 11일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
       <span class="tag">Cloud-Security</span>
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>"
-  highlights_html="<li><strong>The Hacker News</strong>: DPRK Operatives Impersonate Professionals on LinkedIn to...</li>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>The Hacker News</strong>: DPRK Operatives Impersonate Professionals on LinkedIn to...</li>
       <li><strong>The Hacker News</strong>: Reynolds Ransomware Embeds BYOVD Driver to Disable EDR...</li>
       <li><strong>The Hacker News</strong>: From Ransomware to Residency: Inside the Rise of the...</li>
-      <li><strong>Google Cloud Blog</strong>: Google Distributed Cloud brings public-cloud-like...</li>"
-  period="2026년 02월 11일 (24시간)"
-  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+      <li><strong>Google Cloud Blog</strong>: Google Distributed Cloud brings public-cloud-like...</li>'
+  period='2026년 02월 11일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
 ## Executive Summary
