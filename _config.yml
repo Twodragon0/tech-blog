@@ -234,7 +234,7 @@ exclude:
 
 # Build optimization
 keep_files: []
-incremental: true
+incremental: false
 safe: false
 
 # Sass

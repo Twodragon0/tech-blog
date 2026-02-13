@@ -386,25 +386,6 @@
     (function() {
       'use strict';
 
-      // Suppress AdSense 403/400 console errors globally
-      (function suppressAdSenseErrors() {
-        // Wrap fetch to suppress AdSense errors
-        if (window.fetch) {
-          var originalFetch = window.fetch;
-          window.fetch = function() {
-            var url = arguments[0];
-            if (typeof url === 'string' && url.includes('googlesyndication.com')) {
-              return originalFetch.apply(this, arguments)
-                .catch(function() {
-                  // Silently fail for AdSense (403, 400, network errors)
-                  return new Response(null, { status: 200, statusText: 'OK' });
-                });
-            }
-            return originalFetch.apply(this, arguments);
-          };
-        }
-      })();
-
       try {
         window.adsbygoogle = window.adsbygoogle || [];
         window.adsbygoogle.pauseAdRequests = 0;

@@ -501,6 +501,20 @@
         return Promise.resolve(new Response('', { status: 200, statusText: 'OK' }));
       }
 
+      // Vercel Speed Insights vitals - suppress 429 rate limiting
+      if (/_vercel\/speed-insights\/vitals/i.test(url)) {
+        return originalFetch.apply(this, args)
+          .then(function(response) {
+            if (response.status === 429) {
+              return new Response('', { status: 200, statusText: 'OK' });
+            }
+            return response;
+          })
+          .catch(function() {
+            return new Response('', { status: 200, statusText: 'OK' });
+          });
+      }
+
       return originalFetch.apply(this, args).catch(function(error) {
         var errorMessage = (error && error.message) || (error && error.toString()) || '';
         var requestUrl = typeof args[0] === 'string' ? args[0] : (args[0] && args[0].url) || '';
