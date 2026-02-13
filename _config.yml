@@ -231,6 +231,7 @@ exclude:
   - "*.log"
   - build.sh
   - data/
+  - output/
 
 # Build optimization
 keep_files: []
