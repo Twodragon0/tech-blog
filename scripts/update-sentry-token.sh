@@ -40,8 +40,6 @@ else
     SENTRY_AUTH_TOKEN="$1"
 fi
 
-SENTRY_AUTH_TOKEN="$1"
-
 # Token 형식 확인
 if [[ ! "$SENTRY_AUTH_TOKEN" =~ ^(sntryu_|sentry-release) ]]; then
     echo "⚠️  경고: Token 형식이 일반적인 형식과 다릅니다"
@@ -54,7 +52,7 @@ if [[ ! "$SENTRY_AUTH_TOKEN" =~ ^(sntryu_|sentry-release) ]]; then
 fi
 
 echo "🔐 GitHub Secrets에 SENTRY_AUTH_TOKEN 업데이트 중..."
-gh secret set SENTRY_AUTH_TOKEN --body "$SENTRY_AUTH_TOKEN"
+echo "$SENTRY_AUTH_TOKEN" | gh secret set SENTRY_AUTH_TOKEN
 
 if [ $? -eq 0 ]; then
     echo "✅ SENTRY_AUTH_TOKEN이 성공적으로 업데이트되었습니다!"
