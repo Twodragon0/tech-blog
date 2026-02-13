@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI.svg
 image_alt: "Tech Security Weekly Digest February 11 2026 Security Ransomware Patch"
 toc: true
+schema_type: Article
 ---
 
 {% include ai-summary-card.html
@@ -37,7 +38,7 @@ toc: true
 
 ### 위험 스코어카드
 
-```
+```text
 +================================================================+
 |          2026-02-11 주간 보안 위험 스코어카드                      |
 +================================================================+
@@ -56,7 +57,7 @@ toc: true
 
 ### 경영진 대시보드
 
-```
+```text
 +================================================================+
 |        보안 현황 대시보드 - 2026년 02월 11일                         |
 +================================================================+

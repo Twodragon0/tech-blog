@@ -252,7 +252,7 @@ World Economic Forum의 **Global Cybersecurity Outlook 2026**에 따르면:
 
 ### 4.3 공격 흐름도 (Attack Flow)
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────┐
 │                    CVE-2026-24858 공격 체인                   │
 └──────────────────────────────────────────────────────────────┘
@@ -307,7 +307,7 @@ World Economic Forum의 **Global Cybersecurity Outlook 2026**에 따르면:
 
 ### 4.4 공격 시나리오
 
-```
+```text
 1. 공격자 → FortiCloud SSO 엔드포인트 접근
 2. 인증 우회 취약점 악용 → FortiGate 관리 세션 획득
 3. 방화벽 설정 변경/VPN 접근/네트워크 정찰
@@ -429,7 +429,7 @@ CommonSecurityLog
 
 ### 5.3 공격 흐름도
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────┐
 │              CVE-2026-24304 Azure RM 권한 상승 체인            │
 └──────────────────────────────────────────────────────────────┘
@@ -547,7 +547,7 @@ AzureActivity
 
 ### 5.4 CVSS 벡터 분석
 
-```
+```text
 CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H
 
 AV:N  → 네트워크를 통한 원격 공격 가능
@@ -639,7 +639,7 @@ kubectl get clusterrolebinding | grep kyverno
 
 ### 7.2 공격 체인
 
-```
+```text
 eScan 업데이트 서버 침해
     ↓
 정상 서명된 악성 업데이트 생성

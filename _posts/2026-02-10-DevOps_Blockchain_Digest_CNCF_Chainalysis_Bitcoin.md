@@ -8,6 +8,7 @@ excerpt: "CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cl
 image: /assets/images/2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.svg
 author: Twodragon
 toc: true
+schema_type: Article
 ---
 
 ## 서론

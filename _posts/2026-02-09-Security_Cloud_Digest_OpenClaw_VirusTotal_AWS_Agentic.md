@@ -8,6 +8,7 @@ excerpt: "OpenClaw VirusTotal 통합으로 AI 에이전트 공급망 보안 강�
 image: /assets/images/2026-02-09-Security_Cloud_Digest_OpenClaw_VirusTotal_AWS_Agentic.svg
 author: Twodragon
 toc: true
+schema_type: Article
 ---
 
 ## 서론

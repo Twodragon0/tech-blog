@@ -8,6 +8,7 @@ excerpt: "Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네
 image: /assets/images/2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS.svg
 author: Twodragon
 toc: true
+schema_type: Article
 ---
 
 ## 서론

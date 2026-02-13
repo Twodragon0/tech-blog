@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-02-12-Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent.svg
 image_alt: "Tech Security Weekly Digest February 12 2026 AI Cloud Security"
 toc: true
+schema_type: Article
 ---
 
 {% include ai-summary-card.html
@@ -37,7 +38,7 @@ toc: true
 
 ### 위험 스코어카드
 
-```
+```text
 +================================================================+
 |          2026-02-12 주간 보안 위험 스코어카드                      |
 +================================================================+
@@ -57,7 +58,7 @@ toc: true
 
 ### 경영진 대시보드
 
-```
+```text
 +================================================================+
 |        보안 현황 대시보드 - 2026년 02월 12일                         |
 +================================================================+

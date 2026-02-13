@@ -42,7 +42,7 @@
   <text x="130" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
 
   <rect x="980" y="30" width="180" height="36" rx="18" fill="url(#accentGradient)" filter="url(#shadow)"/>
-  <text x="1070" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 10, 2026</text>
+  <text x="1070" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 13, 2026</text>
 
   <text x="600" y="120" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">에이전틱 AI 보안 2026: AI Agent 공격 벡터와 방어 아키텍처 완...</text>
   <text x="600" y="160" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">AI</text>

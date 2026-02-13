@@ -8,6 +8,7 @@ excerpt: "Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K
 image: /assets/images/2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin.svg
 author: Twodragon
 toc: true
+schema_type: Article
 ---
 
 ## 서론

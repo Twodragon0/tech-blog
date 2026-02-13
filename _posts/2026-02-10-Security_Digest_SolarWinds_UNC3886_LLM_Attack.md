@@ -8,6 +8,7 @@ excerpt: "SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 �
 image: /assets/images/2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.svg
 author: Twodragon
 toc: true
+schema_type: Article
 ---
 
 ## 서론
