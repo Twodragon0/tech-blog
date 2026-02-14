@@ -238,7 +238,7 @@ def share_to_facebook(message: str, post_url: str) -> bool:
         url = f"https://graph.facebook.com/v18.0/{page_id}/feed"
         payload = {"message": message, "link": post_url, "access_token": access_token}
 
-        response = requests_client.post(url, data=payload)
+        response = requests_client.post(url, data=payload, timeout=15)
         result = response.json()
 
         if "id" in result:
@@ -361,7 +361,9 @@ def share_to_linkedin(
             "visibility": {"com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"},
         }
 
-        response = requests_client.post(url, headers=headers, json=payload_article)
+        response = requests_client.post(
+            url, headers=headers, json=payload_article, timeout=15
+        )
 
         if response.status_code == 201:
             print(f"LinkedIn: ✅ Successfully posted with link preview and image!")
@@ -390,7 +392,9 @@ def share_to_linkedin(
                 "visibility": {"com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"},
             }
 
-            response = requests_client.post(url, headers=headers, json=payload_text)
+            response = requests_client.post(
+                url, headers=headers, json=payload_text, timeout=15
+            )
 
             if response.status_code == 201:
                 print(f"LinkedIn: ✅ Successfully posted with link!")
