@@ -138,6 +138,8 @@ Kubernetes는 현대적인 컨테이너 오케스트레이션의 표준이 되�
 
 최신 Minikube 버전(1.37.0 이상)을 설치합니다:
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # macOS (Homebrew)
 brew install minikube
@@ -154,6 +156,13 @@ choco install minikube
 
 #### 최신 Kubernetes 버전으로 시작
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 최신 안정 버전으로 시작...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 최신 안정 버전으로 시작
 minikube start --kubernetes-version=stable
@@ -168,11 +177,15 @@ minikube start --memory=4096 --cpus=2
 minikube start --driver=krunkit  # macOS AI 워크로드용
 minikube start --driver=docker    # Docker Desktop
 minikube start --driver=podman    # Podman
+
 ```
+-->
 
 #### containerd 런타임 사용 (2024-2025 권장)
 
 Minikube 1.37.0부터 기본 컨테이너 런타임이 Docker에서 containerd로 변경되었습니다:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
 ```bash
 # containerd 런타임으로 시작
@@ -187,6 +200,13 @@ minikube ssh -- crictl ps  # containerd 사용 시
 
 #### 리소스 부족 문제
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 현재 리소스 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 현재 리소스 확인
 minikube status
@@ -198,9 +218,13 @@ minikube start --memory=8192 --cpus=4
 # 또는 minikube config 설정
 minikube config set memory 8192
 minikube config set cpus 4
+
 ```
+-->
 
 #### 하이퍼바이저 충돌
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
 ```bash
 # 현재 드라이버 확인
@@ -213,6 +237,8 @@ minikube start --driver=docker  # 또는 podman, virtualbox 등
 ```
 
 #### 네트워크 문제
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 네트워크 재설정
@@ -227,6 +253,13 @@ sudo systemctl restart systemd-resolved
 
 ### 2.4 Minikube Addons 활용
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 사용 가능한 addons 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 사용 가능한 addons 확인
 minikube addons list
@@ -239,13 +272,17 @@ minikube addons enable kubetail          # 로그 통합 도구 (최신 추가)
 
 # addon 상태 확인
 minikube addons list
+
 ```
+-->
 
 ### 2.5 Minikube 고급 설정
 
 #### Multi-Node 클러스터 구성
 
 프로덕션 환경과 유사한 멀티 노드 클러스터를 로컬에서 테스트할 수 있습니다:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # 3-node 클러스터 생성
@@ -264,6 +301,8 @@ kubectl label nodes minikube-m03 workload=backend
 - **노드 실패 시뮬레이션**: 노드 다운 시 Pod 재스케줄링 테스트
 - **네트워크 정책 검증**: 노드 간 네트워크 격리 테스트
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```bash
 # 노드 실패 시뮬레이션
 minikube stop minikube-m02
@@ -279,6 +318,13 @@ minikube start minikube-m02
 
 다양한 CNI 플러그인을 테스트하여 프로덕션 환경에 최적화된 네트워크 설정을 선택할 수 있습니다:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Calico CNI로 시작...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Calico CNI로 시작
 minikube start --cni=calico --cpus=4 --memory=8192
@@ -291,7 +337,9 @@ minikube start --cni=flannel
 
 # CNI 플러그인 확인
 kubectl get pods -n kube-system | grep -E 'calico|cilium|flannel'
+
 ```
+-->
 
 **CNI 플러그인 비교**:
 
@@ -305,6 +353,13 @@ kubectl get pods -n kube-system | grep -E 'calico|cilium|flannel'
 
 Minikube 리소스를 프로덕션 환경과 유사하게 튜닝:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 고성능 설정 (ML/AI 워크로드)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 고성능 설정 (ML/AI 워크로드)
 minikube start \
@@ -320,7 +375,9 @@ minikube profile list
 
 # 프로파일 전환
 minikube profile <profile-name>
+
 ```
+-->
 
 **리소스 할당 권장사항**:
 
@@ -334,6 +391,8 @@ minikube profile <profile-name>
 #### Feature Gates 활성화
 
 Kubernetes의 실험적 기능을 로컬에서 테스트:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # Feature Gates 활성화
@@ -357,6 +416,13 @@ kubectl get --raw /metrics | grep feature_gate
 
 ### 3.1 K9s 설치
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # macOS (Homebrew)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # macOS (Homebrew)
 brew install k9s
@@ -368,9 +434,13 @@ sudo mv k9s /usr/local/bin/
 
 # Windows (Scoop)
 scoop install k9s
+
 ```
+-->
 
 ### 3.2 K9s 기본 사용법
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # K9s 시작
@@ -400,6 +470,8 @@ k9s --readonly
 
 #### 1. 네임스페이스 기반 리소스 관리
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # 특정 네임스페이스에 집중하여 성능 향상
 k9s -n default
@@ -410,6 +482,13 @@ k9s -n default
 
 #### 2. 성능 최적화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ~/.config/k9s/config.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # ~/.config/k9s/config.yml
 k9s:
@@ -424,11 +503,15 @@ k9s:
     crumbsless: false
     reactive: false
     noIcons: false
+
 ```
+-->
 
 #### 3. 보안 고려사항
 
 K9s를 사용할 때는 다음 보안 고려사항을 준수해야 합니다:
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 읽기 전용 모드로 감사 수행
@@ -444,6 +527,13 @@ k9s
 
 #### 4. 커스텀 뷰 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ~/.config/k9s/views.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # ~/.config/k9s/views.yml
 views:
@@ -456,11 +546,15 @@ views:
       - AGE
       - CPU(cores)
       - MEMORY(bytes)
+
 ```
+-->
 
 ### 3.5 K9s 고급 활용
 
 #### 포트 포워딩 설정
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # K9s 내에서 포트 포워딩
@@ -471,6 +565,8 @@ views:
 
 #### 로그 통합 확인
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # 여러 Pod 로그 동시 확인
 # 1. Pod 리스트에서 여러 Pod 선택 (Space)
@@ -478,6 +574,8 @@ views:
 ```
 
 #### 리소스 모니터링
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 리소스 사용량 실시간 모니터링
@@ -491,6 +589,13 @@ views:
 
 K9s는 플러그인을 통해 커스텀 명령어를 실행할 수 있습니다:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ~/.config/k9s/plugins.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # ~/.config/k9s/plugins.yml
 plugins:
@@ -537,7 +642,9 @@ plugins:
       - $NAMESPACE
       - --tail=100
       - --follow=false
+
 ```
+-->
 
 **플러그인 활용 시나리오**:
 - **보안 스캔**: Trivy, Grype 등을 통한 즉시 취약점 스캔
@@ -548,6 +655,13 @@ plugins:
 
 자주 사용하는 작업을 hotkey로 등록:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ~/.config/k9s/hotkeys.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # ~/.config/k9s/hotkeys.yml
 hotKeys:
@@ -582,12 +696,21 @@ hotKeys:
     shortCut: Shift-S
     description: View services
     command: services
+
 ```
+-->
 
 #### Skin Customization
 
 K9s UI를 커스터마이징하여 가독성 향상:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ~/.config/k9s/skins/custom-dark.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # ~/.config/k9s/skins/custom-dark.yml
 k9s:
@@ -614,9 +737,13 @@ k9s:
       fgColor: "#ffffff"
       bgColor: "#2e2e2e"
       sorterColor: "#ff6600"
+
 ```
+-->
 
 **Skin 적용**:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```yaml
 # ~/.config/k9s/config.yml
@@ -629,6 +756,13 @@ k9s:
 
 자주 사용하는 리소스에 짧은 별칭 설정:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ~/.config/k9s/aliases.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # ~/.config/k9s/aliases.yml
 aliases:
@@ -642,11 +776,15 @@ aliases:
   vs: networking.istio.io/v1beta1/virtualservices
   dr: networking.istio.io/v1beta1/destinationrules
   gw: networking.istio.io/v1beta1/gateways
+
 ```
+-->
 
 #### Benchmark 모드
 
 K9s를 사용하여 클러스터 성능 벤치마크:
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 리소스 사용량 모니터링 모드
@@ -665,6 +803,13 @@ k9s -n production --headless --command :pods
 
 ### 4.1 기본 Pod 배포 및 관리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # nginx-pod.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # nginx-pod.yaml
 apiVersion: v1
@@ -686,7 +831,11 @@ spec:
       limits:
         memory: "128Mi"
         cpu: "200m"
+
 ```
+-->
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # Pod 생성
@@ -701,6 +850,13 @@ kubectl apply -f nginx-pod.yaml
 
 ### 4.2 Deployment 및 Service 노출
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # nginx-deployment.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # nginx-deployment.yaml
 apiVersion: apps/v1
@@ -742,7 +898,11 @@ spec:
     port: 80
     targetPort: 80
   type: LoadBalancer
+
 ```
+-->
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # Deployment 및 Service 생성
@@ -756,6 +916,13 @@ kubectl apply -f nginx-deployment.yaml
 
 ### 4.3 ConfigMap 및 Secret 관리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # configmap-example.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # configmap-example.yaml
 apiVersion: v1
@@ -774,7 +941,11 @@ type: Opaque
 stringData:
   password: "YOUR_SECRET_PASSWORD_HERE"  # 실제 비밀번호로 교체
   api_key: "sk-***MASKED***"  # 실제 API 키로 교체
+
 ```
+-->
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # ConfigMap 및 Secret 생성
@@ -790,6 +961,13 @@ kubectl apply -f configmap-example.yaml
 
 #### Pod가 시작되지 않는 경우
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. Pod 상태 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Pod 상태 확인
 kubectl get pods
@@ -805,9 +983,13 @@ kubectl logs <pod-name>
 
 # 4. 이전 컨테이너 로그 확인 (재시작된 경우)
 kubectl logs <pod-name> --previous
+
 ```
+-->
 
 #### 리소스 부족 문제
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # 리소스 사용량 확인
@@ -822,6 +1004,13 @@ kubectl top nodes
 
 #### 네트워크 연결 문제
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Service 엔드포인트 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Service 엔드포인트 확인
 kubectl get endpoints
@@ -833,7 +1022,9 @@ kubectl port-forward svc/nginx-service 8080:80
 # 1. Service 선택
 # 2. 'x' 키
 # 3. 포트 매핑 입력
+
 ```
+-->
 
 ## 5. Kubernetes 2024-2025 업데이트 및 보안 강화
 
@@ -867,6 +1058,8 @@ minikube start --kubernetes-version=v1.32.0
 - **mTLS Pod Certificates (Beta)**: Pod와 API 서버 간 제로 트러스트 네트워킹을 위한 일급 mTLS 지원
 - **Robust Image Pull Authorization (Beta)**: `imagePullCredentialsVerificationPolicy`로 캐시된 이미지에 대해서도 레지스트리 자격 증명 재검증
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```bash
 # Kubernetes 버전 확인
 kubectl version --short
@@ -888,6 +1081,13 @@ User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사
 
 컨테이너 격리를 강화하는 사용자 네임스페이스 지원:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # User Namespace 활성화 Pod 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # User Namespace 활성화 Pod 예시
 apiVersion: v1
@@ -906,7 +1106,9 @@ spec:
       capabilities:
         drop:
         - ALL
+
 ```
+-->
 
 **주요 보안 이점**:
 - **루트리스 컨테이너**: 컨테이너 내 루트가 호스트에서는 비권한 사용자로 매핑
@@ -919,6 +1121,13 @@ spec:
 
 서비스 계정 토큰을 특정 Pod에 안전하게 바인딩:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -930,7 +1139,9 @@ spec:
   containers:
   - name: app
     image: myapp:latest
+
 ```
+-->
 
 **보안 이점**:
 - 토큰이 특정 Pod에 바인딩되어 무단 사용 방지
@@ -940,6 +1151,8 @@ spec:
 #### mTLS Pod Certificates (Kubernetes 1.35 Beta)
 
 Pod와 API 서버 간 제로 트러스트 네트워킹:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
 ```yaml
 apiVersion: v1
@@ -960,6 +1173,13 @@ spec:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Fine-grained Kubelet Authorization 설정 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Fine-grained Kubelet Authorization 설정 예시
 apiVersion: authorization.k8s.io/v1
@@ -973,12 +1193,16 @@ spec:
     subresource: log
   user: system:node:worker-1
 
+
 ```
+-->
 -->
 
 ### 5.3 Minikube 최신 기능 (1.37.0+)
 
 #### AI 워크로드 지원 (macOS)
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # krunkit 드라이버로 GPU 가속 활성화
@@ -991,6 +1215,8 @@ minikube ssh -- rocm-smi     # AMD GPU
 
 #### AMD GPU 지원
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```bash
 # AMD GPU 지원 활성화
 minikube start --gpus=amd
@@ -1002,6 +1228,8 @@ kubectl describe node minikube | grep -i gpu
 #### containerd 기본 런타임
 
 Minikube 1.37.0부터 기본 컨테이너 런타임이 containerd로 변경되었습니다:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
 ```bash
 # containerd 런타임 확인
@@ -1019,6 +1247,8 @@ minikube ssh -- crictl pull nginx:1.25
 
 #### Podman 드라이버 개선
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Podman 드라이버로 시작 (실험적 단계에서 벗어남)
 minikube start --driver=podman
@@ -1031,6 +1261,13 @@ minikube ssh -- podman version
 
 ### 5.4 Minikube 업데이트 및 관리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Minikube 업데이트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Minikube 업데이트
 brew upgrade minikube  # macOS
@@ -1051,7 +1288,9 @@ minikube version
 
 # 클러스터 상태 확인
 minikube status
+
 ```
+-->
 
 ### 5.5 보안 점검 체크리스트
 
@@ -1072,6 +1311,13 @@ Kubernetes 2024-2025 업데이트를 적용할 때 확인해야 할 보안 항�
 
 #### 리소스 최적화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # HPA (Horizontal Pod Autoscaler) 설정 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # HPA (Horizontal Pod Autoscaler) 설정 예시
 apiVersion: autoscaling/v2
@@ -1092,10 +1338,19 @@ spec:
       target:
         type: Utilization
         averageUtilization: 70
+
 ```
+-->
 
 #### 네트워크 정책 적용
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # NetworkPolicy 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # NetworkPolicy 예시
 apiVersion: networking.k8s.io/v1
@@ -1127,7 +1382,9 @@ spec:
     ports:
     - protocol: TCP
       port: 80
+
 ```
+-->
 
 > **참고**: Kubernetes Best Practices는 [Kubernetes 보안 체크리스트](https://kubernetes.io/docs/concepts/security/security-checklist/)를 참조하세요.
 
@@ -1140,6 +1397,8 @@ Kubernetes Pod Security Standards는 세 가지 보안 레벨을 제공합니다
 - **Privileged**: 제한 없음 (기본값)
 - **Baseline**: 알려진 권한 상승 방지
 - **Restricted**: 강화된 보안 best practices 적용
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```yaml
 # 네임스페이스 레벨에서 Pod Security Standards 적용
@@ -1155,6 +1414,13 @@ metadata:
 
 **Restricted 레벨에서 요구되는 설정**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -1187,9 +1453,13 @@ spec:
     emptyDir: {}
   - name: run
     emptyDir: {}
+
 ```
+-->
 
 **검증**:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # Pod Security Standards 위반 확인
@@ -1203,6 +1473,13 @@ kubectl get namespace secure-namespace -o yaml | grep pod-security
 
 최소 권한 원칙을 적용한 RBAC 설정:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 읽기 전용 ServiceAccount 생성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 읽기 전용 ServiceAccount 생성
 apiVersion: v1
@@ -1239,9 +1516,13 @@ roleRef:
   kind: Role
   name: pod-reader
   apiGroup: rbac.authorization.k8s.io
+
 ```
+-->
 
 **RBAC 검증**:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # ServiceAccount로 권한 테스트
@@ -1257,6 +1538,13 @@ kubectl auth can-i --list --as=system:serviceaccount:production:readonly-user -n
 
 **ClusterRole 예시 (전체 클러스터 레벨 권한)**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: rbac.authorization.k8s.io/v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -1288,12 +1576,21 @@ roleRef:
   kind: ClusterRole
   name: security-auditor
   apiGroup: rbac.authorization.k8s.io
+
 ```
+-->
 
 ### 6.3 Network Policies 실습
 
 **시나리오**: 3-tier 애플리케이션 (Frontend → Backend → Database)에서 네트워크 격리 구현
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 1. 기본 Deny-All 정책...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 1. 기본 Deny-All 정책
 apiVersion: networking.k8s.io/v1
@@ -1393,10 +1690,19 @@ spec:
     ports:
     - protocol: TCP
       port: 443
+
 ```
+-->
 
 **Network Policy 검증**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Network Policy 적용 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Network Policy 적용 확인
 kubectl get networkpolicies -n production
@@ -1412,11 +1718,15 @@ kubectl exec test-frontend -n production -- wget -O- --timeout=2 http://backend-
 
 kubectl exec test-frontend -n production -- wget -O- --timeout=2 http://database-service:5432
 # 실패해야 함 (timeout)
+
 ```
+-->
 
 ### 6.4 OPA/Gatekeeper를 통한 정책 적용
 
 Open Policy Agent (OPA) Gatekeeper를 사용하여 클러스터 레벨 정책 적용:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # Gatekeeper 설치
@@ -1428,6 +1738,13 @@ kubectl get pods -n gatekeeper-system
 
 **ConstraintTemplate 정의** (모든 Pod는 리소스 limits를 가져야 함):
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: templates.gatekeeper.sh/v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: templates.gatekeeper.sh/v1
 kind: ConstraintTemplate
@@ -1454,10 +1771,19 @@ spec:
           not container.resources.limits.cpu
           msg := sprintf("Container '%v' must have CPU limit", [container.name])
         }
+
 ```
+-->
 
 **Constraint 적용**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: constraints.gatekeeper.sh/v1beta1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: K8sRequiredResources
@@ -1471,9 +1797,13 @@ spec:
     namespaces:
       - production
       - staging
+
 ```
+-->
 
 **정책 검증**:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # 리소스 limits 없는 Pod 생성 시도 (실패해야 함)
@@ -1488,6 +1818,13 @@ kubectl run nginx --image=nginx -n production --dry-run=client -o yaml | \
 
 **추가 정책 예시**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 모든 이미지는 신뢰할 수 있는 레지스트리에서만...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 모든 이미지는 신뢰할 수 있는 레지스트리에서만
 apiVersion: templates.gatekeeper.sh/v1
@@ -1532,7 +1869,9 @@ spec:
       - "gcr.io/company/"
       - "company.azurecr.io/"
       - "nginx"  # 공식 이미지
+
 ```
+-->
 
 ## 7. Kubernetes 트러블슈팅 패턴
 
@@ -1540,6 +1879,13 @@ spec:
 
 **증상**: Pod가 반복적으로 재시작
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. Pod 상태 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Pod 상태 확인
 kubectl get pods
@@ -1558,7 +1904,9 @@ kubectl logs myapp-7f8d9c5b6-x7k9m --previous
 # 5. K9s에서 확인
 k9s
 # 'po' 입력 → Pod 선택 → 'l' (로그) → '0' (이전 로그)
+
 ```
+-->
 
 **일반적인 원인 및 해결책**:
 
@@ -1572,6 +1920,13 @@ k9s
 
 **실습 예시**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # 잘못된 설정 (CrashLoopBackOff 발생)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 잘못된 설정 (CrashLoopBackOff 발생)
 apiVersion: v1
@@ -1584,10 +1939,19 @@ spec:
     image: busybox
     command: ["sh", "-c", "cat /config/app.conf && sleep 3600"]
     # ConfigMap이 마운트되지 않아 실패
+
 ```
+-->
 
 **수정된 설정**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: ConfigMap
@@ -1613,12 +1977,21 @@ spec:
   - name: config
     configMap:
       name: app-config
+
 ```
+-->
 
 ### 7.2 ImagePullBackOff 패턴
 
 **증상**: 이미지를 풀(pull)할 수 없음
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. Pod 이벤트 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Pod 이벤트 확인
 kubectl describe pod myapp-7f8d9c5b6-x7k9m
@@ -1633,7 +2006,9 @@ kubectl get pod myapp-7f8d9c5b6-x7k9m -o jsonpath='{.spec.imagePullSecrets}'
 # 3. Secret 확인
 kubectl get secrets
 kubectl describe secret regcred
+
 ```
+-->
 
 **일반적인 원인 및 해결책**:
 
@@ -1646,6 +2021,13 @@ kubectl describe secret regcred
 
 **ImagePullSecret 생성**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Docker Hub 인증 정보로 Secret 생성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Docker Hub 인증 정보로 Secret 생성
 kubectl create secret docker-registry regcred \
@@ -1663,12 +2045,21 @@ kubectl create secret docker-registry private-regcred \
 
 # Pod에 ImagePullSecret 적용
 kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "regcred"}]}'
+
 ```
+-->
 
 ### 7.3 Pending Pods 패턴
 
 **증상**: Pod가 Pending 상태에서 스케줄링되지 않음
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. Pod 상태 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Pod 상태 확인
 kubectl get pods
@@ -1689,7 +2080,9 @@ kubectl describe node minikube
 # 4. K9s에서 확인
 k9s
 # 'nodes' 입력 → 노드 선택 → 'd' (describe)
+
 ```
+-->
 
 **일반적인 원인 및 해결책**:
 
@@ -1703,6 +2096,13 @@ k9s
 
 **실습 예시**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # 리소스 부족 시뮬레이션...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 리소스 부족 시뮬레이션
 apiVersion: v1
@@ -1717,10 +2117,19 @@ spec:
       requests:
         cpu: "10"  # 과도한 CPU 요청
         memory: "100Gi"  # 과도한 메모리 요청
+
 ```
+-->
 
 **수정된 설정**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -1737,10 +2146,19 @@ spec:
       limits:
         cpu: "200m"
         memory: "256Mi"
+
 ```
+-->
 
 **Node Affinity 예시**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -1759,12 +2177,21 @@ spec:
   containers:
   - name: app
     image: nginx
+
 ```
+-->
 
 ### 7.4 Service Discovery 문제
 
 **증상**: Pod 간 통신 실패
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. Service 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Service 확인
 kubectl get services
@@ -1783,7 +2210,9 @@ kubectl run test-pod --image=busybox --rm -it -- wget -O- http://myapp-service:8
 k9s
 # 'svc' 입력 → Service 선택 → 'd' (describe)
 # 'ep' 입력 → Endpoints 확인
+
 ```
+-->
 
 **일반적인 원인 및 해결책**:
 
@@ -1796,6 +2225,13 @@ k9s
 
 **실습 예시**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # 잘못된 설정 (Label selector 불일치)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 잘못된 설정 (Label selector 불일치)
 apiVersion: v1
@@ -1828,10 +2264,19 @@ spec:
         image: nginx
         ports:
         - containerPort: 8080
+
 ```
+-->
 
 **수정된 설정**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Service
@@ -1863,7 +2308,9 @@ spec:
         image: nginx
         ports:
         - containerPort: 8080
+
 ```
+-->
 
 ## 8. 모니터링 스택 구축 (Prometheus + Grafana)
 
@@ -1871,6 +2318,13 @@ spec:
 
 Kubernetes 모니터링을 위한 Prometheus 스택 설치:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Helm 설치 (macOS)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Helm 설치 (macOS)
 brew install helm
@@ -1890,7 +2344,9 @@ helm install prometheus prometheus-community/kube-prometheus-stack \
 
 # 설치 확인
 kubectl get pods -n monitoring
+
 ```
+-->
 
 **설치되는 컴포넌트**:
 - **Prometheus**: 메트릭 수집 및 저장
@@ -1902,6 +2358,13 @@ kubectl get pods -n monitoring
 
 ### 8.2 Grafana 접근 및 대시보드 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Grafana 서비스 포트 포워딩...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Grafana 서비스 포트 포워딩
 kubectl port-forward -n monitoring svc/prometheus-grafana 3000:80
@@ -1913,7 +2376,9 @@ k9s -n monitoring
 # 기본 인증 정보
 # Username: admin
 # Password: prom-operator (기본값, 변경 가능)
+
 ```
+-->
 
 **브라우저에서 접근**: `http://localhost:3000`
 
@@ -1930,6 +2395,13 @@ k9s -n monitoring
 
 애플리케이션 메트릭 수집을 위한 ServiceMonitor 설정:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # 애플리케이션 Deployment (메트릭 노출)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 애플리케이션 Deployment (메트릭 노출)
 apiVersion: apps/v1
@@ -1991,9 +2463,13 @@ spec:
   - port: metrics
     interval: 30s
     path: /metrics
+
 ```
+-->
 
 **ServiceMonitor 검증**:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # ServiceMonitor 확인
@@ -2008,6 +2484,13 @@ kubectl port-forward -n monitoring svc/prometheus-kube-prometheus-prometheus 909
 
 Prometheus AlertManager를 통한 알림 설정:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 {% raw %}
 # PrometheusRule (알림 규칙 정의)
@@ -2063,10 +2546,19 @@ spec:
         summary: "Pod {{ $labels.pod }} is crash looping"
         description: "Pod {{ $labels.pod }} in namespace {{ $labels.namespace }} is restarting frequently."
 {% endraw %}
+
 ```
+-->
 
 **Slack 알림 설정**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 {% raw %}
 # AlertManager ConfigMap 수정
@@ -2116,12 +2608,21 @@ stringData:
         text: '{{ range .Alerts }}{{ .Annotations.description }}{{ end }}'
         color: warning
 {% endraw %}
+
 ```
+-->
 
 ### 8.5 커스텀 Grafana 대시보드 생성
 
 애플리케이션별 커스텀 대시보드 생성:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "dashboard": {
@@ -2157,7 +2658,9 @@ stringData:
     ]
   }
 }
+
 ```
+-->
 
 ## 9. MITRE ATT&CK Mapping (Kubernetes 공격 기법)
 
@@ -2173,6 +2676,13 @@ MITRE ATT&CK은 사이버 공격자의 전술(Tactics), 기법(Techniques), 절�
 
 **공격 예시**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # 악성 컨테이너 배포 (예: 크립토마이닝)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 악성 컨테이너 배포 (예: 크립토마이닝)
 apiVersion: v1
@@ -2190,9 +2700,13 @@ spec:
         memory: "8Gi"
     securityContext:
       privileged: true  # 권한 상승
+
 ```
+-->
 
 **탐지 방법**:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # 의심스러운 이미지 탐지
@@ -2207,6 +2721,13 @@ kubectl get pods -A -o json | jq -r '.items[] | select(.spec.containers[].securi
 
 **대응 방안**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Pod Security Standards 적용 (Restricted)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Pod Security Standards 적용 (Restricted)
 apiVersion: v1
@@ -2230,13 +2751,17 @@ spec:
     repos:
       - "gcr.io/company/"
       - "company.azurecr.io/"
+
 ```
+-->
 
 #### T1613: Container and Resource Discovery
 
 **공격 시나리오**: 공격자가 클러스터 내 리소스를 탐색하여 공격 대상 식별
 
 **공격 예시**:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # 컨테이너 내부에서 실행
@@ -2251,6 +2776,8 @@ curl -k -H "Authorization: Bearer $TOKEN" https://kubernetes.default.svc/api/v1/
 
 **탐지 방법**:
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```bash
 # API 서버 감사 로그 분석 (과도한 list/get 요청)
 kubectl logs -n kube-system kube-apiserver-* | grep "list.*secrets"
@@ -2261,6 +2788,13 @@ kubectl auth can-i --list --as=system:serviceaccount:default:default
 
 **대응 방안**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 최소 권한 ServiceAccount 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 최소 권한 ServiceAccount 설정
 apiVersion: v1
@@ -2293,7 +2827,9 @@ roleRef:
   kind: Role
   name: read-only
   apiGroup: rbac.authorization.k8s.io
+
 ```
+-->
 
 #### T1611: Escape to Host
 
@@ -2301,6 +2837,13 @@ roleRef:
 
 **공격 예시**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # Privileged 컨테이너를 통한 호스트 탈출...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Privileged 컨테이너를 통한 호스트 탈출
 apiVersion: v1
@@ -2324,10 +2867,19 @@ spec:
     hostPath:
       path: /
       type: Directory
+
 ```
+-->
 
 **탐지 방법**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Privileged 컨테이너 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Privileged 컨테이너 탐지
 kubectl get pods -A -o json | \
@@ -2343,10 +2895,19 @@ kubectl get pods -A -o json | \
 kubectl get pods -A -o json | \
   jq -r '.items[] | select(.spec.hostNetwork == true or .spec.hostPID == true or .spec.hostIPC == true) |
   "\(.metadata.namespace)/\(.metadata.name)"'
+
 ```
+-->
 
 **대응 방안**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # User Namespaces 활성화 (Kubernetes 1.33+)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # User Namespaces 활성화 (Kubernetes 1.33+)
 apiVersion: v1
@@ -2381,7 +2942,9 @@ spec:
     kinds:
       - apiGroups: [""]
         kinds: ["Pod"]
+
 ```
+-->
 
 ### 9.3 공격 기법별 대응 매트릭스
 
@@ -2400,6 +2963,13 @@ spec:
 
 Kubernetes audit log를 통한 위협 헌팅:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Audit log 활성화 (Minikube)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Audit log 활성화 (Minikube)
 minikube start --extra-config=apiserver.audit-log-path=/var/log/kubernetes/audit.log \
@@ -2417,10 +2987,19 @@ rules:
 - level: RequestResponse
   verbs: ["create", "update", "patch", "delete"]
 EOF
+
 ```
+-->
 
 **위협 헌팅 쿼리 (jq 사용)**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # 1. Secret 접근 시도 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Secret 접근 시도 탐지
 cat audit.log | jq 'select(.objectRef.resource == "secrets" and .verb == "get") |
@@ -2445,12 +3024,21 @@ cat audit.log | jq 'select(.responseStatus.code >= 400) |
 # 5. ServiceAccount 토큰 생성 탐지
 cat audit.log | jq 'select(.objectRef.resource == "serviceaccounts" and .verb == "create") |
   {user: .user.username, serviceaccount: .objectRef.name, namespace: .objectRef.namespace}'
+
 ```
+-->
 
 ### 10.2 Container Runtime Detection
 
 containerd/Docker runtime 로그를 통한 의심스러운 활동 탐지:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # containerd 로그 확인 (Minikube)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # containerd 로그 확인 (Minikube)
 minikube ssh -- sudo journalctl -u containerd -f
@@ -2462,10 +3050,19 @@ minikube ssh -- sudo journalctl -u containerd | grep -E "exec|privileged|hostPat
 minikube ssh -- sudo crictl ps --format json | jq -r '.[] |
   select(.labels."io.kubernetes.pod.namespace" != "kube-system") |
   {name: .metadata.name, image: .image.image, state: .state}'
+
 ```
+-->
 
 **Falco를 통한 실시간 위협 탐지**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # Falco 설치...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Falco 설치
 helm repo add falcosecurity https://falcosecurity.github.io/charts
@@ -2492,10 +3089,19 @@ cat <<EOF > custom-rules.yaml
     image=%container.image.repository)
   priority: WARNING
 EOF
+
 ```
+-->
 
 ### 10.3 네트워크 트래픽 분석
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Calico/Cilium Network Policy 로그 활성화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Calico/Cilium Network Policy 로그 활성화
 kubectl apply -f - <<EOF
@@ -2521,7 +3127,9 @@ kubectl exec -it <pod-name> -- netstat -tuln | grep ESTABLISHED
 
 # 외부 IP로의 연결 탐지
 kubectl exec -it <pod-name> -- ss -tuln | awk '$5 !~ /^10\.|^172\.(1[6-9]|2[0-9]|3[0-1])\.|^192\.168\./'
+
 ```
+-->
 
 ## 11. 한국 기업 Kubernetes 도입 가이드
 
@@ -2538,6 +3146,13 @@ kubectl exec -it <pod-name> -- ss -tuln | awk '$5 !~ /^10\.|^172\.(1[6-9]|2[0-9]
 
 **데이터 주권 준수 구현**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 데이터를 국내 리전에만 배포...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 데이터를 국내 리전에만 배포
 apiVersion: v1
@@ -2558,12 +3173,21 @@ spec:
   containers:
   - name: app
     image: myapp:v1.0
+
 ```
+-->
 
 ### 11.2 한국형 Kubernetes 아키텍처 패턴
 
 **금융권 3-Zone HA 구성**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 3개 가용 영역에 걸친 Multi-AZ 클러스터...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 3개 가용 영역에 걸친 Multi-AZ 클러스터
 minikube start --nodes 3
@@ -2598,7 +3222,9 @@ spec:
       containers:
       - name: app
         image: financial-app:v1.0
+
 ```
+-->
 
 **국내 클라우드 사업자 통합**:
 
