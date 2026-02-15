@@ -14,6 +14,7 @@ keywords: [Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps]
 author: "Yongho Ha"
 certifications: [ckad, cka]
 schema_type: Article
+comments: true
 ---
 
 <div class="ai-summary-card">

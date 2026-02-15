@@ -5,8 +5,12 @@ date: 2026-02-10 13:10:00 +0900
 categories: [devops, devsecops]
 tags: [DevOps-Digest, Blockchain-Digest, CNCF, Kubernetes, Cluster-API, Chainalysis, Bitcoin]
 excerpt: "CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트, Chainalysis Hexagate MegaETH 보안, Bitcoin $70K 회복"
+description: "CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트, Chainalysis Hexagate MegaETH 보안, Bitcoin $70K 회복"
+keywords: [DevOps-Digest, Blockchain-Digest, CNCF, Cluster-API, Chainalysis, Bitcoin, Kubernetes]
 image: /assets/images/2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.svg
 author: Twodragon
+comments: true
+image_alt: "DevOps Blockchain Digest Feb 10 2026 CNCF Velocity Cluster API Chainalysis"
 toc: true
 schema_type: Article
 ---

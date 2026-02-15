@@ -139,6 +139,8 @@ AWS Control Tower는 **멀티 계정 거버넌스 자동화**를, ZTNA는 **경�
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```
 AWS Control Tower Components:
 - Landing Zone (Base Environment)
@@ -167,6 +169,13 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 
 #### 2.2.1 Landing Zone 구성 요소
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                     AWS Organizations (Root)                     │
@@ -192,7 +201,9 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 │  │  ✓ Monitor CloudTrail changes                            │  │
 │  └────────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
+
 ```
+-->
 
 #### 2.2.2 핵심 계정 역할
 
@@ -208,6 +219,13 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 
 **환경별 OU 구성 예시:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> Organizations:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Organizations:
   Root:
@@ -264,7 +282,9 @@ Organizations:
         SCPs:
           - MaximalRestrictions
           - AutoShutdown
+
 ```
+-->
 
 ### 2.3 Guardrails 완전 분석
 
@@ -281,6 +301,13 @@ Guardrails는 Control Tower의 **정책 엔진**으로, 다음 두 가지 유형
 
 Control Tower가 자동으로 적용하는 필수 guardrails:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> Mandatory Guardrails:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Mandatory Guardrails:
   1. "Disallow policy changes to log archive":
@@ -307,10 +334,19 @@ Mandatory Guardrails:
       Type: Preventive
       Enforced: true
       Reason: "리소스 변경 추적"
+
 ```
+-->
 
 #### 2.3.3 권장 Guardrails (Strongly Recommended)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> Recommended Guardrails:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Recommended Guardrails:
   1. "Enable MFA for root user":
@@ -342,12 +378,21 @@ Recommended Guardrails:
       ConfigRule: rds-storage-encrypted
       Impact: "High"
       ISMS-P: "암호화-2.8.3"
+
 ```
+-->
 
 #### 2.3.4 선택적 Guardrails (Elective)
 
 조직의 요구사항에 따라 선택 적용:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> Elective Guardrails:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Elective Guardrails:
   1. "Disallow creation of access keys for root user":
@@ -369,7 +414,9 @@ Elective Guardrails:
       Type: Preventive
       SCP: AllowedInstanceTypes
       Use-Case: "비용 통제"
+
 ```
+-->
 
 ### 2.4 SCP (Service Control Policy) 실전 예제
 
@@ -383,6 +430,13 @@ Elective Guardrails:
 
 **예제 1: 특정 리전만 허용**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -408,10 +462,19 @@ Elective Guardrails:
     }
   ]
 }
+
 ```
+-->
 
 **예제 2: S3 Public Access 완전 차단**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -447,10 +510,19 @@ Elective Guardrails:
     }
   ]
 }
+
 ```
+-->
 
 **예제 3: Root 사용자 작업 차단 (긴급 상황 제외)**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -471,10 +543,19 @@ Elective Guardrails:
     }
   ]
 }
+
 ```
+-->
 
 **예제 4: 비용 최적화 - 비승인 인스턴스 타입 차단**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -500,10 +581,19 @@ Elective Guardrails:
     }
   ]
 }
+
 ```
+-->
 
 **예제 5: 태그 정책 강제 (비용 할당 추적)**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -531,11 +621,15 @@ Elective Guardrails:
     }
   ]
 }
+
 ```
+-->
 
 #### 2.4.3 SCP 테스트 및 검증
 
 **IAM Policy Simulator 활용:**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # AWS CLI로 SCP 효과 시뮬레이션
@@ -549,6 +643,13 @@ aws iam simulate-principal-policy \
 
 **응답 예시:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "EvaluationResults": [
@@ -564,7 +665,9 @@ aws iam simulate-principal-policy \
     }
   ]
 }
+
 ```
+-->
 
 ### 2.5 Account Factory 설정 가이드
 
@@ -581,6 +684,13 @@ Account Factory는 **표준화된 AWS 계정을 자동으로 생성**하는 기�
 
 #### 2.5.2 계정 생성 자동화 (Terraform)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # terraform/account-factory.tf...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # terraform/account-factory.tf
 
@@ -634,10 +744,19 @@ data "aws_servicecatalog_product" "account_factory" {
 data "aws_servicecatalog_launch_paths" "account_factory" {
   product_id = data.aws_servicecatalog_product.account_factory.id
 }
+
 ```
+-->
 
 #### 2.5.3 계정 생성 후 자동화 (Lambda + EventBridge)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # lambda/account_post_creation.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # lambda/account_post_creation.py
 
@@ -725,9 +844,13 @@ def get_default_vpc(ec2_client):
         Filters=[{'Name': 'isDefault', 'Values': ['true']}]
     )
     return vpcs['Vpcs'][0]['VpcId']
+
 ```
+-->
 
 **EventBridge Rule 설정:**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```json
 {
@@ -758,6 +881,7 @@ Zero Trust는 "**절대 신뢰하지 말고, 항상 검증하라 (Never Trust, A
 
 #### 3.1.1 전통적 보안 vs Zero Trust
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │              전통적 경계 기반 보안 (Perimeter Security)          │
@@ -784,7 +908,9 @@ Zero Trust는 "**절대 신뢰하지 말고, 항상 검증하라 (Never Trust, A
 │   - 마이크로세그멘테이션으로 측면 이동 차단                       │
 │   - 최소 권한 원칙 (Least Privilege) 적용                       │
 └────────────────────────────────────────────────────────────────┘
+
 ```
+-->
 
 #### 3.1.2 Zero Trust 5대 원칙 (NIST SP 800-207)
 
@@ -802,6 +928,7 @@ Google의 BeyondCorp는 Zero Trust 구현의 대표적 사례입니다.
 
 #### 3.2.1 BeyondCorp 아키텍처
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                      BeyondCorp 구성 요소                        │
@@ -817,10 +944,19 @@ Google의 BeyondCorp는 Zero Trust 구현의 대표적 사례입니다.
 │  5. [Application Access] - 인가된 애플리케이션만 접근            │
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
+
 ```
+-->
 
 #### 3.2.2 Trust Score 계산 로직
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # BeyondCorp-style Trust Score Calculation...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # BeyondCorp-style Trust Score Calculation
 
@@ -872,7 +1008,9 @@ def allow_access(trust_score, resource_sensitivity):
     }
 
     return trust_score >= thresholds.get(resource_sensitivity, 100)
+
 ```
+-->
 
 ### 3.3 ZTNA vs VPN 비교
 
@@ -888,6 +1026,7 @@ def allow_access(trust_score, resource_sensitivity):
 
 **실제 공격 시나리오 비교:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [VPN 환경에서의 공격]
 1. 공격자가 직원 노트북 탈취
@@ -902,12 +1041,21 @@ def allow_access(trust_score, resource_sensitivity):
 3. 신뢰 점수 낮아 접근 차단
 4. 보안팀에 이상 행위 알림 전송
 5. 계정 자동 잠금 처리
+
 ```
+-->
 
 ### 3.4 AWS에서 ZTNA 구현 가이드
 
 #### 3.4.1 AWS Zero Trust 아키텍처
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌──────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                     AWS Zero Trust 아키텍처                       │
@@ -930,12 +1078,21 @@ def allow_access(trust_score, resource_sensitivity):
 │   └──────────────────────────────────────────────────────────┘   │
 │                                                                   │
 └──────────────────────────────────────────────────────────────────┘
+
 ```
+-->
 
 #### 3.4.2 IAM Identity Center (AWS SSO) 설정
 
 **1단계: Identity Source 구성**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # AWS CLI로 Identity Center 활성화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # AWS CLI로 Identity Center 활성화
 aws sso-admin create-instance \
@@ -947,10 +1104,19 @@ aws sso-admin create-application-assignment \
   --application-arn arn:aws:sso:::application/ssoins-xxxx/apl-xxxx \
   --principal-id ${AZURE_AD_GROUP_ID} \
   --principal-type GROUP
+
 ```
+-->
 
 **2단계: Permission Sets 생성 (ABAC 적용)**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -986,10 +1152,19 @@ aws sso-admin create-application-assignment \
     }
   ]
 }
+
 ```
+-->
 
 #### 3.4.3 VPC PrivateLink로 Private Access 구현
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # terraform/privatelink.tf...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # terraform/privatelink.tf
 
@@ -1044,12 +1219,21 @@ resource "aws_security_group" "endpoint_sg" {
     Name = "endpoint-security-group"
   }
 }
+
 ```
+-->
 
 #### 3.4.4 마이크로세그멘테이션 구현
 
 **Security Group 설계 원칙:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> Microsegmentation Strategy:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Microsegmentation Strategy:
   1. "One Security Group per Function":
@@ -1070,10 +1254,19 @@ Microsegmentation Strategy:
   4. "No 0.0.0.0/0 Rules":
       - 절대 모든 IP 허용하지 않음
       - ALB/NLB Security Group만 예외
+
 ```
+-->
 
 **실전 Security Group 예제:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # Web Tier Security Group...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # Web Tier Security Group
 resource "aws_security_group" "web" {
@@ -1145,7 +1338,9 @@ resource "aws_security_group" "database" {
 
   # No egress rules = No outbound connections
 }
+
 ```
+-->
 
 ### 3.5 Zero Trust 구현 로드맵
 
@@ -1183,6 +1378,13 @@ resource "aws_security_group" "database" {
 
 즉시 시작할 수 있는 Zero Trust 요소:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> Quick Wins:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Quick Wins:
   1. "MFA 100% 적용":
@@ -1209,7 +1411,9 @@ Quick Wins:
       Duration: "1일"
       Impact: "High"
       Tool: "CloudTrail + S3"
+
 ```
+-->
 
 ## 4. 실습 가이드: Control Tower 초기 설정
 
@@ -1227,6 +1431,8 @@ Control Tower를 설정하기 전에 다음 사항을 확인하세요:
 ### 4.2 Step-by-Step 설정 가이드
 
 #### Step 1: Control Tower 콘솔 접속
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # AWS CLI로 현재 계정 확인
@@ -1247,6 +1453,8 @@ aws sts get-caller-identity
 
 #### Step 2: Home Region 선택
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```yaml
 Recommended Regions:
   - ap-northeast-2 (서울): "한국 기업 권장"
@@ -1260,6 +1468,8 @@ Considerations:
 
 #### Step 3: Landing Zone 버전 선택
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # 최신 버전 확인 (AWS CLI)
 aws controltower list-landing-zones --max-results 10
@@ -1270,6 +1480,13 @@ Landing Zone Version: 3.3 (2025년 1월 기준)
 
 #### Step 4: 추가 리전 선택 (선택사항)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> Governed Regions:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Governed Regions:
   Primary:
@@ -1282,9 +1499,13 @@ Governed Regions:
 Cost Impact:
   - 리전당 AWS Config Rules 비용 발생
   - 예상 비용: 리전당 월 $50-100
+
 ```
+-->
 
 #### Step 5: Log Archive 계정 설정
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # Log Archive 계정 이메일 입력
@@ -1299,6 +1520,13 @@ Log Archive Account Email: aws-log-archive@company.com
 
 **S3 버킷 정책 예시 (자동 생성):**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -1328,9 +1556,13 @@ Log Archive Account Email: aws-log-archive@company.com
     }
   ]
 }
+
 ```
+-->
 
 #### Step 6: Audit 계정 설정
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # Audit 계정 이메일 입력
@@ -1345,6 +1577,8 @@ Audit Account Email: aws-audit@company.com
 
 **Audit 계정의 SNS 구독 예시:**
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # SNS Topic ARN (자동 생성)
 arn:aws:sns:ap-northeast-2:987654321098:aws-controltower-SecurityNotifications
@@ -1355,6 +1589,13 @@ arn:aws:sns:ap-northeast-2:987654321098:aws-controltower-SecurityNotifications
 
 #### Step 7: KMS 암호화 설정 (선택사항)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # terraform/kms.tf...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # terraform/kms.tf
 
@@ -1404,10 +1645,19 @@ resource "aws_kms_alias" "controltower" {
   name          = "alias/control-tower"
   target_key_id = aws_kms_key.controltower.key_id
 }
+
 ```
+-->
 
 #### Step 8: Landing Zone 생성 시작
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # 예상 소요 시간: 60-90분...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 예상 소요 시간: 60-90분
 
@@ -1425,9 +1675,13 @@ aws controltower get-landing-zone \
 #     }
 #   }
 # }
+
 ```
+-->
 
 **생성 과정 세부 단계:**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```
 [0-10분]  Organizations 구성
@@ -1443,6 +1697,13 @@ aws controltower get-landing-zone \
 
 #### Step 1: Organizations 구조 확인
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # Organizations 구조 출력...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Organizations 구조 출력
 aws organizations list-roots
@@ -1455,9 +1716,13 @@ aws organizations list-organizational-units-for-parent \
 #   │   ├── Log Archive
 #   │   └── Audit
 #   └── Sandbox OU
+
 ```
+-->
 
 #### Step 2: Guardrails 활성화 확인
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # 활성화된 Guardrails 목록
@@ -1473,6 +1738,13 @@ aws controltower list-enabled-controls \
 
 #### Step 3: CloudTrail 로깅 확인
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # CloudTrail이 정상 작동하는지 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # CloudTrail이 정상 작동하는지 확인
 aws cloudtrail get-trail-status \
@@ -1488,9 +1760,13 @@ aws cloudtrail get-trail-status \
 # Log Archive 계정의 S3 버킷 확인
 aws s3 ls s3://aws-controltower-logs-123456789012-ap-northeast-2/ \
   --profile log-archive
+
 ```
+-->
 
 #### Step 4: Security Hub 통합 확인
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # Audit 계정에서 Security Hub 상태 확인
@@ -1505,6 +1781,8 @@ aws guardduty list-detectors --profile audit
 
 #### Step 1: Service Catalog 접속
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # Service Catalog에서 Account Factory Product 확인
 aws servicecatalog search-products \
@@ -1515,6 +1793,13 @@ aws servicecatalog search-products \
 
 #### Step 2: 계정 생성 파라미터 입력
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> Account Creation Parameters:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Account Creation Parameters:
   AccountEmail: "dev-team-a@company.com"
@@ -1528,9 +1813,13 @@ Optional Parameters:
   VPCOptions: "Enabled"  # VPC 자동 생성
   VPCRegion: "ap-northeast-2"
   VPCCidr: "10.1.0.0/16"
+
 ```
+-->
 
 #### Step 3: 계정 생성 모니터링
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # Service Catalog Provisioned Product 상태 확인
@@ -1546,6 +1835,13 @@ aws organizations describe-account \
 
 #### Step 4: SSO 접속 테스트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # SSO 포털 URL 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # SSO 포털 URL 확인
 aws sso-admin list-instances
@@ -1558,12 +1854,21 @@ aws sso-admin list-instances
 # 2. "Development-Team-A" 계정 선택
 # 3. "AdministratorAccess" 권한 선택
 # 4. Management Console 접속 확인
+
 ```
+-->
 
 ### 4.5 문제 해결 (Troubleshooting)
 
 #### 문제 1: Landing Zone 생성 실패
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> Error: "Failed to create log archive bucket"...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Error: "Failed to create log archive bucket"
 Cause: "이메일 주소가 이미 다른 AWS 계정에 사용 중"
@@ -1576,9 +1881,13 @@ Cause: "IAM 사용자에게 필요한 권한 부족"
 Solution:
   - AdministratorAccess 정책 연결
   - 또는 Root 계정으로 설정
+
 ```
+-->
 
 #### 문제 2: Guardrails 적용 실패
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # Drift Detection 실행
@@ -1590,6 +1899,8 @@ aws controltower reset-landing-zone \
 ```
 
 #### 문제 3: Account Factory 프로비저닝 실패
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```yaml
 Error: "Email already exists"
@@ -1684,6 +1995,13 @@ AWSCloudTrail
 
 ### 5.3 CloudWatch Insights 쿼리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- Query 1: Control Tower API 호출 모니터링...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```sql
 -- Query 1: Control Tower API 호출 모니터링
 fields @timestamp, eventName, userIdentity.principalId, sourceIPAddress, errorCode
@@ -1702,7 +2020,9 @@ fields @timestamp, eventName, userIdentity.principalId
 | filter hour(@timestamp) < 9 or hour(@timestamp) > 18
 | filter eventName in ["RunInstances", "CreateBucket", "PutBucketPolicy"]
 | stats count() by userIdentity.principalId, hour(@timestamp)
+
 ```
+-->
 
 ## 6. ISMS-P 매핑
 
@@ -1730,6 +2050,13 @@ fields @timestamp, eventName, userIdentity.principalId
 
 **증빙 자료:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # 1. MFA 적용 현황 리포트 (Config Rule)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. MFA 적용 현황 리포트 (Config Rule)
 aws configservice get-compliance-details-by-config-rule \
@@ -1741,10 +2068,19 @@ aws sso-admin list-permission-sets \
   --instance-arn arn:aws:sso:::instance/ssoins-xxxx
 
 # 3. 스크린샷: Control Tower Dashboard - Guardrails 활성화 상태
+
 ```
+-->
 
 **예상 질문 및 답변:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> Q: "MFA 미적용 계정이 존재하는 경우 어떻게 대응하나요?"...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Q: "MFA 미적용 계정이 존재하는 경우 어떻게 대응하나요?"
 A:
@@ -1758,7 +2094,9 @@ A:
   - CloudTrail 로그로 모든 사용 추적
   - Root 사용 시 보안팀에 실시간 알림 (CloudWatch Alarm)
   - 사용 후 즉시 감사 리포트 생성
+
 ```
+-->
 
 ## 2. 2025년 AWS 거버넌스 업데이트
 
@@ -1835,6 +2173,13 @@ GuardDuty가 **Extended Threat Detection** 기능을 추가하여 EC2 및 ECS �
 
 #### Executive Summary for C-Level
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```markdown
+> # Zero Trust Network Access (ZTNA) 도입 제안...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```markdown
 # Zero Trust Network Access (ZTNA) 도입 제안
 
@@ -1884,10 +2229,19 @@ GuardDuty가 **Extended Threat Detection** 기능을 추가하여 EC2 및 ECS �
 
 ## 추천 사항
 ✅ **즉시 파일럿 프로젝트 시작** (예산: 2천만원)
+
 ```
+-->
 
 ### 7.2 월간 거버넌스 리포트 템플릿
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # AWS Control Tower 월간 리포트 (2025년 1월)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # AWS Control Tower 월간 리포트 (2025년 1월)
 
@@ -1928,7 +2282,9 @@ High Priority:
 
 Medium Priority:
   ☐ 신규 Guardrail 추가: "Deny unapproved AMI" (담당: 인프라팀)
+
 ```
+-->
 
 ## 8. 한국 기업 사례 연구
 
@@ -1941,6 +2297,13 @@ Medium Priority:
 
 **구현:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> Phase 1 (3개월):...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 Phase 1 (3개월):
   - AWS Control Tower 구축
@@ -1956,7 +2319,9 @@ Phase 3 (2개월):
   - 전 직원 ZTNA 전환
   - SOC 통합 모니터링
   - FSS 보안 검사 통과
+
 ```
+-->
 
 **효과:**
 - **접속 속도**: VPN 대비 3배 향상
@@ -1973,6 +2338,13 @@ Phase 3 (2개월):
 
 **솔루션:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> AWS Control Tower:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 AWS Control Tower:
   - Global Landing Zone (3개 리전)
@@ -1988,7 +2360,9 @@ Multi-Cloud Governance:
   - Azure Policy (Azure 워크로드)
   - GCP Organization Policies (GCP 워크로드)
   - Centralized SIEM: Splunk Cloud
+
 ```
+-->
 
 **성과:**
 - **계정 프로비저닝**: 2주 → 4시간 (96% 단축)
@@ -2005,6 +2379,13 @@ Multi-Cloud Governance:
 
 **구현 아키텍처:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌────────────────────────────────────────────────────┐
 │             S-Agency AWS 환경                      │
@@ -2021,10 +2402,19 @@ Multi-Cloud Governance:
 │  [Transit Gateway] - 망 분리 경계 제어              │
 │                                                     │
 └────────────────────────────────────────────────────┘
+
 ```
+-->
 
 **특화 Guardrails:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Name": "공공기관 개인정보 보호 정책",
@@ -2051,7 +2441,9 @@ Multi-Cloud Governance:
     }
   ]
 }
+
 ```
+-->
 
 **결과:**
 - **CSAP 인증**: 1회 통과
@@ -2065,6 +2457,7 @@ Multi-Cloud Governance:
 
 **공격 흐름:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 1. 공격자가 개발자 계정 탈취 (IAM User: dev-user-1)
    ↓
@@ -2081,10 +2474,13 @@ Multi-Cloud Governance:
 7. Security Hub 알림 전송
    ↓
 8. 자동 대응: 계정 임시 동결
+
 ```
+-->
 
 **탐지 쿼리 (CloudWatch Logs Insights):**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```sql
 fields @timestamp, userIdentity.principalId, eventName, errorCode
 | filter eventName in [
@@ -2097,10 +2493,19 @@ fields @timestamp, userIdentity.principalId, eventName, errorCode
 | stats count() as attempts by userIdentity.principalId, sourceIPAddress
 | filter attempts > 3
 | sort attempts desc
+
 ```
+-->
 
 **자동 대응 (Lambda):**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 
@@ -2155,7 +2560,9 @@ Source IP: {source_ip}
         'action': 'Account frozen',
         'user': attacker_user
     }
+
 ```
+-->
 
 ### 9.2 위협 시나리오: Data Exfiltration
 
@@ -2175,6 +2582,13 @@ Source IP: {source_ip}
 
 **탐지 쿼리 (Athena on CloudTrail):**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- 비정상 S3 다운로드 패턴 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```sql
 -- 비정상 S3 다운로드 패턴 탐지
 SELECT
@@ -2195,10 +2609,19 @@ HAVING
     OR SUM(CAST(json_extract_scalar(requestparameters, '$.size') AS BIGINT)) / 1024 / 1024 / 1024 > 100  -- 100GB 이상
 ORDER BY
     total_gb DESC;
+
 ```
+-->
 
 **자동 대응 (Lambda + EventBridge):**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> def handle_data_exfiltration(event, context):...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 def handle_data_exfiltration(event, context):
     """
@@ -2274,10 +2697,19 @@ def handle_data_exfiltration(event, context):
         'statusCode': 200,
         'action': 'Bucket isolated and forensic snapshot created'
     }
+
 ```
+-->
 
 ### 9.3 Threat Hunting Playbook
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Control Tower 환경 Threat Hunting 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Control Tower 환경 Threat Hunting 체크리스트
 
@@ -2298,7 +2730,9 @@ Monthly Checks:
   - [ ] SCP 정책 효과성 검토
   - [ ] 보안 그룹 규칙 최적화
   - [ ] CloudTrail 로그 무결성 검증
+
 ```
+-->
 
 ## 10. 참고 자료 및 추가 학습
 
@@ -2330,6 +2764,13 @@ Monthly Checks:
 
 ### 10.4 관련 AWS 서비스
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> Control Tower 통합 서비스 맵:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 Control Tower 통합 서비스 맵:
 
@@ -2346,7 +2787,9 @@ Control Tower 통합 서비스 맵:
     ├─ [GuardDuty] - 위협 탐지
     ├─ [IAM Access Analyzer] - 권한 분석
     └─ [S3] - 로그 저장소
+
 ```
+-->
 
 ### 10.5 커뮤니티 및 지원
 
@@ -2359,6 +2802,13 @@ Control Tower 통합 서비스 맵:
 
 ### 10.6 인증 및 교육 과정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> AWS 보안 관련 인증:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 AWS 보안 관련 인증:
 
@@ -2377,7 +2827,9 @@ AWS 보안 관련 인증:
   - (ISC)² CCSP (Certified Cloud Security Professional)
   - CompTIA Cloud+
   - SANS SEC488: Cloud Security Essentials
+
 ```
+-->
 
 ## 결론
 
@@ -2398,6 +2850,8 @@ AWS 보안 관련 인증:
 ### 다음 단계
 
 올바른 설정과 지속적인 모니터링을 통해 안전하고 효율적인 클라우드 환경을 구축할 수 있습니다. 다음 단계로 권장하는 학습 경로:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```yaml
 학습 로드맵:

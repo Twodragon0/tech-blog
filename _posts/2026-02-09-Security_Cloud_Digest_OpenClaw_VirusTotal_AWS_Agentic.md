@@ -5,8 +5,12 @@ date: 2026-02-09 12:42:19 +0900
 categories: [security, cloud]
 tags: [Security-Digest, Cloud-Digest, AI-Agent-Security, Supply-Chain, AWS, Agentic-AI, OpenClaw, VirusTotal]
 excerpt: "OpenClaw VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트, AWS Agentic AI 2명 7주 개발 사례, ASP.NET 마이크로서비스 전환"
+description: "OpenClaw VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트, AWS Agentic AI 2명 7주 개발 사례, ASP.NET 마이크로서비스 전환"
+keywords: [Security-Digest, Cloud-Digest, OpenClaw, VirusTotal, Agentic-AI, Supply-Chain, AWS, Ransomware]
 image: /assets/images/2026-02-09-Security_Cloud_Digest_OpenClaw_VirusTotal_AWS_Agentic.svg
 author: Twodragon
+comments: true
+image_alt: "Security Cloud Digest Feb 9 2026 OpenClaw VirusTotal AWS Agentic AI"
 toc: true
 schema_type: Article
 ---

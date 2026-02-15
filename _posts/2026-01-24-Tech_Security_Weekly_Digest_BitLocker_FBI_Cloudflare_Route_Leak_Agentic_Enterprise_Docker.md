@@ -1102,7 +1102,7 @@ kubectl get events --all-namespaces -o json | jq -r '.items[] |
 - [Comma.ai - Supported Cars](https://comma.ai) - 2026-01-23
 
 **기타**:
-- [Chromium - Banned C++ Features](https://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/c++/c++-features.md) - 2026-01-23
+- [Chromium - Banned C++ Features](https://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/c++/c++-features) - 2026-01-23
 - [GeekNews - Mastra 1.0 출시](https://news.hada.io/topic?id=26078) - 2026-01-23
 
 ### 8.2 기술 문서 및 표준
