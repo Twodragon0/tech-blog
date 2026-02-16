@@ -1,142 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d1117"/>
-      <stop offset="50%" style="stop-color:#1a1a2e"/>
-      <stop offset="100%" style="stop-color:#0f0f23"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c1624" />
+      <stop offset="100%" stop-color="#1b2f44" />
     </linearGradient>
-    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f3460"/>
-      <stop offset="100%" style="stop-color:#0a1931"/>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff6b6b" />
+      <stop offset="100%" stop-color="#ffa94d" />
     </linearGradient>
-    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e94560"/>
-      <stop offset="100%" style="stop-color:#c32f43"/>
-    </linearGradient>
-    <linearGradient id="cyanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#16c2d5"/>
-      <stop offset="100%" style="stop-color:#0e8a9a"/>
-    </linearGradient>
-    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#16c2d5"/>
-      <stop offset="50%" style="stop-color:#0f3460"/>
-      <stop offset="100%" style="stop-color:#e94560"/>
-    </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.4"/>
-    </filter>
   </defs>
-
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
-
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
-  </pattern>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-
-  <circle cx="150" cy="120" r="180" fill="#e94560" fill-opacity="0.06"/>
-  <circle cx="1050" cy="510" r="220" fill="#16c2d5" fill-opacity="0.05"/>
-  <circle cx="600" cy="315" r="280" fill="#0f3460" fill-opacity="0.04"/>
-
-  <rect x="40" y="30" width="160" height="36" rx="18" fill="url(#redGradient)" filter="url(#shadow)"/>
-  <text x="120" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">CRITICAL</text>
-
-  <rect x="980" y="30" width="180" height="36" rx="18" fill="url(#cyanGradient)" filter="url(#shadow)"/>
-  <text x="1070" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 14, 2026</text>
-
-  <text x="600" y="120" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Weekly Security Digest</text>
-  <text x="600" y="160" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">Zero-Day Vulnerabilities | Critical Patches | Security Alerts</text>
-
-  <rect x="350" y="185" width="500" height="3" fill="url(#accentGradient)" rx="1.5"/>
-
-  <g transform="translate(100, 220)">
-    <rect width="1000" height="300" rx="20" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="1000" height="8" rx="4" fill="url(#redGradient)"/>
-
-    <g transform="translate(40, 45)">
-      <circle cx="28" cy="28" r="28" fill="url(#redGradient)" fill-opacity="0.3"/>
-      <path d="M28 12 L32 24 L28 44 L24 24 Z" fill="#e94560" stroke="white" stroke-width="2"/>
-      <text x="95" y="22" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e94560">ZERO-DAY ALERT</text>
-      <text x="95" y="43" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">6 Critical Vulnerabilities Discovered</text>
-    </g>
-
-    <g transform="translate(40, 110)">
-      <rect x="0" y="0" width="220" height="70" rx="10" fill="#0a1931" stroke="#16c2d5" stroke-width="2"/>
-      <path d="M20 20 L20 50 L40 50 L40 30 L35 25 L30 25 L30 20 Z" fill="none" stroke="#16c2d5" stroke-width="2"/>
-      <rect x="24" y="35" width="8" height="8" rx="2" fill="#16c2d5"/>
-      <text x="55" y="32" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">Apple Patch</text>
-      <text x="55" y="52" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">iOS/macOS Updates</text>
-    </g>
-
-    <g transform="translate(280, 110)">
-      <rect x="0" y="0" width="220" height="70" rx="10" fill="#0a1931" stroke="#e94560" stroke-width="2"/>
-      <circle cx="30" cy="35" r="15" fill="none" stroke="#e94560" stroke-width="2"/>
-      <path d="M30 25 L30 35 M25 35 L35 35" stroke="#e94560" stroke-width="2"/>
-      <text x="55" y="32" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">Ivanti EPMM</text>
-      <text x="55" y="52" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Mobile Security</text>
-    </g>
-
-    <g transform="translate(520, 110)">
-      <rect x="0" y="0" width="220" height="70" rx="10" fill="#0a1931" stroke="#e94560" stroke-width="2"/>
-      <text x="20" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e94560">SAP</text>
-      <text x="55" y="32" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">SAP Critical</text>
-      <text x="55" y="52" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Security Bulletin</text>
-    </g>
-
-    <g transform="translate(760, 110)">
-      <rect x="0" y="0" width="200" height="70" rx="10" fill="#0a1931" stroke="#16c2d5" stroke-width="2"/>
-      <circle cx="30" cy="25" r="8" fill="#16c2d5"/>
-      <circle cx="45" cy="35" r="6" fill="#16c2d5" fill-opacity="0.6"/>
-      <circle cx="30" cy="45" r="5" fill="#16c2d5" fill-opacity="0.4"/>
-      <text x="65" y="32" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">AI Threats</text>
-      <text x="65" y="52" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Emerging Risks</text>
-    </g>
-
-    <g transform="translate(40, 205)">
-      <rect x="0" y="0" width="140" height="30" rx="15" fill="#e94560" fill-opacity="0.2"/>
-      <text x="70" y="20" font-family="Arial, sans-serif" font-size="12" fill="#e94560" text-anchor="middle">#Microsoft</text>
-    </g>
-
-    <g transform="translate(195, 205)">
-      <rect x="0" y="0" width="120" height="30" rx="15" fill="#e94560" fill-opacity="0.2"/>
-      <text x="60" y="20" font-family="Arial, sans-serif" font-size="12" fill="#e94560" text-anchor="middle">#Zero-Day</text>
-    </g>
-
-    <g transform="translate(330, 205)">
-      <rect x="0" y="0" width="100" height="30" rx="15" fill="#16c2d5" fill-opacity="0.2"/>
-      <text x="50" y="20" font-family="Arial, sans-serif" font-size="12" fill="#16c2d5" text-anchor="middle">#Ivanti</text>
-    </g>
-
-    <g transform="translate(445, 205)">
-      <rect x="0" y="0" width="80" height="30" rx="15" fill="#16c2d5" fill-opacity="0.2"/>
-      <text x="40" y="20" font-family="Arial, sans-serif" font-size="12" fill="#16c2d5" text-anchor="middle">#SAP</text>
-    </g>
-
-    <g transform="translate(540, 205)">
-      <rect x="0" y="0" width="100" height="30" rx="15" fill="#16c2d5" fill-opacity="0.2"/>
-      <text x="50" y="20" font-family="Arial, sans-serif" font-size="12" fill="#16c2d5" text-anchor="middle">#Apple</text>
-    </g>
-
-    <g transform="translate(820, 205)">
-      <rect x="0" y="0" width="140" height="45" rx="22" fill="url(#accentGradient)"/>
-      <text x="70" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
-    </g>
-
-    <g transform="translate(40, 260)">
-      <circle cx="8" cy="8" r="8" fill="none" stroke="#16c2d5" stroke-width="2"/>
-      <path d="M5 10 L10 15 L20 5" stroke="#16c2d5" stroke-width="2" fill="none"/>
-      <text x="30" y="13" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">6 Critical Patches Released</text>
-    </g>
-  </g>
-
-  <line x1="50" y1="560" x2="1150" y2="560" stroke="#334155" stroke-width="1"/>
-
-  <text x="60" y="590" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
-  <text x="60" y="612" font-family="Arial, sans-serif" font-size="13" fill="#64748b">tech.2twodragon.com</text>
-
-  <text x="1150" y="600" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="60" y="70" width="1080" height="490" rx="28" fill="#0f1f2e" stroke="#2a3f5f" stroke-width="2" />
+  <rect x="120" y="150" width="240" height="8" fill="url(#accent)" />
+  <text x="120" y="230" fill="#f2f6ff" font-family="Space Grotesk, Arial, sans-serif" font-size="52" font-weight="700">Weekly Security Digest</text>
+  <text x="120" y="285" fill="#b0c2dc" font-family="Space Grotesk, Arial, sans-serif" font-size="24">Zero-Day, Apple, Ivanti, SAP</text>
+  <text x="120" y="360" fill="#f2f6ff" font-family="Space Grotesk, Arial, sans-serif" font-size="28">Week 2 - Feb 2026</text>
+  <text x="120" y="470" fill="#90a9ca" font-family="Space Grotesk, Arial, sans-serif" font-size="20">Twodragon Tech Blog</text>
 </svg>

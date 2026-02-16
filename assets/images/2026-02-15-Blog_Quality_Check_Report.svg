@@ -1,7 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#0b1220" />
-  <rect x="60" y="80" width="1080" height="470" rx="24" fill="#111c2e" />
-  <text x="120" y="210" font-family="Arial" font-size="48" fill="#e8f0ff">Blog Quality Check Report</text>
-  <text x="120" y="270" font-family="Arial" font-size="26" fill="#9fb3d9">Links, Images, Code Blocks</text>
-  <text x="120" y="520" font-family="Arial" font-size="20" fill="#6f85ad">2026-02-15</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220" />
+      <stop offset="100%" stop-color="#1a2e45" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffd166" />
+      <stop offset="100%" stop-color="#f77f00" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="60" y="70" width="1080" height="490" rx="28" fill="#111c2e" stroke="#2a3f5f" stroke-width="2" />
+  <rect x="120" y="150" width="200" height="8" fill="url(#accent)" />
+  <text x="120" y="230" fill="#e8f0ff" font-family="Space Grotesk, Arial, sans-serif" font-size="52" font-weight="700">Blog Quality Check</text>
+  <text x="120" y="285" fill="#a8b7d6" font-family="Space Grotesk, Arial, sans-serif" font-size="24">Links, Images, Code Blocks</text>
+  <text x="120" y="360" fill="#e8f0ff" font-family="Space Grotesk, Arial, sans-serif" font-size="28">Report - Feb 15, 2026</text>
+  <text x="120" y="470" fill="#8aa2c8" font-family="Space Grotesk, Arial, sans-serif" font-size="20">Twodragon Tech Blog</text>
 </svg>
