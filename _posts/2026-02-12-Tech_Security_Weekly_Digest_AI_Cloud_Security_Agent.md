@@ -1,22 +1,22 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: Supply Chain, Windows, APT36"
+title: "기술·보안 주간 다이제스트: 공급망, Windows, APT36"
 date: 2026-02-12 12:41:50 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security, Agent]
-excerpt: "2026년 02월 12일 주요 보안/기술 뉴스 27건 - AI, Cloud, Security"
-description: "2026년 02월 12일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 27건. AI, Cloud, Security, Agent 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
+excerpt: "2026년 02월 12일 주요 보안/기술 뉴스 27건 - AI, 클라우드, 보안"
+description: "2026년 02월 12일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 27건. AI, 클라우드, 보안, 에이전트 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security]
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-12-Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent.svg
-image_alt: "Tech Security Weekly Digest February 12 2026 AI Cloud Security"
+image_alt: "기술·보안 주간 다이제스트 2026년 2월 12일 AI 클라우드 보안"
 toc: true
 schema_type: Article
 ---
 
 {% include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 02월 12일)'
+  title='기술·보안 주간 다이제스트 (2026년 02월 12일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
@@ -24,17 +24,21 @@ schema_type: Article
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: First Malicious Outlook Add-In Found Stealing 4,000+...</li>
-      <li><strong>The Hacker News</strong>: APT36 and SideCopy Launch Cross-Platform RAT Campaigns...</li>
-      <li><strong>The Hacker News</strong>: Over 60 Software Vendors Issue Security Fixes Across OS,...</li>
-      <li><strong>Google Cloud Blog</strong>: Build financial resilience with AI-powered tabletop...</li>'
+  highlights_html='<li><strong>The Hacker News</strong>: 악성 Outlook 애드인으로 4,000+ 자격증명 탈취</li>
+      <li><strong>The Hacker News</strong>: APT36/SideCopy 크로스플랫폼 RAT 캠페인</li>
+      <li><strong>The Hacker News</strong>: 60개 이상 벤더의 OS 전반 보안 패치</li>
+      <li><strong>Google Cloud Blog</strong>: AI 기반 테이블탑으로 재무 회복탄력성 강화</li>'
   period='2026년 02월 12일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
-## Executive Summary
+## 요약
 
 2026년 02월 12일 기준 보안 현황 및 위협 분석입니다.
+
+- **핵심 위협**: 다수 벤더 보안 패치와 공격 표면 확장
+- **주요 캠페인**: APT36/SideCopy 크로스플랫폼 RAT 활동
+- **운영 포인트**: AI 기반 대응 훈련과 회복탄력성 강화
 
 ### 위험 스코어카드
 
@@ -45,10 +49,10 @@ schema_type: Article
 |                                                                |
 |  항목                    위험도   점수    조치 시급도             |
 |  ----------------------------------------------------------   |
-|  Over 60 Software Vendors Issue █████████░  9/10   [즉시]                |
-|  Build financial resilience wit █████████░  9/10   [즉시]                |
-|  7 Technical Takeaways from Usi █████████░  9/10   [즉시]                |
-|  Security Slam Returns for 2026 █████████░  9/10   [즉시]                |
+|  60개+ 벤더 보안 패치          █████████░  9/10   [즉시]                |
+|  AI 테이블탑으로 회복탄력성    █████████░  9/10   [즉시]                |
+|  Usi 사건 7가지 기술 인사이트  █████████░  9/10   [즉시]                |
+|  Security Slam 2026 재개       █████████░  9/10   [즉시]                |
 |  ----------------------------------------------------------   |
 |  종합 위험 수준: █████████░ HIGH (9.0/10)                         |
 |                                                                |

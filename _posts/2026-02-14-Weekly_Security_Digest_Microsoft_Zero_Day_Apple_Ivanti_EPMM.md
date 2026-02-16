@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Zero-Day, Patch-Tuesday, 
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.svg
-image_alt: "Weekly Security Digest February 14 2026 Microsoft Zero Day Apple Ivanti EPMM"
+image_alt: "주간 보안 다이제스트 2026년 2월 14일 Microsoft Zero Day Apple Ivanti EPMM"
 toc: true
 schema_type: Article
 ---
@@ -37,9 +37,13 @@ schema_type: Article
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO'
 %}
 
-## Executive Summary
+## 요약
 
 2026년 2월 2주차는 **역대급 Zero-Day 폭풍**의 한 주였습니다. Microsoft, Apple, Ivanti, SAP, BeyondTrust 등 주요 벤더의 치명적 취약점이 동시에 활발히 악용되고 있으며, AI 기반 사이버 공격의 산업화가 가속되고 있습니다.
+
+- **최우선 대응**: Microsoft/Apple/Ivanti/SAP 긴급 패치 적용
+- **공격 동향**: Zero-Day와 공급망 공격이 동시에 확산
+- **운영 과제**: AI 기반 공격 자동화 대응 체계 강화
 
 ### 위험 스코어카드
 
