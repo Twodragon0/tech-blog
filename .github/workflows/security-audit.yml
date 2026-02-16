@@ -47,7 +47,7 @@ jobs:
 
       - name: Create issue on failure
         if: steps.npm_audit.outputs.vulnerabilities > 0
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const title = `[Security] npm audit: ${process.env.VULNS} high/critical vulnerabilities`;
@@ -101,7 +101,7 @@ jobs:
 
       - name: Create issue on failure
         if: steps.bundle_audit.outputs.vulnerable == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const title = '[Security] bundle-audit: Ruby gem vulnerabilities detected';
