@@ -1,20 +1,58 @@
 ---
-layout: post
-title: "🚀 클라우드 보안 과정 8기 8주차: CI/CD와 Kubernetes 보안 실전 가이드 - DevSecOps 파이프라인부터 클러스터 보안까지"
-date: 2026-01-22 18:30:00 +0900
-categories: [security, devsecops, kubernetes]
-tags: [CI/CD, Kubernetes, DevSecOps, K8s-Security, Cloud-Security, ArgoCD, Jenkins, Network-Policies, RBAC, Pod-Security-Standards]
-excerpt: "CI/CD 보안, K8s Network Policies, Pod Security Standards, AI 기반 보안 자동화"
-description: "클라우드 보안 과정 8기 8주차: CI/CD 파이프라인 보안(Trivy, Snyk, Vault), Kubernetes 네트워크 보안(Network Policies, RBAC), Pod Security Standards, AI 활용 DevSecOps 강화(Cursor, Claude API, GitHub Copilot), 실전 보안 사례 제공"
-keywords: [CI/CD-Security, Kubernetes-Security, DevSecOps, Pod-Security-Standards, Network-Policies, RBAC, Trivy, Vault, ArgoCD, Jenkins, AI-DevSecOps, Cursor, Claude-API]
 author: Twodragon
-comments: true
-original_url: https://twodragon.tistory.com/708
-image: /assets/images/2026-01-22-Cloud_Security_Course_8Batch_8Week_CI_CD_Kubernetes_Security_Practical_Guide.svg
-image_alt: "Cloud Security Course 8Batch 8Week: CI/CD and Kubernetes Security Practical Guide"
-toc: true
-schema_type: Article
+categories:
+- security
+- devsecops
+- kubernetes
 category: devsecops
+comments: true
+date: 2026-01-22 18:30:00 +0900
+description: '클라우드 보안 과정 8기 8주차: CI/CD 파이프라인 보안(Trivy, Snyk, Vault), Kubernetes 네트워크
+  보안(Network Policies, RBAC), Pod Security Standards, AI 활용 DevSecOps 강화(Cursor, Claude
+  API, GitHub Copilot), 실전 보안 사례 제공'
+excerpt: CI/CD 보안, K8s Network Policies, Pod Security Standards, AI 기반 보안 자동화
+image: /assets/images/2026-01-22-Cloud_Security_Course_8Batch_8Week_CI_CD_Kubernetes_Security_Practical_Guide.svg
+image_alt: 'Cloud Security Course 8Batch 8Week: CI/CD and Kubernetes Security Practical
+  Guide'
+keywords:
+- CI/CD-Security
+- Kubernetes-Security
+- DevSecOps
+- Pod-Security-Standards
+- Network-Policies
+- RBAC
+- Trivy
+- Vault
+- ArgoCD
+- Jenkins
+- AI-DevSecOps
+- Cursor
+- Claude-API
+layout: post
+original_url: https://twodragon.tistory.com/708
+schema_type: Article
+tags:
+- CI/CD
+- Kubernetes
+- DevSecOps
+- K8s-Security
+- Cloud-Security
+- ArgoCD
+- Jenkins
+- Network-Policies
+- RBAC
+- Pod-Security-Standards
+title: "\U0001F680 클라우드 보안 과정 8기 8주차: CI/CD와 Kubernetes 보안 실전 가이드 - DevSecOps 파이프라인부터
+  클러스터 보안까지"
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: CI/CD 보안, K8s Network Policies, Pod Security Standards, AI 기반 보안 자동화
+- **주요 주제**: 🚀 클라우드 보안 과정 8기 8주차: CI/CD와 Kubernetes 보안 실전 가이드 - DevSecOps 파이프라인부터 클러스터 보안까지
+- **키워드**: CI/CD, Kubernetes, DevSecOps, K8s-Security, Cloud-Security
+
 ---
 
 <div class="ai-summary-card">

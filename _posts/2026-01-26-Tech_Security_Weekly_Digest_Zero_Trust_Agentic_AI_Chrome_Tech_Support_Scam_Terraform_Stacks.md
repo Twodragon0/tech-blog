@@ -1,18 +1,61 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: Zero Trust for AI Agents, Chrome 기술지원 사기 방지, Terraform Stacks 혁신"
-date: 2026-01-26 10:00:00 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, Zero-Trust, AI-Agents, Chrome-Security, Terraform, HashiCorp, Google-Security, Non-Human-Identity, Infrastructure-as-Code, Prompt-Injection, DevSecOps, "2026"]
-excerpt: "AI 에이전트 Zero Trust, Chrome Gemini 사기 탐지, Terraform Stacks 모노레포, Prompt Injection 방어"
-description: "2026년 1월 26일 주요 기술/보안 뉴스: HashiCorp AI 에이전트 시대 비인간 ID(NHI) 관리 Zero Trust 전략, Google Chrome Gemini Nano 기반 온디바이스 기술지원 사기 탐지, Terraform Stacks 네이티브 모노레포 지원, Google Prompt Injection 4계층 방어 전략, 2026년 클라우드 전략 5가지 변화까지 DevSecOps 실무 분석"
-keywords: [Zero Trust, AI 에이전트, 비인간 ID, NHI, HashiCorp, Chrome 보안, Gemini Nano, 기술지원 사기, Terraform Stacks, 모노레포, Prompt Injection, Google Security, IaC, DevSecOps, 클라우드 보안, 2026]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-01-26 10:00:00 +0900
+description: '2026년 1월 26일 주요 기술/보안 뉴스: HashiCorp AI 에이전트 시대 비인간 ID(NHI) 관리 Zero Trust
+  전략, Google Chrome Gemini Nano 기반 온디바이스 기술지원 사기 탐지, Terraform Stacks 네이티브 모노레포 지원,
+  Google Prompt Injection 4계층 방어 전략, 2026년 클라우드 전략 5가지 변화까지 DevSecOps 실무 분석'
+excerpt: AI 에이전트 Zero Trust, Chrome Gemini 사기 탐지, Terraform Stacks 모노레포, Prompt Injection
+  방어
 image: /assets/images/2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Terraform.svg
-image_alt: "Tech and Security Weekly Digest January 2026 - Zero Trust for AI Agents, Chrome Scam Detection, Terraform Stacks"
-toc: true
+image_alt: Tech and Security Weekly Digest January 2026 - Zero Trust for AI Agents,
+  Chrome Scam Detection, Terraform Stacks
+keywords:
+- Zero Trust
+- AI 에이전트
+- 비인간 ID
+- NHI
+- HashiCorp
+- Chrome 보안
+- Gemini Nano
+- 기술지원 사기
+- Terraform Stacks
+- 모노레포
+- Prompt Injection
+- Google Security
+- IaC
+- DevSecOps
+- 클라우드 보안
+- 2026
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- Zero-Trust
+- AI-Agents
+- Chrome-Security
+- Terraform
+- HashiCorp
+- Google-Security
+- Non-Human-Identity
+- Infrastructure-as-Code
+- Prompt-Injection
+- DevSecOps
+- '2026'
+title: 'Tech & Security Weekly Digest: Zero Trust for AI Agents, Chrome 기술지원 사기 방지,
+  Terraform Stacks 혁신'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: AI 에이전트 Zero Trust, Chrome Gemini 사기 탐지, Terraform Stacks 모노레포, Prompt Injection 방어
+- **주요 주제**: Tech & Security Weekly Digest: Zero Trust for AI Agents, Chrome 기술지원 사기 방지, Terraform Stacks 혁신
+- **키워드**: Security-Weekly, Zero-Trust, AI-Agents, Chrome-Security, Terraform
+
 ---
 
 <div class="ai-summary-card">
