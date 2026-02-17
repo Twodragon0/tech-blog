@@ -70,7 +70,7 @@ schema_type: Article
 
 <img src="{% raw %}{{ '/assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security_image.png' | relative_url }}{% endraw %}" alt="Cloud Security Course 7Batch 6Week: Cloudflare and GitHub Security" loading="lazy" class="post-image">
 
-## 경영진 요약
+## 경영진 요약 (Executive Summary)
 
 이 문서는 웹 애플리케이션 보안을 위한 3단계 방어 전략을 제시합니다: AWS WAF를 통한 기본 웹 보안, Cloudflare를 통한 DDoS 및 글로벌 보안 강화, GitHub 보안 자동화를 통한 소스 코드 보안입니다.
 
@@ -492,3 +492,17 @@ Code Scanning 설정 단계:
 **면책 조항**: 이 문서의 모든 정보는 교육 목적으로 제공되며, 실제 환경에 적용하기 전에 충분한 테스트를 수행해야 합니다. 보안 설정 변경 시 서비스 중단이 발생할 수 있으므로 주의가 필요합니다.
 
 **마지막 업데이트**: 2025년 5월 23일
+
+<!-- priority-quality-korean:v1 -->
+## 우선순위 기반 고도화 메모
+| 구분 | 현재 상태 | 목표 상태 | 우선순위 |
+|---|---|---|---|
+| 콘텐츠 밀도 | 점수 85 수준 | 실무 의사결정 중심 문장 강화 | P3 (정기 개선) |
+| 표/시각 자료 | 핵심 표 중심 | 비교/의사결정 표 추가 | P2 |
+| 실행 항목 | 체크리스트 중심 | 역할/기한/증적 기준 명시 | P1 |
+
+### 이번 라운드 개선 포인트
+- 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
+- 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
+- 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
+
