@@ -93,6 +93,11 @@ toc: true
 
 > **함께 읽기**: 같은 날짜의 기술/AI/블록체인 다이제스트 [Weekly Tech & AI & Blockchain Digest](/2026-02-02-Weekly_Tech_AI_Blockchain_Digest)에서 Apple MLX 버그, Bitcoin $74K 대폭락, AI 창의성 역설, DeFi 보안, FOSDEM 2026을 심층 분석합니다.
 
+<figure>
+  <img src="{{ '/assets/images/2026-02-02-Weekly_Security_Threat_Intelligence_Digest.png' | relative_url }}" alt="Weekly Security Threat Intelligence Digest Feb 2 2026" loading="lazy" class="post-image">
+  <figcaption>그림 1: 2월 2일 위협 인텔리전스 핵심 - 공급망 공격, 랜섬웨어, 제로트러스트</figcaption>
+</figure>
+
 ## Executive Summary
 
 ### 위험 평가 스코어카드

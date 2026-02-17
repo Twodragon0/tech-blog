@@ -95,6 +95,11 @@ toc: true
 </div>
 </div>
 
+<figure>
+  <img src="{{ '/assets/images/2026-02-04-OpenClaw_vs_Claude_Code_AI_Coding_Assistant_Comparison.png' | relative_url }}" alt="OpenClaw vs Claude Code AI Coding Assistant Comparison 2026" loading="lazy" class="post-image">
+  <figcaption>그림 1: OpenClaw vs Claude Code 비교 프레임워크 - 보안/운영/비용 관점</figcaption>
+</figure>
+
 ## 1. 정정된 개요: OpenClaw와 Claude Code의 실체
 
 안녕하세요, **Twodragon**입니다.

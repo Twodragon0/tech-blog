@@ -58,6 +58,11 @@ toc: true
 
 ---
 
+<figure>
+  <img src="{{ '/assets/images/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat.png' | relative_url }}" alt="Tech Security Weekly Digest February 06 2026 AI Botnet Cloud" loading="lazy" class="post-image">
+  <figcaption>그림 1: 2월 6일 보안 위협 요약 - CrashFix RAT, 대규모 DDoS, DevSecOps 공급망 리스크</figcaption>
+</figure>
+
 
 ## Executive Summary (경영진 브리핑)
 
