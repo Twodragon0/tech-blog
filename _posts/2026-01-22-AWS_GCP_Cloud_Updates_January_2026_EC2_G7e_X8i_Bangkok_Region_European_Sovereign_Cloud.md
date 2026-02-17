@@ -1,18 +1,58 @@
 ---
-layout: post
-title: "AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign Cloud"
-date: 2026-01-22 16:00:00 +0900
-categories: [cloud, devops]
-tags: [AWS, GCP, EC2-G7e, EC2-X8i, NVIDIA-Blackwell, Bangkok-Region, European-Sovereign-Cloud, Gemini-3, BigQuery, Cloud-Migration, FinOps, "2026"]
-excerpt: "EC2 G7e Blackwell GPU, X8i SAP, EU Sovereign Cloud, Bangkok 리전, Gemini 3 Flash"
-description: "2026년 1월 AWS와 GCP 주요 업데이트: AWS EC2 G7e NVIDIA Blackwell GPU, EC2 X8i SAP 인증, European Sovereign Cloud 데이터 주권, Google Cloud Bangkok 리전, Gemini 3 Flash 모델, BigQuery SQL AI 추론까지 실무 관점 분석"
-keywords: [AWS, GCP, EC2-G7e, NVIDIA-Blackwell, EC2-X8i, SAP-HANA, European-Sovereign-Cloud, Bangkok-Region, Gemini-3-Flash, BigQuery, Cloud-Migration, FinOps, AI-Inference]
 author: Twodragon
+categories:
+- cloud
+- devops
 comments: true
+date: 2026-01-22 16:00:00 +0900
+description: '2026년 1월 AWS와 GCP 주요 업데이트: AWS EC2 G7e NVIDIA Blackwell GPU, EC2 X8i
+  SAP 인증, European Sovereign Cloud 데이터 주권, Google Cloud Bangkok 리전, Gemini 3 Flash
+  모델, BigQuery SQL AI 추론까지 실무 관점 분석'
+excerpt: EC2 G7e Blackwell GPU, X8i SAP, EU Sovereign Cloud, Bangkok 리전, Gemini 3
+  Flash
 image: /assets/images/2026-01-22-AWS_GCP_Cloud_Updates_January_2026.svg
-image_alt: "AWS GCP Cloud Updates January 2026 - EC2 G7e X8i, Bangkok Region, European Sovereign Cloud"
-toc: true
+image_alt: AWS GCP Cloud Updates January 2026 - EC2 G7e X8i, Bangkok Region, European
+  Sovereign Cloud
+keywords:
+- AWS
+- GCP
+- EC2-G7e
+- NVIDIA-Blackwell
+- EC2-X8i
+- SAP-HANA
+- European-Sovereign-Cloud
+- Bangkok-Region
+- Gemini-3-Flash
+- BigQuery
+- Cloud-Migration
+- FinOps
+- AI-Inference
+layout: post
 schema_type: Article
+tags:
+- AWS
+- GCP
+- EC2-G7e
+- EC2-X8i
+- NVIDIA-Blackwell
+- Bangkok-Region
+- European-Sovereign-Cloud
+- Gemini-3
+- BigQuery
+- Cloud-Migration
+- FinOps
+- '2026'
+title: 'AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign
+  Cloud'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: EC2 G7e Blackwell GPU, X8i SAP, EU Sovereign Cloud, Bangkok 리전, Gemini 3 Flash
+- **주요 주제**: AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign Cloud
+- **키워드**: AWS, GCP, EC2-G7e, EC2-X8i, NVIDIA-Blackwell
+
 ---
 
 <div class="ai-summary-card">

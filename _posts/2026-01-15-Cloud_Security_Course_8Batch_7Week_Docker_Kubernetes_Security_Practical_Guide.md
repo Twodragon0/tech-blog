@@ -1,20 +1,57 @@
 ---
-layout: post
-title: "🚀 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 보안까지"
-date: 2026-01-15 18:25:00 +0900
-categories: [security, devsecops, kubernetes]
-tags: [Docker, Kubernetes, Container-Security, K8s, Cloud-Security, DevSecOps, Minikube, K9s, Pod-Security-Standards, User-Namespaces]
-excerpt: "Docker/K8s 보안, Pod Security Standards, User Namespaces, 이미지 스캔, 런타임 모니터링"
-description: "클라우드 보안 과정 8기 7주차: Docker 컨테이너 보안(이미지 스캔, Secret 관리, 비루트 실행), Kubernetes 보안 아키텍처(Pod Security Standards, User Namespaces, Network Policies, RBAC), 최신 K8s 1.32-1.35+ 보안 기능까지 실무 가이드"
-keywords: [Docker-Security, Kubernetes-Security, Container-Security, Pod-Security-Standards, User-Namespaces, Network-Policies, Trivy, Falco, Minikube, K9s, DevSecOps, Image-Scanning]
 author: Twodragon
-comments: true
-original_url: https://twodragon.tistory.com/708
-image: /assets/images/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide.svg
-image_alt: "Cloud Security Course 8Batch 7Week: Docker and Kubernetes Security Practical Guide"
-toc: true
-schema_type: Article
+categories:
+- security
+- devsecops
+- kubernetes
 category: kubernetes
+comments: true
+date: 2026-01-15 18:25:00 +0900
+description: '클라우드 보안 과정 8기 7주차: Docker 컨테이너 보안(이미지 스캔, Secret 관리, 비루트 실행), Kubernetes
+  보안 아키텍처(Pod Security Standards, User Namespaces, Network Policies, RBAC), 최신 K8s
+  1.32-1.35+ 보안 기능까지 실무 가이드'
+excerpt: Docker/K8s 보안, Pod Security Standards, User Namespaces, 이미지 스캔, 런타임 모니터링
+image: /assets/images/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide.svg
+image_alt: 'Cloud Security Course 8Batch 7Week: Docker and Kubernetes Security Practical
+  Guide'
+keywords:
+- Docker-Security
+- Kubernetes-Security
+- Container-Security
+- Pod-Security-Standards
+- User-Namespaces
+- Network-Policies
+- Trivy
+- Falco
+- Minikube
+- K9s
+- DevSecOps
+- Image-Scanning
+layout: post
+original_url: https://twodragon.tistory.com/708
+schema_type: Article
+tags:
+- Docker
+- Kubernetes
+- Container-Security
+- K8s
+- Cloud-Security
+- DevSecOps
+- Minikube
+- K9s
+- Pod-Security-Standards
+- User-Namespaces
+title: "\U0001F680 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터
+  보안까지"
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Docker/K8s 보안, Pod Security Standards, User Namespaces, 이미지 스캔, 런타임 모니터링
+- **주요 주제**: 🚀 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 보안까지
+- **키워드**: Docker, Kubernetes, Container-Security, K8s, Cloud-Security
+
 ---
 
 <div class="ai-summary-card">
