@@ -33,6 +33,15 @@ title: '2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster
 toc: true
 ---
 
+{% include ai-summary-card.html
+  title='2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin'
+  categories_html=''
+  tags_html=''
+  highlights_html='<li><strong>핵심 요약</strong>: CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트,</li>'
+  period='2026-02-10'
+  audience='DevOps/DevSecOps/Cloud 보안 담당자'
+%}
+
 ## 요약
 
 - **핵심 요약**: CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트, Chainalysis Hexagate MegaETH 보안, Bitcoin $70K 회복
@@ -107,6 +116,16 @@ Cluster API v1.12는 **In-Place 업데이트**와 **체인 업그레이드**를 
 #### 실무 적용 시나리오
 
 **시나리오 1: 긴급 보안 패치 적용**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```yaml
 # In-Place 업데이트로 노드 재생성 없이 kubelet 버전 패치
 apiVersion: cluster.x-k8s.io/v1beta1
@@ -120,6 +139,16 @@ spec:
 ```
 
 **시나리오 2: K8s v1.27 → v1.30 자동 업그레이드**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```yaml
 # 체인 업그레이드: v1.27 → v1.28 → v1.29 → v1.30 자동 실행
 apiVersion: cluster.x-k8s.io/v1beta1

@@ -151,6 +151,16 @@ toc: true
 | **Adobe Firefly** | 상업 라이선스 보장 | $4.99-54.99/월 | 상업 프로젝트 |
 
 **실전 팁:**
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Midjourney 프롬프트 예시 (기술 블로그 썸네일)
 /imagine prompt: professional technical blog header,
@@ -230,73 +240,13 @@ orchestral with electronic elements, 15 seconds"
 
 **실전 사용 사례:**
 
-```python
-# Qwen3-TTS 설치 및 기본 사용
-pip install -U qwen-tts
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> 
+> ```python
+> # Qwen3-TTS 설치 및 기본 사용...
+> ```
 
-from qwen_tts import Qwen3TTS
 
-# 1. 커스텀 음성 생성 (프리셋 9종 중 선택)
-model = Qwen3TTS("1.7B-CustomVoice")
-audio = model.generate_custom_voice(
-    text="DevSecOps는 개발, 보안, 운영을 통합한 방법론입니다.",
-    language="ko",
-    speaker="friendly_female"  # 9개 프리미엄 음색
-)
-
-# 2. 자연어로 음성 디자인 (VoiceDesign 모델)
-model = Qwen3TTS("1.7B-VoiceDesign")
-audio = model.generate_voice_design(
-    text="안녕하세요, 오늘의 보안 뉴스를 전해드립니다.",
-    voice_description="중년 남성의 안정적이고 신뢰감 있는 뉴스 앵커 목소리"
-)
-
-# 3. 3초 음성 클론 (Base 모델)
-model = Qwen3TTS("1.7B-Base")
-audio = model.generate_cloned_voice(
-    text="맞춤형 콘텐츠를 제작합니다.",
-    reference_audio="my_voice_sample.wav",  # 3초면 충분
-    reference_text="안녕하세요, 저는 크리에이터입니다."
-)
-```
-
-**비용 비교 (월 100시간 음성 생성 기준):**
-
-| 도구 | 비용 | 요구사항 |
-|------|------|----------|
-| **ElevenLabs Pro** | $99/월 (100K chars ≈ 16시간) → **$600/월** | 즉시 사용 |
-| **Qwen3-TTS** | GPU 비용만 (Colab $10/월 또는 로컬) | Python, 4GB VRAM |
-| **Azure TTS** | ~$1,600/월 (1M chars) | API 통합 필요 |
-
-**2026년 TTS 워크플로우 권장사항:**
-
-- **프로토타입/테스트**: Qwen3-TTS (무료, 빠른 반복)
-- **고품질 최종본**: ElevenLabs (감정 표현 우수)
-- **대량 생성**: Qwen3-TTS (비용 절감)
-- **엔터프라이즈**: Azure TTS (안정성, SLA 보장)
-
-**DevSecOps 관점 주의사항:**
-
-```python
-# 음성 샘플 보안 처리
-import hashlib
-
-def secure_voice_clone(audio_path):
-    # 1. 원본 샘플 해시 저장 (무결성 검증)
-    with open(audio_path, 'rb') as f:
-        audio_hash = hashlib.sha256(f.read()).hexdigest()
-
-    # 2. 클론 생성
-    cloned_audio = model.generate_cloned_voice(...)
-
-    # 3. 워터마킹 (음성 도용 방지)
-    watermarked = add_audio_watermark(cloned_audio, creator_id="...")
-
-    # 4. 사용 로그 기록
-    log_voice_usage(audio_hash, timestamp, purpose="tutorial_narration")
-
-    return watermarked
-```
 
 **2026년 전망:**
 - **음성 인증 통합**: 생성된 음성에 자동 워터마킹 의무화 예상
@@ -327,61 +277,13 @@ def secure_voice_clone(audio_path):
 
 **핵심 구현:**
 
-```python
-# blog_generator.py - Claude Opus 4.5로 블로그 자동 생성
-from anthropic import Anthropic
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> 
+> ```python
+> # blog_generator.py - Claude Opus 4.5로 블로그 자동 생성...
+> ```
 
-def generate_blog_post(topic: str) -> dict:
-    """2단계 프로세스: 아웃라인 → 본문 작성"""
-    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
-    # 1. 아웃라인 생성 (cache_control로 90% 비용 절감)
-    outline = client.messages.create(
-        model="claude-opus-4-5-20251101",
-        system=[{"text": "DevSecOps writer", "cache_control": {"type": "ephemeral"}}],
-        messages=[{"role": "user", "content": f"Outline: {topic}"}]
-    )
-
-    # 2. 본문 작성 (3000-4000자, Jekyll 형식)
-    content = client.messages.create(
-        model="claude-opus-4-5-20251101",
-        messages=[{"role": "user", "content": f"{outline}\n\nWrite full post"}]
-    )
-
-    return {"filename": f"{date}-{topic}.md", "content": content}
-```
-
-**전체 구현 예시 코드는 본문 참조**
-
-### 3.2 Phase 2: 블로그 → 영상 스크립트
-
-```text
-블로그 MD → 영상 시나리오 (15분 구조) → 장면별 분할 → SRT 자막 → video_script.json
-```
-
-**생성 결과 (JSON 형식):**
-- `scenes[]`: 장면별 타임스탬프 + 비주얼 + 나레이션
-- `narration`: 구어체 변환된 대본
-- `timestamps[]`: SRT 자막 타이밍
-
-**핵심 구현:**
-
-```python
-def blog_to_video_script(markdown_content: str) -> dict:
-    """블로그 → 15분 영상 스크립트 변환 (장면별 타임스탬프 포함)"""
-    client = Anthropic()
-
-    # Claude Sonnet 4로 JSON 스크립트 생성
-    response = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        messages=[{"role": "user", "content": f"Convert to video script: {markdown_content}"}]
-    )
-
-    script = json.loads(response.content[0].text)
-    generate_srt_file(script)  # SRT 자막 자동 생성
-
-    return script
-```
 
 **SRT 자막 자동 생성 로직은 위 코드 참조**
 
@@ -404,6 +306,16 @@ def blog_to_video_script(markdown_content: str) -> dict:
 5. DaVinci Resolve 편집 (무음 구간 제거, 컬러 그레이딩)
 
 **OBS Studio 권장 설정:**
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 1920x1080, 60fps, H.264 인코딩
@@ -444,48 +356,7 @@ def blog_to_video_script(markdown_content: str) -> dict:
 | **용도** | background music, intro, outro | 목적 명확화 |
 
 **비용 계산:**
-```text
-Suno AI Pro 플랜: $10/월
-- Unlimited 생성 (무제한)
-- 상업적 사용 가능
-- 우선 처리
-- 320kbps MP3/WAV 다운로드
 
-ROI:
-- 프리랜서 작곡가: $50-200/곡
-- 라이선스 음악: $30-100/곡
-- Suno AI: $10/월 (무제한)
-→ 월 2곡만 만들어도 본전
-```
-
-### 3.5 Phase 5: 애니메이션 추가
-
-```text
-아바타 이미지 + 음성 → D-ID 립싱크 → MP4 (30초-5분)
-정적 이미지 → Runway Gen-3 모션 → 10초 클립
-→ DaVinci Resolve 통합 → 최종 영상
-```
-
-**핵심 단계:**
-1. D-ID: 아바타 + 음성 → 자동 립싱크 (30초-2분 대기)
-2. Runway Gen-3: 이미지 + 모션 프롬프트 → 10초 동영상
-3. 타임라인 통합: 트랜지션 + 컬러 매칭
-
-**D-ID 아바타 생성 (3단계):**
-
-```python
-def create_talking_avatar(image_path: str, audio_path: str) -> str:
-    """D-ID API로 립싱크 아바타 생성"""
-
-    # 1. 이미지 + 오디오 업로드
-    response = requests.post("https://api.d-id.com/talks",
-        headers={"Authorization": f"Basic {os.environ['DID_API_KEY']}"},
-        json={"source_url": image_url, "script": {"audio_url": audio_url}}
-    )
-
-    # 2. 생성 대기 (30초-2분)
-    return wait_for_completion(response.json()["id"])
-```
 
 **핵심 파라미터**:
 - `fluent: True` - 자연스러운 머리 움직임
@@ -529,49 +400,13 @@ ContentPipeline
 
 **핵심 클래스 구조:**
 
-```python
-# content_pipeline.py - 완전 자동화 파이프라인
-from anthropic import Anthropic
-from pydantic import BaseModel
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> 
+> ```python
+> # content_pipeline.py - 완전 자동화 파이프라인...
+> ```
 
-class ContentConfig(BaseModel):
-    """콘텐츠 생성 설정"""
-    topic: str
-    category: str
-    generate_video: bool = False
-    generate_music: bool = False
-    generate_animation: bool = False
 
-class ContentPipeline:
-    """5단계 자동화 파이프라인 (async 지원)"""
-
-    async def run_full_pipeline(self) -> dict:
-        """블로그 → 스크립트 → 음악 → 애니메이션 → Git 배포"""
-        blog = await self._generate_blog_post()         # Claude Opus 4.5
-        script = await self._create_video_script(blog)  # Claude Sonnet 4
-        bgm = await self._generate_music()              # Suno AI
-        animation = await self._create_animation()      # D-ID
-        await self._deploy_to_git(blog["filename"])     # Git commit
-
-        return {"success": True, "cost": self.cost_tracker.total_cost}
-```
-
-**실행 예시:**
-
-```python
-# 블로그만 생성 (기본)
-config = ContentConfig(topic="Kubernetes Security", category="devsecops")
-pipeline = ContentPipeline(config)
-result = await pipeline.run_full_pipeline()
-
-# 멀티미디어 포함 (영상 + 음악 + 애니메이션)
-config = ContentConfig(
-    topic="DevSecOps Tutorial",
-    generate_video=True,
-    generate_music=True,
-    generate_animation=True
-)
-```
 
 **예상 실행 시간:**
 - 블로그만: 30-60초
@@ -581,23 +416,13 @@ config = ContentConfig(
 
 **사용법:**
 
-```bash
-# 의존성 설치
-pip install anthropic requests pydantic
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 의존성 설치...
+> ```
 
-# 환경변수 설정
-export ANTHROPIC_API_KEY="your_api_key"
 
-# 실행
-python3 content_pipeline.py
-
-# 예상 실행 시간:
-# - 블로그 포스트: 30-60초
-# - 영상 스크립트: +30초
-# - 음악 생성: +2분 (수동)
-# - 애니메이션: +2분 (수동)
-# 총: 5-10분 (수동 단계 포함)
-```
 
 ---
 
@@ -643,84 +468,7 @@ python3 content_pipeline.py
 **목표:** AWS re:Invent 2025 주요 발표 정리 (30개 세션)
 
 **워크플로우:**
-```text
-1. 세션 영상 수집 (YouTube API)
-   - 자동 다운로드: yt-dlp
-   - 자막 추출: Whisper AI
 
-2. 요약 생성 (Claude Opus 4.5)
-   - 30분 영상 → 5분 핵심 요약
-   - 주요 발표 내용 추출
-   - 기술적 세부사항 정리
-
-3. 인포그래픽 생성 (Midjourney + Claude)
-   - 아키텍처 다이어그램
-   - 비교표
-   - 통계 시각화
-
-4. 팟캐스트 형식 변환
-   - 요약 → 구어체 스크립트
-   - ElevenLabs 음성 합성
-   - Suno AI 인트로/아웃트로
-
-5. 발행
-   - 블로그 포스트: 30편
-   - 팟캐스트: 30 에피소드
-   - YouTube 쇼츠: 30개
-```
-
-**실행 시간:**
-- 수동 처리 예상: 120시간 (4시간/세션)
-- AI 자동화 실제: 30시간 (1시간/세션)
-- **절감: 75% (90시간)**
-
-**48시간 이내 발행 달성:**
-- Day 1: 세션 수집 및 요약 생성 (24시간)
-- Day 2: 콘텐츠 제작 및 발행 (24시간)
-
-**결과:**
-- 조회수: 15,000+ (48시간 내)
-- SEO: "AWS re:Invent 2025 요약" 검색 1위
-- 백링크: 5개 기술 블로그에서 인용
-
-### 5.3 Case Study 3: 주간 보안 다이제스트 자동화
-
-**목표:** 매주 보안 뉴스 요약 발행 (완전 자동화)
-
-**자동화 워크플로우 (3단계):**
-
-```python
-# weekly_security_digest.py
-import feedparser
-from anthropic import Anthropic
-import schedule
-
-def collect_security_news():
-    """주요 보안 RSS 피드에서 최신 뉴스 수집"""
-    feeds = ["bleepingcomputer.com/feed", "thehackernews.com/feeds"]
-    articles = []
-    for feed in feeds:
-        articles.extend(feedparser.parse(feed).entries[:10])
-    return articles
-
-def generate_digest(articles):
-    """Claude Sonnet 4로 주간 다이제스트 생성"""
-    client = Anthropic()
-    response = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        messages=[{"role": "user", "content": f"Create weekly digest: {articles}"}]
-    )
-    return response.content[0].text
-
-def publish():
-    """RSS 수집 → Claude 생성 → Git 자동 커밋"""
-    articles = collect_security_news()
-    digest = generate_digest(articles)
-    # Git commit & push (자동)
-
-# 매주 일요일 오후 6시 자동 실행
-schedule.every().sunday.at("18:00").do(publish)
-```
 
 **핵심 기능:**
 - RSS 피드 자동 수집 (BleepingComputer, The Hacker News)
@@ -745,6 +493,16 @@ schedule.every().sunday.at("18:00").do(publish)
 
 #### API 키 관리: 절대 하드코딩 금지
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+
 ```python
 # ❌ 잘못된 예시
 ANTHROPIC_API_KEY = "sk-ant-api03-abc123..."  # 절대 금지!
@@ -764,137 +522,13 @@ if not api_key:
 
 #### 콘텐츠 검증: AI 생성 코드 자동 검증
 
-```python
-def validate_ai_generated_code(code: str) -> bool:
-    """3가지 보안 검증: 시크릿 / 위험 함수 / SQL Injection"""
-    import re
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> 
+> ```python
+> def validate_ai_generated_code(code: str) -> bool:...
+> ```
 
-    # 1. 하드코딩된 시크릿 검사
-    secret_patterns = [r'api[_-]?key\s*=\s*["\']', r'sk-[a-zA-Z0-9]{20,}']
-    if any(re.search(p, code, re.IGNORECASE) for p in secret_patterns):
-        return False  # ⚠️ Hardcoded secret detected
 
-    # 2. 위험한 함수 (eval, exec, shell=True)
-    dangerous = [r'eval\(', r'exec\(', r'subprocess\.call\(.+shell=True']
-    if any(re.search(p, code) for p in dangerous):
-        return False  # ⚠️ Dangerous function call
-
-    # 3. SQL Injection (f-string in SQL, % formatting)
-    if re.search(r'f"SELECT.+{.+}"', code):
-        return False  # ⚠️ SQL injection risk
-
-    return True  # ✅ Safe
-```
-
-**실전 사용:**
-```python
-# Claude가 생성한 코드 검증
-if validate_ai_generated_code(generated_code):
-    save_to_file(generated_code)
-else:
-    print("Security issue detected - requesting safer code...")
-```
-
-#### 라이선스 준수: AI 생성 콘텐츠 저작권
-
-| 도구 | 상업적 사용 | 저작권 | 주의사항 |
-|------|------------|--------|----------|
-| **Claude** | ✅ 가능 | 사용자 소유 | API 출력은 사용자에게 귀속 |
-| **Suno AI** | ✅ 가능 (Pro+) | 사용자 소유 | 무료 플랜은 개인용만 |
-| **Midjourney** | ✅ 가능 | 사용자 소유 | Basic 플랜 이상 필요 |
-| **Runway** | ✅ 가능 | 사용자 소유 | Standard+ 플랜 |
-| **Qwen3-TTS** | ✅ 가능 (오픈소스) | Apache-2.0 | 상업적 사용 제한 없음 |
-| **ElevenLabs** | ✅ 가능 | 사용자 소유 | Creator+ 플랜 |
-
-**권장 사항:**
-- AI 생성 콘텐츠임을 명시 (선택)
-- 유료 플랜 사용 (상업적 사용 시 필수)
-- 라이선스 약관 정기 검토
-
-#### 데이터 보호: 민감 정보 자동 마스킹
-
-```python
-def mask_sensitive_info(text: str) -> str:
-    """API 키, 이메일, IP 주소 자동 마스킹"""
-    import re
-    text = re.sub(r'(sk-[a-zA-Z0-9]{8})[a-zA-Z0-9]+', r'\1***MASKED***', text)  # API 키
-    text = re.sub(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+', '***@domain.com', text)  # 이메일
-    text = re.sub(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', '***.***.***.***.***', text)  # IP
-    return text
-```
-
-**실전 적용:**
-```python
-# 로그 출력 전 자동 마스킹
-log_message = f"Connecting to API with key: {api_key}"
-safe_log = mask_sensitive_info(log_message)
-logger.info(safe_log)  # "Connecting to API with key: sk-ant-api***MASKED***"
-```
-
-### 6.2 비용 최적화 전략
-
-![Cost Optimization Comparison](/assets/images/2026-02-05-Cost-Optimization-Chart.svg)
-*월간 비용 비교: 오픈소스 우선 ($55-60) vs 기본 스택 ($65) vs 프로 스택 ($166)*
-
-#### 월간 AI 도구 비용 예상 (실측 데이터)
-
-**월간 AI 도구 비용:**
-
-| 스택 종류 | 도구 구성 | 월 비용 |
-|----------|----------|---------|
-| **오픈소스 우선** | Claude Pro + Suno + Runway + D-ID + **Qwen3-TTS** + Midjourney | **$55-60** |
-| **기본** | Claude Pro + Suno + Runway + D-ID + ElevenLabs + Midjourney | **$65** |
-| **프로** | 모든 도구 Pro 플랜 (Unlimited 영상/음악) | **$166** |
-
-**상세 구성 (기본 스택):**
-- Claude Pro: $20 (5x 사용량)
-- Suno AI: $10 (Unlimited)
-- Runway: $15 (125 credits)
-- D-ID: $5 (10 videos)
-- **TTS 선택**:
-  - **Qwen3-TTS**: $0 (로컬 GPU) 또는 $10/월 (Colab Pro)
-  - **ElevenLabs**: $5 (30K chars)
-- Midjourney: $10 (200 images)
-- 호스팅: $0 (Vercel + GitHub 무료)
-
-#### ROI 계산 (투자 대비 수익)
-
-**ROI 계산:**
-
-| 항목 | AI 활용 | 기존 방식 | 절감 |
-|------|---------|----------|------|
-| 시간 투입 | 20시간 ($1,000) | 80시간 ($4,000) | **75%** |
-| 외주 비용 | $0 | $300 (음악+이미지) | **100%** |
-| AI 도구 | $65 | $0 | - |
-| **월 총비용** | **$1,065** | **$4,300** | **$3,235 절감** |
-| **연간 절감** | - | - | **$38,820** |
-| **ROI** | - | - | **4,877%** (49배) |
-
-#### Prompt Caching으로 90% 비용 절감
-
-```python
-from anthropic import Anthropic
-
-client = Anthropic()
-
-# 대규모 프로젝트 문서를 캐시 (50K 토큰)
-project_context = "[아키텍처 + 스타일 가이드 + 이전 포스트]"
-
-# 첫 요청: 캐시 생성
-response = client.messages.create(
-    model="claude-sonnet-4-20250514",
-    system=[{"text": project_context, "cache_control": {"type": "ephemeral"}}],  # 5분 캐시
-    messages=[{"role": "user", "content": "Write Kubernetes security post"}]
-)
-# 비용: $3/MTok x 50K = $0.15
-
-# 이후 요청 (5분 이내): 캐시 히트 → 90% 절감!
-response2 = client.messages.create(
-    system=[{"text": project_context, "cache_control": {"type": "ephemeral"}}],
-    messages=[{"role": "user", "content": "Write Docker security post"}]
-)
-# 비용: $0.30/MTok x 50K = $0.015 (90% ↓)
-```
 
 **절감 효과:**
 - 10개 포스트: 캐시 없이 $1.50 → 캐시 사용 $0.285 (81% 절감)

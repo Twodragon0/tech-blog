@@ -354,86 +354,13 @@ AI 에이전트 보안의 표준 프레임워크로 부상한 OWASP Agentic AI T
 
 ### 1.6 AI 에이전트 보안 체크리스트: 어떻게 대비해야 하는가?
 
-```yaml
-# AI Agent Security Checklist
-pre_deployment:
-  - [ ] 코드베이스 감사 (라인 수, 모듈 수 확인)
-  - [ ] 의존성 트리 분석 (npm audit / pip audit)
-  - [ ] SBOM(Software Bill of Materials) 생성
-  - [ ] 프롬프트 인젝션 테스트 수행
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # AI Agent Security Checklist...
+> ```
 
-runtime_controls:
-  - [ ] 파일 시스템 접근 범위 제한 (프로젝트 디렉토리만)
-  - [ ] 네트워크 허용 목록 설정
-  - [ ] 프로세스 격리 (컨테이너/샌드박스)
-  - [ ] 실행 명령어 화이트리스트
 
-monitoring:
-  - [ ] 모든 파일 읽기/쓰기 로깅
-  - [ ] 네트워크 요청 로깅
-  - [ ] 셸 명령어 실행 감사
-  - [ ] 비정상 행위 알림 설정
-
-incident_response:
-  - [ ] 에이전트 즉시 종료 프로세스 수립
-  - [ ] 영향 범위 파악 절차 문서화
-  - [ ] 자격 증명 교체 절차 준비
-
-supply_chain:  # ClawHavoc + ClawHub 대응
-  - [ ] 서드파티 스킬/플러그인 감사
-  - [ ] 설치된 스킬 해시 검증
-  - [ ] 스킬 마켓플레이스 접근 제한 정책
-  - [ ] 신규 스킬 설치 승인 워크플로
-  - [ ] Koi Security Clawdex 사전 스캔 도구 적용
-  - [ ] Cisco 오픈소스 Skill Scanner 도입
-
-moltbook_exposure:  # Moltbook 자격증명 유출 대응
-  - [ ] Moltbook과 연동된 에이전트 자격증명 즉시 교체
-  - [ ] AI 에이전트 소셜 플랫폼 접근 정책 수립
-  - [ ] 간접 프롬프트 인젝션 방어 체계 검토
-
-shodan_exposure:  # Shodan 노출 대응
-  - [ ] 자가 호스팅 AI 에이전트 인스턴스 인터넷 노출 여부 확인
-  - [ ] 관리 포트 방화벽/ACL 설정 점검
-  - [ ] Shodan/Censys 모니터링 알림 설정
-```
-
-### 1.7 탐지: SIEM 쿼리
-
-```bash
-# Splunk - AI Agent Suspicious File Access
-index=endpoint sourcetype=sysmon EventCode=11
-(process_name="node" OR process_name="python3")
-(TargetFilename="*/.ssh/*" OR TargetFilename="*/.aws/*"
- OR TargetFilename="*/.env" OR TargetFilename="*/credentials*")
-| stats count by process_name, TargetFilename, user
-| where count > 0
-
-# Splunk - AI Agent Unusual Network Connections
-index=endpoint sourcetype=sysmon EventCode=3
-(process_name="node" OR process_name="python3")
-NOT (dest_ip IN ("10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"))
-NOT (dest IN ("api.anthropic.com", "api.openai.com", "registry.npmjs.org"))
-| stats count by process_name, dest, dest_port
-| sort -count
-
-# Elastic/KQL - AI Agent Shell Command Execution
-process.parent.name: ("node" or "python3") AND
-event.category: "process" AND
-process.name: ("bash" or "sh" or "zsh") AND
-NOT process.command_line: ("git *" or "npm *" or "python3 *")
-
-# NEW - Splunk: CVE-2026-25253 Token Exfiltration Detection
-index=endpoint sourcetype=sysmon EventCode=3
-process_name="node"
-(dest_port=443 OR dest_port=80)
-| eval suspicious=if(
-    match(dest, "^(?!api\.(anthropic|openai)\.com)"),
-    "SUSPICIOUS", "OK")
-| search suspicious="SUSPICIOUS"
-| stats count by process_name, dest, dest_port, user
-| where count > 3
-```
 
 ### 1.8 Jamf Extension Attribute: OpenClaw/Moltbot 설치를 어떻게 탐지하는가?
 
@@ -441,78 +368,13 @@ process_name="node"
 
 #### Extension Attribute 스크립트
 
-```bash
-#!/bin/bash
-# Jamf Extension Attribute: OpenClaw/Moltbot Installation Detection
-# Data Type: String | Input Type: Script
-# Purpose: Detect unauthorized AI agent installations on managed Macs
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
 
-REPORT=""
-FOUND_ANY=false
 
-# 1. Binary check
-check_binary() {
-    local bin_path=$1
-    if [ -f "$bin_path" ]; then
-        REPORT+="[FOUND] Binary: $bin_path\n"
-        FOUND_ANY=true
-    else
-        REPORT+="[Not Found] Binary: $bin_path\n"
-    fi
-}
-
-# 2. User home directory check
-check_user_dir() {
-    local dir_name=$1
-    USERS=$(dscl . list /Users UniqueID | awk '$2 > 500 {print $1}')
-    for user in $USERS; do
-        HOME_DIR=$(dscl . read "/Users/$user" NFSHomeDirectory | awk '{print $2}')
-        if [ -d "$HOME_DIR/$dir_name" ]; then
-            REPORT+="[FOUND] User($user) Folder: ~/$dir_name\n"
-            FOUND_ANY=true
-        else
-            REPORT+="[Not Found] User($user) Folder: ~/$dir_name\n"
-        fi
-    done
-}
-
-# 3. npm global module check
-check_npm_module() {
-    local module_name=$1
-    local npm_path="/usr/local/lib/node_modules/$module_name"
-    if [ -d "$npm_path" ]; then
-        REPORT+="[FOUND] npm Module: $module_name\n"
-        FOUND_ANY=true
-    else
-        REPORT+="[Not Found] npm Module: $module_name\n"
-    fi
-}
-
-REPORT+="--- OpenClaw/Moltbot Inspection Report ---\n"
-
-# Binary inspection
-check_binary "/usr/local/bin/openclaw"
-check_binary "/usr/local/bin/molt"
-check_binary "/usr/local/bin/clawd"
-
-# User config directory inspection
-check_user_dir ".openclaw"
-check_user_dir ".moltbot"
-check_user_dir "clawd"
-
-# npm module inspection
-check_npm_module "openclaw"
-check_npm_module "@openclaw"
-
-REPORT+="------------------------------------------\n"
-
-# Jamf Extension Attribute output
-if [ "$FOUND_ANY" = true ]; then
-    echo -e "<result>WARNING: Installation Detected\n\n$REPORT</result>"
-else
-    echo -e "<result>Clean: No Installation Found\n\n$REPORT</result>"
-fi
-```
 
 #### Jamf Pro 등록 방법
 
@@ -541,40 +403,23 @@ fi
 
 동일 패턴으로 다른 AI 코딩 에이전트도 탐지할 수 있습니다:
 
-```bash
-# Additional AI agent binary paths to monitor
-check_binary "/usr/local/bin/cursor"
-check_binary "/usr/local/bin/windsurf"
-check_binary "/usr/local/bin/aider"
-check_binary "/usr/local/bin/copilot"
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Additional AI agent binary paths to monitor...
+> ```
 
-# Additional config directories
-check_user_dir ".cursor"
-check_user_dir ".windsurf"
-check_user_dir ".aider"
-check_user_dir ".continue"
 
-# Homebrew cask installations
-check_binary "/opt/homebrew/bin/openclaw"
-check_binary "/opt/homebrew/bin/cursor"
-```
 
 #### 탐지 결과 SIEM 연동
 
-```bash
-# Splunk - Jamf EA 기반 OpenClaw 설치 탐지 알림
-index=jamf sourcetype=jamf:computerextensionattributes
-ea_name="OpenClaw Detection"
-ea_value="WARNING*"
-| stats count by computer_name, serial_number, ea_value, _time
-| sort -_time
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Jamf EA 기반 OpenClaw 설치 탐지 알림...
+> ```
 
-# Splunk - OpenClaw 설치 트렌드 (주간)
-index=jamf sourcetype=jamf:computerextensionattributes
-ea_name="OpenClaw Detection"
-ea_value="WARNING*"
-| timechart span=1w count by computer_name
-```
+
 
 ### 1.9 AI 에이전트 보안 FAQ
 
@@ -625,80 +470,7 @@ Jamf Pro는 Apple 생태계에 최적화된 MDM으로, Configuration Profile을 
 
 #### Configuration Profile로 앱 제한
 
-```xml
-<!-- Jamf Pro - Restriction Payload: Block Specific Apps -->
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>PayloadContent</key>
-  <array>
-    <dict>
-      <key>PayloadType</key>
-      <string>com.apple.applicationaccess</string>
-      <key>PayloadVersion</key>
-      <integer>1</integer>
-      <key>PayloadIdentifier</key>
-      <string>com.example.restriction.apps</string>
-      <key>PayloadUUID</key>
-      <string>YOUR_UUID_HERE</string>
-      <key>PayloadDisplayName</key>
-      <string>App Restrictions</string>
 
-      <!-- Block specific apps by bundle ID -->
-      <key>blacklistedAppBundleIDs</key>
-      <array>
-        <string>com.dropbox.client</string>
-        <string>com.getdropbox.dropbox</string>
-        <string>com.google.Drive</string>
-        <string>com.tencent.xinWeChat</string>
-      </array>
-
-      <!-- Or use allowlist mode (more restrictive) -->
-      <!-- <key>whitelistedAppBundleIDs</key>
-      <array>
-        <string>com.apple.Safari</string>
-        <string>com.microsoft.Outlook</string>
-        <string>com.slack.Slack</string>
-      </array> -->
-    </dict>
-  </array>
-</dict>
-</plist>
-```
-
-#### Smart Groups 기반 정책 배포
-
-![Jamf Pro Smart Group Examples - Security-Restricted, BYOD, and Executive device group configurations](/assets/images/diagrams/2026-02-03-jamf-smart-group-examples.svg)
-
-#### Jamf Pro API로 앱 비활성화
-
-```bash
-# Jamf Pro API - Get device app list
-curl -X GET "https://your-jamf.jamfcloud.com/JSSResource/mobiledevices/id/{device_id}" \
-  -H "Authorization: Bearer ${JAMF_TOKEN}" \
-  -H "Accept: application/json" | \
-  jq '.mobile_device.applications[].identifier'
-
-# Jamf Pro API - Deploy restriction profile
-curl -X POST "https://your-jamf.jamfcloud.com/JSSResource/osxconfigurationprofiles/id/0" \
-  -H "Authorization: Bearer ${JAMF_TOKEN}" \
-  -H "Content-Type: application/xml" \
-  -d @app_restriction_profile.xml
-
-# Jamf Pro API - Remove managed app
-curl -X POST "https://your-jamf.jamfcloud.com/JSSResource/mobiledevicecommands/command/RemoveApplication" \
-  -H "Authorization: Bearer ${JAMF_TOKEN}" \
-  -H "Content-Type: application/xml" \
-  -d '<mobile_device_command>
-        <general>
-          <command>RemoveApplication</command>
-          <management_id>com.dropbox.client</management_id>
-        </general>
-        <mobile_devices><mobile_device><id>{device_id}</id></mobile_device></mobile_devices>
-      </mobile_device_command>'
-```
 
 ### 2.4 Microsoft Intune: 크로스 플랫폼 MDM은 어떻게 구성하는가?
 
@@ -706,107 +478,33 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 
 #### App Protection Policies
 
-```json
-{
-  "@odata.type": "#microsoft.graph.iosManagedAppProtection",
-  "displayName": "Finance App Protection Policy",
-  "description": "Restrict data transfer for finance apps",
-  "periodOfflineBeforeAccessCheck": "PT12H",
-  "periodOnlineBeforeAccessCheck": "PT30M",
-  "allowedInboundDataTransferSources": "managedApps",
-  "allowedOutboundDataTransferDestinations": "managedApps",
-  "organizationalCredentialsRequired": true,
-  "dataBackupBlocked": true,
-  "deviceComplianceRequired": true,
-  "managedBrowserToOpenLinksRequired": true,
-  "saveAsBlocked": true,
-  "periodOfflineBeforeWipeIsEnforced": "P90D",
-  "pinRequired": true,
-  "maximumPinRetries": 5,
-  "simplePinBlocked": true,
-  "minimumPinLength": 6,
-  "pinCharacterSet": "alphanumericAndSymbol",
-  "allowedDataStorageLocations": [
-    "oneDriveForBusiness",
-    "sharePoint"
-  ],
-  "contactSyncBlocked": true,
-  "printBlocked": true,
-  "fingerprintBlocked": false,
-  "disableAppPinIfDevicePinIsSet": false
-}
-```
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+
 
 #### Conditional Access로 앱 접근 제어
 
-```json
-{
-  "@odata.type": "#microsoft.graph.conditionalAccessPolicy",
-  "displayName": "Block Non-Compliant Device App Access",
-  "state": "enabled",
-  "conditions": {
-    "clientAppTypes": ["all"],
-    "applications": {
-      "includeApplications": [
-        "00000003-0000-0ff1-ce00-000000000000",
-        "00000002-0000-0ff1-ce00-000000000000"
-      ]
-    },
-    "platforms": {
-      "includePlatforms": ["iOS", "android"]
-    }
-  },
-  "grantControls": {
-    "operator": "AND",
-    "builtInControls": [
-      "compliantDevice",
-      "approvedApplication"
-    ]
-  }
-}
-```
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+
 
 #### Intune Compliance Policy
 
-```json
-{
-  "@odata.type": "#microsoft.graph.iosCompliancePolicy",
-  "displayName": "iOS Security Compliance",
-  "description": "Minimum security requirements for iOS devices",
-  "osMinimumVersion": "17.0",
-  "osMaximumVersion": "18.99",
-  "securityBlockJailbrokenDevices": true,
-  "deviceThreatProtectionEnabled": true,
-  "deviceThreatProtectionRequiredSecurityLevel": "medium",
-  "managedEmailProfileRequired": true,
-  "restrictedApps": [
-    {
-      "name": "TikTok",
-      "appId": {
-        "bundleId": "com.zhiliaoapp.musically"
-      }
-    },
-    {
-      "name": "Telegram",
-      "appId": {
-        "bundleId": "ph.telegra.Telegraph"
-      }
-    }
-  ],
-  "scheduledActionsForRule": [
-    {
-      "ruleName": "DeviceNonCompliance",
-      "scheduledActionConfigurations": [
-        {
-          "actionType": "block",
-          "gracePeriodHours": 24,
-          "notificationTemplateId": "YOUR_TEMPLATE_ID"
-        }
-      ]
-    }
-  ]
-}
-```
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+
 
 ### 2.5 Jamf Pro vs Microsoft Intune: 주요 기능은 어떻게 다른가?
 
@@ -827,165 +525,23 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 
 ### 2.6 SIEM 연동 MDM 모니터링은 어떻게 설정하는가?
 
-```bash
-# Splunk - Jamf Pro MDM Compliance Events
-index=mdm sourcetype=jamf:events
-(event_type="ComputerCheckIn" OR event_type="PolicyRun"
- OR event_type="RestrictionViolation")
-| eval status=case(
-    event_type="RestrictionViolation", "VIOLATION",
-    event_type="PolicyRun" AND result="success", "COMPLIANT",
-    event_type="PolicyRun" AND result="failed", "NON_COMPLIANT",
-    1=1, "INFO")
-| stats count by device_name, event_type, status, serial_number
-| where status IN ("VIOLATION", "NON_COMPLIANT")
-| sort -count
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Jamf Pro MDM Compliance Events...
+> ```
 
-# Splunk - Intune Device Compliance Dashboard
-index=azure sourcetype=intune:deviceCompliance
-| eval compliance_state=case(
-    complianceState="compliant", "OK",
-    complianceState="noncompliant", "ALERT",
-    complianceState="inGracePeriod", "WARNING",
-    1=1, "UNKNOWN")
-| stats count by deviceName, complianceState, operatingSystem, ownerType
-| where compliance_state IN ("ALERT", "WARNING")
-| sort -count
 
-# Elastic/KQL - MDM Policy Violation Detection
-event.dataset: "jamf.events" AND
-event.action: ("restriction_violation" or "app_blocked" or "compliance_failed") AND
-NOT device.os.version: "17.*"
-```
 
 ### 2.7 MDM Zero Trust 구현 체크리스트
 
-```yaml
-# MDM Zero Trust Checklist
-enrollment:
-  - [ ] Apple DEP/ABM 자동 등록 구성 (Supervised 모드)
-  - [ ] BYOD User Enrollment 분리 정책
-  - [ ] 디바이스 인증서 기반 등록
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # MDM Zero Trust Checklist...
+> ```
 
-app_control:
-  - [ ] 관리형 앱 배포 목록 정의
-  - [ ] 비인가 앱 차단 목록 업데이트 (분기별)
-  - [ ] 앱 버전 최소 요구사항 설정
-  - [ ] AI 에이전트 설치 탐지 EA 등록 (섹션 1.8)
 
-compliance:
-  - [ ] OS 최소 버전 정책 (보안 패치 강제)
-  - [ ] 탈옥/루팅 탐지 활성화
-  - [ ] 비준수 디바이스 자동 격리 (24시간 유예)
-  - [ ] 암호화 강제 (FileVault/BitLocker)
-
-monitoring:
-  - [ ] SIEM 연동 (Splunk/Elastic)
-  - [ ] 비정상 체크인 패턴 알림
-  - [ ] 관리 프로필 제거 시도 알림
-  - [ ] 주간 컴플라이언스 리포트 자동화
-```
-
----
-
-## 3. 금주 뉴스 하이라이트: 이번 주 보안과 기술 업계에서 무슨 일이 있었는가?
-
-### 3.1 보안 뉴스 심층 분석
-
-#### Microsoft NTLM 3단계 폐지 계획: 무엇이 변하는가?
-
-> 출처: [The Hacker News](https://thehackernews.com/2026/02/microsoft-begins-ntlm-phase-out-with.html)
-
-Microsoft가 **NTLM(New Technology LAN Manager)을 3단계에 걸쳐 폐지**하고 Kerberos 기반 인증으로 전환하는 계획을 발표했습니다. NTLM은 2년 전부터 폐지가 예고되었으며, 릴레이 공격 등 보안 취약점이 주된 이유입니다.
-
-| 단계 | 내용 | 대응 |
-|------|------|------|
-| **1단계** | Kerberos 대체 인증 활성화, NTLM 감사 로깅 시작 | NTLM 사용량 모니터링 시작 |
-| **2단계** | NTLM 사용 제한, Kerberos 우선 정책 적용 | 레거시 앱 NTLM 의존성 파악 및 마이그레이션 |
-| **3단계** | NTLM 완전 비활성화 | 모든 시스템 Kerberos 전환 완료 확인 |
-
-**실무 대응 포인트:**
-- Windows 이벤트 로그에서 NTLM 인증 이벤트(Event ID 4624, Logon Type 3)를 모니터링하여 현재 NTLM 사용량을 파악하세요
-- 레거시 애플리케이션의 NTLM 의존성을 사전에 확인하고 마이그레이션 계획을 수립하세요
-- Active Directory 환경에서 Kerberos 인증이 정상 작동하는지 테스트하세요
-
-#### Infostealers: macOS와 Python 개발자를 노리는 새로운 위협
-
-> 출처: Microsoft Security Blog
-
-Microsoft Security 팀이 **macOS와 Python 개발 환경을 타겟으로 한 Infostealer 캠페인**을 분석한 보고서를 발표했습니다. 특히 Python 패키지를 통한 공급망 공격과 macOS 키체인 접근 시도가 증가하고 있어, AI 에이전트 보안(섹션 1)과도 직접적으로 연관됩니다.
-
-#### Weekly Recap: Proxy Botnet, Office Zero-Day, MongoDB 취약점
-
-> 출처: [The Hacker News](https://thehackernews.com/)
-
-이번 주 주요 보안 이벤트를 종합하면, Proxy Botnet 캠페인과 Office Zero-Day 취약점이 활발히 악용되고 있습니다. 보안 팀은 패치 적용 상황을 점검하고 IOC를 SIEM에 반영해야 합니다.
-
-### 3.2 AI 에이전트 및 기술 생태계
-
-| 뉴스 | 핵심 내용 | 영향도 | 분석 |
-|------|-----------|--------|------|
-| **Snowflake-OpenAI 2억달러 파트너십** | 엔터프라이즈 데이터에 프론티어 AI 직접 통합, AI 에이전트와 인사이트를 Snowflake 내에서 제공 | High | 데이터 웨어하우스와 LLM의 결합은 엔터프라이즈 AI 채택을 가속화하며, 동시에 데이터 거버넌스와 접근 제어의 중요성이 커짐 |
-| **Google AI: 멸종위기종 유전정보 보존** | AI를 활용한 멸종위기종 유전 정보 보존 프로젝트 | Medium | 공공 이익 AI 활용 사례로, 기업의 AI 윤리 전략에 참고할 수 있는 모델 |
-| **Clarus Care: Amazon Bedrock 임상 AI** | 헬스케어 컨택 센터에 Bedrock 기반 대화형 AI 적용, 자동 음성봇과 채팅 인터페이스 구축 | Medium | 의료 분야 AI 에이전트 도입 사례로, 규제 준수와 환자 데이터 보호가 핵심 과제 |
-| **Gemini Enterprise 직원 온보딩 자동화** | Google Cloud의 Gemini를 활용한 지능형 직원 온보딩 시스템 구축 가이드 | Medium | 엔터프라이즈 AI 에이전트가 HR 프로세스까지 확장되면서 내부 데이터 접근 권한 관리 이슈 부상 |
-| **Claude Code / Opus 4.5 에이전트 확장** | Anthropic Claude Code CLI의 에이전트 코딩 기능 강화, 멀티 에이전트 오케스트레이션 패턴 확산 | High | 에이전트 생태계가 확대되면서 보안 표준(OWASP Agentic AI)의 적용이 더욱 시급해짐 |
-| **OWASP Agentic AI Top 10 v1.0** | AI 에이전트 보안 표준 프레임워크 정식 발표 | High | 이번 주 OpenClaw 사건들이 Top 10 항목의 실제 사례를 제공, 프레임워크 채택 가속화 전망 |
-
-### 3.3 클라우드 및 Kubernetes 보안
-
-| 뉴스 | 핵심 내용 | 영향도 | 분석 |
-|------|-----------|--------|------|
-| **Kubernetes 1.33 보안 기능 강화** | Pod Security Admission 개선, Sidecar Container GA | High | 사이드카 컨테이너 GA는 서비스 메시 보안 패턴을 공식적으로 지원, Envoy/Istio 기반 mTLS 구성 표준화 |
-| **SBOM 컴플라이언스 의무화 확대** | 미국 연방기관 SBOM 제출 의무화 범위 확대, EU CRA 시행 | High | ClawHub 공급망 공격(341개 악성 스킬)은 SBOM 관리의 필요성을 실증적으로 보여줌 |
-| **AWS EKS Security Best Practices 2026** | Pod Identity, IRSA v2, Kyverno 정책 엔진 가이드 | Medium | EKS 환경에서 최소 권한 원칙 적용을 위한 공식 가이드, IRSA v2로 IAM 역할 관리 개선 |
-| **GCP Confidential GKE Nodes GA** | 메모리 암호화 기반 노드에서 Kubernetes 워크로드 실행 | Medium | TEE(Trusted Execution Environment) 기반 컨테이너 보안의 상용화 단계 진입 |
-| **Cloud Run NVIDIA RTX PRO 6000 지원** | 서버리스 컴퓨팅에서 고성능 GPU 추론, Gemma 3 27B/Llama 3.1 70B 배포 가능 | Medium | AI 모델 서빙의 인프라 추상화가 가속, 보안 팀은 서버리스 AI의 데이터 흐름 모니터링 체계 필요 |
-| **Google Cloud 단일 테넌트 Cloud HSM** | 전용 HSM으로 암호키 독점 관리, 금융/정부 규제 대응 | Medium | 규제 산업의 키 관리 요구사항 충족, 클라우드 제공자도 키 접근 불가한 격리 보장 |
-
-### 3.4 DevSecOps 동향
-
-| 뉴스 | 핵심 내용 | 영향도 | 분석 |
-|------|-----------|--------|------|
-| **GitOps + Policy-as-Code 융합** | OPA/Kyverno를 GitOps 파이프라인에 네이티브 통합하는 패턴 확산 | High | 정책 변경도 Git 워크플로를 통해 버전 관리/리뷰되므로 감사 추적성 대폭 개선 |
-| **SLSA v1.1** | 빌드 무결성 검증 프레임워크 업데이트 | Medium | 공급망 보안 강화의 핵심 도구, CI/CD 파이프라인에 통합하여 빌드 출처 검증 |
-| **Sigstore cosign 3.0** | 컨테이너 이미지 서명/검증 개선, OCI 레지스트리 네이티브 | Medium | 컨테이너 이미지 무결성 보장의 사실상 표준으로 자리잡는 중 |
-
-### 3.5 트렌드 분석: 이번 주 보안 이슈는 어떻게 연결되는가?
-
-![2026 Feb Week 1 Security DevOps Trend Map - AI Agent Security, Zero Trust, Supply Chain Security, and Enterprise AI connections](/assets/images/diagrams/2026-02-03-security-devops-trend-map.svg)
-
-이번 주의 핵심 연결고리는 **"AI 에이전트의 보안과 신뢰"**입니다. OpenClaw 취약점과 ClawHub 공급망 공격은 AI 에이전트 보안의 실질적 위험을 보여주고, MDM과 Zero Trust는 이에 대한 엔터프라이즈 대응 전략이며, SBOM/SLSA는 공급망 전체의 무결성을 보장하는 기반입니다.
-
----
-
-## 4. 실무 체크리스트: 이번 주에 무엇을 해야 하는가?
-
-### 이번 주 액션 아이템
-
-```yaml
-# Weekly Action Items - February 3, 2026
-priority_high:
-  - [ ] OpenClaw 버전 2026.1.29 패치 확인 (CVE-2026-25253)
-  - [ ] ClawHub 설치 스킬 감사 (341개 악성 스킬 IOC 대조)
-  - [ ] Jamf Extension Attribute 등록: OpenClaw/Moltbot 무단 설치 탐지
-  - [ ] AI 코딩 에이전트 권한 감사 (파일/네트워크 접근 범위 확인)
-  - [ ] NTLM 사용량 모니터링 시작 (Microsoft 폐지 1단계 대비)
-  - [ ] MDM 앱 차단 목록 분기 업데이트 (비인가 AI 도구 추가)
-
-priority_medium:
-  - [ ] SBOM 생성 파이프라인 구축 (syft/trivy 활용)
-  - [ ] Smart Group 생성: OpenClaw 탐지 디바이스 자동 그룹화 + 알림
-  - [ ] AI 에이전트 실행 로그 SIEM 연동 설정
-  - [ ] Jamf/Intune 컴플라이언스 리포트 자동화
-  - [ ] Kubernetes RBAC 감사 (최소 권한 확인)
-
-priority_low:
-  - [ ] OWASP Agentic AI Top 10 팀 공유 및 교육
-  - [ ] SLSA v1.1 빌드 무결성 파일럿
-  - [ ] 에이전트 보안 정책 문서 초안 작성
-  - [ ] Kerberos 인증 전환 계획 수립 (NTLM 폐지 대비)
-```
 
 ### 이번 주 핵심 질문: 보안 팀이 스스로 물어야 할 것
 

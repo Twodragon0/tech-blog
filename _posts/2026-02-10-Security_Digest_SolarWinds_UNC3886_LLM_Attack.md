@@ -30,6 +30,15 @@ title: '2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩
 toc: true
 ---
 
+{% include ai-summary-card.html
+  title='2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격'
+  categories_html=''
+  tags_html=''
+  highlights_html='<li><strong>핵심 요약</strong>: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전</li>'
+  period='2026-02-10'
+  audience='DevOps/DevSecOps/Cloud 보안 담당자'
+%}
+
 ## 요약
 
 - **핵심 요약**: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전 정렬 GRPO 무력화, 북한 UNC1069 딥페이크 암호화폐 공격
@@ -78,21 +87,7 @@ Microsoft Defender 보안 연구팀이 SolarWinds Web Help Desk(WHD) 인스턴�
 
 ### 공격 체인 다이어그램
 
-```text
-[1] 인터넷 노출 WHD 스캔
-      ↓
-[2] CVE-2025-40551 역직렬화 RCE 익스플로잇
-      ↓
-[3] PowerShell + BITS → 페이로드 다운로드
-      ↓
-[4] 예약 작업 생성 (QEMU VM) + Reverse SSH/RDP 터널
-      ↓
-[5] LSASS 메모리 덤프 → 자격증명 탈취 → 횡적 이동
-      ↓
-[6] DCSync 공격 → 전체 AD 패스워드 해시 추출
-      ↓
-[최종] 완전한 도메인 장악 완료
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 ### SIEM 탐지 쿼리
 

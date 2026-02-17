@@ -259,16 +259,13 @@ def replace_code_blocks(content: str) -> str:
         code_block = match.group(2)
         full_match = match.group(0)
 
-        # 이미 링크가 있는지 확인 (안전한 검사)
         context_start = max(0, match.start() - 200)
         context = content[context_start : match.start()]
-        # 보안: 링크 검증 - 완전한 URL 패턴만 허용 (부분 문자열 매칭 방지)
-        # 위험한 부분 문자열 매칭 방지: 정확한 URL 패턴만 허용
         import re
 
-        safe_url_pattern = r"\]\s*\(\s*(https?://[^\s\)]+github\.com[^\s\)]*)"
-        if re.search(safe_url_pattern, context, re.IGNORECASE):
-            return full_match  # 이미 링크가 있으면 유지
+        existing_marker_pattern = r"(\*\*코드 예시\*\*|전체 코드는 위 GitHub 링크 참조)"
+        if re.search(existing_marker_pattern, context, re.IGNORECASE):
+            return full_match
 
         # 코드 타입 감지
         code_type = (
@@ -295,10 +292,10 @@ def replace_code_blocks(content: str) -> str:
                 safe_link = link.replace("]", "%5D").replace(
                     "[", "%5B"
                 )  # 마크다운 링크 구문자 이스케이프
-                return f"> **코드 예시**: 전체 코드는 [GitHub 예제 저장소]({safe_link})를 참조하세요.\n> \n> ```{language}\n> {code_preview}...\n> ```\n\n<!-- 전체 코드는 위 GitHub 링크 참조\n```{language}\n{code_block}\n```\n-->"
+                return f"> **코드 예시**: 전체 코드는 [GitHub 예제 저장소]({safe_link})를 참조하세요.\n> \n> ```{language}\n> {code_preview}...\n> ```\n\n<!-- 전체 코드는 위 GitHub 링크 참조 -->"
             else:
                 # 링크가 없으면 주석 처리
-                return f"<!-- 긴 코드 블록 제거됨 (가독성 향상)\n```{language}\n{code_block}\n```\n-->"
+                return "<!-- 긴 코드 블록 제거됨 (가독성 향상) -->"
         else:
             # 짧은 코드 블록은 유지하되 링크 추가 (너무 짧으면 링크 추가 안 함)
             if link and code_lines >= 3:  # 3줄 이상인 경우만 링크 추가

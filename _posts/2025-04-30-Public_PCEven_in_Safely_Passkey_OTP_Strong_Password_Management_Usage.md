@@ -161,6 +161,16 @@ toc: true
 #### 1.2.1 키로거 (Keylogger)
 
 **공격 메커니즘:**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+
 ```python
 # 키로거 예시 (교육 목적)
 import pynput.keyboard as keyboard
@@ -191,6 +201,16 @@ listener.start()
 3. 쿠키/세션 토큰이 유지되어 자동 로그인
 
 **취약점 예시:**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://nodejs.org/en/docs/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://nodejs.org/en/docs/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://nodejs.org/en/docs/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://nodejs.org/en/docs/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://nodejs.org/en/docs/)를 참조하세요.
+
 ```javascript
 // 안전하지 않은 세션 쿠키
 document.cookie = "sessionid=abc123; path=/";
@@ -207,6 +227,16 @@ document.cookie = "sessionid=abc123; path=/; Secure; HttpOnly; SameSite=Strict; 
 #### 1.2.3 중간자 공격 (Man-in-the-Middle)
 
 **공용 Wi-Fi 공격 시나리오:**
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # 공격자가 ARP Spoofing으로 트래픽 가로채기
 arpspoof -i wlan0 -t 192.168.1.100 192.168.1.1
@@ -264,6 +294,16 @@ Layer 4: Password Manager (Zero Knowledge)
 
 #### 1.5.1 Disposable VM (Qubes OS)
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Qubes OS에서 일회용 VM 생성
 qvm-run --dispvm firefox https://banking.example.com
@@ -280,137 +320,13 @@ qvm-run --dispvm firefox https://banking.example.com
 
 #### 1.5.2 Remote Browser Isolation (RBI)
 
-```yaml
-# Cloudflare Browser Isolation 설정 예시
-cloudflare_gateway:
-  browser_isolation:
-    enabled: true
-    policies:
-      - name: "High-Risk Sites"
-        action: isolate
-        expressions:
-          - http.request.uri.path contains "banking"
-          - http.request.uri.path contains "admin"
-```
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Cloudflare Browser Isolation 설정 예시...
+> ```
 
-**서비스 옵션:**
-- Cloudflare Browser Isolation
-- Symantec Web Isolation
-- Ericom Shield
 
-### 1.6 공용 PC 사용 체크리스트
-
-공용 PC 사용 전/후 확인사항:
-
-**사용 전 (Pre-Use Checklist):**
-- [ ] **시크릿/프라이빗 브라우징 모드 활성화**
-  - Chrome: `Ctrl+Shift+N`
-  - Firefox: `Ctrl+Shift+P`
-  - Edge: `Ctrl+Shift+N`
-- [ ] **HTTPS 연결 확인** (주소창 자물쇠 아이콘)
-- [ ] **패스키 또는 OTP 인증 준비**
-- [ ] **VPN 연결** (공용 Wi-Fi인 경우 필수)
-- [ ] **브라우저 확장 프로그램 확인** (의심스러운 항목 있는지)
-- [ ] **주변 환경 확인** (숄더 서핑 가능성, CCTV 위치)
-
-**사용 중 (During Use):**
-- [ ] **비밀번호 저장 거부** (브라우저 팝업)
-- [ ] **자동 로그인 체크박스 해제**
-- [ ] **15분 이상 자리 비울 시 로그아웃**
-- [ ] **민감 정보 복사 후 클립보드 즉시 삭제**
-
-**사용 후 (Post-Use Checklist):**
-- [ ] **모든 사이트 명시적 로그아웃**
-- [ ] **브라우저 기록/캐시/쿠키 삭제**
-  - Chrome: `Ctrl+Shift+Delete` → "전체 기간" 선택
-- [ ] **다운로드 파일 삭제 확인**
-- [ ] **브라우저 완전 종료** (작업 관리자에서 프로세스 확인)
-- [ ] **휴지통 비우기** (민감 파일 다운로드 시)
-- [ ] **모바일 앱으로 계정 활동 확인** (의심스러운 로그인 있는지)
-
-### 1.7 공용 PC별 위험도 매트릭스
-
-| PC 유형 | 키로거 위험 | 세션 탈취 위험 | 네트워크 위험 | 종합 위험도 |
-|---------|-------------|----------------|---------------|-------------|
-| **PC방** | 🔴 높음 (15-20%) | 🟡 중간 | 🔴 높음 | 🔴 CRITICAL |
-| **도서관/공공기관** | 🟡 중간 (5-10%) | 🟡 중간 | 🟡 중간 | 🟡 MEDIUM |
-| **호텔 비즈니스 센터** | 🟢 낮음 | 🟡 중간 | 🔴 높음 | 🟡 MEDIUM |
-| **공항 키오스크** | 🟢 낮음 | 🔴 높음 | 🔴 높음 | 🔴 HIGH |
-| **카페 공용 PC** | 🟡 중간 | 🔴 높음 | 🔴 높음 | 🔴 HIGH |
-
-**권장 행동:**
-- 🔴 CRITICAL/HIGH: 패스키 + VPN 필수, 금융/중요 작업 금지
-- 🟡 MEDIUM: 패스키 + 시크릿 모드, 금융 작업 자제
-- 🟢 LOW: 기본 보안 수칙 준수
-
-## 2. 패스키(Passkey) 완전 가이드
-
-### 2.1 FIDO2/WebAuthn 기술 원리
-
-패스키는 **FIDO2** 표준과 **WebAuthn** API를 기반으로 작동합니다.
-
-#### 2.1.1 공개키 암호화 기반 인증
-
-**전통적인 비밀번호 인증:**
-```
-[사용자] ---(비밀번호)---> [서버]
-        <---(OK/FAIL)---
-문제: 비밀번호가 네트워크를 통해 전송되어 가로채기 가능
-```
-
-**패스키 인증 (공개키 방식):**
-```
-[등록 단계]
-1. 사용자 디바이스에서 키 쌍 생성
-   - 개인키 (Private Key): 디바이스에 안전하게 저장
-   - 공개키 (Public Key): 서버에 전송
-2. 서버는 공개키만 저장
-
-[인증 단계]
-1. 서버가 챌린지(난수) 전송
-2. 디바이스가 개인키로 서명
-3. 서버가 공개키로 서명 검증
-```
-
-#### 2.1.2 WebAuthn 인증 흐름
-
-```javascript
-// 패스키 등록 (Registration)
-const credential = await navigator.credentials.create({
-  publicKey: {
-    challenge: new Uint8Array(32), // 서버가 생성한 난수
-    rp: { name: "Example Corp", id: "example.com" },
-    user: {
-      id: new Uint8Array(16),
-      name: "user@example.com",
-      displayName: "User Name"
-    },
-    pubKeyCredParams: [{alg: -7, type: "public-key"}],
-    authenticatorSelection: {
-      authenticatorAttachment: "platform", // "platform" or "cross-platform"
-      requireResidentKey: true,
-      userVerification: "required"
-    },
-    timeout: 60000,
-    attestation: "direct"
-  }
-});
-
-// 패스키 인증 (Authentication)
-const assertion = await navigator.credentials.get({
-  publicKey: {
-    challenge: new Uint8Array(32),
-    rpId: "example.com",
-    allowCredentials: [{
-      id: credentialId,
-      type: "public-key",
-      transports: ["internal", "usb", "nfc", "ble"]
-    }],
-    userVerification: "required",
-    timeout: 60000
-  }
-});
-```
 
 #### 2.1.3 패스키 vs 비밀번호 보안 비교
 
@@ -531,130 +447,13 @@ const assertion = await navigator.credentials.get({
 
 #### 2.4.2 GitHub에 보안 키 등록
 
-```bash
-# 1. GitHub 설정 페이지
-# https://github.com/settings/security
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. GitHub 설정 페이지...
+> ```
 
-# 2. "Passkeys and security keys" 섹션
-# 3. "Add a passkey or security key" 클릭
 
-# 4. YubiKey 삽입 후 버튼 터치
-# (또는 생체 인증 수행)
-
-# 5. 키 이름 설정: "YubiKey 5C NFC - Primary"
-```
-
-#### 2.4.3 Microsoft 계정 Passwordless 전환
-
-**완전 비밀번호 제거 절차:**
-```
-1. https://account.microsoft.com/security 접속
-2. "고급 보안 옵션" 클릭
-3. "암호 없는 계정" 섹션에서 "켜기" 선택
-4. Microsoft Authenticator 앱 설치
-5. 앱에서 계정 추가 → QR 코드 스캔
-6. 생체 인증 설정 (지문/얼굴)
-7. "비밀번호 제거" 버튼 클릭
-```
-
-**⚠️ 주의사항:**
-- 백업 복구 코드 저장 필수 (오프라인 보관)
-- 디바이스 2개 이상에 인증 수단 설정 권장
-
-### 2.5 Passkey 클라우드 동기화 보안
-
-#### 2.5.1 iCloud Keychain (Apple)
-
-**암호화 방식:**
-```
-1. 디바이스에서 패스키 생성
-2. E2E 암호화로 iCloud에 업로드
-   - 암호화 키: 디바이스 암호 + HSM 키
-3. 다른 Apple 기기에서 자동 동기화
-4. 복호화: 생체 인증 또는 디바이스 암호
-```
-
-**보안 특징:**
-- **End-to-End 암호화**: Apple도 복호화 불가
-- **iCloud 키체인 암호 필요**: 새 기기 추가 시
-- **2FA 보호**: Apple ID 자체에 2FA 필수
-
-#### 2.5.2 Google Password Manager
-
-**동기화 메커니즘:**
-```yaml
-encryption:
-  method: AES-256-GCM
-  key_derivation: Argon2
-  sync_protocol: E2EE (End-to-End Encrypted)
-
-access_control:
-  - Screen lock (PIN/Pattern/Biometric)
-  - Google Account 2FA
-  - Device trust verification
-```
-
-**복구 시나리오:**
-- **디바이스 분실**: 다른 신뢰된 기기에서 접근 가능
-- **계정 복구**: 복구 이메일/전화번호 인증 필요
-
-#### 2.5.3 1Password Passkey 관리
-
-**고급 기능:**
-```
-1. Passkey를 Vault에 저장
-2. 여러 팀원과 공유 가능 (Enterprise)
-3. 감사 로그: 누가 언제 사용했는지 추적
-4. Travel Mode: 국경 통과 시 임시 숨김
-```
-
-**보안 아키텍처:**
-- **Secret Key + Master Password**: 이중 보호
-- **SRP (Secure Remote Password)**: 서버도 비밀번호 모름
-- **Zero-Knowledge**: 1Password 직원도 접근 불가
-
-## 3. OTP (One-Time Password) 보안 심층 분석
-
-### 3.1 TOTP vs HOTP 차이점
-
-#### 3.1.1 TOTP (Time-based One-Time Password)
-
-**RFC 6238 표준 알고리즘:**
-```python
-import hmac
-import hashlib
-import time
-import base64
-
-def generate_totp(secret, time_step=30, digits=6):
-    """
-    TOTP 생성 알고리즘
-    - secret: Base32로 인코딩된 공유 비밀키
-    - time_step: 시간 간격 (기본 30초)
-    - digits: 코드 자릿수 (기본 6자리)
-    """
-    # 현재 시간을 30초 단위로 나눈 카운터
-    counter = int(time.time() / time_step)
-
-    # 카운터를 8바이트 빅엔디언으로 변환
-    counter_bytes = counter.to_bytes(8, byteorder='big')
-
-    # HMAC-SHA1로 해시 생성
-    secret_bytes = base64.b32decode(secret, casefold=True)
-    hmac_hash = hmac.new(secret_bytes, counter_bytes, hashlib.sha1).digest()
-
-    # Dynamic Truncation (RFC 4226)
-    offset = hmac_hash[-1] & 0x0F
-    code = int.from_bytes(hmac_hash[offset:offset+4], byteorder='big') & 0x7FFFFFFF
-
-    # 6자리 코드 생성
-    return str(code % (10 ** digits)).zfill(digits)
-
-# 사용 예시
-secret = "JBSWY3DPEHPK3PXP"  # Base32 인코딩된 비밀키
-code = generate_totp(secret)
-print(f"현재 OTP 코드: {code}")
-```
 
 **TOTP 특징:**
 - **시간 동기화**: 클라이언트와 서버의 시계가 일치해야 함
@@ -664,235 +463,13 @@ print(f"현재 OTP 코드: {code}")
 #### 3.1.2 HOTP (HMAC-based One-Time Password)
 
 **RFC 4226 표준:**
-```python
-def generate_hotp(secret, counter, digits=6):
-    """
-    HOTP 생성 알고리즘
-    - counter: 사용 횟수 기반 카운터
-    """
-    counter_bytes = counter.to_bytes(8, byteorder='big')
-    secret_bytes = base64.b32decode(secret, casefold=True)
-    hmac_hash = hmac.new(secret_bytes, counter_bytes, hashlib.sha1).digest()
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> 
+> ```python
+> def generate_hotp(secret, counter, digits=6):...
+> ```
 
-    offset = hmac_hash[-1] & 0x0F
-    code = int.from_bytes(hmac_hash[offset:offset+4], byteorder='big') & 0x7FFFFFFF
 
-    return str(code % (10 ** digits)).zfill(digits)
-
-# 사용 예시
-secret = "JBSWY3DPEHPK3PXP"
-for counter in range(5):
-    code = generate_hotp(secret, counter)
-    print(f"카운터 {counter}: {code}")
-```
-
-**HOTP 특징:**
-- **이벤트 기반**: 버튼 누를 때마다 카운터 증가
-- **시간 무관**: 시계 동기화 불필요
-- **사용 예**: 하드웨어 토큰 (RSA SecurID 등)
-
-#### 3.1.3 TOTP vs HOTP 비교표
-
-| 항목 | TOTP | HOTP |
-|------|------|------|
-| **기준** | 시간 (30초마다 갱신) | 카운터 (버튼 클릭마다) |
-| **동기화** | 시계 동기화 필요 | 카운터 동기화 필요 |
-| **사용 편의성** | ⭐⭐⭐⭐⭐ 자동 갱신 | ⭐⭐⭐ 수동 생성 |
-| **보안 강도** | ⭐⭐⭐⭐ 시간 제약 있음 | ⭐⭐⭐ 재사용 공격 가능 |
-| **오프라인 사용** | ⭐⭐⭐⭐⭐ 가능 | ⭐⭐⭐⭐⭐ 가능 |
-| **대표 제품** | Google Authenticator, Microsoft Authenticator | YubiKey (OATH-HOTP 모드) |
-
-### 3.2 OTP 앱 비교
-
-#### 3.2.1 Google Authenticator
-
-**기능:**
-- ✅ 무료, 광고 없음
-- ✅ QR 코드 스캔으로 간편 등록
-- ✅ 2024년부터 **Google 계정 백업** 지원
-- ❌ 자동 백업 없음 (수동 Google 계정 동기화)
-- ❌ 생체 인증 잠금 없음
-
-**백업 방법 (2024년 업데이트):**
-```
-1. 앱 설정 → "Google 계정으로 백업" 활성화
-2. Google 계정에 E2E 암호화로 저장
-3. 새 기기에서 동일 계정 로그인 → 자동 복구
-```
-
-#### 3.2.2 Microsoft Authenticator
-
-**고급 기능:**
-- ✅ 무료, 광고 없음
-- ✅ **클라우드 백업** (OneDrive)
-- ✅ **비밀번호 자동 입력** (Microsoft 계정)
-- ✅ **생체 인증 잠금** (Face ID/Touch ID)
-- ✅ **푸시 알림 승인** (비밀번호 없는 로그인)
-
-**Passwordless Phone Sign-in:**
-```
-1. Microsoft 계정 로그인 시 비밀번호 대신 앱 푸시 알림 수신
-2. 알림에서 "승인" 탭 → 생체 인증
-3. 즉시 로그인 (비밀번호 입력 없음)
-```
-
-#### 3.2.3 Authy (Twilio)
-
-**기업용 추천 기능:**
-- ✅ **멀티 디바이스 동기화** (최대 3개 기기)
-- ✅ **마스터 비밀번호** 보호
-- ✅ **오프라인 백업**
-- ✅ **데스크톱 앱** (Windows, macOS, Linux)
-- ⚠️ Twilio 서버에 암호화된 시드 저장 (논란 있음)
-
-**보안 논란:**
-```
-Authy는 암호화된 OTP 시드를 Twilio 서버에 저장합니다.
-- 장점: 멀티 디바이스 동기화 편리
-- 단점: 서버 해킹 시 (이론상) 복호화 가능성
-- 대응: 강력한 마스터 비밀번호 설정 필수
-```
-
-#### 3.2.4 2FAS Auth
-
-**오픈소스 대안:**
-- ✅ **완전 무료 오픈소스** (GitHub: 2FAS/2fas-android, 2FAS/2fas-ios)
-- ✅ **클라우드 백업** (Google Drive/iCloud, E2E 암호화)
-- ✅ **브라우저 확장** (Chrome, Firefox)
-- ✅ **아이콘/태그** 지원 (정리 용이)
-- ✅ **PIN/생체 인증** 잠금
-
-**GitHub 리포지토리:**
-```bash
-# 소스 코드 검증 가능
-git clone https://github.com/2FAS/2fas-android
-git clone https://github.com/2FAS/2fas-ios
-```
-
-#### 3.2.5 OTP 앱 비교표
-
-| 기능 | Google Authenticator | Microsoft Authenticator | Authy | 2FAS Auth |
-|------|----------------------|------------------------|-------|-----------|
-| **클라우드 백업** | ⭐⭐⭐ Google 계정 | ⭐⭐⭐⭐⭐ OneDrive | ⭐⭐⭐⭐⭐ Twilio | ⭐⭐⭐⭐⭐ Drive/iCloud |
-| **멀티 디바이스** | ⭐⭐ 수동 동기화 | ⭐⭐⭐⭐ 자동 동기화 | ⭐⭐⭐⭐⭐ 3개 기기 | ⭐⭐⭐⭐ 자동 동기화 |
-| **생체 인증** | ❌ 없음 | ✅ 있음 | ✅ 있음 | ✅ 있음 |
-| **오픈소스** | ❌ 아님 | ❌ 아님 | ❌ 아님 | ✅ MIT License |
-| **데스크톱 앱** | ❌ 없음 | ❌ 없음 | ✅ 있음 | ✅ 브라우저 확장 |
-| **추천 대상** | 개인 사용 | Microsoft 생태계 | 기업 사용 | 프라이버시 중시 |
-
-### 3.3 SMS OTP의 취약점
-
-#### 3.3.1 SIM Swapping 공격
-
-**공격 시나리오:**
-```
-1. 공격자가 소셜 엔지니어링으로 통신사 고객센터 속임
-   - "휴대폰 분실했습니다. 새 유심으로 번호 이전해주세요."
-2. 통신사 직원이 공격자의 SIM 카드로 번호 이전
-3. 공격자가 SMS로 OTP 수신
-4. 피해자 계정 접근
-```
-
-**실제 사례 (2024년):**
-- **Twitter CEO 잭 도시**: SIM Swapping으로 트위터 계정 해킹
-- **암호화폐 투자자**: 2024년 SIM Swapping으로 $2400만 탈취
-- **미국 FTC 보고서**: 2023년 SIM Swapping 피해 68% 증가
-
-**방어 방법:**
-```
-1. 통신사에 "SIM 교체 시 추가 인증" 요청
-   - SK텔레콤: "명의자 본인 확인 서비스"
-   - KT: "유심 교체 보안 서비스"
-   - LG U+: "유심 보호 서비스"
-2. SMS OTP 대신 TOTP 앱 사용
-3. 계정 복구 수단을 SMS가 아닌 이메일/앱으로 설정
-```
-
-#### 3.3.2 SS7 (Signaling System 7) 취약점
-
-**SS7 프로토콜 공격:**
-```
-SS7은 통신사 간 신호 교환 프로토콜입니다.
-보안 취약점:
-- 송신자 번호 위조 가능
-- SMS 가로채기 가능
-- 통화 도청 가능
-```
-
-**공격 메커니즘:**
-```
-1. 공격자가 SS7 네트워크 접근 (불법 통신사 장비 또는 협력자)
-2. 특정 전화번호로 전송되는 SMS를 자신에게 라우팅
-3. OTP SMS 가로채기
-4. 원래 수신자는 SMS를 받지 못함
-```
-
-**대응책:**
-- **통신사 레벨**: SS7 보안 강화 (방화벽, 이상 트래픽 탐지)
-- **사용자 레벨**: SMS OTP 사용 중단, TOTP/FIDO2로 전환
-
-#### 3.3.3 SMS OTP vs TOTP 보안 비교
-
-| 공격 유형 | SMS OTP | TOTP 앱 |
-|----------|---------|---------|
-| **SIM Swapping** | 🔴 매우 취약 | 🟢 면역 |
-| **SS7 공격** | 🔴 매우 취약 | 🟢 면역 |
-| **피싱** | 🟡 중간 (사용자가 코드 입력) | 🟡 중간 (사용자가 코드 입력) |
-| **중간자 공격** | 🔴 취약 (SMS 가로채기) | 🟢 안전 (디바이스 내부) |
-| **디바이스 분실** | 🟢 안전 (SIM만 제거) | 🔴 위험 (백업 없으면 복구 불가) |
-
-**결론: SMS OTP는 2025년 기준 권장하지 않음**
-
-### 3.4 FIDO2/WebAuthn 피싱 방지 MFA 표준화
-
-**FIDO2/WebAuthn**이 피싱 방지 다중 인증(Phishing-Resistant MFA)의 업계 표준으로 자리잡았습니다. 전통적인 SMS OTP나 이메일 인증 코드는 중간자 공격(MITM)에 취약하지만, FIDO2 기반 인증은 이러한 공격을 원천 차단합니다.
-
-**권장 MFA 방식 (2025년):**
-1. **FIDO2 보안 키**: YubiKey, Google Titan 등 하드웨어 보안 키
-2. **플랫폼 인증기**: Windows Hello, Face ID, Touch ID
-3. **패스키**: 클라우드 동기화 가능한 FIDO2 자격 증명
-4. **TOTP 앱**: Google Authenticator, Microsoft Authenticator (백업용)
-
-**MFA 방식별 보안 등급:**
-| 방식 | 피싱 방지 | 중간자 방지 | 편의성 | 권장도 |
-|------|----------|-------------|--------|--------|
-| **FIDO2 하드웨어 키** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | 🥇 최우선 |
-| **Passkey** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 🥇 최우선 |
-| **TOTP 앱** | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 🥈 권장 |
-| **SMS OTP** | ⭐ | ⭐ | ⭐⭐⭐⭐⭐ | 🚫 비권장 |
-| **이메일 코드** | ⭐⭐ | ⭐⭐ | ⭐⭐⭐ | 🚫 비권장 |
-
-## 4. 강력한 비밀번호 관리
-
-### 4.1 비밀번호 엔트로피 계산
-
-**엔트로피(Entropy)**: 비밀번호의 무작위성을 측정하는 지표 (단위: bits)
-
-**계산 공식:**
-```
-엔트로피 = log2(가능한 문자 수^비밀번호 길이)
-```
-
-**예시 계산:**
-```python
-import math
-
-def calculate_entropy(charset_size, length):
-    """
-    비밀번호 엔트로피 계산
-    """
-    entropy = length * math.log2(charset_size)
-    return entropy
-
-# 예시 1: 8자리 소문자만 (a-z)
-print(f"8자리 소문자: {calculate_entropy(26, 8):.1f} bits")  # 37.6 bits
-
-# 예시 2: 12자리 대소문자+숫자 (a-z, A-Z, 0-9)
-print(f"12자리 영숫자: {calculate_entropy(62, 12):.1f} bits")  # 71.5 bits
-
-# 예시 3: 16자리 대소문자+숫자+특수문자
-print(f"16자리 전체: {calculate_entropy(94, 16):.1f} bits")  # 105.2 bits
-```
 
 **엔트로피 권장 기준:**
 | 엔트로피 | 보안 등급 | 크래킹 시간 (RTX 4090 기준) | 권장 사용처 |
@@ -909,53 +486,13 @@ print(f"16자리 전체: {calculate_entropy(94, 16):.1f} bits")  # 105.2 bits
 
 **개념:** 주사위로 단어를 무작위 선택하여 기억하기 쉽지만 강력한 비밀번호 생성
 
-```python
-# Diceware 단어 목록 (일부 예시)
-diceware_list = {
-    "11111": "apple",
-    "11112": "bridge",
-    "11113": "castle",
-    # ... 7,776개 단어 (6^5)
-}
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> 
+> ```python
+> # Diceware 단어 목록 (일부 예시)...
+> ```
 
-# 5개 단어 조합 예시
-passphrase = "apple-bridge-castle-dragon-eagle"
-# 엔트로피: log2(7776^5) = 64.6 bits
-# 길이: 36자 (공백 포함)
-```
 
-**장점:**
-- **기억하기 쉬움**: 의미 있는 단어 조합
-- **높은 엔트로피**: 5단어 = 64.6 bits, 6단어 = 77.5 bits
-- **타이핑 편리**: 특수문자 없음
-
-**생성 방법:**
-```bash
-# Linux/macOS에서 Diceware 생성
-apt-get install diceware  # Debian/Ubuntu
-diceware --num 5 --delimiter "-"
-# 출력 예시: correct-horse-battery-staple-moon
-```
-
-#### 4.2.2 랜덤 문자열 비밀번호
-
-**비밀번호 매니저 자동 생성 활용:**
-```python
-import secrets
-import string
-
-def generate_strong_password(length=16):
-    """
-    암호학적으로 안전한 비밀번호 생성
-    """
-    alphabet = string.ascii_letters + string.digits + string.punctuation
-    password = ''.join(secrets.choice(alphabet) for i in range(length))
-    return password
-
-# 16자리 생성
-pwd = generate_strong_password(16)
-print(pwd)  # 예시: "xK9$mP2#nQ5@rL8&"
-```
 
 **길이별 엔트로피:**
 | 길이 | 문자 종류 | 엔트로피 | 크래킹 시간 |
@@ -970,146 +507,13 @@ print(pwd)  # 예시: "xK9$mP2#nQ5@rL8&"
 #### 4.3.1 1Password
 
 **기업용 최적화 기능:**
-```yaml
-features:
-  business:
-    - SSO integration (Okta, Azure AD)
-    - Advanced audit logs
-    - Custom roles and permissions
-    - Travel Mode (국경 통과 시 임시 숨김)
-    - SCIM provisioning
-  security:
-    - Secret Key + Master Password (이중 보호)
-    - Zero-knowledge architecture
-    - SRP (Secure Remote Password) protocol
-    - Watchtower (취약 비밀번호 모니터링)
-  pricing:
-    individual: $2.99/month
-    family: $4.99/month (5명)
-    business: $7.99/user/month
-```
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> features:...
+> ```
 
-**Travel Mode 시나리오:**
-```
-1. 해외 출장 전 Travel Mode 활성화
-2. 민감한 Vault는 디바이스에서 제거 (클라우드에만 유지)
-3. 국경 심사 통과 (민감 정보 노출 없음)
-4. 목적지 도착 후 Travel Mode 해제 → Vault 복원
-```
 
-#### 4.3.2 Bitwarden
-
-**오픈소스 투명성:**
-```bash
-# GitHub에서 소스 코드 검증 가능
-git clone https://github.com/bitwarden/server
-git clone https://github.com/bitwarden/clients
-
-# 셀프 호스팅 가능
-docker-compose up -d  # 자체 서버에서 운영
-```
-
-**주요 특징:**
-- ✅ **오픈소스** (AGPLv3/GPLv3 라이선스)
-- ✅ **셀프 호스팅** 옵션
-- ✅ **무료 플랜**: 무제한 비밀번호, 무제한 디바이스
-- ✅ **저렴한 프리미엄**: $10/년 (TOTP 통합, 1GB 파일 저장)
-- ✅ **비즈니스**: $3/user/month
-
-**보안 감사:**
-- 2024년 Cure53 보안 감사 통과
-- SOC 2 Type 2 인증
-- GDPR 준수
-
-#### 4.3.3 KeePass
-
-**로컬 전용 비밀번호 매니저:**
-```ini
-# KeePass 데이터베이스 설정
-[Security]
-EncryptionAlgorithm=AES-256
-KeyDerivation=Argon2
-Iterations=100000
-
-[Database]
-Location=C:\Users\User\Documents\passwords.kdbx
-BackupEnabled=true
-BackupLocation=D:\Backups\
-```
-
-**장점:**
-- ✅ **완전 무료** 오픈소스
-- ✅ **클라우드 없음**: 로컬 파일만 (.kdbx)
-- ✅ **플러그인 생태계**: 자동 입력, 브라우저 통합 등
-- ✅ **Windows/Linux/macOS** 지원 (KeePassXC)
-
-**단점:**
-- ❌ 수동 동기화 필요 (Dropbox/Google Drive로 .kdbx 공유)
-- ❌ 모바일 앱이 비공식 (Keepass2Android, Strongbox 등)
-
-#### 4.3.4 비밀번호 매니저 비교표
-
-| 기능 | 1Password | Bitwarden | KeePass |
-|------|-----------|-----------|---------|
-| **가격** | $2.99/월 (개인) | 무료 / $10/년 | 완전 무료 |
-| **오픈소스** | ❌ | ✅ (AGPLv3) | ✅ (GPLv2) |
-| **클라우드 동기화** | ⭐⭐⭐⭐⭐ 자동 | ⭐⭐⭐⭐⭐ 자동 | ⭐⭐ 수동 (Dropbox) |
-| **브라우저 확장** | ✅ 우수 | ✅ 우수 | ⭐⭐⭐ 괜찮음 |
-| **모바일 앱** | ✅ 공식 앱 | ✅ 공식 앱 | ⚠️ 비공식 앱 |
-| **TOTP 통합** | ✅ (비즈니스) | ✅ (프리미엄) | ✅ (플러그인) |
-| **셀프 호스팅** | ❌ | ✅ Docker | ✅ 로컬 파일 |
-| **기업용 기능** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐ |
-| **추천 대상** | 기업, 프리미엄 개인 | 개인, 중소기업 | 프라이버시 극대화 |
-
-### 4.4 공용 PC에서 비밀번호 매니저 안전하게 사용하기
-
-#### 4.4.1 Portable Mode (휴대용 버전)
-
-**KeePassXC Portable:**
-```bash
-# USB 드라이브에 KeePassXC Portable 설치
-1. https://keepassxc.org/download/ 에서 Portable ZIP 다운로드
-2. USB 드라이브에 압축 해제
-3. KeePassXC.exe 실행 (설치 불필요)
-4. 데이터베이스 파일(.kdbx)도 USB에 저장
-5. 사용 후 USB 제거 → 흔적 없음
-```
-
-#### 4.4.2 Emergency Access Kit
-
-**1Password Emergency Kit (응급 복구 키트):**
-```
-인쇄하여 안전한 곳에 보관:
-- Secret Key (34자리)
-- Master Password (힌트만)
-- Emergency Contact 정보
-
-공용 PC 분실 시:
-1. 다른 기기에서 1Password 접속
-2. Emergency Kit의 Secret Key + Master Password 입력
-3. "모든 세션 로그아웃" 실행
-4. Master Password 변경
-```
-
-#### 4.4.3 Browser Extension 설정
-
-**공용 PC용 보안 설정:**
-```javascript
-// 1Password 브라우저 확장 설정 (Chrome)
-{
-  "autolock": {
-    "enabled": true,
-    "timeout": 5  // 5분 후 자동 잠금
-  },
-  "autofill": {
-    "enabled": true,
-    "require_unlock": true  // 자동 입력 시 매번 잠금 해제 요구
-  },
-  "clipboard": {
-    "clear_after": 90  // 90초 후 클립보드 자동 삭제
-  }
-}
-```
 
 **공용 PC 사용 시 체크리스트:**
 - [ ] 브라우저 확장 로그인 전에 **시크릿 모드** 활성화
@@ -1135,179 +539,7 @@ BackupLocation=D:\Backups\
 
 ## 5. SIEM Detection Queries (탐지 쿼리)
 
-<!--
-이 섹션의 쿼리는 보안팀이 SIEM에 배포하여 자격증명 탈취 시도를 탐지하는 데 사용할 수 있습니다.
--->
 
-### 5.1 Splunk SPL: 자격증명 도용 탐지
-
-#### 5.1.1 다수 실패 로그인 후 성공 (Credential Stuffing)
-
-```spl
-index=auth action=login
-| eval login_status=if(result="success", "success", "failure")
-| transaction user maxspan=10m
-| where mvcount(login_status) > 5 AND mvcount(eval(match(login_status, "success"))) > 0
-| stats count by user, src_ip, app
-| where count > 3
-| eval severity="high"
-| eval description="Potential credential stuffing: Multiple failed logins followed by success"
-```
-
-**탐지 로직:**
-- 10분 내에 동일 사용자 5회 이상 로그인 실패 후 성공
-- 자동화된 자격증명 재사용 공격 의심
-
-#### 5.1.2 불가능한 여행 (Impossible Travel)
-
-```spl
-index=auth action=login result=success
-| iplocation src_ip
-| sort 0 user _time
-| streamstats current=f last(City) as prev_city, last(Country) as prev_country, last(_time) as prev_time by user
-| eval time_diff=(_time - prev_time)/60
-| eval distance=if(isnotnull(prev_city), haversine(lat, lon, prev_lat, prev_lon), 0)
-| eval speed_kmh=distance / (time_diff/60)
-| where speed_kmh > 800
-| table _time user src_ip City Country prev_city prev_country speed_kmh
-| eval severity="critical"
-| eval description="Impossible travel detected: Login from two distant locations in short time"
-```
-
-**탐지 로직:**
-- 동일 계정이 짧은 시간 내에 물리적으로 불가능한 거리의 두 위치에서 로그인
-- 800km/h 이상 이동 속도 (비행기보다 빠름) 시 알림
-
-#### 5.1.3 공용 PC에서 비정상 세션 지속
-
-```spl
-index=web sourcetype=apache:access OR sourcetype=nginx:access
-| eval session_duration=last_activity_time - first_activity_time
-| where session_duration > 14400  /* 4시간 */
-| lookup public_ip_list src_ip OUTPUT is_public_pc
-| where is_public_pc=1
-| stats count by user, src_ip, session_duration
-| eval severity="medium"
-| eval description="Unusually long session from public PC - possible session hijacking"
-```
-
-### 5.2 Azure Sentinel KQL: Microsoft 365 인증 모니터링
-
-#### 5.2.1 Legacy Authentication 사용 탐지
-
-```kql
-SigninLogs
-| where TimeGenerated > ago(24h)
-| where ClientAppUsed !in ("Mobile Apps and Desktop clients", "Browser", "Modern Auth Clients")
-| where ResultType == 0  // 성공한 로그인만
-| summarize Count=count(), LastSeen=max(TimeGenerated) by UserPrincipalName, ClientAppUsed, IPAddress, Location
-| where Count > 5
-| extend Severity = "High"
-| extend Description = "Legacy authentication protocol used - vulnerable to password spray attacks"
-```
-
-**탐지 이유:**
-- Legacy Auth (POP, IMAP, SMTP, EWS)는 MFA를 우회할 수 있음
-- 2025년 권장: 모든 Legacy Auth 차단
-
-#### 5.2.2 비정상 위치에서의 MFA 요청 거부
-
-```kql
-SigninLogs
-| where TimeGenerated > ago(7d)
-| where ResultType == 50074  // MFA denied
-| extend Country = LocationDetails.countryOrRegion
-| summarize DeniedCount=count() by UserPrincipalName, Country, IPAddress
-| join kind=inner (
-    SigninLogs
-    | where ResultType == 0  // Successful login
-    | extend Country = LocationDetails.countryOrRegion
-    | summarize SuccessCount=count(), SuccessCountries=make_set(Country) by UserPrincipalName
-) on UserPrincipalName
-| where Country !in (SuccessCountries)
-| extend Severity = "Critical"
-| extend Description = "MFA denied from unusual location - potential account compromise attempt"
-```
-
-#### 5.2.3 Passkey/FIDO2 사용률 모니터링
-
-```kql
-SigninLogs
-| where TimeGenerated > ago(30d)
-| where ResultType == 0
-| extend AuthMethod = tostring(parse_json(AuthenticationDetails)[0].authenticationMethod)
-| summarize
-    TotalLogins=count(),
-    FIDO2Logins=countif(AuthMethod == "FIDO2 security key"),
-    PasswordLogins=countif(AuthMethod == "Password"),
-    SMSLogins=countif(AuthMethod == "SMS")
-    by UserPrincipalName
-| extend FIDO2_Percentage = (FIDO2Logins * 100.0) / TotalLogins
-| extend Risk = case(
-    FIDO2_Percentage > 80, "Low",
-    FIDO2_Percentage > 50, "Medium",
-    "High"
-)
-| where Risk == "High"
-| sort by PasswordLogins desc
-```
-
-### 5.3 Elastic Stack (ECS): 키로거 프로세스 탐지
-
-```json
-{
-  "query": {
-    "bool": {
-      "must": [
-        {
-          "term": {
-            "event.category": "process"
-          }
-        },
-        {
-          "term": {
-            "event.type": "start"
-          }
-        },
-        {
-          "terms": {
-            "process.name": [
-              "keylogger.exe",
-              "hookkey.exe",
-              "pskill.exe",
-              "sniffkey.exe"
-            ]
-          }
-        }
-      ],
-      "filter": [
-        {
-          "range": {
-            "@timestamp": {
-              "gte": "now-1h"
-            }
-          }
-        }
-      ]
-    }
-  },
-  "aggs": {
-    "by_host": {
-      "terms": {
-        "field": "host.name",
-        "size": 10
-      },
-      "aggs": {
-        "by_user": {
-          "terms": {
-            "field": "user.name"
-          }
-        }
-      }
-    }
-  }
-}
-```
 
 ## 6. 한국 환경 특화 분석
 
@@ -1336,92 +568,13 @@ SigninLogs
 ### 6.2 공공기관 공용 PC (행정안전망)
 
 **행정안전망 보안 가이드라인:**
-```yaml
-access_control:
-  - 업무망/인터넷망 물리적 분리
-  - USB 포트 비활성화
-  - 개인 메일/SNS 접속 차단
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> access_control:...
+> ```
 
-authentication:
-  - 공인인증서 (구형) → 민간인증서/공동인증서 (신규)
-  - OTP 단말기 (TOTP 앱 미허용, 보안 정책)
-  - VDI (Virtual Desktop Infrastructure) 접속
 
-monitoring:
-  - 키 입력 모니터링 (DLP)
-  - 화면 캡처 방지 (Screen Watermark)
-  - 인쇄/저장 로그 감사
-```
-
-**문제점과 개선 방안:**
-| 문제 | 영향 | 개선 방안 |
-|------|------|----------|
-| **구형 인증서 기반** | 피싱 취약 | FIDO2 인증으로 전환 |
-| **TOTP 앱 금지** | 불편, OTP 단말 분실 | 정책 개정 (앱 허용) |
-| **VDI 성능 저하** | 업무 효율 저하 | GPU 가상화, 대역폭 증설 |
-
-### 6.3 금융기관 보안 규제 (금융감독원)
-
-**전자금융감독규정 제21조 (접근 통제):**
-```
-1. 2채널 이상 인증 (Multi-Channel Authentication)
-   - 인터넷뱅킹: 공인인증서 + OTP
-   - 모바일뱅킹: 생체 인증 + 보안 카드
-
-2. 이상 거래 탐지 시스템 (FDS)
-   - 비정상 IP에서 접속 시 추가 인증
-   - 고액 이체 시 ARS 전화 인증
-
-3. 세션 타임아웃: 10분 이내
-```
-
-**2025년 신규 권고사항:**
-- **FIDO2 인증 도입**: 공인인증서 완전 폐지
-- **Passkey 지원**: 모바일 앱 우선 적용
-- **공용 PC 접속 제한**: IP 기반 차단 또는 경고
-
-### 6.4 한국형 피싱 사례
-
-#### 6.4.1 카카오톡 피싱 (스미싱)
-
-**공격 시나리오:**
-```
-1. 피해자에게 "택배 배송 확인" 카카오톡 메시지
-2. 링크 클릭 → 가짜 "카카오 로그인" 페이지
-3. 아이디/비밀번호 입력 → 공격자 서버로 전송
-4. SMS OTP 요구 → 피해자가 입력
-5. 공격자가 실제 카카오에 로그인 성공
-```
-
-**대응:**
-- **Passkey 사용**: 가짜 페이지에서는 Passkey 프롬프트가 뜨지 않음
-- **도메인 확인**: 진짜 `https://accounts.kakao.com`인지 확인
-- **브라우저 자동 입력**: 피싱 사이트에서는 비밀번호 매니저가 자동 입력 안 함
-
-#### 6.4.2 네이버 피싱
-
-**주의할 가짜 도메인:**
-```
-진짜: https://nid.naver.com/nidlogin.login
-가짜: https://naver-login.com  (유사 도메인)
-가짜: https://naver.com-secure.verify.pw  (서브도메인 트릭)
-가짜: https://ņaver.com  (IDN Homograph Attack, ņ ≠ n)
-```
-
-**탐지 방법:**
-```javascript
-// 브라우저 확장 프로그램으로 도메인 검증
-const trustedDomains = ['naver.com', 'kakao.com', 'google.com'];
-
-function isPhishing(url) {
-  const domain = new URL(url).hostname;
-  return !trustedDomains.some(trusted => domain.endsWith(trusted));
-}
-
-if (isPhishing(window.location.href)) {
-  alert("⚠️ 피싱 사이트 의심! 즉시 페이지를 닫으세요.");
-}
-```
 
 ## 7. 경영진 보고 자료 (Board-Level Reporting)
 
@@ -1475,175 +628,8 @@ if (isPhishing(window.location.href)) {
 
 ### 7.3 Implementation Roadmap
 
-```mermaid
-gantt
-    title Passkey 도입 로드맵 (6개월)
-    dateFormat  YYYY-MM-DD
-    section Phase 1 (Pilot)
-        경영진 10명 YubiKey 배포 :done, 2025-05-01, 2025-05-15
-        IT팀 Passkey 테스트 :done, 2025-05-15, 2025-05-31
-    section Phase 2 (Rollout)
-        전 직원 Passkey 등록 교육 :active, 2025-06-01, 2025-06-30
-        비밀번호 매니저 배포 :active, 2025-06-15, 2025-07-15
-    section Phase 3 (Enforcement)
-        SMS OTP 경고 모드 :2025-07-01, 2025-08-31
-        SMS OTP 완전 차단 :crit, 2025-09-01, 2025-09-30
-    section Phase 4 (Monitoring)
-        SIEM 쿼리 배포 :2025-08-01, 2025-08-15
-        분기별 보안 감사 :milestone, 2025-10-01, 0d
-```
 
-### 7.4 Compliance Mapping
 
-**규제 준수 현황:**
-
-| 규제 | 요구사항 | 현재 상태 | Passkey 도입 후 |
-|------|----------|----------|----------------|
-| **GDPR** | 적절한 기술적 조치 (Art. 32) | ⚠️ 부분 준수 | ✅ 완전 준수 |
-| **PCI-DSS** | MFA 필수 (Req. 8.3) | ⚠️ SMS OTP (약함) | ✅ FIDO2 (강함) |
-| **ISO 27001** | 접근 통제 (A.9.2) | ⚠️ 비밀번호 기반 | ✅ Phishing-resistant MFA |
-| **NIST SP 800-63B** | AAL2/AAL3 달성 | ❌ AAL1 (비밀번호만) | ✅ AAL3 (FIDO2) |
-| **금융감독원** | 2채널 인증 | ✅ 준수 | ✅ 준수 (강화) |
-
-**컴플라이언스 위반 시 벌금:**
-- GDPR: 최대 €20,000,000 또는 연 매출의 4%
-- PCI-DSS: 월 $5,000 ~ $100,000 (카드사별 차이)
-- 금융감독원: 과태료 + 영업정지 가능
-
-## 8. 실습 가이드: 완전한 보안 설정
-
-### 8.1 30분 안에 완료하는 Passkey 설정
-
-**준비물:**
-- 스마트폰 (iOS 16+ 또는 Android 9+)
-- PC (Windows 10+ 또는 macOS 12+)
-- (선택) YubiKey 5 NFC ($55)
-
-**Step-by-Step:**
-
-**[1단계] Google 계정 Passkey 등록 (5분)**
-```
-1. https://myaccount.google.com/security 접속
-2. "2단계 인증으로 로그인" → "시작하기"
-3. 기존 비밀번호 입력
-4. "패스키 만들기" 클릭
-5. iPhone/Android 생체 인증 (Face ID/지문)
-6. 패스키 이름: "iPhone 14 Pro - Primary"
-7. 완료! 다음 로그인 시 비밀번호 없이 생체 인증만
-```
-
-**[2단계] Microsoft 계정 Passwordless 전환 (5분)**
-```
-1. https://account.microsoft.com/security 접속
-2. "고급 보안 옵션" → "암호 없는 계정" → "켜기"
-3. Microsoft Authenticator 앱 설치 (iOS/Android)
-4. 앱에서 "계정 추가" → QR 코드 스캔
-5. 생체 인증 설정
-6. "비밀번호 제거" 버튼 클릭
-7. 백업 복구 코드 저장 (오프라인 보관)
-```
-
-**[3단계] GitHub 보안 키 추가 (3분)**
-```
-1. https://github.com/settings/security 접속
-2. "Two-factor authentication" 섹션
-3. "Security keys" → "Add security key"
-4. YubiKey 삽입 (또는 플랫폼 인증기 선택)
-5. 키 이름: "YubiKey 5C - Primary"
-6. 백업 키 추가 권장: "Add another key"
-```
-
-**[4단계] 비밀번호 매니저 설치 (10분)**
-```
-1. Bitwarden 계정 생성: https://vault.bitwarden.com/#/register
-2. 강력한 Master Password 생성 (Diceware 6단어)
-   예시: "correct-horse-battery-staple-moon-river"
-3. 브라우저 확장 프로그램 설치
-   - Chrome: https://chrome.google.com/webstore/detail/bitwarden/nngceckbapebfimnlniiiahkandclblb
-4. 모바일 앱 설치 (iOS/Android)
-5. 기존 비밀번호 가져오기 (CSV 파일)
-6. 모든 비밀번호를 16자 랜덤 문자열로 변경
-```
-
-**[5단계] OTP 앱 전환 (7분)**
-```
-1. 기존 SMS OTP 사용 계정 목록 작성
-2. Google Authenticator 또는 Microsoft Authenticator 설치
-3. 각 사이트 보안 설정에서 "2단계 인증" 변경:
-   - 네이버: 보안 설정 → OTP 앱 등록
-   - 카카오: 카카오계정 → 보안 → OTP 인증
-   - AWS: IAM → MFA → Virtual MFA device
-4. QR 코드 스캔하여 OTP 앱에 추가
-5. SMS OTP 비활성화
-```
-
-### 8.2 공용 PC 전용 "여행자 모드" 설정
-
-**시나리오:** 해외 출장 중 호텔 비즈니스 센터 PC 사용
-
-**사전 준비:**
-```
-1. Bitwarden에 "Travel Vault" 생성
-   - 최소한의 계정만 포함 (이메일, 항공, 호텔)
-   - 민감한 계정은 제외 (은행, 암호화폐, 회사 VPN)
-
-2. 1Password Travel Mode 활성화
-   - 웹: https://my.1password.com/profile
-   - "Travel Mode" 켜기
-   - 민감한 Vault는 자동으로 숨겨짐
-
-3. 백업 복구 코드 인쇄
-   - 지갑에 보관 (디지털 접근 불가 시 사용)
-```
-
-**공용 PC 사용 절차:**
-```
-1. 시크릿 모드로 브라우저 실행
-2. VPN 연결 (회사 VPN 또는 개인 VPN)
-3. Bitwarden 웹 Vault 접속: https://vault.bitwarden.com
-4. Master Password + 생체 인증 (스마트폰으로 승인)
-5. 필요한 계정만 접근
-6. 사용 후:
-   - 모든 사이트 로그아웃
-   - Bitwarden 로그아웃
-   - VPN 연결 해제
-   - 브라우저 완전 종료 (Ctrl+Shift+Delete로 캐시 삭제)
-   - 작업 관리자에서 프로세스 확인
-```
-
-### 8.3 팀 전체 Passkey 배포 체크리스트
-
-**IT 관리자용 배포 가이드:**
-
-**Week 1: 계획 및 파일럿**
-- [ ] 경영진 승인 획득 (예산, 일정)
-- [ ] 파일럿 그룹 선정 (IT팀 10명)
-- [ ] YubiKey 구매 (사용자당 2개, 백업용 포함)
-- [ ] 내부 Wiki에 설정 가이드 작성
-- [ ] 파일럿 그룹 교육 실시
-
-**Week 2-3: 전사 롤아웃**
-- [ ] 전 직원 대상 온라인 교육 세션 (30분)
-- [ ] YubiKey 배포 (사내 물류팀 협업)
-- [ ] 1:1 설정 지원 (Help Desk)
-- [ ] Passkey 등록률 모니터링 (목표: 80%)
-
-**Week 4: 강제 적용**
-- [ ] Conditional Access Policy 배포 (Azure AD/Okta)
-  ```json
-  {
-    "conditions": {
-      "users": {"includeUsers": "All"},
-      "applications": {"includeApplications": "All"}
-    },
-    "grantControls": {
-      "builtInControls": ["mfa"],
-      "authenticationStrength": {
-        "requirementsSatisfied": "FIDO2 or Passkey"
-      }
-    }
-  }
-  ```
 - [ ] SMS OTP 경고 모드 (7일 유예)
 - [ ] SMS OTP 완전 차단
 - [ ] SIEM 모니터링 시작

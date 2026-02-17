@@ -30,6 +30,15 @@ title: '2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고,
 toc: true
 ---
 
+{% include ai-summary-card.html
+  title='2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K'
+  categories_html=''
+  tags_html=''
+  highlights_html='<li><strong>핵심 요약</strong>: Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현, 2026</li>'
+  period='2026-02-09'
+  audience='DevOps/DevSecOps/Cloud 보안 담당자'
+%}
+
 ## 요약
 
 - **핵심 요약**: Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현, 2026 AI/UX 트렌드 전망

@@ -911,7 +911,7 @@ roadmap.sh의 2026년 DevSecOps 로드맵은 총 93개의 학습 항목으로 �
 
 ### GitHub 및 도구
 
-- [GitHub Advanced Security](https://docs.github.com/en/enterprise-cloud@latest/admin/advanced-security) - CodeQL, Dependabot, Secret Scanning
+- [GitHub Advanced Security](https://docs.github.com/en/enterprise-cloud@latest) - CodeQL, Dependabot, Secret Scanning
 - [CodeQL GitHub](https://github.com/github/codeql) - GitHub의 정적 코드 분석 도구
 - [OWASP ZAP](https://www.zaproxy.org/) - 오픈소스 웹 보안 스캐너
 - [Semgrep](https://semgrep.dev/) - 경량 다중 언어 정적 분석 도구

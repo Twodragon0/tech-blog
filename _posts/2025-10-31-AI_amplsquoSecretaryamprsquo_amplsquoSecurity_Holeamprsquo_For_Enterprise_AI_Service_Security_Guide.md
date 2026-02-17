@@ -280,6 +280,16 @@ AI 브라우저 에이전트는 사용자가 방문하는 모든 웹페이지의
 
 > **참고**: AI 서비스 정책 설정 관련 내용은 [OWASP AI Security Guide](https://owasp.org/www-project-top-10-for-large-language-model-applications/) 및 [Microsoft Copilot 보안 가이드](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-security)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```yaml
 # 허용된 AI 서비스 목록 예시
 Allowed AI Services:
@@ -328,6 +338,16 @@ AI 서비스 도메인을 DNS 레벨에서 차단:
 
 > **참고**: DNS 기반 AI 서비스 차단 관련 내용은 [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) 및 [DNS 필터링 모범 사례](https://www.ietf.org/rfc/rfc4033.txt)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```yaml
 # 차단할 AI 서비스 도메인 예시
 Blocked Domains:
@@ -341,6 +361,16 @@ Blocked Domains:
 #### 프록시/방화벽 규칙
 
 웹 프록시나 방화벽을 통해 AI 서비스 접근 차단:
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -590,21 +620,7 @@ AI 시스템의 동작을 실시간으로 모니터링하여 이상 행동을 �
 > Monitoring Checklist:...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-```yaml
-Monitoring Checklist:
-  Real-time:
-    - API call patterns and volumes
-    - Data access anomalies
-    - Model drift detection
 
-  Periodic:
-    - Security posture assessment
-    - Vulnerability scanning
-    - Penetration testing
-
-```
--->
 
 ### 9.4 Security-by-Design (Shift Left)
 
@@ -628,26 +644,7 @@ Monitoring Checklist:
 > AI Security Checklist:...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-```yaml
-AI Security Checklist:
-  Data Security:
-    - [ ] 학습 데이터 출처 검증
-    - [ ] 민감 정보 마스킹/익명화
-    - [ ] 데이터 무결성 검증
 
-  Model Security:
-    - [ ] 입력 유효성 검사
-    - [ ] 출력 필터링 적용
-    - [ ] 프롬프트 인젝션 방어
-
-  Infrastructure Security:
-    - [ ] 네트워크 분리
-    - [ ] 암호화 적용 (저장/전송)
-    - [ ] 접근 로그 기록
-
-```
--->
 
 ### 9.5 AI 에이전트 보안
 

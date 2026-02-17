@@ -35,6 +35,15 @@ title: '2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, A
 toc: true
 ---
 
+{% include ai-summary-card.html
+  title='2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, AWS Agentic AI'
+  categories_html=''
+  tags_html=''
+  highlights_html='<li><strong>핵심 요약</strong>: OpenClaw VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트, AWS</li>'
+  period='2026-02-09'
+  audience='DevOps/DevSecOps/Cloud 보안 담당자'
+%}
+
 ## 요약
 
 - **핵심 요약**: OpenClaw VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트, AWS Agentic AI 2명 7주 개발 사례, ASP.NET 마이크로서비스 전환
@@ -82,30 +91,7 @@ OpenClaw이 Google 소유 VirusTotal과 파트너십을 체결하여 AI 에이�
 
 #### 공급망 공격 흐름도 (간소화)
 
-```text
-+==========================================================+
-|     AI Agent Skill Supply Chain Attack 5단계 흐름        |
-+==========================================================+
-|                                                          |
-|  [1] 악성 스킬 개발                                       |
-|      타이포스쿼팅 + 트로이목마 방식                        |
-|      ↓                                                   |
-|  [2] ClawHub 마켓플레이스 업로드 (T1195.002)              |
-|      가짜 리뷰/별점 조작으로 신뢰도 구축                   |
-|      ↓                                                   |
-|  [3] 사용자 설치 및 실행 (T1059, T1204.002)               |
-|      호스트 시스템 권한으로 악성 코드 실행                 |
-|      ↓                                                   |
-|  [4] 지속성 확보 (T1053.005)                              |
-|      스케줄 작업 등록, 설정 파일 변조                      |
-|      ↓                                                   |
-|  [5] C2 통신 및 데이터 유출 (T1071.001)                   |
-|      HTTPS 위장 C2, API 키/자격증명 유출                  |
-|                                                          |
-|  Impact: AI 에이전트 권한 탈취, 기밀 데이터 유출,         |
-|          내부 시스템 침투, 공급망 전파                     |
-+==========================================================+
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 #### MITRE ATT&CK 매핑 (간소화)
 
@@ -118,20 +104,7 @@ OpenClaw이 Google 소유 VirusTotal과 파트너십을 체결하여 AI 에이�
 
 #### SIEM 탐지 쿼리 (Splunk)
 
-```spl
-index=endpoint_logs sourcetype=sysmon OR sourcetype=process_creation
-| search (process_name="*agent*" OR process_name="*claw*" OR process_name="*mcp*")
-  AND (event_type="skill_install" OR event_type="plugin_install")
-| eval skill_name=lower(skill_name)
-| eval risk_score=case(
-    match(skill_source, "unknown|unofficial"), 90,
-    match(skill_name, "(scrapper|screaper|helpr|utilz)"), 80,
-    1=1, 40
-  )
-| where risk_score >= 60
-| sort - risk_score
-| table _time, host, user, skill_name, skill_source, process_hash, risk_score
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 #### 실무 조치
 

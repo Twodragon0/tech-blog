@@ -33,6 +33,15 @@ title: '2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OT
 toc: true
 ---
 
+{% include ai-summary-card.html
+  title='2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트'
+  categories_html=''
+  tags_html=''
+  highlights_html='<li><strong>핵심 요약</strong>: Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus</li>'
+  period='2026-02-10'
+  audience='DevOps/DevSecOps/Cloud 보안 담당자'
+%}
+
 ## 요약
 
 - **핵심 요약**: Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus 4.6 Bedrock 통합, ChatGPT 미 국방부 GenAI.mil 플랫폼

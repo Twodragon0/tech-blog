@@ -1,22 +1,22 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: Lazarus, RCE, Cloud"
+title: "기술·보안 주간 다이제스트: Lazarus 공급망, Copilot Studio 리스크, FinOps"
 date: 2026-02-13 12:39:45 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security, Agent]
-excerpt: "2026년 02월 13일 주요 보안/기술 뉴스 25건 - AI, Go, Security"
-description: "2026년 02월 13일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 25건. AI, Go, Security, Agent 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security]
+excerpt: "Gemini AI 악용 정찰, Lazarus npm·PyPI 악성 패키지, Copilot Studio 에이전트 리스크, FinOps 비용 절감 업데이트 등 2026-02-13 핵심 이슈 요약"
+description: "2026년 02월 13일 보안 뉴스: Gemini AI 악용 정찰, Lazarus 공급망 캠페인, Copilot Studio 에이전트 리스크, GPT-5.3 Codex-Spark, FinOps CUD 업데이트 등 25건을 DevSecOps 관점으로 요약하고 대응 포인트를 정리했습니다."
+keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security, Lazarus, Copilot-Studio, Gemini-AI, FinOps]
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-13-Tech_Security_Weekly_Digest_AI_Go_Security_Agent.svg
-image_alt: "Tech Security Weekly Digest February 13 2026 AI Go Security"
+image_alt: "기술·보안 주간 다이제스트 2026년 2월 13일 AI Go 보안"
 toc: true
 schema_type: Article
 ---
 
 {% include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 02월 13일)'
+  title='기술·보안 주간 다이제스트 (2026년 02월 13일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
@@ -24,58 +24,38 @@ schema_type: Article
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: Google Reports State-Backed Hackers Using Gemini AI for...</li>
-      <li><strong>The Hacker News</strong>: Lazarus Campaign Plants Malicious Packages in npm and...</li>
-      <li><strong>Microsoft Security Blog</strong>: Copilot Studio agent security: Top 10 risks you can...</li>
-      <li><strong>Google Cloud Blog</strong>: Simpler billing, clearer savings: A FinOps guide to...</li>'
+  highlights_html='<li><strong>The Hacker News</strong>: Google, Gemini AI를 악용한 국가 배후 공격 보고</li>
+      <li><strong>The Hacker News</strong>: Lazarus, npm 악성 패키지 캠페인 확산</li>
+      <li><strong>Microsoft Security Blog</strong>: Copilot Studio 에이전트 보안 Top 10 리스크</li>
+      <li><strong>Google Cloud Blog</strong>: FinOps 비용 절감 가이드로 청구/절감 구조 단순화</li>'
   period='2026년 02월 13일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
-## Executive Summary
+## 요약
 
-2026년 02월 13일 기준 보안 현황 및 위협 분석입니다.
+2026년 02월 13일 기준 보안/기술 핵심 이슈를 요약했습니다. 국가 배후의 AI 악용 정찰, 공급망 악성 패키지 확산, Copilot Studio 에이전트 리스크가 이번 주의 최우선 대응 대상입니다.
+
+- **가장 시급**: Copilot Studio 에이전트 보안 리스크, AI 프롬프트 기반 공격
+- **공급망 경보**: Lazarus의 npm·PyPI 악성 패키지 캠페인 확대
+- **운영 관점**: FinOps CUD 업데이트로 비용 최적화 정책 재정비 필요
 
 ### 위험 스코어카드
 
-```text
-+================================================================+
-|          2026-02-13 주간 보안 위험 스코어카드                      |
-+================================================================+
-|                                                                |
-|  항목                    위험도   점수    조치 시급도             |
-|  ----------------------------------------------------------   |
-|  Copilot Studio agent security: █████████░  9/10   [즉시]                |
-|  ThreatsDay Bulletin: AI Prompt █████████░  9/10   [즉시]                |
-|  ----------------------------------------------------------   |
-|  종합 위험 수준: █████████░ HIGH (9.0/10)                         |
-|                                                                |
-+================================================================+
-```
+| 항목 | 위험도 | 조치 시급도 |
+|---|---|---|
+| Copilot Studio 에이전트 보안 | High (9/10) | 즉시 |
+| AI 프롬프트 기반 위협 | High (9/10) | 즉시 |
 
 
 ### 경영진 대시보드
 
-```text
-+================================================================+
-|        보안 현황 대시보드 - 2026년 02월 13일                         |
-+================================================================+
-|                                                                |
-|  [위협 현황]              [패치 현황]         [컴플라이언스]       |
-|  +-----------+           +-----------+      +-----------+      |
-|  | Critical 2|           | 적용필요 2|      | 적합   3  |      |
-|  | High     0|           | 평가중  0 |      | 검토중  2 |      |
-|  | Medium   13|           | 정보참고 1|      | 미대응  0 |      |
-|  +-----------+           +-----------+      +-----------+      |
-|                                                                |
-|  [MTTR 목표]              [금주 KPI]                            |
-|  Critical: < 4시간        탐지율: 90%                           |
-|  High:     < 24시간       오탐률: 8%                            |
-|  Medium:   < 7일          패치 적용률: 50%                      |
-|                           SIEM 룰 커버리지: 85%                 |
-|                                                                |
-+================================================================+
-```
+| 구분 | 상태 |
+|---|---|
+| 위협 현황 | Critical 2건, High 0건, Medium 13건 |
+| 패치 현황 | 적용 필요 2건, 검토 필요 1건 |
+| 컴플라이언스 | 적합 3건, 검토중 2건 |
+| KPI | 탐지율 90%, 오탐률 8%, 패치 적용률 50%, SIEM 룰 85% |
 
 ### 이사회 보고 포인트
 
@@ -109,27 +89,29 @@ schema_type: Article
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | Google Reports State-Backed Hackers Using Gemini A... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Lazarus Campaign Plants Malicious Packages in npm ... | 🟡 Medium |
-| 🔒 **Security** | Microsoft Secur | Copilot Studio agent security: Top 10 risks you ca... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | ThreatsDay Bulletin: AI Prompt RCE, Claude 0-Click... | 🔴 Critical |
-| 🔒 **Security** | Microsoft Secur | Your complete guide to Microsoft experiences at RS... | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Gemini AI를 악용한 국가 배후 정찰/공격 지원 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Lazarus의 npm·PyPI 악성 패키지 캠페인 | 🟡 Medium |
+| 🔒 **Security** | Microsoft Security Blog | Copilot Studio 에이전트 보안 Top 10 리스크 | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | ThreatsDay: AI 프롬프트 기반 RCE 위협 | 🔴 Critical |
+| 🔒 **Security** | Microsoft Security Blog | RSAC 2026 관련 보안 세션 가이드 | 🟡 Medium |
 
 ---
 
 ## 1. 보안 뉴스
 
-### 1.1 Google Reports State-Backed Hackers Using Gemini AI for Recon and Attack Support
+### 1.1 Gemini AI를 악용한 국가 배후 정찰·공격 지원
 
 #### 개요
 
-Google on Thursday said it observed the North Korea-linked threat actor known as UNC2970 using its generative artificial intelligence (AI) model Gemini to conduct reconnaissance on its targets, as various hacking groups continue to weaponize the tool for accelerating various phases of the cyber attack life cycle, enabling information operations, and even conducting model extraction attacks. "The
+Google은 북한 연계 위협 그룹 UNC2970이 생성형 AI 모델 Gemini를 표적 정찰과 공격 지원에 활용한 정황을 공개했습니다. 여러 해킹 그룹이 AI를 공격 라이프사이클의 가속 도구로 무기화하고 있으며, 정보전 수행이나 모델 추출 시도까지 관측되었습니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/google-reports-state-backed-hackers.html)
 
 #### 핵심 포인트
 
-- Google on Thursday said it observed the North Korea-linked threat actor known as UNC2970 using its generative artificial intelligence (AI) model Gemini to conduct reconnaissance on its targets, as various hacking groups continue to weaponize the tool for accelerating various phases of the cyber attack life cycle, enabling information operations, and even conducting model extraction attacks
+- UNC2970이 Gemini를 정찰·공격 지원에 활용한 정황 확인
+- AI가 공격 라이프사이클(정찰, 사회공학, 악성코드 개발)을 가속하는 도구로 자리잡음
+- 정보전 수행 및 모델 추출 시도 등 AI 악용 범위가 확대
 
 
 #### 위협 분석
@@ -151,19 +133,19 @@ Google on Thursday said it observed the North Korea-linked threat actor known as
 
 ---
 
-### 1.2 Lazarus Campaign Plants Malicious Packages in npm and PyPI Ecosystems
+### 1.2 Lazarus의 npm·PyPI 악성 패키지 캠페인
 
 #### 개요
 
-Cybersecurity researchers have discovered a fresh set of malicious packages across npm and the Python Package Index (PyPI) repository linked to a fake recruitment-themed campaign orchestrated by the North Korea-linked Lazarus Group. The coordinated campaign has been codenamed graphalgo in reference to the first package published in the npm registry. It's assessed to be active since May 2025. "
+연구진이 북한 연계 Lazarus가 주도하는 위장 채용 캠페인과 연계된 악성 패키지를 npm·PyPI에서 다수 발견했습니다. 캠페인은 첫 npm 패키지명인 graphalgo를 기준으로 명명되었고, 2025년 5월부터 활동한 것으로 평가됩니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/lazarus-campaign-plants-malicious.html)
 
 #### 핵심 포인트
 
-- Cybersecurity researchers have discovered a fresh set of malicious packages across npm and the Python Package Index (PyPI) repository linked to a fake recruitment-themed campaign orchestrated by the North Korea-linked Lazarus Group
-- The coordinated campaign has been codenamed graphalgo in reference to the first package published in the npm registry
-- It's assessed to be active since May 2025
+- Lazarus가 위장 채용 캠페인을 활용해 개발자 공급망을 겨냥
+- npm·PyPI에 악성 패키지를 배포하고 장기간 은닉
+- 2025년 5월부터 지속된 캠페인으로 판단
 
 
 #### 실무 영향
@@ -176,22 +158,21 @@ Cybersecurity researchers have discovered a fresh set of malicious packages acro
 
 ---
 
-### 1.3 Copilot Studio agent security: Top 10 risks you can detect and prevent
+### 1.3 Copilot Studio 에이전트 보안 Top 10 리스크
 
 > 🔴 **심각도**: Critical
 
 #### 개요
 
-Copilot Studio agents are increasingly powerful. With that power comes risk: small misconfigurations, over‑broad sharing, unauthenticated access, and weak orchestration controls can create real exposure. This article consolidates the ten most common risks we observe and maps each to practical detections and mitigations using Microsoft Defender capabilities. The post Copilot Studio agent security: Top 10 risks you can detect and prevent appeared first on Microsoft Security Blog .
+Copilot Studio 에이전트는 권한과 자동화 범위가 넓어지는 만큼 설정 실수나 과도한 공유, 인증 누락, 오케스트레이션 통제 부족이 곧바로 보안 노출로 이어질 수 있습니다. Microsoft는 현장에서 자주 발생하는 10대 리스크와 탐지·완화 방법을 Defender 관점에서 정리했습니다.
 
 > **출처**: [Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/02/12/copilot-studio-agent-security-top-10-risks-detect-prevent/)
 
 #### 핵심 포인트
 
-- Copilot Studio agents are increasingly powerful
-- With that power comes risk: small misconfigurations, over‑broad sharing, unauthenticated access, and weak orchestration controls can create real exposure
-- This article consolidates the ten most common risks we observe and maps each to practical detections and mitigations using Microsoft Defender capabilities
-- The post Copilot Studio agent security: Top 10 risks you can detect and prevent appeared first on Microsoft Security Blog 
+- 에이전트 권한 확대에 따라 설정 오류가 치명적 리스크로 전환
+- 과도한 공유·무인증 접근·오케스트레이션 통제 부재가 핵심 취약점
+- Defender 기반 탐지/완화 체크리스트 제공
 
 
 #### 실무 영향
@@ -206,18 +187,18 @@ Copilot Studio agents are increasingly powerful. With that power comes risk: sma
 
 ## 2. AI/ML 뉴스
 
-### 2.1 Introducing GPT-5.3-Codex-Spark
+### 2.1 GPT-5.3-Codex-Spark 공개
 
 #### 개요
 
-Introducing GPT-5.3-Codex-Spark—our first real-time coding model. 15x faster generation, 128k context, now in research preview for ChatGPT Pro users.
+실시간 코딩 모델 GPT-5.3-Codex-Spark가 공개되었습니다. 기존 대비 15배 빠른 생성 속도와 128k 컨텍스트를 강조하며, ChatGPT Pro 연구 프리뷰로 제공됩니다.
 
 > **출처**: [OpenAI Blog](https://openai.com/index/introducing-gpt-5-3-codex-spark)
 
 #### 핵심 포인트
 
-- Introducing GPT-5.3-Codex-Spark—our first real-time coding model
-- 15x faster generation, 128k context, now in research preview for ChatGPT Pro users
+- 실시간 코딩 모델 공개 및 연구 프리뷰 제공
+- 15배 빠른 생성 속도와 128k 컨텍스트 지원
 
 
 #### AI/ML 보안 영향 분석
@@ -235,18 +216,18 @@ Introducing GPT-5.3-Codex-Spark—our first real-time coding model. 15x faster g
 
 ---
 
-### 2.2 Introducing PFCS Forward
+### 2.2 PFCS Forward: IL5/IL6 Edge 인증 확장
 
 #### 개요
 
-Introducing PFCS Forward: Extending IL5/IL6 Authorization from Cloud to Edge Integrated systems that solve meaningful problems for commanders and their warfighting requirements are essential, according to Lieutenant General Paul T. Stanton, Director of DISA and Commander of DoD Cyber Defense Command, at DISA’s Forecast to Industry 2025 (December 8, 2025) Hardware-Agnostic Accreditation Brings IL5 and IL6 Authorization from the Cloud to the Tactical Edge Authorization overhead has become a fun...
+PFCS Forward는 클라우드에서 엣지로 IL5/IL6 인증을 확장하는 하드웨어 독립적 접근을 제시합니다. 국방/정부 환경에서 엣지 시스템까지 일관된 인증 체계를 적용하는 방향성을 강조합니다.
 
 > **출처**: [Palantir Blog](https://blog.palantir.com/introducing-pfcs-forward-d8755d34c429?source=rss----3c87dc14372f---4)
 
 #### 핵심 포인트
 
-- Introducing PFCS Forward: Extending IL5/IL6 Authorization from Cloud to Edge Integrated systems that solve meaningful problems for commanders and their warfighting requirements are essential, according to Lieutenant General Paul T
-- Stanton, Director of DISA and Commander of DoD Cyber Defense Command, at DISA’s Forecast to Industry 2025 (December 8, 2025) Hardware-Agnostic Accreditation Brings IL5 and IL6 Authorization from the Cloud to the Tactical Edge Authorization overhead has become a fun
+- IL5/IL6 인증을 클라우드에서 전술 엣지까지 확장
+- 하드웨어 독립적 인증 프레임워크로 운영 부담 완화
 
 
 #### AI/ML 보안 영향 분석
@@ -264,17 +245,19 @@ Introducing PFCS Forward: Extending IL5/IL6 Authorization from Cloud to Edge Int
 
 ---
 
-### 2.3 AI meets HR: Transforming talent acquisition with Amazon Bedrock
+### 2.3 Amazon Bedrock 기반 채용 자동화
 
 #### 개요
 
-In this post, we show how to create an AI-powered recruitment system using Amazon Bedrock, Amazon Bedrock Knowledge Bases, AWS Lambda, and other AWS services to enhance job description creation, candidate communication, and interview preparation while maintaining human oversight.
+Amazon Bedrock과 Knowledge Bases, AWS Lambda 등을 활용해 채용 공고 작성, 후보자 커뮤니케이션, 면접 준비를 자동화하는 AI 채용 시스템 구축 사례를 소개합니다. 사람 중심의 검증 단계를 유지하는 것이 핵심 포인트입니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/ai-meets-hr-transforming-talent-acquisition-with-amazon-bedrock/)
 
 #### 핵심 포인트
 
-- In this post, we show how to create an AI-powered recruitment system using Amazon Bedrock, Amazon Bedrock Knowledge Bases, AWS Lambda, and other AWS services to enhance job description creation, candidate communication, and interview preparation while maintaining human oversight
+- Bedrock 기반 AI 채용 시스템 설계 사례
+- 공고 작성·후보자 커뮤니케이션·면접 준비 자동화
+- 인적 검증 단계를 통해 책임성과 품질 확보
 
 
 #### AI/ML 보안 영향 분석
@@ -292,22 +275,21 @@ In this post, we show how to create an AI-powered recruitment system using Amazo
 
 ---
 
-## 3. 클라우드 & 인프라 뉴스
+## 3. 클라우드·인프라 뉴스
 
-### 3.1 Simpler billing, clearer savings: A FinOps guide to updated spend-based CUDs
+### 3.1 FinOps CUD 업데이트: 비용·절감 구조 단순화
 
 #### 개요
 
-Optimizing cloud spend is one of the most rewarding aspects of FinOps — and committed use discounts (CUDs) remain one of the most effective levers to pull. In July 2025, we began rolling out updates to the spend-based CUD model to make it easier to understand your costs and savings, expand coverage to new SKUs (including Cloud Run and H3/M-series VMs), and offer increased flexibility. These changes are now available to all customers. Let’s dive into how this new model simplifies your FinOps p...
+Google Cloud는 2025년 7월부터 사용량 기반 CUD 모델을 업데이트해 비용/절감 구조를 더 쉽게 이해하도록 개선했습니다. Cloud Run 및 H3/M 시리즈 VM 등 신규 SKU로 범위를 확대하고 유연성을 높인 것이 핵심입니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/cost-management/a-finops-professionals-guide-to-updated-spend-based-cuds/)
 
 #### 핵심 포인트
 
-- Optimizing cloud spend is one of the most rewarding aspects of FinOps — and committed use discounts (CUDs) remain one of the most effective levers to pull
-- In July 2025, we began rolling out updates to the spend-based CUD model to make it easier to understand your costs and savings, expand coverage to new SKUs (including Cloud Run and H3/M-series VMs), and offer increased flexibility
-- These changes are now available to all customers
-- Let’s dive into how this new model simplifies your FinOps p
+- CUD 업데이트로 비용·절감 구조를 단순화
+- Cloud Run 및 H3/M 시리즈 등 신규 SKU 포함
+- 모든 고객에게 적용, FinOps 운영 정책 재정비 필요
 
 
 #### 실무 적용 포인트
@@ -319,19 +301,19 @@ Optimizing cloud spend is one of the most rewarding aspects of FinOps — and co
 
 ---
 
-### 3.2 GTIG AI Threat Tracker: Distillation, Experimentation, and (Continued) Integration of AI for Adversarial Use
+### 3.2 GTIG AI 위협 트래커: 공격자 AI 활용 동향
 
 #### 개요
 
-Introduction In the final quarter of 2025, Google Threat Intelligence Group (GTIG) observed threat actors increasingly integrating artificial intelligence (AI) to accelerate the attack lifecycle, achieving productivity gains in reconnaissance, social engineering, and malware development. This report serves as an update to our November 2025 findings regarding the advances in threat actor usage of AI tools. By identifying these early indicators and offensive proofs of concept, GTIG aims to arm ...
+GTIG는 2025년 4분기 이후 공격자들이 AI를 정찰·사회공학·악성코드 개발에 적극 활용하며 생산성을 끌어올리고 있다고 보고했습니다. 2025년 11월 보고서의 업데이트 성격으로, AI 악용 징후와 공격 PoC를 정리합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/threat-intelligence/distillation-experimentation-integration-ai-adversarial-use/)
 
 #### 핵심 포인트
 
-- Introduction In the final quarter of 2025, Google Threat Intelligence Group (GTIG) observed threat actors increasingly integrating artificial intelligence (AI) to accelerate the attack lifecycle, achieving productivity gains in reconnaissance, social engineering, and malware development
-- This report serves as an update to our November 2025 findings regarding the advances in threat actor usage of AI tools
-- By identifying these early indicators and offensive proofs of concept, GTIG aims to arm 
+- 공격자 AI 활용이 정찰·사회공학·악성코드 개발로 확산
+- 2025년 11월 보고서의 후속 업데이트
+- 조기 징후와 공격 PoC를 정리해 방어 준비에 활용
 
 
 #### 실무 적용 포인트
@@ -343,19 +325,19 @@ Introduction In the final quarter of 2025, Google Threat Intelligence Group (GTI
 
 ---
 
-### 3.3 VAMS에서 NVIDIA Isaac Lab을 활용한 GPU 가속 로봇 시뮬레이션 훈련
+### 3.3 VAMS + NVIDIA Isaac Lab GPU 가속 로봇 시뮬레이션
 
 #### 개요
 
-본 게시글은 AWS Spatial Compute Blog에 작성된 “GPU-Accelerated Robotic Simulation Training with NVIDIA Isaac Lab in VAMS” 블로그를 번역했습니다. 오픈소스 Visual Asset Management System(VAMS)이 이제 NVIDIA Isaac Lab과의 통합을 통해 로봇 자산에 대한 GPU 가속 강화학습(RL)을 지원합니다. 이 파이프라인을 통해 팀은 자산 관리 워크플로우에서 직접 RL 정책을 훈련하고 평가할 수 있으며, 확장 가능한 GPU 컴퓨팅을 […]
+AWS Spatial Compute Blog의 내용을 바탕으로, VAMS가 NVIDIA Isaac Lab과 통합되어 GPU 가속 강화학습(RL) 훈련을 지원하는 흐름을 정리했습니다. 자산 관리 워크플로우 안에서 RL 정책을 훈련·평가하고, 확장 가능한 GPU 컴퓨팅을 활용하는 것이 핵심입니다.
 
 > **출처**: [AWS Korea Blog](https://aws.amazon.com/ko/blogs/tech/gpu-accelerated-robotic-simulation-training-with-nvidia-isaac-lab-in-vams/)
 
 #### 핵심 포인트
 
-- 본 게시글은 AWS Spatial Compute Blog에 작성된 “GPU-Accelerated Robotic Simulation Training with NVIDIA Isaac Lab in VAMS” 블로그를 번역했습니다
-- 오픈소스 Visual Asset Management System(VAMS)이 이제 NVIDIA Isaac Lab과의 통합을 통해 로봇 자산에 대한 GPU 가속 강화학습(RL)을 지원합니다
-- 이 파이프라인을 통해 팀은 자산 관리 워크플로우에서 직접 RL 정책을 훈련하고 평가할 수 있으며, 확장 가능한 GPU 컴퓨팅을 […]
+- VAMS와 Isaac Lab 통합으로 GPU 가속 RL 훈련 지원
+- 자산 관리 워크플로우 안에서 정책 훈련·평가 자동화
+- 확장 가능한 GPU 컴퓨팅으로 대규모 시뮬레이션 가능
 
 
 #### 실무 적용 포인트
@@ -367,19 +349,19 @@ Introduction In the final quarter of 2025, Google Threat Intelligence Group (GTI
 
 ---
 
-## 4. DevOps & 개발 뉴스
+## 4. DevOps·개발 뉴스
 
-### 4.1 Announcing Interop 2026
+### 4.1 Interop 2026 발표
 
 #### 개요
 
-Exciting news for web developers, designers, and browser enthusiasts alike — Interop 2026 is here, continuing the mission of improving cross-browser interoperability.
+웹 개발자와 브라우저 생태계를 위한 Interop 2026이 발표되었습니다. 브라우저 간 호환성 개선을 지속적으로 추진하는 프로젝트입니다.
 
 > **출처**: [WebKit Blog](https://webkit.org/blog/17818/announcing-interop-2026/)
 
 #### 핵심 포인트
 
-- Exciting news for web developers, designers, and browser enthusiasts alike — Interop 2026 is here, continuing the mission of improving cross-browser interoperability
+- 브라우저 간 호환성 강화를 위한 Interop 2026 로드맵 공개
 
 
 #### 실무 적용 포인트
@@ -391,17 +373,17 @@ Exciting news for web developers, designers, and browser enthusiasts alike — I
 
 ---
 
-### 4.2 Release Notes for Safari Technology Preview 237
+### 4.2 Safari Technology Preview 237 릴리즈 노트
 
 #### 개요
 
-Safari Technology Preview Release 237 is now available for download for macOS Tahoe and macOS Sequoia.
+Safari Technology Preview 237이 macOS Tahoe와 macOS Sequoia용으로 공개되었습니다.
 
 > **출처**: [WebKit Blog](https://webkit.org/blog/17842/release-notes-for-safari-technology-preview-237/)
 
 #### 핵심 포인트
 
-- Safari Technology Preview Release 237 is now available for download for macOS Tahoe and macOS Sequoia
+- macOS Tahoe/Sequoia 대상 미리보기 버전 공개
 
 
 #### 실무 적용 포인트
@@ -415,33 +397,35 @@ Safari Technology Preview Release 237 is now available for download for macOS Ta
 
 ## 5. 블록체인 뉴스
 
-### 5.1 人身売買関連サービスへの暗号資産の資金フローが前年比85%急増
+### 5.1 인신매매 관련 서비스로의 암호화폐 자금 흐름 85% 급증
 
 #### 개요
 
-※この記事は自動翻訳されています。正確な内容につきましては原文をご参照ください。 要約 主に東南アジアを拠点とする人身売買の疑いがあるサービスへの暗号資産の資金フローは、2025年に85%増加し、特定されたサービス全体で数億ドル規模に達しました。 Telegramベースの「インターナショナルエスコート」サービスは、中国語圏のマネーロンダリングネットワーク（CMLN）や担保プラットフォームと高度に統合されており、トランザクションの約半数が10,000ドルを超えています。 分析により、東南アジアの人身売買組織のグローバルな展開が明らかになり、南北アメリカ、ヨーロッパ、オーストラリアなど各地から多額の暗号資産が流入しています。 児童性的虐待コンテンツ（CSAM）ネットワークはサブスクリプション型モデルへと進化し、サディスティックなオンライン過激主義（SOE）コミュニティとの重複が増加しています。また、米国のインフラを戦略的に利用している点は、高度な運営計画を示唆しています。 現金取引とは異なり、暗号資産が本質的に持つ透明性は、法執行機関やコンプライアンスチームが人身売買の活動を検知、追...
+Chainalysis 분석에 따르면 동남아 기반 인신매매 관련 서비스로 유입되는 암호화폐가 2025년에 85% 증가했습니다. 텔레그램 기반 서비스가 중국계 자금세탁 네트워크와 연계되며 1만 달러 이상 거래 비중이 높은 것으로 보고되었습니다. 암호화폐의 투명성은 수사·컴플라이언스 관점에서 탐지 수단이 될 수 있습니다.
 
 > **출처**: [Chainalysis Blog](https://www.chainalysis.com/blog/crypto-human-trafficking-2026-japanese/)
 
 #### 핵심 포인트
 
-- ※この記事は自動翻訳されています。正確な内容につきましては原文をご参照ください。 要約 主に東南アジアを拠点とする人身売買の疑いがあるサービスへの暗号資産の資金フローは、2025年に85%増加し、特定されたサービス全体で数億ドル規模に達しました。 Telegramベースの「インターナショナルエスコート」サービスは、中国語圏のマネーロンダリングネットワーク（CMLN）や担保プラットフォームと高度に統合されており、トランザクションの約半数が10,000ドルを超えています。 分析により、東南アジアの人身売買組織のグローバルな展開が明らかになり、南北アメリカ、ヨーロッパ、オーストラリアなど各地から多額の暗号資産が流入しています。 児童性的虐待コンテンツ（CSAM）ネットワークはサブスクリプション型モデルへと進化し、サディスティックなオンライン過激主義（SOE）コミュニティとの重複が増加しています。また、米国のインフラを戦略的に利用している点は、高度な運営計画を示唆しています。 現金取引とは異なり、暗号資産が本質的に持つ透明性は、法執行機関やコンプライアンスチームが人身売買の活動を検知、追
+- 인신매매 관련 서비스로의 암호화폐 유입이 2025년에 85% 증가
+- 텔레그램 기반 서비스가 자금세탁 네트워크와 결합, 고액 거래 비중 확대
+- 암호화폐 투명성을 활용한 수사·컴플라이언스 탐지 필요
 
 
 ---
 
-### 5.2 Thailand Moves to Cement Bitcoin and Digital Assets in Regulated Derivatives Market
+### 5.2 태국, 파생상품 시장에서 비트코인·디지털 자산 제도화 추진
 
 #### 개요
 
-Bitcoin Magazine Thailand Moves to Cement Bitcoin and Digital Assets in Regulated Derivatives Market Thailand is moving to cement bitcoin and other digital assets as legitimate, regulated reference assets in its derivatives and capital markets. This post Thailand Moves to Cement Bitcoin and Digital Assets in Regulated Derivatives Market first appeared on Bitcoin Magazine and is written by Micah Zimmerman .
+태국이 파생상품·자본시장 내 비트코인 및 디지털 자산을 규제된 기준 자산으로 인정하는 방향을 추진하고 있습니다. 제도권 편입이 가속될 경우 거래소·수탁·리스크 관리 기준이 함께 강화될 가능성이 큽니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/thailand-moves-to-cement-bitcoin)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine Thailand Moves to Cement Bitcoin and Digital Assets in Regulated Derivatives Market Thailand is moving to cement bitcoin and other digital assets as legitimate, regulated reference assets in its derivatives and capital markets
-- This post Thailand Moves to Cement Bitcoin and Digital Assets in Regulated Derivatives Market first appeared on Bitcoin Magazine and is written by Micah Zimmerman 
+- 태국이 디지털 자산을 규제된 기준 자산으로 제도화 추진
+- 파생상품 시장의 리스크 관리·컴플라이언스 기준 강화 예상
 
 
 ---
@@ -450,8 +434,8 @@ Bitcoin Magazine Thailand Moves to Cement Bitcoin and Digital Assets in Regulate
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Europe surges, US stumbles, China cools: EV sales ...](https://electrek.co/2026/02/12/europe-surges-us-stumbles-china-cools-ev-sales-dip-in-2026/) | Electrek | 1.2 million EVs were sold globally in January – but the market shrank. Global EV... |
-| [In Washington, DC, curbside parking just became EV...](https://electrek.co/2026/02/12/washington-dc-curbside-parking-ev-charging/) | Electrek | Washington, DC, just launched a curbside charging pilot to install public EV cha... |
+| [유럽 EV 판매 급증, 미국 둔화·중국 냉각](https://electrek.co/2026/02/12/europe-surges-us-stumbles-china-cools-ev-sales-dip-in-2026/) | Electrek | 1월 글로벌 EV 판매 120만대, 시장 성장 둔화 신호 |
+| [워싱턴 DC, 도로변 EV 충전 파일럿 시작](https://electrek.co/2026/02/12/washington-dc-curbside-parking-ev-charging/) | Electrek | 공공 충전 인프라 확대를 위한 파일럿 도입 |
 
 
 ---
@@ -473,8 +457,8 @@ Bitcoin Magazine Thailand Moves to Cement Bitcoin and Digital Assets in Regulate
 
 ### P0 (즉시)
 
-- [ ] **Copilot Studio agent security: Top 10 risks you can detect a** 관련 긴급 패치 및 영향도 확인
-- [ ] **ThreatsDay Bulletin: AI Prompt RCE, Claude 0-Click, RenEngin** 관련 긴급 패치 및 영향도 확인
+- [ ] **Copilot Studio 에이전트 보안 Top 10 리스크** 관련 긴급 패치 및 영향도 확인
+- [ ] **ThreatsDay: AI 프롬프트 기반 RCE 위협** 관련 긴급 패치 및 영향도 확인
 
 ### P1 (7일 내)
 
