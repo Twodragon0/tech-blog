@@ -1,18 +1,57 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: n8n Critical RCE, D-Link 단종 장비 Zero-Day, Kubernetes AI 에이전트 보안"
-date: 2026-01-29 10:00:00 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, n8n, RCE, CVE-2026-1470, D-Link, Zero-Day, CVE-2026-0625, Kubernetes, AI-Agent, eBPF, Sovereign-Cloud, NHI, DevSecOps, "2026"]
-excerpt: "n8n RCE(CVE-2026-1470 CVSS 9.9), D-Link Zero-Day, K8s AI 에이전트 보안 과제, Swiss Sovereign Cloud"
-description: "2026년 1월 29일 보안 뉴스: n8n 워크플로우 RCE 취약점(CVE-2026-1470, CVSS 9.9), D-Link 단종 장비 Zero-Day(CVE-2026-0625), Kubernetes AI 에이전트 보안 과제, Infomaniak Swiss Sovereign Cloud, NHI 클라우드 침해 벡터 분석"
-keywords: [n8n RCE, CVE-2026-1470, D-Link Zero-Day, CVE-2026-0625, Kubernetes Security, AI Agent, eBPF, Sovereign Cloud, NHI, DevSecOps]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-01-29 10:00:00 +0900
+description: '2026년 1월 29일 보안 뉴스: n8n 워크플로우 RCE 취약점(CVE-2026-1470, CVSS 9.9), D-Link
+  단종 장비 Zero-Day(CVE-2026-0625), Kubernetes AI 에이전트 보안 과제, Infomaniak Swiss Sovereign
+  Cloud, NHI 클라우드 침해 벡터 분석'
+excerpt: n8n RCE(CVE-2026-1470 CVSS 9.9), D-Link Zero-Day, K8s AI 에이전트 보안 과제, Swiss
+  Sovereign Cloud
 image: /assets/images/2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent.svg
-image_alt: "Tech Security Weekly Digest January 29 2026 n8n RCE D-Link Zero-Day Kubernetes AI Agent"
-toc: true
+image_alt: Tech Security Weekly Digest January 29 2026 n8n RCE D-Link Zero-Day Kubernetes
+  AI Agent
+keywords:
+- n8n RCE
+- CVE-2026-1470
+- D-Link Zero-Day
+- CVE-2026-0625
+- Kubernetes Security
+- AI Agent
+- eBPF
+- Sovereign Cloud
+- NHI
+- DevSecOps
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- n8n
+- RCE
+- CVE-2026-1470
+- D-Link
+- Zero-Day
+- CVE-2026-0625
+- Kubernetes
+- AI-Agent
+- eBPF
+- Sovereign-Cloud
+- NHI
+- DevSecOps
+- '2026'
+title: 'Tech & Security Weekly Digest: n8n Critical RCE, D-Link 단종 장비 Zero-Day, Kubernetes
+  AI 에이전트 보안'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: n8n RCE(CVE-2026-1470 CVSS 9.9), D-Link Zero-Day, K8s AI 에이전트 보안 과제, Swiss Sovereign Cloud
+- **주요 주제**: Tech & Security Weekly Digest: n8n Critical RCE, D-Link 단종 장비 Zero-Day, Kubernetes AI 에이전트 보안
+- **키워드**: Security-Weekly, n8n, RCE, CVE-2026-1470, D-Link
+
 ---
 
 <div class="ai-summary-card">

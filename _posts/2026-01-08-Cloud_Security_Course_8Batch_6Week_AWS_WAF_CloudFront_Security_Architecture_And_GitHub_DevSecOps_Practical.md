@@ -1,20 +1,57 @@
 ---
-layout: post
-title: "클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전"
-date: 2026-01-08 19:58:00 +0900
-categories: [security, devsecops]
-tags: [AWS, CloudFront, cloudsecurity, Cybersecurity, DevSecOps, github, githubactions, SecurityEngineering, TechBlog, waf]
-excerpt: "AWS WAF/CloudFront GitHub DevSecOps 실전 가이드"
-description: "클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 아키텍처(OAI/OAC, WAF 규칙, Geo-blocking), GitHub DevSecOps 실전(CodeQL, Dependabot, Secret Scanning), 실전 보안 패치(SSRF, Data Masking), Jekyll 블로그 보안 강화까지 실무 정리."
-keywords: [AWS WAF, CloudFront, OAI, OAC, GitHub DevSecOps, CodeQL, Dependabot, Secret Scanning, SSRF, Data Masking, Jekyll Security, Cloud Security, DevSecOps]
 author: Twodragon
+categories:
+- security
+- devsecops
+certifications:
+- aws-saa
 comments: true
-original_url: https://twodragon.tistory.com/707
+date: 2026-01-08 19:58:00 +0900
+description: 클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 아키텍처(OAI/OAC, WAF 규칙, Geo-blocking),
+  GitHub DevSecOps 실전(CodeQL, Dependabot, Secret Scanning), 실전 보안 패치(SSRF, Data Masking),
+  Jekyll 블로그 보안 강화까지 실무 정리.
+excerpt: AWS WAF/CloudFront GitHub DevSecOps 실전 가이드
 image: /assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg
-image_alt: "Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture and GitHub DevSecOps Practical"
-toc: true
+image_alt: 'Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture
+  and GitHub DevSecOps Practical'
+keywords:
+- AWS WAF
+- CloudFront
+- OAI
+- OAC
+- GitHub DevSecOps
+- CodeQL
+- Dependabot
+- Secret Scanning
+- SSRF
+- Data Masking
+- Jekyll Security
+- Cloud Security
+- DevSecOps
+layout: post
+original_url: https://twodragon.tistory.com/707
 schema_type: Article
-certifications: [aws-saa]
+tags:
+- AWS
+- CloudFront
+- cloudsecurity
+- Cybersecurity
+- DevSecOps
+- github
+- githubactions
+- SecurityEngineering
+- TechBlog
+- waf
+title: '클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: AWS WAF/CloudFront GitHub DevSecOps 실전 가이드
+- **주요 주제**: 클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전
+- **키워드**: AWS, CloudFront, cloudsecurity, Cybersecurity, DevSecOps
+
 ---
 
 <div class="ai-summary-card">
@@ -1720,4 +1757,3 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
 ---
 
 **원본 포스트**: [클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전](https://twodragon.tistory.com/707)
-
