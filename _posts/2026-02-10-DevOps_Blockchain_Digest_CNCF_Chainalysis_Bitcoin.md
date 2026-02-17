@@ -1,18 +1,44 @@
 ---
-layout: post
-title: "2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin"
-date: 2026-02-10 13:10:00 +0900
-categories: [devops, devsecops]
-tags: [DevOps-Digest, Blockchain-Digest, CNCF, Kubernetes, Cluster-API, Chainalysis, Bitcoin]
-excerpt: "CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트, Chainalysis Hexagate MegaETH 보안, Bitcoin $70K 회복"
-description: "CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트, Chainalysis Hexagate MegaETH 보안, Bitcoin $70K 회복"
-keywords: [DevOps-Digest, Blockchain-Digest, CNCF, Cluster-API, Chainalysis, Bitcoin, Kubernetes]
-image: /assets/images/2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.svg
 author: Twodragon
+categories:
+- devops
+- devsecops
 comments: true
-image_alt: "DevOps Blockchain Digest Feb 10 2026 CNCF Velocity Cluster API Chainalysis"
-toc: true
+date: 2026-02-10 13:10:00 +0900
+description: CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place
+  업데이트, Chainalysis Hexagate MegaETH 보안, Bitcoin $70K 회복
+excerpt: CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트,
+  Chainalysis Hexagate MegaETH 보안, Bitcoin $70K 회복
+image: /assets/images/2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.svg
+image_alt: DevOps·블록체인 다이제스트 2026년 2월 10일 CNCF Velocity Cluster API Chainalysis
+keywords:
+- DevOps-Digest
+- Blockchain-Digest
+- CNCF
+- Cluster-API
+- Chainalysis
+- Bitcoin
+- Kubernetes
+layout: post
 schema_type: Article
+tags:
+- DevOps-Digest
+- Blockchain-Digest
+- CNCF
+- Kubernetes
+- Cluster-API
+- Chainalysis
+- Bitcoin
+title: '2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트, Chainalysis Hexagate MegaETH 보안, Bitcoin $70K 회복
+- **주요 주제**: 2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin
+- **키워드**: DevOps-Digest, Blockchain-Digest, CNCF, Kubernetes, Cluster-API
+
 ---
 
 ## 서론
