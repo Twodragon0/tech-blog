@@ -1,19 +1,43 @@
 ---
-layout: post
-title: "공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법"
-date: 2025-04-30 19:51:25 +0900
-categories: [security]
-tags: [Passkey, OTP, Password-Manager, Authentication]
-excerpt: "공용 PC 보안 완벽 가이드. 패스키, OTP, 암호 관리자 활용법. AI 피싱 대응 전략 포함."
+author: Yongho Ha
+categories:
+- security
 comments: true
-original_url: https://twodragon.tistory.com/678
+date: 2025-04-30 19:51:25 +0900
+description: 공용 PC 보안 완벽 가이드. 패스키(Passkey) WebAuthn 인증, OTP 2FA 강화, 암호 관리자 활용, 공용
+  PC 보안 모범 사례, 2025년 인증 보안 트렌드(FIDO2, AI 피싱 대응)까지 상세 정리.
+excerpt: 공용 PC 보안 완벽 가이드. 패스키, OTP, 암호 관리자 활용법. AI 피싱 대응 전략 포함.
 image: /assets/images/2025-04-30-Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage.svg
-image_alt: "Safely on Public PC: Passkey OTP Strong Password Management Usage"
-toc: true
-description: 공용 PC 보안 완벽 가이드. 패스키(Passkey) WebAuthn 인증, OTP 2FA 강화, 암호 관리자 활용, 공용 PC 보안 모범 사례, 2025년 인증 보안 트렌드(FIDO2, AI 피싱 대응)까지 상세 정리.
-keywords: [Passkey, WebAuthn, OTP, TOTP, FIDO2, 암호관리자, 공용PC보안, 2FA, MFA, 피싱방지]
-author: "Yongho Ha"
+image_alt: 'Safely on Public PC: Passkey OTP Strong Password Management Usage'
+keywords:
+- Passkey
+- WebAuthn
+- OTP
+- TOTP
+- FIDO2
+- 암호관리자
+- 공용PC보안
+- 2FA
+- MFA
+- 피싱방지
+layout: post
+original_url: https://twodragon.tistory.com/678
 schema_type: Article
+tags:
+- Passkey
+- OTP
+- Password-Manager
+- Authentication
+title: 공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: 공용 PC 보안 완벽 가이드. 패스키, OTP, 암호 관리자 활용법. AI 피싱 대응 전략 포함.
+- **주요 주제**: 공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법
+- **키워드**: Passkey, OTP, Password-Manager, Authentication
+
 ---
 
 <div class="ai-summary-card">
