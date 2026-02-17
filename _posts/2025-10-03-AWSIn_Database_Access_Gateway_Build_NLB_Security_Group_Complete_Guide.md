@@ -1,19 +1,42 @@
 ---
-layout: post
-title: "AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드"
-date: 2025-10-03 00:10:37 +0900
-categories: [cloud]
-tags: [AWS, NLB, Security-Group, Database, Network]
-excerpt: "AWS NLB와 Security Group을 활용한 Zero Trust 데이터베이스 게이트웨이 구축."
-comments: true
-original_url: https://twodragon.tistory.com/696
-image: /assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.svg
-image_alt: "Building Secure Database Access Gateway on AWS: NLB Security Group Complete Guide"
-certifications: [aws-saa]
-toc: true
-description: AWS Network Load Balancer와 Security Group을 활용한 Zero Trust 데이터베이스 접근 게이트웨이 구축 가이드. Terraform 자동화 및 보안 설정을 다룹니다.
-keywords: [AWS, NLB, Security-Group, Database, Terraform, Zero-Trust]
 author: Twodragon
+categories:
+- cloud
+certifications:
+- aws-saa
+comments: true
+date: 2025-10-03 00:10:37 +0900
+description: AWS Network Load Balancer와 Security Group을 활용한 Zero Trust 데이터베이스 접근 게이트웨이
+  구축 가이드. Terraform 자동화 및 보안 설정을 다룹니다.
+excerpt: AWS NLB와 Security Group을 활용한 Zero Trust 데이터베이스 게이트웨이 구축.
+image: /assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.svg
+image_alt: 'Building Secure Database Access Gateway on AWS: NLB Security Group Complete
+  Guide'
+keywords:
+- AWS
+- NLB
+- Security-Group
+- Database
+- Terraform
+- Zero-Trust
+layout: post
+original_url: https://twodragon.tistory.com/696
+tags:
+- AWS
+- NLB
+- Security-Group
+- Database
+- Network
+title: 'AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: AWS NLB와 Security Group을 활용한 Zero Trust 데이터베이스 게이트웨이 구축.
+- **주요 주제**: AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드
+- **키워드**: AWS, NLB, Security-Group, Database, Network
+
 ---
 
 <div class="ai-summary-card">
@@ -136,6 +159,13 @@ author: Twodragon
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_lb" "db_gateway" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_lb" "db_gateway" {
   name               = "db-gateway-nlb"
@@ -151,13 +181,22 @@ resource "aws_lb" "db_gateway" {
   }
 }
 
+
 ```
+-->
 -->
 
 ### 1.3 타겟 그룹 설정
 
 > **참고**: Terraform AWS Load Balancer 타겟 그룹 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://github.com/terraform-aws-modules/terraform-aws-alb) 및 [AWS ELB Target Groups 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html)를 참조하세요.
 >
+> ```hcl
+> resource "aws_lb_target_group" "rds_mysql" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
 > ```hcl
 > resource "aws_lb_target_group" "rds_mysql" {...
 > ```
@@ -181,7 +220,9 @@ resource "aws_lb_target_group" "rds_mysql" {
   }
 }
 
+
 ```
+-->
 -->
 
 ## 2. Security Group 구성
@@ -204,6 +245,13 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 > **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://github.com/terraform-aws-modules/terraform-aws-security-group) 및 [AWS Security Groups 문서](https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html)를 참조하세요.
 >
+> ```hcl
+> resource "aws_security_group" "nlb" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
 > ```hcl
 > resource "aws_security_group" "nlb" {...
 > ```
@@ -237,13 +285,22 @@ resource "aws_security_group" "nlb" {
   }
 }
 
+
 ```
+-->
 -->
 
 ### 2.3 데이터베이스 Security Group
 
 > **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://github.com/terraform-aws-modules/terraform-aws-security-group) 및 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html)를 참조하세요.
 >
+> ```hcl
+> resource "aws_security_group" "database" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
 > ```hcl
 > resource "aws_security_group" "database" {...
 > ```
@@ -278,7 +335,9 @@ resource "aws_security_group" "database" {
   }
 }
 
+
 ```
+-->
 -->
 
 ## 3. Zero Trust 아키텍처 구현
@@ -300,6 +359,13 @@ resource "aws_security_group" "database" {
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # 애플리케이션에서 데이터베이스 접근 시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # 애플리케이션에서 데이터베이스 접근 시
 import boto3
@@ -321,7 +387,9 @@ conn = mysql.connector.connect(
     ssl_ca='/path/to/rds-ca-cert.pem'
 )
 
+
 ```
+-->
 -->
 
 #### Security Group 기반 접근 제어
@@ -352,6 +420,13 @@ modules/
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> variable "vpc_id" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 variable "vpc_id" {
   description = "VPC ID"
@@ -373,13 +448,22 @@ variable "environment" {
   type        = string
 }
 
+
 ```
+-->
 -->
 
 ### 4.3 출력 값
 
 > **참고**: Terraform 출력 값 관련 내용은 [Terraform 출력 문서](https://developer.hashicorp.com/terraform/language/values/outputs) 및 [Terraform AWS 모듈 예제](https://github.com/terraform-aws-modules)를 참조하세요.
 >
+> ```hcl
+> output "nlb_dns_name" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
 > ```hcl
 > output "nlb_dns_name" {...
 > ```
@@ -401,7 +485,9 @@ output "database_security_group_id" {
   value       = aws_security_group.database.id
 }
 
+
 ```
+-->
 -->
 
 ## 5. 모니터링 및 로깅
@@ -421,6 +507,8 @@ VPC Flow Logs를 활성화하여 네트워크 트래픽을 모니터링:
 
 > **참고**: VPC Flow Logs 설정 관련 내용은 [AWS VPC Flow Logs 문서](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) 및 [Terraform AWS VPC 모듈](https://github.com/terraform-aws-modules/terraform-aws-vpc)을 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+
 ```hcl
 resource "aws_flow_log" "vpc_flow_log" {
   iam_role_arn    = aws_iam_role.flow_log.arn
@@ -435,6 +523,8 @@ resource "aws_flow_log" "vpc_flow_log" {
 RDS의 경우 자동 로깅 기능을 활성화:
 
 > **참고**: RDS 로깅 설정 관련 내용은 [AWS RDS 로깅 문서](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html) 및 [Terraform AWS RDS 모듈](https://github.com/terraform-aws-modules/terraform-aws-rds)을 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
 
 ```hcl
 resource "aws_db_instance" "mysql" {
@@ -501,6 +591,13 @@ resource "aws_db_instance" "mysql" {
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_cloudwatch_metric_alarm" "unhealthy_hosts" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_cloudwatch_metric_alarm" "unhealthy_hosts" {
   alarm_name          = "nlb-unhealthy-hosts"
@@ -518,7 +615,9 @@ resource "aws_cloudwatch_metric_alarm" "unhealthy_hosts" {
   }
 }
 
+
 ```
+-->
 -->
 
 ## 9. 2025년 AWS 네트워크 보안 최신 동향
@@ -534,6 +633,13 @@ AWS ALB/NLB가 양자 내성 암호화를 지원합니다:
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # 2025년 Post-Quantum TLS 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # 2025년 Post-Quantum TLS 설정
 resource "aws_lb_listener" "quantum_safe" {
@@ -550,7 +656,9 @@ resource "aws_lb_listener" "quantum_safe" {
   }
 }
 
+
 ```
+-->
 -->
 
 **주요 특징**:
@@ -572,6 +680,13 @@ resource "aws_lb_listener" "quantum_safe" {
 
 > **참고**: AWS VPC Lattice 관련 내용은 [AWS VPC Lattice 문서](https://docs.aws.amazon.com/vpc-lattice/) 및 [AWS VPC Lattice 예제](https://github.com/aws-samples)를 참조하세요.
 >
+> ```hcl
+> # VPC Lattice Resource Gateway 예시 (2025)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
 > ```hcl
 > # VPC Lattice Resource Gateway 예시 (2025)...
 > ```
@@ -611,7 +726,9 @@ resource "aws_vpclattice_auth_policy" "db_policy" {
   })
 }
 
+
 ```
+-->
 -->
 
 ### 9.3 NLB Security Group 모범 사례 (2025)
@@ -620,6 +737,13 @@ resource "aws_vpclattice_auth_policy" "db_policy" {
 
 > **참고**: AWS NLB Security Group 설정 관련 내용은 [AWS NLB 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/) 및 [Terraform AWS ALB/NLB 모듈](https://github.com/terraform-aws-modules/terraform-aws-alb)을 참조하세요.
 >
+> ```hcl
+> # NLB Security Group 필수 설정 (2025 권장사항)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
 > ```hcl
 > # NLB Security Group 필수 설정 (2025 권장사항)...
 > ```
@@ -649,7 +773,9 @@ resource "aws_lb" "db_gateway_2025" {
 # QUIC/TCP_QUIC 리스너 사용 시 Security Group 미사용
 # 주의: QUIC 프로토콜 사용 시 Security Group 연결 불가
 
+
 ```
+-->
 -->
 
 ### 9.4 Network Firewall Proxy 통합
@@ -658,6 +784,13 @@ AWS Network Firewall Proxy와 NLB 통합 시 고려사항:
 
 > **참고**: AWS Network Firewall 및 NLB 통합 관련 내용은 [AWS Network Firewall 문서](https://docs.aws.amazon.com/network-firewall/) 및 [AWS Load Balancer Controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller)를 참조하세요.
 >
+> ```yaml
+> # Network Firewall + NLB 통합 아키텍처...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
 > ```yaml
 > # Network Firewall + NLB 통합 아키텍처...
 > ```
@@ -675,7 +808,9 @@ recommended_patterns:
   - nlb_vpc_endpoint_service
   - network_firewall_proxy_mode
 
+
 ```
+-->
 -->
 
 ## Executive Summary: Database Access Gateway 도입 효과
@@ -746,6 +881,7 @@ flowchart TD
 
 **공격 시나리오**: 탈취된 데이터베이스 자격증명 악용
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 sequenceDiagram
     participant Attacker
@@ -757,7 +893,9 @@ sequenceDiagram
     NLB Gateway-->>Attacker: Connection Rejected (Invalid SG)
 
     Note over NLB Gateway,RDS Database: Only allowed Security Groups can connect
+
 ```
+-->
 
 **방어 메커니즘**:
 - **IAM Authentication**: RDS IAM 데이터베이스 인증 사용
@@ -780,6 +918,13 @@ sequenceDiagram
 
 > **참고**: AWS CloudWatch 로그 필터 관련 내용은 [AWS CloudWatch Logs 문서](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/) 및 [Terraform AWS CloudWatch 모듈](https://github.com/terraform-aws-modules/terraform-aws-cloudwatch)을 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_cloudwatch_log_metric_filter" "unauthorized_db_access" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_cloudwatch_log_metric_filter" "unauthorized_db_access" {
   name           = "UnauthorizedDatabaseAccess"
@@ -792,7 +937,9 @@ resource "aws_cloudwatch_log_metric_filter" "unauthorized_db_access" {
     value     = "1"
   }
 }
+
 ```
+-->
 
 #### GuardDuty 통합
 
@@ -808,6 +955,7 @@ AWS GuardDuty를 활성화하여 데이터베이스 위협 탐지:
 
 AWS PrivateLink를 활용한 크로스 계정 데이터베이스 접근:
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart LR
     subgraph Account_A[Account A - Application]
@@ -825,12 +973,21 @@ flowchart LR
     VPCE -.PrivateLink.-> VPCES
     VPCES --> NLB
     NLB --> RDS
+
 ```
+-->
 
 #### VPC Endpoint Service 구성
 
 > **참고**: AWS PrivateLink 및 VPC Endpoint Service 관련 내용은 [AWS PrivateLink 문서](https://docs.aws.amazon.com/vpc/latest/privatelink/) 및 [Terraform AWS VPC Endpoint 모듈](https://github.com/terraform-aws-modules/terraform-aws-vpc)을 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_vpc_endpoint_service" "db_gateway" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_vpc_endpoint_service" "db_gateway" {
   acceptance_required        = true
@@ -844,7 +1001,9 @@ resource "aws_vpc_endpoint_service" "db_gateway" {
     Name = "DB Gateway Endpoint Service"
   }
 }
+
 ```
+-->
 
 ### Cross-AZ Load Balancing 고려사항
 
@@ -860,6 +1019,13 @@ Cross-AZ Load Balancing 활성화 시 비용 발생:
 
 #### 최적 구성
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_lb" "db_gateway" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_lb" "db_gateway" {
   name               = "db-gateway-nlb"
@@ -875,12 +1041,21 @@ resource "aws_lb" "db_gateway" {
     Environment = var.environment
   }
 }
+
 ```
+-->
 
 ### Connection Draining 및 타겟 등록 해제
 
 #### 우아한 연결 종료 (Graceful Shutdown)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_lb_target_group" "rds_mysql" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_lb_target_group" "rds_mysql" {
   name     = "rds-mysql-tg"
@@ -902,7 +1077,9 @@ resource "aws_lb_target_group" "rds_mysql" {
     unhealthy_threshold = 3
   }
 }
+
 ```
+-->
 
 #### 무중단 배포 전략
 
@@ -915,6 +1092,13 @@ resource "aws_lb_target_group" "rds_mysql" {
 
 클라이언트 IP 주소 보존:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_lb_target_group" "rds_mysql" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_lb_target_group" "rds_mysql" {
   name     = "rds-mysql-tg"
@@ -930,7 +1114,9 @@ resource "aws_lb_target_group" "rds_mysql" {
     port     = 3306
   }
 }
+
 ```
+-->
 
 **주의사항**:
 - RDS는 Proxy Protocol을 지원하지 않음
@@ -961,6 +1147,13 @@ resource "aws_lb_target_group" "rds_mysql" {
 
 #### 구성 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # haproxy.cfg...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # haproxy.cfg
 global
@@ -983,7 +1176,9 @@ backend mysql_back
     option tcp-check
     server rds1 rds-primary.region.rds.amazonaws.com:3306 check
     server rds2 rds-replica.region.rds.amazonaws.com:3306 check backup
+
 ```
+-->
 
 ### PgBouncer 기반 게이트웨이
 
@@ -995,6 +1190,13 @@ backend mysql_back
 
 #### 구성 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```ini
+> # pgbouncer.ini...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```ini
 # pgbouncer.ini
 [databases]
@@ -1008,7 +1210,9 @@ auth_file = /etc/pgbouncer/userlist.txt
 pool_mode = transaction
 max_client_conn = 1000
 default_pool_size = 25
+
 ```
+-->
 
 ### ProxySQL 기반 게이트웨이
 
@@ -1020,6 +1224,13 @@ default_pool_size = 25
 
 #### 구성 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- ProxySQL Admin 인터페이스...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```sql
 -- ProxySQL Admin 인터페이스
 INSERT INTO mysql_servers(hostgroup_id, hostname, port)
@@ -1036,7 +1247,9 @@ VALUES (2, 1, '^(INSERT|UPDATE|DELETE)', 1, 1);
 
 LOAD MYSQL QUERY RULES TO RUNTIME;
 SAVE MYSQL QUERY RULES TO DISK;
+
 ```
+-->
 
 ### AWS RDS Proxy
 
@@ -1050,6 +1263,13 @@ SAVE MYSQL QUERY RULES TO DISK;
 
 > **참고**: AWS RDS Proxy 관련 내용은 [AWS RDS Proxy 문서](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html) 및 [Terraform AWS RDS Proxy 모듈](https://github.com/terraform-aws-modules/terraform-aws-rds-proxy)을 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_db_proxy" "rds_proxy" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_db_proxy" "rds_proxy" {
   name                   = "rds-proxy"
@@ -1078,7 +1298,9 @@ resource "aws_db_proxy_default_target_group" "rds_proxy_tg" {
     connection_borrow_timeout    = 120
   }
 }
+
 ```
+-->
 
 ### 선택 가이드
 
@@ -1095,6 +1317,7 @@ resource "aws_db_proxy_default_target_group" "rds_proxy_tg" {
 
 ### 모듈 구조 모범 사례
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 terraform/
 ├── modules/
@@ -1129,12 +1352,21 @@ terraform/
 └── shared/
     ├── versions.tf
     └── providers.tf
+
 ```
+-->
 
 ### 전체 NLB Gateway 모듈
 
 > **참고**: Terraform 모듈 구조 관련 내용은 [Terraform Module 문서](https://developer.hashicorp.com/terraform/language/modules) 및 [Terraform Best Practices](https://www.terraform-best-practices.com/)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # modules/db-gateway-nlb/main.tf...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # modules/db-gateway-nlb/main.tf
 terraform {
@@ -1247,10 +1479,19 @@ resource "aws_lb_target_group_attachment" "databases" {
   target_id        = each.value.target_id
   port             = each.value.port
 }
+
 ```
+-->
 
 ### 변수 정의 (variables.tf)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # modules/db-gateway-nlb/variables.tf...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # modules/db-gateway-nlb/variables.tf
 variable "name_prefix" {
@@ -1324,10 +1565,19 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
 ```
+-->
 
 ### 출력 값 (outputs.tf)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # modules/db-gateway-nlb/outputs.tf...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # modules/db-gateway-nlb/outputs.tf
 output "nlb_id" {
@@ -1363,10 +1613,19 @@ output "listener_arns" {
     for key, listener in aws_lb_listener.databases : key => listener.arn
   }
 }
+
 ```
+-->
 
 ### 사용 예시 (Production)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # environments/production/main.tf...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # environments/production/main.tf
 module "db_gateway" {
@@ -1434,10 +1693,19 @@ module "db_gateway" {
     Owner      = "Platform Team"
   }
 }
+
 ```
+-->
 
 ### Terraform State 관리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # environments/production/backend.tf...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # environments/production/backend.tf
 terraform {
@@ -1452,10 +1720,19 @@ terraform {
     kms_key_id = "arn:aws:kms:ap-northeast-2:ACCOUNT_ID:key/KEY_ID"
   }
 }
+
 ```
+-->
 
 ### CI/CD 파이프라인
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 {% raw %}
 # .github/workflows/terraform.yml
@@ -1511,7 +1788,9 @@ jobs:
         working-directory: terraform/environments/production
         run: terraform apply -auto-approve tfplan
 {% endraw %}
+
 ```
+-->
 
 ## 보안 강화 설정
 
@@ -1521,6 +1800,13 @@ jobs:
 
 > **참고**: AWS ACM 및 TLS 설정 관련 내용은 [AWS ACM 문서](https://docs.aws.amazon.com/acm/) 및 [Terraform AWS ACM 모듈](https://github.com/terraform-aws-modules/terraform-aws-acm)을 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_acm_certificate" "db_gateway" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_acm_certificate" "db_gateway" {
   domain_name       = "db-gateway.internal.company.com"
@@ -1557,10 +1843,19 @@ resource "aws_route53_record" "cert_validation" {
   type            = each.value.type
   zone_id         = data.aws_route53_zone.internal.zone_id
 }
+
 ```
+-->
 
 #### TLS Listener 구성
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_lb_listener" "mysql_tls" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_lb_listener" "mysql_tls" {
   load_balancer_arn = aws_lb.db_gateway.arn
@@ -1574,7 +1869,9 @@ resource "aws_lb_listener" "mysql_tls" {
     target_group_arn = aws_lb_target_group.rds_mysql.arn
   }
 }
+
 ```
+-->
 
 ### Certificate Management
 
@@ -1582,6 +1879,13 @@ resource "aws_lb_listener" "mysql_tls" {
 
 ACM 인증서는 자동으로 갱신되지만, 갱신 실패 시 알림 설정:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_cloudwatch_metric_alarm" "cert_expiration" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_cloudwatch_metric_alarm" "cert_expiration" {
   alarm_name          = "db-gateway-cert-expiration"
@@ -1600,7 +1904,9 @@ resource "aws_cloudwatch_metric_alarm" "cert_expiration" {
 
   alarm_actions = [aws_sns_topic.alerts.arn]
 }
+
 ```
+-->
 
 ### WAF Integration
 
@@ -1608,6 +1914,13 @@ resource "aws_cloudwatch_metric_alarm" "cert_expiration" {
 
 > **참고**: AWS WAF 관련 내용은 [AWS WAF 문서](https://docs.aws.amazon.com/waf/) 및 [Terraform AWS WAF 모듈](https://github.com/terraform-aws-modules/terraform-aws-waf)을 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_wafv2_web_acl" "db_gateway" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_wafv2_web_acl" "db_gateway" {
   name  = "db-gateway-waf"
@@ -1677,7 +1990,9 @@ resource "aws_wafv2_web_acl_association" "db_gateway" {
   resource_arn = aws_lb.db_gateway.arn
   web_acl_arn  = aws_wafv2_web_acl.db_gateway.arn
 }
+
 ```
+-->
 
 ## 모니터링 및 알림
 
@@ -1687,6 +2002,13 @@ resource "aws_wafv2_web_acl_association" "db_gateway" {
 
 > **참고**: CloudWatch 대시보드 관련 내용은 [AWS CloudWatch 문서](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/) 및 [Terraform AWS CloudWatch 모듈](https://github.com/terraform-aws-modules/terraform-aws-cloudwatch)을 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_cloudwatch_dashboard" "db_gateway" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_cloudwatch_dashboard" "db_gateway" {
   dashboard_name = "DB-Gateway-Monitoring"
@@ -1744,12 +2066,21 @@ resource "aws_cloudwatch_dashboard" "db_gateway" {
     ]
   })
 }
+
 ```
+-->
 
 ### Connection Monitoring
 
 #### 연결 수 추적
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_cloudwatch_metric_alarm" "high_connection_count" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_cloudwatch_metric_alarm" "high_connection_count" {
   alarm_name          = "db-gateway-high-connections"
@@ -1786,12 +2117,21 @@ resource "aws_cloudwatch_metric_alarm" "connection_spike" {
 
   alarm_actions = [aws_sns_topic.alerts.arn]
 }
+
 ```
+-->
 
 ### Alerting
 
 #### SNS 토픽 및 구독
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_sns_topic" "db_gateway_alerts" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_sns_topic" "db_gateway_alerts" {
   name              = "db-gateway-alerts"
@@ -1814,12 +2154,21 @@ resource "aws_sns_topic_subscription" "slack" {
   protocol  = "lambda"
   endpoint  = aws_lambda_function.slack_notifier.arn
 }
+
 ```
+-->
 
 #### Lambda Slack 알림
 
 > **참고**: AWS Lambda 및 SNS 통합 관련 내용은 [AWS Lambda 문서](https://docs.aws.amazon.com/lambda/) 및 [Terraform AWS Lambda 모듈](https://github.com/terraform-aws-modules/terraform-aws-lambda)을 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> 
+> ```python
+> # lambda/slack_notifier.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # lambda/slack_notifier.py
 import json
@@ -1870,12 +2219,21 @@ def lambda_handler(event, context):
         'statusCode': response.status,
         'body': json.dumps('Notification sent')
     }
+
 ```
+-->
 
 ### Custom Metrics
 
 #### 애플리케이션 메트릭 수집
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # app/metrics.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # app/metrics.py
 import boto3
@@ -1926,7 +2284,9 @@ def publish_query_latency(latency_ms, query_type, database_name):
             }
         ]
     )
+
 ```
+-->
 
 ## 위협 헌팅 쿼리
 
@@ -1936,6 +2296,7 @@ def publish_query_latency(latency_ms, query_type, database_name):
 
 > **참고**: VPC Flow Logs 분석 관련 내용은 [AWS VPC Flow Logs 문서](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) 및 [AWS Athena 문서](https://docs.aws.amazon.com/athena/)를 참조하세요.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS vpc_flow_logs (
   version int,
@@ -1958,10 +2319,13 @@ ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ' '
 LOCATION 's3://YOUR_BUCKET/vpc-flow-logs/'
 TBLPROPERTIES ("skip.header.line.count"="1");
+
 ```
+-->
 
 #### 데이터베이스 포트 스캔 탐지
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```sql
 -- MySQL 포트 스캔 탐지
 SELECT
@@ -1979,10 +2343,13 @@ GROUP BY sourceaddress
 HAVING COUNT(DISTINCT destinationaddress) > 5
 ORDER BY connection_attempts DESC
 LIMIT 100;
+
 ```
+-->
 
 #### 비정상 데이터 전송 탐지
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```sql
 -- 과도한 데이터 전송 탐지 (잠재적 데이터 유출)
 SELECT
@@ -2002,7 +2369,9 @@ GROUP BY sourceaddress, destinationaddress, destinationport
 HAVING SUM(numbytes) > 10737418240  -- 10GB 이상
 ORDER BY total_gb DESC
 LIMIT 100;
+
 ```
+-->
 
 ### Database Access Anomaly Detection
 
@@ -2033,6 +2402,7 @@ fields @timestamp, @message
 
 #### CloudTrail 이벤트 분석
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```sql
 -- Security Group 규칙 변경 추적
 SELECT
@@ -2053,7 +2423,9 @@ WHERE
   AND requestparameters LIKE '%db-gateway%'
   AND eventtime > date_add('day', -7, current_timestamp)
 ORDER BY eventtime DESC;
+
 ```
+-->
 
 ## 한국 기업 영향 분석
 
@@ -2111,6 +2483,13 @@ ORDER BY eventtime DESC;
 
 **구현 예시**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # app/audit_logger.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # app/audit_logger.py
 import boto3
@@ -2141,7 +2520,9 @@ def log_personal_data_access(user_id, data_type, action, record_count):
             }
         ]
     )
+
 ```
+-->
 
 ## 경영진 보고 포맷
 
@@ -2210,6 +2591,8 @@ ERROR: Connection timed out after 30 seconds
 
 **1. Security Group 규칙 확인**
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # Security Group 규칙 확인
 aws ec2 describe-security-groups \
@@ -2223,6 +2606,8 @@ aws ec2 describe-security-groups \
 
 **2. Target Health Check 실패**
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # Target Health 확인
 aws elbv2 describe-target-health \
@@ -2235,6 +2620,8 @@ aws elbv2 describe-target-health \
 - Security Group이 NLB에서 Health Check 트래픽을 허용하는지 확인
 
 **3. NLB Subnet 라우팅 문제**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # Route Table 확인
@@ -2257,6 +2644,8 @@ Query execution time: 500ms (expected: <50ms)
 
 **1. Cross-AZ 트래픽**
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # NLB Cross-AZ Load Balancing 확인
 aws elbv2 describe-load-balancers \
@@ -2269,6 +2658,8 @@ aws elbv2 describe-load-balancers \
 - 애플리케이션과 데이터베이스를 동일 AZ에 배치
 
 **2. 연결 풀 고갈**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
 
 ```python
 # 연결 풀 모니터링
@@ -2285,6 +2676,8 @@ print(f"Available connections: {pool._pool}")
 - 애플리케이션 레벨 연결 풀 크기 조정
 
 **3. RDS 성능 병목**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # RDS Performance Insights 확인
@@ -2309,6 +2702,8 @@ UnHealthyHostCount: 1/2 targets are unhealthy
 
 **1. RDS 인스턴스 장애**
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # RDS 이벤트 로그 확인
 aws rds describe-events \
@@ -2323,6 +2718,8 @@ aws rds describe-events \
 
 **2. 잘못된 Health Check 설정**
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # Target Group Health Check 설정 확인
 aws elbv2 describe-target-groups \
@@ -2335,6 +2732,8 @@ aws elbv2 describe-target-groups \
 - Health Check 프로토콜이 올바른지 확인 (TCP for database)
 
 **3. 네트워크 분할 (Network Partition)**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # VPC Flow Logs에서 네트워크 문제 확인
@@ -2358,6 +2757,8 @@ SSL handshake failed: certificate verify failed
 #### 원인 및 해결 방법
 
 **1. 인증서 만료**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # ACM 인증서 유효기간 확인

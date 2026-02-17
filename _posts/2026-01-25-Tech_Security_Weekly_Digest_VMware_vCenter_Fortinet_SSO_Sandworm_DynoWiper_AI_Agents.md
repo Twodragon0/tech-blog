@@ -1,18 +1,69 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper 폴란드 공격"
-date: 2026-01-25 10:00:00 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, VMware, vCenter, CISA-KEV, Fortinet, FortiGate, SSO-Bypass, Sandworm, DynoWiper, Wiper-Malware, AI-Agents, Zero-Trust, Google-ADK, Airflow, Platform-Engineering, "2026"]
-excerpt: "VMware vCenter KEV 긴급, Fortinet SSO 우회, Sandworm DynoWiper APT, AI 에이전트 NHI 관리"
-description: "2026년 1월 25일 주요 기술/보안 뉴스: CISA KEV 추가 VMware vCenter CVE-2024-37079 활성 익스플로잇 긴급 패치, Fortinet FortiGate 완전 패치 환경 FortiCloud SSO 우회 제로데이, Sandworm APT 폴란드 전력망 DynoWiper 와이퍼 악성코드 공격, AI 에이전트 비인간 신원(NHI) Zero Trust 보안 거버넌스, Google ADK Datadog 통합 모니터링까지 DevSecOps 실무 분석"
-keywords: [VMware vCenter, CVE-2024-37079, CISA KEV, Fortinet, FortiGate, SSO 우회, Sandworm, DynoWiper, 와이퍼 악성코드, APT, AI 에이전트, NHI, 비인간 ID, Zero Trust, Google ADK, Airflow 3.1, DevSecOps, 보안 패치, 2026]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-01-25 10:00:00 +0900
+description: '2026년 1월 25일 주요 기술/보안 뉴스: CISA KEV 추가 VMware vCenter CVE-2024-37079
+  활성 익스플로잇 긴급 패치, Fortinet FortiGate 완전 패치 환경 FortiCloud SSO 우회 제로데이, Sandworm APT
+  폴란드 전력망 DynoWiper 와이퍼 악성코드 공격, AI 에이전트 비인간 신원(NHI) Zero Trust 보안 거버넌스, Google ADK
+  Datadog 통합 모니터링까지 DevSecOps 실무 분석'
+excerpt: VMware vCenter KEV 긴급, Fortinet SSO 우회, Sandworm DynoWiper APT, AI 에이전트 NHI
+  관리
 image: /assets/images/2026-01-25-Tech_Security_Weekly_Digest.svg
-image_alt: "Tech and Security Weekly Digest January 2026 - VMware vCenter KEV, Fortinet SSO Bypass, Sandworm DynoWiper"
-toc: true
+image_alt: Tech and Security Weekly Digest January 2026 - VMware vCenter KEV, Fortinet
+  SSO Bypass, Sandworm DynoWiper
+keywords:
+- VMware vCenter
+- CVE-2024-37079
+- CISA KEV
+- Fortinet
+- FortiGate
+- SSO 우회
+- Sandworm
+- DynoWiper
+- 와이퍼 악성코드
+- APT
+- AI 에이전트
+- NHI
+- 비인간 ID
+- Zero Trust
+- Google ADK
+- Airflow 3.1
+- DevSecOps
+- 보안 패치
+- 2026
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- VMware
+- vCenter
+- CISA-KEV
+- Fortinet
+- FortiGate
+- SSO-Bypass
+- Sandworm
+- DynoWiper
+- Wiper-Malware
+- AI-Agents
+- Zero-Trust
+- Google-ADK
+- Airflow
+- Platform-Engineering
+- '2026'
+title: 'Tech & Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회,
+  Sandworm DynoWiper 폴란드 공격'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: VMware vCenter KEV 긴급, Fortinet SSO 우회, Sandworm DynoWiper APT, AI 에이전트 NHI 관리
+- **주요 주제**: Tech & Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper 폴란드 공격
+- **키워드**: Security-Weekly, VMware, vCenter, CISA-KEV, Fortinet
+
 ---
 
 <div class="ai-summary-card">

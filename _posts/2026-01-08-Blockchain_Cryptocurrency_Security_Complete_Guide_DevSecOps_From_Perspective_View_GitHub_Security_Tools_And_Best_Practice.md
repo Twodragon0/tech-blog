@@ -1,19 +1,60 @@
 ---
-layout: post
-title: "블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례"
-date: 2026-01-08 16:00:00 +0900
-categories: [security, blockchain, devsecops]
-tags: [Blockchain, Cryptocurrency, Bitcoin, Ethereum, Smart-Contract, Security-Audit, GitHub, DevSecOps, Slither, Mythril, Securify, CI-CD]
-excerpt: "블록체인 암호화폐 보안 DevSecOps 완벽 가이드"
-description: "블록체인 암호화폐 보안 완벽 가이드. 2024-2025년 34억 달러 손실 분석(Bybit 15억 달러), 스마트 컨트랙트 보안 도구(Slither/Mythril/Securify/Medusa), CI/CD 파이프라인 통합, 주요 위협(Reentrancy, 51% 공격), Fuzz 테스트까지 DevSecOps 실무 정리."
-keywords: [Blockchain Security, Cryptocurrency, Smart Contract, Slither, Mythril, Securify, Medusa, DevSecOps, GitHub Actions, Reentrancy, CI/CD Security, Solidity, Ethereum, Fuzz Testing, Security Audit]
 author: Twodragon
+categories:
+- security
+- blockchain
+- devsecops
 comments: true
-original_url: https://twodragon.tistory.com
+date: 2026-01-08 16:00:00 +0900
+description: 블록체인 암호화폐 보안 완벽 가이드. 2024-2025년 34억 달러 손실 분석(Bybit 15억 달러), 스마트 컨트랙트
+  보안 도구(Slither/Mythril/Securify/Medusa), CI/CD 파이프라인 통합, 주요 위협(Reentrancy, 51% 공격),
+  Fuzz 테스트까지 DevSecOps 실무 정리.
+excerpt: 블록체인 암호화폐 보안 DevSecOps 완벽 가이드
 image: /assets/images/2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_and_Best_Practice.svg
-image_alt: "Blockchain Cryptocurrency Security Complete Guide: DevSecOps Perspective on GitHub Security Tools and Best Practices"
-toc: true
+image_alt: 'Blockchain Cryptocurrency Security Complete Guide: DevSecOps Perspective
+  on GitHub Security Tools and Best Practices'
+keywords:
+- Blockchain Security
+- Cryptocurrency
+- Smart Contract
+- Slither
+- Mythril
+- Securify
+- Medusa
+- DevSecOps
+- GitHub Actions
+- Reentrancy
+- CI/CD Security
+- Solidity
+- Ethereum
+- Fuzz Testing
+- Security Audit
+layout: post
+original_url: https://twodragon.tistory.com
 schema_type: Article
+tags:
+- Blockchain
+- Cryptocurrency
+- Bitcoin
+- Ethereum
+- Smart-Contract
+- Security-Audit
+- GitHub
+- DevSecOps
+- Slither
+- Mythril
+- Securify
+- CI-CD
+title: '블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: 블록체인 암호화폐 보안 DevSecOps 완벽 가이드
+- **주요 주제**: 블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례
+- **키워드**: Blockchain, Cryptocurrency, Bitcoin, Ethereum, Smart-Contract
+
 ---
 
 <div class="ai-summary-card">
