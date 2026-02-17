@@ -1,18 +1,58 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: Ollama AI 서버 175K 노출, SolarWinds WHD Critical RCE 6건, Google IPIDEA 프록시 차단"
-date: 2026-01-30 10:00:00 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, Ollama, LLMjacking, SolarWinds, CVE-2025-40551, CVE-2025-40552, IPIDEA, Residential-Proxy, Microsoft-AI, OT-Security, ICS, DevSecOps, "2026"]
-excerpt: "Ollama AI 서버 175K 공개 노출, SolarWinds WHD 6건 CVE(CVSS 9.8 x4), Google IPIDEA 6.1M IP 프록시 네트워크 차단, Microsoft AI 위협 탐지, OT/에너지 보안 취약점"
-description: "2026년 1월 30일 보안 뉴스: Ollama AI 서버 175,000대 인터넷 노출(LLMjacking), SolarWinds Web Help Desk Critical RCE 6건(CVSS 9.8 x4), Google GTIG IPIDEA 6.1M IP 레지덴셜 프록시 차단, Microsoft AI 위협 탐지 워크플로우, OT/에너지 시스템 사이버보안 실태"
-keywords: [Ollama, LLMjacking, SolarWinds WHD, CVE-2025-40551, IPIDEA, Google GTIG, Residential Proxy, Microsoft AI Threat Detection, OT Security, ICS, Energy Cybersecurity, DevSecOps]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-01-30 10:00:00 +0900
+description: '2026년 1월 30일 보안 뉴스: Ollama AI 서버 175,000대 인터넷 노출(LLMjacking), SolarWinds
+  Web Help Desk Critical RCE 6건(CVSS 9.8 x4), Google GTIG IPIDEA 6.1M IP 레지덴셜 프록시
+  차단, Microsoft AI 위협 탐지 워크플로우, OT/에너지 시스템 사이버보안 실태'
+excerpt: Ollama AI 서버 175K 공개 노출, SolarWinds WHD 6건 CVE(CVSS 9.8 x4), Google IPIDEA
+  6.1M IP 프록시 네트워크 차단, Microsoft AI 위협 탐지, OT/에너지 보안 취약점
 image: /assets/images/2026-01-30-Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA.svg
-image_alt: "Tech Security Weekly Digest January 30 2026 Ollama AI Exposure SolarWinds RCE Google IPIDEA Disruption"
-toc: true
+image_alt: Tech Security Weekly Digest January 30 2026 Ollama AI Exposure SolarWinds
+  RCE Google IPIDEA Disruption
+keywords:
+- Ollama
+- LLMjacking
+- SolarWinds WHD
+- CVE-2025-40551
+- IPIDEA
+- Google GTIG
+- Residential Proxy
+- Microsoft AI Threat Detection
+- OT Security
+- ICS
+- Energy Cybersecurity
+- DevSecOps
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- Ollama
+- LLMjacking
+- SolarWinds
+- CVE-2025-40551
+- CVE-2025-40552
+- IPIDEA
+- Residential-Proxy
+- Microsoft-AI
+- OT-Security
+- ICS
+- DevSecOps
+- '2026'
+title: 'Tech & Security Weekly Digest: Ollama AI 서버 175K 노출, SolarWinds WHD Critical
+  RCE 6건, Google IPIDEA 프록시 차단'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Ollama AI 서버 175K 공개 노출, SolarWinds WHD 6건 CVE(CVSS 9.8 x4), Google IPIDEA 6.1M IP 프록시 네트워크 차단, Microsoft AI 위협 탐지, OT/에너지 보안 취약점
+- **주요 주제**: Tech & Security Weekly Digest: Ollama AI 서버 175K 노출, SolarWinds WHD Critical RCE 6건, Google IPIDEA 프록시 차단
+- **키워드**: Security-Weekly, Ollama, LLMjacking, SolarWinds, CVE-2025-40551
+
 ---
 
 <div class="ai-summary-card">
