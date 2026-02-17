@@ -1,19 +1,39 @@
 ---
-layout: post
-title: "클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리"
-date: 2025-06-13 23:48:33 +0900
-categories: [devsecops]
-tags: [DevSecOps, Integration, Cloud-Security, SDLC, Security-Automation]
-excerpt: "DevSecOps 통합 정리: 파이프라인 아키텍처부터 실무 적용까지"
+author: Yongho Ha
+categories:
+- devsecops
 comments: true
-original_url: https://twodragon.tistory.com/691
+date: 2025-06-13 23:48:33 +0900
+description: DevSecOps 파이프라인 전체 아키텍처, 보안 도구 매핑, AWS 보안 서비스 통합, DevSecOps 성숙도 모델, 완전한
+  CI/CD 보안 파이프라인, 실무 적용 체크리스트까지 정리.
+excerpt: 'DevSecOps 통합 정리: 파이프라인 아키텍처부터 실무 적용까지'
 image: /assets/images/2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration.svg
-image_alt: "Cloud Security Course 7Batch 9Week: DevSecOps Integration Summary"
-toc: true
-description: "DevSecOps 파이프라인 전체 아키텍처, 보안 도구 매핑, AWS 보안 서비스 통합, DevSecOps 성숙도 모델, 완전한 CI/CD 보안 파이프라인, 실무 적용 체크리스트까지 정리."
-keywords: [DevSecOps, Integration, Cloud-Security, SDLC, Security-Automation]
-author: "Yongho Ha"
+image_alt: 'Cloud Security Course 7Batch 9Week: DevSecOps Integration Summary'
+keywords:
+- DevSecOps
+- Integration
+- Cloud-Security
+- SDLC
+- Security-Automation
+layout: post
+original_url: https://twodragon.tistory.com/691
 schema_type: Article
+tags:
+- DevSecOps
+- Integration
+- Cloud-Security
+- SDLC
+- Security-Automation
+title: '클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: DevSecOps 통합 정리: 파이프라인 아키텍처부터 실무 적용까지
+- **주요 주제**: 클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리
+- **키워드**: DevSecOps, Integration, Cloud-Security, SDLC, Security-Automation
+
 ---
 
 <div class="ai-summary-card">
@@ -164,6 +184,13 @@ DevSecOps 접근:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # 필수 도구 설치...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 필수 도구 설치
 npm install -g snyk
@@ -181,7 +208,9 @@ jobs:
       - name: Run Trivy
         run: trivy fs .
 
+
 ```
+-->
 -->
 
 **Level 2 (성장):**
@@ -213,6 +242,13 @@ Shift-Left는 소프트웨어 개발 생명주기(SDLC)의 **초기 단계부터
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 위협 모델링 템플릿 (threat-model.yml)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 위협 모델링 템플릿 (threat-model.yml)
 threat_model:
@@ -237,10 +273,19 @@ threat_model:
       mitigation: "RBAC + principle of least privilege"
       status: "implemented"
 
+
 ```
+-->
 -->
 
 **Code 단계:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Pre-commit hook으로 Secret 스캔...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
@@ -263,10 +308,19 @@ repos:
       - id: detect-secrets
         args: ['--baseline', '.secrets.baseline']
 
+
 ```
+-->
 -->
 
 **Build 단계:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```dockerfile
+> # 보안 강화된 Dockerfile...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```dockerfile
@@ -291,10 +345,19 @@ COPY --from=builder /app/app /
 USER nonroot:nonroot
 ENTRYPOINT ["/app"]
 
+
 ```
+-->
 -->
 
 **Deploy 단계:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Kubernetes 보안 정책...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -332,7 +395,9 @@ spec:
         memory: "256Mi"
         cpu: "250m"
 
+
 ```
+-->
 -->
 
 #### 1.2.2 Shift-Left 성공 지표
@@ -347,6 +412,7 @@ spec:
 
 ### 1.3 DevSecOps 파이프라인 아키텍처
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart TD
@@ -387,7 +453,9 @@ flowchart TD
     Operate --> RS
     Monitor --> SIEM
 
+
 ```
+-->
 -->
 
 ### 1.2 보안 도구 매핑
@@ -421,6 +489,13 @@ flowchart TD
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 보안 게이트 임계값 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 보안 게이트 임계값 설정
 security_gates:
@@ -443,11 +518,14 @@ security_gates:
   secrets:
     fail_on_detection: true  # Secret 발견 시 즉시 실패
 
+
 ```
+-->
 -->
 
 #### 1.4.2 파이프라인 단계별 보안 검증
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
@@ -471,7 +549,9 @@ graph LR
     N --> O[Runtime Security]
     O --> P[Monitor]
 
+
 ```
+-->
 -->
 
 ## 2. 도구 체인 상세 가이드
@@ -484,6 +564,13 @@ graph LR
 
 **Docker Compose로 SonarQube 실행:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # docker-compose.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```yaml
@@ -523,11 +610,20 @@ volumes:
   postgresql:
   postgresql_data:
 
+
 ```
+-->
 -->
 
 **CI에서 SonarQube 스캔:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/sonarqube.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -564,11 +660,14 @@ jobs:
         env:
           SONAR_TOKEN: {% raw %}${{ secrets.SONAR_TOKEN }}{% endraw %}
 
+
 ```
+-->
 -->
 
 **sonar-project.properties 설정:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```properties
 # sonar-project.properties
@@ -593,13 +692,22 @@ sonar.qualitygate.timeout=300
 # 보안 핫스팟 임계값
 sonar.security_hotspots.threshold=0
 
+
 ```
+-->
 -->
 
 #### 2.1.2 Semgrep - 커스텀 룰 기반 SAST
 
 Semgrep은 커스텀 보안 룰을 작성할 수 있는 강력한 SAST 도구입니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # .semgrep.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -640,11 +748,20 @@ rules:
       const crypto = require('crypto');
       crypto.randomBytes(16).toString('hex');
 
+
 ```
+-->
 -->
 
 **CI 통합:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/semgrep.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```yaml
@@ -671,11 +788,20 @@ jobs:
         env:
           SEMGREP_APP_TOKEN: {% raw %}${{ secrets.SEMGREP_APP_TOKEN }}{% endraw %}
 
+
 ```
+-->
 -->
 
 #### 2.1.3 CodeQL - GitHub 네이티브 SAST
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/codeql.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -723,7 +849,9 @@ jobs:
         with:
           category: "/language:{% raw %}${{ matrix.language }}{% endraw %}"
 
+
 ```
+-->
 -->
 
 ### 2.2 DAST (Dynamic Application Security Testing)
@@ -732,6 +860,13 @@ jobs:
 
 #### 2.2.1 OWASP ZAP 자동화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/zap-scan.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -786,7 +921,9 @@ jobs:
             zap_baseline_report.html
             zap_full_report.html
 
+
 ```
+-->
 -->
 
 **ZAP 규칙 파일:**
@@ -802,6 +939,13 @@ jobs:
 
 #### 2.2.2 Burp Suite Enterprise 통합
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Burp Suite API를 통한 스캔 자동화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
@@ -856,7 +1000,9 @@ curl "$BURP_API/scan/$SCAN_ID/report?report_type=html" \
   -H "Authorization: Bearer $API_KEY" \
   -o burp-report.html
 
+
 ```
+-->
 -->
 
 ### 2.3 SCA (Software Composition Analysis)
@@ -865,6 +1011,13 @@ curl "$BURP_API/scan/$SCAN_ID/report?report_type=html" \
 
 #### 2.3.1 Snyk - 포괄적인 SCA
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/snyk.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```yaml
@@ -914,11 +1067,20 @@ jobs:
         with:
           sarif_file: snyk.sarif
 
+
 ```
+-->
 -->
 
 #### 2.3.2 Dependabot 고급 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # .github/dependabot.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -972,11 +1134,20 @@ updates:
     schedule:
       interval: "weekly"
 
+
 ```
+-->
 -->
 
 #### 2.3.3 Trivy - 멀티 타겟 스캐너
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Trivy로 다양한 타겟 스캔...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```bash
@@ -1014,11 +1185,20 @@ trivy image myapp:latest \
 # 취약점 DB 업데이트
 trivy image --download-db-only
 
+
 ```
+-->
 -->
 
 **Trivy CI 통합:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/trivy.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -1065,7 +1245,9 @@ jobs:
           vuln-type: 'os,library'
           severity: 'CRITICAL'
 
+
 ```
+-->
 -->
 
 ### 2.4 컨테이너 보안
@@ -1074,6 +1256,13 @@ jobs:
 
 **Falco 설치 (Kubernetes):**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # falco-values.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```yaml
@@ -1126,8 +1315,12 @@ falco:
         priority: WARNING
         tags: [filesystem, security]
 
+
 ```
 -->
+-->
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -1144,6 +1337,13 @@ helm install falco falcosecurity/falco \
 
 **Falco Sidekick으로 알림 전송:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # falcosidekick-values.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -1169,11 +1369,20 @@ config:
     type: "event"
     minimumpriority: "debug"
 
+
 ```
+-->
 -->
 
 #### 2.4.2 Aqua Security / Prisma Cloud
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # aqua-enforcer.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```yaml
@@ -1197,13 +1406,22 @@ data:
   AQUA_NETWORK_CONTROL: "true"
   AQUA_CONTAINER_ACTIVITY_PROTECTION: "true"
 
+
 ```
+-->
 -->
 
 ### 2.5 IaC (Infrastructure as Code) 스캔
 
 #### 2.5.1 Checkov - Terraform/CloudFormation 스캔
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # Checkov로 Terraform 스캔...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```bash
@@ -1230,11 +1448,20 @@ checkov -d . \
   --skip-check CKV_AWS_23 \
   --framework terraform
 
+
 ```
+-->
 -->
 
 **커스텀 Checkov 정책:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # custom_checks/S3PublicAccessBlock.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```python
@@ -1265,11 +1492,20 @@ class S3PublicAccessBlock(BaseResourceCheck):
 
 check = S3PublicAccessBlock()
 
+
 ```
+-->
 -->
 
 #### 2.5.2 tfsec - Terraform 전용 스캐너
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # tfsec로 Terraform 스캔...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
@@ -1290,11 +1526,20 @@ tfsec . \
   --out tfsec.sarif \
   --soft-fail
 
+
 ```
+-->
 -->
 
 **GitHub Actions 통합:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/tfsec.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -1330,11 +1575,20 @@ jobs:
         with:
           sarif_file: tfsec.sarif
 
+
 ```
+-->
 -->
 
 #### 2.5.3 KICS - 멀티 플랫폼 IaC 스캐너
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # KICS로 다양한 IaC 스캔...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```bash
@@ -1361,13 +1615,22 @@ kics scan \
   -p Dockerfile \
   --type Dockerfile
 
+
 ```
+-->
 -->
 
 ## 3. CI/CD 파이프라인 보안 설계
 
 ### 3.1 GitHub Actions 완전한 보안 파이프라인
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/security-pipeline.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -1642,11 +1905,20 @@ jobs:
             jq '.items[] | select(.spec.containers[].securityContext.privileged == true)' \
             | jq -e 'length == 0'
 
+
 ```
+-->
 -->
 
 ### 3.2 Jenkins 보안 파이프라인
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```groovy
+> // Jenkinsfile...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```groovy
@@ -1928,11 +2200,20 @@ pipeline {
     }
 }
 
+
 ```
+-->
 -->
 
 ### 3.3 GitLab CI 보안 통합
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .gitlab-ci.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -2076,13 +2357,22 @@ deploy_production:
   only:
     - main
 
+
 ```
+-->
 -->
 
 ## 4. AWS 보안 서비스 통합
 
 ### 4.1 AWS Security Hub 중앙 보안 관리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # security_hub_integration.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```python
@@ -2208,11 +2498,20 @@ if __name__ == '__main__':
     hub.import_findings(findings)
     print("Summary:", hub.get_findings_summary())
 
+
 ```
+-->
 -->
 
 ### 4.2 GuardDuty 자동 대응
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # guardduty_auto_response.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```python
@@ -2411,11 +2710,20 @@ def send_slack_notification(finding):
 
     http.request('POST', slack_webhook, body=json.dumps(message), headers={'Content-Type': 'application/json'})
 
+
 ```
+-->
 -->
 
 **EventBridge 룰 설정:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```json
@@ -2436,7 +2744,9 @@ def send_slack_notification(finding):
   }
 }
 
+
 ```
+-->
 -->
 
 ## 5. SIEM Detection Queries
@@ -2614,6 +2924,13 @@ VulnLifecycle
 
 ### 6.2 메트릭스 수집 자동화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # metrics_collector.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```python
@@ -2832,11 +3149,20 @@ def lambda_handler(event, context):
         'body': json.dumps(report)
     }
 
+
 ```
+-->
 -->
 
 ### 6.3 DevSecOps ROI 계산
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> 
+> ```python
+> # roi_calculator.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 > 
 > ```python
@@ -2972,7 +3298,9 @@ if __name__ == '__main__':
     print(f"ROI: {result['roi_percent']:.1f}%")
     print(f"투자 회수 기간: {result['payback_period_months']:.1f}개월")
 
+
 ```
+-->
 -->
 
 ## 7. 한국 기업 적용 가이드 (ISMS-P 관점)
@@ -2994,6 +3322,13 @@ if __name__ == '__main__':
 
 ### 7.2 ISMS-P 증적 자동 수집
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # isms_p_evidence_collector.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```python
@@ -3178,13 +3513,16 @@ class ISMSPEvidenceCollector:
         # 실제로는 reportlab 등 사용
         pass
 
+
 ```
+-->
 -->
 
 ## 8. 경영진 보고 형식
 
 ### 8.1 Executive Summary Template
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 # DevSecOps 투자 효과 분석 보고서
@@ -3217,7 +3555,9 @@ DevSecOps 도입 6개월차 성과:
 
 ### Before DevSecOps
 
+
 ```
+-->
 -->
 [Critical: 25건] [High: 40건] [Medium: 80건]
 → 프로덕션 배포 전 발견 비율: 20%
@@ -3227,6 +3567,7 @@ DevSecOps 도입 6개월차 성과:
 ```
 [Critical: 0건] [High: 2건] [Medium: 15건]
 → 프로덕션 배포 전 발견 비율: 95%
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 
@@ -3251,7 +3592,9 @@ DevSecOps 도입 6개월차 성과:
 - False Positive -50%
 - 보안 팀 운영 비용 -30%
 
+
 ```
+-->
 -->
 
 ### 8.2 2025 DevSecOps 도구 업데이트
@@ -3277,6 +3620,13 @@ DevSecOps 도입 6개월차 성과:
 
 #### 8.3.1 GitHub Copilot for Security
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> 
+> ```python
+> # Before: 취약한 코드...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 > 
 > ```python
@@ -3307,11 +3657,20 @@ def login(username, password):
         return user
     return None
 
+
 ```
+-->
 -->
 
 #### 8.3.2 Amazon Q Developer - 보안 설정 자동화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # 프롬프트: "Create a secure S3 bucket with encryption and versioning"...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```bash
@@ -3377,11 +3736,20 @@ resource "aws_kms_key" "s3_key" {
   enable_key_rotation     = true
 }
 
+
 ```
+-->
 -->
 
 #### 8.3.3 AI 기반 취약점 우선순위화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> 
+> ```python
+> # ml_prioritization.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 > 
 > ```python
@@ -3501,7 +3869,9 @@ for vuln in vulnerabilities:
     print(f"CVSS: {priority['cvss_score']}, AI Risk: {priority['ai_risk_score']:.2f}")
     print(f"Priority: {priority['priority']}, SLA: {priority['sla_hours']} hours")
 
+
 ```
+-->
 -->
 
 ### 8.4 실전 트러블슈팅
@@ -3512,6 +3882,13 @@ for vuln in vulnerabilities:
 
 **해결책**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .semgrep.yml - 오탐 제외 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -3541,7 +3918,9 @@ rules:
     pattern-not-regex: |
       password = "(test|example|dummy|placeholder)"
 
+
 ```
+-->
 -->
 
 #### 8.4.2 파이프라인 성능 최적화
@@ -3550,6 +3929,13 @@ rules:
 
 **해결책**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # 1. 병렬화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```yaml
@@ -3592,13 +3978,22 @@ on:
   schedule:
     - cron: '0 2 * * *'  # Full scan daily
 
+
 ```
+-->
 -->
 
 **결과**: 빌드 시간 50% 감소 (20분 → 10분)
 
 #### 8.4.3 Secret 스캔 오탐 해결
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # .gitleaks.toml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -3632,13 +4027,16 @@ regexes = [
   '''<YOUR-.*>'''
 ]
 
+
 ```
+-->
 -->
 
 ### 8.5 DevSecOps 문화 구축
 
 #### 8.5.1 보안 챔피언 프로그램
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 # Security Champions Program
@@ -3664,11 +4062,20 @@ regexes = [
 - 보안 교육 참여율
 - 보안 관련 PR 리뷰 품질
 
+
 ```
+-->
 -->
 
 #### 8.5.2 Secure Coding 교육 체계
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```markdown
+> # Secure Coding Training Roadmap...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```markdown
@@ -3705,11 +4112,20 @@ regexes = [
 - 외부 컨퍼런스 발표
 - 오픈소스 보안 프로젝트 기여
 
+
 ```
+-->
 -->
 
 #### 8.5.3 보안 메트릭스 대시보드
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```python
+> # security_dashboard.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```python
@@ -3772,13 +4188,22 @@ def render_dashboard():
 if __name__ == '__main__':
     render_dashboard()
 
+
 ```
+-->
 -->
 
 ## 9. 실습 가이드: 처음부터 끝까지
 
 ### 9.1 환경 준비
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 도구 설치...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
@@ -3801,13 +4226,22 @@ pip install gitleaks semgrep checkov tfsec
 # 2. GitHub Actions 설정
 mkdir -p .github/workflows
 
+
 ```
+-->
 -->
 
 ### 9.2 단계별 구현
 
 #### Step 1: Secret Scanning
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/01-secret-scan.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -3833,7 +4267,9 @@ jobs:
         env:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 
+
 ```
+-->
 -->
 
 **검증**:
@@ -3844,6 +4280,13 @@ gitleaks detect --source . --verbose
 
 #### Step 2: SAST
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/02-sast.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -3867,7 +4310,9 @@ jobs:
         with:
           config: p/security-audit
 
+
 ```
+-->
 -->
 
 **검증**:
@@ -3878,6 +4323,13 @@ semgrep --config=auto --json .
 
 #### Step 3: SCA
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/03-sca.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -3903,7 +4355,9 @@ jobs:
           scan-ref: '.'
           severity: 'HIGH,CRITICAL'
 
+
 ```
+-->
 -->
 
 **검증**:
@@ -3914,6 +4368,13 @@ trivy fs . --severity HIGH,CRITICAL
 
 #### Step 4: Docker Image Scan
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/04-image-scan.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```yaml
@@ -3943,10 +4404,14 @@ jobs:
           severity: 'CRITICAL'
           exit-code: '1'
 
+
 ```
+-->
 -->
 
 **검증**:
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
 ```bash
@@ -3957,6 +4422,13 @@ trivy image myapp:test --severity CRITICAL
 
 #### Step 5: IaC Scan
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/05-iac-scan.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -3985,7 +4457,9 @@ jobs:
           directory: terraform/
           framework: terraform
 
+
 ```
+-->
 -->
 
 **검증**:
@@ -3998,6 +4472,13 @@ checkov -d terraform/ --framework terraform
 
 이제 모든 단계를 하나의 파이프라인으로 통합합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/complete-pipeline.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```yaml
@@ -4064,11 +4545,20 @@ jobs:
       - name: Deploy
         run: echo "Deploy to production"
 
+
 ```
+-->
 -->
 
 ### 9.4 검증 체크리스트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```markdown
+> ## DevSecOps 파이프라인 검증 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```markdown
@@ -4099,7 +4589,9 @@ jobs:
 - [ ] Rollback 스크립트 준비됨
 - [ ] Rollback 시간 < 5분 목표
 
+
 ```
+-->
 -->
 
 ## 10. 결론 및 향후 전망
@@ -4169,6 +4661,8 @@ SBOM (Software Bill of Materials) 의무화:
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # SBOM 생성 및 서명
 syft myapp:latest -o cyclonedx-json > sbom.json
@@ -4180,6 +4674,7 @@ cosign verify-blob --key cosign.pub --signature sbom.json.sig sbom.json
 
 #### 10.3.3 Zero Trust 아키텍처
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 전통적 경계 보안 → Zero Trust
@@ -4196,7 +4691,9 @@ DevSecOps 통합:
 - 세밀한 RBAC 정책
 - 동적 Secret 관리
 
+
 ```
+-->
 -->
 
 #### 10.3.4 Platform Engineering 부상
@@ -4216,6 +4713,7 @@ Internal Developer Platform (IDP):
 ### 10.4 실무 적용 로드맵
 
 **Phase 1: 기초 구축 (1-3개월)**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Week 1-2: 현황 평가
@@ -4238,10 +4736,13 @@ Week 9-12: 교육 및 문화
 - 보안 챔피언 선정
 - 프로세스 문서화
 
+
 ```
+-->
 -->
 
 **Phase 2: 심화 (4-6개월)**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Month 4: 고급 스캔
@@ -4259,7 +4760,9 @@ Month 6: 최적화
 - 파이프라인 성능 개선
 - 보안 메트릭스 대시보드
 
+
 ```
+-->
 -->
 
 **Phase 3: 고도화 (7-12개월)**

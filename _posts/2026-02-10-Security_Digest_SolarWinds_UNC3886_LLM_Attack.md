@@ -1,18 +1,41 @@
 ---
-layout: post
-title: "2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격"
-date: 2026-02-10 12:50:05 +0900
-categories: [security]
-tags: [Security-Digest, SolarWinds-RCE, UNC3886, LLM-Safety, UNC1069, CVE-2025-40551]
-excerpt: "SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전 정렬 GRPO 무력화, 북한 UNC1069 딥페이크 암호화폐 공격"
-description: "SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전 정렬 GRPO 무력화, 북한 UNC1069 딥페이크 암호화폐 공격"
-keywords: [Security-Digest, SolarWinds-RCE, UNC3886, LLM-Safety, UNC1069, CVE-2025-40551]
-image: /assets/images/2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.svg
 author: Twodragon
+categories:
+- security
 comments: true
-image_alt: "Security Digest Feb 10 2026 SolarWinds RCE UNC3886 LLM Attack"
-toc: true
+date: 2026-02-10 12:50:05 +0900
+description: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM
+  안전 정렬 GRPO 무력화, 북한 UNC1069 딥페이크 암호화폐 공격
+excerpt: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전
+  정렬 GRPO 무력화, 북한 UNC1069 딥페이크 암호화폐 공격
+image: /assets/images/2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.svg
+image_alt: 보안 다이제스트 2026년 2월 10일 SolarWinds RCE UNC3886 LLM 공격
+keywords:
+- Security-Digest
+- SolarWinds-RCE
+- UNC3886
+- LLM-Safety
+- UNC1069
+- CVE-2025-40551
+layout: post
 schema_type: Article
+tags:
+- Security-Digest
+- SolarWinds-RCE
+- UNC3886
+- LLM-Safety
+- UNC1069
+- CVE-2025-40551
+title: '2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전 정렬 GRPO 무력화, 북한 UNC1069 딥페이크 암호화폐 공격
+- **주요 주제**: 2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격
+- **키워드**: Security-Digest, SolarWinds-RCE, UNC3886, LLM-Safety, UNC1069
+
 ---
 
 ## 서론
@@ -33,7 +56,7 @@ schema_type: Article
 | **UNC3886 통신사 첩보** | High | 중국 연계 APT, 싱가포르 4대 통신사 전체 침해, VMware/엣지 디바이스 제로데이 | 즉시 |
 | **LLM 안전 정렬 GRPO 무력화** | High | Microsoft 발표, 단일 프롬프트로 LLM 가드레일 무력화, 다중 카테고리 일반화 | 7일 이내 |
 | **UNC1069 딥페이크 암호화폐 공격** | High | 북한 연계, 딥페이크+AI 소셜 엔지니어링, 암호화폐 부문 표적, 7개 신규 악성코드 | 7일 이내 |
-| **Weekly Recap** | Medium | AI Skill Malware, 31Tbps DDoS 기록, LLM 백도어, OpenClaw 노출 | 정보 참고 |
+| **주간 요약** | Medium | AI 스킬 악성코드, 31Tbps DDoS 기록, LLM 백도어, OpenClaw 노출 | 정보 참고 |
 
 ---
 
@@ -219,7 +242,7 @@ Mandiant(Google Cloud)가 북한 연계 위협 행위자 UNC1069의 암호화폐
 
 ---
 
-## 5. Weekly Recap: AI Skill Malware, 31Tbps DDoS, LLM 백도어
+## 5. 주간 요약: AI 스킬 악성코드, 31Tbps DDoS, LLM 백도어
 
 ### 개요
 

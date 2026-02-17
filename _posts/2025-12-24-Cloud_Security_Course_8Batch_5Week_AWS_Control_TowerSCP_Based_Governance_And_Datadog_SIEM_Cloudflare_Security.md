@@ -1,19 +1,47 @@
 ---
-layout: post
-title: "클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안"
-date: 2025-12-24 19:13:05 +0900
-categories: [cloud]
-tags: [AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM]
-excerpt: "Control Tower/SCP 멀티 계정 거버넌스와 Datadog SIEM, Cloudflare 통합 보안 실무"
-comments: true
-original_url: https://twodragon.tistory.com/706
-image: /assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security.svg
-image_alt: "Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance and Datadog SIEM Cloudflare Security"
-toc: true
-certifications: [aws-saa]
-description: "AWS Control Tower/SCP로 멀티 계정 거버넌스를 구축하고, Datadog SIEM과 Cloudflare로 통합 보안 모니터링 및 웹 보안을 강화하세요."
-keywords: [AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM, 멀티계정, 거버넌스, Landing Zone]
 author: Twodragon
+categories:
+- cloud
+certifications:
+- aws-saa
+comments: true
+date: 2025-12-24 19:13:05 +0900
+description: AWS Control Tower/SCP로 멀티 계정 거버넌스를 구축하고, Datadog SIEM과 Cloudflare로 통합
+  보안 모니터링 및 웹 보안을 강화하세요.
+excerpt: Control Tower/SCP 멀티 계정 거버넌스와 Datadog SIEM, Cloudflare 통합 보안 실무
+image: /assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security.svg
+image_alt: 'Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance
+  and Datadog SIEM Cloudflare Security'
+keywords:
+- AWS
+- Control-Tower
+- SCP
+- Datadog
+- Cloudflare
+- SIEM
+- 멀티계정
+- 거버넌스
+- Landing Zone
+layout: post
+original_url: https://twodragon.tistory.com/706
+tags:
+- AWS
+- Control-Tower
+- SCP
+- Datadog
+- Cloudflare
+- SIEM
+title: '클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare
+  보안'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Control Tower/SCP 멀티 계정 거버넌스와 Datadog SIEM, Cloudflare 통합 보안 실무
+- **주요 주제**: 클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안
+- **키워드**: AWS, Control-Tower, SCP, Datadog, Cloudflare
+
 ---
 
 <div class="ai-summary-card">
@@ -98,6 +126,7 @@ author: Twodragon
 ### 1.2 계정 구조 예시
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart TD
     MA["Management Account"]
@@ -128,7 +157,9 @@ flowchart TD
     DO --> DA2
     SBO --> SA
 
+
 ```
+-->
 -->
 
 ## 2. AWS Control Tower
@@ -199,6 +230,13 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -220,13 +258,22 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
   ]
 }
 
+
 ```
+-->
 -->
 
 #### 특정 리전만 허용
 
 > **참고**: 리전 제한 SCP 정책 관련 내용은 [AWS Organizations SCP 예제](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```json
@@ -258,13 +305,22 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
   ]
 }
 
+
 ```
+-->
 -->
 
 #### Root 계정 사용 차단
 
 > **참고**: Root 계정 차단 SCP 정책 관련 내용은 [AWS Organizations SCP 보안 모범 사례](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_best-practices.html)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```json
@@ -290,7 +346,9 @@ Service Control Policies는 Organizations의 정책 타입으로, 계정이나 O
   ]
 }
 
+
 ```
+-->
 -->
 
 ## 4. Datadog SIEM
@@ -338,6 +396,13 @@ Datadog SIEM(Security Information and Event Management)은 보안 이벤트를 �
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 예시: 비정상적인 리전에서의 API 호출 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 예시: 비정상적인 리전에서의 API 호출 탐지
 detection_rule:
@@ -352,7 +417,9 @@ detection_rule:
   notification:
     - slack
 
+
 ```
+-->
 -->
 
 ## 5. Cloudflare 보안
@@ -413,6 +480,13 @@ Cloudflare는 전 세계에 분산된 CDN 및 보안 서비스를 제공하는 �
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```mermaid
+> flowchart TD...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```mermaid
 flowchart TD
     CF["Cloudflare"]
@@ -434,7 +508,9 @@ flowchart TD
     VFL --> SIEM
     AL --> SIEM
 
+
 ```
+-->
 -->
 
 ### 6.2 보안 레이어
@@ -554,6 +630,13 @@ AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도�
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -578,7 +661,9 @@ AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도�
   ]
 }
 
+
 ```
+-->
 -->
 
 ### 9.3 IAM Policy Autopilot
@@ -594,6 +679,8 @@ AI/ML 워크로드가 증가함에 따라 AWS는 **AgentCore Identity**를 도�
 **사용 예시:**
 
 > **참고**: IAM Policy Autopilot 사용 관련 자세한 내용은 [IAM Policy Autopilot GitHub 저장소](https://github.com/aws/iam-policy-autopilot) 및 [AWS IAM Policy Autopilot 문서](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -623,6 +710,8 @@ AWS Security Hub가 GA(General Availability)로 출시되어 **멀티 계정 보
 
 **Datadog SIEM과의 통합:**
 > **참고**: Datadog SIEM 통합 관련 내용은 [Datadog Security Monitoring](https://docs.datadoghq.com/security/) 및 [Datadog AWS Security Hub 통합](https://docs.datadoghq.com/integrations/amazon_security_hub/)을 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -658,6 +747,13 @@ GuardDuty가 **Extended Threat Detection** 기능을 추가하여 EC2 및 ECS �
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> detection_rule:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 detection_rule:
   name: "GuardDuty Extended Threat - Multi-stage Attack"
@@ -672,13 +768,22 @@ detection_rule:
     - slack
     - pagerduty
 
+
 ```
+-->
 -->
 
 ### 9.5 통합 거버넌스 아키텍처 (2025년 업데이트 반영)
 
 > **참고**: AWS 통합 거버넌스 아키텍처 관련 내용은 [AWS Control Tower 문서](https://docs.aws.amazon.com/controltower/) 및 [AWS Organizations](https://docs.aws.amazon.com/organizations/)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```mermaid
+> flowchart TD...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```mermaid
@@ -712,7 +817,9 @@ flowchart TD
     GD --> DD
     DD --> IAM
 
+
 ```
+-->
 -->
 
 ### 9.6 2025년 업데이트 적용 권장 사항
@@ -746,6 +853,13 @@ flowchart TD
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -768,10 +882,19 @@ flowchart TD
   ]
 }
 
+
 ```
+-->
 -->
 
 **Datadog SIEM 탐지 규칙:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> detection_rule:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -794,7 +917,9 @@ detection_rule:
     - slack_security_channel
     - pagerduty_high_severity
 
+
 ```
+-->
 -->
 
 **Cloudflare Zero Trust:**
@@ -811,6 +936,13 @@ detection_rule:
 **방어 전략:**
 
 **SCP - IAM 권한 제한:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```json
@@ -841,10 +973,19 @@ detection_rule:
   ]
 }
 
+
 ```
+-->
 -->
 
 **Datadog SIEM 탐지:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> detection_rule:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -866,7 +1007,9 @@ detection_rule:
   notification:
     - pagerduty_critical
 
+
 ```
+-->
 -->
 
 ### 10.3 Defense Evasion (방어 회피)
@@ -879,6 +1022,13 @@ detection_rule:
 **방어 전략:**
 
 **Control Tower Guardrails - CloudTrail 보호:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
@@ -913,10 +1063,19 @@ detection_rule:
   ]
 }
 
+
 ```
+-->
 -->
 
 **Datadog 실시간 알림:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> detection_rule:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -939,7 +1098,9 @@ detection_rule:
     - pagerduty_critical
     - email_ciso
 
+
 ```
+-->
 -->
 
 ### 10.4 Credential Access (자격 증명 접근)
@@ -952,6 +1113,13 @@ detection_rule:
 **방어 전략:**
 
 **SCP - IMDSv2 강제:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```json
@@ -977,10 +1145,19 @@ detection_rule:
   ]
 }
 
+
 ```
+-->
 -->
 
 **Datadog 네트워크 모니터링:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> detection_rule:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -1001,7 +1178,9 @@ detection_rule:
   notification:
     - slack_security_channel
 
+
 ```
+-->
 -->
 
 ### 10.5 Discovery (정찰)
@@ -1014,6 +1193,13 @@ detection_rule:
 **방어 전략:**
 
 **Datadog Anomaly Detection:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> detection_rule:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -1034,7 +1220,9 @@ detection_rule:
   notification:
     - slack_security_channel
 
+
 ```
+-->
 -->
 
 ### 10.6 Impact (영향)
@@ -1047,6 +1235,13 @@ detection_rule:
 **방어 전략:**
 
 **SCP - 삭제 작업 제한:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```json
@@ -1076,7 +1271,9 @@ detection_rule:
   ]
 }
 
+
 ```
+-->
 -->
 
 **Cloudflare Access Log:**
@@ -1091,6 +1288,13 @@ detection_rule:
 
 **Transit Gateway 중앙 집중형 네트워크:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # Control Tower Customization (CfCT)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -1131,11 +1335,20 @@ Resources:
       DestinationCidrBlock: 10.0.0.0/8
       TransitGatewayAttachmentId: !Ref ProductionTGWAttachment
 
+
 ```
+-->
 -->
 
 #### VPC Endpoint 자동 배포
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # Lambda for automatic VPC Endpoint creation...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```python
@@ -1175,7 +1388,9 @@ def lambda_handler(event, context):
         'body': f'VPC Endpoints created for account {account_id}'
     }
 
+
 ```
+-->
 -->
 
 ### 11.2 Guardrails 고급 구성
@@ -1184,6 +1399,13 @@ def lambda_handler(event, context):
 
 **Config Rule 기반 커스텀 Guardrail:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # Custom Config Rule for Landing Zone...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -1207,11 +1429,20 @@ Resources:
         ComplianceResourceTypes:
           - AWS::EC2::Volume
 
+
 ```
+-->
 -->
 
 **Lambda 기반 커스텀 Guardrail:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # Custom Guardrail: Enforce tagging on resource creation...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```python
@@ -1260,13 +1491,22 @@ def lambda_handler(event, context):
         'body': json.dumps('Tag validation completed')
     }
 
+
 ```
+-->
 -->
 
 ### 11.3 Account Factory 자동화
 
 #### Terraform 기반 계정 프로비저닝
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # Control Tower Account Factory with Terraform...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
 > 
 > ```hcl
@@ -1329,7 +1569,9 @@ resource "aws_lambda_invocation" "post_provisioning" {
   depends_on = [aws_servicecatalog_provisioned_product.new_account]
 }
 
+
 ```
+-->
 -->
 
 ## 12. SCP 정책 실전 사례
@@ -1338,6 +1580,13 @@ resource "aws_lambda_invocation" "post_provisioning" {
 
 #### 글로벌 서비스 예외 처리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```json
@@ -1377,13 +1626,22 @@ resource "aws_lambda_invocation" "post_provisioning" {
   ]
 }
 
+
 ```
+-->
 -->
 
 ### 12.2 서비스 제한 정책
 
 #### 금융권 보안 요구사항 SCP
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
@@ -1441,13 +1699,22 @@ resource "aws_lambda_invocation" "post_provisioning" {
   ]
 }
 
+
 ```
+-->
 -->
 
 ### 12.3 태그 강제 정책
 
 #### Cost Center 태깅 필수화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```json
@@ -1498,13 +1765,22 @@ resource "aws_lambda_invocation" "post_provisioning" {
   ]
 }
 
+
 ```
+-->
 -->
 
 ### 12.4 시간 기반 액세스 제한
 
 #### 업무 시간 외 프로덕션 변경 차단
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```json
@@ -1540,7 +1816,9 @@ resource "aws_lambda_invocation" "post_provisioning" {
   ]
 }
 
+
 ```
+-->
 -->
 
 ## 13. Datadog SIEM 통합 아키텍처
@@ -1549,6 +1827,13 @@ resource "aws_lambda_invocation" "post_provisioning" {
 
 #### CloudWatch Logs → Kinesis → Datadog
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # Datadog Log Pipeline Architecture...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -1609,13 +1894,22 @@ log_pipeline:
         - compliance-logs
       retention: 2555d  # 7 years
 
+
 ```
+-->
 -->
 
 ### 13.2 고급 탐지 규칙
 
 #### Brute Force 공격 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> detection_rule:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -1653,11 +1947,20 @@ detection_rule:
       - attack:t1078
       - technique:credential_access
 
+
 ```
+-->
 -->
 
 #### 데이터 유출 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> detection_rule:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -1695,11 +1998,20 @@ detection_rule:
       Data transferred: {% raw %}{{@network.bytes_written}}{% endraw %} bytes
       Destination: {% raw %}{{@aws.s3.destination}}{% endraw %}
 
+
 ```
+-->
 -->
 
 #### Privilege Escalation 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> detection_rule:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -1736,13 +2048,22 @@ detection_rule:
       Actions: Administrator policy attached + new access key created
       Source IP: {% raw %}{{@network.client.ip}}{% endraw %}
 
+
 ```
+-->
 -->
 
 ### 13.3 보안 대시보드 구성
 
 #### 통합 보안 상황판 (Security Posture Dashboard)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # Datadog Dashboard Configuration...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -1790,7 +2111,9 @@ dashboard:
         requests:
           - q: "avg:aws.securityhub.findings{status:OPEN} by {aws_account,severity,resource_type}"
 
+
 ```
+-->
 -->
 
 ## 14. Cloudflare WAF/DDoS 방어 전략
@@ -1799,6 +2122,13 @@ dashboard:
 
 #### OWASP Top 10 커스텀 규칙
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // Cloudflare Workers: Advanced WAF Rules...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
 > 
 > ```javascript
@@ -1833,11 +2163,20 @@ dashboard:
 (http.request.uri.query matches ".*[;&|`].*") or
 (http.request.body matches ".*[;&|`].*")
 
+
 ```
+-->
 -->
 
 #### Rate Limiting 정교화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Cloudflare Rate Limiting Rules...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -1888,13 +2227,22 @@ rate_limiting:
     period: 10
     action: block
 
+
 ```
+-->
 -->
 
 ### 14.2 Bot Management
 
 #### 악성 봇 차단 로직
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // Cloudflare Workers: Bot Detection and Mitigation...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
 > 
 > ```javascript
@@ -1952,13 +2300,22 @@ async function handleRequest(request) {
   return fetch(request)
 }
 
+
 ```
+-->
 -->
 
 ### 14.3 DDoS 자동 완화
 
 #### Layer 7 DDoS 방어
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Cloudflare Advanced DDoS Protection...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -2009,7 +2366,9 @@ ddos_protection:
         ip_fragmented: true
         fragment_offset: "> 0"
 
+
 ```
+-->
 -->
 
 ## 15. 통합 보안 모니터링 대시보드
@@ -2018,6 +2377,13 @@ ddos_protection:
 
 #### KPI 중심 보안 지표
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # Grafana Dashboard Configuration...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -2082,13 +2448,22 @@ dashboard:
               aws_securityhub_compliance_total
             ) * 100
 
+
 ```
+-->
 -->
 
 ### 15.2 SOC Analyst Dashboard (분석가용)
 
 #### 실시간 위협 인텔리전스
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Datadog Security Operations Dashboard...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -2143,7 +2518,9 @@ dashboard:
         - detection_time
         - assigned_to
 
+
 ```
+-->
 -->
 
 ## 16. 위협 헌팅 쿼리
@@ -2151,6 +2528,8 @@ dashboard:
 ### 16.1 CloudWatch Logs Insights 쿼리
 
 #### 의심스러운 IAM 활동 탐지
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
@@ -2165,6 +2544,8 @@ fields @timestamp, userIdentity.principalId, eventName, sourceIPAddress, userAge
 ```
 
 #### 다중 리전 리소스 생성 (Crypto Mining 징후)
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
@@ -2195,6 +2576,8 @@ fields @timestamp, userIdentity.principalId, requestParameters.bucketName, reque
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```
 source:cloudtrail
 @evt.name:(AssumeRole OR GetSessionToken)
@@ -2205,6 +2588,8 @@ source:cloudtrail
 ```
 
 #### Persistence 메커니즘 탐지
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
@@ -2264,6 +2649,13 @@ source:vpc_flow_logs
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # KISA CSAP 기술적 보안 통제 구성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # KISA CSAP 기술적 보안 통제 구성
 csap_technical_controls:
@@ -2297,7 +2689,9 @@ csap_technical_controls:
         aws: "Inspector, GuardDuty"
         datadog: "취약점 스캔 결과 집계"
 
+
 ```
+-->
 -->
 
 ### 17.3 금융권 규제 준수
@@ -2306,6 +2700,13 @@ csap_technical_controls:
 
 #### 전자금융거래법 제21조 (접근 통제)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```json
@@ -2345,11 +2746,20 @@ csap_technical_controls:
   ]
 }
 
+
 ```
+-->
 -->
 
 #### 전자금융감독규정 제15조 (개인정보 보호)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # Datadog 금융권 개인정보 접근 감사...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -2378,13 +2788,22 @@ detection_rule:
     - compliance:financial_data_protection
     - regulation:korea_fss
 
+
 ```
+-->
 -->
 
 ## 18. 경영진 보고 포맷
 
 ### 18.1 월간 보안 현황 리포트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```markdown
+> # 클라우드 보안 현황 보고...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```markdown
@@ -2457,11 +2876,14 @@ detection_rule:
    - Cloudflare Access 전면 도입
    - VPN 단계적 폐기
 
+
 ```
+-->
 -->
 
 ### 18.2 분기별 보안 전략 리포트
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 # 2024 Q1 클라우드 보안 전략 리포트
@@ -2532,7 +2954,9 @@ detection_rule:
 2. **보안 인력 충원**: Security Engineer 2명 채용
 3. **Red Team 테스트**: 외부 전문 업체 계약 ($30,000)
 
+
 ```
+-->
 -->
 
 ## 결론
