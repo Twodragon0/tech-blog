@@ -1,19 +1,43 @@
 ---
-layout: post
-title: "클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!"
-date: 2025-11-21 18:28:12 +0900
-category: devsecops
-categories: [devsecops]
-tags: [Cloud-Security, DevSecOps, FinOps, Course]
-excerpt: "클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량 강화, 2025년 보안 트렌드 완벽 대응"
-comments: true
-original_url: https://twodragon.tistory.com/700
-image: /assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.svg
-image_alt: "Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSecOps to FinOps"
-toc: true
-description: "클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량을 강화하고, 2025년 AI 보안 트렌드에 대응하는 실무형 전문가로 성장하세요."
-keywords: [Cloud-Security, DevSecOps, FinOps, AWS, Course, 클라우드보안, 실무교육, Zero Trust, Post-quantum]
 author: Twodragon
+categories:
+- devsecops
+category: devsecops
+comments: true
+date: 2025-11-21 18:28:12 +0900
+description: 클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량을 강화하고, 2025년 AI 보안 트렌드에
+  대응하는 실무형 전문가로 성장하세요.
+excerpt: 클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량 강화, 2025년 보안 트렌드 완벽 대응
+image: /assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.svg
+image_alt: 'Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSecOps
+  to FinOps'
+keywords:
+- Cloud-Security
+- DevSecOps
+- FinOps
+- AWS
+- Course
+- 클라우드보안
+- 실무교육
+- Zero Trust
+- Post-quantum
+layout: post
+original_url: https://twodragon.tistory.com/700
+tags:
+- Cloud-Security
+- DevSecOps
+- FinOps
+- Course
+title: '클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: 클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량 강화, 2025년 보안 트렌드 완벽 대응
+- **주요 주제**: 클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!
+- **키워드**: Cloud-Security, DevSecOps, FinOps, Course
+
 ---
 
 <div class="ai-summary-card">

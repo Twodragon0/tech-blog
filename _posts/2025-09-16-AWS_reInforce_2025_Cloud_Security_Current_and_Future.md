@@ -1,18 +1,38 @@
 ---
-layout: post
-title: "AWS re:Inforce 2025: 클라우드 보안의 현재와 미래 🛡️"
-date: 2025-09-16 23:09:44 +0900
-categories: [cloud]
-tags: [AWS, reInforce, Cloud-Security, Conference]
-excerpt: "AWS re:Inforce 2025 회고. AI 기반 보안 솔루션 및 Zero Trust 구현 방법."
-comments: true
-original_url: https://twodragon.tistory.com/693
-image: /assets/images/2025-09-16-AWS_reInforce_2025_Cloud_Security_and_Future.svg
-image_alt: "AWS re:Inforce 2025: Cloud Security Present and Future"
-toc: true
-description: AWS re:Inforce 2025에서 발표된 최신 보안 기능과 Zero Trust 아키텍처 구현 방법, AI 기반 위협 탐지 및 GuardDuty 확장 기능을 다룹니다.
-keywords: [AWS, reInforce, Cloud-Security, GuardDuty, Security-Hub, Zero-Trust]
 author: Twodragon
+categories:
+- cloud
+comments: true
+date: 2025-09-16 23:09:44 +0900
+description: AWS re:Inforce 2025에서 발표된 최신 보안 기능과 Zero Trust 아키텍처 구현 방법, AI 기반 위협 탐지
+  및 GuardDuty 확장 기능을 다룹니다.
+excerpt: AWS re:Inforce 2025 회고. AI 기반 보안 솔루션 및 Zero Trust 구현 방법.
+image: /assets/images/2025-09-16-AWS_reInforce_2025_Cloud_Security_and_Future.svg
+image_alt: 'AWS re:Inforce 2025: Cloud Security Present and Future'
+keywords:
+- AWS
+- reInforce
+- Cloud-Security
+- GuardDuty
+- Security-Hub
+- Zero-Trust
+layout: post
+original_url: https://twodragon.tistory.com/693
+tags:
+- AWS
+- reInforce
+- Cloud-Security
+- Conference
+title: "AWS re:Inforce 2025: 클라우드 보안의 현재와 미래 \U0001F6E1️"
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: AWS re:Inforce 2025 회고. AI 기반 보안 솔루션 및 Zero Trust 구현 방법.
+- **주요 주제**: AWS re:Inforce 2025: 클라우드 보안의 현재와 미래 🛡️
+- **키워드**: AWS, reInforce, Cloud-Security, Conference
+
 ---
 
 <div class="ai-summary-card">

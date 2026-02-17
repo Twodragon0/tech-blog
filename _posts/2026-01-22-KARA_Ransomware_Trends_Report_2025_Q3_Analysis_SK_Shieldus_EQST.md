@@ -1,18 +1,41 @@
 ---
-layout: post
-title: "2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략"
-date: 2026-01-22 14:30:00 +0900
-categories: [security, incident]
-tags: [Ransomware, KARA, SK-Shieldus, LockBit, Akira, INC-Ransomware, Threat-Intelligence, DevSecOps, Zero-Trust, "2025"]
-excerpt: "2025년 3분기 랜섬웨어 1,517건 발생. LockBit 5.0 재등장, Akira 제조업 타겟, 제로 트러스트 대응 전략."
-description: "SK쉴더스 EQST insight 기반 2025년 3분기 랜섬웨어 동향 분석. KARA 보고서의 주요 그룹(LockBit 5.0, Akira, INC Ransomware) 분석, 공격 통계, 최신 TTPs, YARA/Sigma 탐지 룰, 제로 트러스트 기반 기업 대응 전략."
-keywords: "랜섬웨어, KARA, SK쉴더스, LockBit 5.0, Akira, INC Ransomware, 제로 트러스트, YARA, Sigma, 침해사고대응, SOC, CERT, 2025년 3분기"
 author: Twodragon
+categories:
+- security
+- incident
 comments: true
+date: 2026-01-22 14:30:00 +0900
+description: SK쉴더스 EQST insight 기반 2025년 3분기 랜섬웨어 동향 분석. KARA 보고서의 주요 그룹(LockBit 5.0,
+  Akira, INC Ransomware) 분석, 공격 통계, 최신 TTPs, YARA/Sigma 탐지 룰, 제로 트러스트 기반 기업 대응 전략.
+excerpt: 2025년 3분기 랜섬웨어 1,517건 발생. LockBit 5.0 재등장, Akira 제조업 타겟, 제로 트러스트 대응 전략.
 image: /assets/images/2026-01-22-KARA_Ransomware_Trends_2025_Q3.svg
-image_alt: "KARA Ransomware Trends Report 2025 Q3 Analysis - Attack Statistics, Major Groups, Defense Strategies"
-toc: true
+image_alt: KARA Ransomware Trends Report 2025 Q3 Analysis - Attack Statistics, Major
+  Groups, Defense Strategies
+keywords: 랜섬웨어, KARA, SK쉴더스, LockBit 5.0, Akira, INC Ransomware, 제로 트러스트, YARA, Sigma,
+  침해사고대응, SOC, CERT, 2025년 3분기
+layout: post
 schema_type: Article
+tags:
+- Ransomware
+- KARA
+- SK-Shieldus
+- LockBit
+- Akira
+- INC-Ransomware
+- Threat-Intelligence
+- DevSecOps
+- Zero-Trust
+- '2025'
+title: '2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: 2025년 3분기 랜섬웨어 1,517건 발생. LockBit 5.0 재등장, Akira 제조업 타겟, 제로 트러스트 대응 전략.
+- **주요 주제**: 2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략
+- **키워드**: Ransomware, KARA, SK-Shieldus, LockBit, Akira
+
 ---
 
 <div class="ai-summary-card">
