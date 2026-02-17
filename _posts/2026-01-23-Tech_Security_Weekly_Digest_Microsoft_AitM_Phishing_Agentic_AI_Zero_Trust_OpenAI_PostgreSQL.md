@@ -1,18 +1,59 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: Microsoft AitM 피싱 경고, Agentic AI Zero Trust, OpenAI PostgreSQL 8억 사용자 스케일링"
-date: 2026-01-23 10:00:00 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, AitM-Phishing, BEC, Zero-Trust, Agentic-AI, NHI, PostgreSQL, OpenAI, Google-Cloud, HashiCorp, vLLM, DevSecOps, "2026"]
-excerpt: "AitM 피싱, Agentic AI Zero Trust, PostgreSQL 8억 사용자 스케일링, vLLM Inferact $150M 투자"
-description: "2026년 1월 23일 주요 기술/보안 뉴스: Microsoft AitM 피싱 경고, HashiCorp Agentic AI Zero Trust NHI 관리, OpenAI PostgreSQL 8억 사용자 스케일링 아키텍처, vLLM 제작자 Inferact $150M 투자까지 DevSecOps 실무 분석"
-keywords: [Security-Weekly, AitM-Phishing, BEC, Zero-Trust, Agentic-AI, NHI, PostgreSQL, OpenAI, HashiCorp, vLLM, Inferact, DevSecOps, Security-News]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-01-23 10:00:00 +0900
+description: '2026년 1월 23일 주요 기술/보안 뉴스: Microsoft AitM 피싱 경고, HashiCorp Agentic AI
+  Zero Trust NHI 관리, OpenAI PostgreSQL 8억 사용자 스케일링 아키텍처, vLLM 제작자 Inferact $150M 투자까지
+  DevSecOps 실무 분석'
+excerpt: AitM 피싱, Agentic AI Zero Trust, PostgreSQL 8억 사용자 스케일링, vLLM Inferact $150M
+  투자
 image: /assets/images/2026-01-23-Tech_Security_Weekly_Digest.svg
-image_alt: "Tech and Security Weekly Digest January 2026 - AitM Phishing, Zero Trust, PostgreSQL Scaling"
-toc: true
+image_alt: Tech and Security Weekly Digest January 2026 - AitM Phishing, Zero Trust,
+  PostgreSQL Scaling
+keywords:
+- Security-Weekly
+- AitM-Phishing
+- BEC
+- Zero-Trust
+- Agentic-AI
+- NHI
+- PostgreSQL
+- OpenAI
+- HashiCorp
+- vLLM
+- Inferact
+- DevSecOps
+- Security-News
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- AitM-Phishing
+- BEC
+- Zero-Trust
+- Agentic-AI
+- NHI
+- PostgreSQL
+- OpenAI
+- Google-Cloud
+- HashiCorp
+- vLLM
+- DevSecOps
+- '2026'
+title: 'Tech & Security Weekly Digest: Microsoft AitM 피싱 경고, Agentic AI Zero Trust,
+  OpenAI PostgreSQL 8억 사용자 스케일링'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: AitM 피싱, Agentic AI Zero Trust, PostgreSQL 8억 사용자 스케일링, vLLM Inferact $150M 투자
+- **주요 주제**: Tech & Security Weekly Digest: Microsoft AitM 피싱 경고, Agentic AI Zero Trust, OpenAI PostgreSQL 8억 사용자 스케일링
+- **키워드**: Security-Weekly, AitM-Phishing, BEC, Zero-Trust, Agentic-AI
+
 ---
 
 <div class="ai-summary-card">

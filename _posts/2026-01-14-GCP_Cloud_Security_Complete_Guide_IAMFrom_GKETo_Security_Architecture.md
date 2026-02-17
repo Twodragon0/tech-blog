@@ -1,19 +1,52 @@
 ---
-layout: post
-title: "GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처"
-date: 2026-01-14 12:00:00 +0900
-categories: [security, cloud]
-tags: [GCP, Security, IAM, Cloud-SQL, Cloud-Storage, GKE, Cloud-Monitoring, Cloud-Logging]
-excerpt: "GCP IAM, VPC, Cloud SQL, Storage, GKE 보안 아키텍처, Defense in Depth 전략"
-description: "GCP 클라우드 보안 완벽 가이드: IAM 최소 권한, VPC 네트워크 분리, Cloud SQL 암호화, Cloud Storage 버킷 정책, GKE Pod Security Standards, Security Command Center 통합까지 Defense in Depth 전략 기반 실무 보안 아키텍처 제공"
-keywords: [GCP-Security, IAM, Cloud-SQL, Cloud-Storage, GKE, VPC-Security, Defense-in-Depth, Cloud-Monitoring, Cloud-Logging, Security-Command-Center, ISMS-P, KMS]
 author: Twodragon
+categories:
+- security
+- cloud
+certifications:
+- isms-p
 comments: true
+date: 2026-01-14 12:00:00 +0900
+description: 'GCP 클라우드 보안 완벽 가이드: IAM 최소 권한, VPC 네트워크 분리, Cloud SQL 암호화, Cloud Storage
+  버킷 정책, GKE Pod Security Standards, Security Command Center 통합까지 Defense in Depth
+  전략 기반 실무 보안 아키텍처 제공'
+excerpt: GCP IAM, VPC, Cloud SQL, Storage, GKE 보안 아키텍처, Defense in Depth 전략
 image: /assets/images/2026-01-14-GCP_Cloud_Security_Complete_Guide_IAM_to_GKE_Practical_Security_Architecture.svg
-image_alt: "GCP Cloud Security Complete Guide: IAM to GKE Practical Security Architecture"
-toc: true
+image_alt: 'GCP Cloud Security Complete Guide: IAM to GKE Practical Security Architecture'
+keywords:
+- GCP-Security
+- IAM
+- Cloud-SQL
+- Cloud-Storage
+- GKE
+- VPC-Security
+- Defense-in-Depth
+- Cloud-Monitoring
+- Cloud-Logging
+- Security-Command-Center
+- ISMS-P
+- KMS
+layout: post
 schema_type: Article
-certifications: [isms-p]
+tags:
+- GCP
+- Security
+- IAM
+- Cloud-SQL
+- Cloud-Storage
+- GKE
+- Cloud-Monitoring
+- Cloud-Logging
+title: 'GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: GCP IAM, VPC, Cloud SQL, Storage, GKE 보안 아키텍처, Defense in Depth 전략
+- **주요 주제**: GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처
+- **키워드**: GCP, Security, IAM, Cloud-SQL, Cloud-Storage
+
 ---
 
 <div class="ai-summary-card">
