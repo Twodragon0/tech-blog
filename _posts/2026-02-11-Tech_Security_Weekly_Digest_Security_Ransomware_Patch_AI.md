@@ -1,22 +1,42 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: Ransomware, CVE-2026-21643, Fortinet"
-date: 2026-02-11 12:47:26 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Ransomware, Patch, AI]
-excerpt: "2026년 02월 11일 주요 보안/기술 뉴스 26건 - Security, Ransomware, Patch"
-description: "2026년 02월 11일 보안 뉴스: The Hacker News 등 26건. Security, Ransomware, Patch, AI 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Ransomware, Patch]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-02-11 12:47:26 +0900
+description: '2026년 02월 11일 보안 뉴스: The Hacker News 등 26건. 보안, 랜섬웨어, 패치, AI 관련 DevSecOps
+  실무 위협 분석 및 대응 가이드.'
+excerpt: 2026년 02월 11일 주요 보안/기술 뉴스 26건 - 보안, 랜섬웨어, 패치
 image: /assets/images/2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI.svg
-image_alt: "Tech Security Weekly Digest February 11 2026 Security Ransomware Patch"
-toc: true
+image_alt: 기술·보안 주간 다이제스트 2026년 2월 11일 보안 랜섬웨어 패치
+keywords:
+- Security-Weekly
+- DevSecOps
+- Cloud-Security
+- Weekly-Digest
+- 2026
+- Security
+- Ransomware
+- Patch
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- DevSecOps
+- Cloud-Security
+- Weekly-Digest
+- 2026
+- Security
+- Ransomware
+- Patch
+- AI
+title: '기술·보안 주간 다이제스트: 랜섬웨어, CVE-2026-21643, Fortinet'
+toc: true
 ---
 
 {% include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 02월 11일)'
+  title='기술·보안 주간 다이제스트 (2026년 02월 11일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
@@ -24,15 +44,20 @@ schema_type: Article
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: DPRK Operatives Impersonate Professionals on LinkedIn to...</li>
-      <li><strong>The Hacker News</strong>: Reynolds Ransomware Embeds BYOVD Driver to Disable EDR...</li>
-      <li><strong>The Hacker News</strong>: From Ransomware to Residency: Inside the Rise of the...</li>
-      <li><strong>Google Cloud Blog</strong>: Google Distributed Cloud brings public-cloud-like...</li>'
+  highlights_html='<li><strong>The Hacker News</strong>: 북한 연계 요원이 LinkedIn에서 전문가 사칭 공격</li>
+      <li><strong>The Hacker News</strong>: Reynolds 랜섬웨어가 BYOVD 드라이버로 EDR 무력화</li>
+      <li><strong>The Hacker News</strong>: 랜섬웨어가 이주/거주권 사기로 확장되는 흐름</li>
+      <li><strong>Google Cloud Blog</strong>: 분산 클라우드로 퍼블릭 클라우드 수준 운영 경험 제공</li>'
   period='2026년 02월 11일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
-## Executive Summary
+## 요약
+
+
+- **핵심 요약**: 2026년 02월 11일 주요 보안/기술 뉴스 26건 - 보안, 랜섬웨어, 패치
+- **주요 주제**: 기술·보안 주간 다이제스트: 랜섬웨어, CVE-2026-21643, Fortinet
+- **키워드**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026
 
 2026년 02월 11일 기준 보안 현황 및 위협 분석입니다.
 
@@ -45,9 +70,9 @@ schema_type: Article
 |                                                                |
 |  항목                    위험도   점수    조치 시급도             |
 |  ----------------------------------------------------------   |
-|  Fortinet Patches Critical SQLi █████████░  9/10   [즉시]                |
-|  ZAST.AI Raises $6M Pre-A to Sc ███████░░░  7/10   [7일 이내]             |
-|  Google Distributed Cloud bring ███████░░░  7/10   [7일 이내]             |
+|  Fortinet SQLi 긴급 패치       █████████░  9/10   [즉시]                |
+|  ZAST.AI $6M Pre-A 유치        ███████░░░  7/10   [7일 이내]             |
+|  Google Distributed Cloud 확장 ███████░░░  7/10   [7일 이내]             |
 |  ----------------------------------------------------------   |
 |  종합 위험 수준: ███████░░░ HIGH (7.7/10)                         |
 |                                                                |

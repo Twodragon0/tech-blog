@@ -1,18 +1,41 @@
 ---
-layout: post
-title: "2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K"
-date: 2026-02-09 13:00:00 +0900
-categories: [devsecops]
-tags: [Blockchain-Digest, Tech-Digest, Bithumb, Bitcoin, GameBoy, AI-UX]
-excerpt: "Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현, 2026 AI/UX 트렌드 전망"
-description: "Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현, 2026 AI/UX 트렌드 전망"
-keywords: [Blockchain-Digest, Tech-Digest, Bithumb, Bitcoin, GameBoy, AI-UX]
-image: /assets/images/2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin.svg
 author: Twodragon
+categories:
+- devsecops
 comments: true
-image_alt: "Blockchain Tech Digest Feb 9 2026 Bithumb Incident Bitcoin 71K"
-toc: true
+date: 2026-02-09 13:00:00 +0900
+description: Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현,
+  2026 AI/UX 트렌드 전망
+excerpt: Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현, 2026
+  AI/UX 트렌드 전망
+image: /assets/images/2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin.svg
+image_alt: 블록체인·테크 다이제스트 2026년 2월 9일 Bithumb 사고 Bitcoin 71K
+keywords:
+- Blockchain-Digest
+- Tech-Digest
+- Bithumb
+- Bitcoin
+- GameBoy
+- AI-UX
+layout: post
 schema_type: Article
+tags:
+- Blockchain-Digest
+- Tech-Digest
+- Bithumb
+- Bitcoin
+- GameBoy
+- AI-UX
+title: '2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현, 2026 AI/UX 트렌드 전망
+- **주요 주제**: 2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K
+- **키워드**: Blockchain-Digest, Tech-Digest, Bithumb, Bitcoin, GameBoy
+
 ---
 
 ## 서론

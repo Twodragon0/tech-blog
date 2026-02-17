@@ -1,18 +1,48 @@
 ---
-layout: post
-title: "[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석"
-date: 2026-01-16 12:00:00 +0900
-categories: [incident]
-tags: [Post-Mortem, Next.js, SSR, Cloudflare, ALB, Kubernetes, Incident-Response, AWS]
-excerpt: "Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석"
-description: "Post-Mortem: Next.js SSR 환경 location 객체 접근 ReferenceError, Cloudflare WAF IP 차단, ALB Target Group Health Check 실패 인시던트 상세 분석. 근본 원인, 배포 연쇄 반응, 재발 방지 대책까지 실무 중심 정리"
-keywords: [Post-Mortem, Next.js-SSR, Location-Error, Cloudflare-WAF, ALB-5XX, Health-Check, Kubernetes, Incident-Response, AWS, ReferenceError, WAF-Blocking]
 author: Twodragon
+categories:
+- incident
 comments: true
+date: 2026-01-16 12:00:00 +0900
+description: 'Post-Mortem: Next.js SSR 환경 location 객체 접근 ReferenceError, Cloudflare
+  WAF IP 차단, ALB Target Group Health Check 실패 인시던트 상세 분석. 근본 원인, 배포 연쇄 반응, 재발 방지 대책까지
+  실무 중심 정리'
+excerpt: Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석
 image: /assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.svg
-image_alt: "Post-Mortem Next.js SSR Error Cloudflare Blocking ALB 5XX Incident Analysis"
-toc: true
+image_alt: Post-Mortem Next.js SSR Error Cloudflare Blocking ALB 5XX Incident Analysis
+keywords:
+- Post-Mortem
+- Next.js-SSR
+- Location-Error
+- Cloudflare-WAF
+- ALB-5XX
+- Health-Check
+- Kubernetes
+- Incident-Response
+- AWS
+- ReferenceError
+- WAF-Blocking
+layout: post
 schema_type: Article
+tags:
+- Post-Mortem
+- Next.js
+- SSR
+- Cloudflare
+- ALB
+- Kubernetes
+- Incident-Response
+- AWS
+title: '[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석
+- **주요 주제**: [Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석
+- **키워드**: Post-Mortem, Next.js, SSR, Cloudflare, ALB
+
 ---
 
 <div class="ai-summary-card">
