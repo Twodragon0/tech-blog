@@ -1,18 +1,52 @@
 ---
-layout: post
-title: "DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략"
-date: 2026-01-06 14:59:11 +0900
-categories: [devsecops, security]
-tags: [DevSecOps, Automotive-Security, Connected-Car, SAST, DAST, SBOM, Supply-Chain-Security]
-excerpt: "DevSecOps 자동차 보안 완벽 가이드 SDV 시대"
-description: "DevSecOps 자동차 보안 완벽 가이드. SDV(Software Defined Vehicle) 보안 아키텍처, 자동차 위협 분석(네트워크/물리적/소프트웨어/공급망), DevSecOps 라이프사이클 통합, 규제 컴플라이언스(ISO 21434, UN R155/R156), SAST/DAST/SBOM 도구 스택까지 실무 정리."
-keywords: [Automotive Security, DevSecOps, Connected Car, SDV, Software Defined Vehicle, ISO 21434, UN R155, SAST, DAST, SBOM, Supply Chain Security, V2X Security, Secure Boot, OTA Security]
 author: Twodragon
+categories:
+- devsecops
+- security
 comments: true
+date: 2026-01-06 14:59:11 +0900
+description: DevSecOps 자동차 보안 완벽 가이드. SDV(Software Defined Vehicle) 보안 아키텍처, 자동차 위협
+  분석(네트워크/물리적/소프트웨어/공급망), DevSecOps 라이프사이클 통합, 규제 컴플라이언스(ISO 21434, UN R155/R156),
+  SAST/DAST/SBOM 도구 스택까지 실무 정리.
+excerpt: DevSecOps 자동차 보안 완벽 가이드 SDV 시대
 image: /assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg
-image_alt: "DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era Security Strategy"
-toc: true
+image_alt: 'DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era
+  Security Strategy'
+keywords:
+- Automotive Security
+- DevSecOps
+- Connected Car
+- SDV
+- Software Defined Vehicle
+- ISO 21434
+- UN R155
+- SAST
+- DAST
+- SBOM
+- Supply Chain Security
+- V2X Security
+- Secure Boot
+- OTA Security
+layout: post
 schema_type: Article
+tags:
+- DevSecOps
+- Automotive-Security
+- Connected-Car
+- SAST
+- DAST
+- SBOM
+- Supply-Chain-Security
+title: 'DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: DevSecOps 자동차 보안 완벽 가이드 SDV 시대
+- **주요 주제**: DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략
+- **키워드**: DevSecOps, Automotive-Security, Connected-Car, SAST, DAST
+
 ---
 
 <div class="ai-summary-card">
@@ -660,7 +694,7 @@ int verify_firmware_signature(uint8_t *firmware, size_t len, uint8_t *signature)
 
 차량 내부 네트워크에서 비정상적인 트래픽을 탐지합니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
 > 
 > ```python
 > # 간단한 CAN 버스 IDS 예시...

@@ -1,19 +1,43 @@
 ---
-layout: post
-title: "Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단"
-date: 2025-11-04 17:45:38 +0900
-categories: [security, cloud]
-tags: [Zscaler, ZTNA, SSL-Inspection, Zero-Trust, Cloud-Security]
-excerpt: "Zscaler 완벽 가이드. SSL 검사, 샌드박스(ATP), AI 차단 정책."
-comments: true
-original_url: https://twodragon.tistory.com/698
-image: /assets/images/2025-11-04-Zscaler_Complete_Guide_SSL_AI_Complete.svg
-image_alt: "Zscaler Complete Guide: SSL Inspection Sandbox AI Advertising Malicious Site Complete Blocking"
-toc: true
-description: Zscaler 완벽 가이드. SSL 검사, 샌드박스(ATP), AI/광고/유해 사이트 차단 정책 및 Zero Trust 아키텍처 구현 방법을 다룹니다.
-keywords: [Zscaler, ZTNA, SSL-Inspection, Zero-Trust, ATP, Cloud-Security]
 author: Twodragon
+categories:
+- security
+- cloud
+comments: true
+date: 2025-11-04 17:45:38 +0900
+description: Zscaler 완벽 가이드. SSL 검사, 샌드박스(ATP), AI/광고/유해 사이트 차단 정책 및 Zero Trust 아키텍처
+  구현 방법을 다룹니다.
+excerpt: Zscaler 완벽 가이드. SSL 검사, 샌드박스(ATP), AI 차단 정책.
+image: /assets/images/2025-11-04-Zscaler_Complete_Guide_SSL_AI_Complete.svg
+image_alt: 'Zscaler Complete Guide: SSL Inspection Sandbox AI Advertising Malicious
+  Site Complete Blocking'
+keywords:
+- Zscaler
+- ZTNA
+- SSL-Inspection
+- Zero-Trust
+- ATP
+- Cloud-Security
+layout: post
+original_url: https://twodragon.tistory.com/698
+tags:
+- Zscaler
+- ZTNA
+- SSL-Inspection
+- Zero-Trust
+- Cloud-Security
+title: 'Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단'
+toc: true
 ---
+
+## 요약
+
+- **핵심 요약**: Zscaler 완벽 가이드. SSL 검사, 샌드박스(ATP), AI 차단 정책.
+- **주요 주제**: Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단
+- **키워드**: Zscaler, ZTNA, SSL-Inspection, Zero-Trust, Cloud-Security
+
+---
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>

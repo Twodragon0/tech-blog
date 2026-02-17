@@ -1,20 +1,41 @@
 ---
-layout: post
-title: "이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드"
-date: 2025-06-05 15:04:29 +0900
-categories: [security]
-tags: [SendGrid, SPF, DKIM, DMARC, Email-Security]
-excerpt: "SendGrid SPF, DKIM, DMARC 설정으로 이메일 발송 신뢰도 향상"
-comments: true
-original_url: https://twodragon.tistory.com/688
-image: /assets/images/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.svg
-image_alt: "Email Delivery Trust Improvement: SendGrid SPF DKIM DMARC Setup Complete Guide"
-toc: true
-description: "SendGrid 이메일 인증 완벽 가이드. SPF, DKIM, DMARC 설정으로 발신 서버 인증, 이메일 무결성 검증, 정책 기반 인증 및 보고. 스팸 방지, 발송률 향상, 실무 DNS 설정까지 정리."
-keywords: [SendGrid, SPF, DKIM, DMARC, Email-Security]
-author: "Yongho Ha"
 audio_file: /assets/audio/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.mp3
+author: Yongho Ha
+categories:
+- security
+comments: true
+date: 2025-06-05 15:04:29 +0900
+description: SendGrid 이메일 인증 완벽 가이드. SPF, DKIM, DMARC 설정으로 발신 서버 인증, 이메일 무결성 검증, 정책
+  기반 인증 및 보고. 스팸 방지, 발송률 향상, 실무 DNS 설정까지 정리.
+excerpt: SendGrid SPF, DKIM, DMARC 설정으로 이메일 발송 신뢰도 향상
+image: /assets/images/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.svg
+image_alt: 'Email Delivery Trust Improvement: SendGrid SPF DKIM DMARC Setup Complete
+  Guide'
+keywords:
+- SendGrid
+- SPF
+- DKIM
+- DMARC
+- Email-Security
+layout: post
+original_url: https://twodragon.tistory.com/688
 schema_type: Article
+tags:
+- SendGrid
+- SPF
+- DKIM
+- DMARC
+- Email-Security
+title: '이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: SendGrid SPF, DKIM, DMARC 설정으로 이메일 발송 신뢰도 향상
+- **주요 주제**: 이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드
+- **키워드**: SendGrid, SPF, DKIM, DMARC, Email-Security
+
 ---
 
 <div class="ai-summary-card">
