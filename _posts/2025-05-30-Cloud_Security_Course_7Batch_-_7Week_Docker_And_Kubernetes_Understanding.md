@@ -363,7 +363,7 @@ Namespace는 논리적 클러스터 분할을 제공합니다.
 > **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 > 
 > ```yaml
-> {% raw %}...
+> apiVersion: ...
 > ```
 
 
