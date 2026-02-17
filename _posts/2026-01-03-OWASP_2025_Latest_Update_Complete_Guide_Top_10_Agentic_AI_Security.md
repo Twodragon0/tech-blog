@@ -1,18 +1,37 @@
 ---
-layout: post
-title: "OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안"
-date: 2026-01-03 10:00:00 +0900
-categories: [security, devsecops]
-tags: [OWASP, Security, Top10, AI, DevSecOps, Application Security]
-excerpt: "OWASP Top 10 2025 신규 위협: 공급망 공격, 암호화 실패. AI 보안 10대 위협과 실무 가이드."
-description: "OWASP 2025년 주요 업데이트 완벽 정리. OWASP Top 10 2025의 Software Supply Chain Failures, Cryptographic Failures 신규 추가, 에이전틱 AI 상위 10대 위협 가이드, SecureCode v2.0 데이터셋(1,215개 보안 코딩 예제), 실무 적용 가이드(Dependabot, SBOM, Post-Quantum 암호화)까지 DevSecOps 관점에서 상세 분석."
-keywords: "OWASP, Top 10 2025, AI 보안, 에이전틱 AI, 공급망 공격, 암호화 실패, SecureCode, Dependabot, SBOM, Post-Quantum, DevSecOps"
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-01-03 10:00:00 +0900
+description: OWASP 2025년 주요 업데이트 완벽 정리. OWASP Top 10 2025의 Software Supply Chain Failures,
+  Cryptographic Failures 신규 추가, 에이전틱 AI 상위 10대 위협 가이드, SecureCode v2.0 데이터셋(1,215개
+  보안 코딩 예제), 실무 적용 가이드(Dependabot, SBOM, Post-Quantum 암호화)까지 DevSecOps 관점에서 상세 분석.
+excerpt: 'OWASP Top 10 2025 신규 위협: 공급망 공격, 암호화 실패. AI 보안 10대 위협과 실무 가이드.'
 image: /assets/images/2026-01-03-OWASP_2025_Complete_Guide_Top_10_AI_Security.svg
-image_alt: "OWASP 2025 Latest Update Complete Guide: Top 10 and Agentic AI Security"
-toc: true
+image_alt: 'OWASP 2025 Latest Update Complete Guide: Top 10 and Agentic AI Security'
+keywords: OWASP, Top 10 2025, AI 보안, 에이전틱 AI, 공급망 공격, 암호화 실패, SecureCode, Dependabot,
+  SBOM, Post-Quantum, DevSecOps
+layout: post
 schema_type: Article
+tags:
+- OWASP
+- Security
+- Top10
+- AI
+- DevSecOps
+- Application Security
+title: 'OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: OWASP Top 10 2025 신규 위협: 공급망 공격, 암호화 실패. AI 보안 10대 위협과 실무 가이드.
+- **주요 주제**: OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안
+- **키워드**: OWASP, Security, Top10, AI, DevSecOps
+
 ---
 
 <div class="ai-summary-card">

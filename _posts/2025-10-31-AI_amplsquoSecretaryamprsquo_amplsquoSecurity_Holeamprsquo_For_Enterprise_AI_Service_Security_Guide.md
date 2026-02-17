@@ -1,18 +1,39 @@
 ---
-layout: post
-title: "AI 시대, 당신의 '비서'가 '보안 구멍'이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드"
-date: 2025-10-31 19:19:44 +0900
-categories: [security]
-tags: [AI, Enterprise-Security, AI-Security, Governance]
-excerpt: "AI 서비스 보안 가이드. Shadow AI 및 딥페이크 대응 방안."
-comments: true
-original_url: https://twodragon.tistory.com/697
-image: /assets/images/2025-10-31-AI_amplsquoamprsquo_amplsquoSecurity_amprsquo_Batch_AI_Security_Guide.svg
-image_alt: "AI Era Enterprise AI Service Security Guide: Ensuring Your Assistant Does Not Become a Security Hole"
-toc: true
-description: 2025년 AI 보안 위협 현황과 기업 AI 서비스 보안 정책 수립 가이드. Shadow AI, 딥페이크, Rogue AI Agents 대응 방안을 다룹니다.
-keywords: [AI, Enterprise-Security, AI-Security, DLP, CASB, Zero-Trust]
 author: Twodragon
+categories:
+- security
+comments: true
+date: 2025-10-31 19:19:44 +0900
+description: 2025년 AI 보안 위협 현황과 기업 AI 서비스 보안 정책 수립 가이드. Shadow AI, 딥페이크, Rogue AI
+  Agents 대응 방안을 다룹니다.
+excerpt: AI 서비스 보안 가이드. Shadow AI 및 딥페이크 대응 방안.
+image: /assets/images/2025-10-31-AI_amplsquoamprsquo_amplsquoSecurity_amprsquo_Batch_AI_Security_Guide.svg
+image_alt: 'AI Era Enterprise AI Service Security Guide: Ensuring Your Assistant Does
+  Not Become a Security Hole'
+keywords:
+- AI
+- Enterprise-Security
+- AI-Security
+- DLP
+- CASB
+- Zero-Trust
+layout: post
+original_url: https://twodragon.tistory.com/697
+tags:
+- AI
+- Enterprise-Security
+- AI-Security
+- Governance
+title: 'AI 시대, 당신의 ''비서''가 ''보안 구멍''이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: AI 서비스 보안 가이드. Shadow AI 및 딥페이크 대응 방안.
+- **주요 주제**: AI 시대, 당신의 '비서'가 '보안 구멍'이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드
+- **키워드**: AI, Enterprise-Security, AI-Security, Governance
+
 ---
 
 <div class="ai-summary-card">
