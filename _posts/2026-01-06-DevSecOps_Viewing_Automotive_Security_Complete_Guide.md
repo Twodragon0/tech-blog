@@ -590,3 +590,32 @@ UN R155는 유엔 자동차 규정으로, 2024년부터 한국을 포함한 여�
 | **UN Regulation No. 155** | Cyber security and cyber security management system | UNECE | [링크](https://unece.org/transport/documents/2021/01/standards/un-regulation-no-155-cyber-security-and-cyber-security) |
 | **OWASP Internet of Things** | IoT 보안 프로젝트 (자동차 포함) | OWASP | [링크](https://owasp.org/www-project-internet-of-things/) |
 | **SAE J3061** | Cybersecurity Guidebook for Cyber-Physical Vehicle Systems | SAE International | [링크](https://www.sae.org/standards/content/j3061_201601/) |
+
+<!-- quality-upgrade:v1 -->
+## Executive Summary
+이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
+
+### 위험 스코어카드
+| 영역 | 현재 위험도 | 영향도 | 우선순위 |
+|---|---|---|---|
+| 공급망/의존성 | Medium | High | P1 |
+| 구성 오류/권한 | Medium | High | P1 |
+| 탐지/가시성 공백 | Low | Medium | P2 |
+
+### 운영 개선 지표
+| 지표 | 현재 기준 | 목표 | 검증 방법 |
+|---|---|---|---|
+| 탐지 리드타임 | 주 단위 | 일 단위 | SIEM 알림 추적 |
+| 패치 적용 주기 | 월 단위 | 주 단위 | 변경 티켓 감사 |
+| 재발 방지율 | 부분 대응 | 표준화 | 회고 액션 추적 |
+
+### 실행 체크리스트
+- [ ] 핵심 경고 룰을 P1/P2로 구분하고 온콜 라우팅을 검증한다.
+- [ ] 취약점 조치 SLA를 서비스 등급별로 재정의한다.
+- [ ] IAM/시크릿/네트워크 변경 이력을 주간 기준으로 리뷰한다.
+- [ ] 탐지 공백 시나리오(로그 누락, 파이프라인 실패)를 월 1회 리허설한다.
+- [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
+
+### 시각 자료
+![Post Visual](/assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg)
+
