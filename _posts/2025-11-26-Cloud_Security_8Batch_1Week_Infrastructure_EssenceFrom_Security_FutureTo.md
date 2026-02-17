@@ -1,19 +1,40 @@
 ---
-layout: post
-title: "클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지"
-date: 2025-11-26 19:36:52 +0900
-category: cloud
-categories: [cloud]
-tags: [Infrastructure, Cloud-Security, AWS]
-excerpt: "클라우드 인프라 본질부터 2025년 AI 보안, Zero Trust, Post-quantum 암호화까지 실무 중심 학습"
-comments: true
-original_url: https://twodragon.tistory.com/701
-image: /assets/images/2025-11-26-Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo.svg
-image_alt: "Cloud Security 8Batch 1Week: From Infrastructure Essence to Security Future"
-toc: true
-description: "클라우드 인프라 본질부터 2025년 보안 트렌드까지. AI 보안, Zero Trust, Post-quantum 암호화 등 최신 보안 기술을 실무 중심으로 학습하세요."
-keywords: [Infrastructure, Cloud-Security, AWS, Zero Trust, AI보안, Post-quantum, 네트워크보안, 클라우드인프라]
 author: Twodragon
+categories:
+- cloud
+category: cloud
+comments: true
+date: 2025-11-26 19:36:52 +0900
+description: 클라우드 인프라 본질부터 2025년 보안 트렌드까지. AI 보안, Zero Trust, Post-quantum 암호화 등 최신
+  보안 기술을 실무 중심으로 학습하세요.
+excerpt: 클라우드 인프라 본질부터 2025년 AI 보안, Zero Trust, Post-quantum 암호화까지 실무 중심 학습
+image: /assets/images/2025-11-26-Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo.svg
+image_alt: 'Cloud Security 8Batch 1Week: From Infrastructure Essence to Security Future'
+keywords:
+- Infrastructure
+- Cloud-Security
+- AWS
+- Zero Trust
+- AI보안
+- Post-quantum
+- 네트워크보안
+- 클라우드인프라
+layout: post
+original_url: https://twodragon.tistory.com/701
+tags:
+- Infrastructure
+- Cloud-Security
+- AWS
+title: '클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: 클라우드 인프라 본질부터 2025년 AI 보안, Zero Trust, Post-quantum 암호화까지 실무 중심 학습
+- **주요 주제**: 클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지
+- **키워드**: Infrastructure, Cloud-Security, AWS
+
 ---
 
 <div class="ai-summary-card">

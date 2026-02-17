@@ -1,18 +1,51 @@
 ---
-layout: post
-title: "보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)"
-date: 2026-01-22 12:30:28 +0900
-categories: [security, devsecops]
-tags: [Security-Vendor-News, DevSecOps, Cloud-Security, Hashicorp, Cloudflare, Snyk, Jamf, Zero-Trust, AI-Security, "2026"]
-excerpt: "VS Code 악용, ACME 취약점, AI Zero Trust, HashiCorp-AWS 클라우드 운영 간소화"
-description: "주요 보안 벤더 최신 동향: VS Code 악용 위협 확대, ACME 인증서 취약점, AI 에이전트 Zero Trust NHI 관리, HashiCorp-AWS 클라우드 운영 간소화 등 2026년 1월 보안 업계 핵심 이슈 심층 분석"
-keywords: [Security-Vendor-News, VS-Code-Security, ACME-Vulnerability, AI-Security, Zero-Trust, NHI, HashiCorp, Cloudflare, Snyk, Jamf, DevSecOps, Cloud-Security]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-01-22 12:30:28 +0900
+description: '주요 보안 벤더 최신 동향: VS Code 악용 위협 확대, ACME 인증서 취약점, AI 에이전트 Zero Trust NHI
+  관리, HashiCorp-AWS 클라우드 운영 간소화 등 2026년 1월 보안 업계 핵심 이슈 심층 분석'
+excerpt: VS Code 악용, ACME 취약점, AI Zero Trust, HashiCorp-AWS 클라우드 운영 간소화
 image: /assets/images/2026-01-22-Security_Vendor_Blog_Weekly_Review.svg
-image_alt: "Security Vendor Blog Weekly Review January 2026"
-toc: true
+image_alt: Security Vendor Blog Weekly Review January 2026
+keywords:
+- Security-Vendor-News
+- VS-Code-Security
+- ACME-Vulnerability
+- AI-Security
+- Zero-Trust
+- NHI
+- HashiCorp
+- Cloudflare
+- Snyk
+- Jamf
+- DevSecOps
+- Cloud-Security
+layout: post
 schema_type: Article
+tags:
+- Security-Vendor-News
+- DevSecOps
+- Cloud-Security
+- Hashicorp
+- Cloudflare
+- Snyk
+- Jamf
+- Zero-Trust
+- AI-Security
+- '2026'
+title: 보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: VS Code 악용, ACME 취약점, AI Zero Trust, HashiCorp-AWS 클라우드 운영 간소화
+- **주요 주제**: 보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)
+- **키워드**: Security-Vendor-News, DevSecOps, Cloud-Security, Hashicorp, Cloudflare
+
 ---
 
 <div class="ai-summary-card">
