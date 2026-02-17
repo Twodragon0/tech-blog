@@ -1,19 +1,45 @@
 ---
-layout: post
-title: "SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성"
-date: 2025-04-29 15:25:12 +0900
-categories: [security]
-tags: [SKT, MFA, USIM, Security-Incident]
-excerpt: "SK텔레콤 USIM 유출 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 설정 필수. SIM 스와핑 위험 및 대응 방법 실무 정리."
+author: Yongho Ha
+categories:
+- security
 comments: true
-original_url: https://twodragon.tistory.com/677
+date: 2025-04-29 15:25:12 +0900
+description: SK텔레콤 USIM 정보 유출 사태 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 활성화, SIM 스와핑 위험성,
+  OTP/MFA 중요성, 통신사 보안 강화 조치, 개인/기업 보안 시사점까지 실무 중심 정리.
+excerpt: SK텔레콤 USIM 유출 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 설정 필수. SIM 스와핑 위험 및 대응 방법
+  실무 정리.
 image: /assets/images/2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_and_MFA_Importance.svg
-image_alt: "SKT Security Issue Complete Response Guide: IMEI Check USIM eSIM Replacement and MFA Importance"
-toc: true
-description: SK텔레콤 USIM 정보 유출 사태 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 활성화, SIM 스와핑 위험성, OTP/MFA 중요성, 통신사 보안 강화 조치, 개인/기업 보안 시사점까지 실무 중심 정리.
-keywords: [SKT, USIM, eSIM, MFA, SIM-스와핑, IMEI, OTP, 보안사고, 통신사보안, 금융보안]
-author: "Yongho Ha"
+image_alt: 'SKT Security Issue Complete Response Guide: IMEI Check USIM eSIM Replacement
+  and MFA Importance'
+keywords:
+- SKT
+- USIM
+- eSIM
+- MFA
+- SIM-스와핑
+- IMEI
+- OTP
+- 보안사고
+- 통신사보안
+- 금융보안
+layout: post
+original_url: https://twodragon.tistory.com/677
 schema_type: Article
+tags:
+- SKT
+- MFA
+- USIM
+- Security-Incident
+title: 'SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: SK텔레콤 USIM 유출 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 설정 필수. SIM 스와핑 위험 및 대응 방법 실무 정리.
+- **주요 주제**: SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성
+- **키워드**: SKT, MFA, USIM, Security-Incident
+
 ---
 
 <div class="ai-summary-card">
@@ -199,6 +225,13 @@ flowchart TD
 
 **공격 메커니즘:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> 
+> ```python
+> # 개념적 공격 흐름 (실제 코드 아님)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 > 
 > ```python
@@ -222,7 +255,9 @@ class InsiderThreat:
             self.activate_new_sim(attacker_sim)
             return "SUCCESS"
 
+
 ```
+-->
 -->
 
 **실제 사례:**
@@ -232,6 +267,13 @@ class InsiderThreat:
 
 **통제 방안:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 통신사 내부 보안 통제 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -257,7 +299,9 @@ internal_controls:
     - periodic_review: quarterly
     - revoke_on_termination: immediate
 
+
 ```
+-->
 -->
 
 #### 벡터 3: 물리적 SIM 복제
@@ -300,6 +344,7 @@ internal_controls:
 **계좌 탈취 시나리오:**
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Step 1: 공격자가 피해자 은행 앱 접속 시도
         ↓
@@ -313,7 +358,9 @@ Step 5: 비밀번호 재설정 완료
         ↓
 Step 6: 계좌 이체 실행
 
+
 ```
+-->
 -->
 
 **실제 피해 통계 (2025년 SKT 사태):**
@@ -329,6 +376,13 @@ Step 6: 계좌 이체 실행
 
 **주요 공격 대상:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> 
+> ```python
+> # 공격자가 선호하는 계정 우선순위...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 > 
 > ```python
@@ -356,11 +410,20 @@ target_accounts = {
     ]
 }
 
+
 ```
+-->
 -->
 
 **2FA 우회 체인:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> Gmail 계정 탈취...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```
@@ -380,7 +443,9 @@ Gmail 계정 탈취
 - AWS (인프라 접근)
 - PayPal (금융)
 
+
 ```
+-->
 -->
 
 ## 3. MITRE ATT&CK 매핑
@@ -404,6 +469,7 @@ SKT USIM 유출 사태와 관련된 SIM 스와핑 공격을 MITRE ATT&CK 프레�
 #### Splunk Detection Query
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 <!-- Splunk SPL for SIM Swap Detection -->
 index=telecom sourcetype=sim_activation
@@ -420,7 +486,9 @@ index=telecom sourcetype=sim_activation
 | table customer_id, activation_time, device_imei, suspicious_logins, risk_score
 | sort - risk_score
 
+
 ```
+-->
 -->
 
 **탐지 로직 설명:**
@@ -432,6 +500,7 @@ index=telecom sourcetype=sim_activation
 
 #### Azure Sentinel KQL Query
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // Azure Sentinel KQL for SIM Swap Detection
@@ -456,11 +525,20 @@ sim_changes
           FailedAttempts, RiskScore
 | sort by RiskScore desc
 
+
 ```
+-->
 -->
 
 #### 탐지 Rule 구성
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # SIEM Rule Configuration...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -501,7 +579,9 @@ response:
     - verify_identity: multi_factor
     - investigate_activation: required
 
+
 ```
+-->
 -->
 
 ## 4. 종합 대응 가이드
@@ -534,6 +614,7 @@ response:
 **SKT 매장 방문 절차:**
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 1. 가까운 SKT 매장 방문
    ↓
@@ -555,10 +636,14 @@ response:
    ↓
 7. IMEI 변경 알림 서비스 가입
 
+
 ```
+-->
 -->
 
 **eSIM 전환 절차 (iPhone 예시):**
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -572,6 +657,8 @@ response:
 ```
 
 **Android eSIM 활성화:**
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -601,6 +688,13 @@ response:
 
 **SMS OTP 취약점:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> 
+> ```python
+> # SMS OTP 공격 벡터...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 > 
 > ```python
@@ -634,7 +728,9 @@ class SMSOTPWeakness:
         }
     }
 
+
 ```
+-->
 -->
 
 **SS7 프로토콜 공격 예시:**
@@ -666,6 +762,7 @@ Attacker → SS7 네트워크 침투
 **Google Authenticator 설정 예시:**
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 1. 금융 앱/서비스 로그인
    ↓
@@ -685,11 +782,20 @@ Attacker → SS7 네트워크 침투
    ↓
 9. 백업 코드 저장 (중요!)
 
+
 ```
+-->
 -->
 
 **백업 코드 관리 Best Practice:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 백업 코드 저장 전략...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -721,13 +827,16 @@ security_measures:
   - review_quarterly
   - destroy_old_codes_securely
 
+
 ```
+-->
 -->
 
 #### 4.2.3 하드웨어 보안 키 (FIDO2)
 
 **FIDO2 인증 프로세스:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 사용자가 로그인 시도
@@ -742,7 +851,9 @@ security_measures:
         ↓
 로그인 승인
 
+
 ```
+-->
 -->
 
 **주요 하드웨어 보안 키:**
@@ -763,6 +874,13 @@ security_measures:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. Google 계정 보안 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Google 계정 보안 설정
 https://myaccount.google.com/security
@@ -775,11 +893,20 @@ https://myaccount.google.com/security
 
 # 5. 백업 키 추가 등록 권장
 
+
 ```
+-->
 -->
 
 **FIDO2 지원 서비스:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # 주요 서비스 FIDO2 지원 현황 (2025년 기준)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
 > ```yaml
@@ -809,7 +936,9 @@ korean_services:
     - upbit: full_support
     - bithumb: full_support
 
+
 ```
+-->
 -->
 
 ### 4.3 IMEI 확인 및 모니터링
@@ -859,6 +988,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 **IMEI 구조 분석:**
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 IMEI: 35 891702 123456 7
       │  │       │      └─ Check Digit (Luhn algorithm)
@@ -871,13 +1001,22 @@ IMEI: 35 891702 123456 7
 - SNR (123456): 제조 일련번호
 - Check Digit (7): 유효성 검증
 
+
 ```
+-->
 -->
 
 #### 4.3.2 IMEI 기록 및 보안
 
 **IMEI 정보 안전 저장:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # IMEI 정보 관리 템플릿...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -908,11 +1047,20 @@ security_measures:
   - do_not_share_publicly: true
   - verify_monthly: true
 
+
 ```
+-->
 -->
 
 **IMEI 변조 탐지:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> 
+> ```python
+> # IMEI 유효성 검증 (Luhn Algorithm)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 > 
 > ```python
@@ -947,13 +1095,16 @@ if validate_imei(test_imei):
 else:
     print("⚠️ Invalid IMEI - Possible forgery")
 
+
 ```
+-->
 -->
 
 #### 4.3.3 통신사 IMEI 변경 알림 서비스
 
 **SKT IMEI 변경 알림 설정:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 1. T world 앱 실행
@@ -969,7 +1120,9 @@ else:
    - 앱 푸시
    - 이메일 (복수 선택 가능)
 
+
 ```
+-->
 -->
 
 **알림 트리거 조건:**
@@ -994,6 +1147,13 @@ else:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 주요 은행 일일 이체 한도 권장 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 주요 은행 일일 이체 한도 권장 설정
 conservative_limits:
@@ -1011,11 +1171,14 @@ business_limits:
   overseas_transfer: "별도 승인"
   atm_withdrawal: "100만원"
 
+
 ```
+-->
 -->
 
 **KB국민은행 한도 설정:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 1. KB Star Banking 앱 실행
@@ -1030,13 +1193,16 @@ business_limits:
    ↓
 5. 즉시 적용
 
+
 ```
+-->
 -->
 
 #### 4.4.2 생체 인증 설정
 
 **Android 생체 인증 (BiometricPrompt):**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kotlin
 // Android 금융 앱 생체 인증 구현 예시
@@ -1072,11 +1238,14 @@ class SecureBankingActivity : AppCompatActivity() {
     }
 }
 
+
 ```
+-->
 -->
 
 **iOS Face ID/Touch ID 설정:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```swift
 // iOS 금융 앱 생체 인증 구현
@@ -1106,13 +1275,16 @@ class SecureBankingViewController: UIViewController {
     }
 }
 
+
 ```
+-->
 -->
 
 #### 4.4.3 이상 거래 탐지 및 알림
 
 **실시간 알림 설정:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 1. 은행 앱 > 설정 > 알림 서비스
@@ -1129,7 +1301,9 @@ class SecureBankingViewController: UIViewController {
    - SMS (백업)
    - 이메일 (기록용)
 
+
 ```
+-->
 -->
 
 **이상 거래 패턴:**
@@ -1158,6 +1332,7 @@ class SecureBankingViewController: UIViewController {
 **SKT 사태 후속 조치:**
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 1. 과학기술정보통신부 특별 감사
    ↓
@@ -1170,13 +1345,22 @@ class SecureBankingViewController: UIViewController {
    ↓
 4. 피해자 집단 소송 진행 중
 
+
 ```
+-->
 -->
 
 ### 5.2 통신사 보안 규제 강화
 
 **새로운 규제 요구사항 (2025년 시행):**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 통신사 보안 의무 강화 (전기통신사업법 개정안)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -1212,13 +1396,16 @@ mandatory_security_measures:
     - non_compliance_fine: "up_to_5%_revenue"
     - repeated_violations: "license_suspension"
 
+
 ```
+-->
 -->
 
 ### 5.3 금융권 대응 현황
 
 **금융감독원 긴급 지침:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [2025-04-22] 금융사 대상 긴급 보안 강화 지침
@@ -1236,7 +1423,9 @@ mandatory_security_measures:
    - AI 기반 실시간 모니터링
    - 위험 거래 자동 차단
 
+
 ```
+-->
 -->
 
 **은행별 대응 현황:**
@@ -1253,6 +1442,7 @@ mandatory_security_measures:
 
 ### 6.1 Executive Summary for Board
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 # SKT USIM 유출 사태 대응 현황 보고
@@ -1302,11 +1492,14 @@ mandatory_security_measures:
 2. SMS 인증 폐지 로드맵 승인
 3. CISO 직속 보안팀 2명 증원
 
+
 ```
+-->
 -->
 
 ### 6.2 Risk Matrix
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 위험도 매트릭스 (Likelihood × Impact)
@@ -1336,7 +1529,9 @@ C = Critical Risk (치명적)
 - 내부자 협조 공격: Likelihood 2, Impact 5 = HIGH
 - 피싱 공격 증가: Likelihood 5, Impact 3 = HIGH
 
+
 ```
+-->
 -->
 
 ## 7. 통신사 보안 아키텍처 권장사항
@@ -1373,6 +1568,13 @@ C = Critical Risk (치명적)
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Zero Trust Architecture for Telecom...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Zero Trust Architecture for Telecom
 components:
@@ -1398,13 +1600,16 @@ components:
     - anomaly_detection: "real-time"
     - threat_intelligence: "integrated"
 
+
 ```
+-->
 -->
 
 ### 7.2 SIM 인증 강화 아키텍처
 
 **다중 요소 SIM 인증:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 SIM 교체 요청
@@ -1423,11 +1628,20 @@ SIM 교체 요청
     ↓
 ✅ SIM 활성화
 
+
 ```
+-->
 -->
 
 **권장 기술 스택:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> 
+> ```python
+> # 통신사 SIM 보호 시스템 아키텍처...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 > 
 > ```python
@@ -1468,13 +1682,22 @@ class SecureSIMManagement:
 
         return self.approve_with_monitoring(request)
 
+
 ```
+-->
 -->
 
 ### 7.3 AI 기반 이상 탐지
 
 **Machine Learning 모델:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> 
+> ```python
+> # SIM 스와핑 탐지 ML 모델...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 > 
 > ```python
@@ -1530,7 +1753,9 @@ class SIMSwapDetector:
         else:
             return "MONITOR_CLOSELY"
 
+
 ```
+-->
 -->
 
 **탐지 특징 (Features):**
@@ -1550,6 +1775,7 @@ class SIMSwapDetector:
 
 #### Splunk 위협 헌팅 쿼리
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 <!-- SKT 사태 관련 위협 헌팅 - Splunk SPL -->
@@ -1596,11 +1822,14 @@ index=authentication event_type="password_reset"
 ]
 | table user_id, device_id, first_seen, password_reset_time, ip_address
 
+
 ```
+-->
 -->
 
 #### Azure Sentinel KQL 헌팅 쿼리
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // SKT 사태 관련 위협 헌팅 - Azure Sentinel KQL
@@ -1644,13 +1873,22 @@ TelecomEvents
 | where array_length(Carriers) > 1  // 2개 이상 통신사
 | project UserId, TimeGenerated, Carriers, ActivationCount
 
+
 ```
+-->
 -->
 
 ### 8.2 지표 기반 탐지 (IOCs)
 
 **Indicators of Compromise for SIM Swapping:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # IOC 정의...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -1691,13 +1929,16 @@ network_indicators:
     - data_exfiltration: "unusual upload volume"
     - sms_forwarding_enabled: "suspicious"
 
+
 ```
+-->
 -->
 
 ### 8.3 사고 대응 플레이북
 
 **SIM 스와핑 탐지 시 즉시 대응:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─ ALERT: Possible SIM Swapping Detected ─┐
@@ -1740,13 +1981,16 @@ network_indicators:
 │ 5. Regulatory reporting               │
 └───────────────────────────────────────┘
 
+
 ```
+-->
 -->
 
 ## 9. 개인 사용자 완벽 보안 체크리스트
 
 ### 9.1 즉시 실행 (24시간 이내)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 긴급 보안 조치 (우선순위 순)
@@ -1776,11 +2020,14 @@ network_indicators:
    - SMS + 앱 푸시 + 이메일 (3중 알림)
    - 예상 소요: 3분
 
+
 ```
+-->
 -->
 
 ### 9.2 1주일 내 실행
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 중요 보안 강화
@@ -1818,11 +2065,14 @@ network_indicators:
    - Android: 지문/얼굴 인식 활성화
    - 예상 소요: 15분
 
+
 ```
+-->
 -->
 
 ### 9.3 1개월 내 실행
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 장기 보안 전략
@@ -1856,11 +2106,20 @@ network_indicators:
     - 의심스러운 문자/전화 신고 교육
     - 예상 소요: 60분
 
+
 ```
+-->
 -->
 
 ### 9.4 지속적 모니터링
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 월간 보안 점검 루틴...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -1900,7 +2159,9 @@ alerts_to_enable:
   - sim_activation
   - imei_change
 
+
 ```
+-->
 -->
 
 ## 10. 기업 보안 담당자를 위한 가이드
@@ -1909,6 +2170,7 @@ alerts_to_enable:
 
 **SKT 사태 영향 분석 워크시트:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 ## 기업 노출도 평가
@@ -1936,13 +2198,22 @@ alerts_to_enable:
 - [ ] MDM (Mobile Device Management): 예/아니오
 - [ ] SIEM/로그 모니터링: 예/아니오
 
+
 ```
+-->
 -->
 
 ### 10.2 기업 대응 로드맵
 
 **Phase 1: 긴급 대응 (1주일)**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> immediate_actions:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -1978,11 +2249,20 @@ immediate_actions:
     - restrict_sms_otp_for_critical_systems
     - require_additional_verification_financial_transactions
 
+
 ```
+-->
 -->
 
 **Phase 2: 단기 강화 (1개월)**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> short_term_hardening:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -2025,11 +2305,20 @@ short_term_hardening:
         mandatory: "all_employees"
         deadline: "30 days"
 
+
 ```
+-->
 -->
 
 **Phase 3: 장기 전략 (6개월)**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> long_term_strategy:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
@@ -2080,7 +2369,9 @@ long_term_strategy:
         - gdpr_personal_data_protection
         - pci_dss_mfa_requirements
 
+
 ```
+-->
 -->
 
 ### 10.3 예산 계획
@@ -2107,6 +2398,7 @@ long_term_strategy:
 
 ### 10.4 임직원 커뮤니케이션 템플릿
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 제목: [긴급] SKT USIM 유출 사태 대응 필수 조치 안내
@@ -2147,7 +2439,9 @@ long_term_strategy:
 2025년 4월 30일
 CISO / 정보보호팀
 
+
 ```
+-->
 -->
 
 ## 11. 참고 자료

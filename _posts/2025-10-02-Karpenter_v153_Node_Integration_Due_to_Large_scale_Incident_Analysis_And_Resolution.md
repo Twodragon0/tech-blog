@@ -1,18 +1,41 @@
 ---
-layout: post
-title: "Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기"
-date: 2025-10-02 17:25:43 +0900
-categories: [incident]
-tags: [Karpenter, Kubernetes, AWS, Post-Mortem, Incident, EKS]
-excerpt: "Karpenter v1.5.3 노드 통합 장애 분석. PDB 적용을 통한 재발 방지."
-comments: true
-original_url: https://twodragon.tistory.com/695
-image: /assets/images/2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large-scale_Incident_Analysis_and_Resolution.svg
-image_alt: "Karpenter v1.5.3 Large-Scale Incident Analysis and Resolution Due to Node Integration"
-toc: true
-description: Karpenter v1.5.3 공격적 노드 통합 정책으로 인한 장애 분석과 PodDisruptionBudget 적용을 통한 재발 방지 방안을 다룹니다.
-keywords: [Karpenter, Kubernetes, AWS, EKS, PodDisruptionBudget, Post-Mortem]
 author: Twodragon
+categories:
+- incident
+comments: true
+date: 2025-10-02 17:25:43 +0900
+description: Karpenter v1.5.3 공격적 노드 통합 정책으로 인한 장애 분석과 PodDisruptionBudget 적용을 통한
+  재발 방지 방안을 다룹니다.
+excerpt: Karpenter v1.5.3 노드 통합 장애 분석. PDB 적용을 통한 재발 방지.
+image: /assets/images/2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large-scale_Incident_Analysis_and_Resolution.svg
+image_alt: Karpenter v1.5.3 Large-Scale Incident Analysis and Resolution Due to Node
+  Integration
+keywords:
+- Karpenter
+- Kubernetes
+- AWS
+- EKS
+- PodDisruptionBudget
+- Post-Mortem
+layout: post
+original_url: https://twodragon.tistory.com/695
+tags:
+- Karpenter
+- Kubernetes
+- AWS
+- Post-Mortem
+- Incident
+- EKS
+title: Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Karpenter v1.5.3 노드 통합 장애 분석. PDB 적용을 통한 재발 방지.
+- **주요 주제**: Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기
+- **키워드**: Karpenter, Kubernetes, AWS, Post-Mortem, Incident
+
 ---
 
 <div class="ai-summary-card">
