@@ -1,18 +1,43 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: Signal Phishing, BlackField Ransomware, Zero Trust Data"
-date: 2026-02-08 10:58:46 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Signal-Phishing, BlackField-Ransomware, Zero-Trust, Data-Security]
-excerpt: "2026년 02월 08일 주요 보안/기술 뉴스 15건 - Signal 피싱 국가지원 공격, BlackField 랜섬웨어 코드 재활용, 제로트러스트 데이터 보안"
-description: "2026년 02월 08일 보안 뉴스: 독일 BfV/BSI가 경고한 러시아 연계 Signal 피싱 공격(정치인/군인/언론인 타겟), BlackField 랜섬웨어 코드 재활용, 제로트러스트 데이터 중심 보안전략. DevSecOps 실무 위협 분석, MITRE ATT&CK 매핑, 탐지 쿼리, IR 플레이북 제공."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Signal-Phishing, BlackField-Ransomware, Zero-Trust, Data-Security]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-02-08 10:58:46 +0900
+description: '2026년 02월 08일 보안 뉴스: 독일 BfV/BSI가 경고한 러시아 연계 Signal 피싱 공격(정치인/군인/언론인
+  타겟), BlackField 랜섬웨어 코드 재활용, 제로트러스트 데이터 중심 보안전략. DevSecOps 실무 위협 분석, MITRE ATT&CK
+  매핑, 탐지 쿼리, IR 플레이북 제공.'
+excerpt: 2026년 02월 08일 주요 보안/기술 뉴스 15건 - Signal 피싱 국가지원 공격, BlackField 랜섬웨어 코드 재활용,
+  제로트러스트 데이터 보안
 image: /assets/images/2026-02-08-Tech_Security_Weekly_Digest_AI_Ransomware_Data.svg
-image_alt: "Tech Security Weekly Digest February 08 2026 Signal Phishing BlackField Ransomware Zero Trust Data"
-toc: true
+image_alt: Tech Security Weekly Digest February 08 2026 Signal Phishing BlackField
+  Ransomware Zero Trust Data
+keywords:
+- Security-Weekly
+- DevSecOps
+- Cloud-Security
+- Weekly-Digest
+- 2026
+- Signal-Phishing
+- BlackField-Ransomware
+- Zero-Trust
+- Data-Security
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- DevSecOps
+- Cloud-Security
+- Weekly-Digest
+- 2026
+- Signal-Phishing
+- BlackField-Ransomware
+- Zero-Trust
+- Data-Security
+title: 'Tech & Security Weekly Digest: Signal Phishing, BlackField Ransomware, Zero
+  Trust Data'
+toc: true
 ---
 
 {% include ai-summary-card.html
@@ -31,6 +56,15 @@ schema_type: Article
   period='2026년 02월 08일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
+
+## 요약
+
+- **핵심 요약**: 2026년 02월 08일 주요 보안/기술 뉴스 15건 - Signal 피싱 국가지원 공격, BlackField 랜섬웨어 코드 재활용, 제로트러스트 데이터 보안
+- **주요 주제**: Tech & Security Weekly Digest: Signal Phishing, BlackField Ransomware, Zero Trust Data
+- **키워드**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026
+
+---
+
 
 ## Executive Summary (경영진 브리핑)
 

@@ -1,18 +1,48 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용, Grist-Core RCE 취약점"
-date: 2026-01-28 12:06:07 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, CVE-2026-21509, Microsoft-Office, Zero-Day, CTEM, Grist-Core, RCE, Cloud-Security, "2026"]
-excerpt: "MS Office Zero-Day(CVE-2026-21509) 긴급 패치, CTEM 프레임워크 실무 가이드, Grist-Core RCE 취약점 대응"
-description: "2026년 1월 28일 보안 뉴스: Microsoft Office Zero-Day 취약점 긴급 패치 방법, CTEM 5단계 프레임워크 실무 적용, Grist-Core RCE 취약점 분석 및 대응 가이드"
-keywords: [CVE-2026-21509, Microsoft Office Zero-Day, CTEM, Grist-Core RCE, 보안 패치, DevSecOps]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-01-28 12:06:07 +0900
+description: '2026년 1월 28일 보안 뉴스: Microsoft Office Zero-Day 취약점 긴급 패치 방법, CTEM 5단계
+  프레임워크 실무 적용, Grist-Core RCE 취약점 분석 및 대응 가이드'
+excerpt: MS Office Zero-Day(CVE-2026-21509) 긴급 패치, CTEM 프레임워크 실무 가이드, Grist-Core RCE
+  취약점 대응
 image: /assets/images/2026-01-28-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE.svg
-image_alt: "Tech and Security Weekly Digest January 2026 - CVE-2026-21509 MS Office Zero-Day CTEM Framework"
-toc: true
+image_alt: Tech and Security Weekly Digest January 2026 - CVE-2026-21509 MS Office
+  Zero-Day CTEM Framework
+keywords:
+- CVE-2026-21509
+- Microsoft Office Zero-Day
+- CTEM
+- Grist-Core RCE
+- 보안 패치
+- DevSecOps
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- DevSecOps
+- CVE-2026-21509
+- Microsoft-Office
+- Zero-Day
+- CTEM
+- Grist-Core
+- RCE
+- Cloud-Security
+- '2026'
+title: 'Tech & Security Weekly Digest: Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용,
+  Grist-Core RCE 취약점'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: MS Office Zero-Day(CVE-2026-21509) 긴급 패치, CTEM 프레임워크 실무 가이드, Grist-Core RCE 취약점 대응
+- **주요 주제**: Tech & Security Weekly Digest: Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용, Grist-Core RCE 취약점
+- **키워드**: Security-Weekly, DevSecOps, CVE-2026-21509, Microsoft-Office, Zero-Day
+
 ---
 
 <div class="ai-summary-card">
