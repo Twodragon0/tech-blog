@@ -101,3 +101,14 @@ referenced_images.txt
 .omc/sessions/
 .omc/notepads/
 .omc/checkpoints/
+
+# Local agent scaffolding / generated prompt artifacts
+HEARTBEAT.md
+IDENTITY.md
+SOUL.md
+TOOLS.md
+USER.md
+_drafts/prompts/
+
+# Local/generated news processing state
+_data/processed_news_ids.json

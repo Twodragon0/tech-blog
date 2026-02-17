@@ -1,0 +1,110 @@
+name: Slack Category Digest
+
+on:
+  schedule:
+    - cron: "0 1 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  post-category-digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        channel_alias: [security, dev, ops]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip pyyaml
+
+      - name: Build digest message
+        id: digest
+        shell: bash
+        run: |
+          set -euo pipefail
+          message=$(python scripts/post_category_slack_digest.py \
+            --window-hours 24 \
+            --channel-alias "${{ matrix.channel_alias }}" \
+            --site-url "https://tech.2twodragon.com" || true)
+          if [ -z "$message" ]; then
+            echo "has_message=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "has_message=true" >> "$GITHUB_OUTPUT"
+          {
+            echo "message<<EOF"
+            echo "$message"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Validate OpenClaw config
+        id: openclaw-config
+        shell: bash
+        env:
+          TARGET_CHANNEL_ALIAS: ${{ matrix.channel_alias }}
+          OPENCLAW_GATEWAY_URL: ${{ secrets.OPENCLAW_GATEWAY_URL }}
+          OPENCLAW_GATEWAY_TOKEN: ${{ secrets.OPENCLAW_GATEWAY_TOKEN }}
+          SLACK_CHANNEL_ID_SECURITY: ${{ secrets.SLACK_CHANNEL_ID_SECURITY }}
+          SLACK_CHANNEL_ID_DEV: ${{ secrets.SLACK_CHANNEL_ID_DEV }}
+          SLACK_CHANNEL_ID_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
+        run: |
+          set -euo pipefail
+          can_post=true
+          alias="${TARGET_CHANNEL_ALIAS:-security}"
+
+          case "$alias" in
+            security)
+              channel_id="${SLACK_CHANNEL_ID_SECURITY:-}"
+              ;;
+            dev)
+              channel_id="${SLACK_CHANNEL_ID_DEV:-}"
+              ;;
+            ops)
+              channel_id="${SLACK_CHANNEL_ID_OPS:-}"
+              ;;
+            *)
+              channel_id=""
+              ;;
+          esac
+
+          if [ -z "$OPENCLAW_GATEWAY_URL" ]; then
+            echo "No OpenClaw gateway URL; skip post"
+            can_post=false
+          fi
+          if [ -z "$OPENCLAW_GATEWAY_TOKEN" ]; then
+            echo "No OpenClaw gateway token; skip post"
+            can_post=false
+          fi
+          if [ -z "$channel_id" ]; then
+            echo "No Slack channel id secret found; skip post"
+            can_post=false
+          fi
+          echo "can_post=$can_post" >> "$GITHUB_OUTPUT"
+          echo "channel_id=$channel_id" >> "$GITHUB_OUTPUT"
+          echo "gateway_url=$OPENCLAW_GATEWAY_URL" >> "$GITHUB_OUTPUT"
+          echo "gateway_token=$OPENCLAW_GATEWAY_TOKEN" >> "$GITHUB_OUTPUT"
+
+      - name: Post to Slack via OpenClaw Gateway
+        if: steps.digest.outputs.has_message == 'true' && steps.openclaw-config.outputs.can_post == 'true'
+        shell: bash
+        env:
+          MESSAGE: ${{ steps.digest.outputs.message }}
+          TARGET_CHANNEL_ID: ${{ steps.openclaw-config.outputs.channel_id }}
+        run: |
+          set -euo pipefail
+          payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
+          curl -sS "${{ steps.openclaw-config.outputs.gateway_url }}/tools/invoke" \
+            -H "Authorization: Bearer ${{ steps.openclaw-config.outputs.gateway_token }}" \
+            -H "Content-Type: application/json" \
+            -d "$payload"
