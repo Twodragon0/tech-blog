@@ -1,19 +1,45 @@
 ---
-layout: post
-title: "Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드"
-date: 2025-05-02 18:55:13 +0900
-categories: [security]
-tags: [Kandji, macOS, MDM, Endpoint-Security, Compliance]
-excerpt: "Kandji macOS 엔드포인트 관리 완벽 가이드. MDM, 보안, Zero Trust, AI 위협 탐지 실무 정리."
+author: Yongho Ha
+categories:
+- security
 comments: true
-original_url: https://twodragon.tistory.com/680
+date: 2025-05-02 18:55:13 +0900
+description: Kandji macOS 엔드포인트 관리 완벽 가이드. MDM 정책 설정, 보안 강화, 패스키 기반 인증, FIDO2/WebAuthn
+  통합, Zero Trust 적용, AI 위협 탐지까지 2025년 최신 보안 트렌드 정리.
+excerpt: Kandji macOS 엔드포인트 관리 완벽 가이드. MDM, 보안, Zero Trust, AI 위협 탐지 실무 정리.
 image: /assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.svg
-image_alt: "Kandji macOS Complete Master: Setup from Security Regulation Compliance to All-in-One Guide"
-toc: true
-description: Kandji macOS 엔드포인트 관리 완벽 가이드. MDM 정책 설정, 보안 강화, 패스키 기반 인증, FIDO2/WebAuthn 통합, Zero Trust 적용, AI 위협 탐지까지 2025년 최신 보안 트렌드 정리.
-keywords: [Kandji, macOS, MDM, UEM, Endpoint-Security, Passkey, FIDO2, Zero-Trust, AI보안, Compliance]
-author: "Yongho Ha"
+image_alt: 'Kandji macOS Complete Master: Setup from Security Regulation Compliance
+  to All-in-One Guide'
+keywords:
+- Kandji
+- macOS
+- MDM
+- UEM
+- Endpoint-Security
+- Passkey
+- FIDO2
+- Zero-Trust
+- AI보안
+- Compliance
+layout: post
+original_url: https://twodragon.tistory.com/680
 schema_type: Article
+tags:
+- Kandji
+- macOS
+- MDM
+- Endpoint-Security
+- Compliance
+title: Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Kandji macOS 엔드포인트 관리 완벽 가이드. MDM, 보안, Zero Trust, AI 위협 탐지 실무 정리.
+- **주요 주제**: Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드
+- **키워드**: Kandji, macOS, MDM, Endpoint-Security, Compliance
+
 ---
 
 <div class="ai-summary-card">

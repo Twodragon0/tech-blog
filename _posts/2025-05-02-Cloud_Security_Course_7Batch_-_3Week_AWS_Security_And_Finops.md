@@ -1,20 +1,47 @@
 ---
-layout: post
-title: "클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps"
-date: 2025-05-02 00:41:54 +0900
-categories: [cloud]
-tags: [AWS, FinOps, Cloud-Security, Cost-Optimization, Well-Architected]
-excerpt: "AWS 보안 및 FinOps 완벽 가이드. GuardDuty, Security Hub, IAM 보안 설정 및 비용 최적화 전략 실무 정리."
+author: Yongho Ha
+categories:
+- cloud
+certifications:
+- aws-saa
 comments: true
-original_url: https://twodragon.tistory.com/679
+date: 2025-05-02 00:41:54 +0900
+description: 클라우드 시큐리티 7기 3주차. AWS 보안 서비스 전체 구조(IAM, Organizations, CloudTrail, GuardDuty,
+  Security Hub), FinOps 프레임워크, 비용 최적화 전략, AWS Well-Architected Framework 실무 적용.
+excerpt: AWS 보안 및 FinOps 완벽 가이드. GuardDuty, Security Hub, IAM 보안 설정 및 비용 최적화 전략 실무
+  정리.
 image: /assets/images/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_and_Finops.svg
-image_alt: "Cloud Security Course 7Batch 3Week: AWS Security and FinOps"
-toc: true
-description: 클라우드 시큐리티 7기 3주차. AWS 보안 서비스 전체 구조(IAM, Organizations, CloudTrail, GuardDuty, Security Hub), FinOps 프레임워크, 비용 최적화 전략, AWS Well-Architected Framework 실무 적용.
-keywords: [AWS, FinOps, GuardDuty, Security-Hub, IAM, CloudTrail, Cost-Optimization, Well-Architected, 비용최적화, 클라우드보안]
-author: "Yongho Ha"
-certifications: [aws-saa]
+image_alt: 'Cloud Security Course 7Batch 3Week: AWS Security and FinOps'
+keywords:
+- AWS
+- FinOps
+- GuardDuty
+- Security-Hub
+- IAM
+- CloudTrail
+- Cost-Optimization
+- Well-Architected
+- 비용최적화
+- 클라우드보안
+layout: post
+original_url: https://twodragon.tistory.com/679
 schema_type: Article
+tags:
+- AWS
+- FinOps
+- Cloud-Security
+- Cost-Optimization
+- Well-Architected
+title: '클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: AWS 보안 및 FinOps 완벽 가이드. GuardDuty, Security Hub, IAM 보안 설정 및 비용 최적화 전략 실무 정리.
+- **주요 주제**: 클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps
+- **키워드**: AWS, FinOps, Cloud-Security, Cost-Optimization, Well-Architected
+
 ---
 
 <div class="ai-summary-card">
@@ -211,6 +238,7 @@ AWS 보안 서비스는 계층화된 방어 전략(Defense in Depth)을 구현�
 
 ### 1.1.7 보안 서비스 통합 아키텍처
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart TB
     subgraph "Identity Layer"
@@ -259,7 +287,9 @@ flowchart TB
     style SH fill:#ff6b6b
     style GD fill:#4ecdc4
     style CT fill:#95e1d3
+
 ```
+-->
 
 > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.
 
@@ -271,6 +301,13 @@ IAM은 AWS 보안의 핵심 기반입니다. 잘못된 IAM 설정은 전체 인�
 
 사용자나 서비스에 필요한 최소한의 권한만 부여합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -289,7 +326,9 @@ IAM은 AWS 보안의 핵심 기반입니다. 잘못된 IAM 설정은 전체 인�
     }
   ]
 }
+
 ```
+-->
 
 #### 1.2.2 조건부 정책 (Conditional Policies)
 
@@ -302,6 +341,13 @@ IP, MFA, 시간 등 조건 기반 접근 제어를 적용합니다.
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -329,13 +375,22 @@ IP, MFA, 시간 등 조건 기반 접근 제어를 적용합니다.
   ]
 }
 
+
 ```
+-->
 -->
 
 #### 1.2.3 역할 기반 접근 제어 (RBAC)
 
 사용자 대신 역할을 사용하여 임시 자격증명으로 작업합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -349,12 +404,21 @@ IP, MFA, 시간 등 조건 기반 접근 제어를 적용합니다.
     }
   ]
 }
+
 ```
+-->
 
 #### 1.2.4 IAM Access Analyzer
 
 IAM Access Analyzer는 외부에 노출된 리소스를 자동으로 탐지합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # IAM Access Analyzer 활성화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # IAM Access Analyzer 활성화
 aws accessanalyzer create-analyzer \
@@ -366,11 +430,15 @@ aws accessanalyzer create-analyzer \
 aws accessanalyzer list-findings \
   --analyzer-arn arn:aws:access-analyzer:ap-northeast-2:123456789:analyzer/organization-analyzer \
   --query 'findings[?status==`ACTIVE`]'
+
 ```
+-->
 
 #### 1.2.5 IAM 정책 시뮬레이터
 
 정책 변경 전 영향도를 사전 검증합니다.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # 정책 시뮬레이션
@@ -395,6 +463,7 @@ VPC는 네트워크 수준의 보안 경계를 제공합니다.
 
 #### 1.3.2 Security Group 계층화 전략
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart LR
     A["Internet<br/>Gateway"] --> B["ALB<br/>Security Group"]
@@ -406,10 +475,19 @@ flowchart LR
     style C fill:#95e1d3
     style D fill:#f38181
     style E fill:#ff6b6b
+
 ```
+-->
 
 > **참고**: VPC 보안 구성 관련 내용은 [Terraform AWS VPC 모듈](https://github.com/terraform-aws-modules/terraform-aws-vpc) 및 [AWS VPC 보안 모범 사례](https://docs.aws.amazon.com/vpc/latest/userguide/security.html)를 참조하세요.
 >
+> ```hcl
+> # Terraform: 보안 VPC 구성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
 > ```hcl
 > # Terraform: 보안 VPC 구성...
 > ```
@@ -458,13 +536,22 @@ resource "aws_flow_log" "main" {
   vpc_id          = aws_vpc.secure_vpc.id
 }
 
+
 ```
+-->
 -->
 
 #### 1.3.3 VPC Flow Logs 분석
 
 VPC Flow Logs는 네트워크 트래픽을 기록하며, 보안 분석 및 문제 해결에 사용됩니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # VPC Flow Logs 활성화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # VPC Flow Logs 활성화
 aws ec2 create-flow-logs \
@@ -481,12 +568,21 @@ fields @timestamp, srcAddr, dstAddr, srcPort, dstPort, protocol, bytes
 | stats count() by srcAddr
 | sort count desc
 | limit 10
+
 ```
+-->
 
 #### 1.3.4 PrivateLink를 통한 서비스 연결
 
 AWS PrivateLink는 인터넷 노출 없이 AWS 서비스에 안전하게 연결합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # VPC Endpoint for S3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # VPC Endpoint for S3
 resource "aws_vpc_endpoint" "s3" {
@@ -512,7 +608,9 @@ resource "aws_vpc_endpoint" "s3" {
     ]
   })
 }
+
 ```
+-->
 
 ## 2. AWS 보안 서비스 상세
 
@@ -532,6 +630,7 @@ GuardDuty는 AWS 환경의 위협을 실시간으로 탐지합니다. 자동화�
 
 #### 2.1.2 자동화 대응 아키텍처
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart LR
     A["GuardDuty<br/>Finding"] --> B["EventBridge<br/>Rule"]
@@ -546,7 +645,9 @@ flowchart LR
     style A fill:#ff6b6b
     style E fill:#4ecdc4
     style H fill:#ff6b6b
+
 ```
+-->
 
 > **참고**: AWS GuardDuty 자동화 대응 관련 내용은 [AWS GuardDuty 문서](https://docs.aws.amazon.com/guardduty/) 및 [AWS Lambda를 통한 GuardDuty 자동 대응](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html)을 참조하세요.
 >
@@ -555,6 +656,13 @@ flowchart LR
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 import json
@@ -595,10 +703,14 @@ def handle_high_severity(detail):
         Message=json.dumps(detail, indent=2)
     )
 
+
 ```
+-->
 -->
 
 #### 2.1.3 EventBridge 규칙 설정
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```json
 {
@@ -616,6 +728,13 @@ def handle_high_severity(detail):
 
 위협이 탐지된 인스턴스를 즉시 격리하기 위한 보안그룹입니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_security_group" "isolation" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_security_group" "isolation" {
   name        = "isolation-sg"
@@ -647,7 +766,9 @@ resource "aws_security_group" "isolation" {
     Purpose = "Quarantine compromised instances"
   }
 }
+
 ```
+-->
 
 ### 2.2 Security Hub 통합 관리
 
@@ -666,6 +787,13 @@ Security Hub는 모든 보안 서비스의 결과를 중앙에서 관리합니�
 
 Security Hub는 AWS Config와 통합하여 자동 수정을 제공합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # SSM Automation Document: S3 퍼블릭 액세스 자동 차단...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # SSM Automation Document: S3 퍼블릭 액세스 자동 차단
 schemaVersion: '0.3'
@@ -685,12 +813,21 @@ mainSteps:
         IgnorePublicAcls: true
         BlockPublicPolicy: true
         RestrictPublicBuckets: true
+
 ```
+-->
 
 #### 2.2.3 커스텀 인사이트
 
 Security Hub는 ASFF (AWS Security Finding Format) 쿼리를 통해 커스텀 인사이트를 생성할 수 있습니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Filters": {
@@ -715,7 +852,9 @@ Security Hub는 ASFF (AWS Security Finding Format) 쿼리를 통해 커스텀 �
   },
   "GroupByAttribute": "ResourceType"
 }
+
 ```
+-->
 
 ### 2.3 AWS Config 규칙 자동화
 
@@ -723,6 +862,13 @@ AWS Config는 리소스 설정 변경을 추적하고 규정 준수를 평가합
 
 #### 2.3.1 관리형 규칙 (Managed Rules)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_config_config_rule" "s3_bucket_public_read_prohibited" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_config_config_rule" "s3_bucket_public_read_prohibited" {
   name = "s3-bucket-public-read-prohibited"
@@ -760,10 +906,19 @@ resource "aws_config_config_rule" "iam_password_policy" {
     MaxPasswordAge             = 90
   })
 }
+
 ```
+-->
 
 #### 2.3.2 자동 수정 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> resource "aws_config_remediation_configuration" "s3_bucket_public_read" {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 resource "aws_config_remediation_configuration" "s3_bucket_public_read" {
   config_rule_name = aws_config_config_rule.s3_bucket_public_read_prohibited.name
@@ -785,7 +940,9 @@ resource "aws_config_remediation_configuration" "s3_bucket_public_read" {
   maximum_automatic_attempts = 3
   retry_attempt_seconds      = 60
 }
+
 ```
+-->
 
 ## 3. FinOps 전략
 
@@ -793,6 +950,7 @@ resource "aws_config_remediation_configuration" "s3_bucket_public_read" {
 
 FinOps는 클라우드 재무 관리의 베스트 프랙티스입니다. 세 가지 핵심 페이즈로 구성됩니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart TD
     A["Inform<br/>(Visibility)"] --> B["Optimize<br/>(Cost Optimization)"]
@@ -805,7 +963,9 @@ flowchart TD
     style B fill:#fff3e0
     style C fill:#f3e5f5
     style D fill:#f5f5f5
+
 ```
+-->
 
 #### 3.1.1 Inform 페이즈 (가시성 확보)
 
@@ -865,6 +1025,13 @@ flowchart TD
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "tags": {
@@ -887,11 +1054,20 @@ flowchart TD
   }
 }
 
+
 ```
+-->
 -->
 
 #### 3.2.2 SCP를 통한 태깅 강제
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -916,10 +1092,19 @@ flowchart TD
     }
   ]
 }
+
 ```
+-->
 
 #### 3.2.3 태깅 준수율 자동 체크
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 
@@ -948,7 +1133,9 @@ def check_tagging_compliance():
     print(f"Compliant: {compliant}/{total}")
 
     return compliance_rate
+
 ```
+-->
 
 ### 3.3 AWS Cost Explorer API 활용
 
@@ -963,6 +1150,13 @@ Cost Explorer API를 통해 비용 데이터를 프로그래밍 방식으로 분
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 from datetime import datetime, timedelta
@@ -989,11 +1183,20 @@ def analyze_costs():
 
     return response
 
+
 ```
+-->
 -->
 
 #### 3.3.2 비용 이상 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 import numpy as np
@@ -1034,10 +1237,19 @@ def detect_cost_anomalies(threshold=2.0):
             })
 
     return anomalies
+
 ```
+-->
 
 #### 3.3.3 서비스별 비용 추세
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> def analyze_service_cost_trend(service_name, days=90):...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 def analyze_service_cost_trend(service_name, days=90):
     """특정 서비스의 비용 추세 분석"""
@@ -1070,7 +1282,9 @@ def analyze_service_cost_trend(service_name, days=90):
     ]
 
     return costs
+
 ```
+-->
 
 ### 3.4 비용 알림 설정
 
@@ -1085,6 +1299,13 @@ def analyze_service_cost_trend(service_name, days=90):
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 
@@ -1125,11 +1346,20 @@ def create_budget_alerts():
         ]
     )
 
+
 ```
+-->
 -->
 
 #### 3.4.2 다단계 알림 전략
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> def create_tiered_budget_alerts():...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 def create_tiered_budget_alerts():
     """다단계 예산 알림 생성"""
@@ -1168,7 +1398,9 @@ def create_tiered_budget_alerts():
         },
         NotificationsWithSubscribers=notifications
     )
+
 ```
+-->
 
 ## 4. 비용 최적화 실전 가이드
 
@@ -1185,6 +1417,13 @@ Right Sizing은 워크로드에 적합한 인스턴스 유형을 선택하여 �
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # AWS Compute Optimizer 활용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # AWS Compute Optimizer 활용
 aws compute-optimizer get-ec2-instance-recommendations \
@@ -1197,11 +1436,20 @@ aws compute-optimizer get-ec2-instance-recommendations \
   }' \
   --output table
 
+
 ```
+-->
 -->
 
 #### 4.1.2 CloudWatch 메트릭 기반 Right Sizing
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 from datetime import datetime, timedelta
@@ -1250,7 +1498,9 @@ def analyze_instance_utilization(instance_id, days=14):
         'utilization': results,
         'recommendation': recommendation
     }
+
 ```
+-->
 
 ### 4.2 Savings Plans 전략
 
@@ -1274,6 +1524,13 @@ Savings Plans는 유연한 비용 절감 모델로, Compute Savings Plans와 EC2
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> compute_savings_plan:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 compute_savings_plan:
   type: "Compute Savings Plans"
@@ -1289,11 +1546,20 @@ compute_savings_plan:
       workload: "Development/Test"
       coverage: 0%  # On-Demand 유지
 
+
 ```
+-->
 -->
 
 #### 4.2.3 Savings Plans 권장사항 API
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 
@@ -1318,7 +1584,9 @@ def get_savings_plans_recommendations():
         })
 
     return recommendations
+
 ```
+-->
 
 ### 4.3 S3 스토리지 최적화
 
@@ -1338,6 +1606,13 @@ S3는 다양한 스토리지 클래스를 제공하여 비용 최적화가 가�
 
 #### 4.3.2 S3 Lifecycle Policy
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Rules": [
@@ -1374,12 +1649,21 @@ S3는 다양한 스토리지 클래스를 제공하여 비용 최적화가 가�
     }
   ]
 }
+
 ```
+-->
 
 #### 4.3.3 S3 Storage Lens
 
 S3 Storage Lens는 스토리지 사용량 및 활동을 분석합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # S3 Storage Lens 설정 생성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # S3 Storage Lens 설정 생성
 aws s3control put-storage-lens-configuration \
@@ -1401,7 +1685,9 @@ aws s3control put-storage-lens-configuration \
       }
     }
   }'
+
 ```
+-->
 
 ## 5. FinOps 대시보드 KPI
 
@@ -1421,6 +1707,13 @@ aws s3control put-storage-lens-configuration \
 
 #### 5.2.1 CloudWatch 대시보드
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 import json
@@ -1462,10 +1755,13 @@ def create_finops_dashboard():
         DashboardName='FinOps-Dashboard',
         DashboardBody=json.dumps(dashboard_body)
     )
+
 ```
+-->
 
 #### 5.2.2 Grafana + Athena 통합
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```sql
 -- Athena 쿼리: 서비스별 일일 비용
 SELECT
@@ -1481,7 +1777,9 @@ GROUP BY
   line_item_product_code
 ORDER BY
   date DESC, cost DESC
+
 ```
+-->
 
 ## 6. 2025년 AWS re:Invent 보안 발표
 
@@ -1513,6 +1811,7 @@ AWS Security Hub는 통합 보안 관리 플랫폼으로, 여러 AWS 보안 서�
 #### AWS Security Agent (Preview)
 > **참고**: AWS Security Agent 관련 내용은 [AWS re:Invent 2025 발표](https://reinvent.awsevents.com/) 및 [AWS Security 문서](https://docs.aws.amazon.com/security/)를 참조하세요.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart LR
     A["Development Stage<br/>Code Review"] --> B["Build Stage<br/>Security Scan"]
@@ -1524,7 +1823,9 @@ flowchart LR
     style B fill:#fff3e0
     style C fill:#f3e5f5
     style D fill:#f5f5f5
+
 ```
+-->
 
 #### IAM Policy Autopilot
 - **오픈소스 MCP 서버** 기반
@@ -1540,6 +1841,8 @@ flowchart LR
 
 #### aws login 명령어
 > **참고**: AWS CLI 인증 관련 내용은 [AWS CLI 공식 문서](https://docs.aws.amazon.com/cli/latest/userguide/) 및 [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # 브라우저 세션으로 CLI 자격증명 획득
@@ -1586,6 +1889,13 @@ MITRE ATT&CK 프레임워크는 공격자의 전술, 기술, 절차(TTPs)를 체
 
 ### 7.2 GuardDuty 탐지와 MITRE ATT&CK
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> 
+> ```python
+> # GuardDuty Finding을 MITRE ATT&CK 전술로 매핑...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # GuardDuty Finding을 MITRE ATT&CK 전술로 매핑
 MITRE_MAPPING = {
@@ -1618,7 +1928,9 @@ def enrich_finding_with_mitre(finding_type):
         'technique': 'Unknown',
         'severity': 'Info'
     })
+
 ```
+-->
 
 ## 8. 보안 운영 시나리오
 
@@ -1626,6 +1938,7 @@ def enrich_finding_with_mitre(finding_type):
 
 #### 8.1.1 인스턴스 침해 의심 시
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart TD
     A["GuardDuty Alert<br/>HIGH Severity"] --> B{"인스턴스<br/>격리 필요?"}
@@ -1641,10 +1954,19 @@ flowchart TD
     style C fill:#4ecdc4
     style D fill:#ff6b6b
     style G fill:#95e1d3
+
 ```
+-->
 
 #### 8.1.2 자동화된 포렌식 스냅샷
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 from datetime import datetime
@@ -1680,12 +2002,21 @@ def forensic_snapshot(instance_id, finding_id):
         snapshots.append(snapshot['SnapshotId'])
 
     return snapshots
+
 ```
+-->
 
 ### 8.2 비용 이상 대응 시나리오
 
 #### 8.2.1 갑작스런 비용 증가 대응
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> def investigate_cost_spike(anomaly_date):...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 def investigate_cost_spike(anomaly_date):
     """비용 급증 원인 조사"""
@@ -1720,7 +2051,9 @@ def investigate_cost_spike(anomaly_date):
             })
 
     return sorted(costs, key=lambda x: x['cost'], reverse=True)
+
 ```
+-->
 
 ## 9. 한국어 비즈니스 임팩트 분석
 
@@ -1799,6 +2132,7 @@ def investigate_cost_spike(anomaly_date):
 
 ### 11.1 전체 보안 아키텍처
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart TB
     subgraph "External"
@@ -1859,10 +2193,19 @@ flowchart TB
     style WAF fill:#ff6b6b
     style GD fill:#4ecdc4
     style SH fill:#95e1d3
+
 ```
+-->
 
 ### 11.2 FinOps 데이터 플로우
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```mermaid
+> flowchart LR...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```mermaid
 flowchart LR
     subgraph "Data Collection"
@@ -1906,13 +2249,17 @@ flowchart LR
     style D fill:#e1f5ff
     style I fill:#fff3e0
     style K fill:#4ecdc4
+
 ```
+-->
 
 ## 12. Threat Hunting 쿼리
 
 ### 12.1 CloudWatch Logs Insights 쿼리
 
 #### 12.1.1 비정상적인 IAM 활동
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```sql
 fields @timestamp, userIdentity.principalId, eventName, sourceIPAddress, errorCode
@@ -1935,6 +2282,8 @@ fields @timestamp, userIdentity.principalId, sourceIPAddress, errorCode
 <!-- SIEM 쿼리: 실무에서 Splunk, ELK 등에서 사용
 #### 12.1.3 Splunk 쿼리: GuardDuty HIGH 알림
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```spl
 index=aws sourcetype="aws:guardduty"
 | where severity >= 7
@@ -1944,6 +2293,13 @@ index=aws sourcetype="aws:guardduty"
 
 #### 12.1.4 ELK 쿼리: 비정상 네트워크 트래픽
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "query": {
@@ -1958,13 +2314,16 @@ index=aws sourcetype="aws:guardduty"
     }
   }
 }
+
 ```
+-->
 -->
 
 ### 12.2 Athena 쿼리 (VPC Flow Logs)
 
 #### 12.2.1 상위 10개 대역폭 소비자
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```sql
 SELECT
   srcaddr,
@@ -1977,10 +2336,13 @@ WHERE action = 'ACCEPT'
 GROUP BY srcaddr, dstaddr
 ORDER BY total_bytes DESC
 LIMIT 10;
+
 ```
+-->
 
 #### 12.2.2 거부된 연결 (잠재적 공격)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```sql
 SELECT
   srcaddr,
@@ -1993,7 +2355,9 @@ WHERE action = 'REJECT'
 GROUP BY srcaddr, dstport, protocol
 HAVING COUNT(*) > 100
 ORDER BY reject_count DESC;
+
 ```
+-->
 
 ## 13. 종합 참고 자료
 
@@ -2011,10 +2375,10 @@ ORDER BY reject_count DESC;
 
 | 도구 | 용도 | GitHub |
 |-----|------|--------|
-| **Cloud Custodian** | 정책 기반 클라우드 관리 | [github.com/cloud-custodian](https://github.com/cloud-custodian/cloud-custodian) |
-| **Prowler** | AWS 보안 평가 도구 | [github.com/prowler-cloud](https://github.com/prowler-cloud/prowler) |
-| **CloudMapper** | AWS 네트워크 시각화 | [github.com/duo-labs/cloudmapper](https://github.com/duo-labs/cloudmapper) |
-| **Komiser** | 클라우드 비용 가시성 | [github.com/tailwarden/komiser](https://github.com/tailwarden/komiser) |
+| **Cloud Custodian** | 정책 기반 클라우드 관리 | [cloud-custodian](https://github.com/cloud-custodian/cloud-custodian) |
+| **Prowler** | AWS 보안 평가 도구 | [prowler](https://github.com/prowler-cloud/prowler) |
+| **CloudMapper** | AWS 네트워크 시각화 | [cloudmapper](https://github.com/duo-labs/cloudmapper) |
+| **Komiser** | 클라우드 비용 가시성 | [komiser](https://github.com/tailwarden/komiser) |
 
 ### 13.3 산업 표준 프레임워크
 

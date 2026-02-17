@@ -1,18 +1,51 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT 탈취, 폴란드 에너지 OT 공격"
-date: 2026-01-31 19:41:59 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, ShinyHunters, Vishing, MFA-Bypass, Chrome-Extension, ChatGPT, OT-Security, ICS, CERT-Polska, Cloud-Security, "2026"]
-excerpt: "ShinyHunters 비싱 공격으로 SaaS MFA 우회, 악성 Chrome 확장 ChatGPT 토큰 탈취, 폴란드 에너지 인프라 OT 사이버 공격 심층 분석"
-description: "2026년 1월 31일 보안 뉴스: Mandiant 발표 ShinyHunters 비싱 공격 MFA 우회 기법, 악성 Chrome 확장 프로그램의 ChatGPT 인증 토큰 탈취, CERT Polska 보고 30+ 풍력/태양광 OT 시스템 공격 대응 가이드"
-keywords: [ShinyHunters, Vishing, MFA Bypass, Chrome Extension Security, ChatGPT Token Theft, OT Security, ICS Attack, CERT Polska]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-01-31 19:41:59 +0900
+description: '2026년 1월 31일 보안 뉴스: Mandiant 발표 ShinyHunters 비싱 공격 MFA 우회 기법, 악성 Chrome
+  확장 프로그램의 ChatGPT 인증 토큰 탈취, CERT Polska 보고 30+ 풍력/태양광 OT 시스템 공격 대응 가이드'
+excerpt: ShinyHunters 비싱 공격으로 SaaS MFA 우회, 악성 Chrome 확장 ChatGPT 토큰 탈취, 폴란드 에너지 인프라
+  OT 사이버 공격 심층 분석
 image: /assets/images/2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack.svg
-image_alt: "Security Digest - ShinyHunters Vishing Chrome Extension OT Attack Analysis"
-toc: true
+image_alt: Security Digest - ShinyHunters Vishing Chrome Extension OT Attack Analysis
+keywords:
+- ShinyHunters
+- Vishing
+- MFA Bypass
+- Chrome Extension Security
+- ChatGPT Token Theft
+- OT Security
+- ICS Attack
+- CERT Polska
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- DevSecOps
+- ShinyHunters
+- Vishing
+- MFA-Bypass
+- Chrome-Extension
+- ChatGPT
+- OT-Security
+- ICS
+- CERT-Polska
+- Cloud-Security
+- '2026'
+title: 'Tech & Security Weekly Digest: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT
+  탈취, 폴란드 에너지 OT 공격'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: ShinyHunters 비싱 공격으로 SaaS MFA 우회, 악성 Chrome 확장 ChatGPT 토큰 탈취, 폴란드 에너지 인프라 OT 사이버 공격 심층 분석
+- **주요 주제**: Tech & Security Weekly Digest: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT 탈취, 폴란드 에너지 OT 공격
+- **키워드**: Security-Weekly, DevSecOps, ShinyHunters, Vishing, MFA-Bypass
+
 ---
 
 <div class="ai-summary-card">
