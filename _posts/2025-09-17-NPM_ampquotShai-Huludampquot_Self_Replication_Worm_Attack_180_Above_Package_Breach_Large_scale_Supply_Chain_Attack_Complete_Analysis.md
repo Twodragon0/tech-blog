@@ -1,18 +1,39 @@
 ---
-layout: post
-title: "NPM \"Shai-Hulud\" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석"
-date: 2025-09-17 16:20:06 +0900
-categories: [incident]
-tags: [npm, Supply-Chain-Attack, Worm, Security-Incident]
-excerpt: "NPM Shai-Hulud 자가 복제 웜 공격 완전 분석. 180개 이상 패키지 감염 및 대응 방안."
-comments: true
-original_url: https://twodragon.tistory.com/694
-image: /assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis.svg
-image_alt: "NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale Supply Chain Attack with 180+ Compromised Packages"
-toc: true
-description: NPM 생태계 최초 자가 복제 웜 형태 공급망 공격인 Shai-Hulud 분석과 대응 방안을 다룹니다. SBOM 생성 및 2FA 필수 설정 권장.
-keywords: [npm, Supply-Chain-Attack, Worm, Shai-Hulud, SBOM, 2FA]
 author: Twodragon
+categories:
+- incident
+comments: true
+date: 2025-09-17 16:20:06 +0900
+description: NPM 생태계 최초 자가 복제 웜 형태 공급망 공격인 Shai-Hulud 분석과 대응 방안을 다룹니다. SBOM 생성 및 2FA
+  필수 설정 권장.
+excerpt: NPM Shai-Hulud 자가 복제 웜 공격 완전 분석. 180개 이상 패키지 감염 및 대응 방안.
+image: /assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis.svg
+image_alt: 'NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale
+  Supply Chain Attack with 180+ Compromised Packages'
+keywords:
+- npm
+- Supply-Chain-Attack
+- Worm
+- Shai-Hulud
+- SBOM
+- 2FA
+layout: post
+original_url: https://twodragon.tistory.com/694
+tags:
+- npm
+- Supply-Chain-Attack
+- Worm
+- Security-Incident
+title: 'NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: NPM Shai-Hulud 자가 복제 웜 공격 완전 분석. 180개 이상 패키지 감염 및 대응 방안.
+- **주요 주제**: NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석
+- **키워드**: npm, Supply-Chain-Attack, Worm, Security-Incident
+
 ---
 
 <div class="ai-summary-card">

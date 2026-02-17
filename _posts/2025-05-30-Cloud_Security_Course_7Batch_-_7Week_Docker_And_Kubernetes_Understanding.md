@@ -1,20 +1,44 @@
 ---
-layout: post
-title: "클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해"
-date: 2025-05-30 00:04:58 +0900
-categories: [kubernetes]
-tags: [Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps]
-excerpt: "Docker 및 Kubernetes 기초와 보안 Best Practices 정리"
-original_url: https://twodragon.tistory.com/686
-image: /assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes.svg
-image_alt: "Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understanding"
-toc: true
-description: "Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node, Pod), 컨테이너 보안 Best Practices, 런타임 보안(Trivy, Falco), 2025년 업데이트까지 실무 중심 정리."
-keywords: [Docker, Kubernetes, Container, K8s, Cloud-Security, DevSecOps]
-author: "Yongho Ha"
-certifications: [ckad, cka]
-schema_type: Article
+author: Yongho Ha
+categories:
+- kubernetes
+certifications:
+- ckad
+- cka
 comments: true
+date: 2025-05-30 00:04:58 +0900
+description: Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node,
+  Pod), 컨테이너 보안 Best Practices, 런타임 보안(Trivy, Falco), 2025년 업데이트까지 실무 중심 정리.
+excerpt: Docker 및 Kubernetes 기초와 보안 Best Practices 정리
+image: /assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes.svg
+image_alt: 'Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understanding'
+keywords:
+- Docker
+- Kubernetes
+- Container
+- K8s
+- Cloud-Security
+- DevSecOps
+layout: post
+original_url: https://twodragon.tistory.com/686
+schema_type: Article
+tags:
+- Docker
+- Kubernetes
+- Container
+- K8s
+- Cloud-Security
+- DevSecOps
+title: '클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Docker 및 Kubernetes 기초와 보안 Best Practices 정리
+- **주요 주제**: 클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해
+- **키워드**: Docker, Kubernetes, Container, K8s, Cloud-Security
+
 ---
 
 <div class="ai-summary-card">
@@ -131,6 +155,13 @@ Docker는 애플리케이션을 **컨테이너**라는 격리된 환경에서 �
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # 이미지 다운로드...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 이미지 다운로드
 docker pull nginx:latest
@@ -147,7 +178,9 @@ docker logs my-nginx
 # 컨테이너 중지 및 삭제
 docker stop my-nginx && docker rm my-nginx
 
+
 ```
+-->
 -->
 
 ### 1.4 Dockerfile 작성 Best Practices
@@ -156,6 +189,13 @@ docker stop my-nginx && docker rm my-nginx
 
 #### Multi-stage Build로 이미지 크기 최소화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```dockerfile
+> # Build stage...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```dockerfile
 # Build stage
 FROM golang:1.21 AS builder
@@ -170,10 +210,19 @@ FROM gcr.io/distroless/static-debian11
 COPY --from=builder /app/app /app
 USER nonroot:nonroot
 ENTRYPOINT ["/app"]
+
 ```
+-->
 
 #### 보안 강화 Dockerfile 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```dockerfile
+> # 최소 베이스 이미지 사용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```dockerfile
 # 최소 베이스 이미지 사용
 FROM alpine:3.19
@@ -205,7 +254,9 @@ HEALTHCHECK --interval=30s --timeout=3s \
 
 EXPOSE 8000
 CMD ["python", "app.py"]
+
 ```
+-->
 
 ### 1.5 Docker 보안 검증 체크리스트
 
@@ -224,6 +275,7 @@ CMD ["python", "app.py"]
 
 Kubernetes는 컨테이너화된 워크로드와 서비스를 관리하기 위한 **오케스트레이션 플랫폼**입니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart TD
     CP["Control Plane"]
@@ -249,7 +301,9 @@ flowchart TD
 
     N3 --> K3["kubelet"]
     N3 --> P3["Pods"]
+
 ```
+-->
 
 ### 2.2 Control Plane 구성 요소 상세
 
@@ -265,6 +319,13 @@ flowchart TD
 
 **보안 설정:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -282,7 +343,9 @@ spec:
     - --audit-log-path=/var/log/kubernetes/audit.log
     - --audit-log-maxage=30
     - --tls-min-version=VersionTLS13
+
 ```
+-->
 
 #### etcd
 
@@ -296,6 +359,13 @@ spec:
 
 **etcd 암호화 설정:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # EncryptionConfiguration...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # EncryptionConfiguration
 apiVersion: apiserver.config.k8s.io/v1
@@ -309,7 +379,9 @@ resources:
             - name: key1
               secret: <base64-encoded-32-byte-key>
       - identity: {}
+
 ```
+-->
 
 #### Scheduler
 
@@ -344,6 +416,13 @@ Pod를 적절한 Node에 배치하는 역할을 합니다.
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -358,11 +437,20 @@ spec:
  ports:
  - containerPort: 80
 
+
 ```
+-->
 -->
 
 #### 프로덕션급 Pod 설정 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -457,7 +545,9 @@ spec:
 
   # Restart Policy
   restartPolicy: Always
+
 ```
+-->
 
 #### Deployment
 
@@ -465,6 +555,13 @@ Pod의 선언적 업데이트를 제공합니다.
 
 > **참고**: Kubernetes Deployment 관련 내용은 [Kubernetes Deployment 문서](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 >
+> ```yaml
+> apiVersion: apps/v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
 > ```yaml
 > apiVersion: apps/v1...
 > ```
@@ -491,11 +588,20 @@ spec:
  ports:
  - containerPort: 80
 
+
 ```
+-->
 -->
 
 #### 프로덕션급 Deployment 전략
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: apps/v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -586,7 +692,9 @@ spec:
           capabilities:
             drop:
             - ALL
+
 ```
+-->
 
 #### Service
 
@@ -594,6 +702,13 @@ Pod 집합에 대한 네트워크 서비스를 노출합니다.
 
 > **참고**: Kubernetes Service 관련 내용은 [Kubernetes Service 문서](https://kubernetes.io/docs/concepts/services-networking/service/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 >
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
 > ```yaml
 > apiVersion: v1...
 > ```
@@ -613,7 +728,9 @@ spec:
  targetPort: 80
  type: LoadBalancer
 
+
 ```
+-->
 -->
 
 #### Service 타입별 사용 사례
@@ -627,6 +744,13 @@ spec:
 
 #### LoadBalancer Service 예시 (AWS EKS)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples/aws-k8s-examples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Service
@@ -650,7 +774,9 @@ spec:
   sessionAffinityConfig:
     clientIP:
       timeoutSeconds: 3600
+
 ```
+-->
 
 ### 2.4 Namespace와 리소스 격리
 
@@ -658,6 +784,13 @@ Namespace는 논리적 클러스터 분할을 제공합니다.
 
 #### Namespace별 리소스 할당량
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: ResourceQuota
@@ -672,10 +805,19 @@ spec:
     limits.memory: "40Gi"
     persistentvolumeclaims: "10"
     pods: "50"
+
 ```
+-->
 
 #### Namespace별 네트워크 격리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: networking.k8s.io/v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -689,7 +831,9 @@ spec:
   ingress:
   - from:
     - podSelector: {}  # 같은 Namespace 내에서만 허용
+
 ```
+-->
 
 ## 3. 컨테이너 보안 Best Practices
 
@@ -711,6 +855,13 @@ spec:
 
 #### Trivy 통합 CI/CD 파이프라인
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 {% raw %}
 # GitHub Actions 예시
@@ -747,10 +898,19 @@ jobs:
         with:
           sarif_file: 'trivy-results.sarif'
 {% endraw %}
+
 ```
+-->
 
 #### Cosign 이미지 서명 및 검증
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. 키 생성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. 키 생성
 cosign generate-key-pair
@@ -764,12 +924,21 @@ cosign verify --key cosign.pub myregistry.io/myapp:v1.0.0
 # 4. Kubernetes Admission Controller에서 검증
 # Sigstore Policy Controller 사용
 kubectl apply -f https://github.com/sigstore/policy-controller/releases/download/v0.9.0/release.yaml
+
 ```
+-->
 
 ### 3.2 런타임 보안
 
 > **참고**: Kubernetes Security Context 관련 내용은 [Kubernetes Security Context 문서](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 >
+> ```yaml
+> # SecurityContext 설정 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
 > ```yaml
 > # SecurityContext 설정 예시...
 > ```
@@ -796,7 +965,9 @@ spec:
  drop:
  - ALL
 
+
 ```
+-->
 -->
 
 #### Pod Security Standards
@@ -811,6 +982,8 @@ Kubernetes 1.25+에서 PodSecurityPolicy를 대체하는 표준입니다.
 
 #### Namespace별 Pod Security Standards 적용
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```yaml
 apiVersion: v1
 kind: Namespace
@@ -824,6 +997,13 @@ metadata:
 
 #### AppArmor 프로파일 적용
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -835,10 +1015,19 @@ spec:
   containers:
   - name: nginx
     image: nginx:1.21
+
 ```
+-->
 
 #### Seccomp 프로파일 적용
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -851,11 +1040,15 @@ spec:
   containers:
   - name: app
     image: myapp:latest
+
 ```
+-->
 
 ### 3.3 네트워크 정책
 
 > **참고**: Kubernetes Network Policy 관련 내용은 [Kubernetes Network Policy 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Network Policy 예제](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -871,6 +1064,13 @@ spec:
 
 #### 계층별 네트워크 정책 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> ---...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 ---
 # 1. 기본 Deny-All (모든 Namespace에 적용)
@@ -948,11 +1148,15 @@ spec:
     ports:
     - protocol: UDP
       port: 53
+
 ```
+-->
 
 ### 3.4 Secret 관리
 
 #### Kubernetes Native Secrets (암호화 필수)
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # etcd 암호화 확인
@@ -967,6 +1171,13 @@ kubectl create secret generic db-credentials \
 
 #### External Secrets Operator
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: external-secrets.io/v1beta1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
@@ -985,9 +1196,13 @@ spec:
   - secretKey: db-password
     remoteRef:
       key: prod/db/password
+
 ```
+-->
 
 #### Sealed Secrets (GitOps 친화적)
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # Sealed Secrets Controller 설치
@@ -1007,6 +1222,8 @@ git commit -m "Add encrypted secret"
 
 > **참고**: Minikube 설치 관련 내용은 [Minikube 공식 문서](https://minikube.sigs.k8s.io/docs/) 및 [Minikube GitHub 저장소](https://github.com/kubernetes/minikube)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
 ```bash
 # macOS
 brew install minikube
@@ -1022,6 +1239,8 @@ minikube start --driver=docker --cpus=2 --memory=4096
 ### 4.2 K9s로 클러스터 관리
 
 K9s는 터미널 기반 Kubernetes 대시보드입니다.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -1045,6 +1264,13 @@ k9s
 
 #### 시나리오 1: 취약한 컨테이너 배포 및 공격 시뮬레이션
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. 취약한 애플리케이션 배포...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. 취약한 애플리케이션 배포
 kubectl apply -f - <<EOF
@@ -1105,7 +1331,9 @@ spec:
             drop:
             - ALL
 EOF
+
 ```
+-->
 
 ## 5. 2025년 Kubernetes 보안 업데이트
 
@@ -1125,6 +1353,8 @@ Kubernetes는 2025년에도 활발하게 발전하고 있습니다.
 Kubernetes 1.32+에서 `KubeletFineGrainedAuthz` feature gate를 통해 kubelet API에 대한 세밀한 접근 제어가 가능해졌습니다.
 
 > **참고**: Kubelet API 접근 제어 관련 내용은 [Kubernetes Kubelet 문서](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) 및 [Kubernetes RBAC 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```yaml
 # kubelet 설정에서 Fine-grained 인가 활성화
@@ -1146,6 +1376,8 @@ authorization:
 인증서 서명 기반의 credential ID 생성으로 보안 포렌식이 크게 향상되었습니다.
 
 > **참고**: Kubernetes Audit 및 credential 추적 관련 내용은 [Kubernetes Audit 문서](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # 인증서 기반 credential 추적 확인
@@ -1175,6 +1407,13 @@ Linux 커널 6.3 이상에서 사용 가능한 User Namespaces가 Kubernetes에�
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -1189,7 +1428,9 @@ spec:
       runAsUser: 1000
       runAsGroup: 1000
 
+
 ```
+-->
 -->
 
 **보안 강화 효과:**
@@ -1203,6 +1444,13 @@ kubelet이 Pod용 인증서를 자동으로 요청하고 마운트하는 기능�
 
 > **참고**: Kubernetes Pod Certificates 관련 내용은 [Kubernetes Certificate Signing Requests 문서](https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/) 및 [Kubernetes 예제](https://github.com/kubernetes/examples)를 참조하세요.
 >
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
 > ```yaml
 > apiVersion: v1...
 > ```
@@ -1232,7 +1480,9 @@ spec:
           path: ca.crt
           name: my-cluster-bundle
 
+
 ```
+-->
 -->
 
 **주요 특징:**
@@ -1251,6 +1501,13 @@ Amazon EKS 1.32에서는 익명 인증이 health check endpoint로 제한됩니�
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # EKS 1.32+ 에서의 익명 인증 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # EKS 1.32+ 에서의 익명 인증 설정
 # 기존의 익명 접근이 제한됨에 따라 명시적 인증 필요
@@ -1265,7 +1522,9 @@ rules:
   - "/livez"
   verbs: ["get"]
 
+
 ```
+-->
 -->
 
 ### 5.4 Deprecation 주의사항
@@ -1277,6 +1536,13 @@ rules:
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Deprecated (사용 자제)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Deprecated (사용 자제)
 apiVersion: v1
@@ -1291,7 +1557,9 @@ metadata:
 spec:
   automountServiceAccountToken: false
 
+
 ```
+-->
 -->
 
 ## 6. MITRE ATT&CK 매핑: 컨테이너 공격 기법
@@ -1342,6 +1610,8 @@ spec:
 
 ### 7.1 Falco 배포 및 규칙 구성
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Helm으로 Falco 설치
 helm repo add falcosecurity https://falcosecurity.github.io/charts
@@ -1356,6 +1626,13 @@ helm install falco falcosecurity/falco \
 
 #### Falco 커스텀 규칙 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # custom-rules.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # custom-rules.yaml
 - rule: Unauthorized Process in Container
@@ -1396,7 +1673,9 @@ helm install falco falcosecurity/falco \
     (container=%container.name namespace=%k8s.ns.name)
   priority: WARNING
   tags: [network, k8s]
+
 ```
+-->
 
 ### 7.2 SIEM 연동 쿼리 (Splunk)
 
@@ -1465,6 +1744,13 @@ fields @timestamp, kubernetes.namespace_name, kubernetes.pod_name
 
 **기술적 구현:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Audit Policy for Personal Data Processing...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Audit Policy for Personal Data Processing
 apiVersion: audit.k8s.io/v1
@@ -1477,7 +1763,9 @@ rules:
   - group: ""
     resources: ["pods", "secrets", "configmaps"]
   omitStages: ["RequestReceived"]
+
 ```
+-->
 
 #### 정보통신망법
 
@@ -1488,6 +1776,13 @@ rules:
 
 **침입 탐지 로그 보존 설정:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> apiVersion: v1...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 apiVersion: v1
 kind: ConfigMap
@@ -1510,7 +1805,9 @@ data:
       enabled: true
       keep_alive: false
       program: "fluent-bit -c /etc/fluent-bit/fluent-bit.conf"
+
 ```
+-->
 
 ### 8.3 이사회/경영진 보고용 요약
 
@@ -1535,6 +1832,13 @@ data:
 
 ### 9.1 보안 강화 Kubernetes 클러스터 아키텍처
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```mermaid
+> graph TB...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```mermaid
 graph TB
     subgraph "External"
@@ -1597,10 +1901,13 @@ graph TB
     FALCO -->|Monitor| POD2
 
     API -->|Encrypted| ETCD
+
 ```
+-->
 
 ### 9.2 컨테이너 공격 시나리오 및 방어 계층
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     subgraph "Attack Surface"
@@ -1630,7 +1937,9 @@ graph LR
     D3 --> SECURE
     D4 --> SECURE
     D5 --> SECURE
+
 ```
+-->
 
 ## 10. Threat Hunting 가이드
 
@@ -1638,6 +1947,13 @@ graph LR
 
 #### Kubernetes Audit Log 분석
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. Privileged Pod 생성 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Privileged Pod 생성 탐지
 kubectl get pods -A -o json | jq -r '
@@ -1659,9 +1975,13 @@ kubectl get pods -A -o json | jq -r '
   select(.spec.hostNetwork == true) |
   "\(.metadata.namespace)/\(.metadata.name)"
 '
+
 ```
+-->
 
 #### Falco 이벤트 상관 분석
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # Falco 로그에서 컨테이너 탈출 시도 추출
@@ -1674,6 +1994,13 @@ cat /var/log/falco/events.txt | \
 
 #### kubectl 기반 네트워크 분석
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. Service 없이 직접 통신하는 Pod 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Service 없이 직접 통신하는 Pod 탐지
 kubectl get pods -A -o wide | while read ns pod ip node; do
@@ -1691,10 +2018,19 @@ done
 kubectl logs -n kube-system -l k8s-app=kube-dns --tail=1000 | \
   grep -oE '[a-z0-9.-]+\.[a-z]{2,}' | \
   sort | uniq -c | sort -rn | head -20
+
 ```
+-->
 
 ### 10.3 Secret 접근 이상 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. Secret 접근 Audit Log 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Secret 접근 Audit Log 분석
 kubectl get events -A --field-selector involvedObject.kind=Secret | \
@@ -1715,7 +2051,9 @@ kubectl get rolebindings,clusterrolebindings -A -o json | jq -r '
   select(.roleRef.name | test("admin|edit|cluster-admin")) |
   "\(.metadata.namespace // "cluster")/\(.subjects[0].name): \(.roleRef.name)"
 '
+
 ```
+-->
 
 ## 11. 실전 트러블슈팅 시나리오
 
@@ -1723,6 +2061,13 @@ kubectl get rolebindings,clusterrolebindings -A -o json | jq -r '
 
 #### 진단 절차
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. Pod 상태 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Pod 상태 확인
 kubectl describe pod <pod-name> -n <namespace>
@@ -1736,7 +2081,9 @@ kubectl get events -n <namespace> --field-selector involvedObject.name=<pod-name
 # 4. 보안 컨텍스트 문제 확인
 kubectl get pod <pod-name> -n <namespace> -o jsonpath='{.spec.securityContext}'
 kubectl get pod <pod-name> -n <namespace> -o jsonpath='{.spec.containers[*].securityContext}'
+
 ```
+-->
 
 #### 일반적인 원인과 해결책
 
@@ -1751,6 +2098,13 @@ kubectl get pod <pod-name> -n <namespace> -o jsonpath='{.spec.containers[*].secu
 
 #### 진단 절차
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. 현재 적용된 Network Policy 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. 현재 적용된 Network Policy 확인
 kubectl get networkpolicies -n <namespace>
@@ -1766,7 +2120,9 @@ curl http://<target-service>.<namespace>.svc.cluster.local:<port>
 
 # 4. DNS 해석 확인
 nslookup <service-name>.<namespace>.svc.cluster.local
+
 ```
+-->
 
 #### 해결 체크리스트
 
@@ -1777,6 +2133,13 @@ nslookup <service-name>.<namespace>.svc.cluster.local
 
 ### 11.3 이미지 Pull 실패
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. ImagePullBackOff 이벤트 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. ImagePullBackOff 이벤트 확인
 kubectl describe pod <pod-name> -n <namespace> | grep -A 10 Events
@@ -1796,7 +2159,9 @@ kubectl create secret docker-registry <registry-secret> \
 # 4. ServiceAccount에 imagePullSecrets 연결
 kubectl patch serviceaccount default -n <namespace> \
   -p '{"imagePullSecrets": [{"name": "<registry-secret>"}]}'
+
 ```
+-->
 
 ## 12. 종합 레퍼런스
 
