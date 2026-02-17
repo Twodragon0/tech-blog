@@ -574,7 +574,6 @@ gemini-code analyze --context ./entire-codebase --query "security vulnerabilitie
 
 > **참고**: CodeQL 분석 설정 관련 내용은 [GitHub CodeQL 문서](https://docs.github.com/en/code-security) 및 [CodeQL Action](https://github.com/github/codeql-action)을 참조하세요. Analysis
         uses: github/codeql-action/analyze@v2
-{% endraw %}
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 

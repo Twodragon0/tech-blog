@@ -249,8 +249,6 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           directory: ./terraform
-{% endraw %}
-
 ```
 
 ---

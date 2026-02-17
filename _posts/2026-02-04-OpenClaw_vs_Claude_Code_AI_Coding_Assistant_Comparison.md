@@ -340,8 +340,6 @@ jobs:
           script: |
             const report = require('./security-report.json');
             // PR에 보안 리뷰 결과 코멘트
-{% endraw %}
-
 ```
 
 ### 3.2 Shift-Left Security 구현
