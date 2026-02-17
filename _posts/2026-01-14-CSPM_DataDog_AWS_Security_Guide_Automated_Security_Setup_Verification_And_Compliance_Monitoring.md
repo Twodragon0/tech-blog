@@ -1,19 +1,55 @@
 ---
-layout: post
-title: "CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링"
-date: 2026-01-14 13:00:00 +0900
-categories: [security, cloud]
-tags: [CSPM, DataDog, AWS, Security, Compliance, Monitoring, Automation, Misconfiguration, Claude, Autonomous Coding]
-excerpt: "DataDog CSPM AWS 보안 자동 검증 가이드"
-description: "DataDog CSPM을 활용한 AWS 환경 보안 설정 자동 검증 및 컴플라이언스 모니터링 가이드. Misconfiguration 탐지, 자동화된 대응, 실시간 위협 탐지, CIS Benchmark, ISMS-P, PCI-DSS 준수 모니터링까지 실무 중심 완벽 정리."
-keywords: [CSPM, DataDog, AWS, Cloud Security, Compliance Monitoring, Misconfiguration, CIS Benchmark, ISMS-P, PCI-DSS, Security Automation, Cloud Posture Management, Threat Detection]
 author: Twodragon
+categories:
+- security
+- cloud
+certifications:
+- isms-p
+- aws-saa
 comments: true
+date: 2026-01-14 13:00:00 +0900
+description: DataDog CSPM을 활용한 AWS 환경 보안 설정 자동 검증 및 컴플라이언스 모니터링 가이드. Misconfiguration
+  탐지, 자동화된 대응, 실시간 위협 탐지, CIS Benchmark, ISMS-P, PCI-DSS 준수 모니터링까지 실무 중심 완벽 정리.
+excerpt: DataDog CSPM AWS 보안 자동 검증 가이드
 image: /assets/images/2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Configuration_Verification_and_Compliance_Monitoring.svg
-image_alt: "CSPM DataDog AWS Security Guide: Automated Security Configuration Verification and Compliance Monitoring"
-toc: true
+image_alt: 'CSPM DataDog AWS Security Guide: Automated Security Configuration Verification
+  and Compliance Monitoring'
+keywords:
+- CSPM
+- DataDog
+- AWS
+- Cloud Security
+- Compliance Monitoring
+- Misconfiguration
+- CIS Benchmark
+- ISMS-P
+- PCI-DSS
+- Security Automation
+- Cloud Posture Management
+- Threat Detection
+layout: post
 schema_type: Article
-certifications: [isms-p, aws-saa]
+tags:
+- CSPM
+- DataDog
+- AWS
+- Security
+- Compliance
+- Monitoring
+- Automation
+- Misconfiguration
+- Claude
+- Autonomous Coding
+title: 'CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: DataDog CSPM AWS 보안 자동 검증 가이드
+- **주요 주제**: CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링
+- **키워드**: CSPM, DataDog, AWS, Security, Compliance
+
 ---
 
 <div class="ai-summary-card">

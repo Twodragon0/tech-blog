@@ -1,18 +1,46 @@
 ---
-layout: post
-title: "CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계"
-date: 2026-01-28 18:30:00 +0900
-categories: [security, devsecops]
-tags: [CLAUDE.md, AI-Security, Claude-Code, DevSecOps, Security-Guidelines, AI-Agent, Prompt-Engineering, "2026"]
-excerpt: "CLAUDE.md와 AGENTS.md로 AI 에이전트 보안 가이드라인 구축. Security-First 원칙과 실무 구현"
-description: "AI 에이전트(Claude Code, Cursor, Copilot)와 협업하는 프로젝트의 보안 가이드라인. CLAUDE.md 작성법, Never Hardcode Secrets, 로그 마스킹, 입력 검증, Pre-commit 자동화"
-keywords: [CLAUDE.md, AGENTS.md, AI Security, Claude Code, DevSecOps, Security Guidelines, AI Agent, 보안 가이드라인]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-01-28 18:30:00 +0900
+description: AI 에이전트(Claude Code, Cursor, Copilot)와 협업하는 프로젝트의 보안 가이드라인. CLAUDE.md
+  작성법, Never Hardcode Secrets, 로그 마스킹, 입력 검증, Pre-commit 자동화
+excerpt: CLAUDE.md와 AGENTS.md로 AI 에이전트 보안 가이드라인 구축. Security-First 원칙과 실무 구현
 image: /assets/images/2026-01-28-Claude_MD_Security_Guide.svg
-image_alt: "CLAUDE.md Security Guide - AI Agent Security Guidelines Never Hardcode Secrets Log Masking Input Validation"
-toc: true
+image_alt: CLAUDE.md Security Guide - AI Agent Security Guidelines Never Hardcode
+  Secrets Log Masking Input Validation
+keywords:
+- CLAUDE.md
+- AGENTS.md
+- AI Security
+- Claude Code
+- DevSecOps
+- Security Guidelines
+- AI Agent
+- 보안 가이드라인
+layout: post
 schema_type: Article
+tags:
+- CLAUDE.md
+- AI-Security
+- Claude-Code
+- DevSecOps
+- Security-Guidelines
+- AI-Agent
+- Prompt-Engineering
+- '2026'
+title: 'CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: CLAUDE.md와 AGENTS.md로 AI 에이전트 보안 가이드라인 구축. Security-First 원칙과 실무 구현
+- **주요 주제**: CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계
+- **키워드**: CLAUDE.md, AI-Security, Claude-Code, DevSecOps, Security-Guidelines
+
 ---
 
 <div class="ai-summary-card">
