@@ -1,18 +1,51 @@
 ---
-layout: post
-title: "Weekly Security Threat Intelligence Digest: Notepad++ 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화"
-date: 2026-02-02 10:00:00 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, Supply-Chain, Notepad++, Ransomware, Zero-Trust, JWT, Vertical-AI, SK-Shieldus, HashiCorp, Red-Team, "2026"]
-excerpt: "Notepad++ 국가 지원 공급망 공격, SK쉴더스 11-1월 보안 리포트 종합 (Vertical AI, BlackField/Sinobi/Gentlemen 랜섬웨어, 제로트러스트, JWT 보안), HashiCorp 패스워드리스 RDP"
-description: "2026년 2월 2일 보안 위협 인텔리전스: Notepad++ 공급망 공격(T1195), SK쉴더스 EQST 보안 리포트 11-1월호 종합 분석, 랜섬웨어 생태계 변화, 제로트러스트 데이터 보안, JWT 인증 위협, HashiCorp Boundary 0.21"
-keywords: [Notepad++ Supply Chain Attack, SK Shieldus EQST, BlackField Ransomware, Sinobi Ransomware, Zero Trust Data Security, JWT Security, Vertical AI SOC, HashiCorp Boundary, Red Team Cyber Immunity]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-02-02 10:00:00 +0900
+description: '2026년 2월 2일 보안 위협 인텔리전스: Notepad++ 공급망 공격(T1195), SK쉴더스 EQST 보안 리포트
+  11-1월호 종합 분석, 랜섬웨어 생태계 변화, 제로트러스트 데이터 보안, JWT 인증 위협, HashiCorp Boundary 0.21'
+excerpt: Notepad++ 국가 지원 공급망 공격, SK쉴더스 11-1월 보안 리포트 종합 (Vertical AI, BlackField/Sinobi/Gentlemen
+  랜섬웨어, 제로트러스트, JWT 보안), HashiCorp 패스워드리스 RDP
 image: /assets/images/2026-02-02-Weekly_Security_Threat_Intelligence_Digest.svg
-image_alt: "Weekly Security Threat Intelligence Digest Feb 2 2026"
-toc: true
+image_alt: Weekly Security Threat Intelligence Digest Feb 2 2026
+keywords:
+- Notepad++ Supply Chain Attack
+- SK Shieldus EQST
+- BlackField Ransomware
+- Sinobi Ransomware
+- Zero Trust Data Security
+- JWT Security
+- Vertical AI SOC
+- HashiCorp Boundary
+- Red Team Cyber Immunity
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- Supply-Chain
+- Notepad++
+- Ransomware
+- Zero-Trust
+- JWT
+- Vertical-AI
+- SK-Shieldus
+- HashiCorp
+- Red-Team
+- '2026'
+title: 'Weekly Security Threat Intelligence Digest: Notepad++ 공급망 공격, SK쉴더스 보안 리포트
+  종합, HashiCorp 보안 자동화'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Notepad++ 국가 지원 공급망 공격, SK쉴더스 11-1월 보안 리포트 종합 (Vertical AI, BlackField/Sinobi/Gentlemen 랜섬웨어, 제로트러스트, JWT 보안), HashiCorp 패스워드리스 RDP
+- **주요 주제**: Weekly Security Threat Intelligence Digest: Notepad++ 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화
+- **키워드**: Security-Weekly, Supply-Chain, Notepad++, Ransomware, Zero-Trust
+
 ---
 
 <div class="ai-summary-card">

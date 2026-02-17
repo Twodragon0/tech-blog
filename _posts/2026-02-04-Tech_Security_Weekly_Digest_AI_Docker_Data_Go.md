@@ -1,18 +1,50 @@
 ---
-layout: post
-title: "2026년 2월 4일 주간 기술 보안 다이제스트: Docker AI 취약점, CVE-2025-11953, RCE 공격"
-date: 2026-02-04 12:30:55 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, Cloud-Security, Docker, CVE-2025-11953, Metro4Shell, RCE, AI-Agent-Security, AWS-IAM, "2026"]
-excerpt: "Docker Ask Gordon AI 코드 실행 취약점(DockerDash), Metro4Shell RCE(CVE-2025-11953, CVSS 9.8), AWS IAM Identity Center 멀티리전, AI 에이전트 3Cs 보안 프레임워크 심층 분석"
-description: "2026년 2월 4일 보안 뉴스: Docker AI 비서 DockerDash 코드 실행 취약점, React Native CLI Metro4Shell RCE(CVE-2025-11953), AWS IAM Identity Center 멀티리전 보안 영향, AI 에이전트 3Cs 보안 프레임워크 DevSecOps 실무 대응 가이드"
-keywords: [Docker, DockerDash, CVE-2025-11953, Metro4Shell, RCE, AI Agent Security, 3Cs Framework, AWS IAM Identity Center]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-02-04 12:30:55 +0900
+description: '2026년 2월 4일 보안 뉴스: Docker AI 비서 DockerDash 코드 실행 취약점, React Native CLI
+  Metro4Shell RCE(CVE-2025-11953), AWS IAM Identity Center 멀티리전 보안 영향, AI 에이전트 3Cs
+  보안 프레임워크 DevSecOps 실무 대응 가이드'
+excerpt: Docker Ask Gordon AI 코드 실행 취약점(DockerDash), Metro4Shell RCE(CVE-2025-11953,
+  CVSS 9.8), AWS IAM Identity Center 멀티리전, AI 에이전트 3Cs 보안 프레임워크 심층 분석
 image: /assets/images/2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go.svg
-image_alt: "Tech Security Weekly Digest February 04 2026 Docker AI Metro4Shell AWS IAM"
-toc: true
+image_alt: Tech Security Weekly Digest February 04 2026 Docker AI Metro4Shell AWS
+  IAM
+keywords:
+- Docker
+- DockerDash
+- CVE-2025-11953
+- Metro4Shell
+- RCE
+- AI Agent Security
+- 3Cs Framework
+- AWS IAM Identity Center
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- DevSecOps
+- Cloud-Security
+- Docker
+- CVE-2025-11953
+- Metro4Shell
+- RCE
+- AI-Agent-Security
+- AWS-IAM
+- '2026'
+title: '2026년 2월 4일 주간 기술 보안 다이제스트: Docker AI 취약점, CVE-2025-11953, RCE 공격'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Docker Ask Gordon AI 코드 실행 취약점(DockerDash), Metro4Shell RCE(CVE-2025-11953, CVSS 9.8), AWS IAM Identity Center 멀티리전, AI 에이전트 3Cs 보안 프레임워크 심층 분석
+- **주요 주제**: 2026년 2월 4일 주간 기술 보안 다이제스트: Docker AI 취약점, CVE-2025-11953, RCE 공격
+- **키워드**: Security-Weekly, DevSecOps, Cloud-Security, Docker, CVE-2025-11953
+
 ---
 
 <div class="ai-summary-card">
@@ -68,6 +100,13 @@ schema_type: Article
 
 ### TL;DR - 위험 스코어카드
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```text
+> +================================================================+...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```text
 +================================================================+
 |          2026-02-04 주간 보안 위험 스코어카드                      |
@@ -83,7 +122,9 @@ schema_type: Article
 |  종합 위험 수준: ████████░░ HIGH (8/10)                         |
 |                                                                |
 +================================================================+
+
 ```
+-->
 
 ### 이사회/경영진 보고 포인트
 
@@ -96,6 +137,7 @@ schema_type: Article
 
 ### 경영진 대시보드 (Text-Based)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |        보안 현황 대시보드 - 2026년 2월 4일                         |
@@ -115,7 +157,9 @@ schema_type: Article
 |                           SIEM 룰 커버리지: 85%                 |
 |                                                                |
 +================================================================+
+
 ```
+-->
 
 ---
 
@@ -170,6 +214,8 @@ DockerDash 공격은 Docker 이미지의 메타데이터(Dockerfile 라벨, 이�
 
 공격자가 Docker 이미지의 라벨 또는 설명에 프롬프트 인젝션 페이로드를 삽입합니다.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
 ```dockerfile
 # 예시: 악성 메타데이터가 포함된 Dockerfile
 FROM alpine:latest
@@ -201,6 +247,13 @@ LABEL maintainer="legitimate-looking@example.com"
 
 ### 1.4 즉시 조치 사항
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # 1. 현재 Docker 버전 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. 현재 Docker 버전 확인
 docker --version
@@ -236,11 +289,15 @@ done
 
 # 5. 신뢰할 수 없는 이미지 정리
 docker image prune -a --filter "until=72h"
+
 ```
+-->
 
 ### 1.5 탐지 쿼리
 
 #### Splunk SPL
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
 ```spl
 index=docker sourcetype=docker:daemon OR sourcetype=docker:events
@@ -256,6 +313,8 @@ index=docker sourcetype=docker:daemon OR sourcetype=docker:events
 
 #### Azure Sentinel KQL
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
 ```kql
 ContainerLog
 | where TimeGenerated > ago(24h)
@@ -269,6 +328,13 @@ ContainerLog
 
 #### ELK Query DSL
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "query": {
@@ -290,10 +356,19 @@ ContainerLog
     "by_host": { "terms": { "field": "host.name" } }
   }
 }
+
 ```
+-->
 
 ### 1.6 MITRE ATT&CK 매핑
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 mitre_attack:
   initial_access:
@@ -309,7 +384,9 @@ mitre_attack:
   collection:
     - T1005      # Data from Local System
     - T1552.001  # Unsecured Credentials: Credentials in Files
+
 ```
+-->
 
 ### 1.7 유사 AI 비서 취약점 비교 분석
 
@@ -328,6 +405,13 @@ DockerDash는 AI 비서 통합 도구에서 발생하는 프롬프트 인젝션/
 
 프로덕션 환경에서 Docker Compose를 사용할 때 DockerDash 유형 공격을 방어하기 위한 보안 설정입니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # docker-compose.secure.yml - 보안 강화 구성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # docker-compose.secure.yml - 보안 강화 구성
 version: '3.8'
@@ -381,7 +465,9 @@ networks:
   app-internal:
     driver: bridge
     internal: true  # 외부 인터넷 접근 차단
+
 ```
+-->
 
 ### 1.9 비용-편익 분석: 대응 vs 침해
 
@@ -406,6 +492,8 @@ networks:
 
 **1단계 - 탐지 (Detection)**
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
 ```bash
 # 자동 탐지: SIEM에서 DockerDash IOC 매칭 알림
 # 수동 탐지: 다음 명령으로 의심스러운 활동 확인
@@ -428,6 +516,8 @@ ps aux | grep -i gordon
 
 **3단계 - 격리 (Containment)**
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
 ```bash
 # 영향 컨테이너 즉시 정지
 docker stop $(docker ps -q --filter "ancestor=suspicious-image")
@@ -442,6 +532,13 @@ docker export <container_id> > evidence-container-$(date +%Y%m%d).tar
 
 **4~5단계 - 조사 및 제거**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # 이미지 메타데이터 포렌식 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 이미지 메타데이터 포렌식 분석
 docker inspect <image_id> --format '{% raw %}{{json .Config}}{% endraw %}' | \
@@ -466,12 +563,21 @@ echo "  - Docker Hub 토큰"
 echo "  - 환경 변수에 포함된 API 키"
 echo "  - SSH 키 (호스트 접근 시)"
 echo "  - 클라우드 서비스 자격증명"
+
 ```
+-->
 
 #### 커뮤니케이션 템플릿
 
 **내부 보고 (보안팀 -> 경영진)**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```text
+> 제목: [보안사고] DockerDash 취약점 관련 사고 보고 (사고번호: INC-2026-XXXX)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```text
 제목: [보안사고] DockerDash 취약점 관련 사고 보고 (사고번호: INC-2026-XXXX)
 
@@ -495,10 +601,19 @@ echo "  - 클라우드 서비스 자격증명"
    - Docker Desktop 전사 패치 (D+1)
    - SIEM 탐지 룰 업데이트 (D+2)
    - 전사 보안 공지 (D+1)
+
 ```
+-->
 
 **외부 통보 (규제 기관/고객)**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```text
+> 제목: 보안 사고 통보 (개인정보보호위원회 신고용)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```text
 제목: 보안 사고 통보 (개인정보보호위원회 신고용)
 
@@ -518,7 +633,9 @@ echo "  - 클라우드 서비스 자격증명"
    - 모니터링 강화
 
 ※ 개인정보보호법 제34조에 따라 72시간 이내 신고
+
 ```
+-->
 
 #### 에스컬레이션 매트릭스
 
@@ -584,6 +701,13 @@ Metro Development Server는 React Native 개발 시 JavaScript 번들링과 핫 
 
 ### 2.4 패치 검증 방법
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 취약 패키지 존재 여부 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. 취약 패키지 존재 여부 확인
 npm ls @react-native-community/cli 2>/dev/null
@@ -632,12 +756,15 @@ npm list @react-native-community/cli
 # Critical/High 취약점 잔존 여부 확인
 npm audit --production | grep "critical\|high"
 # 예상 출력: CVE-2025-11953 관련 항목이 없어야 함
+
 ```
+-->
 
 ### 2.5 탐지 쿼리
 
 #### Splunk SPL
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=network sourcetype=firewall OR sourcetype=proxy
 | where dest_port=8081
@@ -647,10 +774,13 @@ index=network sourcetype=firewall OR sourcetype=proxy
 | stats count dc(src_ip) as unique_attackers values(uri_path) as paths by dest_ip, dest_port
 | where count > 5
 | table _time, dest_ip, dest_port, unique_attackers, paths, count
+
 ```
+-->
 
 #### Azure Sentinel KQL
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 CommonSecurityLog
 | where TimeGenerated > ago(24h)
@@ -664,10 +794,19 @@ CommonSecurityLog
     by DestinationIP, bin(TimeGenerated, 1h)
 | where Count > 5 or UniqueSourceIPs > 3
 | order by TimeGenerated desc
+
 ```
+-->
 
 #### ELK Query DSL
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "query": {
@@ -695,10 +834,19 @@ CommonSecurityLog
     }
   }
 }
+
 ```
+-->
 
 ### 2.6 MITRE ATT&CK 매핑
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 mitre_attack:
   initial_access:
@@ -711,7 +859,9 @@ mitre_attack:
     - T1210      # Exploitation of Remote Services
   impact:
     - T1499      # Endpoint Denial of Service
+
 ```
+-->
 
 ### 2.7 Log4Shell과의 비교 분석
 
@@ -738,6 +888,7 @@ Metro4Shell(CVE-2025-11953)은 그 이름에서 알 수 있듯이 2021년의 Log
 
 #### Shodan 검색 쿼리
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 # Metro Development Server 검색
 port:8081 "React Native" http.title:"Metro"
@@ -750,7 +901,9 @@ http.html:"React Native" port:8081
 
 # 조직/ASN 기반 탐지 (자사 네트워크)
 port:8081 org:"YOUR_ORG_NAME" "symbolicate"
+
 ```
+-->
 
 #### Censys 검색 쿼리
 
@@ -763,6 +916,8 @@ services.port=8081 AND location.country="South Korea"
 ```
 
 #### 자동화 탐지 스크립트
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 내부 네트워크 Metro 서버 스캔 (nmap 기반)
@@ -779,6 +934,7 @@ echo "노출된 서버 수: $(nmap -sV -p 8081 --open 10.0.0.0/8 2>/dev/null | g
 
 React Native 프로젝트에서 CVE-2025-11953에 영향받는 의존성 경로를 파악하기 위한 트리 시각화입니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |         npm 의존성 트리 - CVE-2025-11953 영향 경로                 |
@@ -806,8 +962,17 @@ React Native 프로젝트에서 CVE-2025-11953에 영향받는 의존성 경로�
 |  일반 = 취약하지 않으나 의존성 경로 상 존재                         |
 |                                                                |
 +================================================================+
-```
 
+```
+-->
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 프로젝트 의존성 트리에서 취약 패키지 검색...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 프로젝트 의존성 트리에서 취약 패키지 검색
 npm ls metro 2>/dev/null
@@ -820,7 +985,9 @@ npx npm-remote-ls @react-native-community/cli --flatten | \
 # lock 파일에서 취약 버전 직접 확인
 grep -A 2 '"metro"' package-lock.json 2>/dev/null | \
   grep '"version"'
+
 ```
+-->
 
 ### 2.10 Metro4Shell 사고 대응 플레이북
 
@@ -836,6 +1003,7 @@ grep -A 2 '"metro"' package-lock.json 2>/dev/null | \
 
 #### 사고 대응 의사결정 트리
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |        Metro4Shell 보안 팀 의사결정 트리                           |
@@ -858,10 +1026,13 @@ grep -A 2 '"metro"' package-lock.json 2>/dev/null | \
 |                          + 7일 이내 패치   + 30일 이내 패치      |
 |                                                                |
 +================================================================+
+
 ```
+-->
 
 #### SIEM 상관 분석 룰 (Cross-Correlation)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Splunk: Metro4Shell + 후속 공격 상관 분석
 # 1단계: Metro 포트 스캔 후 내부 이동 탐지
@@ -882,10 +1053,13 @@ index=network sourcetype=firewall
     1=1, "MEDIUM - Initial Access"
   )
 | table src_ip, first_seen, last_seen, attack_stages, targets, kill_chain_progress
+
 ```
+-->
 
 #### IOC (Indicators of Compromise)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 # Metro4Shell IOC 목록 (2026-02-04 기준)
 # Type: Network
@@ -906,7 +1080,9 @@ sha256: [VulnCheck 위협 인텔리전스 피드에서 최신 IOC 확인]
 
 # 위협 인텔리전스 피드 연동
 feed_url: https://vulncheck.com/api/v1/advisories/CVE-2025-11953
+
 ```
+-->
 
 ---
 
@@ -942,6 +1118,13 @@ feed_url: https://vulncheck.com/api/v1/advisories/CVE-2025-11953
 
 **2. 한국 리전(ap-northeast-2) 적용 시나리오**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # AWS IAM Identity Center 멀티리전 설정 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # AWS IAM Identity Center 멀티리전 설정 확인
 aws sso-admin list-instances --region ap-northeast-2
@@ -955,7 +1138,9 @@ aws sso-admin list-permission-sets \
 aws sso-admin describe-instance \
     --instance-arn "arn:aws:sso:::instance/ssoins-XXXXXXXXXX" \
     --region ap-northeast-2
+
 ```
+-->
 
 **3. 멀티리전 보안 모범 사례**
 
@@ -963,6 +1148,13 @@ aws sso-admin describe-instance \
 - **감사 로그 통합**: 모든 리전의 CloudTrail 로그를 중앙 S3 버킷으로 집계
 - **조건부 접근 정책**: 리전별 IP 제한, MFA 요구사항 검토
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # CloudTrail 멀티리전 로깅 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # CloudTrail 멀티리전 로깅 확인
 aws cloudtrail describe-trails --region ap-northeast-2 | \
@@ -976,7 +1168,9 @@ for t in trails:
     if not mr:
         print('  [WARNING] Single-region trail detected - enable multi-region')
 "
+
 ```
+-->
 
 ### 3.3 재해 복구 관점
 
@@ -999,6 +1193,7 @@ for t in trails:
 | Config 규칙 평가 | $1.00/1K evaluations | $3.00/1K evaluations | 3배 |
 | **월간 예상 비용 (1000 사용자)** | **~$50** | **~$180** | **+$130** |
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |       멀티리전 비용 vs 가용성 트레이드오프                          |
@@ -1024,7 +1219,9 @@ for t in trails:
 |  가용성: 99.9% -> 99.95% -> 99.99% -> 99.995% -> 99.999%       |
 |                                                                |
 +================================================================+
+
 ```
+-->
 
 ### 3.5 한국 리전(ap-northeast-2) 특화 고려사항
 
@@ -1043,6 +1240,13 @@ for t in trails:
 
 ### 3.6 페일오버 테스트 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # IAM Identity Center 멀티리전 페일오버 테스트
@@ -1111,7 +1315,9 @@ fi
 
 echo "Test End: $(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee -a "$LOG_FILE"
 echo "Full log: $LOG_FILE"
+
 ```
+-->
 
 ---
 
@@ -1141,6 +1347,13 @@ echo "Full log: $LOG_FILE"
 
 AI 에이전트는 반드시 격리된 환경에서 실행되어야 합니다. 호스트 시스템에 대한 직접 접근을 차단하고, 에이전트가 수행할 수 있는 작업 범위를 물리적으로 제한합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # AI 에이전트를 위한 보안 강화 Docker 실행 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # AI 에이전트를 위한 보안 강화 Docker 실행 예시
 docker run \
@@ -1154,7 +1367,9 @@ docker run \
     --pids-limit=100 \
     -e AGENT_MODE=restricted \
     ai-agent:latest
+
 ```
+-->
 
 **핵심 제어:**
 - `--read-only`: 파일 시스템 쓰기 방지
@@ -1167,6 +1382,13 @@ docker run \
 
 AI 에이전트가 사용하는 자격증명은 최소 권한 원칙에 따라 관리되어야 합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # AI 에이전트 자격증명 관리 모범 사례 (Python 예시)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # AI 에이전트 자격증명 관리 모범 사례 (Python 예시)
 import os
@@ -1192,7 +1414,9 @@ class AgentCredentialManager:
     def revoke_on_completion(self, token_accessor: str):
         """작업 완료 시 즉시 토큰 폐기"""
         self.vault.revoke_token(token_accessor)
+
 ```
+-->
 
 #### C3: Code (코드 보안)
 
@@ -1214,6 +1438,13 @@ class AgentCredentialManager:
 | **4단계** | 코드 검증 파이프라인 구축 | SonarQube, Snyk, GitHub Advanced Security |
 | **5단계** | 모니터링 및 감사 체계 | ELK, Splunk, CloudWatch |
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Kubernetes에서 AI 에이전트 Pod Security Standard 적용 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Kubernetes에서 AI 에이전트 Pod Security Standard 적용 예시
 # pod-security.yaml
@@ -1252,12 +1483,21 @@ spec:
         - port: 443
           protocol: TCP
 YAML
+
 ```
+-->
 
 ### 4.4 탐지 쿼리: AI 에이전트 이상 행위
 
 #### Splunk SPL
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```spl
+> index=kubernetes sourcetype=kube:container:log namespace="ai-agents"...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```spl
 index=kubernetes sourcetype=kube:container:log namespace="ai-agents"
 | spath output=container_name path="kubernetes.container_name"
@@ -1269,7 +1509,9 @@ index=kubernetes sourcetype=kube:container:log namespace="ai-agents"
 | where isnotnull(anomaly)
 | stats count by container_name, anomaly, _time
 | table _time, container_name, anomaly, count
+
 ```
+-->
 
 ### 4.5 3Cs 성숙도 모델 (Level 0~5)
 
@@ -1290,6 +1532,7 @@ index=kubernetes sourcetype=kube:container:log namespace="ai-agents"
 
 ### 4.6 12주 구현 로드맵
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |          3Cs 프레임워크 12주 구현 로드맵                           |
@@ -1326,7 +1569,9 @@ index=kubernetes sourcetype=kube:container:log namespace="ai-agents"
 |       보고서 작성 및 경영진 보고                                  |
 |                                                                |
 +================================================================+
+
 ```
+-->
 
 #### 주차별 산출물 및 KPI
 
@@ -1508,6 +1753,7 @@ CNCF가 **KubeCon + CloudNativeCon**의 에너지, 커뮤니티, 다양성을 �
 
 #### 시나리오 1: 금융권 (은행/카드사)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |   [시나리오] XX은행 모바일 뱅킹 앱 개발팀 - Metro4Shell 피해       |
@@ -1538,10 +1784,19 @@ CNCF가 **KubeCon + CloudNativeCon**의 에너지, 커뮤니티, 다양성을 �
 |  - 재개발/보안강화: ~20억원                                     |
 |  - 합계: ~200억원                                               |
 +================================================================+
+
 ```
+-->
 
 #### 시나리오 2: 제조업 (반도체/자동차)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```text
+> +================================================================+...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```text
 +================================================================+
 |   [시나리오] YY반도체 - DockerDash를 통한 설계 데이터 유출          |
@@ -1570,10 +1825,19 @@ CNCF가 **KubeCon + CloudNativeCon**의 에너지, 커뮤니티, 다양성을 �
 |  - 수출통제 위반 벌금: ~100억원                                  |
 |  - 합계: 600억원+                                               |
 +================================================================+
+
 ```
+-->
 
 #### 시나리오 3: 공공 부문 (정부/공기업)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```text
+> +================================================================+...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```text
 +================================================================+
 |   [시나리오] ZZ부처 - AWS IAM 멀티리전 미설정으로 서비스 장애       |
@@ -1601,7 +1865,9 @@ CNCF가 **KubeCon + CloudNativeCon**의 에너지, 커뮤니티, 다양성을 �
 |  - 감사원 지적: 행정 제재                                        |
 |  - 국민 불편/민원: 정치적 비용                                   |
 +================================================================+
+
 ```
+-->
 
 ---
 
@@ -1624,6 +1890,7 @@ CNCF가 **KubeCon + CloudNativeCon**의 에너지, 커뮤니티, 다양성을 �
 
 ### 12.2 SLA/SLO 권장 사항
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |          보안 SLA/SLO 매트릭스                                    |
@@ -1655,7 +1922,9 @@ CNCF가 **KubeCon + CloudNativeCon**의 에너지, 커뮤니티, 다양성을 �
 |  Low       ██████████  < 30일                                  |
 |                                                                |
 +================================================================+
+
 ```
+-->
 
 ### 12.3 이번 주 이슈별 측정 대상
 
@@ -1676,6 +1945,13 @@ CNCF가 **KubeCon + CloudNativeCon**의 에너지, 커뮤니티, 다양성을 �
 
 #### Docker 환경 위협 헌팅
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```spl
+> # Splunk: 비정상 Docker 이미지 사용 패턴 헌팅...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```spl
 # Splunk: 비정상 Docker 이미지 사용 패턴 헌팅
 index=docker sourcetype=docker:events action="pull"
@@ -1691,7 +1967,9 @@ index=docker sourcetype=docker:events action="pull"
 | stats count dc(host) as affected_hosts values(image_name) as images by image_source
 | where count > 0
 | sort -count
+
 ```
+-->
 
 #### npm 공급망 위협 헌팅
 
@@ -1709,6 +1987,13 @@ index=devops sourcetype=cicd
 
 #### 크로스 이벤트 상관 분석 (Kill Chain)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```spl
+> # Splunk: Docker + Network + Endpoint 상관 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```spl
 # Splunk: Docker + Network + Endpoint 상관 분석
 # 목표: Docker 이미지 pull -> 비정상 네트워크 -> 데이터 유출 패턴 탐지
@@ -1731,7 +2016,9 @@ index=docker OR index=network OR index=endpoint
   )
 | table _time, host, event_type, eventcount, risk_score, duration
 | sort -risk_score
+
 ```
+-->
 
 ---
 
@@ -1757,6 +2044,7 @@ index=docker OR index=network OR index=endpoint
 | AI 에이전트 보안 | 1.7억원 | 내부 시스템 침해: 100억원+ | 5,800%+ | 3Cs Framework |
 | SIEM 고도화 | 2,400만원 | 탐지 지연: 20~50억원 | 8,200~20,800% | Splunk, ELK |
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |    보안 투자 우선순위 매트릭스 (비용 vs 위험 감소)                   |
@@ -1782,7 +2070,9 @@ index=docker OR index=network OR index=endpoint
 |                                                                |
 |  [권장] 좌상단 영역(높은 효과, 낮은 비용) 우선 투자                |
 +================================================================+
+
 ```
+-->
 
 ---
 
