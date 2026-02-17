@@ -15,20 +15,20 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title="Tech & Security Weekly Digest (2026년 02월 17일)"
-  categories_html="<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>"
-  tags_html="<span class="tag">Security-Weekly</span>
+  title='Tech & Security Weekly Digest (2026년 02월 17일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
       <span class="tag">Cloud-Security</span>
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>"
-  highlights_html="<li><strong>The Hacker News</strong>: Infostealer Steals OpenClaw AI Agent Configuration Files...</li>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>The Hacker News</strong>: Infostealer Steals OpenClaw AI Agent Configuration Files...</li>
       <li><strong>The Hacker News</strong>: Study Uncovers 25 Password Recovery Attacks in Major...</li>
       <li><strong>AWS Security Blog</strong>: Building an AI-powered defense-in-depth security...</li>
-      <li><strong>AWS Blog</strong>: Amazon EC2 Hpc8a Instances powered by 5th Gen AMD EPYC...</li>"
-  period="2026년 02월 17일 (24시간)"
-  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+      <li><strong>AWS Blog</strong>: Amazon EC2 Hpc8a Instances powered by 5th Gen AMD EPYC...</li>'
+  period='2026년 02월 17일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
 ## 경영진 요약 (Executive Summary)
