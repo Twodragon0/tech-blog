@@ -698,15 +698,15 @@ Network Load Balancer와 Security Group을 활용한 데이터베이스 접근 �
 올바른 구성과 지속적인 모니터링을 통해 안전하고 효율적인 데이터베이스 접근 환경을 구축할 수 있습니다. 이 가이드에서 다룬 고급 아키텍처 패턴, Terraform 자동화, 위협 헌팅 쿼리, 그리고 트러블슈팅 방법을 활용하면 엔터프라이즈급 데이터베이스 게이트웨이를 성공적으로 운영할 수 있을 것입니다.
 
 <!-- quality-upgrade:v1 -->
-## Executive Summary
+## 경영진 요약
 이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
 
 ### 위험 스코어카드
 | 영역 | 현재 위험도 | 영향도 | 우선순위 |
 |---|---|---|---|
-| 공급망/의존성 | Medium | High | P1 |
-| 구성 오류/권한 | Medium | High | P1 |
-| 탐지/가시성 공백 | Low | Medium | P2 |
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
 
 ### 운영 개선 지표
 | 지표 | 현재 기준 | 목표 | 검증 방법 |
@@ -723,5 +723,5 @@ Network Load Balancer와 Security Group을 활용한 데이터베이스 접근 �
 - [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
 
 ### 시각 자료
-![Post Visual](/assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.svg)
+![포스트 시각 자료](/assets/images/2025-10-03-AWSin_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.svg)
 

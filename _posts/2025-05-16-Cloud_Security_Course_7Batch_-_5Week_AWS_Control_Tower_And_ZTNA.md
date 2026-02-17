@@ -87,7 +87,7 @@ toc: true
 </div>
 </div>
 
-## Executive Summary
+## 경영진 요약
 
 본 포스트는 클라우드 시큐리티 과정 7기 5주차의 핵심 내용인 **AWS Control Tower와 ZTNA(Zero Trust Network Access)**를 다룹니다. 멀티 계정 거버넌스부터 Zero Trust 보안 모델 구현까지 실무에서 즉시 활용할 수 있는 고품질 콘텐츠를 제공합니다.
 
@@ -291,15 +291,15 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
 
 <!-- quality-upgrade:v1 -->
-## Executive Summary
+## 경영진 요약
 이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
 
 ### 위험 스코어카드
 | 영역 | 현재 위험도 | 영향도 | 우선순위 |
 |---|---|---|---|
-| 공급망/의존성 | Medium | High | P1 |
-| 구성 오류/권한 | Medium | High | P1 |
-| 탐지/가시성 공백 | Low | Medium | P2 |
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
 
 ### 운영 개선 지표
 | 지표 | 현재 기준 | 목표 | 검증 방법 |
@@ -316,5 +316,5 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 - [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
 
 ### 시각 자료
-![Post Visual](/assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA.svg)
+![포스트 시각 자료](/assets/images/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA.svg)
 

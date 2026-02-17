@@ -98,7 +98,7 @@ toc: true
 </div>
 </div>
 
-## Executive Summary: ISMS-P 인증 준비도 평가
+## 경영진 요약: ISMS-P 인증 준비도 평가
 
 ### 인증 준비도 자가 진단
 
@@ -497,15 +497,15 @@ AWS 환경에서 ISMS-P 인증을 받기 위해서는:
 **저작권**: 이 포스팅의 코드 예제와 아키텍처 다이어그램은 [MIT 라이선스](https://opensource.org/licenses/MIT)를 따릅니다. 자유롭게 사용 및 수정 가능하며, 출처 표기를 권장합니다.
 
 <!-- quality-upgrade:v1 -->
-## Executive Summary
+## 경영진 요약
 이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
 
 ### 위험 스코어카드
 | 영역 | 현재 위험도 | 영향도 | 우선순위 |
 |---|---|---|---|
-| 공급망/의존성 | Medium | High | P1 |
-| 구성 오류/권한 | Medium | High | P1 |
-| 탐지/가시성 공백 | Low | Medium | P2 |
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
 
 ### 운영 개선 지표
 | 지표 | 현재 기준 | 목표 | 검증 방법 |
@@ -522,5 +522,5 @@ AWS 환경에서 ISMS-P 인증을 받기 위해서는:
 - [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
 
 ### 시각 자료
-![Post Visual](/assets/images/2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_Environment_Management_System_Establishment_and_Protection_Measures_Implementation.svg)
+![포스트 시각 자료](/assets/images/2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_Environment_Management_System_Establishment_and_Protection_Measures_Implementation.svg)
 

@@ -105,7 +105,7 @@ toc: true
 
 <img src="{{ '/assets/images/2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.svg' | relative_url }}" alt="AI Music Video Generation Complete Guide: DevSecOps Perspective" loading="lazy" class="post-image">
 
-## Executive Summary (경영진 요약)
+## 경영진 요약
 
 **AI 콘텐츠 생성 보안 평가 - 2026년 1월**
 
@@ -445,15 +445,15 @@ DevSecOps 관점에서 생성형 AI를 안전하고 효율적으로 활용하기
 **면책 조항**: 본 포스팅의 법률 정보는 일반적인 가이드라인이며, 실제 법적 조언은 전문 변호사와 상담하시기 바랍니다. AI 도구의 가격 및 기능은 변경될 수 있으므로 공식 문서를 참조하세요.
 
 <!-- quality-upgrade:v1 -->
-## Executive Summary
+## 경영진 요약
 이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
 
 ### 위험 스코어카드
 | 영역 | 현재 위험도 | 영향도 | 우선순위 |
 |---|---|---|---|
-| 공급망/의존성 | Medium | High | P1 |
-| 구성 오류/권한 | Medium | High | P1 |
-| 탐지/가시성 공백 | Low | Medium | P2 |
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
 
 ### 운영 개선 지표
 | 지표 | 현재 기준 | 목표 | 검증 방법 |
@@ -470,5 +470,5 @@ DevSecOps 관점에서 생성형 AI를 안전하고 효율적으로 활용하기
 - [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
 
 ### 시각 자료
-![Post Visual](/assets/images/2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.svg)
+![포스트 시각 자료](/assets/images/2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.svg)
 

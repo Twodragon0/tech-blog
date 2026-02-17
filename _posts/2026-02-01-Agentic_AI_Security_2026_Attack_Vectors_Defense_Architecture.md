@@ -100,7 +100,7 @@ toc: true
 
 이 포스트에서는 2026년 1월 발표된 최신 연구를 기반으로, AI 에이전트에 대한 **공격 벡터(Attack Vector)**와 이에 대응하는 **방어 아키텍처(Defense Architecture)**를 실무 관점에서 심층 분석합니다.
 
-### 경영진 요약 (Executive Summary)
+### 경영진 요약
 
 **에이전틱 AI 보안 위험 스코어카드**
 

@@ -89,7 +89,7 @@ toc: true
 </div>
 </div>
 
-## Executive Summary (경영진 요약)
+## 경영진 요약
 
 ### 비즈니스 가치 및 위험 스코어카드
 

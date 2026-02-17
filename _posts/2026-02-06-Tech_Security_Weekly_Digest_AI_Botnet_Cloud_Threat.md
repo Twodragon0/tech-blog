@@ -64,7 +64,7 @@ toc: true
 </figure>
 
 
-## Executive Summary (경영진 브리핑)
+## 경영진 요약 (경영진 브리핑)
 
 ### TL;DR - 위험 스코어카드
 

@@ -116,7 +116,7 @@ toc: true
 </div>
 </div>
 
-## Executive Summary
+## 경영진 요약
 
 ### 위험도 평가 스코어카드 (Risk Assessment Scorecard)
 

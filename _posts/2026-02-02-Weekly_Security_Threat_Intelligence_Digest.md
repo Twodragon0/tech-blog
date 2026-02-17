@@ -98,7 +98,7 @@ toc: true
   <figcaption>그림 1: 2월 2일 위협 인텔리전스 핵심 - 공급망 공격, 랜섬웨어, 제로트러스트</figcaption>
 </figure>
 
-## Executive Summary
+## 경영진 요약
 
 ### 위험 평가 스코어카드
 

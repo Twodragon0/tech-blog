@@ -117,7 +117,7 @@ toc: true
 
 ---
 
-## Executive Summary: 주요 위협 분석 및 위험 평가
+## 경영진 요약: 주요 위협 분석 및 위험 평가
 
 ### 위험 스코어카드 (Risk Scorecard)
 

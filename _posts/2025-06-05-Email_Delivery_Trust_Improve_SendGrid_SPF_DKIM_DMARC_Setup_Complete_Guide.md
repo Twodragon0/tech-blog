@@ -84,7 +84,7 @@ toc: true
 </div>
 </div>
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### 비즈니스 영향도 및 위험 스코어카드
 
@@ -806,15 +806,15 @@ SPF, DKIM, DMARC를 올바르게 설정하면 이메일 발송 신뢰도를 크�
 이메일 보안은 한 번 설정하고 끝나는 것이 아닙니다. 지속적인 모니터링과 개선을 통해 비즈니스 연속성을 확보하고, 고객 신뢰를 지켜나가는 것이 중요합니다.
 
 <!-- quality-upgrade:v1 -->
-## Executive Summary
+## 경영진 요약
 이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
 
 ### 위험 스코어카드
 | 영역 | 현재 위험도 | 영향도 | 우선순위 |
 |---|---|---|---|
-| 공급망/의존성 | Medium | High | P1 |
-| 구성 오류/권한 | Medium | High | P1 |
-| 탐지/가시성 공백 | Low | Medium | P2 |
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
 
 ### 운영 개선 지표
 | 지표 | 현재 기준 | 목표 | 검증 방법 |
@@ -831,5 +831,5 @@ SPF, DKIM, DMARC를 올바르게 설정하면 이메일 발송 신뢰도를 크�
 - [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
 
 ### 시각 자료
-![Post Visual](/assets/images/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.svg)
+![포스트 시각 자료](/assets/images/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.svg)
 

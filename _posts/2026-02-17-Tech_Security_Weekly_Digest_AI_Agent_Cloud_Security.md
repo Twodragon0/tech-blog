@@ -31,7 +31,7 @@ toc: true
   audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
 %}
 
-## Executive Summary
+## 경영진 요약
 
 2026년 02월 17일 기준 보안 현황 및 위협 분석입니다.
 

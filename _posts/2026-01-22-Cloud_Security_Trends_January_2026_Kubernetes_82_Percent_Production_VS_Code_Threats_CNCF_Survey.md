@@ -99,7 +99,7 @@ toc: true
 </div>
 </div>
 
-## Executive Summary
+## 경영진 요약
 
 ### 위험 스코어카드
 

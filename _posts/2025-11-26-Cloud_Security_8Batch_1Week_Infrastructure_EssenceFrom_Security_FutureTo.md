@@ -80,7 +80,7 @@ toc: true
 </div>
 </div>
 
-## Executive Summary (경영진 요약)
+## 경영진 요약
 
 ### 리스크 스코어카드
 

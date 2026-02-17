@@ -70,7 +70,7 @@ schema_type: Article
 
 <img src="{% raw %}{{ '/assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security_image.png' | relative_url }}{% endraw %}" alt="Cloud Security Course 7Batch 6Week: Cloudflare and GitHub Security" loading="lazy" class="post-image">
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 이 문서는 웹 애플리케이션 보안을 위한 3단계 방어 전략을 제시합니다: AWS WAF를 통한 기본 웹 보안, Cloudflare를 통한 DDoS 및 글로벌 보안 강화, GitHub 보안 자동화를 통한 소스 코드 보안입니다.
 

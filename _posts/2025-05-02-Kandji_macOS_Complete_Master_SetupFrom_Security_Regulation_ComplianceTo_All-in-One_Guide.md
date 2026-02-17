@@ -88,7 +88,7 @@ toc: true
 </div>
 </div>
 
-## Executive Summary
+## 경영진 요약
 
 ### 보안 스코어카드
 
@@ -630,15 +630,15 @@ Kandji는 Apple 생태계 전용 통합 엔드포인트 관리 솔루션으로, 
 Kandji를 통해 Apple 디바이스 관리를 자동화하고, 보안 태세를 강화하며, 규정 준수 부담을 줄일 수 있습니다. 올바른 초기 설정과 지속적인 모니터링을 통해 안전하고 효율적인 엔드포인트 환경을 구축하시기 바랍니다.
 
 <!-- quality-upgrade:v1 -->
-## Executive Summary
+## 경영진 요약
 이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
 
 ### 위험 스코어카드
 | 영역 | 현재 위험도 | 영향도 | 우선순위 |
 |---|---|---|---|
-| 공급망/의존성 | Medium | High | P1 |
-| 구성 오류/권한 | Medium | High | P1 |
-| 탐지/가시성 공백 | Low | Medium | P2 |
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
 
 ### 운영 개선 지표
 | 지표 | 현재 기준 | 목표 | 검증 방법 |
@@ -655,5 +655,5 @@ Kandji를 통해 Apple 디바이스 관리를 자동화하고, 보안 태세를 
 - [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
 
 ### 시각 자료
-![Post Visual](/assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.svg)
+![포스트 시각 자료](/assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.svg)
 
