@@ -1737,7 +1737,7 @@ Prometheus AlertManager를 통한 알림 설정:
 > **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 > 
 > ```yaml
-> {% raw %}...
+> apiVersion: ...
 > ```
 
 
@@ -1747,7 +1747,7 @@ Prometheus AlertManager를 통한 알림 설정:
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
-> {% raw %}...
+> apiVersion: ...
 > ```
 
 
