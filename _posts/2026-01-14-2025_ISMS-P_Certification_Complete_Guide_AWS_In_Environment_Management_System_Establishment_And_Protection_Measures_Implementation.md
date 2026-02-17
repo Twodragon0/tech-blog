@@ -1,19 +1,51 @@
 ---
-layout: post
-title: "2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현"
-date: 2026-01-14 10:00:00 +0900
-categories: [security, cloud]
-tags: [ISMS-P, AWS, Security, Compliance, ISMS, NIST-CSF, AI-Security]
-excerpt: "2025년 ISMS-P 인증 AWS 환경 완벽 가이드"
-description: "2025년 개정된 ISMS-P 인증 기준(101개 항목) 완벽 분석. AWS 환경에서 관리체계 수립 방법, 보호대책 구현, NIST CSF 2.0 연계, AI 보안 요구사항, CIS Benchmark 준수까지 단계별 실무 가이드 제공."
-keywords: [ISMS-P, AWS, 정보보호 관리체계, 개인정보보호, Compliance, NIST CSF 2.0, AI Security, Cloud Security, ISO 27001, CIS Benchmark, PCI-DSS, 보안 컴플라이언스]
 author: Twodragon
+categories:
+- security
+- cloud
+certifications:
+- isms-p
 comments: true
+date: 2026-01-14 10:00:00 +0900
+description: 2025년 개정된 ISMS-P 인증 기준(101개 항목) 완벽 분석. AWS 환경에서 관리체계 수립 방법, 보호대책 구현,
+  NIST CSF 2.0 연계, AI 보안 요구사항, CIS Benchmark 준수까지 단계별 실무 가이드 제공.
+excerpt: 2025년 ISMS-P 인증 AWS 환경 완벽 가이드
 image: /assets/images/2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_Environment_Management_System_Establishment_and_Protection_Measures_Implementation.svg
-image_alt: "2025 ISMS-P Certification Complete Guide: AWS Environment Management System Establishment and Protection Measures Implementation"
-toc: true
+image_alt: '2025 ISMS-P Certification Complete Guide: AWS Environment Management System
+  Establishment and Protection Measures Implementation'
+keywords:
+- ISMS-P
+- AWS
+- 정보보호 관리체계
+- 개인정보보호
+- Compliance
+- NIST CSF 2.0
+- AI Security
+- Cloud Security
+- ISO 27001
+- CIS Benchmark
+- PCI-DSS
+- 보안 컴플라이언스
+layout: post
 schema_type: Article
-certifications: [isms-p]
+tags:
+- ISMS-P
+- AWS
+- Security
+- Compliance
+- ISMS
+- NIST-CSF
+- AI-Security
+title: '2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: 2025년 ISMS-P 인증 AWS 환경 완벽 가이드
+- **주요 주제**: 2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현
+- **키워드**: ISMS-P, AWS, Security, Compliance, ISMS
+
 ---
 
 <div class="ai-summary-card">

@@ -1,19 +1,42 @@
 ---
-layout: post
-title: "AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처"
-date: 2026-01-14 11:00:00 +0900
-categories: [security, cloud]
-tags: [AWS, Security, IAM, VPC, S3, RDS, EKS, CloudTrail, CloudWatch, Security-Hub]
-excerpt: "AWS IAM, VPC, S3, RDS, EKS 보안 아키텍처. Defense in Depth 전략과 실무 체크리스트 제공."
-description: "AWS 클라우드 환경에서의 보안 아키텍처 설계 및 구현 가이드. IAM, VPC, S3, RDS, EKS 등 주요 서비스별 보안 모범 사례, Defense in Depth 전략, 최소 권한 원칙, 암호화, 로그 관리 및 모니터링까지 실무 중심 가이드."
-keywords: "AWS 보안, IAM, VPC, S3, RDS, EKS, CloudTrail, CloudWatch, Security Hub, GuardDuty, KMS, Defense in Depth, 최소 권한 원칙, AWS-SAA"
 author: Twodragon
+categories:
+- security
+- cloud
+certifications:
+- aws-saa
 comments: true
+date: 2026-01-14 11:00:00 +0900
+description: AWS 클라우드 환경에서의 보안 아키텍처 설계 및 구현 가이드. IAM, VPC, S3, RDS, EKS 등 주요 서비스별
+  보안 모범 사례, Defense in Depth 전략, 최소 권한 원칙, 암호화, 로그 관리 및 모니터링까지 실무 중심 가이드.
+excerpt: AWS IAM, VPC, S3, RDS, EKS 보안 아키텍처. Defense in Depth 전략과 실무 체크리스트 제공.
 image: /assets/images/2026-01-14-AWS_Cloud_Security_Complete_Guide_IAM_to_EKS_Practical_Security_Architecture.svg
-image_alt: "AWS Cloud Security Complete Guide: IAM to EKS Practical Security Architecture"
-toc: true
+image_alt: 'AWS Cloud Security Complete Guide: IAM to EKS Practical Security Architecture'
+keywords: AWS 보안, IAM, VPC, S3, RDS, EKS, CloudTrail, CloudWatch, Security Hub, GuardDuty,
+  KMS, Defense in Depth, 최소 권한 원칙, AWS-SAA
+layout: post
 schema_type: Article
-certifications: [aws-saa]
+tags:
+- AWS
+- Security
+- IAM
+- VPC
+- S3
+- RDS
+- EKS
+- CloudTrail
+- CloudWatch
+- Security-Hub
+title: 'AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: AWS IAM, VPC, S3, RDS, EKS 보안 아키텍처. Defense in Depth 전략과 실무 체크리스트 제공.
+- **주요 주제**: AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처
+- **키워드**: AWS, Security, IAM, VPC, S3
+
 ---
 
 <div class="ai-summary-card">
