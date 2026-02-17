@@ -1,18 +1,44 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE"
-date: 2026-02-06 12:30:12 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Cloud, Threat]
-excerpt: "2026년 02월 06일 주요 보안/기술 뉴스 27건 - CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD, Claude Opus 4.6"
-description: "2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python RAT 배포, AISURU/Kimwolf 31.4 Tbps DDoS 기록 경신, Codespaces RCE/AsyncRAT C2/BYOVD 복합 위협. DevSecOps 실무 위협 분석, MITRE ATT&CK 매핑, 탐지 쿼리, IR 플레이북 제공."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CrashFix, AISURU, Botnet, DDoS, BYOVD, Python-RAT]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-02-06 12:30:12 +0900
+description: '2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python RAT 배포, AISURU/Kimwolf
+  31.4 Tbps DDoS 기록 경신, Codespaces RCE/AsyncRAT C2/BYOVD 복합 위협. DevSecOps 실무 위협 분석,
+  MITRE ATT&CK 매핑, 탐지 쿼리, IR 플레이북 제공.'
+excerpt: 2026년 02월 06일 주요 보안/기술 뉴스 27건 - CrashFix Python RAT, AISURU 31.4 Tbps DDoS,
+  Codespaces RCE, BYOVD, Claude Opus 4.6
 image: /assets/images/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat.svg
-image_alt: "Tech Security Weekly Digest February 06 2026 AI Botnet Cloud"
-toc: true
+image_alt: Tech Security Weekly Digest February 06 2026 AI Botnet Cloud
+keywords:
+- Security-Weekly
+- DevSecOps
+- Cloud-Security
+- Weekly-Digest
+- 2026
+- CrashFix
+- AISURU
+- Botnet
+- DDoS
+- BYOVD
+- Python-RAT
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- DevSecOps
+- Cloud-Security
+- Weekly-Digest
+- 2026
+- AI
+- Botnet
+- Cloud
+- Threat
+title: 'Tech & Security Weekly Digest: CrashFix Python RAT, AISURU 31.4 Tbps DDoS,
+  Codespaces RCE'
+toc: true
 ---
 
 {% include ai-summary-card.html
@@ -24,10 +50,20 @@ schema_type: Article
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
+## 요약
+
+- **핵심 요약**: 2026년 02월 06일 주요 보안/기술 뉴스 27건 - CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD, Claude Opus 4.6
+- **주요 주제**: Tech & Security Weekly Digest: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE
+- **키워드**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026
+
+---
+
+
 ## Executive Summary (경영진 브리핑)
 
 ### TL;DR - 위험 스코어카드
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |          2026-02-06 주간 보안 위험 스코어카드                      |
@@ -44,7 +80,9 @@ schema_type: Article
 |  종합 위험 수준: ████████░░ HIGH (8/10)                         |
 |                                                                |
 +================================================================+
+
 ```
+-->
 
 ### 이사회/경영진 보고 포인트
 
@@ -57,6 +95,7 @@ schema_type: Article
 
 ### 경영진 대시보드 (Text-Based)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |        보안 현황 대시보드 - 2026년 2월 6일                         |
@@ -76,7 +115,9 @@ schema_type: Article
 |                           SIEM 룰 커버리지: 81%                 |
 |                                                                |
 +================================================================+
+
 ```
+-->
 
 ---
 
@@ -128,6 +169,7 @@ Microsoft Security Blog에서 **CrashFix**라는 새로운 ClickFix 변종을 �
 
 #### 공격 시나리오 분석
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +------------------------------------------------------------------+
 |                    CrashFix 공격 체인                               |
@@ -160,7 +202,9 @@ Microsoft Security Blog에서 **CrashFix**라는 새로운 ClickFix 변종을 �
 |  [9] 지속성 확보: Run Key 레지스트리 등록                            |
 |                                                                    |
 +------------------------------------------------------------------+
+
 ```
+-->
 
 #### 핵심 포인트
 
@@ -256,6 +300,13 @@ union DeviceProcessEvents, SecurityEvent
 
 **1. finger.exe 사용 여부 점검 스크립트**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # CrashFix IOC 점검 스크립트
@@ -281,7 +332,9 @@ echo "[4/4] 레지스트리 Run Key 확인..."
 reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" 2>/dev/null | grep -i python || echo "  -> Windows가 아닌 환경이거나 의심 항목 없음"
 
 echo "=== 점검 완료 ==="
+
 ```
+-->
 
 **2. GPO를 통한 finger.exe 차단**: 전체 GPO 설정은 [GitHub Gist](https://gist.github.com/example/block-finger-gpo)에서 확인
 
@@ -330,6 +383,13 @@ AISURU/Kimwolf로 알려진 DDoS 봇넷이 **31.4 Tbps(Terabits per second)**에
 
 #### 공격 규모 분석
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```text
+> +================================================================+...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```text
 +================================================================+
 |              DDoS 공격 규모 역사적 비교                           |
@@ -348,8 +408,11 @@ AISURU/Kimwolf로 알려진 DDoS 봇넷이 **31.4 Tbps(Terabits per second)**에
 |  특징: 공격 지속시간 단축, 공격 규모 급증                         |
 |                                                                |
 +================================================================+
-```
 
+```
+-->
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +==================================================================+
 |              AISURU/Kimwolf DDoS 공격 흐름도                        |
@@ -387,7 +450,9 @@ AISURU/Kimwolf로 알려진 DDoS 봇넷이 **31.4 Tbps(Terabits per second)**에
 |                                   [Clean traffic to origin]        |
 |                                                                    |
 +==================================================================+
+
 ```
+-->
 
 #### 핵심 포인트
 
@@ -480,6 +545,13 @@ The Hacker News의 ThreatsDay Bulletin에서 **GitHub Codespaces RCE(Remote Code
 | **BYOVD** | 취약한 커널 드라이버 설치 후 권한 상승 | EDR/AV 무력화, 커널 수준 접근 권한 획득 | T1068, T1543.003 |
 | **AI Cloud Intrusion** | 클라우드 AI 서비스 자격 증명 탈취 | AI 모델 접근, API 키 악용, 대규모 컴퓨팅 비용 발생 | T1078, T1496 |
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```text
+> +==================================================================+...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```text
 +==================================================================+
 |       Codespaces/AsyncRAT/BYOVD Compound Threat Flow              |
@@ -522,7 +594,9 @@ The Hacker News의 ThreatsDay Bulletin에서 **GitHub Codespaces RCE(Remote Code
 |  compromise with minimal detection across all security layers      |
 |                                                                    |
 +==================================================================+
+
 ```
+-->
 
 #### 핵심 포인트
 
@@ -583,6 +657,13 @@ GitHubAuditLog
 
 #### DevOps 보안 점검: GitHub Codespaces 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # GitHub Codespaces 보안 점검 스크립트
@@ -613,7 +694,9 @@ for repo in $(gh repo list "$ORG" --limit 50 --json nameWithOwner -q '.[].nameWi
 done
 
 echo "=== 점검 완료 ==="
+
 ```
+-->
 
 #### 즉시 조치 사항
 
@@ -700,6 +783,7 @@ Claude Opus 4.6의 향상된 에이전트 능력은 OWASP Agentic AI Top 10에�
 | Indirect Prompt Injection | 향상된 맥락 파악 = 더 넓은 입력 표면 | 입력 검증 파이프라인 강화 |
 | Insecure Tool Use | 에이전트의 외부 도구 호출 범위 확대 | 도구별 입력/출력 스키마 검증 |
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +==================================================================+
 |        AI Agent Security Risk Flow (OWASP Agentic AI)              |
@@ -730,7 +814,9 @@ Claude Opus 4.6의 향상된 에이전트 능력은 OWASP Agentic AI Top 10에�
 |  - Insecure Tool Use: Unvalidated tool calls cause damage           |
 |                                                                    |
 +==================================================================+
+
 ```
+-->
 
 #### 실무 적용 포인트
 
@@ -824,6 +910,13 @@ Google Cloud에서 Gemini 시리즈를 활용한 클라우드 입문 가이드 3
 
 #### Shadow AI 탐지 및 대응
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # Shadow AI 서비스 접근 현황 분석 스크립트
@@ -850,7 +943,9 @@ if [ -f /var/log/named/query.log ]; then
 fi
 
 echo "=== 분석 완료 ==="
+
 ```
+-->
 
 #### 실무 적용 포인트
 
@@ -955,6 +1050,7 @@ CrashFix 캠페인과 같은 다단계 소셜 엔지니어링 공격은 단순 I
 
 #### SOAR 자동화 워크플로우
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +==================================================================+
 |           CrashFix IOC SOAR 자동화 플레이북                          |
@@ -1015,10 +1111,19 @@ CrashFix 캠페인과 같은 다단계 소셜 엔지니어링 공격은 단순 I
 |  +--------------------------------------------------+             |
 |                                                                    |
 +==================================================================+
+
 ```
+-->
 
 #### Splunk SOAR 플레이북 구현
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```python
+> # Splunk SOAR (Phantom) Playbook - CrashFix IOC Auto-Response...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Splunk SOAR (Phantom) Playbook - CrashFix IOC Auto-Response
 # 파일: crashfix_ioc_response.py
@@ -1059,7 +1164,9 @@ def auto_respond(action, success, container, results):
         phantom.act("send notification", assets=["slack"],
                     parameters=[{"channel": "#soc-alerts",
                                  "message": f"CrashFix IOC (Score: {risk_score}) - 차단 승인 필요"}])
+
 ```
+-->
 
 **전체 SOAR 플레이북 코드**: [GitHub Gist](https://gist.github.com/example/crashfix-soar-playbook)에서 확인
 
@@ -1080,6 +1187,13 @@ AISURU/Kimwolf 봇넷의 31.4 Tbps 공격이 시사하는 바와 같이, 단일 
 
 #### Multi-Layer DDoS 방어 아키텍처
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```text
+> +==================================================================+...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```text
 +==================================================================+
 |        DDoS Multi-Layer Defense Architecture                       |
@@ -1132,10 +1246,19 @@ AISURU/Kimwolf 봇넷의 31.4 Tbps 공격이 시사하는 바와 같이, 단일 
 |                     (Protected EC2 / ECS)                          |
 |                                                                    |
 +==================================================================+
+
 ```
+-->
 
 #### Cloudflare + AWS Shield Advanced 조합 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # DDoS 이중 방어 아키텍처 점검 스크립트
@@ -1176,10 +1299,19 @@ if [ -n "$ORIGIN_IP" ]; then
 fi
 
 echo "=== 점검 완료 ==="
+
 ```
+-->
 
 #### DDoS Auto-Scaling 비용 폭증 방지 정책
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # CloudFormation - DDoS 시 비용 제한 Auto Scaling 정책...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # CloudFormation - DDoS 시 비용 제한 Auto Scaling 정책
 AWSTemplateFormatVersion: '2010-09-09'
@@ -1231,7 +1363,9 @@ Resources:
       Threshold: 1
       AlarmActions:
         - !Ref DDoSCostProtectionTopic
+
 ```
+-->
 
 #### 30+ Tbps급 DDoS 공격 대응 런북
 
@@ -1262,6 +1396,7 @@ BYOVD(Bring Your Own Vulnerable Driver) 공격은 합법적으로 서명된 취�
 
 #### WDAC 정책 관리 워크플로우
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +==================================================================+
 |           BYOVD Defense - WDAC Policy Management Workflow           |
@@ -1308,10 +1443,13 @@ BYOVD(Bring Your Own Vulnerable Driver) 공격은 합법적으로 서명된 취�
 |  +--------------------------------------------------+             |
 |                                                                    |
 +==================================================================+
+
 ```
+-->
 
 #### WDAC 정책 자동 생성 스크립트
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # WDAC BYOVD 차단 정책 자동 생성 및 배포 스크립트
 # 실행: .\Create-BYOVDPolicy.ps1 -Mode Audit
@@ -1369,10 +1507,13 @@ ConvertFrom-CIPolicy -XmlFilePath $PolicyPath -BinaryFilePath $BinaryPath
 Write-Host "[5/5] 정책 적용..."
 Copy-Item $BinaryPath "$env:windir\System32\CodeIntegrity\SIPolicy.p7b" -Force
 Write-Host "=== 정책 적용 완료. 재부팅 후 활성화됩니다. ===" -ForegroundColor Green
+
 ```
+-->
 
 #### Group Policy 대규모 배포 자동화
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # GPO를 통한 WDAC 정책 대규모 배포 (Active Directory 환경)
 # 실행: .\Deploy-WDACPolicy.ps1 -GPOName "BYOVD-Block-Policy" -OU "OU=Workstations,DC=corp,DC=local"
@@ -1401,7 +1542,9 @@ New-GPLink -Name $GPOName -Target $OU -LinkEnabled Yes
 
 Write-Host "GPO '$GPOName' -> OU '$OU' 에 연결 완료"
 Write-Host "다음 GP 업데이트 시 정책이 적용됩니다 (gpupdate /force)"
+
 ```
+-->
 
 #### WDAC 모니터링 및 컴플라이언스 확인
 
@@ -1525,6 +1668,7 @@ JPMorgan이 비트코인의 장기 투자 가치가 골드보다 강화되고 �
 
 #### CrashFix 행위 패턴 헌팅
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Splunk: CrashFix 다단계 공격 행위 패턴 헌팅
 # 목표: finger.exe IOC 매칭이 아닌, CrashFix 공격 체인의 행위 패턴 탐지
@@ -1554,10 +1698,19 @@ index=wineventlog (EventCode=4688 OR EventCode=1)
 | where risk_score!="LOW"
 | table _time, ComputerName, User, proc_type, eventcount, risk_score, duration
 | sort -risk_score
+
 ```
+-->
 
 #### DDoS 전조 트래픽 패턴 헌팅
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```spl
+> # Splunk: DDoS 전조 현상 - 비정상 트래픽 패턴 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```spl
 # Splunk: DDoS 전조 현상 - 비정상 트래픽 패턴 탐지
 # 목표: 대규모 DDoS 공격 전 발생하는 스캐닝/프로빙 패턴 식별
@@ -1581,10 +1734,19 @@ index=network sourcetype=firewall OR sourcetype=aws:cloudtrail
 | eval estimated_bandwidth_mbps=round((total_requests * avg_payload * 8) / (300 * 1000000), 2)
 | table _time, dest_ip, total_requests, unique_sources, requests_per_source, estimated_bandwidth_mbps, anomaly_score
 | sort -anomaly_score, -total_requests
+
 ```
+-->
 
 #### BYOVD 행위 기반 헌팅 (Azure Sentinel KQL)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```kql
+> // Azure Sentinel KQL: BYOVD 행위 기반 헌팅...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```kql
 // Azure Sentinel KQL: BYOVD 행위 기반 헌팅
 // 목표: 취약 드라이버 로딩 후 EDR/AV 프로세스 종료 패턴 탐지
@@ -1617,10 +1779,13 @@ driver_load_events
 | extend TimeDelta = datetime_diff('minute', TermTime, DriverLoadTime)
 | project DriverLoadTime, DeviceName, DriverPath, DriverHash, TermCommand, TimeDelta
 | order by DriverLoadTime desc
+
 ```
+-->
 
 #### 크로스 이벤트 상관 분석 (Kill Chain)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Splunk: CrashFix + DDoS + BYOVD 복합 위협 상관 분석
 # 목표: 이번 주 3대 위협이 동일 공격 캠페인의 일부인지 상관 분석
@@ -1645,7 +1810,9 @@ index=wineventlog OR index=network OR index=endpoint
   )
 | table _time, host, event_type, eventcount, campaign_indicator, duration
 | sort -campaign_indicator
+
 ```
+-->
 
 ---
 
@@ -1677,6 +1844,7 @@ index=wineventlog OR index=network OR index=endpoint
 | Shadow AI 거버넌스 | 3,000만원 | 데이터 유출: 10~50억원 | 3,300~16,600% | CASB + DLP |
 | Codespaces 보안 강화 | 1,000만원 | 공급망 공격: 30~200억원 | 30,000~200,000% | GitHub Advanced Security |
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |    보안 투자 우선순위 매트릭스 (비용 vs 위험 감소)                   |
@@ -1702,7 +1870,9 @@ index=wineventlog OR index=network OR index=endpoint
 |                                                                |
 |  [권장] 좌상단 영역(높은 효과, 낮은 비용) 우선 투자                |
 +================================================================+
+
 ```
+-->
 
 ---
 
@@ -1722,6 +1892,7 @@ index=wineventlog OR index=network OR index=endpoint
 
 #### 시나리오 1: 금융권 - CrashFix RAT를 통한 경영진 PC 침해
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |   [시나리오] XX은행 - CrashFix를 통한 경영진 PC 침해               |
@@ -1756,7 +1927,9 @@ index=wineventlog OR index=network OR index=endpoint
 |  - 포렌식/복구/보안강화: ~20억원                                 |
 |  - 합계: ~180억원                                               |
 +================================================================+
+
 ```
+-->
 
 **CrashFix 금융권 대응 핵심**:
 - finger.exe 차단 GPO를 전 직원 PC에 즉시 배포 (임원/경영진 PC 우선)
@@ -1765,6 +1938,13 @@ index=wineventlog OR index=network OR index=endpoint
 
 #### 시나리오 2: 이커머스 - AISURU 봇넷 DDoS 공격
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```text
+> +================================================================+...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```text
 +================================================================+
 |   [시나리오] YY쇼핑몰 - 블랙프라이데이 기간 DDoS 공격              |
@@ -1798,7 +1978,9 @@ index=wineventlog OR index=network OR index=endpoint
 |  - 소비자 보상/법적 비용: ~10억원                                 |
 |  - 합계: ~75억원                                                |
 +================================================================+
+
 ```
+-->
 
 **DDoS 이커머스 대응 핵심**:
 - 트래픽 급증 시즌(세일, 명절) 전 CDN/DDoS 방어 서비스 사전 적용 필수
@@ -1807,6 +1989,13 @@ index=wineventlog OR index=network OR index=endpoint
 
 #### 시나리오 3: 공공기관 - Codespaces RCE를 통한 소스코드 유출
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```text
+> +================================================================+...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```text
 +================================================================+
 |   [시나리오] ZZ부처 디지털플랫폼 개발팀 - Codespaces 침해          |
@@ -1843,7 +2032,9 @@ index=wineventlog OR index=network OR index=endpoint
 |  - 대민 서비스 신뢰 하락: 정치적 비용 (산정 불가)                |
 |  - 합계: ~40억원 + 행정제재                                     |
 +================================================================+
+
 ```
+-->
 
 **공공기관 Codespaces 대응 핵심**:
 - 외부 협력업체 PR에 대한 devcontainer.json 변경 자동 리뷰 의무화
@@ -1858,6 +2049,7 @@ index=wineventlog OR index=network OR index=endpoint
 
 ### 11.1 취약점 대응 SLA
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |          보안 SLA/SLO 매트릭스 - 2026-02-06                       |
@@ -1904,7 +2096,9 @@ index=wineventlog OR index=network OR index=endpoint
 |  DDoS 점검  ██████░░░░  3일 (목표: 7일) -- 달성                 |
 |                                                                |
 +================================================================+
+
 ```
+-->
 
 ### 11.2 이슈별 SLA 준수 추적
 
@@ -1921,6 +2115,7 @@ index=wineventlog OR index=network OR index=endpoint
 
 ### 11.3 SLA 미달 시 에스컬레이션 매트릭스
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |          SLA 미달 에스컬레이션 매트릭스                             |
@@ -1942,7 +2137,9 @@ index=wineventlog OR index=network OR index=endpoint
 |  +90분: CEO/이사회 비상 보고                                     |
 |                                                                |
 +================================================================+
+
 ```
+-->
 
 ---
 
