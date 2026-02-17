@@ -1,19 +1,39 @@
 ---
-layout: post
-title: "Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화"
-date: 2025-05-24 00:17:56 +0900
-categories: [devsecops]
-tags: [Amazon-Q, GitHub-Advanced-Security, Code-Security, AWS]
-excerpt: "Amazon Q Developer와 GitHub Advanced Security로 코드 보안 강화 및 AWS 최적화"
+author: Yongho Ha
+categories:
+- devsecops
 comments: true
-original_url: https://twodragon.tistory.com/685
+date: 2025-05-24 00:17:56 +0900
+description: Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 검토 및 AWS 최적화
+  제안. AI 기반 코드 생성, 보안 취약점 자동 탐지, DevSecOps 모범 사례, 2025년 트렌드까지 정리.
+excerpt: Amazon Q Developer와 GitHub Advanced Security로 코드 보안 강화 및 AWS 최적화
 image: /assets/images/2025-05-24-Amazon_Q_Developerand_GitHub_Advanced_Security_Security_and_AWS.svg
-image_alt: "Code Security Enhancement and AWS Optimization Using Amazon Q Developer and GitHub Advanced Security"
-toc: true
-description: "Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 검토 및 AWS 최적화 제안. AI 기반 코드 생성, 보안 취약점 자동 탐지, DevSecOps 모범 사례, 2025년 트렌드까지 정리."
-keywords: [Amazon-Q, GitHub-Advanced-Security, Code-Security, AWS, DevSecOps]
-author: "Yongho Ha"
+image_alt: Code Security Enhancement and AWS Optimization Using Amazon Q Developer
+  and GitHub Advanced Security
+keywords:
+- Amazon-Q
+- GitHub-Advanced-Security
+- Code-Security
+- AWS
+- DevSecOps
+layout: post
+original_url: https://twodragon.tistory.com/685
 schema_type: Article
+tags:
+- Amazon-Q
+- GitHub-Advanced-Security
+- Code-Security
+- AWS
+title: Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Amazon Q Developer와 GitHub Advanced Security로 코드 보안 강화 및 AWS 최적화
+- **주요 주제**: Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화
+- **키워드**: Amazon-Q, GitHub-Advanced-Security, Code-Security, AWS
+
 ---
 
 <div class="ai-summary-card">
@@ -158,6 +178,13 @@ Amazon Q Developer와 GitHub Advanced Security 도입은 조직의 DevSecOps 성
 
 ### 1.3 Architecture Overview
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                    Developer Workflow                           │
@@ -204,7 +231,9 @@ Amazon Q Developer와 GitHub Advanced Security 도입은 조직의 DevSecOps 성
 │  │  GuardDuty     │  │  SecurityHub   │  │  Config        │   │
 │  └────────────────┘  └────────────────┘  └────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
+
 ```
+-->
 
 ## 2. Amazon Q Developer 심화 분석
 
@@ -214,6 +243,13 @@ Amazon Q Developer는 AWS에서 제공하는 AI 기반 코딩 어시스턴트로
 
 #### 2.1.1 실시간 코드 보안 스캔
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # Amazon Q Developer가 자동으로 탐지하는 보안 취약점 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Amazon Q Developer가 자동으로 탐지하는 보안 취약점 예시
 
@@ -227,10 +263,19 @@ def load_user_data(filename):
         return pickle.load(f)  # CWE-502: Deserialization of Untrusted Data
 
 # Amazon Q 자동 제안: "pickle 대신 json 사용 권장"
+
 ```
+-->
 
 참고: Python 보안 모범 사례는 [OWASP Python Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Python_Security_Cheat_Sheet.html) 참조
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # ✅ Amazon Q가 제안하는 안전한 코드...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # ✅ Amazon Q가 제안하는 안전한 코드
 import json
@@ -252,12 +297,21 @@ def load_user_data(filename: str) -> Dict[str, Any]:
         raise ValueError(f"JSON parsing failed: {e}")
     except FileNotFoundError:
         raise FileNotFoundError(f"File not found: {filename}")
+
 ```
+-->
 
 #### 2.1.2 AWS 리소스 최적화 제안
 
 Amazon Q Developer는 AWS Well-Architected Framework 기반으로 코드 최적화를 제안합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # Amazon Q Developer가 제안하는 최적화된 S3 사용 패턴...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Amazon Q Developer가 제안하는 최적화된 S3 사용 패턴
 
@@ -320,7 +374,9 @@ class SecureS3Client:
         except ClientError as e:
             logger.error(f"Upload failed: {e}")
             return False
+
 ```
+-->
 
 참고: AWS S3 보안 모범 사례는 [AWS S3 Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html) 참조
 
@@ -331,6 +387,13 @@ class SecureS3Client:
 
 #### 2.1.3 IAM 정책 최소 권한 분석
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> // Amazon Q가 제안하는 최소 권한 IAM 정책...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 // Amazon Q가 제안하는 최소 권한 IAM 정책
 {
@@ -371,7 +434,9 @@ class SecureS3Client:
         }
     ]
 }
+
 ```
+-->
 
 참고: IAM 정책 모범 사례는 [AWS IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) 및 [IAM Policy Simulator](https://policysim.aws.amazon.com/) 참조
 
@@ -379,6 +444,13 @@ class SecureS3Client:
 
 #### 2.2.1 VS Code 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> // .vscode/settings.json...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 // .vscode/settings.json
 {
@@ -400,9 +472,13 @@ class SecureS3Client:
   "amazonQ.aws.profile": "default",
   "amazonQ.aws.region": "ap-northeast-2"
 }
+
 ```
+-->
 
 #### 2.2.2 JetBrains IDE 설정
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```xml
 <!-- .idea/aws.xml -->
@@ -449,6 +525,7 @@ CodeQL은 코드를 데이터베이스로 취급하여 쿼리를 통해 취약�
 
 #### 3.1.1 CodeQL 쿼리 예시
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```ql
 /**
  * @name SQL Injection 취약점 탐지
@@ -469,7 +546,9 @@ from SqlInjection::Configuration config, DataFlow::PathNode source, DataFlow::Pa
 where config.hasFlowPath(source, sink)
 select sink.getNode(), source, sink,
   "SQL query built from $@.", source.getNode(), "user input"
+
 ```
+-->
 
 참고: CodeQL 쿼리 작성 가이드는 [CodeQL Documentation](https://codeql.github.com/docs/) 참조
 
@@ -564,6 +643,13 @@ paths:
 
 #### 3.2.1 자동 병합 전략
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # .github/dependabot.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/dependabot.yml
 version: 2
@@ -635,7 +721,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+
 ```
+-->
 
 참고: Dependabot 설정은 [GitHub Dependabot Configuration](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file) 참조
 
@@ -674,6 +762,13 @@ jobs:
 
 #### 3.3.1 커스텀 패턴 정의
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # .github/secret_scanning.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/secret_scanning.yml
 patterns:
@@ -709,7 +804,9 @@ exclude_paths:
   - '**/*.spec.ts'
   - '**/mock/**'
   - '**/fixtures/**'
+
 ```
+-->
 
 참고: Secret Scanning 패턴은 [GitHub Secret Scanning Patterns](https://docs.github.com/en/code-security/secret-scanning/secret-scanning-patterns) 참조
 
@@ -822,6 +919,13 @@ Amazon Q Developer는 2025년 대폭 강화된 보안 기능을 제공합니다:
 
 참고: Amazon Q Developer 보안 기능은 [AWS Amazon Q Developer Documentation](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/) 및 [AWS Security Best Practices](https://aws.amazon.com/security/security-resources/) 참조
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # Amazon Q Developer 보안 스캔 활성화 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Amazon Q Developer 보안 스캔 활성화 예시
 # VS Code 또는 JetBrains IDE에서 설정
@@ -852,7 +956,9 @@ def get_secure_s3_client():
         # IMDSv2 강제 (EC2 메타데이터 보안)
         use_fips_endpoint=True  # FIPS 엔드포인트 사용
     )
+
 ```
+-->
 
 ### 4.2 IAM Policy Autopilot - AWS MCP 서버
 
@@ -860,6 +966,13 @@ AWS에서 오픈소스로 공개한 MCP(Model Context Protocol) 서버를 활용
 
 참고: IAM Policy Autopilot은 [IAM Policy Autopilot GitHub](https://github.com/awslabs/iam-policy-autopilot) 및 [AWS Security Blog - IAM Policy Autopilot](https://aws.amazon.com/blogs/security/iam-policy-autopilot-an-open-source-tool-that-brings-iam-policy-expertise-to-builders-and-ai-coding-assistants/) 참조
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # MCP 서버 설정 예시 (claude_desktop_config.json)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # MCP 서버 설정 예시 (claude_desktop_config.json)
 {
@@ -874,12 +987,21 @@ AWS에서 오픈소스로 공개한 MCP(Model Context Protocol) 서버를 활용
     }
   }
 }
+
 ```
+-->
 
 #### 활용 예시
 
 참고: IAM Policy Autopilot 활용 예시는 [GitHub Repository Examples](https://github.com/awslabs/iam-policy-autopilot/tree/main/examples) 참조
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 사용자 요청:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 사용자 요청:
 "Lambda 함수가 S3 버킷 'app-data'에서 읽기만 하고,
@@ -909,7 +1031,9 @@ AI 자동 생성 결과:
         }
     ]
 }
+
 ```
+-->
 
 ### 4.3 AWS Security Agent (Preview)
 
@@ -1025,6 +1149,13 @@ Amazon Q Developer와 GitHub Advanced Security가 방어하는 공격 기법을 
 
 ### 5.1 공격 흐름도 (Attack Flow Diagram)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │  공격자 (Attacker)                                              │
@@ -1094,7 +1225,9 @@ Amazon Q Developer와 GitHub Advanced Security가 방어하는 공격 기법을 
 │  - Security Hub 통합 알림                                       │
 │  - 자동 롤백 및 격리 (Lambda + EventBridge)                      │
 └─────────────────────────────────────────────────────────────────┘
+
 ```
+-->
 
 ## 6. 한국 기업 환경 분석
 
@@ -1155,6 +1288,13 @@ Amazon Q Developer와 GitHub Advanced Security가 방어하는 공격 기법을 
 
 #### 6.4.1 서울 리전 최적화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # Amazon Q가 제안하는 한국 환경 최적화 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Amazon Q가 제안하는 한국 환경 최적화 설정
 import boto3
@@ -1193,10 +1333,19 @@ def get_korea_optimized_config():
 
 # 사용 예시
 s3 = boto3.client('s3', config=get_korea_optimized_config())
+
 ```
+-->
 
 #### 6.4.2 개인정보 보호법 준수 자동화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # 개인정보 패턴 탐지 및 자동 암호화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # 개인정보 패턴 탐지 및 자동 암호화
 import re
@@ -1243,10 +1392,13 @@ class PIIDetector:
         return text
 
 # CodeQL 커스텀 쿼리: 한국 개인정보 하드코딩 탐지
+
 ```
+-->
 
 참고: 개인정보보호법 준수 가이드는 [개인정보보호위원회](https://www.pipc.go.kr/) 및 [행정안전부 개인정보보호 종합포털](https://www.privacy.go.kr/) 참조
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```ql
 /**
  * @name Korean PII Hardcoded Detection
@@ -1264,7 +1416,9 @@ where
   s.getText().regexpMatch(".*\\d{6}-[1-4]\\d{6}.*") or  // 주민번호
   s.getText().regexpMatch(".*01[0-9]-\\d{4}-\\d{4}.*")  // 휴대폰
 select s, "개인정보보호법 위반: 하드코딩된 개인정보 발견"
+
 ```
+-->
 
 ## 7. SIEM 탐지 쿼리
 
@@ -1275,6 +1429,13 @@ select s, "개인정보보호법 위반: 하드코딩된 개인정보 발견"
 ### 7.1 Splunk SPL - AWS 보안 이벤트 탐지
 
 #### 7.1.1 IAM 권한 상승 탐지
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```spl
+> index=aws sourcetype=aws:cloudtrail eventName IN ("PutUserPolicy", "AttachUserPo...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```spl
 index=aws sourcetype=aws:cloudtrail eventName IN ("PutUserPolicy", "AttachUserPolicy", "PutGroupPolicy", "AttachGroupPolicy", "PutRolePolicy", "AttachRolePolicy")
 | stats count by userIdentity.userName, eventName, requestParameters.policyArn, requestParameters.policyDocument
@@ -1285,9 +1446,18 @@ index=aws sourcetype=aws:cloudtrail eventName IN ("PutUserPolicy", "AttachUserPo
     1=1, "HIGH"
   )
 | table _time, userIdentity.userName, eventName, requestParameters.policyArn, severity
+
 ```
+-->
 
 #### 7.1.2 Secret Scanning 알림 상관 분석
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```spl
+> index=github sourcetype=github:secret_scanning state="open"...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```spl
 index=github sourcetype=github:secret_scanning state="open"
 | join type=inner secret_type [
@@ -1300,7 +1470,9 @@ index=github sourcetype=github:secret_scanning state="open"
 | stats count by repository, secret_type, alert_number, _time
 | where count > 0
 | table _time, repository, secret_type, alert_number
+
 ```
+-->
 
 #### 7.1.3 비정상 CodeQL 스캔 실패 패턴
 ```spl
@@ -1324,6 +1496,8 @@ index=github sourcetype=github:dependabot state="open"
 ```
 
 #### 7.1.5 S3 버킷 공개 접근 변경 탐지
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```spl
 index=aws sourcetype=aws:cloudtrail eventName IN ("PutBucketAcl", "PutBucketPolicy", "DeleteBucketPolicy")
 | spath input=requestParameters path=bucketPolicy output=policy
@@ -1374,6 +1548,13 @@ GitHubActions
 ```
 
 #### 7.2.4 비인가 AWS 리소스 접근 시도
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```kql
+> AWSCloudTrail...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```kql
 AWSCloudTrail
 | where EventName in ("AssumeRole", "GetSessionToken")
@@ -1386,9 +1567,13 @@ AWSCloudTrail
     "MEDIUM"
   )
 | project TimeGenerated, UserIdentityUserName, SourceIpAddress, FailedAttempts, ThreatLevel
+
 ```
+-->
 
 #### 7.2.5 GitHub + AWS 통합 공격 탐지
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```kql
 let SecretsLeaked = GitHubSecretScanning
 | where State == "open" and SecretType == "aws_access_key_id"
@@ -1404,6 +1589,13 @@ AWSCloudTrail
 
 ### 7.3 실시간 알림 통합
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/security-alerts.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/security-alerts.yml
 name: Security Alerts Integration
@@ -1437,7 +1629,9 @@ jobs:
           log-file: alerts.json
           workspace-id: {% raw %}${{ secrets.SENTINEL_WORKSPACE_ID }}{% endraw %}
           shared-key: {% raw %}${{ secrets.SENTINEL_SHARED_KEY }}{% endraw %}
+
 ```
+-->
 
 참고: SIEM 통합은 [Splunk Add-on for AWS](https://splunkbase.splunk.com/app/1876/), [Azure Sentinel GitHub Connector](https://docs.microsoft.com/en-us/azure/sentinel/data-connectors-reference#github) 참조
 
@@ -1460,6 +1654,13 @@ jobs:
 
 #### 8.1.2 비용 효과 분석
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │  월간 비용 절감 효과 (2025년 2월)                                │
@@ -1476,10 +1677,13 @@ jobs:
 │  순이익:                  7,190만 원                            │
 │  ROI:                      899%                                 │
 └─────────────────────────────────────────────────────────────────┘
+
 ```
+-->
 
 #### 8.1.3 위험 매트릭스
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 영향도 (Impact)
     ▲
@@ -1501,7 +1705,9 @@ jobs:
 🟠 High (7-8): 없음
 🟡 Moderate (4-6): 2건 (진행 중)
 🟢 Low (1-3): 18건 (차단됨)
+
 ```
+-->
 
 #### 8.1.4 컴플라이언스 현황
 
@@ -1528,6 +1734,13 @@ jobs:
 
 ### 8.2 사고 대응 보고서 템플릿
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```markdown
+> # 보안 사고 대응 보고서...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```markdown
 # 보안 사고 대응 보고서
 
@@ -1571,7 +1784,9 @@ jobs:
 - Secret Scanning 자동화로 38분 내 완전 차단 성공
 - 자동 키 폐기 스크립트가 효과적으로 작동
 - 사전 예방 교육 필요성 확인
+
 ```
+-->
 
 ## 9. 실전 구현 가이드
 
@@ -1579,6 +1794,13 @@ jobs:
 
 #### 9.1.1 Phase 1: 기본 설정 (Week 1)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # 1. GitHub Advanced Security 활성화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. GitHub Advanced Security 활성화
 # Repository → Settings → Security & analysis → Enable all features
@@ -1611,10 +1833,19 @@ code --install-extension AmazonWebServices.aws-toolkit-vscode
 git add .
 git commit -m "chore: Enable DevSecOps automation"
 git push origin main
+
 ```
+-->
 
 #### 9.1.2 Phase 2: 고급 설정 (Week 2-3)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/comprehensive-security.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/comprehensive-security.yml
 name: Comprehensive Security Scan
@@ -1708,7 +1939,9 @@ jobs:
         with:
           name: sbom
           path: sbom.spdx.json
+
 ```
+-->
 
 참고: 보안 워크플로우 모범 사례는 [GitHub Actions Security Hardening](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions) 참조
 
@@ -1836,6 +2069,8 @@ if __name__ == "__main__":
 **증상**: CodeQL Autobuild가 실패하고 "No build command found" 에러 발생
 
 **해결 방법**:
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```yaml
 # 수동 빌드 단계 추가
 - name: Build
@@ -1849,6 +2084,13 @@ if __name__ == "__main__":
 **증상**: Dependabot PR이 생성되지만 자동 병합되지 않음
 
 **해결 방법**:
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/dependabot-auto-approve.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/dependabot-auto-approve.yml
 name: Dependabot Auto-Approve
@@ -1868,13 +2110,17 @@ jobs:
         run: gh pr review --approve "{% raw %}${{ github.event.pull_request.html_url }}{% endraw %}"
         env:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+
 ```
+-->
 
 #### 9.2.3 Secret Scanning False Positive
 
 **증상**: 테스트 코드의 더미 데이터가 Secret으로 탐지됨
 
 **해결 방법**:
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```yaml
 # .github/secret_scanning_excludes.yml
 exclude_paths:

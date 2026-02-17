@@ -1,18 +1,54 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet SSO 제로데이"
-date: 2026-02-01 10:00:00 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, AI-Security, OpenSSL, Zero-Day, OWASP, Agentic-AI, Fortinet, Azure, Kyverno, Supply-Chain, eScan, NIST, "2026"]
-excerpt: "AISLE AI가 OpenSSL 제로데이 12건 전량 발견(역사적 최초), OWASP Agentic AI Top 10 프레임워크 발표, CVE-2026-24858 Fortinet FortiCloud SSO 인증 우회 제로데이 심층 분석"
-description: "2026년 2월 1일 보안 뉴스: AI 시스템이 OpenSSL 제로데이 12건을 모두 발견한 역사적 사건, OWASP Agentic AI 보안 프레임워크, Microsoft NIST 기반 AI 에이전트 거버넌스, Fortinet FortiCloud SSO 제로데이, Azure Resource Manager CVSS 9.9, Kyverno 인가 우회, eScan 공급망 공격"
-keywords: [AISLE AI, OpenSSL Zero-Day, OWASP Agentic AI, Fortinet CVE-2026-24858, Azure CVE-2026-24304, Kyverno CVE-2026-22039, eScan Supply Chain, NIST AI RMF]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-02-01 10:00:00 +0900
+description: '2026년 2월 1일 보안 뉴스: AI 시스템이 OpenSSL 제로데이 12건을 모두 발견한 역사적 사건, OWASP Agentic
+  AI 보안 프레임워크, Microsoft NIST 기반 AI 에이전트 거버넌스, Fortinet FortiCloud SSO 제로데이, Azure
+  Resource Manager CVSS 9.9, Kyverno 인가 우회, eScan 공급망 공격'
+excerpt: AISLE AI가 OpenSSL 제로데이 12건 전량 발견(역사적 최초), OWASP Agentic AI Top 10 프레임워크 발표,
+  CVE-2026-24858 Fortinet FortiCloud SSO 인증 우회 제로데이 심층 분석
 image: /assets/images/2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet.svg
-image_alt: "Security Digest - AI OpenSSL Zero-Day OWASP Agentic AI Fortinet Analysis"
-toc: true
+image_alt: Security Digest - AI OpenSSL Zero-Day OWASP Agentic AI Fortinet Analysis
+keywords:
+- AISLE AI
+- OpenSSL Zero-Day
+- OWASP Agentic AI
+- Fortinet CVE-2026-24858
+- Azure CVE-2026-24304
+- Kyverno CVE-2026-22039
+- eScan Supply Chain
+- NIST AI RMF
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- DevSecOps
+- AI-Security
+- OpenSSL
+- Zero-Day
+- OWASP
+- Agentic-AI
+- Fortinet
+- Azure
+- Kyverno
+- Supply-Chain
+- eScan
+- NIST
+- '2026'
+title: 'Tech & Security Weekly Digest: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크,
+  Fortinet SSO 제로데이'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: AISLE AI가 OpenSSL 제로데이 12건 전량 발견(역사적 최초), OWASP Agentic AI Top 10 프레임워크 발표, CVE-2026-24858 Fortinet FortiCloud SSO 인증 우회 제로데이 심층 분석
+- **주요 주제**: Tech & Security Weekly Digest: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet SSO 제로데이
+- **키워드**: Security-Weekly, DevSecOps, AI-Security, OpenSSL, Zero-Day
+
 ---
 
 <div class="ai-summary-card">
