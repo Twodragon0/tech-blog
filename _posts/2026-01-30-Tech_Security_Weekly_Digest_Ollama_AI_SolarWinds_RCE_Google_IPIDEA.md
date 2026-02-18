@@ -185,7 +185,7 @@ SentinelOne SentinelLABS와 Censys의 공동 연구에서 **175,000대의 Ollama
 
 #### Ollama 보안 강화 설정
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```yaml
 > # docker-compose.yml - Ollama 보안 배포 구성...
@@ -229,7 +229,7 @@ SolarWinds가 Web Help Desk(WHD)에서 발견된 **6건의 보안 취약점**을
 
 #### 네트워크 탐지 규칙 (Suricata)
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # SolarWinds WHD 역직렬화 공격 탐지...
@@ -315,7 +315,7 @@ SDK-Based Proxy Infection Process:
 
 #### 내부 네트워크 감염 탐지 스크립트
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > #!/usr/bin/env python3...
@@ -371,7 +371,7 @@ OMICRON이 **100곳 이상의 에너지 시설**(변전소, 발전소, 제어 �
 
 #### OT IDS 배포 구성 (Suricata)
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # OT/ICS 환경 IDS 배포 설정...

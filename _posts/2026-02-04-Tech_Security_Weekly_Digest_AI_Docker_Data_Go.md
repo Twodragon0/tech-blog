@@ -100,7 +100,7 @@ toc: true
 
 ### TL;DR - 위험 스코어카드
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```text
 > +================================================================+...
@@ -125,21 +125,23 @@ toc: true
 
 #### Splunk SPL
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
 ```spl
 index=docker sourcetype=docker:daemon OR sourcetype=docker:events
@@ -155,21 +157,23 @@ index=docker sourcetype=docker:daemon OR sourcetype=docker:events
 
 #### Azure Sentinel KQL
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
 ```kql
 ContainerLog
@@ -198,7 +202,7 @@ ContainerLog
 
 프로덕션 환경에서 Docker Compose를 사용할 때 DockerDash 유형 공격을 방어하기 위한 보안 설정입니다.
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```yaml
 > # docker-compose.secure.yml - 보안 강화 구성...
@@ -229,21 +233,23 @@ ContainerLog
 
 **1단계 - 탐지 (Detection)**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
 ```bash
 # 자동 탐지: SIEM에서 DockerDash IOC 매칭 알림
@@ -267,21 +273,23 @@ ps aux | grep -i gordon
 
 **3단계 - 격리 (Containment)**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
 ```bash
 # 영향 컨테이너 즉시 정지
@@ -297,7 +305,7 @@ docker export <container_id> > evidence-container-$(date +%Y%m%d).tar
 
 **4~5단계 - 조사 및 제거**
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```bash
 > # 이미지 메타데이터 포렌식 분석...
@@ -309,7 +317,7 @@ docker export <container_id> > evidence-container-$(date +%Y%m%d).tar
 
 **내부 보고 (보안팀 -> 경영진)**
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```text
 > 제목: [보안사고] DockerDash 취약점 관련 사고 보고 (사고번호: INC-2026-XXXX)...
@@ -319,7 +327,7 @@ docker export <container_id> > evidence-container-$(date +%Y%m%d).tar
 
 **외부 통보 (규제 기관/고객)**
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```text
 > 제목: 보안 사고 통보 (개인정보보호위원회 신고용)...
@@ -433,7 +441,7 @@ Metro Development Server는 React Native 개발 시 JavaScript 번들링과 핫 
 - **감사 로그 통합**: 모든 리전의 CloudTrail 로그를 중앙 S3 버킷으로 집계
 - **조건부 접근 정책**: 리전별 IP 제한, MFA 요구사항 검토
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```bash
 > # CloudTrail 멀티리전 로깅 확인...
@@ -492,7 +500,7 @@ Metro Development Server는 React Native 개발 시 JavaScript 번들링과 핫 
 
 AI 에이전트는 반드시 격리된 환경에서 실행되어야 합니다. 호스트 시스템에 대한 직접 접근을 차단하고, 에이전트가 수행할 수 있는 작업 범위를 물리적으로 제한합니다.
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```bash
 > # AI 에이전트를 위한 보안 강화 Docker 실행 예시...
@@ -511,7 +519,7 @@ AI 에이전트는 반드시 격리된 환경에서 실행되어야 합니다. �
 
 AI 에이전트가 사용하는 자격증명은 최소 권한 원칙에 따라 관리되어야 합니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # AI 에이전트 자격증명 관리 모범 사례 (Python 예시)...
@@ -540,15 +548,17 @@ AI 에이전트가 사용하는 자격증명은 최소 권한 원칙에 따라 �
 | **5단계** | 모니터링 및 감사 체계 | ELK, Splunk, CloudWatch |
 
 > **참고**: 자동차 보안 스캔 관련 내용은 [GitHub Actions 보안 가이드](https://docs.github.com/en/actions) 및 [SonarQube](https://github.com/SonarSource/sonarqube)를 참조하세요. Standard 적용 예시...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> > **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```
 
@@ -558,7 +568,7 @@ AI 에이전트가 사용하는 자격증명은 최소 권한 원칙에 따라 �
 
 #### Splunk SPL
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```spl
 > index=kubernetes sourcetype=kube:container:log namespace="ai-agents"...
@@ -568,7 +578,7 @@ AI 에이전트가 사용하는 자격증명은 최소 권한 원칙에 따라 �
 > ...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->text
+<!-- 전체 코드는 위 링크 참조 -->text
 > +================================================================+...
 > > **코드 예시**: 전체 코드는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
 > 
@@ -576,7 +586,7 @@ AI 에이전트가 사용하는 자격증명은 최소 권한 원칙에 따라 �
 > ...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->spl
+<!-- 전체 코드는 위 링크 참조 -->spl
 # Splunk: 비정상 npm 패키지 설치 패턴 헌팅
 index=devops sourcetype=cicd
 | search "npm install" OR "npm i " OR "yarn add"
@@ -586,21 +596,23 @@ index=devops sourcetype=cicd
 | stats count values(pkg_name) as unknown_packages values(host) as hosts by user
 | where count > 3
 | table user, unknown_packages, hosts, count
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
 ```
 
 #### 크로스 이벤트 상관 분석 (Kill Chain)
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```spl
 > # Splunk: Docker + Network + Endpoint 상관 분석...
