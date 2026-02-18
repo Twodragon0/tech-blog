@@ -156,7 +156,7 @@ Shai-Hulud는 단순한 보안 사고가 아니라, **소프트웨어 공급망 
 
 Shai-Hulud 웜은 다음과 같은 모듈형 아키텍처로 구성되어 있습니다:
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```mermaid
 > graph TD...
@@ -178,7 +178,7 @@ Shai-Hulud 웜은 다음과 같은 모듈형 아키텍처로 구성되어 있습
 
 2025년 11월 등장한 2.0 버전은 **제거 방어 메커니즘**을 추가했습니다:
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # Dead Man's Switch 개념도 (Python pseudocode)...
@@ -287,11 +287,11 @@ Shai-Hulud와 별개로 발생한 또 다른 심각한 공급망 공격:
 
 #### 9.2.3 Docker 런타임 보안 설정
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```dockerfile
 > # Dockerfile - 최소 권한 및 보안 강화...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> > **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
 ```
 
@@ -315,7 +315,7 @@ bash
    ```
 
 3. **Private NPM Registry 읽기 전용 전환**:
-   > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+   > **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 ```yaml
    # verdaccio.yaml
@@ -323,7 +323,7 @@ bash
      '**':
        access: $authenticated
        publish: $admin  # 일반 사용자 publish 차단
-   > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+   > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ...
@@ -331,7 +331,7 @@ bash
 
 bash
 > # NPM 토큰 재생성...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> > **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
 ```
 
@@ -378,7 +378,7 @@ bash
 ### 11.3 오픈소스 도구
 
 9. **Socket.dev CLI**
-   - GitHub: https://github.com/socketsecurity/socket
+   - GitHub: https://socket.dev/
    - 실시간 공급망 위협 탐지 도구
 
 10. **Snyk**
