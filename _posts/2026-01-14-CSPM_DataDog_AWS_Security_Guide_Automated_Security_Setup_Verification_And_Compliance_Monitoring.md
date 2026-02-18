@@ -236,7 +236,7 @@ CSPM(Cloud Security Posture Management)은 클라우드 환경의 보안 설정�
 
 #### CloudFormation 템플릿을 통한 연동
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # DataDog CSPM 설정 예시...
@@ -472,7 +472,7 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 #### 구현 예시
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # Claude Autonomous Coding Agent와 CSPM 통합 예시...
@@ -497,7 +497,7 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 ### 10.2 자동화 워크플로우 아키텍처
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ┌─────────────────────────────────────────────────────────────────────────┐...
@@ -511,15 +511,17 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 #### 쿼리 1: 비정상 시간대 관리자 활동
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
 ```python
 # DataDog Logs 쿼리
@@ -532,15 +534,17 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 #### 쿼리 2: 여러 리전에서의 동시 활동
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```python
 # DataDog Logs 쿼리
@@ -555,15 +559,17 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 #### 쿼리 3: 대량 S3 다운로드
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
 ```python
 # DataDog Logs 쿼리
@@ -576,15 +582,17 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 #### 쿼리 4: 새로운 외부 IP에서의 접근
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
 ```python
 # DataDog Logs 쿼리
@@ -599,15 +607,17 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 #### 쿼리 5: 사용자가 자신에게 권한 부여
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
 ```python
 # DataDog Logs 쿼리
@@ -619,15 +629,17 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 #### 쿼리 6: 역할 신뢰 관계 변경
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```python
 # DataDog Logs 쿼리
@@ -641,15 +653,17 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 #### 쿼리 7: 보안 서비스 비활성화
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
 ```python
 # DataDog Logs 쿼리
@@ -661,15 +675,17 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 #### 쿼리 8: VPC Flow Logs 삭제
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
 ```python
 # DataDog Logs 쿼리
@@ -682,15 +698,17 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 #### 쿼리 9: GPU 인스턴스 대량 생성
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
 ```python
 # DataDog Logs 쿼리
@@ -703,15 +721,17 @@ DataDog CSPM의 자동화된 보안 대응 워크플로우는 다음과 같이 �
 
 #### 쿼리 10: 비정상적인 EC2 리전 사용
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```python
 # DataDog Logs 쿼리

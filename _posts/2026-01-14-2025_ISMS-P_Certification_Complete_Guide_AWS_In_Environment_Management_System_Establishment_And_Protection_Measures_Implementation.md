@@ -112,7 +112,7 @@ toc: true
 
 ### 인증 로드맵 (총 8-12개월)
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. |
 | **로그 관리 (3.3)** | Defense Evasion (TA0005) | Centralized Logging | CloudTrail, CloudWatch |
 | **네트워크 보안** | Lateral Movement (TA0008) | Network Segmentation | VPC, Security Groups |
 | **침해사고 대응** | Impact (TA0040) | Incident Response | Security Hub, GuardDuty |
@@ -121,7 +121,7 @@ toc: true
 
 #### 시나리오 1: 자격 증명 탈취 공격
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. (CDN)                             │
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. (CDN)                             │
 │                    TLS 1.3, WAF, Shield Standard                     │
 └────────────────────────────────┬────────────────────────────────────┘
                                  │
@@ -175,7 +175,7 @@ toc: true
 │  └─────────────┴──────────────┴─────────────┘        │
 └──────────────────────────────────────────────────────┘
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > -->...
@@ -185,14 +185,14 @@ toc: true
 
 #### CloudTrail 로그 설정
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # ISMS-P 요구사항: 로그 관리 및 모니터링...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 ### 3.3 로그 관리 및 모니터링
 
@@ -423,7 +423,7 @@ AWS 환경에서 ISMS-P 인증을 받기 위해서는:
 | 구분 | 플랫폼 | URL | 설명 |
 |-----|-------|-----|------|
 | **AWS re:Post** | AWS 공식 Q&A | [https://repost.aws/](https://repost.aws/) | AWS 전문가 답변 |
-| **GitHub** | aws-samples/security | [https://github.com/aws-samples) | AWS 보안 샘플 코드 |
+| **GitHub** | aws-samples/security | [https://docs.aws.amazon.com/) | AWS 보안 샘플 코드 |
 | **Reddit** | r/aws | [https://www.reddit.com/r/aws/](https://www.reddit.com/r/aws/) | AWS 커뮤니티 |
 | **Stack Overflow** | aws tag | [https://stackoverflow.com/questions/tagged/aws](https://stackoverflow.com/questions/tagged/aws) | 기술 Q&A |
 
