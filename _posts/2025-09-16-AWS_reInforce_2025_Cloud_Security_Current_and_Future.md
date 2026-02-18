@@ -166,7 +166,7 @@ AWS 보안 서비스와 MITRE ATT&CK 프레임워크의 매핑 관계를 정리�
 
 ### MITRE ATT&CK 커버리지 분석
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.   │◄──── AI 기반 봇 탐지
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.   │◄──── AI 기반 봇 탐지
                    │        │
                    └───┬────┘
                        │
@@ -205,7 +205,7 @@ AWS 보안 서비스와 MITRE ATT&CK 프레임워크의 매핑 관계를 정리�
 ├── GuardDuty: 위협 탐지
 └── CloudTrail: 모든 API 호출 기록
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > -->...
@@ -281,7 +281,7 @@ index=aws sourcetype=aws:cloudtrail eventName="DeleteBackupVaultLockConfiguratio
 
 #### 1단계: 조직 단위 GuardDuty 활성화
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. | https://docs.aws.amazon.com/waf/ | WAF 공식 문서 |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. | https://docs.aws.amazon.com/waf/ | WAF 공식 문서 |
 | AWS Config | https://docs.aws.amazon.com/config/ | Config 공식 문서 |
 | AWS CloudTrail | https://docs.aws.amazon.com/cloudtrail/ | CloudTrail 공식 문서 |
 | IAM Best Practices | https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html | IAM 모범 사례 |

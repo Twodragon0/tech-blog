@@ -172,8 +172,8 @@ yaml
 > # GitHub Actions 예시 (간단한 구조)...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 > **참고**: 전체 CI/CD 보안 파이프라인 설정은 [GitHub Actions 보안 가이드](https://docs.github.com/en/actions) 및 [CodeQL 문서](https://docs.github.com/en/code-security)를 참조하세요.
 
@@ -497,7 +497,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
 ### 9.10 관련 GitHub 저장소
 
 52. **AWS Security Reference Architecture**
-    - GitHub: https://github.com/aws-samples/aws-security-reference-architecture-examples
+    - GitHub: https://docs.aws.amazon.com//aws-security-reference-architecture-examples
     - 활용: AWS 보안 아키텍처 참고 구현
 
 53. **Awesome Cloud Security**
