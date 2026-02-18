@@ -280,6 +280,8 @@ UTBoost는 SWE-Bench의 약한 테스트 스위트를 보강하는 파이프라�
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Claude Code 활용 예시: 대규모 리팩토링
 # 1. 프로젝트 구조 분석
@@ -325,6 +327,8 @@ claude-code execute --plan refactor-plan.json
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # GPT-5-Codex 활용 예시: 빠른 프로토타이핑
 # 1. VS Code 통합 사용
@@ -357,6 +361,8 @@ codex-cli generate --prompt "REST API endpoint for user authentication"
 | **환각 가능성** | 대규모 컨텍스트에서 환각 가능 | 출력 검증 필수 |
 
 #### 실무 활용 가이드
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -572,10 +578,10 @@ gemini-code analyze --context ./entire-codebase --query "security vulnerabilitie
 
 ### 5.3 DevSecOps 통합
 
-> **참고**: CodeQL 분석 설정 관련 내용은 [GitHub CodeQL 문서](https://docs.github.com/en/code-security) 및 [CodeQL Action](https://github.com/github/codeql-action)을 참조하세요. Analysis
+> **참고**: CodeQL 분석 설정 관련 내용은 [GitHub CodeQL 문서](https://docs.github.com/en/code-security) 및 [CodeQL Action](https://docs.github.com/en/code-security/code-scanning)을 참조하세요. Analysis
         uses: github/codeql-action/analyze@v2
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 > 
 > ```
 > -->...
@@ -596,7 +602,7 @@ gemini-code analyze \
 
 
 **2. 캐싱 전략**
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # 동일한 요청 캐싱...

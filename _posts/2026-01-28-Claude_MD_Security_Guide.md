@@ -168,7 +168,7 @@ project-root/
 
 AI 에이전트가 가장 많이 실수하는 부분이 **민감 정보 하드코딩**입니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # ❌ 절대 금지 - AI가 종종 이렇게 생성함...
@@ -180,7 +180,7 @@ AI 에이전트가 가장 많이 실수하는 부분이 **민감 정보 하드�
 
 AI가 생성한 설정 파일에 민감 정보가 포함되지 않도록 검증합니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > from pathlib import Path...
@@ -210,7 +210,7 @@ pip-audit
 
 ### 5.1 Pre-commit Hook 설정
 
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.)
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요.)
 - [ ] 에러 핸들링 가이드라인 문서화
 
 ### P2 - 개선 (운영 중)
