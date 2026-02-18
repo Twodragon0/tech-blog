@@ -349,6 +349,8 @@ BlackField 랜섬웨어의 등장은 LockBit, Conti, BlackCat 등 주요 랜섬�
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
   # Signal 프로세스 및 네트워크 연결 빠른 확인
   ps aux | grep -i signal
@@ -356,6 +358,8 @@ BlackField 랜섬웨어의 등장은 LockBit, Conti, BlackCat 등 주요 랜섬�
   ```
 - [ ] **BlackField 랜섬웨어 IOC 등록** - SIEM에 BlackField IOC(파일 해시, C2 도메인, .blackfield 확장자) 등록, 백업 시스템 정상 작동 확인
   > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -376,15 +380,17 @@ BlackField 랜섬웨어의 등장은 LockBit, Conti, BlackCat 등 주요 랜섬�
 - [ ] **Signal/메시징 앱 보안 정책** - 사용 가이드라인 문서화, 고위험 직군 대상 맞춤형 보안 교육, Phishing 시뮬레이션에 QR 코드 시나리오 추가
 - [ ] **랜섬웨어 대응 플레이북 업데이트** - BlackField 변종 특징(코드 재활용, 탐지 회피) 반영, 격리 절차 재점검, Tabletop Exercise 실시
 - [ ] **제로트러스트 데이터 보안 현황 점검** - 데이터 분류 체계 재검토, DLP 정책 점검
-  > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+  > **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
   # AWS S3 데이터 분류 태그 점검
