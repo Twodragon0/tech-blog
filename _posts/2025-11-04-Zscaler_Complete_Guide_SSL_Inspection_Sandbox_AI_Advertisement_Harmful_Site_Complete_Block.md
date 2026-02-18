@@ -147,7 +147,7 @@ Application: KakaoTalk
 Action: Allow
 SSL Inspection: Bypass
 URL Filtering: Allow
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```
 > ...
@@ -162,7 +162,7 @@ Categories:
   - Botnet
 Action: Block
 Logging: Enabled
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ...

@@ -119,6 +119,8 @@ toc: true
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Kandji API로 복구키 조회
 curl -X GET "https://api.kandji.io/api/v1/devices/{device_id}/filevault" \
@@ -136,6 +138,8 @@ curl -X GET "https://api.kandji.io/api/v1/devices/{device_id}/filevault" \
 #### Gatekeeper 설정
 
 Gatekeeper는 서명되지 않은 앱 실행을 차단합니다.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -180,6 +184,8 @@ spctl --assess --verbose /Applications/SomeApp.app
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # XProtect 버전 확인
 system_profiler SPInstallHistoryDataType | grep -A 4 "XProtect"
@@ -191,6 +197,8 @@ sudo softwareupdate --background
 ### 2.3 System Integrity Protection (SIP)
 
 SIP는 시스템 파일과 프로세스를 보호하는 커널 레벨 보안 기능입니다.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -292,7 +300,7 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### CIS 자동 감사 스크립트
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > #!/usr/bin/env python3...
@@ -372,7 +380,7 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### Zero Trust 디바이스 신뢰도 평가
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > #!/usr/bin/env python3...
@@ -414,7 +422,7 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### Zscaler ZIA 연동
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > #!/usr/bin/env python3...
@@ -531,6 +539,8 @@ deviceenrollment.apple.com
 
 
 **최적화**:
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
