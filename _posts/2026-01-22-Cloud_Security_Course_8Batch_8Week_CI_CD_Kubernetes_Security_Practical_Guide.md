@@ -153,7 +153,7 @@ Kubernetes 네트워크 보안은 클러스터 보안의 핵심입니다. 네트
 | **PersistentVolume** | 클러스터의 스토리지 리소스 | 영구 스토리지 제공 |
 | **HPA** | Horizontal Pod Autoscaler | 자동 스케일링 |
 
-> **참고**: Kubernetes 기본 개념은 [Kubernetes 공식 문서](https://kubernetes.io/docs/concepts/) 및 [Kubernetes GitHub 저장소](https://github.com/kubernetes/kubernetes)를 참조하세요.
+> **참고**: Kubernetes 기본 개념은 [Kubernetes 공식 문서](https://kubernetes.io/docs/concepts/) 및 [Kubernetes GitHub 저장소](https://kubernetes.io/docs/reference/)를 참조하세요.
 
 ##### **Kubernetes 네트워크 아키텍처**
 
@@ -181,14 +181,14 @@ Network Policies를 통해 Pod 간 통신을 제어하여 방어 깊이를 강�
 | **Egress** | 나가는 트래픽 제어 | 특정 서비스로만 통신 허용 |
 | **Default Deny** | 기본 거부 정책 | 명시적으로 허용된 트래픽만 통신 |
 
-> **참고**: Network Policy 설정 예시는 [Kubernetes Network Policies 공식 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Kubernetes 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: Network Policy 설정 예시는 [Kubernetes Network Policies 공식 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Kubernetes 예제 저장소](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.** | GitHub 통합 종속성 관리 | 자동 업데이트, 보안 알림 | GitHub 자동 통합 |
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요.** | GitHub 통합 종속성 관리 | 자동 업데이트, 보안 알림 | GitHub 자동 통합 |
 | **WhiteSource** | 상용 SCA 도구 | 포괄적인 공급망 보안 | 다양한 CI/CD 통합 |
 
 > **참고**: 코드 스캔 도구는 [OWASP Top 10](https://owasp.org/www-project-top-ten/) 및 [OWASP CI/CD Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html)를 참조하세요.
 
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.과 통합 | 취약점 패치 자동화 |
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요.과 통합 | 취약점 패치 자동화 |
 
 ##### **GitHub Actions AI 통합 예시**
 
@@ -234,7 +234,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: 'trivy-results.sarif'
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```
 > -->...
@@ -244,14 +244,14 @@ jobs:
 
 #### **5.3 ArgoCD 보안 설정**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # ArgoCD Application 보안 설정 예시...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 ---
 

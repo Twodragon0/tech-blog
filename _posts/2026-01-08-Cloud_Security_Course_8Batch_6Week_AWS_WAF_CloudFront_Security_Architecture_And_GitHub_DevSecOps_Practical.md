@@ -252,7 +252,7 @@ toc: true
 
 json
 > {...
-> > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ...
@@ -267,13 +267,13 @@ json
 > ...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 #### CodeQL 쿼리 커스터마이징
 
 > **참고**: CodeQL 쿼리 커스터마이징 관련 내용은 [CodeQL 쿼리 작성 가이드](https://docs.github.com/en/code-security) 및 [CodeQL 예제](https://github.com/github/codeql)를 참조하세요.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # codeql-config.yml...
@@ -286,7 +286,7 @@ json
 
 #### 2. 다양한 공격 벡터를 사용하는 IP (APT 의심)
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.Logs
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.Logs
 | where Action == "BLOCK"
 | summarize
     AttackTypes = make_set(RuleId),
@@ -304,11 +304,11 @@ json
 | project SourceIP, AttackVectors, AttackCount, ThreatLevel, FirstSeen, LastSeen, AttackTypes
 | order by AttackVectors desc
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
@@ -316,7 +316,7 @@ json
 > ...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->sql
+<!-- 전체 코드는 위 링크 참조 -->sql
 -- AWS CloudWatch Insights
 fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 | filter httpRequest.httpMethod = "POST"
@@ -325,19 +325,21 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 | stats count() as upload_attempts by httpRequest.clientIp, httpRequest.uri
 | filter upload_attempts > 5
 | sort upload_attempts desc
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```
 
 #### 4. 캐시 우회 공격 (Cache Busting)
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```sql
 > -- Splunk SPL...
@@ -347,7 +349,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 > ...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->sql
+<!-- 전체 코드는 위 링크 참조 -->sql
 -- Splunk SPL
 index=waf sourcetype=aws:waf
 | search request_uri IN ("/.env", "/config.php", "/.git/config", "/wp-config.php", "/robots.txt", "/sitemap.xml")
@@ -356,23 +358,25 @@ index=waf sourcetype=aws:waf
 | eval threat = "Reconnaissance Activity"
 | table src_ip, count, probed_paths, threat
 | sort - count
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```
 
 #### 10. 크로스-사이트 추적 (Cross-Site Tracking)
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```sql
 -- AWS CloudWatch Insights
@@ -383,20 +387,20 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 | stats count() as tracking_attempts by httpRequest.clientIp, referer_domain
 | filter tracking_attempts > 10
 | sort tracking_attempts desc
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 ...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 ### 5.3 GitHub DevSecOps 파이프라인
 
@@ -404,7 +408,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 
 ### 5.4 SSRF 공격 및 방어 흐름
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. & CloudFront의 정교한 보안 구성**뿐만 아니라, **실제 코드를 다루고 개선하는 보안 엔지니어의 실무 감각**을 익혀보시길 바랍니다.
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. & CloudFront의 정교한 보안 구성**뿐만 아니라, **실제 코드를 다루고 개선하는 보안 엔지니어의 실무 감각**을 익혀보시길 바랍니다.
 
 ### 핵심 요약
 
@@ -491,10 +495,10 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 
 | 제목 | URL | 설명 |
 |------|-----|------|
-| **AWS CloudFront Terraform 모듈** | [https://github.com/terraform-aws-modules/terraform-aws-cloudfront) | CloudFront IaC 모듈 |
+| **AWS CloudFront Terraform 모듈** | [https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-cloudfront) | CloudFront IaC 모듈 |
 | **AWS WAF Terraform 모듈** | [https://github.com/trussworks/terraform-aws-wafv2) | WAF IaC 모듈 |
-| **WAF CloudFront 통합 예제** | [https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf) | AWS 샘플 코드 |
-| **WAF 자동화 예제** | [https://github.com/aws-samples/aws-waf-automation-terraform-samples) | WAF 자동화 Terraform |
+| **WAF CloudFront 통합 예제** | [https://docs.aws.amazon.com/waf/latest/developerguide/) | AWS 샘플 코드 |
+| **WAF 자동화 예제** | [https://docs.aws.amazon.com//aws-waf-automation-terraform-samples) | WAF 자동화 Terraform |
 
 ### 실습 환경 및 도구
 
@@ -502,7 +506,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 |------|-----|------|
 | **DVWA (Damn Vulnerable Web App)** | [https://github.com/digininja/DVWA) | 취약한 웹 앱 실습 환경 |
 | **OWASP WebGoat** | [https://github.com/WebGoat/WebGoat) | 웹 보안 학습 플랫폼 |
-| **CodeQL Action** | [https://github.com/github/codeql-action) | GitHub Actions CodeQL 통합 |
+| **CodeQL Action** | [https://docs.github.com/en/code-security/code-scanning) | GitHub Actions CodeQL 통합 |
 | **CodeQL 예제** | [https://github.com/github/codeql) | CodeQL 쿼리 예제 |
 
 ### Python 보안 관련 문서
