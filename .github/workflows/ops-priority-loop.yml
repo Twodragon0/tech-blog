@@ -1,0 +1,65 @@
+name: Ops Priority Loop
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: ops-priority-loop
+  cancel-in-progress: false
+
+jobs:
+  ops-checks:
+    if: github.event_name != 'schedule' || vars.OPS_PRIORITY_LOOP_SCHEDULE == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    permissions:
+      contents: read
+
+    env:
+      RUN_POST_CHECKS: "true"
+      RUN_IMAGE_CHECKS: "true"
+      RUN_VERCEL_CHECKS: "false"
+      OPENCLAW_GATEWAY_URL: ${{ secrets.OPENCLAW_GATEWAY_URL }}
+      OPENCLAW_GATEWAY_TOKEN: ${{ secrets.OPENCLAW_GATEWAY_TOKEN }}
+      SLACK_CHANNEL_ID_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip pyyaml
+
+      - name: Run priority checks
+        id: checks
+        run: |
+          set -euo pipefail
+          message=$(python3 scripts/priority_ops_check.py || true)
+          {
+            echo "message<<EOF"
+            echo "$message"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Post to Slack via OpenClaw Gateway
+        if: env.OPENCLAW_GATEWAY_URL != '' && env.OPENCLAW_GATEWAY_TOKEN != '' && env.SLACK_CHANNEL_ID_OPS != ''
+        shell: bash
+        env:
+          MESSAGE: ${{ steps.checks.outputs.message }}
+          TARGET_CHANNEL_ID: ${{ env.SLACK_CHANNEL_ID_OPS }}
+        run: |
+          set -euo pipefail
+          payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
+          curl -sS "${OPENCLAW_GATEWAY_URL}/tools/invoke" \
+            -H "Authorization: Bearer ${OPENCLAW_GATEWAY_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "$payload"
