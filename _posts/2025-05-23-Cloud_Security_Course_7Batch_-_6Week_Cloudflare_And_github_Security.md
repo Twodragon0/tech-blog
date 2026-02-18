@@ -163,15 +163,17 @@ AWS WAF는 [AWS WAF Workshop](https://sessin.github.io/awswafhol/)을 통해 실
 
 > **참고**: DVWA 실습 환경 관련 내용은 [DVWA GitHub 저장소](https://github.com/digininja/DVWA) 및 [OWASP WebGoat](https://github.com/WebGoat/WebGoat)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # DVWA 컨테이너 실행 예시
@@ -223,8 +225,8 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 
 #### 2.3.3 Geo-blocking 전략
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. Geo-blocking 설정 예제 (Terraform)...
-> > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. Geo-blocking 설정 예제 (Terraform)...
+> > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ...
@@ -234,7 +236,7 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 
 #### 3.6.2 Rate Limiting 전략
 
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.과 Code Scanning을 통해 의존성 취약점 및 코드 보안 이슈를 자동으로 탐지하고 대응할 수 있습니다.
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요.과 Code Scanning을 통해 의존성 취약점 및 코드 보안 이슈를 자동으로 탐지하고 대응할 수 있습니다.
 
 ### 4.2 Dependabot
 
@@ -248,9 +250,9 @@ Dependabot은 GitHub의 자동화된 의존성 보안 업데이트 도구입니�
 
 #### Dependabot 설정 예시
 
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # .github/dependabot.yml...
@@ -278,7 +280,7 @@ GitHub Code Scanning은 정적 분석을 통해 코드의 보안 취약점을 �
 
 #### Code Scanning 설정
 
-> **참고**: Code Scanning 설정 관련 자세한 내용은 [GitHub Code Scanning 문서](https://docs.github.com/en/code-security) 및 [CodeQL Action](https://github.com/github/codeql-action)을 참조하세요.
+> **참고**: Code Scanning 설정 관련 자세한 내용은 [GitHub Code Scanning 문서](https://docs.github.com/en/code-security) 및 [CodeQL Action](https://docs.github.com/en/code-security/code-scanning)을 참조하세요.
 
 Code Scanning 설정 단계:
 1. GitHub Advanced Security 활성화
@@ -331,11 +333,11 @@ Code Scanning 설정 단계:
 
 ### Cloudflare 이상 탐지
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://nodejs.org/en/docs/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
 > 
 > ```javascript
 > // Cloudflare Workers를 활용한 실시간 이상 탐지...
-> > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ...
@@ -344,12 +346,12 @@ Code Scanning 설정 단계:
 ...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 ### 시크릿 노출 및 대응
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. 보안
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 보안
 
 - [ ] WAF 웹 ACL 규칙 생성 및 적용
 - [ ] SQL Injection, XSS 차단 규칙 활성화
@@ -400,7 +402,7 @@ Code Scanning 설정 단계:
 | **Cloudflare** | Bot Management | https://developers.cloudflare.com/bots/ | 봇 관리 문서 |
 | **GitHub** | GitHub Advanced Security | https://docs.github.com/en/code-security | 코드 보안 문서 |
 | **GitHub** | Dependabot Documentation | https://docs.github.com/en/code-security | 의존성 관리 가이드 |
-| **GitHub** | CodeQL Documentation | https://codeql.https://github.com/docs/ | 코드 분석 언어 문서 |
+| **GitHub** | CodeQL Documentation | https://codeql.https://docs.github.com/ | 코드 분석 언어 문서 |
 
 ### 실습 환경 및 도구
 
@@ -408,8 +410,8 @@ Code Scanning 설정 단계:
 |-----|-----|-----|
 | **DVWA** | 취약점 실습 환경 | https://github.com/digininja/DVWA |
 | **OWASP WebGoat** | 보안 교육 플랫폼 | https://github.com/WebGoat/WebGoat |
-| **GitHub Actions** | CI/CD 워크플로우 | https://github.com/actions/starter-workflows |
-| **CodeQL Action** | 코드 분석 자동화 | https://github.com/github/codeql-action |
+| **GitHub Actions** | CI/CD 워크플로우 | https://docs.github.com/en/actions/using-workflows/workflow-templates |
+| **CodeQL Action** | 코드 분석 자동화 | https://docs.github.com/en/code-security/code-scanning |
 
 ### 보안 표준 및 프레임워크
 
