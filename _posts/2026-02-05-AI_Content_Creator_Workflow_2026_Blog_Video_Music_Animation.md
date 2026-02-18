@@ -161,6 +161,8 @@ toc: true
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Midjourney 프롬프트 예시 (기술 블로그 썸네일)
 /imagine prompt: professional technical blog header,
@@ -240,7 +242,7 @@ orchestral with electronic elements, 15 seconds"
 
 **실전 사용 사례:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # Qwen3-TTS 설치 및 기본 사용...
@@ -277,7 +279,7 @@ orchestral with electronic elements, 15 seconds"
 
 **핵심 구현:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # blog_generator.py - Claude Opus 4.5로 블로그 자동 생성...
@@ -306,6 +308,8 @@ orchestral with electronic elements, 15 seconds"
 5. DaVinci Resolve 편집 (무음 구간 제거, 컬러 그레이딩)
 
 **OBS Studio 권장 설정:**
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -400,7 +404,7 @@ ContentPipeline
 
 **핵심 클래스 구조:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # content_pipeline.py - 완전 자동화 파이프라인...
@@ -493,15 +497,17 @@ ContentPipeline
 
 #### API 키 관리: 절대 하드코딩 금지
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
 ```python
 # ❌ 잘못된 예시
@@ -522,7 +528,7 @@ if not api_key:
 
 #### 콘텐츠 검증: AI 생성 코드 자동 검증
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > def validate_ai_generated_code(code: str) -> bool:...

@@ -253,7 +253,7 @@ toc: true
 
 #### 저작권 침해 예방 프로세스
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # 저작권 검증 파이프라인...
@@ -263,7 +263,7 @@ toc: true
 
 ### 비용 알림 및 예산 관리
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > class CostAlertManager:...
