@@ -325,6 +325,8 @@ Select-Object TimeCreated, @{Name="User";Expression={$_.Properties[5].Value}},
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # VS Code 터널 도메인 연결 탐지
 sudo netstat -tnp | grep -E "(devtunnels\.ms|vscode\.dev)" | awk '{print $5, $7}'
@@ -348,7 +350,7 @@ query IN ("*.devtunnels.ms", "*.vscode.dev", "global.rel.tunnels.api.visualstudi
 #### Certificate Transparency Log 분석
 
 **Python 스크립트 예시**:
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > import requests...

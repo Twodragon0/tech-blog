@@ -230,7 +230,7 @@ AWS가 **EC2 G7e 인스턴스**를 정식 출시했습니다. NVIDIA RTX PRO 600
 
 ### 1.3 활용 예시: AI 추론 서빙
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```python
 > # G7e 인스턴스에서 LLM 추론 서빙 예시...
@@ -241,7 +241,7 @@ AWS가 **EC2 G7e 인스턴스**를 정식 출시했습니다. NVIDIA RTX PRO 600
 
 plaintext
 > [AI Inference Pipeline with EC2 G7e]...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> > **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```
 
@@ -249,11 +249,11 @@ plaintext
 
 ### 10.3 멀티 클라우드 하이브리드 아키텍처
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```plaintext
 > [Multi-Cloud Hybrid Architecture: AWS + GCP]...
-> > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ...
