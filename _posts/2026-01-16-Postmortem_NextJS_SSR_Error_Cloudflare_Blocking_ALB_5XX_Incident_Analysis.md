@@ -154,7 +154,7 @@ toc: true
 <details>
 <summary>draw.io XML 코드 (클릭하여 확장)</summary>
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요." value="WAF Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요." value="WAF Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
           <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ratelimit" value="Rate Limiting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
@@ -183,17 +183,19 @@ toc: true
 #### 해결 방안
 
 **1. 브라우저 환경 체크**
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://https://www.typescriptlang.org/docs/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://https://www.typescriptlang.org/docs/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
 
 ```typescript
 // ✅ 올바른 방법
@@ -203,7 +205,7 @@ if (typeof window !== 'undefined') {
 ```
 
 **2. 모바일 앱 감지**
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
 > 
 > ```typescript
 > // User-Agent로 인앱 브라우저 감지...
@@ -215,21 +217,23 @@ typescript
 ```
 
 **변경 후 (v1.0.1) - 문제 발생**:
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
 > 
 > ```typescript
 > // src/components/example/ExampleComponent.tsx...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> > **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 ```
 
@@ -242,14 +246,14 @@ typescript
    ```
    ReferenceError: location is not defined
    at ExampleComponent.handleAction
-   > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+   > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > 3. **배포 직후 + 10분 (T+10분)**: 5XX 에러 급증 (50개 이상)...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 </details>
 
@@ -568,19 +572,21 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 
 > **참고**: GitHub Actions 워크플로우에 추가 권장
 > 
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> > **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 ```yaml
 > - name: SSR Test

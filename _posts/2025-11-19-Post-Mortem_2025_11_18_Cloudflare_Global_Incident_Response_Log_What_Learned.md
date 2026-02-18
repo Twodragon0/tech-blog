@@ -217,7 +217,7 @@ toc: true
 
 **Runbook: CDN 장애 대응**
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요."
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요."
 DOMAIN="our-service.com"
 DNS_ZONE_ID="YOUR_ZONE_ID"
 
@@ -316,7 +316,7 @@ flowchart TD
 > 
 > ```yaml
 > # Prometheus Alert Rule 예시...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> > **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
@@ -326,14 +326,14 @@ flowchart TD
 
 2025년 DDoS 공격은 전년 대비 **10배 증가**했으며, 특히 **1Tbps 이상의 Hyper-Volumetric 공격**이 급증했습니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```mermaid
 > flowchart LR...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 
 
@@ -349,7 +349,7 @@ flowchart TD
 
 **금융권:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > financial_sector:...
@@ -359,7 +359,7 @@ flowchart TD
 
 **게임:**
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. Documentation](https://docs.aws.amazon.com/cloudfront/) - AWS CDN 문서
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. Documentation](https://docs.aws.amazon.com/cloudfront/) - AWS CDN 문서
 - [Fastly Documentation](https://docs.fastly.com/) - Fastly CDN 문서
 - [Akamai Developer Portal](https://developer.akamai.com/) - Akamai 개발자 포털
 - [Multi-CDN Strategy Guide](https://www.cdnplanet.com/guides/multi-cdn/) - Multi-CDN 전략 가이드
