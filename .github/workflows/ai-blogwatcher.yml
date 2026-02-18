@@ -1,0 +1,283 @@
+name: AI BlogWatcher Auto Publish
+
+on:
+  repository_dispatch:
+    types: [ai_blogwatcher]
+  schedule:
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: "Hours to look back"
+        required: false
+        default: "24"
+      max_news:
+        description: "Maximum news items"
+        required: false
+        default: "15"
+      mode:
+        description: "Publish mode"
+        required: false
+        default: "security"
+        type: choice
+        options:
+          - security
+          - tech-blog
+      dry_run:
+        description: "Dry run (no commit)"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      force_publish:
+        description: "Force publish even if same-day post exists"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      use_ai:
+        description: "AI enrichment"
+        required: false
+        default: "none"
+        type: choice
+        options:
+          - "none"
+          - "gemini"
+          - "deepseek"
+      run_checks:
+        description: "Run post checks"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+concurrency:
+  group: ai-blogwatcher
+  cancel-in-progress: false
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  auto-publish:
+    if: github.event_name != 'schedule' || vars.AI_BLOGWATCHER_SCHEDULE == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    permissions:
+      contents: write
+      actions: read
+
+    env:
+      HOURS: ${{ github.event.inputs.hours || github.event.client_payload.hours || '24' }}
+      MAX_NEWS: ${{ github.event.inputs.max_news || github.event.client_payload.max_news || '15' }}
+      MODE: ${{ github.event.inputs.mode || github.event.client_payload.mode || 'security' }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || github.event.client_payload.dry_run || 'false' }}
+      FORCE_PUBLISH: ${{ github.event.inputs.force_publish || github.event.client_payload.force_publish || 'false' }}
+      USE_AI: ${{ github.event.inputs.use_ai || github.event.client_payload.use_ai || 'none' }}
+      RUN_CHECKS: ${{ github.event.inputs.run_checks || github.event.client_payload.run_checks || 'true' }}
+      BLOGWATCHER_NEWS_URL: ${{ github.event.client_payload.collected_news_url || '' }}
+      BLOGWATCHER_NEWS_JSON: ${{ github.event.client_payload.collected_news_json || '' }}
+      BLOGWATCHER_PAYLOAD: ${{ toJson(github.event.client_payload) }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install feedparser requests beautifulsoup4 python-frontmatter PyYAML
+
+      - name: Create directories
+        run: mkdir -p _data data _posts assets/images
+
+      - name: Ingest BlogWatcher payload
+        if: github.event_name == 'repository_dispatch' || env.BLOGWATCHER_NEWS_URL != '' || env.BLOGWATCHER_NEWS_JSON != ''
+        run: |
+          PAYLOAD_JSON="${BLOGWATCHER_NEWS_JSON}"
+          if [ -z "$PAYLOAD_JSON" ]; then
+            PAYLOAD_JSON="${BLOGWATCHER_PAYLOAD}"
+          fi
+
+          python3 scripts/normalize_blogwatcher_payload.py \
+            --output _data/collected_news.json \
+            --payload-json "$PAYLOAD_JSON" \
+            --payload-url "${BLOGWATCHER_NEWS_URL}"
+
+      - name: Collect tech news from RSS
+        if: env.BLOGWATCHER_NEWS_URL == '' && env.BLOGWATCHER_NEWS_JSON == ''
+        run: |
+          echo "Collecting news from last ${HOURS} hours..."
+          timeout 480 python3 scripts/collect_tech_news.py --hours "${HOURS}" --output _data/collected_news.json --feed-timeout 15 || {
+            echo "::warning::RSS collection timed out or failed, checking existing data..."
+          }
+
+          if [ ! -f "_data/collected_news.json" ] && [ -f "data/collected_news.json" ]; then
+            cp data/collected_news.json _data/collected_news.json
+            echo "::notice::Copied existing news data from data/ to _data/"
+          fi
+
+          if [ -f "_data/collected_news.json" ]; then
+            cp _data/collected_news.json data/collected_news.json
+          fi
+
+      - name: Check collected news
+        id: check_news
+        run: |
+          if [ -f "_data/collected_news.json" ]; then
+            TOTAL=$(python3 -c "import json; d=json.load(open('_data/collected_news.json')); print(d.get('total_items', 0))")
+            echo "news_count=$TOTAL" >> $GITHUB_OUTPUT
+            echo "Collected $TOTAL news items"
+
+            if [ "$TOTAL" -ge 5 ]; then
+              echo "has_enough_news=true" >> $GITHUB_OUTPUT
+            else
+              echo "has_enough_news=false" >> $GITHUB_OUTPUT
+              echo "::warning::Not enough news to publish (minimum: 5, got: $TOTAL)"
+            fi
+          else
+            echo "news_count=0" >> $GITHUB_OUTPUT
+            echo "has_enough_news=false" >> $GITHUB_OUTPUT
+            echo "::error::No news collected - _data/collected_news.json not found"
+          fi
+
+      - name: Install Gemini CLI (optional)
+        if: env.USE_AI == 'gemini' && secrets.GEMINI_API_KEY != ''
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          pip install --upgrade google-generativeai
+
+          sudo tee /usr/local/bin/gemini > /dev/null << 'EOF'
+          #!/usr/bin/env python3
+          import os
+          import sys
+          import google.generativeai as genai
+
+          api_key = os.getenv("GEMINI_API_KEY")
+          if not api_key:
+              print("Error: GEMINI_API_KEY environment variable not set", file=sys.stderr)
+              sys.exit(1)
+
+          genai.configure(api_key=api_key)
+          model = genai.GenerativeModel("gemini-pro")
+
+          if len(sys.argv) > 2 and sys.argv[1] == "-p":
+              prompt = sys.argv[2]
+              try:
+                  response = model.generate_content(prompt)
+                  print(response.text)
+              except Exception as exc:
+                  print(f"Error: {exc}", file=sys.stderr)
+                  sys.exit(1)
+          elif "--version" in sys.argv:
+              print("Gemini CLI wrapper v1.0")
+              sys.exit(0)
+          else:
+              print("Usage: gemini -p 'prompt text'", file=sys.stderr)
+              sys.exit(1)
+          EOF
+
+          sudo chmod +x /usr/local/bin/gemini
+
+      - name: Auto publish digest
+        if: steps.check_news.outputs.has_enough_news == 'true'
+        env:
+          GEMINI_API_KEY: ${{ env.USE_AI == 'gemini' && secrets.GEMINI_API_KEY || '' }}
+          DEEPSEEK_API_KEY: ${{ env.USE_AI == 'deepseek' && secrets.DEEPSEEK_API_KEY || '' }}
+        run: |
+          CMD="python3 scripts/auto_publish_news.py --hours ${HOURS} --max-news ${MAX_NEWS} --mode ${MODE}"
+
+          if [ "${DRY_RUN}" = "true" ]; then
+            CMD="$CMD --dry-run"
+          fi
+
+          if [ "${FORCE_PUBLISH}" = "true" ]; then
+            CMD="$CMD --force"
+          fi
+
+          echo "Running: $CMD"
+          $CMD
+
+      - name: Check for new post
+        id: check_post
+        if: steps.check_news.outputs.has_enough_news == 'true'
+        run: |
+          TODAY=$(date +%Y-%m-%d)
+          POST_FILE=$(ls _posts/${TODAY}-*Digest*.md _posts/${TODAY}-*Weekly*.md 2>/dev/null | sort -u | head -1)
+
+          if [ -n "$POST_FILE" ] && [ -f "$POST_FILE" ]; then
+            echo "post_created=true" >> $GITHUB_OUTPUT
+            echo "post_file=$POST_FILE" >> $GITHUB_OUTPUT
+            echo "Post created: $POST_FILE"
+          else
+            echo "post_created=false" >> $GITHUB_OUTPUT
+            echo "No post created for today"
+          fi
+
+      - name: Validate new post
+        if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
+        run: |
+          POST_FILE="${{ steps.check_post.outputs.post_file }}"
+          python3 scripts/check_posts.py "$POST_FILE"
+          python3 scripts/verify_images_unified.py --missing
+
+      - name: Commit and push
+        if: steps.check_post.outputs.post_created == 'true' && env.DRY_RUN != 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          TODAY=$(date +%Y-%m-%d)
+          git add _posts/${TODAY}*.md 2>/dev/null || true
+          git add assets/images/${TODAY}*.svg 2>/dev/null || true
+          git add _data/collected_news.json 2>/dev/null || true
+          git add data/collected_news.json 2>/dev/null || true
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "feat: auto publish digest via blogwatcher - ${TODAY}"
+
+            for i in 1 2 3; do
+              if git push; then
+                echo "Changes committed and pushed (attempt $i)"
+                break
+              else
+                echo "Push failed (attempt $i), pulling latest..."
+                git pull --rebase origin main || true
+                if [ $i -eq 3 ]; then
+                  echo "Push failed after 3 attempts"
+                  exit 1
+                fi
+              fi
+            done
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## AI BlogWatcher Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- Mode: ${MODE}" >> $GITHUB_STEP_SUMMARY
+          echo "- Hours lookback: ${HOURS}" >> $GITHUB_STEP_SUMMARY
+          echo "- Max news: ${MAX_NEWS}" >> $GITHUB_STEP_SUMMARY
+          echo "- Dry run: ${DRY_RUN}" >> $GITHUB_STEP_SUMMARY
+          echo "- Use AI: ${USE_AI}" >> $GITHUB_STEP_SUMMARY
+          echo "- News count: ${{ steps.check_news.outputs.news_count }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Post created: ${{ steps.check_post.outputs.post_created }}" >> $GITHUB_STEP_SUMMARY
