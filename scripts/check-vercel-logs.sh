@@ -13,6 +13,11 @@ set -e
 # 프로젝트 디렉토리 (실제 경로로 교체하거나 환경 변수 사용)
 TECH_BLOG_DIR="${TECH_BLOG_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 DEPLOYMENT_URL="${1:-https://tech.2twodragon.com}"
+TOKEN_ARGS=()
+
+if [ -n "${VERCEL_TOKEN:-}" ]; then
+  TOKEN_ARGS=(--token "$VERCEL_TOKEN")
+fi
 
 cd "$TECH_BLOG_DIR"
 
@@ -20,9 +25,15 @@ echo "🔍 Vercel 로그 확인 중..."
 echo "📡 Deployment URL: $DEPLOYMENT_URL"
 echo ""
 
+if ! command -v vercel &> /dev/null; then
+  echo "⚠️  Vercel CLI가 설치되어 있지 않습니다."
+  echo "   설치: npm i -g vercel"
+  exit 0
+fi
+
 # 최근 배포 정보 확인
 echo "📦 최근 배포 정보:"
-vercel ls 2>&1 | head -10
+vercel ls "${TOKEN_ARGS[@]}" 2>&1 | head -10
 echo ""
 
 # 로그 확인 (최근 배포 URL 사용)
@@ -32,12 +43,12 @@ echo ""
 
 # 함수 실행 통계 확인
 echo "📊 함수 실행 통계 확인:"
-vercel inspect "$DEPLOYMENT_URL" 2>&1 | grep -i "function\|duration\|memory" || echo "   통계 정보를 가져올 수 없습니다."
+vercel inspect "$DEPLOYMENT_URL" "${TOKEN_ARGS[@]}" 2>&1 | grep -i "function\|duration\|memory" || echo "   통계 정보를 가져올 수 없습니다."
 echo ""
 
 # 환경 변수 확인
 echo "🔐 환경 변수 확인:"
-vercel env ls 2>&1 | grep -i "DEEPSEEK" || echo "   DEEPSEEK_API_KEY를 찾을 수 없습니다."
+vercel env ls "${TOKEN_ARGS[@]}" 2>&1 | grep -i "DEEPSEEK" || echo "   DEEPSEEK_API_KEY를 찾을 수 없습니다."
 echo ""
 
 echo "✅ 로그 확인 완료"
