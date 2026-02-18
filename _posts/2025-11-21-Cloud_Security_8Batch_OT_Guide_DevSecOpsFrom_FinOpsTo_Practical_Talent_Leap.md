@@ -199,7 +199,7 @@ AWS re:Invent 2025에서 발표된 최신 보안 서비스들을 커리큘럼에
 
 IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. (SQL Injection 룰셋), Lambda 입력 검증 |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. (SQL Injection 룰셋), Lambda 입력 검증 |
 | A04:2021 | Insecure Design | AWS Well-Architected Framework 준수 |
 | A05:2021 | Security Misconfiguration | Config Rules, Trusted Advisor |
 | A06:2021 | Vulnerable Components | Inspector, Trivy, Dependabot |
@@ -209,7 +209,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 | A10:2021 | SSRF | IMDSv2 강제, VPC Endpoint, PrivateLink |
 
 **Trivy로 Docker 이미지 스캔**:
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```bash
 > # Trivy 설치 (macOS)...
@@ -229,7 +229,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
 
 **Datadog SIEM 로그 수집 설정**:
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # datadog-agent/conf.d/aws_cloudtrail.yaml...
@@ -238,7 +238,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
 
 **Kubernetes Pod Security Standards**:
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요. (Automated Dependency Updates)                    │
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요. (Automated Dependency Updates)                    │
 └────────────────────────┬───────────────────────────────────────┘
                          │
                          ▼
@@ -334,26 +334,28 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 • Code Coverage <80%: 파이프라인 중단
 • License 위반: 파이프라인 중단
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```
 
 ### 8.3 Zero Trust 네트워크 아키텍처
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ┌─────────────────────────────────────────────────────────────────┐...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 ## 9. 종합 참고 자료 (Comprehensive References)
 

@@ -138,7 +138,7 @@ toc: true
 - **리소스 관리**: 오토스케일링, 로드 밸런싱을 통한 가용성 확보
 - **보안**: IAM 역할, 인스턴스 프로파일을 통한 접근 제어
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요., API 게이트웨이 보안
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요., API 게이트웨이 보안
 - 데이터 계층: 암호화, 접근 제어, 데이터 분류
 
 **최소 권한 원칙 (Principle of Least Privilege)**
@@ -211,7 +211,7 @@ toc: true
 
 #### Shadow AI 탐지 및 대응 전략
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. 로그, API Gateway 로그 | 입력 검증, Rate Limiting |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 로그, API Gateway 로그 | 입력 검증, Rate Limiting |
 | **Execution** | T1059: Command and Scripting Interpreter | .009 Cloud API | 악의적 Lambda 함수 실행 | CloudTrail API 호출 로깅 | Lambda 권한 최소화 |
 | **Persistence** | T1136: Create Account | .003 Cloud Account | 무단 IAM 사용자 생성 | CloudTrail `CreateUser` 이벤트 | IAM 생성 권한 제한, SCPs |
 | | T1098: Account Manipulation | .001 Additional Cloud Credentials | IAM 키 추가 생성 | CloudTrail `CreateAccessKey` | IAM 키 정기 로테이션 |
@@ -333,7 +333,7 @@ AWSCloudTrail
 
 **목적**: 과도한 권한을 가진 숨겨진 관리자 계정 탐지
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. | API 정책 |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. | API 정책 |
 | **2.6.1 데이터베이스 접근 통제** | DB 접근 로그, 암호화 | RDS 감사 로그, 암호화 | 접근 로그 |
 | **2.7.1 물리적 접근 통제** | 데이터센터 물리 보안 | AWS 인증서 (ISO 27001) | AWS 인증서 사본 |
 | **2.8.1 모바일 기기 보안** | MDM, 데이터 암호화 | WorkSpaces, AppStream | MDM 정책 |
@@ -435,7 +435,7 @@ AWSCloudTrail
 
 **대응 절차**:
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. 배포 확인 및 설정
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 배포 확인 및 설정
 aws cloudfront get-distribution --id DISTRIBUTION_ID
 
 # 3. WAF 웹 ACL에 Rate Limiting 규칙 추가
@@ -472,7 +472,7 @@ aws route53 create-health-check --health-check-config \
 
 **대응 절차**:
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.** | [https://docs.aws.amazon.com/waf/](https://docs.aws.amazon.com/waf/) | 웹 애플리케이션 방화벽 |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.** | [https://docs.aws.amazon.com/waf/](https://docs.aws.amazon.com/waf/) | 웹 애플리케이션 방화벽 |
 
 ### 블로그 및 커뮤니티
 
