@@ -168,15 +168,15 @@ Apple의 공식 개발자 문서가 DFU 포트의 정확한 위치와 사양을 
 | **프로젝트** | NanoClaw - Apple 컨테이너에서 실행되는 Claude 기반 AI 어시스턴트 |
 | **코드 규모** | 약 500줄의 TypeScript 핵심 코드 |
 | **핵심 기능** | Apple 컨테이너 격리, 그룹별 파일 시스템 분리 |
-| **비교 대상** | OpenClaw (52+ 모듈, 무제한 권한) |
+| **비교 대상** | AI (52+ 모듈, 무제한 권한) |
 | **HN 반응** | 17 포인트 |
 | **출처** | [https://github.com/gavrielc/nanoclaw) |
 
-NanoClaw는 기존 OpenClaw(Clawdbot)의 보안 문제를 해결하기 위해 탄생한 프로젝트입니다. OpenClaw가 52개 이상의 모듈과 거의 무제한의 권한을 단일 Node 프로세스에서 실행하는 반면, NanoClaw는 **최소 권한 원칙**을 AI 에이전트에 적용합니다.
+NanoClaw는 기존 AI(Clawdbot)의 보안 문제를 해결하기 위해 탄생한 프로젝트입니다. AI가 52개 이상의 모듈과 거의 무제한의 권한을 단일 Node 프로세스에서 실행하는 반면, NanoClaw는 **최소 권한 원칙**을 AI 에이전트에 적용합니다.
 
-**OpenClaw vs NanoClaw 보안 비교:**
+**AI vs NanoClaw 보안 비교:**
 
-| 보안 요소 | OpenClaw | NanoClaw |
+| 보안 요소 | AI | NanoClaw |
 |-----------|----------|----------|
 | **모듈 수** | 52+ 모듈 | ~500줄 핵심 코드 |
 | **프로세스 격리** | 단일 Node 프로세스 | Apple 컨테이너 격리 |

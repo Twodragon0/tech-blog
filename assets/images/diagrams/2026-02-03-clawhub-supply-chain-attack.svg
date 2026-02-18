@@ -75,11 +75,11 @@
   <!-- Arrow 4 -->
   <line x1="400" y1="350" x2="400" y2="380" stroke="url(#arrowGradient)" stroke-width="3" marker-end="url(#arrowhead)"/>
 
-  <!-- OpenClaw Single Process (Danger Zone) -->
-  <g id="openclaw">
+  <!-- AI Single Process (Danger Zone) -->
+  <g id="ai">
     <rect x="270" y="380" width="260" height="60" rx="8" fill="url(#dangerGradient)" stroke="#f85149" stroke-width="2"/>
     <text x="400" y="407" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#f85149" text-anchor="middle">
-      OpenClaw Single Process
+      AI Single Process
     </text>
     <text x="400" y="427" font-family="Arial, sans-serif" font-size="12" fill="#f8514999" text-anchor="middle">
       Full Filesystem Access

@@ -13,7 +13,7 @@
   <rect x="60" y="70" width="1080" height="490" rx="28" fill="#0f2133" stroke="#2a4b68" stroke-width="2" />
   <rect x="120" y="150" width="240" height="8" fill="url(#accent)" />
   <text x="120" y="235" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="50" font-weight="700">Security Cloud Digest</text>
-  <text x="120" y="295" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">OpenClaw VirusTotal AWS A...</text>
+  <text x="120" y="295" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">AI VirusTotal AWS A...</text>
   <text x="120" y="360" fill="#a7c3d9" font-family="Space Grotesk, Arial, sans-serif" font-size="24">Feb 9, 2026</text>
   <text x="120" y="470" fill="#7fb0d4" font-family="Space Grotesk, Arial, sans-serif" font-size="20">Twodragon Tech Blog</text>
 </svg>

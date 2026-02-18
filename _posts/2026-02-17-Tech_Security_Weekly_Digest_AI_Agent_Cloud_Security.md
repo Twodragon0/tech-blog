@@ -23,7 +23,7 @@ toc: true
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: Infostealer Steals OpenClaw AI Agent Configuration Files...</li>
+  highlights_html='<li><strong>The Hacker News</strong>: Infostealer Steals AI AI Agent Configuration Files...</li>
       <li><strong>The Hacker News</strong>: Study Uncovers 25 Password Recovery Attacks in Major...</li>
       <li><strong>AWS Security Blog</strong>: Building an AI-powered defense-in-depth security...</li>
       <li><strong>AWS Blog</strong>: Amazon EC2 Hpc8a Instances powered by 5th Gen AMD EPYC...</li>'
@@ -82,7 +82,7 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | Infostealer Steals OpenClaw AI Agent Configuration... | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Infostealer Steals AI AI Agent Configuration... | 🟡 Medium |
 | 🔒 **Security** | The Hacker News | Study Uncovers 25 Password Recovery Attacks in Maj... | 🟡 Medium |
 | 🔒 **Security** | AWS Security Bl | Building an AI-powered defense-in-depth security a... | 🔴 Critical |
 | 🔒 **Security** | The Hacker News | Weekly Recap: Outlook Add-Ins Hijack, 0-Day Patche... | 🔴 Critical |
@@ -92,17 +92,17 @@ toc: true
 
 ## 1. 보안 뉴스
 
-### 1.1 Infostealer Steals OpenClaw AI Agent Configuration Files and Gateway Tokens
+### 1.1 Infostealer Steals AI AI Agent Configuration Files and Gateway Tokens
 
 #### 개요
 
-Cybersecurity researchers disclosed they have detected a case of an information stealer infection successfully exfiltrating a victim's OpenClaw (formerly Clawdbot and Moltbot) configuration environment. "This finding marks a significant milestone in the evolution of infostealer behavior: the transition from stealing browser credentials to harvesting the 'souls' and identities of personal AI [
+Cybersecurity researchers disclosed they have detected a case of an information stealer infection successfully exfiltrating a victim's AI (formerly Clawdbot and Moltbot) configuration environment. "This finding marks a significant milestone in the evolution of infostealer behavior: the transition from stealing browser credentials to harvesting the 'souls' and identities of personal AI [
 
-> **출처**: [The Hacker News](https://thehackernews.com/2026/02/infostealer-steals-openclaw-ai-agent.html)
+> **출처**: [The Hacker News](https://thehackernews.com/2026/02/infostealer-steals-ai-ai-agent.html)
 
 #### 핵심 포인트
 
-- Cybersecurity researchers disclosed they have detected a case of an information stealer infection successfully exfiltrating a victim's OpenClaw (formerly Clawdbot and Moltbot) configuration environment
+- Cybersecurity researchers disclosed they have detected a case of an information stealer infection successfully exfiltrating a victim's AI (formerly Clawdbot and Moltbot) configuration environment
 - "This finding marks a significant milestone in the evolution of infostealer behavior: the transition from stealing browser credentials to harvesting the 'souls' and identities of personal AI [
 
 

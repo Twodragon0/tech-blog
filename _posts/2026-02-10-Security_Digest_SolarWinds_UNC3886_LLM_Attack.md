@@ -65,7 +65,7 @@ toc: true
 | **UNC3886 통신사 첩보** | High | 중국 연계 APT, 싱가포르 4대 통신사 전체 침해, VMware/엣지 디바이스 제로데이 | 즉시 |
 | **LLM 안전 정렬 GRPO 무력화** | High | Microsoft 발표, 단일 프롬프트로 LLM 가드레일 무력화, 다중 카테고리 일반화 | 7일 이내 |
 | **UNC1069 딥페이크 암호화폐 공격** | High | 북한 연계, 딥페이크+AI 소셜 엔지니어링, 암호화폐 부문 표적, 7개 신규 악성코드 | 7일 이내 |
-| **주간 요약** | Medium | AI 스킬 악성코드, 31Tbps DDoS 기록, LLM 백도어, OpenClaw 노출 | 정보 참고 |
+| **주간 요약** | Medium | AI 스킬 악성코드, 31Tbps DDoS 기록, LLM 백도어, AI 노출 | 정보 참고 |
 
 ---
 
@@ -250,12 +250,12 @@ Mandiant(Google Cloud)가 북한 연계 위협 행위자 UNC1069의 암호화폐
 | **출처** | [The Hacker News](https://thehackernews.com/2026/02/weekly-recap-ai-skill-malware-31tbps.html) |
 | **AI Skill Malware** | ClawHub 마켓플레이스에 악성 스킬 업로드, npm/PyPI에 "claw" 패키지 1,000개 이상 급증 |
 | **31Tbps DDoS** | 역대 최대 규모 DDoS 공격 관측 (2020년 ~3Tbps → 2026년 31Tbps) |
-| **OpenClaw 노출** | 포트 18789에서 21,639개 인스턴스 인터넷 노출 |
-| **LLM 백도어** | Exploit.in 포럼에서 OpenClaw 스킬을 봇넷 운영에 활용 논의 |
+| **AI 노출** | 포트 18789에서 21,639개 인스턴스 인터넷 노출 |
+| **LLM 백도어** | Exploit.in 포럼에서 AI 스킬을 봇넷 운영에 활용 논의 |
 
 ### 대응 체크리스트
 
-- [ ] **AI 에이전트 격리** - OpenClaw/AI 에이전트 도구의 외부 네트워크 노출 차단
+- [ ] **AI 에이전트 격리** - AI/AI 에이전트 도구의 외부 네트워크 노출 차단
 - [ ] **SBOM 기반 검증** - AI 스킬/플러그인 설치 시 검증 프로세스 도입
 - [ ] **DDoS 용량 점검** - 클라우드 기반 스크러빙 서비스 용량 재평가
 
