@@ -189,7 +189,7 @@ n8n의 Code Node는 사용자 정의 JavaScript 코드를 실행할 수 있지�
 
 #### 긴급 패치 적용
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```bash
 > #!/bin/bash...
@@ -232,7 +232,7 @@ D-Link의 **단종된(End-of-Life)** DSL 모뎀/라우터에서 **패치 불가�
 
 #### Snort/Suricata IDS 룰
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # D-Link dnscfg.cgi 커맨드 인젝션 탐지 룰...
@@ -269,7 +269,7 @@ Tigera CEO Ratan Tipirneni가 2026년 Kubernetes 보안 전망에서 **AI 에이
 
 #### Tetragon 런타임 모니터링 (AI 에이전트 행동 감시)
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # tetragon-ai-agent-tracing.yaml...
@@ -279,7 +279,7 @@ Tigera CEO Ratan Tipirneni가 2026년 Kubernetes 보안 전망에서 **AI 에이
 
 ### RBAC 최소 권한 설계 (AI 에이전트용)
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # ai-agent-rbac.yaml...
@@ -300,7 +300,7 @@ Tigera CEO Ratan Tipirneni가 2026년 Kubernetes 보안 전망에서 **AI 에이
 
 ### DevSecOps 활용 시나리오
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # 데이터 주권 요구사항 평가 체크리스트...
@@ -310,7 +310,7 @@ Tigera CEO Ratan Tipirneni가 2026년 Kubernetes 보안 전망에서 **AI 에이
 
 #### AWS NHI 보안 정책
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # nhi-security-policies.yaml...
