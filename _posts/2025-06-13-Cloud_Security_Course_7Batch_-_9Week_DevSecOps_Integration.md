@@ -177,7 +177,7 @@ DevSecOps 접근:
 #### 1.1.2 레벨별 구현 가이드
 
 **Level 1 (초기):**
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```bash
 > # 필수 도구 설치...
@@ -207,9 +207,9 @@ Shift-Left는 소프트웨어 개발 생명주기(SDLC)의 **초기 단계부터
 #### 1.2.1 각 단계별 Shift-Left 적용
 
 **Plan 단계:**
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요. 고급 설정
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요. 고급 설정
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
 | **DevSecOps 파이프라인 구축** | GitHub Actions 보안 파이프라인 실습 | [시청하기](https://youtube.com/@twodragon) |
 | **Kubernetes 보안 실전** | RBAC, Network Policies, PSS 설정 | [시청하기](https://youtube.com/@twodragon) |
 
@@ -228,7 +228,7 @@ Shift-Left는 소프트웨어 개발 생명주기(SDLC)의 **초기 단계부터
 |----------|------|-----|
 | **DevSecOps Pipeline Examples** | CI/CD 보안 파이프라인 예제 | [https://github.com/devsecops/) |
 | **Awesome DevSecOps** | DevSecOps 리소스 큐레이션 | [https://github.com/TaptuIT/awesome-devsecops) |
-| **OWASP Threat Dragon** | 위협 모델링 도구 | [https://github.com/OWASP/threat-dragon) |
+| **OWASP Threat Dragon** | 위협 모델링 도구 | [https://owasp.org/www-project-threat-dragon/) |
 
 ---
 
