@@ -178,7 +178,7 @@ Amazon Q Developer와 GitHub Advanced Security 도입은 조직의 DevSecOps 성
 
 ### 1.3 Architecture Overview
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ┌─────────────────────────────────────────────────────────────────┐...
@@ -194,7 +194,7 @@ Amazon Q Developer는 AWS에서 제공하는 AI 기반 코딩 어시스턴트로
 
 #### 2.1.1 실시간 코드 보안 스캔
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```python
 > # Amazon Q Developer가 자동으로 탐지하는 보안 취약점 예시...
@@ -204,7 +204,7 @@ Amazon Q Developer는 AWS에서 제공하는 AI 기반 코딩 어시스턴트로
 
 참고: Python 보안 모범 사례는 [OWASP Python Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Python_Security_Cheat_Sheet.html) 참조
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```python
 > # ✅ Amazon Q가 제안하는 안전한 코드...
@@ -216,7 +216,7 @@ Amazon Q Developer는 AWS에서 제공하는 AI 기반 코딩 어시스턴트로
 
 Amazon Q Developer는 AWS Well-Architected Framework 기반으로 코드 최적화를 제안합니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```python
 > # Amazon Q Developer가 제안하는 최적화된 S3 사용 패턴...
@@ -257,16 +257,16 @@ Amazon Q Developer는 AWS Well-Architected Framework 기반으로 코드 최적�
 
 #### 2.2.2 JetBrains IDE 설정
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```xml
 
 
-참고: CodeQL 쿼리 작성 가이드는 [CodeQL Documentation](https://codeql.https://github.com/docs/) 참조
+참고: CodeQL 쿼리 작성 가이드는 [CodeQL Documentation](https://codeql.https://docs.github.com/) 참조
 
 #### 3.1.2 GitHub Actions 통합
 
@@ -353,15 +353,17 @@ paths:
   - 'src/**'
   - 'lib/**'
   - 'api/**'
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
 ```
 
@@ -369,7 +371,7 @@ paths:
 
 #### 3.2.1 자동 병합 전략
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```yaml
 > # .github/dependabot.yml...
@@ -408,15 +410,17 @@ jobs:
         run: gh pr merge --auto --squash "{% raw %}${{ github.event.pull_request.html_url }}{% endraw %}"
         env:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```
 
@@ -424,7 +428,7 @@ jobs:
 
 #### 3.3.1 커스텀 패턴 정의
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # .github/secret_scanning.yml...
@@ -518,14 +522,14 @@ if __name__ == "__main__":
             key_id = alert['secret']
             if remediator.revoke_aws_key(key_id):
                 remediator.close_alert(alert['number'], resolution='revoked')
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 
 
@@ -535,7 +539,7 @@ AWS에서 오픈소스로 공개한 MCP(Model Context Protocol) 서버를 활용
 
 참고: IAM Policy Autopilot은 [IAM Policy Autopilot GitHub](https://github.com/awslabs/iam-policy-autopilot) 및 [AWS Security Blog - IAM Policy Autopilot](https://aws.amazon.com/blogs/security/iam-policy-autopilot-an-open-source-tool-that-brings-iam-policy-expertise-to-builders-and-ai-coding-assistants/) 참조
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # MCP 서버 설정 예시 (claude_desktop_config.json)...
@@ -547,7 +551,7 @@ AWS에서 오픈소스로 공개한 MCP(Model Context Protocol) 서버를 활용
 
 참고: IAM Policy Autopilot 활용 예시는 [GitHub Repository Examples](https://github.com/awslabs/iam-policy-autopilot) 참조
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > 사용자 요청:...
@@ -572,9 +576,9 @@ AWS에서 오픈소스로 공개한 MCP(Model Context Protocol) 서버를 활용
 
 GitHub Advanced Security와 Copilot이 통합되어 취약점 발견 시 자동으로 수정 코드를 제안합니다:
 
-참고: GitHub Dependabot 설정은 [GitHub Dependabot Documentation](https://docs.github.com/en/code-security) 및 [GitHub Actions Starter Workflows](https://github.com/actions/starter-workflows) 참조
+참고: GitHub Dependabot 설정은 [GitHub Dependabot Documentation](https://docs.github.com/en/code-security) 및 [GitHub Actions Starter Workflows](https://docs.github.com/en/actions/using-workflows/workflow-templates) 참조
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # .github/dependabot.yml...
@@ -589,7 +593,7 @@ npm 등 패키지 레지스트리에 대한 공급망 공격이 증가하면서 
 
 참고: 공급망 보안은 [CycloneDX](https://github.com/CycloneDX/cyclonedx-cli), [SPDX Tools](https://github.com/spdx/tools), [GitHub Dependabot](https://docs.github.com/en/code-security) 참조
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # GitHub Actions Supply Chain Security...
@@ -602,7 +606,7 @@ npm 등 패키지 레지스트리에 대한 공급망 공격이 증가하면서 
 
 Security-by-Design 원칙에 따라 보안을 개발 초기부터 통합:
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > 기존 방식 (Shift Right):...
@@ -674,7 +678,7 @@ Security-by-Design 원칙에 따라 보안을 개발 초기부터 통합:
 
 #### 6.4.1 서울 리전 최적화
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```python
 > # Amazon Q가 제안하는 한국 환경 최적화 설정...
@@ -684,7 +688,7 @@ Security-by-Design 원칙에 따라 보안을 개발 초기부터 통합:
 
 #### 6.4.2 개인정보 보호법 준수 자동화
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # 개인정보 패턴 탐지 및 자동 암호화...
@@ -697,7 +701,7 @@ Security-by-Design 원칙에 따라 보안을 개발 초기부터 통합:
 
 
 #### 7.1.2 Secret Scanning 알림 상관 분석
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```spl
 > index=github sourcetype=github:secret_scanning state="open"...
@@ -717,45 +721,45 @@ index=github sourcetype=github:actions workflow_name="CodeQL"
 ```
 
 #### 7.1.4 Dependabot 알림 미처리 탐지
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```spl
 > index=github sourcetype=github:dependabot state="open"...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 #### 7.1.5 S3 버킷 공개 접근 변경 탐지
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```spl
 > index=aws sourcetype=aws:cloudtrail eventName IN ("PutBucketAcl", "PutBucketPoli...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 
 
 #### 7.2.5 GitHub + AWS 통합 공격 탐지
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```kql
 > let SecretsLeaked = GitHubSecretScanning...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 > ...
 > > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
@@ -763,7 +767,7 @@ index=github sourcetype=github:actions workflow_name="CodeQL"
 > ...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->bash
+<!-- 전체 코드는 위 링크 참조 -->bash
 > # 1. GitHub Advanced Security 활성화...
 > ```
 
@@ -771,11 +775,13 @@ index=github sourcetype=github:actions workflow_name="CodeQL"
 
 #### 9.1.2 Phase 2: 고급 설정 (Week 2-3)
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```yaml
 > # .github/workflows/comprehensive-security.yml...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> > **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 ```
 
@@ -785,7 +791,7 @@ index=github sourcetype=github:actions workflow_name="CodeQL"
 
 #### 9.1.3 Phase 3: 모니터링 및 알림 (Week 4)
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```python
 > # scripts/security_dashboard.py...
@@ -802,8 +808,8 @@ index=github sourcetype=github:actions workflow_name="CodeQL"
 **증상**: Dependabot PR이 생성되지만 자동 병합되지 않음
 
 **해결 방법**:
-> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요.-auto-approve.yml...
-> > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요.-auto-approve.yml...
+> > **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```
 > ...
@@ -884,7 +890,7 @@ Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화
 
 **GitHub Advanced Security**:
 - [GitHub Advanced Security Documentation](https://docs.github.com/en/code-security) - GHAS 공식 문서
-- [CodeQL Documentation](https://codeql.https://github.com/docs/) - CodeQL 쿼리 언어 문서
+- [CodeQL Documentation](https://codeql.https://docs.github.com/) - CodeQL 쿼리 언어 문서
 - [GitHub Dependabot](https://docs.github.com/en/code-security) - Dependabot 설정 가이드
 - [GitHub Secret Scanning Patterns](https://docs.github.com/en/code-security) - Secret Scanning 패턴
 - [GitHub Actions Security Guides](https://docs.github.com/en/actions) - GitHub Actions 보안 가이드
@@ -912,7 +918,7 @@ Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화
 ### 커뮤니티 및 학습 자료
 
 **GitHub 학습 자료**:
-- [GitHub Actions Starter Workflows](https://github.com/actions/starter-workflows) - 워크플로우 템플릿 모음
+- [GitHub Actions Starter Workflows](https://docs.github.com/en/actions/using-workflows/workflow-templates) - 워크플로우 템플릿 모음
 - [GitHub Security Lab](https://securitylab.https://github.com/) - 보안 연구 및 CodeQL 쿼리
 
 **오픈소스 도구**:

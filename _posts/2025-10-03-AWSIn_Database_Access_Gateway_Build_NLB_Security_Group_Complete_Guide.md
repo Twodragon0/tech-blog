@@ -152,7 +152,7 @@ toc: true
 
 ### 1.2 NLB 구성 요소
 
-> **참고**: Terraform AWS NLB 구성 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://github.com/terraform-aws-modules/terraform-aws-alb) 및 [AWS NLB 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/)를 참조하세요.
+> **참고**: Terraform AWS NLB 구성 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb) 및 [AWS NLB 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/)를 참조하세요.
 >
 > ```hcl
 > resource "aws_lb" "db_gateway" {...
@@ -162,7 +162,7 @@ toc: true
 
 ### 1.3 타겟 그룹 설정
 
-> **참고**: Terraform AWS Load Balancer 타겟 그룹 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://github.com/terraform-aws-modules/terraform-aws-alb) 및 [AWS ELB Target Groups 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html)를 참조하세요.
+> **참고**: Terraform AWS Load Balancer 타겟 그룹 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb) 및 [AWS ELB Target Groups 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html)를 참조하세요.
 >
 > ```hcl
 > resource "aws_lb_target_group" "rds_mysql" {...
@@ -188,7 +188,7 @@ flowchart TD
 
 NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Security Group을 통해 제어합니다:
 
-> **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://github.com/terraform-aws-modules/terraform-aws-security-group) 및 [AWS Security Groups 문서](https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html)를 참조하세요.
+> **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-security-group) 및 [AWS Security Groups 문서](https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html)를 참조하세요.
 >
 > ```hcl
 > resource "aws_security_group" "nlb" {...
@@ -198,7 +198,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 ### 2.3 데이터베이스 Security Group
 
-> **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://github.com/terraform-aws-modules/terraform-aws-security-group) 및 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html)를 참조하세요.
+> **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-security-group) 및 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html)를 참조하세요.
 >
 > ```hcl
 > resource "aws_security_group" "database" {...
@@ -232,9 +232,9 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 #### 통합 대시보드 구성
 
-> **참고**: CloudWatch 대시보드 관련 내용은 [AWS CloudWatch 문서](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/) 및 [Terraform AWS CloudWatch 모듈](https://github.com/terraform-aws-modules/terraform-aws-cloudwatch)을 참조하세요.
+> **참고**: CloudWatch 대시보드 관련 내용은 [AWS CloudWatch 문서](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/) 및 [Terraform AWS CloudWatch 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-cloudwatch)을 참조하세요.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://registry.terraform.io/browse/modules?provider=aws)를 참조하세요.
 > 
 > ```hcl
 > resource "aws_cloudwatch_dashboard" "db_gateway" {...
@@ -246,7 +246,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 #### 연결 수 추적
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://registry.terraform.io/browse/modules?provider=aws)를 참조하세요.
 > 
 > ```hcl
 > resource "aws_cloudwatch_metric_alarm" "high_connection_count" {...
@@ -258,7 +258,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 #### SNS 토픽 및 구독
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://registry.terraform.io/browse/modules?provider=aws)를 참조하세요.
 > 
 > ```hcl
 > resource "aws_sns_topic" "db_gateway_alerts" {...
@@ -268,9 +268,9 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 #### Lambda Slack 알림
 
-> **참고**: AWS Lambda 및 SNS 통합 관련 내용은 [AWS Lambda 문서](https://docs.aws.amazon.com/lambda/) 및 [Terraform AWS Lambda 모듈](https://github.com/terraform-aws-modules/terraform-aws-lambda)을 참조하세요.
+> **참고**: AWS Lambda 및 SNS 통합 관련 내용은 [AWS Lambda 문서](https://docs.aws.amazon.com/lambda/) 및 [Terraform AWS Lambda 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-lambda)을 참조하세요.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # lambda/slack_notifier.py...
@@ -282,7 +282,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 #### 애플리케이션 메트릭 수집
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. 규칙 강화 및 IP 블랙리스트 업데이트
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 규칙 강화 및 IP 블랙리스트 업데이트
 
 #### 권장 사항
 
@@ -312,17 +312,19 @@ ERROR: Connection timed out after 30 seconds
 
 **1. Security Group 규칙 확인**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # Security Group 규칙 확인
@@ -337,17 +339,19 @@ aws ec2 describe-security-groups \
 
 **2. Target Health Check 실패**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # Target Health 확인
@@ -362,17 +366,19 @@ aws elbv2 describe-target-health \
 
 **3. NLB Subnet 라우팅 문제**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # Route Table 확인
@@ -395,17 +401,19 @@ Query execution time: 500ms (expected: <50ms)
 
 **1. Cross-AZ 트래픽**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # NLB Cross-AZ Load Balancing 확인
@@ -420,17 +428,19 @@ aws elbv2 describe-load-balancers \
 
 **2. 연결 풀 고갈**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
 ```python
 # 연결 풀 모니터링
@@ -448,17 +458,19 @@ print(f"Available connections: {pool._pool}")
 
 **3. RDS 성능 병목**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # RDS Performance Insights 확인
@@ -483,17 +495,19 @@ UnHealthyHostCount: 1/2 targets are unhealthy
 
 **1. RDS 인스턴스 장애**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # RDS 이벤트 로그 확인
@@ -509,17 +523,19 @@ aws rds describe-events \
 
 **2. 잘못된 Health Check 설정**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # Target Group Health Check 설정 확인
@@ -534,17 +550,19 @@ aws elbv2 describe-target-groups \
 
 **3. 네트워크 분할 (Network Partition)**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # VPC Flow Logs에서 네트워크 문제 확인
@@ -569,17 +587,19 @@ SSL handshake failed: certificate verify failed
 
 **1. 인증서 만료**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # ACM 인증서 유효기간 확인
@@ -636,7 +656,7 @@ openssl s_client -connect db-gateway.internal.company.com:3306 -showcerts
 
 7. **Terraform AWS Provider**
    - [Terraform AWS Provider 문서](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-   - [Terraform AWS ALB/NLB 모듈](https://github.com/terraform-aws-modules/terraform-aws-alb)
+   - [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb)
 
 8. **Terraform 모범 사례**
    - [Terraform Best Practices](https://www.terraform-best-practices.com/)
@@ -681,8 +701,8 @@ openssl s_client -connect db-gateway.internal.company.com:3306 -showcerts
     - [Reliability Pillar](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/)
 
 17. **Community Resources**
-    - [AWS Samples GitHub](https://github.com/aws-samples)
-    - [Terraform AWS Modules](https://github.com/terraform-aws-modules)
+    - [AWS Samples GitHub](https://docs.aws.amazon.com/)
+    - [Terraform AWS Modules](https://registry.terraform.io/browse/modules?provider=aws)
 
 ## 결론
 
