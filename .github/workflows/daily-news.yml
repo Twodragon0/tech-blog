@@ -42,6 +42,7 @@ env:
 
 jobs:
   collect-and-publish:
+    if: github.event_name != 'schedule' || vars.DAILY_NEWS_SCHEDULE != 'false'
     runs-on: ubuntu-latest
     
     permissions:

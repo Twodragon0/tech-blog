@@ -18,6 +18,7 @@ permissions:
 jobs:
   npm-audit:
     name: npm Security Audit
+    if: github.event_name != 'schedule' || vars.SECURITY_AUDIT_SCHEDULE != 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -72,6 +73,7 @@ jobs:
 
   bundle-audit:
     name: Ruby Gem Security Audit
+    if: github.event_name != 'schedule' || vars.SECURITY_AUDIT_SCHEDULE != 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

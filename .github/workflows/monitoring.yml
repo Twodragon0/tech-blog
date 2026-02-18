@@ -4,7 +4,7 @@ on:
   schedule:
     # 매일 오전 10시 KST = UTC 01:00
     # GitHub Actions cron은 큐 지연이 있을 수 있음 (최대 15-30분)
-    - cron: '0 1 * * *'
+    - cron: '0 3 * * *'
   # Also allow manual trigger
   workflow_dispatch:
 
@@ -14,6 +14,7 @@ permissions:
 
 jobs:
   monitor:
+    if: github.event_name != 'schedule' || vars.PROD_MONITORING_SCHEDULE != 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 15
 

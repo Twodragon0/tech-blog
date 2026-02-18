@@ -97,7 +97,15 @@ docs/pipeline/
 | **SNS Share** | sns-share.yml | push (_posts) | SNS 자동 공유 |
 | **Buttondown** | buttondown-notify.yml | push (_posts) | 이메일 뉴스레터 |
 | **Daily News** | daily-news.yml | schedule (daily) | 뉴스 수집 및 초안 생성 |
+| **BlogWatcher Publish** | ai-blogwatcher.yml | repository_dispatch, schedule* | BlogWatcher 기반 자동 발행 |
 | **Image Gen** | generate-images.yml | workflow_dispatch | AI 이미지 생성 |
+
+*schedule triggers can be gated by repo variables:
+- `AI_BLOGWATCHER_SCHEDULE=true` (BlogWatcher)
+- `DAILY_NEWS_SCHEDULE=false` (Daily News)
+- `SLACK_CATEGORY_DIGEST_SCHEDULE=false` (Slack Digest)
+- `PROD_MONITORING_SCHEDULE=false` (Monitoring)
+- `SECURITY_AUDIT_SCHEDULE=false` (Security Audit)
 
 ### 보조 워크플로우
 
@@ -174,6 +182,9 @@ gh workflow run generate-images.yml
 
 # 뉴스 수집
 gh workflow run daily-news.yml
+
+# BlogWatcher 자동 발행
+gh workflow run ai-blogwatcher.yml
 ```
 
 ## 관련 문서
