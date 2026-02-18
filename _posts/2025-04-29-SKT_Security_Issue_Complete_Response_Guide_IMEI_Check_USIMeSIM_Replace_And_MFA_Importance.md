@@ -225,7 +225,7 @@ flowchart TD
 
 **공격 메커니즘:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # 개념적 공격 흐름 (실제 코드 아님)...
@@ -240,7 +240,7 @@ flowchart TD
 
 **통제 방안:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # 통신사 내부 보안 통제 예시...
@@ -291,7 +291,7 @@ flowchart TD
 
 **2FA 우회 체인:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > Gmail 계정 탈취...
@@ -390,7 +390,7 @@ Attacker → SS7 네트워크 침투
 
 **FIDO2 지원 서비스:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # 주요 서비스 FIDO2 지원 현황 (2025년 기준)...
@@ -448,7 +448,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **IMEI 변조 탐지:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # IMEI 유효성 검증 (Luhn Algorithm)...
@@ -482,7 +482,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Machine Learning 모델:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # SIM 스와핑 탐지 ML 모델...
@@ -525,7 +525,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Phase 2: 단기 강화 (1개월)**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > short_term_hardening:...
@@ -535,7 +535,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Phase 3: 장기 전략 (6개월)**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > long_term_strategy:...

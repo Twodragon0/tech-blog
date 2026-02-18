@@ -425,6 +425,8 @@ TTL: 3600
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # SPF 확인
 dig TXT yourdomain.com | grep spf
@@ -778,7 +780,7 @@ OfficeActivity, EmailEvents 테이블 사용
 |------|--------|------|
 | **parsedmarc** | https://github.com/domainaware/parsedmarc | DMARC 보고서 파싱 및 분석 도구 (Python) |
 | **dmarc-visualizer** | https://github.com/techsneeze/dmarcts-report-viewer | DMARC 보고서 시각화 웹 UI |
-| **checkdmarc** | https://github.com/domainaware/checkdmarc | SPF/DKIM/DMARC DNS 레코드 검증 CLI |
+| **checkdmarc** | https://domainaware.github.io/checkdmarc/ | SPF/DKIM/DMARC DNS 레코드 검증 CLI |
 
 ## 결론
 

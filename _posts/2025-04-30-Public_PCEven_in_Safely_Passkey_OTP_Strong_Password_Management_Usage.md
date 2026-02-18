@@ -161,15 +161,17 @@ toc: true
 #### 1.2.1 키로거 (Keylogger)
 
 **공격 메커니즘:**
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
 ```python
 # 키로거 예시 (교육 목적)
@@ -201,15 +203,17 @@ listener.start()
 3. 쿠키/세션 토큰이 유지되어 자동 로그인
 
 **취약점 예시:**
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://nodejs.org/en/docs/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://nodejs.org/en/docs/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://nodejs.org/en/docs/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://nodejs.org/en/docs/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://nodejs.org/en/docs/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs)를 참조하세요.
 
 ```javascript
 // 안전하지 않은 세션 쿠키
@@ -227,6 +231,8 @@ document.cookie = "sessionid=abc123; path=/; Secure; HttpOnly; SameSite=Strict; 
 #### 1.2.3 중간자 공격 (Man-in-the-Middle)
 
 **공용 Wi-Fi 공격 시나리오:**
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
@@ -304,6 +310,8 @@ Layer 4: Password Manager (Zero Knowledge)
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Qubes OS에서 일회용 VM 생성
 qvm-run --dispvm firefox https://banking.example.com
@@ -320,7 +328,7 @@ qvm-run --dispvm firefox https://banking.example.com
 
 #### 1.5.2 Remote Browser Isolation (RBI)
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # Cloudflare Browser Isolation 설정 예시...
@@ -463,7 +471,7 @@ qvm-run --dispvm firefox https://banking.example.com
 #### 3.1.2 HOTP (HMAC-based One-Time Password)
 
 **RFC 4226 표준:**
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > def generate_hotp(secret, counter, digits=6):...
@@ -486,7 +494,7 @@ qvm-run --dispvm firefox https://banking.example.com
 
 **개념:** 주사위로 단어를 무작위 선택하여 기억하기 쉽지만 강력한 비밀번호 생성
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # Diceware 단어 목록 (일부 예시)...
@@ -507,7 +515,7 @@ qvm-run --dispvm firefox https://banking.example.com
 #### 4.3.1 1Password
 
 **기업용 최적화 기능:**
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > features:...
@@ -568,7 +576,7 @@ qvm-run --dispvm firefox https://banking.example.com
 ### 6.2 공공기관 공용 PC (행정안전망)
 
 **행정안전망 보안 가이드라인:**
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > access_control:...
