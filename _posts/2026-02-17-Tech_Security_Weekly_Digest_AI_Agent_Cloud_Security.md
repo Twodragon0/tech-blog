@@ -98,7 +98,7 @@ toc: true
 
 Cybersecurity researchers disclosed they have detected a case of an information stealer infection successfully exfiltrating a victim's AI (formerly Clawdbot and Moltbot) configuration environment. "This finding marks a significant milestone in the evolution of infostealer behavior: the transition from stealing browser credentials to harvesting the 'souls' and identities of personal AI [
 
-> **출처**: [The Hacker News](https://thehackernews.com/2026/02/infostealer-steals-ai-ai-agent.html)
+> **출처**: [The Hacker News](https://thehackernews.com/2026/02/infostealer-steals-openclaw-ai-agent.html)
 
 #### 핵심 포인트
 

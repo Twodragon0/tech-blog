@@ -77,7 +77,7 @@ toc: true
 
 AI가 Google 소유 VirusTotal과 파트너십을 체결하여 AI 에이전트 스킬 마켓플레이스인 ClawHub에 업로드되는 모든 스킬에 대해 보안 스캔을 실시합니다. VirusTotal의 위협 인텔리전스와 Code Insight 기능을 활용하여 악성 코드 포함 스킬을 사전 탐지하고 차단합니다. npm/PyPI 악성 패키지 문제가 AI 에이전트 생태계로 확장되고 있어, AI 에이전트 스킬은 시스템 명령 실행/파일 접근/네트워크 통신 등 광범위한 권한을 보유하여 피해 범위가 일반 라이브러리보다 훨씬 큽니다.
 
-> **출처**: [The Hacker News](https://thehackernews.com/2026/02/ai-integrates-virustotal-scanning.html)
+> **출처**: [The Hacker News](https://thehackernews.com/2026/02/openclaw-integrates-virustotal-scanning.html)
 
 #### 핵심 정보
 
@@ -193,7 +193,7 @@ AWS에서 ASP.NET 모노리스 애플리케이션의 마이크로서비스 전�
 
 | 리소스 | 링크 | 용도 |
 |--------|------|------|
-| AI Security | [ai.com](https://ai.com/) | AI 에이전트 스킬 마켓플레이스 보안 |
+| AI Security | [AI](https://openclaw.com/) | AI 에이전트 스킬 마켓플레이스 보안 |
 | VirusTotal | [virustotal.com](https://www.virustotal.com/) | 파일/URL/스킬 멀웨어 스캔 |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) | APT 기법 매핑 및 탐지 룰 설계 |
 | SK쉴더스 | [skshieldus.com](https://www.skshieldus.com/kor/index.do) | 국내 위협 동향 분석 리포트 |

@@ -159,7 +159,7 @@ AI 코딩 에이전트가 개발자의 터미널과 파일 시스템에 직접 �
 
 AI는 2025년 11월 **Peter Steinberger**가 **Clawdbot**이라는 이름으로 출시한 오픈소스 AI 개인 에이전트입니다. Anthropic의 Claude를 기반으로 만들어졌으며, 원래 이름은 Claude Code를 로딩할 때 나타나는 캐릭터에서 영감을 받았습니다.
 
-> 출처: [CNBC](https://www.cnbc.com/2026/02/02/ai-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html), [Scientific American](https://www.scientificamerican.com/article/moltbot-is-an-open-source-ai-agent-that-runs-your-computer/)
+> 출처: [CNBC](https://www.cnbc.com/2026/02/02/openclaw-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html), [Scientific American](https://www.scientificamerican.com/article/moltbot-is-an-open-source-ai-agent-that-runs-your-computer/)
 
 | 시점 | 이름 | 사유 |
 |------|------|------|
@@ -181,7 +181,7 @@ AI는 2025년 11월 **Peter Steinberger**가 **Clawdbot**이라는 이름으로 
 
 Cisco는 AI를 **"치명적 삼중주(Lethal Trifecta)"**라고 표현했습니다 -- 개인 데이터 접근, 신뢰할 수 없는 콘텐츠 노출, 외부 통신 능력이 결합되어, 보안 경계를 의도적으로 무너뜨리는 구조입니다. 보안 비평가 Gary Marcus는 **"디바이스 보안이나 데이터 프라이버시를 중시한다면 AI를 사용하지 마라"**라고 경고했습니다.
 
-> 출처: [Cisco Blogs](https://blogs.cisco.com/ai/personal-ai-agents-like-ai-are-a-security-nightmare), [VentureBeat](https://venturebeat.com/security/ai-agentic-ai-security-risk-ciso-guide)
+> 출처: [Cisco Blogs](https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare), [VentureBeat](https://venturebeat.com/security/openclaw-agentic-ai-security-risk-ciso-guide)
 
 **보안 위험 요인:**
 
@@ -189,7 +189,7 @@ Cisco는 AI를 **"치명적 삼중주(Lethal Trifecta)"**라고 표현했습니�
 
 #### CVE-2026-25253: AI 원클릭 RCE 취약점
 
-> 출처: [The Hacker News](https://thehackernews.com/2026/02/ai-bug-enables-one-click-remote.html)
+> 출처: [The Hacker News](https://thehackernews.com/2026/02/openclaw-bug-enables-one-click-remote.html)
 
 AI(구 Clawdbot/Moltbot)에서 **악성 링크 클릭만으로 원격 코드 실행(RCE)이 가능한 고위험도 취약점**이 공개되었습니다.
 
@@ -205,7 +205,7 @@ AI(구 Clawdbot/Moltbot)에서 **악성 링크 클릭만으로 원격 코드 실
 | **패치 버전** | 2026.1.29 (2026년 1월 30일 릴리스) |
 | **패치 내용** | Gateway URL 확인 모달 추가 (자동 연결 제거) |
 
-> 출처: [depthfirst](https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys), [SOCRadar](https://socradar.io/blog/cve-2026-25253-rce-ai-auth-token/)
+> 출처: [depthfirst](https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys), [SOCRadar](https://socradar.io/blog/cve-2026-25253-rce-openclaw-auth-token/)
 
 **공격 메커니즘 상세:**
 
@@ -235,7 +235,7 @@ Koi Security 연구팀이 ClawHub 마켓플레이스에 대한 보안 감사를 
 | **발견 주체** | Koi Security, VirusTotal, Cisco |
 | **MITRE ATT&CK** | T1195 (Supply Chain Compromise) |
 
-> 출처: [Koi Security](https://www.koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found-by-the-bot-they-were-targeting), [VirusTotal](https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html), [CyberInsider](https://cyberinsider.com/341-ai-skills-distribute-macos-malware-via-clickfix-instructions/)
+> 출처: [Koi Security](https://www.koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found-by-the-bot-they-were-targeting), [VirusTotal](https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html), [CyberInsider](https://cyberinsider.com/341-openclaw-skills-distribute-macos-malware-via-clickfix-instructions/)
 
 **ClawHavoc 캠페인 상세 분석:**
 
@@ -275,7 +275,7 @@ Cisco가 별도로 수행한 대규모 분석에서는 **31,000개 에이전트 
 
 #### Moltbook AI 소셜네트워크 자격증명 대량 유출
 
-> 출처: [SiliconANGLE](https://siliconangle.com/2026/02/02/ai-agent-social-network-moltbook-left-millions-credentials-publicly-exposed/), [Fortune](https://fortune.com/2026/01/31/ai-agent-moltbot-clawdbot-ai-data-privacy-security-nightmare-moltbook-social-network/)
+> 출처: [SiliconANGLE](https://siliconangle.com/2026/02/02/ai-agent-social-network-moltbook-left-millions-credentials-publicly-exposed/), [Fortune](https://fortune.com/2026/01/31/ai-agent-moltbot-clawdbot-openclaw-data-privacy-security-nightmare-moltbook-social-network/)
 
 **Moltbook**은 기업가 Matt Schlicht가 2026년 1월 런칭한 **AI 에이전트 전용 소셜네트워크**로, 사람은 읽기만 가능하고 AI 에이전트만 읽기/쓰기가 가능한 독특한 플랫폼입니다. 출시 한 달 만에 **77만 이상의 활성 에이전트**를 확보했으나, Wiz Inc.가 심각한 보안 결함을 발견했습니다.
 
@@ -292,7 +292,7 @@ Moltbook의 구조적 문제는 **간접 프롬프트 인젝션(Indirect Prompt 
 
 #### 추가 보안 사건: 가짜 VS Code 확장 및 Shodan 노출
 
-> 출처: [The Register](https://www.theregister.com/2026/02/02/ai_security_issues/), [SOCPrime](https://socprime.com/active-threats/the-moltbot-clawdbots-epidemic/)
+> 출처: [The Register](https://www.theregister.com/2026/02/02/openclaw_security_issues/), [SOCPrime](https://socprime.com/active-threats/the-moltbot-clawdbots-epidemic/)
 
 | 사건 | 상세 | 위험도 |
 |------|------|--------|
@@ -565,20 +565,20 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 | NanoClaw - Minimal AI Agent | [GitHub](https://github.com/anthropics/anthropic-cookbook) |
 | Claude Code Security Model | [Anthropic Docs](https://docs.anthropic.com/en/docs/claude-code/security) |
 | ClawHub 341 Malicious Skills (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html) |
-| AI CVE-2026-25253 RCE Bug (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/ai-bug-enables-one-click-remote.html) |
+| AI CVE-2026-25253 RCE Bug (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/openclaw-bug-enables-one-click-remote.html) |
 | Microsoft NTLM Phase-Out Plan (The Hacker News) | [The Hacker News](https://thehackernews.com/2026/02/microsoft-begins-ntlm-phase-out-with.html) |
 | CVE-2026-25253 1-Click RCE (depthfirst) | [depthfirst](https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys) |
-| CVE-2026-25253 상세 분석 (SOCRadar) | [SOCRadar](https://socradar.io/blog/cve-2026-25253-rce-ai-auth-token/) |
+| CVE-2026-25253 상세 분석 (SOCRadar) | [SOCRadar](https://socradar.io/blog/cve-2026-25253-rce-openclaw-auth-token/) |
 | ClawHavoc: 341 Malicious Skills (Koi Security) | [Koi Security](https://www.koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found-by-the-bot-they-were-targeting) |
 | AI Skills Weaponized (VirusTotal) | [VirusTotal Blog](https://blog.virustotal.com/2026/02/from-automation-to-infection-how.html) |
-| AI Security Nightmare (Cisco) | [Cisco Blogs](https://blogs.cisco.com/ai/personal-ai-agents-like-ai-are-a-security-nightmare) |
-| AI Agentic AI CISO Guide (VentureBeat) | [VentureBeat](https://venturebeat.com/security/ai-agentic-ai-security-risk-ciso-guide) |
-| AI Security Issues (The Register) | [The Register](https://www.theregister.com/2026/02/02/ai_security_issues/) |
-| Clawdbot to AI (Vectra AI) | [Vectra AI](https://www.vectra.ai/blog/clawdbot-to-moltbot-to-ai-when-automation-becomes-a-digital-backdoor) |
-| AI Sovereign Security Manifest (Penligent) | [Penligent AI](https://www.penligent.ai/hackinglabs/ai-sovereign-ai-security-manifest-a-comprehensive-post-mortem-and-architectural-hardening-guide-for-ai-ai-2026/) |
-| Clawdbot to AI (CNBC) | [CNBC](https://www.cnbc.com/2026/02/02/ai-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html) |
+| AI Security Nightmare (Cisco) | [Cisco Blogs](https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare) |
+| AI Agentic AI CISO Guide (VentureBeat) | [VentureBeat](https://venturebeat.com/security/openclaw-agentic-ai-security-risk-ciso-guide) |
+| AI Security Issues (The Register) | [The Register](https://www.theregister.com/2026/02/02/openclaw_security_issues/) |
+| Clawdbot to AI (Vectra AI) | [Vectra AI](https://www.vectra.ai/blog/clawdbot-to-moltbot-to-openclaw-when-automation-becomes-a-digital-backdoor) |
+| AI Sovereign Security Manifest (Penligent) | [Penligent AI](https://www.penligent.ai/hackinglabs/openclaw-sovereign-ai-security-manifest-a-comprehensive-post-mortem-and-architectural-hardening-guide-for-openclaw-ai-2026/) |
+| Clawdbot to AI (CNBC) | [CNBC](https://www.cnbc.com/2026/02/02/openclaw-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html) |
 | Moltbook Credential Exposure (SiliconANGLE) | [SiliconANGLE](https://siliconangle.com/2026/02/02/ai-agent-social-network-moltbook-left-millions-credentials-publicly-exposed/) |
-| Moltbook AI Social Network (Fortune) | [Fortune](https://fortune.com/2026/01/31/ai-agent-moltbot-clawdbot-ai-data-privacy-security-nightmare-moltbook-social-network/) |
+| Moltbook AI Social Network (Fortune) | [Fortune](https://fortune.com/2026/01/31/ai-agent-moltbot-clawdbot-openclaw-data-privacy-security-nightmare-moltbook-social-network/) |
 | Moltbot Skills 400+ Malware (SecurityAffairs) | [SecurityAffairs](https://securityaffairs.com/187562/malware/moltbot-skills-exploited-to-distribute-400-malware-packages-in-days.html) |
 | AI Use Cases & Security (AIMultiple) | [AIMultiple](https://research.aimultiple.com/moltbot/) |
 
