@@ -268,7 +268,7 @@ IP, MFA, 시간 등 조건 기반 접근 제어를 적용합니다.
 
 IAM Access Analyzer는 외부에 노출된 리소스를 자동으로 탐지합니다.
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. | 비정상적인 로그인, 브루트포스 공격 탐지 |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. | 비정상적인 로그인, 브루트포스 공격 탐지 |
 | **Execution (실행)** | Inspector, Config | 취약한 코드 실행, 악성 스크립트 탐지 |
 | **Persistence (지속성)** | CloudTrail, Config | IAM 변경, 백도어 계정 생성 탐지 |
 | **Privilege Escalation (권한 상승)** | IAM Access Analyzer, CloudTrail | 권한 변경, 정책 수정 탐지 |
@@ -282,7 +282,7 @@ IAM Access Analyzer는 외부에 노출된 리소스를 자동으로 탐지합�
 
 ### 7.2 GuardDuty 탐지와 MITRE ATT&CK
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # GuardDuty Finding을 MITRE ATT&CK 전술로 매핑...
@@ -301,7 +301,7 @@ IAM Access Analyzer는 외부에 노출된 리소스를 자동으로 탐지합�
 
 #### 8.1.2 자동화된 포렌식 스냅샷
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요."]
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요."]
         WAF["WAF"]
         Shield["Shield"]
     end
@@ -359,7 +359,7 @@ IAM Access Analyzer는 외부에 노출된 리소스를 자동으로 탐지합�
 
 ### 11.2 FinOps 데이터 플로우
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
 
 ---
 

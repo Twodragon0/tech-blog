@@ -164,19 +164,21 @@ AWS Control Tower는 **멀티 계정 거버넌스 자동화**를, ZTNA는 **경�
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```
 AWS Control Tower Components:
@@ -206,7 +208,7 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 
 #### 2.2.1 Landing Zone 구성 요소
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. IP Block (ALB 사용 시)
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. IP Block (ALB 사용 시)
     waf = boto3.client('wafv2')
     waf.update_ip_set(
         Name='BlockedIPs',
@@ -236,23 +238,25 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 
 
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 ```
 
 ### 9.3 Threat Hunting Playbook
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # Control Tower 환경 Threat Hunting 체크리스트...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> > **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 ```
 
@@ -275,7 +279,7 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 | 리소스 | 설명 |
 |--------|------|
 | **AWS Workshop - Control Tower Immersion Day** | 실습 중심의 Control Tower 워크샵 ([https://controltower.aws-management.tools/](https://controltower.aws-management.tools/)) |
-| **AWS Samples - Control Tower Customizations** | GitHub 샘플 코드 ([https://github.com/aws-samples/aws-control-tower-customizations)) |
+| **AWS Samples - Control Tower Customizations** | GitHub 샘플 코드 ([https://docs.aws.amazon.com//aws-control-tower-customizations)) |
 | **Terraform AWS Control Tower Module** | Infrastructure as Code 예제 ([https://registry.terraform.io/modules/aws-ia/control_tower](https://registry.terraform.io/modules/aws-ia/control_tower)) |
 
 ### 10.3 한국어 리소스
@@ -288,7 +292,7 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 
 ### 10.4 관련 AWS 서비스
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
 
 <!-- quality-upgrade:v1 -->
 ## 경영진 요약 (Executive Summary)
