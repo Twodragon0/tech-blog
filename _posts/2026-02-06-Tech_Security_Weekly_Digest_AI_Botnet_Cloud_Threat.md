@@ -323,7 +323,7 @@ AISURU/Kimwolf 봇넷의 31.4 Tbps 공격이 시사하는 바와 같이, 단일 
 
 #### Multi-Layer DDoS 방어 아키텍처
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. (L7 Application Protection)-----+             |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. (L7 Application Protection)-----+             |
 |  |  - Rate-based rules (IP별/URI별)                    |             |
 |  |  - Geo-blocking (비서비스 국가 차단)                 |             |
 |  |  - Managed rule groups (Amazon IP Reputation)        |             |
@@ -352,7 +352,7 @@ AISURU/Kimwolf 봇넷의 31.4 Tbps 공격이 시사하는 바와 같이, 단일 
 +==================================================================+
 
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > -->...
@@ -362,7 +362,7 @@ AISURU/Kimwolf 봇넷의 31.4 Tbps 공격이 시사하는 바와 같이, 단일 
 
 #### BYOVD 행위 기반 헌팅 (Azure Sentinel KQL)
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```kql
 > // Azure Sentinel KQL: BYOVD 행위 기반 헌팅...
@@ -381,7 +381,7 @@ AISURU/Kimwolf 봇넷의 31.4 Tbps 공격이 시사하는 바와 같이, 단일 
 
 #### 시나리오 3: 공공기관 - Codespaces RCE를 통한 소스코드 유출
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```text
 > +================================================================+...
