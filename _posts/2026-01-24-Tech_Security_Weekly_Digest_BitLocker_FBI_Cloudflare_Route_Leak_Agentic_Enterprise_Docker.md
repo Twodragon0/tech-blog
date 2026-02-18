@@ -329,15 +329,17 @@ GeekNews에서 **컨테이너화의 선구자 Docker의 2026년 현황**을 심�
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 ```
 Docker Evolution: 2013 Container Revolution → 2014-17 Rapid Growth (Swarm)
@@ -362,15 +364,17 @@ Docker Evolution: 2013 Container Revolution → 2014-17 Rapid Growth (Swarm)
 
 **1. Docker 종속성 점검**
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
 
 ```bash
 # 현재 프로젝트의 Docker 종속성 확인
@@ -445,7 +449,7 @@ User Request → Planning Agent (Task Decomposition)
 
 #### 개발자 관점 활용 팁
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.python.org/3/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 > 
 > ```python
 > # Codex API 활용 예시: 병렬 작업 정의...
@@ -479,14 +483,14 @@ User Request → Planning Agent (Task Decomposition)
 
 **목표**: AI 에이전트의 비인가 권한 상승 탐지
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # Kubernetes Audit Log 기반 헌팅 (kubectl + jq)...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 **탐지 시나리오**:
 1. AI 에이전트 Pod에서 cluster-admin 권한 시도

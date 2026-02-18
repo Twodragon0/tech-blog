@@ -216,7 +216,7 @@ HashiCorp에서 **자율 AI 시스템(Agentic AI)**의 보안을 위한 포괄�
 
 #### Agentic AI NHI 공격 시나리오
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > ┌──────────────────────────────────────────────────────────────────┐...
@@ -262,7 +262,7 @@ OpenAI가 **PostgreSQL을 활용한 대규모 스케일링 전략**을 공개했
 
 **OpenAI 방식을 한국 조직에 적용 시 이점:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > 기술적_이점:...
@@ -338,6 +338,8 @@ Capital One이 핀테크 기업 **Brex**를 $5.15B에 인수한다고 발표. �
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 **Step 4: Vault Audit Log 이상 패턴**
+
+> **참고**: 관련 예제는 [공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 

@@ -358,6 +358,8 @@ DevOps/Cloud       : █████ 13%
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # FortiGate 로그에서 SSO 관련 인증 실패 탐지
 execute log filter category 0
