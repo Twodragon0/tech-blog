@@ -367,6 +367,8 @@ JWT 서명키가 유출되면 **토큰 위조, 세션 하이재킹, 권한 상�
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Splunk - Detect JWT Token Anomalies
 index=web sourcetype=access_combined

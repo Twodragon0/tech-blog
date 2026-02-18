@@ -354,7 +354,7 @@ AI 에이전트 보안의 표준 프레임워크로 부상한 OWASP Agentic AI T
 
 ### 1.6 AI 에이전트 보안 체크리스트: 어떻게 대비해야 하는가?
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # AI Agent Security Checklist...
@@ -535,7 +535,7 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 
 ### 2.7 MDM Zero Trust 구현 체크리스트
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 > 
 > ```yaml
 > # MDM Zero Trust Checklist...

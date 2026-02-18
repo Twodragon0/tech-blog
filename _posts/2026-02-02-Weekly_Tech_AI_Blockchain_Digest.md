@@ -193,7 +193,7 @@ AI 에이전트의 보안은 2026년 핵심 화두입니다. NanoClaw의 접근 
 - **세션 격리**: 채팅 간 컨텍스트 유출 방지
 - **코드 최소화**: 공격 표면 자체를 줄이는 가장 효과적인 방법
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > 
 > ```bash
 > # AI 에이전트 컨테이너 격리 상태 확인 (macOS)...
