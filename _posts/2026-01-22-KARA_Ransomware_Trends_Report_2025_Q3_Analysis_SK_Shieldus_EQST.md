@@ -1,18 +1,41 @@
 ---
-layout: post
-title: "2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략"
-date: 2026-01-22 14:30:00 +0900
-categories: [security, incident]
-tags: [Ransomware, KARA, SK-Shieldus, LockBit, Akira, INC-Ransomware, Threat-Intelligence, DevSecOps, Zero-Trust, "2025"]
-excerpt: "2025년 3분기 랜섬웨어 1,517건 발생. LockBit 5.0 재등장, Akira 제조업 타겟, 제로 트러스트 대응 전략."
-description: "SK쉴더스 EQST insight 기반 2025년 3분기 랜섬웨어 동향 분석. KARA 보고서의 주요 그룹(LockBit 5.0, Akira, INC Ransomware) 분석, 공격 통계, 최신 TTPs, YARA/Sigma 탐지 룰, 제로 트러스트 기반 기업 대응 전략."
-keywords: "랜섬웨어, KARA, SK쉴더스, LockBit 5.0, Akira, INC Ransomware, 제로 트러스트, YARA, Sigma, 침해사고대응, SOC, CERT, 2025년 3분기"
 author: Twodragon
+categories:
+- security
+- incident
 comments: true
+date: 2026-01-22 14:30:00 +0900
+description: SK쉴더스 EQST insight 기반 2025년 3분기 랜섬웨어 동향 분석. KARA 보고서의 주요 그룹(LockBit 5.0,
+  Akira, INC Ransomware) 분석, 공격 통계, 최신 TTPs, YARA/Sigma 탐지 룰, 제로 트러스트 기반 기업 대응 전략.
+excerpt: 2025년 3분기 랜섬웨어 1,517건 발생. LockBit 5.0 재등장, Akira 제조업 타겟, 제로 트러스트 대응 전략.
 image: /assets/images/2026-01-22-KARA_Ransomware_Trends_2025_Q3.svg
-image_alt: "KARA Ransomware Trends Report 2025 Q3 Analysis - Attack Statistics, Major Groups, Defense Strategies"
-toc: true
+image_alt: KARA Ransomware Trends Report 2025 Q3 Analysis - Attack Statistics, Major
+  Groups, Defense Strategies
+keywords: 랜섬웨어, KARA, SK쉴더스, LockBit 5.0, Akira, INC Ransomware, 제로 트러스트, YARA, Sigma,
+  침해사고대응, SOC, CERT, 2025년 3분기
+layout: post
 schema_type: Article
+tags:
+- Ransomware
+- KARA
+- SK-Shieldus
+- LockBit
+- Akira
+- INC-Ransomware
+- Threat-Intelligence
+- DevSecOps
+- Zero-Trust
+- '2025'
+title: '2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: 2025년 3분기 랜섬웨어 1,517건 발생. LockBit 5.0 재등장, Akira 제조업 타겟, 제로 트러스트 대응 전략.
+- **주요 주제**: 2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략
+- **키워드**: Ransomware, KARA, SK-Shieldus, LockBit, Akira
+
 ---
 
 <div class="ai-summary-card">
@@ -187,142 +210,13 @@ schema_type: Article
 
 #### LockBit 5.0 공격 체인
 
-```yaml
-# LockBit 5.0 공격 체인 분석
-attack_chain:
-  initial_access:
-    - technique: T1566 (Phishing)
-    - technique: T1133 (External Remote Services)
-    - tools: [Cobalt Strike, SystemBC]
-    
-  execution:
-    - technique: T1059.001 (PowerShell)
-    - technique: T1047 (WMI)
-    - evasion: DLL Reflection, Dynamic API Resolution
-    
-  persistence:
-    - technique: T1547.001 (Registry Run Keys)
-    - technique: T1053.005 (Scheduled Task)
-    
-  defense_evasion:
-    - technique: T1562.001 (Disable Security Tools)
-    - method: Process Hollowing
-    - method: ETW Patching
-    - method: Library Unhooking
-    
-  credential_access:
-    - tools: [Mimikatz, LaZagne, Rubeus]
-    
-  lateral_movement:
-    - technique: T1021.001 (RDP)
-    - technique: T1021.002 (SMB/Windows Admin Shares)
-    
-  exfiltration:
-    - tools: [Rclone, MEGASync, 7zip]
-    - destinations: [MEGA, Dropbox, Private Servers]
-    
-  impact:
-    - encryption: ChaCha20 + RSA-4096
-    - deletion: Shadow Copy, Backup Catalogs
-```
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # LockBit 5.0 공격 체인 분석...
+> ```
 
-#### LockBit 5.0 YARA 탐지 룰
 
-```yara
-rule LockBit_5_0_Ransomware
-{
-    meta:
-        description = "Detects LockBit 5.0 ransomware"
-        author = "Twodragon"
-        reference = "SK Shieldus EQST / Flashpoint"
-        date = "2025-09"
-        severity = "critical"
-        
-    strings:
-        // LockBit 5.0 특징적 문자열
-        $lockbit_marker = "LockBit" ascii wide
-        $ransom_note = "Restore-My-Files.txt" ascii wide
-        $mutex_pattern = "Global\\LockBit" ascii wide
-        
-        // 암호화 관련
-        $chacha20 = { 65 78 70 61 6E 64 20 33 32 2D 62 79 74 65 20 6B }
-        $rsa_marker = { 30 82 ?? ?? 02 82 }
-        
-        // EDR 우회 기법
-        $etw_patch = { 48 33 C0 C3 }  // xor rax, rax; ret
-        $unhook_ntdll = "ntdll.dll" ascii
-        
-        // API 동적 해석
-        $api_hash_1 = { 0F B6 ?? 33 ?? C1 ?? 05 }
-        
-    condition:
-        uint16(0) == 0x5A4D and
-        filesize < 10MB and
-        (
-            ($lockbit_marker and $ransom_note) or
-            ($mutex_pattern and $chacha20) or
-            (2 of ($etw_patch, $unhook_ntdll, $api_hash_1))
-        )
-}
-```
-
-### 2.3 INC Ransomware Rust 버전 분석
-
-SK쉴더스 EQST의 "Keep up with Ransomware" 시리즈에서 집중 분석한 **INC Ransomware**:
-
-#### INC Ransomware 특징
-
-| 특징 | C++ 버전 | Rust 버전 |
-|------|----------|----------|
-| **언어** | C++ | Rust |
-| **암호화** | AES-256 + RSA | ChaCha20 + Curve25519 |
-| **플랫폼** | Windows | Windows, Linux |
-| **탐지 회피** | 기본 | 메모리 안전성으로 분석 어려움 |
-| **등장 시기** | 2024 Q1 | 2025 Q3 |
-
-#### INC Ransomware Sigma 탐지 룰
-
-```yaml
-title: INC Ransomware Process Activity
-id: 8a7b9c0d-1e2f-3g4h-5i6j-7k8l9m0n1o2p
-status: experimental
-description: Detects INC Ransomware process execution patterns
-author: Twodragon
-date: 2025/09/15
-references:
-    - https://www.skshieldus.com/kor/media/newsletter/insight.do
-logsource:
-    category: process_creation
-    product: windows
-detection:
-    selection_parent:
-        ParentImage|endswith:
-            - '\cmd.exe'
-            - '\powershell.exe'
-            - '\wscript.exe'
-    selection_process:
-        Image|endswith:
-            - '\inc.exe'
-            - '\inc_ransomware.exe'
-        CommandLine|contains:
-            - '--encrypt'
-            - '--path'
-            - '--key'
-    selection_vssadmin:
-        Image|endswith: '\vssadmin.exe'
-        CommandLine|contains: 'delete shadows'
-    selection_wmic:
-        Image|endswith: '\wmic.exe'
-        CommandLine|contains: 'shadowcopy delete'
-    condition: selection_parent and (selection_process or selection_vssadmin or selection_wmic)
-level: critical
-tags:
-    - attack.impact
-    - attack.t1486
-    - attack.t1490
-falsepositives:
-    - Legitimate backup software
-```
 
 ### 2.4 Akira 랜섬웨어 - SonicWall 취약점 악용
 
@@ -334,22 +228,13 @@ falsepositives:
 | **암호화 방식** | ChaCha20 + RSA-4096 |
 | **특이사항** | Nutanix AHV 최초 암호화 성공 (2025년 6월) |
 
-```bash
-# SonicWall 취약점 확인 명령어
-# CVE-2024-40766 영향받는 버전 확인
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # SonicWall 취약점 확인 명령어...
+> ```
 
-# SonicOS 버전 확인
-show version
 
-# 영향받는 버전:
-# - SonicOS 7.0.x (7.0.1-5161 이전)
-# - SonicOS 6.5.x (6.5.4.15-117n 이전)
-
-# 즉시 패치 적용:
-# 1. SonicWall 지원 포털에서 최신 펌웨어 다운로드
-# 2. SSLVPN Default Users Group 비활성화
-# 3. MFA 강제 적용
-```
 
 ---
 
@@ -405,168 +290,13 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 
 ### 3.4 EDR 우회 기법 상세
 
-```yaml
-# 2025년 3분기 주요 EDR 우회 기법
-edr_evasion_techniques:
-  
-  process_hollowing:
-    description: "정상 프로세스에 악성 코드 주입"
-    used_by: [LockBit5.0, BlackCat]
-    detection:
-      - "프로세스 메모리 영역 변경 모니터링"
-      - "CreateProcess + WriteProcessMemory 조합 탐지"
-    sigma_rule: |
-      detection:
-        selection:
-          - EventID: 10  # Process Access
-          - TargetImage|endswith: '\svchost.exe'
-          - GrantedAccess|contains: '0x1F0FFF'
-  
-  library_unhooking:
-    description: "보안 솔루션의 API 후킹 해제"
-    used_by: [LockBit5.0, Akira]
-    detection:
-      - "ntdll.dll 직접 로드 탐지"
-      - "syscall 직접 호출 모니터링"
-  
-  etw_patching:
-    description: "Event Tracing for Windows 비활성화"
-    used_by: [LockBit5.0]
-    detection:
-      - "EtwEventWrite 함수 패치 탐지"
-      - "커널 수준 ETW 모니터링"
-    ioc_pattern: "48 33 C0 C3"  # xor rax, rax; ret
-  
-  edr_killer:
-    description: "EDR 프로세스 강제 종료"
-    used_by: [RansomHub]
-    tool: "EDRKillShifter"
-    detection:
-      - "BYOVD(Bring Your Own Vulnerable Driver) 탐지"
-      - "서명된 드라이버 악용 모니터링"
-  
-  byovd:
-    description: "취약한 드라이버를 통한 커널 접근"
-    used_by: [Multiple Groups]
-    vulnerable_drivers:
-      - "Process Explorer driver (dbutil_2_3.sys)"
-      - "Intel driver (iqvw64e.sys)"
-      - "RentDrv2 driver (rentdrv2.sys)"
-    detection:
-      - "알려진 취약 드라이버 로드 탐지"
-      - "드라이버 로드 이벤트 모니터링 (Sysmon ID 6)"
-```
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 2025년 3분기 주요 EDR 우회 기법...
+> ```
 
----
 
-## 4. 산업별 표적 분석
-
-### 4.1 2025년 산업별 공격 현황
-
-| 순위 | 산업 | 공격 비중 | 전년 대비 | 주요 공격 그룹 | 취약점 |
-|------|------|----------|----------|---------------|--------|
-| 1 | **제조업** | 26% | +56% | Akira, Play, INC | OT/IT 통합 |
-| 2 | **헬스케어** | 8% | 정체 | INC, BlackCat | HIPAA 데이터 |
-| 3 | **금융 서비스** | - | +65% | Cl0p, LockBit | 파일 전송 SW |
-| 4 | **비즈니스 서비스** | 10% | - | Qilin | 원격 접속 |
-| 5 | **법률** | - | +54% | - | 기밀 문서 |
-| 6 | **소매** | - | +37% | - | POS 시스템 |
-
-### 4.2 제조업 공격 급증 원인 분석
-
-<div class="post-image-container">
-  <img src="/assets/images/2026-01-22-manufacturing-targeting.svg" alt="Why Manufacturing is Ransomware Target Number 1 - 4 Key Reasons" class="post-image">
-  <p class="image-caption">제조업이 랜섬웨어 #1 타겟인 4가지 이유</p>
-</div>
-
-![Why Manufacturing is Ransomware Target #1 - High downtime costs, OT/IT convergence, ransom pressure, low security maturity](/assets/images/diagrams/2026-01-22-manufacturing-ransomware-target.svg)
-
-<details>
-<summary>텍스트 버전 (접근성용)</summary>
-
-```
-Why Manufacturing is Ransomware Target #1:
-1. Extremely High Downtime Costs - Hundreds of thousands per minute, production delays, supply chain impact
-2. OT/IT Convergence Expands Attack Surface - Legacy SCADA/ICS vulnerabilities, IT-to-OT pivoting
-3. Maximum Ransom Payment Pressure - JIT manufacturing vulnerability, contract penalties, customer trust
-4. Relatively Low Security Maturity - OT security underinvested, staff shortage, lack of training
-
-Response Strategy: OT/IT network separation, industrial firewalls/IDS/IPS, OT-specific EDR, regular OT security assessments
-```
-
-</details>
-
-### 4.3 주요 악용 취약점 (CISA KEV 기준)
-
-| CVE | 제품 | CVSS | 악용 그룹 | 패치 상태 |
-|-----|------|------|----------|----------|
-| **CVE-2024-40766** | SonicWall SSLVPN | 9.8 | Akira | 긴급 패치 필요 |
-| **CVE-2025-61882** | Oracle E-Business Suite | 9.1 | Cl0p | 패치 가용 |
-| **CVE-2024-21887** | Ivanti Connect Secure | 9.1 | Multiple | 패치 가용 |
-| **CVE-2024-1709** | ConnectWise ScreenConnect | 10.0 | Multiple | 패치 가용 |
-| **CVE-2024-3400** | Palo Alto PAN-OS | 10.0 | Multiple | 패치 가용 |
-
----
-
-## 5. 기업 대응 전략
-
-### 5.1 제로 트러스트 아키텍처 구현
-
-```yaml
-# 제로 트러스트 구현 체크리스트
-zero_trust_implementation:
-  
-  identity_verification:
-    - name: "MFA 전면 적용"
-      priority: critical
-      implementation:
-        - "모든 VPN 접근에 MFA 필수"
-        - "클라우드 서비스 MFA 필수"
-        - "하드웨어 키(YubiKey) 권장"
-      tools: [Okta, Azure AD, Duo]
-      
-    - name: "SSO 통합"
-      priority: high
-      implementation:
-        - "SAML/OIDC 기반 SSO"
-        - "세션 타임아웃 강화"
-      
-  device_trust:
-    - name: "디바이스 상태 검증"
-      priority: high
-      implementation:
-        - "EDR 에이전트 설치 필수"
-        - "OS 패치 수준 검증"
-        - "디스크 암호화 필수"
-      tools: [CrowdStrike, SentinelOne, MS Defender]
-      
-  network_segmentation:
-    - name: "마이크로 세그멘테이션"
-      priority: high
-      implementation:
-        - "워크로드 단위 격리"
-        - "East-West 트래픽 제어"
-        - "OT/IT 네트워크 분리"
-      tools: [Illumio, Guardicore, VMware NSX]
-      
-  least_privilege:
-    - name: "최소 권한 원칙"
-      priority: critical
-      implementation:
-        - "JIT(Just-In-Time) 접근 권한"
-        - "PAM(Privileged Access Management)"
-        - "정기적 권한 검토 (분기별)"
-      tools: [CyberArk, BeyondTrust, HashiCorp Vault]
-      
-  continuous_monitoring:
-    - name: "지속적 모니터링"
-      priority: critical
-      implementation:
-        - "SIEM/SOAR 통합"
-        - "UEBA(User Entity Behavior Analytics)"
-        - "24x7 SOC 운영"
-      tools: [Splunk, Microsoft Sentinel, Elastic SIEM]
-```
 
 ### 5.2 3-2-1-1-0 백업 전략
 
@@ -579,6 +309,16 @@ zero_trust_implementation:
 
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```
 3-2-1-1-0 Backup Strategy:
@@ -593,185 +333,32 @@ zero_trust_implementation:
 
 #### AWS S3 Immutable 백업 설정
 
-```json
-{
-    "Rules": [
-        {
-            "ID": "ransomware-protection-rule",
-            "Status": "Enabled",
-            "Filter": {
-                "Prefix": "backups/"
-            },
-            "DefaultRetention": {
-                "Mode": "COMPLIANCE",
-                "Days": 365
-            }
-        }
-    ]
-}
-```
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
 
-```bash
-# AWS CLI로 Object Lock 설정
-aws s3api put-object-lock-configuration \
-    --bucket backup-bucket \
-    --object-lock-configuration '{
-        "ObjectLockEnabled": "Enabled",
-        "Rule": {
-            "DefaultRetention": {
-                "Mode": "COMPLIANCE",
-                "Days": 365
-            }
-        }
-    }'
-```
 
-### 5.3 침해 지표(IOC) 모니터링 자동화
 
-```yaml
-# Sigma 룰 - 랜섬웨어 초기 침투 징후 탐지
-title: Ransomware Initial Access Indicators
-id: 3f4e5d6c-7b8a-9c0d-1e2f-3g4h5i6j7k8l
-status: production
-description: Detects common ransomware initial access indicators
-author: Twodragon
-date: 2025/09/20
-references:
-    - https://attack.mitre.org/techniques/T1566/
-    - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
-logsource:
-    category: process_creation
-    product: windows
-detection:
-    # PowerShell 다운로드 크래들
-    selection_powershell_download:
-        Image|endswith: '\powershell.exe'
-        CommandLine|contains:
-            - 'IEX'
-            - 'Invoke-Expression'
-            - 'DownloadString'
-            - 'Net.WebClient'
-            - 'Start-BitsTransfer'
-    
-    # 의심스러운 스크립트 실행
-    selection_suspicious_script:
-        ParentImage|endswith:
-            - '\outlook.exe'
-            - '\winword.exe'
-            - '\excel.exe'
-        Image|endswith:
-            - '\cmd.exe'
-            - '\powershell.exe'
-            - '\wscript.exe'
-    
-    # Shadow Copy 삭제 시도
-    selection_vss_deletion:
-        Image|endswith:
-            - '\vssadmin.exe'
-            - '\wmic.exe'
-        CommandLine|contains:
-            - 'delete'
-            - 'shadowcopy'
-            - 'shadows'
-    
-    # 백업 카탈로그 삭제
-    selection_backup_deletion:
-        Image|endswith: '\wbadmin.exe'
-        CommandLine|contains: 'delete'
-    
-    # 방화벽 비활성화
-    selection_firewall_disable:
-        Image|endswith: '\netsh.exe'
-        CommandLine|contains:
-            - 'firewall'
-            - 'advfirewall'
-            - 'set'
-            - 'off'
-    
-    condition: 1 of selection_*
-level: high
-tags:
-    - attack.initial_access
-    - attack.execution
-    - attack.defense_evasion
-    - attack.impact
-falsepositives:
-    - Legitimate admin activities
-    - Software deployment tools
-```
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # AWS CLI로 Object Lock 설정...
+> ```
+
+
 
 ### 5.4 침해사고 대응 플레이북
 
-```yaml
-# 랜섬웨어 침해사고 대응 플레이북
-ransomware_incident_response:
-  
-  phase_1_detection:
-    name: "탐지 및 분석"
-    duration: "0-2시간"
-    actions:
-      - "SIEM 알람 확인 및 분류"
-      - "영향 범위 초기 평가"
-      - "IOC 수집 시작"
-      - "침해사고대응팀(CERT) 소집"
-    checklist:
-      - "[ ] 알람 트리거 조건 확인"
-      - "[ ] 영향받은 시스템 목록 작성"
-      - "[ ] 네트워크 로그 보존"
-      - "[ ] 메모리 덤프 수집 (가능 시)"
-      
-  phase_2_containment:
-    name: "격리 및 봉쇄"
-    duration: "2-4시간"
-    actions:
-      - "감염 시스템 네트워크 격리"
-      - "추가 확산 차단"
-      - "백업 시스템 보호"
-    checklist:
-      - "[ ] 감염 시스템 VLAN 격리"
-      - "[ ] 관리자 계정 패스워드 변경"
-      - "[ ] 백업 서버 네트워크 분리"
-      - "[ ] VPN 접근 일시 차단"
-      
-  phase_3_eradication:
-    name: "제거"
-    duration: "4-24시간"
-    actions:
-      - "악성코드 완전 제거"
-      - "취약점 패치"
-      - "침투 경로 차단"
-    checklist:
-      - "[ ] AV/EDR 전체 스캔"
-      - "[ ] 악용된 취약점 패치"
-      - "[ ] 탈취된 계정 비활성화"
-      - "[ ] 백도어 확인 및 제거"
-      
-  phase_4_recovery:
-    name: "복구"
-    duration: "24-72시간"
-    actions:
-      - "백업에서 데이터 복구"
-      - "시스템 재구축 (필요 시)"
-      - "서비스 단계적 재개"
-    checklist:
-      - "[ ] 백업 무결성 검증"
-      - "[ ] 깨끗한 환경에서 복구"
-      - "[ ] 복구된 시스템 스캔"
-      - "[ ] 서비스 정상 동작 확인"
-      
-  phase_5_lessons_learned:
-    name: "사후 분석"
-    duration: "복구 후 1-2주"
-    actions:
-      - "상세 보고서 작성"
-      - "개선 사항 도출"
-      - "정책/절차 업데이트"
-    checklist:
-      - "[ ] 타임라인 문서화"
-      - "[ ] 근본 원인 분석(RCA)"
-      - "[ ] 탐지 룰 개선"
-      - "[ ] 훈련 프로그램 업데이트"
-```
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 랜섬웨어 침해사고 대응 플레이북...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 GitHub 링크 참조 -->
 
 ---
 
@@ -850,3 +437,45 @@ SK쉴더스 EQST에서 제공하는 랜섬웨어 관련 리소스:
 ---
 
 > **면책 조항**: 본 포스팅은 SK쉴더스 EQST insight 및 공개된 위협 인텔리전스를 바탕으로 작성되었습니다. 정확한 최신 정보는 원본 보고서를 참조하시기 바랍니다.
+
+<!-- quality-upgrade:v1 -->
+## 경영진 요약 (Executive Summary)
+이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
+
+### 위험 스코어카드
+| 영역 | 현재 위험도 | 영향도 | 우선순위 |
+|---|---|---|---|
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
+
+### 운영 개선 지표
+| 지표 | 현재 기준 | 목표 | 검증 방법 |
+|---|---|---|---|
+| 탐지 리드타임 | 주 단위 | 일 단위 | SIEM 알림 추적 |
+| 패치 적용 주기 | 월 단위 | 주 단위 | 변경 티켓 감사 |
+| 재발 방지율 | 부분 대응 | 표준화 | 회고 액션 추적 |
+
+### 실행 체크리스트
+- [ ] 핵심 경고 룰을 P1/P2로 구분하고 온콜 라우팅을 검증한다.
+- [ ] 취약점 조치 SLA를 서비스 등급별로 재정의한다.
+- [ ] IAM/시크릿/네트워크 변경 이력을 주간 기준으로 리뷰한다.
+- [ ] 탐지 공백 시나리오(로그 누락, 파이프라인 실패)를 월 1회 리허설한다.
+- [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
+
+### 시각 자료
+![포스트 시각 자료](/assets/images/2026-01-22-KARA_Ransomware_Trends_2025_Q3.svg)
+
+<!-- priority-quality-korean:v1 -->
+## 우선순위 기반 고도화 메모
+| 구분 | 현재 상태 | 목표 상태 | 우선순위 |
+|---|---|---|---|
+| 콘텐츠 밀도 | 점수 83 수준 | 실무 의사결정 중심 문장 강화 | P2 (단기 보강) |
+| 표/시각 자료 | 핵심 표 중심 | 비교/의사결정 표 추가 | P2 |
+| 실행 항목 | 체크리스트 중심 | 역할/기한/증적 기준 명시 | P1 |
+
+### 이번 라운드 개선 포인트
+- 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
+- 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
+- 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
+

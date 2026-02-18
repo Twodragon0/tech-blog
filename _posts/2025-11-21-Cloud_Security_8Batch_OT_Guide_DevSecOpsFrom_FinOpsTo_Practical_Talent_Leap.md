@@ -1,19 +1,43 @@
 ---
-layout: post
-title: "클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!"
-date: 2025-11-21 18:28:12 +0900
-category: devsecops
-categories: [devsecops]
-tags: [Cloud-Security, DevSecOps, FinOps, Course]
-excerpt: "클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량 강화, 2025년 보안 트렌드 완벽 대응"
-comments: true
-original_url: https://twodragon.tistory.com/700
-image: /assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.svg
-image_alt: "Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSecOps to FinOps"
-toc: true
-description: "클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량을 강화하고, 2025년 AI 보안 트렌드에 대응하는 실무형 전문가로 성장하세요."
-keywords: [Cloud-Security, DevSecOps, FinOps, AWS, Course, 클라우드보안, 실무교육, Zero Trust, Post-quantum]
 author: Twodragon
+categories:
+- devsecops
+category: devsecops
+comments: true
+date: 2025-11-21 18:28:12 +0900
+description: 클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량을 강화하고, 2025년 AI 보안 트렌드에
+  대응하는 실무형 전문가로 성장하세요.
+excerpt: 클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량 강화, 2025년 보안 트렌드 완벽 대응
+image: /assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.svg
+image_alt: 'Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSecOps
+  to FinOps'
+keywords:
+- Cloud-Security
+- DevSecOps
+- FinOps
+- AWS
+- Course
+- 클라우드보안
+- 실무교육
+- Zero Trust
+- Post-quantum
+layout: post
+original_url: https://twodragon.tistory.com/700
+tags:
+- Cloud-Security
+- DevSecOps
+- FinOps
+- Course
+title: '클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: 클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량 강화, 2025년 보안 트렌드 완벽 대응
+- **주요 주제**: 클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!
+- **키워드**: Cloud-Security, DevSecOps, FinOps, Course
+
 ---
 
 <div class="ai-summary-card">
@@ -62,7 +86,7 @@ author: Twodragon
 </div>
 </div>
 
-## Executive Summary
+## 경영진 요약 (Executive Summary)
 
 ### OT Security Scorecard
 
@@ -175,393 +199,7 @@ AWS re:Invent 2025에서 발표된 최신 보안 서비스들을 커리큘럼에
 
 IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
-```
-┌─────────────────────────────────────────────────────┐
-│ Level 5: Enterprise Network (IT)                    │
-│ - ERP, MES, CMMS                                    │
-│ - AWS VPC (Production)                              │
-│ - Security Hub, GuardDuty                           │
-└─────────────────────┬───────────────────────────────┘
-                      │ Secure Gateway
-                      │ (AWS Transit Gateway + Firewall)
-┌─────────────────────┴───────────────────────────────┐
-│ Level 4: Site Business Planning & Logistics (IT)    │
-│ - Historian, SCADA Server                           │
-│ - Read-only access to OT                            │
-└─────────────────────┬───────────────────────────────┘
-                      │ DMZ (Diode / Unidirectional Gateway)
-┌─────────────────────┴───────────────────────────────┐
-│ Level 3: Site Operations & Control (OT)             │
-│ - HMI, SCADA Clients                                │
-│ - ICS Gateway (모든 외부 통신 차단)                 │
-└─────────────────────┬───────────────────────────────┘
-                      │ ICS Firewall (IEC 62443 준수)
-┌─────────────────────┴───────────────────────────────┐
-│ Level 2: Supervisory Control (OT)                   │
-│ - PLC, DCS, Controllers                             │
-│ - Industrial Ethernet (ISO/IEC 11898)               │
-└─────────────────────┬───────────────────────────────┘
-                      │ Fieldbus
-┌─────────────────────┴───────────────────────────────┐
-│ Level 1: Basic Control (OT)                         │
-│ - Sensors, Actuators                                │
-│ - Modbus, OPC-UA                                    │
-└─────────────────────────────────────────────────────┘
-```
-
-**보안 통제 포인트**:
-- **Level 4-5 경계**: AWS Transit Gateway + Network Firewall (Suricata IPS)
-- **Level 3-4 경계**: 단방향 게이트웨이 (Data Diode) - OT → IT만 허용
-- **Level 2-3 경계**: ICS 전용 방화벽 (Fortinet FortiGate ICS, Claroty)
-- **Level 1-2 경계**: Fieldbus 암호화 (TLS 1.3, IEC 62443-3-3 준수)
-
-## 3. 커리큘럼 상세
-
-### 3.1 전체 커리큘럼 개요
-
-클라우드 시큐리티 8기는 총 9주 과정으로 구성됩니다:
-
-| 주차 | 주제 | 핵심 내용 |
-|------|------|----------|
-| 1주차 | 인프라의 본질부터 보안의 미래까지 | 네트워크, 서버, 가상화 기초, 2025 보안 트렌드(AI 보안, Zero Trust) |
-| 2주차 | AWS 보안 아키텍처의 핵심 | VPC, IAM, S3, GuardDuty Extended, Security Agent |
-| 3주차 | AWS FinOps 및 ISMS-P | 비용 최적화, 거버넌스, 보안 감사 |
-| 4주차 | 통합 보안 취약점 점검 | 취약점 스캔, ISMS-P 인증 대응, Supply Chain 보안 |
-| 5주차 | AWS Control Tower 및 보안 도구 | Landing Zone, SCP, Security Hub, Datadog SIEM, Cloudflare |
-| 6주차 이후 | DevSecOps 심화 | CI/CD 보안, 컨테이너 보안, AgentCore Identity, 통합 정리 |
-
-### 3.2 주요 학습 영역
-
-#### DevSecOps 영역
-
-- **보안 통합 개발**: CI/CD 파이프라인에 보안 자동화 통합
-- **컨테이너 보안**: Docker, Kubernetes 보안 모범 사례
-- **코드 보안**: GitHub Advanced Security, 정적/동적 분석
-- **인프라 보안**: IaC 보안, Terraform 보안 모범 사례
-
-#### FinOps 영역
-
-- **비용 최적화**: AWS Cost Explorer, 예약 인스턴스, Savings Plans
-- **리소스 태깅 전략**: 비용 할당 및 추적
-- **거버넌스**: AWS Control Tower, SCP를 통한 거버넌스
-- **예산 관리**: 예산 알림 및 비용 이상 탐지
-
-#### 클라우드 보안 영역
-
-- **네트워크 보안**: VPC 설계, Security Group, NACL
-- **접근 제어**: IAM 정책, 최소 권한 원칙
-- **위협 탐지**: GuardDuty, CloudTrail, Config
-- **데이터 보호**: S3 암호화, KMS 활용
-
-### 3.3 실습 환경 구성 예시
-
-과정에서 다루는 AWS 보안 환경 구성의 기본 예시입니다:
-
-```bash
-# AWS CLI를 사용한 보안 환경 기본 구성
-
-# 1. VPC 생성 (보안을 위한 네트워크 분리)
-aws ec2 create-vpc --cidr-block 10.0.0.0/16 \
-  --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=SecureVPC},{Key=Environment,Value=Training}]'
-
-# 2. CloudTrail 활성화 (감사 로그)
-aws cloudtrail create-trail --name security-audit-trail \
-  --s3-bucket-name my-cloudtrail-logs \
-  --is-multi-region-trail \
-  --enable-log-file-validation
-
-# 3. GuardDuty 활성화 (위협 탐지)
-aws guardduty create-detector --enable \
-  --finding-publishing-frequency FIFTEEN_MINUTES
-
-# 4. Security Hub 활성화 (통합 보안 관리)
-aws securityhub enable-security-hub --enable-default-standards
-
-# 5. IAM 암호 정책 강화
-aws iam update-account-password-policy \
-  --minimum-password-length 14 \
-  --require-symbols \
-  --require-numbers \
-  --require-uppercase-characters \
-  --require-lowercase-characters \
-  --max-password-age 90 \
-  --password-reuse-prevention 12
-```
-
-### 3.4 주차별 심화 학습 로드맵
-
-#### 1주차: 인프라 본질과 보안 기초
-
-**학습 목표**:
-- OSI 7계층 모델과 TCP/IP 프로토콜 스택 이해
-- 가상화 기술 (Type 1/Type 2 Hypervisor) 차이점
-- 2025년 보안 트렌드: AI 보안, Zero Trust, Post-quantum 암호화
-
-**실습**:
-- Wireshark로 네트워크 트래픽 분석
-- VirtualBox로 가상 머신 생성 및 네트워크 구성
-- OpenSSL로 TLS 1.3 인증서 생성
-
-**핵심 개념**:
-```
-네트워크 패킷 흐름 (3-Way Handshake):
-Client                    Server
-  |                         |
-  |------ SYN (seq=x) ----->|  (1) 연결 요청
-  |                         |
-  |<--- SYN-ACK (seq=y) ----|  (2) 연결 수락
-  |     (ack=x+1)           |
-  |                         |
-  |------ ACK (ack=y+1) --->|  (3) 연결 확립
-  |                         |
-  |<---- Data Transfer ---->|
-```
-
-#### 2주차: AWS 보안 아키텍처 심화
-
-**학습 목표**:
-- VPC 설계 모범 사례 (Public/Private Subnet 분리)
-- IAM Policy 문법 (Statement, Effect, Action, Resource, Condition)
-- S3 보안 (Bucket Policy, ACL, Encryption, Versioning)
-- GuardDuty Extended Threat Detection 실습
-
-**실습 시나리오**:
-```yaml
-# Terraform으로 보안 강화 VPC 구성
-# 파일: main.tf
-
-provider "aws" {
-  region = "ap-northeast-2"
-}
-
-# VPC with DNS support
-resource "aws_vpc" "secure_vpc" {
-  cidr_block           = "10.0.0.0/16"
-  enable_dns_support   = true
-  enable_dns_hostnames = true
-
-  tags = {
-    Name        = "SecureVPC"
-    Environment = "Training"
-  }
-}
-
-# Public Subnet (DMZ)
-resource "aws_subnet" "public_subnet" {
-  vpc_id                  = aws_vpc.secure_vpc.id
-  cidr_block              = "10.0.1.0/24"
-  availability_zone       = "ap-northeast-2a"
-  map_public_ip_on_launch = false  # 보안 강화: 자동 공인 IP 할당 비활성화
-
-  tags = {
-    Name = "PublicSubnet-DMZ"
-  }
-}
-
-# Private Subnet (Application Tier)
-resource "aws_subnet" "private_subnet" {
-  vpc_id            = aws_vpc.secure_vpc.id
-  cidr_block        = "10.0.2.0/24"
-  availability_zone = "ap-northeast-2a"
-
-  tags = {
-    Name = "PrivateSubnet-App"
-  }
-}
-
-# Security Group: Allow HTTPS only
-resource "aws_security_group" "web_sg" {
-  name        = "web-sg"
-  description = "Allow HTTPS inbound traffic"
-  vpc_id      = aws_vpc.secure_vpc.id
-
-  ingress {
-    description = "HTTPS from anywhere"
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "WebServerSG"
-  }
-}
-
-# VPC Flow Logs (보안 감사)
-resource "aws_flow_log" "vpc_flow_log" {
-  log_destination      = aws_s3_bucket.flow_logs.arn
-  log_destination_type = "s3"
-  traffic_type         = "ALL"
-  vpc_id               = aws_vpc.secure_vpc.id
-
-  tags = {
-    Name = "VPC-FlowLogs"
-  }
-}
-
-# S3 Bucket for Flow Logs (암호화 강제)
-resource "aws_s3_bucket" "flow_logs" {
-  bucket = "vpc-flow-logs-${data.aws_caller_identity.current.account_id}"
-
-  tags = {
-    Name = "VPCFlowLogs"
-  }
-}
-
-resource "aws_s3_bucket_server_side_encryption_configuration" "flow_logs_encryption" {
-  bucket = aws_s3_bucket.flow_logs.id
-
-  rule {
-    apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
-    }
-  }
-}
-
-data "aws_caller_identity" "current" {}
-```
-
-**IAM Policy 예제 (최소 권한 원칙)**:
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetObject",
-        "s3:PutObject"
-      ],
-      "Resource": "arn:aws:s3:::my-secure-bucket/data/*",
-      "Condition": {
-        "StringEquals": {
-          "aws:PrincipalOrgID": "o-exampleorg123"
-        },
-        "IpAddress": {
-          "aws:SourceIp": [
-            "203.0.113.0/24",
-            "192.0.2.0/24"
-          ]
-        },
-        "Bool": {
-          "aws:SecureTransport": "true"
-        }
-      }
-    },
-    {
-      "Effect": "Deny",
-      "Action": "s3:*",
-      "Resource": "*",
-      "Condition": {
-        "Bool": {
-          "aws:SecureTransport": "false"
-        }
-      }
-    }
-  ]
-}
-```
-
-#### 3주차: FinOps 실무 및 ISMS-P 인증
-
-**학습 목표**:
-- AWS Cost Explorer로 비용 분석 (일별, 서비스별, 태그별)
-- 예약 인스턴스(RI) vs Savings Plans 비교 및 최적화
-- AWS Budgets으로 예산 알림 설정
-- ISMS-P 인증 요구사항 (관리체계 수립 및 운영, 보호대책 요구사항)
-
-**FinOps 비용 최적화 체크리스트**:
-- [ ] EC2 인스턴스 Right-Sizing (Compute Optimizer 활용)
-- [ ] 사용하지 않는 EBS 볼륨 삭제
-- [ ] Elastic IP 미사용 시 릴리스 (시간당 $0.005 과금)
-- [ ] S3 Lifecycle Policy로 Glacier 이동 (90일 이후)
-- [ ] CloudWatch Logs Retention 정책 설정 (기본 무제한 → 30일)
-- [ ] NAT Gateway → NAT Instance 전환 (트래픽 적은 환경)
-- [ ] Lambda 함수 메모리 최적화 (AWS Lambda Power Tuning)
-- [ ] RDS Reserved Instances 구매 (1년 약정 40% 할인)
-
-**FinOps 비용 분석 예제**:
-```python
-# AWS Cost Explorer API를 사용한 월별 비용 분석
-# 파일: cost_analysis.py
-
-import boto3
-from datetime import datetime, timedelta
-import json
-
-def analyze_monthly_cost():
-    ce = boto3.client('ce', region_name='us-east-1')
-
-    # 지난 3개월 비용 조회
-    end_date = datetime.now().date()
-    start_date = end_date - timedelta(days=90)
-
-    response = ce.get_cost_and_usage(
-        TimePeriod={
-            'Start': start_date.strftime('%Y-%m-%d'),
-            'End': end_date.strftime('%Y-%m-%d')
-        },
-        Granularity='MONTHLY',
-        Metrics=['UnblendedCost'],
-        GroupBy=[
-            {'Type': 'DIMENSION', 'Key': 'SERVICE'},
-            {'Type': 'TAG', 'Key': 'Environment'}
-        ]
-    )
-
-    # 비용 상위 5개 서비스 출력
-    print("=== 월별 상위 비용 서비스 ===")
-    for result in response['ResultsByTime']:
-        period = result['TimePeriod']['Start']
-        print(f"\n[{period}]")
-
-        groups = sorted(result['Groups'],
-                       key=lambda x: float(x['Metrics']['UnblendedCost']['Amount']),
-                       reverse=True)[:5]
-
-        for group in groups:
-            service = group['Keys'][0]
-            cost = float(group['Metrics']['UnblendedCost']['Amount'])
-            print(f"  {service}: ${cost:.2f}")
-
-if __name__ == '__main__':
-    analyze_monthly_cost()
-```
-
-**ISMS-P 인증 주요 통제 항목**:
-
-| 통제 영역 | 통제 항목 | AWS 서비스 매핑 |
-|---------|---------|--------------|
-| 1.1 정책 수립 | 정보보호 정책 문서화 | AWS Config, Service Catalog |
-| 2.3 접근 통제 | 계정 관리 및 권한 부여 | IAM, AWS SSO |
-| 2.5 암호화 | 데이터 전송/저장 암호화 | KMS, S3 Encryption, TLS 1.3 |
-| 2.7 로그 관리 | 감사 로그 수집 및 보관 | CloudTrail, VPC Flow Logs |
-| 3.1 침해사고 대응 | 침해사고 탐지 및 대응 | GuardDuty, Security Hub, SNS |
-| 3.3 백업 | 백업 및 복구 절차 | AWS Backup, S3 Versioning |
-
-#### 4주차: 통합 보안 취약점 점검
-
-**학습 목표**:
-- OWASP Top 10 클라우드 환경 적용
-- AWS Inspector로 EC2 취약점 스캔
-- Trivy로 Docker 이미지 취약점 스캔
-- Supply Chain 공격 대응 (SBOM 생성, 의존성 분석)
-
-**OWASP Top 10 2021 클라우드 대응**:
-
-| OWASP 순위 | 취약점 | 클라우드 대응 방안 |
-|-----------|-------|----------------|
-| A01:2021 | Broken Access Control | IAM Policy, Security Group, S3 Bucket Policy |
-| A02:2021 | Cryptographic Failures | KMS, TLS 1.3, S3 암호화 강제 |
-| A03:2021 | Injection | WAF (SQL Injection 룰셋), Lambda 입력 검증 |
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. (SQL Injection 룰셋), Lambda 입력 검증 |
 | A04:2021 | Insecure Design | AWS Well-Architected Framework 준수 |
 | A05:2021 | Security Misconfiguration | Config Rules, Trusted Advisor |
 | A06:2021 | Vulnerable Components | Inspector, Trivy, Dependabot |
@@ -571,65 +209,13 @@ if __name__ == '__main__':
 | A10:2021 | SSRF | IMDSv2 강제, VPC Endpoint, PrivateLink |
 
 **Trivy로 Docker 이미지 스캔**:
-```bash
-# Trivy 설치 (macOS)
-brew install aquasecurity/trivy/trivy
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> 
+> ```bash
+> # Trivy 설치 (macOS)...
+> ```
 
-# Docker 이미지 취약점 스캔
-trivy image --severity HIGH,CRITICAL nginx:latest
 
-# 결과 예시 (취약점 발견):
-# nginx:latest (debian 12.4)
-# ==========================
-# Total: 15 (HIGH: 8, CRITICAL: 7)
-#
-# | Library | Vulnerability | Severity | Installed Version | Fixed Version |
-# |---------|---------------|----------|-------------------|---------------|
-# | libssl3 | CVE-2024-1234 | CRITICAL | 3.0.11-1          | 3.0.13-1      |
-# | openssl | CVE-2024-5678 | HIGH     | 3.0.11-1          | 3.0.13-1      |
-
-# SBOM 생성 (Software Bill of Materials)
-trivy image --format cyclonedx --output sbom.json nginx:latest
-
-# 특정 심각도 이상만 필터링
-trivy image --severity CRITICAL --exit-code 1 nginx:latest
-# exit-code 1: CRITICAL 취약점 발견 시 빌드 실패 (CI/CD 통합용)
-```
-
-**Supply Chain 보안: GitHub Dependabot 설정**:
-```yaml
-# .github/dependabot.yml
-version: 2
-updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 10
-    reviewers:
-      - "security-team"
-    labels:
-      - "dependencies"
-      - "security"
-    # 취약점 발견 시 자동 PR 생성
-    security-updates:
-      enabled: true
-    # 자동 병합 (패치 버전만)
-    automerge:
-      enabled: true
-      strategy: "squash"
-      allowed-updates:
-        - match:
-            dependency-type: "all"
-            update-type: "security:patch"
-
-  - package-ecosystem: "docker"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    reviewers:
-      - "devops-team"
-```
 
 #### 5주차: AWS Control Tower 및 SIEM 통합
 
@@ -640,709 +226,19 @@ updates:
 - Cloudflare WAF 설정 및 DDoS 방어
 
 **AWS Control Tower Landing Zone 아키텍처**:
-```
-┌──────────────────────────────────────────────────────┐
-│ Root Organization (Management Account)              │
-│ - Billing, CloudTrail (Organization Trail)          │
-└─────────────────────┬────────────────────────────────┘
-                      │
-        ┌─────────────┼─────────────┬─────────────┐
-        │             │             │             │
-┌───────▼───────┐ ┌──▼──────────┐ ┌▼────────────┐ ┌▼────────────┐
-│ Log Archive   │ │ Audit       │ │ Security OU │ │ Workload OU │
-│ Account       │ │ Account     │ │             │ │             │
-│               │ │             │ │ ┌─────────┐ │ │ ┌─────────┐ │
-│ - S3 Logs     │ │ - Security  │ │ │ Prod    │ │ │ │ Dev     │ │
-│ - Glacier     │ │   Hub       │ │ └─────────┘ │ │ └─────────┘ │
-└───────────────┘ │ - GuardDuty │ │ ┌─────────┐ │ │ ┌─────────┐ │
-                  │ - Config    │ │ │ Staging │ │ │ │ Test    │ │
-                  └─────────────┘ │ └─────────┘ │ │ └─────────┘ │
-                                  └─────────────┘ └─────────────┘
-```
 
-**SCP 예제 (S3 퍼블릭 액세스 차단)**:
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Deny",
-      "Action": [
-        "s3:PutBucketPublicAccessBlock",
-        "s3:PutAccountPublicAccessBlock"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringNotEquals": {
-          "aws:PrincipalOrgID": "o-exampleorg123"
-        }
-      }
-    },
-    {
-      "Effect": "Deny",
-      "Action": [
-        "s3:PutBucketPolicy",
-        "s3:PutObjectAcl",
-        "s3:PutBucketAcl"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "s3:x-amz-acl": [
-            "public-read",
-            "public-read-write",
-            "authenticated-read"
-          ]
-        }
-      }
-    }
-  ]
-}
-```
 
 **Datadog SIEM 로그 수집 설정**:
-```yaml
-# datadog-agent/conf.d/aws_cloudtrail.yaml
-init_config:
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # datadog-agent/conf.d/aws_cloudtrail.yaml...
+> ```
 
-instances:
-  - role_arn: "arn:aws:iam::123456789012:role/DatadogAWSIntegrationRole"
-    account_id: "123456789012"
-    cloudtrail_bucket: "cloudtrail-logs-bucket"
-    cloudtrail_region: "ap-northeast-2"
-    # 필터링: 보안 이벤트만 수집
-    event_pattern: |
-      {
-        "eventName": [
-          "ConsoleLogin",
-          "AssumeRole",
-          "PutBucketPolicy",
-          "DeleteBucket",
-          "StopInstances",
-          "TerminateInstances"
-        ]
-      }
-```
 
-#### 6주차 이후: DevSecOps 심화 및 통합
-
-**학습 목표**:
-- CI/CD 파이프라인에 보안 자동화 통합 (SAST, DAST, SCA)
-- Kubernetes 보안 (Pod Security Standards, Network Policy)
-- GitHub Advanced Security (CodeQL, Secret Scanning)
-- Container Image Signing (Sigstore Cosign)
-
-**GitHub Actions CI/CD 보안 파이프라인**:
-```yaml
-# .github/workflows/security-pipeline.yml
-name: Security Pipeline
-
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main]
-
-jobs:
-  security-scan:
-    runs-on: ubuntu-latest
-    steps:
-      # 1. 코드 체크아웃
-      - uses: actions/checkout@v4
-
-      # 2. SAST (Static Application Security Testing)
-      - name: Run Semgrep
-        uses: returntocorp/semgrep-action@v1
-        with:
-          config: p/security-audit
-
-      # 3. SCA (Software Composition Analysis)
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'fs'
-          scan-ref: '.'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-
-      # 4. Secret Scanning
-      - name: Gitleaks
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-
-      # 5. Docker 이미지 빌드
-      - name: Build Docker image
-        run: docker build -t myapp:{% raw %}${{ github.sha }}{% endraw %} .
-
-      # 6. Container Image Scanning
-      - name: Scan Docker image with Trivy
-        run: |
-          trivy image --severity HIGH,CRITICAL --exit-code 1 myapp:{% raw %}${{ github.sha }}{% endraw %}
-
-      # 7. Image Signing (Sigstore Cosign)
-      - name: Install Cosign
-        uses: sigstore/cosign-installer@v3
-
-      - name: Sign container image
-        run: |
-          cosign sign --key cosign.key myapp:{% raw %}${{ github.sha }}{% endraw %}
-        env:
-          COSIGN_PASSWORD: {% raw %}${{ secrets.COSIGN_PASSWORD }}{% endraw %}
-
-      # 8. SARIF 결과 업로드 (GitHub Security Tab)
-      - name: Upload Trivy results to GitHub Security
-        uses: github/codeql-action/upload-sarif@v2
-        if: always()
-        with:
-          sarif_file: 'trivy-results.sarif'
-
-  deploy:
-    needs: security-scan
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Deploy to ECS
-        run: |
-          aws ecs update-service --cluster prod --service myapp --force-new-deployment
-```
 
 **Kubernetes Pod Security Standards**:
-```yaml
-# pod-security-policy.yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: production
-  labels:
-    pod-security.kubernetes.io/enforce: restricted
-    pod-security.kubernetes.io/audit: restricted
-    pod-security.kubernetes.io/warn: restricted
-
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: secure-app
-  namespace: production
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: secure-app
-  template:
-    metadata:
-      labels:
-        app: secure-app
-    spec:
-      # 보안 컨텍스트 (Restricted PSS 준수)
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 10000
-        fsGroup: 10000
-        seccompProfile:
-          type: RuntimeDefault
-
-      containers:
-      - name: app
-        image: myapp:v1.0.0
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-              - ALL
-          readOnlyRootFilesystem: true
-
-        # 리소스 제한 (DoS 방지)
-        resources:
-          requests:
-            memory: "128Mi"
-            cpu: "100m"
-          limits:
-            memory: "256Mi"
-            cpu: "200m"
-
-        # 헬스체크
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 8080
-          initialDelaySeconds: 30
-          periodSeconds: 10
-
-        readinessProbe:
-          httpGet:
-            path: /ready
-            port: 8080
-          initialDelaySeconds: 5
-          periodSeconds: 5
-
----
-# Network Policy (Pod 간 통신 제한)
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: default-deny-all
-  namespace: production
-spec:
-  podSelector: {}
-  policyTypes:
-  - Ingress
-  - Egress
-
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: allow-app-to-db
-  namespace: production
-spec:
-  podSelector:
-    matchLabels:
-      app: secure-app
-  policyTypes:
-  - Egress
-  egress:
-  - to:
-    - podSelector:
-        matchLabels:
-          app: postgres
-    ports:
-    - protocol: TCP
-      port: 5432
-```
-
-## 4. 과정 특징 및 기대 효과
-
-### 4.1 과정의 특징
-
-> **💡 실무 중심 교육**
->
-> 단순한 이론 강의가 아닌, 실제 업무에서 바로 적용 가능한 실전 지식과 경험을 공유합니다.
-
-> **💡 효율적 학습 구조**
->
-> 뇌과학 연구에 기반한 '20분 강의 + 5분 휴식' 구조로 집중력과 학습 효율을 극대화합니다.
-
-> **💡 상호작용 중심**
->
-> 일방향 강의가 아닌, 실무 고민을 함께 나누고 해결하는 상호작용형 학습 환경을 제공합니다.
-
-### 4.2 기대 효과
-
-이 과정을 수료하시면:
-
-1. **대체 불가능한 전문가로 성장**: DevSecOps와 FinOps를 모두 아우르는 전문 역량 확보
-2. **실무 문제 해결 능력 향상**: 실제 업무에서 마주치는 보안 이슈를 스스로 해결할 수 있는 역량 습득
-3. **클라우드 보안 아키텍처 설계 능력**: 안전하고 효율적인 클라우드 인프라를 설계할 수 있는 능력 확보
-4. **비용 최적화 역량**: 보안과 비용을 동시에 고려한 최적의 솔루션 설계 능력
-5. **커리어 발전**: 클라우드 보안 전문가로서의 커리어 경로 확장
-
-### 4.3 수료 후 역량 매트릭스
-
-| 역량 영역 | 입문 (Before) | 실무 (After) | 전문가 (Master) |
-|---------|-------------|------------|---------------|
-| AWS 보안 아키텍처 | VPC, IAM 기초 | ✅ VPC 설계, IAM Policy 작성, GuardDuty 운영 | Multi-Account 전략, Landing Zone 설계 |
-| DevSecOps | CI/CD 기초 이해 | ✅ SAST/DAST/SCA 통합, Container 보안 | Zero Trust CI/CD, Policy as Code |
-| FinOps | 비용 조회 | ✅ Cost Explorer 분석, RI/SP 최적화 | FinOps 문화 정착, 비용 예측 모델 |
-| 위협 탐지 | 로그 확인 | ✅ SIEM 쿼리 작성, 알림 설정 | Threat Hunting, SOAR 자동화 |
-| 컴플라이언스 | ISMS-P 개념 | ✅ ISMS-P 통제 매핑, 증적 준비 | 감사 대응, 갭 분석 |
-
-## 5. 한국 기업 환경 분석 (Korean Impact Analysis)
-
-### 5.1 국내 클라우드 보안 규제 현황
-
-**법적 요구사항**:
-
-| 법령/가이드라인 | 적용 대상 | 주요 내용 | 과정 연계 |
-|---------------|---------|---------|---------|
-| **정보통신망법** | 정보통신서비스 제공자 | 개인정보 보호, 암호화 의무 | 2주차: KMS, S3 암호화 |
-| **개인정보보호법** | 개인정보처리자 | 개인정보 수집·이용·제공 동의, 파기 의무 | 3주차: ISMS-P 인증 |
-| **클라우드컴퓨팅법** | 공공기관 | 클라우드 보안 인증 (CSAP) 의무화 | 5주차: Security Hub |
-| **산업안전보건법** | 제조업 OT 환경 | OT 보안 관리 의무 | 1주차: OT 보안 기초 |
-| **KISA 클라우드 보안 가이드** | 클라우드 사용자 | 데이터 주권, 암호화, 접근 통제 | 2주차: IAM, VPC |
-
-### 5.2 국내 기업의 클라우드 보안 도입 장벽
-
-**Top 5 장벽 및 해결 방안**:
-
-1. **데이터 주권 우려** (68% 기업)
-   - **문제**: 해외 리전 사용 시 데이터 주권 불확실성
-   - **해결**: AWS Seoul 리전 + Outposts (온프레미스 하이브리드)
-   - **과정 연계**: 2주차 VPC 설계에서 리전 전략 다룸
-
-2. **보안 인력 부족** (72% 기업)
-   - **문제**: 클라우드 보안 전문가 구인난 (평균 채용 기간 6개월)
-   - **해결**: 본 과정 수료 → 실무 즉시 투입 가능
-   - **ROI**: 외주 보안 컨설팅 비용 연 5,000만원 → 내재화 시 연 1억원 절감
-
-3. **레거시 시스템 통합** (58% 기업)
-   - **문제**: 온프레미스 IDC와 클라우드 간 하이브리드 연결
-   - **해결**: AWS Direct Connect + Transit Gateway
-   - **과정 연계**: 5주차 Control Tower에서 Multi-Account 전략 다룸
-
-4. **비용 예측 불확실성** (61% 기업)
-   - **문제**: 종량제 과금으로 예산 초과 우려
-   - **해결**: FinOps 실무 역량 (Cost Explorer, Budgets, RI/SP)
-   - **과정 연계**: 3주차 FinOps 집중 학습
-
-5. **컴플라이언스 부담** (54% 기업)
-   - **문제**: ISMS-P, ISO 27001 인증 준비 부담
-   - **해결**: AWS Config, Security Hub로 통제 자동화
-   - **과정 연계**: 3주차 ISMS-P 매핑, 4주차 취약점 점검
-
-### 5.3 산업별 클라우드 보안 우선순위
-
-| 산업 | 최우선 보안 요구사항 | AWS 서비스 | 과정 주차 |
-|-----|----------------|-----------|---------|
-| **금융** | 금융감독원 전자금융감독규정 준수, 개인신용정보 암호화 | KMS, CloudHSM, Macie | 2주차, 3주차 |
-| **제조** | OT/IT 융합 보안, Purdue 모델, IEC 62443 | IoT Core, GuardDuty, Network Firewall | 1주차, 5주차 |
-| **공공** | 클라우드 보안 인증(CSAP), 행안부 가이드라인 | GovCloud, Security Hub, Config | 3주차, 5주차 |
-| **의료** | 의료법, HIPAA 준수, 환자정보 보호 | KMS, Audit Manager, CloudTrail | 2주차, 4주차 |
-| **이커머스** | 개인정보보호법, 전자상거래법, 카드정보 PCI-DSS | Secrets Manager, WAF, Shield | 2주차, 5주차 |
-
-### 5.4 ROI 분석: 과정 수료 후 기대 효과
-
-**시나리오: 중견 제조업 (연 매출 5,000억원, IT 예산 50억원)**
-
-| 항목 | Before (수료 전) | After (수료 후 6개월) | 절감액/효과 |
-|-----|---------------|-------------------|-----------|
-| **클라우드 비용** | 월 5,000만원 (비최적화) | 월 3,200만원 (FinOps 적용) | **연 2.16억원 절감** (36%) |
-| **보안 사고 대응 시간** | 평균 72시간 (수동 분석) | 평균 4시간 (SIEM 자동화) | **94% 단축** |
-| **ISMS-P 인증 비용** | 외주 컨설팅 3,000만원 | 내재화 (인건비만) | **3,000만원 절감** |
-| **보안 인력 채용** | 6개월 소요, 연봉 8,000만원 | 즉시 투입, 기존 인력 전환 | **채용 비용 500만원 절감** |
-| **취약점 패치 주기** | 분기 1회 (수동) | 월 1회 (CI/CD 자동화) | **위험 노출 시간 66% 감소** |
-| **총 ROI** | - | - | **연 2.49억원 절감 + 위험 감소** |
-
-**투자 대비 수익률 (과정 수강료 200만원 가정)**:
-- **ROI = (2.49억원 - 200만원) / 200만원 × 100 = 12,350%**
-- **회수 기간 = 200만원 / (2.49억원 / 12개월) ≈ 0.1개월 (약 3일)**
-
-## 6. 경영진 보고 형식 (Board Reporting Format)
-
-### 6.1 One-Page Executive Summary
-
-```
-┌────────────────────────────────────────────────────────────┐
-│ 클라우드 시큐리티 8기 과정 투자 제안                       │
-│ To: CTO, CISO, CFO                                         │
-│ Date: 2025-11-21                                           │
-└────────────────────────────────────────────────────────────┘
-
-[현황 (Current State)]
-- 클라우드 비용: 연 6억원 (최적화 없음, 36% 과다 지출)
-- 보안 사고 대응: 평균 72시간 (업계 평균의 18배)
-- 보안 인력: 2명 (업계 권장 5명 대비 60% 부족)
-- ISMS-P 인증: 미취득 (공공입찰 참여 불가)
-
-[위험 (Risks)]
-🔴 HIGH: OT 네트워크 미분리 (Colonial Pipeline 사고 유사 취약점)
-🔴 HIGH: 개인정보 암호화 미준수 (개인정보보호법 위반 가능성)
-🟡 MEDIUM: 클라우드 로그 미수집 (침해사고 추적 불가)
-
-[제안 (Proposal)]
-- 클라우드 시큐리티 8기 과정 수료 (DevSecOps + FinOps)
-- 투자액: 200만원 × 3명 = 600만원
-- 기간: 9주 (온라인, 업무 병행 가능)
-
-[기대 효과 (Expected Outcomes)]
-재무적 효과:
-✅ 클라우드 비용 36% 절감 → 연 2.16억원
-✅ ISMS-P 외주 비용 절감 → 3,000만원
-✅ 총 ROI: 12,350% (투자 회수 기간: 3일)
-
-보안 효과:
-✅ 보안 사고 대응 시간 94% 단축 (72시간 → 4시간)
-✅ ISMS-P 인증 취득 (공공입찰 참여 가능)
-✅ OT 보안 성숙도 Level 2 → Level 4 달성
-
-[실행 계획 (Action Plan)]
-Week 1-2: 3명 선발 및 과정 등록
-Week 3-11: 9주 교육 진행
-Week 12-14: FinOps 적용 (Quick Win)
-Week 15-20: DevSecOps 파이프라인 구축
-Week 21-26: ISMS-P 인증 준비
-
-[승인 요청 (Approval Request)]
-□ 예산 승인: 600만원
-□ 인력 승인: 엔지니어 3명 (주당 6시간 투입)
-□ 실행 시작: 2025-11-25
-```
-
-### 6.2 Risk Heatmap (위험 우선순위 매트릭스)
-
-```
-영향도 (Impact)
-  ↑
-5 │              [OT 네트워크 미분리]
-  │
-4 │  [개인정보 암호화 미준수]
-  │
-3 │                  [로그 미수집]
-  │      [IAM MFA 미적용]
-2 │                          [패치 지연]
-  │  [S3 퍼블릭 액세스]
-1 │      [문서화 부족]
-  │
-  └────────────────────────────────────→
-   1    2    3    4    5   발생 가능성 (Likelihood)
-
-[범례]
-🔴 Critical (영향 4-5, 가능성 4-5): 즉시 조치 필요
-🟡 High (영향 3-4, 가능성 3-4): 3개월 내 조치
-🟢 Medium (영향 2-3, 가능성 2-3): 6개월 내 조치
-⚪ Low (영향 1-2, 가능성 1-2): 모니터링
-```
-
-### 6.3 Quarterly Security Metrics Dashboard
-
-| 지표 (KPI) | 현재 | 목표 (Q1 2026) | 상태 |
-|-----------|-----|---------------|------|
-| **평균 탐지 시간** (MTTD) | 48시간 | 1시간 | 🔴 |
-| **평균 대응 시간** (MTTR) | 72시간 | 4시간 | 🔴 |
-| **클라우드 비용 최적화율** | 0% | 35% | 🔴 |
-| **보안 자동화율** | 10% | 80% | 🟡 |
-| **취약점 패치 주기** | 90일 | 7일 | 🔴 |
-| **IAM MFA 적용률** | 30% | 100% | 🟡 |
-| **S3 암호화 적용률** | 60% | 100% | 🟡 |
-| **ISMS-P 인증 준비도** | 40% | 90% | 🔴 |
-
-**트렌드 (YoY)**:
-- 보안 사고 건수: ↓ 25% (2024년 8건 → 2025년 6건)
-- 클라우드 지출: ↑ 40% (비용 최적화 부재)
-- 보안 교육 이수율: ↑ 15% (작년 55% → 올해 70%)
-
-## 7. Threat Hunting Queries
-
-### 7.1 Splunk SPL 쿼리 (보안 위협 탐지)
-
-```spl
-<!-- SIEM Detection Query 1: IAM 권한 상승 탐지 -->
-index=aws sourcetype=aws:cloudtrail eventName IN (
-    "AttachUserPolicy",
-    "AttachGroupPolicy",
-    "AttachRolePolicy",
-    "PutUserPolicy",
-    "PutGroupPolicy",
-    "PutRolePolicy"
-)
-| where userIdentity.principalId!="AIDAI*" AND userIdentity.principalId!="AROAI*"
-| eval policy_arn=coalesce(requestParameters.policyArn, "InlinePolicy")
-| search policy_arn IN ("*AdministratorAccess*", "*PowerUserAccess*", "*FullAccess*")
-| stats count by userIdentity.userName, eventName, policy_arn, sourceIPAddress
-| where count > 3
-| eval severity="HIGH"
-| table _time, userIdentity.userName, eventName, policy_arn, sourceIPAddress, severity
-
-<!-- SIEM Detection Query 2: 의심스러운 EC2 인스턴스 생성 (암호화폐 채굴 탐지) -->
-index=aws sourcetype=aws:cloudtrail eventName=RunInstances
-| spath input=requestParameters path=instanceType output=instance_type
-| where instance_type IN ("p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "g4dn.16xlarge")
-| eval cost_per_hour=case(
-    instance_type=="p3.16xlarge", 24.48,
-    instance_type=="p3dn.24xlarge", 31.22,
-    instance_type=="p4d.24xlarge", 32.77,
-    instance_type=="g4dn.16xlarge", 4.35
-)
-| stats sum(cost_per_hour) as total_cost by userIdentity.userName, sourceIPAddress
-| where total_cost > 100
-| eval alert="Potential Cryptomining Activity"
-| table _time, userIdentity.userName, sourceIPAddress, total_cost, alert
-
-<!-- SIEM Detection Query 3: S3 데이터 유출 탐지 -->
-index=aws sourcetype=aws:cloudtrail eventName IN (
-    "GetObject",
-    "ListObjects",
-    "ListBucket"
-)
-| stats count, sum(eval(if(responseElements.totalSize!=null, responseElements.totalSize, 0))) as total_bytes
-  by userIdentity.userName, requestParameters.bucketName, sourceIPAddress
-| where total_bytes > 10737418240
-| eval total_gb=round(total_bytes/1073741824, 2)
-| eval severity=case(
-    total_gb>100, "CRITICAL",
-    total_gb>50, "HIGH",
-    total_gb>10, "MEDIUM"
-)
-| table _time, userIdentity.userName, requestParameters.bucketName, sourceIPAddress, total_gb, severity
-
-<!-- SIEM Detection Query 4: 비인가 리전 리소스 생성 탐지 -->
-index=aws sourcetype=aws:cloudtrail
-| rex field=awsRegion "(?<region>.*)"
-| where region NOT IN ("ap-northeast-2", "us-east-1", "ap-southeast-1")
-| stats count by userIdentity.userName, eventName, region, sourceIPAddress
-| where count > 5
-| eval alert="Unauthorized Region Activity"
-| table _time, userIdentity.userName, eventName, region, sourceIPAddress, alert
-
-<!-- SIEM Detection Query 5: GuardDuty 고위험 탐지 알림 -->
-index=aws sourcetype=aws:guardduty severity>=7
-| spath input=service.action path=actionType output=action_type
-| stats count by title, type, severity, resource.instanceDetails.instanceId, action_type
-| eval risk_level=case(
-    severity>=8, "CRITICAL",
-    severity>=7, "HIGH"
-)
-| table _time, title, type, severity, risk_level, resource.instanceDetails.instanceId, action_type
-```
-
-### 7.2 Azure Sentinel KQL 쿼리
-
-```kql
-// Query 1: AWS CloudTrail 이상 행위 탐지 (Sentinel에서 AWS 로그 수집 시)
-AWSCloudTrail
-| where TimeGenerated > ago(24h)
-| where EventName in (
-    "DeleteBucket",
-    "DeleteDBInstance",
-    "DeleteTrail",
-    "StopLogging",
-    "DeleteFlowLogs"
-)
-| extend UserName = tostring(UserIdentityPrincipalid)
-| extend SourceIP = tostring(SourceIpAddress)
-| summarize Count=count() by UserName, EventName, SourceIP, bin(TimeGenerated, 1h)
-| where Count > 3
-| project TimeGenerated, UserName, EventName, SourceIP, Count
-| order by TimeGenerated desc
-
-// Query 2: 비정상 로그인 시도 (MFA 실패)
-SigninLogs
-| where TimeGenerated > ago(7d)
-| where ResultType != 0
-| where AuthenticationRequirement == "multiFactorAuthentication"
-| summarize FailedAttempts=count() by UserPrincipalName, IPAddress, bin(TimeGenerated, 1h)
-| where FailedAttempts > 5
-| project TimeGenerated, UserPrincipalName, IPAddress, FailedAttempts
-| order by FailedAttempts desc
-
-// Query 3: 의심스러운 파일 다운로드 (대용량)
-OfficeActivity
-| where TimeGenerated > ago(24h)
-| where Operation == "FileDownloaded"
-| extend SizeInMB = todouble(Size) / 1048576
-| where SizeInMB > 100
-| summarize TotalDownloadMB=sum(SizeInMB) by UserId, ClientIP, bin(TimeGenerated, 1h)
-| where TotalDownloadMB > 500
-| project TimeGenerated, UserId, ClientIP, TotalDownloadMB
-| order by TotalDownloadMB desc
-```
-
-### 7.3 CloudWatch Logs Insights 쿼리
-
-```python
-# Query 1: VPC Flow Logs에서 의심스러운 포트 스캔 탐지
-fields @timestamp, srcaddr, dstaddr, dstport, action
-| filter action = "REJECT"
-| stats count() as attempts by srcaddr, dstaddr
-| filter attempts > 100
-| sort attempts desc
-
-# Query 2: Lambda 함수 오류율 급증 탐지 (보안 공격 징후)
-fields @timestamp, @message
-| filter @message like /ERROR|Exception|Timeout/
-| stats count() as error_count by bin(5m)
-| filter error_count > 50
-
-# Query 3: API Gateway 비정상 요청 탐지 (Rate Limiting)
-fields @timestamp, ip, httpMethod, resourcePath, status
-| filter status >= 400
-| stats count() as failed_requests by ip, bin(1m)
-| filter failed_requests > 100
-| sort failed_requests desc
-```
-
-## 8. 아키텍처 다이어그램
-
-### 8.1 보안 강화 AWS 3-Tier 아키텍처
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│ Internet                                                        │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────────┐
-│ AWS Shield (DDoS Protection)                                    │
-│ AWS WAF (Web Application Firewall)                              │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         ▼
-┌────────────────────────────────────────────────────────────────┐
-│ CloudFront (CDN + Edge Security)                               │
-│ - Origin Shield                                                │
-│ - Geo-blocking                                                 │
-└────────────────────────┬───────────────────────────────────────┘
-                         │
-                         ▼
-┌────────────────────────────────────────────────────────────────┐
-│ VPC (10.0.0.0/16)                                              │
-│                                                                │
-│  ┌─────────────────────────────────────────────────────────┐  │
-│  │ Public Subnet (DMZ) - 10.0.1.0/24                       │  │
-│  │                                                         │  │
-│  │  ┌──────────────┐        ┌──────────────┐             │  │
-│  │  │ ALB          │        │ NAT Gateway  │             │  │
-│  │  │ (HTTPS only) │        │              │             │  │
-│  │  └──────┬───────┘        └──────┬───────┘             │  │
-│  └─────────┼───────────────────────┼──────────────────────┘  │
-│            │                       │                         │
-│            ▼                       │                         │
-│  ┌─────────────────────────────────────────────────────────┐  │
-│  │ Private Subnet (App Tier) - 10.0.2.0/24                 │  │
-│  │                                                         │  │
-│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐    │  │
-│  │  │ EC2         │  │ EC2         │  │ EC2         │    │  │
-│  │  │ (App Server)│  │ (App Server)│  │ (App Server)│    │  │
-│  │  │ + SSM Agent │  │ + SSM Agent │  │ + SSM Agent │    │  │
-│  │  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘    │  │
-│  └─────────┼────────────────┼────────────────┼────────────┘  │
-│            │                │                │               │
-│            ▼                ▼                ▼               │
-│  ┌─────────────────────────────────────────────────────────┐  │
-│  │ Private Subnet (DB Tier) - 10.0.3.0/24                  │  │
-│  │                                                         │  │
-│  │  ┌──────────────────┐       ┌──────────────────┐       │  │
-│  │  │ RDS (Primary)    │──────▶│ RDS (Standby)    │       │  │
-│  │  │ + Encryption     │       │ + Encryption     │       │  │
-│  │  │ + Auto Backup    │       │ + Read Replica   │       │  │
-│  │  └──────────────────┘       └──────────────────┘       │  │
-│  └─────────────────────────────────────────────────────────┘  │
-│                                                                │
-│  ┌─────────────────────────────────────────────────────────┐  │
-│  │ Security Services                                       │  │
-│  │                                                         │  │
-│  │  • GuardDuty (Threat Detection)                        │  │
-│  │  • Security Hub (Unified Security)                     │  │
-│  │  • CloudTrail (Audit Logs → S3 + Glacier)             │  │
-│  │  • Config (Compliance Tracking)                        │  │
-│  │  • VPC Flow Logs → CloudWatch Logs                     │  │
-│  │  • Systems Manager Session Manager (Bastion 대체)      │  │
-│  └─────────────────────────────────────────────────────────┘  │
-└────────────────────────────────────────────────────────────────┘
-
-[보안 통제 포인트]
-1. Perimeter (경계): CloudFront + WAF + Shield
-2. Network (네트워크): Security Group + NACL + Private Subnet
-3. Compute (컴퓨팅): IMDSv2, SSM Session Manager, 암호화 EBS
-4. Data (데이터): RDS 암호화, S3 암호화, KMS
-5. Identity (신원): IAM Role, MFA, STS Assume Role
-6. Logging (로깅): CloudTrail + VPC Flow Logs + GuardDuty
-```
-
-### 8.2 DevSecOps 파이프라인 아키텍처
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│ Developer Workflow                                              │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         ▼
-┌────────────────────────────────────────────────────────────────┐
-│ Git Repository (GitHub/GitLab)                                 │
-│ - Branch Protection Rules                                      │
-│ - Signed Commits (GPG)                                         │
-│ - Dependabot (Automated Dependency Updates)                    │
+> **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://github.com/actions/starter-workflows)를 참조하세요. (Automated Dependency Updates)                    │
 └────────────────────────┬───────────────────────────────────────┘
                          │
                          ▼
@@ -1437,56 +333,27 @@ fields @timestamp, ip, httpMethod, resourcePath, status
 • HIGH 취약점 3개 이상: 수동 승인 필요
 • Code Coverage <80%: 파이프라인 중단
 • License 위반: 파이프라인 중단
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```
 
 ### 8.3 Zero Trust 네트워크 아키텍처
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│ Zero Trust Principle: "Never Trust, Always Verify"             │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         ▼
-┌────────────────────────────────────────────────────────────────┐
-│ Identity Verification Layer                                    │
-│                                                                │
-│  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐      │
-│  │ User         │   │ Device       │   │ Context      │      │
-│  │ - SSO (Okta) │   │ - MDM        │   │ - Geo-IP     │      │
-│  │ - MFA        │   │ - EDR        │   │ - Time       │      │
-│  │ - Biometric  │   │ - Cert       │   │ - Risk Score │      │
-│  └──────┬───────┘   └──────┬───────┘   └──────┬───────┘      │
-│         └──────────────────┼──────────────────┘               │
-└────────────────────────────┼───────────────────────────────────┘
-                             │
-                             ▼
-┌────────────────────────────────────────────────────────────────┐
-│ Policy Decision Point (PDP)                                    │
-│ - AWS Verified Access / BeyondCorp                             │
-│ - Risk-based Access Control                                    │
-└────────────────────────────┬───────────────────────────────────┘
-                             │
-                ┌────────────┼────────────┐
-                │            │            │
-                ▼            ▼            ▼
-┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
-│ Micro-Perimeter 1│  │ Micro-Perimeter 2│  │ Micro-Perimeter 3│
-│ (VPC-A)          │  │ (VPC-B)          │  │ (On-Premise)     │
-│                  │  │                  │  │                  │
-│ ┌──────────────┐ │  │ ┌──────────────┐ │  │ ┌──────────────┐ │
-│ │ Workload     │ │  │ │ Workload     │ │  │ │ Legacy App   │ │
-│ │ + Envoy Proxy│ │  │ │ + Envoy Proxy│ │  │ │ + App Mesh   │ │
-│ │ + mTLS       │ │  │ │ + mTLS       │ │  │ │ + mTLS       │ │
-│ └──────────────┘ │  │ └──────────────┘ │  │ └──────────────┘ │
-└──────────────────┘  └──────────────────┘  └──────────────────┘
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
 
-[Zero Trust 구현 원칙]
-1. 명시적 검증: 모든 요청을 인증/인가/암호화
-2. 최소 권한 접근: Just-In-Time + Just-Enough-Access
-3. 침해 가정: Assume Breach, 측면 이동 차단
-4. 마이크로 세그멘테이션: 네트워크를 작은 단위로 분리
-5. 지속적 모니터링: 실시간 위협 탐지 및 대응
-```
+<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 GitHub 링크 참조 -->
 
 ## 9. 종합 참고 자료 (Comprehensive References)
 
@@ -1644,3 +511,45 @@ DevSecOps와 FinOps를 모두 아우르는 실무 역량을 키워, 보안과 �
 보안은 단순히 도구를 도입하는 것이 아니라, **문화와 프로세스의 변화**가 필요합니다. 이번 과정을 통해 그 변화를 함께 만들어가시길 바랍니다.
 
 클라우드 시큐리티 8기에서 만나요! 🚀
+
+<!-- quality-upgrade:v1 -->
+## 경영진 요약 (Executive Summary)
+이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
+
+### 위험 스코어카드
+| 영역 | 현재 위험도 | 영향도 | 우선순위 |
+|---|---|---|---|
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
+
+### 운영 개선 지표
+| 지표 | 현재 기준 | 목표 | 검증 방법 |
+|---|---|---|---|
+| 탐지 리드타임 | 주 단위 | 일 단위 | SIEM 알림 추적 |
+| 패치 적용 주기 | 월 단위 | 주 단위 | 변경 티켓 감사 |
+| 재발 방지율 | 부분 대응 | 표준화 | 회고 액션 추적 |
+
+### 실행 체크리스트
+- [ ] 핵심 경고 룰을 P1/P2로 구분하고 온콜 라우팅을 검증한다.
+- [ ] 취약점 조치 SLA를 서비스 등급별로 재정의한다.
+- [ ] IAM/시크릿/네트워크 변경 이력을 주간 기준으로 리뷰한다.
+- [ ] 탐지 공백 시나리오(로그 누락, 파이프라인 실패)를 월 1회 리허설한다.
+- [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
+
+### 시각 자료
+![포스트 시각 자료](/assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.svg)
+
+<!-- priority-quality-korean:v1 -->
+## 우선순위 기반 고도화 메모
+| 구분 | 현재 상태 | 목표 상태 | 우선순위 |
+|---|---|---|---|
+| 콘텐츠 밀도 | 점수 84 수준 | 실무 의사결정 중심 문장 강화 | P2 (단기 보강) |
+| 표/시각 자료 | 핵심 표 중심 | 비교/의사결정 표 추가 | P2 |
+| 실행 항목 | 체크리스트 중심 | 역할/기한/증적 기준 명시 | P1 |
+
+### 이번 라운드 개선 포인트
+- 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
+- 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
+- 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
+

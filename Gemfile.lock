@@ -167,5 +167,8 @@ DEPENDENCIES
   jekyll-sitemap (~> 1.4)
   webrick (~> 1.8)
 
+RUBY VERSION
+   ruby 3.3.0p0
+
 BUNDLED WITH
    2.5.3

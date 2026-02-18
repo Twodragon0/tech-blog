@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b1220" />
+  <rect x="60" y="80" width="1080" height="470" rx="24" fill="#132136" />
+  <text x="120" y="210" font-family="Arial" font-size="48" fill="#e8f0ff">Post-Quantum Encryption</text>
+  <text x="120" y="270" font-family="Arial" font-size="26" fill="#9fb3d9">Incident Learning Summary</text>
+  <text x="120" y="520" font-family="Arial" font-size="20" fill="#6f85ad">2025-11-19</text>
+</svg>

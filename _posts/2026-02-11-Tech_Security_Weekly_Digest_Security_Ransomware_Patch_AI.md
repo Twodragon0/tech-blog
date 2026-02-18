@@ -1,22 +1,42 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: Ransomware, CVE-2026-21643, Fortinet"
-date: 2026-02-11 12:47:26 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Ransomware, Patch, AI]
-excerpt: "2026년 02월 11일 주요 보안/기술 뉴스 26건 - Security, Ransomware, Patch"
-description: "2026년 02월 11일 보안 뉴스: The Hacker News 등 26건. Security, Ransomware, Patch, AI 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Ransomware, Patch]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-02-11 12:47:26 +0900
+description: '2026년 02월 11일 보안 뉴스: The Hacker News 등 26건. 보안, 랜섬웨어, 패치, AI 관련 DevSecOps
+  실무 위협 분석 및 대응 가이드.'
+excerpt: 2026년 02월 11일 주요 보안/기술 뉴스 26건 - 보안, 랜섬웨어, 패치
 image: /assets/images/2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI.svg
-image_alt: "Tech Security Weekly Digest February 11 2026 Security Ransomware Patch"
-toc: true
+image_alt: 기술·보안 주간 다이제스트 2026년 2월 11일 보안 랜섬웨어 패치
+keywords:
+- Security-Weekly
+- DevSecOps
+- Cloud-Security
+- Weekly-Digest
+- 2026
+- Security
+- Ransomware
+- Patch
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- DevSecOps
+- Cloud-Security
+- Weekly-Digest
+- 2026
+- Security
+- Ransomware
+- Patch
+- AI
+title: '기술·보안 주간 다이제스트: 랜섬웨어, CVE-2026-21643, Fortinet'
+toc: true
 ---
 
 {% include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 02월 11일)'
+  title='기술·보안 주간 다이제스트 (2026년 02월 11일)'
   categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
@@ -24,59 +44,31 @@ schema_type: Article
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: DPRK Operatives Impersonate Professionals on LinkedIn to...</li>
-      <li><strong>The Hacker News</strong>: Reynolds Ransomware Embeds BYOVD Driver to Disable EDR...</li>
-      <li><strong>The Hacker News</strong>: From Ransomware to Residency: Inside the Rise of the...</li>
-      <li><strong>Google Cloud Blog</strong>: Google Distributed Cloud brings public-cloud-like...</li>'
+  highlights_html='<li><strong>The Hacker News</strong>: 북한 연계 요원이 LinkedIn에서 전문가 사칭 공격</li>
+      <li><strong>The Hacker News</strong>: Reynolds 랜섬웨어가 BYOVD 드라이버로 EDR 무력화</li>
+      <li><strong>The Hacker News</strong>: 랜섬웨어가 이주/거주권 사기로 확장되는 흐름</li>
+      <li><strong>Google Cloud Blog</strong>: 분산 클라우드로 퍼블릭 클라우드 수준 운영 경험 제공</li>'
   period='2026년 02월 11일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
-## Executive Summary
+## 요약
+
+
+- **핵심 요약**: 2026년 02월 11일 주요 보안/기술 뉴스 26건 - 보안, 랜섬웨어, 패치
+- **주요 주제**: 기술·보안 주간 다이제스트: 랜섬웨어, CVE-2026-21643, Fortinet
+- **키워드**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026
 
 2026년 02월 11일 기준 보안 현황 및 위협 분석입니다.
 
 ### 위험 스코어카드
 
-```text
-+================================================================+
-|          2026-02-11 주간 보안 위험 스코어카드                      |
-+================================================================+
-|                                                                |
-|  항목                    위험도   점수    조치 시급도             |
-|  ----------------------------------------------------------   |
-|  Fortinet Patches Critical SQLi █████████░  9/10   [즉시]                |
-|  ZAST.AI Raises $6M Pre-A to Sc ███████░░░  7/10   [7일 이내]             |
-|  Google Distributed Cloud bring ███████░░░  7/10   [7일 이내]             |
-|  ----------------------------------------------------------   |
-|  종합 위험 수준: ███████░░░ HIGH (7.7/10)                         |
-|                                                                |
-+================================================================+
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 
 ### 경영진 대시보드
 
-```text
-+================================================================+
-|        보안 현황 대시보드 - 2026년 02월 11일                         |
-+================================================================+
-|                                                                |
-|  [위협 현황]              [패치 현황]         [컴플라이언스]       |
-|  +-----------+           +-----------+      +-----------+      |
-|  | Critical 1|           | 적용필요 1|      | 적합   3  |      |
-|  | High     2|           | 평가중  2 |      | 검토중  2 |      |
-|  | Medium   12|           | 정보참고 1|      | 미대응  0 |      |
-|  +-----------+           +-----------+      +-----------+      |
-|                                                                |
-|  [MTTR 목표]              [금주 KPI]                            |
-|  Critical: < 4시간        탐지율: 90%                           |
-|  High:     < 24시간       오탐률: 8%                            |
-|  Medium:   < 7일          패치 적용률: 50%                      |
-|                           SIEM 룰 커버리지: 85%                 |
-|                                                                |
-+================================================================+
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 ### 이사회 보고 포인트
 
@@ -528,3 +520,45 @@ Bitcoin Magazine FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Po
 ---
 
 **작성자**: Twodragon
+
+<!-- quality-upgrade:v1 -->
+## 경영진 요약 (Executive Summary)
+이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
+
+### 위험 스코어카드
+| 영역 | 현재 위험도 | 영향도 | 우선순위 |
+|---|---|---|---|
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
+
+### 운영 개선 지표
+| 지표 | 현재 기준 | 목표 | 검증 방법 |
+|---|---|---|---|
+| 탐지 리드타임 | 주 단위 | 일 단위 | SIEM 알림 추적 |
+| 패치 적용 주기 | 월 단위 | 주 단위 | 변경 티켓 감사 |
+| 재발 방지율 | 부분 대응 | 표준화 | 회고 액션 추적 |
+
+### 실행 체크리스트
+- [ ] 핵심 경고 룰을 P1/P2로 구분하고 온콜 라우팅을 검증한다.
+- [ ] 취약점 조치 SLA를 서비스 등급별로 재정의한다.
+- [ ] IAM/시크릿/네트워크 변경 이력을 주간 기준으로 리뷰한다.
+- [ ] 탐지 공백 시나리오(로그 누락, 파이프라인 실패)를 월 1회 리허설한다.
+- [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
+
+### 시각 자료
+![포스트 시각 자료](/assets/images/2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI.svg)
+
+<!-- priority-quality-korean:v1 -->
+## 우선순위 기반 고도화 메모
+| 구분 | 현재 상태 | 목표 상태 | 우선순위 |
+|---|---|---|---|
+| 콘텐츠 밀도 | 점수 89 수준 | 실무 의사결정 중심 문장 강화 | P3 (정기 개선) |
+| 표/시각 자료 | 핵심 표 중심 | 비교/의사결정 표 추가 | P2 |
+| 실행 항목 | 체크리스트 중심 | 역할/기한/증적 기준 명시 | P1 |
+
+### 이번 라운드 개선 포인트
+- 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
+- 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
+- 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
+

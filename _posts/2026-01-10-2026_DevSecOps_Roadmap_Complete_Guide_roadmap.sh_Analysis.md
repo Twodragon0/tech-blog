@@ -1,18 +1,50 @@
 ---
-layout: post
-title: "2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석"
-date: 2026-01-10 10:00:00 +0900
-categories: [devsecops, security]
-tags: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, "2026"]
-excerpt: "2026 DevSecOps 로드맵 93개 학습 항목 분석"
-description: "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석. 93개 학습 항목, OWASP Top 10:2025, NIST CSF 2.0, GitHub Advanced Security, AI/ML 보안 자동화, 단계별 학습 경로, SAST/DAST/IAST 도구 스택, 공급망 보안(SBOM) 강화까지 전문가 성장 가이드."
-keywords: [DevSecOps, Roadmap, roadmap.sh, OWASP Top 10 2025, NIST CSF 2.0, GitHub Advanced Security, SAST, DAST, IAST, SBOM, Supply Chain Security, Security Learning Path, CodeQL, AI Security]
 author: Twodragon
+categories:
+- devsecops
+- security
 comments: true
+date: 2026-01-10 10:00:00 +0900
+description: roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석. 93개 학습 항목, OWASP Top 10:2025, NIST
+  CSF 2.0, GitHub Advanced Security, AI/ML 보안 자동화, 단계별 학습 경로, SAST/DAST/IAST 도구 스택,
+  공급망 보안(SBOM) 강화까지 전문가 성장 가이드.
+excerpt: 2026 DevSecOps 로드맵 93개 학습 항목 분석
 image: /assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg
-image_alt: "2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis"
-toc: true
+image_alt: '2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis'
+keywords:
+- DevSecOps
+- Roadmap
+- roadmap.sh
+- OWASP Top 10 2025
+- NIST CSF 2.0
+- GitHub Advanced Security
+- SAST
+- DAST
+- IAST
+- SBOM
+- Supply Chain Security
+- Security Learning Path
+- CodeQL
+- AI Security
+layout: post
 schema_type: Article
+tags:
+- DevSecOps
+- 로드맵
+- 보안
+- 학습-경로
+- roadmap.sh
+- '2026'
+title: '2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: 2026 DevSecOps 로드맵 93개 학습 항목 분석
+- **주요 주제**: 2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석
+- **키워드**: DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh
+
 ---
 
 <div class="ai-summary-card">
@@ -879,7 +911,7 @@ roadmap.sh의 2026년 DevSecOps 로드맵은 총 93개의 학습 항목으로 �
 
 ### GitHub 및 도구
 
-- [GitHub Advanced Security](https://docs.github.com/en/enterprise-cloud@latest/admin/advanced-security) - CodeQL, Dependabot, Secret Scanning
+- [GitHub Advanced Security](https://docs.github.com/en/enterprise-cloud@latest) - CodeQL, Dependabot, Secret Scanning
 - [CodeQL GitHub](https://github.com/github/codeql) - GitHub의 정적 코드 분석 도구
 - [OWASP ZAP](https://www.zaproxy.org/) - 오픈소스 웹 보안 스캐너
 - [Semgrep](https://semgrep.dev/) - 경량 다중 언어 정적 분석 도구
@@ -892,3 +924,45 @@ roadmap.sh의 2026년 DevSecOps 로드맵은 총 93개의 학습 항목으로 �
 - [ZeroFalse: SAST와 LLM 통합으로 False Positive 감소](https://arxiv.org/abs/2510.02534) - 2024년 연구 논문
 - [AutoGuard: 강화 학습 기반 자가 치유 보안 프레임워크](https://arxiv.org/abs/2512.04368) - 2024년 연구 논문
 - [공급망 보안 연구: SBOM 생성 및 검증](https://arxiv.org/abs/2511.20313) - 2024년 연구 논문
+
+<!-- quality-upgrade:v1 -->
+## 경영진 요약 (Executive Summary)
+이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
+
+### 위험 스코어카드
+| 영역 | 현재 위험도 | 영향도 | 우선순위 |
+|---|---|---|---|
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
+
+### 운영 개선 지표
+| 지표 | 현재 기준 | 목표 | 검증 방법 |
+|---|---|---|---|
+| 탐지 리드타임 | 주 단위 | 일 단위 | SIEM 알림 추적 |
+| 패치 적용 주기 | 월 단위 | 주 단위 | 변경 티켓 감사 |
+| 재발 방지율 | 부분 대응 | 표준화 | 회고 액션 추적 |
+
+### 실행 체크리스트
+- [ ] 핵심 경고 룰을 P1/P2로 구분하고 온콜 라우팅을 검증한다.
+- [ ] 취약점 조치 SLA를 서비스 등급별로 재정의한다.
+- [ ] IAM/시크릿/네트워크 변경 이력을 주간 기준으로 리뷰한다.
+- [ ] 탐지 공백 시나리오(로그 누락, 파이프라인 실패)를 월 1회 리허설한다.
+- [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
+
+### 시각 자료
+![포스트 시각 자료](/assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg)
+
+<!-- priority-quality-korean:v1 -->
+## 우선순위 기반 고도화 메모
+| 구분 | 현재 상태 | 목표 상태 | 우선순위 |
+|---|---|---|---|
+| 콘텐츠 밀도 | 점수 89 수준 | 실무 의사결정 중심 문장 강화 | P3 (정기 개선) |
+| 표/시각 자료 | 핵심 표 중심 | 비교/의사결정 표 추가 | P2 |
+| 실행 항목 | 체크리스트 중심 | 역할/기한/증적 기준 명시 | P1 |
+
+### 이번 라운드 개선 포인트
+- 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
+- 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
+- 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
+

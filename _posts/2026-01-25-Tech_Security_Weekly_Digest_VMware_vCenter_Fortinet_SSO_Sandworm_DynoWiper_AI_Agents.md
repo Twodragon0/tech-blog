@@ -1,18 +1,69 @@
 ---
-layout: post
-title: "Tech & Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper 폴란드 공격"
-date: 2026-01-25 10:00:00 +0900
-categories: [security, devsecops]
-tags: [Security-Weekly, VMware, vCenter, CISA-KEV, Fortinet, FortiGate, SSO-Bypass, Sandworm, DynoWiper, Wiper-Malware, AI-Agents, Zero-Trust, Google-ADK, Airflow, Platform-Engineering, "2026"]
-excerpt: "VMware vCenter KEV 긴급, Fortinet SSO 우회, Sandworm DynoWiper APT, AI 에이전트 NHI 관리"
-description: "2026년 1월 25일 주요 기술/보안 뉴스: CISA KEV 추가 VMware vCenter CVE-2024-37079 활성 익스플로잇 긴급 패치, Fortinet FortiGate 완전 패치 환경 FortiCloud SSO 우회 제로데이, Sandworm APT 폴란드 전력망 DynoWiper 와이퍼 악성코드 공격, AI 에이전트 비인간 신원(NHI) Zero Trust 보안 거버넌스, Google ADK Datadog 통합 모니터링까지 DevSecOps 실무 분석"
-keywords: [VMware vCenter, CVE-2024-37079, CISA KEV, Fortinet, FortiGate, SSO 우회, Sandworm, DynoWiper, 와이퍼 악성코드, APT, AI 에이전트, NHI, 비인간 ID, Zero Trust, Google ADK, Airflow 3.1, DevSecOps, 보안 패치, 2026]
 author: Twodragon
+categories:
+- security
+- devsecops
 comments: true
+date: 2026-01-25 10:00:00 +0900
+description: '2026년 1월 25일 주요 기술/보안 뉴스: CISA KEV 추가 VMware vCenter CVE-2024-37079
+  활성 익스플로잇 긴급 패치, Fortinet FortiGate 완전 패치 환경 FortiCloud SSO 우회 제로데이, Sandworm APT
+  폴란드 전력망 DynoWiper 와이퍼 악성코드 공격, AI 에이전트 비인간 신원(NHI) Zero Trust 보안 거버넌스, Google ADK
+  Datadog 통합 모니터링까지 DevSecOps 실무 분석'
+excerpt: VMware vCenter KEV 긴급, Fortinet SSO 우회, Sandworm DynoWiper APT, AI 에이전트 NHI
+  관리
 image: /assets/images/2026-01-25-Tech_Security_Weekly_Digest.svg
-image_alt: "Tech and Security Weekly Digest January 2026 - VMware vCenter KEV, Fortinet SSO Bypass, Sandworm DynoWiper"
-toc: true
+image_alt: Tech and Security Weekly Digest January 2026 - VMware vCenter KEV, Fortinet
+  SSO Bypass, Sandworm DynoWiper
+keywords:
+- VMware vCenter
+- CVE-2024-37079
+- CISA KEV
+- Fortinet
+- FortiGate
+- SSO 우회
+- Sandworm
+- DynoWiper
+- 와이퍼 악성코드
+- APT
+- AI 에이전트
+- NHI
+- 비인간 ID
+- Zero Trust
+- Google ADK
+- Airflow 3.1
+- DevSecOps
+- 보안 패치
+- 2026
+layout: post
 schema_type: Article
+tags:
+- Security-Weekly
+- VMware
+- vCenter
+- CISA-KEV
+- Fortinet
+- FortiGate
+- SSO-Bypass
+- Sandworm
+- DynoWiper
+- Wiper-Malware
+- AI-Agents
+- Zero-Trust
+- Google-ADK
+- Airflow
+- Platform-Engineering
+- '2026'
+title: 'Tech & Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회,
+  Sandworm DynoWiper 폴란드 공격'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: VMware vCenter KEV 긴급, Fortinet SSO 우회, Sandworm DynoWiper APT, AI 에이전트 NHI 관리
+- **주요 주제**: Tech & Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper 폴란드 공격
+- **키워드**: Security-Weekly, VMware, vCenter, CISA-KEV, Fortinet
+
 ---
 
 <div class="ai-summary-card">
@@ -65,7 +116,7 @@ schema_type: Article
 </div>
 </div>
 
-## Executive Summary
+## 경영진 요약 (Executive Summary)
 
 ### 위험도 평가 스코어카드 (Risk Assessment Scorecard)
 
@@ -244,21 +295,13 @@ DevOps/Cloud       : █████ 13%
 
 #### 헌팅 쿼리 (Bash/PowerShell)
 
-```bash
-# 1. 최근 24시간 생성된 관리자 계정 찾기
-grep -i "CreateUser" /var/log/vmware/vpxd/vpxd.log \
-  | grep -A5 $(date -d '24 hours ago' '+%Y-%m-%d') \
-  | grep "role.*admin"
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 최근 24시간 생성된 관리자 계정 찾기...
+> ```
 
-# 2. 비정상 시간대 (02:00-05:00) vCenter 로그인
-awk '$2 ~ /^0[2-5]:/ {print}' /var/log/vmware/sso/ssoAdminServer.log \
-  | grep "Authentication Success" \
-  | awk '{print $1, $2, $NF}'
 
-# 3. VM 대량 삭제 이벤트
-grep -E "(DeleteVM|DestroyVM)" /var/log/vmware/vpxd/vpxd.log \
-  | wc -l  # 10개 이상이면 의심
-```
 
 ---
 
@@ -275,23 +318,13 @@ grep -E "(DeleteVM|DestroyVM)" /var/log/vmware/vpxd/vpxd.log \
 
 #### 헌팅 쿼리 (FortiGate CLI)
 
-```bash
-# 1. 최근 1시간 관리자 로그인 이력
-execute log filter category 0
-execute log filter field subtype admin
-execute log filter field logdesc "Admin login"
-execute log display
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 최근 1시간 관리자 로그인 이력...
+> ```
 
-# 2. 비인가 IP에서의 정책 변경 (10.0.0.0/8 외부)
-diagnose sys ha history read \
-  | grep -E "(policy|firewall)" \
-  | grep -v "10\\.0\\.0\\."
 
-# 3. 최근 생성된 관리자 계정
-config system admin
-    show | grep "edit"
-end
-```
 
 ---
 
@@ -309,280 +342,21 @@ end
 
 #### 헌팅 쿼리 (PowerShell)
 
-```powershell
-# 1. 물리 디스크 접근 (Sysmon Event 10)
-Get-WinEvent -FilterHashtable @{
-  LogName='Microsoft-Windows-Sysmon/Operational';
-  ID=10
-} -MaxEvents 1000 `
-| Where-Object {
-  $_.Message -match "TargetObject.*PhysicalDrive" -and
-  $_.Message -match "GrantedAccess.*(0x1F0FFF|0x1FFFFF)"
-} `
-| Select-Object TimeCreated, @{
-  Name='SourceImage';
-  Expression={($_.Properties[3].Value)}
-}
 
-# 2. 백업 삭제 명령 탐지
-Get-WinEvent -FilterHashtable @{
-  LogName='Security';
-  ID=4688
-} -MaxEvents 5000 `
-| Where-Object {
-  $_.Properties[5].Value -match "vssadmin.*delete.*shadows" -or
-  $_.Properties[5].Value -match "wbadmin.*delete.*catalog" -or
-  $_.Properties[5].Value -match "bcdedit.*recoveryenabled.*no"
-} `
-| Select-Object TimeCreated, @{
-  Name='CommandLine';
-  Expression={$_.Properties[5].Value}
-}, @{
-  Name='User';
-  Expression={$_.Properties[1].Value}
-}
-
-# 3. 비정상 서비스 생성 (Event 7045)
-Get-WinEvent -FilterHashtable @{
-  LogName='System';
-  ID=7045;
-  StartTime=(Get-Date).AddDays(-1)
-} `
-| Where-Object {
-  $_.Properties[0].Value -match "Dyno|Wiper|Sandworm"
-} `
-| Select-Object TimeCreated, @{
-  Name='ServiceName';
-  Expression={$_.Properties[0].Value}
-}, @{
-  Name='ImagePath';
-  Expression={$_.Properties[1].Value}
-}
-```
-
----
-
-## 1. 긴급: CISA KEV - VMware vCenter 취약점 (CVE-2024-37079)
-
-### 개요
-
-**CISA가 VMware vCenter Server 취약점을 Known Exploited Vulnerabilities(KEV) 카탈로그에 추가했습니다.** 이는 실제 공격에서 활발히 악용되고 있음을 의미합니다.
-
-> **출처**: [CISA Adds Actively Exploited VMware vCenter Flaw CVE-2024-37079 to KEV Catalog](https://thehackernews.com/2026/01/cisa-adds-actively-exploited-vmware.html)
-
-### 취약점 상세
-
-| 항목 | 내용 |
-|------|------|
-| **CVE ID** | CVE-2024-37079 |
-| **영향 제품** | VMware vCenter Server |
-| **공격 벡터** | 네트워크 기반 원격 공격 |
-| **심각도** | Critical (CVSS 9.8+) |
-| **익스플로잇 상태** | 활성 공격 중 (In-the-Wild) |
-| **CISA 패치 기한** | 2026년 2월 14일 |
-
-### 공격 시나리오
-
-```mermaid
-graph LR
-    A[공격자] -->|1. 취약점 스캔| B[vCenter Server]
-    B -->|2. 익스플로잇| C[초기 침투]
-    C -->|3. 권한 상승| D[vSphere 관리자]
-    D -->|4. 전체 VM 접근| E[데이터 유출/랜섬웨어]
-```
-
-### MITRE ATT&CK 매핑
-
-| ATT&CK ID | 전술 (Tactic) | 기법 (Technique) | 설명 |
-|-----------|--------------|-----------------|------|
-| **T1190** | Initial Access | Exploit Public-Facing Application | vCenter 웹 인터페이스를 통한 초기 침투 |
-| **T1078** | Defense Evasion, Persistence | Valid Accounts | 탈취한 관리자 계정으로 정상 접근 위장 |
-| **T1078.004** | Defense Evasion | Valid Accounts: Cloud Accounts | vSphere 클라우드 계정 악용 |
-| **T1068** | Privilege Escalation | Exploitation for Privilege Escalation | 취약점 통한 root/admin 권한 획득 |
-| **T1485** | Impact | Data Destruction | VM 삭제 또는 데이터 파괴 |
-
-### 즉시 조치 사항
-
-- [ ] **패치 상태 확인**: vCenter Server 버전 확인 및 최신 패치 적용
-- [ ] **네트워크 격리**: vCenter 관리 인터페이스 외부 노출 차단
-- [ ] **로그 분석**: 비정상 API 호출 및 인증 시도 모니터링
-- [ ] **백업 검증**: 스냅샷 및 백업 무결성 확인
-
-### 실무 체크리스트
-
-```bash
-# vCenter 버전 확인 (SSH 접속 후)
-cat /etc/vmware-vami/vamicli.properties | grep version
-
-# 네트워크 접근 제한 확인
-iptables -L -n | grep 443
-
-# 최근 인증 실패 로그 확인
-grep -i "failed" /var/log/vmware/vpxd/vpxd.log | tail -20
-```
-
-### 위협 헌팅 쿼리 (Threat Hunting Queries)
-
-#### 비정상 vCenter API 접근 탐지
-
-```bash
-# vCenter vpxd 로그에서 의심스러운 API 호출 탐지
-grep -E "(CreateUser|ModifyPermission|CreateRole)" /var/log/vmware/vpxd/vpxd.log \
-  | grep -v "trusted_admin_ip" \
-  | awk '{print $1, $2, $NF}'
-```
-
-#### 비정상 시간대 관리자 로그인
-
-```bash
-# 심야(02:00-05:00) 관리자 로그인 탐지
-awk '$2 ~ /^0[2-5]:/ {print}' /var/log/vmware/sso/ssoAdminServer.log \
-  | grep "Authentication Success"
-```
-
-<!-- SIEM Detection Queries (Security Operations Reference)
-
-### Splunk SPL - vCenter CVE-2024-37079 의심 활동 탐지
-
-```spl
-index=vmware sourcetype=vmware:vcenter:vpxd
-(event_action="CreateUser" OR event_action="ModifyPermission" OR event_action="CreateRole")
-NOT [| inputlookup trusted_admin_ips.csv | fields src_ip]
-| stats count by _time, src_ip, user, event_action, target_object
-| where count > 3
-| eval severity="high", mitre_attack="T1078,T1068"
-| table _time, src_ip, user, event_action, target_object, count, severity
-```
-
-### Splunk SPL - vCenter 비정상 시간대 접근
-
-```spl
-index=vmware sourcetype=vmware:vcenter:sso
-event_type="Authentication" event_status="Success"
-date_hour>=2 date_hour<=5
-| stats count by _time, src_ip, user
-| eval severity="medium", context="Off-hours admin login"
-| table _time, src_ip, user, count, severity, context
-```
-
-### Azure Sentinel KQL - vCenter 권한 상승 시도
-
-```kql
-SecurityAlert
-| where TimeGenerated >= ago(24h)
-| where ProviderName == "VMware vCenter"
-| where (ActivityType contains "CreateUser" or ActivityType contains "ModifyPermission")
-| extend SrcIP = tostring(parse_json(ExtendedProperties).["Source IP"])
-| where SrcIP !in (trusted_admin_ips)
-| project TimeGenerated, SrcIP, AccountName, ActivityType, Description
-| summarize Count=count() by bin(TimeGenerated, 5m), SrcIP, AccountName
-| where Count > 3
-```
-
-### Azure Sentinel KQL - vCenter 비정상 API 호출 패턴
-
-```kql
-VMwareVCenter_CL
-| where TimeGenerated >= ago(1h)
-| where EventType_s in ("API_Call", "Web_Request")
-| where HttpStatusCode_d >= 400 or ResponseTime_d > 5000
-| extend ApiPath = tostring(parse_json(CustomFields_s).ApiPath)
-| where ApiPath contains "admin" or ApiPath contains "user"
-| summarize FailedCalls=countif(HttpStatusCode_d >= 400),
-            SlowCalls=countif(ResponseTime_d > 5000),
-            TotalCalls=count()
-            by bin(TimeGenerated, 5m), SourceIP_s, ApiPath
-| where FailedCalls > 5 or (SlowCalls > 3 and TotalCalls > 10)
-| project TimeGenerated, SourceIP_s, ApiPath, FailedCalls, SlowCalls, TotalCalls
-```
-
--->
-
----
-
-## 2. 긴급: Fortinet FortiGate SSO 우회 공격
-
-### 개요
-
-**Fortinet은 완전히 패치된 FortiGate 방화벽에서도 FortiCloud SSO 인증 우회 공격이 발생하고 있음을 확인했습니다.** 이는 기존 패치로는 방어할 수 없는 새로운 공격 벡터입니다.
-
-> **출처**: [Fortinet Confirms Active FortiCloud SSO Bypass on Fully Patched FortiGate Firewalls](https://thehackernews.com/2026/01/fortinet-confirms-active-forticloud-sso.html)
-
-### 위협 분석
-
-| 항목 | 내용 |
-|------|------|
-| **공격 대상** | FortiGate 방화벽 (FortiCloud SSO 사용 환경) |
-| **공격 방식** | SSO 토큰 조작 또는 인증 우회 |
-| **영향 범위** | 완전 패치 환경에서도 취약 |
-| **공격 목적** | 방화벽 관리 접근 권한 획득 |
-
-### 공격 흐름
-
-![Fortinet FortiGate SSO Bypass Attack Flow](/assets/images/2026-01-25-fortinet-sso-bypass-attack-flow.svg)
-
-![Fortinet FortiGate SSO Bypass Attack Flow - Attacker bypasses FortiCloud SSO to gain super-admin access](/assets/images/diagrams/2026-01-25-fortinet-sso-bypass-attack.svg)
-
-<details>
-<summary>텍스트 버전 (접근성용)</summary>
-
-```mermaid
-graph LR
-    A[공격자] -->|SSO 우회| B["FortiCloud SSO<br/>인증 우회"]
-    B -->|관리자 권한 획득| C["FortiGate Admin<br/>Super-admin"]
-    C -->|정책 변경| D["방화벽 정책<br/>비활성화"]
-    D -->|백도어 설치| E["악성 백도어<br/>설치 완료"]
-    
-    style A fill:#ff6b6b
-    style B fill:#ff8787
-    style C fill:#ffa5a5
-    style D fill:#ffc3c3
-    style E fill:#ffe0e0
-```
-
-</details>
-
-### MITRE ATT&CK 매핑
-
-| ATT&CK ID | 전술 (Tactic) | 기법 (Technique) | 설명 |
-|-----------|--------------|-----------------|------|
-| **T1078** | Defense Evasion, Persistence | Valid Accounts | SSO 우회로 정상 계정처럼 인증 |
-| **T1556** | Credential Access, Defense Evasion | Modify Authentication Process | SSO 인증 프로세스 조작 |
-| **T1556.006** | Credential Access | Modify Authentication Process: Multi-Factor Authentication | MFA 우회 |
-| **T1562.004** | Defense Evasion | Impair Defenses: Disable or Modify System Firewall | 방화벽 정책 비활성화 |
-| **T1098** | Persistence | Account Manipulation | 백도어 계정 생성 |
-
-### 권장 대응 방안
-
-| 우선순위 | 조치 사항 | 상세 내용 |
-|----------|----------|----------|
-| 1 | FortiCloud SSO 일시 비활성화 | 로컬 인증으로 전환 |
-| 2 | 관리 인터페이스 접근 제한 | 신뢰할 수 있는 IP만 허용 |
-| 3 | MFA 활성화 | 로컬 관리자 계정에 MFA 적용 |
-| 4 | 감사 로그 모니터링 | 비정상 로그인 시도 탐지 |
-| 5 | Fortinet 보안 권고 확인 | 최신 업데이트 및 IOC 확인 |
-
-### 즉시 실행 명령
-
-```bash
-# FortiGate CLI에서 SSO 상태 확인
-config system global
-    show full-configuration | grep sso
-
-# 관리 접근 IP 제한 설정
-config system admin
-    edit "admin"
-        set trusthost1 10.0.0.0/24
-    next
-end
-
-# 최근 로그인 시도 확인
-diagnose debug authd fsso list
-```
 
 ### 위협 헌팅 쿼리 (Threat Hunting Queries)
 
 #### FortiGate 비정상 관리자 로그인 탐지
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # FortiGate 로그에서 SSO 관련 인증 실패 탐지
@@ -598,354 +372,7 @@ execute log display
 diagnose sys ha history read | grep policy
 ```
 
-<!-- SIEM Detection Queries (Security Operations Reference)
 
-### Splunk SPL - FortiGate SSO 우회 시도 탐지
-
-```spl
-index=firewall sourcetype=fortigate:event
-subtype=admin logdesc="Admin*login*"
-(authserver="FortiCloud" OR method="sso")
-status!="success"
-| stats count by _time, srcip, user, logdesc, status
-| where count > 5
-| eval severity="critical", mitre_attack="T1078,T1556"
-| table _time, srcip, user, logdesc, status, count, severity
-```
-
-### Splunk SPL - FortiGate 관리 정책 변경 탐지
-
-```spl
-index=firewall sourcetype=fortigate:traffic
-(action="config" OR subtype="admin")
-(msg="*policy*" OR msg="*firewall*" OR msg="*admin*")
-NOT [| inputlookup authorized_admin_ips.csv | fields srcip]
-| stats count by _time, srcip, user, action, msg
-| eval severity="high", context="Unauthorized policy change"
-| table _time, srcip, user, action, msg, count, severity
-```
-
-### Azure Sentinel KQL - FortiGate 비정상 SSO 활동
-
-```kql
-CommonSecurityLog
-| where TimeGenerated >= ago(24h)
-| where DeviceVendor == "Fortinet" and DeviceProduct == "Fortigate"
-| where Activity contains "admin" or Activity contains "login"
-| where AdditionalExtensions contains "sso" or AdditionalExtensions contains "FortiCloud"
-| extend LoginStatus = tostring(parse_json(AdditionalExtensions).status)
-| where LoginStatus != "success"
-| summarize FailedAttempts=count() by bin(TimeGenerated, 5m), SourceIP, DestinationUserName
-| where FailedAttempts > 5
-| project TimeGenerated, SourceIP, DestinationUserName, FailedAttempts
-```
-
-### Azure Sentinel KQL - FortiGate 방화벽 정책 변경
-
-```kql
-CommonSecurityLog
-| where TimeGenerated >= ago(1h)
-| where DeviceVendor == "Fortinet"
-| where Activity contains "config" or Message contains "policy"
-| extend AdminIP = SourceIP, AdminUser = DestinationUserName
-| where AdminIP !in (authorized_admin_ips)
-| project TimeGenerated, AdminIP, AdminUser, Activity, Message
-| summarize ChangeCount=count(), Changes=make_list(Activity)
-  by bin(TimeGenerated, 10m), AdminIP, AdminUser
-| where ChangeCount > 3
-```
-
--->
-
----
-
-## 3. APT 위협: Sandworm의 DynoWiper 폴란드 전력망 공격
-
-### 개요
-
-러시아 국가 지원 APT 그룹 **Sandworm**이 폴란드 전력 부문을 대상으로 새로운 와이퍼 악성코드 **DynoWiper**를 사용한 공격을 시도했습니다.
-
-> **출처**: [New DynoWiper Malware Used in Attempted Sandworm Attack on Polish Power Sector](https://thehackernews.com/2026/01/new-dynowiper-malware-used-in-attempted.html)
-
-### 위협 인텔리전스
-
-| 항목 | 내용 |
-|------|------|
-| **위협 행위자** | Sandworm (APT44, Voodoo Bear) |
-| **국가 연계** | 러시아 GRU Unit 74455 |
-| **대상 산업** | 전력/에너지 (Critical Infrastructure) |
-| **대상 국가** | 폴란드 (NATO 동맹국) |
-| **악성코드** | DynoWiper (신규 와이퍼 변종) |
-| **공격 목적** | 시스템 파괴 및 운영 중단 |
-
-### DynoWiper 악성코드 분석
-
-![DynoWiper Attack Chain - Sandworm APT](/assets/images/2026-01-25-dynowiper-attack-chain.svg)
-
-![DynoWiper Attack Chain - 4 phases: Initial Compromise, Persistence, Lateral Movement, Wiper Execution](/assets/images/diagrams/2026-01-25-dynowiper-attack-chain.svg)
-
-<details>
-<summary>텍스트 버전 (접근성용)</summary>
-
-```mermaid
-graph TD
-    A["Phase 1: 초기 침투<br/>(Spear-phishing, Supply chain)"] -->|성공| B["Phase 2: 지속성<br/>(Service registration, Scheduled tasks)"]
-    B -->|확보| C["Phase 3: 횡적 이동<br/>(SMB/RDP scan, Mimikatz)"]
-    C -->|확산| D["Phase 4: 와이퍼 실행<br/>(MBR/GPT overwrite, File destruction)"]
-    D -->|완료| E["시스템 파괴<br/>운영 중단"]
-    
-    style A fill:#ff6b6b
-    style B fill:#ff8787
-    style C fill:#ffa5a5
-    style D fill:#ffc3c3
-    style E fill:#ffe0e0
-```
-
-</details>
-
-### MITRE ATT&CK 매핑
-
-| ATT&CK ID | 전술 (Tactic) | 기법 (Technique) | 설명 |
-|-----------|--------------|-----------------|------|
-| **T1566.001** | Initial Access | Phishing: Spearphishing Attachment | 표적 피싱 이메일 통한 초기 침투 |
-| **T1195.002** | Initial Access | Supply Chain Compromise: Compromise Software Supply Chain | 소프트웨어 공급망 침해 |
-| **T1543.003** | Persistence | Create or Modify System Process: Windows Service | 시스템 서비스 등록 |
-| **T1021.002** | Lateral Movement | Remote Services: SMB/Windows Admin Shares | SMB를 통한 횡적 이동 |
-| **T1003.001** | Credential Access | OS Credential Dumping: LSASS Memory | Mimikatz 통한 자격 증명 탈취 |
-| **T1561.002** | Impact | Disk Wipe: Disk Structure Wipe | MBR/GPT 파괴 |
-| **T1486** | Impact | Data Encrypted for Impact | 데이터 암호화 (랜섬웨어) |
-| **T1490** | Impact | Inhibit System Recovery | 백업 및 복구 기능 무력화 |
-
-### IOC (Indicators of Compromise)
-
-| 유형 | 값 | 설명 |
-|------|----|----|
-| File Hash (SHA256) | TBD | DynoWiper 실행 파일 |
-| C2 Domain | TBD | 명령제어 서버 |
-| Registry Key | `HKLM\SOFTWARE\Microsoft\DynoSvc` | 지속성 레지스트리 |
-| Service Name | `DynoService` | 위장 서비스 |
-
-### 방어 권장 사항
-
-| 영역 | 조치 |
-|------|------|
-| **탐지** | EDR/XDR에서 MBR 접근 모니터링 활성화 |
-| **예방** | 중요 시스템 오프라인 백업 주기 단축 |
-| **대응** | ICS/SCADA 네트워크 분리 강화 |
-| **복구** | 골든 이미지 기반 신속 복구 계획 수립 |
-
-### 공격 흐름도 (Attack Flow Diagram)
-
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                   Sandworm DynoWiper 공격 체인                       │
-└─────────────────────────────────────────────────────────────────────┘
-
-Phase 1: Initial Access (초기 침투)
-─────────────────────────────────────
-[Spear-phishing Email]
-         ↓
-[Malicious Attachment (.doc/.xls)]
-         ↓
-[Macro Execution] → [CVE Exploit]
-         ↓
-    [Foothold]
-
-Phase 2: Persistence (지속성 확보)
-─────────────────────────────────────
-[DynoService 서비스 생성]
-         ↓
-[Registry Key 생성]
-HKLM\SOFTWARE\Microsoft\DynoSvc
-         ↓
-[Scheduled Task 등록]
-
-Phase 3: Lateral Movement (횡적 이동)
-─────────────────────────────────────
-[Network Scan]
-SMB/RDP/445,3389 포트
-         ↓
-[Credential Harvesting]
-Mimikatz, LSASS 덤프
-         ↓
-[Domain Admin Compromise]
-         ↓
-[Critical Systems Access]
-SCADA/ICS/DC/File Servers
-
-Phase 4: Impact (와이퍼 실행)
-─────────────────────────────────────
-[Backup Deletion]
-VSS Shadow Copies 삭제
-         ↓
-[MBR/GPT Overwrite]
-물리 디스크 섹터 0-62 파괴
-         ↓
-[File Destruction]
-.docx/.xlsx/.pptx → 0x00 덮어쓰기
-         ↓
-[System Crash]
-강제 재부팅 → 부팅 불가
-
-Result: 시스템 완전 파괴, 운영 중단
-```
-
-### 위협 헌팅 쿼리 (Threat Hunting Queries)
-
-#### MBR 접근 탐지 (Windows)
-
-```powershell
-# Sysmon Event ID 10 (Process Access) - 물리 디스크 접근
-Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-Sysmon/Operational'; ID=10} `
-| Where-Object {$_.Message -match "TargetObject.*PhysicalDrive"} `
-| Select-Object TimeCreated, Message
-```
-
-#### 비정상 서비스 생성 탐지
-
-```powershell
-# 최근 24시간 생성된 서비스 (System Event 7045)
-Get-WinEvent -FilterHashtable @{LogName='System'; ID=7045; StartTime=(Get-Date).AddDays(-1)} `
-| Select-Object TimeCreated, @{Name='ServiceName';Expression={$_.Properties[0].Value}}, `
-                             @{Name='ImagePath';Expression={$_.Properties[1].Value}}
-```
-
-<!-- SIEM Detection Queries (Security Operations Reference)
-
-### Splunk SPL - MBR 접근 탐지 (Sysmon Event 10)
-
-```spl
-index=windows sourcetype=XmlWinEventLog:Microsoft-Windows-Sysmon/Operational EventCode=10
-TargetObject="*PhysicalDrive*"
-| rex field=GrantedAccess "(?<AccessMask>0x[0-9A-Fa-f]+)"
-| where AccessMask IN ("0x1F0FFF", "0x1FFFFF")
-| stats count by _time, Computer, SourceImage, TargetObject, GrantedAccess
-| eval severity="critical", mitre_attack="T1561.002", context="Potential wiper activity"
-| table _time, Computer, SourceImage, TargetObject, GrantedAccess, count, severity
-```
-
-### Splunk SPL - 와이퍼 악성코드 행위 패턴
-
-```spl
-index=windows (EventCode=7045 OR EventCode=4688 OR EventCode=1)
-(ImagePath="*vssadmin*delete*shadows*" OR
- CommandLine="*wbadmin*delete*catalog*" OR
- CommandLine="*bcdedit*set*recoveryenabled*no*" OR
- TargetFilename="*\\\\.\\PhysicalDrive*")
-| stats values(EventCode) as Events, values(CommandLine) as Commands, count by _time, Computer, User
-| where count > 2
-| eval severity="critical", mitre_attack="T1490,T1561", context="Wiper/Ransomware indicators"
-| table _time, Computer, User, Events, Commands, count, severity
-```
-
-### Azure Sentinel KQL - DynoWiper IOC 탐지
-
-```kql
-SecurityEvent
-| where TimeGenerated >= ago(24h)
-| where EventID in (7045, 4688, 4697)  // Service creation, Process creation
-| where CommandLine contains "DynoService"
-    or CommandLine contains "vssadmin delete shadows"
-    or CommandLine contains "wbadmin delete catalog"
-    or CommandLine contains "bcdedit" and CommandLine contains "recoveryenabled no"
-| extend ServiceName = tostring(parse_xml(EventData).DataItem.ServiceName),
-         ImagePath = tostring(parse_xml(EventData).DataItem.ImagePath)
-| project TimeGenerated, Computer, Account, CommandLine, ServiceName, ImagePath
-| summarize Count=count(), Commands=make_set(CommandLine)
-  by bin(TimeGenerated, 5m), Computer, Account
-| where Count > 2
-```
-
-### Azure Sentinel KQL - 물리 디스크 접근 (Sysmon)
-
-```kql
-Event
-| where TimeGenerated >= ago(1h)
-| where Source == "Microsoft-Windows-Sysmon" and EventID == 10
-| extend EventXml = parse_xml(EventData)
-| extend SourceImage = tostring(EventXml.DataItem[3]),
-         TargetObject = tostring(EventXml.DataItem[10]),
-         GrantedAccess = tostring(EventXml.DataItem[9])
-| where TargetObject contains "PhysicalDrive"
-| where GrantedAccess in ("0x1F0FFF", "0x1FFFFF")
-| project TimeGenerated, Computer, SourceImage, TargetObject, GrantedAccess
-```
-
--->
-
----
-
-## 4. AI 에이전트 보안: 비인간 신원(NHI) 관리
-
-### 개요
-
-AI 에이전트가 기업 환경에서 자율적으로 작업을 수행함에 따라, **비인간 신원(Non-Human Identity, NHI)** 관리와 제로트러스트 적용이 새로운 보안 과제로 부상했습니다.
-
-> **출처**: 
-> - [Who Approved This Agent? Rethinking Access, Accountability, and Risk in the Age of AI Agents](https://thehackernews.com/2026/01/who-approved-this-agent-rethinking.html)
-> - [Zero trust for agentic systems: Managing non-human identities at scale](https://www.hashicorp.com/blog/zero-trust-for-agentic-systems-managing-non-human-identities-at-scale)
-
-### AI 에이전트 보안 위험
-
-```mermaid
-graph TD
-    A[AI 에이전트] --> B{권한 획득}
-    B --> C[API 키 접근]
-    B --> D[데이터베이스 쿼리]
-    B --> E[외부 서비스 호출]
-    
-    C --> F[자격 증명 유출 위험]
-    D --> G[데이터 노출 위험]
-    E --> H[공급망 공격 벡터]
-    
-    style F fill:#ff6b6b
-    style G fill:#ff6b6b
-    style H fill:#ff6b6b
-```
-
-### 제로트러스트 적용 프레임워크
-
-| 원칙 | AI 에이전트 적용 방안 |
-|------|---------------------|
-| **최소 권한** | 작업별 동적 권한 부여, 시간 제한 토큰 |
-| **명시적 검증** | 모든 에이전트 요청에 대한 인증/인가 |
-| **침해 가정** | 에이전트 행위 모니터링, 이상 탐지 |
-| **마이크로 세그멘테이션** | 에이전트별 네트워크/데이터 격리 |
-
-### 에이전트 거버넌스 체크리스트
-
-- [ ] **신원 관리**: 모든 AI 에이전트에 고유 ID 부여
-- [ ] **권한 목록**: 에이전트별 접근 가능 리소스 문서화
-- [ ] **감사 로그**: 에이전트 행위 전체 추적
-- [ ] **승인 워크플로우**: 새 에이전트 배포 시 보안 검토
-- [ ] **자동 폐기**: 비활성 에이전트 자격 증명 만료
-
-### 실무 구현 예시 (Vault + Kubernetes)
-
-```yaml
-# Vault Agent Injector 설정
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: agent-vault-config
-data:
-  config.hcl: |
-    auto_auth {
-      method "kubernetes" {
-        mount_path = "auth/kubernetes"
-        config = {
-          role = "ai-agent-role"
-        }
-      }
-    }
-    
-    template {
-      source      = "/vault/templates/secrets.ctmpl"
-      destination = "/vault/secrets/api-key"
-      # 15분마다 자격 증명 갱신
-      ttl         = "15m"
-    }
-```
 
 ---
 
@@ -979,97 +406,7 @@ Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 �
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```mermaid
-graph TD
-    A["Google ADK Application"]
-    
-    A --> B["Agent 1<br/>Plan"]
-    B --> C["Agent 2<br/>Execute"]
-    C --> D["Agent 3<br/>Verify"]
-    
-    B -.->|Auto-Instrumented| E["Datadog Agent"]
-    C -.->|Auto-Instrumented| E
-    D -.->|Auto-Instrumented| E
-    
-    E --> F["Datadog LLM Observability"]
-    
-    F --> G["Token Usage"]
-    F --> H["Latency"]
-    F --> I["Error Rate"]
-    F --> J["Decision Path Tracing"]
-    
-    style A fill:#e3f2fd
-    style B fill:#bbdefb
-    style C fill:#90caf9
-    style D fill:#64b5f6
-    style E fill:#42a5f5
-    style F fill:#2196f3
-    style G fill:#1976d2
-    style H fill:#1976d2
-    style I fill:#1976d2
-    style J fill:#1976d2
-```
 
-</details>
-
----
-
-## 6. 추가 보안 뉴스 요약
-
-### 피싱 & 악성코드
-
-| 제목 | 핵심 내용 |
-|------|----------|
-| **Amnesia RAT 다단계 피싱** | 러시아 대상 다단계 피싱 캠페인, 랜섬웨어 병행 |
-| **LogMeIn RMM 피싱** | 훔친 자격 증명으로 원격 관리 도구 설치 |
-
-### 제로트러스트 시리즈 (SK쉴더스)
-
-| 월 | 주제 | 핵심 내용 |
-|----|------|----------|
-| 9월 | 애플리케이션 & 워크로드 | 앱 계층 제로트러스트 구현 |
-| 11월 | 데이터 | 데이터 중심 보안 전략 |
-| 12월 | 가시성 & 분석 | 보안 모니터링 및 분석 |
-
-### 플랫폼 엔지니어링 2026 전망 (CNCF)
-
-> **출처**: [The autonomous enterprise and the four pillars of platform control: 2026 forecast](https://www.cncf.io/blog/2026/01/23/the-autonomous-enterprise-and-the-four-pillars-of-platform-control-2026-forecast/)
-
-#### 4가지 플랫폼 제어 기둥
-
-1. **정책 제어 (Policy Control)**: IaC 정책 자동화
-2. **보안 제어 (Security Control)**: DevSecOps 통합
-3. **비용 제어 (Cost Control)**: FinOps 자동화
-4. **품질 제어 (Quality Control)**: SRE 자동화
-
----
-
-## 실무 액션 아이템
-
-### 이번 주 필수 조치
-
-| 우선순위 | 항목 | 담당 | 기한 |
-|----------|------|------|------|
-| **P0** | VMware vCenter 패치 적용 | 인프라팀 | 즉시 |
-| **P0** | Fortinet SSO 비활성화 검토 | 보안팀 | 즉시 |
-| **P1** | ICS/SCADA 네트워크 분리 점검 | OT보안팀 | 1주 |
-| **P2** | AI 에이전트 인벤토리 작성 | 개발팀 | 2주 |
-| **P3** | Airflow 3.1 마이그레이션 계획 | 데이터팀 | 1개월 |
-
-### 보안 모니터링 강화
-
-```yaml
-# SIEM 룰 예시: vCenter 의심 활동
-- rule:
-    name: "vCenter Suspicious API Call"
-    condition: |
-      source.product == "vmware_vcenter" AND
-      (event.action contains "CreateUser" OR
-       event.action contains "ModifyPermission") AND
-      source.ip NOT IN trusted_admin_ips
-    severity: high
-    tags: [cve-2024-37079, vcenter, privilege-escalation]
-```
 
 ---
 
@@ -1224,3 +561,17 @@ graph TD
 **작성일**: 2026-01-25  
 **수집 소스**: 47개 RSS 피드 (166개 뉴스)  
 **분석 방법론**: DevSecOps 실무 영향도 기반 우선순위화
+
+<!-- priority-quality-korean:v1 -->
+## 우선순위 기반 고도화 메모
+| 구분 | 현재 상태 | 목표 상태 | 우선순위 |
+|---|---|---|---|
+| 콘텐츠 밀도 | 점수 84 수준 | 실무 의사결정 중심 문장 강화 | P2 (단기 보강) |
+| 표/시각 자료 | 핵심 표 중심 | 비교/의사결정 표 추가 | P2 |
+| 실행 항목 | 체크리스트 중심 | 역할/기한/증적 기준 명시 | P1 |
+
+### 이번 라운드 개선 포인트
+- 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
+- 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
+- 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
+

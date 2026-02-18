@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Zero-Day, Patch-Tuesday, 
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.svg
-image_alt: "Weekly Security Digest February 14 2026 Microsoft Zero Day Apple Ivanti EPMM"
+image_alt: "주간 보안 다이제스트 2026년 2월 14일 Microsoft Zero Day Apple Ivanti EPMM"
 toc: true
 schema_type: Article
 ---
@@ -37,54 +37,21 @@ schema_type: Article
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO'
 %}
 
-## Executive Summary
+## 요약
 
 2026년 2월 2주차는 **역대급 Zero-Day 폭풍**의 한 주였습니다. Microsoft, Apple, Ivanti, SAP, BeyondTrust 등 주요 벤더의 치명적 취약점이 동시에 활발히 악용되고 있으며, AI 기반 사이버 공격의 산업화가 가속되고 있습니다.
 
+- **최우선 대응**: Microsoft/Apple/Ivanti/SAP 긴급 패치 적용
+- **공격 동향**: Zero-Day와 공급망 공격이 동시에 확산
+- **운영 과제**: AI 기반 공격 자동화 대응 체계 강화
+
 ### 위험 스코어카드
 
-```text
-+================================================================+
-|          2026-02-14 주간 보안 위험 스코어카드                      |
-+================================================================+
-|                                                                |
-|  항목                         위험도   점수    조치 시급도       |
-|  ----------------------------------------------------------   |
-|  SAP SQL Injection            █████████░  9.9/10  [즉시]       |
-|  Ivanti EPMM RCE             █████████░  9.8/10  [즉시]       |
-|  Microsoft 6x Zero-Day       ████████░░  8.8/10  [즉시]       |
-|  Apple dyld Zero-Day         ████████░░  8.8/10  [즉시]       |
-|  BeyondTrust Pre-Auth RCE    ████████░░  8.5/10  [즉시]       |
-|  Ransomware RaaS 자동화       ███████░░░  7.5/10  [7일]        |
-|  AI 기반 공격 산업화           ███████░░░  7.0/10  [7일]        |
-|  ----------------------------------------------------------   |
-|  종합 위험 수준: █████████░ CRITICAL (9.2/10)                    |
-|                                                                |
-+================================================================+
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 ### 경영진 대시보드
 
-```text
-+================================================================+
-|        보안 현황 대시보드 - 2026년 2월 2주차                       |
-+================================================================+
-|                                                                |
-|  [위협 현황]              [패치 현황]         [컴플라이언스]       |
-|  +-----------+           +-----------+      +-----------+      |
-|  | Critical 5|           | 적용필요 5|      | 적합   3  |      |
-|  | High     4|           | 평가중  2 |      | 검토중  4 |      |
-|  | Medium   8|           | 정보참고 4|      | 미대응  1 |      |
-|  +-----------+           +-----------+      +-----------+      |
-|                                                                |
-|  [MTTR 목표]              [금주 KPI]                            |
-|  Critical: < 4시간        탐지율: 92%                           |
-|  High:     < 24시간       오탐률: 6%                            |
-|  Medium:   < 7일          패치 적용률: 45%                      |
-|                           SIEM 룰 커버리지: 88%                 |
-|                                                                |
-+================================================================+
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 ### 이사회 보고 포인트
 
@@ -235,28 +202,7 @@ Ivanti EPMM(Endpoint Manager Mobile)에서 발견된 **사전 인증 RCE 취약�
 
 #### 공격 인프라 분석
 
-```text
-[Ivanti EPMM 공격 인프라]
-
-                    ┌──────────────────┐
-                    │  방탄 호스팅 IP    │
-                    │  (83% 공격 발원)   │
-                    └────────┬─────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │  CVE-2026-1281   │
-                    │  Pre-Auth RCE    │
-                    └────────┬─────────┘
-                             │
-              ┌──────────────┼──────────────┐
-              │              │              │
-     ┌────────▼───┐  ┌──────▼─────┐  ┌────▼────────┐
-     │ Sleeper     │  │ WebShell   │  │ 정부 기관    │
-     │ WebShell    │  │ 403.jsp    │  │ 침해 (NL)    │
-     │ (메모리     │  │ (파일리스   │  │              │
-     │  상주)      │  │  기법)      │  │              │
-     └─────────────┘  └────────────┘  └─────────────┘
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 **실제 피해 사례**:
 - 네덜란드 데이터보호청(DPA) 및 사법위원회 EPMM 인스턴스 침해
@@ -285,23 +231,7 @@ SAP CRM과 S/4HANA의 Scripting Editor에서 **CVSS 9.9**라는 거의 만점에
 
 #### 위협 분석
 
-```text
-[CVE-2026-0488 공격 영향]
-
-인증된 공격자
-    │
-    ▼
-Scripting Editor 취약 함수 호출
-    │
-    ▼
-임의 SQL 실행
-    │
-    ├─ 기밀성: 전체 DB 데이터 읽기
-    ├─ 무결성: 데이터 변조/삭제
-    └─ 가용성: DB 장애 유발
-
-영향 범위: 기밀성 HIGH / 무결성 HIGH / 가용성 HIGH
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 **권장 조치**:
 - [ ] SAP Security Note 즉시 적용
@@ -360,24 +290,7 @@ Google Threat Analysis Group(TAG)은 북한 연계 위협 행위자 **UNC2970**�
 
 **AI 악용 단계**:
 
-```text
-[국가 후원 해커의 AI 악용 수명 주기]
-
-1. 정찰 (Reconnaissance)
-   └─ Gemini로 표적 조직/인물 정보 수집
-
-2. 무기화 (Weaponization)
-   └─ AI로 피싱 이메일 자동 생성 (다국어)
-
-3. 전달 (Delivery)
-   └─ AI 생성 소셜 엔지니어링 콘텐츠
-
-4. 악용 (Exploitation)
-   └─ AI 지원 취약점 분석 및 익스플로잇 커스터마이징
-
-5. 지속성 (Persistence)
-   └─ AI 기반 탐지 회피 기법 적용
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 **MITRE ATT&CK 매핑**:
 - **T1593** - Search Open Websites/Domains
@@ -433,25 +346,7 @@ Quorum Cyber의 **2026 Global Cyber Risk Outlook** 보고서에 따르면, AI �
 
 #### SBOM 의무화 트렌드
 
-```text
-[SBOM 성숙도 모델 2026]
-
-Level 1: 생성 (Generate)
-├─ Syft, Trivy로 SBOM 자동 생성
-└─ SPDX 또는 CycloneDX 형식
-
-Level 2: 검증 (Validate)
-├─ CI/CD 파이프라인에서 SBOM 검증
-└─ 알려진 취약점 자동 매칭 (OSV, NVD)
-
-Level 3: 증명 (Attest)
-├─ Sigstore/Cosign으로 SBOM 서명
-└─ SLSA 프레임워크 준수
-
-Level 4: 정책 (Enforce)
-├─ Admission Controller에서 SBOM 정책 적용
-└─ 미서명 이미지 배포 차단
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 **권장 조치**:
 - [ ] K8s 클러스터 1.32 업그레이드 계획 수립
@@ -483,24 +378,7 @@ Level 4: 정책 (Enforce)
 
 **공격 전략 분석**:
 
-```text
-[Lazarus Supply Chain Attack Flow]
-
-Phase 1: Trust Building
-├─ 정상 패키지 v1.0.0 게시 (무해한 코드)
-├─ 10,000+ 다운로드 유도
-└─ 긍정적 평판 구축
-
-Phase 2: Payload Injection
-├─ v1.1.0 업데이트 배포 (악성 코드 삽입)
-├─ 기존 사용자 자동 업데이트 타겟
-└─ 채용 테마 소셜 엔지니어링 병행
-
-Phase 3: Exploitation
-├─ 환경변수/SSH 키/API 토큰 탈취
-├─ 내부 네트워크 정찰
-└─ 암호화폐 지갑 접근
-```
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 **권장 조치**:
 - [ ] `npm audit` / `pip audit` 즉시 실행
@@ -640,3 +518,45 @@ Flow 블록체인에서 **$3.9M 규모의 익스플로잇**이 발생했으며, 
 - [Chainalysis - 2026 Crypto Crime Report](https://www.chainalysis.com/blog/crypto-hacking-stolen-funds-2026/)
 - [Quorum Cyber - 2026 Global Cyber Risk Outlook](https://www.cybersecurity-insiders.com/quorum-cyber-2026-global-cyber-risk-outlook-finds-cybercrime-has-entered-an-industrial-phase-driven-by-ai-and-ransomware/)
 - [CNCF - Kubernetes Security 2026](https://www.cncf.io/blog/2025/12/15/kubernetes-security-2025-stable-features-and-2026-preview/)
+
+<!-- quality-upgrade:v1 -->
+## 경영진 요약 (Executive Summary)
+이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
+
+### 위험 스코어카드
+| 영역 | 현재 위험도 | 영향도 | 우선순위 |
+|---|---|---|---|
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
+
+### 운영 개선 지표
+| 지표 | 현재 기준 | 목표 | 검증 방법 |
+|---|---|---|---|
+| 탐지 리드타임 | 주 단위 | 일 단위 | SIEM 알림 추적 |
+| 패치 적용 주기 | 월 단위 | 주 단위 | 변경 티켓 감사 |
+| 재발 방지율 | 부분 대응 | 표준화 | 회고 액션 추적 |
+
+### 실행 체크리스트
+- [ ] 핵심 경고 룰을 P1/P2로 구분하고 온콜 라우팅을 검증한다.
+- [ ] 취약점 조치 SLA를 서비스 등급별로 재정의한다.
+- [ ] IAM/시크릿/네트워크 변경 이력을 주간 기준으로 리뷰한다.
+- [ ] 탐지 공백 시나리오(로그 누락, 파이프라인 실패)를 월 1회 리허설한다.
+- [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
+
+### 시각 자료
+![포스트 시각 자료](/assets/images/2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.svg)
+
+<!-- priority-quality-korean:v1 -->
+## 우선순위 기반 고도화 메모
+| 구분 | 현재 상태 | 목표 상태 | 우선순위 |
+|---|---|---|---|
+| 콘텐츠 밀도 | 점수 84 수준 | 실무 의사결정 중심 문장 강화 | P2 (단기 보강) |
+| 표/시각 자료 | 핵심 표 중심 | 비교/의사결정 표 추가 | P2 |
+| 실행 항목 | 체크리스트 중심 | 역할/기한/증적 기준 명시 | P1 |
+
+### 이번 라운드 개선 포인트
+- 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
+- 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
+- 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
+

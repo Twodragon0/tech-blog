@@ -98,9 +98,9 @@
   <!-- OG image: SVG to PNG conversion by _plugins/svg_to_png_og.rb -->
   <!-- SEO meta tags (og:image, twitter:card) output by jekyll-seo-tag plugin -->
   <!-- KakaoTalk/Tistory use standard Open Graph tags -->
-  {% assign og_image = page.image | default: site.og_image | default: '/assets/images/og-default.png' %}
+  {% assign og_image = page.og_image | default: page.image | default: site.og_image | default: '/assets/images/og-default.png' %}
   {% if og_image contains '.svg' %}
-  {% assign og_image = og_image | replace: '.svg', '.png' %}
+  {% assign og_image = site.og_image | default: '/assets/images/og-default.png' %}
   {% endif %}
   <meta property="og:image" content="{{ og_image | absolute_url }}">
   <meta property="og:image:secure_url" content="{{ og_image | absolute_url }}">

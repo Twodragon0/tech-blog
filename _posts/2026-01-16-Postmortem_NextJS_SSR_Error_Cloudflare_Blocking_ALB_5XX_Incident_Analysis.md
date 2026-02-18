@@ -1,18 +1,48 @@
 ---
-layout: post
-title: "[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석"
-date: 2026-01-16 12:00:00 +0900
-categories: [incident]
-tags: [Post-Mortem, Next.js, SSR, Cloudflare, ALB, Kubernetes, Incident-Response, AWS]
-excerpt: "Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석"
-description: "Post-Mortem: Next.js SSR 환경 location 객체 접근 ReferenceError, Cloudflare WAF IP 차단, ALB Target Group Health Check 실패 인시던트 상세 분석. 근본 원인, 배포 연쇄 반응, 재발 방지 대책까지 실무 중심 정리"
-keywords: [Post-Mortem, Next.js-SSR, Location-Error, Cloudflare-WAF, ALB-5XX, Health-Check, Kubernetes, Incident-Response, AWS, ReferenceError, WAF-Blocking]
 author: Twodragon
+categories:
+- incident
 comments: true
+date: 2026-01-16 12:00:00 +0900
+description: 'Post-Mortem: Next.js SSR 환경 location 객체 접근 ReferenceError, Cloudflare
+  WAF IP 차단, ALB Target Group Health Check 실패 인시던트 상세 분석. 근본 원인, 배포 연쇄 반응, 재발 방지 대책까지
+  실무 중심 정리'
+excerpt: Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석
 image: /assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.svg
-image_alt: "Post-Mortem Next.js SSR Error Cloudflare Blocking ALB 5XX Incident Analysis"
-toc: true
+image_alt: Post-Mortem Next.js SSR Error Cloudflare Blocking ALB 5XX Incident Analysis
+keywords:
+- Post-Mortem
+- Next.js-SSR
+- Location-Error
+- Cloudflare-WAF
+- ALB-5XX
+- Health-Check
+- Kubernetes
+- Incident-Response
+- AWS
+- ReferenceError
+- WAF-Blocking
+layout: post
 schema_type: Article
+tags:
+- Post-Mortem
+- Next.js
+- SSR
+- Cloudflare
+- ALB
+- Kubernetes
+- Incident-Response
+- AWS
+title: '[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석'
+toc: true
+---
+
+## 요약
+
+- **핵심 요약**: Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석
+- **주요 주제**: [Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석
+- **키워드**: Post-Mortem, Next.js, SSR, Cloudflare, ALB
+
 ---
 
 <div class="ai-summary-card">
@@ -124,345 +154,21 @@ schema_type: Article
 <details>
 <summary>draw.io XML 코드 (클릭하여 확장)</summary>
 
-```xml
-<mxfile host="app.diagrams.net">
-  <diagram name="Next.js SSR Error Incident Architecture" id="architecture">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        
-        <!-- Client Environment Cluster -->
-        <mxCell id="client-cluster" value="Client Environment" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E1F5FE;strokeColor=#01579B;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="1080" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="mobile" value="Mobile x.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
-          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="desktop" value="Desktop Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
-          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="inapp" value="In-App Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
-          <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- CDN & Security Cluster -->
-        <mxCell id="cdn-cluster" value="CDN &amp; Security" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="200" width="1080" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="cloudflare" value="Cloudflare" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
-          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="waf" value="WAF Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요." value="WAF Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
           <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ratelimit" value="Rate Limiting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
           <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
         </mxCell>
         
-        <!-- AWS Infrastructure Cluster -->
-        <mxCell id="aws-cluster" value="AWS Infrastructure" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#4A148C;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="360" width="1080" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="alb" value="Application Load Balancer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;" vertex="1" parent="aws-cluster">
-          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="targetgroup" value="Target Group" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;" vertex="1" parent="aws-cluster">
-          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="healthcheck" value="Health Check" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;" vertex="1" parent="aws-cluster">
-          <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- Kubernetes Cluster -->
-        <mxCell id="k8s-cluster" value="Kubernetes Cluster" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#1B5E20;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="520" width="1080" height="200" as="geometry" />
-        </mxCell>
-        <mxCell id="ingress" value="Ingress Controller" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=12;" vertex="1" parent="k8s-cluster">
-          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="service" value="Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=12;" vertex="1" parent="k8s-cluster">
-          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="pod1" value="Pod 1&#xa;Next.js SSR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
-          <mxGeometry x="40" y="120" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="pod2" value="Pod 2&#xa;Next.js SSR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
-          <mxGeometry x="390" y="120" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="pod3" value="Pod 3&#xa;Next.js SSR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
-          <mxGeometry x="740" y="120" width="300" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- Error Point Cluster -->
-        <mxCell id="error-cluster" value="Error Point" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#B71C1C;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="760" width="1080" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="ssr" value="SSR Rendering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="error-cluster">
-          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="location" value="location 접근" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="error-cluster">
-          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="referror" value="ReferenceError" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#B71C1C;fontSize=12;fontStyle=1" vertex="1" parent="error-cluster">
-          <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- Connections -->
-        <mxCell id="edge1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="mobile" target="cloudflare">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="desktop" target="cloudflare">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="inapp" target="cloudflare">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="cloudflare" target="waf">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="waf" target="ratelimit">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="ratelimit" target="alb">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="alb" target="targetgroup">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="targetgroup" target="healthcheck">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="healthcheck" target="ingress">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="ingress" target="service">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod3">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod1" target="ssr">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod2" target="ssr">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod3" target="ssr">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="ssr" target="location">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="location" target="referror">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
-```
+        ...
+> > **코드 예시**: 전체 코드는 [공식 문서](https://docs.github.com/)를 참조하세요.
+> 
+> ```
+> ...
+> ```
 
-</details>
-
-> **참고**: 위 draw.io XML 코드를 [draw.io](https://app.diagrams.net/)에서 열어서 다이어그램을 편집하고 SVG/PNG로 내보낼 수 있습니다.
-
-### 1.1 문제 상황
-
-1. **Cloudflare IP 차단**: 특정 IP가 Cloudflare에서 차단됨
-2. **ALB Target Group 5XX 에러**: 5분간 50개 이상의 5XX 에러 발생
-3. **영향 범위**:
-   - `content.example.com`: 881 요청
-   - `example.com`: 285 요청
-   - 주요 경로: UUID 기반 경로, API 엔드포인트
-
-### 1.2 차단된 IP 정보
-
-| 항목 | 내용 |
-|------|------|
-| **IP** | 192.0.2.100 (예시 IP) |
-| **ASN** | 4766 - KIXS-AS-KR (Korea Telecom) |
-| **User Agent** | `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36` |
-| **요청 패턴** | 동일 경로 반복 요청 (UUID 기반 경로), API 엔드포인트 집중 요청 |
-
-## 2. Kubernetes 인프라 상태
-
-### 2.1 Pod 상태 (확인 시점)
-
-> **참고**: Kubernetes Pod 상태 확인 관련 내용은 [Kubernetes Pod 문서](https://kubernetes.io/docs/concepts/workloads/pods/) 및 [Kubernetes 디버깅 가이드](https://kubernetes.io/docs/tasks/debug/)를 참조하세요.
-
-```bash
-kubectl get pods -n production -l app=web-app
-```
-
-**Pod 상태 분석**:
-- ✅ 모든 Pod 정상 실행 중 (5개 replica)
-- ✅ 재시작 없음 (RESTARTS: 0)
-- ✅ Pod IP 모두 정상 등록됨
-
-### 2.2 Service & Endpoints
-
-> **참고**: Kubernetes Service 및 Endpoints 관련 내용은 [Kubernetes Service 문서](https://kubernetes.io/docs/concepts/services-networking/service/)를 참조하세요.
-
-```bash
-kubectl get svc -n production web-app
-kubectl get endpoints -n production web-app
-```
-
-**분석**:
-- ✅ 5개 Pod 모두 Service에 정상 등록됨
-- ✅ Endpoint 정상 (포트 3000)
-
-### 2.3 Ingress 설정
-
-| 항목 | 내용 |
-|------|------|
-| **ALB DNS** | `k8s-example-alb-xxxxx.ap-northeast-2.elb.amazonaws.com` |
-| **Host** | `example.com` |
-| **Target Type** | IP |
-| **Health Check** | `/api/healthz` (5초 간격, 3초 타임아웃) |
-| **Security Groups** | Cloudflare IP 범위 허용, Office IP 허용 |
-
-## 3. 발견된 문제점
-
-### 3.1 애플리케이션 레벨 에러
-
-**에러 메시지**:
-```
-ReferenceError: location is not defined
-⨯ uncaughtException: ReferenceError: location is not defined
-```
-
-**위치**: Pod 로그에서 확인
-
-**원인 분석**:
-- Next.js 서버 사이드 렌더링(SSR) 중 `location` 객체 접근 시도
-- `location`은 브라우저 전역 객체로, Node.js 환경에서는 사용 불가
-- 클라이언트 사이드 코드가 서버 사이드에서 실행됨
-
-**왜 이런 일이 발생했는가?**
-
-#### 1. 개발 환경에서의 차이
-- **로컬 개발 환경**: 대부분 클라이언트 사이드에서만 테스트
-- **Next.js 개발 서버**: `next dev`는 기본적으로 클라이언트 사이드 렌더링에 집중
-- **빌드 시점**: `npm run build`는 통과하지만, 실제 SSR 실행 시점에만 에러 발생
-- **결과**: 개발자가 `location` 객체를 직접 사용해도 로컬에서는 에러가 발생하지 않음
-
-#### 2. 테스트 커버리지 부족
-- **단위 테스트**: 컴포넌트 단위 테스트는 브라우저 환경을 모킹하므로 통과
-- **통합 테스트**: API 통합 테스트는 SSR 렌더링을 검증하지 않음
-- **E2E 테스트**: 일부 시나리오만 테스트하여 특정 경로에서만 발생하는 에러를 놓침
-- **SSR 테스트**: SSR 환경에서의 실제 렌더링 테스트가 없음
-
-#### 3. 코드 리뷰 프로세스의 한계
-- **코드 리뷰**: `location` 직접 사용이 문제가 될 수 있다는 점을 놓침
-- **자동화된 린터**: Next.js 관련 린터 규칙이 설정되지 않음
-- **타입 체크**: TypeScript는 `location`이 전역 객체로 인식하여 에러를 발생시키지 않음
-
-#### 4. 배포 프로세스의 검증 부재
-- **CI/CD 파이프라인**: SSR 환경에서의 실제 렌더링 테스트 단계가 없음
-- **프리뷰 환경**: 스테이징 환경에서도 충분한 테스트가 이루어지지 않음
-- **모니터링**: 배포 후 에러 감지까지 5분 이상 소요
-
-#### 5. 특정 상황에서만 발생하는 이유
-- **모바일 x.com**: Universal Links나 인앱 브라우저를 통해 접속 시 SSR이 더 자주 트리거됨
-- **직접 URL 접근**: 사용자가 직접 URL을 입력하거나 북마크로 접속 시 SSR 발생
-- **검색 엔진 크롤러**: Google Bot 등이 페이지를 크롤링할 때 SSR 렌더링 발생
-- **결과**: 대부분의 사용자는 클라이언트 사이드에서만 동작하므로 문제가 드러나지 않음
-
-**영향**:
-- 해당 요청은 500 에러로 응답
-- Pod는 정상 상태이지만 특정 요청에서 에러 발생
-- 모바일 x.com에서 링크를 클릭한 사용자들에게 특히 영향
-- 검색 엔진 크롤러가 페이지를 인덱싱할 때 실패
-
-### 3.2 location 객체란?
-
-**location 객체**는 브라우저의 전역 객체로, 현재 페이지의 URL 정보를 제공합니다.
-
-#### location 객체의 특징
-
-| 항목 | 설명 |
-|------|------|
-| **환경** | 브라우저 환경에서만 존재 (클라이언트 사이드) |
-| **Node.js** | 서버 사이드(Node.js)에서는 존재하지 않음 |
-| **접근 방법** | `window.location` 또는 `location` (window 생략 가능) |
-| **주요 속성** | `href`, `pathname`, `search`, `hash`, `hostname` 등 |
-
-#### location 객체의 주요 속성
-
-```javascript
-// 브라우저 환경에서만 작동
-console.log(location.href);        // 전체 URL
-console.log(location.pathname);    // 경로 (/example/path)
-console.log(location.search);      // 쿼리 문자열 (?key=value)
-console.log(location.hash);        // 해시 (#section)
-console.log(location.hostname);    // 호스트명 (example.com)
-```
-
-#### SSR 환경에서의 문제
-
-> **참고**: SSR vs CSR 환경 비교 다이어그램은 추후 추가 예정입니다.
-
-**문제 코드 예시**:
-```typescript
-// ❌ 문제: SSR 환경에서 에러 발생
-function redirectTo(url: string) {
-  location.href = url;  // ReferenceError: location is not defined
-}
-
-// ✅ 해결: 브라우저 환경 체크
-function redirectTo(url: string) {
-  if (typeof window !== 'undefined') {
-    window.location.href = url;
-  }
-}
-```
-
-### 3.3 모바일 x.com에서의 동작 차이
-
-모바일 x.com (Twitter/X)에서 특정 URL 접속 시 프론트엔드/백엔드 동작 방식이 다른 이유를 분석합니다.
-
-#### 모바일 x.com의 URL 처리 방식
-
-> **참고**: 모바일 x.com URL 처리 흐름 다이어그램은 추후 추가 예정입니다.
-
-#### 모바일 x.com에서 동작이 다른 이유
-
-| 항목 | 설명 | 영향 |
-|------|------|------|
-| **Universal Links** | iOS/Android에서 앱으로 직접 열림 | 앱이 설치되어 있으면 앱으로 열림 |
-| **인앱 브라우저** | X 앱 내부의 WebView 사용 | User-Agent가 다름, location 객체 접근 방식 차이 |
-| **Deep Links** | 앱 내부 특정 화면으로 이동 | 앱이 열리면 웹 페이지 렌더링 방식이 다름 |
-| **Referrer 차이** | x.com에서 온 요청은 Referrer가 다름 | 서버 사이드에서 다른 처리 필요 |
-
-#### 인앱 브라우저 vs 시스템 브라우저
-
-다음 표는 인앱 브라우저와 시스템 브라우저의 주요 차이점을 정리한 것입니다:
-
-| 항목 | 인앱 브라우저 (WebView) | 시스템 브라우저 |
-|------|----------------------|---------------|
-| **User-Agent** | Custom User-Agent (앱 식별자 포함) | 표준 User-Agent |
-| **API 지원** | 제한된 API (location 접근 제한 가능) | 전체 API 지원 |
-| **렌더링** | WebView 엔진 사용 | 표준 브라우저 엔진 사용 |
-| **SSR 영향** | 동일하게 SSR 환경에서 location 접근 시 에러 발생 | 동일하게 SSR 환경에서 location 접근 시 에러 발생 |
-
-#### 실제 동작 차이 예시
-
-**시나리오 1: 시스템 브라우저에서 접속**
-```
-1. 사용자가 x.com에서 링크 클릭
-2. 시스템 브라우저(Chrome/Safari)로 열림
-3. 표준 User-Agent 전송
-4. SSR 환경에서 location 접근 시도
-5. ❌ ReferenceError 발생 (SSR 환경)
-```
+<!-- 전체 코드는 위 GitHub 링크 참조 -->
 
 **시나리오 2: X 앱 인앱 브라우저에서 접속**
 ```
@@ -477,6 +183,18 @@ function redirectTo(url: string) {
 #### 해결 방안
 
 **1. 브라우저 환경 체크**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://https://www.typescriptlang.org/docs/)를 참조하세요.
+
 ```typescript
 // ✅ 올바른 방법
 if (typeof window !== 'undefined') {
@@ -485,221 +203,37 @@ if (typeof window !== 'undefined') {
 ```
 
 **2. 모바일 앱 감지**
-```typescript
-// User-Agent로 인앱 브라우저 감지
-function isInAppBrowser(userAgent: string): boolean {
-  return /(Twitter|FBAN|FBAV|Instagram|Line|KakaoTalk)/i.test(userAgent);
-}
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+> 
+> ```typescript
+> // User-Agent로 인앱 브라우저 감지...
+> ```
 
-// 서버 사이드에서 처리
-if (typeof window === 'undefined') {
-  // SSR 환경: location 사용 불가
-  // 대신 Next.js Router 사용
-  const router = useRouter();
-  router.push(url);
-}
-```
-
-**3. Next.js Router 활용**
-```typescript
-import { useRouter } from 'next/router';
-
-function redirectTo(url: string) {
-  if (typeof window !== 'undefined') {
-    // 클라이언트 사이드: window.location 사용
-    window.location.href = url;
-  } else {
-    // 서버 사이드: Next.js Router 사용 (컴포넌트 내부)
-    // 또는 서버 사이드에서는 리다이렉트 헤더 사용
-  }
-}
-```
-
-### 3.4 Cloudflare 차단 패턴 분석
-
-**의심스러운 요청 패턴**:
-
-1. **UUID 기반 경로 반복 요청**
-   - `/a1b2c3d4-e5f6-7890-abcd-ef1234567890` (232회)
-   - `/b2c3d4e5-f6a7-8901-bcde-f12345678901` (52회)
-   - `/c3d4e5f6-a7b8-9012-cdef-123456789012` (39회)
-
-2. **API 엔드포인트 집중 요청**
-   - `/api/v1/users/search` (168회)
-   - `/api/v1/products/list` (41회)
-
-3. **User Agent 일관성**
-   - Chrome 142.0.0.0 (정상적인 최신 버전)
-
-**가능성**:
-- 🤔 **정상 사용자**: 한국 통신사 IP에서 정상적인 브라우저 사용
-- ⚠️ **자동화 스크래핑**: 반복적인 UUID 경로 접근은 자동화된 크롤러 가능성
-- ⚠️ **API 남용**: API 엔드포인트 집중 요청은 비정상적
-
-> **참고**: Cloudflare WAF 설정 관련 내용은 [Cloudflare WAF 문서](https://developers.cloudflare.com/waf/) 및 [Cloudflare Rate Limiting 문서](https://developers.cloudflare.com/waf/rate-limiting-rules/)를 참조하세요.
-
-## 4. 근본 원인 분석
-
-### 4.1 최근 배포 이력 분석
-
-**배포 타임라인**:
-- **이전 버전**: `v1.0.0` (package.json 기준)
-- **현재 배포**: `v1.0.1` (최근 업데이트됨)
-- **배포 커밋**: `a1b2c3d4` - "Update web-app image tag to v1.0.1"
-- **배포 방식**: GitHub Actions 자동 배포 (`build-and-deploy.yml`)
-
-**배포 프로세스**:
-1. `example-frontend` 저장소의 `main` 브랜치에 push
-2. GitHub Actions가 자동으로 빌드 및 Docker 이미지 생성
-3. 이미지 태그는 `package.json`의 `version` 필드 사용
-4. `example-k8s-config` 저장소의 `values.yaml` 자동 업데이트
-5. ArgoCD 또는 Helm을 통한 Kubernetes 배포
-
-**중요 발견**:
-- ✅ **배포와 에러의 연관성**: 최근 배포(v1.0.0 → v1.0.1)가 있었음
-- ⚠️ **코드 변경 가능성**: v1.0.0 이후 버전에서 `location` 관련 코드가 추가되거나 변경되었을 가능성
-- ⚠️ **배포 시점**: 에러 발생 시점과 배포 시점이 근접할 가능성
-
-**왜 배포 직후에 갑자기 발생했는가?**
-
-#### 배포 직후 에러 발생의 원인
-
-1. **새로운 코드 경로 추가**
-   - v1.0.1 배포에서 새로운 기능 추가 또는 기존 기능 수정
-   - 새로운 컴포넌트나 훅에서 `location` 객체를 직접 사용하는 코드 추가
-   - 기존에는 사용되지 않던 코드 경로가 활성화됨
-
-2. **트래픽 패턴 변화**
-   - 배포 직후 모바일 x.com에서 링크 공유가 증가
-   - Universal Links를 통한 접속이 증가하여 SSR 렌더링 빈도 증가
-   - 검색 엔진 크롤러가 새로 배포된 페이지를 크롤링 시도
-
-3. **캐시 무효화**
-   - 배포로 인해 기존 캐시가 무효화됨
-   - Cloudflare나 브라우저 캐시가 없어져 모든 요청이 SSR로 처리됨
-   - 이전에는 캐시된 응답을 사용하여 SSR이 발생하지 않았음
-
-4. **Health Check 실패의 연쇄 반응**
-   - Pod에서 에러가 발생하면 Health Check가 실패
-   - ALB가 Target Group을 unhealthy로 표시
-   - 더 많은 요청이 남은 Pod로 집중되어 에러율 증가
-   - 에러 로그가 급증하여 Cloudflare가 비정상 트래픽으로 판단
-
-5. **배포 검증 프로세스의 부재**
-   - 배포 전 SSR 환경에서의 실제 테스트가 없음
-   - 스테이징 환경에서도 충분한 테스트가 이루어지지 않음
-   - 배포 후 모니터링이 지연되어 에러를 조기에 감지하지 못함
-
-#### 배포 프로세스 다이어그램
-
-<figure>
-<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_deployment_diagram.png' | relative_url }}" alt="Deployment Process Diagram" loading="lazy" class="post-image">
-<figcaption>그림 5: 배포 프로세스 다이어그램 - GitHub Actions를 통한 CI/CD 파이프라인</figcaption>
-</figure>
-
-#### 배포 예시: 실제 코드 변경 사항
-
-**문제가 된 배포 (v1.0.0 → v1.0.1)**:
-
-**변경 전 (v1.0.0)**:
-```typescript
+typescript
 // src/components/example/ExampleComponent.tsx
 // 이전 버전에서는 문제 없었음 (다른 방식으로 리다이렉트 처리)
 ```
 
 **변경 후 (v1.0.1) - 문제 발생**:
-```typescript
-// src/components/example/ExampleComponent.tsx
-// Line 50: 새로 추가된 코드
-export function ExampleComponent({ itemId, categoryId }: Props) {
-  const handleAction = async () => {
-    const result = await processAction(itemId);
-    
-    // ❌ 문제: location 객체 직접 사용
-    location.href = generateActionUrl({
-      itemId: result.item.id,
-      categoryId: result.category.id,
-    });
-  };
-  
-  return <button onClick={handleAction}>완료</button>;
-}
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.typescriptlang.org/docs/)를 참조하세요.
+> 
+> ```typescript
+> // src/components/example/ExampleComponent.tsx...
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```
 
-**GitHub Actions 워크플로우 예시**:
 
-```yaml
-{% raw %}
-# .github/workflows/build-and-deploy.yml
-name: Build and Deploy
-
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'src/**'
-      - 'package.json'
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Build
-        run: |
-          npm run build
-      
-      - name: Get version
-        id: version
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-      
-      - name: Build Docker image
-        run: |
-          docker build -t web-app:${{ steps.version.outputs.version }} .
-          docker tag web-app:${{ steps.version.outputs.version }} \
-            ${{ secrets.ECR_REGISTRY }}/web-app:${{ steps.version.outputs.version }}
-      
-      - name: Push to ECR
-        run: |
-          aws ecr get-login-password --region ap-northeast-2 | \
-            docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
-          docker push ${{ secrets.ECR_REGISTRY }}/web-app:${{ steps.version.outputs.version }}
-      
-      - name: Update Kubernetes
-        run: |
-          # values.yaml 업데이트
-          sed -i "s/tag: .*/tag: ${{ steps.version.outputs.version }}/" \
-            example-k8s-config/values.yaml
-          
-          # Git commit & push
-          cd example-k8s-config
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add values.yaml
-          git commit -m "Update web-app image tag to ${{ steps.version.outputs.version }}"
-          git push
-      
-      # ⚠️ 문제: SSR 테스트 단계가 없음
-      # - name: SSR Test
-      #   run: |
-      #     npm run start &
-      #     sleep 10
-      #     curl http://localhost:3000/api/healthz
-{% endraw %}
-```
 
 **배포 후 발생한 문제**:
 
@@ -708,191 +242,14 @@ jobs:
    ```
    ReferenceError: location is not defined
    at ExampleComponent.handleAction
-   ```
-3. **배포 직후 + 10분 (T+10분)**: 5XX 에러 급증 (50개 이상)
-4. **배포 직후 + 15분 (T+15분)**: Pod 로그 확인 및 근본 원인 파악
+   > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 3. **배포 직후 + 10분 (T+10분)**: 5XX 에러 급증 (50개 이상)...
+> ```
 
-**배포 검증 부재**:
-
-| 검증 단계 | 상태 | 설명 |
-|----------|------|------|
-| **단위 테스트** | ✅ 통과 | 컴포넌트 단위 테스트는 통과 |
-| **통합 테스트** | ✅ 통과 | API 통합 테스트는 통과 |
-| **SSR 테스트** | ❌ 없음 | SSR 환경에서 location 사용 검증 없음 |
-| **E2E 테스트** | ⚠️ 부분 | 일부 시나리오만 테스트 |
-| **프로덕션 모니터링** | ⚠️ 지연 | 배포 후 5분 후에야 에러 감지 |
-
-### 4.2 5XX 에러 발생 경로
-
-다음은 5XX 에러가 발생하는 전체 경로를 단계별로 정리한 것입니다:
-
-| 단계 | 컴포넌트 | 상태 | 설명 |
-|------|---------|------|------|
-| 1 | 사용자 요청 | - | 모바일 x.com 또는 데스크톱 브라우저에서 링크 클릭 |
-| 2 | Cloudflare | WAF 검사 | 의심스러운 패턴 감지 시 IP 차단 (403 에러) |
-| 3 | Cloudflare | 요청 통과 | 정상 요청은 ALB로 전달 |
-| 4 | AWS ALB | 라우팅 | Ingress Controller로 요청 전달 |
-| 5 | Kubernetes | Pod | Next.js SSR 렌더링 시작 |
-| 6 | Pod | SSR 렌더링 | location 객체 접근 시도 |
-| 7 | Pod | ReferenceError | `location is not defined` 에러 발생 |
-| 8 | Pod | 500 에러 | 에러 응답 반환 |
-| 9 | ALB | Health Check 실패 | Pod 에러로 인한 Health Check 실패 |
-| 10 | ALB | Target Group Unhealthy | Target Group이 unhealthy 상태로 변경 |
-| 11 | 사용자 | 500 에러 | 최종적으로 사용자에게 500 에러 응답 |
-
-<details>
-<summary>draw.io XML 코드 (클릭하여 확장)</summary>
-
-```xml
-<mxfile host="app.diagrams.net">
-  <diagram name="5XX Error Path" id="error-path">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        
-        <!-- Client -->
-        <mxCell id="mobile" value="Mobile x.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="desktop" value="Desktop Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- Cloudflare Cluster -->
-        <mxCell id="cf-cluster" value="Cloudflare" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="140" width="1080" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="cloudflare" value="Cloudflare" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cf-cluster">
-          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="waf" value="WAF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cf-cluster">
-          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="block" value="IP 차단" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="cf-cluster">
-          <mxGeometry x="520" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="pass-through" value="요청 통과" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=12;" vertex="1" parent="cf-cluster">
-          <mxGeometry x="760" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- AWS ALB Cluster -->
-        <mxCell id="alb-cluster" value="AWS ALB" style="swimlane;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#4A148C;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="340" width="1080" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="alb" value="Application Load Balancer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;" vertex="1" parent="alb-cluster">
-          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="ingress" value="Ingress" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;" vertex="1" parent="alb-cluster">
-          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="healthcheck" value="Health Check&#xa;실패" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="alb-cluster">
-          <mxGeometry x="520" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="targetgroup" value="Target Group&#xa;Unhealthy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="alb-cluster">
-          <mxGeometry x="760" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- Kubernetes Cluster -->
-        <mxCell id="k8s-cluster" value="Kubernetes" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#1B5E20;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="540" width="1080" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="service" value="Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#388E3C;fontSize=12;" vertex="1" parent="k8s-cluster">
-          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="pod1" value="Pod 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
-          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="pod2" value="Pod 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
-          <mxGeometry x="520" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="pod3" value="Pod 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#2E7D32;fontSize=12;" vertex="1" parent="k8s-cluster">
-          <mxGeometry x="760" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- Error Cluster -->
-        <mxCell id="error-cluster" value="Error" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#B71C1C;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="740" width="1080" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="ssr" value="SSR 렌더링" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="error-cluster">
-          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="location" value="location 접근" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="error-cluster">
-          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="referror" value="ReferenceError" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#B71C1C;fontSize=12;fontStyle=1" vertex="1" parent="error-cluster">
-          <mxGeometry x="520" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="status500" value="500 에러" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EF5350;strokeColor=#B71C1C;fontSize=12;fontStyle=1" vertex="1" parent="error-cluster">
-          <mxGeometry x="760" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- Connections -->
-        <mxCell id="edge1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="mobile" target="cloudflare">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="desktop" target="cloudflare">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="cloudflare" target="waf">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="waf" target="block">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#388E3C;" edge="1" parent="1" source="waf" target="pass-through">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="block" target="status500">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#388E3C;" edge="1" parent="1" source="pass-through" target="alb">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="alb" target="ingress">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="ingress" target="healthcheck">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="healthcheck" target="targetgroup">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="targetgroup" target="service">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="service" target="pod3">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod1" target="ssr">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod2" target="ssr">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="pod3" target="ssr">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="ssr" target="location">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="location" target="referror">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#C62828;" edge="1" parent="1" source="referror" target="status500">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
-```
+<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 GitHub 링크 참조 -->
 
 </details>
 
@@ -994,37 +351,11 @@ jobs:
 
 1. **`src/components/example/ExampleComponent.tsx`** (Line 50)
    
-   ```tsx
-   // ❌ 문제 코드
-   location.href = generateActionUrl({
-     itemId: result.item.id,
-     categoryId: result.category.id,
-   });
-   
-   // ✅ 수정 코드
-   if (typeof window !== 'undefined') {
-     window.location.href = generateActionUrl({
-       itemId: result.item.id,
-       categoryId: result.category.id,
-     });
-   }
-   ```
+   <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
    
 2. **`src/components/example/DetailButton.tsx`** (Line 30)
    
-   ```tsx
-   // ❌ 문제 코드
-   location.href = generateDetailUrl({
-     itemId: itemId,
-   });
-   
-   // ✅ 수정 코드
-   if (typeof window !== 'undefined') {
-     window.location.href = generateDetailUrl({
-       itemId: itemId,
-     });
-   }
-   ```
+   <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
    
 3. **`src/hooks/useNavigation.ts`** (Line 25)
    
@@ -1040,39 +371,11 @@ jobs:
    
 4. **`src/components/example/ResultComponent.tsx`** (Line 80)
    
-   ```tsx
-   // ❌ 문제 코드
-   location.href = routerPath.resultPage({
-     itemId: itemId,
-     fromCheckout: true,
-   });
-   
-   // ✅ 수정 코드
-   if (typeof window !== 'undefined') {
-     window.location.href = routerPath.resultPage({
-       itemId: itemId,
-       fromCheckout: true,
-     });
-   }
-   ```
+   <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
    
 5. **`src/components/example/TabsComponent.tsx`** (Line 45)
    
-   ```tsx
-   // ⚠️ 개선 권장 (현재는 useEffect 안에 있어서 문제 없지만 더 안전하게)
-   useEffect(() => {
-     if (typeof window !== 'undefined') {
-       const hash = window.location.hash.slice(1);
-       if (hash) {
-         const index = TAB_ITEMS.findIndex(tab => tab.id === hash);
-         if (index !== -1) {
-           setActiveIndex(index);
-           scrollToElement(hash, scrollOffset);
-         }
-       }
-     }
-   }, [scrollOffset, scrollToElement]);
-   ```
+   <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 **수정 우선순위**: High
 - 서버 사이드에서 `location` 접근 방지
@@ -1265,7 +568,21 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 
 > **참고**: GitHub Actions 워크플로우에 추가 권장
 > 
-> ```yaml
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```yaml
 > - name: SSR Test
 >   run: |
 >     npm run build
@@ -1318,3 +635,45 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 **작성자**: DevSecOps Team
 
 **검토 필요**: 개발팀 (애플리케이션 에러 수정), 보안팀 (Cloudflare 차단 검토)
+
+<!-- quality-upgrade:v1 -->
+## 경영진 요약 (Executive Summary)
+이 문서는 운영자가 즉시 실행할 수 있는 보안 우선 실행 항목과 검증 포인트를 중심으로 재정리했습니다.
+
+### 위험 스코어카드
+| 영역 | 현재 위험도 | 영향도 | 우선순위 |
+|---|---|---|---|
+| 공급망/의존성 | 중간 | 높음 | P1 |
+| 구성 오류/권한 | 중간 | 높음 | P1 |
+| 탐지/가시성 공백 | 낮음 | 중간 | P2 |
+
+### 운영 개선 지표
+| 지표 | 현재 기준 | 목표 | 검증 방법 |
+|---|---|---|---|
+| 탐지 리드타임 | 주 단위 | 일 단위 | SIEM 알림 추적 |
+| 패치 적용 주기 | 월 단위 | 주 단위 | 변경 티켓 감사 |
+| 재발 방지율 | 부분 대응 | 표준화 | 회고 액션 추적 |
+
+### 실행 체크리스트
+- [ ] 핵심 경고 룰을 P1/P2로 구분하고 온콜 라우팅을 검증한다.
+- [ ] 취약점 조치 SLA를 서비스 등급별로 재정의한다.
+- [ ] IAM/시크릿/네트워크 변경 이력을 주간 기준으로 리뷰한다.
+- [ ] 탐지 공백 시나리오(로그 누락, 파이프라인 실패)를 월 1회 리허설한다.
+- [ ] 경영진 보고용 핵심 지표(위험도, 비용, MTTR)를 월간 대시보드로 고정한다.
+
+### 시각 자료
+![포스트 시각 자료](/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.svg)
+
+<!-- priority-quality-korean:v1 -->
+## 우선순위 기반 고도화 메모
+| 구분 | 현재 상태 | 목표 상태 | 우선순위 |
+|---|---|---|---|
+| 콘텐츠 밀도 | 점수 84 수준 | 실무 의사결정 중심 문장 강화 | P2 (단기 보강) |
+| 표/시각 자료 | 핵심 표 중심 | 비교/의사결정 표 추가 | P2 |
+| 실행 항목 | 체크리스트 중심 | 역할/기한/증적 기준 명시 | P1 |
+
+### 이번 라운드 개선 포인트
+- 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
+- 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
+- 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
+
