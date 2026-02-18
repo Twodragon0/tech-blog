@@ -271,7 +271,7 @@ toc: true
 
 #### Integer Overflow 방어
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.soliditylang.org/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.soliditylang.org/)를 참조하세요.
 > 
 > ```solidity
 > // ✅ Solidity 0.8.0+ 내장 오버플로우 체크...
@@ -298,15 +298,17 @@ toc: true
 - 관리자 권한 분리 및 제한
 
 **예시:**
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.soliditylang.org/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.soliditylang.org/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.soliditylang.org/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.soliditylang.org/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.soliditylang.org/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.soliditylang.org/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.soliditylang.org/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.soliditylang.org/)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://docs.soliditylang.org/)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.soliditylang.org/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://docs.soliditylang.org/)를 참조하세요.
 
 ```solidity
 // 역할 기반 접근 제어 (RBAC)
@@ -344,14 +346,14 @@ contract SecureContract is AccessControl {
 - 시간 잠금(Time Lock) 메커니즘
 
 **예시:**
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.soliditylang.org/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.soliditylang.org/)를 참조하세요.
 > 
 > ```solidity
 > // 긴급 중지 (Emergency Pause) 패턴...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
-<!-- 전체 코드는 위 GitHub 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
+<!-- 전체 코드는 위 링크 참조 -->
 
 ### 4.3 보안 체크리스트
 
