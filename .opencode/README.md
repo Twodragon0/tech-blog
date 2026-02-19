@@ -20,6 +20,8 @@ opencode sisyphus
 /collect-news
 /validate-posts
 /generate-images
+/ultrawork-loop
+/sisyphus-loop
 ```
 
 ## Agents
@@ -124,6 +126,16 @@ Generate missing post images.
 - Local scripts preferred
 
 **Completion Promise**: `IMAGES_GENERATED`
+
+### `/ultrawork-loop`
+Continuous ops loop with OpenClaw + Slack integration.
+
+**Completion Promise**: `ULTRAWORK_LOOP_COMPLETE`
+
+### `/sisyphus-loop`
+Sisyphus loop that keeps iterating until no P0/P1 items remain.
+
+**Completion Promise**: `SISYPHUS_LOOP_COMPLETE`
 
 ### `/security-audit`
 Security audit and compliance check.

@@ -97,6 +97,18 @@
       "agent": "primary",
       "model": "anthropic/claude-opus-4-5"
     },
+    "ultrawork-loop": {
+      "description": "Ultrawork Loop: continuous ops checks and prioritization with OpenClaw + Slack",
+      "template": "Follow the workflow in .opencode/commands/ultrawork-loop.md. Run scripts/ultrawork_loop.py to generate the priority summary, validate logs, and post to Slack via OpenClaw gateway if configured. Keep the loop focused on priorities and actionable fixes. Output <promise>ULTRAWORK_LOOP_COMPLETE</promise> when complete.",
+      "agent": "primary",
+      "model": "anthropic/claude-opus-4-5"
+    },
+    "sisyphus-loop": {
+      "description": "Sisyphus Loop: orchestrate continuous improvement cycles using Ultrawork Loop",
+      "template": "Follow the workflow in .opencode/commands/ultrawork-loop.md. Treat this as a Sispyhus loop session and keep iterating on highest priority items until no P0/P1 items remain. Output <promise>SISYPHUS_LOOP_COMPLETE</promise> when complete.",
+      "agent": "primary",
+      "model": "anthropic/claude-opus-4-5"
+    },
     "collect-news": {
       "description": "Collect tech/security news from RSS feeds (Cost-optimized with caching)",
       "template": "CRITICAL COST OPTIMIZATION: 1) Check _data/collected_news.json cache first (use if < 7 days old), 2) Use python3 scripts/collect_tech_news.py (local script, no API cost), 3) Rate limit: max 15 requests/minute, 4) Batch all feeds in single run, 5) Never use paid APIs for this task. Output <promise>NEWS_COLLECTED</promise> when complete.",
