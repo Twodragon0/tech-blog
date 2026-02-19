@@ -11,6 +11,7 @@
 ├── buttondown-notify.yml   # 이메일 뉴스레터
 ├── daily-news.yml          # 일일 뉴스 수집
 ├── ops-priority-loop.yml   # Ops 우선순위 점검
+├── ultrawork-loop.yml      # Ultrawork 지속 루프
 ├── ai-ops-on-demand.yml    # AI 온디맨드 운영 점검
 ├── generate-images.yml     # AI 이미지 생성
 ├── sentry-release.yml      # Sentry 릴리스 관리
@@ -149,7 +150,28 @@ env:
 
 ---
 
-## 5. AI Ops On Demand (ai-ops-on-demand.yml)
+## 5. Ultrawork Loop (ultrawork-loop.yml)
+
+### 개요
+| 항목 | 값 |
+|------|-----|
+| **목적** | 지속 점검 + 우선순위 산정 + Slack 알림 |
+| **트리거** | schedule, workflow_dispatch |
+| **게이트** | `ULTRAWORK_LOOP_SCHEDULE=true` |
+| **타임아웃** | 20분 |
+
+### 실행 내용
+- `scripts/ultrawork_loop.py` 실행
+- 기본 체크: `check_posts.py`, `fix_links_unified.py --check`, `verify_images_unified.py --missing`
+- Vercel 체크는 기본 비활성 (`RUN_VERCEL_CHECKS=false`)
+
+### Slack 연동
+- OpenClaw Gateway 사용
+- Secrets: `OPENCLAW_GATEWAY_URL`, `OPENCLAW_GATEWAY_TOKEN`, `SLACK_CHANNEL_ID_OPS`
+
+---
+
+## 6. AI Ops On Demand (ai-ops-on-demand.yml)
 
 ### 개요
 | 항목 | 값 |
@@ -179,7 +201,7 @@ SITE_URL: "https://tech.2twodragon.com"
 
 ---
 
-## 4. Daily News (daily-news.yml)
+## 7. Daily News (daily-news.yml)
 
 ### 개요
 | 항목 | 값 |
@@ -221,7 +243,7 @@ workflow_dispatch:
 
 ---
 
-## 5. Generate Images (generate-images.yml)
+## 8. Generate Images (generate-images.yml)
 
 ### 개요
 | 항목 | 값 |
@@ -256,7 +278,7 @@ workflow_dispatch:
 
 ---
 
-## 6. Sentry Release (sentry-release.yml)
+## 9. Sentry Release (sentry-release.yml)
 
 ### 개요
 | 항목 | 값 |
@@ -279,7 +301,7 @@ SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
 ---
 
-## 7. AI Video Gen (ai-video-gen.yml)
+## 10. AI Video Gen (ai-video-gen.yml)
 
 ### 개요
 | 항목 | 값 |

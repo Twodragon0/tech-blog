@@ -98,12 +98,14 @@ docs/pipeline/
 | **Buttondown** | buttondown-notify.yml | push (_posts) | 이메일 뉴스레터 |
 | **Daily News** | daily-news.yml | schedule (daily) | 뉴스 수집 및 초안 생성 |
 | **Ops Priority Loop** | ops-priority-loop.yml | schedule, workflow_dispatch | 우선순위 점검 및 Slack 알림 |
+| **Ultrawork Loop** | ultrawork-loop.yml | schedule, workflow_dispatch | 지속 점검 + 우선순위 산정 |
 | **AI Ops On Demand** | ai-ops-on-demand.yml | repository_dispatch, workflow_dispatch | 온디맨드 운영 점검 |
 | **BlogWatcher Publish** | ai-blogwatcher.yml | repository_dispatch, schedule* | BlogWatcher 기반 자동 발행 |
 | **Image Gen** | generate-images.yml | workflow_dispatch | AI 이미지 생성 |
 
 *schedule triggers can be gated by repo variables:
 - `OPS_PRIORITY_LOOP_SCHEDULE=true` (Ops Priority)
+- `ULTRAWORK_LOOP_SCHEDULE=true` (Ultrawork Loop)
 - `AI_BLOGWATCHER_SCHEDULE=true` (BlogWatcher)
 - `DAILY_NEWS_SCHEDULE=false` (Daily News)
 - `SLACK_CATEGORY_DIGEST_SCHEDULE=false` (Slack Digest)
