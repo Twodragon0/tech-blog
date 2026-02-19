@@ -85,6 +85,8 @@ jobs:
       BLOGWATCHER_NEWS_URL: ${{ github.event.client_payload.collected_news_url || '' }}
       BLOGWATCHER_NEWS_JSON: ${{ github.event.client_payload.collected_news_json || '' }}
       BLOGWATCHER_PAYLOAD: ${{ toJson(github.event.client_payload) }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
 
     steps:
       - name: Checkout repository
@@ -141,25 +143,23 @@ jobs:
         run: |
           if [ -f "_data/collected_news.json" ]; then
             TOTAL=$(python3 -c "import json; d=json.load(open('_data/collected_news.json')); print(d.get('total_items', 0))")
-            echo "news_count=$TOTAL" >> $GITHUB_OUTPUT
+            echo "news_count=$TOTAL" >> "$GITHUB_OUTPUT"
             echo "Collected $TOTAL news items"
 
             if [ "$TOTAL" -ge 5 ]; then
-              echo "has_enough_news=true" >> $GITHUB_OUTPUT
+              echo "has_enough_news=true" >> "$GITHUB_OUTPUT"
             else
-              echo "has_enough_news=false" >> $GITHUB_OUTPUT
+              echo "has_enough_news=false" >> "$GITHUB_OUTPUT"
               echo "::warning::Not enough news to publish (minimum: 5, got: $TOTAL)"
             fi
           else
-            echo "news_count=0" >> $GITHUB_OUTPUT
-            echo "has_enough_news=false" >> $GITHUB_OUTPUT
+            echo "news_count=0" >> "$GITHUB_OUTPUT"
+            echo "has_enough_news=false" >> "$GITHUB_OUTPUT"
             echo "::error::No news collected - _data/collected_news.json not found"
           fi
 
       - name: Install Gemini CLI (optional)
-        if: env.USE_AI == 'gemini' && secrets.GEMINI_API_KEY != ''
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        if: env.USE_AI == 'gemini' && env.GEMINI_API_KEY != ''
         run: |
           pip install --upgrade google-generativeai
 
@@ -212,21 +212,21 @@ jobs:
           fi
 
           echo "Running: $CMD"
-          $CMD
+          "$CMD"
 
       - name: Check for new post
         id: check_post
         if: steps.check_news.outputs.has_enough_news == 'true'
         run: |
           TODAY=$(date +%Y-%m-%d)
-          POST_FILE=$(ls _posts/${TODAY}-*Digest*.md _posts/${TODAY}-*Weekly*.md 2>/dev/null | sort -u | head -1)
+          POST_FILE=$(find _posts -maxdepth 1 -type f \( -name "${TODAY}-*Digest*.md" -o -name "${TODAY}-*Weekly*.md" \) -print | sort -u | head -1)
 
           if [ -n "$POST_FILE" ] && [ -f "$POST_FILE" ]; then
-            echo "post_created=true" >> $GITHUB_OUTPUT
-            echo "post_file=$POST_FILE" >> $GITHUB_OUTPUT
+            echo "post_created=true" >> "$GITHUB_OUTPUT"
+            echo "post_file=$POST_FILE" >> "$GITHUB_OUTPUT"
             echo "Post created: $POST_FILE"
           else
-            echo "post_created=false" >> $GITHUB_OUTPUT
+            echo "post_created=false" >> "$GITHUB_OUTPUT"
             echo "No post created for today"
           fi
 
@@ -244,10 +244,10 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           TODAY=$(date +%Y-%m-%d)
-          git add _posts/${TODAY}*.md 2>/dev/null || true
-          git add assets/images/${TODAY}*.svg 2>/dev/null || true
-          git add _data/collected_news.json 2>/dev/null || true
-          git add data/collected_news.json 2>/dev/null || true
+          git add "_posts/${TODAY}"*.md 2>/dev/null || true
+          git add "assets/images/${TODAY}"*.svg 2>/dev/null || true
+          git add "_data/collected_news.json" 2>/dev/null || true
+          git add "data/collected_news.json" 2>/dev/null || true
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
@@ -272,12 +272,15 @@ jobs:
       - name: Summary
         if: always()
         run: |
-          echo "## AI BlogWatcher Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- Mode: ${MODE}" >> $GITHUB_STEP_SUMMARY
-          echo "- Hours lookback: ${HOURS}" >> $GITHUB_STEP_SUMMARY
-          echo "- Max news: ${MAX_NEWS}" >> $GITHUB_STEP_SUMMARY
-          echo "- Dry run: ${DRY_RUN}" >> $GITHUB_STEP_SUMMARY
-          echo "- Use AI: ${USE_AI}" >> $GITHUB_STEP_SUMMARY
-          echo "- News count: ${{ steps.check_news.outputs.news_count }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Post created: ${{ steps.check_post.outputs.post_created }}" >> $GITHUB_STEP_SUMMARY
+          summary_file="$GITHUB_STEP_SUMMARY"
+          {
+            echo "## AI BlogWatcher Summary"
+            echo ""
+            echo "- Mode: ${MODE}"
+            echo "- Hours lookback: ${HOURS}"
+            echo "- Max news: ${MAX_NEWS}"
+            echo "- Dry run: ${DRY_RUN}"
+            echo "- Use AI: ${USE_AI}"
+            echo "- News count: ${{ steps.check_news.outputs.news_count }}"
+            echo "- Post created: ${{ steps.check_post.outputs.post_created }}"
+          } >> "$summary_file"
