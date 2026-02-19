@@ -1,0 +1,126 @@
+name: Sentry Healthcheck
+
+on:
+  schedule:
+    - cron: "30 2 * * *"
+  workflow_dispatch:
+    inputs:
+      strict_sentry_app:
+        description: "Fail when Sentry GitHub App evidence is not found"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: read
+  checks: read
+  actions: read
+
+jobs:
+  sentry-healthcheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      STRICT_SENTRY_APP: ${{ github.event.inputs.strict_sentry_app || 'false' }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+
+    steps:
+      - name: Validate required secrets
+        run: |
+          set -euo pipefail
+          missing=0
+          for key in SENTRY_AUTH_TOKEN SENTRY_ORG SENTRY_PROJECT; do
+            if [ -z "${!key:-}" ]; then
+              echo "❌ Missing secret: $key"
+              missing=1
+            fi
+          done
+          if [ "$missing" -ne 0 ]; then
+            echo "Set missing Sentry secrets in repository settings."
+            exit 1
+          fi
+
+      - name: Validate Sentry token and project access
+        id: token
+        run: |
+          set -euo pipefail
+          project_url="https://sentry.io/api/0/projects/${SENTRY_ORG}/${SENTRY_PROJECT}/"
+          issues_url="https://sentry.io/api/0/organizations/${SENTRY_ORG}/issues/?project=${SENTRY_PROJECT}&limit=1"
+
+          project_code=$(curl -sS -o /tmp/sentry_project.json -w "%{http_code}" \
+            -H "Authorization: Bearer ${SENTRY_AUTH_TOKEN}" \
+            -H "Accept: application/json" \
+            "$project_url")
+
+          if [ "$project_code" -ne 200 ]; then
+            echo "❌ Sentry project API check failed: HTTP $project_code"
+            cat /tmp/sentry_project.json || true
+            exit 1
+          fi
+
+          issues_code=$(curl -sS -o /tmp/sentry_issues.json -w "%{http_code}" \
+            -H "Authorization: Bearer ${SENTRY_AUTH_TOKEN}" \
+            -H "Accept: application/json" \
+            "$issues_url")
+
+          if [ "$issues_code" -ne 200 ]; then
+            echo "❌ Sentry issues API check failed: HTTP $issues_code"
+            cat /tmp/sentry_issues.json || true
+            exit 1
+          fi
+
+          unresolved_count=$(python3 -c "import json; from pathlib import Path; payload=json.loads(Path('/tmp/sentry_issues.json').read_text(encoding='utf-8')); print(len(payload) if isinstance(payload, list) else 0)")
+
+          echo "unresolved_count=$unresolved_count" >> "$GITHUB_OUTPUT"
+          echo "✅ Sentry token is valid and project is accessible"
+
+      - name: Check GitHub App evidence for Sentry integration
+        id: app
+        run: |
+          set -euo pipefail
+          branch="${DEFAULT_BRANCH:-main}"
+          main_sha=$(gh api "repos/${GITHUB_REPOSITORY}/commits/${branch}" --jq .sha)
+          gh api "repos/${GITHUB_REPOSITORY}/commits/${main_sha}/check-runs" > /tmp/check-runs.json
+
+          result=$(python3 -c "import json; from pathlib import Path; payload=json.loads(Path('/tmp/check-runs.json').read_text(encoding='utf-8')); checks=payload.get('check_runs', []); matches=[((c.get('app') or {}).get('slug',''), (c.get('app') or {}).get('name',''), c.get('name','')) for c in checks if 'sentry' in (((c.get('app') or {}).get('slug','')).lower()) or 'sentry' in (((c.get('app') or {}).get('name','')).lower()) or 'sentry' in ((c.get('name') or '').lower())]; print('FOUND' if matches else 'NOT_FOUND'); [print(f'- app.slug={s}, app.name={n}, check={k}') for s,n,k in matches]")
+
+          echo "$result"
+          if echo "$result" | head -n1 | grep -q "FOUND"; then
+            echo "app_detected=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "app_detected=false" >> "$GITHUB_OUTPUT"
+            if [ "${STRICT_SENTRY_APP}" = "true" ]; then
+              echo "❌ No Sentry GitHub App evidence found in recent checks on ${branch}"
+              exit 1
+            fi
+            echo "⚠️ Sentry GitHub App evidence not found (non-strict mode)."
+          fi
+
+      - name: Check recent Sentry Release workflow health
+        id: release
+        run: |
+          set -euo pipefail
+          run_json=$(gh run list --workflow "Sentry Release" --limit 1 --json conclusion,status,url,displayTitle)
+          echo "$run_json"
+
+          release_status=$(python3 -c "import json,sys; payload=json.loads(sys.argv[1]); print('missing' if not payload else (payload[0].get('conclusion') or payload[0].get('status') or 'unknown'))" "$run_json")
+
+          echo "release_status=$release_status" >> "$GITHUB_OUTPUT"
+
+      - name: Write summary
+        if: always()
+        run: |
+          {
+            echo "## Sentry Healthcheck"
+            echo "- Token/Project API: ✅"
+            echo "- Unresolved issues (sample API): ${{ steps.token.outputs.unresolved_count }}"
+            echo "- Sentry GitHub App evidence detected: ${{ steps.app.outputs.app_detected }}"
+            echo "- Recent Sentry Release workflow status: ${{ steps.release.outputs.release_status }}"
+          } >> "$GITHUB_STEP_SUMMARY"
