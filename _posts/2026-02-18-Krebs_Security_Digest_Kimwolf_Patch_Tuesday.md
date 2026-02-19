@@ -15,20 +15,30 @@ toc: true
 schema_type: Article
 ---
 
+{% capture ai_categories_html %}
+<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>
+{% endcapture %}
+{% capture ai_tags_html %}
+<span class="tag">KrebsOnSecurity</span>
+<span class="tag">Threat-Intel</span>
+<span class="tag">Botnet</span>
+<span class="tag">Patch-Tuesday</span>
+<span class="tag">I2P</span>
+<span class="tag">2026</span>
+{% endcapture %}
+{% capture ai_highlights_html %}
+<li><strong>Kimwolf 봇넷</strong>: I2P 익명망 대규모 오염 → C2/DDoS 우회</li>
+<li><strong>Patch Tuesday (Feb)</strong>: 윈도 원격 코드 실행·권한 상승 패치</li>
+<li><strong>Badbox 2.0</strong>: SOHO 라우터·엣지 장비 거점화 우려</li>
+{% endcapture %}
+
 {% include ai-summary-card.html
-  title='KrebsOnSecurity Digest (2026-02-18)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">KrebsOnSecurity</span>
-      <span class="tag">Threat-Intel</span>
-      <span class="tag">Botnet</span>
-      <span class="tag">Patch-Tuesday</span>
-      <span class="tag">I2P</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Kimwolf 봇넷</strong>: I2P 익명망 대규모 오염 → C2/DDoS 우회</li>
-      <li><strong>Patch Tuesday (Feb)</strong>: 윈도 원격 코드 실행·권한 상승 패치</li>
-      <li><strong>Badbox 2.0</strong>: SOHO 라우터·엣지 장비 거점화 우려</li>'
-  period='최근 게시 2025-12-19~2026-02-11 (Krebs RSS 10건)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE'
+  title="KrebsOnSecurity Digest (2026-02-18)"
+  categories_html=ai_categories_html
+  tags_html=ai_tags_html
+  highlights_html=ai_highlights_html
+  period="최근 게시 2025-12-19~2026-02-11 (Krebs RSS 10건)"
+  audience="보안 담당자, DevSecOps 엔지니어, SRE"
 %}
 
 ## Executive Summary
