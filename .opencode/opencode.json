@@ -99,13 +99,19 @@
     },
     "ultrawork-loop": {
       "description": "Ultrawork Loop: continuous ops checks and prioritization with OpenClaw + Slack",
-      "template": "Follow the workflow in .opencode/commands/ultrawork-loop.md. Run scripts/ultrawork_loop.py to generate the priority summary, validate logs, and post to Slack via OpenClaw gateway if configured. Keep the loop focused on priorities and actionable fixes. Output <promise>ULTRAWORK_LOOP_COMPLETE</promise> when complete.",
+      "template": "Follow the workflow in .opencode/commands/ultrawork-loop.md. Run scripts/ops_health_orchestrator.py to generate the priority summary, validate logs, and post to Slack via OpenClaw gateway if configured. Keep the loop focused on priorities and actionable fixes. Output <promise>ULTRAWORK_LOOP_COMPLETE</promise> when complete.",
       "agent": "primary",
       "model": "anthropic/claude-opus-4-5"
     },
     "sisyphus-loop": {
       "description": "Sisyphus Loop: orchestrate continuous improvement cycles using Ultrawork Loop",
       "template": "Follow the workflow in .opencode/commands/ultrawork-loop.md. Treat this as a Sispyhus loop session and keep iterating on highest priority items until no P0/P1 items remain. Output <promise>SISYPHUS_LOOP_COMPLETE</promise> when complete.",
+      "agent": "primary",
+      "model": "anthropic/claude-opus-4-5"
+    },
+    "ops-roundtable": {
+      "description": "Run multi-agent ops/security/uiux roundtable with auto-recovery",
+      "template": "Run python3 scripts/ops_health_orchestrator.py --auto-recover-gha. Treat checks as three reviewers: OpsAgent (lint, Vercel, GitHub Actions), SecurityAgent (Sentry), UiUxAgent (performance). Synthesize decisions as Moderator with prioritized action list and continue until no unresolved P0/P1 items remain. Post summary using OpenClaw Slack gateway if configured. Output <promise>OPS_ROUNDTABLE_COMPLETE</promise> when complete.",
       "agent": "primary",
       "model": "anthropic/claude-opus-4-5"
     },

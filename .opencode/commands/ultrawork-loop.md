@@ -11,7 +11,7 @@ Continuous ops loop that uses OpenCode + OpenClaw + Slack for prioritization and
 ## Loop Steps
 1. Run the ultrawork checks:
    ```bash
-   python3 scripts/ultrawork_loop.py
+   python3 scripts/ops_health_orchestrator.py --auto-recover-gha
    ```
 2. Parse failures and group by priority.
 3. For P0/P1 items, either:

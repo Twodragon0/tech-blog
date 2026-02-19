@@ -8,7 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "vercel-build": "./build.sh",
     "index-posts": "node scripts/index_posts.mjs",
-    "index-posts:dry": "node scripts/index_posts.mjs --dry-run"
+    "index-posts:dry": "node scripts/index_posts.mjs --dry-run",
+    "lint": "ruff check scripts/ && mypy scripts/ --ignore-missing-imports",
+    "lint:fix": "ruff check scripts/ --fix && ruff format scripts/",
+    "typecheck": "mypy scripts/ --ignore-missing-imports",
+    "ops:roundtable": "python3 scripts/ops_health_orchestrator.py"
   },
   "keywords": [],
   "author": "",

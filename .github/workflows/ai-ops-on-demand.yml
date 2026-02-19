@@ -5,16 +5,8 @@ on:
     types: [ai_ops_task]
   workflow_dispatch:
     inputs:
-      run_post_checks:
-        description: "Run post checks"
-        required: false
-        default: "true"
-        type: choice
-        options:
-          - "true"
-          - "false"
-      run_image_checks:
-        description: "Run image checks"
+      run_lint_checks:
+        description: "Run lint/type checks"
         required: false
         default: "true"
         type: choice
@@ -24,7 +16,39 @@ on:
       run_vercel_checks:
         description: "Run Vercel checks"
         required: false
-        default: "false"
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      run_github_actions_checks:
+        description: "Run GitHub Actions checks"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      run_sentry_checks:
+        description: "Run Sentry checks"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      run_uiux_checks:
+        description: "Run UI/UX checks"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      auto_recover_gha:
+        description: "Auto rerun failed GitHub Actions workflows"
+        required: false
+        default: "true"
         type: choice
         options:
           - "true"
@@ -43,9 +67,18 @@ jobs:
       contents: read
 
     env:
-      RUN_POST_CHECKS: ${{ github.event.inputs.run_post_checks || github.event.client_payload.run_post_checks || 'true' }}
-      RUN_IMAGE_CHECKS: ${{ github.event.inputs.run_image_checks || github.event.client_payload.run_image_checks || 'true' }}
-      RUN_VERCEL_CHECKS: ${{ github.event.inputs.run_vercel_checks || github.event.client_payload.run_vercel_checks || 'false' }}
+      RUN_LINT_CHECKS: ${{ github.event.inputs.run_lint_checks || github.event.client_payload.run_lint_checks || 'true' }}
+      RUN_VERCEL_CHECKS: ${{ github.event.inputs.run_vercel_checks || github.event.client_payload.run_vercel_checks || 'true' }}
+      RUN_GITHUB_ACTIONS_CHECKS: ${{ github.event.inputs.run_github_actions_checks || github.event.client_payload.run_github_actions_checks || 'true' }}
+      RUN_SENTRY_CHECKS: ${{ github.event.inputs.run_sentry_checks || github.event.client_payload.run_sentry_checks || 'true' }}
+      RUN_UIUX_CHECKS: ${{ github.event.inputs.run_uiux_checks || github.event.client_payload.run_uiux_checks || 'true' }}
+      AUTO_RECOVER_GHA: ${{ github.event.inputs.auto_recover_gha || github.event.client_payload.auto_recover_gha || 'true' }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+      PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       OPENCLAW_GATEWAY_URL: ${{ secrets.OPENCLAW_GATEWAY_URL }}
       OPENCLAW_GATEWAY_TOKEN: ${{ secrets.OPENCLAW_GATEWAY_TOKEN }}
       SLACK_CHANNEL_ID_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
@@ -61,13 +94,23 @@ jobs:
           cache: "pip"
 
       - name: Install dependencies
-        run: python -m pip install --upgrade pip pyyaml
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ruff mypy
+          npm i -g vercel
+          gh --version
+          vercel --version
 
       - name: Run on-demand checks
         id: checks
         run: |
           set -euo pipefail
-          message=$(python3 scripts/priority_ops_check.py || true)
+          args=(--output reports/ops-roundtable.md --json-output reports/ops-roundtable.json)
+          if [ "${AUTO_RECOVER_GHA}" = "true" ]; then
+            args+=(--auto-recover-gha)
+          fi
+          mkdir -p reports
+          message=$(python3 scripts/ops_health_orchestrator.py "${args[@]}" || true)
           {
             echo "message<<EOF"
             echo "$message"
