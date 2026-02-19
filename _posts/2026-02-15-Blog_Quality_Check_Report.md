@@ -16,21 +16,31 @@ toc: true
 schema_type: Article
 ---
 
+{% capture ai_categories_html %}
+<span class="category-tag devsecops">DevSecOps</span>
+{% endcapture %}
+{% capture ai_tags_html %}
+<span class="tag">Quality-Check</span>
+<span class="tag">Link-Check</span>
+<span class="tag">Image-Audit</span>
+<span class="tag">Code-Blocks</span>
+<span class="tag">Jekyll</span>
+<span class="tag">Automation</span>
+{% endcapture %}
+{% capture ai_highlights_html %}
+<li><strong>check_posts</strong>: 79개 포스트, 총 1,594개 이슈 (긴 코드 블록 위반 다수)</li>
+<li><strong>verify_post_links</strong>: 링크 오류 0건, 이미지 경고 47건</li>
+<li><strong>즉시 개선</strong>: 상위 5개 이미지 누락 파일 추가 및 교차 링크 1건 수정</li>
+<li><strong>우선순위</strong>: P0 링크 오류 → P1 이미지 누락 → P2 긴 코드 블록</li>
+{% endcapture %}
+
 {% include ai-summary-card.html
-  title='블로그 품질 점검 리포트 (2026-02-15)'
-  categories_html='<span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Quality-Check</span>
-      <span class="tag">Link-Check</span>
-      <span class="tag">Image-Audit</span>
-      <span class="tag">Code-Blocks</span>
-      <span class="tag">Jekyll</span>
-      <span class="tag">Automation</span>'
-  highlights_html='<li><strong>check_posts</strong>: 79개 포스트, 총 1,594개 이슈 (긴 코드 블록 위반 다수)</li>
-      <li><strong>verify_post_links</strong>: 링크 오류 0건, 이미지 경고 47건</li>
-      <li><strong>즉시 개선</strong>: 상위 5개 이미지 누락 파일 추가 및 교차 링크 1건 수정</li>
-      <li><strong>우선순위</strong>: P0 링크 오류 → P1 이미지 누락 → P2 긴 코드 블록</li>'
-  period='2026-02-15'
-  audience='운영자, 콘텐츠 작성자, DevSecOps 엔지니어'
+  title="블로그 품질 점검 리포트 (2026-02-15)"
+  categories_html=ai_categories_html
+  tags_html=ai_tags_html
+  highlights_html=ai_highlights_html
+  period="2026-02-15"
+  audience="운영자, 콘텐츠 작성자, DevSecOps 엔지니어"
 %}
 
 ## 요약
@@ -138,4 +148,3 @@ python3 scripts/verify_post_links.py --verbose
 - 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
 - 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
 - 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
-

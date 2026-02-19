@@ -15,23 +15,33 @@ toc: true
 schema_type: Article
 ---
 
+{% capture ai_categories_html %}
+<span class="category-tag devops">DevOps</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag finops">FinOps</span>
+{% endcapture %}
+{% capture ai_tags_html %}
+<span class="tag">Daily-Digest</span>
+<span class="tag">AI-Inference</span>
+<span class="tag">Windows-Dev</span>
+<span class="tag">Surveillance-Tech</span>
+<span class="tag">UI-Library</span>
+<span class="tag">Crypto-Market</span>
+<span class="tag">2026</span>
+{% endcapture %}
+{% capture ai_highlights_html %}
+<li><strong>LLM 추론</strong>: 빠른 추론을 위한 2가지 최적화 트릭이 개발·운영 관점에서 재조명</li>
+<li><strong>Windows 개발</strong>: 네이티브 개발 환경의 병목을 풀어낸 개선 사례가 큰 반향</li>
+<li><strong>스마트홈 감시</strong>: Amazon·Google 생태계가 데이터 감시 논쟁의 핵심으로 부상</li>
+<li><strong>제품 전략</strong>: AI가 앱 구독 모델을 흔들고 있다는 문제 제기 확산</li>
+<li><strong>크립토</strong>: WLFI 조기 경보 논쟁과 국내 거래소 지분 인수 이슈 부각</li>
+{% endcapture %}
+
 {% include ai-summary-card.html
-  title='2026년 2월 16일 데일리 테크 다이제스트'
-  categories_html='<span class="category-tag devops">DevOps</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag finops">FinOps</span>'
-  tags_html='<span class="tag">Daily-Digest</span>
-      <span class="tag">AI-Inference</span>
-      <span class="tag">Windows-Dev</span>
-      <span class="tag">Surveillance-Tech</span>
-      <span class="tag">UI-Library</span>
-      <span class="tag">Crypto-Market</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>LLM 추론</strong>: 빠른 추론을 위한 2가지 최적화 트릭이 개발·운영 관점에서 재조명</li>
-      <li><strong>Windows 개발</strong>: 네이티브 개발 환경의 병목을 풀어낸 개선 사례가 큰 반향</li>
-      <li><strong>스마트홈 감시</strong>: Amazon·Google 생태계가 데이터 감시 논쟁의 핵심으로 부상</li>
-      <li><strong>제품 전략</strong>: AI가 앱 구독 모델을 흔들고 있다는 문제 제기 확산</li>
-      <li><strong>크립토</strong>: WLFI 조기 경보 논쟁과 국내 거래소 지분 인수 이슈 부각</li>'
-  period='2026년 2월 15일 ~ 2월 16일'
-  audience='DevOps/DevSecOps 엔지니어, 제품/플랫폼 리더, 데이터·AI 팀, 보안 담당자'
+  title="2026년 2월 16일 데일리 테크 다이제스트"
+  categories_html=ai_categories_html
+  tags_html=ai_tags_html
+  highlights_html=ai_highlights_html
+  period="2026년 2월 15일 ~ 2월 16일"
+  audience="DevOps/DevSecOps 엔지니어, 제품/플랫폼 리더, 데이터·AI 팀, 보안 담당자"
 %}
 
 ## 요약
@@ -176,4 +186,3 @@ schema_type: Article
 - 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
 - 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
 - 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
-
