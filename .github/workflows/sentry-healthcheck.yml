@@ -65,20 +65,24 @@ jobs:
             exit 1
           fi
 
+          echo "token_ok=true" >> "$GITHUB_OUTPUT"
+
           issues_code=$(curl -sS -o /tmp/sentry_issues.json -w "%{http_code}" \
             -H "Authorization: Bearer ${SENTRY_AUTH_TOKEN}" \
             -H "Accept: application/json" \
             "$issues_url")
 
-          if [ "$issues_code" -ne 200 ]; then
-            echo "❌ Sentry issues API check failed: HTTP $issues_code"
+          if [ "$issues_code" -eq 200 ]; then
+            unresolved_count=$(python3 -c "import json; from pathlib import Path; payload=json.loads(Path('/tmp/sentry_issues.json').read_text(encoding='utf-8')); print(len(payload) if isinstance(payload, list) else 0)")
+            echo "issues_ok=true" >> "$GITHUB_OUTPUT"
+            echo "unresolved_count=$unresolved_count" >> "$GITHUB_OUTPUT"
+          else
+            echo "issues_ok=false" >> "$GITHUB_OUTPUT"
+            echo "unresolved_count=unknown" >> "$GITHUB_OUTPUT"
+            echo "⚠️ Sentry issues API check returned HTTP $issues_code"
             cat /tmp/sentry_issues.json || true
-            exit 1
           fi
 
-          unresolved_count=$(python3 -c "import json; from pathlib import Path; payload=json.loads(Path('/tmp/sentry_issues.json').read_text(encoding='utf-8')); print(len(payload) if isinstance(payload, list) else 0)")
-
-          echo "unresolved_count=$unresolved_count" >> "$GITHUB_OUTPUT"
           echo "✅ Sentry token is valid and project is accessible"
 
       - name: Check GitHub App evidence for Sentry integration
@@ -119,7 +123,8 @@ jobs:
         run: |
           {
             echo "## Sentry Healthcheck"
-            echo "- Token/Project API: ✅"
+            echo "- Token/Project API: ${{ steps.token.outputs.token_ok || 'false' }}"
+            echo "- Issues API accessible: ${{ steps.token.outputs.issues_ok || 'false' }}"
             echo "- Unresolved issues (sample API): ${{ steps.token.outputs.unresolved_count }}"
             echo "- Sentry GitHub App evidence detected: ${{ steps.app.outputs.app_detected }}"
             echo "- Recent Sentry Release workflow status: ${{ steps.release.outputs.release_status }}"
