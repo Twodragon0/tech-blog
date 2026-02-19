@@ -10,7 +10,7 @@ keywords: [n8n RCE, CVE-2026-1470, D-Link Zero-Day, CVE-2026-0625, Kubernetes Se
 author: Twodragon
 comments: true
 image: /assets/images/2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent.svg
-image_alt: "Tech Security Weekly Digest January 29 2026 n8n RCE D-Link Zero-Day Kubernetes AI Agent"
+image_alt: "기술 및 보안 주간 다이제스트 2026년 1월 29일 - n8n RCE, D-Link Zero-Day, Kubernetes AI 에이전트"
 toc: true
 schema_type: Article
 ---

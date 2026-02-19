@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Weekly Security & DevOps Digest: OpenClaw AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스"
+title: "주간 보안 & DevOps 다이제스트: OpenClaw AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스"
 date: 2026-02-03 10:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, OpenClaw, Moltbot, Moltbook, NanoClaw, AI-Agent-Security, MDM, Jamf, Intune, OWASP, Kubernetes, DevSecOps, ClawHub, ClawHavoc, NTLM, CVE-2026-25253, Supply-Chain, Zero-Trust, Atomic-Stealer, "2026"]
@@ -10,7 +10,7 @@ keywords: [OpenClaw Security, Moltbot, Moltbook, CVE-2026-25253, ClawHub Malicio
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-03-Weekly_Security_DevOps_Digest.svg
-image_alt: "Weekly Security and DevOps Digest Feb 3 2026"
+image_alt: "주간 보안 및 DevOps 다이제스트 2026년 2월 3일"
 toc: true
 schema_type: Article
 ---
@@ -22,7 +22,7 @@ schema_type: Article
 <div class="ai-summary-content">
   <div class="summary-row">
     <span class="summary-label">제목</span>
-    <span class="summary-value">Weekly Security & DevOps Digest (2026년 02월 03일)</span>
+    <span class="summary-value">주간 보안 & DevOps 다이제스트 (2026년 02월 03일)</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">카테고리</span>

@@ -10,7 +10,7 @@ keywords: [BitLocker, FBI, 암호화, 복구 키, Cloudflare, Route Leak, BGP, R
 author: Twodragon
 comments: true
 image: /assets/images/2026-01-24-Tech_Security_Weekly_Digest.svg
-image_alt: "Tech and Security Weekly Digest January 2026 - BitLocker, Route Leak, Agentic Enterprise"
+image_alt: "기술 및 보안 주간 다이제스트 2026년 1월 - BitLocker, 라우트 유출, 자율 기업"
 toc: true
 schema_type: Article
 ---
@@ -67,7 +67,7 @@ schema_type: Article
 </div>
 </div>
 
-## Executive Summary: 주간 보안 위험 스코어카드
+## 주요 요약: 주간 보안 위험 스코어카드
 
 **종합 위험도**: 🔴 **HIGH** (4.2/5.0)
 

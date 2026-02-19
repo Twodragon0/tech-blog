@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: Signal Phishing, BlackField Ransomware, Zero Trust Data"
+title: "기술 & 보안 주간 다이제스트: Signal 피싱, BlackField 랜섬웨어, 제로트러스트 데이터"
 date: 2026-02-08 10:58:46 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Signal-Phishing, BlackField-Ransomware, Zero-Trust, Data-Security]
@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Sign
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-08-Tech_Security_Weekly_Digest_AI_Ransomware_Data.svg
-image_alt: "Tech Security Weekly Digest February 08 2026 Signal Phishing BlackField Ransomware Zero Trust Data"
+image_alt: "기술 및 보안 주간 다이제스트 2026년 2월 8일 Signal 피싱 BlackField 랜섬웨어 제로트러스트 데이터"
 toc: true
 schema_type: Article
 ---
@@ -32,7 +32,7 @@ schema_type: Article
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
-## Executive Summary (경영진 브리핑)
+## 주요 요약
 
 2026년 02월 08일 기준 보안 현황 및 위협 분석입니다.
 

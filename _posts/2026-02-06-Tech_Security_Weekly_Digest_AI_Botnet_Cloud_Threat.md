@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE"
+title: "기술 & 보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE"
 date: 2026-02-06 12:30:12 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Cloud, Threat]
@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Cras
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat.svg
-image_alt: "Tech Security Weekly Digest February 06 2026 AI Botnet Cloud"
+image_alt: "기술 및 보안 주간 다이제스트 2026년 2월 6일 AI 봇넷 클라우드 위협"
 toc: true
 schema_type: Article
 ---
@@ -24,7 +24,7 @@ schema_type: Article
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
-## Executive Summary (경영진 브리핑)
+## 주요 요약
 
 ### TL;DR - 위험 스코어카드
 

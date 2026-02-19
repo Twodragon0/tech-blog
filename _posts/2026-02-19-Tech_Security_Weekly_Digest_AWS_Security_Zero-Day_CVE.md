@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: CVE-2026-2329, RCE, CVE-2026-22769"
+title: "기술 & 보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329"
 date: 2026-02-19 12:36:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Security, Zero-Day, CVE]
@@ -10,12 +10,12 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS,
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-19-Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE.svg
-image_alt: "Tech Security Weekly Digest February 19 2026 AWS Security Zero-Day"
+image_alt: "기술 보안 주간 다이제스트 2026년 2월 19일 AWS 보안 Zero-Day"
 toc: true
 ---
 
 {% include ai-summary-card.html
-  title="Tech & Security Weekly Digest (2026년 02월 19일)"
+  title="기술 & 보안 주간 다이제스트 (2026년 02월 19일)"
   categories_html="<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>"
   tags_html="<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
@@ -23,15 +23,15 @@ toc: true
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
       <span class="tag">2026</span>"
-  highlights_html="<li><strong>The Hacker News</strong>: Citizen Lab Finds Cellebrite Tool Used on Kenyan...</li>
-      <li><strong>The Hacker News</strong>: Grandstream GXP1600 VoIP Phones Exposed to...</li>
-      <li><strong>The Hacker News</strong>: Critical Flaws Found in Four VS Code Extensions with...</li>
-      <li><strong>Google Cloud Blog</strong>: Powering the next generation of agents with Google Cloud...</li>"
+  highlights_html="<li><strong>The Hacker News</strong>: 케냐 활동가 폰에서 Cellebrite 도구 사용 확인</li>
+      <li><strong>The Hacker News</strong>: Grandstream GXP1600 VoIP 폰 인증되지 않은 원격 코드 실행에 노출</li>
+      <li><strong>The Hacker News</strong>: 1억 2500만 설치된 VS Code 확장 4개에서 치명적 결함 발견</li>
+      <li><strong>Google Cloud Blog</strong>: Google Cloud 데이터베이스로 차세대 에이전트 지원</li>"
   period="2026년 02월 19일 (24시간)"
   audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
 %}
 
-## Executive Summary
+## 주요 요약
 
 2026년 02월 19일 기준 보안 현황 및 위협 분석입니다.
 
@@ -125,14 +125,14 @@ toc: true
 
 #### 개요
 
-New research from the Citizen Lab has found signs that Kenyan authorities used a commercial forensic extraction tool manufactured by Israeli company Cellebrite to break into a prominent dissident's phone, making it the latest case of abuse of the technology targeting civil society. The interdisciplinary research unit at the University of Toronto's Munk School of Global Affairs & Public
+Citizen Lab의 새로운 연구에 따르면, 케냐 당국이 이스라엘 회사 Cellebrite가 제조한 상업용 포렌식 추출 도구를 사용하여 저명한 반체제 인사의 휴대폰에 침입한 흔적이 발견되었습니다. 이는 시민사회를 겨냥한 기술 남용의 최신 사례입니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/citizen-lab-finds-cellebrite-tool-used.html)
 
 #### 핵심 포인트
 
-- New research from the Citizen Lab has found signs that Kenyan authorities used a commercial forensic extraction tool manufactured by Israeli company Cellebrite to break into a prominent dissident's phone, making it the latest case of abuse of the technology targeting civil society
-- The interdisciplinary research unit at the University of Toronto's Munk School of Global Affairs & Public
+- Citizen Lab의 새로운 연구에 따르면, 케냐 당국이 이스라엘 회사 Cellebrite가 제조한 상업용 포렌식 추출 도구를 사용하여 저명한 반체제 인사의 휴대폰에 침입한 흔적이 발견됨
+- 시민사회를 겨냥한 상업용 스파이웨어/포렌식 도구 남용의 최신 사례로 기록됨
 
 
 #### 위협 분석
@@ -160,15 +160,15 @@ New research from the Citizen Lab has found signs that Kenyan authorities used a
 
 #### 개요
 
-Cybersecurity researchers have disclosed a critical security flaw in the Grandstream GXP1600 series of VoIP phones that could allow an attacker to seize control of susceptible devices. The vulnerability, tracked as CVE-2026-2329, carries a CVSS score of 9.3 out of a maximum of 10.0. It has been described as a case of unauthenticated stack-based buffer overflow that could result in remote code
+사이버보안 연구원들이 Grandstream GXP1600 시리즈 VoIP 폰에서 공격자가 취약한 장치를 장악할 수 있는 치명적인 보안 결함을 공개했습니다. CVE-2026-2329로 추적되는 이 취약점은 CVSS 점수 10점 만점에 9.3점입니다. 인증되지 않은 스택 기반 버퍼 오버플로우로 원격 코드 실행이 가능한 것으로 설명됩니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/grandstream-gxp1600-voip-phones-exposed.html)
 
 #### 핵심 포인트
 
-- Cybersecurity researchers have disclosed a critical security flaw in the Grandstream GXP1600 series of VoIP phones that could allow an attacker to seize control of susceptible devices
-- The vulnerability, tracked as CVE-2026-2329, carries a CVSS score of 9.3 out of a maximum of 10.0
-- It has been described as a case of unauthenticated stack-based buffer overflow that could result in remote code
+- 사이버보안 연구원들이 Grandstream GXP1600 시리즈 VoIP 폰에서 공격자가 취약한 장치를 장악할 수 있는 치명적인 보안 결함을 공개
+- CVE-2026-2329로 추적되는 이 취약점은 CVSS 점수 10점 만점에 9.3점
+- 인증되지 않은 스택 기반 버퍼 오버플로우로 원격 코드 실행이 가능한 것으로 설명됨
 
 
 #### 실무 영향
@@ -187,14 +187,14 @@ Cybersecurity researchers have disclosed a critical security flaw in the Grandst
 
 #### 개요
 
-Cybersecurity researchers have disclosed multiple security vulnerabilities in four popular Microsoft Visual Studio Code (VS Code) extensions that, if successfully exploited, could allow threat actors to steal local files and execute code remotely. The extensions, which have been collectively installed more than 125 million times, are Live Server, Code Runner, Markdown Preview Enhanced, and
+사이버보안 연구원들이 인기 있는 Microsoft Visual Studio Code(VS Code) 확장 4개에서 여러 보안 취약점을 공개했습니다. 악용될 경우 위협 행위자가 로컬 파일을 탈취하고 원격으로 코드를 실행할 수 있습니다. 총 1억 2500만 회 이상 설치된 이 확장들은 Live Server, Code Runner, Markdown Preview Enhanced 등입니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/critical-flaws-found-in-four-vs-code.html)
 
 #### 핵심 포인트
 
-- Cybersecurity researchers have disclosed multiple security vulnerabilities in four popular Microsoft Visual Studio Code (VS Code) extensions that, if successfully exploited, could allow threat actors to steal local files and execute code remotely
-- The extensions, which have been collectively installed more than 125 million times, are Live Server, Code Runner, Markdown Preview Enhanced, and
+- 사이버보안 연구원들이 인기 있는 Microsoft Visual Studio Code(VS Code) 확장 4개에서 여러 보안 취약점을 공개, 악용 시 로컬 파일 탈취 및 원격 코드 실행 가능
+- 총 1억 2500만 회 이상 설치된 해당 확장들은 Live Server, Code Runner, Markdown Preview Enhanced 등 포함
 
 
 #### 실무 영향
@@ -215,13 +215,13 @@ Cybersecurity researchers have disclosed multiple security vulnerabilities in fo
 
 #### 개요
 
-OpenAI for India expands AI access across the country—building local infrastructure, powering enterprises, and advancing workforce skills.
+OpenAI for India는 인도 전역에 AI 접근성을 확대합니다. 현지 인프라 구축, 기업 지원, 인력 기술 향상을 추진합니다.
 
 > **출처**: [OpenAI Blog](https://openai.com/index/openai-for-india)
 
 #### 핵심 포인트
 
-- OpenAI for India expands AI access across the country—building local infrastructure, powering enterprises, and advancing workforce skills
+- OpenAI for India는 인도 전역에 AI 접근성을 확대, 현지 인프라 구축, 기업 지원, 인력 기술 향상을 추진
 
 
 #### AI/ML 보안 영향 분석
@@ -243,13 +243,13 @@ OpenAI for India expands AI access across the country—building local infrastru
 
 #### 개요
 
-Image showing sample tracks created with Lyria 3
+Lyria 3로 생성된 샘플 트랙 이미지
 
 > **출처**: [Google AI Blog](https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/)
 
 #### 핵심 포인트
 
-- Image showing sample tracks created with Lyria 3
+- Lyria 3로 생성된 샘플 트랙 이미지
 
 
 #### AI/ML 보안 영향 분석
@@ -271,13 +271,13 @@ Image showing sample tracks created with Lyria 3
 
 #### 개요
 
-four people seated on a conference stage
+컨퍼런스 무대에 앉아있는 네 명의 패널
 
 > **출처**: [Google AI Blog](https://blog.google/innovation-and-ai/technology/ai/ai-impact-summit-2026-india/)
 
 #### 핵심 포인트
 
-- four people seated on a conference stage
+- 컨퍼런스 무대에 앉아있는 네 명의 패널
 
 
 #### AI/ML 보안 영향 분석
@@ -303,15 +303,15 @@ four people seated on a conference stage
 
 #### 개요
 
-For developers building AI applications, including custom agents and chatbots, the open-source Model Context Protocol (MCP) standard enables your innovations to access data and tools consistently and securely. At the end of 2025, we introduced managed and remote MCP support for services like Google Maps and BigQuery , establishing a standard method for AI to connect with tools, and effectively creating a universal interface for applications. Today, we are expanding this offering to include Po...
+커스텀 에이전트와 챗봇을 포함한 AI 애플리케이션을 구축하는 개발자를 위해, 오픈소스 Model Context Protocol(MCP) 표준은 데이터와 도구에 일관되고 안전하게 접근할 수 있게 합니다. 2025년 말, Google Maps와 BigQuery 등의 서비스에 관리형 및 원격 MCP 지원을 도입하여 AI가 도구에 연결하는 표준 방법을 확립했습니다. 오늘 이 서비스를 확대하고 있습니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/products/databases/managed-mcp-servers-for-google-cloud-databases/)
 
 #### 핵심 포인트
 
-- For developers building AI applications, including custom agents and chatbots, the open-source Model Context Protocol (MCP) standard enables your innovations to access data and tools consistently and securely
-- At the end of 2025, we introduced managed and remote MCP support for services like Google Maps and BigQuery , establishing a standard method for AI to connect with tools, and effectively creating a universal interface for applications
-- Today, we are expanding this offering to include Po
+- 커스텀 에이전트와 챗봇을 포함한 AI 애플리케이션 개발자를 위해 오픈소스 MCP 표준이 데이터와 도구에 일관되고 안전한 접근을 지원
+- 2025년 말 Google Maps와 BigQuery 등의 서비스에 관리형 및 원격 MCP 지원을 도입하여 AI-도구 연결 표준 방법 확립
+- 오늘 이 서비스를 추가 확대 중
 
 
 #### 실무 적용 포인트
@@ -327,16 +327,15 @@ For developers building AI applications, including custom agents and chatbots, t
 
 #### 개요
 
-Welcome to the first Cloud CISO Perspectives for February 2026. Today, John Hultquist, chief analyst, Google Threat Intelligence Group, explains the research detailed in our newest AI Threat Tracker report. As with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog . If you’re reading this on the website and you’d like to receive the email version, you can subscribe here . aside_block <ListValue: [StructValue([('title', 'Get vital board insights w...
+2026년 2월 첫 번째 Cloud CISO Perspectives입니다. Google Threat Intelligence Group 수석 분석가 John Hultquist가 최신 AI Threat Tracker 보고서에 대해 설명합니다. Cloud CISO Perspectives의 콘텐츠는 Google Cloud 블로그에 게시됩니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-new-ai-threats-report-distillation-experimentation-integration/)
 
 #### 핵심 포인트
 
-- Welcome to the first Cloud CISO Perspectives for February 2026
-- Today, John Hultquist, chief analyst, Google Threat Intelligence Group, explains the research detailed in our newest AI Threat Tracker report
-- As with all Cloud CISO Perspectives, the contents of this newsletter are posted to the Google Cloud blog
-- If you’re reading this on the website and you’d like to receive the email version, you can subscribe here
+- 2026년 2월 첫 번째 Cloud CISO Perspectives 발행
+- Google Threat Intelligence Group 수석 분석가 John Hultquist가 최신 AI Threat Tracker 보고서 상세 설명
+- Cloud CISO Perspectives 콘텐츠는 Google Cloud 블로그에 게시됨
 
 
 #### 실무 적용 포인트
@@ -354,16 +353,15 @@ Welcome to the first Cloud CISO Perspectives for February 2026. Today, John Hult
 
 #### 개요
 
-When AI agents make thousands of decisions a day, consistent performance isn't just a technical detail — it's a business requirement. Provisioned Throughput (PT) solves this by giving you reserved resources that guarantee capacity and predictable performance. To help you scale, we are updating PT on Vertex AI with three key improvements: Model diversity: Run the right model for the right job. Multimodal innovation: Process text, images, and video seamlessly. Operational flexibility: Adapt you...
+AI 에이전트가 하루에 수천 건의 결정을 내릴 때, 일관된 성능은 단순한 기술적 세부사항이 아니라 비즈니스 요구사항입니다. Provisioned Throughput(PT)는 예약된 리소스를 제공하여 용량과 예측 가능한 성능을 보장합니다. Vertex AI에서 PT를 세 가지 주요 개선 사항으로 업데이트하고 있습니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/provisioned-throughput-on-vertex-ai/)
 
 #### 핵심 포인트
 
-- When AI agents make thousands of decisions a day, consistent performance isn't just a technical detail — it's a business requirement
-- Provisioned Throughput (PT) solves this by giving you reserved resources that guarantee capacity and predictable performance
-- To help you scale, we are updating PT on Vertex AI with three key improvements: Model diversity: Run the right model for the right job
-- Multimodal innovation: Process text, images, and video seamlessly
+- AI 에이전트가 하루에 수천 건의 결정을 내릴 때, 일관된 성능은 단순한 기술적 세부사항이 아닌 비즈니스 요구사항
+- Provisioned Throughput(PT)는 예약된 리소스를 제공하여 용량과 예측 가능한 성능을 보장
+- Vertex AI PT를 세 가지 주요 개선사항(모델 다양성, 멀티모달 혁신, 운영 유연성)으로 업데이트 중
 
 
 #### 실무 적용 포인트
@@ -381,14 +379,14 @@ When AI agents make thousands of decisions a day, consistent performance isn't j
 
 #### 개요
 
-Observability Summit North America returns May 21–22 in Minneapolis, convening practitioners, contributors, and engineers to advance open observability standards and practices Key Highlights SAN FRANCISCO, Feb. 18, 2026—The Cloud Native Computing Foundation® (CNCF®), which builds sustainable...
+Observability Summit North America가 5월 21-22일 미니애폴리스에서 개최됩니다. 실무자, 기여자, 엔지니어가 모여 오픈 관측성 표준과 실천을 발전시킵니다. CNCF(Cloud Native Computing Foundation)가 주관합니다.
 
 > **출처**: [CNCF Blog](https://www.cncf.io/announcements/2026/02/18/cncf-releases-2026-observability-summit-north-america-schedule-as-cloud-native-observability-adoption-expands/)
 
 #### 핵심 포인트
 
-- Observability Summit North America returns May 21–22 in Minneapolis, convening practitioners, contributors, and engineers to advance open observability standards and practices Key Highlights SAN FRANCISCO, Feb
-- 18, 2026—The Cloud Native Computing Foundation® (CNCF®), which builds sustainable
+- Observability Summit North America가 5월 21-22일 미니애폴리스에서 개최, 실무자·기여자·엔지니어가 오픈 관측성 표준과 실천을 발전시키기 위해 모임
+- CNCF(Cloud Native Computing Foundation)가 주관하는 행사
 
 
 #### 실무 적용 포인트
@@ -404,14 +402,14 @@ Observability Summit North America returns May 21–22 in Minneapolis, convening
 
 #### 개요
 
-Kyverno 1.17 is a landmark release that marks the stabilization of our next-generation Common Expression Language (CEL) policy engine. While 1.16 introduced the “CEL-first” vision in beta, 1.17 promotes these capabilities to v1, offering a high-performance,...
+Kyverno 1.17은 차세대 Common Expression Language(CEL) 정책 엔진의 안정화를 기념하는 획기적인 릴리스입니다. 1.16에서 베타로 도입된 'CEL 우선' 비전이 1.17에서 v1으로 승격되어 고성능을 제공합니다.
 
 > **출처**: [CNCF Blog](https://www.cncf.io/blog/2026/02/18/announcing-kyverno-1-17/)
 
 #### 핵심 포인트
 
-- Kyverno 1.17 is a landmark release that marks the stabilization of our next-generation Common Expression Language (CEL) policy engine
-- While 1.16 introduced the “CEL-first” vision in beta, 1.17 promotes these capabilities to v1, offering a high-performance,
+- Kyverno 1.17은 차세대 Common Expression Language(CEL) 정책 엔진의 안정화를 기념하는 획기적인 릴리스
+- 1.16에서 베타로 도입된 'CEL 우선' 비전이 1.17에서 v1으로 승격되어 고성능 제공
 
 
 #### 실무 적용 포인트
@@ -429,15 +427,14 @@ Kyverno 1.17 is a landmark release that marks the stabilization of our next-gene
 
 #### 개요
 
-Bitcoin Magazine Ledn Sells $188M Bitcoin-Backed Bonds in First-of-Its-Kind Deal Crypto lender Ledn Inc. has officially sold $188 million in securitized bonds backed by Bitcoin-linked loans. This post Ledn Sells $188M Bitcoin-Backed Bonds in First-of-Its-Kind Deal first appeared on Bitcoin Magazine and is written by Micah Zimmerman .
+암호화폐 대출업체 Ledn Inc.가 비트코인 연계 대출을 담보로 한 증권화 채권 1억 8800만 달러를 판매했습니다. 업계 최초의 거래입니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/ledn-sells-188m-bitcoin-backed-bonds)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine Ledn Sells $188M Bitcoin-Backed Bonds in First-of-Its-Kind Deal Crypto lender Ledn Inc
-- has officially sold $188 million in securitized bonds backed by Bitcoin-linked loans
-- This post Ledn Sells $188M Bitcoin-Backed Bonds in First-of-Its-Kind Deal first appeared on Bitcoin Magazine and is written by Micah Zimmerman 
+- 암호화폐 대출업체 Ledn Inc.가 비트코인 연계 대출 담보 증권화 채권 1억 8800만 달러를 공식 판매
+- 비트코인 담보 채권 발행의 업계 최초 사례
 
 
 ---
@@ -446,14 +443,14 @@ Bitcoin Magazine Ledn Sells $188M Bitcoin-Backed Bonds in First-of-Its-Kind Deal
 
 #### 개요
 
-Bitcoin Magazine FutureBit launches Apollo III, U.S.-Engineered Home Bitcoin Miner FutureBit launched the Apollo III today, a new home Bitcoin mining system combining a high-performance miner and a full Bitcoin node in a single desktop device. This post FutureBit launches Apollo III, U.S.-Engineered Home Bitcoin Miner first appeared on Bitcoin Magazine and is written by Micah Zimmerman .
+FutureBit이 오늘 Apollo III를 출시했습니다. 고성능 채굴기와 풀 비트코인 노드를 하나의 데스크톱 장치에 결합한 새로운 가정용 비트코인 채굴 시스템입니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/futurebit-apollo-iii-home-bitcoin-miner)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine FutureBit launches Apollo III, U.S.-Engineered Home Bitcoin Miner FutureBit launched the Apollo III today, a new home Bitcoin mining system combining a high-performance miner and a full Bitcoin node in a single desktop device
-- This post FutureBit launches Apollo III, U.S.-Engineered Home Bitcoin Miner first appeared on Bitcoin Magazine and is written by Micah Zimmerman 
+- FutureBit이 Apollo III를 출시, 고성능 채굴기와 풀 비트코인 노드를 단일 데스크톱 장치에 결합한 가정용 비트코인 채굴 시스템
+- 미국에서 설계된 가정용 비트코인 채굴 장비
 
 
 ---
@@ -462,8 +459,8 @@ Bitcoin Magazine FutureBit launches Apollo III, U.S.-Engineered Home Bitcoin Min
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Amazon grew its Rivian electric delivery van fleet...](https://electrek.co/2026/02/18/amazon-grew-its-rivian-electric-delivery-van-fleet-by-50-in-2025/) | Electrek | Amazon is committed to adding 100,000 Rivian electric vans to its delivery fleet... |
-| [This European company’s sleek solar roof just made...](https://electrek.co/2026/02/18/european-company-sleek-solar-roof-just-made-its-us-debut/) | Electrek | European solar roofing company Roofit.Solar has completed its first US project, ... |
+| [Amazon grew its Rivian electric delivery van fleet...](https://electrek.co/2026/02/18/amazon-grew-its-rivian-electric-delivery-van-fleet-by-50-in-2025/) | Electrek | Amazon이 배송 차량에 Rivian 전기 밴 10만 대 추가 약속, 2025년 50% 증가... |
+| [This European company’s sleek solar roof just made...](https://electrek.co/2026/02/18/european-company-sleek-solar-roof-just-made-its-us-debut/) | Electrek | 유럽 태양광 지붕 회사 Roofit.Solar가 미국 첫 프로젝트를 완료... |
 
 
 ---

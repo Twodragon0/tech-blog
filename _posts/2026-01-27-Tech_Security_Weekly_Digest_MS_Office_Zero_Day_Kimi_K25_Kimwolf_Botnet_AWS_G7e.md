@@ -10,7 +10,7 @@ keywords: [Microsoft Office, Zero-Day, CVE-2026-21509, Kimi K2.5, AI 에이전�
 author: Twodragon
 comments: true
 image: /assets/images/2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Kimi_Kimwolf_AWS.svg
-image_alt: "Tech and Security Weekly Digest January 27 2026 - MS Office Zero Day, Kimi K2.5, Kimwolf Botnet, AWS G7e"
+image_alt: "기술 및 보안 주간 다이제스트 2026년 1월 27일 - MS Office Zero-Day, Kimi K2.5, Kimwolf 봇넷, AWS G7e"
 toc: true
 schema_type: Article
 ---
@@ -65,7 +65,7 @@ schema_type: Article
 </div>
 </div>
 
-## Executive Summary
+## 주요 요약
 
 ### 위협 분석 스코어카드
 
@@ -1808,7 +1808,7 @@ financial_compliance:
 
 ### 감사 대응 보고서 템플릿
 
-#### Executive Summary for Audit
+#### 감사용 요약
 
 ```markdown
 # 주간 보안 취약점 대응 현황 보고

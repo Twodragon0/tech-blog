@@ -10,7 +10,7 @@ keywords: [Docker, DockerDash, CVE-2025-11953, Metro4Shell, RCE, AI Agent Securi
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go.svg
-image_alt: "Tech Security Weekly Digest February 04 2026 Docker AI Metro4Shell AWS IAM"
+image_alt: "기술 보안 주간 다이제스트 2026년 2월 4일 Docker AI Metro4Shell AWS IAM"
 toc: true
 schema_type: Article
 ---
@@ -64,7 +64,7 @@ schema_type: Article
 </div>
 </div>
 
-## Executive Summary (경영진 브리핑)
+## 주요 요약 (경영진 브리핑)
 
 ### TL;DR - 위험 스코어카드
 

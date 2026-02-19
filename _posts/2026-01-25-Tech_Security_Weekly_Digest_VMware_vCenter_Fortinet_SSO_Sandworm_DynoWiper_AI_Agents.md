@@ -10,7 +10,7 @@ keywords: [VMware vCenter, CVE-2024-37079, CISA KEV, Fortinet, FortiGate, SSO �
 author: Twodragon
 comments: true
 image: /assets/images/2026-01-25-Tech_Security_Weekly_Digest.svg
-image_alt: "Tech and Security Weekly Digest January 2026 - VMware vCenter KEV, Fortinet SSO Bypass, Sandworm DynoWiper"
+image_alt: "기술 및 보안 주간 다이제스트 2026년 1월 - VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper"
 toc: true
 schema_type: Article
 ---
@@ -65,7 +65,7 @@ schema_type: Article
 </div>
 </div>
 
-## Executive Summary
+## 주요 요약
 
 ### 위험도 평가 스코어카드 (Risk Assessment Scorecard)
 

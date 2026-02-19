@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Weekly Security Threat Intelligence Digest: Notepad++ 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화"
+title: "주간 보안 위협 인텔리전스 다이제스트: Notepad++ 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화"
 date: 2026-02-02 10:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, Supply-Chain, Notepad++, Ransomware, Zero-Trust, JWT, Vertical-AI, SK-Shieldus, HashiCorp, Red-Team, "2026"]
@@ -10,7 +10,7 @@ keywords: [Notepad++ Supply Chain Attack, SK Shieldus EQST, BlackField Ransomwar
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-02-Weekly_Security_Threat_Intelligence_Digest.svg
-image_alt: "Weekly Security Threat Intelligence Digest Feb 2 2026"
+image_alt: "주간 보안 위협 인텔리전스 다이제스트 2026년 2월 2일"
 toc: true
 schema_type: Article
 ---
@@ -22,7 +22,7 @@ schema_type: Article
 <div class="ai-summary-content">
   <div class="summary-row">
     <span class="summary-label">제목</span>
-    <span class="summary-value">Weekly Security Threat Intelligence Digest (2026년 02월 02일)</span>
+    <span class="summary-value">주간 보안 위협 인텔리전스 다이제스트 (2026년 02월 02일)</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">카테고리</span>
@@ -60,7 +60,7 @@ schema_type: Article
 
 > **함께 읽기**: 같은 날짜의 기술/AI/블록체인 다이제스트 [Weekly Tech & AI & Blockchain Digest](/2026-02-02-Weekly_Tech_AI_Blockchain_Digest)에서 Apple MLX 버그, Bitcoin $74K 대폭락, AI 창의성 역설, DeFi 보안, FOSDEM 2026을 심층 분석합니다.
 
-## Executive Summary
+## 주요 요약
 
 ### 위험 평가 스코어카드
 

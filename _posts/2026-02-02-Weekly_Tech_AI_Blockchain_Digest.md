@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Weekly Tech & AI & Blockchain Digest: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 역설, DeFi 보안, FOSDEM 2026"
+title: "주간 기술 & AI & 블록체인 다이제스트: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 역설, DeFi 보안, FOSDEM 2026"
 date: 2026-02-02 20:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, Apple, Bitcoin-Crash, AI-Creativity, DeFi-Security, Claude-Code, Google-Research, CrossCurve-Exploit, Ethereum-Quantum, FOSDEM-2026, "2026"]
@@ -10,7 +10,7 @@ keywords: [Apple MLX Bug, Bitcoin Crash 2026, AI Creativity Paradox, DeFi Securi
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-02-Weekly_Tech_AI_Blockchain_Digest.svg
-image_alt: "Weekly Tech AI Blockchain Digest Feb 2 2026"
+image_alt: "주간 기술 AI 블록체인 다이제스트 2026년 2월 2일"
 toc: true
 schema_type: Article
 ---
@@ -22,7 +22,7 @@ schema_type: Article
 <div class="ai-summary-content">
   <div class="summary-row">
     <span class="summary-label">제목</span>
-    <span class="summary-value">Weekly Tech & AI & Blockchain Digest (2026년 02월 02일)</span>
+    <span class="summary-value">주간 기술 & AI & 블록체인 다이제스트 (2026년 02월 02일)</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">카테고리</span>

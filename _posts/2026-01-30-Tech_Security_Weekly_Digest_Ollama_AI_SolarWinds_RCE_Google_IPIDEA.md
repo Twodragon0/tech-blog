@@ -10,7 +10,7 @@ keywords: [Ollama, LLMjacking, SolarWinds WHD, CVE-2025-40551, IPIDEA, Google GT
 author: Twodragon
 comments: true
 image: /assets/images/2026-01-30-Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA.svg
-image_alt: "Tech Security Weekly Digest January 30 2026 Ollama AI Exposure SolarWinds RCE Google IPIDEA Disruption"
+image_alt: "기술 및 보안 주간 다이제스트 2026년 1월 30일 - Ollama AI 서버 노출, SolarWinds RCE, Google IPIDEA 차단"
 toc: true
 schema_type: Article
 ---

@@ -10,7 +10,7 @@ keywords: [Zero Trust, AI 에이전트, 비인간 ID, NHI, HashiCorp, Chrome 보
 author: Twodragon
 comments: true
 image: /assets/images/2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Terraform.svg
-image_alt: "Tech and Security Weekly Digest January 2026 - Zero Trust for AI Agents, Chrome Scam Detection, Terraform Stacks"
+image_alt: "기술 및 보안 주간 다이제스트 2026년 1월 - AI 에이전트 Zero Trust, Chrome 사기 탐지, Terraform Stacks"
 toc: true
 schema_type: Article
 ---

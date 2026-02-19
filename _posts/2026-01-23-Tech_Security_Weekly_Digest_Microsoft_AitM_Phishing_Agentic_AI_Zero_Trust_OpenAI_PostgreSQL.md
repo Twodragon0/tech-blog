@@ -10,7 +10,7 @@ keywords: [Security-Weekly, AitM-Phishing, BEC, Zero-Trust, Agentic-AI, NHI, Pos
 author: Twodragon
 comments: true
 image: /assets/images/2026-01-23-Tech_Security_Weekly_Digest.svg
-image_alt: "Tech and Security Weekly Digest January 2026 - AitM Phishing, Zero Trust, PostgreSQL Scaling"
+image_alt: "기술 및 보안 주간 다이제스트 2026년 1월 - AitM 피싱, Zero Trust, PostgreSQL 스케일링"
 toc: true
 schema_type: Article
 ---
@@ -67,7 +67,7 @@ schema_type: Article
 </div>
 </div>
 
-## Executive Summary
+## 주요 요약
 
 ### 위협 리스크 스코어카드
 

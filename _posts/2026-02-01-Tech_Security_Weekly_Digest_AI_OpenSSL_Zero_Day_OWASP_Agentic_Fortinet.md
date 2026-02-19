@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet SSO 제로데이"
+title: "기술 & 보안 주간 다이제스트: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet SSO 제로데이"
 date: 2026-02-01 10:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, AI-Security, OpenSSL, Zero-Day, OWASP, Agentic-AI, Fortinet, Azure, Kyverno, Supply-Chain, eScan, NIST, "2026"]
@@ -10,7 +10,7 @@ keywords: [AISLE AI, OpenSSL Zero-Day, OWASP Agentic AI, Fortinet CVE-2026-24858
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet.svg
-image_alt: "Security Digest - AI OpenSSL Zero-Day OWASP Agentic AI Fortinet Analysis"
+image_alt: "보안 다이제스트 - AI OpenSSL Zero-Day OWASP Agentic AI Fortinet 분석"
 toc: true
 schema_type: Article
 ---
@@ -22,7 +22,7 @@ schema_type: Article
 <div class="ai-summary-content">
   <div class="summary-row">
     <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 02월 01일)</span>
+    <span class="summary-value">기술 & 보안 주간 다이제스트 (2026년 02월 01일)</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">카테고리</span>

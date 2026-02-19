@@ -10,7 +10,7 @@ keywords: [ShinyHunters, Vishing, MFA Bypass, Chrome Extension Security, ChatGPT
 author: Twodragon
 comments: true
 image: /assets/images/2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack.svg
-image_alt: "Security Digest - ShinyHunters Vishing Chrome Extension OT Attack Analysis"
+image_alt: "보안 다이제스트 - ShinyHunters 비싱, Chrome 확장 공격, OT 공격 분석"
 toc: true
 schema_type: Article
 ---
