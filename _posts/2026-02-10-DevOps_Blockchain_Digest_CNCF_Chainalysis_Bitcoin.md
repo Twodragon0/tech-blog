@@ -33,13 +33,21 @@ title: '2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster
 toc: true
 ---
 
+{% capture ai_categories_html %}
+{% endcapture %}
+{% capture ai_tags_html %}
+{% endcapture %}
+{% capture ai_highlights_html %}
+<li><strong>핵심 요약</strong>: CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트,</li>
+{% endcapture %}
+
 {% include ai-summary-card.html
-  title='2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin'
-  categories_html=''
-  tags_html=''
-  highlights_html='<li><strong>핵심 요약</strong>: CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트,</li>'
-  period='2026-02-10'
-  audience='DevOps/DevSecOps/Cloud 보안 담당자'
+  title="2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin"
+  categories_html=ai_categories_html
+  tags_html=ai_tags_html
+  highlights_html=ai_highlights_html
+  period="2026-02-10"
+  audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
 
 ## 요약
@@ -302,4 +310,3 @@ Bitcoin이 $60,000 지지선에서 강력하게 반등하여 $70,315 근처에�
 - 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
 - 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
 - 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
-

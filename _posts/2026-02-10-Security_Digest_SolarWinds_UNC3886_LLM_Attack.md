@@ -30,13 +30,21 @@ title: '2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩
 toc: true
 ---
 
+{% capture ai_categories_html %}
+{% endcapture %}
+{% capture ai_tags_html %}
+{% endcapture %}
+{% capture ai_highlights_html %}
+<li><strong>핵심 요약</strong>: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전</li>
+{% endcapture %}
+
 {% include ai-summary-card.html
-  title='2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격'
-  categories_html=''
-  tags_html=''
-  highlights_html='<li><strong>핵심 요약</strong>: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전</li>'
-  period='2026-02-10'
-  audience='DevOps/DevSecOps/Cloud 보안 담당자'
+  title="2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격"
+  categories_html=ai_categories_html
+  tags_html=ai_tags_html
+  highlights_html=ai_highlights_html
+  period="2026-02-10"
+  audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
 
 ## 요약
@@ -317,4 +325,3 @@ Mandiant(Google Cloud)가 북한 연계 위협 행위자 UNC1069의 암호화폐
 - 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
 - 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
 - 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
-
