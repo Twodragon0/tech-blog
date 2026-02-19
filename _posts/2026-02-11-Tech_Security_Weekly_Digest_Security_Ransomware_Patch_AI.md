@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: Ransomware, CVE-2026-21643, Fortinet"
+title: "기술 & 보안 주간 다이제스트: 랜섬웨어, CVE-2026-21643, Fortinet"
 date: 2026-02-11 12:47:26 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Ransomware, Patch, AI]
@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Secu
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI.svg
-image_alt: "Tech Security Weekly Digest February 11 2026 Security Ransomware Patch"
+image_alt: "기술 보안 주간 다이제스트 2026년 2월 11일 랜섬웨어 패치"
 toc: true
 schema_type: Article
 ---
@@ -24,15 +24,15 @@ schema_type: Article
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: DPRK Operatives Impersonate Professionals on LinkedIn to...</li>
-      <li><strong>The Hacker News</strong>: Reynolds Ransomware Embeds BYOVD Driver to Disable EDR...</li>
-      <li><strong>The Hacker News</strong>: From Ransomware to Residency: Inside the Rise of the...</li>
-      <li><strong>Google Cloud Blog</strong>: Google Distributed Cloud brings public-cloud-like...</li>'
+  highlights_html='<li><strong>The Hacker News</strong>: 북한(DPRK) 요원들이 LinkedIn에서 전문직 신분을 사칭해 기업 침투 시도</li>
+      <li><strong>The Hacker News</strong>: Reynolds 랜섬웨어, BYOVD 취약 드라이버 내장으로 EDR 보안 도구 무력화</li>
+      <li><strong>The Hacker News</strong>: 랜섬웨어에서 장기 잠복으로: 디지털 기생 공격의 부상</li>
+      <li><strong>Google Cloud Blog</strong>: Google Distributed Cloud, 에어갭 환경에 퍼블릭 클라우드급 네트워킹 제공</li>'
   period='2026년 02월 11일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
-## Executive Summary
+## 주요 요약
 
 2026년 02월 11일 기준 보안 현황 및 위협 분석입니다.
 
@@ -124,14 +124,14 @@ schema_type: Article
 
 #### 개요
 
-The information technology (IT) workers associated with the Democratic People's Republic of Korea (DPRK) are now applying to remote positions using real LinkedIn accounts of individuals they're impersonating, marking a new escalation of the fraudulent scheme. "These profiles often have verified workplace emails and identity badges, which DPRK operatives hope will make their fraudulent
+북한(DPRK) 연계 IT 인력들이 실제 개인의 LinkedIn 계정을 도용해 원격 채용 공고에 지원하는 사기 수법이 새롭게 확인됐습니다. 이들은 직장 이메일 인증 및 신원 배지가 포함된 프로필을 활용해 채용 과정을 통과하려 시도하며, 기업 내부 침투를 목적으로 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/dprk-operatives-impersonate.html)
 
 #### 핵심 포인트
 
-- The information technology (IT) workers associated with the Democratic People's Republic of Korea (DPRK) are now applying to remote positions using real LinkedIn accounts of individuals they're impersonating, marking a new escalation of the fraudulent scheme
-- "These profiles often have verified workplace emails and identity badges, which DPRK operatives hope will make their fraudulent
+- 북한(DPRK) 연계 IT 인력들이 타인의 실제 LinkedIn 계정을 도용해 원격 직위에 지원하는 신종 사기 수법이 확인됨
+- 인증된 직장 이메일과 신원 배지가 포함된 프로필로 채용 심사를 통과하려는 시도가 포착됨
 
 
 #### 위협 분석
@@ -157,14 +157,14 @@ The information technology (IT) workers associated with the Democratic People's 
 
 #### 개요
 
-Cybersecurity researchers have disclosed details of an emergent ransomware family dubbed Reynolds that comes embedded with a built-in bring your own vulnerable driver (BYOVD) component for defense evasion purposes within the ransomware payload itself. BYOVD refers to an adversarial technique that abuses legitimate but flawed driver software to escalate privileges and disable Endpoint Detection
+보안 연구원들이 'Reynolds'라는 새로운 랜섬웨어 패밀리의 세부 정보를 공개했습니다. 이 랜섬웨어는 페이로드 내부에 BYOVD(취약 드라이버 악용) 기법을 내장해 EDR 등 보안 도구를 무력화합니다. BYOVD는 합법적이지만 취약한 드라이버를 악용해 권한을 상승시키고 엔드포인트 탐지를 비활성화하는 공격 기술입니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/reynolds-ransomware-embeds-byovd-driver.html)
 
 #### 핵심 포인트
 
-- Cybersecurity researchers have disclosed details of an emergent ransomware family dubbed Reynolds that comes embedded with a built-in bring your own vulnerable driver (BYOVD) component for defense evasion purposes within the ransomware payload itself
-- BYOVD refers to an adversarial technique that abuses legitimate but flawed driver software to escalate privileges and disable Endpoint Detection
+- 신종 랜섬웨어 'Reynolds'가 페이로드 내 BYOVD 컴포넌트를 내장해 방어 우회 목적으로 활용한다는 사실이 밝혀짐
+- BYOVD는 취약한 정품 드라이버를 악용해 권한을 상승시키고 EDR(엔드포인트 탐지 및 대응) 도구를 비활성화하는 기술임
 
 
 #### 실무 영향
@@ -181,14 +181,14 @@ Cybersecurity researchers have disclosed details of an emergent ransomware famil
 
 #### 개요
 
-Are ransomware and encryption still the defining signals of modern cyberattacks, or has the industry been too fixated on noise while missing a more dangerous shift happening quietly all around them? According to Picus Labs’ new Red Report 2026, which analyzed over 1.1 million malicious files and mapped 15.5 million adversarial actions observed across 2025, attackers are no longer optimizing for
+랜섬웨어와 암호화가 여전히 현대 사이버 공격의 핵심 지표인지 의문이 제기되고 있습니다. Picus Labs의 Red Report 2026에 따르면 110만 개 이상의 악성 파일과 1,550만 건의 공격 행위를 분석한 결과, 공격자들은 더 이상 빠른 수익화보다 장기 잠복 및 은밀한 내부 정착(Residency)을 우선시하는 방향으로 전략을 전환하고 있습니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/from-ransomware-to-residency-inside.html)
 
 #### 핵심 포인트
 
-- Are ransomware and encryption still the defining signals of modern cyberattacks, or has the industry been too fixated on noise while missing a more dangerous shift happening quietly all around them
-- According to Picus Labs’ new Red Report 2026, which analyzed over 1.1 million malicious files and mapped 15.5 million adversarial actions observed across 2025, attackers are no longer optimizing for
+- 랜섬웨어·암호화 중심의 공격 패러다임이 장기 잠복·은밀한 내부 정착 방식으로 전환되고 있다는 분석이 제기됨
+- Picus Labs Red Report 2026은 110만+ 악성 파일 및 2025년 관측된 1,550만 건 공격 행위 분석 결과를 기반으로 이 추세를 확인함
 
 
 #### 실무 영향
@@ -207,13 +207,13 @@ Are ransomware and encryption still the defining signals of modern cyberattacks,
 
 #### 개요
 
-A collage of outdoor images, a blue icon that say "Ask Photos," and examples of Ask Photos prompts.
+Google Photos의 'Ask Photos' 기능을 활용해 시도해볼 수 있는 9가지 흥미로운 질문 사례를 소개합니다. 야외 사진 콜라주와 함께 AI 기반 사진 검색 기능의 다양한 활용법을 안내합니다.
 
 > **출처**: [Google AI Blog](https://blog.google/products-and-platforms/products/photos/ask-button-ask-photos-tips/)
 
 #### 핵심 포인트
 
-- A collage of outdoor images, a blue icon that say "Ask Photos," and examples of Ask Photos prompts
+- Google Photos의 'Ask Photos' 기능을 통해 자연어로 사진을 검색하고 다양한 질문에 답을 얻을 수 있는 활용 사례 소개
 
 
 #### AI/ML 보안 영향 분석
@@ -235,13 +235,14 @@ A collage of outdoor images, a blue icon that say "Ask Photos," and examples of 
 
 #### 개요
 
-In this post, we discuss how Amazon Nova in Amazon Bedrock can be used to implement an AI-powered image recognition solution that automates the detection and validation of module components, significantly reducing manual verification efforts and improving accuracy.
+Amazon이 Amazon Bedrock의 Nova 모델을 활용해 새 물류 센터의 운영 준비 테스트를 자동화하는 방법을 소개합니다. AI 기반 이미지 인식 솔루션을 통해 모듈 구성 요소의 감지 및 검증을 자동화함으로써 수작업 검증 부담을 크게 줄이고 정확도를 높였습니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/how-amazon-uses-amazon-nova-models-to-automate-operational-readiness-testing-for-new-fulfillment-centers/)
 
 #### 핵심 포인트
 
-- In this post, we discuss how Amazon Nova in Amazon Bedrock can be used to implement an AI-powered image recognition solution that automates the detection and validation of module components, significantly reducing manual verification efforts and improving accuracy
+- Amazon Bedrock의 Amazon Nova 모델로 AI 기반 이미지 인식 솔루션을 구현해 물류 센터 모듈 구성 요소 감지·검증을 자동화함
+- 수작업 검증 노력을 대폭 절감하고 정확도를 향상시킨 실제 사례 공유
 
 
 #### AI/ML 보안 영향 분석
@@ -263,15 +264,14 @@ In this post, we discuss how Amazon Nova in Amazon Bedrock can be used to implem
 
 #### 개요
 
-Iberdrola, one of the world’s largest utility companies, has embraced cutting-edge AI technology to revolutionize its IT operations in ServiceNow. Through its partnership with AWS, Iberdrola implemented different agentic architectures using Amazon Bedrock AgentCore, targeting three key areas: optimizing change request validation in the draft phase, enriching incident management with contextual intelligence, and simplifying change model selection using conversational AI. These innovations redu...
+세계 최대 유틸리티 기업 중 하나인 Iberdrola가 AWS와의 협력을 통해 Amazon Bedrock AgentCore를 활용한 에이전트 아키텍처를 도입했습니다. ServiceNow 기반 IT 운영에서 변경 요청 검증 최적화, 인시던트 관리 고도화, 대화형 AI를 이용한 변경 모델 선택 간소화의 세 가지 영역을 혁신했습니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/iberdrola-enhances-it-operations-using-amazon-bedrock-agentcore/)
 
 #### 핵심 포인트
 
-- Iberdrola, one of the world’s largest utility companies, has embraced cutting-edge AI technology to revolutionize its IT operations in ServiceNow
-- Through its partnership with AWS, Iberdrola implemented different agentic architectures using Amazon Bedrock AgentCore, targeting three key areas: optimizing change request validation in the draft phase, enriching incident management with contextual intelligence, and simplifying change model selection using conversational AI
-- These innovations redu
+- Iberdrola가 Amazon Bedrock AgentCore 기반 에이전트 아키텍처를 ServiceNow IT 운영에 도입해 혁신을 추진함
+- 변경 요청 검증 자동화, 인시던트 관리 지능화, 대화형 AI 기반 변경 모델 선택 간소화 등 세 가지 핵심 영역에서 성과를 달성함
 
 
 #### AI/ML 보안 영향 분석
@@ -295,15 +295,14 @@ Iberdrola, one of the world’s largest utility companies, has embraced cutting-
 
 #### 개요
 
-Organizations in highly regulated industries often struggle to balance the rigid security of air-gapped environments with the need for the agility and flexibility that the cloud provides. To address this, Google Distributed Cloud (GDC) air-gapped 1.15 introduces new networking features in preview that give you more direct control and visibility without compromising your security posture, as well as a new IPAM feature in general availability that simplifies subnet management . These preview fe...
+고규제 산업의 조직들은 에어갭 환경의 강력한 보안과 클라우드의 민첩성·유연성 사이에서 균형을 맞추는 데 어려움을 겪어 왔습니다. Google Distributed Cloud(GDC) 에어갭 1.15는 보안 태세를 유지하면서도 더 직접적인 제어와 가시성을 제공하는 새로운 네트워킹 기능(프리뷰)과 서브넷 관리를 간소화하는 IPAM 기능(GA)을 도입했습니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/products/networking/google-distributed-cloud-gdc-air-gapped-1-15-networking/)
 
 #### 핵심 포인트
 
-- Organizations in highly regulated industries often struggle to balance the rigid security of air-gapped environments with the need for the agility and flexibility that the cloud provides
-- To address this, Google Distributed Cloud (GDC) air-gapped 1.15 introduces new networking features in preview that give you more direct control and visibility without compromising your security posture, as well as a new IPAM feature in general availability that simplifies subnet management
-- These preview fe
+- 고규제 산업에서 에어갭 환경의 보안성과 클라우드의 유연성을 동시에 충족하기 위한 새로운 접근법이 제시됨
+- GDC 에어갭 1.15에서 보안 태세를 유지하며 직접적인 제어·가시성을 높이는 네트워킹 기능(프리뷰)과 서브넷 관리 간소화를 위한 IPAM 기능(GA)이 추가됨
 
 
 #### 실무 적용 포인트
@@ -319,16 +318,15 @@ Organizations in highly regulated industries often struggle to balance the rigid
 
 #### 개요
 
-Today’s reality is agentic – software that can reason, plan, and act on your behalf to execute complex workflows. To meet this moment, we are excited to open the Gemini Enterprise Agent Ready (GEAR) learning program to everyone. As a new specialized pathway within the Google Developer Program , GEAR empowers developers and pros to build and deploy enterprise-grade agents with Google AI. Here is how GEAR helps you build what’s next. Move from experimentation to production-ready architecture Bu...
+현대 소프트웨어는 추론·계획·실행이 가능한 에이전트 중심으로 진화하고 있습니다. Google이 Gemini Enterprise Agent Ready(GEAR) 학습 프로그램을 전면 개방했습니다. Google Developer Program 내 전문 과정으로, 개발자와 전문가들이 엔터프라이즈 수준의 AI 에이전트를 구축·배포할 수 있도록 지원합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/gear-program-now-available/)
 
 #### 핵심 포인트
 
-- Today’s reality is agentic – software that can reason, plan, and act on your behalf to execute complex workflows
-- To meet this moment, we are excited to open the Gemini Enterprise Agent Ready (GEAR) learning program to everyone
-- As a new specialized pathway within the Google Developer Program , GEAR empowers developers and pros to build and deploy enterprise-grade agents with Google AI
-- Here is how GEAR helps you build what’s next
+- 에이전트 기반 소프트웨어(추론·계획·실행)가 현대 IT의 핵심으로 부상하고 있음
+- GEAR 프로그램이 전면 개방되어 누구나 엔터프라이즈급 AI 에이전트 구축·배포 역량을 학습할 수 있게 됨
+- Google Developer Program 내 전문 경로로 실험에서 프로덕션 아키텍처까지 단계적으로 지원함
 
 
 #### 실무 적용 포인트
@@ -344,15 +342,14 @@ Today’s reality is agentic – software that can reason, plan, and act on your
 
 #### 개요
 
-Introduction In modern warfare, the front lines are no longer confined to the battlefield; they extend directly into the servers and supply chains of the industry that safeguards the nation. Today, the defense sector faces a relentless barrage of cyber operations conducted by state-sponsored actors and criminal groups alike. In recent years, Google Threat Intelligence Group (GTIG) has observed several distinct areas of focus in adversarial targeting of the defense industrial base (DIB). While...
+현대 전쟁에서 전선은 더 이상 물리적 전장에만 국한되지 않으며, 방산 기업의 서버와 공급망까지 확장되고 있습니다. Google Threat Intelligence Group(GTIG)은 국가 지원 행위자와 범죄 집단 모두가 방산 산업 기반(DIB)을 지속적으로 표적으로 삼고 있음을 확인했습니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/threat-intelligence/threats-to-defense-industrial-base/)
 
 #### 핵심 포인트
 
-- Introduction In modern warfare, the front lines are no longer confined to the battlefield; they extend directly into the servers and supply chains of the industry that safeguards the nation
-- Today, the defense sector faces a relentless barrage of cyber operations conducted by state-sponsored actors and criminal groups alike
-- In recent years, Google Threat Intelligence Group (GTIG) has observed several distinct areas of focus in adversarial targeting of the defense industrial base (DIB)
+- 현대 전쟁의 전선이 물리적 전장에서 방산 기업의 서버와 공급망으로 확대됨
+- 국가 지원 행위자 및 범죄 집단이 방산 산업 기반(DIB)을 집중 표적으로 삼고 있으며, GTIG가 주요 공격 패턴을 관측함
 
 
 #### 실무 적용 포인트
@@ -370,16 +367,15 @@ Introduction In modern warfare, the front lines are no longer confined to the ba
 
 #### 개요
 
-Docker Hardened Images are now free, covering Alpine, Debian, and over 1,000 images including databases, runtimes, and message buses. For security teams, this changes the economics of container vulnerability management. DHI includes security fixes from Docker’s security team, which simplifies security response. Platform teams can pull the patched base image and redeploy quickly. But free...
+Docker Hardened Images(DHI)가 무료로 제공됩니다. Alpine, Debian을 포함해 데이터베이스, 런타임, 메시지 버스 등 1,000개 이상의 이미지를 지원합니다. 보안팀 입장에서 컨테이너 취약점 관리의 경제성이 크게 달라지며, Docker 보안팀이 직접 제공하는 보안 수정 사항이 포함되어 대응을 간소화합니다.
 
 > **출처**: [Docker Blog](https://www.docker.com/blog/hardened-images-free-now-what/)
 
 #### 핵심 포인트
 
-- Docker Hardened Images are now free, covering Alpine, Debian, and over 1,000 images including databases, runtimes, and message buses
-- For security teams, this changes the economics of container vulnerability management
-- DHI includes security fixes from Docker’s security team, which simplifies security response
-- Platform teams can pull the patched base image and redeploy quickly
+- Docker Hardened Images가 무료 제공으로 전환되어 Alpine, Debian 등 1,000개 이상의 이미지(DB, 런타임, 메시지 버스 포함)를 지원함
+- 보안팀의 컨테이너 취약점 관리 비용 구조가 변화하며, Docker 보안팀의 수정 사항이 포함되어 보안 대응이 간소화됨
+- 플랫폼 팀은 패치된 베이스 이미지를 가져와 빠르게 재배포 가능
 
 
 #### 실무 적용 포인트
@@ -395,15 +391,13 @@ Docker Hardened Images are now free, covering Alpine, Debian, and over 1,000 ima
 
 #### 개요
 
-Find out about the new features in .NET 11 Preview 1 across the .NET runtime, SDK, libraries, ASP.NET Core, Blazor, C#, .NET MAUI, and more! The post .NET 11 Preview 1 is now available! appeared first on .NET Blog .
+.NET 11 Preview 1이 출시됐습니다. .NET 런타임, SDK, 라이브러리, ASP.NET Core, Blazor, C#, .NET MAUI 등 전반에 걸친 새로운 기능들을 확인할 수 있습니다.
 
 > **출처**: [Microsoft .NET Blog](https://devblogs.microsoft.com/dotnet/dotnet-11-preview-1/)
 
 #### 핵심 포인트
 
-- Find out about the new features in .NET 11 Preview 1 across the .NET runtime, SDK, libraries, ASP.NET Core, Blazor, C#, .NET MAUI, and more
-- The post .NET 11 Preview 1 is now available
-- appeared first on .NET Blog 
+- .NET 11 Preview 1에서 .NET 런타임, SDK, 라이브러리, ASP.NET Core, Blazor, C#, .NET MAUI 등 주요 컴포넌트의 신규 기능 공개
 
 
 #### 실무 적용 포인트
@@ -421,14 +415,14 @@ Find out about the new features in .NET 11 Preview 1 across the .NET runtime, SD
 
 #### 개요
 
-A recap of the latest servicing updates for .NET and .NET Framework for February 2026. The post .NET and .NET Framework February 2026 servicing releases updates appeared first on .NET Blog .
+.NET 및 .NET Framework의 2026년 2월 최신 서비스 업데이트를 요약합니다. 보안 패치 및 버그 수정 사항이 포함되어 있으며, 운영 환경에 적용 전 호환성 검토가 권장됩니다.
 
 > **출처**: [Microsoft .NET Blog](https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-february-2026-servicing-updates/)
 
 #### 핵심 포인트
 
-- A recap of the latest servicing updates for .NET and .NET Framework for February 2026
-- The post .NET and .NET Framework February 2026 servicing releases updates appeared first on .NET Blog 
+- .NET 및 .NET Framework의 2026년 2월 서비스 업데이트 요약 제공
+- CVE-2026-21218 관련 보안 패치 포함
 
 
 #### 실무 적용 포인트
@@ -446,14 +440,14 @@ A recap of the latest servicing updates for .NET and .NET Framework for February
 
 #### 개요
 
-Bitcoin Magazine Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings Goldman Sachs revealed it holds $1.1 billion in Bitcoin ETFs, marking somewhat of a shift toward cryptocurrency exposure. This post Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings first appeared on Bitcoin Magazine and is written by Micah Zimmerman .
+Goldman Sachs가 비트코인 ETF에 11억 달러 규모의 포지션을 보유하고 있다고 공시했습니다. 이는 주요 투자은행이 암호화폐 노출을 확대하는 흐름을 보여주는 사례입니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/goldman-sachs-position-in-bitcoin)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings Goldman Sachs revealed it holds $1.1 billion in Bitcoin ETFs, marking somewhat of a shift toward cryptocurrency exposure
-- This post Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings first appeared on Bitcoin Magazine and is written by Micah Zimmerman 
+- Goldman Sachs가 비트코인 ETF에 약 11억 달러 규모 포지션 보유를 공식 공시함
+- 글로벌 투자은행의 암호화폐 시장 진입 확대를 보여주는 사례로 주목됨
 
 
 ---
@@ -462,14 +456,14 @@ Bitcoin Magazine Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Ho
 
 #### 개요
 
-Bitcoin Magazine FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration Convicted FTX fraudster Sam Bankman-Fried reportedly filed for a new trial today. This post FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration first appeared on Bitcoin Magazine and is written by Micah Zimmerman .
+유죄 판결을 받은 FTX 사기 피고인 Sam Bankman-Fried가 재심을 신청했습니다. 그는 자신이 바이든 행정부의 정치적 피해자라고 주장하며 새로운 재판을 요구했습니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/ftx-sam-bankman-fried-wants-a-new-trial)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration Convicted FTX fraudster Sam Bankman-Fried reportedly filed for a new trial today
-- This post FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration first appeared on Bitcoin Magazine and is written by Micah Zimmerman 
+- FTX 사기 혐의로 유죄 판결을 받은 Sam Bankman-Fried가 재심 신청서를 제출함
+- 바이든 행정부의 정치적 피해자였다고 주장하며 재판 무효화를 요구함
 
 
 ---
@@ -478,8 +472,8 @@ Bitcoin Magazine FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Po
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Trump can’t freeze NEVI funds, so he’s trying to s...](https://electrek.co/2026/02/10/trump-cant-freeze-nevi-funds-so-hes-trying-to-stall-them-again/) | Electrek | The Federal Highway Administration (FHWA) just issued a new notice today that ai... |
-| [Tesla Semi specs and pricing, L4 haul trucks, and ...](https://electrek.co/2026/02/10/tesla-semi-specs-and-pricing-l4-haul-trucks-and-windrose-mobile-ai-concept/) | Electrek | On today’s long overdue episode of Quick Charge , we’ve finally got production s... |
+| [Trump can’t freeze NEVI funds, so he’s trying to s...](https://electrek.co/2026/02/10/trump-cant-freeze-nevi-funds-so-hes-trying-to-stall-them-again/) | Electrek | 연방도로청(FHWA)이 NEVI 전기차 충전 인프라 자금 집행을 지연시키려는 새 공지를 발령함 |
+| [Tesla Semi specs and pricing, L4 haul trucks, and ...](https://electrek.co/2026/02/10/tesla-semi-specs-and-pricing-l4-haul-trucks-and-windrose-mobile-ai-concept/) | Electrek | Tesla Semi 양산 사양·가격 공개, L4 자율주행 화물 트럭 및 Windrose 모바일 AI 콘셉트 소개 |
 
 
 ---

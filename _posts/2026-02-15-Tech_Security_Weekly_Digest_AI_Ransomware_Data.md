@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: Ransomware"
+title: "기술 & 보안 주간 다이제스트: 랜섬웨어"
 date: 2026-02-15 12:40:56 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Data]
@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, 
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-15-Tech_Security_Weekly_Digest_AI_Ransomware_Data.svg
-image_alt: "Tech Security Weekly Digest February 15 2026 AI Ransomware Data"
+image_alt: "기술 보안 주간 다이제스트 2026년 2월 15일 AI 랜섬웨어 데이터"
 toc: true
 ---
 
@@ -30,7 +30,7 @@ toc: true
   audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
 %}
 
-## Executive Summary
+## 주요 요약
 
 2026년 02월 15일 기준 보안 현황 및 위협 분석입니다.
 
@@ -131,32 +131,33 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 ## 2. 블록체인 뉴스
 
-### 2.1 Chainalysis Hexagate、MegaETH 向けリアルタイム脅威検知を提供
+### 2.1 Chainalysis Hexagate, MegaETH 실시간 위협 탐지 지원
 
 #### 개요
 
-※この記事は自動翻訳されています。正確な内容につきましては原文をご参照ください。 MegaETH 上で開発を行うビルダーの皆さまは、スマートコントラクトやトークン、プロトコル全体を対象にリアルタイムで脅威を検知する Chainalysis の Web3 セキュリティソリューション Hexagate を、今すぐご利用いただけます。 Hexagate は、エクスプロイトやハッキング、ガバナンス面・財務面でのリスクからエコシステムを守るために設計された専用ソリューションです。高度な機械学習（ML）により、不審なパターンやブロックチェーン上のトランザクション（取引履歴）をリアルタイムで検知します。これにより MegaETH の開発者は、重大なインシデントに発展する前に、実行リスクやガバナンスの悪用、トークンの異常挙動をいち早く把握できます。 今回の連携により、MegaETH のビルダーは、自前で複雑な仕組みを構築・運用することなく、エンタープライズ水準のオンチェーンセキュリティモニタリングを利用できます。信頼性を損なうことなく、より速く、より安全にプロダクトをリリースするための効率的な方...
+Chainalysis의 Web3 보안 솔루션 Hexagate가 MegaETH 생태계를 지원합니다. MegaETH 위에서 개발하는 빌더들은 스마트 컨트랙트, 토큰, 프로토콜 전반에 대해 실시간으로 위협을 탐지할 수 있습니다. Hexagate는 익스플로잇, 해킹, 거버넌스 및 재무 리스크로부터 생태계를 보호하도록 설계되었습니다. 고급 ML로 의심스러운 패턴과 온체인 트랜잭션을 실시간 탐지하며, MegaETH 개발자들이 심각한 인시던트로 발전하기 전에 실행 리스크, 거버넌스 악용, 토큰 이상 동작을 조기에 파악할 수 있도록 합니다.
 
 > **출처**: [Chainalysis Blog](https://www.chainalysis.com/blog/hexagate-supports-megaeth-ecosystem-smart-contract-security-japanese/)
 
 #### 핵심 포인트
 
-- ※この記事は自動翻訳されています。正確な内容につきましては原文をご参照ください。 MegaETH 上で開発を行うビルダーの皆さまは、スマートコントラクトやトークン、プロトコル全体を対象にリアルタイムで脅威を検知する Chainalysis の Web3 セキュリティソリューション Hexagate を、今すぐご利用いただけます。 Hexagate は、エクスプロイトやハッキング、ガバナンス面・財務面でのリスクからエコシステムを守るために設計された専用ソリューションです。高度な機械学習（ML）により、不審なパターンやブロックチェーン上のトランザクション（取引履歴）をリアルタイムで検知します。これにより MegaETH の開発者は、重大なインシデントに発展する前に、実行リスクやガバナンスの悪用、トークンの異常挙動をいち早く把握できます。 今回の連携により、MegaETH のビルダーは、自前で複雑な仕組みを構築・運用することなく、エンタープライズ水準のオンチェーンセキュリティモニタリングを利用できます。信頼性を損なうことなく、より速く、より安全にプロダクトをリリースするための効率的な方
+- Chainalysis Hexagate가 MegaETH 생태계 지원 시작: 스마트 컨트랙트·토큰·프로토콜 전반에 대해 실시간 위협 탐지 제공
+- ML 기반으로 온체인 이상 트랜잭션 및 거버넌스 악용을 조기 탐지, 복잡한 자체 보안 인프라 없이 엔터프라이즈 수준의 온체인 보안 모니터링 활용 가능
 
 
 ---
 
-### 2.2 Roundhill’s election event contract ETFs ‘potentially groundbreaking'
+### 2.2 Roundhill’s election event contract ETFs ‘potentially groundbreaking’
 
 #### 개요
 
-The ETF issuer warned that investors who pick the fund tied to the losing US presidential outcome could lose nearly all invested capital.
+Roundhill이 미국 대선 결과와 연동된 이벤트 계약 ETF를 출시했습니다. ETF 발행사는 패배한 후보에 연동된 펀드를 선택한 투자자는 투자 원금 대부분을 잃을 수 있다고 경고했습니다.
 
 > **출처**: [Cointelegraph](https://cointelegraph.com/news/roundhill-investments-event-contracts-prediction-markets-etf-united-states-election?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
 #### 핵심 포인트
 
-- The ETF issuer warned that investors who pick the fund tied to the losing US presidential outcome could lose nearly all invested capital
+- Roundhill의 대선 이벤트 계약 ETF: 패배 후보 연동 펀드 선택 시 원금 대부분 손실 위험 경고, 예측 시장 ETF의 잠재적 혁신성 주목
 
 
 ---
@@ -165,8 +166,8 @@ The ETF issuer warned that investors who pick the fund tied to the losing US pre
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [WiTricity brings wireless EV charging to the golf ...](https://electrek.co/2026/02/14/witricity-brings-wireless-ev-charging-to-the-golf-course/) | Electrek | The wireless charging experts at WiTricity claim their newest wireless charging ... |
-| [California’s Helix water district gets state-of-th...](https://electrek.co/2026/02/14/californias-helix-water-district-gets-state-of-the-art-managed-charging-qa/) | Electrek | Located at Helix water district’s operations center in El Cajon, California, the... |
+| [WiTricity brings wireless EV charging to the golf ...](https://electrek.co/2026/02/14/witricity-brings-wireless-ev-charging-to-the-golf-course/) | Electrek | WiTricity가 골프장에 무선 EV 충전 기술을 도입, 최신 무선 충전 솔루션 공개 |
+| [California’s Helix water district gets state-of-th...](https://electrek.co/2026/02/14/californias-helix-water-district-gets-state-of-the-art-managed-charging-qa/) | Electrek | 캘리포니아 Helix 수도 사업소가 El Cajon 운영 센터에 최신 관리형 충전 시스템 도입 |
 
 
 ---

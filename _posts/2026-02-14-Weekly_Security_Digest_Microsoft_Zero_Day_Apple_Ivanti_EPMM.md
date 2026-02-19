@@ -37,7 +37,7 @@ schema_type: Article
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO'
 %}
 
-## Executive Summary
+## 주요 요약
 
 2026년 2월 2주차는 **역대급 Zero-Day 폭풍**의 한 주였습니다. Microsoft, Apple, Ivanti, SAP, BeyondTrust 등 주요 벤더의 치명적 취약점이 동시에 활발히 악용되고 있으며, AI 기반 사이버 공격의 산업화가 가속되고 있습니다.
 

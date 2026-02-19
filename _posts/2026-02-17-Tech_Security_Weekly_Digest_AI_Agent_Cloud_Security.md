@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: Cloud, Zero-Day, Botnet"
+title: "기술 & 보안 주간 다이제스트: 클라우드, Zero-Day, 봇넷"
 date: 2026-02-17 12:35:29 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Cloud, Security]
@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, 
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security.svg
-image_alt: "Tech Security Weekly Digest February 17 2026 AI Agent Cloud"
+image_alt: "기술 보안 주간 다이제스트 2026년 2월 17일 AI 에이전트 클라우드"
 toc: true
 ---
 
@@ -23,15 +23,15 @@ toc: true
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
       <span class="tag">2026</span>"
-  highlights_html="<li><strong>The Hacker News</strong>: Infostealer Steals OpenClaw AI Agent Configuration Files...</li>
-      <li><strong>The Hacker News</strong>: Study Uncovers 25 Password Recovery Attacks in Major...</li>
-      <li><strong>AWS Security Blog</strong>: Building an AI-powered defense-in-depth security...</li>
-      <li><strong>AWS Blog</strong>: Amazon EC2 Hpc8a Instances powered by 5th Gen AMD EPYC...</li>"
+  highlights_html="<li><strong>The Hacker News</strong>: 인포스틸러가 OpenClaw AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취</li>
+      <li><strong>The Hacker News</strong>: 주요 클라우드 패스워드 매니저에서 25가지 비밀번호 복구 공격 취약점 발견</li>
+      <li><strong>AWS Security Blog</strong>: 서버리스 마이크로서비스를 위한 AI 기반 심층 방어 보안 아키텍처 구축</li>
+      <li><strong>AWS Blog</strong>: 5세대 AMD EPYC 프로세서 기반 Amazon EC2 Hpc8a 인스턴스 출시</li>"
   period="2026년 02월 17일 (24시간)"
   audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
 %}
 
-## Executive Summary
+## 주요 요약
 
 2026년 02월 17일 기준 보안 현황 및 위협 분석입니다.
 
@@ -123,14 +123,15 @@ toc: true
 
 #### 개요
 
-Cybersecurity researchers disclosed they have detected a case of an information stealer infection successfully exfiltrating a victim's OpenClaw (formerly Clawdbot and Moltbot) configuration environment. "This finding marks a significant milestone in the evolution of infostealer behavior: the transition from stealing browser credentials to harvesting the 'souls' and identities of personal AI [
+사이버보안 연구자들이 인포스틸러 악성코드가 피해자의 OpenClaw(이전 명칭: Clawdbot, Moltbot) 설정 환경을 성공적으로 탈취한 사례를 공개했습니다. 이는 인포스틸러 행동의 진화에서 중요한 이정표로, 브라우저 자격증명 탈취에서 개인 AI 에이전트의 '정체성'과 설정을 탈취하는 방향으로 전환됨을 의미합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/infostealer-steals-openclaw-ai-agent.html)
 
 #### 핵심 포인트
 
-- Cybersecurity researchers disclosed they have detected a case of an information stealer infection successfully exfiltrating a victim's OpenClaw (formerly Clawdbot and Moltbot) configuration environment
-- "This finding marks a significant milestone in the evolution of infostealer behavior: the transition from stealing browser credentials to harvesting the 'souls' and identities of personal AI [
+- 인포스틸러 악성코드가 OpenClaw AI 에이전트 설정 환경을 성공적으로 탈취한 사례 공개
+- 브라우저 자격증명 탈취에서 AI 에이전트의 정체성 및 설정 탈취로의 진화 확인
+- AI 에이전트 보안의 새로운 위협 벡터로 게이트웨이 토큰과 설정 파일이 타겟이 됨
 
 
 #### 위협 분석
@@ -156,14 +157,15 @@ Cybersecurity researchers disclosed they have detected a case of an information 
 
 #### 개요
 
-A new study has found that multiple cloud-based password managers, including Bitwarden, Dashlane, and LastPass, are susceptible to password recovery attacks under certain conditions. "The attacks range in severity from integrity violations to the complete compromise of all vaults in an organization," researchers Matteo Scarlata, Giovanni Torrisi, Matilda Backendal, and Kenneth G. Paterson said.
+새로운 연구에 따르면 Bitwarden, Dashlane, LastPass를 포함한 여러 클라우드 기반 패스워드 매니저가 특정 조건에서 비밀번호 복구 공격에 취약한 것으로 나타났습니다. 연구진은 "공격의 심각도는 무결성 침해부터 조직 내 모든 볼트의 완전한 침해까지 다양하다"고 밝혔습니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/study-uncovers-25-password-recovery.html)
 
 #### 핵심 포인트
 
-- A new study has found that multiple cloud-based password managers, including Bitwarden, Dashlane, and LastPass, are susceptible to password recovery attacks under certain conditions
-- "The attacks range in severity from integrity violations to the complete compromise of all vaults in an organization," researchers Matteo Scarlata, Giovanni Torrisi, Matilda Backendal, and Kenneth G
+- Bitwarden, Dashlane, LastPass 등 주요 클라우드 패스워드 매니저에서 25가지 비밀번호 복구 공격 취약점 발견
+- 공격 심각도는 무결성 침해부터 조직 내 모든 볼트 완전 침해까지 다양
+- 특정 조건에서 클라우드 패스워드 매니저의 마스터 패스워드 없이 복구 가능한 취약점 존재
 
 
 #### 실무 영향
@@ -182,15 +184,15 @@ A new study has found that multiple cloud-based password managers, including Bit
 
 #### 개요
 
-Enterprise customers face an unprecedented security landscape where sophisticated cyber threats use artificial intelligence to identify vulnerabilities, automate attacks, and evade detection at machine speed. Traditional perimeter-based security models are insufficient when adversaries can analyze millions of attack vectors in seconds and exploit zero-day vulnerabilities before patches are available. The distributed nature of serverless architectures […]
+기업 고객들은 정교한 사이버 위협이 AI를 이용해 취약점을 식별하고, 공격을 자동화하며, 기계 속도로 탐지를 회피하는 전례 없는 보안 환경에 직면해 있습니다. 기존 경계 기반 보안 모델은 공격자가 수백만 개의 공격 벡터를 초 단위로 분석하고 패치 출시 전에 Zero-Day 취약점을 악용할 수 있는 환경에서는 불충분합니다. AWS Security Blog가 서버리스 마이크로서비스를 위한 AI 기반 심층 방어 아키텍처를 제시합니다.
 
 > **출처**: [AWS Security Blog](https://aws.amazon.com/blogs/security/building-an-ai-powered-defense-in-depth-security-architecture-for-serverless-microservices/)
 
 #### 핵심 포인트
 
-- Enterprise customers face an unprecedented security landscape where sophisticated cyber threats use artificial intelligence to identify vulnerabilities, automate attacks, and evade detection at machine speed
-- Traditional perimeter-based security models are insufficient when adversaries can analyze millions of attack vectors in seconds and exploit zero-day vulnerabilities before patches are available
-- The distributed nature of serverless architectures […]
+- 정교한 사이버 위협이 AI를 활용해 취약점 식별, 공격 자동화, 탐지 회피를 기계 속도로 수행
+- 기존 경계 기반 보안 모델은 현대 서버리스 환경의 위협에 대응하기에 불충분
+- AWS가 서버리스 마이크로서비스를 위한 AI 기반 심층 방어(Defense-in-Depth) 보안 아키텍처 제시
 
 
 #### 실무 영향
@@ -209,13 +211,15 @@ Enterprise customers face an unprecedented security landscape where sophisticate
 
 #### 개요
 
-Amazon EC2 Hpc8a instances, powered by 5th Gen AMD EPYC processors, deliver up to 40% higher performance, increased memory bandwidth, and 300 Gbps Elastic Fabric Adapter networking, helping customers accelerate compute-intensive simulations, engineering workloads, and tightly coupled HPC applications.
+5세대 AMD EPYC 프로세서 기반의 Amazon EC2 Hpc8a 인스턴스가 출시되었습니다. 최대 40% 높은 성능, 향상된 메모리 대역폭, 300 Gbps Elastic Fabric Adapter 네트워킹을 제공하여 컴퓨팅 집약적 시뮬레이션, 엔지니어링 워크로드, 긴밀하게 결합된 HPC 애플리케이션을 가속화합니다.
 
 > **출처**: [AWS Blog](https://aws.amazon.com/blogs/aws/amazon-ec2-hpc8a-instances-powered-by-5th-gen-amd-epyc-processors-are-now-available/)
 
 #### 핵심 포인트
 
-- Amazon EC2 Hpc8a instances, powered by 5th Gen AMD EPYC processors, deliver up to 40% higher performance, increased memory bandwidth, and 300 Gbps Elastic Fabric Adapter networking, helping customers accelerate compute-intensive simulations, engineering workloads, and tightly coupled HPC applications
+- 5세대 AMD EPYC 프로세서 기반 Amazon EC2 Hpc8a 인스턴스 정식 출시
+- 이전 세대 대비 최대 40% 높은 성능 및 향상된 메모리 대역폭 제공
+- 300 Gbps Elastic Fabric Adapter 네트워킹으로 긴밀하게 결합된 HPC 애플리케이션 가속화
 
 
 #### 실무 적용 포인트
@@ -231,14 +235,15 @@ Amazon EC2 Hpc8a instances, powered by 5th Gen AMD EPYC processors, deliver up t
 
 #### 개요
 
-AWS launches Amazon SageMaker Inference for custom Amazon Nova models. You can now configure the instance types, auto-scaling policies, and concurrency settings for custom Nova model deployments to best meet their needs.
+AWS가 커스텀 Amazon Nova 모델을 위한 Amazon SageMaker Inference를 출시했습니다. 이제 커스텀 Nova 모델 배포에 대해 인스턴스 유형, 오토스케일링 정책, 동시성 설정을 구성하여 각자의 요구사항에 최적화할 수 있습니다.
 
 > **출처**: [AWS Blog](https://aws.amazon.com/blogs/aws/announcing-amazon-sagemaker-inference-for-custom-amazon-nova-models/)
 
 #### 핵심 포인트
 
-- AWS launches Amazon SageMaker Inference for custom Amazon Nova models
-- You can now configure the instance types, auto-scaling policies, and concurrency settings for custom Nova model deployments to best meet their needs
+- AWS가 커스텀 Amazon Nova 모델을 위한 Amazon SageMaker Inference 출시
+- 인스턴스 유형, 오토스케일링 정책, 동시성 설정을 직접 구성 가능
+- 커스텀 Nova 모델 배포의 유연성과 제어권 향상
 
 
 #### 실무 적용 포인트
@@ -254,14 +259,15 @@ AWS launches Amazon SageMaker Inference for custom Amazon Nova models. You can n
 
 #### 개요
 
-I joined AWS in 2021, and since then I’ve watched the Amazon Elastic Compute Cloud (Amazon EC2) instance family grow at a pace that still surprises me. From AWS Graviton-powered instances to specialized accelerated computing options, it feels like every few months there’s a new instance type landing that pushes performance boundaries further. As of […]
+2026년 2월 16일 AWS 주간 요약입니다. Amazon EC2 M8azn 인스턴스 출시, Amazon Bedrock의 새로운 오픈 웨이트 모델 추가 등 최신 AWS 업데이트를 정리합니다. AWS Graviton 기반 인스턴스부터 특수 가속 컴퓨팅 옵션까지, EC2 인스턴스 패밀리가 지속적으로 확장되고 있습니다.
 
 > **출처**: [AWS Blog](https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-ec2-m8azn-instances-new-open-weights-models-in-amazon-bedrock-and-more-february-16-2026/)
 
 #### 핵심 포인트
 
-- I joined AWS in 2021, and since then I’ve watched the Amazon Elastic Compute Cloud (Amazon EC2) instance family grow at a pace that still surprises me
-- From AWS Graviton-powered instances to specialized accelerated computing options, it feels like every few months there’s a new instance type landing that pushes performance boundaries further
+- Amazon EC2 M8azn 인스턴스 출시로 EC2 인스턴스 패밀리 지속 확장
+- Amazon Bedrock에 새로운 오픈 웨이트 모델 추가
+- AWS Graviton 기반부터 특수 가속 컴퓨팅까지 다양한 인스턴스 옵션 제공
 
 
 #### 실무 적용 포인트
@@ -279,14 +285,15 @@ I joined AWS in 2021, and since then I’ve watched the Amazon Elastic Compute C
 
 #### 개요
 
-Bitcoin Magazine Bitcoin Bears Dominate: Failure to Break $71,800 Keeps Downside Risk Alive Key levels in focus: $65,650 support holds for now, but break below opens $63,000 then Fibonacci $57,800; resistance caps upside at $71,800–$74,500. This post Bitcoin Bears Dominate: Failure to Break $71,800 Keeps Downside Risk Alive first appeared on Bitcoin Magazine and is written by Ethan Greene - Feral Analysis and Juan Galt .
+비트코인 매도세가 우세한 가운데 $71,800 저항선 돌파 실패로 하락 리스크가 지속되고 있습니다. $65,650 지지선이 현재 유지되고 있으나, 이탈 시 $63,000, 피보나치 $57,800까지 하락 가능성이 있으며, 상단 저항은 $71,800~$74,500 구간으로 분석됩니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/markets/bitcoin-bears-dominate-failure-to-break-71800-keeps-downside-risk-alive)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine Bitcoin Bears Dominate: Failure to Break $71,800 Keeps Downside Risk Alive Key levels in focus: $65,650 support holds for now, but break below opens $63,000 then Fibonacci $57,800; resistance caps upside at $71,800–$74,500
-- This post Bitcoin Bears Dominate: Failure to Break $71,800 Keeps Downside Risk Alive first appeared on Bitcoin Magazine and is written by Ethan Greene - Feral Analysis and Juan Galt 
+- 비트코인 매도세 우세로 $71,800 저항선 돌파 실패, 하락 리스크 지속
+- $65,650 지지선 현재 유지 중이나 이탈 시 $63,000, $57,800까지 하락 가능
+- 상단 저항 구간 $71,800~$74,500로 단기 상승 제한
 
 
 ---
@@ -295,15 +302,15 @@ Bitcoin Magazine Bitcoin Bears Dominate: Failure to Break $71,800 Keeps Downside
 
 #### 개요
 
-Bitcoin Magazine Payjoin Foundation Gains 501(c)(3) Status, Enabling Tax-Deductible Donations for Bitcoin Privacy Development Payjoin Foundation, the nonprofit behind the Payjoin Dev Kit, has secured 501(c)(3) status from the IRS, making U.S. donations tax-deductible and accelerating development of privacy-enhancing Bitcoin protocols. This post Payjoin Foundation Gains 501(c)(3) Status, Enabling Tax-Deductible Donations for Bitcoin Privacy Development first appeared on Bitcoin Magazine and is...
+Payjoin Dev Kit을 운영하는 비영리 단체 Payjoin Foundation이 IRS로부터 501(c)(3) 지위를 획득했습니다. 이로써 미국 내 기부금에 대한 세금 공제가 가능해지고, 비트코인 프라이버시 강화 프로토콜 개발이 가속화될 전망입니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/business/payjoin-foundation-gains-501c3-status-enabling-tax-deductible-donations-for-bitcoin-privacy-development)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine Payjoin Foundation Gains 501(c)(3) Status, Enabling Tax-Deductible Donations for Bitcoin Privacy Development Payjoin Foundation, the nonprofit behind the Payjoin Dev Kit, has secured 501(c)(3) status from the IRS, making U.S
-- donations tax-deductible and accelerating development of privacy-enhancing Bitcoin protocols
-- This post Payjoin Foundation Gains 501(c)(3) Status, Enabling Tax-Deductible Donations for Bitcoin Privacy Development first appeared on Bitcoin Magazine and is
+- Payjoin Foundation이 IRS로부터 501(c)(3) 비영리 지위 획득
+- 미국 내 기부금에 대한 세금 공제 가능, 비트코인 프라이버시 개발 자금 확대 기대
+- Payjoin Dev Kit을 통한 비트코인 프라이버시 강화 프로토콜 개발 가속화
 
 
 ---
@@ -312,8 +319,8 @@ Bitcoin Magazine Payjoin Foundation Gains 501(c)(3) Status, Enabling Tax-Deducti
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Genesis GV90 gets the royal green treatment in lat...](https://electrek.co/2026/02/16/genesis-gv90-goes-royal-green-new-sighting-images/) | Electrek | The GV90, the most lavish Genesis SUV to date, is almost here. With its global d... |
-| [Hyundai has a new baby EV in the works: Is this ou...](https://electrek.co/2026/02/16/hyundai-tests-new-baby-ev-ioniq-1-images/) | Electrek | A new Hyundai prototype was caught testing in public, believed to be the IONIQ 1... |
+| [Genesis GV90 gets the royal green treatment in lat...](https://electrek.co/2026/02/16/genesis-gv90-goes-royal-green-new-sighting-images/) | Electrek | Genesis 최고급 SUV GV90의 로열 그린 컬러 실차 포착 이미지 공개, 글로벌 출시 임박 |
+| [Hyundai has a new baby EV in the works: Is this ou...](https://electrek.co/2026/02/16/hyundai-tests-new-baby-ev-ioniq-1-images/) | Electrek | 현대의 새로운 소형 전기차 프로토타입 공개 테스트 포착, IONIQ 1으로 추정 |
 
 
 ---

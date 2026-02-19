@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tech & Security Weekly Digest: Supply Chain, Windows, APT36"
+title: "기술 & 보안 주간 다이제스트: 공급망, Windows, APT36"
 date: 2026-02-12 12:41:50 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security, Agent]
@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, 
 author: Twodragon
 comments: true
 image: /assets/images/2026-02-12-Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent.svg
-image_alt: "Tech Security Weekly Digest February 12 2026 AI Cloud Security"
+image_alt: "기술 보안 주간 다이제스트 2026년 2월 12일 AI 클라우드 보안"
 toc: true
 schema_type: Article
 ---
@@ -24,15 +24,15 @@ schema_type: Article
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: First Malicious Outlook Add-In Found Stealing 4,000+...</li>
-      <li><strong>The Hacker News</strong>: APT36 and SideCopy Launch Cross-Platform RAT Campaigns...</li>
-      <li><strong>The Hacker News</strong>: Over 60 Software Vendors Issue Security Fixes Across OS,...</li>
-      <li><strong>Google Cloud Blog</strong>: Build financial resilience with AI-powered tabletop...</li>'
+  highlights_html='<li><strong>The Hacker News</strong>: 최초 악성 Outlook 애드인 발견 - 마이크로소프트 자격증명 4,000건 이상 탈취</li>
+      <li><strong>The Hacker News</strong>: APT36·SideCopy, 인도 대상 크로스 플랫폼 RAT 캠페인 동시 전개</li>
+      <li><strong>The Hacker News</strong>: 60개 이상 소프트웨어 벤더, OS·클라우드·네트워크 플랫폼 전반에 보안 패치 발표</li>
+      <li><strong>Google Cloud Blog</strong>: AI 기반 테이블탑 훈련으로 금융 서비스 운영 복원력 강화</li>'
   period='2026년 02월 12일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
-## Executive Summary
+## 주요 요약
 
 2026년 02월 12일 기준 보안 현황 및 위협 분석입니다.
 
@@ -125,15 +125,15 @@ schema_type: Article
 
 #### 개요
 
-Cybersecurity researchers have discovered what they said is the first known malicious Microsoft Outlook add-in detected in the wild. In this unusual supply chain attack detailed by Koi Security, an unknown attacker claimed the domain associated with a now-abandoned legitimate add-in to serve a fake Microsoft login page, stealing over 4,000 credentials in the process. The activity has been
+보안 연구원들이 실제 환경에서 탐지된 최초의 악성 Microsoft Outlook 애드인을 발견했습니다. Koi Security가 분석한 이 비정형 공급망 공격에서, 공격자는 운영 중단된 정상 애드인의 도메인을 탈취하여 가짜 Microsoft 로그인 페이지를 제공하고 4,000건 이상의 자격증명을 탈취했습니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/first-malicious-outlook-add-in-found.html)
 
 #### 핵심 포인트
 
-- Cybersecurity researchers have discovered what they said is the first known malicious Microsoft Outlook add-in detected in the wild
-- In this unusual supply chain attack detailed by Koi Security, an unknown attacker claimed the domain associated with a now-abandoned legitimate add-in to serve a fake Microsoft login page, stealing over 4,000 credentials in the process
-- The activity has been
+- 실제 환경에서 최초로 탐지된 악성 Microsoft Outlook 애드인 발견
+- 공격자가 폐기된 정상 애드인의 도메인을 탈취하여 가짜 로그인 페이지 운영
+- 4,000건 이상의 Microsoft 자격증명 탈취 - 공급망 공격의 새로운 벡터
 
 
 #### 위협 분석
@@ -163,14 +163,15 @@ Cybersecurity researchers have discovered what they said is the first known mali
 
 #### 개요
 
-Indian defense sector and government-aligned organizations have been targeted by multiple campaigns that are designed to compromise Windows and Linux environments with remote access trojans capable of stealing sensitive data and ensuring continued access to infected machines. The campaigns are characterized by the use of malware families like Geta RAT, Ares RAT, and DeskRAT, which are often
+인도 국방부 및 정부 연계 기관을 대상으로 Windows·Linux 환경을 동시에 침해하는 복수의 캠페인이 발생했습니다. Geta RAT, Ares RAT, DeskRAT 등 원격 접근 트로이목마(RAT) 악성코드를 활용하여 민감 데이터 탈취 및 지속적 접근권 확보를 목표로 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/apt36-and-sidecopy-launch-cross.html)
 
 #### 핵심 포인트
 
-- Indian defense sector and government-aligned organizations have been targeted by multiple campaigns that are designed to compromise Windows and Linux environments with remote access trojans capable of stealing sensitive data and ensuring continued access to infected machines
-- The campaigns are characterized by the use of malware families like Geta RAT, Ares RAT, and DeskRAT, which are often
+- APT36·SideCopy, 인도 국방 및 정부 기관을 대상으로 크로스 플랫폼 RAT 캠페인 전개
+- Windows·Linux 환경 동시 침해, Geta RAT·Ares RAT·DeskRAT 등 다양한 RAT 활용
+- 민감 데이터 탈취 및 지속적 시스템 접근권 유지가 주요 목적
 
 
 #### 실무 영향
@@ -189,14 +190,15 @@ Indian defense sector and government-aligned organizations have been targeted by
 
 #### 개요
 
-It's Patch Tuesday, which means a number of software vendors have released patches for various security vulnerabilities impacting their products and services. Microsoft issued fixes for 59 flaws, including six actively exploited zero-days in various Windows components that could be abused to bypass security features, escalate privileges, and trigger a denial-of-service (DoS) condition. Elsewhere
+Patch Tuesday가 도래하여 60개 이상의 소프트웨어 벤더가 보안 취약점 패치를 발표했습니다. Microsoft는 59개 결함에 대한 수정을 발표했으며, 그 중 6개는 보안 기능 우회·권한 상승·DoS를 유발하는 적극 악용 중인 Zero-Day입니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/over-60-software-vendors-issue-security.html)
 
 #### 핵심 포인트
 
-- It's Patch Tuesday, which means a number of software vendors have released patches for various security vulnerabilities impacting their products and services
-- Microsoft issued fixes for 59 flaws, including six actively exploited zero-days in various Windows components that could be abused to bypass security features, escalate privileges, and trigger a denial-of-service (DoS) condition
+- Patch Tuesday: 60개 이상 소프트웨어 벤더가 OS·클라우드·네트워크 플랫폼 전반에 보안 패치 발표
+- Microsoft, 59개 취약점 패치 - 그 중 6개는 적극 악용 중인 Zero-Day
+- 보안 기능 우회, 권한 상승, DoS 유발 가능한 고위험 취약점 포함
 
 
 #### 실무 영향
@@ -215,16 +217,15 @@ It's Patch Tuesday, which means a number of software vendors have released patch
 
 #### 개요
 
-WHAT IT IS The rise of agentic software development means code is being written, reviewed, and shipped faster than ever before across the entire industry. It also means that testing frameworks need to evolve for this rapidly changing landscape. Faster development demands faster testing that can catch bugs as they land in a codebase, without [...] Read More... The post The Death of Traditional Testing: Agentic Development Broke a 50-Year-Old Field, JiTTesting Can Revive It appeared first on En...
+에이전틱 소프트웨어 개발의 부상으로 코드 작성·검토·배포 속도가 그 어느 때보다 빨라졌습니다. 이에 따라 테스팅 프레임워크도 빠르게 변화하는 환경에 맞게 진화해야 합니다. JiTTesting은 코드가 코드베이스에 합류하는 즉시 버그를 포착하는 실시간 테스팅 패러다임입니다.
 
 > **출처**: [Meta Engineering Blog](https://engineering.fb.com/2026/02/11/developer-tools/the-death-of-traditional-testing-agentic-development-jit-testing-revival/)
 
 #### 핵심 포인트
 
-- WHAT IT IS The rise of agentic software development means code is being written, reviewed, and shipped faster than ever before across the entire industry
-- It also means that testing frameworks need to evolve for this rapidly changing landscape
-- Faster development demands faster testing that can catch bugs as they land in a codebase, without [...] Read More
-- The post The Death of Traditional Testing: Agentic Development Broke a 50-Year-Old Field, JiTTesting Can Revive It appeared first on En
+- 에이전틱 개발 환경에서 전통적 테스팅 방식의 한계 노출 - 50년 된 패러다임의 붕괴
+- 빠른 개발 속도에 맞는 JiTTesting(Just-in-Time Testing) 개념 제안
+- 코드 커밋 즉시 버그를 포착하는 실시간 테스팅으로 품질 보장
 
 
 #### AI/ML 보안 영향 분석
@@ -246,13 +247,13 @@ WHAT IT IS The rise of agentic software development means code is being written,
 
 #### 개요
 
-By Ryan Lopopolo, Member of the Technical Staff
+에이전트 중심 세계에서 Codex를 활용한 Harness 엔지니어링 사례를 소개합니다. OpenAI 기술 직원 Ryan Lopopolo가 실무 경험을 공유합니다.
 
 > **출처**: [OpenAI Blog](https://openai.com/index/harness-engineering)
 
 #### 핵심 포인트
 
-- By Ryan Lopopolo, Member of the Technical Staff
+- 에이전트 중심 개발 환경에서 Codex를 활용한 Harness 엔지니어링 실무 사례 공유
 
 
 #### AI/ML 보안 영향 분석
@@ -274,15 +275,15 @@ By Ryan Lopopolo, Member of the Technical Staff
 
 #### 개요
 
-Today we’re excited to announce that the NVIDIA Nemotron 3 Nano 30B model with 3B active parameters is now generally available in the Amazon SageMaker JumpStart model catalog. You can accelerate innovation and deliver tangible business value with Nemotron 3 Nano on Amazon Web Services (AWS) without having to manage model deployment complexities. You can power your generative AI applications with Nemotron capabilities using the managed deployment capabilities offered by SageMaker JumpStart.
+NVIDIA Nemotron 3 Nano 30B 모델(활성 파라미터 3B)이 Amazon SageMaker JumpStart 모델 카탈로그에서 정식 제공됩니다. 복잡한 모델 배포 관리 없이 생성형 AI 애플리케이션을 Nemotron 기능으로 구동할 수 있습니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-nano-30b-is-now-available-in-amazon-sagemaker-jumpstart/)
 
 #### 핵심 포인트
 
-- Today we’re excited to announce that the NVIDIA Nemotron 3 Nano 30B model with 3B active parameters is now generally available in the Amazon SageMaker JumpStart model catalog
-- You can accelerate innovation and deliver tangible business value with Nemotron 3 Nano on Amazon Web Services (AWS) without having to manage model deployment complexities
-- You can power your generative AI applications with Nemotron capabilities using the managed deployment capabilities offered by SageMaker JumpStart
+- NVIDIA Nemotron 3 Nano 30B(활성 파라미터 3B) MoE 모델, Amazon SageMaker JumpStart에서 정식 출시
+- 복잡한 모델 배포 관리 없이 AWS에서 바로 활용 가능
+- SageMaker JumpStart의 관리형 배포 기능을 통해 생성형 AI 애플리케이션 구동
 
 
 #### AI/ML 보안 영향 분석
@@ -308,16 +309,15 @@ Today we’re excited to announce that the NVIDIA Nemotron 3 Nano 30B model with
 
 #### 개요
 
-In the financial sector, resilience isn't optional. Recent cloud outages have shown us exactly how fast critical data can disappear. The risk is amplified by major regulatory drivers like the Digital Operational Resilience Act (DORA) , which mandates that financial institutions are ready for any disruption. The recent designation of Google Cloud as a Critical Third-Party Service Provider (CTPP) under DORA further underscores this strong commitment to enabling secure and resilient financial op...
+금융 분야에서 운영 복원력은 선택사항이 아닙니다. 최근 클라우드 장애 사례들은 중요 데이터가 얼마나 빨리 사라질 수 있는지를 보여줍니다. DORA(디지털 운영 복원력 법)와 같은 규제 요건이 금융기관의 중단 대비를 의무화하며, Google Cloud가 DORA 하의 핵심 제3자 서비스 제공자(CTPP)로 지정되었습니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/financial-services/improve-financial-resilience-with-google-cloud/)
 
 #### 핵심 포인트
 
-- In the financial sector, resilience isn't optional
-- Recent cloud outages have shown us exactly how fast critical data can disappear
-- The risk is amplified by major regulatory drivers like the Digital Operational Resilience Act (DORA) , which mandates that financial institutions are ready for any disruption
-- The recent designation of Google Cloud as a Critical Third-Party Service Provider (CTPP) under DORA further underscores this strong commitment to enabling secure and resilient financial op
+- 금융 섹터의 운영 복원력 필수화 - 최근 클라우드 장애로 데이터 손실 위험 부각
+- DORA 규제에 따라 금융기관의 중단 대비 의무화, Google Cloud가 CTPP로 지정
+- AI 기반 테이블탑 훈련으로 장애 시나리오를 사전 시뮬레이션하여 복원력 강화
 
 
 #### 실무 적용 포인트
@@ -333,15 +333,15 @@ In the financial sector, resilience isn't optional. Recent cloud outages have sh
 
 #### 개요
 
-If you are building AI applications , you might experiment with prompts, or even dip your toes into agents . But as you move from prototype to production, you might hit a common wall: the model is just not as consistent as you need it to be. Gemini is an incredibly capable universal foundation model, but you might want responses to adhere to brand style guides more consistently, or maybe you need to ensure that an API is formatted in a custom, non-standard JSON format every single time. In ma...
+AI 애플리케이션을 프로토타입에서 프로덕션으로 이동할 때 흔히 마주치는 문제가 있습니다. 모델 응답의 일관성이 부족한 것입니다. 브랜드 스타일 가이드 준수나 맞춤형 JSON 형식 출력이 필요할 때, Google Cloud에서 Gemini를 파인튜닝하는 실용적인 방법을 안내합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/developers-practitioners/mastering-model-adaptation-a-guide-to-fine-tuning-on-google-cloud/)
 
 #### 핵심 포인트
 
-- If you are building AI applications , you might experiment with prompts, or even dip your toes into agents
-- But as you move from prototype to production, you might hit a common wall: the model is just not as consistent as you need it to be
-- Gemini is an incredibly capable universal foundation model, but you might want responses to adhere to brand style guides more consistently, or maybe you need to ensure that an API is formatted in a custom, non-standard JSON format every single time
+- 프로토타입에서 프로덕션으로 전환 시 모델 응답 일관성 문제 해결을 위한 파인튜닝 가이드
+- Gemini 범용 기반 모델을 브랜드 스타일·맞춤 JSON 형식 등 특정 요구에 맞게 적응
+- Google Cloud에서의 파인튜닝 실습 접근법 제시
 
 
 #### 실무 적용 포인트
@@ -359,15 +359,15 @@ If you are building AI applications , you might experiment with prompts, or even
 
 #### 개요
 
-Using Generative AI to write code is a well-known task, but relying on it to produce production-ready educational content is a different challenge. When we started using Gemini to assist with our work to expand the breadth of resources available to explain Google Cloud products, we realized we needed something more than just existing , general purpose GenAI-powered apps and tools; we needed a specialized system tailored to our use case. The problem we were solving Google Cloud has over a hund...
+생성형 AI로 코드를 작성하는 것은 알려진 작업이지만, 프로덕션급 교육 콘텐츠를 대규모로 생성하는 것은 다른 차원의 도전입니다. Google Cloud 제품 설명 리소스 확장을 위해 Gemini를 활용한 과정에서 범용 GenAI 도구를 넘어선 특화 시스템이 필요했습니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/developers-practitioners/7-technical-takeaways-from-using-gemini-to-generate-code-samples-at-scale/)
 
 #### 핵심 포인트
 
-- Using Generative AI to write code is a well-known task, but relying on it to produce production-ready educational content is a different challenge
-- When we started using Gemini to assist with our work to expand the breadth of resources available to explain Google Cloud products, we realized we needed something more than just existing , general purpose GenAI-powered apps and tools; we needed a specialized system tailored to our use case
-- The problem we were solving Google Cloud has over a hund
+- 생성형 AI를 활용한 대규모 코드 샘플 생성 시 얻은 7가지 기술적 교훈
+- 범용 GenAI 도구로는 부족한 프로덕션급 교육 콘텐츠 생성을 위한 특화 시스템 필요
+- Google Cloud 제품 문서화에 Gemini를 실제 적용한 경험과 함정 공유
 
 
 #### 실무 적용 포인트
@@ -387,14 +387,15 @@ Using Generative AI to write code is a well-known task, but relying on it to pro
 
 #### 개요
 
-The CNCF Technical Advisory Group for Security & Compliance is excited to announce the upcoming 2026 Security Slam at KubeCon + CloudNativeCon Europe, in partnership with Sonatype and OpenSSF. The event will run from Friday, February...
+CNCF 보안 및 컴플라이언스 기술 자문 그룹이 KubeCon + CloudNativeCon Europe에서 Sonatype, OpenSSF와 함께 2026 Security Slam을 개최합니다. 올해는 모든 오픈소스 프로젝트로 참가 범위를 확대했습니다.
 
 > **출처**: [CNCF Blog](https://www.cncf.io/blog/2026/02/11/security-slam-returns-for-2026-now-open-to-all-open-source-projects/)
 
 #### 핵심 포인트
 
-- The CNCF Technical Advisory Group for Security & Compliance is excited to announce the upcoming 2026 Security Slam at KubeCon + CloudNativeCon Europe, in partnership with Sonatype and OpenSSF
-- The event will run from Friday, February
+- CNCF Security Slam 2026, KubeCon + CloudNativeCon Europe에서 Sonatype·OpenSSF와 공동 개최
+- 모든 오픈소스 프로젝트 참가 가능으로 범위 확대
+- 오픈소스 보안 강화를 위한 커뮤니티 협력 행사
 
 
 #### 실무 적용 포인트
@@ -410,16 +411,15 @@ The CNCF Technical Advisory Group for Security & Compliance is excited to announ
 
 #### 개요
 
-GitHub Copilot testing for .NET is now available in Visual Studio 18.3, offering AI-powered tools to quickly create, build, and run unit tests. With flexible prompts and full IDE integration, it supports testing from single methods to entire solutions, helping reduce repetitive tasks and speed up feedback. Try it and share your feedback to shape its future. The post GitHub Copilot Testing for .NET Brings AI-powered Unit Tests to Visual Studio 2026 appeared first on .NET Blog .
+.NET용 GitHub Copilot 테스팅이 Visual Studio 18.3에서 제공됩니다. 유연한 프롬프트와 전체 IDE 통합으로 단일 메서드부터 전체 솔루션까지 AI 기반 유닛 테스트를 신속하게 생성·빌드·실행할 수 있습니다.
 
 > **출처**: [Microsoft .NET Blog](https://devblogs.microsoft.com/dotnet/github-copilot-testing-for-dotnet-available-in-visual-studio/)
 
 #### 핵심 포인트
 
-- GitHub Copilot testing for .NET is now available in Visual Studio 18.3, offering AI-powered tools to quickly create, build, and run unit tests
-- With flexible prompts and full IDE integration, it supports testing from single methods to entire solutions, helping reduce repetitive tasks and speed up feedback
-- Try it and share your feedback to shape its future
-- The post GitHub Copilot Testing for .NET Brings AI-powered Unit Tests to Visual Studio 2026 appeared first on .NET Blog 
+- .NET용 GitHub Copilot 테스팅, Visual Studio 18.3에서 정식 제공
+- 유연한 프롬프트·IDE 완전 통합으로 단일 메서드~전체 솔루션 AI 유닛 테스트 지원
+- 반복 작업 감소 및 피드백 루프 가속화로 개발 생산성 향상
 
 
 #### 실무 적용 포인트
@@ -435,13 +435,13 @@ GitHub Copilot testing for .NET is now available in Visual Studio 18.3, offering
 
 #### 개요
 
-Safari 26.3 is here, with practical improvements for performance and user experience.
+Safari 26.3가 출시되었습니다. 성능과 사용자 경험 전반에 걸친 실질적인 개선 사항이 포함됩니다.
 
 > **출처**: [WebKit Blog](https://webkit.org/blog/17798/webkit-features-for-safari-26-3/)
 
 #### 핵심 포인트
 
-- Safari 26.3 is here, with practical improvements for performance and user experience
+- Safari 26.3 출시 - 성능 및 사용자 경험 전반의 실질적 개선 포함
 
 
 #### 실무 적용 포인트
@@ -459,14 +459,14 @@ Safari 26.3 is here, with practical improvements for performance and user experi
 
 #### 개요
 
-Bitcoin Magazine BlackRock Says 1% Crypto Allocation in Asia Could Drive $2 Trillion in Inflows An executive from BlackRock said that a small shift in Asian portfolio allocations toward crypto could generate enormous inflows for the digital asset market. This post BlackRock Says 1% Crypto Allocation in Asia Could Drive $2 Trillion in Inflows first appeared on Bitcoin Magazine and is written by Micah Zimmerman .
+BlackRock 임원이 아시아 포트폴리오에서 암호화폐 비중을 단 1%만 늘려도 디지털 자산 시장에 2조 달러에 달하는 막대한 유입이 발생할 수 있다고 밝혔습니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/blackrock-says-1-crypto-allocation-in-asia)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine BlackRock Says 1% Crypto Allocation in Asia Could Drive $2 Trillion in Inflows An executive from BlackRock said that a small shift in Asian portfolio allocations toward crypto could generate enormous inflows for the digital asset market
-- This post BlackRock Says 1% Crypto Allocation in Asia Could Drive $2 Trillion in Inflows first appeared on Bitcoin Magazine and is written by Micah Zimmerman 
+- BlackRock, 아시아 포트폴리오의 암호화폐 비중 1% 증가만으로도 2조 달러 유입 가능 전망
+- 아시아 기관 투자자의 디지털 자산 진입이 시장에 미칠 잠재적 영향 강조
 
 
 ---
@@ -475,14 +475,15 @@ Bitcoin Magazine BlackRock Says 1% Crypto Allocation in Asia Could Drive $2 Tril
 
 #### 개요
 
-Bitcoin Magazine MoonPay Launches Crypto Deposits Feature to Enable Cross-Chain Funding in Wallet in Telegram MoonPay has launched MoonPay Deposits in Wallet in Telegram’s self-custodial TON Wallet, allowing users to fund accounts with Bitcoin and other assets across chains while the service automatically handles swaps, bridging, and conversion into TON or supported tokens. This post MoonPay Launches Crypto Deposits Feature to Enable Cross-Chain Funding in Wallet in Telegram first appeared on...
+MoonPay가 Telegram의 자기 수탁 TON Wallet에서 크로스 체인 자금 조달을 지원하는 MoonPay Deposits 기능을 출시했습니다. 비트코인 등 다양한 자산을 체인 간 입금하면 자동으로 스왑·브리징·TON 변환이 처리됩니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/moonpay-launches-crypto-deposits-feature)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine MoonPay Launches Crypto Deposits Feature to Enable Cross-Chain Funding in Wallet in Telegram MoonPay has launched MoonPay Deposits in Wallet in Telegram’s self-custodial TON Wallet, allowing users to fund accounts with Bitcoin and other assets across chains while the service automatically handles swaps, bridging, and conversion into TON or supported tokens
-- This post MoonPay Launches Crypto Deposits Feature to Enable Cross-Chain Funding in Wallet in Telegram first appeared on
+- MoonPay, Telegram TON Wallet에서 크로스 체인 암호화폐 입금 기능 출시
+- 비트코인 등 다양한 자산의 체인 간 전송을 자동 스왑·브리징으로 처리
+- Telegram 내 자기 수탁 지갑의 편의성 및 접근성 향상
 
 
 ---
@@ -491,8 +492,8 @@ Bitcoin Magazine MoonPay Launches Crypto Deposits Feature to Enable Cross-Chain 
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Texas bets on Tesla bets on WeChat, and a bet on T...](https://electrek.co/2026/02/11/texas-bets-on-tesla-bets-on-wechat-and-a-bet-on-toyota-to-crack-solid-state/) | Electrek | On today’s Texas-sized episode of Quick Charge , Tesla Cybertruck owners in the ... |
-| [The AI power crunch sparks a 1.5 GWh sodium-ion ba...](https://electrek.co/2026/02/11/the-ai-power-crunch-sparks-a-1-5-gwh-sodium-ion-battery-deal/) | Electrek | Utility-scale energy storage developer Energy Vault just signed a strategic agre... |
+| [Texas bets on Tesla bets on WeChat, and a bet on T...](https://electrek.co/2026/02/11/texas-bets-on-tesla-bets-on-wechat-and-a-bet-on-toyota-to-crack-solid-state/) | Electrek | 텍사스·테슬라·WeChat 관련 투자 동향, 토요타의 전고체 배터리 돌파구 도전 소식 |
+| [The AI power crunch sparks a 1.5 GWh sodium-ion ba...](https://electrek.co/2026/02/11/the-ai-power-crunch-sparks-a-1-5-gwh-sodium-ion-battery-deal/) | Electrek | AI 전력 수요 급증이 Energy Vault의 1.5 GWh 나트륨이온 배터리 대규모 계약 체결로 이어짐 |
 
 
 ---
