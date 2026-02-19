@@ -30,13 +30,21 @@ title: '2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고,
 toc: true
 ---
 
+{% capture ai_categories_html %}
+{% endcapture %}
+{% capture ai_tags_html %}
+{% endcapture %}
+{% capture ai_highlights_html %}
+<li><strong>핵심 요약</strong>: Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현, 2026</li>
+{% endcapture %}
+
 {% include ai-summary-card.html
-  title='2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K'
-  categories_html=''
-  tags_html=''
-  highlights_html='<li><strong>핵심 요약</strong>: Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현, 2026</li>'
-  period='2026-02-09'
-  audience='DevOps/DevSecOps/Cloud 보안 담당자'
+  title="2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K"
+  categories_html=ai_categories_html
+  tags_html=ai_tags_html
+  highlights_html=ai_highlights_html
+  period="2026-02-09"
+  audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
 
 ## 요약
@@ -192,4 +200,3 @@ toc: true
 - 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
 - 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
 - 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
-

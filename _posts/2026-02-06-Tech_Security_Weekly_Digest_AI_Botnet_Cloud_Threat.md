@@ -41,13 +41,23 @@ title: 'Tech & Security Weekly Digest: CrashFix Python RAT, AISURU 31.4 Tbps DDo
 toc: true
 ---
 
+{% capture ai_categories_html %}
+<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>
+{% endcapture %}
+{% capture ai_tags_html %}
+<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">AI-Security</span> <span class="tag">Zero-Trust</span> <span class="tag">2026</span>
+{% endcapture %}
+{% capture ai_highlights_html %}
+<li><strong>Microsoft Security</strong>: CrashFix - 브라우저 크래시로 Python RAT 배포하는 새로운 ClickFix 변종 (Critical)</li> <li><strong>The Hacker News</strong>: AISURU/Kimwolf Botnet 31.4 Tbps DDoS 공격 기록 경신</li> <li><strong>The Hacker News</strong>: Codespaces RCE, AsyncRAT C2, BYOVD 공격 종합 분석</li> <li><strong>Google Cloud</strong>: Claude Opus 4.6 Vertex AI 출시 - AI 에이전트 보안 고려사항</li>
+{% endcapture %}
+
 {% include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 02월 06일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">AI-Security</span> <span class="tag">Zero-Trust</span> <span class="tag">2026</span>'
-  highlights_html='<li><strong>Microsoft Security</strong>: CrashFix - 브라우저 크래시로 Python RAT 배포하는 새로운 ClickFix 변종 (Critical)</li> <li><strong>The Hacker News</strong>: AISURU/Kimwolf Botnet 31.4 Tbps DDoS 공격 기록 경신</li> <li><strong>The Hacker News</strong>: Codespaces RCE, AsyncRAT C2, BYOVD 공격 종합 분석</li> <li><strong>Google Cloud</strong>: Claude Opus 4.6 Vertex AI 출시 - AI 에이전트 보안 고려사항</li>'
-  period='2026년 02월 06일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+  title="Tech & Security Weekly Digest (2026년 02월 06일)"
+  categories_html=ai_categories_html
+  tags_html=ai_tags_html
+  highlights_html=ai_highlights_html
+  period="2026년 02월 06일 (24시간)"
+  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
 %}
 
 ## 요약
@@ -474,4 +484,3 @@ AISURU/Kimwolf 봇넷의 31.4 Tbps 공격이 시사하는 바와 같이, 단일 
 - 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
 - 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
 - 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
-
