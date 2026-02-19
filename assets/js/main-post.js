@@ -297,6 +297,68 @@
       
       // 스크롤 타이머 ID 저장용
       const scrollTimers = new WeakMap();
+
+      const getTableContext = (table) => {
+        let current = table.previousElementSibling;
+        while (current) {
+          if (/^H[1-6]$/.test(current.tagName)) {
+            const heading = (current.textContent || '').trim();
+            if (/(위험|위협|보안\s*위험|비즈니스\s*가치\s*및\s*위험)\s*(스코어카드|점수판)|risk\s*scorecard/i.test(heading)) {
+              return 'risk-scorecard';
+            }
+            if (/운영\s*개선\s*지표|경영진\s*대시보드|operations?\s*improvement\s*metrics?|executive\s*dashboard/i.test(heading)) {
+              return 'ops-metrics';
+            }
+            return '';
+          }
+          current = current.previousElementSibling;
+        }
+        return '';
+      };
+
+      const addCellStateClasses = (table, context) => {
+        const cells = table.querySelectorAll('th, td');
+        cells.forEach((cell) => {
+          const rawText = (cell.textContent || '').trim();
+          if (!rawText) return;
+          const upperText = rawText.toUpperCase();
+
+          if (/^(HIGH|높음|상)$/.test(rawText) || upperText === 'HIGH') {
+            cell.classList.add('level-high');
+          } else if (/^(MEDIUM|중간|보통)$/.test(rawText) || upperText === 'MEDIUM') {
+            cell.classList.add('level-medium');
+          } else if (/^(LOW|낮음|하)$/.test(rawText) || upperText === 'LOW') {
+            cell.classList.add('level-low');
+          }
+
+          if (/\bP0\b|즉시|CRITICAL/i.test(rawText)) {
+            cell.classList.add('urgency-critical');
+          } else if (/\bP1\b|긴급|HIGH/i.test(rawText)) {
+            cell.classList.add('urgency-high');
+          } else if (/\bP2\b|중요|MEDIUM/i.test(rawText)) {
+            cell.classList.add('urgency-medium');
+          }
+
+          if (context === 'ops-metrics' && /(\d+%|\d+\/10|\d+건|\d+시간)/.test(rawText)) {
+            cell.classList.add('metric-value');
+          }
+        });
+      };
+
+      const applyTableContextClasses = (table, wrapper) => {
+        const context = getTableContext(table);
+        if (!context) return;
+
+        if (context === 'risk-scorecard') {
+          table.classList.add('table-risk-scorecard');
+          wrapper.classList.add('table-wrapper-risk-scorecard');
+        } else if (context === 'ops-metrics') {
+          table.classList.add('table-ops-metrics');
+          wrapper.classList.add('table-wrapper-ops-metrics');
+        }
+
+        addCellStateClasses(table, context);
+      };
       
       // 테이블 래퍼 생성 및 스크롤 이벤트 설정
       const wrapTables = () => {
@@ -309,6 +371,7 @@
           if (table.parentElement && table.parentElement.classList.contains('table-wrapper')) {
             // 이미 래퍼가 있으면 스크롤 이벤트만 설정
             setupScrollBehavior(table.parentElement);
+            applyTableContextClasses(table, table.parentElement);
             return;
           }
           
@@ -319,9 +382,10 @@
           // 테이블을 래퍼로 이동
           table.parentNode.insertBefore(wrapper, table);
           wrapper.appendChild(table);
-          
+
           // 스크롤 동작 설정
           setupScrollBehavior(wrapper);
+          applyTableContextClasses(table, wrapper);
         });
       };
       

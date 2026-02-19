@@ -656,18 +656,101 @@
     min-width: auto;
   }
   
-  .post-content table.table-fit th,
-  .post-content table.table-fit td {
-    min-width: auto;
-    word-break: break-word;
-    hyphens: auto;
-  }
+.post-content table.table-fit th,
+.post-content table.table-fit td {
+  min-width: auto;
+  word-break: break-word;
+  hyphens: auto;
+}
   
   /* table-fit 래퍼는 스크롤 힌트 숨김 */
-  .post-content .table-wrapper:has(table.table-fit)::before,
-  .post-content .table-wrapper:has(table.table-fit)::after {
-    display: none;
+.post-content .table-wrapper:has(table.table-fit)::before,
+.post-content .table-wrapper:has(table.table-fit)::after {
+  display: none;
+}
+}
+
+.post-content table.table-risk-scorecard th:nth-child(2),
+.post-content table.table-risk-scorecard td:nth-child(2),
+.post-content table.table-risk-scorecard th:nth-child(3),
+.post-content table.table-risk-scorecard td:nth-child(3),
+.post-content table.table-risk-scorecard th:nth-child(4),
+.post-content table.table-risk-scorecard td:nth-child(4) {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.post-content table.table-ops-metrics th:first-child,
+.post-content table.table-ops-metrics td:first-child {
+  width: 24%;
+  font-weight: 600;
+}
+
+.post-content table.table-risk-scorecard .level-high,
+.post-content table.table-risk-scorecard .urgency-critical,
+.post-content table.table-ops-metrics .urgency-critical {
+  color: #b91c1c;
+  background: rgba(185, 28, 28, 0.08);
+  font-weight: 700;
+}
+
+.post-content table.table-risk-scorecard .level-medium,
+.post-content table.table-risk-scorecard .urgency-high,
+.post-content table.table-ops-metrics .urgency-high {
+  color: #b45309;
+  background: rgba(180, 83, 9, 0.08);
+  font-weight: 700;
+}
+
+.post-content table.table-risk-scorecard .level-low,
+.post-content table.table-risk-scorecard .urgency-medium,
+.post-content table.table-ops-metrics .urgency-medium {
+  color: #166534;
+  background: rgba(22, 101, 52, 0.08);
+  font-weight: 700;
+}
+
+.post-content table.table-ops-metrics .metric-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .post-content table.table-risk-scorecard th,
+  .post-content table.table-risk-scorecard td {
+    min-width: 92px;
   }
+
+  .post-content table.table-ops-metrics th,
+  .post-content table.table-ops-metrics td {
+    min-width: 110px;
+  }
+
+  .post-content table.table-ops-metrics th:first-child,
+  .post-content table.table-ops-metrics td:first-child {
+    min-width: 90px;
+  }
+}
+
+[data-theme="dark"] .post-content table.table-risk-scorecard .level-high,
+[data-theme="dark"] .post-content table.table-risk-scorecard .urgency-critical,
+[data-theme="dark"] .post-content table.table-ops-metrics .urgency-critical {
+  color: #fca5a5;
+  background: rgba(248, 113, 113, 0.18);
+}
+
+[data-theme="dark"] .post-content table.table-risk-scorecard .level-medium,
+[data-theme="dark"] .post-content table.table-risk-scorecard .urgency-high,
+[data-theme="dark"] .post-content table.table-ops-metrics .urgency-high {
+  color: #fdba74;
+  background: rgba(251, 146, 60, 0.18);
+}
+
+[data-theme="dark"] .post-content table.table-risk-scorecard .level-low,
+[data-theme="dark"] .post-content table.table-risk-scorecard .urgency-medium,
+[data-theme="dark"] .post-content table.table-ops-metrics .urgency-medium {
+  color: #86efac;
+  background: rgba(74, 222, 128, 0.18);
 }
 
 .post-content hr {
