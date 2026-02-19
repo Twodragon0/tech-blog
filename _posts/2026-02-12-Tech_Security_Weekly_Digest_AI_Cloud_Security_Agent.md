@@ -15,20 +15,30 @@ toc: true
 schema_type: Article
 ---
 
+{% capture ai_categories_html %}
+{% endcapture %}
+{% capture ai_tags_html %}
+<span class="tag">Security-Weekly</span>
+<span class="tag">DevSecOps</span>
+<span class="tag">Cloud-Security</span>
+<span class="tag">AI-Security</span>
+<span class="tag">Zero-Trust</span>
+<span class="tag">2026</span>
+{% endcapture %}
+{% capture ai_highlights_html %}
+<li><strong>The Hacker News</strong>: 악성 Outlook 애드인으로 4,000+ 자격증명 탈취</li>
+<li><strong>The Hacker News</strong>: APT36/SideCopy 크로스플랫폼 RAT 캠페인</li>
+<li><strong>The Hacker News</strong>: 60개 이상 벤더의 OS 전반 보안 패치</li>
+<li><strong>Google Cloud Blog</strong>: AI 기반 테이블탑으로 재무 회복탄력성 강화</li>
+{% endcapture %}
+
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트 (2026년 02월 12일)'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 악성 Outlook 애드인으로 4,000+ 자격증명 탈취</li>
-      <li><strong>The Hacker News</strong>: APT36/SideCopy 크로스플랫폼 RAT 캠페인</li>
-      <li><strong>The Hacker News</strong>: 60개 이상 벤더의 OS 전반 보안 패치</li>
-      <li><strong>Google Cloud Blog</strong>: AI 기반 테이블탑으로 재무 회복탄력성 강화</li>'
-  period='2026년 02월 12일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+  title="기술·보안 주간 다이제스트 (2026년 02월 12일)"
+  categories_html=ai_categories_html
+  tags_html=ai_tags_html
+  highlights_html=ai_highlights_html
+  period="2026년 02월 12일 (24시간)"
+  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
 %}
 
 ## 경영진 요약 (Executive Summary)
@@ -260,4 +270,3 @@ schema_type: Article
 - 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
 - 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
 - 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
-
