@@ -99,7 +99,7 @@ jobs:
           result=$(python3 -c "import json; from pathlib import Path; payload=json.loads(Path('/tmp/check-runs.json').read_text(encoding='utf-8')); checks=payload.get('check_runs', []); matches=[((c.get('app') or {}).get('slug',''), (c.get('app') or {}).get('name',''), c.get('name','')) for c in checks if 'sentry' in (((c.get('app') or {}).get('slug','')).lower()) or 'sentry' in (((c.get('app') or {}).get('name','')).lower())]; print('FOUND' if matches else 'NOT_FOUND'); [print(f'- app.slug={s}, app.name={n}, check={k}') for s,n,k in matches]")
 
           echo "$result"
-          if echo "$result" | head -n1 | grep -q "FOUND"; then
+          if [ "$(echo "$result" | head -n1)" = "FOUND" ]; then
             echo "app_detected=true" >> "$GITHUB_OUTPUT"
           else
             echo "app_detected=false" >> "$GITHUB_OUTPUT"
