@@ -928,7 +928,7 @@ ADK Agent Application (Auto-instrumented)
 
 ## 5. 기타 주목할 뉴스
 
-### 5.1 Banned C++ Features in Chromium
+### 5.1 Chromium에서 금지된 C++ 기능
 
 Chromium 프로젝트에서 **금지하는 C++ 기능** 목록이 공개되어 122 포인트를 기록했습니다.
 
@@ -951,7 +951,7 @@ Gatsby 팀이 만든 **AI 에이전트/워크플로우 프레임워크 Mastra**�
 
 ## 6. Threat Hunting Queries (위협 헌팅 쿼리)
 
-### 6.1 BitLocker Recovery Key Abuse Hunting
+### 6.1 BitLocker 복구 키 악용 위협 헌팅
 
 **목표**: 비정상적인 BitLocker 복구 키 접근 탐지
 
@@ -981,7 +981,7 @@ Get-ADObject -Filter "objectClass -eq 'msFVE-RecoveryInformation'" `
 2. 업무 시간 외 복구 키 접근 (주말, 새벽)
 3. 외부 IP에서 Microsoft 계정 복구 키 페이지 접근
 
-### 6.2 BGP Anomaly Hunting
+### 6.2 BGP 이상 위협 헌팅
 
 **목표**: 자사 프리픽스에 대한 비정상 BGP 광고 탐지
 
@@ -1004,7 +1004,7 @@ show bgp ipv4 unicast neighbors 192.0.2.1 routes | count
 2. AS_PATH가 평소보다 비정상적으로 길어짐 (hop count > 10)
 3. RPKI 검증 실패 증가 (ROA Invalid 비율 > 5%)
 
-### 6.3 AI Agent Privilege Escalation Hunting
+### 6.3 AI 에이전트 권한 상승 위협 헌팅
 
 **목표**: AI 에이전트의 비인가 권한 상승 탐지
 

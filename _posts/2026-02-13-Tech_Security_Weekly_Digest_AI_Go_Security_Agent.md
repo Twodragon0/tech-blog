@@ -109,17 +109,17 @@ schema_type: Article
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | Google Reports State-Backed Hackers Using Gemini A... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Lazarus Campaign Plants Malicious Packages in npm ... | 🟡 Medium |
-| 🔒 **Security** | Microsoft Secur | Copilot Studio agent security: Top 10 risks you ca... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | ThreatsDay Bulletin: AI Prompt RCE, Claude 0-Click... | 🔴 Critical |
-| 🔒 **Security** | Microsoft Secur | Your complete guide to Microsoft experiences at RS... | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | 구글, 국가 지원 해커들이 Gemini AI를 정찰 및 공격 지원에 활용 중 보고 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Lazarus 캠페인, npm 및 PyPI 생태계에 악성 패키지 삽입 | 🟡 Medium |
+| 🔒 **Security** | Microsoft Secur | Copilot Studio 에이전트 보안: 탐지 및 예방 가능한 10대 위험 | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | ThreatsDay 불레틴: AI 프롬프트 RCE, Claude 0-클릭 취약점... | 🔴 Critical |
+| 🔒 **Security** | Microsoft Secur | RSA에서 만나는 Microsoft 경험 완벽 가이드 | 🟡 Medium |
 
 ---
 
 ## 1. 보안 뉴스
 
-### 1.1 Google Reports State-Backed Hackers Using Gemini AI for Recon and Attack Support
+### 1.1 구글, 국가 지원 해커들이 Gemini AI를 정찰 및 공격 지원에 활용 중 보고
 
 #### 개요
 
@@ -153,7 +153,7 @@ schema_type: Article
 
 ---
 
-### 1.2 Lazarus Campaign Plants Malicious Packages in npm and PyPI Ecosystems
+### 1.2 Lazarus 캠페인, npm 및 PyPI 생태계에 악성 패키지 삽입
 
 #### 개요
 
@@ -178,7 +178,7 @@ schema_type: Article
 
 ---
 
-### 1.3 Copilot Studio agent security: Top 10 risks you can detect and prevent
+### 1.3 Copilot Studio 에이전트 보안: 탐지 및 예방 가능한 10대 위험
 
 > 🔴 **심각도**: Critical
 
@@ -207,7 +207,7 @@ Copilot Studio 에이전트는 점점 더 강력해지고 있습니다. 그에 �
 
 ## 2. AI/ML 뉴스
 
-### 2.1 Introducing GPT-5.3-Codex-Spark
+### 2.1 GPT-5.3-Codex-Spark 소개
 
 #### 개요
 
@@ -237,7 +237,7 @@ OpenAI의 첫 번째 실시간 코딩 모델 GPT-5.3-Codex-Spark가 공개되었
 
 ---
 
-### 2.2 Introducing PFCS Forward
+### 2.2 PFCS Forward 소개
 
 #### 개요
 
@@ -267,7 +267,7 @@ Palantir가 PFCS Forward를 발표했습니다. IL5/IL6 인증을 클라우드�
 
 ---
 
-### 2.3 AI meets HR: Transforming talent acquisition with Amazon Bedrock
+### 2.3 AI와 HR의 만남: Amazon Bedrock으로 채용 방식 혁신
 
 #### 개요
 
@@ -299,7 +299,7 @@ Amazon Bedrock, Knowledge Bases, AWS Lambda 등 AWS 서비스를 활용하여 AI
 
 ## 3. 클라우드 & 인프라 뉴스
 
-### 3.1 Simpler billing, clearer savings: A FinOps guide to updated spend-based CUDs
+### 3.1 간소화된 청구와 명확한 절감: 지출 기반 CUD 개선을 위한 FinOps 가이드
 
 #### 개요
 
@@ -323,7 +323,7 @@ Amazon Bedrock, Knowledge Bases, AWS Lambda 등 AWS 서비스를 활용하여 AI
 
 ---
 
-### 3.2 GTIG AI Threat Tracker: Distillation, Experimentation, and (Continued) Integration of AI for Adversarial Use
+### 3.2 GTIG AI 위협 추적기: 적대적 목적 AI 활용의 정제, 실험, 지속적 통합
 
 #### 개요
 
@@ -373,7 +373,7 @@ Amazon Bedrock, Knowledge Bases, AWS Lambda 등 AWS 서비스를 활용하여 AI
 
 ## 4. DevOps & 개발 뉴스
 
-### 4.1 Announcing Interop 2026
+### 4.1 Interop 2026 발표
 
 #### 개요
 
@@ -395,7 +395,7 @@ Amazon Bedrock, Knowledge Bases, AWS Lambda 등 AWS 서비스를 활용하여 AI
 
 ---
 
-### 4.2 Release Notes for Safari Technology Preview 237
+### 4.2 Safari Technology Preview 237 릴리스 노트
 
 #### 개요
 
@@ -434,7 +434,7 @@ Safari Technology Preview 237이 macOS Tahoe 및 macOS Sequoia를 위한 다운�
 
 ---
 
-### 5.2 Thailand Moves to Cement Bitcoin and Digital Assets in Regulated Derivatives Market
+### 5.2 태국, 규제 파생상품 시장에서 Bitcoin 및 디지털 자산 제도화 추진
 
 #### 개요
 
@@ -454,8 +454,8 @@ Safari Technology Preview 237이 macOS Tahoe 및 macOS Sequoia를 위한 다운�
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Europe surges, US stumbles, China cools: EV sales ...](https://electrek.co/2026/02/12/europe-surges-us-stumbles-china-cools-ev-sales-dip-in-2026/) | Electrek | 1월 전 세계 EV 판매 120만 대, 유럽 급증·미국 부진·중국 냉각으로 시장 전체는 축소 |
-| [In Washington, DC, curbside parking just became EV...](https://electrek.co/2026/02/12/washington-dc-curbside-parking-ev-charging/) | Electrek | 워싱턴 DC, 노변 주차 공간에 공공 EV 충전기 설치하는 파일럿 프로그램 시작 |
+| [유럽 급증, 미국 부진, 중국 냉각: 2026년 EV 판매 감소](https://electrek.co/2026/02/12/europe-surges-us-stumbles-china-cools-ev-sales-dip-in-2026/) | Electrek | 1월 전 세계 EV 판매 120만 대, 유럽 급증·미국 부진·중국 냉각으로 시장 전체는 축소 |
+| [워싱턴 DC, 노변 주차 공간이 EV 충전 구역으로](https://electrek.co/2026/02/12/washington-dc-curbside-parking-ev-charging/) | Electrek | 워싱턴 DC, 노변 주차 공간에 공공 EV 충전기 설치하는 파일럿 프로그램 시작 |
 
 
 ---

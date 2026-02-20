@@ -452,7 +452,7 @@ GeoMatchRule:
 > 
 > Geo-blocking은 완벽하지 않습니다. VPN을 통한 우회가 가능하므로, 추가적인 보안 계층(예: Rate Limiting, Bot Detection)과 함께 사용해야 합니다.
 
-### 1.3 Header Security (Request/Response)
+### 1.3 헤더 보안 (요청/응답)
 
 #### Request Header 보안
 
@@ -660,7 +660,7 @@ paths-ignore:
   - '**/vendor/**'
 ```
 
-### 2.3 Amazon Q Developer vs GitHub Advanced Security
+### 2.3 Amazon Q Developer와 GitHub Advanced Security 비교
 
 | 기능 | GitHub Advanced Security | Amazon Q Developer |
 |------|-------------------------|-------------------|
@@ -1103,7 +1103,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 
 ## 4. 경영진 보고 형식 (Board Reporting Format)
 
-### 4.1 Executive Dashboard
+### 4.1 경영진 대시보드
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐

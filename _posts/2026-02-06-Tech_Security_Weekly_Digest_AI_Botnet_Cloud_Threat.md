@@ -109,8 +109,8 @@ ClickFix 변종에 대한 이전 분석은 [Tech & Security Weekly Digest: Shiny
 | **Security** | Microsoft Security Blog | CrashFix - 브라우저 크래시 유도 Python RAT 배포 (finger.exe 악용) | Critical |
 | **Security** | The Hacker News | Codespaces RCE, AsyncRAT C2, BYOVD 복합 위협 종합 | Critical |
 | **Security** | The Hacker News | AISURU/Kimwolf Botnet 31.4 Tbps DDoS 기록 경신 | Medium |
-| **Security** | The Hacker News | AI Usage Control - Buyer's Guide | Medium |
-| **Security** | Microsoft Security Blog | Security Implementation Gap 분석 | Medium |
+| **Security** | The Hacker News | AI 사용 제어 - 구매자 가이드 | Medium |
+| **Security** | Microsoft Security Blog | 보안 구현 격차(Security Implementation Gap) 분석 | Medium |
 
 ---
 
@@ -624,7 +624,7 @@ echo "=== 점검 완료 ==="
 
 ---
 
-### 1.4 AI Usage Control - Buyer's Guide
+### 1.4 AI 사용 제어 - 구매자 가이드
 
 #### 개요
 
@@ -648,7 +648,7 @@ The Hacker News에서 기업의 AI 사용 통제를 위한 구매 가이드를 �
 
 ---
 
-### 1.5 The Security Implementation Gap
+### 1.5 보안 구현 격차
 
 #### 개요
 
@@ -862,7 +862,7 @@ echo "=== 분석 완료 ==="
 
 ## 3. 클라우드 & 인프라 뉴스
 
-### 3.1 Reduce Vulnerability Noise with VEX: Wiz + Docker Hardened Images
+### 3.1 VEX로 취약점 노이즈 줄이기: Wiz + Docker Hardened Images
 
 > **심각도**: Critical (DevSecOps 프로세스 영향)
 
@@ -921,7 +921,7 @@ CNCF 프로젝트 **Dragonfly v2.4.0**이 출시되었습니다. P2P(Peer-to-Pee
 
 ---
 
-### 3.3 .NET Framework 3.5 Standalone Deployment
+### 3.3 .NET Framework 3.5 독립 배포
 
 #### 개요
 
@@ -1467,8 +1467,8 @@ JPMorgan이 비트코인의 장기 투자 가치가 골드보다 강화되고 �
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [New VW Sportline](https://electrek.co/2026/02/05/new-vw-sportline-is-the-7-passenger-electric-gti-the-id-buzz-should-have-been/) | Electrek | VW가 7인승 전기차 Sportline 공개 - ID Buzz의 GTi 버전으로 전기차 시장 경쟁 가속화 |
-| [Sodium-ion Battery EV](https://electrek.co/2026/02/05/first-sodium-ion-battery-ev-debuts-game-changer/) | Electrek | CATL과 Changan이 세계 최초 나트륨이온 배터리 EV 공개 - 리튬 의존도 감소, 배터리 공급망 다변화 |
+| [신형 VW Sportline 공개](https://electrek.co/2026/02/05/new-vw-sportline-is-the-7-passenger-electric-gti-the-id-buzz-should-have-been/) | Electrek | VW가 7인승 전기차 Sportline 공개 - ID Buzz의 GTi 버전으로 전기차 시장 경쟁 가속화 |
+| [세계 최초 나트륨이온 배터리 EV 데뷔](https://electrek.co/2026/02/05/first-sodium-ion-battery-ev-debuts-game-changer/) | Electrek | CATL과 Changan이 세계 최초 나트륨이온 배터리 EV 공개 - 리튬 의존도 감소, 배터리 공급망 다변화 |
 
 ---
 

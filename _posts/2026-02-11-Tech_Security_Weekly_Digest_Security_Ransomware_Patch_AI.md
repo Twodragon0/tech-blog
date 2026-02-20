@@ -110,17 +110,17 @@ schema_type: Article
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | DPRK Operatives Impersonate Professionals on Linke... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Reynolds Ransomware Embeds BYOVD Driver to Disable... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | From Ransomware to Residency: Inside the Rise of t... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Fortinet Patches Critical SQLi Flaw Enabling Unaut... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | ZAST.AI Raises $6M Pre-A to Scale "Zero False Posi... | 🟠 High |
+| 🔒 **Security** | The Hacker News | DPRK 요원들이 LinkedIn에서 전문직을 사칭해 기업 침투 시도 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Reynolds 랜섬웨어, BYOVD 드라이버 내장으로 EDR 보안 도구 무력화 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | 랜섬웨어에서 장기 잠복으로: 디지털 기생 공격의 부상 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Fortinet, 미인증 원격 코드 실행 가능한 Critical SQLi 취약점 패치 | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | ZAST.AI, "제로 오탐" AI 보안 플랫폼 확장을 위해 600만 달러 Pre-A 투자 유치 | 🟠 High |
 
 ---
 
 ## 1. 보안 뉴스
 
-### 1.1 DPRK Operatives Impersonate Professionals on LinkedIn to Infiltrate Companies
+### 1.1 DPRK 요원들의 LinkedIn 전문직 사칭 기업 침투 시도
 
 #### 개요
 
@@ -153,7 +153,7 @@ schema_type: Article
 
 ---
 
-### 1.2 Reynolds Ransomware Embeds BYOVD Driver to Disable EDR Security Tools
+### 1.2 Reynolds 랜섬웨어, BYOVD 드라이버 내장으로 EDR 보안 도구 무력화
 
 #### 개요
 
@@ -177,7 +177,7 @@ schema_type: Article
 
 ---
 
-### 1.3 From Ransomware to Residency: Inside the Rise of the Digital Parasite
+### 1.3 랜섬웨어에서 장기 잠복으로: 디지털 기생 공격의 부상
 
 #### 개요
 
@@ -203,7 +203,7 @@ schema_type: Article
 
 ## 2. AI/ML 뉴스
 
-### 2.1 9 fun questions to try asking Google Photos
+### 2.1 Google Photos에 물어볼 만한 재미있는 질문 9가지
 
 #### 개요
 
@@ -231,7 +231,7 @@ Google Photos의 'Ask Photos' 기능을 활용해 시도해볼 수 있는 9가�
 
 ---
 
-### 2.2 How Amazon uses Amazon Nova models to automate operational readiness testing for new fulfillment centers
+### 2.2 Amazon Nova 모델로 신규 물류 센터 운영 준비 테스트 자동화하기
 
 #### 개요
 
@@ -260,7 +260,7 @@ Amazon이 Amazon Bedrock의 Nova 모델을 활용해 새 물류 센터의 운영
 
 ---
 
-### 2.3 Iberdrola enhances IT operations using Amazon Bedrock AgentCore
+### 2.3 Iberdrola, Amazon Bedrock AgentCore로 IT 운영 고도화
 
 #### 개요
 
@@ -291,7 +291,7 @@ Amazon이 Amazon Bedrock의 Nova 모델을 활용해 새 물류 센터의 운영
 
 ## 3. 클라우드 & 인프라 뉴스
 
-### 3.1 Google Distributed Cloud brings public-cloud-like networking to air-gapped environments
+### 3.1 Google Distributed Cloud, 에어갭 환경에 퍼블릭 클라우드급 네트워킹 제공
 
 #### 개요
 
@@ -314,7 +314,7 @@ Amazon이 Amazon Bedrock의 Nova 모델을 활용해 새 물류 센터의 운영
 
 ---
 
-### 3.2 Gemini Enterprise Agent Ready (GEAR) program now available, a new path to building AI agents at scale
+### 3.2 Gemini Enterprise Agent Ready (GEAR) 프로그램 전면 개방, 엔터프라이즈 AI 에이전트 구축의 새 길
 
 #### 개요
 
@@ -338,7 +338,7 @@ Amazon이 Amazon Bedrock의 Nova 모델을 활용해 새 물류 센터의 운영
 
 ---
 
-### 3.3 Beyond the Battlefield: Threats to the Defense Industrial Base
+### 3.3 전장을 넘어서: 방산 산업 기반을 노리는 위협
 
 #### 개요
 
@@ -363,7 +363,7 @@ Amazon이 Amazon Bedrock의 Nova 모델을 활용해 새 물류 센터의 운영
 
 ## 4. DevOps & 개발 뉴스
 
-### 4.1 Hardened Images Are Free. Now What?
+### 4.1 Docker Hardened Images 무료 제공 이후, 이제 어떻게 활용할까?
 
 #### 개요
 
@@ -387,7 +387,7 @@ Docker Hardened Images(DHI)가 무료로 제공됩니다. Alpine, Debian을 포�
 
 ---
 
-### 4.2 .NET 11 Preview 1 is now available!
+### 4.2 .NET 11 Preview 1 출시
 
 #### 개요
 
@@ -409,7 +409,7 @@ Docker Hardened Images(DHI)가 무료로 제공됩니다. Alpine, Debian을 포�
 
 ---
 
-### 4.3 .NET and .NET Framework February 2026 servicing releases updates
+### 4.3 .NET 및 .NET Framework 2026년 2월 서비스 업데이트
 
 > 🟡 **심각도**: Medium | **CVE**: CVE-2026-21218
 
@@ -436,7 +436,7 @@ Docker Hardened Images(DHI)가 무료로 제공됩니다. Alpine, Debian을 포�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings
+### 5.1 Goldman Sachs, 비트코인 ETF에 11억 달러 포지션 보유 공시
 
 #### 개요
 
@@ -452,7 +452,7 @@ Goldman Sachs가 비트코인 ETF에 11억 달러 규모의 포지션을 보유�
 
 ---
 
-### 5.2 FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration
+### 5.2 FTX Sam Bankman-Fried, 재심 신청 - 바이든 행정부의 정치적 피해자 주장
 
 #### 개요
 

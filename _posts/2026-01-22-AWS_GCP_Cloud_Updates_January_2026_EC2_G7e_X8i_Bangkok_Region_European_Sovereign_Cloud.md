@@ -886,7 +886,7 @@ print(f"EC2 G7e 월간 비용: ${result['cost_usd']} / ₩{result['cost_krw']:,}
 
 ## 9. 경영진 보고 형식 (Board Reporting)
 
-### 9.1 Executive Briefing (1-Page Summary)
+### 9.1 경영진 브리핑 (1페이지 요약)
 
 **제목**: 2026년 1월 AWS/GCP 업데이트 - 전략적 의사결정 요청
 

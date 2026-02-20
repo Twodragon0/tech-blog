@@ -325,7 +325,7 @@ Instructions for Claude Code when working on this project.
 
 ## Core Principles
 
-### 1. Security First
+### 1. 보안 우선
 - **Never hardcode** API keys, passwords, tokens
 - Use `os.getenv("API_KEY", "")` for sensitive data
 - Mask logs with `mask_sensitive_info()` before output
@@ -335,13 +335,13 @@ Instructions for Claude Code when working on this project.
 - **Error Handling**: Never expose sensitive information in error messages
 - **Dependency Security**: Run `npm audit` and `bundle audit` regularly
 
-### 2. Cost Optimization
+### 2. 비용 최적화
 Priority order for AI operations:
 1. **Free tier first** - Gemini CLI, local processing
 2. **Cache results** - 7-day TTL for API responses
 3. **API calls last** - Only when necessary
 
-### 3. Code Quality
+### 3. 코드 품질
 - Always include type hints
 - Use language tags in code blocks
 - Follow project naming conventions

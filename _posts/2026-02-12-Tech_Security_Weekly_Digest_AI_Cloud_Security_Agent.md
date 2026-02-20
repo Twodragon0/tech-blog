@@ -111,17 +111,17 @@ schema_type: Article
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | First Malicious Outlook Add-In Found Stealing 4,00... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | APT36 and SideCopy Launch Cross-Platform RAT Campa... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Over 60 Software Vendors Issue Security Fixes Acro... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | Exposed Training Open the Door for Crypto-Mining i... | 🟡 Medium |
-| 🔒 **Security** | Microsoft Secur | The strategic SIEM buyer’s guide: Choosing an AI-r... | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Microsoft 자격증명 4,000건 이상 탈취한 최초의 악성 Outlook 애드인 발견 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | APT36·SideCopy, 인도 대상 크로스 플랫폼 RAT 캠페인 동시 전개 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | 60개 이상 소프트웨어 벤더, OS·클라우드·네트워크 플랫폼 전반에 보안 패치 발표 | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | 노출된 학습 환경이 클라우드 내 크립토 마이닝 공격의 문을 열다 | 🟡 Medium |
+| 🔒 **Security** | Microsoft Secur | 전략적 SIEM 구매 가이드: AI 기반 차세대 보안 솔루션 선택법 | 🟡 Medium |
 
 ---
 
 ## 1. 보안 뉴스
 
-### 1.1 First Malicious Outlook Add-In Found Stealing 4,000+ Microsoft Credentials
+### 1.1 Microsoft 자격증명 4,000건 이상 탈취한 최초의 악성 Outlook 애드인 발견
 
 #### 개요
 
@@ -159,7 +159,7 @@ schema_type: Article
 
 ---
 
-### 1.2 APT36 and SideCopy Launch Cross-Platform RAT Campaigns Against Indian Entities
+### 1.2 APT36·SideCopy, 인도 대상 크로스 플랫폼 RAT 캠페인 동시 전개
 
 #### 개요
 
@@ -184,7 +184,7 @@ schema_type: Article
 
 ---
 
-### 1.3 Over 60 Software Vendors Issue Security Fixes Across OS, Cloud, and Network Platforms
+### 1.3 60개 이상 소프트웨어 벤더, OS·클라우드·네트워크 플랫폼 전반에 보안 패치 발표
 
 > 🔴 **심각도**: Critical
 
@@ -213,7 +213,7 @@ Patch Tuesday가 도래하여 60개 이상의 소프트웨어 벤더가 보안 �
 
 ## 2. AI/ML 뉴스
 
-### 2.1 The Death of Traditional Testing: Agentic Development Broke a 50-Year-Old Field, JiTTesting Can Revive It
+### 2.1 전통적 테스팅의 종말: 에이전틱 개발이 50년 역사의 분야를 무너뜨렸고, JiTTesting이 부활시킬 수 있다
 
 #### 개요
 
@@ -243,7 +243,7 @@ Patch Tuesday가 도래하여 60개 이상의 소프트웨어 벤더가 보안 �
 
 ---
 
-### 2.2 Harness engineering: leveraging Codex in an agent-first world
+### 2.2 Harness 엔지니어링: 에이전트 중심 세계에서 Codex 활용하기
 
 #### 개요
 
@@ -271,7 +271,7 @@ Patch Tuesday가 도래하여 60개 이상의 소프트웨어 벤더가 보안 �
 
 ---
 
-### 2.3 NVIDIA Nemotron 3 Nano 30B MoE model is now available in Amazon SageMaker JumpStart
+### 2.3 NVIDIA Nemotron 3 Nano 30B MoE 모델, Amazon SageMaker JumpStart에서 정식 출시
 
 #### 개요
 
@@ -303,7 +303,7 @@ NVIDIA Nemotron 3 Nano 30B 모델(활성 파라미터 3B)이 Amazon SageMaker Ju
 
 ## 3. 클라우드 & 인프라 뉴스
 
-### 3.1 Build financial resilience with AI-powered tabletop exercises on Google Cloud
+### 3.1 Google Cloud AI 기반 테이블탑 훈련으로 금융 운영 복원력 강화
 
 > 🔴 **심각도**: Critical
 
@@ -329,7 +329,7 @@ NVIDIA Nemotron 3 Nano 30B 모델(활성 파라미터 3B)이 Amazon SageMaker Ju
 
 ---
 
-### 3.2 Mastering Model Adaptation: A Guide to Fine-Tuning on Google Cloud
+### 3.2 모델 적응 완전 정복: Google Cloud 파인튜닝 가이드
 
 #### 개요
 
@@ -353,7 +353,7 @@ AI 애플리케이션을 프로토타입에서 프로덕션으로 이동할 때 
 
 ---
 
-### 3.3 7 Technical Takeaways from Using Gemini to Generate Code Samples at Scale
+### 3.3 Gemini로 대규모 코드 샘플 생성 시 얻은 7가지 기술적 교훈
 
 > 🔴 **심각도**: Critical
 
@@ -381,7 +381,7 @@ AI 애플리케이션을 프로토타입에서 프로덕션으로 이동할 때 
 
 ## 4. DevOps & 개발 뉴스
 
-### 4.1 Security Slam Returns for 2026 — Now Open to All Open Source Projects
+### 4.1 Security Slam 2026 귀환 — 이제 모든 오픈소스 프로젝트로 참가 확대
 
 > 🔴 **심각도**: Critical
 
@@ -407,7 +407,7 @@ CNCF 보안 및 컴플라이언스 기술 자문 그룹이 KubeCon + CloudNative
 
 ---
 
-### 4.2 GitHub Copilot Testing for .NET Brings AI-powered Unit Tests to Visual Studio 2026
+### 4.2 .NET용 GitHub Copilot 테스팅, Visual Studio 2026에 AI 기반 유닛 테스트 제공
 
 #### 개요
 
@@ -431,7 +431,7 @@ CNCF 보안 및 컴플라이언스 기술 자문 그룹이 KubeCon + CloudNative
 
 ---
 
-### 4.3 WebKit features for Safari 26.3
+### 4.3 Safari 26.3의 WebKit 새 기능
 
 #### 개요
 
@@ -455,7 +455,7 @@ Safari 26.3가 출시되었습니다. 성능과 사용자 경험 전반에 걸�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 BlackRock Says 1% Crypto Allocation in Asia Could Drive $2 Trillion in Inflows
+### 5.1 BlackRock, 아시아 포트폴리오 암호화폐 비중 1% 증가만으로 2조 달러 유입 가능
 
 #### 개요
 
@@ -471,7 +471,7 @@ BlackRock 임원이 아시아 포트폴리오에서 암호화폐 비중을 단 1
 
 ---
 
-### 5.2 MoonPay Launches Crypto Deposits Feature to Enable Cross-Chain Funding in Wallet in Telegram
+### 5.2 MoonPay, Telegram 지갑에서 크로스 체인 암호화폐 입금 기능 출시
 
 #### 개요
 

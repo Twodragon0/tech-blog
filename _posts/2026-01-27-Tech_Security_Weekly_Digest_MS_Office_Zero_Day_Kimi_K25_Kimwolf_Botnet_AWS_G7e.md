@@ -777,7 +777,7 @@ security_guidelines:
 
 ## 6. 추가 주요 뉴스
 
-### Oracle January 2026 Critical Patch Update
+### Oracle 2026년 1월 Critical Patch Update
 
 Oracle이 **158개 CVE**를 수정하는 분기별 패치를 발표했습니다.
 

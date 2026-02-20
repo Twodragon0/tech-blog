@@ -615,7 +615,7 @@ cd ../project-refactor-db && claude
 
 핵심은 **컨텍스트 스위칭 비용의 제거**입니다. 각 worktree가 독립적인 파일 시스템 상태를 유지하므로, Claude Code 세션도 각각의 작업에 완전히 집중할 수 있습니다.
 
-### 4.6 Two Kinds of AI Users
+### 4.6 두 부류의 AI 사용자
 
 | 항목 | 내용 |
 |------|------|
