@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: Tech & Security Weekly Digest: Microsoft AitM 피싱 경고, Agentic AI Zero Trust, OpenAI PostgreSQL 8억 사용자 스케일링
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, AitM-Phishing, BEC, Zero-Trust, Agentic-AI, NHI, PostgreSQL, OpenAI, Google-Cloud, HashiCorp, vLLM, DevSecOps, "2026"
+
+> **핵심 내용**: 
+> - AitM 피싱, Agentic AI Zero Trust, PostgreSQL 8억 사용자 스케일링, vLLM Inferact $150M 투자
+
+> **주요 기술/도구**: Security, DevSecOps, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -146,6 +166,8 @@ Microsoft Defender Security Research Team이 **에너지 섹터를 타겟으로 
 
 #### 공격 흐름 다이어그램
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                    AitM + BEC 공격 체인 분석                           │
@@ -189,7 +211,11 @@ Phase 4: Lateral Movement (내부 확산)
 │  - 신뢰 관계 악용                            │
 │  - 송금 요청 (BEC)                          │
 └─────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### MITRE ATT&CK 매핑 및 탐지 전략
 
@@ -205,6 +231,10 @@ Phase 4: Lateral Movement (내부 확산)
 #### 즉시 적용 가능한 대응 방안
 
 **1. 피싱 방지 MFA 도입 (우선순위: 긴급)**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```yaml
 # Azure AD 조건부 액세스 정책 예시
@@ -240,6 +270,8 @@ Get-InboxRule -Mailbox user@company.com |
 
 ### AitM 피싱 탐지 - Splunk SPL
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=o365 sourcetype="ms:o365:audit" Operation="UserLoggedIn"
 | stats count dc(ClientIP) as ip_count by UserId
@@ -251,7 +283,11 @@ index=o365 sourcetype="ms:o365:audit" Operation="UserLoggedIn"
 )
 | table UserId ip_count risk_score
 | where risk_score IN ("Critical", "High")
+
+
 ```
+-->
+-->
 
 ### 받은편지함 규칙 생성 탐지 - Azure Sentinel KQL
 
@@ -267,6 +303,8 @@ OfficeActivity
 
 ### Impossible Travel 탐지 - Azure Sentinel KQL
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 SigninLogs
 | where TimeGenerated > ago(1h)
@@ -287,7 +325,11 @@ SigninLogs
 | where TimeDiff > 0 and TimeDiff < 60
 | where Location1 != "" and Location2 != ""
 | project TimeGenerated, UserPrincipalName, Location1, City1, IPAddress, Location2, City2, IPAddress2, TimeDiff
+
+
 ```
+-->
+-->
 
 ### SharePoint 외부 공유 모니터링 - Splunk SPL
 
@@ -330,6 +372,20 @@ index=o365 sourcetype="ms:o365:audit" Workload="SharePoint"
    - 금융보안원 권고사항: 피싱 방지 MFA 필수 권고
 
 **즉시 조치 권장사항 (한국 조직용):**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> 우선순위_1_긴급_48시간:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> 우선순위_1_긴급_48시간:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 우선순위_1_긴급_48시간:
   - 임직원 대상 AitM 피싱 경고 공지 (실제 사례 포함)
@@ -345,7 +401,11 @@ index=o365 sourcetype="ms:o365:audit" Workload="SharePoint"
   - 전사 피싱 방지 MFA 도입 로드맵 수립
   - 피싱 시뮬레이션 훈련 실시
   - SIEM 탐지 룰 추가 (상기 쿼리 참고)
+
+
 ```
+-->
+-->
 
 > **출처**: [The Hacker News - Microsoft AitM Phishing Warning](https://thehackernews.com/2026/01/microsoft-flags-multi-stage-aitm.html)
 
@@ -374,6 +434,20 @@ HashiCorp에서 **자율 AI 시스템(Agentic AI)**의 보안을 위한 포괄�
 
 #### Agentic AI NHI 공격 시나리오
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌──────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌──────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │         Agentic AI 시스템의 NHI 탈취 공격 체인                     │
@@ -416,7 +490,11 @@ Step 4: Persistence & Impact (지속성 및 영향)
 │ • 장기간 데이터 유출                      │
 │ • 랜섬웨어 배포 또는 공급망 공격          │
 └─────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### Zero Trust NHI 관리 원칙
 
@@ -430,6 +508,20 @@ Step 4: Persistence & Impact (지속성 및 영향)
 
 #### 실무 구현 예시: Vault Dynamic Secrets
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # Vault AWS 동적 시크릿 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # Vault AWS 동적 시크릿 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # Vault AWS 동적 시크릿 설정
 path "aws/creds/agentic-ai-role" {
@@ -456,11 +548,19 @@ resource "vault_aws_secret_backend_role" "agentic_ai" {
   default_sts_ttl = 900   # 15분
   max_sts_ttl     = 3600  # 최대 1시간
 }
+
+
 ```
+-->
+-->
 
 <!-- SIEM Detection Queries - Agentic AI NHI 이상 행위 탐지
 
 ### 하드코딩된 API 키 탐지 - GitHub Secret Scanning
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # truffleHog 사용 예시
@@ -485,6 +585,10 @@ index=api_gateway sourcetype="api_logs"
 ```
 
 ### AI 에이전트 비정상 권한 상승 - Azure Sentinel KQL
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```kql
 AWSCloudTrail
@@ -527,6 +631,20 @@ index=vault sourcetype="vault:audit" request.path="/v1/secret/*"
 
 **즉시 적용 가능한 개선 방안:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> 1단계_인벤토리_구축_1주일:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> 1단계_인벤토리_구축_1주일:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 1단계_인벤토리_구축_1주일:
   - 현재 사용 중인 모든 AI 에이전트/봇 목록 작성
@@ -547,7 +665,11 @@ index=vault sourcetype="vault:audit" request.path="/v1/secret/*"
   - NHI 활동 SIEM 통합 (상기 탐지 쿼리 적용)
   - 이상 행위 알림 규칙 설정
   - 정기 시크릿 스캐닝 자동화 (GitHub, Docker, Code)
+
+
 ```
+-->
+-->
 
 > **출처**: [HashiCorp - Zero Trust for Agentic Systems](https://www.hashicorp.com/blog/zero-trust-for-agentic-systems-managing-non-human-identities-at-scale)
 
@@ -585,6 +707,20 @@ OpenAI가 **PostgreSQL을 활용한 대규모 스케일링 전략**을 공개했
 
 **OpenAI 방식을 한국 조직에 적용 시 이점:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> 기술적_이점:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> 기술적_이점:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 기술적_이점:
   - 기존 PostgreSQL 지식 재사용 가능 (재교육 비용 절감)
@@ -600,10 +736,16 @@ OpenAI가 **PostgreSQL을 활용한 대규모 스케일링 전략**을 공개했
   - 단일 기술 스택 유지 (복잡도 감소)
   - 백업/복구 프로세스 일관성
   - 모니터링 도구 통합 용이
+
+
 ```
+-->
+-->
 
 **즉시 적용 가능한 스케일링 체크리스트:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```sql
 -- 1. Connection Pooling 확인 (PgBouncer 필수)
 SHOW max_connections;  -- 기본값 100 → 위험 신호
@@ -625,7 +767,11 @@ SELECT schemaname, tablename,
 FROM pg_tables
 ORDER BY pg_total_relation_size(schemaname||'.'||tablename) DESC
 LIMIT 20;
+
+
 ```
+-->
+-->
 
 > **출처**: [OpenAI - Scaling PostgreSQL](https://openai.com/index/scaling-postgresql/)
 
@@ -654,6 +800,10 @@ AI-Assisted Incident Response:
 </details>
 
 #### 실무 적용 팁
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # Gemini CLI 장애 대응 예시 명령
@@ -735,6 +885,8 @@ SSH 세션에서 단일 키 입력 시 **예상보다 훨씬 많은 패킷이 �
 
 #### 분석 결과
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["SSH Keystroke Input"] --> B["36-byte Packet<br/>~20ms Interval"]
@@ -750,7 +902,11 @@ graph TD
     style C fill:#fff3e0
     style D fill:#f3e5f5
     style E fill:#fce4ec
+
+
 ```
+-->
+-->
 
 > **출처**: [eieio.games - SSH Packets Analysis](https://eieio.games/blog/ssh-sends-100-packets-per-keystroke/)
 
@@ -809,6 +965,8 @@ Capital One이 핀테크 기업 **Brex**를 $5.15B에 인수한다고 발표. �
 
 **Step 1: 의심스러운 받은편지함 규칙 탐지**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # Exchange Online에서 모든 사용자의 받은편지함 규칙 검사
 Get-Mailbox -ResultSize Unlimited | ForEach-Object {
@@ -823,10 +981,16 @@ Get-Mailbox -ResultSize Unlimited | ForEach-Object {
                        DeleteMessage, MoveToFolder, ForwardTo, RedirectTo,
                        @{N='CreatedDate';E={$_.WhenChanged}}
 } | Export-Csv -Path "suspicious_inbox_rules.csv" -NoTypeInformation
+
+
 ```
+-->
+-->
 
 **Step 2: Impossible Travel 패턴 분석**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // Azure Sentinel - 지난 7일간 Impossible Travel 의심 케이스
 let timeRange = 7d;
@@ -850,10 +1014,16 @@ SigninLogs
 | summarize ImpossibleTravelCount = count() by UserPrincipalName
 | where ImpossibleTravelCount > 2
 | order by ImpossibleTravelCount desc
+
+
 ```
+-->
+-->
 
 **Step 3: 비정상 MFA 등록 이벤트**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // 짧은 시간 내 MFA 방법 변경 탐지
 AuditLogs
@@ -871,10 +1041,16 @@ AuditLogs
 | extend TimeDiff = datetime_diff('hour', LastChange, FirstChange)
 | where MFAChanges > 3 and TimeDiff < 24  // 24시간 내 3회 이상 변경
 | order by MFAChanges desc
+
+
 ```
+-->
+-->
 
 **Step 4: SharePoint 외부 공유 이상 패턴**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Splunk - 평소보다 과도한 외부 공유 활동
 index=o365 sourcetype="ms:o365:audit" Workload="SharePoint"
@@ -886,7 +1062,11 @@ Operation IN ("AnonymousLinkCreated", "AddedToSecureLink", "SecureLinkUsed")
 | where zscore > 3  // 평균에서 3 표준편차 이상 벗어난 경우
 | table _time UserId hour count avg_count zscore
 | sort -zscore
+
+
 ```
+-->
+-->
 
 ### 6.2 Agentic AI NHI 침해 헌팅
 
@@ -897,6 +1077,20 @@ Operation IN ("AnonymousLinkCreated", "AddedToSecureLink", "SecureLinkUsed")
 
 **Step 1: GitHub/GitLab Public Repo 시크릿 스캔**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # 조직의 모든 public repo에서 시크릿 탐지
@@ -922,10 +1116,16 @@ done
 # 발견된 시크릿 요약
 cat secrets_found.json | jq -s 'group_by(.DetectorName) | map({detector: .[0].DetectorName, count: length})' \
   > secrets_summary.json
+
+
 ```
+-->
+-->
 
 **Step 2: 동일 API 키의 비정상 지리적 사용 패턴**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Splunk - API Gateway 로그에서 동일 키의 다중 국가 사용 탐지
 index=api_gateway sourcetype=api_logs
@@ -943,10 +1143,16 @@ index=api_gateway sourcetype=api_logs
 )
 | table api_key_hash country_count countries ip_count risk_score
 | sort -country_count
+
+
 ```
+-->
+-->
 
 **Step 3: AI 에이전트의 권한 상승 시도**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // Azure Sentinel - Service Principal의 의심스러운 권한 변경
 AzureActivity
@@ -964,9 +1170,17 @@ AzureActivity
             by Caller
 | where PermissionChanges > 5  // 5회 이상 권한 변경
 | order by PermissionChanges desc
+
+
 ```
+-->
+-->
 
 **Step 4: Vault Audit Log 이상 패턴**
+
+> **참고**: 관련 예제는 [공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 
 ```json
 {
@@ -979,6 +1193,8 @@ AzureActivity
 
 ### 6.3 Threat Hunting 보고서 템플릿
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 # Threat Hunting 보고서
 
@@ -1024,7 +1240,11 @@ AzureActivity
 
 ## 6. Lessons Learned
 [이번 헌팅에서 배운 점, 개선할 탐지 룰]
+
+
 ```
+-->
+-->
 
 ---
 

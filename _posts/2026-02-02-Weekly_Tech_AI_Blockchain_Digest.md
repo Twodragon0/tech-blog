@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 주간 기술 & AI & 블록체인 다이제스트: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 역설, DeFi 보안, FOSDEM 2026
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, Apple, Bitcoin-Crash, AI-Creativity, DeFi-Security, Claude-Code, Google-Research, CrossCurve-Exploit, Ethereum-Quantum, FOSDEM-2026, "2026"
+
+> **핵심 내용**: 
+> - Apple iPhone 16 MLX LLM 버그, Bitcoin $74K 급락과 $19B 청산, AI 창의성 역설 연구, CrossCurve DeFi 익스플로잇, FOSDEM 2026 하이라이트
+
+> **주요 기술/도구**: Security, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -103,6 +123,20 @@ Apple의 MLX는 Apple Silicon에서 머신 러닝을 효율적으로 실행하�
 2. **Apple Intelligence 전략**: Apple의 온디바이스 AI 전략 핵심인 Neural Engine의 신뢰성에 의문
 3. **QA 프로세스**: Apple의 칩 검증 프로세스에서 MLX 추론 테스트가 누락되었을 가능성
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # iOS 개발자를 위한 Neural Engine 추론 검증 스크립트 (MLX)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # iOS 개발자를 위한 Neural Engine 추론 검증 스크립트 (MLX)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # iOS 개발자를 위한 Neural Engine 추론 검증 스크립트 (MLX)
 # CPU vs Neural Engine 결과 비교로 하드웨어 이상 탐지
@@ -127,7 +161,11 @@ def verify_neural_engine_accuracy(model, input_data):
         print(f"Max difference: {max_diff}")
         return False
     return True
+
+
 ```
+-->
+-->
 
 ### 1.2 MacBook Pro DFU 포트 문서 오류
 
@@ -178,6 +216,20 @@ AI 에이전트의 보안은 2026년 핵심 화두입니다. NanoClaw의 접근 
 - **세션 격리**: 채팅 간 컨텍스트 유출 방지
 - **코드 최소화**: 공격 표면 자체를 줄이는 가장 효과적인 방법
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # AI 에이전트 컨테이너 격리 상태 확인 (macOS)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # AI 에이전트 컨테이너 격리 상태 확인 (macOS)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # AI 에이전트 컨테이너 격리 상태 확인 (macOS)
 # Apple 컨테이너 런타임 상태 점검
@@ -190,7 +242,11 @@ for c in containers:
     print(f'  Isolated FS: {c.get(\"isolated\", False)}')
     print(f'  Network:     {c.get(\"network_access\", \"unknown\")}')
 "
+
+
 ```
+-->
+-->
 
 ---
 
@@ -324,6 +380,20 @@ Michael Saylor는 BTC가 Strategy의 평균 매입 단가 아래로 하락하자
 
 기업에서 암호화폐 관련 서비스를 운영하거나 직원의 암호화폐 활동을 모니터링해야 하는 경우, 다음 SIEM 쿼리가 유용합니다:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - 급격한 가격 변동 시 내부 암호화폐 관련 트래픽 모니터링...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - 급격한 가격 변동 시 내부 암호화폐 관련 트래픽 모니터링...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Splunk - 급격한 가격 변동 시 내부 암호화폐 관련 트래픽 모니터링
 index=network sourcetype=firewall
@@ -339,7 +409,11 @@ index=network sourcetype=proxy
 | stats sum(bytes_out) as total_bytes_out by src_ip, dest_domain
 | where total_bytes_out > 104857600
 | sort -total_bytes_out
+
+
 ```
+-->
+-->
 
 ---
 
@@ -382,6 +456,20 @@ index=network sourcetype=proxy
 
 **SIEM 탐지 쿼리 (DeFi 보안 모니터링):**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - DeFi 브릿지 비정상 트랜잭션 패턴 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - DeFi 브릿지 비정상 트랜잭션 패턴 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Splunk - DeFi 브릿지 비정상 트랜잭션 패턴 탐지
 index=blockchain sourcetype=defi_events
@@ -403,7 +491,11 @@ contract_address IN ("CROSSCURVE_CONTRACT_ADDRESSES")
 blockchain.transaction.internal_calls > 10 AND
 blockchain.contract.method: ("withdraw" OR "transfer" OR "flashloan") AND
 blockchain.transaction.gas_used > 500000
+
+
 ```
+-->
+-->
 
 **실무 대응:**
 
@@ -581,6 +673,20 @@ Claude Code 팀 내부에서 **가장 효과적인 생산성 향상 팁**으로 
 
 **git worktree 병렬 작업 패턴:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Step 1: 메인 리포지토리에서 worktree 생성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Step 1: 메인 리포지토리에서 worktree 생성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Step 1: 메인 리포지토리에서 worktree 생성
 git worktree add ../project-feature-auth feature/auth
@@ -600,7 +706,11 @@ cd ../project-bugfix-perf && claude
 
 # Terminal 4
 cd ../project-refactor-db && claude
+
+
 ```
+-->
+-->
 
 **git checkout vs git worktree 비교:**
 

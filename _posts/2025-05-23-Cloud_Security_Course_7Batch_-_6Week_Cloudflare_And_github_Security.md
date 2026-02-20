@@ -16,6 +16,26 @@ keywords: [AWS, WAF, Cloudflare, DDoS, CDN, GitHub, CodeQL, Dependabot, SAST, Se
 author: "Yongho Ha"
 schema_type: Article
 ---
+
+## 📋 포스팅 요약
+
+> **제목**: 클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안
+
+> **카테고리**: security, devsecops
+
+> **태그**: AWS, CDN, Cloudflare, GitHub, SAST, WAF, 보안, 보안-아키텍처, 애플리케이션-보안, 코드-보안
+
+> **핵심 내용**: 
+> - AWS WAF, Cloudflare, GitHub 보안 완벽 가이드. DDoS 방어, 코드 스캔, 취약점 자동화 실무 정리.
+
+> **주요 기술/도구**: AWS, Cloudflare, GitHub, WAF, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -163,6 +183,10 @@ AWS WAF는 [AWS WAF Workshop](https://sessin.github.io/awswafhol/)을 통해 실
 
 > **참고**: DVWA 실습 환경 관련 내용은 [DVWA GitHub 저장소](https://github.com/digininja/DVWA) 및 [OWASP WebGoat](https://github.com/WebGoat/WebGoat)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # DVWA 컨테이너 실행 예시
 docker run --rm -it -p 80:80 vulnerables/web-dvwa
@@ -194,6 +218,20 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 
 #### 2.3.1 커스텀 규칙 예제
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Name": "BlockSuspiciousUserAgents",
@@ -224,7 +262,11 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
     "MetricName": "BlockSuspiciousUserAgents"
   }
 }
+
+
 ```
+-->
+-->
 
 #### 2.3.2 Rate Limiting 전략
 
@@ -237,6 +279,20 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 
 #### 2.3.3 Geo-blocking 전략
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # AWS WAF Geo-blocking 설정 예제 (Terraform)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # AWS WAF Geo-blocking 설정 예제 (Terraform)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # AWS WAF Geo-blocking 설정 예제 (Terraform)
 resource "aws_wafv2_web_acl" "main" {
@@ -268,7 +324,11 @@ resource "aws_wafv2_web_acl" "main" {
     }
   }
 }
+
+
 ```
+-->
+-->
 
 ### 2.4 AWS WAF 모니터링 및 대응
 
@@ -285,6 +345,20 @@ resource "aws_wafv2_web_acl" "main" {
 
 #### 2.4.2 자동화된 대응 워크플로우
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # EventBridge Rule for WAF automation...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # EventBridge Rule for WAF automation...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # EventBridge Rule for WAF automation
 AWSTemplateFormatVersion: '2010-09-09'
@@ -307,7 +381,11 @@ Resources:
       Targets:
         - Arn: !GetAtt SecurityLambda.Arn
           Id: SecurityAutomation
+
+
 ```
+-->
+-->
 
 ## 3. Cloudflare
 
@@ -367,6 +445,20 @@ Cloudflare와 AWS CloudFront, S3의 통합 CORS 구성 및 보안 최적화에 �
 
 #### 3.5.2 DDoS 공격 흐름도
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 인터넷...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 인터넷...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
                                     인터넷
                                       |
@@ -391,12 +483,30 @@ Cloudflare와 AWS CloudFront, S3의 통합 CORS 구성 및 보안 최적화에 �
                                            |  오리진 서버      |
                                            | (AWS/GCP/Azure)  |
                                            +------------------+
+
+
 ```
+-->
+-->
 
 ### 3.6 Cloudflare WAF 규칙 최적화
 
 #### 3.6.1 OWASP Core Rule Set
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // Cloudflare WAF 규칙 예제 (Workers 스크립트)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // Cloudflare WAF 규칙 예제 (Workers 스크립트)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```javascript
 // Cloudflare WAF 규칙 예제 (Workers 스크립트)
 addEventListener('fetch', event => {
@@ -426,10 +536,28 @@ async function handleRequest(request) {
 
   return fetch(request)
 }
+
+
 ```
+-->
+-->
 
 #### 3.6.2 Rate Limiting 전략
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Cloudflare Rate Limiting 설정 (Terraform)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Cloudflare Rate Limiting 설정 (Terraform)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Cloudflare Rate Limiting 설정 (Terraform)
 resource "cloudflare_rate_limit" "api_protection" {
@@ -451,7 +579,11 @@ resource "cloudflare_rate_limit" "api_protection" {
 
   description = "API 엔드포인트 보호"
 }
+
+
 ```
+-->
+-->
 
 ### 3.7 Cloudflare SSL/TLS 최적화
 
@@ -466,6 +598,20 @@ resource "cloudflare_rate_limit" "api_protection" {
 
 #### 3.7.2 TLS 1.3 최적화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Cloudflare CLI를 통한 TLS 1.3 활성화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Cloudflare CLI를 통한 TLS 1.3 활성화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Cloudflare CLI를 통한 TLS 1.3 활성화
 curl -X PATCH "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/settings/tls_1_3" \
@@ -489,7 +635,11 @@ curl -X PATCH "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/settings/secu
       }
     }
   }'
+
+
 ```
+-->
+-->
 
 ## 4. GitHub 보안
 
@@ -528,6 +678,20 @@ updates:
 ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/dependabot.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/dependabot.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/dependabot.yml
 version: 2
@@ -543,7 +707,11 @@ updates:
       - "dependencies"
       - "security"
 
+
+
 ```
+-->
+-->
 -->
 
 > **💡 실무 팁**
@@ -575,6 +743,8 @@ Code Scanning 설정 단계:
 
 #### 4.4.1 CodeQL 쿼리 예제
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```ql
 /**
  * @name SQL Injection 취약점 탐지
@@ -605,10 +775,28 @@ class SqlInjectionConfig extends TaintTracking::Configuration {
 from SqlInjectionConfig config, DataFlow::PathNode source, DataFlow::PathNode sink
 where config.hasFlowPath(source, sink)
 select sink.getNode(), source, sink, "SQL Injection 취약점"
+
+
 ```
+-->
+-->
 
 #### 4.4.2 코드 스캔 워크플로우
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/codeql-analysis.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/codeql-analysis.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/codeql-analysis.yml
 name: "CodeQL Advanced Security"
@@ -652,12 +840,30 @@ jobs:
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:{% raw %}${{ matrix.language }}{% endraw %}"
+
+
 ```
+-->
+-->
 
 ### 4.5 Secret Scanning 고급 전략
 
 #### 4.5.1 커스텀 시크릿 패턴
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # .github/secret_scanning.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # .github/secret_scanning.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/secret_scanning.yml
 patterns:
@@ -672,10 +878,28 @@ patterns:
 
   - name: "JWT 토큰"
     regex: "eyJ[A-Za-z0-9-_=]+\\.eyJ[A-Za-z0-9-_=]+\\.[A-Za-z0-9-_.+/=]+"
+
+
 ```
+-->
+-->
 
 #### 4.5.2 Secret Scanning 자동 대응
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/secret-remediation.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/secret-remediation.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/secret-remediation.yml
 name: Secret Remediation
@@ -716,7 +940,11 @@ jobs:
             }'
         env:
           PD_TOKEN: {% raw %}${{ secrets.PAGERDUTY_TOKEN }}{% endraw %}
+
+
 ```
+-->
+-->
 
 ### 4.6 GitHub 보안 모범 사례
 
@@ -732,6 +960,20 @@ jobs:
 
 #### 4.6.2 보안 알림 자동화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # scripts/security_dashboard.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # scripts/security_dashboard.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # scripts/security_dashboard.py
 import requests
@@ -762,7 +1004,11 @@ if __name__ == '__main__':
     stats = get_security_alerts('your-org', 'your-repo')
     print(f"전체 알림: {stats['total']}")
     print(f"Critical: {stats['critical']}")
+
+
 ```
+-->
+-->
 
 ## 5. 2025년 Cloudflare 및 GitHub 보안 최신 동향
 
@@ -792,6 +1038,20 @@ if __name__ == '__main__':
 
 #### 5.2.1 Cloudflare 머신러닝 WAF
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # Cloudflare ML WAF 개념 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # Cloudflare ML WAF 개념 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Cloudflare ML WAF 개념 예시
 class CloudflareMLWAF:
@@ -822,7 +1082,11 @@ class CloudflareMLWAF:
             'header_count': len(request.headers),
             'unusual_headers': self.detect_unusual_headers(request)
         }
+
+
 ```
+-->
+-->
 
 ## MITRE ATT&CK 매핑
 
@@ -850,6 +1114,10 @@ class CloudflareMLWAF:
 ### Splunk SPL 쿼리
 
 #### AWS WAF 공격 탐지
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```spl
 index=aws sourcetype=aws:cloudwatchlogs:vpcflow
 | search action=BLOCK
@@ -867,6 +1135,10 @@ index=cloudflare sourcetype=cloudflare:logs
 ```
 
 #### GitHub 시크릿 노출
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```spl
 index=github sourcetype=github:audit
 | search action=secret_scanning.alert_created
@@ -881,6 +1153,10 @@ index=github sourcetype=github:audit
 ### Azure Sentinel KQL 쿼리
 
 #### AWS WAF 탐지
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```kql
 AWSCloudWatchLogs
 | where LogGroup == "/aws/waf"
@@ -900,6 +1176,10 @@ CloudflareLogs
 ```
 
 #### GitHub 보안 알림
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```kql
 GitHubAuditLogs
 | where ActionType == "secret_scanning.alert_created"
@@ -927,6 +1207,20 @@ GitHubAuditLogs
 
 #### 금융권
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # 금융권 보안 설정 예제 (AWS WAF)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # 금융권 보안 설정 예제 (AWS WAF)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 금융권 보안 설정 예제 (AWS WAF)
 financial_waf_rules:
@@ -939,10 +1233,28 @@ financial_waf_rules:
     threshold: 10
     period: 60
     action: "CHALLENGE"
+
+
 ```
+-->
+-->
 
 #### 공공기관
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 공공기관 Cloudflare 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 공공기관 Cloudflare 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 공공기관 Cloudflare 설정
 cloudflare_public_sector:
@@ -954,7 +1266,11 @@ cloudflare_public_sector:
   data_localization:
     edge_location: "Seoul, Busan"
     compliance: "Korean Data Protection Act"
+
+
 ```
+-->
+-->
 
 ### 국내 위협 인텔리전스
 
@@ -969,6 +1285,20 @@ cloudflare_public_sector:
 
 ### 월간 보안 리포트 템플릿
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```markdown
+> # 웹 보안 월간 리포트 (YYYY년 MM월)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```markdown
+> # 웹 보안 월간 리포트 (YYYY년 MM월)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```markdown
 # 웹 보안 월간 리포트 (YYYY년 MM월)
 
@@ -1009,12 +1339,30 @@ cloudflare_public_sector:
 ## 다음 달 계획
 - [계획 1]
 - [계획 2]
+
+
 ```
+-->
+-->
 
 ## 위협 헌팅 쿼리
 
 ### AWS WAF 위협 헌팅
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # Python을 활용한 AWS WAF 로그 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # Python을 활용한 AWS WAF 로그 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Python을 활용한 AWS WAF 로그 분석
 import boto3
@@ -1063,10 +1411,28 @@ def hunt_waf_threats(hours=24):
 threats = hunt_waf_threats(hours=24)
 print(f"탐지된 위협 IP: {len(threats)}")
 print(threats.head(10))
+
+
 ```
+-->
+-->
 
 ### Cloudflare 이상 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // Cloudflare Workers를 활용한 실시간 이상 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // Cloudflare Workers를 활용한 실시간 이상 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```javascript
 // Cloudflare Workers를 활용한 실시간 이상 탐지
 addEventListener('fetch', event => {
@@ -1127,10 +1493,28 @@ async function logToSIEM(anomalies) {
     body: JSON.stringify({ anomalies })
   })
 }
+
+
 ```
+-->
+-->
 
 ### GitHub 위협 헌팅
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # GitHub API를 활용한 위협 헌팅...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # GitHub API를 활용한 위협 헌팅...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # GitHub API를 활용한 위협 헌팅
 import requests
@@ -1223,12 +1607,30 @@ hunter = GitHubThreatHunter(
 
 report = hunter.generate_threat_report()
 print(json.dumps(report, indent=2))
+
+
 ```
+-->
+-->
 
 ## 보안 자동화 파이프라인
 
 ### 통합 보안 CI/CD
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/security-pipeline.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/security-pipeline.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/security-pipeline.yml
 name: Security Automation Pipeline
@@ -1350,12 +1752,30 @@ jobs:
             }
         env:
           SLACK_WEBHOOK_URL: {% raw %}${{ secrets.SLACK_WEBHOOK }}{% endraw %}
+
+
 ```
+-->
+-->
 
 ## 보안 아키텍처 다이어그램
 
 ### Defense in Depth 아키텍처
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [사용자/공격자]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [사용자/공격자]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
                            [사용자/공격자]
                                   |
@@ -1401,10 +1821,16 @@ jobs:
                     | - 백업                     |
                     | - 감사 로깅                |
                     +---------------------------+
+
+
 ```
+-->
+-->
 
 ### GitHub 보안 워크플로우
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
   [개발자] --push--> [GitHub Repo]
                           |
@@ -1424,12 +1850,30 @@ jobs:
                                       [보안 승인]            [자동 배포]
                                       - Security Team        - Staging
                                       - 수동 리뷰            - Production
+
+
 ```
+-->
+-->
 
 ## 공격 흐름도
 
 ### SQL Injection 공격 및 방어
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [공격자]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [공격자]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 [공격자]
    |
@@ -1456,10 +1900,28 @@ jobs:
    +--[Prepared Statement 사용]--> [안전한 쿼리 실행]
    |
    +--[입력 검증 실패]--> [에러 반환] --> [로깅]
+
+
 ```
+-->
+-->
 
 ### DDoS 공격 및 방어
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [공격자 봇넷]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [공격자 봇넷]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 [공격자 봇넷]
    |
@@ -1497,10 +1959,28 @@ jobs:
    |
    v
 [정상 서비스 유지]
+
+
 ```
+-->
+-->
 
 ### 시크릿 노출 및 대응
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [개발자]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [개발자]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 [개발자]
    |
@@ -1536,7 +2016,11 @@ jobs:
    |                 +--[Incident 티켓 생성] (PagerDuty)
    |                 |
    |                 +--[강제 키 교체]
+
+
 ```
+-->
+-->
 
 ## 다음 단계
 

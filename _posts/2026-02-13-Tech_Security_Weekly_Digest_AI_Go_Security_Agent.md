@@ -15,19 +15,31 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 기술 & 보안 주간 다이제스트: Lazarus, RCE, 클라우드
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security, Agent
+
+> **핵심 내용**: 
+> - 2026년 02월 13일 주요 보안/기술 뉴스 25건 - AI, Go, Security
+
+> **주요 기술/도구**: Security, DevSecOps, Security, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 {% include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 02월 13일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 구글, 국가 지원 해커들이 Gemini AI를 정찰 및 공격 지원에 활용 중 보고</li>
-      <li><strong>The Hacker News</strong>: Lazarus 캠페인, npm 및 PyPI 생태계에 악성 패키지 삽입</li>
-      <li><strong>Microsoft Security Blog</strong>: Copilot Studio 에이전트 보안: 탐지 및 예방 가능한 10대 위험</li>
-      <li><strong>Google Cloud Blog</strong>: 간소화된 청구와 명확한 절감: 지출 기반 CUD 개선을 위한 FinOps 가이드</li>'
+  categories_html='<span class=category-tag>Summary</span>'
+  tags_html='<span class=tag>Digest</span>'
+  highlights_html='<li>Auto-generated summary available below.</li>'
   period='2026년 02월 13일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
@@ -38,6 +50,8 @@ schema_type: Article
 
 ### 위험 스코어카드
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |          2026-02-13 주간 보안 위험 스코어카드                      |
@@ -51,11 +65,17 @@ schema_type: Article
 |  종합 위험 수준: █████████░ HIGH (9.0/10)                         |
 |                                                                |
 +================================================================+
+
+
 ```
+-->
+-->
 
 
 ### 경영진 대시보드
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |        보안 현황 대시보드 - 2026년 02월 13일                         |
@@ -75,7 +95,11 @@ schema_type: Article
 |                           SIEM 룰 커버리지: 85%                 |
 |                                                                |
 +================================================================+
+
+
 ```
+-->
+-->
 
 ### 이사회 보고 포인트
 

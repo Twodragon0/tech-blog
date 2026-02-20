@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: Tech & Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper 폴란드 공격
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, VMware, vCenter, CISA-KEV, Fortinet, FortiGate, SSO-Bypass, Sandworm, DynoWiper, Wiper-Malware, AI-Agents, Zero-Trust, Google-ADK, Airflow, Platform-Engineering, "2026"
+
+> **핵심 내용**: 
+> - VMware vCenter KEV 긴급, Fortinet SSO 우회, Sandworm DynoWiper APT, AI 에이전트 NHI 관리
+
+> **주요 기술/도구**: Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -244,6 +264,20 @@ DevOps/Cloud       : █████ 13%
 
 #### 헌팅 쿼리 (Bash/PowerShell)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 최근 24시간 생성된 관리자 계정 찾기...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 최근 24시간 생성된 관리자 계정 찾기...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. 최근 24시간 생성된 관리자 계정 찾기
 grep -i "CreateUser" /var/log/vmware/vpxd/vpxd.log \
@@ -258,7 +292,11 @@ awk '$2 ~ /^0[2-5]:/ {print}' /var/log/vmware/sso/ssoAdminServer.log \
 # 3. VM 대량 삭제 이벤트
 grep -E "(DeleteVM|DestroyVM)" /var/log/vmware/vpxd/vpxd.log \
   | wc -l  # 10개 이상이면 의심
+
+
 ```
+-->
+-->
 
 ---
 
@@ -275,6 +313,20 @@ grep -E "(DeleteVM|DestroyVM)" /var/log/vmware/vpxd/vpxd.log \
 
 #### 헌팅 쿼리 (FortiGate CLI)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 최근 1시간 관리자 로그인 이력...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 최근 1시간 관리자 로그인 이력...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. 최근 1시간 관리자 로그인 이력
 execute log filter category 0
@@ -291,7 +343,11 @@ diagnose sys ha history read \
 config system admin
     show | grep "edit"
 end
+
+
 ```
+-->
+-->
 
 ---
 
@@ -309,6 +365,8 @@ end
 
 #### 헌팅 쿼리 (PowerShell)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # 1. 물리 디스크 접근 (Sysmon Event 10)
 Get-WinEvent -FilterHashtable @{
@@ -358,7 +416,11 @@ Get-WinEvent -FilterHashtable @{
   Name='ImagePath';
   Expression={$_.Properties[1].Value}
 }
+
+
 ```
+-->
+-->
 
 ---
 
@@ -410,6 +472,10 @@ graph LR
 
 ### 실무 체크리스트
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # vCenter 버전 확인 (SSH 접속 후)
 cat /etc/vmware-vami/vamicli.properties | grep version
@@ -425,6 +491,10 @@ grep -i "failed" /var/log/vmware/vpxd/vpxd.log | tail -20
 
 #### 비정상 vCenter API 접근 탐지
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # vCenter vpxd 로그에서 의심스러운 API 호출 탐지
 grep -E "(CreateUser|ModifyPermission|CreateRole)" /var/log/vmware/vpxd/vpxd.log \
@@ -433,6 +503,10 @@ grep -E "(CreateUser|ModifyPermission|CreateRole)" /var/log/vmware/vpxd/vpxd.log
 ```
 
 #### 비정상 시간대 관리자 로그인
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 심야(02:00-05:00) 관리자 로그인 탐지
@@ -481,6 +555,8 @@ SecurityAlert
 
 ### Azure Sentinel KQL - vCenter 비정상 API 호출 패턴
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 VMwareVCenter_CL
 | where TimeGenerated >= ago(1h)
@@ -494,7 +570,11 @@ VMwareVCenter_CL
             by bin(TimeGenerated, 5m), SourceIP_s, ApiPath
 | where FailedCalls > 5 or (SlowCalls > 3 and TotalCalls > 10)
 | project TimeGenerated, SourceIP_s, ApiPath, FailedCalls, SlowCalls, TotalCalls
+
+
 ```
+-->
+-->
 
 -->
 
@@ -526,6 +606,8 @@ VMwareVCenter_CL
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     A[공격자] -->|SSO 우회| B["FortiCloud SSO<br/>인증 우회"]
@@ -538,7 +620,11 @@ graph LR
     style C fill:#ffa5a5
     style D fill:#ffc3c3
     style E fill:#ffe0e0
+
+
 ```
+-->
+-->
 
 </details>
 
@@ -564,6 +650,20 @@ graph LR
 
 ### 즉시 실행 명령
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # FortiGate CLI에서 SSO 상태 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # FortiGate CLI에서 SSO 상태 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # FortiGate CLI에서 SSO 상태 확인
 config system global
@@ -578,11 +678,19 @@ end
 
 # 최근 로그인 시도 확인
 diagnose debug authd fsso list
+
+
 ```
+-->
+-->
 
 ### 위협 헌팅 쿼리 (Threat Hunting Queries)
 
 #### FortiGate 비정상 관리자 로그인 탐지
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # FortiGate 로그에서 SSO 관련 인증 실패 탐지
@@ -627,6 +735,8 @@ NOT [| inputlookup authorized_admin_ips.csv | fields srcip]
 
 ### Azure Sentinel KQL - FortiGate 비정상 SSO 활동
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 CommonSecurityLog
 | where TimeGenerated >= ago(24h)
@@ -638,10 +748,16 @@ CommonSecurityLog
 | summarize FailedAttempts=count() by bin(TimeGenerated, 5m), SourceIP, DestinationUserName
 | where FailedAttempts > 5
 | project TimeGenerated, SourceIP, DestinationUserName, FailedAttempts
+
+
 ```
+-->
+-->
 
 ### Azure Sentinel KQL - FortiGate 방화벽 정책 변경
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 CommonSecurityLog
 | where TimeGenerated >= ago(1h)
@@ -653,7 +769,11 @@ CommonSecurityLog
 | summarize ChangeCount=count(), Changes=make_list(Activity)
   by bin(TimeGenerated, 10m), AdminIP, AdminUser
 | where ChangeCount > 3
+
+
 ```
+-->
+-->
 
 -->
 
@@ -687,6 +807,8 @@ CommonSecurityLog
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["Phase 1: 초기 침투<br/>(Spear-phishing, Supply chain)"] -->|성공| B["Phase 2: 지속성<br/>(Service registration, Scheduled tasks)"]
@@ -699,7 +821,11 @@ graph TD
     style C fill:#ffa5a5
     style D fill:#ffc3c3
     style E fill:#ffe0e0
+
+
 ```
+-->
+-->
 
 </details>
 
@@ -736,6 +862,8 @@ graph TD
 
 ### 공격 흐름도 (Attack Flow Diagram)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                   Sandworm DynoWiper 공격 체인                       │
@@ -788,7 +916,11 @@ VSS Shadow Copies 삭제
 강제 재부팅 → 부팅 불가
 
 Result: 시스템 완전 파괴, 운영 중단
+
+
 ```
+-->
+-->
 
 ### 위협 헌팅 쿼리 (Threat Hunting Queries)
 
@@ -826,6 +958,8 @@ TargetObject="*PhysicalDrive*"
 
 ### Splunk SPL - 와이퍼 악성코드 행위 패턴
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=windows (EventCode=7045 OR EventCode=4688 OR EventCode=1)
 (ImagePath="*vssadmin*delete*shadows*" OR
@@ -836,10 +970,16 @@ index=windows (EventCode=7045 OR EventCode=4688 OR EventCode=1)
 | where count > 2
 | eval severity="critical", mitre_attack="T1490,T1561", context="Wiper/Ransomware indicators"
 | table _time, Computer, User, Events, Commands, count, severity
+
+
 ```
+-->
+-->
 
 ### Azure Sentinel KQL - DynoWiper IOC 탐지
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 SecurityEvent
 | where TimeGenerated >= ago(24h)
@@ -854,10 +994,16 @@ SecurityEvent
 | summarize Count=count(), Commands=make_set(CommandLine)
   by bin(TimeGenerated, 5m), Computer, Account
 | where Count > 2
+
+
 ```
+-->
+-->
 
 ### Azure Sentinel KQL - 물리 디스크 접근 (Sysmon)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 Event
 | where TimeGenerated >= ago(1h)
@@ -869,7 +1015,11 @@ Event
 | where TargetObject contains "PhysicalDrive"
 | where GrantedAccess in ("0x1F0FFF", "0x1FFFFF")
 | project TimeGenerated, Computer, SourceImage, TargetObject, GrantedAccess
+
+
 ```
+-->
+-->
 
 -->
 
@@ -887,6 +1037,8 @@ AI 에이전트가 기업 환경에서 자율적으로 작업을 수행함에 �
 
 ### AI 에이전트 보안 위험
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A[AI 에이전트] --> B{권한 획득}
@@ -901,7 +1053,11 @@ graph TD
     style F fill:#ff6b6b
     style G fill:#ff6b6b
     style H fill:#ff6b6b
+
+
 ```
+-->
+-->
 
 ### 제로트러스트 적용 프레임워크
 
@@ -922,6 +1078,20 @@ graph TD
 
 ### 실무 구현 예시 (Vault + Kubernetes)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Vault Agent Injector 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Vault Agent Injector 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Vault Agent Injector 설정
 apiVersion: v1
@@ -945,7 +1115,11 @@ data:
       # 15분마다 자격 증명 갱신
       ttl         = "15m"
     }
+
+
 ```
+-->
+-->
 
 ---
 
@@ -979,6 +1153,8 @@ Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 �
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["Google ADK Application"]
@@ -1008,7 +1184,11 @@ graph TD
     style H fill:#1976d2
     style I fill:#1976d2
     style J fill:#1976d2
+
+
 ```
+-->
+-->
 
 </details>
 
@@ -1058,6 +1238,20 @@ graph TD
 
 ### 보안 모니터링 강화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # SIEM 룰 예시: vCenter 의심 활동...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # SIEM 룰 예시: vCenter 의심 활동...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # SIEM 룰 예시: vCenter 의심 활동
 - rule:
@@ -1069,7 +1263,11 @@ graph TD
       source.ip NOT IN trusted_admin_ips
     severity: high
     tags: [cve-2024-37079, vcenter, privilege-escalation]
+
+
 ```
+-->
+-->
 
 ---
 

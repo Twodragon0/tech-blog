@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 기술 & 보안 주간 다이제스트: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet SSO 제로데이
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, AI-Security, OpenSSL, Zero-Day, OWASP, Agentic-AI, Fortinet, Azure, Kyverno, Supply-Chain, eScan, NIST, "2026"
+
+> **핵심 내용**: 
+> - AISLE AI가 OpenSSL 제로데이 12건 전량 발견(역사적 최초), OWASP Agentic AI Top 10 프레임워크 발표, CVE-2026-24858 Fortinet FortiCloud SSO 인증 우회 제로데이 심층 분석
+
+> **주요 기술/도구**: Security, DevSecOps, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -119,6 +139,20 @@ OpenSSL은 **지구상에서 가장 많이 검토되고 감사된 암호화 라�
 
 ### 1.4 DevSecOps 관점 시사점
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # AI 기반 보안 감사 파이프라인 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # AI 기반 보안 감사 파이프라인 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # AI 기반 보안 감사 파이프라인 예시
 security-audit:
@@ -137,7 +171,11 @@ security-audit:
       when: always
     - if: $CI_COMMIT_BRANCH == "main"
       when: always
+
+
 ```
+-->
+-->
 
 > **핵심 교훈**: AI 보안 도구는 "보안 특화 AI"와 "범용 LLM의 무분별한 사용"을 명확히 구분해야 합니다. AISLE의 성공은 목적에 맞게 설계된 AI 시스템의 가치를 증명합니다.
 
@@ -252,6 +290,8 @@ World Economic Forum의 **Global Cybersecurity Outlook 2026**에 따르면:
 
 ### 4.3 공격 흐름도 (Attack Flow)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 ┌──────────────────────────────────────────────────────────────┐
 │                    CVE-2026-24858 공격 체인                   │
@@ -303,7 +343,11 @@ World Economic Forum의 **Global Cybersecurity Outlook 2026**에 따르면:
     ├─> 민감 데이터 유출 (C2 서버로 전송)
     ├─> 랜섬웨어 배포
     └─> 지속 공격 인프라 구축
+
+
 ```
+-->
+-->
 
 ### 4.4 공격 시나리오
 
@@ -331,6 +375,8 @@ index=fortigate sourcetype=fortigate_log
 
 ### Azure Sentinel KQL - FortiCloud SSO 이상 접근 패턴
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 CommonSecurityLog
 | where DeviceVendor == "Fortinet"
@@ -346,10 +392,28 @@ CommonSecurityLog
 | where FailedAttempts > 5 or (FailedAttempts > 3 and SuccessfulLogins > 0)
 | project TimeGenerated, SourceIP, FailedAttempts, SuccessfulLogins, UniqueUsers
 | order by FailedAttempts desc
+
+
 ```
+-->
+-->
 
 ### Elasticsearch (ELK) - FortiCloud SSO 공격 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "query": {
@@ -386,7 +450,11 @@ CommonSecurityLog
     }
   }
 }
+
+
 ```
+-->
+-->
 
 -->
 
@@ -429,6 +497,8 @@ CommonSecurityLog
 
 ### 5.3 공격 흐름도
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 ┌──────────────────────────────────────────────────────────────┐
 │              CVE-2026-24304 Azure RM 권한 상승 체인            │
@@ -481,13 +551,19 @@ CommonSecurityLog
     ├─> Activity Log 비활성화
     ├─> Defender for Cloud 비활성화
     └─> 감사 로그 삭제/변조
+
+
 ```
+-->
+-->
 
 <!-- SIEM Detection Queries - Azure Resource Manager 권한 상승 탐지
 
 ### Azure Sentinel KQL - 의심스러운 권한 상승 활동
 
 {% raw %}
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 AzureActivity
 | where OperationNameValue in (
@@ -504,7 +580,11 @@ AzureActivity
 | where PreviousRoleCount < 5 or isempty(PreviousRoleCount)
 | project TimeGenerated, Caller, OperationNameValue, Resource, ActivityStatusValue
 | order by TimeGenerated desc
+
+
 ```
+-->
+-->
 {% endraw %}
 
 ### Splunk SPL - Azure 비정상 역할 할당 탐지
@@ -526,6 +606,8 @@ operationName="Microsoft.Authorization/roleAssignments/write"
 ### Azure Log Analytics - 높은 권한 작업 이상 패턴
 
 {% raw %}
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 AzureActivity
 | where CategoryValue == "Administrative"
@@ -540,13 +622,19 @@ AzureActivity
 | where Operations > 20 or UniqueResources > 10
 | project TimeGenerated, Caller, Operations, UniqueResources, OperationTypes
 | order by Operations desc
+
+
 ```
+-->
+-->
 {% endraw %}
 
 -->
 
 ### 5.4 CVSS 벡터 분석
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H
 
@@ -558,7 +646,11 @@ S:C   → 범위 변경 (다른 리소스에 영향)
 C:H   → 기밀성 완전 침해
 I:H   → 무결성 완전 침해
 A:H   → 가용성 완전 침해
+
+
 ```
+-->
+-->
 
 ### 5.5 Azure 사용자 즉시 조치
 
@@ -585,6 +677,20 @@ A:H   → 가용성 완전 침해
 
 Kyverno의 `isAccessAllowed()` 함수에서 네임스페이스 격리가 제대로 적용되지 않아, **네임스페이스 간 데이터 접근과 권한 상승**이 가능합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 취약한 시나리오: 네임스페이스 격리 우회...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 취약한 시나리오: 네임스페이스 격리 우회...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 취약한 시나리오: 네임스페이스 격리 우회
 # dev 네임스페이스의 사용자가 prod 네임스페이스 API 호출 가능
@@ -606,10 +712,28 @@ spec:
           apiCall:
             urlPath: "/api/v1/namespaces/prod/secrets"
             # dev 사용자가 prod 시크릿에 접근!
+
+
 ```
+-->
+-->
 
 ### 6.3 즉시 조치
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Kyverno 버전 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Kyverno 버전 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Kyverno 버전 확인
 kubectl get pods -n kyverno -o jsonpath='{.items[*].spec.containers[*].image}'
@@ -621,7 +745,11 @@ helm upgrade kyverno kyverno/kyverno \
 
 # Kyverno ServiceAccount RBAC 제한
 kubectl get clusterrolebinding | grep kyverno
+
+
 ```
+-->
+-->
 
 ---
 
@@ -675,6 +803,10 @@ eScan 업데이트 서버 침해
 ### Podman Desktop CVE-2026-24835 상세
 
 `isAccessAllowed()` 함수가 무조건 `true`를 반환하여, **악성 확장이 모든 인증 세션을 탈취**할 수 있습니다.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # Podman Desktop 버전 확인 및 업그레이드
@@ -908,6 +1040,8 @@ A4. 현재 우리 조직은 eScan을 사용하지 않지만, 유사한 공급망
 #### Azure Sentinel KQL
 
 {% raw %}
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // 단기간 내 다수의 SSO 인증 실패 후 성공 패턴 탐지
 CommonSecurityLog
@@ -933,12 +1067,18 @@ CommonSecurityLog
 | where SuspicionScore > 10
 | project FirstSeen, LastSeen, SourceIP, TotalAttempts, Failures, Successes, UniqueUsers, SuspicionScore
 | order by SuspicionScore desc
+
+
 ```
+-->
+-->
 {% endraw %}
 
 #### Splunk SPL
 
 {% raw %}
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=fortigate sourcetype=fortigate_log earliest=-7d
 (action=authfailure OR action=authsuccess)
@@ -960,7 +1100,11 @@ index=fortigate sourcetype=fortigate_log earliest=-7d
 | eval last_seen=strftime(last_seen, "%Y-%m-%d %H:%M:%S")
 | table first_seen, last_seen, src_ip, total_attempts, failures, successes, unique_users, suspicion_score
 | sort -suspicion_score
+
+
 ```
+-->
+-->
 {% endraw %}
 
 ### 12.2 Azure Resource Manager 권한 상승 헌팅
@@ -970,6 +1114,8 @@ index=fortigate sourcetype=fortigate_log earliest=-7d
 #### Azure Sentinel KQL
 
 {% raw %}
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // 낮은 권한 사용자가 높은 권한 역할을 할당받는 패턴
 let HighPrivilegeRoles = dynamic([
@@ -998,12 +1144,18 @@ AzureActivity
     HistoricalRoleAssignments,
     CorrelationId
 | order by TimeGenerated desc
+
+
 ```
+-->
+-->
 {% endraw %}
 
 #### Splunk SPL
 
 {% raw %}
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=azure sourcetype=azure:activity earliest=-7d
 operationName="Microsoft.Authorization/roleAssignments/write"
@@ -1021,7 +1173,11 @@ status=Succeeded
 | where historical_count < 3 OR isnull(historical_count)
 | table _time, caller, principal_id, role_definition, historical_count
 | sort -_time
+
+
 ```
+-->
+-->
 {% endraw %}
 
 ### 12.3 Kyverno 네임스페이스 격리 우회 헌팅
@@ -1031,6 +1187,20 @@ status=Succeeded
 #### Kubernetes Audit Log (Splunk)
 
 {% raw %}
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```spl
+> index=k8s sourcetype=kube:apiserver:audit earliest=-7d...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```spl
+> index=k8s sourcetype=kube:apiserver:audit earliest=-7d...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```spl
 index=k8s sourcetype=kube:apiserver:audit earliest=-7d
 objectRef.resource="policies" OR objectRef.resource="clusterpolicies"
@@ -1042,11 +1212,29 @@ verb IN ("create", "update", "patch")
 | where policy_namespace != target_namespace AND isnotnull(target_namespace)
 | table _time, user.username, objectRef.name, policy_namespace, target_namespace, api_call_path
 | sort -_time
+
+
 ```
+-->
+-->
 {% endraw %}
 
 #### Elasticsearch (ELK)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "query": {
@@ -1071,7 +1259,11 @@ verb IN ("create", "update", "patch")
     }
   }
 }
+
+
 ```
+-->
+-->
 
 ### 12.4 eScan 공급망 공격 헌팅
 
@@ -1080,6 +1272,8 @@ verb IN ("create", "update", "patch")
 #### Windows Security Event Log (Splunk)
 
 {% raw %}
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=windows sourcetype=WinEventLog:Security EventCode=4688 earliest=-14d
 | eval process_name=lower(New_Process_Name)
@@ -1095,12 +1289,18 @@ index=windows sourcetype=WinEventLog:Security EventCode=4688 earliest=-14d
 | where affected_hosts > 5
 | table _time, Account_Name, processes, command_lines, affected_hosts, count
 | sort -count
+
+
 ```
+-->
+-->
 {% endraw %}
 
 #### Azure Sentinel KQL (Windows Events)
 
 {% raw %}
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 SecurityEvent
 | where TimeGenerated > ago(14d)
@@ -1121,7 +1321,11 @@ SecurityEvent
 | where AffectedHosts > 5
 | project FirstSeen, LastSeen, Account, ExecutionCount, AffectedHosts, Processes, CommandLines
 | order by ExecutionCount desc
+
+
 ```
+-->
+-->
 {% endraw %}
 
 ---

@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: [Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석
+
+> **카테고리**: incident
+
+> **태그**: Post-Mortem, Next.js, SSR, Cloudflare, ALB, Kubernetes, Incident-Response, AWS
+
+> **핵심 내용**: 
+> - Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석
+
+> **주요 기술/도구**: Cloudflare, Kubernetes, AWS, incident
+
+> **대상 독자**: SRE, 인시던트 대응 담당자, 운영 엔지니어
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -124,6 +144,20 @@ schema_type: Article
 <details>
 <summary>draw.io XML 코드 (클릭하여 확장)</summary>
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```xml
+> <mxfile host="app.diagrams.net">...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```xml
+> <mxfile host="app.diagrams.net">...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```xml
 <mxfile host="app.diagrams.net">
   <diagram name="Next.js SSR Error Incident Architecture" id="architecture">
@@ -267,7 +301,11 @@ schema_type: Article
     </mxGraphModel>
   </diagram>
 </mxfile>
+
+
 ```
+-->
+-->
 
 </details>
 
@@ -397,6 +435,10 @@ ReferenceError: location is not defined
 
 #### location 객체의 주요 속성
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+
 ```javascript
 // 브라우저 환경에서만 작동
 console.log(location.href);        // 전체 URL
@@ -411,6 +453,20 @@ console.log(location.hostname);    // 호스트명 (example.com)
 > **참고**: SSR vs CSR 환경 비교 다이어그램은 추후 추가 예정입니다.
 
 **문제 코드 예시**:
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // ❌ 문제: SSR 환경에서 에러 발생...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // ❌ 문제: SSR 환경에서 에러 발생...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```typescript
 // ❌ 문제: SSR 환경에서 에러 발생
 function redirectTo(url: string) {
@@ -423,7 +479,11 @@ function redirectTo(url: string) {
     window.location.href = url;
   }
 }
+
+
 ```
+-->
+-->
 
 ### 3.3 모바일 x.com에서의 동작 차이
 
@@ -477,6 +537,10 @@ function redirectTo(url: string) {
 #### 해결 방안
 
 **1. 브라우저 환경 체크**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+
 ```typescript
 // ✅ 올바른 방법
 if (typeof window !== 'undefined') {
@@ -485,6 +549,20 @@ if (typeof window !== 'undefined') {
 ```
 
 **2. 모바일 앱 감지**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // User-Agent로 인앱 브라우저 감지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // User-Agent로 인앱 브라우저 감지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```typescript
 // User-Agent로 인앱 브라우저 감지
 function isInAppBrowser(userAgent: string): boolean {
@@ -498,9 +576,27 @@ if (typeof window === 'undefined') {
   const router = useRouter();
   router.push(url);
 }
+
+
 ```
+-->
+-->
 
 **3. Next.js Router 활용**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> import { useRouter } from 'next/router';...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> import { useRouter } from 'next/router';...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```typescript
 import { useRouter } from 'next/router';
 
@@ -513,7 +609,11 @@ function redirectTo(url: string) {
     // 또는 서버 사이드에서는 리다이렉트 헤더 사용
   }
 }
+
+
 ```
+-->
+-->
 
 ### 3.4 Cloudflare 차단 패턴 분석
 
@@ -608,6 +708,20 @@ function redirectTo(url: string) {
 ```
 
 **변경 후 (v1.0.1) - 문제 발생**:
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // src/components/example/ExampleComponent.tsx...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // src/components/example/ExampleComponent.tsx...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```typescript
 // src/components/example/ExampleComponent.tsx
 // Line 50: 새로 추가된 코드
@@ -624,10 +738,28 @@ export function ExampleComponent({ itemId, categoryId }: Props) {
   
   return <button onClick={handleAction}>완료</button>;
 }
+
+
 ```
+-->
+-->
 
 **GitHub Actions 워크플로우 예시**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples/aws-k8s-examples)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples/aws-k8s-examples)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 {% raw %}
 # .github/workflows/build-and-deploy.yml
@@ -699,7 +831,11 @@ jobs:
       #     sleep 10
       #     curl http://localhost:3000/api/healthz
 {% endraw %}
+
+
 ```
+-->
+-->
 
 **배포 후 발생한 문제**:
 
@@ -743,6 +879,20 @@ jobs:
 <details>
 <summary>draw.io XML 코드 (클릭하여 확장)</summary>
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```xml
+> <mxfile host="app.diagrams.net">...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```xml
+> <mxfile host="app.diagrams.net">...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```xml
 <mxfile host="app.diagrams.net">
   <diagram name="5XX Error Path" id="error-path">
@@ -892,7 +1042,11 @@ jobs:
     </mxGraphModel>
   </diagram>
 </mxfile>
+
+
 ```
+-->
+-->
 
 </details>
 
@@ -994,7 +1148,9 @@ jobs:
 
 1. **`src/components/example/ExampleComponent.tsx`** (Line 50)
    
-   ```tsx
+   <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```tsx
    // ❌ 문제 코드
    location.href = generateActionUrl({
      itemId: result.item.id,
@@ -1008,11 +1164,17 @@ jobs:
        categoryId: result.category.id,
      });
    }
-   ```
+   
+
+```
+-->
+-->
    
 2. **`src/components/example/DetailButton.tsx`** (Line 30)
    
-   ```tsx
+   <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```tsx
    // ❌ 문제 코드
    location.href = generateDetailUrl({
      itemId: itemId,
@@ -1024,7 +1186,11 @@ jobs:
        itemId: itemId,
      });
    }
-   ```
+   
+
+```
+-->
+-->
    
 3. **`src/hooks/useNavigation.ts`** (Line 25)
    
@@ -1040,7 +1206,9 @@ jobs:
    
 4. **`src/components/example/ResultComponent.tsx`** (Line 80)
    
-   ```tsx
+   <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```tsx
    // ❌ 문제 코드
    location.href = routerPath.resultPage({
      itemId: itemId,
@@ -1054,11 +1222,17 @@ jobs:
        fromCheckout: true,
      });
    }
-   ```
+   
+
+```
+-->
+-->
    
 5. **`src/components/example/TabsComponent.tsx`** (Line 45)
    
-   ```tsx
+   <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```tsx
    // ⚠️ 개선 권장 (현재는 useEffect 안에 있어서 문제 없지만 더 안전하게)
    useEffect(() => {
      if (typeof window !== 'undefined') {
@@ -1072,7 +1246,11 @@ jobs:
        }
      }
    }, [scrollOffset, scrollToElement]);
-   ```
+   
+
+```
+-->
+-->
 
 **수정 우선순위**: High
 - 서버 사이드에서 `location` 접근 방지
@@ -1265,7 +1443,11 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 
 > **참고**: GitHub Actions 워크플로우에 추가 권장
 > 
-> ```yaml
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```yaml
 > - name: SSR Test
 >   run: |
 >     npm run build

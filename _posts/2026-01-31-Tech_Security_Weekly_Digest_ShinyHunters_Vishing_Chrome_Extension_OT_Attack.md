@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: Tech & Security Weekly Digest: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT 탈취, 폴란드 에너지 OT 공격
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, ShinyHunters, Vishing, MFA-Bypass, Chrome-Extension, ChatGPT, OT-Security, ICS, CERT-Polska, Cloud-Security, "2026"
+
+> **핵심 내용**: 
+> - ShinyHunters 비싱 공격으로 SaaS MFA 우회, 악성 Chrome 확장 ChatGPT 토큰 탈취, 폴란드 에너지 인프라 OT 사이버 공격 심층 분석
+
+> **주요 기술/도구**: Security, DevSecOps, Security, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -163,6 +183,8 @@ Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters**
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     A["1. Reconnaissance<br/>(OSINT/LinkedIn)"] --> B["2. Vishing Call<br/>(IT Helpdesk Impersonation)"]
@@ -177,7 +199,11 @@ graph LR
     style D fill:#ffcccc
     style E fill:#ffcccc
     style F fill:#ff6666
+
+
 ```
+-->
+-->
 
 </details>
 
@@ -202,6 +228,8 @@ graph LR
 
 #### FIDO2/WebAuthn 전환 가이드
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # Azure AD에서 FIDO2 보안 키 정책 활성화 확인
 Connect-MgGraph -Scopes "Policy.Read.All"
@@ -214,10 +242,28 @@ Get-MgPolicyAuthenticationMethodPolicyAuthenticationMethodConfiguration `
 # 조건부 접근 정책: MFA 강도 요구 사항 설정
 # Authentication Strength → Phishing-resistant MFA 선택
 # 포함 방법: FIDO2 Security Key, Windows Hello for Business, Certificate-based
+
+
 ```
+-->
+-->
 
 #### Okta에서 WebAuthn 강제 적용
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Okta API로 WebAuthn 팩터 등록 현황 조회...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Okta API로 WebAuthn 팩터 등록 현황 조회...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Okta API로 WebAuthn 팩터 등록 현황 조회
 curl -s -H "Authorization: SSWS ${OKTA_API_TOKEN}" \
@@ -232,12 +278,18 @@ curl -s -H "Authorization: SSWS ${OKTA_API_TOKEN}" \
             echo "WARNING: No WebAuthn factor - ${email}"
         fi
     done
+
+
 ```
+-->
+-->
 
 ### 1.5 공격 흐름도 (Attack Flow Diagram)
 
 #### ShinyHunters 비싱 공격 전체 흐름 (ASCII Diagram)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                    ShinyHunters Vishing Attack Chain                │
@@ -318,7 +370,11 @@ Phase 6: Impact
 │ - PII        │  - Encrypt   │  - Leak data │
 │ - IP         │  - Ransom    │  - Reputation│
 └──────────────┴──────────────┴──────────────┘
+
+
 ```
+-->
+-->
 
 #### 비싱 vs 정상 인증 패턴 비교
 
@@ -334,6 +390,8 @@ Phase 6: Impact
 
 #### SIEM 탐지 룰 (Splunk SPL)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=okta sourcetype=OktaIM2:log
 | where eventType IN ("user.session.start", "user.authentication.auth_via_mfa")
@@ -347,7 +405,11 @@ index=okta sourcetype=OktaIM2:log
     by actor.displayName, actor.alternateId
 | where count > 3 OR unique_ips > 2
 | table actor.displayName, actor.alternateId, count, unique_ips, mfa_types
+
+
 ```
+-->
+-->
 
 <!--
 SIEM Detection Query: Azure Sentinel KQL
@@ -391,6 +453,8 @@ SigninLogs
 
 **목표**: 비싱 공격 후 생성된 백도어 MFA 디바이스 탐지
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Splunk: 최근 24시간 내 새로 등록된 MFA 디바이스 확인
 index=okta sourcetype=OktaIM2:log eventType="user.mfa.factor.activate"
@@ -405,10 +469,28 @@ index=okta sourcetype=OktaIM2:log eventType="user.mfa.factor.activate"
 | table _time, actor.displayName, actor.alternateId, factor_type,
     client.ipAddress, client.geographicalContext.country, time_since_login
 | sort - _time
+
+
 ```
+-->
+-->
 
 #### Sigma Rule
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> title: Suspicious MFA Authentication Pattern - Potential Vishing (ShinyHunters)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> title: Suspicious MFA Authentication Pattern - Potential Vishing (ShinyHunters)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 title: Suspicious MFA Authentication Pattern - Potential Vishing (ShinyHunters)
 id: b7d3e1a9-5678-4321-abcd-112233445566
@@ -448,10 +530,28 @@ tags:
     - attack.t1566.004
     - attack.t1078
     - attack.t1539
+
+
 ```
+-->
+-->
 
 ### 1.6 MITRE ATT&CK 매핑
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 mitre_attack:
   initial_access:
@@ -466,7 +566,11 @@ mitre_attack:
   impact:
     - T1657      # Financial Theft
     - T1486      # Data Encrypted for Impact
+
+
 ```
+-->
+-->
 
 ---
 
@@ -489,6 +593,20 @@ mitre_attack:
 
 #### Chrome 확장 공격 흐름도 (Attack Flow Diagram)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │            Malicious Chrome Extension Attack Chain                  │
@@ -584,10 +702,28 @@ Phase 7: Monetization
 │ on Dark Web  │  Takeover    │  Espionage   │
 │ $50-500/acc  │  - Crypto    │  - IP theft  │
 └──────────────┴──────────────┴──────────────┘
+
+
 ```
+-->
+-->
 
 #### 악성 확장 프로그램 코드 예시 (분석용)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // content_scripts.js (악성 코드 예시 - 분석 목적)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // content_scripts.js (악성 코드 예시 - 분석 목적)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```javascript
 // content_scripts.js (악성 코드 예시 - 분석 목적)
 // 주의: 실제 환경에서 실행하지 말 것
@@ -621,7 +757,11 @@ Phase 7: Monetization
     }).catch(() => {}); // Silent failure
   }
 })();
+
+
 ```
+-->
+-->
 
 <!--
 SIEM Detection Query: Splunk SPL
@@ -652,6 +792,8 @@ index=proxy sourcetype=web_proxy
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 sequenceDiagram
     participant User as User
@@ -668,7 +810,11 @@ sequenceDiagram
     Extension->>Extension: Collect Tokens + Chat History
     Extension->>C2: Exfiltrate Data
     C2->>C2: Store Stolen Credentials
+
+
 ```
+-->
+-->
 
 </details>
 
@@ -694,6 +840,8 @@ Computer Configuration → Administrative Templates → Google Chrome → Extens
 
 #### 확장 프로그램 감사 스크립트 (PowerShell)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # Chrome 확장 프로그램 전수 조사
 $users = Get-ChildItem "C:\Users" -Directory
@@ -724,10 +872,28 @@ foreach ($user in $users) {
         }
     }
 } | Format-Table -AutoSize
+
+
 ```
+-->
+-->
 
 #### Linux/macOS 환경 감사 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # Chrome 확장 프로그램 보안 감사
@@ -763,12 +929,18 @@ find "$CHROME_EXT_DIR" -name "manifest.json" 2>/dev/null | while read -r manifes
 done
 
 echo "=== Audit Complete ==="
+
+
 ```
+-->
+-->
 
 #### Threat Hunting: 악성 확장 프로그램 네트워크 활동 탐지
 
 **목표**: 확장 프로그램이 AI 서비스 토큰을 외부로 전송하는 패턴 탐지
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Splunk: Chrome 확장에서 발생한 의심스러운 POST 요청
 index=proxy sourcetype=bluecoat (OR sourcetype=palo_alto)
@@ -787,7 +959,11 @@ index=proxy sourcetype=bluecoat (OR sourcetype=palo_alto)
 | where count > 3 OR total_bytes > 100000
 | table _time, src_ip, user, count, total_bytes, suspicious_domains, user_agents
 | sort - total_bytes
+
+
 ```
+-->
+-->
 
 <!--
 SIEM Detection Query: Azure Sentinel KQL
@@ -822,6 +998,20 @@ DeviceNetworkEvents
 
 ### 2.5 MITRE ATT&CK 매핑
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 mitre_attack:
   initial_access:
@@ -834,7 +1024,11 @@ mitre_attack:
     - T1528      # Steal Application Access Token
   command_and_control:
     - T1071.001  # Web Protocols (HTTPS to C2)
+
+
 ```
+-->
+-->
 
 ---
 
@@ -874,6 +1068,8 @@ mitre_attack:
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["Enterprise Zone<br/>(Active Directory, Email, Web Server)"]
@@ -892,12 +1088,30 @@ graph TD
     style C fill:#f3e5f5
     style D fill:#ffebee
     style E fill:#c8e6c9
+
+
 ```
+-->
+-->
 
 </details>
 
 #### OT 환경 보안 점검 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # OT 네트워크 기본 보안 점검 스크립트
@@ -939,12 +1153,18 @@ journalctl --since "24 hours ago" 2>/dev/null | grep -ci "failed\|failure\|inval
 
 echo ""
 echo "=== Check Complete ==="
+
+
 ```
+-->
+-->
 
 #### Threat Hunting: OT 네트워크 이상 탐지
 
 **목표**: 에너지 시설 OT 네트워크의 비인가 접근 및 이상 프로토콜 통신 탐지
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Splunk: OT 프로토콜 비정상 통신 패턴 탐지
 index=ics_network sourcetype=zeek:ics (OR sourcetype=modbus OR sourcetype=dnp3)
@@ -974,7 +1194,11 @@ index=ics_network sourcetype=zeek:ics (OR sourcetype=modbus OR sourcetype=dnp3)
 | where count > 5 OR unique_targets > 3
 | table _time, src_ip, user, count, protocols, commands, unique_targets
 | sort - count
+
+
 ```
+-->
+-->
 
 <!--
 SIEM Detection Query: Azure Sentinel KQL (ICS/OT)
@@ -1025,6 +1249,20 @@ CommonSecurityLog
 
 ### 3.5 MITRE ATT&CK for ICS 매핑
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack_ics:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack_ics:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 mitre_attack_ics:
   initial_access:
@@ -1038,7 +1276,11 @@ mitre_attack_ics:
     - T0826      # Loss of Availability
     - T0827      # Loss of Control
     - T0831      # Manipulation of Control
+
+
 ```
+-->
+-->
 
 ---
 
@@ -1101,6 +1343,20 @@ HashiCorp이 **호주 국립은행(NAB)**의 레거시 기술 환경에서 셀�
 
 ### 6.1 비싱/피싱 방어 CI/CD 통합
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/security-awareness.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/security-awareness.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/security-awareness.yml
 name: Security Awareness Check
@@ -1133,10 +1389,28 @@ jobs:
             exit 1
           fi
           echo "No AI service tokens found in code."
+
+
 ```
+-->
+-->
 
 ### 6.2 브라우저 확장 보안 정책 (MDM)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "ExtensionInstallBlocklist": ["*"],
@@ -1161,7 +1435,11 @@ jobs:
     }
   }
 }
+
+
 ```
+-->
+-->
 
 ---
 

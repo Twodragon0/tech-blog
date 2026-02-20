@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 주간 보안 위협 인텔리전스 다이제스트: Notepad++ 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, Supply-Chain, Notepad++, Ransomware, Zero-Trust, JWT, Vertical-AI, SK-Shieldus, HashiCorp, Red-Team, "2026"
+
+> **핵심 내용**: 
+> - Notepad++ 국가 지원 공급망 공격, SK쉴더스 11-1월 보안 리포트 종합 (Vertical AI, BlackField/Sinobi/Gentlemen 랜섬웨어, 제로트러스트, JWT 보안), HashiCorp 패스워드리스 RDP
+
+> **주요 기술/도구**: Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -174,6 +194,8 @@ SK쉴더스 EQST는 **11월~1월호 보안 리포트 10건**을 발행하며, Ve
 
 ### 1.5 공격 흐름도 (Attack Flow)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                   Notepad++ Supply Chain Attack Flow                        │
@@ -222,7 +244,11 @@ Phase 4: Execution & Impact
 
 MITRE ATT&CK Mapping:
 T1195.002 → T1036.005 → T1071.001 → T1059 → T1078 → T1021 → T1567
+
+
 ```
+-->
+-->
 
 ### 1.6 위협 헌팅 쿼리
 
@@ -230,6 +256,8 @@ T1195.002 → T1036.005 → T1071.001 → T1059 → T1078 → T1021 → T1567
 
 #### Splunk SPL
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Hunt for Notepad++ with anomalous file modifications
 index=endpoint sourcetype=sysmon EventCode=11
@@ -255,10 +283,16 @@ NOT (ImageLoaded IN ("C:\\Program Files\\Notepad++\\*",
                      "C:\\Windows\\SysWOW64\\*"))
 | stats count by Computer, ImageLoaded
 | sort -count
+
+
 ```
+-->
+-->
 
 #### Azure Sentinel KQL
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // Hunt for Notepad++ network connections to external IPs
 SecurityEvent
@@ -277,9 +311,17 @@ SecurityEvent
 | where TargetImage contains "notepad++"
 | summarize InjectionCount = count() by Computer, SourceImage, TargetImage
 | order by InjectionCount desc
+
+
 ```
+-->
+-->
 
 #### Elastic Query (KQL)
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```kql
 # Hunt for registry persistence from Notepad++ process
@@ -296,6 +338,20 @@ file.path: (*\\credentials* OR *\\passwords* OR *\\.ssh\\* OR *\\.aws\\* OR *id_
 
 ### 1.7 탐지: SIEM/EDR 쿼리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Detect Notepad++ Anomalous Network Activity...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Detect Notepad++ Anomalous Network Activity...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Splunk - Detect Notepad++ Anomalous Network Activity
 index=endpoint sourcetype=sysmon EventCode=3
@@ -318,7 +374,11 @@ event.category: "library" AND
 NOT dll.path: ("C:\\Program Files\\Notepad++\\*" OR
                "C:\\Windows\\System32\\*" OR
                "C:\\Windows\\SysWOW64\\*")
+
+
 ```
+-->
+-->
 
 ---
 
@@ -376,6 +436,8 @@ SK쉴더스 12월호에서는 확산 중인 **Gentlemen 랜섬웨어** 위협을
 
 #### 공격 흐름도 (Attack Flow)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │              Modern Ransomware Attack Chain (2026)                          │
@@ -431,7 +493,11 @@ Stage 5: Impact (T1490 / T1486)
 
 MITRE ATT&CK Chain:
 T1190/T1566 → T1059.001 → T1078 → T1021.002 → T1562.001 → T1567 → T1490 → T1486
+
+
 ```
+-->
+-->
 
 #### 위협 헌팅 쿼리
 
@@ -439,6 +505,8 @@ T1190/T1566 → T1059.001 → T1078 → T1021.002 → T1562.001 → T1567 → T1
 
 ##### Splunk SPL
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Hunt for credential dumping tools
 index=endpoint sourcetype=sysmon EventCode=1
@@ -461,10 +529,16 @@ Service_Name!="*Windows*" Service_Name!="*Microsoft*"
 Service_File_Name="*:\\Users\\*" OR Service_File_Name="*:\\ProgramData\\*"
 | stats count by Computer, Service_Name, Service_File_Name, Account_Name
 | sort -count
+
+
 ```
+-->
+-->
 
 ##### Azure Sentinel KQL
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // Hunt for mass file encryption events
 SecurityEvent
@@ -491,7 +565,11 @@ SecurityEvent
 | summarize AccessCount = count() by Account, Computer, ShareName, IpAddress
 | where AccessCount > 50
 | order by AccessCount desc
+
+
 ```
+-->
+-->
 
 ##### Elastic Query (KQL)
 
@@ -511,6 +589,20 @@ file.size > 104857600 // 100MB+
 
 #### 랜섬웨어 탐지: SIEM 쿼리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Detect Ransomware Indicators (VSS Deletion + Backup Destruction)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Detect Ransomware Indicators (VSS Deletion + Backup Destruction)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Splunk - Detect Ransomware Indicators (VSS Deletion + Backup Destruction)
 index=endpoint sourcetype=sysmon EventCode=1
@@ -531,7 +623,11 @@ index=endpoint sourcetype=sysmon EventCode=11
 # Elastic/KQL - Detect EDR/AV Tampering (T1562.001)
 process.name: ("net.exe" OR "sc.exe" OR "taskkill.exe") AND
 process.command_line: (*defender* OR *sentinel* OR *crowdstrike* OR *carbon* OR *symantec*)
+
+
 ```
+-->
+-->
 
 ---
 
@@ -589,6 +685,20 @@ process.command_line: (*defender* OR *sentinel* OR *crowdstrike* OR *carbon* OR 
 
 **사이버 면역 체계 4단계**: 위협 모델링 -> 공격 시뮬레이션 -> 방어 검증 -> 면역 강화 (지속 반복)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Detect Active Scanning (T1595)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Detect Active Scanning (T1595)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Splunk - Detect Active Scanning (T1595)
 index=firewall sourcetype=firewall_logs action=blocked
@@ -601,7 +711,11 @@ index=auth sourcetype=windows_security EventCode=4625
 | stats count as failed_attempts by src_ip, TargetUserName
 | where failed_attempts > 10
 | sort -failed_attempts
+
+
 ```
+-->
+-->
 
 > **출처**: [SK쉴더스 HeadLine 1월호](https://www.skshieldus.com)
 
@@ -623,6 +737,10 @@ JWT 서명키가 유출되면 **토큰 위조, 세션 하이재킹, 권한 상�
 **주요 유출 경로**: 소스코드 하드코딩(매우 높음), 환경 변수 미설정(높음), 설정 파일(.env) 웹 노출(중간), 로그 기록(중간)
 
 **대응 전략**: HS256 -> RS256/ES256 전환, 30-90일 키 순환 자동화, 15-30분 Access Token 만료, JWKS 엔드포인트 도입, AWS KMS/HashiCorp Vault 키 관리
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # Splunk - Detect JWT Token Anomalies
@@ -855,6 +973,8 @@ Kubernetes 기본 Secret은 **etcd에 base64 인코딩(암호화 아님!)으로 
 
 **탐지 → 분석 → 대응 → 복구** 통합 워크플로우:
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 ┌─────────────────────────────────────────────────────────────────┐
 │                    Security Operations Workflow                 │
@@ -894,7 +1014,11 @@ Kubernetes 기본 Secret은 **etcd에 base64 인코딩(암호화 아님!)으로 
    ├─ 탐지 룰 개선 (False Negative 제거)
    ├─ 방어 체계 강화 계획 수립
    └─ 레드팀 시뮬레이션으로 재검증
+
+
 ```
+-->
+-->
 
 ### P0 - 즉시
 

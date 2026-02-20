@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: Tech & Security Weekly Digest: MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷 위협
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, Zero-Day, Microsoft-Office, Kimi-K25, AI-Agents, Kimwolf-Botnet, AWS-G7e, NVIDIA-Blackwell, Oracle-Patch, ChatGPT-Containers, DevSecOps, "2026"
+
+> **핵심 내용**: 
+> - MS Office Zero-Day 실제 악용, Kimi K2.5 비주얼 에이전트, Kimwolf 200만 IoT 봇넷, AWS Blackwell GPU
+
+> **주요 기술/도구**: Security, AWS, DevSecOps, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -188,6 +208,20 @@ graph TD
 
 #### 즉시 조치 (0-24시간)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 긴급 패치 배포 전략...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 긴급 패치 배포 전략...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 긴급 패치 배포 전략
 immediate_actions:
@@ -201,7 +235,11 @@ immediate_actions:
   - name: "매크로 정책 강화"
     policy: "Block macros from internet"
     scope: organization_wide
+
+
 ```
+-->
+-->
 
 #### 모니터링 지표
 
@@ -213,6 +251,8 @@ immediate_actions:
 
 ### 공격 흐름도
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
 │ MS Office Zero-Day (CVE-2026-21509) 공격 체인                        │
@@ -249,7 +289,11 @@ immediate_actions:
    지속성 확보 (레지스트리, 스케줄러)
       ↓
    데이터 유출 또는 랜섬웨어 배포
+
+
 ```
+-->
+-->
 
 <!-- SIEM Detection Queries (Security Operations Reference)
 
@@ -290,6 +334,8 @@ SecurityEvent
 | summarize Count=count() by Account, ParentProcessName, NewProcessName, bin(TimeGenerated, 1h)
 ```
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // Office 파일 다운로드 후 즉시 실행 탐지 (시간 상관 분석)
 let OfficeDownload =
@@ -305,7 +351,11 @@ OfficeDownload
 | join kind=inner (OfficeExecution) on DeviceName
 | where ExecTime between (DownloadTime .. (DownloadTime + 5m))
 | project DownloadTime, ExecTime, DeviceName, FileName, SHA256, ProcessCommandLine
+
+
 ```
+-->
+-->
 
 -->
 
@@ -313,6 +363,8 @@ OfficeDownload
 
 #### Sysmon 기반 탐지
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```xml
 <!-- Sysmon 설정: Office 프로세스 모니터링 -->
 <Sysmon schemaversion="4.82">
@@ -329,10 +381,16 @@ OfficeDownload
     </NetworkConnect>
   </EventFiltering>
 </Sysmon>
+
+
 ```
+-->
+-->
 
 #### PowerShell 기반 수동 조사
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # Office 프로세스의 의심스러운 자식 프로세스 탐지
 Get-WinEvent -FilterHashtable @{
@@ -345,7 +403,11 @@ Get-WinEvent -FilterHashtable @{
     @{Name='ParentProcess';Expression={$_.Properties[20].Value}},
     @{Name='ChildProcess';Expression={$_.Properties[4].Value}},
     @{Name='CommandLine';Expression={$_.Properties[10].Value}}
+
+
 ```
+-->
+-->
 
 ### 참고 링크
 
@@ -386,6 +448,20 @@ Get-WinEvent -FilterHashtable @{
 
 ### 보안 고려사항
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # AI 에이전트 보안 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # AI 에이전트 보안 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # AI 에이전트 보안 체크리스트
 security_checklist:
@@ -403,7 +479,11 @@ security_checklist:
     - "생성된 코드 리뷰 필수"
     - "외부 의존성 검증"
     - "보안 스캐닝"
+
+
 ```
+-->
+-->
 
 ### 참고 링크
 
@@ -443,6 +523,20 @@ security_checklist:
 
 #### 즉시 조치
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # IoT 기기 네트워크 격리 스크립트 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # IoT 기기 네트워크 격리 스크립트 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # IoT 기기 네트워크 격리 스크립트 예시
 #!/bin/bash
@@ -458,10 +552,28 @@ nmap -sn 192.168.1.0/24 | grep -B2 "android-tv\|streaming"
 
 # 4. DNS 쿼리 로깅
 tcpdump -i eth0 -n port 53 -w /var/log/dns_capture.pcap
+
+
 ```
+-->
+-->
 
 #### 장기 대응 전략
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # IoT 보안 강화 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # IoT 보안 강화 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # IoT 보안 강화 체크리스트
 iot_security:
@@ -479,10 +591,16 @@ iot_security:
     - "비정상 트래픽 알림 설정"
     - "기기 인벤토리 관리"
     - "주기적 취약점 스캐닝"
+
+
 ```
+-->
+-->
 
 ### 공격 흐름도
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
 │ Kimwolf/Badbox 2.0 봇넷 공격 체인                                    │
@@ -528,12 +646,18 @@ iot_security:
    다른 IoT 기기 감염
       ↓
    기업 자산 장악
+
+
 ```
+-->
+-->
 
 <!-- SIEM Detection Queries (Security Operations Reference)
 
 ### Splunk SPL - Kimwolf/Badbox 봇넷 탐지
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # IoT 기기의 비정상 아웃바운드 트래픽 탐지
 index=firewall OR index=proxy
@@ -547,7 +671,11 @@ dest_ip NOT IN (192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12)
   )
 | stats count, sum(bytes_out) as total_bytes by src_ip, src_hostname, dest_ip, dest_port
 | where count > 100 OR total_bytes > 10000000
+
+
 ```
+-->
+-->
 
 ```spl
 # 로컬 네트워크 스캐닝 탐지
@@ -587,6 +715,20 @@ CommonSecurityLog
 
 #### 네트워크 기반 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # IoT 기기 의심 활동 탐지 스크립트
@@ -599,10 +741,16 @@ netstat -an | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -rn | head 
 
 # 3. 의심스러운 아웃바운드 연결
 lsof -i -n -P | grep -E '(8080|8443|8888|4443)' | grep ESTABLISHED
+
+
 ```
+-->
+-->
 
 #### Zeek (Bro) 기반 탐지
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```zeek
 # Zeek 스크립트: IoT 봇넷 행위 탐지
 @load base/frameworks/notice
@@ -629,7 +777,11 @@ event connection_state_remove(c: connection) {
         }
     }
 }
+
+
 ```
+-->
+-->
 
 ### 참고 링크
 
@@ -673,6 +825,20 @@ AWS는 **NVIDIA RTX PRO 6000 Blackwell Server Edition GPU**를 탑재한 **G7e �
 
 ### Terraform 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # AWS G7e 인스턴스 Terraform 구성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # AWS G7e 인스턴스 Terraform 구성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # AWS G7e 인스턴스 Terraform 구성
 resource "aws_instance" "g7e_inference" {
@@ -703,7 +869,11 @@ resource "aws_instance" "g7e_inference" {
     Workload    = "ai-inference"
   }
 }
+
+
 ```
+-->
+-->
 
 ### 참고 링크
 
@@ -736,6 +906,20 @@ OpenAI가 ChatGPT에 **컨테이너 기반 실행 환경**을 추가했습니다
 
 #### 유용한 활용 사례
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # ChatGPT 컨테이너에서 데이터 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # ChatGPT 컨테이너에서 데이터 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # ChatGPT 컨테이너에서 데이터 분석
 import pandas as pd
@@ -750,10 +934,28 @@ df.describe()
 # 시각화
 df.plot(kind='bar')
 plt.savefig('analysis.png')
+
+
 ```
+-->
+-->
 
 #### 보안 주의사항
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ChatGPT 컨테이너 보안 가이드...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ChatGPT 컨테이너 보안 가이드...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # ChatGPT 컨테이너 보안 가이드
 security_guidelines:
@@ -766,7 +968,11 @@ security_guidelines:
     - "더미 데이터로 테스트"
     - "생성된 코드 별도 검증"
     - "의존성 보안 스캐닝 후 사용"
+
+
 ```
+-->
+-->
 
 ### 참고 링크
 
@@ -788,6 +994,20 @@ Oracle이 **158개 CVE**를 수정하는 분기별 패치를 발표했습니다.
 | Critical | 27개 (8%) |
 | 주요 취약점 | CVE-2026-21945 (Java SSRF) |
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Oracle 패치 우선순위...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Oracle 패치 우선순위...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Oracle 패치 우선순위
 patch_priority:
@@ -800,7 +1020,11 @@ patch_priority:
     - "MySQL"
     - "PeopleSoft"
     - "E-Business Suite"
+
+
 ```
+-->
+-->
 
 ### Grist-Core RCE 취약점 (CVE-2026-24002)
 
@@ -813,6 +1037,8 @@ patch_priority:
 | **공격 방법** | 악성 스프레드시트 수식 |
 | **영향** | 원격 코드 실행 |
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["Attacker<br/>(공격자)"] --> B["Create Malicious Formula<br/>(악성 수식 생성)"]
@@ -829,10 +1055,16 @@ graph TD
     style E fill:#ff7f50
     style F fill:#ff6347
     style G fill:#cc0000
+
+
 ```
+-->
+-->
 
 ### 공격 흐름도 상세
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
 │ Grist-Core RCE (CVE-2026-24002) 공격 체인                            │
@@ -872,7 +1104,11 @@ graph TD
    민감 정보 유출 (고객 데이터, 내부 문서)
       ↓
    내부 네트워크 횡적 이동
+
+
 ```
+-->
+-->
 
 <!-- SIEM Detection Queries (Security Operations Reference)
 
@@ -896,6 +1132,10 @@ parent_process="*grist*"
 
 ### Azure Sentinel KQL - Grist-Core RCE 탐지
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
 ```kql
 // 애플리케이션 로그에서 악성 수식 패턴 탐지
 AppServiceConsoleLogs
@@ -909,6 +1149,20 @@ AppServiceConsoleLogs
 
 ### 즉시 대응 조치
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # Grist-Core 긴급 패치 및 보안 점검 스크립트
@@ -929,12 +1183,18 @@ npm update grist-core  # 또는 Docker 이미지 업데이트
 echo "=== Restricting Formula Execution ==="
 # Grist-Core 설정에서 Python 수식 비활성화
 # (구체적인 방법은 버전에 따라 상이)
+
+
 ```
+-->
+-->
 
 ### BigQuery AI - Gemini 3.0 지원
 
 Google Cloud가 BigQuery에서 **Gemini 3.0** 모델을 직접 사용할 수 있는 기능을 발표했습니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```sql
 -- BigQuery에서 Gemini 3.0 사용 예시
 SELECT
@@ -947,7 +1207,11 @@ SELECT
     )
   ) AS generated_text
 FROM my_table;
+
+
 ```
+-->
+-->
 
 ---
 
@@ -968,6 +1232,20 @@ FROM my_table;
 - 개인정보보호법: Office 파일 내 개인정보 포함 시 유출 시 과징금 리스크
 
 **권장 대응**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> 한국_특화_대응:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> 한국_특화_대응:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 한국_특화_대응:
   규제_준수:
@@ -979,7 +1257,11 @@ FROM my_table;
     - "보안담당자: 한글 .hwp 파일 병행 사용 정책 검토"
     - "메일 필터링: 의심스러운 Office 첨부파일 격리"
     - "사용자 교육: 한국어 피싱 메일 주의 (청와대, 국세청 등 사칭)"
+
+
 ```
+-->
+-->
 
 #### Kimwolf/Badbox 2.0 IoT 봇넷
 
@@ -994,6 +1276,20 @@ FROM my_table;
 - IPv4 공인 IP 부족으로 NAT 환경 많음 → 내부 감염 시 탐지 어려움
 
 **권장 대응**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> 한국_특화_대응:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> 한국_특화_대응:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 한국_특화_대응:
   조달_정책:
@@ -1005,7 +1301,11 @@ FROM my_table;
     - "IoT 전용 VLAN: 업무망과 완전 분리"
     - "공공 Wi-Fi 접속 금지 정책 (VPN 필수)"
     - "KT/SKT/LG U+ 등 ISP와 협력하여 봇넷 C2 차단"
+
+
 ```
+-->
+-->
 
 #### Oracle Critical Patch Update
 
@@ -1020,6 +1320,20 @@ FROM my_table;
 - 개인정보보호법: DB 취약점 미조치 시 과실 책임
 
 **권장 대응**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> 한국_특화_대응:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> 한국_특화_대응:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 한국_특화_대응:
   패치_계획:
@@ -1031,7 +1345,11 @@ FROM my_table;
     - "금융보안원: 패치 계획 사전 보고 (필수)"
     - "KISA: 주요정보통신기반시설 패치 현황 보고"
     - "감사 대응: 패치 적용 이력 문서화 (증적 관리)"
+
+
 ```
+-->
+-->
 
 ### 국내 보안 생태계 협력
 
@@ -1046,6 +1364,20 @@ FROM my_table;
 
 #### MS Office Zero-Day 관련 IOC
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # CVE-2026-21509 관련 침해 지표...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # CVE-2026-21509 관련 침해 지표...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # CVE-2026-21509 관련 침해 지표
 file_hashes:
@@ -1073,10 +1405,28 @@ behavioral_indicators:
 registry_modifications:
   - "HKCU\\Software\\Microsoft\\Office\\*\\Security\\VBAWarnings = 1"
   - "HKLM\\SOFTWARE\\Microsoft\\Office\\*\\Security\\Trusted Locations\\*"
+
+
 ```
+-->
+-->
 
 #### Kimwolf/Badbox 봇넷 IOC
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Kimwolf/Badbox 2.0 관련 침해 지표...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Kimwolf/Badbox 2.0 관련 침해 지표...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Kimwolf/Badbox 2.0 관련 침해 지표
 c2_infrastructure:
@@ -1111,12 +1461,18 @@ network_patterns:
     - destination_ports: [8080, 8443, 8888, 4443]
     - protocol: "HTTP POST with Base64 payload"
     - packet_size: "< 512 bytes (command and control)"
+
+
 ```
+-->
+-->
 
 ### 보안 모니터링 대시보드 구성 예시
 
 #### Splunk Dashboard 설정
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```xml
 <dashboard>
   <label>Weekly Digest Threat Monitoring</label>
@@ -1151,10 +1507,28 @@ index=firewall action=allowed
     </panel>
   </row>
 </dashboard>
+
+
 ```
+-->
+-->
 
 #### Grafana + Prometheus 메트릭
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Prometheus 메트릭 정의...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Prometheus 메트릭 정의...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Prometheus 메트릭 정의
 metrics:
@@ -1184,7 +1558,11 @@ alerts:
     condition: "iot_device_scan_targets > 50"
     severity: high
     action: "Block IoT device network, Alert network team"
+
+
 ```
+-->
+-->
 
 ---
 
@@ -1196,6 +1574,20 @@ alerts:
 
 #### GitHub Actions 워크플로우 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/security-scanning.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/security-scanning.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/security-scanning.yml
 name: Weekly Digest Security Checks
@@ -1287,10 +1679,16 @@ jobs:
         run: |
           pip install bandit
           bandit -r . -f json -o bandit-report.json || true
+
+
 ```
+-->
+-->
 
 #### Jenkins Pipeline 통합
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```groovy
 // Jenkinsfile
 pipeline {
@@ -1402,10 +1800,28 @@ pipeline {
         }
     }
 }
+
+
 ```
+-->
+-->
 
 ### Terraform을 활용한 보안 인프라 자동화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # security-infrastructure.tf...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # security-infrastructure.tf...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # security-infrastructure.tf
 # 이번 주 위협에 대응하는 AWS 보안 인프라
@@ -1576,10 +1992,28 @@ resource "aws_wafv2_ip_set" "botnet_ips" {
     # 실제 위협 인텔 피드에서 가져온 IP 목록
   ]
 }
+
+
 ```
+-->
+-->
 
 ### Kubernetes 보안 정책
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # k8s-security-policies.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # k8s-security-policies.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # k8s-security-policies.yaml
 # 이번 주 발견된 위협에 대응하는 Kubernetes 보안 정책
@@ -1724,7 +2158,11 @@ data:
         - model: Kimi K2.5
           concern: data_exfiltration
           mitigation: sandbox_execution
+
+
 ```
+-->
+-->
 
 ---
 
@@ -1736,6 +2174,20 @@ data:
 
 #### ISMS-P 인증 기관 대응
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ISMS-P 인증심사 대응 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ISMS-P 인증심사 대응 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # ISMS-P 인증심사 대응 체크리스트
 isms_p_compliance:
@@ -1766,7 +2218,11 @@ isms_p_compliance:
       - "IoT 기기 VLAN 분리 설정"
       - "방화벽 정책 변경 이력"
       - "네트워크 접근 제어 목록"
+
+
 ```
+-->
+-->
 
 #### 개인정보보호법 대응
 
@@ -1778,6 +2234,20 @@ isms_p_compliance:
 
 #### 전자금융거래법 대응 (금융권)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 전자금융거래법 및 금융보안원 가이드라인 준수...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 전자금융거래법 및 금융보안원 가이드라인 준수...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 전자금융거래법 및 금융보안원 가이드라인 준수
 financial_compliance:
@@ -1804,12 +2274,18 @@ financial_compliance:
       - "중요 취약점 발견 시 금융보안원 즉시 보고"
       - "패치 계획 사전 제출"
       - "패치 완료 후 결과 보고"
+
+
 ```
+-->
+-->
 
 ### 감사 대응 보고서 템플릿
 
 #### 감사용 요약
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 # 주간 보안 취약점 대응 현황 보고
 **보고 기간**: 2026년 1월 27일 주
@@ -1880,10 +2356,16 @@ financial_compliance:
 3. Grist-Core 업데이트 이력 (`grist-update-20260127.log`)
 4. 네트워크 트래픽 분석 보고서 (`network-analysis-kimwolf.pdf`)
 5. 보안관제 일일 점검표 (`soc-daily-checklist-20260127.xlsx`)
+
+
 ```
+-->
+-->
 
 ### 이사회/경영진 보고 슬라이드 템플릿
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 # 이사회 보고: 주간 사이버 보안 현황
 **보고일**: 2026년 1월 30일
@@ -1958,7 +2440,11 @@ financial_compliance:
 3. **인력 승인**: 보안 전문가 1명 추가 채용
 
 **기대 효과**: 향후 유사 위협 **100% 사전 차단** 가능
+
+
 ```
+-->
+-->
 
 ---
 

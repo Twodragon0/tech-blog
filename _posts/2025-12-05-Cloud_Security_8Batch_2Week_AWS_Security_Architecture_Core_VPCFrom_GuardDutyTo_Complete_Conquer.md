@@ -17,6 +17,26 @@ keywords: [AWS, VPC, IAM, GuardDuty, Security-Architecture, S3, AWS보안, 보�
 author: Twodragon
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!
+
+> **카테고리**: cloud
+
+> **태그**: AWS, VPC, GuardDuty, Security-Architecture
+
+> **핵심 내용**: 
+> - VPC, IAM, S3, GuardDuty 등 AWS 보안 아키텍처와 2025년 신규 서비스 실무 완벽 정복
+
+> **주요 기술/도구**: AWS, VPC, GuardDuty, Security, cloud
+
+> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -150,6 +170,20 @@ VPC(Virtual Private Cloud)는 AWS 리소스를 격리된 가상 네트워크에�
 | **Private 서브넷** | NAT 게이트웨이를 통한 아웃바운드만 허용 | 애플리케이션 서버, 데이터베이스 | 인바운드 트래픽 차단, VPC Endpoint 활용 |
 | **Isolated 서브넷** | 인터넷 접근 완전 차단 | 데이터베이스, 백업 저장소 | 완전 격리, VPC Peering 또는 VPN만 허용 |
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # VPC 생성 및 서브넷 구성 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # VPC 생성 및 서브넷 구성 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # VPC 생성 및 서브넷 구성 예시
 aws ec2 create-vpc --cidr-block 10.0.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=security-vpc}]'
@@ -168,7 +202,11 @@ aws ec2 authorize-security-group-ingress --group-id sg-xxx --protocol tcp --port
 
 # GuardDuty 활성화
 aws guardduty create-detector --enable
+
+
 ```
+-->
+-->
 
 #### 보안 그룹 및 NACL 비교
 
@@ -190,6 +228,8 @@ aws guardduty create-detector --enable
 
 #### VPC 아키텍처 다이어그램
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                         Internet                                 │
@@ -230,7 +270,11 @@ aws guardduty create-detector --enable
          │  │  └─────────────────┘    │  │
          │  └─────────────────────────┘  │
          └───────────────────────────────┘
+
+
 ```
+-->
+-->
 
 ### 1.2 IAM: 접근 제어 및 권한 관리
 
@@ -258,6 +302,20 @@ IAM(Identity and Access Management)은 AWS 리소스에 대한 접근을 제어�
 
 #### IAM Policy 예제: MFA 강제 정책
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -283,7 +341,11 @@ IAM(Identity and Access Management)은 AWS 리소스에 대한 접근을 제어�
     }
   ]
 }
+
+
 ```
+-->
+-->
 
 ### 1.3 S3: 데이터 보호 및 접근 제어
 
@@ -325,6 +387,20 @@ S3(Simple Storage Service)는 객체 스토리지 서비스로, 데이터 보호
 
 #### S3 버킷 정책 예제: Public Access 완전 차단
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -346,7 +422,11 @@ S3(Simple Storage Service)는 객체 스토리지 서비스로, 데이터 보호
     }
   ]
 }
+
+
 ```
+-->
+-->
 
 ### 1.4 GuardDuty: 위협 탐지 및 대응
 
@@ -379,6 +459,20 @@ GuardDuty는 AWS 계정 및 워크로드에서 악의적 활동과 무단 동작
 
 #### GuardDuty 자동 대응 Lambda 예제
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 import json
@@ -411,7 +505,11 @@ def lambda_handler(event, context):
             'statusCode': 200,
             'body': json.dumps(f'Instance {instance_id} isolated successfully')
         }
+
+
 ```
+-->
+-->
 
 ## 2. 2025년 AWS re:Invent 보안 발표
 
@@ -598,6 +696,10 @@ AI 에이전트를 위한 전용 신원 관리 시스템입니다.
 ### Splunk SPL 쿼리
 
 #### GuardDuty 고위험 알림 모니터링
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```spl
 index=aws sourcetype=aws:cloudwatch:guardduty
 | where severity >= 7.0
@@ -606,6 +708,10 @@ index=aws sourcetype=aws:cloudwatch:guardduty
 ```
 
 #### IAM 비정상 API 호출 탐지
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```spl
 index=aws sourcetype=aws:cloudtrail
 | where eventName IN ("CreateAccessKey", "CreateUser", "AttachUserPolicy")
@@ -615,6 +721,10 @@ index=aws sourcetype=aws:cloudtrail
 ```
 
 #### S3 Public Access 변경 탐지
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```spl
 index=aws sourcetype=aws:cloudtrail eventName IN ("PutBucketAcl", "PutBucketPolicy")
 | eval isPublic=if(match(requestParameters, "AllUsers|AuthenticatedUsers"), "true", "false")
@@ -625,6 +735,10 @@ index=aws sourcetype=aws:cloudtrail eventName IN ("PutBucketAcl", "PutBucketPoli
 ### Azure Sentinel KQL 쿼리
 
 #### GuardDuty 위협 탐지 분석
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```kql
 AWSGuardDuty
 | where Severity >= 7.0
@@ -634,6 +748,10 @@ AWSGuardDuty
 ```
 
 #### IAM 권한 에스컬레이션 탐지
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```kql
 AWSCloudTrail
 | where EventName in ("PutUserPolicy", "AttachUserPolicy", "CreateAccessKey")
@@ -643,6 +761,10 @@ AWSCloudTrail
 ```
 
 #### S3 대량 다운로드 탐지 (데이터 유출)
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```kql
 AWSCloudTrail
 | where EventName == "GetObject"
@@ -659,6 +781,10 @@ AWSCloudTrail
 
 #### 시나리오 1: 크리덴셜 침해 후 권한 에스컬레이션
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # CloudTrail 로그에서 비정상적인 API 호출 패턴 탐지
 aws cloudtrail lookup-events \
@@ -670,6 +796,10 @@ aws cloudtrail lookup-events \
 
 #### 시나리오 2: 내부자 위협 - 대량 데이터 접근
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # S3 접근 로그 분석 - 단기간 대량 다운로드
 aws s3api list-objects-v2 \
@@ -680,6 +810,20 @@ aws s3api list-objects-v2 \
 
 #### 시나리오 3: 암호화폐 채굴 인스턴스 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # CloudWatch 메트릭으로 CPU 사용량 이상 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # CloudWatch 메트릭으로 CPU 사용량 이상 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # CloudWatch 메트릭으로 CPU 사용량 이상 탐지
 aws cloudwatch get-metric-statistics \
@@ -691,7 +835,11 @@ aws cloudwatch get-metric-statistics \
   --period 3600 \
   --statistics Average \
   | jq '.Datapoints[] | select(.Average > 90)'
+
+
 ```
+-->
+-->
 
 ### 6.2 고급 위협 헌팅 전략
 
@@ -733,6 +881,20 @@ aws cloudwatch get-metric-statistics \
 
 ### 7.3 공격 흐름도 (Attack Flow Diagram)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [1단계: 초기 침투 (Initial Access)]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [1단계: 초기 침투 (Initial Access)]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 [1단계: 초기 침투 (Initial Access)]
          |
@@ -807,12 +969,18 @@ aws cloudwatch get-metric-statistics \
 │  [GuardDuty]             → 전 단계 탐지                       │
 │  [S3 Block Public Access]→ 9, 10단계 차단                    │
 └────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 ### 7.4 단계별 구현 로드맵
 
 #### Phase 1: 기본 보안 설정 (1-2주)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Week 1: 네트워크 기반 강화
 ├── VPC 네트워크 재설계 (Public/Private/Isolated)
@@ -825,10 +993,16 @@ Week 2: 접근 제어 강화
 ├── MFA 강제 적용 (루트 계정 + 관리자)
 ├── IAM Access Analyzer 활성화
 └── 교차 계정 역할 설정
+
+
 ```
+-->
+-->
 
 #### Phase 2: 데이터 보호 (2-3주)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Week 3: S3 보안 강화
 ├── S3 Public Access Block 활성화 (전체 버킷)
@@ -841,10 +1015,16 @@ Week 4: 암호화 및 키 관리
 ├── CloudTrail 암호화
 ├── EBS 볼륨 암호화
 └── RDS 암호화 설정
+
+
 ```
+-->
+-->
 
 #### Phase 3: 위협 탐지 및 대응 (3-4주)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Week 5: GuardDuty 및 Security Hub 설정
 ├── GuardDuty 전 리전 활성화
@@ -857,7 +1037,11 @@ Week 6: 자동 대응 구성
 ├── CloudWatch Events 규칙 생성
 ├── 자동 복구 워크플로우 구성
 └── Playbook 작성
+
+
 ```
+-->
+-->
 
 ## 8. 참고 자료 (Comprehensive References)
 

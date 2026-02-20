@@ -15,6 +15,26 @@ keywords: [AWS, reInforce, Cloud-Security, GuardDuty, Security-Hub, Zero-Trust]
 author: Twodragon
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: AWS re:Inforce 2025: 클라우드 보안의 현재와 미래 🛡️
+
+> **카테고리**: cloud
+
+> **태그**: AWS, reInforce, Cloud-Security, Conference
+
+> **핵심 내용**: 
+> - AWS re:Inforce 2025 회고. AI 기반 보안 솔루션 및 Zero Trust 구현 방법.
+
+> **주요 기술/도구**: AWS, Security, cloud
+
+> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -146,6 +166,20 @@ AWS 보안 서비스와 MITRE ATT&CK 프레임워크의 매핑 관계를 정리�
 
 ### MITRE ATT&CK 커버리지 분석
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> AWS 보안 서비스의 MITRE ATT&CK 커버리지:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> AWS 보안 서비스의 MITRE ATT&CK 커버리지:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 AWS 보안 서비스의 MITRE ATT&CK 커버리지:
 ┌─────────────────────────────────────────────┐
@@ -161,7 +195,11 @@ AWS 보안 서비스의 MITRE ATT&CK 커버리지:
 │ Exfiltration          [████████░░] 80%      │
 │ Impact                [███████░░░] 70%      │
 └─────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 ## 1. 주요 트렌드: AI 기반 보안
 
@@ -242,6 +280,8 @@ AWS re:Invent 2025에서는 여러 보안 강화 기능이 발표되었습니다
 
 ### 2.3 Zero Trust 아키텍처 다이어그램
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Zero Trust 네트워크 아키텍처:
 ┌────────────────────────────────────────────────────────────┐
@@ -287,7 +327,11 @@ Zero Trust 네트워크 아키텍처:
 ├── NACLs: 서브넷 레벨 방화벽
 ├── GuardDuty: 위협 탐지
 └── CloudTrail: 모든 API 호출 기록
+
+
 ```
+-->
+-->
 
 ## 3. 멀티 클라우드 보안
 
@@ -433,6 +477,20 @@ Zero Trust 네트워크 아키텍처:
 
 ### 7.3 사고 대응 프로세스 다이어그램
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 보안 사고 대응 워크플로우:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 보안 사고 대응 워크플로우:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 보안 사고 대응 워크플로우:
 ┌─────────────────────────────────────────────────────────┐
@@ -488,7 +546,11 @@ Zero Trust 네트워크 아키텍처:
            │ • 프로세스 개선│
            │ • 교육 및 훈련 │
            └────────────────┘
+
+
 ```
+-->
+-->
 
 ## 8. 클라우드 보안의 미래
 
@@ -563,6 +625,10 @@ AWS Security Agent는 AI 기반의 자동화된 보안 리뷰 도구입니다:
 
 > **참고**: AWS Security Agent 관련 내용은 [AWS re:Invent 2025 발표](https://reinvent.awsevents.com/) 및 [AWS Security 문서](https://docs.aws.amazon.com/security/)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```yaml
 # AWS Security Agent 파이프라인 통합 예시
 security-review:
@@ -619,6 +685,20 @@ AI 기반 개발 도구를 위한 IAM 정책 자동화:
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -639,7 +719,11 @@ AI 기반 개발 도구를 위한 IAM 정책 자동화:
   ]
 }
 
+
+
 ```
+-->
+-->
 -->
 
 ### 10.5 GuardDuty Malware Protection for AWS Backup
@@ -671,6 +755,20 @@ AI 에이전트 및 자율 시스템을 위한 새로운 인증 프레임워크:
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # AgentCore Identity 사용 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # AgentCore Identity 사용 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # AgentCore Identity 사용 예시
 from aws_agentcore import AgentIdentity
@@ -687,7 +785,11 @@ token = agent.get_token()
 # 에이전트 간 인증
 peer_verified = agent.verify_peer("analytics-agent-002")
 
+
+
 ```
+-->
+-->
 -->
 
 ### 10.7 re:Inforce vs re:Invent 2025 보안 발표 비교
@@ -743,6 +845,20 @@ peer_verified = agent.verify_peer("analytics-agent-002")
 
 #### 한국 기업 맞춤 아키텍처
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 한국 금융 기업 Zero Trust 아키텍처:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 한국 금융 기업 Zero Trust 아키텍처:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 한국 금융 기업 Zero Trust 아키텍처:
 ┌─────────────────────────────────────────────────┐
@@ -796,7 +912,11 @@ peer_verified = agent.verify_peer("analytics-agent-002")
 ├── PIPA: Macie 개인정보 탐지
 ├── 전자금융: CloudHSM 금융 데이터 암호화
 └── 감사 추적: CloudTrail 7년 보관
+
+
 ```
+-->
+-->
 
 ### 한국 기업 성공 사례
 
@@ -992,6 +1112,8 @@ AWSCloudTrail
 
 #### 공격 흐름도 (Attack Flow Diagram)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 크리덴셜 유출 → 측면 이동 공격 흐름:
 ┌─────────────────────────────────────────────────────────┐
@@ -1050,7 +1172,11 @@ AWSCloudTrail
            │  GuardDuty:    │
            │  Exfiltration  │
            └────────────────┘
+
+
 ```
+-->
+-->
 
 #### Hunting 쿼리 (Splunk SPL)
 
@@ -1092,6 +1218,20 @@ index=aws sourcetype=aws:cloudtrail eventName="CopyObject" OR eventName="GetObje
 
 #### 공격 흐름도
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```
+> 암호화폐 채굴 공격 흐름:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```
+> 암호화폐 채굴 공격 흐름:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 암호화폐 채굴 공격 흐름:
 ┌─────────────────────────────────────────────────────┐
@@ -1148,7 +1288,11 @@ index=aws sourcetype=aws:cloudtrail eventName="CopyObject" OR eventName="GetObje
            │  Config Rules: │
            │  Violation     │
            └────────────────┘
+
+
 ```
+-->
+-->
 
 #### Hunting 쿼리 (Splunk SPL)
 
@@ -1220,6 +1364,20 @@ index=aws sourcetype=aws:cloudtrail eventName="DeleteBackupVaultLockConfiguratio
 
 #### 1단계: 조직 단위 GuardDuty 활성화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # 관리 계정에서 조직 단위 GuardDuty 활성화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # 관리 계정에서 조직 단위 GuardDuty 활성화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 관리 계정에서 조직 단위 GuardDuty 활성화
 aws guardduty create-detector \
@@ -1236,9 +1394,17 @@ for region in $(aws ec2 describe-regions --query 'Regions[].RegionName' --output
         --enable \
         --region $region
 done
+
+
 ```
+-->
+-->
 
 #### 2단계: S3 보호 활성화
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```bash
 # S3 보호 활성화
@@ -1249,6 +1415,10 @@ aws guardduty update-detector \
 
 #### 3단계: Kubernetes 보호 활성화
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # EKS 보호 활성화
 aws guardduty update-detector \
@@ -1258,6 +1428,20 @@ aws guardduty update-detector \
 
 #### 4단계: EventBridge 통합
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # eventbridge-guardduty-rule.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # eventbridge-guardduty-rule.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # eventbridge-guardduty-rule.yaml
 Resources:
@@ -1280,12 +1464,30 @@ Resources:
       Targets:
         - Arn: !GetAtt SNSTopic.Arn
           Id: SNSTarget
+
+
 ```
+-->
+-->
 
 ### Security Hub 전사 배포
 
 #### 1단계: 조직 단위 Security Hub 활성화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 
@@ -1309,10 +1511,28 @@ def enable_security_hub_org():
             for account in organizations.list_accounts()['Accounts']
         ]
     )
+
+
 ```
+-->
+-->
 
 #### 2단계: 컴플라이언스 표준 활성화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> def enable_compliance_standards():...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> def enable_compliance_standards():...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 def enable_compliance_standards():
     """컴플라이언스 표준 활성화"""
@@ -1332,10 +1552,28 @@ def enable_compliance_standards():
                 }
             ]
         )
+
+
 ```
+-->
+-->
 
 #### 3단계: 자동 수정 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # security-hub-auto-remediation.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # security-hub-auto-remediation.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # security-hub-auto-remediation.yaml
 Resources:
@@ -1361,10 +1599,28 @@ Resources:
                   remediate_security_group(finding)
 
               return {'statusCode': 200}
+
+
 ```
+-->
+-->
 
 ### IAM Policy Autopilot 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -1388,7 +1644,11 @@ Resources:
     }
   ]
 }
+
+
 ```
+-->
+-->
 
 ## 참고 자료 (References)
 

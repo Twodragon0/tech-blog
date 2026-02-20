@@ -16,6 +16,26 @@ schema_type: Article
 certifications: [aws-saa]
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처
+
+> **카테고리**: security, cloud
+
+> **태그**: AWS, Security, IAM, VPC, S3, RDS, EKS, CloudTrail, CloudWatch, Security-Hub
+
+> **핵심 내용**: 
+> - AWS IAM, VPC, S3, RDS, EKS 보안 아키텍처. Defense in Depth 전략과 실무 체크리스트 제공.
+
+> **주요 기술/도구**: AWS, Security, IAM, VPC, Security, security, cloud
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -191,6 +211,20 @@ Defense in Depth는 여러 보안 레이어를 중첩하여 보안을 강화하�
 
 #### AWS 보안 아키텍처 다이어그램
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                    AWS 다층 보안 아키텍처 (Defense in Depth)          │
@@ -250,7 +284,11 @@ Defense in Depth는 여러 보안 레이어를 중첩하여 보안을 강화하�
 │  │ EventBridge → Lambda (Auto-remediation) │    │
 │  └─────────────────────────────────────────┘    │
 └──────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### 다층 보안 방어 구조
 
@@ -279,6 +317,20 @@ Defense in Depth는 여러 보안 레이어를 중첩하여 보안을 강화하�
 
 #### 최소 권한 원칙 적용
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # IAM 정책 예시: 최소 권한 원칙...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # IAM 정책 예시: 최소 권한 원칙...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # IAM 정책 예시: 최소 권한 원칙
 Version: '2012-10-17'
@@ -297,10 +349,28 @@ Statement:
       IpAddress:
         'aws:SourceIp':
           - '10.0.0.0/8'
+
+
 ```
+-->
+-->
 
 #### 역할 기반 접근 제어 (RBAC)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # IAM 역할 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # IAM 역할 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # IAM 역할 예시
 Resources:
@@ -327,7 +397,11 @@ Resources:
                   - dynamodb:GetItem
                   - dynamodb:PutItem
                 Resource: 'arn:aws:dynamodb:*:*:table/ApplicationTable'
+
+
 ```
+-->
+-->
 
 > **참고**: 전체 IAM 정책 예시는 [AWS IAM 모범 사례](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) 및 [AWS 보안 모범 사례](https://aws.amazon.com/security/security-resources/)를 참조하세요.
 
@@ -357,6 +431,20 @@ Resources:
 
 #### Public/Private Subnet 구성
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # VPC 아키텍처 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # VPC 아키텍처 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # VPC 아키텍처 예시
 Resources:
@@ -385,10 +473,28 @@ Resources:
       CidrBlock: 10.0.2.0/24
       AvailabilityZone: ap-northeast-2a
       MapPublicIpOnLaunch: false
+
+
 ```
+-->
+-->
 
 #### NAT Gateway 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # NAT Gateway 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # NAT Gateway 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # NAT Gateway 예시
 Resources:
@@ -405,12 +511,30 @@ Resources:
       Routes:
         - DestinationCidrBlock: 0.0.0.0/0
           NatGatewayId: !Ref NATGateway
+
+
 ```
+-->
+-->
 
 ### 3.2 Security Group 및 NACL
 
 #### Security Group 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # Security Group 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # Security Group 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Security Group 예시
 # ISMS-P 요구사항: 네트워크 접근 제어
@@ -441,7 +565,11 @@ Resources:
           Value: WebServerSecurityGroup
         - Key: Compliance
           Value: ISMS-P
+
+
 ```
+-->
+-->
 
 > **참고**: 전체 Security Group 설정 예시는 [AWS Security Groups 모범 사례](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html) 및 [AWS VPC 보안 모범 사례](https://aws.amazon.com/security/security-resources/)를 참조하세요.
 
@@ -461,6 +589,20 @@ Resources:
 
 ### 4.1 버킷 정책
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # S3 버킷 정책 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # S3 버킷 정책 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # S3 버킷 정책 예시
 # ISMS-P 요구사항: 접근 통제 및 암호화
@@ -489,7 +631,11 @@ Resources:
           - Id: DeleteOldVersions
             Status: Enabled
             NoncurrentVersionExpirationInDays: 90
+
+
 ```
+-->
+-->
 
 ### 4.2 S3 보안 체크리스트
 
@@ -507,6 +653,20 @@ Resources:
 
 ### 5.1 데이터베이스 암호화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # RDS 암호화 설정 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # RDS 암호화 설정 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # RDS 암호화 설정 예시
 Resources:
@@ -530,7 +690,11 @@ Resources:
       EnableCloudwatchLogsExports:
         - error
         - slowquery
+
+
 ```
+-->
+-->
 
 ### 5.2 RDS 보안 체크리스트
 
@@ -548,6 +712,20 @@ Resources:
 
 ### 6.1 Pod Security Standards
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Pod Security Policy 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Pod Security Policy 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Pod Security Policy 예시
 apiVersion: v1
@@ -577,10 +755,28 @@ spec:
         capabilities:
           drop:
             - ALL
+
+
 ```
+-->
+-->
 
 ### 6.2 Network Policy
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Network Policy 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Network Policy 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Network Policy 예시
 apiVersion: networking.k8s.io/v1
@@ -611,7 +807,11 @@ spec:
       ports:
         - protocol: TCP
           port: 3306
+
+
 ```
+-->
+-->
 
 ### 6.3 EKS 보안 체크리스트
 
@@ -626,6 +826,10 @@ spec:
 ### 6.4 EKS Threat Hunting Queries
 
 #### 1. 특권 컨테이너 실행 탐지 (T1611 대응)
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # kubectl로 특권 컨테이너 검색
@@ -643,6 +847,10 @@ fields @timestamp, objectRef.namespace, objectRef.name, user.username
 -->
 
 #### 2. 외부 레지스트리 이미지 사용 탐지
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # 승인된 ECR 외부 이미지 사용 감지
@@ -662,6 +870,10 @@ index=kubernetes source="audit" verb="create" objectRef.resource="pods"
 
 #### 3. 과도한 RBAC 권한 탐지
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```bash
 # ClusterRole 중 와일드카드 권한 확인
 kubectl get clusterroles -o json | \
@@ -670,6 +882,10 @@ kubectl get clusterroles -o json | \
 ```
 
 #### 4. 시크릿 접근 이상 패턴
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```bash
 # 5분 내 3회 이상 서로 다른 시크릿 접근
@@ -717,6 +933,20 @@ KubernetesPodInventory
 
 ### 자동화된 컴플라이언스 점검 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # ISMS-P 2.5.2: MFA 미설정 사용자 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # ISMS-P 2.5.2: MFA 미설정 사용자 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # ISMS-P 2.5.2: MFA 미설정 사용자 탐지
 import boto3
@@ -735,7 +965,11 @@ def check_mfa_compliance():
     return non_compliant
 
 print("ISMS-P 2.5.2 위반 사용자:", check_mfa_compliance())
+
+
 ```
+-->
+-->
 
 <!--
 SIEM 쿼리 - ISMS-P 2.6.1 네트워크 접근 제어 감사:
@@ -797,6 +1031,8 @@ AWSVPCFlow
 
 #### 4. 컴플라이언스 현황
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [CSAP 인증 진행 상황]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85%
@@ -812,7 +1048,11 @@ AWSVPCFlow
 [ISMS-P 인증 갱신]
 예정일: 2026-03-15
 준비율: 88% (목표 95%)
+
+
 ```
+-->
+-->
 
 #### 5. 향후 3개월 로드맵
 
@@ -835,6 +1075,20 @@ AWSVPCFlow
 
 ### 7.1 CloudTrail 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # CloudTrail 설정 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # CloudTrail 설정 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # CloudTrail 설정 예시
 Resources:
@@ -856,7 +1110,11 @@ Resources:
       KMSKeyId: !Ref CloudTrailKMSKey
       CloudWatchLogsLogGroupArn: !GetAtt CloudWatchLogGroup.Arn
       CloudWatchLogsRoleArn: !GetAtt CloudWatchLogsRole.Arn
+
+
 ```
+-->
+-->
 
 ### 7.2 CloudWatch 모니터링
 
@@ -868,6 +1126,10 @@ Resources:
 | **암호화 미적용** | S3 암호화 상태 | 암호화 미적용 객체 발견 |
 
 ### 7.3 Security Hub 통합
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```yaml
 # Security Hub 설정 예시
@@ -901,6 +1163,20 @@ index=guardduty sourcetype=aws:cloudwatch:guardduty
 
 #### CloudTrail 권한 에스컬레이션 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # Lambda 함수: IAM 정책 변경 즉시 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # Lambda 함수: IAM 정책 변경 즉시 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Lambda 함수: IAM 정책 변경 즉시 탐지
 import boto3
@@ -928,7 +1204,11 @@ def lambda_handler(event, context):
             send_alert(f"CRITICAL: {% raw %}{{user}}{% endraw %} granted wildcard permissions")
 
     return {'statusCode': 200}
+
+
 ```
+-->
+-->
 
 <!--
 Azure Sentinel KQL - Root 계정 사용 탐지:
@@ -974,6 +1254,20 @@ index=s3_access_logs http_status=200 operation="REST.GET.OBJECT"
 
 2025년 11월, AWS는 리전 기반 액세스 제어를 위한 새로운 글로벌 조건 키 `aws:SourceVpcArn`을 도입했습니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # aws:SourceVpcArn 조건 키 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # aws:SourceVpcArn 조건 키 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # aws:SourceVpcArn 조건 키 예시
 Version: '2012-10-17'
@@ -986,7 +1280,11 @@ Statement:
     Condition:
       StringEquals:
         'aws:SourceVpcArn': 'arn:aws:ec2:ap-northeast-2:ACCOUNT_ID:vpc/vpc-xxxxxxxxx'
+
+
 ```
+-->
+-->
 
 **주요 활용 사례:**
 - AWS PrivateLink를 통한 리소스 접근 제어
@@ -1026,6 +1324,20 @@ Statement:
 - EKS 클러스터 자동 백업
 - 네임스페이스 및 볼륨 레벨 백업
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # AWS Backup EKS 백업 설정 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # AWS Backup EKS 백업 설정 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # AWS Backup EKS 백업 설정 예시
 Resources:
@@ -1044,7 +1356,11 @@ Resources:
               - DestinationBackupVaultArn: !GetAtt BackupVault.Arn
                 Lifecycle:
                   DeleteAfterDays: 90
+
+
 ```
+-->
+-->
 
 ### 8.5 EKS 보안 강화
 
@@ -1066,6 +1382,20 @@ Resources:
 - kube-proxy 구성에 대한 읽기 액세스
 - 클러스터의 보안과 안정성 향상
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # EKS Cluster Insights Policy 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # EKS Cluster Insights Policy 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # EKS Cluster Insights Policy 예시
 Resources:
@@ -1082,7 +1412,11 @@ Resources:
             Action: sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonEKSClusterInsightsPolicy
+
+
 ```
+-->
+-->
 
 ---
 
@@ -1091,6 +1425,10 @@ Resources:
 ### 시나리오 1: 컨테이너 탈출 시도 감지 (T1611)
 
 **1단계: 탐지 (Detection)**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
 ```bash
 # GuardDuty Finding 트리거
 Finding Type: Execution:Container/PrivilegeEscalation
@@ -1099,6 +1437,20 @@ Resource: EKS Cluster - production-cluster
 ```
 
 **2단계: 격리 (Containment)**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 의심 Pod 즉시 삭제...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 의심 Pod 즉시 삭제...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 의심 Pod 즉시 삭제
 kubectl delete pod suspicious-pod -n production --grace-period=0
@@ -1119,9 +1471,27 @@ spec:
   - Ingress
   - Egress
 EOF
+
+
 ```
+-->
+-->
 
 **3단계: 증거 수집 (Evidence Collection)**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # Pod 로그 백업...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # Pod 로그 백업...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Pod 로그 백업
 kubectl logs suspicious-pod -n production --previous > /tmp/incident-logs.txt
@@ -1134,9 +1504,17 @@ aws ec2 create-snapshot --volume-id vol-xxxxxxxxx \
 aws cloudtrail lookup-events --lookup-attributes \
   AttributeKey=ResourceName,AttributeValue=suspicious-pod \
   --start-time 2026-01-14T00:00:00Z
+
+
 ```
+-->
+-->
 
 **4단계: 근본 원인 분석 (Root Cause Analysis)**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # 취약한 이미지 식별
 kubectl get pod suspicious-pod -n production -o jsonpath='{.spec.containers[*].image}'
@@ -1149,6 +1527,20 @@ aws ecr describe-image-scan-findings \
 ```
 
 **5단계: 복구 및 재발 방지 (Recovery & Prevention)**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Admission Controller 배포 (Gatekeeper)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Admission Controller 배포 (Gatekeeper)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Admission Controller 배포 (Gatekeeper)
 apiVersion: constraints.gatekeeper.sh/v1beta1
@@ -1163,11 +1555,19 @@ spec:
   parameters:
     exemptImages:
       - "gcr.io/google-containers/pause"  # 시스템 Pod 제외
+
+
 ```
+-->
+-->
 
 ### 시나리오 2: IAM 자격증명 노출 대응
 
 **탐지 Alert:**
+> **참고**: 관련 예제는 [공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+
 ```json
 {
   "GuardDutyFinding": {
@@ -1179,6 +1579,20 @@ spec:
 ```
 
 **즉시 대응 Lambda 함수:**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import boto3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import boto3
 
@@ -1217,7 +1631,11 @@ def lambda_handler(event, context):
     )
 
     return {'statusCode': 200}
+
+
 ```
+-->
+-->
 
 ---
 

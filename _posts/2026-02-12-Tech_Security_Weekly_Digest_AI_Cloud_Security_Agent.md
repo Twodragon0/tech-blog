@@ -15,19 +15,31 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 기술 & 보안 주간 다이제스트: 공급망, Windows, APT36
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security, Agent
+
+> **핵심 내용**: 
+> - 2026년 02월 12일 주요 보안/기술 뉴스 27건 - AI, Cloud, Security
+
+> **주요 기술/도구**: Security, DevSecOps, Security, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 {% include ai-summary-card.html
   title='Tech & Security Weekly Digest (2026년 02월 12일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 최초 악성 Outlook 애드인 발견 - 마이크로소프트 자격증명 4,000건 이상 탈취</li>
-      <li><strong>The Hacker News</strong>: APT36·SideCopy, 인도 대상 크로스 플랫폼 RAT 캠페인 동시 전개</li>
-      <li><strong>The Hacker News</strong>: 60개 이상 소프트웨어 벤더, OS·클라우드·네트워크 플랫폼 전반에 보안 패치 발표</li>
-      <li><strong>Google Cloud Blog</strong>: AI 기반 테이블탑 훈련으로 금융 서비스 운영 복원력 강화</li>'
+  categories_html='<span class=category-tag>Summary</span>'
+  tags_html='<span class=tag>Digest</span>'
+  highlights_html='<li>Auto-generated summary available below.</li>'
   period='2026년 02월 12일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
@@ -38,6 +50,8 @@ schema_type: Article
 
 ### 위험 스코어카드
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |          2026-02-12 주간 보안 위험 스코어카드                      |
@@ -53,11 +67,17 @@ schema_type: Article
 |  종합 위험 수준: █████████░ HIGH (9.0/10)                         |
 |                                                                |
 +================================================================+
+
+
 ```
+-->
+-->
 
 
 ### 경영진 대시보드
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 +================================================================+
 |        보안 현황 대시보드 - 2026년 02월 12일                         |
@@ -77,7 +97,11 @@ schema_type: Article
 |                           SIEM 룰 커버리지: 85%                 |
 |                                                                |
 +================================================================+
+
+
 ```
+-->
+-->
 
 ### 이사회 보고 포인트
 

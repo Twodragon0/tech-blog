@@ -15,6 +15,26 @@ keywords: [Cloudflare, Post-Mortem, Incident-Response, CDN, Multi-CDN, BGP]
 author: Twodragon
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: [Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지
+
+> **카테고리**: incident
+
+> **태그**: Cloudflare, Post-Mortem, Incident-Response, CDN, Network, SRE
+
+> **핵심 내용**: 
+> - Cloudflare 글로벌 장애 대응 일지. Multi-CDN 전략 및 자동 Failover 구현.
+
+> **주요 기술/도구**: Cloudflare, incident
+
+> **대상 독자**: SRE, 인시던트 대응 담당자, 운영 엔지니어
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -188,6 +208,8 @@ author: Twodragon
 
 흥미롭게도, **모바일과 PC 환경에서 다른 증상**이 나타났습니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart TD
     ENV["Environment Differences"]
@@ -201,7 +223,11 @@ flowchart TD
     PC --> PS["Symptom: Intermittent access"]
     PC --> PC_C["Cause: Browser DNS cache + Local DNS cache"]
     PC --> PI["Impact: ~60% of users"]
+
+
 ```
+-->
+-->
 
 ### 3.2 근본 원인
 
@@ -223,6 +249,20 @@ Cloudflare의 글로벌 네트워크에서 발생한 **BGP 라우팅 이슈**로
 
 **탐지 및 방어 전략:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # MITRE ATT&CK Detection: T1498 - Network DoS...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # MITRE ATT&CK Detection: T1498 - Network DoS...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # MITRE ATT&CK Detection: T1498 - Network DoS
 detection:
@@ -237,7 +277,11 @@ detection:
   - name: "SSL/TLS Handshake Timeout"
     threshold: "handshake_timeout > 10s"
     action: "warning + retry with backup CDN"
+
+
 ```
+-->
+-->
 
 <!-- SIEM Detection Queries for CDN Monitoring -->
 
@@ -416,6 +460,20 @@ Alerting Threshold Recommendations:
 
 **한국 고객사 대응 사례:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # 주요 한국 기업 대응 전략...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # 주요 한국 기업 대응 전략...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 주요 한국 기업 대응 전략
 대기업_A사:
@@ -432,7 +490,11 @@ Alerting Threshold Recommendations:
   - 기존: Cloudflare Enterprise
   - 대응: Multi-CDN (Cloudflare + Akamai + Fastly)
   - 투자: 연간 약 1억원 추가 비용
+
+
 ```
+-->
+-->
 
 **규제 및 컴플라이언스 영향:**
 
@@ -451,6 +513,10 @@ Alerting Threshold Recommendations:
 ### 4.1 즉시 대응
 
 > **참고**: Cloudflare 장애 대응 관련 내용은 [Cloudflare Status Page](https://www.cloudflarestatus.com/) 및 [Cloudflare 문서](https://developers.cloudflare.com/)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 1. 상태 모니터링 강화
@@ -477,6 +543,8 @@ dig @1.1.1.1 our-service.com
 
 ### 4.3 인시던트 타임라인 다이어그램
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 장애 대응 타임라인 (2025-11-18)
 ================================================================================
@@ -545,12 +613,30 @@ dig @1.1.1.1 our-service.com
 Legend:
 ├─ 주요 이벤트
 │  └─ 세부 액션
+
+
 ```
+-->
+-->
 
 ### 4.4 인시던트 대응 플레이북
 
 **즉시 대응 단계 (0-15분):**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> phase_1_immediate_response:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> phase_1_immediate_response:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 phase_1_immediate_response:
   timeline: "0-15분"
@@ -694,10 +780,28 @@ phase_5_post_incident:
         - P1: 자동 Failover (2주일)
         - P2: 모니터링 강화 (1주일)
         - P3: Runbook 업데이트 (1주일)
+
+
 ```
+-->
+-->
 
 **Runbook: CDN 장애 대응**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # CDN Failover Runbook
@@ -782,7 +886,11 @@ case "${1:-check}" in
         exit 1
         ;;
 esac
+
+
 ```
+-->
+-->
 
 ## 5. 교훈 및 개선 사항
 
@@ -808,6 +916,20 @@ flowchart TD
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Prometheus Alert Rule 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Prometheus Alert Rule 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Prometheus Alert Rule 예시
 groups:
@@ -827,12 +949,30 @@ groups:
  labels:
  severity: critical
 
+
+
 ```
+-->
+-->
 -->
 
 ### 5.3 자동 Failover 구현
 
 > **참고**: CDN Failover 구현 관련 자세한 내용은 [AWS Route 53 Health Checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) 및 [Multi-CDN 전략 가이드](https://www.cloudflare.com/learning/cdn/what-is-multi-cdn/)를 참조하세요.
+
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # 간단한 CDN Failover 로직...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # 간단한 CDN Failover 로직...
+> ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 ```python
@@ -858,7 +998,11 @@ class CDNFailover:
  return cdn
  raise Exception("All CDNs are down!")
 
+
+
 ```
+-->
+-->
 -->
 
 ## 6. 2025년 Cloudflare 보안 업데이트
@@ -901,6 +1045,10 @@ Post-Quantum Encryption Status:
 2025년에 발견된 **React CVE-2025-55182 (CVSS 10.0)** 취약점에 대해 Cloudflare는 신속하게 WAF 규칙을 배포했습니다.
 
 > **참고**: Cloudflare WAF 규칙 설정 관련 내용은 [Cloudflare WAF 문서](https://developers.cloudflare.com/waf/) 및 [Cloudflare Rules](https://developers.cloudflare.com/rules/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```yaml
 # Cloudflare WAF Rule 예시
@@ -986,6 +1134,8 @@ Cloudflare Email Security는 전체 이메일 트래픽 중 **5% 이상의 악�
 
 ### 7.2 리스크 매트릭스
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
                       발생 가능성
                   낮음    보통    높음
@@ -1004,7 +1154,11 @@ Cloudflare Email Security는 전체 이메일 트래픽 중 **5% 이상의 악�
     │     │ └─┘ │       │       │
 
 CDN 장애: 높은 영향도 + 보통 발생 가능성 = HIGH RISK
+
+
 ```
+-->
+-->
 
 ### 7.3 개선 투자 계획
 
@@ -1046,6 +1200,8 @@ ROI = (₩78,400,000 - ₩165,000,000) / ₩165,000,000 × 100
 
 **개선 로드맵:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Q1 2026
 ├─ Multi-CDN 구축 (Cloudflare + CloudFront)
@@ -1066,7 +1222,11 @@ Q4 2026
 ├─ AI 기반 이상 탐지
 ├─ 자동 Self-Healing
 └─ 99.99% 가용성 달성
+
+
 ```
+-->
+-->
 
 ## 8. 체크리스트
 
@@ -1103,6 +1263,20 @@ Q4 2026
 
 이번 장애는 Cloudflare 단일 의존의 위험성을 명확히 보여주었습니다. Multi-CDN 전략은 선택이 아닌 **필수**입니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # 권장 CDN 구성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # 권장 CDN 구성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 권장 CDN 구성
 architecture:
@@ -1118,7 +1292,11 @@ architecture:
   tier_3: # 정적 콘텐츠
     primary: Cloudflare (Free/Pro)
     backup: GitHub Pages or Netlify
+
+
 ```
+-->
+-->
 
 **2. 모바일 환경의 특수성 이해**
 
@@ -1147,6 +1325,20 @@ architecture:
 
 **1. 커뮤니케이션 프로토콜**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> communication_protocol:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> communication_protocol:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 communication_protocol:
   internal:
@@ -1164,7 +1356,11 @@ communication_protocol:
     - email: 영향받는 고객사 (10분 이내)
     - social_media: Twitter/LinkedIn (15분 이내)
     - press_release: 중대 장애 시 (1시간 이내)
+
+
 ```
+-->
+-->
 
 **2. Post-Mortem 문화**
 
@@ -1183,6 +1379,20 @@ Blameless Post-Mortem 원칙:
 **1. SLA와 재무적 영향**
 
 SLA 위반 시 비용:
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> def calculate_sla_penalty(...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> def calculate_sla_penalty(...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 def calculate_sla_penalty(
     monthly_contract: int,
@@ -1209,7 +1419,11 @@ def calculate_sla_penalty(
 # 예시: 월 1,000만원 계약, 99.5% 달성 (목표 99.9%)
 penalty = calculate_sla_penalty(10_000_000, 99.5, 99.9)
 # 결과: 1,000,000원 크레딧
+
+
 ```
+-->
+-->
 
 **2. 사이버 보험 검토**
 
@@ -1223,6 +1437,20 @@ penalty = calculate_sla_penalty(10_000_000, 99.5, 99.9)
 
 **금융권:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> financial_sector:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> financial_sector:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 financial_sector:
   regulatory:
@@ -1238,10 +1466,28 @@ financial_sector:
     - SLA: 99.99% 이상
     - RTO: 15분 이내
     - RPO: 0 (데이터 손실 절대 불가)
+
+
 ```
+-->
+-->
 
 **이커머스:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> ecommerce_sector:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> ecommerce_sector:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 ecommerce_sector:
   peak_traffic:
@@ -1257,10 +1503,28 @@ ecommerce_sector:
   cost_optimization:
     - CDN 비용: 트래픽 기반 요금제 vs 고정 요금제
     - Peak 대비: Reserved Capacity 사전 확보
+
+
 ```
+-->
+-->
 
 **게임:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> gaming_sector:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> gaming_sector:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 gaming_sector:
   latency_critical:
@@ -1275,12 +1539,30 @@ gaming_sector:
     - Graceful Degradation: 오프라인 모드 제공
     - Reconnection: 자동 재연결 로직
     - Queue System: 서버 과부하 시 대기열
+
+
 ```
+-->
+-->
 
 ### 9.5 2026년 CDN 트렌드 예측
 
 **1. Edge Computing 확산**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // Cloudflare Workers 예시: Edge에서 A/B 테스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // Cloudflare Workers 예시: Edge에서 A/B 테스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```javascript
 // Cloudflare Workers 예시: Edge에서 A/B 테스트
 addEventListener('fetch', event => {
@@ -1295,7 +1577,11 @@ async function handleRequest(request) {
     headers: { 'Content-Type': 'text/plain' }
   })
 }
+
+
 ```
+-->
+-->
 
 **2. WebAssembly at Edge**
 
@@ -1311,6 +1597,20 @@ async function handleRequest(request) {
 
 **4. AI 기반 최적화**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> ai_optimization:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> ai_optimization:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 ai_optimization:
   traffic_prediction:
@@ -1324,7 +1624,11 @@ ai_optimization:
   cache_management:
     - 스마트 캐시 무효화
     - 예측 기반 프리페칭
+
+
 ```
+-->
+-->
 
 ## 10. 결론
 
@@ -1339,6 +1643,20 @@ ai_optimization:
 
 ### 행동 강령
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> action_items:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> action_items:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 action_items:
   immediate: # 1주일 이내
@@ -1355,7 +1673,11 @@ action_items:
     - SRE 팀 강화
     - 장애 복구 훈련
     - 99.99% 가용성 달성
+
+
 ```
+-->
+-->
 
 > "Everything fails, all the time." - Werner Vogels, AWS CTO
 >

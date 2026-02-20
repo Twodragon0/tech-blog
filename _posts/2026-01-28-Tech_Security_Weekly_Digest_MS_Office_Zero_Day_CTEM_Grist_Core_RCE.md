@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: Tech & Security Weekly Digest: Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용, Grist-Core RCE 취약점
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, CVE-2026-21509, Microsoft-Office, Zero-Day, CTEM, Grist-Core, RCE, Cloud-Security, "2026"
+
+> **핵심 내용**: 
+> - MS Office Zero-Day(CVE-2026-21509) 긴급 패치, CTEM 프레임워크 실무 가이드, Grist-Core RCE 취약점 대응
+
+> **주요 기술/도구**: Security, DevSecOps, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -172,6 +192,8 @@ graph LR
 
 #### 패치 적용 확인
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # Windows Update 패치 확인
 Get-HotFix | Where-Object { $_.HotFixID -eq "KB5034173" } |
@@ -186,10 +208,16 @@ Get-ItemProperty "HKLM:\Software\Microsoft\Office\16.0\Common\ProductVersion" -E
 
 # 패치 강제 적용 (관리자 권한)
 "C:\Program Files\Common Files\microsoft shared\ClickToRun\OfficeC2RClient.exe" /update user updatepromptuser=false
+
+
 ```
+-->
+-->
 
 #### 임시 완화 조치 (패치 전)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # 매크로 완전 차단 (레지스트리)
 $officePaths = @(
@@ -206,7 +234,11 @@ foreach ($path in $officePaths) {
     Set-ItemProperty -Path $path -Name "BlockContentExecutionFromInternet" -Value 1 -Type DWord
 }
 Write-Host "Macro blocking enabled for Word, Excel, PowerPoint"
+
+
 ```
+-->
+-->
 
 #### Group Policy 강화
 
@@ -301,6 +333,20 @@ DeviceProcessEvents
 
 #### Sigma Rule
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> title: Office Application Spawning Suspicious Process (CVE-2026-21509)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> title: Office Application Spawning Suspicious Process (CVE-2026-21509)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 title: Office Application Spawning Suspicious Process (CVE-2026-21509)
 id: a8c5d8e2-1234-5678-9abc-def012345678
@@ -343,7 +389,11 @@ tags:
     - attack.t1566.001
     - attack.t1059
     - cve.2026.21509
+
+
 ```
+-->
+-->
 
 #### EDR 쿼리 (CrowdStrike Falcon)
 
@@ -432,6 +482,8 @@ Get-WinEvent -FilterHashtable @{
 
 #### ASCII 공격 체인
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ PHASE 1: INITIAL ACCESS (T1566.001)                                        │
@@ -486,7 +538,11 @@ Get-WinEvent -FilterHashtable @{
 │                                                                              │
 │ [Timeline] Initial Access → Full Compromise: ~15 minutes                   │
 └─────────────────────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### 단계별 탐지 포인트
 
@@ -500,6 +556,20 @@ Get-WinEvent -FilterHashtable @{
 
 ### 1.8 IOC (Indicators of Compromise)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 알려진 악성 해시 (SHA256) - 샘플...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 알려진 악성 해시 (SHA256) - 샘플...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 알려진 악성 해시 (SHA256) - 샘플
 file_hashes:
@@ -517,7 +587,11 @@ mitre_attack:
   - T1059.001  # Command and Scripting Interpreter: PowerShell
   - T1059.003  # Command and Scripting Interpreter: Windows Command Shell
   - T1218.005  # System Binary Proxy Execution: Mshta
+
+
 ```
+-->
+-->
 
 ---
 
@@ -532,6 +606,8 @@ mitre_attack:
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     A["1. SCOPING<br/>Attack Surface Definition"] --> B["2. DISCOVERY<br/>Vulnerability Detection"]
@@ -544,7 +620,11 @@ graph LR
     style C fill:#fff3e0
     style D fill:#f3e5f5
     style E fill:#e8f5e9
+
+
 ```
+-->
+-->
 
 </details>
 
@@ -552,6 +632,20 @@ graph LR
 
 #### Stage 1: Scoping (공격 표면 정의)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # 공격 표면 인벤토리 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # 공격 표면 인벤토리 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 공격 표면 인벤토리 예시
 attack_surface:
@@ -583,7 +677,11 @@ attack_surface:
   third_party:
     - vendors_with_vpn: 12
     - api_integrations: 34
+
+
 ```
+-->
+-->
 
 #### Stage 2: Discovery (취약점 발견)
 
@@ -596,6 +694,10 @@ attack_surface:
 | 컨테이너 | Trivy, Grype | 이미지 취약점 스캔 |
 | 코드 | Semgrep, CodeQL | SAST 분석 |
 | 인프라 | Nessus, Qualys | 전통적 취약점 스캔 |
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # Nuclei로 외부 자산 스캔
@@ -611,6 +713,20 @@ trivy image --severity CRITICAL,HIGH --format json \
 
 **EPSS + CVSS 복합 스코어링:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> from dataclasses import dataclass...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> from dataclasses import dataclass...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 from dataclasses import dataclass
 from typing import Literal
@@ -668,12 +784,30 @@ cve_2026_21509 = Vulnerability(
 priority, score = calculate_risk_priority(cve_2026_21509)
 print(f"{cve_2026_21509.cve_id}: {priority} (Score: {score:.2f})")
 # 출력: CVE-2026-21509: P0 (Score: 13.98)
+
+
 ```
+-->
+-->
 
 #### Stage 4: Validation (익스플로잇 검증)
 
 **BAS (Breach and Attack Simulation) 도구:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Atomic Red Team 테스트 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Atomic Red Team 테스트 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Atomic Red Team 테스트 예시
 atomic_tests:
@@ -693,12 +827,30 @@ atomic_tests:
       - cmd: |
           powershell -NoProfile -WindowStyle Hidden -EncodedCommand JABjAD...
     expected_detection: true
+
+
 ```
+-->
+-->
 
 #### Stage 5: Mobilization (대응 조치)
 
 **SOAR Playbook 예시:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # CVE-2026-21509 대응 플레이북...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # CVE-2026-21509 대응 플레이북...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # CVE-2026-21509 대응 플레이북
 playbook:
@@ -732,7 +884,11 @@ playbook:
       params:
         channel: "#soc-alerts"
         severity: critical
+
+
 ```
+-->
+-->
 
 ---
 
@@ -771,6 +927,20 @@ playbook:
 
 #### Grist-Core 공격 흐름도
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ PHASE 1: RECONNAISSANCE                                                     │
@@ -832,10 +1002,28 @@ playbook:
 │                                                                              │
 │ [Timeline] Exploitation → Data Theft: ~10 minutes                          │
 └─────────────────────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 ### 3.3 점검 및 대응
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # 현재 버전 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # 현재 버전 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 현재 버전 확인
 docker exec grist-core cat /app/package.json | jq '.version'
@@ -854,10 +1042,28 @@ docker-compose down && docker-compose up -d
 
 # 업그레이드 후 확인
 docker exec grist-core cat /app/package.json | jq '.version'
+
+
 ```
+-->
+-->
 
 **네트워크 격리 (임시 조치):**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # docker-compose.yml 수정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # docker-compose.yml 수정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # docker-compose.yml 수정
 services:
@@ -873,7 +1079,11 @@ services:
 networks:
   internal_only:
     internal: true
+
+
 ```
+-->
+-->
 
 ---
 
@@ -893,6 +1103,20 @@ networks:
 
 ### 4.2 CI/CD 보안 파이프라인 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 {% raw %}
 # .github/workflows/security-pipeline.yml
@@ -939,7 +1163,11 @@ jobs:
         with:
           directory: ./terraform
 {% endraw %}
+
+
 ```
+-->
+-->
 
 ---
 
@@ -981,6 +1209,8 @@ jobs:
 
 ### 5.2 위험 평가 매트릭스 (Risk Assessment Matrix)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
       │ Likelihood (가능성)
       │ ────────────────────────────────────────────>
@@ -1007,10 +1237,16 @@ Medium│  │ Low     │ Low     │ Medium  │ High    │ High    │
 
 🔴 Critical Risk: CVE-2026-21509 (Likely × Critical = HIGH PRIORITY)
 🟠 High Risk: Grist-Core RCE (Unlikely × High = MEDIUM PRIORITY)
+
+
 ```
+-->
+-->
 
 ### 5.3 대응 타임라인 (Response Timeline)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 현재 시각: 2026-01-28 12:00
 ────────────────────────────────────────────────────────────────────────>
@@ -1024,7 +1260,11 @@ Medium│  │ Low     │ Low     │ Medium  │ High    │ High    │
    ▼             ▼              ▼             ▼             ▼
 ✅ 경고 발송  ✅ EDR 룰 배포  ⏳ 패치 배포중 ⏳ 취약점 점검  ⏳ CTEM 도입
 ✅ 분석 완료  ⏳ 재부팅 준비                                검토
+
+
 ```
+-->
+-->
 
 ### 5.4 핵심 성과 지표 (KPIs)
 

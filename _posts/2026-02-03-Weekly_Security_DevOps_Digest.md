@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 주간 보안 & DevOps 다이제스트: OpenClaw AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, OpenClaw, Moltbot, Moltbook, NanoClaw, AI-Agent-Security, MDM, Jamf, Intune, OWASP, Kubernetes, DevSecOps, ClawHub, ClawHavoc, NTLM, CVE-2026-25253, Supply-Chain, Zero-Trust, Atomic-Stealer, "2026"
+
+> **핵심 내용**: 
+> - OpenClaw(Moltbot) CVE-2026-25253 RCE, ClawHavoc 335개 Atomic Stealer 캠페인, Moltbook 자격증명 대량 유출, 가짜 VS Code 확장 RAT 배포 등 AI 에이전트 생태계 보안 위기 총정리와 Jamf/Intune MDM 실무 대응 가이드
+
+> **주요 기술/도구**: Security, Security, Kubernetes, DevSecOps, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -299,6 +319,20 @@ AI 에이전트 보안의 표준 프레임워크로 부상한 OWASP Agentic AI T
 
 ### 1.6 AI 에이전트 보안 체크리스트: 어떻게 대비해야 하는가?
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # AI Agent Security Checklist...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # AI Agent Security Checklist...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # AI Agent Security Checklist
 pre_deployment:
@@ -341,10 +375,28 @@ shodan_exposure:  # Shodan 노출 대응
   - [ ] 자가 호스팅 AI 에이전트 인스턴스 인터넷 노출 여부 확인
   - [ ] 관리 포트 방화벽/ACL 설정 점검
   - [ ] Shodan/Censys 모니터링 알림 설정
+
+
 ```
+-->
+-->
 
 ### 1.7 탐지: SIEM 쿼리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # Splunk - AI Agent Suspicious File Access...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # Splunk - AI Agent Suspicious File Access...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Splunk - AI Agent Suspicious File Access
 index=endpoint sourcetype=sysmon EventCode=11
@@ -378,7 +430,11 @@ process_name="node"
 | search suspicious="SUSPICIOUS"
 | stats count by process_name, dest, dest_port, user
 | where count > 3
+
+
 ```
+-->
+-->
 
 ### 1.8 Jamf Extension Attribute: OpenClaw/Moltbot 설치를 어떻게 탐지하는가?
 
@@ -386,6 +442,20 @@ process_name="node"
 
 #### Extension Attribute 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # Jamf Extension Attribute: OpenClaw/Moltbot Installation Detection
@@ -457,7 +527,11 @@ if [ "$FOUND_ANY" = true ]; then
 else
     echo -e "<result>Clean: No Installation Found\n\n$REPORT</result>"
 fi
+
+
 ```
+-->
+-->
 
 #### Jamf Pro 등록 방법
 
@@ -486,6 +560,20 @@ fi
 
 동일 패턴으로 다른 AI 코딩 에이전트도 탐지할 수 있습니다:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Additional AI agent binary paths to monitor...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Additional AI agent binary paths to monitor...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Additional AI agent binary paths to monitor
 check_binary "/usr/local/bin/cursor"
@@ -502,10 +590,28 @@ check_user_dir ".continue"
 # Homebrew cask installations
 check_binary "/opt/homebrew/bin/openclaw"
 check_binary "/opt/homebrew/bin/cursor"
+
+
 ```
+-->
+-->
 
 #### 탐지 결과 SIEM 연동
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Jamf EA 기반 OpenClaw 설치 탐지 알림...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Jamf EA 기반 OpenClaw 설치 탐지 알림...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Splunk - Jamf EA 기반 OpenClaw 설치 탐지 알림
 index=jamf sourcetype=jamf:computerextensionattributes
@@ -519,7 +625,11 @@ index=jamf sourcetype=jamf:computerextensionattributes
 ea_name="OpenClaw Detection"
 ea_value="WARNING*"
 | timechart span=1w count by computer_name
+
+
 ```
+-->
+-->
 
 ### 1.9 AI 에이전트 보안 FAQ
 
@@ -570,6 +680,8 @@ Jamf Pro는 Apple 생태계에 최적화된 MDM으로, Configuration Profile을 
 
 #### Configuration Profile로 앱 제한
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```xml
 <!-- Jamf Pro - Restriction Payload: Block Specific Apps -->
 <?xml version="1.0" encoding="UTF-8"?>
@@ -611,7 +723,11 @@ Jamf Pro는 Apple 생태계에 최적화된 MDM으로, Configuration Profile을 
   </array>
 </dict>
 </plist>
+
+
 ```
+-->
+-->
 
 #### Smart Groups 기반 정책 배포
 
@@ -619,6 +735,20 @@ Jamf Pro는 Apple 생태계에 최적화된 MDM으로, Configuration Profile을 
 
 #### Jamf Pro API로 앱 비활성화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Jamf Pro API - Get device app list...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Jamf Pro API - Get device app list...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Jamf Pro API - Get device app list
 curl -X GET "https://your-jamf.jamfcloud.com/JSSResource/mobiledevices/id/{device_id}" \
@@ -643,7 +773,11 @@ curl -X POST "https://your-jamf.jamfcloud.com/JSSResource/mobiledevicecommands/c
         </general>
         <mobile_devices><mobile_device><id>{device_id}</id></mobile_device></mobile_devices>
       </mobile_device_command>'
+
+
 ```
+-->
+-->
 
 ### 2.4 Microsoft Intune: 크로스 플랫폼 MDM은 어떻게 구성하는가?
 
@@ -651,6 +785,20 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 
 #### App Protection Policies
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "@odata.type": "#microsoft.graph.iosManagedAppProtection",
@@ -680,10 +828,28 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
   "fingerprintBlocked": false,
   "disableAppPinIfDevicePinIsSet": false
 }
+
+
 ```
+-->
+-->
 
 #### Conditional Access로 앱 접근 제어
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "@odata.type": "#microsoft.graph.conditionalAccessPolicy",
@@ -709,10 +875,28 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
     ]
   }
 }
+
+
 ```
+-->
+-->
 
 #### Intune Compliance Policy
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "@odata.type": "#microsoft.graph.iosCompliancePolicy",
@@ -751,7 +935,11 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
     }
   ]
 }
+
+
 ```
+-->
+-->
 
 ### 2.5 Jamf Pro vs Microsoft Intune: 주요 기능은 어떻게 다른가?
 
@@ -772,6 +960,20 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 
 ### 2.6 SIEM 연동 MDM 모니터링은 어떻게 설정하는가?
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Jamf Pro MDM Compliance Events...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Splunk - Jamf Pro MDM Compliance Events...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Splunk - Jamf Pro MDM Compliance Events
 index=mdm sourcetype=jamf:events
@@ -801,10 +1003,28 @@ index=azure sourcetype=intune:deviceCompliance
 event.dataset: "jamf.events" AND
 event.action: ("restriction_violation" or "app_blocked" or "compliance_failed") AND
 NOT device.os.version: "17.*"
+
+
 ```
+-->
+-->
 
 ### 2.7 MDM Zero Trust 구현 체크리스트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # MDM Zero Trust Checklist...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # MDM Zero Trust Checklist...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # MDM Zero Trust Checklist
 enrollment:
@@ -829,7 +1049,11 @@ monitoring:
   - [ ] 비정상 체크인 패턴 알림
   - [ ] 관리 프로필 제거 시도 알림
   - [ ] 주간 컴플라이언스 리포트 자동화
+
+
 ```
+-->
+-->
 
 ---
 
@@ -908,6 +1132,20 @@ Microsoft Security 팀이 **macOS와 Python 개발 환경을 타겟으로 한 In
 
 ### 이번 주 액션 아이템
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Weekly Action Items - February 3, 2026...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Weekly Action Items - February 3, 2026...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Weekly Action Items - February 3, 2026
 priority_high:
@@ -930,7 +1168,11 @@ priority_low:
   - [ ] SLSA v1.1 빌드 무결성 파일럿
   - [ ] 에이전트 보안 정책 문서 초안 작성
   - [ ] Kerberos 인증 전환 계획 수립 (NTLM 폐지 대비)
+
+
 ```
+-->
+-->
 
 ### 이번 주 핵심 질문: 보안 팀이 스스로 물어야 할 것
 

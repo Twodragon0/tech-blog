@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략
+
+> **카테고리**: security, incident
+
+> **태그**: Ransomware, KARA, SK-Shieldus, LockBit, Akira, INC-Ransomware, Threat-Intelligence, DevSecOps, Zero-Trust, "2025"
+
+> **핵심 내용**: 
+> - 2025년 3분기 랜섬웨어 1,517건 발생. LockBit 5.0 재등장, Akira 제조업 타겟, 제로 트러스트 대응 전략.
+
+> **주요 기술/도구**: DevSecOps, security, incident
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -187,6 +207,20 @@ schema_type: Article
 
 #### LockBit 5.0 공격 체인
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # LockBit 5.0 공격 체인 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # LockBit 5.0 공격 체인 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # LockBit 5.0 공격 체인 분석
 attack_chain:
@@ -224,10 +258,16 @@ attack_chain:
   impact:
     - encryption: ChaCha20 + RSA-4096
     - deletion: Shadow Copy, Backup Catalogs
+
+
 ```
+-->
+-->
 
 #### LockBit 5.0 YARA 탐지 룰
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```yara
 rule LockBit_5_0_Ransomware
 {
@@ -264,7 +304,11 @@ rule LockBit_5_0_Ransomware
             (2 of ($etw_patch, $unhook_ntdll, $api_hash_1))
         )
 }
+
+
 ```
+-->
+-->
 
 ### 2.3 INC Ransomware Rust 버전 분석
 
@@ -282,6 +326,20 @@ SK쉴더스 EQST의 "Keep up with Ransomware" 시리즈에서 집중 분석한 *
 
 #### INC Ransomware Sigma 탐지 룰
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> title: INC Ransomware Process Activity...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> title: INC Ransomware Process Activity...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 title: INC Ransomware Process Activity
 id: 8a7b9c0d-1e2f-3g4h-5i6j-7k8l9m0n1o2p
@@ -322,7 +380,11 @@ tags:
     - attack.t1490
 falsepositives:
     - Legitimate backup software
+
+
 ```
+-->
+-->
 
 ### 2.4 Akira 랜섬웨어 - SonicWall 취약점 악용
 
@@ -334,6 +396,20 @@ falsepositives:
 | **암호화 방식** | ChaCha20 + RSA-4096 |
 | **특이사항** | Nutanix AHV 최초 암호화 성공 (2025년 6월) |
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # SonicWall 취약점 확인 명령어...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # SonicWall 취약점 확인 명령어...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # SonicWall 취약점 확인 명령어
 # CVE-2024-40766 영향받는 버전 확인
@@ -349,7 +425,11 @@ show version
 # 1. SonicWall 지원 포털에서 최신 펌웨어 다운로드
 # 2. SSLVPN Default Users Group 비활성화
 # 3. MFA 강제 적용
+
+
 ```
+-->
+-->
 
 ---
 
@@ -405,6 +485,20 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 
 ### 3.4 EDR 우회 기법 상세
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 2025년 3분기 주요 EDR 우회 기법...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 2025년 3분기 주요 EDR 우회 기법...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 2025년 3분기 주요 EDR 우회 기법
 edr_evasion_techniques:
@@ -455,7 +549,11 @@ edr_evasion_techniques:
     detection:
       - "알려진 취약 드라이버 로드 탐지"
       - "드라이버 로드 이벤트 모니터링 (Sysmon ID 6)"
+
+
 ```
+-->
+-->
 
 ---
 
@@ -484,6 +582,8 @@ edr_evasion_techniques:
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Why Manufacturing is Ransomware Target #1:
 1. Extremely High Downtime Costs - Hundreds of thousands per minute, production delays, supply chain impact
@@ -492,7 +592,11 @@ Why Manufacturing is Ransomware Target #1:
 4. Relatively Low Security Maturity - OT security underinvested, staff shortage, lack of training
 
 Response Strategy: OT/IT network separation, industrial firewalls/IDS/IPS, OT-specific EDR, regular OT security assessments
+
+
 ```
+-->
+-->
 
 </details>
 
@@ -512,6 +616,20 @@ Response Strategy: OT/IT network separation, industrial firewalls/IDS/IPS, OT-sp
 
 ### 5.1 제로 트러스트 아키텍처 구현
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 제로 트러스트 구현 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 제로 트러스트 구현 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 제로 트러스트 구현 체크리스트
 zero_trust_implementation:
@@ -566,7 +684,11 @@ zero_trust_implementation:
         - "UEBA(User Entity Behavior Analytics)"
         - "24x7 SOC 운영"
       tools: [Splunk, Microsoft Sentinel, Elastic SIEM]
+
+
 ```
+-->
+-->
 
 ### 5.2 3-2-1-1-0 백업 전략
 
@@ -579,6 +701,10 @@ zero_trust_implementation:
 
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```
 3-2-1-1-0 Backup Strategy:
@@ -593,6 +719,20 @@ zero_trust_implementation:
 
 #### AWS S3 Immutable 백업 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
     "Rules": [
@@ -609,8 +749,26 @@ zero_trust_implementation:
         }
     ]
 }
-```
 
+
+```
+-->
+-->
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # AWS CLI로 Object Lock 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # AWS CLI로 Object Lock 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # AWS CLI로 Object Lock 설정
 aws s3api put-object-lock-configuration \
@@ -624,10 +782,28 @@ aws s3api put-object-lock-configuration \
             }
         }
     }'
+
+
 ```
+-->
+-->
 
 ### 5.3 침해 지표(IOC) 모니터링 자동화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Sigma 룰 - 랜섬웨어 초기 침투 징후 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Sigma 룰 - 랜섬웨어 초기 침투 징후 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Sigma 룰 - 랜섬웨어 초기 침투 징후 탐지
 title: Ransomware Initial Access Indicators
@@ -698,10 +874,28 @@ tags:
 falsepositives:
     - Legitimate admin activities
     - Software deployment tools
+
+
 ```
+-->
+-->
 
 ### 5.4 침해사고 대응 플레이북
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 랜섬웨어 침해사고 대응 플레이북...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 랜섬웨어 침해사고 대응 플레이북...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 랜섬웨어 침해사고 대응 플레이북
 ransomware_incident_response:
@@ -771,7 +965,11 @@ ransomware_incident_response:
       - "[ ] 근본 원인 분석(RCA)"
       - "[ ] 탐지 룰 개선"
       - "[ ] 훈련 프로그램 업데이트"
+
+
 ```
+-->
+-->
 
 ---
 

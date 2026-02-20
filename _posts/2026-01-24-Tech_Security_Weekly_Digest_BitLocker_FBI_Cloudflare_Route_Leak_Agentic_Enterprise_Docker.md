@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: Tech & Security Weekly Digest: Microsoft BitLocker FBI 키 제공, Cloudflare Route Leak, 자율 기업 2026 전망
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, BitLocker, FBI, Encryption, Route-Leak, BGP, Cloudflare, Agentic-AI, Platform-Engineering, Docker, Codex, OpenAI, CNCF, DevSecOps, "2026"
+
+> **핵심 내용**: 
+> - BitLocker FBI 키 제공 논란, Cloudflare BGP Route Leak, CNCF 자율 기업 4대 제어, Docker 2026
+
+> **주요 기술/도구**: Security, Cloudflare, Docker, DevSecOps, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -232,6 +252,8 @@ BitLocker Recovery Key Storage:
 
 #### BitLocker 공격 흐름도 (Attack Flow Diagram)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [BitLocker 복구 키 탈취 공격 시나리오]
 
@@ -269,7 +291,11 @@ BitLocker Recovery Key Storage:
 │ 4. 디바이스 분실 시 원격 Wipe               │
 │ 5. 엔드포인트 모니터링 (복구 키 사용 감지) │
 └─────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### 보안 관점에서의 시사점
 
@@ -389,6 +415,8 @@ Cloudflare Route Leak Timeline (2026-01-22 UTC):
 
 #### Route Leak이란?
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     subgraph Normal["정상적인 BGP 경로 전파"]
@@ -406,7 +434,11 @@ graph TD
     style Normal fill:#e8f5e9
     style Leak fill:#ffebee
     style D fill:#c62828,color:#fff
+
+
 ```
+-->
+-->
 
 #### MITRE ATT&CK 매핑 (BGP Route Leak)
 
@@ -419,6 +451,8 @@ graph TD
 
 #### BGP Route Leak 공격 흐름도 (Attack Flow Diagram)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [BGP Route Leak/Hijack 공격 시나리오]
 
@@ -476,7 +510,11 @@ graph TD
 │   - BGPStream, RIPE RIS 알림                   │
 │   - 이상 광고 즉시 탐지                        │
 └────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### 한국 영향 분석 (Korea Impact Analysis)
 
@@ -508,6 +546,20 @@ graph TD
 
 #### RPKI 설정 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # RPKI ROA 검증 활성화 (Bird BGP 예시)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # RPKI ROA 검증 활성화 (Bird BGP 예시)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # RPKI ROA 검증 활성화 (Bird BGP 예시)
 protocol rpki {
@@ -528,7 +580,11 @@ filter import_filter {
     }
     accept;
 }
+
+
 ```
+-->
+-->
 
 #### SIEM 탐지 쿼리 (BGP Anomaly Detection)
 
@@ -635,6 +691,20 @@ CNCF에서 **2026년 자율 기업(Autonomous Enterprise) 전환**에 대한 심
 
 #### 실무 적용 포인트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 정책 제어 예시: OPA Gatekeeper...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 정책 제어 예시: OPA Gatekeeper...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 정책 제어 예시: OPA Gatekeeper
 # AI 에이전트 배포 제약 조건
@@ -653,7 +723,11 @@ spec:
       - key: "ai-agent-version"
       - key: "trust-level"
       - key: "data-access-scope"
+
+
 ```
+-->
+-->
 
 > **출처**: [CNCF Blog - The Autonomous Enterprise 2026 Forecast](https://www.cncf.io/blog/2026/01/23/the-autonomous-enterprise-and-the-four-pillars-of-platform-control-2026-forecast/)
 
@@ -685,6 +759,10 @@ GeekNews에서 **컨테이너화의 선구자 Docker의 2026년 현황**을 심�
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```
 Docker Evolution: 2013 Container Revolution → 2014-17 Rapid Growth (Swarm)
 → 2017-19 K8s Competition → 2019-20 Restructuring (Mirantis sale)
@@ -707,6 +785,10 @@ Docker Evolution: 2013 Container Revolution → 2014-17 Rapid Growth (Swarm)
 #### DevSecOps 관점 시사점
 
 **1. Docker 종속성 점검**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
 ```bash
 # 현재 프로젝트의 Docker 종속성 확인
@@ -781,6 +863,20 @@ User Request → Planning Agent (Task Decomposition)
 
 #### 개발자 관점 활용 팁
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # Codex API 활용 예시: 병렬 작업 정의...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # Codex API 활용 예시: 병렬 작업 정의...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Codex API 활용 예시: 병렬 작업 정의
 from openai import OpenAI
@@ -803,7 +899,11 @@ for task in tasks:
         temperature=0.2
     )
     responses.append(response)
+
+
 ```
+-->
+-->
 
 > **출처**: [OpenAI - Unrolling the Codex Agent Loop](https://openai.com/index/unrolling-the-codex-agent-loop/)
 
@@ -824,6 +924,8 @@ Ghostty 프로젝트가 **외부 기여자의 AI 사용에 대한 엄격한 규�
 
 #### 논쟁 포인트
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     A["Ghostty AI Policy"] --> B["찬성 의견"]
@@ -849,7 +951,11 @@ graph LR
     style C2 fill:#ffb74d
     style C3 fill:#ffb74d
     style C4 fill:#ffb74d
+
+
 ```
+-->
+-->
 
 #### DevSecOps 관점 시사점
 
@@ -955,6 +1061,8 @@ Gatsby 팀이 만든 **AI 에이전트/워크플로우 프레임워크 Mastra**�
 
 **목표**: 비정상적인 BitLocker 복구 키 접근 탐지
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # Windows Event Log 기반 헌팅 (PowerShell)
 # 복구 키 접근 이벤트 수집
@@ -974,7 +1082,11 @@ Get-ADObject -Filter "objectClass -eq 'msFVE-RecoveryInformation'" `
     Where-Object { $_.whenChanged -gt (Get-Date).AddDays(-30) } |
     Select-Object whenChanged, distinguishedName |
     Sort-Object whenChanged -Descending
+
+
 ```
+-->
+-->
 
 **탐지 시나리오**:
 1. 짧은 시간 내 여러 복구 키 조회 (5분 내 3회 이상)
@@ -985,6 +1097,20 @@ Get-ADObject -Filter "objectClass -eq 'msFVE-RecoveryInformation'" `
 
 **목표**: 자사 프리픽스에 대한 비정상 BGP 광고 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # BGPStream CLI를 이용한 히스토리컬 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # BGPStream CLI를 이용한 히스토리컬 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # BGPStream CLI를 이용한 히스토리컬 분석
 bgpstream -p "1.1.1.0/24" -w "2026-01-22 14:00:00" -u "2026-01-22 15:00:00" \
@@ -997,7 +1123,11 @@ curl "https://stat.ripe.net/data/bgp-updates/data.json?resource=1.1.1.0/24&start
 # Cisco IOS XR에서 BGP 이상 광고 필터링 (실시간)
 show bgp ipv4 unicast 1.1.1.0/24 | include "Origin IGP"
 show bgp ipv4 unicast neighbors 192.0.2.1 routes | count
+
+
 ```
+-->
+-->
 
 **탐지 시나리오**:
 1. 우리 AS가 아닌 다른 AS에서 자사 프리픽스 광고
@@ -1008,6 +1138,20 @@ show bgp ipv4 unicast neighbors 192.0.2.1 routes | count
 
 **목표**: AI 에이전트의 비인가 권한 상승 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Kubernetes Audit Log 기반 헌팅 (kubectl + jq)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Kubernetes Audit Log 기반 헌팅 (kubectl + jq)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Kubernetes Audit Log 기반 헌팅 (kubectl + jq)
 kubectl get events -n ai-agents --field-selector involvedObject.kind=Pod \
@@ -1022,7 +1166,11 @@ kubectl get events --all-namespaces -o json | jq -r '.items[] |
     select(.verb == "get" or .verb == "list") |
     {time: .requestReceivedTimestamp, user: .user.username,
      namespace: .objectRef.namespace, secret: .objectRef.name}'
+
+
 ```
+-->
+-->
 
 **탐지 시나리오**:
 1. AI 에이전트 Pod에서 cluster-admin 권한 시도

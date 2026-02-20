@@ -17,6 +17,26 @@ schema_type: Article
 certifications: [aws-saa]
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전
+
+> **카테고리**: security, devsecops
+
+> **태그**: AWS, CloudFront, cloudsecurity, Cybersecurity, DevSecOps, github, githubactions, SecurityEngineering, TechBlog, waf
+
+> **핵심 내용**: 
+> - AWS WAF/CloudFront GitHub DevSecOps 실전 가이드
+
+> **주요 기술/도구**: AWS, Security, Security, DevSecOps, GitHub, GitHub, Security, WAF
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -213,6 +233,8 @@ certifications: [aws-saa]
 
 ### 웹 애플리케이션 공격 흐름도
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │ MITRE ATT&CK: 웹 애플리케이션 공격 체인                          │
@@ -236,7 +258,11 @@ certifications: [aws-saa]
 4. Impact (T1498)
    ↓
    [DDoS] --[대량 요청]-->  [CloudFront] ──X Rate Limiting 차단
+
+
 ```
+-->
+-->
 
 ## 1. AWS WAF & CloudFront 보안 아키텍처
 
@@ -349,6 +375,20 @@ S3 버킷에 대한 직접 접근을 차단하고, 오직 CloudFront를 통해�
 
 > **참고**: CloudFront 설정 관련 자세한 내용은 [AWS CloudFront Terraform 모듈](https://github.com/terraform-aws-modules/terraform-aws-cloudfront) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # CloudFront Distribution with OAC 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # CloudFront Distribution with OAC 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # CloudFront Distribution with OAC 설정
 CloudFrontDistribution:
@@ -381,7 +421,11 @@ OriginAccessControl:
       OriginAccessControlOriginType: s3
       SigningBehavior: always
       SigningProtocol: sigv4
+
+
 ```
+-->
+-->
 
 > **⚠️ 보안 주의사항**
 > 
@@ -389,6 +433,20 @@ OriginAccessControl:
 
 > **참고**: S3 버킷 정책 설정 관련 자세한 내용은 [AWS S3 버킷 정책 문서](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "Version": "2012-10-17",
@@ -421,7 +479,11 @@ OriginAccessControl:
     }
   ]
 }
+
+
 ```
+-->
+-->
 
 ### 1.2 Geo-Blocking (국가별 차단)
 
@@ -431,6 +493,20 @@ WAF의 Geo Match 조건을 활용하여 특정 국가의 접속을 차단하거�
 
 > **참고**: AWS WAF 규칙 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF 자동화 예제](https://github.com/aws-samples/aws-waf-automation-terraform-samples)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # WAF Geo Match Rule...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # WAF Geo Match Rule...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # WAF Geo Match Rule
 GeoMatchRule:
@@ -446,7 +522,11 @@ GeoMatchRule:
         Priority: 2
         Statement: { GeoMatchStatement: { CountryCodes: [KR] } }  # 허용 국가
         Action: { Allow: {} }
+
+
 ```
+-->
+-->
 
 > **💡 실무 팁**
 > 
@@ -460,6 +540,20 @@ GeoMatchRule:
 
 > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # WAF Header Match Rule (CloudFormation)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # WAF Header Match Rule (CloudFormation)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # WAF Header Match Rule (CloudFormation)
 HeaderMatchRule:
@@ -476,7 +570,11 @@ HeaderMatchRule:
         Statement: { ByteMatchStatement: { FieldToMatch: { SingleHeader: { Name: User-Agent } },
           PositionalConstraint: CONTAINS, SearchString: "sqlmap|nikto|nmap" } }
         Action: { Block: {} }
+
+
 ```
+-->
+-->
 
 #### Response Header 보안
 
@@ -484,6 +582,20 @@ HeaderMatchRule:
 
 > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # CloudFront Response Headers Policy (주요 보안 헤더)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # CloudFront Response Headers Policy (주요 보안 헤더)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # CloudFront Response Headers Policy (주요 보안 헤더)
 ResponseHeadersPolicy:
@@ -495,7 +607,11 @@ ResponseHeadersPolicy:
         ContentTypeOptions: { Override: true }  # X-Content-Type-Options: nosniff
         FrameOptions: { FrameOption: DENY }     # Clickjacking 방어
         XSSProtection: { ModeBlock: true, Protection: true }
+
+
 ```
+-->
+-->
 
 ### 1.4 한국 웹 애플리케이션 위협 분석
 
@@ -533,6 +649,20 @@ ResponseHeadersPolicy:
 
 #### 한국 특화 공격 패턴
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │ 한국 웹 애플리케이션 공격 시나리오                               │
@@ -553,7 +683,11 @@ ResponseHeadersPolicy:
 시나리오 4: ActiveX 의존 환경의 취약점
 [레거시 시스템] → [ActiveX 컨트롤] → 0-day 취약점
 대응: 점진적 HTML5 전환 + WAF로 의심 트래픽 차단
+
+
 ```
+-->
+-->
 
 #### 한국 보안 생태계 통합
 
@@ -571,6 +705,10 @@ AWS WAF Workshop 및 DVWA를 활용하여 SQL Injection/XSS 공격을 시도하�
 #### 실습 환경 구성
 
 > **참고**: DVWA 실습 환경 관련 내용은 [DVWA GitHub 저장소](https://github.com/digininja/DVWA) 및 [OWASP WebGoat](https://github.com/WebGoat/WebGoat)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
 ```bash
 # DVWA 컨테이너 실행
@@ -699,6 +837,10 @@ paths-ignore:
 
 > **참고**: Python URL 검증 관련 내용은 [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html) 및 [Python urllib.parse 문서](https://docs.python.org/3/library/urllib.parse.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+
 ```python
 # 취약한 코드
 if 'blog.kakaocdn.net' in src:
@@ -714,6 +856,20 @@ if 'blog.kakaocdn.net' in src:
 
 > **참고**: URL 검증 및 SSRF 방어 관련 자세한 내용은 [OWASP SSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> from urllib.parse import urlparse...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> from urllib.parse import urlparse...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 from urllib.parse import urlparse
 from typing import List
@@ -758,7 +914,11 @@ if validate_url(image_url):
     download_image(image_url)
 else:
     logger.warning(f"Blocked suspicious URL: {image_url}")
+
+
 ```
+-->
+-->
 
 > **⚠️ 보안 주의사항**
 > 
@@ -774,6 +934,20 @@ else:
 
 > **참고**: 민감 정보 마스킹 관련 자세한 내용은 [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import re...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> import re...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import re
 from typing import Pattern, Tuple
@@ -820,13 +994,21 @@ def mask_sensitive_data(data: str) -> str:
 api_key = os.getenv("OPENAI_API_KEY", "")
 logger.info(mask_sensitive_data(f"API_KEY={api_key}"))
 # 출력: API_KEY=sk-***MASKED***
+
+
 ```
+-->
+-->
 
 #### 취약점 3: 입력값 검증 부재
 
 **수정 전**
 
 > **참고**: Python 이미지 처리 보안 관련 내용은 [OWASP Image Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html) 및 [Python requests 문서](https://requests.readthedocs.io/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 
 ```python
 def process_image_url(url: str):
@@ -838,6 +1020,20 @@ def process_image_url(url: str):
 
 > **참고**: 입력값 검증 및 이미지 처리 보안 관련 자세한 내용은 [OWASP File Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)를 참조하세요.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import requests...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import requests...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import requests
 from urllib.parse import urlparse
@@ -909,7 +1105,11 @@ try:
                 f.write(chunk)
 except ValueError as e:
     logger.warning(f"Image validation failed: {e}")
+
+
 ```
+-->
+-->
 
 ### 3.3 Threat Hunting Queries (위협 헌팅 쿼리)
 
@@ -917,6 +1117,20 @@ except ValueError as e:
 
 #### 1. 반복적인 SQL Injection 시도 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- Splunk SPL...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- Splunk SPL...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```sql
 -- Splunk SPL
 index=waf sourcetype=aws:waf
@@ -931,10 +1145,28 @@ index=waf sourcetype=aws:waf
   )
 | table src_ip, count, threat_score, attacked_uris
 | sort - count
+
+
 ```
+-->
+-->
 
 #### 2. 다양한 공격 벡터를 사용하는 IP (APT 의심)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- Azure Sentinel KQL...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- Azure Sentinel KQL...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```sql
 -- Azure Sentinel KQL
 AWSWAFLogs
@@ -954,9 +1186,17 @@ AWSWAFLogs
   )
 | project SourceIP, AttackVectors, AttackCount, ThreatLevel, FirstSeen, LastSeen, AttackTypes
 | order by AttackVectors desc
+
+
 ```
+-->
+-->
 
 #### 3. 비정상적인 파일 업로드 시도
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```sql
 -- AWS CloudWatch Insights
@@ -971,6 +1211,10 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 
 #### 4. 캐시 우회 공격 (Cache Busting)
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```sql
 -- Splunk SPL
 index=cloudfront sourcetype=aws:cloudfront
@@ -984,6 +1228,20 @@ index=cloudfront sourcetype=aws:cloudfront
 
 #### 5. 의심스러운 User-Agent 패턴
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- Azure Sentinel KQL...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- Azure Sentinel KQL...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```sql
 -- Azure Sentinel KQL
 AWSWAFLogs
@@ -998,10 +1256,28 @@ AWSWAFLogs
 | where Count > 5
 | project TimeGenerated, SourceIP, SuspiciousUA, UserAgent, Count
 | order by Count desc
+
+
 ```
+-->
+-->
 
 #### 6. 시간대별 비정상 트래픽 패턴
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- Splunk SPL...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- Splunk SPL...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```sql
 -- Splunk SPL
 index=waf sourcetype=aws:waf
@@ -1013,9 +1289,17 @@ index=waf sourcetype=aws:waf
 | eval anomaly_score = round((count - avg_hourly) / stdev_hourly, 2)
 | table _time, src_ip, count, avg_hourly, threshold, anomaly_score
 | sort - anomaly_score
+
+
 ```
+-->
+-->
 
 #### 7. Geo-blocking 우회 시도 (VPN/Proxy 탐지)
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```sql
 -- AWS CloudWatch Insights
@@ -1030,6 +1314,20 @@ fields @timestamp, httpRequest.clientIp, httpRequest.country, httpRequest.header
 
 #### 8. API Rate Limiting 위반 (계정 크리덴셜 브루트포스)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- Azure Sentinel KQL...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```sql
+> -- Azure Sentinel KQL...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```sql
 -- Azure Sentinel KQL
 AWSWAFLogs
@@ -1048,9 +1346,17 @@ AWSWAFLogs
   )
 | project SourceIP, FailedAttempts, UniqueURIs, TimeWindow, AttackType
 | order by FailedAttempts desc
+
+
 ```
+-->
+-->
 
 #### 9. 서버 정보 노출 시도 (Reconnaissance)
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```sql
 -- Splunk SPL
@@ -1064,6 +1370,10 @@ index=waf sourcetype=aws:waf
 ```
 
 #### 10. 크로스-사이트 추적 (Cross-Site Tracking)
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```sql
 -- AWS CloudWatch Insights
@@ -1105,6 +1415,20 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 
 ### 4.1 경영진 대시보드
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌──────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌──────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │ AWS WAF/CloudFront 보안 현황 (2026년 1월 기준)                   │
@@ -1116,7 +1440,11 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 평균 응답시간    │ 145ms (↓ 12% vs 전월)
 보안 규칙 적용률 │ 98.5% (목표: 95%)
 오탐률 (False Positive) │ 0.3% (목표: < 1%)
+
+
 ```
+-->
+-->
 
 ### 4.2 위협 분석 리포트
 
@@ -1141,6 +1469,20 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 
 ### 4.4 ROI (Return on Investment) 분석
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 투자 대비 효과 분석 (1년 기준)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 투자 대비 효과 분석 (1년 기준)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 투자 대비 효과 분석 (1년 기준)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1165,10 +1507,16 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
     = 346%
 
 💰 투자 회수 기간 (Payback Period): 2.7개월
+
+
 ```
+-->
+-->
 
 ### 4.5 위험 매트릭스 (Risk Matrix)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
            영향도
            │
@@ -1182,7 +1530,11 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
            └──────────────────────────────
               Low      Medium      High
                    발생 가능성
+
+
 ```
+-->
+-->
 
 | 위협 | 발생 가능성 | 영향도 | 현재 대응 수준 | 잔여 위험 |
 |------|------------|--------|---------------|----------|
@@ -1233,6 +1585,20 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
 
 ### 5.1 AWS WAF + CloudFront 전체 아키텍처
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ AWS WAF + CloudFront 다층 보안 아키텍처                                      │
@@ -1286,10 +1652,28 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
                    │  CloudTrail    │ ← 모든 API 호출 로깅
                    │  CloudWatch    │ ← 실시간 모니터링
                    └────────────────┘
+
+
 ```
+-->
+-->
 
 ### 5.2 WAF 규칙 처리 흐름
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ AWS WAF 규칙 평가 순서 (Rule Evaluation Order)                              │
@@ -1341,10 +1725,16 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
                 │
                 ↓
          CloudFront로 전달
+
+
 ```
+-->
+-->
 
 ### 5.3 GitHub DevSecOps 파이프라인
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ GitHub DevSecOps CI/CD 파이프라인                                            │
@@ -1394,10 +1784,28 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
     │ CloudFront Invalidation│ ← 캐시 무효화
     │ WAF 규칙 업데이트      │
     └───────────────────────┘
+
+
 ```
+-->
+-->
 
 ### 5.4 SSRF 공격 및 방어 흐름
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ SSRF (Server-Side Request Forgery) 공격 시나리오 및 방어                     │
@@ -1483,10 +1891,28 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
 │   "Blocked SSRF attempt: {url}"      │
 │ )                                    │
 └──────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 ### 5.5 Data Masking 처리 흐름
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ 민감 정보 마스킹 (Data Masking) 처리 흐름                                    │
@@ -1550,7 +1976,11 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
 ┌──────────────────────────────────────┐
 │ CloudWatch Logs / Splunk / Sentinel  │ ← 마스킹된 데이터만 저장
 └──────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 ## 6. 차주 예습: 컨테이너 보안
 

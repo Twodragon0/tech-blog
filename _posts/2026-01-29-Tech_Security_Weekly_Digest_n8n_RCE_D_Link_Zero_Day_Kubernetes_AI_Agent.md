@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: Tech & Security Weekly Digest: n8n Critical RCE, D-Link 단종 장비 Zero-Day, Kubernetes AI 에이전트 보안
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, n8n, RCE, CVE-2026-1470, D-Link, Zero-Day, CVE-2026-0625, Kubernetes, AI-Agent, eBPF, Sovereign-Cloud, NHI, DevSecOps, "2026"
+
+> **핵심 내용**: 
+> - n8n RCE(CVE-2026-1470 CVSS 9.9), D-Link Zero-Day, K8s AI 에이전트 보안 과제, Swiss Sovereign Cloud
+
+> **주요 기술/도구**: Security, Kubernetes, DevSecOps, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -142,6 +162,8 @@ n8n의 Code Node는 사용자 정의 JavaScript 코드를 실행할 수 있지�
 
 ![n8n JavaScript Sandbox Escape Attack Flow](/assets/images/2026-01-29-n8n-sandbox-escape-attack-flow.svg)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 sequenceDiagram
     participant n8n as n8n Code Node
@@ -154,13 +176,21 @@ sequenceDiagram
     js->>host: 4. Sandbox 외부 코드 실행
     host->>host: 5. RCE 달성
     host-->>n8n: 공격 성공
+
+
 ```
+-->
+-->
 
 **공격 메커니즘 상세:**
 
 1. **`with` 문 악용**: JavaScript의 `with` 문은 scope chain을 조작합니다. 공격자는 이를 통해 sandbox 내부에서 외부 스코프에 접근합니다.
 2. **Function constructor bypass**: `with` 문으로 조작된 스코프에서 `Function` constructor에 접근하여 sandbox 바깥의 전역 컨텍스트에서 임의 코드를 실행합니다.
 3. **호스트 시스템 장악**: sandbox를 탈출한 코드는 n8n 프로세스의 권한으로 호스트 시스템에서 실행되어 완전한 RCE를 달성합니다.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
 
 ```javascript
 // 개념적 공격 흐름 (실제 PoC가 아닌 교육용 의사 코드)
@@ -180,6 +210,8 @@ Python Code Node에서 format-string과 `AttributeError.obj` 속성을 결합한
 
 **공격 메커니즘:**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 sequenceDiagram
     participant py as Python Code Node
@@ -192,7 +224,11 @@ sequenceDiagram
     boundary->>os: .obj 속성으로 내부 객체 접근
     os->>os: RCE 달성
     os-->>py: 공격 성공
+
+
 ```
+-->
+-->
 
 1. **format-string 트리거**: 의도적으로 `AttributeError`를 발생시키는 format string 구성
 2. **`.obj` 속성 악용**: Python의 `AttributeError` 예외 객체는 `.obj` 속성을 통해 원래 객체에 대한 참조를 유지합니다. 이를 통해 sandbox 내부 객체 트리를 순회합니다.
@@ -202,6 +238,20 @@ sequenceDiagram
 
 #### 버전 확인 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 {% raw %}
 #!/bin/bash
@@ -249,10 +299,16 @@ else
     echo "[-] n8n이 설치되지 않았거나 확인할 수 없습니다."
 fi
 {% endraw %}
+
+
 ```
+-->
+-->
 
 #### Splunk SIEM 탐지 룰
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # n8n Code Node 비정상 실행 탐지
 index=webserver sourcetype=n8n:execution
@@ -267,10 +323,28 @@ index=webserver sourcetype=n8n:execution
 | stats count by user, workflow_id, node_type, suspicious, _time
 | where count > 3
 | sort -count
+
+
 ```
+-->
+-->
 
 #### Sigma Rule
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # sigma/rules/application/n8n_sandbox_escape_attempt.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # sigma/rules/application/n8n_sandbox_escape_attempt.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # sigma/rules/application/n8n_sandbox_escape_attempt.yml
 title: n8n Code Node Sandbox Escape Attempt
@@ -310,10 +384,28 @@ detection:
 level: critical
 falsepositives:
   - Legitimate advanced n8n workflows using complex code patterns
+
+
 ```
+-->
+-->
 
 #### 긴급 패치 적용
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # n8n 긴급 패치 적용 스크립트
@@ -350,10 +442,28 @@ fi
 # 패치 확인
 echo "[*] 패치 후 버전 확인..."
 n8n --version 2>/dev/null || docker exec $(docker ps -q --filter "ancestor=n8nio/n8n" | head -1) n8n --version 2>/dev/null
+
+
 ```
+-->
+-->
 
 ### 임시 완화 조치 (즉시 패치 불가 시)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # n8n 보안 강화 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # n8n 보안 강화 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # n8n 보안 강화 설정
 # docker-compose.yml 또는 환경 변수
@@ -373,7 +483,11 @@ environment:
   # 실행 제한
   N8N_EXECUTIONS_TIMEOUT: "300"
   N8N_EXECUTIONS_TIMEOUT_MAX: "600"
+
+
 ```
+-->
+-->
 
 ### 참고 링크
 
@@ -406,6 +520,8 @@ D-Link의 **단종된(End-of-Life)** DSL 모뎀/라우터에서 **패치 불가�
 
 ![D-Link Command Injection Attack Chain](/assets/images/2026-01-29-dlink-command-injection-attack-chain.svg)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 sequenceDiagram
     participant attacker as 공격자
@@ -419,12 +535,18 @@ sequenceDiagram
     attacker->>router: 5. Reverse Shell /<br/>Malware Download
     
     Note over attacker: 악용 시나리오:<br/>A. DDoS 봇넷 편입<br/>B. DNS 하이재킹 설정<br/>C. 트래픽 가로채기<br/>D. 내부망 스캐닝
+
+
 ```
+-->
+-->
 
 #### 공격 원리 상세
 
 `dnscfg.cgi` CGI 스크립트는 DNS 서버 설정을 처리하는데, DNS 파라미터 값을 **검증 없이** 시스템 쉘 명령에 직접 전달합니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["입력: DNS 서버 주소<br/>(예: 8.8.8.8)"] --> B["기대 동작:<br/>DNS 서버 IP 설정"]
@@ -438,7 +560,11 @@ graph TD
     style D fill:#ff6b6b
     style F fill:#ff6b6b
     style G fill:#ff6b6b
+
+
 ```
+-->
+-->
 
 ### 영향 분석
 
@@ -460,6 +586,20 @@ Shadowserver 데이터에 따르면, 해당 단종 장비가 여전히 인터넷
 
 #### 취약 장비 스캐닝
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # D-Link 취약 장비 네트워크 스캔
@@ -491,10 +631,28 @@ while IFS= read -r ip; do
 done < <(grep "Nmap scan report" /tmp/dlink_scan.txt | awk '{print $NF}')
 
 echo "[*] 스캔 완료. 결과: /tmp/dlink_scan.txt"
+
+
 ```
+-->
+-->
 
 #### Snort/Suricata IDS 룰
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # D-Link dnscfg.cgi 커맨드 인젝션 탐지 룰...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # D-Link dnscfg.cgi 커맨드 인젝션 탐지 룰...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # D-Link dnscfg.cgi 커맨드 인젝션 탐지 룰
 # /etc/suricata/rules/dlink-cve-2026-0625.rules
@@ -524,10 +682,16 @@ alert http $EXTERNAL_NET any -> $HOME_NET any (
   rev:1;
   metadata:cve CVE-2026-0625, severity critical;
 )
+
+
 ```
+-->
+-->
 
 #### Splunk 탐지 쿼리
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # D-Link dnscfg.cgi 악용 시도 탐지
 index=firewall OR index=webproxy
@@ -540,10 +704,28 @@ index=firewall OR index=webproxy
 )
 | stats count by src_ip, dest_ip, severity, url
 | sort -severity, -count
+
+
 ```
+-->
+-->
 
 #### 장비 교체 계획 (패치 불가 대응)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # D-Link 단종 장비 교체 로드맵...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # D-Link 단종 장비 교체 로드맵...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # D-Link 단종 장비 교체 로드맵
 eol_device_replacement:
@@ -581,7 +763,11 @@ eol_device_replacement:
       note: "정기 펌웨어 업데이트"
     - name: "pfSense/OPNsense"
       note: "오픈소스, 커뮤니티 지원"
+
+
 ```
+-->
+-->
 
 ### 참고 링크
 
@@ -608,6 +794,8 @@ Tigera CEO Ratan Tipirneni가 2026년 Kubernetes 보안 전망에서 **AI 에이
 
 ![Kubernetes Traditional Container vs AI Agent Workloads](/assets/images/2026-01-29-k8s-ai-agent-vs-traditional.svg)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     subgraph traditional["기존 컨테이너 워크로드"]
@@ -632,7 +820,11 @@ graph LR
     
     style traditional fill:#e3f2fd
     style ai fill:#fff3e0
+
+
 ```
+-->
+-->
 
 ### eBPF 기반 보안 도구 생태계
 
@@ -650,6 +842,20 @@ graph LR
 
 #### Cilium NetworkPolicy (AI 에이전트 제한)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # cilium-ai-agent-policy.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # cilium-ai-agent-policy.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # cilium-ai-agent-policy.yaml
 # AI 에이전트 Pod의 네트워크 접근을 최소 권한으로 제한
@@ -703,10 +909,28 @@ spec:
         - ports:
             - port: "53"
               protocol: UDP
+
+
 ```
+-->
+-->
 
 #### Tetragon 런타임 모니터링 (AI 에이전트 행동 감시)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # tetragon-ai-agent-tracing.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # tetragon-ai-agent-tracing.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # tetragon-ai-agent-tracing.yaml
 # AI 에이전트의 비정상 시스템콜 및 파일 접근 탐지
@@ -770,10 +994,28 @@ spec:
                 - "host_mnt_ns"
           matchActions:
             - action: Post  # 로깅 (차단 전 관찰 모드)
+
+
 ```
+-->
+-->
 
 #### Falco 규칙 (AI 에이전트 이상 행동 탐지)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # falco-ai-agent-rules.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # falco-ai-agent-rules.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # falco-ai-agent-rules.yaml
 - rule: AI Agent Unexpected Process Execution
@@ -821,10 +1063,28 @@ spec:
      pod=%k8s.pod.name connection=%fd.name)
   priority: NOTICE
   tags: [ai-agent, api, monitoring]
+
+
 ```
+-->
+-->
 
 ### RBAC 최소 권한 설계 (AI 에이전트용)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ai-agent-rbac.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # ai-agent-rbac.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # ai-agent-rbac.yaml
 # AI 에이전트에 최소 권한만 부여
@@ -874,7 +1134,11 @@ roleRef:
   kind: Role
   name: ai-agent-role
   apiGroup: rbac.authorization.k8s.io
+
+
 ```
+-->
+-->
 
 ### API 거버넌스 체크리스트
 
@@ -912,6 +1176,20 @@ Infomaniak이 2026년 1월 28일 **Swiss Sovereign Cloud**를 공식 출시했�
 
 ### 주요 서비스 구성
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```mermaid
+> graph TD...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```mermaid
+> graph TD...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```mermaid
 graph TD
     A["Infomaniak Swiss Sovereign Cloud"]
@@ -947,7 +1225,11 @@ graph TD
     style D fill:#2196F3,color:#fff
     style E fill:#2196F3,color:#fff
     style F fill:#2196F3,color:#fff
+
+
 ```
+-->
+-->
 
 ### 데이터 주권 비교
 
@@ -962,6 +1244,20 @@ graph TD
 
 ### DevSecOps 활용 시나리오
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 데이터 주권 요구사항 평가 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 데이터 주권 요구사항 평가 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 데이터 주권 요구사항 평가 체크리스트
 sovereignty_assessment:
@@ -987,7 +1283,11 @@ sovereignty_assessment:
     - scenario: "AI/ML 워크로드"
       recommendation: "GPU 인스턴스 성능 비교 후 결정"
       reason: "OpenAI 호환 API 활용 가능"
+
+
 ```
+-->
+-->
 
 ### 참고 링크
 
@@ -1018,6 +1318,8 @@ Tenable의 2026년 보안 예측에서 **비인간 ID(Non-Human Identity, NHI)**
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 sequenceDiagram
     participant attacker as 공격자
@@ -1032,7 +1334,11 @@ sequenceDiagram
     exfil->>lateral: 4. Other Service Account<br/>Token Theft (SSRF, IMDS)
     
      Note over attacker: Key Attack Vectors:<br/>Hardcoded Secrets | Over-privileged IAM<br/>Non-expiring Tokens | IMDS v1
+
+
 ```
+-->
+-->
 
 </details>
 
@@ -1040,6 +1346,20 @@ sequenceDiagram
 
 #### NHI 인벤토리 자동화
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 #!/usr/bin/env python3
 """
@@ -1150,10 +1470,28 @@ if __name__ == "__main__":
     plan = generate_remediation_plan(findings)
     print("\n=== Remediation Plan ===")
     print(json.dumps(plan, indent=2, ensure_ascii=False))
+
+
 ```
+-->
+-->
 
 #### AWS NHI 보안 정책
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # nhi-security-policies.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # nhi-security-policies.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # nhi-security-policies.yaml
 # AWS 환경 NHI 보안 강화 정책
@@ -1195,10 +1533,28 @@ secret_management:
   encryption: "aws/secretsmanager"
   access_logging: true
   cross_account_access: false
+
+
 ```
+-->
+-->
 
 #### Splunk NHI 이상 행동 탐지
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```spl
+> # NHI 비정상 행동 탐지 대시보드...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```spl
+> # NHI 비정상 행동 탐지 대시보드...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```spl
 # NHI 비정상 행동 탐지 대시보드
 
@@ -1228,7 +1584,11 @@ index=cloudtrail sourcetype=aws:cloudtrail
 | eval days_inactive=round((now()-last_activity)/86400)
 | where days_inactive > 90
 | sort -days_inactive
+
+
 ```
+-->
+-->
 
 ### 참고 링크
 

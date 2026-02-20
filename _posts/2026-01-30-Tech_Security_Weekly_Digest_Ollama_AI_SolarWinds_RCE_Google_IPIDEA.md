@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: Tech & Security Weekly Digest: Ollama AI 서버 175K 노출, SolarWinds WHD Critical RCE 6건, Google IPIDEA 프록시 차단
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, Ollama, LLMjacking, SolarWinds, CVE-2025-40551, CVE-2025-40552, IPIDEA, Residential-Proxy, Microsoft-AI, OT-Security, ICS, DevSecOps, "2026"
+
+> **핵심 내용**: 
+> - Ollama AI 서버 175K 공개 노출, SolarWinds WHD 6건 CVE(CVSS 9.8 x4), Google IPIDEA 6.1M IP 프록시 네트워크 차단, Microsoft AI 위협 탐지, OT/에너지 보안 취약점
+
+> **주요 기술/도구**: Security, Security, DevSecOps, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -141,6 +161,8 @@ SentinelOne SentinelLABS와 Censys의 공동 연구에서 **175,000대의 Ollama
   <img src="/assets/images/2026-01-30-ollama-exposure-landscape.svg" alt="175K Exposed Ollama AI Servers Threat Landscape" loading="lazy">
 </div>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     A["🌐 인터넷 공격자"] -->|1. API 호출<br/>GET /api/tags<br/>인증 없음| B["🖥️ 노출된 Ollama 서버"]
@@ -155,7 +177,11 @@ graph LR
     D --> G["C. Uncensored 모델<br/>악성 콘텐츠 생성"]
     D --> H["D. 모델 가중치 탈취<br/>/api/pull"]
     D --> I["E. 프롬프트 인젝션<br/>데이터 유출"]
+
+
 ```
+-->
+-->
 
 #### LLMjacking 공격 상세
 
@@ -173,6 +199,8 @@ graph LR
 
 Ollama의 tool-calling 기능은 LLM이 외부 함수를 호출할 수 있게 합니다. 노출된 인스턴스의 **약 48%**가 이 기능을 지원하며, 이는 단순 프롬프트 악용을 넘어 **원격 코드 실행(RCE)**으로 이어질 수 있습니다:
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["👤 공격자 프롬프트"] --> B["🔌 Ollama API<br/>/api/chat"]
@@ -187,12 +215,30 @@ graph TD
     E --> H
     F --> H
     G --> H
+
+
 ```
+-->
+-->
 
 ### 탐지 및 대응
 
 #### Ollama 인스턴스 노출 점검 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # Ollama 인스턴스 인터넷 노출 점검 스크립트
@@ -275,10 +321,28 @@ echo "2. 리버스 프록시(nginx) + 인증 적용"
 echo "3. 방화벽에서 11434 포트 외부 차단"
 echo "4. Uncensored 모델 제거 검토"
 echo "5. API 접근 로깅 활성화"
+
+
 ```
+-->
+-->
 
 #### Ollama 보안 강화 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # docker-compose.yml - Ollama 보안 배포 구성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # docker-compose.yml - Ollama 보안 배포 구성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # docker-compose.yml - Ollama 보안 배포 구성
 version: "3.8"
@@ -334,8 +398,14 @@ networks:
 
 volumes:
   ollama_models:
-```
 
+
+```
+-->
+-->
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```nginx
 # nginx-ollama.conf - Ollama 인증 프록시 설정
 server {
@@ -385,10 +455,16 @@ server {
         return 403;
     }
 }
+
+
 ```
+-->
+-->
 
 #### Splunk 탐지 쿼리
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Ollama API 비정상 접근 탐지
 index=webserver sourcetype=nginx:access
@@ -412,10 +488,28 @@ index=webserver sourcetype=nginx:access
 | stats count by src_ip, endpoint, suspicious, status
 | where suspicious IN ("high", "critical") OR count > 50
 | sort -suspicious, -count
+
+
 ```
+-->
+-->
 
 #### Sigma Rule
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # sigma/rules/application/ollama_unauthorized_access.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # sigma/rules/application/ollama_unauthorized_access.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # sigma/rules/application/ollama_unauthorized_access.yml
 title: Ollama API Unauthorized External Access
@@ -453,7 +547,11 @@ detection:
 level: high
 falsepositives:
   - Legitimate external access via VPN or authorized proxy
+
+
 ```
+-->
+-->
 
 ### 참고 링크
 
@@ -487,6 +585,8 @@ SolarWinds가 Web Help Desk(WHD)에서 발견된 **6건의 보안 취약점**을
   <img src="/assets/images/2026-01-30-solarwinds-whd-vulnerability-chain.svg" alt="SolarWinds Web Help Desk 6 Critical Vulnerabilities Chain" loading="lazy">
 </div>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     A["🌐 인터넷"] --> B["🖥️ WHD 서버"]
@@ -504,7 +604,11 @@ graph LR
     
     D["⚠️ 공격 체이닝 시나리오"] --> E["시나리오 1:<br/>CVE-40537 + CVE-40536<br/>= 전체 시스템 장악"]
     D --> F["시나리오 2:<br/>CVE-40552 + CVE-40551<br/>= 비인증 RCE"]
+
+
 ```
+-->
+-->
 
 #### CVE-2025-40551 / CVE-2025-40553: Java 역직렬화 RCE
 
@@ -538,6 +642,20 @@ WHD 내부에 **하드코딩된 자격증명**이 존재하여, 해당 계정으
 
 #### WHD 버전 확인 및 패치 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # SolarWinds Web Help Desk 취약점 점검 스크립트
@@ -609,10 +727,28 @@ if [ -n "$EXPOSED_PORTS" ]; then
         echo "[!] 패치 적용 전까지 내부 네트워크만 접근 허용 권장"
     fi
 fi
+
+
 ```
+-->
+-->
 
 #### 네트워크 탐지 규칙 (Suricata)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # SolarWinds WHD 역직렬화 공격 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # SolarWinds WHD 역직렬화 공격 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # SolarWinds WHD 역직렬화 공격 탐지
 # /etc/suricata/rules/solarwinds-whd-cve-2025.rules
@@ -663,10 +799,16 @@ alert http any any -> $HOME_NET any (
   rev:1;
   metadata:cve CVE-2025-40537, severity high;
 )
+
+
 ```
+-->
+-->
 
 #### Splunk 탐지 쿼리
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # SolarWinds WHD 공격 시도 탐지
 index=webserver sourcetype=access_combined
@@ -686,10 +828,28 @@ index=webserver sourcetype=access_combined
 | stats count by src_ip, attack_type, severity, status, uri_path
 | where severity IN ("critical", "high")
 | sort -severity, -count
+
+
 ```
+-->
+-->
 
 #### 임시 완화 조치
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # SolarWinds WHD 긴급 보안 강화 조치...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # SolarWinds WHD 긴급 보안 강화 조치...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # SolarWinds WHD 긴급 보안 강화 조치
 # 즉시 패치 불가 시 적용
@@ -726,7 +886,11 @@ immediate_mitigations:
     - "WHD 서버 전체 백업 수행"
     - "데이터베이스 스냅샷 생성"
     - "패치 적용 후 롤백 계획 수립"
+
+
 ```
+-->
+-->
 
 ### 참고 링크
 
@@ -806,6 +970,20 @@ SDK-Based Proxy Infection Process:
 
 #### 내부 네트워크 감염 탐지 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 #!/usr/bin/env python3
 """
@@ -979,10 +1157,28 @@ if __name__ == "__main__":
         print("")
         print("[!] 긴급: IPIDEA 감염 지표 발견!")
         print("[!] 즉시 네트워크 격리 및 포렌식 분석 필요")
+
+
 ```
+-->
+-->
 
 #### DNS 기반 차단 정책
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # IPIDEA 프록시 네트워크 DNS 차단 정책...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # IPIDEA 프록시 네트워크 DNS 차단 정책...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # IPIDEA 프록시 네트워크 DNS 차단 정책
 # Pi-hole / AdGuard Home / Bind RPZ 적용
@@ -1019,10 +1215,16 @@ dns_blocklist:
       *.ipidea.net CNAME .
       ipidea.io CNAME .
       *.ipidea.io CNAME .
+
+
 ```
+-->
+-->
 
 #### Splunk 탐지 쿼리
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # IPIDEA 레지덴셜 프록시 감염 탐지
 # 1. DNS 쿼리 기반 탐지
@@ -1052,7 +1254,11 @@ index=firewall sourcetype=firewall
 | stats count dc(dest_ip) as unique_dests by src_ip, dest_port
 | where unique_dests > 50
 | sort -unique_dests
+
+
 ```
+-->
+-->
 
 ### Google Play Protect 조치
 
@@ -1136,6 +1342,20 @@ AI 엔진이 비정형 위협 보고서에서 MITRE ATT&CK 프레임워크에 �
 
 ### 실무 적용: 자체 AI 위협 분석 파이프라인 구현
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 #!/usr/bin/env python3
 """
@@ -1314,7 +1534,11 @@ if __name__ == "__main__":
     for gap in gaps:
         rule = generate_sigma_rule(gap)
         print(json.dumps(rule, indent=2))
+
+
 ```
+-->
+-->
 
 ### Microsoft Data Security Index 2026
 
@@ -1356,6 +1580,8 @@ OMICRON이 **100곳 이상의 에너지 시설**(변전소, 발전소, 제어 �
   <img src="/assets/images/2026-01-30-ot-energy-security-gaps.svg" alt="OT Energy Systems Critical Cybersecurity Gaps - OMICRON Survey" loading="lazy">
 </div>
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["🔴 OT/에너지 시스템 보안 실태"] --> B["🔴 Critical"]
@@ -1371,7 +1597,11 @@ graph TD
     C --> C3["VLAN 오구성<br/>세그멘테이션 우회 가능"]
     
     D --> D1["IDS 배포 30분 내<br/>중요 문제 발견<br/>100% 탐지율"]
+
+
 ```
+-->
+-->
 
 ### 기술적 심층 분석
 
@@ -1379,6 +1609,8 @@ graph TD
 
 **11년 된 취약점**이 에너지 시설의 보호 릴레이에서 여전히 패치되지 않은 상태로 발견되었습니다. 이 취약점은 Siemens SIPROTEC 4 및 SIPROTEC Compact 장비에 영향을 미치며, 특수 조작된 패킷으로 보호 릴레이를 비활성화할 수 있습니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     A["👤 공격자"] -->|1. 네트워크 접근<br/>플랫 네트워크| B["🌐 OT 네트워크"]
@@ -1390,7 +1622,11 @@ graph LR
     
     F["⚠️ 위험성"] --> G["보호 릴레이는<br/>전력 시스템의<br/>안전 장치"]
     G --> H["비활성화 시<br/>과부하/단락<br/>감지 불가"]
+
+
 ```
+-->
+-->
 
 #### 문서화되지 않은 외부 연결
 
@@ -1407,6 +1643,20 @@ graph LR
 
 #### OT 네트워크 보안 점검 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # OT/ICS 네트워크 기본 보안 점검 스크립트
@@ -1488,10 +1738,28 @@ echo "3. 외부 연결 문서화 및 불필요 연결 차단"
 echo "4. 미패치 장비(CVE-2015-5374 등) 업데이트 또는 격리"
 echo "5. 네트워크 IDS 배포 (30분 내 가시성 확보)"
 echo "6. 자산 인벤토리 최신화 (미등록 장비 제거)"
+
+
 ```
+-->
+-->
 
 #### OT IDS 배포 구성 (Suricata)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # OT/ICS 환경 IDS 배포 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # OT/ICS 환경 IDS 배포 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # OT/ICS 환경 IDS 배포 설정
 # /etc/suricata/suricata-ot.yaml (핵심 설정)
@@ -1524,10 +1792,28 @@ app-layer:
       enabled: yes
     enip:
       enabled: yes
+
+
 ```
+-->
+-->
 
 #### OT 전용 Suricata 규칙
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # /etc/suricata/rules/ot-protocols.rules...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # /etc/suricata/rules/ot-protocols.rules...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # /etc/suricata/rules/ot-protocols.rules
 
@@ -1573,7 +1859,11 @@ alert tcp any any -> $OT_NETWORK $MODBUS_PORTS (
   rev:1;
   metadata:severity critical;
 )
+
+
 ```
+-->
+-->
 
 ### IT/OT 세그멘테이션 아키텍처 권장
 

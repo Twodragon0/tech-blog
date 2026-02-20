@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Vendor-News, DevSecOps, Cloud-Security, Hashicorp, Cloudflare, Snyk, Jamf, Zero-Trust, AI-Security, "2026"
+
+> **핵심 내용**: 
+> - VS Code 악용, ACME 취약점, AI Zero Trust, HashiCorp-AWS 클라우드 운영 간소화
+
+> **주요 기술/도구**: Security, DevSecOps, Security, Cloudflare, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -145,6 +165,8 @@ ROI: 10배
 | **T1204.002** | Execution | User Execution: Malicious File | 확장 프로그램 화이트리스트 |
 
 **공격 흐름 (Attack Flow)**:
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 1. Initial Access (T1566.001)
    └─> 개발자에게 가짜 채용 면접 이메일 발송
@@ -164,7 +186,11 @@ ROI: 10배
 
 5. Collection & Exfiltration
    └─> 소스코드, 인증 정보 수집 및 유출
+
+
 ```
+-->
+-->
 
 ### ACME 경로 취약점
 
@@ -232,6 +258,20 @@ ROI: 10배
 
 #### 공격 흐름도 (Attack Flow Diagram)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │  Phase 1: Initial Access (Spearphishing)                                 │
@@ -267,7 +307,11 @@ ROI: 10배
 │  - 터널을 통한 암호화된 데이터 전송                                      │
 │  - 공격자 제어 서버로 데이터 유출                                        │
 └─────────────────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### SIEM 탐지 쿼리
 
@@ -317,6 +361,8 @@ action=allowed
 - 산업기술보호법: 핵심 기술 소스코드 유출 시 형사처벌
 
 **권장 대응**:
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 1. 즉시 조치 (1주 이내)
    [ ] VS Code 확장 프로그램 설치 정책 수립
@@ -332,7 +378,11 @@ action=allowed
    [ ] 개발 환경 가상화 (VDI, 컨테이너) 검토
    [ ] 제로 트러스트 네트워크 접근 제어 구현
    [ ] 소스코드 암호화 솔루션 도입
+
+
 ```
+-->
+-->
 
 ---
 
@@ -374,6 +424,8 @@ action=allowed
 
 #### 공격 흐름도 (Attack Flow Diagram)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │  Phase 1: Reconnaissance                                                  │
@@ -409,7 +461,11 @@ action=allowed
 │  - 부정하게 발급받은 인증서로 MITM 공격 수행                             │
 │  - 트래픽 가로채기 및 정보 탈취                                          │
 └─────────────────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### SIEM 탐지 쿼리
 
@@ -460,6 +516,8 @@ index=certificate_transparency
 - PCI-DSS: 결제 도메인 인증서 부정 발급 시 인증 취소
 
 **권장 대응**:
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 1. 즉시 조치 (1주 이내)
    [ ] 인증서 발급 로그 전수 조사 (비정상 발급 확인)
@@ -475,7 +533,11 @@ index=certificate_transparency
    [ ] Certificate Transparency Log 모니터링 자동화
    [ ] 인증서 발급 승인 워크플로우 구축
    [ ] 보안 감사 수행 (침투 테스트)
+
+
 ```
+-->
+-->
 
 ---
 
@@ -559,6 +621,8 @@ HashiCorp는 이번 주 20개 이상의 블로그 포스팅을 발행했습니�
 
 #### 공격 흐름도 (AI NHI 미관리 시 위협 시나리오)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │  Threat Scenario 1: Hardcoded Credentials in AI Agent Code               │
@@ -613,7 +677,11 @@ HashiCorp는 이번 주 20개 이상의 블로그 포스팅을 발행했습니�
 │  - Admin 권한으로 시스템 전체 제어                                       │
 │  - 데이터 삭제, 설정 변경, 사용자 계정 조작                              │
 └─────────────────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### SIEM 탐지 쿼리
 
@@ -666,6 +734,20 @@ action="secret_scanning.alert_created"
 - 클라우드 보안 인증(CSAP): AI 시스템도 인증 범위 포함
 
 **권장 대응**:
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 1. 즉시 조치 (1주 이내)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> 1. 즉시 조치 (1주 이내)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 1. 즉시 조치 (1주 이내)
    [ ] GitHub Secret Scanning 활성화
@@ -686,7 +768,11 @@ action="secret_scanning.alert_created"
    [ ] AI 보안 성숙도 모델 적용 (NIST AI RMF)
    [ ] 정기 AI 보안 감사 (분기별)
    [ ] AI 윤리 및 규정 준수 자동화
+
+
 ```
+-->
+-->
 
 <div class="post-image-container">
   <img src="/assets/images/2026-01-22-zero-trust-ai-agents.svg" alt="Zero Trust for AI Agents - NHI Management Strategy with 4 Pillars" class="post-image">
@@ -815,6 +901,10 @@ Select-Object TimeCreated, @{Name="User";Expression={$_.Properties[5].Value}},
 #### 네트워크 연결 모니터링 (Linux)
 
 **Bash 쿼리**:
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # VS Code 터널 도메인 연결 탐지
 sudo netstat -tnp | grep -E "(devtunnels\.ms|vscode\.dev)" | awk '{print $5, $7}'
@@ -838,6 +928,20 @@ query IN ("*.devtunnels.ms", "*.vscode.dev", "global.rel.tunnels.api.visualstudi
 #### Certificate Transparency Log 분석
 
 **Python 스크립트 예시**:
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import requests...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import requests...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import requests
 import json
@@ -865,11 +969,19 @@ def hunt_suspicious_certificates(your_domain):
                 })
 
     return suspicious
+
+
 ```
+-->
+-->
 
 #### 웹 서버 로그 분석
 
 **Nginx 로그 정규표현식**:
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # ACME 챌린지 요청 중 의심스러운 경로
 grep "/.well-known/acme-challenge/" /var/log/nginx/access.log | \
@@ -882,6 +994,10 @@ awk '{print $1, $7}' | sort | uniq -c | sort -rn
 #### AWS CloudTrail 분석
 
 **AWS CLI 쿼리**:
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # IAM 사용자/역할 중 서비스 계정 필터링하여 비정상 활동 탐지
 aws cloudtrail lookup-events \
@@ -894,6 +1010,10 @@ aws cloudtrail lookup-events \
 #### Kubernetes API 서버 감사 로그
 
 **kubectl + jq 쿼리**:
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```bash
 # ServiceAccount의 과도한 권한 사용 탐지
 kubectl get events --all-namespaces -o json | \
@@ -905,6 +1025,8 @@ jq '.items[] | select(.involvedObject.kind == "ServiceAccount") |
 #### Secret 접근 패턴 분석
 
 **Azure KQL (Log Analytics)**:
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kusto
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.KEYVAULT"
@@ -919,13 +1041,31 @@ AzureDiagnostics
 | where AccessCount > 50 or UniqueSecrets > 10  // 임계값 조정
 | project TimeGenerated, identity_claim_appid_g, AccessCount, UniqueSecrets, IPs
 | order by AccessCount desc
+
+
 ```
+-->
+-->
 
 ### 7.4 개발자 계정 침해 헌팅 (Contagious Interview 관련)
 
 #### Git 커밋 이상 징후 탐지
 
 **GitHub API + Python**:
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import requests...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import requests...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import requests
 from datetime import datetime, timedelta
@@ -959,7 +1099,11 @@ def hunt_suspicious_commits(org, token):
                     })
 
     return suspicious
+
+
 ```
+-->
+-->
 
 #### 개발자 워크스테이션 모니터링
 
@@ -976,6 +1120,8 @@ process_name:code.exe AND
 #### 개발자 계정 → VS Code 터널 → 데이터 유출 패턴
 
 **Splunk SPL (통합 분석)**:
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Step 1: VS Code 터널 시작 이벤트
 | search index=endpoint EventCode=1 Image="*code.exe" CommandLine="*tunnel*"
@@ -997,7 +1143,11 @@ process_name:code.exe AND
     | where total_bytes > 104857600  # 100MB 이상
   ]
 | table host, User, tunnel_start, total_bytes
+
+
 ```
+-->
+-->
 
 ---
 

@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 에이전틱 AI 보안 2026: AI Agent 공격 벡터와 방어 아키텍처 완전 가이드
+
+> **카테고리**: security, devsecops
+
+> **태그**: Agentic-AI, AI-Security, Tool-Poisoning, Prompt-Injection, LLM-Security, Supply-Chain, Zero-Trust, DevSecOps, CrowdStrike, Google-Security, "2026"
+
+> **핵심 내용**: 
+> - 2026년 에이전틱 AI 시대의 새로운 공격 벡터(Tool Poisoning, Tool Chain Attack, Prompt Injection)와 Google Chrome·CrowdStrike Falcon의 방어 아키텍처를 심층 분석합니다.
+
+> **주요 기술/도구**: Security, Security, DevSecOps, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -122,6 +142,8 @@ schema_type: Article
 
 **금융 AI 에이전트 보안 요구사항 (2026년 신설)**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 ┌──────────────────────────────────────────────────────────────┐
 │ 1단계: 도입 전 평가 (Pre-Deployment Assessment)              │
@@ -150,7 +172,11 @@ schema_type: Article
 │ □ 사고 원인 분석 및 재발 방지 대책 14일 내 제출               │
 │ □ 침해된 AI 모델/도구 즉시 격리 및 무결성 재검증              │
 └──────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 **실무 체크리스트 (금융권 AI 담당자용)**
 
@@ -175,6 +201,20 @@ schema_type: Article
 
 **AI 에이전트의 개인정보 처리 시 유의사항**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # 예시: AI 에이전트 개인정보 처리 로그 (개인정보보호법 제29조 안전성 확보 조치)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # 예시: AI 에이전트 개인정보 처리 로그 (개인정보보호법 제29조 안전성 확보 조치)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # 예시: AI 에이전트 개인정보 처리 로그 (개인정보보호법 제29조 안전성 확보 조치)
 
@@ -211,7 +251,11 @@ schema_type: Article
     "security_measures": true    # 안전 조치
   }
 }
+
+
 ```
+-->
+-->
 
 **개인정보 처리 단계별 준수 사항**
 
@@ -352,6 +396,8 @@ AI Tool Poisoning은 **MCP(Model Context Protocol) 서버나 API 도구의 설�
 
 #### 공격 흐름도 (Attack Flow Diagram)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 ┌─────────────────────────────────────────────────────────────────┐
 │ Phase 1: 악성 도구 배포 (Initial Access)                          │
@@ -387,7 +433,11 @@ AI Tool Poisoning은 **MCP(Model Context Protocol) 서버나 API 도구의 설�
 │ 다른 도구에도 악성 지시 주입                                        │
 │ 에이전트 메모리에 persistent 지시 삽입                               │
 └─────────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### 실무 대응 방안
 
@@ -441,6 +491,10 @@ index=ai_agent_logs sourcetype=tool_execution
 
 **Azure Sentinel - AI 에이전트의 민감 파일 접근 패턴 분석**
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```kql
 AIAgentLogs
 | where EventType == "ToolExecution"
@@ -491,6 +545,8 @@ AIAgentLogs
 
 #### 공격 흐름도 (Attack Flow Diagram)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 ┌────────────────────────────────────────────────────────────────┐
 │ Phase 1: 공급망 침투 (Supply Chain Compromise)                   │
@@ -525,7 +581,11 @@ AIAgentLogs
 │                → 데이터 유출, C2 통신 시작                         │
 │                → 추가 에이전트 도구 체인 감염 (횡적 확산)            │
 └────────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### SIEM 탐지 쿼리
 
@@ -599,6 +659,8 @@ Google은 프롬프트 주입에 대해 **단일 방어가 아닌 다층(Layered
 
 #### 공격 흐름도 (Attack Flow Diagram)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 ┌────────────────────────────────────────────────────────────────┐
 │ Phase 1: 간접 프롬프트 주입 준비 (Resource Development)            │
@@ -637,7 +699,11 @@ Google은 프롬프트 주입에 대해 **단일 방어가 아닌 다층(Layered
 │ ├─ 메모리 조작 → Persistent 악성 지시 주입                        │
 │ └─ 다른 에이전트/도구로 전파                                       │
 └────────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### SIEM 탐지 쿼리
 
@@ -690,6 +756,8 @@ Chrome이 Gemini 기반 에이전틱 기능을 도입하면서 설계한 보안 
 
 #### 아키텍처 다이어그램 (논리적 구조)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 ┌─────────────────────────────────────────────┐
 │                 Chrome Browser               │
@@ -715,7 +783,11 @@ Chrome이 Gemini 기반 에이전틱 기능을 도입하면서 설계한 보안 
 │  │  └────────┘ └────────┘ └────────┘  │   │
 │  └──────────────────────────────────────┘   │
 └─────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 #### 실무 교훈
 
@@ -831,6 +903,8 @@ SK쉴더스 EQST에서 발표한 LLM 애플리케이션 취약점 진단 가이�
 
 #### 진단 프로세스
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 1. 정보 수집
    └─ LLM 모델, 프레임워크, 플러그인, 데이터 소스 인벤토리
@@ -849,7 +923,11 @@ SK쉴더스 EQST에서 발표한 LLM 애플리케이션 취약점 진단 가이�
    
 6. 보고서
    └─ 취약점 등급화, 대응 권고, 재점검 일정
+
+
 ```
+-->
+-->
 
 ---
 
@@ -1041,6 +1119,20 @@ Terraform MCP Server 0.4는 AI 에이전트가 인프라를 관리할 수 있는
 
 **Splunk SPL**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```spl
+> index=ai_agent_logs OR index=network_logs earliest=-24h...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```spl
+> index=ai_agent_logs OR index=network_logs earliest=-24h...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```spl
 index=ai_agent_logs OR index=network_logs earliest=-24h
 | join type=inner tool_name [
@@ -1058,10 +1150,28 @@ index=ai_agent_logs OR index=network_logs earliest=-24h
 ]
 | table _time, user, tool_name, target_file, total_bytes_out, external_destinations
 | sort -total_bytes_out
+
+
 ```
+-->
+-->
 
 **Azure Sentinel KQL**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```kql
+> let SensitiveFileAccess = AIAgentLogs...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```kql
+> let SensitiveFileAccess = AIAgentLogs...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```kql
 let SensitiveFileAccess = AIAgentLogs
 | where EventType == "ToolExecution"
@@ -1076,7 +1186,11 @@ SensitiveFileAccess
 | join kind=inner (ExternalDataTransfer) on SessionId
 | project TimeGenerated, UserPrincipalName, ToolName, TargetFile, TotalBytesOut, ExternalDestinations
 | order by TotalBytesOut desc
+
+
 ```
+-->
+-->
 
 #### 5.2.2 AI 도구 체인 이상 행위 탐지
 
@@ -1084,6 +1198,8 @@ SensitiveFileAccess
 
 **Splunk SPL**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=ci_cd_logs OR index=ai_agent_logs earliest=-7d
 | eval tool_age_days=round((now()-tool_install_timestamp)/86400, 2)
@@ -1102,7 +1218,11 @@ index=ci_cd_logs OR index=ai_agent_logs earliest=-7d
 | where risk_score >= 70
 | table tool_name, tool_source, tool_age_days, tool_verified, conn_count, unique_destinations, destinations, risk_score
 | sort -risk_score
+
+
 ```
+-->
+-->
 
 #### 5.2.3 프롬프트 주입 시도 탐지
 
@@ -1110,6 +1230,8 @@ index=ci_cd_logs OR index=ai_agent_logs earliest=-7d
 
 **Splunk SPL**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=ai_agent_logs sourcetype=llm_requests earliest=-1h
 | rex field=user_input "(?<injection_keyword>ignore previous|disregard|new instruction|system:|forget|override)"
@@ -1122,10 +1244,16 @@ index=ai_agent_logs sourcetype=llm_requests earliest=-1h
 | where risk_score >= 40
 | table _time, user, session_id, user_input, external_data_source, risk_score, injection_keyword, exfil_pattern
 | sort -risk_score
+
+
 ```
+-->
+-->
 
 **Azure Sentinel KQL**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 AIAgentLogs
 | where EventType == "LLMRequest"
@@ -1139,7 +1267,11 @@ AIAgentLogs
 | where RiskScore >= 40
 | project TimeGenerated, UserPrincipalName, SessionId, UserInput, ExternalDataSource, RiskScore, InjectionKeyword, ExfilPattern
 | order by RiskScore desc
+
+
 ```
+-->
+-->
 
 #### 5.2.4 AI 에이전트 권한 상승 탐지
 
@@ -1147,6 +1279,8 @@ AIAgentLogs
 
 **Splunk SPL**
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=ai_agent_logs sourcetype=agent_actions earliest=-24h
 | transaction session_id startswith=(event_type="session_start") endswith=(event_type="session_end")
@@ -1156,7 +1290,11 @@ index=ai_agent_logs sourcetype=agent_actions earliest=-24h
 | where privilege_escalation=1
 | table _time, user, session_id, initial_role, final_role, tool_chain, affected_resources
 | sort -_time
+
+
 ```
+-->
+-->
 
 #### 5.2.5 AI 도구 Typosquatting 탐지
 
@@ -1164,6 +1302,20 @@ index=ai_agent_logs sourcetype=agent_actions earliest=-24h
 
 **Python Script (사전 분석용)**
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 #!/usr/bin/env python3
 import Levenshtein
@@ -1190,10 +1342,28 @@ def detect_typosquatting(new_tool_name, threshold=2):
     return {"suspicious": False}
 
 # Splunk/Sentinel에서 호출 가능한 외부 lookup script로 활용
+
+
 ```
+-->
+-->
 
 #### 5.2.6 데이터 유출 공격 흐름도 (종합)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```text
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```text
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```text
 ┌─────────────────────────────────────────────────────────────────┐
 │ Phase 1: 초기 침투 (Initial Access) - T1195.002                  │
@@ -1269,7 +1439,11 @@ def detect_typosquatting(new_tool_name, threshold=2):
 │ 비즈니스 영향: 고객 데이터 유출 → GDPR/개인정보보호법 위반        │
 │               → 과징금 최대 매출의 3% + 브랜드 손실               │
 └─────────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 **탐지 및 대응 타임라인**
 

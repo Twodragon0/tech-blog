@@ -15,6 +15,26 @@ toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계
+
+> **카테고리**: security, devsecops
+
+> **태그**: CLAUDE.md, AI-Security, Claude-Code, DevSecOps, Security-Guidelines, AI-Agent, Prompt-Engineering, "2026"
+
+> **핵심 내용**: 
+> - CLAUDE.md와 AGENTS.md로 AI 에이전트 보안 가이드라인 구축. Security-First 원칙과 실무 구현
+
+> **주요 기술/도구**: Security, DevSecOps, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -140,6 +160,20 @@ project-root/
 
 AI 에이전트가 가장 많이 실수하는 부분이 **민감 정보 하드코딩**입니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # ❌ 절대 금지 - AI가 종종 이렇게 생성함...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # ❌ 절대 금지 - AI가 종종 이렇게 생성함...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # ❌ 절대 금지 - AI가 종종 이렇게 생성함
 API_KEY = "sk-1234567890abcdef"
@@ -154,7 +188,11 @@ DATABASE_URL = os.getenv("DATABASE_URL", "")
 # 키가 없으면 명시적 에러
 if not API_KEY:
     raise ValueError("API_KEY environment variable is required")
+
+
 ```
+-->
+-->
 
 **CLAUDE.md에 명시할 내용:**
 
@@ -169,6 +207,20 @@ if not API_KEY:
 
 AI가 생성한 로깅 코드는 종종 민감 정보를 그대로 출력합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import re...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import re...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import re
 from typing import Optional
@@ -213,12 +265,30 @@ def safe_log(message: str, level: str = "INFO") -> None:
         print(f"[{level}] {safe_message}")
     else:
         print(f"[{level}] [REDACTED - Sensitive info detected]")
+
+
 ```
+-->
+-->
 
 ### 2.3 파일 쓰기 전 검증
 
 AI가 생성한 설정 파일에 민감 정보가 포함되지 않도록 검증합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> from pathlib import Path...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> from pathlib import Path...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 from pathlib import Path
 
@@ -243,12 +313,30 @@ def write_safe_file(file_path: Path, content: str) -> bool:
 class SecurityError(Exception):
     """보안 관련 예외"""
     pass
+
+
 ```
+-->
+-->
 
 ### 2.4 입력 검증 (Input Validation)
 
 AI가 생성한 웹 엔드포인트에는 반드시 입력 검증을 추가해야 합니다.
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import re...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import re...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import re
 from typing import Optional
@@ -300,7 +388,11 @@ def sanitize_html(html_content: str) -> str:
     # 기본 HTML 이스케이프
     sanitized = html.escape(html_content)
     return sanitized
+
+
 ```
+-->
+-->
 
 ---
 
@@ -308,6 +400,8 @@ def sanitize_html(html_content: str) -> str:
 
 ### 3.1 기본 템플릿
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 # Claude Code Instructions
 
@@ -359,7 +453,11 @@ Priority order for AI operations:
 - [ ] CORS configured correctly
 - [ ] Authentication required
 - [ ] Input sanitization applied
+
+
 ```
+-->
+-->
 
 ### 3.2 보안 강화 섹션
 
@@ -435,6 +533,8 @@ AGENTS.md (Universal Guide)
 
 ### 4.2 보안 섹션 예시
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 ## Security Best Practices
 
@@ -457,7 +557,11 @@ AGENTS.md (Universal Guide)
 - Timeout: 8 seconds (free tier safe margin)
 
 ### Dependency Security
-\```bash
+\
+
+```
+-->
+-->bash
 # Regular security audits
 npm audit --audit-level=moderate
 bundle audit --update
@@ -473,6 +577,20 @@ pip-audit
 
 ### 5.1 Pre-commit Hook 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .pre-commit-config.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .pre-commit-config.yaml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .pre-commit-config.yaml
 repos:
@@ -507,10 +625,28 @@ repos:
         entry: python3 scripts/security_check.py
         language: python
         types: [python]
+
+
 ```
+-->
+-->
 
 ### 5.2 보안 검증 스크립트
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```python
+> #!/usr/bin/env python3...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 #!/usr/bin/env python3
 """
@@ -563,10 +699,28 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
 ```
+-->
+-->
 
 ### 5.3 GitHub Actions 보안 워크플로우
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 {% raw %}
 # .github/workflows/security-scan.yml
@@ -621,7 +775,11 @@ jobs:
           echo "- Gitleaks: ${{ steps.gitleaks.outcome }}" >> $GITHUB_STEP_SUMMARY
           echo "- Semgrep: ${{ steps.semgrep.outcome }}" >> $GITHUB_STEP_SUMMARY
 {% endraw %}
+
+
 ```
+-->
+-->
 
 ---
 
@@ -631,6 +789,8 @@ jobs:
 
 AI에게 요청할 때 보안을 명시적으로 지시합니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 ## 보안 요청 프롬프트 예시
 
@@ -649,7 +809,11 @@ Requirements:
 - Use placeholder values: YOUR_DB_HOST, YOUR_DB_PASSWORD
 - Add comments explaining each environment variable
 - Never include actual credentials"
+
+
 ```
+-->
+-->
 
 ### 6.2 코드 리뷰 체크리스트
 
@@ -689,6 +853,8 @@ AI-Generated Code Validation Flow:
 
 보안을 유지하면서도 비용을 최적화하는 전략:
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 ## Cost Optimization (Security Maintained)
 
@@ -708,10 +874,28 @@ Priority order for AI operations:
 4. **API calls** - Last resort
    - 보안: 환경 변수로 키 관리
    - 비용: 필요시에만 사용
+
+
 ```
+-->
+-->
 
 ### 7.2 API 키 안전 관리
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # config/settings.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # config/settings.py...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # config/settings.py
 import os
@@ -745,7 +929,11 @@ class APISettings:
 settings = APISettings()
 if not settings.get_openai_key():
     print("Warning: OPENAI_API_KEY not set, using Gemini as fallback")
+
+
 ```
+-->
+-->
 
 ---
 

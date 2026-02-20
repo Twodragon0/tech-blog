@@ -15,6 +15,26 @@ keywords: [npm, Supply-Chain-Attack, Worm, Shai-Hulud, SBOM, 2FA]
 author: Twodragon
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: NPM \"Shai-Hulud\" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석
+
+> **카테고리**: incident
+
+> **태그**: npm, Supply-Chain-Attack, Worm, Security-Incident
+
+> **핵심 내용**: 
+> - NPM Shai-Hulud 자가 복제 웜 공격 완전 분석. 180개 이상 패키지 감염 및 대응 방안.
+
+> **주요 기술/도구**: Security, incident
+
+> **대상 독자**: SRE, 인시던트 대응 담당자, 운영 엔지니어
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -135,6 +155,20 @@ Shai-Hulud는 단순한 보안 사고가 아니라, **소프트웨어 공급망 
 
 Shai-Hulud 웜은 다음과 같은 모듈형 아키텍처로 구성되어 있습니다:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```mermaid
+> graph TD...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```mermaid
+> graph TD...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```mermaid
 graph TD
     A[Initial Infection] --> B[Credential Harvester]
@@ -157,12 +191,30 @@ graph TD
     E --> E1[Removal Detection]
     E --> E2[Cache Tampering]
     E --> E3[Lockfile Poisoning]
+
+
 ```
+-->
+-->
 
 ### 1.2 자가 복제 메커니즘
 
 Shai-Hulud의 핵심은 **자가 복제 엔진**입니다. 다음은 의도적으로 단순화된 개념적 흐름도입니다:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```javascript
+> // 경고: 이것은 악성 코드의 단순화된 개념도입니다. 실제 구현하지 마세요!...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```javascript
+> // 경고: 이것은 악성 코드의 단순화된 개념도입니다. 실제 구현하지 마세요!...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```javascript
 // 경고: 이것은 악성 코드의 단순화된 개념도입니다. 실제 구현하지 마세요!
 // 교육 목적으로만 제공됩니다.
@@ -227,7 +279,11 @@ worm.harvestCredentials();
 worm.findTargets();
 await worm.propagate();
 worm.establishPersistence();
+
+
 ```
+-->
+-->
 
 **주요 단계 분석**:
 
@@ -243,6 +299,20 @@ worm.establishPersistence();
 
 2025년 11월 등장한 2.0 버전은 **제거 방어 메커니즘**을 추가했습니다:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # Dead Man's Switch 개념도 (Python pseudocode)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # Dead Man's Switch 개념도 (Python pseudocode)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Dead Man's Switch 개념도 (Python pseudocode)
 
@@ -304,7 +374,11 @@ class DeadMansSwitch:
             }
             f.seek(0)
             json.dump(lockfile, f, indent=2)
+
+
 ```
+-->
+-->
 
 **Dead Man's Switch 트리거 조건**:
 - 웜 코드 파일 삭제 시도
@@ -317,6 +391,20 @@ class DeadMansSwitch:
 
 Shai-Hulud는 탐지를 회피하기 위해 다층 난독화를 사용합니다:
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // 난독화 전 (원본 의도)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // 난독화 전 (원본 의도)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```javascript
 // 난독화 전 (원본 의도)
 function stealNpmToken() {
@@ -327,7 +415,11 @@ function stealNpmToken() {
 
 // 난독화 후 (실제 배포 코드)
 (function(_0x4a2b,_0x2d1c){const _0x5e3d=_0x1a2b;while(!![]){try{const _0x3c4e=-parseInt(_0x5e3d(0x1a9))/0x1*(-parseInt(_0x5e3d(0x1aa))/0x2);}catch(_0x1b2c){_0x4a2b['push'](_0x4a2b['shift']());}}}(_0x2d1c,0x2f3b4));function _0x1a2b(_0x4a2b,_0x2d1c){const _0x5e3d=_0x2d1c();return _0x1a2b=function(_0x1a2b,_0x3c4e){_0x1a2b=_0x1a2b-0x1a9;let _0x1b2c=_0x5e3d[_0x1a2b];return _0x1b2c;},_0x1a2b(_0x4a2b,_0x2d1c);}
+
+
 ```
+-->
+-->
 
 **난독화 기법 레이어**:
 1. **변수명 암호화**: 의미 있는 이름을 16진수 문자열로 변환
@@ -401,6 +493,8 @@ NPM 생태계 역사상 최초의 자가 복제 웜 형태 공급망 공격 분�
 
 2025년 11월, 더욱 진화된 **Shai-Hulud 2.0** 변종이 발견되었습니다. 가장 위험한 새 기능은 **Dead Man's Switch**입니다.
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart TD
     NORMAL["Normal State<br/>Worm code exists in package"]
@@ -420,7 +514,11 @@ flowchart TD
     ACTIVATE --> A3["3. Inject malicious dependencies"]
     ACTIVATE --> A4["4. Exfiltrate CI/CD env vars"]
     ACTIVATE --> A5["5. Steal GitHub/GitLab secrets"]
+
+
 ```
+-->
+-->
 
 #### Dead Man's Switch 대응 방법
 
@@ -431,6 +529,20 @@ flowchart TD
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # 안전한 제거 절차 (Dead Man's Switch 우회)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # 안전한 제거 절차 (Dead Man's Switch 우회)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 안전한 제거 절차 (Dead Man's Switch 우회)
 
@@ -451,7 +563,11 @@ npm cache clean --force
 # 5. 새로운 환경에서 클린 설치
 npm ci --ignore-scripts
 
+
+
 ```
+-->
+-->
 -->
 
 ### 2.3 연관 사건: 9월 대규모 npm 침해
@@ -478,6 +594,20 @@ Shai-Hulud와 별개로 발생한 또 다른 심각한 공급망 공격:
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # s1ngularity 공격 개요...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # s1ngularity 공격 개요...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # s1ngularity 공격 개요
 attack_name: "s1ngularity"
@@ -491,12 +621,20 @@ affected_packages:
   - "@nx/workspace"
   - "@nx/devkit"
 
+
+
 ```
+-->
+-->
 -->
 
 #### Nx 패키지 영향 확인
 
 > **참고**: Nx 보안 관련 자세한 내용은 [Nx 공식 포스트모템](https://nx.dev/blog/s1ngularity-postmortem) 및 [npm 보안 권고사항](https://github.com/npm/security-advisories)을 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # Nx 의존성 확인
@@ -538,6 +676,20 @@ grep -A5 '"@nrwl\|"@nx/' package-lock.json | grep integrity
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 공급망 보안 강화 도구 모음...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 공급망 보안 강화 도구 모음...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 공급망 보안 강화 도구 모음
 
@@ -559,7 +711,11 @@ npx snyk test
 # (Go 설치 필요)
 osv-scanner --lockfile package-lock.json
 
+
+
 ```
+-->
+-->
 -->
 
 ## 3. MITRE ATT&CK 매핑
@@ -627,6 +783,20 @@ Shai-Hulud 공격은 다음과 같은 MITRE ATT&CK 기법을 활용합니다:
 
 ### 3.9 공격 체인 매핑 다이어그램
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```plaintext
+> ┌─────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```plaintext
+> ┌─────────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```plaintext
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                    Shai-Hulud Attack Chain (MITRE ATT&CK)               │
@@ -672,12 +842,30 @@ Shai-Hulud 공격은 다음과 같은 MITRE ATT&CK 기법을 활용합니다:
     ├─ T1486: Data Encrypted for Impact (랜섬웨어)
     └─ T1496: Resource Hijacking (크립토마이닝)
        └─ 시스템 파괴 및 악용
+
+
 ```
+-->
+-->
 
 ## 4. 공격 흐름도 (Attack Flow Diagram)
 
 ### 4.1 전체 공격 체인 흐름도
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```plaintext
+> ┌───────────────────────────────────────────────────────────────────────────────...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```plaintext
+> ┌───────────────────────────────────────────────────────────────────────────────...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```plaintext
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │                         Shai-Hulud Worm Attack Flow                             │
@@ -809,10 +997,28 @@ Phase 6: Exponential Spread
 [Day 60] Thousands of developers compromised
     ↓
 [Impact] Entire NPM ecosystem at risk
+
+
 ```
+-->
+-->
 
 ### 4.2 Dead Man's Switch 상세 흐름도
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```plaintext
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```plaintext
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```plaintext
 ┌─────────────────────────────────────────────────────────────────┐
 │            Dead Man's Switch Trigger & Response Flow            │
@@ -925,7 +1131,11 @@ Phase 6: Exponential Spread
                ├─ Create RANSOM_NOTE.txt
                │   └─ "Send 1 BTC to ADDRESS to decrypt"
                └─ Self-destruct worm code
+
+
 ```
+-->
+-->
 
 ## 5. NPM 공급망 공격 탐지 쿼리
 
@@ -1013,6 +1223,10 @@ DeviceFileEvents
 | project TimeGenerated, DeviceName, AccountName, ModificationCount, Severity
 ```
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```kql
 // 인증 정보 파일 접근 탐지 (.npmrc, .aws, .env)
 DeviceFileEvents
@@ -1047,6 +1261,10 @@ fields @timestamp, @message
 
 ### 5.4 package.json Audit 쿼리 (Bash)
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # 모든 프로젝트의 package.json에서 postinstall 훅 검사
 find /path/to/projects -name "package.json" -exec grep -H "postinstall" {} \; \
@@ -1056,6 +1274,10 @@ find /path/to/projects -name "package.json" -exec grep -H "postinstall" {} \; \
       echo "$line"
     done
 ```
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # lockfile 무결성 검증 (SHA-512 해시 확인)
@@ -1070,6 +1292,10 @@ fi
 
 ### 6.1 환경 변수 스캐닝 탐지
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```bash
 # 프로세스가 환경 변수를 읽는 패턴 탐지 (Linux)
 auditctl -a always,exit -F arch=b64 -S open,openat -F a1&O_RDONLY -F key=env_read
@@ -1077,6 +1303,10 @@ ausearch -k env_read | grep -E "(NPM_TOKEN|AWS_|GITHUB_TOKEN)"
 ```
 
 ### 6.2 NPM 레지스트리 트래픽 분석
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 비정상적인 NPM 레지스트리 트래픽 탐지 (tcpdump)
@@ -1088,6 +1318,20 @@ http.request.uri contains "/npm/publish" && http.request.method == "PUT"
 
 ### 6.3 파일 무결성 모니터링 (FIM)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # AIDE (Advanced Intrusion Detection Environment) 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # AIDE (Advanced Intrusion Detection Environment) 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # AIDE (Advanced Intrusion Detection Environment) 설정
 # /etc/aide/aide.conf
@@ -1100,7 +1344,11 @@ http.request.uri contains "/npm/publish" && http.request.method == "PUT"
 # AIDE 데이터베이스 업데이트 및 검사
 aide --init
 aide --check
+
+
 ```
+-->
+-->
 
 ## 7. 한국 기업 영향 분석
 
@@ -1188,6 +1436,20 @@ aide --check
 
 ### 8.1 Executive Dashboard
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```plaintext
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```plaintext
+> ┌─────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```plaintext
 ┌─────────────────────────────────────────────────────────────────┐
 │  NPM Shai-Hulud 공급망 공격 - 경영진 대시보드 (2025-11-15)      │
@@ -1242,10 +1504,28 @@ aide --check
 │  미대응 시 예상 손실:  50-500억원 (데이터 유출 + 과징금)        │
 │  ROI:                  1,400배 이상                             │
 └─────────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 ### 8.2 상황 보고서 템플릿
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```markdown
+> # NPM Shai-Hulud 공급망 공격 상황 보고서...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```markdown
+> # NPM Shai-Hulud 공급망 공격 상황 보고서...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```markdown
 # NPM Shai-Hulud 공급망 공격 상황 보고서
 
@@ -1310,12 +1590,30 @@ NPM 생태계에서 발생한 Shai-Hulud 자가 복제 웜 공격으로 당사 �
 - **일일 보고**: 매일 18:00 (이메일)
 - **경영진 브리핑**: 2025-11-16 10:00 (대회의실)
 - **최종 보고**: 2025-11-25 (사태 종료 후)
+
+
 ```
+-->
+-->
 
 ## 9. 자가 복제 웜 방어 아키텍처
 
 ### 9.1 다층 방어 아키텍처 (Defense in Depth)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```plaintext
+> ┌─────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```plaintext
+> ┌─────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```plaintext
 ┌─────────────────────────────────────────────────────────────────────┐
 │                   NPM Supply Chain Defense Architecture             │
@@ -1415,12 +1713,30 @@ NPM 생태계에서 발생한 Shai-Hulud 자가 복제 웜 공격으로 당사 �
 │     ├─ Phishing Simulations (monthly)                              │
 │     └─ Incident Response Drills (semi-annual)                      │
 └─────────────────────────────────────────────────────────────────────┘
+
+
 ```
+-->
+-->
 
 ### 9.2 방어 아키텍처 구현 예시
 
 #### 9.2.1 Private NPM Registry (Verdaccio)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # verdaccio.yaml - 강화된 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # verdaccio.yaml - 강화된 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # verdaccio.yaml - 강화된 설정
 storage: /verdaccio/storage
@@ -1462,10 +1778,28 @@ logs:
   type: stdout
   format: json
   level: http
+
+
 ```
+-->
+-->
 
 #### 9.2.2 GitHub Actions CI/CD 보안 워크플로우
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/secure-build.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/secure-build.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # .github/workflows/secure-build.yml
 name: Secure Build Pipeline
@@ -1546,10 +1880,28 @@ jobs:
           name: sbom
           path: sbom.json
           retention-days: 2555  # 7년 보관
+
+
 ```
+-->
+-->
 
 #### 9.2.3 Docker 런타임 보안 설정
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```dockerfile
+> # Dockerfile - 최소 권한 및 보안 강화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```dockerfile
+> # Dockerfile - 최소 권한 및 보안 강화...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```dockerfile
 # Dockerfile - 최소 권한 및 보안 강화
 FROM node:20-alpine AS builder
@@ -1595,8 +1947,26 @@ EXPOSE 3000
 # dumb-init으로 실행 (PID 1 문제 방지)
 ENTRYPOINT ["dumb-init", "--"]
 CMD ["node", "dist/index.js"]
-```
 
+
+```
+-->
+-->
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # 런타임 보안 옵션...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```bash
+> # 런타임 보안 옵션...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 런타임 보안 옵션
 docker run -d \
@@ -1610,7 +1980,11 @@ docker run -d \
   --user 1001:1001 \
   -p 3000:3000 \
   my-secure-app:latest
+
+
 ```
+-->
+-->
 
 ## 10. 사고 대응 플레이북 (Incident Response Playbook)
 
@@ -1631,14 +2005,22 @@ docker run -d \
 
 **단기 격리** (30분 이내):
 1. **네트워크 격리**:
-   ```bash
+   > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+```bash
    # 감염된 개발자 워크스테이션 네트워크 차단
    sudo iptables -A OUTPUT -j DROP
    # 또는 VPN 연결 강제 종료
    ```
 
 2. **CI/CD 파이프라인 중단**:
-   ```bash
+   > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+```bash
    # GitHub Actions 비활성화
    gh api -X PATCH /repos/OWNER/REPO/actions/permissions \
      -f enabled=false
@@ -1649,7 +2031,11 @@ docker run -d \
    ```
 
 3. **Private NPM Registry 읽기 전용 전환**:
-   ```yaml
+   > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```yaml
    # verdaccio.yaml
    packages:
      '**':
@@ -1666,6 +2052,20 @@ docker run -d \
 
 **악성 코드 제거** (4시간 이내):
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # shai-hulud-eradication.sh
@@ -1724,14 +2124,32 @@ echo "[!] Next steps:"
 echo "    1. Rotate ALL credentials (NPM, GitHub, AWS)"
 echo "    2. Review git commit history for injected code"
 echo "    3. Re-install dependencies from trusted sources"
+
+
 ```
+-->
+-->
 
 ### 10.4 복구 단계 (Recovery)
 
 **시스템 복원** (8시간 이내):
 
 1. **인증 정보 전체 교체**:
-   ```bash
+   > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # NPM 토큰 재생성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # NPM 토큰 재생성...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```bash
    # NPM 토큰 재생성
    npm token revoke <old-token>
    npm token create --read-write
@@ -1742,10 +2160,18 @@ echo "    3. Re-install dependencies from trusted sources"
    # AWS IAM 키 로테이션
    aws iam create-access-key --user-name developer
    aws iam delete-access-key --user-name developer --access-key-id OLD_KEY
-   ```
+   
+
+```
+-->
+-->
 
 2. **클린 환경에서 재설치**:
-   ```bash
+   > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
+```bash
    # Docker 컨테이너에서 격리된 설치
    docker run --rm -it --network none \
      -v $(pwd):/app -w /app \
@@ -1753,7 +2179,11 @@ echo "    3. Re-install dependencies from trusted sources"
    ```
 
 3. **Git 히스토리 검증**:
-   ```bash
+   > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+```bash
    # 악성 커밋 탐지
    git log --all --oneline --grep="dependency\|package\|update" --since="2025-09-01"
 
@@ -1765,6 +2195,8 @@ echo "    3. Re-install dependencies from trusted sources"
 
 **사후 보고서 작성** (72시간 이내):
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```markdown
 # Shai-Hulud 사고 사후 보고서 (Post-Incident Report)
 
@@ -1816,7 +2248,11 @@ echo "    3. Re-install dependencies from trusted sources"
 1. 공급망 공격은 더 이상 "만약"이 아니라 "언제"의 문제
 2. 실시간 탐지 도구가 없으면 75분의 대응 지연 발생
 3. 다층 방어(Defense in Depth)가 필수
+
+
 ```
+-->
+-->
 
 ## 11. 참고 자료 (References)
 
