@@ -84,7 +84,7 @@ jobs:
               sys.exit(1)
 
           genai.configure(api_key=api_key)
-          model = genai.GenerativeModel('gemini-pro')
+          model = genai.GenerativeModel('gemini-2.0-flash')
 
           # -p 플래그로 프롬프트 받기
           if len(sys.argv) > 2 and sys.argv[1] == "-p":
@@ -349,7 +349,7 @@ jobs:
 
   weekly-source-check:
     runs-on: ubuntu-latest
-    if: github.event_name == 'schedule' && github.event.schedule == '0 1 * * 1'
+    if: github.event_name == 'schedule' && github.event.schedule == '0 1 * * *'
     
     steps:
       - name: Checkout repository

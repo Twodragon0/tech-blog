@@ -723,7 +723,7 @@ recommended_patterns:
 | **규정 위반** | High | Low |
 | **가용성 장애** | Medium | Very Low |
 
-## MITRE ATT&CK Mapping: Database Attack Techniques
+## MITRE ATT&CK 매핑: 데이터베이스 공격 기법
 
 ### T1190: Exploit Public-Facing Application
 
@@ -774,7 +774,7 @@ sequenceDiagram
 - **스냅샷 암호화**: 자동 백업 및 스냅샷 암호화
 - **접근 제어**: S3 버킷 및 RDS 스냅샷 접근 제한
 
-### Detection & Response
+### 탐지 및 대응
 
 #### CloudWatch 이상 징후 탐지
 
@@ -2057,7 +2057,7 @@ ORDER BY eventtime DESC;
 
 ## 한국 기업 영향 분석
 
-### ISMS-P Database Security Requirements Mapping
+### ISMS-P 데이터베이스 보안 요구사항 매핑
 
 #### 인증 및 접근 제어 (2.7.1)
 

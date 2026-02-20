@@ -33,7 +33,6 @@ kramdown:
       line_numbers: false
     span:
       line_numbers: false
-theme: null
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -43,15 +42,6 @@ plugins:
 feed:
   path: feed.xml
   excerpt_only: false
-
-# Sitemap Settings
-sitemap:
-  # jekyll-sitemap 플러그인은 자동으로 작동하지만,
-  # 수동 sitemap.xml 파일이 있으면 우선순위가 높습니다
-  exclude: false
-  include_posts: true
-  include_pages: true
-  include_categories: true
 
 # Permalinks - Clean URL structure
 permalink: /posts/:year/:month/:day/:title/
@@ -235,7 +225,6 @@ exclude:
 
 # Build optimization
 keep_files: []
-incremental: false
 safe: false
 
 # Sass
