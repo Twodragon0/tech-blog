@@ -121,7 +121,7 @@ toc: true
 
 ## 1. 보안 뉴스
 
-### 1.1 PromptSpy Android Malware Abuses Gemini AI to Automate Recent-Apps Persistence
+### 1.1 PromptSpy 안드로이드 악성코드, Gemini AI를 악용해 최근 앱 지속성 자동화
 
 > **심각도**: Critical
 
@@ -160,7 +160,7 @@ toc: true
 
 ---
 
-### 1.2 INTERPOL Operation Red Card 2.0 Arrests 651 in African Cybercrime Crackdown
+### 1.2 INTERPOL Operation Red Card 2.0, 아프리카 사이버범죄 단속으로 651명 체포
 
 #### 개요
 
@@ -183,7 +183,7 @@ toc: true
 
 ---
 
-### 1.3 Microsoft Patches CVE-2026-26119 Privilege Escalation in Windows Admin Center
+### 1.3 Microsoft, Windows Admin Center 권한 상승 취약점 CVE-2026-26119 패치 발표
 
 > **심각도**: High
 
@@ -217,7 +217,7 @@ Microsoft가 Windows Admin Center에서 공격자가 권한을 상승시킬 수 
 
 ---
 
-### 1.4 Fake IPTV Apps Spread Massiv Android Malware Targeting Mobile Banking Users
+### 1.4 가짜 IPTV 앱, 모바일 뱅킹 사용자 대상 Massiv 안드로이드 악성코드 유포
 
 > **심각도**: Critical
 
@@ -243,7 +243,7 @@ Microsoft가 Windows Admin Center에서 공격자가 권한을 상승시킬 수 
 
 ---
 
-### 1.5 CRESCENTHARVEST Campaign Targets Iran Protest Supporters With RAT Malware
+### 1.5 CRESCENTHARVEST 캠페인, RAT 악성코드로 이란 시위 지지자 표적 공격
 
 #### 개요
 
@@ -267,7 +267,7 @@ Microsoft가 Windows Admin Center에서 공격자가 권한을 상승시킬 수 
 
 ## 2. DevSecOps 뉴스
 
-### 2.1 How "Clinejection" Turned an AI Bot into a Supply Chain Attack
+### 2.1 "Clinejection": AI 봇을 공급망 공격 벡터로 전환한 방법
 
 > **심각도**: Critical
 
@@ -303,7 +303,7 @@ Snyk이 'Clinejection'이라는 새로운 공급망 공격 기법을 공개했�
 
 ---
 
-### 2.2 Kubernetes Project Issues Warning on Ingress NGINX Retirement
+### 2.2 Kubernetes 프로젝트, Ingress NGINX 은퇴 경고 발표
 
 > **심각도**: High
 
@@ -341,7 +341,7 @@ Datadog Security Labs가 Kubernetes 프로젝트의 Ingress NGINX 은퇴 경고�
 
 ## 3. AI/ML 뉴스
 
-### 3.1 Introducing Gemini 3.1 Pro on Google Cloud
+### 3.1 Google Cloud에서 Gemini 3.1 Pro 출시
 
 #### 개요
 
@@ -365,7 +365,7 @@ Google이 Gemini 3 시리즈의 핵심 추론 능력을 한 단계 발전시킨 
 
 ---
 
-### 3.2 Advancing Independent Research on AI Alignment
+### 3.2 AI 정렬 독립 연구 지원 확대
 
 #### 개요
 
@@ -388,7 +388,7 @@ OpenAI가 독립적인 AI 정렬(Alignment) 연구를 지원하기 위해 The Al
 
 ---
 
-### 3.3 Build AI Workflows on Amazon EKS with Union.ai and Flyte
+### 3.3 Union.ai와 Flyte로 Amazon EKS에서 AI 워크플로우 구축
 
 #### 개요
 
@@ -413,7 +413,7 @@ AWS에서 Flyte Python SDK를 사용하여 AI/ML 워크플로우를 오케스트
 
 ## 4. 클라우드 & 인프라 뉴스
 
-### 4.1 Building a Conversational Agent in BigQuery Using the Conversational Analytics API
+### 4.1 Conversational Analytics API로 BigQuery에서 대화형 에이전트 구축
 
 #### 개요
 
@@ -429,7 +429,7 @@ Google Cloud가 BigQuery의 Conversational Analytics API를 활용하여 대화�
 
 ---
 
-### 4.2 Simplify Your AI Workflow with Autonomous Embedding Generation in BigQuery
+### 4.2 BigQuery 자율 임베딩 생성으로 AI 워크플로우 간소화
 
 #### 개요
 
@@ -467,7 +467,7 @@ AWS Korea Blog에서 Amazon Bedrock 기반 AI 서비스의 토큰 사용량 관�
 
 ---
 
-### 4.4 Sovereignty and European Competitiveness: A Partnership-Led Approach to AI Growth
+### 4.4 주권과 유럽 경쟁력: 파트너십 기반 AI 성장 접근 방식
 
 #### 개요
 
@@ -486,7 +486,7 @@ Google Cloud가 유럽의 데이터 주권과 경쟁력에 대한 파트너십 �
 
 ## 5. DevOps & 개발 뉴스
 
-### 5.1 State of Cloud Native 2026: CNCF CTO's Insights and Predictions
+### 5.1 클라우드 네이티브 현황 2026: CNCF CTO의 인사이트와 전망
 
 #### 개요
 
@@ -502,7 +502,7 @@ CNCF(Cloud Native Computing Foundation) 10주년을 맞아 CTO가 2026년 클라
 
 ---
 
-### 5.2 How Medplum Secured Their Healthcare Platform with Docker Hardened Images (DHI)
+### 5.2 Medplum, Docker Hardened Images(DHI)로 헬스케어 플랫폼 보안 강화 사례
 
 #### 개요
 
@@ -518,7 +518,7 @@ CNCF(Cloud Native Computing Foundation) 10주년을 맞아 CTO가 2026년 클라
 
 ---
 
-### 5.3 Rust Participates in Google Summer of Code 2026
+### 5.3 Rust, Google Summer of Code 2026 참여 발표
 
 #### 개요
 
@@ -536,7 +536,7 @@ Rust 프로젝트가 2026년 Google Summer of Code(GSoC)에 참여한다고 발�
 
 ## 6. 블록체인 뉴스
 
-### 6.1 Bitcoin Lightning Network Exceeds $1B in Monthly Volume
+### 6.1 비트코인 라이트닝 네트워크, 월간 거래량 10억 달러 돌파
 
 #### 개요
 
@@ -552,7 +552,7 @@ Rust 프로젝트가 2026년 Google Summer of Code(GSoC)에 참여한다고 발�
 
 ---
 
-### 6.2 CME Targets May Launch for 24/7 Crypto Derivatives Trading
+### 6.2 CME, 5월 암호화폐 파생상품 24/7 거래 출시 목표
 
 #### 개요
 
@@ -568,7 +568,7 @@ CME Group이 2026년 5월 29일부터 규제된 암호화폐 선물의 24/7 거�
 
 ---
 
-### 6.3 SEC Leaders Seek to Clarify How Tokenized Securities Interact with Existing Regulation
+### 6.3 SEC 리더십, 토큰화 증권과 기존 규제의 상호작용 명확화 추진
 
 #### 개요
 
@@ -584,7 +584,7 @@ SEC 위원장 Paul Atkins와 Hester Peirce가 ETHDenver에서 토큰화 증권�
 
 ---
 
-### 6.4 Bitcoin ETFs Still Sit on $53B in Net Inflows Despite Recent Outflows
+### 6.4 비트코인 ETF, 최근 유출에도 530억 달러 순유입 유지
 
 #### 개요
 
@@ -600,7 +600,7 @@ Bloomberg 분석가 Eric Balchunas에 따르면, 최근 대규모 유출에도 �
 
 ---
 
-### 6.5 The UAE Has Quietly Built Up a $453 Million Bitcoin Reserve
+### 6.5 UAE, 조용히 4억 5300만 달러 규모의 비트코인 준비금 축적
 
 #### 개요
 

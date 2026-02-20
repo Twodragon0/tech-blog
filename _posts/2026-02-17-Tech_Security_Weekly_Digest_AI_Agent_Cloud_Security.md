@@ -109,17 +109,17 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | Infostealer Steals OpenClaw AI Agent Configuration... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Study Uncovers 25 Password Recovery Attacks in Maj... | 🟡 Medium |
-| 🔒 **Security** | AWS Security Bl | Building an AI-powered defense-in-depth security a... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | Weekly Recap: Outlook Add-Ins Hijack, 0-Day Patche... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | Safe and Inclusive E‑Society: How Lithuania Is Bra... | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | 인포스틸러가 OpenClaw AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | 주요 클라우드 패스워드 매니저에서 25가지 비밀번호 복구 공격 취약점 발견 | 🟡 Medium |
+| 🔒 **Security** | AWS Security Bl | 서버리스 마이크로서비스를 위한 AI 기반 심층 방어 보안 아키텍처 구축 | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | 주간 요약: Outlook 추가 기능 하이재킹, 0-Day 패치, 웜형 취약점 | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | 안전하고 포용적인 전자 사회: 리투아니아의 디지털 격차 해소 사례 | 🟡 Medium |
 
 ---
 
 ## 1. 보안 뉴스
 
-### 1.1 Infostealer Steals OpenClaw AI Agent Configuration Files and Gateway Tokens
+### 1.1 인포스틸러, OpenClaw AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취
 
 #### 개요
 
@@ -153,7 +153,7 @@ toc: true
 
 ---
 
-### 1.2 Study Uncovers 25 Password Recovery Attacks in Major Cloud Password Managers
+### 1.2 주요 클라우드 패스워드 매니저에서 25가지 비밀번호 복구 공격 취약점 발견
 
 #### 개요
 
@@ -178,7 +178,7 @@ toc: true
 
 ---
 
-### 1.3 Building an AI-powered defense-in-depth security architecture for serverless microservices
+### 1.3 서버리스 마이크로서비스를 위한 AI 기반 심층 방어 보안 아키텍처 구축
 
 > 🔴 **심각도**: Critical
 
@@ -207,7 +207,7 @@ toc: true
 
 ## 2. 클라우드 & 인프라 뉴스
 
-### 2.1 Amazon EC2 Hpc8a Instances powered by 5th Gen AMD EPYC processors are now available
+### 2.1 5세대 AMD EPYC 프로세서 기반 Amazon EC2 Hpc8a 인스턴스 정식 출시
 
 #### 개요
 
@@ -231,7 +231,7 @@ toc: true
 
 ---
 
-### 2.2 Announcing Amazon SageMaker Inference for custom Amazon Nova models
+### 2.2 커스텀 Amazon Nova 모델을 위한 Amazon SageMaker Inference 출시 발표
 
 #### 개요
 
@@ -255,7 +255,7 @@ AWS가 커스텀 Amazon Nova 모델을 위한 Amazon SageMaker Inference를 출�
 
 ---
 
-### 2.3 AWS Weekly Roundup: Amazon EC2 M8azn instances, new open weights models in Amazon Bedrock, and more (February 16, 2026)
+### 2.3 AWS 주간 요약: Amazon EC2 M8azn 인스턴스, Amazon Bedrock의 새로운 오픈 웨이트 모델 외 (2026년 2월 16일)
 
 #### 개요
 
@@ -281,7 +281,7 @@ AWS가 커스텀 Amazon Nova 모델을 위한 Amazon SageMaker Inference를 출�
 
 ## 3. 블록체인 뉴스
 
-### 3.1 Bitcoin Bears Dominate: Failure to Break $71,800 Keeps Downside Risk Alive
+### 3.1 비트코인 매도세 우세: $71,800 돌파 실패로 하락 리스크 지속
 
 #### 개요
 
@@ -298,7 +298,7 @@ AWS가 커스텀 Amazon Nova 모델을 위한 Amazon SageMaker Inference를 출�
 
 ---
 
-### 3.2 Payjoin Foundation Gains 501(c)(3) Status, Enabling Tax-Deductible Donations for Bitcoin Privacy Development
+### 3.2 Payjoin Foundation, 501(c)(3) 비영리 지위 획득으로 비트코인 프라이버시 개발 기부금 세금 공제 가능
 
 #### 개요
 

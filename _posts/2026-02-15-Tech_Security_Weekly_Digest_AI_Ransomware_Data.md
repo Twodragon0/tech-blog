@@ -147,7 +147,7 @@ Chainalysis의 Web3 보안 솔루션 Hexagate가 MegaETH 생태계를 지원합�
 
 ---
 
-### 2.2 Roundhill’s election event contract ETFs ‘potentially groundbreaking’
+### 2.2 Roundhill의 대선 이벤트 계약 ETF ‘잠재적 혁신 상품’으로 주목
 
 #### 개요
 
@@ -166,8 +166,8 @@ Roundhill이 미국 대선 결과와 연동된 이벤트 계약 ETF를 출시했
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [WiTricity brings wireless EV charging to the golf ...](https://electrek.co/2026/02/14/witricity-brings-wireless-ev-charging-to-the-golf-course/) | Electrek | WiTricity가 골프장에 무선 EV 충전 기술을 도입, 최신 무선 충전 솔루션 공개 |
-| [California’s Helix water district gets state-of-th...](https://electrek.co/2026/02/14/californias-helix-water-district-gets-state-of-the-art-managed-charging-qa/) | Electrek | 캘리포니아 Helix 수도 사업소가 El Cajon 운영 센터에 최신 관리형 충전 시스템 도입 |
+| [WiTricity, 골프장에 무선 EV 충전 기술 도입](https://electrek.co/2026/02/14/witricity-brings-wireless-ev-charging-to-the-golf-course/) | Electrek | WiTricity가 골프장에 무선 EV 충전 기술을 도입, 최신 무선 충전 솔루션 공개 |
+| [캘리포니아 Helix 수도 사업소, 최신 관리형 충전 시스템 도입](https://electrek.co/2026/02/14/californias-helix-water-district-gets-state-of-the-art-managed-charging-qa/) | Electrek | 캘리포니아 Helix 수도 사업소가 El Cajon 운영 센터에 최신 관리형 충전 시스템 도입 |
 
 
 ---

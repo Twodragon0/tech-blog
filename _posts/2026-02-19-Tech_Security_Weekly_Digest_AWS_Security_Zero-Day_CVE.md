@@ -111,17 +111,17 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | Citizen Lab Finds Cellebrite Tool Used on Kenyan A... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Grandstream GXP1600 VoIP Phones Exposed to Unauthe... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | Critical Flaws Found in Four VS Code Extensions wi... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | Cybersecurity Tech Predictions for 2026: Operating... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Dell RecoverPoint for VMs Zero-Day CVE-2026-22769 ... | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | Citizen Lab, 케냐 활동가 폰에서 Cellebrite 도구 사용 확인 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Grandstream GXP1600 VoIP 폰, 인증되지 않은 원격 코드 실행 취약점 노출 | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | VS Code 확장 4개에서 치명적 결함 발견, 1억 2500만 설치 영향 | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | 2026년 사이버보안 기술 예측: 운영 환경의 변화 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Dell RecoverPoint for VMs Zero-Day CVE-2026-22769 실제 공격 악용 | 🔴 Critical |
 
 ---
 
 ## 1. 보안 뉴스
 
-### 1.1 Citizen Lab Finds Cellebrite Tool Used on Kenyan Activist’s Phone in Police Custody
+### 1.1 Citizen Lab, 케냐 활동가 폰에서 경찰 구금 중 Cellebrite 도구 사용 확인
 
 #### 개요
 
@@ -154,7 +154,7 @@ Citizen Lab의 새로운 연구에 따르면, 케냐 당국이 이스라엘 회�
 
 ---
 
-### 1.2 Grandstream GXP1600 VoIP Phones Exposed to Unauthenticated Remote Code Execution
+### 1.2 Grandstream GXP1600 VoIP 폰, 인증되지 않은 원격 코드 실행 취약점 노출
 
 > 🔴 **심각도**: Critical | **CVE**: CVE-2026-2329
 
@@ -181,7 +181,7 @@ Citizen Lab의 새로운 연구에 따르면, 케냐 당국이 이스라엘 회�
 
 ---
 
-### 1.3 Critical Flaws Found in Four VS Code Extensions with Over 125 Million Installs
+### 1.3 1억 2500만 설치된 VS Code 확장 4개에서 치명적 결함 발견
 
 > 🔴 **심각도**: Critical
 
@@ -209,7 +209,7 @@ Citizen Lab의 새로운 연구에 따르면, 케냐 당국이 이스라엘 회�
 
 ## 2. AI/ML 뉴스
 
-### 2.1 Introducing OpenAI for India
+### 2.1 OpenAI for India 출시
 
 > 🔴 **심각도**: Critical
 
@@ -239,7 +239,7 @@ OpenAI for India는 인도 전역에 AI 접근성을 확대합니다. 현지 인
 
 ---
 
-### 2.2 A new way to express yourself: Gemini can now create music
+### 2.2 자신을 표현하는 새로운 방법: Gemini로 음악 생성 가능
 
 #### 개요
 
@@ -267,7 +267,7 @@ Lyria 3로 생성된 샘플 트랙 이미지
 
 ---
 
-### 2.3 AI Impact Summit 2026: How we’re partnering to make AI work for everyone
+### 2.3 AI Impact Summit 2026: 모두를 위한 AI를 위한 파트너십
 
 #### 개요
 
@@ -297,7 +297,7 @@ Lyria 3로 생성된 샘플 트랙 이미지
 
 ## 3. 클라우드 & 인프라 뉴스
 
-### 3.1 Powering the next generation of agents with Google Cloud databases
+### 3.1 Google Cloud 데이터베이스로 차세대 에이전트 지원
 
 > 🔴 **심각도**: Critical
 
@@ -323,7 +323,7 @@ Lyria 3로 생성된 샘플 트랙 이미지
 
 ---
 
-### 3.2 Cloud CISO Perspectives: New AI threats report: Distillation, experimentation, and integration
+### 3.2 Cloud CISO 시각: 새로운 AI 위협 보고서 - 증류, 실험, 통합
 
 #### 개요
 
@@ -347,7 +347,7 @@ Lyria 3로 생성된 샘플 트랙 이미지
 
 ---
 
-### 3.3 Your guide to Provisioned Throughput (PT) on Vertex AI
+### 3.3 Vertex AI Provisioned Throughput(PT) 활용 가이드
 
 > 🔴 **심각도**: Critical
 
@@ -375,7 +375,7 @@ AI 에이전트가 하루에 수천 건의 결정을 내릴 때, 일관된 성�
 
 ## 4. DevOps & 개발 뉴스
 
-### 4.1 CNCF Releases 2026 Observability Summit North America Schedule as Cloud Native Observability Adoption Expands
+### 4.1 CNCF, 클라우드 네이티브 관측성 확산에 따른 2026 Observability Summit 북미 일정 공개
 
 #### 개요
 
@@ -398,7 +398,7 @@ Observability Summit North America가 5월 21-22일 미니애폴리스에서 개
 
 ---
 
-### 4.2 Announcing Kyverno 1.17!
+### 4.2 Kyverno 1.17 출시!
 
 #### 개요
 
@@ -423,7 +423,7 @@ Kyverno 1.17은 차세대 Common Expression Language(CEL) 정책 엔진의 안�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Ledn Sells $188M Bitcoin-Backed Bonds in First-of-Its-Kind Deal
+### 5.1 Ledn, 업계 최초 비트코인 담보 채권 1억 8800만 달러 판매
 
 #### 개요
 
@@ -439,7 +439,7 @@ Kyverno 1.17은 차세대 Common Expression Language(CEL) 정책 엔진의 안�
 
 ---
 
-### 5.2 FutureBit launches Apollo III, U.S.-Engineered Home Bitcoin Miner
+### 5.2 FutureBit, 미국 설계 가정용 비트코인 채굴기 Apollo III 출시
 
 #### 개요
 
@@ -459,8 +459,8 @@ FutureBit이 오늘 Apollo III를 출시했습니다. 고성능 채굴기와 풀
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Amazon grew its Rivian electric delivery van fleet...](https://electrek.co/2026/02/18/amazon-grew-its-rivian-electric-delivery-van-fleet-by-50-in-2025/) | Electrek | Amazon이 배송 차량에 Rivian 전기 밴 10만 대 추가 약속, 2025년 50% 증가... |
-| [This European company’s sleek solar roof just made...](https://electrek.co/2026/02/18/european-company-sleek-solar-roof-just-made-its-us-debut/) | Electrek | 유럽 태양광 지붕 회사 Roofit.Solar가 미국 첫 프로젝트를 완료... |
+| [Amazon, Rivian 전기 배송 밴 차량 수 2025년 50% 증가](https://electrek.co/2026/02/18/amazon-grew-its-rivian-electric-delivery-van-fleet-by-50-in-2025/) | Electrek | Amazon이 배송 차량에 Rivian 전기 밴 10만 대 추가 약속, 2025년 50% 증가 |
+| [유럽 태양광 지붕 회사, 미국 시장 첫 진출](https://electrek.co/2026/02/18/european-company-sleek-solar-roof-just-made-its-us-debut/) | Electrek | 유럽 태양광 지붕 회사 Roofit.Solar가 미국 첫 프로젝트를 완료 |
 
 
 ---
