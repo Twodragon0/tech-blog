@@ -9,8 +9,6 @@
 @import "base";
 @import "layout";
 @import "components";
-@import "post";
-@import "lightbox";
-@import "syntax";
 @import "chat-widget";
-@import "certification";
+// post, lightbox, syntax → assets/css/post.scss (loaded on post pages only)
+// certification → assets/css/certification.scss (loaded on certification pages only)
