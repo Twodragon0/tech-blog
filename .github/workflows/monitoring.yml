@@ -25,13 +25,16 @@ jobs:
 
       - name: Check site availability
         run: |
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://tech.2twodragon.com)
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 -A "Mozilla/5.0 TechBlogMonitor" https://tech.2twodragon.com)
           echo "HTTP status: $HTTP_STATUS"
-          if [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 400 ]; then
+          if [ "$HTTP_STATUS" -eq 429 ]; then
+            echo "::warning::Site returned HTTP 429 (rate limited) - site is alive"
+          elif [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 400 ]; then
             echo "::error::Site returned HTTP $HTTP_STATUS"
             exit 1
+          else
+            echo "Site is accessible (HTTP $HTTP_STATUS)"
           fi
-          echo "Site is accessible (HTTP $HTTP_STATUS)"
 
       - name: Check Vercel CLI
         if: env.HAS_VERCEL_TOKEN == 'true'
