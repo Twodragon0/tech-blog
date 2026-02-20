@@ -1,10 +1,100 @@
 {
-  "collected_at": "2026-02-20T03:32:07.160289+00:00",
-  "total_items": 142,
+  "collected_at": "2026-02-20T06:04:02.482950+00:00",
+  "total_items": 140,
   "items": [
     {
+      "id": "fbcd095a2b68",
+      "title": "White House floats limited stablecoin rewards in 3rd crypto, bank meeting",
+      "url": "https://cointelegraph.com/news/crypto-banks-meet-white-house-stablecoin-rewards?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-20T05:18:23+00:00",
+      "summary": "White House crypto adviser Patrick Witt reportedly refocused crypto and bank lobby talks on a crypto bill to allow stablecoin rewards tied to transaction activity.",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Brayden Lindrea",
+      "priority": 2
+    },
+    {
+      "id": "0b5fa30c19cb",
+      "title": "Crypto miner Bitdeer tanks 17% after $300M debt offering",
+      "url": "https://cointelegraph.com/news/bitdeer-stock-drops-17-after-convertible-senior-note-offering?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-20T04:30:29+00:00",
+      "summary": "Bitdeer has launched its second-ever convertible senior note offering, which has seen its shares tumble 29% so far this year.",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Martin Young",
+      "priority": 2
+    },
+    {
+      "id": "1d93ba48242e",
+      "title": "Mystery donor gives Japanese city $3.6M in gold bars to fix water system",
+      "url": "https://www.bbc.com/news/articles/c3ew5jlqz87o",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-20T04:27:51+00:00",
+      "summary": "Article URL: https://www.bbc.com/news/articles/c3ew5jlqz87o Comments URL: https://news.ycombinator.com/item?id=47083735 Points: 15 # Comments: 5",
+      "content": "",
+      "tags": [],
+      "author": "tartoran",
+      "priority": 2
+    },
+    {
+      "id": "bf18dcd52dbb",
+      "title": "Consistency diffusion language models: Up to 14x faster, no quality loss",
+      "url": "https://www.together.ai/blog/consistency-diffusion-language-models",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-20T04:15:58+00:00",
+      "summary": "Article URL: https://www.together.ai/blog/consistency-diffusion-language-models Comments URL: https://news.ycombinator.com/item?id=47083648 Points: 27 # Comments: 3",
+      "content": "",
+      "tags": [],
+      "author": "zagwdt",
+      "priority": 2
+    },
+    {
+      "id": "243739eabcdc",
+      "title": "Fed’s Kashkari lashes crypto and stablecoins, praises AI",
+      "url": "https://cointelegraph.com/news/fed-neel-kashkari-lashes-crypto-and-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-20T04:13:29+00:00",
+      "summary": "Minneapolis Fed President Neel Kashkari says crypto is “utterly useless” compared to AI, and that pro-stablecoin arguments are “a buzzword salad.”",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Brian Quarmby",
+      "priority": 2
+    },
+    {
+      "id": "a80e44e59d03",
+      "title": "Illicit stablecoin activity hit 5-year high of $141B in 2025: TRM Labs",
+      "url": "https://cointelegraph.com/news/illicit-stablecoin-activity-hits-five-year-high-at-141b-trm-labs?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-20T03:30:38+00:00",
+      "summary": "Sanctions evasion networks, guarantee marketplaces, and large-scale money laundering schemes dominated illicit stablecoin use, says TRM Labs.",
+      "content": "",
+      "tags": [],
+      "author": "Cointelegraph by Martin Young",
+      "priority": 2
+    },
+    {
       "id": "1e5b9b90caee",
-      "title": "Tesla launches $60k AWD Cybertruck, cuts Cyberbeast price by $15k",
+      "title": "Tesla launches $60k AWD Cybertruck, reverses $15k Cyberbeast price hike",
       "url": "https://electrek.co/2026/02/19/tesla-launches-60k-awd-cybertruck-cuts-cyberbeast-price-by-15k/",
       "source": "electrek",
       "source_name": "Electrek",
@@ -28,7 +118,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-20T03:05:08+00:00",
-      "summary": "Article URL: https://theshamblog.com/an-ai-agent-wrote-a-hit-piece-on-me-part-4/ Comments URL: https://news.ycombinator.com/item?id=47083145 Points: 27 # Comments: 1",
+      "summary": "Article URL: https://theshamblog.com/an-ai-agent-wrote-a-hit-piece-on-me-part-4/ Comments URL: https://news.ycombinator.com/item?id=47083145 Points: 237 # Comments: 177",
       "content": "",
       "tags": [],
       "author": "scottshambaugh",
@@ -58,7 +148,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-20T02:20:06+00:00",
-      "summary": "Article URL: https://github.com/tmustier/pi-for-excel Comments URL: https://news.ycombinator.com/item?id=47082854 Points: 13 # Comments: 0",
+      "summary": "Article URL: https://github.com/tmustier/pi-for-excel Comments URL: https://news.ycombinator.com/item?id=47082854 Points: 29 # Comments: 4",
       "content": "",
       "tags": [],
       "author": "rahimnathwani",
@@ -88,7 +178,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-20T01:33:36+00:00",
-      "summary": "Article URL: https://sour.coffee/2026/02/20/an-arm-homelab-server-or-a-minisforum-ms-r1-review/ Comments URL: https://news.ycombinator.com/item?id=47082548 Points: 20 # Comments: 18",
+      "summary": "Article URL: https://sour.coffee/2026/02/20/an-arm-homelab-server-or-a-minisforum-ms-r1-review/ Comments URL: https://news.ycombinator.com/item?id=47082548 Points: 43 # Comments: 37",
       "content": "",
       "tags": [],
       "author": "neelc",
@@ -103,7 +193,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-20T01:28:47+00:00",
-      "summary": "Article URL: https://gist.github.com/interpiduser5/547d8a7baec436f24b7cce89dd4ae1ea Comments URL: https://news.ycombinator.com/item?id=47082496 Points: 56 # Comments: 9",
+      "summary": "Article URL: https://gist.github.com/interpiduser5/547d8a7baec436f24b7cce89dd4ae1ea Comments URL: https://news.ycombinator.com/item?id=47082496 Points: 158 # Comments: 69",
       "content": "",
       "tags": [],
       "author": "interpidused",
@@ -133,7 +223,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-19T22:54:28+00:00",
-      "summary": "Article URL: https://github.com/thelowsunoverthemoon/mahler.c Comments URL: https://news.ycombinator.com/item?id=47080873 Points: 14 # Comments: 3",
+      "summary": "Article URL: https://github.com/thelowsunoverthemoon/mahler.c Comments URL: https://news.ycombinator.com/item?id=47080873 Points: 25 # Comments: 6",
       "content": "",
       "tags": [],
       "author": "lowsun",
@@ -169,21 +259,6 @@
         "News"
       ],
       "author": "Michelle Lewis",
-      "priority": 2
-    },
-    {
-      "id": "ec51b441bdee",
-      "title": "Single vaccine could protect against all coughs, colds and flus",
-      "url": "https://www.bbc.com/news/articles/cx2g8rz7yedo",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-19T22:08:24+00:00",
-      "summary": "Article URL: https://www.bbc.com/news/articles/cx2g8rz7yedo Comments URL: https://news.ycombinator.com/item?id=47080267 Points: 140 # Comments: 95",
-      "content": "",
-      "tags": [],
-      "author": "dabinat",
       "priority": 2
     },
     {
@@ -272,7 +347,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-19T20:56:23+00:00",
-      "summary": "Article URL: https://www.theguardian.com/us-news/2026/feb/19/trump-science-funding-cuts Comments URL: https://news.ycombinator.com/item?id=47079222 Points: 334 # Comments: 310",
+      "summary": "Article URL: https://www.theguardian.com/us-news/2026/feb/19/trump-science-funding-cuts Comments URL: https://news.ycombinator.com/item?id=47079222 Points: 400 # Comments: 368",
       "content": "",
       "tags": [],
       "author": "mitchbob",
@@ -293,21 +368,6 @@
         "News"
       ],
       "author": "Fred Lambert",
-      "priority": 2
-    },
-    {
-      "id": "f4291e11949f",
-      "title": "Overall, the colorectal cancer story is encouraging",
-      "url": "https://www.hankgreen.com/crc",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-19T20:32:09+00:00",
-      "summary": "Article URL: https://www.hankgreen.com/crc Comments URL: https://news.ycombinator.com/item?id=47078840 Points: 116 # Comments: 113",
-      "content": "",
-      "tags": [],
-      "author": "ZeroGravitas",
       "priority": 2
     },
     {
@@ -341,21 +401,6 @@
       "priority": 2
     },
     {
-      "id": "ae58cae4ac79",
-      "title": "AI is not a coworker, it's an exoskeleton",
-      "url": "https://www.kasava.dev/blog/ai-as-exoskeleton",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-19T19:55:11+00:00",
-      "summary": "Article URL: https://www.kasava.dev/blog/ai-as-exoskeleton Comments URL: https://news.ycombinator.com/item?id=47078324 Points: 167 # Comments: 173",
-      "content": "",
-      "tags": [],
-      "author": "benbeingbin",
-      "priority": 2
-    },
-    {
       "id": "b4a7581b5178",
       "title": "Micropayments as a reality check for news sites",
       "url": "https://blog.zgp.org/micropayments-as-a-reality-check-for-news-sites/",
@@ -364,7 +409,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-19T19:42:31+00:00",
-      "summary": "Article URL: https://blog.zgp.org/micropayments-as-a-reality-check-for-news-sites/ Comments URL: https://news.ycombinator.com/item?id=47078167 Points: 123 # Comments: 302",
+      "summary": "Article URL: https://blog.zgp.org/micropayments-as-a-reality-check-for-news-sites/ Comments URL: https://news.ycombinator.com/item?id=47078167 Points: 143 # Comments: 317",
       "content": "",
       "tags": [],
       "author": "speckx",
@@ -462,7 +507,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-19T18:31:50+00:00",
-      "summary": "Article URL: https://www.smithsonianmag.com/smart-news/archaeologists-unearthed-a-2200-year-old-bone-they-say-it-could-be-the-first-direct-evidence-of-hannibals-legendary-war-elephants-180988185/ Comments URL: https://news.ycombinator.com/item?id=47077245 Points: 89 # Comments: 24",
+      "summary": "Article URL: https://www.smithsonianmag.com/smart-news/archaeologists-unearthed-a-2200-year-old-bone-they-say-it-could-be-the-first-direct-evidence-of-hannibals-legendary-war-elephants-180988185/ Comments URL: https://news.ycombinator.com/item?id=47077245 Points: 97 # Comments: 25",
       "content": "",
       "tags": [],
       "author": "bryanrasmussen",
@@ -509,7 +554,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-19T17:47:25+00:00",
-      "summary": "Article URL: https://github.com/Veirt/weathr Comments URL: https://news.ycombinator.com/item?id=47076659 Points: 172 # Comments: 31",
+      "summary": "Article URL: https://github.com/Veirt/weathr Comments URL: https://news.ycombinator.com/item?id=47076659 Points: 198 # Comments: 33",
       "content": "",
       "tags": [],
       "author": "forinti",
@@ -636,21 +681,6 @@
       "priority": 2
     },
     {
-      "id": "4f131161c820",
-      "title": "Bitcoin price forecast sees new breakdown as crypto liquidates over $200M",
-      "url": "https://cointelegraph.com/news/bitcoin-price-forecast-sees-new-breakdown-as-crypto-liquidates-200m?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-19T16:25:44+00:00",
-      "summary": "Bitcoin fed into \"extreme bearish sentiment\" as a tight BTC price range fueled daily crypto liquidations of over $200 million.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by William Suberg",
-      "priority": 2
-    },
-    {
       "id": "1a21c2a1022c",
       "title": "New Aventon Ramblas ADV e-bike brings 100Nm torque and 90-mile range to the trails",
       "url": "https://electrek.co/2026/02/19/new-aventon-ramblas-adv-brings-100nm-torque-and-90-mile-range-to-the-trails/",
@@ -723,7 +753,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-19T15:30:42+00:00",
-      "summary": "Article URL: https://borischerny.com/food/2022/01/17/Dinosaur-food.html Comments URL: https://news.ycombinator.com/item?id=47074869 Points: 106 # Comments: 87",
+      "summary": "Article URL: https://borischerny.com/food/2022/01/17/Dinosaur-food.html Comments URL: https://news.ycombinator.com/item?id=47074869 Points: 111 # Comments: 93",
       "content": "",
       "tags": [],
       "author": "simonebrunozzi",
@@ -755,25 +785,10 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-19T15:19:57+00:00",
-      "summary": "Preview: https://console.cloud.google.com/vertex-ai/publishers/google... Card: https://deepmind.google/models/model-cards/gemini-3-1-pro/ Comments URL: https://news.ycombinator.com/item?id=47074735 Points: 577 # Comments: 723",
+      "summary": "Preview: https://console.cloud.google.com/vertex-ai/publishers/google... Card: https://deepmind.google/models/model-cards/gemini-3-1-pro/ Comments URL: https://news.ycombinator.com/item?id=47074735 Points: 642 # Comments: 751",
       "content": "",
       "tags": [],
       "author": "MallocVoidstar",
-      "priority": 2
-    },
-    {
-      "id": "11dc1b1f8603",
-      "title": "Dash Evolution chain integrates Zcash Orchard privacy pool",
-      "url": "https://cointelegraph.com/news/dash-integrates-z-cash-orchard-privacy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-19T15:17:36+00:00",
-      "summary": "Initial features will support basic transfers, setting the stage for subsequent upgrades, including privacy features for tokenized real-world assets.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Vince Quill",
       "priority": 2
     },
     {
@@ -802,31 +817,10 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-19T14:52:18+00:00",
-      "summary": "Article URL: https://www.governance.fyi/p/america-vs-singapore-you-cant-save Comments URL: https://news.ycombinator.com/item?id=47074389 Points: 235 # Comments: 359",
+      "summary": "Article URL: https://www.governance.fyi/p/america-vs-singapore-you-cant-save Comments URL: https://news.ycombinator.com/item?id=47074389 Points: 262 # Comments: 388",
       "content": "",
       "tags": [],
       "author": "guardianbob",
-      "priority": 2
-    },
-    {
-      "id": "78f7a83e386d",
-      "title": "Here’s what happened in crypto today",
-      "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-19T14:33:50+00:00",
-      "summary": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, NFTs, Web3 and crypto regulation.",
-      "content": "",
-      "tags": [
-        "Trump memecoin",
-        "Solana memecoin",
-        "TRUMP token",
-        "Solana",
-        "SOL"
-      ],
-      "author": "Cointelegraph by Cointelegraph",
       "priority": 2
     },
     {
@@ -838,25 +832,10 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-19T14:14:14+00:00",
-      "summary": "Article URL: https://www.anthropic.com/research/measuring-agent-autonomy Comments URL: https://news.ycombinator.com/item?id=47073947 Points: 86 # Comments: 39",
+      "summary": "Article URL: https://www.anthropic.com/research/measuring-agent-autonomy Comments URL: https://news.ycombinator.com/item?id=47073947 Points: 93 # Comments: 46",
       "content": "",
       "tags": [],
       "author": "jbredeche",
-      "priority": 2
-    },
-    {
-      "id": "29e176cefdea",
-      "title": "Banks can’t seem to service crypto, even as it goes mainstream",
-      "url": "https://cointelegraph.com/news/banks-service-crypto-even-mainstream?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-19T14:10:43+00:00",
-      "summary": "Crypto’s reputation is improving, but investors still complain that their banks are blocking their accounts for interacting with digital assets.",
-      "content": "",
-      "tags": [],
-      "author": "Cointelegraph by Yohan Yun",
       "priority": 2
     },
     {
@@ -885,7 +864,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-19T12:36:00+00:00",
-      "summary": "Article URL: https://repebble.com/blog/february-pebble-production-and-software-updates Comments URL: https://news.ycombinator.com/item?id=47073112 Points: 269 # Comments: 126",
+      "summary": "Article URL: https://repebble.com/blog/february-pebble-production-and-software-updates Comments URL: https://news.ycombinator.com/item?id=47073112 Points: 276 # Comments: 128",
       "content": "",
       "tags": [],
       "author": "smig0",
@@ -900,10 +879,25 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-19T12:13:44+00:00",
-      "summary": "Article URL: https://pagedout.institute/download/PagedOut_008.pdf Comments URL: https://news.ycombinator.com/item?id=47072968 Points: 331 # Comments: 53",
+      "summary": "Article URL: https://pagedout.institute/download/PagedOut_008.pdf Comments URL: https://news.ycombinator.com/item?id=47072968 Points: 357 # Comments: 56",
       "content": "",
       "tags": [],
       "author": "SteveHawk27",
+      "priority": 2
+    },
+    {
+      "id": "f30865364a6c",
+      "title": "Show HN: Mini-Diarium - An encrypted, local, cross-platform journaling app",
+      "url": "https://github.com/fjrevoredo/mini-diarium",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-19T11:54:21+00:00",
+      "summary": "Article URL: https://github.com/fjrevoredo/mini-diarium Comments URL: https://news.ycombinator.com/item?id=47072863 Points: 119 # Comments: 55",
+      "content": "",
+      "tags": [],
+      "author": "holyknight",
       "priority": 2
     },
     {
@@ -939,36 +933,46 @@
       "priority": 2
     },
     {
-      "id": "05da7934a832",
-      "title": "Tesla’s European future in doubt, but they didn’t get banned in California!",
-      "url": "https://electrek.co/2026/02/18/teslas-european-future-in-doubt-but-they-didnt-get-banned-in-california/",
-      "source": "electrek",
-      "source_name": "Electrek",
+      "id": "60483d81864a",
+      "title": "Micasa – 터미널에서 집을 관리하는 도구",
+      "url": "https://news.hada.io/topic?id=26836",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
       "category": "tech",
-      "language": "en",
-      "published": "2026-02-19T04:02:08+00:00",
-      "summary": "On today’s labor-intensive episode of Quick Charge , Germany’s largest union IG Metall is squaring off with Tesla in a major dispute involving a toxic work culture, criminal charges, defamation, and more – but at least they can still sell cars in California (for now). more…",
-      "content": "",
-      "tags": [
-        "News",
-        "Autopilot",
-        "polestar",
-        "Tesla"
-      ],
-      "author": "Jo Borrás",
-      "priority": 2
+      "language": "ko",
+      "published": "2026-02-20T11:33:07+09:00",
+      "summary": "주택 유지보수와 프로젝트, 가전, 견적, 문서 를 한 곳에서 관리할 수 있는 터미널 기반 애플리케이션 정비 일정, 서비스 이력, 보증 상태 등을 자동 계산해 표시하며, 모든 데이터는 SQLite 파일 하나 에 저장 Vim 스타일 키보...",
+      "content": "주택 유지보수와 프로젝트, 가전, 견적, 문서 를 한 곳에서 관리할 수 있는 터미널 기반 애플리케이션 정비 일정, 서비스 이력, 보증 상태 등을 자동 계산해 표시하며, 모든 데이터는 SQLite 파일 하나 에 저장 Vim 스타일 키보...",
+      "tags": [],
+      "author": "neo",
+      "priority": 1
+    },
+    {
+      "id": "a5070f27ec1b",
+      "title": "Claude Code 구축에서 얻은 교훈: 프롬프트 캐싱이 전부임",
+      "url": "https://news.hada.io/topic?id=26835",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-02-20T11:31:01+09:00",
+      "summary": "장기 실행 에이전트 제품에서 프롬프트 캐싱 은 이전 라운드트립의 연산을 재사용해 지연 시간과 비용을 획기적으로 줄이는 핵심 기술로, Claude Code의 전체 아키텍처가 이를 중심으로 설계됨 캐싱은 접두사 매칭 방식으로 작동하므로, 정적 콘텐...",
+      "content": "장기 실행 에이전트 제품에서 프롬프트 캐싱 은 이전 라운드트립의 연산을 재사용해 지연 시간과 비용을 획기적으로 줄이는 핵심 기술로, Claude Code의 전체 아키텍처가 이를 중심으로 설계됨 캐싱은 접두사 매칭 방식으로 작동하므로, 정적 콘텐...",
+      "tags": [],
+      "author": "neo",
+      "priority": 1
     },
     {
       "id": "be6429ae12ff",
-      "title": "Step 3.5 Flash – 오픈소스 기반 모델, 빠른 추론과 안정적 실행 지원",
+      "title": "Step 3.5 Flash – 고속 추론을 지원하는 오픈소스 LLM",
       "url": "https://news.hada.io/topic?id=26834",
       "source": "geeknews",
       "source_name": "GeekNews (긱뉴스)",
       "category": "tech",
       "language": "ko",
       "published": "2026-02-20T11:21:55+09:00",
-      "summary": "Step 3.5 Flash 는 1960억 매개변수 중 110억만 활성화하는 희소 Mixture of Experts 구조 로, 고속 추론과 실시간 상호작용을 지원하는 오픈소스 기반 대형 언어 모델임 Multi-Token Prediction(MTP-3) 과 Sliding Window Attention(3:1...",
-      "content": "Step 3.5 Flash 는 1960억 매개변수 중 110억만 활성화하는 희소 Mixture of Experts 구조 로, 고속 추론과 실시간 상호작용을 지원하는 오픈소스 기반 대형 언어 모델임 Multi-Token Prediction(MTP-3) 과 Sliding Window Attention(3:1...",
+      "summary": "1960억 매개변수 중 110억만 활성화하는 희소 Mixture of Experts 구조 로, 고속 추론과 실시간 상호작용을 지원 초당 최대 350토큰의 생성 속도와 256K 컨텍스트 윈도우를 구현 SWE-bench Verified 74.4% 로 코딩·에이전트 벤치마크에서 안정적 성능을 보...",
+      "content": "1960억 매개변수 중 110억만 활성화하는 희소 Mixture of Experts 구조 로, 고속 추론과 실시간 상호작용을 지원 초당 최대 350토큰의 생성 속도와 256K 컨텍스트 윈도우를 구현 SWE-bench Verified 74.4% 로 코딩·에이전트 벤치마크에서 안정적 성능을 보...",
       "tags": [],
       "author": "xguru",
       "priority": 1
@@ -982,10 +986,25 @@
       "category": "tech",
       "language": "ko",
       "published": "2026-02-20T11:20:38+09:00",
-      "summary": "Minecraft Java 에디션 이 그래픽 렌더링 엔진을 OpenGL에서 Vulkan으로 전환 함 이번 변경은 ‘Vibrant Visuals’ 업데이트 의 일환으로 진행됨 Vulkan은 더 나은 성능과 효율적인 GPU 활용 을 제공하는 최신 그래픽 API...",
-      "content": "Minecraft Java 에디션 이 그래픽 렌더링 엔진을 OpenGL에서 Vulkan으로 전환 함 이번 변경은 ‘Vibrant Visuals’ 업데이트 의 일환으로 진행됨 Vulkan은 더 나은 성능과 효율적인 GPU 활용 을 제공하는 최신 그래픽 API...",
+      "summary": "Minecraft Java 에디션 이 그래픽 렌더링 엔진을 OpenGL에서 Vulkan으로 전환 함 1990년대부터 사용해온 OpenGL의 업데이트 중단과 macOS 지원 종료 가 전환 배경 Vulkan은 Windows·Linux 기본 지원 , macOS는 번역 레이어...",
+      "content": "Minecraft Java 에디션 이 그래픽 렌더링 엔진을 OpenGL에서 Vulkan으로 전환 함 1990년대부터 사용해온 OpenGL의 업데이트 중단과 macOS 지원 종료 가 전환 배경 Vulkan은 Windows·Linux 기본 지원 , macOS는 번역 레이어...",
       "tags": [],
       "author": "xguru",
+      "priority": 1
+    },
+    {
+      "id": "b36564856e01",
+      "title": "Three Former Google Engineers Indicted Over Trade Secret Transfers to Iran",
+      "url": "https://thehackernews.com/2026/02/three-former-google-engineers-indicted.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-02-20T10:57:00+05:30",
+      "summary": "Two former Google engineers and one of their husbands have been indicted in the U.S. for allegedly committing trade secret theft from the search giant and other tech firms and transferring the information to unauthorized locations, including Iran. Samaneh Ghandali, 41, and her husband Mohammadjavad Khosravi (aka Mohammad Khosravi), 40, along with her sister Soroor Ghandali, 32, have been accused",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
       "priority": 1
     },
     {
@@ -1079,6 +1098,249 @@
       "priority": 1
     },
     {
+      "id": "27f9ed00f8b8",
+      "title": "HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_11%EC%9B%94%ED%98%B8_%EC%82%AC%EC%9D%B4%EB%B2%84%EB%B3%B4%EC%95%88%20%ED%8A%B9%ED%99%94%20Vertical%20AI%20%EA%B5%AC%EC%B6%95%20%EB%B0%A9%EC%95%88.pdf&r_fname=20251127174323358.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.479835+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "AI보안",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "230483d583e0",
+      "title": "Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2011%EC%9B%94%ED%98%B8%20%EA%B8%B0%EC%A1%B4%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%BD%94%EB%93%9C%EB%A5%BC%20%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%95%9C%20BlackField%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20251127174343776.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.479707+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "KARA",
+        "랜섬웨어",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "d86768d75288",
+      "title": "Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_11%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EB%8D%B0%EC%9D%B4%ED%84%B0(Data).pdf&r_fname=20251127174412898.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.479578+00:00",
+      "summary": "SK쉴더스 보안 리포트: Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "5528f45e0d25",
+      "title": "SK쉴더스 EQST insight 통합 11월호",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_11%EC%9B%94%ED%98%B8.pdf&r_fname=20251127174457418.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.479455+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 11월호",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "986e55bc2a7e",
+      "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.479333+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "d811fadee334",
+      "title": "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.479180+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "KARA",
+        "랜섬웨어",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "46094d971cf5",
+      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.479054+00:00",
+      "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "3cc1a7b416fc",
+      "title": "SK쉴더스 EQST insight 통합 12월호",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.478924+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "a28815273f1a",
+      "title": "HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_1%EC%9B%94%ED%98%B8_%EC%84%A0%EC%A0%9C%EC%A0%81%20%EB%B3%B4%EC%95%88%EA%B3%BC%20%EB%A0%88%EB%93%9C%ED%8C%80%20%EA%B8%B0%EB%B0%98%20%EC%82%AC%EC%9D%B4%EB%B2%84%20%EB%A9%B4%EC%97%AD%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%20%EC%A0%84%EB%9E%B5_F.pdf&r_fname=20260129161055399.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.478797+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "d11cf7a9c759",
+      "title": "Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%201%EC%9B%94%ED%98%B8%20Sinobi%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%EC%99%80%20Lynx%20%EA%B7%B8%EB%A3%B9%EA%B3%BC%EC%9D%98%20%EC%97%B0%EA%B3%84%20%EC%A0%95%ED%99%A9%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260129161122795.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.478660+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "KARA",
+        "랜섬웨어",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "b6fa6b27e1a7",
+      "title": "Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%201%EC%9B%94%ED%98%B8_JWT%20%EC%84%9C%EB%AA%85%ED%82%A4%20%EC%9C%A0%EC%B6%9C%EC%9D%B4%20%EC%B4%88%EB%9E%98%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%A6%9D%20%EC%9C%84%ED%98%91%EA%B3%BC%20%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20260129161142327.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.478518+00:00",
+      "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "ad4f1e9b7f7b",
+      "title": "SK쉴더스 EQST insight 통합 (목차) 1월호 F",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_1%EC%9B%94%ED%98%B8_F.pdf&r_fname=20260129161206425.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-02-20T06:04:02.478336+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
+      "content": "",
+      "tags": [
+        "보안리포트",
+        "SK쉴더스"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "9552eec3ddfb",
+      "title": "Bitcoin logs worst first 50-day start to a year on record",
+      "url": "https://www.coindesk.com/markets/2026/02/20/bitcoin-logs-worst-ever-start-to-a-year-through-first-50-days",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-20T05:47:24+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "Bitcoin News",
+        "price drop",
+        "News"
+      ],
+      "author": "James Van Straten",
+      "priority": 1
+    },
+    {
       "id": "c1e4eceb1dd3",
       "title": "DNS-PERSIST-01: DNS 기반 챌린지 검증을 위한 새로운 모델",
       "url": "https://news.hada.io/topic?id=26825",
@@ -1109,6 +1371,26 @@
       "priority": 1
     },
     {
+      "id": "081c725db166",
+      "title": "Metaplanet CEO rebuts critics over bitcoin strategy and transparency",
+      "url": "https://www.coindesk.com/markets/2026/02/20/metaplanet-ceo-rebuts-critics-over-bitcoin-strategy-and-transparency",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-20T05:27:10+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "Bitcoin News",
+        "MetaPlanet",
+        "News"
+      ],
+      "author": "James Van Straten",
+      "priority": 1
+    },
+    {
       "id": "44d5352ffb88",
       "title": "Chrome 윈/맥 버전의 CSS 제로데이 취약점 업데이트 배포",
       "url": "https://news.hada.io/topic?id=26823",
@@ -1121,6 +1403,27 @@
       "content": "Google이 크롬 데스크톱 버전의 스테이블 채널 업데이트 를 릴리즈, CVE-2026-2441 로 식별된 CSS 관련 제로데이 취약점 이 포함되어 있음 구글은 이 취약점이 실제 공격에 악용되고 있음(in the wild) 을 확인했으며, 사용자들은 ...",
       "tags": [],
       "author": "neo",
+      "priority": 1
+    },
+    {
+      "id": "0760f99795e8",
+      "title": "Amazon Bedrock 및 Strands Agents를 이용한 롯데백화점의 AI 컨시어지 구축기",
+      "url": "https://aws.amazon.com/ko/blogs/tech/lotte-department-store-ai-concierge/",
+      "source": "aws_korea",
+      "source_name": "AWS Korea Blog",
+      "category": "cloud",
+      "language": "ko",
+      "published": "2026-02-20T03:46:47+00:00",
+      "summary": "오프라인 리테일의 AI 혁신 대한민국 대표 백화점인 롯데백화점은 전국 수십 개 지점에서 프리미엄 쇼핑 경험을 제공하고 있습니다. 롯데백화점의 오프라인 매장 및 서비스 정보를 제공하는 롯데백화점 앱은 업계 최대인 약 700만 명의 가입자를 보유하고 있으며, 월간 활성 사용자 수(MAU)는 110만 명에 이릅니다. 롯데백화점은 이러한 디지털 접점을 더욱 강화하고 고객 경험을 한 단계 끌어올리기 위해 AI 기반의 […]",
+      "content": "오프라인 리테일의 AI 혁신 대한민국 대표 백화점인 롯데백화점은 전국 수십 개 지점에서 프리미엄 쇼핑 경험을 제공하고 있습니다. 롯데백화점의 오프라인 매장 및 서비스 정보를 제공하는 롯데백화점 앱은 업계 최대인 약 700만 명의 가입자를 보유하고 있으며, 월간 활성 사용자 수(MAU)는 110만 명에 이릅니다. 롯데백화점은 이러한 디지털 접점을 더욱 강화하고 고객 경험을 한 단계 끌어올리기 위해 AI 기반의 컨시어지 서비스를 기획하였고, AWS PACE팀과 협력하여 AI 컨시어지 ‘더스틴’을 구축하게 되었습니다. 본 포스팅에서는 롯데백화점이 어떻게 AI 컨시어지를 설계하고 구현했는지, 그리고 실제 운영 과정에서 마주한 최적화 과제들을 어떻게 해결했는지 살펴보겠습니다. AI 컨시어지 도입 배경 롯데백화점 앱은 수백 개의 입점 브랜드와 수시로 변경되는 행사 및 서비스 정보를 다루고 있습니다. 이처럼 방대하고 동적인 정보를 고객에게 효과적으로 전달하기 위해, 기존 앱의 정보 체계를 ...",
+      "tags": [
+        "Advanced (300)",
+        "Amazon Bedrock",
+        "Amazon DynamoDB",
+        "Amazon EventBridge",
+        "Amazon OpenSearch Service"
+      ],
+      "author": "Daeun Lee",
       "priority": 1
     },
     {
@@ -1151,229 +1454,6 @@
       "content": "기기나 객체에 절대적으로 중복되지 않는 ID를 부여하는 방법 을 탐구하며, 무작위(random) 방식과 결정적(deterministic) 방식을 비교 무작위 방식은 충분히 큰 비트 수 를 사용하면 충돌 확률을 사실상 0으로 만들 수 있으며, UUID(122비트) 부터...",
       "tags": [],
       "author": "neo",
-      "priority": 1
-    },
-    {
-      "id": "27f9ed00f8b8",
-      "title": "HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_11%EC%9B%94%ED%98%B8_%EC%82%AC%EC%9D%B4%EB%B2%84%EB%B3%B4%EC%95%88%20%ED%8A%B9%ED%99%94%20Vertical%20AI%20%EA%B5%AC%EC%B6%95%20%EB%B0%A9%EC%95%88.pdf&r_fname=20251127174323358.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.157391+00:00",
-      "summary": "SK쉴더스 보안 리포트: HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "AI보안",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "230483d583e0",
-      "title": "Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2011%EC%9B%94%ED%98%B8%20%EA%B8%B0%EC%A1%B4%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%BD%94%EB%93%9C%EB%A5%BC%20%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%95%9C%20BlackField%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20251127174343776.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.157288+00:00",
-      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField 랜섬웨어",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "KARA",
-        "보안리포트",
-        "랜섬웨어"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "d86768d75288",
-      "title": "Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_11%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EB%8D%B0%EC%9D%B4%ED%84%B0(Data).pdf&r_fname=20251127174412898.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.157182+00:00",
-      "summary": "SK쉴더스 보안 리포트: Special Report 11월호 제로트러스트 보안전략 데이터(Data)",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "5528f45e0d25",
-      "title": "SK쉴더스 EQST insight 통합 11월호",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_11%EC%9B%94%ED%98%B8.pdf&r_fname=20251127174457418.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.157070+00:00",
-      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 11월호",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "986e55bc2a7e",
-      "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.156971+00:00",
-      "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "d811fadee334",
-      "title": "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.156860+00:00",
-      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "KARA",
-        "보안리포트",
-        "랜섬웨어"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "46094d971cf5",
-      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.156754+00:00",
-      "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "3cc1a7b416fc",
-      "title": "SK쉴더스 EQST insight 통합 12월호",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.156642+00:00",
-      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "a28815273f1a",
-      "title": "HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_1%EC%9B%94%ED%98%B8_%EC%84%A0%EC%A0%9C%EC%A0%81%20%EB%B3%B4%EC%95%88%EA%B3%BC%20%EB%A0%88%EB%93%9C%ED%8C%80%20%EA%B8%B0%EB%B0%98%20%EC%82%AC%EC%9D%B4%EB%B2%84%20%EB%A9%B4%EC%97%AD%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%20%EC%A0%84%EB%9E%B5_F.pdf&r_fname=20260129161055399.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.156537+00:00",
-      "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "d11cf7a9c759",
-      "title": "Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%201%EC%9B%94%ED%98%B8%20Sinobi%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%EC%99%80%20Lynx%20%EA%B7%B8%EB%A3%B9%EA%B3%BC%EC%9D%98%20%EC%97%B0%EA%B3%84%20%EC%A0%95%ED%99%A9%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260129161122795.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.156421+00:00",
-      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "KARA",
-        "보안리포트",
-        "랜섬웨어"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "b6fa6b27e1a7",
-      "title": "Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%201%EC%9B%94%ED%98%B8_JWT%20%EC%84%9C%EB%AA%85%ED%82%A4%20%EC%9C%A0%EC%B6%9C%EC%9D%B4%20%EC%B4%88%EB%9E%98%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%A6%9D%20%EC%9C%84%ED%98%91%EA%B3%BC%20%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20260129161142327.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.156301+00:00",
-      "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "ad4f1e9b7f7b",
-      "title": "SK쉴더스 EQST insight 통합 (목차) 1월호 F",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_1%EC%9B%94%ED%98%B8_F.pdf&r_fname=20260129161206425.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-02-20T03:32:07.156121+00:00",
-      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
-      "content": "",
-      "tags": [
-        "SK쉴더스",
-        "보안리포트"
-      ],
-      "author": "SK쉴더스",
       "priority": 1
     },
     {
@@ -1689,21 +1769,6 @@
       "priority": 1
     },
     {
-      "id": "f604cec92fc2",
-      "title": "Claude Code의 OAuth 토큰, 외부 서비스·Agent SDK에서 사용하면 약관 위반",
-      "url": "https://news.hada.io/topic?id=26811",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-19T17:31:51+09:00",
-      "summary": "Anthropic이 법적 효력에 대한 문서를 업데이트했다고 하여 공유합니다. Anthropic이 Claude Code 공식 문서에서 OAuth 인증 토큰의 사용 범위를 명확히 제한했습니다. Free, Pro, Max 플랜에서 사용하는 OAuth 인증은 Claude Code와 Claude.ai 전용입니다. 해당 계정으로 발급된 OAuth 토큰을 다른 제품",
-      "content": "Anthropic이 법적 효력에 대한 문서를 업데이트했다고 하여 공유합니다. Anthropic이 Claude Code 공식 문서에서 OAuth 인증 토큰의 사용 범위를 명확히 제한했습니다. Free, Pro, Max 플랜에서 사용하는 OAuth 인증은 Claude Code와 Claude.ai 전용입니다. 해당 계정으로 발급된 OAuth 토큰을 다른 제품",
-      "tags": [],
-      "author": "princox",
-      "priority": 1
-    },
-    {
       "id": "adc969b8a6dd",
       "title": "From Exposure to Exploitation: How AI Collapses Your Response Window",
       "url": "https://thehackernews.com/2026/02/from-exposure-to-exploitation-how-ai.html",
@@ -1936,21 +2001,6 @@
       "priority": 1
     },
     {
-      "id": "ee7a384c3948",
-      "title": "사이즈의 혼란",
-      "url": "https://news.hada.io/topic?id=26810",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-19T15:33:26+09:00",
-      "summary": "미국 여성복 사이즈 체계의 불일치와 비표준화 가 세대 전반에 걸쳐 지속되고 있음 청소년기부터 성인기까지의 신체 변화 에 비해 의류 사이즈 체계는 이를 반영하지 못하고, 특히 15세 이후 여성복으로 전환되면서 표준 사이즈 범위 밖으로 밀려나는 인구...",
-      "content": "미국 여성복 사이즈 체계의 불일치와 비표준화 가 세대 전반에 걸쳐 지속되고 있음 청소년기부터 성인기까지의 신체 변화 에 비해 의류 사이즈 체계는 이를 반영하지 못하고, 특히 15세 이후 여성복으로 전환되면서 표준 사이즈 범위 밖으로 밀려나는 인구...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1
-    },
-    {
       "id": "7fa7d1f4be20",
       "title": "Mike McGlone softens bitcoin downside target to $28,000 after backlash over $10,000 call",
       "url": "https://www.coindesk.com/markets/2026/02/19/mike-mcglone-softens-bitcoin-downside-target-to-usd28-000-after-backlash-over-usd10-000-call",
@@ -2118,24 +2168,6 @@
       "priority": 1
     },
     {
-      "id": "dca3c92c9a1c",
-      "title": "SocGen taps XRP Ledger for euro stablecoin distribution",
-      "url": "https://www.coindesk.com/tech/2026/02/19/socgen-taps-xrp-ledger-for-euro-stablecoin-distribution",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-19T13:19:39+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Tech",
-        "News"
-      ],
-      "author": "Shaurya Malwa",
-      "priority": 1
-    },
-    {
       "id": "8b0c9a6a2aa2",
       "title": "From Fentanyl to Fraud: On-Chain Activity Highlights Illicit Market Evolution",
       "url": "https://www.chainalysis.com/blog/crypto-drug-sales-darknet-markets-2026/",
@@ -2154,76 +2186,6 @@
         "Fentanyl"
       ],
       "author": "Chainalysis Team",
-      "priority": 1
-    },
-    {
-      "id": "dc4213fe7339",
-      "title": "Illicit networks accounted for $141 billion of the trillions of stablecoin volume in 2025",
-      "url": "https://www.coindesk.com/business/2026/02/18/stablecoin-illicit-flows-remain-under-1-of-usd35-trillion-volume-in-2025-trm-report-reveals",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-19T12:25:15+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Finance",
-        "TRM Labs",
-        "Stablecoins",
-        "News"
-      ],
-      "author": "Olivier Acuna",
-      "priority": 1
-    },
-    {
-      "id": "62b2eb4e35f7",
-      "title": "How “Clinejection” Turned an AI Bot into a Supply Chain Attack",
-      "url": "https://snyk.io/blog/cline-supply-chain-attack-prompt-injection-github-actions/",
-      "source": "snyk",
-      "source_name": "Snyk Blog",
-      "category": "devsecops",
-      "language": "en",
-      "published": "2026-02-19T05:00:00+00:00",
-      "summary": "The Clinejection vulnerability chain illustrates a dangerous new era of supply chain attacks where AI agents are turned into exploit vectors. By combining indirect prompt injection with GitHub Actions cache poisoning, attackers successfully pushed unauthorized code to thousands of developers. This incident highlights the critical need for hardened CI/CD pipelines and rigorous security for AI-assisted coding tools.",
-      "content": "",
-      "tags": [],
-      "author": "",
-      "priority": 1
-    },
-    {
-      "id": "15495d405832",
-      "title": "“No technology has me dreaming bigger than AI”",
-      "url": "https://blog.google/company-news/inside-google/message-ceo/sundar-pichai-ai-impact-summit-2026/",
-      "source": "google_ai",
-      "source_name": "Google AI Blog",
-      "category": "ai",
-      "language": "en",
-      "published": "2026-02-19T04:30:00+00:00",
-      "summary": "a stylized design resembling the Ashoka Chakra with colorful network lines and text reading \"भारत 2026 INDIA.\" A vertical line separates it from the Google logo on the right, all set against a light blue gradient background with a faint grid pattern.",
-      "content": "CEO Sundar Pichai’s remarks at the opening ceremony of the AI Impact Summit 2026",
-      "tags": [
-        "A message from our CEO",
-        "AI"
-      ],
-      "author": "Sundar Pichai",
-      "priority": 1
-    },
-    {
-      "id": "a868c2239356",
-      "title": "AI Impact Summit 2026",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-impact-summit-2026-collection/",
-      "source": "google_ai",
-      "source_name": "Google AI Blog",
-      "category": "ai",
-      "language": "en",
-      "published": "2026-02-19T04:30:00+00:00",
-      "summary": "A look at the partnerships and investments Google announced at the AI Impact Summit 2026.",
-      "content": "A look at the partnerships and investments Google announced at the AI Impact Summit 2026.",
-      "tags": [
-        "AI"
-      ],
-      "author": "",
       "priority": 1
     },
     {
