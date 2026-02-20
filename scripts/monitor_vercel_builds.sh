@@ -18,17 +18,19 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-DEPLOYMENT_URL="${1:-https://tech.2twodragon.com}"
+DEPLOYMENT_URL="https://tech.2twodragon.com"
 ALERT_ONLY=false
 DETAILED=false
 
 # Parse arguments
-while [[ $# -gt 1 ]]; do
-    case $2 in
-        --alert-only) ALERT_ONLY=true; shift ;;
-        --detailed) DETAILED=true; shift ;;
-        *) shift ;;
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --alert-only) ALERT_ONLY=true ;;
+        --detailed) DETAILED=true ;;
+        -*) ;; # ignore unknown flags
+        *) DEPLOYMENT_URL="$1" ;;
     esac
+    shift
 done
 
 # Thresholds (조정 가능)
