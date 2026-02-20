@@ -2,7 +2,7 @@
 
 Instructions for Claude Code when working on this project.
 
-**Last updated**: 2026-02-07
+**Last updated**: 2026-02-19
 
 ## Quick Reference
 
@@ -205,6 +205,8 @@ Opus 4.6는 더 많은 것을 처리하므로 더 크게 생각할 수 있습니
 
 하루에 1번 이상 하는 작업은 스킬로 만들어 재사용합니다.
 
+### 기본 스킬
+
 | Skill | Command | Purpose |
 |-------|---------|---------|
 | 새 포스트 생성 | `/new-post` | 제목/카테고리 입력 → 파일 자동 생성 |
@@ -213,7 +215,143 @@ Opus 4.6는 더 많은 것을 처리하므로 더 크게 생각할 수 있습니
 | CI 수정 | `/fix-ci` | Jekyll 빌드 에러 자동 진단/수정 |
 | 일일 점검 | `/daily-review` | Git 상태, SEO, 이미지 종합 점검 |
 
+### Agent Team 스킬 (Multi-Agent)
+
+| Skill | Command | 팀 구성 | Purpose |
+|-------|---------|---------|---------|
+| 팀 포스트 생성 | `/team-create-post` | researcher → writer → executor → qa | 조사부터 검증까지 자동화 |
+| 팀 종합 감사 | `/team-audit` | explore + security → architect → executor | 보안/성능/SEO 종합 감사 |
+| 팀 콘텐츠 개선 | `/team-improve` | explore → critic → executor → reviewer | 기존 포스트 품질 개선 |
+| 팀 성능 최적화 | `/team-optimize` | explore + researcher → analyst → executor | 성능/SEO 최적화 |
+
 스킬 파일 위치: `.claude/commands/`
+
+## Agent Team 활용 가이드
+
+### 기본 개념
+
+Claude Code Agent Team은 전문화된 AI 에이전트들이 협업하여 작업을 수행하는 멀티 에이전트 오케스트레이션 시스템입니다.
+
+```
+사용자 요청 → 오케스트레이터(Claude) → 전문 에이전트 팀 → 결과 통합 → 사용자에게 보고
+```
+
+### 에이전트 역할별 분류
+
+| 역할 | 에이전트 | 모델 | 사용 시점 |
+|------|---------|------|-----------|
+| 탐색 | `explore` / `explore-medium` / `explore-high` | haiku/sonnet/opus | 코드베이스 파악, 파일 검색 |
+| 조사 | `researcher` / `researcher-low` | sonnet/haiku | 외부 자료 조사, 문서 검색 |
+| 분석 | `architect` / `architect-medium` / `architect-low` | opus/sonnet/haiku | 아키텍처 분석, 디버깅 |
+| 계획 | `planner` / `analyst` | opus | 전략 수립, 요구사항 분석 |
+| 실행 | `executor` / `executor-low` / `executor-high` | sonnet/haiku/opus | 코드 작성, 파일 수정 |
+| 검증 | `qa-tester` / `code-reviewer` / `security-reviewer` | sonnet/opus | 테스트, 코드리뷰, 보안검사 |
+| 작성 | `writer` | haiku | 문서 작성, 주석 |
+| 비평 | `critic` | opus | 계획 검토, 품질 평가 |
+| 디자인 | `designer` / `designer-high` | sonnet/opus | UI/UX 작업 |
+| 데이터 | `scientist` / `scientist-high` | sonnet/opus | 데이터 분석, 통계 |
+
+### 실행 모드
+
+| 모드 | 키워드 | 설명 |
+|------|--------|------|
+| **autopilot** | "autopilot", "build me" | 아이디어 → 완성 코드까지 자율 실행 |
+| **ultrawork** | "ulw", "ultrawork" | 최대 병렬 에이전트 실행 (기본 모드) |
+| **ecomode** | "eco", "ecomode" | 토큰 절약형 병렬 실행 |
+| **ralph** | "ralph", "don't stop" | 완료될 때까지 반복 |
+| **ultrapilot** | "ultrapilot" | 병렬 autopilot (3-5배 속도) |
+| **pipeline** | "pipeline" | 에이전트 체이닝 |
+| **swarm** | "swarm" | N개 에이전트 협업 |
+
+### 자주 쓰는 팀 패턴
+
+```bash
+# 1. 포스트 생성 (조사 → 작성 → 검증)
+/team-create-post
+
+# 2. 종합 감사 (보안 + 성능 + SEO)
+/team-audit
+
+# 3. 콘텐츠 개선
+/team-improve
+
+# 4. 성능 최적화
+/team-optimize
+
+# 5. 자연어로 팀 실행 (autopilot)
+"Kubernetes 보안 모범사례 포스트를 작성해줘"  → autopilot 자동 활성화
+
+# 6. 빠른 병렬 작업
+"ulw 모든 포스트 이미지 검증하고 누락된 것 수정해줘"
+
+# 7. 절약 모드
+"eco 최근 포스트 5개 SEO 점검해줘"
+```
+
+### 비용 최적화 원칙
+
+| 원칙 | 설명 |
+|------|------|
+| 탐색은 haiku | `explore`, `explore-medium`은 가벼운 모델로 충분 |
+| 판단은 opus | `architect`, `critic`, `analyst`는 정확성 필요 |
+| 실행은 sonnet | `executor`는 sonnet이 가성비 최적 |
+| 검증은 haiku | 간단한 검증은 `*-low` 에이전트 활용 |
+| 병렬 실행 | 독립 작업은 반드시 병렬로 (비용 동일, 시간 절약) |
+
+### 네이티브 Agent Teams (실험적 기능)
+
+Claude Code v2.1.32+의 네이티브 Agent Teams 기능을 활성화했습니다.
+
+**활성화 설정** (`~/.claude/settings.json`):
+```json
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
+}
+```
+
+**실행 방법**:
+```bash
+# 기본 모드 (in-process, 터미널 내 전환)
+claude
+
+# tmux 분할 화면 모드 (각 에이전트 실시간 확인)
+claude --teammate-mode tmux
+```
+
+**팀 생성 (자연어)**:
+```
+"보안 전문가와 성능 전문가로 팀을 만들어서 블로그 전체 감사해줘"
+"포스트 조사팀 1명, 작성팀 1명, 검증팀 1명으로 Kubernetes 보안 포스트 작성해줘"
+"아키텍트와 비평가로 팀을 구성해서 블로그 구조 개선안을 만들어줘"
+```
+
+**프로젝트 전용 서브에이전트** (`.claude/agents/`):
+
+| 에이전트 | 모델 | 역할 |
+|---------|------|------|
+| `post-researcher` | sonnet | 포스트 주제 조사, 최신 트렌드 수집 |
+| `post-validator` | haiku | 포스트 검증 (frontmatter, 이미지, 보안) |
+| `security-auditor` | sonnet | 보안 감사 (시크릿, CSP, XSS) |
+| `seo-optimizer` | haiku | SEO 분석 및 개선 권장 |
+| `performance-analyst` | haiku | 성능 분석 (Core Web Vitals) |
+
+**키보드 단축키** (in-process 모드):
+
+| 키 | 기능 |
+|----|------|
+| `Shift+Down` | 다음 팀원으로 이동 |
+| `Enter` | 팀원 세션 보기 |
+| `Escape` | 팀원 현재 턴 중단 |
+| `Ctrl+T` | 작업 목록 토글 |
+| `Ctrl+F` | 모든 백그라운드 에이전트 종료 |
+
+**제약 사항**:
+- 팀원은 리더의 대화 히스토리를 상속하지 않음 (각자 독립 컨텍스트)
+- 중첩 팀 불가 (팀원이 자체 팀원 생성 불가)
+- 세션당 1개 팀만 운영 가능
+- tmux 모드는 VS Code 터미널에서 미지원
 
 ## Auto-Yes for project / tmp (Claude Code, Cursor)
 - **Scope**: Work inside this repo or under `/tmp` → treat all confirmations as **yes**.
