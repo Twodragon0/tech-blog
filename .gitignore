@@ -101,3 +101,14 @@ referenced_images.txt
 .omc/sessions/
 .omc/notepads/
 .omc/checkpoints/
+
+# OpenCode session artifacts
+HEARTBEAT.md
+IDENTITY.md
+SOUL.md
+TOOLS.md
+USER.md
+
+# Generated local pipeline state
+_data/processed_news_ids.json
+_drafts/prompts/
