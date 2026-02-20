@@ -65,7 +65,7 @@ schema_type: Article
 
 <img src="{{ '/assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes_image.png' | relative_url }}" alt="Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understanding" loading="lazy" class="post-image">
 
-## Executive Summary
+## 핵심 요약
 
 컨테이너 기술은 현대 클라우드 인프라의 핵심이며, Docker와 Kubernetes는 가장 널리 사용되는 표준입니다. 본 문서는 컨테이너 보안의 전체 생명주기(Build → Ship → Run)를 다루며, 2025년 최신 보안 업데이트와 실무 적용 방법을 제공합니다.
 
@@ -798,7 +798,7 @@ spec:
 ```
 -->
 
-#### Pod Security Standards
+#### Pod 보안 표준
 
 Kubernetes 1.25+에서 PodSecurityPolicy를 대체하는 표준입니다.
 
@@ -964,7 +964,7 @@ kubectl create secret generic db-credentials \
   --namespace=production
 ```
 
-#### External Secrets Operator
+#### External Secrets Operator 설정
 
 ```yaml
 apiVersion: external-secrets.io/v1beta1
@@ -1140,7 +1140,7 @@ authorization:
 - 특정 노드의 리소스에 대한 접근을 제한
 - 최소 권한 원칙을 kubelet 레벨까지 확장
 
-#### Credential Tracking
+#### 자격 증명 추적
 
 인증서 서명 기반의 credential ID 생성으로 보안 포렌식이 크게 향상되었습니다.
 
@@ -1159,7 +1159,7 @@ kubectl logs -n kube-system kube-apiserver-* | grep credentialID
 - 보안 사고 발생 시 추적 용이
 - 인증서 갱신 및 폐기 이력 관리
 
-#### User Namespaces Support
+#### 사용자 네임스페이스 지원
 
 User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
 

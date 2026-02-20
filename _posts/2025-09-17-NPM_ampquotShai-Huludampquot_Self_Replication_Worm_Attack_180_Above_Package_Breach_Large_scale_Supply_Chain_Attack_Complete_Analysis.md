@@ -59,7 +59,7 @@ author: Twodragon
 </div>
 </div>
 
-## Executive Summary
+## 핵심 요약
 
 ### 인시던트 개요
 
@@ -75,7 +75,7 @@ author: Twodragon
 | **탈취 대상** | NPM 토큰, GitHub Secrets, AWS Credentials | 전사 시스템 침투 |
 | **평균 탐지 시간** | 수 주 | 지속적 데이터 유출 |
 
-### Risk Scorecard
+### 위험 스코어카드
 
 | 위험 요소 | 점수 | 평가 기준 |
 |----------|------|----------|

@@ -62,9 +62,9 @@ schema_type: Article
 </div>
 </div>
 
-## Executive Summary
+## 핵심 요약
 
-### Risk Scorecard
+### 위험 스코어카드
 
 | 항목 | 평가 | 설명 |
 |------|------|------|

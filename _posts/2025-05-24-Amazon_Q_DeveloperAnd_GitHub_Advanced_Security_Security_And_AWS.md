@@ -62,7 +62,7 @@ schema_type: Article
 </div>
 </div>
 
-## Executive Summary
+## 핵심 요약
 
 2025년 현재, AI 기반 보안 도구는 DevSecOps 환경의 필수 요소가 되었습니다. 본 문서는 Amazon Q Developer와 GitHub Advanced Security를 활용한 엔터프라이즈급 보안 자동화 전략을 다룹니다.
 

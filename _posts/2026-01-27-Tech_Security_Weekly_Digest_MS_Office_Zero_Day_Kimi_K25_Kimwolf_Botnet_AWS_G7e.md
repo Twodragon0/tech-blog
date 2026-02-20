@@ -1578,7 +1578,7 @@ resource "aws_wafv2_ip_set" "botnet_ips" {
 }
 ```
 
-### Kubernetes Security Policy
+### Kubernetes 보안 정책
 
 ```yaml
 # k8s-security-policies.yaml

@@ -64,7 +64,7 @@ schema_type: Article
 
 <img src="{{ '/assets/images/2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration_image.png' | relative_url }}" alt="Cloud Security Course 7Batch 9Week: DevSecOps Integration Summary" loading="lazy" class="post-image">
 
-## Executive Summary
+## 핵심 요약
 
 안녕하세요, **Twodragon**입니다. 이번 포스팅에서는 클라우드 시큐리티 과정 7기 9주차에서 다룬 **DevSecOps 통합**을 실무 중심으로 정리합니다.
 
@@ -2897,13 +2897,13 @@ DevSecOps 도입 6개월차 성과:
 
 ## 3. 위험 감소
 
-### Before DevSecOps
+### DevSecOps 도입 전
 ```
 [Critical: 25건] [High: 40건] [Medium: 80건]
 → 프로덕션 배포 전 발견 비율: 20%
 ```
 
-### After DevSecOps
+### DevSecOps 도입 후
 ```
 [Critical: 0건] [High: 2건] [Medium: 15건]
 → 프로덕션 배포 전 발견 비율: 95%

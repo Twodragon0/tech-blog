@@ -62,9 +62,9 @@ author: Twodragon
 </div>
 </div>
 
-## Executive Summary
+## 핵심 요약
 
-### OT Security Scorecard
+### OT 보안 스코어카드
 
 | 평가 항목 | 현황 | 목표 | 중요도 |
 |---------|------|------|--------|

@@ -67,7 +67,7 @@ schema_type: Article
 </div>
 </div>
 
-## Executive Summary
+## 핵심 요약
 
 ### 위협 스코어카드 (Risk Scorecard)
 

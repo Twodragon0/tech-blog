@@ -890,10 +890,10 @@ Operation IN ("AnonymousLinkCreated", "AddedToSecureLink", "SecureLinkUsed")
 
 ### 6.2 Agentic AI NHI 침해 헌팅
 
-#### Hunting Hypothesis
+#### 헌팅 가설
 "우리 조직의 AI 에이전트 자격증명이 노출되어 공격자가 악용하고 있을 수 있다."
 
-#### Hunting Procedure
+#### 헌팅 절차
 
 **Step 1: GitHub/GitLab Public Repo 시크릿 스캔**
 

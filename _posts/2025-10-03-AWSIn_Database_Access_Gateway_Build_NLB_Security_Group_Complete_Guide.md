@@ -1515,7 +1515,7 @@ jobs:
 
 ## 보안 강화 설정
 
-### TLS Termination
+### TLS 종료 설정
 
 #### ACM 인증서 발급
 
@@ -1576,7 +1576,7 @@ resource "aws_lb_listener" "mysql_tls" {
 }
 ```
 
-### Certificate Management
+### 인증서 관리
 
 #### 자동 갱신
 
@@ -1602,7 +1602,7 @@ resource "aws_cloudwatch_metric_alarm" "cert_expiration" {
 }
 ```
 
-### WAF Integration
+### WAF 연동
 
 #### AWS WAF v2 구성
 
@@ -1681,7 +1681,7 @@ resource "aws_wafv2_web_acl_association" "db_gateway" {
 
 ## 모니터링 및 알림
 
-### CloudWatch Dashboard
+### CloudWatch 대시보드
 
 #### 통합 대시보드 구성
 
@@ -1746,7 +1746,7 @@ resource "aws_cloudwatch_dashboard" "db_gateway" {
 }
 ```
 
-### Connection Monitoring
+### 연결 모니터링
 
 #### 연결 수 추적
 
@@ -1788,7 +1788,7 @@ resource "aws_cloudwatch_metric_alarm" "connection_spike" {
 }
 ```
 
-### Alerting
+### 알림 설정
 
 #### SNS 토픽 및 구독
 
@@ -1872,7 +1872,7 @@ def lambda_handler(event, context):
     }
 ```
 
-### Custom Metrics
+### 커스텀 메트릭
 
 #### 애플리케이션 메트릭 수집
 
@@ -2004,7 +2004,7 @@ ORDER BY total_gb DESC
 LIMIT 100;
 ```
 
-### Database Access Anomaly Detection
+### 데이터베이스 접근 이상 탐지
 
 #### CloudWatch Logs Insights 쿼리
 
@@ -2145,7 +2145,7 @@ def log_personal_data_access(user_id, data_type, action, record_count):
 
 ## 경영진 보고 포맷
 
-### Executive Dashboard
+### 경영진 대시보드
 
 #### 월간 보안 현황 보고서
 
@@ -2347,7 +2347,7 @@ aws logs filter-log-events \
 - VPC Flow Logs에서 REJECT 패킷 원인 분석
 - Security Group 규칙 재검토
 
-### Certificate Issues
+### 인증서 문제
 
 #### 증상
 

@@ -1823,7 +1823,7 @@ jobs:
 ```markdown
 # DevSecOps 투자 수익률 (ROI) 보고서 - 2025 Q2
 
-## Executive Summary
+## 핵심 요약
 
 2025년 2분기 DevSecOps 보안 자동화 투자로 **연간 ₩450M 비용 절감** 및 **보안 리스크 85% 감소** 달성.
 

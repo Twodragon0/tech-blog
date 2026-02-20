@@ -584,7 +584,7 @@ hotKeys:
     command: services
 ```
 
-#### Skin Customization
+#### 스킨 커스터마이징
 
 K9s UI를 커스터마이징하여 가독성 향상:
 
@@ -2773,14 +2773,14 @@ K9s 도입           → Service Mesh     → AI/ML 워크로드 → Edge Comput
 - **백업**: etcd 백업 및 재해 복구 계획
 - **CI/CD 통합**: 자동화된 배포 파이프라인 구축
 
-### Minikube Best Practices
+### Minikube 모범 사례
 
 - **리소스 할당**: 개발 환경에 적합한 리소스 설정
 - **드라이버 선택**: 환경에 맞는 최적의 드라이버 사용
 - **Addons 활용**: 필요한 기능을 addon으로 활성화
 - **버전 관리**: Kubernetes 버전을 명시적으로 지정
 
-### K9s Best Practices
+### K9s 모범 사례
 
 - **네임스페이스 필터링**: 특정 네임스페이스에 집중하여 성능 향상
 - **읽기 전용 모드**: 감사 및 모니터링 시 활용

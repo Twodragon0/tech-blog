@@ -78,7 +78,7 @@ GCP 클라우드 환경에서 보안을 강화하기 위해서는 IAM부터 GKE�
 
 ---
 
-## Executive Summary
+## 핵심 요약
 
 ### GCP 보안 태세 평가
 

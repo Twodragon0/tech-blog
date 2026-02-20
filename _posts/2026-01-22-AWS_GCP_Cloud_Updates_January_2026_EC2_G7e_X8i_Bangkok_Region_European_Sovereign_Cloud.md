@@ -70,7 +70,7 @@ schema_type: Article
 </div>
 </div>
 
-## Executive Summary
+## 핵심 요약
 
 2026년 1월 AWS/GCP 업데이트는 **AI 인프라 성숙도**와 **데이터 주권 대응**이라는 두 축으로 요약됩니다. 기업 의사결정자는 다음 세 가지 핵심 사항에 집중해야 합니다:
 
