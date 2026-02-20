@@ -20,7 +20,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check site availability
+        run: |
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://tech.2twodragon.com)
+          echo "HTTP status: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 400 ]; then
+            echo "::error::Site returned HTTP $HTTP_STATUS"
+            exit 1
+          fi
+          echo "Site is accessible (HTTP $HTTP_STATUS)"
+
       - name: Check Vercel CLI
+        if: secrets.VERCEL_TOKEN != ''
         run: |
           npm list -g vercel > /dev/null 2>&1 || npm i -g vercel
 
@@ -71,7 +82,7 @@ jobs:
             })
 
       - name: Slack notification on failure
-        if: failure()
+        if: failure() && secrets.SLACK_WEBHOOK != ''
         uses: slackapi/slack-github-action@v1.24.0
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
