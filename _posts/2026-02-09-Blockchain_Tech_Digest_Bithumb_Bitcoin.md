@@ -12,6 +12,22 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='2026-02-09 블록체인 & 테크 다이제스트'
+  categories_html='<span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Blockchain-Digest</span>
+      <span class="tag">Bithumb</span>
+      <span class="tag">Bitcoin</span>
+      <span class="tag">AI-UX</span>
+      <span class="tag">Tech-Digest</span>'
+  highlights_html='<li><strong>Bithumb $44B 오송금</strong>: 직원 실수로 대규모 비트코인 오송금 발생 - 다중 승인 체계(Maker-Checker-Approver) 부재가 원인</li>
+      <li><strong>Bitcoin $71K 회복</strong>: 기관 투자자 Buy the Dip + 소매 관심 급증 - 피싱/스캠 활동 증가 예상</li>
+      <li><strong>게임보이 3D 셰이더</strong>: Lambert 셰이딩 기반 실시간 3D 렌더링 구현 - 극도로 제한된 리소스 환경 최적화 사례</li>
+      <li><strong>2026 AI/UX 전망</strong>: 생성형 AI 참신함 종료, AI-First UX 설계 패턴 부상</li>'
+  period='2026년 02월 09일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+%}
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

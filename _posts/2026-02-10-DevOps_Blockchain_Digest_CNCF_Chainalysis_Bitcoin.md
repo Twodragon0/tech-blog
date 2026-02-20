@@ -12,6 +12,23 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='2026-02-10 DevOps & 블록체인 다이제스트'
+  categories_html='<span class="category-tag devops">DevOps</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">DevOps-Digest</span>
+      <span class="tag">Blockchain-Digest</span>
+      <span class="tag">CNCF</span>
+      <span class="tag">Kubernetes</span>
+      <span class="tag">Cluster-API</span>
+      <span class="tag">Chainalysis</span>'
+  highlights_html='<li><strong>CNCF Project Velocity 2025</strong>: Kubernetes가 AI 워크로드의 사실상 OS로 확립 - 82% 프로덕션 사용, Backstage IDP 기여도 2배 증가</li>
+      <li><strong>Cluster API v1.12</strong>: In-Place 업데이트 + 체인 업그레이드 지원 - 머신 재생성 없이 설정 변경, 다운타임 최소화</li>
+      <li><strong>Chainalysis Hexagate</strong>: MegaETH 생태계 실시간 스마트 컨트랙트 보안, ML 기반 Flash Loan 공격 사전 탐지</li>
+      <li><strong>Bitcoin $70K 반등</strong>: $60K 저점에서 강력 반등, MRI 매수 신호 발생</li>'
+  period='2026년 02월 10일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+%}
+
 ## 서론
 
 2026년 02월 10일 DevOps 및 블록체인 부문 주요 뉴스를 정리합니다.

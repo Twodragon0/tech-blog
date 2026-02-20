@@ -12,6 +12,23 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='2026-02-10 AI & 클라우드 다이제스트'
+  categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag cloud">Cloud</span>'
+  tags_html='<span class="tag">AI-Digest</span>
+      <span class="tag">Cloud-Digest</span>
+      <span class="tag">Meta-Prometheus</span>
+      <span class="tag">Google-OTLP</span>
+      <span class="tag">AWS</span>
+      <span class="tag">OpenTelemetry</span>'
+  highlights_html='<li><strong>Meta Prometheus</strong>: 기가와트급 AI 슈퍼클러스터, 16-48Pbps 네트워크, DSF/NSF 이중 패브릭 - AI 인프라 보안 아키텍처 참조</li>
+      <li><strong>ChatGPT GenAI.mil</strong>: 미 국방부 300만 인원 대상 AI 플랫폼 - Gemini, Claude와 함께 군사 AI 보안 기준 설정</li>
+      <li><strong>Google Cloud OTLP</strong>: OpenTelemetry 네이티브 지원으로 벤더 중립적 관찰성 스택 마이그레이션 권장</li>
+      <li><strong>AWS Bedrock</strong>: Claude Opus 4.6, C8id/M8id/R8id 인스턴스, CloudFront mTLS 등 AI 워크로드 + 제로트러스트 업데이트</li>'
+  period='2026년 02월 10일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+%}
+
 ## 서론
 
 2026년 02월 10일 AI 및 클라우드 핵심 업데이트를 정리합니다. Meta의 기가와트급 AI 인프라, Google의 벤더 중립적 관찰성 전환, AWS의 Claude Opus 4.6 통합 등 DevSecOps 엔지니어가 주목해야 할 실무 적용 포인트를 중심으로 다룹니다.

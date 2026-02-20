@@ -242,7 +242,7 @@ jobs:
           SENTRY_LOG_LEVEL: debug
         with:
           environment: production
-          version: ${{ github.sha }}
+          release: ${{ github.sha }}
           sourcemaps: false
           set_commits: auto
           ignore_missing: true

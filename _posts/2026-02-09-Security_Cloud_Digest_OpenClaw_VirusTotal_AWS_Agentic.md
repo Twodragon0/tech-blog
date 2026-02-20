@@ -12,6 +12,23 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='2026-02-09 보안 & 클라우드 다이제스트'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span>'
+  tags_html='<span class="tag">Security-Digest</span>
+      <span class="tag">Cloud-Digest</span>
+      <span class="tag">Supply-Chain</span>
+      <span class="tag">AI-Agent-Security</span>
+      <span class="tag">AWS</span>
+      <span class="tag">Agentic-AI</span>'
+  highlights_html='<li><strong>OpenClaw + VirusTotal</strong>: AI 스킬 마켓플레이스 ClawHub에 자동 악성 코드 스캔 체계 구축 - AI 공급망 보안 본격화</li>
+      <li><strong>SK쉴더스 리포트</strong>: BlackField 랜섬웨어, 제로트러스트, Vertical AI 분석 포함</li>
+      <li><strong>AWS Agentic AI 플랫폼</strong>: 2명이 7주 만에 구축한 Agentic AI 플랫폼 - AI-DLC 방법론 및 MCP 표준 적용</li>
+      <li><strong>AWS Transform Custom</strong>: ASP.NET 마이크로서비스 전환 - CodeGuru 기반 레거시 현대화</li>'
+  period='2026년 02월 09일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+%}
+
 ## 서론
 
 2026년 02월 09일, **AI 에이전트 공급망 보안**이 본격화되는 전환점입니다. OpenClaw가 VirusTotal과 파트너십을 체결하여 AI 스킬 마켓플레이스의 악성 코드 스캔 체계를 구축했으며, AWS는 2명이 7주 만에 Agentic AI 플랫폼을 구축한 사례를 공개했습니다. npm/PyPI 공급망 공격이 AI 에이전트 생태계로 확장되고 있어, 보안 전략의 근본적 재검토가 필요합니다.
