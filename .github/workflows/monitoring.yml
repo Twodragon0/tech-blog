@@ -31,7 +31,7 @@ jobs:
           echo "Site is accessible (HTTP $HTTP_STATUS)"
 
       - name: Check Vercel CLI
-        if: secrets.VERCEL_TOKEN != ''
+        if: ${{ secrets.VERCEL_TOKEN != '' }}
         run: |
           npm list -g vercel > /dev/null 2>&1 || npm i -g vercel
 
@@ -82,7 +82,7 @@ jobs:
             })
 
       - name: Slack notification on failure
-        if: failure() && secrets.SLACK_WEBHOOK != ''
+        if: ${{ failure() && secrets.SLACK_WEBHOOK != '' }}
         uses: slackapi/slack-github-action@v1.24.0
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
