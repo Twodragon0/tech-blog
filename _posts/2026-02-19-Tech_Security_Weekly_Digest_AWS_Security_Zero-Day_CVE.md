@@ -15,20 +15,20 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title="기술 & 보안 주간 다이제스트 (2026년 02월 19일)"
-  categories_html="<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>"
-  tags_html="<span class="tag">Security-Weekly</span>
+  title='기술 & 보안 주간 다이제스트 (2026년 02월 19일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
       <span class="tag">Cloud-Security</span>
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>"
-  highlights_html="<li><strong>The Hacker News</strong>: 케냐 활동가 폰에서 Cellebrite 도구 사용 확인</li>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>The Hacker News</strong>: 케냐 활동가 폰에서 Cellebrite 도구 사용 확인</li>
       <li><strong>The Hacker News</strong>: Grandstream GXP1600 VoIP 폰 인증되지 않은 원격 코드 실행에 노출</li>
       <li><strong>The Hacker News</strong>: 1억 2500만 설치된 VS Code 확장 4개에서 치명적 결함 발견</li>
-      <li><strong>Google Cloud Blog</strong>: Google Cloud 데이터베이스로 차세대 에이전트 지원</li>"
-  period="2026년 02월 19일 (24시간)"
-  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+      <li><strong>Google Cloud Blog</strong>: Google Cloud 데이터베이스로 차세대 에이전트 지원</li>'
+  period='2026년 02월 19일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
 ## 주요 요약

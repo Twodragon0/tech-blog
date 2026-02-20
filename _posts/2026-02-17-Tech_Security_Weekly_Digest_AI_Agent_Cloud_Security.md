@@ -15,20 +15,20 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title="Tech & Security Weekly Digest (2026년 02월 17일)"
-  categories_html="<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>"
-  tags_html="<span class="tag">Security-Weekly</span>
+  title='Tech & Security Weekly Digest (2026년 02월 17일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
       <span class="tag">Cloud-Security</span>
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>"
-  highlights_html="<li><strong>The Hacker News</strong>: 인포스틸러가 OpenClaw AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취</li>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>The Hacker News</strong>: 인포스틸러가 OpenClaw AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취</li>
       <li><strong>The Hacker News</strong>: 주요 클라우드 패스워드 매니저에서 25가지 비밀번호 복구 공격 취약점 발견</li>
       <li><strong>AWS Security Blog</strong>: 서버리스 마이크로서비스를 위한 AI 기반 심층 방어 보안 아키텍처 구축</li>
-      <li><strong>AWS Blog</strong>: 5세대 AMD EPYC 프로세서 기반 Amazon EC2 Hpc8a 인스턴스 출시</li>"
-  period="2026년 02월 17일 (24시간)"
-  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+      <li><strong>AWS Blog</strong>: 5세대 AMD EPYC 프로세서 기반 Amazon EC2 Hpc8a 인스턴스 출시</li>'
+  period='2026년 02월 17일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
 ## 주요 요약
