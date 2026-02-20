@@ -5,6 +5,7 @@ date: 2026-02-10 13:00:00 +0900
 categories: [devsecops, cloud]
 tags: [AI-Digest, Cloud-Digest, Meta-Prometheus, Google-OTLP, AWS, ChatGPT, OpenTelemetry]
 excerpt: "Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus 4.6 Bedrock 통합, ChatGPT 미 국방부 GenAI.mil 플랫폼"
+description: "2026년 2월 10일 AI/클라우드 뉴스: Meta Prometheus AI 클러스터, Google OTLP 지원, AWS Bedrock Claude 통합 분석."
 image: /assets/images/2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS.svg
 author: Twodragon
 toc: true

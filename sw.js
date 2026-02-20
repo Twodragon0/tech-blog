@@ -72,9 +72,9 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// 메시지 리스너: 즉시 활성화 요청
+// 메시지 리스너: 즉시 활성화 요청 (클라이언트 출처 검증)
 self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
+  if (event.source && event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
 });

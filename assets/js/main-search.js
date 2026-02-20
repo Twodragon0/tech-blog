@@ -131,14 +131,28 @@
       }
     }
 
+    function escapeHtml(str) {
+      if (!str) return '';
+      const d = document.createElement('div');
+      d.textContent = str;
+      return d.innerHTML;
+    }
+
+    function safeUrl(url) {
+      if (!url) return '#';
+      if (/^https?:\/\//i.test(url) || url.startsWith('/')) return url;
+      return '#';
+    }
+
     function escapeRegex(str) {
       return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
     function highlightMatch(text, query) {
-      if (!text || !query) return text || '';
-      const escaped = escapeRegex(query);
-      return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
+      if (!text || !query) return escapeHtml(text) || '';
+      const safe = escapeHtml(text);
+      const escaped = escapeRegex(escapeHtml(query));
+      return safe.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
     }
 
     function getExcerpt(item, query) {
@@ -173,12 +187,12 @@
       }
       const badge = isServer ? '<div class="search-source-badge">Full-text search</div>' : '';
       searchResults.innerHTML = badge + results.slice(0, 10).map(item => `
-        <a href="${item.url}" class="search-result-item" data-url="${item.url}">
+        <a href="${safeUrl(item.url)}" class="search-result-item" data-url="${escapeHtml(item.url)}">
           <div class="search-result-title">${highlightMatch(item.title || '', query)}</div>
           <div class="search-result-meta">
-            ${item.date || ''}
-            ${item.category ? ' <span class="search-category">' + item.category + '</span>' : ''}
-            ${Array.isArray(item.tags) ? item.tags.slice(0, 3).map(t => '<span class="search-tag">' + t + '</span>').join('') : ''}
+            ${escapeHtml(item.date || '')}
+            ${item.category ? ' <span class="search-category">' + escapeHtml(item.category) + '</span>' : ''}
+            ${Array.isArray(item.tags) ? item.tags.slice(0, 3).map(t => '<span class="search-tag">' + escapeHtml(t) + '</span>').join('') : ''}
           </div>
           <div class="search-result-excerpt">${highlightMatch(getExcerpt(item, query), query)}</div>
         </a>
@@ -342,6 +356,25 @@
     let originalContent = {};
     let translationCache = {};
     let isInitialized = false;
+
+    function sanitizeTranslation(html) {
+      if (!html) return '';
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      // Remove script tags and event handlers to prevent XSS from external translation API
+      temp.querySelectorAll('script, iframe, object, embed, link[rel="import"]').forEach(el => el.remove());
+      temp.querySelectorAll('*').forEach(el => {
+        for (const attr of Array.from(el.attributes)) {
+          if (attr.name.startsWith('on') || attr.value.startsWith('javascript:')) {
+            el.removeAttribute(attr.name);
+          }
+        }
+        if (el.tagName === 'A' && el.href && el.href.startsWith('javascript:')) {
+          el.removeAttribute('href');
+        }
+      });
+      return temp.innerHTML;
+    }
 
     function stripBrowserTranslationTags(html) {
       if (!html) return html;
@@ -951,14 +984,16 @@
         certTitle.textContent = translation.certTitle;
       }
 
-      // Apply post content translation
+      // Apply post content translation (sanitize to prevent XSS from external API)
       if (postContent && translation.postContent) {
-        postContent.innerHTML = translation.postContent;
+        const sanitized = sanitizeTranslation(translation.postContent);
+        postContent.innerHTML = sanitized;
       }
-      
-      // Apply certification page content translation
+
+      // Apply certification page content translation (sanitize to prevent XSS from external API)
       if (certPage && translation.certPage) {
-        certPage.innerHTML = translation.certPage;
+        const sanitized = sanitizeTranslation(translation.certPage);
+        certPage.innerHTML = sanitized;
       }
 
       // Apply card titles

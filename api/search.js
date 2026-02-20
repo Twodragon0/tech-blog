@@ -138,7 +138,10 @@ export default async function handler(req, res) {
   const requestId = generateRequestId();
 
   // CORS 헤더
-  const origin = req.headers.origin || req.headers.referer || '';
+  let origin = req.headers.origin || '';
+  if (!origin && req.headers.referer) {
+    try { origin = new URL(req.headers.referer).origin; } catch { origin = ''; }
+  }
   if (isAllowedOrigin(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
   }

@@ -23,7 +23,8 @@
   },
   "packageManager": "npm@9.0.0",
   "overrides": {
-    "fast-xml-parser": ">=5.3.4",
+    "fast-xml-parser": ">=5.3.6",
+    "ajv": ">=8.18.0",
     "webpack": ">=5.104.1"
   }
 }
