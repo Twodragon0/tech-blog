@@ -16,6 +16,9 @@ jobs:
   monitor:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      HAS_VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN != '' }}
+      HAS_SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK != '' }}
 
     steps:
       - uses: actions/checkout@v4
@@ -31,7 +34,7 @@ jobs:
           echo "Site is accessible (HTTP $HTTP_STATUS)"
 
       - name: Check Vercel CLI
-        if: ${{ secrets.VERCEL_TOKEN != '' }}
+        if: env.HAS_VERCEL_TOKEN == 'true'
         run: |
           npm list -g vercel > /dev/null 2>&1 || npm i -g vercel
 
@@ -82,7 +85,7 @@ jobs:
             })
 
       - name: Slack notification on failure
-        if: ${{ failure() && secrets.SLACK_WEBHOOK != '' }}
+        if: failure() && env.HAS_SLACK_WEBHOOK == 'true'
         uses: slackapi/slack-github-action@v1.24.0
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
@@ -120,5 +123,5 @@ jobs:
     steps:
       - name: Log successful monitoring
         run: |
-          echo "✅ Monitoring completed successfully at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          echo "Monitoring completed successfully at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
           echo "All production metrics within acceptable range"
