@@ -18,7 +18,8 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-DEPLOYMENT_URL="https://tech.2twodragon.com"
+DEFAULT_DEPLOYMENT_URL="https://tech.2twodragon.com"
+DEPLOYMENT_URL="$DEFAULT_DEPLOYMENT_URL"
 ALERT_ONLY=false
 DETAILED=false
 
@@ -28,7 +29,14 @@ while [[ $# -gt 0 ]]; do
         --alert-only) ALERT_ONLY=true ;;
         --detailed) DETAILED=true ;;
         -*) ;; # ignore unknown flags
-        *) DEPLOYMENT_URL="$1" ;;
+        *)
+            if [[ "$1" =~ ^https?:// ]]; then
+                DEPLOYMENT_URL="$1"
+            else
+                echo -e "${YELLOW}⚠️  WARNING: Invalid deployment URL argument '$1', using default: $DEFAULT_DEPLOYMENT_URL${NC}" >&2
+                DEPLOYMENT_URL="$DEFAULT_DEPLOYMENT_URL"
+            fi
+            ;;
     esac
     shift
 done

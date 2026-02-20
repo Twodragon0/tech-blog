@@ -42,6 +42,7 @@ jobs:
           fi
       
       - name: Create Sentry Release (Vercel)
+        if: ${{ secrets.SENTRY_AUTH_TOKEN != '' }}
         uses: getsentry/action-release@v3
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -53,6 +54,10 @@ jobs:
           sourcemaps: false
           set_commits: auto
           ignore_missing: true
+
+      - name: Skip Sentry release when token missing
+        if: ${{ secrets.SENTRY_AUTH_TOKEN == '' }}
+        run: echo "SENTRY_AUTH_TOKEN is not set, skipping Sentry release creation."
       
       - name: Output Deployment Info
         if: success()
