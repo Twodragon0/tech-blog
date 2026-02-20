@@ -90,12 +90,12 @@ jobs:
       - name: Slack notification on failure
         if: failure() && env.HAS_SLACK_WEBHOOK == 'true'
         uses: slackapi/slack-github-action@v2.1.1
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         with:
+          webhook: ${{ secrets.SLACK_WEBHOOK }}
+          webhook-type: incoming-webhook
           payload: |
             {
-              "text": "🚨 Production Monitoring Alert",
+              "text": "Production Monitoring Alert",
               "blocks": [
                 {
                   "type": "section",
