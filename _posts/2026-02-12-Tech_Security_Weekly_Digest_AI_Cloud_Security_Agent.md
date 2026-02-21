@@ -35,15 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-{% include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 02월 12일)'
-  categories_html='<span class=category-tag>Summary</span>'
-  tags_html='<span class=tag>Digest</span>'
-  highlights_html='<li>Auto-generated summary available below.</li>'
-  period='2026년 02월 12일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
-
 ## 주요 요약
 
 2026년 02월 12일 기준 보안 현황 및 위협 분석입니다.

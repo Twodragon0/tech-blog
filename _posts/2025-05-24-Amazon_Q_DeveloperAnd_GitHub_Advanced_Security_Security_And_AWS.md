@@ -36,52 +36,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag devops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Amazon-Q</span>
-      <span class="tag">GitHub-Advanced-Security</span>
-      <span class="tag">Code-Security</span>
-      <span class="tag">AWS</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Amazon Q Developer</strong>: 코드 보안 검토 및 AWS 최적화 제안, AI 기반 코드 생성 및 리뷰, AWS 서비스 통합(CodeCommit, CodeBuild, CodeDeploy), 보안 취약점 자동 탐지, AWS Well-Architected Framework 기반 권장사항</li>
-      <li><strong>GitHub Advanced Security 통합</strong>: CodeQL 정적 분석(취약점 패턴 검사), Dependabot 의존성 취약점 스캔 및 자동 PR 생성, Secret Scanning 민감 정보 탐지, Security Advisories 관리, AI 생성 코드 보안 검증</li>
-      <li><strong>코드 보안 자동화</strong>: CI/CD 파이프라인에 보안 스캔 통합, DevSecOps 모범 사례(Shift-Left Security), 자동화된 보안 검사, 실시간 취약점 알림</li>
-      <li><strong>AWS 환경 개발 생산성 향상</strong>: Amazon Q Developer와 GitHub 통합, AWS 서비스 최적화 제안, 코드 리뷰 자동화, 보안과 생산성의 균형</li>
-      <li><strong>2025년 DevSecOps 트렌드</strong>: AI 코딩 어시스턴트 보안 검증 체크리스트, AI 생성 코드 보안 검증(취약점 패턴 검사, 의존성 스캔, 보안 모범 사례 준수), Post-Quantum 암호화 대응</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Amazon Q Developer, GitHub Advanced Security, AWS</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 보안 엔지니어, 개발자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 핵심 요약
 
 2025년 현재, AI 기반 보안 도구는 DevSecOps 환경의 필수 요소가 되었습니다. 본 문서는 Amazon Q Developer와 GitHub Advanced Security를 활용한 엔터프라이즈급 보안 자동화 전략을 다룹니다.

@@ -35,55 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">주간 기술 보안 다이제스트 (2026년 02월 04일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Docker</span>
-      <span class="tag">DockerDash</span>
-      <span class="tag">CVE-2025-11953</span>
-      <span class="tag">Metro4Shell</span>
-      <span class="tag">AI-Agent-Security</span>
-      <span class="tag">AWS-IAM</span>
-      <span class="tag">3Cs-Framework</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Docker DockerDash</strong>: Ask Gordon AI 비서의 이미지 메타데이터 기반 코드 실행 및 데이터 유출 취약점 패치</li>
-      <li><strong>CVE-2025-11953</strong>: React Native CLI Metro4Shell RCE - CVSS 9.8, 원격 비인증 공격자의 임의 코드 실행</li>
-      <li><strong>AWS IAM Identity Center</strong>: 멀티리전 복제 지원으로 보안 아키텍처 및 데이터 주권 영향</li>
-      <li><strong>3Cs 프레임워크</strong>: Docker 발표 AI 에이전트 보안 프레임워크 - Container, Credential, Code</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 02월 03일 ~ 04일 (24시간)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, SOC 분석가, 클라우드 아키텍트</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 주요 요약 (경영진 브리핑)
 
 ### TL;DR - 위험 스코어카드

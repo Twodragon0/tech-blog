@@ -37,52 +37,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag devops">Kubernetes</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Kubernetes</span>
-      <span class="tag">Minikube</span>
-      <span class="tag">K9s</span>
-      <span class="tag">K8s</span>
-      <span class="tag">Troubleshooting</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Minikube 설치 및 설정</strong>: 최신 버전(1.37.0+) 설치, containerd 기본 런타임, AI 워크로드 지원(krunkit 드라이버), AMD GPU 지원, 리소스 부족/하이퍼바이저 충돌/네트워크 문제 해결</li>
-      <li><strong>K9s 터미널 UI 활용</strong>: 실시간 모니터링, 네임스페이스 기반 리소스 관리, 성능 최적화(대규모 클러스터), 보안 고려사항(읽기 전용 모드, RBAC), 커스텀 뷰 설정</li>
-      <li><strong>Kubernetes 2024-2025 보안 강화</strong>: User Namespaces(1.33+), Bound Service Account Tokens(1.32+), mTLS Pod Certificates(1.35 Beta), Dynamic Resource Allocation(1.34 Stable)</li>
-      <li><strong>실전 테스트 시나리오</strong>: Pod/Deployment/Service 배포, ConfigMap/Secret 관리, 문제 해결(로그 분석, 리소스 모니터링, 네트워크 디버깅), HPA 및 Network Policy 적용</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Kubernetes, Minikube, K9s</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 경영진 요약 (Executive Summary)
 
 ### 비즈니스 가치

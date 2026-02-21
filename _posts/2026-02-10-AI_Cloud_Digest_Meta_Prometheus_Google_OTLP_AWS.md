@@ -12,22 +12,25 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='2026-02-10 AI & 클라우드 다이제스트'
-  categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag cloud">Cloud</span>'
-  tags_html='<span class="tag">AI-Digest</span>
-      <span class="tag">Cloud-Digest</span>
-      <span class="tag">Meta-Prometheus</span>
-      <span class="tag">Google-OTLP</span>
-      <span class="tag">AWS</span>
-      <span class="tag">OpenTelemetry</span>'
-  highlights_html='<li><strong>Meta Prometheus</strong>: 기가와트급 AI 슈퍼클러스터, 16-48Pbps 네트워크, DSF/NSF 이중 패브릭 - AI 인프라 보안 아키텍처 참조</li>
-      <li><strong>ChatGPT GenAI.mil</strong>: 미 국방부 300만 인원 대상 AI 플랫폼 - Gemini, Claude와 함께 군사 AI 보안 기준 설정</li>
-      <li><strong>Google Cloud OTLP</strong>: OpenTelemetry 네이티브 지원으로 벤더 중립적 관찰성 스택 마이그레이션 권장</li>
-      <li><strong>AWS Bedrock</strong>: Claude Opus 4.6, C8id/M8id/R8id 인스턴스, CloudFront mTLS 등 AI 워크로드 + 제로트러스트 업데이트</li>'
-  period='2026년 02월 10일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트
+
+> **카테고리**: devsecops, cloud
+
+> **태그**: AI-Digest, Cloud-Digest, Meta-Prometheus, Google-OTLP, AWS, ChatGPT, OpenTelemetry
+
+> **핵심 내용**: 
+> - Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus 4.6 Bedrock 통합, ChatGPT 미 국방부 GenAI.mil 플랫폼
+
+> **주요 기술/도구**: AWS, devsecops, cloud
+
+> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 서론
 

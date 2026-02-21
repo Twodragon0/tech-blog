@@ -36,52 +36,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">SKT</span>
-      <span class="tag">MFA</span>
-      <span class="tag">USIM</span>
-      <span class="tag">Security-Incident</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>SK텔레콤 USIM 정보 유출 사태 대응</strong>: 즉시 조치(USIM/eSIM 교체, IMEI 확인, MFA 활성화), 통신사 보안 서비스 가입(USIM 보호 서비스, 번호 도용 차단), 금융 보안 강화(계좌 이체 한도 조정, 생체 인증 설정, 이상 거래 알림)</li>
-      <li><strong>SIM 스와핑/복제 위험성</strong>: 공격 메커니즘(통신사 직원 사칭, 사회공학적 기법, 내부자 협조), 피해 사례(계좌 이체, 금융 앱 접근, 2FA 우회), OTP/MFA의 중요성(SMS OTP 취약점, TOTP 앱 권장, 하드웨어 보안 키)</li>
-      <li><strong>IMEI 확인 및 USIM/eSIM 교체</strong>: IMEI 확인 방법(아이폰 *#06#, 안드로이드 설정→휴대전화 정보), 안전한 USIM/eSIM 교체 절차(통신사 방문, 본인 확인 강화, 즉시 활성화), eSIM 전환 장점(물리적 복제 불가, 원격 관리 가능)</li>
-      <li><strong>2025년 업데이트</strong>: 통신사 보안 강화 조치(무료 USIM 보호 서비스, eSIM 전환 촉진, 이중 인증 강화, 실시간 이상 탐지 시스템, IMEI 변경 알림), 개인 보안 강화 권고사항(MFA 전면 적용, 통신사 보안 서비스 가입, 정기 IMEI 확인)</li>
-      <li><strong>기업 보안 시사점</strong>: 공급망 보안(외부 파트너 보안 수준 점검), Zero Trust 아키텍처 적용, 보안 사고 대응 계획 수립, AI 기반 피싱 공격 대응 전략</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">MFA, OTP, USIM, eSIM</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">기업 보안 담당자, 보안 엔지니어, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 핵심 요약
 
 ### 위험 스코어카드

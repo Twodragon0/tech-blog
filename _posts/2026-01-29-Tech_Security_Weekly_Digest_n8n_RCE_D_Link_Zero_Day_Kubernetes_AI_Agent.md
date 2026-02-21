@@ -35,58 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 29일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">n8n</span>
-      <span class="tag">CVE-2026-1470</span>
-      <span class="tag">RCE</span>
-      <span class="tag">D-Link</span>
-      <span class="tag">CVE-2026-0625</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">AI-Agent</span>
-      <span class="tag">eBPF</span>
-      <span class="tag">NHI</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>n8n Critical RCE (CVE-2026-1470)</strong>: CVSS 9.9 - JavaScript AST sandbox escape, Function constructor bypass로 원격 코드 실행</li>
-      <li><strong>D-Link Zero-Day (CVE-2026-0625)</strong>: CVSS 9.3 - 단종 장비 DNS 커맨드 인젝션, 패치 불가, 즉시 교체 필요</li>
-      <li><strong>Kubernetes AI 에이전트 보안</strong>: 비결정적 AI 에이전트 운영 시 eBPF 기반 보안, API 거버넌스, 런타임 모니터링 필수</li>
-      <li><strong>Infomaniak Swiss Sovereign Cloud</strong>: GDPR 준수, OpenAI 호환 API, 100% 재생 에너지 유럽 클라우드</li>
-      <li><strong>NHI 클라우드 침해 벡터</strong>: 비인간 ID가 2026년 클라우드 침해 주요 경로로 부상, 자동 remediation 필요</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 1월 28일 ~ 29일 (48시간)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, SRE, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

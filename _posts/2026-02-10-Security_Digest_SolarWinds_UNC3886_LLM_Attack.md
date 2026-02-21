@@ -12,22 +12,25 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='2026-02-10 보안 다이제스트'
-  categories_html='<span class="category-tag security">Security</span>'
-  tags_html='<span class="tag">Security-Digest</span>
-      <span class="tag">SolarWinds-RCE</span>
-      <span class="tag">UNC3886</span>
-      <span class="tag">LLM-Safety</span>
-      <span class="tag">CVE-2025-40551</span>
-      <span class="tag">UNC1069</span>'
-  highlights_html='<li><strong>SolarWinds WHD RCE (CVE-2025-40551)</strong>: CVSS 9.8, 인증 없이 원격 코드 실행 후 AD 도메인 완전 장악 - CISA KEV 등재, 즉시 패치 필요</li>
-      <li><strong>UNC3886 통신사 첩보</strong>: 중국 연계 APT, 싱가포르 4대 통신사 전체 침해 - VMware/엣지 디바이스 제로데이 활용</li>
-      <li><strong>LLM 안전 정렬 GRPO 무력화</strong>: Microsoft 발표, 단일 프롬프트로 LLM 가드레일 무력화 - 다중 카테고리 일반화 가능</li>
-      <li><strong>UNC1069 딥페이크 공격</strong>: 북한 연계, 딥페이크+AI 소셜 엔지니어링으로 암호화폐 부문 표적, 7개 신규 악성코드</li>'
-  period='2026년 02월 10일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격
+
+> **카테고리**: security
+
+> **태그**: Security-Digest, SolarWinds-RCE, UNC3886, LLM-Safety, UNC1069, CVE-2025-40551
+
+> **핵심 내용**: 
+> - SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전 정렬 GRPO 무력화, 북한 UNC1069 딥페이크 암호화폐 공격
+
+> **주요 기술/도구**: Security, security
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 서론
 

@@ -36,49 +36,6 @@ author: Twodragon
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag cloud">Cloud</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Infrastructure</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AWS</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li>클라우드 인프라의 본질: 네트워크, 컴퓨팅, 스토리지의 보안 관점</li>
-      <li>2025년 클라우드 보안 트렌드: AI 보안, Zero Trust, 클라우드 네이티브 보안</li>
-      <li>실무 인프라 보안 이슈 및 대응 방안</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS, Cloud Infrastructure, Security</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## Executive Summary (경영진 요약)
 
 ### 리스크 스코어카드

@@ -34,50 +34,6 @@ author: Twodragon
 
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Zscaler</span>
-      <span class="tag">ZTNA</span>
-      <span class="tag">SSL-Inspection</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">Cloud-Security</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li>하이브리드 근무 환경에서 사용자가 어디서든 기업 리소스에 안전하게 접근</li>
-      <li>Zscaler의 클라우드 기반 Zero Trust 보안 아키텍처 및 핵심 정책</li>
-      <li>SSL 검사, 샌드박스(ATP), AI/광고/유해 사이트 차단 실무 설정</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Zscaler ZIA, ZPA, ZCC, SSL Inspection, ATP Sandbox</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">기업 보안 담당자, 보안 엔지니어, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
 
 ## 경영진 요약 (Executive Summary)
 

@@ -35,58 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 23일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Security-Weekly</span>
-      <span class="tag">AitM-Phishing</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">Agentic-AI</span>
-      <span class="tag">PostgreSQL</span>
-      <span class="tag">OpenAI</span>
-      <span class="tag">HashiCorp</span>
-      <span class="tag">vLLM</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Microsoft</strong>: 에너지 기업 대상 다단계 AitM 피싱 & BEC 공격 경고 - SharePoint 악용</li>
-      <li><strong>HashiCorp</strong>: Agentic AI 시스템의 Zero Trust NHI(비인간 ID) 관리 가이드 발표</li>
-      <li><strong>OpenAI</strong>: PostgreSQL로 8억 ChatGPT 사용자 지원 - 스케일링 아키텍처 공개</li>
-      <li><strong>Inferact</strong>: vLLM 제작자 설립, a16z/Lightspeed 주도 $150M 시드 투자 유치</li>
-      <li><strong>Google SRE</strong>: Gemini CLI 활용 실제 장애 대응 사례 공개</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 1월 22일 ~ 23일 (24시간)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 주요 요약
 
 ### 위협 리스크 스코어카드

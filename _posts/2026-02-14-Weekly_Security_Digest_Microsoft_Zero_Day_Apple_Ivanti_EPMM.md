@@ -33,13 +33,3 @@ schema_type: Article
 > ---
 
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
-
-{% include ai-summary-card.html
-  title='2026년 2월 2주차 보안 위협 종합 분석'
-  categories_html='<span class=category-tag>Summary</span>'
-  tags_html='<span class=tag>Digest</span>'
-  highlights_html='<li>Auto-generated summary available below.</li>'
-  period='최근 24시간'
-  audience='개발자 및 보안 담당자'
-%}

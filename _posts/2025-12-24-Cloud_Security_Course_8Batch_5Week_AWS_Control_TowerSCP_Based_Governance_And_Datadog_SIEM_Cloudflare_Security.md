@@ -16,55 +16,25 @@ keywords: [AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM, 멀티계정, 거
 author: Twodragon
 ---
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag cloud">Cloud</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AWS</span>
-      <span class="tag">Control-Tower</span>
-      <span class="tag">SCP</span>
-      <span class="tag">Datadog</span>
-      <span class="tag">Cloudflare</span>
-      <span class="tag">SIEM</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>AWS 멀티 계정 거버넌스</strong>: AWS Control Tower를 통한 Landing Zone 자동 설정, Guardrails(필수/강력 권장/선택적 정책) 기반 보안 및 컴플라이언스 정책 자동 적용, Service Control Policies (SCP)를 통한 계정/OU 레벨 권한 제어</li>
-      <li><strong>통합 보안 모니터링</strong>: Datadog SIEM을 통한 보안 이벤트 수집 및 상관관계 분석, CloudTrail/VPC Flow Logs/애플리케이션 로그 통합, 머신러닝 기반 이상 행위 탐지 및 커스텀 탐지 규칙</li>
-      <li><strong>웹 보안 강화</strong>: Cloudflare DDoS 방어(레이어 3/4/7 자동 완화), WAF(OWASP Top 10 보호, 커스텀 규칙), SSL/TLS 관리(TLS 1.3, 자동 인증서), AWS Route 53 연동</li>
-      <li><strong>2025년 AWS 거버넌스 업데이트</strong>: Organizations 계정 직접 이동 지원, AgentCore Identity(AI 에이전트 접근 제어), IAM Policy Autopilot(정책 자동 생성), Security Hub GA(멀티 계정 보안 통합 관리), GuardDuty Extended Threat Detection(EC2/ECS 위협 시퀀스 탐지)</li>
-      <li><strong>실무 적용 가이드</strong>: Control Tower 설정 및 Guardrails 적용, SCP 작성 및 OU 적용, Datadog SIEM AWS 통합 설정, Cloudflare와 AWS 통합, 통합 보안 아키텍처 구성</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS Control Tower, AWS Organizations, Service Control Policies (SCP), Datadog SIEM, Cloudflare, AWS Security Hub, GuardDuty, IAM Policy Autopilot, AgentCore Identity</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">클라우드 아키텍트, 보안 엔지니어, DevOps 엔지니어, 클라우드 관리자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
+## 📋 포스팅 요약
 
-<img src="{% raw %}{{ '/assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security.svg' | relative_url }}{% endraw %}" alt="Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance and Datadog SIEM Cloudflare Security" loading="lazy" class="post-image">
+> **제목**: 클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안
+
+> **카테고리**: cloud
+
+> **태그**: AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM
+
+> **핵심 내용**: 
+> - Control Tower/SCP 멀티 계정 거버넌스와 Datadog SIEM, Cloudflare 통합 보안 실무
+
+> **주요 기술/도구**: AWS, Datadog, Cloudflare, SIEM, cloud
+
+> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 서론
 

@@ -36,59 +36,6 @@ schema_type: Article
 
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AWS</span>
-      <span class="tag">CDN</span>
-      <span class="tag">Cloudflare</span>
-      <span class="tag">GitHub</span>
-      <span class="tag">SAST</span>
-      <span class="tag">WAF</span>
-      <span class="tag">보안</span>
-      <span class="tag">보안-아키텍처</span>
-      <span class="tag">애플리케이션-보안</span>
-      <span class="tag">코드-보안</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>AWS WAF 보안 강화</strong>: 웹 ACL 규칙 설정(SQL Injection, XSS, Rate Limiting), IP 기반 접근 제어, Geo-blocking, 커스텀 규칙 로직, CloudWatch 연동 모니터링</li>
-      <li><strong>Cloudflare 종합 보안</strong>: DDoS 보호(자동 완화, Rate Limiting), WAF 규칙 관리(OWASP Core Rule Set), SSL/TLS 설정(TLS 1.3, HSTS), CDN 최적화, Bot Management, Page Rules</li>
-      <li><strong>GitHub 보안 자동화</strong>: Dependabot 의존성 취약점 스캔 및 자동 PR 생성, Code Scanning(CodeQL) 정적 분석, Secret Scanning 민감 정보 탐지, Security Advisories 관리</li>
-      <li><strong>실무 보안 실습</strong>: DVWA(Damn Vulnerable Web Application)를 활용한 취약점 실습, AWS WAF 규칙 테스트, Cloudflare 보안 설정 실습, GitHub 보안 기능 통합</li>
-      <li><strong>보안 모범 사례</strong>: Defense in Depth 전략, 다층 보안 방어, 자동화된 보안 검사, 실시간 모니터링 및 알림</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS WAF, CloudFront, Cloudflare, DDoS Protection, WAF, SSL/TLS, CDN, Bot Management, GitHub Advanced Security, Dependabot, CodeQL, Code Scanning, Secret Scanning, DVWA, CloudWatch, OWASP Core Rule Set</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
-<img src="{% raw %}{{ '/assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security_image.png' | relative_url }}{% endraw %}" alt="Cloud Security Course 7Batch 6Week: Cloudflare and GitHub Security" loading="lazy" class="post-image">
 
 ## 경영진 요약 (Executive Summary)
 

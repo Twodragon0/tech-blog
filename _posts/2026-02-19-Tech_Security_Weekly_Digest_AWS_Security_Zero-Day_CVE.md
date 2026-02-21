@@ -14,22 +14,25 @@ image_alt: "기술 보안 주간 다이제스트 2026년 2월 19일 AWS 보안 Z
 toc: true
 ---
 
-{% include ai-summary-card.html
-  title='기술 & 보안 주간 다이제스트 (2026년 02월 19일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 케냐 활동가 폰에서 Cellebrite 도구 사용 확인</li>
-      <li><strong>The Hacker News</strong>: Grandstream GXP1600 VoIP 폰 인증되지 않은 원격 코드 실행에 노출</li>
-      <li><strong>The Hacker News</strong>: 1억 2500만 설치된 VS Code 확장 4개에서 치명적 결함 발견</li>
-      <li><strong>Google Cloud Blog</strong>: Google Cloud 데이터베이스로 차세대 에이전트 지원</li>'
-  period='2026년 02월 19일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 기술 & 보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Security, Zero-Day, CVE
+
+> **핵심 내용**: 
+> - 2026년 02월 19일 주요 보안/기술 뉴스 27건 - AWS, Security, Zero-Day
+
+> **주요 기술/도구**: Security, DevSecOps, Security, AWS, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 주요 요약
 

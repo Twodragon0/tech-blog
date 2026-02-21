@@ -35,55 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 31일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">ShinyHunters</span>
-      <span class="tag">Vishing</span>
-      <span class="tag">MFA-Bypass</span>
-      <span class="tag">Chrome-Extension</span>
-      <span class="tag">ChatGPT</span>
-      <span class="tag">OT-Security</span>
-      <span class="tag">ICS</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>ShinyHunters Vishing</strong>: Mandiant 발표 - SaaS 플랫폼 대상 비싱 공격으로 MFA 우회, 자격증명 탈취 확산</li>
-      <li><strong>Chrome 확장 프로그램</strong>: 악성 확장이 어필리에이트 링크 하이재킹 및 ChatGPT 인증 토큰 수집</li>
-      <li><strong>폴란드 에너지 OT 공격</strong>: CERT Polska 보고 - 30+ 풍력/태양광 발전소 대상 협조적 사이버 공격</li>
-      <li><strong>CISO 2026 우선순위</strong>: Google Cloud CISO 관점 - AI 보안, 클라우드 거버넌스, 규제 대응</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 1월 30일 ~ 31일</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 경영진 요약
 
 ### 위협 스코어카드 (Risk Scorecard)

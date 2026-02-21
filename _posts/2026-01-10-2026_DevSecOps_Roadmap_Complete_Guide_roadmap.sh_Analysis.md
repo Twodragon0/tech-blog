@@ -35,57 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">DevSecOps</span>
-      <span class="tag">로드맵</span>
-      <span class="tag">보안</span>
-      <span class="tag">학습-경로</span>
-      <span class="tag">roadmap.sh</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>93개 학습 항목 완벽 분석</strong>: 기초 학습(프로그래밍, 보안 기초), 위협 관리(STRIDE, PASTA), 보안 아키텍처(Defense in Depth, Zero Trust), 거버넌스(NIST CSF 2.0, ISO 27001), 도구 자동화(SAST/DAST/IAST, SIEM, SOAR)</li>
-      <li><strong>2024-2025 최신 트렌드 반영</strong>: OWASP Top 10:2025 (공급망 보안 강조), NIST CSF 2.0, GitHub Advanced Security 최신 기능, AI/ML 기반 보안 자동화, Secret Scanning 통계</li>
-      <li><strong>단계별 학습 경로</strong>: 초급(0-6개월) 프로그래밍/보안 기초, 중급(6-12개월) 위협 모델링/컨테이너 보안, 고급(12-24개월) 엔터프라이즈 아키텍처/거버넌스, 전문가(24개월+) 전략 수립</li>
-      <li><strong>실무 보안 도구 스택 (2024-2025)</strong>: SAST(CodeQL Rust 지원, Semgrep), DAST(Burp Suite, OWASP ZAP), IAST(Contrast Security), SCA(Trivy, Dependabot), 컨테이너 보안, SIEM/SOAR, SBOM(CycloneDX, Syft)</li>
-      <li><strong>공급망 보안 심화</strong>: SBOM 생성/검증/표준화, 의존성 리스크 관리(함수 호출 분석), 빌드 파이프라인 강화, NIST SP 800-204D, CISA SBOM 가이드, Secret Scanning (3,900만 개 이상 탐지)</li>
-      <li><strong>인시던트 대응 체계</strong>: IR 라이프사이클(준비→탐지→격리→근절→복구), 포렌식(디지털/메모리/네트워크), SOAR 자동화, EDR 솔루션, AI 기반 자동 대응</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">roadmap.sh, Python/Go/JavaScript, Bash/PowerShell, STRIDE/PASTA, OWASP Top 10:2025, CodeQL (Rust 지원), SonarQube, Semgrep, Burp Suite, OWASP ZAP, Contrast Security, Trivy, Dependabot, GitHub Advanced Security, Docker, Kubernetes, SIEM, SOAR, EDR, SBOM (CycloneDX, Syft), NIST CSF 2.0, NIST SP 800-204D, ISO 27001, SOC 2, CISA SBOM 가이드</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 보안 엔지니어, 개발자, 보안 전문가 지망생</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
-<img src="{{ '/assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg' | relative_url }}" alt="2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis" loading="lazy" class="post-image">
-
 ## 서론
 
 안녕하세요, Twodragon입니다. 

@@ -15,14 +15,25 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 02월 06일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">AI-Security</span> <span class="tag">Zero-Trust</span> <span class="tag">2026</span>'
-  highlights_html='<li><strong>Microsoft Security</strong>: CrashFix - 브라우저 크래시로 Python RAT 배포하는 새로운 ClickFix 변종 (Critical)</li> <li><strong>The Hacker News</strong>: AISURU/Kimwolf Botnet 31.4 Tbps DDoS 공격 기록 경신</li> <li><strong>The Hacker News</strong>: Codespaces RCE, AsyncRAT C2, BYOVD 공격 종합 분석</li> <li><strong>Google Cloud</strong>: Claude Opus 4.6 Vertex AI 출시 - AI 에이전트 보안 고려사항</li>'
-  period='2026년 02월 06일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 기술 & 보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Cloud, Threat
+
+> **핵심 내용**: 
+> - 2026년 02월 06일 주요 보안/기술 뉴스 27건 - CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD, Claude Opus 4.6
+
+> **주요 기술/도구**: Security, DevSecOps, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 주요 요약
 

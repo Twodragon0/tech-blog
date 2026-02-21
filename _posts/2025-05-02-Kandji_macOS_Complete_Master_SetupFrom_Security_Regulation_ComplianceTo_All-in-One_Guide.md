@@ -36,52 +36,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Kandji</span>
-      <span class="tag">macOS</span>
-      <span class="tag">MDM</span>
-      <span class="tag">Endpoint-Security</span>
-      <span class="tag">Compliance</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Kandji UEM 솔루션</strong>: Apple 통합 엔드포인트 관리(macOS/iOS/iPadOS/tvOS), MDM 정책 설정, 앱 배포 자동화, 보안 설정 중앙 관리, 컴플라이언스 모니터링</li>
-      <li><strong>보안 및 규정 준수</strong>: 단계별 설정 가이드(MDM 정책, 앱 배포, 보안 설정, 컴플라이언스), 패스키 기반 디바이스 인증, FIDO2/WebAuthn 통합(YubiKey, Touch ID/Face ID), Zero Trust 아키텍처 적용</li>
-      <li><strong>2025년 엔드포인트 보안 트렌드</strong>: 패스키 기반 디바이스 인증(제로 터치 배포, 관리자 인증 강화), AI 기반 위협 탐지(이상 행위 탐지, 자동 대응, 예측적 보안), SASE 통합(Zscaler, Netskope)</li>
-      <li><strong>실무 적용</strong>: 디바이스 신뢰도 평가, 동적 접근 제어, 컴플라이언스 상태 기반 실시간 접근 제어, 기업 앱 로그인 자동화</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Kandji, MDM, Apple UEM</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">기업 보안 담당자, 보안 엔지니어, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 핵심 요약
 
 ### 보안 스코어카드

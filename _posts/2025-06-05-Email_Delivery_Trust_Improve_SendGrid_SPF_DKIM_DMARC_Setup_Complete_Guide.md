@@ -37,52 +37,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">SendGrid</span>
-      <span class="tag">SPF</span>
-      <span class="tag">DKIM</span>
-      <span class="tag">DMARC</span>
-      <span class="tag">Email-Security</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>SPF(Sender Policy Framework)</strong>: DNS TXT 레코드 설정(v=spf1 include:sendgrid.net ~all), 발신 서버 인증, SPF 한정자(+/-/~/?), 여러 이메일 서비스 사용 시 설정</li>
-      <li><strong>DKIM(DomainKeys Identified Mail)</strong>: 서명 키 구성(Selector, Public Key), DNS TXT 레코드 설정(s1._domainkey), 이메일 무결성 검증, 디지털 서명 기술</li>
-      <li><strong>DMARC(Domain-based Message Authentication)</strong>: 정책 설정(v=DMARC1; p=quarantine; rua=mailto:...), 보고서 분석(집계 보고서, 실패 보고서), 정책 모드(none/quarantine/reject), 실무 DNS 설정 예시</li>
-      <li><strong>이메일 발송 신뢰도 향상</strong>: 스팸 방지 전략, 발송률 향상, 피싱 방지, SendGrid 도메인 인증 완료 프로세스, DNS 레코드 검증 방법</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">SendGrid, SPF, DKIM, DMARC, DNS</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">기업 보안 담당자, 보안 엔지니어, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 경영진 요약 (Executive Summary)
 
 ### 비즈니스 영향도 및 위험 스코어카드

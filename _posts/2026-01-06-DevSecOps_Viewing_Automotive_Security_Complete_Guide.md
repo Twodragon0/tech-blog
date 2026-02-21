@@ -35,57 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag devsecops">DevSecOps</span> <span class="category-tag security">Security</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Automotive-Security</span>
-      <span class="tag">Connected-Car</span>
-      <span class="tag">SAST</span>
-      <span class="tag">DAST</span>
-      <span class="tag">SBOM</span>
-      <span class="tag">Supply-Chain-Security</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>SDV(Software Defined Vehicle) 시대 보안</strong>: 중앙 집중식 컴퓨팅 플랫폼, 서비스 지향 아키텍처(SOA), OTA 업데이트 의존성, Zero Trust 내부 통신, HSM 통합, Secure Boot 체인</li>
-      <li><strong>자동차 보안 위협 분석</strong>: 네트워크 공격(Wi-Fi/Bluetooth/4G/5G, V2X, OTA), 물리적 공격(OBD-II, ECU 탬퍼링), 소프트웨어 취약점(메모리/암호화/인증), 공급망 공격(악성 코드 삽입, 의존성 취약점)</li>
-      <li><strong>DevSecOps 라이프사이클 통합</strong>: Plan(위협 모델링 STRIDE/TARA), Code(SAST, Secret 스캔), Build(SCA, 이미지 스캔), Test(DAST/IAST, Fuzz), Release(SBOM, 서명/암호화), Deploy(Secure Boot), Monitor(런타임 보안, 침입 탐지)</li>
-      <li><strong>규제 및 컴플라이언스</strong>: ISO 21434(자동차 사이버 보안), UN R155/R156(2025년 글로벌 확대 적용), V2X 보안 표준화(IEEE 1609.2, SCMS), GDPR/개인정보보호법</li>
-      <li><strong>실무 보안 도구 스택</strong>: SAST(SonarQube, Semgrep, Clang Static Analyzer), Secret 스캔(Gitleaks, GitGuardian), SCA(Trivy, Snyk, Grype), DAST(OWASP ZAP, Burp Suite), Fuzz(AFL, LibFuzzer), SBOM(Syft, SPDX), 런타임 보안(Falco, Sysdig)</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">SAST, DAST, IAST, SCA, SBOM, SonarQube, Semgrep, Gitleaks, GitGuardian, Trivy, Snyk, OWASP ZAP, Burp Suite, AFL, LibFuzzer, Syft, SPDX, Falco, Sysdig, Secure Boot, TEE, HSM, ISO 21434, UN R155/R156, AUTOSAR Adaptive</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">자동차 소프트웨어 개발자, DevSecOps 엔지니어, 보안 담당자, 자동차 제조사 보안 팀</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
-<img src="{{ '/assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg' | relative_url }}" alt="DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era Security Strategy" loading="lazy" class="post-image">
-
 ## 서론
 
 자동차 산업은 급속한 디지털 전환을 겪고 있습니다. **커넥티드 카(Connected Car)**, **자율주행(Autonomous Driving)**, **전기차(EV)** 기술의 발전으로 현대 자동차는 수억 줄의 코드와 수백 개의 ECU(Electronic Control Unit)로 구성된 복잡한 소프트웨어 시스템이 되었습니다.

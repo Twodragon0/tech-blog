@@ -14,21 +14,25 @@ image_alt: "기술 보안 주간 다이제스트 2026년 2월 15일 AI 랜섬웨
 toc: true
 ---
 
-{% include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 02월 15일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>SK쉴더스 보안 리포트</strong>: HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안</li>
-      <li><strong>SK쉴더스 보안 리포트</strong>: Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 BlackField...</li>
-      <li><strong>SK쉴더스 보안 리포트</strong>: Special Report 11월호 제로트러스트 보안전략 데이터(Data)</li>'
-  period='2026년 02월 15일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 기술 & 보안 주간 다이제스트: 랜섬웨어
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Data
+
+> **핵심 내용**: 
+> - 2026년 02월 15일 주요 보안/기술 뉴스 15건 - AI, Ransomware, Data
+
+> **주요 기술/도구**: Security, DevSecOps, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 주요 요약
 

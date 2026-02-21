@@ -37,50 +37,6 @@ author: Twodragon
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag cloud">Cloud</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AWS</span>
-      <span class="tag">VPC</span>
-      <span class="tag">GuardDuty</span>
-      <span class="tag">Security-Architecture</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li>AWS 보안 아키텍처 핵심 구성요소: VPC 네트워크 격리, IAM 접근 제어, S3 데이터 보호, GuardDuty 위협 탐지</li>
-      <li>2025년 AWS re:Invent 보안 발표: GuardDuty Extended Threat Detection, Security Hub 강화, IAM Policy Autopilot</li>
-      <li>실무 보안 모범 사례 및 적용 전략</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS VPC, IAM, S3, GuardDuty</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## Executive Summary (경영진 요약)
 
 ### 보안 위험 스코어카드

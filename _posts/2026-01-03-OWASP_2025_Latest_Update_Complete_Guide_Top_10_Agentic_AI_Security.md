@@ -35,56 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">OWASP</span>
-      <span class="tag">Security</span>
-      <span class="tag">Top10</span>
-      <span class="tag">AI</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Application Security</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>OWASP Top 10 2025 주요 변화</strong>: A03 Software Supply Chain Failures, A04 Cryptographic Failures 신규 추가, Broken Access Control 1위 유지, 실제 보안 사고 데이터 기반 순위 조정</li>
-      <li><strong>에이전틱 AI 보안 위협</strong>: Prompt Injection, Insecure Output Handling, Training Data Poisoning 등 10대 위협 가이드 발표, AI 시스템 특화 보안 취약점 및 실무 대응 방안 제시</li>
-      <li><strong>SecureCode v2.0</strong>: 1,215개 보안 중심 코딩 예제, CVE 연계 실제 취약점 기반, Python/JavaScript/Java/Go 다국어 지원, 취약/안전 코드 비교 제공</li>
-      <li><strong>실무 적용 가이드</strong>: Dependabot 설정, SBOM 자동 생성, Post-Quantum 암호화 전환 계획, AI 보안 거버넌스 체계, DevSecOps 파이프라인 통합 예시</li>
-      <li><strong>즉시 적용 가능한 조치</strong>: 의존성 관리 자동화, 암호화 강화(TLS 1.3+), 접근 제어 검증, 보안 로깅 정책 수립</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">OWASP Top 10 2025, OWASP Agentic AI Top 10, SecureCode v2.0, Dependabot, CycloneDX, SBOM, Post-Quantum Cryptography (ML-KEM, ML-DSA), ChaCha20Poly1305, FastAPI, Kubernetes Secrets, GitHub Actions</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 엔지니어, DevSecOps 엔지니어, 개발자, 보안 아키텍트</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
-<img src="{{ '/assets/images/2026-01-03-OWASP_2025_Complete_Guide_Top_10_AI_Security.svg' | relative_url }}" alt="OWASP 2025 Latest Update Complete Guide: Top 10 and Agentic AI Security" loading="lazy" class="post-image">
-
 ## 서론
 
 2025년은 OWASP(Open Web Application Security Project) 커뮤니티에 있어 중요한 전환점이었습니다. 4년 만에 발표된 **OWASP Top 10 2025**는 애플리케이션 보안 분야의 새로운 위협을 반영하며, 특히 **소프트웨어 공급망 공격**과 **AI 보안**에 대한 관심이 크게 증가했습니다.

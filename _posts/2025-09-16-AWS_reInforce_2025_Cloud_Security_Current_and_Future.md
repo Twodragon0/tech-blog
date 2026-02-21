@@ -35,52 +35,6 @@ author: Twodragon
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">AWS re:Inforce 2025: 클라우드 보안의 현재와 미래</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag cloud">Cloud</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AWS</span>
-      <span class="tag">reInforce</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">Conference</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li>AI 기반 보안 솔루션 및 위협 탐지 트렌드</li>
-      <li>Zero Trust 아키텍처 및 AWS 구현 방법</li>
-      <li>AWS 보안 서비스 업데이트 (GuardDuty, Security Hub, WAF)</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS GuardDuty, Security Hub, WAF, Control Tower</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
-<img src="{% raw %}{{ '/assets/images/2025-09-16-AWS_reInforce_2025_Cloud_Security_and_Future_image.png' | relative_url }}{% endraw %}" alt="AWS re:Inforce 2025: Cloud Security Present and Future" loading="lazy" class="post-image">
-
 ## 경영진 요약 (Executive Summary)
 
 ### 핵심 메시지

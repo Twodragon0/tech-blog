@@ -15,22 +15,25 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 02월 11일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 북한(DPRK) 요원들이 LinkedIn에서 전문직 신분을 사칭해 기업 침투 시도</li>
-      <li><strong>The Hacker News</strong>: Reynolds 랜섬웨어, BYOVD 취약 드라이버 내장으로 EDR 보안 도구 무력화</li>
-      <li><strong>The Hacker News</strong>: 랜섬웨어에서 장기 잠복으로: 디지털 기생 공격의 부상</li>
-      <li><strong>Google Cloud Blog</strong>: Google Distributed Cloud, 에어갭 환경에 퍼블릭 클라우드급 네트워킹 제공</li>'
-  period='2026년 02월 11일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 기술 & 보안 주간 다이제스트: 랜섬웨어, CVE-2026-21643, Fortinet
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Ransomware, Patch, AI
+
+> **핵심 내용**: 
+> - 2026년 02월 11일 주요 보안/기술 뉴스 26건 - Security, Ransomware, Patch
+
+> **주요 기술/도구**: Security, DevSecOps, Security, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 주요 요약
 

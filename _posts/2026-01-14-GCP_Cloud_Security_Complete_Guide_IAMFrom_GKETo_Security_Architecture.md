@@ -36,58 +36,6 @@ certifications: [isms-p]
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">GCP</span>
-      <span class="tag">Security</span>
-      <span class="tag">IAM</span>
-      <span class="tag">Cloud-SQL</span>
-      <span class="tag">Cloud-Storage</span>
-      <span class="tag">GKE</span>
-      <span class="tag">Cloud-Monitoring</span>
-      <span class="tag">Cloud-Logging</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>GCP 보안 아키텍처 개요</strong>: Defense in Depth 전략, 다층 보안 방어, GCP 서비스별 보안 레이어, 방화벽 규칙, IAM 통합</li>
-      <li><strong>IAM 보안</strong>: IAM 정책 작성, 서비스 계정 관리, Identity Platform, 최소 권한 원칙, MFA 설정</li>
-      <li><strong>VPC Network 보안</strong>: VPC 아키텍처 설계, Subnet 구성, Cloud NAT 설정, 방화벽 규칙, 네트워크 분리</li>
-      <li><strong>Cloud Storage 보안</strong>: 버킷 정책, 암호화 설정 (CMEK, 기본 암호화), 접근 제어, 버전 관리</li>
-      <li><strong>Cloud SQL 보안</strong>: 데이터베이스 암호화, 연결 암호화 (SSL/TLS), 백업, 보안 그룹 구성</li>
-      <li><strong>GKE 보안</strong>: Pod Security Standards, Network Policy, RBAC, 컨테이너 이미지 보안, 시크릿 관리</li>
-      <li><strong>모니터링 및 감사</strong>: Cloud Monitoring 설정, Cloud Logging 로그 수집 및 분석, Security Command Center 통합</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">GCP (IAM, Cloud SQL, Cloud Storage, GKE, Cloud Monitoring, Cloud Logging, Security Command Center, KMS, VPC), Defense in Depth, RBAC, TLS/SSL, Encryption</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">GCP 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 보안 전문가</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

@@ -36,60 +36,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag blockchain">Blockchain</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Blockchain</span>
-      <span class="tag">Cryptocurrency</span>
-      <span class="tag">Smart-Contract</span>
-      <span class="tag">Security-Audit</span>
-      <span class="tag">GitHub</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Slither</span>
-      <span class="tag">Mythril</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>스마트 컨트랙트 보안 도구 비교</strong>: Slither(정적 분석, 빠른 초기 검사), Mythril(심볼릭 실행, 깊이 있는 분석), Securify 2.0(패턴+데이터 흐름, 높은 정확도), Medusa 2025(차세대 퍼저, 커버리지 기반)</li>
-      <li><strong>CI/CD 보안 파이프라인 통합</strong>: GitHub Actions를 통한 자동화된 보안 검사(Slither, Mythril, Securify), 의존성 취약점 스캔(npm audit), Fuzz 테스트(Foundry, Medusa), 배포 전 최종 검증</li>
-      <li><strong>2024-2025년 보안 사고 분석</strong>: 총 34억 달러 손실, Bybit 15억 달러 해킹(북한 Lazarus), 스마트 컨트랙트 취약점 60%, 거래소 해킹 30%, 지갑 보안 10%</li>
-      <li><strong>블록체인 보안 위협</strong>: Reentrancy, Integer Overflow, Access Control 취약점, Oracle Manipulation, Front-running, 51% 공격, Sybil/Eclipse 공격</li>
-      <li><strong>실무 보안 모범 사례</strong>: 다중 도구 조합 사용, 자동화된 보안 검사, 속성 기반 테스팅(Echidna), Fuzz 테스트(Foundry, Medusa), 보안 감사 체크리스트</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Slither, Mythril, Securify 2.0, Medusa 2025, Echidna, Manticore, Foundry, GitHub Actions, npm audit, Solidity, EVM, Hardhat, Truffle, OpenZeppelin</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">블록체인 개발자, 보안 엔지니어, DevSecOps 엔지니어</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
-<img src="{{ '/assets/images/2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_and_Best_Practice_image.png' | relative_url }}" alt="Blockchain Cryptocurrency Security Complete Guide: DevSecOps Perspective on GitHub Security Tools and Best Practices" loading="lazy" class="post-image">
-
----
-
 ## 서론
 
 블록체인과 암호화폐 생태계가 급속도로 성장하면서, 보안은 더욱 중요한 이슈로 부상하고 있습니다. **2025년에는 약 34억 달러 이상의 암호화폐가 해킹으로 탈취**되었으며, 특히 2025년 2월 Bybit 거래소에서 발생한 **15억 달러 규모의 해킹**은 역대 최대 규모의 암호화폐 해킹 사건으로 기록되었습니다. 북한의 Lazarus 그룹이 배후로 지목된 이 사건은 콜드 월렛까지 침해당할 수 있음을 보여주었습니다.

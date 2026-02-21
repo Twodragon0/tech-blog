@@ -37,58 +37,6 @@ category: kubernetes
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">🚀 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag kubernetes">Kubernetes</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Docker</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">Container-Security</span>
-      <span class="tag">K8s</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Minikube</span>
-      <span class="tag">K9s</span>
-      <span class="tag">Pod-Security-Standards</span>
-      <span class="tag">User-Namespaces</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>컨테이너 보안 Best Practices</strong>: 이미지 스캔(Trivy, Snyk), Secret 관리(Kubernetes Secrets, External Secrets Operator), 비루트 사용자 실행, 읽기 전용 파일시스템, 최소 권한 원칙</li>
-      <li><strong>Kubernetes 보안 아키텍처</strong>: Pod Security Standards(PSS), User Namespaces(Kubernetes 1.33+), Network Policies, RBAC 최소 권한, Bound Service Account Tokens</li>
-      <li><strong>Kubernetes 보안 Best Practices</strong>: 이미지 서명 및 검증(Cosign, Docker Content Trust), 런타임 보안 모니터링(Falco, Sysdig), 자동화된 보안 검증(CI/CD 통합), 정기적인 보안 감사</li>
-      <li><strong>최신 보안 기능 (2024-2026)</strong>: Kubernetes 1.32-1.35 보안 강화(User Namespaces Beta-by-Default, mTLS Pod Certificates), Kubernetes 1.36+ 예상 기능, Minikube 1.37.0+ 기능, K9s 보안 모범 사례</li>
-      <li><strong>Docker/Container/Kubernetes 기본 이해</strong>: Docker 이미지/컨테이너 개념, VM vs Container 비교, Kubernetes 핵심 리소스(Pod, Deployment, Service, Namespace), 컨테이너 격리 원리</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Docker, Kubernetes, Minikube, K9s, Trivy, Snyk, Falco, External Secrets Operator</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 엔지니어, 클라우드 보안 전문가, DevOps 엔지니어, 컨테이너 보안 담당자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

@@ -35,56 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 26일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">AI-Agents</span>
-      <span class="tag">Chrome-Security</span>
-      <span class="tag">Terraform</span>
-      <span class="tag">HashiCorp</span>
-      <span class="tag">Prompt-Injection</span>
-      <span class="tag">NHI</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Zero Trust for Agentic AI</strong>: HashiCorp의 비인간 ID(NHI) 대규모 관리 전략 - Vault 기반 동적 자격증명</li>
-      <li><strong>Chrome AI 사기 탐지</strong>: Gemini Nano 온디바이스 LLM으로 기술지원 사기 실시간 차단</li>
-      <li><strong>Terraform Stacks GA</strong>: 네이티브 모노레포 지원으로 인프라 의존성 자동 관리</li>
-      <li><strong>Prompt Injection 방어</strong>: Google의 4계층 방어 전략 (입력/프롬프트/출력/런타임)</li>
-      <li><strong>2026 클라우드 전략</strong>: AI 인프라, FinOps, 보안 도구 통합, 플랫폼 엔지니어링</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 1월 24일 ~ 26일 (48시간)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, 플랫폼 엔지니어, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 경영진 요약 (Executive Summary)
 
 ### 위험 스코어카드 (Risk Scorecard)

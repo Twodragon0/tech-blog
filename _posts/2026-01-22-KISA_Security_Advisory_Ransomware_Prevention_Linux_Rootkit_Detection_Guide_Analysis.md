@@ -35,58 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">KISA 보안 공지 분석: 랜섬웨어 예방 가이드와 리눅스 커널 루트킷 점검 방법</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">KISA</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">Linux-Rootkit</span>
-      <span class="tag">Security-Advisory</span>
-      <span class="tag">Incident-Prevention</span>
-      <span class="tag">Backup</span>
-      <span class="tag">Phishing</span>
-      <span class="tag">E-commerce-Security</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>랜섬웨어 예방</strong>: 3-2-1 백업 규칙, 네트워크 분리, 보안 업데이트 적용 필수</li>
-      <li><strong>리눅스 루트킷 점검</strong>: 커널 모듈 검증, 시스템 콜 테이블 무결성 확인, chkrootkit/rkhunter 활용</li>
-      <li><strong>이커머스 피싱 주의</strong>: 해킹 피해 악용 스미싱/피싱 공격 증가, 결제 정보 탈취 주의</li>
-      <li><strong>DevSecOps 통합</strong>: CI/CD 파이프라인에 보안 점검 자동화 적용</li>
-      <li><strong>실무 체크리스트</strong>: KISA 권고 기반 즉시 적용 가능한 보안 조치</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">chkrootkit, rkhunter, AIDE, Lynis, ClamAV, iptables, 3-2-1 Backup</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, 시스템 관리자, DevSecOps 엔지니어, 서버 운영자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 핵심 요약
 
 ### 위협 스코어카드 (Risk Scorecard)

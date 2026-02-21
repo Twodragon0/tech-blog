@@ -14,22 +14,25 @@ image_alt: "기술 보안 주간 다이제스트 2026년 2월 17일 AI 에이전
 toc: true
 ---
 
-{% include ai-summary-card.html
-  title='Tech & Security Weekly Digest (2026년 02월 17일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: 인포스틸러가 OpenClaw AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취</li>
-      <li><strong>The Hacker News</strong>: 주요 클라우드 패스워드 매니저에서 25가지 비밀번호 복구 공격 취약점 발견</li>
-      <li><strong>AWS Security Blog</strong>: 서버리스 마이크로서비스를 위한 AI 기반 심층 방어 보안 아키텍처 구축</li>
-      <li><strong>AWS Blog</strong>: 5세대 AMD EPYC 프로세서 기반 Amazon EC2 Hpc8a 인스턴스 출시</li>'
-  period='2026년 02월 17일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 기술 & 보안 주간 다이제스트: 클라우드, Zero-Day, 봇넷
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Cloud, Security
+
+> **핵심 내용**: 
+> - 2026년 02월 17일 주요 보안/기술 뉴스 18건 - AI, Agent, Cloud
+
+> **주요 기술/도구**: Security, DevSecOps, Security, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 주요 요약
 

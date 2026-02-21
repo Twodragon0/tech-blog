@@ -12,22 +12,25 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='2026-02-09 보안 & 클라우드 다이제스트'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span>'
-  tags_html='<span class="tag">Security-Digest</span>
-      <span class="tag">Cloud-Digest</span>
-      <span class="tag">Supply-Chain</span>
-      <span class="tag">AI-Agent-Security</span>
-      <span class="tag">AWS</span>
-      <span class="tag">Agentic-AI</span>'
-  highlights_html='<li><strong>OpenClaw + VirusTotal</strong>: AI 스킬 마켓플레이스 ClawHub에 자동 악성 코드 스캔 체계 구축 - AI 공급망 보안 본격화</li>
-      <li><strong>SK쉴더스 리포트</strong>: BlackField 랜섬웨어, 제로트러스트, Vertical AI 분석 포함</li>
-      <li><strong>AWS Agentic AI 플랫폼</strong>: 2명이 7주 만에 구축한 Agentic AI 플랫폼 - AI-DLC 방법론 및 MCP 표준 적용</li>
-      <li><strong>AWS Transform Custom</strong>: ASP.NET 마이크로서비스 전환 - CodeGuru 기반 레거시 현대화</li>'
-  period='2026년 02월 09일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 2026-02-09 보안 & 클라우드 다이제스트: OpenClaw 공급망 보안, AWS Agentic AI
+
+> **카테고리**: security, cloud
+
+> **태그**: Security-Digest, Cloud-Digest, AI-Agent-Security, Supply-Chain, AWS, Agentic-AI, OpenClaw, VirusTotal
+
+> **핵심 내용**: 
+> - OpenClaw VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트, AWS Agentic AI 2명 7주 개발 사례, ASP.NET 마이크로서비스 전환
+
+> **주요 기술/도구**: Security, Security, AWS, security, cloud
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 서론
 

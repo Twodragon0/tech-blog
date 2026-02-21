@@ -35,62 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">AI 기반 음악 비디오 생성 완벽 가이드: DevSecOps 관점에서 본 생성형 AI 활용법</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag devsecops">DevSecOps</span> <span class="category-tag security">Security</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AI</span>
-      <span class="tag">Generative-AI</span>
-      <span class="tag">Music-Video</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Security</span>
-      <span class="tag">Midjourney</span>
-      <span class="tag">Suno</span>
-      <span class="tag">VEO-3</span>
-      <span class="tag">Midjourney-Video</span>
-      <span class="tag">Suno-V5</span>
-      <span class="tag">Content-Creation</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>생성형 AI 도구 활용 (2026년 최신)</strong>: Midjourney/Nano Banana Pro 이미지 생성, Suno V5 음악 생성 (MIDI Export), Veo 3 애니메이션 생성 (1080p, 멀티샷), Midjourney Video V1, 최종 편집 워크플로우</li>
-      <li><strong>DevSecOps 관점의 보안 고려사항</strong>: API 키 관리 및 보안, 데이터 프라이버시 보호, 저작권 및 라이선스 관리, AI 모델 보안 및 검증</li>
-      <li><strong>비용 정보 및 최적화</strong>: 각 도구별 2026년 최신 가격 정보, 비용 모니터링, 예산 관리 전략, 비용 최적화 팁</li>
-      <li><strong>실전 워크플로우</strong>: 단계별 생성 프로세스, 도구 간 연동, 품질 관리 및 검증, 자동화 파이프라인 구축</li>
-      <li><strong>모범 사례</strong>: 보안 우선 원칙, 최소 권한 원칙, 데이터 거버넌스, 지속적인 모니터링 및 감사, 비용 최적화</li>
-      <li><strong>실전 사례</strong>: "Pioneer" AI 음악 비디오 생성 케이스 스터디</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Midjourney, Midjourney Video V1, Nano Banana Pro, Suno V5, Veo 3, Python, API Security, Secret Management, Data Privacy, Copyright Management, Zero-Trust Architecture, AI Threat Detection, CI/CD, Automation</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 콘텐츠 크리에이터, 보안 엔지니어, AI 개발자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
-<img src="{{ '/assets/images/2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.svg' | relative_url }}" alt="AI Music Video Generation Complete Guide: DevSecOps Perspective" loading="lazy" class="post-image">
-
 ## Executive Summary (경영진 요약)
 
 **AI 콘텐츠 생성 보안 평가 - 2026년 1월**

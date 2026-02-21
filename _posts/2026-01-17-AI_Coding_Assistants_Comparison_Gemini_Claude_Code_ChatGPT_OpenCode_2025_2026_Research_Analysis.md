@@ -35,63 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신 연구 논문 기반 종합 평가</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag ai">AI</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AI</span>
-      <span class="tag">Coding-Assistants</span>
-      <span class="tag">Gemini</span>
-      <span class="tag">Claude-Code</span>
-      <span class="tag">ChatGPT</span>
-      <span class="tag">OpenCode</span>
-      <span class="tag">DeepSeek</span>
-      <span class="tag">SWE-Bench</span>
-      <span class="tag">HumanEval</span>
-      <span class="tag">Reproducibility</span>
-      <span class="tag">Benchmark</span>
-      <span class="tag">Research</span>
-      <span class="tag">2025</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>2025-2026년 최신 벤치마크 결과</strong>: SWE-Bench, HumanEval, Multi-SWE-Bench 성능 비교 분석</li>
-      <li><strong>재현성 문제 분석</strong>: AI 생성 코드의 의존성 추적 및 실행 가능성 문제 (68.3% 재현성)</li>
-      <li><strong>멀티링구얼 지원</strong>: Python, Java, TypeScript, JavaScript, Go, Rust, C, C#, C++ 지원 현황</li>
-      <li><strong>DeepSeek Coder 분석</strong>: HumanEval 최고 성능 (90.2%), 비용 효율적, 알고리즘 문제 해결 강점</li>
-      <li><strong>실무 활용 가이드</strong>: 각 어시스턴트의 강점과 약점, 사용 사례별 추천</li>
-      <li><strong>보안 고려사항</strong>: AI 생성 코드의 보안 취약점 및 검증 방법</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">SWE-Bench, HumanEval, Multi-SWE-Bench, SWE-Bench++, SWE-Sharp-Bench, Claude Code, Gemini Code Assist, GPT-5-Codex, DeepSeek Coder, OpenCode, Reproducibility Testing, Dependency Tracking</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">소프트웨어 엔지니어, DevSecOps 엔지니어, AI 연구자, 개발자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

@@ -36,52 +36,6 @@ author: Twodragon
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag devops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">FinOps</span>
-      <span class="tag">Course</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>9주 커리큘럼 상세</strong>: 1주차(인프라 본질, 2025 보안 트렌드), 2주차(AWS 보안 아키텍처 VPC/IAM/S3/GuardDuty), 3주차(AWS FinOps, ISMS-P), 4주차(통합 보안 취약점 점검), 5주차(AWS Control Tower, Datadog SIEM, Cloudflare), 6주차 이후(DevSecOps 심화, CI/CD/Kubernetes 보안)</li>
-      <li><strong>2025년 보안 트렌드 반영</strong>: AI 보안 양면성(93% 리더 일일 AI 공격 예상), Shadow AI 위협, Supply Chain 공격 급증, Zero Trust 표준화, Post-quantum 암호화(Cloudflare 52% 적용), AWS re:Invent 2025 발표 반영(Security Agent, GuardDuty Extended, IAM Policy Autopilot)</li>
-      <li><strong>학습 방식</strong>: 효율적 학습 루틴(20분 강의 + 5분 휴식, 뇌과학 기반 최적화), 실무 중심 교육, 상호작용형 학습 환경, 실무 고민 공유 및 Q&A</li>
-      <li><strong>기대 효과</strong>: DevSecOps/FinOps 실무 역량 강화, 대체 불가능한 클라우드 보안 전문가로 성장, 실무 문제 해결 능력 향상, 클라우드 보안 아키텍처 설계 능력, 비용 최적화 역량 확보</li>
-      <li><strong>주요 학습 영역</strong>: DevSecOps 영역(보안 통합 개발, 컨테이너 보안, 코드 보안, 인프라 보안), FinOps 영역(비용 최적화, 리소스 태깅, 거버넌스, 예산 관리), 클라우드 보안 영역(네트워크 보안, 접근 제어, 위협 탐지, 데이터 보호)</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS, DevSecOps, FinOps, VPC, IAM, GuardDuty, Control Tower, Datadog, Cloudflare, Docker, Kubernetes</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 핵심 요약
 
 ### OT 보안 스코어카드

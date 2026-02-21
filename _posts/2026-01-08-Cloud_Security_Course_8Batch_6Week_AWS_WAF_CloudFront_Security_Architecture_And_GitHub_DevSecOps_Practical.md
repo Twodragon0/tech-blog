@@ -37,58 +37,6 @@ certifications: [aws-saa]
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AWS</span>
-      <span class="tag">CloudFront</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">GitHub</span>
-      <span class="tag">GitHub-Actions</span>
-      <span class="tag">Security-Engineering</span>
-      <span class="tag">Tech-Blog</span>
-      <span class="tag">WAF</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>AWS WAF/CloudFront 보안 아키텍처</strong>: CloudFront와 S3 간 안전한 연결(OAI/OAC), WAF 규칙 설정(SQL Injection, XSS, Rate Limiting), Geo-blocking, IP 화이트리스트/블랙리스트, 커스텀 규칙 로직</li>
-      <li><strong>GitHub DevSecOps 실전</strong>: GitHub Actions를 통한 자동화된 보안 검사, CodeQL 정적 분석, Dependabot 의존성 취약점 스캔, Secret Scanning, Advanced Security 기능 활용</li>
-      <li><strong>실전 보안 패치 사례</strong>: SSRF(Server-Side Request Forgery) 취약점 수정, Data Masking 구현, 입력 검증 강화, 보안 헤더 설정(CSP, HSTS, X-Frame-Options)</li>
-      <li><strong>테크 블로그 보안 개선</strong>: Jekyll 블로그 보안 강화, CodeQL 기반 취약점 진단 및 수정, UI 개선 및 보안 패치, 실무 적용 케이스 스터디</li>
-      <li><strong>Amazon Q Developer 활용</strong>: AI 기반 코드 보안 검토, 취약점 제안 및 수정 가이드, 개발 생산성 향상</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS WAF, CloudFront, S3, OAI/OAC, GitHub Actions, CodeQL, Dependabot, Secret Scanning, GitHub Advanced Security, Amazon Q Developer, Jekyll, SSRF 방어, Data Masking, CSP, HSTS</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자, 개발자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
-<img src="{{ '/assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg' | relative_url }}" alt="Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture and GitHub DevSecOps Practical" loading="lazy" class="post-image">
-
 ## 핵심 요약
 
 본 포스트는 AWS WAF/CloudFront 보안 아키텍처와 GitHub DevSecOps 실전 적용 사례를 다룹니다. 웹 애플리케이션 보안의 핵심인 엣지 레벨 방어와 코드 수준의 보안 내재화를 통해 다층 방어 체계를 구축합니다.

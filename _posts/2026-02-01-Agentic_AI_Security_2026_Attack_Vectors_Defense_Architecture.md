@@ -35,51 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">에이전틱 AI 보안 2026: 공격 벡터와 방어 아키텍처</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Agentic-AI</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Tool-Poisoning</span>
-      <span class="tag">Prompt-Injection</span>
-      <span class="tag">LLM-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>CrowdStrike</strong>: AI Tool Poisoning - 도구 설명에 숨겨진 악성 지시로 AI 에이전트 조작</li>
-      <li><strong>CrowdStrike</strong>: Agentic Tool Chain Attack - AI 에이전트 공급망 공격의 새로운 벡터</li>
-      <li><strong>Google</strong>: Chrome 에이전틱 보안 아키텍처 - 샌드박스 기반 에이전트 격리</li>
-      <li><strong>Google</strong>: Prompt Injection 다층 방어 전략 - 입력 필터링부터 출력 검증까지</li>
-      <li><strong>SK쉴더스</strong>: LLM Application 취약점 진단 가이드 - 실무 점검 체크리스트</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, AI/ML 엔지니어, 클라우드 아키텍트, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 서론
 
 2026년은 AI가 단순한 챗봇을 넘어 **자율적으로 도구를 호출하고 작업을 수행하는 에이전틱(Agentic) AI 시대**로 진입한 해입니다. CrowdStrike, Google, Microsoft, OWASP 등 주요 보안 기업과 기관들이 에이전틱 AI의 새로운 위협 벡터에 대한 연구 결과를 잇따라 발표하고 있습니다.

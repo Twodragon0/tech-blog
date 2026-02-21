@@ -37,59 +37,6 @@ category: devsecops
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">🚀 클라우드 보안 과정 8기 8주차: CI/CD와 Kubernetes 보안 실전 가이드</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag kubernetes">Kubernetes</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">CI/CD</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">K8s-Security</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">ArgoCD</span>
-      <span class="tag">Jenkins</span>
-      <span class="tag">Network-Policies</span>
-      <span class="tag">RBAC</span>
-      <span class="tag">Pod-Security-Standards</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>CI/CD 파이프라인 보안</strong>: 코드 스캔(SAST, DAST), 이미지 스캔(Trivy, Snyk), Secret 관리(HashiCorp Vault, AWS Secrets Manager), 파이프라인 무결성 검증(GPG 서명, 자동화된 테스트)</li>
-      <li><strong>Kubernetes 네트워크 보안</strong>: Network Policies(Pod 간 통신 제어), Service Mesh(Istio, Linkerd), Ingress Controller 보안, 네트워크 세분화 전략</li>
-      <li><strong>Kubernetes 보안 아키텍처</strong>: RBAC 최소 권한 원칙, Pod Security Standards(PSS), 감사 로깅(Kubernetes Audit), 모니터링 및 알림(Prometheus, Grafana)</li>
-      <li><strong>AI 활용을 통한 DevSecOps 강화</strong>: Cursor 보안 코딩, Claude API 자동화된 보안 검증, GitHub Copilot 보안 모범 사례, GitHub Actions AI 통합, AI 기반 보안 모니터링</li>
-      <li><strong>DevSecOps 통합 전략</strong>: 자동화된 보안 검증(CI/CD 통합), 보안 강화된 파이프라인 구축, 정기적인 보안 감사, 지속적인 보안 모니터링</li>
-      <li><strong>실전 보안 사례 및 실습</strong>: 보안 강화된 CI/CD 파이프라인 구축, Kubernetes 보안 환경 구성, 실전 보안 강화 사례</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Cursor, Claude API, GitHub Copilot, GitHub Actions, Jenkins, ArgoCD, Trivy, Snyk, SonarQube, HashiCorp Vault, Kubernetes, Network Policies, RBAC, Falco</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 엔지니어, DevOps 엔지니어, 클라우드 보안 전문가, DevSecOps 실무자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

@@ -34,15 +34,6 @@ toc: true
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-{% include ai-summary-card.html
-  title='Tech Blog Weekly Digest (2026년 02월 20일)'
-  categories_html='<span class=category-tag>Summary</span>'
-  tags_html='<span class=tag>Digest</span>'
-  highlights_html='<li>Auto-generated summary available below.</li>'
-  period='2026년 02월 20일 (24시간)'
-  audience='소프트웨어 개발자, DevOps 엔지니어, 테크 리드, CTO'
-%}
-
 ## Executive Summary
 
 이번 다이제스트의 핵심은 "AI 모델 운영 성숙도"와 "Cloud Native 기반 데이터 파이프라인 표준화"입니다.

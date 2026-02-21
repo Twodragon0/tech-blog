@@ -35,54 +35,6 @@ author: Twodragon
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Incident</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Karpenter</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">AWS</span>
-      <span class="tag">Post-Mortem</span>
-      <span class="tag">Incident</span>
-      <span class="tag">EKS</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li>Karpenter v1.5.3 공격적 노드 통합 정책으로 인한 장애 분석</li>
-      <li>PodDisruptionBudget 미설정으로 20개 이상 Pod 동시 재시작</li>
-      <li>NodePool 설정 수정 및 PDB 적용을 통한 재발 방지 대책</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Karpenter, Kubernetes, AWS EKS, PodDisruptionBudget</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">SRE, 인시던트 대응 담당자, 운영 엔지니어</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
-<img src="{% raw %}{{ '/assets/images/2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large-scale_Incident_Analysis_and_Resolution_image.png' | relative_url }}{% endraw %}" alt="Karpenter v1.5.3 Large-Scale Incident Analysis and Resolution Due to Node Integration" loading="lazy" class="post-image">
-
 ## 경영진 요약 (Executive Summary)
 
 **장애 개요:** 2025년 10월 2일 15:43, Karpenter v1.5.3의 공격적인 노드 통합 정책과 PodDisruptionBudget 미설정으로 인해 프로덕션 환경에서 10분간 전체 서비스 중단이 발생했습니다.

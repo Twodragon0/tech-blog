@@ -35,56 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 27일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Zero-Day</span>
-      <span class="tag">Microsoft-Office</span>
-      <span class="tag">Kimi-K2.5</span>
-      <span class="tag">AI-Agents</span>
-      <span class="tag">Kimwolf</span>
-      <span class="tag">AWS-G7e</span>
-      <span class="tag">NVIDIA-Blackwell</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>MS Office Zero-Day (CVE-2026-21509)</strong>: CVSS 7.8 긴급 패치 - 보안 기능 우회 취약점 실제 악용 중</li>
-      <li><strong>Kimi K2.5 오픈소스</strong>: 비주얼 에이전트 AI - HLE 벤치마크 50.2% SOTA, 100개 하위 에이전트 1,500회 도구 호출</li>
-      <li><strong>Kimwolf/Badbox 2.0 봇넷</strong>: 200만+ IoT 기기 감염 - 기업/정부 네트워크 침투, DDoS 공격 활용</li>
-      <li><strong>AWS EC2 G7e</strong>: NVIDIA RTX PRO 6000 Blackwell GPU - 추론 성능 2.3배 향상</li>
-      <li><strong>ChatGPT 컨테이너</strong>: bash 실행, pip/npm 설치, 파일 다운로드 지원</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 1월 26일 ~ 27일 (48시간)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, AI/ML 엔지니어, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 주요 요약
 
 ### 위협 분석 스코어카드

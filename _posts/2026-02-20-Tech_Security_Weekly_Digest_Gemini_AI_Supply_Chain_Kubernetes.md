@@ -14,22 +14,25 @@ image_alt: "기술 보안 주간 다이제스트 2026년 2월 20일 Gemini AI �
 toc: true
 ---
 
-{% include ai-summary-card.html
-  title='기술 & 보안 주간 다이제스트 (2026년 02월 20일)'
-  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: PromptSpy 안드로이드 악성코드, Gemini AI를 악용한 최초의 GenAI 기반 지속성 확보</li>
-      <li><strong>Snyk</strong>: Clinejection - AI 봇을 공급망 공격 벡터로 전환하는 새로운 위협</li>
-      <li><strong>Datadog Security Labs</strong>: Kubernetes Ingress NGINX 은퇴 경고, 2026년 3월 지원 종료</li>
-      <li><strong>Google Cloud</strong>: Gemini 3.1 Pro 출시, ARC-AGI-2 벤치마크에서 77.1% 달성</li>'
-  period='2026년 02월 20일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 기술 & 보안 주간 다이제스트: Gemini 3.1 Pro, AI 공급망 공격, Kubernetes
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Gemini, AI, Supply-Chain, Kubernetes
+
+> **핵심 내용**: 
+> - 2026년 02월 20일 주요 보안/기술 뉴스 29건 - Gemini 3.1 Pro, AI Supply Chain, Kubernetes
+
+> **주요 기술/도구**: Security, DevSecOps, Security, Kubernetes, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 주요 요약
 

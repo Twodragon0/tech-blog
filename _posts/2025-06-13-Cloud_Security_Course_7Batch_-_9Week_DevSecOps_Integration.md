@@ -16,53 +16,25 @@ author: "Yongho Ha"
 schema_type: Article
 ---
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag devops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Integration</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">SDLC</span>
-      <span class="tag">Security-Automation</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>DevSecOps 파이프라인 아키텍처</strong>: 전체 파이프라인(Plan→Code→Build→Test→Release→Deploy→Operate→Monitor), 보안 도구 매핑(STRIDE/OWASP Threat Dragon, Semgrep/SonarQube/Gitleaks, Trivy/Snyk, OWASP ZAP/Burp Suite, Cosign/Syft, Checkov/OPA/Kyverno, Falco/Sysdig, Datadog/Splunk/ELK)</li>
-      <li><strong>AWS 보안 서비스 통합</strong>: GuardDuty 자동 대응(Lambda 기반 격리, SNS 알림), Security Hub 통합 보안 관리, EventBridge 이벤트 기반 자동화, CloudWatch 로그 분석</li>
-      <li><strong>DevSecOps 성숙도 모델</strong>: 단계별 도입 전략(초기→성장→성숙→최적화), 보안 통합 수준 평가, 실무 적용 체크리스트, 문화 및 프로세스 변화</li>
-      <li><strong>완전한 CI/CD 보안 파이프라인</strong>: 코드 보안 분석(Secret Scanning, SAST), 빌드 보안(SCA, 이미지 스캔), 배포 보안(IaC 스캔, Policy 검증), 운영 보안(런타임 보안, 모니터링)</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">DevSecOps, AWS Security Hub, GuardDuty, Kyverno, Falco</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 보안 엔지니어, 개발자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
+## 📋 포스팅 요약
 
-<img src="{{ '/assets/images/2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration_image.png' | relative_url }}" alt="Cloud Security Course 7Batch 9Week: DevSecOps Integration Summary" loading="lazy" class="post-image">
+> **제목**: 클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리
+
+> **카테고리**: devsecops
+
+> **태그**: DevSecOps, Integration, Cloud-Security, SDLC, Security-Automation
+
+> **핵심 내용**: 
+> - DevSecOps 통합 정리: 파이프라인 아키텍처부터 실무 적용까지
+
+> **주요 기술/도구**: DevSecOps, Security, Security, devsecops
+
+> **대상 독자**: DevSecOps 엔지니어, 보안 엔지니어, 개발자
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 핵심 요약
 

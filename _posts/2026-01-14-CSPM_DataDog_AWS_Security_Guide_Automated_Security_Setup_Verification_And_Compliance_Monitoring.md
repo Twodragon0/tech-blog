@@ -36,60 +36,6 @@ certifications: [isms-p, aws-saa]
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">CSPM</span>
-      <span class="tag">DataDog</span>
-      <span class="tag">AWS</span>
-      <span class="tag">Security</span>
-      <span class="tag">Compliance</span>
-      <span class="tag">Monitoring</span>
-      <span class="tag">Automation</span>
-      <span class="tag">Misconfiguration</span>
-      <span class="tag">Claude</span>
-      <span class="tag">Autonomous Coding</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>CSPM 개요</strong>: Cloud Security Posture Management 개념, DataDog CSPM 기능 소개, AWS 환경에서의 CSPM 활용</li>
-      <li><strong>DataDog CSPM 설정</strong>: DataDog AWS 연동 방법, CSPM 기능 활성화, 리전별 설정</li>
-      <li><strong>보안 설정 검증</strong>: 보안 그룹 설정 검증, S3 버킷 정책 검증, IAM 정책 검증, Misconfiguration 탐지</li>
-      <li><strong>컴플라이언스 모니터링</strong>: CIS AWS Foundations Benchmark 준수 모니터링, ISMS-P 컴플라이언스, PCI-DSS 컴플라이언스</li>
-      <li><strong>자동화된 대응</strong>: 자동 수정 워크플로우, 알림 설정, 워크플로우 자동화</li>
-      <li><strong>보고서 및 대시보드</strong>: 보안 상태 대시보드 구성, 컴플라이언스 보고서 생성, 시각화 및 보고</li>
-      <li><strong>Claude Autonomous Coding Agent 통합</strong>: CSPM과 Claude Agent를 통한 보안 자동화, 자동 보안 설정 수정, 보안 검증 코드 생성</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">CSPM, DataDog, AWS (Security Hub, Config, CloudTrail, CloudWatch), CIS Benchmark, ISMS-P, PCI-DSS, Automation, Monitoring, Claude Autonomous Coding Agent</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 엔지니어, 클라우드 보안 전문가, 컴플라이언스 담당자, DevOps 엔지니어</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 핵심 요약
 
 ### CSPM 보안 성숙도 평가

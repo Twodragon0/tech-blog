@@ -35,58 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Security-Vendor-News</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">Hashicorp</span>
-      <span class="tag">Cloudflare</span>
-      <span class="tag">Snyk</span>
-      <span class="tag">Jamf</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Jamf</strong>: VS Code 악용 위협 확대 - Contagious Interview 캠페인 진화</li>
-      <li><strong>Cloudflare</strong>: ACME 인증서 검증 취약점 공개 및 완화 조치</li>
-      <li><strong>Snyk</strong>: AI 에이전트 시대의 기계 속도 보안 필요성 강조</li>
-      <li><strong>HashiCorp</strong>: Agentic AI를 위한 Zero Trust NHI 관리, Kiro IDE 파트너십</li>
-      <li><strong>주요 테마</strong>: AI 보안, Zero Trust, 인증서 자동화, Infrastructure as Code</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 1월 15일 ~ 22일 (7일간)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, 클라우드 아키텍트, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

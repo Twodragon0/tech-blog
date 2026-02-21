@@ -35,56 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">CLAUDE.md</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Claude-Code</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Pre-commit</span>
-      <span class="tag">Log-Masking</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>CLAUDE.md</strong>: Claude Code CLI가 참조하는 프로젝트 지시 파일 - 보안 정책, 비용 최적화, 운영 효율성 통합</li>
-      <li><strong>Never Hardcode Secrets</strong>: os.getenv() 사용, 환경 변수로 민감 정보 관리</li>
-      <li><strong>Log Masking</strong>: mask_sensitive_info() 함수로 API 키, 토큰, 비밀번호 마스킹</li>
-      <li><strong>Input Validation</strong>: XSS, SQL Injection 패턴 검증, HTML sanitization</li>
-      <li><strong>Pre-commit 자동화</strong>: Gitleaks, Bandit, npm audit, 커스텀 보안 스크립트</li>
-      <li><strong>GitHub Actions</strong>: 자동화된 보안 스캔 워크플로우 (Semgrep, Gitleaks, pip-audit)</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">CLAUDE.md, AGENTS.md, Gitleaks, Bandit, Semgrep, Pre-commit, GitHub Actions</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">AI 에이전트 활용 개발자, DevSecOps 엔지니어, 보안 담당자, 플랫폼 엔지니어</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

@@ -35,45 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">기술 & 보안 주간 다이제스트 (2026년 02월 01일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AI-Security</span>
-      <span class="tag">OpenSSL</span>
-      <span class="tag">OWASP</span>
-      <span class="tag">Agentic-AI</span>
-      <span class="tag">Fortinet</span>
-      <span class="tag">Azure</span>
-      <span class="tag">Kyverno</span>
-      <span class="tag">Supply-Chain</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>AISLE AI OpenSSL 제로데이 12건 전량 발견</strong>: 역사상 최초로 AI 시스템이 인터넷 암호화 핵심 라이브러리의 모든 신규 취약점 발견</li>
-      <li><strong>OWASP Agentic AI Top 10</strong>: 자율 AI 에이전트 애플리케이션 보안을 위한 공식 프레임워크 발표</li>
-      <li><strong>CVE-2026-24858 Fortinet 제로데이</strong>: FortiCloud SSO 인증 우회로 FortiGate 방화벽 무단 접근, 실제 공격 확인</li>
-      <li><strong>CVE-2026-24304 Azure RM CVSS 9.9</strong>: Azure Resource Manager 권한 상승, 전체 리소스 제어권 탈취 가능</li>
-    </ul>
-  </div>
-</div>
-</div>
-
 ## 경영진 요약 (Executive Summary)
 
 ### 위험도 스코어카드

@@ -35,47 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">주간 기술 & AI & 블록체인 다이제스트 (2026년 02월 02일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Apple</span>
-      <span class="tag">Bitcoin-Crash</span>
-      <span class="tag">AI-Creativity</span>
-      <span class="tag">DeFi-Security</span>
-      <span class="tag">Claude-Code</span>
-      <span class="tag">Google-Research</span>
-      <span class="tag">CrossCurve-Exploit</span>
-      <span class="tag">Ethereum-Quantum</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Apple iPhone 16 Pro Max MLX LLM 하드웨어 버그</strong>: A18 Pro Neural Engine에서 MLX LLM 추론 시 텐서 값이 한 자릿수 이상 왜곡되는 심각한 하드웨어 결함 발견 (HN 273 points)</li>
-      <li><strong>Bitcoin $74K 급락, $19B 청산</strong>: Kevin Warsh Fed 의장 후보 지명 이후 BTC $75,892까지 급락, Binance 주도 $19B 규모 청산 이벤트, IBIT 투자자 수익률 적자 전환</li>
-      <li><strong>AI 창의성의 역설</strong>: 몬트리올대 10만 명 연구에서 GPT-4가 인간 평균 창의성을 초과했으나, 상위 10% 인간은 모든 AI를 크게 앞서는 결과 발표</li>
-      <li><strong>CrossCurve DeFi $3M 익스플로잇</strong>: 크로스체인 브릿지 프로토콜 스마트 컨트랙트 침해로 $3M 탈취, Ethereum Foundation 양자 보안 PQ 서명 우선순위 격상</li>
-    </ul>
-  </div>
-</div>
-</div>
-
-> **함께 읽기**: 같은 날짜의 보안 위협 인텔리전스 다이제스트 [Weekly Security Threat Intelligence Digest](/2026-02-02-Weekly_Security_Threat_Intelligence_Digest)에서 Notepad++ 국가 지원 공급망 공격, SK쉴더스 보안 리포트 (Vertical AI, BlackField/Sinobi/Gentlemen 랜섬웨어, 제로트러스트, JWT 보안, 레드팀), HashiCorp 보안 자동화를 심층 분석합니다.
-
 ## 개요
 
 2026년 2월 2일, Apple 하드웨어에서 예상치 못한 AI 추론 결함이 발견되었고, 암호화폐 시장에서는 큰 변동이 있었습니다. **iPhone 16 Pro Max의 A18 Pro Neural Engine이 MLX LLM 실행 시 텐서 값을 왜곡**하는 버그가 Hacker News에서 높은 점수를 기록했습니다. 동일 코드가 iPhone 15 Pro(A17 Pro)와 MacBook Pro(M-series)에서는 정상 동작하여, A18 Pro 칩의 하드웨어 또는 펌웨어 수준 결함의 가능성이 제기되고 있습니다.

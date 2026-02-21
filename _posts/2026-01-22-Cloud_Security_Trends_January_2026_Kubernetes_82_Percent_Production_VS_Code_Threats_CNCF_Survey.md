@@ -35,59 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag kubernetes">Kubernetes</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Kubernetes</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">CNCF</span>
-      <span class="tag">VS-Code-Security</span>
-      <span class="tag">Platform-Engineering</span>
-      <span class="tag">GPU-Scheduling</span>
-      <span class="tag">CRI-O-Audit</span>
-      <span class="tag">Net-NTLMv1</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>CNCF 연례 조사</strong>: Kubernetes 프로덕션 사용률 82% 달성, AI 워크로드의 66%가 K8s에서 추론 실행</li>
-      <li><strong>VS Code 보안 위협</strong>: 악성 확장 프로그램과 터널링 기능 악용 사례 증가</li>
-      <li><strong>CRI-O 보안 감사</strong>: OSTIF 두 번째 감사 완료, 컨테이너 런타임 보안 강화</li>
-      <li><strong>Net-NTLMv1 폐기 촉구</strong>: Mandiant 레인보우 테이블 공개, 레거시 프로토콜 위험성 경고</li>
-      <li><strong>GPU 스케줄링 최적화</strong>: 유휴 GPU 재활용을 위한 K8s 스케줄러 플러그인 가이드</li>
-      <li><strong>플랫폼 엔지니어링</strong>: 유지보수 함정과 전략적 대응 방안</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Kubernetes, CRI-O, VS Code, NVIDIA GPU, Platform Engineering, OSTIF, Net-NTLMv1</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 클라우드 보안 담당자, 플랫폼 엔지니어, SRE</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 핵심 요약
 
 ### 위험 스코어카드

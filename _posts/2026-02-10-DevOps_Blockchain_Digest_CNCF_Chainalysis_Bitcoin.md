@@ -12,22 +12,25 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='2026-02-10 DevOps & 블록체인 다이제스트'
-  categories_html='<span class="category-tag devops">DevOps</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">DevOps-Digest</span>
-      <span class="tag">Blockchain-Digest</span>
-      <span class="tag">CNCF</span>
-      <span class="tag">Kubernetes</span>
-      <span class="tag">Cluster-API</span>
-      <span class="tag">Chainalysis</span>'
-  highlights_html='<li><strong>CNCF Project Velocity 2025</strong>: Kubernetes가 AI 워크로드의 사실상 OS로 확립 - 82% 프로덕션 사용, Backstage IDP 기여도 2배 증가</li>
-      <li><strong>Cluster API v1.12</strong>: In-Place 업데이트 + 체인 업그레이드 지원 - 머신 재생성 없이 설정 변경, 다운타임 최소화</li>
-      <li><strong>Chainalysis Hexagate</strong>: MegaETH 생태계 실시간 스마트 컨트랙트 보안, ML 기반 Flash Loan 공격 사전 탐지</li>
-      <li><strong>Bitcoin $70K 반등</strong>: $60K 저점에서 강력 반등, MRI 매수 신호 발생</li>'
-  period='2026년 02월 10일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin
+
+> **카테고리**: devops, devsecops
+
+> **태그**: DevOps-Digest, Blockchain-Digest, CNCF, Kubernetes, Cluster-API, Chainalysis, Bitcoin
+
+> **핵심 내용**: 
+> - CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트, Chainalysis Hexagate MegaETH 보안, Bitcoin $70K 회복
+
+> **주요 기술/도구**: Kubernetes, devops, devsecops
+
+> **대상 독자**: DevSecOps 엔지니어, 보안 엔지니어, 개발자
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 
 ## 서론
 

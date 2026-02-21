@@ -35,57 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 30일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Ollama</span>
-      <span class="tag">LLMjacking</span>
-      <span class="tag">SolarWinds</span>
-      <span class="tag">CVE-2025-40551</span>
-      <span class="tag">IPIDEA</span>
-      <span class="tag">Microsoft-AI</span>
-      <span class="tag">OT-Security</span>
-      <span class="tag">ICS</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Ollama AI 서버 175K 노출</strong>: 130개국 175,000대 인증 없이 공개 노출, LLMjacking 캠페인 활발 악용 중</li>
-      <li><strong>SolarWinds WHD Critical RCE</strong>: CVSS 9.8 4건 포함 6건 CVE - 비인증 역직렬화 RCE, 인증 우회</li>
-      <li><strong>Google IPIDEA 프록시 차단</strong>: GTIG가 6.1M IP 레지덴셜 프록시 네트워크 해체, 550+ 위협 그룹 인프라</li>
-      <li><strong>Microsoft AI 위협 탐지</strong>: TTP 추출에서 탐지 규칙 생성까지 AI 자동화 워크플로우 공개</li>
-      <li><strong>OT/에너지 보안 실태</strong>: 100+ 에너지 시설 조사, IDS 배포 30분 내 중요 문제 발견</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 1월 29일 ~ 30일 (48시간)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, SRE, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

@@ -35,52 +35,6 @@ toc: true
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">OpenClaw vs Claude Code: AI 코딩 어시스턴트 심층 비교 (2026)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AI-Assistant</span>
-      <span class="tag">Claude-Code</span>
-      <span class="tag">OpenClaw</span>
-      <span class="tag">CVE-2026-25253</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">FinOps</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>정정</strong>: OpenClaw는 코딩 어시스턴트가 아닌 메시징 봇 프레임워크 - Claude를 백엔드로 사용 가능한 도구</li>
-      <li><strong>보안 위기</strong>: CVE-2026-25253 (CVSS 8.8) One-click RCE, 400+ 악성 스킬 캠페인, WebSocket Hijacking</li>
-      <li><strong>엔터프라이즈</strong>: Claude Code SOC 2 Type II 인증 vs OpenClaw 엔터프라이즈 사례 ZERO</li>
-      <li><strong>FinOps</strong>: Claude Code $20-200/월 vs OpenClaw Opus 4.5 사용 시 $300-750/월 실측</li>
-      <li><strong>생산성</strong>: 31.4% 개인 향상이지만 23.7% 보안 취약점 증가 - 품질 트레이드오프 존재</li>
-      <li><strong>벤치마크</strong>: Claude Opus 4.5 SWE-bench Verified 80.9% (업계 최고)</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">DevSecOps 엔지니어, 보안 담당자, FinOps 실무자, CTO/CISO, AI 도구 도입 검토 팀</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 1. 정정된 개요: OpenClaw와 Claude Code의 실체
 
 안녕하세요, **Twodragon**입니다.

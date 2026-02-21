@@ -35,59 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag incident">Incident</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Ransomware</span>
-      <span class="tag">KARA</span>
-      <span class="tag">SK-Shieldus</span>
-      <span class="tag">LockBit</span>
-      <span class="tag">Akira</span>
-      <span class="tag">INC-Ransomware</span>
-      <span class="tag">Threat-Intelligence</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">2025</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>공격 규모</strong>: 2025년 3분기 전 세계 1,517~1,733건 랜섬웨어 공격 발생 (전년 대비 36% 증가)</li>
-      <li><strong>생태계 분절화</strong>: 77개 활동 그룹 (역대 최다), 상위 10개 그룹이 56%만 차지</li>
-      <li><strong>주요 그룹</strong>: Qilin (+318%), Akira, INC Ransomware, LockBit 5.0 (9월 재등장)</li>
-      <li><strong>타겟 산업</strong>: 제조업 1위 (+56%), 헬스케어, 금융권 지속적 표적</li>
-      <li><strong>새로운 전술</strong>: 4중 협박(Quadruple Extortion), 규제 무기화, AI 기반 공격</li>
-      <li><strong>대응 전략</strong>: 제로 트러스트, 3-2-1-1-0 백업, CISA KEV 패치, YARA/Sigma 탐지 룰</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">출처</span>
-    <span class="summary-value">SK쉴더스 EQST insight, KARA, CISA, GuidePoint GRIT, Checkpoint, Mandiant</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, CISO, DevSecOps 엔지니어, SOC 분석가, 침해사고대응팀(CERT)</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

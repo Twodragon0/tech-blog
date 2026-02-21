@@ -36,60 +36,6 @@ certifications: [aws-saa]
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AWS</span>
-      <span class="tag">Security</span>
-      <span class="tag">IAM</span>
-      <span class="tag">VPC</span>
-      <span class="tag">S3</span>
-      <span class="tag">RDS</span>
-      <span class="tag">EKS</span>
-      <span class="tag">CloudTrail</span>
-      <span class="tag">CloudWatch</span>
-      <span class="tag">Security-Hub</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>AWS 보안 아키텍처 개요</strong>: Defense in Depth 전략, 다층 보안 방어, AWS 서비스별 보안 레이어, 보안 그룹, NACL, IAM 통합</li>
-      <li><strong>IAM 보안</strong>: IAM 정책 작성, 역할 기반 접근 제어 (RBAC), MFA 설정, 최소 권한 원칙, 정기적인 권한 검토</li>
-      <li><strong>VPC 보안</strong>: VPC 아키텍처 설계 (Public/Private Subnet), NAT Gateway 설정, Security Group 및 NACL 구성, 네트워크 분리</li>
-      <li><strong>S3 보안</strong>: 버킷 정책, 암호화 설정 (서버 측 암호화, KMS), 버전 관리, 접근 로그, Public Access 차단</li>
-      <li><strong>RDS 보안</strong>: 데이터베이스 암호화, 보안 그룹 구성, 파라미터 그룹, 스냅샷, 자동 백업</li>
-      <li><strong>EKS 보안</strong>: Pod Security Standards, Network Policy, RBAC, 컨테이너 이미지 보안, 시크릿 관리</li>
-      <li><strong>모니터링 및 감사</strong>: CloudTrail 설정, CloudWatch 모니터링, Security Hub 통합, GuardDuty 위협 탐지</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS (IAM, VPC, S3, RDS, EKS, CloudTrail, CloudWatch, Security Hub, GuardDuty, KMS, Config), Defense in Depth, RBAC, TLS/SSL, Encryption</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">AWS 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 보안 전문가, AWS-SAA 준비자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 🎯 Executive Summary
 
 ### AWS/EKS 보안 태세 평가

@@ -35,51 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">주간 보안 위협 인텔리전스 다이제스트 (2026년 02월 02일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Supply-Chain</span>
-      <span class="tag">Notepad++</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">JWT</span>
-      <span class="tag">Vertical-AI</span>
-      <span class="tag">SK-Shieldus</span>
-      <span class="tag">HashiCorp</span>
-      <span class="tag">Red-Team</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Notepad++ 국가 지원 공급망 공격</strong>: 배포 인프라 침해를 통한 수백만 개발자 대상 공급망 공격 (HN 304pts)</li>
-      <li><strong>SK쉴더스 보안 리포트 종합</strong>: Vertical AI SOC 자동화, BlackField/Sinobi/Gentlemen 랜섬웨어, 제로트러스트 데이터 보안, JWT 인증 위협, 레드팀 사이버 면역 체계</li>
-      <li><strong>HashiCorp 보안 자동화</strong>: Boundary 0.21 패스워드리스 RDP, VSO etcd-free Kubernetes 시크릿 관리</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, SOC 분석가, CISO</span>
-  </div>
-</div>
-</div>
-
-> **함께 읽기**: 같은 날짜의 기술/AI/블록체인 다이제스트 [Weekly Tech & AI & Blockchain Digest](/2026-02-02-Weekly_Tech_AI_Blockchain_Digest)에서 Apple MLX 버그, Bitcoin $74K 대폭락, AI 창의성 역설, DeFi 보안, FOSDEM 2026을 심층 분석합니다.
-
 ## 주요 요약
 
 ### 위험 평가 스코어카드

@@ -36,52 +36,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">공용 PC에서도 안전하게! 패스키, OTP, 강력한 암호 관리 활용법</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Passkey</span>
-      <span class="tag">OTP</span>
-      <span class="tag">Password-Manager</span>
-      <span class="tag">Authentication</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>패스키(Passkey) 활용</strong>: WebAuthn 기반 비밀번호 없는 인증, 피싱 방지(도메인 바인딩), 편의성(생체 인증, 빠른 로그인), 크로스 플랫폼 동기화(iOS/Android/Windows/macOS), 2025년 주요 빅테크 기본 지원(Google/Apple/Microsoft)</li>
-      <li><strong>OTP(One-Time Password) 2FA 강화</strong>: TOTP 앱(Google Authenticator, Microsoft Authenticator), SMS OTP 취약점 및 대안, 하드웨어 보안 키(YubiKey, Google Titan), FIDO2/WebAuthn 피싱 방지 MFA 표준화</li>
-      <li><strong>암호 관리자(Password Manager)</strong>: 안전한 비밀번호 생성 및 저장, 공용 PC에서의 안전한 사용법, 클라우드 동기화 보안, 브라우저 확장 프로그램 활용</li>
-      <li><strong>공용 PC 보안 모범 사례</strong>: 로그아웃 및 브라우저 캐시 관리, 시크릿 모드 활용, 개인정보 입력 최소화, 공용 PC 전용 계정 사용, 세션 타임아웃 설정</li>
-      <li><strong>2025년 인증 보안 트렌드</strong>: Passkey 채택 확대, Phishing-Resistant MFA 표준화(FIDO2/WebAuthn), AI 기반 피싱 공격 증가 대응(개인화된 피싱, 딥페이크, 정교한 도메인 스푸핑), 제로 트러스트 원칙 적용</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Passkey, OTP, Password Manager</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">기업 보안 담당자, 보안 엔지니어, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 핵심 요약
 
 ### 위험도 스코어카드

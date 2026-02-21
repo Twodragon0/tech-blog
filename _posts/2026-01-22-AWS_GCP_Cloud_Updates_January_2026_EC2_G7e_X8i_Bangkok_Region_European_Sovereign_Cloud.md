@@ -35,61 +35,6 @@ schema_type: Article
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i, Bangkok 리전, European Sovereign Cloud</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag cloud">Cloud</span> <span class="category-tag devops">DevOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AWS</span>
-      <span class="tag">GCP</span>
-      <span class="tag">EC2-G7e</span>
-      <span class="tag">EC2-X8i</span>
-      <span class="tag">NVIDIA-Blackwell</span>
-      <span class="tag">Bangkok-Region</span>
-      <span class="tag">European-Sovereign-Cloud</span>
-      <span class="tag">Gemini-3</span>
-      <span class="tag">BigQuery</span>
-      <span class="tag">Cloud-Migration</span>
-      <span class="tag">FinOps</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>AWS EC2 G7e</strong>: NVIDIA RTX PRO 6000 Blackwell GPU, AI 추론 성능 2.3배 향상</li>
-      <li><strong>AWS EC2 X8i</strong>: 커스텀 Intel Xeon 6 프로세서, 메모리 집약적 워크로드 최적화</li>
-      <li><strong>AWS European Sovereign Cloud</strong>: EU 데이터 주권 요구사항 충족, 규제 산업용</li>
-      <li><strong>GCP Bangkok Region</strong>: 태국 시장 진출, USD 10억 투자, 저지연 서비스</li>
-      <li><strong>Gemini 3 Flash</strong>: 최신 추론 모델, 에이전트 워크플로우 최적화</li>
-      <li><strong>BigQuery 고급 쿼리 엔진</strong>: 100개 이상의 새로운 쿼리 기능, Hugging Face 모델 통합</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS EC2, NVIDIA Blackwell, Intel Xeon 6, Google Cloud, Gemini 3, BigQuery, Firestore, RaMP</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">클라우드 아키텍트, DevOps 엔지니어, AI/ML 엔지니어, FinOps 담당자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 핵심 요약
 
 2026년 1월 AWS/GCP 업데이트는 **AI 인프라 성숙도**와 **데이터 주권 대응**이라는 두 축으로 요약됩니다. 기업 의사결정자는 다음 세 가지 핵심 사항에 집중해야 합니다:

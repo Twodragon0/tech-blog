@@ -36,56 +36,6 @@ certifications: [isms-p]
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">ISMS-P</span>
-      <span class="tag">AWS</span>
-      <span class="tag">Security</span>
-      <span class="tag">Compliance</span>
-      <span class="tag">ISMS</span>
-      <span class="tag">NIST-CSF</span>
-      <span class="tag">AI-Security</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>2025년 ISMS-P 개정 기준 반영</strong>: 101개 기준 상세 설명 (관리체계 수립 16개, 보호대책 64개, 개인정보 처리 21개), NIST CSF 2.0 연계 방안, AI 보안 요구사항 추가</li>
-      <li><strong>AWS 환경 ISMS-P 인증 전략</strong>: 클라우드 환경 특화 요구사항, AWS 서비스 기반 컴플라이언스 구현, Defense in Depth 보안 아키텍처 설계</li>
-      <li><strong>관리체계 수립 실무 가이드</strong>: 정보보안 정책 수립, 조직 구성 및 역할 정의, 위험 관리 체계 구축, 지속적 개선 프로세스</li>
-      <li><strong>보호대책 구현 상세 가이드</strong>: 접근 통제 (IAM, Security Group, NACL), 암호화 (전송/저장 데이터), 로그 관리 및 모니터링 (CloudTrail, CloudWatch), 네트워크 보안 (VPC, Subnet)</li>
-      <li><strong>개인정보 처리 단계별 요구사항</strong>: 수집, 이용, 제공, 파기 단계별 보안 요구사항 및 AWS 서비스 활용 방법</li>
-      <li><strong>실무 적용 사례</strong>: AWS 기반 ISMS-P 인증 사례, 보안 감사 대응 방법, 문제 해결 사례</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">ISMS-P, AWS (IAM, VPC, S3, RDS, CloudTrail, CloudWatch, KMS, Security Hub), NIST CSF 2.0, AI Security, Compliance Tools</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">ISMS-P 인증 준비자, 보안 엔지니어, 클라우드 보안 전문가, CISO, 컴플라이언스 담당자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## Executive Summary: ISMS-P 인증 준비도 평가
 
 ### 인증 준비도 자가 진단

@@ -35,52 +35,6 @@ author: Twodragon
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">[12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag cloud">Cloud</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AWSKRUG</span>
-      <span class="tag">OWASP</span>
-      <span class="tag">Datadog</span>
-      <span class="tag">AI</span>
-      <span class="tag">Conference</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li>2025년 보안 트렌드: AI 공격(93% 리더 예상), Shadow AI, Supply Chain 공격 급증</li>
-      <li>AWS re:Invent 2025: Security Agent, GuardDuty Extended, IAM Policy Autopilot 발표</li>
-      <li>Zero Trust 표준화 및 Post-quantum 암호화(Cloudflare 52% 적용) 현실화</li>
-      <li>AWSKRUG, OWASP, Datadog 컨퍼런스별 주요 인사이트</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS, Datadog, OWASP, AI IDE Kiro</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">클라우드 아키텍트, DevOps 엔지니어, 보안 엔지니어</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 1. Executive Summary: 2025년 클라우드 보안 패러다임의 전환
 
 ### 1.1 경영진을 위한 핵심 요약

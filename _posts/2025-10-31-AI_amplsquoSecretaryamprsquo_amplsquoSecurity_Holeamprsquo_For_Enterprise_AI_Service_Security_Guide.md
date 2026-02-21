@@ -35,51 +35,6 @@ author: Twodragon
 > *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
 
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">AI 시대, 당신의 '비서'가 '보안 구멍'이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AI</span>
-      <span class="tag">Enterprise-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Governance</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li>2025년 AI 보안 위협 현황: Shadow AI, 딥페이크, 데이터 포이즈닝, MCP 서버 취약점 등</li>
-      <li>AI 브라우저 에이전트의 보안 위험 및 데이터 유출 위협</li>
-      <li>기업을 위한 AI 서비스 보안 정책 및 기술적 통제 방안</li>
-      <li>2025년 최신 모범 사례: Zero Trust, Least Privilege, Security-by-Design</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">DLP, CASB, AI Governance, Zero Trust, Adversarial Training, Model Versioning</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">기업 보안 담당자, 보안 엔지니어, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
-
 ## 서론
 
 최근 몇 년간, 특히 AI 기반 브라우저와 브라우저 '에이전트'의 등장은 우리가 일하는 방식을 근본적으로 바꾸고 있습니다. 단순한 정보 검색을 넘어, AI가 웹페이지를 요약하고, 번역하며, 심지어 우리를 대신해 작업을 수행하는 시대가 열렸습니다.
