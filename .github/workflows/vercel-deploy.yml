@@ -40,9 +40,20 @@ jobs:
           else
             echo "sha=${{ github.sha }}" >> $GITHUB_OUTPUT
           fi
+
+      - name: Check Sentry token availability
+        id: sentry_token
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        run: |
+          if [ -n "$SENTRY_AUTH_TOKEN" ]; then
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+          fi
       
       - name: Create Sentry Release (Vercel)
-        if: ${{ secrets.SENTRY_AUTH_TOKEN != '' }}
+        if: steps.sentry_token.outputs.has_token == 'true'
         uses: getsentry/action-release@v3
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -56,7 +67,7 @@ jobs:
           ignore_missing: true
 
       - name: Skip Sentry release when token missing
-        if: ${{ secrets.SENTRY_AUTH_TOKEN == '' }}
+        if: steps.sentry_token.outputs.has_token != 'true'
         run: echo "SENTRY_AUTH_TOKEN is not set, skipping Sentry release creation."
       
       - name: Output Deployment Info

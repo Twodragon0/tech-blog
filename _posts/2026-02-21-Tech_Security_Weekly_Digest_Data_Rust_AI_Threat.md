@@ -15,20 +15,20 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title="Tech & Security Weekly Digest (2026년 02월 21일)"
-  categories_html="<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>"
-  tags_html="<span class="tag">Security-Weekly</span>
+  title='Tech & Security Weekly Digest (2026년 02월 21일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
       <span class="tag">Cloud-Security</span>
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>"
-  highlights_html="<li><strong>The Hacker News</strong>: BeyondTrust Flaw Used for Web Shells, Backdoors, and...</li>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>The Hacker News</strong>: BeyondTrust Flaw Used for Web Shells, Backdoors, and...</li>
       <li><strong>AWS Security Blog</strong>: AI-augmented threat actor accesses FortiGate devices at...</li>
       <li><strong>The Hacker News</strong>: Cline CLI 2.3.0 Supply Chain Attack Installed OpenClaw...</li>
-      <li><strong>AWS Korea Blog</strong>: Amazon Bedrock 및 Strands Agents를 이용한 롯데백화점의 AI 컨시어지 구축기</li>"
-  period="2026년 02월 21일 (24시간)"
-  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+      <li><strong>AWS Korea Blog</strong>: Amazon Bedrock 및 Strands Agents를 이용한 롯데백화점의 AI 컨시어지 구축기</li>'
+  period='2026년 02월 21일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
 ## Executive Summary
