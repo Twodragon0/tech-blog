@@ -36,8 +36,7 @@ from collections import defaultdict
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
 # ============================================================================
@@ -47,6 +46,7 @@ logging.basicConfig(
 POSTS_DIR = Path("_posts")
 IMAGES_DIR = Path("assets/images")
 DATA_DIR = Path("_data")  # 실제 데이터 디렉토리
+KOREAN_SUMMARY_CACHE: Dict[str, str] = {}
 
 CATEGORY_PRIORITY = {
     "security": 1,
@@ -124,13 +124,36 @@ SOURCE_PRIORITY = {
 
 # Tech blog sources (non-security, non-blockchain)
 TECH_BLOG_SOURCES = {
-    "geeknews", "hackernews", "palantir", "openai", "google_ai",
-    "meta_engineering", "huggingface", "google_research", "netflix_tech",
-    "microsoft_devblogs", "microsoft_dotnet", "tesla", "electrek",
-    "github_blog", "stripe", "slack_engineering", "x_engineering",
-    "apple_ml", "spotify_engineering", "discord", "docker",
-    "google_developers", "rust_lang", "golang", "apple_developer",
-    "apple_newsroom", "webkit", "hashicorp", "cncf", "gcp",
+    "geeknews",
+    "hackernews",
+    "palantir",
+    "openai",
+    "google_ai",
+    "meta_engineering",
+    "huggingface",
+    "google_research",
+    "netflix_tech",
+    "microsoft_devblogs",
+    "microsoft_dotnet",
+    "tesla",
+    "electrek",
+    "github_blog",
+    "stripe",
+    "slack_engineering",
+    "x_engineering",
+    "apple_ml",
+    "spotify_engineering",
+    "discord",
+    "docker",
+    "google_developers",
+    "rust_lang",
+    "golang",
+    "apple_developer",
+    "apple_newsroom",
+    "webkit",
+    "hashicorp",
+    "cncf",
+    "gcp",
 }
 
 MIN_NEWS_COUNT = 5  # 최소 뉴스 수
@@ -170,7 +193,9 @@ def filter_and_prioritize_news(news_data: Dict, hours: int = 24) -> List[Dict]:
             data_age_hours = (
                 datetime.now(timezone.utc) - collected_at
             ).total_seconds() / 3600
-            print(f"  📅 Data age: {data_age_hours:.1f}h (collected at {collected_at_str})")
+            print(
+                f"  📅 Data age: {data_age_hours:.1f}h (collected at {collected_at_str})"
+            )
         except (ValueError, TypeError):
             pass
 
@@ -185,11 +210,15 @@ def filter_and_prioritize_news(news_data: Dict, hours: int = 24) -> List[Dict]:
         filtered = _filter_by_cutoff(items, cutoff)
         if len(filtered) >= MIN_NEWS_COUNT:
             if window > hours:
-                print(f"  ⏰ Time window relaxed: {hours}h → {window:.0f}h ({len(filtered)} items)")
+                print(
+                    f"  ⏰ Time window relaxed: {hours}h → {window:.0f}h ({len(filtered)} items)"
+                )
             break
     else:
         # 모든 윈도우에서 부족하면 전체 아이템을 날짜순 정렬 후 사용
-        print(f"  ⚠️ All time windows insufficient. Using all {len(items)} items sorted by date.")
+        print(
+            f"  ⚠️ All time windows insufficient. Using all {len(items)} items sorted by date."
+        )
         filtered = sorted(
             items,
             key=lambda x: x.get("published", ""),
@@ -221,7 +250,16 @@ def filter_and_prioritize_news(news_data: Dict, hours: int = 24) -> List[Dict]:
 def _deduplicate_crypto_stories(items: List[Dict]) -> List[Dict]:
     """Group related Bitcoin/crypto crash stories and keep only the 2 most substantive"""
     crypto_keywords = ["bitcoin", "btc", "crypto", "cryptocurrency"]
-    price_keywords = ["crash", "drop", "fall", "plunge", "dump", "price", "surge", "rally"]
+    price_keywords = [
+        "crash",
+        "drop",
+        "fall",
+        "plunge",
+        "dump",
+        "price",
+        "surge",
+        "rally",
+    ]
 
     crypto_price_items = []
     other_items = []
@@ -286,14 +324,16 @@ def categorize_news(items: List[Dict]) -> Dict[str, List[Dict]]:
                 # Check URL for old year indicators (e.g., /2023/ or /2024/)
                 url = item.get("url", "")
                 current_year = datetime.now(timezone.utc).year
-                url_year_match = re.search(r'/(\d{4})/', url)
+                url_year_match = re.search(r"/(\d{4})/", url)
                 if url_year_match:
                     url_year = int(url_year_match.group(1))
                     if 2000 <= url_year < current_year - 1:
                         continue
                 # Also check published date
                 try:
-                    pub_date = datetime.fromisoformat(item.get("published", "").replace("Z", "+00:00"))
+                    pub_date = datetime.fromisoformat(
+                        item.get("published", "").replace("Z", "+00:00")
+                    )
                     if (datetime.now(timezone.utc) - pub_date).days > 90:
                         continue
                 except (ValueError, TypeError):
@@ -329,11 +369,7 @@ def select_top_news(
 def check_gemini_available() -> bool:
     """Gemini CLI 사용 가능 여부 확인"""
     try:
-        result = subprocess.run(
-            ["gemini", "--version"],
-            capture_output=True,
-            timeout=5
-        )
+        result = subprocess.run(["gemini", "--version"], capture_output=True, timeout=5)
         return result.returncode == 0
     except (subprocess.TimeoutExpired, FileNotFoundError):
         return False
@@ -373,10 +409,7 @@ def enhance_with_gemini(item: Dict, max_retries: int = 2) -> str:
     for attempt in range(max_retries):
         try:
             result = subprocess.run(
-                ["gemini", "-p", prompt],
-                capture_output=True,
-                text=True,
-                timeout=60
+                ["gemini", "-p", prompt], capture_output=True, text=True, timeout=60
             )
 
             if result.returncode == 0 and len(result.stdout.strip()) > 100:
@@ -392,9 +425,13 @@ def enhance_with_gemini(item: Dict, max_retries: int = 2) -> str:
         except subprocess.TimeoutExpired:
             logging.warning(f"Gemini CLI timeout (attempt {attempt + 1}/{max_retries})")
         except Exception as e:
-            logging.warning(f"Gemini CLI error (attempt {attempt + 1}/{max_retries}): {e}")
+            logging.warning(
+                f"Gemini CLI error (attempt {attempt + 1}/{max_retries}): {e}"
+            )
 
-    logging.info(f"Gemini enhancement failed after {max_retries} retries, falling back to template")
+    logging.info(
+        f"Gemini enhancement failed after {max_retries} retries, falling back to template"
+    )
     return ""
 
 
@@ -437,28 +474,28 @@ def enhance_with_deepseek(item: Dict) -> str:
 
         headers = {
             "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         }
 
         payload = {
             "model": "deepseek-chat",
-            "messages": [
-                {"role": "user", "content": prompt}
-            ],
+            "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.7,
-            "max_tokens": 1000
+            "max_tokens": 1000,
         }
 
         response = requests.post(
             "https://api.deepseek.com/v1/chat/completions",
             headers=headers,
             json=payload,
-            timeout=30
+            timeout=30,
         )
 
         if response.status_code == 200:
             result = response.json()
-            content = result.get("choices", [{}])[0].get("message", {}).get("content", "")
+            content = (
+                result.get("choices", [{}])[0].get("message", {}).get("content", "")
+            )
             if len(content) > 100:
                 logging.info(f"DeepSeek API enhanced: {title[:50]}...")
                 return content.strip()
@@ -516,7 +553,7 @@ def generate_risk_scorecard(news_items: List[Dict]) -> str:
     """
     scorecard = f"""```
 +================================================================+
-|          {datetime.now().strftime('%Y-%m-%d')} 주간 보안 위험 스코어카드                      |
+|          {datetime.now().strftime("%Y-%m-%d")} 주간 보안 위험 스코어카드                      |
 +================================================================+
 |                                                                |
 |  항목                    위험도   점수    조치 시급도             |
@@ -524,25 +561,29 @@ def generate_risk_scorecard(news_items: List[Dict]) -> str:
 """
 
     # Critical/High 뉴스만 스코어카드에 포함
-    critical_news = [n for n in news_items if _determine_severity(n) in ['Critical', 'High']]
+    critical_news = [
+        n for n in news_items if _determine_severity(n) in ["Critical", "High"]
+    ]
 
     for news in critical_news[:5]:  # 최대 5개
-        title = news.get('title', '')[:30]
+        title = news.get("title", "")[:30]
         severity = _determine_severity(news)
-        score = 9 if severity == 'Critical' else 7
-        bars = '█' * score + '░' * (10 - score)
-        priority = '[즉시]' if severity == 'Critical' else '[7일 이내]'
+        score = 9 if severity == "Critical" else 7
+        bars = "█" * score + "░" * (10 - score)
+        priority = "[즉시]" if severity == "Critical" else "[7일 이내]"
 
         scorecard += f"|  {title:<24} {bars}  {score}/10   {priority:<15}     |\n"
 
     # 종합 위험 수준
     if critical_news:
-        avg_score = sum(9 if _determine_severity(n)=='Critical' else 7 for n in critical_news) / len(critical_news)
+        avg_score = sum(
+            9 if _determine_severity(n) == "Critical" else 7 for n in critical_news
+        ) / len(critical_news)
     else:
         avg_score = 5
 
     level = "HIGH" if avg_score >= 7 else "MEDIUM" if avg_score >= 5 else "LOW"
-    bars = '█' * int(avg_score) + '░' * (10 - int(avg_score))
+    bars = "█" * int(avg_score) + "░" * (10 - int(avg_score))
 
     scorecard += f"""|  ----------------------------------------------------------   |
 |  종합 위험 수준: {bars} {level} ({avg_score:.1f}/10)                         |
@@ -562,13 +603,15 @@ def generate_executive_dashboard(news_items: List[Dict]) -> str:
     Returns:
         대시보드 문자열
     """
-    critical_count = len([n for n in news_items if _determine_severity(n) == 'Critical'])
-    high_count = len([n for n in news_items if _determine_severity(n) == 'High'])
-    medium_count = len([n for n in news_items if _determine_severity(n) == 'Medium'])
+    critical_count = len(
+        [n for n in news_items if _determine_severity(n) == "Critical"]
+    )
+    high_count = len([n for n in news_items if _determine_severity(n) == "High"])
+    medium_count = len([n for n in news_items if _determine_severity(n) == "Medium"])
 
     return f"""```
 +================================================================+
-|        보안 현황 대시보드 - {datetime.now().strftime('%Y년 %m월 %d일')}                         |
+|        보안 현황 대시보드 - {datetime.now().strftime("%Y년 %m월 %d일")}                         |
 +================================================================+
 |                                                                |
 |  [위협 현황]              [패치 현황]         [컴플라이언스]       |
@@ -598,7 +641,7 @@ def extract_cve_id(title: str, summary: str) -> Optional[str]:
     Returns:
         CVE ID (없으면 None)
     """
-    pattern = r'CVE-\d{4}-\d{4,7}'
+    pattern = r"CVE-\d{4}-\d{4,7}"
     for text in [title, summary]:
         match = re.search(pattern, text)
         if match:
@@ -621,16 +664,16 @@ def generate_mitre_mapping(cve_id: str, item: Dict) -> str:
     # 텍스트 기반 MITRE 매핑
     techniques = []
 
-    if any(kw in text for kw in ['rce', 'remote code execution', 'exploit']):
+    if any(kw in text for kw in ["rce", "remote code execution", "exploit"]):
         techniques.append("T1203  # Exploitation for Client Execution")
 
-    if any(kw in text for kw in ['authentication', 'credential', 'bypass']):
+    if any(kw in text for kw in ["authentication", "credential", "bypass"]):
         techniques.append("T1078  # Valid Accounts")
 
-    if any(kw in text for kw in ['injection', 'sql', 'xss']):
+    if any(kw in text for kw in ["injection", "sql", "xss"]):
         techniques.append("T1190  # Exploit Public-Facing Application")
 
-    if any(kw in text for kw in ['privilege', '권한 상승']):
+    if any(kw in text for kw in ["privilege", "권한 상승"]):
         techniques.append("T1068  # Exploitation for Privilege Escalation")
 
     if not techniques:
@@ -663,34 +706,34 @@ def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -
     """
     if mode == "tech-blog":
         tech_patterns = [
-            (r'\b(AI Agent|Claude Code|Cursor|Copilot|ChatGPT|Gemini|LLM)\b', None),
-            (r'\b(Open Source|Open-Source|OSS)\b', "Open Source"),
-            (r'\b(Kubernetes|K8s)\b', "Kubernetes"),
-            (r'\b(Docker|Container)\b', "Docker"),
-            (r'\b(Rust|Golang|Go\s+\d|TypeScript)\b', None),
-            (r'\b(React|Next\.?js|Vue|Svelte)\b', None),
-            (r'\b(AWS|Azure|GCP|Cloud)\b', None),
-            (r'\b(GitHub|GitLab)\b', None),
-            (r'\b(Apple|Google|Microsoft|Meta|Tesla|Spotify)\b', None),
-            (r'\b(WebAssembly|WASM|gRPC|GraphQL)\b', None),
-            (r'\b(DevOps|CI/CD|Platform Engineering)\b', None),
+            (r"\b(AI Agent|Claude Code|Cursor|Copilot|ChatGPT|Gemini|LLM)\b", None),
+            (r"\b(Open Source|Open-Source|OSS)\b", "Open Source"),
+            (r"\b(Kubernetes|K8s)\b", "Kubernetes"),
+            (r"\b(Docker|Container)\b", "Docker"),
+            (r"\b(Rust|Golang|Go\s+\d|TypeScript)\b", None),
+            (r"\b(React|Next\.?js|Vue|Svelte)\b", None),
+            (r"\b(AWS|Azure|GCP|Cloud)\b", None),
+            (r"\b(GitHub|GitLab)\b", None),
+            (r"\b(Apple|Google|Microsoft|Meta|Tesla|Spotify)\b", None),
+            (r"\b(WebAssembly|WASM|gRPC|GraphQL)\b", None),
+            (r"\b(DevOps|CI/CD|Platform Engineering)\b", None),
         ]
     else:
         tech_patterns = [
-            (r'(CVE-\d{4}-\d+)', None),
-            (r'\b(ransomware|Ransomware|랜섬웨어)\b', "Ransomware"),
-            (r'\b(zero-day|Zero-Day|0-day|제로데이)\b', "Zero-Day"),
-            (r'\b(Fortinet|Cisco|Palo Alto|CrowdStrike|SonicWall|Ivanti)\b', None),
-            (r'\b(Chrome|Firefox|Windows|Linux|macOS|Android|iOS)\b', None),
-            (r'\b(APT\d+|Lazarus|APT28|APT29|Kimsuky)\b', None),
-            (r'\b(phishing|Phishing|피싱)\b', "Phishing"),
-            (r'\b(supply chain|Supply Chain|공급망)\b', "Supply Chain"),
-            (r'\b(botnet|Botnet|봇넷)\b', "Botnet"),
-            (r'\b(malware|Malware|악성코드)\b', "Malware"),
-            (r'\b(authentication|MFA|SSO|인증)\b', "Authentication"),
-            (r'\b(RCE|remote code execution)\b', "RCE"),
-            (r'\b(AWS|Azure|GCP|Cloud)\b', None),
-            (r'\b(Kubernetes|K8s|Docker)\b', None),
+            (r"(CVE-\d{4}-\d+)", None),
+            (r"\b(ransomware|Ransomware|랜섬웨어)\b", "Ransomware"),
+            (r"\b(zero-day|Zero-Day|0-day|제로데이)\b", "Zero-Day"),
+            (r"\b(Fortinet|Cisco|Palo Alto|CrowdStrike|SonicWall|Ivanti)\b", None),
+            (r"\b(Chrome|Firefox|Windows|Linux|macOS|Android|iOS)\b", None),
+            (r"\b(APT\d+|Lazarus|APT28|APT29|Kimsuky)\b", None),
+            (r"\b(phishing|Phishing|피싱)\b", "Phishing"),
+            (r"\b(supply chain|Supply Chain|공급망)\b", "Supply Chain"),
+            (r"\b(botnet|Botnet|봇넷)\b", "Botnet"),
+            (r"\b(malware|Malware|악성코드)\b", "Malware"),
+            (r"\b(authentication|MFA|SSO|인증)\b", "Authentication"),
+            (r"\b(RCE|remote code execution)\b", "RCE"),
+            (r"\b(AWS|Azure|GCP|Cloud)\b", None),
+            (r"\b(Kubernetes|K8s|Docker)\b", None),
         ]
 
     found_topics = []
@@ -723,13 +766,20 @@ def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -
 
 
 def generate_post_content(
-    news_items: List[Dict], categorized: Dict[str, List[Dict]], date: datetime, topics_slug: str = ""
+    news_items: List[Dict],
+    categorized: Dict[str, List[Dict]],
+    date: datetime,
+    topics_slug: str = "",
 ) -> str:
     """고품질 포스트 컨텐츠 생성"""
 
     date_str = date.strftime("%Y년 %m월 %d일")
     date_file = date.strftime("%Y-%m-%d")
-    image_filename = f"{date_file}-Tech_Security_Weekly_Digest_{topics_slug}.svg" if topics_slug else f"{date_file}-Tech_Security_Weekly_Digest.svg"
+    image_filename = (
+        f"{date_file}-Tech_Security_Weekly_Digest_{topics_slug}.svg"
+        if topics_slug
+        else f"{date_file}-Tech_Security_Weekly_Digest.svg"
+    )
 
     stats = {cat: len(items) for cat, items in categorized.items()}
     total = sum(stats.values())
@@ -765,21 +815,29 @@ def generate_post_content(
     # Better title generation: extract meaningful topics from content
     title_keywords = _extract_meaningful_topics(news_items, mode="security")
 
-    base_tags = ["Security-Weekly", "DevSecOps", "Cloud-Security", "Weekly-Digest", str(date.year)]
+    base_tags = [
+        "Security-Weekly",
+        "DevSecOps",
+        "Cloud-Security",
+        "Weekly-Digest",
+        str(date.year),
+    ]
     topic_tags = [t for t in topics if t not in base_tags]
     tags = base_tags + topic_tags[:5]
 
-    top_sources = list({item.get("source_name", ""): True for item in news_items[:5]}.keys())[:3]
+    top_sources = list(
+        {item.get("source_name", ""): True for item in news_items[:5]}.keys()
+    )[:3]
     source_list = ", ".join(top_sources)
 
     # Generate Jekyll include tag for AI summary card
     categories_html = '<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
-    tags_html = f'''<span class="tag">Security-Weekly</span>
+    tags_html = f"""<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
       <span class="tag">Cloud-Security</span>
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
-      <span class="tag">{date.year}</span>'''
+      <span class="tag">{date.year}</span>"""
 
     content = f'''---
 layout: post
@@ -793,17 +851,17 @@ keywords: [{", ".join(tags[:8])}]
 author: Twodragon
 comments: true
 image: /assets/images/{image_filename}
-image_alt: "Tech Security Weekly Digest {date.strftime('%B %d %Y')} {' '.join(topics[:3])}"
+image_alt: "Tech Security Weekly Digest {date.strftime("%B %d %Y")} {" ".join(topics[:3])}"
 toc: true
 ---
 
 {{% include ai-summary-card.html
-  title="Tech & Security Weekly Digest ({date_str})"
-  categories_html="{categories_html}"
-  tags_html="{tags_html}"
-  highlights_html="{highlights_html}"
-  period="{date_str} (24시간)"
-  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  title='Tech & Security Weekly Digest ({date_str})'
+  categories_html='{categories_html}'
+  tags_html='{tags_html}'
+  highlights_html='{highlights_html}'
+  period='{date_str} (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}}
 
 ## Executive Summary
@@ -822,7 +880,7 @@ toc: true
 
 | 항목 | 내용 | 조치 상태 |
 |------|------|----------|
-| **주요 위협** | Critical: {len([n for n in news_items if _determine_severity(n) == 'Critical'])}건, High: {len([n for n in news_items if _determine_severity(n) == 'High'])}건 | 대응 진행 중 |
+| **주요 위협** | Critical: {len([n for n in news_items if _determine_severity(n) == "Critical"])}건, High: {len([n for n in news_items if _determine_severity(n) == "High"])}건 | 대응 진행 중 |
 | **패치 적용** | 긴급 패치 대상 시스템 식별 완료 | 검토 필요 |
 | **규제 대응** | 보안 정책 및 컴플라이언스 점검 | 정상 |
 
@@ -859,10 +917,10 @@ toc: true
         category = item.get("category", "tech")
         emoji = CATEGORY_EMOJI.get(category, "📰")
         severity = _determine_severity(item)
-        severity_emoji = {"Critical": "🔴", "High": "🟠", "Medium": "🟡"}.get(severity, "🟡")
-        content += (
-            f"| {emoji} **{category.title()}** | {source} | {title}... | {severity_emoji} {severity} |\n"
+        severity_emoji = {"Critical": "🔴", "High": "🟠", "Medium": "🟡"}.get(
+            severity, "🟡"
         )
+        content += f"| {emoji} **{category.title()}** | {source} | {title}... | {severity_emoji} {severity} |\n"
 
     content += "\n---\n\n"
 
@@ -873,18 +931,30 @@ toc: true
         content += f"## {section_num}. 보안 뉴스\n\n"
 
         # Separate SK Shieldus reports from regular security news
-        skshieldus_reports = [item for item in security_news if item.get("source") == "skshieldus_report"]
-        regular_security = [item for item in security_news if item.get("source") != "skshieldus_report"]
+        skshieldus_reports = [
+            item for item in security_news if item.get("source") == "skshieldus_report"
+        ]
+        regular_security = [
+            item for item in security_news if item.get("source") != "skshieldus_report"
+        ]
 
         for i, item in enumerate(regular_security, 1):
-            is_critical = (i == 1)  # 첫 번째 뉴스는 상세 분석
-            content += generate_news_section(item, f"{section_num}.{i}", is_critical=is_critical)
+            is_critical = i == 1  # 첫 번째 뉴스는 상세 분석
+            content += generate_news_section(
+                item, f"{section_num}.{i}", is_critical=is_critical
+            )
 
         # SK Shieldus reports grouped into a single subsection
         if skshieldus_reports:
             sub_idx = len(regular_security) + 1
-            month_str = date.strftime("%-m월") if sys.platform != "win32" else date.strftime("%m월").lstrip("0")
-            content += f"### {section_num}.{sub_idx} SK쉴더스 {month_str} 보안 리포트\n\n"
+            month_str = (
+                date.strftime("%-m월")
+                if sys.platform != "win32"
+                else date.strftime("%m월").lstrip("0")
+            )
+            content += (
+                f"### {section_num}.{sub_idx} SK쉴더스 {month_str} 보안 리포트\n\n"
+            )
             content += "SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.\n\n"
             for report in skshieldus_reports:
                 report_title = report.get("title", "보안 리포트")
@@ -969,7 +1039,10 @@ toc: true
 
 
 def generate_tech_blog_content(
-    news_items: List[Dict], categorized: Dict[str, List[Dict]], date: datetime, topics_slug: str = ""
+    news_items: List[Dict],
+    categorized: Dict[str, List[Dict]],
+    date: datetime,
+    topics_slug: str = "",
 ) -> str:
     """Tech Blog Weekly Digest 컨텐츠 생성.
 
@@ -979,7 +1052,11 @@ def generate_tech_blog_content(
     """
     date_str = date.strftime("%Y년 %m월 %d일")
     date_file = date.strftime("%Y-%m-%d")
-    image_filename = f"{date_file}-Tech_Blog_Weekly_Digest_{topics_slug}.svg" if topics_slug else f"{date_file}-Tech_Blog_Weekly_Digest.svg"
+    image_filename = (
+        f"{date_file}-Tech_Blog_Weekly_Digest_{topics_slug}.svg"
+        if topics_slug
+        else f"{date_file}-Tech_Blog_Weekly_Digest.svg"
+    )
 
     total = len(news_items)
 
@@ -991,13 +1068,54 @@ def generate_tech_blog_content(
         "General": [],
     }
 
-    ai_keywords = ["ai", "ml", "llm", "gpt", "claude", "gemini", "chatgpt", "copilot",
-                    "machine learning", "deep learning", "neural", "transformer", "agent"]
-    devops_keywords = ["kubernetes", "k8s", "docker", "cloud", "aws", "azure", "gcp",
-                       "terraform", "ci/cd", "devops", "sre", "infrastructure", "helm",
-                       "container", "serverless", "microservice"]
-    oss_keywords = ["open source", "open-source", "oss", "github", "rust", "golang", "go ",
-                    "python", "typescript", "linux", "apache", "mit license", "cncf"]
+    ai_keywords = [
+        "ai",
+        "ml",
+        "llm",
+        "gpt",
+        "claude",
+        "gemini",
+        "chatgpt",
+        "copilot",
+        "machine learning",
+        "deep learning",
+        "neural",
+        "transformer",
+        "agent",
+    ]
+    devops_keywords = [
+        "kubernetes",
+        "k8s",
+        "docker",
+        "cloud",
+        "aws",
+        "azure",
+        "gcp",
+        "terraform",
+        "ci/cd",
+        "devops",
+        "sre",
+        "infrastructure",
+        "helm",
+        "container",
+        "serverless",
+        "microservice",
+    ]
+    oss_keywords = [
+        "open source",
+        "open-source",
+        "oss",
+        "github",
+        "rust",
+        "golang",
+        "go ",
+        "python",
+        "typescript",
+        "linux",
+        "apache",
+        "mit license",
+        "cncf",
+    ]
 
     for item in news_items:
         text = f"{item.get('title', '')} {item.get('summary', '')} {item.get('content', '')}".lower()
@@ -1005,7 +1123,10 @@ def generate_tech_blog_content(
 
         if any(kw in text for kw in ai_keywords) or category == "ai":
             topic_groups["AI/ML"].append(item)
-        elif any(kw in text for kw in devops_keywords) or category in ("devops", "cloud"):
+        elif any(kw in text for kw in devops_keywords) or category in (
+            "devops",
+            "cloud",
+        ):
             topic_groups["DevOps/Cloud"].append(item)
         elif any(kw in text for kw in oss_keywords):
             topic_groups["Open Source"].append(item)
@@ -1023,7 +1144,9 @@ def generate_tech_blog_content(
     # GeekNews items for prominent display
     geeknews_items = [item for item in news_items if item.get("source") == "geeknews"]
 
-    top_sources = list({item.get("source_name", ""): True for item in news_items[:5]}.keys())[:3]
+    top_sources = list(
+        {item.get("source_name", ""): True for item in news_items[:5]}.keys()
+    )[:3]
     source_list = ", ".join(top_sources)
 
     # Build highlights from top items
@@ -1044,12 +1167,12 @@ def generate_tech_blog_content(
 
     # Generate Jekyll include tag for AI summary card
     categories_html = '<span class="category-tag tech">Tech</span> <span class="category-tag devops">DevOps</span>'
-    tags_html = f'''<span class="tag">Tech-Blog</span>
+    tags_html = f"""<span class="tag">Tech-Blog</span>
       <span class="tag">Weekly-Digest</span>
       <span class="tag">Developer</span>
       <span class="tag">Open-Source</span>
       <span class="tag">AI/ML</span>
-      <span class="tag">{date.year}</span>'''
+      <span class="tag">{date.year}</span>"""
 
     content = f'''---
 layout: post
@@ -1063,17 +1186,17 @@ keywords: [{", ".join(tags[:8])}]
 author: Twodragon
 comments: true
 image: /assets/images/{image_filename}
-image_alt: "Tech Blog Weekly Digest {date.strftime('%B %d %Y')} {' '.join(topics[:3])}"
+image_alt: "Tech Blog Weekly Digest {date.strftime("%B %d %Y")} {" ".join(topics[:3])}"
 toc: true
 ---
 
 {{% include ai-summary-card.html
-  title="Tech Blog Weekly Digest ({date_str})"
-  categories_html="{categories_html}"
-  tags_html="{tags_html}"
-  highlights_html="{highlights_html}"
-  period="{date_str} (24시간)"
-  audience="소프트웨어 개발자, DevOps 엔지니어, 테크 리드, CTO"
+  title='Tech Blog Weekly Digest ({date_str})'
+  categories_html='{categories_html}'
+  tags_html='{tags_html}'
+  highlights_html='{highlights_html}'
+  period='{date_str} (24시간)'
+  audience='소프트웨어 개발자, DevOps 엔지니어, 테크 리드, CTO'
 %}}
 
 ## 서론
@@ -1102,12 +1225,12 @@ toc: true
         for item in geeknews_items[:5]:
             title = item.get("title", "")
             url = item.get("url", "")
-            summary = item.get("summary", "")
             source_name = item.get("source_name", "GeekNews")
+            ko_summary = _korean_brief_summary(item)
 
             content += f"### {title}\n\n"
-            if summary:
-                content += f"{summary}\n\n"
+            if ko_summary:
+                content += f"{ko_summary}\n\n"
             content += f"> **출처**: [{source_name}]({url})\n\n"
         section_num += 1
 
@@ -1118,11 +1241,11 @@ toc: true
             title = item.get("title", "")
             url = item.get("url", "")
             source = item.get("source_name", item.get("source", "Unknown"))
-            summary = item.get("summary", "")
+            ko_summary = _korean_brief_summary(item)
 
             content += f"### {section_num}.{i} {title}\n\n"
-            if summary:
-                content += f"{summary}\n\n"
+            if ko_summary:
+                content += f"{ko_summary}\n\n"
             content += f"> **출처**: [{source}]({url})\n\n"
 
             # Key points
@@ -1139,11 +1262,11 @@ toc: true
             title = item.get("title", "")
             url = item.get("url", "")
             source = item.get("source_name", item.get("source", "Unknown"))
-            summary = item.get("summary", "")
+            ko_summary = _korean_brief_summary(item)
 
             content += f"### {section_num}.{i} {title}\n\n"
-            if summary:
-                content += f"{summary}\n\n"
+            if ko_summary:
+                content += f"{ko_summary}\n\n"
             content += f"> **출처**: [{source}]({url})\n\n"
         section_num += 1
 
@@ -1154,11 +1277,11 @@ toc: true
             title = item.get("title", "")
             url = item.get("url", "")
             source = item.get("source_name", item.get("source", "Unknown"))
-            summary = item.get("summary", "")
+            ko_summary = _korean_brief_summary(item)
 
             content += f"### {section_num}.{i} {title}\n\n"
-            if summary:
-                content += f"{summary}\n\n"
+            if ko_summary:
+                content += f"{ko_summary}\n\n"
             content += f"> **출처**: [{source}]({url})\n\n"
         section_num += 1
 
@@ -1171,8 +1294,8 @@ toc: true
             title = item.get("title", "")[:50]
             source = item.get("source_name", "")
             url = item.get("url", "")
-            summary = item.get("summary", "")[:80]
-            content += f"| [{title}...]({url}) | {source} | {summary}... |\n"
+            ko_summary = _korean_brief_summary(item).replace("\n", " ")[:80]
+            content += f"| [{title}...]({url}) | {source} | {ko_summary}... |\n"
         content += "\n"
         section_num += 1
 
@@ -1193,13 +1316,42 @@ def _generate_tech_trend_analysis(news_items: List[Dict], section_num: int) -> s
     content = f"\n---\n\n## {section_num}. 트렌드 분석\n\n"
 
     trend_defs = {
-        "AI/LLM": ["ai", "llm", "gpt", "claude", "gemini", "machine learning", "인공지능", "생성형"],
+        "AI/LLM": [
+            "ai",
+            "llm",
+            "gpt",
+            "claude",
+            "gemini",
+            "machine learning",
+            "인공지능",
+            "생성형",
+        ],
         "Cloud Native": ["cloud", "aws", "azure", "gcp", "serverless", "클라우드"],
         "Container/K8s": ["kubernetes", "k8s", "container", "docker", "컨테이너"],
-        "Developer Tools": ["ide", "editor", "cli", "developer experience", "dx", "cursor", "copilot"],
+        "Developer Tools": [
+            "ide",
+            "editor",
+            "cli",
+            "developer experience",
+            "dx",
+            "cursor",
+            "copilot",
+        ],
         "Open Source": ["open source", "open-source", "oss", "github", "cncf"],
-        "Programming Languages": ["rust", "golang", "typescript", "python", "java", "swift"],
-        "Platform Engineering": ["platform", "internal developer", "golden path", "backstage"],
+        "Programming Languages": [
+            "rust",
+            "golang",
+            "typescript",
+            "python",
+            "java",
+            "swift",
+        ],
+        "Platform Engineering": [
+            "platform",
+            "internal developer",
+            "golden path",
+            "backstage",
+        ],
     }
 
     trend_results = []
@@ -1226,11 +1378,17 @@ def _generate_tech_trend_analysis(news_items: List[Dict], section_num: int) -> s
         content += "\n"
 
         top = trend_results[0]
-        content += f"이번 주기에서 가장 많이 언급된 트렌드는 **{top[0]}** ({top[1]}건)입니다. "
+        content += (
+            f"이번 주기에서 가장 많이 언급된 트렌드는 **{top[0]}** ({top[1]}건)입니다. "
+        )
         if len(trend_results) > 1:
             second = trend_results[1]
-            content += f"그 다음으로 **{second[0]}** ({second[1]}건)이 주목받고 있습니다. "
-        content += "관련 기술 동향을 파악하고 팀 내 기술 공유에 활용하시기 바랍니다.\n\n"
+            content += (
+                f"그 다음으로 **{second[0]}** ({second[1]}건)이 주목받고 있습니다. "
+            )
+        content += (
+            "관련 기술 동향을 파악하고 팀 내 기술 공유에 활용하시기 바랍니다.\n\n"
+        )
     else:
         content += "이번 주기에는 두드러진 트렌드가 감지되지 않았습니다.\n\n"
 
@@ -1241,12 +1399,24 @@ def _determine_severity(item: Dict) -> str:
     """뉴스 심각도 결정"""
     text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
     critical_keywords = [
-        "critical", "rce", "zero-day", "제로데이", "0-day",
-        "cvss 9", "cvss 10", "unauthenticated", "actively exploited",
+        "critical",
+        "rce",
+        "zero-day",
+        "제로데이",
+        "0-day",
+        "cvss 9",
+        "cvss 10",
+        "unauthenticated",
+        "actively exploited",
     ]
     high_keywords = [
-        "high", "권한 상승", "privilege escalation",
-        "authentication bypass", "인증 우회", "ssrf", "injection",
+        "high",
+        "권한 상승",
+        "privilege escalation",
+        "authentication bypass",
+        "인증 우회",
+        "ssrf",
+        "injection",
     ]
 
     for kw in critical_keywords:
@@ -1260,8 +1430,10 @@ def _determine_severity(item: Dict) -> str:
 
 def _extract_cve_ids(item: Dict) -> List[str]:
     """뉴스 아이템에서 모든 CVE ID 추출"""
-    text = f"{item.get('title', '')} {item.get('summary', '')} {item.get('content', '')}"
-    cves = re.findall(r'CVE-\d{4}-\d+', text)
+    text = (
+        f"{item.get('title', '')} {item.get('summary', '')} {item.get('content', '')}"
+    )
+    cves = re.findall(r"CVE-\d{4}-\d+", text)
     # 중복 제거하면서 순서 유지
     seen = set()
     unique = []
@@ -1279,7 +1451,7 @@ def _generate_key_points(item: Dict) -> str:
         return ""
 
     # 문장 단위로 분리하여 핵심 포인트 생성
-    sentences = re.split(r'[.!?]\s+', summary)
+    sentences = re.split(r"[.!?]\s+", summary)
     sentences = [s.strip() for s in sentences if len(s.strip()) > 15]
 
     if not sentences:
@@ -1293,7 +1465,74 @@ def _generate_key_points(item: Dict) -> str:
     return points
 
 
-def generate_news_section(item: Dict, section_num: str, is_critical: bool = False) -> str:
+def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
+    summary = (item.get("summary", "") or "").strip()
+    content_text = (item.get("content", "") or "").strip()
+    text = summary or content_text
+    if not text:
+        return ""
+
+    text = re.sub(r"\s+", " ", text)
+    sentences = re.split(r"(?<=[.!?])\s+", text)
+    sentences = [s.strip() for s in sentences if s.strip()]
+    selected = sentences[:max_sentences] if sentences else [text[:220]]
+
+    has_korean = bool(re.search(r"[가-힣]", text))
+    if has_korean:
+        return " ".join(selected)
+
+    cache_key = item.get("id") or item.get("url") or item.get("title") or text[:80]
+    if cache_key in KOREAN_SUMMARY_CACHE:
+        return KOREAN_SUMMARY_CACHE[cache_key]
+
+    if check_gemini_available():
+        prompt = (
+            "다음 기술 뉴스 요약을 한국어 2문장으로만 간결하게 요약해 주세요. "
+            "마크다운/불릿/번호 없이 순수 문장으로 답변하세요.\n\n"
+            f"제목: {item.get('title', '')}\n"
+            f"요약: {text[:800]}\n"
+            "응답:"
+        )
+        try:
+            result = subprocess.run(
+                ["gemini", "-p", prompt],
+                capture_output=True,
+                text=True,
+                timeout=25,
+            )
+            if result.returncode == 0:
+                generated = re.sub(r"\s+", " ", result.stdout.strip())
+                if (
+                    generated
+                    and len(generated) >= 30
+                    and bool(re.search(r"[가-힣]", generated))
+                ):
+                    KOREAN_SUMMARY_CACHE[cache_key] = generated
+                    return generated
+        except Exception:
+            pass
+
+    category = item.get("category", "tech")
+    category_context = {
+        "security": "보안 관점에서 취약점 영향도와 우선 대응 대상을 확인해야 합니다.",
+        "devsecops": "DevSecOps 관점에서 배포 파이프라인과 보안 통제를 함께 점검해야 합니다.",
+        "cloud": "클라우드 관점에서 서비스 영향 범위와 설정 변경 포인트를 확인해야 합니다.",
+        "devops": "DevOps 관점에서 운영 자동화와 롤백 전략을 함께 고려해야 합니다.",
+        "kubernetes": "쿠버네티스 관점에서 클러스터 운영 및 보안 정책 영향을 검토해야 합니다.",
+        "ai": "AI 관점에서 모델/데이터/플랫폼 변화가 실무에 미치는 영향을 검토해야 합니다.",
+    }
+    context_line = category_context.get(
+        category, "실무 적용 전에 서비스 영향도와 운영 변경점을 함께 검토해야 합니다."
+    )
+    source_line = " ".join(selected)
+    fallback = f"핵심 요약(원문 기반): {source_line}\n\n실무 해석: {context_line}"
+    KOREAN_SUMMARY_CACHE[cache_key] = fallback
+    return fallback
+
+
+def generate_news_section(
+    item: Dict, section_num: str, is_critical: bool = False
+) -> str:
     """개별 뉴스 섹션 생성 - 고품질 분석 포함"""
     title = item.get("title", "Untitled")
     url = item.get("url", "")
@@ -1309,7 +1548,9 @@ def generate_news_section(item: Dict, section_num: str, is_critical: bool = Fals
 
     # 심각도 및 CVE 뱃지
     if cve_ids or severity == "Critical":
-        severity_emoji = {"Critical": "🔴", "High": "🟠", "Medium": "🟡"}.get(severity, "🟡")
+        severity_emoji = {"Critical": "🔴", "High": "🟠", "Medium": "🟡"}.get(
+            severity, "🟡"
+        )
         section += f"> {severity_emoji} **심각도**: {severity}"
         if cve_ids:
             section += f" | **CVE**: {', '.join(cve_ids[:5])}"
@@ -1331,8 +1572,9 @@ def generate_news_section(item: Dict, section_num: str, is_critical: bool = Fals
 
     # 폴백: 기존 템플릿
     section += "#### 개요\n\n"
-    if summary:
-        section += f"{summary}\n\n"
+    ko_summary = _korean_brief_summary(item)
+    if ko_summary:
+        section += f"{ko_summary}\n\n"
     elif content_text:
         section += f"{content_text[:800]}...\n\n"
 
@@ -1428,7 +1670,7 @@ def _generate_security_analysis_template(item: Dict) -> str:
     return template
 
 
-def _generate_security_brief_template(item: Dict = None) -> str:
+def _generate_security_brief_template(item: Optional[Dict] = None) -> str:
     """보안 뉴스 간략 분석 템플릿 - 토픽별 맞춤 조언 제공"""
     if item is None:
         return """
@@ -1456,8 +1698,20 @@ def _generate_security_brief_template(item: Dict = None) -> str:
 """
 
     # Authentication-related advice
-    if any(kw in text for kw in ["authentication", "인증", "credential", "password", "mfa",
-                                  "sso", "auth bypass", "인증 우회", "login"]):
+    if any(
+        kw in text
+        for kw in [
+            "authentication",
+            "인증",
+            "credential",
+            "password",
+            "mfa",
+            "sso",
+            "auth bypass",
+            "인증 우회",
+            "login",
+        ]
+    ):
         return """
 #### 실무 영향
 
@@ -1469,8 +1723,19 @@ def _generate_security_brief_template(item: Dict = None) -> str:
 """
 
     # Supply chain-related advice
-    if any(kw in text for kw in ["supply chain", "공급망", "dependency", "package",
-                                  "npm", "pypi", "maven", "sbom"]):
+    if any(
+        kw in text
+        for kw in [
+            "supply chain",
+            "공급망",
+            "dependency",
+            "package",
+            "npm",
+            "pypi",
+            "maven",
+            "sbom",
+        ]
+    ):
         return """
 #### 실무 영향
 
@@ -1566,10 +1831,14 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
 
         # 트렌드 분석 코멘트
         top = trend_results[0]
-        content += f"이번 주기에서 가장 많이 언급된 트렌드는 **{top[0]}** ({top[1]}건)입니다. "
+        content += (
+            f"이번 주기에서 가장 많이 언급된 트렌드는 **{top[0]}** ({top[1]}건)입니다. "
+        )
         if len(trend_results) > 1:
             second = trend_results[1]
-            content += f"그 다음으로 **{second[0]}** ({second[1]}건)이 주목받고 있습니다. "
+            content += (
+                f"그 다음으로 **{second[0]}** ({second[1]}건)이 주목받고 있습니다. "
+            )
         content += "실무에서는 해당 트렌드와 관련된 보안 정책 및 모니터링 체계를 점검하시기 바랍니다.\n\n"
     else:
         content += "이번 주기에는 두드러진 트렌드가 감지되지 않았습니다.\n\n"
@@ -1684,13 +1953,13 @@ def _to_english_svg_text(text: str) -> str:
     for char in text:
         if ord(char) < 128:  # ASCII
             result.append(char)
-        elif unicodedata.category(char).startswith('L'):
+        elif unicodedata.category(char).startswith("L"):
             # Non-ASCII letter - skip (Korean, etc.)
             continue
         else:
-            result.append(' ')
+            result.append(" ")
     # Clean up multiple spaces
-    cleaned = ' '.join(''.join(result).split())
+    cleaned = " ".join("".join(result).split())
     if not cleaned.strip():
         return "Security News Update"
     return cleaned.strip()
@@ -1773,7 +2042,7 @@ def generate_svg_image(
     top_items = news_items[:6]
 
     # SVG 헤더 및 정의
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
     <!-- Background Gradient -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1860,7 +2129,7 @@ def generate_svg_image(
   <!-- Main Title -->
   <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
   <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">{_escape_svg_text(subtitle_topics)}</text>
-'''
+"""
 
     # 카드 레이아웃 생성 (최대 6개 카드, 3x2 그리드)
     card_positions = [
@@ -1902,9 +2171,16 @@ def generate_svg_image(
         config = CATEGORY_SVG_CONFIG.get(category_display, CATEGORY_SVG_CONFIG["tech"])
         gradient = gradient_map.get(category_display, "blueGradient")
 
-        title = _escape_svg_text(_truncate_text(_to_english_svg_text(item.get("title", "News Update")), 35))
+        title = _escape_svg_text(
+            _truncate_text(_to_english_svg_text(item.get("title", "News Update")), 35)
+        )
         source = _escape_svg_text(
-            _truncate_text(_to_english_svg_text(item.get("source_name", item.get("source", "Source"))), 15)
+            _truncate_text(
+                _to_english_svg_text(
+                    item.get("source_name", item.get("source", "Source"))
+                ),
+                15,
+            )
         )
 
         # 요약 또는 컨텐츠에서 핵심 정보 추출
@@ -1952,7 +2228,7 @@ def generate_svg_image(
 '''
 
     # Footer 섹션
-    svg += f'''
+    svg += f"""
   <!-- Footer -->
   <line x1="50" y1="585" x2="1150" y2="585" stroke="#334155" stroke-width="1"/>
 
@@ -1975,7 +2251,7 @@ def generate_svg_image(
 
   <!-- Blog Info -->
   <text x="1150" y="612" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
-</svg>'''
+</svg>"""
 
     return svg
 
@@ -1999,7 +2275,9 @@ def main():
         help="Post mode: security (default) or tech-blog digest",
     )
     parser.add_argument(
-        "--force", action="store_true", help="Force publish even if same-day post exists"
+        "--force",
+        action="store_true",
+        help="Force publish even if same-day post exists",
     )
     args = parser.parse_args()
 
@@ -2021,7 +2299,9 @@ def main():
                 datetime.now(timezone.utc) - collected_at
             ).total_seconds() / 3600
             if data_age_hours > 24:
-                print(f"⚠️ Data is {data_age_hours:.1f}h old. Time filter will be relaxed automatically.")
+                print(
+                    f"⚠️ Data is {data_age_hours:.1f}h old. Time filter will be relaxed automatically."
+                )
         except (ValueError, TypeError):
             pass
 
@@ -2044,14 +2324,17 @@ def main():
         # Deduplicate by filename
         existing = list({p.name: p for p in existing}.values())
         if existing:
-            print(f"⏭️ Same-day post already exists ({len(existing)} found): {existing[0].name}")
+            print(
+                f"⏭️ Same-day post already exists ({len(existing)} found): {existing[0].name}"
+            )
             print("   Only 1 post per day is allowed. Use --force to override.")
             return
 
     if args.mode == "tech-blog":
         # Filter for tech blog content only
         tech_categorized = {
-            k: v for k, v in categorized.items()
+            k: v
+            for k, v in categorized.items()
             if k in ("tech", "devops", "ai", "cloud")
         }
         if not tech_categorized:
@@ -2061,7 +2344,9 @@ def main():
         topics = _extract_key_topics(selected)
         topics_slug = "_".join(topics[:3]) if topics else "Tech"
 
-        post_content = generate_tech_blog_content(selected, tech_categorized, now, topics_slug)
+        post_content = generate_tech_blog_content(
+            selected, tech_categorized, now, topics_slug
+        )
         post_filename = f"{date_str}-Tech_Blog_Weekly_Digest_{topics_slug}.md"
         svg_filename = f"{date_str}-Tech_Blog_Weekly_Digest_{topics_slug}.svg"
     else:
@@ -2088,7 +2373,9 @@ def main():
         existing_size = post_path.stat().st_size
         new_size = len(post_content.encode("utf-8"))
         if existing_size > new_size and not args.force:
-            print(f"⏭️ Existing post is larger ({existing_size}B > {new_size}B). Skipping to preserve manual post.")
+            print(
+                f"⏭️ Existing post is larger ({existing_size}B > {new_size}B). Skipping to preserve manual post."
+            )
             print(f"   File: {post_path}")
             return
         else:
