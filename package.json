@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "vercel-build": "./build.sh",
+    "vercel-build": "if [ -f _site/index.html ]; then echo 'Build output already exists, skipping duplicate build.'; else ./build.sh; fi",
     "index-posts": "node scripts/index_posts.mjs",
     "index-posts:dry": "node scripts/index_posts.mjs --dry-run"
   },
