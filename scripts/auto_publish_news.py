@@ -47,6 +47,7 @@ POSTS_DIR = Path("_posts")
 IMAGES_DIR = Path("assets/images")
 DATA_DIR = Path("_data")  # 실제 데이터 디렉토리
 KOREAN_SUMMARY_CACHE: Dict[str, str] = {}
+KOREAN_TITLE_CACHE: Dict[str, str] = {}
 
 CATEGORY_PRIORITY = {
     "security": 1,
@@ -542,7 +543,9 @@ def enhance_content_with_fallback(item: Dict) -> str:
 # ============================================================================
 
 
-def generate_risk_scorecard(news_items: List[Dict]) -> str:
+def generate_risk_scorecard(
+    news_items: List[Dict], report_date: Optional[datetime] = None
+) -> str:
     """위험 스코어카드 ASCII art 생성
 
     Args:
@@ -551,9 +554,10 @@ def generate_risk_scorecard(news_items: List[Dict]) -> str:
     Returns:
         위험 스코어카드 문자열
     """
+    report_date = report_date or datetime.now(timezone.utc)
     scorecard = f"""```
 +================================================================+
-|          {datetime.now().strftime("%Y-%m-%d")} 주간 보안 위험 스코어카드                      |
+|          {report_date.strftime("%Y-%m-%d")} 주간 보안 위험 스코어카드                      |
 +================================================================+
 |                                                                |
 |  항목                    위험도   점수    조치 시급도             |
@@ -594,7 +598,9 @@ def generate_risk_scorecard(news_items: List[Dict]) -> str:
     return scorecard
 
 
-def generate_executive_dashboard(news_items: List[Dict]) -> str:
+def generate_executive_dashboard(
+    news_items: List[Dict], report_date: Optional[datetime] = None
+) -> str:
     """경영진 대시보드 ASCII art
 
     Args:
@@ -609,9 +615,10 @@ def generate_executive_dashboard(news_items: List[Dict]) -> str:
     high_count = len([n for n in news_items if _determine_severity(n) == "High"])
     medium_count = len([n for n in news_items if _determine_severity(n) == "Medium"])
 
+    report_date = report_date or datetime.now(timezone.utc)
     return f"""```
 +================================================================+
-|        보안 현황 대시보드 - {datetime.now().strftime("%Y년 %m월 %d일")}                         |
+|        보안 현황 대시보드 - {report_date.strftime("%Y년 %m월 %d일")}                         |
 +================================================================+
 |                                                                |
 |  [위협 현황]              [패치 현황]         [컴플라이언스]       |
@@ -796,7 +803,7 @@ def generate_post_content(
     highlights = []
     for item in (security_news + cloud_news)[:4]:
         source = item.get("source_name", item.get("source", "Unknown"))
-        title = item.get("title", "")
+        title = _korean_display_title(item)
         if len(title) > 60:
             # Truncate at word boundary
             title = title[:57].rsplit(" ", 1)[0] + "..."
@@ -831,7 +838,7 @@ def generate_post_content(
     source_list = ", ".join(top_sources)
 
     # Generate Jekyll include tag for AI summary card
-    categories_html = '<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+    categories_html = '<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
     tags_html = f"""<span class="tag">Security-Weekly</span>
       <span class="tag">DevSecOps</span>
       <span class="tag">Cloud-Security</span>
@@ -841,7 +848,7 @@ def generate_post_content(
 
     content = f'''---
 layout: post
-title: "Tech & Security Weekly Digest: {title_keywords}"
+title: "기술·보안 주간 다이제스트: {title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [security, devsecops]
 tags: [{", ".join(tags)}]
@@ -856,7 +863,7 @@ toc: true
 ---
 
 {{% include ai-summary-card.html
-  title='Tech & Security Weekly Digest ({date_str})'
+  title='기술·보안 주간 다이제스트 ({date_str})'
   categories_html='{categories_html}'
   tags_html='{tags_html}'
   highlights_html='{highlights_html}'
@@ -870,11 +877,11 @@ toc: true
 
 ### 위험 스코어카드
 
-{generate_risk_scorecard(news_items)}
+{generate_risk_scorecard(news_items, date)}
 
 ### 경영진 대시보드
 
-{generate_executive_dashboard(news_items)}
+{generate_executive_dashboard(news_items, date)}
 
 ### 이사회 보고 포인트
 
@@ -913,7 +920,7 @@ toc: true
     # 하이라이트 테이블 생성
     for item in news_items[:5]:
         source = item.get("source_name", item.get("source", "Unknown"))[:15]
-        title = item.get("title", "")[:50]
+        title = _korean_display_title(item, max_len=50)
         category = item.get("category", "tech")
         emoji = CATEGORY_EMOJI.get(category, "📰")
         severity = _determine_severity(item)
@@ -1004,10 +1011,10 @@ toc: true
         content += "| 제목 | 출처 | 핵심 내용 |\n"
         content += "|------|------|----------|\n"
         for item in tech_news[:5]:
-            title = item.get("title", "")[:50]
+            title = _korean_display_title(item, max_len=50)
             source = item.get("source_name", "")
             url = item.get("url", "")
-            summary = item.get("summary", "")[:80]
+            summary = _korean_brief_summary(item).replace("\n", " ")[:80]
             content += f"| [{title}...]({url}) | {source} | {summary}... |\n"
         content += "\n"
         section_num += 1
@@ -1153,7 +1160,7 @@ def generate_tech_blog_content(
     highlights = []
     for item in news_items[:4]:
         source = html.escape(item.get("source_name", item.get("source", "Unknown")))
-        title = item.get("title", "")
+        title = _korean_display_title(item)
         if len(title) > 60:
             title = title[:57].rsplit(" ", 1)[0] + "..."
         title = html.escape(title)
@@ -1166,7 +1173,7 @@ def generate_tech_blog_content(
     )
 
     # Generate Jekyll include tag for AI summary card
-    categories_html = '<span class="category-tag tech">Tech</span> <span class="category-tag devops">DevOps</span>'
+    categories_html = '<span class="category-tag tech">기술</span> <span class="category-tag devops">DevOps</span>'
     tags_html = f"""<span class="tag">Tech-Blog</span>
       <span class="tag">Weekly-Digest</span>
       <span class="tag">Developer</span>
@@ -1176,7 +1183,7 @@ def generate_tech_blog_content(
 
     content = f'''---
 layout: post
-title: "Tech Blog Weekly Digest: {title_keywords}"
+title: "기술 블로그 주간 다이제스트: {title_keywords}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
 categories: [tech, devops]
 tags: [{", ".join(tags)}]
@@ -1191,7 +1198,7 @@ toc: true
 ---
 
 {{% include ai-summary-card.html
-  title='Tech Blog Weekly Digest ({date_str})'
+  title='기술 블로그 주간 다이제스트 ({date_str})'
   categories_html='{categories_html}'
   tags_html='{tags_html}'
   highlights_html='{highlights_html}'
@@ -1223,7 +1230,7 @@ toc: true
         content += f"## {section_num}. GeekNews 하이라이트\n\n"
         content += "GeekNews에서 주목받은 기술 뉴스입니다.\n\n"
         for item in geeknews_items[:5]:
-            title = item.get("title", "")
+            title = _korean_display_title(item)
             url = item.get("url", "")
             source_name = item.get("source_name", "GeekNews")
             ko_summary = _korean_brief_summary(item)
@@ -1238,7 +1245,7 @@ toc: true
     if topic_groups["AI/ML"]:
         content += f"## {section_num}. AI/ML 트렌드\n\n"
         for i, item in enumerate(topic_groups["AI/ML"][:5], 1):
-            title = item.get("title", "")
+            title = _korean_display_title(item)
             url = item.get("url", "")
             source = item.get("source_name", item.get("source", "Unknown"))
             ko_summary = _korean_brief_summary(item)
@@ -1259,7 +1266,7 @@ toc: true
     if topic_groups["DevOps/Cloud"]:
         content += f"## {section_num}. DevOps & Cloud\n\n"
         for i, item in enumerate(topic_groups["DevOps/Cloud"][:5], 1):
-            title = item.get("title", "")
+            title = _korean_display_title(item)
             url = item.get("url", "")
             source = item.get("source_name", item.get("source", "Unknown"))
             ko_summary = _korean_brief_summary(item)
@@ -1274,7 +1281,7 @@ toc: true
     if topic_groups["Open Source"]:
         content += f"## {section_num}. Open Source\n\n"
         for i, item in enumerate(topic_groups["Open Source"][:5], 1):
-            title = item.get("title", "")
+            title = _korean_display_title(item)
             url = item.get("url", "")
             source = item.get("source_name", item.get("source", "Unknown"))
             ko_summary = _korean_brief_summary(item)
@@ -1291,7 +1298,7 @@ toc: true
         content += "| 제목 | 출처 | 핵심 내용 |\n"
         content += "|------|------|----------|\n"
         for item in topic_groups["General"][:5]:
-            title = item.get("title", "")[:50]
+            title = _korean_display_title(item, max_len=50)
             source = item.get("source_name", "")
             url = item.get("url", "")
             ko_summary = _korean_brief_summary(item).replace("\n", " ")[:80]
@@ -1446,12 +1453,12 @@ def _extract_cve_ids(item: Dict) -> List[str]:
 
 def _generate_key_points(item: Dict) -> str:
     """뉴스 아이템에서 핵심 포인트 추출"""
-    summary = item.get("summary", "")
+    summary = _korean_brief_summary(item)
     if not summary:
         return ""
 
     # 문장 단위로 분리하여 핵심 포인트 생성
-    sentences = re.split(r"[.!?]\s+", summary)
+    sentences = re.split(r"(?<=[.!?。다])\s+", summary)
     sentences = [s.strip() for s in sentences if len(s.strip()) > 15]
 
     if not sentences:
@@ -1463,6 +1470,55 @@ def _generate_key_points(item: Dict) -> str:
         s = s.rstrip(".")
         points += f"- {s}\n"
     return points
+
+
+def _korean_display_title(item: Dict, max_len: int = 72) -> str:
+    raw_title = (item.get("title", "") or "").strip()
+    if not raw_title:
+        return "제목 없음"
+
+    if re.search(r"[가-힣]", raw_title):
+        return raw_title
+
+    cache_key = item.get("id") or item.get("url") or raw_title
+    if cache_key in KOREAN_TITLE_CACHE:
+        return KOREAN_TITLE_CACHE[cache_key]
+
+    translated = ""
+    if check_gemini_available():
+        prompt = (
+            "다음 기술 뉴스 제목을 한국어로 자연스럽게 번역해 주세요. "
+            "고유명사(회사명/제품명)는 원문 표기를 유지하고, 답변은 한 줄 제목만 출력하세요. "
+            "따옴표/번호/불릿/설명은 금지합니다.\n\n"
+            f"원문 제목: {raw_title}\n"
+            "번역 제목:"
+        )
+        try:
+            result = subprocess.run(
+                ["gemini", "-p", prompt],
+                capture_output=True,
+                text=True,
+                timeout=25,
+            )
+            if result.returncode == 0:
+                candidate = re.sub(r"\s+", " ", result.stdout.strip()).strip("\"'")
+                if candidate and re.search(r"[가-힣]", candidate):
+                    translated = candidate
+        except Exception:
+            pass
+
+    if translated:
+        KOREAN_TITLE_CACHE[cache_key] = translated
+        return translated
+
+    source_name = (
+        item.get("source_name", "") or item.get("source", "해외 기술 매체")
+    ).strip()
+    if not source_name:
+        source_name = "해외 기술 매체"
+    fallback = f"{source_name} 기술 업데이트"
+    KOREAN_TITLE_CACHE[cache_key] = fallback
+    return fallback
 
 
 def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
@@ -1524,8 +1580,11 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
     context_line = category_context.get(
         category, "실무 적용 전에 서비스 영향도와 운영 변경점을 함께 검토해야 합니다."
     )
-    source_line = " ".join(selected)
-    fallback = f"핵심 요약(원문 기반): {source_line}\n\n실무 해석: {context_line}"
+    title_ko = _korean_display_title(item)
+    fallback = (
+        f"{title_ko} 관련 소식입니다. 핵심 변경사항과 영향 범위를 우선 파악하세요.\n\n"
+        f"실무 해석: {context_line}"
+    )
     KOREAN_SUMMARY_CACHE[cache_key] = fallback
     return fallback
 
@@ -1534,7 +1593,7 @@ def generate_news_section(
     item: Dict, section_num: str, is_critical: bool = False
 ) -> str:
     """개별 뉴스 섹션 생성 - 고품질 분석 포함"""
-    title = item.get("title", "Untitled")
+    title = _korean_display_title(item)
     url = item.get("url", "")
     source = item.get("source_name", item.get("source", "Unknown"))
     summary = item.get("summary", "")
@@ -1855,7 +1914,7 @@ def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
 
     for item in news_items:
         severity = _determine_severity(item)
-        title = item.get("title", "")[:60]
+        title = _korean_display_title(item, max_len=60)
         cve_ids = _extract_cve_ids(item)
         cve_str = f" ({', '.join(cve_ids[:2])})" if cve_ids else ""
 
@@ -2279,6 +2338,24 @@ def main():
         action="store_true",
         help="Force publish even if same-day post exists",
     )
+    parser.add_argument(
+        "--date",
+        type=str,
+        default="",
+        help="Target publish date in YYYY-MM-DD (default: today KST)",
+    )
+    parser.add_argument(
+        "--post-filename",
+        type=str,
+        default="",
+        help="Override output post filename (e.g., 2026-02-21-...md)",
+    )
+    parser.add_argument(
+        "--image-filename",
+        type=str,
+        default="",
+        help="Override output image filename (e.g., 2026-02-21-...svg)",
+    )
     args = parser.parse_args()
 
     print(f"📰 Auto Publish News (mode: {args.mode})")
@@ -2315,6 +2392,17 @@ def main():
 
     # Date setup
     now = datetime.now(timezone(timedelta(hours=9)))  # KST
+    if args.date:
+        try:
+            forced_date = datetime.strptime(args.date, "%Y-%m-%d")
+            now = now.replace(
+                year=forced_date.year,
+                month=forced_date.month,
+                day=forced_date.day,
+            )
+        except ValueError:
+            print(f"❌ Invalid --date format: {args.date} (expected YYYY-MM-DD)")
+            return
     date_str = now.strftime("%Y-%m-%d")
 
     # Duplicate check - only ONE post per day (any pattern)
@@ -2357,6 +2445,17 @@ def main():
         post_content = generate_post_content(selected, categorized, now, topics_slug)
         post_filename = f"{date_str}-Tech_Security_Weekly_Digest_{topics_slug}.md"
         svg_filename = f"{date_str}-Tech_Security_Weekly_Digest_{topics_slug}.svg"
+
+    if args.post_filename:
+        post_filename = Path(args.post_filename).name
+    if args.image_filename:
+        svg_filename = Path(args.image_filename).name
+        post_content = re.sub(
+            r"^image:\s+.+$",
+            f"image: /assets/images/{svg_filename}",
+            post_content,
+            flags=re.MULTILINE,
+        )
 
     post_path = POSTS_DIR / post_filename
     svg_path = IMAGES_DIR / svg_filename

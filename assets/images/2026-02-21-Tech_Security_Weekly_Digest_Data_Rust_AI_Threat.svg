@@ -84,7 +84,7 @@
 
   <!-- Main Title -->
   <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Data | Rust | AI | Threat</text>
+  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Vulnerability | AI | Security | AWS</text>
 
   <!-- Card 1: SECURITY -->
   <g transform="translate(50, 190)">
@@ -96,9 +96,9 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">BeyondTrust Flaw Used for Web Sh...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Threat actors have been observed</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">exploiting a recently disclosed critical</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Anthropic Launches Claude Code S...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Artificial intelligence (AI) company</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Anthropic has begun to roll out a new</text>
 
     <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
     <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">The Hacker News</text>
@@ -114,12 +114,12 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">AI-augmented threat actor access...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Commercial AI services are enabling even</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">unsophisticated threat actors to conduct</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">CISA Adds Two Actively Exploited...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">The U.S. Cybersecurity and</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Infrastructure Security Agency (CISA) on</text>
 
     <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">AWS Security...</text>
+    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">The Hacker News</text>
   </g>
 
   <!-- Card 3: SECURITY -->
@@ -132,9 +132,9 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Cline CLI 2.3.0 Supply Chain Att...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">In yet another software supply chain</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">attack, the open-source, artificial</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">EC-Council Expands AI Certificat...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">With $5.5 trillion in global AI risk</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">exposure and 700,000 U.S. workers</text>
 
     <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
     <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">The Hacker News</text>
@@ -150,12 +150,12 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">ClickFix Campaign Abuses Comprom...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Cybersecurity researchers have disclosed</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">details of a new ClickFix campaign that</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">HeadLine 11 Vertical AI</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : HeadLine 11</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Vertical AI</text>
 
     <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">The Hacker News</text>
+    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
   </g>
 
   <!-- Card 5: SECURITY -->
@@ -168,30 +168,30 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Identity Cyber Scores: The New M...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">With one in three cyber-attacks now</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">involving compromised employee accounts,</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Keep up with Ransomware 11 Black...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : Keep up with Ransomware</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">11 BlackField</text>
 
     <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">The Hacker News</text>
+    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
   </g>
 
-  <!-- Card 6: AI/ML -->
+  <!-- Card 6: BLOCKCHAIN -->
   <g transform="translate(810, 400)">
     <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#indigoGradient)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
 
     <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#6366f1" text-anchor="middle">AI</text>
+    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
 
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366f1">AI/ML</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Our First Proof submissions</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">We share our AI model s proof attempts</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">for the First Proof math challenge,</text>
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Bitcoin Pops After Supreme Court...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Bitcoin Magazine Bitcoin Pops After</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Supreme Court Strikes Down Trump s</text>
 
-    <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#6366f1" text-anchor="middle">OpenAI Blog</text>
+    <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
+    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Bitcoin Maga...</text>
   </g>
 
   <!-- Footer -->
@@ -199,19 +199,19 @@
 
   <!-- Stats -->
   <g transform="translate(50, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">22 News Collected</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">15 News Collected</text>
   </g>
   <g transform="translate(250, 600)">
     <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">5 Security</text>
   </g>
   <g transform="translate(400, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">1 Cloud</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 Cloud</text>
   </g>
   <g transform="translate(520, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">2 DevOps</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 DevOps</text>
   </g>
   <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">4 AI/ML</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 AI/ML</text>
   </g>
 
   <!-- Blog Info -->

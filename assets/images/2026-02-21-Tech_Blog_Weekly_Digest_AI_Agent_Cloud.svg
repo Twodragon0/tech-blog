@@ -84,114 +84,96 @@
 
   <!-- Main Title -->
   <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">AI | Agent | Cloud</text>
+  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Tesla | AI</text>
 
-  <!-- Card 1: AI/ML -->
+  <!-- Card 1: TECH -->
   <g transform="translate(50, 190)">
     <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#indigoGradient)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#blueGradient)"/>
 
     <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#6366f1" text-anchor="middle">AI</text>
+    <circle cx="40" cy="50" r="24" fill="url(#blueGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle">AI</text>
 
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366f1">AI/ML</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Our First Proof submissions</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">We share our AI model s proof attempts</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">for the First Proof math challenge,</text>
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6">TECH</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Amazon grows van fleet, solar-po...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">On today s smarter episode of Quick</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Charge , we ve got CEO Daniel Hilson</text>
 
-    <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#6366f1" text-anchor="middle">OpenAI Blog</text>
+    <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#blueGradient)" fill-opacity="0.2"/>
+    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">Electrek</text>
   </g>
 
-  <!-- Card 2: AI/ML -->
+  <!-- Card 2: TECH -->
   <g transform="translate(430, 190)">
     <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#indigoGradient)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#blueGradient)"/>
 
     <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#6366f1" text-anchor="middle">AI</text>
+    <circle cx="40" cy="50" r="24" fill="url(#blueGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle">AI</text>
 
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366f1">AI/ML</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Amazon SageMaker AI in 2025, a y...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">In 2025, Amazon SageMaker AI saw</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">dramatic improvements to core</text>
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6">TECH</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Kia is refreshing its new electr...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">The EV5 , Kia s new midsize electric</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SUV, is getting an overhaul. While the</text>
 
-    <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#6366f1" text-anchor="middle">AWS Machine ...</text>
+    <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#blueGradient)" fill-opacity="0.2"/>
+    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">Electrek</text>
   </g>
 
-  <!-- Card 3: AI/ML -->
+  <!-- Card 3: TECH -->
   <g transform="translate(810, 190)">
     <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#indigoGradient)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#blueGradient)"/>
 
     <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#6366f1" text-anchor="middle">AI</text>
+    <circle cx="40" cy="50" r="24" fill="url(#blueGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle">AI</text>
 
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366f1">AI/ML</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Amazon SageMaker AI in 2025, a y...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">In 2025, Amazon SageMaker AI made</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">several improvements designed to help</text>
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6">TECH</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Podcast: new Tesla (temp) Cybert...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">In the Electrek Podcast , we discuss the</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">most popular news in the world of</text>
 
-    <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#6366f1" text-anchor="middle">AWS Machine ...</text>
+    <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#blueGradient)" fill-opacity="0.2"/>
+    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">Electrek</text>
   </g>
 
-  <!-- Card 4: AI/ML -->
+  <!-- Card 4: TECH -->
   <g transform="translate(50, 400)">
     <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#indigoGradient)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#blueGradient)"/>
 
     <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#6366f1" text-anchor="middle">AI</text>
+    <circle cx="40" cy="50" r="24" fill="url(#blueGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle">AI</text>
 
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366f1">AI/ML</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Integrate external tools with Am...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">In this post, you ll use a six-step</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">checklist to build a new MCP server or</text>
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6">TECH</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Hyundai s three-row EV is a hit ...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">The Hyundai IONIQ 9 outsold Kia s</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">three-row electric SUV by more than five</text>
 
-    <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#6366f1" text-anchor="middle">AWS Machine ...</text>
+    <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#blueGradient)" fill-opacity="0.2"/>
+    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">Electrek</text>
   </g>
 
-  <!-- Card 5: DEVOPS -->
+  <!-- Card 5: TECH -->
   <g transform="translate(430, 400)">
     <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#blueGradient)"/>
 
     <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f59e0b" text-anchor="middle">DEV</text>
+    <circle cx="40" cy="50" r="24" fill="url(#blueGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle">AI</text>
 
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f59e0b">DEVOPS</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">State of Agentic AI Report: Key ...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Based on Docker s State of Agentic AI</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">report, a global survey of more than 800</text>
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#3b82f6">TECH</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Pennsylvania unlocks $100M to in...</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Pennsylvania is putting another $100</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">million in federal funding toward public</text>
 
-    <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Docker Blog</text>
-  </g>
-
-  <!-- Card 6: DEVOPS -->
-  <g transform="translate(810, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f59e0b" text-anchor="middle">DEV</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f59e0b">DEVOPS</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">KubeCon + CloudNativeCon Europe ...</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Agentic systems are rapidly moving from</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">experimentation into real production</text>
-
-    <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">CNCF Blog</text>
+    <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#blueGradient)" fill-opacity="0.2"/>
+    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">Electrek</text>
   </g>
 
   <!-- Footer -->
@@ -199,7 +181,7 @@
 
   <!-- Stats -->
   <g transform="translate(50, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">21 News Collected</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">15 News Collected</text>
   </g>
   <g transform="translate(250, 600)">
     <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">5 Security</text>
@@ -208,10 +190,10 @@
     <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 Cloud</text>
   </g>
   <g transform="translate(520, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">2 DevOps</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 DevOps</text>
   </g>
   <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">4 AI/ML</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 AI/ML</text>
   </g>
 
   <!-- Blog Info -->

@@ -109,7 +109,15 @@
   <!-- KakaoTalk/Tistory use standard Open Graph tags -->
   {% assign og_image = page.image | default: site.og_image | default: '/assets/images/og-default.png' %}
   {% if og_image contains '.svg' %}
-  {% assign og_image = og_image | replace: '.svg', '.png' %}
+  {% assign og_image_png = og_image | replace: '.svg', '.png' %}
+  {% assign og_image_og_png = og_image | replace: '.svg', '_og.png' %}
+  {% assign og_png_file = site.static_files | where: 'path', og_image_png | first %}
+  {% assign og_og_png_file = site.static_files | where: 'path', og_image_og_png | first %}
+  {% if og_png_file %}
+  {% assign og_image = og_image_png %}
+  {% elsif og_og_png_file %}
+  {% assign og_image = og_image_og_png %}
+  {% endif %}
   {% endif %}
   <meta property="og:image" content="{{ og_image | absolute_url }}">
   <meta property="og:image:url" content="{{ og_image | absolute_url }}">
