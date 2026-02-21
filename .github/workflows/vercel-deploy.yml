@@ -61,7 +61,7 @@ jobs:
           SENTRY_PROJECT: tech-blog
         with:
           environment: production
-          version: ${{ steps.get_sha.outputs.sha }}
+          release: ${{ steps.get_sha.outputs.sha }}
           sourcemaps: false
           set_commits: auto
           ignore_missing: true
