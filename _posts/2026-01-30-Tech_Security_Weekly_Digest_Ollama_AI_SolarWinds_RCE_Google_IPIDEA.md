@@ -19,7 +19,7 @@ schema_type: Article
   title='Tech &amp; Security Weekly Digest: Ollama AI 서버 175K 노출, SolarWinds WHD Critical RCE 6건, Google IPIDEA 프록시 차단'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">Ollama</span> <span class="tag">LLMjacking</span> <span class="tag">SolarWinds</span> <span class="tag">CVE-2025-40551</span> <span class="tag">CVE-2025-40552</span> <span class="tag">IPIDEA</span> <span class="tag">Residential-Proxy</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Ollama AI 서버 175K 공개 노출, SolarWinds WHD 6건 CVE(CVSS 9.8 x4), Google IPIDEA 6.1M IP 프록시 네트워크 차단, Micr</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>포인트 1</strong>: Ollama AI 서버 175K 공개 노출, SolarWinds WHD 6건 CVE(CVSS 9.8 x4), Google IPIDEA 6.1M IP 프록시 네트워크 차단, Microsoft AI 위협 탐지, OT/에</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
   period='2026-01-30 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
