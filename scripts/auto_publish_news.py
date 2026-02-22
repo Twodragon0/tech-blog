@@ -121,6 +121,7 @@ SOURCE_PRIORITY = {
     "apple_developer": 1,
     "apple_newsroom": 2,
     "webkit": 2,
+    "worldmonitor_tech": 1,
 }
 
 # Tech blog sources (non-security, non-blockchain)
@@ -155,6 +156,7 @@ TECH_BLOG_SOURCES = {
     "hashicorp",
     "cncf",
     "gcp",
+    "worldmonitor_tech",
 }
 
 MIN_NEWS_COUNT = 5  # 최소 뉴스 수
@@ -768,7 +770,7 @@ def _extract_meaningful_topics(news_items: List[Dict], mode: str = "security") -
 
     title_keywords = ", ".join(found_topics[:3])
     if len(title_keywords) > 80:
-        title_keywords = title_keywords[:77] + "..."
+        title_keywords = title_keywords[:80].rstrip(" ,.")
     return title_keywords
 
 
@@ -805,8 +807,7 @@ def generate_post_content(
         source = item.get("source_name", item.get("source", "Unknown"))
         title = _korean_display_title(item)
         if len(title) > 60:
-            # Truncate at word boundary
-            title = title[:57].rsplit(" ", 1)[0] + "..."
+            title = title[:60].rsplit(" ", 1)[0].rstrip(" ,.")
         source = html.escape(source)
         title = html.escape(title)
         highlights.append(f"<li><strong>{source}</strong>: {title}</li>")
@@ -1014,8 +1015,8 @@ toc: true
             title = _korean_display_title(item, max_len=50)
             source = item.get("source_name", "")
             url = item.get("url", "")
-            summary = _korean_brief_summary(item).replace("\n", " ")[:80]
-            content += f"| [{title}...]({url}) | {source} | {summary}... |\n"
+            summary = _table_summary(_korean_brief_summary(item).replace("\n", " "))
+            content += f"| [{title}]({url}) | {source} | {summary} |\n"
         content += "\n"
         section_num += 1
 
@@ -1162,7 +1163,7 @@ def generate_tech_blog_content(
         source = html.escape(item.get("source_name", item.get("source", "Unknown")))
         title = _korean_display_title(item)
         if len(title) > 60:
-            title = title[:57].rsplit(" ", 1)[0] + "..."
+            title = title[:60].rsplit(" ", 1)[0].rstrip(" ,.")
         title = html.escape(title)
         highlights.append(f"<li><strong>{source}</strong>: {title}</li>")
 
@@ -1301,8 +1302,8 @@ toc: true
             title = _korean_display_title(item, max_len=50)
             source = item.get("source_name", "")
             url = item.get("url", "")
-            ko_summary = _korean_brief_summary(item).replace("\n", " ")[:80]
-            content += f"| [{title}...]({url}) | {source} | {ko_summary}... |\n"
+            ko_summary = _table_summary(_korean_brief_summary(item).replace("\n", " "))
+            content += f"| [{title}]({url}) | {source} | {ko_summary} |\n"
         content += "\n"
         section_num += 1
 
@@ -1529,13 +1530,44 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
         return ""
 
     text = re.sub(r"\s+", " ", text)
+    text = re.sub(r"URL:\s*https?://\S+", "", text, flags=re.IGNORECASE).strip()
+    text = re.sub(r"https?://\S+", "", text).strip()
     sentences = re.split(r"(?<=[.!?])\s+", text)
     sentences = [s.strip() for s in sentences if s.strip()]
     selected = sentences[:max_sentences] if sentences else [text[:220]]
 
     has_korean = bool(re.search(r"[가-힣]", text))
     if has_korean:
-        return " ".join(selected)
+        needs_refine = len(text) > 220 or "URL:" in summary or "http" in summary
+        if needs_refine and check_gemini_available():
+            prompt = (
+                "다음 기술 뉴스 텍스트를 한국어 2문장으로 정확하게 요약해 주세요. "
+                "말줄임표, URL, 불릿, 번호 없이 완결된 문장만 출력하세요.\n\n"
+                f"제목: {item.get('title', '')}\n"
+                f"본문: {text[:1200]}\n"
+                "요약:"
+            )
+            try:
+                result = subprocess.run(
+                    ["gemini", "-p", prompt],
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                )
+                if result.returncode == 0:
+                    generated = re.sub(r"\s+", " ", result.stdout.strip())
+                    generated = (
+                        generated.replace("...", " ").replace("…", " ").strip(" .")
+                    )
+                    if generated and len(generated) >= 25:
+                        return generated
+            except Exception:
+                pass
+
+        concise = " ".join(selected).replace("...", " ").replace("…", " ").strip(" .")
+        if len(concise) > 220:
+            concise = concise[:220].rsplit(" ", 1)[0].rstrip(" ,.")
+        return concise
 
     cache_key = item.get("id") or item.get("url") or item.get("title") or text[:80]
     if cache_key in KOREAN_SUMMARY_CACHE:
@@ -1657,6 +1689,15 @@ def generate_news_section(
 
     section += "\n---\n\n"
     return section
+
+
+def _table_summary(text: str, max_len: int = 120) -> str:
+    cleaned = re.sub(r"\s+", " ", (text or "").strip())
+    cleaned = cleaned.replace("...", " ").replace("…", " ").strip(" .")
+    if len(cleaned) <= max_len:
+        return cleaned
+    clipped = cleaned[:max_len].rsplit(" ", 1)[0].rstrip(" ,.")
+    return clipped
 
 
 def _generate_security_analysis_template(item: Dict) -> str:
@@ -2028,7 +2069,7 @@ def _truncate_text(text: str, max_len: int) -> str:
     """텍스트 길이 제한 (영문 기준)"""
     if len(text) <= max_len:
         return text
-    return text[: max_len - 3] + "..."
+    return text[:max_len].rstrip(" ,.")
 
 
 def _extract_key_topics(news_items: List[Dict]) -> List[str]:
