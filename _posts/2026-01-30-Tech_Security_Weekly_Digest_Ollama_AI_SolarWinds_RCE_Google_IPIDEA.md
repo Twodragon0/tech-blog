@@ -15,6 +15,15 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='Tech &amp; Security Weekly Digest: Ollama AI 서버 175K 노출, SolarWinds WHD Critical RCE 6건, Google IPIDEA 프록시 차단'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">Ollama</span> <span class="tag">LLMjacking</span> <span class="tag">SolarWinds</span> <span class="tag">CVE-2025-40551</span> <span class="tag">CVE-2025-40552</span> <span class="tag">IPIDEA</span> <span class="tag">Residential-Proxy</span>'
+  highlights_html='<li><strong>포인트 1</strong>: Ollama AI 서버 175K 공개 노출, SolarWinds WHD 6건 CVE(CVSS 9.8 x4), Google IPIDEA 6.1M IP 프록시 네트워크 차단, Micr</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-01-30 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.
@@ -152,20 +161,20 @@ graph TD
 
 #### Ollama 인스턴스 노출 점검 스크립트
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > #!/bin/bash
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > #!/bin/bash
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 #!/bin/bash
 # Ollama 인스턴스 인터넷 노출 점검 스크립트
@@ -255,14 +264,14 @@ echo "5. API 접근 로깅 활성화"
 
 #### Ollama 보안 강화 설정
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 >
 > ```yaml
 > # docker-compose.yml - Ollama 보안 배포 구성
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 >
 > ```yaml
 > # docker-compose.yml - Ollama 보안 배포 구성
@@ -563,14 +572,14 @@ WHD 내부에 **하드코딩된 자격증명**이 존재하여, 해당 계정으
 
 #### WHD 버전 확인 및 패치 스크립트
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 >
 > ```bash
 > #!/bin/bash
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 >
 > ```bash
 > #!/bin/bash
@@ -1544,20 +1553,20 @@ graph LR
 
 #### OT 네트워크 보안 점검 스크립트
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > #!/bin/bash
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > #!/bin/bash
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 #!/bin/bash
 # OT/ICS 네트워크 기본 보안 점검 스크립트

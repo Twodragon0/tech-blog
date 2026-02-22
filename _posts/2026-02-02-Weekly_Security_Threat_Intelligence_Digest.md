@@ -270,20 +270,20 @@ file.path: (*\\credentials* OR *\\passwords* OR *\\.ssh\\* OR *\\.aws\\* OR *id_
 
 ### 1.7 탐지: SIEM/EDR 쿼리
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Splunk - Detect Notepad++ Anomalous Network Activity...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Splunk - Detect Notepad++ Anomalous Network Activity...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Splunk - Detect Notepad++ Anomalous Network Activity
 index=endpoint sourcetype=sysmon EventCode=3
@@ -517,20 +517,20 @@ file.size > 104857600 // 100MB+
 
 #### 랜섬웨어 탐지: SIEM 쿼리
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Splunk - Detect Ransomware Indicators (VSS Deletion + Backup Destruction)...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Splunk - Detect Ransomware Indicators (VSS Deletion + Backup Destruction)...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Splunk - Detect Ransomware Indicators (VSS Deletion + Backup Destruction)
 index=endpoint sourcetype=sysmon EventCode=1
@@ -612,20 +612,20 @@ process.command_line: (*defender* OR *sentinel* OR *crowdstrike* OR *carbon* OR 
 
 **사이버 면역 체계 4단계**: 위협 모델링 -> 공격 시뮬레이션 -> 방어 검증 -> 면역 강화 (지속 반복)
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Splunk - Detect Active Scanning (T1595)...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Splunk - Detect Active Scanning (T1595)...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Splunk - Detect Active Scanning (T1595)
 index=firewall sourcetype=firewall_logs action=blocked

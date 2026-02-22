@@ -14,6 +14,15 @@ image_alt: "기술 보안 주간 다이제스트 2026년 2월 17일 AI 에이전
 toc: true
 ---
 
+{% include ai-summary-card.html
+  title='기술 &amp; 보안 주간 다이제스트: 클라우드, Zero-Day, 봇넷'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Agent</span> <span class="tag">Cloud</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 17일 주요 보안/기술 뉴스 18건 - AI, Agent, Cloud</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-02-17 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 주요 요약
 
 2026년 02월 17일 기준 보안 현황 및 위협 분석입니다.
@@ -103,7 +112,7 @@ toc: true
 
 ### 1.1 인포스틸러, OpenClaw AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+인포스틸러, OpenClaw AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취 주제는 AI 기능 확장이 개발·운영 절차에 미치는 변화를 구체적으로 드러냅니다. 팀은 성능 지표와 함께 모델 거버넌스, 데이터 보호, 배포 검증 기준을 동시에 확정해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/infostealer-steals-openclaw-ai-agent.html)
 
@@ -133,7 +142,7 @@ toc: true
 
 ### 1.2 주요 클라우드 패스워드 매니저에서 25가지 비밀번호 복구 공격 취약점 발견
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 취약점 영향 범위와 우선 패치 대상을 신속히 식별해야 합니다.
+주요 클라우드 패스워드 매니저에서 25가지 비밀번호 복구 공격 취약점 발견 이슈는 공격 성립 조건과 영향 범위를 함께 보여주며 우선 대응 대상을 빠르게 식별하게 합니다. 실무에서는 노출 자산 식별, 패치 우선순위, 탐지 룰 갱신을 동일 주기에 묶어 처리해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/study-uncovers-25-password-recovery.html)
 
@@ -154,7 +163,7 @@ toc: true
 
 ### 1.3 서버리스 마이크로서비스를 위한 AI 기반 심층 방어 보안 아키텍처 구축
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+서버리스 마이크로서비스를 위한 AI 기반 심층 방어 보안 아키텍처 구축 주제는 AI 기능 확장이 개발·운영 절차에 미치는 변화를 구체적으로 드러냅니다. 팀은 성능 지표와 함께 모델 거버넌스, 데이터 보호, 배포 검증 기준을 동시에 확정해야 합니다.
 
 > **출처**: [AWS Security Blog](https://aws.amazon.com/blogs/security/building-an-ai-powered-defense-in-depth-security-architecture-for-serverless-microservices/)
 
@@ -177,7 +186,7 @@ toc: true
 
 ### 2.1 5세대 AMD EPYC 프로세서 기반 Amazon EC2 Hpc8a 인스턴스 정식 출시
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+5세대 AMD EPYC 프로세서 기반 Amazon EC2 Hpc8a 인스턴스 정식 출시 관련 변화는 기술 도입의 배경과 적용 포인트를 빠르게 파악하는 데 유효한 정보입니다. 실무 적용 전 기대 효과와 운영 리스크를 같은 기준으로 비교해 우선순위를 결정해야 합니다.
 
 > **출처**: [AWS Blog](https://aws.amazon.com/blogs/aws/amazon-ec2-hpc8a-instances-powered-by-5th-gen-amd-epyc-processors-are-now-available/)
 
@@ -197,7 +206,7 @@ toc: true
 
 ### 2.2 커스텀 Amazon Nova 모델을 위한 Amazon SageMaker Inference 출시 발표
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+커스텀 Amazon Nova 모델을 위한 Amazon SageMaker Inference 출시 발표 주제는 AI 기능 확장이 개발·운영 절차에 미치는 변화를 구체적으로 드러냅니다. 팀은 성능 지표와 함께 모델 거버넌스, 데이터 보호, 배포 검증 기준을 동시에 확정해야 합니다.
 
 > **출처**: [AWS Blog](https://aws.amazon.com/blogs/aws/announcing-amazon-sagemaker-inference-for-custom-amazon-nova-models/)
 
@@ -217,7 +226,7 @@ toc: true
 
 ### 2.3 AWS 주간 요약: Amazon EC2 M8azn 인스턴스, Amazon Bedrock의 새로운 오픈 웨이트 모델 외 (2026년 2월 16일)
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+AWS 주간 요약: Amazon EC2 M8azn 인스턴스, Amazon Bedrock의 새로운 오픈 웨이트 모델 외 (2026년 2월 16일) 주제는 AI 기능 확장이 개발·운영 절차에 미치는 변화를 구체적으로 드러냅니다. 팀은 성능 지표와 함께 모델 거버넌스, 데이터 보호, 배포 검증 기준을 동시에 확정해야 합니다.
 
 > **출처**: [AWS Blog](https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-ec2-m8azn-instances-new-open-weights-models-in-amazon-bedrock-and-more-february-16-2026/)
 
@@ -239,7 +248,7 @@ toc: true
 
 ### 3.1 비트코인 매도세 우세: $71,800 돌파 실패로 하락 리스크 지속
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+비트코인 매도세 우세: $71,800 돌파 실패로 하락 리스크 지속 관련 변화는 기술 도입의 배경과 적용 포인트를 빠르게 파악하는 데 유효한 정보입니다. 실무 적용 전 기대 효과와 운영 리스크를 같은 기준으로 비교해 우선순위를 결정해야 합니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/markets/bitcoin-bears-dominate-failure-to-break-71800-keeps-downside-risk-alive)
 
@@ -253,7 +262,7 @@ toc: true
 
 ### 3.2 Payjoin Foundation, 501(c)(3) 비영리 지위 획득으로 비트코인 프라이버시 개발 기부금 세금 공제 가능
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+Payjoin Foundation, 501(c)(3) 비영리 지위 획득으로 비트코인 프라이버시 개발 기부금 세금 공제 가능 관련 변화는 기술 도입의 배경과 적용 포인트를 빠르게 파악하는 데 유효한 정보입니다. 실무 적용 전 기대 효과와 운영 리스크를 같은 기준으로 비교해 우선순위를 결정해야 합니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/business/payjoin-foundation-gains-501c3-status-enabling-tax-deductible-donations-for-bitcoin-privacy-development)
 
@@ -269,8 +278,8 @@ toc: true
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Genesis GV90 gets the royal green treatment in lat](https://electrek.co/2026/02/16/genesis-gv90-goes-royal-green-new-sighting-images/) | Electrek | Genesis 최고급 SUV GV90의 로열 그린 컬러 실차 포착 이미지 공개, 글로벌 출시 임박 |
-| [Hyundai has a new baby EV in the works: Is this ou](https://electrek.co/2026/02/16/hyundai-tests-new-baby-ev-ioniq-1-images/) | Electrek | 현대의 새로운 소형 전기차 프로토타입 공개 테스트 포착, IONIQ 1으로 추정 |
+| [Genesis GV90 gets the royal green treatment in lat](https://electrek.co/2026/02/16/genesis-gv90-goes-royal-green-new-sighting-images/) | Electrek | 적용 효과와 운영 리스크를 함께 비교해 도입 우선순위를 판단해야 하는 기술 동향입니다. |
+| [Hyundai has a new baby EV in the works: Is this ou](https://electrek.co/2026/02/16/hyundai-tests-new-baby-ev-ioniq-1-images/) | Electrek | AI 기능 확대에 따른 운영 방식 변화와 거버넌스 점검 포인트를 함께 확인해야 하는 업데이트입니다. |
 
 ---
 

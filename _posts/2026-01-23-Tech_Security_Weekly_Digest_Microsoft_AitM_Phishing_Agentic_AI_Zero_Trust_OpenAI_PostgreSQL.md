@@ -15,6 +15,15 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='Tech &amp; Security Weekly Digest: Microsoft AitM 피싱 경고, Agentic AI Zero Trust, OpenAI PostgreSQL 8억 사용자 스케일링'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">AitM-Phishing</span> <span class="tag">BEC</span> <span class="tag">Zero-Trust</span> <span class="tag">Agentic-AI</span> <span class="tag">NHI</span> <span class="tag">PostgreSQL</span> <span class="tag">OpenAI</span>'
+  highlights_html='<li><strong>포인트 1</strong>: AitM 피싱, Agentic AI Zero Trust, PostgreSQL 8억 사용자 스케일링, vLLM Inferact $150M 투자</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-01-23 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 주요 요약
 
 ### 위협 리스크 스코어카드
@@ -258,7 +267,7 @@ SigninLogs
 
 ### SharePoint 외부 공유 모니터링 - Splunk SPL
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및 BEC 공격 경고 주제는 AI 기능 확장이 개발·운영 절차에 미치는 변화를 구체적으로 드러냅니다. 팀은 성능 지표와 함께 모델 거버넌스, 데이터 보호, 배포 검증 기준을 동시에 확정해야 합니다.
 
 > **출처**: [The Hacker News - Microsoft AitM Phishing Warning](https://thehackernews.com/2026/01/microsoft-flags-multi-stage-aitm.html)
 
@@ -453,7 +462,7 @@ AWSCloudTrail
 
 ### Vault 시크릿 과다 요청 탐지 - Splunk SPL
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+Agentic AI 시스템을 위한 Zero Trust 보안 전략 주제는 AI 기능 확장이 개발·운영 절차에 미치는 변화를 구체적으로 드러냅니다. 팀은 성능 지표와 함께 모델 거버넌스, 데이터 보호, 배포 검증 기준을 동시에 확정해야 합니다.
 
 > **출처**: [HashiCorp - Zero Trust for Agentic Systems](https://www.hashicorp.com/blog/zero-trust-for-agentic-systems-managing-non-human-identities-at-scale)
 
@@ -463,7 +472,7 @@ AWSCloudTrail
 
 ### 2.1 OpenAI, PostgreSQL로 8억 ChatGPT 사용자 지원
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+OpenAI, PostgreSQL로 8억 ChatGPT 사용자 지원 주제는 AI 기능 확장이 개발·운영 절차에 미치는 변화를 구체적으로 드러냅니다. 팀은 성능 지표와 함께 모델 거버넌스, 데이터 보호, 배포 검증 기준을 동시에 확정해야 합니다.
 
 > **출처**: [OpenAI - Scaling PostgreSQL](https://openai.com/index/scaling-postgresql/)
 
@@ -471,7 +480,7 @@ AWSCloudTrail
 
 ### 2.2 Google SRE의 Gemini CLI 활용 실제 장애 대응
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+Google SRE의 Gemini CLI 활용 실제 장애 대응 주제는 AI 기능 확장이 개발·운영 절차에 미치는 변화를 구체적으로 드러냅니다. 팀은 성능 지표와 함께 모델 거버넌스, 데이터 보호, 배포 검증 기준을 동시에 확정해야 합니다.
 
 > **출처**: [Google Cloud - SRE Gemini CLI](https://cloud.google.com/blog/topics/developers-practitioners/how-google-sres-use-gemini-cli-to-solve-real-world-outages/)
 
@@ -481,7 +490,7 @@ AWSCloudTrail
 
 ### 3.1 vLLM 제작자 Inferact, $150M 시드 투자 유치
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+vLLM 제작자 Inferact, $150M 시드 투자 유치 주제는 AI 기능 확장이 개발·운영 절차에 미치는 변화를 구체적으로 드러냅니다. 팀은 성능 지표와 함께 모델 거버넌스, 데이터 보호, 배포 검증 기준을 동시에 확정해야 합니다.
 
 > **출처**: [GeekNews - Inferact 투자 유치](https://news.hada.io/topic?id=26066)
 
@@ -489,7 +498,7 @@ AWSCloudTrail
 
 ### 3.2 GPTZero, NeurIPS 2025 논문에서 100개 환각 발견
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+GPTZero, NeurIPS 2025 논문에서 100개 환각 발견 주제는 AI 기능 확장이 개발·운영 절차에 미치는 변화를 구체적으로 드러냅니다. 팀은 성능 지표와 함께 모델 거버넌스, 데이터 보호, 배포 검증 기준을 동시에 확정해야 합니다.
 
 > **출처**: [GPTZero - NeurIPS Analysis](https://gptzero.me/news/neurips/)
 
@@ -497,7 +506,7 @@ AWSCloudTrail
 
 ### 3.3 SSH 키 입력당 100개 패킷 전송 문제 분석
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+SSH 키 입력당 100개 패킷 전송 문제 분석 관련 변화는 기술 도입의 배경과 적용 포인트를 빠르게 파악하는 데 유효한 정보입니다. 실무 적용 전 기대 효과와 운영 리스크를 같은 기준으로 비교해 우선순위를 결정해야 합니다.
 
 > **출처**: [eieio.games - SSH Packets Analysis](https://eieio.games/blog/ssh-sends-100-packets-per-keystroke/)
 
@@ -664,20 +673,20 @@ Operation IN ("AnonymousLinkCreated", "AddedToSecureLink", "SecureLinkUsed")
 
 **Step 1: GitHub/GitLab Public Repo 시크릿 스캔**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > #!/bin/bash
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > #!/bin/bash
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 #!/bin/bash
 # 조직의 모든 public repo에서 시크릿 탐지

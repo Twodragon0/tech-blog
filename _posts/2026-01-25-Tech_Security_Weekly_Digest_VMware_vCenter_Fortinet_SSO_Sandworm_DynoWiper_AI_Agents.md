@@ -15,6 +15,15 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='Tech &amp; Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper 폴란드 공격'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">VMware</span> <span class="tag">vCenter</span> <span class="tag">CISA-KEV</span> <span class="tag">Fortinet</span> <span class="tag">FortiGate</span> <span class="tag">SSO-Bypass</span> <span class="tag">Sandworm</span>'
+  highlights_html='<li><strong>포인트 1</strong>: VMware vCenter KEV 긴급, Fortinet SSO 우회, Sandworm DynoWiper APT, AI 에이전트 NHI 관리</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-01-25 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 주요 요약
 
 ### 위험도 평가 스코어카드 (Risk Assessment Scorecard)
@@ -194,20 +203,20 @@ DevOps/Cloud       : █████ 13%
 
 #### 헌팅 쿼리 (Bash/PowerShell)
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > # 1. 최근 24시간 생성된 관리자 계정 찾기
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > # 1. 최근 24시간 생성된 관리자 계정 찾기
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # 1. 최근 24시간 생성된 관리자 계정 찾기
 grep -i "CreateUser" /var/log/vmware/vpxd/vpxd.log \
@@ -242,20 +251,20 @@ grep -E "(DeleteVM|DestroyVM)" /var/log/vmware/vpxd/vpxd.log \
 
 #### 헌팅 쿼리 (FortiGate CLI)
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > # 1. 최근 1시간 관리자 로그인 이력
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > # 1. 최근 1시간 관리자 로그인 이력
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # 1. 최근 1시간 관리자 로그인 이력
 execute log filter category 0
@@ -575,20 +584,20 @@ graph LR
 
 ### 즉시 실행 명령
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > # FortiGate CLI에서 SSO 상태 확인
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 >
 > ```bash
 > # FortiGate CLI에서 SSO 상태 확인
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # FortiGate CLI에서 SSO 상태 확인
 config system global
