@@ -18,14 +18,14 @@ toc: true
   title='기술·보안 주간 다이제스트: CVE-2025-49113, Ransomware'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">Vulnerability</span> <span class="tag">AI</span> <span class="tag">Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 21일 주요 보안/기술 뉴스 15건 - Vulnerability, AI, Security</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 21일 기준 보안 현황 및 위협 분석입니다</li> <li><strong>포인트 2</strong>: ### 위험 스코어카드</li> <li><strong>포인트 3</strong>: ```</li>'
   period='2026-02-21 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
 
 ## 핵심 요약
 
-2026년 02월 21일 기준 보안 현황 및 위협 분석입니다.
+2026년 02월 21일 기준 보안 현황 및 위협 분석입니다
 
 ### 위험 스코어카드
 
