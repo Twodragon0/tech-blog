@@ -46,6 +46,14 @@ def _escape_attr(value: str) -> str:
     )
 
 
+def _clean_summary_text(text: str) -> str:
+    cleaned = re.sub(r"\.{2,}", ".", text)
+    cleaned = cleaned.replace("…", ".")
+    cleaned = re.sub(r"\s+", " ", cleaned)
+    cleaned = cleaned.strip()
+    return cleaned
+
+
 def _categories_html(categories: list[str]) -> str:
     chips: list[str] = []
     for raw in categories[:3]:
@@ -61,22 +69,36 @@ def _tags_html(tags: list[str]) -> str:
     return " ".join(f'<span class="tag">{t}</span>' for t in tags[:8])
 
 
-def _highlights_html(excerpt: str) -> str:
-    text = re.sub(r"\s+", " ", (excerpt or "").strip())
-    text = re.sub(r"\.{2,}|…", " ", text).strip(" .")
-    if not text:
-        text = "핵심 이슈를 요약했습니다"
-    point1 = text[:100].rstrip(" ,.")
-    point2 = "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다"
-    point3 = "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다"
+def _highlights_html(excerpt: str, summary_lines: list[str]) -> str:
+    points: list[str] = []
+    for line in summary_lines:
+        if line:
+            points.append(_clean_summary_text(line))
+        if len(points) >= 3:
+            break
+
+    if not points:
+        text = _clean_summary_text(re.sub(r"\s+", " ", (excerpt or "").strip()))
+        if not text:
+            text = "핵심 이슈를 요약했습니다"
+        points.append(text[:120].rstrip(" ,."))
+
+    while len(points) < 3:
+        if len(points) == 1:
+            points.append("실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다")
+        else:
+            points.append(
+                "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다"
+            )
+
     return (
-        f"<li><strong>포인트 1</strong>: {point1}</li> "
-        f"<li><strong>포인트 2</strong>: {point2}</li> "
-        f"<li><strong>포인트 3</strong>: {point3}</li>"
+        f"<li><strong>포인트 1</strong>: {points[0]}</li> "
+        f"<li><strong>포인트 2</strong>: {points[1]}</li> "
+        f"<li><strong>포인트 3</strong>: {points[2]}</li>"
     )
 
 
-def _build_include(front: dict[str, Any]) -> str:
+def _build_include(front: dict[str, Any], summary_lines: list[str]) -> str:
     title = str(front.get("title", "최신 기술 동향 요약")).strip()
     categories = _to_list(front.get("categories") or front.get("category"))
     tags = _to_list(front.get("tags"))
@@ -88,11 +110,68 @@ def _build_include(front: dict[str, Any]) -> str:
         f"  title='{_escape_attr(title)}'\n"
         f"  categories_html='{_escape_attr(_categories_html(categories))}'\n"
         f"  tags_html='{_escape_attr(_tags_html(tags))}'\n"
-        f"  highlights_html='{_escape_attr(_highlights_html(excerpt))}'\n"
+        f"  highlights_html='{_escape_attr(_highlights_html(excerpt, summary_lines))}'\n"
         f"  period='{_escape_attr(period)}'\n"
         "  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'\n"
         "%}"
     )
+
+
+def _extract_summary_lines(body: str) -> list[str]:
+    lines = body.splitlines()
+    in_summary = False
+    collected: list[str] = []
+    for line in lines:
+        if line.startswith("## "):
+            if in_summary:
+                break
+            in_summary = line.startswith("## 핵심 요약") or line.startswith(
+                "## Executive Summary"
+            )
+            continue
+
+        if not in_summary:
+            continue
+
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if stripped.startswith("|"):
+            break
+        if stripped.startswith("- "):
+            continue
+        if stripped.startswith(">"):
+            continue
+
+        cleaned = _clean_summary_text(stripped)
+        if cleaned:
+            collected.append(cleaned)
+        if len(collected) >= 3:
+            break
+
+    return collected
+
+
+def _normalize_summary_section(body: str) -> str:
+    lines = body.splitlines()
+    out: list[str] = []
+    in_summary = False
+    for line in lines:
+        if line.startswith("## "):
+            in_summary = line.startswith("## 핵심 요약") or line.startswith(
+                "## Executive Summary"
+            )
+            out.append(line)
+            continue
+
+        if in_summary and line.strip() and not line.strip().startswith("|"):
+            cleaned_line = _clean_summary_text(line)
+            out.append(cleaned_line)
+            continue
+
+        out.append(line)
+
+    return "\n".join(out)
 
 
 def _extract_existing_include(body: str) -> str:
@@ -122,8 +201,9 @@ def process_post(path: Path) -> bool:
     front_data = yaml.safe_load(fm_raw)
     front = front_data if isinstance(front_data, dict) else {}
 
-    existing = _extract_existing_include(body)
-    include_block = existing if existing else _build_include(front)
+    body = _normalize_summary_section(body)
+    summary_lines = _extract_summary_lines(body)
+    include_block = _build_include(front, summary_lines)
 
     body = _remove_summary_heading_section(body)
     body = _remove_all_includes(body)
