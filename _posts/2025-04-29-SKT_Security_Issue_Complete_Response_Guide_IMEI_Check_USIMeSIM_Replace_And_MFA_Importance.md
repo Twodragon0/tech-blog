@@ -153,7 +153,7 @@ flowchart TD
 
 **공격 메커니즘:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```python
 > # 개념적 공격 흐름 (실제 코드 아님)...
@@ -168,7 +168,7 @@ flowchart TD
 
 **통제 방안:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # 통신사 내부 보안 통제 예시...
@@ -230,7 +230,7 @@ flowchart TD
 
 **주요 공격 대상:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```python
 > # 공격자가 선호하는 계정 우선순위...
@@ -240,7 +240,7 @@ flowchart TD
 
 **2FA 우회 체인:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > Gmail 계정 탈취...
@@ -354,7 +354,7 @@ Attacker → SS7 네트워크 침투
 
 **FIDO2 지원 서비스:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # 주요 서비스 FIDO2 지원 현황 (2025년 기준)...
@@ -406,7 +406,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **IMEI 변조 탐지:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```python
 > # IMEI 유효성 검증 (Luhn Algorithm)...
@@ -441,7 +441,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Zero Trust 구현 요소:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # Zero Trust Architecture for Telecom...
@@ -465,7 +465,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Indicators of Compromise for SIM Swapping:**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # IOC 정의...
@@ -495,7 +495,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 ### 9.4 지속적 모니터링
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # 월간 보안 점검 루틴...
@@ -515,7 +515,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Phase 1: 긴급 대응 (1주일)**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > immediate_actions:...
@@ -525,7 +525,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Phase 2: 단기 강화 (1개월)**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > short_term_hardening:...
@@ -535,7 +535,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Phase 3: 장기 전략 (6개월)**
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > long_term_strategy:...

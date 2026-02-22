@@ -516,14 +516,14 @@ const assertion = await navigator.credentials.get({
 
 #### 2.4.2 GitHub에 보안 키 등록
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # 1. GitHub 설정 페이지...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # 1. GitHub 설정 페이지...
@@ -1420,20 +1420,20 @@ SigninLogs
 
 ### 5.3 Elastic Stack (ECS): 키로거 프로세스 탐지
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```json
 {
   "query": {
@@ -1866,20 +1866,20 @@ gantt
 
 **Week 4: 강제 적용**
 - [ ] Conditional Access Policy 배포 (Azure AD/Okta)
-  > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+  > **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```json
   {
     "conditions": {
