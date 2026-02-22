@@ -16,6 +16,15 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag tech">블록체인</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Blockchain</span> <span class="tag">Cryptocurrency</span> <span class="tag">Bitcoin</span> <span class="tag">Ethereum</span> <span class="tag">Smart-Contract</span> <span class="tag">Security-Audit</span> <span class="tag">GitHub</span> <span class="tag">DevSecOps</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 블록체인 암호화폐 보안 DevSecOps 완벽 가이드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-01-08 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 서론
 
 블록체인과 암호화폐 생태계가 급속도로 성장하면서, 보안은 더욱 중요한 이슈로 부상하고 있습니다. **2025년에는 약 34억 달러 이상의 암호화폐가 해킹으로 탈취**되었으며, 특히 2025년 2월 Bybit 거래소에서 발생한 **15억 달러 규모의 해킹**은 역대 최대 규모의 암호화폐 해킹 사건으로 기록되었습니다. 북한의 Lazarus 그룹이 배후로 지목된 이 사건은 콜드 월렛까지 침해당할 수 있음을 보여주었습니다.
@@ -171,6 +180,13 @@ schema_type: Article
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Slither 설치 [truncated]
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Slither 설치
 pip install slither-analyzer
@@ -184,7 +200,9 @@ slither contracts/MyContract.sol --detect reentrancy-eth,unchecked-transfer
 # JSON 리포트 생성
 slither contracts/MyContract.sol --json slither-report.json
 
+
 ```
+-->
 -->
 -->
 
@@ -259,6 +277,13 @@ jobs:
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Mythril 설치 [truncated]
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Mythril 설치
 pip install mythril
@@ -272,7 +297,9 @@ myth analyze contracts/MyContract.sol --execution-timeout 60
 # JSON 리포트 생성
 myth analyze contracts/MyContract.sol -o json > mythril-report.json
 
+
 ```
+-->
 -->
 -->
 
@@ -348,6 +375,8 @@ jobs:
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
 ```bash
 # Echidna 설치
 docker pull trailofbits/echidna
@@ -366,6 +395,8 @@ echidna-test contracts/MyContract.sol --contract MyContract
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Manticore 설치
 pip install manticore
@@ -377,6 +408,8 @@ manticore contracts/MyContract.sol
 #### Foundry (Paradigm)
 
 **Foundry**는 빠른 Rust 기반 테스팅 프레임워크로, Fuzz 테스팅을 지원합니다. 테스트 함수에 매개변수를 추가하면 자동으로 속성 기반 퍼즈 테스트로 실행됩니다.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -404,6 +437,8 @@ forge test --match-test invariant
 - **커버리지 기반 퍼징**: 코드 커버리지를 추적하여 더 효과적인 테스트
 - **병렬 퍼징**: 멀티코어를 활용한 고속 테스트
 - **스마트 변이 생성**: Slither와 연동하여 런타임 값 기반 최적화된 입력 생성
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -578,6 +613,13 @@ jobs:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
+> 
+> ```solidity
+> // ❌ 취약한 코드 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
 // ❌ 취약한 코드
 contract VulnerableContract {
@@ -603,7 +645,9 @@ contract SecureContract {
     }
 }
 
+
 ```
+-->
 -->
 -->
 
@@ -625,6 +669,13 @@ contract SecureContract {
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
+> 
+> ```solidity
+> // ✅ Solidity 0.8.0+ 내장 오버플로우 체크 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
 // ✅ Solidity 0.8.0+ 내장 오버플로우 체크
 contract SafeMathExample {
@@ -638,7 +689,9 @@ contract SafeMathExample {
     }
 }
 
+
 ```
+-->
 -->
 -->
 
@@ -662,6 +715,13 @@ contract SafeMathExample {
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
+> 
+> ```solidity
+> // OpenZeppelin 5.0+ AccessControl 사용 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
 // OpenZeppelin 5.0+ AccessControl 사용
 import "@openzeppelin/contracts/access/AccessControl.sol";
@@ -677,7 +737,9 @@ contract SecureContract is AccessControl {
     function sensitiveFunction() public onlyRole(ADMIN_ROLE) { }
 }
 
+
 ```
+-->
 -->
 -->
 
@@ -700,6 +762,8 @@ contract SecureContract is AccessControl {
 - 관리자 권한 분리 및 제한
 
 **예시:**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
+
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
@@ -754,6 +818,13 @@ contract SecureContract is AccessControl {
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/ethereum/solidity/tree/develop/docs)를 참조하세요.
+> 
+> ```solidity
+> // 긴급 중지 (Emergency Pause) 패턴 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```solidity
 // 긴급 중지 (Emergency Pause) 패턴
 contract SecureContract {
@@ -768,7 +839,9 @@ contract SecureContract {
     function withdraw() public whenNotPaused { /* 정지 시 실행 불가 */ }
 }
 
+
 ```
+-->
 -->
 -->
 
@@ -1166,6 +1239,7 @@ contract SecureContract {
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [긴급 공지] 보안 사고 발생 및 대응 조치
 
@@ -1183,7 +1257,9 @@ contract SecureContract {
 
 [업데이트 일정 및 연락처]
 
+
 ```
+-->
 -->
 -->
 -->

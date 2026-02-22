@@ -12,6 +12,15 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='2026-02-10 DevOps &amp; 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin'
+  categories_html='<span class="category-tag devops">DevOps</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">DevOps-Digest</span> <span class="tag">Blockchain-Digest</span> <span class="tag">CNCF</span> <span class="tag">Kubernetes</span> <span class="tag">Cluster-API</span> <span class="tag">Chainalysis</span> <span class="tag">Bitcoin</span>'
+  highlights_html='<li><strong>포인트 1</strong>: CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트, Chainalysis Hexagate MegaETH 보안, Bitcoin $7</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-02-10 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 서론
 
 2026년 02월 10일 DevOps 및 블록체인 부문 주요 뉴스를 정리합니다.
@@ -78,6 +87,8 @@ Cluster API v1.12는 **In-Place 업데이트**와 **체인 업그레이드**를 
 #### 실무 적용 시나리오
 
 **시나리오 1: 긴급 보안 패치 적용**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```yaml
 # In-Place 업데이트로 노드 재생성 없이 kubelet 버전 패치
 apiVersion: cluster.x-k8s.io/v1beta1
@@ -91,6 +102,8 @@ spec:
 ```
 
 **시나리오 2: K8s v1.27 → v1.30 자동 업그레이드**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```yaml
 # 체인 업그레이드: v1.27 → v1.28 → v1.29 → v1.30 자동 실행
 apiVersion: cluster.x-k8s.io/v1beta1

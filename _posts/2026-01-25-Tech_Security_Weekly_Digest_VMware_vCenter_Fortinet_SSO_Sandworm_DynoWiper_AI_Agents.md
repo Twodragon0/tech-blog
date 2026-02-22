@@ -217,6 +217,13 @@ DevOps/Cloud       : █████ 13%
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 최근 24시간 생성된 관리자 계정 찾기 [truncated]
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # 1. 최근 24시간 생성된 관리자 계정 찾기
 grep -i "CreateUser" /var/log/vmware/vpxd/vpxd.log \
@@ -232,7 +239,9 @@ awk '$2 ~ /^0[2-5]:/ {print}' /var/log/vmware/sso/ssoAdminServer.log \
 grep -E "(DeleteVM|DestroyVM)" /var/log/vmware/vpxd/vpxd.log \
   | wc -l  # 10개 이상이면 의심
 
+
 ```
+-->
 -->
 -->
 
@@ -265,6 +274,13 @@ grep -E "(DeleteVM|DestroyVM)" /var/log/vmware/vpxd/vpxd.log \
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 최근 1시간 관리자 로그인 이력 [truncated]
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # 1. 최근 1시간 관리자 로그인 이력
 execute log filter category 0
@@ -282,7 +298,9 @@ config system admin
     show | grep "edit"
 end
 
+
 ```
+-->
 -->
 -->
 
@@ -302,6 +320,7 @@ end
 
 #### 헌팅 쿼리 (PowerShell)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
@@ -354,7 +373,9 @@ Get-WinEvent -FilterHashtable @{
   Expression={$_.Properties[1].Value}
 }
 
+
 ```
+-->
 -->
 -->
 
@@ -412,6 +433,8 @@ graph LR
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # vCenter 버전 확인 (SSH 접속 후)
 cat /etc/vmware-vami/vamicli.properties | grep version
@@ -431,6 +454,8 @@ grep -i "failed" /var/log/vmware/vpxd/vpxd.log | tail -20
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # vCenter vpxd 로그에서 의심스러운 API 호출 탐지
 grep -E "(CreateUser|ModifyPermission|CreateRole)" /var/log/vmware/vpxd/vpxd.log \
@@ -439,6 +464,8 @@ grep -E "(CreateUser|ModifyPermission|CreateRole)" /var/log/vmware/vpxd/vpxd.log
 ```
 
 #### 비정상 시간대 관리자 로그인
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -493,6 +520,7 @@ SecurityAlert
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 VMwareVCenter_CL
 | where TimeGenerated >= ago(1h)
@@ -507,7 +535,9 @@ VMwareVCenter_CL
 | where FailedCalls > 5 or (SlowCalls > 3 and TotalCalls > 10)
 | project TimeGenerated, SourceIP_s, ApiPath, FailedCalls, SlowCalls, TotalCalls
 
+
 ```
+-->
 -->
 -->
 
@@ -543,6 +573,7 @@ VMwareVCenter_CL
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     A[공격자] -->|SSO 우회| B["FortiCloud SSO<br/>인증 우회"]
@@ -556,7 +587,9 @@ graph LR
     style D fill:#ffc3c3
     style E fill:#ffe0e0
 
+
 ```
+-->
 -->
 -->
 
@@ -598,6 +631,13 @@ graph LR
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # FortiGate CLI에서 SSO 상태 확인 [truncated]
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # FortiGate CLI에서 SSO 상태 확인
 config system global
@@ -613,13 +653,17 @@ end
 # 최근 로그인 시도 확인
 diagnose debug authd fsso list
 
+
 ```
+-->
 -->
 -->
 
 ### 위협 헌팅 쿼리 (Threat Hunting Queries)
 
 #### FortiGate 비정상 관리자 로그인 탐지
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -670,6 +714,7 @@ NOT [| inputlookup authorized_admin_ips.csv | fields srcip]
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 CommonSecurityLog
 | where TimeGenerated >= ago(24h)
@@ -682,12 +727,15 @@ CommonSecurityLog
 | where FailedAttempts > 5
 | project TimeGenerated, SourceIP, DestinationUserName, FailedAttempts
 
+
 ```
+-->
 -->
 -->
 
 ### Azure Sentinel KQL - FortiGate 방화벽 정책 변경
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -702,7 +750,9 @@ CommonSecurityLog
   by bin(TimeGenerated, 10m), AdminIP, AdminUser
 | where ChangeCount > 3
 
+
 ```
+-->
 -->
 -->
 
@@ -740,6 +790,7 @@ CommonSecurityLog
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["Phase 1: 초기 침투<br/>(Spear-phishing, Supply chain)"] -->|성공| B["Phase 2: 지속성<br/>(Service registration, Scheduled tasks)"]
@@ -753,7 +804,9 @@ graph TD
     style D fill:#ffc3c3
     style E fill:#ffe0e0
 
+
 ```
+-->
 -->
 -->
 
@@ -792,6 +845,7 @@ graph TD
 
 ### 공격 흐름도 (Attack Flow Diagram)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -847,7 +901,9 @@ VSS Shadow Copies 삭제
 
 Result: 시스템 완전 파괴, 운영 중단
 
+
 ```
+-->
 -->
 -->
 
@@ -889,6 +945,7 @@ TargetObject="*PhysicalDrive*"
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=windows (EventCode=7045 OR EventCode=4688 OR EventCode=1)
 (ImagePath="*vssadmin*delete*shadows*" OR
@@ -900,12 +957,15 @@ index=windows (EventCode=7045 OR EventCode=4688 OR EventCode=1)
 | eval severity="critical", mitre_attack="T1490,T1561", context="Wiper/Ransomware indicators"
 | table _time, Computer, User, Events, Commands, count, severity
 
+
 ```
+-->
 -->
 -->
 
 ### Azure Sentinel KQL - DynoWiper IOC 탐지
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -923,12 +983,15 @@ SecurityEvent
   by bin(TimeGenerated, 5m), Computer, Account
 | where Count > 2
 
+
 ```
+-->
 -->
 -->
 
 ### Azure Sentinel KQL - 물리 디스크 접근 (Sysmon)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -943,7 +1006,9 @@ Event
 | where GrantedAccess in ("0x1F0FFF", "0x1FFFFF")
 | project TimeGenerated, Computer, SourceImage, TargetObject, GrantedAccess
 
+
 ```
+-->
 -->
 -->
 
@@ -965,6 +1030,7 @@ Event
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A[AI 에이전트] --> B{권한 획득}
@@ -980,7 +1046,9 @@ graph TD
     style G fill:#ff6b6b
     style H fill:#ff6b6b
 
+
 ```
+-->
 -->
 -->
 
@@ -1017,6 +1085,13 @@ graph TD
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Vault Agent Injector 설정 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Vault Agent Injector 설정
 apiVersion: v1
@@ -1041,7 +1116,9 @@ data:
       ttl         = "15m"
     }
 
+
 ```
+-->
 -->
 -->
 
@@ -1079,6 +1156,7 @@ data:
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["Google ADK Application"]
@@ -1109,7 +1187,9 @@ graph TD
     style I fill:#1976d2
     style J fill:#1976d2
 
+
 ```
+-->
 -->
 -->
 
@@ -1177,6 +1257,13 @@ graph TD
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # SIEM 룰 예시: vCenter 의심 활동 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # SIEM 룰 예시: vCenter 의심 활동
 - rule:
@@ -1189,7 +1276,9 @@ graph TD
     severity: high
     tags: [cve-2024-37079, vcenter, privilege-escalation]
 
+
 ```
+-->
 -->
 -->
 

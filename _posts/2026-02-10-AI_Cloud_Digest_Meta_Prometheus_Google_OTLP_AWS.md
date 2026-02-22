@@ -12,6 +12,15 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='2026-02-10 AI &amp; 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트'
+  categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">AI-Digest</span> <span class="tag">Cloud-Digest</span> <span class="tag">Meta-Prometheus</span> <span class="tag">Google-OTLP</span> <span class="tag">AWS</span> <span class="tag">ChatGPT</span> <span class="tag">OpenTelemetry</span>'
+  highlights_html='<li><strong>포인트 1</strong>: Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus 4.6 Bedrock 통합, ChatGPT 미 국방부 GenAI.mil 플랫폼</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-02-10 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 서론
 
 2026년 02월 10일 AI 및 클라우드 핵심 업데이트를 정리합니다. Meta의 기가와트급 AI 인프라, Google의 벤더 중립적 관찰성 전환, AWS의 Claude Opus 4.6 통합 등 DevSecOps 엔지니어가 주목해야 할 실무 적용 포인트를 중심으로 다룹니다.

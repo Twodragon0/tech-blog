@@ -370,6 +370,8 @@ pipeline {
     }
 }
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```
 -->
 -->
@@ -380,7 +382,9 @@ pipeline {
 >
 > ```hcl
 > # security-infrastructure.tf
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
@@ -561,6 +565,8 @@ resource "aws_wafv2_ip_set" "botnet_ips" {
   ]
 }
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```
 -->
 -->
@@ -571,7 +577,9 @@ resource "aws_wafv2_ip_set" "botnet_ips" {
 >
 > ```yaml
 > # k8s-security-policies.yaml
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
@@ -726,6 +734,13 @@ data:
           concern: data_exfiltration
           mitigation: sandbox_execution
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```
+> --> [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 -->
 -->
@@ -742,9 +757,13 @@ data:
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 >
-> ```yaml
+> 
+```
+-->yaml
 > # ISMS-P 인증심사 대응 체크리스트
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
@@ -785,6 +804,13 @@ isms_p_compliance:
       - "방화벽 정책 변경 이력"
       - "네트워크 접근 제어 목록"
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```
+> --> [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 -->
 -->
@@ -801,9 +827,13 @@ isms_p_compliance:
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 >
-> ```yaml
+> 
+```
+-->yaml
 > # 전자금융거래법 및 금융보안원 가이드라인 준수
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.

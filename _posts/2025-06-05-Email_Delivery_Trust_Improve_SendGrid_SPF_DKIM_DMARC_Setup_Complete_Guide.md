@@ -17,6 +17,15 @@ audio_file: /assets/audio/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_D
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드'
+  categories_html='<span class="category-tag security">보안</span>'
+  tags_html='<span class="tag">SendGrid</span> <span class="tag">SPF</span> <span class="tag">DKIM</span> <span class="tag">DMARC</span> <span class="tag">Email-Security</span>'
+  highlights_html='<li><strong>포인트 1</strong>: SendGrid SPF, DKIM, DMARC 설정으로 이메일 발송 신뢰도 향상</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2025-06-05 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 경영진 요약 (Executive Summary)
 
 ### 비즈니스 영향도 및 위험 스코어카드
@@ -145,6 +154,7 @@ schema_type: Article
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                       이메일 공격 생명주기                         │
@@ -177,7 +187,9 @@ schema_type: Article
     인증 실패 → 이메일 차단
     인증 성공 → 받은편지함 전달
 
+
 ```
+-->
 -->
 -->
 
@@ -185,6 +197,7 @@ schema_type: Article
 
 ### SPF 동작 원리
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -220,12 +233,15 @@ schema_type: Article
    │                      │  7. 이메일 전달       │
    │                      │  → 받은편지함         │
 
+
 ```
+-->
 -->
 -->
 
 ### DKIM 서명 및 검증
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -265,12 +281,15 @@ schema_type: Article
       │                                            │  8. 이메일 전달
       │                                            │  → 받은편지함
 
+
 ```
+-->
 -->
 -->
 
 ### DMARC 종합 정책 적용
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -321,7 +340,9 @@ schema_type: Article
           │ (rua 주소로 전송) │
           └──────────────────┘
 
+
 ```
+-->
 -->
 -->
 
@@ -445,6 +466,7 @@ v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com; ruf=mailto:dmarc@yourdo
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 # 1단계: 모니터링만
 v=DMARC1; p=none; rua=mailto:dmarc@yourdomain.com
@@ -458,7 +480,9 @@ v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc@yourdomain.com
 # 4단계: 완전 거부
 v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
 
+
 ```
+-->
 -->
 -->
 
@@ -528,6 +552,8 @@ TTL: 3600
 - **Google Postmaster Tools**: Gmail 전달률 확인
 
 ### 7.2 명령줄 도구
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -674,6 +700,7 @@ mail.yourdomain.com → 별도 SPF, DKIM, DMARC
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 # 1단계 (즉시): 기본 설정
 v=DMARC1; p=none; rua=mailto:dmarc@yourdomain.com
@@ -687,7 +714,9 @@ v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc@yourdomain.com
 # 4단계 (2개월 후): 완전 거부 (권장)
 v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
 
+
 ```
+-->
 -->
 -->
 -->
@@ -777,6 +806,7 @@ v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌────────────────────────────────────────────────────────────┐
 │         이메일 보안 현황 보고 (2025년 6월)                    │
@@ -838,7 +868,9 @@ v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
 □ 분기별 보안 감사 실시 (외부 전문가 참여)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+
 ```
+-->
 -->
 -->
 
@@ -889,6 +921,7 @@ index=mail sourcetype=email_logs
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # 1. SPF 실패 탐지 (일일 50건 이상 시 알람)
 index=mail sourcetype=email_logs
@@ -935,7 +968,9 @@ index=mail sourcetype=email_logs
 | stats count by sender_email, recipient, subject, spf_result, dkim_result
 | sort -count
 
+
 ```
+-->
 -->
 -->
 
@@ -946,6 +981,7 @@ Azure Sentinel 이메일 보안 분석 쿼리
 OfficeActivity, EmailEvents 테이블 사용
 -->
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -1006,7 +1042,9 @@ EmailEvents
 | project SenderFromDomain, SenderFromAddress, EmailCount, FailureRate, SPFFail, DKIMFail, DMARCFail
 | order by FailureRate desc
 
+
 ```
+-->
 -->
 -->
 

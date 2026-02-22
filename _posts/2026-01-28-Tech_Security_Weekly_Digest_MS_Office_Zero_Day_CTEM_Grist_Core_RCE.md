@@ -135,6 +135,7 @@ graph LR
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # Windows Update 패치 확인
 Get-HotFix | Where-Object { $_.HotFixID -eq "KB5034173" } |
@@ -150,12 +151,15 @@ Get-ItemProperty "HKLM:\Software\Microsoft\Office\16.0\Common\ProductVersion" -E
 # 패치 강제 적용 (관리자 권한)
 "C:\Program Files\Common Files\microsoft shared\ClickToRun\OfficeC2RClient.exe" /update user updatepromptuser=false
 
+
 ```
+-->
 -->
 -->
 
 #### 임시 완화 조치 (패치 전)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
@@ -175,7 +179,9 @@ foreach ($path in $officePaths) {
 }
 Write-Host "Macro blocking enabled for Word, Excel, PowerPoint"
 
+
 ```
+-->
 -->
 -->
 
@@ -305,8 +311,9 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           directory: ./terraform
-{% endraw %}
 
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 -->
 -->
@@ -353,7 +360,9 @@ jobs:
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+
 ```
+-->
       │ Likelihood (가능성)
       │ ────────────────────────────────────────────>
  Seve │     Rare      Unlikely    Possible   Likely   Almost Certain

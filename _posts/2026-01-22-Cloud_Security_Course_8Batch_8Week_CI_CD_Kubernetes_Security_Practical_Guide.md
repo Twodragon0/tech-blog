@@ -17,6 +17,15 @@ schema_type: Article
 category: devsecops
 ---
 
+{% include ai-summary-card.html
+  title='🚀 클라우드 보안 과정 8기 8주차: CI/CD와 Kubernetes 보안 실전 가이드 - DevSecOps 파이프라인부터 클러스터 보안까지'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag devops">쿠버네티스</span>'
+  tags_html='<span class="tag">CI/CD</span> <span class="tag">Kubernetes</span> <span class="tag">DevSecOps</span> <span class="tag">K8s-Security</span> <span class="tag">Cloud-Security</span> <span class="tag">ArgoCD</span> <span class="tag">Jenkins</span> <span class="tag">Network-Policies</span>'
+  highlights_html='<li><strong>포인트 1</strong>: CI/CD 보안, K8s Network Policies, Pod Security Standards, AI 기반 보안 자동화</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-01-22 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.
@@ -143,151 +152,9 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: 'trivy-results.sarif'
-{% endraw %}
 
-```
--->
--->
 
-#### **3.6 AI 기반 보안 모니터링**
-
-##### **AI 기반 이상 탐지**
-
-| 도구 | 설명 | 활용 방법 |
-|------|------|----------|
-| **Claude API + Falco** | 런타임 보안 이벤트 분석 | 이상 행위 패턴 탐지 |
-| **GitHub Copilot + Prometheus** | 메트릭 분석 및 알림 | 보안 이벤트 자동 분석 |
-| **Cursor + Kubernetes Audit** | 감사 로그 분석 | 보안 이벤트 패턴 탐지 |
-
-##### **AI 기반 보안 모니터링 아키텍처**
-
-*AI 기반 보안 모니터링: Kubernetes Audit 로그 → Claude API 분석 → 이상 행위 탐지 → 자동화된 대응*
-
-> **참고**: AI 기반 보안 모니터링은 [OWASP AI Security](https://owasp.org/www-project-top-10-for-large-language-model-applications/) 및 [MITRE ATLAS](https://atlas.mitre.org/)를 참조하세요.
-
-#### **3.7 AI 활용 Best Practices**
-
-##### **보안 고려사항**
-
-| 항목 | 설명 | 권장 사항 |
-|------|------|----------|
-| **API 키 관리** | AI 도구 API 키 보안 관리 | 환경 변수 사용, Secret 관리 도구 활용 |
-| **코드 검증** | AI 생성 코드 검증 필수 | 자동화된 테스트 및 보안 스캔 |
-| **비용 관리** | AI API 사용 비용 최적화 | 캐싱, 배치 처리, 프롬프트 최적화 |
-
-##### **AI 활용 체크리스트**
-
-| 항목 | 설명 | 상태 |
-|------|------|------|
-| **Cursor 보안 설정** | `.cursorrules` 파일에 보안 규칙 정의 | ✅ |
-| **Claude API 통합** | CI/CD 파이프라인에 Claude API 통합 | ✅ |
-| **GitHub Copilot 활성화** | GitHub Copilot 활성화 및 보안 설정 | ✅ |
-| **AI 생성 코드 검증** | 자동화된 테스트 및 보안 스캔 | ✅ |
-| **비용 모니터링** | AI API 사용량 및 비용 모니터링 | ✅ |
-
----
-
-## 4. DevSecOps 통합 전략
-
-DevSecOps는 개발, 보안, 운영을 통합하여 보안을 개발 프로세스에 자연스럽게 통합하는 접근 방식입니다.
-
-#### **3.1 자동화된 보안 검증**
-
-##### **CI/CD 파이프라인 보안 통합**
-
-| 단계 | 보안 검증 항목 | 도구 | 적용 방법 |
-|------|--------------|------|----------|
-| **빌드 단계** | 이미지 스캔, Dockerfile 검증 | Trivy, Hadolint | CI 파이프라인 통합 |
-| **배포 전** | Kubernetes 매니페스트 검증 | Polaris, Kube-score | Pre-commit hook |
-| **배포 후** | 런타임 보안 모니터링 | Falco, Sysdig | Kubernetes Operator |
-
-##### **보안 강화된 CI/CD 파이프라인**
-
-![CI/CD Security Pipeline with AI Integration](/assets/images/2026-01-22-CI_CD_Security_Pipeline_AI_Integration.svg)
-*보안 강화된 CI/CD 파이프라인: 코드 스캔 → 이미지 스캔 → Secret 관리 → 배포 검증 → 런타임 모니터링 (AI 통합)*
-
-> **참고**: DevSecOps 통합 전략은 [OWASP DevSecOps Maturity Model](https://owasp.org/www-project-devsecops-maturity-model/) 및 [OWASP CI/CD Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html)를 참조하세요.
-
-#### **3.2 보안 강화된 파이프라인 구축**
-
-##### **실습 예시: 보안 강화된 CI/CD 파이프라인**
-
-이번 주차 실습에서는 보안이 강화된 CI/CD 파이프라인을 구축해보았습니다. 주요 구성은 다음과 같습니다:
-
-1. **코드 저장소**: GitHub를 사용하여 소스코드를 관리하고, GPG 서명을 통해 커밋의 무결성을 검증합니다.
-2. **CI 도구**: Jenkins를 활용하여 빌드 및 테스트를 자동화하고, SonarQube를 통합하여 코드 품질을 분석합니다.
-3. **CD 도구**: ArgoCD를 사용하여 Kubernetes 클러스터에 애플리케이션을 배포하고, Helm을 통해 배포를 관리합니다.
-4. **보안 스캔**: Trivy를 사용하여 컨테이너 이미지의 취약점을 스캔하고, 결과를 Slack으로 알림받습니다.
-
-#### **3.3 정기적인 보안 감사**
-
-##### **보안 감사 체크리스트**
-
-| 항목 | 설명 | 주기 | 담당 |
-|------|------|------|------|
-| **코드 스캔** | 정적/동적 분석 실행 | 매 커밋 | 개발팀 |
-| **이미지 스캔** | 컨테이너 이미지 취약점 스캔 | 매 빌드 | DevOps팀 |
-| **Secret 감사** | 하드코딩된 Secret 검색 | 주 1회 | 보안팀 |
-| **권한 감사** | RBAC 권한 검토 | 월 1회 | 보안팀 |
-| **파이프라인 감사** | CI/CD 파이프라인 설정 검토 | 분기 1회 | DevOps팀 |
-
----
-
-## 4. 실전 보안 강화 사례
-
-보안 엔지니어에게 실전 경험은 이론보다 중요합니다. 이번 주에는 실제 프로젝트에서 적용한 보안 강화 사례를 공유합니다.
-
-#### **💡 멘토의 관점: CI/CD 보안도 '코드'로 관리됩니다.**
-
-##### **DevSecOps 워크플로우**
-
-CI/CD 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다. 실제 보안 강화 사례를 통해 구체적인 개선 방법을 살펴보겠습니다.
-
-#### **보안 강화 사례: Secret 관리 개선**
-
-| **구분** | **수정 전 (Before)** | **수정 후 (After)** |
-|---------|-------------------|-------------------|
-| **Secret 관리** | 환경 변수에 하드코딩<br>_(코드에 평문 저장)_ | HashiCorp Vault 통합<br>_(중앙 관리, 동적 생성)_ |
-| **위협 요소** | Git 히스토리에 Secret 노출 위험 | Secret이 코드에 노출되지 않음 |
-| **보안 효과** | Secret 유출 시 전체 시스템 위험 | Secret 로테이션, 접근 제어 가능 |
-
-#### **보안 강화 사례: 이미지 스캔 자동화**
-
-| **구분** | **수정 전 (Before)** | **수정 후 (After)** |
-|---------|-------------------|-------------------|
-| **이미지 스캔** | 수동 스캔<br>_(배포 전 수동 실행)_ | CI/CD 파이프라인 통합<br>_(자동 스캔, 실패 시 배포 차단)_ |
-| **위협 요소** | 취약점이 있는 이미지 배포 가능 | 취약점 발견 시 자동 차단 |
-| **보안 효과** | 취약점 탐지 지연 | 실시간 취약점 탐지 및 차단 |
-
-> 👨‍🏫 멘토의 조언 (Takeaway)
-> 
-> CI/CD 보안은 한 번의 설정으로 끝나는 것이 아닙니다. 지속적인 모니터링과 자동화된 보안 검증을 통해 보안 상태를 유지해야 합니다. 이번 주 실습을 통해 여러분의 CI/CD 파이프라인도 점검해 보세요.
-> 
-> 👉 **CI/CD 보안 Best Practices 및 실습 가이드 보러가기**
-
----
-
-## 5. 실습: 보안 강화된 CI/CD 파이프라인 구축
-
-#### **5.1 GitHub Actions 보안 강화 설정**
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
-> 
-> ```yaml
-> {% raw %}...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
-> 
-> ```yaml
-> {% raw %}...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-```yaml
-{% raw %}
-# .github/workflows/security-scan.yml
+> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./security-scan.yml
 name: Security Scan
 on:
   push:
@@ -318,7 +185,9 @@ jobs:
           format: 'table'
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
-{% endraw %}
+
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```
 -->
@@ -330,7 +199,9 @@ jobs:
 > 
 > ```bash
 > # Namespace 생성 및 보안 정책 적용...
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
@@ -375,6 +246,8 @@ rules:
   verbs: ["get", "list", "create", "update", "patch"]
 EOF
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```
 -->
 -->
@@ -385,7 +258,9 @@ EOF
 > 
 > ```yaml
 > # ArgoCD Application 보안 설정 예시...
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.

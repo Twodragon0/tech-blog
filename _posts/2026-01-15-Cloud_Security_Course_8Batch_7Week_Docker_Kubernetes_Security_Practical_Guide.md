@@ -17,6 +17,15 @@ schema_type: Article
 category: kubernetes
 ---
 
+{% include ai-summary-card.html
+  title='🚀 클라우드 보안 과정 8기 7주차: Docker &amp; Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 보안까지'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag devops">쿠버네티스</span>'
+  tags_html='<span class="tag">Docker</span> <span class="tag">Kubernetes</span> <span class="tag">Container-Security</span> <span class="tag">K8s</span> <span class="tag">Cloud-Security</span> <span class="tag">DevSecOps</span> <span class="tag">Minikube</span> <span class="tag">K9s</span>'
+  highlights_html='<li><strong>포인트 1</strong>: Docker/K8s 보안, Pod Security Standards, User Namespaces, 이미지 스캔, 런타임 모니터링</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-01-15 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.
@@ -78,6 +87,13 @@ category: kubernetes
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> 
+> ```bash
+> # 이미지 다운로드 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 이미지 다운로드
 docker pull nginx:latest
@@ -97,7 +113,9 @@ docker stop my-nginx
 # 컨테이너 삭제
 docker rm my-nginx
 
+
 ```
+-->
 -->
 -->
 
@@ -184,6 +202,13 @@ docker rm my-nginx
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 클러스터 정보 확인 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 클러스터 정보 확인
 kubectl cluster-info
@@ -212,7 +237,9 @@ kubectl logs <pod-name>
 # Pod 삭제
 kubectl delete pod <pod-name>
 
+
 ```
+-->
 -->
 -->
 
@@ -260,6 +287,13 @@ kubectl delete pod <pod-name>
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> 
+> ```dockerfile
+> # 보안 강화 Dockerfile 예시 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```dockerfile
 # 보안 강화 Dockerfile 예시
 FROM node:18-alpine AS builder
@@ -278,7 +312,9 @@ COPY --chown=nodejs:nodejs . .
 # 읽기 전용 파일시스템 설정 (런타임에서)
 CMD ["node", "server.js"]
 
+
 ```
+-->
 -->
 -->
 
@@ -306,6 +342,13 @@ CMD ["node", "server.js"]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # GitHub Actions에서 Trivy 스캔 예시 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # GitHub Actions에서 Trivy 스캔 예시
 name: Security Scan
@@ -323,7 +366,9 @@ jobs:
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
 
+
 ```
+-->
 -->
 -->
 

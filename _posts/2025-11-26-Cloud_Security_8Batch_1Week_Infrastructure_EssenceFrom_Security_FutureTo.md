@@ -16,6 +16,15 @@ keywords: [Infrastructure, Cloud-Security, AWS, Zero Trust, AI보안, Post-quant
 author: Twodragon
 ---
 
+{% include ai-summary-card.html
+  title='클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지'
+  categories_html='<span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">Infrastructure</span> <span class="tag">Cloud-Security</span> <span class="tag">AWS</span>'
+  highlights_html='<li><strong>포인트 1</strong>: ### 리스크 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2025-11-26 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 핵심 요약 (경영진 요약)
 
 ### 리스크 스코어카드
@@ -106,6 +115,7 @@ author: Twodragon
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                        Internet Gateway                           │
@@ -136,7 +146,9 @@ author: Twodragon
 │  - No internet connectivity                                      │
 └─────────────────────────────────────────────────────────────────┘
 
+
 ```
+-->
 -->
 -->
 
@@ -201,6 +213,7 @@ author: Twodragon
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Initial Access → Execution → Persistence → Privilege Escalation
      │              │            │                  │
@@ -239,7 +252,9 @@ Initial Access → Execution → Persistence → Privilege Escalation
     [External]     [Resources]    [Data]
     [Account]
 
+
 ```
+-->
 -->
 -->
 
@@ -392,6 +407,7 @@ AWSCloudTrail
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 이번 달 주요 위협:
 1. Shadow AI 사용 증가 (전월 대비 40% 증가)
@@ -406,7 +422,9 @@ AWSCloudTrail
    - S3 버킷 퍼블릭 노출 1건 탐지 및 즉시 차단
    - 대응: 자동화된 S3 Public Access Block 적용
 
+
 ```
+-->
 -->
 -->
 

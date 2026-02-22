@@ -16,6 +16,15 @@ schema_type: Article
 certifications: [isms-p]
 ---
 
+{% include ai-summary-card.html
+  title='2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">ISMS-P</span> <span class="tag">AWS</span> <span class="tag">Security</span> <span class="tag">Compliance</span> <span class="tag">ISMS</span> <span class="tag">NIST-CSF</span> <span class="tag">AI-Security</span>'
+  highlights_html='<li><strong>포인트 1</strong>: ### 인증 준비도 자가 진단</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-01-14 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 핵심 요약: ISMS-P 인증 준비도 평가
 
 ### 인증 준비도 자가 진단
@@ -39,105 +48,101 @@ certifications: [isms-p]
 
 #### 시나리오 1: 자격 증명 탈취 공격
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. (CDN)                             │
-│                    TLS 1.3, WAF, Shield Standard                     │
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. (CDN) │
+│ TLS 1.3, WAF, Shield Standard │
 └────────────────────────────────┬────────────────────────────────────┘
-                                 │
+│
 ┌────────────────────────────────┴────────────────────────────────────┐
-│                      Application Load Balancer                       │
-│              TLS 1.2+, ACM 인증서, Security Policy                   │
+│ Application Load Balancer │
+│ TLS 1.2+, ACM 인증서, Security Policy │
 └────────────────────────────────┬────────────────────────────────────┘
-                                 │
-         ┌───────────────────────┴───────────────────────┐
-         │             VPC (10.0.0.0/16)                 │
-         │  ┌──────────────────────────────────────────┐ │
-         │  │   Public Subnet (10.0.1.0/24)            │ │
-         │  │   ├─ NAT Gateway                         │ │
-         │  │   └─ Bastion Host (MFA 필수)             │ │
-         │  └──────────────────┬───────────────────────┘ │
-         │                     │                          │
-         │  ┌──────────────────┴───────────────────────┐ │
-         │  │   Private Subnet (10.0.2.0/24)           │ │
-         │  │   ├─ ECS Fargate (애플리케이션)          │ │
-         │  │   ├─ Lambda (비즈니스 로직)              │ │
-         │  │   └─ Security Group (최소 권한)          │ │
-         │  └──────────────────┬───────────────────────┘ │
-         │                     │                          │
-         │  ┌──────────────────┴───────────────────────┐ │
-         │  │   Data Subnet (10.0.3.0/24)              │ │
-         │  │   ├─ RDS (Multi-AZ, 암호화)              │ │
-         │  │   ├─ ElastiCache (암호화)                │ │
-         │  │   └─ No Internet Access                  │ │
-         │  └──────────────────────────────────────────┘ │
-         └──────────────────────────────────────────────┘
-                         │
-         ┌───────────────┴────────────────┐
-         │                                 │
-┌────────┴─────────┐           ┌──────────┴──────────┐
-│   S3 (암호화)     │           │   KMS (CMK)         │
-│   ├─ 개인정보     │           │   ├─ 키 로테이션    │
-│   ├─ 로그         │           │   └─ 접근 정책      │
-│   └─ 백업         │           └─────────────────────┘
+│
+┌───────────────────────┴───────────────────────┐
+│ VPC (10.0.0.0/16) │
+│ ┌──────────────────────────────────────────┐ │
+│ │ Public Subnet (10.0.1.0/24) │ │
+│ │ ├─ NAT Gateway │ │
+│ │ └─ Bastion Host (MFA 필수) │ │
+│ └──────────────────┬───────────────────────┘ │
+│ │ │
+│ ┌──────────────────┴───────────────────────┐ │
+│ │ Private Subnet (10.0.2.0/24) │ │
+│ │ ├─ ECS Fargate (애플리케이션) │ │
+│ │ ├─ Lambda (비즈니스 로직) │ │
+│ │ └─ Security Group (최소 권한) │ │
+│ └──────────────────┬───────────────────────┘ │
+│ │ │
+│ ┌──────────────────┴───────────────────────┐ │
+│ │ Data Subnet (10.0.3.0/24) │ │
+│ │ ├─ RDS (Multi-AZ, 암호화) │ │
+│ │ ├─ ElastiCache (암호화) │ │
+│ │ └─ No Internet Access │ │
+│ └──────────────────────────────────────────┘ │
+└──────────────────────────────────────────────┘
+│
+┌───────────────┴────────────────┐
+│ │
+┌────────┴─────────┐ ┌──────────┴──────────┐
+│ S3 (암호화) │ │ KMS (CMK) │
+│ ├─ 개인정보 │ │ ├─ 키 로테이션 │
+│ ├─ 로그 │ │ └─ 접근 정책 │
+│ └─ 백업 │ └─────────────────────┘
 └──────────────────┘
-         │
+│
 ┌────────┴─────────────────────────────────────────────┐
-│            보안 모니터링 및 로깅                       │
-│  ┌──────────────┬──────────────┬─────────────────┐   │
-│  │ CloudTrail   │ CloudWatch   │ Security Hub    │   │
-│  │ (모든 API)   │ (메트릭)     │ (통합 대시보드) │   │
-│  └──────┬───────┴──────┬───────┴─────┬───────────┘   │
-│         │              │              │               │
-│  ┌──────┴──────┬───────┴──────┬──────┴──────┐        │
-│  │ GuardDuty   │ Config       │ Inspector   │        │
-│  │ (위협탐지)  │ (규정준수)   │ (취약점)    │        │
-│  └─────────────┴──────────────┴─────────────┘        │
+│ 보안 모니터링 및 로깅 │
+│ ┌──────────────┬──────────────┬─────────────────┐ │
+│ │ CloudTrail │ CloudWatch │ Security Hub │ │
+│ │ (모든 API) │ (메트릭) │ (통합 대시보드) │ │
+│ └──────┬───────┴──────┬───────┴─────┬───────────┘ │
+│ │ │ │ │
+│ ┌──────┴──────┬───────┴──────┬──────┴──────┐ │
+│ │ GuardDuty │ Config │ Inspector │ │
+│ │ (위협탐지) │ (규정준수) │ (취약점) │ │
+│ └─────────────┴──────────────┴─────────────┘ │
 └──────────────────────────────────────────────────────┘
 
-```
--->
--->
-
-### IAM 권한 모델 (최소 권한 원칙)
-
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. (SQL Injection, XSS 차단)            │
-│  └─ Rate Limiting (DDoS 방어)                │
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요./CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. (SQL Injection, XSS 차단) │
+│ └─ Rate Limiting (DDoS 방어) │
 └──────┬───────────────────────────────────────┘
-       │
-       ▼
+│
+▼
 ┌──────────────────────────────────────────────┐
-│  Lambda (비즈니스 로직)                       │
-│  ├─ 개인정보 수집 동의 검증                  │
-│  ├─ 데이터 유효성 검사 (Input Validation)    │
-│  └─ 민감정보 마스킹 (로그)                   │
+│ Lambda (비즈니스 로직) │
+│ ├─ 개인정보 수집 동의 검증 │
+│ ├─ 데이터 유효성 검사 (Input Validation) │
+│ └─ 민감정보 마스킹 (로그) │
 └──────┬───────────────────────────────────────┘
-       │
-       ▼
+│
+▼
 ┌──────────────────────────────────────────────┐
-│  KMS (암호화 키 관리)                         │
-│  ├─ CMK로 데이터 암호화                      │
-│  ├─ 키 로테이션 (연 1회)                     │
-│  └─ IAM 정책으로 접근 제어                   │
+│ KMS (암호화 키 관리) │
+│ ├─ CMK로 데이터 암호화 │
+│ ├─ 키 로테이션 (연 1회) │
+│ └─ IAM 정책으로 접근 제어 │
 └──────┬───────────────────────────────────────┘
-       │
-       ▼
+│
+▼
 ┌──────────────────────────────────────────────┐
-│  RDS (개인정보 저장)                          │
-│  ├─ 암호화 저장 (AES-256)                    │
-│  ├─ Multi-AZ (가용성)                        │
-│  ├─ 자동 백업 (암호화)                       │
-│  └─ 접근 제어 (Security Group)               │
+│ RDS (개인정보 저장) │
+│ ├─ 암호화 저장 (AES-256) │
+│ ├─ Multi-AZ (가용성) │
+│ ├─ 자동 백업 (암호화) │
+│ └─ 접근 제어 (Security Group) │
 └──────────────────────────────────────────────┘
-       │
-       ▼
+│
+▼
 ┌──────────────────────────────────────────────┐
-│  CloudTrail + CloudWatch Logs                 │
-│  ├─ 모든 접근 로그 기록                      │
-│  ├─ 7년 보관 (법적 요구사항)                 │
-│  ├─ 로그 암호화 (KMS)                        │
-│  └─ 이상 탐지 알람 (CloudWatch Alarms)       │
+│ CloudTrail + CloudWatch Logs │
+│ ├─ 모든 접근 로그 기록 │
+│ ├─ 7년 보관 (법적 요구사항) │
+│ ├─ 로그 암호화 (KMS) │
+│ └─ 이상 탐지 알람 (CloudWatch Alarms) │
 └──────────────────────────────────────────────┘
 
+
 ```
+-->
 -->
 -->
 
@@ -145,37 +150,40 @@ certifications: [isms-p]
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────┐
-│              개인정보 라이프사이클                   │
+│ 개인정보 라이프사이클 │
 └─────────────────────────────────────────────────────┘
 
 수집 → 저장 → 이용 → 제공 → 파기
- │      │      │      │      │
- ▼      ▼      ▼      ▼      ▼
+│ │ │ │ │
+▼ ▼ ▼ ▼ ▼
 ┌────┐┌────┐┌────┐┌────┐┌────────┐
 │동의││암호││접근││동의││자동파기│
-│확인││화  ││제어││재확││(7일전  │
-│    ││    ││로깅││인  ││알림)   │
+│확인││화 ││제어││재확││(7일전 │
+│ ││ ││로깅││인 ││알림) │
 └────┘└────┘└────┘└────┘└────────┘
 
 ┌─────────────────────────────────────────────────────┐
-│          S3 Lifecycle Policy (자동 파기)             │
-│                                                       │
-│  0일: 수집 (Standard)                                │
-│  │                                                    │
-│  90일: Infrequent Access (IA)                        │
-│  │                                                    │
-│  365일: Glacier (장기 보관)                          │
-│  │                                                    │
-│  1095일 (3년): 파기 전 알림 (SNS → Lambda)          │
-│  │                                                    │
-│  1102일 (3년 7일): 영구 삭제 (Delete)                │
-│                                                       │
-│  파기 증적: CloudTrail DeleteObject 이벤트           │
+│ S3 Lifecycle Policy (자동 파기) │
+│ │
+│ 0일: 수집 (Standard) │
+│ │ │
+│ 90일: Infrequent Access (IA) │
+│ │ │
+│ 365일: Glacier (장기 보관) │
+│ │ │
+│ 1095일 (3년): 파기 전 알림 (SNS → Lambda) │
+│ │ │
+│ 1102일 (3년 7일): 영구 삭제 (Delete) │
+│ │
+│ 파기 증적: CloudTrail DeleteObject 이벤트 │
 └─────────────────────────────────────────────────────┘
 
+
 ```
+-->
 -->
 -->
 
@@ -208,6 +216,7 @@ certifications: [isms-p]
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 전체 준수율: 87% (목표: 95%)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -223,7 +232,9 @@ certifications: [isms-p]
 ████████████████████████████████░░░ 81% (17/21)
 └─ 미준수: 파기 프로세스 2개, 동의 관리 2개
 
+
 ```
+-->
 -->
 -->
 
@@ -240,6 +251,7 @@ certifications: [isms-p]
 
 #### 5. 인증 일정 및 예산
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -265,7 +277,9 @@ certifications: [isms-p]
 집행액: 6천만원 (50%)
 잔여액: 6천만원
 
+
 ```
+-->
 -->
 -->
 
@@ -343,6 +357,13 @@ certifications: [isms-p]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # S3 버킷 암호화 설정 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # S3 버킷 암호화 설정
 # ISMS-P 요구사항: 저장 데이터 암호화
@@ -358,7 +379,9 @@ Resources:
               KMSMasterKeyID: !Ref KMSKey
             BucketKeyEnabled: true
 
+
 ```
+-->
 -->
 -->
 
@@ -375,6 +398,13 @@ Resources:
 > 
 > ```yaml
 > # ISMS-P 요구사항: 로그 관리 및 모니터링...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # ISMS-P 요구사항: 로그 관리 및 모니터링 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -396,7 +426,9 @@ Resources:
       CloudWatchLogsLogGroupArn: !GetAtt CloudWatchLogGroup.Arn
       CloudWatchLogsRoleArn: !GetAtt CloudWatchLogsRole.Arn
 
+
 ```
+-->
 -->
 -->
 

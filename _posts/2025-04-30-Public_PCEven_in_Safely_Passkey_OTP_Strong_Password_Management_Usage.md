@@ -16,6 +16,15 @@ author: "Yongho Ha"
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법'
+  categories_html='<span class="category-tag security">보안</span>'
+  tags_html='<span class="tag">Passkey</span> <span class="tag">OTP</span> <span class="tag">Password-Manager</span> <span class="tag">Authentication</span>'
+  highlights_html='<li><strong>포인트 1</strong>: ### 위험도 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2025-04-30 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 핵심 요약
 
 ### 위험도 스코어카드
@@ -95,6 +104,8 @@ schema_type: Article
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+
 ```python
 # 키로거 예시 (교육 목적)
 import pynput.keyboard as keyboard
@@ -129,6 +140,8 @@ listener.start()
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+
 ```javascript
 // 안전하지 않은 세션 쿠키
 document.cookie = "sessionid=abc123; path=/";
@@ -145,6 +158,8 @@ document.cookie = "sessionid=abc123; path=/; Secure; HttpOnly; SameSite=Strict; 
 #### 1.2.3 중간자 공격 (Man-in-the-Middle)
 
 **공용 Wi-Fi 공격 시나리오:**
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
@@ -210,6 +225,8 @@ Layer 4: Password Manager (Zero Knowledge)
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # Qubes OS에서 일회용 VM 생성
 qvm-run --dispvm firefox https://banking.example.com
@@ -240,6 +257,13 @@ qvm-run --dispvm firefox https://banking.example.com
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Cloudflare Browser Isolation 설정 예시 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Cloudflare Browser Isolation 설정 예시
 cloudflare_gateway:
@@ -252,7 +276,9 @@ cloudflare_gateway:
           - http.request.uri.path contains "banking"
           - http.request.uri.path contains "admin"
 
+
 ```
+-->
 -->
 -->
 
@@ -324,6 +350,7 @@ cloudflare_gateway:
 **패스키 인증 (공개키 방식):**
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [등록 단계]
 1. 사용자 디바이스에서 키 쌍 생성
@@ -336,7 +363,9 @@ cloudflare_gateway:
 2. 디바이스가 개인키로 서명
 3. 서버가 공개키로 서명 검증
 
+
 ```
+-->
 -->
 -->
 
@@ -353,6 +382,13 @@ cloudflare_gateway:
 > 
 > ```javascript
 > // 패스키 등록 (Registration)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // 패스키 등록 (Registration) [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -393,7 +429,9 @@ const assertion = await navigator.credentials.get({
   }
 });
 
+
 ```
+-->
 -->
 -->
 
@@ -529,6 +567,13 @@ const assertion = await navigator.credentials.get({
 > # 1. GitHub 설정 페이지...
 > ```
 
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. GitHub 설정 페이지 [truncated]
+> ```
+
 <!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. GitHub 설정 페이지
@@ -542,7 +587,9 @@ const assertion = await navigator.credentials.get({
 
 # 5. 키 이름 설정: "YubiKey 5C NFC - Primary"
 
+
 ```
+-->
 -->
 -->
 
@@ -584,6 +631,8 @@ const assertion = await navigator.credentials.get({
 #### 2.5.2 Google Password Manager
 
 **동기화 메커니즘:**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
@@ -640,6 +689,13 @@ access_control:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import hmac [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import hmac
 import hashlib
@@ -675,7 +731,9 @@ secret = "JBSWY3DPEHPK3PXP"  # Base32 인코딩된 비밀키
 code = generate_totp(secret)
 print(f"현재 OTP 코드: {code}")
 
+
 ```
+-->
 -->
 -->
 
@@ -701,6 +759,13 @@ print(f"현재 OTP 코드: {code}")
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> def generate_hotp(secret, counter, digits=6): [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 def generate_hotp(secret, counter, digits=6):
     """
@@ -722,7 +787,9 @@ for counter in range(5):
     code = generate_hotp(secret, counter)
     print(f"카운터 {counter}: {code}")
 
+
 ```
+-->
 -->
 -->
 
@@ -803,6 +870,8 @@ Authy는 암호화된 OTP 시드를 Twilio 서버에 저장합니다.
 - ✅ **PIN/생체 인증** 잠금
 
 **GitHub 리포지토리:**
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
@@ -932,6 +1001,13 @@ SS7은 통신사 간 신호 교환 프로토콜입니다.
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import math [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import math
 
@@ -951,7 +1027,9 @@ print(f"12자리 영숫자: {calculate_entropy(62, 12):.1f} bits")  # 71.5 bits
 # 예시 3: 16자리 대소문자+숫자+특수문자
 print(f"16자리 전체: {calculate_entropy(94, 16):.1f} bits")  # 105.2 bits
 
+
 ```
+-->
 -->
 -->
 
@@ -984,6 +1062,13 @@ print(f"16자리 전체: {calculate_entropy(94, 16):.1f} bits")  # 105.2 bits
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # Diceware 단어 목록 (일부 예시) [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # Diceware 단어 목록 (일부 예시)
 diceware_list = {
@@ -998,7 +1083,9 @@ passphrase = "apple-bridge-castle-dragon-eagle"
 # 엔트로피: log2(7776^5) = 64.6 bits
 # 길이: 36자 (공백 포함)
 
+
 ```
+-->
 -->
 -->
 
@@ -1008,6 +1095,8 @@ passphrase = "apple-bridge-castle-dragon-eagle"
 - **타이핑 편리**: 특수문자 없음
 
 **생성 방법:**
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
@@ -1036,6 +1125,13 @@ diceware --num 5 --delimiter "-"
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> import secrets [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 import secrets
 import string
@@ -1052,7 +1148,9 @@ def generate_strong_password(length=16):
 pwd = generate_strong_password(16)
 print(pwd)  # 예시: "xK9$mP2#nQ5@rL8&"
 
+
 ```
+-->
 -->
 -->
 
@@ -1083,6 +1181,13 @@ print(pwd)  # 예시: "xK9$mP2#nQ5@rL8&"
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> features: [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 features:
   business:
@@ -1101,7 +1206,9 @@ features:
     family: $4.99/month (5명)
     business: $7.99/user/month
 
+
 ```
+-->
 -->
 -->
 
@@ -1116,6 +1223,8 @@ features:
 #### 4.3.2 Bitwarden
 
 **오픈소스 투명성:**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
@@ -1146,6 +1255,7 @@ docker-compose up -d  # 자체 서버에서 운영
 **로컬 전용 비밀번호 매니저:**
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```ini
 # KeePass 데이터베이스 설정
 [Security]
@@ -1158,7 +1268,9 @@ Location=C:\Users\User\Documents\passwords.kdbx
 BackupEnabled=true
 BackupLocation=D:\Backups\
 
+
 ```
+-->
 -->
 -->
 
@@ -1195,6 +1307,8 @@ BackupLocation=D:\Backups\
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
 ```bash
 # USB 드라이브에 KeePassXC Portable 설치
 1. https://keepassxc.org/download/ 에서 Portable ZIP 다운로드
@@ -1209,6 +1323,7 @@ BackupLocation=D:\Backups\
 **1Password Emergency Kit (응급 복구 키트):**
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 인쇄하여 안전한 곳에 보관:
 - Secret Key (34자리)
@@ -1221,7 +1336,9 @@ BackupLocation=D:\Backups\
 3. "모든 세션 로그아웃" 실행
 4. Master Password 변경
 
+
 ```
+-->
 -->
 -->
 
@@ -1242,6 +1359,13 @@ BackupLocation=D:\Backups\
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // 1Password 브라우저 확장 설정 (Chrome) [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```javascript
 // 1Password 브라우저 확장 설정 (Chrome)
 {
@@ -1258,7 +1382,9 @@ BackupLocation=D:\Backups\
   }
 }
 
+
 ```
+-->
 -->
 -->
 
@@ -1313,6 +1439,7 @@ index=auth action=login
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=auth action=login result=success
 | iplocation src_ip
@@ -1326,7 +1453,9 @@ index=auth action=login result=success
 | eval severity="critical"
 | eval description="Impossible travel detected: Login from two distant locations in short time"
 
+
 ```
+-->
 -->
 -->
 
@@ -1370,6 +1499,7 @@ SigninLogs
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 SigninLogs
 | where TimeGenerated > ago(7d)
@@ -1386,12 +1516,15 @@ SigninLogs
 | extend Severity = "Critical"
 | extend Description = "MFA denied from unusual location - potential account compromise attempt"
 
+
 ```
+-->
 -->
 -->
 
 #### 5.2.3 Passkey/FIDO2 사용률 모니터링
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -1414,7 +1547,9 @@ SigninLogs
 | where Risk == "High"
 | sort by PasswordLogins desc
 
+
 ```
+-->
 -->
 -->
 
@@ -1431,6 +1566,13 @@ SigninLogs
 > 
 > ```json
 > {...
+> ```
+
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> { [truncated]
 > ```
 
 <!-- 전체 코드는 위 링크 참조
@@ -1488,7 +1630,9 @@ SigninLogs
   }
 }
 
+
 ```
+-->
 -->
 -->
 
@@ -1533,6 +1677,13 @@ SigninLogs
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> access_control: [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 access_control:
   - 업무망/인터넷망 물리적 분리
@@ -1549,7 +1700,9 @@ monitoring:
   - 화면 캡처 방지 (Screen Watermark)
   - 인쇄/저장 로그 감사
 
+
 ```
+-->
 -->
 -->
 
@@ -1623,6 +1776,13 @@ monitoring:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // 브라우저 확장 프로그램으로 도메인 검증 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```javascript
 // 브라우저 확장 프로그램으로 도메인 검증
 const trustedDomains = ['naver.com', 'kakao.com', 'google.com'];
@@ -1636,7 +1796,9 @@ if (isPhishing(window.location.href)) {
   alert("⚠️ 피싱 사이트 의심! 즉시 페이지를 닫으세요.");
 }
 
+
 ```
+-->
 -->
 -->
 
@@ -1694,6 +1856,7 @@ if (isPhishing(window.location.href)) {
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 gantt
     title Passkey 도입 로드맵 (6개월)
@@ -1711,7 +1874,9 @@ gantt
         SIEM 쿼리 배포 :2025-08-01, 2025-08-15
         분기별 보안 감사 :milestone, 2025-10-01, 0d
 
+
 ```
+-->
 -->
 -->
 
@@ -1792,6 +1957,8 @@ gantt
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```
 1. 기존 SMS OTP 사용 계정 목록 작성
 2. Google Authenticator 또는 Microsoft Authenticator 설치
@@ -1810,6 +1977,7 @@ gantt
 **사전 준비:**
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 1. Bitwarden에 "Travel Vault" 생성
    - 최소한의 계정만 포함 (이메일, 항공, 호텔)
@@ -1823,11 +1991,14 @@ gantt
 3. 백업 복구 코드 인쇄
    - 지갑에 보관 (디지털 접근 불가 시 사용)
 
+
 ```
+-->
 -->
 -->
 
 **공용 PC 사용 절차:**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -1843,7 +2014,9 @@ gantt
    - 브라우저 완전 종료 (Ctrl+Shift+Delete로 캐시 삭제)
    - 작업 관리자에서 프로세스 확인
 
+
 ```
+-->
 -->
 -->
 
@@ -1880,6 +2053,13 @@ gantt
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> { [truncated]
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```json
   {
     "conditions": {
@@ -1895,7 +2075,9 @@ gantt
   }
   
 
+
 ```
+-->
 -->
 -->
 - [ ] SMS OTP 경고 모드 (7일 유예)

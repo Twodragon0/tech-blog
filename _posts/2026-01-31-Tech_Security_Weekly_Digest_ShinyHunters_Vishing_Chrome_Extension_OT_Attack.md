@@ -117,6 +117,7 @@ schema_type: Article
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     A["1. Reconnaissance<br/>(OSINT/LinkedIn)"] --> B["2. Vishing Call<br/>(IT Helpdesk Impersonation)"]
@@ -132,7 +133,9 @@ graph LR
     style E fill:#ffcccc
     style F fill:#ff6666
 
+
 ```
+-->
 -->
 -->
 
@@ -161,6 +164,7 @@ graph LR
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # Azure AD에서 FIDO2 보안 키 정책 활성화 확인
 Connect-MgGraph -Scopes "Policy.Read.All"
@@ -174,7 +178,9 @@ Get-MgPolicyAuthenticationMethodPolicyAuthenticationMethodConfiguration `
 # Authentication Strength → Phishing-resistant MFA 선택
 # 포함 방법: FIDO2 Security Key, Windows Hello for Business, Certificate-based
 
+
 ```
+-->
 -->
 -->
 
@@ -194,6 +200,13 @@ Get-MgPolicyAuthenticationMethodPolicyAuthenticationMethodConfiguration `
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Okta API로 WebAuthn 팩터 등록 현황 조회 [truncated]
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Okta API로 WebAuthn 팩터 등록 현황 조회
 curl -s -H "Authorization: SSWS ${OKTA_API_TOKEN}" \
@@ -209,7 +222,9 @@ curl -s -H "Authorization: SSWS ${OKTA_API_TOKEN}" \
         fi
     done
 
+
 ```
+-->
 -->
 -->
 
@@ -217,6 +232,7 @@ curl -s -H "Authorization: SSWS ${OKTA_API_TOKEN}" \
 
 #### ShinyHunters 비싱 공격 전체 흐름 (ASCII Diagram)
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -300,7 +316,9 @@ Phase 6: Impact
 │ - IP         │  - Ransom    │  - Reputation│
 └──────────────┴──────────────┴──────────────┘
 
+
 ```
+-->
 -->
 -->
 
@@ -320,6 +338,7 @@ Phase 6: Impact
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=okta sourcetype=OktaIM2:log
 | where eventType IN ("user.session.start", "user.authentication.auth_via_mfa")
@@ -334,7 +353,9 @@ index=okta sourcetype=OktaIM2:log
 | where count > 3 OR unique_ips > 2
 | table actor.displayName, actor.alternateId, count, unique_ips, mfa_types
 
+
 ```
+-->
 -->
 -->
 
@@ -382,6 +403,7 @@ SigninLogs
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 # Splunk: 최근 24시간 내 새로 등록된 MFA 디바이스 확인
 index=okta sourcetype=OktaIM2:log eventType="user.mfa.factor.activate"
@@ -397,7 +419,9 @@ index=okta sourcetype=OktaIM2:log eventType="user.mfa.factor.activate"
     client.ipAddress, client.geographicalContext.country, time_since_login
 | sort - _time
 
+
 ```
+-->
 -->
 -->
 
@@ -464,6 +488,13 @@ jobs:
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> { [truncated]
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```json
 {
   "ExtensionInstallBlocklist": ["*"],
@@ -489,7 +520,9 @@ jobs:
   }
 }
 
+
 ```
+-->
 -->
 -->
 

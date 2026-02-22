@@ -15,6 +15,15 @@ keywords: [Karpenter, Kubernetes, AWS, EKS, PodDisruptionBudget, Post-Mortem]
 author: Twodragon
 ---
 
+{% include ai-summary-card.html
+  title='Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기'
+  categories_html='<span class="category-tag incident">인시던트</span>'
+  tags_html='<span class="tag">Karpenter</span> <span class="tag">Kubernetes</span> <span class="tag">AWS</span> <span class="tag">Post-Mortem</span> <span class="tag">Incident</span> <span class="tag">EKS</span>'
+  highlights_html='<li><strong>포인트 1</strong>: Karpenter v1.5.3 노드 통합 장애 분석. PDB 적용을 통한 재발 방지</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2025-10-02 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 경영진 요약 (Executive Summary)
 
 **장애 개요:** 2025년 10월 2일 15:43, Karpenter v1.5.3의 공격적인 노드 통합 정책과 PodDisruptionBudget 미설정으로 인해 프로덕션 환경에서 10분간 전체 서비스 중단이 발생했습니다.
@@ -174,6 +183,7 @@ Karpenter는 클러스터 비용 최적화를 위해 **노드 통합(Consolidati
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart TD
     subgraph Before["Before Consolidation"]
@@ -190,7 +200,9 @@ flowchart TD
 
     Before -->|Consolidation| After
 
+
 ```
+-->
 -->
 -->
 
@@ -217,6 +229,13 @@ flowchart TD
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # 문제가 된 NodePool 설정 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 문제가 된 NodePool 설정
 apiVersion: karpenter.sh/v1
@@ -236,7 +255,9 @@ spec:
  budgets:
  - nodes: "100%" # 모든 노드 동시 삭제 가능!
 
+
 ```
+-->
 -->
 -->
 -->
@@ -264,6 +285,13 @@ spec:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # PodDisruptionBudget이 없었음 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # PodDisruptionBudget이 없었음
 # 결과: 모든 Pod가 동시에 종료될 수 있음
@@ -279,7 +307,9 @@ spec:
  matchLabels:
  app: api-gateway
 
+
 ```
+-->
 -->
 -->
 -->
@@ -309,6 +339,13 @@ spec:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Karpenter 로그 확인 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Karpenter 로그 확인
 kubectl logs -n karpenter deploy/karpenter -c controller --since=1h | grep -i consolidat
@@ -321,7 +358,9 @@ kubectl logs -n karpenter deploy/karpenter -c controller --since=1h | grep -i co
 15:43:15 INFO controller.node Draining node ip-10-0-1-234
 15:43:15 INFO controller.node Draining node ip-10-0-2-156
 
+
 ```
+-->
 -->
 -->
 -->
@@ -329,6 +368,8 @@ kubectl logs -n karpenter deploy/karpenter -c controller --since=1h | grep -i co
 ### 3.2 Pod 이벤트
 
 > **참고**: Kubernetes Pod 이벤트 분석 관련 내용은 [Kubernetes 이벤트 문서](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/event-v1/) 및 [Kubernetes 디버깅 가이드](https://kubernetes.io/docs/tasks/debug/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -348,6 +389,7 @@ prod 10m Warning Killing pod/order-service-xyz Stopping container...
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 flowchart TD
     IA["Impact Analysis"]
@@ -364,7 +406,9 @@ flowchart TD
     BI --> RL["Revenue loss: ~2,000,000 KRW"]
     BI --> CC["Customer complaints: 50+"]
 
+
 ```
+-->
 -->
 -->
 
@@ -393,6 +437,13 @@ flowchart TD
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. Karpenter 비활성화 (긴급) [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. Karpenter 비활성화 (긴급)
 kubectl scale deployment karpenter -n karpenter --replicas=0
@@ -408,7 +459,9 @@ kubectl get nodes
 # 4. Pod 재시작 강제
 kubectl rollout restart deployment -n prod
 
+
 ```
+-->
 -->
 -->
 -->
@@ -416,6 +469,8 @@ kubectl rollout restart deployment -n prod
 ### 4.2 서비스 복구 확인
 
 > **참고**: Kubernetes Health Check 관련 내용은 [Kubernetes Liveness/Readiness Probes 문서](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -459,6 +514,13 @@ done
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples/aws-k8s-examples)를 참조하세요.
+> 
+> ```yaml
+> # 수정된 NodePool 설정 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 수정된 NodePool 설정
 apiVersion: karpenter.sh/v1
@@ -488,7 +550,9 @@ spec:
  schedule: "0 9-18 * * 1-5" # 업무 시간에는 삭제 금지
  duration: 9h
 
+
 ```
+-->
 -->
 -->
 -->
@@ -515,6 +579,13 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 > 
 > ```yaml
 > # Critical 서비스용 PDB...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Critical 서비스용 PDB [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -559,7 +630,9 @@ spec:
 EOF
 done
 
+
 ```
+-->
 -->
 -->
 -->
@@ -584,6 +657,13 @@ done
 > 
 > ```yaml
 > # 같은 서비스의 Pod를 다른 노드에 분산...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 같은 서비스의 Pod를 다른 노드에 분산 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -612,7 +692,9 @@ spec:
  matchLabels:
  app: api-gateway
 
+
 ```
+-->
 -->
 -->
 -->
@@ -640,6 +722,13 @@ spec:
 > 
 > ```yaml
 > # Prometheus Alert Rules...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Prometheus Alert Rules [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -672,7 +761,9 @@ spec:
  annotations:
  summary: "Karpenter consolidation in progress"
 
+
 ```
+-->
 -->
 -->
 -->
@@ -701,6 +792,13 @@ spec:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Datadog Monitor [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Datadog Monitor
 {
@@ -718,7 +816,9 @@ spec:
  }
 }
 
+
 ```
+-->
 -->
 -->
 -->
@@ -786,6 +886,13 @@ spec:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Karpenter RBAC 강화 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Karpenter RBAC 강화
 apiVersion: rbac.authorization.k8s.io/v1
@@ -816,7 +923,9 @@ data:
         resources: ["nodepools"]
       verbs: ["update", "patch", "delete"]
 
+
 ```
+-->
 -->
 -->
 
@@ -838,6 +947,13 @@ data:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Falco 규칙 - Karpenter 설정 변경 탐지 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Falco 규칙 - Karpenter 설정 변경 탐지
 - rule: Karpenter NodePool Configuration Changed
@@ -853,7 +969,9 @@ data:
   priority: WARNING
   tags: [karpenter, security, configuration]
 
+
 ```
+-->
 -->
 -->
 
@@ -917,6 +1035,13 @@ GET /kubernetes-audit-*/_search
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 금융권 필수 설정: 업무시간 노드 변경 금지 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 금융권 필수 설정: 업무시간 노드 변경 금지
 apiVersion: karpenter.sh/v1
@@ -934,7 +1059,9 @@ spec:
       schedule: "0 0-6 * * *"
       duration: 6h
 
+
 ```
+-->
 -->
 -->
 
@@ -973,6 +1100,13 @@ spec:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```mermaid
+> graph TB [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```mermaid
 graph TB
     subgraph "AWS EKS Cluster"
@@ -1008,7 +1142,9 @@ graph TB
     style N2 fill:#ffeb99
     style N3 fill:#ffeb99
 
+
 ```
+-->
 -->
 -->
 
@@ -1025,6 +1161,13 @@ graph TB
 > 
 > ```mermaid
 > sequenceDiagram...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```mermaid
+> sequenceDiagram [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -1067,7 +1210,9 @@ sequenceDiagram
 
     Note over U: 15:44:00 - 15:50:00<br/>Complete Service Outage
 
+
 ```
+-->
 -->
 -->
 
@@ -1084,6 +1229,13 @@ sequenceDiagram
 > 
 > ```mermaid
 > graph TB...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```mermaid
+> graph TB [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -1125,7 +1277,9 @@ graph TB
     style P3 fill:#99ccff
     style MON fill:#ffcc99
 
+
 ```
+-->
 -->
 -->
 
@@ -1149,6 +1303,13 @@ graph TB
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # 1. 공격적 consolidation 정책 감지 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. 공격적 consolidation 정책 감지
 kubectl get nodepool -o yaml | grep -A 5 "consolidationPolicy"
@@ -1166,13 +1327,17 @@ kubectl get deploy --all-namespaces -o json | \
     fi
   done
 
+
 ```
+-->
 -->
 -->
 
 ### 12.2 실시간 위협 탐지 쿼리
 
 **Splunk Query:**
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -1211,6 +1376,13 @@ sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # incident-forensics.sh
@@ -1240,7 +1412,9 @@ kubectl get nodes --show-labels > $OUTPUT_DIR/nodes-state.txt
 
 echo "Forensics data collected in $OUTPUT_DIR"
 
+
 ```
+-->
 -->
 -->
 

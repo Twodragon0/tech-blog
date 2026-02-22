@@ -15,6 +15,15 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag incident">인시던트</span>'
+  tags_html='<span class="tag">Ransomware</span> <span class="tag">KARA</span> <span class="tag">SK-Shieldus</span> <span class="tag">LockBit</span> <span class="tag">Akira</span> <span class="tag">INC-Ransomware</span> <span class="tag">Threat-Intelligence</span> <span class="tag">DevSecOps</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 2025년 3분기 랜섬웨어 1,517건 발생. LockBit 5.0 재등장, Akira 제조업 타겟, 제로 트러스트 대응 전략</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-01-22 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.
@@ -148,6 +157,13 @@ schema_type: Article
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # LockBit 5.0 공격 체인 분석 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # LockBit 5.0 공격 체인 분석
 attack_chain:
@@ -186,12 +202,15 @@ attack_chain:
     - encryption: ChaCha20 + RSA-4096
     - deletion: Shadow Copy, Backup Catalogs
 
+
 ```
+-->
 -->
 -->
 
 #### LockBit 5.0 YARA 탐지 룰
 
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```yara
@@ -231,7 +250,9 @@ rule LockBit_5_0_Ransomware
         )
 }
 
+
 ```
+-->
 -->
 -->
 
@@ -262,6 +283,13 @@ SK쉴더스 EQST의 "Keep up with Ransomware" 시리즈에서 집중 분석한 *
 > 
 > ```yaml
 > title: INC Ransomware Process Activity...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> title: INC Ransomware Process Activity [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -306,7 +334,9 @@ tags:
 falsepositives:
     - Legitimate backup software
 
+
 ```
+-->
 -->
 -->
 
@@ -334,6 +364,13 @@ falsepositives:
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # SonicWall 취약점 확인 명령어 [truncated]
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # SonicWall 취약점 확인 명령어
 # CVE-2024-40766 영향받는 버전 확인
@@ -350,7 +387,9 @@ show version
 # 2. SSLVPN Default Users Group 비활성화
 # 3. MFA 강제 적용
 
+
 ```
+-->
 -->
 -->
 
@@ -422,6 +461,13 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 2025년 3분기 주요 EDR 우회 기법 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # 2025년 3분기 주요 EDR 우회 기법
 edr_evasion_techniques:
@@ -473,7 +519,9 @@ edr_evasion_techniques:
       - "알려진 취약 드라이버 로드 탐지"
       - "드라이버 로드 이벤트 모니터링 (Sysmon ID 6)"
 
+
 ```
+-->
 -->
 -->
 
@@ -506,6 +554,7 @@ edr_evasion_techniques:
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 Why Manufacturing is Ransomware Target #1:
 1. Extremely High Downtime Costs - Hundreds of thousands per minute, production delays, supply chain impact
@@ -515,7 +564,9 @@ Why Manufacturing is Ransomware Target #1:
 
 Response Strategy: OT/IT network separation, industrial firewalls/IDS/IPS, OT-specific EDR, regular OT security assessments
 
+
 ```
+-->
 -->
 -->
 
@@ -548,6 +599,13 @@ Response Strategy: OT/IT network separation, industrial firewalls/IDS/IPS, OT-sp
 > 
 > ```yaml
 > # 제로 트러스트 구현 체크리스트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 제로 트러스트 구현 체크리스트 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -606,7 +664,9 @@ zero_trust_implementation:
         - "24x7 SOC 운영"
       tools: [Splunk, Microsoft Sentinel, Elastic SIEM]
 
+
 ```
+-->
 -->
 -->
 
@@ -621,6 +681,8 @@ zero_trust_implementation:
 
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
@@ -653,6 +715,13 @@ zero_trust_implementation:
 > ```
 
 <!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> { [truncated]
+> ```
+
+<!-- 전체 코드는 위 링크 참조
 ```json
 {
     "Rules": [
@@ -670,7 +739,9 @@ zero_trust_implementation:
     ]
 }
 
+
 ```
+-->
 -->
 -->
 
@@ -685,6 +756,13 @@ zero_trust_implementation:
 > 
 > ```bash
 > # AWS CLI로 Object Lock 설정...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```bash
+> # AWS CLI로 Object Lock 설정 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -702,7 +780,9 @@ aws s3api put-object-lock-configuration \
         }
     }'
 
+
 ```
+-->
 -->
 -->
 
@@ -719,6 +799,13 @@ aws s3api put-object-lock-configuration \
 > 
 > ```yaml
 > # Sigma 룰 - 랜섬웨어 초기 침투 징후 탐지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Sigma 룰 - 랜섬웨어 초기 침투 징후 탐지 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -793,7 +880,9 @@ falsepositives:
     - Legitimate admin activities
     - Software deployment tools
 
+
 ```
+-->
 -->
 -->
 
@@ -810,6 +899,13 @@ falsepositives:
 > 
 > ```yaml
 > # 랜섬웨어 침해사고 대응 플레이북...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # 랜섬웨어 침해사고 대응 플레이북 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -883,7 +979,9 @@ ransomware_incident_response:
       - "[ ] 탐지 룰 개선"
       - "[ ] 훈련 프로그램 업데이트"
 
+
 ```
+-->
 -->
 -->
 

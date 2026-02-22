@@ -15,6 +15,15 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign Cloud'
+  categories_html='<span class="category-tag cloud">클라우드</span> <span class="category-tag devops">DevOps</span>'
+  tags_html='<span class="tag">AWS</span> <span class="tag">GCP</span> <span class="tag">EC2-G7e</span> <span class="tag">EC2-X8i</span> <span class="tag">NVIDIA-Blackwell</span> <span class="tag">Bangkok-Region</span> <span class="tag">European-Sovereign-Cloud</span> <span class="tag">Gemini-3</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 2026년 1월 AWS/GCP 업데이트는 **AI 인프라 성숙도**와 **데이터 주권 대응**이라는 두 축으로 요약됩니다. 기업 의사결정자는 다음 세 가지 핵심 사항에 집중해야 합니다:</li> <li><strong>포인트 2</strong>: ### 핵심 업데이트 및 영향도</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-01-22 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 핵심 요약
 
 2026년 1월 AWS/GCP 업데이트는 **AI 인프라 성숙도**와 **데이터 주권 대응**이라는 두 축으로 요약됩니다. 기업 의사결정자는 다음 세 가지 핵심 사항에 집중해야 합니다:
@@ -149,6 +158,13 @@ AWS가 **EC2 G7e 인스턴스**를 정식 출시했습니다. NVIDIA RTX PRO 600
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```python
+> # G7e 인스턴스에서 LLM 추론 서빙 예시 [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # G7e 인스턴스에서 LLM 추론 서빙 예시
 # requirements: vllm, transformers
@@ -180,7 +196,9 @@ outputs = llm.generate(prompts, sampling_params)
 for output in outputs:
     print(f"Generated: {output.outputs[0].text}")
 
+
 ```
+-->
 -->
 -->
 
@@ -231,6 +249,13 @@ for output in outputs:
               - Disaster Recovery (Singapore)
               - Geo-redundancy for compliance
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> --> [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 -->
 -->
@@ -415,9 +440,13 @@ ORDER BY timestamp DESC;
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
-> ```python
+> 
+```
+-->python
 > # 한국 기업을 위한 클라우드 비용 예측 스크립트...
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
@@ -480,6 +509,13 @@ def estimate_cloud_cost_krw(
 result = estimate_cloud_cost_krw("g7e.xlarge")
 print(f"EC2 G7e 월간 비용: ${result['cost_usd']} / ₩{result['cost_krw']:,}")
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> --> [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 -->
 -->
@@ -643,9 +679,13 @@ AWS와 Google Cloud가 2026년 1월 발표한 주요 업데이트는 **AI 인프
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
-> ```plaintext
+> 
+```
+-->plaintext
 > [AI Inference Pipeline with EC2 G7e]...
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
@@ -703,6 +743,8 @@ Performance Metrics:
 - Throughput: 100+ requests/sec per GPU
 - Cost: $2.8/hour (g7e.2xlarge) vs $4.0/hour (p4d.24xlarge)
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```
 -->
 -->
@@ -713,7 +755,9 @@ Performance Metrics:
 > 
 > ```plaintext
 > [SAP HANA High Availability on EC2 X8i]...
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
@@ -777,6 +821,8 @@ Cost Optimization:
 - Savings Plans (Compute): Additional 10-15% on top of RI
 - EBS Snapshots: Lifecycle to Glacier after 30 days
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```
 -->
 -->
@@ -787,7 +833,9 @@ Cost Optimization:
 > 
 > ```plaintext
 > [Multi-Cloud Hybrid Architecture: AWS + GCP]...
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
@@ -852,6 +900,13 @@ Benefits:
 - Geo-redundancy (AWS Seoul ↔ GCP Bangkok)
 - Regulatory compliance (EU Sovereign Cloud)
 
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> --> [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 -->
 -->
@@ -1087,7 +1142,9 @@ Benefits:
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 > 
-> ```python
+> 
+```
+-->python
 > # 월간 비용 계산 (730시간 기준)...
 > ```
 

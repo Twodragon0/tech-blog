@@ -16,6 +16,15 @@ author: "Yongho Ha"
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성'
+  categories_html='<span class="category-tag security">보안</span>'
+  tags_html='<span class="tag">SKT</span> <span class="tag">MFA</span> <span class="tag">USIM</span> <span class="tag">Security-Incident</span>'
+  highlights_html='<li><strong>포인트 1</strong>: ### 위험 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2025-04-29 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 핵심 요약
 
 ### 위험 스코어카드
@@ -348,7 +357,9 @@ Attacker → SS7 네트워크 침투
 # example omitted: see reference link
 ```bash
 > # 1. Google 계정 보안 설정...
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 외부 참조 링크를 확인하세요. -->
 
@@ -400,7 +411,9 @@ IMEI 1 / IMEI 2 (듀얼심)
 # example omitted: see reference link
 ```yaml
 > # IMEI 정보 관리 템플릿...
-> ```
+> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+```
 
 <!-- 전체 코드는 외부 참조 링크를 확인하세요. -->
 
@@ -437,6 +450,8 @@ IMEI 1 / IMEI 2 (듀얼심)
     └────┬────┘
          ↓
    서비스 접근 허용 (최소 권한)
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
 ```
 
 **Zero Trust 구현 요소:**

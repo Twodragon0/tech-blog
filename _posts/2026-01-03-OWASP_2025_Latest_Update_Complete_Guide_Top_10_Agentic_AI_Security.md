@@ -15,6 +15,15 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">OWASP</span> <span class="tag">Security</span> <span class="tag">Top10</span> <span class="tag">AI</span> <span class="tag">DevSecOps</span> <span class="tag">Application Security</span>'
+  highlights_html='<li><strong>포인트 1</strong>: ### 종합 위험 점수카드</li> <li><strong>포인트 2</strong>: 본 평가는 OWASP Top 10 2025 취약점을 기준으로 조직의 웹 애플리케이션 보안 위험을 평가합니다.</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-01-03 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 서론
 
 2025년은 OWASP(Open Web Application Security Project) 커뮤니티에 있어 중요한 전환점이었습니다. 4년 만에 발표된 **OWASP Top 10 2025**는 애플리케이션 보안 분야의 새로운 위협을 반영하며, 특히 **소프트웨어 공급망 공격**과 **AI 보안**에 대한 관심이 크게 증가했습니다.
@@ -169,6 +178,7 @@ OWASP Top 10 2025의 각 취약점은 실제 공격자가 사용하는 전술과
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 [1단계] Supply Chain 침해 (A03)
   ↓ MITRE T1195.002: Compromise Software Supply Chain
@@ -190,7 +200,9 @@ API 권한 검증 누락 → 관리자 권한 획득
   ↓ MITRE T1070.002: Clear Linux or Mac System Logs
 보안 로그 삭제 → 포렌식 증거 제거
 
+
 ```
+-->
 -->
 -->
 
@@ -239,6 +251,7 @@ index=security sourcetype=package_manager action=install
 **Splunk SPL - A01 Broken Access Control 탐지**
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=web_logs status=200
 | rex field=uri "(?<endpoint>/admin/.*|/api/.*/delete)"
@@ -251,11 +264,14 @@ index=web_logs status=200
 | eval severity="high"
 | table _time, user, endpoint, src_ip, severity
 
+
 ```
+-->
 -->
 -->
 
 **Splunk SPL - A04 Cryptographic Failures 탐지**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
@@ -270,11 +286,14 @@ index=network_traffic protocol=TLS
   )
 | where risk_score >= 8
 
+
 ```
+-->
 -->
 -->
 
 **Splunk SPL - A07 Authentication Failures 탐지**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
@@ -289,7 +308,9 @@ index=auth action=login status=failed
 | where time_diff < 300  /* 5분 내 연속 실패 */
 | eval alert="Brute force attack detected"
 
+
 ```
+-->
 -->
 -->
 -->
@@ -314,6 +335,7 @@ SecurityEvent
 **KQL - A01 API 권한 우회 탐지**
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 ApiManagementGatewayLogs
 | where ResponseCode == 200
@@ -326,11 +348,14 @@ ApiManagementGatewayLogs
 | project TimeGenerated, UserId, Url, Method, ResponseCode, ClientIP
 | extend Severity = "High"
 
+
 ```
+-->
 -->
 -->
 
 **KQL - A04 약한 TLS 버전 탐지**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -345,7 +370,9 @@ AzureDiagnostics
   )
 | where RiskScore >= 8
 
+
 ```
+-->
 -->
 -->
 
@@ -363,6 +390,7 @@ AppServiceHTTPLogs
 **KQL - A07 무차별 대입 공격 탐지**
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 SigninLogs
 | where ResultType != "0"  // Failed logins
@@ -376,11 +404,14 @@ SigninLogs
 | where TimeGenerated - SuccessTime < 5m
 | extend Alert = "Brute force attack detected"
 
+
 ```
+-->
 -->
 -->
 
 **KQL - A09 보안 로그 삭제 탐지**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -396,7 +427,9 @@ SecurityEvent
 | project TimeGenerated, Computer, ClearedBy, SuspiciousProcess, CommandLine
 | extend Severity = "Critical"
 
+
 ```
+-->
 -->
 -->
 -->
@@ -409,6 +442,7 @@ SecurityEvent
 Threat Hunting Query: npm Shai-Hulud Worm Detection
 
 **Splunk SPL - 의심스러운 npm 스크립트 실행 탐지**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
@@ -425,11 +459,14 @@ index=security sourcetype=npm_lifecycle
 | where threat_score >= 8
 | sort -threat_score
 
+
 ```
+-->
 -->
 -->
 
 **Azure Sentinel KQL - 패키지 다운로드 이상 패턴**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -447,7 +484,9 @@ SecurityEvent
 | where HourlyCount > baseline * 3  // 평균 대비 3배 이상
 | extend Alert = "Abnormal package download activity"
 
+
 ```
+-->
 -->
 -->
 -->
@@ -458,6 +497,7 @@ SecurityEvent
 Threat Hunting Query: Lateral Movement via Broken Access Control
 
 **Splunk SPL - API 엔드포인트 권한 우회 패턴**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
@@ -473,11 +513,14 @@ index=web_logs method=POST status=200
 | stats count by user, target_user_id, uri, src_ip
 | where count >= 3
 
+
 ```
+-->
 -->
 -->
 
 **Azure Sentinel KQL - 비정상적인 리소스 접근 패턴**
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -492,7 +535,9 @@ ApiManagementGatewayLogs
 | where AccessCount >= 3
 | extend Alert = "Unauthorized resource access pattern"
 
+
 ```
+-->
 -->
 -->
 -->
@@ -516,6 +561,7 @@ index=network_traffic protocol=TLS
 **Azure Sentinel KQL - 약한 암호화 스위트 협상**
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 AzureDiagnostics
 | where ResourceType == "APPLICATIONGATEWAYS"
@@ -530,7 +576,9 @@ AzureDiagnostics
   )
 | where RiskLevel in ("Critical", "High")
 
+
 ```
+-->
 -->
 -->
 -->
@@ -616,6 +664,7 @@ npm audit --audit-level=moderate
 npm audit fix --force
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 
 > **⚠️ 보안 주의사항**
@@ -648,7 +697,9 @@ npm audit fix --force
 > 
 > 
 
+
 ```
+-->
 -->
 -->python
 > # Python 암호화 모범 사례...

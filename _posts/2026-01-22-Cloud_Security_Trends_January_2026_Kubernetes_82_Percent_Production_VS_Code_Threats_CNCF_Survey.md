@@ -15,6 +15,15 @@ toc: true
 schema_type: Article
 ---
 
+{% include ai-summary-card.html
+  title='2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가, CNCF 연례 조사 분석'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devops">쿠버네티스</span>'
+  tags_html='<span class="tag">Kubernetes</span> <span class="tag">Cloud-Security</span> <span class="tag">CNCF</span> <span class="tag">VS-Code-Security</span> <span class="tag">Platform-Engineering</span> <span class="tag">GPU-Scheduling</span> <span class="tag">CRI-O-Audit</span> <span class="tag">Net-NTLMv1</span>'
+  highlights_html='<li><strong>포인트 1</strong>: ### 위험 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  period='2026-01-22 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
+
 ## 핵심 요약
 
 ### 위험 스코어카드
@@ -95,6 +104,8 @@ index=firewall OR index=proxy
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 ```spl
 index=k8s sourcetype=kube:audit
 | search verb IN ("create", "update", "patch")
@@ -111,6 +122,8 @@ index=k8s sourcetype=kube:audit
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
 ```spl
 index=linux sourcetype=syslog OR sourcetype=auditd
 | search (process="runc" OR process="crio") AND
@@ -122,6 +135,8 @@ index=linux sourcetype=syslog OR sourcetype=auditd
 ```
 
 ### 4. GPU 리소스 하이재킹 탐지
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
@@ -151,6 +166,7 @@ index=windows sourcetype=WinEventLog:Security EventCode=4624
 ### 1. VS Code 악성 확장 프로그램 설치 탐지
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 DeviceProcessEvents
 | where ProcessCommandLine has_any ("code --install-extension", "code.exe --install-extension")
@@ -164,11 +180,14 @@ DeviceProcessEvents
 | where InstallCount > 5
 | extend Severity = "High", ThreatType = "Supply Chain Compromise"
 
+
 ```
+-->
 -->
 -->
 
 ### 2. Kubernetes 비정상 ClusterRoleBinding 생성
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -183,7 +202,9 @@ KubeAuditEvents
 | extend Severity = "Critical", MITRE_Technique = "T1078.004"
 | project TimeGenerated, User, SourceIPs, RoleName, SubjectName, Severity, MITRE_Technique
 
+
 ```
+-->
 -->
 -->
 
@@ -202,6 +223,7 @@ Syslog
 ### 4. GPU 크립토마이닝 의심 활동
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 InsightsMetrics
 | where Namespace == "prometheus" and Name == "nvidia_smi_utilization_gpu_ratio"
@@ -215,7 +237,9 @@ InsightsMetrics
 | extend Severity = "Medium", MITRE_Technique = "T1496"
 | project TimeGenerated, PodName, AvgGPUUsage, Namespace, Severity
 
+
 ```
+-->
 -->
 -->
 
@@ -235,6 +259,7 @@ SecurityEvent
 ### 6. VS Code Remote Tunnel C2 트래픽 패턴
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 DeviceNetworkEvents
 | where RemoteUrl has_any ("vscode.dev", "devtunnels.ms", "tunnels.api.visualstudio.com")
@@ -250,7 +275,9 @@ DeviceNetworkEvents
 | where TotalBytes > 104857600 or SessionCount > 10 // 100MB or 10+ sessions
 | extend Severity = "High", MITRE_Technique = "T1071.001"
 
+
 ```
+-->
 -->
 -->
 
@@ -280,6 +307,8 @@ CNCF의 2025년 연례 클라우드 네이티브 조사에서 Kubernetes는 더 
 
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -397,6 +426,13 @@ Jamf Threat Labs의 분석에 따르면, 공격자들이 Microsoft Visual Studio
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> 
+> ```
+> Impact [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 Impact
   ↑
@@ -411,7 +447,9 @@ LOW │                        [GPU 낭비]
     └────────────────────────────────→ Likelihood
        LOW        MED         HIGH
 
+
 ```
+-->
 -->
 -->
 
@@ -440,6 +478,13 @@ LOW │                        [GPU 낭비]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```
+> Q1 2026 (Jan - Mar) [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 Q1 2026 (Jan - Mar)
 ├─ Week 1-2: Net-NTLMv1 환경 감사 완료
@@ -457,7 +502,9 @@ Q3 2026 (Jul - Sep)
 ├─ 개발자 보안 교육 프로그램 런칭
 └─ 컨테이너 보안 성숙도 평가 (외부 감사)
 
+
 ```
+-->
 -->
 -->
 
@@ -482,6 +529,7 @@ Q3 2026 (Jul - Sep)
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // Azure Sentinel KQL
 KubeAuditEvents
@@ -498,7 +546,9 @@ KubeAuditEvents
 )
 | project TimeGenerated, User, SourceIPs, AccessCount, Operations, ThreatScore
 
+
 ```
+-->
 -->
 -->
 
@@ -518,6 +568,13 @@ KubeAuditEvents
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```spl
+> # Splunk SPL [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```spl
 # Splunk SPL
 index=k8s sourcetype=kube:audit
@@ -532,7 +589,9 @@ index=k8s sourcetype=kube:audit
 | table _time, user.username, sourceIPs{}, objectRef.namespace, count, severity
 | sort - count
 
+
 ```
+-->
 -->
 -->
 
@@ -552,6 +611,13 @@ index=k8s sourcetype=kube:audit
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Falco Rule (Kubernetes Runtime Security) [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Falco Rule (Kubernetes Runtime Security)
 - rule: Suspicious kubectl exec into Pod
@@ -568,13 +634,17 @@ index=k8s sourcetype=kube:audit
   priority: WARNING
   tags: [kubernetes, exec, shell]
 
+
 ```
+-->
 -->
 -->
 
 ### 10.2 컨테이너 런타임 이상 행위 탐지
 
 #### Query 4: 특권 컨테이너 생성 추적
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -606,6 +676,13 @@ index=k8s sourcetype=kube:audit
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> 
+> ```kql
+> // Azure Sentinel KQL [truncated]
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```kql
 // Azure Sentinel KQL
 KubeAuditEvents
@@ -622,13 +699,17 @@ KubeAuditEvents
     "Medium"
 )
 
+
 ```
+-->
 -->
 -->
 
 ### 10.3 네트워크 이상 징후 탐지
 
 #### Query 6: 비정상 아웃바운드 트래픽 (C2 통신 가능성)
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -648,6 +729,7 @@ index=k8s_network OR index=firewall
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // Azure Sentinel KQL
 KubeAuditEvents
@@ -661,7 +743,9 @@ KubeAuditEvents
 | extend Severity = "Critical - Potential brute force attack followed by success"
 | project TimeGenerated, SourceIPs, FailedAttempts, User, Severity
 
+
 ```
+-->
 -->
 -->
 
@@ -680,6 +764,13 @@ KubeAuditEvents
 > 
 > ```python
 > # Prometheus PromQL → Python 분석 스크립트...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
+> 
+> ```python
+> # Prometheus PromQL → Python 분석 스크립트 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -714,7 +805,9 @@ def detect_crypto_mining():
             print(f"[ALERT] Crypto mining suspected: {namespace}/{pod_name} GPU={gpu_usage:.2%}")
             # SIEM으로 알림 전송
 
+
 ```
+-->
 -->
 -->
 
@@ -733,6 +826,13 @@ def detect_crypto_mining():
 > 
 > ```yaml
 > # Azure Sentinel Analytics Rule...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Azure Sentinel Analytics Rule [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -761,7 +861,9 @@ query: |
   | project TimeGenerated, User, PodName, SecretAccessCount, ExecPod, ThreatScore
   | extend Recommendation = "Immediate investigation required - Potential APT activity"
 
+
 ```
+-->
 -->
 -->
 
