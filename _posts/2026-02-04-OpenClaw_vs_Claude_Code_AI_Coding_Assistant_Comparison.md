@@ -204,23 +204,7 @@ claude config set network_access "restricted"
 
 Claude Code는 CI/CD 파이프라인에 네이티브로 통합됩니다. [Anthropic 공식 문서](https://docs.anthropic.com/en/docs/claude-code/github-actions)에서 GitHub Actions 연동을 공식 지원합니다:
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> {% raw %}...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> {% raw %}...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-```yaml
-{% raw %}
-# .github/workflows/claude-code-review.yml
+> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./claude-code-review.yml
 # Claude Code를 활용한 자동 코드 리뷰 파이프라인
 name: Claude Code Security Review
 on:
@@ -275,20 +259,20 @@ jobs:
 
 Claude Code를 활용한 Shift-Left Security는 **코드 작성 시점에서 보안 문제를 발견**하는 접근법입니다:
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Pre-commit hook으로 Claude Code 보안 검사 실행...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Pre-commit hook으로 Claude Code 보안 검사 실행...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Pre-commit hook으로 Claude Code 보안 검사 실행
 #!/bin/bash
@@ -758,20 +742,20 @@ AI 코딩 어시스턴트 성공 패턴:
 
 Claude Code의 효과적인 활용법으로 **병렬 Git Worktree 전략**이 있습니다:
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # 병렬 세션 전략 - 생산성 극대화...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # 병렬 세션 전략 - 생산성 극대화...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # 병렬 세션 전략 - 생산성 극대화
 # 3-5개의 Git Worktree를 동시에 운영
@@ -1010,20 +994,20 @@ Q1: 엔터프라이즈 환경인가?
 
 ### 9.1 Claude Code: 5분 설치 가이드
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Step 1: Node.js 18+ 설치 확인...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Step 1: Node.js 18+ 설치 확인...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # Step 1: Node.js 18+ 설치 확인
 node --version  # v18.0.0 이상
@@ -1063,14 +1047,14 @@ claude config set allowed_tools "Bash(git *),Read,Write"  # 권한 설정
 
 > **경고**: OpenClaw를 설치하기 전에 CVE-2026-25253 패치 여부를 반드시 확인하세요. 프로덕션 환경에서의 사용은 권장하지 않습니다.
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 > 
 > ```bash
 > # Step 1: 보안 사전 점검...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 > 
 > ```bash
 > # Step 1: 보안 사전 점검...
