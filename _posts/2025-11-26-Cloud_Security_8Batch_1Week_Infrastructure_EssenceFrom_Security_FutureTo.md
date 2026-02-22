@@ -16,15 +16,6 @@ keywords: [Infrastructure, Cloud-Security, AWS, Zero Trust, AI보안, Post-quant
 author: Twodragon
 ---
 
-{% include ai-summary-card.html
-  title='클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지'
-  categories_html='<span class="category-tag cloud">클라우드</span>'
-  tags_html='<span class="tag">Infrastructure</span>       <span class="tag">Cloud-Security</span>       <span class="tag">AWS</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 클라우드 인프라 본질부터 2025년 AI 보안 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-11-26 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 핵심 요약 (경영진 요약)
 
 ### 리스크 스코어카드

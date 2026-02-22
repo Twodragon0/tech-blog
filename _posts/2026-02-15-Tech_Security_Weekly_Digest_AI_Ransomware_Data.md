@@ -14,15 +14,6 @@ image_alt: "기술 보안 주간 다이제스트 2026년 2월 15일 AI 랜섬웨
 toc: true
 ---
 
-{% include ai-summary-card.html
-  title='기술 &amp; 보안 주간 다이제스트: 랜섬웨어'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">DevSecOps</span>       <span class="tag">Cloud-Security</span>       <span class="tag">Weekly-Digest</span>       <span class="tag">2026</span>       <span class="tag">AI</span>       <span class="tag">Ransomware</span>       <span class="tag">Data</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 2026년 02월 15일 주요 보안/기술 뉴스 15건 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-02-15 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 주요 요약
 
 2026년 02월 15일 기준 보안 현황 및 위협 분석입니다.
@@ -99,11 +90,11 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | SK쉴더스 보안 리포트 | HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안... | 🟡 Medium |
-| 🔒 **Security** | SK쉴더스 보안 리포트 | Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 Blac... | 🟡 Medium |
-| 🔒 **Security** | SK쉴더스 보안 리포트 | Special Report 11월호 제로트러스트 보안전략 데이터(Data)... | 🟡 Medium |
-| 🔒 **Security** | SK쉴더스 보안 리포트 | SK쉴더스 EQST insight 통합 11월호... | 🟡 Medium |
-| 🔒 **Security** | SK쉴더스 보안 리포트 | HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향... | 🟡 Medium |
+| 🔒 **Security** | SK쉴더스 보안 리포트 | HeadLine 11월호 사이버보안 특화 Vertical AI 구축 방안 | 🟡 Medium |
+| 🔒 **Security** | SK쉴더스 보안 리포트 | Keep up with Ransomware 11월호 기존 랜섬웨어 코드를 재활용한 Blac | 🟡 Medium |
+| 🔒 **Security** | SK쉴더스 보안 리포트 | Special Report 11월호 제로트러스트 보안전략 데이터(Data) | 🟡 Medium |
+| 🔒 **Security** | SK쉴더스 보안 리포트 | SK쉴더스 EQST insight 통합 11월호 | 🟡 Medium |
+| 🔒 **Security** | SK쉴더스 보안 리포트 | HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향 | 🟡 Medium |
 
 ---
 
@@ -125,7 +116,7 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 ### 2.1 Chainalysis Hexagate, MegaETH 실시간 위협 탐지 지원
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Chainalysis Blog](https://www.chainalysis.com/blog/hexagate-supports-megaeth-ecosystem-smart-contract-security-japanese/)
 
@@ -138,7 +129,7 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 ### 2.2 Roundhill의 대선 이벤트 계약 ETF ‘잠재적 혁신 상품’으로 주목
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Cointelegraph](https://cointelegraph.com/news/roundhill-investments-event-contracts-prediction-markets-etf-united-states-election?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 

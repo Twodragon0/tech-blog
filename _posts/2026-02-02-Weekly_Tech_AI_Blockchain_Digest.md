@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='주간 기술 &amp; AI &amp; 블록체인 다이제스트: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 역설, DeFi 보안, FOSDEM 2026'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">Apple</span>       <span class="tag">Bitcoin-Crash</span>       <span class="tag">AI-Creativity</span>       <span class="tag">DeFi-Security</span>       <span class="tag">Claude-Code</span>       <span class="tag">Google-Research</span>       <span class="tag">CrossCurve-Exploit</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Apple iPhone 16 MLX LLM 버그 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-02-02 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 개요
 
 2026년 2월 2일, Apple 하드웨어에서 예상치 못한 AI 추론 결함이 발견되었고, 암호화폐 시장에서는 큰 변동이 있었습니다. **iPhone 16 Pro Max의 A18 Pro Neural Engine이 MLX LLM 실행 시 텐서 값을 왜곡**하는 버그가 Hacker News에서 높은 점수를 기록했습니다. 동일 코드가 iPhone 15 Pro(A17 Pro)와 MacBook Pro(M-series)에서는 정상 동작하여, A18 Pro 칩의 하드웨어 또는 펌웨어 수준 결함의 가능성이 제기되고 있습니다.

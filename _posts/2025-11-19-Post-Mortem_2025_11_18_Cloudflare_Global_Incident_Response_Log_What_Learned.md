@@ -15,15 +15,6 @@ keywords: [Cloudflare, Post-Mortem, Incident-Response, CDN, Multi-CDN, BGP]
 author: Twodragon
 ---
 
-{% include ai-summary-card.html
-  title='[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지'
-  categories_html='<span class="category-tag incident">인시던트</span>'
-  tags_html='<span class="tag">Cloudflare</span>       <span class="tag">Post-Mortem</span>       <span class="tag">Incident-Response</span>       <span class="tag">CDN</span>       <span class="tag">Network</span>       <span class="tag">SRE</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Cloudflare 글로벌 장애 대응 일지. Multi-CDN 전략 및 자동 Failover 구현 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-11-19 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 🎯 Executive Summary
 
 ### 인시던트 심각도 평가

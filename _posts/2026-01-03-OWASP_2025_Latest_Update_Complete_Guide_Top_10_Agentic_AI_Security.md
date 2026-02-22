@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">OWASP</span>       <span class="tag">Security</span>       <span class="tag">Top10</span>       <span class="tag">AI</span>       <span class="tag">DevSecOps</span>       <span class="tag">Application Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 OWASP Top 10 2025 신규 위협: 공급망 공격 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-03 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 서론
 
 2025년은 OWASP(Open Web Application Security Project) 커뮤니티에 있어 중요한 전환점이었습니다. 4년 만에 발표된 **OWASP Top 10 2025**는 애플리케이션 보안 분야의 새로운 위협을 반영하며, 특히 **소프트웨어 공급망 공격**과 **AI 보안**에 대한 관심이 크게 증가했습니다.

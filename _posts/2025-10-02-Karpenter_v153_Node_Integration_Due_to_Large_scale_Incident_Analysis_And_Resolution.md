@@ -15,15 +15,6 @@ keywords: [Karpenter, Kubernetes, AWS, EKS, PodDisruptionBudget, Post-Mortem]
 author: Twodragon
 ---
 
-{% include ai-summary-card.html
-  title='Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기'
-  categories_html='<span class="category-tag incident">인시던트</span>'
-  tags_html='<span class="tag">Karpenter</span>       <span class="tag">Kubernetes</span>       <span class="tag">AWS</span>       <span class="tag">Post-Mortem</span>       <span class="tag">Incident</span>       <span class="tag">EKS</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Karpenter v1.5.3 노드 통합 장애 분석. PDB 적용을 통한 재발 방지 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-10-02 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 경영진 요약 (Executive Summary)
 
 **장애 개요:** 2025년 10월 2일 15:43, Karpenter v1.5.3의 공격적인 노드 통합 정책과 PodDisruptionBudget 미설정으로 인해 프로덕션 환경에서 10분간 전체 서비스 중단이 발생했습니다.

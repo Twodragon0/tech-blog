@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='에이전틱 AI 보안 2026: AI Agent 공격 벡터와 방어 아키텍처 완전 가이드'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Agentic-AI</span>       <span class="tag">AI-Security</span>       <span class="tag">Tool-Poisoning</span>       <span class="tag">Prompt-Injection</span>       <span class="tag">LLM-Security</span>       <span class="tag">Supply-Chain</span>       <span class="tag">Zero-Trust</span>       <span class="tag">DevSecOps</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 2026년 에이전틱 AI 시대의 새로운 공격 벡터(Tool Poisoning 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-02-01 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 서론
 
 2026년은 AI가 단순한 챗봇을 넘어 **자율적으로 도구를 호출하고 작업을 수행하는 에이전틱(Agentic) AI 시대**로 진입한 해입니다. CrowdStrike, Google, Microsoft, OWASP 등 주요 보안 기업과 기관들이 에이전틱 AI의 새로운 위협 벡터에 대한 연구 결과를 잇따라 발표하고 있습니다.

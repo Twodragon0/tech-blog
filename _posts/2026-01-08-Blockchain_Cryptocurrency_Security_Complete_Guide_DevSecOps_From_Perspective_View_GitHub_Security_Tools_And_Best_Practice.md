@@ -16,15 +16,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag tech">블록체인</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Blockchain</span>       <span class="tag">Cryptocurrency</span>       <span class="tag">Bitcoin</span>       <span class="tag">Ethereum</span>       <span class="tag">Smart-Contract</span>       <span class="tag">Security-Audit</span>       <span class="tag">GitHub</span>       <span class="tag">DevSecOps</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 블록체인 암호화폐 보안 DevSecOps 완벽 가이드 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-08 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 서론
 
 블록체인과 암호화폐 생태계가 급속도로 성장하면서, 보안은 더욱 중요한 이슈로 부상하고 있습니다. **2025년에는 약 34억 달러 이상의 암호화폐가 해킹으로 탈취**되었으며, 특히 2025년 2월 Bybit 거래소에서 발생한 **15억 달러 규모의 해킹**은 역대 최대 규모의 암호화폐 해킹 사건으로 기록되었습니다. 북한의 Lazarus 그룹이 배후로 지목된 이 사건은 콜드 월렛까지 침해당할 수 있음을 보여주었습니다.

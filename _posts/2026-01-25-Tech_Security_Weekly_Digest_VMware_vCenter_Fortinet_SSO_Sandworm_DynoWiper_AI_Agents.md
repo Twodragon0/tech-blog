@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper 폴란드 공격'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">VMware</span>       <span class="tag">vCenter</span>       <span class="tag">CISA-KEV</span>       <span class="tag">Fortinet</span>       <span class="tag">FortiGate</span>       <span class="tag">SSO-Bypass</span>       <span class="tag">Sandworm</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 VMware vCenter KEV 긴급 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-25 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 주요 요약
 
 ### 위험도 평가 스코어카드 (Risk Assessment Scorecard)
@@ -204,16 +195,16 @@ DevOps/Cloud       : █████ 13%
 #### 헌팅 쿼리 (Bash/PowerShell)
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> # 1. 최근 24시간 생성된 관리자 계정 찾기...
+> # 1. 최근 24시간 생성된 관리자 계정 찾기
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> # 1. 최근 24시간 생성된 관리자 계정 찾기...
+> # 1. 최근 24시간 생성된 관리자 계정 찾기
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -252,16 +243,16 @@ grep -E "(DeleteVM|DestroyVM)" /var/log/vmware/vpxd/vpxd.log \
 #### 헌팅 쿼리 (FortiGate CLI)
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> # 1. 최근 1시간 관리자 로그인 이력...
+> # 1. 최근 1시간 관리자 로그인 이력
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> # 1. 최근 1시간 관리자 로그인 이력...
+> # 1. 최근 1시간 관리자 로그인 이력
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -364,7 +355,7 @@ Get-WinEvent -FilterHashtable @{
 
 ### 개요
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [CISA Adds Actively Exploited VMware vCenter Flaw CVE-2024-37079 to KEV Catalog](https://thehackernews.com/2026/01/cisa-adds-actively-exploited-vmware.html)
 
@@ -519,7 +510,7 @@ VMwareVCenter_CL
 
 ### 개요
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Fortinet Confirms Active FortiCloud SSO Bypass on Fully Patched FortiGate Firewalls](https://thehackernews.com/2026/01/fortinet-confirms-active-forticloud-sso.html)
 
@@ -585,16 +576,16 @@ graph LR
 ### 즉시 실행 명령
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> # FortiGate CLI에서 SSO 상태 확인...
+> # FortiGate CLI에서 SSO 상태 확인
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> # FortiGate CLI에서 SSO 상태 확인...
+> # FortiGate CLI에서 SSO 상태 확인
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -714,7 +705,7 @@ CommonSecurityLog
 
 ### 개요
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [New DynoWiper Malware Used in Attempted Sandworm Attack on Polish Power Sector](https://thehackernews.com/2026/01/new-dynowiper-malware-used-in-attempted.html)
 
@@ -955,9 +946,9 @@ Event
 
 ### 개요
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
-> **출처**: 
+> **출처**:
 > - [Who Approved This Agent? Rethinking Access, Accountability, and Risk in the Age of AI Agents](https://thehackernews.com/2026/01/who-approved-this-agent-rethinking.html)
 > - [Zero trust for agentic systems: Managing non-human identities at scale](https://www.hashicorp.com/blog/zero-trust-for-agentic-systems-managing-non-human-identities-at-scale)
 
@@ -1004,16 +995,16 @@ graph TD
 ### 실무 구현 예시 (Vault + Kubernetes)
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> # Vault Agent Injector 설정...
+> # Vault Agent Injector 설정
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> # Vault Agent Injector 설정...
+> # Vault Agent Injector 설정
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -1051,7 +1042,7 @@ data:
 
 ### Apache Airflow 3.1 in Cloud Composer
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Improving workflow orchestration with Apache Airflow 3.1 in Cloud Composer](https://cloud.google.com/blog/products/data-analytics/cloud-composer-supports-apache-airflow-31/)
 
@@ -1066,7 +1057,7 @@ data:
 
 ### Google ADK + Datadog LLM Observability
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Monitoring Google ADK agentic applications with Datadog LLM Observability](https://cloud.google.com/blog/products/management-tools/datadog-integrates-agent-development-kit-or-adk/)
 
@@ -1136,7 +1127,7 @@ graph TD
 
 ### 플랫폼 엔지니어링 2026 전망 (CNCF)
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The autonomous enterprise and the four pillars of platform control: 2026 forecast](https://www.cncf.io/blog/2026/01/23/the-autonomous-enterprise-and-the-four-pillars-of-platform-control-2026-forecast/)
 
@@ -1164,16 +1155,16 @@ graph TD
 ### 보안 모니터링 강화
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> # SIEM 룰 예시: vCenter 의심 활동...
+> # SIEM 룰 예시: vCenter 의심 활동
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> # SIEM 룰 예시: vCenter 의심 활동...
+> # SIEM 룰 예시: vCenter 의심 활동
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -1342,7 +1333,7 @@ graph TD
 
 ---
 
-**작성자**: Twodragon  
-**작성일**: 2026-01-25  
-**수집 소스**: 47개 RSS 피드 (166개 뉴스)  
+**작성자**: Twodragon
+**작성일**: 2026-01-25
+**수집 소스**: 47개 RSS 피드 (166개 뉴스)
 **분석 방법론**: DevSecOps 실무 영향도 기반 우선순위화

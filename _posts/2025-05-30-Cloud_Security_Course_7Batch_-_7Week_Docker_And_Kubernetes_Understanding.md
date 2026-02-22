@@ -16,15 +16,6 @@ certifications: [ckad, cka]
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해'
-  categories_html='<span class="category-tag devops">쿠버네티스</span>'
-  tags_html='<span class="tag">Docker</span>       <span class="tag">Kubernetes</span>       <span class="tag">Container</span>       <span class="tag">K8s</span>       <span class="tag">Cloud-Security</span>       <span class="tag">DevSecOps</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Docker 및 Kubernetes 기초와 보안 Best Practices 정리 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-05-30 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 핵심 요약
 
 컨테이너 기술은 현대 클라우드 인프라의 핵심이며, Docker와 Kubernetes는 가장 널리 사용되는 표준입니다. 본 문서는 컨테이너 보안의 전체 생명주기(Build → Ship → Run)를 다루며, 2025년 최신 보안 업데이트와 실무 적용 방법을 제공합니다.

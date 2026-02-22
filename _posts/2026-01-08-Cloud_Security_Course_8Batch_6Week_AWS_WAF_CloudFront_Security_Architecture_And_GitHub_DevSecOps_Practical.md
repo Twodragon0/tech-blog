@@ -17,15 +17,6 @@ schema_type: Article
 certifications: [aws-saa]
 ---
 
-{% include ai-summary-card.html
-  title='클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">AWS</span>       <span class="tag">CloudFront</span>       <span class="tag">cloudsecurity</span>       <span class="tag">Cybersecurity</span>       <span class="tag">DevSecOps</span>       <span class="tag">github</span>       <span class="tag">githubactions</span>       <span class="tag">SecurityEngineering</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 AWS WAF/CloudFront GitHub DevSecOps 실전 가이드 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-08 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 핵심 요약
 
 본 포스트는 AWS WAF/CloudFront 보안 아키텍처와 GitHub DevSecOps 실전 적용 사례를 다룹니다. 웹 애플리케이션 보안의 핵심인 엣지 레벨 방어와 코드 수준의 보안 내재화를 통해 다층 방어 체계를 구축합니다.

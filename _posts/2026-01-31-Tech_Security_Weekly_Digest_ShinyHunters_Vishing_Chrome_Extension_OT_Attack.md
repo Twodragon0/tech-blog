@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT 탈취, 폴란드 에너지 OT 공격'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">DevSecOps</span>       <span class="tag">ShinyHunters</span>       <span class="tag">Vishing</span>       <span class="tag">MFA-Bypass</span>       <span class="tag">Chrome-Extension</span>       <span class="tag">ChatGPT</span>       <span class="tag">OT-Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 ShinyHunters 비싱 공격으로 SaaS MFA 우회 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-31 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 경영진 요약
 
 ### 위협 스코어카드 (Risk Scorecard)
@@ -59,19 +50,19 @@ schema_type: Article
 #### 경영진 결정 필요 사항
 
 1. **즉시 투자 필요** (24-48시간):
-   - FIDO2 MFA 솔루션 긴급 도입 예산: 약 2-5억원 (1,000명 기준)
-   - 브라우저 보안 관리 솔루션 (Chrome Enterprise): 월 500만원
-   - OT 네트워크 세그멘테이션 컨설팅: 1-3억원
+ - FIDO2 MFA 솔루션 긴급 도입 예산: 약 2-5억원 (1,000명 기준)
+ - 브라우저 보안 관리 솔루션 (Chrome Enterprise): 월 500만원
+ - OT 네트워크 세그멘테이션 컨설팅: 1-3억원
 
 2. **정책 승인 필요** (1주일 이내):
-   - 전사 비싱 경보 발령 및 임직원 교육
-   - Chrome 확장 프로그램 허용 목록 정책 강제 적용
-   - AI 서비스(ChatGPT 등) 토큰 관리 정책 수립
+ - 전사 비싱 경보 발령 및 임직원 교육
+ - Chrome 확장 프로그램 허용 목록 정책 강제 적용
+ - AI 서비스(ChatGPT 등) 토큰 관리 정책 수립
 
 3. **리스크 수용 결정**:
-   - FIDO2 전환 지연 시: 자격증명 유출 사고 발생 확률 **60% 증가**
-   - Chrome 확장 정책 미적용 시: 기업 기밀 AI 대화 유출 위험
-   - OT 보안 투자 지연 시: 제조/에너지 시설 운영 중단 위험
+ - FIDO2 전환 지연 시: 자격증명 유출 사고 발생 확률 **60% 증가**
+ - Chrome 확장 정책 미적용 시: 기업 기밀 AI 대화 유출 위험
+ - OT 보안 투자 지연 시: 제조/에너지 시설 운영 중단 위험
 
 #### 재무 영향 (Financial Impact)
 
@@ -104,7 +95,7 @@ schema_type: Article
 
 ### 1.1 개요
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/01/mandiant-finds-shinyhunters-using.html)
 
@@ -181,16 +172,16 @@ Get-MgPolicyAuthenticationMethodPolicyAuthenticationMethodConfiguration `
 #### Okta에서 WebAuthn 강제 적용
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> # Okta API로 WebAuthn 팩터 등록 현황 조회...
+> # Okta API로 WebAuthn 팩터 등록 현황 조회
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> # Okta API로 WebAuthn 팩터 등록 현황 조회...
+> # Okta API로 WebAuthn 팩터 등록 현황 조회
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -345,34 +336,34 @@ SIEM Detection Query: Azure Sentinel KQL
 
 SigninLogs
 | where TimeGenerated > ago(1h)
-| where ResultType == 0  // Successful sign-in
+| where ResultType == 0 // Successful sign-in
 | extend MfaMethod = tostring(parse_json(AuthenticationDetails)[0].authenticationMethod)
 | extend IsSuspicious =
-    case(
-        IPAddress startswith "10." and Location != "KR", 1,  // VPN/Proxy from unexpected location
-        UserAgent contains "python" or UserAgent contains "curl", 1,  // Automated tool
-        MfaMethod in ("SMS", "PhoneAppNotification") and DeviceTrustType != "Compliant", 1,  // Phishable MFA
-        1, 0
-    )
+ case(
+ IPAddress startswith "10." and Location != "KR", 1, // VPN/Proxy from unexpected location
+ UserAgent contains "python" or UserAgent contains "curl", 1, // Automated tool
+ MfaMethod in ("SMS", "PhoneAppNotification") and DeviceTrustType != "Compliant", 1, // Phishable MFA
+ 1, 0
+ )
 | where IsSuspicious == 1
 | summarize
-    EventCount = count(),
-    UniqueIPs = dcount(IPAddress),
-    UniqueLocations = dcount(Location),
-    MfaMethods = make_set(MfaMethod),
-    FirstSeen = min(TimeGenerated),
-    LastSeen = max(TimeGenerated)
-    by UserPrincipalName, AppDisplayName
+ EventCount = count(),
+ UniqueIPs = dcount(IPAddress),
+ UniqueLocations = dcount(Location),
+ MfaMethods = make_set(MfaMethod),
+ FirstSeen = min(TimeGenerated),
+ LastSeen = max(TimeGenerated)
+ by UserPrincipalName, AppDisplayName
 | where EventCount > 3 or UniqueIPs > 2
 | project
-    UserPrincipalName,
-    AppDisplayName,
-    EventCount,
-    UniqueIPs,
-    UniqueLocations,
-    MfaMethods,
-    FirstSeen,
-    LastSeen
+ UserPrincipalName,
+ AppDisplayName,
+ EventCount,
+ UniqueIPs,
+ UniqueLocations,
+ MfaMethods,
+ FirstSeen,
+ LastSeen
 | order by EventCount desc
 -->
 
@@ -404,16 +395,16 @@ index=okta sourcetype=OktaIM2:log eventType="user.mfa.factor.activate"
 #### Sigma Rule
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> title: Suspicious MFA Authentication Pattern - Potential Vishing (ShinyHunters)...
+> title: Suspicious MFA Authentication Pattern - Potential Vishing (ShinyHunters)
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> title: Suspicious MFA Authentication Pattern - Potential Vishing (ShinyHunters)...
+> title: Suspicious MFA Authentication Pattern - Potential Vishing (ShinyHunters)
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -464,16 +455,16 @@ tags:
 ### 1.6 MITRE ATT&CK 매핑
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> mitre_attack:...
+> mitre_attack:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> mitre_attack:...
+> mitre_attack:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -502,7 +493,7 @@ mitre_attack:
 
 ### 2.1 개요
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/01/researchers-uncover-chrome-extensions.html)
 
@@ -511,16 +502,16 @@ mitre_attack:
 #### Chrome 확장 공격 흐름도 (Attack Flow Diagram)
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
+>
 > ```
-> ┌─────────────────────────────────────────────────────────────────────┐...
+> ┌─────────────────────────────────────────────────────────────────────┐
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
+>
 > ```
-> ┌─────────────────────────────────────────────────────────────────────┐...
+> ┌─────────────────────────────────────────────────────────────────────┐
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -627,16 +618,16 @@ Phase 7: Monetization
 #### 악성 확장 프로그램 코드 예시 (분석용)
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
-> 
+>
 > ```javascript
-> // content_scripts.js (악성 코드 예시 - 분석 목적)...
+> // content_scripts.js (악성 코드 예시 - 분석 목적)
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
-> 
+>
 > ```javascript
-> // content_scripts.js (악성 코드 예시 - 분석 목적)...
+> // content_scripts.js (악성 코드 예시 - 분석 목적)
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -684,18 +675,18 @@ SIEM Detection Query: Splunk SPL
 데이터 소스: Proxy logs, Endpoint Detection, Chrome Enterprise Telemetry
 
 index=proxy sourcetype=web_proxy
-| where url_domain IN ("evil-c2.com", "*.xyz", "*.top")  # Known malicious TLDs
+| where url_domain IN ("evil-c2.com", "*.xyz", "*.top") # Known malicious TLDs
 | where http_method="POST"
-| where bytes_out > 10000  # Large data exfiltration
+| where bytes_out > 10000 # Large data exfiltration
 | eval is_suspicious=case(
-    like(url_path, "%/api/collect%"), 1,
-    like(url_path, "%/api/upload%"), 1,
-    match(url_query, "(?i)(token|session|key)"), 1,
-    1, 0
-  )
+ like(url_path, "%/api/collect%"), 1,
+ like(url_path, "%/api/upload%"), 1,
+ match(url_query, "(?i)(token|session|key)"), 1,
+ 1, 0
+ )
 | where is_suspicious=1
 | stats count, sum(bytes_out) as total_bytes, values(url_domain) as domains
-    by src_ip, user
+ by src_ip, user
 | where count > 5 OR total_bytes > 100000
 | table _time, src_ip, user, count, total_bytes, domains
 -->
@@ -794,16 +785,16 @@ foreach ($user in $users) {
 #### Linux/macOS 환경 감사 스크립트
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> #!/bin/bash...
+> #!/bin/bash
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> #!/bin/bash...
+> #!/bin/bash
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -885,41 +876,41 @@ DeviceNetworkEvents
 | where TimeGenerated > ago(24h)
 | where InitiatingProcessFileName == "chrome.exe"
 | where RemoteUrl !startswith "https://google.com"
-    and RemoteUrl !startswith "https://openai.com"
-    and RemoteUrl !startswith "https://anthropic.com"
+ and RemoteUrl !startswith "https://openai.com"
+ and RemoteUrl !startswith "https://anthropic.com"
 | where ActionType == "ConnectionSuccess"
 | extend BytesSent_MB = BytesSent / 1048576
-| where BytesSent > 10485760  // 10MB+
+| where BytesSent > 10485760 // 10MB+
 | summarize
-    ConnectionCount = count(),
-    TotalBytesSent_MB = sum(BytesSent_MB),
-    UniqueRemoteIPs = dcount(RemoteIP),
-    RemoteDomains = make_set(RemoteUrl)
-    by DeviceName, InitiatingProcessAccountName
+ ConnectionCount = count(),
+ TotalBytesSent_MB = sum(BytesSent_MB),
+ UniqueRemoteIPs = dcount(RemoteIP),
+ RemoteDomains = make_set(RemoteUrl)
+ by DeviceName, InitiatingProcessAccountName
 | where ConnectionCount > 5 or TotalBytesSent_MB > 50
 | project
-    DeviceName,
-    InitiatingProcessAccountName,
-    ConnectionCount,
-    TotalBytesSent_MB,
-    UniqueRemoteIPs,
-    RemoteDomains
+ DeviceName,
+ InitiatingProcessAccountName,
+ ConnectionCount,
+ TotalBytesSent_MB,
+ UniqueRemoteIPs,
+ RemoteDomains
 | order by TotalBytesSent_MB desc
 -->
 
 ### 2.5 MITRE ATT&CK 매핑
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> mitre_attack:...
+> mitre_attack:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> mitre_attack:...
+> mitre_attack:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -946,7 +937,7 @@ mitre_attack:
 
 ### 3.1 개요
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/01/poland-attributes-december-cyber.html)
 
@@ -1000,16 +991,16 @@ graph TD
 #### OT 환경 보안 점검 스크립트
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> #!/bin/bash...
+> #!/bin/bash
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> #!/bin/bash...
+> #!/bin/bash
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -1109,29 +1100,29 @@ CommonSecurityLog
 | where DeviceVendor in ("Nozomi", "Claroty", "Dragos")
 | where DeviceProduct contains "ICS" or DeviceProduct contains "OT"
 | where Activity in ("Modbus_Write", "DNP3_Control", "EtherNetIP_Write", "OPC_Write")
-    or Activity contains "Unauthorized"
+ or Activity contains "Unauthorized"
 | extend
-    SourceIsExternal = not(ipv4_is_in_range(SourceIP, "10.0.0.0/8")
-        or ipv4_is_in_range(SourceIP, "192.168.0.0/16")
-        or ipv4_is_in_range(SourceIP, "172.16.0.0/12")),
-    IsWriteCommand = Activity contains "Write" or Activity contains "Control"
+ SourceIsExternal = not(ipv4_is_in_range(SourceIP, "10.0.0.0/8")
+ or ipv4_is_in_range(SourceIP, "192.168.0.0/16")
+ or ipv4_is_in_range(SourceIP, "172.16.0.0/12")),
+ IsWriteCommand = Activity contains "Write" or Activity contains "Control"
 | where SourceIsExternal == true or IsWriteCommand == true
 | summarize
-    EventCount = count(),
-    UniqueTargets = dcount(DestinationIP),
-    Activities = make_set(Activity),
-    FirstSeen = min(TimeGenerated),
-    LastSeen = max(TimeGenerated)
-    by SourceIP, DeviceProduct
+ EventCount = count(),
+ UniqueTargets = dcount(DestinationIP),
+ Activities = make_set(Activity),
+ FirstSeen = min(TimeGenerated),
+ LastSeen = max(TimeGenerated)
+ by SourceIP, DeviceProduct
 | where EventCount > 3 or UniqueTargets > 2
 | project
-    FirstSeen,
-    LastSeen,
-    SourceIP,
-    DeviceProduct,
-    EventCount,
-    UniqueTargets,
-    Activities
+ FirstSeen,
+ LastSeen,
+ SourceIP,
+ DeviceProduct,
+ EventCount,
+ UniqueTargets,
+ Activities
 | order by EventCount desc
 -->
 
@@ -1149,16 +1140,16 @@ CommonSecurityLog
 ### 3.5 MITRE ATT&CK for ICS 매핑
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> mitre_attack_ics:...
+> mitre_attack_ics:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> mitre_attack_ics:...
+> mitre_attack_ics:
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -1186,7 +1177,7 @@ mitre_attack_ics:
 
 ### 4.1 개요
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-5-top-ciso-priorities-in-2026/)
 
@@ -1206,19 +1197,19 @@ mitre_attack_ics:
 
 ### 5.1 HashiCorp Boundary 0.21: 원격 접근 보안 강화
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [HashiCorp Blog](https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections)
 
 ### 5.2 AWS Directory Service 스케일링
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [AWS Security Blog](https://aws.amazon.com/blogs/security/explore-scaling-options-for-aws-directory-service-for-microsoft-active-directory/)
 
 ### 5.3 국가은행의 셀프서비스 AI 인프라 구축 교훈
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [HashiCorp Blog](https://www.hashicorp.com/blog/5-lessons-for-enabling-self-service-and-ai-driven-infrastructure-despite-legacy-tech-at-a-national-bank)
 
@@ -1236,16 +1227,16 @@ mitre_attack_ics:
 ### 6.1 비싱/피싱 방어 CI/CD 통합
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> # .github/workflows/security-awareness.yml...
+> # .github/workflows/security-awareness.yml
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> # .github/workflows/security-awareness.yml...
+> # .github/workflows/security-awareness.yml
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -1289,16 +1280,16 @@ jobs:
 ### 6.2 브라우저 확장 보안 정책 (MDM)
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
-> 
+>
 > ```json
-> {...
+> {
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
-> 
+>
 > ```json
-> {...
+> {
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조

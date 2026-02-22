@@ -15,15 +15,6 @@ keywords: [Zscaler, ZTNA, SSL-Inspection, Zero-Trust, ATP, Cloud-Security]
 author: Twodragon
 ---
 
-{% include ai-summary-card.html
-  title='Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
-  tags_html='<span class="tag">Zscaler</span>       <span class="tag">ZTNA</span>       <span class="tag">SSL-Inspection</span>       <span class="tag">Zero-Trust</span>       <span class="tag">Cloud-Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Zscaler 완벽 가이드. SSL 검사 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-11-04 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 경영진 요약 (Executive Summary)
 
 ### Zscaler 보안 태세 평가 점수: 8.5/10

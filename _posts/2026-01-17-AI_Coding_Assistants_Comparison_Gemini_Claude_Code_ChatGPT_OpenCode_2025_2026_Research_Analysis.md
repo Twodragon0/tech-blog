@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신 연구 논문 기반 종합 평가'
-  categories_html='<span class="category-tag tech">AI</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">AI</span>       <span class="tag">Coding-Assistants</span>       <span class="tag">Gemini</span>       <span class="tag">Claude-Code</span>       <span class="tag">ChatGPT</span>       <span class="tag">OpenCode</span>       <span class="tag">DeepSeek</span>       <span class="tag">SWE-Bench</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Claude Code 80.9% 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-17 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

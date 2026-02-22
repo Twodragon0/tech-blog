@@ -15,15 +15,6 @@ keywords: [AWS, reInforce, Cloud-Security, GuardDuty, Security-Hub, Zero-Trust]
 author: Twodragon
 ---
 
-{% include ai-summary-card.html
-  title='AWS re:Inforce 2025: 클라우드 보안의 현재와 미래 🛡️'
-  categories_html='<span class="category-tag cloud">클라우드</span>'
-  tags_html='<span class="tag">AWS</span>       <span class="tag">reInforce</span>       <span class="tag">Cloud-Security</span>       <span class="tag">Conference</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 AWS re:Inforce 2025 회고. AI 기반 보안 솔루션 및 Zero Trust 구현 방법 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-09-16 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 경영진 요약 (Executive Summary)
 
 ### 핵심 메시지

@@ -15,12 +15,3 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='기술 &amp; 보안 주간 다이제스트: Signal 피싱, BlackField 랜섬웨어, 제로트러스트 데이터'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">DevSecOps</span>       <span class="tag">Cloud-Security</span>       <span class="tag">Weekly-Digest</span>       <span class="tag">2026</span>       <span class="tag">Signal-Phishing</span>       <span class="tag">BlackField-Ransomware</span>       <span class="tag">Zero-Trust</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 2026년 02월 08일 주요 보안/기술 뉴스 15건 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-02-08 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-

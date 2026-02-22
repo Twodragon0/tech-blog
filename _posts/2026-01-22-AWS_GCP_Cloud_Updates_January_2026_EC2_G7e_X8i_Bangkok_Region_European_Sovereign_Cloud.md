@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign Cloud'
-  categories_html='<span class="category-tag cloud">클라우드</span> <span class="category-tag devops">DevOps</span>'
-  tags_html='<span class="tag">AWS</span>       <span class="tag">GCP</span>       <span class="tag">EC2-G7e</span>       <span class="tag">EC2-X8i</span>       <span class="tag">NVIDIA-Blackwell</span>       <span class="tag">Bangkok-Region</span>       <span class="tag">European-Sovereign-Cloud</span>       <span class="tag">Gemini-3</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 EC2 G7e Blackwell GPU 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-22 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 핵심 요약
 
 2026년 1월 AWS/GCP 업데이트는 **AI 인프라 성숙도**와 **데이터 주권 대응**이라는 두 축으로 요약됩니다. 기업 의사결정자는 다음 세 가지 핵심 사항에 집중해야 합니다:

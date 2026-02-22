@@ -15,15 +15,6 @@ image_alt: "OpenClaw vs Claude Code AI Coding Assistant Comparison 2026"
 toc: true
 ---
 
-{% include ai-summary-card.html
-  title='OpenClaw vs Claude Code: AI 코딩 어시스턴트 심층 비교 - 보안, DevSecOps, FinOps 완전 가이드 (2026)'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">AI-Assistant</span>       <span class="tag">Claude-Code</span>       <span class="tag">OpenClaw</span>       <span class="tag">DevSecOps</span>       <span class="tag">FinOps</span>       <span class="tag">Security-Analysis</span>       <span class="tag">Cost-Optimization</span>       <span class="tag">CVE-2026-25253</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 OpenClaw(메시징 봇 프레임워크)와 Claude Code(공식 CLI 코딩 도구)의 정체를 정확히 밝히고 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-02-04 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 1. 정정된 개요: OpenClaw와 Claude Code의 실체
 
 안녕하세요, **Twodragon**입니다.

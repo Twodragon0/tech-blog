@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Vendor-News</span>       <span class="tag">DevSecOps</span>       <span class="tag">Cloud-Security</span>       <span class="tag">Hashicorp</span>       <span class="tag">Cloudflare</span>       <span class="tag">Snyk</span>       <span class="tag">Jamf</span>       <span class="tag">Zero-Trust</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 VS Code 악용 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-22 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

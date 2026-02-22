@@ -16,15 +16,6 @@ author: "Yongho Ha"
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법'
-  categories_html='<span class="category-tag security">보안</span>'
-  tags_html='<span class="tag">Passkey</span>       <span class="tag">OTP</span>       <span class="tag">Password-Manager</span>       <span class="tag">Authentication</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 공용 PC 보안 완벽 가이드. 패스키 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-04-30 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 핵심 요약
 
 ### 위험도 스코어카드

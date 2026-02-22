@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='주간 보안 &amp; DevOps 다이제스트: OpenClaw AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">OpenClaw</span>       <span class="tag">Moltbot</span>       <span class="tag">Moltbook</span>       <span class="tag">NanoClaw</span>       <span class="tag">AI-Agent-Security</span>       <span class="tag">MDM</span>       <span class="tag">Jamf</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 OpenClaw(Moltbot) CVE-2026-25253 RCE 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-02-03 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 개요
 
 2026년 2월 첫째 주, AI 에이전트 생태계에 **연쇄 보안 위협**이 현실화되었습니다. OpenClaw(구 Clawdbot/Moltbot)를 둘러싼 보안 사건이 **여러 건 동시다발적으로 발생**하며, AI 코딩 에이전트의 보안이 중요해지고 있습니다:

@@ -17,15 +17,6 @@ author: "Yongho Ha"
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">AWS</span>       <span class="tag">CDN</span>       <span class="tag">Cloudflare</span>       <span class="tag">GitHub</span>       <span class="tag">SAST</span>       <span class="tag">WAF</span>       <span class="tag">보안</span>       <span class="tag">보안-아키텍처</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 AWS WAF 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-05-23 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 경영진 요약 (Executive Summary)
 
 이 문서는 웹 애플리케이션 보안을 위한 3단계 방어 전략을 제시합니다: AWS WAF를 통한 기본 웹 보안, Cloudflare를 통한 DDoS 및 글로벌 보안 강화, GitHub 보안 자동화를 통한 소스 코드 보안입니다.

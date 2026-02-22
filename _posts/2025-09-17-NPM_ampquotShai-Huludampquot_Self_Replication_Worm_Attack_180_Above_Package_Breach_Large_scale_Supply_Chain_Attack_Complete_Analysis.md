@@ -15,15 +15,6 @@ keywords: [npm, Supply-Chain-Attack, Worm, Shai-Hulud, SBOM, 2FA]
 author: Twodragon
 ---
 
-{% include ai-summary-card.html
-  title='NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석'
-  categories_html='<span class="category-tag incident">인시던트</span>'
-  tags_html='<span class="tag">npm</span>       <span class="tag">Supply-Chain-Attack</span>       <span class="tag">Worm</span>       <span class="tag">Security-Incident</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 NPM Shai-Hulud 자가 복제 웜 공격 완전 분석. 180개 이상 패키지 감염 및 대응 방안 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-09-17 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 핵심 요약
 
 ### 인시던트 개요

@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략'
-  categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag security">보안</span>'
-  tags_html='<span class="tag">DevSecOps</span>       <span class="tag">Automotive-Security</span>       <span class="tag">Connected-Car</span>       <span class="tag">SAST</span>       <span class="tag">DAST</span>       <span class="tag">SBOM</span>       <span class="tag">Supply-Chain-Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 DevSecOps 자동차 보안 완벽 가이드 SDV 시대 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-06 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 서론
 
 자동차 산업은 급속한 디지털 전환을 겪고 있습니다. **커넥티드 카(Connected Car)**, **자율주행(Autonomous Driving)**, **전기차(EV)** 기술의 발전으로 현대 자동차는 수억 줄의 코드와 수백 개의 ECU(Electronic Control Unit)로 구성된 복잡한 소프트웨어 시스템이 되었습니다.

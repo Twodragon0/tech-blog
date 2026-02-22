@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트: Microsoft BitLocker FBI 키 제공, Cloudflare Route Leak, 자율 기업 2026 전망'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">BitLocker</span>       <span class="tag">FBI</span>       <span class="tag">Encryption</span>       <span class="tag">Route-Leak</span>       <span class="tag">BGP</span>       <span class="tag">Cloudflare</span>       <span class="tag">Agentic-AI</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 BitLocker FBI 키 제공 논란 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-24 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 주요 요약: 주간 보안 위험 스코어카드
 
 **종합 위험도**: 🔴 **HIGH** (4.2/5.0)
@@ -92,31 +83,31 @@ Tech               : ██ 6%
 
 ### 1.1 Microsoft, FBI에 BitLocker 복구 키 제공 - 암호화 신뢰성 논란
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [TechCrunch - Microsoft FBI BitLocker Keys](https://techcrunch.com/2026/01/23/microsoft-gave-fbi-a-set-of-bitlocker-encryption-keys-to-unlock-suspects-laptops-reports/)
 
 <div class="warning-box">
-  <strong>⚠️ 즉시 조치 필요</strong>
-  <p>Microsoft 계정에 BitLocker 키가 백업되어 있는지 <a href="https://account.microsoft.com/devices/recoverykey" target="_blank">https://account.microsoft.com/devices/recoverykey</a>에서 확인하세요. 민감한 데이터를 다루는 경우 로컬 전용 키 관리 또는 VeraCrypt 등 대안 암호화 검토가 필요합니다.</p>
+ <strong>⚠️ 즉시 조치 필요</strong>
+ <p>Microsoft 계정에 BitLocker 키가 백업되어 있는지 <a href="https://account.microsoft.com/devices/recoverykey" target="_blank">https://account.microsoft.com/devices/recoverykey</a>에서 확인하세요. 민감한 데이터를 다루는 경우 로컬 전용 키 관리 또는 VeraCrypt 등 대안 암호화 검토가 필요합니다.</p>
 </div>
 
 ---
 
 ### 1.2 Cloudflare Route Leak 사건 상세 분석 (2026년 1월 22일)
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 클라우드 운영에서는 권한·네트워크·로그 정책을 함께 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 클라우드 운영에서는 권한·네트워크·로그 정책을 함께 점검해야 합니다.
 
 > **출처**: [Cloudflare Blog - Route Leak Incident January 22, 2026](https://blog.cloudflare.com/route-leak-incident-january-22-2026/)
 
 <div class="info-box">
-  <strong>💡 실무 팁: BGP 모니터링 도구</strong>
-  <ul>
-    <li><strong>BGPStream</strong>: 실시간 BGP 데이터 스트리밍 (CAIDA 제공)</li>
-    <li><strong>RIPE RIS</strong>: 유럽 기반 BGP 모니터링 서비스</li>
-    <li><strong>Cloudflare Radar</strong>: BGP 이상 탐지 무료 대시보드</li>
-    <li><strong>BGPalerter</strong>: 오픈소스 자가 호스팅 모니터링 도구</li>
-  </ul>
+ <strong>💡 실무 팁: BGP 모니터링 도구</strong>
+ <ul>
+ <li><strong>BGPStream</strong>: 실시간 BGP 데이터 스트리밍 (CAIDA 제공)</li>
+ <li><strong>RIPE RIS</strong>: 유럽 기반 BGP 모니터링 서비스</li>
+ <li><strong>Cloudflare Radar</strong>: BGP 이상 탐지 무료 대시보드</li>
+ <li><strong>BGPalerter</strong>: 오픈소스 자가 호스팅 모니터링 도구</li>
+ </ul>
 </div>
 
 ---
@@ -125,37 +116,37 @@ Tech               : ██ 6%
 
 ### 2.1 CNCF 2026 전망: 자율 기업과 4가지 플랫폼 제어 기둥
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [CNCF Blog - The Autonomous Enterprise 2026 Forecast](https://www.cncf.io/blog/2026/01/23/the-autonomous-enterprise-and-the-four-pillars-of-platform-control-2026-forecast/)
 
 <div class="success-box">
-  <strong>✅ 2026년 준비 체크리스트</strong>
-  <ul>
-    <li><strong>MCP 학습</strong>: Model Context Protocol 이해 및 실험 환경 구축</li>
-    <li><strong>NHI 인벤토리</strong>: 조직 내 비인간 ID(서비스 계정, API 키 등) 목록화</li>
-    <li><strong>FinOps 도입</strong>: 클라우드 비용 가시성 및 최적화 프로세스 수립</li>
-    <li><strong>AIOps 파일럿</strong>: 소규모 AI 기반 운영 자동화 PoC 시작</li>
-  </ul>
+ <strong>✅ 2026년 준비 체크리스트</strong>
+ <ul>
+ <li><strong>MCP 학습</strong>: Model Context Protocol 이해 및 실험 환경 구축</li>
+ <li><strong>NHI 인벤토리</strong>: 조직 내 비인간 ID(서비스 계정, API 키 등) 목록화</li>
+ <li><strong>FinOps 도입</strong>: 클라우드 비용 가시성 및 최적화 프로세스 수립</li>
+ <li><strong>AIOps 파일럿</strong>: 소규모 AI 기반 운영 자동화 PoC 시작</li>
+ </ul>
 </div>
 
 ---
 
 ### 2.2 Docker는 무엇이 되었는가? - 2026년 현황 분석
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 컨테이너 운영에서는 베이스 이미지 보안과 런타임 제어를 강화해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 컨테이너 운영에서는 베이스 이미지 보안과 런타임 제어를 강화해야 합니다.
 
 > **출처**: [GeekNews - Docker는 무엇이 되었는가?](https://news.hada.io/topic?id=26085)
 
 <div class="info-box">
-  <strong>💡 Docker 종속성 탈피 전략</strong>
-  <p>Docker Desktop 라이선스 비용이 부담된다면 다음 전환 경로를 고려하세요:</p>
-  <ol>
-    <li><strong>macOS</strong>: Podman Desktop (무료, Docker CLI 호환)</li>
-    <li><strong>Linux</strong>: Podman + Buildah 조합</li>
-    <li><strong>Windows</strong>: WSL2 + Podman 또는 Rancher Desktop</li>
-    <li><strong>CI/CD</strong>: Kaniko (Kubernetes 네이티브, 특권 불필요)</li>
-  </ol>
+ <strong>💡 Docker 종속성 탈피 전략</strong>
+ <p>Docker Desktop 라이선스 비용이 부담된다면 다음 전환 경로를 고려하세요:</p>
+ <ol>
+ <li><strong>macOS</strong>: Podman Desktop (무료, Docker CLI 호환)</li>
+ <li><strong>Linux</strong>: Podman + Buildah 조합</li>
+ <li><strong>Windows</strong>: WSL2 + Podman 또는 Rancher Desktop</li>
+ <li><strong>CI/CD</strong>: Kaniko (Kubernetes 네이티브, 특권 불필요)</li>
+ </ol>
 </div>
 
 ---
@@ -164,7 +155,7 @@ Tech               : ██ 6%
 
 ### 3.1 OpenAI Codex Agent Loop 아키텍처 공개
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [OpenAI - Unrolling the Codex Agent Loop](https://openai.com/index/unrolling-the-codex-agent-loop/)
 
@@ -172,7 +163,7 @@ Tech               : ██ 6%
 
 ### 3.2 Ghostty의 AI 사용 정책 - 오픈소스 기여 가이드라인
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [GeekNews - Ghostty의 AI 사용 정책](https://news.hada.io/topic?id=26082)
 
@@ -182,7 +173,7 @@ Tech               : ██ 6%
 
 ### 4.1 Google Cloud: Airflow 3.1 지원 및 ADK + Datadog 통합
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Google Cloud Blog - ADK + Datadog](https://cloud.google.com/blog/products/management-tools/datadog-integrates-agent-development-kit-or-adk/)
 
@@ -190,7 +181,7 @@ Tech               : ██ 6%
 
 ### 4.2 Comma.ai: 오픈소스 자율주행 325개 차량 모델 지원
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Comma.ai](https://comma.ai)
 
@@ -210,7 +201,7 @@ Chromium 프로젝트에서 **금지하는 C++ 기능** 목록이 공개되어 1
 
 ### 5.2 Mastra 1.0 출시 - Gatsby 팀의 AI 프레임워크
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [GeekNews - Mastra 1.0](https://news.hada.io/topic?id=26078)
 
@@ -258,16 +249,16 @@ Get-ADObject -Filter "objectClass -eq 'msFVE-RecoveryInformation'" `
 **목표**: 자사 프리픽스에 대한 비정상 BGP 광고 탐지
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> # BGPStream CLI를 이용한 히스토리컬 분석...
+> # BGPStream CLI를 이용한 히스토리컬 분석
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
+>
 > ```bash
-> # BGPStream CLI를 이용한 히스토리컬 분석...
+> # BGPStream CLI를 이용한 히스토리컬 분석
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -298,16 +289,16 @@ show bgp ipv4 unicast neighbors 192.0.2.1 routes | count
 **목표**: AI 에이전트의 비인가 권한 상승 탐지
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> # Kubernetes Audit Log 기반 헌팅 (kubectl + jq)...
+> # Kubernetes Audit Log 기반 헌팅 (kubectl + jq)
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
+>
 > ```yaml
-> # Kubernetes Audit Log 기반 헌팅 (kubectl + jq)...
+> # Kubernetes Audit Log 기반 헌팅 (kubectl + jq)
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조

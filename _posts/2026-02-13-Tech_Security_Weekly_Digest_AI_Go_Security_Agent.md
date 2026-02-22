@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='기술 &amp; 보안 주간 다이제스트: Lazarus, RCE, 클라우드'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">DevSecOps</span>       <span class="tag">Cloud-Security</span>       <span class="tag">Weekly-Digest</span>       <span class="tag">2026</span>       <span class="tag">AI</span>       <span class="tag">Go</span>       <span class="tag">Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 2026년 02월 13일 주요 보안/기술 뉴스 25건 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-02-13 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 주요 요약
 
 2026년 02월 13일 기준 보안 현황 및 위협 분석입니다.
@@ -113,7 +104,7 @@ schema_type: Article
 | 🔒 **Security** | The Hacker News | 구글, 국가 지원 해커들이 Gemini AI를 정찰 및 공격 지원에 활용 중 보고 | 🟡 Medium |
 | 🔒 **Security** | The Hacker News | Lazarus 캠페인, npm 및 PyPI 생태계에 악성 패키지 삽입 | 🟡 Medium |
 | 🔒 **Security** | Microsoft Secur | Copilot Studio 에이전트 보안: 탐지 및 예방 가능한 10대 위험 | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | ThreatsDay 불레틴: AI 프롬프트 RCE, Claude 0-클릭 취약점... | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | ThreatsDay 불레틴: AI 프롬프트 RCE, Claude 0-클릭 취약점 | 🔴 Critical |
 | 🔒 **Security** | Microsoft Secur | RSA에서 만나는 Microsoft 경험 완벽 가이드 | 🟡 Medium |
 
 ---
@@ -122,7 +113,7 @@ schema_type: Article
 
 ### 1.1 구글, 국가 지원 해커들이 Gemini AI를 정찰 및 공격 지원에 활용 중 보고
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/google-reports-state-backed-hackers.html)
 
@@ -152,7 +143,7 @@ schema_type: Article
 
 ### 1.2 Lazarus 캠페인, npm 및 PyPI 생태계에 악성 패키지 삽입
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/lazarus-campaign-plants-malicious.html)
 
@@ -173,7 +164,7 @@ schema_type: Article
 
 ### 1.3 Copilot Studio 에이전트 보안: 탐지 및 예방 가능한 10대 위험
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/02/12/copilot-studio-agent-security-top-10-risks-detect-prevent/)
 
@@ -196,7 +187,7 @@ schema_type: Article
 
 ### 2.1 GPT-5.3-Codex-Spark 소개
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [OpenAI Blog](https://openai.com/index/introducing-gpt-5-3-codex-spark)
 
@@ -222,7 +213,7 @@ schema_type: Article
 
 ### 2.2 PFCS Forward 소개
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Palantir Blog](https://blog.palantir.com/introducing-pfcs-forward-d8755d34c429?source=rss----3c87dc14372f---4)
 
@@ -248,7 +239,7 @@ schema_type: Article
 
 ### 2.3 AI와 HR의 만남: Amazon Bedrock으로 채용 방식 혁신
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/ai-meets-hr-transforming-talent-acquisition-with-amazon-bedrock/)
 
@@ -276,7 +267,7 @@ schema_type: Article
 
 ### 3.1 간소화된 청구와 명확한 절감: 지출 기반 CUD 개선을 위한 FinOps 가이드
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/cost-management/a-finops-professionals-guide-to-updated-spend-based-cuds/)
 
@@ -296,7 +287,7 @@ schema_type: Article
 
 ### 3.2 GTIG AI 위협 추적기: 적대적 목적 AI 활용의 정제, 실험, 지속적 통합
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/threat-intelligence/distillation-experimentation-integration-ai-adversarial-use/)
 
@@ -316,7 +307,7 @@ schema_type: Article
 
 ### 3.3 VAMS에서 NVIDIA Isaac Lab을 활용한 GPU 가속 로봇 시뮬레이션 훈련
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [AWS Korea Blog](https://aws.amazon.com/ko/blogs/tech/gpu-accelerated-robotic-simulation-training-with-nvidia-isaac-lab-in-vams/)
 
@@ -324,7 +315,7 @@ schema_type: Article
 
 - 본 게시글은 AWS Spatial Compute Blog에 작성된 “GPU-Accelerated Robotic Simulation Training with NVIDIA Isaac Lab in VAMS” 블로그를 번역했습니다
 - 오픈소스 Visual Asset Management System(VAMS)이 이제 NVIDIA Isaac Lab과의 통합을 통해 로봇 자산에 대한 GPU 가속 강화학습(RL)을 지원합니다
-- 이 파이프라인을 통해 팀은 자산 관리 워크플로우에서 직접 RL 정책을 훈련하고 평가할 수 있으며, 확장 가능한 GPU 컴퓨팅을 […]
+- 이 파이프라인을 통해 팀은 자산 관리 워크플로우에서 직접 RL 정책을 훈련하고 평가할 수 있으며, 확장 가능한 GPU 컴퓨팅을 [ ]
 
 #### 실무 적용 포인트
 
@@ -338,7 +329,7 @@ schema_type: Article
 
 ### 4.1 Interop 2026 발표
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [WebKit Blog](https://webkit.org/blog/17818/announcing-interop-2026/)
 
@@ -356,7 +347,7 @@ schema_type: Article
 
 ### 4.2 Safari Technology Preview 237 릴리스 노트
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [WebKit Blog](https://webkit.org/blog/17842/release-notes-for-safari-technology-preview-237/)
 
@@ -376,7 +367,7 @@ schema_type: Article
 
 ### 5.1 人身売買関連サービスへの暗号資産の資金フローが前年比85%急増
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Chainalysis Blog](https://www.chainalysis.com/blog/crypto-human-trafficking-2026-japanese/)
 
@@ -388,7 +379,7 @@ schema_type: Article
 
 ### 5.2 태국, 규제 파생상품 시장에서 Bitcoin 및 디지털 자산 제도화 추진
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/thailand-moves-to-cement-bitcoin)
 

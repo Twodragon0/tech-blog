@@ -17,15 +17,6 @@ certifications: [aws-saa]
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps'
-  categories_html='<span class="category-tag cloud">클라우드</span>'
-  tags_html='<span class="tag">AWS</span>       <span class="tag">FinOps</span>       <span class="tag">Cloud-Security</span>       <span class="tag">Cost-Optimization</span>       <span class="tag">Well-Architected</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 AWS 보안 및 FinOps 완벽 가이드. GuardDuty 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-05-02 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 핵심 요약
 
 본 가이드는 AWS 보안 서비스와 FinOps 전략의 실무 통합을 다룹니다. 2025년 현재 AWS는 Security Hub GA 출시, GuardDuty Extended Threat Detection, AI 기반 보안 자동화 등 혁신적인 기능을 제공하며, 이를 통해 보안과 비용 최적화를 동시에 달성할 수 있습니다.

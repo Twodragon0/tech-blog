@@ -16,15 +16,6 @@ keywords: [AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM, 멀티계정, 거
 author: Twodragon
 ---
 
-{% include ai-summary-card.html
-  title='클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안'
-  categories_html='<span class="category-tag cloud">클라우드</span>'
-  tags_html='<span class="tag">AWS</span>       <span class="tag">Control-Tower</span>       <span class="tag">SCP</span>       <span class="tag">Datadog</span>       <span class="tag">Cloudflare</span>       <span class="tag">SIEM</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Control Tower/SCP 멀티 계정 거버넌스와 Datadog SIEM 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-12-24 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 서론
 
 안녕하세요, Twodragon입니다. 이번 포스트에서는 클라우드 보안 과정 8기 5주차에서 다룰 AWS 멀티 계정 거버넌스 및 통합 보안 모니터링에 관련된 내용을 소개하고자 합니다.

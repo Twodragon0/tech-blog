@@ -16,15 +16,6 @@ author: "Yongho Ha"
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드'
-  categories_html='<span class="category-tag security">보안</span>'
-  tags_html='<span class="tag">Kandji</span>       <span class="tag">macOS</span>       <span class="tag">MDM</span>       <span class="tag">Endpoint-Security</span>       <span class="tag">Compliance</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Kandji macOS 엔드포인트 관리 완벽 가이드. MDM 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2025-05-02 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 핵심 요약
 
 ### 보안 스코어카드

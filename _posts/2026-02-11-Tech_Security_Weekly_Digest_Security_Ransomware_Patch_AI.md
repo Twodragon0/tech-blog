@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='기술 &amp; 보안 주간 다이제스트: 랜섬웨어, CVE-2026-21643, Fortinet'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">DevSecOps</span>       <span class="tag">Cloud-Security</span>       <span class="tag">Weekly-Digest</span>       <span class="tag">2026</span>       <span class="tag">Security</span>       <span class="tag">Ransomware</span>       <span class="tag">Patch</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 2026년 02월 11일 주요 보안/기술 뉴스 26건 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-02-11 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 주요 요약
 
 2026년 02월 11일 기준 보안 현황 및 위협 분석입니다.
@@ -113,7 +104,7 @@ schema_type: Article
 
 ### 1.1 DPRK 요원들의 LinkedIn 전문직 사칭 기업 침투 시도
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/dprk-operatives-impersonate.html)
 
@@ -142,7 +133,7 @@ schema_type: Article
 
 ### 1.2 Reynolds 랜섬웨어, BYOVD 드라이버 내장으로 EDR 보안 도구 무력화
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/reynolds-ransomware-embeds-byovd-driver.html)
 
@@ -162,7 +153,7 @@ schema_type: Article
 
 ### 1.3 랜섬웨어에서 장기 잠복으로: 디지털 기생 공격의 부상
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/from-ransomware-to-residency-inside.html)
 
@@ -184,7 +175,7 @@ schema_type: Article
 
 ### 2.1 Google Photos에 물어볼 만한 재미있는 질문 9가지
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Google AI Blog](https://blog.google/products-and-platforms/products/photos/ask-button-ask-photos-tips/)
 
@@ -208,7 +199,7 @@ schema_type: Article
 
 ### 2.2 Amazon Nova 모델로 신규 물류 센터 운영 준비 테스트 자동화하기
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/how-amazon-uses-amazon-nova-models-to-automate-operational-readiness-testing-for-new-fulfillment-centers/)
 
@@ -233,7 +224,7 @@ schema_type: Article
 
 ### 2.3 Iberdrola, Amazon Bedrock AgentCore로 IT 운영 고도화
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/iberdrola-enhances-it-operations-using-amazon-bedrock-agentcore/)
 
@@ -260,7 +251,7 @@ schema_type: Article
 
 ### 3.1 Google Distributed Cloud, 에어갭 환경에 퍼블릭 클라우드급 네트워킹 제공
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 클라우드 운영에서는 권한·네트워크·로그 정책을 함께 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 클라우드 운영에서는 권한·네트워크·로그 정책을 함께 점검해야 합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/products/networking/google-distributed-cloud-gdc-air-gapped-1-15-networking/)
 
@@ -279,7 +270,7 @@ schema_type: Article
 
 ### 3.2 Gemini Enterprise Agent Ready (GEAR) 프로그램 전면 개방, 엔터프라이즈 AI 에이전트 구축의 새 길
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/gear-program-now-available/)
 
@@ -299,7 +290,7 @@ schema_type: Article
 
 ### 3.3 전장을 넘어서: 방산 산업 기반을 노리는 위협
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/threat-intelligence/threats-to-defense-industrial-base/)
 
@@ -320,7 +311,7 @@ schema_type: Article
 
 ### 4.1 Docker Hardened Images 무료 제공 이후, 이제 어떻게 활용할까?
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 컨테이너 운영에서는 베이스 이미지 보안과 런타임 제어를 강화해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 컨테이너 운영에서는 베이스 이미지 보안과 런타임 제어를 강화해야 합니다.
 
 > **출처**: [Docker Blog](https://www.docker.com/blog/hardened-images-free-now-what/)
 
@@ -340,7 +331,7 @@ schema_type: Article
 
 ### 4.2 .NET 11 Preview 1 출시
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Microsoft .NET Blog](https://devblogs.microsoft.com/dotnet/dotnet-11-preview-1/)
 
@@ -358,7 +349,7 @@ schema_type: Article
 
 ### 4.3 .NET 및 .NET Framework 2026년 2월 서비스 업데이트
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Microsoft .NET Blog](https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-february-2026-servicing-updates/)
 
@@ -379,7 +370,7 @@ schema_type: Article
 
 ### 5.1 Goldman Sachs, 비트코인 ETF에 11억 달러 포지션 보유 공시
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/goldman-sachs-position-in-bitcoin)
 
@@ -392,7 +383,7 @@ schema_type: Article
 
 ### 5.2 FTX Sam Bankman-Fried, 재심 신청 - 바이든 행정부의 정치적 피해자 주장
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/ftx-sam-bankman-fried-wants-a-new-trial)
 
@@ -407,8 +398,8 @@ schema_type: Article
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Trump can’t freeze NEVI funds, so he’s trying to s...](https://electrek.co/2026/02/10/trump-cant-freeze-nevi-funds-so-hes-trying-to-stall-them-again/) | Electrek | 연방도로청(FHWA)이 NEVI 전기차 충전 인프라 자금 집행을 지연시키려는 새 공지를 발령함 |
-| [Tesla Semi specs and pricing, L4 haul trucks, and ...](https://electrek.co/2026/02/10/tesla-semi-specs-and-pricing-l4-haul-trucks-and-windrose-mobile-ai-concept/) | Electrek | Tesla Semi 양산 사양·가격 공개, L4 자율주행 화물 트럭 및 Windrose 모바일 AI 콘셉트 소개 |
+| [Trump can’t freeze NEVI funds, so he’s trying to s](https://electrek.co/2026/02/10/trump-cant-freeze-nevi-funds-so-hes-trying-to-stall-them-again/) | Electrek | 연방도로청(FHWA)이 NEVI 전기차 충전 인프라 자금 집행을 지연시키려는 새 공지를 발령함 |
+| [Tesla Semi specs and pricing, L4 haul trucks, and](https://electrek.co/2026/02/10/tesla-semi-specs-and-pricing-l4-haul-trucks-and-windrose-mobile-ai-concept/) | Electrek | Tesla Semi 양산 사양·가격 공개, L4 자율주행 화물 트럭 및 Windrose 모바일 AI 콘셉트 소개 |
 
 ---
 

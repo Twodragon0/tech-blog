@@ -9,19 +9,10 @@ description: "2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog,
 keywords: [Tech-Blog, Weekly-Digest, Developer, 2026, AI, Data, Cloud, Go]
 author: Twodragon
 comments: true
-image: /assets/images/2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud.svg
-image_alt: "Tech Blog Weekly Digest February 20 2026 AI Data Cloud"
+image: /assets/images/Tech_Blog_Weekly_Digest_AI_Data_Cloud_og.png
+image_alt: "기술 블로그 주간 다이제스트 2026년 2월 20일"
 toc: true
 ---
-
-{% include ai-summary-card.html
-  title='기술 블로그 주간 다이제스트: Google, Kubernetes, AWS'
-  categories_html='<span class="category-tag tech">기술</span> <span class="category-tag devops">DevOps</span>'
-  tags_html='<span class="tag">Tech-Blog</span>       <span class="tag">Weekly-Digest</span>       <span class="tag">Developer</span>       <span class="tag">2026</span>       <span class="tag">AI</span>       <span class="tag">Data</span>       <span class="tag">Cloud</span>       <span class="tag">Go</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 2026년 02월 20일 주요 기술 블로그 뉴스 15건 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-02-20 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
 
 ## 핵심 요약
 
@@ -72,7 +63,7 @@ OpenAI와 Google은 AI 거버넌스 및 파트너십 확장에 집중하고, AWS
 
 ### 1.1 Advancing independent research on AI alignment
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [OpenAI Blog](https://openai.com/index/advancing-independent-research-ai-alignment)
 
@@ -83,7 +74,7 @@ OpenAI와 Google은 AI 거버넌스 및 파트너십 확장에 집중하고, AWS
 
 ### 1.2 “No technology has me dreaming bigger than AI”
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Google AI Blog](https://blog.google/company-news/inside-google/message-ceo/sundar-pichai-ai-impact-summit-2026/)
 
@@ -94,7 +85,7 @@ OpenAI와 Google은 AI 거버넌스 및 파트너십 확장에 집중하고, AWS
 
 ### 1.3 AI Impact Summit 2026
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Google AI Blog](https://blog.google/innovation-and-ai/technology/ai/ai-impact-summit-2026-collection/)
 
@@ -105,7 +96,7 @@ OpenAI와 Google은 AI 거버넌스 및 파트너십 확장에 집중하고, AWS
 
 ### 1.4 Build AI workflows on Amazon EKS with Union.ai and Flyte
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/build-ai-workflows-on-amazon-eks-with-union-ai-and-flyte/)
 
@@ -116,7 +107,7 @@ OpenAI와 Google은 AI 거버넌스 및 파트너십 확장에 집중하고, AWS
 
 ### 1.5 Amazon Quick now supports key pair authentication to Snowflake data source
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 원격 코드 실행 가능성에 대비해 탐지 룰과 차단 정책을 강화해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 원격 코드 실행 가능성에 대비해 탐지 룰과 차단 정책을 강화해야 합니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/amazon-quick-suite-now-supports-key-pair-authentication-to-snowflake-data-source/)
 
@@ -129,13 +120,13 @@ OpenAI와 Google은 AI 거버넌스 및 파트너십 확장에 집중하고, AWS
 
 ### 2.1 How Medplum Secured Their Healthcare Platform with Docker Hardened Images (DHI)
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 컨테이너 운영에서는 베이스 이미지 보안과 런타임 제어를 강화해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 컨테이너 운영에서는 베이스 이미지 보안과 런타임 제어를 강화해야 합니다.
 
 > **출처**: [Docker Blog](https://www.docker.com/blog/medplum-healthcare-docker-hardened-images/)
 
 ### 2.2 State of cloud native 2026: CNCF CTO’s insights and predictions
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 클라우드 운영에서는 권한·네트워크·로그 정책을 함께 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 클라우드 운영에서는 권한·네트워크·로그 정책을 함께 점검해야 합니다.
 
 > **출처**: [CNCF Blog](https://www.cncf.io/blog/2026/02/19/state-of-cloud-native-2026-cncf-ctos-insights-and-predictions/)
 

@@ -15,15 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='기술 &amp; 보안 주간 다이제스트: 공급망, Windows, APT36'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">DevSecOps</span>       <span class="tag">Cloud-Security</span>       <span class="tag">Weekly-Digest</span>       <span class="tag">2026</span>       <span class="tag">AI</span>       <span class="tag">Cloud</span>       <span class="tag">Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 2026년 02월 12일 주요 보안/기술 뉴스 27건 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-02-12 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 주요 요약
 
 2026년 02월 12일 기준 보안 현황 및 위협 분석입니다.
@@ -124,7 +115,7 @@ schema_type: Article
 
 ### 1.1 Microsoft 자격증명 4,000건 이상 탈취한 최초의 악성 Outlook 애드인 발견
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/first-malicious-outlook-add-in-found.html)
 
@@ -158,7 +149,7 @@ schema_type: Article
 
 ### 1.2 APT36·SideCopy, 인도 대상 크로스 플랫폼 RAT 캠페인 동시 전개
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/apt36-and-sidecopy-launch-cross.html)
 
@@ -179,7 +170,7 @@ schema_type: Article
 
 ### 1.3 60개 이상 소프트웨어 벤더, OS·클라우드·네트워크 플랫폼 전반에 보안 패치 발표
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/over-60-software-vendors-issue-security.html)
 
@@ -202,7 +193,7 @@ schema_type: Article
 
 ### 2.1 전통적 테스팅의 종말: 에이전틱 개발이 50년 역사의 분야를 무너뜨렸고, JiTTesting이 부활시킬 수 있다
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Meta Engineering Blog](https://engineering.fb.com/2026/02/11/developer-tools/the-death-of-traditional-testing-agentic-development-jit-testing-revival/)
 
@@ -228,7 +219,7 @@ schema_type: Article
 
 ### 2.2 Harness 엔지니어링: 에이전트 중심 세계에서 Codex 활용하기
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [OpenAI Blog](https://openai.com/index/harness-engineering)
 
@@ -252,7 +243,7 @@ schema_type: Article
 
 ### 2.3 NVIDIA Nemotron 3 Nano 30B MoE 모델, Amazon SageMaker JumpStart에서 정식 출시
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-nano-30b-is-now-available-in-amazon-sagemaker-jumpstart/)
 
@@ -280,7 +271,7 @@ schema_type: Article
 
 ### 3.1 Google Cloud AI 기반 테이블탑 훈련으로 금융 운영 복원력 강화
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/financial-services/improve-financial-resilience-with-google-cloud/)
 
@@ -300,7 +291,7 @@ schema_type: Article
 
 ### 3.2 모델 적응 완전 정복: Google Cloud 파인튜닝 가이드
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 클라우드 운영에서는 권한·네트워크·로그 정책을 함께 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 클라우드 운영에서는 권한·네트워크·로그 정책을 함께 점검해야 합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/developers-practitioners/mastering-model-adaptation-a-guide-to-fine-tuning-on-google-cloud/)
 
@@ -320,7 +311,7 @@ schema_type: Article
 
 ### 3.3 Gemini로 대규모 코드 샘플 생성 시 얻은 7가지 기술적 교훈
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/topics/developers-practitioners/7-technical-takeaways-from-using-gemini-to-generate-code-samples-at-scale/)
 
@@ -342,7 +333,7 @@ schema_type: Article
 
 ### 4.1 Security Slam 2026 귀환 — 이제 모든 오픈소스 프로젝트로 참가 확대
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [CNCF Blog](https://www.cncf.io/blog/2026/02/11/security-slam-returns-for-2026-now-open-to-all-open-source-projects/)
 
@@ -362,7 +353,7 @@ schema_type: Article
 
 ### 4.2 .NET용 GitHub Copilot 테스팅, Visual Studio 2026에 AI 기반 유닛 테스트 제공
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Microsoft .NET Blog](https://devblogs.microsoft.com/dotnet/github-copilot-testing-for-dotnet-available-in-visual-studio/)
 
@@ -382,7 +373,7 @@ schema_type: Article
 
 ### 4.3 Safari 26.3의 WebKit 새 기능
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [WebKit Blog](https://webkit.org/blog/17798/webkit-features-for-safari-26-3/)
 
@@ -402,7 +393,7 @@ schema_type: Article
 
 ### 5.1 BlackRock, 아시아 포트폴리오 암호화폐 비중 1% 증가만으로 2조 달러 유입 가능
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/blackrock-says-1-crypto-allocation-in-asia)
 
@@ -415,7 +406,7 @@ schema_type: Article
 
 ### 5.2 MoonPay, Telegram 지갑에서 크로스 체인 암호화폐 입금 기능 출시
 
-이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
+이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/moonpay-launches-crypto-deposits-feature)
 
@@ -431,8 +422,8 @@ schema_type: Article
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Texas bets on Tesla bets on WeChat, and a bet on T...](https://electrek.co/2026/02/11/texas-bets-on-tesla-bets-on-wechat-and-a-bet-on-toyota-to-crack-solid-state/) | Electrek | 텍사스·테슬라·WeChat 관련 투자 동향, 토요타의 전고체 배터리 돌파구 도전 소식 |
-| [The AI power crunch sparks a 1.5 GWh sodium-ion ba...](https://electrek.co/2026/02/11/the-ai-power-crunch-sparks-a-1-5-gwh-sodium-ion-battery-deal/) | Electrek | AI 전력 수요 급증이 Energy Vault의 1.5 GWh 나트륨이온 배터리 대규모 계약 체결로 이어짐 |
+| [Texas bets on Tesla bets on WeChat, and a bet on T](https://electrek.co/2026/02/11/texas-bets-on-tesla-bets-on-wechat-and-a-bet-on-toyota-to-crack-solid-state/) | Electrek | 텍사스·테슬라·WeChat 관련 투자 동향, 토요타의 전고체 배터리 돌파구 도전 소식 |
+| [The AI power crunch sparks a 1.5 GWh sodium-ion ba](https://electrek.co/2026/02/11/the-ai-power-crunch-sparks-a-1-5-gwh-sodium-ion-battery-deal/) | Electrek | AI 전력 수요 급증이 Energy Vault의 1.5 GWh 나트륨이온 배터리 대규모 계약 체결로 이어짐 |
 
 ---
 

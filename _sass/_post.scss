@@ -5,6 +5,43 @@
   border-color: var(--color-border);
 }
 
+.post-article {
+  max-width: 860px;
+}
+
+.post-article .post-content {
+  font-size: 1.08rem;
+  line-height: 1.88;
+  letter-spacing: -0.01em;
+}
+
+.post-article .post-content h2 {
+  margin-top: 2.4rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.post-article .post-content h3 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.post-article .post-content p + p {
+  margin-top: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .post-article {
+    max-width: 100%;
+  }
+
+  .post-article .post-content {
+    font-size: 1.01rem;
+    line-height: 1.78;
+  }
+}
+
 [data-theme="dark"] .post-content blockquote {
   background-color: var(--color-bg-secondary);
   border-left-color: var(--color-primary);

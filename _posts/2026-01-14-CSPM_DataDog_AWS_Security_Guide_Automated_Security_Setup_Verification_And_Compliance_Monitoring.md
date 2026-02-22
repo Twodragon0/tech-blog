@@ -16,15 +16,6 @@ schema_type: Article
 certifications: [isms-p, aws-saa]
 ---
 
-{% include ai-summary-card.html
-  title='CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
-  tags_html='<span class="tag">CSPM</span>       <span class="tag">DataDog</span>       <span class="tag">AWS</span>       <span class="tag">Security</span>       <span class="tag">Compliance</span>       <span class="tag">Monitoring</span>       <span class="tag">Automation</span>       <span class="tag">Misconfiguration</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 DataDog CSPM AWS 보안 자동 검증 가이드 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
-  period='2026-01-14 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
-
 ## 핵심 요약
 
 ### CSPM 보안 성숙도 평가
