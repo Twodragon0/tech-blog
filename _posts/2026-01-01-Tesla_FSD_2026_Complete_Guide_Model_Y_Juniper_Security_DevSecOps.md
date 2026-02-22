@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 테슬라 FSD 2026 완벽 가이드: Model Y Juniper 비용, 하드웨어, 보안을 DevSecOps 관점에서 분석
-
-> **카테고리**: devsecops, security, cloud
-
-> **태그**: Tesla, FSD, Model Y, Juniper, Hardware 4, Automotive Security, DevSecOps, Cybersecurity
-
-> **핵심 내용**: 
-> - 테슬라 FSD 2026 Model Y Juniper 보안 가이드
-
-> **주요 기술/도구**: Security, DevSecOps, Security, devsecops, security, cloud
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='테슬라 FSD 2026 완벽 가이드: Model Y Juniper 비용, 하드웨어, 보안을 DevSecOps 관점에서 분석'
+  categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">Tesla</span>       <span class="tag">FSD</span>       <span class="tag">Model Y</span>       <span class="tag">Juniper</span>       <span class="tag">Hardware 4</span>       <span class="tag">Automotive Security</span>       <span class="tag">DevSecOps</span>       <span class="tag">Cybersecurity</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 테슬라 FSD 2026 Model Y Juniper 보안 가이드 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-01 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 

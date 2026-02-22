@@ -17,25 +17,14 @@ schema_type: Article
 certifications: [aws-saa]
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전
-
-> **카테고리**: security, devsecops
-
-> **태그**: AWS, CloudFront, cloudsecurity, Cybersecurity, DevSecOps, github, githubactions, SecurityEngineering, TechBlog, waf
-
-> **핵심 내용**: 
-> - AWS WAF/CloudFront GitHub DevSecOps 실전 가이드
-
-> **주요 기술/도구**: AWS, Security, Security, DevSecOps, GitHub, GitHub, Security, WAF
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">AWS</span>       <span class="tag">CloudFront</span>       <span class="tag">cloudsecurity</span>       <span class="tag">Cybersecurity</span>       <span class="tag">DevSecOps</span>       <span class="tag">github</span>       <span class="tag">githubactions</span>       <span class="tag">SecurityEngineering</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 AWS WAF/CloudFront GitHub DevSecOps 실전 가이드 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-08 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 핵심 요약
 
@@ -207,7 +196,6 @@ certifications: [aws-saa]
    ↓
    [DDoS] --[대량 요청]-->  [CloudFront] ──X Rate Limiting 차단
 
-
 ```
 -->
 -->
@@ -299,7 +287,6 @@ fields @timestamp, httpRequest.clientIp, httpRequest.country, terminatingRuleId
 | sort count desc
 -->
 
-
 <figure>
 <img src="{{ '/assets/images/2026-01-08-AWS_WAF_CloudFront_Security_Architecture_Diagram.svg' | relative_url }}" alt="AWS WAF CloudFront Security Architecture" loading="lazy" class="post-image">
 <figcaption>AWS WAF and CloudFront 보안 아키텍처 다이어그램</figcaption>
@@ -370,7 +357,6 @@ OriginAccessControl:
       SigningBehavior: always
       SigningProtocol: sigv4
 
-
 ```
 -->
 -->
@@ -428,7 +414,6 @@ OriginAccessControl:
   ]
 }
 
-
 ```
 -->
 -->
@@ -470,7 +455,6 @@ GeoMatchRule:
         Priority: 2
         Statement: { GeoMatchStatement: { CountryCodes: [KR] } }  # 허용 국가
         Action: { Allow: {} }
-
 
 ```
 -->
@@ -519,7 +503,6 @@ HeaderMatchRule:
           PositionalConstraint: CONTAINS, SearchString: "sqlmap|nikto|nmap" } }
         Action: { Block: {} }
 
-
 ```
 -->
 -->
@@ -555,7 +538,6 @@ ResponseHeadersPolicy:
         ContentTypeOptions: { Override: true }  # X-Content-Type-Options: nosniff
         FrameOptions: { FrameOption: DENY }     # Clickjacking 방어
         XSSProtection: { ModeBlock: true, Protection: true }
-
 
 ```
 -->
@@ -631,7 +613,6 @@ ResponseHeadersPolicy:
 시나리오 4: ActiveX 의존 환경의 취약점
 [레거시 시스템] → [ActiveX 컨트롤] → 0-day 취약점
 대응: 점진적 HTML5 전환 + WAF로 의심 트래픽 차단
-
 
 ```
 -->
@@ -863,7 +844,6 @@ if validate_url(image_url):
 else:
     logger.warning(f"Blocked suspicious URL: {image_url}")
 
-
 ```
 -->
 -->
@@ -942,7 +922,6 @@ def mask_sensitive_data(data: str) -> str:
 api_key = os.getenv("OPENAI_API_KEY", "")
 logger.info(mask_sensitive_data(f"API_KEY={api_key}"))
 # 출력: API_KEY=sk-***MASKED***
-
 
 ```
 -->
@@ -1054,7 +1033,6 @@ try:
 except ValueError as e:
     logger.warning(f"Image validation failed: {e}")
 
-
 ```
 -->
 -->
@@ -1093,7 +1071,6 @@ index=waf sourcetype=aws:waf
   )
 | table src_ip, count, threat_score, attacked_uris
 | sort - count
-
 
 ```
 -->
@@ -1134,7 +1111,6 @@ AWSWAFLogs
   )
 | project SourceIP, AttackVectors, AttackCount, ThreatLevel, FirstSeen, LastSeen, AttackTypes
 | order by AttackVectors desc
-
 
 ```
 -->
@@ -1205,7 +1181,6 @@ AWSWAFLogs
 | project TimeGenerated, SourceIP, SuspiciousUA, UserAgent, Count
 | order by Count desc
 
-
 ```
 -->
 -->
@@ -1237,7 +1212,6 @@ index=waf sourcetype=aws:waf
 | eval anomaly_score = round((count - avg_hourly) / stdev_hourly, 2)
 | table _time, src_ip, count, avg_hourly, threshold, anomaly_score
 | sort - anomaly_score
-
 
 ```
 -->
@@ -1294,7 +1268,6 @@ AWSWAFLogs
   )
 | project SourceIP, FailedAttempts, UniqueURIs, TimeWindow, AttackType
 | order by FailedAttempts desc
-
 
 ```
 -->
@@ -1389,7 +1362,6 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 보안 규칙 적용률 │ 98.5% (목표: 95%)
 오탐률 (False Positive) │ 0.3% (목표: < 1%)
 
-
 ```
 -->
 -->
@@ -1456,7 +1428,6 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
 
 💰 투자 회수 기간 (Payback Period): 2.7개월
 
-
 ```
 -->
 -->
@@ -1478,7 +1449,6 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
            └──────────────────────────────
               Low      Medium      High
                    발생 가능성
-
 
 ```
 -->
@@ -1601,7 +1571,6 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
                    │  CloudWatch    │ ← 실시간 모니터링
                    └────────────────┘
 
-
 ```
 -->
 -->
@@ -1674,7 +1643,6 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
                 ↓
          CloudFront로 전달
 
-
 ```
 -->
 -->
@@ -1733,7 +1701,6 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
     │ WAF 규칙 업데이트      │
     └───────────────────────┘
 
-
 ```
 -->
 -->
@@ -1787,7 +1754,6 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
 │ - Session Token                      │
 └──────────────────────────────────────┘
 
-
 방어 메커니즘:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -1839,7 +1805,6 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
 │   "Blocked SSRF attempt: {url}"      │
 │ )                                    │
 └──────────────────────────────────────┘
-
 
 ```
 -->
@@ -1924,7 +1889,6 @@ ROI = [(절감액 - 투자액) / 투자액] × 100
 ┌──────────────────────────────────────┐
 │ CloudWatch Logs / Splunk / Sentinel  │ ← 마스킹된 데이터만 저장
 └──────────────────────────────────────┘
-
 
 ```
 -->

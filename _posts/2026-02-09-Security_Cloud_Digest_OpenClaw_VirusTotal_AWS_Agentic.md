@@ -12,25 +12,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 2026-02-09 보안 & 클라우드 다이제스트: OpenClaw 공급망 보안, AWS Agentic AI
-
-> **카테고리**: security, cloud
-
-> **태그**: Security-Digest, Cloud-Digest, AI-Agent-Security, Supply-Chain, AWS, Agentic-AI, OpenClaw, VirusTotal
-
-> **핵심 내용**: 
-> - OpenClaw VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트, AWS Agentic AI 2명 7주 개발 사례, ASP.NET 마이크로서비스 전환
-
-> **주요 기술/도구**: Security, Security, AWS, security, cloud
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='2026-02-09 보안 &amp; 클라우드 다이제스트: OpenClaw 공급망 보안, AWS Agentic AI'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">Security-Digest</span>       <span class="tag">Cloud-Digest</span>       <span class="tag">AI-Agent-Security</span>       <span class="tag">Supply-Chain</span>       <span class="tag">AWS</span>       <span class="tag">Agentic-AI</span>       <span class="tag">OpenClaw</span>       <span class="tag">VirusTotal</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 OpenClaw VirusTotal 통합으로 AI 에이전트 공급망 보안 강화 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-02-09 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 

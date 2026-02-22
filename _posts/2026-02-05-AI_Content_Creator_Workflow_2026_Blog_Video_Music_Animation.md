@@ -13,25 +13,14 @@ author: Twodragon
 toc: true
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: AI로 완성하는 콘텐츠 크리에이터 워크플로우 2026 - 블로그부터 영상, 음악, 애니메이션까지
-
-> **카테고리**: AI, DevSecOps, Content Creation, Automation
-
-> **태그**: AI, Claude, Suno AI, Animation, Video Production, Content Strategy, 2026 Trends, DevSecOps, Automation, Workflow
-
-> **핵심 내용**: 
-> - 2026년 최신 AI 도구를 활용한 완전 자동화 콘텐츠 생성 워크플로우. 기술 블로그 작성, 교육용 영상 제작, AI 음악 생성, 애니메이션까지 - 실전 가이드와 사용 사례.
-
-> **주요 기술/도구**: DevSecOps, AI, DevSecOps, Content Creation, Automation
-
-> **대상 독자**: DevSecOps 엔지니어, 보안 엔지니어, 개발자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='AI로 완성하는 콘텐츠 크리에이터 워크플로우 2026 - 블로그부터 영상, 음악, 애니메이션까지'
+  categories_html='<span class="category-tag tech">AI</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag tech">Content Creation</span>'
+  tags_html='<span class="tag">AI</span>       <span class="tag">Claude</span>       <span class="tag">Suno AI</span>       <span class="tag">Animation</span>       <span class="tag">Video Production</span>       <span class="tag">Content Strategy</span>       <span class="tag">2026 Trends</span>       <span class="tag">DevSecOps</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 2026년 최신 AI 도구를 활용한 완전 자동화 콘텐츠 생성 워크플로우. 기술 블로그 작성 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-02-05 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 1. 서론: 2026년 콘텐츠 크리에이터의 새로운 현실
 
@@ -206,7 +195,6 @@ audio = model.generate_cloned_voice(
     reference_text="안녕하세요, 저는 크리에이터입니다."
 )
 
-
 ```
 -->
 -->
@@ -261,7 +249,6 @@ def secure_voice_clone(audio_path):
     log_voice_usage(audio_hash, timestamp, purpose="tutorial_narration")
 
     return watermarked
-
 
 ```
 -->
@@ -333,7 +320,6 @@ def generate_blog_post(topic: str) -> dict:
 
     return {"filename": f"{date}-{topic}.md", "content": content}
 
-
 ```
 -->
 -->
@@ -382,7 +368,6 @@ def blog_to_video_script(markdown_content: str) -> dict:
     generate_srt_file(script)  # SRT 자막 자동 생성
 
     return script
-
 
 ```
 -->
@@ -468,7 +453,6 @@ ROI:
 - Suno AI: $10/월 (무제한)
 → 월 2곡만 만들어도 본전
 
-
 ```
 -->
 -->
@@ -514,7 +498,6 @@ def create_talking_avatar(image_path: str, audio_path: str) -> str:
 
     # 2. 생성 대기 (30초-2분)
     return wait_for_completion(response.json()["id"])
-
 
 ```
 -->
@@ -602,7 +585,6 @@ class ContentPipeline:
 
         return {"success": True, "cost": self.cost_tracker.total_cost}
 
-
 ```
 -->
 -->
@@ -636,7 +618,6 @@ config = ContentConfig(
     generate_music=True,
     generate_animation=True
 )
-
 
 ```
 -->
@@ -680,7 +661,6 @@ python3 content_pipeline.py
 # - 음악 생성: +2분 (수동)
 # - 애니메이션: +2분 (수동)
 # 총: 5-10분 (수동 단계 포함)
-
 
 ```
 -->
@@ -757,7 +737,6 @@ python3 content_pipeline.py
    - 팟캐스트: 30 에피소드
    - YouTube 쇼츠: 30개
 
-
 ```
 -->
 -->
@@ -827,7 +806,6 @@ def publish():
 
 # 매주 일요일 오후 6시 자동 실행
 schedule.every().sunday.at("18:00").do(publish)
-
 
 ```
 -->
@@ -913,7 +891,6 @@ def validate_ai_generated_code(code: str) -> bool:
         return False  # ⚠️ SQL injection risk
 
     return True  # ✅ Safe
-
 
 ```
 -->
@@ -1053,7 +1030,6 @@ response2 = client.messages.create(
     messages=[{"role": "user", "content": "Write Docker security post"}]
 )
 # 비용: $0.30/MTok x 50K = $0.015 (90% ↓)
-
 
 ```
 -->

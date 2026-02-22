@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: Tech & Security Weekly Digest: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT 탈취, 폴란드 에너지 OT 공격
-
-> **카테고리**: security, devsecops
-
-> **태그**: Security-Weekly, DevSecOps, ShinyHunters, Vishing, MFA-Bypass, Chrome-Extension, ChatGPT, OT-Security, ICS, CERT-Polska, Cloud-Security, "2026"
-
-> **핵심 내용**: 
-> - ShinyHunters 비싱 공격으로 SaaS MFA 우회, 악성 Chrome 확장 ChatGPT 토큰 탈취, 폴란드 에너지 인프라 OT 사이버 공격 심층 분석
-
-> **주요 기술/도구**: Security, DevSecOps, Security, Security, security, devsecops
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='기술·보안 주간 다이제스트: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT 탈취, 폴란드 에너지 OT 공격'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">DevSecOps</span>       <span class="tag">ShinyHunters</span>       <span class="tag">Vishing</span>       <span class="tag">MFA-Bypass</span>       <span class="tag">Chrome-Extension</span>       <span class="tag">ChatGPT</span>       <span class="tag">OT-Security</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 ShinyHunters 비싱 공격으로 SaaS MFA 우회 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-31 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 경영진 요약
 
@@ -115,15 +104,7 @@ schema_type: Article
 
 ### 1.1 개요
 
-Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters** (UNC3944, Scattered Spider와 기법 유사)의 확장된 위협 활동을 식별했습니다. 이 그룹은 고급 **비싱(Voice Phishing)** 기법과 위조된 자격증명 수집 사이트를 활용하여 SaaS 플랫폼에 대한 무단 접근을 확보합니다.
-
-| 항목 | 상세 내용 |
-|------|-----------|
-| **위협 그룹** | ShinyHunters (UNC3944 관련) |
-| **공격 유형** | Voice Phishing + Credential Harvesting |
-| **대상** | SaaS 플랫폼 사용 기업 |
-| **목표** | MFA 우회 → 자격증명 탈취 → 데이터 갈취 |
-| **활동 상태** | 활발히 진행 중 |
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/01/mandiant-finds-shinyhunters-using.html)
 
@@ -150,7 +131,6 @@ graph LR
     style D fill:#ffcccc
     style E fill:#ffcccc
     style F fill:#ff6666
-
 
 ```
 -->
@@ -194,7 +174,6 @@ Get-MgPolicyAuthenticationMethodPolicyAuthenticationMethodConfiguration `
 # Authentication Strength → Phishing-resistant MFA 선택
 # 포함 방법: FIDO2 Security Key, Windows Hello for Business, Certificate-based
 
-
 ```
 -->
 -->
@@ -229,7 +208,6 @@ curl -s -H "Authorization: SSWS ${OKTA_API_TOKEN}" \
             echo "WARNING: No WebAuthn factor - ${email}"
         fi
     done
-
 
 ```
 -->
@@ -322,7 +300,6 @@ Phase 6: Impact
 │ - IP         │  - Ransom    │  - Reputation│
 └──────────────┴──────────────┴──────────────┘
 
-
 ```
 -->
 -->
@@ -356,7 +333,6 @@ index=okta sourcetype=OktaIM2:log
     by actor.displayName, actor.alternateId
 | where count > 3 OR unique_ips > 2
 | table actor.displayName, actor.alternateId, count, unique_ips, mfa_types
-
 
 ```
 -->
@@ -421,7 +397,6 @@ index=okta sourcetype=OktaIM2:log eventType="user.mfa.factor.activate"
     client.ipAddress, client.geographicalContext.country, time_since_login
 | sort - _time
 
-
 ```
 -->
 -->
@@ -482,7 +457,6 @@ tags:
     - attack.t1078
     - attack.t1539
 
-
 ```
 -->
 -->
@@ -518,7 +492,6 @@ mitre_attack:
     - T1657      # Financial Theft
     - T1486      # Data Encrypted for Impact
 
-
 ```
 -->
 -->
@@ -529,14 +502,7 @@ mitre_attack:
 
 ### 2.1 개요
 
-보안 연구원들이 **어필리에이트 링크 하이재킹**, 데이터 탈취, **OpenAI ChatGPT 인증 토큰 수집** 기능을 갖춘 악성 Google Chrome 확장 프로그램을 발견했습니다. "Amazon Ads Blocker" (ID: pnpchphmplpdimbllknjoiopmfphellj)를 포함한 여러 확장이 Chrome Web Store에 등록되어 있었습니다.
-
-| 항목 | 상세 |
-|------|------|
-| **공격 유형** | 브라우저 확장 프로그램 공급망 공격 |
-| **영향** | 어필리에이트 수익 탈취 + ChatGPT 세션 토큰 수집 |
-| **대상** | Chrome 사용자, 특히 AI 도구 활용 기업 사용자 |
-| **탐지 상태** | Chrome Web Store에서 제거됨 |
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/01/researchers-uncover-chrome-extensions.html)
 
@@ -654,7 +620,6 @@ Phase 7: Monetization
 │ $50-500/acc  │  - Crypto    │  - IP theft  │
 └──────────────┴──────────────┴──────────────┘
 
-
 ```
 -->
 -->
@@ -709,7 +674,6 @@ Phase 7: Monetization
   }
 })();
 
-
 ```
 -->
 -->
@@ -761,7 +725,6 @@ sequenceDiagram
     Extension->>Extension: Collect Tokens + Chat History
     Extension->>C2: Exfiltrate Data
     C2->>C2: Store Stolen Credentials
-
 
 ```
 -->
@@ -824,7 +787,6 @@ foreach ($user in $users) {
     }
 } | Format-Table -AutoSize
 
-
 ```
 -->
 -->
@@ -881,7 +843,6 @@ done
 
 echo "=== Audit Complete ==="
 
-
 ```
 -->
 -->
@@ -910,7 +871,6 @@ index=proxy sourcetype=bluecoat (OR sourcetype=palo_alto)
 | where count > 3 OR total_bytes > 100000
 | table _time, src_ip, user, count, total_bytes, suspicious_domains, user_agents
 | sort - total_bytes
-
 
 ```
 -->
@@ -976,7 +936,6 @@ mitre_attack:
   command_and_control:
     - T1071.001  # Web Protocols (HTTPS to C2)
 
-
 ```
 -->
 -->
@@ -987,15 +946,7 @@ mitre_attack:
 
 ### 3.1 개요
 
-**CERT Polska**가 2025년 12월 29일에 발생한 대규모 협조적 사이버 공격을 상세 보고했습니다. 30개 이상의 풍력 및 태양광 발전소, 제조 기업, 약 50만 고객에게 난방을 공급하는 대규모 열병합발전소(CHP)가 공격 대상이었습니다.
-
-| 항목 | 상세 |
-|------|------|
-| **공격 일시** | 2025년 12월 29일 |
-| **공격 유형** | 다중 대상 협조적 사이버 공격 |
-| **피해 시설** | 풍력/태양광 30+, 제조 1, 열병합 1 |
-| **영향 인구** | 약 500,000명 (난방 서비스) |
-| **보고 기관** | CERT Polska |
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/01/poland-attributes-december-cyber.html)
 
@@ -1039,7 +990,6 @@ graph TD
     style C fill:#f3e5f5
     style D fill:#ffebee
     style E fill:#c8e6c9
-
 
 ```
 -->
@@ -1105,7 +1055,6 @@ journalctl --since "24 hours ago" 2>/dev/null | grep -ci "failed\|failure\|inval
 echo ""
 echo "=== Check Complete ==="
 
-
 ```
 -->
 -->
@@ -1145,7 +1094,6 @@ index=ics_network sourcetype=zeek:ics (OR sourcetype=modbus OR sourcetype=dnp3)
 | where count > 5 OR unique_targets > 3
 | table _time, src_ip, user, count, protocols, commands, unique_targets
 | sort - count
-
 
 ```
 -->
@@ -1228,7 +1176,6 @@ mitre_attack_ics:
     - T0827      # Loss of Control
     - T0831      # Manipulation of Control
 
-
 ```
 -->
 -->
@@ -1239,7 +1186,7 @@ mitre_attack_ics:
 
 ### 4.1 개요
 
-Google Cloud의 **Taylor Lehmann** (Healthcare & Life Sciences Director, Office of the CISO)이 2026년 CISO가 우선시해야 할 5가지 핵심 영역을 발표했습니다.
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
 
 > **출처**: [Google Cloud Blog](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-5-top-ciso-priorities-in-2026/)
 
@@ -1259,25 +1206,19 @@ Google Cloud의 **Taylor Lehmann** (Healthcare & Life Sciences Director, Office 
 
 ### 5.1 HashiCorp Boundary 0.21: 원격 접근 보안 강화
 
-**Boundary 0.21**에서 RDP 연결에 대한 비밀번호 없는 접근과 개선된 UX를 제공합니다.
-
-| 기능 | 설명 | 보안 이점 |
-|------|------|-----------|
-| **Passwordless RDP** | 인증서 기반 RDP 접근 | 자격증명 탈취 위험 감소 |
-| **세션 기록** | 모든 원격 세션 감사 기록 | 컴플라이언스 충족 |
-| **동적 자격증명** | 일회용 자격증명 발급 | 지속적 접근 방지 |
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
 
 > **출처**: [HashiCorp Blog](https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections)
 
 ### 5.2 AWS Directory Service 스케일링
 
-AWS Directory Service for Microsoft Active Directory를 기본 Active Directory 포레스트로 사용하는 아키텍처의 스케일링 옵션이 공개되었습니다. 하이브리드 환경에서의 아이덴티티 관리 확장성을 강화합니다.
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 실무 적용 전 영향 범위, 운영 리스크, 검증 절차를 동시에 점검해야 합니다.
 
 > **출처**: [AWS Security Blog](https://aws.amazon.com/blogs/security/explore-scaling-options-for-aws-directory-service-for-microsoft-active-directory/)
 
 ### 5.3 국가은행의 셀프서비스 AI 인프라 구축 교훈
 
-HashiCorp이 **호주 국립은행(NAB)**의 레거시 기술 환경에서 셀프서비스 및 AI 기반 인프라를 구축한 5가지 교훈을 공유했습니다.
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [HashiCorp Blog](https://www.hashicorp.com/blog/5-lessons-for-enabling-self-service-and-ai-driven-infrastructure-despite-legacy-tech-at-a-national-bank)
 
@@ -1341,7 +1282,6 @@ jobs:
           fi
           echo "No AI service tokens found in code."
 
-
 ```
 -->
 -->
@@ -1386,7 +1326,6 @@ jobs:
     }
   }
 }
-
 
 ```
 -->

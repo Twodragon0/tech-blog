@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가, CNCF 연례 조사 분석
-
-> **카테고리**: security, kubernetes
-
-> **태그**: Kubernetes, Cloud-Security, CNCF, VS-Code-Security, Platform-Engineering, GPU-Scheduling, CRI-O-Audit, Net-NTLMv1, DevSecOps, "2026"
-
-> **핵심 내용**: 
-> - Kubernetes 82% 프로덕션 도입, VS Code 악용 위협, CNCF 조사 분석 등 클라우드 보안 동향
-
-> **주요 기술/도구**: Kubernetes, Security, Security, DevSecOps, security, kubernetes
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가, CNCF 연례 조사 분석'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devops">쿠버네티스</span>'
+  tags_html='<span class="tag">Kubernetes</span>       <span class="tag">Cloud-Security</span>       <span class="tag">CNCF</span>       <span class="tag">VS-Code-Security</span>       <span class="tag">Platform-Engineering</span>       <span class="tag">GPU-Scheduling</span>       <span class="tag">CRI-O-Audit</span>       <span class="tag">Net-NTLMv1</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Kubernetes 82% 프로덕션 도입 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-22 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 핵심 요약
 
@@ -184,7 +173,6 @@ DeviceProcessEvents
 | where InstallCount > 5
 | extend Severity = "High", ThreatType = "Supply Chain Compromise"
 
-
 ```
 -->
 -->
@@ -203,7 +191,6 @@ KubeAuditEvents
 | where SubjectKind == "ServiceAccount" and SubjectName startswith "default"
 | extend Severity = "Critical", MITRE_Technique = "T1078.004"
 | project TimeGenerated, User, SourceIPs, RoleName, SubjectName, Severity, MITRE_Technique
-
 
 ```
 -->
@@ -236,7 +223,6 @@ InsightsMetrics
 ) on PodName
 | extend Severity = "Medium", MITRE_Technique = "T1496"
 | project TimeGenerated, PodName, AvgGPUUsage, Namespace, Severity
-
 
 ```
 -->
@@ -272,7 +258,6 @@ DeviceNetworkEvents
     by DeviceName, InitiatingProcessAccountName, TunnelType, bin(Timestamp, 1h)
 | where TotalBytes > 104857600 or SessionCount > 10 // 100MB or 10+ sessions
 | extend Severity = "High", MITRE_Technique = "T1071.001"
-
 
 ```
 -->
@@ -434,7 +419,6 @@ DETECTION POINTS
 [D4] EDR alerts (unusual subprocess from code.exe)
 [D5] Git audit logs (unauthorized repo access)
 
-
 ```
 -->
 -->
@@ -480,7 +464,6 @@ DETECTION POINTS
     "override": false
   }
 }
-
 
 ```
 -->
@@ -647,7 +630,6 @@ DETECTION & PREVENTION
 [P3] Regularly update CRI-O/runc (apply CVE patches)
 [P4] Network segmentation (prevent container-to-internet C2)
 
-
 ```
 -->
 -->
@@ -704,7 +686,6 @@ Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -Name "LmCom
 # 3 = NTLMv2 응답만 전송 (권장 최소값)
 # 4 = NTLMv2 응답만 전송, DC가 LM 거부
 # 5 = NTLMv2 응답만 전송, DC가 LM & NTLM 거부 (가장 안전)
-
 
 ```
 -->
@@ -783,7 +764,6 @@ spec:
         nvidia.com/gpu: 1
       requests:
         nvidia.com/gpu: 1
-
 
 ```
 -->
@@ -894,7 +874,6 @@ metadata:
 type: Opaque
 data:
   customer-id: <base64-encrypted>
-
 
 ```
 -->
@@ -1041,7 +1020,6 @@ LOW │                        [GPU 낭비]
     └────────────────────────────────→ Likelihood
        LOW        MED         HIGH
 
-
 ```
 -->
 -->
@@ -1088,7 +1066,6 @@ Q3 2026 (Jul - Sep)
 ├─ 개발자 보안 교육 프로그램 런칭
 └─ 컨테이너 보안 성숙도 평가 (외부 감사)
 
-
 ```
 -->
 -->
@@ -1130,7 +1107,6 @@ KubeAuditEvents
 )
 | project TimeGenerated, User, SourceIPs, AccessCount, Operations, ThreatScore
 
-
 ```
 -->
 -->
@@ -1164,7 +1140,6 @@ index=k8s sourcetype=kube:audit
 )
 | table _time, user.username, sourceIPs{}, objectRef.namespace, count, severity
 | sort - count
-
 
 ```
 -->
@@ -1201,7 +1176,6 @@ index=k8s sourcetype=kube:audit
      command=%proc.cmdline container=%container.name)
   priority: WARNING
   tags: [kubernetes, exec, shell]
-
 
 ```
 -->
@@ -1257,7 +1231,6 @@ KubeAuditEvents
     "Medium"
 )
 
-
 ```
 -->
 -->
@@ -1296,7 +1269,6 @@ KubeAuditEvents
 ) on SourceIPs
 | extend Severity = "Critical - Potential brute force attack followed by success"
 | project TimeGenerated, SourceIPs, FailedAttempts, User, Severity
-
 
 ```
 -->
@@ -1351,7 +1323,6 @@ def detect_crypto_mining():
             print(f"[ALERT] Crypto mining suspected: {namespace}/{pod_name} GPU={gpu_usage:.2%}")
             # SIEM으로 알림 전송
 
-
 ```
 -->
 -->
@@ -1398,7 +1369,6 @@ query: |
   | extend ThreatScore = 90  // High confidence multi-stage attack
   | project TimeGenerated, User, PodName, SecretAccessCount, ExecPod, ThreatScore
   | extend Recommendation = "Immediate investigation required - Potential APT activity"
-
 
 ```
 -->

@@ -16,25 +16,14 @@ author: "Yongho Ha"
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리
-
-> **카테고리**: devsecops
-
-> **태그**: DevSecOps, Integration, Cloud-Security, SDLC, Security-Automation
-
-> **핵심 내용**: 
-> - DevSecOps 통합 정리: 파이프라인 아키텍처부터 실무 적용까지
-
-> **주요 기술/도구**: DevSecOps, Security, Security, devsecops
-
-> **대상 독자**: DevSecOps 엔지니어, 보안 엔지니어, 개발자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리'
+  categories_html='<span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">DevSecOps</span>       <span class="tag">Integration</span>       <span class="tag">Cloud-Security</span>       <span class="tag">SDLC</span>       <span class="tag">Security-Automation</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 DevSecOps 통합 정리: 파이프라인 아키텍처부터 실무 적용까지 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-06-13 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 핵심 요약
 

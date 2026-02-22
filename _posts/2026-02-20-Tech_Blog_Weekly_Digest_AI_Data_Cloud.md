@@ -14,27 +14,16 @@ image_alt: "Tech Blog Weekly Digest February 20 2026 AI Data Cloud"
 toc: true
 ---
 
-## 📋 포스팅 요약
+{% include ai-summary-card.html
+  title='기술 블로그 주간 다이제스트: Google, Kubernetes, AWS'
+  categories_html='<span class="category-tag tech">기술</span> <span class="category-tag devops">DevOps</span>'
+  tags_html='<span class="tag">Tech-Blog</span>       <span class="tag">Weekly-Digest</span>       <span class="tag">Developer</span>       <span class="tag">2026</span>       <span class="tag">AI</span>       <span class="tag">Data</span>       <span class="tag">Cloud</span>       <span class="tag">Go</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 2026년 02월 20일 주요 기술 블로그 뉴스 15건 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-02-20 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
-> **제목**: Tech Blog Weekly Digest: Google, Kubernetes, AWS
-
-> **카테고리**: tech, devops
-
-> **태그**: Tech-Blog, Weekly-Digest, Developer, 2026, AI, Data, Cloud, Go
-
-> **핵심 내용**: 
-> - 2026년 02월 20일 주요 기술 블로그 뉴스 15건 - AI, Data, Cloud
-
-> **주요 기술/도구**: AWS, Kubernetes, tech, devops
-
-> **대상 독자**: 클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
-
-## Executive Summary
+## 핵심 요약
 
 이번 다이제스트의 핵심은 "AI 모델 운영 성숙도"와 "Cloud Native 기반 데이터 파이프라인 표준화"입니다.
 OpenAI와 Google은 AI 거버넌스 및 파트너십 확장에 집중하고, AWS는 EKS 기반 AI 워크플로우 운영 모델을 구체화했습니다.
@@ -83,70 +72,72 @@ OpenAI와 Google은 AI 거버넌스 및 파트너십 확장에 집중하고, AWS
 
 ### 1.1 Advancing independent research on AI alignment
 
-OpenAI commits $7.5M to The Alignment Project to fund independent AI alignment research, strengthening global efforts to address AGI safety and security risks.
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [OpenAI Blog](https://openai.com/index/advancing-independent-research-ai-alignment)
 
 **핵심 포인트:**
 
-- OpenAI commits $7.5M to The Alignment Project to fund independent AI alignment research, strengthening global efforts to address AGI safety and security risks
+- 이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다
+- AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다
 
 ### 1.2 “No technology has me dreaming bigger than AI”
 
-a stylized design resembling the Ashoka Chakra with colorful network lines and text reading "भारत 2026 INDIA." A vertical line separates it from the Google logo on the right, all set against a light blue gradient background with a faint grid pattern.
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Google AI Blog](https://blog.google/company-news/inside-google/message-ceo/sundar-pichai-ai-impact-summit-2026/)
 
 **핵심 포인트:**
 
-- a stylized design resembling the Ashoka Chakra with colorful network lines and text reading "भारत 2026 INDIA." A vertical line separates it from the Google logo on the right, all set against a light blue gradient background with a faint grid pattern
+- 이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다
+- AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다
 
 ### 1.3 AI Impact Summit 2026
 
-A look at the partnerships and investments Google announced at the AI Impact Summit 2026.
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [Google AI Blog](https://blog.google/innovation-and-ai/technology/ai/ai-impact-summit-2026-collection/)
 
 **핵심 포인트:**
 
-- A look at the partnerships and investments Google announced at the AI Impact Summit 2026
+- 이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다
+- AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다
 
 ### 1.4 Build AI workflows on Amazon EKS with Union.ai and Flyte
 
-In this post, we explain how you can use the Flyte Python SDK to orchestrate and scale AI/ML workflows. We explore how the Union.ai 2.0 system enables deployment of Flyte on Amazon Elastic Kubernetes Service (Amazon EKS), integrating seamlessly with AWS services like Amazon Simple Storage Service (Amazon S3), Amazon Aurora, AWS Identity and Access Management (IAM), and Amazon CloudWatch. We explore the solution through an AI workflow example, using the new Amazon S3 Vectors service.
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/build-ai-workflows-on-amazon-eks-with-union-ai-and-flyte/)
 
 **핵심 포인트:**
 
-- In this post, we explain how you can use the Flyte Python SDK to orchestrate and scale AI/ML workflows
-- We explore how the Union.ai 2.0 system enables deployment of Flyte on Amazon Elastic Kubernetes Service (Amazon EKS), integrating seamlessly with AWS services like Amazon Simple Storage Service (Amazon S3), Amazon Aurora, AWS Identity and Access Management (IAM), and Amazon CloudWatch
-- We explore the solution through an AI workflow example, using the new Amazon S3 Vectors service
+- 이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다
+- AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다
 
 ### 1.5 Amazon Quick now supports key pair authentication to Snowflake data source
 
-In this blog post, we will guide you through establishing data source connectivity between Amazon Quick Sight and Snowflake through secure key pair authentication.
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 원격 코드 실행 가능성에 대비해 탐지 룰과 차단 정책을 강화해야 합니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/amazon-quick-suite-now-supports-key-pair-authentication-to-snowflake-data-source/)
 
 **핵심 포인트:**
 
-- In this blog post, we will guide you through establishing data source connectivity between Amazon Quick Sight and Snowflake through secure key pair authentication
+- 이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다
+- 원격 코드 실행 가능성에 대비해 탐지 룰과 차단 정책을 강화해야 합니다
 
 ## 2. DevOps & Cloud
 
 ### 2.1 How Medplum Secured Their Healthcare Platform with Docker Hardened Images (DHI)
 
-Special thanks to Cody Ebberson and the Medplum team for their open-source contribution and for sharing their migration experience with the community. A real-world example of migrating a HIPAA-compliant EHR platform to DHI with minimal code changes. Healthcare software runs on trust. When patient data is at stake, security isn't just a feature but a...
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 컨테이너 운영에서는 베이스 이미지 보안과 런타임 제어를 강화해야 합니다.
 
 > **출처**: [Docker Blog](https://www.docker.com/blog/medplum-healthcare-docker-hardened-images/)
 
 ### 2.2 State of cloud native 2026: CNCF CTO’s insights and predictions
 
-We’ve just celebrated the 10th anniversary of the Cloud Native Computing Foundation (CNCF), the foundation behind Kubernetes and so many other successful open source projects we all rely on. That alone was a good reason to...
+이번 항목은 최신 기술 동향과 현업 적용 포인트를 간결히 정리한 내용입니다. 클라우드 운영에서는 권한·네트워크·로그 정책을 함께 점검해야 합니다.
 
 > **출처**: [CNCF Blog](https://www.cncf.io/blog/2026/02/19/state-of-cloud-native-2026-cncf-ctos-insights-and-predictions/)
-
 
 ---
 
@@ -167,7 +158,6 @@ We’ve just celebrated the 10th anniversary of the Cloud Native Computing Found
 ## 4. 관련 포스트
 
 - [Agentic AI Security 2026: Attack Vectors and Defense Architecture]({% post_url 2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture %})
-
 
 ---
 

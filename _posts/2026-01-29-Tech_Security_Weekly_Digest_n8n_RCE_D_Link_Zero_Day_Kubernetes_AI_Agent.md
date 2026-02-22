@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: Tech & Security Weekly Digest: n8n Critical RCE, D-Link 단종 장비 Zero-Day, Kubernetes AI 에이전트 보안
-
-> **카테고리**: security, devsecops
-
-> **태그**: Security-Weekly, n8n, RCE, CVE-2026-1470, D-Link, Zero-Day, CVE-2026-0625, Kubernetes, AI-Agent, eBPF, Sovereign-Cloud, NHI, DevSecOps, "2026"
-
-> **핵심 내용**: 
-> - n8n RCE(CVE-2026-1470 CVSS 9.9), D-Link Zero-Day, K8s AI 에이전트 보안 과제, Swiss Sovereign Cloud
-
-> **주요 기술/도구**: Security, Kubernetes, DevSecOps, security, devsecops
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='기술·보안 주간 다이제스트: n8n Critical RCE, D-Link 단종 장비 Zero-Day, Kubernetes AI 에이전트 보안'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">n8n</span>       <span class="tag">RCE</span>       <span class="tag">CVE-2026-1470</span>       <span class="tag">D-Link</span>       <span class="tag">Zero-Day</span>       <span class="tag">CVE-2026-0625</span>       <span class="tag">Kubernetes</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 n8n RCE(CVE-2026-1470 CVSS 9.9) 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-29 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
@@ -125,7 +114,6 @@ sequenceDiagram
     host->>host: 5. RCE 달성
     host-->>n8n: 공격 성공
 
-
 ```
 -->
 -->
@@ -172,7 +160,6 @@ sequenceDiagram
     boundary->>os: .obj 속성으로 내부 객체 접근
     os->>os: RCE 달성
     os-->>py: 공격 성공
-
 
 ```
 -->
@@ -248,7 +235,6 @@ else
 fi
 {% endraw %}
 
-
 ```
 -->
 -->
@@ -271,7 +257,6 @@ index=webserver sourcetype=n8n:execution
 | stats count by user, workflow_id, node_type, suspicious, _time
 | where count > 3
 | sort -count
-
 
 ```
 -->
@@ -333,7 +318,6 @@ level: critical
 falsepositives:
   - Legitimate advanced n8n workflows using complex code patterns
 
-
 ```
 -->
 -->
@@ -391,7 +375,6 @@ fi
 echo "[*] 패치 후 버전 확인..."
 n8n --version 2>/dev/null || docker exec $(docker ps -q --filter "ancestor=n8nio/n8n" | head -1) n8n --version 2>/dev/null
 
-
 ```
 -->
 -->
@@ -431,7 +414,6 @@ environment:
   # 실행 제한
   N8N_EXECUTIONS_TIMEOUT: "300"
   N8N_EXECUTIONS_TIMEOUT_MAX: "600"
-
 
 ```
 -->
@@ -484,7 +466,6 @@ sequenceDiagram
     
     Note over attacker: 악용 시나리오:<br/>A. DDoS 봇넷 편입<br/>B. DNS 하이재킹 설정<br/>C. 트래픽 가로채기<br/>D. 내부망 스캐닝
 
-
 ```
 -->
 -->
@@ -508,7 +489,6 @@ graph TD
     style D fill:#ff6b6b
     style F fill:#ff6b6b
     style G fill:#ff6b6b
-
 
 ```
 -->
@@ -580,7 +560,6 @@ done < <(grep "Nmap scan report" /tmp/dlink_scan.txt | awk '{print $NF}')
 
 echo "[*] 스캔 완료. 결과: /tmp/dlink_scan.txt"
 
-
 ```
 -->
 -->
@@ -631,7 +610,6 @@ alert http $EXTERNAL_NET any -> $HOME_NET any (
   metadata:cve CVE-2026-0625, severity critical;
 )
 
-
 ```
 -->
 -->
@@ -652,7 +630,6 @@ index=firewall OR index=webproxy
 )
 | stats count by src_ip, dest_ip, severity, url
 | sort -severity, -count
-
 
 ```
 -->
@@ -712,7 +689,6 @@ eol_device_replacement:
     - name: "pfSense/OPNsense"
       note: "오픈소스, 커뮤니티 지원"
 
-
 ```
 -->
 -->
@@ -768,7 +744,6 @@ graph LR
     
     style traditional fill:#e3f2fd
     style ai fill:#fff3e0
-
 
 ```
 -->
@@ -858,7 +833,6 @@ spec:
             - port: "53"
               protocol: UDP
 
-
 ```
 -->
 -->
@@ -943,7 +917,6 @@ spec:
           matchActions:
             - action: Post  # 로깅 (차단 전 관찰 모드)
 
-
 ```
 -->
 -->
@@ -1011,7 +984,6 @@ spec:
      pod=%k8s.pod.name connection=%fd.name)
   priority: NOTICE
   tags: [ai-agent, api, monitoring]
-
 
 ```
 -->
@@ -1082,7 +1054,6 @@ roleRef:
   kind: Role
   name: ai-agent-role
   apiGroup: rbac.authorization.k8s.io
-
 
 ```
 -->
@@ -1174,7 +1145,6 @@ graph TD
     style E fill:#2196F3,color:#fff
     style F fill:#2196F3,color:#fff
 
-
 ```
 -->
 -->
@@ -1232,7 +1202,6 @@ sovereignty_assessment:
       recommendation: "GPU 인스턴스 성능 비교 후 결정"
       reason: "OpenAI 호환 API 활용 가능"
 
-
 ```
 -->
 -->
@@ -1282,7 +1251,6 @@ sequenceDiagram
     exfil->>lateral: 4. Other Service Account<br/>Token Theft (SSRF, IMDS)
     
      Note over attacker: Key Attack Vectors:<br/>Hardcoded Secrets | Over-privileged IAM<br/>Non-expiring Tokens | IMDS v1
-
 
 ```
 -->
@@ -1388,7 +1356,6 @@ def audit_nhi_inventory():
 
     return findings
 
-
 def generate_remediation_plan(findings):
     """발견 사항 기반 자동 remediation 계획 생성"""
 
@@ -1412,13 +1379,11 @@ def generate_remediation_plan(findings):
 
     return plan
 
-
 if __name__ == "__main__":
     findings = audit_nhi_inventory()
     plan = generate_remediation_plan(findings)
     print("\n=== Remediation Plan ===")
     print(json.dumps(plan, indent=2, ensure_ascii=False))
-
 
 ```
 -->
@@ -1482,7 +1447,6 @@ secret_management:
   access_logging: true
   cross_account_access: false
 
-
 ```
 -->
 -->
@@ -1532,7 +1496,6 @@ index=cloudtrail sourcetype=aws:cloudtrail
 | eval days_inactive=round((now()-last_activity)/86400)
 | where days_inactive > 90
 | sort -days_inactive
-
 
 ```
 -->

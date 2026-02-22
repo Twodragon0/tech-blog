@@ -16,25 +16,14 @@ keywords: [AWS, NLB, Security-Group, Database, Terraform, Zero-Trust]
 author: Twodragon
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드
-
-> **카테고리**: cloud
-
-> **태그**: AWS, NLB, Security-Group, Database, Network
-
-> **핵심 내용**: 
-> - AWS NLB와 Security Group을 활용한 Zero Trust 데이터베이스 게이트웨이 구축.
-
-> **주요 기술/도구**: AWS, Security, cloud
-
-> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드'
+  categories_html='<span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">AWS</span>       <span class="tag">NLB</span>       <span class="tag">Security-Group</span>       <span class="tag">Database</span>       <span class="tag">Network</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 AWS NLB와 Security Group을 활용한 Zero Trust 데이터베이스 게이트웨이 구축 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-10-03 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
@@ -653,7 +642,7 @@ recommended_patterns:
 ```
 -->
 
-## Executive Summary: Database Access Gateway 도입 효과
+## 핵심 요약: Database Access Gateway 도입 효과
 
 ### 비즈니스 임팩트
 

@@ -15,25 +15,14 @@ keywords: [Karpenter, Kubernetes, AWS, EKS, PodDisruptionBudget, Post-Mortem]
 author: Twodragon
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기
-
-> **카테고리**: incident
-
-> **태그**: Karpenter, Kubernetes, AWS, Post-Mortem, Incident, EKS
-
-> **핵심 내용**: 
-> - Karpenter v1.5.3 노드 통합 장애 분석. PDB 적용을 통한 재발 방지.
-
-> **주요 기술/도구**: Kubernetes, AWS, incident
-
-> **대상 독자**: SRE, 인시던트 대응 담당자, 운영 엔지니어
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기'
+  categories_html='<span class="category-tag incident">인시던트</span>'
+  tags_html='<span class="tag">Karpenter</span>       <span class="tag">Kubernetes</span>       <span class="tag">AWS</span>       <span class="tag">Post-Mortem</span>       <span class="tag">Incident</span>       <span class="tag">EKS</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Karpenter v1.5.3 노드 통합 장애 분석. PDB 적용을 통한 재발 방지 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-10-02 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 경영진 요약 (Executive Summary)
 
@@ -210,7 +199,6 @@ flowchart TD
 
     Before -->|Consolidation| After
 
-
 ```
 -->
 -->
@@ -257,8 +245,6 @@ spec:
  budgets:
  - nodes: "100%" # 모든 노드 동시 삭제 가능!
 
-
-
 ```
 -->
 -->
@@ -302,8 +288,6 @@ spec:
  matchLabels:
  app: api-gateway
 
-
-
 ```
 -->
 -->
@@ -345,8 +329,6 @@ kubectl logs -n karpenter deploy/karpenter -c controller --since=1h | grep -i co
 15:43:10 INFO controller.disruption Disrupting node ip-10-0-2-156 for consolidation
 15:43:15 INFO controller.node Draining node ip-10-0-1-234
 15:43:15 INFO controller.node Draining node ip-10-0-2-156
-
-
 
 ```
 -->
@@ -391,7 +373,6 @@ flowchart TD
     BI --> RL["Revenue loss: ~2,000,000 KRW"]
     BI --> CC["Customer complaints: 50+"]
 
-
 ```
 -->
 -->
@@ -435,8 +416,6 @@ kubectl get nodes
 
 # 4. Pod 재시작 강제
 kubectl rollout restart deployment -n prod
-
-
 
 ```
 -->
@@ -518,8 +497,6 @@ spec:
  schedule: "0 9-18 * * 1-5" # 업무 시간에는 삭제 금지
  duration: 9h
 
-
-
 ```
 -->
 -->
@@ -591,8 +568,6 @@ spec:
 EOF
 done
 
-
-
 ```
 -->
 -->
@@ -645,8 +620,6 @@ spec:
  labelSelector:
  matchLabels:
  app: api-gateway
-
-
 
 ```
 -->
@@ -708,8 +681,6 @@ spec:
  annotations:
  summary: "Karpenter consolidation in progress"
 
-
-
 ```
 -->
 -->
@@ -755,8 +726,6 @@ spec:
  }
  }
 }
-
-
 
 ```
 -->
@@ -856,7 +825,6 @@ data:
         resources: ["nodepools"]
       verbs: ["update", "patch", "delete"]
 
-
 ```
 -->
 -->
@@ -893,7 +861,6 @@ data:
     (user=%ka.user.name verb=%ka.verb resource=%ka.target.name)
   priority: WARNING
   tags: [karpenter, security, configuration]
-
 
 ```
 -->
@@ -976,7 +943,6 @@ spec:
       schedule: "0 0-6 * * *"
       duration: 6h
 
-
 ```
 -->
 -->
@@ -1051,7 +1017,6 @@ graph TB
     style N2 fill:#ffeb99
     style N3 fill:#ffeb99
 
-
 ```
 -->
 -->
@@ -1111,7 +1076,6 @@ sequenceDiagram
 
     Note over U: 15:44:00 - 15:50:00<br/>Complete Service Outage
 
-
 ```
 -->
 -->
@@ -1170,7 +1134,6 @@ graph TB
     style P3 fill:#99ccff
     style MON fill:#ffcc99
 
-
 ```
 -->
 -->
@@ -1211,7 +1174,6 @@ kubectl get deploy --all-namespaces -o json | \
       echo "WARNING: $deploy has no PDB"
     fi
   done
-
 
 ```
 -->
@@ -1286,7 +1248,6 @@ kubectl get pdb --all-namespaces -o yaml > $OUTPUT_DIR/pdb-config.yaml
 kubectl get nodes --show-labels > $OUTPUT_DIR/nodes-state.txt
 
 echo "Forensics data collected in $OUTPUT_DIR"
-
 
 ```
 -->

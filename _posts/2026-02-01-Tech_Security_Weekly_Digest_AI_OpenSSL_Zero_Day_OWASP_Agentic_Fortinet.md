@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 기술 & 보안 주간 다이제스트: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet SSO 제로데이
-
-> **카테고리**: security, devsecops
-
-> **태그**: Security-Weekly, DevSecOps, AI-Security, OpenSSL, Zero-Day, OWASP, Agentic-AI, Fortinet, Azure, Kyverno, Supply-Chain, eScan, NIST, "2026"
-
-> **핵심 내용**: 
-> - AISLE AI가 OpenSSL 제로데이 12건 전량 발견(역사적 최초), OWASP Agentic AI Top 10 프레임워크 발표, CVE-2026-24858 Fortinet FortiCloud SSO 인증 우회 제로데이 심층 분석
-
-> **주요 기술/도구**: Security, DevSecOps, Security, security, devsecops
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='기술 &amp; 보안 주간 다이제스트: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet SSO 제로데이'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">DevSecOps</span>       <span class="tag">AI-Security</span>       <span class="tag">OpenSSL</span>       <span class="tag">Zero-Day</span>       <span class="tag">OWASP</span>       <span class="tag">Agentic-AI</span>       <span class="tag">Fortinet</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 AISLE AI가 OpenSSL 제로데이 12건 전량 발견(역사적 최초) 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-02-01 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 경영진 요약 (Executive Summary)
 
@@ -132,7 +121,6 @@ security-audit:
       when: always
     - if: $CI_COMMIT_BRANCH == "main"
       when: always
-
 
 ```
 -->
@@ -305,7 +293,6 @@ World Economic Forum의 **Global Cybersecurity Outlook 2026**에 따르면:
     ├─> 랜섬웨어 배포
     └─> 지속 공격 인프라 구축
 
-
 ```
 -->
 -->
@@ -353,7 +340,6 @@ CommonSecurityLog
 | where FailedAttempts > 5 or (FailedAttempts > 3 and SuccessfulLogins > 0)
 | project TimeGenerated, SourceIP, FailedAttempts, SuccessfulLogins, UniqueUsers
 | order by FailedAttempts desc
-
 
 ```
 -->
@@ -411,7 +397,6 @@ CommonSecurityLog
     }
   }
 }
-
 
 ```
 -->
@@ -513,7 +498,6 @@ CommonSecurityLog
     ├─> Defender for Cloud 비활성화
     └─> 감사 로그 삭제/변조
 
-
 ```
 -->
 -->
@@ -541,7 +525,6 @@ AzureActivity
 | where PreviousRoleCount < 5 or isempty(PreviousRoleCount)
 | project TimeGenerated, Caller, OperationNameValue, Resource, ActivityStatusValue
 | order by TimeGenerated desc
-
 
 ```
 -->
@@ -584,7 +567,6 @@ AzureActivity
 | project TimeGenerated, Caller, Operations, UniqueResources, OperationTypes
 | order by Operations desc
 
-
 ```
 -->
 -->
@@ -607,7 +589,6 @@ S:C   → 범위 변경 (다른 리소스에 영향)
 C:H   → 기밀성 완전 침해
 I:H   → 무결성 완전 침해
 A:H   → 가용성 완전 침해
-
 
 ```
 -->
@@ -674,7 +655,6 @@ spec:
             urlPath: "/api/v1/namespaces/prod/secrets"
             # dev 사용자가 prod 시크릿에 접근!
 
-
 ```
 -->
 -->
@@ -706,7 +686,6 @@ helm upgrade kyverno kyverno/kyverno \
 
 # Kyverno ServiceAccount RBAC 제한
 kubectl get clusterrolebinding | grep kyverno
-
 
 ```
 -->
@@ -1029,7 +1008,6 @@ CommonSecurityLog
 | project FirstSeen, LastSeen, SourceIP, TotalAttempts, Failures, Successes, UniqueUsers, SuspicionScore
 | order by SuspicionScore desc
 
-
 ```
 -->
 -->
@@ -1061,7 +1039,6 @@ index=fortigate sourcetype=fortigate_log earliest=-7d
 | eval last_seen=strftime(last_seen, "%Y-%m-%d %H:%M:%S")
 | table first_seen, last_seen, src_ip, total_attempts, failures, successes, unique_users, suspicion_score
 | sort -suspicion_score
-
 
 ```
 -->
@@ -1106,7 +1083,6 @@ AzureActivity
     CorrelationId
 | order by TimeGenerated desc
 
-
 ```
 -->
 -->
@@ -1134,7 +1110,6 @@ status=Succeeded
 | where historical_count < 3 OR isnull(historical_count)
 | table _time, caller, principal_id, role_definition, historical_count
 | sort -_time
-
 
 ```
 -->
@@ -1173,7 +1148,6 @@ verb IN ("create", "update", "patch")
 | where policy_namespace != target_namespace AND isnotnull(target_namespace)
 | table _time, user.username, objectRef.name, policy_namespace, target_namespace, api_call_path
 | sort -_time
-
 
 ```
 -->
@@ -1221,7 +1195,6 @@ verb IN ("create", "update", "patch")
   }
 }
 
-
 ```
 -->
 -->
@@ -1250,7 +1223,6 @@ index=windows sourcetype=WinEventLog:Security EventCode=4688 earliest=-14d
 | where affected_hosts > 5
 | table _time, Account_Name, processes, command_lines, affected_hosts, count
 | sort -count
-
 
 ```
 -->
@@ -1282,7 +1254,6 @@ SecurityEvent
 | where AffectedHosts > 5
 | project FirstSeen, LastSeen, Account, ExecutionCount, AffectedHosts, Processes, CommandLines
 | order by ExecutionCount desc
-
 
 ```
 -->
@@ -1372,4 +1343,4 @@ SecurityEvent
 
 ---
 
-*이 글은 [Twodragon's Tech Blog](https://tech.2twodragon.com)에서 매주 발행하는 Tech & Security Weekly Digest입니다. 최신 보안 뉴스와 실무 가이드를 매주 받아보세요.*
+*이 글은 [Twodragon's Tech Blog](https://tech.2twodragon.com)에서 매주 발행하는 기술·보안 주간 다이제스트입니다. 최신 보안 뉴스와 실무 가이드를 매주 받아보세요.*

@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석
-
-> **카테고리**: devsecops, security
-
-> **태그**: DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, "2026"
-
-> **핵심 내용**: 
-> - 2026 DevSecOps 로드맵 93개 학습 항목 분석
-
-> **주요 기술/도구**: DevSecOps, devsecops, security
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석'
+  categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag security">보안</span>'
+  tags_html='<span class="tag">DevSecOps</span>       <span class="tag">로드맵</span>       <span class="tag">보안</span>       <span class="tag">학습-경로</span>       <span class="tag">roadmap.sh</span>       <span class="tag">2026</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 2026 DevSecOps 로드맵 93개 학습 항목 분석 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-10 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 

@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략
-
-> **카테고리**: security, incident
-
-> **태그**: Ransomware, KARA, SK-Shieldus, LockBit, Akira, INC-Ransomware, Threat-Intelligence, DevSecOps, Zero-Trust, "2025"
-
-> **핵심 내용**: 
-> - 2025년 3분기 랜섬웨어 1,517건 발생. LockBit 5.0 재등장, Akira 제조업 타겟, 제로 트러스트 대응 전략.
-
-> **주요 기술/도구**: DevSecOps, security, incident
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag incident">인시던트</span>'
+  tags_html='<span class="tag">Ransomware</span>       <span class="tag">KARA</span>       <span class="tag">SK-Shieldus</span>       <span class="tag">LockBit</span>       <span class="tag">Akira</span>       <span class="tag">INC-Ransomware</span>       <span class="tag">Threat-Intelligence</span>       <span class="tag">DevSecOps</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 2025년 3분기 랜섬웨어 1 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-22 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
@@ -206,7 +195,6 @@ attack_chain:
     - encryption: ChaCha20 + RSA-4096
     - deletion: Shadow Copy, Backup Catalogs
 
-
 ```
 -->
 -->
@@ -251,7 +239,6 @@ rule LockBit_5_0_Ransomware
             (2 of ($etw_patch, $unhook_ntdll, $api_hash_1))
         )
 }
-
 
 ```
 -->
@@ -328,7 +315,6 @@ tags:
 falsepositives:
     - Legitimate backup software
 
-
 ```
 -->
 -->
@@ -372,7 +358,6 @@ show version
 # 1. SonicWall 지원 포털에서 최신 펌웨어 다운로드
 # 2. SSLVPN Default Users Group 비활성화
 # 3. MFA 강제 적용
-
 
 ```
 -->
@@ -497,7 +482,6 @@ edr_evasion_techniques:
       - "알려진 취약 드라이버 로드 탐지"
       - "드라이버 로드 이벤트 모니터링 (Sysmon ID 6)"
 
-
 ```
 -->
 -->
@@ -539,7 +523,6 @@ Why Manufacturing is Ransomware Target #1:
 4. Relatively Low Security Maturity - OT security underinvested, staff shortage, lack of training
 
 Response Strategy: OT/IT network separation, industrial firewalls/IDS/IPS, OT-specific EDR, regular OT security assessments
-
 
 ```
 -->
@@ -632,7 +615,6 @@ zero_trust_implementation:
         - "24x7 SOC 운영"
       tools: [Splunk, Microsoft Sentinel, Elastic SIEM]
 
-
 ```
 -->
 -->
@@ -697,7 +679,6 @@ zero_trust_implementation:
     ]
 }
 
-
 ```
 -->
 -->
@@ -729,7 +710,6 @@ aws s3api put-object-lock-configuration \
             }
         }
     }'
-
 
 ```
 -->
@@ -822,7 +802,6 @@ falsepositives:
     - Legitimate admin activities
     - Software deployment tools
 
-
 ```
 -->
 -->
@@ -912,7 +891,6 @@ ransomware_incident_response:
       - "[ ] 근본 원인 분석(RCA)"
       - "[ ] 탐지 룰 개선"
       - "[ ] 훈련 프로그램 업데이트"
-
 
 ```
 -->

@@ -16,25 +16,14 @@ schema_type: Article
 certifications: [isms-p]
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처
-
-> **카테고리**: security, cloud
-
-> **태그**: GCP, Security, IAM, Cloud-SQL, Cloud-Storage, GKE, Cloud-Monitoring, Cloud-Logging
-
-> **핵심 내용**: 
-> - GCP IAM, VPC, Cloud SQL, Storage, GKE 보안 아키텍처, Defense in Depth 전략
-
-> **주요 기술/도구**: Security, IAM, security, cloud
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">GCP</span>       <span class="tag">Security</span>       <span class="tag">IAM</span>       <span class="tag">Cloud-SQL</span>       <span class="tag">Cloud-Storage</span>       <span class="tag">GKE</span>       <span class="tag">Cloud-Monitoring</span>       <span class="tag">Cloud-Logging</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 GCP IAM 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-14 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
@@ -110,7 +99,6 @@ IAM 정책 열람 (T1580)
 Cloud Storage 데이터 유출 (T1530)
     ↓
 Audit Log 비활성화 시도 (T1562.008)
-
 
 ```
 -->
@@ -235,7 +223,6 @@ GCP는 2023년 한국인터넷진흥원(KISA) CSAP 인증을 획득했습니다.
 │  └──────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────┘
 
-
 ```
 -->
 -->
@@ -327,7 +314,6 @@ rows_to_insert = [
 ]
 
 bq_client.insert_rows_json(table_ref, rows_to_insert)
-
 
 ```
 -->
@@ -566,7 +552,6 @@ bq_client.insert_rows_json(table_ref, rows_to_insert)
 │  └─────────────────────────────────────────────────────────────┘  │
 └───────────────────────────────────────────────────────────────────┘
 
-
 ```
 -->
 -->
@@ -648,7 +633,6 @@ bq_client.insert_rows_json(table_ref, rows_to_insert)
 │  │  ✓ Container Analysis: Continuous vulnerability scan    │  │
 │  └───────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
-
 
 ```
 -->
@@ -808,7 +792,6 @@ resources:
       region: asia-northeast3
       privateIpGoogleAccess: true
 
-
 ```
 -->
 -->
@@ -843,7 +826,6 @@ resources:
           natIpAllocateOption: AUTO_ONLY
           sourceSubnetworks:
             - $(ref.private-subnet.selfLink)
-
 
 ```
 -->
@@ -885,7 +867,6 @@ resources:
       targetTags:
         - web-server
       description: Allow HTTPS traffic from internet
-
 
 ```
 -->
@@ -949,7 +930,6 @@ resources:
               matchesStorageClass:
                 - STANDARD
 
-
 ```
 -->
 -->
@@ -1007,7 +987,6 @@ resources:
             value: 'on'
         diskEncryptionConfiguration:
           kmsKeyName: projects/PROJECT_ID/locations/asia-northeast3/keyRings/keyring/cryptoKeys/db-key
-
 
 ```
 -->
@@ -1073,7 +1052,6 @@ spec:
           drop:
             - ALL
 
-
 ```
 -->
 -->
@@ -1125,7 +1103,6 @@ spec:
         - protocol: TCP
           port: 3306
 
-
 ```
 -->
 -->
@@ -1173,7 +1150,6 @@ resources:
         OR resource.type="gcs_bucket"
         OR resource.type="cloudsql_database"
 
-
 ```
 -->
 -->
@@ -1214,7 +1190,6 @@ resources:
       assetDiscoveryConfig:
         projectIds:
           - PROJECT_ID
-
 
 ```
 -->

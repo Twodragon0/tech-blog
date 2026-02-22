@@ -17,25 +17,14 @@ audio_file: /assets/audio/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_D
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드
-
-> **카테고리**: security
-
-> **태그**: SendGrid, SPF, DKIM, DMARC, Email-Security
-
-> **핵심 내용**: 
-> - SendGrid SPF, DKIM, DMARC 설정으로 이메일 발송 신뢰도 향상
-
-> **주요 기술/도구**: Security, security
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드'
+  categories_html='<span class="category-tag security">보안</span>'
+  tags_html='<span class="tag">SendGrid</span>       <span class="tag">SPF</span>       <span class="tag">DKIM</span>       <span class="tag">DMARC</span>       <span class="tag">Email-Security</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 SendGrid SPF 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-06-05 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 경영진 요약 (Executive Summary)
 
@@ -197,7 +186,6 @@ schema_type: Article
     인증 실패 → 이메일 차단
     인증 성공 → 받은편지함 전달
 
-
 ```
 -->
 -->
@@ -240,7 +228,6 @@ schema_type: Article
    │                      │                      │
    │                      │  7. 이메일 전달       │
    │                      │  → 받은편지함         │
-
 
 ```
 -->
@@ -286,7 +273,6 @@ schema_type: Article
       │                                            │
       │                                            │  8. 이메일 전달
       │                                            │  → 받은편지함
-
 
 ```
 -->
@@ -343,7 +329,6 @@ schema_type: Article
           │ DMARC 보고서 생성 │
           │ (rua 주소로 전송) │
           └──────────────────┘
-
 
 ```
 -->
@@ -481,7 +466,6 @@ v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc@yourdomain.com
 
 # 4단계: 완전 거부
 v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
-
 
 ```
 -->
@@ -712,8 +696,6 @@ v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc@yourdomain.com
 # 4단계 (2개월 후): 완전 거부 (권장)
 v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
 
-
-
 ```
 -->
 -->
@@ -865,7 +847,6 @@ v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
 □ 분기별 보안 감사 실시 (외부 전문가 참여)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-
 ```
 -->
 -->
@@ -963,7 +944,6 @@ index=mail sourcetype=email_logs
 | stats count by sender_email, recipient, subject, spf_result, dkim_result
 | sort -count
 
-
 ```
 -->
 -->
@@ -1034,7 +1014,6 @@ EmailEvents
 | where FailureRate > 10
 | project SenderFromDomain, SenderFromAddress, EmailCount, FailureRate, SPFFail, DKIMFail, DMARCFail
 | order by FailureRate desc
-
 
 ```
 -->

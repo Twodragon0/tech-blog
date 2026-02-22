@@ -361,7 +361,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
       
       - name: Install dependencies
-        run: pip install feedparser requests
+        run: pip install feedparser requests beautifulsoup4
       
       - name: Check RSS feed health
         run: |

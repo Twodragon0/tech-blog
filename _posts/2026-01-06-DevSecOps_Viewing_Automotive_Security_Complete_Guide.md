@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략
-
-> **카테고리**: devsecops, security
-
-> **태그**: DevSecOps, Automotive-Security, Connected-Car, SAST, DAST, SBOM, Supply-Chain-Security
-
-> **핵심 내용**: 
-> - DevSecOps 자동차 보안 완벽 가이드 SDV 시대
-
-> **주요 기술/도구**: DevSecOps, Security, Security, devsecops, security
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략'
+  categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag security">보안</span>'
+  tags_html='<span class="tag">DevSecOps</span>       <span class="tag">Automotive-Security</span>       <span class="tag">Connected-Car</span>       <span class="tag">SAST</span>       <span class="tag">DAST</span>       <span class="tag">SBOM</span>       <span class="tag">Supply-Chain-Security</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 DevSecOps 자동차 보안 완벽 가이드 SDV 시대 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-06 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 

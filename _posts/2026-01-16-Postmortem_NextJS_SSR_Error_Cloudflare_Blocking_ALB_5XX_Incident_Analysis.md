@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: [Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석
-
-> **카테고리**: incident
-
-> **태그**: Post-Mortem, Next.js, SSR, Cloudflare, ALB, Kubernetes, Incident-Response, AWS
-
-> **핵심 내용**: 
-> - Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석
-
-> **주요 기술/도구**: Cloudflare, Kubernetes, AWS, incident
-
-> **대상 독자**: SRE, 인시던트 대응 담당자, 운영 엔지니어
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석'
+  categories_html='<span class="category-tag incident">인시던트</span>'
+  tags_html='<span class="tag">Post-Mortem</span>       <span class="tag">Next.js</span>       <span class="tag">SSR</span>       <span class="tag">Cloudflare</span>       <span class="tag">ALB</span>       <span class="tag">Kubernetes</span>       <span class="tag">Incident-Response</span>       <span class="tag">AWS</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Next.js SSR location 에러 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-16 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
@@ -250,7 +239,6 @@ schema_type: Article
   </diagram>
 </mxfile>
 
-
 ```
 -->
 -->
@@ -428,7 +416,6 @@ function redirectTo(url: string) {
   }
 }
 
-
 ```
 -->
 -->
@@ -525,7 +512,6 @@ if (typeof window === 'undefined') {
   router.push(url);
 }
 
-
 ```
 -->
 -->
@@ -557,7 +543,6 @@ function redirectTo(url: string) {
     // 또는 서버 사이드에서는 리다이렉트 헤더 사용
   }
 }
-
 
 ```
 -->
@@ -687,7 +672,6 @@ export function ExampleComponent({ itemId, categoryId }: Props) {
   return <button onClick={handleAction}>완료</button>;
 }
 
-
 ```
 -->
 -->
@@ -779,7 +763,6 @@ jobs:
       #     sleep 10
       #     curl http://localhost:3000/api/healthz
 {% endraw %}
-
 
 ```
 -->
@@ -990,7 +973,6 @@ jobs:
     </mxGraphModel>
   </diagram>
 </mxfile>
-
 
 ```
 -->

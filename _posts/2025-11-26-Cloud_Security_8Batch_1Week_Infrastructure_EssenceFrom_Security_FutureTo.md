@@ -16,27 +16,16 @@ keywords: [Infrastructure, Cloud-Security, AWS, Zero Trust, AI보안, Post-quant
 author: Twodragon
 ---
 
-## 📋 포스팅 요약
+{% include ai-summary-card.html
+  title='클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지'
+  categories_html='<span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">Infrastructure</span>       <span class="tag">Cloud-Security</span>       <span class="tag">AWS</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 클라우드 인프라 본질부터 2025년 AI 보안 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-11-26 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
-> **제목**: 클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지
-
-> **카테고리**: cloud
-
-> **태그**: Infrastructure, Cloud-Security, AWS
-
-> **핵심 내용**: 
-> - 클라우드 인프라 본질부터 2025년 AI 보안, Zero Trust, Post-quantum 암호화까지 실무 중심 학습
-
-> **주요 기술/도구**: Security, AWS, cloud
-
-> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
-
-## Executive Summary (경영진 요약)
+## 핵심 요약 (경영진 요약)
 
 ### 리스크 스코어카드
 
@@ -76,7 +65,6 @@ author: Twodragon
 <img src="{% raw %}{{ '/assets/images/diagrams/diagram_aws_security_services.png' | relative_url }}{% endraw %}" alt="AWS Security Services Overview" loading="lazy" class="post-image">
 <figcaption>AWS 보안 서비스 개요 - Python diagrams로 생성</figcaption>
 </figure>
-
 
 ## 1. 클라우드 인프라의 본질
 
@@ -134,7 +122,6 @@ aws cloudtrail create-trail --name security-trail \
 
 # Security Hub 활성화
 aws securityhub enable-security-hub --enable-default-standards
-
 
 ```
 -->
@@ -213,7 +200,6 @@ aws securityhub enable-security-hub --enable-default-standards
 │  - Automated backups enabled                                     │
 │  - No internet connectivity                                      │
 └─────────────────────────────────────────────────────────────────┘
-
 
 ```
 -->
@@ -314,7 +300,6 @@ def detect_shadow_ai_usage():
 
 # 참고: https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html
 
-
 ```
 -->
 -->
@@ -392,7 +377,6 @@ def detect_shadow_ai_usage():
 │  Allow Access   │ │ Limited Access  │ │  Block Access   │
 │  + Full Perms   │ │  + MFA Required │ │  + Alert SOC    │
 └─────────────────┘ └─────────────────┘ └─────────────────┘
-
 
 ```
 -->
@@ -481,7 +465,6 @@ spec:
           key: password
 
 # 참고: https://kubernetes.io/docs/concepts/security/pod-security-standards/
-
 
 ```
 -->
@@ -582,7 +565,6 @@ Phase 3 (2026 Q1-Q2): 점진적 롤아웃
 │ - 지속적 모니터링 및 최적화             │
 └────────────────────────────────────────┘
 
-
 ```
 -->
 -->
@@ -652,7 +634,6 @@ Initial Access → Execution → Persistence → Privilege Escalation
     [Transfer to]  [Delete]       [Encrypt]
     [External]     [Resources]    [Data]
     [Account]
-
 
 ```
 -->
@@ -822,7 +803,6 @@ def find_shadow_admins():
 
 # 참고: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html
 
-
 ```
 -->
 -->
@@ -866,7 +846,6 @@ ORDER BY eventtime DESC
 LIMIT 100;
 
 # 참고: https://docs.aws.amazon.com/athena/latest/ug/cloudtrail-logs.html
-
 
 ```
 -->
@@ -934,7 +913,6 @@ def detect_abnormal_kms_usage():
 
 # 참고: https://docs.aws.amazon.com/kms/latest/developerguide/logging-using-cloudtrail.html
 
-
 ```
 -->
 -->
@@ -979,7 +957,6 @@ def detect_abnormal_kms_usage():
 │        Monitoring & Incident Response (모니터링 및 대응)        │
 │  24/7 모니터링 │ 침해사고 대응 체계 │ CERT 연계 │ 로그 3년 보관│
 └────────────────────────────────────────────────────────────────┘
-
 
 ```
 -->
@@ -1056,7 +1033,6 @@ def detect_abnormal_kms_usage():
 3. 클라우드 설정 오류
    - S3 버킷 퍼블릭 노출 1건 탐지 및 즉시 차단
    - 대응: 자동화된 S3 Public Access Block 적용
-
 
 ```
 -->
@@ -1160,7 +1136,6 @@ aws route53 create-health-check --health-check-config \
 # 5. Shield Response Team (SRT) 연락 (Enterprise Support 계획)
 # AWS Support Console에서 케이스 오픈
 
-
 ```
 -->
 -->
@@ -1219,7 +1194,6 @@ aws ec2 create-network-acl-entry --network-acl-id ACL_ID \
   --cidr-block MALICIOUS_IP/32
 
 # 5. 사고 보고서 작성 (개인정보 유출 시 72시간 내 개인정보보호위원회 신고)
-
 
 ```
 -->
@@ -1280,7 +1254,6 @@ aws s3api get-bucket-logging --bucket BUCKET_NAME
 # 6. 필요 시 자격 증명 로테이션 (Secrets Manager)
 aws secretsmanager rotate-secret --secret-id DATABASE_CREDENTIALS
 
-
 ```
 -->
 -->
@@ -1337,7 +1310,6 @@ aws ecs update-service --cluster CLUSTER_NAME \
 # 5. 컨테이너 로그 분석 (침해 여부 확인)
 aws logs filter-log-events --log-group-name /ecs/APP \
   --start-time TIMESTAMP --filter-pattern "crypto"
-
 
 ```
 -->
@@ -1468,7 +1440,6 @@ resource "aws_iam_policy" "least_privilege" {
 
 # 참고: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 
-
 ```
 -->
 -->
@@ -1552,7 +1523,6 @@ def lambda_handler(event, context):
         print(f"Error: {str(e)}")
 
 # 참고: https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html
-
 
 ```
 -->

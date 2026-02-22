@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신 연구 논문 기반 종합 평가
-
-> **카테고리**: ai, devsecops
-
-> **태그**: AI, Coding-Assistants, Gemini, Claude-Code, ChatGPT, OpenCode, DeepSeek, SWE-Bench, HumanEval, Reproducibility, Benchmark, Research, "2025", "2026"
-
-> **핵심 내용**: 
-> - Claude Code 80.9%, DeepSeek 90.2% HumanEval 성능. 재현성 68.3%, 실무 적용 가이드 제공.
-
-> **주요 기술/도구**: ai, devsecops
-
-> **대상 독자**: DevSecOps 엔지니어, 보안 엔지니어, 개발자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신 연구 논문 기반 종합 평가'
+  categories_html='<span class="category-tag tech">AI</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">AI</span>       <span class="tag">Coding-Assistants</span>       <span class="tag">Gemini</span>       <span class="tag">Claude-Code</span>       <span class="tag">ChatGPT</span>       <span class="tag">OpenCode</span>       <span class="tag">DeepSeek</span>       <span class="tag">SWE-Bench</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Claude Code 80.9% 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-17 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
@@ -351,7 +340,6 @@ curl -X POST https://api.deepseek.com/v1/chat/completions \
 # - API 키 설정
 # - Cmd/Ctrl + K로 코드 생성
 
-
 ```
 -->
 -->
@@ -434,7 +422,6 @@ opencode chat --session backend
 
 # 6. 모델 전환 (비용 최적화)
 opencode config --model deepseek-v3.2 --api-key $DEEPSEEK_API_KEY
-
 
 ```
 -->
@@ -601,7 +588,6 @@ jobs:
         uses: github/codeql-action/analyze@v2
 {% endraw %}
 
-
 ```
 -->
 -->
@@ -683,7 +669,6 @@ def verify_reproducibility(project_path):
 if __name__ == "__main__":
     result = verify_reproducibility("./ai-generated-project")
     print(json.dumps(result, indent=2))
-
 
 ```
 -->
@@ -786,7 +771,6 @@ claude-code plan --refactor \
 claude-code execute --plan refactor-plan.json \
   --validate --test-coverage 80%
 
-
 ```
 -->
 -->
@@ -885,7 +869,6 @@ def solve_algorithm_problem(problem_description):
     )
     return response.json()
 
-
 ```
 -->
 -->
@@ -939,7 +922,6 @@ opencode chat --session payment-service --no-history
 # 5. 멀티 세션 활용 (병렬 개발)
 opencode chat --session auth-service
 opencode chat --session payment-service
-
 
 ```
 -->
@@ -1031,7 +1013,6 @@ Analyze security vulnerabilities in:
 Focus on: SQL injection, XSS, authentication bypass
 """
 
-
 ```
 -->
 -->
@@ -1066,7 +1047,6 @@ def get_cached_response(prompt, model):
 def cache_response(prompt, model, response):
     cache_key = hashlib.md5(f"{model}:{prompt}".encode()).hexdigest()
     redis.setex(cache_key, 3600, json.dumps(response))  # 1시간 캐시
-
 
 ```
 -->
@@ -1138,7 +1118,6 @@ jobs:
               body: '## AI Code Review Results\n' + steps.review.outputs.comments
             })
 {% endraw %}
-
 
 ```
 -->
@@ -1286,7 +1265,6 @@ jobs:
           docker build -t test-env .
           docker run --rm test-env pytest
 {% endraw %}
-
 
 ```
 -->

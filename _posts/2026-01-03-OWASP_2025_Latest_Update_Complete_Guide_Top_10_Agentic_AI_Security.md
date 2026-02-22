@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안
-
-> **카테고리**: security, devsecops
-
-> **태그**: OWASP, Security, Top10, AI, DevSecOps, Application Security
-
-> **핵심 내용**: 
-> - OWASP Top 10 2025 신규 위협: 공급망 공격, 암호화 실패. AI 보안 10대 위협과 실무 가이드.
-
-> **주요 기술/도구**: Security, DevSecOps, Security, security, devsecops
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">OWASP</span>       <span class="tag">Security</span>       <span class="tag">Top10</span>       <span class="tag">AI</span>       <span class="tag">DevSecOps</span>       <span class="tag">Application Security</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 OWASP Top 10 2025 신규 위협: 공급망 공격 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-03 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
@@ -45,7 +34,7 @@ schema_type: Article
 - SecureCode v2.0 데이터셋과 AI 기반 보안 코드 생성
 - 실무 적용 방안 및 모범 사례
 
-## Executive Summary: 웹 애플리케이션 보안 위험 평가
+## 핵심 요약: 웹 애플리케이션 보안 위험 평가
 
 ### 종합 위험 점수카드
 
@@ -210,7 +199,6 @@ API 권한 검증 누락 → 관리자 권한 획득
   ↓ MITRE T1070.002: Clear Linux or Mac System Logs
 보안 로그 삭제 → 포렌식 증거 제거
 
-
 ```
 -->
 -->
@@ -272,7 +260,6 @@ index=web_logs status=200
 | eval severity="high"
 | table _time, user, endpoint, src_ip, severity
 
-
 ```
 -->
 -->
@@ -292,7 +279,6 @@ index=network_traffic protocol=TLS
   )
 | where risk_score >= 8
 
-
 ```
 -->
 -->
@@ -311,7 +297,6 @@ index=auth action=login status=failed
 | eval time_diff=_time - last_success
 | where time_diff < 300  /* 5분 내 연속 실패 */
 | eval alert="Brute force attack detected"
-
 
 ```
 -->
@@ -350,7 +335,6 @@ ApiManagementGatewayLogs
 | project TimeGenerated, UserId, Url, Method, ResponseCode, ClientIP
 | extend Severity = "High"
 
-
 ```
 -->
 -->
@@ -369,7 +353,6 @@ AzureDiagnostics
     5
   )
 | where RiskScore >= 8
-
 
 ```
 -->
@@ -402,7 +385,6 @@ SigninLogs
 | where TimeGenerated - SuccessTime < 5m
 | extend Alert = "Brute force attack detected"
 
-
 ```
 -->
 -->
@@ -422,7 +404,6 @@ SecurityEvent
   ) on Computer
 | project TimeGenerated, Computer, ClearedBy, SuspiciousProcess, CommandLine
 | extend Severity = "Critical"
-
 
 ```
 -->
@@ -453,7 +434,6 @@ index=security sourcetype=npm_lifecycle
 | where threat_score >= 8
 | sort -threat_score
 
-
 ```
 -->
 -->
@@ -475,7 +455,6 @@ SecurityEvent
 | summarize HourlyCount=count() by bin(TimeGenerated, 1h)
 | where HourlyCount > baseline * 3  // 평균 대비 3배 이상
 | extend Alert = "Abnormal package download activity"
-
 
 ```
 -->
@@ -503,7 +482,6 @@ index=web_logs method=POST status=200
 | stats count by user, target_user_id, uri, src_ip
 | where count >= 3
 
-
 ```
 -->
 -->
@@ -522,7 +500,6 @@ ApiManagementGatewayLogs
 | summarize AccessCount=count() by UserId, TargetResourceId, ClientIP
 | where AccessCount >= 3
 | extend Alert = "Unauthorized resource access pattern"
-
 
 ```
 -->
@@ -561,7 +538,6 @@ AzureDiagnostics
     "Medium"
   )
 | where RiskLevel in ("Critical", "High")
-
 
 ```
 -->
@@ -1070,8 +1046,6 @@ def encrypt_data(data: bytes, key: bytes) -> tuple[bytes, bytes, bytes]:
 
 ### 6.1 A03 Supply Chain Attack Flow
 
-
-
 ```
 -->
 -->
@@ -1227,8 +1201,6 @@ def encrypt_data(data: bytes, key: bytes) -> tuple[bytes, bytes, bytes]:
 - ✅ 7단계: SIEM 통합, 로그 무결성 검증
 
 ### 6.3 A07 Authentication Failures → A05 SQL Injection
-
-
 
 ```
 -->

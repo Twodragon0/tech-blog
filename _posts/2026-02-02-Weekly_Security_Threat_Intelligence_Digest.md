@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 주간 보안 위협 인텔리전스 다이제스트: Notepad++ 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화
-
-> **카테고리**: security, devsecops
-
-> **태그**: Security-Weekly, Supply-Chain, Notepad++, Ransomware, Zero-Trust, JWT, Vertical-AI, SK-Shieldus, HashiCorp, Red-Team, "2026"
-
-> **핵심 내용**: 
-> - Notepad++ 국가 지원 공급망 공격, SK쉴더스 11-1월 보안 리포트 종합 (Vertical AI, BlackField/Sinobi/Gentlemen 랜섬웨어, 제로트러스트, JWT 보안), HashiCorp 패스워드리스 RDP
-
-> **주요 기술/도구**: Security, security, devsecops
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='주간 보안 위협 인텔리전스 다이제스트: Notepad++ 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">Supply-Chain</span>       <span class="tag">Notepad++</span>       <span class="tag">Ransomware</span>       <span class="tag">Zero-Trust</span>       <span class="tag">JWT</span>       <span class="tag">Vertical-AI</span>       <span class="tag">SK-Shieldus</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Notepad++ 국가 지원 공급망 공격 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-02-02 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 주요 요약
 
@@ -200,7 +189,6 @@ Phase 4: Execution & Impact
 MITRE ATT&CK Mapping:
 T1195.002 → T1036.005 → T1071.001 → T1059 → T1078 → T1021 → T1567
 
-
 ```
 -->
 -->
@@ -239,7 +227,6 @@ NOT (ImageLoaded IN ("C:\\Program Files\\Notepad++\\*",
 | stats count by Computer, ImageLoaded
 | sort -count
 
-
 ```
 -->
 -->
@@ -266,7 +253,6 @@ SecurityEvent
 | where TargetImage contains "notepad++"
 | summarize InjectionCount = count() by Computer, SourceImage, TargetImage
 | order by InjectionCount desc
-
 
 ```
 -->
@@ -329,7 +315,6 @@ event.category: "library" AND
 NOT dll.path: ("C:\\Program Files\\Notepad++\\*" OR
                "C:\\Windows\\System32\\*" OR
                "C:\\Windows\\SysWOW64\\*")
-
 
 ```
 -->
@@ -449,7 +434,6 @@ Stage 5: Impact (T1490 / T1486)
 MITRE ATT&CK Chain:
 T1190/T1566 → T1059.001 → T1078 → T1021.002 → T1562.001 → T1567 → T1490 → T1486
 
-
 ```
 -->
 -->
@@ -485,7 +469,6 @@ Service_File_Name="*:\\Users\\*" OR Service_File_Name="*:\\ProgramData\\*"
 | stats count by Computer, Service_Name, Service_File_Name, Account_Name
 | sort -count
 
-
 ```
 -->
 -->
@@ -520,7 +503,6 @@ SecurityEvent
 | summarize AccessCount = count() by Account, Computer, ShareName, IpAddress
 | where AccessCount > 50
 | order by AccessCount desc
-
 
 ```
 -->
@@ -578,7 +560,6 @@ index=endpoint sourcetype=sysmon EventCode=11
 # Elastic/KQL - Detect EDR/AV Tampering (T1562.001)
 process.name: ("net.exe" OR "sc.exe" OR "taskkill.exe") AND
 process.command_line: (*defender* OR *sentinel* OR *crowdstrike* OR *carbon* OR *symantec*)
-
 
 ```
 -->
@@ -666,7 +647,6 @@ index=auth sourcetype=windows_security EventCode=4625
 | stats count as failed_attempts by src_ip, TargetUserName
 | where failed_attempts > 10
 | sort -failed_attempts
-
 
 ```
 -->
@@ -969,7 +949,6 @@ Kubernetes 기본 Secret은 **etcd에 base64 인코딩(암호화 아님!)으로 
    ├─ 탐지 룰 개선 (False Negative 제거)
    ├─ 방어 체계 강화 계획 수립
    └─ 레드팀 시뮬레이션으로 재검증
-
 
 ```
 -->

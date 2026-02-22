@@ -16,25 +16,14 @@ author: "Yongho Ha"
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화
-
-> **카테고리**: devsecops
-
-> **태그**: Amazon-Q, GitHub-Advanced-Security, Code-Security, AWS
-
-> **핵심 내용**: 
-> - Amazon Q Developer와 GitHub Advanced Security로 코드 보안 강화 및 AWS 최적화
-
-> **주요 기술/도구**: GitHub, Security, AWS, devsecops
-
-> **대상 독자**: DevSecOps 엔지니어, 보안 엔지니어, 개발자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화'
+  categories_html='<span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Amazon-Q</span>       <span class="tag">GitHub-Advanced-Security</span>       <span class="tag">Code-Security</span>       <span class="tag">AWS</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Amazon Q Developer와 GitHub Advanced Security로 코드 보안 강화 및 AWS 최적화 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-05-24 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 핵심 요약
 

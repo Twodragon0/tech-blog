@@ -17,25 +17,14 @@ schema_type: Article
 category: kubernetes
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 🚀 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 보안까지
-
-> **카테고리**: security, devsecops, kubernetes
-
-> **태그**: Docker, Kubernetes, Container-Security, K8s, Cloud-Security, DevSecOps, Minikube, K9s, Pod-Security-Standards, User-Namespaces
-
-> **핵심 내용**: 
-> - Docker/K8s 보안, Pod Security Standards, User Namespaces, 이미지 스캔, 런타임 모니터링
-
-> **주요 기술/도구**: Docker, Kubernetes, Security, Security, DevSecOps, Security, security, devsecops, kubernetes
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='🚀 클라우드 보안 과정 8기 7주차: Docker &amp; Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 보안까지'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag devops">쿠버네티스</span>'
+  tags_html='<span class="tag">Docker</span>       <span class="tag">Kubernetes</span>       <span class="tag">Container-Security</span>       <span class="tag">K8s</span>       <span class="tag">Cloud-Security</span>       <span class="tag">DevSecOps</span>       <span class="tag">Minikube</span>       <span class="tag">K9s</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Docker/K8s 보안 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-15 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
@@ -116,7 +105,6 @@ docker stop my-nginx
 
 # 컨테이너 삭제
 docker rm my-nginx
-
 
 ```
 -->
@@ -233,7 +221,6 @@ kubectl logs <pod-name>
 # Pod 삭제
 kubectl delete pod <pod-name>
 
-
 ```
 -->
 -->
@@ -300,7 +287,6 @@ COPY --chown=nodejs:nodejs . .
 # 읽기 전용 파일시스템 설정 (런타임에서)
 CMD ["node", "server.js"]
 
-
 ```
 -->
 -->
@@ -345,7 +331,6 @@ jobs:
           format: 'table'
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
-
 
 ```
 -->
@@ -400,7 +385,6 @@ spec:
       remoteRef:
         key: production/database
         property: password
-
 
 ```
 -->
@@ -460,7 +444,6 @@ spec:
   volumes:
   - name: tmp
     emptyDir: {}
-
 
 ```
 -->
@@ -536,7 +519,6 @@ spec:
             drop: ["ALL"]
           readOnlyRootFilesystem: true
 
-
 ```
 -->
 -->
@@ -591,7 +573,6 @@ spec:
         drop:
         - ALL
       readOnlyRootFilesystem: true
-
 
 ```
 -->
@@ -654,7 +635,6 @@ spec:
   - Ingress
   - Egress
 
-
 ```
 -->
 -->
@@ -707,7 +687,6 @@ spec:
     ports:
     - protocol: TCP
       port: 5432
-
 
 ```
 -->
@@ -770,7 +749,6 @@ roleRef:
   kind: Role
   name: developer
   apiGroup: rbac.authorization.k8s.io
-
 
 ```
 -->
@@ -903,7 +881,6 @@ spec:
         hostPath:
           path: /proc
 
-
 ```
 -->
 -->
@@ -980,7 +957,6 @@ rules:
   resources:
   - group: ""
     resources: ["pods", "deployments"]
-
 
 ```
 -->
@@ -1098,7 +1074,6 @@ minikube start \
 kubectl cluster-info
 kubectl get nodes
 
-
 ```
 -->
 -->
@@ -1162,7 +1137,6 @@ EOF
 kubectl get pod secure-app -n production
 kubectl describe pod secure-app -n production
 
-
 ```
 -->
 -->
@@ -1197,7 +1171,6 @@ trivy image nginx:1.25-alpine
 
 # Kubernetes 클러스터 스캔
 trivy k8s cluster --severity HIGH,CRITICAL
-
 
 ```
 -->

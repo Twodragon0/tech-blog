@@ -18,25 +18,14 @@ certifications: [ckad, cka]
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드
-
-> **카테고리**: kubernetes
-
-> **태그**: CI/CD, Kubernetes, Security, DevSecOps, GitOps, Pipeline-Security
-
-> **핵심 내용**: 
-> - CI/CD 파이프라인 보안 및 Kubernetes 클러스터 보안 실전 가이드
-
-> **주요 기술/도구**: Kubernetes, Security, DevSecOps, Security, kubernetes
-
-> **대상 독자**: 클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드'
+  categories_html='<span class="category-tag devops">쿠버네티스</span>'
+  tags_html='<span class="tag">CI/CD</span>       <span class="tag">Kubernetes</span>       <span class="tag">Security</span>       <span class="tag">DevSecOps</span>       <span class="tag">GitOps</span>       <span class="tag">Pipeline-Security</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 CI/CD 파이프라인 보안 및 Kubernetes 클러스터 보안 실전 가이드 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-06-06 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 

@@ -17,25 +17,14 @@ certifications: [ckad, cka]
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지
-
-> **카테고리**: kubernetes
-
-> **태그**: Kubernetes, Minikube, K9s, K8s, Troubleshooting
-
-> **핵심 내용**: 
-> - Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지
-
-> **주요 기술/도구**: Kubernetes, kubernetes
-
-> **대상 독자**: 클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='Kubernetes Minikube &amp; K9s 실습 가이드: 문제 해결부터 실전 테스트까지'
+  categories_html='<span class="category-tag devops">쿠버네티스</span>'
+  tags_html='<span class="tag">Kubernetes</span>       <span class="tag">Minikube</span>       <span class="tag">K9s</span>       <span class="tag">K8s</span>       <span class="tag">Troubleshooting</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Kubernetes Minikube &amp; K9s 실습 가이드: 문제 해결부터 실전 테스트까지 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-05-30 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 경영진 요약 (Executive Summary)
 

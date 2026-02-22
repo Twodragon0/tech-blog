@@ -16,25 +16,14 @@ author: "Yongho Ha"
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법
-
-> **카테고리**: security
-
-> **태그**: Passkey, OTP, Password-Manager, Authentication
-
-> **핵심 내용**: 
-> - 공용 PC 보안 완벽 가이드. 패스키, OTP, 암호 관리자 활용법. AI 피싱 대응 전략 포함.
-
-> **주요 기술/도구**: security
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법'
+  categories_html='<span class="category-tag security">보안</span>'
+  tags_html='<span class="tag">Passkey</span>       <span class="tag">OTP</span>       <span class="tag">Password-Manager</span>       <span class="tag">Authentication</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 공용 PC 보안 완벽 가이드. 패스키 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-04-30 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 핵심 요약
 
@@ -272,7 +261,6 @@ cloudflare_gateway:
           - http.request.uri.path contains "banking"
           - http.request.uri.path contains "admin"
 
-
 ```
 -->
 -->
@@ -357,7 +345,6 @@ cloudflare_gateway:
 2. 디바이스가 개인키로 서명
 3. 서버가 공개키로 서명 검증
 
-
 ```
 -->
 -->
@@ -414,7 +401,6 @@ const assertion = await navigator.credentials.get({
     timeout: 60000
   }
 });
-
 
 ```
 -->
@@ -565,7 +551,6 @@ const assertion = await navigator.credentials.get({
 
 # 5. 키 이름 설정: "YubiKey 5C NFC - Primary"
 
-
 ```
 -->
 -->
@@ -699,7 +684,6 @@ secret = "JBSWY3DPEHPK3PXP"  # Base32 인코딩된 비밀키
 code = generate_totp(secret)
 print(f"현재 OTP 코드: {code}")
 
-
 ```
 -->
 -->
@@ -746,7 +730,6 @@ secret = "JBSWY3DPEHPK3PXP"
 for counter in range(5):
     code = generate_hotp(secret, counter)
     print(f"카운터 {counter}: {code}")
-
 
 ```
 -->
@@ -977,7 +960,6 @@ print(f"12자리 영숫자: {calculate_entropy(62, 12):.1f} bits")  # 71.5 bits
 # 예시 3: 16자리 대소문자+숫자+특수문자
 print(f"16자리 전체: {calculate_entropy(94, 16):.1f} bits")  # 105.2 bits
 
-
 ```
 -->
 -->
@@ -1024,7 +1006,6 @@ diceware_list = {
 passphrase = "apple-bridge-castle-dragon-eagle"
 # 엔트로피: log2(7776^5) = 64.6 bits
 # 길이: 36자 (공백 포함)
-
 
 ```
 -->
@@ -1080,7 +1061,6 @@ def generate_strong_password(length=16):
 pwd = generate_strong_password(16)
 print(pwd)  # 예시: "xK9$mP2#nQ5@rL8&"
 
-
 ```
 -->
 -->
@@ -1129,7 +1109,6 @@ features:
     individual: $2.99/month
     family: $4.99/month (5명)
     business: $7.99/user/month
-
 
 ```
 -->
@@ -1187,7 +1166,6 @@ Iterations=100000
 Location=C:\Users\User\Documents\passwords.kdbx
 BackupEnabled=true
 BackupLocation=D:\Backups\
-
 
 ```
 -->
@@ -1252,7 +1230,6 @@ BackupLocation=D:\Backups\
 3. "모든 세션 로그아웃" 실행
 4. Master Password 변경
 
-
 ```
 -->
 -->
@@ -1289,7 +1266,6 @@ BackupLocation=D:\Backups\
     "clear_after": 90  // 90초 후 클립보드 자동 삭제
   }
 }
-
 
 ```
 -->
@@ -1359,7 +1335,6 @@ index=auth action=login result=success
 | eval severity="critical"
 | eval description="Impossible travel detected: Login from two distant locations in short time"
 
-
 ```
 -->
 -->
@@ -1420,7 +1395,6 @@ SigninLogs
 | extend Severity = "Critical"
 | extend Description = "MFA denied from unusual location - potential account compromise attempt"
 
-
 ```
 -->
 -->
@@ -1448,7 +1422,6 @@ SigninLogs
 )
 | where Risk == "High"
 | sort by PasswordLogins desc
-
 
 ```
 -->
@@ -1524,7 +1497,6 @@ SigninLogs
   }
 }
 
-
 ```
 -->
 -->
@@ -1585,7 +1557,6 @@ monitoring:
   - 키 입력 모니터링 (DLP)
   - 화면 캡처 방지 (Screen Watermark)
   - 인쇄/저장 로그 감사
-
 
 ```
 -->
@@ -1674,7 +1645,6 @@ if (isPhishing(window.location.href)) {
   alert("⚠️ 피싱 사이트 의심! 즉시 페이지를 닫으세요.");
 }
 
-
 ```
 -->
 -->
@@ -1749,7 +1719,6 @@ gantt
     section Phase 4 (Monitoring)
         SIEM 쿼리 배포 :2025-08-01, 2025-08-15
         분기별 보안 감사 :milestone, 2025-10-01, 0d
-
 
 ```
 -->
@@ -1863,7 +1832,6 @@ gantt
 3. 백업 복구 코드 인쇄
    - 지갑에 보관 (디지털 접근 불가 시 사용)
 
-
 ```
 -->
 -->
@@ -1883,7 +1851,6 @@ gantt
    - VPN 연결 해제
    - 브라우저 완전 종료 (Ctrl+Shift+Delete로 캐시 삭제)
    - 작업 관리자에서 프로세스 확인
-
 
 ```
 -->

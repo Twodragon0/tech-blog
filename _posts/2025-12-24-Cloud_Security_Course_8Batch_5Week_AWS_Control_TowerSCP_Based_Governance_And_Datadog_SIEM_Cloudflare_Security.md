@@ -16,25 +16,14 @@ keywords: [AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM, 멀티계정, 거
 author: Twodragon
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안
-
-> **카테고리**: cloud
-
-> **태그**: AWS, Control-Tower, SCP, Datadog, Cloudflare, SIEM
-
-> **핵심 내용**: 
-> - Control Tower/SCP 멀티 계정 거버넌스와 Datadog SIEM, Cloudflare 통합 보안 실무
-
-> **주요 기술/도구**: AWS, Datadog, Cloudflare, SIEM, cloud
-
-> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안'
+  categories_html='<span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">AWS</span>       <span class="tag">Control-Tower</span>       <span class="tag">SCP</span>       <span class="tag">Datadog</span>       <span class="tag">Cloudflare</span>       <span class="tag">SIEM</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Control Tower/SCP 멀티 계정 거버넌스와 Datadog SIEM 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-12-24 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
@@ -44,7 +33,7 @@ author: Twodragon
 
 <img src="{% raw %}{{ '/assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security_image.jpg' | relative_url }}{% endraw %}" alt="Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance and Datadog SIEM Cloudflare Security" loading="lazy" class="post-image">
 
-## Executive Summary (경영진 요약)
+## 핵심 요약 (경영진 요약)
 
 본 문서는 엔터프라이즈 클라우드 보안 거버넌스 체계를 제시합니다:
 

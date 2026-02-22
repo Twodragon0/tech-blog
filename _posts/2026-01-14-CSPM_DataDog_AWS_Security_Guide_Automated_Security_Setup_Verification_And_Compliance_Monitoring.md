@@ -16,25 +16,14 @@ schema_type: Article
 certifications: [isms-p, aws-saa]
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링
-
-> **카테고리**: security, cloud
-
-> **태그**: CSPM, DataDog, AWS, Security, Compliance, Monitoring, Automation, Misconfiguration, Claude, Autonomous Coding
-
-> **핵심 내용**: 
-> - DataDog CSPM AWS 보안 자동 검증 가이드
-
-> **주요 기술/도구**: Datadog, AWS, Security, security, cloud
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">CSPM</span>       <span class="tag">DataDog</span>       <span class="tag">AWS</span>       <span class="tag">Security</span>       <span class="tag">Compliance</span>       <span class="tag">Monitoring</span>       <span class="tag">Automation</span>       <span class="tag">Misconfiguration</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 DataDog CSPM AWS 보안 자동 검증 가이드 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-14 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 핵심 요약
 
@@ -151,7 +140,6 @@ DataDog CSPM이 탐지하는 주요 MITRE ATT&CK 기법:
 ├─ 자동 수정 워크플로우
 ├─ 실시간 알림 (Slack, PagerDuty)
 └─ 수동 검토 항목 에스컬레이션
-
 
 ```
 -->
@@ -286,7 +274,6 @@ DataDog CSPM이 탐지하는 주요 MITRE ATT&CK 기법:
   └─ MFA 자동 검증
   └─ IAM 정책 자동 검증
 
-
 ```
 -->
 -->
@@ -371,7 +358,6 @@ rules:
       resource_type: aws_iam_user
       access_to_pii: true
       mfa_enabled: false
-
 
 ```
 -->
@@ -467,7 +453,6 @@ Resources:
         EnableSecurityMonitoring: 'true'
         EnableLogCollection: 'true'
 
-
 ```
 -->
 -->
@@ -526,7 +511,6 @@ rules:
       ingress:
         - ip_protocol: '-1'
           cidr_ip: '0.0.0.0/0'
-
 
 ```
 -->
@@ -808,7 +792,6 @@ def auto_remediate_security_issue(cspm_alert):
     # 생성된 코드 검증 및 적용
     return validate_and_apply_code(response.content)
 
-
 ```
 -->
 -->
@@ -963,7 +946,6 @@ HAVING
 ORDER BY
   total_gb DESC;
 
-
 ```
 -->
 -->
@@ -986,7 +968,6 @@ WHERE
   AND eventtime >= DATE_SUB(current_timestamp, INTERVAL 24 HOUR)
 ORDER BY
   eventtime DESC;
-
 
 ```
 -->
@@ -1014,7 +995,6 @@ WHERE
   AND eventtime >= DATE_SUB(current_timestamp, INTERVAL 24 HOUR)
 ORDER BY
   eventtime DESC;
-
 
 ```
 -->
@@ -1046,7 +1026,6 @@ ORDER BY
 • 보안 사고 위험도: 중간 → 낮음 (30% 개선)
 • 컴플라이언스 감사 준비도: 95% (즉시 대응 가능)
 • 보안 인력 투입 시간: 주 25시간 (전월 대비 -15시간)
-
 
 ```
 -->
@@ -1113,7 +1092,6 @@ PCI-DSS (결제 카드 산업 데이터 보안 표준)
 ├─ 미준수 항목: 15
 └─ 다음 감사: 2026-09-15
 
-
 ```
 -->
 -->
@@ -1146,7 +1124,6 @@ PCI-DSS (결제 카드 산업 데이터 보안 표준)
 
 평균 탐지 시간: 3분 (목표: 5분 이내)
 평균 대응 시간: 18분 (목표: 15분 이내)
-
 
 ```
 -->
@@ -1302,7 +1279,6 @@ ROI = (2억 7천만원 - 1억 1천만원) / 1억 1천만원 × 100
          │  • 정책 업데이트                                       │
          └──────────────────────────────────────────────────────┘
 
-
 ```
 -->
 -->
@@ -1407,7 +1383,6 @@ ROI = (2억 7천만원 - 1억 1천만원) / 1억 1천만원 × 100
 │  • 감사 로그 (모든 조치 기록)                                             │
 └─────────────────────────────────────────────────────────────────────────┘
 
-
 ```
 -->
 -->
@@ -1485,7 +1460,6 @@ ROI = (2억 7천만원 - 1억 1천만원) / 1억 1천만원 × 100
 │  │  • 리전별 특화 정책 (지역 규제 대응)                               │  │
 │  └───────────────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────────┘
-
 
 ```
 -->

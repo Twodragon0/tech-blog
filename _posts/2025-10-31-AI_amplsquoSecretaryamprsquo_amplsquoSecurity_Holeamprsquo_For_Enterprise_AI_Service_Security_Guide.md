@@ -15,25 +15,14 @@ keywords: [AI, Enterprise-Security, AI-Security, DLP, CASB, Zero-Trust]
 author: Twodragon
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: AI 시대, 당신의 '비서'가 '보안 구멍'이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드
-
-> **카테고리**: security
-
-> **태그**: AI, Enterprise-Security, AI-Security, Governance
-
-> **핵심 내용**: 
-> - AI 서비스 보안 가이드. Shadow AI 및 딥페이크 대응 방안.
-
-> **주요 기술/도구**: Security, Security, security
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='AI 시대, 당신의 &#39;비서&#39;가 &#39;보안 구멍&#39;이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드'
+  categories_html='<span class="category-tag security">보안</span>'
+  tags_html='<span class="tag">AI</span>       <span class="tag">Enterprise-Security</span>       <span class="tag">AI-Security</span>       <span class="tag">Governance</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 AI 서비스 보안 가이드. Shadow AI 및 딥페이크 대응 방안 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-10-31 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
@@ -583,8 +572,6 @@ Monitoring Checklist:
     - Vulnerability scanning
     - Penetration testing
 
-
-
 ```
 -->
 -->
@@ -643,8 +630,6 @@ AI Security Checklist:
     - [ ] 네트워크 분리
     - [ ] 암호화 적용 (저장/전송)
     - [ ] 접근 로그 기록
-
-
 
 ```
 -->

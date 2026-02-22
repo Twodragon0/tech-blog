@@ -12,25 +12,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격
-
-> **카테고리**: security
-
-> **태그**: Security-Digest, SolarWinds-RCE, UNC3886, LLM-Safety, UNC1069, CVE-2025-40551
-
-> **핵심 내용**: 
-> - SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전 정렬 GRPO 무력화, 북한 UNC1069 딥페이크 암호화폐 공격
-
-> **주요 기술/도구**: Security, security
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격'
+  categories_html='<span class="category-tag security">보안</span>'
+  tags_html='<span class="tag">Security-Digest</span>       <span class="tag">SolarWinds-RCE</span>       <span class="tag">UNC3886</span>       <span class="tag">LLM-Safety</span>       <span class="tag">UNC1069</span>       <span class="tag">CVE-2025-40551</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 SolarWinds WHD RCE 다단계 공격(CVE-2025-40551) 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-02-10 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 

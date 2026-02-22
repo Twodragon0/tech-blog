@@ -15,25 +15,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 주간 보안 & DevOps 다이제스트: OpenClaw AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스
-
-> **카테고리**: security, devsecops
-
-> **태그**: Security-Weekly, OpenClaw, Moltbot, Moltbook, NanoClaw, AI-Agent-Security, MDM, Jamf, Intune, OWASP, Kubernetes, DevSecOps, ClawHub, ClawHavoc, NTLM, CVE-2026-25253, Supply-Chain, Zero-Trust, Atomic-Stealer, "2026"
-
-> **핵심 내용**: 
-> - OpenClaw(Moltbot) CVE-2026-25253 RCE, ClawHavoc 335개 Atomic Stealer 캠페인, Moltbook 자격증명 대량 유출, 가짜 VS Code 확장 RAT 배포 등 AI 에이전트 생태계 보안 위기 총정리와 Jamf/Intune MDM 실무 대응 가이드
-
-> **주요 기술/도구**: Security, Security, Kubernetes, DevSecOps, security, devsecops
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='주간 보안 &amp; DevOps 다이제스트: OpenClaw AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>       <span class="tag">OpenClaw</span>       <span class="tag">Moltbot</span>       <span class="tag">Moltbook</span>       <span class="tag">NanoClaw</span>       <span class="tag">AI-Agent-Security</span>       <span class="tag">MDM</span>       <span class="tag">Jamf</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 OpenClaw(Moltbot) CVE-2026-25253 RCE 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-02-03 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 개요
 
@@ -326,7 +315,6 @@ shodan_exposure:  # Shodan 노출 대응
   - [ ] 관리 포트 방화벽/ACL 설정 점검
   - [ ] Shodan/Censys 모니터링 알림 설정
 
-
 ```
 -->
 -->
@@ -380,7 +368,6 @@ process_name="node"
 | search suspicious="SUSPICIOUS"
 | stats count by process_name, dest, dest_port, user
 | where count > 3
-
 
 ```
 -->
@@ -478,7 +465,6 @@ else
     echo -e "<result>Clean: No Installation Found\n\n$REPORT</result>"
 fi
 
-
 ```
 -->
 -->
@@ -541,7 +527,6 @@ check_user_dir ".continue"
 check_binary "/opt/homebrew/bin/openclaw"
 check_binary "/opt/homebrew/bin/cursor"
 
-
 ```
 -->
 -->
@@ -575,7 +560,6 @@ index=jamf sourcetype=jamf:computerextensionattributes
 ea_name="OpenClaw Detection"
 ea_value="WARNING*"
 | timechart span=1w count by computer_name
-
 
 ```
 -->
@@ -674,7 +658,6 @@ Jamf Pro는 Apple 생태계에 최적화된 MDM으로, Configuration Profile을 
 </dict>
 </plist>
 
-
 ```
 -->
 -->
@@ -723,7 +706,6 @@ curl -X POST "https://your-jamf.jamfcloud.com/JSSResource/mobiledevicecommands/c
         </general>
         <mobile_devices><mobile_device><id>{device_id}</id></mobile_device></mobile_devices>
       </mobile_device_command>'
-
 
 ```
 -->
@@ -779,7 +761,6 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
   "disableAppPinIfDevicePinIsSet": false
 }
 
-
 ```
 -->
 -->
@@ -825,7 +806,6 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
     ]
   }
 }
-
 
 ```
 -->
@@ -885,7 +865,6 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
     }
   ]
 }
-
 
 ```
 -->
@@ -954,7 +933,6 @@ event.dataset: "jamf.events" AND
 event.action: ("restriction_violation" or "app_blocked" or "compliance_failed") AND
 NOT device.os.version: "17.*"
 
-
 ```
 -->
 -->
@@ -999,7 +977,6 @@ monitoring:
   - [ ] 비정상 체크인 패턴 알림
   - [ ] 관리 프로필 제거 시도 알림
   - [ ] 주간 컴플라이언스 리포트 자동화
-
 
 ```
 -->
@@ -1118,7 +1095,6 @@ priority_low:
   - [ ] SLSA v1.1 빌드 무결성 파일럿
   - [ ] 에이전트 보안 정책 문서 초안 작성
   - [ ] Kerberos 인증 전환 계획 수립 (NTLM 폐지 대비)
-
 
 ```
 -->

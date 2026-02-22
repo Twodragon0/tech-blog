@@ -16,25 +16,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례
-
-> **카테고리**: security, blockchain, devsecops
-
-> **태그**: Blockchain, Cryptocurrency, Bitcoin, Ethereum, Smart-Contract, Security-Audit, GitHub, DevSecOps, Slither, Mythril, Securify, CI-CD
-
-> **핵심 내용**: 
-> - 블록체인 암호화폐 보안 DevSecOps 완벽 가이드
-
-> **주요 기술/도구**: Security, GitHub, DevSecOps, security, blockchain, devsecops
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례'
+  categories_html='<span class="category-tag security">보안</span> <span class="category-tag tech">블록체인</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Blockchain</span>       <span class="tag">Cryptocurrency</span>       <span class="tag">Bitcoin</span>       <span class="tag">Ethereum</span>       <span class="tag">Smart-Contract</span>       <span class="tag">Security-Audit</span>       <span class="tag">GitHub</span>       <span class="tag">DevSecOps</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 블록체인 암호화폐 보안 DevSecOps 완벽 가이드 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-01-08 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
@@ -204,7 +193,6 @@ slither contracts/MyContract.sol --detect reentrancy-eth,unchecked-transfer
 # JSON 리포트 생성
 slither contracts/MyContract.sol --json slither-report.json
 
-
 ```
 -->
 -->
@@ -244,7 +232,6 @@ jobs:
         with:
           name: slither-report
           path: slither-report.json
-
 
 ```
 -->
@@ -299,7 +286,6 @@ myth analyze contracts/MyContract.sol --execution-timeout 60
 
 # JSON 리포트 생성
 myth analyze contracts/MyContract.sol -o json > mythril-report.json
-
 
 ```
 -->
@@ -366,7 +352,6 @@ jobs:
         with:
           contract-path: 'contracts/'
           output-format: 'json'
-
 
 ```
 -->
@@ -517,7 +502,6 @@ jobs:
             slither-report.json
             mythril-report.json
 
-
 ```
 -->
 -->
@@ -572,7 +556,6 @@ jobs:
           languages: javascript
       - uses: github/codeql-action/autobuild@v3
       - uses: github/codeql-action/analyze@v3
-
 
 ```
 -->
@@ -653,7 +636,6 @@ contract SecureContract {
     }
 }
 
-
 ```
 -->
 -->
@@ -688,7 +670,6 @@ contract SafeMathExample {
         unchecked { return a + b; }
     }
 }
-
 
 ```
 -->
@@ -728,7 +709,6 @@ contract SecureContract is AccessControl {
 
     function sensitiveFunction() public onlyRole(ADMIN_ROLE) { }
 }
-
 
 ```
 -->
@@ -820,7 +800,6 @@ contract SecureContract {
     function pause() public onlyAdmin { paused = true; }
     function withdraw() public whenNotPaused { /* 정지 시 실행 불가 */ }
 }
-
 
 ```
 -->
@@ -1236,8 +1215,6 @@ contract SecureContract {
 피해 복구에 최선을 다하겠습니다.
 
 [업데이트 일정 및 연락처]
-
-
 
 ```
 -->

@@ -15,25 +15,14 @@ keywords: [AWS, reInforce, Cloud-Security, GuardDuty, Security-Hub, Zero-Trust]
 author: Twodragon
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: AWS re:Inforce 2025: 클라우드 보안의 현재와 미래 🛡️
-
-> **카테고리**: cloud
-
-> **태그**: AWS, reInforce, Cloud-Security, Conference
-
-> **핵심 내용**: 
-> - AWS re:Inforce 2025 회고. AI 기반 보안 솔루션 및 Zero Trust 구현 방법.
-
-> **주요 기술/도구**: AWS, Security, cloud
-
-> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='AWS re:Inforce 2025: 클라우드 보안의 현재와 미래 🛡️'
+  categories_html='<span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">AWS</span>       <span class="tag">reInforce</span>       <span class="tag">Cloud-Security</span>       <span class="tag">Conference</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 AWS re:Inforce 2025 회고. AI 기반 보안 솔루션 및 Zero Trust 구현 방법 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2025-09-16 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 경영진 요약 (Executive Summary)
 
@@ -89,7 +78,6 @@ AWS re:Inforce 2025에서 발표된 최신 보안 기능과 모범 사례는 클
 - AWS의 새로운 보안 서비스 및 기능 업데이트
 - 개인 연구 및 실무 경험을 바탕으로 한 보안 인사이트
 - 클라우드 보안의 미래 트렌드
-
 
 | 단계 | 프로세스 | 설명 | 도구 |
 |------|---------|------|------|
@@ -149,7 +137,6 @@ AWS 보안 서비스의 MITRE ATT&CK 커버리지:
 │ Exfiltration          [████████░░] 80%      │
 │ Impact                [███████░░░] 70%      │
 └─────────────────────────────────────────────┘
-
 
 ```
 -->
@@ -281,7 +268,6 @@ Zero Trust 네트워크 아키텍처:
 ├── NACLs: 서브넷 레벨 방화벽
 ├── GuardDuty: 위협 탐지
 └── CloudTrail: 모든 API 호출 기록
-
 
 ```
 -->
@@ -501,7 +487,6 @@ Zero Trust 네트워크 아키텍처:
            │ • 교육 및 훈련 │
            └────────────────┘
 
-
 ```
 -->
 -->
@@ -673,8 +658,6 @@ AI 기반 개발 도구를 위한 IAM 정책 자동화:
   ]
 }
 
-
-
 ```
 -->
 -->
@@ -738,8 +721,6 @@ token = agent.get_token()
 
 # 에이전트 간 인증
 peer_verified = agent.verify_peer("analytics-agent-002")
-
-
 
 ```
 -->
@@ -866,7 +847,6 @@ peer_verified = agent.verify_peer("analytics-agent-002")
 ├── PIPA: Macie 개인정보 탐지
 ├── 전자금융: CloudHSM 금융 데이터 암호화
 └── 감사 추적: CloudTrail 7년 보관
-
 
 ```
 -->
@@ -1127,7 +1107,6 @@ AWSCloudTrail
            │  Exfiltration  │
            └────────────────┘
 
-
 ```
 -->
 -->
@@ -1243,7 +1222,6 @@ index=aws sourcetype=aws:cloudtrail eventName="CopyObject" OR eventName="GetObje
            │  Violation     │
            └────────────────┘
 
-
 ```
 -->
 -->
@@ -1349,7 +1327,6 @@ for region in $(aws ec2 describe-regions --query 'Regions[].RegionName' --output
         --region $region
 done
 
-
 ```
 -->
 -->
@@ -1419,7 +1396,6 @@ Resources:
         - Arn: !GetAtt SNSTopic.Arn
           Id: SNSTarget
 
-
 ```
 -->
 -->
@@ -1466,7 +1442,6 @@ def enable_security_hub_org():
         ]
     )
 
-
 ```
 -->
 -->
@@ -1506,7 +1481,6 @@ def enable_compliance_standards():
                 }
             ]
         )
-
 
 ```
 -->
@@ -1554,7 +1528,6 @@ Resources:
 
               return {'statusCode': 200}
 
-
 ```
 -->
 -->
@@ -1598,7 +1571,6 @@ Resources:
     }
   ]
 }
-
 
 ```
 -->

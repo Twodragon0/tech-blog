@@ -12,25 +12,14 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트
-
-> **카테고리**: devsecops, cloud
-
-> **태그**: AI-Digest, Cloud-Digest, Meta-Prometheus, Google-OTLP, AWS, ChatGPT, OpenTelemetry
-
-> **핵심 내용**: 
-> - Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus 4.6 Bedrock 통합, ChatGPT 미 국방부 GenAI.mil 플랫폼
-
-> **주요 기술/도구**: AWS, devsecops, cloud
-
-> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
+{% include ai-summary-card.html
+  title='2026-02-10 AI &amp; 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트'
+  categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag cloud">클라우드</span>'
+  tags_html='<span class="tag">AI-Digest</span>       <span class="tag">Cloud-Digest</span>       <span class="tag">Meta-Prometheus</span>       <span class="tag">Google-OTLP</span>       <span class="tag">AWS</span>       <span class="tag">ChatGPT</span>       <span class="tag">OpenTelemetry</span>'
+  highlights_html='<li><strong>포인트 1</strong>: 핵심 주제는 Meta Prometheus 기가와트급 AI 클러스터 입니다</li>       <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 검토해야 합니다</li>       <li><strong>포인트 3</strong>: 팀 운영에서는 재현 가능한 적용 절차와 검증 기준을 문서화해야 합니다</li>'
+  period='2026-02-10 (24시간)'
+  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+%}
 
 ## 서론
 
