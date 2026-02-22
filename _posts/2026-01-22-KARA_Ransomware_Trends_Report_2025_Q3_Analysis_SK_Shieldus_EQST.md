@@ -320,20 +320,20 @@ falsepositives:
 | **암호화 방식** | ChaCha20 + RSA-4096 |
 | **특이사항** | Nutanix AHV 최초 암호화 성공 (2025년 6월) |
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # SonicWall 취약점 확인 명령어...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # SonicWall 취약점 확인 명령어...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # SonicWall 취약점 확인 명령어
 # CVE-2024-40766 영향받는 버전 확인
@@ -639,20 +639,20 @@ zero_trust_implementation:
 
 #### AWS S3 Immutable 백업 설정
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```json
 {
     "Rules": [
