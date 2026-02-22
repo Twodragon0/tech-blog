@@ -386,14 +386,14 @@ bq_client.insert_rows_json(table_ref, rows_to_insert)
 
 ### Defense in Depth 전체 구조
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 > 
 > ```
 > ┌───────────────────────────────────────────────────────────────────┐...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 > 
 > ```
 > ┌───────────────────────────────────────────────────────────────────┐...
@@ -549,14 +549,14 @@ bq_client.insert_rows_json(table_ref, rows_to_insert)
 
 ### GKE 보안 아키텍처 상세
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 > 
 > ```
 > ┌─────────────────────────────────────────────────────────────────┐...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 > 
 > ```
 > ┌─────────────────────────────────────────────────────────────────┐...
