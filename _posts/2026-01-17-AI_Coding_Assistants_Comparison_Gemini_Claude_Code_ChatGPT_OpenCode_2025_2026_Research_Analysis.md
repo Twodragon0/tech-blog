@@ -298,20 +298,20 @@ gemini-code analyze --context ./entire-codebase --query "security vulnerabilitie
 
 #### 실무 활용 가이드
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # DeepSeek Coder 활용 예시: 알고리즘 문제 해결...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # DeepSeek Coder 활용 예시: 알고리즘 문제 해결...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # DeepSeek Coder 활용 예시: 알고리즘 문제 해결
 # 1. API를 통한 코드 생성
@@ -379,20 +379,20 @@ curl -X POST https://api.deepseek.com/v1/chat/completions \
 
 #### 실무 활용 가이드
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # OpenCode 활용 예시: 프라이버시 중심 개발...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # OpenCode 활용 예시: 프라이버시 중심 개발...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # OpenCode 활용 예시: 프라이버시 중심 개발
 # 1. OpenCode 설치
@@ -528,54 +528,7 @@ opencode config --model deepseek-v3.2 --api-key $DEEPSEEK_API_KEY
 
 ### 5.3 DevSecOps 통합
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> {% raw %}...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> {% raw %}...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-```yaml
-{% raw %}
-# GitHub Actions 보안 검증 워크플로우 예시
-name: AI Code Security Check
-
-on:
-  pull_request:
-    paths:
-      - '**/*.py'
-      - '**/*.js'
-      - '**/*.ts'
-
-jobs:
-  security-scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      # 의존성 스캔
-      - name: Run Snyk Security Scan
-        uses: snyk/actions/python@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-
-      # 시크릿 스캔
-      - name: Run Secret Scanning
-        uses: trufflesecurity/trufflehog@main
-        with:
-          path: ./
-          base: ${{ github.event.pull_request.base.sha }}
-          head: ${{ github.event.pull_request.head.sha }}
-
-      # 정적 분석
-      - name: Run CodeQL Analysis
+> **참고**: CodeQL 분석 설정 관련 내용은 [GitHub CodeQL 문서](https://docs.github.com/en/code-security/code-scanning/using-codeql-code-scanning-with-your-ci) 및 [CodeQL Action](https://github.com/github/codeql-action)을 참조하세요. Analysis
         uses: github/codeql-action/analyze@v2
 {% endraw %}
 
@@ -735,20 +688,20 @@ if __name__ == "__main__":
 - 6개월 리팩토링 프로젝트
 
 **Claude Code 활용:**
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # 1. 프로젝트 구조 분석...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # 1. 프로젝트 구조 분석...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # 1. 프로젝트 구조 분석
 claude-code analyze --project ./services --language java
@@ -882,20 +835,20 @@ def solve_algorithm_problem(problem_description):
 - 프라이버시 규정 준수 필요 (GDPR, 개인정보보호법)
 
 **OpenCode 활용:**
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # OpenCode를 통한 프라이버시 중심 개발...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 링크 참조
+> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # OpenCode를 통한 프라이버시 중심 개발...
 > ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
+<!-- 전체 코드는 위 링크 참조
 ```bash
 # OpenCode를 통한 프라이버시 중심 개발
 # 1. OpenCode 설치 및 설정
@@ -1063,167 +1016,7 @@ claude-code analyze --batch --files files.txt  # 1 request
 #### 시나리오 1: 코드 리뷰 자동화
 
 **구현 예시:**
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> {% raw %}...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> {% raw %}...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-```yaml
-{% raw %}
-# GitHub Actions 워크플로우
-name: AI Code Review
-
-on:
-  pull_request:
-    types: [opened, synchronize]
-
-jobs:
-  ai-review:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Run Claude Code Review
-        uses: anthropic/claude-code-review@v1
-        with:
-          api-key: ${{ secrets.CLAUDE_API_KEY }}
-          focus: "security, performance, best-practices"
-
-      - name: Post Review Comments
-        uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '## AI Code Review Results\n' + steps.review.outputs.comments
-            })
-{% endraw %}
-
-```
--->
--->
-
-#### 시나리오 2: 온보딩 가속화
-
-**신입 개발자 온보딩 프로세스:**
-
-| 단계 | AI 어시스턴트 활용 | 예상 시간 단축 |
-|------|------------------|--------------|
-| **코드베이스 이해** | Gemini Code Assist로 대규모 분석 | 2주 → 3일 |
-| **첫 PR 작성** | GPT-5-Codex로 템플릿 생성 | 1주 → 1일 |
-| **코드 리뷰 학습** | Claude Code로 리뷰 예시 제공 | 지속적 학습 |
-
-**실제 활용 예시:**
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-```bash
-# 신입 개발자가 코드베이스 이해
-gemini-code explain \
-  --context ./entire-codebase \
-  --query "How does authentication work in this codebase?" \
-  --format "step-by-step-guide"
-```
-
-### 8.4 트러블슈팅 가이드
-
-#### 일반적인 문제 및 해결 방법
-
-| 문제 | 원인 | 해결 방법 | 예방 조치 |
-|------|------|----------|----------|
-| **의존성 누락** | AI가 숨겨진 의존성 사용 | `requirements.txt` 검증 스크립트 | CI/CD 통합 |
-| **보안 취약점** | 하드코딩된 시크릿, 취약한 라이브러리 | 시크릿 스캔, 의존성 스캔 | Pre-commit 훅 |
-| **환각 (Hallucination)** | 대규모 컨텍스트, 복잡한 요청 | 작은 단위로 분할, 검증 필수 | 출력 검증 자동화 |
-| **비용 초과** | 과도한 요청, 비효율적 프롬프트 | 캐싱, 배치 처리, 프롬프트 최적화 | 비용 모니터링 알림 |
-| **재현성 실패** | 환경 설정 누락, 버전 불일치 | Docker 컨테이너, 명시적 버전 | 재현성 검증 파이프라인 |
-
-#### 트러블슈팅 체크리스트
-
-### 8.5 CI/CD 통합 실제 예시
-
-#### 통합 파이프라인 아키텍처
-
-#### GitHub Actions 통합 예시
-
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
-> 
-> ```yaml
-> {% raw %}...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
-> 
-> ```yaml
-> {% raw %}...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-```yaml
-{% raw %}
-name: AI-Assisted CI/CD Pipeline
-
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    types: [opened, synchronize]
-
-jobs:
-  ai-code-generation:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Generate Code with Claude Code
-        uses: anthropic/claude-code-action@v1
-        with:
-          api-key: ${{ secrets.CLAUDE_API_KEY }}
-          prompt: |
-            Review the changes in this PR and:
-            1. Check for security vulnerabilities
-            2. Verify dependencies are declared
-            3. Suggest improvements
-          output-format: markdown
-
-      - name: Post PR Comment
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const fs = require('fs');
-            const review = fs.readFileSync('claude-review.md', 'utf8');
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: review
-            })
-
-  security-scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Run Snyk Security Scan
-        uses: snyk/actions/python@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        continue-on-error: true
-
-      - name: Run CodeQL Analysis
+> **참고**: CodeQL 분석 설정 관련 내용은 [GitHub CodeQL 문서](https://docs.github.com/en/code-security/code-scanning/using-codeql-code-scanning-with-your-ci) 및 [CodeQL Action](https://github.com/github/codeql-action)을 참조하세요. Analysis
         uses: github/codeql-action/analyze@v2
         with:
           languages: python, javascript

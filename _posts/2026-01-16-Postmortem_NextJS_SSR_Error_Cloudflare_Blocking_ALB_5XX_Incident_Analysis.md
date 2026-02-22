@@ -72,50 +72,7 @@ schema_type: Article
 <details>
 <summary>draw.io XML 코드 (클릭하여 확장)</summary>
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
-> ```xml
-> <mxfile host="app.diagrams.net">...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
-> ```xml
-> <mxfile host="app.diagrams.net">...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-```xml
-<mxfile host="app.diagrams.net">
-  <diagram name="Next.js SSR Error Incident Architecture" id="architecture">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        
-        <!-- Client Environment Cluster -->
-        <mxCell id="client-cluster" value="Client Environment" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E1F5FE;strokeColor=#01579B;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="1080" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="mobile" value="Mobile x.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
-          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="desktop" value="Desktop Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
-          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="inapp" value="In-App Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
-          <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- CDN & Security Cluster -->
-        <mxCell id="cdn-cluster" value="CDN &amp; Security" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="200" width="1080" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="cloudflare" value="Cloudflare" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
-          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="waf" value="WAF Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요." value="WAF Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
           <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ratelimit" value="Rate Limiting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
@@ -801,44 +758,7 @@ jobs:
 <details>
 <summary>draw.io XML 코드 (클릭하여 확장)</summary>
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
-> ```xml
-> <mxfile host="app.diagrams.net">...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
-> ```xml
-> <mxfile host="app.diagrams.net">...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-```xml
-<mxfile host="app.diagrams.net">
-  <diagram name="5XX Error Path" id="error-path">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        
-        <!-- Client -->
-        <mxCell id="mobile" value="Mobile x.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="desktop" value="Desktop Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        
-        <!-- Cloudflare Cluster -->
-        <mxCell id="cf-cluster" value="Cloudflare" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="40" y="140" width="1080" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="cloudflare" value="Cloudflare" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cf-cluster">
-          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="waf" value="WAF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cf-cluster">
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요." value="WAF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cf-cluster">
           <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
         </mxCell>
         <mxCell id="block" value="IP 차단" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="cf-cluster">
