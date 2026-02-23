@@ -17,16 +17,71 @@ audio_file: /assets/audio/2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_D
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드'
-  categories_html='<span class="category-tag security">보안</span>'
-  tags_html='<span class="tag">SendGrid</span> <span class="tag">SPF</span> <span class="tag">DKIM</span> <span class="tag">DMARC</span> <span class="tag">Email-Security</span>'
-  highlights_html='<li><strong>이메일 인증 3단계 체계</strong>: SPF(발신 서버 IP 인가), DKIM(이메일 무결성 디지털 서명), DMARC(정책 + RUA/RUF 리포팅)를 SendGrid로 통합 설정, 2025년 Gmail/Yahoo 대량 발송자 정책 의무 준수 완성</li>
-      <li><strong>실무 DNS 설정 가이드</strong>: SendGrid Whitelabel 도메인 인증(CNAME 3개 추가), DKIM 2048-bit 키 설정, DMARC p=quarantine → p=reject 단계적 강화, MX·SPF 레코드 충돌 방지 체크리스트 제공</li>
-      <li><strong>비즈니스 ROI 분석</strong>: 이메일 도용·피싱으로 인한 잠재 손실 ₩190M-₩850M 대비 설정 비용 ₩5M-₩15M, 스팸 분류율 감소로 발송 성공률 15-25% 향상, 도메인 평판 점수 개선 효과 정리</li>'
-  period='2025-06-05 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드
+
+> **카테고리**: security
+
+> **태그**: SendGrid, SPF, DKIM, DMARC, Email-Security
+
+> **핵심 내용**: 
+> - SendGrid SPF, DKIM, DMARC 설정으로 이메일 발송 신뢰도 향상
+
+> **주요 기술/도구**: Security, security
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">SendGrid</span>
+      <span class="tag">SPF</span>
+      <span class="tag">DKIM</span>
+      <span class="tag">DMARC</span>
+      <span class="tag">Email-Security</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>SPF(Sender Policy Framework)</strong>: DNS TXT 레코드 설정(v=spf1 include:sendgrid.net ~all), 발신 서버 인증, SPF 한정자(+/-/~/?), 여러 이메일 서비스 사용 시 설정</li>
+      <li><strong>DKIM(DomainKeys Identified Mail)</strong>: 서명 키 구성(Selector, Public Key), DNS TXT 레코드 설정(s1._domainkey), 이메일 무결성 검증, 디지털 서명 기술</li>
+      <li><strong>DMARC(Domain-based Message Authentication)</strong>: 정책 설정(v=DMARC1; p=quarantine; rua=mailto:...), 보고서 분석(집계 보고서, 실패 보고서), 정책 모드(none/quarantine/reject), 실무 DNS 설정 예시</li>
+      <li><strong>이메일 발송 신뢰도 향상</strong>: 스팸 방지 전략, 발송률 향상, 피싱 방지, SendGrid 도메인 인증 완료 프로세스, DNS 레코드 검증 방법</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">SendGrid, SPF, DKIM, DMARC, DNS</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">기업 보안 담당자, 보안 엔지니어, CISO</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 ## 경영진 요약 (Executive Summary)
 
@@ -156,7 +211,6 @@ schema_type: Article
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                       이메일 공격 생명주기                         │
@@ -193,13 +247,11 @@ schema_type: Article
 ```
 -->
 -->
--->
 
 ## 이메일 인증 아키텍처 다이어그램
 
 ### SPF 동작 원리
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -239,11 +291,9 @@ schema_type: Article
 ```
 -->
 -->
--->
 
 ### DKIM 서명 및 검증
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -287,11 +337,9 @@ schema_type: Article
 ```
 -->
 -->
--->
 
 ### DMARC 종합 정책 적용
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -344,7 +392,6 @@ schema_type: Article
 
 
 ```
--->
 -->
 -->
 
@@ -468,7 +515,6 @@ v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com; ruf=mailto:dmarc@yourdo
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```text
 # 1단계: 모니터링만
 v=DMARC1; p=none; rua=mailto:dmarc@yourdomain.com
@@ -484,7 +530,6 @@ v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
 
 
 ```
--->
 -->
 -->
 
@@ -554,8 +599,6 @@ TTL: 3600
 - **Google Postmaster Tools**: Gmail 전달률 확인
 
 ### 7.2 명령줄 도구
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -702,7 +745,6 @@ mail.yourdomain.com → 별도 SPF, DKIM, DMARC
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 # 1단계 (즉시): 기본 설정
 v=DMARC1; p=none; rua=mailto:dmarc@yourdomain.com
@@ -717,8 +759,8 @@ v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc@yourdomain.com
 v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
 
 
+
 ```
--->
 -->
 -->
 -->
@@ -808,7 +850,6 @@ v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌────────────────────────────────────────────────────────────┐
 │         이메일 보안 현황 보고 (2025년 6월)                    │
@@ -874,7 +915,6 @@ v=DMARC1; p=reject; rua=mailto:dmarc@yourdomain.com
 ```
 -->
 -->
--->
 
 ### 경영진 보고 시 핵심 메시지
 
@@ -921,7 +961,6 @@ Splunk 이메일 인증 실패 탐지 쿼리
 index=mail sourcetype=email_logs
 -->
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
@@ -974,7 +1013,6 @@ index=mail sourcetype=email_logs
 ```
 -->
 -->
--->
 
 ### Azure Sentinel KQL 쿼리
 
@@ -983,7 +1021,6 @@ Azure Sentinel 이메일 보안 분석 쿼리
 OfficeActivity, EmailEvents 테이블 사용
 -->
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -1046,7 +1083,6 @@ EmailEvents
 
 
 ```
--->
 -->
 -->
 
