@@ -49,9 +49,12 @@ def extract_image_paths(content: str) -> List[str]:
         # {{ '/assets/images/...' | relative_url }} 형식 처리
         if "| relative_url" in path:
             path = path.split("|")[0].strip().strip("'\"")
-        # /assets/images/로 시작하는 경로만
+        # /assets/images/ 또는 assets/images/ 포함 경로
         if '/assets/images/' in path:
             filename = path.split('/assets/images/')[-1]
+            cleaned_paths.append(filename)
+        elif 'assets/images/' in path:
+            filename = path.split('assets/images/')[-1]
             cleaned_paths.append(filename)
         elif path.startswith('/assets/images/'):
             cleaned_paths.append(path.replace('/assets/images/', ''))
@@ -191,10 +194,75 @@ def process_post_file(file_path: Path, generate_commands: bool = False) -> Dict:
         return result
 
 
+def collect_all_referenced_images() -> set:
+    """전체 프로젝트에서 참조되는 이미지 경로 수집 (assets/images 기준 상대경로)."""
+    refs = set()
+    # _posts
+    for f in (PROJECT_ROOT / "_posts").glob("*.md"):
+        refs.update(extract_image_paths(f.read_text(encoding="utf-8")))
+    # _includes, _layouts
+    for d in ("_includes", "_layouts"):
+        dir_path = PROJECT_ROOT / d
+        if dir_path.exists():
+            for f in dir_path.rglob("*.html"):
+                refs.update(extract_image_paths(f.read_text(encoding="utf-8")))
+    # README, _config
+    for name in ("README.md", "_config.yml"):
+        p = PROJECT_ROOT / name
+        if p.exists():
+            refs.update(extract_image_paths(p.read_text(encoding="utf-8")))
+    # sw.js, JS, HTML에서 /assets/images/xxx 또는 assets/images/xxx 패턴
+    extra_files = [
+        PROJECT_ROOT / "sw.js",
+        PROJECT_ROOT / "assets" / "js" / "main-post.js",
+        PROJECT_ROOT / "_includes" / "head.html",
+        PROJECT_ROOT / "_config.yml",
+    ]
+    for p in extra_files:
+        if p.exists():
+            content = p.read_text(encoding="utf-8")
+            for m in re.findall(r"/assets/images/([^\"')\s}\|]+)", content):
+                refs.add(m.strip("'\""))
+            for m in re.findall(r"assets/images/([^\"')\s}\|]+)", content):
+                refs.add(m.strip("'\""))
+    normalized = set()
+    for r in refs:
+        r = r.strip().split("|")[0].strip("'\"")
+        if not r or r.startswith("["):
+            continue
+        normalized.add(r)
+        if "/" in r:
+            normalized.add(Path(r).name)
+    return normalized
+
+
+def list_all_image_files() -> set:
+    """assets/images 하위 모든 이미지 파일 (assets/images 기준 상대경로)."""
+    exts = {".svg", ".png", ".webp", ".jpg", ".jpeg"}
+    out = set()
+    for f in IMAGES_DIR.rglob("*"):
+        if f.is_file() and f.suffix.lower() in exts:
+            out.add(str(f.relative_to(IMAGES_DIR)))
+    return out
+
+
+def run_unused_report() -> List[str]:
+    """미사용 이미지 목록 반환."""
+    refs = collect_all_referenced_images()
+    all_files = list_all_image_files()
+    unused = []
+    for rel in sorted(all_files):
+        name = Path(rel).name
+        if rel in refs or name in refs:
+            continue
+        unused.append(rel)
+    return unused
+
+
 def main():
     """메인 함수"""
     import argparse
-    
+
     parser = argparse.ArgumentParser(
         description='통합 이미지 검증 스크립트',
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -202,30 +270,70 @@ def main():
 예시:
   # 모든 포스팅 확인
   python3 scripts/verify_images_unified.py --all
-  
+
   # 이미지가 없는 포스팅만 표시
   python3 scripts/verify_images_unified.py --missing
-  
+
+  # 미사용 이미지 목록 (참조 없는 파일)
+  python3 scripts/verify_images_unified.py --unused
+
   # Gemini CLI 명령어 생성
   python3 scripts/verify_images_unified.py --all --generate-commands
         """
     )
-    
+
     parser.add_argument('--all', action='store_true', help='모든 포스팅 확인')
     parser.add_argument('--missing', action='store_true', help='이미지가 없는 포스팅만 표시')
+    parser.add_argument('--unused', action='store_true', help='참조되지 않는 이미지 파일 목록')
+    parser.add_argument(
+        '--move-unused-to-archive',
+        action='store_true',
+        help='미사용 이미지를 assets/images/_unused_archive/ 로 이동 (--unused와 함께 사용)',
+    )
     parser.add_argument('--recent', type=int, default=10, help='최근 N개 포스팅만 확인')
     parser.add_argument('--generate-commands', action='store_true', help='Gemini CLI 명령어 생성')
-    
+
     args = parser.parse_args()
-    
+
     if not POSTS_DIR.exists():
         print(f"❌ 포스팅 디렉토리를 찾을 수 없습니다: {POSTS_DIR}")
         sys.exit(1)
-    
+
     if not IMAGES_DIR.exists():
         print(f"❌ 이미지 디렉토리를 찾을 수 없습니다: {IMAGES_DIR}")
         sys.exit(1)
-    
+
+    if args.unused:
+        unused = run_unused_report()
+        print(f"📊 미사용 이미지 (참조 없음): {len(unused)}개\n")
+        for u in unused:
+            print(u)
+        if args.move_unused_to_archive and unused:
+            archive_dir = IMAGES_DIR / "_unused_archive"
+            archive_dir.mkdir(parents=True, exist_ok=True)
+            manifest_path = archive_dir / "manifest.txt"
+            moved = []
+            for rel in unused:
+                src = IMAGES_DIR / rel
+                if not src.exists():
+                    continue
+                dest = archive_dir / rel
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                try:
+                    import shutil
+                    shutil.move(str(src), str(dest))
+                    moved.append(rel)
+                except OSError as e:
+                    print(f"  ⚠️ 이동 실패: {rel} - {e}")
+            with open(manifest_path, "w", encoding="utf-8") as f:
+                f.write("# Moved by verify_images_unified.py --unused --move-unused-to-archive\n")
+                for m in moved:
+                    f.write(m + "\n")
+            print("=" * 80)
+            print(f"✅ {len(moved)}개 파일을 {archive_dir} 로 이동했습니다. 목록: {manifest_path}")
+        print("=" * 80)
+        return
+
     # 포스팅 파일 목록
     if args.all:
         posts = sorted(POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)
