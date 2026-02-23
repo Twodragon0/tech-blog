@@ -15,14 +15,76 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석'
-  categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag security">보안</span>'
-  tags_html='<span class="tag">DevSecOps</span> <span class="tag">로드맵</span> <span class="tag">보안</span> <span class="tag">학습-경로</span> <span class="tag">roadmap.sh</span> <span class="tag">2026</span>'
-  highlights_html='<li><strong>roadmap.sh 93개 항목 4단계 학습 경로</strong>: 기초(Linux/네트워킹) - 핵심DevOps(CI/CD/컨테이너) - 보안내재화(SAST/DAST/SCA) - 전문화(위협모델링/컴플라이언스) 단계별 습득 경로와 각 단계별 추천 도구 정리</li> <li><strong>OWASP Top 10:2025 공급망 보안 신규 추가</strong>: 2025년 개정에서 A09 공급망 보안이 신규 카테고리로 추가, SolarWinds/XZ Utils 같은 공급망 공격 대응을 위한 SBOM 생성과 의존성 검증 방법 포함</li> <li><strong>CodeQL Rust 지원과 GitHub 시크릿 탐지 통계</strong>: GitHub이 2024년 공개 저장소에서 3,900만 개 시크릿 탐지, CodeQL이 Rust 언어 공식 지원 추가. SAST/DAST/IAST/SCA 4가지 테스트 방식 비교와 도구별 특성 분석 제공</li>'
-  period='2026-01-10 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석
+
+> **카테고리**: devsecops, security
+
+> **태그**: DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, "2026"
+
+> **핵심 내용**: 
+> - 2026 DevSecOps 로드맵 93개 학습 항목 분석
+
+> **주요 기술/도구**: DevSecOps, devsecops, security
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag devsecops">DevSecOps</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">DevSecOps</span>
+      <span class="tag">로드맵</span>
+      <span class="tag">보안</span>
+      <span class="tag">학습-경로</span>
+      <span class="tag">roadmap.sh</span>
+      <span class="tag">2026</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>93개 학습 항목 완벽 분석</strong>: 기초 학습(프로그래밍, 보안 기초), 위협 관리(STRIDE, PASTA), 보안 아키텍처(Defense in Depth, Zero Trust), 거버넌스(NIST CSF 2.0, ISO 27001), 도구 자동화(SAST/DAST/IAST, SIEM, SOAR)</li>
+      <li><strong>2024-2025 최신 트렌드 반영</strong>: OWASP Top 10:2025 (공급망 보안 강조), NIST CSF 2.0, GitHub Advanced Security 최신 기능, AI/ML 기반 보안 자동화, Secret Scanning 통계</li>
+      <li><strong>단계별 학습 경로</strong>: 초급(0-6개월) 프로그래밍/보안 기초, 중급(6-12개월) 위협 모델링/컨테이너 보안, 고급(12-24개월) 엔터프라이즈 아키텍처/거버넌스, 전문가(24개월+) 전략 수립</li>
+      <li><strong>실무 보안 도구 스택 (2024-2025)</strong>: SAST(CodeQL Rust 지원, Semgrep), DAST(Burp Suite, OWASP ZAP), IAST(Contrast Security), SCA(Trivy, Dependabot), 컨테이너 보안, SIEM/SOAR, SBOM(CycloneDX, Syft)</li>
+      <li><strong>공급망 보안 심화</strong>: SBOM 생성/검증/표준화, 의존성 리스크 관리(함수 호출 분석), 빌드 파이프라인 강화, NIST SP 800-204D, CISA SBOM 가이드, Secret Scanning (3,900만 개 이상 탐지)</li>
+      <li><strong>인시던트 대응 체계</strong>: IR 라이프사이클(준비→탐지→격리→근절→복구), 포렌식(디지털/메모리/네트워크), SOAR 자동화, EDR 솔루션, AI 기반 자동 대응</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">roadmap.sh, Python/Go/JavaScript, Bash/PowerShell, STRIDE/PASTA, OWASP Top 10:2025, CodeQL (Rust 지원), SonarQube, Semgrep, Burp Suite, OWASP ZAP, Contrast Security, Trivy, Dependabot, GitHub Advanced Security, Docker, Kubernetes, SIEM, SOAR, EDR, SBOM (CycloneDX, Syft), NIST CSF 2.0, NIST SP 800-204D, ISO 27001, SOC 2, CISA SBOM 가이드</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">DevSecOps 엔지니어, 보안 엔지니어, 개발자, 보안 전문가 지망생</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
+
+<img src="{{ '/assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg' | relative_url }}" alt="2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis" loading="lazy" class="post-image">
 
 ## 서론
 
