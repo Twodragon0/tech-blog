@@ -16,16 +16,77 @@ schema_type: Article
 certifications: [isms-p]
 ---
 
-{% include ai-summary-card.html
-  title='2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
-  tags_html='<span class="tag">ISMS-P</span> <span class="tag">AWS</span> <span class="tag">Security</span> <span class="tag">Compliance</span> <span class="tag">ISMS</span> <span class="tag">NIST-CSF</span> <span class="tag">AI-Security</span>'
-  highlights_html='<li><strong>ISMS-P 101개 항목 AWS 구현 로드맵</strong>: 관리체계 수립(1-3개월) - 보호대책 구현(4-9개월) - 모의해킹/심사(10-12개월) 3단계 로드맵, AWS VPC/IAM/KMS/CloudTrail로 101개 기술 항목 대응 방법 상세 수록</li> <li><strong>NIST CSF 2.0 Govern 함수와 AI 보안 신규 요구</strong>: 2025년 개정 ISMS-P에 AI 서비스 보안 요구사항 추가, NIST CSF 2.0 Govern 함수 연계로 경영진 책임 거버넌스 체계 구축 방법 제시</li> <li><strong>AWS 기반 보호대책 단계별 구현</strong>: VPC Flow Logs + CloudTrail로 접근 통제 증적 자동 수집, KMS CMK로 개인정보 암호화, GuardDuty + Security Hub로 침해사고 탐지 및 ISMS-P 2.11 요건 충족</li>'
-  period='2026-01-14 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
 
-## 핵심 요약: ISMS-P 인증 준비도 평가
+> **제목**: 2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현
+
+> **카테고리**: security, cloud
+
+> **태그**: ISMS-P, AWS, Security, Compliance, ISMS, NIST-CSF, AI-Security
+
+> **핵심 내용**: 
+> - 2025년 ISMS-P 인증 AWS 환경 완벽 가이드
+
+> **주요 기술/도구**: AWS, Security, Security, security, cloud
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag cloud">Cloud</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">ISMS-P</span>
+      <span class="tag">AWS</span>
+      <span class="tag">Security</span>
+      <span class="tag">Compliance</span>
+      <span class="tag">ISMS</span>
+      <span class="tag">NIST-CSF</span>
+      <span class="tag">AI-Security</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>2025년 ISMS-P 개정 기준 반영</strong>: 101개 기준 상세 설명 (관리체계 수립 16개, 보호대책 64개, 개인정보 처리 21개), NIST CSF 2.0 연계 방안, AI 보안 요구사항 추가</li>
+      <li><strong>AWS 환경 ISMS-P 인증 전략</strong>: 클라우드 환경 특화 요구사항, AWS 서비스 기반 컴플라이언스 구현, Defense in Depth 보안 아키텍처 설계</li>
+      <li><strong>관리체계 수립 실무 가이드</strong>: 정보보안 정책 수립, 조직 구성 및 역할 정의, 위험 관리 체계 구축, 지속적 개선 프로세스</li>
+      <li><strong>보호대책 구현 상세 가이드</strong>: 접근 통제 (IAM, Security Group, NACL), 암호화 (전송/저장 데이터), 로그 관리 및 모니터링 (CloudTrail, CloudWatch), 네트워크 보안 (VPC, Subnet)</li>
+      <li><strong>개인정보 처리 단계별 요구사항</strong>: 수집, 이용, 제공, 파기 단계별 보안 요구사항 및 AWS 서비스 활용 방법</li>
+      <li><strong>실무 적용 사례</strong>: AWS 기반 ISMS-P 인증 사례, 보안 감사 대응 방법, 문제 해결 사례</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">ISMS-P, AWS (IAM, VPC, S3, RDS, CloudTrail, CloudWatch, KMS, Security Hub), NIST CSF 2.0, AI Security, Compliance Tools</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">ISMS-P 인증 준비자, 보안 엔지니어, 클라우드 보안 전문가, CISO, 컴플라이언스 담당자</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
+
+## Executive Summary: ISMS-P 인증 준비도 평가
 
 ### 인증 준비도 자가 진단
 
@@ -39,7 +100,105 @@ certifications: [isms-p]
 
 ### 인증 로드맵 (총 8-12개월)
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. |
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> Phase 1: 준비 (1-2개월)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> Phase 1: 준비 (1-2개월)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```
+Phase 1: 준비 (1-2개월)
+└─ Gap Analysis → 현황 분석 → 인증 범위 정의
+
+Phase 2: 관리체계 수립 (2-3개월)
+└─ 정책 수립 → 조직 구성 → 위험 관리 체계
+
+Phase 3: 보호대책 구현 (3-4개월)
+└─ AWS 보안 설정 → 암호화 구현 → 모니터링 체계
+
+Phase 4: 심사 준비 (1-2개월)
+└─ 문서 정비 → 모의 심사 → 개선 조치
+
+Phase 5: 인증 심사 (1개월)
+└─ 서면 심사 → 현장 심사 → 보완 조치 → 인증 획득
+
+
+```
+-->
+-->
+
+### 비용 예측 (중견기업 기준)
+
+| 항목 | 예상 비용 | 비고 |
+|-----|---------|------|
+| **컨설팅** | 3,000만원 ~ 5,000만원 | 외부 전문가 활용 시 |
+| **인증 심사 비용** | 1,500만원 ~ 2,500만원 | KISA 인증 수수료 |
+| **AWS 인프라** | 월 500만원 ~ 1,000만원 | Security Hub, GuardDuty 등 포함 |
+| **보안 솔루션** | 2,000만원 ~ 4,000만원 | SIEM, DLP, 취약점 스캐너 등 |
+| **내부 인력** | 3-5명 × 8-12개월 | 전담 TF 구성 |
+
+### 주요 위험 요소 및 대응 방안
+
+| 위험 요소 | 영향도 | 대응 방안 |
+|---------|-------|---------|
+| **경영진 지원 부족** | 🔴 높음 | 경영진 보고 및 예산 확보 사전 진행 |
+| **AWS 보안 설정 미비** | 🔴 높음 | AWS Well-Architected Review 선행 실시 |
+| **문서화 지연** | 🟡 중간 | 프로젝트 초기부터 문서 템플릿 준비 |
+| **조직 변화 저항** | 🟡 중간 | 교육 및 인식 제고 프로그램 운영 |
+| **외부 심사 지적** | 🟢 낮음 | 모의 심사를 통한 사전 점검 |
+
+## 서론
+
+안녕하세요, **Twodragon**입니다.
+
+2025년 개정된 ISMS-P(정보보호 및 개인정보보호 관리체계) 인증 기준은 클라우드 환경에서의 보안 요구사항을 더욱 강화하고, NIST CSF 2.0과의 연계, AI 보안 요구사항 등 최신 보안 트렌드를 반영하고 있습니다.
+
+이 포스팅은 **SK Shieldus의 2025년 ISMS-P 운영 가이드**를 기반으로, AWS 환경에서 ISMS-P 인증을 받기 위한 실무 중심의 완벽 가이드를 제공합니다. 101개 기준을 상세히 설명하고, AWS 서비스를 활용한 컴플라이언스 구현 방법을 단계별로 제시합니다.
+
+ISMS-P 인증 프로세스는 체계적인 단계를 통해 진행됩니다:
+
+## 📊 빠른 참조
+
+### ISMS-P 인증 기준 개요
+
+| 항목 | 내용 |
+|------|------|
+| **총 기준 수** | 101개 |
+| **관리체계 수립 및 운영** | 16개 항목 |
+| **보호대책 요구사항** | 64개 항목 |
+| **개인정보 처리 단계별 요구사항** | 21개 항목 |
+| **인증 유효기간** | 3년 |
+| **인증 기관** | 한국인터넷진흥원 (KISA) |
+
+### 2025년 주요 변경사항
+
+| 변경사항 | 설명 |
+|---------|------|
+| **NIST CSF 2.0 연계** | 거버넌스 함수 추가, ISMS-P 기준과의 매핑 강화 |
+| **AI 보안 요구사항** | AI 서비스 기업을 위한 보안 요구사항 추가 |
+| **클라우드 보안 강화** | 클라우드 환경 특화 요구사항 명확화 |
+| **암호화 요구사항 강화** | 전송/저장 데이터 암호화 의무화 |
+
+---
+
+## MITRE ATT&CK 매핑: ISMS-P 통제와 공격 기법 연계
+
+### ISMS-P 보호대책과 MITRE ATT&CK 전술 매핑
+
+| ISMS-P 통제 | MITRE ATT&CK 전술 | 방어 기법 | AWS 구현 |
+|------------|------------------|---------|---------|
+| **접근 통제 (3.1)** | Initial Access (TA0001) | MFA, IAM Policies | IAM MFA, Cognito |
+| **접근 통제 (3.1)** | Privilege Escalation (TA0004) | Least Privilege | IAM Policies, SCPs |
+| **암호화 (3.2)** | Collection (TA0009) | Data Encryption | KMS, S3 Encryption |
+| **암호화 (3.2)** | Exfiltration (TA0010) | TLS/SSL | ALB, CloudFront |
 | **로그 관리 (3.3)** | Defense Evasion (TA0005) | Centralized Logging | CloudTrail, CloudWatch |
 | **네트워크 보안** | Lateral Movement (TA0008) | Network Segmentation | VPC, Security Groups |
 | **침해사고 대응** | Impact (TA0040) | Incident Response | Security Hub, GuardDuty |
@@ -48,101 +207,474 @@ certifications: [isms-p]
 
 #### 시나리오 1: 자격 증명 탈취 공격
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. (CDN) │
-│ TLS 1.3, WAF, Shield Standard │
-└────────────────────────────────┬────────────────────────────────────┘
-│
-┌────────────────────────────────┴────────────────────────────────────┐
-│ Application Load Balancer │
-│ TLS 1.2+, ACM 인증서, Security Policy │
-└────────────────────────────────┬────────────────────────────────────┘
-│
-┌───────────────────────┴───────────────────────┐
-│ VPC (10.0.0.0/16) │
-│ ┌──────────────────────────────────────────┐ │
-│ │ Public Subnet (10.0.1.0/24) │ │
-│ │ ├─ NAT Gateway │ │
-│ │ └─ Bastion Host (MFA 필수) │ │
-│ └──────────────────┬───────────────────────┘ │
-│ │ │
-│ ┌──────────────────┴───────────────────────┐ │
-│ │ Private Subnet (10.0.2.0/24) │ │
-│ │ ├─ ECS Fargate (애플리케이션) │ │
-│ │ ├─ Lambda (비즈니스 로직) │ │
-│ │ └─ Security Group (최소 권한) │ │
-│ └──────────────────┬───────────────────────┘ │
-│ │ │
-│ ┌──────────────────┴───────────────────────┐ │
-│ │ Data Subnet (10.0.3.0/24) │ │
-│ │ ├─ RDS (Multi-AZ, 암호화) │ │
-│ │ ├─ ElastiCache (암호화) │ │
-│ │ └─ No Internet Access │ │
-│ └──────────────────────────────────────────┘ │
-└──────────────────────────────────────────────┘
-│
-┌───────────────┴────────────────┐
-│ │
-┌────────┴─────────┐ ┌──────────┴──────────┐
-│ S3 (암호화) │ │ KMS (CMK) │
-│ ├─ 개인정보 │ │ ├─ 키 로테이션 │
-│ ├─ 로그 │ │ └─ 접근 정책 │
-│ └─ 백업 │ └─────────────────────┘
-└──────────────────┘
-│
-┌────────┴─────────────────────────────────────────────┐
-│ 보안 모니터링 및 로깅 │
-│ ┌──────────────┬──────────────┬─────────────────┐ │
-│ │ CloudTrail │ CloudWatch │ Security Hub │ │
-│ │ (모든 API) │ (메트릭) │ (통합 대시보드) │ │
-│ └──────┬───────┴──────┬───────┴─────┬───────────┘ │
-│ │ │ │ │
-│ ┌──────┴──────┬───────┴──────┬──────┴──────┐ │
-│ │ GuardDuty │ Config │ Inspector │ │
-│ │ (위협탐지) │ (규정준수) │ (취약점) │ │
-│ └─────────────┴──────────────┴─────────────┘ │
-└──────────────────────────────────────────────────────┘
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> MITRE ATT&CK: T1078 (Valid Accounts)...
+> ```
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요./CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. (SQL Injection, XSS 차단) │
-│ └─ Rate Limiting (DDoS 방어) │
-└──────┬───────────────────────────────────────┘
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> MITRE ATT&CK: T1078 (Valid Accounts)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```
+MITRE ATT&CK: T1078 (Valid Accounts)
+├─ ISMS-P 통제
+│  ├─ 3.1.1 사용자 계정 관리
+│  ├─ 3.1.3 사용자 인증
+│  └─ 3.1.5 원격 접근 통제
 │
-▼
-┌──────────────────────────────────────────────┐
-│ Lambda (비즈니스 로직) │
-│ ├─ 개인정보 수집 동의 검증 │
-│ ├─ 데이터 유효성 검사 (Input Validation) │
-│ └─ 민감정보 마스킹 (로그) │
-└──────┬───────────────────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────┐
-│ KMS (암호화 키 관리) │
-│ ├─ CMK로 데이터 암호화 │
-│ ├─ 키 로테이션 (연 1회) │
-│ └─ IAM 정책으로 접근 제어 │
-└──────┬───────────────────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────┐
-│ RDS (개인정보 저장) │
-│ ├─ 암호화 저장 (AES-256) │
-│ ├─ Multi-AZ (가용성) │
-│ ├─ 자동 백업 (암호화) │
-│ └─ 접근 제어 (Security Group) │
-└──────────────────────────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────┐
-│ CloudTrail + CloudWatch Logs │
-│ ├─ 모든 접근 로그 기록 │
-│ ├─ 7년 보관 (법적 요구사항) │
-│ ├─ 로그 암호화 (KMS) │
-│ └─ 이상 탐지 알람 (CloudWatch Alarms) │
-└──────────────────────────────────────────────┘
+└─ AWS 방어 조치
+   ├─ IAM MFA 강제 활성화
+   ├─ AWS SSO 통합 인증
+   ├─ CloudTrail 로그인 실패 모니터링
+   └─ GuardDuty 이상 행위 탐지
 
 
 ```
 -->
+-->
+
+<!--
+# SIEM Detection Query: IAM 비정상 로그인 탐지
+
+## Splunk SPL
+index=aws sourcetype=aws:cloudtrail eventName=ConsoleLogin errorCode=Failed
+| stats count by userIdentity.principalId src_ip
+| where count > 5
+| table _time userIdentity.principalId src_ip count
+| eval severity="HIGH"
+
+## Azure Sentinel KQL
+AWSCloudTrail
+| where EventName == "ConsoleLogin" and ErrorCode == "Failed"
+| summarize FailedAttempts=count() by UserIdentityPrincipalId, SourceIpAddress, bin(TimeGenerated, 5m)
+| where FailedAttempts > 5
+| project TimeGenerated, UserIdentityPrincipalId, SourceIpAddress, FailedAttempts
+| extend Severity = "High"
+-->
+
+#### 시나리오 2: 데이터 유출 (Data Exfiltration)
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> MITRE ATT&CK: T1567 (Exfiltration Over Web Service)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> MITRE ATT&CK: T1567 (Exfiltration Over Web Service)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```
+MITRE ATT&CK: T1567 (Exfiltration Over Web Service)
+├─ ISMS-P 통제
+│  ├─ 3.2.1 암호화 적용
+│  ├─ 3.3.2 로그 기록 및 보존
+│  └─ 4.2.2 개인정보 이용 제한
+│
+└─ AWS 방어 조치
+   ├─ S3 Block Public Access
+   ├─ KMS 암호화 강제
+   ├─ VPC Endpoint로 인터넷 우회 차단
+   └─ CloudWatch Logs 대용량 데이터 전송 알람
+
+
+```
+-->
+-->
+
+<!--
+# SIEM Detection Query: S3 대량 다운로드 탐지
+
+## Splunk SPL
+index=aws sourcetype=aws:cloudtrail eventName=GetObject
+| stats sum(requestParameters.bytesTransferred) as total_bytes by userIdentity.principalId, requestParameters.bucketName
+| where total_bytes > 10737418240
+| eval total_gb=round(total_bytes/1073741824, 2)
+| table _time userIdentity.principalId requestParameters.bucketName total_gb
+| eval severity="CRITICAL"
+
+## Azure Sentinel KQL
+AWSCloudTrail
+| where EventName == "GetObject"
+| extend BytesTransferred = toint(RequestParameters.bytesTransferred)
+| summarize TotalBytes=sum(BytesTransferred) by UserIdentityPrincipalId, BucketName=tostring(RequestParameters.bucketName), bin(TimeGenerated, 1h)
+| where TotalBytes > 10737418240
+| extend TotalGB = round(TotalBytes / 1073741824.0, 2)
+| project TimeGenerated, UserIdentityPrincipalId, BucketName, TotalGB
+| extend Severity = "Critical"
+-->
+
+#### 시나리오 3: 권한 상승 (Privilege Escalation)
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> MITRE ATT&CK: T1548 (Abuse Elevation Control Mechanism)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> MITRE ATT&CK: T1548 (Abuse Elevation Control Mechanism)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```
+MITRE ATT&CK: T1548 (Abuse Elevation Control Mechanism)
+├─ ISMS-P 통제
+│  ├─ 3.1.2 사용자 식별
+│  ├─ 3.1.6 관리자 계정 및 권한 관리
+│  └─ 3.3.1 로그 수집 및 관리
+│
+└─ AWS 방어 조치
+   ├─ IAM Access Analyzer로 과도한 권한 탐지
+   ├─ SCPs로 조직 수준 권한 제한
+   ├─ CloudTrail IAM 정책 변경 모니터링
+   └─ EventBridge 자동 알람 및 차단
+
+
+```
+-->
+-->
+
+<!--
+# SIEM Detection Query: IAM 정책 변경 탐지
+
+## Splunk SPL
+index=aws sourcetype=aws:cloudtrail (eventName=PutUserPolicy OR eventName=PutRolePolicy OR eventName=AttachUserPolicy OR eventName=AttachRolePolicy)
+| eval policy_change=if(eventName=="PutUserPolicy" OR eventName=="PutRolePolicy", "Inline Policy Modified", "Managed Policy Attached")
+| table _time userIdentity.principalId eventName requestParameters.userName requestParameters.roleName policy_change
+| eval severity="HIGH"
+
+## Azure Sentinel KQL
+AWSCloudTrail
+| where EventName in ("PutUserPolicy", "PutRolePolicy", "AttachUserPolicy", "AttachRolePolicy")
+| extend PolicyChange = iff(EventName in ("PutUserPolicy", "PutRolePolicy"), "Inline Policy Modified", "Managed Policy Attached")
+| extend TargetIdentity = coalesce(tostring(RequestParameters.userName), tostring(RequestParameters.roleName))
+| project TimeGenerated, UserIdentityPrincipalId, EventName, TargetIdentity, PolicyChange
+| extend Severity = "High"
+-->
+
+### ISMS-P 통제 효과성 측정 (MITRE ATT&CK 기반)
+
+| 전술 (Tactic) | 탐지율 | 차단율 | ISMS-P 통제 개선 우선순위 |
+|--------------|-------|-------|------------------------|
+| Initial Access | 85% | 70% | 🟡 MFA 적용 확대 |
+| Execution | 60% | 40% | 🔴 응용프로그램 실행 제어 강화 |
+| Persistence | 75% | 60% | 🟡 IAM 역할 정기 검토 |
+| Privilege Escalation | 80% | 65% | 🟡 SCPs 정책 강화 |
+| Defense Evasion | 50% | 30% | 🔴 CloudTrail 로그 무결성 검증 |
+| Credential Access | 90% | 80% | 🟢 현재 수준 유지 |
+| Discovery | 70% | 50% | 🟡 GuardDuty 룰 최적화 |
+| Lateral Movement | 85% | 75% | 🟢 현재 수준 유지 |
+| Collection | 80% | 70% | 🟡 DLP 솔루션 도입 검토 |
+| Exfiltration | 75% | 60% | 🟡 VPC Endpoint 활용 확대 |
+| Impact | 90% | 85% | 🟢 현재 수준 유지 |
+
+---
+
+## 1. ISMS-P 인증 개요
+
+### 1.1 ISMS-P 인증이란?
+
+ISMS-P(Information Security Management System - Personal Information)는 정보보호와 개인정보보호를 위한 관리체계를 수립하고 운영하는 기관·기업에 대해 한국인터넷진흥원(KISA)이 인증을 부여하는 제도입니다.
+
+#### 인증 목적
+
+| 목적 | 설명 |
+|------|------|
+| **정보보호 체계 구축** | 체계적인 정보보호 관리체계 수립 및 운영 |
+| **개인정보보호 강화** | 개인정보 처리 단계별 보안 요구사항 준수 |
+| **신뢰성 확보** | 고객 및 이해관계자에 대한 신뢰도 향상 |
+| **규정 준수** | 개인정보보호법, 정보통신망법 등 법규 준수 |
+
+### 1.2 2025년 개정 기준 주요 특징
+
+#### 101개 기준 구조
+
+| 영역 | 기준 수 | 주요 내용 |
+|------|--------|----------|
+| **관리체계 수립 및 운영** | 16개 | 정보보안 정책, 조직 구성, 위험 관리, 지속적 개선 |
+| **보호대책 요구사항** | 64개 | 접근 통제, 암호화, 물리적 보안, 운영 보안, 침해사고 대응 |
+| **개인정보 처리 단계별 요구사항** | 21개 | 수집, 이용, 제공, 파기 단계별 보안 요구사항 |
+
+#### NIST CSF 2.0 연계
+
+2025년 개정 기준은 NIST Cybersecurity Framework 2.0과의 연계를 강화했습니다:
+
+| NIST CSF 2.0 함수 | ISMS-P 영역 | 설명 |
+|------------------|------------|------|
+| **Govern (거버넌스)** | 관리체계 수립 | 정보보안 정책, 조직 구성, 위험 관리 |
+| **Identify (식별)** | 자산 관리 | 정보자산 분류 및 관리 |
+| **Protect (보호)** | 보호대책 | 접근 통제, 암호화, 물리적 보안 |
+| **Detect (탐지)** | 모니터링 | 로그 관리, 이상 탐지 |
+| **Respond (대응)** | 침해사고 대응 | 사고 대응 체계, 복구 계획 |
+| **Recover (복구)** | 비즈니스 연속성 | 백업 및 복구, 재해 복구 |
+
+#### AI 보안 요구사항
+
+ISMS-P 보호대책은 Defense in Depth 전략을 통해 다층 보안을 구현합니다:
+
+AI 서비스 기업을 위한 추가 보안 요구사항이 포함되었습니다:
+
+- **AI 모델 보안**: 모델 학습 데이터 보호, 모델 무결성 검증
+- **데이터 보호**: 학습 데이터 암호화, 접근 제어
+- **프라이버시 보호**: 개인정보 포함 데이터 처리 시 추가 보호 조치
+
+### 1.3 한국 법규 상세 매핑: 개인정보보호법 및 정보통신망법
+
+#### 개인정보보호법 조항별 ISMS-P 기준 매핑
+
+| 법 조항 | 내용 | ISMS-P 기준 | AWS 구현 방법 |
+|--------|------|------------|-------------|
+| **제15조** | 개인정보의 수집·이용 | 4.1.1 개인정보 수집 시 동의 | Cognito, Lambda 동의 관리 |
+| **제17조** | 개인정보의 제공 | 4.3.1 개인정보 제공 시 동의 | API Gateway, Lambda 제공 내역 기록 |
+| **제21조** | 개인정보의 파기 | 4.4.1 개인정보 파기 | S3 Lifecycle Policy, Lambda |
+| **제24조** | 고유식별정보 처리 제한 | 4.1.2 고유식별정보 처리 | KMS 암호화, 접근 제어 |
+| **제29조** | 안전조치의무 | 3.2.1 암호화 적용 | KMS, TLS/SSL |
+| **제34조** | 개인정보 유출 통지 | 5.1.1 침해사고 대응 | SNS, EventBridge 자동 알림 |
+| **제39조의3** | 개인정보 처리방침 공개 | 2.1.1 정보보안 정책 수립 | S3 정적 웹사이트 호스팅 |
+
+#### 정보통신망법 조항별 ISMS-P 기준 매핑
+
+| 법 조항 | 내용 | ISMS-P 기준 | AWS 구현 방법 |
+|--------|------|------------|-------------|
+| **제28조** | 개인정보의 보호조치 | 3.2.1 암호화 적용 | KMS, S3 암호화 |
+| **제45조** | 정보통신망 침해사고 대응 | 5.1.1 침해사고 대응 | Security Hub, GuardDuty |
+| **제45조의3** | 침해사고 통지 | 5.1.2 침해사고 통지 | SNS, SES 자동 통지 |
+| **제47조** | 정보보호 최고책임자 지정 | 2.2.1 조직 구성 | IAM 역할 정의 |
+| **제47조의2** | 정보보호 관리체계 인증 | 전체 기준 | ISMS-P 인증 |
+
+#### 과태료 및 형사처벌 기준 (2025년 개정 기준)
+
+| 위반 내용 | 법적 근거 | 과태료/벌금 | ISMS-P 예방 통제 |
+|----------|---------|-----------|----------------|
+| **개인정보 유출 미통지** | 개인정보보호법 제34조 | 3천만원 이하 과태료 | 자동 통지 시스템 (EventBridge) |
+| **암호화 미적용** | 정보통신망법 제28조 | 3천만원 이하 과태료 | KMS 강제 암호화 정책 |
+| **개인정보 불법 제공** | 개인정보보호법 제17조 | 5년 이하 징역, 5천만원 이하 벌금 | Lambda 동의 검증 로직 |
+| **안전조치 미이행** | 개인정보보호법 제29조 | 2년 이하 징역, 2천만원 이하 벌금 | Security Hub 컴플라이언스 자동 검증 |
+| **CISO 미지정** | 정보통신망법 제47조 | 3천만원 이하 과태료 | 조직도 명시 |
+
+#### 규제 기관별 감독 및 처분 현황 (2024년 기준)
+
+| 규제 기관 | 주요 감독 대상 | 2024년 처분 건수 | 주요 위반 사항 |
+|----------|-------------|---------------|-------------|
+| **개인정보보호위원회** | 전체 사업자 | 1,247건 | 개인정보 유출 미통지 (42%), 암호화 미적용 (28%) |
+| **방송통신위원회** | 정보통신서비스 제공자 | 389건 | CISO 미지정 (35%), 침해사고 대응 미비 (31%) |
+| **과학기술정보통신부** | ISMS-P 인증 의무 대상 | 127건 | 관리체계 미운영 (48%), 문서 미비 (29%) |
+
+### 1.4 AWS 환경에서의 ISMS-P 인증
+
+클라우드 환경에서 ISMS-P 인증을 받기 위해서는 다음을 고려해야 합니다:
+
+#### 클라우드 환경 특화 요구사항
+
+| 요구사항 | AWS 구현 방법 | 설명 |
+|---------|-------------|------|
+| **공유 책임 모델** | AWS와 고객의 책임 분리 명확화 | 인프라 보안은 AWS, 데이터 보안은 고객 책임 |
+| **다중 테넌시** | VPC 격리, 리소스 태깅 | 논리적 격리 및 리소스 관리 |
+| **동적 리소스** | 자동화된 보안 정책 적용 | CloudFormation, Terraform을 통한 IaC |
+| **지리적 분산** | 리전별 데이터 보호 정책 | 데이터 레지던시 요구사항 준수 |
+
+#### AWS 서비스 기반 컴플라이언스 구현
+
+| ISMS-P 요구사항 | AWS 서비스 | 구현 방법 |
+|----------------|-----------|----------|
+| **접근 통제** | IAM, Security Group, NACL | 역할 기반 접근 제어, 최소 권한 원칙 |
+| **암호화** | KMS, S3, RDS | 전송/저장 데이터 암호화 |
+| **로그 관리** | CloudTrail, CloudWatch | 모든 활동 로깅 및 모니터링 |
+| **네트워크 보안** | VPC, Subnet, NAT Gateway | 네트워크 분리 및 접근 제어 |
+| **백업 및 복구** | S3, EBS Snapshot, RDS Backup | 자동화된 백업 및 복구 |
+
+---
+
+## AWS ISMS-P 컴플라이언스 아키텍처 다이어그램
+
+### 전체 보안 아키텍처 (Defense in Depth)
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                         CloudFront (CDN)                             │
+│                    TLS 1.3, WAF, Shield Standard                     │
+└────────────────────────────────┬────────────────────────────────────┘
+                                 │
+┌────────────────────────────────┴────────────────────────────────────┐
+│                      Application Load Balancer                       │
+│              TLS 1.2+, ACM 인증서, Security Policy                   │
+└────────────────────────────────┬────────────────────────────────────┘
+                                 │
+         ┌───────────────────────┴───────────────────────┐
+         │             VPC (10.0.0.0/16)                 │
+         │  ┌──────────────────────────────────────────┐ │
+         │  │   Public Subnet (10.0.1.0/24)            │ │
+         │  │   ├─ NAT Gateway                         │ │
+         │  │   └─ Bastion Host (MFA 필수)             │ │
+         │  └──────────────────┬───────────────────────┘ │
+         │                     │                          │
+         │  ┌──────────────────┴───────────────────────┐ │
+         │  │   Private Subnet (10.0.2.0/24)           │ │
+         │  │   ├─ ECS Fargate (애플리케이션)          │ │
+         │  │   ├─ Lambda (비즈니스 로직)              │ │
+         │  │   └─ Security Group (최소 권한)          │ │
+         │  └──────────────────┬───────────────────────┘ │
+         │                     │                          │
+         │  ┌──────────────────┴───────────────────────┐ │
+         │  │   Data Subnet (10.0.3.0/24)              │ │
+         │  │   ├─ RDS (Multi-AZ, 암호화)              │ │
+         │  │   ├─ ElastiCache (암호화)                │ │
+         │  │   └─ No Internet Access                  │ │
+         │  └──────────────────────────────────────────┘ │
+         └──────────────────────────────────────────────┘
+                         │
+         ┌───────────────┴────────────────┐
+         │                                 │
+┌────────┴─────────┐           ┌──────────┴──────────┐
+│   S3 (암호화)     │           │   KMS (CMK)         │
+│   ├─ 개인정보     │           │   ├─ 키 로테이션    │
+│   ├─ 로그         │           │   └─ 접근 정책      │
+│   └─ 백업         │           └─────────────────────┘
+└──────────────────┘
+         │
+┌────────┴─────────────────────────────────────────────┐
+│            보안 모니터링 및 로깅                       │
+│  ┌──────────────┬──────────────┬─────────────────┐   │
+│  │ CloudTrail   │ CloudWatch   │ Security Hub    │   │
+│  │ (모든 API)   │ (메트릭)     │ (통합 대시보드) │   │
+│  └──────┬───────┴──────┬───────┴─────┬───────────┘   │
+│         │              │              │               │
+│  ┌──────┴──────┬───────┴──────┬──────┴──────┐        │
+│  │ GuardDuty   │ Config       │ Inspector   │        │
+│  │ (위협탐지)  │ (규정준수)   │ (취약점)    │        │
+│  └─────────────┴──────────────┴─────────────┘        │
+└──────────────────────────────────────────────────────┘
+
+
+```
+-->
+-->
+
+### IAM 권한 모델 (최소 권한 원칙)
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```
+┌─────────────────────────────────────────────────────┐
+│              AWS Organizations (Root)                │
+│                                                       │
+│  Service Control Policies (SCPs)                     │
+│  ├─ 모든 계정에 기본 보안 정책 강제                 │
+│  ├─ 특정 리전 외 리소스 생성 차단                   │
+│  └─ CloudTrail 비활성화 차단                        │
+└───────────────────┬─────────────────────────────────┘
+                    │
+        ┌───────────┴───────────┬───────────────────┐
+        │                       │                   │
+┌───────┴────────┐   ┌──────────┴──────┐   ┌────────┴────────┐
+│  Production    │   │  Development    │   │  Security       │
+│  Account       │   │  Account        │   │  Account        │
+└───────┬────────┘   └──────────┬──────┘   └────────┬────────┘
+        │                       │                   │
+        │                       │                   │
+┌───────┴─────────────────┐     │     ┌─────────────┴──────┐
+│  IAM 역할 (Role)        │     │     │  보안 감사 역할    │
+│  ├─ Developer           │     │     │  (ReadOnly)        │
+│  │  (읽기, 배포)        │     │     └────────────────────┘
+│  ├─ SecurityManager     │     │
+│  │  (보안 설정, 감사)   │     │
+│  └─ DataEngineer        │     │
+│     (데이터 처리)       │     │
+└─────────────────────────┘     │
+                                │
+                    ┌───────────┴────────────┐
+                    │  IAM 사용자            │
+                    │  (MFA 필수)            │
+                    │  ├─ 임시 자격 증명     │
+                    │  └─ 정기 권한 검토     │
+                    └────────────────────────┘
+
+
+```
+-->
+-->
+
+### 개인정보 처리 흐름 및 보안 통제
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```
+┌─────────────┐
+│  사용자     │
+└──────┬──────┘
+       │ HTTPS (TLS 1.3)
+       ▼
+┌──────────────────────────────────────────────┐
+│        API Gateway (인증/인가)                │
+│  ├─ Lambda Authorizer (JWT 검증)             │
+│  ├─ WAF (SQL Injection, XSS 차단)            │
+│  └─ Rate Limiting (DDoS 방어)                │
+└──────┬───────────────────────────────────────┘
+       │
+       ▼
+┌──────────────────────────────────────────────┐
+│  Lambda (비즈니스 로직)                       │
+│  ├─ 개인정보 수집 동의 검증                  │
+│  ├─ 데이터 유효성 검사 (Input Validation)    │
+│  └─ 민감정보 마스킹 (로그)                   │
+└──────┬───────────────────────────────────────┘
+       │
+       ▼
+┌──────────────────────────────────────────────┐
+│  KMS (암호화 키 관리)                         │
+│  ├─ CMK로 데이터 암호화                      │
+│  ├─ 키 로테이션 (연 1회)                     │
+│  └─ IAM 정책으로 접근 제어                   │
+└──────┬───────────────────────────────────────┘
+       │
+       ▼
+┌──────────────────────────────────────────────┐
+│  RDS (개인정보 저장)                          │
+│  ├─ 암호화 저장 (AES-256)                    │
+│  ├─ Multi-AZ (가용성)                        │
+│  ├─ 자동 백업 (암호화)                       │
+│  └─ 접근 제어 (Security Group)               │
+└──────────────────────────────────────────────┘
+       │
+       ▼
+┌──────────────────────────────────────────────┐
+│  CloudTrail + CloudWatch Logs                 │
+│  ├─ 모든 접근 로그 기록                      │
+│  ├─ 7년 보관 (법적 요구사항)                 │
+│  ├─ 로그 암호화 (KMS)                        │
+│  └─ 이상 탐지 알람 (CloudWatch Alarms)       │
+└──────────────────────────────────────────────┘
+
+
+```
 -->
 -->
 
@@ -150,40 +682,38 @@ certifications: [isms-p]
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 ┌─────────────────────────────────────────────────────┐
-│ 개인정보 라이프사이클 │
+│              개인정보 라이프사이클                   │
 └─────────────────────────────────────────────────────┘
 
 수집 → 저장 → 이용 → 제공 → 파기
-│ │ │ │ │
-▼ ▼ ▼ ▼ ▼
+ │      │      │      │      │
+ ▼      ▼      ▼      ▼      ▼
 ┌────┐┌────┐┌────┐┌────┐┌────────┐
 │동의││암호││접근││동의││자동파기│
-│확인││화 ││제어││재확││(7일전 │
-│ ││ ││로깅││인 ││알림) │
+│확인││화  ││제어││재확││(7일전  │
+│    ││    ││로깅││인  ││알림)   │
 └────┘└────┘└────┘└────┘└────────┘
 
 ┌─────────────────────────────────────────────────────┐
-│ S3 Lifecycle Policy (자동 파기) │
-│ │
-│ 0일: 수집 (Standard) │
-│ │ │
-│ 90일: Infrequent Access (IA) │
-│ │ │
-│ 365일: Glacier (장기 보관) │
-│ │ │
-│ 1095일 (3년): 파기 전 알림 (SNS → Lambda) │
-│ │ │
-│ 1102일 (3년 7일): 영구 삭제 (Delete) │
-│ │
-│ 파기 증적: CloudTrail DeleteObject 이벤트 │
+│          S3 Lifecycle Policy (자동 파기)             │
+│                                                       │
+│  0일: 수집 (Standard)                                │
+│  │                                                    │
+│  90일: Infrequent Access (IA)                        │
+│  │                                                    │
+│  365일: Glacier (장기 보관)                          │
+│  │                                                    │
+│  1095일 (3년): 파기 전 알림 (SNS → Lambda)          │
+│  │                                                    │
+│  1102일 (3년 7일): 영구 삭제 (Delete)                │
+│                                                       │
+│  파기 증적: CloudTrail DeleteObject 이벤트           │
 └─────────────────────────────────────────────────────┘
 
 
 ```
--->
 -->
 -->
 
@@ -216,7 +746,6 @@ certifications: [isms-p]
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
 전체 준수율: 87% (목표: 95%)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -236,7 +765,6 @@ certifications: [isms-p]
 ```
 -->
 -->
--->
 
 #### 4. AWS 보안 서비스 현황
 
@@ -251,7 +779,6 @@ certifications: [isms-p]
 
 #### 5. 인증 일정 및 예산
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -279,7 +806,6 @@ certifications: [isms-p]
 
 
 ```
--->
 -->
 -->
 
@@ -337,7 +863,866 @@ certifications: [isms-p]
 
 #### AWS 환경에서의 역할 정의
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.** | TLS 1.2 이상, Perfect Forward Secrecy | CDN 레벨 암호화 |
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # AWS IAM 역할 기반 정보보안 조직 구성 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # AWS IAM 역할 기반 정보보안 조직 구성 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# AWS IAM 역할 기반 정보보안 조직 구성 예시
+Resources:
+  SecurityManagerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: ISMS-Security-Manager
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !GetAtt SecurityManagerUser.Arn
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/SecurityAudit
+        - arn:aws:iam::aws:policy/ReadOnlyAccess
+      Policies:
+        - PolicyName: ISMSCompliancePolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - securityhub:*
+                  - config:*
+                  - cloudtrail:*
+                Resource: '*'
+
+
+```
+-->
+-->
+
+### 2.3 위험 관리 체계
+
+#### 위험 관리 프로세스
+
+| 단계 | 프로세스 | 설명 | AWS 활용 |
+|------|---------|------|---------|
+| 1 | **위험 식별** | 정보자산별 위협 및 취약점 식별 | AWS Security Hub, AWS Config |
+| 2 | **위험 분석** | 위험의 발생 가능성 및 영향도 평가 | AWS Security Hub 인사이트 |
+| 3 | **위험 평가** | 위험 수준 결정 및 우선순위 설정 | 위험 매트릭스 활용 |
+| 4 | **위험 대응** | 위험 감소 조치 수립 및 실행 | AWS 보안 서비스 활용 |
+| 5 | **위험 모니터링** | 지속적인 위험 모니터링 및 재평가 | CloudWatch, Security Hub |
+
+#### AWS 기반 위험 관리
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+```yaml
+# AWS Security Hub를 통한 위험 관리 설정
+Resources:
+  SecurityHubAccount:
+    Type: AWS::SecurityHub::Hub
+    Properties:
+      EnableDefaultStandards: true
+      StandardsSubscriptionArns:
+        - arn:aws:securityhub:ap-northeast-2::standards/cis-aws-foundations-benchmark/v/1.2.0
+        - arn:aws:securityhub:ap-northeast-2::standards/pci-dss/v/3.2.1
+```
+
+---
+
+## 컴플라이언스 자동화: Terraform 및 CloudFormation 스니펫
+
+### Terraform: ISMS-P 준수 VPC 구성
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # ISMS-P 요구사항: 네트워크 분리 및 접근 제어...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/terraform-aws-modules)를 참조하세요.
+> 
+> ```hcl
+> # ISMS-P 요구사항: 네트워크 분리 및 접근 제어...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```hcl
+# ISMS-P 요구사항: 네트워크 분리 및 접근 제어
+# Terraform으로 3-Tier 아키텍처 구성
+
+terraform {
+  required_version = ">= 1.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+# VPC 생성
+resource "aws_vpc" "isms_vpc" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_hostnames = true
+  enable_dns_support   = true
+
+  tags = {
+    Name       = "ISMS-P-Compliant-VPC"
+    Compliance = "ISMS-P"
+    ManagedBy  = "Terraform"
+  }
+}
+
+# Public Subnet (NAT Gateway, Bastion Host)
+resource "aws_subnet" "public" {
+  count             = 2
+  vpc_id            = aws_vpc.isms_vpc.id
+  cidr_block        = "10.0.${count.index + 1}.0/24"
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+
+  tags = {
+    Name = "ISMS-Public-Subnet-${count.index + 1}"
+    Tier = "Public"
+  }
+}
+
+# Private Subnet (Application)
+resource "aws_subnet" "private" {
+  count             = 2
+  vpc_id            = aws_vpc.isms_vpc.id
+  cidr_block        = "10.0.${count.index + 10}.0/24"
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+
+  tags = {
+    Name = "ISMS-Private-Subnet-${count.index + 1}"
+    Tier = "Private"
+  }
+}
+
+# Data Subnet (Database)
+resource "aws_subnet" "data" {
+  count             = 2
+  vpc_id            = aws_vpc.isms_vpc.id
+  cidr_block        = "10.0.${count.index + 20}.0/24"
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+
+  tags = {
+    Name = "ISMS-Data-Subnet-${count.index + 1}"
+    Tier = "Data"
+  }
+}
+
+# Security Group: Web Tier (HTTPS Only)
+resource "aws_security_group" "web_tier" {
+  name        = "isms-web-tier-sg"
+  description = "ISMS-P Compliant Web Tier Security Group"
+  vpc_id      = aws_vpc.isms_vpc.id
+
+  ingress {
+    description = "HTTPS from Internet"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    description = "Allow all outbound"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name       = "ISMS-Web-Tier-SG"
+    Compliance = "ISMS-P"
+  }
+}
+
+# CloudTrail: 모든 API 호출 로깅
+resource "aws_cloudtrail" "isms_audit" {
+  name                          = "isms-p-audit-trail"
+  s3_bucket_name                = aws_s3_bucket.cloudtrail_logs.id
+  include_global_service_events = true
+  is_multi_region_trail         = true
+  enable_logging                = true
+  kms_key_id                    = aws_kms_key.cloudtrail.arn
+
+  event_selector {
+    read_write_type           = "All"
+    include_management_events = true
+
+    data_resource {
+      type   = "AWS::S3::Object"
+      values = ["arn:aws:s3:::*/"]
+    }
+  }
+
+  tags = {
+    Name       = "ISMS-P-CloudTrail"
+    Compliance = "ISMS-P"
+  }
+}
+
+# KMS Key: CloudTrail 로그 암호화
+resource "aws_kms_key" "cloudtrail" {
+  description             = "KMS key for CloudTrail logs encryption"
+  deletion_window_in_days = 30
+  enable_key_rotation     = true
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid    = "Enable IAM User Permissions"
+        Effect = "Allow"
+        Principal = {
+          AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
+        }
+        Action   = "kms:*"
+        Resource = "*"
+      },
+      {
+        Sid    = "Allow CloudTrail to encrypt logs"
+        Effect = "Allow"
+        Principal = {
+          Service = "cloudtrail.amazonaws.com"
+        }
+        Action = [
+          "kms:GenerateDataKey*",
+          "kms:DecryptDataKey"
+        ]
+        Resource = "*"
+      }
+    ]
+  })
+
+  tags = {
+    Name       = "ISMS-P-CloudTrail-KMS"
+    Compliance = "ISMS-P"
+  }
+}
+
+# S3 Bucket: 개인정보 저장 (암호화 강제)
+resource "aws_s3_bucket" "personal_data" {
+  bucket = "isms-p-personal-data-${data.aws_caller_identity.current.account_id}"
+
+  tags = {
+    Name       = "ISMS-P-Personal-Data"
+    Compliance = "ISMS-P"
+    DataType   = "PersonalInformation"
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "personal_data" {
+  bucket = aws_s3_bucket.personal_data.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+      kms_master_key_id = aws_kms_key.s3_encryption.arn
+    }
+    bucket_key_enabled = true
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "personal_data" {
+  bucket = aws_s3_bucket.personal_data.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
+# S3 Lifecycle Policy: 개인정보 자동 파기
+resource "aws_s3_bucket_lifecycle_configuration" "personal_data" {
+  bucket = aws_s3_bucket.personal_data.id
+
+  rule {
+    id     = "auto-delete-personal-data"
+    status = "Enabled"
+
+    transition {
+      days          = 90
+      storage_class = "STANDARD_IA"
+    }
+
+    transition {
+      days          = 365
+      storage_class = "GLACIER"
+    }
+
+    expiration {
+      days = 1095  # 3년 후 자동 삭제
+    }
+
+    noncurrent_version_expiration {
+      noncurrent_days = 30
+    }
+  }
+
+  rule {
+    id     = "delete-old-versions"
+    status = "Enabled"
+
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
+  }
+}
+
+# Security Hub: 컴플라이언스 자동 검증
+resource "aws_securityhub_account" "main" {
+  enable_default_standards = true
+}
+
+resource "aws_securityhub_standards_subscription" "cis" {
+  standards_arn = "arn:aws:securityhub:ap-northeast-2::standards/cis-aws-foundations-benchmark/v/1.2.0"
+}
+
+resource "aws_securityhub_standards_subscription" "pci_dss" {
+  standards_arn = "arn:aws:securityhub:ap-northeast-2::standards/pci-dss/v/3.2.1"
+}
+
+# GuardDuty: 위협 탐지
+resource "aws_guardduty_detector" "main" {
+  enable = true
+
+  datasources {
+    s3_logs {
+      enable = true
+    }
+    kubernetes {
+      audit_logs {
+        enable = true
+      }
+    }
+    malware_protection {
+      scan_ec2_instance_with_findings {
+        ebs_volumes {
+          enable = true
+        }
+      }
+    }
+  }
+
+  tags = {
+    Name       = "ISMS-P-GuardDuty"
+    Compliance = "ISMS-P"
+  }
+}
+
+# EventBridge Rule: 보안 이벤트 자동 알림
+resource "aws_cloudwatch_event_rule" "security_alerts" {
+  name        = "isms-p-security-alerts"
+  description = "ISMS-P Security Event Alerts"
+
+  event_pattern = jsonencode({
+    source = ["aws.guardduty", "aws.securityhub"]
+    detail-type = [
+      "GuardDuty Finding",
+      "Security Hub Findings - Imported"
+    ]
+    detail = {
+      severity = ["HIGH", "CRITICAL"]
+    }
+  })
+}
+
+resource "aws_cloudwatch_event_target" "sns" {
+  rule      = aws_cloudwatch_event_rule.security_alerts.name
+  target_id = "SendToSNS"
+  arn       = aws_sns_topic.security_alerts.arn
+}
+
+resource "aws_sns_topic" "security_alerts" {
+  name              = "isms-p-security-alerts"
+  kms_master_key_id = aws_kms_key.sns.id
+
+  tags = {
+    Name       = "ISMS-P-Security-Alerts"
+    Compliance = "ISMS-P"
+  }
+}
+
+
+```
+-->
+-->
+
+### CloudFormation: IAM 역할 및 정책 (최소 권한 원칙)
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # ISMS-P 요구사항: 접근 통제 및 최소 권한 원칙...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # ISMS-P 요구사항: 접근 통제 및 최소 권한 원칙...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# ISMS-P 요구사항: 접근 통제 및 최소 권한 원칙
+# CloudFormation Template
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'ISMS-P Compliant IAM Roles and Policies'
+
+Parameters:
+  Environment:
+    Type: String
+    Default: production
+    AllowedValues:
+      - production
+      - development
+    Description: Environment name
+
+Resources:
+  # 보안 관리자 역할
+  SecurityManagerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub 'ISMS-Security-Manager-${Environment}'
+      Description: 'ISMS-P Security Manager Role with audit and security configuration permissions'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:aws:iam::${AWS::AccountId}:root'
+            Action: 'sts:AssumeRole'
+            Condition:
+              Bool:
+                'aws:MultiFactorAuthPresent': 'true'
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/SecurityAudit'
+        - 'arn:aws:iam::aws:policy/ReadOnlyAccess'
+      Policies:
+        - PolicyName: ISMSComplianceManagement
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: SecurityHubFullAccess
+                Effect: Allow
+                Action:
+                  - 'securityhub:*'
+                Resource: '*'
+              - Sid: ConfigFullAccess
+                Effect: Allow
+                Action:
+                  - 'config:*'
+                Resource: '*'
+              - Sid: CloudTrailReadAccess
+                Effect: Allow
+                Action:
+                  - 'cloudtrail:LookupEvents'
+                  - 'cloudtrail:GetTrailStatus'
+                  - 'cloudtrail:DescribeTrails'
+                Resource: '*'
+              - Sid: GuardDutyReadAccess
+                Effect: Allow
+                Action:
+                  - 'guardduty:Get*'
+                  - 'guardduty:List*'
+                Resource: '*'
+      Tags:
+        - Key: Compliance
+          Value: ISMS-P
+        - Key: Role
+          Value: SecurityManager
+
+  # 개발자 역할 (읽기 전용 + 배포 권한)
+  DeveloperRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub 'ISMS-Developer-${Environment}'
+      Description: 'ISMS-P Developer Role with limited deployment permissions'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:aws:iam::${AWS::AccountId}:root'
+            Action: 'sts:AssumeRole'
+            Condition:
+              Bool:
+                'aws:MultiFactorAuthPresent': 'true'
+      Policies:
+        - PolicyName: DeveloperLimitedAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: ReadOnlyAccess
+                Effect: Allow
+                Action:
+                  - 's3:GetObject'
+                  - 's3:ListBucket'
+                  - 'ec2:Describe*'
+                  - 'rds:Describe*'
+                  - 'lambda:Get*'
+                  - 'lambda:List*'
+                Resource: '*'
+              - Sid: LambdaDeployment
+                Effect: Allow
+                Action:
+                  - 'lambda:UpdateFunctionCode'
+                  - 'lambda:UpdateFunctionConfiguration'
+                Resource: !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function/*'
+                Condition:
+                  StringEquals:
+                    'aws:RequestedRegion': !Ref 'AWS::Region'
+              - Sid: DenySecurityChanges
+                Effect: Deny
+                Action:
+                  - 'iam:*'
+                  - 'kms:*'
+                  - 'securityhub:*'
+                  - 'guardduty:*'
+                Resource: '*'
+      Tags:
+        - Key: Compliance
+          Value: ISMS-P
+        - Key: Role
+          Value: Developer
+
+  # 데이터 엔지니어 역할 (개인정보 처리)
+  DataEngineerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub 'ISMS-DataEngineer-${Environment}'
+      Description: 'ISMS-P Data Engineer Role with personal data processing permissions'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:aws:iam::${AWS::AccountId}:root'
+            Action: 'sts:AssumeRole'
+            Condition:
+              Bool:
+                'aws:MultiFactorAuthPresent': 'true'
+              IpAddress:
+                'aws:SourceIp':
+                  - '10.0.0.0/8'  # 사내 네트워크만 허용
+      Policies:
+        - PolicyName: PersonalDataProcessing
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: S3PersonalDataAccess
+                Effect: Allow
+                Action:
+                  - 's3:GetObject'
+                  - 's3:PutObject'
+                  - 's3:DeleteObject'
+                Resource: !Sub 'arn:aws:s3:::isms-p-personal-data-${AWS::AccountId}/*'
+                Condition:
+                  StringEquals:
+                    's3:x-amz-server-side-encryption': 'aws:kms'
+              - Sid: KMSDecryptEncrypt
+                Effect: Allow
+                Action:
+                  - 'kms:Decrypt'
+                  - 'kms:DescribeKey'
+                  - 'kms:Encrypt'
+                  - 'kms:GenerateDataKey'
+                Resource: !GetAtt PersonalDataKMSKey.Arn
+              - Sid: CloudWatchLogsWrite
+                Effect: Allow
+                Action:
+                  - 'logs:CreateLogGroup'
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/isms-p/*'
+      Tags:
+        - Key: Compliance
+          Value: ISMS-P
+        - Key: Role
+          Value: DataEngineer
+        - Key: DataAccess
+          Value: PersonalInformation
+
+  # KMS Key: 개인정보 암호화
+  PersonalDataKMSKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: 'KMS key for personal data encryption (ISMS-P)'
+      EnableKeyRotation: true
+      KeyPolicy:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: Enable IAM User Permissions
+            Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:aws:iam::${AWS::AccountId}:root'
+            Action: 'kms:*'
+            Resource: '*'
+          - Sid: Allow use of the key for encryption
+            Effect: Allow
+            Principal:
+              AWS: !GetAtt DataEngineerRole.Arn
+            Action:
+              - 'kms:Encrypt'
+              - 'kms:Decrypt'
+              - 'kms:GenerateDataKey'
+              - 'kms:DescribeKey'
+            Resource: '*'
+          - Sid: Allow CloudWatch Logs
+            Effect: Allow
+            Principal:
+              Service: !Sub 'logs.${AWS::Region}.amazonaws.com'
+            Action:
+              - 'kms:Encrypt'
+              - 'kms:Decrypt'
+              - 'kms:GenerateDataKey'
+            Resource: '*'
+            Condition:
+              ArnLike:
+                'kms:EncryptionContext:aws:logs:arn': !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*'
+      Tags:
+        - Key: Compliance
+          Value: ISMS-P
+        - Key: Purpose
+          Value: PersonalDataEncryption
+
+  PersonalDataKMSKeyAlias:
+    Type: AWS::KMS::Alias
+    Properties:
+      AliasName: !Sub 'alias/isms-p-personal-data-${Environment}'
+      TargetKeyId: !Ref PersonalDataKMSKey
+
+  # CloudWatch Alarms: IAM 정책 변경 모니터링
+  IAMPolicyChangeAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: ISMS-P-IAM-Policy-Change
+      AlarmDescription: 'Alert when IAM policy is modified'
+      MetricName: IAMPolicyEventCount
+      Namespace: CloudTrailMetrics
+      Statistic: Sum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions:
+        - !Ref SecurityAlertsTopic
+
+  # SNS Topic: 보안 알림
+  SecurityAlertsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub 'ISMS-P-Security-Alerts-${Environment}'
+      DisplayName: 'ISMS-P Security Alerts'
+      KmsMasterKeyId: !GetAtt SNSKMSKey.Arn
+      Tags:
+        - Key: Compliance
+          Value: ISMS-P
+
+  SNSKMSKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: 'KMS key for SNS topic encryption'
+      KeyPolicy:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: Enable IAM User Permissions
+            Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:aws:iam::${AWS::AccountId}:root'
+            Action: 'kms:*'
+            Resource: '*'
+          - Sid: Allow SNS to use the key
+            Effect: Allow
+            Principal:
+              Service: sns.amazonaws.com
+            Action:
+              - 'kms:Decrypt'
+              - 'kms:GenerateDataKey'
+            Resource: '*'
+
+Outputs:
+  SecurityManagerRoleArn:
+    Description: ARN of Security Manager Role
+    Value: !GetAtt SecurityManagerRole.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-SecurityManagerRole'
+
+  DeveloperRoleArn:
+    Description: ARN of Developer Role
+    Value: !GetAtt DeveloperRole.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-DeveloperRole'
+
+  DataEngineerRoleArn:
+    Description: ARN of Data Engineer Role
+    Value: !GetAtt DataEngineerRole.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-DataEngineerRole'
+
+  PersonalDataKMSKeyId:
+    Description: KMS Key ID for Personal Data Encryption
+    Value: !Ref PersonalDataKMSKey
+    Export:
+      Name: !Sub '${AWS::StackName}-PersonalDataKMSKey'
+
+
+```
+-->
+-->
+
+<!--
+# SIEM Detection Query: Terraform/CloudFormation 배포 추적
+
+## Splunk SPL
+index=aws sourcetype=aws:cloudtrail (eventName=CreateStack OR eventName=UpdateStack OR eventName=DeleteStack OR eventName=ExecuteChangeSet)
+| eval stack_operation=case(
+    eventName=="CreateStack", "Stack Created",
+    eventName=="UpdateStack", "Stack Updated",
+    eventName=="DeleteStack", "Stack Deleted",
+    eventName=="ExecuteChangeSet", "ChangeSet Executed"
+  )
+| table _time userIdentity.principalId eventName requestParameters.stackName stack_operation
+| eval severity="MEDIUM"
+
+## Azure Sentinel KQL
+AWSCloudTrail
+| where EventName in ("CreateStack", "UpdateStack", "DeleteStack", "ExecuteChangeSet")
+| extend StackOperation = case(
+    EventName == "CreateStack", "Stack Created",
+    EventName == "UpdateStack", "Stack Updated",
+    EventName == "DeleteStack", "Stack Deleted",
+    EventName == "ExecuteChangeSet", "ChangeSet Executed",
+    "Unknown"
+  )
+| extend StackName = tostring(RequestParameters.stackName)
+| project TimeGenerated, UserIdentityPrincipalId, EventName, StackName, StackOperation
+| extend Severity = "Medium"
+-->
+
+---
+
+## 3. 보호대책 구현
+
+### 3.1 접근 통제
+
+ISMS-P 요구사항에 따라 Defense in Depth 전략을 적용한 다층 접근 통제를 구현해야 합니다.
+
+#### AWS IAM 기반 접근 통제
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # ISMS-P 요구사항: 최소 권한 원칙 적용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # ISMS-P 요구사항: 최소 권한 원칙 적용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# ISMS-P 요구사항: 최소 권한 원칙 적용
+# AWS IAM 정책 예시
+Version: '2012-10-17'
+Statement:
+  - Effect: Allow
+    Action:
+      - s3:GetObject
+      - s3:PutObject
+    Resource: 'arn:aws:s3:::secure-bucket/*'
+    Condition:
+      StringEquals:
+        's3:x-amz-server-side-encryption': 'AES256'
+      IpAddress:
+        'aws:SourceIp':
+          - '10.0.0.0/8'  # 사내 네트워크만 허용
+
+
+```
+-->
+-->
+
+#### Security Group 및 NACL 설정
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # AWS Security Group 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # AWS Security Group 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# AWS Security Group 예시
+# ISMS-P 요구사항: 네트워크 접근 제어
+Resources:
+  WebServerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: web-server-sg
+      GroupDescription: Security group for web servers
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+          Description: HTTPS from internet
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+          Description: Allow all outbound traffic
+      Tags:
+        - Key: Compliance
+          Value: ISMS-P
+
+
+```
+-->
+-->
+
+> **참고**: 전체 Security Group 설정 예시는 [AWS Security Groups 모범 사례](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html) 및 [AWS VPC 보안 모범 사례](https://aws.amazon.com/security/security-resources/)를 참조하세요.
+
+### 3.2 암호화
+
+#### 전송 중 암호화 (TLS/SSL)
+
+| AWS 서비스 | 암호화 방법 | 설명 |
+|-----------|------------|------|
+| **ALB/NLB** | TLS 1.2 이상 | 로드 밸런서에서 TLS 종료 |
+| **CloudFront** | TLS 1.2 이상, Perfect Forward Secrecy | CDN 레벨 암호화 |
 | **API Gateway** | TLS 1.2 이상 | API 통신 암호화 |
 | **RDS** | SSL/TLS 연결 | 데이터베이스 연결 암호화 |
 
@@ -354,13 +1739,6 @@ certifications: [isms-p]
 > 
 > ```yaml
 > # S3 버킷 암호화 설정...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
-> ```yaml
-> # S3 버킷 암호화 설정 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -383,7 +1761,6 @@ Resources:
 ```
 -->
 -->
--->
 
 #### CloudTrail 로그 설정
 
@@ -398,13 +1775,6 @@ Resources:
 > 
 > ```yaml
 > # ISMS-P 요구사항: 로그 관리 및 모니터링...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
-> ```yaml
-> # ISMS-P 요구사항: 로그 관리 및 모니터링 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -428,7 +1798,6 @@ Resources:
 
 
 ```
--->
 -->
 -->
 
