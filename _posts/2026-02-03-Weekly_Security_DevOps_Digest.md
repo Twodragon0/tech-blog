@@ -15,16 +15,75 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='주간 보안 &amp; DevOps 다이제스트: OpenClaw AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">OpenClaw</span> <span class="tag">Moltbot</span> <span class="tag">Moltbook</span> <span class="tag">NanoClaw</span> <span class="tag">AI-Agent-Security</span> <span class="tag">MDM</span> <span class="tag">Jamf</span>'
-  highlights_html='<li><strong>OpenClaw CVE-2026-25253 RCE</strong>: GitHub 스타 145K의 AI 코딩 에이전트에서 악성 링크 클릭만으로 RCE 가능한 취약점(CVSS 8.8) 발견, ClawHavoc 캠페인으로 ClawHub에서 335개 악성 스킬이 macOS Atomic Stealer 배포에 악용</li>
-      <li><strong>Moltbook 자격증명 유출 &amp; 공급망 위협</strong>: Wiz가 AI 소셜네트워크 Moltbook에서 수백만 건 자격증명 비인증 노출 발견, 가짜 VS Code 확장이 ScreenConnect RAT 설치하는 사칭 공격 확인</li>
-      <li><strong>Jamf/Intune MDM 앱 제어 가이드</strong>: AI 에이전트 무단 설치 차단을 위한 Jamf Pro Configuration Profile vs Microsoft Intune App Protection Policy 비교, OWASP Agentic AI Top 10 프레임워크와 NanoClaw 컨테이너 격리 대안 소개</li>'
-  period='2026-02-03 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 주간 보안 & DevOps 다이제스트: OpenClaw AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, OpenClaw, Moltbot, Moltbook, NanoClaw, AI-Agent-Security, MDM, Jamf, Intune, OWASP, Kubernetes, DevSecOps, ClawHub, ClawHavoc, NTLM, CVE-2026-25253, Supply-Chain, Zero-Trust, Atomic-Stealer, "2026"
+
+> **핵심 내용**: 
+> - OpenClaw(Moltbot) CVE-2026-25253 RCE, ClawHavoc 335개 Atomic Stealer 캠페인, Moltbook 자격증명 대량 유출, 가짜 VS Code 확장 RAT 배포 등 AI 에이전트 생태계 보안 위기 총정리와 Jamf/Intune MDM 실무 대응 가이드
+
+> **주요 기술/도구**: Security, Security, Kubernetes, DevSecOps, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">주간 보안 & DevOps 다이제스트 (2026년 02월 03일)</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">OpenClaw</span>
+      <span class="tag">Moltbot</span>
+      <span class="tag">Moltbook</span>
+      <span class="tag">NanoClaw</span>
+      <span class="tag">ClawHavoc</span>
+      <span class="tag">AI-Agent-Security</span>
+      <span class="tag">MDM</span>
+      <span class="tag">Jamf</span>
+      <span class="tag">Intune</span>
+      <span class="tag">OWASP</span>
+      <span class="tag">Kubernetes</span>
+      <span class="tag">DevSecOps</span>
+      <span class="tag">NTLM</span>
+      <span class="tag">Supply-Chain</span>
+      <span class="tag">2026</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>OpenClaw(Moltbot) 연쇄 보안 사건</strong>: CVE-2026-25253 원클릭 RCE(CVSS 8.8), ClawHavoc 캠페인 335개 Atomic Stealer 배포, Moltbook 자격증명 대량 유출(Wiz), 가짜 VS Code 확장 ScreenConnect RAT, Shodan 대규모 인스턴스 노출</li>
+      <li><strong>MDM 앱 비활성화 실무 가이드</strong>: Jamf Pro Configuration Profile 기반 앱 제한, Microsoft Intune App Protection Policy, MDM 선택 의사결정 플로차트 제공</li>
+      <li><strong>금주 뉴스 하이라이트</strong>: Microsoft NTLM 3단계 폐지, Snowflake-OpenAI 2억달러 파트너십, Kubernetes 1.33 보안 강화, SBOM 컴플라이언스 동향</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, IT 관리자, MDM 운영자</span>
+  </div>
+</div>
+</div>
+
+> **함께 읽기**: 지난주 보안 위협 인텔리전스 다이제스트 [Weekly Security Threat Intelligence Digest](/2026-02-02-Weekly_Security_Threat_Intelligence_Digest)에서 Notepad++ 국가 지원 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화를 심층 분석합니다. 기술/AI/블록체인 소식은 [Weekly Tech & AI & Blockchain Digest](/2026-02-02-Weekly_Tech_AI_Blockchain_Digest)를 참고하세요.
 
 ## 개요
 
@@ -274,13 +333,6 @@ AI 에이전트 보안의 표준 프레임워크로 부상한 OWASP Agentic AI T
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> # AI Agent Security Checklist [truncated]
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # AI Agent Security Checklist
 pre_deployment:
@@ -328,7 +380,6 @@ shodan_exposure:  # Shodan 노출 대응
 ```
 -->
 -->
--->
 
 ### 1.7 탐지: SIEM 쿼리
 
@@ -343,13 +394,6 @@ shodan_exposure:  # Shodan 노출 대응
 > 
 > ```bash
 > # Splunk - AI Agent Suspicious File Access...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
-> ```bash
-> # Splunk - AI Agent Suspicious File Access [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -391,7 +435,6 @@ process_name="node"
 ```
 -->
 -->
--->
 
 ### 1.8 Jamf Extension Attribute: OpenClaw/Moltbot 설치를 어떻게 탐지하는가?
 
@@ -399,27 +442,20 @@ process_name="node"
 
 #### Extension Attribute 스크립트
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > #!/bin/bash...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > #!/bin/bash...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
-> ```bash
-> #!/bin/bash [truncated]
-> ```
-
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 #!/bin/bash
 # Jamf Extension Attribute: OpenClaw/Moltbot Installation Detection
@@ -496,7 +532,6 @@ fi
 ```
 -->
 -->
--->
 
 #### Jamf Pro 등록 방법
 
@@ -525,27 +560,20 @@ fi
 
 동일 패턴으로 다른 AI 코딩 에이전트도 탐지할 수 있습니다:
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Additional AI agent binary paths to monitor...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Additional AI agent binary paths to monitor...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
-> ```bash
-> # Additional AI agent binary paths to monitor [truncated]
-> ```
-
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Additional AI agent binary paths to monitor
 check_binary "/usr/local/bin/cursor"
@@ -567,31 +595,23 @@ check_binary "/opt/homebrew/bin/cursor"
 ```
 -->
 -->
--->
 
 #### 탐지 결과 SIEM 연동
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Splunk - Jamf EA 기반 OpenClaw 설치 탐지 알림...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Splunk - Jamf EA 기반 OpenClaw 설치 탐지 알림...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
-> ```bash
-> # Splunk - Jamf EA 기반 OpenClaw 설치 탐지 알림 [truncated]
-> ```
-
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Splunk - Jamf EA 기반 OpenClaw 설치 탐지 알림
 index=jamf sourcetype=jamf:computerextensionattributes
@@ -608,7 +628,6 @@ ea_value="WARNING*"
 
 
 ```
--->
 -->
 -->
 
@@ -663,7 +682,6 @@ Jamf Pro는 Apple 생태계에 최적화된 MDM으로, Configuration Profile을 
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```xml
 <!-- Jamf Pro - Restriction Payload: Block Specific Apps -->
 <?xml version="1.0" encoding="UTF-8"?>
@@ -710,7 +728,6 @@ Jamf Pro는 Apple 생태계에 최적화된 MDM으로, Configuration Profile을 
 ```
 -->
 -->
--->
 
 #### Smart Groups 기반 정책 배포
 
@@ -718,27 +735,20 @@ Jamf Pro는 Apple 생태계에 최적화된 MDM으로, Configuration Profile을 
 
 #### Jamf Pro API로 앱 비활성화
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Jamf Pro API - Get device app list...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Jamf Pro API - Get device app list...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
-> ```bash
-> # Jamf Pro API - Get device app list [truncated]
-> ```
-
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Jamf Pro API - Get device app list
 curl -X GET "https://your-jamf.jamfcloud.com/JSSResource/mobiledevices/id/{device_id}" \
@@ -768,7 +778,6 @@ curl -X POST "https://your-jamf.jamfcloud.com/JSSResource/mobiledevicecommands/c
 ```
 -->
 -->
--->
 
 ### 2.4 Microsoft Intune: 크로스 플랫폼 MDM은 어떻게 구성하는가?
 
@@ -776,27 +785,20 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 
 #### App Protection Policies
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
-> ```json
-> { [truncated]
-> ```
-
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "@odata.type": "#microsoft.graph.iosManagedAppProtection",
@@ -831,31 +833,23 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 ```
 -->
 -->
--->
 
 #### Conditional Access로 앱 접근 제어
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
-> ```json
-> { [truncated]
-> ```
-
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "@odata.type": "#microsoft.graph.conditionalAccessPolicy",
@@ -886,31 +880,23 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 ```
 -->
 -->
--->
 
 #### Intune Compliance Policy
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
 > 
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
-> ```json
-> { [truncated]
-> ```
-
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```json
 {
   "@odata.type": "#microsoft.graph.iosCompliancePolicy",
@@ -954,7 +940,6 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 ```
 -->
 -->
--->
 
 ### 2.5 Jamf Pro vs Microsoft Intune: 주요 기능은 어떻게 다른가?
 
@@ -975,27 +960,20 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 
 ### 2.6 SIEM 연동 MDM 모니터링은 어떻게 설정하는가?
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Splunk - Jamf Pro MDM Compliance Events...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
 > # Splunk - Jamf Pro MDM Compliance Events...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
-> ```bash
-> # Splunk - Jamf Pro MDM Compliance Events [truncated]
-> ```
-
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # Splunk - Jamf Pro MDM Compliance Events
 index=mdm sourcetype=jamf:events
@@ -1030,7 +1008,6 @@ NOT device.os.version: "17.*"
 ```
 -->
 -->
--->
 
 ### 2.7 MDM Zero Trust 구현 체크리스트
 
@@ -1045,13 +1022,6 @@ NOT device.os.version: "17.*"
 > 
 > ```yaml
 > # MDM Zero Trust Checklist...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> # MDM Zero Trust Checklist [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -1082,7 +1052,6 @@ monitoring:
 
 
 ```
--->
 -->
 -->
 
@@ -1177,13 +1146,6 @@ Microsoft Security 팀이 **macOS와 Python 개발 환경을 타겟으로 한 In
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> # Weekly Action Items - February 3, 2026 [truncated]
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # Weekly Action Items - February 3, 2026
 priority_high:
@@ -1209,7 +1171,6 @@ priority_low:
 
 
 ```
--->
 -->
 -->
 
