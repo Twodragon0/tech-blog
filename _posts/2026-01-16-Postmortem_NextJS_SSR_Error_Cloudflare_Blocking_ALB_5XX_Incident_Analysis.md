@@ -15,14 +15,77 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석'
-  categories_html='<span class="category-tag incident">인시던트</span>'
-  tags_html='<span class="tag">Post-Mortem</span> <span class="tag">Next.js</span> <span class="tag">SSR</span> <span class="tag">Cloudflare</span> <span class="tag">ALB</span> <span class="tag">Kubernetes</span> <span class="tag">Incident-Response</span> <span class="tag">AWS</span>'
-  highlights_html='<li><strong>Next.js SSR location 객체 ReferenceError</strong>: 서버 환경에서 브라우저 전용 window.location 접근 시 발생, typeof window 가드 또는 useEffect 내 이동으로 수정. SSR/CSR 경계 이해가 핵심</li> <li><strong>Cloudflare WAF 자동 IP 차단</strong>: 신규 배포 후 5분 이내 대량 요청 패턴이 봇으로 오탐 처리되어 자동 차단 발생, 배포 후 Cloudflare Analytics 즉시 모니터링 및 IP Allowlist 관리 절차 수립 필요</li> <li><strong>ALB Target Group 헬스체크 실패 대응</strong>: SSR 에러로 인한 5XX 연속 응답이 헬스체크 실패를 유발, 5분간 트래픽 단절. /health 엔드포인트 분리와 헬스체크 임계값 조정으로 재발 방지</li>'
-  period='2026-01-16 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
+
+> **제목**: [Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석
+
+> **카테고리**: incident
+
+> **태그**: Post-Mortem, Next.js, SSR, Cloudflare, ALB, Kubernetes, Incident-Response, AWS
+
+> **핵심 내용**: 
+> - Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석
+
+> **주요 기술/도구**: Cloudflare, Kubernetes, AWS, incident
+
+> **대상 독자**: SRE, 인시던트 대응 담당자, 운영 엔지니어
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Incident</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">Post-Mortem</span>
+      <span class="tag">Next.js</span>
+      <span class="tag">SSR</span>
+      <span class="tag">Cloudflare</span>
+      <span class="tag">ALB</span>
+      <span class="tag">Kubernetes</span>
+      <span class="tag">Incident-Response</span>
+      <span class="tag">AWS</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li>Next.js SSR 환경에서 location 객체 접근으로 인한 ReferenceError 발생</li>
+      <li>모바일 x.com에서의 동작 차이: 인앱 브라우저 vs 시스템 브라우저</li>
+      <li>location 객체란 무엇인지, 왜 SSR 환경에서 문제가 되는지 상세 분석</li>
+      <li>배포 후 갑자기 증가한 5XX 에러 및 ALB Target Group Health Check 실패</li>
+      <li>Cloudflare WAF 차단 패턴 분석 및 의심스러운 요청 패턴 식별</li>
+      <li>근본 원인 분석: 배포와 에러의 연관성, 애플리케이션 버그, 연쇄 반응</li>
+      <li>재발 방지 대책: 코드 수정, 배포 프로세스 개선, 모니터링 강화</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">Next.js, Kubernetes, AWS ALB, Cloudflare WAF, GitHub Actions</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">SRE, 인시던트 대응 담당자, 프론트엔드 개발자, 운영 엔지니어</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 ## 서론
 
@@ -81,7 +144,50 @@ schema_type: Article
 <details>
 <summary>draw.io XML 코드 (클릭하여 확장)</summary>
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요." value="WAF Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```xml
+> <mxfile host="app.diagrams.net">...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```xml
+> <mxfile host="app.diagrams.net">...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```xml
+<mxfile host="app.diagrams.net">
+  <diagram name="Next.js SSR Error Incident Architecture" id="architecture">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Client Environment Cluster -->
+        <mxCell id="client-cluster" value="Client Environment" style="swimlane;whiteSpace=wrap;html=1;fillColor=#E1F5FE;strokeColor=#01579B;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1080" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile" value="Mobile x.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
+          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="desktop" value="Desktop Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
+          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="inapp" value="In-App Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="client-cluster">
+          <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- CDN & Security Cluster -->
+        <mxCell id="cdn-cluster" value="CDN &amp; Security" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="1080" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cloudflare" value="Cloudflare" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
+          <mxGeometry x="40" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="waf" value="WAF Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
           <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ratelimit" value="Rate Limiting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
@@ -196,10 +302,466 @@ schema_type: Article
   </diagram>
 </mxfile>
 
-> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)를 참조하세요.
 
-{% raw %}
+```
+-->
+-->
+
+</details>
+
+> **참고**: 위 draw.io XML 코드를 [draw.io](https://app.diagrams.net/)에서 열어서 다이어그램을 편집하고 SVG/PNG로 내보낼 수 있습니다.
+
+### 1.1 문제 상황
+
+1. **Cloudflare IP 차단**: 특정 IP가 Cloudflare에서 차단됨
+2. **ALB Target Group 5XX 에러**: 5분간 50개 이상의 5XX 에러 발생
+3. **영향 범위**:
+   - `content.example.com`: 881 요청
+   - `example.com`: 285 요청
+   - 주요 경로: UUID 기반 경로, API 엔드포인트
+
+### 1.2 차단된 IP 정보
+
+| 항목 | 내용 |
+|------|------|
+| **IP** | 192.0.2.100 (예시 IP) |
+| **ASN** | 4766 - KIXS-AS-KR (Korea Telecom) |
+| **User Agent** | `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36` |
+| **요청 패턴** | 동일 경로 반복 요청 (UUID 기반 경로), API 엔드포인트 집중 요청 |
+
+## 2. Kubernetes 인프라 상태
+
+### 2.1 Pod 상태 (확인 시점)
+
+> **참고**: Kubernetes Pod 상태 확인 관련 내용은 [Kubernetes Pod 문서](https://kubernetes.io/docs/concepts/workloads/pods/) 및 [Kubernetes 디버깅 가이드](https://kubernetes.io/docs/tasks/debug/)를 참조하세요.
+
+```bash
+kubectl get pods -n production -l app=web-app
+```
+
+**Pod 상태 분석**:
+- ✅ 모든 Pod 정상 실행 중 (5개 replica)
+- ✅ 재시작 없음 (RESTARTS: 0)
+- ✅ Pod IP 모두 정상 등록됨
+
+### 2.2 Service & Endpoints
+
+> **참고**: Kubernetes Service 및 Endpoints 관련 내용은 [Kubernetes Service 문서](https://kubernetes.io/docs/concepts/services-networking/service/)를 참조하세요.
+
+```bash
+kubectl get svc -n production web-app
+kubectl get endpoints -n production web-app
+```
+
+**분석**:
+- ✅ 5개 Pod 모두 Service에 정상 등록됨
+- ✅ Endpoint 정상 (포트 3000)
+
+### 2.3 Ingress 설정
+
+| 항목 | 내용 |
+|------|------|
+| **ALB DNS** | `k8s-example-alb-xxxxx.ap-northeast-2.elb.amazonaws.com` |
+| **Host** | `example.com` |
+| **Target Type** | IP |
+| **Health Check** | `/api/healthz` (5초 간격, 3초 타임아웃) |
+| **Security Groups** | Cloudflare IP 범위 허용, Office IP 허용 |
+
+## 3. 발견된 문제점
+
+### 3.1 애플리케이션 레벨 에러
+
+**에러 메시지**:
+```
+ReferenceError: location is not defined
+⨯ uncaughtException: ReferenceError: location is not defined
+```
+
+**위치**: Pod 로그에서 확인
+
+**원인 분석**:
+- Next.js 서버 사이드 렌더링(SSR) 중 `location` 객체 접근 시도
+- `location`은 브라우저 전역 객체로, Node.js 환경에서는 사용 불가
+- 클라이언트 사이드 코드가 서버 사이드에서 실행됨
+
+**왜 이런 일이 발생했는가?**
+
+#### 1. 개발 환경에서의 차이
+- **로컬 개발 환경**: 대부분 클라이언트 사이드에서만 테스트
+- **Next.js 개발 서버**: `next dev`는 기본적으로 클라이언트 사이드 렌더링에 집중
+- **빌드 시점**: `npm run build`는 통과하지만, 실제 SSR 실행 시점에만 에러 발생
+- **결과**: 개발자가 `location` 객체를 직접 사용해도 로컬에서는 에러가 발생하지 않음
+
+#### 2. 테스트 커버리지 부족
+- **단위 테스트**: 컴포넌트 단위 테스트는 브라우저 환경을 모킹하므로 통과
+- **통합 테스트**: API 통합 테스트는 SSR 렌더링을 검증하지 않음
+- **E2E 테스트**: 일부 시나리오만 테스트하여 특정 경로에서만 발생하는 에러를 놓침
+- **SSR 테스트**: SSR 환경에서의 실제 렌더링 테스트가 없음
+
+#### 3. 코드 리뷰 프로세스의 한계
+- **코드 리뷰**: `location` 직접 사용이 문제가 될 수 있다는 점을 놓침
+- **자동화된 린터**: Next.js 관련 린터 규칙이 설정되지 않음
+- **타입 체크**: TypeScript는 `location`이 전역 객체로 인식하여 에러를 발생시키지 않음
+
+#### 4. 배포 프로세스의 검증 부재
+- **CI/CD 파이프라인**: SSR 환경에서의 실제 렌더링 테스트 단계가 없음
+- **프리뷰 환경**: 스테이징 환경에서도 충분한 테스트가 이루어지지 않음
+- **모니터링**: 배포 후 에러 감지까지 5분 이상 소요
+
+#### 5. 특정 상황에서만 발생하는 이유
+- **모바일 x.com**: Universal Links나 인앱 브라우저를 통해 접속 시 SSR이 더 자주 트리거됨
+- **직접 URL 접근**: 사용자가 직접 URL을 입력하거나 북마크로 접속 시 SSR 발생
+- **검색 엔진 크롤러**: Google Bot 등이 페이지를 크롤링할 때 SSR 렌더링 발생
+- **결과**: 대부분의 사용자는 클라이언트 사이드에서만 동작하므로 문제가 드러나지 않음
+
+**영향**:
+- 해당 요청은 500 에러로 응답
+- Pod는 정상 상태이지만 특정 요청에서 에러 발생
+- 모바일 x.com에서 링크를 클릭한 사용자들에게 특히 영향
+- 검색 엔진 크롤러가 페이지를 인덱싱할 때 실패
+
+### 3.2 location 객체란?
+
+**location 객체**는 브라우저의 전역 객체로, 현재 페이지의 URL 정보를 제공합니다.
+
+#### location 객체의 특징
+
+| 항목 | 설명 |
+|------|------|
+| **환경** | 브라우저 환경에서만 존재 (클라이언트 사이드) |
+| **Node.js** | 서버 사이드(Node.js)에서는 존재하지 않음 |
+| **접근 방법** | `window.location` 또는 `location` (window 생략 가능) |
+| **주요 속성** | `href`, `pathname`, `search`, `hash`, `hostname` 등 |
+
+#### location 객체의 주요 속성
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/nodejs/node/tree/main/doc)를 참조하세요.
+
+```javascript
+// 브라우저 환경에서만 작동
+console.log(location.href);        // 전체 URL
+console.log(location.pathname);    // 경로 (/example/path)
+console.log(location.search);      // 쿼리 문자열 (?key=value)
+console.log(location.hash);        // 해시 (#section)
+console.log(location.hostname);    // 호스트명 (example.com)
+```
+
+#### SSR 환경에서의 문제
+
+> **참고**: SSR vs CSR 환경 비교 다이어그램은 추후 추가 예정입니다.
+
+**문제 코드 예시**:
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // ❌ 문제: SSR 환경에서 에러 발생...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // ❌ 문제: SSR 환경에서 에러 발생...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```typescript
+// ❌ 문제: SSR 환경에서 에러 발생
+function redirectTo(url: string) {
+  location.href = url;  // ReferenceError: location is not defined
+}
+
+// ✅ 해결: 브라우저 환경 체크
+function redirectTo(url: string) {
+  if (typeof window !== 'undefined') {
+    window.location.href = url;
+  }
+}
+
+
+```
+-->
+-->
+
+### 3.3 모바일 x.com에서의 동작 차이
+
+모바일 x.com (Twitter/X)에서 특정 URL 접속 시 프론트엔드/백엔드 동작 방식이 다른 이유를 분석합니다.
+
+#### 모바일 x.com의 URL 처리 방식
+
+> **참고**: 모바일 x.com URL 처리 흐름 다이어그램은 추후 추가 예정입니다.
+
+#### 모바일 x.com에서 동작이 다른 이유
+
+| 항목 | 설명 | 영향 |
+|------|------|------|
+| **Universal Links** | iOS/Android에서 앱으로 직접 열림 | 앱이 설치되어 있으면 앱으로 열림 |
+| **인앱 브라우저** | X 앱 내부의 WebView 사용 | User-Agent가 다름, location 객체 접근 방식 차이 |
+| **Deep Links** | 앱 내부 특정 화면으로 이동 | 앱이 열리면 웹 페이지 렌더링 방식이 다름 |
+| **Referrer 차이** | x.com에서 온 요청은 Referrer가 다름 | 서버 사이드에서 다른 처리 필요 |
+
+#### 인앱 브라우저 vs 시스템 브라우저
+
+다음 표는 인앱 브라우저와 시스템 브라우저의 주요 차이점을 정리한 것입니다:
+
+| 항목 | 인앱 브라우저 (WebView) | 시스템 브라우저 |
+|------|----------------------|---------------|
+| **User-Agent** | Custom User-Agent (앱 식별자 포함) | 표준 User-Agent |
+| **API 지원** | 제한된 API (location 접근 제한 가능) | 전체 API 지원 |
+| **렌더링** | WebView 엔진 사용 | 표준 브라우저 엔진 사용 |
+| **SSR 영향** | 동일하게 SSR 환경에서 location 접근 시 에러 발생 | 동일하게 SSR 환경에서 location 접근 시 에러 발생 |
+
+#### 실제 동작 차이 예시
+
+**시나리오 1: 시스템 브라우저에서 접속**
+```
+1. 사용자가 x.com에서 링크 클릭
+2. 시스템 브라우저(Chrome/Safari)로 열림
+3. 표준 User-Agent 전송
+4. SSR 환경에서 location 접근 시도
+5. ❌ ReferenceError 발생 (SSR 환경)
+```
+
+**시나리오 2: X 앱 인앱 브라우저에서 접속**
+```
+1. 사용자가 x.com에서 링크 클릭
+2. X 앱이 열리고 인앱 브라우저(WebView) 사용
+3. Custom User-Agent 전송 (X 앱 식별자 포함)
+4. SSR 환경에서 location 접근 시도
+5. ❌ ReferenceError 발생 (SSR 환경)
+6. 추가로 WebView 특성으로 인한 추가 제약 가능
+```
+
+#### 해결 방안
+
+**1. 브라우저 환경 체크**
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+
+```typescript
+// ✅ 올바른 방법
+if (typeof window !== 'undefined') {
+  window.location.href = url;
+}
+```
+
+**2. 모바일 앱 감지**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // User-Agent로 인앱 브라우저 감지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // User-Agent로 인앱 브라우저 감지...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```typescript
+// User-Agent로 인앱 브라우저 감지
+function isInAppBrowser(userAgent: string): boolean {
+  return /(Twitter|FBAN|FBAV|Instagram|Line|KakaoTalk)/i.test(userAgent);
+}
+
+// 서버 사이드에서 처리
+if (typeof window === 'undefined') {
+  // SSR 환경: location 사용 불가
+  // 대신 Next.js Router 사용
+  const router = useRouter();
+  router.push(url);
+}
+
+
+```
+-->
+-->
+
+**3. Next.js Router 활용**
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> import { useRouter } from 'next/router';...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> import { useRouter } from 'next/router';...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```typescript
+import { useRouter } from 'next/router';
+
+function redirectTo(url: string) {
+  if (typeof window !== 'undefined') {
+    // 클라이언트 사이드: window.location 사용
+    window.location.href = url;
+  } else {
+    // 서버 사이드: Next.js Router 사용 (컴포넌트 내부)
+    // 또는 서버 사이드에서는 리다이렉트 헤더 사용
+  }
+}
+
+
+```
+-->
+-->
+
+### 3.4 Cloudflare 차단 패턴 분석
+
+**의심스러운 요청 패턴**:
+
+1. **UUID 기반 경로 반복 요청**
+   - `/a1b2c3d4-e5f6-7890-abcd-ef1234567890` (232회)
+   - `/b2c3d4e5-f6a7-8901-bcde-f12345678901` (52회)
+   - `/c3d4e5f6-a7b8-9012-cdef-123456789012` (39회)
+
+2. **API 엔드포인트 집중 요청**
+   - `/api/v1/users/search` (168회)
+   - `/api/v1/products/list` (41회)
+
+3. **User Agent 일관성**
+   - Chrome 142.0.0.0 (정상적인 최신 버전)
+
+**가능성**:
+- 🤔 **정상 사용자**: 한국 통신사 IP에서 정상적인 브라우저 사용
+- ⚠️ **자동화 스크래핑**: 반복적인 UUID 경로 접근은 자동화된 크롤러 가능성
+- ⚠️ **API 남용**: API 엔드포인트 집중 요청은 비정상적
+
+> **참고**: Cloudflare WAF 설정 관련 내용은 [Cloudflare WAF 문서](https://developers.cloudflare.com/waf/) 및 [Cloudflare Rate Limiting 문서](https://developers.cloudflare.com/waf/rate-limiting-rules/)를 참조하세요.
+
+## 4. 근본 원인 분석
+
+### 4.1 최근 배포 이력 분석
+
+**배포 타임라인**:
+- **이전 버전**: `v1.0.0` (package.json 기준)
+- **현재 배포**: `v1.0.1` (최근 업데이트됨)
+- **배포 커밋**: `a1b2c3d4` - "Update web-app image tag to v1.0.1"
+- **배포 방식**: GitHub Actions 자동 배포 (`build-and-deploy.yml`)
+
+**배포 프로세스**:
+1. `example-frontend` 저장소의 `main` 브랜치에 push
+2. GitHub Actions가 자동으로 빌드 및 Docker 이미지 생성
+3. 이미지 태그는 `package.json`의 `version` 필드 사용
+4. `example-k8s-config` 저장소의 `values.yaml` 자동 업데이트
+5. ArgoCD 또는 Helm을 통한 Kubernetes 배포
+
+**중요 발견**:
+- ✅ **배포와 에러의 연관성**: 최근 배포(v1.0.0 → v1.0.1)가 있었음
+- ⚠️ **코드 변경 가능성**: v1.0.0 이후 버전에서 `location` 관련 코드가 추가되거나 변경되었을 가능성
+- ⚠️ **배포 시점**: 에러 발생 시점과 배포 시점이 근접할 가능성
+
+**왜 배포 직후에 갑자기 발생했는가?**
+
+#### 배포 직후 에러 발생의 원인
+
+1. **새로운 코드 경로 추가**
+   - v1.0.1 배포에서 새로운 기능 추가 또는 기존 기능 수정
+   - 새로운 컴포넌트나 훅에서 `location` 객체를 직접 사용하는 코드 추가
+   - 기존에는 사용되지 않던 코드 경로가 활성화됨
+
+2. **트래픽 패턴 변화**
+   - 배포 직후 모바일 x.com에서 링크 공유가 증가
+   - Universal Links를 통한 접속이 증가하여 SSR 렌더링 빈도 증가
+   - 검색 엔진 크롤러가 새로 배포된 페이지를 크롤링 시도
+
+3. **캐시 무효화**
+   - 배포로 인해 기존 캐시가 무효화됨
+   - Cloudflare나 브라우저 캐시가 없어져 모든 요청이 SSR로 처리됨
+   - 이전에는 캐시된 응답을 사용하여 SSR이 발생하지 않았음
+
+4. **Health Check 실패의 연쇄 반응**
+   - Pod에서 에러가 발생하면 Health Check가 실패
+   - ALB가 Target Group을 unhealthy로 표시
+   - 더 많은 요청이 남은 Pod로 집중되어 에러율 증가
+   - 에러 로그가 급증하여 Cloudflare가 비정상 트래픽으로 판단
+
+5. **배포 검증 프로세스의 부재**
+   - 배포 전 SSR 환경에서의 실제 테스트가 없음
+   - 스테이징 환경에서도 충분한 테스트가 이루어지지 않음
+   - 배포 후 모니터링이 지연되어 에러를 조기에 감지하지 못함
+
+#### 배포 프로세스 다이어그램
+
+<figure>
+<img src="{{ '/assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis_deployment_diagram.png' | relative_url }}" alt="Deployment Process Diagram" loading="lazy" class="post-image">
+<figcaption>그림 5: 배포 프로세스 다이어그램 - GitHub Actions를 통한 CI/CD 파이프라인</figcaption>
+</figure>
+
+#### 배포 예시: 실제 코드 변경 사항
+
+**문제가 된 배포 (v1.0.0 → v1.0.1)**:
+
+**변경 전 (v1.0.0)**:
+```typescript
+// src/components/example/ExampleComponent.tsx
+// 이전 버전에서는 문제 없었음 (다른 방식으로 리다이렉트 처리)
+```
+
+**변경 후 (v1.0.1) - 문제 발생**:
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // src/components/example/ExampleComponent.tsx...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/microsoft/TypeScript/tree/main/doc)를 참조하세요.
+> 
+> ```typescript
+> // src/components/example/ExampleComponent.tsx...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```typescript
+// src/components/example/ExampleComponent.tsx
+// Line 50: 새로 추가된 코드
+export function ExampleComponent({ itemId, categoryId }: Props) {
+  const handleAction = async () => {
+    const result = await processAction(itemId);
+    
+    // ❌ 문제: location 객체 직접 사용
+    location.href = generateActionUrl({
+      itemId: result.item.id,
+      categoryId: result.category.id,
+    });
+  };
+  
+  return <button onClick={handleAction}>완료</button>;
+}
+
+
+```
+-->
+-->
+
+**GitHub Actions 워크플로우 예시**:
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples/aws-k8s-examples)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples/aws-k8s-examples)를 참조하세요.
+> 
+> ```yaml
+> {% raw %}...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
+{% raw %}
 # .github/workflows/build-and-deploy.yml
 name: Build and Deploy
 
@@ -268,10 +830,8 @@ jobs:
       #     npm run start &
       #     sleep 10
       #     curl http://localhost:3000/api/healthz
-```
 {% endraw %}
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 ```
 -->
@@ -284,7 +844,28 @@ jobs:
    ```
    ReferenceError: location is not defined
    at ExampleComponent.handleAction
-   > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. 검사 | 의심스러운 패턴 감지 시 IP 차단 (403 에러) |
+   ```
+3. **배포 직후 + 10분 (T+10분)**: 5XX 에러 급증 (50개 이상)
+4. **배포 직후 + 15분 (T+15분)**: Pod 로그 확인 및 근본 원인 파악
+
+**배포 검증 부재**:
+
+| 검증 단계 | 상태 | 설명 |
+|----------|------|------|
+| **단위 테스트** | ✅ 통과 | 컴포넌트 단위 테스트는 통과 |
+| **통합 테스트** | ✅ 통과 | API 통합 테스트는 통과 |
+| **SSR 테스트** | ❌ 없음 | SSR 환경에서 location 사용 검증 없음 |
+| **E2E 테스트** | ⚠️ 부분 | 일부 시나리오만 테스트 |
+| **프로덕션 모니터링** | ⚠️ 지연 | 배포 후 5분 후에야 에러 감지 |
+
+### 4.2 5XX 에러 발생 경로
+
+다음은 5XX 에러가 발생하는 전체 경로를 단계별로 정리한 것입니다:
+
+| 단계 | 컴포넌트 | 상태 | 설명 |
+|------|---------|------|------|
+| 1 | 사용자 요청 | - | 모바일 x.com 또는 데스크톱 브라우저에서 링크 클릭 |
+| 2 | Cloudflare | WAF 검사 | 의심스러운 패턴 감지 시 IP 차단 (403 에러) |
 | 3 | Cloudflare | 요청 통과 | 정상 요청은 ALB로 전달 |
 | 4 | AWS ALB | 라우팅 | Ingress Controller로 요청 전달 |
 | 5 | Kubernetes | Pod | Next.js SSR 렌더링 시작 |
@@ -298,7 +879,44 @@ jobs:
 <details>
 <summary>draw.io XML 코드 (클릭하여 확장)</summary>
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요." value="WAF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cf-cluster">
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```xml
+> <mxfile host="app.diagrams.net">...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```xml
+> <mxfile host="app.diagrams.net">...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```xml
+<mxfile host="app.diagrams.net">
+  <diagram name="5XX Error Path" id="error-path">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Client -->
+        <mxCell id="mobile" value="Mobile x.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="desktop" value="Desktop Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1976D2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Cloudflare Cluster -->
+        <mxCell id="cf-cluster" value="Cloudflare" style="swimlane;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="1080" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="cloudflare" value="Cloudflare" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cf-cluster">
+          <mxGeometry x="40" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="waf" value="WAF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cf-cluster">
           <mxGeometry x="280" y="40" width="200" height="60" as="geometry" />
         </mxCell>
         <mxCell id="block" value="IP 차단" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontSize=12;" vertex="1" parent="cf-cluster">
@@ -429,7 +1047,6 @@ jobs:
 ```
 -->
 -->
--->
 
 </details>
 
@@ -533,7 +1150,6 @@ jobs:
    
    <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```tsx
    // ❌ 문제 코드
    location.href = generateActionUrl({
@@ -550,16 +1166,13 @@ jobs:
    }
    
 
-
 ```
--->
 -->
 -->
    
 2. **`src/components/example/DetailButton.tsx`** (Line 30)
    
    <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```tsx
    // ❌ 문제 코드
@@ -575,9 +1188,7 @@ jobs:
    }
    
 
-
 ```
--->
 -->
 -->
    
@@ -597,7 +1208,6 @@ jobs:
    
    <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```tsx
    // ❌ 문제 코드
    location.href = routerPath.resultPage({
@@ -614,16 +1224,13 @@ jobs:
    }
    
 
-
 ```
--->
 -->
 -->
    
 5. **`src/components/example/TabsComponent.tsx`** (Line 45)
    
    <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```tsx
    // ⚠️ 개선 권장 (현재는 useEffect 안에 있어서 문제 없지만 더 안전하게)
@@ -641,9 +1248,7 @@ jobs:
    }, [scrollOffset, scrollToElement]);
    
 
-
 ```
--->
 -->
 -->
 
@@ -839,8 +1444,6 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 > **참고**: GitHub Actions 워크플로우에 추가 권장
 > 
 > > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 

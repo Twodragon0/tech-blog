@@ -17,14 +17,77 @@ schema_type: Article
 category: kubernetes
 ---
 
-{% include ai-summary-card.html
-  title='🚀 클라우드 보안 과정 8기 7주차: Docker &amp; Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 보안까지'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag devops">쿠버네티스</span>'
-  tags_html='<span class="tag">Docker</span> <span class="tag">Kubernetes</span> <span class="tag">Container-Security</span> <span class="tag">K8s</span> <span class="tag">Cloud-Security</span> <span class="tag">DevSecOps</span> <span class="tag">Minikube</span> <span class="tag">K9s</span>'
-  highlights_html='<li><strong>Docker 컨테이너 보안 핵심 3원칙</strong>: 비루트(non-root) 사용자 실행, Trivy 이미지 취약점 스캔 CI 통합, Kubernetes Secret/ConfigMap으로 환경변수 분리. 이 3가지만 지켜도 컨테이너 공격 표면 70% 감소</li> <li><strong>K8s Pod Security Standards Restricted 적용</strong>: K8s 1.25+ 기본 제공 PSS Restricted 프로파일로 privileged 컨테이너, hostNetwork, hostPID 차단. K8s 1.32+의 User Namespaces로 컨테이너 루트가 호스트 루트 권한을 갖지 않도록 격리</li> <li><strong>Minikube 보안 실습 환경 구축</strong>: 로컬 Minikube에 실제 공격-탐지-대응 시나리오 재현, Falco 런타임 모니터링과 K9s 대시보드로 보안 이벤트 실시간 추적 실습</li>'
-  period='2026-01-15 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
+
+> **제목**: 🚀 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 보안까지
+
+> **카테고리**: security, devsecops, kubernetes
+
+> **태그**: Docker, Kubernetes, Container-Security, K8s, Cloud-Security, DevSecOps, Minikube, K9s, Pod-Security-Standards, User-Namespaces
+
+> **핵심 내용**: 
+> - Docker/K8s 보안, Pod Security Standards, User Namespaces, 이미지 스캔, 런타임 모니터링
+
+> **주요 기술/도구**: Docker, Kubernetes, Security, Security, DevSecOps, Security, security, devsecops, kubernetes
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">🚀 클라우드 보안 과정 8기 7주차: Docker & Kubernetes 보안 실전 가이드</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag kubernetes">Kubernetes</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">Docker</span>
+      <span class="tag">Kubernetes</span>
+      <span class="tag">Container-Security</span>
+      <span class="tag">K8s</span>
+      <span class="tag">Cloud-Security</span>
+      <span class="tag">DevSecOps</span>
+      <span class="tag">Minikube</span>
+      <span class="tag">K9s</span>
+      <span class="tag">Pod-Security-Standards</span>
+      <span class="tag">User-Namespaces</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>컨테이너 보안 Best Practices</strong>: 이미지 스캔(Trivy, Snyk), Secret 관리(Kubernetes Secrets, External Secrets Operator), 비루트 사용자 실행, 읽기 전용 파일시스템, 최소 권한 원칙</li>
+      <li><strong>Kubernetes 보안 아키텍처</strong>: Pod Security Standards(PSS), User Namespaces(Kubernetes 1.33+), Network Policies, RBAC 최소 권한, Bound Service Account Tokens</li>
+      <li><strong>Kubernetes 보안 Best Practices</strong>: 이미지 서명 및 검증(Cosign, Docker Content Trust), 런타임 보안 모니터링(Falco, Sysdig), 자동화된 보안 검증(CI/CD 통합), 정기적인 보안 감사</li>
+      <li><strong>최신 보안 기능 (2024-2026)</strong>: Kubernetes 1.32-1.35 보안 강화(User Namespaces Beta-by-Default, mTLS Pod Certificates), Kubernetes 1.36+ 예상 기능, Minikube 1.37.0+ 기능, K9s 보안 모범 사례</li>
+      <li><strong>Docker/Container/Kubernetes 기본 이해</strong>: Docker 이미지/컨테이너 개념, VM vs Container 비교, Kubernetes 핵심 리소스(Pod, Deployment, Service, Namespace), 컨테이너 격리 원리</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">Docker, Kubernetes, Minikube, K9s, Trivy, Snyk, Falco, External Secrets Operator</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">보안 엔지니어, 클라우드 보안 전문가, DevOps 엔지니어, 컨테이너 보안 담당자</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 ## 서론
 
@@ -73,24 +136,17 @@ category: kubernetes
 
 > **참고**: Docker 기본 명령어는 [Docker 공식 문서](https://docs.docker.com/) 및 [Docker 공식 예제](https://github.com/docker/awesome-compose)를 참조하세요.
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```bash
 > # 이미지 다운로드...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```bash
 > # 이미지 다운로드...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
-> 
-> ```bash
-> # 이미지 다운로드 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -115,7 +171,6 @@ docker rm my-nginx
 
 
 ```
--->
 -->
 -->
 
@@ -202,13 +257,6 @@ docker rm my-nginx
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```bash
-> # 클러스터 정보 확인 [truncated]
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 클러스터 정보 확인
 kubectl cluster-info
@@ -239,7 +287,6 @@ kubectl delete pod <pod-name>
 
 
 ```
--->
 -->
 -->
 
@@ -273,24 +320,17 @@ kubectl delete pod <pod-name>
 
 > **참고**: Docker 보안 모범 사례는 [Docker 보안 문서](https://docs.docker.com/engine/security/) 및 [OWASP Docker 보안 체크리스트](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html)를 참조하세요.
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```dockerfile
 > # 보안 강화 Dockerfile 예시...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```dockerfile
 > # 보안 강화 Dockerfile 예시...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
-> 
-> ```dockerfile
-> # 보안 강화 Dockerfile 예시 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -314,7 +354,6 @@ CMD ["node", "server.js"]
 
 
 ```
--->
 -->
 -->
 
@@ -342,13 +381,6 @@ CMD ["node", "server.js"]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> # GitHub Actions에서 Trivy 스캔 예시 [truncated]
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```yaml
 # GitHub Actions에서 Trivy 스캔 예시
 name: Security Scan
@@ -370,7 +402,6 @@ jobs:
 ```
 -->
 -->
--->
 
 #### **2.2 Secret 관리**
 
@@ -388,7 +419,892 @@ jobs:
 
 > **참고**: External Secrets Operator 설정은 [External Secrets Operator 문서](https://external-secrets.io/) 및 [AWS Secrets Manager 통합](https://external-secrets.io/latest/provider/aws-secrets-manager/)을 참조하세요.
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # External Secrets Operator 예시 (AWS Secrets Manager)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # External Secrets Operator 예시 (AWS Secrets Manager)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# External Secrets Operator 예시 (AWS Secrets Manager)
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: app-secrets
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: aws-secrets-manager
+    kind: SecretStore
+  target:
+    name: app-secrets
+    creationPolicy: Owner
+  data:
+    - secretKey: database-password
+      remoteRef:
+        key: production/database
+        property: password
+
+
+```
+-->
+-->
+
+#### **2.3 비루트 사용자 실행**
+
+##### **Security Context 설정**
+
+*Security Context를 통한 컨테이너 보안 강화: 비루트 사용자 실행, 권한 상승 방지, Capabilities 제거*
+
+| 설정 항목 | 설명 | 보안 효과 |
+|----------|------|----------|
+| `runAsNonRoot: true` | 루트 사용자 실행 방지 | 권한 상승 공격 방어 |
+| `runAsUser: 1000` | 특정 사용자 ID 지정 | 최소 권한 원칙 적용 |
+| `allowPrivilegeEscalation: false` | 권한 상승 방지 | 컨테이너 탈출 위험 감소 |
+| `capabilities.drop: ALL` | 모든 Capabilities 제거 | 공격 표면 최소화 |
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # 보안 강화 Pod 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # 보안 강화 Pod 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# 보안 강화 Pod 예시
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-app
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+  containers:
+  - name: app
+    image: myapp:latest
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+        - ALL
+    volumeMounts:
+    - name: tmp
+      mountPath: /tmp
+  volumes:
+  - name: tmp
+    emptyDir: {}
+
+
+```
+-->
+-->
+
+---
+
+## 3. Kubernetes 보안 아키텍처
+
+Kubernetes 클러스터 보안은 다층 방어 전략으로 접근해야 합니다.
+
+<figure>
+<img src="{{ '/assets/images/2026-01-15-Kubernetes_Security_Architecture_Diagram.svg' | relative_url }}" alt="Kubernetes Security Architecture" loading="lazy" class="post-image">
+<figcaption>Kubernetes 보안 아키텍처: 다층 방어 전략 (Defense in Depth)</figcaption>
+</figure>
+
+#### **3.1 Pod Security Standards (PSS)**
+
+##### **PSS 레벨별 정책**
+
+Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
+
+*Pod Security Standards: Privileged(제한 없음) → Baseline(최소 보안) → Restricted(강력한 보안)*
+
+| 레벨 | 설명 | 적용 예시 |
+|------|------|----------|
+| **Privileged** | 제한 없음 | 시스템 Pod, 특수 워크로드 |
+| **Baseline** | 최소 보안 요구사항 | 일반 애플리케이션 |
+| **Restricted** | 강력한 보안 정책 | 민감한 워크로드 |
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Namespace에 PSS 적용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Namespace에 PSS 적용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# Namespace에 PSS 적용
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: production
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/warn: restricted
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  namespace: production
+spec:
+  template:
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+      containers:
+      - name: app
+        image: myapp:latest
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+          readOnlyRootFilesystem: true
+
+
+```
+-->
+-->
+
+#### **3.2 User Namespaces (Kubernetes 1.33+)**
+
+##### **컨테이너 격리 강화**
+
+User Namespaces는 컨테이너 내 root 사용자를 호스트의 비권한 사용자로 매핑하여 컨테이너 탈출 공격의 위험을 크게 감소시킵니다:
+
+| 공격 시나리오 | 기존 | User Namespaces 적용 |
+|--------------|------|---------------------|
+| 컨테이너 탈출 후 root 권한 | 호스트 root 획득 가능 | 비특권 사용자로 제한 |
+| `/proc`, `/sys` 접근 | 민감 정보 노출 | 접근 권한 격리 |
+| 호스트 파일시스템 접근 | 전체 파일시스템 접근 가능 | 격리된 파일시스템만 접근 |
+
+> **참고**: User Namespaces 설정은 [Kubernetes 공식 문서 - User Namespaces](https://kubernetes.io/docs/concepts/security/pod-security-standards/) 및 [Kubernetes GitHub 저장소](https://github.com/kubernetes/kubernetes)를 참조하세요.
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # User Namespace 활성화 Pod 예시 (Kubernetes 1.33+)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # User Namespace 활성화 Pod 예시 (Kubernetes 1.33+)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# User Namespace 활성화 Pod 예시 (Kubernetes 1.33+)
+apiVersion: v1
+kind: Pod
+metadata:
+  name: isolated-pod
+spec:
+  hostUsers: false  # User Namespace 활성화 (핵심 설정)
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+  containers:
+  - name: app
+    image: myapp:latest
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      readOnlyRootFilesystem: true
+
+
+```
+-->
+-->
+
+**User Namespace 보안 효과:**
+
+| 보안 항목 | 효과 |
+|----------|------|
+| **컨테이너 격리** | 컨테이너 내 root가 호스트에서는 비권한 사용자로 매핑 |
+| **공격 표면 감소** | 컨테이너 탈출 공격 시 피해 최소화 |
+| **워크로드 격리** | Pod 간 격리 강화 |
+
+#### **3.3 Network Policies**
+
+##### **네트워크 트래픽 제어**
+
+*Network Policy를 통한 Pod 간 통신 제어: Ingress(들어오는 트래픽), Egress(나가는 트래픽), Default Deny(기본 거부)*
+
+Network Policies를 통해 Pod 간 통신을 제어하여 방어 깊이를 강화합니다.
+
+| 정책 유형 | 설명 | 적용 예시 |
+|----------|------|----------|
+| **Ingress** | 들어오는 트래픽 제어 | 특정 네임스페이스에서만 접근 허용 |
+| **Egress** | 나가는 트래픽 제어 | 특정 서비스로만 통신 허용 |
+| **Default Deny** | 기본 거부 정책 | 명시적으로 허용된 트래픽만 통신 |
+
+##### **Network Policy 동작 원리**
+
+*Network Policy를 통한 Pod 간 통신 제어: Ingress(들어오는 트래픽), Egress(나가는 트래픽), Default Deny(기본 거부)*
+
+> **참고**: Network Policy 설정 예시는 [Kubernetes Network Policies 공식 문서](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 및 [Kubernetes 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Network Policy 예시 (간단한 버전)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Network Policy 예시 (간단한 버전)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# Network Policy 예시 (간단한 버전)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: app-network-policy
+  namespace: production
+spec:
+  podSelector:
+    matchLabels:
+      app: myapp
+  policyTypes:
+  - Ingress
+  - Egress
+
+
+```
+-->
+-->
+
+<!-- 전체 Network Policy 설정은 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Network Policy 예시 (전체)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Network Policy 예시 (전체)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# Network Policy 예시 (전체)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: app-network-policy
+  namespace: production
+spec:
+  podSelector:
+    matchLabels:
+      app: myapp
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: frontend
+    - podSelector:
+        matchLabels:
+          app: frontend
+    ports:
+    - protocol: TCP
+      port: 8080
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: database
+    ports:
+    - protocol: TCP
+      port: 5432
+
+
+```
+-->
+-->
+-->
+
+#### **3.4 RBAC 최소 권한 원칙**
+
+##### **역할 기반 접근 제어**
+
+*RBAC 최소 권한 원칙: 사용자/서비스 계정이 Role을 통해 필요한 리소스에만 접근*
+
+RBAC 구조: User/ServiceAccount → RoleBinding → Role → Resources
+
+| 역할 | 권한 | 설명 |
+|------|------|------|
+| **Developer** | Deployment 생성/수정 | 애플리케이션 배포만 가능 |
+| **Operator** | Pod 로그 조회, 리소스 모니터링 | 운영 작업만 가능 |
+| **Security** | NetworkPolicy, PodSecurityPolicy 관리 | 보안 정책 관리 |
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # RBAC 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # RBAC 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# RBAC 예시
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: developer
+  namespace: production
+rules:
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["get", "list", "create", "update", "patch"]
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: developer-binding
+  namespace: production
+subjects:
+- kind: User
+  name: developer-user
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: developer
+  apiGroup: rbac.authorization.k8s.io
+
+
+```
+-->
+-->
+
+---
+
+## 4. Kubernetes 보안 Best Practices (2024-2026)
+
+2024-2026년 최신 보안 모범 사례를 반영한 Kubernetes 보안 강화 전략입니다.
+
+#### **4.1 이미지 서명 및 검증**
+
+| 보안 항목 | 설명 | 도구 | 적용 방법 |
+|----------|------|------|----------|
+| **이미지 서명** | 컨테이너 이미지 무결성 보장 | Docker Content Trust (DCT), Notary, Cosign | CI/CD 파이프라인에 통합 |
+| **이미지 검증** | 배포 전 서명 검증 | Admission Controller | Kubernetes에서 자동 검증 |
+| **신뢰할 수 있는 레지스트리** | 공식/검증된 레지스트리만 사용 | ImagePolicyWebhook | 정책 기반 이미지 허용 |
+
+##### **이미지 서명 및 검증 프로세스**
+
+*이미지 서명 및 검증 프로세스: CI/CD 파이프라인에서 이미지 서명 및 검증 자동화*
+
+> **참고**: 이미지 서명 및 검증은 [Docker Content Trust 문서](https://docs.docker.com/engine/security/trust/) 및 [Cosign GitHub 저장소](https://github.com/sigstore/cosign)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+```bash
+# Cosign을 사용한 이미지 서명 및 검증 (간단한 예시)
+cosign sign --key cosign.key myregistry.io/myapp:v1.0.0
+cosign verify --key cosign.pub myregistry.io/myapp:v1.0.0
+```
+
+<!-- 전체 Cosign 사용 예시는 위 GitHub 링크 참조
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+```bash
+# Cosign을 사용한 이미지 서명 예시
+# 이미지 서명
+cosign sign --key cosign.key myregistry.io/myapp:v1.0.0
+
+# 이미지 검증
+cosign verify --key cosign.pub myregistry.io/myapp:v1.0.0
+
+# 추가 옵션 및 고급 사용법은 위 링크 참조
+```
+-->
+
+#### **4.2 최소 권한 이미지 사용**
+
+*컨테이너 이미지 유형 비교: Full OS 이미지(무거움, 많은 취약점) → Minimal 이미지(Alpine, 경량) → Distroless 이미지(최소 권한, 최고 보안)*
+
+| 원칙 | 설명 | 적용 방법 |
+|------|------|----------|
+| **최소 베이스 이미지** | Alpine, Distroless 등 경량 이미지 사용 | Dockerfile에서 경량 베이스 이미지 선택 |
+| **신뢰할 수 있는 소스** | 공식 레지스트리 및 검증된 이미지만 사용 | 이미지 정책 설정 |
+| **정기 업데이트** | 취약점 패치를 위한 정기적 이미지 업데이트 | 자동화된 이미지 스캔 및 업데이트 |
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+
+```dockerfile
+# 최소 권한 이미지 예시 (Distroless)
+FROM gcr.io/distroless/nodejs18-debian11
+WORKDIR /app
+COPY --chown=nonroot:nonroot . .
+USER nonroot:nonroot
+CMD ["server.js"]
+```
+
+#### **4.3 런타임 보안 모니터링**
+
+| 도구 | 설명 | 주요 기능 | 적용 방법 |
+|------|------|----------|----------|
+| **Falco** | 오픈소스 런타임 보안 모니터링 | 이상 행위 탐지, 실시간 알림 | Kubernetes Operator로 배포 |
+| **Sysdig Secure** | 상용 런타임 보안 플랫폼 | 포괄적인 보안 모니터링 | 클라우드 서비스 통합 |
+| **Aqua Security** | 컨테이너 보안 플랫폼 | 이미지 스캔, 런타임 보호 | Kubernetes 통합 |
+
+##### **런타임 보안 모니터링 아키텍처**
+
+*런타임 보안 모니터링: Falco, Sysdig 등을 사용하여 컨테이너 런타임 보안 모니터링*
+
+> **참고**: Falco 설정은 [Falco 공식 문서](https://falco.org/docs/) 및 [Falco Kubernetes Operator](https://github.com/falcosecurity/falco-operator)를 참조하세요.
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Falco Kubernetes Operator 설치 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Falco Kubernetes Operator 설치 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# Falco Kubernetes Operator 설치 예시
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: falco
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: falco
+  namespace: falco
+spec:
+  template:
+    spec:
+      containers:
+      - name: falco
+        image: docker.io/falcosecurity/falco:latest
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: host-proc
+          mountPath: /host/proc
+          readOnly: true
+      volumes:
+      - name: host-proc
+        hostPath:
+          path: /proc
+
+
+```
+-->
+-->
+
+#### **4.4 네트워크 세분화 및 정책 적용**
+
+| 정책 유형 | 설명 | 적용 예시 |
+|----------|------|----------|
+| **기본 거부 정책** | 모든 트래픽 기본 차단 | Default Deny Network Policy 적용 |
+| **네임스페이스 격리** | 네임스페이스별 네트워크 격리 | 네임스페이스별 Network Policy |
+| **서비스 메시 통합** | Istio, Linkerd 등 서비스 메시 활용 | mTLS, 트래픽 제어 |
+
+##### **네트워크 세분화 전략**
+
+*네트워크 세분화: 기본 거부 정책, 네임스페이스 격리, 서비스 메시 통합을 통한 네트워크 보안 강화*
+
+#### **4.5 정기적인 보안 감사 및 로깅**
+
+| 항목 | 설명 | 도구 | 적용 방법 |
+|------|------|------|----------|
+| **Audit 로깅** | Kubernetes API 서버 감사 로그 활성화 | Kubernetes Audit | API 서버 설정 |
+| **컨테이너 로그 수집** | Pod 로그 중앙 수집 및 분석 | ELK Stack, Loki | 로그 수집 파이프라인 |
+| **보안 이벤트 모니터링** | 보안 관련 이벤트 실시간 모니터링 | Prometheus, Grafana | 메트릭 수집 및 알림 |
+
+##### **보안 감사 및 로깅 아키텍처**
+
+*보안 감사 및 로깅: Kubernetes Audit 로깅, 컨테이너 로그 수집, 보안 이벤트 모니터링을 통한 보안 가시성 확보*
+
+> **참고**: Kubernetes Audit Policy 설정은 [Kubernetes Audit 문서](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/) 및 [Kubernetes 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```yaml
+# Kubernetes Audit Policy 예시 (간단한 버전)
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+- level: Metadata
+  namespaces: ["production"]
+  resources:
+  - group: ""
+    resources: ["secrets", "configmaps"]
+```
+
+<!-- 전체 Audit Policy 설정은 위 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Kubernetes Audit Policy 예시 (전체)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Kubernetes Audit Policy 예시 (전체)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# Kubernetes Audit Policy 예시 (전체)
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+- level: Metadata
+  namespaces: ["production"]
+  resources:
+  - group: ""
+    resources: ["secrets", "configmaps"]
+- level: RequestResponse
+  users: ["system:serviceaccount:*:*"]
+  resources:
+  - group: ""
+    resources: ["pods", "deployments"]
+
+
+```
+-->
+-->
+-->
+
+#### **4.6 자동화된 보안 검증 (CI/CD 통합)**
+
+| 단계 | 보안 검증 항목 | 도구 | 적용 방법 |
+|------|--------------|------|----------|
+| **빌드 단계** | 이미지 스캔, Dockerfile 검증 | Trivy, Hadolint | CI 파이프라인 통합 |
+| **배포 전** | Kubernetes 매니페스트 검증 | Polaris, Kube-score | Pre-commit hook |
+| **배포 후** | 런타임 보안 모니터링 | Falco, Sysdig | Kubernetes Operator |
+
+#### **4.7 최신 Kubernetes 보안 기능 (2024-2026)**
+
+##### **Kubernetes 1.32-1.35 보안 강화 (2024-2025)**
+
+| 버전 | 릴리스 | 주요 보안 기능 | 설명 |
+|------|--------|--------------|------|
+| **1.32** | 2024.12 | Bound Service Account Tokens (Stable) | 토큰을 특정 Pod에 바인딩하여 보안 강화 |
+| **1.33** | 2025.04 | User Namespaces in Pods (Beta-by-Default) | 컨테이너 격리 강화, 기본 활성화 |
+| **1.34** | 2025.09 | Dynamic Resource Allocation (Stable) | 리소스 할당 보안 강화 |
+| **1.35** | 2025.12 | User Namespaces (Beta-by-Default), mTLS Pod Certificates (Beta) | 기본 활성화, Pod 간 mTLS 지원 |
+
+##### **Kubernetes 1.36+ 예상 기능 (2026)**
+
+| 기능 | 상태 | 설명 |
+|------|------|------|
+| **User Namespaces (Stable)** | 예상 | User Namespaces 안정화 |
+| **mTLS Pod Certificates (Stable)** | 예상 | Pod 간 mTLS 안정화 |
+| **Enhanced Pod Security** | 예상 | 추가 보안 기능 강화 |
+
+> **참고**: Kubernetes 최신 릴리스 정보는 [Kubernetes 릴리스 노트](https://github.com/kubernetes/kubernetes) 및 [Kubernetes 공식 문서](https://kubernetes.io/docs/)를 참조하세요.
+
+##### **Minikube 1.37.0+ 보안 기능 (2025-2026)**
+
+| 기능 | 설명 | 보안 효과 |
+|------|------|----------|
+| **containerd 기본 런타임** | Docker에서 containerd로 변경 | 더 가벼운 런타임, 보안 강화 |
+| **krunkit 드라이버** | macOS AI 워크로드 지원 | 격리된 환경에서 AI 워크로드 실행 |
+| **Podman 드라이버 안정화** | Rootless 컨테이너 지원 | 비루트 실행 환경 강화 |
+| **kubetail addon** | Pod 로그 추적 개선 | 보안 모니터링 강화 |
+
+##### **K9s 보안 모범 사례 (2025-2026)**
+
+| 항목 | 설명 | 보안 효과 |
+|------|------|----------|
+| **읽기 전용 모드** | 변경 작업 제한 | 실수로 인한 설정 변경 방지 |
+| **RBAC 통합** | 사용자 권한 기반 접근 제어 | 최소 권한 원칙 적용 |
+| **네임스페이스 기반 관리** | 네임스페이스별 리소스 관리 | 리소스 격리 강화 |
+| **성능 최적화** | 대규모 클러스터 대응 | 효율적인 보안 모니터링 |
+
+---
+
+## 5. 실전 보안 강화 사례
+
+보안 엔지니어에게 실전 경험은 이론보다 중요합니다. 이번 주에는 실제 프로젝트에서 적용한 보안 강화 사례를 공유합니다.
+
+#### **💡 멘토의 관점: 컨테이너 보안도 '코드'로 관리됩니다.**
+
+##### **DevSecOps 워크플로우**
+
+컨테이너 보안은 DevSecOps 사이클을 통해 코드로 관리됩니다. 실제 보안 강화 사례를 통해 구체적인 개선 방법을 살펴보겠습니다.
+
+#### **보안 강화 사례: Capabilities 제거**
+
+| **구분** | **수정 전 (Before)** | **수정 후 (After)** |
+|---------|-------------------|-------------------|
+| **Security Context** | Capabilities 설정 없음<br>_(기본 Capabilities 모두 허용)_ | `capabilities.drop: ["ALL"]`<br>_(모든 Capabilities 제거)_ |
+| **위협 요소** | NET_ADMIN, SYS_ADMIN 등 위험한 Capabilities 사용 가능 | 필요한 Capabilities만 명시적으로 추가 |
+| **보안 효과** | 컨테이너 탈출 시 위험한 권한 사용 가능 | 최소 권한 원칙 적용, 공격 표면 최소화 |
+
+> 👨‍🏫 멘토의 조언 (Takeaway)
+> 
+> 컨테이너 보안은 한 번의 설정으로 끝나는 것이 아닙니다. 지속적인 모니터링과 자동화된 보안 검증을 통해 보안 상태를 유지해야 합니다. 이번 주 실습을 통해 여러분의 컨테이너 환경도 점검해 보세요.
+> 
+> 👉 **Kubernetes 보안 Best Practices 및 실습 가이드 보러가기**
+
+---
+
+## 6. 실습: Minikube 보안 환경 구성
+
+#### **6.1 Minikube 설치 및 보안 설정**
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Minikube 최신 버전 설치...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Minikube 최신 버전 설치...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```bash
+# Minikube 최신 버전 설치
+brew install minikube  # macOS
+# 또는
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+# 보안 강화 설정으로 시작
+minikube start \
+  --kubernetes-version=stable \
+  --container-runtime=containerd \
+  --memory=4096 \
+  --cpus=2
+
+# 클러스터 상태 확인
+kubectl cluster-info
+kubectl get nodes
+
+
+```
+-->
+-->
+
+#### **6.2 Pod Security Standards 적용**
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Namespace 생성 및 PSS 적용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Namespace 생성 및 PSS 적용...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```bash
+# Namespace 생성 및 PSS 적용
+kubectl create namespace production
+kubectl label namespace production \
+  pod-security.kubernetes.io/enforce=restricted \
+  pod-security.kubernetes.io/audit=restricted \
+  pod-security.kubernetes.io/warn=restricted
+
+# 보안 강화 Pod 배포
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-app
+  namespace: production
+spec:
+  hostUsers: false  # User Namespace 활성화
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+  containers:
+  - name: app
+    image: nginx:1.25-alpine
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+        - ALL
+    volumeMounts:
+    - name: tmp
+      mountPath: /tmp
+  volumes:
+  - name: tmp
+    emptyDir: {}
+EOF
+
+# Pod 상태 확인
+kubectl get pod secure-app -n production
+kubectl describe pod secure-app -n production
+
+
+```
+-->
+-->
+
+#### **6.3 이미지 스캔 자동화**
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Trivy 설치...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```bash
+> # Trivy 설치...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```bash
+# Trivy 설치
+brew install trivy  # macOS
+# 또는 Linux의 경우
+# GitHub Releases에서 최신 버전 확인: https://github.com/aquasecurity/trivy/releases
+# 예: wget https://github.com/aquasecurity/trivy/releases/download/v0.68.2/trivy_0.68.2_Linux-64bit.tar.gz
+# tar -xzf trivy_0.68.2_Linux-64bit.tar.gz
+# sudo mv trivy /usr/local/bin/
+
+# 이미지 스캔 실행
+trivy image nginx:1.25-alpine
+
+# Kubernetes 클러스터 스캔
+trivy k8s cluster --severity HIGH,CRITICAL
+
+
+```
+-->
+-->
+
+---
+
+## 보안 체크리스트
+
+| 보안 영역 | 체크리스트 항목 | 설명 |
+|----------|---------------|------|
+| **Docker 이미지** | 비루트 사용자 실행 | `USER` 지시어로 비루트 사용자 지정 |
+| | 읽기 전용 파일시스템 | `readOnlyRootFilesystem: true` 설정 |
+| | 최소 Capabilities | `capabilities.drop: ["ALL"]` 설정 |
+| | 이미지 스캔 자동화 | CI/CD 파이프라인에 Trivy/Snyk 통합 |
+| **Kubernetes 보안** | Pod Security Standards 적용 | Namespace에 PSS 레벨 설정 |
+| | User Namespaces 활성화 | `hostUsers: false` 설정 (Kubernetes 1.33+) |
+| | Network Policies 적용 | Pod 간 통신 제어 정책 설정 |
+| | RBAC 최소 권한 원칙 | 필요한 권한만 부여 |
+| | Secret 관리 | Kubernetes Secrets 또는 External Secrets Operator 사용 |
+| **모니터링** | 런타임 보안 모니터링 | Falco 등 런타임 보안 도구 통합 |
+| | 취약점 스캔 정기 실행 | 주기적인 이미지 및 클러스터 스캔 |
+
+---
+
+## 결론
+
+Docker & Kubernetes 보안은 DevSecOps의 핵심입니다. 컨테이너 보안부터 클러스터 보안까지 전 과정에서 보안을 고려해야 합니다.
+
+주요 포인트:
+
+1. **Docker/Container/Kubernetes 기본 이해**: 이미지, 컨테이너, Pod 개념 이해, VM vs Container 비교
+2. **컨테이너 보안 Best Practices**: 비루트 실행, 읽기 전용 파일시스템, 최소 Capabilities, 이미지 스캔, Secret 관리
+3. **Kubernetes 보안 아키텍처**: Pod Security Standards, User Namespaces, Network Policies, RBAC
+4. **Kubernetes 보안 Best Practices (2024-2026)**: 이미지 서명 및 검증, 런타임 모니터링, 자동화된 보안 검증, 최신 Kubernetes 보안 기능(Kubernetes 1.32-1.35+, Minikube 1.37.0+, K9s)
+5. **실전 보안 강화 사례**: DevSecOps 관점에서의 보안 강화 워크플로우, 취약점 발견 및 수정 사례
+6. **실습**: Minikube 보안 환경 구성, Pod Security Standards 적용, 이미지 스캔 자동화
+
+이 가이드를 참고하여 여러분의 컨테이너 환경 보안을 강화하시기 바랍니다.
+
+## 관련 자료
+
+### 온라인 강의 (edu.2twodragon.com)
+
+| 과정 | 설명 | 링크 |
+|------|------|------|
+| **Docker 보안** | 컨테이너 보안, 이미지 스캔, Secret 관리 | [수강하기](https://edu.2twodragon.com/courses/docker-security) |
+| **Kubernetes 보안** | 클러스터 보안, RBAC, Network Policies, Pod Security | [수강하기](https://edu.2twodragon.com/courses/kubernetes-security) |
+| **DevSecOps 실전** | DevSecOps 전략, 보안 자동화, 모니터링 | [수강하기](https://edu.2twodragon.com/courses/devsecops) |
+
+### YouTube 영상
+
+| 주제 | 설명 | 링크 |
+|------|------|------|
+| **AWS WAF 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
 
 ### 외부 참고 자료
 
