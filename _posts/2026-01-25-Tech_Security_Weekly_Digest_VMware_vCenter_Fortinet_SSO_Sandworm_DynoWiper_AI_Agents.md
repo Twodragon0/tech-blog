@@ -15,16 +15,75 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='Tech &amp; Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper 폴란드 공격'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">VMware</span> <span class="tag">vCenter</span> <span class="tag">CISA-KEV</span> <span class="tag">Fortinet</span> <span class="tag">FortiGate</span> <span class="tag">SSO-Bypass</span> <span class="tag">Sandworm</span>'
-  highlights_html='<li><strong>VMware vCenter CVE-2024-37079 CISA KEV 긴급 패치</strong>: 국내 대기업·공공기관 가상화 인프라의 핵심인 vCenter가 CISA 악용 취약점 목록에 추가, 활성 익스플로잇이 확인된 Critical 취약점으로 즉시 패치 필요</li>
-      <li><strong>Fortinet FortiGate 완전 패치 환경 SSO 우회 제로데이</strong>: 최신 패치 적용 환경에서도 FortiCloud SSO를 우회하는 제로데이 발견, 국내 방화벽 시장 점유율 1위(약 35%) 제품으로 즉각적 완화 조치와 FortiCloud 접근 모니터링 필요</li>
-      <li><strong>Sandworm APT DynoWiper 폴란드 전력망 공격</strong>: 러시아 연계 Sandworm가 와이퍼 악성코드 DynoWiper로 폴란드 에너지 인프라 공격, 국내 에너지·수도 OT 환경의 Air-Gap 강화와 오프라인 백업 체계 점검 필요</li>'
-  period='2026-01-25 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
+
+> **제목**: Tech & Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper 폴란드 공격
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, VMware, vCenter, CISA-KEV, Fortinet, FortiGate, SSO-Bypass, Sandworm, DynoWiper, Wiper-Malware, AI-Agents, Zero-Trust, Google-ADK, Airflow, Platform-Engineering, "2026"
+
+> **핵심 내용**: 
+> - VMware vCenter KEV 긴급, Fortinet SSO 우회, Sandworm DynoWiper APT, AI 에이전트 NHI 관리
+
+> **주요 기술/도구**: Security, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 25일)</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">Security-Weekly</span>
+      <span class="tag">VMware</span>
+      <span class="tag">CISA-KEV</span>
+      <span class="tag">Fortinet</span>
+      <span class="tag">Sandworm</span>
+      <span class="tag">AI-Agents</span>
+      <span class="tag">Zero-Trust</span>
+      <span class="tag">2026</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>CISA KEV 긴급</strong>: VMware vCenter CVE-2024-37079 활성 익스플로잇 확인 - 즉시 패치 필요</li>
+      <li><strong>Fortinet 제로데이</strong>: FortiGate 완전 패치 환경에서도 FortiCloud SSO 우회 공격 발생</li>
+      <li><strong>Sandworm APT</strong>: 폴란드 전력망 대상 DynoWiper 와이퍼 악성코드 공격</li>
+      <li><strong>AI 에이전트 보안</strong>: 비인간 신원(NHI) 관리와 제로트러스트 적용 방안</li>
+      <li><strong>클라우드 오케스트레이션</strong>: Apache Airflow 3.1과 Google ADK + Datadog 통합</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">수집 기간</span>
+    <span class="summary-value">2026년 1월 23일 ~ 25일 (48시간)</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, SOC 분석가, 클라우드 아키텍트, CISO</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 ## 주요 요약
 
@@ -205,27 +264,20 @@ DevOps/Cloud       : █████ 13%
 
 #### 헌팅 쿼리 (Bash/PowerShell)
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
->
-> ```bash
-> # 1. 최근 24시간 생성된 관리자 계정 찾기
-> ```
-
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
->
-> ```bash
-> # 1. 최근 24시간 생성된 관리자 계정 찾기
-> ```
-
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
-> # 1. 최근 24시간 생성된 관리자 계정 찾기 [truncated]
+> # 1. 최근 24시간 생성된 관리자 계정 찾기...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 최근 24시간 생성된 관리자 계정 찾기...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. 최근 24시간 생성된 관리자 계정 찾기
 grep -i "CreateUser" /var/log/vmware/vpxd/vpxd.log \
@@ -245,7 +297,6 @@ grep -E "(DeleteVM|DestroyVM)" /var/log/vmware/vpxd/vpxd.log \
 ```
 -->
 -->
--->
 
 ---
 
@@ -262,27 +313,20 @@ grep -E "(DeleteVM|DestroyVM)" /var/log/vmware/vpxd/vpxd.log \
 
 #### 헌팅 쿼리 (FortiGate CLI)
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
->
-> ```bash
-> # 1. 최근 1시간 관리자 로그인 이력
-> ```
-
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
->
-> ```bash
-> # 1. 최근 1시간 관리자 로그인 이력
-> ```
-
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
-> # 1. 최근 1시간 관리자 로그인 이력 [truncated]
+> # 1. 최근 1시간 관리자 로그인 이력...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # 1. 최근 1시간 관리자 로그인 이력...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # 1. 최근 1시간 관리자 로그인 이력
 execute log filter category 0
@@ -304,7 +348,6 @@ end
 ```
 -->
 -->
--->
 
 ---
 
@@ -322,7 +365,6 @@ end
 
 #### 헌팅 쿼리 (PowerShell)
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```powershell
@@ -379,7 +421,6 @@ Get-WinEvent -FilterHashtable @{
 ```
 -->
 -->
--->
 
 ---
 
@@ -387,7 +428,7 @@ Get-WinEvent -FilterHashtable @{
 
 ### 개요
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+**CISA가 VMware vCenter Server 취약점을 Known Exploited Vulnerabilities(KEV) 카탈로그에 추가했습니다.** 이는 실제 공격에서 활발히 악용되고 있음을 의미합니다.
 
 > **출처**: [CISA Adds Actively Exploited VMware vCenter Flaw CVE-2024-37079 to KEV Catalog](https://thehackernews.com/2026/01/cisa-adds-actively-exploited-vmware.html)
 
@@ -435,8 +476,6 @@ graph LR
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
 ```bash
 # vCenter 버전 확인 (SSH 접속 후)
 cat /etc/vmware-vami/vamicli.properties | grep version
@@ -456,8 +495,6 @@ grep -i "failed" /var/log/vmware/vpxd/vpxd.log | tail -20
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
 ```bash
 # vCenter vpxd 로그에서 의심스러운 API 호출 탐지
 grep -E "(CreateUser|ModifyPermission|CreateRole)" /var/log/vmware/vpxd/vpxd.log \
@@ -466,8 +503,6 @@ grep -E "(CreateUser|ModifyPermission|CreateRole)" /var/log/vmware/vpxd/vpxd.log
 ```
 
 #### 비정상 시간대 관리자 로그인
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -522,7 +557,6 @@ SecurityAlert
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 VMwareVCenter_CL
 | where TimeGenerated >= ago(1h)
@@ -541,7 +575,6 @@ VMwareVCenter_CL
 ```
 -->
 -->
--->
 
 -->
 
@@ -551,7 +584,7 @@ VMwareVCenter_CL
 
 ### 개요
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+**Fortinet은 완전히 패치된 FortiGate 방화벽에서도 FortiCloud SSO 인증 우회 공격이 발생하고 있음을 확인했습니다.** 이는 기존 패치로는 방어할 수 없는 새로운 공격 벡터입니다.
 
 > **출처**: [Fortinet Confirms Active FortiCloud SSO Bypass on Fully Patched FortiGate Firewalls](https://thehackernews.com/2026/01/fortinet-confirms-active-forticloud-sso.html)
 
@@ -575,7 +608,6 @@ VMwareVCenter_CL
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph LR
     A[공격자] -->|SSO 우회| B["FortiCloud SSO<br/>인증 우회"]
@@ -591,7 +623,6 @@ graph LR
 
 
 ```
--->
 -->
 -->
 
@@ -619,27 +650,20 @@ graph LR
 
 ### 즉시 실행 명령
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
->
-> ```bash
-> # FortiGate CLI에서 SSO 상태 확인
-> ```
-
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
->
-> ```bash
-> # FortiGate CLI에서 SSO 상태 확인
-> ```
-
-<!-- 전체 코드는 위 링크 참조
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > 
 > ```bash
-> # FortiGate CLI에서 SSO 상태 확인 [truncated]
+> # FortiGate CLI에서 SSO 상태 확인...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+> 
+> ```bash
+> # FortiGate CLI에서 SSO 상태 확인...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
 ```bash
 # FortiGate CLI에서 SSO 상태 확인
 config system global
@@ -659,13 +683,10 @@ diagnose debug authd fsso list
 ```
 -->
 -->
--->
 
 ### 위협 헌팅 쿼리 (Threat Hunting Queries)
 
 #### FortiGate 비정상 관리자 로그인 탐지
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
@@ -716,7 +737,6 @@ NOT [| inputlookup authorized_admin_ips.csv | fields srcip]
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 CommonSecurityLog
 | where TimeGenerated >= ago(24h)
@@ -733,11 +753,9 @@ CommonSecurityLog
 ```
 -->
 -->
--->
 
 ### Azure Sentinel KQL - FortiGate 방화벽 정책 변경
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -756,7 +774,6 @@ CommonSecurityLog
 ```
 -->
 -->
--->
 
 -->
 
@@ -766,7 +783,7 @@ CommonSecurityLog
 
 ### 개요
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+러시아 국가 지원 APT 그룹 **Sandworm**이 폴란드 전력 부문을 대상으로 새로운 와이퍼 악성코드 **DynoWiper**를 사용한 공격을 시도했습니다.
 
 > **출처**: [New DynoWiper Malware Used in Attempted Sandworm Attack on Polish Power Sector](https://thehackernews.com/2026/01/new-dynowiper-malware-used-in-attempted.html)
 
@@ -792,7 +809,6 @@ CommonSecurityLog
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
 graph TD
     A["Phase 1: 초기 침투<br/>(Spear-phishing, Supply chain)"] -->|성공| B["Phase 2: 지속성<br/>(Service registration, Scheduled tasks)"]
@@ -808,7 +824,6 @@ graph TD
 
 
 ```
--->
 -->
 -->
 
@@ -847,7 +862,6 @@ graph TD
 
 ### 공격 흐름도 (Attack Flow Diagram)
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```
@@ -907,7 +921,6 @@ Result: 시스템 완전 파괴, 운영 중단
 ```
 -->
 -->
--->
 
 ### 위협 헌팅 쿼리 (Threat Hunting Queries)
 
@@ -947,7 +960,6 @@ TargetObject="*PhysicalDrive*"
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```spl
 index=windows (EventCode=7045 OR EventCode=4688 OR EventCode=1)
 (ImagePath="*vssadmin*delete*shadows*" OR
@@ -963,11 +975,9 @@ index=windows (EventCode=7045 OR EventCode=4688 OR EventCode=1)
 ```
 -->
 -->
--->
 
 ### Azure Sentinel KQL - DynoWiper IOC 탐지
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -989,11 +999,9 @@ SecurityEvent
 ```
 -->
 -->
--->
 
 ### Azure Sentinel KQL - 물리 디스크 접근 (Sysmon)
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -1012,7 +1020,6 @@ Event
 ```
 -->
 -->
--->
 
 -->
 
@@ -1022,15 +1029,14 @@ Event
 
 ### 개요
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+AI 에이전트가 기업 환경에서 자율적으로 작업을 수행함에 따라, **비인간 신원(Non-Human Identity, NHI)** 관리와 제로트러스트 적용이 새로운 보안 과제로 부상했습니다.
 
-> **출처**:
+> **출처**: 
 > - [Who Approved This Agent? Rethinking Access, Accountability, and Risk in the Age of AI Agents](https://thehackernews.com/2026/01/who-approved-this-agent-rethinking.html)
 > - [Zero trust for agentic systems: Managing non-human identities at scale](https://www.hashicorp.com/blog/zero-trust-for-agentic-systems-managing-non-human-identities-at-scale)
 
 ### AI 에이전트 보안 위험
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
@@ -1050,7 +1056,6 @@ graph TD
 
 
 ```
--->
 -->
 -->
 
@@ -1074,23 +1079,16 @@ graph TD
 ### 실무 구현 예시 (Vault + Kubernetes)
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
->
+> 
 > ```yaml
-> # Vault Agent Injector 설정
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
->
-> ```yaml
-> # Vault Agent Injector 설정
+> # Vault Agent Injector 설정...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
-> # Vault Agent Injector 설정 [truncated]
+> # Vault Agent Injector 설정...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -1122,7 +1120,6 @@ data:
 ```
 -->
 -->
--->
 
 ---
 
@@ -1130,7 +1127,7 @@ data:
 
 ### Apache Airflow 3.1 in Cloud Composer
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. AI 도입 시 모델 거버넌스와 데이터 보호 기준을 함께 수립해야 합니다.
+Google Cloud Composer가 Apache Airflow 3.1을 지원하기 시작했습니다. 이는 하이퍼스케일러 최초입니다.
 
 > **출처**: [Improving workflow orchestration with Apache Airflow 3.1 in Cloud Composer](https://cloud.google.com/blog/products/data-analytics/cloud-composer-supports-apache-airflow-31/)
 
@@ -1145,7 +1142,7 @@ data:
 
 ### Google ADK + Datadog LLM Observability
 
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
+Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 에이전틱 시스템 모니터링이 가능해졌습니다.
 
 > **출처**: [Monitoring Google ADK agentic applications with Datadog LLM Observability](https://cloud.google.com/blog/products/management-tools/datadog-integrates-agent-development-kit-or-adk/)
 
@@ -1156,7 +1153,6 @@ data:
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```mermaid
@@ -1193,7 +1189,6 @@ graph TD
 ```
 -->
 -->
--->
 
 </details>
 
@@ -1217,8 +1212,6 @@ graph TD
 | 12월 | 가시성 & 분석 | 보안 모니터링 및 분석 |
 
 ### 플랫폼 엔지니어링 2026 전망 (CNCF)
-
-이번 소식은 해당 기술 변화의 배경과 실제 적용 영향을 중심으로 정리했습니다. 실무 적용 전에 영향 범위와 운영 리스크를 평가하고 검증 기준을 확정해야 합니다.
 
 > **출처**: [The autonomous enterprise and the four pillars of platform control: 2026 forecast](https://www.cncf.io/blog/2026/01/23/the-autonomous-enterprise-and-the-four-pillars-of-platform-control-2026-forecast/)
 
@@ -1246,23 +1239,16 @@ graph TD
 ### 보안 모니터링 강화
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
->
+> 
 > ```yaml
-> # SIEM 룰 예시: vCenter 의심 활동
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
->
-> ```yaml
-> # SIEM 룰 예시: vCenter 의심 활동
+> # SIEM 룰 예시: vCenter 의심 활동...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 > 
 > ```yaml
-> # SIEM 룰 예시: vCenter 의심 활동 [truncated]
+> # SIEM 룰 예시: vCenter 의심 활동...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -1280,7 +1266,6 @@ graph TD
 
 
 ```
--->
 -->
 -->
 
@@ -1433,7 +1418,7 @@ graph TD
 
 ---
 
-**작성자**: Twodragon
-**작성일**: 2026-01-25
-**수집 소스**: 47개 RSS 피드 (166개 뉴스)
+**작성자**: Twodragon  
+**작성일**: 2026-01-25  
+**수집 소스**: 47개 RSS 피드 (166개 뉴스)  
 **분석 방법론**: DevSecOps 실무 영향도 기반 우선순위화
