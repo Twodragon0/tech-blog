@@ -16,20 +16,75 @@ author: "Yongho Ha"
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성'
-  categories_html='<span class="category-tag security">보안</span>'
-  tags_html='<span class="tag">SKT</span> <span class="tag">MFA</span> <span class="tag">USIM</span> <span class="tag">Security-Incident</span>'
-  highlights_html='<li><strong>SKT USIM 유출 사태 핵심 위협</strong>: 2025년 4월 한국 최대 통신사 보안 사고로 ICCID·IMSI·Ki 값 유출, SIM 스와핑 공격으로 타인이 내 번호 탈취 후 금융 계정·카카오뱅크·증권 계정 접근 가능 - 피해 규모와 공격 매커니즘 상세 분석</li>
-      <li><strong>즉시 실행 대응 3단계</strong>: SKT USIM 보호 서비스 즉시 신청(무료, 타 통신사 USIM 사용 차단), 물리적 USIM 교체(사이버안전국 권고사항), SMS OTP 기반 금융·포털 서비스 즉시 TOTP/FIDO2로 전환</li>
-      <li><strong>SIM 스와핑 방어와 MFA 전환</strong>: SMS 2FA의 근본적 취약성(통신사 소셜 엔지니어링, 내부자 위협), FIDO2 패스키·하드웨어 키(YubiKey)로의 전환 필요성, 통신사 계정에 PIN 잠금 설정, 번호 이동 알림 서비스 활성화 방법</li>'
-  period='2025-04-29 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
 
-## 핵심 요약
+> **제목**: SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성
 
-### 위험 스코어카드
+> **카테고리**: security
+
+> **태그**: SKT, MFA, USIM, Security-Incident
+
+> **핵심 내용**: 
+> - SK텔레콤 USIM 유출 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 설정 필수. SIM 스와핑 위험 및 대응 방법 실무 정리.
+
+> **주요 기술/도구**: Security, security
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">SKT</span>
+      <span class="tag">MFA</span>
+      <span class="tag">USIM</span>
+      <span class="tag">Security-Incident</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>SK텔레콤 USIM 정보 유출 사태 대응</strong>: 즉시 조치(USIM/eSIM 교체, IMEI 확인, MFA 활성화), 통신사 보안 서비스 가입(USIM 보호 서비스, 번호 도용 차단), 금융 보안 강화(계좌 이체 한도 조정, 생체 인증 설정, 이상 거래 알림)</li>
+      <li><strong>SIM 스와핑/복제 위험성</strong>: 공격 메커니즘(통신사 직원 사칭, 사회공학적 기법, 내부자 협조), 피해 사례(계좌 이체, 금융 앱 접근, 2FA 우회), OTP/MFA의 중요성(SMS OTP 취약점, TOTP 앱 권장, 하드웨어 보안 키)</li>
+      <li><strong>IMEI 확인 및 USIM/eSIM 교체</strong>: IMEI 확인 방법(아이폰 *#06#, 안드로이드 설정→휴대전화 정보), 안전한 USIM/eSIM 교체 절차(통신사 방문, 본인 확인 강화, 즉시 활성화), eSIM 전환 장점(물리적 복제 불가, 원격 관리 가능)</li>
+      <li><strong>2025년 업데이트</strong>: 통신사 보안 강화 조치(무료 USIM 보호 서비스, eSIM 전환 촉진, 이중 인증 강화, 실시간 이상 탐지 시스템, IMEI 변경 알림), 개인 보안 강화 권고사항(MFA 전면 적용, 통신사 보안 서비스 가입, 정기 IMEI 확인)</li>
+      <li><strong>기업 보안 시사점</strong>: 공급망 보안(외부 파트너 보안 수준 점검), Zero Trust 아키텍처 적용, 보안 사고 대응 계획 수립, AI 기반 피싱 공격 대응 전략</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">MFA, OTP, USIM, eSIM</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">기업 보안 담당자, 보안 엔지니어, CISO</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
+
+## Executive Summary
+
+### Risk Scorecard
 
 | 항목 | 평가 | 설명 |
 |------|------|------|
@@ -164,7 +219,7 @@ flowchart TD
 
 **공격 메커니즘:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```python
 > # 개념적 공격 흐름 (실제 코드 아님)...
@@ -179,7 +234,7 @@ flowchart TD
 
 **통제 방안:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # 통신사 내부 보안 통제 예시...
@@ -241,7 +296,7 @@ flowchart TD
 
 **주요 공격 대상:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```python
 > # 공격자가 선호하는 계정 우선순위...
@@ -251,7 +306,7 @@ flowchart TD
 
 **2FA 우회 체인:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```
 > Gmail 계정 탈취...
@@ -293,6 +348,7 @@ index=telecom sourcetype=sim_activation
 | where risk_score > 20
 | table customer_id, activation_time, device_imei, suspicious_logins, risk_score
 | sort - risk_score
+
 
 ```
 # example omitted: see reference link
@@ -359,15 +415,13 @@ Attacker → SS7 네트워크 침투
 # example omitted: see reference link
 ```bash
 > # 1. Google 계정 보안 설정...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-
-```
+> ```
 
 <!-- 전체 코드는 외부 참조 링크를 확인하세요. -->
 
 **FIDO2 지원 서비스:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # 주요 서비스 FIDO2 지원 현황 (2025년 기준)...
@@ -413,15 +467,13 @@ IMEI 1 / IMEI 2 (듀얼심)
 # example omitted: see reference link
 ```yaml
 > # IMEI 정보 관리 템플릿...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-
-```
+> ```
 
 <!-- 전체 코드는 외부 참조 링크를 확인하세요. -->
 
 **IMEI 변조 탐지:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```python
 > # IMEI 유효성 검증 (Luhn Algorithm)...
@@ -452,13 +504,11 @@ IMEI 1 / IMEI 2 (듀얼심)
     └────┬────┘
          ↓
    서비스 접근 허용 (최소 권한)
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-
 ```
 
 **Zero Trust 구현 요소:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # Zero Trust Architecture for Telecom...
@@ -482,7 +532,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Indicators of Compromise for SIM Swapping:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # IOC 정의...
@@ -512,7 +562,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 ### 9.4 지속적 모니터링
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > # 월간 보안 점검 루틴...
@@ -532,7 +582,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Phase 1: 긴급 대응 (1주일)**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > immediate_actions:...
@@ -542,7 +592,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Phase 2: 단기 강화 (1개월)**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > short_term_hardening:...
@@ -552,7 +602,7 @@ IMEI 1 / IMEI 2 (듀얼심)
 
 **Phase 3: 장기 전략 (6개월)**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://docs.aws.amazon.com/)를 참조하세요.
 > 
 > ```yaml
 > long_term_strategy:...
