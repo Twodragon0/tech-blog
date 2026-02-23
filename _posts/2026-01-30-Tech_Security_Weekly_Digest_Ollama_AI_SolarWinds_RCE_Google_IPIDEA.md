@@ -19,7 +19,9 @@ schema_type: Article
   title='Tech &amp; Security Weekly Digest: Ollama AI 서버 175K 노출, SolarWinds WHD Critical RCE 6건, Google IPIDEA 프록시 차단'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">Ollama</span> <span class="tag">LLMjacking</span> <span class="tag">SolarWinds</span> <span class="tag">CVE-2025-40551</span> <span class="tag">CVE-2025-40552</span> <span class="tag">IPIDEA</span> <span class="tag">Residential-Proxy</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Ollama AI 서버 175K 공개 노출, SolarWinds WHD 6건 CVE(CVSS 9.8 x4), Google IPIDEA 6.1M IP 프록시 네트워크 차단, Microsoft AI 위협 탐지, OT/에</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Ollama AI 서버 175K 인터넷 노출</strong>: SentinelOne·Censys 조사 결과 175,000대 Ollama 인스턴스가 인증 없이 공개 노출, LLMjacking 캠페인이 이를 적극 악용 중, 자체 호스팅 시 즉시 네트워크 접근 제어 필요</li>
+      <li><strong>SolarWinds WHD CVSS 9.8 Critical RCE 4건</strong>: CVE-2025-40551(비인증 역직렬화 RCE), CVE-2025-40552(인증 우회 후 RCE) 포함 총 6건 CVE 공개, WHD 2026.1 즉시 패치 필요</li>
+      <li><strong>Google GTIG IPIDEA 6.1M IP 프록시 해체</strong>: Google이 6.1M개 IP 규모의 IPIDEA 레지덴셜 프록시 네트워크를 차단, Android 기기 감염 기반 트래픽 중계 네트워크로 내부 IoC 점검 및 Play Protect 활성화 필요</li>'
   period='2026-01-30 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

@@ -20,7 +20,9 @@ author: Twodragon
   title='클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지'
   categories_html='<span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">Infrastructure</span> <span class="tag">Cloud-Security</span> <span class="tag">AWS</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### 리스크 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>클라우드 인프라 보안 핵심 이슈</strong>: Shadow AI 사용(데이터 유출·IP 손실 위험 긴급), 과도한 IAM 권한(내부자 위협), 네트워크 노출(외부 공격) 등 6가지 리스크 영역 분석 및 즉시 조치 권고사항 정리</li>
+      <li><strong>2025년 보안 트렌드 대응</strong>: AI 보안 양면성(일일 AI 기반 공격 93% 예상), Shadow AI 위협, Supply Chain 공격 급증, Zero Trust 표준화, Cloudflare 52% Post-quantum 암호화 전환 등 최신 동향과 커리큘럼 연계</li>
+      <li><strong>Zero Trust 아키텍처 전환 로드맵</strong>: 즉시(Shadow AI 정책 수립), 3개월 내(Zero Trust 기반 접근 제어 재설계), 6개월 내(GuardDuty Extended Threat Detection 도입)로 침해 탐지 시간 45일→24시간, 대응 시간 72시간→4시간으로 단축</li>'
   period='2025-11-26 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

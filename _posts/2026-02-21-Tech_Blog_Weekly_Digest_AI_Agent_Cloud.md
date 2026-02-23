@@ -18,7 +18,9 @@ toc: true
   title='기술 블로그 주간 다이제스트: Tesla'
   categories_html='<span class="category-tag tech">기술</span> <span class="category-tag devops">DevOps</span>'
   tags_html='<span class="tag">Tech-Blog</span> <span class="tag">Weekly-Digest</span> <span class="tag">Developer</span> <span class="tag">2026</span> <span class="tag">Tesla</span> <span class="tag">AI</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 21일 주요 기술 블로그 뉴스 5건 - Tesla, AI</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Tesla Cybertruck/Cybercab 업데이트</strong>: 팟캐스트에서 신형 Tesla Cybertruck과 Cybercab 최신 소식, Ford의 중국 시장 진출 전략 등 자동차 기술 트렌드 집중 조명</li>
+      <li><strong>현대차 3열 EV 한국 출시</strong>: Hyundai의 3열 전기차가 한국 시장에 출시, EV SUV 경쟁 심화에 따른 글로벌 전기차 시장 판도 변화 관측</li>
+      <li><strong>Amazon·Kia EV 인프라 확대</strong>: Amazon 배송 밴 태양광 세미트럭 확대, Kia 신형 EV SUV 실내 개편, Pennsylvania 1억 달러 EV 충전기 투자 등 전기차 인프라 생태계 성장 가속</li>'
   period='2026-02-21 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

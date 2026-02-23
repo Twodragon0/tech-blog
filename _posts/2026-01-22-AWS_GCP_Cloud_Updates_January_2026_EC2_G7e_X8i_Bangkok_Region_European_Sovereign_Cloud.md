@@ -19,7 +19,7 @@ schema_type: Article
   title='AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign Cloud'
   categories_html='<span class="category-tag cloud">클라우드</span> <span class="category-tag devops">DevOps</span>'
   tags_html='<span class="tag">AWS</span> <span class="tag">GCP</span> <span class="tag">EC2-G7e</span> <span class="tag">EC2-X8i</span> <span class="tag">NVIDIA-Blackwell</span> <span class="tag">Bangkok-Region</span> <span class="tag">European-Sovereign-Cloud</span> <span class="tag">Gemini-3</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 1월 AWS/GCP 업데이트는 **AI 인프라 성숙도**와 **데이터 주권 대응**이라는 두 축으로 요약됩니다. 기업 의사결정자는 다음 세 가지 핵심 사항에 집중해야 합니다:</li> <li><strong>포인트 2</strong>: ### 핵심 업데이트 및 영향도</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>AWS EC2 G7e NVIDIA Blackwell GPU 출시</strong>: GB200 NVL72 탑재로 이전 세대 대비 AI 추론 성능 2.3배 향상, EC2 X8i는 Xeon 6 메모리 집약 워크로드용으로 SAP HANA 인증 획득</li> <li><strong>AWS European Sovereign Cloud 출범</strong>: EU 규정(GDPR/NIS2/DORA) 네이티브 준수를 위한 별도 클라우드 환경, 독일 및 스페인 가용 영역으로 데이터 주권 요구 기업의 마이그레이션 경로 제공</li> <li><strong>GCP Bangkok 리전 및 Gemini 3 Flash</strong>: 동남아 레이턴시 50% 개선, Gemini 3 Flash가 이전 Gemini 1.5 Pro 대비 3배 빠른 속도와 60% 저렴한 비용으로 AI 워크로드 TCO 절감</li>'
   period='2026-01-22 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

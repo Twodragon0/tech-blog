@@ -19,7 +19,9 @@ author: Twodragon
   title='AWS re:Inforce 2025: 클라우드 보안의 현재와 미래 🛡️'
   categories_html='<span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">AWS</span> <span class="tag">reInforce</span> <span class="tag">Cloud-Security</span> <span class="tag">Conference</span>'
-  highlights_html='<li><strong>포인트 1</strong>: AWS re:Inforce 2025 회고. AI 기반 보안 솔루션 및 Zero Trust 구현 방법</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>AWS re:Inforce 2025 핵심 발표</strong>: 필라델피아 5,800명 참석, Security Agent(AI 자동 위협 대응), GuardDuty Extended Threat Detection, IAM Policy Autopilot(AI 기반 최소 권한 정책 자동 생성), AgentCore Identity(AI 에이전트 전용 신원 관리) 발표</li>
+      <li><strong>AI 기반 클라우드 보안 자동화</strong>: 평균 침해 탐지 시간 45일→24시간 단축 목표, Security Hub GA로 멀티 계정 통합 보안 관리, GuardDuty Extended로 이상 행위 탐지 정확도 대폭 향상, Zero Trust 아키텍처 표준화 가속화</li>
+      <li><strong>실무 적용 로드맵</strong>: 즉시(IAM Policy Autopilot 활성화), 3개월 내(GuardDuty Extended 마이그레이션), 6개월 내(Security Agent 파일럿 도입), AWS Shared Responsibility Model 재점검을 통한 보안 성숙도 향상 전략</li>'
   period='2025-09-16 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

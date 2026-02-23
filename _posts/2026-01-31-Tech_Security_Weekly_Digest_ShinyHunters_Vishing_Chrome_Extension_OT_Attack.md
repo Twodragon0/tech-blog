@@ -19,7 +19,9 @@ schema_type: Article
   title='Tech &amp; Security Weekly Digest: ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT 탈취, 폴란드 에너지 OT 공격'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">ShinyHunters</span> <span class="tag">Vishing</span> <span class="tag">MFA-Bypass</span> <span class="tag">Chrome-Extension</span> <span class="tag">ChatGPT</span> <span class="tag">OT-Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ShinyHunters 비싱 공격으로 SaaS MFA 우회, 악성 Chrome 확장 ChatGPT 토큰 탈취, 폴란드 에너지 인프라 OT 사이버 공격 심층 분석</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>ShinyHunters 비싱 MFA 우회</strong>: Mandiant 발표, ShinyHunters 그룹이 음성 피싱으로 SaaS 플랫폼의 SMS/TOTP MFA를 우회하는 고도화 공격 활발 전개, FIDO2 피싱 방지 MFA 전환이 유일한 근본 대책</li>
+      <li><strong>악성 Chrome 확장 ChatGPT 토큰 탈취</strong>: Clawdbot을 사칭한 악성 확장 프로그램이 ChatGPT 인증 토큰을 탈취, 국내 ChatGPT Enterprise 사용자 약 10만 명 노출, 전사 Chrome 확장 허용 목록 정책 강제 적용 필요</li>
+      <li><strong>폴란드 에너지 OT 시스템 공격</strong>: CERT Polska 보고, 30개 이상 풍력·태양광 발전 시설 OT 시스템 대상 사이버 공격 완료, 국내 500개 이상 신재생에너지 발전소의 IT/OT 세그멘테이션 즉시 점검 필요</li>'
   period='2026-01-31 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

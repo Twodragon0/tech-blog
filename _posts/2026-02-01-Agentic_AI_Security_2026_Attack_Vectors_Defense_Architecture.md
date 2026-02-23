@@ -19,7 +19,9 @@ schema_type: Article
   title='에이전틱 AI 보안 2026: AI Agent 공격 벡터와 방어 아키텍처 완전 가이드'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Agentic-AI</span> <span class="tag">AI-Security</span> <span class="tag">Tool-Poisoning</span> <span class="tag">Prompt-Injection</span> <span class="tag">LLM-Security</span> <span class="tag">Supply-Chain</span> <span class="tag">Zero-Trust</span> <span class="tag">DevSecOps</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 에이전틱 AI 시대의 새로운 공격 벡터(Tool Poisoning, Tool Chain Attack, Prompt Injection)와 Google Chrome·CrowdStrike Falcon의 방어 아</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>AI Tool Poisoning &amp; Tool Chain Attack</strong>: CrowdStrike가 발표한 CVSS 9.8 수준의 AI 도구 독화 공격과 에이전트 체인 전체를 오염시키는 Tool Chain Attack, 허용 목록 기반 운영과 Human-in-the-Loop 승인 프로세스 즉시 적용 권고</li>
+      <li><strong>Chrome Agentic Security &amp; Prompt Injection 방어</strong>: Google이 Chrome에 구현한 에이전트 보안 아키텍처와 간접 프롬프트 인젝션(CVSS 8.2) 대응 4계층 방어 전략, CrowdStrike Falcon 플랫폼의 에이전트 행동 실시간 감사 방법론</li>
+      <li><strong>LABYRINTH CHOLLIMA 분화 &amp; 한국 규제 대응</strong>: 북한 연계 위협 그룹의 AI 에이전트 표적 공격 분화 분석, 개인정보보호법·정보통신망법 기반 에이전트 보안 의무 사항 및 금융보안원 신설 요구사항 실무 체크리스트</li>'
   period='2026-02-01 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

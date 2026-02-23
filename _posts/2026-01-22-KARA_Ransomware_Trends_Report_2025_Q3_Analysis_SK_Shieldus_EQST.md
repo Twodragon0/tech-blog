@@ -19,7 +19,7 @@ schema_type: Article
   title='2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag incident">인시던트</span>'
   tags_html='<span class="tag">Ransomware</span> <span class="tag">KARA</span> <span class="tag">SK-Shieldus</span> <span class="tag">LockBit</span> <span class="tag">Akira</span> <span class="tag">INC-Ransomware</span> <span class="tag">Threat-Intelligence</span> <span class="tag">DevSecOps</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2025년 3분기 랜섬웨어 1,517건 발생. LockBit 5.0 재등장, Akira 제조업 타겟, 제로 트러스트 대응 전략</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>2025 Q3 랜섬웨어 1,517건 급증</strong>: 전분기 대비 36% 증가, 활동 그룹 77개로 역대 최다. SK 쉴더스 EQST 분석에 따르면 제조업이 26%(+56%)로 1위 타겟 산업 등극</li> <li><strong>LockBit 5.0 재등장 및 INC Rust 버전</strong>: 법 집행 해체 후 재건된 LockBit 5.0가 EDR 우회 기법으로 복귀, INC Ransomware의 Rust 언어 변환으로 멀티플랫폼(Windows/Linux) 공격 가능</li> <li><strong>4중 협박 전술 확산</strong>: 암호화+데이터 유출+DDoS+피해자 고객 직접 협박 결합, 평균 랜섬 요구액 증가. 제로 트러스트 아키텍처와 오프라인 백업이 핵심 대응 전략</li>'
   period='2026-01-22 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

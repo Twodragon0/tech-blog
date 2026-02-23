@@ -18,7 +18,9 @@ toc: true
   title='기술·보안 주간 다이제스트: CVE-2025-49113, Ransomware'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">Vulnerability</span> <span class="tag">AI</span> <span class="tag">Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 21일 기준 보안 현황 및 위협 분석입니다</li> <li><strong>포인트 2</strong>: ### 위험 스코어카드</li> <li><strong>포인트 3</strong>: ```</li>'
+  highlights_html='<li><strong>Claude Code Security 출시</strong>: Anthropic이 AI 기반 취약점 스캔 및 자동 패치 제안 기능 공개, CI/CD 파이프라인 통합으로 DevSecOps Shift-Left 실현 가능</li>
+      <li><strong>Roundcube KEV 등재</strong>: CISA가 실제 악용 중인 Roundcube 웹메일 취약점 2건을 KEV 목록에 추가, 원격 코드 실행 가능한 치명적 결함 포함으로 즉각 대응 필요</li>
+      <li><strong>비트코인 대법원 판결 연동</strong>: 미국 대법원이 Trump 관세를 6대 3으로 무효화한 직후 비트코인 급등, 규제 불확실성 해소가 암호화폐 시장에 미치는 영향 확인</li>'
   period='2026-02-21 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

@@ -21,7 +21,9 @@ schema_type: Article
   title='클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">AWS</span> <span class="tag">CDN</span> <span class="tag">Cloudflare</span> <span class="tag">GitHub</span> <span class="tag">SAST</span> <span class="tag">WAF</span> <span class="tag">보안</span> <span class="tag">보안-아키텍처</span>'
-  highlights_html='<li><strong>포인트 1</strong>: AWS WAF, Cloudflare, GitHub 보안 완벽 가이드. DDoS 방어, 코드 스캔, 취약점 자동화 실무 정리</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>3계층 방어 아키텍처</strong>: AWS WAF(웹 ACL + Rate Limiting + IP Reputation) → Cloudflare(DDoS L3/L4/L7 방어, SSL/TLS 암호화, Bot Management) → GitHub(Dependabot, CodeQL SAST, Secret Scanning) 통합으로 99.5%+ 공격 차단</li>
+      <li><strong>Cloudflare 실무 설정 가이드</strong>: DNS Proxy 활성화로 실제 서버 IP 은닉, Under Attack Mode 즉시 전환, Page Rules로 특정 경로 보호 강화, Workers를 통한 엣지 보안 로직 구현, 99.99% 서비스 가용성 달성 전략</li>
+      <li><strong>GitHub 보안 자동화 파이프라인</strong>: Dependabot 자동 PR로 취약한 의존성 즉시 수정, CodeQL 쿼리 커스터마이징으로 도메인 특화 취약점 탐지, Secret Scanning Push Protection으로 자격증명 노출 사전 차단, CODEOWNERS 설정으로 보안 담당자 필수 리뷰 강제</li>'
   period='2025-05-23 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

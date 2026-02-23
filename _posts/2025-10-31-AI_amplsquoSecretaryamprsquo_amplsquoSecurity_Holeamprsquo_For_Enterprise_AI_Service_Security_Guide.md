@@ -19,7 +19,7 @@ author: Twodragon
   title='AI 시대, 당신의 &#39;비서&#39;가 &#39;보안 구멍&#39;이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드'
   categories_html='<span class="category-tag security">보안</span>'
   tags_html='<span class="tag">AI</span> <span class="tag">Enterprise-Security</span> <span class="tag">AI-Security</span> <span class="tag">Governance</span>'
-  highlights_html='<li><strong>포인트 1</strong>: AI 서비스 보안 가이드. Shadow AI 및 딥페이크 대응 방안</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>6대 AI 보안 위협</strong>: Shadow AI(비승인 AI 도입), 딥페이크 임원 사칭, 데이터 포이즈닝, AI 기반 자격증명 도용, MCP 서버 취약점(Cursor IDE 등 코딩 도구 악용), Rogue AI Agents(목표 탈취·권한 상승) — WEF 보고서 기준 93% 보안 리더가 일일 AI 공격을 예상</li> <li><strong>데이터 분류 기반 AI 사용 정책</strong>: 공개·내부·기밀·극비 4단계 분류로 AI 서비스 허용 범위 차등 적용 — 기밀 데이터는 자체 AI 플랫폼만 허용, DLP·CASB로 Shadow AI 탐지 및 실시간 전송 차단, GDPR·개인정보보호법 컴플라이언스 자동화</li> <li><strong>AI 에이전트 제어 아키텍처</strong>: 최소 권한 원칙(Read/Write/Execute/Network 화이트리스트), 실행 샌드박싱(컨테이너 격리), Human-in-the-loop 승인 프로세스, 모델 입출력 전량 로깅으로 Rogue AI Agent 피해 범위 최소화 — Zero Trust 아키텍처를 AI 시스템에 적용</li>'
   period='2025-10-31 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

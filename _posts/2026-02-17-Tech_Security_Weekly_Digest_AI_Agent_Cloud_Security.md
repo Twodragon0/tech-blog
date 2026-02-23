@@ -18,7 +18,9 @@ toc: true
   title='기술 &amp; 보안 주간 다이제스트: 클라우드, Zero-Day, 봇넷'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Agent</span> <span class="tag">Cloud</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 17일 주요 보안/기술 뉴스 18건 - AI, Agent, Cloud</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>인포스틸러 AI 에이전트 탈취</strong>: OpenClaw AI 에이전트 설정 파일과 게이트웨이 토큰이 인포스틸러 악성코드에 탈취, 브라우저 자격증명을 넘어 AI 에이전트 정체성까지 공격 대상 확대</li>
+      <li><strong>클라우드 패스워드 매니저 25개 취약점</strong>: Bitwarden, Dashlane, LastPass 등 주요 서비스에서 마스터 패스워드 없이 복구 가능한 취약점 발견, MFA 강제 적용 및 자격증명 즉시 로테이션 필요</li>
+      <li><strong>AWS 서버리스 AI 심층 방어 아키텍처</strong>: AI가 공격 자동화에 활용되는 시대에 맞서 AWS가 서버리스 마이크로서비스를 위한 AI 기반 Defense-in-Depth 아키텍처 공개</li>'
   period='2026-02-17 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

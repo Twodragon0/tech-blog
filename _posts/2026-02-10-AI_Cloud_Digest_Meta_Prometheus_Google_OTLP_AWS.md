@@ -16,7 +16,9 @@ schema_type: Article
   title='2026-02-10 AI &amp; 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트'
   categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">AI-Digest</span> <span class="tag">Cloud-Digest</span> <span class="tag">Meta-Prometheus</span> <span class="tag">Google-OTLP</span> <span class="tag">AWS</span> <span class="tag">ChatGPT</span> <span class="tag">OpenTelemetry</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus 4.6 Bedrock 통합, ChatGPT 미 국방부 GenAI.mil 플랫폼</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Meta Prometheus 기가와트급 AI 클러스터</strong>: 1GW 용량·리전 쌍당 16~48Pbps 네트워크, DSF/NSF 이중 패브릭으로 수만 GPU를 다중 데이터센터에 연결하는 초대규모 AI 인프라 공개</li>
+      <li><strong>Google Cloud OTLP 네이티브 지원</strong>: OpenTelemetry Protocol 직접 수신으로 벤더별 익스포터 불필요, Attribute 값 256배 확장(256B→64KiB)으로 멀티클라우드 벤더 중립 관찰성 스택 전환 가속</li>
+      <li><strong>AWS Bedrock Claude Opus 4.6 + CloudFront mTLS</strong>: 200K~1M 토큰 컨텍스트 AI 에이전트 워크플로우 통합, CDN-Origin 간 상호 TLS 인증으로 제로트러스트 아키텍처 강화</li>'
   period='2026-02-10 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

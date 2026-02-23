@@ -20,7 +20,7 @@ schema_type: Article
   title='블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag tech">블록체인</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Blockchain</span> <span class="tag">Cryptocurrency</span> <span class="tag">Bitcoin</span> <span class="tag">Ethereum</span> <span class="tag">Smart-Contract</span> <span class="tag">Security-Audit</span> <span class="tag">GitHub</span> <span class="tag">DevSecOps</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 블록체인 암호화폐 보안 DevSecOps 완벽 가이드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>2025년 암호화폐 해킹 34억 달러 손실</strong>: Bybit 15억 달러(역대 최대), Lazarus 그룹의 북한 APT 공격이 전체의 44% 차지. DeFi 프로토콜과 CEX 브릿지 취약점이 주요 공격 경로</li> <li><strong>스마트 컨트랙트 보안 도구 CI/CD 통합</strong>: Slither(정적분석), Mythril(심볼릭 실행), Securify(형식 검증), Medusa(퍼징)를 GitHub Actions에 통합해 배포 전 취약점 자동 탐지, 감사 비용 60% 절감</li> <li><strong>Reentrancy와 Oracle Manipulation 방어</strong>: 재진입 공격은 CEI 패턴(Check-Effect-Interact)과 ReentrancyGuard로 방어, Oracle Manipulation은 Chainlink TWAP 사용과 가격 편차 임계값 설정으로 플래시론 공격 차단</li>'
   period='2026-01-08 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

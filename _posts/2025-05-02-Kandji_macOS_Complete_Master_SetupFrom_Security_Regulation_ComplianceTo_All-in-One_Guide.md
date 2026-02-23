@@ -20,7 +20,9 @@ schema_type: Article
   title='Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드'
   categories_html='<span class="category-tag security">보안</span>'
   tags_html='<span class="tag">Kandji</span> <span class="tag">macOS</span> <span class="tag">MDM</span> <span class="tag">Endpoint-Security</span> <span class="tag">Compliance</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### 보안 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Kandji Apple-native MDM 핵심 기능</strong>: FileVault 2(전체 디스크 암호화), Gatekeeper(미서명 앱 차단), TCC(카메라·마이크 접근 제어), SIP(시스템 무결성 보호), Zero-touch 등록(박스 개봉→업무 준비 자동화)으로 macOS 보안 9.2/10 달성</li>
+      <li><strong>규정 준수 자동화</strong>: CIS Benchmark macOS 자동 점검·수정, ISMS-P 12개 통제 매핑, NIST 800-171 지원, 컴플라이언스 리포트 자동 생성, Kandji vs Jamf 비교($96-$144 vs $120-$180/디바이스/년) 및 마이그레이션 가이드</li>
+      <li><strong>2025년 macOS 보안 신기능</strong>: Passkey/FIDO2 네이티브 통합(암호 없는 인증), AI 기반 위협 탐지(XProtect Remediator 확장), Rapid Security Response 자동 적용, Kandji의 AI 이상 행위 탐지로 제로데이 위협 사전 차단 전략</li>'
   period='2025-05-02 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

@@ -19,7 +19,9 @@ schema_type: Article
   title='Tech &amp; Security Weekly Digest: Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용, Grist-Core RCE 취약점'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">CVE-2026-21509</span> <span class="tag">Microsoft-Office</span> <span class="tag">Zero-Day</span> <span class="tag">CTEM</span> <span class="tag">Grist-Core</span> <span class="tag">RCE</span>'
-  highlights_html='<li><strong>포인트 1</strong>: MS Office Zero-Day(CVE-2026-21509) 긴급 패치, CTEM 프레임워크 실무 가이드, Grist-Core RCE 취약점 대응</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>MS Office Zero-Day CVE-2026-21509 긴급 패치</strong>: CVSS 7.8·EPSS 84.7%로 Protected View 보안 기능 우회 취약점이 활발히 악용 중, KB5034173 긴급 배포 및 EDR/SIEM에 Office 프로세스 체인 모니터링 룰 즉시 추가 필요</li>
+      <li><strong>Grist-Core RCE 취약점 PoC 공개</strong>: 자체 호스팅 스프레드시트 플랫폼 Grist-Core에서 Critical RCE 취약점 PoC 공개, 인터넷 노출 인스턴스는 즉시 버전 업그레이드 필요</li>
+      <li><strong>CTEM 5단계 프레임워크 실무 적용</strong>: 범위 정의→발견→우선순위 지정→검증→동원의 지속적 위협 노출 관리 사이클로 취약점 대응 체계를 반응형에서 선제적으로 전환하는 실무 가이드</li>'
   period='2026-01-28 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

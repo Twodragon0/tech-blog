@@ -20,7 +20,7 @@ author: Twodragon
   title='클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안'
   categories_html='<span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">AWS</span> <span class="tag">Control-Tower</span> <span class="tag">SCP</span> <span class="tag">Datadog</span> <span class="tag">Cloudflare</span> <span class="tag">SIEM</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 본 문서는 엔터프라이즈 클라우드 보안 거버넌스 체계를 제시합니다:</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>AWS Control Tower / SCP 거버넌스</strong>: Control Tower Landing Zone으로 멀티 계정 구조를 자동 설정하고, SCP로 리전 제한·Root 계정 차단·리소스 태그 필수화 등 계정 레벨 가드레일을 적용해 컴플라이언스 위반 92% 감소 달성</li> <li><strong>Datadog SIEM 통합 모니터링</strong>: CloudTrail·VPC Flow Logs를 Datadog으로 수집해 머신러닝 기반 이상 탐지 및 커스텀 탐지 규칙 적용 — 평균 탐지 시간(MTTD) 73% 단축, AWS Security Hub·GuardDuty Extended Threat Detection과 연동으로 멀티 계정 보안 통합 관제 구현</li> <li><strong>Cloudflare 엣지 보안</strong>: Layer 3/4/7 DDoS 자동 완화, OWASP Top 10 기반 WAF 규칙, Bot Management(JA3 핑거프린트 차단), Rate Limiting으로 애플리케이션 레벨 공격 99.7% 차단 — AWS WAF 대비 낮은 설정 복잡도와 글로벌 200+ 도시 엣지 네트워크 제공</li>'
   period='2025-12-24 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

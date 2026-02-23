@@ -16,7 +16,9 @@ schema_type: Article
   title='2026-02-10 DevOps &amp; 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin'
   categories_html='<span class="category-tag devops">DevOps</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">DevOps-Digest</span> <span class="tag">Blockchain-Digest</span> <span class="tag">CNCF</span> <span class="tag">Kubernetes</span> <span class="tag">Cluster-API</span> <span class="tag">Chainalysis</span> <span class="tag">Bitcoin</span>'
-  highlights_html='<li><strong>포인트 1</strong>: CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트, Chainalysis Hexagate MegaETH 보안, Bitcoin $7</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>CNCF 10주년: K8s AI 워크로드 OS로 확립</strong>: 컨테이너 사용자 82% 프로덕션 K8s 운영, Backstage IDP 기여도 2배·OpenTelemetry 24,000명 기여자로 클라우드 네이티브 표준화 가속</li>
+      <li><strong>Cluster API v1.12 In-Place 업데이트</strong>: 머신 재생성 없이 노드 직접 설정 변경, 다중 마이너 버전 체인 업그레이드 자동화로 대규모 클러스터 다운타임 수 시간 → 수 분으로 단축</li>
+      <li><strong>Chainalysis Hexagate MegaETH 실시간 보안</strong>: ML 기반 Flash Loan·키 침해·거버넌스 조작 98%+ 사전 탐지, $1B+ 자산 보호 실적으로 DeFi 생태계 보안 인프라 강화</li>'
   period='2026-02-10 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

@@ -19,7 +19,9 @@ schema_type: Article
   title='CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">CLAUDE.md</span> <span class="tag">AI-Security</span> <span class="tag">Claude-Code</span> <span class="tag">DevSecOps</span> <span class="tag">Security-Guidelines</span> <span class="tag">AI-Agent</span> <span class="tag">Prompt-Engineering</span> <span class="tag">2026</span>'
-  highlights_html='<li><strong>포인트 1</strong>: CLAUDE.md와 AGENTS.md로 AI 에이전트 보안 가이드라인 구축. Security-First 원칙과 실무 구현</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>CLAUDE.md / AGENTS.md 보안 가이드라인 설계</strong>: AI 에이전트가 API 키 하드코딩, 로그 민감정보 노출, 검증 없는 외부 라이브러리 도입 등의 보안 실수를 반복하지 않도록 지시 파일에 Security-First 원칙을 명시하는 구체적 작성법 제시</li>
+      <li><strong>Never Hardcode &amp; 로그 마스킹 패턴</strong>: os.getenv() 기반 환경 변수 관리, mask_sensitive_info()로 로그 마스킹, _validate_masked_text()로 파일 저장 전 검증하는 Python/JavaScript 실무 코드 패턴 수록</li>
+      <li><strong>Pre-commit 보안 자동화 체크리스트</strong>: 비밀 키 탐지(git-secrets), 이미지 파일명 영문 확인, SVG 한글 텍스트 금지, 코드 블록 언어 태그 필수, CSP 헤더 검토 등 커밋 전 자동 검증 파이프라인 구축 방법</li>'
   period='2026-01-28 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

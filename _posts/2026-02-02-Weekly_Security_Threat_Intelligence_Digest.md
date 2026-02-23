@@ -19,7 +19,9 @@ schema_type: Article
   title='주간 보안 위협 인텔리전스 다이제스트: Notepad++ 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">Supply-Chain</span> <span class="tag">Notepad++</span> <span class="tag">Ransomware</span> <span class="tag">Zero-Trust</span> <span class="tag">JWT</span> <span class="tag">Vertical-AI</span> <span class="tag">SK-Shieldus</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Notepad++ 국가 지원 공급망 공격, SK쉴더스 11-1월 보안 리포트 종합 (Vertical AI, BlackField/Sinobi/Gentlemen 랜섬웨어, 제로트러스트, JWT 보안), HashiCorp</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Notepad++ 국가 지원 공급망 공격</strong>: 국가 지원 해킹 그룹이 배포 인프라를 침해해 전 세계 수백만 개발자 대상 악성 바이너리 배포(T1195.002), 널리 사용되는 오픈소스 도구도 국가급 위협에 무방비임을 확인</li>
+      <li><strong>랜섬웨어 생태계 변화</strong>: BlackField는 LockBit·Babuk·Conti 유출 코드를 복합 재활용, Sinobi는 Lynx 그룹과 TTP·인프라 수준 연계, 유출 소스코드가 새 위협의 빌딩 블록이 되는 악순환 가속화</li>
+      <li><strong>JWT 서명키 유출 &amp; HashiCorp Zero Trust</strong>: HS256 대칭키 유출 시 전체 인증 체계 즉시 무력화되는 JWT 위협 분석, HashiCorp Boundary 0.21 패스워드리스 RDP와 VSO etcd-free 시크릿 관리로 Zero Trust 접근 제어 현대화</li>'
   period='2026-02-02 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

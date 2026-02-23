@@ -19,7 +19,7 @@ schema_type: Article
   title='2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석'
   categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag security">보안</span>'
   tags_html='<span class="tag">DevSecOps</span> <span class="tag">로드맵</span> <span class="tag">보안</span> <span class="tag">학습-경로</span> <span class="tag">roadmap.sh</span> <span class="tag">2026</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026 DevSecOps 로드맵 93개 학습 항목 분석</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>roadmap.sh 93개 항목 4단계 학습 경로</strong>: 기초(Linux/네트워킹) - 핵심DevOps(CI/CD/컨테이너) - 보안내재화(SAST/DAST/SCA) - 전문화(위협모델링/컴플라이언스) 단계별 습득 경로와 각 단계별 추천 도구 정리</li> <li><strong>OWASP Top 10:2025 공급망 보안 신규 추가</strong>: 2025년 개정에서 A09 공급망 보안이 신규 카테고리로 추가, SolarWinds/XZ Utils 같은 공급망 공격 대응을 위한 SBOM 생성과 의존성 검증 방법 포함</li> <li><strong>CodeQL Rust 지원과 GitHub 시크릿 탐지 통계</strong>: GitHub이 2024년 공개 저장소에서 3,900만 개 시크릿 탐지, CodeQL이 Rust 언어 공식 지원 추가. SAST/DAST/IAST/SCA 4가지 테스트 방식 비교와 도구별 특성 분석 제공</li>'
   period='2026-01-10 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

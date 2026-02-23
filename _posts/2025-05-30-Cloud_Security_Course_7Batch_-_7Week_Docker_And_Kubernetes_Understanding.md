@@ -20,7 +20,9 @@ schema_type: Article
   title='클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해'
   categories_html='<span class="category-tag devops">쿠버네티스</span>'
   tags_html='<span class="tag">Docker</span> <span class="tag">Kubernetes</span> <span class="tag">Container</span> <span class="tag">K8s</span> <span class="tag">Cloud-Security</span> <span class="tag">DevSecOps</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 컨테이너 기술은 현대 클라우드 인프라의 핵심이며, Docker와 Kubernetes는 가장 널리 사용되는 표준입니다. 본 문서는 컨테이너 보안의 전체 생명주기(Build → Ship → Run)를 다루며, 2025년 최신 보안 업데이트와 실무 적용 방법을 제공합니다.</li> <li><strong>포인트 2</strong>: ### 주요 보안 위험</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>컨테이너 보안 Build→Ship→Run 전 단계 통제</strong>: Build(Distroless/Alpine 이미지, multi-stage 빌드, Trivy 이미지 스캔), Ship(Cosign 서명, SBOM 생성), Run(read-only 파일시스템, non-root 실행, seccomp 프로필)으로 각 단계 취약점 차단</li>
+      <li><strong>Kubernetes 핵심 보안 3종 세트</strong>: Network Policy(기본 deny-all + 필요한 ingress/egress만 허용), Pod Security Standards Restricted(privileged 컨테이너·hostPath 차단), Falco 런타임 이상 탐지(컨테이너 쉘 접속·파일시스템 변조 실시간 알림)</li>
+      <li><strong>2025년 K8s 보안 업데이트</strong>: User Namespaces GA(컨테이너 root-호스트 격리), Pod Security Admission 기본 활성화, Kubernetes 1.32+ Bound ServiceAccount Token 1시간 자동 만료, Supply Chain 공격 대응 SBOM 표준화 동향</li>'
   period='2025-05-30 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

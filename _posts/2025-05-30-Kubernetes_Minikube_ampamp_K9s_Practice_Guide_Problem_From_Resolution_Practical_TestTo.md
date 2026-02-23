@@ -21,7 +21,9 @@ schema_type: Article
   title='Kubernetes Minikube &amp; K9s 실습 가이드: 문제 해결부터 실전 테스트까지'
   categories_html='<span class="category-tag devops">쿠버네티스</span>'
   tags_html='<span class="tag">Kubernetes</span> <span class="tag">Minikube</span> <span class="tag">K9s</span> <span class="tag">K8s</span> <span class="tag">Troubleshooting</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Kubernetes Minikube &amp; K9s 실습 가이드: 문제 해결부터 실전 테스트까지</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Minikube 1.37.0+ 로컬 K8s 환경 구축</strong>: Docker 드라이버 기반 멀티노드 클러스터 설정, Ingress·MetalLB·Dashboard 애드온 활성화, Apple Silicon(M1/M2) 및 Linux 환경별 트러블슈팅 가이드 포함</li>
+      <li><strong>K9s 터미널 UI 실전 활용</strong>: 단축키 기반 Pod/Deployment/Service 실시간 관리, 로그 스트리밍·쉘 접속·리소스 편집, 커스텀 플러그인으로 Trivy 취약점 스캔 통합, 클라우드 대비 개발/테스트 비용 60-80% 절감</li>
+      <li><strong>2024-2025 K8s 보안 신기능 적용</strong>: User Namespaces(1.30 stable, 컨테이너 root ≠ 호스트 root), Bound Service Account Tokens(1시간 만료 자동 갱신), Pod Security Standards Restricted 프로필 실습 시나리오 제공</li>'
   period='2025-05-30 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

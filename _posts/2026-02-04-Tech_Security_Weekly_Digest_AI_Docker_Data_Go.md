@@ -19,7 +19,9 @@ schema_type: Article
   title='2026년 2월 4일 주간 기술 보안 다이제스트: Docker AI 취약점, CVE-2025-11953, RCE 공격'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Docker</span> <span class="tag">CVE-2025-11953</span> <span class="tag">Metro4Shell</span> <span class="tag">RCE</span> <span class="tag">AI-Agent-Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Docker Ask Gordon AI 코드 실행 취약점(DockerDash), Metro4Shell RCE(CVE-2025-11953, CVSS 9.8), AWS IAM Identity Center 멀티리전, AI</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>DockerDash: Docker AI 비서 코드 실행 취약점</strong>: Docker 이미지 메타데이터에 악성 페이로드 삽입 시 Ask Gordon AI가 처리 중 코드 실행, 개발 환경 침해 통한 소스코드 유출·공급망 공격 확대 위험</li>
+      <li><strong>Metro4Shell RCE (CVE-2025-11953, CVSS 9.8)</strong>: React Native CLI Metro 번들러의 Critical 원격 코드 실행 취약점, 활발히 악용 중이며 npm audit 실행 및 즉각 패치 필요</li>
+      <li><strong>AI 에이전트 3Cs 보안 프레임워크</strong>: Containment(격리)·Control(제어)·Compliance(준수) 3축 기반 AI 에이전트 보안 설계, AWS IAM Identity Center 멀티리전 데이터 주권 검토와 병행 적용 필요</li>'
   period='2026-02-04 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

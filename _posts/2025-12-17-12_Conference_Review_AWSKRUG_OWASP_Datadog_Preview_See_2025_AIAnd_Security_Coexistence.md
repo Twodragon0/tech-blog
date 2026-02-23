@@ -19,7 +19,9 @@ author: Twodragon
   title='[12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존'
   categories_html='<span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">AWSKRUG</span> <span class="tag">OWASP</span> <span class="tag">Datadog</span> <span class="tag">AI</span> <span class="tag">Conference</span>'
-  highlights_html='<li><strong>포인트 1</strong>: AWSKRUG, OWASP, Datadog 컨퍼런스로 보는 2025년 AI 보안 트렌드와 실무 적용 방안</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>2025 AI·보안 트렌드</strong>: Supply Chain 공격 180% 증가로 SBOM이 사실상 표준화, Cloudflare 전체 트래픽의 52%를 Post-quantum 암호화로 보호하며 Zero Trust에서 양자내성 아키텍처로 전환 중</li>
+      <li><strong>3개 컨퍼런스 주요 인사이트</strong>: AWSKRUG에서 Amazon Kiro AI 코딩 에이전트 정식 출시, OWASP Seoul에서 에이전틱 AI 10대 위협 공개, Datadog Security 101에서 실시간 위협 탐지 대시보드 실습 진행</li>
+      <li><strong>AWS re:Invent 2025 보안 신기능</strong>: Security Agent(AI 자동 위협 대응), GuardDuty Extended Threat Detection, IAM Policy Autopilot, AgentCore Identity(AI 에이전트 전용 신원 관리) 발표로 클라우드 보안 자동화 대폭 강화</li>'
   period='2025-12-17 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

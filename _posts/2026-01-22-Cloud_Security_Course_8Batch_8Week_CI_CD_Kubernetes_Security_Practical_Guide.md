@@ -21,7 +21,7 @@ category: devsecops
   title='🚀 클라우드 보안 과정 8기 8주차: CI/CD와 Kubernetes 보안 실전 가이드 - DevSecOps 파이프라인부터 클러스터 보안까지'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag devops">쿠버네티스</span>'
   tags_html='<span class="tag">CI/CD</span> <span class="tag">Kubernetes</span> <span class="tag">DevSecOps</span> <span class="tag">K8s-Security</span> <span class="tag">Cloud-Security</span> <span class="tag">ArgoCD</span> <span class="tag">Jenkins</span> <span class="tag">Network-Policies</span>'
-  highlights_html='<li><strong>포인트 1</strong>: CI/CD 보안, K8s Network Policies, Pod Security Standards, AI 기반 보안 자동화</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>CI/CD 보안 파이프라인 실전 구축</strong>: Trivy 이미지 스캔, Snyk SCA, HashiCorp Vault Secret 관리를 Jenkins/ArgoCD에 통합, 파이프라인 내 보안 게이트로 취약점을 프로덕션 배포 전 차단</li> <li><strong>K8s Network Policies/RBAC/Pod Security Standards</strong>: Calico Network Policy로 Pod 간 최소 권한 통신 구현, RBAC 세분화, Pod Security Standards Restricted 프로파일 적용으로 컨테이너 실행 환경 강화</li> <li><strong>AI 기반 DevSecOps 자동화</strong>: Cursor/Claude API/GitHub Copilot을 CI/CD 파이프라인에 통합, AI 코드 리뷰와 보안 설정 자동 생성으로 보안 내재화 속도 3배 향상</li>'
   period='2026-01-22 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

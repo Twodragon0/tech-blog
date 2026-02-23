@@ -20,7 +20,9 @@ schema_type: Article
   title='Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화 및 AWS 최적화'
   categories_html='<span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Amazon-Q</span> <span class="tag">GitHub-Advanced-Security</span> <span class="tag">Code-Security</span> <span class="tag">AWS</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2025년 현재, AI 기반 보안 도구는 DevSecOps 환경의 필수 요소가 되었습니다. 본 문서는 Amazon Q Developer와 GitHub Advanced Security를 활용한 엔터프라이즈급 보안 자동화 전략을 다룹니다.</li> <li><strong>포인트 2</strong>: ### Risk Scorecard (위험 평가표)</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>AI 코드 보안 도구 비교</strong>: Amazon Q Developer(9.4/10, AWS 서비스 특화 코드 제안·취약점 자동 수정) vs GitHub Advanced Security(8.8/10, CodeQL SAST·Secret Scanning·Dependabot), 공급망 공격 742% 급증 대응을 위한 두 도구 통합 전략</li>
+      <li><strong>DevSecOps 자동화 파이프라인 구축</strong>: PR 단계에서 CodeQL·Amazon Q 취약점 스캔 자동 실행, Secret 노출 시 즉시 차단 게이트, Dependabot으로 의존성 자동 업데이트, 코드 리뷰 시간 88.6% 단축 실현</li>
+      <li><strong>비즈니스 ROI 실증</strong>: 200인 기업 기준 연간 ₩870M 절감(보안 사고 대응 비용 감소 + 개발 생산성 향상), Amazon Q Developer Pro $19/월, GitHub Advanced Security $49/사용자/월 투자 대비 효과 분석</li>'
   period='2025-05-24 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

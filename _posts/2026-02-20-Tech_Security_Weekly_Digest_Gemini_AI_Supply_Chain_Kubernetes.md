@@ -18,7 +18,9 @@ toc: true
   title='기술 &amp; 보안 주간 다이제스트: Gemini 3.1 Pro, AI 공급망 공격, Kubernetes'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">Gemini</span> <span class="tag">AI</span> <span class="tag">Supply-Chain</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 20일 주요 보안/기술 뉴스 29건 - Gemini 3.1 Pro, AI Supply Chain, Kubernetes</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>PromptSpy 악성코드</strong>: Gemini AI를 악용한 최초의 안드로이드 악성코드 발견, VNC 원격 접근 및 PIN 가로채기 기능 탑재</li>
+      <li><strong>Clinejection 공급망 공격</strong>: AI 코딩 에이전트를 프롬프트 인젝션으로 공급망 공격 벡터로 전환하는 새로운 위협 등장</li>
+      <li><strong>K8s Ingress NGINX 은퇴</strong>: 2026년 3월 이후 공식 지원 종료 예정, 클라우드 네이티브 환경 약 50%에 영향</li>'
   period='2026-02-20 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

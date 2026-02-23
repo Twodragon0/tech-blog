@@ -21,7 +21,7 @@ category: kubernetes
   title='🚀 클라우드 보안 과정 8기 7주차: Docker &amp; Kubernetes 보안 실전 가이드 - 컨테이너 보안부터 클러스터 보안까지'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span> <span class="category-tag devops">쿠버네티스</span>'
   tags_html='<span class="tag">Docker</span> <span class="tag">Kubernetes</span> <span class="tag">Container-Security</span> <span class="tag">K8s</span> <span class="tag">Cloud-Security</span> <span class="tag">DevSecOps</span> <span class="tag">Minikube</span> <span class="tag">K9s</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Docker/K8s 보안, Pod Security Standards, User Namespaces, 이미지 스캔, 런타임 모니터링</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Docker 컨테이너 보안 핵심 3원칙</strong>: 비루트(non-root) 사용자 실행, Trivy 이미지 취약점 스캔 CI 통합, Kubernetes Secret/ConfigMap으로 환경변수 분리. 이 3가지만 지켜도 컨테이너 공격 표면 70% 감소</li> <li><strong>K8s Pod Security Standards Restricted 적용</strong>: K8s 1.25+ 기본 제공 PSS Restricted 프로파일로 privileged 컨테이너, hostNetwork, hostPID 차단. K8s 1.32+의 User Namespaces로 컨테이너 루트가 호스트 루트 권한을 갖지 않도록 격리</li> <li><strong>Minikube 보안 실습 환경 구축</strong>: 로컬 Minikube에 실제 공격-탐지-대응 시나리오 재현, Falco 런타임 모니터링과 K9s 대시보드로 보안 이벤트 실시간 추적 실습</li>'
   period='2026-01-15 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

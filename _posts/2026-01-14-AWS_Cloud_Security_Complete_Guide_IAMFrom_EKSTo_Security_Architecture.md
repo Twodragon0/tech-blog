@@ -20,7 +20,7 @@ certifications: [aws-saa]
   title='AWS 클라우드 보안 완벽 가이드: IAM부터 EKS까지 실무 중심 보안 아키텍처'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">AWS</span> <span class="tag">Security</span> <span class="tag">IAM</span> <span class="tag">VPC</span> <span class="tag">S3</span> <span class="tag">RDS</span> <span class="tag">EKS</span> <span class="tag">CloudTrail</span>'
-  highlights_html='<li><strong>포인트 1</strong>: AWS IAM, VPC, S3, RDS, EKS 보안 아키텍처. Defense in Depth 전략과 실무 체크리스트 제공</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>AWS 계층별 Defense in Depth 아키텍처</strong>: IAM(최소 권한) - VPC(네트워크 격리) - S3(퍼블릭 차단+암호화) - RDS(VPC 내부+SSL) - EKS(RBAC+PSS) 5계층 보안 구조로 단일 취약점이 전체 침해로 이어지지 않도록 설계</li> <li><strong>GuardDuty + Lambda 자동 위협 대응</strong>: GuardDuty 위협 탐지를 EventBridge로 수신해 Lambda가 자동으로 악성 IP 차단, 침해 IAM 비활성화, 격리 보안 그룹 적용. MTTR 4시간에서 45분으로 단축</li> <li><strong>EKS CIS Benchmark 적용으로 사고 67% 감소</strong>: EKS Pod Security Standards, Network Policy, 노드 그룹 IAM 최소 권한 CIS 기준 구현 후 보안 사고 67% 감소, Kubernetes 감사 로그 CloudWatch 연동으로 이상 행위 탐지</li>'
   period='2026-01-14 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

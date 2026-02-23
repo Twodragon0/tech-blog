@@ -19,7 +19,9 @@ schema_type: Article
   title='기술 &amp; 보안 주간 다이제스트: Lazarus, RCE, 클라우드'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Go</span> <span class="tag">Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 13일 주요 보안/기술 뉴스 25건 - AI, Go, Security</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>국가지원 AI 무기화</strong>: 북한 UNC2970·다수 해킹 그룹이 Gemini AI를 정찰·사회공학·악성코드 개발 전 주기에 활용하는 추세가 구글에 의해 공식 확인됨</li>
+      <li><strong>Lazarus npm/PyPI 공급망 공격</strong>: 코드명 graphalgo 캠페인으로 북한 Lazarus 그룹이 가짜 채용을 통해 오픈소스 패키지 생태계에 악성 패키지 유포, 개발자 환경이 주요 표적</li>
+      <li><strong>Copilot Studio 에이전트 10대 보안 위험</strong>: 잘못된 구성·과도한 공유·미인증 접근 등 AI 에이전트 권한 확대에 따른 신규 위협 벡터, Microsoft Defender 기반 탐지·완화 방법 제시</li>'
   period='2026-02-13 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

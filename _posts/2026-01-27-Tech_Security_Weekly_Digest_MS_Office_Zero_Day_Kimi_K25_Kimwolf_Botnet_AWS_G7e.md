@@ -19,7 +19,9 @@ schema_type: Article
   title='Tech &amp; Security Weekly Digest: MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷 위협'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">Zero-Day</span> <span class="tag">Microsoft-Office</span> <span class="tag">Kimi-K25</span> <span class="tag">AI-Agents</span> <span class="tag">Kimwolf-Botnet</span> <span class="tag">AWS-G7e</span> <span class="tag">NVIDIA-Blackwell</span>'
-  highlights_html='<li><strong>포인트 1</strong>: MS Office Zero-Day 실제 악용, Kimi K2.5 비주얼 에이전트, Kimwolf 200만 IoT 봇넷, AWS Blackwell GPU</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>MS Office Zero-Day CVE-2026-21509 실제 악용</strong>: Protected View 우회 취약점이 전사 Office 사용자 100%에 영향, 24시간 내 긴급 패치 배포 필요, Oracle도 동시에 158개 CVE 패치 발표로 이중 패치 부담</li>
+      <li><strong>Kimwolf/Badbox 2.0 IoT 봇넷 200만 기기 감염</strong>: Android TV·IoT 기기 200만 대 이상을 감염시킨 Kimwolf 봇넷이 기업·정부 네트워크 내부 스캐닝, DDoS 참여, 악성 트래픽 중계에 악용, IoT 기기 네트워크 격리 즉시 필요</li>
+      <li><strong>Kimi K2.5 오픈소스 비주얼 에이전트 &amp; AWS G7e</strong>: 중국 Moonshot AI의 Kimi K2.5가 시각 정보 처리 가능한 오픈소스 에이전트로 공개, AWS EC2 G7e 인스턴스가 NVIDIA Blackwell GPU로 AI 워크로드 성능 2.3배 향상</li>'
   period='2026-01-27 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

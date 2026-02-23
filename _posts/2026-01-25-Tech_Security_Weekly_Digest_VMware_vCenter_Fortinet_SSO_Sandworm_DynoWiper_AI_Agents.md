@@ -19,7 +19,9 @@ schema_type: Article
   title='Tech &amp; Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회, Sandworm DynoWiper 폴란드 공격'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">VMware</span> <span class="tag">vCenter</span> <span class="tag">CISA-KEV</span> <span class="tag">Fortinet</span> <span class="tag">FortiGate</span> <span class="tag">SSO-Bypass</span> <span class="tag">Sandworm</span>'
-  highlights_html='<li><strong>포인트 1</strong>: VMware vCenter KEV 긴급, Fortinet SSO 우회, Sandworm DynoWiper APT, AI 에이전트 NHI 관리</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>VMware vCenter CVE-2024-37079 CISA KEV 긴급 패치</strong>: 국내 대기업·공공기관 가상화 인프라의 핵심인 vCenter가 CISA 악용 취약점 목록에 추가, 활성 익스플로잇이 확인된 Critical 취약점으로 즉시 패치 필요</li>
+      <li><strong>Fortinet FortiGate 완전 패치 환경 SSO 우회 제로데이</strong>: 최신 패치 적용 환경에서도 FortiCloud SSO를 우회하는 제로데이 발견, 국내 방화벽 시장 점유율 1위(약 35%) 제품으로 즉각적 완화 조치와 FortiCloud 접근 모니터링 필요</li>
+      <li><strong>Sandworm APT DynoWiper 폴란드 전력망 공격</strong>: 러시아 연계 Sandworm가 와이퍼 악성코드 DynoWiper로 폴란드 에너지 인프라 공격, 국내 에너지·수도 OT 환경의 Air-Gap 강화와 오프라인 백업 체계 점검 필요</li>'
   period='2026-01-25 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

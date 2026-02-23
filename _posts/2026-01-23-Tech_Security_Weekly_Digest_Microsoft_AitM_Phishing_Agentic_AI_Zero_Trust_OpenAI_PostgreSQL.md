@@ -19,7 +19,9 @@ schema_type: Article
   title='Tech &amp; Security Weekly Digest: Microsoft AitM 피싱 경고, Agentic AI Zero Trust, OpenAI PostgreSQL 8억 사용자 스케일링'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">AitM-Phishing</span> <span class="tag">BEC</span> <span class="tag">Zero-Trust</span> <span class="tag">Agentic-AI</span> <span class="tag">NHI</span> <span class="tag">PostgreSQL</span> <span class="tag">OpenAI</span>'
-  highlights_html='<li><strong>포인트 1</strong>: AitM 피싱, Agentic AI Zero Trust, PostgreSQL 8억 사용자 스케일링, vLLM Inferact $150M 투자</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Microsoft AitM 피싱 에너지 기업 공격 경고</strong>: 중간자 피싱(AitM)으로 기존 SMS/TOTP MFA를 우회하는 고도화된 BEC 공격이 에너지 섹터 대상 활발, FIDO2/Passkey 피싱 방지 MFA가 유일한 근본 대책</li>
+      <li><strong>Agentic AI NHI 관리 Zero Trust 전략</strong>: HashiCorp가 자율 AI 시스템 확산으로 폭발적 증가하는 비인간 ID를 Vault 동적 시크릿과 최소 권한으로 관리하는 Zero Trust 아키텍처 가이드 발표</li>
+      <li><strong>OpenAI PostgreSQL 8억 사용자 스케일링 아키텍처</strong>: OpenAI가 NoSQL 없이 PostgreSQL 단독으로 8억 사용자를 지원하는 수평 확장 아키텍처 공개, 검증된 RDBMS의 초대규모 스케일링 가능성 입증</li>'
   period='2026-01-23 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

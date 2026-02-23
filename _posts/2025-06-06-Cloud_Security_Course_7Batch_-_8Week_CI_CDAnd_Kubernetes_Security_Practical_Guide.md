@@ -22,7 +22,9 @@ schema_type: Article
   title='클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드'
   categories_html='<span class="category-tag devops">쿠버네티스</span>'
   tags_html='<span class="tag">CI/CD</span> <span class="tag">Kubernetes</span> <span class="tag">Security</span> <span class="tag">DevSecOps</span> <span class="tag">GitOps</span> <span class="tag">Pipeline-Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2025년 2분기 DevSecOps 보안 자동화 투자로 **연간 ₩450M 비용 절감** 및 **보안 리스크 85% 감소** 달성.</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>CI/CD 파이프라인 보안 자동화</strong>: GitHub Actions에 SAST(Semgrep), Secret 스캐닝(Gitleaks), 의존성 취약점 스캔(Trivy), DAST 통합으로 코드 머지 전 보안 게이트 구축, 보안 리스크 85% 감소·연간 ₩450M 절감 효과</li>
+      <li><strong>Kubernetes 클러스터 보안 3계층</strong>: RBAC 최소 권한(ServiceAccount별 Role 분리), Pod Security Standards(Restricted 프로필), Network Policy(deny-all 기본값 + allowlist)로 클러스터 내 lateral movement 차단</li>
+      <li><strong>이미지 서명 및 런타임 보안</strong>: Cosign으로 컨테이너 이미지 서명·검증 자동화, Falco 런타임 이상 행위 탐지 규칙 커스터마이징, GitOps(ArgoCD) 기반 불변 인프라 구현으로 공급망 공격 방어</li>'
   period='2025-06-06 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

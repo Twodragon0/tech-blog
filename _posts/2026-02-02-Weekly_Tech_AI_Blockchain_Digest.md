@@ -19,7 +19,9 @@ schema_type: Article
   title='주간 기술 &amp; AI &amp; 블록체인 다이제스트: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 역설, DeFi 보안, FOSDEM 2026'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">Apple</span> <span class="tag">Bitcoin-Crash</span> <span class="tag">AI-Creativity</span> <span class="tag">DeFi-Security</span> <span class="tag">Claude-Code</span> <span class="tag">Google-Research</span> <span class="tag">CrossCurve-Exploit</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Apple iPhone 16 MLX LLM 버그, Bitcoin $74K 급락과 $19B 청산, AI 창의성 역설 연구, CrossCurve DeFi 익스플로잇, FOSDEM 2026 하이라이트</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>iPhone 16 Pro Max MLX 추론 버그</strong>: A18 Pro Neural Engine이 MLX LLM 실행 시 텐서 값을 한 자릿수 이상 왜곡하는 하드웨어 수준 결함 발견, A17 Pro·M시리즈에서는 정상 동작해 Apple 온디바이스 AI 신뢰성에 의문 제기</li>
+      <li><strong>Bitcoin $74K 급락·$19B 청산</strong>: Trump의 Fed 의장 후보 지명이 촉발한 매도세가 Binance 유동성 부족과 맞물려 역대 최대 규모 주말 청산 이벤트 발생, BlackRock IBIT 달러 가중 수익률 적자 전환</li>
+      <li><strong>AI 창의성 역설 &amp; DeFi 보안</strong>: 몬트리올대 10만 명 연구로 AI 사용이 개인 창의성을 저하시키는 역설 입증, CrossCurve 크로스체인 브릿지에서 $3M 탈취, Ethereum Foundation이 양자 컴퓨팅 대응 Post-Quantum 서명 도입 우선순위 격상</li>'
   period='2026-02-02 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

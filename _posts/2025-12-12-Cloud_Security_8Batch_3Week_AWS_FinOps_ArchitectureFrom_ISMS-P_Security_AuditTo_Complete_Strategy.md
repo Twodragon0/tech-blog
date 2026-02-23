@@ -21,7 +21,9 @@ author: Twodragon
   title='클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!'
   categories_html='<span class="category-tag cloud">FinOps</span>'
   tags_html='<span class="tag">AWS</span> <span class="tag">FinOps</span> <span class="tag">ISMS-P</span> <span class="tag">Audit</span> <span class="tag">Cost-Optimization</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### 비즈니스 가치 및 위험 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>2025 FinOps 트렌드 5가지</strong>: AI/ML 워크로드 비용 관리(Spot Instance로 최대 90% 절감), GreenOps 통합(탄소 30% 감축 목표), Commitment Management, Real-time Cost Visibility, Unit Economics로 월 $50K → $35K 절감 달성 가능</li>
+      <li><strong>AWS 비용 최적화 도구 활용</strong>: Cost Optimization Hub 활성화로 월 $5,000-$10,000 절감, 리소스 태깅 전략으로 비용 가시성 60%→95% 향상, Savings Plans 최적화로 추가 $3,000-$5,000 절감 실현</li>
+      <li><strong>ISMS-P 보안 감사 대응 전략</strong>: AWS Artifact·Config Rules·Security Hub·CloudTrail을 통한 컴플라이언스 자동화, 보안 컴플라이언스 점수 75→90점 목표, 보안 사고 대응 시간 4시간→30분으로 단축</li>'
   period='2025-12-12 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

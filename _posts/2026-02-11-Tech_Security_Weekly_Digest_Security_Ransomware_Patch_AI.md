@@ -19,7 +19,9 @@ schema_type: Article
   title='기술 &amp; 보안 주간 다이제스트: 랜섬웨어, CVE-2026-21643, Fortinet'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">Security</span> <span class="tag">Ransomware</span> <span class="tag">Patch</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 11일 주요 보안/기술 뉴스 26건 - Security, Ransomware, Patch</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Fortinet Critical SQLi 패치 (CVE-2026-21643)</strong>: 미인증 원격 코드 실행 가능한 CVSS 최고 위험 취약점, 즉시 패치 필요</li>
+      <li><strong>Reynolds 랜섬웨어 BYOVD 방어 우회</strong>: 신종 랜섬웨어가 페이로드 내 BYOVD 컴포넌트를 내장해 취약한 정품 드라이버로 권한 상승 및 EDR 비활성화 기술 확인</li>
+      <li><strong>공격 패러다임 전환: 랜섬웨어→장기 잠복</strong>: Picus Labs Red Report 2026, 110만+ 악성 파일 분석 기반으로 암호화 중심 공격이 은밀한 장기 내부 잠복 방식으로 전환되고 있음 확인</li>'
   period='2026-02-11 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

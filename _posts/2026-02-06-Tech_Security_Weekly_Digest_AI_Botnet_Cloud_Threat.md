@@ -19,7 +19,9 @@ schema_type: Article
   title='기술 &amp; 보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Botnet</span> <span class="tag">Cloud</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 06일 주요 보안/기술 뉴스 27건 - CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD, Claude Opus 4.6</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>CrashFix: ClickFix 변종 Python RAT 배포</strong>: 브라우저를 의도적으로 크래시시켜 사용자가 PowerShell 명령 실행하도록 유도, finger.exe·Portable Python으로 EDR 우회 후 RAT 설치하는 고도화된 소셜 엔지니어링 확인</li>
+      <li><strong>AISURU/Kimwolf 봇넷 31.4 Tbps DDoS 기록 경신</strong>: 35초 초단기 초대규모 공격으로 2020년 3Tbps 대비 10배 이상 규모 확대, Cloudflare·AWS Shield 미사용 시 서비스 중단 위험 현실화</li>
+      <li><strong>GitHub Codespaces RCE + BYOVD 복합 위협</strong>: 개발 환경 RCE·AsyncRAT C2 인프라·BYOVD 드라이버 악용이 동시 진행, CI/CD 파이프라인 장악을 통한 코드 무결성 훼손 위험</li>'
   period='2026-02-06 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

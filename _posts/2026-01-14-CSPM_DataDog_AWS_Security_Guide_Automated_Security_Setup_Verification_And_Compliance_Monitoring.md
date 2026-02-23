@@ -20,7 +20,7 @@ certifications: [isms-p, aws-saa]
   title='CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">CSPM</span> <span class="tag">DataDog</span> <span class="tag">AWS</span> <span class="tag">Security</span> <span class="tag">Compliance</span> <span class="tag">Monitoring</span> <span class="tag">Automation</span> <span class="tag">Misconfiguration</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### CSPM 보안 성숙도 평가</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>DataDog CSPM 실시간 Misconfiguration 탐지</strong>: 기존 7일 주기 점검에서 실시간 탐지로 전환, Public S3 버킷/과도한 IAM 권한/개방된 보안 그룹을 즉시 식별. 보안 이슈 MTTR 7일에서 실시간으로 단축</li> <li><strong>CIS/ISMS-P/PCI-DSS 컴플라이언스 자동화</strong>: DataDog CSPM으로 AWS 환경의 3개 주요 규제 프레임워크 동시 모니터링, 수동 감사 대비 보안 인력 업무 75% 절감 및 감사 준비 시간 3주에서 1일로 단축</li> <li><strong>자동화된 보안 대응 워크플로우</strong>: EventBridge + Lambda 조합으로 Public S3 자동 비공개 전환, 과도한 IAM 권한 자동 축소, 전체 개방 보안 그룹 자동 수정. 사람 개입 없이 임계 위반 즉시 복구</li>'
   period='2026-01-14 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

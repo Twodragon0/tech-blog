@@ -16,7 +16,9 @@ schema_type: Article
   title='2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격'
   categories_html='<span class="category-tag security">보안</span>'
   tags_html='<span class="tag">Security-Digest</span> <span class="tag">SolarWinds-RCE</span> <span class="tag">UNC3886</span> <span class="tag">LLM-Safety</span> <span class="tag">UNC1069</span> <span class="tag">CVE-2025-40551</span>'
-  highlights_html='<li><strong>포인트 1</strong>: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전 정렬 GRPO 무력화, 북한 UNC1069 딥페이크 암호화폐 공격</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>SolarWinds WHD RCE (CVE-2025-40551, CVSS 9.8)</strong>: 인증 없이 원격 코드 실행 후 DCSync로 전체 AD 도메인 장악하는 다단계 공격 체인, CISA KEV 등재·FCEB 패치 기한 경과</li>
+      <li><strong>중국 UNC3886 싱가포르 4대 통신사 전체 침해</strong>: 11개월 이상 지속된 Operation CYBER GUARDIAN, VMware ESXi 제로데이·커널 루트킷으로 서비스 중단 없이 기술 데이터 탈취</li>
+      <li><strong>LLM 안전 정렬 GRPO 단일 프롬프트 무력화</strong>: Microsoft 발표, GRPO fine-tuning 악용으로 가드레일 제거 가능하며 다중 유해 카테고리 전반으로 일반화됨, Diffusion 모델에도 적용 가능</li>'
   period='2026-02-10 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

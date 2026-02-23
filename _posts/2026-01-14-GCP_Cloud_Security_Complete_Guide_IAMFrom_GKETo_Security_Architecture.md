@@ -20,7 +20,7 @@ certifications: [isms-p]
   title='GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">GCP</span> <span class="tag">Security</span> <span class="tag">IAM</span> <span class="tag">Cloud-SQL</span> <span class="tag">Cloud-Storage</span> <span class="tag">GKE</span> <span class="tag">Cloud-Monitoring</span> <span class="tag">Cloud-Logging</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### GCP 보안 태세 평가</li> <li><strong>포인트 2</strong>: **전체 보안 성숙도**: ⭐⭐⭐⭐ (4/5)</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>GCP IAM 최소 권한 실전 점검</strong>: Service Account 권한 감사로 과도한 권한 12개 발견 및 최소 권한으로 축소, Workload Identity로 키 파일 없는 인증 구현. IAM 컴플라이언스 94% 달성</li> <li><strong>GKE Binary Authorization과 Pod Security</strong>: 서명된 컨테이너 이미지만 배포 허용하는 Binary Authorization 정책, Pod Security Standards Restricted 적용으로 GKE 노드 공격 표면 최소화</li> <li><strong>Security Command Center 통합 운영</strong>: MITRE ATT&amp;CK 매핑으로 GCP 전체 위협 가시성 확보, 4/5 보안 성숙도 달성. Cloud Armor WAF와 VPC Service Controls 조합으로 경계 보안 강화</li>'
   period='2026-01-14 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

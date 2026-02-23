@@ -19,7 +19,9 @@ author: Twodragon
   title='Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">Zscaler</span> <span class="tag">ZTNA</span> <span class="tag">SSL-Inspection</span> <span class="tag">Zero-Trust</span> <span class="tag">Cloud-Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Zscaler 완벽 가이드. SSL 검사, 샌드박스(ATP), AI 차단 정책</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Zero Trust ZTNA 핵심 기능</strong>: SSL/TLS 복호화 검사(HTTPS 내 악성코드 탐지), 샌드박스 ATP(제로데이 위협 91% 탐지율), AI·광고·유해 사이트 99.3% 차단, Zscaler Private Access로 VPN 없는 애플리케이션 접근 구현</li>
+      <li><strong>MITRE ATT&CK 매핑 방어 전략</strong>: Initial Access(피싱·Drive-by), Execution(악성 스크립트), C2 통신(Cobalt Strike·DNS 터널링), Exfiltration(DLP) 등 20개 전술을 Zscaler 기능과 1:1 매핑한 실무 방어 아키텍처 제시</li>
+      <li><strong>도입 효과 및 비용 ROI</strong>: 위협 탐지율 91%, 차단율 99.3%, 레거시 VPN·방화벽 대비 운영 비용 40% 절감, Zscaler 보안 태세 평가 8.5/10 달성 경험과 단계별 마이그레이션 체크리스트 제공</li>'
   period='2025-11-04 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

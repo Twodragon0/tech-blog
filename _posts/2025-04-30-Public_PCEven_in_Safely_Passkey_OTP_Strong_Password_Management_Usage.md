@@ -20,7 +20,9 @@ schema_type: Article
   title='공용 PC에서도 안전하게!  패스키, OTP, 강력한 암호 관리 활용법'
   categories_html='<span class="category-tag security">보안</span>'
   tags_html='<span class="tag">Passkey</span> <span class="tag">OTP</span> <span class="tag">Password-Manager</span> <span class="tag">Authentication</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### 위험도 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>공용 PC 위협 현황</strong>: 2025년 AI 피싱 93% 증가, PC방 키로거 감염률 15-20%, 세션 탈취 공격 급증 - 공용 환경에서 SMS OTP·비밀번호 입력이 얼마나 위험한지 공격 시나리오별 분석</li>
+      <li><strong>Passkey/FIDO2 완전 대체 전략</strong>: FIDO2/WebAuthn 패스키로 피싱 원천 차단(공개키 암호화, 서버에 비밀 저장 안 함), YubiKey 하드웨어 보안 키 실전 설정, Google/Apple/Microsoft 패스키 등록·사용 단계별 가이드</li>
+      <li><strong>즉시 적용 인증 강화 3단계</strong>: SMS OTP → TOTP(Google Authenticator/1Password) 즉시 전환, 암호 관리자(1Password/Bitwarden) 도입으로 사이트별 고유 암호 자동 생성, 공용 PC 사용 후 세션 강제 로그아웃 체크리스트 제공</li>'
   period='2025-04-30 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

@@ -19,7 +19,9 @@ schema_type: Article
   title='Tech &amp; Security Weekly Digest: n8n Critical RCE, D-Link 단종 장비 Zero-Day, Kubernetes AI 에이전트 보안'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">n8n</span> <span class="tag">RCE</span> <span class="tag">CVE-2026-1470</span> <span class="tag">D-Link</span> <span class="tag">Zero-Day</span> <span class="tag">CVE-2026-0625</span> <span class="tag">Kubernetes</span>'
-  highlights_html='<li><strong>포인트 1</strong>: n8n RCE(CVE-2026-1470 CVSS 9.9), D-Link Zero-Day, K8s AI 에이전트 보안 과제, Swiss Sovereign Cloud</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>n8n CVSS 9.9 RCE (CVE-2026-1470)</strong>: JFrog 발표, n8n 워크플로우 플랫폼에서 JavaScript/Python 샌드박스 탈출로 원격 코드 실행 가능, 자체 호스팅 인스턴스는 1.123.17+ / 2.4.5+ / 2.5.1+ 즉시 업데이트 필요</li>
+      <li><strong>D-Link 단종 장비 Zero-Day (CVE-2026-0625)</strong>: DSL-2740R·2640B·2780B·526B 모델 커맨드 인젝션 취약점 실제 악용 중, 공식 패치 없어 즉시 장비 교체 또는 네트워크 격리가 유일한 대책</li>
+      <li><strong>Kubernetes AI 에이전트 보안 &amp; NHI 침해 벡터</strong>: 에이전트의 비결정적 행동을 eBPF 기반 런타임 보안으로 제어하는 Tigera 전략, Tenable이 비인간 ID(서비스 계정·API 키)를 2026년 주요 클라우드 침해 벡터로 지목</li>'
   period='2026-01-29 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

@@ -19,7 +19,9 @@ schema_type: Article
   title='주간 보안 &amp; DevOps 다이제스트: OpenClaw AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">OpenClaw</span> <span class="tag">Moltbot</span> <span class="tag">Moltbook</span> <span class="tag">NanoClaw</span> <span class="tag">AI-Agent-Security</span> <span class="tag">MDM</span> <span class="tag">Jamf</span>'
-  highlights_html='<li><strong>포인트 1</strong>: OpenClaw(Moltbot) CVE-2026-25253 RCE, ClawHavoc 335개 Atomic Stealer 캠페인, Moltbook 자격증명 대량 유출, 가짜 VS Code 확장 RAT 배포 등 AI</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>OpenClaw CVE-2026-25253 RCE</strong>: GitHub 스타 145K의 AI 코딩 에이전트에서 악성 링크 클릭만으로 RCE 가능한 취약점(CVSS 8.8) 발견, ClawHavoc 캠페인으로 ClawHub에서 335개 악성 스킬이 macOS Atomic Stealer 배포에 악용</li>
+      <li><strong>Moltbook 자격증명 유출 &amp; 공급망 위협</strong>: Wiz가 AI 소셜네트워크 Moltbook에서 수백만 건 자격증명 비인증 노출 발견, 가짜 VS Code 확장이 ScreenConnect RAT 설치하는 사칭 공격 확인</li>
+      <li><strong>Jamf/Intune MDM 앱 제어 가이드</strong>: AI 에이전트 무단 설치 차단을 위한 Jamf Pro Configuration Profile vs Microsoft Intune App Protection Policy 비교, OWASP Agentic AI Top 10 프레임워크와 NanoClaw 컨테이너 격리 대안 소개</li>'
   period='2026-02-03 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

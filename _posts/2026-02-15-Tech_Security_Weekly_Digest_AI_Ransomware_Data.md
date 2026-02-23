@@ -18,7 +18,9 @@ toc: true
   title='기술 &amp; 보안 주간 다이제스트: 랜섬웨어'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Ransomware</span> <span class="tag">Data</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 15일 주요 보안/기술 뉴스 15건 - AI, Ransomware, Data</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>BlackField 랜섬웨어 분석</strong>: SK쉴더스 11월호 보고서에서 기존 랜섬웨어 코드를 재활용한 BlackField 변종 상세 분석, 코드 재사용 기반 위협 행위자의 공격 비용 절감 전략 확인</li>
+      <li><strong>Vertical AI 기반 사이버보안 구축</strong>: SK쉴더스 HeadLine 11월호에서 보안 특화 Vertical AI 구축 방안 제시, 범용 AI와 달리 보안 도메인 특화 모델의 탐지 정확도 및 운영 효율 우위 분석</li>
+      <li><strong>Hexagate MegaETH 온체인 보안</strong>: Chainalysis Hexagate가 MegaETH 생태계 실시간 위협 탐지 지원 시작, ML 기반 온체인 이상 트랜잭션 및 거버넌스 악용 조기 탐지 가능</li>'
   period='2026-02-15 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

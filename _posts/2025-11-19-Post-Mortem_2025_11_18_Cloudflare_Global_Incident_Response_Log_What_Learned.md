@@ -19,7 +19,9 @@ author: Twodragon
   title='[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지'
   categories_html='<span class="category-tag incident">인시던트</span>'
   tags_html='<span class="tag">Cloudflare</span> <span class="tag">Post-Mortem</span> <span class="tag">Incident-Response</span> <span class="tag">CDN</span> <span class="tag">Network</span> <span class="tag">SRE</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Cloudflare 글로벌 장애 대응 일지. Multi-CDN 전략 및 자동 Failover 구현</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>P1 Critical 장애 분석</strong>: 2025년 11월 18일 Cloudflare 글로벌 장애로 모바일 100%, PC 60% 영향 발생, BGP 라우팅 이슈로 추정, 90분 만에 복구 완료 - 타임라인·영향 범위·원인 분석 상세 정리</li>
+      <li><strong>Multi-CDN 자동 Failover 구현</strong>: 단일 CDN 의존도 제거를 위한 Cloudflare + AWS CloudFront 이중화 구성, 헬스체크 기반 자동 전환 설정, DNS TTL 최적화로 Failover 시간 최소화 실무 가이드</li>
+      <li><strong>장애 재발 방지 3가지 교훈</strong>: 실시간 CDN 가용성 모니터링 구축, 정기적인 Failover 시뮬레이션 훈련, 외부 서비스 의존도 문서화 및 비상 연락 체계 수립으로 MTTR 90분→15분 목표 설정</li>'
   period='2025-11-19 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

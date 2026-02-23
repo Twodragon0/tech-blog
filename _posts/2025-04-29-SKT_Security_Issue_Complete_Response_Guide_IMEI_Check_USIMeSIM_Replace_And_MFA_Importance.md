@@ -20,7 +20,9 @@ schema_type: Article
   title='SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성'
   categories_html='<span class="category-tag security">보안</span>'
   tags_html='<span class="tag">SKT</span> <span class="tag">MFA</span> <span class="tag">USIM</span> <span class="tag">Security-Incident</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### 위험 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>SKT USIM 유출 사태 핵심 위협</strong>: 2025년 4월 한국 최대 통신사 보안 사고로 ICCID·IMSI·Ki 값 유출, SIM 스와핑 공격으로 타인이 내 번호 탈취 후 금융 계정·카카오뱅크·증권 계정 접근 가능 - 피해 규모와 공격 매커니즘 상세 분석</li>
+      <li><strong>즉시 실행 대응 3단계</strong>: SKT USIM 보호 서비스 즉시 신청(무료, 타 통신사 USIM 사용 차단), 물리적 USIM 교체(사이버안전국 권고사항), SMS OTP 기반 금융·포털 서비스 즉시 TOTP/FIDO2로 전환</li>
+      <li><strong>SIM 스와핑 방어와 MFA 전환</strong>: SMS 2FA의 근본적 취약성(통신사 소셜 엔지니어링, 내부자 위협), FIDO2 패스키·하드웨어 키(YubiKey)로의 전환 필요성, 통신사 계정에 PIN 잠금 설정, 번호 이동 알림 서비스 활성화 방법</li>'
   period='2025-04-29 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

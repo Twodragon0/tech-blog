@@ -19,7 +19,9 @@ schema_type: Article
   title='기술 &amp; 보안 주간 다이제스트: 공급망, Windows, APT36'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">2026</span> <span class="tag">AI</span> <span class="tag">Cloud</span> <span class="tag">Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 2026년 02월 12일 주요 보안/기술 뉴스 27건 - AI, Cloud, Security</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>악성 Outlook 애드인 발견</strong>: 폐기된 정상 애드인 도메인을 탈취해 가짜 로그인 페이지 운영, Microsoft 자격증명 4,000건 이상 탈취한 최초의 악성 Outlook 애드인 공급망 공격 확인</li>
+      <li><strong>Patch Tuesday 60+ 벤더 동시 패치</strong>: Microsoft 59개 취약점 패치 포함(Zero-Day 6건 적극 악용 중), OS·클라우드·네트워크 전 플랫폼에 걸친 보안 기능 우회·권한 상승 취약점 포함</li>
+      <li><strong>APT36·SideCopy 크로스플랫폼 RAT 캠페인</strong>: 인도 국방·정부 기관 대상 Windows·Linux 동시 침해, Geta RAT·Ares RAT·DeskRAT 등 다수 RAT 활용한 장기 지속 접근 캠페인 전개</li>'
   period='2026-02-12 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

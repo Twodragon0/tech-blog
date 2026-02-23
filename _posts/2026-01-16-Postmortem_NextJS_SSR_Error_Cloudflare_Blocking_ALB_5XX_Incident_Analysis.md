@@ -19,7 +19,7 @@ schema_type: Article
   title='[Post-Mortem] Next.js SSR 에러 및 Cloudflare 차단으로 인한 ALB 5XX 에러 인시던트 분석'
   categories_html='<span class="category-tag incident">인시던트</span>'
   tags_html='<span class="tag">Post-Mortem</span> <span class="tag">Next.js</span> <span class="tag">SSR</span> <span class="tag">Cloudflare</span> <span class="tag">ALB</span> <span class="tag">Kubernetes</span> <span class="tag">Incident-Response</span> <span class="tag">AWS</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Next.js SSR location 객체 ReferenceError</strong>: 서버 환경에서 브라우저 전용 window.location 접근 시 발생, typeof window 가드 또는 useEffect 내 이동으로 수정. SSR/CSR 경계 이해가 핵심</li> <li><strong>Cloudflare WAF 자동 IP 차단</strong>: 신규 배포 후 5분 이내 대량 요청 패턴이 봇으로 오탐 처리되어 자동 차단 발생, 배포 후 Cloudflare Analytics 즉시 모니터링 및 IP Allowlist 관리 절차 수립 필요</li> <li><strong>ALB Target Group 헬스체크 실패 대응</strong>: SSR 에러로 인한 5XX 연속 응답이 헬스체크 실패를 유발, 5분간 트래픽 단절. /health 엔드포인트 분리와 헬스체크 임계값 조정으로 재발 방지</li>'
   period='2026-01-16 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

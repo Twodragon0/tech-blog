@@ -19,7 +19,9 @@ author: Twodragon
   title='Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기'
   categories_html='<span class="category-tag incident">인시던트</span>'
   tags_html='<span class="tag">Karpenter</span> <span class="tag">Kubernetes</span> <span class="tag">AWS</span> <span class="tag">Post-Mortem</span> <span class="tag">Incident</span> <span class="tag">EKS</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Karpenter v1.5.3 노드 통합 장애 분석. PDB 적용을 통한 재발 방지</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>장애 원인 분석</strong>: Karpenter v1.5.3 WhenEmptyOrUnderutilized 정책의 공격적 노드 통합 + PodDisruptionBudget 미설정으로 10분간 전체 서비스 중단, 15,000건 API 호출 실패, 주문 200건 손실 발생</li>
+      <li><strong>즉각 복구 및 근본 대책</strong>: WhenEmpty 정책으로 변경 + 모든 중요 서비스에 PDB(minAvailable: 1) 적용 + 업무시간(09-18시) 노드 삭제 금지 Schedule 설정으로 재발 방지 3단계 해결책 상세 설명</li>
+      <li><strong>프로덕션 안정화 체크리스트</strong>: Karpenter 업그레이드 전 필수 확인사항(통합 정책·PDB·스케줄), 카오스 엔지니어링으로 노드 종료 시뮬레이션, 장애 대응 Runbook 구축 방법론 제시</li>'
   period='2025-10-02 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

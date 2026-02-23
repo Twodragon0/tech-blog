@@ -19,7 +19,7 @@ schema_type: Article
   title='AI 코딩 어시스턴트 비교 분석: Gemini, Claude Code, ChatGPT, OpenCode - 2025-2026년 최신 연구 논문 기반 종합 평가'
   categories_html='<span class="category-tag tech">AI</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">AI</span> <span class="tag">Coding-Assistants</span> <span class="tag">Gemini</span> <span class="tag">Claude-Code</span> <span class="tag">ChatGPT</span> <span class="tag">OpenCode</span> <span class="tag">DeepSeek</span> <span class="tag">SWE-Bench</span>'
-  highlights_html='<li><strong>포인트 1</strong>: Claude Code 80.9%, DeepSeek 90.2% HumanEval 성능. 재현성 68.3%, 실무 적용 가이드 제공</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>SWE-Bench 성능 비교 분석</strong>: Claude Opus 4.5가 SWE-Bench Verified에서 80.9% 달성, DeepSeek V3.2는 72-74% 수준. 복잡한 엔지니어링 작업은 클로드가 우세하나 단순 코드 생성은 DeepSeek이 비용 효율적</li> <li><strong>벤치마크 재현성 68.3% 문제</strong>: HumanEval 등 공개 벤치마크의 데이터 오염으로 실제 성능과 괴리 발생, 독립 검증 시 평균 15-20%p 하락. 실무 도입 전 실제 업무 태스크로 직접 평가 필수</li> <li><strong>OpenCode 모델 독립 프레임워크</strong>: 특정 모델에 종속되지 않는 오픈소스 AI 코딩 에이전트, Claude/GPT/Gemini/DeepSeek 선택적 백엔드 교체 가능. 기업 환경에서 API 비용 및 데이터 보안 요구에 맞는 유연한 배포 지원</li>'
   period='2026-01-17 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

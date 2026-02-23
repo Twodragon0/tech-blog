@@ -19,7 +19,9 @@ schema_type: Article
   title='DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략'
   categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag security">보안</span>'
   tags_html='<span class="tag">DevSecOps</span> <span class="tag">Automotive-Security</span> <span class="tag">Connected-Car</span> <span class="tag">SAST</span> <span class="tag">DAST</span> <span class="tag">SBOM</span> <span class="tag">Supply-Chain-Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: DevSecOps 자동차 보안 완벽 가이드 SDV 시대</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>SDV 보안 아키텍처</strong>: 차량 1대당 1억 5천만 줄 이상의 소프트웨어를 보호하기 위한 Secure Boot, HSM, Zero Trust 내부 통신, OTA 보안 업데이트 등 SDV 핵심 보안 요소 정리</li>
+      <li><strong>DevSecOps 라이프사이클 통합</strong>: Plan 단계의 TARA 위협 모델링부터 배포 후 Falco 런타임 모니터링까지, SAST·DAST·SCA·SBOM을 CI/CD 파이프라인에 통합하는 실무 도구 스택 제시</li>
+      <li><strong>UN R155/ISO 21434 규제 준수</strong>: 2025년 글로벌 확대 적용된 UN R155 CSMS 인증 의무화 및 ISO 21434 요구사항 대응 전략, 공급업체 SBOM 요구사항과 검증 프로세스 상세 안내</li>'
   period='2026-01-06 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

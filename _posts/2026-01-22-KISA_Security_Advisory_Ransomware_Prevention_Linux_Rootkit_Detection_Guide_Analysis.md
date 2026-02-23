@@ -19,7 +19,7 @@ schema_type: Article
   title='KISA 보안 공지 분석: 랜섬웨어 예방 가이드와 리눅스 커널 루트킷 점검 방법'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">KISA</span> <span class="tag">Ransomware</span> <span class="tag">Linux-Rootkit</span> <span class="tag">Security-Advisory</span> <span class="tag">Incident-Prevention</span> <span class="tag">Backup</span> <span class="tag">Phishing</span> <span class="tag">E-commerce-Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### 위협 스코어카드 (Risk Scorecard)</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>랜섬웨어 3-2-1 백업 전략</strong>: 2025년 랜섬웨어 피해 32% 증가, 중소기업 70% 집중 타겟. 3개 복사본-2개 미디어-1개 오프사이트 원칙과 오프라인 백업으로 복구 불능 상황을 방지</li> <li><strong>리눅스 커널 루트킷 탐지</strong>: chkrootkit/rkhunter 도구로 Diamorphine, Reptile 등 LKM 기반 루트킷 탐지, /proc 숨김 프로세스 및 변조된 커널 모듈 점검 절차 수록</li> <li><strong>이커머스 피싱 이메일 대응</strong>: 개인정보 유출 후 2차 피싱 급증, SPF/DKIM/DMARC 3단계 이메일 인증 설정으로 도메인 스푸핑 차단 및 수신 측 필터링 강화</li>'
   period='2026-01-22 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

@@ -19,7 +19,9 @@ schema_type: Article
   title='Tech &amp; Security Weekly Digest: Microsoft BitLocker FBI 키 제공, Cloudflare Route Leak, 자율 기업 2026 전망'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">BitLocker</span> <span class="tag">FBI</span> <span class="tag">Encryption</span> <span class="tag">Route-Leak</span> <span class="tag">BGP</span> <span class="tag">Cloudflare</span> <span class="tag">Agentic-AI</span>'
-  highlights_html='<li><strong>포인트 1</strong>: BitLocker FBI 키 제공 논란, Cloudflare BGP Route Leak, CNCF 자율 기업 4대 제어, Docker 2026</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Microsoft BitLocker FBI 복구 키 제공 논란</strong>: 법 집행 기관 요청 시 BitLocker 암호화 복구 키가 제공 가능함이 확인, 전사 민감 데이터 암호화 정책 재검토와 BitLocker 복구 키 저장 위치 즉시 점검 필요</li>
+      <li><strong>Cloudflare 1월 22일 BGP Route Leak 사건</strong>: Cloudflare 인프라에서 발생한 BGP 경로 누출 사건 상세 분석, RPKI 기반 경로 검증 미구현 시 인터넷 트래픽 하이재킹 가능성, BGP 이상 탐지 모니터링 설정 확인 권고</li>
+      <li><strong>CNCF 2026 자율 기업 4대 플랫폼 제어 기둥</strong>: AI 에이전트 기반 자율 운영 가속화 전망과 함께 플랫폼 엔지니어링, OpenAI Codex Agent Loop 병렬 아키텍처, Docker 컨테이너 생태계 2026년 현황 분석</li>'
   period='2026-01-24 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

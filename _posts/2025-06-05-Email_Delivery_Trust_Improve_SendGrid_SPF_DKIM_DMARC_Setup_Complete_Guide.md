@@ -21,7 +21,9 @@ schema_type: Article
   title='이메일 발송 신뢰도 높이기: SendGrid SPF, DKIM, DMARC 설정 완벽 가이드'
   categories_html='<span class="category-tag security">보안</span>'
   tags_html='<span class="tag">SendGrid</span> <span class="tag">SPF</span> <span class="tag">DKIM</span> <span class="tag">DMARC</span> <span class="tag">Email-Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: SendGrid SPF, DKIM, DMARC 설정으로 이메일 발송 신뢰도 향상</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>이메일 인증 3단계 체계</strong>: SPF(발신 서버 IP 인가), DKIM(이메일 무결성 디지털 서명), DMARC(정책 + RUA/RUF 리포팅)를 SendGrid로 통합 설정, 2025년 Gmail/Yahoo 대량 발송자 정책 의무 준수 완성</li>
+      <li><strong>실무 DNS 설정 가이드</strong>: SendGrid Whitelabel 도메인 인증(CNAME 3개 추가), DKIM 2048-bit 키 설정, DMARC p=quarantine → p=reject 단계적 강화, MX·SPF 레코드 충돌 방지 체크리스트 제공</li>
+      <li><strong>비즈니스 ROI 분석</strong>: 이메일 도용·피싱으로 인한 잠재 손실 ₩190M-₩850M 대비 설정 비용 ₩5M-₩15M, 스팸 분류율 감소로 발송 성공률 15-25% 향상, 도메인 평판 점수 개선 효과 정리</li>'
   period='2025-06-05 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

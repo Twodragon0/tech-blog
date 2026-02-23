@@ -19,7 +19,9 @@ schema_type: Article
   title='보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Vendor-News</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Hashicorp</span> <span class="tag">Cloudflare</span> <span class="tag">Snyk</span> <span class="tag">Jamf</span> <span class="tag">Zero-Trust</span>'
-  highlights_html='<li><strong>포인트 1</strong>: VS Code 악용, ACME 취약점, AI Zero Trust, HashiCorp-AWS 클라우드 운영 간소화</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>VS Code 터널 악용 위협 확대</strong>: 개발자 필수 도구 VS Code의 원격 터널 기능이 공격자의 지속적 접근 및 소스코드 유출 경로로 악용, 위험 점수 30/40으로 즉시 도메인 차단과 EDR 탐지 룰 추가 필요</li>
+      <li><strong>ACME 인증서 자동화 취약점</strong>: 인증서 자동 발급 ACME 프로토콜의 경로 취약점이 중간자 공격(MITM) 노출 가능성 제기, 인증서 발급 프로세스 보안 감사 및 DNS-01 챌린지 검증 강화 권고</li>
+      <li><strong>AI 에이전트 NHI Zero Trust &amp; HashiCorp-AWS 클라우드 간소화</strong>: Jamf·Cloudflare·Snyk·HashiCorp 4개 벤더가 일제히 비인간 ID 관리 미흡을 위험 점수 30/40 Critical로 분류, HashiCorp-AWS 통합으로 Vault 기반 동적 시크릿 관리 자동화 구현</li>'
   period='2026-01-22 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

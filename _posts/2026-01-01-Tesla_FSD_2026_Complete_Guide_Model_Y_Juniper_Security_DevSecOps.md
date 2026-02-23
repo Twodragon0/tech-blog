@@ -19,7 +19,9 @@ schema_type: Article
   title='테슬라 FSD 2026 완벽 가이드: Model Y Juniper 비용, 하드웨어, 보안을 DevSecOps 관점에서 분석'
   categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">Tesla</span> <span class="tag">FSD</span> <span class="tag">Model Y</span> <span class="tag">Juniper</span> <span class="tag">Hardware 4</span> <span class="tag">Automotive Security</span> <span class="tag">DevSecOps</span> <span class="tag">Cybersecurity</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 테슬라 FSD 2026 Model Y Juniper 보안 가이드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>FSD v14.2.1 & Model Y Juniper 사양</strong>: 긴급 차량 대응 강화·속도 프로파일(SLOTH~MAD MAX) 신규 추가, 미국 $49,990(세금 공제 후 $42,490)·한국 4,999만원(보조금 최대 약 988만원), HW4 500+ TOPS·16GB GDDR6·5MP 카메라 11개 상세 분석</li>
+      <li><strong>자동차 보안 취약점 분석</strong>: AMD 인포테인먼트 시스템 루트 익스플로잇, LTE 텔레매틱스 IMSI Catcher 공격, 자율주행 지형 인식 오류 사례 분석과 Secure Boot·Certificate Pinning·이상 탐지 시스템 등 DevSecOps 대응 방안</li>
+      <li><strong>OTA 보안 & 한국 규제 준수</strong>: TLS 1.3 암호화·SHA-256 해시 검증·롤백 메커니즘을 포함한 OTA 보안 체크리스트, 2026년 한국 CSMS 인증 의무화(자동차관리법)·SUMS·ISO/SAE 21434·UN R155 준수 사항 총정리</li>'
   period='2026-01-01 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

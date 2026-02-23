@@ -21,7 +21,9 @@ author: Twodragon
   title='클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!'
   categories_html='<span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">AWS</span> <span class="tag">VPC</span> <span class="tag">GuardDuty</span> <span class="tag">Security-Architecture</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### 보안 위험 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>VPC·S3 보안 최우선 대응</strong>: Public 서브넷 DB 배치·과도한 Security Group 개방 등 고위험 이슈 즉시 수정, VPC 재설계로 공격 표면 60% 축소(ROI 2,400%), S3 Public Access 차단으로 데이터 유출 위험 90% 감소</li>
+      <li><strong>MITRE ATT&CK 기반 AWS 방어 전략</strong>: T1078 Valid Accounts(MFA 강제+이상 로그인 탐지), T1110 Brute Force(WAF 룰+IP 차단), T1530 클라우드 스토리지 탈취(S3 암호화+접근 제어) 등 10개 전술에 VPC·IAM·GuardDuty 매핑</li>
+      <li><strong>GuardDuty·IAM 위협 탐지 자동화</strong>: GuardDuty Extended Threat Detection으로 평균 탐지 시간 80% 단축(월 투자 ₩1.5M → 연 절감 ₩100M), IAM Policy Autopilot 도입으로 권한 오용 사고 75% 감소</li>'
   period='2025-12-05 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

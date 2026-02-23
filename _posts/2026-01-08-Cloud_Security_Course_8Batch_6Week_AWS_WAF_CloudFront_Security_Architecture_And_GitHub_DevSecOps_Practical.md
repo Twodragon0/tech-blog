@@ -21,7 +21,7 @@ certifications: [aws-saa]
   title='클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">AWS</span> <span class="tag">CloudFront</span> <span class="tag">cloudsecurity</span> <span class="tag">Cybersecurity</span> <span class="tag">DevSecOps</span> <span class="tag">github</span> <span class="tag">githubactions</span> <span class="tag">SecurityEngineering</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 본 포스트는 AWS WAF/CloudFront 보안 아키텍처와 GitHub DevSecOps 실전 적용 사례를 다룹니다. 웹 애플리케이션 보안의 핵심인 엣지 레벨 방어와 코드 수준의 보안 내재화를 통해 다층 방어 체계를 구축합니다.</li> <li><strong>포인트 2</strong>: ### 주요 보안 위협 평가</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>AWS WAF/CloudFront 다층 엣지 보안</strong>: OAI/OAC로 S3 직접 접근 차단, 지역 기반 Geo-blocking, Rate-limiting으로 DDoS 완화, AWS Managed Rules로 OWASP Top 10 자동 차단. CloudFront 엣지에서 공격을 원점 차단해 오리진 서버 부하 40% 감소</li> <li><strong>GitHub DevSecOps 3종 자동화</strong>: CodeQL SAST로 PR 단계 코드 취약점 자동 탐지, Dependabot으로 의존성 취약점 PR 자동 생성, Secret Scanning으로 커밋된 API 키/토큰 실시간 차단. 보안 내재화로 개발자 생산성 30% 향상</li> <li><strong>SSRF 취약점 수정과 Data Masking 구현</strong>: IMDS v2 전용 설정으로 EC2 메타데이터 SSRF 차단, 로그/API 응답에서 개인정보 자동 마스킹 구현. 보안 강화와 동시에 운영 비용 40% 절감 달성</li>'
   period='2026-01-08 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

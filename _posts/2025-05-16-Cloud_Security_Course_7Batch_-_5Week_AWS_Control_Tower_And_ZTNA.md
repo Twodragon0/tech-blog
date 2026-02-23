@@ -21,7 +21,9 @@ schema_type: Article
   title='클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA'
   categories_html='<span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">AWS</span> <span class="tag">Control-Tower</span> <span class="tag">ZTNA</span> <span class="tag">Zero-Trust</span>'
-  highlights_html='<li><strong>포인트 1</strong>: 본 포스트는 클라우드 시큐리티 과정 7기 5주차의 핵심 내용인 **AWS Control Tower와 ZTNA(Zero Trust Network Access)**를 다룹니다. 멀티 계정 거버넌스부터 Zero Trust 보안 모델 구현까지 실무에서 즉시 활용할 수 있는 고품질 콘텐츠를 제공합니다.</li> <li><strong>포인트 2</strong>: ### 학습 스코어카드</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>AWS Control Tower 멀티 계정 거버넌스</strong>: Landing Zone으로 환경 기반 자동 구축, Guardrails(예방적·탐지적·사전 예방적) SCP 정책 적용, Account Factory로 신규 계정 표준화 프로비저닝, AWS Organizations 계층 구조 보안 관리 실무 가이드</li>
+      <li><strong>ZTNA Zero Trust 아키텍처 구현</strong>: "절대 신뢰하지 말고 항상 검증하라" 원칙으로 AWS Verified Access(VPN 없는 내부 앱 접근), IAM Identity Center(SSO + MFA 통합), Network Firewall + PrivateLink로 마이크로 세그멘테이션 구현</li>
+      <li><strong>ISMS-P 컴플라이언스 매핑</strong>: Control Tower Guardrails와 ISMS-P 64개 통제 항목 매핑, AWS Audit Manager로 증거 자동 수집, Config Rules로 비준수 리소스 실시간 탐지·자동 수정, 4-5시간 학습 분량의 실습 시나리오 포함</li>'
   period='2025-05-16 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

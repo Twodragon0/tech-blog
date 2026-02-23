@@ -19,7 +19,9 @@ schema_type: Article
   title='OWASP 2025 최신 업데이트 완벽 가이드: Top 10과 에이전틱 AI 보안'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">OWASP</span> <span class="tag">Security</span> <span class="tag">Top10</span> <span class="tag">AI</span> <span class="tag">DevSecOps</span> <span class="tag">Application Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### 종합 위험 점수카드</li> <li><strong>포인트 2</strong>: 본 평가는 OWASP Top 10 2025 취약점을 기준으로 조직의 웹 애플리케이션 보안 위험을 평가합니다.</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>OWASP Top 10 2025 신규 위협</strong>: 4년 만의 대규모 업데이트로 Software Supply Chain Failures(A03)와 Cryptographic Failures(A04)가 신규 추가, npm Shai-Hulud 웜 등 공급망 공격과 Post-Quantum 암호화 미준비가 최우선 대응 과제로 부상</li>
+      <li><strong>에이전틱 AI 10대 위협</strong>: Prompt Injection·Excessive Agency·Training Data Poisoning 등 AI 에이전트 특화 보안 위협 가이드와 MITRE ATT&CK 매핑, SIEM 탐지 쿼리(Splunk/Azure Sentinel KQL) 제공</li>
+      <li><strong>실무 대응 로드맵</strong>: Dependabot·CycloneDX로 공급망 자동화, TLS 1.3 및 ML-KEM/ML-DSA 양자내성 암호화 전환 로드맵(2026-2030), SecureCode v2.0(1,215개 보안 코딩 예제) 기반 AI 코드 검증 파이프라인 구축 방안</li>'
   period='2026-01-03 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

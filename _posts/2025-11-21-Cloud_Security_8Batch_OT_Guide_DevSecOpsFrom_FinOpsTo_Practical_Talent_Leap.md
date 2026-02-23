@@ -20,7 +20,9 @@ author: Twodragon
   title='클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!'
   categories_html='<span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Cloud-Security</span> <span class="tag">DevSecOps</span> <span class="tag">FinOps</span> <span class="tag">Course</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### OT 보안 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>OT/ICS 보안 위기와 대응</strong>: Colonial Pipeline 랜섬웨어, Oldsmar 수처리 시설 침해 등 국가 기반 시설 공격 사례 분석, Purdue 모델 기반 네트워크 분리 + IEC 62443 표준 준수로 95% 위험 감소 가능</li>
+      <li><strong>클라우드 시큐리티 8기 9주 커리큘럼</strong>: DevSecOps 파이프라인(탐지 시간 70% 단축), FinOps 비용 관리(클라우드 비용 30-40% 절감), AWS re:Invent 2025 신기능(Security Agent, GuardDuty Extended, IAM Policy Autopilot, AgentCore Identity) 연계 학습</li>
+      <li><strong>보안 성숙도 Level 3→4 향상 로드맵</strong>: OT 네트워크 분리(30%→95%), Zero Trust 구현(35%→80%), SIEM/SOAR 통합(45%→90%)으로 보안 운영 비용 $50K→$35K 절감, 사고 대응 72시간→4시간 단축</li>'
   period='2025-11-21 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

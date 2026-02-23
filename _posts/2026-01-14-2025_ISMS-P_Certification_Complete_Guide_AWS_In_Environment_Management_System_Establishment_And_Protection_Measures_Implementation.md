@@ -20,7 +20,7 @@ certifications: [isms-p]
   title='2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag cloud">클라우드</span>'
   tags_html='<span class="tag">ISMS-P</span> <span class="tag">AWS</span> <span class="tag">Security</span> <span class="tag">Compliance</span> <span class="tag">ISMS</span> <span class="tag">NIST-CSF</span> <span class="tag">AI-Security</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### 인증 준비도 자가 진단</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>ISMS-P 101개 항목 AWS 구현 로드맵</strong>: 관리체계 수립(1-3개월) - 보호대책 구현(4-9개월) - 모의해킹/심사(10-12개월) 3단계 로드맵, AWS VPC/IAM/KMS/CloudTrail로 101개 기술 항목 대응 방법 상세 수록</li> <li><strong>NIST CSF 2.0 Govern 함수와 AI 보안 신규 요구</strong>: 2025년 개정 ISMS-P에 AI 서비스 보안 요구사항 추가, NIST CSF 2.0 Govern 함수 연계로 경영진 책임 거버넌스 체계 구축 방법 제시</li> <li><strong>AWS 기반 보호대책 단계별 구현</strong>: VPC Flow Logs + CloudTrail로 접근 통제 증적 자동 수집, KMS CMK로 개인정보 암호화, GuardDuty + Security Hub로 침해사고 탐지 및 ISMS-P 2.11 요건 충족</li>'
   period='2026-01-14 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

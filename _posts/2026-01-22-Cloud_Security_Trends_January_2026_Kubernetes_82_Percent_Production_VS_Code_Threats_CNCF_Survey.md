@@ -19,7 +19,7 @@ schema_type: Article
   title='2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가, CNCF 연례 조사 분석'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devops">쿠버네티스</span>'
   tags_html='<span class="tag">Kubernetes</span> <span class="tag">Cloud-Security</span> <span class="tag">CNCF</span> <span class="tag">VS-Code-Security</span> <span class="tag">Platform-Engineering</span> <span class="tag">GPU-Scheduling</span> <span class="tag">CRI-O-Audit</span> <span class="tag">Net-NTLMv1</span>'
-  highlights_html='<li><strong>포인트 1</strong>: ### 위험 스코어카드</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>Kubernetes 82% 프로덕션 도입</strong>: CNCF 연례 조사에서 K8s가 AI 워크로드 운영체제로 자리잡으며 컨테이너 오케스트레이션 표준으로 확립, AI 채택 기업 66%가 K8s로 추론 워크로드 운영 중</li> <li><strong>VS Code 악용 위협 확대</strong>: 공격자들이 악성 확장 프로그램 배포 및 원격 터널링 기능을 C2 채널로 악용, MITRE T1195.002/T1071.001 기법으로 개발자 자격증명과 소스코드 탈취</li> <li><strong>Net-NTLMv1 레인보우 테이블 공개</strong>: Mandiant가 Net-NTLMv1 레인보우 테이블을 공개, 20년 된 레거시 프로토콜이 즉각 악용 가능한 상태로 NTLMv2/Kerberos 마이그레이션이 긴급 필요</li>'
   period='2026-01-22 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}

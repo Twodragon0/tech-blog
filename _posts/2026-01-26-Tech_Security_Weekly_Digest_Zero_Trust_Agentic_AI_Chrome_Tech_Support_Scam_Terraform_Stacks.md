@@ -19,7 +19,9 @@ schema_type: Article
   title='Tech &amp; Security Weekly Digest: Zero Trust for AI Agents, Chrome 기술지원 사기 방지, Terraform Stacks 혁신'
   categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
   tags_html='<span class="tag">Security-Weekly</span> <span class="tag">Zero-Trust</span> <span class="tag">AI-Agents</span> <span class="tag">Chrome-Security</span> <span class="tag">Terraform</span> <span class="tag">HashiCorp</span> <span class="tag">Google-Security</span> <span class="tag">Non-Human-Identity</span>'
-  highlights_html='<li><strong>포인트 1</strong>: AI 에이전트 Zero Trust, Chrome Gemini 사기 탐지, Terraform Stacks 모노레포, Prompt Injection 방어</li> <li><strong>포인트 2</strong>: 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다</li> <li><strong>포인트 3</strong>: 운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다</li>'
+  highlights_html='<li><strong>AI 에이전트 시대 비인간 ID(NHI) Zero Trust</strong>: HashiCorp가 서비스 계정·API 키·토큰 등 폭발적으로 증가하는 NHI를 동적 시크릿과 최소 권한으로 관리하는 Zero Trust 전략 발표, NHI 침해 사고 비용은 최대 50억 원에 달함</li>
+      <li><strong>Chrome Gemini Nano 온디바이스 기술지원 사기 탐지</strong>: Google이 Gemini Nano를 Chrome에 내장해 사기 페이지를 서버 전송 없이 실시간 탐지, 국내 Chrome 기업 사용자는 별도 비용 없이 보호 가능</li>
+      <li><strong>Terraform Stacks 네이티브 모노레포 &amp; Prompt Injection 4계층 방어</strong>: HashiCorp가 Terraform Stacks로 멀티 환경 IaC를 단일 레포에서 오케스트레이션, Google이 LLM 앱 대상 Prompt Injection 방어를 입력 검증·컨텍스트 격리·출력 필터링·감사 로그 4계층으로 구조화</li>'
   period='2026-01-26 (24시간)'
   audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
 %}
