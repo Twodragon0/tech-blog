@@ -68,9 +68,9 @@
   <text x="615" y="110" font-family="Arial, sans-serif" font-size="9" fill="#ffcccc" text-anchor="middle">내부 직원 위장</text>
   <text x="615" y="125" font-family="Arial, sans-serif" font-size="9" fill="#ffcccc" text-anchor="middle">금융 사기</text>
   
-  <!-- MITRE ATT&CK Section -->
+  <!-- MITRE ATT&amp;CK Section -->
   <rect x="30" y="170" width="640" height="100" rx="8" fill="#1e2d4d" filter="url(#shadow)"/>
-  <text x="50" y="195" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffd700">MITRE ATT&CK Mapping</text>
+  <text x="50" y="195" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffd700">MITRE ATT&amp;CK Mapping</text>
   
   <g font-family="monospace" font-size="10">
     <text x="50" y="220" fill="#ff6b6b">T1566.002</text>
