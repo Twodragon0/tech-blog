@@ -15,14 +15,31 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='2026년 2월 2주차 보안 위협 종합 분석: Microsoft 6건 Zero-Day, Apple 긴급 패치, Ivanti EPMM 대규모 공격'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Weekly-Digest</span> <span class="tag">Zero-Day</span> <span class="tag">Patch-Tuesday</span> <span class="tag">CVE-2026-21510</span> <span class="tag">CVE-2026-20700</span>'
-  highlights_html='<li><strong>Microsoft Patch Tuesday 6건 Zero-Day</strong>: CVE-2026-21510, CVE-2026-21513 포함 6건의 Zero-Day 긴급 패치 배포, 특권 상승 및 원격 코드 실행 취약점으로 즉각 적용 필요</li>
-      <li><strong>Apple dyld Zero-Day (CVE-2026-20700) 표적 공격</strong>: Apple 운영체제 dyld 컴포넌트 Zero-Day가 실제 표적 공격에 악용 중, 긴급 업데이트 배포 및 전 Apple 기기 패치 권고</li>
-      <li><strong>Ivanti EPMM RCE 대규모 익스플로잇 및 SAP CVSS 9.9</strong>: Ivanti EPMM CVE-2026-1281 원격 코드 실행 취약점 대규모 악용 확산, SAP SQL Injection CVE-2026-0488(CVSS 9.9) 동시 대응 필요</li>'
-  period='2026-02-14 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
 
+> **제목**: 2026년 2월 2주차 보안 위협 종합 분석: Microsoft 6건 Zero-Day, Apple 긴급 패치, Ivanti EPMM 대규모 공격
+
+> **카테고리**: security, devsecops
+
+> **태그**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, Zero-Day, Patch-Tuesday, CVE-2026-21510, CVE-2026-20700, Ivanti-EPMM, Ransomware, AI-Security, Supply-Chain, Kubernetes, "2026"
+
+> **핵심 내용**: 
+> - Microsoft Patch Tuesday 6건 Zero-Day 긴급 패치, Apple CVE-2026-20700 표적 공격, Ivanti EPMM 대규모 익스플로잇, SAP CVSS 9.9 SQL Injection, 랜섬웨어 $74B 피해 전망 등 2026년 2월 2주차 핵심 보안 위협을 심층 분석합니다.
+
+> **주요 기술/도구**: Security, DevSecOps, Security, Security, Kubernetes, security, devsecops
+
+> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+{% include ai-summary-card.html
+  title='2026년 2월 2주차 보안 위협 종합 분석'
+  categories_html='<span class=category-tag>Summary</span>'
+  tags_html='<span class=tag>Digest</span>'
+  highlights_html='<li>Auto-generated summary available below.</li>'
+  period='최근 24시간'
+  audience='개발자 및 보안 담당자'
+%}
