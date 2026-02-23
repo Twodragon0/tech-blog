@@ -15,16 +15,82 @@ toc: true
 schema_type: Article
 ---
 
-{% include ai-summary-card.html
-  title='AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign Cloud'
-  categories_html='<span class="category-tag cloud">클라우드</span> <span class="category-tag devops">DevOps</span>'
-  tags_html='<span class="tag">AWS</span> <span class="tag">GCP</span> <span class="tag">EC2-G7e</span> <span class="tag">EC2-X8i</span> <span class="tag">NVIDIA-Blackwell</span> <span class="tag">Bangkok-Region</span> <span class="tag">European-Sovereign-Cloud</span> <span class="tag">Gemini-3</span>'
-  highlights_html='<li><strong>AWS EC2 G7e NVIDIA Blackwell GPU 출시</strong>: GB200 NVL72 탑재로 이전 세대 대비 AI 추론 성능 2.3배 향상, EC2 X8i는 Xeon 6 메모리 집약 워크로드용으로 SAP HANA 인증 획득</li> <li><strong>AWS European Sovereign Cloud 출범</strong>: EU 규정(GDPR/NIS2/DORA) 네이티브 준수를 위한 별도 클라우드 환경, 독일 및 스페인 가용 영역으로 데이터 주권 요구 기업의 마이그레이션 경로 제공</li> <li><strong>GCP Bangkok 리전 및 Gemini 3 Flash</strong>: 동남아 레이턴시 50% 개선, Gemini 3 Flash가 이전 Gemini 1.5 Pro 대비 3배 빠른 속도와 60% 저렴한 비용으로 AI 워크로드 TCO 절감</li>'
-  period='2026-01-22 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
-%}
+## 📋 포스팅 요약
 
-## 핵심 요약
+> **제목**: AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i 인스턴스, Bangkok 리전, European Sovereign Cloud
+
+> **카테고리**: cloud, devops
+
+> **태그**: AWS, GCP, EC2-G7e, EC2-X8i, NVIDIA-Blackwell, Bangkok-Region, European-Sovereign-Cloud, Gemini-3, BigQuery, Cloud-Migration, FinOps, "2026"
+
+> **핵심 내용**: 
+> - EC2 G7e Blackwell GPU, X8i SAP, EU Sovereign Cloud, Bangkok 리전, Gemini 3 Flash
+
+> **주요 기술/도구**: AWS, FinOps, cloud, devops
+
+> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
+
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i, Bangkok 리전, European Sovereign Cloud</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag cloud">Cloud</span> <span class="category-tag devops">DevOps</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags">
+      <span class="tag">AWS</span>
+      <span class="tag">GCP</span>
+      <span class="tag">EC2-G7e</span>
+      <span class="tag">EC2-X8i</span>
+      <span class="tag">NVIDIA-Blackwell</span>
+      <span class="tag">Bangkok-Region</span>
+      <span class="tag">European-Sovereign-Cloud</span>
+      <span class="tag">Gemini-3</span>
+      <span class="tag">BigQuery</span>
+      <span class="tag">Cloud-Migration</span>
+      <span class="tag">FinOps</span>
+      <span class="tag">2026</span>
+    </span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list">
+      <li><strong>AWS EC2 G7e</strong>: NVIDIA RTX PRO 6000 Blackwell GPU, AI 추론 성능 2.3배 향상</li>
+      <li><strong>AWS EC2 X8i</strong>: 커스텀 Intel Xeon 6 프로세서, 메모리 집약적 워크로드 최적화</li>
+      <li><strong>AWS European Sovereign Cloud</strong>: EU 데이터 주권 요구사항 충족, 규제 산업용</li>
+      <li><strong>GCP Bangkok Region</strong>: 태국 시장 진출, USD 10억 투자, 저지연 서비스</li>
+      <li><strong>Gemini 3 Flash</strong>: 최신 추론 모델, 에이전트 워크플로우 최적화</li>
+      <li><strong>BigQuery 고급 쿼리 엔진</strong>: 100개 이상의 새로운 쿼리 기능, Hugging Face 모델 통합</li>
+    </ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">기술/도구</span>
+    <span class="summary-value">AWS EC2, NVIDIA Blackwell, Intel Xeon 6, Google Cloud, Gemini 3, BigQuery, Firestore, RaMP</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">클라우드 아키텍트, DevOps 엔지니어, AI/ML 엔지니어, FinOps 담당자</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
+
+## Executive Summary
 
 2026년 1월 AWS/GCP 업데이트는 **AI 인프라 성숙도**와 **데이터 주권 대응**이라는 두 축으로 요약됩니다. 기업 의사결정자는 다음 세 가지 핵심 사항에 집중해야 합니다:
 
@@ -158,13 +224,6 @@ AWS가 **EC2 G7e 인스턴스**를 정식 출시했습니다. NVIDIA RTX PRO 600
 > ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
-> ```python
-> # G7e 인스턴스에서 LLM 추론 서빙 예시 [truncated]
-> ```
-
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```python
 # G7e 인스턴스에서 LLM 추론 서빙 예시
 # requirements: vllm, transformers
@@ -200,7 +259,6 @@ for output in outputs:
 ```
 -->
 -->
--->
 
 ### 1.4 비용 고려사항
 
@@ -231,7 +289,368 @@ for output in outputs:
 
 ### 2.2 SAP HANA 배포 예시
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://github.com/aws-samples/integrate-httpapi-with-cloudfront-and-waf)를 참조하세요.)                 │  │
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # CloudFormation 템플릿 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+> 
+> ```yaml
+> # CloudFormation 템플릿 예시...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# CloudFormation 템플릿 예시
+AWSTemplateFormatVersion: '2010-09-09'
+Description: SAP HANA on EC2 X8i
+
+Resources:
+  SAPHANAInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: x8i.32xlarge  # 128 vCPU, 2 TB RAM
+      ImageId: !Ref SAPHANAAMIId
+      SubnetId: !Ref PrivateSubnet
+      SecurityGroupIds:
+        - !Ref SAPSecurityGroup
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 500
+            VolumeType: gp3
+            Iops: 16000
+            Throughput: 1000
+        - DeviceName: /dev/sdb  # HANA Data
+          Ebs:
+            VolumeSize: 2000
+            VolumeType: io2
+            Iops: 64000
+        - DeviceName: /dev/sdc  # HANA Log
+          Ebs:
+            VolumeSize: 500
+            VolumeType: io2
+            Iops: 64000
+      Tags:
+        - Key: Name
+          Value: SAP-HANA-Primary
+        - Key: Environment
+          Value: Production
+
+
+```
+-->
+-->
+
+---
+
+## 3. AWS European Sovereign Cloud
+
+### 3.1 개요
+
+AWS가 **European Sovereign Cloud**를 정식 출시했습니다. EU의 엄격한 데이터 주권 요구사항을 충족하도록 설계된 독립적인 클라우드 인프라입니다.
+
+| 특징 | 설명 |
+|------|------|
+| **물리적 위치** | EU 내 전용 데이터센터 |
+| **데이터 레지던시** | 데이터가 EU를 벗어나지 않음 |
+| **운영 인력** | EU 시민만 운영 참여 |
+| **규제 준수** | GDPR, NIS2, DORA 등 |
+| **대상 고객** | 공공 기관, 금융, 헬스케어 |
+
+> **참고**: [AWS 블로그 - European Sovereign Cloud](https://aws.amazon.com/blogs/aws/opening-the-aws-european-sovereign-cloud/)
+
+### 3.2 아키텍처
+
+![AWS European Sovereign Cloud Architecture - Air-gapped EU regions with GDPR/NIS2/DORA compliance](/assets/images/diagrams/2026-01-22-aws-european-sovereign-cloud.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
+
+```
+AWS European Sovereign Cloud:
+- EU Boundary → Physical Isolation (Air-Gapped)
+  - EU Region 1 (Germany) + EU Region 2 (France)
+  - Operations Staff: EU Citizens Only
+  - Jurisdiction: EU Law Only
+- Compliance: GDPR | NIS2 | DORA | eIDAS 2.0
+```
+
+</details>
+
+### 3.3 사용 사례
+
+| 산업 | 요구사항 | EU Sovereign Cloud 이점 |
+|------|----------|------------------------|
+| **금융** | DORA, MiCA 준수 | 데이터 레지던시 보장 |
+| **헬스케어** | GDPR, 의료데이터 규정 | 환자 데이터 EU 내 보관 |
+| **공공기관** | 국가 보안 요구사항 | EU 시민 운영, 감사 가능 |
+| **통신** | NIS2 Directive | 중요 인프라 보호 |
+
+---
+
+## 4. Google Cloud Bangkok Region
+
+### 4.1 개요
+
+Google Cloud가 **태국 방콕에 새로운 리전**을 개설했습니다. USD 10억 투자의 일환으로, 동남아시아 시장에서의 입지를 강화합니다.
+
+| 항목 | 내용 |
+|------|------|
+| **리전 코드** | asia-southeast2 (예상) |
+| **투자 규모** | USD 10억 |
+| **목표** | 태국 디지털 인프라 현대화 |
+| **제공 서비스** | 전체 GCP 서비스 |
+
+> **참고**: [Google Cloud 블로그 - Bangkok Region](https://cloud.google.com/blog/products/infrastructure/google-cloud-launches-new-region-in-bangkok-thailand/)
+
+### 4.2 아시아 태평양 리전 현황
+
+![Google Cloud Asia Pacific Regions - 11 regions with new Bangkok region highlighted](/assets/images/diagrams/2026-01-22-gcp-asia-pacific-regions.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
+```
+Google Cloud Asia Pacific Regions:
+- Northeast: Tokyo (ap-ne1), Osaka (ap-ne2), Seoul (ap-ne3)
+- East: Hong Kong (ap-e2), Taiwan (ap-e1)
+- Southeast: Singapore (ap-se1), Bangkok (NEW!), Jakarta (ap-se2)
+- South: Mumbai (ap-s1), Delhi (ap-s2)
+- Oceania: Sydney (ap-se4)
+```
+
+</details>
+
+### 4.3 레이턴시 최적화
+
+태국 사용자를 위한 GKE 배포 예시:
+
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # GKE 클러스터 - Bangkok 리전...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/docker-library)를 참조하세요.
+> 
+> ```yaml
+> # GKE 클러스터 - Bangkok 리전...
+> ```
+
+<!-- 전체 코드는 위 GitHub 링크 참조
+```yaml
+# GKE 클러스터 - Bangkok 리전
+apiVersion: container.cnrm.cloud.google.com/v1beta1
+kind: ContainerCluster
+metadata:
+  name: production-cluster-bangkok
+spec:
+  location: asia-southeast2-a  # Bangkok
+  
+  # 멀티존 배포
+  nodeLocations:
+    - asia-southeast2-a
+    - asia-southeast2-b
+    - asia-southeast2-c
+  
+  # Autopilot 모드 (권장)
+  enableAutopilot: true
+  
+  # 네트워크 설정
+  networkRef:
+    name: production-vpc
+  subnetworkRef:
+    name: gke-subnet-bangkok
+  
+  # 보안 설정
+  privateClusterConfig:
+    enablePrivateNodes: true
+    enablePrivateEndpoint: false
+    masterIpv4CidrBlock: "172.16.0.0/28"
+  
+  # 워크로드 아이덴티티
+  workloadIdentityConfig:
+    workloadPool: "project-id.svc.id.goog"
+
+
+```
+-->
+-->
+
+---
+
+## 5. Gemini 3 Flash 및 BigQuery 업데이트
+
+### 5.1 Gemini 3 Flash
+
+Google의 최신 Gemini 3 Flash 모델이 출시되었습니다. **에이전트 워크플로우**와 **복잡한 추론 작업**에 최적화되었습니다.
+
+| 특징 | 설명 |
+|------|------|
+| **추론 능력** | State-of-the-art 추론 |
+| **멀티모달** | 텍스트, 이미지, 코드 통합 |
+| **에이전트** | Agentic workflow 최적화 |
+| **비용** | Flash-level 비용 효율성 |
+
+> **참고**: [Google Cloud 블로그 - Gemini 3 Flash](https://cloud.google.com/blog/topics/developers-practitioners/getting-started-with-gemini-3-hello-world-with-gemini-3-flash/)
+
+### 5.2 Gemini 3 Flash 사용 예시
+
+> **코드 예시**: Gemini 3 Flash API 예시는 [Gemini 3 Flash Hello World](https://cloud.google.com/blog/topics/developers-practitioners/getting-started-with-gemini-3-hello-world-with-gemini-3-flash/)를 참조하세요.
+
+<!-- 전체 코드는 위 링크 참조 -->
+
+### 5.3 BigQuery 고급 쿼리 엔진
+
+BigQuery에 **100개 이상의 새로운 쿼리 기능**이 추가되었으며, **Hugging Face 모델**을 SQL에서 직접 호출할 수 있게 되었습니다.
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```sql
+-- BigQuery에서 Hugging Face 모델 사용 예시
+-- 감성 분석
+
+CREATE OR REPLACE MODEL `project.dataset.sentiment_model`
+REMOTE WITH CONNECTION `project.region.connection_id`
+OPTIONS (
+  endpoint = 'huggingface://distilbert-base-uncased-finetuned-sst-2-english'
+);
+
+-- 모델 추론 실행
+SELECT 
+  review_text,
+  ML.PREDICT(MODEL `project.dataset.sentiment_model`, 
+    STRUCT(review_text AS text_input)) AS sentiment
+FROM `project.dataset.customer_reviews`
+WHERE DATE(created_at) = CURRENT_DATE();
+
+-- 결과 집계
+SELECT
+  sentiment.label AS sentiment_label,
+  COUNT(*) AS count,
+  AVG(sentiment.score) AS avg_confidence
+FROM (
+  SELECT 
+    ML.PREDICT(MODEL `project.dataset.sentiment_model`, 
+      STRUCT(review_text AS text_input)) AS sentiment
+  FROM `project.dataset.customer_reviews`
+)
+GROUP BY sentiment_label;
+
+
+```
+-->
+-->
+
+---
+
+## 6. FinOps 관점: 비용 최적화 전략
+
+### 6.1 신규 인스턴스 비용 최적화
+
+![FinOps Cost Optimization Strategy - EC2 G7e, X8i, and GCP Bangkok savings approaches](/assets/images/diagrams/2026-01-22-finops-cost-optimization.svg)
+
+<details>
+<summary>텍스트 버전 (접근성용)</summary>
+
+```
+FinOps Cost Optimization Strategy:
+- EC2 G7e (AI Inference): Spot Instances (up to 90% savings), Auto Scaling, Reserved Instances
+- EC2 X8i (Memory-Intensive): Savings Plans (1yr/3yr), Right-sizing, Reserved Capacity (SAP HANA)
+- GCP Bangkok Region: Committed Use Discounts (up to 57%), Preemptible VMs, Multi-region cost comparison
+```
+
+</details>
+
+### 6.2 마이그레이션 인센티브: GCP RaMP
+
+Google Cloud의 **Rapid Migration and Modernization Program (RaMP)**이 업데이트되어 추가 인센티브가 제공됩니다:
+
+| 인센티브 | 설명 |
+|----------|------|
+| **마이그레이션 크레딧** | 이전 비용 지원 |
+| **최적화 리소스** | 전문가 컨설팅 |
+| **SAP/VMware 특별** | 특화된 마이그레이션 지원 |
+| **Oracle/NetApp** | 데이터베이스 마이그레이션 |
+
+> **참고**: [Google Cloud RaMP 프로그램](https://cloud.google.com/blog/products/infrastructure-modernization/new-ramp-incentives-for-cloud-migration/)
+
+---
+
+## 7. 보안 영향 분석 (Security Implications)
+
+### 7.1 신규 서비스 보안 고려사항
+
+#### 7.1.1 EC2 G7e/X8i 보안 체크리스트
+
+**인스턴스 보안 기준선**:
+
+| 보안 영역 | 요구사항 | 구현 방법 |
+|----------|----------|----------|
+| **IAM 권한** | 최소 권한 원칙 | Instance Profile with least privilege |
+| **네트워크** | 보안 그룹 제한 | Port 22/3389 차단, VPN/Bastion 경유 |
+| **암호화** | EBS 볼륨 암호화 | KMS Customer Managed Keys (CMK) |
+| **패치 관리** | OS/드라이버 자동 업데이트 | AWS Systems Manager Patch Manager |
+| **모니터링** | CloudWatch + 3rd party SIEM | 비정상 활동 실시간 탐지 |
+
+**G7e GPU 특화 보안**:
+- CUDA 드라이버 취약점 주기적 검토 (CVE-2024-XXXXX 계열)
+- AI 모델 가중치 파일 암호화 (S3 버킷 SSE-KMS)
+- GPU 메모리 유출 방지 (컨테이너 격리, 메모리 제한)
+
+**X8i SAP HANA 특화 보안**:
+- SAP 보안 노트 정기 적용 (SAP Security Patch Day)
+- HANA 데이터베이스 암호화 (Transparent Data Encryption)
+- SAP 감사 로그 중앙 수집 (SIEM 연동)
+
+#### 7.1.2 AWS European Sovereign Cloud 보안 강화
+
+**규제 준수 매트릭스**:
+
+| 규제 | 요구사항 | EU Sovereign Cloud 대응 |
+|------|----------|------------------------|
+| **GDPR** | 데이터 레지던시, 삭제권 | 물리적 EU 격리, 자동 삭제 |
+| **NIS2** | 중요 인프라 보안 | 24/7 보안 운영, 인시던트 대응 |
+| **DORA** | 금융 IT 복원력 | 재해복구, 백업, 테스트 |
+| **eIDAS 2.0** | 전자 ID 인증 | EU 전자 서명 통합 |
+
+**데이터 주권 검증 체크리스트**:
+- [ ] 데이터 저장 위치 명시 (독일/프랑스 리전)
+- [ ] 운영 인력 국적 확인 (EU 시민 한정)
+- [ ] 로그 액세스 감사 (GDPR Article 32)
+- [ ] 서브프로세서 계약 검토 (GDPR Article 28)
+- [ ] 국경 간 데이터 전송 차단 확인
+
+#### 7.1.3 GCP Bangkok Region 보안 설정
+
+**멀티 리전 보안 아키텍처**:
+
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상)
+```plaintext
+[Bangkok Region Security Architecture]
+
+┌─────────────────────────────────────────────────┐
+│ asia-southeast2 (Bangkok)                       │
+│                                                 │
+│  ┌──────────────────────────────────────────┐  │
+│  │ VPC Network (10.1.0.0/16)                │  │
+│  │                                          │  │
+│  │  ┌────────────────┐  ┌────────────────┐ │  │
+│  │  │ Private Subnet │  │ Public Subnet  │ │  │
+│  │  │ GKE Nodes      │  │ Load Balancers │ │  │
+│  │  └────────────────┘  └────────────────┘ │  │
+│  │                                          │  │
+│  │  Cloud Armor (DDoS/WAF)                 │  │
 │  │  │                                       │  │
 │  │  └──> VPC Service Controls             │  │
 │  │       │                                  │  │
@@ -249,13 +668,7 @@ for output in outputs:
               - Disaster Recovery (Singapore)
               - Geo-redundancy for compliance
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
-> ```
-> --> [truncated]
-> ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 -->
 -->
@@ -440,13 +853,9 @@ ORDER BY timestamp DESC;
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
-> 
-```
--->python
+> ```python
 > # 한국 기업을 위한 클라우드 비용 예측 스크립트...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-
-```
+> ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
@@ -509,13 +918,7 @@ def estimate_cloud_cost_krw(
 result = estimate_cloud_cost_krw("g7e.xlarge")
 print(f"EC2 G7e 월간 비용: ${result['cost_usd']} / ₩{result['cost_krw']:,}")
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
-> ```
-> --> [truncated]
-> ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 -->
 -->
@@ -552,7 +955,7 @@ print(f"EC2 G7e 월간 비용: ${result['cost_usd']} / ₩{result['cost_krw']:,}
 
 ## 9. 경영진 보고 형식 (Board Reporting)
 
-### 9.1 경영진 브리핑 (1페이지 요약)
+### 9.1 Executive Briefing (1-Page Summary)
 
 **제목**: 2026년 1월 AWS/GCP 업데이트 - 전략적 의사결정 요청
 
@@ -679,13 +1082,9 @@ AWS와 Google Cloud가 2026년 1월 발표한 주요 업데이트는 **AI 인프
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 > 
-> 
-```
--->plaintext
+> ```plaintext
 > [AI Inference Pipeline with EC2 G7e]...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-
-```
+> ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
@@ -743,7 +1142,6 @@ Performance Metrics:
 - Throughput: 100+ requests/sec per GPU
 - Cost: $2.8/hour (g7e.2xlarge) vs $4.0/hour (p4d.24xlarge)
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```
 -->
@@ -755,9 +1153,7 @@ Performance Metrics:
 > 
 > ```plaintext
 > [SAP HANA High Availability on EC2 X8i]...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-
-```
+> ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
@@ -821,7 +1217,6 @@ Cost Optimization:
 - Savings Plans (Compute): Additional 10-15% on top of RI
 - EBS Snapshots: Lifecycle to Glacier after 30 days
 
-> **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
 
 ```
 -->
@@ -833,9 +1228,7 @@ Cost Optimization:
 > 
 > ```plaintext
 > [Multi-Cloud Hybrid Architecture: AWS + GCP]...
-> > **참고**: 관련 예제는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-
-```
+> ```
 
 <!-- 전체 코드는 위 GitHub 링크 참조
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
@@ -900,13 +1293,7 @@ Benefits:
 - Geo-redundancy (AWS Seoul ↔ GCP Bangkok)
 - Regulatory compliance (EU Sovereign Cloud)
 
-> **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/aws-samples)를 참조하세요.
-> 
-> ```
-> --> [truncated]
-> ```
 
-<!-- 전체 코드는 위 GitHub 링크 참조
 ```
 -->
 -->
@@ -1142,9 +1529,7 @@ Benefits:
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/python/cpython/tree/main/Doc)를 참조하세요.
 > 
-> 
-```
--->python
+> ```python
 > # 월간 비용 계산 (730시간 기준)...
 > ```
 
@@ -1168,6 +1553,7 @@ instances = {
 
 for name, cost in instances.items():
     print(f"{name}: ${cost:,.2f}/month")
+
 
 ```
 -->
