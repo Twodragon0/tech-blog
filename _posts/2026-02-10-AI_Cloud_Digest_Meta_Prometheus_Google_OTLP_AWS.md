@@ -5,23 +5,40 @@ date: 2026-02-10 13:00:00 +0900
 categories: [devsecops, cloud]
 tags: [AI-Digest, Cloud-Digest, Meta-Prometheus, Google-OTLP, AWS, ChatGPT, OpenTelemetry]
 excerpt: "Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus 4.6 Bedrock 통합, ChatGPT 미 국방부 GenAI.mil 플랫폼"
-description: "2026년 2월 10일 AI/클라우드 뉴스: Meta Prometheus AI 클러스터, Google OTLP 지원, AWS Bedrock Claude 통합 분석."
 image: /assets/images/2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS.svg
 author: Twodragon
 toc: true
 schema_type: Article
 ---
 
+## 📋 포스팅 요약
+
+> **제목**: 2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트
+
+> **카테고리**: devsecops, cloud
+
+> **태그**: AI-Digest, Cloud-Digest, Meta-Prometheus, Google-OTLP, AWS, ChatGPT, OpenTelemetry
+
+> **핵심 내용**: 
+> - Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus 4.6 Bedrock 통합, ChatGPT 미 국방부 GenAI.mil 플랫폼
+
+> **주요 기술/도구**: AWS, devsecops, cloud
+
+> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
+
+> ---
+
+> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
+
 {% include ai-summary-card.html
-  title='2026-02-10 AI &amp; 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트'
-  categories_html='<span class="category-tag devsecops">DevSecOps</span> <span class="category-tag cloud">클라우드</span>'
-  tags_html='<span class="tag">AI-Digest</span> <span class="tag">Cloud-Digest</span> <span class="tag">Meta-Prometheus</span> <span class="tag">Google-OTLP</span> <span class="tag">AWS</span> <span class="tag">ChatGPT</span> <span class="tag">OpenTelemetry</span>'
-  highlights_html='<li><strong>Meta Prometheus 기가와트급 AI 클러스터</strong>: 1GW 용량·리전 쌍당 16~48Pbps 네트워크, DSF/NSF 이중 패브릭으로 수만 GPU를 다중 데이터센터에 연결하는 초대규모 AI 인프라 공개</li>
-      <li><strong>Google Cloud OTLP 네이티브 지원</strong>: OpenTelemetry Protocol 직접 수신으로 벤더별 익스포터 불필요, Attribute 값 256배 확장(256B→64KiB)으로 멀티클라우드 벤더 중립 관찰성 스택 전환 가속</li>
-      <li><strong>AWS Bedrock Claude Opus 4.6 + CloudFront mTLS</strong>: 200K~1M 토큰 컨텍스트 AI 에이전트 워크플로우 통합, CDN-Origin 간 상호 TLS 인증으로 제로트러스트 아키텍처 강화</li>'
-  period='2026-02-10 (24시간)'
-  audience='보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자'
+  title='AI & Cloud Digest (2026년 02월 10일)'
+  categories_html='<span class=category-tag>Summary</span>'
+  tags_html='<span class=tag>Digest</span>'
+  highlights_html='<li>Auto-generated summary available below.</li>'
+  period='최근 24시간'
+  audience='개발자 및 보안 담당자'
 %}
+
 
 ## 서론
 
