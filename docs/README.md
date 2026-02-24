@@ -36,11 +36,15 @@ Project-wide pipeline and architecture documentation:
 - [workflows.md](pipeline/workflows.md) - GitHub Actions workflows
 - [operations.md](pipeline/operations.md) - Operations guide
 
+### BlogWatcher Integration
+AI BlogWatcher 자동 발행 워크플로우와 payload 포맷은 다음 문서를 참조하세요:
+- [README_DAILY_NEWS.md](scripts/README_DAILY_NEWS.md)
+
 ### Script Documentation (`scripts/`)
 Script-specific guides and references:
 
 - [QUICK_START.md](scripts/QUICK_START.md) - Quick start guide
-- [README_DAILY_NEWS.md](scripts/README_DAILY_NEWS.md) - Daily news collection
+- [README_DAILY_NEWS.md](scripts/README_DAILY_NEWS.md) - Daily news collection + BlogWatcher auto publish
 - [README_AI_IMPROVEMENT.md](scripts/README_AI_IMPROVEMENT.md) - AI-based post improvement
 - [README_AUDIO_GENERATION.md](scripts/README_AUDIO_GENERATION.md) - Audio generation
 - [README_POST_IMAGES.md](scripts/README_POST_IMAGES.md) - Post image generation

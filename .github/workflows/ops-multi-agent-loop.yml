@@ -1,0 +1,156 @@
+name: Ops Multi Agent Loop
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      auto_recover_gha:
+        description: "Auto rerun failed GitHub Actions workflows"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+concurrency:
+  group: ops-multi-agent-loop
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: write
+  issues: write
+
+jobs:
+  roundtable:
+    if: github.event_name != 'schedule' || vars.OPS_MULTI_AGENT_SCHEDULE != 'false'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+      PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENCLAW_GATEWAY_URL: ${{ secrets.OPENCLAW_GATEWAY_URL }}
+      OPENCLAW_GATEWAY_TOKEN: ${{ secrets.OPENCLAW_GATEWAY_TOKEN }}
+      SLACK_CHANNEL_ID_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install CLI dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ruff mypy
+          npm i -g vercel
+          gh --version
+          vercel --version
+
+      - name: Run multi-agent roundtable checks
+        id: roundtable
+        env:
+          AUTO_RECOVER_GHA: ${{ github.event.inputs.auto_recover_gha || 'true' }}
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          args=(--output reports/ops-roundtable.md --json-output reports/ops-roundtable.json)
+          if [ "${AUTO_RECOVER_GHA}" = "true" ]; then
+            args+=(--auto-recover-gha)
+          fi
+          python3 scripts/ops_health_orchestrator.py "${args[@]}"
+
+      - name: Upload roundtable report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ops-roundtable-report
+          path: reports/
+
+      - name: Add report to job summary
+        if: always()
+        run: |
+          if [ -f reports/ops-roundtable.md ]; then
+            cat reports/ops-roundtable.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Ops roundtable report was not generated." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Export report output
+        id: report
+        if: always()
+        run: |
+          if [ -f reports/ops-roundtable.md ]; then
+            {
+              echo "message<<EOF"
+              cat reports/ops-roundtable.md
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+          else
+            echo "message=Ops roundtable report missing." >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Post report to Slack via OpenClaw Gateway
+        if: always() && env.OPENCLAW_GATEWAY_URL != '' && env.OPENCLAW_GATEWAY_TOKEN != '' && env.SLACK_CHANNEL_ID_OPS != ''
+        env:
+          MESSAGE: ${{ steps.report.outputs.message }}
+          TARGET_CHANNEL_ID: ${{ env.SLACK_CHANNEL_ID_OPS }}
+        run: |
+          set -euo pipefail
+          payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
+          curl -sS "${OPENCLAW_GATEWAY_URL}/tools/invoke" \
+            -H "Authorization: Bearer ${OPENCLAW_GATEWAY_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "$payload"
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const title = `🚨 Ops multi-agent loop failed (${new Date().toISOString().slice(0, 10)})`;
+            const body = [
+              'Ops multi-agent checks found unresolved P1/P0 issues.',
+              '',
+              `- Workflow run: ${runUrl}`,
+              '- Artifact: ops-roundtable-report',
+              '',
+              'Suggested actions:',
+              '- Review reports/ops-roundtable.md',
+              '- Triage Vercel/GitHub Actions/Sentry issues first',
+              '- Re-run workflow after fixes'
+            ].join('\n');
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'ops,automation'
+            });
+
+            const duplicate = issues.find((issue) => issue.title === title);
+            if (!duplicate) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['ops', 'automation', 'alert']
+              });
+            }

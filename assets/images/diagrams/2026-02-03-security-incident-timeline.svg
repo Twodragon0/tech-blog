@@ -4,7 +4,7 @@
 
   <!-- Title -->
   <text x="400" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">
-    OpenClaw/Moltbot Security Incident Timeline (Jan-Feb 2026)
+    AI/Moltbot Security Incident Timeline (Jan-Feb 2026)
   </text>
 
   <!-- Timeline Line -->
@@ -18,7 +18,7 @@
     Jan 25
   </text>
   <text x="100" y="81" font-family="Arial, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle">
-    Shodan: Mass OpenClaw
+    Shodan: Mass AI
   </text>
   <text x="100" y="91" font-family="Arial, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle">
     indexing (exposed admin)

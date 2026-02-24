@@ -119,6 +119,52 @@ python3 scripts/generate_news_draft.py --dry-run
 ### 자동 실행
 - **스케줄**: 매일 오전 9시 (KST)
 - **워크플로우**: `.github/workflows/daily-news.yml`
+- **게이트 변수**: `DAILY_NEWS_SCHEDULE=false` 설정 시 스케줄 실행 중지
+
+### AI BlogWatcher 자동 발행
+- **워크플로우**: `.github/workflows/ai-blogwatcher.yml`
+- **트리거**: `repository_dispatch` (`ai_blogwatcher`) 또는 수동 실행
+- **스케줄**: UTC 18:00 (KST 03:00), `AI_BLOGWATCHER_SCHEDULE=true`일 때만 동작
+
+#### BlogWatcher payload format (권장)
+
+```json
+{
+  "schema_version": "1.0",
+  "collected_at": "2026-02-18T00:00:00Z",
+  "items": [
+    {
+      "id": "source:hash",
+      "title": "...",
+      "url": "https://...",
+      "summary": "...",
+      "published": "2026-02-18T00:00:00Z",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security"
+    }
+  ]
+}
+```
+
+#### repository_dispatch example
+
+```json
+{
+  "event_type": "ai_blogwatcher",
+  "client_payload": {
+    "mode": "security",
+    "use_ai": "none",
+    "run_checks": "true",
+    "collected_news_json": "{...payload json string...}"
+  }
+}
+```
+
+지원 입력 (client_payload):
+- `collected_news_json`: 위 payload JSON 문자열
+- `collected_news_url`: payload JSON URL
+- `hours`, `max_news`, `mode`, `dry_run`, `force_publish`, `use_ai`, `run_checks`
 
 ### 수동 실행
 1. GitHub 저장소의 Actions 탭 이동
@@ -148,6 +194,7 @@ tech-blog/
 ├── scripts/
 │   ├── collect_tech_news.py    # 뉴스 수집 스크립트
 │   ├── generate_news_draft.py  # 초안 생성 스크립트
+│   ├── normalize_blogwatcher_payload.py # BlogWatcher payload 정규화
 │   └── README_DAILY_NEWS.md    # 이 문서
 ├── _data/
 │   ├── collected_news.json     # 수집된 뉴스 데이터

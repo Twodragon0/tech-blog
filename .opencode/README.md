@@ -20,6 +20,9 @@ opencode sisyphus
 /collect-news
 /validate-posts
 /generate-images
+/ultrawork-loop
+/sisyphus-loop
+/ops-roundtable
 ```
 
 ## Agents
@@ -124,6 +127,28 @@ Generate missing post images.
 - Local scripts preferred
 
 **Completion Promise**: `IMAGES_GENERATED`
+
+### `/ultrawork-loop`
+Continuous ops loop with OpenClaw + Slack integration.
+
+**Completion Promise**: `ULTRAWORK_LOOP_COMPLETE`
+
+### `/sisyphus-loop`
+Sisyphus loop that keeps iterating until no P0/P1 items remain.
+
+**Completion Promise**: `SISYPHUS_LOOP_COMPLETE`
+
+### `/ops-roundtable`
+Multi-agent reliability loop across operations, security, and UI/UX.
+
+**Checks:**
+- Ruff + mypy lint/type checks (with auto-fix phase)
+- Vercel CLI auth/deployment health
+- GitHub Actions failure scan and optional auto-rerun
+- Sentry unresolved issue threshold
+- Core Web Vitals via PageSpeed API
+
+**Completion Promise**: `OPS_ROUNDTABLE_COMPLETE`
 
 ### `/security-audit`
 Security audit and compliance check.

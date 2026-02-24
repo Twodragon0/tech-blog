@@ -1,0 +1,132 @@
+name: AI Ops On Demand
+
+on:
+  repository_dispatch:
+    types: [ai_ops_task]
+  workflow_dispatch:
+    inputs:
+      run_lint_checks:
+        description: "Run lint/type checks"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      run_vercel_checks:
+        description: "Run Vercel checks"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      run_github_actions_checks:
+        description: "Run GitHub Actions checks"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      run_sentry_checks:
+        description: "Run Sentry checks"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      run_uiux_checks:
+        description: "Run UI/UX checks"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      auto_recover_gha:
+        description: "Auto rerun failed GitHub Actions workflows"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+concurrency:
+  group: ai-ops-on-demand
+  cancel-in-progress: false
+
+jobs:
+  ops-on-demand:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    permissions:
+      contents: read
+
+    env:
+      RUN_LINT_CHECKS: ${{ github.event.inputs.run_lint_checks || github.event.client_payload.run_lint_checks || 'true' }}
+      RUN_VERCEL_CHECKS: ${{ github.event.inputs.run_vercel_checks || github.event.client_payload.run_vercel_checks || 'true' }}
+      RUN_GITHUB_ACTIONS_CHECKS: ${{ github.event.inputs.run_github_actions_checks || github.event.client_payload.run_github_actions_checks || 'true' }}
+      RUN_SENTRY_CHECKS: ${{ github.event.inputs.run_sentry_checks || github.event.client_payload.run_sentry_checks || 'true' }}
+      RUN_UIUX_CHECKS: ${{ github.event.inputs.run_uiux_checks || github.event.client_payload.run_uiux_checks || 'true' }}
+      AUTO_RECOVER_GHA: ${{ github.event.inputs.auto_recover_gha || github.event.client_payload.auto_recover_gha || 'true' }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+      PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENCLAW_GATEWAY_URL: ${{ secrets.OPENCLAW_GATEWAY_URL }}
+      OPENCLAW_GATEWAY_TOKEN: ${{ secrets.OPENCLAW_GATEWAY_TOKEN }}
+      SLACK_CHANNEL_ID_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ruff mypy
+          npm i -g vercel
+          gh --version
+          vercel --version
+
+      - name: Run on-demand checks
+        id: checks
+        run: |
+          set -euo pipefail
+          args=(--output reports/ops-roundtable.md --json-output reports/ops-roundtable.json)
+          if [ "${AUTO_RECOVER_GHA}" = "true" ]; then
+            args+=(--auto-recover-gha)
+          fi
+          mkdir -p reports
+          message=$(python3 scripts/ops_health_orchestrator.py "${args[@]}" || true)
+          {
+            echo "message<<EOF"
+            echo "$message"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Post to Slack via OpenClaw Gateway
+        if: env.OPENCLAW_GATEWAY_URL != '' && env.OPENCLAW_GATEWAY_TOKEN != '' && env.SLACK_CHANNEL_ID_OPS != ''
+        shell: bash
+        env:
+          MESSAGE: ${{ steps.checks.outputs.message }}
+          TARGET_CHANNEL_ID: ${{ env.SLACK_CHANNEL_ID_OPS }}
+        run: |
+          set -euo pipefail
+          payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
+          curl -sS "${OPENCLAW_GATEWAY_URL}/tools/invoke" \
+            -H "Authorization: Bearer ${OPENCLAW_GATEWAY_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "$payload"

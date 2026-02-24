@@ -707,7 +707,7 @@ def main():
   python3 scripts/generate_high_quality_images.py --recent 5 --force
   
   # 특정 포스팅 이미지 생성
-  python3 scripts/generate_high_quality_images.py _posts/2026-02-04-OpenClaw_vs_Claude_Code_AI_Coding_Assistant_Comparison.md --force
+  python3 scripts/generate_high_quality_images.py _posts/2026-02-04-AI_vs_Claude_Code_AI_Coding_Assistant_Comparison.md --force
   
   # 2026년 포스팅 모두 처리
   python3 scripts/generate_high_quality_images.py --year 2026 --force
