@@ -5,7 +5,6 @@
 
 import re
 import os
-import argparse
 from pathlib import Path
 from typing import List, Tuple, Optional
 
@@ -172,7 +171,7 @@ def validate_url(url: str) -> bool:
 
 
 def get_replacement_link(
-    code_type: Optional[str], code_block: str, context: str = ""
+    code_type: str, code_block: str, context: str = ""
 ) -> Optional[str]:
     """코드 블록을 대체할 링크 반환"""
     code_lower = code_block.lower()
@@ -217,7 +216,7 @@ def get_replacement_link(
     if code_type in GITHUB_LINKS and GITHUB_LINKS[code_type]:
         link = GITHUB_LINKS[code_type]
         # 보안: URL 검증
-        if validate_url(link):
+        if isinstance(link, str) and validate_url(link):
             return link
         return None
 
@@ -259,18 +258,21 @@ def replace_code_blocks(content: str) -> str:
         code_block = match.group(2)
         full_match = match.group(0)
 
+        # 이미 링크가 있는지 확인 (안전한 검사)
         context_start = max(0, match.start() - 200)
         context = content[context_start : match.start()]
+        # 보안: 링크 검증 - 완전한 URL 패턴만 허용 (부분 문자열 매칭 방지)
+        # 위험한 부분 문자열 매칭 방지: 정확한 URL 패턴만 허용
         import re
 
-        existing_marker_pattern = r"(\*\*코드 예시\*\*|전체 코드는 위 GitHub 링크 참조)"
-        if re.search(existing_marker_pattern, context, re.IGNORECASE):
-            return full_match
+        safe_url_pattern = r"\]\s*\(\s*(https?://[^\s\)]+github\.com[^\s\)]*)"
+        if re.search(safe_url_pattern, context, re.IGNORECASE):
+            return full_match  # 이미 링크가 있으면 유지
 
         # 코드 타입 감지
-        code_type = (
-            language.lower() if language else detect_code_type(code_block)
-        ) or ""
+        code_type = language.lower() if language else detect_code_type(code_block)
+        if not code_type:
+            code_type = ""
 
         # 링크 가져오기
         link = get_replacement_link(code_type, code_block)
@@ -288,14 +290,15 @@ def replace_code_blocks(content: str) -> str:
             if link:
                 # 보안: 링크 이스케이프 (마크다운 링크 형식에서 안전하게 처리)
                 code_preview = code_block.split("\n")[0][:80].strip()
+                preview_suffix = " [truncated]" if code_preview else ""
                 # 보안: URL에 위험한 문자가 포함되지 않도록 검증된 링크만 사용
                 safe_link = link.replace("]", "%5D").replace(
                     "[", "%5B"
                 )  # 마크다운 링크 구문자 이스케이프
-                return f"> **코드 예시**: 전체 코드는 [GitHub 예제 저장소]({safe_link})를 참조하세요.\n> \n> ```{language}\n> {code_preview}...\n> ```\n\n<!-- 전체 코드는 위 GitHub 링크 참조 -->"
+                return f"> **코드 예시**: 전체 코드는 [GitHub 예제 저장소]({safe_link})를 참조하세요.\n> \n> ```{language}\n> {code_preview}{preview_suffix}\n> ```\n\n<!-- 전체 코드는 위 GitHub 링크 참조\n```{language}\n{code_block}\n```\n-->"
             else:
                 # 링크가 없으면 주석 처리
-                return "<!-- 긴 코드 블록 제거됨 (가독성 향상) -->"
+                return f"<!-- 긴 코드 블록 제거됨 (가독성 향상)\n```{language}\n{code_block}\n```\n-->"
         else:
             # 짧은 코드 블록은 유지하되 링크 추가 (너무 짧으면 링크 추가 안 함)
             if link and code_lines >= 3:  # 3줄 이상인 경우만 링크 추가
@@ -376,40 +379,17 @@ def process_post_file(file_path: Path) -> bool:
 
 
 def main():
+    """메인 함수"""
     posts_dir = Path(__file__).parent.parent / "_posts"
 
     if not posts_dir.exists():
         print(f"Posts directory not found: {posts_dir}")
         return
 
-    parser = argparse.ArgumentParser(
-        description="Replace long code blocks with reference links"
-    )
-    parser.add_argument(
-        "files",
-        nargs="*",
-        help="Specific post files to process (default: all posts)",
-    )
-    args = parser.parse_args()
-
-    if args.files:
-        target_files = [Path(file_path) for file_path in args.files]
-        resolved_files = []
-        for file_path in target_files:
-            if not file_path.is_absolute():
-                file_path = posts_dir / file_path
-            if file_path.exists():
-                resolved_files.append(file_path)
-            else:
-                print(f"File not found: {file_path}")
-        post_files = resolved_files
-    else:
-        post_files = list(posts_dir.glob("*.md"))
-
     processed = 0
     updated = 0
 
-    for post_file in post_files:
+    for post_file in posts_dir.glob("*.md"):
         processed += 1
         if process_post_file(post_file):
             updated += 1

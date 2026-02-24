@@ -102,13 +102,13 @@ referenced_images.txt
 .omc/notepads/
 .omc/checkpoints/
 
-# Local agent scaffolding / generated prompt artifacts
+# OpenCode session artifacts
 HEARTBEAT.md
 IDENTITY.md
 SOUL.md
 TOOLS.md
 USER.md
-_drafts/prompts/
 
-# Local/generated news processing state
+# Generated local pipeline state
 _data/processed_news_ids.json
+_drafts/prompts/

@@ -156,7 +156,7 @@ tech-blog/
 ## 🚀 로컬 개발
 
 ### 요구사항
-- Ruby 3.3+
+- Ruby 2.6+ (권장: 3.3+)
 - Bundler
 - Git
 
@@ -176,6 +176,20 @@ bundle exec jekyll serve
 # 브라우저에서 열기
 open http://localhost:4000
 ```
+
+### 로컬 빌드 시 Bundler 버전 이슈
+
+`Could not find 'bundler' (2.5.3)'` 등이 나오면:
+
+- **Ruby 2.6**: Gemfile.lock은 Bundler 2.4.4 기준입니다. gem을 시스템이 아닌 프로젝트 안에 두려면:
+  ```bash
+  gem install bundler:2.4.4 --user-install
+  # PATH에 없으면 절대경로 사용 (예: ~/.gem/ruby/2.6.0/bin/bundle)
+  bundle config set --local path 'vendor/bundle'
+  bundle install
+  bundle exec jekyll build
+  ```
+- **Ruby 3.0+**: `bundle update --bundler` 후 `bundle install` 하면 됩니다.
 
 ## 📝 새 글 작성
 

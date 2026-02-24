@@ -150,11 +150,15 @@ def find_related_posts(news_item: dict, posts_dir: Path) -> List[dict]:
     try:
         for post_file in sorted(posts_dir.glob("*.md"), reverse=True)[:100]:
             try:
-                with open(post_file, 'r', encoding='utf-8') as f:
+                with open(post_file, "r", encoding="utf-8") as f:
                     post = frontmatter.load(f)
                 post_category = str(post.get("category", ""))
                 raw_tags = post.get("tags", [])
-                post_tags = [str(t).lower() for t in (raw_tags if isinstance(raw_tags, list) else []) if t]
+                post_tags = [
+                    str(t).lower()
+                    for t in (raw_tags if isinstance(raw_tags, list) else [])
+                    if t
+                ]
                 post_title = str(post.get("title", ""))
                 post_excerpt = str(post.get("excerpt", ""))
 
@@ -584,8 +588,18 @@ def main():
         action="store_true",
         help="Show what would be generated without saving",
     )
+    parser.add_argument(
+        "--use-ai",
+        action="store_true",
+        help="Backward-compatible flag (deprecated, prompts are generated regardless)",
+    )
 
     args = parser.parse_args()
+
+    if args.use_ai:
+        print(
+            "ℹ️ '--use-ai' is deprecated in this script. Generating prompts for AI-assisted writing."
+        )
 
     # 프로젝트 루트
     script_dir = Path(__file__).parent

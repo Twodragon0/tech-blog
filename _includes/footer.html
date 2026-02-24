@@ -51,7 +51,28 @@
 {% if page.layout == 'post' %}
 <script src="{{ "/assets/js/main-post.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
 <script src="{{ "/assets/js/post-page.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+<script src="{{ "/assets/js/share-actions.js" | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
 {% endif %}
+
+<!-- WebP auto-replace for browsers that support it (saves ~75% on PNG images) -->
+<script>
+(function() {
+  if (!self.createImageBitmap) return;
+  var webpTest = new Image();
+  webpTest.onload = function() {
+    document.querySelectorAll('img[src$=".png"]').forEach(function(img) {
+      var src = img.getAttribute('src');
+      if (src && !src.includes('/og/')) {
+        var webpSrc = src.replace(/\.png$/, '.webp');
+        var test = new Image();
+        test.onload = function() { img.src = webpSrc; };
+        test.src = webpSrc;
+      }
+    });
+  };
+  webpTest.src = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiTjt7REA';
+})();
+</script>
 
 <!-- Search & Translation JavaScript (지연 로드) -->
 <script>

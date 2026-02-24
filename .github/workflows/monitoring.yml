@@ -4,7 +4,7 @@ on:
   schedule:
     # 매일 오전 10시 KST = UTC 01:00
     # GitHub Actions cron은 큐 지연이 있을 수 있음 (최대 15-30분)
-    - cron: '0 3 * * *'
+    - cron: '0 1 * * *'
   # Also allow manual trigger
   workflow_dispatch:
 
@@ -14,14 +14,30 @@ permissions:
 
 jobs:
   monitor:
-    if: github.event_name != 'schedule' || vars.PROD_MONITORING_SCHEDULE != 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      HAS_VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN != '' }}
+      HAS_SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK != '' }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+
+      - name: Check site availability
+        run: |
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 -A "Mozilla/5.0 TechBlogMonitor" https://tech.2twodragon.com)
+          echo "HTTP status: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -eq 429 ]; then
+            echo "::warning::Site returned HTTP 429 (rate limited) - site is alive"
+          elif [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 400 ]; then
+            echo "::error::Site returned HTTP $HTTP_STATUS"
+            exit 1
+          else
+            echo "Site is accessible (HTTP $HTTP_STATUS)"
+          fi
 
       - name: Check Vercel CLI
+        if: env.HAS_VERCEL_TOKEN == 'true'
         run: |
           npm list -g vercel > /dev/null 2>&1 || npm i -g vercel
 
@@ -30,7 +46,7 @@ jobs:
           which jq > /dev/null 2>&1 || (apt-get update && apt-get install -y jq)
 
       - name: Run Vercel monitoring
-        run: bash scripts/monitor_vercel_builds.sh --alert-only
+        run: bash scripts/monitor_vercel_builds.sh https://tech.2twodragon.com --alert-only
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -40,7 +56,7 @@ jobs:
 
       - name: Create issue on failure
         if: failure()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const body = [
@@ -72,15 +88,14 @@ jobs:
             })
 
       - name: Slack notification on failure
-        if: ${{ failure() && env.SLACK_WEBHOOK_CONFIGURED == 'true' }}
-        uses: slackapi/slack-github-action@v1.24.0
-        env:
-          SLACK_WEBHOOK_CONFIGURED: ${{ secrets.SLACK_WEBHOOK != '' }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        if: failure() && env.HAS_SLACK_WEBHOOK == 'true'
+        uses: slackapi/slack-github-action@v2.1.1
         with:
+          webhook: ${{ secrets.SLACK_WEBHOOK }}
+          webhook-type: incoming-webhook
           payload: |
             {
-              "text": "🚨 Production Monitoring Alert",
+              "text": "Production Monitoring Alert",
               "blocks": [
                 {
                   "type": "section",
@@ -111,5 +126,5 @@ jobs:
     steps:
       - name: Log successful monitoring
         run: |
-          echo "✅ Monitoring completed successfully at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          echo "Monitoring completed successfully at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
           echo "All production metrics within acceptable range"

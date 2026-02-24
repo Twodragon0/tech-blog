@@ -21,7 +21,7 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
-from urllib.parse import urljoin, urlparse
+from urllib.parse import parse_qs, urljoin, urlparse
 
 import socket
 
@@ -38,6 +38,15 @@ DEFAULT_FEED_TIMEOUT = 30  # seconds
 # ============================================================================
 
 NEWS_SOURCES = {
+    "worldmonitor_tech": {
+        "name": "Tech World Monitor",
+        "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
+        "feed_url": None,
+        "scraper": "worldmonitor_tech",
+        "category": "tech",
+        "language": "en",
+        "priority": 1,
+    },
     # 한국 기술 뉴스
     "geeknews": {
         "name": "GeekNews (긱뉴스)",
@@ -813,9 +822,13 @@ def clean_html(html_content: str) -> str:
     # 연속 공백 제거
     text = re.sub(r"\s+", " ", text).strip()
 
-    # 최대 500자로 제한
     if len(text) > 500:
-        text = text[:497] + "..."
+        cut = text[:500].rstrip()
+        sentence_cut = re.split(r"(?<=[.!?])\s+", cut)
+        if len(sentence_cut) > 1:
+            text = " ".join(sentence_cut[:-1]).strip() or cut
+        else:
+            text = cut
 
     return text
 
@@ -860,6 +873,101 @@ def fetch_skshieldus_insight(
     return items
 
 
+def fetch_worldmonitor_tech(
+    source_key: str, source_config: dict, hours: int = 24
+) -> List[NewsItem]:
+    items: List[NewsItem] = []
+    target_url = source_config.get("url", "").strip()
+    if not target_url:
+        return items
+
+    fallback_title = "Tech Monitor - Real-Time AI & Tech Industry Dashboard"
+    fallback_description = (
+        "실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, "
+        "클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다."
+    )
+
+    parsed = urlparse(target_url)
+    params = parse_qs(parsed.query)
+    layers_raw = params.get("layers", [""])[0]
+    time_range = params.get("timeRange", ["7d"])[0]
+    layer_names = [str(l) for l in layers_raw.split(",") if l]
+    layer_label_map = {
+        "cloudRegions": "클라우드 리전",
+        "datacenters": "데이터센터",
+        "outages": "서비스 장애",
+        "startupHubs": "스타트업 허브",
+        "techHQs": "테크 본사",
+        "techEvents": "테크 이벤트",
+        "economic": "경제 지표",
+        "weather": "기상",
+        "natural": "자연재해",
+        "cables": "해저 케이블",
+    }
+    layer_labels: List[str] = []
+    for name in layer_names:
+        mapped = layer_label_map.get(name)
+        layer_labels.append(mapped if isinstance(mapped, str) and mapped else name)
+
+    title = fallback_title
+    description = fallback_description
+
+    try:
+        print(f"  Fetching: {source_config['name']}...")
+        headers = {
+            "User-Agent": "TechBlog-NewsCollector/1.0",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        }
+        response = requests.get(target_url, headers=headers, timeout=30)
+        response.raise_for_status()
+
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        title = ""
+        og_title = soup.select_one('meta[property="og:title"]')
+        if og_title and og_title.get("content"):
+            title = str(og_title.get("content", "")).strip()
+        if not title:
+            title_tag = soup.select_one("title")
+            title = (
+                title_tag.get_text(strip=True) if title_tag else "Tech World Monitor"
+            )
+
+        description = ""
+        meta_desc = soup.select_one('meta[name="description"]')
+        if meta_desc and meta_desc.get("content"):
+            description = str(meta_desc.get("content", "")).strip()
+    except Exception as e:
+        print(f"    Error fetching world monitor: {e}")
+
+    korean_summary = "Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. "
+    if description:
+        korean_summary += clean_html(description)
+    if layer_labels:
+        korean_summary += f" 이번 수집은 {', '.join(layer_labels[:6])} 레이어를 중심으로 참고했습니다."
+    korean_summary += f" 분석 기준 구간은 최근 {time_range}입니다."
+
+    item = NewsItem(
+        id=generate_id(target_url),
+        title=title,
+        url=target_url,
+        source=source_key,
+        source_name=source_config.get("name", "Tech World Monitor"),
+        category=source_config.get("category", "tech"),
+        language=source_config.get("language", "en"),
+        published=datetime.now(timezone.utc).isoformat(),
+        summary=korean_summary,
+        content=description,
+        tags=["WorldMonitor", "Global-Tech", "Dashboard"] + layer_labels[:2],
+        author="World Monitor",
+        priority=source_config.get("priority", 1),
+    )
+    items.append(item)
+    print(f"    Found {len(items)} items")
+
+    return items
+
+
 def _extract_title_from_url(url: str) -> str:
     """URL의 o_fname 파라미터에서 파일명(제목) 추출"""
     from urllib.parse import unquote, urlparse, parse_qs
@@ -880,7 +988,9 @@ def _extract_title_from_url(url: str) -> str:
     except Exception as e:
         # 예상치 못한 예외는 로깅
         if os.getenv("DEBUG", "").lower() in ("1", "true", "yes"):
-            print(f"    Warning: Unexpected error extracting title from URL: {type(e).__name__}: {e}")
+            print(
+                f"    Warning: Unexpected error extracting title from URL: {type(e).__name__}: {e}"
+            )
     return ""
 
 
@@ -1059,8 +1169,7 @@ def fetch_rss_feed(
 
         # feedparser로 RSS 파싱 (request_headers로 타임아웃 힌트)
         feed = feedparser.parse(
-            feed_url,
-            request_headers={"User-Agent": "TechBlog-NewsCollector/1.0"}
+            feed_url, request_headers={"User-Agent": "TechBlog-NewsCollector/1.0"}
         )
 
         if feed.bozo and feed.bozo_exception:
@@ -1109,14 +1218,22 @@ def fetch_rss_feed(
             content = ""
             raw_content = getattr(entry, "content", None)
             if raw_content and isinstance(raw_content, list) and len(raw_content) > 0:
-                content_val = raw_content[0].get("value", "") if isinstance(raw_content[0], dict) else ""
+                content_val = (
+                    raw_content[0].get("value", "")
+                    if isinstance(raw_content[0], dict)
+                    else ""
+                )
                 if isinstance(content_val, str):
                     content = clean_html(content_val)
 
             tags: list[str] = []
             raw_tags = getattr(entry, "tags", None)
             if raw_tags and isinstance(raw_tags, list):
-                tags = [str(tag.get("term", "")) for tag in raw_tags if isinstance(tag, dict) and tag.get("term")]
+                tags = [
+                    str(tag.get("term", ""))
+                    for tag in raw_tags
+                    if isinstance(tag, dict) and tag.get("term")
+                ]
 
             author = ""
             raw_author = getattr(entry, "author", None)
@@ -1174,8 +1291,12 @@ def fetch_all_news(
         scraper = source_config.get("scraper")
         if scraper and scraper.startswith("skshieldus"):
             items = fetch_skshieldus_insight(source_key, source_config, hours)
+        elif scraper == "worldmonitor_tech":
+            items = fetch_worldmonitor_tech(source_key, source_config, hours)
         else:
-            items = fetch_rss_feed(source_key, source_config, hours, timeout=feed_timeout)
+            items = fetch_rss_feed(
+                source_key, source_config, hours, timeout=feed_timeout
+            )
         all_items.extend(items)
 
     # 중복 제거 (URL 기준)
@@ -1252,14 +1373,16 @@ def load_recent_post_titles(posts_dir: Path = Path("_posts"), days: int = 7) -> 
             filename = post_file.name
             # Extract date from filename
             date_str = filename[:10]
-            post_date = datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+            post_date = datetime.strptime(date_str, "%Y-%m-%d").replace(
+                tzinfo=timezone.utc
+            )
             if post_date < cutoff:
                 break
 
-            with open(post_file, 'r', encoding='utf-8') as f:
+            with open(post_file, "r", encoding="utf-8") as f:
                 content = f.read()
                 # Extract titles from markdown headers (### x.x Title)
-                for match in re.finditer(r'### \d+\.\d+ (.+)', content):
+                for match in re.finditer(r"### \d+\.\d+ (.+)", content):
                     titles.add(match.group(1).strip().lower()[:50])
         except (ValueError, OSError):
             continue
@@ -1340,10 +1463,16 @@ def main():
     recent_titles = load_recent_post_titles()
     if recent_titles:
         before_count = len(items)
-        items = [item for item in items if item.title.strip().lower()[:50] not in recent_titles]
+        items = [
+            item
+            for item in items
+            if item.title.strip().lower()[:50] not in recent_titles
+        ]
         dedup_count = before_count - len(items)
         if dedup_count > 0:
-            print(f"\nDeduplicated: removed {dedup_count} items already covered in recent posts")
+            print(
+                f"\nDeduplicated: removed {dedup_count} items already covered in recent posts"
+            )
 
     # 이미 처리된 뉴스 필터링
     if args.filter_processed:

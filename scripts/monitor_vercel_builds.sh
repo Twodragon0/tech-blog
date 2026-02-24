@@ -18,17 +18,25 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-DEPLOYMENT_URL="https://tech.2twodragon.com"
+DEFAULT_DEPLOYMENT_URL="https://tech.2twodragon.com"
+DEPLOYMENT_URL="$DEFAULT_DEPLOYMENT_URL"
 ALERT_ONLY=false
 DETAILED=false
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
-    case "$1" in
+    case $1 in
         --alert-only) ALERT_ONLY=true ;;
         --detailed) DETAILED=true ;;
-        http://*|https://*) DEPLOYMENT_URL="$1" ;;
-        *) ;;
+        -*) ;; # ignore unknown flags
+        *)
+            if [[ "$1" =~ ^https?:// ]]; then
+                DEPLOYMENT_URL="$1"
+            else
+                echo -e "${YELLOW}⚠️  WARNING: Invalid deployment URL argument '$1', using default: $DEFAULT_DEPLOYMENT_URL${NC}" >&2
+                DEPLOYMENT_URL="$DEFAULT_DEPLOYMENT_URL"
+            fi
+            ;;
     esac
     shift
 done
@@ -41,7 +49,6 @@ BUILD_TIME_THRESHOLD=120 # seconds
 
 ALERT_COUNT=0
 WARNINGS=()
-SKIP_VERCEL=false
 
 _echo() {
     if [ "$ALERT_ONLY" = false ]; then
@@ -83,69 +90,58 @@ if ! command -v curl &> /dev/null; then
     exit 1
 fi
 
-if ! command -v vercel &> /dev/null; then
-    if [ "$ALERT_ONLY" = true ]; then
-        _warn "Vercel CLI가 설치되어 있지 않아 Vercel 체크를 건너뜁니다."
-        SKIP_VERCEL=true
-    else
-        _alert "Vercel CLI가 설치되어 있지 않습니다."
-        echo "설치: npm i -g vercel"
-        exit 1
-    fi
-fi
+VERCEL_AVAILABLE=false
 
-if [ "$SKIP_VERCEL" = false ]; then
-    if [ -z "${VERCEL_TOKEN:-}" ]; then
-        if [ "$ALERT_ONLY" = true ]; then
-            _warn "VERCEL_TOKEN이 없어 Vercel 체크를 건너뜁니다."
-            SKIP_VERCEL=true
-        else
-            _alert "VERCEL_TOKEN이 설정되어 있지 않습니다."
-            exit 1
-        fi
-    elif ! vercel whoami --token "$VERCEL_TOKEN" &>/dev/null; then
-        if [ "$ALERT_ONLY" = true ]; then
-            _warn "Vercel 인증 실패로 Vercel 체크를 건너뜁니다."
-            SKIP_VERCEL=true
-        else
-            _alert "Vercel 인증에 실패했습니다."
-            echo "로그인: vercel login"
-            exit 1
-        fi
-    fi
+if ! command -v vercel &> /dev/null; then
+    _warn "Vercel CLI가 설치되어 있지 않습니다. Vercel 관련 체크를 건너뜁니다."
+elif [ -z "$VERCEL_TOKEN" ] && ! vercel whoami &>/dev/null; then
+    _warn "Vercel에 인증되어 있지 않습니다. Vercel 관련 체크를 건너뜁니다."
+else
+    VERCEL_AVAILABLE=true
 fi
 
 _success "Environment checks passed"
 
-# === 1. Vercel 배포 상태 ===
-_section "2. Vercel Deployment Status"
+# === 1. Site Availability (HTTP check) ===
+_section "2. Site Availability"
 
-if [ "$SKIP_VERCEL" = true ]; then
-    _info "Vercel 체크를 건너뜁니다. (환경 변수/CLI 미설정)"
+HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 -A "Mozilla/5.0 TechBlogMonitor" "$DEPLOYMENT_URL" 2>/dev/null || echo "000")
+if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 400 ]; then
+    _success "Site is accessible (HTTP $HTTP_STATUS)"
+elif [ "$HTTP_STATUS" -eq 429 ]; then
+    _warn "Site returned HTTP 429 (rate limited) - site is alive but throttled"
 else
-    DEPLOYMENTS=$(vercel ls --json --token "$VERCEL_TOKEN" 2>/dev/null)
+    _alert "Site returned HTTP $HTTP_STATUS for $DEPLOYMENT_URL"
+fi
+
+# === 1a. Vercel 배포 상태 (토큰이 있을 때만) ===
+if [ "$VERCEL_AVAILABLE" = true ]; then
+    _section "2a. Vercel Deployment Status"
+
+    DEPLOYMENTS=$(VERCEL_TOKEN="${VERCEL_TOKEN}" vercel ls --json 2>/dev/null || echo "")
 
     if [ -z "$DEPLOYMENTS" ]; then
-        _alert "배포 정보를 가져올 수 없습니다."
-        exit 1
+        _warn "배포 정보를 가져올 수 없습니다. Vercel 배포 체크를 건너뜁니다."
+    else
+        # 최근 배포 확인
+        LATEST_DEPLOYMENT=$(echo "$DEPLOYMENTS" | jq -r '.[0] | "\(.url) - State: \(.state)"' 2>/dev/null || echo "Unable to parse deployments")
+        _info "Latest deployment: $LATEST_DEPLOYMENT"
+
+        # 배포 목록 (성공한 것만)
+        _echo ""
+        _echo "Recent deployments (latest 5):"
+        VERCEL_TOKEN="${VERCEL_TOKEN}" vercel ls --limit 5 2>/dev/null | tail -n +2 | while read -r line; do
+            if echo "$line" | grep -q "READY"; then
+                echo -e "${GREEN}✓ $line${NC}"
+            elif echo "$line" | grep -q "FAILED"; then
+                echo -e "${RED}✗ $line${NC}"
+            else
+                echo "$line"
+            fi
+        done || true
     fi
-
-    # 최근 배포 확인
-    LATEST_DEPLOYMENT=$(echo "$DEPLOYMENTS" | jq -r '.[0] | "\(.url) - State: \(.state)"' 2>/dev/null || echo "Unable to parse deployments")
-    _info "Latest deployment: $LATEST_DEPLOYMENT"
-
-    # 배포 목록 (성공한 것만)
-    _echo ""
-    _echo "Recent deployments (latest 5):"
-    vercel ls --limit 5 --token "$VERCEL_TOKEN" 2>/dev/null | tail -n +2 | while read -r line; do
-        if echo "$line" | grep -q "READY\|READY"; then
-            echo -e "${GREEN}✓ $line${NC}"
-        elif echo "$line" | grep -q "FAILED"; then
-            echo -e "${RED}✗ $line${NC}"
-        else
-            echo "$line"
-        fi
-    done || true
+else
+    _info "Vercel CLI not available or not authenticated - skipping Vercel deployment checks"
 fi
 
 # === 2. Core Web Vitals (Lighthouse API) ===

@@ -58,32 +58,41 @@
       * Google Ads iframe 내부의 Quirks Mode는 Google의 제어 하에 있으며 우리 사이트에 영향을 주지 않습니다.
   -->
 
+  {% assign share_title = page.title | default: site.title | strip_html | normalize_whitespace %}
+  {% assign raw_description = page.excerpt | default: page.description %}
+  {% if raw_description == nil or raw_description == '' %}
+    {% assign raw_description = site.description %}
+  {% endif %}
+  {% assign share_description = raw_description | strip_html | strip_newlines | normalize_whitespace | truncate: 200 | escape %}
+  {% assign canonical_url = page.url | absolute_url | replace: 'index.html', '' %}
+  {% assign share_url = page.url | absolute_url %}
+
   <!-- SEO -->
   <title>{% if page.title %}{{ page.title | escape }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="description" content="{{ share_description }}">
   <meta name="author" content="{{ site.author.name }}">
   <meta name="naver-site-verification" content="b4d9dc74a4120dd65ce564a3fd97adb2f48ae7f2" />
   <meta name="google-site-verification" content="4f3Fngt0n2PDMUdFumJYQEwXKluVehXzwPV_TqxTauU" />
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="canonical" href="{{ canonical_url }}">
   
   <!-- International SEO - hreflang -->
-  <link rel="alternate" hreflang="ko" href="{{ page.url | absolute_url }}">
-  <link rel="alternate" hreflang="x-default" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="ko" href="{{ canonical_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ canonical_url }}">
   
   <!-- AI Discoverability Meta Tags -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{{ share_title | escape }}">
+  <meta property="og:description" content="{{ share_description }}">
+  <meta property="og:url" content="{{ share_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
   <meta property="og:locale" content="ko_KR">
   {% if page.layout == 'post' %}
   <meta property="article:author" content="{{ site.author.name }}">
   <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
-  {% if page.date != page.last_modified_at %}
+  {% if page.last_modified_at and page.date != page.last_modified_at %}
   <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">
   {% endif %}
   {% if page.category %}
@@ -98,11 +107,20 @@
   <!-- OG image: SVG to PNG conversion by _plugins/svg_to_png_og.rb -->
   <!-- SEO meta tags (og:image, twitter:card) output by jekyll-seo-tag plugin -->
   <!-- KakaoTalk/Tistory use standard Open Graph tags -->
-  {% assign og_image = page.og_image | default: page.image | default: site.og_image | default: '/assets/images/og-default.png' %}
+  {% assign og_image = page.image | default: site.og_image | default: '/assets/images/og-default.png' %}
   {% if og_image contains '.svg' %}
-  {% assign og_image = site.og_image | default: '/assets/images/og-default.png' %}
+  {% assign og_image_png = og_image | replace: '.svg', '.png' %}
+  {% assign og_image_og_png = og_image | replace: '.svg', '_og.png' %}
+  {% assign og_png_file = site.static_files | where: 'path', og_image_png | first %}
+  {% assign og_og_png_file = site.static_files | where: 'path', og_image_og_png | first %}
+  {% if og_png_file %}
+  {% assign og_image = og_image_png %}
+  {% elsif og_og_png_file %}
+  {% assign og_image = og_image_og_png %}
+  {% endif %}
   {% endif %}
   <meta property="og:image" content="{{ og_image | absolute_url }}">
+  <meta property="og:image:url" content="{{ og_image | absolute_url }}">
   <meta property="og:image:secure_url" content="{{ og_image | absolute_url }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -118,8 +136,10 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@Twodragon0">
   <meta name="twitter:creator" content="@Twodragon0">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:title" content="{{ share_title | escape }}">
+  <meta name="twitter:description" content="{{ share_description }}">
+  <meta name="twitter:url" content="{{ share_url }}">
+  <meta name="twitter:domain" content="{{ site.url | replace: 'https://', '' | replace: 'http://', '' }}">
   <meta name="twitter:image" content="{{ og_image | absolute_url }}">
   <meta name="twitter:image:alt" content="{% if page.image_alt %}{{ page.image_alt }}{% else %}{{ page.title | default: site.title }}{% endif %}">
 
@@ -157,9 +177,9 @@
   {% if site.sentry_dsn and site.sentry_dsn != "" %}
   <link rel="preconnect" href="https://browser.sentry-cdn.com" crossorigin>
   {% endif %}
-  <!-- Google Translate: preconnect for faster widget loading -->
-  <link rel="preconnect" href="https://translate.google.com">
-  <link rel="preconnect" href="https://translate.googleapis.com">
+  <!-- Google Translate: dns-prefetch only (script lazy-loaded on user interaction) -->
+  <link rel="dns-prefetch" href="https://translate.google.com">
+  <link rel="dns-prefetch" href="https://translate.googleapis.com">
   <!-- Non-critical resources: dns-prefetch only (지연 로딩되는 리소스) -->
   <link rel="dns-prefetch" href="https://giscus.app">
   <link rel="dns-prefetch" href="https://api.deepseek.com">
@@ -224,30 +244,31 @@
     }
   </style>
 
-  <!-- Main CSS with improved fallback -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}" id="main-stylesheet" fetchpriority="high" onerror="
-    console.warn('Primary CSS failed, loading inline fallback...');
-    // Inline critical CSS as fallback
-    const inlineCSS = `
-      body { font-family: 'Noto Sans KR', -apple-system, sans-serif; margin: 0; padding: 0; background: #fff; color: #1a1a1a; }
-      .post-article { max-width: 800px; margin: 0 auto; padding: 2.5rem 2rem; }
-      .post-title { font-size: clamp(1.5rem, 4vw, 2.25rem); margin: 0.5rem 0 1rem; }
-      .post-meta { margin: 0.75rem 0 1.25rem; font-size: 0.875rem; }
-      .post-content { font-size: 1.0625rem; line-height: 1.8; }
-      .toc-container { margin-bottom: 2rem; background: #f8f9fa; border-radius: 12px; border: 1px solid #dee2e6; }
-      .toc-card { display: flex; flex-direction: column; overflow: hidden; border-radius: inherit; }
-      .toc-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid #dee2e6; }
-      .toc-nav { padding: 0.75rem 1rem 1rem; }
-      @media (max-width: 768px) { .post-article { padding: 1.25rem 1rem; } .post-title { font-size: clamp(1.25rem, 5vw, 1.75rem); } .toc-container { margin-bottom: 1.5rem; } }
-      [data-theme=\"dark\"] { background: #0f172a; color: #f1f5f9; }
-      [data-theme=\"dark\"] .toc-container { background: #1e293b; border-color: #334155; }
-    `;
-    const style = document.createElement('style');
-    style.textContent = inlineCSS;
-    document.head.appendChild(style);
-    this.remove();
-  ">
+  <!-- Main CSS with JS-based fallback (CSP-safe, no inline onerror) -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}" id="main-stylesheet" fetchpriority="high">
   <noscript><link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"></noscript>
+  <script>
+    // CSS load fallback (replaces inline onerror for CSP compliance)
+    (function() {
+      var link = document.getElementById('main-stylesheet');
+      if (!link) return;
+      link.onerror = function() {
+        var s = document.createElement('style');
+        s.textContent = 'body{font-family:"Noto Sans KR",-apple-system,sans-serif;margin:0;padding:0;background:#fff;color:#1a1a1a}.post-article{max-width:800px;margin:0 auto;padding:2.5rem 2rem}.post-title{font-size:clamp(1.5rem,4vw,2.25rem);margin:.5rem 0 1rem}.post-content{font-size:1.0625rem;line-height:1.8}[data-theme="dark"]{background:#0f172a;color:#f1f5f9}';
+        document.head.appendChild(s);
+        link.remove();
+      };
+    })();
+  </script>
+
+  {% if page.layout == 'post' %}
+  <!-- Post-specific CSS (post, lightbox, syntax) -->
+  <link rel="stylesheet" href="{{ '/assets/css/post-page.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  {% endif %}
+  {% if page.url contains '/certifications' %}
+  <!-- Certification page CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/cert-page.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  {% endif %}
 
   <!-- Body loaded class for FOUC prevention -->
   <script>
@@ -490,8 +511,6 @@
     }
   </style>
   {% endif %}
-
-  {% seo %}
 
   <!-- Sentry Error Tracking (최상단에 위치 - 에러 추적 우선, 하지만 스크립트는 defer로 로딩) -->
   {% include sentry.html %}

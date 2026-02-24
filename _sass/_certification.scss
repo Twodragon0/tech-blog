@@ -14,12 +14,12 @@
 .page-header h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .page-description {
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   margin-bottom: 1.5rem;
 }
 
@@ -53,39 +53,39 @@
 }
 
 .header-action-button.posts-button {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  border-color: var(--border);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
 }
 
 .header-action-button.posts-button:hover {
-  background: var(--bg-primary);
-  border-color: var(--primary);
-  color: var(--primary);
+  background: var(--color-bg-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-action-button.posts-button:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 .header-action-button.official-button {
-  background: var(--primary);
+  background: var(--color-primary);
   color: white;
-  border-color: var(--primary);
+  border-color: var(--color-primary);
 }
 
 .header-action-button.official-button:hover {
-  background: var(--primary-dark, #0056b3);
-  border-color: var(--primary-dark, #0056b3);
+  background: var(--color-primary-hover, #0056b3);
+  border-color: var(--color-primary-hover, #0056b3);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
 .header-action-button.official-button:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -104,8 +104,8 @@
 .exam-topics h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: var(--text-primary);
-  border-bottom: 2px solid var(--border);
+  color: var(--color-text-primary);
+  border-bottom: 2px solid var(--color-border);
   padding-bottom: 0.5rem;
 }
 
@@ -116,7 +116,7 @@
 
 .certification-info li {
   padding: 0.75rem 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .certification-info li:last-child {
@@ -124,7 +124,7 @@
 }
 
 .certification-info strong {
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   min-width: 120px;
   display: inline-block;
 }
@@ -137,21 +137,21 @@
 
 .topic-card {
   padding: 1.5rem;
-  background: var(--bg-secondary);
+  background: var(--color-bg-secondary);
   border-radius: 8px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
 }
 
 .topic-card h3 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 .topic-card ul {
   list-style: disc;
   padding-left: 1.5rem;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .topic-card li {
@@ -161,7 +161,7 @@
 .no-posts {
   text-align: center;
   padding: 3rem;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   font-style: italic;
 }
 
@@ -177,8 +177,8 @@
 .exam-header h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: var(--text-primary);
-  border-bottom: 2px solid var(--border);
+  color: var(--color-text-primary);
+  border-bottom: 2px solid var(--color-border);
   padding-bottom: 0.5rem;
 }
 
@@ -188,16 +188,16 @@
   gap: 1rem;
   flex-wrap: wrap;
   padding: 1rem;
-  background: var(--bg-secondary);
+  background: var(--color-bg-secondary);
   border-radius: 8px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
 }
 
 .view-toggle {
   display: flex;
   gap: 0.25rem;
-  background: var(--bg-primary);
-  border: 1px solid var(--border);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 0.25rem;
 }
@@ -209,7 +209,7 @@
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   background: transparent;
   border: none;
   border-radius: 4px;
@@ -218,13 +218,13 @@
 }
 
 .view-button:hover {
-  color: var(--text-primary);
-  background: var(--bg-secondary);
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
 }
 
 .view-button.active {
-  color: var(--primary);
-  background: var(--primary-light, rgba(37, 99, 235, 0.1));
+  color: var(--color-primary);
+  background: var(--color-primary, rgba(37, 99, 235, 0.1));
 }
 
 .view-button svg {
@@ -243,17 +243,17 @@
   width: 100%;
   padding: 0.5rem 1rem 0.5rem 2.5rem;
   font-size: 0.9rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
   transition: all 0.2s ease;
 }
 
 .search-input:focus {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-  border-color: var(--primary);
+  border-color: var(--color-primary);
 }
 
 .search-icon {
@@ -261,7 +261,7 @@
   left: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   pointer-events: none;
 }
 
@@ -286,29 +286,29 @@
 .filter-label {
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   white-space: nowrap;
 }
 
 .filter-select {
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .filter-select:hover {
-  border-color: var(--primary);
+  border-color: var(--color-primary);
 }
 
 .filter-select:focus {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-  border-color: var(--primary);
+  border-color: var(--color-primary);
 }
 
 .exam-stats {
@@ -326,12 +326,12 @@
 }
 
 .stat-label {
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .stat-value {
   font-weight: 600;
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 .reset-button {
@@ -341,22 +341,22 @@
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-primary);
-  background: var(--bg-primary);
-  border: 1px solid var(--border);
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .reset-button:hover {
-  background: var(--bg-secondary);
-  border-color: var(--primary);
-  color: var(--primary);
+  background: var(--color-bg-secondary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .reset-button:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -368,9 +368,9 @@
 .questions-intro {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: var(--bg-secondary);
+  background: var(--color-bg-secondary);
   border-radius: 8px;
-  border-left: 4px solid var(--primary);
+  border-left: 4px solid var(--color-primary);
 }
 
 .questions-section {
@@ -380,20 +380,20 @@
 .questions-section h3 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .question-card {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: var(--bg-secondary);
+  background: var(--color-bg-secondary);
   border-radius: 8px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   transition: box-shadow 0.2s;
 }
 
 .question-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--color-shadow, rgba(0, 0, 0, 0.1));
 }
 
 .question-header {
@@ -402,13 +402,13 @@
   align-items: center;
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 2px solid var(--color-border);
   min-height: 40px;
 }
 
 .question-number {
   font-weight: 600;
-  color: var(--primary);
+  color: var(--color-primary);
   font-size: 1.1rem;
   display: inline-block;
   min-width: 60px;
@@ -416,8 +416,8 @@
 
 .question-topic {
   font-size: 0.9rem;
-  color: var(--text-secondary);
-  background: var(--bg-primary);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-primary);
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
   display: inline-block;
@@ -443,8 +443,8 @@
   align-items: flex-start;
   gap: 0.75rem;
   padding: 1rem;
-  background: var(--bg-primary);
-  border: 2px solid var(--border);
+  background: var(--color-bg-primary);
+  border: 2px solid var(--color-border);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -452,13 +452,13 @@
 }
 
 .option-label:hover {
-  border-color: var(--primary);
-  background: var(--bg-secondary);
+  border-color: var(--color-primary);
+  background: var(--color-bg-secondary);
 }
 
 .option-label.selected {
-  border-color: var(--primary);
-  background: var(--primary-light, rgba(37, 99, 235, 0.1));
+  border-color: var(--color-primary);
+  background: var(--color-primary, rgba(37, 99, 235, 0.1));
 }
 
 .option-label.correct {
@@ -477,13 +477,13 @@
   height: 20px;
   cursor: pointer;
   flex-shrink: 0;
-  accent-color: var(--primary);
+  accent-color: var(--color-primary);
 }
 
 .option-text {
   flex: 1;
   line-height: 1.6;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .question-actions {
@@ -492,7 +492,7 @@
   gap: 1rem;
   margin-top: 1.5rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--color-border);
 }
 
 .check-button,
@@ -503,26 +503,26 @@
   padding: 0.625rem 1.25rem;
   font-size: 0.9rem;
   font-weight: 500;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .check-button:hover,
 .explanation-toggle:hover {
-  background: var(--primary);
+  background: var(--color-primary);
   color: white;
-  border-color: var(--primary);
+  border-color: var(--color-primary);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px var(--color-shadow, rgba(0, 0, 0, 0.1));
 }
 
 .check-button:focus-visible,
 .explanation-toggle:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -575,8 +575,8 @@
 .question-answer {
   margin-top: 1.5rem;
   padding: 1.5rem;
-  background: var(--bg-secondary);
-  border: 2px solid var(--primary);
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-primary);
   border-radius: 8px;
   transition: all 0.3s ease;
   overflow: hidden;
@@ -598,14 +598,14 @@
 }
 
 .answer-content {
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .answer-correct {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 .answer-value {
@@ -616,17 +616,17 @@
 
 .answer-explanation {
   line-height: 1.7;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .answer-explanation a {
-  color: var(--primary);
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
 .answer-explanation a:hover {
   text-decoration: none;
-  color: var(--primary-hover, #1d4ed8);
+  color: var(--color-primary-hover, #1d4ed8);
 }
 
 .question-list-view {
@@ -639,12 +639,12 @@
   align-items: center;
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 2px solid var(--color-border);
 }
 
 .list-header h3 {
   font-size: 1.5rem;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   margin: 0;
 }
 
@@ -660,18 +660,18 @@
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-primary);
-  background: var(--bg-primary);
-  border: 1px solid var(--border);
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .action-button:hover {
-  background: var(--primary);
+  background: var(--color-primary);
   color: white;
-  border-color: var(--primary);
+  border-color: var(--color-primary);
 }
 
 .action-button svg {
@@ -681,9 +681,9 @@
 
 .table-container {
   overflow-x: auto;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
-  background: var(--bg-primary);
+  background: var(--color-bg-primary);
 }
 
 .question-table {
@@ -693,15 +693,15 @@
 }
 
 .question-table thead {
-  background: var(--bg-secondary);
-  border-bottom: 2px solid var(--border);
+  background: var(--color-bg-secondary);
+  border-bottom: 2px solid var(--color-border);
 }
 
 .question-table th {
   padding: 0.75rem 1rem;
   text-align: left;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   white-space: nowrap;
 }
 
@@ -723,17 +723,17 @@
 }
 
 .question-table tbody tr {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--color-border);
   transition: background-color 0.2s ease;
 }
 
 .question-table tbody tr:hover {
-  background: var(--bg-secondary);
+  background: var(--color-bg-secondary);
 }
 
 .question-table td {
   padding: 0.75rem 1rem;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   vertical-align: middle;
 }
 
@@ -747,17 +747,17 @@
   gap: 0.25rem;
   padding: 0.375rem 0.75rem;
   font-size: 0.875rem;
-  color: var(--primary);
+  color: var(--color-primary);
   text-decoration: none;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
   transition: all 0.2s ease;
 }
 
 .table-link:hover {
-  background: var(--primary);
+  background: var(--color-primary);
   color: white;
-  border-color: var(--primary);
+  border-color: var(--color-primary);
 }
 
 .table-link svg {
@@ -778,28 +778,28 @@
     background-color: transparent;
   }
   50% {
-    background-color: var(--primary-light, rgba(37, 99, 235, 0.2));
+    background-color: var(--color-primary, rgba(37, 99, 235, 0.2));
   }
 }
 
 .study-tips {
   margin-top: 3rem;
   padding: 1.5rem;
-  background: var(--bg-secondary);
+  background: var(--color-bg-secondary);
   border-radius: 8px;
-  border-left: 4px solid var(--primary);
+  border-left: 4px solid var(--color-primary);
 }
 
 .study-tips h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .study-tips ul {
   list-style: disc;
   padding-left: 1.5rem;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .study-tips li {
@@ -811,7 +811,7 @@
   .page-header h1 {
     font-size: 2rem;
   }
-  
+
   .header-actions {
     flex-direction: column;
     width: 100%;
@@ -821,7 +821,7 @@
     width: 100%;
     justify-content: center;
   }
-  
+
   .topics-grid {
     grid-template-columns: 1fr;
   }

@@ -89,6 +89,10 @@ python3 scripts/verify_images_unified.py --all
 # Show posts with missing images
 python3 scripts/verify_images_unified.py --missing
 
+# 다음에 미사용 이미지 점검·정리할 때 (두 단계로 실행)
+python3 scripts/verify_images_unified.py --unused
+python3 scripts/verify_images_unified.py --unused --move-unused-to-archive
+
 # Convert Korean filenames to English
 python3 scripts/rename_images_to_english.py --yes
 

@@ -50,7 +50,7 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -85,7 +85,7 @@ jobs:
               sys.exit(1)
 
           genai.configure(api_key=api_key)
-          model = genai.GenerativeModel('gemini-pro')
+          model = genai.GenerativeModel('gemini-2.0-flash')
 
           # -p 플래그로 프롬프트 받기
           if len(sys.argv) > 2 and sys.argv[1] == "-p":
@@ -350,11 +350,11 @@ jobs:
 
   weekly-source-check:
     runs-on: ubuntu-latest
-    if: github.event_name == 'schedule' && github.event.schedule == '0 1 * * 1'
+    if: github.event_name == 'schedule' && github.event.schedule == '0 1 * * *'
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -362,7 +362,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
       
       - name: Install dependencies
-        run: pip install feedparser requests
+        run: pip install feedparser requests beautifulsoup4
       
       - name: Check RSS feed health
         run: |

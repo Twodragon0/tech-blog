@@ -86,7 +86,7 @@
   <path d="M 420 420 L 490 340" class="arrow-attacker" />
 
   <!-- Injection Points -->
-  <rect x="700" y="295" width="140" height="155" fill="#fef2f2" stroke="#dc2626" stroke-width: 1.5; rx="6" />
+  <rect x="700" y="295" width="140" height="155" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" rx="6" />
   <text x="770" y="315" text-anchor="middle" class="alert">Attack Vector</text>
 
   <text x="710" y="340" class="label-small" fill="#dc2626">1. Baota Panel</text>

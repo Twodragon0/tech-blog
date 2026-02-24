@@ -36,7 +36,7 @@ REQUIRED_FIELDS = [
 OPTIONAL_FIELDS = ["comments", "original_url", "image_alt", "category"]
 
 
-def extract_front_matter(content: str) -> Tuple[Dict, str]:
+def extract_front_matter(content: str) -> tuple[dict[str, object], str]:
     """Front matter 추출"""
     if not content.startswith("---"):
         return {}, content
@@ -66,7 +66,7 @@ def check_front_matter(file_path: Path) -> List[str]:
 
     # 이미지 파일명이 영어인지 확인
     if "image" in front_matter:
-        image_path = front_matter["image"]
+        image_path = str(front_matter["image"])
         # 한글 문자 확인
         if re.search(r"[가-힣]", image_path):
             issues.append(f"⚠️ Image filename contains Korean: {image_path}")
@@ -90,11 +90,9 @@ def check_dummy_links(content: str) -> List[str]:
 
     # 더미 링크 패턴
     dummy_patterns = [
-        r"github\.com/example",
-        r"github\.com/[^\s\)\"]+/[^\s\)\"]+/[^\s\)\"]+/[^\s\)\"]+",  # 너무 깊은 경로
-        r"더미",
-        r"dummy",
-        r"placeholder",
+        r"github\.com/example(?:/[^\s\)]*)?",
+        r"https?://[^\s\)]*(?:dummy|placeholder)[^\s\)]*",
+        r"\b(?:더미|dummy|placeholder)\b",
     ]
 
     for pattern in dummy_patterns:
@@ -137,6 +135,13 @@ def check_long_code_blocks(content: str) -> List[str]:
     matches = re.finditer(code_block_pattern, content, re.DOTALL)
 
     for match in matches:
+        last_comment_open = content.rfind("<!--", 0, match.start())
+        last_comment_close = content.rfind("-->", 0, match.start())
+        if last_comment_open > last_comment_close:
+            comment_end = content.find("-->", match.end())
+            if comment_end != -1:
+                continue
+
         code = match.group(2)
         lines = code.count("\n")
         length = len(code)
@@ -176,13 +181,13 @@ def check_image_exists(image_path: str) -> Tuple[bool, Optional[Path]]:
     return image_file.exists(), image_file
 
 
-def check_image_files(file_path: Path, front_matter: Dict) -> List[str]:
+def check_image_files(file_path: Path, front_matter: dict[str, object]) -> list[str]:
     """이미지 파일 존재 여부 확인"""
     issues = []
 
     # Front matter의 메인 이미지 확인
     if "image" in front_matter:
-        image_path = front_matter["image"]
+        image_path = str(front_matter["image"])
         exists, _ = check_image_exists(image_path)
         if not exists:
             issues.append(f"❌ Main image file not found: {image_path}")

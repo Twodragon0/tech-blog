@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
 
@@ -92,6 +92,7 @@ jobs:
 
       - name: Send Buttondown Email
         if: steps.check_posts.outputs.has_new_posts == 'true'
+        continue-on-error: true
         env:
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
           SITE_URL: "https://tech.2twodragon.com"
@@ -102,12 +103,12 @@ jobs:
             echo "Please set it in: Settings → Secrets and variables → Actions"
             exit 1
           fi
-          
+
           # Python 스크립트가 직접 git diff를 수행하여 포스트를 감지
           # 이 방법이 더 안정적이고 큰 JSON을 다룰 때 문제가 없음
           echo "📧 Processing posts detected by git diff..."
           echo ""
-          
+
           # Python 스크립트를 사용하여 git diff로 포스트 감지 및 이메일 발송
-          python3 scripts/buttondown_notify_batch.py
+          python3 scripts/buttondown_notify_batch.py || echo "⚠️ Buttondown notification failed (non-critical)"
           
