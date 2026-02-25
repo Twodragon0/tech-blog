@@ -27,6 +27,10 @@ tags:
 - AWS
 title: '클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지'
 toc: true
+schema_type: Article
+series: "Cloud Security Course 8기"
+series_order: 2
+series_total: 9
 ---
 
 ## 요약

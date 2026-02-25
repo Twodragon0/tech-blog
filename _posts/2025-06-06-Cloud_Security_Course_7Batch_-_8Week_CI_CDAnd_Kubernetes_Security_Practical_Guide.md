@@ -33,6 +33,9 @@ tags:
 - Pipeline-Security
 title: '클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드'
 toc: true
+series: "Cloud Security Course 7기"
+series_order: 6
+series_total: 7
 ---
 
 ## 요약

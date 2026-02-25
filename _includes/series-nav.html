@@ -1,0 +1,18 @@
+{% if page.series %}
+<div class="series-nav">
+  <div class="series-nav-header">
+    <strong>{{ page.series }}</strong>
+    {% if page.series_total %}<span class="series-count">{{ page.series_order }}/{{ page.series_total }}</span>{% endif %}
+  </div>
+  <div class="series-nav-links">
+    {% assign series_posts = site.posts | where: "series", page.series | sort: "series_order" %}
+    {% for post in series_posts %}
+      {% if post.url == page.url %}
+        <span class="series-current">{{ post.series_order }}. {{ post.title | truncate: 50 }}</span>
+      {% else %}
+        <a href="{{ post.url | relative_url }}">{{ post.series_order }}. {{ post.title | truncate: 50 }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

@@ -31,8 +31,15 @@ toc: true
 ---
 
 {% capture ai_categories_html %}
+<span class="category-tag security">Security</span>
 {% endcapture %}
 {% capture ai_tags_html %}
+<span class="tag">Security-Digest</span>
+<span class="tag">SolarWinds-RCE</span>
+<span class="tag">UNC3886</span>
+<span class="tag">LLM-Safety</span>
+<span class="tag">UNC1069</span>
+<span class="tag">CVE-2025-40551</span>
 {% endcapture %}
 {% capture ai_highlights_html %}
 <li><strong>핵심 요약</strong>: SolarWinds WHD RCE 다단계 공격(CVE-2025-40551), 중국 UNC3886 싱가포르 통신사 첩보, LLM 안전</li>

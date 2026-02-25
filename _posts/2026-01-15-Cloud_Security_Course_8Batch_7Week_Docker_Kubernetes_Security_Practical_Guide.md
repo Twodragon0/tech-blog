@@ -30,6 +30,9 @@ keywords:
 layout: post
 original_url: https://twodragon.tistory.com/708
 schema_type: Article
+series: "Cloud Security Course 8기"
+series_order: 8
+series_total: 9
 tags:
 - Docker
 - Kubernetes

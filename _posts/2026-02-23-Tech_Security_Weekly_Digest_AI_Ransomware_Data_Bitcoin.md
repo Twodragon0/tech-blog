@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-02-23-Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin.svg
 image_alt: "Tech Security Weekly Digest February 23 2026 AI Ransomware Data"
 toc: true
+schema_type: Article
 ---
 
 {% include ai-summary-card.html

@@ -33,6 +33,10 @@ tags:
 - Cost-Optimization
 title: '클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!'
 toc: true
+schema_type: Article
+series: "Cloud Security Course 8기"
+series_order: 4
+series_total: 9
 ---
 
 ## 요약

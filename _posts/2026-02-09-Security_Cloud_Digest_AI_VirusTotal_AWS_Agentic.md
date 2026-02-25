@@ -36,8 +36,18 @@ toc: true
 ---
 
 {% capture ai_categories_html %}
+<span class="category-tag security">Security</span>
+<span class="category-tag cloud">Cloud</span>
 {% endcapture %}
 {% capture ai_tags_html %}
+<span class="tag">Security-Digest</span>
+<span class="tag">Cloud-Digest</span>
+<span class="tag">AI-Agent-Security</span>
+<span class="tag">Supply-Chain</span>
+<span class="tag">AWS</span>
+<span class="tag">Agentic-AI</span>
+<span class="tag">AI</span>
+<span class="tag">VirusTotal</span>
 {% endcapture %}
 {% capture ai_highlights_html %}
 <li><strong>핵심 요약</strong>: AI VirusTotal 통합으로 AI 에이전트 공급망 보안 강화, SK쉴더스 BlackField 랜섬웨어 리포트, AWS</li>

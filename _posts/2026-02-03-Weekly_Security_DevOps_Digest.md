@@ -354,13 +354,7 @@ AI 에이전트 보안의 표준 프레임워크로 부상한 OWASP Agentic AI T
 
 ### 1.6 AI 에이전트 보안 체크리스트: 어떻게 대비해야 하는가?
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```yaml
-> # AI Agent Security Checklist...
-> ```
-
-
+AI 에이전트 보안 체크리스트는 OWASP Agentic AI Top 10과 이번 주 사건을 기반으로 구성됩니다. 최소 권한 원칙 적용, 샌드박스 격리, 서드파티 스킬 검증, SIEM 연동 로깅이 핵심 항목입니다. 상세 구현 가이드는 [OWASP Agentic AI Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) 및 [Anthropic Security Docs](https://docs.anthropic.com/en/docs/claude-code/security)를 참조하세요.
 
 ### 1.8 Jamf Extension Attribute: AI/Moltbot 설치를 어떻게 탐지하는가?
 
@@ -368,13 +362,7 @@ AI 에이전트 보안의 표준 프레임워크로 부상한 OWASP Agentic AI T
 
 #### Extension Attribute 스크립트
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
-> ```bash
-> #!/bin/bash...
-> ```
-
-
+Extension Attribute 스크립트는 `/usr/local/bin/ai`, `~/.moltbot/`, `~/.clawdbot/` 등 AI 에이전트 바이너리 경로와 npm 글로벌 패키지 목록을 검사하여 설치 여부를 문자열로 반환합니다. 스크립트 작성 참고는 [Jamf Extension Attributes 공식 문서](https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/Computer_Extension_Attributes.html)를 참조하세요.
 
 #### Jamf Pro 등록 방법
 
@@ -401,25 +389,11 @@ AI 에이전트 보안의 표준 프레임워크로 부상한 OWASP Agentic AI T
 
 #### 확장: 추가 AI 에이전트 탐지
 
-동일 패턴으로 다른 AI 코딩 에이전트도 탐지할 수 있습니다:
-
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
-> ```bash
-> # Additional AI agent binary paths to monitor...
-> ```
-
-
+동일 패턴으로 다른 AI 코딩 에이전트도 탐지할 수 있습니다. Cursor, Copilot, Codeium 등 주요 AI 코딩 에이전트의 바이너리 경로와 설정 디렉토리를 Extension Attribute 스크립트에 추가하면 통합 인벤토리 관리가 가능합니다.
 
 #### 탐지 결과 SIEM 연동
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
-> ```bash
-> # Splunk - Jamf EA 기반 AI 설치 탐지 알림...
-> ```
-
-
+Jamf Pro API를 통해 Extension Attribute 결과를 주기적으로 수집하고 Splunk 또는 Elastic으로 전달하면, AI 에이전트 설치 탐지 알림을 자동화할 수 있습니다. Jamf Pro Webhooks와 SIEM HTTP Event Collector를 연동하는 방법은 [Jamf Pro API 문서](https://developer.jamf.com/jamf-pro/docs)를 참조하세요.
 
 ### 1.9 AI 에이전트 보안 FAQ
 
@@ -478,33 +452,15 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 
 #### App Protection Policies
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
-> ```json
-> {...
-> ```
-
-
+Intune App Protection Policy는 Microsoft Graph API로 JSON 형태로 정의하며, 비인가 AI 에이전트를 차단 앱 목록에 추가하고 데이터 전송 제한, 스크린샷 차단, PIN 요구사항을 설정합니다. 상세 스키마는 [Microsoft Intune App Protection Policy 문서](https://learn.microsoft.com/en-us/mem/intune/apps/app-protection-policy)를 참조하세요.
 
 #### Conditional Access로 앱 접근 제어
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
-> ```json
-> {...
-> ```
-
-
+Conditional Access 정책은 컴플라이언스 미준수 디바이스에서 Microsoft 365 앱 접근을 차단하며, AI 에이전트가 설치된 디바이스를 비준수로 표시하면 업무 앱 접근이 자동 차단됩니다. 설정 방법은 [Intune Conditional Access 문서](https://learn.microsoft.com/en-us/mem/intune/protect/conditional-access)를 참조하세요.
 
 #### Intune Compliance Policy
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
-> ```json
-> {...
-> ```
-
-
+Intune Compliance Policy에서 커스텀 컴플라이언스 스크립트를 사용하면 AI 에이전트 설치 여부를 준수 조건으로 설정할 수 있습니다. 스크립트 결과를 JSON으로 반환하면 Intune이 이를 평가하여 디바이스 컴플라이언스 상태를 결정합니다. 구현 방법은 [Custom Compliance Settings 문서](https://learn.microsoft.com/en-us/mem/intune/protect/compliance-use-custom-settings)를 참조하세요.
 
 ### 2.5 Jamf Pro vs Microsoft Intune: 주요 기능은 어떻게 다른가?
 
@@ -525,23 +481,20 @@ Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.
 
 ### 2.6 SIEM 연동 MDM 모니터링은 어떻게 설정하는가?
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
-> ```bash
-> # Splunk - Jamf Pro MDM Compliance Events...
-> ```
-
-
+Jamf Pro Webhook을 Splunk HTTP Event Collector(HEC) 엔드포인트로 연결하면 MDM 컴플라이언스 이벤트(디바이스 등록, 프로파일 적용, EA 변경)를 실시간으로 수집할 수 있습니다. Elastic Stack을 사용하는 경우 Jamf Pro API를 주기적으로 폴링하거나 Logstash HTTP input을 활용합니다. 연동 설정은 [Jamf Pro Webhooks 문서](https://developer.jamf.com/jamf-pro/docs/webhooks)를 참조하세요.
 
 ### 2.7 MDM Zero Trust 구현 체크리스트
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```yaml
-> # MDM Zero Trust Checklist...
-> ```
+MDM 기반 Zero Trust 구현 시 핵심 점검 항목은 다음과 같습니다:
 
-
+- [ ] 모든 디바이스에 MDM 등록 강제 적용 (미등록 디바이스 네트워크 접근 차단)
+- [ ] 컴플라이언스 정책에 AI 에이전트 설치 여부 평가 항목 추가
+- [ ] Conditional Access로 비준수 디바이스의 업무 앱 접근 자동 차단
+- [ ] 앱 허용 목록(allowlist) 정책 배포 및 비인가 앱 차단 목록 관리
+- [ ] MDM 컴플라이언스 이벤트 SIEM 연동 및 알림 설정
+- [ ] 디바이스 인벤토리와 소프트웨어 인벤토리 주간 리뷰
+- [ ] 퇴사자/계약 종료 시 MDM 원격 잠금 및 기업 데이터 선택적 삭제 프로세스 수립
+- [ ] BYOD 기기에 MAM(Mobile Application Management) 정책 별도 적용
 
 ### 이번 주 핵심 질문: 보안 팀이 스스로 물어야 할 것
 

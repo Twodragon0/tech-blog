@@ -31,8 +31,15 @@ toc: true
 ---
 
 {% capture ai_categories_html %}
+<span class="category-tag devsecops">DevSecOps</span>
 {% endcapture %}
 {% capture ai_tags_html %}
+<span class="tag">Blockchain-Digest</span>
+<span class="tag">Tech-Digest</span>
+<span class="tag">Bithumb</span>
+<span class="tag">Bitcoin</span>
+<span class="tag">GameBoy</span>
+<span class="tag">AI-UX</span>
 {% endcapture %}
 {% capture ai_highlights_html %}
 <li><strong>핵심 요약</strong>: Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현, 2026</li>

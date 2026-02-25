@@ -16,6 +16,8 @@ schema_type: Article
 ---
 
 {% capture ai_categories_html %}
+<span class="category-tag security">Security</span>
+<span class="category-tag devsecops">DevSecOps</span>
 {% endcapture %}
 {% capture ai_tags_html %}
 <span class="tag">Security-Weekly</span>

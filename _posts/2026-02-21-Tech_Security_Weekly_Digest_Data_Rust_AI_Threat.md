@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/Tech_Security_Weekly_Digest_Data_Rust_AI_Threat_og.png
 image_alt: "기술·보안 주간 다이제스트 2026년 2월 21일"
 toc: true
+schema_type: Article
 ---
 
 {% include ai-summary-card.html

@@ -30,6 +30,7 @@ tags:
 - Conference
 title: '[12월 컨퍼런스 회고] AWSKRUG, OWASP, Datadog으로 미리 보는 2025년: AI와 보안의 공존'
 toc: true
+schema_type: Article
 ---
 
 ## 요약

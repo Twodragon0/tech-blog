@@ -29,6 +29,7 @@ tags:
 - Network
 title: 'AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기: NLB + Security Group 완벽 가이드'
 toc: true
+schema_type: Article
 ---
 
 ## 요약

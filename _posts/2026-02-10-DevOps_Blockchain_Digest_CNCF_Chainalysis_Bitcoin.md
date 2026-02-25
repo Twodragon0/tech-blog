@@ -34,8 +34,17 @@ toc: true
 ---
 
 {% capture ai_categories_html %}
+<span class="category-tag devops">DevOps</span>
+<span class="category-tag devsecops">DevSecOps</span>
 {% endcapture %}
 {% capture ai_tags_html %}
+<span class="tag">DevOps-Digest</span>
+<span class="tag">Blockchain-Digest</span>
+<span class="tag">CNCF</span>
+<span class="tag">Kubernetes</span>
+<span class="tag">Cluster-API</span>
+<span class="tag">Chainalysis</span>
+<span class="tag">Bitcoin</span>
 {% endcapture %}
 {% capture ai_highlights_html %}
 <li><strong>핵심 요약</strong>: CNCF Project Velocity 2025 클라우드 네이티브 미래 전망, Cluster API v1.12 In-Place 업데이트,</li>

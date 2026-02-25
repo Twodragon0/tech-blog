@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-02-15-Tech_Security_Weekly_Digest_AI_Ransomware_Data.svg
 image_alt: "Tech Security Weekly Digest February 15 2026 AI Ransomware Data"
 toc: true
+schema_type: Article
 ---
 
 {% capture ai_categories_html %}

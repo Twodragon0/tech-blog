@@ -31,6 +31,9 @@ tags:
 - DevSecOps
 title: '클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해'
 toc: true
+series: "Cloud Security Course 7기"
+series_order: 5
+series_total: 7
 ---
 
 ## 요약

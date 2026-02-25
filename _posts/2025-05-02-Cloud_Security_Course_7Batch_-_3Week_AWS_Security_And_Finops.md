@@ -34,6 +34,9 @@ tags:
 - Well-Architected
 title: '클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps'
 toc: true
+series: "Cloud Security Course 7기"
+series_order: 1
+series_total: 7
 ---
 
 ## 요약

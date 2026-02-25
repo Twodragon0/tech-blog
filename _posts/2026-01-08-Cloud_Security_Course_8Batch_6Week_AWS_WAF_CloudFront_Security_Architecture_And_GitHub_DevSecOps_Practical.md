@@ -31,6 +31,9 @@ keywords:
 layout: post
 original_url: https://twodragon.tistory.com/707
 schema_type: Article
+series: "Cloud Security Course 8기"
+series_order: 7
+series_total: 9
 tags:
 - AWS
 - CloudFront

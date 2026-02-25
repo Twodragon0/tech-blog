@@ -32,6 +32,9 @@ tags:
 - Zero-Trust
 title: 클라우드 시큐리티 과정 7기 - 5주차 AWS Control Tower 및 ZTNA
 toc: true
+series: "Cloud Security Course 7기"
+series_order: 3
+series_total: 7
 ---
 
 ## 요약

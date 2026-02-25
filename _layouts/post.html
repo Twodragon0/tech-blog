@@ -94,6 +94,8 @@ layout: default
   {% include toc.html content=content %}
   {% endif %}
 
+  {% include series-nav.html %}
+
   {% comment %} TOC 아래 광고 - 긴 글에서만 표시 {% endcomment %}
   {% assign word_count = content | number_of_words %}
   {% if word_count > 500 and site.google_adsense %}

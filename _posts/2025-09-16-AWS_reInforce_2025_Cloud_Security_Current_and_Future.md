@@ -25,6 +25,7 @@ tags:
 - Conference
 title: "AWS re:Inforce 2025: 클라우드 보안의 현재와 미래 \U0001F6E1️"
 toc: true
+schema_type: Article
 ---
 
 ## 요약

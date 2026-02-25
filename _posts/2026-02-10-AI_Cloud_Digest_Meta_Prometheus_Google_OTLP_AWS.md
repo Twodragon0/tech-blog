@@ -34,8 +34,17 @@ toc: true
 ---
 
 {% capture ai_categories_html %}
+<span class="category-tag devsecops">DevSecOps</span>
+<span class="category-tag cloud">Cloud</span>
 {% endcapture %}
 {% capture ai_tags_html %}
+<span class="tag">AI-Digest</span>
+<span class="tag">Cloud-Digest</span>
+<span class="tag">Meta-Prometheus</span>
+<span class="tag">Google-OTLP</span>
+<span class="tag">AWS</span>
+<span class="tag">ChatGPT</span>
+<span class="tag">OpenTelemetry</span>
 {% endcapture %}
 {% capture ai_highlights_html %}
 <li><strong>핵심 요약</strong>: Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus</li>

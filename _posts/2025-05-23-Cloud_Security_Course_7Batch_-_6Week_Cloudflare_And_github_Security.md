@@ -15,6 +15,9 @@ description: 클라우드 시큐리티 7기 6주차. AWS WAF 보안 강화(웹 A
 keywords: [AWS, WAF, Cloudflare, DDoS, CDN, GitHub, CodeQL, Dependabot, SAST, Secret-Scanning, 웹보안, 코드보안]
 author: "Yongho Ha"
 schema_type: Article
+series: "Cloud Security Course 7기"
+series_order: 4
+series_total: 7
 ---
 <div class="ai-summary-card">
 <div class="ai-summary-header">
