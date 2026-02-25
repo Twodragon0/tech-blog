@@ -13,6 +13,7 @@ PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
 
 DEFAULT_SITE_URL = "https://tech.2twodragon.com"
+DEFAULT_INVESTING_URL = "https://investing.2twodragon.com"
 DEFAULT_TZ_OFFSET = timezone(timedelta(hours=9))
 
 ALIAS_TAGS = {
@@ -46,6 +47,11 @@ def parse_args() -> argparse.Namespace:
         "--site-url",
         default=DEFAULT_SITE_URL,
         help="Base site URL",
+    )
+    parser.add_argument(
+        "--investing-url",
+        default=DEFAULT_INVESTING_URL,
+        help="Investing site URL",
     )
     return parser.parse_args()
 
@@ -118,12 +124,18 @@ def build_digest(
     return digest
 
 
-def build_message(alias: str, items: List[Tuple[str, str]], window_hours: int) -> str:
+def build_message(
+    alias: str,
+    items: List[Tuple[str, str]],
+    window_hours: int,
+    investing_url: str = DEFAULT_INVESTING_URL,
+) -> str:
     tag = ALIAS_TAGS[alias]
     header = f"{tag} {alias.upper()} | 최근 {window_hours}시간 포스트 {len(items)}건"
     lines = [header]
     for title, url in items:
         lines.append(f"- {title}\n  {url}")
+    lines.append(f"\n---\nTech Blog: {DEFAULT_SITE_URL}\nInvesting Blog: {investing_url}")
     return "\n".join(lines)
 
 
@@ -134,7 +146,7 @@ def main() -> None:
     digest = build_digest(args.window_hours, args.site_url, categories)
     if not digest:
         return
-    message = build_message(alias, digest, args.window_hours)
+    message = build_message(alias, digest, args.window_hours, args.investing_url)
     print(message)
 
 

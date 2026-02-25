@@ -66,6 +66,7 @@ jobs:
         id: roundtable
         env:
           AUTO_RECOVER_GHA: ${{ github.event.inputs.auto_recover_gha || 'true' }}
+          INVESTING_SITE_URL: "https://investing.2twodragon.com"
         run: |
           set -euo pipefail
           mkdir -p reports
