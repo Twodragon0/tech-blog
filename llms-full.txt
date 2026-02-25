@@ -1,0 +1,25 @@
+---
+layout: null
+permalink: /llms-full.txt
+sitemap:
+  exclude: 'yes'
+---
+# Twodragon's Tech Blog - Full Content
+
+> Complete markdown content of all posts for AI agent consumption.
+> Total Posts: {{ site.posts | size }} | Last Updated: {{ site.time | date: "%Y-%m-%d" }}
+
+{% for post in site.posts %}
+---
+
+## {{ post.title }}
+
+- **URL**: {{ site.url }}{{ post.url }}
+- **Date**: {{ post.date | date: "%Y-%m-%d" }}
+- **Categories**: {{ post.categories | join: ", " }}
+- **Tags**: {{ post.tags | join: ", " }}
+- **Excerpt**: {{ post.excerpt | strip_html | strip_newlines | truncate: 300 }}
+
+{{ post.content | strip_html | strip_newlines | truncate: 3000 }}
+
+{% endfor %}

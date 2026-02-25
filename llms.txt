@@ -1,0 +1,42 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap:
+  exclude: 'yes'
+---
+# Twodragon's Tech Blog
+
+> DevSecOps, Cloud Security, Kubernetes Security technical blog by Twodragon.
+> Korean-language content focused on practical security engineering, cloud architecture, and AI coding tools.
+
+## Site Info
+
+- URL: https://tech.2twodragon.com
+- Language: Korean (ko-KR)
+- Author: Twodragon
+- Topics: DevSecOps, Cloud Security, Kubernetes, FinOps, AI Coding, Incident Response
+- Total Posts: {{ site.posts | size }}
+- Last Updated: {{ site.time | date: "%Y-%m-%d" }}
+
+## How to Access Content
+
+- Full content (markdown): [/llms-full.txt](/llms-full.txt)
+- Individual post (markdown): /api/markdown?path=/posts/YYYY/MM/DD/Title/
+- Search API (JSON): /api/search?q=keyword
+- RSS Feed: [/feed.xml](/feed.xml)
+- Sitemap: [/sitemap.xml](/sitemap.xml)
+
+## Categories
+
+{% assign categories = site.posts | map: "categories" | flatten | uniq | sort %}{% for cat in categories %}- {{ cat }}
+{% endfor %}
+
+## Recent Posts (Latest 30)
+
+{% for post in site.posts limit:30 %}- [{{ post.title }}]({{ site.url }}{{ post.url }}): {{ post.excerpt | strip_html | truncate: 150 }} ({{ post.date | date: "%Y-%m-%d" }})
+{% endfor %}
+
+## All Posts
+
+{% for post in site.posts %}- [{{ post.title }}]({{ site.url }}{{ post.url }}) ({{ post.date | date: "%Y-%m-%d" }}, {{ post.categories | join: ", " }})
+{% endfor %}

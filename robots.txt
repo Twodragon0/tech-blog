@@ -25,6 +25,9 @@ Crawl-delay: 1
 # Allow important paths explicitly
 Allow: /feed.xml
 Allow: /sitemap.xml
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /api/markdown
 Allow: /assets/
 Allow: /posts/
 
@@ -52,6 +55,9 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://tech.2twodragon.com/sitemap.xml
+
+# LLMs.txt - AI agent content index
+LLMs-Txt: https://tech.2twodragon.com/llms.txt
 
 # Host preference
 Host: https://tech.2twodragon.com

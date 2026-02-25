@@ -142,6 +142,22 @@
       ]
     },
     {
+      "source": "/llms.txt",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400" },
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "X-Robots-Tag", "value": "noindex" }
+      ]
+    },
+    {
+      "source": "/llms-full.txt",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400" },
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "X-Robots-Tag", "value": "noindex" }
+      ]
+    },
+    {
       "source": "/api/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
@@ -160,6 +176,9 @@
       "maxDuration": 60
     },
     "api/search.js": {
+      "maxDuration": 10
+    },
+    "api/markdown.js": {
       "maxDuration": 10
     }
   },
@@ -246,6 +265,14 @@
     {
       "source": "/api/chat/",
       "destination": "/api/chat.js"
+    },
+    {
+      "source": "/api/markdown",
+      "destination": "/api/markdown.js"
+    },
+    {
+      "source": "/api/markdown/",
+      "destination": "/api/markdown.js"
     },
     {
       "source": "/api/search",
