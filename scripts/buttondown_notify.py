@@ -496,7 +496,7 @@ def create_email_content(
             "",
             "---",
             "",
-            "**TwoDragon's Tech Blog** | [구독하기](https://tech.2twodragon.com/support.html) | [블로그 방문](https://tech.2twodragon.com) | [투자 블로그](https://investing.2twodragon.com)",
+            "**TwoDragon's Tech Blog** | [구독하기](https://tech.2twodragon.com/support.html) | [블로그 방문](https://tech.2twodragon.com)",
         ]
     )
 

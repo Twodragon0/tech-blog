@@ -1,0 +1,91 @@
+name: Slack Post Notification
+
+# 새 포스트가 push되면 Slack으로 알림 전송
+# OpenClaw AI Gateway 또는 Incoming Webhook을 통해 전송
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '_posts/**'
+
+concurrency:
+  group: slack-post-notify-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SITE_URL: "https://tech.2twodragon.com"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip pyyaml
+
+      - name: Detect new posts and build message
+        id: posts
+        shell: bash
+        run: |
+          set -euo pipefail
+          NEW_POSTS=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          if [ -z "$NEW_POSTS" ]; then
+            echo "No new posts detected"
+            echo "has_posts=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "has_posts=true" >> "$GITHUB_OUTPUT"
+          POST_COUNT=$(echo "$NEW_POSTS" | grep -c '^' || echo "0")
+          echo "count=$POST_COUNT" >> "$GITHUB_OUTPUT"
+          python3 scripts/build_slack_post_message.py "$NEW_POSTS" >> "$GITHUB_OUTPUT"
+
+      - name: Post to Slack via OpenClaw Gateway
+        if: steps.posts.outputs.has_posts == 'true'
+        env:
+          OPENCLAW_GATEWAY_URL: ${{ secrets.OPENCLAW_GATEWAY_URL }}
+          OPENCLAW_GATEWAY_TOKEN: ${{ secrets.OPENCLAW_GATEWAY_TOKEN }}
+          SLACK_CHANNEL_ID_DEV: ${{ secrets.SLACK_CHANNEL_ID_DEV }}
+          MESSAGE: ${{ steps.posts.outputs.message }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${OPENCLAW_GATEWAY_URL:-}" ] || [ -z "${OPENCLAW_GATEWAY_TOKEN:-}" ] || [ -z "${SLACK_CHANNEL_ID_DEV:-}" ]; then
+            echo "OpenClaw Gateway config not set, skipping"
+            exit 0
+          fi
+          payload=$(python3 -c 'import json,os; message=os.environ.get("MESSAGE",""); channel_id=os.environ.get("SLACK_CHANNEL_ID_DEV",""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
+          HTTP_STATUS=$(curl -sS -o /tmp/slack_resp.txt -w "%{http_code}" "${OPENCLAW_GATEWAY_URL}/tools/invoke" -H "Authorization: Bearer ${OPENCLAW_GATEWAY_TOKEN}" -H "Content-Type: application/json" -d "$payload")
+          echo "Slack response: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            echo "Slack notification sent successfully"
+          else
+            echo "::warning::Slack notification failed (HTTP $HTTP_STATUS)"
+            cat /tmp/slack_resp.txt || true
+          fi
+
+      - name: Post to Slack via Webhook (fallback)
+        if: steps.posts.outputs.has_posts == 'true'
+        continue-on-error: true
+        env:
+          HAS_SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK != '' }}
+        run: |
+          if [ "$HAS_SLACK_WEBHOOK" != "true" ]; then
+            echo "SLACK_WEBHOOK not configured, skipping fallback"
+            exit 0
+          fi
+          echo "Webhook fallback: OpenClaw Gateway is primary, webhook is optional"

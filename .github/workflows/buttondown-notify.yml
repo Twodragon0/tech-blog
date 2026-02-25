@@ -96,7 +96,6 @@ jobs:
         env:
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
           SITE_URL: "https://tech.2twodragon.com"
-          INVESTING_SITE_URL: "https://investing.2twodragon.com"
         run: |
           # 보안: API 키 검증
           if [ -z "$BUTTONDOWN_API_KEY" ]; then

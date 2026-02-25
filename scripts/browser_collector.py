@@ -6,12 +6,6 @@ Usage:
     # 블로그 스크린샷 캡처
     python3 scripts/browser_collector.py screenshot --url https://tech.2twodragon.com
 
-    # 투자 블로그 스크린샷 캡처
-    python3 scripts/browser_collector.py screenshot --url https://investing.2twodragon.com
-
-    # 전체 사이트 모니터링 (tech + investing)
-    python3 scripts/browser_collector.py monitor-all
-
     # Lighthouse 성능 측정
     python3 scripts/browser_collector.py lighthouse --url https://tech.2twodragon.com
 
@@ -35,11 +29,6 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_ROOT / "_site" / "browser-reports"
-
-MONITORED_SITES = [
-    "https://tech.2twodragon.com",
-    "https://investing.2twodragon.com",
-]
 
 
 def ensure_output_dir():
@@ -271,22 +260,6 @@ import {{ writeFileSync }} from 'fs';
     return output
 
 
-def monitor_all():
-    """Run screenshot and link checks for all monitored sites."""
-    ensure_output_dir()
-    print(f"Monitoring {len(MONITORED_SITES)} sites...")
-    results = {}
-    for site_url in MONITORED_SITES:
-        print(f"\n{'='*60}")
-        print(f"Monitoring: {site_url}")
-        print(f"{'='*60}")
-        ss_path = screenshot(site_url)
-        link_path = check_links(site_url)
-        results[site_url] = {"screenshot": ss_path, "links": link_path}
-    print(f"\nAll {len(MONITORED_SITES)} sites monitored.")
-    return results
-
-
 def main():
     parser = argparse.ArgumentParser(
         description="CDP Browser Collector for tech-blog",
@@ -318,9 +291,6 @@ def main():
     p_cl.add_argument("--url", required=True, help="URL to check")
     p_cl.add_argument("--cdp", dest="cdp_endpoint", help="CDP endpoint (ws://...)")
 
-    # monitor-all
-    subparsers.add_parser("monitor-all", help="Monitor all sites (tech + investing)")
-
     args = parser.parse_args()
 
     if args.command == "screenshot":
@@ -331,8 +301,6 @@ def main():
         scrape(args.url, args.selector, args.output, args.cdp_endpoint)
     elif args.command == "check-links":
         check_links(args.url, args.cdp_endpoint)
-    elif args.command == "monitor-all":
-        monitor_all()
 
 
 if __name__ == "__main__":

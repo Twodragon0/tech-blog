@@ -71,6 +71,5 @@ jobs:
           LINKEDIN_PERSON_ID: ${{ secrets.LINKEDIN_PERSON_ID }}
           # Site URL
           SITE_URL: "https://tech.2twodragon.com"
-          INVESTING_SITE_URL: "https://investing.2twodragon.com"
         run: |
           python scripts/share_sns.py "${{ steps.check_posts.outputs.latest_post }}"

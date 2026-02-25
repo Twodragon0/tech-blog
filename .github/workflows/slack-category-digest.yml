@@ -38,8 +38,7 @@ jobs:
           message=$(python scripts/post_category_slack_digest.py \
             --window-hours 24 \
             --channel-alias "${{ matrix.channel_alias }}" \
-            --site-url "https://tech.2twodragon.com" \
-            --investing-url "https://investing.2twodragon.com" || true)
+            --site-url "https://tech.2twodragon.com" || true)
           if [ -z "$message" ]; then
             echo "has_message=false" >> "$GITHUB_OUTPUT"
             exit 0

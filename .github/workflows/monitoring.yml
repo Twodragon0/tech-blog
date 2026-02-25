@@ -23,29 +23,17 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Check site availability (tech blog)
+      - name: Check site availability
         run: |
           HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 -A "Mozilla/5.0 TechBlogMonitor" https://tech.2twodragon.com)
-          echo "HTTP status (tech): $HTTP_STATUS"
+          echo "HTTP status: $HTTP_STATUS"
           if [ "$HTTP_STATUS" -eq 429 ]; then
-            echo "::warning::tech.2twodragon.com returned HTTP 429 (rate limited) - site is alive"
+            echo "::warning::Site returned HTTP 429 (rate limited) - site is alive"
           elif [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 400 ]; then
-            echo "::error::tech.2twodragon.com returned HTTP $HTTP_STATUS"
+            echo "::error::Site returned HTTP $HTTP_STATUS"
             exit 1
           else
-            echo "tech.2twodragon.com is accessible (HTTP $HTTP_STATUS)"
-          fi
-
-      - name: Check site availability (investing blog)
-        run: |
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 -A "Mozilla/5.0 TechBlogMonitor" https://investing.2twodragon.com)
-          echo "HTTP status (investing): $HTTP_STATUS"
-          if [ "$HTTP_STATUS" -eq 429 ]; then
-            echo "::warning::investing.2twodragon.com returned HTTP 429 (rate limited) - site is alive"
-          elif [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 400 ]; then
-            echo "::warning::investing.2twodragon.com returned HTTP $HTTP_STATUS"
-          else
-            echo "investing.2twodragon.com is accessible (HTTP $HTTP_STATUS)"
+            echo "Site is accessible (HTTP $HTTP_STATUS)"
           fi
 
       - name: Check Vercel CLI
@@ -81,10 +69,6 @@ jobs:
               '**Details**:',
               '- Check the workflow run logs for detailed error information',
               '- This usually indicates deployment issues, performance degradation, or API connectivity problems',
-              '',
-              '## Monitored Sites',
-              '- [tech.2twodragon.com](https://tech.2twodragon.com)',
-              '- [investing.2twodragon.com](https://investing.2twodragon.com)',
               '',
               '## Action Items',
               '- [ ] Review deployment logs',
@@ -128,7 +112,7 @@ jobs:
                   "elements": [
                     {
                       "type": "mrkdwn",
-                      "text": "Repository: `${{ github.repository }}`\nBranch: `${{ github.ref_name }}`\nSites: <https://tech.2twodragon.com|tech> | <https://investing.2twodragon.com|investing>"
+                      "text": "Repository: `${{ github.repository }}`\nBranch: `${{ github.ref_name }}`\nSite: <https://tech.2twodragon.com|tech.2twodragon.com>"
                     }
                   ]
                 }

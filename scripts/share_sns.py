@@ -84,8 +84,6 @@ def create_share_message(frontmatter: dict, post_url: str, platform: str) -> str
     summary = _build_summary(excerpt, max_length=220)
     hashtags = _build_hashtags(tags, max_count=5)
 
-    investing_url = os.environ.get("INVESTING_SITE_URL", "https://investing.2twodragon.com")
-
     if platform == "twitter":
         return _build_twitter_message(title, summary, post_url, hashtags)
 
@@ -98,9 +96,7 @@ def create_share_message(frontmatter: dict, post_url: str, platform: str) -> str
 
 {hashtags}
 
-#DevSecOps #CloudSecurity #TechBlog
-
-📊 투자 블로그: {investing_url}"""
+#DevSecOps #CloudSecurity #TechBlog"""
         return message
 
     elif platform == "linkedin":
@@ -114,7 +110,6 @@ def create_share_message(frontmatter: dict, post_url: str, platform: str) -> str
 이 글에서는 실무에서 바로 적용할 수 있는 내용을 다룹니다.
 
 👉 전체 글 읽기: {post_url}
-📊 투자 블로그: {investing_url}
 
 {hashtags}
 

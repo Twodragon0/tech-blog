@@ -83,7 +83,6 @@ jobs:
       OPENCLAW_GATEWAY_URL: ${{ secrets.OPENCLAW_GATEWAY_URL }}
       OPENCLAW_GATEWAY_TOKEN: ${{ secrets.OPENCLAW_GATEWAY_TOKEN }}
       SLACK_CHANNEL_ID_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
-      INVESTING_SITE_URL: "https://investing.2twodragon.com"
 
     steps:
       - name: Checkout
