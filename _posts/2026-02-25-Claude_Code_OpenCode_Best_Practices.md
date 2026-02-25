@@ -35,6 +35,14 @@ schema_type: Article
 toc: true
 ---
 
+## 요약
+
+- **핵심 요약**: Claude Code와 OpenCode의 38가지 Best Practice를 정리한 실전 가이드. Anthropic 공식 문서와 실무 경험을 종합하여 환경 설정, CLAUDE.md 작성법, 프롬프팅 전략, 에이전트 팀 운영, 자동화까지 다룹니다.
+- **주요 주제**: Claude Code & OpenCode Best Practices: 38가지 실전 가이드
+- **키워드**: Claude-Code, OpenCode, Best-Practices, AI-Agent, Agent-Teams, MCP, Prompt-Engineering
+
+---
+
 {% include ai-summary-card.html
   title='Claude Code & OpenCode Best Practices: 38가지 실전 가이드'
   categories_html='<span class="category-tag devops">DevOps</span> <span class="category-tag tech">AI Coding</span>'
@@ -43,6 +51,23 @@ toc: true
   period='2026-02-25'
   audience='AI 코딩 도구 사용자, 개발자, DevOps 엔지니어'
 %}
+
+<figure>
+  <img src="{{ '/assets/images/2026-02-25-Claude_Code_OpenCode_Best_Practices.svg' | relative_url }}" alt="Claude Code and OpenCode Best Practices 38 Guide" loading="lazy" class="post-image">
+  <figcaption>Claude Code & OpenCode 38가지 Best Practice 가이드 개요</figcaption>
+</figure>
+
+## 서론
+
+안녕하세요, **Twodragon**입니다.
+
+2026년 현재 Claude Code와 OpenCode는 단순한 코드 생성 도구를 넘어 **자율적으로 파일을 탐색하고, 코드를 수정하고, 테스트를 실행하는 에이전틱 코딩 도구**로 진화했습니다. 특히 Opus 4.6 모델의 등장과 에이전트 팀 기능의 안정화로, 복잡한 멀티파일 리팩토링이나 대규모 마이그레이션까지 자동화할 수 있게 되었습니다.
+
+하지만 도구가 강력해질수록 **올바르게 사용하는 방법**이 더욱 중요해집니다. 컨텍스트 윈도우를 낭비하면 성능이 급격히 떨어지고, CLAUDE.md가 비대해지면 핵심 규칙이 무시되며, 에이전트 팀의 파일 소유권을 관리하지 않으면 덮어쓰기 충돌이 발생합니다.
+
+이 포스트는 Anthropic 공식 Best Practices 문서, 에이전트 팀 가이드, Opus 4.6 활용 가이드를 기반으로, **실무에서 반복 검증된 38가지 Best Practice**를 11개 파트로 정리한 종합 레퍼런스입니다.
+
+> **관련 포스트**: [CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계](/posts/2026/01/Claude_MD_Security_Guide/) | [AI vs Claude Code: AI 코딩 어시스턴트 심층 비교](/posts/2026/02/AI_vs_Claude_Code_AI_Coding_Assistant_Comparison/)
 
 ---
 
@@ -763,3 +788,9 @@ done
 ---
 
 > 이 문서는 Anthropic 공식 Best Practices, 에이전트 팀 문서, Opus 4.6 가이드를 기반으로 실무 경험을 종합하여 작성되었습니다. 번호(BP-01~38)로 특정 항목을 빠르게 참조할 수 있습니다.
+
+---
+
+**작성자**: Twodragon
+**작성일**: 2026년 2월 25일
+**카테고리**: DevOps, AI Coding
