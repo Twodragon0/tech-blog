@@ -67,6 +67,22 @@ toc: true
 
 이 포스트는 Anthropic 공식 Best Practices 문서, 에이전트 팀 가이드, Opus 4.6 활용 가이드를 기반으로, **실무에서 반복 검증된 38가지 Best Practice**를 11개 파트로 정리한 종합 레퍼런스입니다.
 
+### 이 가이드에서 다루는 내용
+
+| 파트 | 내용 | BP 번호 |
+|------|------|---------|
+| **Part 1** | 핵심 원칙 — 에이전트 관점, 컨텍스트 윈도우 제약 | - |
+| **Part 2** | 환경 설정 — 환경 변수, 권한, MCP, 플러그인 | BP-01~05 |
+| **Part 3** | CLAUDE.md — 생성, 배치, 간결화, 임포트 | BP-06~10 |
+| **Part 4** | 프롬프팅 — 검증 수단, 컨텍스트, Opus 4.6 | BP-11~15 |
+| **Part 5** | 워크플로우 — 4단계 프로세스, 실행 모드, 비용 | BP-16~19 |
+| **Part 6** | 세션 관리 — 컨텍스트 관리, 서브에이전트, 체크포인트 | BP-20~24 |
+| **Part 7** | 에이전트 팀 — 선택 기준, 규모, 충돌 방지 | BP-25~29 |
+| **Part 8** | Hook & Skills — 결정적 실행, 도메인 지식 분리 | BP-30~31 |
+| **Part 9** | OpenCode — 도구 선택, 에이전트 분담, 비교 | BP-32~34 |
+| **Part 10** | 자동화 — Headless, Writer/Reviewer, Fan-out | BP-35~38 |
+| **Part 11** | 실패 패턴 — 자기 진단 체크리스트, 직감 개발 | - |
+
 > **관련 포스트**: [CLAUDE.md 보안 가이드: AI 에이전트 시대의 프로젝트 보안 설계](/posts/2026/01/Claude_MD_Security_Guide/) | [AI vs Claude Code: AI 코딩 어시스턴트 심층 비교](/posts/2026/02/AI_vs_Claude_Code_AI_Coding_Assistant_Comparison/)
 
 ---
@@ -281,7 +297,7 @@ See @README.md for project overview and @package.json for available npm commands
 cat error.log | claude
 
 # URL로 문서 제공
-> 이 API 문서를 참고해서 구현해: https://docs.example.com/api
+> 이 API 문서를 참고해서 구현해: https://docs.anthropic.com/en/docs/claude-code/overview
 
 # Claude가 직접 조회하게
 > gh issue view 123 의 내용을 읽고 해결해
@@ -772,18 +788,42 @@ done
 
 ---
 
+## 마무리
+
+이 38가지 Best Practice를 한 문장으로 요약하면: **컨텍스트를 아끼고, 검증을 제공하고, 전문가에게 위임하라**입니다.
+
+### 핵심 3가지
+
+1. **컨텍스트가 곧 성능이다** — `/clear`를 두려워하지 말고, 서브에이전트로 탐색을 위임하고, CLAUDE.md는 간결하게 유지하세요. 두 번 실패하면 깨끗한 세션에서 다시 시작하는 것이 거의 항상 정답입니다 (BP-08, BP-20, BP-21).
+2. **검증 수단이 가장 높은 ROI** — "테스트 실행해", "스크린샷 찍어", "빌드 성공 확인해"를 프롬프트에 포함하는 것만으로 결과 품질이 극적으로 향상됩니다 (BP-11).
+3. **적절한 모델에 적절한 작업을** — 파일 탐색에 Opus를 쓰는 것은 낭비이고, 아키텍처 설계에 Haiku를 쓰는 것은 위험합니다. 모델 라우팅을 의식적으로 관리하세요 (BP-19, BP-25).
+
+> 이 가이드의 패턴은 시작점이지 절대 규칙이 아닙니다. 좋은 결과가 나왔을 때 무엇을 했는지 관찰하고, 실패했을 때 원인을 분석하여 자신만의 직감을 개발하세요.
+
+---
+
 ## 참조 링크
 
-- [Claude Code 공식 Best Practices](https://code.claude.com/docs/en/best-practices)
-- [에이전트 팀 공식 문서 (한국어)](https://code.claude.com/docs/ko/agent-teams)
-- [Claude Opus 4.6 활용 가이드](https://news.hada.io/topic?id=26459)
-- [Claude Code 작동 원리](https://code.claude.com/docs/en/how-claude-code-works)
-- [CLAUDE.md 가이드](https://code.claude.com/docs/en/memory)
-- [Hook 가이드](https://code.claude.com/docs/en/hooks-guide)
-- [Skills 가이드](https://code.claude.com/docs/en/skills)
-- [Subagents 가이드](https://code.claude.com/docs/en/sub-agents)
-- [Plugins 가이드](https://code.claude.com/docs/en/plugins)
-- [Claude Code 확장하기](https://code.claude.com/docs/en/features-overview)
+### Anthropic 공식 문서
+
+| 리소스 | 설명 |
+|--------|------|
+| [Claude Code Best Practices](https://code.claude.com/docs/en/best-practices) | 공식 Best Practice 가이드 (이 포스트의 1차 출처) |
+| [에이전트 팀 (한국어)](https://code.claude.com/docs/ko/agent-teams) | Agent Teams 공식 가이드 한국어판 |
+| [Claude Code 작동 원리](https://code.claude.com/docs/en/how-claude-code-works) | 내부 동작 방식, 토큰 사용 메커니즘 |
+| [CLAUDE.md 가이드](https://code.claude.com/docs/en/memory) | Memory 시스템 및 CLAUDE.md 작성법 |
+| [Hook 가이드](https://code.claude.com/docs/en/hooks-guide) | Hook 이벤트, 작성법, 실전 예제 |
+| [Skills 가이드](https://code.claude.com/docs/en/skills) | Skill 정의, 자동 매칭, 워크플로우 |
+| [Subagents 가이드](https://code.claude.com/docs/en/sub-agents) | 서브에이전트 위임 패턴 및 활용법 |
+| [Plugins 가이드](https://code.claude.com/docs/en/plugins) | 플러그인 마켓플레이스, 설치/관리 |
+| [기능 개요](https://code.claude.com/docs/en/features-overview) | Claude Code 전체 기능 맵 |
+
+### 커뮤니티 및 참고 자료
+
+| 리소스 | 설명 |
+|--------|------|
+| [Claude Opus 4.6 활용 가이드](https://news.hada.io/topic?id=26459) | Opus 4.6 활용 팁 한국어 정리 |
+| [Anthropic API 문서](https://docs.anthropic.com/en/docs/claude-code/overview) | Claude Code API 및 CI/CD 통합 |
 
 ---
 
