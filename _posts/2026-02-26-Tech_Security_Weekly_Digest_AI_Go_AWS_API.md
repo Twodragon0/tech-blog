@@ -357,11 +357,11 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 
 ### P0 (즉시)
 
-- [ ] **Open WebUI + Docker Model Runner: Self-Hosted Models, Zero Configuration** 관련 긴급 패치 및 영향도 확인
+- [ ] **Open WebUI + Docker Model Runner 제로 설정 통합** 관련 보안 영향도 확인 및 접근 제어 설정 점검
 
 ### P1 (7일 내)
 
-- [ ] **Top 5 Ways Broken Triage Increases Business Risk** 관련 보안 검토 및 모니터링
+- [ ] **취약점 분류(Triage) 오류로 인한 비즈니스 위험** 관련 보안 프로세스 검토 및 개선
 
 ### P2 (30일 내)
 
