@@ -62,25 +62,6 @@ toc: true
 
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K
-
-> **카테고리**: devsecops
-
-> **태그**: Blockchain-Digest, Tech-Digest, Bithumb, Bitcoin, GameBoy, AI-UX
-
-> **핵심 내용**: 
-> - Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현, 2026 AI/UX 트렌드 전망
-
-> **주요 기술/도구**: devsecops
-
-> **대상 독자**: DevSecOps 엔지니어, 보안 엔지니어, 개발자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
 {% include ai-summary-card.html
   title='Blockchain & Tech Digest (2026년 02월 09일)'
   categories_html='<span class=category-tag>Summary</span>'

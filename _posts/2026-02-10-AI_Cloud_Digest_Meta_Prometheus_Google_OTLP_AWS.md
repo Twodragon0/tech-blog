@@ -67,25 +67,6 @@ toc: true
 
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트
-
-> **카테고리**: devsecops, cloud
-
-> **태그**: AI-Digest, Cloud-Digest, Meta-Prometheus, Google-OTLP, AWS, ChatGPT, OpenTelemetry
-
-> **핵심 내용**: 
-> - Meta Prometheus 기가와트급 AI 클러스터, Google Cloud OTLP 네이티브 지원, AWS Claude Opus 4.6 Bedrock 통합, ChatGPT 미 국방부 GenAI.mil 플랫폼
-
-> **주요 기술/도구**: AWS, devsecops, cloud
-
-> **대상 독자**: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
 {% include ai-summary-card.html
   title='AI & Cloud Digest (2026년 02월 10일)'
   categories_html='<span class=category-tag>Summary</span>'

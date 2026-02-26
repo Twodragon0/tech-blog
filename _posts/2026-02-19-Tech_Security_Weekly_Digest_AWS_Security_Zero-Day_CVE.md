@@ -15,26 +15,6 @@ toc: true
 schema_type: Article
 ---
 
-## 📋 포스팅 요약
-
-> **제목**: 기술 & 보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329
-
-> **카테고리**: security, devsecops
-
-> **태그**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Security, Zero-Day, CVE
-
-> **핵심 내용**: 
-> - 2026년 02월 19일 주요 보안/기술 뉴스 27건 - AWS, Security, Zero-Day
-
-> **주요 기술/도구**: Security, DevSecOps, Security, AWS, Security, security, devsecops
-
-> **대상 독자**: 기업 보안 담당자, 보안 엔지니어, CISO
-
-> ---
-
-> *이 포스팅은 AI(Cursor, Claude 등)가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.*
-
-
 {% include ai-summary-card.html
   title='기술 & 보안 주간 다이제스트 (2026년 02월 19일)'
   categories_html='<span class=category-tag>Summary</span>'
