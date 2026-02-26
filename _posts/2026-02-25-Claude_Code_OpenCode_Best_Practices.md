@@ -285,7 +285,7 @@ See @README.md for project overview and @package.json for available npm commands
 
 ### BP-14. 역할 설정 대신 작업을 명확히 (Opus 4.6)
 
-```
+```markdown
 # Bad - 불필요한 역할 설정
 "너는 시니어 풀스택 개발자야. React와 TypeScript 전문가로서..."
 
@@ -297,7 +297,7 @@ Opus 4.6은 역할 프롬프트 없이도 맥락을 파악합니다. 범위, 제
 
 ### BP-15. 큰 기능은 Claude에게 먼저 인터뷰시키기
 
-```
+```text
 실시간 알림 시스템을 구현하고 싶어. AskUserQuestion 도구로 나를 자세히 인터뷰해줘.
 
 기술 구현, UI/UX, 엣지 케이스, 트레이드오프에 대해 질문해.
@@ -323,7 +323,7 @@ Opus 4.6은 역할 프롬프트 없이도 맥락을 파악합니다. 범위, 제
 
 ### BP-17. 실행 모드를 작업 복잡도에 맞게 선택
 
-```
+```text
 간단한 질문/수정      → 일반 모드 (기본)
 새 기능 프로토타입     → autopilot 모드
 중규모 기능 개발      → autopilot 또는 ultrawork 모드
@@ -407,7 +407,7 @@ claude --resume      # 세션 목록에서 선택
 
 Claude는 변경 전 자동으로 체크포인트를 생성합니다:
 
-```
+```text
 Esc + Esc 또는 /rewind  →  되돌리기 메뉴
   ├── 대화만 복원
   ├── 코드만 복원
@@ -443,7 +443,7 @@ When compacting, always preserve:
 | **토큰 비용** | 낮음 | 높음 (각각 별도 인스턴스) |
 | **선택 기준** | 결과만 필요한 집중 작업 | 토론/협업이 필요한 복잡한 작업 |
 
-```
+```text
 결과만 보고받으면 충분      → Subagent
 팀원 간 토론/도전이 필요    → 에이전트 팀
 구조화된 파이프라인 필요    → 팀 프리셋
@@ -596,7 +596,7 @@ disable-model-invocation: true
 
 ### BP-36. Writer/Reviewer 패턴으로 품질 향상
 
-```
+```text
 세션 A (Writer): "API rate limiter 구현해"
           ↓ 완료
 세션 B (Reviewer): "@src/middleware/rateLimiter.ts 리뷰해.
@@ -618,7 +618,7 @@ disable-model-invocation: true
 
 워크플로우별 에이전트 파이프라인을 프리셋으로 정의하여 재사용할 수 있습니다:
 
-```
+```text
 코드 리뷰:    explore → architect → critic → executor
 기능 구현:    planner → executor → tdd-guide
 디버깅:       explore → architect → build-fixer

@@ -207,7 +207,9 @@ schema_type: Article
 
 **Runbook: CDN 장애 대응**
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요."
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
+
+```bash
 DOMAIN="our-service.com"
 DNS_ZONE_ID="YOUR_ZONE_ID"
 
@@ -294,7 +296,7 @@ esac
 ```mermaid
 flowchart TD
     TM["Traffic Manager<br/>(DNS-based Load Balancing)"]
-    
+
     TM  CF["Cloudflare<br/>(Primary)"]
     TM  FY["Fastly<br/>(Backup)"]
     TM  CFR["CloudFront<br/>(Backup)"]
@@ -305,6 +307,7 @@ flowchart TD
 > **참고**: Prometheus Alert Rule 설정 관련 내용은 [Prometheus 공식 문서](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) 및 [Awesome Prometheus Alerts](https://github.com/samber/awesome-prometheus-alerts)를 참조하세요.
 > ```yaml
 > # Prometheus Alert Rule 예시...
+> ```
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 **CVSS 10.0 (Critical)** 등급의 이 취약점은 원격 코드 실행(RCE)을 가능하게 하며, Cloudflare는 취약점 공개 후 **24시간 이내에 전역 보호 규칙을 배포**했습니다.

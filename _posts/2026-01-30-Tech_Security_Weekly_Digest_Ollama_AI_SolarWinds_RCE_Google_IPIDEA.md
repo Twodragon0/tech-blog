@@ -254,7 +254,7 @@ Google Threat Intelligence Group(GTIG)이 세계 최대 규모의 레지덴셜 �
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
+```text
 IPIDEA Residential Proxy Network:
 Infection Vectors: Android TV Boxes, Fake Earning Apps, SDK-Embedded Apps, Windows Trojans, Play Store Apps (600+)
 → IPIDEA Proxy Network: 6.1M IPs Daily, 69K New IPs/Day, 7,400 C2 Servers
@@ -280,7 +280,7 @@ Infection Vectors: Android TV Boxes, Fake Earning Apps, SDK-Embedded Apps, Windo
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
+```text
 SDK-Based Proxy Infection Process:
 1. Legitimate App Developer → 2. SDK Integration (Castar/Packet) → 3. App Build
 → 4. Google Play Distribution → 5. User Device Installation
@@ -347,7 +347,7 @@ OMICRON이 **100곳 이상의 에너지 시설**(변전소, 발전소, 제어 �
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
+```text
 IT/OT Segmentation Architecture (Purdue Model):
 Internet → [Firewall L1] → IT Network (VLAN 10-30)
 → [Firewall L2 / DMZ] → IT/OT DMZ Level 3.5 (Historian, Patch Mgmt, Jump Server)

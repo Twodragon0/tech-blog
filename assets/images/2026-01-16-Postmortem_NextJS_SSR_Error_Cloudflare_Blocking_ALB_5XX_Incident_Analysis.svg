@@ -1,19 +1,101 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0b1424" />
-      <stop offset="100%" stop-color="#1a3552" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0a0a"/>
+      <stop offset="50%" stop-color="#1a0d0d"/>
+      <stop offset="100%" stop-color="#0a0808"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#67e8f9" />
-      <stop offset="100%" stop-color="#60a5fa" />
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
     </linearGradient>
+    <linearGradient id="terminalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a2e" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0f0a14" stop-opacity="0.95"/>
+    </linearGradient>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)" />
-  <rect x="60" y="70" width="1080" height="490" rx="28" fill="#0f2133" stroke="#2a4b68" stroke-width="2" />
-  <rect x="120" y="150" width="240" height="8" fill="url(#accent)" />
-  <text x="120" y="235" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="50" font-weight="700">Postmortem NextJS SSR Error</text>
-  <text x="120" y="295" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">Cloudflare Blocking ALB 5...</text>
-  <text x="120" y="360" fill="#a7c3d9" font-family="Space Grotesk, Arial, sans-serif" font-size="24">Jan 16, 2026</text>
-  <text x="120" y="470" fill="#7fb0d4" font-family="Space Grotesk, Arial, sans-serif" font-size="20">Twodragon Tech Blog</text>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1200" height="5" fill="url(#accentGrad)"/>
+
+  <!-- Subtle grid (monospace terminal feel) -->
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#ef4444" stroke-width="0.3" opacity="0.1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#ef4444" stroke-width="0.3" opacity="0.1"/>
+  <line x1="620" y1="0" x2="620" y2="630" stroke="#ef4444" stroke-width="0.3" opacity="0.08"/>
+
+  <!-- === RIGHT SIDE: Terminal window visual === -->
+  <!-- Terminal outer frame -->
+  <rect x="650" y="110" width="490" height="350" rx="10" fill="url(#terminalGrad)" stroke="#374151" stroke-width="2"/>
+  <!-- Terminal title bar -->
+  <rect x="650" y="110" width="490" height="36" rx="10" fill="#1f2937"/>
+  <rect x="650" y="130" width="490" height="16" fill="#1f2937"/>
+  <!-- Traffic lights -->
+  <circle cx="676" cy="128" r="7" fill="#ef4444" opacity="0.9"/>
+  <circle cx="698" cy="128" r="7" fill="#f59e0b" opacity="0.9"/>
+  <circle cx="720" cy="128" r="7" fill="#22c55e" opacity="0.9"/>
+  <!-- Terminal title -->
+  <text x="895" y="133" font-size="13" fill="#9ca3af" text-anchor="middle" font-family="Space Grotesk, Inter, system-ui, sans-serif">incident-analysis.log</text>
+
+  <!-- Terminal content lines -->
+  <text x="672" y="174" font-size="12" fill="#6b7280" font-family="'Courier New', monospace">$  tail -f /var/log/alb/access.log</text>
+  <text x="672" y="196" font-size="12" fill="#ef4444" font-family="'Courier New', monospace">[ERROR] 503 Service Unavailable</text>
+  <text x="672" y="218" font-size="12" fill="#ef4444" font-family="'Courier New', monospace">[ERROR] 502 Bad Gateway - upstream</text>
+  <text x="672" y="240" font-size="12" fill="#f59e0b" font-family="'Courier New', monospace">[WARN]  Cloudflare WAF rule 100013</text>
+  <text x="672" y="262" font-size="12" fill="#f59e0b" font-family="'Courier New', monospace">[WARN]  ALB target unhealthy x3</text>
+  <text x="672" y="284" font-size="12" fill="#ef4444" font-family="'Courier New', monospace">[ERROR] SSR render timeout 30002ms</text>
+  <text x="672" y="306" font-size="12" fill="#6b7280" font-family="'Courier New', monospace">      at getServerSideProps (page.js)</text>
+  <text x="672" y="328" font-size="12" fill="#6b7280" font-family="'Courier New', monospace">      at render (next-server.js:284)</text>
+  <text x="672" y="350" font-size="12" fill="#22c55e" font-family="'Courier New', monospace">[FIX]  Bypass rule added, failover OK</text>
+  <text x="672" y="372" font-size="12" fill="#22c55e" font-family="'Courier New', monospace">[OK]   200 response time: 142ms</text>
+  <!-- Cursor blink -->
+  <rect x="672" y="398" width="9" height="16" rx="1" fill="#ef4444" opacity="0.9" filter="url(#glow4)"/>
+
+  <!-- Error code badge overlay -->
+  <rect x="870" y="415" width="120" height="40" rx="8" fill="#ef4444" opacity="0.9"/>
+  <text x="930" y="440" font-size="20" fill="white" text-anchor="middle" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-weight="700">5XX</text>
+
+  <!-- === LEFT SIDE: Text content === -->
+  <!-- Category label -->
+  <text x="60" y="82" font-size="13" fill="#ef4444" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-weight="600" letter-spacing="3" opacity="0.9">INCIDENT ANALYSIS</text>
+
+  <!-- Main title -->
+  <text x="60" y="158" font-size="48" fill="white" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-weight="700" letter-spacing="-1">Next.js SSR</text>
+  <text x="60" y="215" font-size="48" fill="white" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-weight="700" letter-spacing="-1">Error</text>
+  <text x="60" y="272" font-size="48" fill="#ef4444" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-weight="700" letter-spacing="-1">Post-Mortem</text>
+
+  <!-- Accent underline -->
+  <rect x="60" y="288" width="300" height="4" rx="2" fill="url(#accentGrad)"/>
+
+  <!-- Subtitle -->
+  <text x="60" y="332" font-size="21" fill="#94a3b8" font-family="Space Grotesk, Inter, system-ui, sans-serif">Cloudflare WAF and ALB 5XX Analysis</text>
+
+  <!-- Stat cards -->
+  <rect x="60"  y="370" width="120" height="66" rx="7" fill="#1c0e0e" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="120" y="396" font-size="22" fill="#ef4444" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-weight="700" text-anchor="middle">503</text>
+  <text x="120" y="414" font-size="10" fill="#64748b" font-family="Space Grotesk, Inter, system-ui, sans-serif" text-anchor="middle">Primary Error</text>
+  <text x="120" y="428" font-size="10" fill="#64748b" font-family="Space Grotesk, Inter, system-ui, sans-serif" text-anchor="middle">WAF Block</text>
+
+  <rect x="194" y="370" width="120" height="66" rx="7" fill="#1c0e0e" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="254" y="396" font-size="22" fill="#f59e0b" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-weight="700" text-anchor="middle">30s</text>
+  <text x="254" y="414" font-size="10" fill="#64748b" font-family="Space Grotesk, Inter, system-ui, sans-serif" text-anchor="middle">SSR Timeout</text>
+  <text x="254" y="428" font-size="10" fill="#64748b" font-family="Space Grotesk, Inter, system-ui, sans-serif" text-anchor="middle">Threshold</text>
+
+  <rect x="328" y="370" width="120" height="66" rx="7" fill="#1c0e0e" stroke="#22c55e" stroke-width="1.2"/>
+  <text x="388" y="396" font-size="22" fill="#22c55e" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-weight="700" text-anchor="middle">142ms</text>
+  <text x="388" y="414" font-size="10" fill="#64748b" font-family="Space Grotesk, Inter, system-ui, sans-serif" text-anchor="middle">After Fix</text>
+  <text x="388" y="428" font-size="10" fill="#64748b" font-family="Space Grotesk, Inter, system-ui, sans-serif" text-anchor="middle">Response Time</text>
+
+  <!-- Date and branding -->
+  <text x="60" y="530" font-size="16" fill="#64748b" font-family="Space Grotesk, Inter, system-ui, sans-serif">January 16, 2026</text>
+  <text x="60" y="560" font-size="15" fill="#475569" font-family="Space Grotesk, Inter, system-ui, sans-serif">Twodragon Tech Blog</text>
+
+  <!-- Bottom accent bar -->
+  <rect x="0" y="625" width="1200" height="5" fill="url(#accentGrad)"/>
 </svg>

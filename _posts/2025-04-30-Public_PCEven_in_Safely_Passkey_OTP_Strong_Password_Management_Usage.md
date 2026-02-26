@@ -231,7 +231,7 @@ arpspoof -i wlan0 -t 192.168.1.100 192.168.1.1
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
+```text
 Defense in Depth - Public PC Security:
 Layer 1: Anti-Phishing Auth (Passkey)
 Layer 2: Multi-Factor Auth (FIDO2/OTP)
@@ -364,14 +364,14 @@ qvm-run --dispvm firefox https://banking.example.com
 #### 2.4.1 Google 계정에 패스키 설정
 
 **Step 1: 보안 설정 접근**
-```
+```text
 1. https://myaccount.google.com/security 접속
 2. "2단계 인증으로 로그인" 섹션 클릭
 3. "패스키" 항목 선택
 ```
 
 **Step 2: 패스키 생성**
-```
+```text
 1. "패스키 만들기" 버튼 클릭
 2. 디바이스 선택:
    - "이 기기 사용" (Platform Authenticator)
@@ -382,7 +382,7 @@ qvm-run --dispvm firefox https://banking.example.com
 ```
 
 **Step 3: 백업 패스키 추가 (권장)**
-```
+```text
 1. 동일 과정으로 2-3개 추가 패스키 생성
    - 주 스마트폰
    - 보조 스마트폰
@@ -467,7 +467,7 @@ qvm-run --dispvm firefox https://banking.example.com
 - **악성 브라우저 확장 프로그램**: 30% PC방에서 발견
 
 **주요 취약점:**
-```
+```text
 1. 손님용 계정에 관리자 권한 부여 (50% PC방)
 2. Windows Defender 실시간 보호 비활성화 (게임 성능 이유)
 3. 구형 Windows 7/8 사용 (보안 업데이트 중단)

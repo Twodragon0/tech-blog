@@ -120,7 +120,7 @@ toc: true
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
+```text
 AI Agent Instruction File Evolution:
 2023: .editorconfig → Simple formatting rules
 2024: .cursorrules → Basic AI instructions
@@ -141,7 +141,7 @@ AI Agent Instruction File Evolution:
 
 ### 1.3 파일 위치와 우선순위
 
-```
+```text
 project-root/
 ├── CLAUDE.md              # 프로젝트 루트 (최우선)
 ├── .claude/

@@ -553,8 +553,7 @@ index=github sourcetype=github:actions workflow_name="CodeQL"
 #### 7.1.4 Dependabot 알림 미처리 탐지
 #### 7.1.5 S3 버킷 공개 접근 변경 탐지
 #### 7.2.5 GitHub + AWS 통합 공격 탐지
-> ...
-bash
+> ```bash
 > # 1. GitHub Advanced Security 활성화...
 > ```
 
@@ -563,13 +562,15 @@ bash
 
 > ```yaml
 > # .github/workflows/comprehensive-security.yml...
-```
+> ```
+```markdown
 
 
 참고: 보안 워크플로우 모범 사례는 [GitHub Actions Security Hardening](https://docs.github.com/en/actions) 참조
 
 #### 9.1.3 Phase 3: 모니터링 및 알림 (Week 4)
 
+> ```text
 > ...
 > ```
 

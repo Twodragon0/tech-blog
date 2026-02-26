@@ -215,7 +215,7 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           directory: ./terraform
-```
+```markdown
 
 ---
 
@@ -408,3 +408,5 @@ jobs:
 
 **작성자**: Twodragon
 **작성일**: 2026-01-28
+
+```

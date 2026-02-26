@@ -279,7 +279,7 @@ Allowed AI Services:
   - Internal AI Platform (자체 구축)
   - Microsoft Copilot for Enterprise (승인된 버전)
   - Approved ChatGPT Enterprise (승인된 계정)
-  
+
 Blocked Services:
   - All public AI services (기본 차단)
   - Browser extensions with AI features

@@ -263,9 +263,9 @@ Shai-Hulud와 별개로 발생한 또 다른 심각한 공급망 공격:
 
 > ```dockerfile
 > # Dockerfile - 최소 권한 및 보안 강화...
-```
+> ```
 
-bash
+```bash
    # 감염된 개발자 워크스테이션 네트워크 차단
    sudo iptables -A OUTPUT -j DROP
    # 또는 VPN 연결 강제 종료
@@ -289,14 +289,15 @@ bash
      '**':
        access: $authenticated
        publish: $admin  # 일반 사용자 publish 차단
-> ```
+```
+> ```text
 > ...
 > ```
 
-bash
-> # NPM 토큰 재생성...
+```bash
+# NPM 토큰 재생성...
+npm token regenerate
 ```
-
 
 ## 11. 참고 자료 (References)
 
