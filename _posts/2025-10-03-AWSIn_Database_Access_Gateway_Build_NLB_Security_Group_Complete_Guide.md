@@ -146,21 +146,17 @@ schema_type: Article
 ### 1.2 NLB 구성 요소
 
 > **참고**: Terraform AWS NLB 구성 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb) 및 [AWS NLB 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/)를 참조하세요.
->
 > ```hcl
 > resource "aws_lb" "db_gateway" {...
 > ```
 
 
-
 ### 1.3 타겟 그룹 설정
 
 > **참고**: Terraform AWS Load Balancer 타겟 그룹 관련 내용은 [Terraform AWS ALB/NLB 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-alb) 및 [AWS ELB Target Groups 문서](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html)를 참조하세요.
->
 > ```hcl
 > resource "aws_lb_target_group" "rds_mysql" {...
 > ```
-
 
 
 ## 2. Security Group 구성
@@ -182,21 +178,17 @@ flowchart TD
 NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Security Group을 통해 제어합니다:
 
 > **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-security-group) 및 [AWS Security Groups 문서](https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html)를 참조하세요.
->
 > ```hcl
 > resource "aws_security_group" "nlb" {...
 > ```
 
 
-
 ### 2.3 데이터베이스 Security Group
 
 > **참고**: Terraform AWS Security Group 관련 내용은 [Terraform AWS Security Group 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-security-group) 및 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html)를 참조하세요.
->
 > ```hcl
 > resource "aws_security_group" "database" {...
 > ```
-
 
 
 ## 3. Zero Trust 아키텍처 구현
@@ -212,11 +204,9 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 #### 애플리케이션 레벨 인증
 
 > **참고**: AWS 데이터베이스 접근 보안 관련 내용은 [AWS RDS 보안 모범 사례](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html) 및 [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/)를 참조하세요.
->
 > ```python
 > # 애플리케이션에서 데이터베이스 접근 시...
 > ```
-
 
 
 ## 모니터링 및 알림
@@ -227,49 +217,17 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 > **참고**: CloudWatch 대시보드 관련 내용은 [AWS CloudWatch 문서](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/) 및 [Terraform AWS CloudWatch 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-cloudwatch)을 참조하세요.
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://registry.terraform.io/browse/modules?provider=aws)를 참조하세요.
-> 
-> ```hcl
-> resource "aws_cloudwatch_dashboard" "db_gateway" {...
-> ```
-
-
-
 ### Connection Monitoring
 
 #### 연결 수 추적
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://registry.terraform.io/browse/modules?provider=aws)를 참조하세요.
-> 
-> ```hcl
-> resource "aws_cloudwatch_metric_alarm" "high_connection_count" {...
-> ```
-
-
 
 ### Alerting
 
 #### SNS 토픽 및 구독
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://registry.terraform.io/browse/modules?provider=aws)를 참조하세요.
-> 
-> ```hcl
-> resource "aws_sns_topic" "db_gateway_alerts" {...
-> ```
-
-
-
 #### Lambda Slack 알림
 
 > **참고**: AWS Lambda 및 SNS 통합 관련 내용은 [AWS Lambda 문서](https://docs.aws.amazon.com/lambda/) 및 [Terraform AWS Lambda 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-lambda)을 참조하세요.
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> # lambda/slack_notifier.py...
-> ```
-
-
 
 ### Custom Metrics
 
@@ -305,20 +263,6 @@ ERROR: Connection timed out after 30 seconds
 
 **1. Security Group 규칙 확인**
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
 ```bash
 # Security Group 규칙 확인
 aws ec2 describe-security-groups \
@@ -332,20 +276,6 @@ aws ec2 describe-security-groups \
 
 **2. Target Health Check 실패**
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
 ```bash
 # Target Health 확인
 aws elbv2 describe-target-health \
@@ -358,20 +288,6 @@ aws elbv2 describe-target-health \
 - Security Group이 NLB에서 Health Check 트래픽을 허용하는지 확인
 
 **3. NLB Subnet 라우팅 문제**
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # Route Table 확인
@@ -394,20 +310,6 @@ Query execution time: 500ms (expected: <50ms)
 
 **1. Cross-AZ 트래픽**
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
 ```bash
 # NLB Cross-AZ Load Balancing 확인
 aws elbv2 describe-load-balancers \
@@ -420,20 +322,6 @@ aws elbv2 describe-load-balancers \
 - 애플리케이션과 데이터베이스를 동일 AZ에 배치
 
 **2. 연결 풀 고갈**
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
 
 ```python
 # 연결 풀 모니터링
@@ -450,20 +338,6 @@ print(f"Available connections: {pool._pool}")
 - 애플리케이션 레벨 연결 풀 크기 조정
 
 **3. RDS 성능 병목**
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # RDS Performance Insights 확인
@@ -488,20 +362,6 @@ UnHealthyHostCount: 1/2 targets are unhealthy
 
 **1. RDS 인스턴스 장애**
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
 ```bash
 # RDS 이벤트 로그 확인
 aws rds describe-events \
@@ -516,20 +376,6 @@ aws rds describe-events \
 
 **2. 잘못된 Health Check 설정**
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
 ```bash
 # Target Group Health Check 설정 확인
 aws elbv2 describe-target-groups \
@@ -542,20 +388,6 @@ aws elbv2 describe-target-groups \
 - Health Check 프로토콜이 올바른지 확인 (TCP for database)
 
 **3. 네트워크 분할 (Network Partition)**
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # VPC Flow Logs에서 네트워크 문제 확인
@@ -579,20 +411,6 @@ SSL handshake failed: certificate verify failed
 #### 원인 및 해결 방법
 
 **1. 인증서 만료**
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```bash
 # ACM 인증서 유효기간 확인

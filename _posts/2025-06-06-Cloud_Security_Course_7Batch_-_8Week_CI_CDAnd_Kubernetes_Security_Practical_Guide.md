@@ -124,7 +124,6 @@ series_total: 7
 ### 2.1 최소 권한 원칙 적용
 
 > **참고**: Kubernetes RBAC 및 최소 권한 원칙 관련 내용은 [Kubernetes RBAC 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) 및 [Kubernetes 보안 모범 사례](https://kubernetes.io/docs/concepts/security/)를 참조하세요.
->
 > ```yaml
 > # 개발자용 제한된 Role...
 > ```

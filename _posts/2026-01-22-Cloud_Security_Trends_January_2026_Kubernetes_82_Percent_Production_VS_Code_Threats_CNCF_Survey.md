@@ -152,7 +152,6 @@ toc: true
 | **K8s 리소스 하이재킹** | [T1496](https://attack.mitre.org/techniques/T1496/) - Resource Hijacking | Impact | GPU 사용률 급증 탐지, 비인가 Pod 생성 |
 
 
-
 ### 9.3 투자 우선순위 (ROI 관점)
 
 | 투자 항목 | 비용 | 위험 감소 효과 | ROI | 우선순위 |
@@ -164,39 +163,11 @@ toc: true
 
 ### 9.4 타임라인 및 마일스톤
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```
-> Q1 2026 (Jan - Mar)...
-> ```
-
-
-
 #### Query 3: 의심스러운 kubectl exec 사용
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```yaml
-> # Falco Rule (Kubernetes Runtime Security)...
-> ```
-
-
 
 ### 10.3 네트워크 이상 징후 탐지
 
 #### Query 6: 비정상 아웃바운드 트래픽 (C2 통신 가능성)
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 ```spl
 # Splunk SPL (Kubernetes + Network Flow Data)
@@ -211,19 +182,9 @@ index=k8s_network OR index=firewall
 #### Query 7: Kubernetes API Server 무차별 대입 공격
 
 
-
 ### 10.5 헌팅 워크플로 자동화
 
 #### Query 9: 종합 위협 스코어 계산 (SIEM Correlation Rule)
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```yaml
-> # Azure Sentinel Analytics Rule...
-> ```
-
-<!-- 전체 코드는 위 링크 참조 -->
-<!-- 전체 코드는 위 링크 참조 -->
 
 ---
 

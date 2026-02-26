@@ -247,36 +247,13 @@ toc: true
 
 json
 > {...
-> > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```
-> ...
-> ```
-
-
-
 ...
-> > **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```
-> ...
-> ```
-
-<!-- 전체 코드는 위 링크 참조 -->
-
 #### CodeQL 쿼리 커스터마이징
 
 > **참고**: CodeQL 쿼리 커스터마이징 관련 내용은 [CodeQL 쿼리 작성 가이드](https://docs.github.com/en/code-security) 및 [CodeQL 예제](https://github.com/github/codeql)를 참조하세요.
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```yaml
-> # codeql-config.yml...
-> ```
-
 <!-- 전체 코드는 위 GitHub 링크 참조 -->
 <!-- 전체 코드는 위 GitHub 링크 참조 -->
-
 
 
 #### 2. 다양한 공격 벡터를 사용하는 IP (APT 의심)
@@ -299,19 +276,7 @@ json
 | project SourceIP, AttackVectors, AttackCount, ThreatLevel, FirstSeen, LastSeen, AttackTypes
 | order by AttackVectors desc
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```
-> ...
-> ```
-
-<!-- 전체 코드는 위 링크 참조 -->sql
+sql
 -- AWS CloudWatch Insights
 fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 | filter httpRequest.httpMethod = "POST"
@@ -320,31 +285,14 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 | stats count() as upload_attempts by httpRequest.clientIp, httpRequest.uri
 | filter upload_attempts > 5
 | sort upload_attempts desc
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
 ```
 
 #### 4. 캐시 우회 공격 (Cache Busting)
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```sql
-> -- Splunk SPL...
-> > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```
 > ...
 > ```
 
-<!-- 전체 코드는 위 링크 참조 -->sql
+sql
 -- Splunk SPL
 index=waf sourcetype=aws:waf
 | search request_uri IN ("/.env", "/config.php", "/.git/config", "/wp-config.php", "/robots.txt", "/sitemap.xml")
@@ -353,25 +301,9 @@ index=waf sourcetype=aws:waf
 | eval threat = "Reconnaissance Activity"
 | table src_ip, count, probed_paths, threat
 | sort - count
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
 ```
 
 #### 10. 크로스-사이트 추적 (Cross-Site Tracking)
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```sql
 -- AWS CloudWatch Insights
@@ -382,20 +314,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 | stats count() as tracking_attempts by httpRequest.clientIp, referer_domain
 | filter tracking_attempts > 10
 | sort tracking_attempts desc
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
 > ```
-> ...
-> ```
-
-<!-- 전체 코드는 위 링크 참조 -->
-<!-- 전체 코드는 위 링크 참조 -->
-
-...
-> ```
-
-<!-- 전체 코드는 위 링크 참조 -->
-<!-- 전체 코드는 위 링크 참조 -->
 
 ### 5.3 GitHub DevSecOps 파이프라인
 

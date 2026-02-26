@@ -98,20 +98,7 @@ toc: true
 ### 주요 기능 요약
 
 
-
 #### FileVault 복구키 에스크로
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # Kandji API로 복구키 조회
@@ -130,18 +117,6 @@ curl -X GET "https://api.kandji.io/api/v1/devices/{device_id}/filevault" \
 #### Gatekeeper 설정
 
 Gatekeeper는 서명되지 않은 앱 실행을 차단합니다.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # Gatekeeper 상태 확인
@@ -166,18 +141,6 @@ spctl --assess --verbose /Applications/SomeApp.app
 
 #### XProtect 업데이트 강제
 
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
 ```bash
 # XProtect 버전 확인
 system_profiler SPInstallHistoryDataType | grep -A 4 "XProtect"
@@ -190,18 +153,6 @@ sudo softwareupdate --background
 
 SIP는 시스템 파일과 프로세스를 보호하는 커널 레벨 보안 기능입니다.
 
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
 ```bash
 # SIP 상태 확인
 csrutil status
@@ -211,11 +162,9 @@ csrutil status
 **Kandji 컴플라이언스 스크립트**:
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > #!/bin/bash...
 > ```
-
 
 
 ### 2.4 TCC (Transparency, Consent, and Control)
@@ -234,7 +183,6 @@ WHERE service = 'kTCCServiceCamera';
 ```
 
 #### Kandji PPPC (Privacy Preferences Policy Control)
-
 
 
 ### 3.4 보안 정책 구성
@@ -267,11 +215,9 @@ Kandji에서 권장하는 핵심 보안 설정:
 #### ISMS-P 컴플라이언스 스크립트
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > #!/bin/bash...
 > ```
-
 
 
 ### 4.2 CIS macOS Benchmark
@@ -292,22 +238,12 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### CIS 자동 감사 스크립트
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> #!/usr/bin/env python3...
-> ```
-
-
-
 #### Kandji 차단 스크립트
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > #!/bin/bash...
 > ```
-
 
 
 ### 5.4 자동 패치 관리
@@ -315,21 +251,17 @@ CIS macOS 14.0 Benchmark 주요 통제:
 #### 자동 업데이트 정책
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # softwareupdate 설정...
 > ```
 
 
-
 #### 패치 지연 배포 (Deferral)
 
 > **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
 > ```json
 > {...
 > ```
-
 
 
 ## 6. 2025년 엔드포인트 보안 및 MDM 트렌드
@@ -372,18 +304,9 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### Zero Trust 디바이스 신뢰도 평가
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> #!/usr/bin/env python3...
-> ```
-
-
-
 ## 7. SIEM 연동
 
 ### 7.1 Splunk 연동
-
 
 
 ## 8. 제로 트러스트 아키텍처 통합
@@ -393,49 +316,34 @@ CIS macOS 14.0 Benchmark 주요 통제:
 #### Okta 연동
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # Okta Device Trust 연동...
 > ```
 
 
-
 #### Azure AD Conditional Access
 
 > **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
 > ```json
 > {...
 > ```
-
 
 
 ### 8.2 SASE 통합
 
 #### Zscaler ZIA 연동
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> #!/usr/bin/env python3...
-> ```
-
-
-
 ### 9.3 공공기관 보안 설정
 
 > **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
 > ```json
 > {...
 > ```
 
 
-
 ## 10. 경영진 보고 형식
 
 ### 10.1 월간 보안 리포트
-
 
 
 **1,000대 기준 예상 결과**:
@@ -454,11 +362,9 @@ CIS macOS 14.0 Benchmark 주요 통제:
 **원인 및 해결**:
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # 1. APNs 연결 확인...
 > ```
-
 
 
 **방화벽 예외 규칙**:
@@ -479,11 +385,9 @@ deviceenrollment.apple.com
 **해결 절차**:
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # 1. Kandji에서 복구키 조회...
 > ```
-
 
 
 ### 11.3 MDM 프로파일 제거 불가
@@ -495,11 +399,9 @@ deviceenrollment.apple.com
 **해결**:
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # 1. Recovery Mode 부팅...
 > ```
-
 
 
 ### 11.4 앱 배포 실패
@@ -509,11 +411,9 @@ deviceenrollment.apple.com
 **체크리스트**:
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # 1. VPP 토큰 유효성 확인...
 > ```
-
 
 
 ### 11.5 성능 저하 (디바이스 느림)
@@ -523,26 +423,12 @@ deviceenrollment.apple.com
 **진단**:
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # 1. mdmclient 프로세스 확인...
 > ```
 
 
-
 **최적화**:
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 1. 불필요한 스크립트 비활성화
@@ -562,11 +448,9 @@ sudo log config --mode "level:default" --subsystem com.kandji
 **해결**:
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # 1. 인증서 확인...
 > ```
-
 
 
 ## 12. 참고 자료

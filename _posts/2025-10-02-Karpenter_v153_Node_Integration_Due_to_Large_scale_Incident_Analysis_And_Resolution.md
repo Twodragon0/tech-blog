@@ -224,28 +224,23 @@ Duration: ongoing
 Karpenter는 클러스터 비용 최적화를 위해 **노드 통합(Consolidation)** 기능을 제공합니다. 이는 여러 노드에 분산된 Pod를 더 적은 수의 노드로 모아 빈 노드를 삭제하는 기능입니다.
 
 > **2025년 업데이트: Karpenter v1.0 GA 출시**
->
 > 2025년에 Karpenter v1.0이 GA(General Availability)로 출시되었습니다. 주요 변경사항:
 > - **API 안정성**: `karpenter.sh/v1` API가 stable로 전환되어 프로덕션 준비 완료
 > - **개선된 Consolidation 알고리즘**: 더 스마트한 비용 최적화로 불필요한 노드 종료 감소
 > - **Multi-architecture 지원 강화**: ARM64/AMD64 혼합 워크로드 지원 개선
 > - **Disruption Budgets 개선**: 더 세밀한 disruption 제어 가능
->
 > **v1.0에서 해결된 문제들:**
 > - 이 장애에서 경험한 공격적인 consolidation 문제가 크게 개선됨
 > - `consolidationPolicy: WhenEmptyOrUnderutilized` 사용 시에도 더 보수적으로 동작
 > - PDB를 더 잘 존중하며, Pod readiness를 확인 후 다음 노드 종료 진행
 
 
-
 ### 2.3 PDB 미설정 문제
 
 > **참고**: PodDisruptionBudget 설정 관련 내용은 [Kubernetes PDB 문서](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) 및 [Karpenter 문서](https://karpenter.sh/)를 참조하세요.
->
 > ```yaml
 > # PodDisruptionBudget이 없었음...
 > ```
-
 
 
 ## 3. 장애 발생 과정 상세
@@ -253,28 +248,14 @@ Karpenter는 클러스터 비용 최적화를 위해 **노드 통합(Consolidati
 ### 3.1 이벤트 로그 분석
 
 > **참고**: Karpenter 로그 분석 관련 내용은 [Karpenter 문서](https://karpenter.sh/) 및 [Kubernetes 로깅 모범 사례](https://kubernetes.io/docs/concepts/cluster-administration/logging/)를 참조하세요.
->
 > ```bash
 > # Karpenter 로그 확인...
 > ```
 
 
-
 ### 3.2 Pod 이벤트
 
 > **참고**: Kubernetes Pod 이벤트 분석 관련 내용은 [Kubernetes 이벤트 문서](https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/event-v1/) 및 [Kubernetes 디버깅 가이드](https://kubernetes.io/docs/tasks/debug/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 ```bash
 kubectl get events --field-selector reason=Killing -A
@@ -289,22 +270,9 @@ prod 10m Warning Killing pod/order-service-xyz Stopping container...
 ### 3.3 영향 범위
 
 
-
 ### 4.2 서비스 복구 확인
 
 > **참고**: Kubernetes Health Check 관련 내용은 [Kubernetes Liveness/Readiness Probes 문서](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 ```bash
 # Health check 확인
@@ -324,11 +292,9 @@ done
 ### 5.1 NodePool 설정 수정
 
 > **참고**: Karpenter NodePool 설정 관련 내용은 [Karpenter 공식 문서](https://karpenter.sh/) 및 [Karpenter GitHub 저장소](https://github.com/aws/karpenter)를 참조하세요.
->
 > ```yaml
 > # 수정된 NodePool 설정...
 > ```
-
 
 
 ### 5.2 PodDisruptionBudget 적용
@@ -336,21 +302,17 @@ done
 PodDisruptionBudget을 적용하여 Pod 보호:
 
 > **참고**: PodDisruptionBudget 설정 관련 내용은 [Kubernetes PDB 문서](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) 및 [Karpenter 문서](https://karpenter.sh/)를 참조하세요.
->
 > ```yaml
 > # Critical 서비스용 PDB...
 > ```
 
 
-
 ### 5.3 Pod Anti-Affinity 설정
 
 > **참고**: Pod Anti-Affinity 설정 관련 내용은 [Kubernetes Pod Affinity 문서](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)를 참조하세요.
->
 > ```yaml
 > # 같은 서비스의 Pod를 다른 노드에 분산...
 > ```
-
 
 
 ## 6. 모니터링 강화
@@ -359,11 +321,9 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 
 {% raw %}
 > **참고**: Prometheus Alert Rules 관련 내용은 [Prometheus 공식 문서](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) 및 [Awesome Prometheus Alerts](https://github.com/samber/awesome-prometheus-alerts)를 참조하세요.
->
 > ```yaml
 > # Prometheus Alert Rules...
 > ```
-
 
 
 {% endraw %}
@@ -371,11 +331,9 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 ### 6.2 Datadog 대시보드
 
 > **참고**: Datadog 모니터링 관련 내용은 [Datadog 공식 문서](https://docs.datadoghq.com/) 및 [Datadog Kubernetes 통합](https://docs.datadoghq.com/agent/kubernetes/)을 참조하세요.
->
 > ```yaml
 > # Datadog Monitor...
 > ```
-
 
 
 ## 7. 재발 방지 체크리스트
@@ -427,16 +385,6 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 
 **보안 개선 사항:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```yaml
-> # Karpenter RBAC 강화...
-> ```
-
-
-
-
-
 ### 10.3 이사회 보고용 영향 분석
 
 **재무 영향 상세:**
@@ -458,39 +406,11 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 
 ### 11.1 장애 발생 전 아키텍처
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```mermaid
-> graph TB...
-> ```
-
-
-
 ### 11.3 개선 후 아키텍처
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```mermaid
-> graph TB...
-> ```
-
-
 
 ### 12.2 실시간 위협 탐지 쿼리
 
 **Splunk Query:**
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
 
 ```spl
 index=kubernetes sourcetype=k8s:events
@@ -510,15 +430,6 @@ sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 ### 12.3 Post-Incident Forensics
 
 **장애 후 분석을 위한 데이터 수집:**
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```bash
-> #!/bin/bash...
-> ```
-
-<!-- 전체 코드는 위 링크 참조 -->
-<!-- 전체 코드는 위 링크 참조 -->
 
 ## 13. 종합 레퍼런스
 

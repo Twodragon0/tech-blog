@@ -206,11 +206,9 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
 **Trivy로 Docker 이미지 스캔**:
 > **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
-> 
 > ```bash
 > # Trivy 설치 (macOS)...
 > ```
-
 
 
 #### 5주차: AWS Control Tower 및 SIEM 통합
@@ -225,14 +223,6 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
 
 **Datadog SIEM 로그 수집 설정**:
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```yaml
-> # datadog-agent/conf.d/aws_cloudtrail.yaml...
-> ```
-
-
-
 **Kubernetes Pod Security Standards**:
 > **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요. (Automated Dependency Updates)                    │
 └────────────────────────┬───────────────────────────────────────┘
@@ -330,28 +320,9 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 • Code Coverage <80%: 파이프라인 중단
 • License 위반: 파이프라인 중단
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
 ```
 
 ### 8.3 Zero Trust 네트워크 아키텍처
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```
-> ┌─────────────────────────────────────────────────────────────────┐...
-> ```
-
-<!-- 전체 코드는 위 링크 참조 -->
-<!-- 전체 코드는 위 링크 참조 -->
 
 ## 9. 종합 참고 자료 (Comprehensive References)
 

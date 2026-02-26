@@ -160,25 +160,9 @@ project-root/
 
 AI 에이전트가 가장 많이 실수하는 부분이 **민감 정보 하드코딩**입니다.
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> # ❌ 절대 금지 - AI가 종종 이렇게 생성함...
-> ```
-
-
-
 ### 2.3 파일 쓰기 전 검증
 
 AI가 생성한 설정 파일에 민감 정보가 포함되지 않도록 검증합니다.
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> from pathlib import Path...
-> ```
-
-
 
 ---
 
@@ -193,10 +177,7 @@ bundle audit --update
 pip-audit
 
 # Dependabot enabled for auto-updates
-\```
-```
-
----
+\---
 
 ## 5. 실무 체크리스트 자동화
 

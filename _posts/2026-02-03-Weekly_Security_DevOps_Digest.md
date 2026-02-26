@@ -437,7 +437,6 @@ Jamf Pro는 Apple 생태계에 최적화된 MDM으로, Configuration Profile을 
 #### Configuration Profile로 앱 제한
 
 
-
 ### 2.4 Microsoft Intune: 크로스 플랫폼 MDM은 어떻게 구성하는가?
 
 Intune은 Windows, macOS, iOS, Android를 통합 관리합니다.

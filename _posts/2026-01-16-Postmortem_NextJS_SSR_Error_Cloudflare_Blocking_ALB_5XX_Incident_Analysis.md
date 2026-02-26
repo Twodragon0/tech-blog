@@ -154,12 +154,6 @@ toc: true
         </mxCell>
         
         ...
-> > **코드 예시**: 전체 코드는 [공식 문서](https://docs.github.com/)를 참조하세요.
-> 
-> ```
-> ...
-> ```
-
 <!-- 전체 코드는 위 GitHub 링크 참조 -->
 
 **시나리오 2: X 앱 인앱 브라우저에서 접속**
@@ -175,20 +169,6 @@ toc: true
 #### 해결 방안
 
 **1. 브라우저 환경 체크**
-> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://https://www.typescriptlang.org/docs/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
-
 ```typescript
 // ✅ 올바른 방법
 if (typeof window !== 'undefined') {
@@ -197,38 +177,15 @@ if (typeof window !== 'undefined') {
 ```
 
 **2. 모바일 앱 감지**
-> **코드 예시**: 전체 코드는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
-> 
-> ```typescript
-> // User-Agent로 인앱 브라우저 감지...
-> ```
-
 typescript
 // src/components/example/ExampleComponent.tsx
 // 이전 버전에서는 문제 없었음 (다른 방식으로 리다이렉트 처리)
 ```
 
 **변경 후 (v1.0.1) - 문제 발생**:
-> **코드 예시**: 전체 코드는 [공식 문서](https://www.typescriptlang.org/docs/)를 참조하세요.
-> 
 > ```typescript
 > // src/components/example/ExampleComponent.tsx...
-> > **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
 ```
-
 
 
 **배포 후 발생한 문제**:
@@ -239,13 +196,9 @@ typescript
    ReferenceError: location is not defined
    at ExampleComponent.handleAction
    > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
 > ```
 > 3. **배포 직후 + 10분 (T+10분)**: 5XX 에러 급증 (50개 이상)...
 > ```
-
-<!-- 전체 코드는 위 링크 참조 -->
-<!-- 전체 코드는 위 링크 참조 -->
 
 </details>
 
@@ -563,23 +516,6 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 #### 1. 배포 전 검증 강화
 
 > **참고**: GitHub Actions 워크플로우에 추가 권장
-> 
-> > **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
 ```yaml
 > - name: SSR Test
 >   run: |

@@ -153,18 +153,6 @@ toc: true
 #### 1.2.1 키로거 (Keylogger)
 
 **공격 메커니즘:**
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
 ```python
 # 키로거 예시 (교육 목적)
 import pynput.keyboard as keyboard
@@ -195,18 +183,6 @@ listener.start()
 3. 쿠키/세션 토큰이 유지되어 자동 로그인
 
 **취약점 예시:**
-> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://nodejs.org/en/docs)를 참조하세요.
-
 ```javascript
 // 안전하지 않은 세션 쿠키
 document.cookie = "sessionid=abc123; path=/";
@@ -223,18 +199,6 @@ document.cookie = "sessionid=abc123; path=/; Secure; HttpOnly; SameSite=Strict; 
 #### 1.2.3 중간자 공격 (Man-in-the-Middle)
 
 **공용 Wi-Fi 공격 시나리오:**
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
 ```bash
 # 공격자가 ARP Spoofing으로 트래픽 가로채기
 arpspoof -i wlan0 -t 192.168.1.100 192.168.1.1
@@ -292,18 +256,6 @@ Layer 4: Password Manager (Zero Knowledge)
 
 #### 1.5.1 Disposable VM (Qubes OS)
 
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
 ```bash
 # Qubes OS에서 일회용 VM 생성
 qvm-run --dispvm firefox https://banking.example.com
@@ -319,14 +271,6 @@ qvm-run --dispvm firefox https://banking.example.com
 - 리소스 소모 큼
 
 #### 1.5.2 Remote Browser Isolation (RBI)
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```yaml
-> # Cloudflare Browser Isolation 설정 예시...
-> ```
-
-
 
 #### 2.1.3 패스키 vs 비밀번호 보안 비교
 
@@ -448,11 +392,9 @@ qvm-run --dispvm firefox https://banking.example.com
 #### 2.4.2 GitHub에 보안 키 등록
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # 1. GitHub 설정 페이지...
 > ```
-
 
 
 **TOTP 특징:**
@@ -463,14 +405,6 @@ qvm-run --dispvm firefox https://banking.example.com
 #### 3.1.2 HOTP (HMAC-based One-Time Password)
 
 **RFC 4226 표준:**
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> def generate_hotp(secret, counter, digits=6):...
-> ```
-
-
-
 **엔트로피 권장 기준:**
 | 엔트로피 | 보안 등급 | 크래킹 시간 (RTX 4090 기준) | 권장 사용처 |
 |---------|----------|------------------------------|-------------|
@@ -486,14 +420,6 @@ qvm-run --dispvm firefox https://banking.example.com
 
 **개념:** 주사위로 단어를 무작위 선택하여 기억하기 쉽지만 강력한 비밀번호 생성
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> # Diceware 단어 목록 (일부 예시)...
-> ```
-
-
-
 **길이별 엔트로피:**
 | 길이 | 문자 종류 | 엔트로피 | 크래킹 시간 |
 |------|----------|---------|------------|
@@ -507,14 +433,6 @@ qvm-run --dispvm firefox https://banking.example.com
 #### 4.3.1 1Password
 
 **기업용 최적화 기능:**
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```yaml
-> features:...
-> ```
-
-
-
 **공용 PC 사용 시 체크리스트:**
 - [ ] 브라우저 확장 로그인 전에 **시크릿 모드** 활성화
 - [ ] 자동 잠금 시간을 **5분 이하**로 설정
@@ -538,7 +456,6 @@ qvm-run --dispvm firefox https://banking.example.com
 - **제로 트러스트 원칙 적용**: 모든 접근에 대한 검증 강화
 
 ## 5. SIEM Detection Queries (탐지 쿼리)
-
 
 
 ## 6. 한국 환경 특화 분석
@@ -568,14 +485,6 @@ qvm-run --dispvm firefox https://banking.example.com
 ### 6.2 공공기관 공용 PC (행정안전망)
 
 **행정안전망 보안 가이드라인:**
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```yaml
-> access_control:...
-> ```
-
-
-
 ## 7. 경영진 보고 자료 (Board-Level Reporting)
 
 ### 7.1 Executive Summary (1-Pager)
@@ -627,7 +536,6 @@ qvm-run --dispvm firefox https://banking.example.com
 - 🟢 1-4 (Low): 모니터링
 
 ### 7.3 Implementation Roadmap
-
 
 
 - [ ] SMS OTP 경고 모드 (7일 유예)

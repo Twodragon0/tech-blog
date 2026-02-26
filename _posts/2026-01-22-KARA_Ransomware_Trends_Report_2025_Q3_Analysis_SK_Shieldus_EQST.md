@@ -202,14 +202,6 @@ toc: true
 
 #### LockBit 5.0 공격 체인
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```yaml
-> # LockBit 5.0 공격 체인 분석...
-> ```
-
-
-
 ### 2.4 Akira 랜섬웨어 - SonicWall 취약점 악용
 
 | 항목 | 내용 |
@@ -221,11 +213,9 @@ toc: true
 | **특이사항** | Nutanix AHV 최초 암호화 성공 (2025년 6월) |
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # SonicWall 취약점 확인 명령어...
 > ```
-
 
 
 ---
@@ -282,14 +272,6 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 
 ### 3.4 EDR 우회 기법 상세
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```yaml
-> # 2025년 3분기 주요 EDR 우회 기법...
-> ```
-
-
-
 ### 5.2 3-2-1-1-0 백업 전략
 
 <div class="post-image-container">
@@ -301,18 +283,6 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 
 ```
 3-2-1-1-0 Backup Strategy:
@@ -328,31 +298,12 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 #### AWS S3 Immutable 백업 설정
 
 > **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
-> 
 > ```json
 > {...
 > ```
 
 
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```bash
-> # AWS CLI로 Object Lock 설정...
-> ```
-
-
-
 ### 5.4 침해사고 대응 플레이북
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```yaml
-> # 랜섬웨어 침해사고 대응 플레이북...
-> ```
-
-<!-- 전체 코드는 위 링크 참조 -->
-<!-- 전체 코드는 위 링크 참조 -->
 
 ---
 

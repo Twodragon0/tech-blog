@@ -143,18 +143,6 @@ toc: true
 | **Adobe Firefly** | 상업 라이선스 보장 | $4.99-54.99/월 | 상업 프로젝트 |
 
 **실전 팁:**
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
 ```bash
 # Midjourney 프롬프트 예시 (기술 블로그 썸네일)
 /imagine prompt: professional technical blog header,
@@ -234,14 +222,6 @@ orchestral with electronic elements, 15 seconds"
 
 **실전 사용 사례:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> # Qwen3-TTS 설치 및 기본 사용...
-> ```
-
-
-
 **2026년 전망:**
 - **음성 인증 통합**: 생성된 음성에 자동 워터마킹 의무화 예상
 - **실시간 스트리밍**: 97ms 지연으로 라이브 방송/팟캐스트 실시간 TTS 가능
@@ -271,14 +251,6 @@ orchestral with electronic elements, 15 seconds"
 
 **핵심 구현:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> # blog_generator.py - Claude Opus 4.5로 블로그 자동 생성...
-> ```
-
-
-
 **SRT 자막 자동 생성 로직은 위 코드 참조**
 
 ### 3.3 Phase 3: 스크립트 → 영상 제작
@@ -300,18 +272,6 @@ orchestral with electronic elements, 15 seconds"
 5. DaVinci Resolve 편집 (무음 구간 제거, 컬러 그레이딩)
 
 **OBS Studio 권장 설정:**
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 
 ```bash
 # 1920x1080, 60fps, H.264 인코딩
@@ -396,14 +356,6 @@ ContentPipeline
 
 **핵심 클래스 구조:**
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> # content_pipeline.py - 완전 자동화 파이프라인...
-> ```
-
-
-
 **예상 실행 시간:**
 - 블로그만: 30-60초
 - 전체 파이프라인 (수동 단계 포함): 5-10분
@@ -413,11 +365,9 @@ ContentPipeline
 **사용법:**
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # 의존성 설치...
 > ```
-
 
 
 ---
@@ -489,18 +439,6 @@ ContentPipeline
 
 #### API 키 관리: 절대 하드코딩 금지
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-
 ```python
 # ❌ 잘못된 예시
 ANTHROPIC_API_KEY = "sk-ant-api03-abc123..."  # 절대 금지!
@@ -519,14 +457,6 @@ if not api_key:
 4. **AWS Secrets Manager**: 클라우드 환경
 
 #### 콘텐츠 검증: AI 생성 코드 자동 검증
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> def validate_ai_generated_code(code: str) -> bool:...
-> ```
-
-
 
 **절감 효과:**
 - 10개 포스트: 캐시 없이 $1.50 → 캐시 사용 $0.285 (81% 절감)

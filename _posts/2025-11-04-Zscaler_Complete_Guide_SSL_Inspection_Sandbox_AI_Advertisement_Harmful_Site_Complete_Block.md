@@ -140,12 +140,6 @@ Application: KakaoTalk
 Action: Allow
 SSL Inspection: Bypass
 URL Filtering: Allow
-> **코드 예시**: 전체 코드는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-> 
-> ```
-> ...
-> ```
-
 yaml
 # 광고 및 유해 사이트 차단 정책
 Categories:
@@ -155,12 +149,6 @@ Categories:
   - Botnet
 Action: Block
 Logging: Enabled
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```
-> ...
-> ```
-
 yaml
 # AI 서비스 접근 정책 예시
 Category: Generative AI

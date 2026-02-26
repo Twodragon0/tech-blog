@@ -189,7 +189,6 @@ toc: true
 | **T1550 - Use Alternate Auth Material** | 토큰 재사용 공격 | 토큰 TTL 5분 이하 설정 |
 
 
-
 **쿼리 2: 비정상적으로 긴 LLM 응답 (데이터 유출 가능성, Azure Sentinel KQL)**
 
 ```kql
@@ -217,15 +216,6 @@ index=llm_api sourcetype=api:request
 ```
 
 ### 4.6 실무 방어 코드 예시
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> # prompt_injection_defense.py...
-> ```
-
-<!-- 전체 코드는 위 링크 참조 -->
-<!-- 전체 코드는 위 링크 참조 -->
 
 ---
 

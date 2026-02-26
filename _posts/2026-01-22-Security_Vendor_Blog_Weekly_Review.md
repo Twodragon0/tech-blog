@@ -175,9 +175,7 @@ ROI: 10배
 #### SIEM 탐지 쿼리
 
 
-
 #### SIEM 탐지 쿼리
-
 
 
 <div class="post-image-container">
@@ -307,18 +305,6 @@ Select-Object TimeCreated, @{Name="User";Expression={$_.Properties[5].Value}},
 #### 네트워크 연결 모니터링 (Linux)
 
 **Bash 쿼리**:
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
 ```bash
 # VS Code 터널 도메인 연결 탐지
 sudo netstat -tnp | grep -E "(devtunnels\.ms|vscode\.dev)" | awk '{print $5, $7}'
@@ -342,14 +328,6 @@ query IN ("*.devtunnels.ms", "*.vscode.dev", "global.rel.tunnels.api.visualstudi
 #### Certificate Transparency Log 분석
 
 **Python 스크립트 예시**:
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> import requests...
-> ```
-
-
-
 #### 개발자 워크스테이션 모니터링
 
 **EDR 헌팅 쿼리 (Carbon Black Response 예시)**:

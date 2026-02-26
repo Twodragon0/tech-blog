@@ -144,7 +144,6 @@ schema_type: Article
 <img src="{{ '/assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence_image.png' | relative_url }}" alt="December Conference Review: Previewing 2025 AI and Security Coexistence with AWSKRUG OWASP Datadog" loading="lazy" class="post-image">
 
 > **📌 핵심 요약**
-> 
 > - **93%의 보안 리더가 일일 AI 기반 공격을 예상**하고 있으며, AI 보안의 양면성이 주요 화두
 > - **AWS re:Invent 2025**에서 Security Agent, GuardDuty Extended, IAM Policy Autopilot 등 AI 기반 보안 자동화 서비스 발표
 > - **Zero Trust Architecture**가 업계 표준으로 정착하며, Post-quantum 암호화가 현실화 (Cloudflare 52% 적용)
@@ -158,15 +157,11 @@ schema_type: Article
 
 2025년 클라우드 보안은 **반응적(Reactive) 대응에서 예측적(Predictive) 방어**로 진화하고 있습니다. 이는 AI, Machine Learning, 실시간 위협 인텔리전스의 융합으로 가능해졌습니다.
 
-...
 > ```
 
 yaml
 > # GitHub Actions 예시 (간단한 구조)...
 > ```
-
-<!-- 전체 코드는 위 링크 참조 -->
-<!-- 전체 코드는 위 링크 참조 -->
 
 > **참고**: 전체 CI/CD 보안 파이프라인 설정은 [GitHub Actions 보안 가이드](https://docs.github.com/en/actions) 및 [CodeQL 문서](https://docs.github.com/en/code-security)를 참조하세요.
 
@@ -214,7 +209,6 @@ yaml
 | **컨설팅** | 10% | 외부 보안 감사, 컨설팅 |
 
 > **💡 실무 팁**
-> 
 > 보안 로드맵을 효과적으로 실행하기 위해서는:
 > - **단계적 접근**: 한 번에 모든 것을 적용하려 하지 말고 단계적으로 진행
 > - **ROI 측정**: 각 보안 투자에 대한 효과 측정 및 보고
@@ -250,7 +244,6 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
 3. **중장기 전략**: Post-quantum 암호화 마이그레이션, SBOM 구축, 보안 문화 구축
 
 > **📌 핵심 메시지**
-> 
 > 2025년은 AI와 보안이 융합되는 해입니다. AI는 공격의 도구이자 동시에 방어의 도구가 되고 있으며, 이를 효과적으로 활용하는 조직이 보안 경쟁에서 우위를 점할 것입니다. 지금 바로 시작하는 것이 중요합니다.
 
 ---

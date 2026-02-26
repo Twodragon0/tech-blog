@@ -229,18 +229,6 @@ Anthropic은 [AWS에서 143개 보안 표준 항목](https://aws.amazon.com/ko/s
 
 Claude Code는 사용자 확인 없이는 시스템을 변경하지 않는 **명시적 권한 모델**을 사용합니다:
 
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
 ```bash
 # Claude Code 권한 설정 예시
 # 허용 목록 기반 - 명시적으로 허용된 작업만 실행
@@ -341,31 +329,18 @@ jobs:
 Claude Code를 활용한 Shift-Left Security는 **코드 작성 시점에서 보안 문제를 발견**하는 접근법입니다:
 
 > **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-> 
 > ```bash
 > # Pre-commit hook으로 Claude Code 보안 검사 실행...
 > ```
 
-...
 > ```
-
 
 
 #### Batch API (50% 할인)
 
 비실시간 작업(코드 분석, 보안 스캔 등)에는 [Batch API](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing)를 활용하면 50% 할인을 받을 수 있습니다:
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.python.org/3/)를 참조하세요.
-> 
-> ```python
-> # Batch API로 대량 코드 리뷰 비용 50% 절감...
-> bash
-> # Step 1: Node.js 18+ 설치 확인...
 > ```
-
-...
-> ```
-
 
 
 **필수 보안 체크리스트:**

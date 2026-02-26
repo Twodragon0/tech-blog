@@ -117,7 +117,6 @@ series_total: 9
 <img src="{% raw %}{{ '/assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy_image.png' | relative_url }}{% endraw %}" alt="Cloud Security 8Batch 3Week: Complete Strategy from AWS FinOps Architecture to ISMS-P Security Audit" loading="lazy" class="post-image">
 
 > **📌 핵심 요약**
->
 > - **2025년 FinOps 트렌드**: AI/ML 비용 최적화, GreenOps 통합, Commitment Management 강화, Real-time Cost Visibility, Unit Economics
 > - **AWS 비용 관리 도구**: Cost Optimization Hub, Compute Optimizer, Application Cost Profiler, Cost Anomaly Detection
 > - **ISMS-P 보안 감사 대응**: AWS Artifact, Config Rules, Security Hub, CloudTrail을 활용한 컴플라이언스 전략
@@ -141,7 +140,6 @@ series_total: 9
 #### Spot Instance 보안 고려사항
 
 > **⚠️ 보안 주의사항**
->
 > Spot Instance 사용 시 보안 고려사항:
 > - **체크포인트 저장**: 중단 시 데이터 손실 방지를 위한 체크포인트 자동 저장
 > - **데이터 암호화**: 민감한 학습 데이터는 반드시 암호화하여 저장
@@ -158,7 +156,6 @@ series_total: 9
 | **Edge 배포** | 엣지 디바이스에 모델 배포 | 클라우드 추론 비용 절감 |
 
 #### AI/ML 비용 최적화 아키텍처 다이어그램
-
 
 
 #### AWS Config Rules를 통한 자동 컴플라이언스 확인
@@ -228,14 +225,6 @@ series_total: 9
 
 #### 한국 기업 ISMS-P 인증 타임라인
 
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```
-> ┌─────────────────────────────────────────────────────────────┐...
-> ```
-
-
-
 > **참고**: AWS 태깅 모범 사례 관련 내용은 [AWS 태깅 전략 가이드](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html)를 참조하세요.
 
 ### 4.2 예산 알림
@@ -249,14 +238,6 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 | **RI/Savings Plans 예산** | 약정 관련 예산 | 커버리지 80% 미만 시 |
 
 #### AWS Budgets 알림 체계
-
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```
-> ┌─────────────────────────────────────────────────────────────┐...
-> ```
-
-
 
 #### 권한 상승 시도 탐지
 
@@ -273,7 +254,6 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 #### 월간 보안 및 비용 현황 보고서
 
 
-
 **교훈 및 예방책**:
 - AWS Budgets에서 일일 예산 알림 설정
 - Service Control Policy (SCP)로 특정 인스턴스 타입 제한
@@ -286,18 +266,6 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 - S3 비용이 $300/월에서 $600/월로 200% 급증
 
 **탐지**:
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
 ```bash
 # S3 스토리지 사용량 급증 확인
 aws cloudwatch get-metric-statistics \
@@ -311,14 +279,6 @@ aws cloudwatch get-metric-statistics \
 ```
 
 **대응 절차**:
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```bash
-> # 1. 중복 파일 식별...
-> ```
-
-
-
 **교훈 및 예방책**:
 - MFA 강제 적용 (IAM Policy)
 - Access Key 로테이션 자동화

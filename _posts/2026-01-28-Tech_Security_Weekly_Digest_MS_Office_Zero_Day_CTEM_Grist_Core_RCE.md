@@ -195,7 +195,6 @@ graph LR
 #### 패치 적용 확인
 
 
-
 #### Sigma Rule
 
 > **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions)를 참조하세요./security-pipeline.yml

@@ -125,18 +125,6 @@ Cluster API v1.12는 **In-Place 업데이트**와 **체인 업그레이드**를 
 #### 실무 적용 시나리오
 
 **시나리오 1: 긴급 보안 패치 적용**
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
 ```yaml
 # In-Place 업데이트로 노드 재생성 없이 kubelet 버전 패치
 apiVersion: cluster.x-k8s.io/v1beta1
@@ -150,18 +138,6 @@ spec:
 ```
 
 **시나리오 2: K8s v1.27 → v1.30 자동 업그레이드**
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
 ```yaml
 # 체인 업그레이드: v1.27 → v1.28 → v1.29 → v1.30 자동 실행
 apiVersion: cluster.x-k8s.io/v1beta1

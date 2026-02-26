@@ -33,7 +33,6 @@ schema_type: Article
 ### 위험 스코어카드
 
 > **코드 예시**: 전체 코드는 [GitHub 예제 저장소](https://github.com/kubernetes/examples)를 참조하세요.
-> 
 > ```
 > +================================================================+ [truncated]
 > ```
