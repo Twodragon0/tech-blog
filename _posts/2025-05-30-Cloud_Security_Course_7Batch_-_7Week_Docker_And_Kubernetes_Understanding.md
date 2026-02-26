@@ -409,30 +409,30 @@ kubectl create secret generic db-credentials \
         end
     end
 
-    USER -->|HTTPS| WAF
-    WAF -->|Filtered| ALB
-    ALB -->|mTLS| API
+    USER |HTTPS| WAF
+    WAF |Filtered| ALB
+    ALB |mTLS| API
 
     ATTACKER -.->|Blocked| WAF
     ATTACKER -.->|Detected| FALCO
 
-    API --> ADMISSION
-    ADMISSION -->|Validate/Mutate| POD1
-    ADMISSION -->|Validate/Mutate| POD2
+    API  ADMISSION
+    ADMISSION |Validate/Mutate| POD1
+    ADMISSION |Validate/Mutate| POD2
 
-    TRIVY -->|Scan| POD1
-    TRIVY -->|Scan| POD2
+    TRIVY |Scan| POD1
+    TRIVY |Scan| POD2
 
-    NETPOL -->|Enforce| POD1
-    NETPOL -->|Enforce| POD2
+    NETPOL |Enforce| POD1
+    NETPOL |Enforce| POD2
 
-    ESO -->|Fetch| VAULT
-    VAULT -->|Inject| POD2
+    ESO |Fetch| VAULT
+    VAULT |Inject| POD2
 
-    FALCO -->|Monitor| POD1
-    FALCO -->|Monitor| POD2
+    FALCO |Monitor| POD1
+    FALCO |Monitor| POD2
 
-    API -->|Encrypted| ETCD
+    API |Encrypted| ETCD
 
 
 #### Falco 이벤트 상관 분석

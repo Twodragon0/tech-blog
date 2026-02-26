@@ -541,7 +541,7 @@ mail.yourdomain.com → 별도 SPF, DKIM, DMARC
 
 **단계별 DMARC 강화 로드맵:**
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상)
+<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 ### 11.4 AI 기반 이메일 보안
@@ -669,18 +669,16 @@ mail.yourdomain.com → 별도 SPF, DKIM, DMARC
 
 ### Splunk SPL 쿼리
 
-<!--
-Splunk 이메일 인증 실패 탐지 쿼리
+<!-- Splunk 이메일 인증 실패 탐지 쿼리
 index=mail sourcetype=email_logs
-
+ -->
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 ### Azure Sentinel KQL 쿼리
 
-<!--
-Azure Sentinel 이메일 보안 분석 쿼리
+<!-- Azure Sentinel 이메일 보안 분석 쿼리
 OfficeActivity, EmailEvents 테이블 사용
-
+ -->
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 ### SIEM 알림 규칙 설정

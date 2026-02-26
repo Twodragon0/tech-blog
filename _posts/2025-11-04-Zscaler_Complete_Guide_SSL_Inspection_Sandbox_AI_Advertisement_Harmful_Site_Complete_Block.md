@@ -169,8 +169,7 @@ Policy:
 
 **자동화 스크립트 (Zscaler API):**
 
-<!--
-Python Script: 랜섬웨어 탐지 시 자동 대응
+<!-- Python Script: 랜섬웨어 탐지 시 자동 대응
 import requests
 import json
 
@@ -198,6 +197,7 @@ def block_file(file_hash):
 def quarantine_user(user_id):
     url = f"https://zsapi.zscaler.net/api/v1/users/{user_id}/quarantine"
     requests.post(url, headers=get_auth_headers())
+ -->
 
 ### 11.3 Zscaler 정책 템플릿
 

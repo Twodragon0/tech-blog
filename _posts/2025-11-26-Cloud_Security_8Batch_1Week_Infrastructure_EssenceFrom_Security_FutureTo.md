@@ -230,14 +230,14 @@ series_total: 9
 
 ## 4. SIEM 탐지 쿼리
 
-<!--
-Splunk SPL Query: 무단 IAM 사용자 생성 탐지
+<!-- Splunk SPL Query: 무단 IAM 사용자 생성 탐지
 index=cloudtrail eventName="CreateUser"
 | stats count by userIdentity.principalId, requestParameters.userName, sourceIPAddress, userAgent
 | where count > 3
 | eval severity="HIGH"
 | table _time, userIdentity.principalId, requestParameters.userName, sourceIPAddress, count, severity
 
+ -->
 <!--
 Azure Sentinel KQL Query: 무단 IAM 사용자 생성 탐지
 AWSCloudTrail
@@ -247,6 +247,7 @@ AWSCloudTrail
 | extend Severity = "HIGH"
 | project TimeGenerated, UserIdentityPrincipalId, RequestParametersUserName, SourceIpAddress, Count, Severity
 
+ -->
 <!--
 Splunk SPL Query: CloudTrail 비활성화 탐지
 index=cloudtrail eventName IN ("StopLogging", "DeleteTrail", "UpdateTrail")
@@ -258,6 +259,7 @@ index=cloudtrail eventName IN ("StopLogging", "DeleteTrail", "UpdateTrail")
 | table _time, eventName, userIdentity.principalId, sourceIPAddress, severity
 | where severity IN ("HIGH", "CRITICAL")
 
+ -->
 <!--
 Azure Sentinel KQL Query: CloudTrail 비활성화 탐지
 AWSCloudTrail
@@ -271,6 +273,7 @@ AWSCloudTrail
 | where Severity in ("HIGH", "CRITICAL")
 | project TimeGenerated, EventName, UserIdentityPrincipalId, SourceIpAddress, Severity
 
+ -->
 <!--
 Splunk SPL Query: S3 버킷 퍼블릭 노출 탐지
 index=cloudtrail eventName IN ("PutBucketAcl", "PutBucketPolicy", "PutBucketPublicAccessBlock")
@@ -279,6 +282,7 @@ index=cloudtrail eventName IN ("PutBucketAcl", "PutBucketPolicy", "PutBucketPubl
 | table _time, eventName, requestParameters.bucketName, userIdentity.principalId, sourceIPAddress
 | eval severity="CRITICAL"
 
+ -->
 <!--
 Azure Sentinel KQL Query: S3 버킷 퍼블릭 노출 탐지
 AWSCloudTrail
@@ -287,6 +291,7 @@ AWSCloudTrail
 | extend Severity = "CRITICAL"
 | project TimeGenerated, EventName, RequestParametersBucketName, UserIdentityPrincipalId, SourceIpAddress, Severity
 
+ -->
 <!--
 Splunk SPL Query: 비정상 시간대 관리자 활동 탐지
 index=cloudtrail userIdentity.type="Root" OR userIdentity.principalId="*:admin*"
@@ -296,6 +301,7 @@ index=cloudtrail userIdentity.type="Root" OR userIdentity.principalId="*:admin*"
 | eval severity="HIGH"
 | table _time, userIdentity.principalId, eventName, sourceIPAddress, hour, count, severity
 
+ -->
 <!--
 Azure Sentinel KQL Query: 비정상 시간대 관리자 활동 탐지
 AWSCloudTrail
@@ -306,6 +312,7 @@ AWSCloudTrail
 | extend Severity = "HIGH"
 | project TimeGenerated, UserIdentityPrincipalId, EventName, SourceIpAddress, Hour, Count, Severity
 
+ -->
 <!--
 Splunk SPL Query: 대량 EC2 인스턴스 종료 탐지
 index=cloudtrail eventName="TerminateInstances"
@@ -314,6 +321,7 @@ index=cloudtrail eventName="TerminateInstances"
 | eval severity="HIGH"
 | table _time, userIdentity.principalId, sourceIPAddress, count, severity
 
+ -->
 <!--
 Azure Sentinel KQL Query: 대량 EC2 인스턴스 종료 탐지
 AWSCloudTrail
@@ -322,6 +330,7 @@ AWSCloudTrail
 | where Count > 5
 | extend Severity = "HIGH"
 | project TimeGenerated, UserIdentityPrincipalId, SourceIpAddress, Count, Severity
+ -->
 
 ## 5. Threat Hunting 쿼리
 

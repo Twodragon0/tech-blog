@@ -169,8 +169,8 @@ flowchart TD
     NSG["NLB Security Group"]
     DSG["Database Security Group"]
 
-    ASG -->|Allowed| NSG
-    NSG -->|Allowed| DSG
+    ASG |Allowed| NSG
+    NSG |Allowed| DSG
 ```
 
 ### 2.2 NLB Security Group

@@ -295,9 +295,9 @@ esac
 flowchart TD
     TM["Traffic Manager<br/>(DNS-based Load Balancing)"]
     
-    TM --> CF["Cloudflare<br/>(Primary)"]
-    TM --> FY["Fastly<br/>(Backup)"]
-    TM --> CFR["CloudFront<br/>(Backup)"]
+    TM  CF["Cloudflare<br/>(Primary)"]
+    TM  FY["Fastly<br/>(Backup)"]
+    TM  CFR["CloudFront<br/>(Backup)"]
 ```
 
 ### 5.2 모니터링 강화
