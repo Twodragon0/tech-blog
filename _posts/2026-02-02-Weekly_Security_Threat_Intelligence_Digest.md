@@ -318,7 +318,6 @@ SK쉴더스 12월호에서는 확산 중인 **Gentlemen 랜섬웨어** 위협을
 
 **사이버 면역 체계 4단계**: 위협 모델링 -> 공격 시뮬레이션 -> 방어 검증 -> 면역 강화 (지속 반복)
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # Splunk - Detect Active Scanning (T1595)...
 > ```

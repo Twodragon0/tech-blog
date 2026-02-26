@@ -229,7 +229,6 @@ OWASP Top 10 2025의 각 취약점은 실제 공격자가 사용하는 전술과
 실제 공격자는 여러 OWASP 취약점을 연계하여 공격합니다.
 
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # SBOM 생성 및 검증...
 > ```

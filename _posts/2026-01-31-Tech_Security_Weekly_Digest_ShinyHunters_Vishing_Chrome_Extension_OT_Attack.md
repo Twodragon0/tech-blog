@@ -196,12 +196,10 @@ Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters**
 
 ### 6.2 브라우저 확장 보안 정책 (MDM)
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > ```json
 > {...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
 <!-- 전체 코드는 위 GitHub 링크 참조 -->
 
 ---

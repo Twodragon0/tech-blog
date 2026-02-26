@@ -212,7 +212,6 @@ toc: true
 | **암호화 방식** | ChaCha20 + RSA-4096 |
 | **특이사항** | Nutanix AHV 최초 암호화 성공 (2025년 6월) |
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # SonicWall 취약점 확인 명령어...
 > ```
@@ -297,7 +296,6 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 
 #### AWS S3 Immutable 백업 설정
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > ```json
 > {...
 > ```

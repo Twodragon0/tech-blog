@@ -364,7 +364,6 @@ gemini-code analyze --context ./entire-codebase --query "security vulnerabilitie
 
 #### 실무 활용 가이드
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # DeepSeek Coder 활용 예시: 알고리즘 문제 해결...
 > ```
@@ -414,7 +413,6 @@ gemini-code analyze --context ./entire-codebase --query "security vulnerabilitie
 
 #### 실무 활용 가이드
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # OpenCode 활용 예시: 프라이버시 중심 개발...
 > ```

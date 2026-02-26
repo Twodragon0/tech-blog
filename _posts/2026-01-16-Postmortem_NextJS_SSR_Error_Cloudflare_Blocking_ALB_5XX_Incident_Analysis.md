@@ -195,7 +195,6 @@ typescript
    ```
    ReferenceError: location is not defined
    at ExampleComponent.handleAction
-   > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > ```
 > 3. **배포 직후 + 10분 (T+10분)**: 5XX 에러 급증 (50개 이상)...
 > ```

@@ -194,7 +194,6 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 
 #### 2.3.1 커스텀 규칙 예제
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > ```json
 > {...
 > ```
@@ -288,7 +287,6 @@ Code Scanning 설정 단계:
 
 #### 공공기관
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 공공기관 Cloudflare 설정...
 > ```

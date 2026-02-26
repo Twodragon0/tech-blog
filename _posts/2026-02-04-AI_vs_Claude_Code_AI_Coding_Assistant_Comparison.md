@@ -328,7 +328,6 @@ jobs:
 
 Claude Code를 활용한 Shift-Left Security는 **코드 작성 시점에서 보안 문제를 발견**하는 접근법입니다:
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # Pre-commit hook으로 Claude Code 보안 검사 실행...
 > ```

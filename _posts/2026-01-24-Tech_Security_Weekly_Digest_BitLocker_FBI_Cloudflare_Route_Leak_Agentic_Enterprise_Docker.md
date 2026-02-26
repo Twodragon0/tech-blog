@@ -423,7 +423,6 @@ User Request → Planning Agent (Task Decomposition)
 
 **목표**: 자사 프리픽스에 대한 비정상 BGP 광고 탐지
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # BGPStream CLI를 이용한 히스토리컬 분석...
 > ```

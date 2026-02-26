@@ -135,7 +135,6 @@ ContainerLog
 
 #### ELK Query DSL
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > ```json
 > {...
 > ```
@@ -147,7 +146,6 @@ ContainerLog
 
 프로덕션 환경에서 Docker Compose를 사용할 때 DockerDash 유형 공격을 방어하기 위한 보안 설정입니다.
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > ```yaml
 > # docker-compose.secure.yml - 보안 강화 구성...
 > ```
@@ -212,7 +210,6 @@ docker export <container_id> > evidence-container-$(date +%Y%m%d).tar
 
 **4~5단계 - 조사 및 제거**
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > ```bash
 > # 이미지 메타데이터 포렌식 분석...
 > ```
@@ -222,7 +219,6 @@ docker export <container_id> > evidence-container-$(date +%Y%m%d).tar
 
 **내부 보고 (보안팀 -> 경영진)**
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > ```text
 > 제목: [보안사고] DockerDash 취약점 관련 사고 보고 (사고번호: INC-2026-XXXX)...
 > ```
@@ -230,7 +226,6 @@ docker export <container_id> > evidence-container-$(date +%Y%m%d).tar
 
 **외부 통보 (규제 기관/고객)**
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > ```text
 > 제목: 보안 사고 통보 (개인정보보호위원회 신고용)...
 > ```
@@ -300,7 +295,6 @@ Metro Development Server는 React Native 개발 시 JavaScript 번들링과 핫 
 
 ### 2.4 패치 검증 방법
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 1. 취약 패키지 존재 여부 확인...
 > ```
@@ -387,7 +381,6 @@ Metro Development Server는 React Native 개발 시 JavaScript 번들링과 핫 
 
 AI 에이전트는 반드시 격리된 환경에서 실행되어야 합니다. 호스트 시스템에 대한 직접 접근을 차단하고, 에이전트가 수행할 수 있는 작업 범위를 물리적으로 제한합니다.
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > ```bash
 > # AI 에이전트를 위한 보안 강화 Docker 실행 예시...
 > ```
@@ -451,7 +444,6 @@ index=devops sourcetype=cicd
 
 #### 크로스 이벤트 상관 분석 (Kill Chain)
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > ```spl
 > # Splunk: Docker + Network + Endpoint 상관 분석...
 > ```

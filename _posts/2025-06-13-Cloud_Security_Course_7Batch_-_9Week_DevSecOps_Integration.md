@@ -172,7 +172,6 @@ DevSecOps 접근:
 #### 1.1.2 레벨별 구현 가이드
 
 **Level 1 (초기):**
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > ```bash
 > # 필수 도구 설치...
 > ```

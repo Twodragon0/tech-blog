@@ -176,7 +176,6 @@ SentinelOne SentinelLABS와 Censys의 공동 연구에서 **175,000대의 Ollama
 
 #### Ollama 보안 강화 설정
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > ```yaml
 > # docker-compose.yml - Ollama 보안 배포 구성...
 > ```

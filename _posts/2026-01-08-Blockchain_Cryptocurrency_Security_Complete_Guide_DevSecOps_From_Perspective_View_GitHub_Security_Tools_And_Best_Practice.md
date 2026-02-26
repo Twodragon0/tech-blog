@@ -242,7 +242,6 @@ toc: true
 
 **설치 및 사용:**
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # Slither 설치...
 > ```

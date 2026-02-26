@@ -351,7 +351,6 @@ AISURU/Kimwolf 봇넷의 31.4 Tbps 공격이 시사하는 바와 같이, 단일 
 
 #### BYOVD 행위 기반 헌팅 (Azure Sentinel KQL)
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > ```kql
 > // Azure Sentinel KQL: BYOVD 행위 기반 헌팅...
 > ```

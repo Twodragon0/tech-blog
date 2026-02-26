@@ -205,7 +205,6 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 | A10:2021 | SSRF | IMDSv2 강제, VPC Endpoint, PrivateLink |
 
 **Trivy로 Docker 이미지 스캔**:
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > ```bash
 > # Trivy 설치 (macOS)...
 > ```

@@ -364,7 +364,6 @@ ContentPipeline
 
 **사용법:**
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 의존성 설치...
 > ```

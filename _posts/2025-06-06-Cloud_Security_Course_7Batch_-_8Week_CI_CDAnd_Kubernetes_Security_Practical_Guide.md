@@ -128,7 +128,6 @@ series_total: 7
 > # 개발자용 제한된 Role...
 > ```
 
-<!-- 전체 코드는 위 링크 참조
 > **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions)를 참조하세요./oidc-deploy.yml...
 > ```
 

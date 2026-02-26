@@ -261,7 +261,6 @@ Shai-Hulud와 별개로 발생한 또 다른 심각한 공급망 공격:
 
 #### 9.2.3 Docker 런타임 보안 설정
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/) 및 [공식 문서](https://docs.docker.com/compose/)를 참조하세요.
 > ```dockerfile
 > # Dockerfile - 최소 권한 및 보안 강화...
 ```
@@ -273,8 +272,6 @@ bash
    ```
 
 2. **CI/CD 파이프라인 중단**:
-   > **참고**: 관련 예제는 [공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
-
 ```bash
    # GitHub Actions 비활성화
    gh api -X PATCH /repos/OWNER/REPO/actions/permissions \
@@ -286,15 +283,12 @@ bash
    ```
 
 3. **Private NPM Registry 읽기 전용 전환**:
-   > **참고**: 관련 예제는 [공식 문서](https://kubernetes.io/docs/home/)를 참조하세요.
-
 ```yaml
    # verdaccio.yaml
    packages:
      '**':
        access: $authenticated
        publish: $admin  # 일반 사용자 publish 차단
-   > **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
 > ```
 > ...
 > ```

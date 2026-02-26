@@ -287,7 +287,6 @@ DevOps/Cloud       : █████ 13%
 
 #### 헌팅 쿼리 (Bash/PowerShell)
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 1. 최근 24시간 생성된 관리자 계정 찾기...
 > ```
@@ -308,7 +307,6 @@ DevOps/Cloud       : █████ 13%
 
 #### 헌팅 쿼리 (FortiGate CLI)
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 1. 최근 1시간 관리자 로그인 이력...
 > ```

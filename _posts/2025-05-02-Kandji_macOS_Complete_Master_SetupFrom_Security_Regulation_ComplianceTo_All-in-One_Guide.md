@@ -161,7 +161,6 @@ csrutil status
 
 **Kandji 컴플라이언스 스크립트**:
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > #!/bin/bash...
 > ```
@@ -214,7 +213,6 @@ Kandji에서 권장하는 핵심 보안 설정:
 
 #### ISMS-P 컴플라이언스 스크립트
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > #!/bin/bash...
 > ```
@@ -240,7 +238,6 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### Kandji 차단 스크립트
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > #!/bin/bash...
 > ```
@@ -250,7 +247,6 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### 자동 업데이트 정책
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # softwareupdate 설정...
 > ```
@@ -258,7 +254,6 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### 패치 지연 배포 (Deferral)
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > ```json
 > {...
 > ```
@@ -315,7 +310,6 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### Okta 연동
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # Okta Device Trust 연동...
 > ```
@@ -323,7 +317,6 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### Azure AD Conditional Access
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > ```json
 > {...
 > ```
@@ -335,7 +328,6 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 ### 9.3 공공기관 보안 설정
 
-> **코드 예시**: 전체 코드는 [JSON 공식 문서](https://www.json.org/json-en.html)를 참조하세요.
 > ```json
 > {...
 > ```
@@ -361,7 +353,6 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 **원인 및 해결**:
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 1. APNs 연결 확인...
 > ```
@@ -384,7 +375,6 @@ deviceenrollment.apple.com
 
 **해결 절차**:
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 1. Kandji에서 복구키 조회...
 > ```
@@ -398,7 +388,6 @@ deviceenrollment.apple.com
 
 **해결**:
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 1. Recovery Mode 부팅...
 > ```
@@ -410,7 +399,6 @@ deviceenrollment.apple.com
 
 **체크리스트**:
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 1. VPP 토큰 유효성 확인...
 > ```
@@ -422,7 +410,6 @@ deviceenrollment.apple.com
 
 **진단**:
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 1. mdmclient 프로세스 확인...
 > ```
@@ -447,7 +434,6 @@ sudo log config --mode "level:default" --subsystem com.kandji
 
 **해결**:
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 1. 인증서 확인...
 > ```

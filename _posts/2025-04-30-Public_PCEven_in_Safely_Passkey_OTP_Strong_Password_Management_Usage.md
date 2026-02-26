@@ -391,7 +391,6 @@ qvm-run --dispvm firefox https://banking.example.com
 
 #### 2.4.2 GitHub에 보안 키 등록
 
-> **코드 예시**: 전체 코드는 [Bash 공식 문서](https://www.gnu.org/software/bash/manual/bash.html)를 참조하세요.
 > ```bash
 > # 1. GitHub 설정 페이지...
 > ```
