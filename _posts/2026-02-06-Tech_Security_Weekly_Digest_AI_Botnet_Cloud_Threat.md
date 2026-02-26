@@ -66,52 +66,6 @@ toc: true
 </figure>
 
 
-## 경영진 요약 (경영진 브리핑)
-
-### TL;DR - 위험 스코어카드
-
-
-#### 핵심 포인트
-
-| 항목 | 내용 |
-|------|------|
-| **복합 위협 특성** | 단일 대형 사건이 아닌 다수의 소규모 침입이 개발 워크플로우, 원격 도구, 클라우드 접근 등 일상적 경로를 통해 동시 진행 |
-| **Codespaces 위험** | devcontainer.json 설정을 통한 개발 환경 내 RCE, 소스코드 및 시크릿 탈취 가능 |
-| **BYOVD 고도화** | 취약한 서명된 드라이버를 악용하여 커널 수준 접근, EDR/AV 프로세스 종료 후 자유로운 활동 |
-| **공통 패턴** | 초기 침투 후 가시성이 낮은 방식으로 지속성 확보, 기존 보안 도구 우회에 집중 |
-
-#### SIEM 탐지 쿼리
-
-**Splunk SPL - BYOVD 드라이버 로딩 탐지**:
-
-```spl
-index=wineventlog EventCode=7045 OR EventCode=6
-| where match(ServiceFileName, "(?i)\.(sys|dll)$")
-| eval known_vulnerable=if(match(ServiceFileName, "(?i)(rtcore|iqvw|dbutil|gdrv|cpuz)"), "VULNERABLE", "UNKNOWN")
-| where known_vulnerable="VULNERABLE"
-| stats count values(ServiceFileName) as drivers values(ServiceName) as services by ComputerName, _time
-| table _time, ComputerName, services, drivers, count
-```
-
-**Azure Sentinel KQL - Codespaces 비정상 활동 탐지**:
-
-```kql
-GitHubAuditLog
-| where TimeGenerated > ago(24h)
-| where Action has_any ("codespace.create", "codespace.update", "codespace.secret")
-| extend IsExternal = iff(ActorLogin !in (known_developers), true, false)
-| where IsExternal == true or Action has "secret"
-| project TimeGenerated, ActorLogin, Action, Repository, OperationType
-| order by TimeGenerated desc
-```
-
-#### 즉시 조치 사항
-
-- [ ] **Codespaces**: 조직 수준 Codespaces 정책 검토 - 외부 기여자 접근 제한, 시크릿 범위 최소화
-- [ ] **BYOVD**: 취약 드라이버 차단 목록 업데이트 - [Microsoft WDAC Recommended Block Rules](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/design/microsoft-recommended-driver-block-rules) 적용
-- [ ] **AsyncRAT**: EDR에 AsyncRAT C2 통신 패턴 탐지 룰 추가 (레지스트리 `HKCU\Software\AsyncRAT` 키 모니터링)
-- [ ] **AI Cloud**: 클라우드 AI 서비스 API 키 로테이션, 사용량 이상 알림 설정
-
 ---
 
 ### 1.4 AI Usage Control - Buyer's Guide

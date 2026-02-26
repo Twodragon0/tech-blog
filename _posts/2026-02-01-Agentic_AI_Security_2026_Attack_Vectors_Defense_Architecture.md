@@ -92,40 +92,6 @@ toc: true
 
 이 포스트에서는 2026년 1월 발표된 최신 연구를 기반으로, AI 에이전트에 대한 **공격 벡터(Attack Vector)**와 이에 대응하는 **방어 아키텍처(Defense Architecture)**를 실무 관점에서 심층 분석합니다.
 
-### 경영진 요약 (Executive Summary)
-
-**에이전틱 AI 보안 위험 스코어카드**
-
-| 공격 벡터 | 심각도 | 탐지 난이도 | 비즈니스 영향 | 대응 긴급도 |
-|-----------|--------|-------------|---------------|-------------|
-| AI Tool Poisoning | 🔴 Critical (9.8) | 높음 | 데이터 유출, 시스템 조작 | P0 (즉시) |
-| Agentic Tool Chain Attack | 🔴 Critical (9.5) | 매우 높음 | 공급망 전체 오염 | P0 (즉시) |
-| Indirect Prompt Injection | 🟠 High (8.2) | 높음 | 권한 우회, 정보 유출 | P1 (7일 내) |
-| Agent Identity Abuse | 🟠 High (7.9) | 중간 | 권한 탈취, 횡적 이동 | P1 (7일 내) |
-| Model Data Exfiltration | 🟡 Medium (6.5) | 중간 | 지적 재산 유출 | P2 (30일 내) |
-| Excessive Agent Autonomy | 🟡 Medium (5.8) | 낮음 | 의도하지 않은 작업 수행 | P2 (30일 내) |
-
-**핵심 권고사항**:
-- 모든 AI 에이전트 도구에 대한 **허용 목록(Allowlist) 기반 운영** 즉시 적용
-- 고위험 작업에 대한 **Human-in-the-Loop 승인 프로세스** 의무화
-- AI 에이전트 도구 호출 이력에 대한 **실시간 감사 로그 및 이상 탐지** 구축
-- 에이전틱 AI 보안 성숙도 현황 평가 및 **30일 내 L2(관리) 수준 달성**
-
-**다루는 핵심 주제:**
-
-| 주제 | 출처 | 발표일 |
-|------|------|--------|
-| AI Tool Poisoning | CrowdStrike | 2026-01-09 |
-| Agentic Tool Chain Attack | CrowdStrike | 2026-01-30 |
-| Chrome Agentic Security Architecture | Google Security Blog | 2025-12-08 |
-| Prompt Injection 다층 방어 | Google Security Blog | 2025-06 |
-| Agentic Defense (Falcon Platform) | CrowdStrike | 2026-01-16 |
-| LABYRINTH CHOLLIMA 분화 | CrowdStrike | 2026-01-29 |
-| LLM Application 취약점 진단 | SK쉴더스 EQST | 2025 |
-| JWT 서명키 유출 위협 | SK쉴더스 | 2026-01 |
-| 2026 Linux Security Threat Landscape | HashiCorp | 2026-01 |
-| Terraform MCP Server | HashiCorp | 2026-01 |
-
 ---
 
 ## 1. 한국 영향 분석 및 규제 대응 (Korean Impact Analysis)

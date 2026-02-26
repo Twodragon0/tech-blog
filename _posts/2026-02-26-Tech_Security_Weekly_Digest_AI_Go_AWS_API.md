@@ -31,19 +31,6 @@ toc: true
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
-## Executive Summary
-
-2026년 02월 26일 기준 보안 현황 및 위협 분석입니다.
-
-### 위험 스코어카드
-
-| 항목 | 위험도 | 점수 | 조치 시급도 |
-|------|--------|------|-------------|
-| Top 5 Ways Broken Triage Increases Business Risk | MEDIUM | 7/10 | 7일 이내 |
-| Open WebUI + Docker Model Runner | HIGH | 9/10 | 즉시 |
-| 종합 위험 수준 | HIGH | 8.0/10 | - |
-
-
 ---
 
 ## 서론

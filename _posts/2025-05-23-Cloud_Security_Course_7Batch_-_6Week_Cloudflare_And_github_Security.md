@@ -73,38 +73,6 @@ series_total: 7
 
 <img src="{% raw %}{{ '/assets/images/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security_image.png' | relative_url }}{% endraw %}" alt="Cloud Security Course 7Batch 6Week: Cloudflare and GitHub Security" loading="lazy" class="post-image">
 
-## 경영진 요약 (Executive Summary)
-
-이 문서는 웹 애플리케이션 보안을 위한 3단계 방어 전략을 제시합니다: AWS WAF를 통한 기본 웹 보안, Cloudflare를 통한 DDoS 및 글로벌 보안 강화, GitHub 보안 자동화를 통한 소스 코드 보안입니다.
-
-### 보안 위험 스코어카드
-
-| 보안 영역 | 구현 전 위험도 | 구현 후 위험도 | 비즈니스 영향 |
-|---------|-------------|-------------|------------|
-| **웹 애플리케이션 공격** | CRITICAL (9.5) | LOW (2.0) | 데이터 유출 방지, 서비스 연속성 확보 |
-| **DDoS 공격** | CRITICAL (9.0) | LOW (1.5) | 가용성 99.99% 달성, 매출 손실 방지 |
-| **의존성 취약점** | HIGH (7.5) | LOW (2.5) | 공급망 공격 방지, 규제 준수 |
-| **코드 보안 취약점** | HIGH (8.0) | MEDIUM (3.0) | 제로데이 공격 사전 차단 |
-| **시크릿 노출** | CRITICAL (9.8) | LOW (1.0) | 계정 탈취 방지, 규정 위반 예방 |
-
-### 주요 달성 지표 (KPI)
-
-| 지표 | 목표 | 측정 방법 |
-|-----|-----|---------|
-| **공격 차단율** | 99.5% 이상 | AWS WAF + Cloudflare 메트릭 |
-| **취약점 수정 시간** | 24시간 이내 | GitHub Security Advisory MTTR |
-| **의존성 업데이트** | 주 1회 자동 | Dependabot PR 통계 |
-| **거짓 양성율** | 5% 미만 | 보안 알림 분석 |
-| **서비스 가용성** | 99.99% | Cloudflare Uptime 모니터링 |
-
-### 투자 대비 효과 (ROI)
-
-| 항목 | 비용 | 효과 | ROI |
-|-----|-----|-----|-----|
-| **AWS WAF** | $월 100-500 | 데이터 유출 방지 ($수백만) | 1,000% 이상 |
-| **Cloudflare Pro** | $월 20-200 | DDoS 방어, CDN 최적화 | 500% 이상 |
-| **GitHub Advanced Security** | $월 49/사용자 | 공급망 공격 방지 | 800% 이상 |
-
 ## 서론
 
 안녕하세요, Twodragon입니다. 이번 포스트에서는 클라우드 보안 과정 7기의 Application 보안 및 Cloudflare 및 GitHub 활용을 다루고자 합니다. 이 과정은 게더 타운에서 진행되며, 각 세션은 20분 강의 후 5분 휴식으로 구성되어 있습니다. 이러한 구성은 온라인 강의의 특성 상 눈의 피로를 줄이고, 멘티 분들의 집중력을 최대화하기 위함입니다. 여러분들과 함께 다양한 AWS 보안 모니터링 및 대응 관련 주제를 깊이 있게 다루어 보고자 합니다.

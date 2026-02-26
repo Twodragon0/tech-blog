@@ -42,12 +42,6 @@ schema_type: Article
   audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
 %}
 
-## 경영진 요약 (Executive Summary)
-
-2026년 02월 17일 기준 보안 현황 및 위협 분석입니다.
-
-### 위험 스코어카드
-
 ---
 
 ## 서론
