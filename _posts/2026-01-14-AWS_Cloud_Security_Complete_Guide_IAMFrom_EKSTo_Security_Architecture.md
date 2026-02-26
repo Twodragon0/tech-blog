@@ -161,42 +161,53 @@ T1613                      T1552.001                T1567.002
 └─ Cluster 정찰       →  시크릿 탈취        →  S3 버킷으로 데이터 유출
 ```
 
-...
-> > **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
+### EKS Pod Security Standards 적용
 
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.docker.com/)를 참조하세요.
-
+```yaml
+# Pod Security Admission - namespace 레벨 적용
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: production
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/warn: restricted
 ```
 
-yaml
-> # EKS Cluster Insights Policy 예시...
-> > **코드 예시**: 전체 코드는 [공식 문서](https://docs.docker.com/)를 참조하세요.
-> 
-> ```
-> ...
-> ```
+### EKS Network Policy 예시
 
-
-
-**3단계: 증거 수집 (Evidence Collection)**
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```bash
-> # Pod 로그 백업...
-> > **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
+```yaml
+# 기본 Deny-All + 필요한 트래픽만 허용
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: production
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+    - Egress
 ```
 
+### 증거 수집 (Evidence Collection)
 
+```bash
+# Pod 로그 백업
+kubectl logs <pod-name> -n <namespace> --all-containers > /evidence/pod-logs-$(date +%s).log
 
-### 시나리오 2: IAM 자격증명 노출 대응
+# EKS 감사 로그 조회 (CloudWatch Logs Insights)
+aws logs start-query \
+  --log-group-name "/aws/eks/my-cluster/audit" \
+  --start-time $(date -d '24 hours ago' +%s) \
+  --end-time $(date +%s) \
+  --query-string 'fields @timestamp, verb, objectRef.resource | filter verb="delete"'
+```
 
-**탐지 Alert:**
-> **참고**: 관련 예제는 [공식 문서](https://www.json.org/json-en.html)를 참조하세요.
+### 시나리오: IAM 자격증명 노출 대응
+
+**GuardDuty 탐지 Alert 예시:**
 
 ```json
 {
@@ -206,27 +217,48 @@ yaml
     "Description": "IAM credentials from EC2 instance i-0abc123 used from IP 198.51.100.42"
   }
 }
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
-> **참고**: 관련 예제는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-
 ```
 
 **즉시 대응 Lambda 함수:**
-> **코드 예시**: 전체 코드는 [공식 문서](https://docs.aws.amazon.com/)를 참조하세요.
-> 
-> ```python
-> import boto3...
-> ```
 
-<!-- 전체 코드는 위 링크 참조 -->
-<!-- 전체 코드는 위 링크 참조 -->
+```python
+import boto3
+
+iam = boto3.client("iam")
+sts = boto3.client("sts")
+
+def handler(event, context):
+    # GuardDuty finding에서 사용자 정보 추출
+    detail = event["detail"]
+    user_name = detail["resource"]["accessKeyDetails"]["userName"]
+    access_key_id = detail["resource"]["accessKeyDetails"]["accessKeyId"]
+
+    # 1. 해당 Access Key 즉시 비활성화
+    iam.update_access_key(
+        UserName=user_name,
+        AccessKeyId=access_key_id,
+        Status="Inactive"
+    )
+
+    # 2. 해당 사용자의 모든 세션 토큰 무효화
+    iam.put_user_policy(
+        UserName=user_name,
+        PolicyName="DenyAllAfterCompromise",
+        PolicyDocument='{"Version":"2012-10-17","Statement":[{"Effect":"Deny","Action":"*","Resource":"*"}]}'
+    )
+
+    # 3. SNS로 보안팀 알림
+    sns = boto3.client("sns")
+    sns.publish(
+        TopicArn="arn:aws:sns:ap-northeast-2:ACCOUNT:security-alerts",
+        Subject=f"[CRITICAL] IAM Credential Compromised: {user_name}",
+        Message=f"Access Key {access_key_id} disabled. User {user_name} locked."
+    )
+
+    return {"statusCode": 200, "body": f"Remediated: {user_name}"}
+```
+
+> **참고**: Lambda 함수를 EventBridge 룰과 연동하면 GuardDuty → EventBridge → Lambda 자동 대응 파이프라인을 구축할 수 있습니다. 자세한 내용은 [AWS 보안 사고 대응 가이드](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)를 참조하세요.
 
 ---
 
