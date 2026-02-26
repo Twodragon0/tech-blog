@@ -1512,6 +1512,14 @@ def _korean_display_title(item: Dict, max_len: int = 72) -> str:
         KOREAN_TITLE_CACHE[cache_key] = translated
         return translated
 
+    # Gemini 실패 시: 원문 영어 제목을 그대로 사용 (제네릭 텍스트 방지)
+    if raw_title and len(raw_title) <= max_len:
+        KOREAN_TITLE_CACHE[cache_key] = raw_title
+        return raw_title
+    if raw_title:
+        truncated = raw_title[:max_len].rsplit(" ", 1)[0].rstrip(" ,.")
+        KOREAN_TITLE_CACHE[cache_key] = truncated
+        return truncated
     source_name = (
         item.get("source_name", "") or item.get("source", "해외 기술 매체")
     ).strip()
@@ -1599,6 +1607,22 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
                     return generated
         except Exception:
             pass
+
+    # Gemini 실패 시: 원문 영어 요약/콘텐츠를 그대로 사용 (제네릭 텍스트 방지)
+    raw_summary = (item.get("summary", "") or "").strip()
+    raw_content = (item.get("content", "") or "").strip()
+    raw_text = raw_summary or raw_content
+    if raw_text:
+        # Clean up and truncate English summary
+        cleaned = re.sub(r"\s+", " ", raw_text)
+        cleaned = re.sub(r"https?://\S+", "", cleaned).strip()
+        sentences = re.split(r"(?<=[.!?])\s+", cleaned)
+        sentences = [s.strip() for s in sentences if s.strip()]
+        selected = " ".join(sentences[:3]) if sentences else cleaned[:400]
+        if len(selected) > 400:
+            selected = selected[:400].rsplit(" ", 1)[0].rstrip(" ,.") + "."
+        KOREAN_SUMMARY_CACHE[cache_key] = selected
+        return selected
 
     category = item.get("category", "tech")
     category_context = {

@@ -124,40 +124,41 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 ## 2. 블록체인 뉴스
 
-### 2.1 Bitcoin Magazine 기술 업데이트
+### 2.1 비트코인 가격 $65,000 이하로 급락
 
 #### 개요
 
-Bitcoin Magazine 기술 업데이트 관련 소식입니다. 핵심 변경사항과 영향 범위를 우선 파악하세요.
+비트코인이 일요일 저녁 2시간 만에 5% 이상 하락하며 $65,000 선 아래로 급락했습니다. 매우 짧은 시간 내에 급격한 매도 압력이 발생하여 시장 전반에 변동성이 확대되었습니다.
 
-실무 해석: 실무 적용 전에 서비스 영향도와 운영 변경점을 함께 검토해야 합니다.
+실무 해석: 암호화폐 자산을 보유하거나 관련 인프라를 운영하는 조직은 급격한 가격 변동에 따른 리스크 관리 체계를 재점검해야 합니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/markets/bitcoin-price-crashes-below-65000)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine 기술 업데이트 관련 소식입니다
-- 핵심 변경사항과 영향 범위를 우선 파악하세요
-- 실무 해석: 실무 적용 전에 서비스 영향도와 운영 변경점을 함께 검토해야 합니다
+- 비트코인 가격이 일요일 저녁 단 2시간 만에 5% 이상 급락하여 $65,000 이하로 하락
+- 하락의 대부분이 극히 짧은 시간에 집중되어 급격한 매도 압력 또는 자동 청산이 유발된 것으로 분석
+- 전통 시장 휴장 시간대에 발생하여 유동성이 낮은 환경에서의 가격 취약성이 재확인됨
 
 
 ---
 
-### 2.2 Cointelegraph 기술 업데이트
+### 2.2 러시아 제재 우회를 돕는 암호화폐 거래소 네트워크 적발
 
 #### 개요
 
-Cointelegraph 기술 업데이트 관련 소식입니다. 핵심 변경사항과 영향 범위를 우선 파악하세요.
+블록체인 분석 기업 Elliptic에 따르면, 5개 암호화폐 거래소(Bitpapa, ABCeX, Exmo, Rapira, Aifory Pro)가 러시아의 국제 제재 우회를 지원하고 있는 것으로 밝혀졌습니다. 이 플랫폼들은 제재 대상이었던 Garantex 폐쇄 이후 루블-암호화폐 환전 경로를 제공하며 제재 대상 자산의 국경 이동을 가능하게 하고 있습니다.
 
-실무 해석: 실무 적용 전에 서비스 영향도와 운영 변경점을 함께 검토해야 합니다.
+실무 해석: 암호화폐 관련 서비스를 운영하는 조직은 제재 대상 거래소와의 자금 흐름을 점검하고, 컴플라이언스 정책을 강화해야 합니다.
 
 > **출처**: [Cointelegraph](https://cointelegraph.com/news/crypto-exchange-network-helping-russia-skirt-sanctions-elliptic?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
 #### 핵심 포인트
 
-- Cointelegraph 기술 업데이트 관련 소식입니다
-- 핵심 변경사항과 영향 범위를 우선 파악하세요
-- 실무 해석: 실무 적용 전에 서비스 영향도와 운영 변경점을 함께 검토해야 합니다
+- ABCeX는 최소 $110억 규모의 암호화폐를 처리했으며, Rapira는 제재 대상 거래소 Grinex와 $7,200만 이상의 직접 거래를 수행
+- Exmo.com과 Exmo.me는 동일한 수탁 지갑 인프라를 공유하여 러시아 대상 및 서방 대상 플랫폼 간 자금이 혼합되고 $1,950만 규모의 제재 위반 거래가 발생
+- Chainalysis 보고서에 따르면 2025년 불법 암호화폐 거래 규모가 $1,540억에 달하며, 국가 단위 관련 거래가 급증
+- OFAC에 의해 이미 지정된 Bitpapa 외 나머지 4개 거래소에 대한 추가 제재 가능성 주시 필요
 
 
 ---
@@ -166,8 +167,8 @@ Cointelegraph 기술 업데이트 관련 소식입니다. 핵심 변경사항과
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Tech World Monitor 기술 업데이트](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. 실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다 |
-| [Electrek 기술 업데이트](https://electrek.co/2026/02/22/worlds-first-us-air-force-deploys-portable-nuclear-power-station/) | Electrek | Electrek 기술 업데이트 관련 소식입니다. 핵심 변경사항과 영향 범위를 우선 파악하세요. 실무 해석: 실무 적용 전에 서비스 영향도와 운영 변경점을 함께 검토해야 합니다 |
+| [Tech World Monitor 글로벌 기술 동향 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | 실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적하는 모니터링 도구 |
+| [미 공군, 세계 최초 이동식 원자력 발전소 배치](https://electrek.co/2026/02/22/worlds-first-us-air-force-deploys-portable-nuclear-power-station/) | Electrek | 미 공군이 'Project Janus' 시연에서 Valar Atomics의 5MW급 Ward250 이동식 원자로를 C-17 수송기로 캘리포니아에서 유타까지 공수 후 가동에 성공. 일일 약 120MWh 전력 생산 가능하며, 재난 대응 및 원격지 에너지 공급에 활용 전망 |
 
 
 ---
@@ -188,8 +189,8 @@ Cointelegraph 기술 업데이트 관련 소식입니다. 핵심 변경사항과
 
 ### P0 (즉시)
 
-- [ ] **Cointelegraph 기술 업데이트** 관련 긴급 패치 및 영향도 확인
-- [ ] **Electrek 기술 업데이트** 관련 긴급 패치 및 영향도 확인
+- [ ] **러시아 제재 우회 암호화폐 거래소** 관련 자사 서비스 자금 흐름 점검 및 컴플라이언스 검토
+- [ ] **비트코인 급락** 관련 암호화폐 자산 리스크 관리 체계 재점검
 
 ### P1 (7일 내)
 
