@@ -255,7 +255,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 #### 증상
 
-```
+```text
 ERROR: Connection timed out after 30 seconds
 ```
 
@@ -302,7 +302,7 @@ aws ec2 describe-route-tables \
 
 #### 증상
 
-```
+```text
 Query execution time: 500ms (expected: <50ms)
 ```
 
@@ -354,7 +354,7 @@ aws rds describe-db-instances \
 
 #### 증상
 
-```
+```yaml
 UnHealthyHostCount: 1/2 targets are unhealthy
 ```
 
@@ -404,7 +404,7 @@ aws logs filter-log-events \
 
 #### 증상
 
-```
+```text
 SSL handshake failed: certificate verify failed
 ```
 

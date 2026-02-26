@@ -242,7 +242,7 @@ Bitcoin Magazine Bitcoin Bears Dominate: Failure to Break $71,800 Keeps Downside
 #### 핵심 포인트
 
 - Bitcoin Magazine Bitcoin Bears Dominate: Failure to Break $71,800 Keeps Downside Risk Alive Key levels in focus: $65,650 support holds for now, but break below opens $63,000 then Fibonacci $57,800; resistance caps upside at $71,800–$74,500
-- This post Bitcoin Bears Dominate: Failure to Break $71,800 Keeps Downside Risk Alive first appeared on Bitcoin Magazine and is written by Ethan Greene - Feral Analysis and Juan Galt 
+- This post Bitcoin Bears Dominate: Failure to Break $71,800 Keeps Downside Risk Alive first appeared on Bitcoin Magazine and is written by Ethan Greene - Feral Analysis and Juan Galt
 
 
 ---

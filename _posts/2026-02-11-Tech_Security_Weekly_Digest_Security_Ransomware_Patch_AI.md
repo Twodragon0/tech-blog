@@ -377,7 +377,7 @@ Find out about the new features in .NET 11 Preview 1 across the .NET runtime, SD
 
 - Find out about the new features in .NET 11 Preview 1 across the .NET runtime, SDK, libraries, ASP.NET Core, Blazor, C#, .NET MAUI, and more
 - The post .NET 11 Preview 1 is now available
-- appeared first on .NET Blog 
+- appeared first on .NET Blog
 
 
 #### 실무 적용 포인트
@@ -402,7 +402,7 @@ A recap of the latest servicing updates for .NET and .NET Framework for February
 #### 핵심 포인트
 
 - A recap of the latest servicing updates for .NET and .NET Framework for February 2026
-- The post .NET and .NET Framework February 2026 servicing releases updates appeared first on .NET Blog 
+- The post .NET and .NET Framework February 2026 servicing releases updates appeared first on .NET Blog
 
 
 #### 실무 적용 포인트
@@ -427,7 +427,7 @@ Bitcoin Magazine Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Ho
 #### 핵심 포인트
 
 - Bitcoin Magazine Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings Goldman Sachs revealed it holds $1.1 billion in Bitcoin ETFs, marking somewhat of a shift toward cryptocurrency exposure
-- This post Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings first appeared on Bitcoin Magazine and is written by Micah Zimmerman 
+- This post Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings first appeared on Bitcoin Magazine and is written by Micah Zimmerman
 
 
 ---
@@ -443,7 +443,7 @@ Bitcoin Magazine FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Po
 #### 핵심 포인트
 
 - Bitcoin Magazine FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration Convicted FTX fraudster Sam Bankman-Fried reportedly filed for a new trial today
-- This post FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration first appeared on Bitcoin Magazine and is written by Micah Zimmerman 
+- This post FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration first appeared on Bitcoin Magazine and is written by Micah Zimmerman
 
 
 ---

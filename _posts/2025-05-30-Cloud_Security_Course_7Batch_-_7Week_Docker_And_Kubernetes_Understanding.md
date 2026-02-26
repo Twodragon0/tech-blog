@@ -450,18 +450,20 @@ cat /var/log/falco/events.txt | \
 
 > ```bash
 > # 1. Service 없이 직접 통신하는 Pod 탐지...
-```
+> ```
+```markdown
 
 
 ### 10.3 Secret 접근 이상 탐지
 
 > ```bash
 > # 1. Secret 접근 Audit Log 분석...
+> ```
 ```
 
 bash
 > # 1. Pod 상태 확인...
-```
+```bash
 
 bash
 > # 1. 현재 적용된 Network Policy 확인...
@@ -469,7 +471,7 @@ bash
 
 bash
 > # 1. ImagePullBackOff 이벤트 확인...
-```
+```text
 
 
 ## 12. 종합 레퍼런스
@@ -579,3 +581,5 @@ bash
 - [Aqua Security Trivy](https://aquasecurity.github.io/trivy/)
 - [MITRE ATT&CK for Containers](https://attack.mitre.org/matrices/enterprise/containers/)
 - [NSA/CISA Kubernetes Hardening Guidance](https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/2716980/nsa-cisa-release-kubernetes-hardening-guidance/)
+
+```

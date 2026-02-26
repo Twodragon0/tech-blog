@@ -245,9 +245,9 @@ toc: true
 
 ### 웹 애플리케이션 공격 흐름도
 
-json
+> ```json
 > {...
-...
+> ```
 #### CodeQL 쿼리 커스터마이징
 
 > **참고**: CodeQL 쿼리 커스터마이징 관련 내용은 [CodeQL 쿼리 작성 가이드](https://docs.github.com/en/code-security) 및 [CodeQL 예제](https://github.com/github/codeql)를 참조하세요.
@@ -285,6 +285,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 
 #### 4. 캐시 우회 공격 (Cache Busting)
 
+> ```text
 > ...
 > ```
 
@@ -310,7 +311,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 | stats count() as tracking_attempts by httpRequest.clientIp, referer_domain
 | filter tracking_attempts > 10
 | sort tracking_attempts desc
-> ```
+```
 
 ### 5.3 GitHub DevSecOps 파이프라인
 

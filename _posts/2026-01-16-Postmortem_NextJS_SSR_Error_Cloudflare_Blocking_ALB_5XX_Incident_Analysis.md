@@ -152,10 +152,10 @@ toc: true
         <mxCell id="ratelimit" value="Rate Limiting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
           <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
         </mxCell>
-        
+
         ...
 **시나리오 2: X 앱 인앱 브라우저에서 접속**
-```
+```text
 1. 사용자가 x.com에서 링크 클릭
 2. X 앱이 열리고 인앱 브라우저(WebView) 사용
 3. Custom User-Agent 전송 (X 앱 식별자 포함)
@@ -175,27 +175,29 @@ if (typeof window !== 'undefined') {
 ```
 
 **2. 모바일 앱 감지**
-typescript
+
+```typescript
 // src/components/example/ExampleComponent.tsx
 // 이전 버전에서는 문제 없었음 (다른 방식으로 리다이렉트 처리)
 ```
 
 **변경 후 (v1.0.1) - 문제 발생**:
-> ```typescript
-> // src/components/example/ExampleComponent.tsx...
-```
 
+```typescript
+// src/components/example/ExampleComponent.tsx...
+```
 
 **배포 후 발생한 문제**:
 
 1. **배포 직후 (T+0분)**: 새 버전(v1.0.1)이 Kubernetes에 배포됨
 2. **배포 직후 + 5분 (T+5분)**: 첫 번째 에러 발생
-   ```
-   ReferenceError: location is not defined
-   at ExampleComponent.handleAction
-> ```
-> 3. **배포 직후 + 10분 (T+10분)**: 5XX 에러 급증 (50개 이상)...
-> ```
+
+```text
+ReferenceError: location is not defined
+at ExampleComponent.handleAction
+```
+
+3. **배포 직후 + 10분 (T+10분)**: 5XX 에러 급증 (50개 이상)...
 
 </details>
 
@@ -296,31 +298,31 @@ typescript
 **문제 코드 위치** (총 5개 파일):
 
 1. **`src/components/example/ExampleComponent.tsx`** (Line 50)
-   
+
    <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
-   
+
 2. **`src/components/example/DetailButton.tsx`** (Line 30)
-   
+
    <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
-   
+
 3. **`src/hooks/useNavigation.ts`** (Line 25)
-   
+
    ```tsx
    // ❌ 문제 코드
    location.href = url;
-   
+
    // ✅ 수정 코드
    if (typeof window !== 'undefined') {
      window.location.href = url;
    }
    ```
-   
+
 4. **`src/components/example/ResultComponent.tsx`** (Line 80)
-   
+
    <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
-   
+
 5. **`src/components/example/TabsComponent.tsx`** (Line 45)
-   
+
    <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
 **수정 우선순위**: High
@@ -513,15 +515,16 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 #### 1. 배포 전 검증 강화
 
 > **참고**: GitHub Actions 워크플로우에 추가 권장
+
 ```yaml
-> - name: SSR Test
->   run: |
->     npm run build
->     npm run start &
->     sleep 10
->     # SSR 환경에서 location 사용 검증
->     curl http://localhost:3000/api/healthz
-> ```
+- name: SSR Test
+  run: |
+    npm run build
+    npm run start &
+    sleep 10
+    # SSR 환경에서 location 사용 검증
+    curl http://localhost:3000/api/healthz
+```
 
 #### 2. 배포 전략 개선
 

@@ -212,7 +212,7 @@ graph TD
     A["Untrusted Input<br/>(악성 문서)"]  B["Security Decision<br/>(보안 결정)"]
     B  C["Security Feature Bypass<br/>(보안 기능 우회)"]
     C  D["Malicious Code Execution<br/>(악성 코드 실행)"]
-    
+
     style A fill:#ff6b6b
     style B fill:#ff8c42
     style C fill:#ffa500
@@ -224,7 +224,7 @@ graph TD
 #### 즉시 조치 (0-24시간)
 
 > **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions)를 참조하세요./security-scanning.yml...
-```
+```markdown
 
 hcl
 > # security-infrastructure.tf...
@@ -235,7 +235,8 @@ hcl
 
 > ```yaml
 > # k8s-security-policies.yaml...
-```
+> ```
+```markdown
 
 yaml
 > # ISMS-P 인증심사 대응 체크리스트...
@@ -243,7 +244,7 @@ yaml
 
 yaml
 > # 전자금융거래법 및 금융보안원 가이드라인 준수...
-```
+```markdown
 
 
 ### 감사 대응 보고서 템플릿
@@ -400,3 +401,5 @@ yaml
 
 *이 포스팅은 47개 RSS 피드에서 수집된 232개 뉴스를 분석하여 작성되었습니다.*
 *수집 기간: 2026년 1월 26일 ~ 27일 (48시간)*
+
+```

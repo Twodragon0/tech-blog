@@ -233,10 +233,6 @@ OWASP Top 10 2025의 각 취약점은 실제 공격자가 사용하는 전술과
 > # SBOM 생성 및 검증...
 > ```
 
-# GitHub Actions에 보안 스캔 통합
-# SBOM 정기 생성 및 검증
-```
-
 2. **암호화 강화**
    > **참고**: Post-quantum 암호화 관련 내용은 [NIST Post-Quantum Cryptography](https://csrc.nist.gov/projects/post-quantum-cryptography) 및 [OWASP Cryptographic Storage](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)를 참조하세요.
 
@@ -253,8 +249,10 @@ OWASP Top 10 2025의 각 취약점은 실제 공격자가 사용하는 전술과
 # 모든 API 엔드포인트 인가 검증
 # 최소 권한 원칙 적용
 # 정기적인 권한 감사
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. (Web Application Firewall)
-- 🛡️ 6단계: DB 최소 권한, 네트워크 세그멘테이션
+```
+
+   > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. (Web Application Firewall)
+- 6단계: DB 최소 권한, 네트워크 세그멘테이션
 
 ## 7. 개선사항 및 향후 방향
 

@@ -150,7 +150,7 @@ toc: true
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
+```text
 2025 Ransomware Ecosystem Fragmentation:
 - Q1 2025: Top 10 groups = 71%, Others = 29%, Active groups: 49, Leak sites: 62
 - Q3 2025: Top 10 groups = 56%, Others = 44%, Active groups: 77 (+57%), Leak sites: 85
@@ -235,7 +235,7 @@ toc: true
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
+```text
 Quadruple Extortion Tactics:
 Stage 1: Data Encryption + Ransom Demand ("Pay $500,000 for decryption")
   → If refused
@@ -283,7 +283,7 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
+```text
 3-2-1-1-0 Backup Strategy:
 3 - Keep 3 copies of data (production, local backup, remote backup)
 2 - Use 2 different media types (disk-based, tape/cloud)

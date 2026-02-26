@@ -166,7 +166,7 @@ toc: true
 컨테이너 보안은 여러 레이어로 구성된 Defense in Depth 전략을 통해 강화됩니다:
 
 <figure>
-  
+
   <figcaption>Docker의 핵심 구성 요소: Dockerfile로 이미지를 빌드하고, Registry에 저장하며, Container로 실행</figcaption>
 </figure>
 

@@ -330,7 +330,7 @@ Cloudflare를 사용하는 경우:
 2. **Add record** 클릭
 3. 레코드 타입과 값 입력:
 
-```
+```text
 Type: TXT
 Name: @
 Content: v=spf1 include:sendgrid.net ~all
@@ -345,7 +345,7 @@ Route 53을 사용하는 경우:
 2. **Create Record Set** 클릭
 3. 레코드 정보 입력:
 
-```
+```text
 Type: TXT
 Name: (도메인 이름)
 Value: v=spf1 include:sendgrid.net ~all
@@ -379,7 +379,7 @@ dig TXT _dmarc.yourdomain.com
 
 발송한 이메일의 헤더를 확인하여 인증 상태를 확인할 수 있습니다:
 
-```
+```text
 Authentication-Results: mail.example.com;
     spf=pass smtp.mailfrom=yourdomain.com;
     dkim=pass header.d=yourdomain.com;
@@ -429,7 +429,7 @@ DMARC 집계 보고서는 다음 정보를 제공합니다:
 
 서브도메인도 별도로 인증 설정이 필요합니다:
 
-```
+```markdown
 # 메인 도메인
 yourdomain.com → SPF, DKIM, DMARC
 
@@ -591,7 +591,7 @@ mail.yourdomain.com → 별도 SPF, DKIM, DMARC
 ### 경영진 보고 시 핵심 메시지
 
 **슬라이드 1: 상황 요약**
-```
+```text
 제목: 이메일 보안 강화를 통한 비즈니스 연속성 확보
 
 핵심 메시지 3줄:
@@ -601,7 +601,7 @@ mail.yourdomain.com → 별도 SPF, DKIM, DMARC
 ```
 
 **슬라이드 2: 리스크 및 기회**
-```
+```text
 위험 요소:
 - Gmail/Yahoo 정책 강화로 미준수 시 발송 차단 (P0 리스크)
 - AI 피싱 공격 증가 (전년 대비 +78%)
@@ -612,7 +612,7 @@ mail.yourdomain.com → 별도 SPF, DKIM, DMARC
 ```
 
 **슬라이드 3: 투자 요청**
-```
+```markdown
 요청 사항: DMARC Enterprise 솔루션 도입
 
 투자 금액: 연간 ₩25M (월 ₩2M)

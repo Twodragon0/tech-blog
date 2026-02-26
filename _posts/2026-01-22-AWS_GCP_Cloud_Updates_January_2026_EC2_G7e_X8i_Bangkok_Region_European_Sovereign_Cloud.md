@@ -222,15 +222,14 @@ AWS가 **EC2 G7e 인스턴스**를 정식 출시했습니다. NVIDIA RTX PRO 600
 
 ### 1.3 활용 예시: AI 추론 서빙
 
-> ```
-
-plaintext
+> ```text
 > [AI Inference Pipeline with EC2 G7e]...
-```
+> ```
 
 
 ### 10.3 멀티 클라우드 하이브리드 아키텍처
 
+> ```text
 > ...
 > ```
 
@@ -244,6 +243,7 @@ g7e.xlarge (Spot): $6,570/month
 g5.xlarge (On-Demand, 2.3x more needed): $101,464/month
 g5.xlarge (3yr RI, 2.3x more): $40,262/month
 ```
+
 {% endraw %}
 
 **절감액**:

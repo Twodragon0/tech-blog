@@ -351,7 +351,7 @@ AWSCloudTrail
 
 #### 1. 요약 (Executive Summary)
 
-```
+```text
 보고 기간: 2025년 2월 1일 - 2월 28일
 보고 부서: 정보보안팀
 보고 대상: 이사회, 경영진
@@ -456,7 +456,7 @@ aws route53 create-health-check --health-check-config \
 # 5. Shield Response Team (SRT) 연락 (Enterprise Support 계획)
 # AWS Support Console에서 케이스 오픈
 
-```
+```text
 
 **예방 조치**:
 - CloudFront + Shield Standard (기본 활성화)
@@ -536,3 +536,5 @@ aws route53 create-health-check --health-check-config \
 ---
 
 **원본 포스트**: [클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지](https://twodragon.tistory.com/701)
+
+```

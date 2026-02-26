@@ -1,19 +1,121 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0b1424" />
-      <stop offset="100%" stop-color="#1a3552" />
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1e"/>
+      <stop offset="50%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#67e8f9" />
-      <stop offset="100%" stop-color="#60a5fa" />
+    <!-- Accent gradient top bar -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
     </linearGradient>
+    <!-- Radial glow -->
+    <radialGradient id="glow" cx="75%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Grid pattern -->
+    <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+    </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)" />
-  <rect x="60" y="70" width="1080" height="490" rx="28" fill="#0f2133" stroke="#2a4b68" stroke-width="2" />
-  <rect x="120" y="150" width="240" height="8" fill="url(#accent)" />
-  <text x="120" y="235" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="50" font-weight="700">Email Delivery Trust Improve</text>
-  <text x="120" y="295" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">SendGrid SPF DKIM DMARC S...</text>
-  <text x="120" y="360" fill="#a7c3d9" font-family="Space Grotesk, Arial, sans-serif" font-size="24">Jun 5, 2025</text>
-  <text x="120" y="470" fill="#7fb0d4" font-family="Space Grotesk, Arial, sans-serif" font-size="20">Twodragon Tech Blog</text>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accentGrad)"/>
+
+  <!-- Bottom accent bar -->
+  <rect x="0" y="626" width="1200" height="4" fill="url(#accentGrad)"/>
+
+  <!-- Left vertical accent line -->
+  <rect x="0" y="4" width="3" height="622" fill="#0ea5e9" opacity="0.4"/>
+
+  <!-- Right-side visual element -->
+  <g opacity="0.85">
+    
+    <!-- Shield -->
+    <path d="M980.0,210.0 L1045.0,240.0 L1045.0,320.0 Q1045.0,370.0 980.0,390.0 Q915.0,370.0 915.0,320.0 L915.0,240.0 Z"
+          fill="none" stroke="#0ea5e9" stroke-width="4" opacity="0.25"/>
+    <path d="M980.0,230.0 L1028.0,254.0 L1028.0,310.0 Q1028.0,350.0 980.0,366.0 Q932.0,350.0 932.0,310.0 L932.0,254.0 Z"
+          fill="#0ea5e9" opacity="0.12"/>
+    <!-- Lock body -->
+    <rect x="962.0" y="285.0" width="36" height="28" rx="5" fill="#0ea5e9" opacity="0.7"/>
+    <!-- Shackle -->
+    <path d="M968.0,285.0 L968.0,270.0 Q968.0,255.0 980.0,255.0 Q992.0,255.0 992.0,270.0 L992.0,285.0"
+          fill="none" stroke="#0ea5e9" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+    <!-- Keyhole -->
+    <circle cx="980.0" cy="297.0" r="5" fill="#0f172a"/>
+    <rect x="977.5" y="297.0" width="5" height="8" fill="#0f172a"/>
+    
+  </g>
+
+  <!-- Category label -->
+  <text x="60" y="100"
+        font-family="Space Grotesk, Inter, system-ui, sans-serif"
+        font-size="13" font-weight="600" fill="#0ea5e9"
+        letter-spacing="3" opacity="0.9">EMAIL SECURITY</text>
+
+  <!-- Accent underline under category -->
+  <rect x="60" y="108" width="50" height="2" rx="1" fill="#0ea5e9" opacity="0.5"/>
+
+  <!-- Title lines -->
+  <text x="60" y="230" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-size="47" font-weight="700" fill="#ffffff" opacity="0.95">SendGrid SPF, DKIM, DMARC</text><text x="60" y="288" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-size="47" font-weight="700" fill="#ffffff" opacity="0.95">Setup Guide</text>
+
+  <!-- Accent underline bar -->
+  <rect x="60" y="354" width="300" height="4" rx="2" fill="#0ea5e9" opacity="0.7"/>
+
+  <!-- Subtitle -->
+  <text x="60" y="386"
+        font-family="Space Grotesk, Inter, system-ui, sans-serif"
+        font-size="21" fill="#94a3b8" opacity="0.85">Email Security Configuration Guide</text>
+
+  <!-- Date -->
+  <text x="60" y="420"
+        font-family="Space Grotesk, Inter, system-ui, sans-serif"
+        font-size="16" fill="#64748b">June 5, 2025</text>
+
+  <!-- Stat cards -->
+  
+    <rect x="60" y="520" width="130" height="66" rx="8"
+          fill="rgba(255,255,255,0.04)" stroke="#0ea5e9" stroke-width="1.5"/>
+    <text x="125" y="548" text-anchor="middle"
+          font-family="Space Grotesk, Inter, system-ui, sans-serif"
+          font-size="19" font-weight="700" fill="#0ea5e9">SPF</text>
+    <text x="125" y="568" text-anchor="middle"
+          font-family="Space Grotesk, Inter, system-ui, sans-serif"
+          font-size="10" fill="#94a3b8" letter-spacing="1">Record</text>
+
+    <rect x="208" y="520" width="130" height="66" rx="8"
+          fill="rgba(255,255,255,0.04)" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="273" y="548" text-anchor="middle"
+          font-family="Space Grotesk, Inter, system-ui, sans-serif"
+          font-size="19" font-weight="700" fill="#f59e0b">DKIM</text>
+    <text x="273" y="568" text-anchor="middle"
+          font-family="Space Grotesk, Inter, system-ui, sans-serif"
+          font-size="10" fill="#94a3b8" letter-spacing="1">Signing</text>
+
+    <rect x="356" y="520" width="130" height="66" rx="8"
+          fill="rgba(255,255,255,0.04)" stroke="#10b981" stroke-width="1.5"/>
+    <text x="421" y="548" text-anchor="middle"
+          font-family="Space Grotesk, Inter, system-ui, sans-serif"
+          font-size="19" font-weight="700" fill="#10b981">DMARC</text>
+    <text x="421" y="568" text-anchor="middle"
+          font-family="Space Grotesk, Inter, system-ui, sans-serif"
+          font-size="10" fill="#94a3b8" letter-spacing="1">Policy</text>
+
+  <!-- Branding -->
+  <text x="1140" y="600"
+        font-family="Space Grotesk, Inter, system-ui, sans-serif"
+        font-size="15" fill="#475569" text-anchor="end" opacity="0.7">Twodragon Tech Blog</text>
+
+  <!-- Corner decoration dots -->
+  <circle cx="1170" cy="30" r="4" fill="#0ea5e9" opacity="0.4"/>
+  <circle cx="1185" cy="30" r="2.5" fill="#0ea5e9" opacity="0.25"/>
+  <circle cx="1155" cy="30" r="2.5" fill="#0ea5e9" opacity="0.25"/>
 </svg>

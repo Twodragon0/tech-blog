@@ -142,7 +142,7 @@ toc: true
 <details>
 <summary>텍스트 버전 (접근성용)</summary>
 
-```
+```text
 Zero Trust for AI Agents - NHI Management Strategy:
 1. Dynamic Secrets → Temporary credentials via Vault
 2. Auditing → All NHI activity logging & monitoring
@@ -211,7 +211,7 @@ AI가 자율적 행위자가 되면서 새로운 보안 과제가 등장:
 
 ACME 프로토콜 기반 인증서 자동화의 보안 점검 필요:
 
-```
+```json
 [ ] 경로 검증 로직 점검
 [ ] 인증서 발급 권한 최소화
 [ ] 발급 로그 모니터링

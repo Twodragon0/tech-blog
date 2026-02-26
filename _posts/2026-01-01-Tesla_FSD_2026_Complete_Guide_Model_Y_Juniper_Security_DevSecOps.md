@@ -308,7 +308,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 
 > 보조금 내역: 국고 94만원(50%감소, 5천만원 초과) + 지자체(지역별) + 전환 지원금 100만원(조건부)
 
-> **참고**: 
+> **참고**:
 > - 전환 지원금은 3년 이상 된 내연기관차 폐차/매각 후 전기차 구매 시에만 적용됩니다.
 > - Premium Long Range AWD는 5,000만원 이상이므로 국고 보조금이 50%로 감소합니다.
 
@@ -750,7 +750,7 @@ FSD 모델 업데이트 보안 프로세스는 다음 단계를 포함합니다:
 | 심각한 취약점 필터링 | `jq` (Critical/High) | 필터링된 취약점 목록 |
 | 리포트 생성 | `grype sbom.json -o table` | vulnerability_report.txt |
 
-> **참고**: 
+> **참고**:
 > - [CycloneDX](https://github.com/CycloneDX/cyclonedx-cli) - SBOM 생성 도구
 > - [Grype](https://github.com/anchore/grype) - 취약점 스캐너
 > - [SPDX Specification](https://spdx.dev/) - SBOM 표준 스펙

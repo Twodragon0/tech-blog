@@ -322,7 +322,7 @@ jobs:
           script: |
             const report = require('./security-report.json');
             // PR에 보안 리뷰 결과 코멘트
-```
+```markdown
 
 ### 3.2 Shift-Left Security 구현
 
@@ -332,13 +332,15 @@ Claude Code를 활용한 Shift-Left Security는 **코드 작성 시점에서 보
 > # Pre-commit hook으로 Claude Code 보안 검사 실행...
 > ```
 
+> ```bash
 > ```
 
 
 #### Batch API (50% 할인)
 
-비실시간 작업(코드 분석, 보안 스캔 등)에는 [Batch API](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing)를 활용하면 50% 할인을 받을 수 있습니다:
+비실시간 작업(코드 분析, 보안 스캔 등)에는 [Batch API](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing)를 활용하면 50% 할인을 받을 수 있습니다:
 
+> ```bash
 > ```
 
 
@@ -440,3 +442,5 @@ AI 도구의 비용 관리가 자동화되고 있습니다:
 ---
 
 **다음 포스트 예고:** Claude Code 실전 활용 - oh-my-claudecode 플러그인으로 생산성 5배 향상하기
+
+```
