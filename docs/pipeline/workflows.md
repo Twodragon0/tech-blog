@@ -145,8 +145,8 @@ env:
 - Vercel 체크는 기본 비활성 (`RUN_VERCEL_CHECKS=false`)
 
 ### Slack 연동
-- OpenClaw Gateway 사용
-- Secrets: `OPENCLAW_GATEWAY_URL`, `OPENCLAW_GATEWAY_TOKEN`, `SLACK_CHANNEL_ID_OPS`
+- AI Gateway 사용
+- Secrets: `AI_GATEWAY_URL`, `AI_GATEWAY_TOKEN`, `SLACK_CHANNEL_ID_OPS`
 
 ---
 
@@ -166,8 +166,8 @@ env:
 - Vercel 체크는 기본 비활성 (`RUN_VERCEL_CHECKS=false`)
 
 ### Slack 연동
-- OpenClaw Gateway 사용
-- Secrets: `OPENCLAW_GATEWAY_URL`, `OPENCLAW_GATEWAY_TOKEN`, `SLACK_CHANNEL_ID_OPS`
+- AI Gateway 사용
+- Secrets: `AI_GATEWAY_URL`, `AI_GATEWAY_TOKEN`, `SLACK_CHANNEL_ID_OPS`
 
 ---
 

@@ -600,46 +600,6 @@ def generate_risk_scorecard(
     return scorecard
 
 
-def generate_executive_dashboard(
-    news_items: List[Dict], report_date: Optional[datetime] = None
-) -> str:
-    """경영진 대시보드 ASCII art
-
-    Args:
-        news_items: 뉴스 아이템 리스트
-
-    Returns:
-        대시보드 문자열
-    """
-    critical_count = len(
-        [n for n in news_items if _determine_severity(n) == "Critical"]
-    )
-    high_count = len([n for n in news_items if _determine_severity(n) == "High"])
-    medium_count = len([n for n in news_items if _determine_severity(n) == "Medium"])
-
-    report_date = report_date or datetime.now(timezone.utc)
-    return f"""```
-+================================================================+
-|        보안 현황 대시보드 - {report_date.strftime("%Y년 %m월 %d일")}                         |
-+================================================================+
-|                                                                |
-|  [위협 현황]              [패치 현황]         [컴플라이언스]       |
-|  +-----------+           +-----------+      +-----------+      |
-|  | Critical {critical_count}|           | 적용필요 {critical_count}|      | 적합   3  |      |
-|  | High     {high_count}|           | 평가중  {high_count} |      | 검토중  2 |      |
-|  | Medium   {medium_count}|           | 정보참고 1|      | 미대응  0 |      |
-|  +-----------+           +-----------+      +-----------+      |
-|                                                                |
-|  [MTTR 목표]              [금주 KPI]                            |
-|  Critical: < 4시간        탐지율: 90%                           |
-|  High:     < 24시간       오탐률: 8%                            |
-|  Medium:   < 7일          패치 적용률: 50%                      |
-|                           SIEM 룰 커버리지: 85%                 |
-|                                                                |
-+================================================================+
-```"""
-
-
 def extract_cve_id(title: str, summary: str) -> Optional[str]:
     """CVE ID 추출
 
@@ -879,18 +839,6 @@ toc: true
 ### 위험 스코어카드
 
 {generate_risk_scorecard(news_items, date)}
-
-### 경영진 대시보드
-
-{generate_executive_dashboard(news_items, date)}
-
-### 이사회 보고 포인트
-
-| 항목 | 내용 | 조치 상태 |
-|------|------|----------|
-| **주요 위협** | Critical: {len([n for n in news_items if _determine_severity(n) == "Critical"])}건, High: {len([n for n in news_items if _determine_severity(n) == "High"])}건 | 대응 진행 중 |
-| **패치 적용** | 긴급 패치 대상 시스템 식별 완료 | 검토 필요 |
-| **규제 대응** | 보안 정책 및 컴플라이언스 점검 | 정상 |
 
 ---
 

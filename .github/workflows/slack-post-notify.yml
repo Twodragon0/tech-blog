@@ -1,7 +1,7 @@
 name: Slack Post Notification
 
 # 새 포스트가 push되면 Slack으로 알림 전송
-# OpenClaw AI Gateway 또는 Incoming Webhook을 통해 전송
+# AI Gateway 또는 Incoming Webhook을 통해 전송
 
 on:
   push:
@@ -54,19 +54,19 @@ jobs:
           echo "count=$POST_COUNT" >> "$GITHUB_OUTPUT"
           python3 scripts/build_slack_post_message.py "$NEW_POSTS" >> "$GITHUB_OUTPUT"
 
-      - name: Post to Slack via OpenClaw Gateway
+      - name: Post to Slack via AI Gateway
         if: steps.posts.outputs.has_posts == 'true'
         env:
-          OPENCLAW_GATEWAY_URL: ${{ secrets.OPENCLAW_GATEWAY_URL }}
-          OPENCLAW_GATEWAY_TOKEN: ${{ secrets.OPENCLAW_GATEWAY_TOKEN }}
+          AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
           SLACK_CHANNEL_ID_DEV: ${{ secrets.SLACK_CHANNEL_ID_DEV }}
           SLACK_CHANNEL_ID_SECURITY: ${{ secrets.SLACK_CHANNEL_ID_SECURITY }}
           MESSAGE: ${{ steps.posts.outputs.message }}
         shell: bash
         run: |
           set -euo pipefail
-          if [ -z "${OPENCLAW_GATEWAY_URL:-}" ] || [ -z "${OPENCLAW_GATEWAY_TOKEN:-}" ]; then
-            echo "OpenClaw Gateway config not set, skipping"
+          if [ -z "${AI_GATEWAY_URL:-}" ] || [ -z "${AI_GATEWAY_TOKEN:-}" ]; then
+            echo "AI Gateway config not set, skipping"
             exit 0
           fi
           channels=()
@@ -82,7 +82,7 @@ jobs:
           fi
           for target in "${channels[@]}"; do
             payload=$(TARGET="$target" python3 -c 'import json,os; message=os.environ.get("MESSAGE",""); target=os.environ.get("TARGET", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":target,"message":message}}; print(json.dumps(payload, ensure_ascii=False))')
-            HTTP_STATUS=$(curl -sS -o /tmp/slack_resp.txt -w "%{http_code}" "${OPENCLAW_GATEWAY_URL}/tools/invoke" -H "Authorization: Bearer ${OPENCLAW_GATEWAY_TOKEN}" -H "Content-Type: application/json" -d "$payload")
+            HTTP_STATUS=$(curl -sS -o /tmp/slack_resp.txt -w "%{http_code}" "${AI_GATEWAY_URL}/tools/invoke" -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" -H "Content-Type: application/json" -d "$payload")
             echo "Slack response for ${target}: $HTTP_STATUS"
             if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
               echo "Slack notification sent successfully to ${target}"
@@ -102,4 +102,4 @@ jobs:
             echo "SLACK_WEBHOOK not configured, skipping fallback"
             exit 0
           fi
-          echo "Webhook fallback: OpenClaw Gateway is primary, webhook is optional"
+          echo "Webhook fallback: AI Gateway is primary, webhook is optional"

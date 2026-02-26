@@ -48,18 +48,6 @@ schema_type: Article
 
 ### 위험 스코어카드
 
-### 경영진 대시보드
-
-<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
-
-### 이사회 보고 포인트
-
-| 항목 | 내용 | 조치 상태 |
-|------|------|----------|
-| **주요 위협** | Critical: 2건, High: 1건 | 대응 진행 중 |
-| **패치 적용** | 긴급 패치 대상 시스템 식별 완료 | 검토 필요 |
-| **규제 대응** | 보안 정책 및 컴플라이언스 점검 | 정상 |
-
 ---
 
 ## 서론
@@ -100,7 +88,6 @@ schema_type: Article
 
 Cybersecurity researchers disclosed they have detected a case of an information stealer infection successfully exfiltrating a victim's AI (formerly Clawdbot and Moltbot) configuration environment. "This finding marks a significant milestone in the evolution of infostealer behavior: the transition from stealing browser credentials to harvesting the 'souls' and identities of personal AI [
 
-> **출처**: [The Hacker News](https://thehackernews.com/2026/02/infostealer-steals-openclaw-ai-agent.html)
 
 #### 핵심 포인트
 

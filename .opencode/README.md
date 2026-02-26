@@ -129,7 +129,7 @@ Generate missing post images.
 **Completion Promise**: `IMAGES_GENERATED`
 
 ### `/ultrawork-loop`
-Continuous ops loop with OpenClaw + Slack integration.
+Continuous ops loop with AI Gateway + Slack integration.
 
 **Completion Promise**: `ULTRAWORK_LOOP_COMPLETE`
 

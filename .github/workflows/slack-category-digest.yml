@@ -55,8 +55,8 @@ jobs:
         shell: bash
         env:
           TARGET_CHANNEL_ALIAS: ${{ matrix.channel_alias }}
-          OPENCLAW_GATEWAY_URL: ${{ secrets.OPENCLAW_GATEWAY_URL }}
-          OPENCLAW_GATEWAY_TOKEN: ${{ secrets.OPENCLAW_GATEWAY_TOKEN }}
+          AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
           SLACK_CHANNEL_ID_SECURITY: ${{ secrets.SLACK_CHANNEL_ID_SECURITY }}
           SLACK_CHANNEL_ID_DEV: ${{ secrets.SLACK_CHANNEL_ID_DEV }}
           SLACK_CHANNEL_ID_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
@@ -80,11 +80,11 @@ jobs:
               ;;
           esac
 
-          if [ -z "$OPENCLAW_GATEWAY_URL" ]; then
+          if [ -z "$AI_GATEWAY_URL" ]; then
             echo "No AI gateway URL; skip post"
             can_post=false
           fi
-          if [ -z "$OPENCLAW_GATEWAY_TOKEN" ]; then
+          if [ -z "$AI_GATEWAY_TOKEN" ]; then
             echo "No AI gateway token; skip post"
             can_post=false
           fi
@@ -94,8 +94,8 @@ jobs:
           fi
           echo "can_post=$can_post" >> "$GITHUB_OUTPUT"
           echo "channel_id=$channel_id" >> "$GITHUB_OUTPUT"
-          echo "gateway_url=$OPENCLAW_GATEWAY_URL" >> "$GITHUB_OUTPUT"
-          echo "gateway_token=$OPENCLAW_GATEWAY_TOKEN" >> "$GITHUB_OUTPUT"
+          echo "gateway_url=$AI_GATEWAY_URL" >> "$GITHUB_OUTPUT"
+          echo "gateway_token=$AI_GATEWAY_TOKEN" >> "$GITHUB_OUTPUT"
 
       - name: Post to Slack via AI Gateway
         if: steps.digest.outputs.has_message == 'true' && steps.ai-config.outputs.can_post == 'true'

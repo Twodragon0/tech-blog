@@ -98,8 +98,8 @@
       "model": "anthropic/claude-opus-4-5"
     },
     "ultrawork-loop": {
-      "description": "Ultrawork Loop: continuous ops checks and prioritization with OpenClaw + Slack",
-      "template": "Follow the workflow in .opencode/commands/ultrawork-loop.md. Run scripts/ops_health_orchestrator.py to generate the priority summary, validate logs, and post to Slack via OpenClaw gateway if configured. Keep the loop focused on priorities and actionable fixes. Output <promise>ULTRAWORK_LOOP_COMPLETE</promise> when complete.",
+      "description": "Ultrawork Loop: continuous ops checks and prioritization with AI Gateway + Slack",
+      "template": "Follow the workflow in .opencode/commands/ultrawork-loop.md. Run scripts/ops_health_orchestrator.py to generate the priority summary, validate logs, and post to Slack via AI gateway if configured. Keep the loop focused on priorities and actionable fixes. Output <promise>ULTRAWORK_LOOP_COMPLETE</promise> when complete.",
       "agent": "primary",
       "model": "anthropic/claude-opus-4-5"
     },
@@ -111,7 +111,7 @@
     },
     "ops-roundtable": {
       "description": "Run multi-agent ops/security/uiux roundtable with auto-recovery",
-      "template": "Run python3 scripts/ops_health_orchestrator.py --auto-recover-gha. Treat checks as three reviewers: OpsAgent (lint, Vercel, GitHub Actions), SecurityAgent (Sentry), UiUxAgent (performance). Synthesize decisions as Moderator with prioritized action list and continue until no unresolved P0/P1 items remain. Post summary using OpenClaw Slack gateway if configured. Output <promise>OPS_ROUNDTABLE_COMPLETE</promise> when complete.",
+      "template": "Run python3 scripts/ops_health_orchestrator.py --auto-recover-gha. Treat checks as three reviewers: OpsAgent (lint, Vercel, GitHub Actions), SecurityAgent (Sentry), UiUxAgent (performance). Synthesize decisions as Moderator with prioritized action list and continue until no unresolved P0/P1 items remain. Post summary using AI Gateway Slack gateway if configured. Output <promise>OPS_ROUNDTABLE_COMPLETE</promise> when complete.",
       "agent": "primary",
       "model": "anthropic/claude-opus-4-5"
     },

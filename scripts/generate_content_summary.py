@@ -428,8 +428,6 @@ def _section_to_english(text: str, post_info: Dict) -> str:
         "핵심 포인트": "Key Points",
         "빠른 참조": "Quick Reference",
         "포스팅 요약": "Post Summary",
-        "이사회 보고 포인트": "Board Report",
-        "경영진 대시보드": "Executive Dashboard",
         "위험 스코어카드": "Risk Scorecard",
     }
     for kr, en in kr_to_en.items():
