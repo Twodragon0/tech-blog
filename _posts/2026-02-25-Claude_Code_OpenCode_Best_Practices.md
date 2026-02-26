@@ -110,7 +110,6 @@ toc: true
 ### BP-01. 필수 환경 변수 3가지
 
 ```json
-// ~/.claude/settings.json
 {
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
@@ -129,14 +128,12 @@ toc: true
 ### BP-02. 권한은 넓게, 보안이 필요하면 Sandbox로
 
 ```json
-// 개발 환경 - 빠른 작업에 최적
 {
   "permissions": {
     "allow": [
       "Bash(*)", "Edit(*)", "Write(*)", "NotebookEdit(*)",
-      "WebFetch(*)", "WebSearch(*)",
-      "mcp__playwright__*", "mcp__filesystem__*",
-      "mcp__context7__*"
+      "WebFetch(*)", "WebSearch(*)", "mcp__playwright__*",
+      "mcp__filesystem__*", "mcp__context7__*"
     ]
   }
 }
@@ -287,21 +284,12 @@ See @README.md for project overview and @package.json for available npm commands
 
 ### BP-13. 풍부한 입력 활용
 
-```bash
-# 파일 직접 참조 (경로 설명 대신)
-@src/auth/handler.ts
-
-# 이미지 붙여넣기 (복사/붙여넣기, 드래그 앤 드롭)
-
-# 에러 로그 파이프
-cat error.log | claude
-
-# URL로 문서 제공
-> 이 API 문서를 참고해서 구현해: https://docs.anthropic.com/en/docs/claude-code/overview
-
-# Claude가 직접 조회하게
-> gh issue view 123 의 내용을 읽고 해결해
-```
+예시:
+- 파일 직접 참조: `@src/auth/handler.ts`
+- 이미지 붙여넣기: 복사/붙여넣기 또는 드래그 앤 드롭
+- 에러 로그 파이프: `cat error.log | claude`
+- URL로 문서 제공: `이 API 문서를 참고해서 구현해: https://docs.anthropic.com/en/docs/claude-code/overview`
+- 직접 조회 지시: `gh issue view 123 의 내용을 읽고 해결해`
 
 ### BP-14. 역할 설정 대신 작업을 명확히 (Opus 4.6)
 
@@ -334,20 +322,10 @@ Opus 4.6은 역할 프롬프트 없이도 맥락을 파악합니다. 범위, 제
 
 ### BP-16. 탐색 - 계획 - 구현 - 커밋 (공식 4단계)
 
-```
-1. 탐색 (Plan Mode: Ctrl+G)
-   "src/auth를 읽고 세션과 로그인 처리 방식을 이해해"
-
-2. 계획 (Plan Mode)
-   "Google OAuth 추가하려면 어떤 파일 변경? 계획 만들어"
-   → Ctrl+G로 계획을 에디터에서 직접 편집 가능
-
-3. 구현 (Normal Mode)
-   "계획대로 구현해. 콜백 핸들러 테스트 작성하고 실행해"
-
-4. 커밋
-   "설명적 커밋 메시지로 커밋하고 PR 열어"
-```
+1. 탐색 (Plan Mode: Ctrl+G): "src/auth를 읽고 세션과 로그인 처리 방식을 이해해"
+2. 계획 (Plan Mode): "Google OAuth 추가하려면 어떤 파일 변경? 계획 만들어" → Ctrl+G로 계획을 에디터에서 직접 편집
+3. 구현 (Normal Mode): "계획대로 구현해. 콜백 핸들러 테스트 작성하고 실행해"
+4. 커밋: "설명적 커밋 메시지로 커밋하고 PR 열어"
 
 > **Tip**: 범위가 명확하고 작은 수정이면 (오타, 로그 추가, 변수명 변경) 계획을 건너뛰세요. 계획은 **접근법이 불확실하거나, 여러 파일 수정이거나, 코드에 익숙하지 않을 때** 유용합니다.
 
@@ -381,32 +359,18 @@ Opus 4.6은 역할 프롬프트 없이도 맥락을 파악합니다. 범위, 제
 
 ### BP-19. 에이전트 비용 최적화 (모델 라우팅)
 
-```
-비용 효율 피라미드:
-
-        ┌────────┐
-        │  Opus  │  ← 아키텍처 설계, 보안 리뷰, 복잡한 디버깅만
-        │ (고비용) │
-       ┌┴────────┴┐
-       │  Sonnet  │  ← 코드 구현, 리뷰, 테스트 (표준 작업)
-       │ (중비용)  │
-      ┌┴──────────┴┐
-      │   Haiku    │  ← 파일 탐색, 간단한 조회, 문서 작성
-      │  (저비용)   │
-      └────────────┘
-```
+| 계층 | 모델 | 주 사용처 |
+|------|------|-----------|
+| 고비용 | Opus | 아키텍처 설계, 보안 리뷰, 복잡한 디버깅 |
+| 중비용 | Sonnet | 코드 구현, 리뷰, 테스트 |
+| 저비용 | Haiku | 파일 탐색, 간단 조회, 문서 작성 |
 
 자동 라우팅 원칙:
-
-```json
-{
-  "quick-lookup": "haiku",
-  "standard-work": "sonnet",
-  "complex-reasoning": "opus",
-  "security-review": "opus",
-  "code-review": "sonnet"
-}
-```
+- quick-lookup → haiku
+- standard-work → sonnet
+- complex-reasoning → opus
+- security-review → opus
+- code-review → sonnet
 
 ---
 
@@ -572,7 +536,6 @@ description: REST API design conventions
 ---
 - Use kebab-case for URL paths
 - Use camelCase for JSON properties
-- Always include pagination for list endpoints
 ```
 
 반복 가능한 워크플로우도 Skill로 정의:
@@ -584,11 +547,7 @@ name: fix-issue
 description: Fix a GitHub issue
 disable-model-invocation: true
 ---
-1. `gh issue view` → 이슈 상세 확인
-2. 코드베이스에서 관련 파일 검색
-3. 수정 구현
-4. 테스트 작성 및 실행
-5. 커밋 후 PR 생성
+1. `gh issue view` → 관련 파일 검색 → 수정 → 테스트 → PR
 ```
 
 ```bash
@@ -601,28 +560,13 @@ disable-model-invocation: true
 
 ### BP-32. 작업에 따라 도구 선택
 
-```
-┌─────────────────────────────────────────┐
-│         작업 유형별 도구 선택               │
-├─────────────────────────────────────────┤
-│                                         │
-│  복잡한 코딩/아키텍처  → Claude Code      │
-│    (Opus 4.6 + 에이전트 팀)              │
-│                                         │
-│  빠른 코드 생성       → OpenCode         │
-│    (Gemini Flash / GPT Codex)           │
-│                                         │
-│  대용량 컨텍스트      → OpenCode         │
-│    (1M 토큰 컨텍스트)                    │
-│                                         │
-│  보안/품질 리뷰       → Claude Code      │
-│    (Opus + security-reviewer)           │
-│                                         │
-│  UI/UX 개발          → 둘 다 활용        │
-│    Claude: designer + OpenCode: Gemini  │
-│                                         │
-└─────────────────────────────────────────┘
-```
+| 작업 유형 | 추천 도구 | 이유 |
+|----------|-----------|------|
+| 복잡한 코딩/아키텍처 | Claude Code | Opus + 에이전트 팀으로 정교한 설계 가능 |
+| 빠른 코드 생성 | OpenCode | 저비용 모델로 빠른 생성 |
+| 대용량 컨텍스트 | OpenCode | 1M 토큰 컨텍스트 활용 |
+| 보안/품질 리뷰 | Claude Code | 보안 리뷰 패턴에 강점 |
+| UI/UX 개발 | 둘 다 활용 | Claude 설계 + OpenCode 생성 병행 |
 
 ### BP-33. OpenCode 에이전트 역할 분담
 
@@ -652,19 +596,11 @@ disable-model-invocation: true
 
 ### BP-35. Headless 모드로 CI/스크립트 통합
 
-```bash
-# 일회성 쿼리
-claude -p "이 프로젝트가 무엇을 하는지 설명해"
-
-# 구조화된 출력 (스크립트 파싱용)
-claude -p "모든 API 엔드포인트를 나열해" --output-format json
-
-# 실시간 스트리밍
-claude -p "이 로그 파일을 분석해" --output-format stream-json
-
-# 파이프라인 연결
-claude -p "<프롬프트>" --output-format json | your_command
-```
+예시:
+- 일회성 쿼리: `claude -p "이 프로젝트가 무엇을 하는지 설명해"`
+- 구조화된 출력: `claude -p "모든 API 엔드포인트를 나열해" --output-format json`
+- 실시간 스트리밍: `claude -p "이 로그 파일을 분석해" --output-format stream-json`
+- 파이프라인 연결: `claude -p "<프롬프트>" --output-format json | your_command`
 
 ### BP-36. Writer/Reviewer 패턴으로 품질 향상
 
@@ -681,18 +617,10 @@ claude -p "<프롬프트>" --output-format json | your_command
 
 ### BP-37. 대규모 Fan-out 패턴
 
-```bash
-# 1. 작업 목록 생성
-claude -p "마이그레이션 필요한 파일 목록을 files.txt에 작성해"
-
-# 2. 병렬 처리
-for file in $(cat files.txt); do
-  claude -p "Migrate $file to TypeScript. Return OK or FAIL." \
-    --allowedTools "Edit,Bash(npx tsc *)"
-done
-
-# 3. 2-3개로 먼저 테스트 → 프롬프트 조정 → 전체 실행
-```
+권장 흐름:
+1. 작업 목록 파일 생성
+2. 파일 목록 기준으로 병렬 실행
+3. 2~3개로 먼저 테스트 → 프롬프트 조정 → 전체 실행
 
 ### BP-38. 팀 프리셋으로 반복 워크플로우 자동화
 
