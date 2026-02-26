@@ -71,9 +71,6 @@ toc: true
 ### TL;DR - 위험 스코어카드
 
 
-**2. GPO를 통한 finger.exe 차단**: 전체 GPO 설정은 [GitHub Gist](https://gist.https://github.com/block-finger-gpo)에서 확인
-
-
 #### 핵심 포인트
 
 | 항목 | 내용 |
@@ -107,9 +104,6 @@ GitHubAuditLog
 | project TimeGenerated, ActorLogin, Action, Repository, OperationType
 | order by TimeGenerated desc
 ```
-
-**ELK Query DSL**: 전체 쿼리는 [GitHub Gist](https://gist.https://github.com/byovd-elk-query)에서 확인
-
 
 #### 즉시 조치 사항
 
@@ -300,8 +294,6 @@ CrashFix 캠페인과 같은 다단계 소셜 엔지니어링 공격은 단순 I
 
 #### SOAR 자동화 워크플로우
 
-
-**전체 SOAR 플레이북 코드**: [GitHub Gist](https://gist.https://github.com/crashfix-soar-playbook)에서 확인
 
 #### 실무 적용 포인트
 
