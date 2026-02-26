@@ -35,14 +35,6 @@ schema_type: Article
 toc: true
 ---
 
-## 요약
-
-- **핵심 요약**: Claude Code와 OpenCode의 38가지 Best Practice를 정리한 실전 가이드. Anthropic 공식 문서와 실무 경험을 종합하여 환경 설정, CLAUDE.md 작성법, 프롬프팅 전략, 에이전트 팀 운영, 자동화까지 다룹니다.
-- **주요 주제**: Claude Code & OpenCode Best Practices: 38가지 실전 가이드
-- **키워드**: Claude-Code, OpenCode, Best-Practices, AI-Agent, Agent-Teams, MCP, Prompt-Engineering
-
----
-
 {% include ai-summary-card.html
   title='Claude Code & OpenCode Best Practices: 38가지 실전 가이드'
   categories_html='<span class="category-tag devops">DevOps</span> <span class="category-tag tech">AI Coding</span>'

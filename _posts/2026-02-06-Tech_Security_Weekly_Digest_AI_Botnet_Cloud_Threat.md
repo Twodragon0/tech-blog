@@ -60,14 +60,6 @@ toc: true
   audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
 %}
 
-## 요약
-
-- **핵심 요약**: 2026년 02월 06일 주요 보안/기술 뉴스 27건 - CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD, Claude Opus 4.6
-- **주요 주제**: Tech & Security Weekly Digest: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE
-- **키워드**: Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026
-
----
-
 <figure>
   <img src="{{ '/assets/images/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat.png' | relative_url }}" alt="Tech Security Weekly Digest February 06 2026 AI Botnet Cloud" loading="lazy" class="post-image">
   <figcaption>그림 1: 2월 6일 보안 위협 요약 - CrashFix RAT, 대규모 DDoS, DevSecOps 공급망 리스크</figcaption>
@@ -471,16 +463,3 @@ AISURU/Kimwolf 봇넷의 31.4 Tbps 공격이 시사하는 바와 같이, 단일 
 ---
 
 **작성자**: Twodragon
-
-<!-- priority-quality-korean:v1 -->
-## 우선순위 기반 고도화 메모
-| 구분 | 현재 상태 | 목표 상태 | 우선순위 |
-|---|---|---|---|
-| 콘텐츠 밀도 | 점수 83 수준 | 실무 의사결정 중심 문장 강화 | P2 (단기 보강) |
-| 표/시각 자료 | 핵심 표 중심 | 비교/의사결정 표 추가 | P2 |
-| 실행 항목 | 체크리스트 중심 | 역할/기한/증적 기준 명시 | P1 |
-
-### 이번 라운드 개선 포인트
-- 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
-- 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
-- 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.

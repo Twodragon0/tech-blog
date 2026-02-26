@@ -55,14 +55,6 @@ title: 'Tech & Security Weekly Digest: Microsoft BitLocker FBI 키 제공, Cloud
 toc: true
 ---
 
-## 요약
-
-- **핵심 요약**: BitLocker FBI 키 제공 논란, Cloudflare BGP Route Leak, CNCF 자율 기업 4대 제어, Docker 2026
-- **주요 주제**: Tech & Security Weekly Digest: Microsoft BitLocker FBI 키 제공, Cloudflare Route Leak, 자율 기업 2026 전망
-- **키워드**: Security-Weekly, BitLocker, FBI, Encryption, Route-Leak
-
----
-
 <div class="ai-summary-card">
 <div class="ai-summary-header">
   <span class="ai-badge">AI 요약</span>
@@ -654,16 +646,3 @@ User Request → Planning Agent (Task Decomposition)
 ---
 
 **면책 조항**: 이 포스팅은 교육 및 정보 제공 목적으로 작성되었습니다. 실제 운영 환경에 적용 시 조직의 보안 정책과 법적 요구사항을 반드시 확인하시기 바랍니다.
-
-<!-- priority-quality-korean:v1 -->
-## 우선순위 기반 고도화 메모
-| 구분 | 현재 상태 | 목표 상태 | 우선순위 |
-|---|---|---|---|
-| 콘텐츠 밀도 | 점수 74 수준 | 실무 의사결정 중심 문장 강화 | P1 (즉시 보강) |
-| 표/시각 자료 | 핵심 표 중심 | 비교/의사결정 표 추가 | P2 |
-| 실행 항목 | 체크리스트 중심 | 역할/기한/증적 기준 명시 | P1 |
-
-### 이번 라운드 개선 포인트
-- 핵심 위협과 비즈니스 영향의 연결 문장을 강화해 의사결정 맥락을 명확히 했습니다.
-- 운영팀이 바로 실행할 수 있도록 우선순위(P0/P1/P2)와 검증 포인트를 정리했습니다.
-- 후속 업데이트 시에는 실제 지표(MTTR, 패치 리드타임, 재발률)를 반영해 정량성을 높입니다.
