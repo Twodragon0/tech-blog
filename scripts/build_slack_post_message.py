@@ -19,7 +19,17 @@ from pathlib import Path
 
 import yaml
 
-SITE_URL = os.environ.get("SITE_URL", "https://tech.2twodragon.com")
+
+def _normalize_site_url(url: str) -> str:
+    value = (url or "").strip().rstrip("/")
+    if "twodragon0.github.io/tech-blog" in value:
+        return "https://tech.2twodragon.com"
+    return value or "https://tech.2twodragon.com"
+
+
+SITE_URL = _normalize_site_url(
+    os.environ.get("SITE_URL", "https://tech.2twodragon.com")
+)
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 

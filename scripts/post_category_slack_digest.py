@@ -50,6 +50,13 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def normalize_site_url(url: str) -> str:
+    value = (url or "").strip().rstrip("/")
+    if "twodragon0.github.io/tech-blog" in value:
+        return DEFAULT_SITE_URL
+    return value or DEFAULT_SITE_URL
+
+
 def parse_post_date(value: Optional[str]) -> Optional[datetime]:
     if not value:
         return None
@@ -96,6 +103,7 @@ def normalize_categories(raw: object) -> List[str]:
 def build_digest(
     window_hours: int, site_url: str, categories: List[str]
 ) -> List[Tuple[str, str]]:
+    site_url = normalize_site_url(site_url)
     now = datetime.now(timezone.utc)
     window_start = now - timedelta(hours=window_hours)
     digest: List[Tuple[str, str]] = []
@@ -131,7 +139,9 @@ def main() -> None:
     args = parse_args()
     alias = args.channel_alias
     categories = ALIAS_CATEGORIES[alias]
-    digest = build_digest(args.window_hours, args.site_url, categories)
+    digest = build_digest(
+        args.window_hours, normalize_site_url(args.site_url), categories
+    )
     if not digest:
         return
     message = build_message(alias, digest, args.window_hours)
