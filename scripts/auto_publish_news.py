@@ -758,8 +758,8 @@ def generate_post_content(
     ai_news = categorized.get("ai", [])[:3]
     cloud_news = categorized.get("cloud", [])[:3]
     devops_news = categorized.get("devops", [])[:3]
-    blockchain_news = categorized.get("blockchain", [])[:2]
-    tech_news = categorized.get("tech", [])[:2]
+    blockchain_news = categorized.get("blockchain", [])[:3]
+    tech_news = categorized.get("tech", [])[:3]
 
     # 핵심 하이라이트 생성
     highlights = []
@@ -832,14 +832,6 @@ toc: true
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}}
 
-## Executive Summary
-
-{date_str} 기준 보안 현황 및 위협 분석입니다.
-
-### 위험 스코어카드
-
-{generate_risk_scorecard(news_items, date)}
-
 ---
 
 ## 서론
@@ -866,17 +858,28 @@ toc: true
 |------|------|----------|--------|
 '''
 
-    # 하이라이트 테이블 생성
-    for item in news_items[:5]:
-        source = item.get("source_name", item.get("source", "Unknown"))[:15]
-        title = _korean_display_title(item, max_len=50)
+    # 하이라이트 테이블 생성 (주요 섹션 포괄)
+    highlight_items = []
+    for cat_items in [security_news, ai_news, cloud_news, devops_news, blockchain_news, tech_news]:
+        for it in cat_items:
+            if it not in highlight_items:
+                highlight_items.append(it)
+    for item in highlight_items[:10]:
+        source = item.get("source_name", item.get("source", "Unknown"))[:20]
+        title = _korean_display_title(item, max_len=60)
         category = item.get("category", "tech")
         emoji = CATEGORY_EMOJI.get(category, "📰")
+        # Category display name mapping
+        cat_display = {
+            "security": "Security", "devsecops": "DevSecOps", "ai": "AI/ML",
+            "cloud": "Cloud", "devops": "DevOps", "blockchain": "Blockchain",
+            "tech": "Tech", "kubernetes": "K8s", "finops": "FinOps",
+        }.get(category, category.title())
         severity = _determine_severity(item)
         severity_emoji = {"Critical": "🔴", "High": "🟠", "Medium": "🟡"}.get(
             severity, "🟡"
         )
-        content += f"| {emoji} **{category.title()}** | {source} | {title}... | {severity_emoji} {severity} |\n"
+        content += f"| {emoji} **{cat_display}** | {source} | {title} | {severity_emoji} {severity} |\n"
 
     content += "\n---\n\n"
 
@@ -1657,7 +1660,7 @@ def generate_news_section(
     elif category == "ai":
         section += _generate_ai_analysis_template(item)
     elif category in ("cloud", "devops", "kubernetes"):
-        section += _generate_devops_template()
+        section += _generate_devops_template(item)
 
     section += "\n---\n\n"
     return section
@@ -1746,7 +1749,7 @@ def _generate_security_brief_template(item: Optional[Dict] = None) -> str:
     """보안 뉴스 간략 분석 템플릿 - 토픽별 맞춤 조언 제공"""
     if item is None:
         return """
-#### 실무 영향
+#### 권장 조치
 
 - 관련 시스템 목록 확인
 - 보안 담당자는 원문을 검토하여 자사 환경 해당 여부를 확인하시기 바랍니다
@@ -1760,7 +1763,7 @@ def _generate_security_brief_template(item: Optional[Dict] = None) -> str:
     # Ransomware-related advice
     if any(kw in text for kw in ["ransomware", "랜섬웨어", "ransom", "encrypt"]):
         return """
-#### 실무 영향
+#### 권장 조치
 
 - 백업 시스템 정상 동작 여부 즉시 검증 (오프라인 백업 포함)
 - 인시던트 대응 플레이북 점검 및 랜섬웨어 시나리오 확인
@@ -1785,7 +1788,7 @@ def _generate_security_brief_template(item: Optional[Dict] = None) -> str:
         ]
     ):
         return """
-#### 실무 영향
+#### 권장 조치
 
 - 관련 시스템의 인증 정보(Credential) 즉시 로테이션 검토
 - MFA(다중 인증) 적용 현황 점검 및 미적용 시스템 식별
@@ -1809,7 +1812,7 @@ def _generate_security_brief_template(item: Optional[Dict] = None) -> str:
         ]
     ):
         return """
-#### 실무 영향
+#### 권장 조치
 
 - 의존성 감사(dependency audit) 즉시 실행: `npm audit`, `pip audit`, `bundle audit`
 - SBOM(Software Bill of Materials) 최신 상태 확인
@@ -1820,7 +1823,7 @@ def _generate_security_brief_template(item: Optional[Dict] = None) -> str:
 
     # Default: improved generic with "관련 시스템 목록 확인" as first item
     return """
-#### 실무 영향
+#### 권장 조치
 
 - 관련 시스템 목록 확인
 - 보안 담당자는 원문을 검토하여 자사 환경 해당 여부를 확인하시기 바랍니다
@@ -1835,25 +1838,29 @@ def _generate_ai_analysis_template(item: Dict) -> str:
     title = item.get("title", "")
     summary = item.get("summary", "")
 
-    template = """
-#### AI/ML 보안 영향 분석
+    text = f"{title} {summary}".lower()
 
-- **모델 보안**: AI 모델 무결성 및 적대적 공격 대응 현황 점검
-- **데이터 보안**: 학습 데이터 및 추론 파이프라인 보안 검토 필요
-- **거버넌스**: AI 모델 배포 전 보안 평가 체크리스트 확인
+    template = "\n#### 실무 적용 포인트\n\n"
+    if any(kw in text for kw in ["agent", "에이전트", "agentic"]):
+        template += "- AI 에이전트 도구 호출 권한 및 접근 범위 최소화 설계\n"
+        template += "- 에이전트 행동 로깅 및 감사 파이프라인 구축 검토\n"
+        template += "- 에이전트 출력에 대한 검증 및 사람 감독(Human-in-the-Loop) 설계\n"
+    elif any(kw in text for kw in ["llm", "gpt", "claude", "gemini", "model"]):
+        template += "- LLM 입출력 데이터 보안 및 프라이버시 검토\n"
+        template += "- 모델 서빙 환경의 접근 제어 및 네트워크 격리 확인\n"
+        template += "- 프롬프트 인젝션 등 적대적 공격 대응 방안 점검\n"
+    else:
+        template += "- 관련 AI/ML 기술의 자사 적용 가능성 및 보안 영향 평가\n"
+        template += "- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립\n"
+        template += "- 팀 내 기술 동향 공유 및 도입 로드맵 논의\n"
 
-#### 실무 적용
-
-- AI/ML 파이프라인 보안 점검 항목 검토
-- 모델 입출력 검증 로직 추가 검토
-- AI 거버넌스 프레임워크 대비 현황 점검
-
-"""
+    template += "\n"
     return template
 
 
-def _generate_devops_template() -> str:
-    return """
+def _generate_devops_template(item: Optional[Dict] = None) -> str:
+    if item is None:
+        return """
 #### 실무 적용 포인트
 
 - 기존 인프라/운영 환경과의 호환성 및 영향도 검토
@@ -1861,6 +1868,25 @@ def _generate_devops_template() -> str:
 - 팀 내 기술 공유 및 도입 로드맵 논의
 
 """
+
+    text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+    template = "\n#### 실무 적용 포인트\n\n"
+
+    if any(kw in text for kw in ["docker", "container", "컨테이너"]):
+        template += "- 컨테이너 이미지 보안 스캔 및 베이스 이미지 최신화 검토\n"
+        template += "- Docker 환경에서의 네트워크 격리 및 접근 제어 설정 확인\n"
+        template += "- 컨테이너 런타임 보안 모니터링 강화\n"
+    elif any(kw in text for kw in ["kubernetes", "k8s", "kcd", "cncf"]):
+        template += "- Kubernetes 클러스터 보안 정책(PSP/PSA) 점검\n"
+        template += "- 네트워크 폴리시 및 RBAC 설정 최신화 확인\n"
+        template += "- 커뮤니티 행사 참가를 통한 최신 보안 동향 파악\n"
+    else:
+        template += "- 기존 인프라/운영 환경과의 호환성 및 영향도 검토\n"
+        template += "- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립\n"
+        template += "- 팀 내 기술 공유 및 도입 로드맵 논의\n"
+
+    template += "\n"
+    return template
 
 
 def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
@@ -1927,9 +1953,10 @@ def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
 
     for item in news_items:
         severity = _determine_severity(item)
-        title = _korean_display_title(item, max_len=60)
+        title = _korean_display_title(item, max_len=50)
         cve_ids = _extract_cve_ids(item)
         cve_str = f" ({', '.join(cve_ids[:2])})" if cve_ids else ""
+        source = item.get("source_name", "")
 
         if severity == "Critical":
             p0_items.append(f"- [ ] **{title}**{cve_str} 관련 긴급 패치 및 영향도 확인")
