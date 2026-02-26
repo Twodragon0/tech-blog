@@ -48,11 +48,11 @@ schema_type: Article
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | Citizen Lab Finds Cellebrite Tool Used on Kenyan A... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Grandstream GXP1600 VoIP Phones Exposed to Unauthe... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | Critical Flaws Found in Four VS Code Extensions wi... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | Cybersecurity Tech Predictions for 2026: Operating... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Dell RecoverPoint for VMs Zero-Day CVE-2026-22769 ... | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | 케냐 활동가 휴대폰에서 Cellebrite 포렌식 도구 사용 적발 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Grandstream GXP1600 VoIP 전화기 비인증 접근 취약점 노출 | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | VS Code 확장 프로그램 4종에서 치명적 취약점 발견 | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | 2026년 사이버보안 기술 전망: 운영 기술 보안 중심 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Dell RecoverPoint VM 제로데이 CVE-2026-22769 실제 악용 중 | 🔴 Critical |
 
 ---
 
