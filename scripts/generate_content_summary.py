@@ -410,14 +410,14 @@ def _extract_highlights(content: str) -> List[Dict[str, str]]:
 
     # Pattern 2 (new, include-based): highlights_html='<li><strong>KEY</strong>: desc</li>'
     new_match = re.search(
-        r"highlights_html\s*=\s*['\"](.+?)['\"](?:\s|\n)*(?:period|audience|%})",
-        content,
+        r"highlights_html\s*=\s*(['\"])(.+?)\1\s*(?:period|audience|%\})",
+        content[:5000],
         re.DOTALL,
     )
     if new_match and not highlights:
         items = re.findall(
             r"<li>\s*<strong>(.*?)</strong>\s*:?\s*(.*?)</li>",
-            new_match.group(1),
+            new_match.group(2),
             re.DOTALL,
         )
         for key, desc in items:
