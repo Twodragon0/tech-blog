@@ -140,8 +140,12 @@
 
     function safeUrl(url) {
       if (!url) return '#';
-      if (/^https?:\/\//i.test(url) || url.startsWith('/')) return url;
-      return '#';
+      if (url.startsWith('/')) return url;
+      try {
+        const parsed = new URL(url, window.location.origin);
+        if (parsed.protocol === 'https:' || parsed.protocol === 'http:') return url;
+        return '#';
+      } catch { return '#'; }
     }
 
     function escapeRegex(str) {
