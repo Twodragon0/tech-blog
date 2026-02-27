@@ -8,7 +8,7 @@ from pathlib import Path
 
 def validate_front_matter(content: str) -> int:
     """Front matter 완성도 (15점)"""
-    score = 0
+    score: float = 0
     required = ['title:', 'date:', 'categories:', 'tags:',
                 'excerpt:', 'description:', 'image:', 'toc:']
     for field in required:

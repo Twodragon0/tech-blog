@@ -5,12 +5,7 @@
 line-length = 88
 indent-width = 4
 
-[tool.ruff.lint]
-# E = pycodestyle errors, F = Pyflakes, W = pycodestyle warnings, I = isort
-select = ["E", "F", "W", "I"]
-ignore = []
-
-# Exclude directories from linting
+# Exclude directories from linting/formatting
 exclude = [
     ".bundle",
     ".git",
@@ -21,7 +16,13 @@ exclude = [
     "_site",
     "api", # JavaScript
     "vendor",
+    "scripts/_archive",
 ]
+
+[tool.ruff.lint]
+# E = pycodestyle errors, F = Pyflakes, W = pycodestyle warnings, I = isort
+select = ["E", "F", "W", "I"]
+ignore = []
 
 [tool.ruff.format]
 # Black-compatible formatter
@@ -39,7 +40,7 @@ exclude = [
 [tool.mypy]
 python_version = "3.8"
 ignore_missing_imports = true
-exclude = ["vendor/", "node_modules/", "_site/"]
+exclude = ["vendor/", "node_modules/", "_site/", "scripts/_archive/"]
 
 # More strict checking (can be enabled progressively)
 # disallow_untyped_defs = true
