@@ -275,13 +275,14 @@ def clean_title_for_svg(raw_title: str, image_path: str) -> str:
         return eng[:80]
 
 
-def split_title_lines(title: str, max_chars: int = 28) -> list:
+def split_title_lines(title: str, max_chars: int = 28) -> list[str]:
     """Split title into 2-3 lines for SVG display."""
     words = title.split()
-    lines = []
-    current = []
+    lines: list[str] = []
+    current: list[str] = []
     for w in words:
-        if sum(len(x) for x in current) + len(current) + len(w) <= max_chars:
+        current_len: int = sum([len(x) for x in current])
+        if current_len + len(current) + len(w) <= max_chars:
             current.append(w)
         else:
             if current:

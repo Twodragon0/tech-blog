@@ -941,7 +941,7 @@ toc: true
         ]
 
         for i, item in enumerate(regular_security, 1):
-            is_critical = i == 1  # 첫 번째 뉴스는 상세 분석
+            is_critical = i <= 3  # 상위 3개 뉴스에 AI 강화 적용
             content += generate_news_section(
                 item, f"{section_num}.{i}", is_critical=is_critical
             )
@@ -1398,8 +1398,8 @@ def _generate_tech_trend_analysis(news_items: List[Dict], section_num: int) -> s
 
 
 def _determine_severity(item: Dict) -> str:
-    """뉴스 심각도 결정"""
-    text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+    """뉴스 심각도 결정 - 확장된 키워드 기반"""
+    text = f"{item.get('title', '')} {item.get('summary', '')} {item.get('content', '')}".lower()
     critical_keywords = [
         "critical",
         "rce",
@@ -1410,6 +1410,16 @@ def _determine_severity(item: Dict) -> str:
         "cvss 10",
         "unauthenticated",
         "actively exploited",
+        "in the wild",
+        "emergency patch",
+        "긴급 패치",
+        "pre-auth",
+        "wormable",
+        "remote code execution",
+        "원격 코드 실행",
+        "ransomware attack",
+        "data breach",
+        "데이터 유출",
     ]
     high_keywords = [
         "high",
@@ -1419,6 +1429,22 @@ def _determine_severity(item: Dict) -> str:
         "인증 우회",
         "ssrf",
         "injection",
+        "supply chain",
+        "공급망",
+        "backdoor",
+        "백도어",
+        "botnet",
+        "봇넷",
+        "apt",
+        "nation-state",
+        "arbitrary code",
+        "malware",
+        "악성코드",
+        "exploit",
+        "취약점 악용",
+        "cve-202",
+        "sandbox escape",
+        "container escape",
     ]
 
     for kw in critical_keywords:
@@ -1506,14 +1532,27 @@ def _korean_display_title(item: Dict, max_len: int = 72) -> str:
         KOREAN_TITLE_CACHE[cache_key] = translated
         return translated
 
-    # Gemini 실패 시: 원문 영어 제목을 그대로 사용 (제네릭 텍스트 방지)
-    if raw_title and len(raw_title) <= max_len:
-        KOREAN_TITLE_CACHE[cache_key] = raw_title
-        return raw_title
+    # Gemini 실패 시: 간단한 규칙 기반 한국어 보조 + 영어 원문
     if raw_title:
-        truncated = raw_title[:max_len].rsplit(" ", 1)[0].rstrip(" ,.")
-        KOREAN_TITLE_CACHE[cache_key] = truncated
-        return truncated
+        # 짧은 제목은 그대로 사용
+        display_title = raw_title if len(raw_title) <= max_len else (
+            raw_title[:max_len].rsplit(" ", 1)[0].rstrip(" ,.")
+        )
+        # 카테고리 기반 한국어 접두사 추가
+        category = item.get("category", "tech")
+        category_prefix = {
+            "security": "[보안]",
+            "devsecops": "[DevSecOps]",
+            "ai": "[AI]",
+            "cloud": "[클라우드]",
+            "devops": "[DevOps]",
+            "blockchain": "[블록체인]",
+            "kubernetes": "[K8s]",
+        }.get(category, "")
+        if category_prefix and not display_title.startswith("["):
+            display_title = f"{category_prefix} {display_title}"
+        KOREAN_TITLE_CACHE[cache_key] = display_title
+        return display_title
     source_name = (
         item.get("source_name", "") or item.get("source", "해외 기술 매체")
     ).strip()
@@ -1602,7 +1641,7 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
         except Exception:
             pass
 
-    # Gemini 실패 시: 원문 영어 요약/콘텐츠를 그대로 사용 (제네릭 텍스트 방지)
+    # Gemini 실패 시: 영어 원문에 한국어 컨텍스트 보완
     raw_summary = (item.get("summary", "") or "").strip()
     raw_content = (item.get("content", "") or "").strip()
     raw_text = raw_summary or raw_content
@@ -1615,8 +1654,19 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
         selected = " ".join(sentences[:3]) if sentences else cleaned[:400]
         if len(selected) > 400:
             selected = selected[:400].rsplit(" ", 1)[0].rstrip(" ,.") + "."
-        KOREAN_SUMMARY_CACHE[cache_key] = selected
-        return selected
+        # 카테고리 기반 한국어 실무 해석 추가
+        category = item.get("category", "tech")
+        practice_hint = {
+            "security": "\n\n**실무 포인트**: 영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.",
+            "devsecops": "\n\n**실무 포인트**: CI/CD 파이프라인과 보안 통제 설정에 미치는 영향을 점검하세요.",
+            "ai": "\n\n**실무 포인트**: 자사 AI/ML 시스템 적용 가능성과 보안 영향을 평가하세요.",
+            "cloud": "\n\n**실무 포인트**: 클라우드 서비스 설정 및 권한 정책 변경 필요 여부를 확인하세요.",
+            "devops": "\n\n**실무 포인트**: 운영 환경 호환성과 배포 자동화 영향을 검토하세요.",
+            "blockchain": "\n\n**실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.",
+        }.get(category, "")
+        result = selected + practice_hint
+        KOREAN_SUMMARY_CACHE[cache_key] = result
+        return result
 
     category = item.get("category", "tech")
     category_context = {

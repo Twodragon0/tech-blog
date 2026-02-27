@@ -29,14 +29,14 @@ if ENV_FILE.exists():
 
 # Optional imports - will be skipped if not configured
 try:
-    tweepy = importlib.import_module("tweepy")
+    tweepy: object = importlib.import_module("tweepy")
 except ImportError:
-    tweepy = None
+    tweepy = None  # type: ignore[assignment]
 
 try:
-    requests = importlib.import_module("requests")
+    requests: object = importlib.import_module("requests")
 except ImportError:
-    requests = None
+    requests = None  # type: ignore[assignment]
 
 TWITTER_AVAILABLE = tweepy is not None
 REQUESTS_AVAILABLE = requests is not None

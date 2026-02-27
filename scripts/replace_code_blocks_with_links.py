@@ -213,7 +213,7 @@ def get_replacement_link(
 
     # GitHub 링크 우선
     if code_type in GITHUB_LINKS and GITHUB_LINKS[code_type]:
-        link = GITHUB_LINKS[code_type]
+        link: Optional[str] = GITHUB_LINKS[code_type]
         # 보안: URL 검증
         if isinstance(link, str) and validate_url(link):
             return link
