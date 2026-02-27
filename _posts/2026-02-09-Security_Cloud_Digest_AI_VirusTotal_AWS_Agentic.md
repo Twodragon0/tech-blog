@@ -66,15 +66,6 @@ toc: true
 
 2026년 02월 09일, **AI 에이전트 공급망 보안**이 본격화되는 전환점입니다. AI가 VirusTotal과 파트너십을 체결하여 AI 스킬 마켓플레이스의 악성 코드 스캔 체계를 구축했으며, AWS는 2명이 7주 만에 Agentic AI 플랫폼을 구축한 사례를 공개했습니다. npm/PyPI 공급망 공격이 AI 에이전트 생태계로 확장되고 있어, 보안 전략의 근본적 재검토가 필요합니다.
 
-## 핵심 요약
-
-| 항목 | 분야 | 심각도 | 핵심 내용 | 조치 |
-|------|------|--------|----------|------|
-| AI VirusTotal 통합 | Security | Medium | AI 스킬 마켓플레이스 공급망 보안 - ClawHub 자동 스캔 | 7일 내 스킬 보안 점검 |
-| SK쉴더스 리포트 | Security | Medium | BlackField 랜섬웨어, 제로트러스트, Vertical AI | 2/8 포스트 참조 |
-| AWS Agentic AI 플랫폼 | Cloud | Low | 2명 7주 개발, AI-DLC 방법론, MCP 표준 | MCP 호환성 검토 |
-| AWS Transform Custom | Cloud | Low | ASP.NET 마이크로서비스 전환 - CodeGuru 기반 분석 | 레거시 현대화 평가 |
-
 ---
 
 ## 1. 보안 뉴스

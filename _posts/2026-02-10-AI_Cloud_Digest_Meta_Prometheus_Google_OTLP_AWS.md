@@ -73,16 +73,6 @@ toc: true
 
 2026년 02월 10일 AI 및 클라우드 핵심 업데이트를 정리합니다. Meta의 기가와트급 AI 인프라, Google의 벤더 중립적 관찰성 전환, AWS의 Claude Opus 4.6 통합 등 DevSecOps 엔지니어가 주목해야 할 실무 적용 포인트를 중심으로 다룹니다.
 
-## 핵심 요약
-
-| 항목 | 분야 | 핵심 내용 | 실무 영향 |
-|------|------|----------|----------|
-| Meta Prometheus | AI 인프라 | 기가와트급 클러스터, 16-48Pbps 네트워크, DSF/NSF 패브릭 | 초대규모 AI 인프라 보안 아키텍처 참조 |
-| ChatGPT GenAI.mil | AI/보안 | 미 국방부 300만 인원 대상, Gemini/Claude와 함께 | 군사/정부 AI 보안 기준 참조 |
-| Google Safer Internet Day | AI/안전 | 아동/청소년 온라인 안전 기능 강화 | AI 안전성 정책 수립 참조 |
-| Google Cloud OTLP | 관찰성 | OpenTelemetry 네이티브 지원, 벤더 중립적 | 관찰성 스택 마이그레이션 시작 권장 |
-| AWS Weekly Roundup | 클라우드 | Claude Opus 4.6, C8id/M8id/R8id, CloudFront mTLS | AI 워크로드 + 제로트러스트 아키텍처 |
-
 ---
 
 ## AI/ML 업데이트

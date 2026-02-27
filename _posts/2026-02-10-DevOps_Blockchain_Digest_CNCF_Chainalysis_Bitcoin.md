@@ -67,19 +67,6 @@ toc: true
 
 ---
 
-## 핵심 요약
-
-| 항목 | 분야 | 핵심 내용 | 실무 영향 |
-|------|------|----------|-----------|
-| **CNCF Project Velocity 2025** | DevOps | K8s = AI 워크로드의 OS, 82% 프로덕션 사용, Backstage IDP 기여도 2배, OpenTelemetry 2번째 최고 속도 | 플랫폼 엔지니어링 부상, AI 인프라 표준화 |
-| **Cluster API v1.12** | DevOps | In-Place 업데이트 + 체인 업그레이드, 머신 재생성 없이 설정 변경, 다중 마이너 버전 자동 업그레이드 | 대규모 클러스터 다운타임 최소화 |
-| **Chainalysis Hexagate** | Blockchain | MegaETH 생태계 실시간 스마트 컨트랙트 보안, ML 기반 Flash Loan 공격 사전 탐지, $1B+ 자산 보호 | DeFi 프로토콜 보안 강화 |
-| **Bitcoin $60K→$70K 반등** | Blockchain | MRI 매수 신호, $71,800 저항선, $57,800 지지선 | 시장 심리 회복, 주요 기술적 레벨 주목 |
-| **Tesla 북미 판매 책임자 교체** | 기타 | Raj Jegannathan 북미 판매 이끌다 다시 교체, 빈번한 경영진 변동 | 조직 안정성 우려 |
-| **Windrose AI 컨테이너 데이터센터** | 기타 | EV 기업 Windrose, 데이터센터 컨테이너화로 AI 인프라 시장 진출 | AI 인프라 신규 경쟁자 |
-
----
-
 ## DevOps 뉴스
 
 ### CNCF Project Velocity 2025 - 클라우드 네이티브 미래 전망
@@ -98,7 +85,7 @@ CNCF 10주년을 맞아 프로젝트 속도(velocity) 분석 결과가 공개되
 | **Argo Project** | CD/Rollouts 강세 | GitOps 기반 배포 자동화 표준 |
 | **Istio** | 서비스 메시 리더 | 마이크로서비스 보안/관찰성 핵심 인프라 |
 
-#### 실무 영향
+#### 권장 조치
 
 - **AI 인프라 표준화**: Kubernetes가 AI 워크로드의 OS로 확립되며, GPU 오케스트레이션 및 AI 모델 배포의 사실상 표준
 - **플랫폼 엔지니어링 부상**: Backstage를 중심으로 한 IDP(Internal Developer Platform) 도입 가속화, 개발자 생산성 향상
@@ -148,7 +135,7 @@ spec:
     type: Chained  # 다중 마이너 버전 자동 단계 진행
 ```
 
-#### 실무 영향
+#### 권장 조치
 
 - 대규모 클러스터(1,000+ 노드) 업그레이드 시 다운타임 수 시간 → 수 분 단축
 - 긴급 보안 패치 적용 시 체인 업그레이드로 빠른 버전 동기화 가능

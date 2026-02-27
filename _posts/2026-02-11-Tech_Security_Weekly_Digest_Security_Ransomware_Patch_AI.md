@@ -141,7 +141,7 @@ Cybersecurity researchers have disclosed details of an emergent ransomware famil
 - BYOVD refers to an adversarial technique that abuses legitimate but flawed driver software to escalate privileges and disable Endpoint Detection
 
 
-#### 실무 영향
+#### 권장 조치
 
 - 백업 시스템 정상 동작 여부 즉시 검증 (오프라인 백업 포함)
 - 인시던트 대응 플레이북 점검 및 랜섬웨어 시나리오 확인
@@ -165,7 +165,7 @@ Are ransomware and encryption still the defining signals of modern cyberattacks,
 - According to Picus Labs’ new Red Report 2026, which analyzed over 1.1 million malicious files and mapped 15.5 million adversarial actions observed across 2025, attackers are no longer optimizing for
 
 
-#### 실무 영향
+#### 권장 조치
 
 - 백업 시스템 정상 동작 여부 즉시 검증 (오프라인 백업 포함)
 - 인시던트 대응 플레이북 점검 및 랜섬웨어 시나리오 확인

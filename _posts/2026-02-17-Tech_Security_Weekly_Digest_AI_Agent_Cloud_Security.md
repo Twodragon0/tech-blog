@@ -122,7 +122,7 @@ A new study has found that multiple cloud-based password managers, including Bit
 - "The attacks range in severity from integrity violations to the complete compromise of all vaults in an organization," researchers Matteo Scarlata, Giovanni Torrisi, Matilda Backendal, and Kenneth G
 
 
-#### 실무 영향
+#### 권장 조치
 
 - 관련 시스템의 인증 정보(Credential) 즉시 로테이션 검토
 - MFA(다중 인증) 적용 현황 점검 및 미적용 시스템 식별
@@ -149,7 +149,7 @@ Enterprise customers face an unprecedented security landscape where sophisticate
 - The distributed nature of serverless architectures […]
 
 
-#### 실무 영향
+#### 권장 조치
 
 - 관련 시스템 목록 확인
 - 보안 담당자는 원문을 검토하여 자사 환경 해당 여부를 확인하시기 바랍니다
