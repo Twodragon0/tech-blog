@@ -55,6 +55,62 @@ NEWS_SOURCES = {
         "language": "ko",
         "priority": 1,
     },
+    "kakao_tech": {
+        "name": "카카오 기술 블로그",
+        "url": "https://tech.kakao.com/",
+        "feed_url": "https://tech.kakao.com/feed/",
+        "category": "tech",
+        "language": "ko",
+        "priority": 1,
+    },
+    "naver_d2": {
+        "name": "네이버 D2",
+        "url": "https://d2.naver.com/",
+        "feed_url": "https://d2.naver.com/d2.atom",
+        "category": "tech",
+        "language": "ko",
+        "priority": 1,
+    },
+    "line_engineering": {
+        "name": "LINE Engineering",
+        "url": "https://engineering.linecorp.com/ko/",
+        "feed_url": "https://engineering.linecorp.com/ko/feed/",
+        "category": "tech",
+        "language": "ko",
+        "priority": 2,
+    },
+    "toss_tech": {
+        "name": "토스 기술 블로그",
+        "url": "https://toss.tech/",
+        "feed_url": "https://toss.tech/rss.xml",
+        "category": "tech",
+        "language": "ko",
+        "priority": 1,
+    },
+    "woowahan_tech": {
+        "name": "우아한형제들 기술 블로그",
+        "url": "https://techblog.woowahan.com/",
+        "feed_url": "https://techblog.woowahan.com/feed/",
+        "category": "tech",
+        "language": "ko",
+        "priority": 2,
+    },
+    "daangn_tech": {
+        "name": "당근 기술 블로그",
+        "url": "https://medium.com/daangn",
+        "feed_url": "https://medium.com/feed/daangn",
+        "category": "tech",
+        "language": "ko",
+        "priority": 2,
+    },
+    "coupang_tech": {
+        "name": "쿠팡 Engineering",
+        "url": "https://medium.com/coupang-engineering",
+        "feed_url": "https://medium.com/feed/coupang-engineering",
+        "category": "tech",
+        "language": "ko",
+        "priority": 2,
+    },
     # AWS
     "aws": {
         "name": "AWS Blog",
@@ -125,7 +181,7 @@ NEWS_SOURCES = {
     "azure_security": {
         "name": "Azure Security Blog",
         "url": "https://azure.microsoft.com/en-us/blog/category/security/",
-        "feed_url": "https://azure.microsoft.com/en-us/blog/feed/",
+        "feed_url": "https://www.microsoft.com/en-us/security/blog/feed/",
         "category": "security",
         "language": "en",
         "priority": 1,
@@ -434,6 +490,15 @@ NEWS_SOURCES = {
     # ============================================================================
     # AI & Machine Learning
     # ============================================================================
+    # NVIDIA AI
+    "nvidia_ai": {
+        "name": "NVIDIA AI Blog",
+        "url": "https://blogs.nvidia.com/",
+        "feed_url": "https://blogs.nvidia.com/feed/",
+        "category": "ai",
+        "language": "en",
+        "priority": 1,
+    },
     # TensorFlow
     "tensorflow": {
         "name": "TensorFlow Blog",
@@ -711,6 +776,27 @@ NEWS_SOURCES = {
         "priority": 1,
     },
     # ============================================================================
+    # DevOps/Platform Blogs
+    # ============================================================================
+    # GitLab
+    "gitlab": {
+        "name": "GitLab Blog",
+        "url": "https://about.gitlab.com/blog/",
+        "feed_url": "https://about.gitlab.com/atom.xml",
+        "category": "devops",
+        "language": "en",
+        "priority": 1,
+    },
+    # Vercel
+    "vercel": {
+        "name": "Vercel Blog",
+        "url": "https://vercel.com/blog",
+        "feed_url": "https://vercel.com/atom",
+        "category": "devops",
+        "language": "en",
+        "priority": 2,
+    },
+    # ============================================================================
     # DevSecOps
     # ============================================================================
     # DevSecOps.org
@@ -723,8 +809,29 @@ NEWS_SOURCES = {
         "priority": 1,
     },
     # ============================================================================
+    # Additional Security Vendors
+    # ============================================================================
+    # Sophos
+    "sophos": {
+        "name": "Sophos News",
+        "url": "https://news.sophos.com/",
+        "feed_url": "https://news.sophos.com/feed/",
+        "category": "security",
+        "language": "en",
+        "priority": 2,
+    },
+    # ============================================================================
     # Korean Security Vendors
     # ============================================================================
+    # 안랩 ASEC 블로그
+    "ahnlab_asec": {
+        "name": "안랩 ASEC 블로그",
+        "url": "https://asec.ahnlab.com/ko/",
+        "feed_url": "https://asec.ahnlab.com/ko/feed/",
+        "category": "security",
+        "language": "ko",
+        "priority": 1,
+    },
     # SK쉴더스 EQST insight (월간 보안 뉴스레터)
     "skshieldus_eqst": {
         "name": "SK쉴더스 EQST insight",

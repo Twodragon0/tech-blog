@@ -122,6 +122,23 @@ SOURCE_PRIORITY = {
     "apple_newsroom": 2,
     "webkit": 2,
     "worldmonitor_tech": 1,
+    # Korean tech blogs
+    "kakao_tech": 1,
+    "naver_d2": 1,
+    "line_engineering": 2,
+    "toss_tech": 1,
+    "woowahan_tech": 2,
+    "daangn_tech": 2,
+    "coupang_tech": 2,
+    # Korean security vendors
+    "ahnlab_asec": 1,
+    # AI/ML blogs
+    "nvidia_ai": 1,
+    # DevOps/Platform blogs
+    "gitlab": 1,
+    "vercel": 2,
+    # Additional security vendors
+    "sophos": 2,
 }
 
 # Tech blog sources (non-security, non-blockchain)
@@ -157,6 +174,19 @@ TECH_BLOG_SOURCES = {
     "cncf",
     "gcp",
     "worldmonitor_tech",
+    # Korean tech blogs
+    "kakao_tech",
+    "naver_d2",
+    "line_engineering",
+    "toss_tech",
+    "woowahan_tech",
+    "daangn_tech",
+    "coupang_tech",
+    # AI/ML blogs
+    "nvidia_ai",
+    # DevOps/Platform blogs
+    "gitlab",
+    "vercel",
 }
 
 MIN_NEWS_COUNT = 5  # 최소 뉴스 수
