@@ -110,10 +110,10 @@ permalink: /categories/
     {% endif %}
   {% endfor %}
   {% if cat_posts.size > 0 %}
-  <section id="{{ cat.name }}" class="category-section" style="margin-bottom: 3rem; scroll-margin-top: 100px;">
-    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border);">
-      <span class="category-badge {{ cat.name }}" style="font-size: 0.9rem; padding: 4px 12px;">{{ cat.title }}</span>
-      <span style="color: var(--text-secondary); font-size: 0.9rem;">{{ cat_posts.size }} posts</span>
+  <section id="{{ cat.name }}" class="category-section">
+    <div class="category-section-header">
+      <span class="category-badge {{ cat.name }}">{{ cat.title }}</span>
+      <span class="category-section-count">{{ cat_posts.size }} posts</span>
     </div>
     <div class="posts-list">
       {% for post in cat_posts %}
