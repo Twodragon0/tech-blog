@@ -94,8 +94,6 @@ jobs:
           fi
           echo "can_post=$can_post" >> "$GITHUB_OUTPUT"
           echo "channel_id=$channel_id" >> "$GITHUB_OUTPUT"
-          echo "gateway_url=$AI_GATEWAY_URL" >> "$GITHUB_OUTPUT"
-          echo "gateway_token=$AI_GATEWAY_TOKEN" >> "$GITHUB_OUTPUT"
 
       - name: Post to Slack via AI Gateway
         if: steps.digest.outputs.has_message == 'true' && steps.ai-config.outputs.can_post == 'true'
@@ -103,10 +101,19 @@ jobs:
         env:
           MESSAGE: ${{ steps.digest.outputs.message }}
           TARGET_CHANNEL_ID: ${{ steps.ai-config.outputs.channel_id }}
+          AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
         run: |
           set -euo pipefail
           payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
-          curl -sS "${{ steps.ai-config.outputs.gateway_url }}/tools/invoke" \
-            -H "Authorization: Bearer ${{ steps.ai-config.outputs.gateway_token }}" \
+          HTTP_STATUS=$(curl -sS -o /tmp/digest_resp.txt -w "%{http_code}" "${AI_GATEWAY_URL}/tools/invoke" \
+            -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" \
             -H "Content-Type: application/json" \
-            -d "$payload"
+            -d "$payload")
+          echo "Slack response: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            echo "Slack digest sent successfully"
+          else
+            echo "::warning::Slack digest failed (HTTP $HTTP_STATUS)"
+            cat /tmp/digest_resp.txt || true
+          fi

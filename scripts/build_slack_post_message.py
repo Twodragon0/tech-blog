@@ -49,8 +49,8 @@ def build_post_url(filename: str) -> str:
     parts = stem.split("-", 3)
     if len(parts) < 4:
         return f"{SITE_URL}/posts/{stem}/"
-    year, month, _day, slug = parts
-    return f"{SITE_URL}/posts/{year}/{month}/{slug}/"
+    year, month, day, slug = parts
+    return f"{SITE_URL}/posts/{year}/{month}/{day}/{slug}/"
 
 
 def get_category(fm: dict) -> str:
