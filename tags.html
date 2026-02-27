@@ -8,12 +8,13 @@ permalink: /tags/
   {% assign all_tags = site.posts | map: "tags" | flatten | compact | uniq | sort_natural %}
 
   <!-- Tag Cloud -->
-  <div class="tag-cloud" style="margin-bottom: 3rem;">
+  <div class="tag-cloud">
     {% for tag in all_tags %}
     {% assign tag_str = tag | append: "" %}
     {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
-    <a href="#{{ tag_str | slugify }}" class="tag" style="font-size: {% if tag_posts.size > 5 %}1rem{% elsif tag_posts.size > 2 %}0.9rem{% else %}0.8rem{% endif %};">
-      {{ tag_str }} ({{ tag_posts.size }})
+    <a href="#{{ tag_str | slugify }}" class="tag {% if tag_posts.size > 5 %}tag--lg{% elsif tag_posts.size > 2 %}tag--md{% endif %}">
+      {{ tag_str }}
+      <span class="tag-count">{{ tag_posts.size }}</span>
     </a>
     {% endfor %}
   </div>
@@ -23,15 +24,15 @@ permalink: /tags/
   {% assign tag_str = tag | append: "" %}
   {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
   {% if tag_posts.size > 0 %}
-  <section id="{{ tag_str | slugify }}" style="margin-bottom: 3rem; scroll-margin-top: 80px;">
-    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
-      <span class="tag" style="font-size: 1rem; padding: 6px 16px;">{{ tag_str }}</span>
-      <span style="color: var(--text-secondary); font-size: 0.9rem;">{{ tag_posts.size }} posts</span>
+  <section id="{{ tag_str | slugify }}" class="tag-section">
+    <div class="tag-section-header">
+      <span class="tag">{{ tag_str }}</span>
+      <span class="tag-section-count">{{ tag_posts.size }} posts</span>
     </div>
-    <ul style="list-style: none; padding: 0;">
+    <ul class="tag-section-list">
       {% for post in tag_posts %}
-      <li style="margin-bottom: 0.75rem; display: flex; gap: 1rem; align-items: baseline;">
-        <time style="color: var(--text-secondary); font-size: 0.85rem; min-width: 100px;">{{ post.date | date: "%Y. %m. %d" }}</time>
+      <li class="tag-section-item">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y. %m. %d" }}</time>
         <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
       </li>
       {% endfor %}
