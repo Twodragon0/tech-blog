@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-# 로컬: Ruby 2.6+ (Bundler 2.4.4). Vercel/CI: 2.7+ 권장
-ruby ">= 2.6.0"
+# CI/Vercel: Ruby 2.7+ 필수 (google-protobuf >= 3.25.5 보안 패치)
+ruby ">= 2.7.0"
 
 gem "jekyll", "~> 4.3.4"
 
@@ -13,3 +13,6 @@ end
 
 # Performance
 gem "webrick", "~> 1.8"
+
+# Security: CVE fix for protobuf DoS (Dependabot alert #8)
+gem "google-protobuf", ">= 3.25.5"
