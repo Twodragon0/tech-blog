@@ -26,10 +26,10 @@
       const style = document.createElement('style');
       style.id = 'search-enhanced-styles';
       style.textContent = `
-        .search-source-badge{font-size:.7rem;color:var(--text-secondary,#888);padding:4px 8px;text-align:right;opacity:.7}
-        .search-category{background:var(--accent-color,#4a9eff);color:#fff;font-size:.7rem;padding:1px 6px;border-radius:3px;margin-right:4px}
-        .search-tag{background:var(--bg-secondary,#f0f0f0);color:var(--text-secondary,#666);font-size:.65rem;padding:1px 5px;border-radius:3px;margin-right:3px}
-        .search-result-item.active{background:var(--bg-secondary,#f5f5f5)}
+        .search-source-badge{font-size:.7rem;color:var(--color-text-secondary,#888);padding:4px 8px;text-align:right;opacity:.7}
+        .search-category{background:var(--color-primary,#4a9eff);color:#fff;font-size:.7rem;padding:1px 6px;border-radius:3px;margin-right:4px}
+        .search-tag{background:var(--color-bg-secondary,#f0f0f0);color:var(--color-text-secondary,#666);font-size:.65rem;padding:1px 5px;border-radius:3px;margin-right:3px}
+        .search-result-item.active{background:var(--color-bg-secondary,#f5f5f5)}
         .search-result-item mark{background:rgba(255,200,0,.3);color:inherit;padding:0 1px;border-radius:2px}
       `;
       document.head.appendChild(style);
