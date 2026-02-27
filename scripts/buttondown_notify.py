@@ -537,13 +537,8 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
         elif response.status_code == 401:
             print("❌ Authentication failed (401 Unauthorized)")
             print("   Please check your BUTTONDOWN_API_KEY")
-            # Security: Mask API key in log output
-            masked_key = (
-                f"Token {api_key[:4]}...{api_key[-4:]}"
-                if len(api_key) > 8
-                else "Token ***MASKED***"
-            )
-            safe_print(f"   API Key format: {masked_key}")
+            # Security: Only show key length, never partial key
+            safe_print(f"   API Key: configured (length: {len(api_key)})")
             return False
         elif response.status_code == 404:
             print("❌ Resource not found (404)")
@@ -664,11 +659,8 @@ def main():
 
     # Test API connection (optional, can be disabled for faster execution)
     # This helps catch authentication issues early
-    # Security: Mask API key in log output
-    masked_key = (
-        f"{api_key[:4]}...{api_key[-4:]}" if len(api_key) > 8 else "***MASKED***"
-    )
-    safe_print(f"🔑 API Key: {masked_key}")
+    # Security: Only show key length, never partial key
+    safe_print(f"🔑 API Key: configured (length: {len(api_key)})")
 
     # Get site URL
     site_url = os.environ.get("SITE_URL", "https://tech.2twodragon.com")
