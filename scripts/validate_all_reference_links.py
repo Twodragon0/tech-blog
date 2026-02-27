@@ -120,7 +120,7 @@ def check_link_exists(
             return False, None, "URL contains credentials"
 
         # 특수 URL 처리
-        if "twodragon.tistory.com" in parsed.netloc:
+        if parsed.netloc == "twodragon.tistory.com" or parsed.netloc.endswith(".twodragon.tistory.com"):
             # 티스토리 링크는 존재한다고 가정 (인증 필요할 수 있음)
             result = {"exists": True, "status_code": 200, "error": None}
             LINK_RESULTS[url] = result

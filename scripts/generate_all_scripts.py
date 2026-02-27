@@ -51,6 +51,20 @@ def load_env_file(env_path: Path) -> None:
         pass
 
 
+def mask_sensitive_info(text: str) -> str:
+    """Mask sensitive data (API keys, tokens) in text before writing to files."""
+    if not text:
+        return text
+    import re
+    masked = re.sub(r"sk-[a-zA-Z0-9_-]{20,}", "sk-***MASKED***", text)
+    masked = re.sub(r"AIza[0-9A-Za-z_-]{35}", "AIza***MASKED***", masked)
+    for env_var in ["GEMINI_API_KEY", "DEEPSEEK_API_KEY", "OPENAI_API_KEY"]:
+        val = os.getenv(env_var, "")
+        if val and len(val) > 10:
+            masked = masked.replace(val, f"***{env_var}_MASKED***")
+    return masked
+
+
 env_path = PROJECT_ROOT / ".env"
 load_env_file(env_path)
 
@@ -194,7 +208,7 @@ def process_post_for_script(post_path: Path, existing_scripts: Dict[str, Path]) 
                 f.write("\n" + "=" * 60 + "\n")
                 f.write("강의용 대본\n")
                 f.write("=" * 60 + "\n\n")
-                f.write(script)
+                f.write(mask_sensitive_info(script))
                 f.write("\n")
 
             log_message(f"✅ 대본 생성 완료: {script_path.name} ({len(script)}자)")
