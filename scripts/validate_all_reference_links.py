@@ -113,6 +113,12 @@ def check_link_exists(
             LINK_RESULTS[url] = result
             return False, None, "Invalid protocol"
 
+        # Security: Reject URLs with embedded credentials
+        if parsed.username or parsed.password:
+            result = {"exists": False, "status_code": None, "error": "URL contains credentials"}
+            LINK_RESULTS[url] = result
+            return False, None, "URL contains credentials"
+
         # 특수 URL 처리
         if "twodragon.tistory.com" in parsed.netloc:
             # 티스토리 링크는 존재한다고 가정 (인증 필요할 수 있음)
