@@ -1062,8 +1062,10 @@
     }
 
     // Language option click handler
+    // Translation is delegated to google-translate.js (Gemini AI-powered)
+    // This handler only updates UI state - no MyMemory API calls
     langOptions.forEach(option => {
-      option.addEventListener('click', async function() {
+      option.addEventListener('click', function() {
         const targetLang = this.dataset.lang;
 
         if (targetLang === currentLang) {
@@ -1087,21 +1089,8 @@
         // Close dropdown
         closeDropdown();
 
-        // Show loading
-        showToast('번역 중...', 'loading');
-
-        try {
-          if (targetLang === 'ko') {
-            restoreOriginal();
-            showToast('원본으로 복원되었습니다', 'success');
-          } else {
-            await translatePage(targetLang);
-            showToast(`${getLanguageName(targetLang)}로 번역되었습니다`, 'success');
-          }
-          currentLang = targetLang;
-        } catch (error) {
-          showToast('번역 실패. 다시 시도해주세요.', 'error');
-        }
+        currentLang = targetLang;
+        // Actual translation handled by google-translate.js (Google Gemini AI)
       });
     });
 
