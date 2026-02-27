@@ -11,12 +11,12 @@ GEM
     eventmachine (1.2.7)
     ffi (1.17.3)
     forwardable-extended (2.6.0)
-    google-protobuf (3.23.4)
-    google-protobuf (3.23.4-aarch64-linux)
-    google-protobuf (3.23.4-arm64-darwin)
-    google-protobuf (3.23.4-x86-linux)
-    google-protobuf (3.23.4-x86_64-darwin)
-    google-protobuf (3.23.4-x86_64-linux)
+    google-protobuf (3.25.5)
+    google-protobuf (3.25.5-aarch64-linux)
+    google-protobuf (3.25.5-arm64-darwin)
+    google-protobuf (3.25.5-x86-linux)
+    google-protobuf (3.25.5-x86_64-darwin)
+    google-protobuf (3.25.5-x86_64-linux)
     http_parser.rb (0.8.1)
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
@@ -96,6 +96,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  google-protobuf (>= 3.25.5)
   jekyll (~> 4.3.4)
   jekyll-feed (~> 0.15)
   jekyll-seo-tag (~> 2.8)
