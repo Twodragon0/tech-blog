@@ -4,9 +4,8 @@
 """
 
 import re
-import os
 from pathlib import Path
-from typing import List, Tuple, Optional
+from typing import Optional
 
 # GitHub 링크 매핑 (코드 타입별) - 예제 저장소 우선
 GITHUB_LINKS = {
@@ -139,7 +138,7 @@ def validate_url(url: str) -> bool:
 
     # 보안: URL 파싱을 통한 추가 검증
     try:
-        from urllib.parse import urlparse, urlunparse
+        from urllib.parse import urlparse
 
         parsed = urlparse(url)
 

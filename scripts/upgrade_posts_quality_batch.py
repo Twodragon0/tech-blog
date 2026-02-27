@@ -6,7 +6,6 @@ from pathlib import Path
 
 from validate_post_quality import validate_post
 
-
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
 MARKER = "<!-- quality-upgrade:v1 -->"

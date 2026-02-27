@@ -20,13 +20,12 @@ Usage:
   python3 scripts/generate_content_summary.py --all --force
 """
 
-import os
+import argparse
 import re
 import sys
-import argparse
 import xml.etree.ElementTree as ET
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 import frontmatter
@@ -110,34 +109,171 @@ CATEGORY_SVG_CONFIG = {
 
 # Known English technical terms for extraction
 KNOWN_TECH_TERMS = {
-    "AI", "ML", "LLM", "GPT", "NLP", "API", "SDK", "CLI", "CI/CD",
-    "AWS", "GCP", "Azure", "Terraform", "Ansible", "Docker", "Kubernetes",
-    "K8s", "Helm", "Istio", "Prometheus", "Grafana", "ArgoCD", "Jenkins",
-    "GitHub", "GitLab", "Bitbucket", "Jira", "Slack", "Vercel", "Netlify",
-    "Cloudflare", "NGINX", "Apache", "Redis", "PostgreSQL", "MongoDB",
-    "MySQL", "Kafka", "RabbitMQ", "Elasticsearch", "Kibana", "Splunk",
-    "Datadog", "Sentry", "PagerDuty", "OpsGenie", "Vault", "Consul",
-    "CVE", "CVSS", "OWASP", "Zero-Day", "XSS", "CSRF", "SQLi", "RCE",
-    "SIEM", "SOC", "SOAR", "EDR", "WAF", "IAM", "MFA", "SSO", "ZTNA",
-    "RBAC", "mTLS", "TLS", "SSL", "PKI", "HSM", "KMS",
-    "DevOps", "DevSecOps", "SRE", "FinOps", "MLOps", "AIOps", "GitOps",
-    "IaC", "ISMS", "ISMS-P", "GDPR", "CCPA", "SOC2", "ISO27001",
-    "VPC", "ALB", "EKS", "ECS", "Lambda", "S3", "EC2", "RDS", "CloudFront",
-    "BGP", "CDN", "DNS", "TCP", "UDP", "HTTP", "HTTPS", "gRPC", "REST",
-    "JSON", "YAML", "TOML", "XML", "CSV", "Parquet",
-    "Python", "Go", "Rust", "Java", "TypeScript", "JavaScript", "Ruby",
-    "React", "Next.js", "Vue", "Svelte", "Node.js", "FastAPI", "Flask",
-    "Linux", "macOS", "Windows", "Ubuntu", "CentOS", "Alpine",
-    "Bitcoin", "Ethereum", "Blockchain", "DeFi", "NFT", "Web3",
-    "OpenAI", "Anthropic", "Claude", "Gemini", "Llama", "Mistral",
-    "Ransomware", "Malware", "Phishing", "APT", "DDoS", "Botnet",
-    "CNCF", "Karpenter", "Falco", "OPA", "Trivy", "Snyk",
-    "Copilot", "Cursor", "Replit", "Notion", "Zapier",
+    "AI",
+    "ML",
+    "LLM",
+    "GPT",
+    "NLP",
+    "API",
+    "SDK",
+    "CLI",
+    "CI/CD",
+    "AWS",
+    "GCP",
+    "Azure",
+    "Terraform",
+    "Ansible",
+    "Docker",
+    "Kubernetes",
+    "K8s",
+    "Helm",
+    "Istio",
+    "Prometheus",
+    "Grafana",
+    "ArgoCD",
+    "Jenkins",
+    "GitHub",
+    "GitLab",
+    "Bitbucket",
+    "Jira",
+    "Slack",
+    "Vercel",
+    "Netlify",
+    "Cloudflare",
+    "NGINX",
+    "Apache",
+    "Redis",
+    "PostgreSQL",
+    "MongoDB",
+    "MySQL",
+    "Kafka",
+    "RabbitMQ",
+    "Elasticsearch",
+    "Kibana",
+    "Splunk",
+    "Datadog",
+    "Sentry",
+    "PagerDuty",
+    "OpsGenie",
+    "Vault",
+    "Consul",
+    "CVE",
+    "CVSS",
+    "OWASP",
+    "Zero-Day",
+    "XSS",
+    "CSRF",
+    "SQLi",
+    "RCE",
+    "SIEM",
+    "SOC",
+    "SOAR",
+    "EDR",
+    "WAF",
+    "IAM",
+    "MFA",
+    "SSO",
+    "ZTNA",
+    "RBAC",
+    "mTLS",
+    "TLS",
+    "SSL",
+    "PKI",
+    "HSM",
+    "KMS",
+    "DevOps",
+    "DevSecOps",
+    "SRE",
+    "FinOps",
+    "MLOps",
+    "AIOps",
+    "GitOps",
+    "IaC",
+    "ISMS",
+    "ISMS-P",
+    "GDPR",
+    "CCPA",
+    "SOC2",
+    "ISO27001",
+    "VPC",
+    "ALB",
+    "EKS",
+    "ECS",
+    "Lambda",
+    "S3",
+    "EC2",
+    "RDS",
+    "CloudFront",
+    "BGP",
+    "CDN",
+    "DNS",
+    "TCP",
+    "UDP",
+    "HTTP",
+    "HTTPS",
+    "gRPC",
+    "REST",
+    "JSON",
+    "YAML",
+    "TOML",
+    "XML",
+    "CSV",
+    "Parquet",
+    "Python",
+    "Go",
+    "Rust",
+    "Java",
+    "TypeScript",
+    "JavaScript",
+    "Ruby",
+    "React",
+    "Next.js",
+    "Vue",
+    "Svelte",
+    "Node.js",
+    "FastAPI",
+    "Flask",
+    "Linux",
+    "macOS",
+    "Windows",
+    "Ubuntu",
+    "CentOS",
+    "Alpine",
+    "Bitcoin",
+    "Ethereum",
+    "Blockchain",
+    "DeFi",
+    "NFT",
+    "Web3",
+    "OpenAI",
+    "Anthropic",
+    "Claude",
+    "Gemini",
+    "Llama",
+    "Mistral",
+    "Ransomware",
+    "Malware",
+    "Phishing",
+    "APT",
+    "DDoS",
+    "Botnet",
+    "CNCF",
+    "Karpenter",
+    "Falco",
+    "OPA",
+    "Trivy",
+    "Snyk",
+    "Copilot",
+    "Cursor",
+    "Replit",
+    "Notion",
+    "Zapier",
 }
 
 # ---------------------------------------------------------------------------
 # Logging
 # ---------------------------------------------------------------------------
+
 
 def log_message(message: str, level: str = "INFO"):
     """Print a log message with timestamp."""
@@ -150,6 +286,7 @@ def log_message(message: str, level: str = "INFO"):
 # ---------------------------------------------------------------------------
 # SVG text helpers
 # ---------------------------------------------------------------------------
+
 
 def _escape_svg_text(text: str) -> str:
     """Escape text for safe SVG embedding."""
@@ -181,6 +318,7 @@ def _has_korean(text: str) -> bool:
 # ---------------------------------------------------------------------------
 # Content extraction
 # ---------------------------------------------------------------------------
+
 
 def extract_post_info(post_file: Path) -> Optional[Dict]:
     """Extract structured info from a markdown post file."""
@@ -346,6 +484,7 @@ def _extract_tech_terms(title: str, tags: List[str], content: str) -> List[str]:
 # English title generation
 # ---------------------------------------------------------------------------
 
+
 def _make_english_title(post_info: Dict) -> str:
     """Create an English title from category, tags, and tech terms."""
     cfg = _get_config(post_info["category"])
@@ -354,7 +493,9 @@ def _make_english_title(post_info: Dict) -> str:
 
     # Try to extract English words from the original title
     title = post_info.get("title", "")
-    english_words = [w for w in _extract_ascii_words(title) if len(w) > 1 and w[0].isupper()]
+    english_words = [
+        w for w in _extract_ascii_words(title) if len(w) > 1 and w[0].isupper()
+    ]
 
     if english_words:
         key_part = " ".join(english_words[:5])
@@ -466,6 +607,7 @@ def _highlight_to_english(key: str, desc: str) -> Tuple[str, str]:
 # Layout selection
 # ---------------------------------------------------------------------------
 
+
 def select_layout(category: str, title: str, tags: List[str]) -> str:
     """Select the best SVG layout type based on post metadata."""
     cat = category.lower()
@@ -486,8 +628,17 @@ def select_layout(category: str, title: str, tags: List[str]) -> str:
 
     if cat in ("cloud", "kubernetes") and any(
         w in title_lower
-        for w in ("architecture", "guide", "course", "complete", "master",
-                  "가이드", "과정", "아키텍처", "구축")
+        for w in (
+            "architecture",
+            "guide",
+            "course",
+            "complete",
+            "master",
+            "가이드",
+            "과정",
+            "아키텍처",
+            "구축",
+        )
     ):
         return "architecture"
 
@@ -505,6 +656,7 @@ def _get_config(category: str) -> Dict:
 # ---------------------------------------------------------------------------
 # SVG common parts
 # ---------------------------------------------------------------------------
+
 
 def _svg_header(config: Dict) -> str:
     """Common SVG header with defs, background, grid pattern."""
@@ -553,16 +705,18 @@ def _svg_header(config: Dict) -> str:
 
 def _svg_top_badges(config: Dict, date_str: str) -> str:
     """Category badge (left) and date badge (right)."""
-    return f'''  <!-- Top badges -->
+    return f"""  <!-- Top badges -->
   <rect x="40" y="30" width="180" height="36" rx="18" fill="url(#catGradient)" filter="url(#shadow)"/>
   <text x="130" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">{_escape_svg_text(config["label"])}</text>
 
   <rect x="980" y="30" width="180" height="36" rx="18" fill="url(#accentGradient)" filter="url(#shadow)"/>
   <text x="1070" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">{_escape_svg_text(date_str)}</text>
-'''
+"""
 
 
-def _svg_title_block(title: str, subtitle: str, y_title: int = 110, y_sub: int = 145) -> str:
+def _svg_title_block(
+    title: str, subtitle: str, y_title: int = 110, y_sub: int = 145
+) -> str:
     """Title and subtitle centered text."""
     return f'''  <!-- Title -->
   <text x="600" y="{y_title}" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">{_escape_svg_text(title)}</text>
@@ -573,17 +727,18 @@ def _svg_title_block(title: str, subtitle: str, y_title: int = 110, y_sub: int =
 
 def _svg_footer() -> str:
     """Blog branding footer."""
-    return '''  <!-- Footer -->
+    return """  <!-- Footer -->
   <line x1="50" y1="565" x2="1150" y2="565" stroke="#334155" stroke-width="1"/>
   <text x="60" y="593" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Twodragon Tech Blog</text>
   <text x="60" y="615" font-family="Arial, sans-serif" font-size="13" fill="#64748b">tech.2twodragon.com</text>
   <text x="1150" y="605" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security</text>
-</svg>'''
+</svg>"""
 
 
 # ---------------------------------------------------------------------------
 # Layout 1: Section Map (default)
 # ---------------------------------------------------------------------------
+
 
 def _generate_section_map(post_info: Dict) -> str:
     """Grid of topic cards from H2 sections."""
@@ -666,6 +821,7 @@ def _generate_section_map(post_info: Dict) -> str:
 # ---------------------------------------------------------------------------
 # Layout 2: Flow Diagram (incident/postmortem)
 # ---------------------------------------------------------------------------
+
 
 def _generate_flow(post_info: Dict) -> str:
     """Timeline/steps layout for incident and postmortem posts."""
@@ -756,6 +912,7 @@ def _generate_flow(post_info: Dict) -> str:
 # Layout 3: Highlight Cards (weekly digest)
 # ---------------------------------------------------------------------------
 
+
 def _generate_highlights(post_info: Dict) -> str:
     """Prominent highlight cards for weekly digest posts."""
     config = _get_config(post_info["category"])
@@ -777,7 +934,12 @@ def _generate_highlights(post_info: Dict) -> str:
 
     # Pad to at least 3
     while len(highlights) < 3:
-        highlights.append({"key": f"Update {len(highlights) + 1}", "desc": "See details in the full post"})
+        highlights.append(
+            {
+                "key": f"Update {len(highlights) + 1}",
+                "desc": "See details in the full post",
+            }
+        )
 
     svg = _svg_header(config)
     svg += _svg_top_badges(config, date_str)
@@ -847,6 +1009,7 @@ def _generate_highlights(post_info: Dict) -> str:
 # Layout 4: Architecture Overview (cloud/k8s guide)
 # ---------------------------------------------------------------------------
 
+
 def _generate_architecture(post_info: Dict) -> str:
     """3-layer architecture diagram for cloud/k8s guide posts."""
     config = _get_config(post_info["category"])
@@ -855,12 +1018,33 @@ def _generate_architecture(post_info: Dict) -> str:
     subtitle = _make_english_subtitle(post_info)
 
     # Classify sections into 3 layers
-    top_layer = []     # management / control / security
-    mid_layer = []     # services / compute / application
-    bot_layer = []     # infrastructure / network / storage
+    top_layer = []  # management / control / security
+    mid_layer = []  # services / compute / application
+    bot_layer = []  # infrastructure / network / storage
 
-    top_kw = {"security", "management", "control", "monitoring", "policy", "iam", "governance", "compliance", "audit"}
-    bot_kw = {"infrastructure", "network", "storage", "vpc", "dns", "cdn", "bgp", "load", "alb", "data"}
+    top_kw = {
+        "security",
+        "management",
+        "control",
+        "monitoring",
+        "policy",
+        "iam",
+        "governance",
+        "compliance",
+        "audit",
+    }
+    bot_kw = {
+        "infrastructure",
+        "network",
+        "storage",
+        "vpc",
+        "dns",
+        "cdn",
+        "bgp",
+        "load",
+        "alb",
+        "data",
+    }
 
     for s in post_info["sections"]:
         en = _section_to_english(s["text"], post_info)
@@ -967,6 +1151,7 @@ def _generate_architecture(post_info: Dict) -> str:
 # Layout 5: Comparison Grid
 # ---------------------------------------------------------------------------
 
+
 def _generate_comparison(post_info: Dict) -> str:
     """Table-like comparison grid for analysis/comparison posts."""
     config = _get_config(post_info["category"])
@@ -979,7 +1164,11 @@ def _generate_comparison(post_info: Dict) -> str:
     for s in post_info["sections"]:
         if s["level"] == 2:
             en = _section_to_english(s["text"], post_info)
-            if en != "Topic" and en.lower() not in ("post summary", "references", "conclusion"):
+            if en != "Topic" and en.lower() not in (
+                "post summary",
+                "references",
+                "conclusion",
+            ):
                 items.append(en)
     items = items[:6]
 
@@ -989,7 +1178,9 @@ def _generate_comparison(post_info: Dict) -> str:
         items.append(terms[idx] if idx < len(terms) else f"Aspect {len(items) + 1}")
 
     # Extract comparison subjects from title (A vs B)
-    vs_match = re.search(r"(.+?)\s+vs\.?\s+(.+?)(?:\s*[:|-]|\s*$)", post_info["title"], re.IGNORECASE)
+    vs_match = re.search(
+        r"(.+?)\s+vs\.?\s+(.+?)(?:\s*[:|-]|\s*$)", post_info["title"], re.IGNORECASE
+    )
     if vs_match:
         col_a = _truncate(vs_match.group(1).strip(), 20)
         col_b = _truncate(vs_match.group(2).strip(), 20)
@@ -1044,7 +1235,10 @@ def _generate_comparison(post_info: Dict) -> str:
 
         # Placeholder comparison dots
         dot_y = ry + 25
-        for col_offset, color in [(col_w_aspect + col_w_val // 2, "#3b82f6"), (col_w_aspect + col_w_val + col_w_val // 2, "#10b981")]:
+        for col_offset, color in [
+            (col_w_aspect + col_w_val // 2, "#3b82f6"),
+            (col_w_aspect + col_w_val + col_w_val // 2, "#10b981"),
+        ]:
             cx = table_x + col_offset
             # Rating dots (visual)
             n_dots = (i % 3) + 3
@@ -1088,6 +1282,7 @@ def generate_content_summary_svg(post_info: Dict) -> str:
 # Validation
 # ---------------------------------------------------------------------------
 
+
 def validate_svg(svg_content: str, filename: str) -> bool:
     """Validate SVG is well-formed XML and contains no Korean text."""
     ok = True
@@ -1105,7 +1300,10 @@ def validate_svg(svg_content: str, filename: str) -> bool:
     for seg in text_segments:
         seg_clean = seg.strip()
         if seg_clean and _has_korean(seg_clean):
-            log_message(f"  Korean text found in {filename}: '{_truncate(seg_clean, 40)}'", "WARNING")
+            log_message(
+                f"  Korean text found in {filename}: '{_truncate(seg_clean, 40)}'",
+                "WARNING",
+            )
             ok = False
             break
 
@@ -1115,6 +1313,7 @@ def validate_svg(svg_content: str, filename: str) -> bool:
 # ---------------------------------------------------------------------------
 # PNG conversion
 # ---------------------------------------------------------------------------
+
 
 def convert_to_png(svg_path: Path, png_path: Path) -> bool:
     """Convert SVG to PNG using cairosvg."""
@@ -1136,6 +1335,7 @@ def convert_to_png(svg_path: Path, png_path: Path) -> bool:
 # ---------------------------------------------------------------------------
 # Main processing
 # ---------------------------------------------------------------------------
+
 
 def _get_image_stem(post_info: Dict) -> str:
     """Determine the image filename stem from post metadata."""
@@ -1179,7 +1379,9 @@ def process_post(post_file: Path, force: bool = False) -> bool:
     # Validate
     is_valid = validate_svg(svg_content, svg_path.name)
     if not is_valid:
-        log_message(f"  SVG validation issues for {svg_path.name} (writing anyway)", "WARNING")
+        log_message(
+            f"  SVG validation issues for {svg_path.name} (writing anyway)", "WARNING"
+        )
 
     # Write SVG
     try:
@@ -1195,7 +1397,7 @@ def process_post(post_file: Path, force: bool = False) -> bool:
         if convert_to_png(svg_path, png_path):
             log_message(f"  PNG saved: {png_path.name}", "SUCCESS")
         else:
-            log_message(f"  PNG conversion skipped", "WARNING")
+            log_message("  PNG conversion skipped", "WARNING")
     else:
         log_message("  PNG skipped (cairosvg not available)", "INFO")
 
@@ -1216,9 +1418,15 @@ Examples:
         """,
     )
     parser.add_argument("--all", action="store_true", help="Process all posts")
-    parser.add_argument("--recent", type=int, default=0, help="Process N most recent posts")
-    parser.add_argument("--post", type=str, default="", help="Process a specific post file")
-    parser.add_argument("--force", action="store_true", help="Overwrite existing images")
+    parser.add_argument(
+        "--recent", type=int, default=0, help="Process N most recent posts"
+    )
+    parser.add_argument(
+        "--post", type=str, default="", help="Process a specific post file"
+    )
+    parser.add_argument(
+        "--force", action="store_true", help="Overwrite existing images"
+    )
 
     args = parser.parse_args()
 
@@ -1236,7 +1444,9 @@ Examples:
     elif args.all:
         posts = sorted(POSTS_DIR.glob("*.md"), key=lambda x: x.name)
     elif args.recent > 0:
-        posts = sorted(POSTS_DIR.glob("*.md"), key=lambda x: x.name, reverse=True)[: args.recent]
+        posts = sorted(POSTS_DIR.glob("*.md"), key=lambda x: x.name, reverse=True)[
+            : args.recent
+        ]
     else:
         # Default: most recent 1
         posts = sorted(POSTS_DIR.glob("*.md"), key=lambda x: x.name, reverse=True)[:1]
@@ -1245,7 +1455,9 @@ Examples:
         log_message("No posts found to process.", "ERROR")
         sys.exit(1)
 
-    log_message(f"Processing {len(posts)} post(s)  |  force={args.force}  |  cairosvg={'yes' if CAIROSVG_AVAILABLE else 'no'}")
+    log_message(
+        f"Processing {len(posts)} post(s)  |  force={args.force}  |  cairosvg={'yes' if CAIROSVG_AVAILABLE else 'no'}"
+    )
     log_message("=" * 70)
 
     stats = {"success": 0, "skipped": 0, "failed": 0}

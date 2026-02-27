@@ -6,14 +6,14 @@ Claude, Gemini API를 활용하여 포스팅을 지능적으로 개선합니다.
 
 import os
 import re
-import time
-import json
-import requests
-import sys
-from pathlib import Path
-from datetime import datetime
-from typing import Dict, List, Optional
 import subprocess
+import sys
+import time
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Optional
+
+import requests
 
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
 LOG_FILE = Path(__file__).parent.parent / "ai_improvement_log.txt"
@@ -785,34 +785,34 @@ def improve_post_with_ai(post_info: Dict) -> bool:
 
     # 1순위: Gemini CLI 시도 (무료 - OAuth 2.0 인증)
     if check_gemini_cli_available():
-        log_message(f"  Gemini CLI로 개선 시도 (무료)...")
+        log_message("  Gemini CLI로 개선 시도 (무료)...")
         improved_content = improve_with_gemini_cli(post_info)
         if improved_content:
             method_used = "Gemini CLI"
 
     # 2순위: Cursor 분석 기반 개선 (무료 - 로컬 템플릿)
     if not improved_content:
-        log_message(f"  Cursor 분석으로 개선 시도 (로컬)...")
+        log_message("  Cursor 분석으로 개선 시도 (로컬)...")
         improved_content = improve_with_cursor_analysis(post_info)
         if improved_content:
             method_used = "Cursor Analysis"
 
     # 3순위: Claude API 시도 (비용 발생)
     if not improved_content and CLAUDE_API_KEY:
-        log_message(f"  Claude API로 개선 시도 (API 비용 발생)...")
+        log_message("  Claude API로 개선 시도 (API 비용 발생)...")
         improved_content = improve_with_claude(post_info)
         if improved_content:
             method_used = "Claude API"
 
     # 4순위: Gemini API 시도 (비용 발생)
     if not improved_content and GEMINI_API_KEY:
-        log_message(f"  Gemini API로 개선 시도 (API 비용 발생)...")
+        log_message("  Gemini API로 개선 시도 (API 비용 발생)...")
         improved_content = improve_with_gemini(post_info)
         if improved_content:
             method_used = "Gemini API"
 
     if not improved_content:
-        log_message(f"  모든 AI 방법 실패, 기본 템플릿 사용")
+        log_message("  모든 AI 방법 실패, 기본 템플릿 사용")
         return False
 
     try:
@@ -904,7 +904,7 @@ def main():
     log_message(
         f"\n총 {len(all_posts)}개 포스팅 중 {len(posts_to_improve)}개 개선 필요"
     )
-    log_message(f"개선 프로세스 시작...\n")
+    log_message("개선 프로세스 시작...\n")
 
     # 개선 프로세스 실행
     for i, post_info in enumerate(posts_to_improve, 1):
@@ -919,7 +919,7 @@ def main():
         if improve_post_with_ai(post_info):
             improved_count += 1
         else:
-            log_message(f"  ✗ 개선 실패")
+            log_message("  ✗ 개선 실패")
 
         # API 호출 간 대기 (Rate Limit 방지)
         time.sleep(2)

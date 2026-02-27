@@ -9,16 +9,16 @@ Gemini API를 사용하여 이미지를 생성합니다.
     python3 scripts/generate_missing_diagrams.py _posts/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide.md
 """
 
+import base64
 import os
 import re
 import sys
-import json
-import base64
 import time
-import requests
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 from datetime import datetime
+from pathlib import Path
+from typing import List, Optional, Tuple
+
+import requests
 from dotenv import load_dotenv
 
 # .env 파일에서 환경 변수 로드
@@ -312,7 +312,7 @@ def generate_image_with_gemini(
 
         except requests.exceptions.Timeout:
             if attempt < max_retries:
-                log_message(f"⏱️ 타임아웃 발생, 재시도 예정...", "WARNING")
+                log_message("⏱️ 타임아웃 발생, 재시도 예정...", "WARNING")
                 continue
             log_message(
                 f"❌ 이미지 생성 타임아웃 (120초 초과, {max_retries}회 시도)", "ERROR"

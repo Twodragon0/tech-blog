@@ -16,7 +16,7 @@ import json
 import re
 import subprocess
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -198,7 +198,7 @@ toc: true
 
         section_num += 1
 
-    content += f"""## 결론
+    content += """## 결론
 
 이번 주 보안 벤더들의 블로그에서 주목할 만한 주제들:
 
@@ -314,7 +314,7 @@ def main():
     print(f"\n✅ Draft generated: {filepath}")
     print(f"   - Total items: {len(items)}")
     print(f"   - Vendors: {len(vendors)}")
-    print(f"\nTo publish, move to _posts/:")
+    print("\nTo publish, move to _posts/:")
     print(f"   mv {filepath} _posts/")
 
 

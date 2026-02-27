@@ -2,6 +2,7 @@
 """
 품질 모니터링 대시보드 생성
 """
+
 import json
 import sys
 from datetime import datetime
@@ -12,11 +13,13 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 SCORE_FILE = Path("_data/quality_scores.json")
 
+
 def load_scores():
     if SCORE_FILE.exists():
-        with open(SCORE_FILE, 'r') as f:
+        with open(SCORE_FILE, "r") as f:
             return json.load(f)
     return {"scores": []}
+
 
 def save_score(filepath: str, result: dict):
     data = load_scores()
@@ -24,16 +27,17 @@ def save_score(filepath: str, result: dict):
     entry = {
         "date": datetime.now().isoformat(),
         "file": filepath,
-        "score": result['total'],
-        "breakdown": result['scores'],
-        "lines": result['lines']
+        "score": result["total"],
+        "breakdown": result["scores"],
+        "lines": result["lines"],
     }
 
     data["scores"].append(entry)
 
     SCORE_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with open(SCORE_FILE, 'w') as f:
+    with open(SCORE_FILE, "w") as f:
         json.dump(data, f, indent=2)
+
 
 def generate_summary():
     """GitHub Actions Summary 출력"""
@@ -52,5 +56,6 @@ def generate_summary():
         date = entry["date"][:10]
         print(f"| {date} | {entry['file'][:40]} | {entry['score']}/100 |")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     generate_summary()

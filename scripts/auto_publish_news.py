@@ -29,10 +29,10 @@ import re
 import subprocess
 import sys
 import unicodedata
-from datetime import datetime, timezone, timedelta
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 from collections import defaultdict
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from typing import Dict, List, Optional
 
 # Configure logging
 logging.basicConfig(
@@ -860,7 +860,14 @@ toc: true
 
     # 하이라이트 테이블 생성 (주요 섹션 포괄)
     highlight_items = []
-    for cat_items in [security_news, ai_news, cloud_news, devops_news, blockchain_news, tech_news]:
+    for cat_items in [
+        security_news,
+        ai_news,
+        cloud_news,
+        devops_news,
+        blockchain_news,
+        tech_news,
+    ]:
         for it in cat_items:
             if it not in highlight_items:
                 highlight_items.append(it)
@@ -871,9 +878,15 @@ toc: true
         emoji = CATEGORY_EMOJI.get(category, "📰")
         # Category display name mapping
         cat_display = {
-            "security": "Security", "devsecops": "DevSecOps", "ai": "AI/ML",
-            "cloud": "Cloud", "devops": "DevOps", "blockchain": "Blockchain",
-            "tech": "Tech", "kubernetes": "K8s", "finops": "FinOps",
+            "security": "Security",
+            "devsecops": "DevSecOps",
+            "ai": "AI/ML",
+            "cloud": "Cloud",
+            "devops": "DevOps",
+            "blockchain": "Blockchain",
+            "tech": "Tech",
+            "kubernetes": "K8s",
+            "finops": "FinOps",
         }.get(category, category.title())
         severity = _determine_severity(item)
         severity_emoji = {"Critical": "🔴", "High": "🟠", "Medium": "🟡"}.get(
@@ -2521,10 +2534,10 @@ def main():
             print(f"📝 Overwriting existing post ({existing_size}B → {new_size}B)")
 
     if args.dry_run:
-        print(f"\n📝 [DRY RUN] Would create:")
+        print("\n📝 [DRY RUN] Would create:")
         print(f"   - Post: {post_path}")
         print(f"   - Image: {svg_path}")
-        print(f"\n--- Post Preview (first 500 chars) ---")
+        print("\n--- Post Preview (first 500 chars) ---")
         print(post_content[:500])
         return
 

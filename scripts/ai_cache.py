@@ -148,11 +148,7 @@ def clear_expired_cache() -> int:
     initial_size = len(cache)
 
     # 만료된 항목 제거
-    cache = {
-        k: v
-        for k, v in cache.items()
-        if is_cache_valid(v.get("timestamp", ""))
-    }
+    cache = {k: v for k, v in cache.items() if is_cache_valid(v.get("timestamp", ""))}
 
     if len(cache) < initial_size:
         save_cache(cache)
@@ -174,15 +170,11 @@ def get_cache_stats() -> Dict:
 
     total_entries = len(cache)
     valid_entries = sum(
-        1
-        for v in cache.values()
-        if is_cache_valid(v.get("timestamp", ""))
+        1 for v in cache.values() if is_cache_valid(v.get("timestamp", ""))
     )
     expired_entries = total_entries - valid_entries
 
-    total_size = sum(
-        len(v.get("analysis", "")) for v in cache.values()
-    )
+    total_size = sum(len(v.get("analysis", "")) for v in cache.values())
 
     return {
         "total_entries": total_entries,

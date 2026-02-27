@@ -5,14 +5,13 @@ Automatically sends email to subscribers when new blog posts are published.
 """
 
 import os
-import sys
 import re
-import yaml
-import requests
-import hashlib
-from pathlib import Path
-from urllib.parse import quote
+import sys
 from datetime import datetime
+from pathlib import Path
+
+import requests
+import yaml
 
 
 def mask_sensitive_info(text: str) -> str:
@@ -521,7 +520,7 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
     }
 
     try:
-        print(f"📤 Sending email via Buttondown API...")
+        print("📤 Sending email via Buttondown API...")
         print(f"   URL: {url}")
         print(f"   Subject: {subject[:50]}...")
 
@@ -531,13 +530,13 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
         if response.status_code in [200, 201]:
             result = response.json() if response.text else {}
             email_id = result.get("id", "N/A")
-            print(f"✅ Email sent successfully!")
+            print("✅ Email sent successfully!")
             print(f"   Email ID: {email_id}")
             print(f"   Subject: {subject}")
             return True
         elif response.status_code == 401:
-            print(f"❌ Authentication failed (401 Unauthorized)")
-            print(f"   Please check your BUTTONDOWN_API_KEY")
+            print("❌ Authentication failed (401 Unauthorized)")
+            print("   Please check your BUTTONDOWN_API_KEY")
             # Security: Mask API key in log output
             masked_key = (
                 f"Token {api_key[:4]}...{api_key[-4:]}"
@@ -547,8 +546,8 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
             safe_print(f"   API Key format: {masked_key}")
             return False
         elif response.status_code == 404:
-            print(f"❌ Resource not found (404)")
-            print(f"   This might indicate an invalid API endpoint or missing resource")
+            print("❌ Resource not found (404)")
+            print("   This might indicate an invalid API endpoint or missing resource")
             print(f"   Response: {response.text[:200]}")
             return False
         else:
@@ -563,11 +562,11 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
             return False
 
     except requests.exceptions.Timeout:
-        print(f"❌ Request timeout: API did not respond within 30 seconds")
+        print("❌ Request timeout: API did not respond within 30 seconds")
         return False
     except requests.exceptions.ConnectionError as e:
         print(f"❌ Connection error: {e}")
-        print(f"   Please check your internet connection and API endpoint")
+        print("   Please check your internet connection and API endpoint")
         return False
     except requests.exceptions.RequestException as e:
         print(f"❌ Request error: {e}")
@@ -640,7 +639,7 @@ def main():
         print(f"❌ Post file not found: {post_path}")
         print(f"   Resolved path: {post_file}")
         print(f"   Current directory: {Path.cwd()}")
-        print(f"   Available files in _posts/ (first 10):")
+        print("   Available files in _posts/ (first 10):")
         posts_dir = Path(__file__).parent.parent / "_posts"
         if posts_dir.exists():
             for f in list(posts_dir.glob("*.md"))[:10]:

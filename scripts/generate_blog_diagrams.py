@@ -14,49 +14,85 @@ Tech Blog - AWS/보안/아키텍처 다이어그램 일괄 생성 스크립트
 필요 패키지: pip install diagrams graphviz pillow
 """
 
-import os
-import re
-import sys
 import argparse
-from pathlib import Path
+import sys
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from pathlib import Path
+from typing import Dict, Optional
 
 # diagrams 라이브러리 임포트
 try:
-    from diagrams import Diagram, Cluster, Edge
-    # AWS 서비스
-    from diagrams.aws.compute import EC2, ECS, EKS, Lambda, Fargate
-    from diagrams.aws.network import (VPC, PrivateSubnet, PublicSubnet,
-        InternetGateway, NATGateway, ELB, ALB, NLB, CloudFront, Route53, APIGateway)
-    from diagrams.aws.security import (WAF, Shield, IAM, Cognito, KMS,
-        SecretsManager, SecurityHub, Guardduty, Inspector)
-    from diagrams.aws.database import RDS, Dynamodb, ElastiCache, Aurora, Redshift, DocumentDB
-    from diagrams.aws.storage import S3, EBS, EFS
-    from diagrams.aws.integration import SQS, SNS, Eventbridge, StepFunctions
-    from diagrams.aws.management import (Cloudwatch, CloudwatchAlarm, Cloudtrail,
-        Config, ControlTower, Organizations)
-    from diagrams.aws.devtools import Codepipeline, Codebuild, Codecommit, Codestar
+    from diagrams import Cluster, Diagram, Edge
     from diagrams.aws.analytics import Athena, Kinesis
-    from diagrams.aws.general import Users, Client as AWSClient
-    # 온프레미스/일반
-    from diagrams.onprem.client import Client, Users as OnpremUsers
-    from diagrams.onprem.vcs import Github
-    from diagrams.onprem.ci import GithubActions, Jenkins
-    from diagrams.onprem.container import Docker
-    from diagrams.onprem.monitoring import Datadog, Grafana
-    from diagrams.k8s.compute import Pod, Deployment
-    from diagrams.k8s.network import Service, Ingress
-    from diagrams.k8s.rbac import ClusterRole, RoleBinding
-    from diagrams.k8s.controlplane import APIServer
+
+    # AWS 서비스
+    from diagrams.aws.compute import EC2, ECS, EKS, Fargate, Lambda
+    from diagrams.aws.database import (
+        RDS,
+        Aurora,
+        DocumentDB,
+        Dynamodb,
+        ElastiCache,
+        Redshift,
+    )
+    from diagrams.aws.devtools import Codebuild, Codecommit, Codepipeline, Codestar
+    from diagrams.aws.general import Client as AWSClient
+    from diagrams.aws.general import Users
+    from diagrams.aws.integration import SNS, SQS, Eventbridge, StepFunctions
+    from diagrams.aws.management import (
+        Cloudtrail,
+        Cloudwatch,
+        CloudwatchAlarm,
+        Config,
+        ControlTower,
+        Organizations,
+    )
+    from diagrams.aws.network import (
+        ALB,
+        ELB,
+        NLB,
+        VPC,
+        APIGateway,
+        CloudFront,
+        InternetGateway,
+        NATGateway,
+        PrivateSubnet,
+        PublicSubnet,
+        Route53,
+    )
+    from diagrams.aws.security import (
+        IAM,
+        KMS,
+        WAF,
+        Cognito,
+        Guardduty,
+        Inspector,
+        SecretsManager,
+        SecurityHub,
+        Shield,
+    )
+    from diagrams.aws.storage import EBS, EFS, S3
     from diagrams.generic.blank import Blank
     from diagrams.generic.device import Mobile, Tablet
-    from diagrams.saas.cdn import Cloudflare
+    from diagrams.k8s.compute import Deployment, Pod
+    from diagrams.k8s.controlplane import APIServer
+    from diagrams.k8s.network import Ingress, Service
+    from diagrams.k8s.rbac import ClusterRole, RoleBinding
+    from diagrams.onprem.ci import GithubActions, Jenkins
+
+    # 온프레미스/일반
+    from diagrams.onprem.client import Client
+    from diagrams.onprem.client import Users as OnpremUsers
+    from diagrams.onprem.container import Docker
+    from diagrams.onprem.monitoring import Datadog, Grafana
+    from diagrams.onprem.vcs import Github
     from diagrams.programming.framework import React
+    from diagrams.saas.cdn import Cloudflare
+
     DIAGRAMS_AVAILABLE = True
 except ImportError as e:
     DIAGRAMS_AVAILABLE = False
-    print(f"diagrams 라이브러리 설치 필요: pip install diagrams graphviz")
+    print("diagrams 라이브러리 설치 필요: pip install diagrams graphviz")
     print(f"오류: {e}")
 
 # 경로 설정
@@ -87,7 +123,13 @@ STANDARD_GRAPH_ATTR = {
 def log_message(message: str, level: str = "INFO") -> None:
     """로그 메시지 출력"""
     timestamp = datetime.now().strftime("%H:%M:%S")
-    icons = {"INFO": "ℹ️", "SUCCESS": "✅", "WARNING": "⚠️", "ERROR": "❌", "DIAGRAM": "📊"}
+    icons = {
+        "INFO": "ℹ️",
+        "SUCCESS": "✅",
+        "WARNING": "⚠️",
+        "ERROR": "❌",
+        "DIAGRAM": "📊",
+    }
     icon = icons.get(level, "ℹ️")
     print(f"[{timestamp}] {icon} {message}")
 
@@ -95,7 +137,9 @@ def log_message(message: str, level: str = "INFO") -> None:
 # ============================================================================
 # 1. AWS VPC 보안 아키텍처 다이어그램
 # ============================================================================
-def generate_vpc_security_architecture(output_path: Path, high_res: bool = False) -> bool:
+def generate_vpc_security_architecture(
+    output_path: Path, high_res: bool = False
+) -> bool:
     """AWS VPC 보안 아키텍처 - 2주차 포스트 기반"""
     try:
         graph_attr = VIDEO_GRAPH_ATTR if high_res else STANDARD_GRAPH_ATTR
@@ -158,7 +202,9 @@ def generate_vpc_security_architecture(output_path: Path, high_res: bool = False
 # ============================================================================
 # 2. AWS WAF + CloudFront 보안 아키텍처
 # ============================================================================
-def generate_waf_cloudfront_architecture(output_path: Path, high_res: bool = False) -> bool:
+def generate_waf_cloudfront_architecture(
+    output_path: Path, high_res: bool = False
+) -> bool:
     """AWS WAF/CloudFront 보안 아키텍처 - 6주차 포스트 기반"""
     try:
         graph_attr = VIDEO_GRAPH_ATTR if high_res else STANDARD_GRAPH_ATTR
@@ -241,7 +287,9 @@ def generate_db_gateway_architecture(output_path: Path, high_res: bool = False) 
                     nlb = NLB("Network Load Balancer\nStatic IP")
 
                 with Cluster("Security Group - Gateway"):
-                    sg_gateway = Blank("SG: Gateway\nInbound: App IPs\nOutbound: DB Ports")
+                    sg_gateway = Blank(
+                        "SG: Gateway\nInbound: App IPs\nOutbound: DB Ports"
+                    )
 
                 with Cluster("Private Subnet - Databases"):
                     with Cluster("Relational"):
@@ -339,7 +387,9 @@ def generate_devsecops_pipeline(output_path: Path, high_res: bool = False) -> bo
 # ============================================================================
 # 5. Kubernetes Security Architecture
 # ============================================================================
-def generate_k8s_security_architecture(output_path: Path, high_res: bool = False) -> bool:
+def generate_k8s_security_architecture(
+    output_path: Path, high_res: bool = False
+) -> bool:
     """Kubernetes 보안 아키텍처"""
     try:
         graph_attr = VIDEO_GRAPH_ATTR if high_res else STANDARD_GRAPH_ATTR
@@ -577,18 +627,32 @@ def generate_devsecops_roadmap(output_path: Path, high_res: bool = False) -> boo
 # 메인 실행
 # ============================================================================
 DIAGRAM_FUNCTIONS = {
-    "vpc_security": ("AWS VPC Security Architecture", generate_vpc_security_architecture),
-    "waf_cloudfront": ("AWS WAF CloudFront Architecture", generate_waf_cloudfront_architecture),
+    "vpc_security": (
+        "AWS VPC Security Architecture",
+        generate_vpc_security_architecture,
+    ),
+    "waf_cloudfront": (
+        "AWS WAF CloudFront Architecture",
+        generate_waf_cloudfront_architecture,
+    ),
     "db_gateway": ("Database Access Gateway", generate_db_gateway_architecture),
     "devsecops_pipeline": ("DevSecOps CI/CD Pipeline", generate_devsecops_pipeline),
-    "k8s_security": ("Kubernetes Security Architecture", generate_k8s_security_architecture),
-    "aws_security_services": ("AWS Security Services Overview", generate_aws_security_services),
+    "k8s_security": (
+        "Kubernetes Security Architecture",
+        generate_k8s_security_architecture,
+    ),
+    "aws_security_services": (
+        "AWS Security Services Overview",
+        generate_aws_security_services,
+    ),
     "zero_trust": ("Zero Trust Architecture", generate_zero_trust_architecture),
     "devsecops_roadmap": ("DevSecOps Learning Roadmap", generate_devsecops_roadmap),
 }
 
 
-def generate_all_diagrams(high_res: bool = False, output_dir: Optional[Path] = None) -> Dict[str, bool]:
+def generate_all_diagrams(
+    high_res: bool = False, output_dir: Optional[Path] = None
+) -> Dict[str, bool]:
     """모든 다이어그램 생성"""
     if not DIAGRAMS_AVAILABLE:
         log_message("diagrams 라이브러리가 설치되지 않았습니다.", "ERROR")
@@ -602,7 +666,9 @@ def generate_all_diagrams(high_res: bool = False, output_dir: Optional[Path] = N
     results = {}
     total = len(DIAGRAM_FUNCTIONS)
 
-    log_message(f"{'영상용 고해상도' if high_res else '표준'} 다이어그램 생성 시작 ({total}개)")
+    log_message(
+        f"{'영상용 고해상도' if high_res else '표준'} 다이어그램 생성 시작 ({total}개)"
+    )
     log_message(f"출력 디렉토리: {output_dir}")
 
     for idx, (key, (title, func)) in enumerate(DIAGRAM_FUNCTIONS.items(), 1):
@@ -627,14 +693,20 @@ def generate_all_diagrams(high_res: bool = False, output_dir: Optional[Path] = N
 
 def main():
     parser = argparse.ArgumentParser(description="Tech Blog 아키텍처 다이어그램 생성")
-    parser.add_argument("--video", "-v", action="store_true",
-                        help="영상 제작용 고해상도 이미지 생성")
-    parser.add_argument("--output", "-o", type=str,
-                        help="출력 디렉토리 경로")
-    parser.add_argument("--diagram", "-d", type=str, choices=list(DIAGRAM_FUNCTIONS.keys()),
-                        help="특정 다이어그램만 생성")
-    parser.add_argument("--list", "-l", action="store_true",
-                        help="생성 가능한 다이어그램 목록")
+    parser.add_argument(
+        "--video", "-v", action="store_true", help="영상 제작용 고해상도 이미지 생성"
+    )
+    parser.add_argument("--output", "-o", type=str, help="출력 디렉토리 경로")
+    parser.add_argument(
+        "--diagram",
+        "-d",
+        type=str,
+        choices=list(DIAGRAM_FUNCTIONS.keys()),
+        help="특정 다이어그램만 생성",
+    )
+    parser.add_argument(
+        "--list", "-l", action="store_true", help="생성 가능한 다이어그램 목록"
+    )
 
     args = parser.parse_args()
 
@@ -657,7 +729,9 @@ def main():
         # 특정 다이어그램만 생성
         if args.diagram in DIAGRAM_FUNCTIONS:
             title, func = DIAGRAM_FUNCTIONS[args.diagram]
-            out_dir = output_dir or (VIDEO_IMAGES_DIR if args.video else ASSETS_IMAGES_DIR)
+            out_dir = output_dir or (
+                VIDEO_IMAGES_DIR if args.video else ASSETS_IMAGES_DIR
+            )
             out_dir.mkdir(parents=True, exist_ok=True)
             output_path = out_dir / f"diagram_{args.diagram}.png"
 

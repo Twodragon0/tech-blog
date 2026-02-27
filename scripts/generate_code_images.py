@@ -14,17 +14,15 @@ Features:
 - 커스텀 스타일링
 """
 
-import os
+import argparse
+import hashlib
+import html
 import re
 import sys
-import hashlib
-import argparse
-import html
-from pathlib import Path
-from datetime import datetime
-from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
-
+from datetime import datetime
+from pathlib import Path
+from typing import List, Optional, Tuple
 
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
@@ -746,18 +744,18 @@ def create_svg_code_image(
 
         # SVG 시작
         svg_parts = [
-            f'<?xml version="1.0" encoding="UTF-8"?>',
+            '<?xml version="1.0" encoding="UTF-8"?>',
             f'<svg xmlns="http://www.w3.org/2000/svg" width="{content_width}" height="{total_height}" viewBox="0 0 {content_width} {total_height}">',
             # 스타일 정의
-            f"<defs>",
-            f'  <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">',
-            f'    <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.2"/>',
-            f"  </filter>",
-            f"</defs>",
+            "<defs>",
+            '  <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">',
+            '    <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.2"/>',
+            "  </filter>",
+            "</defs>",
         ]
 
         # 메인 컨테이너 (그림자 포함)
-        svg_parts.append(f'<g filter="url(#shadow)">')
+        svg_parts.append('<g filter="url(#shadow)">')
 
         # 배경
         svg_parts.append(
@@ -789,7 +787,7 @@ def create_svg_code_image(
                 f'<text x="{content_width - 15}" y="{title_bar_height // 2 + 5}" text-anchor="end" fill="{theme.line_number}" font-family="monospace" font-size="12">{code_block.language}</text>'
             )
 
-        svg_parts.append(f"</g>")
+        svg_parts.append("</g>")
 
         # 코드 영역
         code_start_y = title_bar_height + padding

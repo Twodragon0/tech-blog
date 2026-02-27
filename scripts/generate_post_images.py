@@ -6,17 +6,18 @@
 Gemini 2.5 Flash Image (Nano Banana) 또는 Gemini 3 Pro Image (Nano Banana Pro) 모델 사용.
 """
 
+import base64
+import json
 import os
 import re
 import sys
-import json
-import base64
 import time
-import frontmatter
-import requests
+from datetime import datetime
 from pathlib import Path
 from typing import Dict, Optional, Tuple
-from datetime import datetime
+
+import frontmatter
+import requests
 
 try:
     from PIL import Image
@@ -32,7 +33,7 @@ except ImportError:
     TTS_AVAILABLE = False
 
 try:
-    from moviepy import ImageClip, AudioFileClip, concatenate_videoclips
+    from moviepy import AudioFileClip, ImageClip, concatenate_videoclips
 
     MOVIEPY_AVAILABLE = True
 except ImportError:
@@ -64,7 +65,9 @@ GEMINI_IMAGE_PRO_API_URL = "https://generativelanguage.googleapis.com/v1beta/mod
 USE_PRO_MODEL = os.getenv("USE_GEMINI_PRO_IMAGE", "false").lower() == "true"
 
 # Professional style: clean infographic, no characters/mascots, English text only
-USE_PROFESSIONAL_STYLE = os.getenv("USE_PROFESSIONAL_IMAGE_STYLE", "true").lower() == "true"
+USE_PROFESSIONAL_STYLE = (
+    os.getenv("USE_PROFESSIONAL_IMAGE_STYLE", "true").lower() == "true"
+)
 PROFESSIONAL_STYLE = """
 Style: Clean professional infographic
 - White/light gray background
@@ -225,7 +228,7 @@ def optimize_image(image_path: Path):
             img.save(webp_path, format="WebP", quality=85)
             log_message(f"   - WebP 버전 생성: {webp_path.name}", "INFO")
 
-        log_message(f"✅ 이미지 최적화 완료", "SUCCESS")
+        log_message("✅ 이미지 최적화 완료", "SUCCESS")
     except Exception as e:
         log_message(f"❌ 이미지 최적화 실패: {str(e)}", "ERROR")
 
@@ -527,7 +530,7 @@ def generate_image_with_gemini(
                     if "text" in candidate.get("content", {}).get("parts", [{}])[0]:
                         text_response = candidate["content"]["parts"][0]["text"]
                         log_message(
-                            f"⚠️ Gemini API가 텍스트 응답을 반환했습니다. 프롬프트로 저장합니다.",
+                            "⚠️ Gemini API가 텍스트 응답을 반환했습니다. 프롬프트로 저장합니다.",
                             "WARNING",
                         )
 
@@ -542,7 +545,7 @@ def generate_image_with_gemini(
                         if _validate_masked_text(
                             safe_text_response
                         ) and _validate_masked_text(safe_prompt):
-                            safe_content = f"# Image Generation Prompt\n\n"
+                            safe_content = "# Image Generation Prompt\n\n"
                             safe_content += f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
                             safe_content += f"Output: {output_path.name}\n\n"
                             safe_content += "=" * 80 + "\n"
@@ -604,7 +607,7 @@ def generate_image_with_gemini(
 
         except requests.exceptions.Timeout:
             if attempt < max_retries:
-                log_message(f"⏱️ 타임아웃 발생, 재시도 예정...", "WARNING")
+                log_message("⏱️ 타임아웃 발생, 재시도 예정...", "WARNING")
                 continue
             log_message(
                 f"❌ 이미지 생성 타임아웃 (120초 초과, {max_retries}회 시도)", "ERROR"
@@ -612,7 +615,7 @@ def generate_image_with_gemini(
             return False
         except requests.exceptions.RequestException as e:
             if attempt < max_retries:
-                log_message(f"🔄 네트워크 오류 발생, 재시도 예정...", "WARNING")
+                log_message("🔄 네트워크 오류 발생, 재시도 예정...", "WARNING")
                 continue
             log_message(f"❌ 네트워크 오류: {str(e)}", "ERROR")
             return False
@@ -641,7 +644,7 @@ def save_prompt_file(prompt: str, output_path: Path):
             return
 
         # 안전한 내용만 저장
-        safe_content = f"# Image Generation Prompt\n\n"
+        safe_content = "# Image Generation Prompt\n\n"
         safe_content += f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
         safe_content += f"Output: {output_path.name}\n\n"
         safe_content += "=" * 80 + "\n"
@@ -1044,7 +1047,7 @@ def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
 '''
             tag_x += tag_width + 15
 
-        svg_content += '''
+        svg_content += """
     <rect x="820" y="210" width="140" height="45" rx="22" fill="url(#accentGradient)"/>
     <text x="890" y="238" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Read More</text>
   </g>
@@ -1055,7 +1058,7 @@ def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
   <text x="60" y="612" font-family="Arial, sans-serif" font-size="13" fill="#64748b">tech.2twodragon.com</text>
 
   <text x="1150" y="600" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security</text>
-</svg>'''
+</svg>"""
 
         output_svg = output_path.with_suffix(".svg")
         with open(output_svg, "w", encoding="utf-8") as f:
@@ -1112,7 +1115,7 @@ def process_post(
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     prompt = generate_image_prompt(post_info)
-    log_message(f"📝 이미지 생성 프롬프트 생성 완료", "SUCCESS")
+    log_message("📝 이미지 생성 프롬프트 생성 완료", "SUCCESS")
 
     image_generated = False
     if GEMINI_API_KEY:

@@ -68,7 +68,9 @@ def screenshot(url: str, output: str | None = None, cdp_endpoint: str | None = N
 
     connect_code = ""
     if cdp_endpoint:
-        connect_code = f'const browser = await chromium.connectOverCDP("{cdp_endpoint}");'
+        connect_code = (
+            f'const browser = await chromium.connectOverCDP("{cdp_endpoint}");'
+        )
     else:
         connect_code = "const browser = await chromium.launch();"
 
@@ -103,7 +105,9 @@ def lighthouse(url: str, output: str | None = None):
     html_output = output.replace(".json", ".html")
 
     cmd = [
-        "npx", "lighthouse", url,
+        "npx",
+        "lighthouse",
+        url,
         "--output=json,html",
         f"--output-path={output.replace('.json', '')}",
         "--chrome-flags=--headless --no-sandbox",
@@ -127,13 +131,21 @@ def lighthouse(url: str, output: str | None = None):
         print("\n--- Lighthouse Results ---")
         for name, cat in categories.items():
             score = cat.get("score", 0)
-            emoji = "✅" if score and score >= 0.9 else "⚠️" if score and score >= 0.5 else "❌"
+            emoji = (
+                "✅"
+                if score and score >= 0.9
+                else "⚠️"
+                if score and score >= 0.5
+                else "❌"
+            )
             print(f"  {emoji} {cat.get('title', name)}: {int((score or 0) * 100)}/100")
 
         # Core Web Vitals
         audits = data.get("audits", {})
         vitals = {
-            "LCP": audits.get("largest-contentful-paint", {}).get("displayValue", "N/A"),
+            "LCP": audits.get("largest-contentful-paint", {}).get(
+                "displayValue", "N/A"
+            ),
             "FID": audits.get("max-potential-fid", {}).get("displayValue", "N/A"),
             "CLS": audits.get("cumulative-layout-shift", {}).get("displayValue", "N/A"),
             "TTFB": audits.get("server-response-time", {}).get("displayValue", "N/A"),
@@ -147,7 +159,9 @@ def lighthouse(url: str, output: str | None = None):
     return output
 
 
-def scrape(url: str, selector: str, output: str | None = None, cdp_endpoint: str | None = None):
+def scrape(
+    url: str, selector: str, output: str | None = None, cdp_endpoint: str | None = None
+):
     """Scrape content from a URL using CSS selector."""
     ensure_output_dir()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -156,7 +170,9 @@ def scrape(url: str, selector: str, output: str | None = None, cdp_endpoint: str
 
     connect_code = ""
     if cdp_endpoint:
-        connect_code = f'const browser = await chromium.connectOverCDP("{cdp_endpoint}");'
+        connect_code = (
+            f'const browser = await chromium.connectOverCDP("{cdp_endpoint}");'
+        )
     else:
         connect_code = "const browser = await chromium.launch();"
 
@@ -204,7 +220,9 @@ def check_links(url: str, cdp_endpoint: str | None = None):
 
     connect_code = ""
     if cdp_endpoint:
-        connect_code = f'const browser = await chromium.connectOverCDP("{cdp_endpoint}");'
+        connect_code = (
+            f'const browser = await chromium.connectOverCDP("{cdp_endpoint}");'
+        )
     else:
         connect_code = "const browser = await chromium.launch();"
 

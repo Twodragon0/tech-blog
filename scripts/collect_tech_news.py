@@ -16,14 +16,13 @@ import hashlib
 import json
 import os
 import re
+import socket
 import sys
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
-from urllib.parse import parse_qs, urljoin, urlparse
-
-import socket
+from typing import List, Optional
+from urllib.parse import parse_qs, urlparse
 
 import feedparser
 import requests
@@ -970,7 +969,7 @@ def fetch_worldmonitor_tech(
 
 def _extract_title_from_url(url: str) -> str:
     """URL의 o_fname 파라미터에서 파일명(제목) 추출"""
-    from urllib.parse import unquote, urlparse, parse_qs
+    from urllib.parse import parse_qs, unquote, urlparse
 
     try:
         parsed = urlparse(url)
@@ -1068,7 +1067,7 @@ def _parse_skshieldus_eqst(
             )
             items.append(item)
 
-        except Exception as e:
+        except Exception:
             continue
 
     return items
@@ -1144,7 +1143,7 @@ def _parse_skshieldus_report(
             )
             items.append(item)
 
-        except Exception as e:
+        except Exception:
             continue
 
     return items

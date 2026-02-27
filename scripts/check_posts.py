@@ -13,11 +13,11 @@
 - 링크 유효성
 """
 
-import os
 import re
-import yaml
 from pathlib import Path
-from typing import List, Dict, Tuple, Optional
+from typing import List, Optional, Tuple
+
+import yaml
 
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
@@ -298,7 +298,7 @@ def main():
                 print(f"  Found {len(issues)} issues")
         else:
             if not args.detailed_only:
-                print(f"  ✅ No issues found")
+                print("  ✅ No issues found")
 
     if not args.detailed_only:
         print(f"\n{'=' * 60}")

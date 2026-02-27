@@ -4,14 +4,14 @@
 Facebook, Twitter, LinkedIn 등 플랫폼별 이미지 최적화 확인
 """
 
-import os
-import sys
 import argparse
-import re
-from pathlib import Path
-from typing import Dict, List, Tuple, Optional
-from PIL import Image
 import json
+import re
+import sys
+from pathlib import Path
+from typing import Dict, List, Optional
+
+from PIL import Image
 
 # 플랫폼별 권장 이미지 크기
 PLATFORM_SPECS = {
@@ -21,21 +21,23 @@ PLATFORM_SPECS = {
     "instagram": {"width": 1080, "height": 1080, "name": "Instagram"},
 }
 
+
 def extract_front_matter(content: str) -> Dict[str, str]:
     """Front Matter 추출"""
-    match = re.search(r'^---\n(.*?)\n---', content, re.DOTALL)
+    match = re.search(r"^---\n(.*?)\n---", content, re.DOTALL)
     if not match:
         return {}
 
     fm_text = match.group(1)
     fm_data = {}
 
-    for line in fm_text.split('\n'):
-        if ':' in line:
-            key, value = line.split(':', 1)
-            fm_data[key.strip()] = value.strip().strip('"\'')
+    for line in fm_text.split("\n"):
+        if ":" in line:
+            key, value = line.split(":", 1)
+            fm_data[key.strip()] = value.strip().strip("\"'")
 
     return fm_data
+
 
 def check_image_size(image_path: Path) -> Dict[str, any]:
     """이미지 크기 확인 및 플랫폼 호환성 검증"""
@@ -55,26 +57,29 @@ def check_image_size(image_path: Path) -> Dict[str, any]:
             "exists": True,
             "size": (width, height),
             "compatible_platforms": compatible,
-            "format": img.format
+            "format": img.format,
         }
     except Exception as e:
         return {"exists": True, "error": str(e)}
+
 
 def generate_validator_urls(post_url: str) -> Dict[str, str]:
     """소셜 미디어 검증 URL 생성"""
     return {
         "facebook": f"https://developers.facebook.com/tools/debug/?q={post_url}",
         "twitter": f"https://cards-dev.twitter.com/validator?url={post_url}",
-        "linkedin": f"https://www.linkedin.com/post-inspector/?url={post_url}"
+        "linkedin": f"https://www.linkedin.com/post-inspector/?url={post_url}",
     }
+
 
 def get_post_url(post_filename: str, base_url: str) -> Optional[str]:
     """포스트 파일명에서 URL 생성"""
-    date_match = re.match(r'(\d{4})-(\d{2})-(\d{2})-(.+)\.md', post_filename)
+    date_match = re.match(r"(\d{4})-(\d{2})-(\d{2})-(.+)\.md", post_filename)
     if date_match:
         year, month, day, slug = date_match.groups()
         return f"{base_url}/{year}/{month}/{day}/{slug}/"
     return None
+
 
 def verify_posts(posts: List[Path], base_url: str) -> List[Dict]:
     """포스트 목록 검증"""
@@ -82,28 +87,32 @@ def verify_posts(posts: List[Path], base_url: str) -> List[Dict]:
 
     for post_file in posts:
         try:
-            content = post_file.read_text(encoding='utf-8')
+            content = post_file.read_text(encoding="utf-8")
         except Exception as e:
-            results.append({
-                "post": post_file.name,
-                "status": "ERROR",
-                "message": f"Failed to read file: {str(e)}"
-            })
+            results.append(
+                {
+                    "post": post_file.name,
+                    "status": "ERROR",
+                    "message": f"Failed to read file: {str(e)}",
+                }
+            )
             continue
 
         fm = extract_front_matter(content)
 
         if not fm.get("image"):
-            results.append({
-                "post": post_file.name,
-                "status": "ERROR",
-                "message": "Missing 'image' field in front matter"
-            })
+            results.append(
+                {
+                    "post": post_file.name,
+                    "status": "ERROR",
+                    "message": "Missing 'image' field in front matter",
+                }
+            )
             continue
 
         # 이미지 파일 확인 (SVG와 PNG 모두 체크)
-        image_path = Path(fm["image"].lstrip('/'))
-        png_path = image_path.with_suffix('.png')
+        image_path = Path(fm["image"].lstrip("/"))
+        png_path = image_path.with_suffix(".png")
 
         # PNG 우선, 없으면 원본 경로
         check_path = png_path if png_path.exists() else image_path
@@ -112,19 +121,22 @@ def verify_posts(posts: List[Path], base_url: str) -> List[Dict]:
         # 포스트 URL 생성
         post_url = get_post_url(post_file.name, base_url)
 
-        results.append({
-            "post": post_file.name,
-            "title": fm.get("title", "No title"),
-            "image": fm.get("image"),
-            "image_alt": fm.get("image_alt"),
-            "image_checked": str(check_path),
-            "image_info": image_info,
-            "post_url": post_url,
-            "validators": generate_validator_urls(post_url) if post_url else None,
-            "status": "OK" if image_info.get("exists") else "ERROR"
-        })
+        results.append(
+            {
+                "post": post_file.name,
+                "title": fm.get("title", "No title"),
+                "image": fm.get("image"),
+                "image_alt": fm.get("image_alt"),
+                "image_checked": str(check_path),
+                "image_info": image_info,
+                "post_url": post_url,
+                "validators": generate_validator_urls(post_url) if post_url else None,
+                "status": "OK" if image_info.get("exists") else "ERROR",
+            }
+        )
 
     return results
+
 
 def print_markdown_report(results: List[Dict]) -> None:
     """마크다운 형식 리포트 출력"""
@@ -147,7 +159,7 @@ def print_markdown_report(results: List[Dict]) -> None:
             print(f"❌ **오류:** {r.get('message', 'Unknown error')}\n")
             continue
 
-        info = r['image_info']
+        info = r["image_info"]
         if info.get("exists"):
             size = info.get("size", ("Unknown", "Unknown"))
             platforms = info.get("compatible_platforms", [])
@@ -180,9 +192,11 @@ def print_markdown_report(results: List[Dict]) -> None:
 
         print("\n---\n")
 
+
 def print_json_report(results: List[Dict]) -> None:
     """JSON 형식 리포트 출력"""
     print(json.dumps(results, indent=2, ensure_ascii=False))
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -200,15 +214,22 @@ Platforms:
   - Twitter Cards: 1200x675px
   - LinkedIn: 1200x630px
   - Instagram: 1080x1080px
-        """
+        """,
     )
     parser.add_argument("--all", action="store_true", help="모든 포스트 검증")
     parser.add_argument("--post", help="특정 포스트 검증 (파일명)")
-    parser.add_argument("--format", choices=["markdown", "json"], default="markdown",
-                        help="출력 형식 (기본: markdown)")
+    parser.add_argument(
+        "--format",
+        choices=["markdown", "json"],
+        default="markdown",
+        help="출력 형식 (기본: markdown)",
+    )
     parser.add_argument("--output", help="결과를 파일로 저장")
-    parser.add_argument("--base-url", default="https://tech.2twodragon.com/posts",
-                        help="기본 URL (기본: https://tech.2twodragon.com/posts)")
+    parser.add_argument(
+        "--base-url",
+        default="https://tech.2twodragon.com/posts",
+        help="기본 URL (기본: https://tech.2twodragon.com/posts)",
+    )
 
     args = parser.parse_args()
 
@@ -241,7 +262,7 @@ Platforms:
     # 결과 출력
     if args.output:
         original_stdout = sys.stdout
-        with open(args.output, 'w', encoding='utf-8') as f:
+        with open(args.output, "w", encoding="utf-8") as f:
             sys.stdout = f
             if args.format == "markdown":
                 print_markdown_report(results)
@@ -258,6 +279,7 @@ Platforms:
     # 종료 코드 설정
     error_count = sum(1 for r in results if r["status"] == "ERROR")
     sys.exit(1 if error_count > 0 else 0)
+
 
 if __name__ == "__main__":
     main()

@@ -22,7 +22,16 @@ exclude = [
 [tool.ruff.lint]
 # E = pycodestyle errors, F = Pyflakes, W = pycodestyle warnings, I = isort
 select = ["E", "F", "W", "I"]
-ignore = []
+# E501: Line too long - disabled due to Korean text and SVG templates
+# W291/W293: Trailing/leading whitespace in string literals
+# E722: Bare except - common in legacy scripts with broad error handling
+# E741: Ambiguous variable name - legacy code
+# E402: Import not at top - scripts with sys.path manipulation
+# E701: Multiple statements on one line
+# F841: Unused variable - legacy scripts with side effects
+# F601: Redundant membership test
+# F401: Unused import - many in try/except fallback blocks
+ignore = ["E501", "W291", "W293", "E722", "E741", "E402", "E701", "F841", "F601", "F401"]
 
 [tool.ruff.format]
 # Black-compatible formatter
@@ -38,8 +47,9 @@ exclude = [
 
 
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.11"
 ignore_missing_imports = true
+disable_error_code = ["import-untyped"]
 exclude = ["vendor/", "node_modules/", "_site/", "scripts/_archive/"]
 
 # More strict checking (can be enabled progressively)

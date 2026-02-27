@@ -21,29 +21,39 @@ AWS 아키텍처 다이어그램 자동 생성 스크립트
     - auto: 자동 감지 (기본값)
 """
 
-import os
+import argparse
 import re
 import sys
-import argparse
-from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from pathlib import Path
+from typing import Dict, List, Optional
 
 # diagrams 라이브러리 임포트
 try:
-    from diagrams import Diagram, Cluster, Edge
-    from diagrams.aws.compute import EC2, ECS, EKS, Lambda, Fargate
-    from diagrams.aws.network import VPC, PrivateSubnet, PublicSubnet, InternetGateway, NATGateway, ELB, ALB, CloudFront, Route53
-    from diagrams.aws.security import WAF, Shield, IAM, Cognito, KMS, SecretsManager
-    from diagrams.aws.database import RDS, DynamoDB, ElastiCache, Aurora
-    from diagrams.aws.storage import S3, EBS, EFS
-    from diagrams.aws.integration import SQS, SNS, EventBridge
-    from diagrams.aws.management import Cloudwatch, CloudwatchAlarm, Cloudtrail
-    from diagrams.aws.devtools import Codepipeline, Codebuild, Codecommit
+    from diagrams import Cluster, Diagram, Edge
+    from diagrams.aws.compute import EC2, ECS, EKS, Fargate, Lambda
+    from diagrams.aws.database import RDS, Aurora, DynamoDB, ElastiCache
+    from diagrams.aws.devtools import Codebuild, Codecommit, Codepipeline
     from diagrams.aws.general import Users
+    from diagrams.aws.integration import SNS, SQS, EventBridge
+    from diagrams.aws.management import Cloudtrail, Cloudwatch, CloudwatchAlarm
+    from diagrams.aws.network import (
+        ALB,
+        ELB,
+        VPC,
+        CloudFront,
+        InternetGateway,
+        NATGateway,
+        PrivateSubnet,
+        PublicSubnet,
+        Route53,
+    )
+    from diagrams.aws.security import IAM, KMS, WAF, Cognito, SecretsManager, Shield
+    from diagrams.aws.storage import EBS, EFS, S3
+    from diagrams.generic.blank import Blank
     from diagrams.onprem.client import Client
     from diagrams.onprem.vcs import Github
-    from diagrams.generic.blank import Blank
+
     DIAGRAMS_AVAILABLE = True
 except ImportError:
     DIAGRAMS_AVAILABLE = False
@@ -59,12 +69,46 @@ ASSETS_IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
 # 키워드 → 다이어그램 유형 매핑
 KEYWORD_TYPE_MAP = {
     "vpc": ["VPC", "서브넷", "Subnet", "네트워크", "Network", "CIDR", "라우팅"],
-    "security": ["WAF", "Shield", "IAM", "보안", "Security", "방화벽", "Firewall", "인증", "ZTNA"],
+    "security": [
+        "WAF",
+        "Shield",
+        "IAM",
+        "보안",
+        "Security",
+        "방화벽",
+        "Firewall",
+        "인증",
+        "ZTNA",
+    ],
     "compute": ["EC2", "ECS", "EKS", "Kubernetes", "컨테이너", "Container", "인스턴스"],
-    "data": ["RDS", "DynamoDB", "S3", "데이터베이스", "Database", "스토리지", "Storage"],
+    "data": [
+        "RDS",
+        "DynamoDB",
+        "S3",
+        "데이터베이스",
+        "Database",
+        "스토리지",
+        "Storage",
+    ],
     "serverless": ["Lambda", "API Gateway", "서버리스", "Serverless", "함수"],
-    "monitoring": ["CloudWatch", "모니터링", "Monitoring", "로그", "Log", "X-Ray", "추적"],
-    "devsecops": ["CI/CD", "파이프라인", "Pipeline", "DevSecOps", "DevOps", "CodePipeline", "GitHub Actions"],
+    "monitoring": [
+        "CloudWatch",
+        "모니터링",
+        "Monitoring",
+        "로그",
+        "Log",
+        "X-Ray",
+        "추적",
+    ],
+    "devsecops": [
+        "CI/CD",
+        "파이프라인",
+        "Pipeline",
+        "DevSecOps",
+        "DevOps",
+        "CodePipeline",
+        "GitHub Actions",
+    ],
 }
 
 
@@ -100,6 +144,7 @@ def extract_post_info(post_file: Path) -> Dict:
     """포스트 파일에서 정보를 추출합니다."""
     try:
         import frontmatter
+
         with open(post_file, "r", encoding="utf-8") as f:
             post = frontmatter.load(f)
 
@@ -116,12 +161,16 @@ def extract_post_info(post_file: Path) -> Dict:
             content = f.read()
 
         # YAML front matter 추출
-        title_match = re.search(r'^title:\s*["\']?(.+?)["\']?\s*$', content, re.MULTILINE)
-        tags_match = re.search(r'^tags:\s*\[(.+?)\]', content, re.MULTILINE)
+        title_match = re.search(
+            r'^title:\s*["\']?(.+?)["\']?\s*$', content, re.MULTILINE
+        )
+        tags_match = re.search(r"^tags:\s*\[(.+?)\]", content, re.MULTILINE)
 
         return {
             "title": title_match.group(1) if title_match else "",
-            "tags": [t.strip().strip('"\'') for t in tags_match.group(1).split(",")] if tags_match else [],
+            "tags": [t.strip().strip("\"'") for t in tags_match.group(1).split(",")]
+            if tags_match
+            else [],
             "categories": [],
             "content": content,
             "date": "",
@@ -465,7 +514,9 @@ DIAGRAM_GENERATORS = {
 }
 
 
-def generate_diagram(post_file: Path, diagram_type: str = "auto", output_path: Optional[Path] = None) -> bool:
+def generate_diagram(
+    post_file: Path, diagram_type: str = "auto", output_path: Optional[Path] = None
+) -> bool:
     """포스트에 대한 다이어그램을 생성합니다."""
     if not DIAGRAMS_AVAILABLE:
         log_message("diagrams 라이브러리가 설치되지 않았습니다.", "ERROR")
@@ -516,10 +567,17 @@ def main():
     """메인 함수"""
     parser = argparse.ArgumentParser(description="AWS 아키텍처 다이어그램 생성")
     parser.add_argument("post_file", nargs="?", help="포스트 파일 경로")
-    parser.add_argument("--type", "-t", choices=list(DIAGRAM_GENERATORS.keys()) + ["auto"],
-                        default="auto", help="다이어그램 유형 (기본값: auto)")
+    parser.add_argument(
+        "--type",
+        "-t",
+        choices=list(DIAGRAM_GENERATORS.keys()) + ["auto"],
+        default="auto",
+        help="다이어그램 유형 (기본값: auto)",
+    )
     parser.add_argument("--output", "-o", help="출력 파일 경로")
-    parser.add_argument("--list-types", action="store_true", help="지원 다이어그램 유형 목록")
+    parser.add_argument(
+        "--list-types", action="store_true", help="지원 다이어그램 유형 목록"
+    )
 
     args = parser.parse_args()
 
@@ -531,7 +589,9 @@ def main():
 
     if not args.post_file:
         # 최신 포스트 찾기
-        posts = sorted(POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)
+        posts = sorted(
+            POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True
+        )
         if not posts:
             log_message("포스트 파일을 찾을 수 없습니다.", "ERROR")
             sys.exit(1)

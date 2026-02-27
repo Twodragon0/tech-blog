@@ -4,101 +4,107 @@
 1시간 동안 실행되며 짧은 본문을 가진 포스팅들을 개선합니다.
 """
 
-import os
 import re
 import time
-from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Tuple
+from pathlib import Path
+from typing import Dict
 
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
 LOG_FILE = Path(__file__).parent.parent / "improvement_log.txt"
 RUN_DURATION = 3600  # 1시간 (초)
+
 
 def log_message(message: str):
     """로그 메시지 기록"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     log_entry = f"[{timestamp}] {message}\n"
     print(log_entry.strip())
-    with open(LOG_FILE, 'a', encoding='utf-8') as f:
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
         f.write(log_entry)
+
 
 def extract_post_info(file_path: Path) -> Dict:
     """포스팅 정보 추출"""
-    content = file_path.read_text(encoding='utf-8')
-    
+    content = file_path.read_text(encoding="utf-8")
+
     # Front matter 추출
-    front_matter_match = re.search(r'^---\n(.*?)\n---', content, re.DOTALL)
+    front_matter_match = re.search(r"^---\n(.*?)\n---", content, re.DOTALL)
     front_matter = {}
     if front_matter_match:
-        for line in front_matter_match.group(1).split('\n'):
-            if ':' in line and not line.strip().startswith('#'):
-                parts = line.split(':', 1)
+        for line in front_matter_match.group(1).split("\n"):
+            if ":" in line and not line.strip().startswith("#"):
+                parts = line.split(":", 1)
                 if len(parts) == 2:
                     key = parts[0].strip()
                     value = parts[1].strip().strip('"').strip("'")
                     front_matter[key] = value
-    
+
     # 요약 섹션 이후 본문 추출
-    summary_end = content.find('## 서론')
+    summary_end = content.find("## 서론")
     if summary_end == -1:
-        summary_end = content.find('## 1.')
+        summary_end = content.find("## 1.")
     if summary_end == -1:
-        summary_end = content.find('원본 포스트:')
-    
+        summary_end = content.find("원본 포스트:")
+
     if summary_end != -1:
         body = content[summary_end:]
         # 원본 포스트 링크 제거
-        body = re.sub(r'원본 포스트:.*', '', body, flags=re.DOTALL)
+        body = re.sub(r"원본 포스트:.*", "", body, flags=re.DOTALL)
         body = body.strip()
     else:
         body = ""
-    
+
     # 본문 길이 계산 (마크다운 제목, 코드 블록 제외)
-    body_lines = [line for line in body.split('\n') 
-                   if not line.strip().startswith('#') 
-                   and not line.strip().startswith('```')
-                   and line.strip()]
-    body_length = len('\n'.join(body_lines))
-    
+    body_lines = [
+        line
+        for line in body.split("\n")
+        if not line.strip().startswith("#")
+        and not line.strip().startswith("```")
+        and line.strip()
+    ]
+    body_length = len("\n".join(body_lines))
+
     return {
-        'file_path': file_path,
-        'title': front_matter.get('title', ''),
-        'category': front_matter.get('categories', front_matter.get('category', '')),
-        'tags': front_matter.get('tags', ''),
-        'excerpt': front_matter.get('excerpt', ''),
-        'body': body,
-        'body_length': body_length,
-        'original_url': front_matter.get('original_url', '')
+        "file_path": file_path,
+        "title": front_matter.get("title", ""),
+        "category": front_matter.get("categories", front_matter.get("category", "")),
+        "tags": front_matter.get("tags", ""),
+        "excerpt": front_matter.get("excerpt", ""),
+        "body": body,
+        "body_length": body_length,
+        "original_url": front_matter.get("original_url", ""),
     }
+
 
 def needs_improvement(post_info: Dict) -> bool:
     """개선이 필요한지 판단"""
     # 본문이 너무 짧은 경우 (500자 미만)
-    if post_info['body_length'] < 500:
+    if post_info["body_length"] < 500:
         return True
-    
+
     # 본문에 "원본 포스트"만 있고 내용이 거의 없는 경우
-    body_text = post_info['body'].lower()
-    if '원본 포스트' in body_text and len(body_text) < 200:
+    body_text = post_info["body"].lower()
+    if "원본 포스트" in body_text and len(body_text) < 200:
         return True
-    
+
     # "서론" 섹션이 없는 경우
-    if '## 서론' not in post_info['body'] and '## 1.' not in post_info['body']:
+    if "## 서론" not in post_info["body"] and "## 1." not in post_info["body"]:
         return True
-    
+
     return False
+
 
 def generate_improved_content(post_info: Dict) -> str:
     """개선된 본문 생성"""
-    title = post_info['title']
-    excerpt = post_info['excerpt']
-    category = post_info['category']
-    tags = post_info['tags']
-    
+    title = post_info["title"]
+    excerpt = post_info["excerpt"]
+    category = post_info["category"]
+    tags = post_info["tags"]
+
     # 제목에서 주제 추출
     # 예: "AWS에서 안전한 데이터베이스 접근 게이트웨이 구축하기" -> "데이터베이스 접근 게이트웨이"
-    
+
     # 기본 구조 생성
     improved_body = f"""## 서론
 
@@ -220,76 +226,82 @@ def generate_improved_content(post_info: Dict) -> str:
 
 ---
 
-원본 포스트: {post_info['original_url']}
+원본 포스트: {post_info["original_url"]}
 """
-    
+
     return improved_body
+
 
 def improve_post(post_info: Dict) -> bool:
     """포스팅 개선"""
     try:
-        content = post_info['file_path'].read_text(encoding='utf-8')
-        
+        content = post_info["file_path"].read_text(encoding="utf-8")
+
         # 요약 섹션 찾기
-        summary_match = re.search(r'(## 📋 포스팅 요약\n\n.*?\n\n)', content, re.DOTALL)
+        summary_match = re.search(r"(## 📋 포스팅 요약\n\n.*?\n\n)", content, re.DOTALL)
         if not summary_match:
             return False
-        
+
         # 요약 섹션 이후 내용 찾기
         summary_end = summary_match.end()
-        
+
         # 기존 본문이 있는지 확인
-        existing_body_start = content.find('## 서론', summary_end)
+        existing_body_start = content.find("## 서론", summary_end)
         if existing_body_start == -1:
-            existing_body_start = content.find('원본 포스트:', summary_end)
-        
+            existing_body_start = content.find("원본 포스트:", summary_end)
+
         if existing_body_start != -1:
             # 기존 본문이 있으면 개선된 내용으로 교체
             improved_content = generate_improved_content(post_info)
-            new_content = content[:summary_end] + '\n' + improved_content
+            new_content = content[:summary_end] + "\n" + improved_content
         else:
             # 본문이 없으면 추가
             improved_content = generate_improved_content(post_info)
-            new_content = content[:summary_end] + '\n' + improved_content
-        
+            new_content = content[:summary_end] + "\n" + improved_content
+
         # 파일 저장
-        post_info['file_path'].write_text(new_content, encoding='utf-8')
+        post_info["file_path"].write_text(new_content, encoding="utf-8")
         return True
-        
+
     except Exception as e:
         log_message(f"Error improving {post_info['file_path'].name}: {e}")
         return False
+
 
 def main():
     """메인 함수"""
     start_time = time.time()
     improved_count = 0
     checked_count = 0
-    
+
     log_message("=" * 60)
     log_message("포스팅 개선 프로세스 시작")
     log_message(f"실행 시간: {RUN_DURATION}초 (1시간)")
     log_message("=" * 60)
-    
+
     # 모든 포스팅 파일 목록 가져오기
     all_posts = list(POSTS_DIR.glob("*.md"))
     posts_to_improve = []
-    
+
     # 개선이 필요한 포스팅 식별
     for post_file in sorted(all_posts):
         try:
             post_info = extract_post_info(post_file)
             checked_count += 1
-            
+
             if needs_improvement(post_info):
                 posts_to_improve.append(post_info)
-                log_message(f"개선 필요: {post_file.name} (본문 길이: {post_info['body_length']}자)")
+                log_message(
+                    f"개선 필요: {post_file.name} (본문 길이: {post_info['body_length']}자)"
+                )
         except Exception as e:
             log_message(f"오류 발생 ({post_file.name}): {e}")
-    
-    log_message(f"\n총 {len(all_posts)}개 포스팅 중 {len(posts_to_improve)}개 개선 필요")
-    log_message(f"개선 프로세스 시작...\n")
-    
+
+    log_message(
+        f"\n총 {len(all_posts)}개 포스팅 중 {len(posts_to_improve)}개 개선 필요"
+    )
+    log_message("개선 프로세스 시작...\n")
+
     # 개선 프로세스 실행
     for i, post_info in enumerate(posts_to_improve, 1):
         # 시간 체크
@@ -297,20 +309,22 @@ def main():
         if elapsed_time >= RUN_DURATION:
             log_message(f"\n실행 시간 ({RUN_DURATION}초) 도달. 프로세스 종료.")
             break
-        
-        log_message(f"[{i}/{len(posts_to_improve)}] 개선 중: {post_info['file_path'].name}")
-        
+
+        log_message(
+            f"[{i}/{len(posts_to_improve)}] 개선 중: {post_info['file_path'].name}"
+        )
+
         if improve_post(post_info):
             improved_count += 1
-            log_message(f"  ✓ 개선 완료")
+            log_message("  ✓ 개선 완료")
         else:
-            log_message(f"  ✗ 개선 실패")
-        
+            log_message("  ✗ 개선 실패")
+
         # 다음 포스팅 처리 전 잠시 대기 (과도한 파일 I/O 방지)
         time.sleep(1)
-    
+
     elapsed_time = time.time() - start_time
-    
+
     # 최종 리포트
     log_message("\n" + "=" * 60)
     log_message("포스팅 개선 프로세스 완료")
@@ -319,6 +333,7 @@ def main():
     log_message(f"개선한 포스팅: {improved_count}개")
     log_message(f"남은 포스팅: {len(posts_to_improve) - improved_count}개")
     log_message("=" * 60)
+
 
 if __name__ == "__main__":
     main()

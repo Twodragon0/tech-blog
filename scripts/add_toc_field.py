@@ -25,46 +25,45 @@ MISSING_TOC_FILES = [
     "2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIAnd_Security_Coexistence.md",
 ]
 
+
 def add_toc_field(file_path: Path):
     """포스팅에 toc 필드 추가"""
     content = file_path.read_text(encoding="utf-8")
-    
+
     if not content.startswith("---"):
         print(f"⚠️  {file_path.name}: No front matter found")
         return False
-    
+
     # front matter 끝 찾기
     parts = content.split("---", 2)
     if len(parts) < 3:
         print(f"⚠️  {file_path.name}: Invalid front matter format")
         return False
-    
+
     front_matter = parts[1]
     body = parts[2]
-    
+
     # 이미 toc 필드가 있는지 확인
     if "toc:" in front_matter:
         print(f"✓  {file_path.name}: toc field already exists")
         return False
-    
+
     # image_alt 다음에 toc 추가 (또는 마지막에)
     if "image_alt:" in front_matter:
         # image_alt 다음에 toc 추가
         front_matter = re.sub(
-            r'(image_alt:.*?)\n',
-            r'\1\ntoc: true\n',
-            front_matter,
-            flags=re.DOTALL
+            r"(image_alt:.*?)\n", r"\1\ntoc: true\n", front_matter, flags=re.DOTALL
         )
     else:
         # front matter 끝에 toc 추가
         front_matter = front_matter.rstrip() + "\ntoc: true\n"
-    
+
     # 파일 저장
     new_content = f"---{front_matter}---{body}"
     file_path.write_text(new_content, encoding="utf-8")
     print(f"✓  {file_path.name}: toc field added")
     return True
+
 
 def main():
     """메인 함수"""
@@ -76,8 +75,9 @@ def main():
                 updated += 1
         else:
             print(f"⚠️  {filename}: File not found")
-    
+
     print(f"\n✓  Updated {updated} files")
+
 
 if __name__ == "__main__":
     main()

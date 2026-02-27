@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 
-from pathlib import Path
 import re
+from pathlib import Path
 
 import yaml
-
 
 ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = ROOT / "_posts"

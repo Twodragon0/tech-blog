@@ -4,13 +4,13 @@
 카테고리별 특화된 아이콘과 시각적 요소를 포함한 프로페셔널 SVG 이미지를 생성합니다.
 """
 
-import os
 import re
 import sys
-import frontmatter
-from pathlib import Path
-from typing import Dict, List, Optional
 from datetime import datetime
+from pathlib import Path
+from typing import Dict
+
+import frontmatter
 
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
@@ -93,7 +93,7 @@ def extract_post_info(post_file: Path) -> Dict:
 
 def get_security_icons_svg() -> str:
     """보안 관련 아이콘 SVG"""
-    return '''
+    return """
     <!-- Shield Icon -->
     <g transform="translate(80, 280)">
       <path d="M50 10 L90 30 L90 70 Q90 100 50 120 Q10 100 10 70 L10 30 Z" 
@@ -113,12 +113,12 @@ def get_security_icons_svg() -> str:
       <path d="M40 15 L75 75 L5 75 Z" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
       <text x="40" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">!</text>
     </g>
-    '''
+    """
 
 
 def get_cloud_icons_svg() -> str:
     """클라우드 관련 아이콘 SVG"""
-    return '''
+    return """
     <!-- Cloud Icon -->
     <g transform="translate(80, 280)">
       <path d="M30 80 Q10 80 10 60 Q10 40 30 40 Q30 20 55 20 Q80 20 80 45 Q100 45 100 65 Q100 80 80 80 Z" 
@@ -143,12 +143,12 @@ def get_cloud_icons_svg() -> str:
       <line x1="50" y1="30" x2="70" y2="30" stroke="#0284c7" stroke-width="2"/>
       <line x1="30" y1="10" x2="30" y2="-10" stroke="#0284c7" stroke-width="2"/>
     </g>
-    '''
+    """
 
 
 def get_devops_icons_svg() -> str:
     """DevOps 관련 아이콘 SVG"""
-    return '''
+    return """
     <!-- Infinity/DevOps Loop -->
     <g transform="translate(80, 290)">
       <path d="M10 40 Q10 10 40 10 Q70 10 70 40 Q70 70 100 70 Q130 70 130 40 Q130 10 100 10 Q70 10 70 40 Q70 70 40 70 Q10 70 10 40" 
@@ -169,12 +169,12 @@ def get_devops_icons_svg() -> str:
     <g transform="translate(330, 295)">
       <text x="0" y="45" font-family="monospace" font-size="50" font-weight="bold" fill="#a855f7">&lt;/&gt;</text>
     </g>
-    '''
+    """
 
 
 def get_kubernetes_icons_svg() -> str:
     """Kubernetes 관련 아이콘 SVG"""
-    return '''
+    return """
     <!-- Kubernetes Wheel -->
     <g transform="translate(100, 290)">
       <circle cx="50" cy="50" r="40" fill="none" stroke="#326ce5" stroke-width="4"/>
@@ -203,12 +203,12 @@ def get_kubernetes_icons_svg() -> str:
       <circle cx="30" cy="30" r="25" fill="#8b5cf6" stroke="#7c3aed" stroke-width="2"/>
       <text x="30" y="38" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Pod</text>
     </g>
-    '''
+    """
 
 
 def get_ai_icons_svg() -> str:
     """AI 관련 아이콘 SVG"""
-    return '''
+    return """
     <!-- Brain/Neural Network -->
     <g transform="translate(80, 280)">
       <ellipse cx="50" cy="50" rx="45" ry="35" fill="url(#aiGradient)" stroke="#8b5cf6" stroke-width="2" opacity="0.9"/>
@@ -240,12 +240,12 @@ def get_ai_icons_svg() -> str:
         <line x1="65" y1="40" x2="75" y2="40"/>
       </g>
     </g>
-    '''
+    """
 
 
 def get_devsecops_icons_svg() -> str:
     """DevSecOps 관련 아이콘 SVG"""
-    return '''
+    return """
     <!-- Shield with Code -->
     <g transform="translate(80, 275)">
       <path d="M50 5 L95 25 L95 65 Q95 100 50 120 Q5 100 5 65 L5 25 Z" 
@@ -271,12 +271,12 @@ def get_devsecops_icons_svg() -> str:
       <line x1="48" y1="53" x2="65" y2="70" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
       <path d="M20 35 L25 40 L40 25" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
-    '''
+    """
 
 
 def get_incident_icons_svg() -> str:
     """인시던트 관련 아이콘 SVG"""
-    return '''
+    return """
     <!-- Warning Bell -->
     <g transform="translate(80, 280)">
       <path d="M50 15 Q30 15 30 40 L30 65 L20 75 L80 75 L70 65 L70 40 Q70 15 50 15" 
@@ -300,12 +300,12 @@ def get_incident_icons_svg() -> str:
       <path d="M30 70 Q10 50 20 30 Q25 40 35 35 Q30 20 40 5 Q50 25 55 20 Q65 35 60 50 Q70 55 65 70 Z" 
             fill="url(#fireGradient)" stroke="#dc2626" stroke-width="2"/>
     </g>
-    '''
+    """
 
 
 def get_finops_icons_svg() -> str:
     """FinOps 관련 아이콘 SVG"""
-    return '''
+    return """
     <!-- Dollar Chart -->
     <g transform="translate(80, 280)">
       <rect x="5" y="5" width="90" height="70" rx="5" fill="#0f172a" stroke="#14b8a6" stroke-width="2"/>
@@ -329,7 +329,7 @@ def get_finops_icons_svg() -> str:
       <ellipse cx="25" cy="55" rx="8" ry="5" fill="#0d9488"/>
       <ellipse cx="55" cy="55" rx="8" ry="5" fill="#0d9488"/>
     </g>
-    '''
+    """
 
 
 def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
@@ -426,12 +426,12 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
         }
 
         config = category_config.get(category, category_config["tech"])
-        
+
         display_title = _escape_svg_text(_truncate_title(title, 48))
-        
+
         # 태그 처리
         display_tags = tags[:4] if tags else ["Tech", "Blog", "Update"]
-        
+
         # 요약 라인 처리
         summary_lines = []
         if highlights:
@@ -605,21 +605,23 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
     </g>'''
 
         # 태그 추가
-        svg_content += '''
+        svg_content += """
     
     <!-- Tags Section -->
-    <g transform="translate(30, 230)">'''
-        
+    <g transform="translate(30, 230)">"""
+
         tag_x = 0
         for idx, tag in enumerate(display_tags[:4]):
-            tag_text = _escape_svg_text(f"#{tag}" if not str(tag).startswith("#") else str(tag))
+            tag_text = _escape_svg_text(
+                f"#{tag}" if not str(tag).startswith("#") else str(tag)
+            )
             tag_width = len(tag_text) * 9 + 24
             svg_content += f'''
       <rect x="{tag_x}" y="0" width="{tag_width}" height="30" rx="15" fill="{config["accent"]}" fill-opacity="0.15" stroke="{config["accent"]}" stroke-width="1" stroke-opacity="0.4"/>
       <text x="{tag_x + tag_width // 2}" y="20" font-family="Arial, sans-serif" font-size="12" fill="{config["accent"]}" text-anchor="middle">{tag_text}</text>'''
             tag_x += tag_width + 12
 
-        svg_content += f'''
+        svg_content += f"""
     </g>
     
     <!-- CTA Button -->
@@ -644,7 +646,7 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
   <!-- Tech Stack -->
   <text x="1150" y="595" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="end">DevSecOps | Cloud | Security | AI</text>
   <text x="1150" y="615" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="end">Powered by Claude AI</text>
-</svg>'''
+</svg>"""
 
         output_svg = output_path.with_suffix(".svg")
         with open(output_svg, "w", encoding="utf-8") as f:
@@ -668,13 +670,13 @@ def process_post(post_file: Path, force: bool = False) -> bool:
         return False
 
     image_path = post_info.get("image", "")
-    
+
     # 이미지 경로 결정
     if not image_path:
         post_stem = post_file.stem
         image_filename = f"{post_stem}.svg"
         image_path = f"/assets/images/{image_filename}"
-    
+
     # 출력 경로 결정
     if image_path.startswith("/assets/images/"):
         output_path = PROJECT_ROOT / image_path.lstrip("/")
@@ -682,14 +684,17 @@ def process_post(post_file: Path, force: bool = False) -> bool:
         output_path = PROJECT_ROOT / image_path
     else:
         output_path = IMAGES_DIR / Path(image_path).name
-    
+
     # 기존 이미지 확인
     if output_path.exists() and not force:
-        log_message(f"⚠️ 이미지가 이미 존재합니다. --force 옵션으로 덮어쓰기: {output_path.name}", "WARNING")
+        log_message(
+            f"⚠️ 이미지가 이미 존재합니다. --force 옵션으로 덮어쓰기: {output_path.name}",
+            "WARNING",
+        )
         return False
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    
+
     # 고퀄리티 SVG 생성
     return generate_high_quality_svg(post_info, output_path)
 
@@ -721,7 +726,9 @@ def main():
     parser.add_argument("--all", action="store_true", help="모든 포스팅 처리")
     parser.add_argument("--recent", type=int, default=0, help="최근 N개 포스팅만 처리")
     parser.add_argument("--year", type=int, help="특정 연도 포스팅만 처리")
-    parser.add_argument("--force", action="store_true", help="이미지가 있어도 강제로 재생성")
+    parser.add_argument(
+        "--force", action="store_true", help="이미지가 있어도 강제로 재생성"
+    )
 
     args = parser.parse_args()
 
@@ -745,7 +752,7 @@ def main():
         posts = sorted(
             [p for p in POSTS_DIR.glob("*.md") if p.name.startswith(year_prefix)],
             key=lambda p: p.stat().st_mtime,
-            reverse=True
+            reverse=True,
         )
     elif args.all:
         # 모든 포스팅 처리

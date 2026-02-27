@@ -9,7 +9,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict
 
 # 프로젝트 루트 디렉토리
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -19,35 +19,35 @@ IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
 
 def extract_summary_from_post(post_file: Path) -> Dict[str, str]:
     """포스팅 파일에서 요약 정보 추출"""
-    content = post_file.read_text(encoding='utf-8')
-    
+    content = post_file.read_text(encoding="utf-8")
+
     # Front matter 추출
-    front_matter_match = re.search(r'^---\n(.*?)\n---', content, re.DOTALL)
+    front_matter_match = re.search(r"^---\n(.*?)\n---", content, re.DOTALL)
     front_matter = {}
     if front_matter_match:
         front_matter_text = front_matter_match.group(1)
-        for line in front_matter_text.split('\n'):
-            if ':' in line:
-                key, value = line.split(':', 1)
+        for line in front_matter_text.split("\n"):
+            if ":" in line:
+                key, value = line.split(":", 1)
                 front_matter[key.strip()] = value.strip().strip('"')
-    
+
     # 요약 섹션 추출
-    summary_match = re.search(r'## 📋 포스팅 요약\n\n(.*?)\n\n', content, re.DOTALL)
+    summary_match = re.search(r"## 📋 포스팅 요약\n\n(.*?)\n\n", content, re.DOTALL)
     summary_text = summary_match.group(1) if summary_match else ""
-    
+
     # 본문 추출 (요약 섹션 이후)
-    body_match = re.search(r'## 📋 포스팅 요약\n\n.*?\n\n(.*)', content, re.DOTALL)
+    body_match = re.search(r"## 📋 포스팅 요약\n\n.*?\n\n(.*)", content, re.DOTALL)
     body_text = body_match.group(1) if body_match else content
-    
+
     return {
-        'title': front_matter.get('title', ''),
-        'category': front_matter.get('categories', front_matter.get('category', '')),
-        'tags': front_matter.get('tags', '[]'),
-        'excerpt': front_matter.get('excerpt', ''),
-        'summary': summary_text,
-        'body': body_text[:1000],  # 처음 1000자만
-        'image': front_matter.get('image', ''),
-        'filename': post_file.name
+        "title": front_matter.get("title", ""),
+        "category": front_matter.get("categories", front_matter.get("category", "")),
+        "tags": front_matter.get("tags", "[]"),
+        "excerpt": front_matter.get("excerpt", ""),
+        "summary": summary_text,
+        "body": body_text[:1000],  # 처음 1000자만
+        "image": front_matter.get("image", ""),
+        "filename": post_file.name,
     }
 
 
@@ -55,13 +55,13 @@ def check_image_exists(image_path: str) -> bool:
     """이미지 파일 존재 여부 확인"""
     if not image_path:
         return False
-    
+
     # /assets/images/... 형식에서 실제 경로 추출
-    if image_path.startswith('/assets/images/'):
-        image_file = PROJECT_ROOT / image_path.lstrip('/')
+    if image_path.startswith("/assets/images/"):
+        image_file = PROJECT_ROOT / image_path.lstrip("/")
     else:
         image_file = IMAGES_DIR / Path(image_path).name
-    
+
     return image_file.exists()
 
 
@@ -69,15 +69,15 @@ def improve_summary_with_gemini(post_data: Dict[str, str]) -> str:
     """Gemini CLI를 사용하여 요약 개선"""
     prompt = f"""다음 기술 블로그 포스팅의 요약을 개선해주세요.
 
-**제목**: {post_data['title']}
-**카테고리**: {post_data['category']}
-**태그**: {post_data['tags']}
+**제목**: {post_data["title"]}
+**카테고리**: {post_data["category"]}
+**태그**: {post_data["tags"]}
 
 **현재 요약**:
-{post_data['summary']}
+{post_data["summary"]}
 
 **본문 일부**:
-{post_data['body']}
+{post_data["body"]}
 
 **개선 요청사항**:
 1. 핵심 내용을 더 명확하고 구조화된 형식으로 정리
@@ -97,13 +97,13 @@ def improve_summary_with_gemini(post_data: Dict[str, str]) -> str:
     try:
         # Gemini CLI 실행
         result = subprocess.run(
-            ['gemini', prompt],
+            ["gemini", prompt],
             capture_output=True,
             text=True,
             timeout=60,
-            cwd=PROJECT_ROOT
+            cwd=PROJECT_ROOT,
         )
-        
+
         if result.returncode == 0:
             return result.stdout.strip()
         else:
@@ -113,7 +113,10 @@ def improve_summary_with_gemini(post_data: Dict[str, str]) -> str:
         print("⚠️  Gemini CLI 타임아웃", file=sys.stderr)
         return None
     except FileNotFoundError:
-        print("⚠️  Gemini CLI를 찾을 수 없습니다. 설치되어 있는지 확인하세요.", file=sys.stderr)
+        print(
+            "⚠️  Gemini CLI를 찾을 수 없습니다. 설치되어 있는지 확인하세요.",
+            file=sys.stderr,
+        )
         return None
     except Exception as e:
         print(f"⚠️  오류 발생: {e}", file=sys.stderr)
@@ -124,23 +127,23 @@ def analyze_post(post_file: Path, use_gemini: bool = False) -> Dict:
     """포스팅 분석 및 개선"""
     print(f"\n📄 분석 중: {post_file.name}")
     print("=" * 80)
-    
+
     # 요약 추출
     post_data = extract_summary_from_post(post_file)
-    
+
     # 이미지 확인
-    image_exists = check_image_exists(post_data['image'])
-    
+    image_exists = check_image_exists(post_data["image"])
+
     result = {
-        'file': post_file.name,
-        'title': post_data['title'],
-        'has_summary': bool(post_data['summary']),
-        'has_image': image_exists,
-        'image_path': post_data['image'],
-        'summary': post_data['summary'],
-        'improved_summary': None
+        "file": post_file.name,
+        "title": post_data["title"],
+        "has_summary": bool(post_data["summary"]),
+        "has_image": image_exists,
+        "image_path": post_data["image"],
+        "summary": post_data["summary"],
+        "improved_summary": None,
     }
-    
+
     # 이미지 상태 출력
     if image_exists:
         print(f"✅ 이미지 파일 존재: {post_data['image']}")
@@ -149,42 +152,48 @@ def analyze_post(post_file: Path, use_gemini: bool = False) -> Dict:
         # 이미지 파일명 추정
         image_filename = post_file.stem + ".svg"
         print(f"   예상 이미지 파일명: {image_filename}")
-    
+
     # 요약 상태 출력
-    if post_data['summary']:
-        print(f"✅ 요약 섹션 존재")
-        print(f"\n현재 요약 (일부):")
-        print(post_data['summary'][:200] + "...")
+    if post_data["summary"]:
+        print("✅ 요약 섹션 존재")
+        print("\n현재 요약 (일부):")
+        print(post_data["summary"][:200] + "...")
     else:
-        print(f"❌ 요약 섹션 없음")
-    
+        print("❌ 요약 섹션 없음")
+
     # Gemini를 사용한 요약 개선
-    if use_gemini and post_data['summary']:
-        print(f"\n🤖 Gemini CLI로 요약 개선 중...")
+    if use_gemini and post_data["summary"]:
+        print("\n🤖 Gemini CLI로 요약 개선 중...")
         improved = improve_summary_with_gemini(post_data)
         if improved:
-            result['improved_summary'] = improved
-            print(f"✅ 요약 개선 완료")
-            print(f"\n개선된 요약 (일부):")
+            result["improved_summary"] = improved
+            print("✅ 요약 개선 완료")
+            print("\n개선된 요약 (일부):")
             print(improved[:300] + "...")
         else:
-            print(f"⚠️  요약 개선 실패")
-    
+            print("⚠️  요약 개선 실패")
+
     return result
 
 
 def main():
     """메인 함수"""
     import argparse
-    
-    parser = argparse.ArgumentParser(description='포스팅 요약 개선 및 이미지 확인')
-    parser.add_argument('post', nargs='?', help='분석할 포스팅 파일명 (전체 경로 또는 파일명만)')
-    parser.add_argument('--all', action='store_true', help='모든 포스팅 분석')
-    parser.add_argument('--gemini', action='store_true', help='Gemini CLI를 사용하여 요약 개선')
-    parser.add_argument('--recent', type=int, default=5, help='최근 N개 포스팅만 분석 (기본값: 5)')
-    
+
+    parser = argparse.ArgumentParser(description="포스팅 요약 개선 및 이미지 확인")
+    parser.add_argument(
+        "post", nargs="?", help="분석할 포스팅 파일명 (전체 경로 또는 파일명만)"
+    )
+    parser.add_argument("--all", action="store_true", help="모든 포스팅 분석")
+    parser.add_argument(
+        "--gemini", action="store_true", help="Gemini CLI를 사용하여 요약 개선"
+    )
+    parser.add_argument(
+        "--recent", type=int, default=5, help="최근 N개 포스팅만 분석 (기본값: 5)"
+    )
+
     args = parser.parse_args()
-    
+
     # 포스팅 파일 목록 가져오기
     if args.post:
         # 특정 포스팅 분석
@@ -192,61 +201,65 @@ def main():
             post_file = Path(args.post)
         else:
             post_file = POSTS_DIR / args.post
-        
+
         if not post_file.exists():
             print(f"❌ 파일을 찾을 수 없습니다: {post_file}")
             sys.exit(1)
-        
+
         posts = [post_file]
     elif args.all:
         # 모든 포스팅 분석
-        posts = sorted(POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)
+        posts = sorted(
+            POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True
+        )
     else:
         # 최근 포스팅만 분석
-        posts = sorted(POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)[:args.recent]
-    
+        posts = sorted(
+            POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True
+        )[: args.recent]
+
     print(f"📊 {len(posts)}개 포스팅 분석 시작...")
-    
+
     results = []
     for post_file in posts:
         result = analyze_post(post_file, use_gemini=args.gemini)
         results.append(result)
-    
+
     # 요약 리포트 출력
     print("\n" + "=" * 80)
     print("📊 분석 결과 요약")
     print("=" * 80)
-    
+
     total = len(results)
-    with_summary = sum(1 for r in results if r['has_summary'])
-    with_image = sum(1 for r in results if r['has_image'])
-    
+    with_summary = sum(1 for r in results if r["has_summary"])
+    with_image = sum(1 for r in results if r["has_image"])
+
     print(f"전체 포스팅: {total}")
-    print(f"요약 섹션 있음: {with_summary} ({with_summary/total*100:.1f}%)")
-    print(f"이미지 파일 있음: {with_image} ({with_image/total*100:.1f}%)")
-    
+    print(f"요약 섹션 있음: {with_summary} ({with_summary / total * 100:.1f}%)")
+    print(f"이미지 파일 있음: {with_image} ({with_image / total * 100:.1f}%)")
+
     # 이미지가 없는 포스팅 목록
-    missing_images = [r for r in results if not r['has_image']]
+    missing_images = [r for r in results if not r["has_image"]]
     if missing_images:
         print(f"\n❌ 이미지가 없는 포스팅 ({len(missing_images)}개):")
         for r in missing_images:
             print(f"  - {r['file']}")
-    
+
     # 요약이 없는 포스팅 목록
-    missing_summaries = [r for r in results if not r['has_summary']]
+    missing_summaries = [r for r in results if not r["has_summary"]]
     if missing_summaries:
         print(f"\n❌ 요약이 없는 포스팅 ({len(missing_summaries)}개):")
         for r in missing_summaries:
             print(f"  - {r['file']}")
-    
+
     # 개선된 요약이 있는 경우 저장 옵션 제공
-    improved_posts = [r for r in results if r['improved_summary']]
+    improved_posts = [r for r in results if r["improved_summary"]]
     if improved_posts:
         print(f"\n✅ 개선된 요약이 있는 포스팅 ({len(improved_posts)}개):")
         for r in improved_posts:
             print(f"  - {r['file']}")
-            print(f"    개선된 요약을 파일에 저장하시겠습니까? (수동으로 확인 필요)")
+            print("    개선된 요약을 파일에 저장하시겠습니까? (수동으로 확인 필요)")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

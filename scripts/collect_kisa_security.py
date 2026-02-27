@@ -11,15 +11,13 @@ Usage:
     python3 scripts/collect_kisa_security.py --generate-draft
 """
 
-import os
-import re
-import json
-import hashlib
 import argparse
+import json
+import re
+from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
-from dataclasses import dataclass, asdict
 
 try:
     import requests

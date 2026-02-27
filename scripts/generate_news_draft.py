@@ -19,17 +19,15 @@ Usage:
 
 import argparse
 import json
-import os
 import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import List
 
 import frontmatter
 import requests
 from bs4 import BeautifulSoup
-
 
 # ============================================================================
 # 설정
@@ -636,7 +634,7 @@ def main():
     prompts_dir = output_dir / "prompts"
     posts_dir = project_root / "_posts"
 
-    print(f"\n🔧 Mode: Generating detailed prompts for Claude/Cursor")
+    print("\n🔧 Mode: Generating detailed prompts for Claude/Cursor")
     print(f"📁 Output: {prompts_dir}")
     print(f"{'=' * 60}\n")
 
@@ -657,7 +655,7 @@ def main():
         if original_content:
             print(f"    ✅ Fetched {len(original_content)} chars")
         else:
-            print(f"    ⚠️ Could not fetch content (will use summary only)")
+            print("    ⚠️ Could not fetch content (will use summary only)")
 
         # 관련 포스트 찾기
         related_posts = find_related_posts(item, posts_dir)

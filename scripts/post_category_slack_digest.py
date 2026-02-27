@@ -8,7 +8,6 @@ from typing import Dict, Iterable, List, Optional, Tuple
 
 import yaml
 
-
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
 

@@ -5,7 +5,7 @@ Verify that all post file references and image links are correct after renaming.
 
 import re
 from pathlib import Path
-from typing import List, Dict, Tuple
+from typing import Dict, List
 
 
 def _build_image_index(images_dir: Path) -> Dict[str, List[Path]]:
@@ -215,7 +215,7 @@ def main():
     errors = [i for i in all_issues if i["severity"] == "error"]
     warnings = [i for i in all_issues if i["severity"] == "warning"]
 
-    print(f"Summary:")
+    print("Summary:")
     print(f"   - Errors: {len(errors)}")
     print(f"   - Warnings: {len(warnings)}")
     print("=" * 80)

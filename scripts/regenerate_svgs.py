@@ -6,7 +6,6 @@ Each SVG is 1200x630px with dark gradient background, topic-specific colors, and
 
 import os
 import re
-import textwrap
 
 BASE_DIR = "/Users/twodragon/Desktop/tech-blog"
 ASSETS_DIR = os.path.join(BASE_DIR, "assets", "images")
@@ -14,111 +13,217 @@ ASSETS_DIR = os.path.join(BASE_DIR, "assets", "images")
 
 # ── Topic detection & theming ────────────────────────────────────────────────
 
+
 def detect_topic(title_en: str, image_path: str) -> dict:
     """Return theme dict based on keywords in the English title/path."""
     text = (title_en + " " + image_path).lower()
 
     if any(k in text for k in ["weekly digest", "weekly review", "digest"]):
         return {
-            "accent": "#6366f1", "accent2": "#818cf8",
+            "accent": "#6366f1",
+            "accent2": "#818cf8",
             "category": "WEEKLY DIGEST",
             "visual": "newspaper",
             "cards": [("Week", "Digest"), ("CVE", "Alerts"), ("Threat", "Intel")],
         }
     if any(k in text for k in ["ransomware", "malware", "kimwolf", "threat", "kara"]):
         return {
-            "accent": "#dc2626", "accent2": "#ef4444",
+            "accent": "#dc2626",
+            "accent2": "#ef4444",
             "category": "THREAT INTEL",
             "visual": "warning",
             "cards": [("IOC", "Feeds"), ("TTPs", "MITRE"), ("YARA", "Rules")],
         }
-    if any(k in text for k in ["incident", "post-mortem", "postmortem", "karpenter", "outage", "5xx", "cloudflare global"]):
+    if any(
+        k in text
+        for k in [
+            "incident",
+            "post-mortem",
+            "postmortem",
+            "karpenter",
+            "outage",
+            "5xx",
+            "cloudflare global",
+        ]
+    ):
         return {
-            "accent": "#ef4444", "accent2": "#f87171",
+            "accent": "#ef4444",
+            "accent2": "#f87171",
             "category": "INCIDENT",
             "visual": "warning",
             "cards": [("RCA", "Analysis"), ("MTTR", "Response"), ("SLO", "Impact")],
         }
     if any(k in text for k in ["npm", "supply chain", "shai-hulud", "package"]):
         return {
-            "accent": "#f97316", "accent2": "#fb923c",
+            "accent": "#f97316",
+            "accent2": "#fb923c",
             "category": "SUPPLY CHAIN",
             "visual": "warning",
             "cards": [("NPM", "Registry"), ("SBOM", "Audit"), ("CVE", "Scan")],
         }
     if any(k in text for k in ["email", "sendgrid", "dkim", "spf", "dmarc"]):
         return {
-            "accent": "#0ea5e9", "accent2": "#38bdf8",
+            "accent": "#0ea5e9",
+            "accent2": "#38bdf8",
             "category": "EMAIL SECURITY",
             "visual": "shield",
             "cards": [("SPF", "Record"), ("DKIM", "Signing"), ("DMARC", "Policy")],
         }
     if any(k in text for k in ["blockchain", "crypto", "bitcoin", "ethereum"]):
         return {
-            "accent": "#10b981", "accent2": "#34d399",
+            "accent": "#10b981",
+            "accent2": "#34d399",
             "category": "BLOCKCHAIN",
             "visual": "network",
-            "cards": [("DeFi", "Protocol"), ("Smart", "Contract"), ("Web3", "Security")],
+            "cards": [
+                ("DeFi", "Protocol"),
+                ("Smart", "Contract"),
+                ("Web3", "Security"),
+            ],
         }
-    if any(k in text for k in ["tesla", "automotive", "vehicle", "fsd", "model y", "connected car"]):
+    if any(
+        k in text
+        for k in ["tesla", "automotive", "vehicle", "fsd", "model y", "connected car"]
+    ):
         return {
-            "accent": "#a855f7", "accent2": "#c084fc",
+            "accent": "#a855f7",
+            "accent2": "#c084fc",
             "category": "AUTOMOTIVE",
             "visual": "geometric",
             "cards": [("FSD", "Safety"), ("OTA", "Updates"), ("CAN", "Security")],
         }
     if any(k in text for k in ["owasp"]):
         return {
-            "accent": "#0066cc", "accent2": "#3b82f6",
+            "accent": "#0066cc",
+            "accent2": "#3b82f6",
             "category": "WEB SECURITY",
             "visual": "shield",
-            "cards": [("Top 10", "Risks"), ("MITRE", "ATT&CK"), ("Zero Trust", "Framework")],
+            "cards": [
+                ("Top 10", "Risks"),
+                ("MITRE", "ATT&CK"),
+                ("Zero Trust", "Framework"),
+            ],
         }
     if any(k in text for k in ["finops", "cost", "billing"]):
         return {
-            "accent": "#eab308", "accent2": "#facc15",
+            "accent": "#eab308",
+            "accent2": "#facc15",
             "category": "FINOPS",
             "visual": "geometric",
-            "cards": [("Cost", "Optimize"), ("Reserved", "Instances"), ("Budget", "Alerts")],
+            "cards": [
+                ("Cost", "Optimize"),
+                ("Reserved", "Instances"),
+                ("Budget", "Alerts"),
+            ],
         }
-    if any(k in text for k in ["kubernetes", "k8s", "k9s", "minikube", "karpenter", "container", "docker"]):
+    if any(
+        k in text
+        for k in [
+            "kubernetes",
+            "k8s",
+            "k9s",
+            "minikube",
+            "karpenter",
+            "container",
+            "docker",
+        ]
+    ):
         return {
-            "accent": "#3b82f6", "accent2": "#60a5fa",
+            "accent": "#3b82f6",
+            "accent2": "#60a5fa",
             "category": "INFRASTRUCTURE",
             "visual": "containers",
             "cards": [("Pod", "Security"), ("RBAC", "Access"), ("Network", "Policy")],
         }
     if any(k in text for k in ["devsecops", "ci/cd", "pipeline", "roadmap", "devops"]):
         return {
-            "accent": "#8b5cf6", "accent2": "#a78bfa",
+            "accent": "#8b5cf6",
+            "accent2": "#a78bfa",
             "category": "DEVSECOPS",
             "visual": "pipeline",
             "cards": [("SAST", "Scan"), ("DAST", "Test"), ("SCA", "Audit")],
         }
-    if any(k in text for k in ["ai", "ml", "llm", "claude", "gemini", "music video", "coding assistant", "agentic", "neural"]):
+    if any(
+        k in text
+        for k in [
+            "ai",
+            "ml",
+            "llm",
+            "claude",
+            "gemini",
+            "music video",
+            "coding assistant",
+            "agentic",
+            "neural",
+        ]
+    ):
         return {
-            "accent": "#06b6d4", "accent2": "#22d3ee",
+            "accent": "#06b6d4",
+            "accent2": "#22d3ee",
             "category": "AI & ML",
             "visual": "network",
             "cards": [("LLM", "Safety"), ("Prompt", "Injection"), ("RAG", "Security")],
         }
-    if any(k in text for k in ["aws", "gcp", "azure", "cloud", "waf", "cloudfront", "vpc", "iam", "eks", "control tower", "guardrail"]):
+    if any(
+        k in text
+        for k in [
+            "aws",
+            "gcp",
+            "azure",
+            "cloud",
+            "waf",
+            "cloudfront",
+            "vpc",
+            "iam",
+            "eks",
+            "control tower",
+            "guardrail",
+        ]
+    ):
         return {
-            "accent": "#f59e0b", "accent2": "#fbbf24",
+            "accent": "#f59e0b",
+            "accent2": "#fbbf24",
             "category": "CLOUD",
             "visual": "cloud",
-            "cards": [("VPC", "Network"), ("IAM", "Access"), ("GuardDuty", "Detection")],
+            "cards": [
+                ("VPC", "Network"),
+                ("IAM", "Access"),
+                ("GuardDuty", "Detection"),
+            ],
         }
-    if any(k in text for k in ["security", "vulnerability", "isms", "waf", "passkey", "mfa", "imei", "usim", "nlb", "zero-day", "patch", "cve", "rce"]):
+    if any(
+        k in text
+        for k in [
+            "security",
+            "vulnerability",
+            "isms",
+            "waf",
+            "passkey",
+            "mfa",
+            "imei",
+            "usim",
+            "nlb",
+            "zero-day",
+            "patch",
+            "cve",
+            "rce",
+        ]
+    ):
         return {
-            "accent": "#ef4444", "accent2": "#f87171",
+            "accent": "#ef4444",
+            "accent2": "#f87171",
             "category": "SECURITY",
             "visual": "shield",
-            "cards": [("Top 10", "Risks"), ("MITRE", "ATT&CK"), ("Zero Trust", "Framework")],
+            "cards": [
+                ("Top 10", "Risks"),
+                ("MITRE", "ATT&CK"),
+                ("Zero Trust", "Framework"),
+            ],
         }
     # default
     return {
-        "accent": "#6366f1", "accent2": "#818cf8",
+        "accent": "#6366f1",
+        "accent2": "#818cf8",
         "category": "TECH",
         "visual": "geometric",
         "cards": [("Security", "First"), ("DevSecOps", "Guide"), ("Best", "Practice")],
@@ -127,39 +232,44 @@ def detect_topic(title_en: str, image_path: str) -> dict:
 
 # ── Title cleaning (Korean → English fallback) ───────────────────────────────
 
+
 def clean_title_for_svg(raw_title: str, image_path: str) -> str:
     """Return a clean ASCII title suitable for SVG text."""
     # If title is mostly Korean or very short, derive from image path
-    korean_chars = len(re.findall(r'[\uac00-\ud7af]', raw_title))
+    korean_chars = len(re.findall(r"[\uac00-\ud7af]", raw_title))
     total_chars = len(raw_title.strip())
 
     if korean_chars / max(total_chars, 1) > 0.3 or total_chars < 5:
         # Derive from image filename
         stem = os.path.basename(image_path).replace(".svg", "")
         # Remove date prefix
-        stem = re.sub(r'^\d{4}-\d{2}-\d{2}-', '', stem)
+        stem = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", stem)
         # Clean up encoded chars
-        stem = re.sub(r'ampquot|ampamp|amplsquot|amprsquo|amp', '', stem)
-        stem = stem.replace('_', ' ').replace('-', ' ')
-        stem = re.sub(r'\s+', ' ', stem).strip()
+        stem = re.sub(r"ampquot|ampamp|amplsquot|amprsquo|amp", "", stem)
+        stem = stem.replace("_", " ").replace("-", " ")
+        stem = re.sub(r"\s+", " ", stem).strip()
         # Remove trailing known noise
-        stem = re.sub(r'\s*(Large scale|Complete Guide|and Resolution|From Practical To)\s*$', '', stem)
+        stem = re.sub(
+            r"\s*(Large scale|Complete Guide|and Resolution|From Practical To)\s*$",
+            "",
+            stem,
+        )
         return stem[:80]
     else:
         # Strip Korean, keep English tokens
         # First try extracting English portion after colon
-        if ':' in raw_title:
-            after = raw_title.split(':', 1)[1]
-            eng = re.sub(r'[\uac00-\ud7af\u3131-\u318e]+', '', after)
-            eng = re.sub(r'\s+', ' ', eng).strip(" ,.-")
+        if ":" in raw_title:
+            after = raw_title.split(":", 1)[1]
+            eng = re.sub(r"[\uac00-\ud7af\u3131-\u318e]+", "", after)
+            eng = re.sub(r"\s+", " ", eng).strip(" ,.-")
             if len(eng) > 10:
                 return eng[:80]
         # Strip Korean chars
-        eng = re.sub(r'[\uac00-\ud7af\u3131-\u318e]+', '', raw_title)
+        eng = re.sub(r"[\uac00-\ud7af\u3131-\u318e]+", "", raw_title)
         # Remove emoji
-        eng = re.sub(r'[\U00010000-\U0010ffff]', '', eng)
-        eng = re.sub(r'[^\x00-\x7F]', '', eng)
-        eng = re.sub(r'\s+', ' ', eng).strip(" :,.-&")
+        eng = re.sub(r"[\U00010000-\U0010ffff]", "", eng)
+        eng = re.sub(r"[^\x00-\x7F]", "", eng)
+        eng = re.sub(r"\s+", " ", eng).strip(" :,.-&")
         if len(eng) < 5:
             return clean_title_for_svg("", image_path)
         return eng[:80]
@@ -175,35 +285,36 @@ def split_title_lines(title: str, max_chars: int = 28) -> list:
             current.append(w)
         else:
             if current:
-                lines.append(' '.join(current))
+                lines.append(" ".join(current))
             current = [w]
         if len(lines) == 2:
             # dump rest into 3rd line
-            current.extend(words[words.index(w)+1:])
+            current.extend(words[words.index(w) + 1 :])
             break
     if current:
-        lines.append(' '.join(current))
+        lines.append(" ".join(current))
     return lines[:3]
 
 
 # ── Visual elements ──────────────────────────────────────────────────────────
 
+
 def visual_shield(cx: float, cy: float, color: str) -> str:
     """Shield with lock icon."""
     return f"""
     <!-- Shield -->
-    <path d="M{cx},{cy-80} L{cx+65},{cy-50} L{cx+65},{cy+30} Q{cx+65},{cy+80} {cx},{cy+100} Q{cx-65},{cy+80} {cx-65},{cy+30} L{cx-65},{cy-50} Z"
+    <path d="M{cx},{cy - 80} L{cx + 65},{cy - 50} L{cx + 65},{cy + 30} Q{cx + 65},{cy + 80} {cx},{cy + 100} Q{cx - 65},{cy + 80} {cx - 65},{cy + 30} L{cx - 65},{cy - 50} Z"
           fill="none" stroke="{color}" stroke-width="4" opacity="0.25"/>
-    <path d="M{cx},{cy-60} L{cx+48},{cy-36} L{cx+48},{cy+20} Q{cx+48},{cy+60} {cx},{cy+76} Q{cx-48},{cy+60} {cx-48},{cy+20} L{cx-48},{cy-36} Z"
+    <path d="M{cx},{cy - 60} L{cx + 48},{cy - 36} L{cx + 48},{cy + 20} Q{cx + 48},{cy + 60} {cx},{cy + 76} Q{cx - 48},{cy + 60} {cx - 48},{cy + 20} L{cx - 48},{cy - 36} Z"
           fill="{color}" opacity="0.12"/>
     <!-- Lock body -->
-    <rect x="{cx-18}" y="{cy-5}" width="36" height="28" rx="5" fill="{color}" opacity="0.7"/>
+    <rect x="{cx - 18}" y="{cy - 5}" width="36" height="28" rx="5" fill="{color}" opacity="0.7"/>
     <!-- Shackle -->
-    <path d="M{cx-12},{cy-5} L{cx-12},{cy-20} Q{cx-12},{cy-35} {cx},{cy-35} Q{cx+12},{cy-35} {cx+12},{cy-20} L{cx+12},{cy-5}"
+    <path d="M{cx - 12},{cy - 5} L{cx - 12},{cy - 20} Q{cx - 12},{cy - 35} {cx},{cy - 35} Q{cx + 12},{cy - 35} {cx + 12},{cy - 20} L{cx + 12},{cy - 5}"
           fill="none" stroke="{color}" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
     <!-- Keyhole -->
-    <circle cx="{cx}" cy="{cx*0+cy+7}" r="5" fill="#0f172a"/>
-    <rect x="{cx-2.5}" y="{cy+7}" width="5" height="8" fill="#0f172a"/>
+    <circle cx="{cx}" cy="{cx * 0 + cy + 7}" r="5" fill="#0f172a"/>
+    <rect x="{cx - 2.5}" y="{cy + 7}" width="5" height="8" fill="#0f172a"/>
     """
 
 
@@ -211,15 +322,15 @@ def visual_cloud(cx: float, cy: float, color: str) -> str:
     """Stacked cloud shapes."""
     return f"""
     <!-- Cloud layers -->
-    <ellipse cx="{cx}" cy="{cy+20}" rx="70" ry="35" fill="{color}" opacity="0.08"/>
-    <ellipse cx="{cx-20}" cy="{cy}" rx="50" ry="28" fill="{color}" opacity="0.15"/>
-    <ellipse cx="{cx+20}" cy="{cy}" rx="50" ry="28" fill="{color}" opacity="0.15"/>
-    <ellipse cx="{cx}" cy="{cy-20}" rx="60" ry="30" fill="{color}" opacity="0.20"/>
-    <ellipse cx="{cx}" cy="{cy-20}" rx="42" ry="22" fill="{color}" opacity="0.25"/>
+    <ellipse cx="{cx}" cy="{cy + 20}" rx="70" ry="35" fill="{color}" opacity="0.08"/>
+    <ellipse cx="{cx - 20}" cy="{cy}" rx="50" ry="28" fill="{color}" opacity="0.15"/>
+    <ellipse cx="{cx + 20}" cy="{cy}" rx="50" ry="28" fill="{color}" opacity="0.15"/>
+    <ellipse cx="{cx}" cy="{cy - 20}" rx="60" ry="30" fill="{color}" opacity="0.20"/>
+    <ellipse cx="{cx}" cy="{cy - 20}" rx="42" ry="22" fill="{color}" opacity="0.25"/>
     <!-- Small accent dots -->
-    <circle cx="{cx-55}" cy="{cy+40}" r="6" fill="{color}" opacity="0.3"/>
-    <circle cx="{cx+55}" cy="{cy+40}" r="4" fill="{color}" opacity="0.2"/>
-    <circle cx="{cx}" cy="{cy+55}" r="5" fill="{color}" opacity="0.25"/>
+    <circle cx="{cx - 55}" cy="{cy + 40}" r="6" fill="{color}" opacity="0.3"/>
+    <circle cx="{cx + 55}" cy="{cy + 40}" r="4" fill="{color}" opacity="0.2"/>
+    <circle cx="{cx}" cy="{cy + 55}" r="5" fill="{color}" opacity="0.25"/>
     """
 
 
@@ -236,7 +347,7 @@ def visual_containers(cx: float, cy: float, color: str) -> str:
         )
         # horizontal line inside
         boxes.append(
-            f'<line x1="{bx+10}" y1="{by+14}" x2="{bx+100}" y2="{by+14}" '
+            f'<line x1="{bx + 10}" y1="{by + 14}" x2="{bx + 100}" y2="{by + 14}" '
             f'stroke="{color}" stroke-width="1" opacity="0.4"/>'
         )
     return "\n    ".join(boxes)
@@ -271,16 +382,16 @@ def visual_warning(cx: float, cy: float, color: str) -> str:
     """Warning triangle + crosshair."""
     return f"""
     <!-- Warning triangle -->
-    <polygon points="{cx},{cy-80} {cx-70},{cy+40} {cx+70},{cy+40}"
+    <polygon points="{cx},{cy - 80} {cx - 70},{cy + 40} {cx + 70},{cy + 40}"
              fill="none" stroke="{color}" stroke-width="4" opacity="0.25"/>
-    <polygon points="{cx},{cy-55} {cx-50},{cy+30} {cx+50},{cy+30}"
+    <polygon points="{cx},{cy - 55} {cx - 50},{cy + 30} {cx + 50},{cy + 30}"
              fill="{color}" opacity="0.12"/>
-    <text x="{cx}" y="{cy+10}" text-anchor="middle" font-size="42"
+    <text x="{cx}" y="{cy + 10}" text-anchor="middle" font-size="42"
           font-family="monospace" fill="{color}" opacity="0.7">!</text>
     <!-- Crosshair circles -->
-    <circle cx="{cx+80}" cy="{cy-40}" r="22" fill="none" stroke="{color}" stroke-width="2" opacity="0.3"/>
-    <line x1="{cx+58}" y1="{cy-40}" x2="{cx+102}" y2="{cy-40}" stroke="{color}" stroke-width="1.5" opacity="0.4"/>
-    <line x1="{cx+80}" y1="{cy-62}" x2="{cx+80}" y2="{cy-18}" stroke="{color}" stroke-width="1.5" opacity="0.4"/>
+    <circle cx="{cx + 80}" cy="{cy - 40}" r="22" fill="none" stroke="{color}" stroke-width="2" opacity="0.3"/>
+    <line x1="{cx + 58}" y1="{cy - 40}" x2="{cx + 102}" y2="{cy - 40}" stroke="{color}" stroke-width="1.5" opacity="0.4"/>
+    <line x1="{cx + 80}" y1="{cy - 62}" x2="{cx + 80}" y2="{cy - 18}" stroke="{color}" stroke-width="1.5" opacity="0.4"/>
     """
 
 
@@ -289,14 +400,14 @@ def visual_newspaper(cx: float, cy: float, color: str) -> str:
     lines_svg = []
     # Newspaper rect
     lines_svg.append(
-        f'<rect x="{cx-65}" y="{cy-75}" width="130" height="100" rx="6" '
+        f'<rect x="{cx - 65}" y="{cy - 75}" width="130" height="100" rx="6" '
         f'fill="{color}" opacity="0.1" stroke="{color}" stroke-width="2" stroke-opacity="0.3"/>'
     )
     for i in range(5):
         y = cy - 55 + i * 17
         w = 100 if i == 0 else (80 if i % 2 == 0 else 90)
         lines_svg.append(
-            f'<rect x="{cx-50}" y="{y}" width="{w}" height="8" rx="3" fill="{color}" opacity="0.3"/>'
+            f'<rect x="{cx - 50}" y="{y}" width="{w}" height="8" rx="3" fill="{color}" opacity="0.3"/>'
         )
     # Calendar grid
     for row in range(3):
@@ -305,7 +416,7 @@ def visual_newspaper(cx: float, cy: float, color: str) -> str:
             gy = cy + 40 + row * 24
             lines_svg.append(
                 f'<rect x="{gx}" y="{gy}" width="20" height="16" rx="3" '
-                f'fill="{color}" opacity="{0.15 + row*0.08}"/>'
+                f'fill="{color}" opacity="{0.15 + row * 0.08}"/>'
             )
     return "\n    ".join(lines_svg)
 
@@ -319,17 +430,17 @@ def visual_pipeline(cx: float, cy: float, color: str) -> str:
         by = cy - 20
         items.append(
             f'<rect x="{bx}" y="{by}" width="38" height="28" rx="5" '
-            f'fill="{color}" opacity="{0.15 + i*0.05}"/>'
+            f'fill="{color}" opacity="{0.15 + i * 0.05}"/>'
         )
         items.append(
-            f'<text x="{bx+19}" y="{by+18}" text-anchor="middle" '
+            f'<text x="{bx + 19}" y="{by + 18}" text-anchor="middle" '
             f'font-size="9" font-family="Space Grotesk, Inter, system-ui, sans-serif" '
             f'fill="{color}" opacity="0.8">{label}</text>'
         )
         if i < 3:
             ax = bx + 38
             items.append(
-                f'<polygon points="{ax},{by+8} {ax+6},{by+14} {ax},{by+20}" '
+                f'<polygon points="{ax},{by + 8} {ax + 6},{by + 14} {ax},{by + 20}" '
                 f'fill="{color}" opacity="0.5"/>'
             )
     # Row 2
@@ -339,10 +450,10 @@ def visual_pipeline(cx: float, cy: float, color: str) -> str:
         by = cy + 30
         items.append(
             f'<rect x="{bx}" y="{by}" width="42" height="28" rx="5" '
-            f'fill="{color}" opacity="{0.10 + i*0.04}"/>'
+            f'fill="{color}" opacity="{0.10 + i * 0.04}"/>'
         )
         items.append(
-            f'<text x="{bx+21}" y="{by+18}" text-anchor="middle" '
+            f'<text x="{bx + 21}" y="{by + 18}" text-anchor="middle" '
             f'font-size="9" font-family="Space Grotesk, Inter, system-ui, sans-serif" '
             f'fill="{color}" opacity="0.7">{label}</text>'
         )
@@ -355,6 +466,7 @@ def visual_geometric(cx: float, cy: float, color: str) -> str:
     # Hexagon outline
     pts = []
     import math
+
     for i in range(6):
         angle = math.pi / 180 * (60 * i - 30)
         px = cx + 65 * math.cos(angle)
@@ -371,9 +483,7 @@ def visual_geometric(cx: float, cy: float, color: str) -> str:
         px = cx + 38 * math.cos(angle)
         py = cy + 38 * math.sin(angle)
         pts2.append(f"{px:.1f},{py:.1f}")
-    items.append(
-        f'<polygon points="{" ".join(pts2)}" fill="{color}" opacity="0.12"/>'
-    )
+    items.append(f'<polygon points="{" ".join(pts2)}" fill="{color}" opacity="0.12"/>')
     # Circles at corners
     for i in range(6):
         angle = math.pi / 180 * (60 * i)
@@ -399,6 +509,7 @@ VISUAL_FNS = {
 
 # ── Stat cards ───────────────────────────────────────────────────────────────
 
+
 def render_stat_cards(cards: list, accent: str) -> str:
     """Render 3 stat cards at bottom-left."""
     card_colors = [accent, "#f59e0b", "#10b981"]
@@ -409,16 +520,17 @@ def render_stat_cards(cards: list, accent: str) -> str:
         parts.append(f"""
     <rect x="{x}" y="{y}" width="130" height="66" rx="8"
           fill="rgba(255,255,255,0.04)" stroke="{color}" stroke-width="1.5"/>
-    <text x="{x+65}" y="{y+28}" text-anchor="middle"
+    <text x="{x + 65}" y="{y + 28}" text-anchor="middle"
           font-family="Space Grotesk, Inter, system-ui, sans-serif"
           font-size="19" font-weight="700" fill="{color}">{val}</text>
-    <text x="{x+65}" y="{y+48}" text-anchor="middle"
+    <text x="{x + 65}" y="{y + 48}" text-anchor="middle"
           font-family="Space Grotesk, Inter, system-ui, sans-serif"
           font-size="10" fill="#94a3b8" letter-spacing="1">{lbl}</text>""")
     return "\n".join(parts)
 
 
 # ── Main SVG builder ─────────────────────────────────────────────────────────
+
 
 def build_svg(title_raw: str, image_path: str, date_str: str) -> str:
     title_en = clean_title_for_svg(title_raw, image_path)
@@ -448,7 +560,7 @@ def build_svg(title_raw: str, image_path: str, date_str: str) -> str:
             f'<text x="60" y="{y}" '
             f'font-family="Space Grotesk, Inter, system-ui, sans-serif" '
             f'font-size="47" font-weight="700" fill="#ffffff" opacity="0.95">'
-            f'{line}</text>'
+            f"{line}</text>"
         )
 
     # Subtitle from category
@@ -765,7 +877,7 @@ def main():
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         try:
             svg_content = build_svg(title, rel_path, date_str)
-            with open(out_path, 'w', encoding='utf-8') as f:
+            with open(out_path, "w", encoding="utf-8") as f:
                 f.write(svg_content)
             size = os.path.getsize(out_path)
             print(f"[OK]  {os.path.basename(out_path)} ({size:,} bytes)")

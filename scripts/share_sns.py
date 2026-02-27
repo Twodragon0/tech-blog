@@ -4,15 +4,15 @@ SNS Auto Share Script
 Automatically shares new blog posts to Twitter/X, Facebook, and LinkedIn.
 """
 
-import os
-import sys
-import re
-import yaml
 import importlib
+import os
+import re
+import sys
 from pathlib import Path
-from datetime import datetime
+from typing import Any, Optional, cast
 from urllib.parse import quote
-from typing import Optional, Any, cast
+
+import yaml
 
 # .env 파일에서 환경 변수 로드
 SCRIPT_DIR = Path(__file__).parent
@@ -366,8 +366,8 @@ def share_to_linkedin(
         )
 
         if response.status_code == 201:
-            print(f"LinkedIn: ✅ Successfully posted with link preview and image!")
-            print(f"   LinkedIn이 Open Graph 이미지를 자동으로 크롤링합니다.")
+            print("LinkedIn: ✅ Successfully posted with link preview and image!")
+            print("   LinkedIn이 Open Graph 이미지를 자동으로 크롤링합니다.")
             return True
         else:
             # 방법 2: 텍스트에 링크 포함 (LinkedIn이 자동으로 Open Graph 크롤링)
@@ -397,11 +397,11 @@ def share_to_linkedin(
             )
 
             if response.status_code == 201:
-                print(f"LinkedIn: ✅ Successfully posted with link!")
+                print("LinkedIn: ✅ Successfully posted with link!")
                 print(
-                    f"   LinkedIn이 링크를 감지하여 Open Graph 이미지를 자동으로 크롤링합니다."
+                    "   LinkedIn이 링크를 감지하여 Open Graph 이미지를 자동으로 크롤링합니다."
                 )
-                print(f"   ⏳ 이미지 표시까지 몇 분이 걸릴 수 있습니다.")
+                print("   ⏳ 이미지 표시까지 몇 분이 걸릴 수 있습니다.")
                 return True
             else:
                 print(f"LinkedIn: ❌ Error - {response.status_code}")

@@ -7,7 +7,6 @@
 
 import logging
 import re
-from typing import Optional
 
 import requests
 from bs4 import BeautifulSoup
@@ -16,9 +15,7 @@ from bs4 import BeautifulSoup
 logger = logging.getLogger(__name__)
 
 
-def fetch_original_content(
-    url: str, timeout: int = 15, max_chars: int = 8000
-) -> str:
+def fetch_original_content(url: str, timeout: int = 15, max_chars: int = 8000) -> str:
     """
     원문 URL에서 콘텐츠 가져오기
 
@@ -50,7 +47,7 @@ def fetch_original_content(
         text = re.sub(r"\n{3,}", "\n\n", text)
         text = re.sub(r" {2,}", " ", text)
 
-        return text[: max_chars].strip()
+        return text[:max_chars].strip()
 
     except Exception as e:
         logger.warning(f"Failed to fetch original content from {url}: {e}")
@@ -79,7 +76,13 @@ def extract_article_content(html_content: str, max_chars: int = 8000) -> str:
 
         # 여러 패턴으로 본문 추출 시도
         content = ""
-        for selector in ["article", "main", ".post-content", ".entry-content", ".content"]:
+        for selector in [
+            "article",
+            "main",
+            ".post-content",
+            ".entry-content",
+            ".content",
+        ]:
             element = soup.select_one(selector)
             if element:
                 content = element.get_text(separator="\n", strip=True)

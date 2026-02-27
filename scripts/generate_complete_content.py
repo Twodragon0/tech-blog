@@ -30,14 +30,14 @@
     --video-method    영상 방법 (ffmpeg, remotion)
 """
 
-import os
-import re
-import sys
-import subprocess
 import argparse
 import hashlib
-from pathlib import Path
+import os
+import re
+import subprocess
+import sys
 from datetime import datetime
+from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 # 경로 설정
@@ -342,7 +342,7 @@ def step_improve_post(post_file: Path) -> bool:
             log_message("포스트 개선 완료", "SUCCESS")
             return True
         else:
-            log_message(f"포스트 개선 건너뜀 (이미 개선됨 또는 오류)", "WARNING")
+            log_message("포스트 개선 건너뜀 (이미 개선됨 또는 오류)", "WARNING")
             return True  # 실패해도 계속 진행
 
     except subprocess.TimeoutExpired:
@@ -483,7 +483,7 @@ def generate_with_gemini(post_file: Path) -> bool:
             log_message("Gemini 이미지 생성 완료", "SUCCESS")
             return True
         else:
-            log_message(f"Gemini 이미지 생성 실패", "WARNING")
+            log_message("Gemini 이미지 생성 실패", "WARNING")
             return False
 
     except Exception as e:

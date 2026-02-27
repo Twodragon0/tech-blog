@@ -6,10 +6,10 @@ Access Token을 얻기 위한 OAuth 플로우를 실행합니다.
 
 import os
 import sys
-import json
-import requests
-from urllib.parse import urlencode, parse_qs, urlparse
 from pathlib import Path
+from urllib.parse import urlencode
+
+import requests
 
 # 프로젝트 루트 디렉토리
 SCRIPT_DIR = Path(__file__).parent
@@ -154,7 +154,7 @@ def save_tokens(access_token, refresh_token=None, person_id=None):
 
     # 새로 추가해야 하는 경우
     if not updated:
-        new_lines.append(f"\n# LinkedIn OAuth Tokens (자동 생성)\n")
+        new_lines.append("\n# LinkedIn OAuth Tokens (자동 생성)\n")
         new_lines.append(f"LINKEDIN_ACCESS_TOKEN={access_token}\n")
         if refresh_token:
             new_lines.append(f"LINKEDIN_REFRESH_TOKEN={refresh_token}\n")
@@ -229,7 +229,7 @@ def main():
         last_name = profile.get("family_name") or profile.get("localizedLastName", "")
         full_name = f"{first_name} {last_name}".strip()
 
-        print(f"✓ 프로필 정보를 가져왔습니다.")
+        print("✓ 프로필 정보를 가져왔습니다.")
         if full_name:
             print(f"  이름: {full_name}")
         if profile.get("email"):
