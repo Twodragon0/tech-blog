@@ -26,33 +26,23 @@ function getPrisma() {
   return prismaInstance;
 }
 
-// HTML to plain text (iterative strip to prevent nested tag bypass)
+// HTML to plain text using char-walking (avoids regex-based tag filter vulnerabilities)
 function stripHtml(html) {
   if (!html) return '';
-  let text = html;
-  let prev;
-  // Iteratively remove nested script/style blocks
-  do {
-    prev = text;
-    text = text.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-    text = text.replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '');
-  } while (text !== prev);
-  // Iteratively remove HTML tags (prevents <scr<script>ipt> bypass)
-  do {
-    prev = text;
-    text = text.replace(/<[^>]*>/g, '');
-  } while (text !== prev);
-  // Decode entities only after all tags are fully removed
-  text = text
+  let result = '';
+  let depth = 0;
+  for (let i = 0; i < html.length; i++) {
+    if (html[i] === '<') { depth++; continue; }
+    if (html[i] === '>') { if (depth > 0) depth--; continue; }
+    if (depth === 0) result += html[i];
+  }
+  return result
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/\n{3,}/g, '\n\n')
     .trim();
-  return text;
 }
 
 // Format a single post as markdown

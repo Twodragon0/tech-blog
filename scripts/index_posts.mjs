@@ -15,8 +15,15 @@ const DRY_RUN = args.includes('--dry-run');
 const VERBOSE = args.includes('--verbose');
 
 function stripHtml(html) {
-  return html
-    .replace(/<[^>]*>/g, '')
+  // Remove HTML tags using char-walking (avoids regex bad-tag-filter)
+  let text = '';
+  let depth = 0;
+  for (let i = 0; i < html.length; i++) {
+    if (html[i] === '<') { depth++; continue; }
+    if (html[i] === '>') { if (depth > 0) depth--; continue; }
+    if (depth === 0) text += html[i];
+  }
+  return text
     .replace(/\{%.*?%\}/g, '')
     .replace(/\{\{.*?\}\}/g, '')
     .replace(/!\[.*?\]\(.*?\)/g, '')

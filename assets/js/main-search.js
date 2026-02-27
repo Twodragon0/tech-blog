@@ -249,7 +249,7 @@
       } else if (e.key === 'Enter' && activeResultIndex >= 0) {
         e.preventDefault();
         const url = items[activeResultIndex]?.getAttribute('data-url') || items[activeResultIndex]?.href;
-        if (url) window.location.href = url;
+        if (url) window.location.href = safeUrl(url);
       } else if (e.key === 'Escape') {
         searchResults.style.display = 'none';
         searchInput.blur();
@@ -369,12 +369,15 @@
       temp.querySelectorAll('script, iframe, object, embed, link[rel="import"]').forEach(el => el.remove());
       temp.querySelectorAll('*').forEach(el => {
         for (const attr of Array.from(el.attributes)) {
-          if (attr.name.startsWith('on') || attr.value.startsWith('javascript:')) {
+          if (attr.name.startsWith('on') || /^\s*javascript\s*:/i.test(String(attr.value))) {
             el.removeAttribute(attr.name);
           }
         }
-        if (el.tagName === 'A' && el.href && el.href.startsWith('javascript:')) {
-          el.removeAttribute('href');
+        if (el.tagName === 'A' && el.href) {
+          try {
+            const proto = new URL(el.href).protocol;
+            if (proto !== 'https:' && proto !== 'http:') el.removeAttribute('href');
+          } catch { el.removeAttribute('href'); }
         }
       });
       return temp.innerHTML;

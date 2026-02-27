@@ -108,11 +108,15 @@ function isAllowedOrigin(origin) {
 function sanitizeQuery(raw) {
   let s = raw.normalize('NFC');
   s = s.replace(/[\x00-\x1F\x7F]/g, '');
-  s = s.replace(/<[^>]*>/g, '');
   s = s.replace(/[\\'"`;]/g, '');
   s = s.replace(/[!&|():*<>~]/g, ' ');
-  s = s.replace(/\s+/g, ' ');
-  return s.trim();
+  // Remove any remaining angle brackets (handles HTML tag content)
+  let clean = '';
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] !== '<' && s[i] !== '>') clean += s[i];
+  }
+  clean = clean.replace(/\s+/g, ' ');
+  return clean.trim();
 }
 
 // 검색어를 tsquery 형식으로 변환
