@@ -393,10 +393,10 @@
 
 .lang-ai-badge {
   font-size: 0.625rem;
-  color: var(--text-tertiary, #8b949e);
+  color: var(--color-text-tertiary);
   text-align: center;
   padding: 0.25rem 0.5rem;
-  border-bottom: 1px solid var(--border-color, #30363d);
+  border-bottom: 1px solid var(--color-border);
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
