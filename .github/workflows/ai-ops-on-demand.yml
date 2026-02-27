@@ -54,6 +54,8 @@ on:
           - "true"
           - "false"
 
+permissions: {}
+
 concurrency:
   group: ai-ops-on-demand
   cancel-in-progress: false

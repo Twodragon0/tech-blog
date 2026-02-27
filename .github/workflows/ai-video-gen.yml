@@ -20,6 +20,8 @@ on:
   #   paths:
   #     - '_posts/**'
 
+permissions: {}
+
 jobs:
   generate-audio:
     runs-on: ubuntu-latest

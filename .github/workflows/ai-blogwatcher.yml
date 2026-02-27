@@ -57,6 +57,8 @@ on:
           - "true"
           - "false"
 
+permissions: {}
+
 concurrency:
   group: ai-blogwatcher
   cancel-in-progress: false

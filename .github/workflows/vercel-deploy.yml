@@ -15,6 +15,8 @@ on:
         description: 'Git Commit SHA'
         required: false
 
+permissions: {}
+
 jobs:
   notify-sentry:
     # 프로덕션 배포 시에만 실행

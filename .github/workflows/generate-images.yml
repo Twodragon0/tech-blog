@@ -32,6 +32,8 @@ on:
     paths:
       - '_posts/**'
 
+permissions: {}
+
 concurrency:
   group: generate-images-${{ github.ref }}
   cancel-in-progress: true

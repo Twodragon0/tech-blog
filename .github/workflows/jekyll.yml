@@ -13,6 +13,8 @@ on:
     # PR에서는 빌드만 실행 (배포 제외)
   workflow_dispatch: # 수동 실행 가능
 
+permissions: {}
+
 jobs:
   check-changes:
     runs-on: ubuntu-latest

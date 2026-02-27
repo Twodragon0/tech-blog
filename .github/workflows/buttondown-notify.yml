@@ -10,6 +10,8 @@ on:
     paths:
       - '_posts/**' # 포스트 변경 시에만 실행
 
+permissions: {}
+
 concurrency:
   group: buttondown-notify-${{ github.ref }}
   cancel-in-progress: true

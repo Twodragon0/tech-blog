@@ -54,6 +54,8 @@ on:
           - "true"
           - "false"
 
+permissions: {}
+
 concurrency:
   group: ultrawork-loop
   cancel-in-progress: false

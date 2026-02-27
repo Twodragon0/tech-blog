@@ -28,6 +28,8 @@ on:
           - 'true'
           - 'false'
 
+permissions: {}
+
 concurrency:
   group: sentry-release-${{ github.ref }}
   cancel-in-progress: true
