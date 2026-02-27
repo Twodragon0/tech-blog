@@ -1,7 +1,56 @@
 {
-  "collected_at": "2026-02-27T07:42:33.113946+00:00",
-  "total_items": 147,
+  "collected_at": "2026-02-27T09:11:39.019812+00:00",
+  "total_items": 152,
   "items": [
+    {
+      "id": "d4106a31e9c6",
+      "title": "Ubicloud (YC W24): Software Engineer – $95-$250K in Turkey, Netherlands, CA",
+      "url": "https://www.ycombinator.com/companies/ubicloud/jobs/j4bntEJ-software-engineer",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-27T08:45:02+00:00",
+      "summary": "Article URL: https://www.ycombinator.com/companies/ubicloud/jobs/j4bntEJ-software-engineer Comments URL: https://news.ycombinator.com/item?id=47178176 Points: 0 # Comments: 0",
+      "content": "",
+      "tags": [],
+      "author": "ozgune",
+      "priority": 2
+    },
+    {
+      "id": "01ef9a8eda09",
+      "title": "Why another US state is preparing a 10 mph e-bike speed limit [Update]",
+      "url": "https://electrek.co/2026/02/27/why-another-us-state-is-preparing-a-10-mph-e-bike-speed-limit/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-27T08:39:00+00:00",
+      "summary": "Florida is the latest US state to wade into the increasingly crowded waters of e-bike regulation, with lawmakers advancing a bill that would impose a situational 10 mph (16 km/h) speed limit for e-bikes on shared-use paths. It’s a move that fits squarely into a broader national trend, as states and cities across the country reconsider how electric bikes fit into public spaces that were never designed with fast, motor-assisted travel in mind.",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Micah Toll",
+      "priority": 2
+    },
+    {
+      "id": "09cbd315f248",
+      "title": "Bitcoin miner MARA posts $1.7B quarterly loss on BTC slump",
+      "url": "https://cointelegraph.com/news/marathon-posts-1-7b-quarterly-loss-bitcoin?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-02-27T08:37:53+00:00",
+      "summary": "MARA reported a $1.71 billion quarterly loss as Bitcoin fair‑value markdowns hit earnings and the company laid out a major push into AI and high‑performance compute.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Christina Comben",
+      "priority": 2
+    },
     {
       "id": "885d49bbbaad",
       "title": "BYD to unveil 1,500kW EV charger that can add 2km of range in 1 second",
@@ -17,6 +66,21 @@
         "News"
       ],
       "author": "Jameson Dow",
+      "priority": 2
+    },
+    {
+      "id": "8308715ec4e8",
+      "title": "The normalization of corruption in organizations (2003) [pdf]",
+      "url": "https://gwern.net/doc/sociology/2003-ashforth.pdf",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-27T06:21:23+00:00",
+      "summary": "Article URL: https://gwern.net/doc/sociology/2003-ashforth.pdf Comments URL: https://news.ycombinator.com/item?id=47177186 Points: 28 # Comments: 3",
+      "content": "",
+      "tags": [],
+      "author": "rendx",
       "priority": 2
     },
     {
@@ -79,7 +143,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T04:38:46+00:00",
-      "summary": "Article URL: https://graydon2.dreamwidth.org/322461.html Comments URL: https://news.ycombinator.com/item?id=47176581 Points: 56 # Comments: 23",
+      "summary": "Article URL: https://graydon2.dreamwidth.org/322461.html Comments URL: https://news.ycombinator.com/item?id=47176581 Points: 78 # Comments: 41",
       "content": "",
       "tags": [],
       "author": "zdw",
@@ -128,7 +192,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T03:49:48+00:00",
-      "summary": "Article URL: https://moultano.wordpress.com/2026/02/22/the-hunt-for-dark-breakfast/ Comments URL: https://news.ycombinator.com/item?id=47176257 Points: 156 # Comments: 55",
+      "summary": "Article URL: https://moultano.wordpress.com/2026/02/22/the-hunt-for-dark-breakfast/ Comments URL: https://news.ycombinator.com/item?id=47176257 Points: 196 # Comments: 73",
       "content": "",
       "tags": [],
       "author": "moultano",
@@ -143,7 +207,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T03:48:05+00:00",
-      "summary": "Article URL: https://github.com/Frikallo/parakeet.cpp Comments URL: https://news.ycombinator.com/item?id=47176239 Points: 27 # Comments: 3",
+      "summary": "Article URL: https://github.com/Frikallo/parakeet.cpp Comments URL: https://news.ycombinator.com/item?id=47176239 Points: 47 # Comments: 6",
       "content": "",
       "tags": [],
       "author": "noahkay13",
@@ -246,7 +310,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T01:50:45+00:00",
-      "summary": "Article URL: https://news.kalshi.com/p/kalshi-trading-violation-enforcement-cases Comments URL: https://news.ycombinator.com/item?id=47175281 Points: 20 # Comments: 49",
+      "summary": "Article URL: https://news.kalshi.com/p/kalshi-trading-violation-enforcement-cases Comments URL: https://news.ycombinator.com/item?id=47175281 Points: 27 # Comments: 57",
       "content": "",
       "tags": [],
       "author": "fortran77",
@@ -310,7 +374,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-26T22:42:47+00:00",
-      "summary": "Article URL: https://www.anthropic.com/news/statement-department-of-war Comments URL: https://news.ycombinator.com/item?id=47173121 Points: 1614 # Comments: 831",
+      "summary": "Article URL: https://www.anthropic.com/news/statement-department-of-war Comments URL: https://news.ycombinator.com/item?id=47173121 Points: 1778 # Comments: 936",
       "content": "",
       "tags": [],
       "author": "qwertox",
@@ -342,7 +406,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-26T22:14:11+00:00",
-      "summary": "Article URL: https://coderush.me/hydroph0bia-part3/ Comments URL: https://news.ycombinator.com/item?id=47172730 Points: 55 # Comments: 1",
+      "summary": "Article URL: https://coderush.me/hydroph0bia-part3/ Comments URL: https://news.ycombinator.com/item?id=47172730 Points: 56 # Comments: 1",
       "content": "",
       "tags": [],
       "author": "transpute",
@@ -357,7 +421,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-26T22:09:45+00:00",
-      "summary": "Article URL: https://www.idc.com/resource-center/press-releases/wwsmartphoneforecast4q25/ Comments URL: https://news.ycombinator.com/item?id=47172664 Points: 222 # Comments: 214",
+      "summary": "Article URL: https://www.idc.com/resource-center/press-releases/wwsmartphoneforecast4q25/ Comments URL: https://news.ycombinator.com/item?id=47172664 Points: 233 # Comments: 236",
       "content": "",
       "tags": [],
       "author": "littlexsparkee",
@@ -406,7 +470,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-26T21:17:56+00:00",
-      "summary": "https://www.cnbc.com/2026/02/26/block-laying-off-about-4000-... https://www.marketwatch.com/story/block-plans-to-lay-off-nea... Comments URL: https://news.ycombinator.com/item?id=47172119 Points: 653 # Comments: 685",
+      "summary": "https://www.cnbc.com/2026/02/26/block-laying-off-about-4000-... https://www.marketwatch.com/story/block-plans-to-lay-off-nea... Comments URL: https://news.ycombinator.com/item?id=47172119 Points: 696 # Comments: 738",
       "content": "",
       "tags": [],
       "author": "mlex",
@@ -472,7 +536,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-26T19:58:46+00:00",
-      "summary": "Article URL: https://stackoverflow.com/questions/818255/what-does-21-mean Comments URL: https://news.ycombinator.com/item?id=47171233 Points: 235 # Comments: 130",
+      "summary": "Article URL: https://stackoverflow.com/questions/818255/what-does-21-mean Comments URL: https://news.ycombinator.com/item?id=47171233 Points: 269 # Comments: 146",
       "content": "",
       "tags": [],
       "author": "alexmolas",
@@ -625,7 +689,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-26T18:37:59+00:00",
-      "summary": "Article URL: https://osmand.net/blog/fast-routing/ Comments URL: https://news.ycombinator.com/item?id=47170157 Points: 147 # Comments: 46",
+      "summary": "Article URL: https://osmand.net/blog/fast-routing/ Comments URL: https://news.ycombinator.com/item?id=47170157 Points: 157 # Comments: 50",
       "content": "",
       "tags": [],
       "author": "todsacerdoti",
@@ -640,7 +704,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-26T18:12:26+00:00",
-      "summary": "Article URL: https://amplifying.ai/research/claude-code-picks Comments URL: https://news.ycombinator.com/item?id=47169757 Points: 372 # Comments: 148",
+      "summary": "Article URL: https://amplifying.ai/research/claude-code-picks Comments URL: https://news.ycombinator.com/item?id=47169757 Points: 398 # Comments: 164",
       "content": "",
       "tags": [],
       "author": "tin7in",
@@ -704,7 +768,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-26T17:01:05+00:00",
-      "summary": "Article URL: https://cs.uml.edu/~fredm/courses/91.308-spr05/files/palmdocs/uiguidelines.pdf Comments URL: https://news.ycombinator.com/item?id=47168726 Points: 181 # Comments: 87",
+      "summary": "Article URL: https://cs.uml.edu/~fredm/courses/91.308-spr05/files/palmdocs/uiguidelines.pdf Comments URL: https://news.ycombinator.com/item?id=47168726 Points: 184 # Comments: 89",
       "content": "",
       "tags": [],
       "author": "spiffytech",
@@ -781,38 +845,6 @@
       "priority": 2
     },
     {
-      "id": "ef42cc30a0a3",
-      "title": "Court sets deadline for US to address Bankman-Fried’s new trial motion",
-      "url": "https://cointelegraph.com/news/sam-bankman-fried-trial-court-government-response?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-02-26T16:35:42+00:00",
-      "summary": "Amid reports that the White House will not consider a presidential pardon, the convicted former FTX CEO continues his efforts in court.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Turner Wright",
-      "priority": 2
-    },
-    {
-      "id": "2be84f452cc6",
-      "title": "Nano Banana 2: Google's latest AI image generation model",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-26T16:02:37+00:00",
-      "summary": "Article URL: https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/ Comments URL: https://news.ycombinator.com/item?id=47167858 Points: 552 # Comments: 513",
-      "content": "",
-      "tags": [],
-      "author": "davidbarker",
-      "priority": 2
-    },
-    {
       "id": "51866386c20d",
       "title": "Pro-level image generation gets faster and more accessible with Nano Banana 2",
       "url": "https://cloud.google.com/blog/products/ai-machine-learning/bringing-nano-banana-2-to-enterprise/",
@@ -838,7 +870,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-26T15:55:48+00:00",
-      "summary": "Article URL: https://www.ndss-symposium.org/wp-content/uploads/2026-f1282-paper.pdf Comments URL: https://news.ycombinator.com/item?id=47167763 Points: 345 # Comments: 162",
+      "summary": "Article URL: https://www.ndss-symposium.org/wp-content/uploads/2026-f1282-paper.pdf Comments URL: https://news.ycombinator.com/item?id=47167763 Points: 352 # Comments: 165",
       "content": "",
       "tags": [],
       "author": "DamnInteresting",
@@ -904,7 +936,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-26T14:05:46+00:00",
-      "summary": "Article URL: https://tuananh.net/2026/02/25/buildkit-docker-hidden-gem/ Comments URL: https://news.ycombinator.com/item?id=47166264 Points: 170 # Comments: 62",
+      "summary": "Article URL: https://tuananh.net/2026/02/25/buildkit-docker-hidden-gem/ Comments URL: https://news.ycombinator.com/item?id=47166264 Points: 178 # Comments: 64",
       "content": "",
       "tags": [],
       "author": "jasonpeacock",
@@ -942,21 +974,6 @@
         "Blog"
       ],
       "author": "Yuan Tang, on behalf of Kubernetes WG Serving Co-Chairs",
-      "priority": 2
-    },
-    {
-      "id": "5f67449c32af",
-      "title": "This time is different",
-      "url": "https://shkspr.mobi/blog/2026/02/this-time-is-different/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-26T13:28:59+00:00",
-      "summary": "Article URL: https://shkspr.mobi/blog/2026/02/this-time-is-different/ Comments URL: https://news.ycombinator.com/item?id=47165792 Points: 153 # Comments: 244",
-      "content": "",
-      "tags": [],
-      "author": "speckx",
       "priority": 2
     },
     {
@@ -1014,6 +1031,36 @@
       "priority": 2
     },
     {
+      "id": "e9899efa6f2f",
+      "title": "Show GN: 원하는 주제를 커리큘럼으로 만들어서 공부하는 AI, Runtric",
+      "url": "https://news.hada.io/topic?id=27053",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-02-27T16:51:17+09:00",
+      "summary": "안녕하세요. 저희는 할루시네이션 걱정 없이 원하는 주제로 커리큘럼을 만들어 공부할 수 있는 AI 학습 서비스를 만들었습니다. 기존 AI 학습 서비스가 PDF 안의 텍스트를 얼마나 많이 읽고 답하느냐에 집중했다면, 저희는 AI가 어떻게 설명하고 어떻게 지도해야 실제 학습이 이어지는지에 더 집중했습니다. 그",
+      "content": "안녕하세요. 저희는 할루시네이션 걱정 없이 원하는 주제로 커리큘럼을 만들어 공부할 수 있는 AI 학습 서비스를 만들었습니다. 기존 AI 학습 서비스가 PDF 안의 텍스트를 얼마나 많이 읽고 답하느냐에 집중했다면, 저희는 AI가 어떻게 설명하고 어떻게 지도해야 실제 학습이 이어지는지에 더 집중했습니다. 그",
+      "tags": [],
+      "author": "resetmerlin",
+      "priority": 1
+    },
+    {
+      "id": "7f7949ccc00b",
+      "title": "Show GN: 평타침? | 내 연봉, 상위 몇 %일까?",
+      "url": "https://news.hada.io/topic?id=27052",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-02-27T16:05:56+09:00",
+      "summary": "연령대별, 성별, 직군, 산업별로 상위 몇 퍼센트의 연봉을 받는지 확인할 수 있습니다. 데이터 출처 · 전체 근로자: 국세청 근로소득 천분위 (2024년 귀속) · 성별/연령/직업/산업: 고용정보원 wagework.go.kr (2024년) · 서브그룹 비교는 로그정규분포 추정 (P25/중위/P75 기반)",
+      "content": "연령대별, 성별, 직군, 산업별로 상위 몇 퍼센트의 연봉을 받는지 확인할 수 있습니다. 데이터 출처 · 전체 근로자: 국세청 근로소득 천분위 (2024년 귀속) · 성별/연령/직업/산업: 고용정보원 wagework.go.kr (2024년) · 서브그룹 비교는 로그정규분포 추정 (P25/중위/P75 기반)",
+      "tags": [],
+      "author": "ashbyash",
+      "priority": 1
+    },
+    {
       "id": "66936618b5ae",
       "title": "Perplexity Computer — 19개 AI 모델을 조율하는 범용 디지털 워커 출시",
       "url": "https://news.hada.io/topic?id=27051",
@@ -1056,6 +1103,21 @@
       "content": "Perplexity가 2026년 2월 25일 Perplexity Computer 를 출시했습니다. 이 서비스의 핵심은 Claude Opus 4.6, Gemini, Grok, ChatGPT 5.2, Veo 3.1 등 경쟁사 최신 모델들을 하나의 지능형 에이전트 시스템으로 통합한 것입니다. (Perplexity Max 플랜 $200/월에서 이용 가능)...",
       "tags": [],
       "author": "davespark",
+      "priority": 1
+    },
+    {
+      "id": "a317b136eff3",
+      "title": "Meta Files Lawsuits Against Brazil, China, Vietnam Advertisers Over Celeb-Bait Scams",
+      "url": "https://thehackernews.com/2026/02/meta-files-lawsuits-against-brazil.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-02-27T13:26:00+05:30",
+      "summary": "Meta on Thursday said it's taking legal action to tackle scams on its platforms by filing lawsuits against what it calls deceptive advertisers based in Brazil, China, and Vietnam. As part of the effort, the advertisers' methods of payment have been suspended, related accounts have been disabled, and the website domain names used to pull off the scams have been blocked. Concurrently, the social",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
       "priority": 1
     },
     {
@@ -1201,7 +1263,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.110566+00:00",
+      "published": "2026-02-27T09:11:39.016542+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "content": "",
       "tags": [
@@ -1219,14 +1281,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.110438+00:00",
+      "published": "2026-02-27T09:11:39.016406+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
       "content": "",
       "tags": [
         "KARA",
         "SK쉴더스",
-        "보안리포트",
-        "랜섬웨어"
+        "랜섬웨어",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1239,7 +1301,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.110311+00:00",
+      "published": "2026-02-27T09:11:39.016270+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
       "content": "",
       "tags": [
@@ -1257,7 +1319,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.110168+00:00",
+      "published": "2026-02-27T09:11:39.016132+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
       "content": "",
       "tags": [
@@ -1275,7 +1337,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.110024+00:00",
+      "published": "2026-02-27T09:11:39.016014+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
       "content": "",
       "tags": [
@@ -1293,14 +1355,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.109882+00:00",
+      "published": "2026-02-27T09:11:39.015877+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
       "content": "",
       "tags": [
         "KARA",
         "SK쉴더스",
-        "보안리포트",
-        "랜섬웨어"
+        "랜섬웨어",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1313,7 +1375,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.109737+00:00",
+      "published": "2026-02-27T09:11:39.015748+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
       "content": "",
       "tags": [
@@ -1331,7 +1393,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.109598+00:00",
+      "published": "2026-02-27T09:11:39.015616+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
       "content": "",
       "tags": [
@@ -1349,13 +1411,13 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.109475+00:00",
+      "published": "2026-02-27T09:11:39.015495+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
       "content": "",
       "tags": [
+        "AI보안",
         "SK쉴더스",
-        "보안리포트",
-        "AI보안"
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1368,14 +1430,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.109333+00:00",
+      "published": "2026-02-27T09:11:39.015345+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
       "content": "",
       "tags": [
         "KARA",
         "SK쉴더스",
-        "보안리포트",
-        "랜섬웨어"
+        "랜섬웨어",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1388,13 +1450,13 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.109189+00:00",
+      "published": "2026-02-27T09:11:39.015207+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 2월호 n8n 임의 파일 읽기 취약점(CVE-2026-21858)",
       "content": "",
       "tags": [
+        "취약점",
         "SK쉴더스",
-        "보안리포트",
-        "취약점"
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1407,7 +1469,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-27T07:42:33.109000+00:00",
+      "published": "2026-02-27T09:11:39.015045+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 2월호",
       "content": "",
       "tags": [
@@ -1425,7 +1487,7 @@
       "source_name": "Tech World Monitor",
       "category": "tech",
       "language": "en",
-      "published": "2026-02-27T07:41:53.068864+00:00",
+      "published": "2026-02-27T09:10:35.997573+00:00",
       "summary": "Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. 실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다. 이번 수집은 해저 케이블, 기상, 경제 지표, 서비스 장애, 데이터센터, 자연재해 레이어를 중심으로 참고했습니다. 분석 기준 구간은 최근 7d입니다.",
       "content": "실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다.",
       "tags": [
@@ -1594,6 +1656,21 @@
       "priority": 1
     },
     {
+      "id": "7768ab1443cf",
+      "title": "신입 디자이너가 꼭 알아야 할 실험 설계 팁",
+      "url": "https://toss.tech/article/45391",
+      "source": "toss_tech",
+      "source_name": "토스 기술 블로그",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-02-27T02:41:00+00:00",
+      "summary": "실험 경험이 없는 인턴도 하나의 제품을 맡을 수 있을까요? 비회원 퍼널 실험을 통해 배운 과정을 공유해요.",
+      "content": "안녕하세요. 토스뱅크 Product Designer 전누리예요. 이번 글에서는 인턴으로 토스에 합류해 처음으로 실험을 설계했던 경험을 공유해보려고 해요. 제가 맡은 첫 과제는 토스뱅크 비회원의 가입 전환율을 높이는 것이었어요. 처음 실험을 설계해야 했던 저는 세 가지가 가장 어려웠어요. 1️⃣ 이탈이 큰 구간이 여러 개인데, 어디부터 개선해야 할까? 2️⃣ 이미 많은 실험이 진행되었는데, 나는 뭘 더 할 수 있을까? 3️⃣ 가설을 어떻게 세워야 흔들리지 않을까? 이 세 가지 고민을 어떻게 풀었는지 순서대로 이야기해 볼게요. 1) 어디부터 개선할까? - 속도 x 임팩트로 계산하기 가장 먼저 비회원 가입 퍼널 중 어디에서 가장 많이 이탈하는지 데이터를 살펴봤어요. 크게 3가지 구간이 있었어요. 인트로, 동의화면, 신분증 인증 화면이었죠. 처음엔 어디부터 건드려야 할지 막막했어요. 그래서 주변 디자이너 분들께 조언을 구했어요.",
+      "tags": [],
+      "author": "",
+      "priority": 1
+    },
+    {
       "id": "bda9f8cdcc8e",
       "title": "테스트 코드가 새로운 해자(Moat)가 되는 시대",
       "url": "https://news.hada.io/topic?id=27030",
@@ -1636,36 +1713,6 @@
       "content": "",
       "tags": [],
       "author": "",
-      "priority": 1
-    },
-    {
-      "id": "457983149e84",
-      "title": "우분투가 Rust를 사용한다는 것은 무엇을 의미할까?",
-      "url": "https://news.hada.io/topic?id=27028",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-26T23:27:40+09:00",
-      "summary": "Ubuntu의 Rust 도입 은 기술 채택 주기에서 Rust가 얼리 어답터에서 캐즘을 넘어 주류 단계로 이동 하고 있음을 보여줌 Canonical은 Rust를 새로운 기반 소프트웨어의 기본 언어 로 채택하여 C, C++, 일부 Python 사용을 대체하고 있으며, 메모리 안...",
-      "content": "Ubuntu의 Rust 도입 은 기술 채택 주기에서 Rust가 얼리 어답터에서 캐즘을 넘어 주류 단계로 이동 하고 있음을 보여줌 Canonical은 Rust를 새로운 기반 소프트웨어의 기본 언어 로 채택하여 C, C++, 일부 Python 사용을 대체하고 있으며, 메모리 안...",
-      "tags": [],
-      "author": "xguru",
-      "priority": 1
-    },
-    {
-      "id": "a23fa92160fe",
-      "title": "코드 작성은 이제 싸다",
-      "url": "https://news.hada.io/topic?id=27027",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-26T23:26:04+09:00",
-      "summary": "코드 작성 비용이 급격히 낮아진 현실 이 엔지니어링 습관 전반을 흔들고 있음 과거에는 코드 생산이 고비용이었기에 설계·추정·기획 중심의 효율적 개발 문화 가 형성되었음 코딩 에이전트 의 등장으로 한 명의 개발자가 동시에 여러 작...",
-      "content": "코드 작성 비용이 급격히 낮아진 현실 이 엔지니어링 습관 전반을 흔들고 있음 과거에는 코드 생산이 고비용이었기에 설계·추정·기획 중심의 효율적 개발 문화 가 형성되었음 코딩 에이전트 의 등장으로 한 명의 개발자가 동시에 여러 작...",
-      "tags": [],
-      "author": "xguru",
       "priority": 1
     },
     {
@@ -1835,6 +1882,27 @@
       "content": "",
       "tags": [],
       "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "873b33649151",
+      "title": "Now Live: The World’s Most Powerful AI Factory for Pharmaceutical Discovery and Development",
+      "url": "https://blogs.nvidia.com/blog/lilly-ai-factory-live/",
+      "source": "nvidia_ai",
+      "source_name": "NVIDIA AI Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-02-26T19:00:58+00:00",
+      "summary": "Lilly this week launched the most powerful AI factory wholly owned and operated by a pharmaceutical company to help its teams make meaningful medical advancements faster, more accurately and at unprecedented scale. Dubbed LillyPod, it’s the world’s first NVIDIA DGX SuperPOD with DGX B300 systems.",
+      "content": "",
+      "tags": [
+        "Data Center",
+        "Generative AI",
+        "AI Factory",
+        "Artificial Intelligence",
+        "Healthcare and Life Sciences"
+      ],
+      "author": "Rory Kelleher",
       "priority": 1
     },
     {
@@ -2148,6 +2216,24 @@
       "priority": 1
     },
     {
+      "id": "2be84f452cc6",
+      "title": "Nano Banana 2: Combining Pro capabilities with lightning-fast speed",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/",
+      "source": "google_ai",
+      "source_name": "Google AI Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-02-26T16:00:00+00:00",
+      "summary": "Nano Banana 2 text with AI generated images around it",
+      "content": "Our latest image generation model offers advanced world knowledge, production-ready specs, subject consistency and more, all at Flash speed.",
+      "tags": [
+        "Gemini models",
+        "AI"
+      ],
+      "author": "Naina Raisinghani",
+      "priority": 1
+    },
+    {
       "id": "5e71487d8ace",
       "title": "Crypto for Advisors: Crypto’s fixture in 401(k) plans",
       "url": "https://www.coindesk.com/coindesk-indices/2026/02/25/crypto-for-advisors-crypto-s-fixture-in-401-k-plans",
@@ -2246,6 +2332,25 @@
       "priority": 1
     },
     {
+      "id": "ebf9e2df1841",
+      "title": "Horror Awakens in the Cloud: GeForce NOW Unleashes Capcom’s ‘Resident Evil Requiem’",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-resident-evil-requiem/",
+      "source": "nvidia_ai",
+      "source_name": "NVIDIA AI Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-02-26T14:00:48+00:00",
+      "summary": "GeForce NOW’s anniversary celebration reaches a chilling crescendo as Capcom’s Resident Evil Requiem creeps into the cloud — and the horrors look better than ever on a GeForce NOW Ultimate membership. To mark the occasion, a special launch bundle rises from the shadows, pairing the game with a yearlong Ultimate membership for a limited time. Read Article",
+      "content": "GeForce NOW ’s anniversary celebration reaches a chilling crescendo as Capcom’s Resident Evil Requiem creeps into the cloud — and the horrors look better than ever on a GeForce NOW Ultimate membership. To mark the occasion, a special launch bundle rises from the shadows, pairing the game with a yearlong Ultimate membership for a limited time. It’s not a celebration party without treats. GeForce NOW is also offering members a new reward to use in Delta Force .",
+      "tags": [
+        "Gaming",
+        "Cloud Gaming",
+        "GeForce NOW"
+      ],
+      "author": "GeForce NOW Community",
+      "priority": 1
+    },
+    {
       "id": "66ccfae9e45c",
       "title": "Growing Creative Literacy in the Age of Bitcoin: A Conversation with Bruce Barone Jr. of BrainSprout",
       "url": "https://bitcoinmagazine.com/culture/growing-creative-literacy-in-the-age-of-bitcoin-a-conversation-with-bruce-barone-jr-of-brainsprout",
@@ -2323,27 +2428,6 @@
         "Global Affairs"
       ],
       "author": "",
-      "priority": 1
-    },
-    {
-      "id": "b48a8df409bd",
-      "title": "Physical AI: 자율 지능의 차세대 기반 구축",
-      "url": "https://aws.amazon.com/ko/blogs/tech/physical-ai-building-the-next-foundation-in-autonomous-intelligence/",
-      "source": "aws_korea",
-      "source_name": "AWS Korea Blog",
-      "category": "cloud",
-      "language": "ko",
-      "published": "2026-02-26T07:57:51+00:00",
-      "summary": "이 글은 아래 블로그 원문을 번역 하였습니다. Physical AI: Building the Next Foundation in Autonomous Intelligence 소개 세계는 자율 경제(Autonomous Economy)로 빠르게 전환되고 있습니다. 자율 경제란 AI, 엣지 컴퓨팅, 로보틱스, 공간 지능, 시뮬레이션 기술이 유기적으로 결합되어 시스템이 최소한의 인간 개입만으로 자율적으로 운영되는 혁신적인 경제 모델입니다. Physical AI는 이러한 기술 융합의 핵심이며, 컴퓨팅 시스템이 물리적 세계를 […]",
-      "content": "이 글은 아래 블로그 원문을 번역 하였습니다. Physical AI: Building the Next Foundation in Autonomous Intelligence 소개 세계는 자율 경제(Autonomous Economy)로 빠르게 전환되고 있습니다. 자율 경제란 AI, 엣지 컴퓨팅, 로보틱스, 공간 지능, 시뮬레이션 기술이 유기적으로 결합되어 시스템이 최소한의 인간 개입만으로 자율적으로 운영되는 혁신적인 경제 모델입니다. Physical AI는 이러한 기술 융합의 핵심이며, 컴퓨팅 시스템이 물리적 세계를 감지하고 이해하며, 변화를 예측하고 그에 따라 행동할 수 있도록 합니다. 이를 통해 고객은 자율 경제로의 전환이라는 전에 없던 기회를 선점할 수 있습니다( 참고 링크 ). Physical AI는 자율 운영이라는 패러다임 전환을 뒷받침합니다.",
-      "tags": [
-        "Artificial Intelligence",
-        "Compute",
-        "Database",
-        "Generative AI",
-        "Internet of Things"
-      ],
-      "author": "Joonhyung Kim",
       "priority": 1
     },
     {
