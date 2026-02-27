@@ -157,9 +157,7 @@ schema_type: Article
 
 2025년 클라우드 보안은 **반응적(Reactive) 대응에서 예측적(Predictive) 방어**로 진화하고 있습니다. 이는 AI, Machine Learning, 실시간 위협 인텔리전스의 융합으로 가능해졌습니다.
 
-> ```
-
-yaml
+> ```yaml
 > # GitHub Actions 예시 (간단한 구조)...
 > ```
 

@@ -236,15 +236,13 @@ hcl
 > ```yaml
 > # k8s-security-policies.yaml...
 > ```
-```markdown
-
-yaml
+> ```yaml
 > # ISMS-P 인증심사 대응 체크리스트...
-```
+> ```
 
-yaml
+> ```yaml
 > # 전자금융거래법 및 금융보안원 가이드라인 준수...
-```markdown
+> ```
 
 
 ### 감사 대응 보고서 템플릿

@@ -459,19 +459,17 @@ cat /var/log/falco/events.txt | \
 > ```bash
 > # 1. Secret 접근 Audit Log 분석...
 > ```
-```
-
-bash
+> ```bash
 > # 1. Pod 상태 확인...
-```bash
+> ```
 
-bash
+> ```bash
 > # 1. 현재 적용된 Network Policy 확인...
-```
+> ```
 
-bash
+> ```bash
 > # 1. ImagePullBackOff 이벤트 확인...
-```text
+> ```
 
 
 ## 12. 종합 레퍼런스

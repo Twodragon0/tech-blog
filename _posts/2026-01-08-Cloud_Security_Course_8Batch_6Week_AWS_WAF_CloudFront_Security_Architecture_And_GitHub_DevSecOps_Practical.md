@@ -254,7 +254,10 @@ toc: true
 
 #### 2. 다양한 공격 벡터를 사용하는 IP (APT 의심)
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.Logs
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
+
+```kusto
+Logs
 | where Action == "BLOCK"
 | summarize
     AttackTypes = make_set(RuleId),
@@ -271,8 +274,9 @@ toc: true
   )
 | project SourceIP, AttackVectors, AttackCount, ThreatLevel, FirstSeen, LastSeen, AttackTypes
 | order by AttackVectors desc
+```
 
-sql
+```sql
 -- AWS CloudWatch Insights
 fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 | filter httpRequest.httpMethod = "POST"
@@ -289,7 +293,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 > ...
 > ```
 
-sql
+```sql
 -- Splunk SPL
 index=waf sourcetype=aws:waf
 | search request_uri IN ("/.env", "/config.php", "/.git/config", "/wp-config.php", "/robots.txt", "/sitemap.xml")

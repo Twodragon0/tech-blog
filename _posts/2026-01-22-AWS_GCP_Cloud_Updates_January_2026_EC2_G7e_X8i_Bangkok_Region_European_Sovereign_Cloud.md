@@ -236,7 +236,7 @@ AWS가 **EC2 G7e 인스턴스**를 정식 출시했습니다. NVIDIA RTX PRO 600
 
 **출력 결과**:
 {% raw %}
-```
+```text
 g7e.xlarge (On-Demand): $65,700/month
 g7e.xlarge (3yr RI): $26,280/month
 g7e.xlarge (Spot): $6,570/month
