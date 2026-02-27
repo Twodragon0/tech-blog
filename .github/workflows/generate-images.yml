@@ -217,7 +217,7 @@ jobs:
           fi
 
       - name: Upload Generated Images
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: success() && github.event_name == 'workflow_dispatch'
         with:
           name: generated-images

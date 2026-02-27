@@ -451,7 +451,7 @@ jobs:
           fi
 
       - name: Upload Video Artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: success()
         with:
           name: generated-video
@@ -459,7 +459,7 @@ jobs:
           retention-days: 7  # 7일간 보관 (비용 관리)
 
       - name: Upload Audio Artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: success()
         with:
           name: generated-audio
