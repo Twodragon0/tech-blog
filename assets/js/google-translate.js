@@ -29,7 +29,7 @@ function googleTranslateElementInit() {
 
     new google.translate.TranslateElement({
       pageLanguage: 'ko',
-      includedLanguages: 'en,ja,zh-CN,zh-TW',
+      includedLanguages: 'en,ja,zh-CN,es',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false
     }, 'google_translate_element');
@@ -50,7 +50,7 @@ function googleTranslateElementInit() {
     'en': 'EN',
     'ja': 'JA',
     'zh-CN': 'CN',
-    'zh-TW': 'TW',
+    'es': 'ES',
     'zh': 'CN'
   };
 
@@ -60,10 +60,10 @@ function googleTranslateElementInit() {
     'en': { flag: '\uD83C\uDDFA\uD83C\uDDF8', name: 'English' },
     'ja': { flag: '\uD83C\uDDEF\uD83C\uDDF5', name: '日本語' },
     'zh-CN': { flag: '\uD83C\uDDE8\uD83C\uDDF3', name: '简体中文' },
-    'zh-TW': { flag: '\uD83C\uDDF9\uD83C\uDDFC', name: '繁體中文' }
+    'es': { flag: '\uD83C\uDDEA\uD83C\uDDF8', name: 'Espa\u00f1ol' }
   };
 
-  var SUPPORTED_LANGS = ['ko', 'en', 'ja', 'zh-CN', 'zh-TW'];
+  var SUPPORTED_LANGS = ['ko', 'en', 'ja', 'zh-CN', 'es'];
   var translateScriptLoaded = false;
   var scriptLoadRetries = 0;
   var maxRetries = 3;
@@ -210,9 +210,9 @@ function googleTranslateElementInit() {
 
     if (lang.startsWith('ko')) return 'ko';
     if (lang.startsWith('ja')) return 'ja';
-    if (lang.startsWith('zh-tw') || lang.startsWith('zh-hant')) return 'zh-TW';
     if (lang.startsWith('zh')) return 'zh-CN';
     if (lang.startsWith('en')) return 'en';
+    if (lang.startsWith('es')) return 'es';
 
     return 'ko';
   }
@@ -391,7 +391,7 @@ function googleTranslateElementInit() {
           else if (text.includes('English') || text.includes('🇺🇸')) lang = 'en';
           else if (text.includes('日本語') || text.includes('🇯🇵')) lang = 'ja';
           else if (text.includes('简体中文') || text.includes('🇨🇳')) lang = 'zh-CN';
-          else if (text.includes('繁體中文') || text.includes('🇹🇼')) lang = 'zh-TW';
+          else if (text.includes('Español') || text.includes('🇪🇸')) lang = 'es';
         }
 
         if (lang) {
