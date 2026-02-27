@@ -391,6 +391,16 @@
   text-overflow: ellipsis;
 }
 
+.lang-ai-badge {
+  font-size: 0.625rem;
+  color: var(--text-tertiary, #8b949e);
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 1px solid var(--border-color, #30363d);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
 /* Dark theme */
 [data-theme="dark"] .lang-dropdown {
   background: var(--color-bg-secondary);
