@@ -130,7 +130,7 @@ def build_message(alias: str, items: List[Tuple[str, str]], window_hours: int) -
     header = f"{tag} {alias.upper()} | 최근 {window_hours}시간 포스트 {len(items)}건"
     lines = [header]
     for title, url in items:
-        lines.append(f"- {title}\n  {url}")
+        lines.append(f"• <{url}|{title}>")
     return "\n".join(lines)
 
 

@@ -96,10 +96,26 @@ jobs:
         if: steps.posts.outputs.has_posts == 'true'
         continue-on-error: true
         env:
-          HAS_SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK != '' }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          MESSAGE: ${{ steps.posts.outputs.message }}
         run: |
-          if [ "$HAS_SLACK_WEBHOOK" != "true" ]; then
+          if [ -z "${SLACK_WEBHOOK:-}" ]; then
             echo "SLACK_WEBHOOK not configured, skipping fallback"
             exit 0
           fi
-          echo "Webhook fallback: AI Gateway is primary, webhook is optional"
+          if [ -n "${AI_GATEWAY_URL:-}" ] && [ -n "${AI_GATEWAY_TOKEN:-}" ]; then
+            echo "AI Gateway is primary; webhook fallback not needed"
+            exit 0
+          fi
+          payload=$(python3 -c 'import json,os; message=os.environ.get("MESSAGE",""); print(json.dumps({"text": message}, ensure_ascii=False))')
+          HTTP_STATUS=$(curl -sS -o /tmp/webhook_resp.txt -w "%{http_code}" \
+            -X POST "${SLACK_WEBHOOK}" \
+            -H "Content-Type: application/json" \
+            -d "$payload")
+          echo "Webhook response: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            echo "Slack webhook notification sent successfully"
+          else
+            echo "::warning::Slack webhook failed (HTTP $HTTP_STATUS)"
+            cat /tmp/webhook_resp.txt || true
+          fi
