@@ -21,9 +21,12 @@
   "git": {
     "deploymentEnabled": {
       "production": true,
-      "preview": true,
+      "preview": false,
       "development": false
     }
+  },
+  "skewProtection": {
+    "maxAge": 604800
   },
   "headers": [
     {
