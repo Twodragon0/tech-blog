@@ -229,7 +229,7 @@ def translate_korean_to_english(text: str) -> str:
 
 def find_post_files_with_korean(posts_dir: Path) -> List[Path]:
     """Find all post files with Korean characters in their names."""
-    korean_files = []
+    korean_files: List[Path] = []
 
     if not posts_dir.exists():
         return korean_files
