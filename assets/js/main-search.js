@@ -248,8 +248,8 @@
         items[activeResultIndex]?.scrollIntoView({ block: 'nearest' });
       } else if (e.key === 'Enter' && activeResultIndex >= 0) {
         e.preventDefault();
-        const url = items[activeResultIndex]?.getAttribute('data-url') || items[activeResultIndex]?.href;
-        if (url) window.location.href = safeUrl(url);
+        const activeItem = items[activeResultIndex];
+        if (activeItem && activeItem.tagName === 'A') activeItem.click();
       } else if (e.key === 'Escape') {
         searchResults.style.display = 'none';
         searchInput.blur();
