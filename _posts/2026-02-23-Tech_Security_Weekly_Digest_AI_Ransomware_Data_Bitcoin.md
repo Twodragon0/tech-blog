@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: Ransomware"
+title: "기술·보안 주간 다이제스트: Ransomware, AI, Zero Trust"
 date: 2026-02-23 12:39:51 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Data, Bitcoin]

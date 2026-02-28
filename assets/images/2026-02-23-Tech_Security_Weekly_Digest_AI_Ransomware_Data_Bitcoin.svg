@@ -1,19 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <!-- Background Gradient -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0f0f23"/>
       <stop offset="50%" style="stop-color:#1a1a3e"/>
       <stop offset="100%" style="stop-color:#0d1117"/>
     </linearGradient>
-
-    <!-- Card Gradient -->
     <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1e293b"/>
       <stop offset="100%" style="stop-color:#0f172a"/>
     </linearGradient>
-
-    <!-- Category Gradients -->
     <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#dc2626"/>
       <stop offset="100%" style="stop-color:#991b1b"/>
@@ -38,32 +33,17 @@
       <stop offset="0%" style="stop-color:#6366f1"/>
       <stop offset="100%" style="stop-color:#4f46e5"/>
     </linearGradient>
-
-    <!-- Glow Filter -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-
-    <!-- Shadow Filter -->
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
     </filter>
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.3" opacity="0.4"/>
-    </pattern>
-    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="0.8" fill="#475569" opacity="0.3"/>
-    </pattern>
   </defs>
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
-
-  <!-- Grid Pattern -->
   <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
     <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
   </pattern>
@@ -74,7 +54,7 @@
   <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
   <circle cx="600" cy="315" r="300" fill="#dc2626" fill-opacity="0.03"/>
 
-  <!-- Header Section -->
+  <!-- Header badge -->
   <rect x="40" y="30" width="200" height="36" rx="18" fill="url(#redGradient)" filter="url(#shadow)"/>
   <text x="140" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">WEEKLY DIGEST</text>
 
@@ -83,136 +63,126 @@
   <text x="1060" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 23, 2026</text>
 
   <!-- Main Title -->
-  <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">AI | Ransomware | Data | Bitcoin</text>
+  <text x="600" y="108" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
+  <text x="600" y="150" font-family="Arial, sans-serif" font-size="19" fill="#94a3b8" text-anchor="middle">Ransomware | Zero Trust | Bitcoin | Sanctions Evasion</text>
 
-  <!-- Card 1: SECURITY -->
-  <g transform="translate(50, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
+  <!-- ===== ROW 1: y=175, height=190 ===== -->
 
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
+  <!-- CARD 1: AI Security (Vertical AI) -->
+  <rect x="50" y="175" width="345" height="190" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <rect x="50" y="175" width="345" height="5" rx="3" fill="url(#indigoGradient)"/>
+  <!-- icon -->
+  <circle cx="88" cy="218" r="22" fill="url(#indigoGradient)" filter="url(#glow)"/>
+  <text x="88" y="225" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">AI</text>
+  <!-- label -->
+  <rect x="118" y="207" width="72" height="22" rx="11" fill="#4f46e540"/>
+  <text x="154" y="223" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#a5b4fc" text-anchor="middle">AI/SEC</text>
+  <!-- title lines -->
+  <text x="70" y="258" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">Vertical AI for</text>
+  <text x="70" y="277" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">Cybersecurity Defense</text>
+  <!-- description -->
+  <text x="70" y="304" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Sector-specific AI architecture</text>
+  <text x="70" y="321" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">for enterprise threat detection</text>
+  <!-- source + impact -->
+  <rect x="70" y="338" width="138" height="20" rx="10" fill="#1e293b"/>
+  <text x="139" y="353" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">SK Shieldus Report</text>
+  <rect x="225" y="338" width="150" height="20" rx="10" fill="#92400e40"/>
+  <text x="300" y="353" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fbbf24" text-anchor="middle">MEDIUM IMPACT</text>
 
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">HeadLine 11 Vertical AI</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : HeadLine 11</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Vertical AI</text>
+  <!-- CARD 2: Ransomware (BlackField) -->
+  <rect x="430" y="175" width="345" height="190" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <rect x="430" y="175" width="345" height="5" rx="3" fill="url(#purpleGradient)"/>
+  <circle cx="468" cy="218" r="22" fill="url(#purpleGradient)" filter="url(#glow)"/>
+  <text x="468" y="225" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">RW</text>
+  <rect x="498" y="207" width="92" height="22" rx="11" fill="#7c3aed40"/>
+  <text x="544" y="223" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#c4b5fd" text-anchor="middle">RANSOMWARE</text>
+  <text x="450" y="258" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">BlackField Ransomware</text>
+  <text x="450" y="277" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">Reuses Legacy Code</text>
+  <text x="450" y="304" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Recycled codebase enables</text>
+  <text x="450" y="321" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">rapid re-deployment of attacks</text>
+  <rect x="450" y="338" width="138" height="20" rx="10" fill="#1e293b"/>
+  <text x="519" y="353" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">SK Shieldus Report</text>
+  <rect x="605" y="338" width="150" height="20" rx="10" fill="#7c3aed30"/>
+  <text x="680" y="353" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c4b5fd" text-anchor="middle">HIGH IMPACT</text>
 
-    <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
-  </g>
+  <!-- CARD 3: Zero Trust Data -->
+  <rect x="810" y="175" width="345" height="190" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <rect x="810" y="175" width="345" height="5" rx="3" fill="url(#redGradient)"/>
+  <circle cx="848" cy="218" r="22" fill="url(#redGradient)" filter="url(#glow)"/>
+  <text x="848" y="225" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">ZT</text>
+  <rect x="878" y="207" width="84" height="22" rx="11" fill="#dc262640"/>
+  <text x="920" y="223" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fca5a5" text-anchor="middle">ZERO TRUST</text>
+  <text x="830" y="258" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">Zero Trust Data</text>
+  <text x="830" y="277" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">Security Strategy</text>
+  <text x="830" y="304" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Data-centric Zero Trust policy</text>
+  <text x="830" y="321" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">design and implementation guide</text>
+  <rect x="830" y="338" width="138" height="20" rx="10" fill="#1e293b"/>
+  <text x="899" y="353" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">SK Shieldus Report</text>
+  <rect x="985" y="338" width="150" height="20" rx="10" fill="#92400e40"/>
+  <text x="1060" y="353" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fbbf24" text-anchor="middle">MEDIUM IMPACT</text>
 
-  <!-- Card 2: SECURITY -->
-  <g transform="translate(430, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
+  <!-- ===== ROW 2: y=385, height=175 ===== -->
 
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
+  <!-- CARD 4: OT Security -->
+  <rect x="50" y="385" width="345" height="175" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <rect x="50" y="385" width="345" height="5" rx="3" fill="url(#greenGradient)"/>
+  <circle cx="88" cy="425" r="22" fill="url(#greenGradient)" filter="url(#glow)"/>
+  <text x="88" y="432" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">OT</text>
+  <rect x="118" y="414" width="76" height="22" rx="11" fill="#05966940"/>
+  <text x="156" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#6ee7b7" text-anchor="middle">OT/ICS</text>
+  <text x="70" y="466" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">Manufacturer OT Security</text>
+  <text x="70" y="485" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">Trends Report (Dec)</text>
+  <text x="70" y="511" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Business-focused OT threat</text>
+  <text x="70" y="528" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">landscape and vendor analysis</text>
+  <rect x="70" y="543" width="138" height="20" rx="10" fill="#1e293b"/>
+  <text x="139" y="558" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">SK Shieldus Report</text>
 
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Keep up with Ransomware 11 BlackFie</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : Keep up with Ransomware</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">11 BlackField</text>
+  <!-- CARD 5: Bitcoin Crash -->
+  <rect x="430" y="385" width="345" height="175" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <rect x="430" y="385" width="345" height="5" rx="3" fill="url(#orangeGradient)"/>
+  <circle cx="468" cy="425" r="22" fill="url(#orangeGradient)" filter="url(#glow)"/>
+  <text x="468" y="432" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white" text-anchor="middle">B</text>
+  <rect x="498" y="414" width="96" height="22" rx="11" fill="#d9770640"/>
+  <text x="546" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#fcd34d" text-anchor="middle">BLOCKCHAIN</text>
+  <text x="450" y="466" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">Bitcoin Crashes Below</text>
+  <text x="450" y="485" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#f87171">$65,000 in 2 Hours</text>
+  <text x="450" y="511" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">5%+ drop, low-liquidity Sunday;</text>
+  <text x="450" y="528" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">mass liquidations triggered</text>
+  <rect x="450" y="543" width="126" height="20" rx="10" fill="#1e293b"/>
+  <text x="513" y="558" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Bitcoin Magazine</text>
+  <rect x="592" y="543" width="163" height="20" rx="10" fill="#dc262630"/>
+  <text x="673" y="558" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f87171" text-anchor="middle">HIGH VOLATILITY</text>
 
-    <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
-  </g>
+  <!-- CARD 6: Russia Sanctions Evasion -->
+  <rect x="810" y="385" width="345" height="175" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <rect x="810" y="385" width="345" height="5" rx="3" fill="url(#blueGradient)"/>
+  <circle cx="848" cy="425" r="22" fill="url(#blueGradient)" filter="url(#glow)"/>
+  <text x="848" y="432" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">CR</text>
+  <rect x="878" y="414" width="96" height="22" rx="11" fill="#1d4ed840"/>
+  <text x="926" y="430" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#93c5fd" text-anchor="middle">COMPLIANCE</text>
+  <text x="830" y="466" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">Crypto Network Helps</text>
+  <text x="830" y="485" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white">Russia Evade Sanctions</text>
+  <text x="830" y="511" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">5 exchanges, $110B+ volume;</text>
+  <text x="830" y="528" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Elliptic exposes ruble routes</text>
+  <rect x="830" y="543" width="110" height="20" rx="10" fill="#1e293b"/>
+  <text x="885" y="558" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Cointelegraph</text>
+  <rect x="957" y="543" width="178" height="20" rx="10" fill="#dc262630"/>
+  <text x="1046" y="558" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f87171" text-anchor="middle">CRITICAL COMPLIANCE</text>
 
-  <!-- Card 3: SECURITY -->
-  <g transform="translate(810, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Special Report 11 (Data)</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : Special Report 11</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">(Data)</text>
-
-    <rect x="20" y="155" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
-  </g>
-
-  <!-- Card 4: SECURITY -->
-  <g transform="translate(50, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">SK EQST insight 11</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : SK EQST insight 11</text>
-
-    <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
-  </g>
-
-  <!-- Card 5: SECURITY -->
-  <g transform="translate(430, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">HeadLine 12 OT</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : HeadLine 12</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">OT</text>
-
-    <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
-  </g>
-
-  <!-- Card 6: BLOCKCHAIN -->
-  <g transform="translate(810, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Bitcoin Price Crashes Below $65,000</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Bitcoin Magazine Bitcoin Price Crashes</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Below $65,000, Drops 5% in 2 Hours Amid</text>
-
-    <rect x="20" y="140" width="100" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="70" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Bitcoin Magazin</text>
-  </g>
-
-  <!-- Footer -->
-  <line x1="50" y1="585" x2="1150" y2="585" stroke="#334155" stroke-width="1"/>
-
-  <!-- Stats -->
-  <g transform="translate(50, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">15 News Collected</text>
-  </g>
-  <g transform="translate(250, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">5 Security</text>
-  </g>
-  <g transform="translate(400, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 Cloud</text>
-  </g>
-  <g transform="translate(520, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 DevOps</text>
-  </g>
-  <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 AI/ML</text>
-  </g>
-
-  <!-- Blog Info -->
-  <text x="1150" y="612" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Footer Stats Bar -->
+  <rect x="0" y="578" width="1200" height="52" fill="#0f172a" fill-opacity="0.85"/>
+  <line x1="0" y1="578" x2="1200" y2="578" stroke="#1e293b" stroke-width="1"/>
+  <text x="80" y="609" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="middle">15 News</text>
+  <line x1="145" y1="585" x2="145" y2="618" stroke="#334155" stroke-width="1"/>
+  <text x="225" y="609" font-family="Arial, sans-serif" font-size="13" fill="#fca5a5" text-anchor="middle">Security: 5</text>
+  <line x1="305" y1="585" x2="305" y2="618" stroke="#334155" stroke-width="1"/>
+  <text x="400" y="609" font-family="Arial, sans-serif" font-size="13" fill="#fcd34d" text-anchor="middle">Blockchain: 5</text>
+  <line x1="490" y1="585" x2="490" y2="618" stroke="#334155" stroke-width="1"/>
+  <text x="565" y="609" font-family="Arial, sans-serif" font-size="13" fill="#a5b4fc" text-anchor="middle">AI/ML: 0</text>
+  <line x1="635" y1="585" x2="635" y2="618" stroke="#334155" stroke-width="1"/>
+  <text x="710" y="609" font-family="Arial, sans-serif" font-size="13" fill="#6ee7b7" text-anchor="middle">Cloud: 0</text>
+  <line x1="780" y1="585" x2="780" y2="618" stroke="#334155" stroke-width="1"/>
+  <text x="858" y="609" font-family="Arial, sans-serif" font-size="13" fill="#93c5fd" text-anchor="middle">DevOps: 0</text>
+  <line x1="930" y1="585" x2="930" y2="618" stroke="#334155" stroke-width="1"/>
+  <text x="1060" y="609" font-family="Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">tech.2twodragon.com</text>
 </svg>

@@ -2230,8 +2230,33 @@ def generate_svg_image(
     topics = _extract_key_topics(news_items)
     subtitle_topics = " | ".join(_to_english_svg_text(t) for t in topics)
 
-    # 상위 뉴스 6개 선택 (카드용)
-    top_items = news_items[:6]
+    # 상위 뉴스 6개 선택 - 카테고리 다양성 보장
+    top_items = []
+    # 카테고리별 할당: security 2개, 나머지 각 1개
+    category_slots = [
+        (["security", "devsecops"], 2),
+        (["ai"], 1),
+        (["cloud"], 1),
+        (["devops", "kubernetes"], 1),
+        (["blockchain"], 1),
+    ]
+    for cat_keys, count in category_slots:
+        for cat_key in cat_keys:
+            if len(top_items) >= 6:
+                break
+            for item in categorized.get(cat_key, []):
+                if item not in top_items and len(top_items) < 6:
+                    top_items.append(item)
+                    count -= 1
+                    if count <= 0:
+                        break
+    # 부족하면 나머지 뉴스에서 채우기
+    if len(top_items) < 6:
+        for item in news_items:
+            if item not in top_items:
+                top_items.append(item)
+            if len(top_items) >= 6:
+                break
 
     # SVG 헤더 및 정의
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
@@ -2371,7 +2396,7 @@ def generate_svg_image(
                 _to_english_svg_text(
                     item.get("source_name", item.get("source", "Source"))
                 ),
-                15,
+                20,
             )
         )
 
@@ -2414,8 +2439,8 @@ def generate_svg_image(
         # 소스 배지
         badge_y = height - 25 if height > 160 else height - 20
         svg += f'''
-    <rect x="20" y="{badge_y}" width="100" height="18" rx="9" fill="url(#{gradient})" fill-opacity="0.2"/>
-    <text x="70" y="{badge_y + 13}" font-family="Arial, sans-serif" font-size="10" fill="{config["icon_color"]}" text-anchor="middle">{source}</text>
+    <rect x="20" y="{badge_y}" width="120" height="18" rx="9" fill="url(#{gradient})" fill-opacity="0.2"/>
+    <text x="80" y="{badge_y + 13}" font-family="Arial, sans-serif" font-size="10" fill="{config["icon_color"]}" text-anchor="middle">{source}</text>
   </g>
 '''
 

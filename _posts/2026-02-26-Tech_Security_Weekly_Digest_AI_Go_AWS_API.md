@@ -12,6 +12,7 @@ comments: true
 image: /assets/images/2026-02-26-Tech_Security_Weekly_Digest_AI_Go_AWS_API.svg
 image_alt: "Tech Security Weekly Digest February 26 2026 AI Go AWS"
 toc: true
+schema_type: Article
 ---
 
 {% include ai-summary-card.html
