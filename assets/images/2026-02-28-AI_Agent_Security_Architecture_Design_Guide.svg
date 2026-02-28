@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="50%" style="stop-color:#1a1a3e"/>
+      <stop offset="100%" style="stop-color:#0d1117"/>
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="indigoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Decorative -->
+  <circle cx="150" cy="150" r="250" fill="#8b5cf6" fill-opacity="0.06"/>
+  <circle cx="1050" cy="480" r="200" fill="#3b82f6" fill-opacity="0.05"/>
+  <circle cx="600" cy="315" r="300" fill="#dc2626" fill-opacity="0.03"/>
+
+  <!-- Header Badge -->
+  <rect x="40" y="30" width="240" height="36" rx="18" fill="url(#purpleGradient)" filter="url(#shadow)"/>
+  <text x="160" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">AI AGENT SECURITY</text>
+
+  <!-- Date Badge -->
+  <rect x="960" y="30" width="200" height="36" rx="18" fill="url(#blueGradient)" filter="url(#shadow)"/>
+  <text x="1060" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">February 28, 2026</text>
+
+  <!-- Main Title -->
+  <text x="600" y="115" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">AI Agent Security Architecture</text>
+  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">Stateful Runtime | Continuous Evaluation | Defense Patterns</text>
+
+  <!-- Central Architecture Diagram -->
+  <!-- Agent Core -->
+  <rect x="450" y="195" width="300" height="60" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <rect x="450" y="195" width="300" height="5" rx="2" fill="url(#purpleGradient)"/>
+  <text x="600" y="232" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">AI Agent Runtime</text>
+
+  <!-- Arrows down -->
+  <line x1="500" y1="255" x2="200" y2="310" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+  <line x1="600" y1="255" x2="600" y2="310" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+  <line x1="700" y1="255" x2="1000" y2="310" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+
+  <!-- Left Column: Attack Vectors -->
+  <rect x="50" y="310" width="300" height="240" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <rect x="50" y="310" width="300" height="6" rx="3" fill="url(#redGradient)"/>
+  <circle cx="90" cy="355" r="20" fill="url(#redGradient)" fill-opacity="0.2"/>
+  <text x="90" y="362" font-family="Arial, sans-serif" font-size="14" fill="#dc2626" text-anchor="middle">!</text>
+  <text x="125" y="350" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">ATTACK VECTORS</text>
+  <text x="125" y="368" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Threats to AI Agents</text>
+  <text x="75" y="400" font-family="Arial, sans-serif" font-size="12" fill="#f87171">1. Prompt Injection</text>
+  <text x="75" y="422" font-family="Arial, sans-serif" font-size="12" fill="#f87171">2. Tool Abuse / Escalation</text>
+  <text x="75" y="444" font-family="Arial, sans-serif" font-size="12" fill="#f87171">3. Memory Poisoning</text>
+  <text x="75" y="466" font-family="Arial, sans-serif" font-size="12" fill="#f87171">4. Data Exfiltration</text>
+  <text x="75" y="488" font-family="Arial, sans-serif" font-size="12" fill="#f87171">5. Supply Chain (Plugins)</text>
+  <text x="75" y="510" font-family="Arial, sans-serif" font-size="12" fill="#f87171">6. Indirect Injection via Data</text>
+
+  <!-- Center Column: Security Controls -->
+  <rect x="400" y="310" width="400" height="240" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <rect x="400" y="310" width="400" height="6" rx="3" fill="url(#greenGradient)"/>
+  <circle cx="440" cy="355" r="20" fill="url(#greenGradient)" fill-opacity="0.2"/>
+  <text x="440" y="362" font-family="Arial, sans-serif" font-size="14" fill="#10b981" text-anchor="middle">S</text>
+  <text x="475" y="350" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981">DEFENSE ARCHITECTURE</text>
+  <text x="475" y="368" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Security Controls</text>
+
+  <!-- Defense items in 2 columns -->
+  <text x="425" y="400" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Sandboxed Execution</text>
+  <text x="425" y="420" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Least Privilege Tools</text>
+  <text x="425" y="440" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Input Sanitization</text>
+  <text x="425" y="460" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Output Validation</text>
+  <text x="425" y="480" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Human-in-the-Loop</text>
+  <text x="425" y="500" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Circuit Breakers</text>
+
+  <text x="610" y="400" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Audit Logging</text>
+  <text x="610" y="420" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Rate Limiting</text>
+  <text x="610" y="440" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Memory Isolation</text>
+  <text x="610" y="460" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Session Management</text>
+  <text x="610" y="480" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Guardrails / Policies</text>
+  <text x="610" y="500" font-family="Arial, sans-serif" font-size="11" fill="#6ee7b7">Continuous Evaluation</text>
+
+  <!-- Right Column: Frameworks -->
+  <rect x="850" y="310" width="300" height="240" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <rect x="850" y="310" width="300" height="6" rx="3" fill="url(#indigoGradient)"/>
+  <circle cx="890" cy="355" r="20" fill="url(#indigoGradient)" fill-opacity="0.2"/>
+  <text x="890" y="362" font-family="Arial, sans-serif" font-size="14" fill="#6366f1" text-anchor="middle">F</text>
+  <text x="925" y="350" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366f1">FRAMEWORKS</text>
+  <text x="925" y="368" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8">Standards and Tools</text>
+  <text x="875" y="400" font-family="Arial, sans-serif" font-size="12" fill="#a5b4fc">OWASP LLM Top 10</text>
+  <text x="875" y="422" font-family="Arial, sans-serif" font-size="12" fill="#a5b4fc">NIST AI RMF</text>
+  <text x="875" y="444" font-family="Arial, sans-serif" font-size="12" fill="#a5b4fc">AWS Bedrock Guardrails</text>
+  <text x="875" y="466" font-family="Arial, sans-serif" font-size="12" fill="#a5b4fc">Google Vertex AI Safety</text>
+  <text x="875" y="488" font-family="Arial, sans-serif" font-size="12" fill="#a5b4fc">OpenAI Stateful Runtime</text>
+  <text x="875" y="510" font-family="Arial, sans-serif" font-size="12" fill="#a5b4fc">Zero Trust for Agents</text>
+
+  <!-- Footer -->
+  <line x1="50" y1="575" x2="1150" y2="575" stroke="#334155" stroke-width="1"/>
+  <text x="50" y="600" font-family="Arial, sans-serif" font-size="13" fill="#dc2626">6 Attack Vectors</text>
+  <text x="210" y="600" font-family="Arial, sans-serif" font-size="13" fill="#10b981">12 Defense Controls</text>
+  <text x="420" y="600" font-family="Arial, sans-serif" font-size="13" fill="#6366f1">6 Frameworks</text>
+  <text x="600" y="600" font-family="Arial, sans-serif" font-size="13" fill="#f59e0b">Python Code Examples</text>
+  <text x="1150" y="600" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+</svg>
