@@ -176,9 +176,8 @@ Amazon EC2 Hpc8a instances, powered by 5th Gen AMD EPYC processors, deliver up t
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- 현재 HPC 워크로드(CFD, FEA, 분자 시뮬레이션 등)의 병목 구간을 프로파일링하여 Hpc8a 전환 시 실질적인 성능 이득을 사전 검증
+- EFA(Elastic Fabric Adapter) 300Gbps를 활용하려면 MPI 설정과 배치 그룹(Placement Group) 구성을 함께 조정해야 하며, 기존 HPC 클러스터 스크립트와 호환성을 먼저 확인
 
 
 ---
@@ -199,9 +198,9 @@ AWS launches Amazon SageMaker Inference for custom Amazon Nova models. You can n
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- Nova 커스텀 모델 배포 시 인스턴스 타입별 비용 대비 처리량을 실측하고, 오토스케일링 트리거 임계값을 트래픽 패턴에 맞춰 초기 설정
+- 엔드포인트 호출 권한을 IAM 역할로 세분화하고, VPC 엔드포인트를 통해 SageMaker 추론 트래픽이 퍼블릭 인터넷을 경유하지 않도록 구성
+- 커스텀 모델 아티팩트가 저장되는 S3 버킷에 서버 측 암호화(SSE-KMS)와 버킷 정책을 적용하여 모델 유출 위험을 최소화
 
 
 ---
@@ -222,9 +221,9 @@ I joined AWS in 2021, and since then I’ve watched the Amazon Elastic Compute C
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- M8azn 인스턴스는 네트워크 집약적 워크로드에 최적화되어 있으므로, 현재 C5n/C6in 계열을 사용 중인 서비스의 비용/성능 비교 벤치마크를 실행
+- Amazon Bedrock에 새로 추가된 오픈 웨이트 모델 사용 시 모델 카드의 라이선스 조건과 데이터 처리 정책을 검토하여 컴플라이언스 요건 충족 여부를 확인
+- Graviton 기반 신규 인스턴스 도입을 검토 중이라면 AWS Compute Optimizer 권고를 현재 워크로드에 적용해 전환 후보 인스턴스를 자동으로 선별
 
 
 ---

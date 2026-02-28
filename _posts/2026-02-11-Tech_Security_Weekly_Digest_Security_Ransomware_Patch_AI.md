@@ -282,9 +282,8 @@ Organizations in highly regulated industries often struggle to balance the rigid
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- GDC air-gapped 환경에서 신규 IPAM 기능 적용 시 기존 서브넷 할당 체계와 충돌 여부를 사전에 점검하고 IP 플랜 재정비
+- air-gapped 네트워크의 외부 연결 경로(관리 인터페이스, 업데이트 채널)를 재검토해 의도치 않은 망 개방 여부 확인
 
 
 ---
@@ -307,9 +306,8 @@ Today’s reality is agentic – software that can reason, plan, and act on your
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- 엔터프라이즈 에이전트 도입 전 권한 범위(scope)와 데이터 접근 경계를 명시적으로 정의하고 최소 권한 원칙 적용
+- GEAR 기반 에이전트가 처리하는 민감 데이터의 로깅·감사 정책을 수립하고, 프롬프트 인젝션 대응 테스트 시나리오 마련
 
 
 ---
@@ -331,9 +329,9 @@ Introduction In modern warfare, the front lines are no longer confined to the ba
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- 방산·공공 분야 공급망에 포함된 3rd-party 벤더와 협력사의 보안 수준을 평가하고, 고위험 벤더에는 추가 접근 제어 및 감사 요건 부과
+- MITRE ATT&CK for ICS 프레임워크를 참조해 OT/IT 경계에서 국가 배후 위협 그룹의 TTP에 대응하는 탐지 룰을 SIEM에 추가
+- 내부 직원 대상 스피어피싱·사회공학 시뮬레이션 훈련 주기를 단축하고, 방산 관련 자격증·접근 권한 보유자를 우선 대상으로 실시
 
 
 ---
@@ -358,9 +356,9 @@ Docker Hardened Images are now free, covering Alpine, Debian, and over 1,000 ima
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- 현재 운영 중인 컨테이너 이미지 레지스트리를 전수 조사해 일반 베이스 이미지를 Docker Hardened Images(DHI)로 교체하는 마이그레이션 계획 수립
+- CI/CD 파이프라인에 `docker scout cves` 또는 Trivy 스캔 단계를 추가해 DHI 전환 후에도 신규 취약점이 빌드 시점에 탐지되도록 설정
+- Dockerfile의 `FROM` 태그를 고정 다이제스트(`@sha256:...`) 방식으로 변경해 공급망 공격(이미지 교체)에 대한 무결성 보장
 
 
 ---
@@ -382,9 +380,8 @@ Find out about the new features in .NET 11 Preview 1 across the .NET runtime, SD
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- .NET 11 Preview는 프로덕션 투입 전 단계이므로 현재 .NET 9/10 기반 서비스의 호환성 매트릭스를 작성하고, Breaking Changes 항목을 미리 추적
+- ASP.NET Core 신규 보안 API(예: 인증 미들웨어 변경, 암호화 기본값 업데이트) 항목을 식별해 기존 코드베이스에 미치는 영향도 평가
 
 
 ---
@@ -407,9 +404,8 @@ A recap of the latest servicing updates for .NET and .NET Framework for February
 
 #### 실무 적용 포인트
 
-- 기존 인프라/운영 환경과의 호환성 및 영향도 검토
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 공유 및 도입 로드맵 논의
+- CVE-2026-21218 영향을 받는 .NET/.NET Framework 버전을 인벤토리에서 식별하고, 30일 내 패치 적용 일정을 확정
+- .NET Framework 레거시 버전(4.x)을 운영 중인 경우 Microsoft Update Catalog에서 해당 KB 번호를 확인해 WSUS/SCCM 배포 정책에 즉시 포함
 
 
 ---
