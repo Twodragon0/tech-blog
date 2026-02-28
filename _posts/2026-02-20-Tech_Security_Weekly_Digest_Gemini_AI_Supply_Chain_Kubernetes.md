@@ -44,17 +44,17 @@ schema_type: Article
 
 ---
 
-## 빠른 참조
+## 📊 빠른 참조
 
 ### 이번 주 하이라이트
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| **Security** | The Hacker News | PromptSpy 안드로이드 악성코드, Gemini AI 악용 최초 사례 | Critical |
-| **DevSecOps** | Snyk | Clinejection - AI 봇을 공급망 공격 벡터로 전환 | Critical |
-| **Security** | Datadog Security Labs | Kubernetes Ingress NGINX 은퇴 경고, 고위험 CVE 공개 | High |
-| **Security** | The Hacker News | Microsoft CVE-2026-26119 Windows Admin Center 권한상승 | High |
-| **Cloud** | Google Cloud | Gemini 3.1 Pro 출시, 이전 대비 2배 추론 성능 | Medium |
+| 🔒 **Security** | The Hacker News | PromptSpy 안드로이드 악성코드, Gemini AI 악용 최초 사례 | 🔴 Critical |
+| 🔒 **DevSecOps** | Snyk | Clinejection - AI 봇을 공급망 공격 벡터로 전환 | 🔴 Critical |
+| 🔒 **Security** | Datadog Security Labs | Kubernetes Ingress NGINX 은퇴 경고, 고위험 CVE 공개 | 🟠 High |
+| 🔒 **Security** | The Hacker News | Microsoft CVE-2026-26119 Windows Admin Center 권한상승 | 🟠 High |
+| ☁️ **Cloud** | Google Cloud | Gemini 3.1 Pro 출시, 이전 대비 2배 추론 성능 | 🟡 Medium |
 
 ---
 
