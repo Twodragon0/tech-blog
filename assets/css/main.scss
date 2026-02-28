@@ -4,11 +4,10 @@
 ---
 
 // Import partials from `_sass`
-// Note: @import is deprecated in Dart Sass 3.0 but required for Jekyll compatibility
-@import "variables";
-@import "base";
-@import "layout";
-@import "components";
-@import "chat-widget";
+@use "variables";
+@use "base";
+@use "layout";
+@use "components";
+@use "chat-widget";
 // post, lightbox, syntax → assets/css/post.scss (loaded on post pages only)
 // certification → assets/css/certification.scss (loaded on certification pages only)

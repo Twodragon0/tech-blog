@@ -2,6 +2,6 @@
 # Post-specific styles (loaded only on post pages)
 ---
 
-@import "post";
-@import "lightbox";
-@import "syntax";
+@use "post";
+@use "lightbox";
+@use "syntax";
