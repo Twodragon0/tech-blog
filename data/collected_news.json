@@ -1,7 +1,22 @@
 {
-  "collected_at": "2026-02-28T02:16:00.432113+00:00",
-  "total_items": 156,
+  "collected_at": "2026-02-28T03:08:50.325994+00:00",
+  "total_items": 153,
   "items": [
+    {
+      "id": "9eb81b0aedb3",
+      "title": "Anthropic says it will challenge Pentagon supply chain risk designation in court",
+      "url": "https://www.reuters.com/world/us/anthropic-says-it-will-challenge-pentagons-supply-chain-risk-designation-court-2026-02-28/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-28T02:36:46+00:00",
+      "summary": "Article URL: https://www.reuters.com/world/us/anthropic-says-it-will-challenge-pentagons-supply-chain-risk-designation-court-2026-02-28/ Comments URL: https://news.ycombinator.com/item?id=47189441 Points: 19 # Comments: 0",
+      "content": "",
+      "tags": [],
+      "author": "Jimmc414",
+      "priority": 2
+    },
     {
       "id": "683e04654f58",
       "title": "Morgan Stanley applies for OCC bank charter to custody crypto",
@@ -28,7 +43,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-28T01:20:10+00:00",
-      "summary": "Article URL: https://www.anthropic.com/news/statement-comments-secretary-war Comments URL: https://news.ycombinator.com/item?id=47188697 Points: 171 # Comments: 29",
+      "summary": "Article URL: https://www.anthropic.com/news/statement-comments-secretary-war Comments URL: https://news.ycombinator.com/item?id=47188697 Points: 403 # Comments: 128",
       "content": "",
       "tags": [],
       "author": "surprisetalk",
@@ -43,7 +58,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-28T00:54:53+00:00",
-      "summary": "Article URL: https://notdivided.org Comments URL: https://news.ycombinator.com/item?id=47188473 Points: 353 # Comments: 111",
+      "summary": "Article URL: https://notdivided.org Comments URL: https://news.ycombinator.com/item?id=47188473 Points: 593 # Comments: 234",
       "content": "",
       "tags": [],
       "author": "BloondAndDoom",
@@ -92,7 +107,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T23:42:14+00:00",
-      "summary": "Article URL: https://www.science.org/doi/10.1126/science.adt2760 Comments URL: https://news.ycombinator.com/item?id=47187649 Points: 40 # Comments: 5",
+      "summary": "Article URL: https://www.science.org/doi/10.1126/science.adt2760 Comments URL: https://news.ycombinator.com/item?id=47187649 Points: 53 # Comments: 7",
       "content": "",
       "tags": [],
       "author": "ppnpm",
@@ -107,7 +122,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T23:01:49+00:00",
-      "summary": "Article URL: https://github.com/wkoszek/emuko Comments URL: https://news.ycombinator.com/item?id=47187121 Points: 41 # Comments: 4",
+      "summary": "Article URL: https://github.com/wkoszek/emuko Comments URL: https://news.ycombinator.com/item?id=47187121 Points: 48 # Comments: 4",
       "content": "",
       "tags": [],
       "author": "felipap",
@@ -122,7 +137,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T22:31:18+00:00",
-      "summary": "https://xcancel.com/secwar/status/2027507717469049070 https://www.cnbc.com/2026/02/27/trump-anthropic-ai-pentagon.... Comments URL: https://news.ycombinator.com/item?id=47186677 Points: 1042 # Comments: 871",
+      "summary": "https://xcancel.com/secwar/status/2027507717469049070 https://www.cnbc.com/2026/02/27/trump-anthropic-ai-pentagon.... Comments URL: https://news.ycombinator.com/item?id=47186677 Points: 1123 # Comments: 928",
       "content": "",
       "tags": [],
       "author": "jacobedawson",
@@ -154,7 +169,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T22:13:54+00:00",
-      "summary": "Article URL: https://emt.pensoft.net/article/185117/ Comments URL: https://news.ycombinator.com/item?id=47186444 Points: 19 # Comments: 2",
+      "summary": "Article URL: https://emt.pensoft.net/article/185117/ Comments URL: https://news.ycombinator.com/item?id=47186444 Points: 22 # Comments: 2",
       "content": "",
       "tags": [],
       "author": "PaulHoule",
@@ -192,6 +207,21 @@
         "News"
       ],
       "author": "Peter Johnson",
+      "priority": 2
+    },
+    {
+      "id": "ceff4e474706",
+      "title": "President Trump bans Anthropic from use in government systems",
+      "url": "https://www.npr.org/2026/02/27/nx-s1-5729118/trump-anthropic-pentagon-openai-ai-weapons-ban",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-02-27T21:40:40+00:00",
+      "summary": "Article URL: https://www.npr.org/2026/02/27/nx-s1-5729118/trump-anthropic-pentagon-openai-ai-weapons-ban Comments URL: https://news.ycombinator.com/item?id=47186031 Points: 69 # Comments: 122",
+      "content": "",
+      "tags": [],
+      "author": "pkress2",
       "priority": 2
     },
     {
@@ -326,7 +356,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T19:26:38+00:00",
-      "summary": "Article URL: https://www.beyondthejoke.co.uk/content/17193/red-dwarf-rob-grant Comments URL: https://news.ycombinator.com/item?id=47184480 Points: 240 # Comments: 69",
+      "summary": "Article URL: https://www.beyondthejoke.co.uk/content/17193/red-dwarf-rob-grant Comments URL: https://news.ycombinator.com/item?id=47184480 Points: 249 # Comments: 70",
       "content": "",
       "tags": [],
       "author": "nephihaha",
@@ -392,7 +422,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T18:49:50+00:00",
-      "summary": "Article URL: https://www.shayon.dev/post/2026/52/lets-discuss-sandbox-isolation/ Comments URL: https://news.ycombinator.com/item?id=47184049 Points: 101 # Comments: 30",
+      "summary": "Article URL: https://www.shayon.dev/post/2026/52/lets-discuss-sandbox-isolation/ Comments URL: https://news.ycombinator.com/item?id=47184049 Points: 106 # Comments: 31",
       "content": "",
       "tags": [],
       "author": "shayonj",
@@ -439,7 +469,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T18:24:09+00:00",
-      "summary": "Article URL: https://www.redblobgames.com/blog/2026-02-26-writing-a-guide-to-sdf-fonts/ Comments URL: https://news.ycombinator.com/item?id=47183725 Points: 76 # Comments: 5",
+      "summary": "Article URL: https://www.redblobgames.com/blog/2026-02-26-writing-a-guide-to-sdf-fonts/ Comments URL: https://news.ycombinator.com/item?id=47183725 Points: 79 # Comments: 5",
       "content": "",
       "tags": [],
       "author": "chunkles",
@@ -645,7 +675,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T16:34:05+00:00",
-      "summary": "Article URL: https://go.dev/blog/allocation-optimizations Comments URL: https://news.ycombinator.com/item?id=47182487 Points: 123 # Comments: 49",
+      "summary": "Article URL: https://go.dev/blog/allocation-optimizations Comments URL: https://news.ycombinator.com/item?id=47182487 Points: 127 # Comments: 49",
       "content": "",
       "tags": [],
       "author": "spacey",
@@ -660,7 +690,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T16:33:39+00:00",
-      "summary": "Article URL: https://www.cbsnews.com/news/nasa-artemis-moon-program-overhaul/ Comments URL: https://news.ycombinator.com/item?id=47182483 Points: 209 # Comments: 206",
+      "summary": "Article URL: https://www.cbsnews.com/news/nasa-artemis-moon-program-overhaul/ Comments URL: https://news.ycombinator.com/item?id=47182483 Points: 218 # Comments: 221",
       "content": "",
       "tags": [],
       "author": "voxadam",
@@ -742,7 +772,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T15:52:27+00:00",
-      "summary": "Article URL: https://www.cnn.com/2026/02/25/politics/chatgpt-china-intimidation-operation Comments URL: https://news.ycombinator.com/item?id=47181944 Points: 139 # Comments: 90",
+      "summary": "Article URL: https://www.cnn.com/2026/02/25/politics/chatgpt-china-intimidation-operation Comments URL: https://news.ycombinator.com/item?id=47181944 Points: 158 # Comments: 97",
       "content": "",
       "tags": [],
       "author": "cwwc",
@@ -757,7 +787,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T15:41:13+00:00",
-      "summary": "Article URL: https://www.mendral.com/blog/llms-are-good-at-sql Comments URL: https://news.ycombinator.com/item?id=47181801 Points: 170 # Comments: 93",
+      "summary": "Article URL: https://www.mendral.com/blog/llms-are-good-at-sql Comments URL: https://news.ycombinator.com/item?id=47181801 Points: 173 # Comments: 93",
       "content": "",
       "tags": [],
       "author": "shad42",
@@ -772,7 +802,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T15:37:53+00:00",
-      "summary": "Article URL: https://github.com/c3d/db48x/commit/7819972b641ac808d46c54d3f5d1df70d706d286 Comments URL: https://news.ycombinator.com/item?id=47181753 Points: 139 # Comments: 67",
+      "summary": "Article URL: https://github.com/c3d/db48x/commit/7819972b641ac808d46c54d3f5d1df70d706d286 Comments URL: https://news.ycombinator.com/item?id=47181753 Points: 144 # Comments: 68",
       "content": "",
       "tags": [],
       "author": "iamnothere",
@@ -830,21 +860,6 @@
       "priority": 2
     },
     {
-      "id": "645d2bc25ec8",
-      "title": "Court finds Fourth Amendment doesn’t support broad search of protesters’ devices",
-      "url": "https://www.eff.org/deeplinks/2026/02/victory-tenth-circuit-finds-fourth-amendment-doesnt-support-broad-search-0",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-27T15:09:04+00:00",
-      "summary": "Article URL: https://www.eff.org/deeplinks/2026/02/victory-tenth-circuit-finds-fourth-amendment-doesnt-support-broad-search-0 Comments URL: https://news.ycombinator.com/item?id=47181391 Points: 512 # Comments: 92",
-      "content": "",
-      "tags": [],
-      "author": "hn_acker",
-      "priority": 2
-    },
-    {
       "id": "338aca27ab0c",
       "title": "Building secure, scalable agent sandbox infrastructure",
       "url": "https://browser-use.com/posts/two-ways-to-sandbox-agents",
@@ -853,7 +868,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T15:03:12+00:00",
-      "summary": "Article URL: https://browser-use.com/posts/two-ways-to-sandbox-agents Comments URL: https://news.ycombinator.com/item?id=47181316 Points: 57 # Comments: 9",
+      "summary": "Article URL: https://browser-use.com/posts/two-ways-to-sandbox-agents Comments URL: https://news.ycombinator.com/item?id=47181316 Points: 61 # Comments: 12",
       "content": "",
       "tags": [],
       "author": "gregpr07",
@@ -868,7 +883,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-02-27T14:56:05+00:00",
-      "summary": "https://openai.com/index/scaling-ai-for-everyone/ https://x.com/sama/status/2027386252555919386 https://xcancel.com/sama/status/2027386252555919386 Comments URL: https://news.ycombinator.com/item?id=47181211 Points: 379 # Comments: 464",
+      "summary": "https://openai.com/index/scaling-ai-for-everyone/ https://x.com/sama/status/2027386252555919386 https://xcancel.com/sama/status/2027386252555919386 Comments URL: https://news.ycombinator.com/item?id=47181211 Points: 403 # Comments: 477",
       "content": "",
       "tags": [],
       "author": "zlatkov",
@@ -889,21 +904,6 @@
         "Blog"
       ],
       "author": "Co-chairs: Balaji Sivasubramanian & Bryan Landes",
-      "priority": 2
-    },
-    {
-      "id": "b01d1f7abb6a",
-      "title": "A new California law says all operating systems need to have age verification",
-      "url": "https://www.pcgamer.com/software/operating-systems/a-new-california-law-says-all-operating-systems-including-linux-need-to-have-some-form-of-age-verification-at-account-setup/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-27T14:55:49+00:00",
-      "summary": "Article URL: https://www.pcgamer.com/software/operating-systems/a-new-california-law-says-all-operating-systems-including-linux-need-to-have-some-form-of-age-verification-at-account-setup/ Comments URL: https://news.ycombinator.com/item?id=47181208 Points: 380 # Comments: 378",
-      "content": "",
-      "tags": [],
-      "author": "WalterSobchak",
       "priority": 2
     },
     {
@@ -1126,41 +1126,19 @@
       "priority": 2
     },
     {
-      "id": "da369ee42717",
-      "title": "Rivian has a new performance division but for crazy off-road adventures",
-      "url": "https://electrek.co/2026/02/26/rivian-has-a-new-performance-division-but-for-crazy-off-road-adventures/",
-      "source": "electrek",
-      "source_name": "Electrek",
+      "id": "ccd8d3d30ba6",
+      "title": "Anthropic, 국방부 장관 Pete Hegseth의 공급망 위험 지정에 대한 공식 성명 발표",
+      "url": "https://news.hada.io/topic?id=27074",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
       "category": "tech",
-      "language": "en",
-      "published": "2026-02-27T02:27:58+00:00",
-      "summary": "Rivian just announced a new division within the company focused on feats of performance, but with a uniquely Rivian twist, aiming for extreme off-road stunts instead of your standard circuit racing. more…",
-      "content": "",
-      "tags": [
-        "News"
-      ],
-      "author": "Jameson Dow",
-      "priority": 2
-    },
-    {
-      "id": "cf5122a35aa7",
-      "title": "Donut solid-state batteries tested, Tesla engineer quits, and solar value",
-      "url": "https://electrek.co/2026/02/26/donut-solid-state-batteries-tested-tesla-engineer-quits-and-solar-value/",
-      "source": "electrek",
-      "source_name": "Electrek",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-02-27T02:17:20+00:00",
-      "summary": "On today’s extraordinary episode of Quick Charge , we reflect on the fact that extraordinary claims require extraordinary evidence, and both Donut Labs AND Tesla are a long long way from turning everyone into believers. more…",
-      "content": "",
-      "tags": [
-        "News",
-        "autonomous",
-        "ev batteries",
-        "Tesla"
-      ],
-      "author": "Jo Borrás",
-      "priority": 2
+      "language": "ko",
+      "published": "2026-02-28T10:57:53+09:00",
+      "summary": "Pete Hegseth의 공급망 위험 지정 발표 에 대해 공식 성명을 발표, 법적 근거가 없으며 법원에서 다툴 것임을 선언 수개월간의 협상에서 Anthropic은 대규모 국내 감시 와 완전 자율 무기 두 가지 예외만을 요구했으며, 이 예외가 지금까지 단 한 건...",
+      "content": "Pete Hegseth의 공급망 위험 지정 발표 에 대해 공식 성명을 발표, 법적 근거가 없으며 법원에서 다툴 것임을 선언 수개월간의 협상에서 Anthropic은 대규모 국내 감시 와 완전 자율 무기 두 가지 예외만을 요구했으며, 이 예외가 지금까지 단 한 건...",
+      "tags": [],
+      "author": "xguru",
+      "priority": 1
     },
     {
       "id": "dff5a34ab7d3",
@@ -1350,12 +1328,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.428909+00:00",
+      "published": "2026-02-28T03:08:50.322655+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1368,14 +1346,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.428811+00:00",
+      "published": "2026-02-28T03:08:50.322488+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "KARA",
+        "랜섬웨어",
         "보안리포트",
-        "랜섬웨어"
+        "SK쉴더스",
+        "KARA"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1388,12 +1366,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.428715+00:00",
+      "published": "2026-02-28T03:08:50.322355+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1406,12 +1384,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.428615+00:00",
+      "published": "2026-02-28T03:08:50.322196+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1424,12 +1402,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.428520+00:00",
+      "published": "2026-02-28T03:08:50.322026+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1442,14 +1420,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.428407+00:00",
+      "published": "2026-02-28T03:08:50.321838+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "KARA",
+        "랜섬웨어",
         "보안리포트",
-        "랜섬웨어"
+        "SK쉴더스",
+        "KARA"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1462,12 +1440,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.428293+00:00",
+      "published": "2026-02-28T03:08:50.321700+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1480,12 +1458,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.428181+00:00",
+      "published": "2026-02-28T03:08:50.321561+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1498,13 +1476,13 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.428069+00:00",
+      "published": "2026-02-28T03:08:50.321424+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
       "content": "",
       "tags": [
-        "SK쉴더스",
+        "보안리포트",
         "AI보안",
-        "보안리포트"
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1517,14 +1495,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.427957+00:00",
+      "published": "2026-02-28T03:08:50.321292+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "KARA",
+        "랜섬웨어",
         "보안리포트",
-        "랜섬웨어"
+        "SK쉴더스",
+        "KARA"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1537,13 +1515,13 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.427840+00:00",
+      "published": "2026-02-28T03:08:50.321150+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 2월호 n8n 임의 파일 읽기 취약점(CVE-2026-21858)",
       "content": "",
       "tags": [
-        "SK쉴더스",
+        "취약점",
         "보안리포트",
-        "취약점"
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1556,12 +1534,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-02-28T02:16:00.427683+00:00",
+      "published": "2026-02-28T03:08:50.320997+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 2월호",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1574,7 +1552,7 @@
       "source_name": "Tech World Monitor",
       "category": "tech",
       "language": "en",
-      "published": "2026-02-28T02:15:12.331666+00:00",
+      "published": "2026-02-28T03:07:57.162269+00:00",
       "summary": "Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. 실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다. 이번 수집은 해저 케이블, 기상, 경제 지표, 서비스 장애, 데이터센터, 자연재해 레이어를 중심으로 참고했습니다. 분석 기준 구간은 최근 7d입니다.",
       "content": "실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다.",
       "tags": [
@@ -2056,21 +2034,6 @@
       "priority": 1
     },
     {
-      "id": "33702e534d14",
-      "title": "경쟁사 AI 5개를 하나로 묶은 Perplexity Computer, 멀티모델 오케스트레이션 전략",
-      "url": "https://news.hada.io/topic?id=27049",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-27T14:15:27+09:00",
-      "summary": "Perplexity가 2026년 2월 25일 Perplexity Computer 를 출시했습니다. 이 서비스의 핵심은 Claude Opus 4.6, Gemini, Grok, ChatGPT 5.2, Veo 3.1 등 경쟁사 최신 모델들을 하나의 지능형 에이전트 시스템으로 통합한 것입니다. (Perplexity Max 플랜 $200/월에서 이용 가능)...",
-      "content": "Perplexity가 2026년 2월 25일 Perplexity Computer 를 출시했습니다. 이 서비스의 핵심은 Claude Opus 4.6, Gemini, Grok, ChatGPT 5.2, Veo 3.1 등 경쟁사 최신 모델들을 하나의 지능형 에이전트 시스템으로 통합한 것입니다. (Perplexity Max 플랜 $200/월에서 이용 가능)...",
-      "tags": [],
-      "author": "davespark",
-      "priority": 1
-    },
-    {
       "id": "878a05c7669e",
       "title": "The Good, the Bad and the Ugly in Cybersecurity – Week 9",
       "url": "https://www.sentinelone.com/blog/the-good-the-bad-and-the-ugly-in-cybersecurity-week-9-7/",
@@ -2484,21 +2447,6 @@
         "News"
       ],
       "author": "Sam Reynolds",
-      "priority": 1
-    },
-    {
-      "id": "7768ab1443cf",
-      "title": "신입 디자이너가 꼭 알아야 할 실험 설계 팁",
-      "url": "https://toss.tech/article/45391",
-      "source": "toss_tech",
-      "source_name": "토스 기술 블로그",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-02-27T02:41:00+00:00",
-      "summary": "실험 경험이 없는 인턴도 하나의 제품을 맡을 수 있을까요? 비회원 퍼널 실험을 통해 배운 과정을 공유해요.",
-      "content": "안녕하세요. 토스뱅크 Product Designer 전누리예요. 이번 글에서는 인턴으로 토스에 합류해 처음으로 실험을 설계했던 경험을 공유해보려고 해요. 제가 맡은 첫 과제는 토스뱅크 비회원의 가입 전환율을 높이는 것이었어요. 처음 실험을 설계해야 했던 저는 세 가지가 가장 어려웠어요. 1️⃣ 이탈이 큰 구간이 여러 개인데, 어디부터 개선해야 할까? 2️⃣ 이미 많은 실험이 진행되었는데, 나는 뭘 더 할 수 있을까? 3️⃣ 가설을 어떻게 세워야 흔들리지 않을까? 이 세 가지 고민을 어떻게 풀었는지 순서대로 이야기해 볼게요. 1) 어디부터 개선할까? - 속도 x 임팩트로 계산하기 가장 먼저 비회원 가입 퍼널 중 어디에서 가장 많이 이탈하는지 데이터를 살펴봤어요. 크게 3가지 구간이 있었어요. 인트로, 동의화면, 신분증 인증 화면이었죠. 처음엔 어디부터 건드려야 할지 막막했어요. 그래서 주변 디자이너 분들께 조언을 구했어요.",
-      "tags": [],
-      "author": "",
       "priority": 1
     },
     {
