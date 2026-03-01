@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-03-01T13:50:59.353608+00:00",
+  "collected_at": "2026-03-01T13:57:00.004473+00:00",
   "total_items": 94,
   "items": [
     {
@@ -609,12 +609,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.350290+00:00",
+      "published": "2026-03-01T13:57:00.001491+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -627,14 +627,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.350166+00:00",
+      "published": "2026-03-01T13:57:00.001385+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
       "content": "",
       "tags": [
-        "KARA",
-        "보안리포트",
+        "랜섬웨어",
         "SK쉴더스",
-        "랜섬웨어"
+        "KARA",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -647,12 +647,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.350032+00:00",
+      "published": "2026-03-01T13:57:00.001265+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -665,12 +665,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.349889+00:00",
+      "published": "2026-03-01T13:57:00.001161+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -683,12 +683,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.349772+00:00",
+      "published": "2026-03-01T13:57:00.001063+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -701,14 +701,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.349636+00:00",
+      "published": "2026-03-01T13:57:00.000946+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
       "content": "",
       "tags": [
-        "KARA",
-        "보안리포트",
+        "랜섬웨어",
         "SK쉴더스",
-        "랜섬웨어"
+        "KARA",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -721,12 +721,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.349506+00:00",
+      "published": "2026-03-01T13:57:00.000836+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -739,12 +739,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.349367+00:00",
+      "published": "2026-03-01T13:57:00.000723+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -757,13 +757,13 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.349246+00:00",
+      "published": "2026-03-01T13:57:00.000624+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
       "content": "",
       "tags": [
-        "AI보안",
+        "SK쉴더스",
         "보안리포트",
-        "SK쉴더스"
+        "AI보안"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -776,14 +776,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.349111+00:00",
+      "published": "2026-03-01T13:57:00.000513+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
       "content": "",
       "tags": [
-        "KARA",
-        "보안리포트",
+        "랜섬웨어",
         "SK쉴더스",
-        "랜섬웨어"
+        "KARA",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -796,13 +796,13 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.348951+00:00",
+      "published": "2026-03-01T13:57:00.000387+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 2월호 n8n 임의 파일 읽기 취약점(CVE-2026-21858)",
       "content": "",
       "tags": [
+        "SK쉴더스",
         "취약점",
-        "보안리포트",
-        "SK쉴더스"
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -815,12 +815,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-01T13:50:59.348783+00:00",
+      "published": "2026-03-01T13:57:00.000233+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 2월호",
       "content": "",
       "tags": [
-        "보안리포트",
-        "SK쉴더스"
+        "SK쉴더스",
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -833,7 +833,7 @@
       "source_name": "Tech World Monitor",
       "category": "tech",
       "language": "en",
-      "published": "2026-03-01T13:50:13.258161+00:00",
+      "published": "2026-03-01T13:56:08.967953+00:00",
       "summary": "Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. 실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다. 이번 수집은 해저 케이블, 기상, 경제 지표, 서비스 장애, 데이터센터, 자연재해 레이어를 중심으로 참고했습니다. 분석 기준 구간은 최근 7d입니다.",
       "content": "실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다.",
       "tags": [
