@@ -1507,6 +1507,79 @@ def _generate_key_points(item: Dict) -> str:
     return points
 
 
+def _translate_to_korean_deepseek(text: str, context: str = "기술 뉴스", mode: str = "summary") -> str:
+    """DeepSeek API를 활용한 한국어 번역 폴백
+
+    Args:
+        text: 번역할 영어 텍스트
+        context: 번역 컨텍스트 (예: "기술 뉴스 제목", "보안 뉴스 요약")
+        mode: "title" (제목 번역) 또는 "summary" (요약 번역)
+
+    Returns:
+        한국어 번역 텍스트 (실패 시 빈 문자열)
+    """
+    api_key = os.getenv("DEEPSEEK_API_KEY", "")
+    if not api_key or not text:
+        return ""
+
+    try:
+        import requests
+
+        if mode == "title":
+            prompt = (
+                f"다음 {context} 제목을 한국어로 자연스럽게 번역해 주세요. "
+                "고유명사(회사명/제품명)는 원문 표기를 유지하세요. "
+                "답변은 번역된 제목 한 줄만 출력하세요. "
+                "따옴표, 번호, 불릿, 설명은 포함하지 마세요.\n\n"
+                f"원문: {text}\n번역:"
+            )
+        else:
+            prompt = (
+                f"다음 {context}를 한국어 2~3문장으로 간결하게 요약해 주세요. "
+                "기술 용어와 고유명사는 원문 표기를 유지하세요. "
+                "마크다운, 불릿, 번호 없이 순수 문장만 출력하세요.\n\n"
+                f"원문: {text[:1000]}\n요약:"
+            )
+
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        }
+        payload = {
+            "model": "deepseek-chat",
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.3,
+            "max_tokens": 300,
+        }
+
+        response = requests.post(
+            "https://api.deepseek.com/v1/chat/completions",
+            headers=headers,
+            json=payload,
+            timeout=20,
+        )
+
+        if response.status_code == 200:
+            result = response.json()
+            content = (
+                result.get("choices", [{}])[0]
+                .get("message", {})
+                .get("content", "")
+            )
+            translated = re.sub(r"\s+", " ", content.strip()).strip("\"'")
+            if translated and re.search(r"[가-힣]", translated):
+                logging.info(f"DeepSeek translated ({mode}): {text[:40]}...")
+                return translated
+        else:
+            logging.warning(f"DeepSeek translate API status {response.status_code}")
+    except ImportError:
+        logging.debug("requests library not available for DeepSeek translation")
+    except Exception as e:
+        logging.warning(f"DeepSeek translate error: {e}")
+
+    return ""
+
+
 def _korean_display_title(item: Dict, max_len: int = 72) -> str:
     raw_title = (item.get("title", "") or "").strip()
     if not raw_title:
@@ -1546,14 +1619,20 @@ def _korean_display_title(item: Dict, max_len: int = 72) -> str:
         KOREAN_TITLE_CACHE[cache_key] = translated
         return translated
 
-    # Gemini 실패 시: 간단한 규칙 기반 한국어 보조 + 영어 원문
+    # Gemini 실패 시: DeepSeek API 폴백
+    category = item.get("category", "tech")
+    deepseek_translated = _translate_to_korean_deepseek(
+        raw_title, context=f"{category} 뉴스", mode="title"
+    )
+    if deepseek_translated:
+        KOREAN_TITLE_CACHE[cache_key] = deepseek_translated
+        return deepseek_translated
+
+    # DeepSeek도 실패 시: 카테고리 기반 한국어 접두사 + 영어 원문
     if raw_title:
-        # 짧은 제목은 그대로 사용
         display_title = raw_title if len(raw_title) <= max_len else (
             raw_title[:max_len].rsplit(" ", 1)[0].rstrip(" ,.")
         )
-        # 카테고리 기반 한국어 접두사 추가
-        category = item.get("category", "tech")
         category_prefix = {
             "security": "[보안]",
             "devsecops": "[DevSecOps]",
@@ -1655,21 +1734,50 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
         except Exception:
             pass
 
-    # Gemini 실패 시: 영어 원문에 한국어 컨텍스트 보완
+    # Gemini 실패 시: DeepSeek API 폴백으로 한국어 번역
     raw_summary = (item.get("summary", "") or "").strip()
     raw_content = (item.get("content", "") or "").strip()
     raw_text = raw_summary or raw_content
+
     if raw_text:
-        # Clean up and truncate English summary
+        category = item.get("category", "tech")
+        title_text = item.get("title", "")
+        translate_input = f"제목: {title_text}\n내용: {raw_text[:800]}"
+
+        deepseek_translated = _translate_to_korean_deepseek(
+            translate_input,
+            context=f"{category} 뉴스 요약",
+            mode="summary",
+        )
+        if deepseek_translated:
+            # 실무 포인트 추가
+            practice_hint = {
+                "security": "\n\n**실무 포인트**: 영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.",
+                "devsecops": "\n\n**실무 포인트**: CI/CD 파이프라인과 보안 통제 설정에 미치는 영향을 점검하세요.",
+                "ai": "\n\n**실무 포인트**: 자사 AI/ML 시스템 적용 가능성과 보안 영향을 평가하세요.",
+                "cloud": "\n\n**실무 포인트**: 클라우드 서비스 설정 및 권한 정책 변경 필요 여부를 확인하세요.",
+                "devops": "\n\n**실무 포인트**: 운영 환경 호환성과 배포 자동화 영향을 검토하세요.",
+                "blockchain": "\n\n**실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.",
+            }.get(category, "")
+            result = deepseek_translated + practice_hint
+            KOREAN_SUMMARY_CACHE[cache_key] = result
+            return result
+
+        # DeepSeek도 실패 시: 템플릿 기반 한국어 요약 생성
         cleaned = re.sub(r"\s+", " ", raw_text)
         cleaned = re.sub(r"https?://\S+", "", cleaned).strip()
-        sentences = re.split(r"(?<=[.!?])\s+", cleaned)
-        sentences = [s.strip() for s in sentences if s.strip()]
-        selected = " ".join(sentences[:3]) if sentences else cleaned[:400]
-        if len(selected) > 400:
-            selected = selected[:400].rsplit(" ", 1)[0].rstrip(" ,.") + "."
-        # 카테고리 기반 한국어 실무 해석 추가
-        category = item.get("category", "tech")
+
+        # 키워드 기반 한국어 문맥 생성
+        title_ko = _korean_display_title(item)
+        category_context = {
+            "security": "보안 취약점 또는 위협이 보고되었습니다. 영향받는 시스템과 대응 방안을 확인해야 합니다.",
+            "devsecops": "DevSecOps 관련 업데이트가 발표되었습니다. CI/CD 파이프라인과 보안 통제 영향을 점검하세요.",
+            "ai": "AI/ML 관련 새로운 발전 또는 보안 이슈가 보고되었습니다. 자사 시스템 영향도를 평가하세요.",
+            "cloud": "클라우드 서비스 관련 변경사항이 확인되었습니다. 인프라 설정과 권한 정책을 점검하세요.",
+            "devops": "DevOps 관련 업데이트입니다. 운영 환경 호환성과 배포 자동화 영향을 검토하세요.",
+            "blockchain": "블록체인 생태계 관련 소식입니다. 스마트 컨트랙트 및 노드 운영 환경을 확인하세요.",
+        }.get(category, "기술 업계 관련 소식입니다. 실무 적용 가능성과 영향도를 확인하세요.")
+
         practice_hint = {
             "security": "\n\n**실무 포인트**: 영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.",
             "devsecops": "\n\n**실무 포인트**: CI/CD 파이프라인과 보안 통제 설정에 미치는 영향을 점검하세요.",
@@ -1678,7 +1786,8 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
             "devops": "\n\n**실무 포인트**: 운영 환경 호환성과 배포 자동화 영향을 검토하세요.",
             "blockchain": "\n\n**실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.",
         }.get(category, "")
-        result = selected + practice_hint
+
+        result = f"{title_ko} 관련 소식입니다. {category_context}{practice_hint}"
         KOREAN_SUMMARY_CACHE[cache_key] = result
         return result
 
