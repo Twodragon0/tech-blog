@@ -1860,16 +1860,17 @@ def generate_news_section(
     elif content_text:
         section += f"{content_text[:800]}...\n\n"
 
-    # Category-specific action point
-    category_action = {
-        "security": "영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.",
-        "devsecops": "CI/CD 파이프라인 및 보안 정책 영향도를 점검하세요.",
-        "ai": "모델 서빙 환경 및 데이터 파이프라인 영향을 점검하세요.",
-        "cloud": "클라우드 리소스 및 IAM 정책 영향을 점검하세요.",
-        "devops": "인프라 및 배포 파이프라인 영향을 확인하세요.",
-        "blockchain": "스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.",
-    }.get(category, "실무 적용 전에 서비스 영향도를 검토하세요.")
-    section += f"**실무 포인트**: {category_action}\n\n"
+    # Category-specific action point (skip if summary already contains 실무 포인트)
+    if "실무 포인트" not in (ko_summary or ""):
+        category_action = {
+            "security": "영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.",
+            "devsecops": "CI/CD 파이프라인 및 보안 정책 영향도를 점검하세요.",
+            "ai": "모델 서빙 환경 및 데이터 파이프라인 영향을 점검하세요.",
+            "cloud": "클라우드 리소스 및 IAM 정책 영향을 점검하세요.",
+            "devops": "인프라 및 배포 파이프라인 영향을 확인하세요.",
+            "blockchain": "스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.",
+        }.get(category, "실무 적용 전에 서비스 영향도를 검토하세요.")
+        section += f"**실무 포인트**: {category_action}\n\n"
 
     section += f"> **출처**: [{source}]({url})\n\n"
 

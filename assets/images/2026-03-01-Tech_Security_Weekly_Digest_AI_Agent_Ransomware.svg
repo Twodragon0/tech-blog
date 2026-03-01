@@ -84,7 +84,7 @@
 
   <!-- Main Title -->
   <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">AI | Agent | Cloud | Go</text>
+  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">AI | Agent | Ransomware</text>
 
   <!-- Card 1: SECURITY -->
   <g transform="translate(50, 190)">
@@ -96,12 +96,12 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">ClawJacked Flaw Lets Malicious Site</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">OpenClaw has fixed a high-severity</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">security issue that, if successfully</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">HeadLine 12 - OT Security Trends</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK Shieldus report on manufacturing</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">OT security for business operations</text>
 
     <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">The Hacker News</text>
+    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK Shieldus</text>
   </g>
 
   <!-- Card 2: SECURITY -->
@@ -114,17 +114,53 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Thousands of Public Google Cloud AP</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">New research has found that Google Cloud</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">API keys, typically designated as</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Gentlemen Ransomware Threat Report</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK Shieldus ransomware analysis:</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Gentlemen ransomware spreading fast</text>
 
     <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">The Hacker News</text>
+    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK Shieldus</text>
   </g>
 
-  <!-- Card 3: BLOCKCHAIN -->
+  <!-- Card 3: AI/ML -->
   <g transform="translate(810, 190)">
     <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#indigoGradient)"/>
+
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="url(#indigoGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#6366f1" text-anchor="middle">AI</text>
+
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366f1">AI/ML</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">NVIDIA Advances Autonomous Networks</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Autonomous networks intelligent,</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">self-managing telecommunications</text>
+
+    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#indigoGradient)" fill-opacity="0.2"/>
+    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#6366f1" text-anchor="middle">NVIDIA AI Blog</text>
+  </g>
+
+  <!-- Card 4: CLOUD -->
+  <g transform="translate(50, 400)">
+    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#greenGradient)"/>
+
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="url(#greenGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#10b981" text-anchor="middle">AWS</text>
+
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981">CLOUD</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Agentic AI Part2 : AgentCore Gatewa</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">(Part 1) 2 Solutions</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Architect 7 Agentic AI</text>
+
+    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#greenGradient)" fill-opacity="0.2"/>
+    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">AWS Korea Blog</text>
+  </g>
+
+  <!-- Card 5: BLOCKCHAIN -->
+  <g transform="translate(430, 400)">
+    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
     <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
 
     <!-- Icon -->
@@ -132,66 +168,30 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Ethereum smart accounts are finally</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Removing intermediaries with account</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">abstraction is a core principle of</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Tokenized gold leads 100% of weeken</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Tokenized gold markets like PAXG and</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">XAUt now handle nearly all gold price</text>
 
-    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Cointelegraph</text>
+    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
+    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Cointelegraph</text>
   </g>
 
-  <!-- Card 4: SECURITY -->
-  <g transform="translate(50, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Pentagon Designates Anthropic Suppl</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Anthropic on Friday hit back after U.S.</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Secretary of Defense Pete Hegseth</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">The Hacker News</text>
-  </g>
-
-  <!-- Card 5: SECURITY -->
-  <g transform="translate(430, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">HeadLine 12 OT</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : HeadLine 12</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">OT</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
-  </g>
-
-  <!-- Card 6: SECURITY -->
+  <!-- Card 6: TECH -->
   <g transform="translate(810, 400)">
     <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#purpleGradient)"/>
 
     <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
+    <circle cx="40" cy="50" r="24" fill="url(#purpleGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#8b5cf6" text-anchor="middle">PY</text>
 
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Keep up with Ransomware 12 Gentleme</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : Keep up with Ransomware</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">12 Gentlemen</text>
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8b5cf6">TECH</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Python Oral History by Guido</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Guido van Rossum shares Python's</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">history in interview with T. Wouters</text>
 
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
+    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#purpleGradient)" fill-opacity="0.2"/>
+    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">GeekNews</text>
   </g>
 
   <!-- Footer -->
@@ -199,19 +199,19 @@
 
   <!-- Stats -->
   <g transform="translate(50, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">15 News Collected</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">17 News Collected</text>
   </g>
   <g transform="translate(250, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">5 Security</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">4 Security</text>
   </g>
   <g transform="translate(400, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 Cloud</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">1 Cloud</text>
   </g>
   <g transform="translate(520, 600)">
     <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 DevOps</text>
   </g>
   <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 AI/ML</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">2 AI/ML</text>
   </g>
 
   <!-- Blog Info -->
