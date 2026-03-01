@@ -4,8 +4,8 @@ title: "기술·보안 주간 다이제스트: Cloud, Supply Chain, Ransomware"
 date: 2026-03-01 12:40:24 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Cloud, Go]
-excerpt: "2026년 03월 01일 주요 보안/기술 뉴스 15건 - AI, Agent, Cloud"
-description: "2026년 03월 01일 보안 뉴스: The Hacker News, SK쉴더스 보안 리포트 등 15건. AI, Agent, Cloud, Go 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
+excerpt: "2026년 03월 01일 주요 보안/기술 뉴스 7건 - AI Agent 보안, Cloud API 키 노출, Supply Chain"
+description: "2026년 03월 01일 보안 뉴스: The Hacker News, Cointelegraph 등 7건. AI Agent 하이재킹, Google Cloud API 키 노출, Anthropic 공급망 리스크 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Cloud]
 author: Twodragon
 comments: true
@@ -23,9 +23,9 @@ toc: true
       <span class="tag">AI-Security</span>
       <span class="tag">Zero-Trust</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: [보안] ClawJacked Flaw Lets Malicious Sites Hijack Local</li>
-      <li><strong>The Hacker News</strong>: [보안] Thousands of Public Google Cloud API Keys Exposed with</li>
-      <li><strong>The Hacker News</strong>: [보안] Pentagon Designates Anthropic Supply Chain Risk Over</li>'
+  highlights_html='<li><strong>The Hacker News</strong>: OpenClaw AI 에이전트 하이재킹 취약점 발견 및 패치</li>
+      <li><strong>The Hacker News</strong>: Google Cloud API 키 3000개 이상 노출, Gemini 접근 가능</li>
+      <li><strong>The Hacker News</strong>: Pentagon, Anthropic을 공급망 리스크로 지정</li>'
   period='2026년 03월 01일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
@@ -39,12 +39,10 @@ toc: true
 2026년 03월 01일 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다.
 
 **수집 통계:**
-- **총 뉴스 수**: 15개
-- **보안 뉴스**: 5개
-- **AI/ML 뉴스**: 0개
-- **클라우드 뉴스**: 0개
-- **DevOps 뉴스**: 0개
-- **블록체인 뉴스**: 5개
+- **총 뉴스 수**: 6개
+- **보안 뉴스**: 3개
+- **블록체인 뉴스**: 2개
+- **기타**: 1개
 
 ---
 
@@ -58,11 +56,8 @@ toc: true
 | 🔒 **Security** | The Hacker News | [보안] Thousands of Public Google Cloud API Keys Exposed with Gemini Access | 🟡 Medium |
 | 🔒 **Security** | The Hacker News | [보안] Pentagon Designates Anthropic Supply Chain Risk Over AI Military Dispute | 🟠 High |
 | ⛓️ **Blockchain** | Cointelegraph | [블록체인] Ethereum smart accounts are finally coming 'within a year' | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Anthropic CEO responds to Pentagon order prohibiting | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Ether’s 60% down from its 2025 high, but TradFi keeps | 🟠 High |
+| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Ether’s 60% down from its 2025 high, but TradFi keeps | 🟡 Medium |
 | 💻 **Tech** | Tech World Monitor | Tech Monitor - Real-Time AI & Tech Industry Dashboard | 🟡 Medium |
-| 💻 **Tech** | Electrek | Ignore WW3 – these electric excavators are going TO THE | 🟡 Medium |
-| 💻 **Tech** | Electrek | Real-world test: electric semi trucks can save fleets | 🟡 Medium |
 
 ---
 
@@ -72,18 +67,11 @@ toc: true
 
 #### 개요
 
-OpenClaw has fixed a high-severity security issue that, if successfully exploited, could have allowed a malicious website to connect to a locally running artificial intelligence (AI) agent and take over control. "Our vulnerability lives in the core system itself – no plugins, no marketplace, no user-installed extensions – just the bare OpenClaw gateway, running exactly as documented," Oasis
+OpenClaw has fixed a high-severity security issue that, if successfully exploited, could have allowed a malicious website to connect to a locally running artificial intelligence (AI) agent and take over control. The vulnerability exists in the core system itself, not in plugins or extensions, affecting the bare OpenClaw gateway running as documented.
 
-**실무 포인트**: 영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.
+**실무 포인트**: 로컬 AI 에이전트(OpenClaw 등) 사용 환경에서 게이트웨이 버전을 확인하고 최신 패치를 적용하세요.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/clawjacked-flaw-lets-malicious-sites.html)
-
-#### 핵심 포인트
-
-- OpenClaw has fixed a high-severity security issue that, if successfully exploited, could have allowed a malicious website to connect to a locally running artificial intelligence (AI) agent and take over control
-- "Our vulnerability lives in the core system itself – no plugins, no marketplace, no user-installed extensions – just the bare OpenClaw gateway, running exactly as documented," Oasis
-
-**실무 포인트**: 영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요
 
 
 #### 위협 분석
@@ -109,18 +97,11 @@ OpenClaw has fixed a high-severity security issue that, if successfully exploite
 
 #### 개요
 
-New research has found that Google Cloud API keys, typically designated as project identifiers for billing purposes, could be abused to authenticate to sensitive Gemini endpoints and access private data. The findings come from Truffle Security, which discovered nearly 3,000 Google API keys (identified by the prefix "AIza") embedded in client-side code to provide Google-related services like
+Truffle Security의 연구에 따르면 Google Cloud API 키(접두사 "AIza")가 클라이언트 사이드 코드에 노출되어 Gemini 엔드포인트에 인증 및 비공개 데이터 접근이 가능한 것으로 나타났습니다. 약 3,000개의 API 키가 발견되었습니다.
 
-**실무 포인트**: 영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.
+**실무 포인트**: Google Cloud API 키가 클라이언트 코드에 하드코딩되어 있지 않은지 점검하고, API 키 제한 설정(IP/리퍼러)을 확인하세요.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/thousands-of-public-google-cloud-api.html)
-
-#### 핵심 포인트
-
-- New research has found that Google Cloud API keys, typically designated as project identifiers for billing purposes, could be abused to authenticate to sensitive Gemini endpoints and access private data
-- The findings come from Truffle Security, which discovered nearly 3,000 Google API keys (identified by the prefix "AIza") embedded in client-side code to provide Google-related services like
-
-**실무 포인트**: 영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요
 
 
 #### 위협 분석
@@ -146,18 +127,11 @@ New research has found that Google Cloud API keys, typically designated as proje
 
 #### 개요
 
-Anthropic on Friday hit back after U.S. Secretary of Defense Pete Hegseth directed the Pentagon to designate the artificial intelligence (AI) upstart as a "supply chain risk." "This action follows months of negotiations that reached an impasse over two exceptions we requested to the lawful use of our AI model, Claude: the mass domestic surveillance of Americans and fully autonomous weapons," the
+Anthropic on Friday hit back after U.S. Secretary of Defense Pete Hegseth directed the Pentagon to designate the artificial intelligence (AI) upstart as a "supply chain risk." Anthropic CEO Dario Amodei stated the action followed months of negotiations that reached an impasse over two exceptions: mass domestic surveillance and fully autonomous weapons.
 
-**실무 포인트**: 영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.
+**실무 포인트**: AI 모델 서비스 공급망 리스크를 점검하고, 미국 정부 규제 동향이 자사 AI 도입에 미치는 영향을 확인하세요.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/pentagon-designates-anthropic-supply.html)
-
-#### 핵심 포인트
-
-- Anthropic on Friday hit back after U.S
-- Secretary of Defense Pete Hegseth directed the Pentagon to designate the artificial intelligence (AI) upstart as a "supply chain risk." "This action follows months of negotiations that reached an impasse over two exceptions we requested to the lawful use of our AI model, Claude: the mass domestic surveillance of Americans and fully autonomous weapons," the
-
-**실무 포인트**: 영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요
 
 
 #### 위협 분석
@@ -185,57 +159,27 @@ Anthropic on Friday hit back after U.S. Secretary of Defense Pete Hegseth direct
 
 ## 2. 블록체인 뉴스
 
-### 2.1 [블록체인] Ethereum smart accounts are finally coming 'within a year'
+### 2.1 [블록체인] Ethereum smart accounts are finally coming ‘within a year’
 
 #### 개요
 
-Removing intermediaries with account abstraction is a “core principle of non-ugly cypherpunk Ethereum,” said Buterin.
+Vitalik Buterin은 계정 추상화(Account Abstraction)를 통한 중개자 제거가 “Ethereum의 핵심 원칙”이라고 밝혔으며, 스마트 계정이 1년 내 도입될 전망입니다.
 
-**실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.
+**실무 포인트**: Ethereum 기반 서비스를 운영하는 경우 계정 추상화 도입에 따른 스마트 컨트랙트 호환성을 사전 점검하세요.
 
 > **출처**: [Cointelegraph](https://cointelegraph.com/news/ethereum-smart-accounts-are-finally-coming-within-a-year-says-vitalik?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
-#### 핵심 포인트
-
-- Removing intermediaries with account abstraction is a “core principle of non-ugly cypherpunk Ethereum,” said Buterin
-- **실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요
-
-
 ---
 
-### 2.2 [블록체인] Anthropic CEO responds to Pentagon order prohibiting
+### 2.2 [블록체인] Ether’s 60% down from its 2025 high, but TradFi keeps betting
 
 #### 개요
 
-The company was the first to deploy its AI models on classified US military cloud networks, according to Anthropic CEO Dario Amodei.
+Ethereum의 TVL(Total Value Locked)이 여전히 지배적이며 전통 금융 기관의 채택이 확대되고 있으나, Ether 가격은 2025년 고점 대비 60% 하락한 상태입니다.
 
-**실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.
-
-> **출처**: [Cointelegraph](https://cointelegraph.com/news/anthropic-ceo-responds-pentagon-order-restrict-military?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
-
-#### 핵심 포인트
-
-- The company was the first to deploy its AI models on classified US military cloud networks, according to Anthropic CEO Dario Amodei
-- **실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요
-
-
----
-
-### 2.3 [블록체인] Ether’s 60% down from its 2025 high, but TradFi keeps
-
-#### 개요
-
-Ethereum’s dominant total value locked and widespread adoption by traditional finance institutions confirm its role as the base of global onchain finance. Will Ether price follow?
-
-**실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.
+**실무 포인트**: 블록체인 관련 서비스 운영 시 가격 변동성에 따른 리스크 관리 체계를 점검하세요.
 
 > **출처**: [Cointelegraph](https://cointelegraph.com/news/ether-60percent-down-from-its-2025-high-but-tradfi-keeps-betting-on-eth-here-s-why?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
-
-#### 핵심 포인트
-
-- Ethereum’s dominant total value locked and widespread adoption by traditional finance institutions confirm its role as the base of global onchain finance
-- Will Ether price follow?
-- **실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요
 
 
 ---
@@ -244,9 +188,7 @@ Ethereum’s dominant total value locked and widespread adoption by traditional 
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Tech Monitor - Real-Time AI & Tech Industry Dashboard](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. 실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다 |
-| [Ignore WW3 – these electric excavators are going TO THE](https://electrek.co/2026/02/28/ignore-ww3-these-electric-excavators-are-going-to-the-moon-video/) | Electrek | Engineering startups Astroport Space Technologies and Astrolab have successfully completed a real-world demonstration |
-| [Real-world test: electric semi trucks can save fleets](https://electrek.co/2026/02/28/real-world-test-electric-semi-trucks-can-save-fleets-nearly-160000-per-truck/) | Electrek | After following two fleets over more than a year and 200,000 km of real-world driving, Canada’s most comprehensive |
+| [Tech Monitor - Real-Time AI & Tech Industry Dashboard](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | 실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다 |
 
 
 ---
@@ -269,14 +211,14 @@ Ethereum’s dominant total value locked and widespread adoption by traditional 
 
 ### P0 (즉시)
 
-- [ ] **Xiaomi unveils Vision GT electric supercar** 관련 긴급 패치 및 영향도 확인
+- [ ] Google Cloud API 키 노출 여부 점검 (클라이언트 코드 내 "AIza" 접두사 키 검색)
+- [ ] OpenClaw AI 에이전트 게이트웨이 최신 패치 적용
 
 ### P1 (7일 내)
 
 - [ ] **[보안] ClawJacked Flaw Lets Malicious Sites Hijack Local OpenClaw AI Agents** 관련 보안 검토 및 모니터링
-- [ ] **[보안] Pentagon Designates Anthropic Supply Chain Risk Over AI Military Dispute** 관련 보안 검토 및 모니터링
-- [ ] **[블록체인] Ether’s 60% down from its 2025 high, but TradFi keeps** 관련 보안 검토 및 모니터링
-- [ ] **How a young bike racer helped shape America’s** 관련 보안 검토 및 모니터링
+- [ ] **[보안] Pentagon Designates Anthropic Supply Chain Risk Over AI Military Dispute** 관련 AI 공급망 리스크 평가
+- [ ] **[보안] Google Cloud API Keys Exposed** 관련 API 키 관리 정책 점검
 
 ### P2 (30일 내)
 

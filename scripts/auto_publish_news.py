@@ -105,8 +105,6 @@ SOURCE_PRIORITY = {
     "chainalysis": 1,
     "microsoft_devblogs": 1,
     "microsoft_dotnet": 2,
-    "tesla": 1,
-    "electrek": 2,
     "github_blog": 1,
     "stripe": 2,
     "slack_engineering": 2,
@@ -154,8 +152,6 @@ TECH_BLOG_SOURCES = {
     "netflix_tech",
     "microsoft_devblogs",
     "microsoft_dotnet",
-    "tesla",
-    "electrek",
     "github_blog",
     "stripe",
     "slack_engineering",
@@ -343,6 +339,23 @@ def categorize_news(items: List[Dict]) -> Dict[str, List[Dict]]:
 
     for item in items:
         category = item.get("category", "tech")
+
+        # Content-based category validation
+        title_lower = (item.get("title", "") or "").lower()
+        summary_lower = (item.get("summary", "") or "").lower()
+        combined = f"{title_lower} {summary_lower}"
+
+        # Override blockchain category if content is actually about AI/security
+        if category == "blockchain":
+            ai_security_keywords = ["anthropic", "openai", "pentagon", "military", "claude ai", "gpt", "llm", "machine learning"]
+            if any(kw in combined for kw in ai_security_keywords):
+                # Check if it's security-related
+                security_keywords = ["pentagon", "military", "supply chain risk", "vulnerability", "exploit", "breach"]
+                if any(kw in combined for kw in security_keywords):
+                    category = "security"
+                else:
+                    category = "ai"
+
         # security, devsecops는 security로 통합
         if category in ("security", "devsecops"):
             category = "security"
@@ -1422,7 +1435,8 @@ def _determine_severity(item: Dict) -> str:
         "데이터 유출",
     ]
     high_keywords = [
-        "high",
+        "high severity",
+        "high risk",
         "권한 상승",
         "privilege escalation",
         "authentication bypass",
@@ -1737,13 +1751,32 @@ def generate_news_section(
     elif content_text:
         section += f"{content_text[:800]}...\n\n"
 
+    # Category-specific action point
+    category_action = {
+        "security": "영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.",
+        "devsecops": "CI/CD 파이프라인 및 보안 정책 영향도를 점검하세요.",
+        "ai": "모델 서빙 환경 및 데이터 파이프라인 영향을 점검하세요.",
+        "cloud": "클라우드 리소스 및 IAM 정책 영향을 점검하세요.",
+        "devops": "인프라 및 배포 파이프라인 영향을 확인하세요.",
+        "blockchain": "스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.",
+    }.get(category, "실무 적용 전에 서비스 영향도를 검토하세요.")
+    section += f"**실무 포인트**: {category_action}\n\n"
+
     section += f"> **출처**: [{source}]({url})\n\n"
 
-    # 핵심 포인트
+    # 핵심 포인트 - only if content differs from summary
     key_points = _generate_key_points(item)
     if key_points:
-        section += "#### 핵심 포인트\n\n"
-        section += key_points + "\n"
+        # Check if key points are substantially different from summary
+        ko_summary_stripped = (ko_summary or "").replace(" ", "").replace("\n", "")
+        key_points_stripped = key_points.replace("- ", "").replace(" ", "").replace("\n", "")
+        # Only show if less than 70% overlap
+        if ko_summary_stripped and key_points_stripped:
+            overlap = sum(1 for c in key_points_stripped[:100] if c in ko_summary_stripped[:200])
+            similarity = overlap / max(len(key_points_stripped[:100]), 1)
+            if similarity < 0.7:
+                section += "#### 핵심 포인트\n\n"
+                section += key_points + "\n"
 
     # 카테고리별 상세 분석 템플릿
     if category in ("security", "devsecops") and is_critical:
@@ -2045,6 +2078,10 @@ def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
     p1_items = []
 
     for item in news_items:
+        category = item.get("category", "tech")
+        # Only include security-relevant items in the checklist
+        if category not in ("security", "devsecops", "ai", "cloud", "devops", "kubernetes"):
+            continue
         severity = _determine_severity(item)
         title = _korean_display_title(item, max_len=50)
         cve_ids = _extract_cve_ids(item)
