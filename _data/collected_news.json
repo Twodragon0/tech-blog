@@ -1,7 +1,659 @@
 {
-  "collected_at": "2026-03-02T12:45:03.119560+00:00",
-  "total_items": 106,
+  "collected_at": "2026-03-02T18:55:20.035048+00:00",
+  "total_items": 139,
   "items": [
+    {
+      "id": "bffb6cfebb05",
+      "title": "Northern Trust enters tokenized Treasurys fund market with new share class",
+      "url": "https://cointelegraph.com/news/northern-trust-enters-tokenized-fund-race-with-blockchain-based-treasury-money-market-share-class?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T18:44:28+00:00",
+      "summary": "The US-based asset manager debuts a blockchain-enabled structure for its liquidity fund as onchain US Treasurys exposure nears $11 billion.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Nate Kostar",
+      "priority": 2
+    },
+    {
+      "id": "b78af3faa96b",
+      "title": "Volkswagen supplier begins testing 1,000 km range all-solid-state EV batteries in vehicles",
+      "url": "https://electrek.co/2026/03/02/volkswagen-supplier-begins-testing-solid-state-batteries-in-evs/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T18:29:51+00:00",
+      "summary": "Volkswagen’s partner, Gotion High Tech, has begun testing all-solid-state EV batteries with a CLTC range of 1,000 km (620 miles) in vehicles. more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Peter Johnson",
+      "priority": 2
+    },
+    {
+      "id": "14358de32ddb",
+      "title": "Bars close and hundreds lose jobs as US firm buys Brewdog in £33M deal",
+      "url": "https://www.bbc.com/news/articles/c05v0p1d0peo",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T18:29:26+00:00",
+      "summary": "Article URL: https://www.bbc.com/news/articles/c05v0p1d0peo Comments URL: https://news.ycombinator.com/item?id=47221994 Points: 5 # Comments: 0",
+      "content": "",
+      "tags": [],
+      "author": "tartoran",
+      "priority": 2
+    },
+    {
+      "id": "a778a9e3c837",
+      "title": "Bitcoin holders show 'zero panic' as BTC hits $70K amid Middle East tensions",
+      "url": "https://cointelegraph.com/news/bitcoin-holders-show-zero-panic-as-btc-hits-dollar70k-amid-middle-east-tensions?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T17:57:55+00:00",
+      "summary": "Bitcoin short-term holder losses were minimal over the weekend, and the Monday rally to $70,000 suggests the heaviest selling is done. Will Bitcoin finally break the monthly resistance?",
+      "content": "",
+      "tags": [
+        "Market Analysis"
+      ],
+      "author": "Cointelegraph by Biraajmaan Tamuly",
+      "priority": 2
+    },
+    {
+      "id": "20cc6df695a1",
+      "title": "Turkey’s ruling party proposes 10% crypto income tax",
+      "url": "https://cointelegraph.com/news/turkey-government-crypto-income-tax-proposal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T17:45:54+00:00",
+      "summary": "Under the proposed law, Turkey’s president would be allowed to change the income tax rate on digital assets from zero to up to 20%.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Turner Wright",
+      "priority": 2
+    },
+    {
+      "id": "a1fdc56a92fd",
+      "title": "Apple AI servers unused in warehouses due to low Apple Intelligence usage",
+      "url": "https://9to5mac.com/2026/03/02/some-apple-ai-servers-are-reportedly-sitting-unused-on-warehouse-shelves-due-to-low-apple-intelligence-usage/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T17:40:17+00:00",
+      "summary": "Article URL: https://9to5mac.com/2026/03/02/some-apple-ai-servers-are-reportedly-sitting-unused-on-warehouse-shelves-due-to-low-apple-intelligence-usage/ Comments URL: https://news.ycombinator.com/item?id=47221264 Points: 45 # Comments: 17",
+      "content": "",
+      "tags": [],
+      "author": "_____k",
+      "priority": 2
+    },
+    {
+      "id": "cf1192d94c77",
+      "title": "Show HN: Govbase – Follow a bill from source text to news bias to social posts",
+      "url": "https://govbase.com",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T17:08:53+00:00",
+      "summary": "Govbase tracks every bill, executive order, and federal regulation from official sources (Congress.gov, Federal Register, White House). An AI pipeline breaks each one down into plain-language summaries and shows who it impacts by demographic group. It also ties each policy directly to bias-rated news coverage and politician social posts on X, Bluesky, and Truth Social. You can follow a single bill from the official text to how media frames it to what your representatives are saying about it.",
+      "content": "",
+      "tags": [],
+      "author": "foxfoxx",
+      "priority": 2
+    },
+    {
+      "id": "89b8c93b0e8b",
+      "title": "Reflex (YC W23) Is Hiring Software Engineers – Python",
+      "url": "https://www.ycombinator.com/companies/reflex/jobs",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T17:01:20+00:00",
+      "summary": "Article URL: https://www.ycombinator.com/companies/reflex/jobs Comments URL: https://news.ycombinator.com/item?id=47220666 Points: 0 # Comments: 0",
+      "content": "",
+      "tags": [],
+      "author": "apetuskey",
+      "priority": 2
+    },
+    {
+      "id": "b1eddeead4d1",
+      "title": "This new EV is based on the LEAF and launches this summer, but it’s not a Nissan",
+      "url": "https://electrek.co/2026/03/02/new-ev-based-on-nissan-leaf-launching-this-summer/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T17:00:39+00:00",
+      "summary": "It looks just like the LEAF , but it’s not wearing a Nissan badge. With its big debut just around the corner, Mitsubishi’s new EV was spotted testing for the first time. more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Peter Johnson",
+      "priority": 2
+    },
+    {
+      "id": "5168929564e8",
+      "title": "Unified Maintenance: A new, unified way to manage maintenance across Google Cloud",
+      "url": "https://cloud.google.com/blog/products/management-tools/unified-maintenance-centralizes-planned-maintenance/",
+      "source": "gcp",
+      "source_name": "Google Cloud Blog",
+      "category": "cloud",
+      "language": "en",
+      "published": "2026-03-02T17:00:00+00:00",
+      "summary": "Managing planned maintenance is critical for ensuring business continuity and application performance. However, as your usage of cloud services grows, staying on top of maintenance schedules can be complex and time-consuming. Current approaches often result in inconsistent notifications and varying levels of control across different products.",
+      "content": "",
+      "tags": [
+        "DevOps & SRE",
+        "Management Tools"
+      ],
+      "author": "Erol-Valeriu Chioasca",
+      "priority": 2
+    },
+    {
+      "id": "b17fe82a0169",
+      "title": "Designing private network connectivity for RAG-capable gen AI apps",
+      "url": "https://cloud.google.com/blog/products/networking/design-private-connectivity-for-rag-ai-apps/",
+      "source": "gcp",
+      "source_name": "Google Cloud Blog",
+      "category": "cloud",
+      "language": "en",
+      "published": "2026-03-02T17:00:00+00:00",
+      "summary": "The flexibility of Google Cloud allows enterprises to build secure and reliable architecture for their AI workloads. In this blog we will look at a reference architecture for private connectivity for retrieval-augmented generation (RAG)-capable generative AI applications. This architecture is for scenarios where communications of the overall system must use private IP addresses and must not traverse the internet.",
+      "content": "",
+      "tags": [
+        "AI & Machine Learning",
+        "Hybrid & Multicloud",
+        "Developers & Practitioners",
+        "Networking"
+      ],
+      "author": "Ammett Williams",
+      "priority": 2
+    },
+    {
+      "id": "87ec3f177948",
+      "title": "Bitcoin nears $70K as PMI boost sees BTC price leave Iran woes behind",
+      "url": "https://cointelegraph.com/news/bitcoin-nears-70k-pmi-boost-btc-price-leave-iran-woes?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T16:45:15+00:00",
+      "summary": "Bitcoin price strength received a surprise bullish catalyst from US manufacturing data, helping to relieve tensions over Iran as US stocks floundered.",
+      "content": "",
+      "tags": [
+        "Markets"
+      ],
+      "author": "Cointelegraph by William Suberg",
+      "priority": 2
+    },
+    {
+      "id": "81aa5ffe7b70",
+      "title": "ProCap boosts Bitcoin holdings to 5,457 BTC, aims to narrow NAV discount",
+      "url": "https://cointelegraph.com/news/procap-boosts-bitcoin-holdings-to-5-457-btc-aims-to-narrow-nav-discount?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T16:39:26+00:00",
+      "summary": "The Bitcoin treasury company repurchased 782,000 shares below NAV as it increases Bitcoin exposure and works to close the gap between market price and asset value.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Sam Bourgi",
+      "priority": 2
+    },
+    {
+      "id": "107104dda28d",
+      "title": "Launch HN: OctaPulse (YC W26) – Robotics and computer vision for fish farming",
+      "url": "https://news.ycombinator.com/item?id=47220320",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T16:39:21+00:00",
+      "summary": "Hi HN! My name is Rohan and, together with Paul, I’m the co-founder of OctaPulse ( https://www.tryoctapulse.com/ ). We’re building a robotics layer for seafood production, starting with automated fish inspection. We are currently deployed at our first production site with the largest trout producer in North America. You might be wondering how the heck we got into this with no background in aquaculture or the ocean industry. We are both from coastal communities.",
+      "content": "",
+      "tags": [],
+      "author": "rohxnsxngh",
+      "priority": 2
+    },
+    {
+      "id": "78864113a1dd",
+      "title": "Packaging a Gleam app into a single executable",
+      "url": "https://www.dhzdhd.dev/blog/gleam-executable",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T16:20:18+00:00",
+      "summary": "Article URL: https://www.dhzdhd.dev/blog/gleam-executable Comments URL: https://news.ycombinator.com/item?id=47220020 Points: 33 # Comments: 0",
+      "content": "",
+      "tags": [],
+      "author": "todsacerdoti",
+      "priority": 2
+    },
+    {
+      "id": "583d5537fad5",
+      "title": "XRP faces $650M sell risk as charts hint at prices below $1",
+      "url": "https://cointelegraph.com/news/xrp-faces-650m-sell-risk-as-charts-hint-at-prices-below-1?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T16:05:01+00:00",
+      "summary": "XRP’s weakening technical setup suggests a drop below $1 could be in the cards over the next few weeks as supply rises on exchanges.",
+      "content": "",
+      "tags": [
+        "Market Analysis"
+      ],
+      "author": "Cointelegraph by Nancy Lubale",
+      "priority": 2
+    },
+    {
+      "id": "04e374969d9f",
+      "title": "Notes on Lagrange Interpolating Polynomials",
+      "url": "https://eli.thegreenplace.net/2026/notes-on-lagrange-interpolating-polynomials/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T16:01:20+00:00",
+      "summary": "Article URL: https://eli.thegreenplace.net/2026/notes-on-lagrange-interpolating-polynomials/ Comments URL: https://news.ycombinator.com/item?id=47219688 Points: 20 # Comments: 7",
+      "content": "",
+      "tags": [],
+      "author": "ibobev",
+      "priority": 2
+    },
+    {
+      "id": "a3afba0a67e1",
+      "title": "Ask HN: Who is hiring? (March 2026)",
+      "url": "https://news.ycombinator.com/item?id=47219668",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T16:00:27+00:00",
+      "summary": "Please state the location and include REMOTE for remote work, REMOTE (US) or similar if the country is restricted, and ONSITE when remote work is not an option. Please only post if you personally are part of the hiring company—no recruiting firms or job boards. One post per company. If it isn't a household name, explain what your company does. Please only post if you are actively filling a position and are committed to replying to applicants.",
+      "content": "",
+      "tags": [],
+      "author": "whoishiring",
+      "priority": 2
+    },
+    {
+      "id": "dd4976a91b81",
+      "title": "Felix \"fx\" Lindner has died",
+      "url": "https://blog.recurity-labs.com/2026-03-02/Farewell_Felix",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T15:53:23+00:00",
+      "summary": "Article URL: https://blog.recurity-labs.com/2026-03-02/Farewell_Felix Comments URL: https://news.ycombinator.com/item?id=47219558 Points: 77 # Comments: 11",
+      "content": "",
+      "tags": [],
+      "author": "is_taken",
+      "priority": 2
+    },
+    {
+      "id": "906ef3c68d9f",
+      "title": "Polestar 4 on ice: 544 hp and fine-tuned dynamics make it a blast to drift",
+      "url": "https://electrek.co/2026/03/02/polestar-4-ice-driving-mecaglisse-review/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T15:47:50+00:00",
+      "summary": "I spent a full day drifting the Polestar 4 on ice at Quebec’s Mecaglisse track, and I came away seriously impressed with how well Polestar has tuned the dynamics of its 544-hp electric SUV coupé. The ice driving event gave me a chance to experience the dual-motor Polestar 4’s all-wheel-drive system in slow motion — pushing the vehicle to its limits in a controlled environment that reveals every nuance of how power is distributed and how the chassis responds. more…",
+      "content": "",
+      "tags": [
+        "News",
+        "polestar"
+      ],
+      "author": "Fred Lambert",
+      "priority": 2
+    },
+    {
+      "id": "826f8d2cb98f",
+      "title": "Language Model Contains Personality Subnetworks",
+      "url": "https://arxiv.org/abs/2602.07164",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T15:41:08+00:00",
+      "summary": "Article URL: https://arxiv.org/abs/2602.07164 Comments URL: https://news.ycombinator.com/item?id=47219387 Points: 12 # Comments: 0",
+      "content": "",
+      "tags": [],
+      "author": "PaulHoule",
+      "priority": 2
+    },
+    {
+      "id": "2cf92b8dd081",
+      "title": "BYD unveils new Toyota Camry-sized Seal 07 EV with 705 km range [Images]",
+      "url": "https://electrek.co/2026/03/02/byd-unveils-toyota-camry-like-ev-with-705-km-range-images/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T15:17:41+00:00",
+      "summary": "BYD revealed the first images of the Seal 07 EV, its new electric sedan that’s about the size of the Toyota Camry. more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Peter Johnson",
+      "priority": 2
+    },
+    {
+      "id": "2e7d6bb3484e",
+      "title": "First-ever in-utero stem cell therapy for fetal spina bifida repair is safe",
+      "url": "https://health.ucdavis.edu/news/headlines/first-ever-in-utero-stem-cell-therapy-for-fetal-spina-bifida-repair-is-safe-study-finds/2026/02",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T14:54:58+00:00",
+      "summary": "Article URL: https://health.ucdavis.edu/news/headlines/first-ever-in-utero-stem-cell-therapy-for-fetal-spina-bifida-repair-is-safe-study-finds/2026/02 Comments URL: https://news.ycombinator.com/item?id=47218743 Points: 127 # Comments: 7",
+      "content": "",
+      "tags": [],
+      "author": "gmays",
+      "priority": 2
+    },
+    {
+      "id": "2f6e7dfed6e7",
+      "title": "A bit of fluid mechanics from scratch not from scratch",
+      "url": "https://tsvibt.blogspot.com/2026/02/a-bit-of-fluid-mechanics-from-scratch.html",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T14:52:52+00:00",
+      "summary": "Article URL: https://tsvibt.blogspot.com/2026/02/a-bit-of-fluid-mechanics-from-scratch.html Comments URL: https://news.ycombinator.com/item?id=47218711 Points: 20 # Comments: 3",
+      "content": "",
+      "tags": [],
+      "author": "surprisetalk",
+      "priority": 2
+    },
+    {
+      "id": "2f668574c0f8",
+      "title": "Parallel coding agents with tmux and Markdown specs",
+      "url": "https://schipper.ai/posts/parallel-coding-agents/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T14:24:15+00:00",
+      "summary": "Article URL: https://schipper.ai/posts/parallel-coding-agents/ Comments URL: https://news.ycombinator.com/item?id=47218318 Points: 52 # Comments: 23",
+      "content": "",
+      "tags": [],
+      "author": "schipperai",
+      "priority": 2
+    },
+    {
+      "id": "5e1ee5fd7aa7",
+      "title": "Anthropic Cowork feature creates 10GB VM bundle on macOS without warning",
+      "url": "https://github.com/anthropics/claude-code/issues/22543",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T14:21:19+00:00",
+      "summary": "Article URL: https://github.com/anthropics/claude-code/issues/22543 Comments URL: https://news.ycombinator.com/item?id=47218288 Points: 299 # Comments: 153",
+      "content": "",
+      "tags": [],
+      "author": "mystcb",
+      "priority": 2
+    },
+    {
+      "id": "fb017bc93daa",
+      "title": "A plastic made from milk that vanishes in 13 weeks",
+      "url": "https://www.sciencedaily.com/releases/2026/02/260227071922.htm",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T14:20:35+00:00",
+      "summary": "Article URL: https://www.sciencedaily.com/releases/2026/02/260227071922.htm Comments URL: https://news.ycombinator.com/item?id=47218283 Points: 63 # Comments: 57",
+      "content": "",
+      "tags": [],
+      "author": "JeanKage",
+      "priority": 2
+    },
+    {
+      "id": "913a41133436",
+      "title": "Here’s why Florida’s 10 MPH e-bike speed limit law actually makes sense",
+      "url": "https://electrek.co/2026/03/02/heres-why-floridas-10-mph-e-bike-speed-limit-law-actually-makes-sense/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T14:20:22+00:00",
+      "summary": "Florida’s proposed 10 mph e-bike speed limit law is moving forward, and unlike many recent attempts at regulating electric bikes, this one may actually thread the needle. more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Micah Toll",
+      "priority": 2
+    },
+    {
+      "id": "74180cd063d8",
+      "title": "Nexo is back in the US: What changed after the 2023 crypto lending crackdown?",
+      "url": "https://cointelegraph.com/news/nexo-is-back-in-the-us-what-changed-after-the-2023-crypto-lending-crackdown?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T14:18:42+00:00",
+      "summary": "After the 2023 crackdown, Nexo reenters the US with a partner-led model. What is different, and what should users watch?",
+      "content": "",
+      "tags": [
+        "Analysis"
+      ],
+      "author": "Cointelegraph by Dilip Kumar Patairya",
+      "priority": 2
+    },
+    {
+      "id": "d9e00be7170b",
+      "title": "An Interesting Find: STM32 RDP1 Decryptor",
+      "url": "https://carlossless.io/stm32-rdp1-decryptor/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T14:12:18+00:00",
+      "summary": "Article URL: https://carlossless.io/stm32-rdp1-decryptor/ Comments URL: https://news.ycombinator.com/item?id=47218188 Points: 63 # Comments: 17",
+      "content": "",
+      "tags": [],
+      "author": "carlossless",
+      "priority": 2
+    },
+    {
+      "id": "d356bccfc26c",
+      "title": "New iPad Air, powered by M4",
+      "url": "https://www.apple.com/newsroom/2026/03/apple-introduces-the-new-ipad-air-powered-by-m4/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T14:11:23+00:00",
+      "summary": "Article URL: https://www.apple.com/newsroom/2026/03/apple-introduces-the-new-ipad-air-powered-by-m4/ Comments URL: https://news.ycombinator.com/item?id=47218175 Points: 170 # Comments: 254",
+      "content": "",
+      "tags": [],
+      "author": "Garbage",
+      "priority": 2
+    },
+    {
+      "id": "a62ef100e229",
+      "title": "Donut Lab solid-state battery survives 100°C discharge in second independent test",
+      "url": "https://electrek.co/2026/03/02/donut-lab-solid-state-battery-high-temperature-test-vtt/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T14:11:02+00:00",
+      "summary": "Donut Lab has released a second set of independent test results for its controversial solid-state battery — this time proving the cell can discharge at extreme temperatures up to 100°C and actually gain capacity in the process. The new VTT report, released just one week after the first test confirmed the cell’s fast-charging capability at 0-80% in 4.5 minutes , adds another data point in favor of Donut Lab’s claims. But the most extraordinary specs remain unverified. more…",
+      "content": "",
+      "tags": [
+        "News",
+        "ev batteries"
+      ],
+      "author": "Fred Lambert",
+      "priority": 2
+    },
+    {
+      "id": "78f7a83e386d",
+      "title": "Here’s what happened in crypto today",
+      "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T14:08:40+00:00",
+      "summary": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, NFTs, Web3 and crypto regulation.",
+      "content": "",
+      "tags": [
+        "Trump memecoin",
+        "Solana memecoin",
+        "TRUMP token",
+        "Solana",
+        "SOL"
+      ],
+      "author": "Cointelegraph by Cointelegraph",
+      "priority": 2
+    },
+    {
+      "id": "2549bb9108b1",
+      "title": "Why Go Can't Try",
+      "url": "https://niketpatel.com/essays/why-go-cant-try",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T14:03:53+00:00",
+      "summary": "Article URL: https://niketpatel.com/essays/why-go-cant-try Comments URL: https://news.ycombinator.com/item?id=47218090 Points: 44 # Comments: 34",
+      "content": "",
+      "tags": [],
+      "author": "nexneo",
+      "priority": 2
+    },
+    {
+      "id": "4a602635e10b",
+      "title": "Michael Saylor’s Strategy buys $204M of Bitcoin in 101st purchase",
+      "url": "https://cointelegraph.com/news/strategy-michael-saylor-3k-bitcoin-buy-101-purchase?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T14:01:28+00:00",
+      "summary": "Strategy added 3,015 Bitcoin at $67,700 a piece in its 101st purchase, marking another buy below cost basis and lifting total holdings to 720,737 BTC.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Helen Partz",
+      "priority": 2
+    },
+    {
+      "id": "dc1127724a70",
+      "title": "Subaru Trailseeker first drive – a capable electric Outback replacement",
+      "url": "https://electrek.co/2026/03/02/subaru-trailseeker-first-drive-a-capable-electric-outback-replacement/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T14:00:00+00:00",
+      "summary": "Subaru invited us to try out its upcoming rugged Trailseeker EV’s off-road chops on a muddy day in Southern California. But how does it compete in the crowded electric SUV market? more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Jameson Dow",
+      "priority": 2
+    },
+    {
+      "id": "da8bda40a5ca",
+      "title": "Energym AI dystopia goes viral as crypto projects tout user-owned AI agents",
+      "url": "https://cointelegraph.com/news/energym-ai-spoof-block-layoffs-job-openings-citrini-scenario?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T13:53:05+00:00",
+      "summary": "A Black Mirror‑style “Energym” spoof imagining 80% of jobs lost to AI is circulating as tech companies begin slashing thousands of roles, and white-collar job openings hit decade lows.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Christina Comben",
+      "priority": 2
+    },
+    {
+      "id": "32e0753986e8",
+      "title": "White hat helps recover $1.8M after $2.3M Foom Cash exploit",
+      "url": "https://cointelegraph.com/news/white-hat-hacker-recovers-2-26m-foom-cash-exploit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T13:39:02+00:00",
+      "summary": "Foom Cash lost $2.26 million in an exploit tied to a Groth16 verifier misconfiguration, but a white hat recovered $1.84 million of the funds.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Zoltan Vardai",
+      "priority": 2
+    },
+    {
+      "id": "77ffeab0d555",
+      "title": "Will Bitcoin crash if oil prices hit $100 per barrel?",
+      "url": "https://cointelegraph.com/news/will-bitcoin-crash-if-oil-prices-100-dollars-per-barrel?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T13:18:51+00:00",
+      "summary": "Oil prices are rising amid the US-Iran conflict, but whether Bitcoin will suffer is up for debate, as history suggests a bullish BTC price outlook.",
+      "content": "",
+      "tags": [
+        "Market Analysis"
+      ],
+      "author": "Cointelegraph by Nancy Lubale",
+      "priority": 2
+    },
+    {
+      "id": "e2ba9556b285",
+      "title": "AMD Am386 released March 2, 1991",
+      "url": "https://dfarq.homeip.net/amd-am386-released-march-2-1991/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T12:56:46+00:00",
+      "summary": "Article URL: https://dfarq.homeip.net/amd-am386-released-march-2-1991/ Comments URL: https://news.ycombinator.com/item?id=47217402 Points: 73 # Comments: 18",
+      "content": "",
+      "tags": [],
+      "author": "jnord",
+      "priority": 2
+    },
     {
       "id": "0f969ffeab3f",
       "title": "Crypto funds rebound with $1B inflows after five-week slump",
@@ -11,7 +663,7 @@
       "category": "blockchain",
       "language": "en",
       "published": "2026-03-02T12:24:23+00:00",
-      "summary": "Crypto ETPs drew in $1 billion in inflows last week, led by $787 million from US spot ETFs, snapping a $4 billion outflow streak that lasted five weeks.",
+      "summary": "Crypto ETPs saw $1 billion in inflows last week, led by $787 million into US spot Bitcoin ETFs, ending a five-week outflow streak of nearly $4 billion",
       "content": "",
       "tags": [
         "Latest News"
@@ -51,36 +703,6 @@
         "Blog"
       ],
       "author": "Co-chairs: Katerina Arzhayev, Mars Toktonaliev",
-      "priority": 2
-    },
-    {
-      "id": "97b752b2e47e",
-      "title": "Show HN: Web Audio Studio – A Visual Debugger for Web Audio API Graphs",
-      "url": "https://webaudio.studio/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T11:47:44+00:00",
-      "summary": "Hi HN, I’ve been working on a browser-based tool for exploring and debugging Web Audio API graphs. Web Audio Studio lets you write real Web Audio API code, run it, and see the runtime graph it produces as an interactive visual representation. Instead of mentally tracking connect() calls, you can inspect the actual structure of the graph, follow signal flow, and tweak parameters while the audio is playing.",
-      "content": "",
-      "tags": [],
-      "author": "alexgriss",
-      "priority": 2
-    },
-    {
-      "id": "b5b0b80239a7",
-      "title": "Claude Code LSP",
-      "url": "https://karanbansal.in/blog/claude-code-lsp/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T11:47:16+00:00",
-      "summary": "Article URL: https://karanbansal.in/blog/claude-code-lsp/ Comments URL: https://news.ycombinator.com/item?id=47216765 Points: 29 # Comments: 5",
-      "content": "",
-      "tags": [],
-      "author": "LexSiga",
       "priority": 2
     },
     {
@@ -126,25 +748,10 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T10:23:06+00:00",
-      "summary": "Article URL: https://www.windowslatest.com/2026/03/02/microsoft-gets-tired-of-microslop-bans-the-word-on-its-discord-then-locks-the-server-after-backlash/ Comments URL: https://news.ycombinator.com/item?id=47216047 Points: 144 # Comments: 50",
+      "summary": "Article URL: https://www.windowslatest.com/2026/03/02/microsoft-gets-tired-of-microslop-bans-the-word-on-its-discord-then-locks-the-server-after-backlash/ Comments URL: https://news.ycombinator.com/item?id=47216047 Points: 798 # Comments: 322",
       "content": "",
       "tags": [],
       "author": "robtherobber",
-      "priority": 2
-    },
-    {
-      "id": "11c2bad2eb00",
-      "title": "Jolla phone – a full-stack European alternative",
-      "url": "https://commerce.jolla.com/products/jolla-phone-sept-26",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T10:21:24+00:00",
-      "summary": "Article URL: https://commerce.jolla.com/products/jolla-phone-sept-26 Comments URL: https://news.ycombinator.com/item?id=47216037 Points: 148 # Comments: 66",
-      "content": "",
-      "tags": [],
-      "author": "spinningslate",
       "priority": 2
     },
     {
@@ -165,36 +772,6 @@
       "priority": 2
     },
     {
-      "id": "b99bf2f9b1c3",
-      "title": "U.S. science agency moves to restrict foreign scientists from its labs",
-      "url": "https://www.science.org/content/article/nist-moves-restrict-foreign-scientists-its-labs",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T09:20:06+00:00",
-      "summary": "Article URL: https://www.science.org/content/article/nist-moves-restrict-foreign-scientists-its-labs Comments URL: https://news.ycombinator.com/item?id=47215565 Points: 71 # Comments: 37",
-      "content": "",
-      "tags": [],
-      "author": "JeanKage",
-      "priority": 2
-    },
-    {
-      "id": "4a430a831565",
-      "title": "/e/OS is a complete \"deGoogled\", mobile ecosystem",
-      "url": "https://e.foundation/e-os/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T09:09:44+00:00",
-      "summary": "Article URL: https://e.foundation/e-os/ Comments URL: https://news.ycombinator.com/item?id=47215489 Points: 238 # Comments: 136",
-      "content": "",
-      "tags": [],
-      "author": "doener",
-      "priority": 2
-    },
-    {
       "id": "0fd9ce8d09ac",
       "title": "Aave proposal clears first hurdle with 52.6% support amid governance split",
       "url": "https://cointelegraph.com/news/aave-temp-check-split-vote-arfc-governance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
@@ -209,21 +786,6 @@
         "Latest News"
       ],
       "author": "Cointelegraph by Ezra Reguerra",
-      "priority": 2
-    },
-    {
-      "id": "ecf6ca70576c",
-      "title": "Show HN: Omni – Open-source workplace search and chat, built on Postgres",
-      "url": "https://github.com/getomnico/omni",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T08:58:14+00:00",
-      "summary": "Hey HN! Over the past few months, I've been working on building Omni - a workplace search and chat platform that connects to apps like Google Drive/Gmail, Slack, Confluence, etc. Essentially an open-source alternative to Glean, fully self-hosted. I noticed that some orgs find Glean to be expensive and not very extensible. I wanted to build something that small to mid-size teams could run themselves, so I decided to build it all on Postgres (ParadeDB to be precise) and pgvector.",
-      "content": "",
-      "tags": [],
-      "author": "prvnsmpth",
       "priority": 2
     },
     {
@@ -262,36 +824,6 @@
       "priority": 2
     },
     {
-      "id": "2a3469522240",
-      "title": "How to talk to anyone and why you should",
-      "url": "https://www.theguardian.com/lifeandstyle/2026/feb/24/stranger-secret-how-to-talk-to-anyone-why-you-should",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T07:30:12+00:00",
-      "summary": "Article URL: https://www.theguardian.com/lifeandstyle/2026/feb/24/stranger-secret-how-to-talk-to-anyone-why-you-should Comments URL: https://news.ycombinator.com/item?id=47214864 Points: 143 # Comments: 328",
-      "content": "",
-      "tags": [],
-      "author": "Looky1173",
-      "priority": 2
-    },
-    {
-      "id": "2434f155f521",
-      "title": "Motorola announces a partnership with GrapheneOS Foundation",
-      "url": "https://motorolanews.com/motorola-three-new-b2b-solutions-at-mwc-2026/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T06:48:07+00:00",
-      "summary": "Article URL: https://motorolanews.com/motorola-three-new-b2b-solutions-at-mwc-2026/ Comments URL: https://news.ycombinator.com/item?id=47214645 Points: 839 # Comments: 314",
-      "content": "",
-      "tags": [],
-      "author": "km",
-      "priority": 2
-    },
-    {
       "id": "c61b9a0acda3",
       "title": "Bitcoin to see tailwinds if AI prompts ‘easier monetary policy’: NYDIG",
       "url": "https://cointelegraph.com/news/bitcoin-tailwinds-ai-prompts-easier-monetary-policy-nydig?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
@@ -309,270 +841,33 @@
       "priority": 2
     },
     {
-      "id": "5cde8f6c3999",
-      "title": "An interactive intro to Elliptic Curve Cryptography",
-      "url": "https://growingswe.com/blog/elliptic-curve-cryptography",
-      "source": "hackernews",
-      "source_name": "Hacker News",
+      "id": "6c65df1f7c63",
+      "title": "2025 State of Rust Survey Results",
+      "url": "https://blog.rust-lang.org/2026/03/02/2025-State-Of-Rust-Survey-results/",
+      "source": "rust_lang",
+      "source_name": "Rust Blog",
+      "category": "devops",
+      "language": "en",
+      "published": "2026-03-02T00:00:00+00:00",
+      "summary": "Hello, Rust community! Once again, the survey team is happy to share the results of the State of Rust survey, this year celebrating a round number - the 10th edition! The survey ran for 30 days (from November 17th to December, 17th 2025) and collected 7156 responses, a slight decrease in responses compared to last year. In this blog post we will shine a light on some specific key findings. As usual, the full report is available for download.",
+      "content": "Hello, Rust community! Once again, the survey team is happy to share the results of the State of Rust survey, this year celebrating a round number - the 10th edition! The survey ran for 30 days (from November 17th to December, 17th 2025) and collected 7156 responses, a slight decrease in responses compared to last year. In this blog post we will shine a light on some specific key findings. As usual, the full report is available for download.",
+      "tags": [],
+      "author": "The Rust Survey Team",
+      "priority": 2
+    },
+    {
+      "id": "059995396ada",
+      "title": "Can AI agents build real Stripe integrations? We built a benchmark to find out",
+      "url": "https://stripe.com/blog/can-ai-agents-build-real-stripe-integrations",
+      "source": "stripe",
+      "source_name": "Stripe Blog",
       "category": "tech",
       "language": "en",
-      "published": "2026-03-02T05:59:03+00:00",
-      "summary": "Article URL: https://growingswe.com/blog/elliptic-curve-cryptography Comments URL: https://news.ycombinator.com/item?id=47214367 Points: 52 # Comments: 11",
+      "published": "2026-03-02T00:00:00+00:00",
+      "summary": "State-of-the-art LLMs can now solve a majority of scoped coding problems, but it’s an open question whether they can fully autonomously manage software engineering projects. We spent months building evaluation environments to benchmark how well AI agents can create real Stripe integrations.",
       "content": "",
       "tags": [],
-      "author": "vismit2000",
-      "priority": 2
-    },
-    {
-      "id": "a5e67b5ddcef",
-      "title": "Fed could print money to support US conflict with Iran, says Hayes",
-      "url": "https://cointelegraph.com/news/fed-print-money-support-us-conflict-iran-hayes?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-02T05:44:07+00:00",
-      "summary": "Arthur Hayes says the longer Donald Trump engages in expensive “Iranian nation-building,” the more likely it is that the Federal Reserve will boost money supply.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Martin Young",
-      "priority": 2
-    },
-    {
-      "id": "dfb1563eb4f3",
-      "title": "Evolving descriptive text of mental content from human brain activity",
-      "url": "https://www.bbc.com/future/article/20260226-how-ai-can-read-your-thoughts",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T05:39:36+00:00",
-      "summary": "Article URL: https://www.bbc.com/future/article/20260226-how-ai-can-read-your-thoughts Comments URL: https://news.ycombinator.com/item?id=47214250 Points: 26 # Comments: 22",
-      "content": "",
-      "tags": [],
-      "author": "ggm",
-      "priority": 2
-    },
-    {
-      "id": "8a69eec78671",
-      "title": "Process-Based Concurrency: Why Beam and OTP Keep Being Right",
-      "url": "https://variantsystems.io/blog/beam-otp-process-concurrency",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T05:01:08+00:00",
-      "summary": "Article URL: https://variantsystems.io/blog/beam-otp-process-concurrency Comments URL: https://news.ycombinator.com/item?id=47214063 Points: 54 # Comments: 29",
-      "content": "",
-      "tags": [],
-      "author": "linkdd",
-      "priority": 2
-    },
-    {
-      "id": "0afb4db24ce1",
-      "title": "February crypto losses hit lowest level since March 2025, says PeckShield",
-      "url": "https://cointelegraph.com/news/crypto-hack-losses-february-2026-peckshield-lowest-since-march-2025?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-02T04:33:29+00:00",
-      "summary": "PeckShield said fewer mega-hacks, heightened volatility and tighter risk controls may have helped push crypto losses to their lowest level in 11 months.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Stephen Katte",
-      "priority": 2
-    },
-    {
-      "id": "c10d6ef087f4",
-      "title": "Computer-generated dream world: Virtual reality for a 286 processor",
-      "url": "https://deadlime.hu/en/2026/02/22/computer-generated-dream-world/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T04:23:53+00:00",
-      "summary": "Article URL: https://deadlime.hu/en/2026/02/22/computer-generated-dream-world/ Comments URL: https://news.ycombinator.com/item?id=47213866 Points: 117 # Comments: 16",
-      "content": "",
-      "tags": [],
-      "author": "MBCook",
-      "priority": 2
-    },
-    {
-      "id": "6e3fcb1b95b4",
-      "title": "Magic Eden winds down EVM, Bitcoin NFT markets to focus on gambling",
-      "url": "https://cointelegraph.com/news/magic-eden-winds-down-evm-bitcoin-nft-markets-to-focus-on-gambling?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-02T04:20:57+00:00",
-      "summary": "Magic Eden is shifting resources from NFTs to its casino platform Dicey, after a closed beta saw $15 million wagered by around 200 users in two months.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Brian Quarmby",
-      "priority": 2
-    },
-    {
-      "id": "b29176d63f43",
-      "title": "How to record and retrieve anything you've ever had to look up twice",
-      "url": "https://ellanew.com/2026/03/02/ptpl-197-record-retrieve-from-a-personal-knowledgebase",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T04:15:16+00:00",
-      "summary": "Article URL: https://ellanew.com/2026/03/02/ptpl-197-record-retrieve-from-a-personal-knowledgebase Comments URL: https://news.ycombinator.com/item?id=47213819 Points: 84 # Comments: 32",
-      "content": "",
-      "tags": [],
-      "author": "Curiositry",
-      "priority": 2
-    },
-    {
-      "id": "947f977edf4d",
-      "title": "AI ‘vibe coding’ could put Ethereum roadmap ahead of schedule: Vitalik Buterin",
-      "url": "https://cointelegraph.com/news/vitalik-says-vibe-coding-accelerate-ethereum-roadmap?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-02T04:14:00+00:00",
-      "summary": "Vitalik Buterin says AI coding still has “massive caveats,” but people should expect Ethereum’s roadmap to be finished much faster than expected.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Martin Young",
-      "priority": 2
-    },
-    {
-      "id": "43d537b9bf16",
-      "title": "Everett shuts down Flock camera network after judge rules footage public record",
-      "url": "https://www.wltx.com/article/news/nation-world/281-53d8693e-77a4-42ad-86e4-3426a30d25ae",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T04:06:00+00:00",
-      "summary": "Article URL: https://www.wltx.com/article/news/nation-world/281-53d8693e-77a4-42ad-86e4-3426a30d25ae Comments URL: https://news.ycombinator.com/item?id=47213764 Points: 296 # Comments: 84",
-      "content": "",
-      "tags": [],
-      "author": "aranaur",
-      "priority": 2
-    },
-    {
-      "id": "31afe86bbb88",
-      "title": "Trump Media weighs Truth Social spinoff as crypto expansion accelerates",
-      "url": "https://cointelegraph.com/news/trump-media-considers-truth-social-spinout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-02T02:34:17+00:00",
-      "summary": "Trump Media expanded into crypto in 2025 with its fintech brand Truth.Fi, creating a Bitcoin treasury, filing multiple crypto ETFs, and forming a partnership with Crypto.com.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Brayden Lindrea",
-      "priority": 2
-    },
-    {
-      "id": "580dfd35b874",
-      "title": "Show HN: Timber – Ollama for classical ML models, 336x faster than Python",
-      "url": "https://github.com/kossisoroyce/timber",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T00:57:40+00:00",
-      "summary": "Article URL: https://github.com/kossisoroyce/timber Comments URL: https://news.ycombinator.com/item?id=47212576 Points: 142 # Comments: 27",
-      "content": "",
-      "tags": [],
-      "author": "kossisoroyce",
-      "priority": 2
-    },
-    {
-      "id": "050926cfbaee",
-      "title": "X allows paid crypto promotions but bans them in EU, UK",
-      "url": "https://cointelegraph.com/news/x-lifts-crypto-promo-ban-for-paid-partnerships?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-02T00:37:08+00:00",
-      "summary": "X’s head of product, Nikita Bier, said the new paid promotion label is designed to help users monetize content while remaining transparent with followers.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Brayden Lindrea",
-      "priority": 2
-    },
-    {
-      "id": "a367e8a039f1",
-      "title": "If AI writes code, should the session be part of the commit?",
-      "url": "https://github.com/mandel-macaque/memento",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T00:27:52+00:00",
-      "summary": "Article URL: https://github.com/mandel-macaque/memento Comments URL: https://news.ycombinator.com/item?id=47212355 Points: 312 # Comments: 289",
-      "content": "",
-      "tags": [],
-      "author": "mandel_x",
-      "priority": 2
-    },
-    {
-      "id": "018703fab583",
-      "title": "Right-sizes LLM models to your system's RAM, CPU, and GPU",
-      "url": "https://github.com/AlexsJones/llmfit",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-01T23:15:16+00:00",
-      "summary": "Article URL: https://github.com/AlexsJones/llmfit Comments URL: https://news.ycombinator.com/item?id=47211830 Points: 180 # Comments: 39",
-      "content": "",
-      "tags": [],
-      "author": "bilsbie",
-      "priority": 2
-    },
-    {
-      "id": "8aa075afd0e8",
-      "title": "Little Free Library",
-      "url": "https://littlefreelibrary.org/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-01T22:18:10+00:00",
-      "summary": "Article URL: https://littlefreelibrary.org/ Comments URL: https://news.ycombinator.com/item?id=47211280 Points: 135 # Comments: 67",
-      "content": "",
-      "tags": [],
-      "author": "TigerUniversity",
-      "priority": 2
-    },
-    {
-      "id": "4b6e66ddd8d3",
-      "title": "WebMCP is available for early preview",
-      "url": "https://developer.chrome.com/blog/webmcp-epp",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-01T22:13:58+00:00",
-      "summary": "Article URL: https://developer.chrome.com/blog/webmcp-epp Comments URL: https://news.ycombinator.com/item?id=47211249 Points: 317 # Comments: 178",
-      "content": "",
-      "tags": [],
-      "author": "andsoitis",
+      "author": "",
       "priority": 2
     },
     {
@@ -593,130 +888,94 @@
       "priority": 2
     },
     {
-      "id": "e316efe2ce4a",
-      "title": "Kalshi founder provides update on Iran's Khamenei market carveout",
-      "url": "https://cointelegraph.com/news/kalshi-founder-khamenei-market-carveout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-01T21:17:03+00:00",
-      "summary": "The prediction platform said it would reimburse users and resolve markets to the last-traded price before the death of the Iranian leader was confirmed.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Vince Quill",
-      "priority": 2
-    },
-    {
-      "id": "d64a62c72d20",
-      "title": "Bitcoin undervalued relative to gold signals potential rally: Analyst",
-      "url": "https://cointelegraph.com/news/bitcoin-undervalued-gold-potential-rally?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-01T18:54:23+00:00",
-      "summary": "Gold has become “overextended” after climbing to more than $5,247 per ounce, according to Jan3 CEO and Bitcoin advocate Samson Mow.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Vince Quill",
-      "priority": 2
-    },
-    {
-      "id": "d151a3c8d771",
-      "title": "Tesla increases Cybertruck AWD price to $70,000 after creating artificial urgency",
-      "url": "https://electrek.co/2026/03/01/tesla-cybertruck-awd-price-increase-70000-artificial-urgency/",
-      "source": "electrek",
-      "source_name": "Electrek",
+      "id": "cd1b127c7af1",
+      "title": "Show GN: Mac에서 Apple Music 무손실 음원 들을 때 필수! 자동 샘플 레이트 전환 앱 'PureRate'",
+      "url": "https://news.hada.io/topic?id=27136",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
       "category": "tech",
-      "language": "en",
-      "published": "2026-03-01T17:38:24+00:00",
-      "summary": "Tesla has increased the price of the new Cybertruck AWD from $59,990 to $69,990 — a 17% price hike that took effect today, just 10 days after the trim was introduced. The price increase follows what might be one of the most cynical new trim introductions in the history of the auto industry: launch at a low price, create urgency by announcing the price will increase in 10 days, then claim the price hike is justified by the inflated demand you just created. more…",
-      "content": "",
-      "tags": [
-        "News",
-        "elon musk",
-        "Tesla",
-        "Tesla Cybertruck"
-      ],
-      "author": "Fred Lambert",
-      "priority": 2
+      "language": "ko",
+      "published": "2026-03-03T01:30:43+09:00",
+      "summary": "Mac으로 Apple Music의 고해상도 무손실 음원을 들으시는 분들을 위한 가벼운 메뉴바 유틸리티, PureRate를 만들었습니다. 왜 필요할까요? macOS의 Apple Music은 재생 중인 곡의 포맷(44.1kHz, 96kHz, 192kHz 등)에 맞춰 하드웨어 출력 샘플 레이트를 자동으로 변경해 주지 않습니다. 무손실 음원으로",
+      "content": "Mac으로 Apple Music의 고해상도 무손실 음원을 들으시는 분들을 위한 가벼운 메뉴바 유틸리티, PureRate를 만들었습니다. 왜 필요할까요? macOS의 Apple Music은 재생 중인 곡의 포맷(44.1kHz, 96kHz, 192kHz 등)에 맞춰 하드웨어 출력 샘플 레이트를 자동으로 변경해 주지 않습니다. 무손실 음원으로",
+      "tags": [],
+      "author": "jjmusic1",
+      "priority": 1
     },
     {
-      "id": "15955875b950",
-      "title": "Strategy boosts monthly STRC preferred dividend to 11.5% for March 2026",
-      "url": "https://cointelegraph.com/news/strategy-raises-strc-dividend-11-50?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-01T17:06:53+00:00",
-      "summary": "The 25-basis-point increase is the latest monthly adjustment of STRC’s dividend and comes amid a sharp downturn in crypto markets and broader macroeconomic uncertainty.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Vince Quill",
-      "priority": 2
-    },
-    {
-      "id": "2291f5705ef1",
-      "title": "Bitcoin traders eye Iran reactions as oil spike raises US 5% inflation risk",
-      "url": "https://cointelegraph.com/news/bitcoin-traders-eye-iran-reactions-oil-sparks-us-5-inflation-forecast?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-01T15:42:03+00:00",
-      "summary": "Bitcoin avoided a fresh breakdown around major geopolitical events in the Middle East, with BTC price targets now including $74,000 next.",
-      "content": "",
-      "tags": [
-        "Markets"
-      ],
-      "author": "Cointelegraph by William Suberg",
-      "priority": 2
-    },
-    {
-      "id": "78f7a83e386d",
-      "title": "Here’s what happened in crypto today",
-      "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-01T12:59:09+00:00",
-      "summary": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, NFTs, Web3 and crypto regulation.",
-      "content": "",
-      "tags": [
-        "Trump memecoin",
-        "Solana memecoin",
-        "TRUMP token",
-        "Solana",
-        "SOL"
-      ],
-      "author": "Cointelegraph by Cointelegraph",
-      "priority": 2
-    },
-    {
-      "id": "870cd5710c0b",
-      "title": "I tested the weird, tiny, low-cost electric car soon coming to the US",
-      "url": "https://electrek.co/2026/03/01/i-tested-the-weird-tiny-low-cost-electric-car-soon-moming-to-the-us/",
-      "source": "electrek",
-      "source_name": "Electrek",
+      "id": "e77425a905f2",
+      "title": "Show GN: Claude Code 해커톤 수상자가 만든 데모영상 제작 도구 - Recorded",
+      "url": "https://news.hada.io/topic?id=27134",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
       "category": "tech",
+      "language": "ko",
+      "published": "2026-03-02T23:11:07+09:00",
+      "summary": "다들 연휴에도 수십개의 Agent로 수백개의 기능을 자동으로 찍어내고 계신가요? 그럼 지금 바로 recorded가 필요하실거에요! AI 덕분에 기능 개발은 빨라졌고 프로토타입은 하루에도 수십개씩 나오고 Admin, 앱, 웹 페이지는 계속 쌓이는데… 아직도 홍보",
+      "content": "다들 연휴에도 수십개의 Agent로 수백개의 기능을 자동으로 찍어내고 계신가요? 그럼 지금 바로 recorded가 필요하실거에요! AI 덕분에 기능 개발은 빨라졌고 프로토타입은 하루에도 수십개씩 나오고 Admin, 앱, 웹 페이지는 계속 쌓이는데… 아직도 홍보",
+      "tags": [],
+      "author": "jspiner",
+      "priority": 1
+    },
+    {
+      "id": "1c2f057dfd83",
+      "title": "New Chrome Vulnerability Let Malicious Extensions Escalate Privileges via Gemini Panel",
+      "url": "https://thehackernews.com/2026/03/new-chrome-vulnerability-let-malicious.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
       "language": "en",
-      "published": "2026-03-01T12:57:00+00:00",
-      "summary": "Electric vehicles are everywhere these days, but few are as intriguing – or as polarizing – as the tiny urban EV soon headed to American roads. Fiat recently announced plans to bring its diminutive new model, the Topolino, to the US this year.",
+      "published": "2026-03-02T22:38:00+05:30",
+      "summary": "Cybersecurity researchers have disclosed details of a now-patched security flaw in Google Chrome that could have permitted attackers to escalate privileges and gain access to local files on the system. The vulnerability, tracked as CVE-2026-0628 (CVSS score: 8.8), has been described as a case of insufficient policy enforcement in the WebView tag. It was patched by Google in early January 2026",
       "content": "",
-      "tags": [
-        "News"
-      ],
-      "author": "Micah Toll",
-      "priority": 2
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "090629ff5202",
+      "title": "Google Develops Merkle Tree Certificates to Enable Quantum-Resistant HTTPS in Chrome",
+      "url": "https://thehackernews.com/2026/03/google-develops-merkle-tree.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-02T22:22:00+05:30",
+      "summary": "Google has announced a new program in its Chrome browser to ensure that HTTPS certificates are secure against the future risk posed by quantum computers. \"To ensure the scalability and efficiency of the ecosystem, Chrome has no immediate plan to add traditional X.509 certificates containing post-quantum cryptography to the Chrome Root Store,\" the Chrome Secure Web and Networking Team said. \"",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "54637e958cf3",
+      "title": "Windows 95 사용자 인터페이스: 사용성 공학 사례 연구 (1996)",
+      "url": "https://news.hada.io/topic?id=27133",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-03-02T21:33:48+09:00",
+      "summary": "Windows 95 UI 개발 과정 은 대규모 상용 소프트웨어에서 반복적 설계(iterative design) 와 문제 추적(problem tracking) 을 체계적으로 적용한 대표적 사례로 제시됨 초기 목표는 초보자에게 배우기 쉬우면서도 숙련자에게 효율적인 시...",
+      "content": "Windows 95 UI 개발 과정 은 대규모 상용 소프트웨어에서 반복적 설계(iterative design) 와 문제 추적(problem tracking) 을 체계적으로 적용한 대표적 사례로 제시됨 초기 목표는 초보자에게 배우기 쉬우면서도 숙련자에게 효율적인 시...",
+      "tags": [],
+      "author": "neo",
+      "priority": 1
+    },
+    {
+      "id": "42e3067129d7",
+      "title": "국방부와의 협약",
+      "url": "https://news.hada.io/topic?id=27132",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-03-02T20:33:30+09:00",
+      "summary": "OpenAI는 미국 국방부(Pentagon) 와 협약을 체결해 기밀 환경에서 AI 시스템을 배포 하기로 함 협약에는 대규모 국내 감시 , 자율 무기 지휘 , 고위험 자동 의사결정 에 OpenAI 기술을 사용하지 않는다는 ...",
+      "content": "OpenAI는 미국 국방부(Pentagon) 와 협약을 체결해 기밀 환경에서 AI 시스템을 배포 하기로 함 협약에는 대규모 국내 감시 , 자율 무기 지휘 , 고위험 자동 의사결정 에 OpenAI 기술을 사용하지 않는다는 ...",
+      "tags": [],
+      "author": "neo",
+      "priority": 1
     },
     {
       "id": "f42e441e38e0",
@@ -746,6 +1005,330 @@
       "content": "카르마를 쌓으세요!!! ✨✨ 개발자를 꿈꾸는 고등학생들을 도와주세요! 🚀 직군 상관없이 여러분들의 경험과 의견을 기다리고 있습니다! 개발자를 양성하는 소마고 후배님들을 위해 좋은 회사 고르는 법과 신입의 전략을 블로그에 작성했습니다! TL;DR은 아래에 있습니다 ☺️ https://lnkd",
       "tags": [],
       "author": "rla1sqls",
+      "priority": 1
+    },
+    {
+      "id": "8ae9d64c958a",
+      "title": "⚡ Weekly Recap: SD-WAN 0-Day, Critical CVEs, Telegram Probe, Smart TV Proxy SDK and More",
+      "url": "https://thehackernews.com/2026/03/weekly-recap-sd-wan-0-day-critical-cves.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-02T18:56:00+05:30",
+      "summary": "This week is not about one big event. It shows where things are moving. Network systems, cloud setups, AI tools, and common apps are all being pushed in different ways. Small gaps in access control, exposed keys, and normal features are being used as entry points. The pattern becomes clear only when you see everything together. Faster scans, smarter misuse of trusted services, and steady",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "986e55bc2a7e",
+      "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-03-02T18:55:20.031671+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "d811fadee334",
+      "title": "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-03-02T18:55:20.031547+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "KARA",
+        "보안리포트",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "46094d971cf5",
+      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-03-02T18:55:20.031421+00:00",
+      "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "3cc1a7b416fc",
+      "title": "SK쉴더스 EQST insight 통합 12월호",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-03-02T18:55:20.031293+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "a28815273f1a",
+      "title": "HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_1%EC%9B%94%ED%98%B8_%EC%84%A0%EC%A0%9C%EC%A0%81%20%EB%B3%B4%EC%95%88%EA%B3%BC%20%EB%A0%88%EB%93%9C%ED%8C%80%20%EA%B8%B0%EB%B0%98%20%EC%82%AC%EC%9D%B4%EB%B2%84%20%EB%A9%B4%EC%97%AD%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%20%EC%A0%84%EB%9E%B5_F.pdf&r_fname=20260129161055399.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-03-02T18:55:20.031169+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "d11cf7a9c759",
+      "title": "Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%201%EC%9B%94%ED%98%B8%20Sinobi%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%EC%99%80%20Lynx%20%EA%B7%B8%EB%A3%B9%EA%B3%BC%EC%9D%98%20%EC%97%B0%EA%B3%84%20%EC%A0%95%ED%99%A9%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260129161122795.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-03-02T18:55:20.031032+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "KARA",
+        "보안리포트",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "b6fa6b27e1a7",
+      "title": "Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%201%EC%9B%94%ED%98%B8_JWT%20%EC%84%9C%EB%AA%85%ED%82%A4%20%EC%9C%A0%EC%B6%9C%EC%9D%B4%20%EC%B4%88%EB%9E%98%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%A6%9D%20%EC%9C%84%ED%98%91%EA%B3%BC%20%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20260129161142327.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-03-02T18:55:20.030897+00:00",
+      "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "ad4f1e9b7f7b",
+      "title": "SK쉴더스 EQST insight 통합 (목차) 1월호 F",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_1%EC%9B%94%ED%98%B8_F.pdf&r_fname=20260129161206425.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-03-02T18:55:20.030746+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "a7347cf3e01d",
+      "title": "HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_2%EC%9B%94%ED%98%B8_%EA%B8%88%EC%9C%B5%EB%B6%84%EC%95%BC%20AI%207%EB%8C%80%20%EC%9B%90%EC%B9%99%EA%B3%BC%20%EA%B5%AD%EB%82%B4%EC%99%B8%20%EC%A0%95%EC%B1%85%EC%82%AC%EB%A1%80%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260225185655664.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-03-02T18:55:20.030629+00:00",
+      "summary": "SK쉴더스 보안 리포트: HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "AI보안",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "fb77b8e78259",
+      "title": "Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%202%EC%9B%94%ED%98%B8%20%EC%A7%80%EC%86%8D%EC%A0%81%EC%9C%BC%EB%A1%9C%20%EB%A6%AC%EB%B8%8C%EB%9E%9C%EB%94%A9%EB%90%98%EB%8A%94%20Global%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20260225085159572.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-03-02T18:55:20.030498+00:00",
+      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "KARA",
+        "보안리포트",
+        "랜섬웨어"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "b8989d51c612",
+      "title": "SK쉴더스 EQST insight 통합 (목차) 2월호",
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_2%EC%9B%94%ED%98%B8.pdf&r_fname=20260225185712558.pdf",
+      "source": "skshieldus_report",
+      "source_name": "SK쉴더스 보안 리포트",
+      "category": "security",
+      "language": "ko",
+      "published": "2026-03-02T18:55:20.030078+00:00",
+      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 2월호",
+      "content": "",
+      "tags": [
+        "SK쉴더스",
+        "보안리포트"
+      ],
+      "author": "SK쉴더스",
+      "priority": 1
+    },
+    {
+      "id": "d0ed6df94fc7",
+      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
+      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
+      "source": "worldmonitor_tech",
+      "source_name": "Tech World Monitor",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-02T18:54:30.017296+00:00",
+      "summary": "Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. 실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다. 이번 수집은 해저 케이블, 기상, 경제 지표, 서비스 장애, 데이터센터, 자연재해 레이어를 중심으로 참고했습니다. 분석 기준 구간은 최근 7d입니다.",
+      "content": "실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다.",
+      "tags": [
+        "WorldMonitor",
+        "Global-Tech",
+        "Dashboard",
+        "해저 케이블",
+        "기상"
+      ],
+      "author": "World Monitor",
+      "priority": 1
+    },
+    {
+      "id": "9cf5375b0bff",
+      "title": "Build a serverless conversational AI agent using Claude with LangGraph and managed MLflow on Amazon SageMaker AI",
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-serverless-conversational-ai-agent-using-claude-with-langgraph-and-managed-mlflow-on-amazon-sagemaker-ai/",
+      "source": "aws_ml",
+      "source_name": "AWS Machine Learning Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-02T18:51:43+00:00",
+      "summary": "This post explores how to build an intelligent conversational agent using Amazon Bedrock, LangGraph, and managed MLflow on Amazon SageMaker AI.",
+      "content": "Customer service teams face a persistent challenge. Existing chat-based assistants frustrate users with rigid responses, while direct large language model (LLM) implementations lack the structure needed for reliable business operations. When customers need help with order inquiries, cancellations, or status updates, traditional approaches either fail to understand natural language or can’t maintain context across multistep conversations.",
+      "tags": [
+        "Amazon Bedrock",
+        "Amazon DynamoDB",
+        "Amazon SageMaker AI",
+        "Generative AI",
+        "Intermediate (200)"
+      ],
+      "author": "Sri Potluri",
+      "priority": 1
+    },
+    {
+      "id": "f95c43ed39d6",
+      "title": "Build safe generative AI applications like a Pro: Best Practices with Amazon Bedrock Guardrails",
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-safe-generative-ai-applications-like-a-pro-best-practices-with-amazon-bedrock-guardrails/",
+      "source": "aws_ml",
+      "source_name": "AWS Machine Learning Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-02T18:48:25+00:00",
+      "summary": "In this post, we will show you how to configure Amazon Bedrock Guardrails for efficient performance, implement best practices to protect your applications, and monitor your deployment effectively to maintain the right balance between safety and user experience.",
+      "content": "Are you struggling to balance generative AI safety with accuracy, performance, and costs? Many organizations face this challenge when deploying generative AI applications to production. A guardrail that’s too strict blocks legitimate user requests, which frustrates customers. One that’s too lenient exposes your application to harmful content, prompt attacks, or unintended data exposure.",
+      "tags": [
+        "Advanced (300)",
+        "Amazon Bedrock",
+        "Amazon Bedrock Guardrails",
+        "Best Practices",
+        "Responsible AI"
+      ],
+      "author": "Daniel Khain",
+      "priority": 1
+    },
+    {
+      "id": "32d728682c4e",
+      "title": "Vitalik Buterin unveils plan to curb Ethereum block builder centralization",
+      "url": "https://www.coindesk.com/tech/2026/03/02/vitalik-buterin-unveils-plan-to-curb-ethereum-block-builder-centralization",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T18:45:17+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Tech",
+        "Ethereum News",
+        "Vitalik Buterin",
+        "News"
+      ],
+      "author": "Margaux Nijkerk",
+      "priority": 1
+    },
+    {
+      "id": "c3ee4eb3ebe6",
+      "title": "St. Cloud Financial Credit Union Rolls Out Core-Integrated Digital Asset Platform for Members",
+      "url": "https://bitcoinmagazine.com/news/st-cloud-financial-union-digital-asset",
+      "source": "bitcoin_magazine",
+      "source_name": "Bitcoin Magazine",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T17:49:23+00:00",
+      "summary": "Bitcoin Magazine St. Cloud Financial Credit Union Rolls Out Core-Integrated Digital Asset Platform for Members St. Cloud Financial Credit Union launched a platform that lets members hold and manage digital assets like Bitcoin while keeping control, data, and governance within the credit union. This post St. Cloud Financial Credit Union Rolls Out Core-Integrated Digital Asset Platform for Members first appeared on Bitcoin Magazine and is written by Micah Zimmerman .",
+      "content": "Bitcoin Magazine St. Cloud Financial Credit Union Rolls Out Core-Integrated Digital Asset Platform for Members St. Cloud Financial Credit Union (SCFCU) announced the launch of its CU-Digital Asset Vault , a digital-asset platform built specifically for credit union members.",
+      "tags": [
+        "NEWS",
+        "credit union",
+        "Custody",
+        "Digital Asset",
+        "Self Custody"
+      ],
+      "author": "Micah Zimmerman",
       "priority": 1
     },
     {
@@ -779,6 +1362,128 @@
       "priority": 1
     },
     {
+      "id": "5646989fb08e",
+      "title": "Battle for Bitcoin's soul opens as first block supporting 'clean-up' proposal is mined",
+      "url": "https://www.coindesk.com/tech/2026/03/02/battle-for-bitcoin-s-soul-opens-as-first-block-supporting-clean-up-proposal-is-mined",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T17:15:44+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Tech",
+        "Bitcoin News",
+        "BIP",
+        "News"
+      ],
+      "author": "AI Boost",
+      "priority": 1
+    },
+    {
+      "id": "a9a85cc27144",
+      "title": "Weekend warriors: How HyperLiquid became retail’s bear market playground",
+      "url": "https://www.coindesk.com/business/2026/03/02/weekend-warriors-how-hyperliquid-became-retail-s-bear-market-playground",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T17:04:42+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Finance",
+        "Hyperliquid",
+        "Cryptocurrency Derivatives",
+        "perpetual contracts",
+        "News"
+      ],
+      "author": "Oliver Knight",
+      "priority": 1
+    },
+    {
+      "id": "736e90506aa6",
+      "title": "Investing in Infrastructure: Meta’s Renewed Commitment to jemalloc",
+      "url": "https://engineering.fb.com/2026/03/02/data-infrastructure/investing-in-infrastructure-metas-renewed-commitment-to-jemalloc/",
+      "source": "meta_engineering",
+      "source_name": "Meta Engineering Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-02T17:00:04+00:00",
+      "summary": "Meta recognizes the long-term benefits of jemalloc, a high-performance memory allocator, in its software infrastructure. We are renewing focus on jemalloc, aiming to reduce maintenance needs and modernize the codebase while continuing to evolve the allocator to adapt to the latest hardware and workloads. We are committed to continuing to develop jemalloc development with the [...] Read More...",
+      "content": "Meta recognizes the long-term benefits of jemalloc, a high-performance memory allocator, in its software infrastructure. We are renewing focus on jemalloc, aiming to reduce maintenance needs and modernize the codebase while continuing to evolve the allocator to adapt to the latest hardware and workloads. We are committed to continuing to develop jemalloc development with the open source community and welcome contributions and collaborations from the community.",
+      "tags": [
+        "Data Infrastructure",
+        "Open Source"
+      ],
+      "author": "",
+      "priority": 1
+    },
+    {
+      "id": "0b0085a4b272",
+      "title": "Cake Wallet Launches Bitcoin Lightning Network Support With Full Self-Custody and Privacy Defaults",
+      "url": "https://bitcoinmagazine.com/business/cake-wallet-launches-bitcoin-lightning-network-support-with-full-self-custody-and-privacy-defaults",
+      "source": "bitcoin_magazine",
+      "source_name": "Bitcoin Magazine",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T16:59:00+00:00",
+      "summary": "Bitcoin Magazine Cake Wallet Launches Bitcoin Lightning Network Support With Full Self-Custody and Privacy Defaults Cake Wallet has rolled out Bitcoin Lightning Network integration using Breez SDK and a privacy-focused Spark implementation, enabling instant payments while keeping users in full self-custody and limiting on-chain visibility.",
+      "content": "Bitcoin Magazine Cake Wallet Launches Bitcoin Lightning Network Support With Full Self-Custody and Privacy Defaults Cake Wallet has announced the integration of Bitcoin’s Lightning Network into its advanced privacy wallet. The move comes after a series of Bitcoin-specific updates that put Cake at the forefront of mobile wallets across the broader crypto industry. This is not Cake Wallet’s first inroad into advanced Bitcoin features.",
+      "tags": [
+        "BUSINESS",
+        "FEATURED",
+        "Breez",
+        "cake",
+        "Cake Wallet"
+      ],
+      "author": "Juan Galt",
+      "priority": 1
+    },
+    {
+      "id": "d9765335162c",
+      "title": "Bitcoin Price Pumps 7% in Early Trading to Over $70,000",
+      "url": "https://bitcoinmagazine.com/markets/bitcoin-price-pumps-to-over-7000",
+      "source": "bitcoin_magazine",
+      "source_name": "Bitcoin Magazine",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T16:52:02+00:00",
+      "summary": "Bitcoin Magazine Bitcoin Price Pumps 7% in Early Trading to Over $70,000 The bitcoin price pumped sharply from the mid‑$65,000 range to above $70,000 earlier today. This post Bitcoin Price Pumps 7% in Early Trading to Over $70,000 first appeared on Bitcoin Magazine and is written by Micah Zimmerman .",
+      "content": "Bitcoin Magazine Bitcoin Price Pumps 7% in Early Trading to Over $70,000 The bitcoin price is on the move again this morning, pumping sharply from the mid‑$65,000 range to push toward $70,000, representing roughly a 6% gain in just a few hours as leveraged short positions face heavy liquidations. Last week, Bitcoin price briefly surged past $69,000 on February 25 before retreating over the weekend, falling back to around $65,000.",
+      "tags": [
+        "MARKETS",
+        "Analysis",
+        "bitcoin price",
+        "Iran",
+        "Price Action"
+      ],
+      "author": "Micah Zimmerman",
+      "priority": 1
+    },
+    {
+      "id": "84e533bc954d",
+      "title": "Crypto world faces growing pressure to relent on stablecoin rewards to win bigger prize",
+      "url": "https://www.coindesk.com/news-analysis/2026/03/02/crypto-world-faces-growing-pressure-to-relent-on-stablecoin-rewards-to-win-bigger-prize",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T16:45:11+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "News Analysis",
+        "Market Structure Legislation",
+        "U.S. Senate Banking Committee",
+        "banks",
+        "Crypto lobbying"
+      ],
+      "author": "Jesse Hamilton",
+      "priority": 1
+    },
+    {
       "id": "5913b057e3a9",
       "title": "AI가 코딩을 쉽게 만들었다. 그러나 엔지니어링은 더 어려워졌다",
       "url": "https://news.hada.io/topic?id=27128",
@@ -791,6 +1496,46 @@
       "content": "AI 도구의 확산 으로 코드 작성은 쉬워졌지만, 소프트웨어 엔지니어의 업무 강도와 복잡성 은 오히려 증가함 AI가 생산성을 높이자 조직의 기대치와 업무량 기준선이 상승 , 엔지니어들은 더 많은 일을 더 빠르게 수행해야 하는 압박을 받음 ...",
       "tags": [],
       "author": "neo",
+      "priority": 1
+    },
+    {
+      "id": "ef97f6aeff2a",
+      "title": "Nasdaq follows Cboe joining world of 'binary bets' as prediction market craze hits Wall Street",
+      "url": "https://www.coindesk.com/markets/2026/03/02/nasdaq-follows-cboe-joining-world-of-binary-bets-as-prediction-market-craze-hits-wall-street",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T16:28:16+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "Prediction Markets",
+        "Nasdaq",
+        "Binary Options",
+        "News"
+      ],
+      "author": "Helene Braun",
+      "priority": 1
+    },
+    {
+      "id": "8237af126596",
+      "title": "Understanding IAM for Managed AWS MCP Servers",
+      "url": "https://aws.amazon.com/blogs/security/understanding-iam-for-managed-aws-mcp-servers/",
+      "source": "aws_security",
+      "source_name": "AWS Security Blog",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-02T16:12:32+00:00",
+      "summary": "As AI agents become part of your development workflows on Amazon Web Services (AWS), you want them to work with your existing AWS Identity and Access Management (IAM) permissions, not force you to build a separate permissions model. At the same time, you need the flexibility to apply different governance controls when an AI agent […]",
+      "content": "As AI agents become part of your development workflows on Amazon Web Services (AWS) , you want them to work with your existing AWS Identity and Access Management (IAM) permissions, not force you to build a separate permissions model. At the same time, you need the flexibility to apply different governance controls when an AI agent makes an API call compared to when a developer does it directly.",
+      "tags": [
+        "Best Practices",
+        "Security, Identity, & Compliance",
+        "Security Blog"
+      ],
+      "author": "Riggs Goodman III",
       "priority": 1
     },
     {
@@ -809,6 +1554,109 @@
       "priority": 1
     },
     {
+      "id": "85860f175097",
+      "title": "Bitcoin surges above $68,000 amid muted stock market reaction to Iran war",
+      "url": "https://www.coindesk.com/markets/2026/03/02/bitcoin-surges-above-usd68-000-amid-muted-stock-market-reaction-to-iran-war",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T15:32:22+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "Bitcoin News",
+        "Breaking News",
+        "top news",
+        "News"
+      ],
+      "author": "James Van Straten",
+      "priority": 1
+    },
+    {
+      "id": "958003f8c8df",
+      "title": "Tom Lee's Bitmine boosts ether holdings to 4.47 million tokens with  $98 million ETH purchase",
+      "url": "https://www.coindesk.com/business/2026/03/02/bitmine-boosts-ether-holdings-to-4-47m-tokens-after-usd98m-eth-purchase",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T15:10:25+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Finance",
+        "Bitmine",
+        "Thomas Lee",
+        "Ethereum staking",
+        "Eth supply"
+      ],
+      "author": "Olivier Acuna",
+      "priority": 1
+    },
+    {
+      "id": "b07cde9ca223",
+      "title": "Citrea Launches Foundation to Advance Bitcoin’s Programmable Future",
+      "url": "https://bitcoinmagazine.com/news/citrea-launches-foundation-bitcoins",
+      "source": "bitcoin_magazine",
+      "source_name": "Bitcoin Magazine",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T15:04:03+00:00",
+      "summary": "Bitcoin Magazine Citrea Launches Foundation to Advance Bitcoin’s Programmable Future Citrea announced the creation of the Citrea Foundation today. This post Citrea Launches Foundation to Advance Bitcoin’s Programmable Future first appeared on Bitcoin Magazine and is written by Micah Zimmerman .",
+      "content": "Bitcoin Magazine Citrea Launches Foundation to Advance Bitcoin’s Programmable Future Citrea, a Bitcoin application platform backed by Founders Fund and Galaxy Ventures, announced the creation of the Citrea Foundation, an independent organization aimed at accelerating the growth and decentralization of Bitcoin’s programmable ecosystem.",
+      "tags": [
+        "NEWS",
+        "Citrea",
+        "Decentralization",
+        "Foundation",
+        "Privacy"
+      ],
+      "author": "Micah Zimmerman",
+      "priority": 1
+    },
+    {
+      "id": "3520fd7b8417",
+      "title": "ProCap Financial (BRR) Buys 450 Bitcoin and Doubles Down on NAV-Accretive Strategy",
+      "url": "https://bitcoinmagazine.com/news/procap-financial-brr-buys-450-bitcoin",
+      "source": "bitcoin_magazine",
+      "source_name": "Bitcoin Magazine",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T14:45:02+00:00",
+      "summary": "Bitcoin Magazine ProCap Financial (BRR) Buys 450 Bitcoin and Doubles Down on NAV-Accretive Strategy ProCap Financial, Inc. continued its twin strategic thrusts this week with the acquisition of 450 Bitcoin, bringing its total holdings to 5,457 BTC and lowering its average cost basis per coin, the company announced.",
+      "content": "Bitcoin Magazine ProCap Financial (BRR) Buys 450 Bitcoin and Doubles Down on NAV-Accretive Strategy ProCap Financial, Inc. continued its twin strategic thrusts this week with the acquisition of 450 Bitcoin, bringing its total holdings to 5,457 BTC and lowering its average cost basis per coin, the company announced. The aggressive accumulation comes as Bitcoin trades near $65,000, presenting what management views as a long-term buying opportunity amid broader market volatility.",
+      "tags": [
+        "NEWS",
+        "Anthony Pompliano",
+        "ProCap"
+      ],
+      "author": "Micah Zimmerman",
+      "priority": 1
+    },
+    {
+      "id": "0e68fdcc7819",
+      "title": "Strategy ($MSTR) Buys $204 Million in Bitcoin, Holdings Climb to 720,737 BTC",
+      "url": "https://bitcoinmagazine.com/news/strategy-mstr-buys-204-million-in-bitcoin",
+      "source": "bitcoin_magazine",
+      "source_name": "Bitcoin Magazine",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T14:40:01+00:00",
+      "summary": "Bitcoin Magazine Strategy ($MSTR) Buys $204 Million in Bitcoin, Holdings Climb to 720,737 BTC Strategy purchased over $200 million in bitcoin last week, lifting its total holdings to 720,737. This post Strategy ($MSTR) Buys $204 Million in Bitcoin, Holdings Climb to 720,737 BTC first appeared on Bitcoin Magazine and is written by Micah Zimmerman .",
+      "content": "Bitcoin Magazine Strategy ($MSTR) Buys $204 Million in Bitcoin, Holdings Climb to 720,737 BTC Strategy purchased more than $200 million in bitcoin last week, lifting its total holdings to 720,737 BTC valued at more than $47 billion. The company, led by Executive Chairman Michael Saylor , disclosed in their usual Monday filing that it acquired 3,015 bitcoin between Feb. 23 and March 1 for approximately $204.1 million. The average purchase price was $67,700 per coin.",
+      "tags": [
+        "NEWS",
+        "Bitcoin",
+        "bitcoin companies",
+        "michael saylor",
+        "MSTR"
+      ],
+      "author": "Micah Zimmerman",
+      "priority": 1
+    },
+    {
       "id": "cf1c21e2abff",
       "title": "Forward Deployed Engineer(FDE) 채용을 위한 완벽 가이드",
       "url": "https://news.hada.io/topic?id=27125",
@@ -821,6 +1669,27 @@
       "content": "현장 배치 엔지니어(FDE) 는 고객 현장에 직접 배치되어 기술적으로 복잡한 제품의 ‘마지막 마일’을 구현하는 엔지니어 단순한 컨설턴트가 아니라 실제 프로덕션 코드를 작성하고 디버깅하며 새로운 제품 기회를 발굴하는 개발자 이 모델은 모든 기업...",
       "tags": [],
       "author": "xguru",
+      "priority": 1
+    },
+    {
+      "id": "25cd4f81a45d",
+      "title": "EU banks’ euro-pegged stablecoin in talks with crypto exchanges to ensure liquidity",
+      "url": "https://www.coindesk.com/business/2026/03/02/eu-banks-euro-pegged-stablecoin-in-talks-with-crypto-exchanges-to-ensure-liquidity",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T14:37:33+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Finance",
+        "Stablecoins",
+        "European Union",
+        "BBVA",
+        "banks"
+      ],
+      "author": "Olivier Acuna",
       "priority": 1
     },
     {
@@ -839,6 +1708,27 @@
       "priority": 1
     },
     {
+      "id": "31af55577019",
+      "title": "CoinDesk 20 performance update: NEAR Protocol (NEAR) jumps 12.4% over weekend",
+      "url": "https://www.coindesk.com/coindesk-indices/2026/03/02/coindesk-20-performance-update-near-protocol-near-jumps-12-4-over-weekend",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T14:15:11+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "CoinDesk Indices",
+        "CoinDesk Indices",
+        "CoinDesk 20",
+        "charts",
+        "Prices"
+      ],
+      "author": "CoinDesk Indices",
+      "priority": 1
+    },
+    {
       "id": "c7b442719f40",
       "title": "North Korean Hackers Publish 26 npm Packages Hiding Pastebin C2 for Cross-Platform RAT",
       "url": "https://thehackernews.com/2026/03/north-korean-hackers-publish-26-npm.html",
@@ -851,6 +1741,47 @@
       "content": "",
       "tags": [],
       "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "29a18e9d8c8f",
+      "title": "Iranian crypto outflows jump 700% minutes after U.S.-Israeli airstrikes, Elliptic says",
+      "url": "https://www.coindesk.com/business/2026/03/02/iranian-crypto-outflows-jump-700-minutes-after-airstrikes-elliptic-says",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T14:13:01+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Finance",
+        "Iran",
+        "Outflows",
+        "cryptocurrencies",
+        "Elliptic"
+      ],
+      "author": "AI Boost",
+      "priority": 1
+    },
+    {
+      "id": "40576d8c79ba",
+      "title": "Turkey's ruling party unveils 10% crypto income tax proposal",
+      "url": "https://www.coindesk.com/policy/2026/03/02/turkey-s-ruling-party-unveils-10-crypto-income-tax-proposal",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T13:36:21+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Policy",
+        "Turkey",
+        "crypto tax",
+        "News"
+      ],
+      "author": "AI Boost",
       "priority": 1
     },
     {
@@ -869,6 +1800,68 @@
       "priority": 1
     },
     {
+      "id": "3f0a5c88e3f1",
+      "title": "Strategy purchased more than $200 million in bitcoin last week",
+      "url": "https://www.coindesk.com/markets/2026/03/02/strategy-purchased-more-than-usd200-million-in-bitcoin-last-week",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T13:26:18+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "Bitcoin News",
+        "Michael Saylor",
+        "Strategy",
+        "News"
+      ],
+      "author": "James Van Straten",
+      "priority": 1
+    },
+    {
+      "id": "b7142769abc6",
+      "title": "South Korea investigates seed phrase leak in photo leading to $4.8 million crypto theft from tax authority",
+      "url": "https://www.coindesk.com/business/2026/03/02/south-korea-investigates-seed-phrase-leak-in-photo-leading-to-usd4-8-million-crypto-theft-from-tax-authority",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T13:05:37+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Finance",
+        "South Korea",
+        "Passwords",
+        "Crypto Leaks",
+        "Theft"
+      ],
+      "author": "Olivier Acuna",
+      "priority": 1
+    },
+    {
+      "id": "19d48fc07ff6",
+      "title": "Anthony Pompliano’s ProCap Financial buys 450 bitcoin, steps up share buybacks",
+      "url": "https://www.coindesk.com/markets/2026/03/02/anthony-pompliano-s-procap-financial-buys-450-bitcoin-steps-up-share-buybacks",
+      "source": "coindesk",
+      "source_name": "CoinDesk",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-02T13:02:53+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Markets",
+        "Bitcoin News",
+        "Anthony Pompliano",
+        "News"
+      ],
+      "author": "James Van Straten",
+      "priority": 1
+    },
+    {
       "id": "6a258638599d",
       "title": "프로덕트 디자인이 변하고 있다",
       "url": "https://news.hada.io/topic?id=27120",
@@ -881,232 +1874,6 @@
       "content": "AI 도구가 디자인 시스템을 직접 활용해 UI를 생성 하면서, 디자이너의 역할이 단순 시각 설계에서 전략과 조율 중심 으로 이동 이제 “누가 누구의 일을 뺏나” 가 아니라, 프로세스가 어떻게 바뀌나 가 핵심 질문 코드...",
       "tags": [],
       "author": "xguru",
-      "priority": 1
-    },
-    {
-      "id": "986e55bc2a7e",
-      "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-03-02T12:45:03.116117+00:00",
-      "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
-      "content": "",
-      "tags": [
-        "보안리포트",
-        "SK쉴더스"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "d811fadee334",
-      "title": "Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2012%EC%9B%94%ED%98%B8%20%ED%99%95%EC%82%B0%EB%90%98%EB%8A%94%20Gentlemen%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%9C%84%ED%98%91.pdf&r_fname=20251222174049086.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-03-02T12:45:03.115996+00:00",
-      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
-      "content": "",
-      "tags": [
-        "보안리포트",
-        "SK쉴더스",
-        "KARA",
-        "랜섬웨어"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "46094d971cf5",
-      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-03-02T12:45:03.115874+00:00",
-      "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
-      "content": "",
-      "tags": [
-        "보안리포트",
-        "SK쉴더스"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "3cc1a7b416fc",
-      "title": "SK쉴더스 EQST insight 통합 12월호",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-03-02T12:45:03.115745+00:00",
-      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
-      "content": "",
-      "tags": [
-        "보안리포트",
-        "SK쉴더스"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "a28815273f1a",
-      "title": "HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_1%EC%9B%94%ED%98%B8_%EC%84%A0%EC%A0%9C%EC%A0%81%20%EB%B3%B4%EC%95%88%EA%B3%BC%20%EB%A0%88%EB%93%9C%ED%8C%80%20%EA%B8%B0%EB%B0%98%20%EC%82%AC%EC%9D%B4%EB%B2%84%20%EB%A9%B4%EC%97%AD%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%20%EC%A0%84%EB%9E%B5_F.pdf&r_fname=20260129161055399.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-03-02T12:45:03.115610+00:00",
-      "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
-      "content": "",
-      "tags": [
-        "보안리포트",
-        "SK쉴더스"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "d11cf7a9c759",
-      "title": "Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%201%EC%9B%94%ED%98%B8%20Sinobi%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%EC%99%80%20Lynx%20%EA%B7%B8%EB%A3%B9%EA%B3%BC%EC%9D%98%20%EC%97%B0%EA%B3%84%20%EC%A0%95%ED%99%A9%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260129161122795.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-03-02T12:45:03.115468+00:00",
-      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
-      "content": "",
-      "tags": [
-        "보안리포트",
-        "SK쉴더스",
-        "KARA",
-        "랜섬웨어"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "b6fa6b27e1a7",
-      "title": "Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%201%EC%9B%94%ED%98%B8_JWT%20%EC%84%9C%EB%AA%85%ED%82%A4%20%EC%9C%A0%EC%B6%9C%EC%9D%B4%20%EC%B4%88%EB%9E%98%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%A6%9D%20%EC%9C%84%ED%98%91%EA%B3%BC%20%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20260129161142327.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-03-02T12:45:03.115335+00:00",
-      "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
-      "content": "",
-      "tags": [
-        "보안리포트",
-        "SK쉴더스"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "ad4f1e9b7f7b",
-      "title": "SK쉴더스 EQST insight 통합 (목차) 1월호 F",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_1%EC%9B%94%ED%98%B8_F.pdf&r_fname=20260129161206425.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-03-02T12:45:03.115204+00:00",
-      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
-      "content": "",
-      "tags": [
-        "보안리포트",
-        "SK쉴더스"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "a7347cf3e01d",
-      "title": "HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_2%EC%9B%94%ED%98%B8_%EA%B8%88%EC%9C%B5%EB%B6%84%EC%95%BC%20AI%207%EB%8C%80%20%EC%9B%90%EC%B9%99%EA%B3%BC%20%EA%B5%AD%EB%82%B4%EC%99%B8%20%EC%A0%95%EC%B1%85%EC%82%AC%EB%A1%80%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260225185655664.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-03-02T12:45:03.115086+00:00",
-      "summary": "SK쉴더스 보안 리포트: HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
-      "content": "",
-      "tags": [
-        "보안리포트",
-        "SK쉴더스",
-        "AI보안"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "fb77b8e78259",
-      "title": "Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%202%EC%9B%94%ED%98%B8%20%EC%A7%80%EC%86%8D%EC%A0%81%EC%9C%BC%EB%A1%9C%20%EB%A6%AC%EB%B8%8C%EB%9E%9C%EB%94%A9%EB%90%98%EB%8A%94%20Global%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20260225085159572.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-03-02T12:45:03.114951+00:00",
-      "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
-      "content": "",
-      "tags": [
-        "보안리포트",
-        "SK쉴더스",
-        "KARA",
-        "랜섬웨어"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "b8989d51c612",
-      "title": "SK쉴더스 EQST insight 통합 (목차) 2월호",
-      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_2%EC%9B%94%ED%98%B8.pdf&r_fname=20260225185712558.pdf",
-      "source": "skshieldus_report",
-      "source_name": "SK쉴더스 보안 리포트",
-      "category": "security",
-      "language": "ko",
-      "published": "2026-03-02T12:45:03.114503+00:00",
-      "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 2월호",
-      "content": "",
-      "tags": [
-        "보안리포트",
-        "SK쉴더스"
-      ],
-      "author": "SK쉴더스",
-      "priority": 1
-    },
-    {
-      "id": "d0ed6df94fc7",
-      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "source": "worldmonitor_tech",
-      "source_name": "Tech World Monitor",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-02T12:44:15.811344+00:00",
-      "summary": "Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. 실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다. 이번 수집은 해저 케이블, 기상, 경제 지표, 서비스 장애, 데이터센터, 자연재해 레이어를 중심으로 참고했습니다. 분석 기준 구간은 최근 7d입니다.",
-      "content": "실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다.",
-      "tags": [
-        "WorldMonitor",
-        "Global-Tech",
-        "Dashboard",
-        "해저 케이블",
-        "기상"
-      ],
-      "author": "World Monitor",
       "priority": 1
     },
     {
@@ -1341,23 +2108,60 @@
       "priority": 1
     },
     {
-      "id": "eec849831da4",
-      "title": "Over $9 billion flees bitcoin and ether ETFs in four months",
-      "url": "https://www.coindesk.com/markets/2026/03/02/over-usd9-billion-flees-bitcoin-and-ether-etfs-in-four-months",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
+      "id": "ea60e8badea6",
+      "title": "Modernizing with agile SASE: a Cloudflare One blog takeover",
+      "url": "https://blog.cloudflare.com/modernize-agile-sase/",
+      "source": "cloudflare",
+      "source_name": "Cloudflare Blog",
+      "category": "security",
       "language": "en",
-      "published": "2026-03-02T05:55:17+00:00",
-      "summary": "",
-      "content": "",
+      "published": "2026-03-02T06:00:00+00:00",
+      "summary": "In 2026, agile SASE is the engine for modernization. Discover how Cloudflare One secures humans, devices, and AI agents on a single, programmable connectivity cloud.",
+      "content": "Return to office has stalled for many, and the “new normal” for what the corporate network means is constantly changing. In 2026, your office may be a coffee shop, your workforce includes autonomous AI agents, and your perimeter is wherever the Internet reaches. This shift has forced a fundamental change in how we think about security, moving us toward a critical new architecture: agile SASE.",
       "tags": [
-        "Markets",
-        "Bitcoin News",
-        "Ethereum News",
-        "News"
+        "Cloudflare One",
+        "SASE"
       ],
-      "author": "Omkar Godbole",
+      "author": "Yumna Moazzam",
+      "priority": 1
+    },
+    {
+      "id": "961718350f5a",
+      "title": "Beyond the blank slate: how Cloudflare accelerates your Zero Trust journey",
+      "url": "https://blog.cloudflare.com/cloudflare-one-onboarding-project-helix/",
+      "source": "cloudflare",
+      "source_name": "Cloudflare Blog",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-02T06:00:00+00:00",
+      "summary": "Project Helix simplifies and accelerates the onboarding process for Cloudflare One. By using automation and Terraform templates, this tool allows customers to quickly deploy a comprehensive, best-practice configuration in minutes.",
+      "content": "In the world of cybersecurity, \"starting from scratch\" is a double-edged sword. On one hand, you have a clean slate; on the other, you face a mountain of configurations, best practices, and potential \"gotchas.\" While Cloudflare One has been often cited as one of the easiest-to-use SASE platforms, there is no magic without proper configuration.",
+      "tags": [
+        "Cloudflare One",
+        "Automation"
+      ],
+      "author": "Michael Koyfman",
+      "priority": 1
+    },
+    {
+      "id": "7b3a9126074f",
+      "title": "The truly programmable SASE platform",
+      "url": "https://blog.cloudflare.com/programmable-sase/",
+      "source": "cloudflare",
+      "source_name": "Cloudflare Blog",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-02T06:00:00+00:00",
+      "summary": "As the only SASE platform with a native developer stack, we’re giving you the tools to build custom, real-time security logic and integrations directly at the edge.",
+      "content": "Every organization approaches security through a unique lens, shaped by their tooling, requirements, and history. No two environments look the same, and none stay static for long. We believe the platforms that protect them shouldn't be static either. Cloudflare built our global network to be programmable by design, so we can help organizations unlock this flexibility and freedom.",
+      "tags": [
+        "Cloudflare One",
+        "Zero Trust",
+        "SASE",
+        "Developer Platform",
+        "Cloudflare Workers"
+      ],
+      "author": "Abe Carryl",
       "priority": 1
     },
     {
@@ -1376,44 +2180,6 @@
       "priority": 1
     },
     {
-      "id": "893882966a3d",
-      "title": "Bitcoin, cryptos under pressure as oil spikes 6% and global markets price in U.S.-Iran conflict",
-      "url": "https://www.coindesk.com/markets/2026/03/02/bitcoin-cryptos-under-pressure-as-oil-spikes-6-and-global-markets-price-in-u-s-iran-conflict",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-02T05:26:20+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Markets",
-        "News"
-      ],
-      "author": "Shaurya Malwa",
-      "priority": 1
-    },
-    {
-      "id": "b47c7c5ef955",
-      "title": "Hyperliquid's HYPE token jumps 5% as Iran war brings windfall revenue, JUP gains on supply freeze",
-      "url": "https://www.coindesk.com/markets/2026/03/02/hype-jumps-5-as-token-burn-offsets-usd316-million-unlock-jup-gains-weekly-on-supply-freeze",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-02T04:34:10+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Markets",
-        "Hyperliquid",
-        "Jupiter",
-        "News"
-      ],
-      "author": "Sam Reynolds",
-      "priority": 1
-    },
-    {
       "id": "e7768b61c9fd",
       "title": "알리바바의 오픈소스 Qwen3.5-Medium 모델, 로컬에서 Sonnet 4.5 수준 성능 제공",
       "url": "https://news.hada.io/topic?id=27111",
@@ -1429,153 +2195,6 @@
       "priority": 1
     },
     {
-      "id": "0a6710625d55",
-      "title": "Show GN: 1919년에서 온 편지 — 삼일절 기념 프로젝트",
-      "url": "https://news.hada.io/topic?id=27109",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-03-02T01:40:39+09:00",
-      "summary": "1919년에서 온 편지 — 삼일절 기념 프로젝트 이름, 태어난 해, 성별을 입력하면 1919년에 당신과 비슷한 나이였던 독립운동가 가 2026년의 당신에게 보내는 편지를 받아볼 수 있는 서비스입니다. 어떻게 동작하나요? 공훈전",
-      "content": "1919년에서 온 편지 — 삼일절 기념 프로젝트 이름, 태어난 해, 성별을 입력하면 1919년에 당신과 비슷한 나이였던 독립운동가 가 2026년의 당신에게 보내는 편지를 받아볼 수 있는 서비스입니다. 어떻게 동작하나요? 공훈전",
-      "tags": [],
-      "author": "firstseethesun",
-      "priority": 1
-    },
-    {
-      "id": "56f4a6214916",
-      "title": "Context Mode - Claude Code의 컨텍스트 소비를 98% 줄이는 MCP 서버",
-      "url": "https://news.hada.io/topic?id=27108",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-03-02T00:33:05+09:00",
-      "summary": "외부 도구 호출 시 발생하는 대량의 원시 데이터가 컨텍스트 윈도우를 빠르게 소모 하는 문제를 해결 클로드 코드와 도구 출력 사이에 위치해 데이터를 압축·필터링, 315KB를 5.4KB로 축소(98% 절감) 샌드박스 구조 를 통해 각 실행을 격...",
-      "content": "외부 도구 호출 시 발생하는 대량의 원시 데이터가 컨텍스트 윈도우를 빠르게 소모 하는 문제를 해결 클로드 코드와 도구 출력 사이에 위치해 데이터를 압축·필터링, 315KB를 5.4KB로 축소(98% 절감) 샌드박스 구조 를 통해 각 실행을 격...",
-      "tags": [],
-      "author": "neo",
-      "priority": 1
-    },
-    {
-      "id": "7102f44a2b41",
-      "title": "Guido van Rossum이 전하는 Python의 구두 역사: Thomas Wouters 인터뷰",
-      "url": "https://news.hada.io/topic?id=27107",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-03-01T21:47:03+09:00",
-      "summary": "한글 번역본은 여기 를 참조하세요. 이제 귀도도 나이가 있으니 회고록 같은 느낌이네요. 계속 씨리즈가 나올 것 같습니다. 파이썬 커뮤니티 초기 역사: Thomas Wouters 인터뷰 요약 이 문서는 Guido van Ro",
-      "content": "한글 번역본은 여기 를 참조하세요. 이제 귀도도 나이가 있으니 회고록 같은 느낌이네요. 계속 씨리즈가 나올 것 같습니다. 파이썬 커뮤니티 초기 역사: Thomas Wouters 인터뷰 요약 이 문서는 Guido van Ro",
-      "tags": [],
-      "author": "darjeeling",
-      "priority": 1
-    },
-    {
-      "id": "a2124cdfec62",
-      "title": "Bitcoin losing trillions in value hasn't stopped traditional giants' interest in digital assets sector",
-      "url": "https://www.coindesk.com/business/2026/03/01/bitcoin-losing-trillions-in-value-hasn-t-stopped-traditional-giants-interest-in-digital-assets-sector",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-01T17:07:02+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Finance",
-        "Asset Management",
-        "News"
-      ],
-      "author": "Helene Braun",
-      "priority": 1
-    },
-    {
-      "id": "b59e5a7cdf6f",
-      "title": "Strategy lifts STRC dividend to 11.5% as MSTR extends monthly losing streak to 8",
-      "url": "https://www.coindesk.com/markets/2026/03/01/strategy-lifts-strc-dividend-to-11-5-as-mstr-extends-monthly-losing-streak-to-8",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-01T16:08:33+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Markets",
-        "Bitcoin News",
-        "Strategy",
-        "Michael Saylor",
-        "News"
-      ],
-      "author": "James Van Straten",
-      "priority": 1
-    },
-    {
-      "id": "cd9a5145d190",
-      "title": "Stablecoin yield rewards (likely won't be) banned under OCC proposal: State of Crypto",
-      "url": "https://www.coindesk.com/policy/2026/03/01/stablecoin-yield-rewards-likely-won-t-be-banned-under-occ-proposal-state-of-crypto",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-01T15:00:00+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Policy",
-        "Newsletters",
-        "State of Crypto",
-        "OCC",
-        "Stablecoins"
-      ],
-      "author": "Nikhilesh De",
-      "priority": 1
-    },
-    {
-      "id": "306b4cce677b",
-      "title": "Bitcoin market bottom may be nearing, at least if measured against gold, analyst says",
-      "url": "https://www.coindesk.com/markets/2026/03/01/bitcoin-market-bottom-may-be-nearing-at-least-if-measured-against-gold-analyst-says",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-01T15:00:00+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Markets",
-        "Bitcoin News",
-        "Gold",
-        "bitcoin bottom",
-        "News"
-      ],
-      "author": "Francisco Rodrigues",
-      "priority": 1
-    },
-    {
-      "id": "5dd231fb6b5e",
-      "title": "SpaceX’s $780 million bitcoin stack now down to about $545 million ahead of IPO filing",
-      "url": "https://www.coindesk.com/markets/2026/03/01/spacex-s-usd780-million-bitcoin-stack-now-down-to-about-usd545-million-ahead-of-ipo-filing",
-      "source": "coindesk",
-      "source_name": "CoinDesk",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-01T13:00:00+00:00",
-      "summary": "",
-      "content": "",
-      "tags": [
-        "Markets",
-        "SpaceX",
-        "Elon Musk",
-        "News"
-      ],
-      "author": "Shaurya Malwa",
-      "priority": 1
-    },
-    {
       "id": "19be1e5c85d5",
       "title": "Research Technique 2월호 n8n 임의 파일 읽기 취약점(CVE-2026-21858)",
       "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%202%EC%9B%94%ED%98%B8_n8n%20%EC%9E%84%EC%9D%98%20%ED%8C%8C%EC%9D%BC%20%EC%9D%BD%EA%B8%B0%20%EC%B7%A8%EC%95%BD%EC%A0%90(CVE-2026-21858).pdf&r_fname=20260225085222479.pdf",
@@ -1587,9 +2206,9 @@
       "summary": "SK쉴더스 보안 리포트: Research Technique 2월호 n8n 임의 파일 읽기 취약점(CVE-2026-21858)",
       "content": "",
       "tags": [
-        "보안리포트",
+        "취약점",
         "SK쉴더스",
-        "취약점"
+        "보안리포트"
       ],
       "author": "SK쉴더스",
       "priority": 1
