@@ -12,7 +12,6 @@ comments: true
 image: /assets/images/2026-02-23-Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin.svg
 image_alt: "Tech Security Weekly Digest February 23 2026 AI Ransomware Data"
 toc: true
-schema_type: Article
 ---
 
 {% include ai-summary-card.html
@@ -132,11 +131,10 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **AI/ML** | 6건 | ai |
-| **Cloud Security** | 1건 | 클라우드 |
-| **Ransomware** | 1건 | ransomware |
+| **사이버보안 전략** | 3건 | Vertical AI 보안, BlackField 랜섬웨어, 제로트러스트 데이터 |
+| **암호화폐 규제/리스크** | 2건 | 러시아 제재 우회 거래소, 비트코인 급락, OFAC |
 
-이번 주기에서 가장 많이 언급된 트렌드는 **AI/ML** (6건)입니다. 그 다음으로 **Cloud Security** (1건)이 주목받고 있습니다. 실무에서는 해당 트렌드와 관련된 보안 정책 및 모니터링 체계를 점검하시기 바랍니다.
+이번 주기의 핵심 트렌드는 **SK쉴더스 사이버보안 전략 리포트**(3건)입니다. Vertical AI 기반 보안 구축, BlackField 랜섬웨어의 기존 코드 재활용 패턴, 제로트러스트 데이터 보안 전략이 다뤄졌습니다. **암호화폐 규제** 측면에서는 러시아 제재 우회 거래소 네트워크 적발과 비트코인 급락이 동시에 발생하여 리스크 관리 체계 점검이 필요합니다.
 
 ---
 
@@ -149,13 +147,13 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 ### P1 (7일 내)
 
-- [ ] SIEM 탐지 룰 업데이트
-- [ ] 보안 정책 검토
+- [ ] **SK쉴더스 BlackField 랜섬웨어** IoC 기반 SIEM/EDR 탐지 룰 업데이트
+- [ ] **제로트러스트 데이터 보안** 전략 리포트 기반 자사 데이터 분류 체계 점검
 
 ### P2 (30일 내)
 
-- [ ] 공격 표면 인벤토리 갱신
-- [ ] 접근 제어 감사
+- [ ] **Vertical AI 보안** SK쉴더스 리포트 기반 AI 보안 솔루션 도입 검토
+- [ ] **암호화폐 거래소 제재 우회** 관련 AML/KYC 정책 재검토
 
 ---
 

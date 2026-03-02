@@ -12,7 +12,6 @@ comments: true
 image: /assets/images/2026-02-26-Tech_Security_Weekly_Digest_AI_Go_AWS_API.svg
 image_alt: "Tech Security Weekly Digest February 26 2026 AI Go AWS"
 toc: true
-schema_type: Article
 ---
 
 {% include ai-summary-card.html
@@ -344,13 +343,12 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **AI/ML** | 12건 | ml, ai |
-| **Cloud Security** | 2건 | aws, cloud |
-| **Container/K8s** | 2건 | docker, kubernetes |
-| **Authentication** | 2건 | identity, credential |
-| **Supply Chain** | 1건 | package |
+| **APT/사이버 스파이** | 2건 | UNC2814 GRIDTIDE 42개국, SLH IT 헬프데스크 음성 피싱 |
+| **개발도구 보안** | 1건 | Claude Code RCE, API 키 유출 취약점 |
+| **AI 에이전트 프로덕션** | 3건 | Google AI 에이전트 가이드, vLLM SageMaker, Docker Model Runner |
+| **암호화폐 시장** | 2건 | Morgan Stanley BTC 사업 확대, 비트코인 $69K 돌파 |
 
-이번 주기에서 가장 많이 언급된 트렌드는 **AI/ML** (12건)입니다. 그 다음으로 **Cloud Security** (2건)이 주목받고 있습니다. 실무에서는 해당 트렌드와 관련된 보안 정책 및 모니터링 체계를 점검하시기 바랍니다.
+이번 주기의 핵심 트렌드는 **APT 사이버 스파이 캠페인**입니다. UNC2814의 GRIDTIDE 캠페인이 42개국 53개 조직을 침해한 사례와 SLH 그룹의 IT 헬프데스크 대상 음성 피싱 수법이 확인되었습니다. **개발도구 보안** 측면에서는 Claude Code에서 RCE 및 API 키 유출 취약점이 발견되어 개발 환경 보안 점검이 시급합니다.
 
 ---
 
@@ -366,8 +364,8 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 
 ### P2 (30일 내)
 
-- [ ] 공격 표면 인벤토리 갱신
-- [ ] 접근 제어 감사
+- [ ] **AI 에이전트 프로덕션 배포** Google Cloud 가이드 기반 자사 AI 에이전트 보안 아키텍처 검토
+- [ ] **Claude Code/개발도구 보안** 개발 환경 RCE 취약점 패치 및 API 키 관리 정책 점검
 
 ---
 
