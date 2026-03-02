@@ -180,8 +180,8 @@ NEWS_SOURCES = {
     },
     "azure_security": {
         "name": "Azure Security Blog",
-        "url": "https://azure.microsoft.com/en-us/blog/category/security/",
-        "feed_url": "https://www.microsoft.com/en-us/security/blog/feed/",
+        "url": "https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog",
+        "feed_url": "https://techcommunity.microsoft.com/plugins/custom/microsoft/o365/custom-blog-rss?tid=860788681&board=AzureNetworkSecurityBlog&size=20",
         "category": "security",
         "language": "en",
         "priority": 1,
@@ -1111,7 +1111,7 @@ def _parse_skshieldus_eqst(
 
     for item_el in eqst_items[:20]:
         try:
-            year = "2025"
+            year = str(datetime.now().year)
             month = "01"
 
             text_content = item_el.get_text()
@@ -1216,10 +1216,14 @@ def _parse_skshieldus_report(
                 continue
 
             published = datetime.now(timezone.utc)
-            if "'25" in title or "2025" in title:
-                published = datetime(2025, 1, 15, tzinfo=timezone.utc)
-            elif "'24" in title or "2024" in title:
-                published = datetime(2024, 6, 15, tzinfo=timezone.utc)
+            # Extract year from title for more accurate dates
+            year_match = re.search(r"(?:'|20)(\d{2})", title)
+            if year_match:
+                yr = int("20" + year_match.group(1))
+                if 2020 <= yr <= datetime.now().year:
+                    month_match = re.search(r"(\d{1,2})\s*월", title)
+                    m = int(month_match.group(1)) if month_match else 6
+                    published = datetime(yr, min(m, 12), 15, tzinfo=timezone.utc)
 
             tags = ["SK쉴더스", "보안리포트"]
             if "KARA" in title or "랜섬웨어" in title:

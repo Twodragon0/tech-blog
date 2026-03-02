@@ -2126,10 +2126,10 @@ def _generate_devops_template(item: Optional[Dict] = None) -> str:
 
 
 def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
-    """뉴스 기반 트렌드 분석 섹션 생성"""
+    """뉴스 기반 트렌드 분석 섹션 생성 - 기사 제목 기반 구체적 키워드 추출"""
     content = f"\n---\n\n## {section_num}. 트렌드 분석\n\n"
 
-    # 트렌드 키워드 카운트
+    # 트렌드 키워드 카운트 + 대표 기사 수집
     trend_defs = {
         "AI/ML": ["ai", "ml", "llm", "gpt", "machine learning", "인공지능", "생성형"],
         "Zero-Day": ["zero-day", "0-day", "제로데이"],
@@ -2143,41 +2143,79 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
     trend_results = []
     for trend_name, keywords in trend_defs.items():
         count = 0
-        matched_kws = set()
+        representative_titles = []
         for item in news_items:
             text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
             for kw in keywords:
                 if kw in text:
                     count += 1
-                    matched_kws.add(kw)
-                    break  # 뉴스당 1번만 카운트
+                    # Extract short descriptive keyword from article title
+                    title = item.get("title", "")
+                    source = item.get("source_name", "")
+                    # Create concise reference: "Source Product/Topic"
+                    short_ref = _extract_trend_keyword(title, source)
+                    if short_ref and short_ref not in representative_titles:
+                        representative_titles.append(short_ref)
+                    break  # count each news item once
         if count > 0:
-            trend_results.append((trend_name, count, ", ".join(list(matched_kws)[:3])))
+            # Show article-specific keywords instead of generic match keywords
+            display_kws = ", ".join(representative_titles[:3]) if representative_titles else trend_name
+            trend_results.append((trend_name, count, display_kws, representative_titles))
 
     trend_results.sort(key=lambda x: x[1], reverse=True)
 
     if trend_results:
         content += "| 트렌드 | 관련 뉴스 수 | 주요 키워드 |\n"
         content += "|--------|-------------|------------|\n"
-        for name, count, kws in trend_results[:7]:
+        for name, count, kws, _ in trend_results[:7]:
             content += f"| **{name}** | {count}건 | {kws} |\n"
         content += "\n"
 
-        # 트렌드 분석 코멘트
+        # Generate specific analysis based on actual articles
         top = trend_results[0]
-        content += (
-            f"이번 주기에서 가장 많이 언급된 트렌드는 **{top[0]}** ({top[1]}건)입니다. "
-        )
+        top_refs = top[3][:2]  # top 2 representative titles
+        content += f"이번 주기의 핵심 트렌드는 **{top[0]}**({top[1]}건)입니다. "
+        if top_refs:
+            content += f"{', '.join(top_refs)} 등이 주요 이슈입니다. "
+
         if len(trend_results) > 1:
             second = trend_results[1]
-            content += (
-                f"그 다음으로 **{second[0]}** ({second[1]}건)이 주목받고 있습니다. "
-            )
-        content += "실무에서는 해당 트렌드와 관련된 보안 정책 및 모니터링 체계를 점검하시기 바랍니다.\n\n"
+            second_refs = second[3][:2]
+            if second_refs:
+                content += f"**{second[0]}** 분야에서는 {', '.join(second_refs)} 관련 동향에 주목할 필요가 있습니다."
+            else:
+                content += f"**{second[0]}**({second[1]}건)도 주목할 트렌드입니다."
+        content += "\n\n"
     else:
         content += "이번 주기에는 두드러진 트렌드가 감지되지 않았습니다.\n\n"
 
     return content
+
+
+def _extract_trend_keyword(title: str, source: str) -> str:
+    """Extract concise descriptive keyword from article title for trend table"""
+    if not title:
+        return ""
+    # Remove common prefixes/noise
+    title = re.sub(r"^\[.*?\]\s*", "", title)
+    # For Korean titles, extract key noun phrases
+    if re.search(r"[가-힣]", title):
+        # Try to extract the main topic (first meaningful segment)
+        parts = re.split(r"[,:\-–—·]", title)
+        segment = parts[0].strip()
+        if len(segment) > 30:
+            segment = segment[:30]
+        return segment
+    # For English titles, extract product/topic name
+    # Remove articles and common words
+    words = title.split()
+    if len(words) <= 4:
+        return title.strip()
+    # Take first meaningful phrase (up to 5 words, max 40 chars)
+    phrase = " ".join(words[:5])
+    if len(phrase) > 40:
+        phrase = phrase[:40].rsplit(" ", 1)[0]
+    return phrase
 
 
 def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
@@ -2207,19 +2245,47 @@ def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
     if p0_items:
         content += "\n".join(p0_items[:5]) + "\n"
     else:
-        content += "- [ ] 긴급 보안 패치 적용\n"
-        content += "- [ ] 취약 시스템 모니터링 강화\n"
+        # Generate specific P0 from top security news
+        sec_items = [n for n in news_items if n.get("category") == "security"]
+        if sec_items:
+            top_sec = sec_items[0]
+            title = _korean_display_title(top_sec, max_len=40)
+            content += f"- [ ] **{title}** 관련 보안 영향도 분석 및 모니터링 강화\n"
+        else:
+            content += "- [ ] 이번 주기 주요 보안 이슈 영향도 분석\n"
 
     content += "\n### P1 (7일 내)\n\n"
     if p1_items:
         content += "\n".join(p1_items[:5]) + "\n"
     else:
-        content += "- [ ] SIEM 탐지 룰 업데이트\n"
-        content += "- [ ] 보안 정책 검토\n"
+        # Generate P1 from actual news categories
+        categories_present = {n.get("category", "tech") for n in news_items}
+        if "security" in categories_present:
+            content += "- [ ] 보안 뉴스 기반 SIEM/EDR 탐지 룰 업데이트\n"
+        if "cloud" in categories_present or "devops" in categories_present:
+            cloud_items = [n for n in news_items if n.get("category") in ("cloud", "devops")]
+            if cloud_items:
+                title = _korean_display_title(cloud_items[0], max_len=40)
+                content += f"- [ ] **{title}** 관련 인프라 설정 점검\n"
+        if not p1_items and "security" not in categories_present:
+            content += "- [ ] 이번 주기 기술 동향 기반 보안 정책 검토\n"
 
     content += "\n### P2 (30일 내)\n\n"
-    content += "- [ ] 공격 표면 인벤토리 갱신\n"
-    content += "- [ ] 접근 제어 감사\n"
+    # Generate dynamic P2 based on news content
+    p2_items = []
+    categories_present = {n.get("category", "tech") for n in news_items}
+    if "ai" in categories_present:
+        ai_items = [n for n in news_items if n.get("category") == "ai"]
+        if ai_items:
+            title = _korean_display_title(ai_items[0], max_len=40)
+            p2_items.append(f"- [ ] **{title}** 관련 AI 보안 정책 검토")
+    if "cloud" in categories_present:
+        p2_items.append("- [ ] 클라우드 인프라 보안 설정 정기 감사")
+    if "blockchain" in categories_present:
+        p2_items.append("- [ ] 암호화폐/블록체인 관련 컴플라이언스 점검")
+    if not p2_items:
+        p2_items.append("- [ ] 이번 주기 트렌드 기반 보안 아키텍처 검토")
+    content += "\n".join(p2_items[:3]) + "\n"
 
     return content
 

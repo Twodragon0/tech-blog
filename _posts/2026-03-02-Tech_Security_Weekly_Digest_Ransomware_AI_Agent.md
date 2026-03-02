@@ -58,12 +58,12 @@ toc: true
 | 🔒 **Security** | SK쉴더스 보안 리포트 | HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향 | 🟡 Medium |
 | 🔒 **Security** | SK쉴더스 보안 리포트 | Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협 | 🟡 Medium |
 | 🔒 **Security** | SK쉴더스 보안 리포트 | Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics) | 🟡 Medium |
-| 🤖 **AI/ML** | NVIDIA AI Blog | [AI] NVIDIA Advances Autonomous Networks With Agentic AI | 🟡 Medium |
-| 🤖 **AI/ML** | NVIDIA AI Blog | [AI] NVIDIA and Partners Show That Software-Defined AI-RAN Is | 🔴 Critical |
-| ☁️ **Cloud** | AWS Korea Blog | Agentic AI 기반 플랫폼 –  Part2 : AgentCore Gateway, Identity로 구현하는 MCP Registry | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Trump Media could spin out Truth Social amid crypto push | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | [블록체인] X to label paid promotions but prohibits crypto promos in | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Kalshi founder provides update on Iran's Khamenei market | 🟡 Medium |
+| 🤖 **AI/ML** | NVIDIA AI Blog | NVIDIA Agentic AI 기반 자율 네트워크 블루프린트 공개 | 🟡 Medium |
+| 🤖 **AI/ML** | NVIDIA AI Blog | NVIDIA 소프트웨어 정의 AI-RAN 상용 가능성 입증 | 🟡 Medium |
+| ☁️ **Cloud** | AWS Korea Blog | Agentic AI 기반 MCP Registry 구현 (AgentCore Gateway, Identity) | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Trump Media, 암호화폐 사업 확대 속 Truth Social 분사 검토 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | X(트위터), 유료 프로모션 라벨링 도입 및 암호화폐 광고 정책 변경 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Kalshi 창업자, 이란 하메네이 관련 예측 시장 업데이트 | 🟡 Medium |
 | 💻 **Tech** | Tech World Monitor | Tech Monitor - Real-Time AI & Tech Industry Dashboard | 🟡 Medium |
 
 ---
@@ -84,13 +84,13 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 ## 2. AI/ML 뉴스
 
-### 2.1 [AI] NVIDIA Advances Autonomous Networks With Agentic AI
+### 2.1 NVIDIA, Agentic AI 기반 자율 네트워크 블루프린트 공개
 
 #### 개요
 
-[AI] NVIDIA Advances Autonomous Networks With Agentic AI 관련 소식입니다. AI/ML 관련 새로운 발전 또는 보안 이슈가 보고되었습니다. 자사 시스템 영향도를 평가하세요.
+NVIDIA가 통신 네트워크 자동화를 위한 Agentic AI 블루프린트를 공개했다. 자율 네트워크(Autonomous Networks)는 AI 에이전트가 네트워크 장애를 자동 감지하고, 추론 모델을 활용하여 문제 해결까지 수행하는 지능형 인프라 개념이다. 통신사(Telco)의 운영 자동화와 비용 절감에 기여할 것으로 전망된다.
 
-**실무 포인트**: 자사 AI/ML 시스템 적용 가능성과 보안 영향을 평가하세요.
+**실무 포인트**: AI 에이전트 기반 인프라 자동화 도입 시 에이전트 권한 범위와 감사 체계를 먼저 설계하세요.
 
 > **출처**: [NVIDIA AI Blog](https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/)
 
@@ -104,24 +104,22 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 ---
 
-### 2.2 [AI] NVIDIA and Partners Show That Software-Defined AI-RAN Is
-
-> 🔴 **심각도**: Critical
+### 2.2 NVIDIA, 소프트웨어 정의 AI-RAN 상용 가능성 입증
 
 #### 개요
 
-[AI] NVIDIA and Partners Show That Software-Defined AI-RAN Is 관련 소식입니다. AI/ML 관련 새로운 발전 또는 보안 이슈가 보고되었습니다. 자사 시스템 영향도를 평가하세요.
+NVIDIA와 파트너사들이 소프트웨어 정의 AI-RAN(Radio Access Network) 기술이 상용 환경에서 실행 가능함을 입증했다. AI-RAN은 기존 하드웨어 기반 무선 접속 네트워크를 소프트웨어로 전환하여, AI 워크로드와 통신 기능을 동일 인프라에서 실행할 수 있게 한다. 5G/6G 인프라 전환과 Edge AI 배포에 영향을 줄 수 있다.
 
-**실무 포인트**: 자사 AI/ML 시스템 적용 가능성과 보안 영향을 평가하세요.
+**실무 포인트**: 통신/Edge 인프라 담당자는 AI-RAN 기술 동향을 모니터링하고, 중장기 인프라 로드맵에 반영을 검토하세요.
 
 > **출처**: [NVIDIA AI Blog](https://blogs.nvidia.com/blog/software-defined-ai-ran/)
 
 
 #### 실무 적용 포인트
 
-- 관련 AI/ML 기술의 자사 적용 가능성 및 보안 영향 평가
-- 테스트 환경에서 먼저 검증 후 프로덕션 적용 계획 수립
-- 팀 내 기술 동향 공유 및 도입 로드맵 논의
+- Edge AI와 통신 인프라 통합 시 보안 경계 설계 검토
+- 소프트웨어 정의 네트워크(SDN)의 보안 취약점 평가
+- 팀 내 AI-RAN 기술 동향 공유 및 도입 로드맵 논의
 
 
 ---
@@ -150,39 +148,39 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 ## 4. 블록체인 뉴스
 
-### 4.1 [블록체인] Trump Media could spin out Truth Social amid crypto push
+### 4.1 Trump Media, 암호화폐 사업 확대 속 Truth Social 분사 검토
 
 #### 개요
 
-[블록체인] Trump Media could spin out Truth Social amid crypto push 관련 소식입니다. 블록체인 생태계 관련 소식입니다. 스마트 컨트랙트 및 노드 운영 환경을 확인하세요.
+Trump Media & Technology Group이 암호화폐 사업 확대 전략의 일환으로 소셜 미디어 플랫폼 Truth Social의 분사(Spin-out)를 검토 중이다. 미디어 사업과 디지털 자산 사업의 분리를 통해 각 사업 부문에 집중하려는 전략으로 해석된다.
 
-**실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.
+**실무 포인트**: 대형 미디어 기업의 암호화폐 시장 진출이 가속화되고 있어, 관련 규제 동향을 모니터링하세요.
 
 > **출처**: [Cointelegraph](https://cointelegraph.com/news/trump-media-considers-truth-social-spinout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
 
 ---
 
-### 4.2 [블록체인] X to label paid promotions but prohibits crypto promos in
+### 4.2 X(트위터), 유료 프로모션 라벨링 도입 및 암호화폐 광고 정책 변경
 
 #### 개요
 
-[블록체인] X to label paid promotions but prohibits crypto promos in 관련 소식입니다. 블록체인 생태계 관련 소식입니다. 스마트 컨트랙트 및 노드 운영 환경을 확인하세요.
+X(구 트위터)가 유료 프로모션 콘텐츠에 라벨을 표시하는 정책을 도입한다. 다만 암호화폐 프로모션은 유료 파트너십에서 허용하되 별도 규정을 적용할 예정이다. 암호화폐 프로젝트의 소셜 미디어 마케팅 전략에 영향을 줄 수 있다.
 
-**실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.
+**실무 포인트**: 암호화폐 관련 소셜 미디어 광고 정책 변화를 추적하고, 컴플라이언스 요구사항을 확인하세요.
 
 > **출처**: [Cointelegraph](https://cointelegraph.com/news/x-lifts-crypto-promo-ban-for-paid-partnerships?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
 
 ---
 
-### 4.3 [블록체인] Kalshi founder provides update on Iran's Khamenei market
+### 4.3 Kalshi 창업자, 이란 하메네이 관련 예측 시장 업데이트
 
 #### 개요
 
-[블록체인] Kalshi founder provides update on Iran's Khamenei market 관련 소식입니다. 블록체인 생태계 관련 소식입니다. 스마트 컨트랙트 및 노드 운영 환경을 확인하세요.
+미국 규제 승인 예측 시장 플랫폼 Kalshi의 창업자가 이란 최고지도자 하메네이 관련 예측 시장에 대한 업데이트를 제공했다. 정치적으로 민감한 예측 시장의 운영 방식과 규제 대응에 대한 논의가 진행 중이다.
 
-**실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.
+**실무 포인트**: 예측 시장 플랫폼의 규제 동향과 정치적 이벤트 마켓의 법적 리스크를 모니터링하세요.
 
 > **출처**: [Cointelegraph](https://cointelegraph.com/news/kalshi-founder-khamenei-market-carveout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
@@ -204,12 +202,12 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **AI/ML** | 8건 | ai |
-| **Cloud Security** | 1건 | 클라우드 |
-| **Ransomware** | 1건 | ransomware |
-| **Authentication** | 1건 | identity |
+| **AI 에이전트/자율 네트워크** | 3건 | NVIDIA Agentic AI 블루프린트, AI-RAN 상용화, AWS MCP Registry |
+| **OT/제조 보안** | 2건 | SK쉴더스 OT 보안 동향, 제로트러스트 가시성 분석 |
+| **랜섬웨어** | 1건 | Gentlemen 랜섬웨어 위협 확산 |
+| **암호화폐 규제/정책** | 3건 | Trump Media 분사, X 광고 정책, Kalshi 예측 시장 |
 
-이번 주기에서 가장 많이 언급된 트렌드는 **AI/ML** (8건)입니다. 그 다음으로 **Cloud Security** (1건)이 주목받고 있습니다. 실무에서는 해당 트렌드와 관련된 보안 정책 및 모니터링 체계를 점검하시기 바랍니다.
+이번 주기의 핵심 트렌드는 **AI 에이전트 기반 인프라 자동화**(3건)입니다. NVIDIA의 Agentic AI 블루프린트와 AI-RAN 상용화, AWS의 MCP Registry 구현이 주목됩니다. **OT/제조 보안** 분야에서는 SK쉴더스가 제조사 OT 보안 동향과 제로트러스트 가시성 분석 리포트를 발행했습니다. **암호화폐 규제** 측면에서는 주요 플랫폼의 정책 변화가 이어지고 있습니다.
 
 ---
 
@@ -217,17 +215,17 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 ### P0 (즉시)
 
-- [ ] **[AI] NVIDIA and Partners Show That Software-Defined AI-RAN Is** 관련 긴급 패치 및 영향도 확인
+- [ ] **Gentlemen 랜섬웨어** SK쉴더스 리포트 기반 IoC 확인 및 SIEM/EDR 탐지 룰 반영
 
 ### P1 (7일 내)
 
-- [ ] SIEM 탐지 룰 업데이트
-- [ ] 보안 정책 검토
+- [ ] **제로트러스트 가시성 분석** 리포트 기반 자사 모니터링 체계 점검
+- [ ] **OT 보안** 제조 환경 네트워크 세그먼트 보안 설정 검토
 
 ### P2 (30일 내)
 
-- [ ] 공격 표면 인벤토리 갱신
-- [ ] 접근 제어 감사
+- [ ] **AI 에이전트 보안** Agentic AI 도입 시 권한 범위 및 감사 체계 설계 검토
+- [ ] **MCP Registry** AWS AgentCore 기반 AI 에이전트 플랫폼 도입 로드맵 논의
 
 ---
 
