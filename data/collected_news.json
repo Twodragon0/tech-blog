@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-03-02T12:40:42.509989+00:00",
+  "collected_at": "2026-03-02T12:45:03.119560+00:00",
   "total_items": 106,
   "items": [
     {
@@ -28,7 +28,7 @@
       "category": "blockchain",
       "language": "en",
       "published": "2026-03-02T12:17:43+00:00",
-      "summary": "Sony Bank signed an MoU with JPYC to study real-time account transfers on JPYC EX, letting customers buy the yen stablecoin JPYC without manual bank transfers.",
+      "summary": "Sony Bank and JPYC will study real-time transfers enabling customers to buy the yen-pegged stablecoin JPYC directly from their bank accounts.",
       "content": "",
       "tags": [
         "Latest News"
@@ -77,7 +77,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T11:47:16+00:00",
-      "summary": "Article URL: https://karanbansal.in/blog/claude-code-lsp/ Comments URL: https://news.ycombinator.com/item?id=47216765 Points: 10 # Comments: 0",
+      "summary": "Article URL: https://karanbansal.in/blog/claude-code-lsp/ Comments URL: https://news.ycombinator.com/item?id=47216765 Points: 29 # Comments: 5",
       "content": "",
       "tags": [],
       "author": "LexSiga",
@@ -126,7 +126,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T10:23:06+00:00",
-      "summary": "Article URL: https://www.windowslatest.com/2026/03/02/microsoft-gets-tired-of-microslop-bans-the-word-on-its-discord-then-locks-the-server-after-backlash/ Comments URL: https://news.ycombinator.com/item?id=47216047 Points: 124 # Comments: 39",
+      "summary": "Article URL: https://www.windowslatest.com/2026/03/02/microsoft-gets-tired-of-microslop-bans-the-word-on-its-discord-then-locks-the-server-after-backlash/ Comments URL: https://news.ycombinator.com/item?id=47216047 Points: 144 # Comments: 50",
       "content": "",
       "tags": [],
       "author": "robtherobber",
@@ -141,7 +141,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T10:21:24+00:00",
-      "summary": "Article URL: https://commerce.jolla.com/products/jolla-phone-sept-26 Comments URL: https://news.ycombinator.com/item?id=47216037 Points: 131 # Comments: 64",
+      "summary": "Article URL: https://commerce.jolla.com/products/jolla-phone-sept-26 Comments URL: https://news.ycombinator.com/item?id=47216037 Points: 148 # Comments: 66",
       "content": "",
       "tags": [],
       "author": "spinningslate",
@@ -173,7 +173,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T09:20:06+00:00",
-      "summary": "Article URL: https://www.science.org/content/article/nist-moves-restrict-foreign-scientists-its-labs Comments URL: https://news.ycombinator.com/item?id=47215565 Points: 55 # Comments: 24",
+      "summary": "Article URL: https://www.science.org/content/article/nist-moves-restrict-foreign-scientists-its-labs Comments URL: https://news.ycombinator.com/item?id=47215565 Points: 71 # Comments: 37",
       "content": "",
       "tags": [],
       "author": "JeanKage",
@@ -188,7 +188,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T09:09:44+00:00",
-      "summary": "Article URL: https://e.foundation/e-os/ Comments URL: https://news.ycombinator.com/item?id=47215489 Points: 218 # Comments: 129",
+      "summary": "Article URL: https://e.foundation/e-os/ Comments URL: https://news.ycombinator.com/item?id=47215489 Points: 238 # Comments: 136",
       "content": "",
       "tags": [],
       "author": "doener",
@@ -270,7 +270,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T07:30:12+00:00",
-      "summary": "Article URL: https://www.theguardian.com/lifeandstyle/2026/feb/24/stranger-secret-how-to-talk-to-anyone-why-you-should Comments URL: https://news.ycombinator.com/item?id=47214864 Points: 137 # Comments: 324",
+      "summary": "Article URL: https://www.theguardian.com/lifeandstyle/2026/feb/24/stranger-secret-how-to-talk-to-anyone-why-you-should Comments URL: https://news.ycombinator.com/item?id=47214864 Points: 143 # Comments: 328",
       "content": "",
       "tags": [],
       "author": "Looky1173",
@@ -285,7 +285,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T06:48:07+00:00",
-      "summary": "Article URL: https://motorolanews.com/motorola-three-new-b2b-solutions-at-mwc-2026/ Comments URL: https://news.ycombinator.com/item?id=47214645 Points: 809 # Comments: 301",
+      "summary": "Article URL: https://motorolanews.com/motorola-three-new-b2b-solutions-at-mwc-2026/ Comments URL: https://news.ycombinator.com/item?id=47214645 Points: 839 # Comments: 314",
       "content": "",
       "tags": [],
       "author": "km",
@@ -317,7 +317,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T05:59:03+00:00",
-      "summary": "Article URL: https://growingswe.com/blog/elliptic-curve-cryptography Comments URL: https://news.ycombinator.com/item?id=47214367 Points: 51 # Comments: 11",
+      "summary": "Article URL: https://growingswe.com/blog/elliptic-curve-cryptography Comments URL: https://news.ycombinator.com/item?id=47214367 Points: 52 # Comments: 11",
       "content": "",
       "tags": [],
       "author": "vismit2000",
@@ -349,7 +349,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T05:39:36+00:00",
-      "summary": "Article URL: https://www.bbc.com/future/article/20260226-how-ai-can-read-your-thoughts Comments URL: https://news.ycombinator.com/item?id=47214250 Points: 26 # Comments: 21",
+      "summary": "Article URL: https://www.bbc.com/future/article/20260226-how-ai-can-read-your-thoughts Comments URL: https://news.ycombinator.com/item?id=47214250 Points: 26 # Comments: 22",
       "content": "",
       "tags": [],
       "author": "ggm",
@@ -364,7 +364,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T05:01:08+00:00",
-      "summary": "Article URL: https://variantsystems.io/blog/beam-otp-process-concurrency Comments URL: https://news.ycombinator.com/item?id=47214063 Points: 50 # Comments: 29",
+      "summary": "Article URL: https://variantsystems.io/blog/beam-otp-process-concurrency Comments URL: https://news.ycombinator.com/item?id=47214063 Points: 54 # Comments: 29",
       "content": "",
       "tags": [],
       "author": "linkdd",
@@ -428,7 +428,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T04:15:16+00:00",
-      "summary": "Article URL: https://ellanew.com/2026/03/02/ptpl-197-record-retrieve-from-a-personal-knowledgebase Comments URL: https://news.ycombinator.com/item?id=47213819 Points: 84 # Comments: 31",
+      "summary": "Article URL: https://ellanew.com/2026/03/02/ptpl-197-record-retrieve-from-a-personal-knowledgebase Comments URL: https://news.ycombinator.com/item?id=47213819 Points: 84 # Comments: 32",
       "content": "",
       "tags": [],
       "author": "Curiositry",
@@ -460,7 +460,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T04:06:00+00:00",
-      "summary": "Article URL: https://www.wltx.com/article/news/nation-world/281-53d8693e-77a4-42ad-86e4-3426a30d25ae Comments URL: https://news.ycombinator.com/item?id=47213764 Points: 292 # Comments: 81",
+      "summary": "Article URL: https://www.wltx.com/article/news/nation-world/281-53d8693e-77a4-42ad-86e4-3426a30d25ae Comments URL: https://news.ycombinator.com/item?id=47213764 Points: 296 # Comments: 84",
       "content": "",
       "tags": [],
       "author": "aranaur",
@@ -492,7 +492,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T00:57:40+00:00",
-      "summary": "Article URL: https://github.com/kossisoroyce/timber Comments URL: https://news.ycombinator.com/item?id=47212576 Points: 139 # Comments: 27",
+      "summary": "Article URL: https://github.com/kossisoroyce/timber Comments URL: https://news.ycombinator.com/item?id=47212576 Points: 142 # Comments: 27",
       "content": "",
       "tags": [],
       "author": "kossisoroyce",
@@ -524,7 +524,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-02T00:27:52+00:00",
-      "summary": "Article URL: https://github.com/mandel-macaque/memento Comments URL: https://news.ycombinator.com/item?id=47212355 Points: 307 # Comments: 282",
+      "summary": "Article URL: https://github.com/mandel-macaque/memento Comments URL: https://news.ycombinator.com/item?id=47212355 Points: 312 # Comments: 289",
       "content": "",
       "tags": [],
       "author": "mandel_x",
@@ -539,7 +539,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-01T23:15:16+00:00",
-      "summary": "Article URL: https://github.com/AlexsJones/llmfit Comments URL: https://news.ycombinator.com/item?id=47211830 Points: 178 # Comments: 39",
+      "summary": "Article URL: https://github.com/AlexsJones/llmfit Comments URL: https://news.ycombinator.com/item?id=47211830 Points: 180 # Comments: 39",
       "content": "",
       "tags": [],
       "author": "bilsbie",
@@ -554,7 +554,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-01T22:18:10+00:00",
-      "summary": "Article URL: https://littlefreelibrary.org/ Comments URL: https://news.ycombinator.com/item?id=47211280 Points: 133 # Comments: 66",
+      "summary": "Article URL: https://littlefreelibrary.org/ Comments URL: https://news.ycombinator.com/item?id=47211280 Points: 135 # Comments: 67",
       "content": "",
       "tags": [],
       "author": "TigerUniversity",
@@ -569,7 +569,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-01T22:13:58+00:00",
-      "summary": "Article URL: https://developer.chrome.com/blog/webmcp-epp Comments URL: https://news.ycombinator.com/item?id=47211249 Points: 314 # Comments: 177",
+      "summary": "Article URL: https://developer.chrome.com/blog/webmcp-epp Comments URL: https://news.ycombinator.com/item?id=47211249 Points: 317 # Comments: 178",
       "content": "",
       "tags": [],
       "author": "andsoitis",
@@ -891,12 +891,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-02T12:40:42.506469+00:00",
+      "published": "2026-03-02T12:45:03.116117+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -909,14 +909,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-02T12:40:42.506338+00:00",
+      "published": "2026-03-02T12:45:03.115996+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "랜섬웨어",
         "보안리포트",
-        "KARA"
+        "SK쉴더스",
+        "KARA",
+        "랜섬웨어"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -929,12 +929,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-02T12:40:42.506193+00:00",
+      "published": "2026-03-02T12:45:03.115874+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -947,12 +947,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-02T12:40:42.506062+00:00",
+      "published": "2026-03-02T12:45:03.115745+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -965,12 +965,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-02T12:40:42.505938+00:00",
+      "published": "2026-03-02T12:45:03.115610+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -983,14 +983,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-02T12:40:42.505791+00:00",
+      "published": "2026-03-02T12:45:03.115468+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "랜섬웨어",
         "보안리포트",
-        "KARA"
+        "SK쉴더스",
+        "KARA",
+        "랜섬웨어"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1003,12 +1003,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-02T12:40:42.505653+00:00",
+      "published": "2026-03-02T12:45:03.115335+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1021,12 +1021,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-02T12:40:42.505513+00:00",
+      "published": "2026-03-02T12:45:03.115204+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1039,13 +1039,13 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-02T12:40:42.505379+00:00",
+      "published": "2026-03-02T12:45:03.115086+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
       "content": "",
       "tags": [
+        "보안리포트",
         "SK쉴더스",
-        "AI보안",
-        "보안리포트"
+        "AI보안"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1058,14 +1058,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-02T12:40:42.505231+00:00",
+      "published": "2026-03-02T12:45:03.114951+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "랜섬웨어",
         "보안리포트",
-        "KARA"
+        "SK쉴더스",
+        "KARA",
+        "랜섬웨어"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1078,12 +1078,12 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-02T12:40:42.504740+00:00",
+      "published": "2026-03-02T12:45:03.114503+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 2월호",
       "content": "",
       "tags": [
-        "SK쉴더스",
-        "보안리포트"
+        "보안리포트",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1096,7 +1096,7 @@
       "source_name": "Tech World Monitor",
       "category": "tech",
       "language": "en",
-      "published": "2026-03-02T12:39:49.297085+00:00",
+      "published": "2026-03-02T12:44:15.811344+00:00",
       "summary": "Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. 실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다. 이번 수집은 해저 케이블, 기상, 경제 지표, 서비스 장애, 데이터센터, 자연재해 레이어를 중심으로 참고했습니다. 분석 기준 구간은 최근 7d입니다.",
       "content": "실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적합니다.",
       "tags": [
@@ -1587,8 +1587,8 @@
       "summary": "SK쉴더스 보안 리포트: Research Technique 2월호 n8n 임의 파일 읽기 취약점(CVE-2026-21858)",
       "content": "",
       "tags": [
-        "SK쉴더스",
         "보안리포트",
+        "SK쉴더스",
         "취약점"
       ],
       "author": "SK쉴더스",
