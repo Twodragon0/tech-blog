@@ -8,7 +8,7 @@ date: 2026-01-11 10:00:00 +0900
 description: AI 기반 음악 비디오 생성 완벽 가이드 (2026년 최신). Suno V5 MIDI Export, Veo 3 1080p 멀티샷,
   Midjourney Video V1 활용법. DevSecOps 보안 고려사항(API 키 관리, 데이터 프라이버시, Zero-Trust), 실전
   워크플로우까지 실무 정리.
-excerpt: AI 음악 비디오 생성 DevSecOps 보안 가이드
+excerpt: "AI 기반 음악 비디오 생성 완벽 가이드. Suno V5 MIDI Export, Veo 3 1080p 멀티샷, Midjourney Video V1 활용법과 DevSecOps 보안 고려사항(API 키 관리, Zero-Trust) 실무 정리."
 image: /assets/images/2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.svg
 image_alt: 'AI Music Video Generation Complete Guide: DevSecOps Perspective'
 keywords:

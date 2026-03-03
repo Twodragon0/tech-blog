@@ -9,7 +9,7 @@ date: 2026-01-08 16:00:00 +0900
 description: 블록체인 암호화폐 보안 완벽 가이드. 2024-2025년 34억 달러 손실 분석(Bybit 15억 달러), 스마트 컨트랙트
   보안 도구(Slither/Mythril/Securify/Medusa), CI/CD 파이프라인 통합, 주요 위협(Reentrancy, 51% 공격),
   Fuzz 테스트까지 DevSecOps 실무 정리.
-excerpt: 블록체인 암호화폐 보안 DevSecOps 완벽 가이드
+excerpt: "블록체인 암호화폐 보안 완벽 가이드. 2024-2025년 34억 달러 손실 분석, 스마트 컨트랙트 보안 도구(Slither/Mythril), CI/CD 파이프라인 통합, 주요 위협 대응까지 DevSecOps 실무 정리."
 image: /assets/images/2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_and_Best_Practice.svg
 image_alt: 'Blockchain Cryptocurrency Security Complete Guide: DevSecOps Perspective
   on GitHub Security Tools and Best Practices'

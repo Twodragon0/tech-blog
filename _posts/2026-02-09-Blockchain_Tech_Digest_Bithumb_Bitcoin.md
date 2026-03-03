@@ -53,15 +53,6 @@ toc: true
   audience="DevOps/DevSecOps/Cloud 보안 담당자"
 %}
 
-{% include ai-summary-card.html
-  title='Blockchain & Tech Digest (2026년 02월 09일)'
-  categories_html='<span class=category-tag>Summary</span>'
-  tags_html='<span class=tag>Digest</span>'
-  highlights_html='<li>Auto-generated summary available below.</li>'
-  period='최근 24시간'
-  audience='개발자 및 보안 담당자'
-%}
-
 
 ## 서론
 
