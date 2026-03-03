@@ -141,16 +141,23 @@ class SlidingWindowRateLimiter {
           : 0,
       };
     } catch (error) {
-      // Redis 오류 시 요청 허용 (fail-open)
-      // 프로덕션에서는 로깅 추가 권장
-      console.error('[RateLimit] Redis error:', error.message);
+      // Redis 오류 시 요청 허용 (fail-open, 의도적 선택)
+      // 설계 결정: 가용성 우선으로 fail-open을 채택.
+      // Redis 장애 시 서비스를 중단하지 않도록 허용하되,
+      // 악용 위험을 줄이기 위해 구조화된 경고 로그를 남긴다.
+      // 만약 보안을 가용성보다 우선하려면 success: false로 변경할 것.
+      console.warn('[RateLimit] FAIL-OPEN: Redis unavailable, allowing request.', {
+        error: error.message,
+        identifier: undefined, // identifier는 이 스코프에서 접근 불가, 상위에서 로깅 권장
+        timestamp: new Date().toISOString(),
+      });
       return {
         success: true,
         limit: this.maxRequests,
         remaining: this.maxRequests,
         reset: Math.ceil((now + this.windowMs) / 1000),
         retryAfter: 0,
-        error: 'Redis unavailable, allowing request',
+        error: 'Redis unavailable, allowing request (fail-open)',
       };
     }
   }

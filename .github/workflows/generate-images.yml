@@ -168,31 +168,37 @@ jobs:
           USE_GEMINI_PRO_IMAGE: ${{ secrets.USE_GEMINI_PRO_IMAGE || 'false' }}
         run: |
           echo "🎨 Generating segment images..."
-          
+
+          SEGMENT_SCRIPT="scripts/generate_segment_images.py"
+          if [ ! -f "$SEGMENT_SCRIPT" ]; then
+            echo "::warning::${SEGMENT_SCRIPT} not found (archived). Skipping segment image generation."
+            exit 0
+          fi
+
           if [ -n "${{ github.event.inputs.post_file }}" ]; then
             POST_BASENAME=$(basename "${{ github.event.inputs.post_file }}" .md)
             SEGMENTS_JSON="output/${POST_BASENAME}_script_segments.json"
-            
+
             if [ ! -f "$SEGMENTS_JSON" ]; then
               echo "⚠️ Segment JSON not found: $SEGMENTS_JSON"
               echo "💡 Run audio generation script first to create segment files."
               exit 1
             fi
-            
+
             echo "📄 Processing: $SEGMENTS_JSON"
-            python3 scripts/generate_segment_images.py "$POST_BASENAME"
+            python3 "$SEGMENT_SCRIPT" "$POST_BASENAME"
           else
             RECENT_SEGMENTS=$(find output -name "*_script_segments.json" -type f 2>/dev/null | sort -r | head -n 1)
-            
+
             if [ -z "$RECENT_SEGMENTS" ]; then
               echo "⚠️ No segment JSON files found."
               echo "💡 Run audio generation script first to create segment files."
               exit 0
             fi
-            
+
             POST_BASENAME=$(basename "$RECENT_SEGMENTS" _script_segments.json)
             echo "📄 Processing: $POST_BASENAME"
-            python3 scripts/generate_segment_images.py "$POST_BASENAME"
+            python3 "$SEGMENT_SCRIPT" "$POST_BASENAME"
           fi
           
           echo ""

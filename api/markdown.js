@@ -73,8 +73,12 @@ function formatDate(date) {
 }
 
 export default async function handler(req, res) {
-  // CORS headers for AI agents
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // CORS headers for AI agents - explicit allowlist instead of wildcard
+  const allowedOrigins = ['https://tech.2twodragon.com', 'https://twodragon0.github.io'];
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Robots-Tag', 'noindex');

@@ -328,6 +328,10 @@ export default async function handler(req, res) {
     const utcHour = now.getUTCHours();
     const isOffPeak = utcHour >= CONFIG.OFF_PEAK_START_HOUR || utcHour < CONFIG.OFF_PEAK_END_HOUR;
     
+    // API 요청 로깅 (항상 로깅하여 진단 가능하도록)
+    // requestStartTime은 setTimeout 콜백에서도 참조하므로 반드시 먼저 선언
+    const requestStartTime = Date.now();
+
     // DeepSeek API 호출 (타임아웃 설정: 보수적으로 25초로 설정)
     const controller = new AbortController();
     const timeoutId = setTimeout(() => {
@@ -335,9 +339,6 @@ export default async function handler(req, res) {
       console.warn(`[Chat API] 타임아웃 발생 (${elapsed}ms 경과, 제한: ${CONFIG.TIMEOUT_MS}ms)`);
       controller.abort();
     }, CONFIG.TIMEOUT_MS);
-
-    // API 요청 로깅 (항상 로깅하여 진단 가능하도록)
-    const requestStartTime = Date.now();
     console.log('[Chat API] DeepSeek API 호출 시작:', {
       model: CONFIG.MODEL,
       messageCount: messages.length,
