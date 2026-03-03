@@ -152,7 +152,7 @@
 /* Posts List */
 .posts-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-md);
   margin-top: var(--spacing-lg);
 }
@@ -1770,18 +1770,18 @@
   }
 
   .posts-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
   }
-  
+
   .post-card-inner {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
   }
-  
+
   .post-card-title {
     font-size: var(--font-size-lg);
   }
-  
+
   .category-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
