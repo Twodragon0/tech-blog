@@ -180,7 +180,7 @@ def convert_mermaid_to_image(chart_content: str, output_path: Path) -> bool:
             # 임시 파일 삭제
             try:
                 os.unlink(tmp_mmd_path)
-            except:
+            except Exception:
                 pass
 
     except FileNotFoundError:

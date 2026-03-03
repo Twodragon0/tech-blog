@@ -188,9 +188,9 @@ def find_related_posts(news_item: dict, posts_dir: Path) -> List[dict]:
                             "score": score,
                         }
                     )
-            except:
+            except Exception:
                 continue
-    except:
+    except Exception:
         pass
 
     # 점수순 정렬
@@ -667,7 +667,7 @@ def main():
         # 날짜
         try:
             pub_date = datetime.fromisoformat(item["published"].replace("Z", "+00:00"))
-        except:
+        except Exception:
             pub_date = datetime.now(timezone.utc)
 
         # 파일명 생성

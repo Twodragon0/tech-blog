@@ -210,7 +210,7 @@ def extract_image_extension_from_url(url: str) -> str:
             return ".webp"
         elif "svg" in content_type:
             return ".svg"
-    except:
+    except Exception:
         pass
 
     return ".png"  # 기본값

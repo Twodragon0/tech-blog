@@ -596,7 +596,7 @@ def find_similar_posts(post_info: Dict) -> List[Dict]:
             info = extract_post_info(post_file)
             if info and info["category"] == category:
                 similar.append(info)
-        except:
+        except Exception:
             pass
 
     return similar[:3]  # 최대 3개

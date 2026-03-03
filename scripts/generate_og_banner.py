@@ -136,7 +136,7 @@ def load_font(size, bold=False):
     # 기본 폰트
     try:
         return ImageFont.truetype("arial.ttf", size)
-    except:
+    except Exception:
         return ImageFont.load_default()
 
 
@@ -245,7 +245,7 @@ def generate_post_og_image(post_path, output_path, site_title="Twodragon's Tech 
     if isinstance(date, str):
         try:
             date = datetime.fromisoformat(date.replace("Z", "+00:00"))
-        except:
+        except Exception:
             date = datetime.now()
 
     date_str = date.strftime("%Y. %m. %d")

@@ -16,6 +16,8 @@
 
 import { checkRateLimit, setRateLimitHeaders } from './lib/ratelimit.js';
 
+const DEBUG = process.env.DEBUG === 'true';
+
 // 최적화 설정
 const CONFIG = {
   // 타임아웃 설정: Vercel 플랜에 따라 조정
@@ -339,7 +341,7 @@ export default async function handler(req, res) {
       console.warn(`[Chat API] 타임아웃 발생 (${elapsed}ms 경과, 제한: ${CONFIG.TIMEOUT_MS}ms)`);
       controller.abort();
     }, CONFIG.TIMEOUT_MS);
-    console.log('[Chat API] DeepSeek API 호출 시작:', {
+    if (DEBUG) console.log('[Chat API] DeepSeek API 호출 시작:', {
       model: CONFIG.MODEL,
       messageCount: messages.length,
       maxTokens: CONFIG.MAX_TOKENS,
@@ -398,7 +400,7 @@ export default async function handler(req, res) {
     const fetchTime = Date.now() - requestStartTime;
     
     // API 응답 시간 로깅 (항상 로깅하여 진단 가능하도록)
-    console.log(`[Chat API] DeepSeek API 응답 완료: ${fetchTime}ms (타임아웃 제한: ${CONFIG.TIMEOUT_MS}ms)`);
+    if (DEBUG) console.log(`[Chat API] DeepSeek API 응답 완료: ${fetchTime}ms (타임아웃 제한: ${CONFIG.TIMEOUT_MS}ms)`);
     
     // 타임아웃에 가까운 경우 경고
     if (fetchTime > CONFIG.TIMEOUT_MS * 0.8) {
@@ -502,17 +504,17 @@ export default async function handler(req, res) {
     
     // 성능 모니터링: 느린 요청만 로깅 (프로덕션 최적화)
     if (executionTime > CONFIG.SLOW_REQUEST_THRESHOLD_MS) {
-      console.log(`[Chat API] Execution time: ${executionTime}ms`);
-      console.log(`[Chat API] Token usage - Prompt: ${totalPromptTokens} (Cache hit: ${cacheHitTokens}, Miss: ${cacheMissTokens}), Completion: ${totalCompletionTokens}, Cache hit rate: ${cacheHitRate}%`);
+      if (DEBUG) console.log(`[Chat API] Execution time: ${executionTime}ms`);
+      if (DEBUG) console.log(`[Chat API] Token usage - Prompt: ${totalPromptTokens} (Cache hit: ${cacheHitTokens}, Miss: ${cacheMissTokens}), Completion: ${totalCompletionTokens}, Cache hit rate: ${cacheHitRate}%`);
       if (isOffPeak) {
-        console.log(`[Chat API] Off-peak hours (UTC ${utcHour}:00) - 50-75% discount applied`);
+        if (DEBUG) console.log(`[Chat API] Off-peak hours (UTC ${utcHour}:00) - 50-75% discount applied`);
       }
     } else if (process.env.NODE_ENV === 'development') {
       // 개발 환경에서는 모든 요청 로깅
-      console.log(`[Chat API] Execution time: ${executionTime}ms`);
-      console.log(`[Chat API] Token usage - Prompt: ${totalPromptTokens} (Cache hit: ${cacheHitTokens}, Miss: ${cacheMissTokens}), Completion: ${totalCompletionTokens}, Cache hit rate: ${cacheHitRate}%`);
+      if (DEBUG) console.log(`[Chat API] Execution time: ${executionTime}ms`);
+      if (DEBUG) console.log(`[Chat API] Token usage - Prompt: ${totalPromptTokens} (Cache hit: ${cacheHitTokens}, Miss: ${cacheMissTokens}), Completion: ${totalCompletionTokens}, Cache hit rate: ${cacheHitRate}%`);
       if (isOffPeak) {
-        console.log(`[Chat API] Off-peak hours (UTC ${utcHour}:00) - 50-75% discount applied`);
+        if (DEBUG) console.log(`[Chat API] Off-peak hours (UTC ${utcHour}:00) - 50-75% discount applied`);
       }
     }
 

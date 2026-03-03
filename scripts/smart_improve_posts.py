@@ -23,7 +23,7 @@ def log_message(message: str):
     try:
         with open(LOG_FILE, "a", encoding="utf-8") as f:
             f.write(log_entry)
-    except:
+    except Exception:
         pass
 
 
