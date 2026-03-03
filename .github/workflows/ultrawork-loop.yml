@@ -1,8 +1,9 @@
 name: Ultrawork Loop
 
 on:
-  schedule:
-    - cron: "0 */6 * * *"
+  # DEPRECATED: schedule disabled - ops-multi-agent-loop.yml handles scheduled ops checks
+  # schedule:
+  #   - cron: "0 */6 * * *"
   workflow_dispatch:
     inputs:
       run_lint_checks:
@@ -88,10 +89,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"

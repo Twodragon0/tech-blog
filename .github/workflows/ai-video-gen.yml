@@ -34,10 +34,10 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
@@ -314,11 +314,17 @@ jobs:
           fi
           echo ""
           
-          # 개선된 스크립트 사용 (Gemini, DeepSeek, OAuth 2.0 지원)
+          # Script moved to _archive - check existence before running
+          AUDIO_SCRIPT="scripts/generate_enhanced_audio.py"
+          if [ ! -f "$AUDIO_SCRIPT" ]; then
+            echo "::error::${AUDIO_SCRIPT} not found (archived). Restore from scripts/_archive/ if needed."
+            exit 1
+          fi
+
           if [ -n "${{ github.event.inputs.post_file }}" ]; then
-            python3 scripts/generate_enhanced_audio.py "${{ github.event.inputs.post_file }}"
+            python3 "$AUDIO_SCRIPT" "${{ github.event.inputs.post_file }}"
           else
-            python3 scripts/generate_enhanced_audio.py
+            python3 "$AUDIO_SCRIPT"
           fi
           
           # 생성된 오디오 파일 크기 확인 (비용 모니터링)
@@ -343,7 +349,7 @@ jobs:
 
       - name: Set up Node.js
         if: github.event.inputs.video_method == 'remotion'
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'

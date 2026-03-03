@@ -13,6 +13,7 @@
 - 링크 유효성
 """
 
+import argparse
 import re
 from pathlib import Path
 from typing import List, Optional, Tuple
@@ -31,9 +32,9 @@ REQUIRED_FIELDS = [
     "tags",
     "excerpt",
     "image",
-    "toc",
 ]
-OPTIONAL_FIELDS = ["comments", "original_url", "image_alt", "category"]
+OPTIONAL_FIELDS = ["comments", "original_url", "image_alt", "toc"]
+DEPRECATED_FIELDS = ["schema_type", "category"]
 
 
 def extract_front_matter(content: str) -> tuple[dict[str, object], str]:
@@ -63,6 +64,11 @@ def check_front_matter(file_path: Path) -> List[str]:
     for field in REQUIRED_FIELDS:
         if field not in front_matter:
             issues.append(f"❌ Missing required field: {field}")
+
+    # Deprecated fields check
+    for field in DEPRECATED_FIELDS:
+        if field in front_matter:
+            issues.append(f"⚠️ Deprecated field '{field}' should be removed")
 
     # 이미지 파일명이 영어인지 확인
     if "image" in front_matter:
@@ -218,8 +224,6 @@ def check_image_files(file_path: Path, front_matter: dict[str, object]) -> list[
 
 def main():
     """메인 함수"""
-    import argparse
-
     parser = argparse.ArgumentParser(
         description="통합 포스팅 검증 스크립트",
         formatter_class=argparse.RawDescriptionHelpFormatter,

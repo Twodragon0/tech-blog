@@ -1,19 +1,10 @@
 name: Daily Tech News Auto Publish
 
 on:
-  schedule:
-    # 매일 오전 10시 KST = UTC 01:00
-    # GitHub Actions cron은 큐 지연이 있을 수 있음 (최대 15-30분)
-    - cron: '0 1 * * *'
-  
-  # 저장소 푸시 시에도 트리거 (워크플로우 파일 수정 시)
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/daily-news.yml'
-      - 'scripts/collect_tech_news.py'
-      - 'scripts/auto_publish_news.py'
-  
+  # DEPRECATED: schedule disabled - ai-blogwatcher.yml handles scheduled publishing
+  # schedule:
+  #   - cron: '0 1 * * *'
+
   workflow_dispatch:
     inputs:
       hours:
@@ -52,13 +43,13 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: 'pip'
@@ -184,14 +175,14 @@ jobs:
             echo "⏭️ Post already exists for today: $EXISTING"
             echo "   Skipping auto-publish to avoid duplicates (1 post/day policy)."
           else
-            CMD="python3 scripts/auto_publish_news.py --hours $HOURS --max-news $MAX_NEWS"
+            args=(--hours "$HOURS" --max-news "$MAX_NEWS")
 
             if [ "$DRY_RUN" = "true" ]; then
-              CMD="$CMD --dry-run"
+              args+=(--dry-run)
             fi
 
-            echo "Running: $CMD"
-            $CMD
+            echo "Running: python3 scripts/auto_publish_news.py ${args[*]}"
+            python3 scripts/auto_publish_news.py "${args[@]}"
           fi
 
           echo ""
@@ -358,10 +349,10 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
       
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
       

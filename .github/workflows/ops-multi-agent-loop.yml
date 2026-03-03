@@ -20,14 +20,16 @@ concurrency:
 
 permissions:
   contents: read
-  actions: write
-  issues: write
 
 jobs:
   roundtable:
     if: github.event_name != 'schedule' || vars.OPS_MULTI_AGENT_SCHEDULE != 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 25
+    permissions:
+      contents: read
+      actions: write
+      issues: write
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -41,16 +43,16 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
 
