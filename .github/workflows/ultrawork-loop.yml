@@ -1,4 +1,7 @@
 name: Ultrawork Loop
+# DEPRECATED: This workflow's schedule is disabled.
+# Replaced by: ops-multi-agent-loop.yml (for ultrawork)
+# Kept for manual workflow_dispatch only. Consider removing if unused for 30+ days.
 
 on:
   # DEPRECATED: schedule disabled - ops-multi-agent-loop.yml handles scheduled ops checks

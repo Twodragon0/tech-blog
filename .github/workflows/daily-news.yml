@@ -1,4 +1,7 @@
 name: Daily Tech News Auto Publish
+# DEPRECATED: This workflow's schedule is disabled.
+# Replaced by: ai-blogwatcher.yml (for daily-news)
+# Kept for manual workflow_dispatch only. Consider removing if unused for 30+ days.
 
 on:
   # DEPRECATED: schedule disabled - ai-blogwatcher.yml handles scheduled publishing
