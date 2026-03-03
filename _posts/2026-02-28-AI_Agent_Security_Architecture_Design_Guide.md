@@ -24,7 +24,6 @@ keywords:
 - Circuit Breaker
 - OpenTelemetry GenAI
 layout: post
-schema_type: Article
 tags:
 - AI-Agent
 - AI-Security

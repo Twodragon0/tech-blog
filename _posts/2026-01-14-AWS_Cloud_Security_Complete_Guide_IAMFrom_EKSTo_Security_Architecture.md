@@ -15,7 +15,6 @@ image_alt: 'AWS Cloud Security Complete Guide: IAM to EKS Practical Security Arc
 keywords: AWS 보안, IAM, VPC, S3, RDS, EKS, CloudTrail, CloudWatch, Security Hub, GuardDuty,
   KMS, Defense in Depth, 최소 권한 원칙, AWS-SAA
 layout: post
-schema_type: Article
 tags:
 - AWS
 - Security

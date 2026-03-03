@@ -22,7 +22,6 @@ keywords:
 - 피싱방지
 layout: post
 original_url: https://twodragon.tistory.com/678
-schema_type: Article
 tags:
 - Passkey
 - OTP

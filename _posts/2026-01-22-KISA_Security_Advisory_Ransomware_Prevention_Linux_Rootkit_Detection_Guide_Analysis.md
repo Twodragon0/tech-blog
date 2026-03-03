@@ -24,7 +24,6 @@ keywords:
 - DevSecOps
 - Incident-Prevention
 layout: post
-schema_type: Article
 tags:
 - KISA
 - Ransomware

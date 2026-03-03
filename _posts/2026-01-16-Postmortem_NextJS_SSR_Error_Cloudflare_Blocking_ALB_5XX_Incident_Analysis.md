@@ -23,7 +23,6 @@ keywords:
 - ReferenceError
 - WAF-Blocking
 layout: post
-schema_type: Article
 tags:
 - Post-Mortem
 - Next.js

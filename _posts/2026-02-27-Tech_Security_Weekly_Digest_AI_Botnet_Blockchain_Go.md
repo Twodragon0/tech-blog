@@ -12,7 +12,6 @@ comments: true
 image: /assets/images/2026-02-27-Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go.svg
 image_alt: "Tech Security Weekly Digest February 27 2026 AI Botnet Blockchain"
 toc: true
-schema_type: Article
 ---
 
 {% include ai-summary-card.html

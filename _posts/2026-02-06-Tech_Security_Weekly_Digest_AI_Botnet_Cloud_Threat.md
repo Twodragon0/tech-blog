@@ -25,7 +25,6 @@ keywords:
 - BYOVD
 - Python-RAT
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - DevSecOps

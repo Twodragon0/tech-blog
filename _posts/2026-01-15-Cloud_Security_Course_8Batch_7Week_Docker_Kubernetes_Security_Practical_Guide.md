@@ -4,7 +4,6 @@ categories:
 - security
 - devsecops
 - kubernetes
-category: kubernetes
 comments: true
 date: 2026-01-15 18:25:00 +0900
 description: '클라우드 보안 과정 8기 7주차: Docker 컨테이너 보안(이미지 스캔, Secret 관리, 비루트 실행), Kubernetes
@@ -29,7 +28,6 @@ keywords:
 - Image-Scanning
 layout: post
 original_url: https://twodragon.tistory.com/708
-schema_type: Article
 series: "Cloud Security Course 8기"
 series_order: 8
 series_total: 9

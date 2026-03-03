@@ -31,7 +31,6 @@ keywords:
 - Security Audit
 layout: post
 original_url: https://twodragon.tistory.com
-schema_type: Article
 tags:
 - Blockchain
 - Cryptocurrency

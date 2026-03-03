@@ -28,7 +28,6 @@ keywords:
 - DevSecOps
 - Security-News
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - AitM-Phishing

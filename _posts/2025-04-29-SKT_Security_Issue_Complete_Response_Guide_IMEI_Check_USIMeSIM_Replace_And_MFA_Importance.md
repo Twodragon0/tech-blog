@@ -24,7 +24,6 @@ keywords:
 - 금융보안
 layout: post
 original_url: https://twodragon.tistory.com/677
-schema_type: Article
 tags:
 - SKT
 - MFA

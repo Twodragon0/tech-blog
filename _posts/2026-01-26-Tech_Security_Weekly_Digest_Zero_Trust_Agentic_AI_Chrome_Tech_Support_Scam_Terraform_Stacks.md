@@ -31,7 +31,6 @@ keywords:
 - 클라우드 보안
 - 2026
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - Zero-Trust

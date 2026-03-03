@@ -21,7 +21,6 @@ keywords:
 - DevSecOps
 layout: post
 original_url: https://twodragon.tistory.com/686
-schema_type: Article
 tags:
 - Docker
 - Kubernetes

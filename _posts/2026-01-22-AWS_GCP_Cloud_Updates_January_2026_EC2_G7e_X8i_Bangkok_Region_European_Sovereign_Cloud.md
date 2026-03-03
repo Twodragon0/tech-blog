@@ -28,7 +28,6 @@ keywords:
 - FinOps
 - AI-Inference
 layout: post
-schema_type: Article
 tags:
 - AWS
 - GCP

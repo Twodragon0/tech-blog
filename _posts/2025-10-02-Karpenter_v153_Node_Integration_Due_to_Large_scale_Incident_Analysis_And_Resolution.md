@@ -28,7 +28,6 @@ tags:
 - EKS
 title: Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기
 toc: true
-schema_type: Article
 ---
 
 <div class="ai-summary-card">

@@ -26,7 +26,6 @@ keywords:
 - Zero-Trust
 - Midjourney Video
 layout: post
-schema_type: Article
 tags:
 - AI
 - Generative-AI

@@ -2,7 +2,6 @@
 layout: post
 title: "블로그 품질 점검 리포트: 링크·이미지·코드 블록 기준 정리 (2026-02-15)"
 date: 2026-02-15 09:00:00 +0900
-category: devsecops
 categories: [devsecops]
 tags: [Quality-Check, Content-QA, Link-Check, Image-Audit, Code-Blocks, Jekyll, Automation]
 excerpt: "79개 포스트를 품질 스크립트로 점검한 결과, 링크 오류는 0건으로 정리됐고 이미지 경고 47건과 긴 코드 블록 위반이 다수 확인되었습니다. 우선순위 기준과 개선 계획을 공유합니다."
@@ -13,7 +12,6 @@ comments: true
 image: /assets/images/2026-02-15-Blog_Quality_Check_Report.svg
 image_alt: "블로그 품질 점검 리포트 2026년 2월 15일"
 toc: true
-schema_type: Article
 ---
 
 {% capture ai_categories_html %}

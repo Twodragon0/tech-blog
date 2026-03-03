@@ -18,7 +18,6 @@ keywords:
 - UNC1069
 - CVE-2025-40551
 layout: post
-schema_type: Article
 tags:
 - Security-Digest
 - SolarWinds-RCE

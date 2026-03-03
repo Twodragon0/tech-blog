@@ -27,7 +27,6 @@ keywords:
 - ISMS-P
 - KMS
 layout: post
-schema_type: Article
 tags:
 - GCP
 - Security

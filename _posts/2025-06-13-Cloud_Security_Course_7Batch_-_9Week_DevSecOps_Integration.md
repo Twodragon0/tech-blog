@@ -17,7 +17,6 @@ keywords:
 - Security-Automation
 layout: post
 original_url: https://twodragon.tistory.com/691
-schema_type: Article
 tags:
 - DevSecOps
 - Integration

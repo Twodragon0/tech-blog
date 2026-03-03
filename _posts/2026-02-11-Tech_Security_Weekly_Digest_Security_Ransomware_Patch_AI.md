@@ -20,7 +20,6 @@ keywords:
 - Ransomware
 - Patch
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - DevSecOps

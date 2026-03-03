@@ -2,7 +2,6 @@
 author: Twodragon
 categories:
 - cloud
-category: cloud
 comments: true
 date: 2025-11-26 19:36:52 +0900
 description: 클라우드 인프라 본질부터 2025년 보안 트렌드까지. AI 보안, Zero Trust, Post-quantum 암호화 등 최신
@@ -27,7 +26,6 @@ tags:
 - AWS
 title: '클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지'
 toc: true
-schema_type: Article
 series: "Cloud Security Course 8기"
 series_order: 2
 series_total: 9

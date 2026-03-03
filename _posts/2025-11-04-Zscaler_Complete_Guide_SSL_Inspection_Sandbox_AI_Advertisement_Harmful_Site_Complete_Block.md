@@ -28,7 +28,6 @@ tags:
 - Cloud-Security
 title: 'Zscaler 완벽 가이드: SSL 검사, 샌드박스, AI, 광고, 유해 사이트 완벽 차단'
 toc: true
-schema_type: Article
 ---
 
 <div class="ai-summary-card">

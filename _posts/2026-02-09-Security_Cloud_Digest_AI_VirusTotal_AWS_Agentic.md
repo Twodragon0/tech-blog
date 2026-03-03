@@ -21,7 +21,6 @@ keywords:
 - AWS
 - Ransomware
 layout: post
-schema_type: Article
 tags:
 - Security-Digest
 - Cloud-Digest

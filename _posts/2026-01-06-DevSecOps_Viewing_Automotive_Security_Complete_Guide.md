@@ -28,7 +28,6 @@ keywords:
 - Secure Boot
 - OTA Security
 layout: post
-schema_type: Article
 tags:
 - DevSecOps
 - Automotive-Security

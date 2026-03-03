@@ -2,7 +2,6 @@
 author: Twodragon
 categories:
 - devsecops
-category: devsecops
 comments: true
 date: 2025-11-21 18:28:12 +0900
 description: 클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량을 강화하고, 2025년 AI 보안 트렌드에
@@ -30,7 +29,6 @@ tags:
 - Course
 title: '클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!'
 toc: true
-schema_type: Article
 series: "Cloud Security Course 8기"
 series_order: 1
 series_total: 9

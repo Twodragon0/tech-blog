@@ -27,7 +27,6 @@ keywords:
 - FSD v14.2.1
 - Tesla Security
 layout: post
-schema_type: Article
 tags:
 - Tesla
 - FSD

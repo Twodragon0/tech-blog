@@ -28,7 +28,6 @@ tags:
 - SRE
 title: '[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지'
 toc: true
-schema_type: Article
 ---
 
 <div class="ai-summary-card">

@@ -4,7 +4,6 @@ categories:
 - security
 - devsecops
 - kubernetes
-category: devsecops
 comments: true
 date: 2026-01-22 18:30:00 +0900
 description: '클라우드 보안 과정 8기 8주차: CI/CD 파이프라인 보안(Trivy, Snyk, Vault), Kubernetes 네트워크
@@ -30,7 +29,6 @@ keywords:
 - Claude-API
 layout: post
 original_url: https://twodragon.tistory.com/708
-schema_type: Article
 series: "Cloud Security Course 8기"
 series_order: 9
 series_total: 9

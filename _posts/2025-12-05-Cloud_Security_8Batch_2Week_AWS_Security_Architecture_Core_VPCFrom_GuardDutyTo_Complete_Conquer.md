@@ -2,7 +2,6 @@
 author: Twodragon
 categories:
 - cloud
-category: cloud
 certifications:
 - aws-saa
 comments: true
@@ -32,7 +31,6 @@ tags:
 - Security-Architecture
 title: '클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!'
 toc: true
-schema_type: Article
 series: "Cloud Security Course 8기"
 series_order: 3
 series_total: 9

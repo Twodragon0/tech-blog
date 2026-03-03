@@ -24,7 +24,6 @@ keywords:
 - DevSecOps
 - Cloud-Security
 layout: post
-schema_type: Article
 tags:
 - Security-Vendor-News
 - DevSecOps

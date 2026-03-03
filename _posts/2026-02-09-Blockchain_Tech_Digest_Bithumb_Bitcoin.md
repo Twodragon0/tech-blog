@@ -18,7 +18,6 @@ keywords:
 - GameBoy
 - AI-UX
 layout: post
-schema_type: Article
 tags:
 - Blockchain-Digest
 - Tech-Digest

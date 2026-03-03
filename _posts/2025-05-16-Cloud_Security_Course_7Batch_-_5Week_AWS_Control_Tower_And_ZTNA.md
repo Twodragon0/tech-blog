@@ -24,7 +24,6 @@ keywords:
 - 제로트러스트
 layout: post
 original_url: https://twodragon.tistory.com/683
-schema_type: Article
 tags:
 - AWS
 - Control-Tower

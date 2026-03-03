@@ -12,7 +12,6 @@ comments: true
 image: /assets/images/2026-02-17-Weekly_Tech_Security_Digest_AI_Cloud_Risk.svg
 image_alt: "Weekly Tech Security Digest AI Cloud Risk"
 toc: true
-schema_type: Article
 ---
 
 {% capture ai_categories_html %}

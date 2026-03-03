@@ -12,7 +12,6 @@ comments: true
 image: /assets/images/2026-02-16-Daily_Tech_Digest_RSS_Roundup.svg
 image_alt: "Daily Tech Digest RSS Roundup"
 toc: true
-schema_type: Article
 ---
 
 {% capture ai_categories_html %}

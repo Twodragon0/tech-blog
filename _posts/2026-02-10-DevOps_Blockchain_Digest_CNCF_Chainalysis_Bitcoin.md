@@ -20,7 +20,6 @@ keywords:
 - Bitcoin
 - Kubernetes
 layout: post
-schema_type: Article
 tags:
 - DevOps-Digest
 - Blockchain-Digest

@@ -21,7 +21,6 @@ keywords:
 - Net-NTLMv1
 - DevSecOps
 layout: post
-schema_type: Article
 tags:
 - Kubernetes
 - Cloud-Security

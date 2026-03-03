@@ -21,7 +21,6 @@ keywords:
 - ICS Attack
 - CERT Polska
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - DevSecOps

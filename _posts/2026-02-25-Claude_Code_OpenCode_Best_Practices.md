@@ -31,7 +31,6 @@ tags:
 - AI-Coding
 - '2026'
 author: Twodragon
-schema_type: Article
 toc: true
 ---
 

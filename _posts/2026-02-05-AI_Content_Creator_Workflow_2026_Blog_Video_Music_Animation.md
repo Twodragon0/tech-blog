@@ -26,7 +26,6 @@ keywords:
 - DevSecOps
 - 2026
 layout: post
-schema_type: Article
 tags:
 - AI
 - Claude

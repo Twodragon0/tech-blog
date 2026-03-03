@@ -19,7 +19,6 @@ keywords:
 - Email-Security
 layout: post
 original_url: https://twodragon.tistory.com/688
-schema_type: Article
 tags:
 - SendGrid
 - SPF

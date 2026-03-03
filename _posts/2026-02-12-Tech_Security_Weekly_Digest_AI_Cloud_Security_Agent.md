@@ -12,7 +12,6 @@ comments: true
 image: /assets/images/2026-02-12-Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent.svg
 image_alt: "기술·보안 주간 다이제스트 2026년 2월 12일 AI 클라우드 보안"
 toc: true
-schema_type: Article
 ---
 
 {% capture ai_categories_html %}

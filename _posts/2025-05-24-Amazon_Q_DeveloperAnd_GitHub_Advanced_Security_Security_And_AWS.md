@@ -18,7 +18,6 @@ keywords:
 - DevSecOps
 layout: post
 original_url: https://twodragon.tistory.com/685
-schema_type: Article
 tags:
 - Amazon-Q
 - GitHub-Advanced-Security

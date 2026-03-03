@@ -20,7 +20,6 @@ keywords:
 - OpenTelemetry
 - ChatGPT
 layout: post
-schema_type: Article
 tags:
 - AI-Digest
 - Cloud-Digest

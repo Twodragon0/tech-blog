@@ -21,7 +21,6 @@ keywords:
 - Troubleshooting
 layout: post
 original_url: https://twodragon.tistory.com/687
-schema_type: Article
 tags:
 - Kubernetes
 - Minikube

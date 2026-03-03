@@ -26,7 +26,6 @@ tags:
 - Security-Incident
 title: 'NPM "Shai-Hulud" 자가 복제 웜 공격: 180개 이상 패키지 침해된 대규모 공급망 공격 완전 분석'
 toc: true
-schema_type: Article
 ---
 
 <div class="ai-summary-card">

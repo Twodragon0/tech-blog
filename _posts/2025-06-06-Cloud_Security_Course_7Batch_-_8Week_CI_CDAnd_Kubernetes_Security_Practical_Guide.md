@@ -2,7 +2,6 @@
 author: Yongho Ha
 categories:
 - kubernetes
-category: kubernetes
 certifications:
 - ckad
 - cka
@@ -23,7 +22,6 @@ keywords:
 - Pipeline-Security
 layout: post
 original_url: https://twodragon.tistory.com/689
-schema_type: Article
 tags:
 - CI/CD
 - Kubernetes

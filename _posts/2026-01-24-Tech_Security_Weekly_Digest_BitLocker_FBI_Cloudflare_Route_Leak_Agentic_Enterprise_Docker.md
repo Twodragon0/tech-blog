@@ -33,7 +33,6 @@ keywords:
 - 보안 논란
 - 2026
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - BitLocker

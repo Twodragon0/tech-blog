@@ -27,7 +27,6 @@ keywords:
 - Energy Cybersecurity
 - DevSecOps
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - Ollama

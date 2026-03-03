@@ -14,7 +14,6 @@ image_alt: 'OWASP 2025 Latest Update Complete Guide: Top 10 and Agentic AI Secur
 keywords: OWASP, Top 10 2025, AI 보안, 에이전틱 AI, 공급망 공격, 암호화 실패, SecureCode, Dependabot,
   SBOM, Post-Quantum, DevSecOps
 layout: post
-schema_type: Article
 tags:
 - OWASP
 - Security

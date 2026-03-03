@@ -24,7 +24,6 @@ keywords:
 - Zero-Trust
 - Data-Security
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - DevSecOps

@@ -22,7 +22,6 @@ keywords:
 - eScan Supply Chain
 - NIST AI RMF
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - DevSecOps

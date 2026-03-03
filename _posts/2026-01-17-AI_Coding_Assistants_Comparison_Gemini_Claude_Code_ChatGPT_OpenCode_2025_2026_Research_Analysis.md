@@ -15,7 +15,6 @@ image_alt: 'AI Coding Assistants Comparison: Gemini, Claude Code, ChatGPT, OpenC
 keywords: AI 코딩 어시스턴트, Claude Code, Gemini, ChatGPT, OpenCode, DeepSeek, SWE-Bench,
   HumanEval, 재현성, 멀티링구얼, 보안, 2025, 2026
 layout: post
-schema_type: Article
 tags:
 - AI
 - Coding-Assistants

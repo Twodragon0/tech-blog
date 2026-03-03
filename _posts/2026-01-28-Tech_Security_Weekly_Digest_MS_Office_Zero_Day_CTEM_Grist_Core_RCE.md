@@ -20,7 +20,6 @@ keywords:
 - 보안 패치
 - DevSecOps
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - DevSecOps

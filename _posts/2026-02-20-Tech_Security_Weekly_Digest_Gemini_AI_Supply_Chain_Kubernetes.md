@@ -12,7 +12,6 @@ comments: true
 image: /assets/images/2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.svg
 image_alt: "기술 보안 주간 다이제스트 2026년 2월 20일 Gemini AI 공급망 Kubernetes"
 toc: true
-schema_type: Article
 ---
 
 {% include ai-summary-card.html

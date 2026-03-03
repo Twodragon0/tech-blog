@@ -25,7 +25,6 @@ keywords:
 - NHI
 - DevSecOps
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - n8n

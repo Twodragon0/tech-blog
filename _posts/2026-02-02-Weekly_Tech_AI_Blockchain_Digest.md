@@ -22,7 +22,6 @@ keywords:
 - Ethereum Quantum
 - FOSDEM 2026
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - Apple

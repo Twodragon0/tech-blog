@@ -23,7 +23,6 @@ keywords:
 - Compliance
 layout: post
 original_url: https://twodragon.tistory.com/680
-schema_type: Article
 tags:
 - Kandji
 - macOS

@@ -24,7 +24,6 @@ keywords:
 - LABYRINTH CHOLLIMA
 - Linux Security 2026
 layout: post
-schema_type: Article
 tags:
 - Agentic-AI
 - AI-Security

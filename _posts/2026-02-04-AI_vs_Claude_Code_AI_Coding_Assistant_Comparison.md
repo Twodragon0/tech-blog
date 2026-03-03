@@ -25,7 +25,6 @@ keywords:
 - Enterprise AI
 - SWE-bench
 layout: post
-schema_type: Article
 tags:
 - AI-Assistant
 - Claude-Code

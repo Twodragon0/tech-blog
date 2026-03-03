@@ -12,7 +12,6 @@ comments: true
 image: /assets/images/2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.svg
 image_alt: "주간 보안 다이제스트 2026년 2월 14일 Microsoft Zero Day Apple Ivanti EPMM"
 toc: true
-schema_type: Article
 ---
 
 {% capture ai_categories_html %}

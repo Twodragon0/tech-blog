@@ -35,7 +35,6 @@ keywords:
 - 보안 패치
 - 2026
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - VMware

@@ -12,7 +12,6 @@ comments: true
 image: /assets/images/Tech_Blog_Weekly_Digest_AI_Agent_Cloud_og.png
 image_alt: "기술 블로그 주간 다이제스트 2026년 2월 21일"
 toc: true
-schema_type: Article
 ---
 
 {% include ai-summary-card.html

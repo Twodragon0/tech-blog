@@ -27,7 +27,6 @@ keywords:
 - PCI-DSS
 - 보안 컴플라이언스
 layout: post
-schema_type: Article
 tags:
 - ISMS-P
 - AWS

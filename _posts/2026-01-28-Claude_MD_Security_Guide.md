@@ -21,7 +21,6 @@ keywords:
 - AI Agent
 - 보안 가이드라인
 layout: post
-schema_type: Article
 tags:
 - CLAUDE.md
 - AI-Security

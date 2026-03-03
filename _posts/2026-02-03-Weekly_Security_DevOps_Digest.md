@@ -36,7 +36,6 @@ keywords:
 - ScreenConnect RAT
 - Shodan Exposure
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - AI

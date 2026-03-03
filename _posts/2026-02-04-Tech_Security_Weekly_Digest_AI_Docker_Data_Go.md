@@ -23,7 +23,6 @@ keywords:
 - 3Cs Framework
 - AWS IAM Identity Center
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - DevSecOps

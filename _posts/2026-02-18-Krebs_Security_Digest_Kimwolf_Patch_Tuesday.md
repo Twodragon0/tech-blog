@@ -12,7 +12,6 @@ comments: true
 image: /assets/images/2026-02-18-Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update.svg
 image_alt: "KrebsOnSecurity Security Digest"
 toc: true
-schema_type: Article
 ---
 
 {% capture ai_categories_html %}

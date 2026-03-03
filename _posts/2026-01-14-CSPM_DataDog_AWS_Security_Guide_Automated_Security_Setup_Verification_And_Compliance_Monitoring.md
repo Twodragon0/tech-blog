@@ -28,7 +28,6 @@ keywords:
 - Cloud Posture Management
 - Threat Detection
 layout: post
-schema_type: Article
 tags:
 - CSPM
 - DataDog

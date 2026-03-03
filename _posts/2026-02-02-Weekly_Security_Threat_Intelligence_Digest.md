@@ -22,7 +22,6 @@ keywords:
 - HashiCorp Boundary
 - Red Team Cyber Immunity
 layout: post
-schema_type: Article
 tags:
 - Security-Weekly
 - Supply-Chain

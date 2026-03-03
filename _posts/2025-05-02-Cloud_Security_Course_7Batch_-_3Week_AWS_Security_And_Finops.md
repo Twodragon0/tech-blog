@@ -25,7 +25,6 @@ keywords:
 - 클라우드보안
 layout: post
 original_url: https://twodragon.tistory.com/679
-schema_type: Article
 tags:
 - AWS
 - FinOps

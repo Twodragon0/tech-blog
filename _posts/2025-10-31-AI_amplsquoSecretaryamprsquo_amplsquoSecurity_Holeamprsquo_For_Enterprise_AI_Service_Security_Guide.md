@@ -26,7 +26,6 @@ tags:
 - Governance
 title: 'AI 시대, 당신의 ''비서''가 ''보안 구멍''이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드'
 toc: true
-schema_type: Article
 ---
 
 <div class="ai-summary-card">

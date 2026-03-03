@@ -27,7 +27,6 @@ keywords:
 - CodeQL
 - AI Security
 layout: post
-schema_type: Article
 tags:
 - DevSecOps
 - 로드맵

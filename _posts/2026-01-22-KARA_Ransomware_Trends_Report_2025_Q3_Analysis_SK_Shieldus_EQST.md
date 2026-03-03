@@ -14,7 +14,6 @@ image_alt: KARA Ransomware Trends Report 2025 Q3 Analysis - Attack Statistics, M
 keywords: 랜섬웨어, KARA, SK쉴더스, LockBit 5.0, Akira, INC Ransomware, 제로 트러스트, YARA, Sigma,
   침해사고대응, SOC, CERT, 2025년 3분기
 layout: post
-schema_type: Article
 tags:
 - Ransomware
 - KARA
