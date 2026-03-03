@@ -579,7 +579,8 @@ index=github sourcetype=github:actions workflow_name="CodeQL"
 
 **해결 방법**:
 > **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요.-auto-approve.yml...
-yaml
+
+```yaml
 # .github/secret_scanning_excludes.yml
 exclude_paths:
   - '**/test/**'

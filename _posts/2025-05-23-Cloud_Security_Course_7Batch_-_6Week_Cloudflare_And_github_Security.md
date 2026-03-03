@@ -253,7 +253,7 @@ Code Scanning 설정 단계:
 > # 공공기관 Cloudflare 설정...
 > ```
 
-> ```
+> ```text
 
 
 ### Cloudflare 이상 탐지
@@ -261,7 +261,7 @@ Code Scanning 설정 단계:
 > ...
 > ```
 
-> ```
+> ```text
 
 ### 시크릿 노출 및 대응
 
