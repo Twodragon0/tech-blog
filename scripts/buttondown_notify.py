@@ -552,7 +552,7 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
                 error_data = response.json()
                 if "detail" in error_data:
                     print(f"   Error detail: {error_data['detail']}")
-            except:
+            except Exception:
                 pass
             return False
 
