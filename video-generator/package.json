@@ -25,6 +25,7 @@
   "overrides": {
     "fast-xml-parser": ">=5.3.8",
     "ajv": ">=8.18.0",
-    "webpack": ">=5.104.1"
+    "webpack": ">=5.104.1",
+    "serialize-javascript": ">=7.0.3"
   }
 }
