@@ -228,42 +228,6 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 | **MFA 비활성화** | DeactivateMFADevice | 높음 | 즉시 재활성화 요구 |
 | **Security Group 변경** | AuthorizeSecurityGroupIngress | 중간 | 변경 사유 확인 |
 
-### 5.3 경영진 보고 형식 (Board Reporting Format)
-
-#### 월간 보안 및 비용 현황 보고서
-
-
-**교훈 및 예방책**:
-- AWS Budgets에서 일일 예산 알림 설정
-- Service Control Policy (SCP)로 특정 인스턴스 타입 제한
-- Lambda를 통한 자동 인스턴스 종료 설정
-
-#### 시나리오 2: S3 비용 200% 급증
-
-**상황**:
-- 백업 스크립트 오류로 매시간 중복 백업 발생
-- S3 비용이 $300/월에서 $600/월로 200% 급증
-
-**탐지**:
-```bash
-# S3 스토리지 사용량 급증 확인
-aws cloudwatch get-metric-statistics \
-  --namespace AWS/S3 \
-  --metric-name BucketSizeBytes \
-  --dimensions Name=BucketName,Value=my-backup-bucket Name=StorageType,Value=StandardStorage \
-  --start-time 2025-12-01T00:00:00Z \
-  --end-time 2025-12-12T00:00:00Z \
-  --period 86400 \
-  --statistics Average
-```
-
-**대응 절차**:
-**교훈 및 예방책**:
-- MFA 강제 적용 (IAM Policy)
-- Access Key 로테이션 자동화
-- AWS Secrets Manager로 키 관리
-- CloudTrail + GuardDuty 실시간 모니터링
-
 ## 7. 참고 자료 (Comprehensive References)
 
 ### 7.1 공식 문서

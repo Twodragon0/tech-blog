@@ -177,7 +177,6 @@ toc: true
 - Gemini 3 Flash 모델과 BigQuery 고급 쿼리 엔진
 - 보안 영향 분석 및 SIEM 탐지 쿼리
 - 한국 시장 영향 분석 (데이터 레지던시, 규제, 비용)
-- 경영진 보고 형식 (Board Reporting)
 - FinOps 관점에서의 비용 최적화 전략
 
 ## 📊 빠른 참조

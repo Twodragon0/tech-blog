@@ -79,7 +79,7 @@
   <rect x="790" y="305" width="320" height="4" rx="2" fill="#a78bfa"/>
   <circle cx="820" cy="355" r="16" fill="#a78bfa" fill-opacity="0.2"/>
   <text x="820" y="360" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a78bfa" text-anchor="middle">6</text>
-  <text x="848" y="360" font-family="Arial, sans-serif" font-size="15" fill="white">Board Reporting Format</text>
+  <text x="848" y="360" font-family="Arial, sans-serif" font-size="15" fill="white">Practical Implementation</text>
 
   <!-- Tags -->
   <rect x="90" y="445" width="125" height="26" rx="13" fill="#a78bfa" fill-opacity="0.15"/>

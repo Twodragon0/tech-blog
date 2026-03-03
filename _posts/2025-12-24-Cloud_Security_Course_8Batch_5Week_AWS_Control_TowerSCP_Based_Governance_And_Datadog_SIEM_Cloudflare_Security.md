@@ -476,16 +476,6 @@ yaml
 
 ## 15. 통합 보안 모니터링 대시보드
 
-### 15.1 Executive Dashboard (경영진용)
-
-#### KPI 중심 보안 지표
-
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요., Access Policy |
-| 2.5.1 암호화 적용 | 저장/전송 데이터 암호화 | S3/EBS 암호화 Guardrail | 비암호화 리소스 탐지 | TLS 1.3 강제 |
-| 2.7.1 로그 관리 | 로그 수집, 보관, 모니터링 | CloudTrail 필수 활성화 | 중앙 집중 로그 수집 및 90일 보관 | Access Logs |
-| 2.8.1 침해사고 대응 | 탐지, 분석, 대응 체계 | Security Hub 통합 | 실시간 위협 탐지 및 알림 | DDoS 자동 완화 |
-| 3.1.1 개인정보 수집 제한 | 최소 수집 원칙 | 태그 기반 데이터 분류 SCP | 민감 정보 접근 감사 | 민감 정보 마스킹 |
-
 ### 17.2 KISA 클라우드 보안 인증 기준
 
 한국인터넷진흥원(KISA) 클라우드 보안 인증(CSAP) 기준 충족:
