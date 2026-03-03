@@ -46,6 +46,8 @@ logging.basicConfig(
 POSTS_DIR = Path("_posts")
 IMAGES_DIR = Path("assets/images")
 DATA_DIR = Path("_data")  # 실제 데이터 디렉토리
+PUBLISHED_URLS_FILE = DATA_DIR / "published_news_urls.json"
+PUBLISHED_URLS_TTL_DAYS = 7  # Track published URLs for 7 days
 KOREAN_SUMMARY_CACHE: Dict[str, str] = {}
 KOREAN_TITLE_CACHE: Dict[str, str] = {}
 
@@ -203,6 +205,92 @@ def load_collected_news() -> Dict:
 
     with open(news_file, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def load_published_urls(days: int = PUBLISHED_URLS_TTL_DAYS) -> set:
+    """Load URLs published in recent posts to prevent cross-day duplicates.
+
+    Returns a set of URLs that were included in posts within the last `days` days.
+    """
+    if not PUBLISHED_URLS_FILE.exists():
+        return set()
+
+    try:
+        with open(PUBLISHED_URLS_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return set()
+
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
+    urls = set()
+    for entry in data.get("entries", []):
+        if entry.get("expires_at", "") > cutoff:
+            urls.add(entry.get("url", ""))
+    urls.discard("")
+    return urls
+
+
+def save_published_urls(selected_items: List[Dict], date_str: str) -> None:
+    """Append selected items' URLs to the published tracker and prune expired entries."""
+    existing_entries: List[Dict] = []
+    if PUBLISHED_URLS_FILE.exists():
+        try:
+            with open(PUBLISHED_URLS_FILE, "r", encoding="utf-8") as f:
+                existing_entries = json.load(f).get("entries", [])
+        except (json.JSONDecodeError, OSError):
+            existing_entries = []
+
+    # Prune expired entries
+    cutoff = (
+        datetime.now(timezone.utc) - timedelta(days=PUBLISHED_URLS_TTL_DAYS)
+    ).isoformat()
+    existing_entries = [e for e in existing_entries if e.get("expires_at", "") > cutoff]
+
+    # Build set of already-tracked URLs to avoid duplicates in the tracker itself
+    tracked_urls = {e.get("url") for e in existing_entries}
+
+    expires_at = (
+        datetime.now(timezone.utc) + timedelta(days=PUBLISHED_URLS_TTL_DAYS)
+    ).isoformat()
+
+    for item in selected_items:
+        url = item.get("url", item.get("link", ""))
+        if url and url not in tracked_urls:
+            existing_entries.append(
+                {
+                    "url": url,
+                    "title": item.get("title", "")[:80],
+                    "published_date": date_str,
+                    "expires_at": expires_at,
+                }
+            )
+            tracked_urls.add(url)
+
+    PUBLISHED_URLS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(PUBLISHED_URLS_FILE, "w", encoding="utf-8") as f:
+        json.dump(
+            {"updated_at": datetime.now(timezone.utc).isoformat(), "entries": existing_entries},
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
+    print(f"  📋 Published URL tracker updated: {len(existing_entries)} entries")
+
+
+def filter_published_urls(items: List[Dict], published_urls: set) -> List[Dict]:
+    """Remove items whose URL was already published in recent posts."""
+    if not published_urls:
+        return items
+    before = len(items)
+    filtered = [
+        item
+        for item in items
+        if item.get("url", item.get("link", "")) not in published_urls
+    ]
+    removed = before - len(filtered)
+    if removed > 0:
+        print(f"  🔄 Cross-day dedup: removed {removed} items already published in recent posts")
+    return filtered
 
 
 def filter_and_prioritize_news(news_data: Dict, hours: int = 24) -> List[Dict]:
@@ -2755,6 +2843,13 @@ def main():
 
     # Filter and categorize
     filtered = filter_and_prioritize_news(news_data, hours=args.hours)
+
+    # Cross-day dedup: remove items already published in recent posts
+    published_urls = load_published_urls()
+    if published_urls:
+        print(f"  📋 Loaded {len(published_urls)} previously published URLs")
+    filtered = filter_published_urls(filtered, published_urls)
+
     if len(filtered) < MIN_NEWS_COUNT:
         print(f"⚠️ Not enough news ({len(filtered)} < {MIN_NEWS_COUNT}). Skipping.")
         return
@@ -2866,6 +2961,9 @@ def main():
     with open(post_path, "w", encoding="utf-8") as f:
         f.write(post_content)
     print(f"✅ Created post: {post_path}")
+
+    # Track published URLs for cross-day dedup
+    save_published_urls(selected, date_str)
 
     with open(svg_path, "w", encoding="utf-8") as f:
         f.write(svg_content)

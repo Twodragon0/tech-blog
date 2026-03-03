@@ -278,6 +278,7 @@ jobs:
           git add _posts/${TODAY}*.md 2>/dev/null || true
           git add assets/images/${TODAY}*.svg 2>/dev/null || true
           git add _data/collected_news.json 2>/dev/null || true
+          git add _data/published_news_urls.json 2>/dev/null || true
           git add data/collected_news.json 2>/dev/null || true
 
           if git diff --staged --quiet; then
