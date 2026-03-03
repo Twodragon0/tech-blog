@@ -7,6 +7,7 @@ const DYNAMIC_CACHE = 'tech-blog-dynamic-v18';
 // 캐시할 정적 리소스 (CSS는 version param 무시하고 매칭)
 const STATIC_ASSETS = [
   '/',
+  '/assets/css/main.css',
   '/assets/js/main-core.js',
   '/assets/js/post-page.js',
   '/assets/js/google-translate.js',
