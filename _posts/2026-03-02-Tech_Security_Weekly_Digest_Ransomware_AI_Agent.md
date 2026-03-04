@@ -10,7 +10,7 @@ keywords: [Security-Weekly, DevSecOps, Zero-Trust, Crypto-Regulation, Weekly-Dig
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-02-Tech_Security_Weekly_Digest_Ransomware_AI_Agent.svg
-image_alt: "Tech Security Weekly Digest March 02 2026 Zero Trust Crypto Regulation"
+image_alt: "Tech Security Weekly Digest March 02 2026 Zero Trust Visibility Crypto Regulation AI Education"
 toc: true
 ---
 
