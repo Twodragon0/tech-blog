@@ -571,26 +571,17 @@ def _gemini_api_call(prompt: str, timeout: int = 20) -> str:
 
 
 def _gemini_call(prompt: str, timeout: int = 35) -> str:
-    """Gemini call with API-first strategy and circuit breaker.
+    """Gemini call with CLI-first strategy and circuit breaker.
 
-    Priority: REST API (fast) → CLI fallback (slow) → empty string.
+    Priority: CLI (free OAuth) → REST API fallback (API key) → empty string.
     """
     global _GEMINI_CONSECUTIVE_FAILURES, _GEMINI_CIRCUIT_OPEN
 
     if _GEMINI_CIRCUIT_OPEN:
         return ""
 
-    # 1. Try REST API first (2-5 seconds typical)
-    if _GEMINI_API_KEY:
-        api_timeout = min(timeout, 20)
-        result = _gemini_api_call(prompt, timeout=api_timeout)
-        if result and len(result) > 20:
-            _GEMINI_CONSECUTIVE_FAILURES = 0
-            return result
-        _GEMINI_CONSECUTIVE_FAILURES += 1
-
-    # 2. Fallback to CLI (20-40 seconds typical)
-    elif _GEMINI_AVAILABLE is not False:
+    # 1. Try CLI first (free OAuth, no API key cost)
+    if _GEMINI_AVAILABLE is not False:
         try:
             proc = subprocess.run(
                 ["gemini", "-p", prompt], capture_output=True, text=True, timeout=timeout
@@ -605,7 +596,17 @@ def _gemini_call(prompt: str, timeout: int = 35) -> str:
         except Exception as e:
             _GEMINI_CONSECUTIVE_FAILURES += 1
             logging.warning(f"Gemini CLI error: {e}")
-    else:
+
+    # 2. Fallback to REST API (fast but uses API key quota)
+    if _GEMINI_API_KEY and _GEMINI_CONSECUTIVE_FAILURES > 0:
+        api_timeout = min(timeout, 20)
+        result = _gemini_api_call(prompt, timeout=api_timeout)
+        if result and len(result) > 20:
+            _GEMINI_CONSECUTIVE_FAILURES = 0
+            return result
+        _GEMINI_CONSECUTIVE_FAILURES += 1
+
+    if not _GEMINI_AVAILABLE and not _GEMINI_API_KEY:
         _GEMINI_CONSECUTIVE_FAILURES += 1
 
     # Circuit breaker: after 3 consecutive failures, skip Gemini entirely
