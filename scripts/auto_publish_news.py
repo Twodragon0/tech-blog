@@ -342,6 +342,20 @@ def filter_and_prioritize_news(news_data: Dict, hours: int = 24) -> List[Dict]:
             reverse=True,
         )
 
+    # Remove items containing blocked keywords in title/summary/content
+    BLOCKED_KEYWORDS = ["openclaw"]
+    before_block = len(filtered)
+    filtered = [
+        item for item in filtered
+        if not any(
+            kw in (item.get("title", "") + item.get("summary", "") + item.get("content", "")).lower()
+            for kw in BLOCKED_KEYWORDS
+        )
+    ]
+    blocked_count = before_block - len(filtered)
+    if blocked_count > 0:
+        print(f"  🚫 Blocked {blocked_count} items containing excluded keywords")
+
     # Deprioritize items with empty summary AND empty content
     for item in filtered:
         summary = item.get("summary", "").strip()
