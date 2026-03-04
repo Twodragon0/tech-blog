@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-04T01:10:05.428242+00:00",
+  "updated_at": "2026-03-04T02:39:34.539641+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -240,6 +240,96 @@
       "title": "Unlocking document understanding with Mistral Document AI in Microsoft Foundry",
       "published_date": "2026-03-04",
       "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/2025-pitukri-isae-3000-type-ii-attestation-report-available-with-183-services-in-scope/",
+      "title": "2025 PiTuKri ISAE 3000 Type II attestation report available with 183 services in",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/ai-agents-next-wave-identity-dark.html",
+      "title": "AI Agents: The Next Wave Identity Dark Matter - Powerful, Invisible, and Unmanag",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/starkiller-phishing-suite-uses-aitm.html",
+      "title": "Starkiller Phishing Suite Uses AitM Reverse Proxy to Bypass Multi-Factor Authent",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/microsoft-warns-oauth-redirect-abuse.html",
+      "title": "Microsoft Warns OAuth Redirect Abuse Delivers Malware to Government Targets",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/google-confirms-cve-2026-21385-in.html",
+      "title": "Google Confirms CVE-2026-21385 in Qualcomm Android Component Exploited",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://openai.com/index/gpt-5-3-instant-system-card",
+      "title": "GPT-5.3 Instant System Card",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://openai.com/index/gpt-5-3-instant",
+      "title": "GPT-5.3 Instant: Smoother, more useful everyday conversations",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/Photoroom/prx-part3",
+      "title": "PRX Part 3 — Training a Text-to-Image Model in 24h!",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/aws-advanced-jdbc-wrappers-blue-green-plugin/",
+      "title": "AWS Advanced JDBC Wrapper의 blue/green 플러그인을 통하여 전환 시 최소의 다운타임 달성하기",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/announcing-docker-hardened-system-packages/",
+      "title": "Announcing Docker Hardened System Packages",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://github.blog/engineering/architecture-optimization/how-we-rebuilt-the-search-architecture-for-high-availability-in-github-enterprise-server/",
+      "title": "How we rebuilt the search architecture for high availability in GitHub Enterpris",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/03/how-to-get-the-most-out-of-kubecon-cloudnativecon-europe-2026/",
+      "title": "How to Get the Most Out of KubeCon + CloudNativeCon Europe 2026",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/indiana-governor-signs-bill-bitcoin",
+      "title": "Indiana Governor Signs Bill Allowing Bitcoin in State Retirement Plans",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/former-lapd-officer-convicted-in-350000-bitcoin-kidnapping-and-home-invasion",
+      "title": "Former LAPD Officer Convicted in $350,000 Bitcoin Kidnapping and Home Invasion",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/technical/bitcoin-is-the-collateral-it-just-needs-the-credit-markets",
+      "title": "Bitcoin Is The Collateral, It Just Needs The Credit Markets",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T02:39:34.539258+00:00"
     }
   ]
 }
