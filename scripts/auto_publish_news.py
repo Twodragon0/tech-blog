@@ -512,72 +512,99 @@ def select_top_news(
 # ============================================================================
 
 
+_GEMINI_AVAILABLE: Optional[bool] = None  # Cached availability check
+_GEMINI_CONSECUTIVE_FAILURES: int = 0  # Circuit breaker counter
+_GEMINI_CIRCUIT_OPEN: bool = False  # Circuit breaker state
+
+
 def check_gemini_available() -> bool:
-    """Gemini CLI 사용 가능 여부 확인"""
+    """Gemini CLI 사용 가능 여부 확인 (결과 캐싱)"""
+    global _GEMINI_AVAILABLE, _GEMINI_CIRCUIT_OPEN
+    if _GEMINI_CIRCUIT_OPEN:
+        return False
+    if _GEMINI_AVAILABLE is not None:
+        return _GEMINI_AVAILABLE
     try:
         result = subprocess.run(["gemini", "--version"], capture_output=True, timeout=5)
-        return result.returncode == 0
+        _GEMINI_AVAILABLE = result.returncode == 0
     except (subprocess.TimeoutExpired, FileNotFoundError):
-        return False
+        _GEMINI_AVAILABLE = False
+    return _GEMINI_AVAILABLE
+
+
+def _gemini_call(prompt: str, timeout: int = 35) -> str:
+    """Low-level Gemini CLI call with circuit breaker.
+
+    Returns response text or empty string on failure.
+    """
+    global _GEMINI_CONSECUTIVE_FAILURES, _GEMINI_CIRCUIT_OPEN
+
+    if _GEMINI_CIRCUIT_OPEN:
+        return ""
+
+    try:
+        result = subprocess.run(
+            ["gemini", "-p", prompt], capture_output=True, text=True, timeout=timeout
+        )
+        if result.returncode == 0 and len(result.stdout.strip()) > 20:
+            _GEMINI_CONSECUTIVE_FAILURES = 0  # Reset on success
+            return result.stdout.strip()
+        else:
+            _GEMINI_CONSECUTIVE_FAILURES += 1
+    except subprocess.TimeoutExpired:
+        _GEMINI_CONSECUTIVE_FAILURES += 1
+        logging.warning(f"Gemini CLI timeout ({timeout}s)")
+    except Exception as e:
+        _GEMINI_CONSECUTIVE_FAILURES += 1
+        logging.warning(f"Gemini CLI error: {e}")
+
+    # Circuit breaker: after 3 consecutive failures, skip Gemini entirely
+    if _GEMINI_CONSECUTIVE_FAILURES >= 3:
+        _GEMINI_CIRCUIT_OPEN = True
+        logging.warning(
+            f"Gemini circuit breaker OPEN after {_GEMINI_CONSECUTIVE_FAILURES} "
+            "consecutive failures - switching to DeepSeek/template for remaining items"
+        )
+    return ""
 
 
 def enhance_with_gemini(item: Dict, max_retries: int = 2) -> str:
     """Gemini CLI로 뉴스 심층 분석 (무료)
 
-    Args:
-        item: 뉴스 아이템 딕셔너리 (title, summary, url 필수)
-        max_retries: 재시도 횟수
-
-    Returns:
-        Gemini가 생성한 심층 분석 텍스트 (실패 시 빈 문자열)
+    Uses a compact prompt to reduce latency and timeout risk.
+    Circuit breaker skips Gemini after 3 consecutive failures.
     """
     title = item.get("title", "")
-    summary = item.get("summary", "")
+    summary = item.get("summary", "")[:300]  # Truncate to reduce prompt size
     url = item.get("url", "")
 
     if not title:
-        logging.warning("enhance_with_gemini: No title found, skipping")
         return ""
 
-    prompt = f"""다음 보안/기술 뉴스를 DevSecOps 실무자 관점에서 분석:
-제목: {title}
-요약: {summary}
-출처: {url}
-
-다음 형식으로 한국어로 작성 (500-800자):
-1. 기술적 배경 및 위협 분석 (3-5문장)
-2. 실무 영향 분석 (구체적 시스템/도구 명시)
-3. 대응 체크리스트 (- [ ] 형식, 3-5개)
-4. MITRE ATT&CK 매핑 (해당 시)
-
-마크다운 형식으로 작성."""
+    # Compact prompt - shorter = faster response
+    prompt = (
+        f"DevSecOps 관점에서 다음 뉴스를 한국어 분석 (500자 이내, 마크다운):\n"
+        f"제목: {title}\n요약: {summary}\n출처: {url}\n\n"
+        f"형식: ### 제목\n1. **기술 배경** (2-3문장)\n"
+        f"2. **실무 영향** (구체적 시스템/도구)\n"
+        f"3. **체크리스트** (- [ ] 3-4개)\n"
+        f"4. **MITRE ATT&CK** (해당 시)"
+    )
 
     for attempt in range(max_retries):
-        try:
-            result = subprocess.run(
-                ["gemini", "-p", prompt], capture_output=True, text=True, timeout=60
-            )
+        content = _gemini_call(prompt, timeout=35)
+        if content and len(content) > 100:
+            logging.info(f"Gemini enhanced: {title[:50]}...")
+            return content
 
-            if result.returncode == 0 and len(result.stdout.strip()) > 100:
-                enhanced = result.stdout.strip()
-                logging.info(f"Gemini enhanced content for: {title[:50]}...")
-                return enhanced
-            else:
-                logging.warning(
-                    f"Gemini returned insufficient content (attempt {attempt + 1}/{max_retries}): "
-                    f"returncode={result.returncode}, length={len(result.stdout)}"
-                )
+        if _GEMINI_CIRCUIT_OPEN:
+            break  # Don't retry if circuit is open
 
-        except subprocess.TimeoutExpired:
-            logging.warning(f"Gemini CLI timeout (attempt {attempt + 1}/{max_retries})")
-        except Exception as e:
-            logging.warning(
-                f"Gemini CLI error (attempt {attempt + 1}/{max_retries}): {e}"
-            )
+        if attempt < max_retries - 1:
+            import time
+            time.sleep(2)  # Brief pause before retry
 
-    logging.info(
-        f"Gemini enhancement failed after {max_retries} retries, falling back to template"
-    )
+    logging.info(f"Gemini enhancement failed, falling back: {title[:50]}")
     return ""
 
 
@@ -659,27 +686,26 @@ def enhance_with_deepseek(item: Dict) -> str:
 def enhance_content_with_fallback(item: Dict) -> str:
     """3단계 폴백 체인: Gemini CLI → DeepSeek API → Template
 
-    Args:
-        item: 뉴스 아이템 딕셔너리
-
-    Returns:
-        강화된 컨텐츠 (빈 문자열이면 템플릿 사용)
+    Uses circuit breaker: if Gemini fails 3 times consecutively,
+    all remaining items go straight to DeepSeek/template.
     """
-    # 1순위: Gemini CLI (무료)
+    title_short = item.get("title", "")[:50]
+
+    # 1순위: Gemini CLI (무료) - skipped if circuit breaker is open
     if check_gemini_available():
         content = enhance_with_gemini(item)
         if content:
-            logging.info(f"✓ Gemini CLI: {item.get('title', '')[:50]}")
+            logging.info(f"✓ Gemini CLI: {title_short}")
             return content
 
     # 2순위: DeepSeek API (off-peak 할인)
     content = enhance_with_deepseek(item)
     if content:
-        logging.info(f"✓ DeepSeek API: {item.get('title', '')[:50]}")
+        logging.info(f"✓ DeepSeek API: {title_short}")
         return content
 
     # 3순위: 기본 템플릿
-    logging.info(f"✓ Template fallback: {item.get('title', '')[:50]}")
+    logging.info(f"✓ Template fallback: {title_short}")
     return ""
 
 
@@ -1773,25 +1799,15 @@ def _korean_display_title(item: Dict, max_len: int = 72) -> str:
     translated = ""
     if check_gemini_available():
         prompt = (
-            "다음 기술 뉴스 제목을 한국어로 자연스럽게 번역해 주세요. "
-            "고유명사(회사명/제품명)는 원문 표기를 유지하고, 답변은 한 줄 제목만 출력하세요. "
-            "따옴표/번호/불릿/설명은 금지합니다.\n\n"
-            f"원문 제목: {raw_title}\n"
-            "번역 제목:"
+            "다음 기술 뉴스 제목을 한국어 한 줄로 번역. "
+            "고유명사는 원문 유지. 따옴표/번호/설명 금지.\n"
+            f"원문: {raw_title}\n번역:"
         )
-        try:
-            result = subprocess.run(
-                ["gemini", "-p", prompt],
-                capture_output=True,
-                text=True,
-                timeout=25,
-            )
-            if result.returncode == 0:
-                candidate = re.sub(r"\s+", " ", result.stdout.strip()).strip("\"'")
-                if candidate and re.search(r"[가-힣]", candidate):
-                    translated = candidate
-        except Exception:
-            pass
+        candidate = _gemini_call(prompt, timeout=15)
+        if candidate:
+            candidate = re.sub(r"\s+", " ", candidate).strip("\"'")
+            if re.search(r"[가-힣]", candidate):
+                translated = candidate
 
     if translated:
         KOREAN_TITLE_CACHE[cache_key] = translated
@@ -1853,28 +1869,15 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
         needs_refine = len(text) > 220 or "URL:" in summary or "http" in summary
         if needs_refine and check_gemini_available():
             prompt = (
-                "다음 기술 뉴스 텍스트를 한국어 2문장으로 정확하게 요약해 주세요. "
-                "말줄임표, URL, 불릿, 번호 없이 완결된 문장만 출력하세요.\n\n"
-                f"제목: {item.get('title', '')}\n"
-                f"본문: {text[:1200]}\n"
-                "요약:"
+                "다음 기술 뉴스를 한국어 2문장 요약. URL/불릿/번호 금지.\n"
+                f"제목: {item.get('title', '')}\n본문: {text[:600]}\n요약:"
             )
-            try:
-                result = subprocess.run(
-                    ["gemini", "-p", prompt],
-                    capture_output=True,
-                    text=True,
-                    timeout=30,
-                )
-                if result.returncode == 0:
-                    generated = re.sub(r"\s+", " ", result.stdout.strip())
-                    generated = (
-                        generated.replace("...", " ").replace("…", " ").strip(" .")
-                    )
-                    if generated and len(generated) >= 25:
-                        return generated
-            except Exception:
-                pass
+            generated = _gemini_call(prompt, timeout=15)
+            if generated:
+                generated = re.sub(r"\s+", " ", generated)
+                generated = generated.replace("...", " ").replace("…", " ").strip(" .")
+                if len(generated) >= 25:
+                    return generated
 
         concise = " ".join(selected).replace("...", " ").replace("…", " ").strip(" .")
         if len(concise) > 220:
@@ -1887,30 +1890,15 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
 
     if check_gemini_available():
         prompt = (
-            "다음 기술 뉴스 요약을 한국어 2문장으로만 간결하게 요약해 주세요. "
-            "마크다운/불릿/번호 없이 순수 문장으로 답변하세요.\n\n"
-            f"제목: {item.get('title', '')}\n"
-            f"요약: {text[:800]}\n"
-            "응답:"
+            "다음 기술 뉴스를 한국어 2문장으로 요약. 마크다운/불릿 금지.\n"
+            f"제목: {item.get('title', '')}\n요약: {text[:500]}\n응답:"
         )
-        try:
-            result = subprocess.run(
-                ["gemini", "-p", prompt],
-                capture_output=True,
-                text=True,
-                timeout=25,
-            )
-            if result.returncode == 0:
-                generated = re.sub(r"\s+", " ", result.stdout.strip())
-                if (
-                    generated
-                    and len(generated) >= 30
-                    and bool(re.search(r"[가-힣]", generated))
-                ):
-                    KOREAN_SUMMARY_CACHE[cache_key] = generated
-                    return generated
-        except Exception:
-            pass
+        generated = _gemini_call(prompt, timeout=15)
+        if generated:
+            generated = re.sub(r"\s+", " ", generated)
+            if len(generated) >= 30 and re.search(r"[가-힣]", generated):
+                KOREAN_SUMMARY_CACHE[cache_key] = generated
+                return generated
 
     # Gemini 실패 시: DeepSeek API 폴백으로 한국어 번역
     raw_summary = (item.get("summary", "") or "").strip()
