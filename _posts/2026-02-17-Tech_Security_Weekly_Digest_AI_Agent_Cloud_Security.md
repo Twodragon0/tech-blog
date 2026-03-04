@@ -19,14 +19,14 @@ toc: true
 {% endcapture %}
 {% capture ai_tags_html %}
 <span class="tag">Security-Weekly</span>
-<span class="tag">DevSecOps</span>
+<span class="tag">Infostealer</span>
 <span class="tag">Cloud-Security</span>
-<span class="tag">AI-Security</span>
-<span class="tag">Zero-Trust</span>
+<span class="tag">Password-Manager</span>
+<span class="tag">Bitcoin</span>
 <span class="tag">2026</span>
 {% endcapture %}
 {% capture ai_highlights_html %}
-<li><strong>The Hacker News</strong>: Infostealer Steals AI AI Agent Configuration Files...</li>
+<li><strong>The Hacker News</strong>: Infostealer Steals AI Agent Configuration Files...</li>
 <li><strong>The Hacker News</strong>: Study Uncovers 25 Password Recovery Attacks in Major...</li>
 <li><strong>AWS Security Blog</strong>: Building an AI-powered defense-in-depth security...</li>
 <li><strong>AWS Blog</strong>: Amazon EC2 Hpc8a Instances powered by 5th Gen AMD EPYC...</li>
@@ -52,7 +52,7 @@ toc: true
 **수집 통계:**
 - **총 뉴스 수**: 18개
 - **보안 뉴스**: 5개
-- **AI/ML 뉴스**: 0개
+- **AI/ML 뉴스**: 10개
 - **클라우드 뉴스**: 3개
 - **DevOps 뉴스**: 0개
 - **블록체인 뉴스**: 5개
@@ -65,27 +65,29 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | Infostealer Steals AI AI Agent Configuration... | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Infostealer Steals AI Agent Configuration Files... | 🟡 Medium |
 | 🔒 **Security** | The Hacker News | Study Uncovers 25 Password Recovery Attacks in Maj... | 🟡 Medium |
-| 🔒 **Security** | AWS Security Bl | Building an AI-powered defense-in-depth security a... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | Weekly Recap: Outlook Add-Ins Hijack, 0-Day Patche... | 🔴 Critical |
+| 🔒 **Security** | AWS Security Blog | Building an AI-powered defense-in-depth security guide | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Weekly Recap: Outlook Add-Ins Hijack, 0-Day Patches | 🟠 High |
 | 🔒 **Security** | The Hacker News | Safe and Inclusive E‑Society: How Lithuania Is Bra... | 🟡 Medium |
 
 ---
 
 ## 1. 보안 뉴스
 
-### 1.1 Infostealer Steals AI AI Agent Configuration Files and Gateway Tokens
+### 1.1 Infostealer Steals AI Agent Configuration Files and Gateway Tokens
 
 #### 개요
 
-Cybersecurity researchers disclosed they have detected a case of an information stealer infection successfully exfiltrating a victim's AI (formerly Clawdbot and Moltbot) configuration environment. "This finding marks a significant milestone in the evolution of infostealer behavior: the transition from stealing browser credentials to harvesting the 'souls' and identities of personal AI [
+사이버보안 연구자들이 인포스틸러(Infostealer) 악성코드가 AI 에이전트 설정 파일과 게이트웨이 토큰을 탈취하는 실제 감염 사례를 공개했습니다. 이번 발견은 인포스틸러 진화의 새로운 이정표로, 기존의 브라우저 자격증명 탈취에서 AI 에이전트의 아이덴티티와 설정 환경 전체를 수집하는 방향으로 전환되고 있음을 보여줍니다. AI 에이전트가 기업 시스템에 광범위하게 연결되는 추세에서, 해당 에이전트의 구성 파일과 인증 토큰은 새로운 고가치 공격 표적이 되고 있습니다.
 
+> **출처**: [The Hacker News](https://thehackernews.com/2026/02/infostealer-steals-ai-agent-configuration-files-and-gateway-tokens.html)
 
 #### 핵심 포인트
 
-- Cybersecurity researchers disclosed they have detected a case of an information stealer infection successfully exfiltrating a victim's AI (formerly Clawdbot and Moltbot) configuration environment
-- "This finding marks a significant milestone in the evolution of infostealer behavior: the transition from stealing browser credentials to harvesting the 'souls' and identities of personal AI [
+- **공격 대상 변화**: 브라우저 쿠키·패스워드에서 AI 에이전트 설정 파일(config)과 OAuth/API 게이트웨이 토큰으로 탈취 대상이 확대되고 있음
+- **파급 범위 확대**: AI 에이전트 토큰 하나가 탈취되면 해당 에이전트가 접근할 수 있는 모든 시스템·데이터에 대한 무단 접근이 가능해지는 고위험 시나리오 발생
+- **실무 시사점**: AI 에이전트 관련 설정 파일과 토큰을 기존 자격증명 관리 체계(Secrets Manager, Vault 등)에 포함시키고, 토큰 탈취 탐지를 위한 EDR 규칙 및 SIEM 모니터링을 강화해야 함
 
 
 #### 위협 분석
@@ -117,8 +119,9 @@ A new study has found that multiple cloud-based password managers, including Bit
 
 #### 핵심 포인트
 
-- A new study has found that multiple cloud-based password managers, including Bitwarden, Dashlane, and LastPass, are susceptible to password recovery attacks under certain conditions
-- "The attacks range in severity from integrity violations to the complete compromise of all vaults in an organization," researchers Matteo Scarlata, Giovanni Torrisi, Matilda Backendal, and Kenneth G
+- **광범위한 영향**: Bitwarden, Dashlane, LastPass 등 주요 클라우드 기반 패스워드 매니저에서 25가지 패스워드 복구 공격 경로가 발견되었으며, 심각도는 무결성 위반부터 조직 전체 볼트 완전 탈취까지 다양함
+- **공격 조건**: 특정 조건 하에서 공격이 가능하므로, 패스워드 복구 기능 비활성화 또는 추가 인증 단계 적용이 필요한 상황
+- **실무 시사점**: 현재 사용 중인 패스워드 매니저의 복구 메커니즘 설정을 검토하고, 조직 전체 볼트에 대한 MFA 강화 및 비정상 접근 탐지 모니터링을 즉시 점검해야 함
 
 
 #### 권장 조치
@@ -132,8 +135,6 @@ A new study has found that multiple cloud-based password managers, including Bit
 ---
 
 ### 1.3 Building an AI-powered defense-in-depth security architecture for serverless microservices
-
-> 🔴 **심각도**: Critical
 
 #### 개요
 
@@ -150,10 +151,9 @@ Enterprise customers face an unprecedented security landscape where sophisticate
 
 #### 권장 조치
 
-- 관련 시스템 목록 확인
-- 보안 담당자는 원문을 검토하여 자사 환경 해당 여부를 확인하시기 바랍니다
-- 영향받는 시스템이 있는 경우 벤더 권고에 따라 패치 또는 완화 조치를 적용하세요
-- SIEM 탐지 룰에 관련 IOC를 추가하는 것을 권장합니다
+- [ ] AWS 공식 가이드의 서버리스 마이크로서비스 방어 심층(Defense-in-Depth) 아키텍처 패턴을 검토하고 자사 환경 적용 가능성 평가
+- [ ] AI 기반 위협 탐지 도구(GuardDuty, Security Hub 등) 도입 여부를 현행 보안 아키텍처와 비교하여 갭 분석 수행
+- [ ] 서버리스 환경의 최소 권한 원칙(Least Privilege) 적용 현황을 점검하고, 람다(Lambda) 실행 역할의 과도한 권한 여부 감사
 
 
 ---
@@ -289,17 +289,17 @@ Bitcoin Magazine Payjoin Foundation Gains 501(c)(3) Status, Enabling Tax-Deducti
 
 ### P0 (즉시)
 
-- [ ] **Building an AI-powered defense-in-depth security architectur** 관련 긴급 패치 및 영향도 확인
-- [ ] **Weekly Recap: Outlook Add-Ins Hijack, 0-Day Patches, Wormabl** 관련 긴급 패치 및 영향도 확인
+- [ ] **Outlook Add-Ins 하이재킹 및 0-Day 패치**: Weekly Recap에 포함된 Outlook Add-In 관련 취약점 및 0-Day 패치 적용 여부 즉시 확인 및 배포
 
 ### P1 (7일 내)
 
-- [ ] **Amazon EC2 Hpc8a Instances powered by 5th Gen AMD EPYC proce** 관련 보안 검토 및 모니터링
+- [ ] **Infostealer AI Agent 토큰 탈취**: AI 에이전트 설정 파일과 게이트웨이 토큰을 Secrets Manager 또는 Vault에 통합 관리하고 EDR 탐지 규칙 업데이트
+- [ ] **클라우드 패스워드 매니저 복구 취약점**: 사용 중인 패스워드 매니저(Bitwarden/Dashlane/LastPass)의 복구 설정 점검 및 MFA 강화 조치
 
 ### P2 (30일 내)
 
-- [ ] 공격 표면 인벤토리 갱신
-- [ ] 접근 제어 감사
+- [ ] **서버리스 방어 심층 아키텍처 검토**: AWS Security Blog 가이드를 참고하여 서버리스 환경의 Defense-in-Depth 아키텍처 갭 분석 수행
+- [ ] AI 에이전트 권한 감사: 조직 내 AI 에이전트에 부여된 API 접근 범위를 최소 권한 원칙에 따라 재검토
 
 ---
 

@@ -22,9 +22,9 @@ toc: true
       <span class="tag">Ransomware</span>
       <span class="tag">Bitcoin</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>SK쉴더스 보안 리포트</strong>: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략</li>
-      <li><strong>SK쉴더스 보안 리포트</strong>: SK쉴더스 EQST insight 통합 (목차) 1월호 F</li>
-      <li><strong>SK쉴더스 보안 리포트</strong>: HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석</li>'
+  highlights_html='<li><strong>SK쉴더스 보안 리포트</strong>: JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략</li>
+      <li><strong>ABTC 채굴 확장</strong>: Trump 연계 American Bitcoin, 11,000대 이상 고효율 채굴기 신규 투입으로 해시레이트 급증</li>
+      <li><strong>이란 비트코인 유출</strong>: 미-이스라엘 공습 이후 이란 거래소에서 $1,030만 상당 비트코인 유출, AML 모니터링 필요</li>'
   period='2026년 03월 04일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
@@ -81,39 +81,39 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 
 ## 2. 블록체인 뉴스
 
-### 2.1 [블록체인] Trump-Linked American Bitcoin (ABTC) Expands Mining Fleet
+### 2.1 Trump-Linked American Bitcoin (ABTC) Expands Mining Fleet
 
 #### 개요
 
 Bitcoin Magazine Trump-Linked American Bitcoin (ABTC) Expands Mining Fleet, Bitcoin Production Capacity American Bitcoin (ABTC) is expanding its Bitcoin mining fleet with over 11,000 new high-efficiency miners. This post Trump-Linked American Bitcoin (ABTC) Expands Mining Fleet, Bitcoin Production Capacity first appeared on Bitcoin Magazine and is written by Micah Zimmerman.
 
-**실무 포인트**: 가격 변동에 따른 보안 위협(피싱/스캠) 증가에 대비하세요.
+**실무 포인트**: 채굴 기업 확장에 따른 해시레이트 변동과 네트워크 보안 영향을 모니터링하세요.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/trump-linked-american-bitcoin-abtc-2)
 
 
 ---
 
-### 2.2 [블록체인] Iranian Crypto Outflows Spike After Airstrikes Amid a Year
+### 2.2 Iranian Crypto Outflows Spike After Airstrikes Amid a Year
 
 #### 개요
 
 TL;DR On-chain data shows a sharp increase in activity from major Iranian exchanges in the hours following the February 28,… The post Iranian Crypto Outflows Spike After Airstrikes Amid a Year of Rising On-Chain Activity appeared first on Chainalysis.
 
-**실무 포인트**: 관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요.
+**실무 포인트**: 제재 관련 주소와의 거래 차단 및 컴플라이언스 모니터링을 강화하세요.
 
 > **출처**: [Chainalysis Blog](https://www.chainalysis.com/blog/iranian-crypto-outflows-spike-after-airstrikes/)
 
 
 ---
 
-### 2.3 [블록체인] Iran Bitcoin Outflows Surge After US-Israel Airstrikes
+### 2.3 Iran Bitcoin Outflows Surge After US-Israel Airstrikes
 
 #### 개요
 
 Bitcoin Magazine Iran Bitcoin Outflows Surge After US-Israel Airstrikes, On-Chain Data Shows Following the U.S.-Israeli airstrikes in Tehran, Iranian crypto activity surged, with $10.3 million in bitcoin flowing out of exchanges as citizens sought to preserve value amid financial collapse.
 
-**실무 포인트**: 가격 변동에 따른 보안 위협(피싱/스캠) 증가에 대비하세요.
+**실무 포인트**: 지정학적 불안정 시기 암호화폐 자금 흐름 추적 및 AML 체계를 점검하세요.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/iran-bitcoin-outflows-surge-post-strikes)
 
@@ -125,7 +125,7 @@ Bitcoin Magazine Iran Bitcoin Outflows Surge After US-Israel Airstrikes, On-Chai
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [미국 과학기관, 외국인 과학자의 연구소 접근 제한 추진](https://news.hada.io/topic?id=27173) | GeekNews (긱뉴스) | 미국 국립표준기술연구소(NIST) 가 외국인 연구자의 연구소 접근을 제한하고, 체류 기간을 최대 3년으로 제한하는 보안 강화 규정 을 추진 중임 이 조치로 최대 500명의 고급 연구 인력 이 연구소를 떠나야 할 |
-| [Show GN: korbus-mcp: 버스 도착시간 계속 쳐다보지 말고 알림으로 받아봐요.](https://news.hada.io/topic?id=27172) | GeekNews (긱뉴스) | openclaw 와 같은 도구덕분에 생활 밀착형? MCP가 등장하는 재미있는 시대입니다 |
+| [Show GN: korbus-mcp: 버스 도착시간 계속 쳐다보지 말고 알림으로 받아봐요.](https://news.hada.io/topic?id=27172) | GeekNews (긱뉴스) | MCP 도구 덕분에 생활 밀착형 MCP가 등장하는 재미있는 시대입니다 |
 | [Show GN: ClaudeTuner - &quot;내가 정말 이 플랜만큼 쓰고 있나?&quot; 궁금해서 만든 사용량 추적 도구 (+ 우리 팀 관리까지)](https://news.hada.io/topic?id=27171) | GeekNews (긱뉴스) | 최근 Claude Opus 4.6의 품질이 크게 올라오면서, 업무에 Claude를 훨씬 더 많이 쓰게 되었습니다. 그러다 보니 자연스럽게 "내가 지금 이 플랜을 결제하는 게 맞나?", "오늘 리밋까지 얼마나 |
 
 
@@ -135,11 +135,11 @@ Bitcoin Magazine Iran Bitcoin Outflows Surge After US-Israel Airstrikes, On-Chai
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **AI/ML** | 6건 | HeadLine 2월호 금융분야 AI 7대 원칙과 국내, Iranian Crypto Outflows Spike After, Iran Bitcoin Outflows Surge After |
-| **Ransomware** | 1건 | Keep up with Ransomware 2월호 지속 |
-| **Authentication** | 1건 | Research Technique 1월호 JWT 서명키 |
+| **블록체인/암호화폐** | 3건 | ABTC 채굴 확장, 이란 제재, AML, 지정학적 리스크 |
+| **보안 리포트** | 3건 | JWT 인증 위협, EQST insight, 금융 AI 원칙 |
+| **기술 도구** | 3건 | MCP, ClaudeTuner, 과학기관 접근 제한 |
 
-이번 주기의 핵심 트렌드는 **AI/ML**(6건)입니다. HeadLine 2월호 금융분야 AI 7대 원칙과 국내, Iranian Crypto Outflows Spike After 등이 주요 이슈입니다. **Ransomware** 분야에서는 Keep up with Ransomware 2월호 지속 관련 동향에 주목할 필요가 있습니다.
+이번 주기의 핵심 트렌드는 **블록체인/암호화폐**(3건)입니다. 미-이스라엘 공습 이후 이란 암호화폐 유출 급증, ABTC 채굴 확장 등 지정학적 이벤트와 암호화폐의 연관성이 심화되고 있습니다. **보안 리포트** 분야에서는 JWT 인증 위협과 금융 AI 원칙 관련 정책 동향에 주목할 필요가 있습니다.
 
 ---
 
