@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-04T02:39:34.539641+00:00",
+  "updated_at": "2026-03-04T05:05:54.685350+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -330,6 +330,186 @@
       "title": "Bitcoin Is The Collateral, It Just Needs The Credit Markets",
       "published_date": "2026-03-04",
       "expires_at": "2026-03-11T02:39:34.539258+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/sloppylemming-targets-pakistan-and.html",
+      "title": "SloppyLemming Targets Pakistan and Bangladesh Governments Using Dual Malware Cha",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_12%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EA%B0%80%EC%8B%9C%EC%84%B1%20%EB%B0%8F%20%EB%B6%84%EC%84%9D%20(Visibility%20%20Analytics).pdf&r_fname=20251222174118828.pdf",
+      "title": "Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9_12%EC%9B%94%ED%98%B8.pdf&r_fname=20251222174228934.pdf",
+      "title": "SK쉴더스 EQST insight 통합 12월호",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_1%EC%9B%94%ED%98%B8_%EC%84%A0%EC%A0%9C%EC%A0%81%20%EB%B3%B4%EC%95%88%EA%B3%BC%20%EB%A0%88%EB%93%9C%ED%8C%80%20%EA%B8%B0%EB%B0%98%20%EC%82%AC%EC%9D%B4%EB%B2%84%20%EB%A9%B4%EC%97%AD%20%EC%B2%B4%EA%B3%84%20%EA%B5%AC%EC%B6%95%20%EC%A0%84%EB%9E%B5_F.pdf&r_fname=20260129161055399.pdf",
+      "title": "HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%201%EC%9B%94%ED%98%B8%20Sinobi%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%EC%99%80%20Lynx%20%EA%B7%B8%EB%A3%B9%EA%B3%BC%EC%9D%98%20%EC%97%B0%EA%B3%84%20%EC%A0%95%ED%99%A9%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260129161122795.pdf",
+      "title": "Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/arthur-hayes-confirmed-as-a-bitcoin-2026-speaker",
+      "title": "Arthur Hayes Confirmed As A Bitcoin 2026 Speaker",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/print/the-core-issue-why-bitcoin-needed-a-remodel-with-segwit-and-taproot",
+      "title": "The Core Issue: Why Bitcoin Needed A Remodel With Segwit and Taproot",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/ai-agents-show-strong-preference-bitcoin",
+      "title": "AI Agents Show Strong Preference for Bitcoin Over Fiat, BPI Study Finds",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/featured/paraguay-miners-bitcoin-mining",
+      "title": "Paraguay Exploring Using Seized Miners for State-Run Bitcoin Operation",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/tether-and-lugano-launch-plan-%e2%82%bf",
+      "title": "Tether and Lugano Launch Plan ₿ Phase II, Targeting Global Leadership in Digital",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27178",
+      "title": "GPT‑5.3 Instant: 더 자연스럽고 유용한 일상 대화",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27177",
+      "title": "Apple, M5 Pro/Max 탑재한 MacBook Pro 공개",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27176",
+      "title": "도널드 커누스(Donald Knuth), Claude Opus 4.6이 미해결 조합론 문제를 해결한 과정을 논문으로 공개",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27175",
+      "title": "맥으로 돌아오신 것을 환영합니다",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27174",
+      "title": "태아 척추이분증 수술에 세계 최초로 적용된 자궁 내 줄기세포 치료, 안전성 입증",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:01:50.653612+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%201%EC%9B%94%ED%98%B8_JWT%20%EC%84%9C%EB%AA%85%ED%82%A4%20%EC%9C%A0%EC%B6%9C%EC%9D%B4%20%EC%B4%88%EB%9E%98%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%A6%9D%20%EC%9C%84%ED%98%91%EA%B3%BC%20%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20260129161142327.pdf",
+      "title": "Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_1%EC%9B%94%ED%98%B8_F.pdf&r_fname=20260129161206425.pdf",
+      "title": "SK쉴더스 EQST insight 통합 (목차) 1월호 F",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_2%EC%9B%94%ED%98%B8_%EA%B8%88%EC%9C%B5%EB%B6%84%EC%95%BC%20AI%207%EB%8C%80%20%EC%9B%90%EC%B9%99%EA%B3%BC%20%EA%B5%AD%EB%82%B4%EC%99%B8%20%EC%A0%95%EC%B1%85%EC%82%AC%EB%A1%80%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260225185655664.pdf",
+      "title": "HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%202%EC%9B%94%ED%98%B8%20%EC%A7%80%EC%86%8D%EC%A0%81%EC%9C%BC%EB%A1%9C%20%EB%A6%AC%EB%B8%8C%EB%9E%9C%EB%94%A9%EB%90%98%EB%8A%94%20Global%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20260225085159572.pdf",
+      "title": "Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_2%EC%9B%94%ED%98%B8.pdf&r_fname=20260225185712558.pdf",
+      "title": "SK쉴더스 EQST insight 통합 (목차) 2월호",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/trump-linked-american-bitcoin-abtc-2",
+      "title": "Trump-Linked American Bitcoin (ABTC) Expands Mining Fleet, Bitcoin Production Ca",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://www.chainalysis.com/blog/iranian-crypto-outflows-spike-after-airstrikes/",
+      "title": "Iranian Crypto Outflows Spike After Airstrikes Amid a Year of Rising On-Chain Ac",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/iran-bitcoin-outflows-surge-post-strikes",
+      "title": "Iran Bitcoin Outflows Surge After US-Israel Airstrikes, On-Chain Data Shows",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ray-dalio-cautions-bitcoin-safe-haven-asset?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Ray Dalio cautions on Bitcoin, says ‘there is only one gold’",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/crypto-laws-states-party-primaries?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "What's at stake for crypto as 3 US states kick off party primaries?",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27173",
+      "title": "미국 과학기관, 외국인 과학자의 연구소 접근 제한 추진",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27172",
+      "title": "Show GN: korbus-mcp: 버스 도착시간 계속 쳐다보지 말고 알림으로 받아봐요.",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27171",
+      "title": "Show GN: ClaudeTuner - &quot;내가 정말 이 플랜만큼 쓰고 있나?&quot; 궁금해서 만든 사용량 추적 도구 (+ 우리 팀",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27170",
+      "title": "Show GN: Vocova - AI로 100개 이상의 언어로 오디오/비디오를 텍스트로 변환",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27169",
+      "title": "Anthropic Cowork 기능이 macOS에서 경고 없이 10GB VM 번들을 생성함",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T05:05:54.684890+00:00"
     }
   ]
 }

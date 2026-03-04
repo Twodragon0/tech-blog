@@ -84,7 +84,7 @@
 
   <!-- Main Title -->
   <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">AI | Agent | Malware | Go</text>
+  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">AI | Ransomware | Bitcoin</text>
 
   <!-- Card 1: SECURITY -->
   <g transform="translate(50, 190)">
@@ -96,12 +96,12 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">2025 PiTuKri ISAE 3000 Type II atte</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Amazon Web Services (AWS) is pleased to</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">announce the issuance of the Criteria to</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Research Technique 1 JWT</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : Research Technique 1 JWT</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Security News Update</text>
 
     <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">AWS Security Blog</text>
+    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
   </g>
 
   <!-- Card 2: SECURITY -->
@@ -114,69 +114,17 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">AI Agents: The Next Wave Identity D</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">The Rise of MCPs in the Enterprise The</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Model Context Protocol (MCP) is quickly</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">SK EQST insight () 1 F</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : SK EQST insight ()</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">1 F</text>
 
     <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">The Hacker News</text>
+    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
   </g>
 
-  <!-- Card 3: AI/ML -->
+  <!-- Card 3: BLOCKCHAIN -->
   <g transform="translate(810, 190)">
     <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#indigoGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#6366f1" text-anchor="middle">AI</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366f1">AI/ML</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">GPT-5.3 Instant System Card</text>
-
-    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#6366f1" text-anchor="middle">OpenAI Blog</text>
-  </g>
-
-  <!-- Card 4: CLOUD -->
-  <g transform="translate(50, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#greenGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#greenGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#10b981" text-anchor="middle">AWS</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981">CLOUD</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">AWS Advanced JDBC Wrapper blue/gree</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">. Amazon</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">RDS Aurora Blue/Green</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#greenGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">AWS Korea Blog</text>
-  </g>
-
-  <!-- Card 5: DEVOPS -->
-  <g transform="translate(430, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f59e0b" text-anchor="middle">DEV</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f59e0b">DEVOPS</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Announcing Docker Hardened System P</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Your Package Manager, Now with a</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Security Upgrade Last December, we made</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Docker Blog</text>
-  </g>
-
-  <!-- Card 6: BLOCKCHAIN -->
-  <g transform="translate(810, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
     <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
 
     <!-- Icon -->
@@ -184,12 +132,66 @@
     <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
 
     <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Indiana Governor Signs Bill Allowin</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Bitcoin Magazine Indiana Governor Signs</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Bill Allowing Bitcoin in State</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Trump-Linked American Bitcoin (ABTC</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Bitcoin Magazine Trump-Linked American</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Bitcoin (ABTC) Expands Mining Fleet,</text>
 
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Bitcoin Magazine</text>
+    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
+    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Bitcoin Magazine</text>
+  </g>
+
+  <!-- Card 4: SECURITY -->
+  <g transform="translate(50, 400)">
+    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
+
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
+
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">HeadLine 2 AI 7</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : HeadLine 2 AI 7</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Security News Update</text>
+
+    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
+    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
+  </g>
+
+  <!-- Card 5: SECURITY -->
+  <g transform="translate(430, 400)">
+    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
+
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
+
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Keep up with Ransomware 2 Global</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : Keep up with Ransomware</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">2 Global</text>
+
+    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
+    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
+  </g>
+
+  <!-- Card 6: SECURITY -->
+  <g transform="translate(810, 400)">
+    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
+
+    <!-- Icon -->
+    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
+    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
+
+    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
+    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">SK EQST insight () 2</text>
+    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK : SK EQST insight ()</text>
+    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">2</text>
+
+    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
+    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK</text>
   </g>
 
   <!-- Footer -->
@@ -197,19 +199,19 @@
 
   <!-- Stats -->
   <g transform="translate(50, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">22 News Collected</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">15 News Collected</text>
   </g>
   <g transform="translate(250, 600)">
     <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">5 Security</text>
   </g>
   <g transform="translate(400, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">1 Cloud</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 Cloud</text>
   </g>
   <g transform="translate(520, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">3 DevOps</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 DevOps</text>
   </g>
   <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">3 AI/ML</text>
+    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 AI/ML</text>
   </g>
 
   <!-- Blog Info -->

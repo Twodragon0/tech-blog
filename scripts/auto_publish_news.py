@@ -508,20 +508,23 @@ def select_top_news(
 
 
 # ============================================================================
-# AI 강화 시스템 (Gemini CLI + DeepSeek API 폴백 체인)
+# AI 강화 시스템 (Gemini API → Gemini CLI → DeepSeek API 폴백 체인)
 # ============================================================================
 
-
-_GEMINI_AVAILABLE: Optional[bool] = None  # Cached availability check
+_GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
+_GEMINI_AVAILABLE: Optional[bool] = None  # Cached CLI availability check
 _GEMINI_CONSECUTIVE_FAILURES: int = 0  # Circuit breaker counter
 _GEMINI_CIRCUIT_OPEN: bool = False  # Circuit breaker state
 
 
 def check_gemini_available() -> bool:
-    """Gemini CLI 사용 가능 여부 확인 (결과 캐싱)"""
+    """Gemini 사용 가능 여부 확인 (API 키 또는 CLI)"""
     global _GEMINI_AVAILABLE, _GEMINI_CIRCUIT_OPEN
     if _GEMINI_CIRCUIT_OPEN:
         return False
+    # API key takes priority (much faster than CLI)
+    if _GEMINI_API_KEY:
+        return True
     if _GEMINI_AVAILABLE is not None:
         return _GEMINI_AVAILABLE
     try:
@@ -532,31 +535,78 @@ def check_gemini_available() -> bool:
     return _GEMINI_AVAILABLE
 
 
-def _gemini_call(prompt: str, timeout: int = 35) -> str:
-    """Low-level Gemini CLI call with circuit breaker.
+def _gemini_api_call(prompt: str, timeout: int = 20) -> str:
+    """Direct Gemini REST API call (fast, no process overhead).
 
-    Returns response text or empty string on failure.
+    Uses GEMINI_API_KEY env var. Returns response text or empty string.
+    """
+    if not _GEMINI_API_KEY:
+        return ""
+
+    try:
+        import requests
+
+        response = requests.post(
+            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={_GEMINI_API_KEY}",
+            json={"contents": [{"parts": [{"text": prompt}]}]},
+            timeout=timeout,
+        )
+        if response.status_code == 200:
+            data = response.json()
+            text = (
+                data.get("candidates", [{}])[0]
+                .get("content", {})
+                .get("parts", [{}])[0]
+                .get("text", "")
+            )
+            return text.strip()
+        else:
+            logging.warning(f"Gemini API status {response.status_code}: {response.text[:100]}")
+    except ImportError:
+        logging.debug("requests library not available for Gemini API")
+    except Exception as e:
+        logging.warning(f"Gemini API error: {e}")
+
+    return ""
+
+
+def _gemini_call(prompt: str, timeout: int = 35) -> str:
+    """Gemini call with API-first strategy and circuit breaker.
+
+    Priority: REST API (fast) → CLI fallback (slow) → empty string.
     """
     global _GEMINI_CONSECUTIVE_FAILURES, _GEMINI_CIRCUIT_OPEN
 
     if _GEMINI_CIRCUIT_OPEN:
         return ""
 
-    try:
-        result = subprocess.run(
-            ["gemini", "-p", prompt], capture_output=True, text=True, timeout=timeout
-        )
-        if result.returncode == 0 and len(result.stdout.strip()) > 20:
-            _GEMINI_CONSECUTIVE_FAILURES = 0  # Reset on success
-            return result.stdout.strip()
-        else:
+    # 1. Try REST API first (2-5 seconds typical)
+    if _GEMINI_API_KEY:
+        api_timeout = min(timeout, 20)
+        result = _gemini_api_call(prompt, timeout=api_timeout)
+        if result and len(result) > 20:
+            _GEMINI_CONSECUTIVE_FAILURES = 0
+            return result
+        _GEMINI_CONSECUTIVE_FAILURES += 1
+
+    # 2. Fallback to CLI (20-40 seconds typical)
+    elif _GEMINI_AVAILABLE is not False:
+        try:
+            proc = subprocess.run(
+                ["gemini", "-p", prompt], capture_output=True, text=True, timeout=timeout
+            )
+            if proc.returncode == 0 and len(proc.stdout.strip()) > 20:
+                _GEMINI_CONSECUTIVE_FAILURES = 0
+                return proc.stdout.strip()
             _GEMINI_CONSECUTIVE_FAILURES += 1
-    except subprocess.TimeoutExpired:
+        except subprocess.TimeoutExpired:
+            _GEMINI_CONSECUTIVE_FAILURES += 1
+            logging.warning(f"Gemini CLI timeout ({timeout}s)")
+        except Exception as e:
+            _GEMINI_CONSECUTIVE_FAILURES += 1
+            logging.warning(f"Gemini CLI error: {e}")
+    else:
         _GEMINI_CONSECUTIVE_FAILURES += 1
-        logging.warning(f"Gemini CLI timeout ({timeout}s)")
-    except Exception as e:
-        _GEMINI_CONSECUTIVE_FAILURES += 1
-        logging.warning(f"Gemini CLI error: {e}")
 
     # Circuit breaker: after 3 consecutive failures, skip Gemini entirely
     if _GEMINI_CONSECUTIVE_FAILURES >= 3:
