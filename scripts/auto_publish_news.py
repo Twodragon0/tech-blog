@@ -422,7 +422,7 @@ def _filter_by_cutoff(items: List[Dict], cutoff: datetime) -> List[Dict]:
 
 
 def categorize_news(items: List[Dict]) -> Dict[str, List[Dict]]:
-    """뉴스를 카테고리별로 분류"""
+    """뉴스를 카테고리별로 분류 - 콘텐츠 기반 재분류 포함"""
     categorized = defaultdict(list)
 
     for item in items:
@@ -437,20 +437,32 @@ def categorize_news(items: List[Dict]) -> Dict[str, List[Dict]]:
         if category == "blockchain":
             ai_security_keywords = ["anthropic", "openai", "pentagon", "military", "claude ai", "gpt", "llm", "machine learning"]
             if any(kw in combined for kw in ai_security_keywords):
-                # Check if it's security-related
                 security_keywords = ["pentagon", "military", "supply chain risk", "vulnerability", "exploit", "breach"]
                 if any(kw in combined for kw in security_keywords):
                     category = "security"
                 else:
                     category = "ai"
 
+        # Cross-category security reclassification: if a non-security item
+        # clearly discusses vulnerabilities/exploits, move it to security
+        if category not in ("security", "devsecops"):
+            security_indicators = [
+                "vulnerability", "exploit", "cve-", "취약점",
+                "malware", "악성코드", "ransomware", "랜섬웨어",
+                "attack", "공격", "breach", "침해",
+            ]
+            security_score = sum(1 for kw in security_indicators if kw in combined)
+            if security_score >= 2:  # At least 2 security keywords
+                category = "security"
+
         # security, devsecops는 security로 통합
         if category in ("security", "devsecops"):
             category = "security"
         elif category == "kubernetes":
             category = "devops"
-        # ai, blockchain은 독립 카테고리로 유지
-        # cloud, devops, tech도 그대로 유지
+
+        # Update item's category for downstream use
+        item["category"] = category
 
         if len(categorized[category]) < MAX_NEWS_PER_CATEGORY:
             # Filter out stale items for non-security categories
@@ -929,14 +941,15 @@ def generate_post_content(
     )[:3]
     source_list = ", ".join(top_sources)
 
-    # Generate Jekyll include tag for AI summary card
+    # Generate Jekyll include tag for AI summary card - dynamic tags from actual content
     categories_html = '<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-    tags_html = f"""<span class="tag">Security-Weekly</span>
-      <span class="tag">DevSecOps</span>
-      <span class="tag">Cloud-Security</span>
-      <span class="tag">AI-Security</span>
-      <span class="tag">Zero-Trust</span>
-      <span class="tag">{date.year}</span>"""
+    # Build tags from actual topics instead of hardcoding
+    dynamic_tags = ["Security-Weekly"]
+    for topic in topics[:4]:
+        if topic not in dynamic_tags:
+            dynamic_tags.append(topic)
+    dynamic_tags.append(str(date.year))
+    tags_html = "\n      ".join(f'<span class="tag">{t}</span>' for t in dynamic_tags[:6])
 
     content = f'''---
 layout: post
@@ -1042,7 +1055,7 @@ toc: true
         ]
 
         for i, item in enumerate(regular_security, 1):
-            is_critical = i <= 3  # 상위 3개 뉴스에 AI 강화 적용
+            is_critical = i <= 5  # 상위 5개 뉴스에 AI 강화 적용
             content += generate_news_section(
                 item, f"{section_num}.{i}", is_critical=is_critical
             )
@@ -1268,14 +1281,15 @@ def generate_tech_blog_content(
         else "<li>이번 주 주요 기술 뉴스를 확인하세요</li>"
     )
 
-    # Generate Jekyll include tag for AI summary card
+    # Generate Jekyll include tag for AI summary card - dynamic tags from actual content
     categories_html = '<span class="category-tag tech">기술</span> <span class="category-tag devops">DevOps</span>'
-    tags_html = f"""<span class="tag">Tech-Blog</span>
-      <span class="tag">Weekly-Digest</span>
-      <span class="tag">Developer</span>
-      <span class="tag">Open-Source</span>
-      <span class="tag">AI/ML</span>
-      <span class="tag">{date.year}</span>"""
+    # Build tags from actual topics
+    dynamic_tags = ["Tech-Blog"]
+    for topic in topics[:4]:
+        if topic not in dynamic_tags:
+            dynamic_tags.append(topic)
+    dynamic_tags.append(str(date.year))
+    tags_html = "\n      ".join(f'<span class="tag">{t}</span>' for t in dynamic_tags[:6])
 
     content = f'''---
 layout: post
@@ -1499,17 +1513,29 @@ def _generate_tech_trend_analysis(news_items: List[Dict], section_num: int) -> s
 
 
 def _determine_severity(item: Dict) -> str:
-    """뉴스 심각도 결정 - 확장된 키워드 기반"""
+    """뉴스 심각도 결정 - 카테고리 인식 + 문맥 기반
+
+    Non-security categories (ai, tech, devops, blockchain) are capped at
+    Medium unless they contain explicit CVE/exploit indicators, preventing
+    SDK releases or product announcements from being labeled Critical.
+    """
     text = f"{item.get('title', '')} {item.get('summary', '')} {item.get('content', '')}".lower()
-    critical_keywords = [
-        "critical",
+    category = item.get("category", "tech").lower()
+    is_security_category = category in ("security", "devsecops")
+
+    # Phrases that indicate actual vulnerability / active threat
+    critical_phrases = [
+        "critical vulnerability",
+        "critical flaw",
+        "critical patch",
+        "critical security",
+        "critical rce",
         "rce",
         "zero-day",
         "제로데이",
         "0-day",
         "cvss 9",
         "cvss 10",
-        "unauthenticated",
         "actively exploited",
         "in the wild",
         "emergency patch",
@@ -1530,31 +1556,39 @@ def _determine_severity(item: Dict) -> str:
         "authentication bypass",
         "인증 우회",
         "ssrf",
-        "injection",
-        "supply chain",
-        "공급망",
+        "sql injection",
+        "command injection",
+        "supply chain attack",
+        "공급망 공격",
         "backdoor",
         "백도어",
         "botnet",
         "봇넷",
-        "apt",
         "nation-state",
-        "arbitrary code",
+        "arbitrary code execution",
         "malware",
         "악성코드",
-        "exploit",
+        "exploit kit",
         "취약점 악용",
-        "cve-202",
         "sandbox escape",
         "container escape",
     ]
 
-    for kw in critical_keywords:
-        if kw in text:
-            return "Critical"
+    # For non-security categories, only escalate if CVE IDs are present
+    has_cve = bool(re.search(r"CVE-\d{4}-\d+", text, re.IGNORECASE))
+
+    for phrase in critical_phrases:
+        if phrase in text:
+            if is_security_category or has_cve:
+                return "Critical"
+            return "High"  # Cap non-security to High
+
     for kw in high_keywords:
         if kw in text:
-            return "High"
+            if is_security_category or has_cve:
+                return "High"
+            return "Medium"  # Cap non-security to Medium
+
     return "Medium"
 
 
@@ -1593,6 +1627,62 @@ def _generate_key_points(item: Dict) -> str:
         s = s.rstrip(".")
         points += f"- {s}\n"
     return points
+
+
+def _generate_contextual_action_point(item: Dict) -> str:
+    """Generate a context-aware action point based on actual article content.
+
+    Extracts keywords from the title/summary to produce specific advice
+    instead of generic category-based text.
+    """
+    title = (item.get("title", "") or "").lower()
+    summary = (item.get("summary", "") or "").lower()
+    combined = f"{title} {summary}"
+    category = item.get("category", "tech")
+
+    # Security-specific contextual hints
+    if category in ("security", "devsecops"):
+        if any(kw in combined for kw in ["patch", "update", "패치", "업데이트"]):
+            return "영향받는 시스템 버전을 확인하고 패치 적용 일정을 수립하세요."
+        if any(kw in combined for kw in ["ransomware", "랜섬웨어"]):
+            return "백업 상태 확인, 네트워크 세그먼테이션 점검, 이메일 필터링 강화를 권장합니다."
+        if any(kw in combined for kw in ["phishing", "피싱", "credential", "자격증명"]):
+            return "MFA 적용 현황 점검 및 사용자 보안 인식 교육을 강화하세요."
+        if any(kw in combined for kw in ["supply chain", "공급망", "dependency"]):
+            return "서드파티 의존성 감사(SCA)를 수행하고 SBOM을 최신 상태로 유지하세요."
+        if any(kw in combined for kw in ["data breach", "유출", "leak"]):
+            return "영향 범위 파악, 인시던트 대응 절차 발동, 규제 기관 통보 여부를 확인하세요."
+        if any(kw in combined for kw in ["malware", "악성코드", "trojan", "backdoor"]):
+            return "EDR/SIEM에서 IoC 기반 탐지 룰을 업데이트하세요."
+        if re.search(r"cve-\d{4}-\d+", combined):
+            return "해당 CVE의 영향 범위와 CVSS 점수를 확인 후 패치 우선순위를 결정하세요."
+        return "보안 영향도를 평가하고 필요 시 대응 조치를 수행하세요."
+
+    # AI category
+    if category == "ai":
+        if any(kw in combined for kw in ["agent", "에이전트"]):
+            return "AI Agent 도입 시 권한 범위 설정과 출력 검증 체계를 사전에 수립하세요."
+        if any(kw in combined for kw in ["model", "llm", "모델"]):
+            return "자사 AI 워크로드에 적용 가능성과 비용/성능 트레이드오프를 평가하세요."
+        return "AI/ML 파이프라인 및 서비스에 미치는 영향을 검토하세요."
+
+    # Cloud / DevOps
+    if category in ("cloud", "devops", "kubernetes"):
+        if any(kw in combined for kw in ["kubernetes", "k8s", "쿠버네티스"]):
+            return "클러스터 버전 호환성과 워크로드 영향을 확인하세요."
+        if any(kw in combined for kw in ["docker", "container", "컨테이너"]):
+            return "컨테이너 이미지 업데이트 및 런타임 보안 설정을 점검하세요."
+        if any(kw in combined for kw in ["aws", "azure", "gcp"]):
+            return "클라우드 서비스 변경사항이 인프라 구성에 미치는 영향을 확인하세요."
+        return "인프라 및 운영 환경 영향을 검토하세요."
+
+    # Blockchain
+    if category == "blockchain":
+        if any(kw in combined for kw in ["bitcoin", "비트코인", "ethereum", "이더리움"]):
+            return "가격 변동에 따른 보안 위협(피싱/스캠) 증가에 대비하세요."
+        return "관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요."
+
+    return "실무 적용 전에 상세 내용을 확인하세요."
 
 
 def _translate_to_korean_deepseek(text: str, context: str = "기술 뉴스", mode: str = "summary") -> str:
@@ -1838,64 +1928,39 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
             mode="summary",
         )
         if deepseek_translated:
-            # 실무 포인트 추가
-            practice_hint = {
-                "security": "\n\n**실무 포인트**: 영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.",
-                "devsecops": "\n\n**실무 포인트**: CI/CD 파이프라인과 보안 통제 설정에 미치는 영향을 점검하세요.",
-                "ai": "\n\n**실무 포인트**: 자사 AI/ML 시스템 적용 가능성과 보안 영향을 평가하세요.",
-                "cloud": "\n\n**실무 포인트**: 클라우드 서비스 설정 및 권한 정책 변경 필요 여부를 확인하세요.",
-                "devops": "\n\n**실무 포인트**: 운영 환경 호환성과 배포 자동화 영향을 검토하세요.",
-                "blockchain": "\n\n**실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.",
-            }.get(category, "")
-            result = deepseek_translated + practice_hint
-            KOREAN_SUMMARY_CACHE[cache_key] = result
-            return result
+            # Use translated content directly; contextual action points are
+            # added by generate_news_section() to avoid duplication
+            KOREAN_SUMMARY_CACHE[cache_key] = deepseek_translated
+            return deepseek_translated
 
-        # DeepSeek도 실패 시: 템플릿 기반 한국어 요약 생성
+        # DeepSeek도 실패 시: 실제 RSS 콘텐츠 기반 한국어 요약 생성
         cleaned = re.sub(r"\s+", " ", raw_text)
         cleaned = re.sub(r"https?://\S+", "", cleaned).strip()
+        # Strip common HTML artifacts
+        cleaned = re.sub(r"<[^>]+>", "", cleaned).strip()
 
-        # 키워드 기반 한국어 문맥 생성
+        # Use actual article content (truncated) as the summary
         title_ko = _korean_display_title(item)
-        category_context = {
-            "security": "보안 취약점 또는 위협이 보고되었습니다. 영향받는 시스템과 대응 방안을 확인해야 합니다.",
-            "devsecops": "DevSecOps 관련 업데이트가 발표되었습니다. CI/CD 파이프라인과 보안 통제 영향을 점검하세요.",
-            "ai": "AI/ML 관련 새로운 발전 또는 보안 이슈가 보고되었습니다. 자사 시스템 영향도를 평가하세요.",
-            "cloud": "클라우드 서비스 관련 변경사항이 확인되었습니다. 인프라 설정과 권한 정책을 점검하세요.",
-            "devops": "DevOps 관련 업데이트입니다. 운영 환경 호환성과 배포 자동화 영향을 검토하세요.",
-            "blockchain": "블록체인 생태계 관련 소식입니다. 스마트 컨트랙트 및 노드 운영 환경을 확인하세요.",
-        }.get(category, "기술 업계 관련 소식입니다. 실무 적용 가능성과 영향도를 확인하세요.")
+        source_name = item.get("source_name", item.get("source", ""))
 
-        practice_hint = {
-            "security": "\n\n**실무 포인트**: 영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.",
-            "devsecops": "\n\n**실무 포인트**: CI/CD 파이프라인과 보안 통제 설정에 미치는 영향을 점검하세요.",
-            "ai": "\n\n**실무 포인트**: 자사 AI/ML 시스템 적용 가능성과 보안 영향을 평가하세요.",
-            "cloud": "\n\n**실무 포인트**: 클라우드 서비스 설정 및 권한 정책 변경 필요 여부를 확인하세요.",
-            "devops": "\n\n**실무 포인트**: 운영 환경 호환성과 배포 자동화 영향을 검토하세요.",
-            "blockchain": "\n\n**실무 포인트**: 스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.",
-        }.get(category, "")
+        # Build summary from actual content, not generic template
+        if len(cleaned) > 50:
+            # Use up to 400 chars of actual content
+            content_excerpt = cleaned[:400].rsplit(".", 1)[0] if "." in cleaned[:400] else cleaned[:400]
+            content_excerpt = content_excerpt.strip(" .")
+            result = f"{content_excerpt}."
+        else:
+            # Very short content - use title as basis
+            result = f"{title_ko} ({source_name})."
 
-        result = f"{title_ko} 관련 소식입니다. {category_context}{practice_hint}"
         KOREAN_SUMMARY_CACHE[cache_key] = result
         return result
 
+    # No raw_text at all - use title-based fallback
     category = item.get("category", "tech")
-    category_context = {
-        "security": "보안 관점에서 취약점 영향도와 우선 대응 대상을 확인해야 합니다.",
-        "devsecops": "DevSecOps 관점에서 배포 파이프라인과 보안 통제를 함께 점검해야 합니다.",
-        "cloud": "클라우드 관점에서 서비스 영향 범위와 설정 변경 포인트를 확인해야 합니다.",
-        "devops": "DevOps 관점에서 운영 자동화와 롤백 전략을 함께 고려해야 합니다.",
-        "kubernetes": "쿠버네티스 관점에서 클러스터 운영 및 보안 정책 영향을 검토해야 합니다.",
-        "ai": "AI 관점에서 모델/데이터/플랫폼 변화가 실무에 미치는 영향을 검토해야 합니다.",
-    }
-    context_line = category_context.get(
-        category, "실무 적용 전에 서비스 영향도와 운영 변경점을 함께 검토해야 합니다."
-    )
     title_ko = _korean_display_title(item)
-    fallback = (
-        f"{title_ko} 관련 소식입니다. 핵심 변경사항과 영향 범위를 우선 파악하세요.\n\n"
-        f"실무 해석: {context_line}"
-    )
+    source_name = item.get("source_name", item.get("source", ""))
+    fallback = f"{title_ko} ({source_name}). 상세 내용은 출처 링크를 참조하세요."
     KOREAN_SUMMARY_CACHE[cache_key] = fallback
     return fallback
 
@@ -1948,17 +2013,11 @@ def generate_news_section(
     elif content_text:
         section += f"{content_text[:800]}...\n\n"
 
-    # Category-specific action point (skip if summary already contains 실무 포인트)
+    # Context-aware action point (skip if summary already contains 실무 포인트)
     if "실무 포인트" not in (ko_summary or ""):
-        category_action = {
-            "security": "영향받는 시스템 식별 후 벤더 패치 적용 여부를 우선 확인하세요.",
-            "devsecops": "CI/CD 파이프라인 및 보안 정책 영향도를 점검하세요.",
-            "ai": "모델 서빙 환경 및 데이터 파이프라인 영향을 점검하세요.",
-            "cloud": "클라우드 리소스 및 IAM 정책 영향을 점검하세요.",
-            "devops": "인프라 및 배포 파이프라인 영향을 확인하세요.",
-            "blockchain": "스마트 컨트랙트 및 노드 운영 환경 영향을 확인하세요.",
-        }.get(category, "실무 적용 전에 서비스 영향도를 검토하세요.")
-        section += f"**실무 포인트**: {category_action}\n\n"
+        action_point = _generate_contextual_action_point(item)
+        if action_point:
+            section += f"**실무 포인트**: {action_point}\n\n"
 
     section += f"> **출처**: [{source}]({url})\n\n"
 
