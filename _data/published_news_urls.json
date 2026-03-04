@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-03T08:46:19.012063+00:00",
+  "updated_at": "2026-03-04T01:10:05.428242+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -150,6 +150,96 @@
       "title": "",
       "published_date": "2026-03-02",
       "expires_at": "2026-03-10T08:46:19.004994+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/fake-tech-support-spam-deploys.html",
+      "title": "Fake Tech Support Spam Deploys Customized Havoc C2 Across Organizations",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/03/signed-malware-impersonating-workplace-apps-deploys-rmm-backdoors/",
+      "title": "Signed malware impersonating workplace apps deploys RMM backdoors",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/building-high-impact-tier-1-3-steps.html",
+      "title": "Building a High-Impact Tier 1: The 3 Steps CISOs Must Follow",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/open-source-cyberstrikeai-deployed-in.html",
+      "title": "Open-Source CyberStrikeAI Deployed in AI-Driven FortiGate Attacks Across 55 Coun",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/2025-finma-isae-3000-type-ii-attestation-report-available-with-183-services-in-scope/",
+      "title": "2025 FINMA ISAE 3000 Type II attestation report available with 183 services in s",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/tips-prompt-writing-project-genie/",
+      "title": "Create new worlds in Project Genie with these 4 tips",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/",
+      "title": "Gemini 3.1 Flash-Lite: Built for intelligence at scale",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/building-a-scalable-virtual-try-on-solution-using-amazon-nova-on-aws-part-1/",
+      "title": "Building a scalable virtual try-on solution using Amazon Nova on AWS: part 1",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-lendi-revamped-the-refinance-journey-for-its-customers-using-agentic-ai-in-12-weeks-using-amazon-bedrock/",
+      "title": "How Lendi revamped the refinance journey for its customers using agentic AI in 1",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-tines-enhances-security-analysis-with-amazon-quick-suite/",
+      "title": "How Tines enhances security analysis with Amazon Quick Suite",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/data-strategy-ai-strategy-series-transforming-developers-into-ai-architects-with-google-cloud/",
+      "title": "Data Strategy = AI Strategy Series: Transforming Developers into AI Architects w",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/coruna-powerful-ios-exploit-kit/",
+      "title": "Coruna: The Mysterious Journey of a Powerful iOS Exploit Kit",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/announcing-the-mcp-toolbox-java-sdk/",
+      "title": "Announcing the MCP Toolbox Java SDK",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/telecommunications/integrating-nokia-network-as-code-nac-platform/",
+      "title": "From network APIs to network AI agents — building the agentic future of connecti",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
+    },
+    {
+      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/unlocking-document-understanding-with-mistral-document-ai-in-microsoft-foundry/4495664",
+      "title": "Unlocking document understanding with Mistral Document AI in Microsoft Foundry",
+      "published_date": "2026-03-04",
+      "expires_at": "2026-03-11T01:10:05.428153+00:00"
     }
   ]
 }
