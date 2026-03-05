@@ -23,245 +23,245 @@ toc: true
       <span class="tag">Serverless</span>
       <span class="tag">0-Day</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>Infostealer evolution</strong>: AI agent config files and gateway tokens now targeted - single token compromise grants access to all connected systems</li>
-      <li><strong>Password Manager 25 attacks</strong>: Bitwarden, Dashlane, LastPass recovery mechanisms expose full vault compromise paths</li>
-      <li><strong>AWS Serverless DiD</strong>: AI-powered defense-in-depth architecture for serverless microservices - GuardDuty, Security Hub integration</li>
-      <li><strong>Weekly Recap</strong>: Outlook Add-Ins hijack, multiple 0-Day patches requiring immediate action</li>'
+  highlights_html='<li><strong>Infostealer 진화</strong>: AI 에이전트 설정 파일과 게이트웨이 토큰이 새로운 공격 대상 - 토큰 하나가 탈취되면 연결된 모든 시스템에 접근 가능</li>
+      <li><strong>패스워드 매니저 25개 공격</strong>: Bitwarden, Dashlane, LastPass 복구 메커니즘에서 조직 전체 볼트 완전 탈취 경로 발견</li>
+      <li><strong>AWS Serverless DiD</strong>: 서버리스 마이크로서비스를 위한 AI 기반 Defense-in-Depth 아키텍처 - GuardDuty, Security Hub 통합</li>
+      <li><strong>주간 요약</strong>: Outlook Add-In 하이재킹, 즉각 조치가 필요한 다수의 0-Day 패치</li>'
   period='2026.02.17 (24h)'
-  audience='Security Engineers, DevSecOps, SRE, Cloud Architects'
+  audience='보안 엔지니어, DevSecOps, SRE, 클라우드 아키텍트'
 %}
 
 ---
 
-## Introduction
+## 소개
 
-Hello, this is **Twodragon**.
+안녕하세요, **Twodragon**입니다.
 
-Here is the in-depth analysis of major tech and security news from the past 24 hours as of February 17, 2026.
+2026년 2월 17일 기준 지난 24시간 동안의 주요 기술 및 보안 뉴스 심층 분석입니다.
 
-> Previous digest: [SolarWinds RCE, UNC3886, LLM Attack (2026.02.10)]({{ site.baseurl }}/security/2026/02/10/Security_Digest_SolarWinds_UNC3886_LLM_Attack.html)
+> 이전 다이제스트: [SolarWinds RCE, UNC3886, LLM Attack (2026.02.10)]({{ site.baseurl }}/security/2026/02/10/Security_Digest_SolarWinds_UNC3886_LLM_Attack.html)
 
-**Collection stats:**
-- **Total**: 18 articles
-- **Security**: 5
-- **AI/ML**: 10
-- **Cloud**: 3
-- **Blockchain**: 5
+**수집 통계:**
+- **전체**: 18건
+- **보안**: 5건
+- **AI/ML**: 10건
+- **클라우드**: 3건
+- **블록체인**: 5건
 
 ---
 
-## Quick Reference
+## 빠른 참조
 
-| Category | Source | Key Finding | Impact |
+| 카테고리 | 출처 | 주요 발견 | 영향도 |
 |----------|--------|-------------|--------|
-| **Security** | The Hacker News | Infostealer targets AI agent config files + gateway tokens | HIGH |
-| **Security** | The Hacker News | 25 password recovery attacks in Bitwarden/Dashlane/LastPass | HIGH |
-| **Security** | AWS Security Blog | AI-powered defense-in-depth for serverless microservices | MEDIUM |
-| **Security** | The Hacker News | Weekly Recap: Outlook Add-Ins hijack, 0-Day patches | HIGH |
-| **Security** | The Hacker News | Lithuania's e-Society security framework analysis | LOW |
-| **Cloud** | AWS Blog | EC2 Hpc8a with 5th Gen AMD EPYC - 40% performance boost | MEDIUM |
-| **Cloud** | AWS Blog | SageMaker Inference for custom Amazon Nova models | MEDIUM |
+| **보안** | The Hacker News | Infostealer가 AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취 | HIGH |
+| **보안** | The Hacker News | Bitwarden/Dashlane/LastPass에서 25개 패스워드 복구 공격 발견 | HIGH |
+| **보안** | AWS Security Blog | 서버리스 마이크로서비스를 위한 AI 기반 Defense-in-Depth | MEDIUM |
+| **보안** | The Hacker News | 주간 요약: Outlook Add-In 하이재킹, 0-Day 패치 | HIGH |
+| **보안** | The Hacker News | 리투아니아 e-사회 보안 프레임워크 분석 | LOW |
+| **클라우드** | AWS Blog | 5세대 AMD EPYC 탑재 EC2 Hpc8a - 성능 40% 향상 | MEDIUM |
+| **클라우드** | AWS Blog | 맞춤형 Amazon Nova 모델을 위한 SageMaker Inference | MEDIUM |
 
 ---
 
-## 1. Security News
+## 1. 보안 뉴스
 
-### 1.1 Infostealer Targets AI Agent Configuration Files and Gateway Tokens
+### 1.1 Infostealer, AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취
 
-Cybersecurity researchers have discovered infostealer malware actively stealing AI agent configuration files and gateway tokens. This represents a critical evolution in the infostealer threat landscape - from targeting browser credentials to harvesting AI agent identities and access configurations.
+사이버보안 연구진이 AI 에이전트 설정 파일과 게이트웨이 토큰을 적극적으로 탈취하는 Infostealer 악성코드를 발견했습니다. 이는 브라우저 자격증명 탈취에서 AI 에이전트 신원 및 접근 설정 수집으로의 진화로, Infostealer 위협 지형에서 매우 중요한 변화를 의미합니다.
 
-**Why this matters:**
+**중요한 이유:**
 
-A single compromised AI agent token can grant attackers access to every system the agent connects to. As enterprises deploy AI agents with broad system access (databases, APIs, cloud services), these tokens become high-value targets.
+AI 에이전트 토큰 하나가 탈취되면 공격자는 해당 에이전트가 접속하는 모든 시스템에 접근할 수 있습니다. 기업들이 데이터베이스, API, 클라우드 서비스 등 광범위한 시스템 접근 권한을 가진 AI 에이전트를 배포하면서, 이러한 토큰은 고가치 공격 목표가 되고 있습니다.
 
-**Attack chain:**
+**공격 체인:**
 
 ```
-1. Infostealer infects developer/operator workstation
-2. Scans for AI agent config files (e.g., .env, config.yaml, agent.json)
-3. Extracts OAuth tokens, API keys, gateway credentials
-4. Exfiltrates to C2 - attacker impersonates the AI agent
-5. Accesses all systems the agent was authorized to use
+1. Infostealer가 개발자/운영자 워크스테이션 감염
+2. AI 에이전트 설정 파일 탐색 (예: .env, config.yaml, agent.json)
+3. OAuth 토큰, API 키, 게이트웨이 자격증명 추출
+4. C2 서버로 유출 - 공격자가 AI 에이전트로 위장
+5. 에이전트가 권한을 가졌던 모든 시스템에 접근
 ```
 
-**MITRE ATT&CK Mapping:**
+**MITRE ATT&CK 매핑:**
 
-| Technique | ID | Description |
+| 기법 | ID | 설명 |
 |-----------|------|-------------|
-| Credentials from Files | T1552.001 | AI agent config file harvesting |
-| Steal Application Access Token | T1528 | Gateway token extraction |
-| Valid Accounts: Cloud | T1078.004 | Impersonation via stolen tokens |
+| Credentials from Files | T1552.001 | AI 에이전트 설정 파일 수집 |
+| Steal Application Access Token | T1528 | 게이트웨이 토큰 추출 |
+| Valid Accounts: Cloud | T1078.004 | 탈취한 토큰을 이용한 신원 위장 |
 
-**Recommended actions:**
-- Store AI agent credentials in Secrets Manager / HashiCorp Vault, never in local config files
-- Implement short-lived, auto-rotating tokens for AI agent authentication
-- Add EDR rules to detect access to AI agent configuration directories
-- Monitor for anomalous API calls from agent service accounts (unusual hours, IPs, request patterns)
+**권장 조치:**
+- AI 에이전트 자격증명은 Secrets Manager / HashiCorp Vault에 저장하고, 로컬 설정 파일에는 절대 저장 금지
+- AI 에이전트 인증에 단기 자동 갱신 토큰 적용
+- AI 에이전트 설정 디렉토리 접근을 탐지하는 EDR 규칙 추가
+- 에이전트 서비스 계정의 비정상적인 API 호출 모니터링 (비정상 시간대, IP, 요청 패턴)
 
-> **Source**: [The Hacker News](https://thehackernews.com/2026/02/infostealer-steals-ai-agent-configuration-files-and-gateway-tokens.html)
+> **출처**: [The Hacker News](https://thehackernews.com/2026/02/infostealer-steals-ai-agent-configuration-files-and-gateway-tokens.html)
 
 ---
 
-### 1.2 25 Password Recovery Attacks in Major Cloud Password Managers
+### 1.2 주요 클라우드 패스워드 매니저에서 25개 패스워드 복구 공격 발견
 
-A research team (Scarlata, Torrisi, Backendal, Paterson) discovered 25 distinct password recovery attack vectors in major cloud password managers including Bitwarden, Dashlane, and LastPass. Attack severity ranges from integrity violations to complete compromise of all organizational vaults.
+Scarlata, Torrisi, Backendal, Paterson으로 구성된 연구팀이 Bitwarden, Dashlane, LastPass를 포함한 주요 클라우드 패스워드 매니저에서 25개의 패스워드 복구 공격 벡터를 발견했습니다. 공격 심각도는 무결성 침해부터 조직 전체 볼트의 완전 탈취까지 다양합니다.
 
-**Attack categories identified:**
+**발견된 공격 유형:**
 
-| Category | Affected | Severity | Description |
+| 유형 | 영향 제품 | 심각도 | 설명 |
 |----------|----------|----------|-------------|
-| Recovery key interception | All three | Critical | Intercepting recovery keys during setup/reset flows |
-| Admin recovery abuse | Bitwarden, LastPass | High | Enterprise admin recovery mechanisms exploitable |
-| Email-based recovery bypass | Dashlane, LastPass | High | Email verification weaknesses in recovery chains |
-| Vault integrity violations | All three | Medium | Modifying encrypted vault contents without detection |
+| 복구 키 가로채기 | 세 제품 모두 | Critical | 설정/재설정 흐름 중 복구 키 탈취 |
+| 관리자 복구 남용 | Bitwarden, LastPass | High | 기업용 관리자 복구 메커니즘 악용 가능 |
+| 이메일 기반 복구 우회 | Dashlane, LastPass | High | 복구 체인 내 이메일 검증 취약점 |
+| 볼트 무결성 침해 | 세 제품 모두 | Medium | 감지 없이 암호화된 볼트 내용 변조 |
 
-**Recommended actions:**
-- Audit password recovery settings in your organization's password manager
-- Disable password recovery mechanisms where possible, enforce MFA instead
-- Monitor abnormal vault access patterns (bulk exports, unusual geolocations)
-- Rotate master passwords for admin/privileged accounts immediately
-- Evaluate hardware key (FIDO2) enforcement for vault access
+**권장 조치:**
+- 조직의 패스워드 매니저 복구 설정 감사
+- 가능한 경우 패스워드 복구 메커니즘 비활성화, MFA로 대체
+- 비정상적인 볼트 접근 패턴 모니터링 (대량 내보내기, 비정상 지역)
+- 관리자/특권 계정 마스터 패스워드 즉시 교체
+- 볼트 접근에 하드웨어 키(FIDO2) 강제 적용 검토
 
-> **Source**: [The Hacker News](https://thehackernews.com/2026/02/study-uncovers-25-password-recovery.html)
+> **출처**: [The Hacker News](https://thehackernews.com/2026/02/study-uncovers-25-password-recovery.html)
 
 ---
 
-### 1.3 AWS AI-Powered Defense-in-Depth for Serverless Microservices
+### 1.3 AWS, 서버리스 마이크로서비스를 위한 AI 기반 Defense-in-Depth
 
-AWS Security Blog published a comprehensive guide on building AI-powered defense-in-depth architecture for serverless microservices. The guide addresses the challenge of AI-enhanced threats that can identify vulnerabilities, automate attacks, and evade detection at machine speed - rendering traditional perimeter-based security insufficient.
+AWS Security Blog에서 서버리스 마이크로서비스를 위한 AI 기반 Defense-in-Depth 아키텍처 구축에 관한 포괄적인 가이드를 공개했습니다. 이 가이드는 기계 속도로 취약점을 찾아내고, 공격을 자동화하며, 탐지를 회피하는 AI 강화 위협에 대응하기 위한 것으로, 기존 경계 기반 보안의 한계를 극복하는 방안을 다룹니다.
 
-**Key architecture layers:**
+**주요 아키텍처 레이어:**
 
-| Layer | AWS Service | Purpose |
+| 레이어 | AWS 서비스 | 목적 |
 |-------|-------------|---------|
-| Edge protection | WAF + Shield Advanced | DDoS mitigation, bot management |
-| Runtime protection | GuardDuty + Lambda Insights | Anomaly detection in function execution |
-| Data protection | KMS + Macie | Encryption, sensitive data detection |
-| Identity | IAM + Cognito | Least privilege, fine-grained access control |
-| Monitoring | Security Hub + CloudTrail | Centralized findings, audit trail |
-| Response | EventBridge + Step Functions | Automated remediation workflows |
+| 엣지 보호 | WAF + Shield Advanced | DDoS 완화, 봇 관리 |
+| 런타임 보호 | GuardDuty + Lambda Insights | 함수 실행 이상 탐지 |
+| 데이터 보호 | KMS + Macie | 암호화, 민감 데이터 탐지 |
+| 신원 관리 | IAM + Cognito | 최소 권한, 세분화된 접근 제어 |
+| 모니터링 | Security Hub + CloudTrail | 중앙화된 보안 발견사항, 감사 추적 |
+| 대응 | EventBridge + Step Functions | 자동화된 보안 대응 워크플로우 |
 
-**Recommended actions:**
-- Audit Lambda execution role permissions - most are over-privileged
-- Enable GuardDuty Lambda Protection for runtime threat detection
-- Implement function-level network policies (VPC endpoints, security groups)
-- Add automated remediation via EventBridge for common security findings
+**권장 조치:**
+- Lambda 실행 역할 권한 감사 - 대부분 과도한 권한 부여 상태
+- 런타임 위협 탐지를 위한 GuardDuty Lambda Protection 활성화
+- 함수 단위 네트워크 정책 적용 (VPC 엔드포인트, 보안 그룹)
+- 주요 보안 발견사항에 대한 EventBridge 자동 대응 추가
 
-> **Source**: [AWS Security Blog](https://aws.amazon.com/blogs/security/building-an-ai-powered-defense-in-depth-security-architecture-for-serverless-microservices/)
-
----
-
-### 1.4 Weekly Recap: Outlook Add-Ins Hijack, 0-Day Patches
-
-The Hacker News weekly security recap highlights critical threats requiring immediate attention:
-
-- **Outlook Add-Ins Hijack**: Attackers exploit Outlook add-in sideloading to achieve persistence and data exfiltration via legitimate email client
-- **Multiple 0-Day Patches**: Several actively exploited zero-day vulnerabilities patched this week across major platforms
-
-**Recommended actions:**
-- Review Outlook add-in policies - restrict sideloading to IT-approved add-ins only
-- Deploy 0-day patches immediately per vendor advisories
-- Monitor for unauthorized Outlook add-in installations via endpoint telemetry
-
-> **Source**: [The Hacker News](https://thehackernews.com/2026/02/weekly-recap.html)
+> **출처**: [AWS Security Blog](https://aws.amazon.com/blogs/security/building-an-ai-powered-defense-in-depth-security-architecture-for-serverless-microservices/)
 
 ---
 
-## 2. Cloud & Infrastructure
+### 1.4 주간 요약: Outlook Add-In 하이재킹, 0-Day 패치
 
-### 2.1 Amazon EC2 Hpc8a: 5th Gen AMD EPYC with 40% Performance Boost
+The Hacker News 주간 보안 요약에서 즉각적인 조치가 필요한 주요 위협을 다룹니다:
 
-AWS launched EC2 Hpc8a instances powered by 5th Gen AMD EPYC processors, delivering up to 40% higher performance, increased memory bandwidth, and 300 Gbps Elastic Fabric Adapter (EFA) networking for compute-intensive HPC workloads.
+- **Outlook Add-In 하이재킹**: 공격자가 Outlook 애드인 사이드로딩을 악용해 정상 이메일 클라이언트를 통한 지속성 확보 및 데이터 유출 실행
+- **다수의 0-Day 패치**: 이번 주 주요 플랫폼에서 실제 악용되고 있는 여러 제로데이 취약점 패치 배포
 
-**Practical considerations:**
-- Profile current HPC bottlenecks (CFD, FEA, molecular simulations) before migration
-- EFA 300Gbps requires proper MPI configuration and placement group setup
-- Validate existing HPC cluster scripts compatibility before production transition
+**권장 조치:**
+- Outlook 애드인 정책 검토 - IT 승인 애드인만 사이드로딩 허용
+- 벤더 권고에 따라 0-Day 패치 즉시 배포
+- 엔드포인트 텔레메트리를 통한 비인가 Outlook 애드인 설치 모니터링
 
-> **Source**: [AWS Blog](https://aws.amazon.com/blogs/aws/amazon-ec2-hpc8a-instances-powered-by-5th-gen-amd-epyc-processors-are-now-available/)
-
----
-
-### 2.2 SageMaker Inference for Custom Amazon Nova Models
-
-AWS announced SageMaker Inference support for custom Amazon Nova models with configurable instance types, auto-scaling policies, and concurrency settings.
-
-**Security considerations:**
-- Scope IAM roles per endpoint to follow least privilege
-- Route inference traffic through VPC endpoints (avoid public internet)
-- Apply SSE-KMS encryption to S3 buckets storing model artifacts
-
-> **Source**: [AWS Blog](https://aws.amazon.com/blogs/aws/announcing-amazon-sagemaker-inference-for-custom-amazon-nova-models/)
+> **출처**: [The Hacker News](https://thehackernews.com/2026/02/weekly-recap.html)
 
 ---
 
-## 3. Blockchain News
+## 2. 클라우드 & 인프라
 
-### 3.1 Bitcoin Bears: $71,800 Resistance Holds, Downside Risk Persists
+### 2.1 Amazon EC2 Hpc8a: 5세대 AMD EPYC, 성능 40% 향상
 
-Bitcoin failed to break the $71,800 resistance level, with key support at $65,650. A break below opens $63,000, then Fibonacci level $57,800. Upside remains capped at the $71,800-$74,500 range.
+AWS가 5세대 AMD EPYC 프로세서를 탑재한 EC2 Hpc8a 인스턴스를 출시했습니다. 컴퓨팅 집약적인 HPC 워크로드에서 최대 40% 높은 성능, 향상된 메모리 대역폭, 300Gbps Elastic Fabric Adapter(EFA) 네트워킹을 제공합니다.
 
-**Security implication**: Market uncertainty increases phishing/scam activity targeting crypto investors. Monitor for fake exchange sites and investment scam campaigns.
+**실무 고려사항:**
+- 마이그레이션 전 현재 HPC 병목 지점(CFD, FEA, 분자 시뮬레이션) 프로파일링 필수
+- EFA 300Gbps는 적절한 MPI 설정과 배치 그룹 구성 필요
+- 운영 전환 전 기존 HPC 클러스터 스크립트 호환성 검증 필요
 
-> **Source**: [Bitcoin Magazine](https://bitcoinmagazine.com/markets/bitcoin-bears-dominate-failure-to-break-71800-keeps-downside-risk-alive)
-
----
-
-### 3.2 Payjoin Foundation Gains 501(c)(3) Status
-
-The Payjoin Foundation, the nonprofit behind the Payjoin Dev Kit, secured 501(c)(3) tax-exempt status from the IRS. This enables tax-deductible donations for privacy-enhancing Bitcoin protocol development, accelerating adoption of Payjoin transactions that improve both privacy and fee efficiency.
-
-> **Source**: [Bitcoin Magazine](https://bitcoinmagazine.com/business/payjoin-foundation-gains-501c3-status-enabling-tax-deductible-donations-for-bitcoin-privacy-development)
+> **출처**: [AWS Blog](https://aws.amazon.com/blogs/aws/amazon-ec2-hpc8a-instances-powered-by-5th-gen-amd-epyc-processors-are-now-available/)
 
 ---
 
-## 4. Other Notable News
+### 2.2 맞춤형 Amazon Nova 모델을 위한 SageMaker Inference
 
-| Title | Source | Summary |
+AWS가 인스턴스 유형, 자동 스케일링 정책, 동시성 설정을 구성할 수 있는 맞춤형 Amazon Nova 모델용 SageMaker Inference 지원을 발표했습니다.
+
+**보안 고려사항:**
+- 최소 권한 원칙을 위해 엔드포인트별 IAM 역할 범위 제한
+- VPC 엔드포인트를 통해 추론 트래픽 라우팅 (공개 인터넷 우회)
+- 모델 아티팩트를 저장하는 S3 버킷에 SSE-KMS 암호화 적용
+
+> **출처**: [AWS Blog](https://aws.amazon.com/blogs/aws/announcing-amazon-sagemaker-inference-for-custom-amazon-nova-models/)
+
+---
+
+## 3. 블록체인 뉴스
+
+### 3.1 비트코인 약세: $71,800 저항선 유지, 하방 리스크 지속
+
+비트코인이 $71,800 저항선 돌파에 실패하며, 주요 지지선은 $65,650에 형성되어 있습니다. 이 지지선이 무너지면 $63,000, 이후 피보나치 레벨 $57,800까지 하락 가능성이 있습니다. 상방은 $71,800~$74,500 구간에서 막혀 있습니다.
+
+**보안 시사점**: 시장 불확실성이 높아지면 암호화폐 투자자를 대상으로 한 피싱/스캠 활동이 증가합니다. 가짜 거래소 사이트 및 투자 사기 캠페인을 지속 모니터링하세요.
+
+> **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/markets/bitcoin-bears-dominate-failure-to-break-71800-keeps-downside-risk-alive)
+
+---
+
+### 3.2 Payjoin Foundation, 501(c)(3) 지위 획득
+
+Payjoin Dev Kit을 운영하는 비영리단체 Payjoin Foundation이 IRS로부터 501(c)(3) 면세 지위를 획득했습니다. 이를 통해 프라이버시를 강화하는 비트코인 프로토콜 개발에 세금 공제 기부가 가능해졌으며, 프라이버시와 수수료 효율성을 모두 개선하는 Payjoin 트랜잭션 도입이 가속화될 전망입니다.
+
+> **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/business/payjoin-foundation-gains-501c3-status-enabling-tax-deductible-donations-for-bitcoin-privacy-development)
+
+---
+
+## 4. 기타 주요 뉴스
+
+| 제목 | 출처 | 요약 |
 |-------|--------|---------|
-| [AWS Weekly Roundup: EC2 M8azn, Bedrock open weights models](https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-ec2-m8azn-instances-new-open-weights-models-in-amazon-bedrock-and-more-february-16-2026/) | AWS Blog | M8azn for network-intensive workloads, new open weights models in Bedrock. Check license terms for compliance |
-| [Lithuania's Safe and Inclusive e-Society](https://thehackernews.com/2026/02/safe-and-inclusive-e-society.html) | The Hacker News | Lithuania's cybersecurity framework for digital society - reference for national-level security policy |
+| [AWS 주간 요약: EC2 M8azn, Bedrock 오픈 웨이트 모델](https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-ec2-m8azn-instances-new-open-weights-models-in-amazon-bedrock-and-more-february-16-2026/) | AWS Blog | 네트워크 집약적 워크로드용 M8azn, Bedrock에 새로운 오픈 웨이트 모델 추가. 컴플라이언스를 위한 라이선스 조건 확인 필요 |
+| [리투아니아의 안전하고 포용적인 e-사회](https://thehackernews.com/2026/02/safe-and-inclusive-e-society.html) | The Hacker News | 디지털 사회를 위한 리투아니아의 사이버보안 프레임워크 - 국가 수준 보안 정책의 참고 사례 |
 
 ---
 
-## 5. Trend Analysis
+## 5. 트렌드 분석
 
-| Trend | Articles | Key Insight |
+| 트렌드 | 기사 수 | 핵심 인사이트 |
 |-------|----------|-------------|
-| **AI agent security** | 3 | AI agents create new attack surface - config files, tokens, and execution environments are high-value targets |
-| **Authentication infrastructure** | 3 | Password manager vulnerabilities + 0-day exploits targeting auth systems highlight identity as the new perimeter |
-| **Serverless security** | 2 | AI-powered defense-in-depth becoming essential as threats automate at machine speed |
-| **Cloud infrastructure** | 3 | AMD EPYC HPC + SageMaker Nova + Bedrock open weights expand cloud AI capabilities |
+| **AI 에이전트 보안** | 3건 | AI 에이전트가 새로운 공격 표면을 형성 - 설정 파일, 토큰, 실행 환경이 고가치 공격 목표로 부상 |
+| **인증 인프라** | 3건 | 패스워드 매니저 취약점 + 인증 시스템을 겨냥한 0-Day 익스플로잇은 신원이 새로운 경계임을 확인 |
+| **서버리스 보안** | 2건 | 위협이 기계 속도로 자동화됨에 따라 AI 기반 Defense-in-Depth가 필수화 |
+| **클라우드 인프라** | 3건 | AMD EPYC HPC + SageMaker Nova + Bedrock 오픈 웨이트가 클라우드 AI 역량 확대 |
 
-The dominant trend this period is **AI agent security becoming a critical concern**. As AI agents proliferate in enterprise environments with broad system access, the attack surface shifts from traditional credentials to agent configuration files and gateway tokens. Organizations must treat AI agent credentials with the same rigor as privileged service accounts.
-
----
-
-## Action Checklist
-
-### P0 (Immediate)
-
-- [ ] **Outlook Add-In sideloading**: Restrict to IT-approved add-ins only, deploy 0-day patches
-- [ ] **AI agent credentials**: Verify all AI agent tokens/config files are stored in Secrets Manager/Vault, not in local files or git repos
-- [ ] **Password manager recovery**: Audit recovery mechanism settings in Bitwarden/Dashlane/LastPass, disable where possible
-
-### P1 (Within 7 days)
-
-- [ ] Implement EDR detection rules for access to AI agent configuration directories
-- [ ] Review password manager MFA enforcement for all organizational vaults
-- [ ] Audit Lambda execution role permissions for least privilege compliance
-
-### P2 (Within 30 days)
-
-- [ ] Implement AI-powered defense-in-depth for serverless environments (GuardDuty Lambda Protection)
-- [ ] Evaluate short-lived, auto-rotating token strategy for AI agent authentication
-- [ ] Review HPC workload migration opportunities with Hpc8a instances
+이번 기간의 지배적인 트렌드는 **AI 에이전트 보안이 핵심 과제로 부상**하고 있다는 점입니다. 기업 환경에서 광범위한 시스템 접근 권한을 가진 AI 에이전트가 급증하면서, 공격 표면이 전통적인 자격증명에서 에이전트 설정 파일과 게이트웨이 토큰으로 이동하고 있습니다. 조직은 AI 에이전트 자격증명을 특권 서비스 계정과 동일한 수준으로 관리해야 합니다.
 
 ---
 
-## References
+## 조치 체크리스트
 
-| Resource | Link |
+### P0 (즉시 조치)
+
+- [ ] **Outlook Add-In 사이드로딩**: IT 승인 애드인만 허용하도록 제한, 0-Day 패치 즉시 배포
+- [ ] **AI 에이전트 자격증명**: 모든 AI 에이전트 토큰/설정 파일이 Secrets Manager/Vault에 저장되어 있는지 확인 (로컬 파일 또는 git 저장소 저장 금지)
+- [ ] **패스워드 매니저 복구**: Bitwarden/Dashlane/LastPass의 복구 메커니즘 설정 감사, 가능한 경우 비활성화
+
+### P1 (7일 이내)
+
+- [ ] AI 에이전트 설정 디렉토리 접근 탐지를 위한 EDR 규칙 구현
+- [ ] 조직 전체 볼트에 대한 패스워드 매니저 MFA 적용 현황 검토
+- [ ] 최소 권한 준수를 위한 Lambda 실행 역할 권한 감사
+
+### P2 (30일 이내)
+
+- [ ] 서버리스 환경을 위한 AI 기반 Defense-in-Depth 구현 (GuardDuty Lambda Protection)
+- [ ] AI 에이전트 인증을 위한 단기 자동 갱신 토큰 전략 검토
+- [ ] Hpc8a 인스턴스를 활용한 HPC 워크로드 마이그레이션 기회 검토
+
+---
+
+## 참고자료
+
+| 리소스 | 링크 |
 |----------|------|
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
