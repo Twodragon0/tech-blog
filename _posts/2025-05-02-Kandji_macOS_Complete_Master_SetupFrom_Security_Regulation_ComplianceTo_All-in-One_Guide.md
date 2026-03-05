@@ -445,7 +445,7 @@ sudo log config --mode "level:default" --subsystem com.kandji
 - **Kandji Documentation**: [https://support.kandji.io](https://support.kandji.io)
 - **Apple MDM Protocol Reference**: [https://developer.apple.com/documentation/devicemanagement](https://developer.apple.com/documentation/devicemanagement)
 - **Apple Business Manager User Guide**: [https://support.apple.com/guide/apple-business-manager](https://support.apple.com/guide/apple-business-manager)
-- **macOS Security Compliance Project**: [https://github.com/usnistgov/macos_security)
+- **macOS Security Compliance Project**: [macos_security](https://github.com/usnistgov/macos_security)
 
 ### 12.2 보안 프레임워크
 
@@ -456,10 +456,10 @@ sudo log config --mode "level:default" --subsystem com.kandji
 
 ### 12.3 오픈소스 도구
 
-- **munki**: [https://github.com/munki/munki) - 오픈소스 macOS 소프트웨어 배포
-- **AutoPkg**: [https://github.com/autopkg/autopkg) - 자동화된 패키징 도구
+- **munki**: [munki](https://github.com/munki/munki) - 오픈소스 macOS 소프트웨어 배포
+- **AutoPkg**: [autopkg](https://github.com/autopkg/autopkg) - 자동화된 패키징 도구
 - **osquery**: [https://osquery.io](https://osquery.io) - SQL 기반 시스템 모니터링
-- **Santa**: [https://github.com/google/santa) - macOS 앱 허용/차단 시스템
+- **Santa**: [santa](https://github.com/google/santa) - macOS 앱 허용/차단 시스템
 
 ### 12.4 커뮤니티
 

@@ -283,8 +283,8 @@ AI Tool Poisoning은 **MCP(Model Context Protocol) 서버나 API 도구의 설�
 | **Splunk Enterprise Security** | [https://www.splunk.com/en_us/products/enterprise-security.html](https://www.splunk.com/en_us/products/enterprise-security.html) | SIEM 플랫폼 |
 | **Microsoft Sentinel** | [https://azure.microsoft.com/en-us/products/microsoft-sentinel](https://azure.microsoft.com/en-us/products/microsoft-sentinel) | 클라우드 네이티브 SIEM |
 | **Wazuh** | [https://wazuh.com/](https://wazuh.com/) | 오픈소스 보안 플랫폼 |
-| **GitLeaks** | [https://github.com/gitleaks/gitleaks) | Git 저장소 비밀정보 스캔 |
-| **TruffleHog** | [https://github.com/trufflesecurity/trufflehog) | 비밀정보 유출 탐지 |
+| **GitLeaks** | [gitleaks](https://github.com/gitleaks/gitleaks) | Git 저장소 비밀정보 스캔 |
+| **TruffleHog** | [trufflehog](https://github.com/trufflesecurity/trufflehog) | 비밀정보 유출 탐지 |
 
 ---
 

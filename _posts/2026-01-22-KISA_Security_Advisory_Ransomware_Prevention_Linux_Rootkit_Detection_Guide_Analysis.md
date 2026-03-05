@@ -335,9 +335,9 @@ KISA의 최신 보안 공지는 **랜섬웨어, 루트킷, 피싱**이라는 세
 
 ### 리눅스 루트킷 리서치
 
-24. **Diamorphine** - LKM 루트킷 (GitHub). [https://github.com/m0nad/Diamorphine)
-25. **Reptile** - LKM 루트킷 (GitHub). [https://github.com/f0rb1dd3n/Reptile)
-26. **Suterusu** - LKM 루트킷 (GitHub). [https://github.com/mncoppola/suterusu)
+24. **Diamorphine** - LKM 루트킷 (GitHub). [Diamorphine](https://github.com/m0nad/Diamorphine)
+25. **Reptile** - LKM 루트킷 (GitHub). [Reptile](https://github.com/f0rb1dd3n/Reptile)
+26. **Suterusu** - LKM 루트킷 (GitHub). [suterusu](https://github.com/mncoppola/suterusu)
 27. **Linux Kernel Module Programming Guide**. [https://sysprog21.github.io/lkmpg/](https://sysprog21.github.io/lkmpg/)
 
 ### 보안 모니터링 및 SIEM

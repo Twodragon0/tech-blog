@@ -316,7 +316,7 @@ Code Scanning 설정 단계:
 | **Cloudflare** | Bot Management | https://developers.cloudflare.com/bots/ | 봇 관리 문서 |
 | **GitHub** | GitHub Advanced Security | https://docs.github.com/en/code-security | 코드 보안 문서 |
 | **GitHub** | Dependabot Documentation | https://docs.github.com/en/code-security | 의존성 관리 가이드 |
-| **GitHub** | CodeQL Documentation | https://codeql.https://docs.github.com/ | 코드 분석 언어 문서 |
+| **GitHub** | CodeQL Documentation | https://docs.github.com/en/code-security/codeql | 코드 분석 언어 문서 |
 
 ### 실습 환경 및 도구
 
@@ -368,7 +368,7 @@ Code Scanning 설정 단계:
 |-------|-----|-------|
 | **AWS Skill Builder** | AWS 보안 교육 | https://skillbuilder.aws/ |
 | **Cloudflare Learning Paths** | Cloudflare 학습 경로 | https://developers.cloudflare.com/learning-paths/ |
-| **GitHub Skills** | GitHub 보안 실습 | https://skills.https://github.com/ |
+| **GitHub Skills** | GitHub 보안 실습 | https://github.com/skills |
 
 ### YouTube 강의 및 영상
 

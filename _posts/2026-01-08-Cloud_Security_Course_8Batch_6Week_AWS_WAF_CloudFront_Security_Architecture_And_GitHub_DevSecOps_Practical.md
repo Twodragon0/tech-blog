@@ -387,11 +387,11 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 
 | 제목 | URL | 설명 |
 |------|-----|------|
-| **CodeQL 문서** | [https://docs.github.com/en/code-security) | CodeQL 코드 스캐닝 가이드 |
-| **GitHub Advanced Security** | [https://docs.github.com/en/get-started) | GitHub 고급 보안 기능 |
-| **Dependabot** | [https://docs.github.com/en/code-security) | 의존성 자동 업데이트 |
-| **Secret Scanning** | [https://docs.github.com/en/code-security) | 시크릿 스캐닝 가이드 |
-| **CodeQL 쿼리 작성** | [https://docs.github.com/en/code-security) | CodeQL 커스텀 쿼리 |
+| **CodeQL 문서** | [GitHub Docs](https://docs.github.com/en/code-security) | CodeQL 코드 스캐닝 가이드 |
+| **GitHub Advanced Security** | [GitHub Docs](https://docs.github.com/en/get-started) | GitHub 고급 보안 기능 |
+| **Dependabot** | [GitHub Docs](https://docs.github.com/en/code-security) | 의존성 자동 업데이트 |
+| **Secret Scanning** | [GitHub Docs](https://docs.github.com/en/code-security) | 시크릿 스캐닝 가이드 |
+| **CodeQL 쿼리 작성** | [GitHub Docs](https://docs.github.com/en/code-security) | CodeQL 커스텀 쿼리 |
 
 ### 보안 프레임워크 및 표준
 
@@ -409,19 +409,19 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 
 | 제목 | URL | 설명 |
 |------|-----|------|
-| **AWS CloudFront Terraform 모듈** | [https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-cloudfront) | CloudFront IaC 모듈 |
-| **AWS WAF Terraform 모듈** | [https://github.com/trussworks/terraform-aws-wafv2) | WAF IaC 모듈 |
-| **WAF CloudFront 통합 예제** | [https://docs.aws.amazon.com/waf/latest/developerguide/) | AWS 샘플 코드 |
-| **WAF 자동화 예제** | [https://docs.aws.amazon.com//aws-waf-automation-terraform-samples) | WAF 자동화 Terraform |
+| **AWS CloudFront Terraform 모듈** | [Terraform Registry](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-cloudfront) | CloudFront IaC 모듈 |
+| **AWS WAF Terraform 모듈** | [terraform-aws-wafv2](https://github.com/trussworks/terraform-aws-wafv2) | WAF IaC 모듈 |
+| **WAF CloudFront 통합 예제** | [AWS Docs](https://docs.aws.amazon.com/waf/latest/developerguide/) | AWS 샘플 코드 |
+| **WAF 자동화 예제** | [AWS Docs](https://docs.aws.amazon.com//aws-waf-automation-terraform-samples) | WAF 자동화 Terraform |
 
 ### 실습 환경 및 도구
 
 | 제목 | URL | 설명 |
 |------|-----|------|
-| **DVWA (Damn Vulnerable Web App)** | [https://github.com/digininja/DVWA) | 취약한 웹 앱 실습 환경 |
-| **OWASP WebGoat** | [https://github.com/WebGoat/WebGoat) | 웹 보안 학습 플랫폼 |
-| **CodeQL Action** | [https://docs.github.com/en/code-security/code-scanning) | GitHub Actions CodeQL 통합 |
-| **CodeQL 예제** | [https://github.com/github/codeql) | CodeQL 쿼리 예제 |
+| **DVWA (Damn Vulnerable Web App)** | [DVWA](https://github.com/digininja/DVWA) | 취약한 웹 앱 실습 환경 |
+| **OWASP WebGoat** | [WebGoat](https://github.com/WebGoat/WebGoat) | 웹 보안 학습 플랫폼 |
+| **CodeQL Action** | [GitHub Docs](https://docs.github.com/en/code-security/code-scanning) | GitHub Actions CodeQL 통합 |
+| **CodeQL 예제** | [codeql](https://github.com/github/codeql) | CodeQL 쿼리 예제 |
 
 ### Python 보안 관련 문서
 
@@ -429,7 +429,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 |------|-----|------|
 | **Python urllib.parse** | [https://docs.python.org/3/library/urllib.parse.html](https://docs.python.org/3/library/urllib.parse.html) | URL 파싱 라이브러리 |
 | **Python requests 문서** | [https://requests.readthedocs.io/](https://requests.readthedocs.io/) | HTTP 라이브러리 |
-| **Validators 라이브러리** | [https://github.com/kvesteri/validators) | Python 입력값 검증 |
+| **Validators 라이브러리** | [validators](https://github.com/kvesteri/validators) | Python 입력값 검증 |
 
 ### 한국 보안 가이드 및 규제
 

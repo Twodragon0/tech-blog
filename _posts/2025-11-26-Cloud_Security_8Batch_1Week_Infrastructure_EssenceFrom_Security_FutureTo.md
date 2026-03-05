@@ -442,11 +442,11 @@ aws route53 create-health-check --health-check-config \
 
 | 도구 | 링크 | 설명 |
 |------|------|------|
-| **Prowler** | [https://github.com/prowler-cloud/prowler) | AWS 보안 평가 도구 |
-| **ScoutSuite** | [https://github.com/nccgroup/ScoutSuite) | 멀티 클라우드 보안 감사 |
-| **CloudSploit** | [https://github.com/aquasecurity/cloudsploit) | 클라우드 보안 스캐너 |
+| **Prowler** | [prowler-cloud/prowler](https://github.com/prowler-cloud/prowler) | AWS 보안 평가 도구 |
+| **ScoutSuite** | [nccgroup/ScoutSuite](https://github.com/nccgroup/ScoutSuite) | 멀티 클라우드 보안 감사 |
+| **CloudSploit** | [aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit) | 클라우드 보안 스캐너 |
 | **Falco** | [https://falco.org/](https://falco.org/) | 런타임 보안 모니터링 |
-| **Trivy** | [https://github.com/aquasecurity/trivy) | 컨테이너 이미지 스캐너 |
+| **Trivy** | [aquasecurity/trivy](https://github.com/aquasecurity/trivy) | 컨테이너 이미지 스캐너 |
 | **Terraform AWS Modules** | [https://registry.terraform.io/modules/terraform-aws-modules/](https://registry.terraform.io/modules/terraform-aws-modules/) | AWS 인프라 IaC 모듈 |
 
 ### 인증 및 교육

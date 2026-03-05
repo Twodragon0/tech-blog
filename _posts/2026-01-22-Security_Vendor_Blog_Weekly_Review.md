@@ -379,7 +379,7 @@ process_name:code.exe AND
 
 #### VS Code 보안 강화
 - **VS Code Security**: [https://code.visualstudio.com/docs/editor/workspace-trust](https://code.visualstudio.com/docs/editor/workspace-trust)
-- **GitHub Secret Scanning**: [https://docs.github.com/en/code-security)
+- **GitHub Secret Scanning**: [GitHub Docs](https://docs.github.com/en/code-security)
 - **GitGuardian**: [https://www.gitguardian.com/](https://www.gitguardian.com/)
 
 #### 인증서 자동화

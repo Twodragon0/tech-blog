@@ -200,7 +200,7 @@ pip-audit
 |--------|------|------|
 | **Claude Code Docs** | 공식 Claude Code 문서 | [docs.anthropic.com](https://docs.anthropic.com/claude/docs/claude-code) |
 | **OWASP Top 10** | 웹 애플리케이션 보안 위협 | [owasp.org/Top10](https://owasp.org/Top10/) |
-| **Gitleaks** | 시크릿 탐지 도구 | [https://github.com/gitleaks/gitleaks) |
+| **Gitleaks** | 시크릿 탐지 도구 | [gitleaks](https://github.com/gitleaks/gitleaks) |
 | **Semgrep** | 정적 분석 도구 | [semgrep.dev](https://semgrep.dev/) |
 | **Pre-commit** | Git 훅 프레임워크 | [pre-commit.com](https://pre-commit.com/) |
 

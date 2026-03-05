@@ -217,9 +217,9 @@ Shift-Left는 소프트웨어 개발 생명주기(SDLC)의 **초기 단계부터
 
 | 프로젝트 | 설명 | URL |
 |----------|------|-----|
-| **DevSecOps Pipeline Examples** | CI/CD 보안 파이프라인 예제 | [https://github.com/devsecops/) |
-| **Awesome DevSecOps** | DevSecOps 리소스 큐레이션 | [https://github.com/TaptuIT/awesome-devsecops) |
-| **OWASP Threat Dragon** | 위협 모델링 도구 | [https://owasp.org/www-project-threat-dragon/) |
+| **DevSecOps Pipeline Examples** | CI/CD 보안 파이프라인 예제 | [devsecops](https://github.com/devsecops) |
+| **Awesome DevSecOps** | DevSecOps 리소스 큐레이션 | [awesome-devsecops](https://github.com/TaptuIT/awesome-devsecops) |
+| **OWASP Threat Dragon** | 위협 모델링 도구 | [www-project-threat-dragon](https://owasp.org/www-project-threat-dragon/) |
 
 ---
 

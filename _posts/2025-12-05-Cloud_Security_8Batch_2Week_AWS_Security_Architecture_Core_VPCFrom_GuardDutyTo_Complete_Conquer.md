@@ -307,10 +307,10 @@ aws s3api list-objects-v2 \
 
 | 도구 | GitHub URL | 설명 |
 |------|-----------|------|
-| **Prowler** | [https://github.com/prowler-cloud/prowler) | AWS 보안 감사 도구 |
-| **ScoutSuite** | [https://github.com/nccgroup/ScoutSuite) | 멀티 클라우드 보안 감사 |
-| **CloudSploit** | [https://github.com/aquasecurity/cloudsploit) | 클라우드 보안 스캐너 |
-| **CloudMapper** | [https://github.com/duo-labs/cloudmapper) | AWS 네트워크 시각화 |
+| **Prowler** | [prowler-cloud/prowler](https://github.com/prowler-cloud/prowler) | AWS 보안 감사 도구 |
+| **ScoutSuite** | [nccgroup/ScoutSuite](https://github.com/nccgroup/ScoutSuite) | 멀티 클라우드 보안 감사 |
+| **CloudSploit** | [aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit) | 클라우드 보안 스캐너 |
+| **CloudMapper** | [duo-labs/cloudmapper](https://github.com/duo-labs/cloudmapper) | AWS 네트워크 시각화 |
 
 ### 8.5 학습 리소스
 

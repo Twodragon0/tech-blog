@@ -232,18 +232,18 @@ index=k8s_network OR index=firewall
 | 도구/문서 | 링크 | 용도 |
 |----------|------|------|
 | **Falco (Runtime Security)** | [https://falco.org](https://falco.org) | Kubernetes 런타임 위협 탐지 |
-| **Trivy (Container Scanner)** | [https://github.com/aquasecurity/trivy) | 컨테이너 이미지 취약점 스캔 |
-| **kube-bench** | [https://github.com/aquasecurity/kube-bench) | CIS Kubernetes Benchmark 자동 검증 |
-| **NVIDIA DCGM Exporter** | [https://github.com/NVIDIA/dcgm-exporter) | GPU 메트릭 수집 (Prometheus) |
-| **VS Code Security Baseline** | [https://github.com/microsoft/vscode) | Microsoft 공식 보안 가이드 |
+| **Trivy (Container Scanner)** | [trivy](https://github.com/aquasecurity/trivy) | 컨테이너 이미지 취약점 스캔 |
+| **kube-bench** | [kube-bench](https://github.com/aquasecurity/kube-bench) | CIS Kubernetes Benchmark 자동 검증 |
+| **NVIDIA DCGM Exporter** | [dcgm-exporter](https://github.com/NVIDIA/dcgm-exporter) | GPU 메트릭 수집 (Prometheus) |
+| **VS Code Security Baseline** | [vscode](https://github.com/microsoft/vscode) | Microsoft 공식 보안 가이드 |
 
 ### 12.5 학습 리소스
 
 | 리소스 | 링크 | 대상 |
 |--------|------|------|
 | **Kubernetes Security Specialist (CKS)** | [https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/](https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/) | K8s 보안 전문가 인증 |
-| **CNCF Security TAG** | [https://github.com/cncf/tag-security) | 클라우드 네이티브 보안 모범 사례 |
-| **Kubernetes Goat** | [https://github.com/madhuakula/kubernetes-goat) | K8s 보안 실습 환경 (취약한 클러스터) |
+| **CNCF Security TAG** | [tag-security](https://github.com/cncf/tag-security) | 클라우드 네이티브 보안 모범 사례 |
+| **Kubernetes Goat** | [kubernetes-goat](https://github.com/madhuakula/kubernetes-goat) | K8s 보안 실습 환경 (취약한 클러스터) |
 | **Container Security Book (Liz Rice)** | [https://www.oreilly.com/library/view/container-security/9781492056690/](https://www.oreilly.com/library/view/container-security/9781492056690/) | 컨테이너 보안 이론 및 실무 |
 
 ### 12.6 커뮤니티 및 뉴스

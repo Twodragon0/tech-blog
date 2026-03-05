@@ -350,7 +350,7 @@ SSL 검사, 샌드박스, 브라우저 제어 등 다양한 보안 기능을 통
 
 11. **Zscaler 커뮤니티**
     - Zscaler Community Forum: [https://community.zscaler.com/](https://community.zscaler.com/)
-    - Zscaler GitHub Repository: [https://github.com/zscaler)
+    - Zscaler GitHub Repository: [zscaler](https://github.com/zscaler)
     - Zscaler YouTube Channel: [https://www.youtube.com/c/Zscaler](https://www.youtube.com/c/Zscaler)
 
 12. **교육 및 인증**

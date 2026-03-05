@@ -186,7 +186,8 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 
 #### 2.2.1 Landing Zone 구성 요소
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. IP Block (ALB 사용 시)
+```python
+    # IP Block (ALB 사용 시)
     waf = boto3.client('wafv2')
     waf.update_ip_set(
         Name='BlockedIPs',
@@ -213,16 +214,13 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
         'statusCode': 200,
         'action': 'Bucket isolated and forensic snapshot created'
     }
-
-
-```markdown
+```
 
 ### 9.3 Threat Hunting Playbook
 
 > ```yaml
 > # Control Tower 환경 Threat Hunting 체크리스트...
 > ```
-```
 
 
 ## 10. 참고 자료 및 추가 학습
@@ -242,7 +240,7 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 | 리소스 | 설명 |
 |--------|------|
 | **AWS Workshop - Control Tower Immersion Day** | 실습 중심의 Control Tower 워크샵 ([https://controltower.aws-management.tools/](https://controltower.aws-management.tools/)) |
-| **AWS Samples - Control Tower Customizations** | GitHub 샘플 코드 ([https://docs.aws.amazon.com//aws-control-tower-customizations)) |
+| **AWS Samples - Control Tower Customizations** | GitHub 샘플 코드 ([aws-control-tower-customizations](https://github.com/aws-samples/aws-control-tower-customizations)) |
 | **Terraform AWS Control Tower Module** | Infrastructure as Code 예제 ([https://registry.terraform.io/modules/aws-ia/control_tower](https://registry.terraform.io/modules/aws-ia/control_tower)) |
 
 ### 10.3 한국어 리소스
