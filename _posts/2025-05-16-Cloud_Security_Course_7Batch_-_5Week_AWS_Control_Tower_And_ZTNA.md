@@ -186,46 +186,25 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 
 #### 2.2.1 Landing Zone 구성 요소
 
-```python
-    # IP Block (ALB 사용 시)
-    waf = boto3.client('wafv2')
-    waf.update_ip_set(
-        Name='BlockedIPs',
-        Scope='REGIONAL',
-        Id='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-        Addresses=[f'{attacker_ip}/32'],
-        LockToken='...'
-    )
+Landing Zone은 다음 계정으로 구성됩니다:
 
-    # 4. 포렌식을 위한 스냅샷 생성
-    timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')
-    s3.create_bucket(
-        Bucket=f'{bucket_name}-forensic-{timestamp}',
-        CreateBucketConfiguration={'LocationConstraint': 'ap-northeast-2'}
-    )
+- **Management Account**: 중앙 관리 계정 (루트 계정)
+- **Log Archive Account**: 모든 CloudTrail, Config 로그 집중 보관
+- **Audit Account**: 보안 감사 도구 (Security Hub, GuardDuty) 집중 관리
 
-    # 원본 버킷의 현재 상태 복사 (versioning 활용)
-    s3.copy_object(
-        CopySource={'Bucket': bucket_name, 'Key': '*'},
-        Bucket=f'{bucket_name}-forensic-{timestamp}'
-    )
+## 3. Threat Hunting Playbook
 
-    return {
-        'statusCode': 200,
-        'action': 'Bucket isolated and forensic snapshot created'
-    }
-```
+### 3.1 Control Tower 환경 위협 탐지
 
-### 9.3 Threat Hunting Playbook
+Control Tower 환경에서 이상 징후를 탐지하는 핵심 체크리스트:
 
-> ```yaml
-> # Control Tower 환경 Threat Hunting 체크리스트...
-> ```
+- GuardDuty 알림 중 HIGH 등급 즉시 확인
+- CloudTrail에서 루트 계정 직접 사용 감지
+- Config Rules 위반 항목 24시간 내 수정
 
+## 4. 참고 자료 및 추가 학습
 
-## 10. 참고 자료 및 추가 학습
-
-### 10.1 공식 문서
+### 4.1 공식 문서
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
@@ -235,7 +214,7 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 | **AWS Well-Architected Framework - Security Pillar** | [https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/) | AWS 보안 모범 사례 |
 | **IAM Identity Center 문서** | [https://docs.aws.amazon.com/singlesignon/](https://docs.aws.amazon.com/singlesignon/) | AWS SSO 설정 가이드 |
 
-### 10.2 실습 환경 및 튜토리얼
+### 4.2 실습 환경 및 튜토리얼
 
 | 리소스 | 설명 |
 |--------|------|
@@ -243,7 +222,7 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 | **AWS Samples - Control Tower Customizations** | GitHub 샘플 코드 ([aws-control-tower-customizations](https://github.com/aws-samples/aws-control-tower-customizations)) |
 | **Terraform AWS Control Tower Module** | Infrastructure as Code 예제 ([https://registry.terraform.io/modules/aws-ia/control_tower](https://registry.terraform.io/modules/aws-ia/control_tower)) |
 
-### 10.3 한국어 리소스
+### 4.3 한국어 리소스
 
 | 리소스 | 링크 |
 |--------|------|
@@ -251,6 +230,10 @@ Landing Zone은 Control Tower의 핵심 개념으로, **보안 모범 사례를 
 | **클라우드 보안 컨설팅 (Twodragon)** | [https://tech.2twodragon.com](https://tech.2twodragon.com) |
 | **AWS 공인 교육 과정** | AWS Training and Certification 한국어 과정 |
 
-### 10.4 관련 AWS 서비스
+### 4.4 관련 AWS 서비스
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+| 서비스 | 설명 | 링크 |
+|--------|------|------|
+| **AWS Control Tower** | 멀티 계정 거버넌스 | [공식 문서](https://docs.aws.amazon.com/controltower/) |
+| **AWS Organizations** | 계정 그룹 관리 | [공식 문서](https://docs.aws.amazon.com/organizations/) |
+| **AWS WAF** | 네트워크 시나리오 - AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |

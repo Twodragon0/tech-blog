@@ -443,7 +443,7 @@ cat /var/log/falco/events.txt | \
   jq -r '[.time, .rule, .output_fields.container_name, .output_fields.proc_cmdline] | @csv'
 ```
 
-### 10.2 비정상 네트워크 활동 탐지
+### 4.1 비정상 네트워크 활동 탐지
 
 #### kubectl 기반 네트워크 분석
 
@@ -453,7 +453,7 @@ cat /var/log/falco/events.txt | \
 ```markdown
 
 
-### 10.3 Secret 접근 이상 탐지
+### 4.2 Secret 접근 이상 탐지
 
 > ```bash
 > # 1. Secret 접근 Audit Log 분석...
@@ -471,9 +471,9 @@ cat /var/log/falco/events.txt | \
 > ```
 
 
-## 12. 종합 레퍼런스
+## 5. 종합 레퍼런스
 
-### 12.1 공식 문서
+### 5.1 공식 문서
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
@@ -484,7 +484,7 @@ cat /var/log/falco/events.txt | \
 | Falco 문서 | https://falco.org/docs/ | 런타임 보안 |
 | Trivy 문서 | https://aquasecurity.github.io/trivy/ | 이미지 스캔 |
 
-### 12.2 보안 도구
+### 5.2 보안 도구
 
 | 도구 | 용도 | 라이센스 | 추천도 |
 |------|------|----------|--------|
@@ -497,7 +497,7 @@ cat /var/log/falco/events.txt | \
 | **kube-hunter** | 클러스터 침투 테스트 | Apache 2.0 | ⭐⭐⭐ |
 | **Cosign** | 이미지 서명/검증 | Apache 2.0 | ⭐⭐⭐⭐ |
 
-### 12.3 학습 리소스
+### 5.3 학습 리소스
 
 #### 온라인 강의 (edu.2twodragon.com)
 
@@ -519,7 +519,7 @@ cat /var/log/falco/events.txt | \
 - **CNCF Slack - #falco**: https://cloud-native.slack.com/
 - **Reddit - r/kubernetes**: https://www.reddit.com/r/kubernetes/
 
-### 12.4 인증 자격증 가이드
+### 5.4 인증 자격증 가이드
 
 | 자격증 | 난이도 | 준비 기간 | 비용 | 추천 대상 |
 |--------|--------|-----------|------|-----------|
@@ -548,24 +548,6 @@ cat /var/log/falco/events.txt | \
 - [ ] **Week 4**: Pod Security Standards (Restricted) 활성화
 - [ ] **Month 2**: User Namespaces 활성화 (Kubernetes 1.32+)
 - [ ] **Month 3**: External Secrets Operator 도입
-
----
-
-## 관련 자료
-
-### 온라인 강의 (edu.2twodragon.com)
-
-| 과정 | 설명 | 링크 |
-|------|------|------|
-| **Docker 보안** | 컨테이너 보안, 이미지 스캔, Secret 관리 | [수강하기](https://edu.2twodragon.com/courses/docker-security) |
-| **Kubernetes 보안** | 클러스터 보안, RBAC, Network Policies | [수강하기](https://edu.2twodragon.com/courses/kubernetes-security) |
-| **DevSecOps 실전** | DevSecOps 전략, 보안 자동화 | [수강하기](https://edu.2twodragon.com/courses/devsecops) |
-
-### YouTube 영상
-
-| 주제 | 설명 | 링크 |
-|------|------|------|
-| **AWS WAF 네트워크 시나리오** | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
 
 ---
 

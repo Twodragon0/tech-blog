@@ -271,7 +271,9 @@ qvm-run --dispvm firefox https://banking.example.com
 
 #### 1.5.2 Remote Browser Isolation (RBI)
 
-#### 2.1.3 패스키 vs 비밀번호 보안 비교
+## 2. 패스키(Passkey) 심층 분석
+
+### 2.1 패스키 vs 비밀번호 보안 비교
 
 | 속성 | 비밀번호 | 패스키 (FIDO2) |
 |------|----------|----------------|
@@ -400,9 +402,10 @@ qvm-run --dispvm firefox https://banking.example.com
 - **시간 허용 오차**: 보통 ±1 time step (앞뒤 30초) 허용
 - **재사용 불가**: 30초마다 코드 갱신
 
-#### 3.1.2 HOTP (HMAC-based One-Time Password)
+## 3. OTP 및 비밀번호 관리
 
-**RFC 4226 표준:**
+### 3.1 엔트로피 권장 기준
+
 **엔트로피 권장 기준:**
 | 엔트로피 | 보안 등급 | 크래킹 시간 (RTX 4090 기준) | 권장 사용처 |
 |---------|----------|------------------------------|-------------|
@@ -412,7 +415,7 @@ qvm-run --dispvm firefox https://banking.example.com
 | **60-79 bits** | 🟢 강함 | 수 년 ~ 수십 년 | 일반 계정 권장 |
 | **80+ bits** | 🟢 매우 강함 | 수백 년 이상 | 중요 계정 필수 |
 
-### 4.2 최적 비밀번호 전략
+### 3.2 최적 비밀번호 전략
 
 #### 4.2.1 Diceware 패스프레이즈
 
@@ -426,7 +429,7 @@ qvm-run --dispvm firefox https://banking.example.com
 | 16자 | 영대소숫자특수 (94) | 105.2 bits | 수백만 년 |
 | 20자 | 영대소숫자특수 (94) | 131.5 bits | 사실상 불가능 |
 
-### 4.3 비밀번호 매니저 비교
+### 3.3 비밀번호 매니저 비교
 
 #### 4.3.1 1Password
 
@@ -438,7 +441,7 @@ qvm-run --dispvm firefox https://banking.example.com
 - [ ] 사용 후 **명시적으로 로그아웃**
 - [ ] 브라우저 종료 전 **확장 프로그램 제거** (선택사항)
 
-### 4.5 AI 기반 피싱 공격 증가와 대응
+### 3.4 AI 기반 피싱 공격 증가와 대응
 
 2025년 보안 업계의 가장 큰 우려 중 하나는 **AI를 활용한 피싱 공격의 급증**입니다. 보안 리더의 93%가 일일 AI 기반 공격을 예상하고 있으며, 이에 대응하기 위한 준비가 필수적입니다.
 
@@ -453,12 +456,9 @@ qvm-run --dispvm firefox https://banking.example.com
 - **보안 인식 교육 강화**: AI 생성 콘텐츠 식별 교육
 - **제로 트러스트 원칙 적용**: 모든 접근에 대한 검증 강화
 
-## 5. SIEM Detection Queries (탐지 쿼리)
+## 4. 한국 환경 특화 분석
 
-
-## 6. 한국 환경 특화 분석
-
-### 6.1 PC방 보안 현황
+### 4.1 PC방 보안 현황
 
 **한국인터넷진흥원 조사 (2024년):**
 - **PC방 키로거 감염률**: 15-20% (전국 약 12,000개 PC방 중 1,800-2,400개)
@@ -480,12 +480,12 @@ qvm-run --dispvm firefox https://banking.example.com
 | **사용자** | 패스키/OTP 필수, 금융 거래 금지 |
 | **정부** | PC방 보안 인증 제도 (KISA 주관) |
 
-### 6.2 공공기관 공용 PC (행정안전망)
+### 4.2 공공기관 공용 PC (행정안전망)
 
 **행정안전망 보안 가이드라인:**
-## 7. 경영진 보고 자료 (Board-Level Reporting)
+## 5. 경영진 보고 자료 (Board-Level Reporting)
 
-### 7.1 Executive Summary (1-Pager)
+### 5.1 Executive Summary (1-Pager)
 
 **제목:** 공용 PC 보안 강화를 통한 자격증명 도용 방지 전략
 
@@ -515,7 +515,7 @@ qvm-run --dispvm firefox https://banking.example.com
 2. **단기 (Q2)**: 전 직원 Passkey 전환 (Google Workspace/Microsoft 365)
 3. **중기 (Q3-Q4)**: SMS OTP 완전 폐지, TOTP/FIDO2만 허용
 
-### 7.2 Risk Heat Map
+### 5.2 Risk Heat Map
 
 **자격증명 관련 위험 매트릭스:**
 
@@ -533,16 +533,16 @@ qvm-run --dispvm firefox https://banking.example.com
 - 🟡 5-9 (Medium): 90일 내 조치
 - 🟢 1-4 (Low): 모니터링
 
-### 7.3 Implementation Roadmap
+### 5.3 Implementation Roadmap
 
 
 - [ ] SMS OTP 경고 모드 (7일 유예)
 - [ ] SMS OTP 완전 차단
 - [ ] SIEM 모니터링 시작
 
-## 9. 참고 자료
+## 6. 참고 자료
 
-### 9.1 공식 문서 및 표준
+### 6.1 공식 문서 및 표준
 
 | 문서 | URL | 설명 |
 |------|-----|------|
@@ -553,7 +553,7 @@ qvm-run --dispvm firefox https://banking.example.com
 | **NIST SP 800-63B** | https://pages.nist.gov/800-63-3/sp800-63b.html | 디지털 인증 가이드라인 |
 | **MITRE ATT&CK** | https://attack.mitre.org/techniques/T1556/ | Credential Access 기법 |
 
-### 9.2 보안 도구
+### 6.2 보안 도구
 
 | 도구 | 유형 | URL |
 |------|------|-----|
@@ -565,7 +565,7 @@ qvm-run --dispvm firefox https://banking.example.com
 | **2FAS Auth** | TOTP 앱 (오픈소스) | https://2fas.com/ |
 | **KeePassXC** | 로컬 비밀번호 매니저 | https://keepassxc.org/ |
 
-### 9.3 교육 자료
+### 6.3 교육 자료
 
 | 자료 | 형식 | URL |
 |------|------|-----|
@@ -574,7 +574,7 @@ qvm-run --dispvm firefox https://banking.example.com
 | **OWASP Cheat Sheet** | 보안 체크리스트 | https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html |
 | **한국인터넷진흥원** | 인증 보안 가이드 | https://www.kisa.or.kr/ |
 
-### 9.4 추가 읽을거리
+### 6.4 추가 읽을거리
 
 1. **"Bypassing MFA: A Deep Dive" (2024)** - SANS Institute
    - https://www.sans.org/white-papers/bypassing-mfa/

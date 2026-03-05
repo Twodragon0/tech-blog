@@ -220,17 +220,6 @@ AWS가 **EC2 G7e 인스턴스**를 정식 출시했습니다. NVIDIA RTX PRO 600
 
 ### 1.3 활용 예시: AI 추론 서빙
 
-> ```text
-> [AI Inference Pipeline with EC2 G7e]...
-> ```
-
-
-### 10.3 멀티 클라우드 하이브리드 아키텍처
-
-> ```text
-> ...
-> ```
-
 
 **출력 결과**:
 {% raw %}
@@ -249,7 +238,16 @@ g5.xlarge (3yr RI, 2.3x more): $40,262/month
 - 3yr RI: **$13,982/month** ($167,784/year)
 - Spot: **$33,692/month** ($404,304/year) - 단, 가용성 고려 필요
 
-### 13.2 EC2 X8i SAP HANA 비용 분석
+## 2. FinOps 비용 분석
+
+### 2.1 EC2 G7e 비용 분석 결과
+
+**출력 결과** (위 섹션 1.3 참조):
+- On-Demand 절감: **$35,764/month** ($429,168/year)
+- 3yr RI 절감: **$13,982/month** ($167,784/year)
+- Spot 절감: **$33,692/month** ($404,304/year)
+
+### 2.2 EC2 X8i SAP HANA 비용 분석
 
 #### SAP HANA 2TB 워크로드 (x8i.32xlarge vs. 기존)
 
@@ -268,7 +266,7 @@ g5.xlarge (3yr RI, 2.3x more): $40,262/month
 
 **순 절감액**: $30,000 - $13,140 = **$16,860/year** (10 노드 기준: **$168,600/year**)
 
-### 13.3 EU Sovereign Cloud 비용 프리미엄
+### 2.3 EU Sovereign Cloud 비용 프리미엄
 
 #### 일반 EU 리전 vs. Sovereign Cloud 가격 차이
 
@@ -292,7 +290,7 @@ g5.xlarge (3yr RI, 2.3x more): $40,262/month
 
 → **결론**: $218K 추가 비용은 $22M+ 리스크 대비 **1% 미만의 보험료**
 
-### 13.4 GCP Bangkok Region 네트워크 비용 절감
+### 2.4 GCP Bangkok Region 네트워크 비용 절감
 
 #### 동남아 사용자 트래픽 최적화
 
@@ -313,7 +311,7 @@ g5.xlarge (3yr RI, 2.3x more): $40,262/month
 - 가용성: 단일 리전 장애 시 DR 활용 가능
 - 규제 준수: 태국 데이터 로컬라이제이션 법 준수
 
-### 13.5 Gemini 3 Flash vs. 기존 LLM 비용
+### 2.5 Gemini 3 Flash vs. 기존 LLM 비용
 
 #### API 호출 비용 비교 (1M 토큰 기준)
 
@@ -338,7 +336,7 @@ g5.xlarge (3yr RI, 2.3x more): $40,262/month
 - 복잡한 창작물은 GPT-4o/Claude 3 Opus가 우수할 수 있음
 - **권장**: 90% Gemini 3 Flash + 10% Premium 모델 (하이브리드)
 
-### 13.6 종합 비용 최적화 로드맵
+### 2.6 종합 비용 최적화 로드맵
 
 #### Q1 2026: Quick Wins ($300K+ 절감)
 

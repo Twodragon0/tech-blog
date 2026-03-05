@@ -159,7 +159,7 @@ project-root/
 
 AI 에이전트가 가장 많이 실수하는 부분이 **민감 정보 하드코딩**입니다.
 
-### 2.3 파일 쓰기 전 검증
+### 2.2 파일 쓰기 전 검증
 
 AI가 생성한 설정 파일에 민감 정보가 포함되지 않도록 검증합니다.
 
@@ -178,9 +178,9 @@ pip-audit
 # Dependabot enabled for auto-updates
 ```
 
-## 5. 실무 체크리스트 자동화
+## 4. 실무 체크리스트 자동화
 
-### 5.1 Pre-commit Hook 설정
+### 4.1 Pre-commit Hook 설정
 
 > **참고**: Dependabot 설정 관련 자세한 내용은 [GitHub Dependabot 문서](https://docs.github.com/en/code-security) 및 [GitHub Actions 예제](https://docs.github.com/en/actions/using-workflows/workflow-templates)를 참조하세요.)
 - [ ] 에러 핸들링 가이드라인 문서화

@@ -158,7 +158,7 @@ Shai-Hulud 웜은 다음과 같은 모듈형 아키텍처로 구성되어 있습
 | 4. 자동 배포 | NPM API 호출 | 확산 자동화 | 낮음 |
 | 5. 지속성 확보 | 훅, 환경 변수 | 재감염 방지 | 중간 |
 
-### 1.3 Shai-Hulud 2.0: Dead Man's Switch
+### 1.2 Shai-Hulud 2.0: Dead Man's Switch
 
 2025년 11월 등장한 2.0 버전은 **제거 방어 메커니즘**을 추가했습니다:
 
@@ -211,12 +211,6 @@ Shai-Hulud 웜은 다음과 같은 모듈형 아키텍처로 구성되어 있습
 
 <img src="{{ '/assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis.svg' | relative_url }}" alt="NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale Supply Chain Attack with 180+ Compromised Packages" loading="lazy" class="post-image">
 
-## 1. 개요
-
-### 1.1 배경 및 필요성
-
-NPM 생태계 역사상 최초의 자가 복제 웜 형태 공급망 공격 분석입니다. Shai-Hulud 공격으로 180개 이상의 패키지가 감염되었으며, 개발자 인증 정보 탈취 및 자동 전파 메커니즘을 분석합니다.
-
 ## 2. 2025년 최신 동향 및 후속 사건
 
 ### 2.1 Shai-Hulud 공격 확산 타임라인
@@ -258,7 +252,7 @@ Shai-Hulud와 별개로 발생한 또 다른 심각한 공급망 공격:
 > ```
 
 
-#### 9.2.3 Docker 런타임 보안 설정
+#### 2.5.1 Docker 런타임 보안 설정
 
 > ```dockerfile
 > # Dockerfile - 최소 권한 및 보안 강화...
@@ -298,9 +292,9 @@ Shai-Hulud와 별개로 발생한 또 다른 심각한 공급망 공격:
 npm token regenerate
 ```
 
-## 11. 참고 자료 (References)
+## 3. 참고 자료 (References)
 
-### 11.1 공식 보안 권고사항
+### 3.1 공식 보안 권고사항
 
 1. **CISA (Cybersecurity & Infrastructure Security Agency)**
    - NPM Supply Chain Attack Advisory (2025-11)
@@ -318,7 +312,7 @@ npm token regenerate
    - T1195: Supply Chain Compromise
    - URL: https://attack.mitre.org/techniques/T1195/
 
-### 11.2 기술 분석 리포트
+### 3.2 기술 분석 리포트
 
 5. **GitLab Vulnerability Research Team**
    - Shai-Hulud Technical Analysis (2025-09)
@@ -336,7 +330,7 @@ npm token regenerate
    - Dead Man's Switch in Supply Chain Attacks
    - URL: https://blog.aquasec.com/dead-mans-switch-supply-chain
 
-### 11.3 오픈소스 도구
+### 3.3 오픈소스 도구
 
 9. **Socket.dev CLI**
    - GitHub: https://socket.dev/
@@ -362,7 +356,7 @@ npm token regenerate
     - GitHub: https://github.com/lirantal/lockfile-lint
     - lockfile 무결성 검증 도구
 
-### 11.4 법규 및 컴플라이언스
+### 3.4 법규 및 컴플라이언스
 
 15. **개인정보보호법 (한국)**
     - 법제처: https://www.law.go.kr/법령/개인정보보호법
@@ -376,7 +370,7 @@ npm token regenerate
 18. **GDPR (EU)**
     - Official Text: https://gdpr.eu/
 
-### 11.5 사고 사례 연구
+### 3.5 사고 사례 연구
 
 19. **Nx / s1ngularity 공격 포스트모템**
     - URL: https://nx.dev/blog/s1ngularity-postmortem
@@ -387,7 +381,7 @@ npm token regenerate
 21. **Log4j Vulnerability (참고 사례)**
     - NIST: https://nvd.nist.gov/vuln/detail/CVE-2021-44228
 
-### 11.6 학술 논문 및 연구
+### 3.6 학술 논문 및 연구
 
 22. **"Software Supply Chain Attacks: A Systematic Literature Review"**
     - Authors: Torres-Arias et al.
@@ -401,7 +395,7 @@ npm token regenerate
     - Author: Alex Birsan
     - URL: https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610
 
-### 11.7 추가 학습 자료
+### 3.7 추가 학습 자료
 
 25. **OWASP Top 10 CI/CD Security Risks**
     - URL: https://owasp.org/www-project-top-10-ci-cd-security-risks/

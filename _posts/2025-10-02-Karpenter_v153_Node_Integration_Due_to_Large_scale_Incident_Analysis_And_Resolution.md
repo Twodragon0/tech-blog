@@ -234,7 +234,7 @@ Karpenter는 클러스터 비용 최적화를 위해 **노드 통합(Consolidati
 > - PDB를 더 잘 존중하며, Pod readiness를 확인 후 다음 노드 종료 진행
 
 
-### 2.3 PDB 미설정 문제
+### 2.2 PDB 미설정 문제
 
 > **참고**: PodDisruptionBudget 설정 관련 내용은 [Kubernetes PDB 문서](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) 및 [Karpenter 문서](https://karpenter.sh/)를 참조하세요.
 > ```yaml
@@ -269,7 +269,7 @@ prod 10m Warning Killing pod/order-service-xyz Stopping container...
 ### 3.3 영향 범위
 
 
-### 4.2 서비스 복구 확인
+### 3.4 서비스 복구 확인
 
 > **참고**: Kubernetes Health Check 관련 내용은 [Kubernetes Liveness/Readiness Probes 문서](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)를 참조하세요.
 
@@ -282,13 +282,13 @@ for svc in api-gateway order-service payment-service; do
 done
 ```
 
-## 5. 영구적 해결책
+## 4. 영구적 해결책
 
 ### 해결 방안 개요
 
 다음과 같은 다층 방어 전략을 통해 재발을 방지합니다:
 
-### 5.1 NodePool 설정 수정
+### 4.1 NodePool 설정 수정
 
 > **참고**: Karpenter NodePool 설정 관련 내용은 [Karpenter 공식 문서](https://karpenter.sh/) 및 [Karpenter GitHub 저장소](https://github.com/aws/karpenter)를 참조하세요.
 > ```yaml
@@ -296,7 +296,7 @@ done
 > ```
 
 
-### 5.2 PodDisruptionBudget 적용
+### 4.2 PodDisruptionBudget 적용
 
 PodDisruptionBudget을 적용하여 Pod 보호:
 
@@ -306,7 +306,7 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 > ```
 
 
-### 5.3 Pod Anti-Affinity 설정
+### 4.3 Pod Anti-Affinity 설정
 
 > **참고**: Pod Anti-Affinity 설정 관련 내용은 [Kubernetes Pod Affinity 문서](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)를 참조하세요.
 > ```yaml
@@ -314,9 +314,9 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 > ```
 
 
-## 6. 모니터링 강화
+## 5. 모니터링 강화
 
-### 6.1 Karpenter 알림 설정
+### 5.1 Karpenter 알림 설정
 
 {% raw %}
 > **참고**: Prometheus Alert Rules 관련 내용은 [Prometheus 공식 문서](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) 및 [Awesome Prometheus Alerts](https://github.com/samber/awesome-prometheus-alerts)를 참조하세요.
@@ -327,7 +327,7 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 
 {% endraw %}
 
-### 6.2 Datadog 대시보드
+### 5.2 Datadog 대시보드
 
 > **참고**: Datadog 모니터링 관련 내용은 [Datadog 공식 문서](https://docs.datadoghq.com/) 및 [Datadog Kubernetes 통합](https://docs.datadoghq.com/agent/kubernetes/)을 참조하세요.
 > ```yaml
@@ -335,7 +335,7 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 > ```
 
 
-## 7. 재발 방지 체크리스트
+## 6. 재발 방지 체크리스트
 
 | 항목 | 상태 | 담당자 |
 |------|------|--------|
@@ -347,26 +347,26 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 | 런북 업데이트 | ✅ | SRE |
 | 팀 공유 및 교육 | ✅ | All |
 
-## 8. 교훈 (Lessons Learned)
+## 7. 교훈 (Lessons Learned)
 
-### 8.1 기술적 교훈
+### 7.1 기술적 교훈
 
 1. **기본값을 신뢰하지 말 것**: Karpenter의 기본 consolidation 정책은 프로덕션에 너무 공격적
 2. **PDB는 필수**: Critical 서비스는 반드시 PodDisruptionBudget 설정
 3. **점진적 적용**: 새로운 도구는 스테이징에서 충분히 테스트 후 적용
 4. **가시성 확보**: 인프라 변경 도구는 반드시 모니터링과 알림 설정
 
-### 8.2 프로세스 교훈
+### 7.2 프로세스 교훈
 
 1. **변경 관리 강화**: Karpenter 설정 변경 시 Change Advisory Board 검토 필수
 2. **런북 사전 준비**: "Karpenter 긴급 비활성화" 런북 사전 작성
 3. **정기적 DR 훈련**: 인프라 장애 시나리오 훈련 분기별 실시
 
-## 9. MITRE ATT&CK 매핑 및 보안 관점 분석
+## 8. MITRE ATT&CK 매핑 및 보안 관점 분석
 
 이 인시던트는 악의적인 공격이 아닌 설정 오류에서 비롯되었지만, 유사한 시나리오가 악의적으로 악용될 수 있습니다.
 
-### 9.1 MITRE ATT&CK 프레임워크 매핑
+### 8.1 MITRE ATT&CK 프레임워크 매핑
 
 | Tactic | Technique | ID | 이 인시던트와의 연관성 |
 |--------|-----------|-----|----------------------|
@@ -375,7 +375,7 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 | **Defense Evasion** | Impair Defenses: Disable Cloud Logs | T1562.008 | 모니터링 부재로 사전 감지 실패 |
 | **Privilege Escalation** | Escape to Host | T1611 | Karpenter가 노드 레벨 제어 권한 보유 |
 
-### 9.2 보안 관점에서의 위험 분석
+### 8.2 보안 관점에서의 위험 분석
 
 **공격 벡터 시나리오:**
 1. **내부자 위협**: 악의적인 관리자가 Karpenter 설정을 조작하여 의도적 서비스 중단 유발
@@ -384,13 +384,15 @@ PodDisruptionBudget을 적용하여 Pod 보호:
 
 **보안 개선 사항:**
 
-## 11. 아키텍처 다이어그램
+## 9. 아키텍처 다이어그램
 
-### 11.1 장애 발생 전 아키텍처
+### 9.1 장애 발생 전 아키텍처
 
-### 11.3 개선 후 아키텍처
+### 9.2 개선 후 아키텍처
 
-### 12.2 실시간 위협 탐지 쿼리
+## 10. SIEM 탐지 쿼리
+
+### 10.1 실시간 위협 탐지 쿼리
 
 **Splunk Query:**
 
@@ -409,13 +411,13 @@ index=kubernetes sourcetype=k8s:events
 sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 ```
 
-### 12.3 Post-Incident Forensics
+### 10.2 Post-Incident Forensics
 
 **장애 후 분석을 위한 데이터 수집:**
 
-## 13. 종합 레퍼런스
+## 11. 종합 레퍼런스
 
-### 13.1 공식 문서
+### 11.1 공식 문서
 
 | 리소스 | URL | 주요 내용 |
 |--------|-----|----------|
@@ -424,7 +426,7 @@ sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 | **Kubernetes PDB** | https://kubernetes.io/docs/tasks/run-application/configure-pdb/ | PodDisruptionBudget 설정 가이드 |
 | **AWS EKS Best Practices** | https://aws.github.io/aws-eks-best-practices/ | EKS 운영 모범 사례 |
 
-### 13.2 관련 블로그 포스트 및 Case Study
+### 11.2 관련 블로그 포스트 및 Case Study
 
 | 제목 | 출처 | 핵심 교훈 |
 |------|------|----------|
@@ -432,7 +434,7 @@ sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 | **The Cost of Ignoring PDBs** | Kubernetes Community | PDB 미설정 사고 사례 |
 | **Node Disruption Best Practices** | CNCF Blog | 노드 유지보수 모범 사례 |
 
-### 13.3 오픈소스 도구
+### 11.3 오픈소스 도구
 
 | 도구 | 용도 | GitHub |
 |------|------|--------|
@@ -440,19 +442,19 @@ sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 | **Kube-no-trouble** | 호환성 검사 | https://github.com/doitintl/kube-no-trouble |
 | **Popeye** | 클러스터 보안 스캔 | https://github.com/derailed/popeye |
 
-### 13.4 교육 자료
+### 11.4 교육 자료
 
 - **Kubernetes Certification (CKA/CKAD)**: PDB, Node Drain 관련 시험 문제 포함
 - **AWS re:Invent 2024 - Karpenter Deep Dive**: 최신 Consolidation 알고리즘 설명
 - **CNCF Webinar - Production Readiness**: PDB 설정 워크샵
 
-## 15. 마무리
+## 12. 마무리
 
 이번 장애를 통해 **Kubernetes 오토스케일러의 위험성**과 **PDB의 중요성**을 다시 한번 깨달았습니다. 비용 최적화도 중요하지만, 서비스 안정성이 항상 우선되어야 합니다.
 
 > "Move fast and break things" 는 프로덕션에서는 금물입니다.
 
-### 15.1 핵심 Takeaway
+### 12.1 핵심 Takeaway
 
 1. **PodDisruptionBudget은 선택이 아닌 필수**
 2. **Karpenter 설정은 보수적으로 시작**
@@ -460,17 +462,16 @@ sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 4. **업무 시간에는 인프라 변경 금지**
 5. **런북은 사전에 준비**
 
-### 15.2 추가 학습 자료
+### 12.2 추가 학습 자료
 
 - [Karpenter v1.0 GA 릴리스 노트](https://github.com/aws/karpenter)
 - [CNCF - Production Readiness Checklist](https://www.cncf.io/blog/production-readiness/)
 - [Google SRE Book - Chapter 15: Postmortem Culture](https://sre.google/sre-book/postmortem-culture/)
 
-### 15.3 연락처 및 피드백
+### 12.3 연락처 및 피드백
 
 이 포스트에 대한 질문이나 피드백은 아래로 연락주세요:
 - GitHub Issues: [tech-blog/issues](https://github.com/Twodragon0/tech-blog)
-- Email: your-email@example.com
 - LinkedIn: [Twodragon](https://linkedin.com/in/twodragon)
 
 ---

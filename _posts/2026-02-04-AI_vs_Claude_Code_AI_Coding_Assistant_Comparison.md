@@ -327,22 +327,11 @@ jobs:
 
 ### 3.2 Shift-Left Security 구현
 
-Claude Code를 활용한 Shift-Left Security는 **코드 작성 시점에서 보안 문제를 발견**하는 접근법입니다:
-
-> ```bash
-> # Pre-commit hook으로 Claude Code 보안 검사 실행...
-> ```
-
-> ```bash
-> ```
-
+Claude Code를 활용한 Shift-Left Security는 **코드 작성 시점에서 보안 문제를 발견**하는 접근법입니다. Pre-commit hook에서 Claude Code 보안 검사를 실행하여 취약점을 조기에 차단할 수 있습니다.
 
 #### Batch API (50% 할인)
 
-비실시간 작업(코드 분析, 보안 스캔 등)에는 [Batch API](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing)를 활용하면 50% 할인을 받을 수 있습니다:
-
-> ```bash
-> ```
+비실시간 작업(코드 분析, 보안 스캔 등)에는 [Batch API](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing)를 활용하면 50% 할인을 받을 수 있습니다.
 
 
 **필수 보안 체크리스트:**
@@ -357,9 +346,9 @@ Claude Code를 활용한 Shift-Left Security는 **코드 작성 시점에서 보
 
 ---
 
-## 11. 2026 트렌드 및 결론
+## 4. 2026 트렌드 및 결론
 
-### 11.1 2026년 주요 트렌드
+### 4.1 2026년 주요 트렌드
 
 #### 컨텍스트 윈도우 확장 경쟁
 
@@ -395,7 +384,7 @@ AI 도구의 비용 관리가 자동화되고 있습니다:
 - **Supply chain 보안**: AI 확장/플러그인의 코드 서명 필수화
 - **제로 트러스트**: AI 도구에 최소 권한 원칙 적용
 
-### 11.2 최종 결론
+### 4.2 최종 결론
 
 | 기준 | 최적 선택 | 이유 |
 |------|-----------|------|

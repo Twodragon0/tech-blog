@@ -201,7 +201,7 @@ toc: true
 
 #### LockBit 5.0 공격 체인
 
-### 2.4 Akira 랜섬웨어 - SonicWall 취약점 악용
+### 2.3 Akira 랜섬웨어 - SonicWall 취약점 악용
 
 | 항목 | 내용 |
 |------|------|
@@ -270,7 +270,9 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 
 ### 3.4 EDR 우회 기법 상세
 
-### 5.2 3-2-1-1-0 백업 전략
+## 4. 기업 대응 전략
+
+### 4.1 3-2-1-1-0 백업 전략
 
 <div class="post-image-container">
   <img src="/assets/images/2026-01-22-backup-strategy-321-10.svg" alt="3-2-1-1-0 Backup Strategy for Ransomware Defense" class="post-image">
@@ -300,13 +302,13 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 > ```
 
 
-### 5.4 침해사고 대응 플레이북
+### 4.2 침해사고 대응 플레이북
 
 ---
 
-## 6. 실무 체크리스트
+## 5. 실무 체크리스트
 
-### 6.1 즉시 점검 필요 항목
+### 5.1 즉시 점검 필요 항목
 
 - [ ] **SonicWall 패치 확인**: CVE-2024-40766 패치 적용 여부
 - [ ] **VPN MFA 적용**: 모든 VPN 접근에 MFA 적용 여부
@@ -314,14 +316,14 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 - [ ] **EDR 업데이트**: 최신 탐지 룰 업데이트 여부
 - [ ] **관리자 계정 검토**: 불필요한 관리자 계정 존재 여부
 
-### 6.2 주간 점검 항목
+### 5.2 주간 점검 항목
 
 - [ ] **SIEM 알람 검토**: 미처리 알람 및 오탐 분석
 - [ ] **취약점 스캔**: CISA KEV 목록 취약점 스캔
 - [ ] **접근 로그 검토**: 비정상 접근 패턴 확인
 - [ ] **백업 상태 확인**: 백업 작업 성공 여부
 
-### 6.3 월간 점검 항목
+### 5.3 월간 점검 항목
 
 - [ ] **권한 검토**: 불필요한 권한 회수
 - [ ] **패치 관리**: 누락된 보안 패치 식별
@@ -330,9 +332,9 @@ Stage 4: Direct Contact to Customers/Partners/Media ("Notifying about your data 
 
 ---
 
-## 7. SK쉴더스 EQST 리소스 활용
+## 6. SK쉴더스 EQST 리소스 활용
 
-### 7.1 KARA 보고서 시리즈
+### 6.1 KARA 보고서 시리즈
 
 SK쉴더스 EQST에서 제공하는 랜섬웨어 관련 리소스:
 
@@ -343,7 +345,7 @@ SK쉴더스 EQST에서 제공하는 랜섬웨어 관련 리소스:
 | **Headline** | 월별 | 보안 트렌드 및 이슈 | 경영진 보고 자료 |
 | **Special Report** | 월별 | 제로 트러스트 등 주제별 심층 분석 | 보안 아키텍처 참고 |
 
-### 7.2 다운로드 링크
+### 6.2 다운로드 링크
 
 - [KARA 랜섬웨어 동향 보고서 2025 3Q](https://www.skshieldus.com/kor/media/newsletter/insight.do)
 - [SK쉴더스 EQST insight 구독](https://www.skshieldus.com/kor/media/newsletter/insight.do)

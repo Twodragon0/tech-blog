@@ -286,9 +286,9 @@ esac
 
 ```
 
-## 5. 교훈 및 개선 사항
+## 4. 교훈 및 개선 사항
 
-### 5.1 Multi-CDN 전략
+### 4.1 Multi-CDN 전략
 
 단일 CDN 의존도를 낮추기 위한 **Multi-CDN 아키텍처** 도입:
 
@@ -301,7 +301,7 @@ flowchart TD
     TM  CFR["CloudFront<br/>(Backup)"]
 ```
 
-### 5.2 모니터링 강화
+### 4.2 모니터링 강화
 
 > **참고**: Prometheus Alert Rule 설정 관련 내용은 [Prometheus 공식 문서](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) 및 [Awesome Prometheus Alerts](https://github.com/samber/awesome-prometheus-alerts)를 참조하세요.
 > ```yaml
@@ -311,7 +311,7 @@ flowchart TD
 
 **CVSS 10.0 (Critical)** 등급의 이 취약점은 원격 코드 실행(RCE)을 가능하게 하며, Cloudflare는 취약점 공개 후 **24시간 이내에 전역 보호 규칙을 배포**했습니다.
 
-### 6.4 DDoS 위협 동향
+### 4.3 DDoS 위협 동향
 
 2025년 DDoS 공격은 전년 대비 **10배 증가**했으며, 특히 **1Tbps 이상의 Hyper-Volumetric 공격**이 급증했습니다.
 
@@ -322,12 +322,6 @@ flowchart TD
 - Cyber Extortion (사이버 협박)
 - Data Breach Response (데이터 유출 대응)
 - **Third-Party Service Failure (제3자 서비스 장애)** ← 이번 케이스
-
-### 9.4 산업별 권장 사항
-
-**금융권:**
-
-**게임:**
 
 > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. Documentation](https://docs.aws.amazon.com/cloudfront/) - AWS CDN 문서
 - [Fastly Documentation](https://docs.fastly.com/) - Fastly CDN 문서

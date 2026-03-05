@@ -210,7 +210,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 > ```
 
 
-#### 5주차: AWS Control Tower 및 SIEM 통합
+#### 2.5 AWS Control Tower 및 SIEM 통합
 
 **학습 목표**:
 - AWS Control Tower로 Landing Zone 구성
@@ -324,11 +324,9 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 • License 위반: 파이프라인 중단
 ```
 
-### 8.3 Zero Trust 네트워크 아키텍처
+## 3. 종합 참고 자료 (Comprehensive References)
 
-## 9. 종합 참고 자료 (Comprehensive References)
-
-### 9.1 공식 문서 및 표준
+### 3.1 공식 문서 및 표준
 
 **AWS 공식 문서**:
 - [AWS Well-Architected Framework - Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html)
@@ -350,7 +348,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 - [개인정보보호법 (개인정보보호위원회)](https://www.pipc.go.kr/np/default/page.do?mCode=D010010000)
 - [정보통신망법 시행령 (과학기술정보통신부)](https://www.law.go.kr/)
 
-### 9.2 오픈소스 보안 도구
+### 3.2 오픈소스 보안 도구
 
 **SAST (Static Application Security Testing)**:
 - [Semgrep](https://semgrep.dev/) - 다중 언어 정적 분석 도구
@@ -377,7 +375,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 - [TruffleHog](https://github.com/trufflesecurity/trufflehog) - 비밀 정보 스캔
 - [Vault by HashiCorp](https://www.vaultproject.io/) - 비밀 정보 관리 플랫폼
 
-### 9.3 학습 리소스
+### 3.3 학습 리소스
 
 **온라인 코스**:
 - [AWS Certified Security - Specialty](https://aws.amazon.com/certification/certified-security-specialty/)
@@ -402,7 +400,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 - [DevSecOps-Playbook](https://github.com/6mile/DevSecOps-Playbook)
 - [Cloud Security Research](https://github.com/RhinoSecurityLabs/cloudgoat)
 
-### 9.4 실무 사례 연구 (Case Studies)
+### 3.4 실무 사례 연구 (Case Studies)
 
 **보안 사고 사례**:
 - [Colonial Pipeline Ransomware Attack (2021)](https://www.cisa.gov/news-events/news/cisa-issues-emergency-directive-federal-agencies) - OT 보안 취약점으로 발생한 대규모 랜섬웨어 공격
@@ -414,7 +412,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 - [Airbnb's BinaryAlert](https://github.com/airbnb/binaryalert) - 실시간 악성코드 탐지 시스템
 - [Lyft's Cartography](https://github.com/lyft/cartography) - 클라우드 인프라 그래프 시각화
 
-### 9.5 커뮤니티 및 컨퍼런스
+### 3.5 커뮤니티 및 컨퍼런스
 
 **보안 커뮤니티**:
 - [AWS Security Community](https://aws.amazon.com/security/community/)
@@ -429,7 +427,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 - [DEF CON](https://defcon.org/) - 해커 컨퍼런스
 - [CodeEngn Conference](https://codeengn.com/conference/) - 한국 리버스 엔지니어링 컨퍼런스
 
-### 9.6 실무 도구 비교표
+### 3.6 실무 도구 비교표
 
 **SIEM 도구 비교**:
 | 도구 | 장점 | 단점 | 가격 | 추천 대상 |
@@ -447,7 +445,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 | Harbor | 취약점 스캔, 정책 관리 | 자체 호스팅 | 무료 (오픈소스) | 온프레미스 |
 | Google Artifact Registry | GCP 통합, 취약점 스캔 | GCP 최적화 | $0.10/GB/month | GCP 환경 |
 
-## 10. 과정 참여 전 준비 체크리스트
+## 4. 과정 참여 전 준비 체크리스트
 
 ### 필수 준비 사항
 

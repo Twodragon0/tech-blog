@@ -134,7 +134,9 @@ toc: true
 | **K8s 리소스 하이재킹** | [T1496](https://attack.mitre.org/techniques/T1496/) - Resource Hijacking | Impact | GPU 사용률 급증 탐지, 비인가 Pod 생성 |
 
 
-### 9.3 투자 우선순위 (ROI 관점)
+## 2. 위협 분석 및 대응 전략
+
+### 2.1 투자 우선순위 (ROI 관점)
 
 | 투자 항목 | 비용 | 위험 감소 효과 | ROI | 우선순위 |
 |----------|------|---------------|-----|----------|
@@ -143,13 +145,13 @@ toc: true
 | K8s 보안 강화 | $150K | $10M (평균 데이터 유출) | 6667% | 3 |
 | GPU 스케줄러 최적화 | $50K | $500K/년 (비용 절감) | 1000% | 4 |
 
-### 9.4 타임라인 및 마일스톤
+### 2.2 위협 헌팅 쿼리
 
 #### Query 3: 의심스러운 kubectl exec 사용
 
-### 10.3 네트워크 이상 징후 탐지
+## 3. 네트워크 이상 징후 탐지
 
-#### Query 6: 비정상 아웃바운드 트래픽 (C2 통신 가능성)
+### 3.1 Query 6: 비정상 아웃바운드 트래픽 (C2 통신 가능성)
 
 ```spl
 # Splunk SPL (Kubernetes + Network Flow Data)
@@ -161,18 +163,15 @@ index=k8s_network OR index=firewall
 | eval severity="HIGH - Potential C2 Communication"
 ```
 
-#### Query 7: Kubernetes API Server 무차별 대입 공격
+### 3.2 Query 7: Kubernetes API Server 무차별 대입 공격
 
-
-### 10.5 헌팅 워크플로 자동화
-
-#### Query 9: 종합 위협 스코어 계산 (SIEM Correlation Rule)
+### 3.3 Query 9: 종합 위협 스코어 계산 (SIEM Correlation Rule)
 
 ---
 
-## 11. 실무 체크리스트
+## 4. 실무 체크리스트
 
-### 11.1 이번 달 필수 점검 항목
+### 4.1 이번 달 필수 점검 항목
 
 - [ ] **Kubernetes 보안**: RBAC, Network Policy, Pod Security Standards 검토
 - [ ] **VS Code 보안**: 확장 프로그램 감사, 터널링 정책 수립
@@ -181,7 +180,7 @@ index=k8s_network OR index=firewall
 - [ ] **GPU 활용률**: 유휴 GPU 모니터링 및 재활용 정책 검토
 - [ ] **플랫폼 의존성**: OSS 의존성 업데이트 상태 확인
 
-### 11.2 한국 조직 특화 체크리스트
+### 4.2 한국 조직 특화 체크리스트
 
 #### CSAP 인증 대상 기업
 - [ ] **컨테이너 보안 정책**: NIPA 가이드라인 준수 여부 확인
@@ -197,9 +196,9 @@ index=k8s_network OR index=firewall
 
 ---
 
-## 12. 참고 자료 (Comprehensive References)
+## 5. 참고 자료
 
-### 12.1 주요 출처
+### 5.1 주요 출처
 
 | 리소스 | 링크 | 설명 |
 |--------|------|------|
@@ -209,7 +208,7 @@ index=k8s_network OR index=firewall
 | **Net-NTLMv1 폐기** | [Google Threat Intel](https://cloud.google.com/blog/topics/threat-intelligence/net-ntlmv1-deprecation-rainbow-tables/) | Mandiant 레인보우 테이블 공개 및 기술 분석 |
 | **GPU 스케줄링** | [CNCF Blog](https://www.cncf.io/blog/2026/01/20/reclaiming-underutilized-gpus-in-kubernetes-using-scheduler-plugins/) | Kubernetes GPU 재활용 스케줄러 플러그인 가이드 |
 
-### 12.2 보안 프레임워크 및 표준
+### 5.2 보안 프레임워크 및 표준
 
 | 프레임워크 | 링크 | 적용 분야 |
 |-----------|------|----------|
@@ -218,7 +217,7 @@ index=k8s_network OR index=firewall
 | **Kubernetes Pod Security Standards** | [https://kubernetes.io/docs/concepts/security/pod-security-standards/](https://kubernetes.io/docs/concepts/security/pod-security-standards/) | Pod 보안 정책 (Privileged/Baseline/Restricted) |
 | **NIST SP 800-190** | [https://csrc.nist.gov/publications/detail/sp/800-190/final](https://csrc.nist.gov/publications/detail/sp/800-190/final) | 컨테이너 보안 애플리케이션 가이드 |
 
-### 12.3 한국 규제 및 가이드라인
+### 5.3 한국 규제 및 가이드라인
 
 | 기관/문서 | 링크 | 설명 |
 |----------|------|------|
@@ -227,7 +226,7 @@ index=k8s_network OR index=firewall
 | **금융보안원 K8s 가이드** | [https://www.fsec.or.kr](https://www.fsec.or.kr) | 금융권 Kubernetes 보안 가이드라인 |
 | **K-ISMS-P 인증 기준** | [https://isms.kisa.or.kr](https://isms.kisa.or.kr) | 정보보호 및 개인정보보호 관리체계 인증 |
 
-### 12.4 기술 문서 및 도구
+### 5.4 기술 문서 및 도구
 
 | 도구/문서 | 링크 | 용도 |
 |----------|------|------|
@@ -237,7 +236,7 @@ index=k8s_network OR index=firewall
 | **NVIDIA DCGM Exporter** | [dcgm-exporter](https://github.com/NVIDIA/dcgm-exporter) | GPU 메트릭 수집 (Prometheus) |
 | **VS Code Security Baseline** | [vscode](https://github.com/microsoft/vscode) | Microsoft 공식 보안 가이드 |
 
-### 12.5 학습 리소스
+### 5.5 학습 리소스
 
 | 리소스 | 링크 | 대상 |
 |--------|------|------|
@@ -246,7 +245,7 @@ index=k8s_network OR index=firewall
 | **Kubernetes Goat** | [kubernetes-goat](https://github.com/madhuakula/kubernetes-goat) | K8s 보안 실습 환경 (취약한 클러스터) |
 | **Container Security Book (Liz Rice)** | [https://www.oreilly.com/library/view/container-security/9781492056690/](https://www.oreilly.com/library/view/container-security/9781492056690/) | 컨테이너 보안 이론 및 실무 |
 
-### 12.6 커뮤니티 및 뉴스
+### 5.6 커뮤니티 및 뉴스
 
 | 리소스 | 링크 | 설명 |
 |--------|------|------|
@@ -254,7 +253,7 @@ index=k8s_network OR index=firewall
 | **Kubernetes Security Slack** | [#kubernetes-security on Slack](https://kubernetes.slack.com) | 글로벌 K8s 보안 커뮤니티 |
 | **Korean DevSecOps Community** | [https://www.facebook.com/groups/k8skr](https://www.facebook.com/groups/k8skr) | 한국 쿠버네티스 사용자 그룹 |
 
-### 12.7 CVE 및 보안 권고
+### 5.7 CVE 및 보안 권고
 
 | CVE | 영향 | 링크 |
 |-----|------|------|
