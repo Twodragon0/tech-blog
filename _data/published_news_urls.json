@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-05T01:31:12.241545+00:00",
+  "updated_at": "2026-03-05T04:33:06.156116+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -600,6 +600,18 @@
       "title": "OpenAI Codex Windows",
       "published_date": "2026-03-05",
       "expires_at": "2026-03-12T01:31:12.240627+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27200",
+      "title": "Apple MacBook Neo",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T04:33:06.155868+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27190",
+      "title": "Claude Code Guide eBook",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T04:33:06.155868+00:00"
     }
   ]
 }
