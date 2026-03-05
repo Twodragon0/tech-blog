@@ -88,7 +88,7 @@ toc: true
 | **탈취 대상** | NPM 토큰, GitHub Secrets, AWS Credentials | 전사 시스템 침투 |
 | **평균 탐지 시간** | 수 주 | 지속적 데이터 유출 |
 
-### Risk Scorecard
+### 위험 점수 카드 (Risk Scorecard)
 
 | 위험 요소 | 점수 | 평가 기준 |
 |----------|------|----------|
@@ -275,7 +275,7 @@ Shai-Hulud와 별개로 발생한 또 다른 심각한 공급망 공격:
      disable-job "affected-pipeline"
    ```
 
-3. **Private NPM Registry 읽기 전용 전환**:
+3. **Private NPM Registry 읽기 전용으로 전환**:
 ```yaml
    # verdaccio.yaml
    packages:
@@ -319,15 +319,15 @@ npm token regenerate
    - URL: https://about.gitlab.com/blog/2025/09/17/npm-shai-hulud-analysis/
 
 6. **Socket.dev Research**
-   - The Rise of Self-Replicating Worms in NPM
+   - NPM 자가 복제 웜의 부상 (The Rise of Self-Replicating Worms in NPM)
    - URL: https://socket.dev/blog/shai-hulud-worm-analysis
 
 7. **Snyk Research**
-   - NPM Ecosystem Security Report 2025
+   - NPM 생태계 보안 리포트 2025 (NPM Ecosystem Security Report 2025)
    - URL: https://snyk.io/reports/npm-ecosystem-security-2025/
 
 8. **Aqua Security**
-   - Dead Man's Switch in Supply Chain Attacks
+   - 공급망 공격의 Dead Man's Switch (Dead Man's Switch in Supply Chain Attacks)
    - URL: https://blog.aquasec.com/dead-mans-switch-supply-chain
 
 ### 3.3 오픈소스 도구
@@ -342,7 +342,7 @@ npm token regenerate
 
 11. **OSV Scanner (Google)**
     - GitHub: https://github.com/google/osv-scanner
-    - OSV 데이터베이스 기반 스캔 도구
+    - OSV 데이터베이스 기반 취약점 스캔 도구
 
 12. **Syft (Anchore)**
     - GitHub: https://github.com/anchore/syft
@@ -375,38 +375,38 @@ npm token regenerate
 19. **Nx / s1ngularity 공격 포스트모템**
     - URL: https://nx.dev/blog/s1ngularity-postmortem
 
-20. **SolarWinds Supply Chain Attack (참고 사례)**
-    - CISA Analysis: https://www.cisa.gov/solarwinds
+20. **SolarWinds 공급망 공격 (참고 사례)**
+    - CISA 분석: https://www.cisa.gov/solarwinds
 
-21. **Log4j Vulnerability (참고 사례)**
+21. **Log4j 취약점 (참고 사례)**
     - NIST: https://nvd.nist.gov/vuln/detail/CVE-2021-44228
 
 ### 3.6 학술 논문 및 연구
 
-22. **"Software Supply Chain Attacks: A Systematic Literature Review"**
-    - Authors: Torres-Arias et al.
+22. **"소프트웨어 공급망 공격: 체계적 문헌 검토" (Software Supply Chain Attacks: A Systematic Literature Review)**
+    - 저자: Torres-Arias 외
     - DOI: 10.1145/3412841.3442028
 
-23. **"Backstabber's Knife Collection: A Review of Open Source Software Supply Chain Attacks"**
-    - Authors: Ohm et al.
+23. **"배신자의 칼 컬렉션: 오픈소스 소프트웨어 공급망 공격 리뷰" (Backstabber's Knife Collection: A Review of Open Source Software Supply Chain Attacks)**
+    - 저자: Ohm 외
     - DOI: 10.1007/978-3-030-52683-2_1
 
-24. **"Dependency Confusion: How I Hacked Into Apple, Microsoft and Dozens of Other Companies"**
-    - Author: Alex Birsan
+24. **"의존성 혼동: Apple, Microsoft 등 수십 개 기업을 해킹한 방법" (Dependency Confusion: How I Hacked Into Apple, Microsoft and Dozens of Other Companies)**
+    - 저자: Alex Birsan
     - URL: https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610
 
 ### 3.7 추가 학습 자료
 
-25. **OWASP Top 10 CI/CD Security Risks**
+25. **OWASP CI/CD 보안 위험 Top 10 (OWASP Top 10 CI/CD Security Risks)**
     - URL: https://owasp.org/www-project-top-10-ci-cd-security-risks/
 
-26. **SLSA Framework (Supply-chain Levels for Software Artifacts)**
+26. **SLSA 프레임워크 - 소프트웨어 아티팩트 공급망 레벨 (Supply-chain Levels for Software Artifacts)**
     - URL: https://slsa.dev/
 
-27. **Sigstore (Code Signing)**
+27. **Sigstore (코드 서명)**
     - URL: https://www.sigstore.dev/
 
-28. **CycloneDX (SBOM Standard)**
+28. **CycloneDX (SBOM 표준)**
     - URL: https://cyclonedx.org/
 
 ---

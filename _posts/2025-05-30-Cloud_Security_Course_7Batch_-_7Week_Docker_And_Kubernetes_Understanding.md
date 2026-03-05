@@ -100,10 +100,10 @@ series_total: 7
 
 ### 권장 보안 통제
 
-1. **Build Phase**: 이미지 스캔 자동화, Multi-stage 빌드, Distroless 이미지
-2. **Ship Phase**: 이미지 서명 검증, Registry 접근 제어, 취약점 정책 적용
-3. **Run Phase**: Pod Security Standards, Network Policy, Runtime 모니터링 (Falco)
-4. **Governance**: RBAC, Admission Controller, Audit Logging
+1. **빌드 단계 (Build Phase)**: 이미지 스캔 자동화, Multi-stage 빌드, Distroless 이미지
+2. **배포 단계 (Ship Phase)**: 이미지 서명 검증, Registry 접근 제어, 취약점 정책 적용
+3. **실행 단계 (Run Phase)**: Pod Security Standards, Network Policy, 런타임 모니터링 (Falco)
+4. **거버넌스 (Governance)**: RBAC, Admission Controller, 감사 로깅(Audit Logging)
 
 ### 즉시 적용 가능한 액션 아이템
 
@@ -208,7 +208,7 @@ Pod를 적절한 Node에 배치하는 역할을 합니다.
 
 #### Controller Manager
 
-클러스터의 desired state를 유지합니다.
+클러스터의 목표 상태(desired state)를 유지합니다.
 
 **주요 Controller:**
 - Deployment Controller: ReplicaSet 관리
@@ -490,8 +490,8 @@ cat /var/log/falco/events.txt | \
 |------|------|----------|--------|
 | **Trivy** | 이미지/파일시스템 취약점 스캔 | Apache 2.0 | ⭐⭐⭐⭐⭐ |
 | **Falco** | 런타임 이상 행위 탐지 | Apache 2.0 | ⭐⭐⭐⭐⭐ |
-| **OPA Gatekeeper** | Policy as Code | Apache 2.0 | ⭐⭐⭐⭐ |
-| **Kyverno** | Kubernetes Native Policy | Apache 2.0 | ⭐⭐⭐⭐ |
+| **OPA Gatekeeper** | 코드 기반 정책(Policy as Code) | Apache 2.0 | ⭐⭐⭐⭐ |
+| **Kyverno** | Kubernetes 네이티브 정책 관리 | Apache 2.0 | ⭐⭐⭐⭐ |
 | **Snyk** | 의존성 취약점 스캔 | Freemium | ⭐⭐⭐⭐ |
 | **kube-bench** | CIS Benchmark 검사 | Apache 2.0 | ⭐⭐⭐⭐ |
 | **kube-hunter** | 클러스터 침투 테스트 | Apache 2.0 | ⭐⭐⭐ |
@@ -542,12 +542,12 @@ cat /var/log/falco/events.txt | \
 
 ### 즉시 실행 가능한 액션 아이템
 
-- [ ] **Week 1**: Trivy를 CI/CD 파이프라인에 통합
-- [ ] **Week 2**: Falco DaemonSet 배포 및 알림 설정
-- [ ] **Week 3**: Network Policy 기본 Deny-All 적용
-- [ ] **Week 4**: Pod Security Standards (Restricted) 활성화
-- [ ] **Month 2**: User Namespaces 활성화 (Kubernetes 1.32+)
-- [ ] **Month 3**: External Secrets Operator 도입
+- [ ] **1주차**: Trivy를 CI/CD 파이프라인에 통합
+- [ ] **2주차**: Falco DaemonSet 배포 및 알림 설정
+- [ ] **3주차**: Network Policy 기본 Deny-All 적용
+- [ ] **4주차**: Pod Security Standards (Restricted) 활성화
+- [ ] **2개월차**: User Namespaces 활성화 (Kubernetes 1.32+)
+- [ ] **3개월차**: External Secrets Operator 도입
 
 ---
 

@@ -105,8 +105,8 @@ toc: true
 
 **이 포스트에서 다룰 내용:**
 - 2026년 AI 콘텐츠 생성 도구 트렌드
-- Phase별 완전 자동화 워크플로우 설계
-- Python 기반 End-to-End 파이프라인 구현
+- 단계(Phase)별 완전 자동화 워크플로우 설계
+- Python 기반 엔드-투-엔드 (End-to-End) 파이프라인 구현
 - 실전 사용 사례 (DevSecOps 튜토리얼, 보안 다이제스트)
 - DevSecOps 관점의 보안 및 비용 최적화
 - 2026 트렌드 및 미래 전망
@@ -128,9 +128,9 @@ toc: true
 | **DeepSeek R1** | 저비용 추론, 오픈소스 | 대량 처리 | $0.55/$2.19 per MTok |
 
 **2026년 핵심 트렌드:**
-- **Extended Thinking**: Claude의 확장 사고 모드로 복잡한 분석 작업 가능 (128K 출력 지원)
-- **Prompt Caching**: 반복 프롬프트 90% 비용 절감
-- **Context Grounding**: RAG 없이도 긴 문서를 정확히 이해
+- **확장 사고 (Extended Thinking)**: Claude의 확장 사고 모드로 복잡한 분석 작업 가능 (128K 출력 지원)
+- **프롬프트 캐싱 (Prompt Caching)**: 반복 프롬프트 90% 비용 절감
+- **컨텍스트 그라운딩 (Context Grounding)**: RAG 없이도 긴 문서를 정확히 이해
 
 ### 2.2 이미지 생성: 사실적 비주얼의 시대
 
@@ -161,7 +161,7 @@ high quality, 4K, --ar 16:9 --v 7
 
 **2026년 워크플로우:**
 ```text
-Screen recording (실제 작업)
+화면 녹화 (실제 작업)
 + AI 생성 B-roll (Runway Gen-3)
 + AI 보이스오버 (ElevenLabs)
 = 완성된 교육 영상
@@ -177,10 +177,10 @@ Screen recording (실제 작업)
 |------|------|
 | **텍스트→음악** | "upbeat tech tutorial bgm, electronic, 3 min" → 완성된 BGM |
 | **장르** | Electronic, Lo-fi, Jazz, Rock, Classical 등 100+ 장르 |
-| **길이** | 최대 4분 (Extended 기능 사용 시) |
+| **길이** | 최대 4분 (Extended 확장 기능 사용 시) |
 | **품질** | 44.1kHz, 320kbps MP3/WAV |
 | **라이선스** | 상업적 사용 가능 (Pro 플랜) |
-| **비용** | $10/월 (Unlimited 생성) |
+| **비용** | $10/월 (무제한 생성) |
 
 **실전 프롬프트 예시:**
 ```text
@@ -202,9 +202,9 @@ orchestral with electronic elements, 15 seconds"
 
 | 도구 | 특징 | 언어 지원 | 음성 클론 | 비용 | 라이선스 |
 |------|------|-----------|-----------|------|----------|
-| **Qwen3-TTS** | 1.7B 파라미터, 97ms 지연 | 10개 언어 (한국어 포함) | 3초 샘플로 가능 | 무료 (GPU 필요) | Apache-2.0 (상업 OK) |
-| **ElevenLabs** | 고품질, 즉시 사용 | 29개 언어 | Professional Voice Cloning | $5-330/월 | 상업 라이선스 별도 |
-| **Azure TTS** | 엔터프라이즈급 | 119개 언어 | Custom Neural Voice | $4-16/1M chars | 클라우드 종속 |
+| **Qwen3-TTS** | 1.7B 파라미터, 97ms 지연 | 10개 언어 (한국어 포함) | 3초 샘플로 가능 | 무료 (GPU 필요) | Apache-2.0 (상업 사용 가능) |
+| **ElevenLabs** | 고품질, 즉시 사용 | 29개 언어 | 전문가 음성 복제 (Professional Voice Cloning) | $5-330/월 | 상업 라이선스 별도 |
+| **Azure TTS** | 엔터프라이즈급 | 119개 언어 | 커스텀 신경망 음성 (Custom Neural Voice) | $4-16/1M chars | 클라우드 종속 |
 | **Coqui TTS** | 오픈소스, 로컬 | 다국어 (커스텀 가능) | XTTS v2 지원 | 무료 | MPL-2.0 |
 
 **Qwen3-TTS 핵심 강점:**
@@ -242,7 +242,7 @@ orchestral with electronic elements, 15 seconds"
 ![AI Content Creator Workflow - 5 Phases](/assets/images/2026-02-05-AI-Workflow-5-Phases.svg)
 *AI 콘텐츠 크리에이터 워크플로우: 아이디어부터 완성된 콘텐츠까지 5단계 자동화*
 
-### 3.1 Phase 1: 아이디어 → 블로그 포스트
+### 3.1 1단계 (Phase 1): 아이디어 → 블로그 포스트
 
 ```text
 키워드 → Claude Opus 4.5 (아웃라인) → 초안 작성 → SEO 최적화 → 블로그 포스트
@@ -252,7 +252,7 @@ orchestral with electronic elements, 15 seconds"
 
 **SRT 자막 자동 생성 로직은 위 코드 참조**
 
-### 3.3 Phase 3: 스크립트 → 영상 제작
+### 3.3 3단계 (Phase 3): 스크립트 → 영상 제작
 
 ```text
 스크립트 → Visual (OBS 녹화 + Midjourney 이미지 + Runway 클립)
@@ -278,14 +278,14 @@ orchestral with electronic elements, 15 seconds"
 # 출력: MP4 형식
 ```
 
-**상세 설정**: OBS Studio → Settings → Output → Recording
-- Format: MP4
-- Encoder: NVIDIA NVENC H.264 (GPU 가속) 또는 x264
-- Audio: 48kHz, Stereo
+**상세 설정**: OBS Studio → 설정(Settings) → 출력(Output) → 녹화(Recording)
+- 형식(Format): MP4
+- 인코더(Encoder): NVIDIA NVENC H.264 (GPU 가속) 또는 x264
+- 오디오(Audio): 48kHz, 스테레오(Stereo)
 
 **전체 설정 방법은 OBS Studio 공식 문서 참조**
 
-### 3.4 Phase 4: 음악 생성 (Suno AI)
+### 3.4 4단계 (Phase 4): 음악 생성 (Suno AI)
 
 ```text
 키워드 → Suno AI 프롬프트 → 4개 변형 생성 → 최적 선택 → 후처리 → BGM (MP3/WAV)
@@ -316,7 +316,7 @@ orchestral with electronic elements, 15 seconds"
 **핵심 파라미터**:
 - `fluent: True` - 자연스러운 머리 움직임
 - `stitch: True` - 입 모양 정확도 향상
-- 비용: $5/월 (10 videos), $49/월 (Unlimited)
+- 비용: $5/월 (영상 10개), $49/월 (무제한)
 
 **전체 API 가이드**: [D-ID API Documentation](https://docs.d-id.com/)
 
@@ -337,7 +337,7 @@ orchestral with electronic elements, 15 seconds"
 | **모니터링** | Sentry (무료), Vercel Analytics |
 | **보안** | GitHub Secrets, Pydantic 검증, CSP 헤더 |
 
-### 4.2 End-to-End Python Pipeline
+### 4.2 엔드-투-엔드 (End-to-End) Python 파이프라인
 
 ![Python Pipeline Architecture](/assets/images/2026-02-05-Python-Pipeline-Architecture.svg)
 *ContentPipeline 클래스 아키텍처: 5단계 자동화 파이프라인과 핵심 기능*
@@ -370,9 +370,9 @@ ContentPipeline
 
 ---
 
-## 5. 실전 사용 사례 (Case Study)
+## 5. 실전 사용 사례 (사례 연구)
 
-### 5.1 Case Study 1: DevSecOps 튜토리얼 시리즈
+### 5.1 사례 연구 1: DevSecOps 튜토리얼 시리즈
 
 **목표:** Kubernetes 보안 가이드 10편 시리즈 제작
 
@@ -407,7 +407,7 @@ ContentPipeline
 - 구독자 증가: +1,200명
 - 수익: YouTube 광고 $800 + 스폰서십 $2,000
 
-### 5.2 Case Study 2: 기술 컨퍼런스 요약 콘텐츠
+### 5.2 사례 연구 2: 기술 컨퍼런스 요약 콘텐츠
 
 **목표:** AWS re:Invent 2025 주요 발표 정리 (30개 세션)
 
@@ -416,7 +416,7 @@ ContentPipeline
 
 **핵심 기능:**
 - RSS 피드 자동 수집 (BleepingComputer, The Hacker News)
-- Claude Sonnet 4로 Top 5 보안 이슈 요약
+- Claude Sonnet 4로 상위 5개 보안 이슈 요약
 - Jekyll 포맷 자동 생성 (Front matter 포함)
 - Git 자동 배포
 
@@ -466,7 +466,7 @@ if not api_key:
 
 ### 7.1 2026년 예상 변화
 
-#### Multi-modal AI의 보편화
+#### 멀티모달 AI (Multi-modal AI)의 보편화
 
 | 트렌드 | 설명 | 영향 |
 |--------|------|------|
@@ -475,24 +475,24 @@ if not api_key:
 | **개인화** | 사용자별 맞춤 콘텐츠 자동 생성 | 타겟 마케팅 강화 |
 | **확장 사고** | 복잡한 분석 작업을 128K 출력으로 | 심층 리서치 자동화 |
 
-#### AI Agent Swarms (다중 에이전트 협업)
+#### AI 에이전트 군집 (AI Agent Swarms) - 다중 에이전트 협업
 
-**미래 워크플로우 (2026 말 - AI Agent Swarms):**
+**미래 워크플로우 (2026년 말 - AI 에이전트 군집):**
 
 ```text
 요청: "Kubernetes 보안 시리즈 10편"
 → Orchestrator → 5개 에이전트 병렬 실행 → 10편 완성 (24시간)
 ```
 
-| Agent | 역할 | 결과 |
-|-------|------|------|
-| Researcher | CVE 검색 | 최신 보안 이슈 |
-| Writer | 초안 작성 | 10편 동시 작성 |
-| Designer | 썸네일 생성 | 이미지 10개 |
-| Video | 스크립트 생성 | 영상 대본 10편 |
+| 에이전트 | 역할 | 결과 |
+|----------|------|------|
+| 리서처 (Researcher) | CVE 검색 | 최신 보안 이슈 |
+| 라이터 (Writer) | 초안 작성 | 10편 동시 작성 |
+| 디자이너 (Designer) | 썸네일 생성 | 이미지 10개 |
+| 비디오 (Video) | 스크립트 생성 | 영상 대본 10편 |
 | QA | 품질 검증 | 최종 검수 |
 
-#### Voice Cloning의 대중화
+#### 음성 복제 (Voice Cloning)의 대중화
 
 | 기술 | 2025 | 2026 예상 | 영향 |
 |------|------|-----------|------|
@@ -514,31 +514,31 @@ if not api_key:
 
 | 기간 | 주제 | 마일스톤 |
 |------|------|----------|
-| **Month 1** | 텍스트 생성 | Claude 기본 + Jekyll 블로그 + Python 자동화 |
-| **Month 2** | 멀티미디어 | Midjourney 이미지 + Suno AI 음악 + 영상 편집 기초 |
-| **Month 3** | 완전 자동화 | OBS 녹화 + 파이프라인 통합 + 비용 최적화 |
+| **1개월차** | 텍스트 생성 | Claude 기본 + Jekyll 블로그 + Python 자동화 |
+| **2개월차** | 멀티미디어 | Midjourney 이미지 + Suno AI 음악 + 영상 편집 기초 |
+| **3개월차** | 완전 자동화 | OBS 녹화 + 파이프라인 통합 + 비용 최적화 |
 
 **주차별 체크리스트:**
-- Week 1-2: Claude 프롬프트 연습 → 첫 포스트 작성
-- Week 3-4: Python 스크립트 → GitHub Actions 세팅
-- Week 5-6: Midjourney 썸네일 자동 생성
-- Week 7-8: Suno AI BGM 라이브러리 구축
-- Week 9-10: OBS + Descript 영상 제작
-- Week 11-12: End-to-End 자동화 완성
+- 1-2주차: Claude 프롬프트 연습 → 첫 포스트 작성
+- 3-4주차: Python 스크립트 → GitHub Actions 세팅
+- 5-6주차: Midjourney 썸네일 자동 생성
+- 7-8주차: Suno AI BGM 라이브러리 구축
+- 9-10주차: OBS + Descript 영상 제작
+- 11-12주차: 엔드-투-엔드 (End-to-End) 자동화 완성
 
 #### 중급자를 위한 고급 기법
 
-1. **RAG (Retrieval-Augmented Generation)**
+1. **RAG (검색 증강 생성, Retrieval-Augmented Generation)**
    - 자체 문서 데이터베이스 구축
    - 벡터 검색으로 정확도 향상
    - LangChain 활용
 
-2. **Fine-tuning**
-   - Claude API Fine-tuning (2026 출시 예정)
+2. **파인튜닝 (Fine-tuning)**
+   - Claude API 파인튜닝 (2026 출시 예정)
    - 자체 스타일 학습
    - 브랜드 일관성 유지
 
-3. **A/B Testing**
+3. **A/B 테스트 (A/B Testing)**
    - 제목 10개 변형 자동 생성
    - 클릭률 측정
    - 최적 버전 자동 선택
@@ -557,18 +557,18 @@ if not api_key:
 3. **첫 포스트 AI 생성** - 30분 투자
 4. **피드백 수집 및 개선** - 지속적 학습
 
-**지속적인 학습과 실험이 핵심입니다.** AI 도구는 빠르게 발전하고 있으며, 오늘의 Best Practice가 내일의 Legacy가 될 수 있습니다. 커뮤니티와 소통하고, 새로운 도구를 실험하며, 자신만의 워크플로우를 계속 개선하세요.
+**지속적인 학습과 실험이 핵심입니다.** AI 도구는 빠르게 발전하고 있으며, 오늘의 모범 사례(Best Practice)가 내일의 구식 방식이 될 수 있습니다. 커뮤니티와 소통하고, 새로운 도구를 실험하며, 자신만의 워크플로우를 계속 개선하세요.
 
 ---
 
 ## 9. 참고 자료
 
 ### 공식 문서
-- [Claude API Documentation](https://docs.anthropic.com/)
-- [Suno AI Official Guide](https://suno.com/guide)
-- [Runway ML Documentation](https://docs.runwayml.com/)
-- [Midjourney Documentation](https://docs.midjourney.com/)
-- [ElevenLabs API Docs](https://elevenlabs.io/docs)
+- [Claude API 공식 문서](https://docs.anthropic.com/)
+- [Suno AI 공식 가이드](https://suno.com/guide)
+- [Runway ML 문서](https://docs.runwayml.com/)
+- [Midjourney 문서](https://docs.midjourney.com/)
+- [ElevenLabs API 문서](https://elevenlabs.io/docs)
 
 ### 도구 및 플랫폼
 - [Jekyll 공식 사이트](https://jekyllrb.com/)
@@ -577,12 +577,12 @@ if not api_key:
 - [Descript](https://www.descript.com/)
 
 ### 학습 리소스
-- [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
-- [Prompt Engineering Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)
-- [AI Content Creation Community](https://www.reddit.com/r/AIContentCreation/)
+- [Anthropic 쿡북](https://github.com/anthropics/anthropic-cookbook)
+- [프롬프트 엔지니어링 가이드](https://github.com/dair-ai/Prompt-Engineering-Guide)
+- [AI 콘텐츠 생성 커뮤니티](https://www.reddit.com/r/AIContentCreation/)
 
 ### 보안 및 컴플라이언스
-- [OWASP AI Security Guidelines](https://owasp.org/www-project-ai-security/)
+- [OWASP AI 보안 가이드라인](https://owasp.org/www-project-ai-security/)
 - [AI 생성 콘텐츠 저작권 가이드](https://www.copyright.gov/ai/)
 
 ---

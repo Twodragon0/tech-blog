@@ -99,7 +99,7 @@ AI 에이전트가 사람 대신 도구를 호출하고, 코드를 실행하고,
 
 ---
 
-## 1. AI Agent 위협 모델 (Threat Model)
+## 1. AI Agent 위협 모델
 
 ### 1.1 OWASP Agentic Top 10
 
@@ -320,7 +320,7 @@ jobs:
 
 ---
 
-## 4. 방어 패턴 구현 (Defense Patterns)
+## 4. 방어 패턴 구현
 
 ### 4.1 프롬프트 인젝션 방어
 
@@ -799,7 +799,7 @@ Level 1만 적용해도 대부분의 기회주의적 공격(opportunistic attack
 | Red Team 훈련 | C | R | I | A |
 | 런타임 환경 관리 | C | I | R | I |
 
-R = Responsible, A = Accountable, C = Consulted, I = Informed
+R = 담당(Responsible), A = 책임(Accountable), C = 협의(Consulted), I = 공유(Informed)
 
 실무에서 자주 보는 문제는 AI/ML 엔지니어와 보안 엔지니어 사이의 간극이다. AI 팀은 보안 요구사항을 에이전트 성능의 제약으로 인식하고, 보안 팀은 에이전트의 작동 방식을 충분히 이해하지 못한다. 양쪽이 함께 도구 허용 목록을 작성하고 평가 메트릭을 설계하는 과정이 이 간극을 줄이는 가장 효과적인 방법이다.
 

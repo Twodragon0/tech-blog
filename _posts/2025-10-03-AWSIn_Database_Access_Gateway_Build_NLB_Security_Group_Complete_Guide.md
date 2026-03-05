@@ -210,17 +210,17 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 ## 모니터링 및 알림
 
-### CloudWatch Dashboard
+### CloudWatch 대시보드 (CloudWatch Dashboard)
 
 #### 통합 대시보드 구성
 
 > **참고**: CloudWatch 대시보드 관련 내용은 [AWS CloudWatch 문서](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/) 및 [Terraform AWS CloudWatch 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-cloudwatch)을 참조하세요.
 
-### Connection Monitoring
+### 연결 모니터링 (Connection Monitoring)
 
 #### 연결 수 추적
 
-### Alerting
+### 알림 설정 (Alerting)
 
 #### SNS 토픽 및 구독
 
@@ -228,7 +228,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 > **참고**: AWS Lambda 및 SNS 통합 관련 내용은 [AWS Lambda 문서](https://docs.aws.amazon.com/lambda/) 및 [Terraform AWS Lambda 모듈](https://registry.terraform.io/browse/modules?provider=aws/terraform-aws-lambda)을 참조하세요.
 
-### Custom Metrics
+### 커스텀 메트릭 (Custom Metrics)
 
 #### 애플리케이션 메트릭 수집
 
@@ -250,7 +250,7 @@ NLB는 Security Group을 직접 지원하지 않지만, 타겟 그룹의 Securit
 
 ## 트러블슈팅 가이드
 
-### Connection Timeout 문제
+### 연결 타임아웃 (Connection Timeout) 문제
 
 #### 증상
 
@@ -297,7 +297,7 @@ aws ec2 describe-route-tables \
 **해결책**:
 - Private Subnet의 Route Table에 NAT Gateway 또는 VPC Peering 라우팅이 올바른지 확인
 
-### High Latency 문제
+### 높은 지연시간 (High Latency) 문제
 
 #### 증상
 
@@ -307,7 +307,7 @@ Query execution time: 500ms (expected: <50ms)
 
 #### 원인 및 해결 방법
 
-**1. Cross-AZ 트래픽**
+**1. 가용 영역 간 트래픽 (Cross-AZ 트래픽)**
 
 ```bash
 # NLB Cross-AZ Load Balancing 확인
@@ -349,7 +349,7 @@ aws rds describe-db-instances \
 - Performance Insights 활성화하여 병목 쿼리 식별
 - Slow Query Log 분석하여 인덱스 최적화
 
-### Unhealthy Target 문제
+### 비정상 타겟 (Unhealthy Target) 문제
 
 #### 증상
 
@@ -386,7 +386,7 @@ aws elbv2 describe-target-groups \
 - Health Check Interval 및 Threshold 조정
 - Health Check 프로토콜이 올바른지 확인 (TCP for database)
 
-**3. 네트워크 분할 (Network Partition)**
+**3. 네트워크 분리 (Network Partition)**
 
 ```bash
 # VPC Flow Logs에서 네트워크 문제 확인
@@ -399,7 +399,7 @@ aws logs filter-log-events \
 - VPC Flow Logs에서 REJECT 패킷 원인 분석
 - Security Group 규칙 재검토
 
-### Certificate Issues
+### 인증서 문제 (Certificate Issues)
 
 #### 증상
 
@@ -510,7 +510,7 @@ openssl s_client -connect db-gateway.internal.company.com:3306 -showcerts
     - [Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/)
     - [Reliability Pillar](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/)
 
-17. **Community Resources**
+17. **커뮤니티 리소스 (Community Resources)**
     - [AWS Samples GitHub](https://docs.aws.amazon.com/)
     - [Terraform AWS Modules](https://registry.terraform.io/browse/modules?provider=aws)
 

@@ -77,7 +77,7 @@ toc: true
 
 2025년 현재, AI 기반 보안 도구는 DevSecOps 환경의 필수 요소가 되었습니다. 본 문서는 Amazon Q Developer와 GitHub Advanced Security를 활용한 엔터프라이즈급 보안 자동화 전략을 다룹니다.
 
-### Risk Scorecard (위험 평가표)
+### 위험 평가표 (Risk Scorecard)
 
 | 위험 영역 | 미도입 시 위험도 | 도입 후 위험도 | 위험 감소율 | 비고 |
 |----------|----------------|---------------|------------|------|
@@ -90,7 +90,7 @@ toc: true
 
 **위험도 범위**: 0-10 (0=없음, 10=치명적)
 
-### AI Security Tool Scorecard (2025 기준)
+### AI 보안 도구 평가표 (AI Security Tool Scorecard, 2025 기준)
 
 | 도구 | 보안 강도 | 개발 생산성 | 비용 효율성 | AWS 통합 | 총점 |
 |------|----------|-------------|------------|----------|------|
@@ -167,7 +167,7 @@ Amazon Q Developer와 GitHub Advanced Security 도입은 조직의 DevSecOps 성
 - 금융권: Level 3.2 → 4.1 (0.9 Level 향상)
 - 스타트업: Level 1.8 → 3.5 (1.7 Level 향상)
 
-### 1.3 Architecture Overview
+### 1.3 아키텍처 개요 (Architecture Overview)
 
 ## 2. Amazon Q Developer 심화 분석
 

@@ -330,7 +330,7 @@ AWSCloudTrail
 | project TimeGenerated, UserIdentityPrincipalId, SourceIpAddress, Count, Severity
  -->
 
-## 5. Threat Hunting 쿼리
+## 5. 위협 헌팅 (Threat Hunting) 쿼리
 
 ### 위협 헌팅 시나리오 1: Shadow Admin 탐지
 

@@ -150,7 +150,7 @@ toc: true
 
 2025년 보안 트렌드는 AI와 보안의 공존이 핵심입니다.
 
-## 3. Technology Trend Analysis: AI와 보안의 융합
+## 3. 기술 트렌드 분석: AI와 보안의 융합
 
 ### 3.1 클라우드 보안 패러다임의 근본적 변화
 
@@ -535,5 +535,5 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
 
 **작성일**: 2025-12-17
 **최종 업데이트**: 2025-12-17
-**카테고리**: Cloud Security, DevSecOps, Conference Review
-**태그**: AWSKRUG, OWASP, Datadog, AI Security, Zero Trust, Post-quantum, Supply Chain Security
+**카테고리**: 클라우드 보안, DevSecOps, 컨퍼런스 회고
+**태그**: AWSKRUG, OWASP, Datadog, AI 보안, Zero Trust, Post-quantum, 공급망 보안
