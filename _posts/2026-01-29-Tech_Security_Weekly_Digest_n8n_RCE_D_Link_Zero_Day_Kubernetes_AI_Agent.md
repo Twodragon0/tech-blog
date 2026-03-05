@@ -301,7 +301,7 @@ Tigera CEO Ratan Tipirneni가 2026년 Kubernetes 보안 전망에서 **AI 에이
 | 분류 | 자료 | URL |
 |------|------|-----|
 | **n8n 취약점** | JFrog Security Research | [jfrog.com/blog](https://jfrog.com/blog/n8n-rce-cve-2026-1470/) |
-| **n8n 보안 권고** | n8n GitHub Security | [https://github.com/n8n-io/n8n) |
+| **n8n 보안 권고** | n8n GitHub Security | [n8n-io/n8n](https://github.com/n8n-io/n8n) |
 | **D-Link CVE** | NIST NVD | [nvd.nist.gov](https://nvd.nist.gov/vuln/detail/CVE-2026-0625) |
 | **D-Link 공지** | D-Link Support | [supportannouncement.us.dlink.com](https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10432) |
 | **Shadowserver** | D-Link 악용 탐지 | [shadowserver.org](https://www.shadowserver.org/) |

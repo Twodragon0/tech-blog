@@ -171,7 +171,10 @@ graph LR
 
 #### Sigma Rule
 
-> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions)를 참조하세요./security-pipeline.yml
+> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions)를 참조하세요.
+
+```yaml
+# .github/workflows/security-pipeline.yml
 name: Security Pipeline
 
 on:
@@ -214,7 +217,7 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           directory: ./terraform
-```markdown
+```
 
 ---
 
@@ -279,11 +282,11 @@ jobs:
 
 | 도구 | 용도 | 링크 |
 |------|------|------|
-| **Sigma Rules** | 범용 SIEM 탐지 룰 | [https://github.com/SigmaHQ/sigma) |
-| **Atomic Red Team** | 공격 시뮬레이션 | [https://github.com/redcanaryco/atomic-red-team) |
+| **Sigma Rules** | 범용 SIEM 탐지 룰 | [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) |
+| **Atomic Red Team** | 공격 시뮬레이션 | [redcanaryco/atomic-red-team](https://github.com/redcanaryco/atomic-red-team) |
 | **Sysmon** | Windows 이벤트 로깅 | [docs.microsoft.com/sysinternals/downloads/sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon) |
-| **Nuclei** | 빠른 취약점 스캐너 | [https://github.com/projectdiscovery/nuclei) |
-| **Trivy** | 컨테이너 보안 스캐너 | [https://github.com/aquasecurity/trivy) |
+| **Nuclei** | 빠른 취약점 스캐너 | [projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei) |
+| **Trivy** | 컨테이너 보안 스캐너 | [aquasecurity/trivy](https://github.com/aquasecurity/trivy) |
 
 ### 7.5 CTEM 프레임워크 및 Best Practices
 
@@ -298,8 +301,8 @@ jobs:
 
 | 리소스 | 설명 | 링크 |
 |--------|------|------|
-| **Grist-Core GitHub** | 공식 저장소 | [https://github.com/gristlabs/grist-core) |
-| **Grist Security Advisory** | 보안 권고사항 | [https://github.com/gristlabs/grist-core) |
+| **Grist-Core GitHub** | 공식 저장소 | [gristlabs/grist-core](https://github.com/gristlabs/grist-core) |
+| **Grist Security Advisory** | 보안 권고사항 | [gristlabs/grist-core](https://github.com/gristlabs/grist-core) |
 | **Docker Hub** | 공식 Docker 이미지 | [hub.docker.com/r/gristlabs/grist](https://hub.docker.com/r/gristlabs/grist) |
 
 ### 7.7 패치 및 업데이트
@@ -353,5 +356,3 @@ jobs:
 
 **작성자**: Twodragon
 **작성일**: 2026-01-28
-
-```

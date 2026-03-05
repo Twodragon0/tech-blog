@@ -83,28 +83,28 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | DPRK Operatives Impersonate Professionals on Linke... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Reynolds Ransomware Embeds BYOVD Driver to Disable... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | From Ransomware to Residency: Inside the Rise of t... | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | Fortinet Patches Critical SQLi Flaw Enabling Unaut... | 🔴 Critical |
-| 🔒 **Security** | The Hacker News | ZAST.AI Raises $6M Pre-A to Scale "Zero False Posi... | 🟠 High |
+| 🔒 **Security** | The Hacker News | 북한 연계 IT 요원, LinkedIn 전문가 사칭으로 기업 침투 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Reynolds 랜섬웨어, BYOVD 드라이버 내장으로 EDR 무력화 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | 랜섬웨어에서 장기 잠복으로: 디지털 기생 공격의 부상 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | Fortinet, 미인증 접근 허용 Critical SQLi 취약점 패치 (CVE-2026-21643) | 🔴 Critical |
+| 🔒 **Security** | The Hacker News | ZAST.AI, "제로 오탐" AI 보안 플랫폼으로 600만 달러 Pre-A 조달 | 🟠 High |
 
 ---
 
 ## 1. 보안 뉴스
 
-### 1.1 DPRK Operatives Impersonate Professionals on LinkedIn to Infiltrate Companies
+### 1.1 북한 연계 IT 요원, LinkedIn에서 전문가 사칭으로 기업 침투
 
 #### 개요
 
-The information technology (IT) workers associated with the Democratic People's Republic of Korea (DPRK) are now applying to remote positions using real LinkedIn accounts of individuals they're impersonating, marking a new escalation of the fraudulent scheme. "These profiles often have verified workplace emails and identity badges, which DPRK operatives hope will make their fraudulent
+북한(DPRK) 연계 IT 요원들이 실제 인물의 LinkedIn 계정을 도용해 원격 채용 공고에 지원하는 새로운 사기 수법이 포착되었습니다. 이들은 인증된 직장 이메일과 신원 배지를 갖춘 프로필을 활용해 채용 담당자의 검증을 우회하는 방식으로 공격을 고도화하고 있습니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/dprk-operatives-impersonate.html)
 
 #### 핵심 포인트
 
-- The information technology (IT) workers associated with the Democratic People's Republic of Korea (DPRK) are now applying to remote positions using real LinkedIn accounts of individuals they're impersonating, marking a new escalation of the fraudulent scheme
-- "These profiles often have verified workplace emails and identity badges, which DPRK operatives hope will make their fraudulent
+- 실존 인물의 LinkedIn 계정을 탈취·도용해 원격 근무 포지션에 직접 지원하는 방식으로 이전보다 탐지 회피가 어려워짐
+- 인증된 이메일·신원 배지를 갖춘 프로필로 채용 심사를 통과 후 내부 시스템 접근권 확보 시도
 
 
 #### 위협 분석
@@ -117,27 +117,26 @@ The information technology (IT) workers associated with the Democratic People's 
 
 #### 권장 조치
 
-- [ ] 영향받는 시스템/소프트웨어 인벤토리 확인
-- [ ] 벤더 패치 및 보안 권고 확인
-- [ ] SIEM/EDR 탐지 룰 업데이트 검토
-- [ ] 필요시 네트워크 격리 또는 임시 완화 조치 적용
-- [ ] 보안팀 내 공유 및 모니터링 강화
+- [ ] HR 및 채용팀에 LinkedIn 계정 도용 사칭 수법 공유 및 신원 검증 절차 강화
+- [ ] 원격 채용 후보자에 대해 화상 면접 필수화 및 공식 이메일 도메인 외 연락처 이중 확인
+- [ ] 신규 채용자 온보딩 시 최소 권한 원칙 적용 및 초기 접근 범위 제한
+- [ ] 내부 시스템에 대한 신규 계정 활동 모니터링 룰 SIEM에 추가
 
 
 ---
 
-### 1.2 Reynolds Ransomware Embeds BYOVD Driver to Disable EDR Security Tools
+### 1.2 Reynolds 랜섬웨어, BYOVD 드라이버 내장으로 EDR 무력화
 
 #### 개요
 
-Cybersecurity researchers have disclosed details of an emergent ransomware family dubbed Reynolds that comes embedded with a built-in bring your own vulnerable driver (BYOVD) component for defense evasion purposes within the ransomware payload itself. BYOVD refers to an adversarial technique that abuses legitimate but flawed driver software to escalate privileges and disable Endpoint Detection
+새로운 랜섬웨어 패밀리 "Reynolds"가 페이로드 자체에 BYOVD(Bring Your Own Vulnerable Driver) 컴포넌트를 내장해 배포 단계부터 EDR을 무력화하는 방식을 채택한 것으로 밝혀졌습니다. 취약한 정상 드라이버를 악용해 권한을 상승시키고 엔드포인트 탐지를 비활성화한 뒤 랜섬웨어를 실행합니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/reynolds-ransomware-embeds-byovd-driver.html)
 
 #### 핵심 포인트
 
-- Cybersecurity researchers have disclosed details of an emergent ransomware family dubbed Reynolds that comes embedded with a built-in bring your own vulnerable driver (BYOVD) component for defense evasion purposes within the ransomware payload itself
-- BYOVD refers to an adversarial technique that abuses legitimate but flawed driver software to escalate privileges and disable Endpoint Detection
+- BYOVD 컴포넌트가 랜섬웨어 페이로드에 통합되어 있어, EDR이 동작 중인 환경에서도 실행 초기에 보안 솔루션을 우회할 수 있음
+- 정상 드라이버 서명을 악용하므로 커널 수준의 드라이버 허용 목록(Block List) 관리와 취약 드라이버 차단 정책이 핵심 방어 수단
 
 
 #### 권장 조치
@@ -150,18 +149,18 @@ Cybersecurity researchers have disclosed details of an emergent ransomware famil
 
 ---
 
-### 1.3 From Ransomware to Residency: Inside the Rise of the Digital Parasite
+### 1.3 랜섬웨어에서 장기 잠복으로: 디지털 기생 공격의 부상
 
 #### 개요
 
-Are ransomware and encryption still the defining signals of modern cyberattacks, or has the industry been too fixated on noise while missing a more dangerous shift happening quietly all around them? According to Picus Labs’ new Red Report 2026, which analyzed over 1.1 million malicious files and mapped 15.5 million adversarial actions observed across 2025, attackers are no longer optimizing for
+Picus Labs의 Red Report 2026에 따르면, 2025년 한 해 동안 110만 개 이상의 악성 파일과 1,550만 건의 적대적 행동을 분석한 결과, 공격자들이 랜섬웨어와 암호화 방식에서 탈피해 탐지 없이 장기간 시스템에 잠복하는 "거주(residency)" 전략으로 전환하고 있는 추세가 확인되었습니다.
 
 > **출처**: [The Hacker News](https://thehackernews.com/2026/02/from-ransomware-to-residency-inside.html)
 
 #### 핵심 포인트
 
-- Are ransomware and encryption still the defining signals of modern cyberattacks, or has the industry been too fixated on noise while missing a more dangerous shift happening quietly all around them
-- According to Picus Labs’ new Red Report 2026, which analyzed over 1.1 million malicious files and mapped 15.5 million adversarial actions observed across 2025, attackers are no longer optimizing for
+- 공격자들이 즉각적인 수익화(랜섬웨어)보다 장기 잠복·데이터 수집에 집중하는 방향으로 전략 변화 중
+- Picus Labs Red Report 2026: 1.1M 악성 파일·15.5M 행동 분석 기반으로 "디지털 기생" 패턴이 주요 위협으로 부상
 
 
 #### 권장 조치
@@ -176,95 +175,57 @@ Are ransomware and encryption still the defining signals of modern cyberattacks,
 
 ## 2. AI/ML 뉴스
 
-### 2.1 9 fun questions to try asking Google Photos
+### 2.1 Google Photos "Ask Photos" 기능 활용 가이드
 
 #### 개요
 
-A collage of outdoor images, a blue icon that say "Ask Photos," and examples of Ask Photos prompts.
+Google Photos의 AI 기반 질의 기능 "Ask Photos"를 활용해 사진 컬렉션에서 정보를 검색하고 인사이트를 얻는 9가지 실용적인 질문 유형을 소개합니다.
 
 > **출처**: [Google AI Blog](https://blog.google/products-and-platforms/products/photos/ask-button-ask-photos-tips/)
 
 #### 핵심 포인트
 
-- A collage of outdoor images, a blue icon that say "Ask Photos," and examples of Ask Photos prompts
-
-
-#### AI/ML 보안 영향 분석
-
-- **모델 보안**: AI 모델 무결성 및 적대적 공격 대응 현황 점검
-- **데이터 보안**: 학습 데이터 및 추론 파이프라인 보안 검토 필요
-- **거버넌스**: AI 모델 배포 전 보안 평가 체크리스트 확인
-
-#### 실무 적용
-
-- AI/ML 파이프라인 보안 점검 항목 검토
-- 모델 입출력 검증 로직 추가 검토
-- AI 거버넌스 프레임워크 대비 현황 점검
+- 자연어로 사진 라이브러리를 검색·분석할 수 있는 생성형 AI 기능으로, 위치·날짜·인물 등 복합 조건 질의 지원
+- 개인 사진 데이터에 AI가 접근하는 방식이므로, 프라이버시 설정 및 데이터 처리 범위 확인 필요
 
 
 ---
 
-### 2.2 How Amazon uses Amazon Nova models to automate operational readiness testing for new fulfillment centers
+### 2.2 Amazon Nova로 물류 센터 운영 준비 자동 검증
 
 #### 개요
 
-In this post, we discuss how Amazon Nova in Amazon Bedrock can be used to implement an AI-powered image recognition solution that automates the detection and validation of module components, significantly reducing manual verification efforts and improving accuracy.
+Amazon이 신규 물류 센터 개소 시 Amazon Bedrock의 Nova 모델을 활용해 모듈 컴포넌트 탐지·검증을 자동화한 사례를 소개합니다. AI 기반 이미지 인식으로 수동 검증 작업 부담을 크게 줄이고 정확도를 향상시켰습니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/how-amazon-uses-amazon-nova-models-to-automate-operational-readiness-testing-for-new-fulfillment-centers/)
 
 #### 핵심 포인트
 
-- In this post, we discuss how Amazon Nova in Amazon Bedrock can be used to implement an AI-powered image recognition solution that automates the detection and validation of module components, significantly reducing manual verification efforts and improving accuracy
-
-
-#### AI/ML 보안 영향 분석
-
-- **모델 보안**: AI 모델 무결성 및 적대적 공격 대응 현황 점검
-- **데이터 보안**: 학습 데이터 및 추론 파이프라인 보안 검토 필요
-- **거버넌스**: AI 모델 배포 전 보안 평가 체크리스트 확인
-
-#### 실무 적용
-
-- AI/ML 파이프라인 보안 점검 항목 검토
-- 모델 입출력 검증 로직 추가 검토
-- AI 거버넌스 프레임워크 대비 현황 점검
+- Amazon Bedrock 기반 이미지 인식 AI로 물류 모듈 상태 자동 검증, 수동 점검 시간 대폭 단축
+- 운영 환경의 AI 검증 자동화는 검증 데이터 무결성 보장과 모델 드리프트 모니터링이 병행되어야 실효성 확보 가능
 
 
 ---
 
-### 2.3 Iberdrola enhances IT operations using Amazon Bedrock AgentCore
+### 2.3 Iberdrola, Amazon Bedrock AgentCore로 IT 운영 고도화
 
 #### 개요
 
-Iberdrola, one of the world’s largest utility companies, has embraced cutting-edge AI technology to revolutionize its IT operations in ServiceNow. Through its partnership with AWS, Iberdrola implemented different agentic architectures using Amazon Bedrock AgentCore, targeting three key areas: optimizing change request validation in the draft phase, enriching incident management with contextual intelligence, and simplifying change model selection using conversational AI. These innovations redu...
+세계 최대 전력 기업 중 하나인 Iberdrola가 AWS와의 협력으로 ServiceNow IT 운영에 Amazon Bedrock AgentCore 기반 에이전틱 아키텍처를 도입했습니다. 변경 요청 검증, 인시던트 관리 지능화, 변경 모델 선택 자동화 3개 영역에서 효율을 크게 높였습니다.
 
 > **출처**: [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/iberdrola-enhances-it-operations-using-amazon-bedrock-agentcore/)
 
 #### 핵심 포인트
 
-- Iberdrola, one of the world’s largest utility companies, has embraced cutting-edge AI technology to revolutionize its IT operations in ServiceNow
-- Through its partnership with AWS, Iberdrola implemented different agentic architectures using Amazon Bedrock AgentCore, targeting three key areas: optimizing change request validation in the draft phase, enriching incident management with contextual intelligence, and simplifying change model selection using conversational AI
-- These innovations redu
-
-
-#### AI/ML 보안 영향 분석
-
-- **모델 보안**: AI 모델 무결성 및 적대적 공격 대응 현황 점검
-- **데이터 보안**: 학습 데이터 및 추론 파이프라인 보안 검토 필요
-- **거버넌스**: AI 모델 배포 전 보안 평가 체크리스트 확인
-
-#### 실무 적용
-
-- AI/ML 파이프라인 보안 점검 항목 검토
-- 모델 입출력 검증 로직 추가 검토
-- AI 거버넌스 프레임워크 대비 현황 점검
+- 변경 요청 초안 단계 검증 자동화, 인시던트에 맥락 정보 자동 보강, 대화형 AI로 변경 모델 선택 지원 등 3가지 에이전틱 워크플로우 구현
+- 에너지 인프라 운영에 AI 에이전트 도입 시 장애 전파 방지를 위한 롤백 기준과 에이전트 행동 감사 로그 설계가 필수
 
 
 ---
 
 ## 3. 클라우드 & 인프라 뉴스
 
-### 3.1 Google Distributed Cloud brings public-cloud-like networking to air-gapped environments
+### 3.1 Google Distributed Cloud, air-gapped 환경에 퍼블릭 클라우드급 네트워킹 제공
 
 #### 개요
 
@@ -287,7 +248,7 @@ Organizations in highly regulated industries often struggle to balance the rigid
 
 ---
 
-### 3.2 Gemini Enterprise Agent Ready (GEAR) program now available, a new path to building AI agents at scale
+### 3.2 Gemini Enterprise Agent Ready(GEAR) 프로그램 공개 — 대규모 AI 에이전트 구축 경로 제시
 
 #### 개요
 
@@ -311,7 +272,7 @@ Today’s reality is agentic – software that can reason, plan, and act on your
 
 ---
 
-### 3.3 Beyond the Battlefield: Threats to the Defense Industrial Base
+### 3.3 전장을 넘어: 방위산업 기반(DIB)을 겨냥한 사이버 위협
 
 #### 개요
 
@@ -337,7 +298,7 @@ Introduction In modern warfare, the front lines are no longer confined to the ba
 
 ## 4. DevOps & 개발 뉴스
 
-### 4.1 Hardened Images Are Free. Now What?
+### 4.1 Docker Hardened Images 무료 제공 — 이제 무엇을 해야 하나?
 
 #### 개요
 
@@ -362,19 +323,18 @@ Docker Hardened Images are now free, covering Alpine, Debian, and over 1,000 ima
 
 ---
 
-### 4.2 .NET 11 Preview 1 is now available!
+### 4.2 .NET 11 Preview 1 출시
 
 #### 개요
 
-Find out about the new features in .NET 11 Preview 1 across the .NET runtime, SDK, libraries, ASP.NET Core, Blazor, C#, .NET MAUI, and more! The post .NET 11 Preview 1 is now available! appeared first on .NET Blog .
+.NET 11 Preview 1이 공개되었습니다. .NET 런타임, SDK, 라이브러리, ASP.NET Core, Blazor, C#, .NET MAUI 전반에 걸친 신규 기능이 포함되었으며, 정식 출시 전 얼리 어답터 피드백 수집 단계입니다.
 
 > **출처**: [Microsoft .NET Blog](https://devblogs.microsoft.com/dotnet/dotnet-11-preview-1/)
 
 #### 핵심 포인트
 
-- Find out about the new features in .NET 11 Preview 1 across the .NET runtime, SDK, libraries, ASP.NET Core, Blazor, C#, .NET MAUI, and more
-- The post .NET 11 Preview 1 is now available
-- appeared first on .NET Blog
+- .NET 11 Preview 1: 런타임 성능 개선, ASP.NET Core 인증 미들웨어 변경, C# 신규 언어 기능 포함
+- Preview 단계이므로 프로덕션 적용 전 Breaking Changes 목록을 공식 문서에서 확인하고 호환성 테스트 선행 필요
 
 
 #### 실무 적용 포인트
@@ -385,20 +345,20 @@ Find out about the new features in .NET 11 Preview 1 across the .NET runtime, SD
 
 ---
 
-### 4.3 .NET and .NET Framework February 2026 servicing releases updates
+### 4.3 .NET / .NET Framework 2026년 2월 서비스 업데이트
 
 > 🟡 **심각도**: Medium | **CVE**: CVE-2026-21218
 
 #### 개요
 
-A recap of the latest servicing updates for .NET and .NET Framework for February 2026. The post .NET and .NET Framework February 2026 servicing releases updates appeared first on .NET Blog .
+Microsoft가 2026년 2월 .NET 및 .NET Framework 최신 서비스 업데이트를 발표했습니다. CVE-2026-21218을 포함한 보안 패치와 안정성 수정 사항이 포함되어 있으며, 지원 중인 모든 .NET 버전에 대한 업데이트가 제공됩니다.
 
 > **출처**: [Microsoft .NET Blog](https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-february-2026-servicing-updates/)
 
 #### 핵심 포인트
 
-- A recap of the latest servicing updates for .NET and .NET Framework for February 2026
-- The post .NET and .NET Framework February 2026 servicing releases updates appeared first on .NET Blog
+- CVE-2026-21218 보안 패치 포함: .NET 및 .NET Framework 지원 버전 전체에 해당하므로 즉시 적용 검토 필요
+- .NET Framework 4.x 레거시 환경은 WSUS/SCCM 경로로 KB 번호를 확인해 배포 정책에 반영
 
 
 #### 실무 적용 포인트
@@ -411,34 +371,34 @@ A recap of the latest servicing updates for .NET and .NET Framework for February
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings
+### 5.1 Goldman Sachs, 비트코인 ETF 11억 달러 보유 공시
 
 #### 개요
 
-Bitcoin Magazine Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings Goldman Sachs revealed it holds $1.1 billion in Bitcoin ETFs, marking somewhat of a shift toward cryptocurrency exposure. This post Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings first appeared on Bitcoin Magazine and is written by Micah Zimmerman .
+Goldman Sachs가 SEC 공시를 통해 비트코인 ETF에 11억 달러 규모의 포지션을 보유하고 있음을 밝혔습니다. 전통 금융 대형 기관의 암호화폐 노출이 확대되는 추세를 보여주는 사례입니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/goldman-sachs-position-in-bitcoin)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings Goldman Sachs revealed it holds $1.1 billion in Bitcoin ETFs, marking somewhat of a shift toward cryptocurrency exposure
-- This post Goldman Sachs Discloses $1.1 Billion Position in Bitcoin ETF Holdings first appeared on Bitcoin Magazine and is written by Micah Zimmerman
+- Goldman Sachs가 비트코인 현물 ETF에 11억 달러 투자 공시, 기관 자금 유입 가속화 신호
+- 대형 기관의 ETF 보유는 암호화폐 시장 안정성에 긍정적 영향을 줄 수 있으나, 규제 변화에 따른 동반 매도 리스크도 동시에 증가
 
 
 ---
 
-### 5.2 FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration
+### 5.2 FTX 샘 뱅크먼-프리드, 재심 신청 — "바이든 행정부의 정치적 피해자" 주장
 
 #### 개요
 
-Bitcoin Magazine FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration Convicted FTX fraudster Sam Bankman-Fried reportedly filed for a new trial today. This post FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration first appeared on Bitcoin Magazine and is written by Micah Zimmerman .
+FTX 사기 혐의로 유죄 판결을 받은 샘 뱅크먼-프리드가 재심을 신청했습니다. 그는 자신의 기소가 바이든 행정부의 정치적 동기에 의한 것이라고 주장하며 판결 취소를 시도하고 있습니다.
 
 > **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/ftx-sam-bankman-fried-wants-a-new-trial)
 
 #### 핵심 포인트
 
-- Bitcoin Magazine FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration Convicted FTX fraudster Sam Bankman-Fried reportedly filed for a new trial today
-- This post FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Political Victim of the Biden Administration first appeared on Bitcoin Magazine and is written by Micah Zimmerman
+- 뱅크먼-프리드의 재심 신청은 암호화폐 업계의 규제 집행 투명성과 정치적 독립성 문제를 다시 수면 위로 올림
+- FTX 사태는 중앙화 거래소의 자산 분리 의무와 감사 체계 부재가 핵심 원인이었으며, 업계 전반의 규제 강화 논의에 영향 지속
 
 
 ---
@@ -472,12 +432,12 @@ Bitcoin Magazine FTX’s Sam Bankman-Fried Wants a New Trial, Claims He Was a Po
 
 ### P0 (즉시)
 
-- [ ] **Fortinet Patches Critical SQLi Flaw Enabling Unauthenticated** (CVE-2026-21643) 관련 긴급 패치 및 영향도 확인
+- [ ] **Fortinet CVE-2026-21643** (Critical SQLi — 미인증 접근 허용): 영향받는 FortiOS/FortiProxy 버전 인벤토리 확인 후 긴급 패치 적용 또는 임시 완화 조치(WAF 룰, 관리 인터페이스 접근 제한) 시행
 
 ### P1 (7일 내)
 
-- [ ] **ZAST.AI Raises $6M Pre-A to Scale "Zero False Positive" AI-P** 관련 보안 검토 및 모니터링
-- [ ] **Google Distributed Cloud brings public-cloud-like networking** 관련 보안 검토 및 모니터링
+- [ ] **ZAST.AI "Zero False Positive" AI 보안 플랫폼**: 기존 SAST/DAST 도구와의 중복·연동 가능성 검토 및 POC 계획 수립
+- [ ] **Google Distributed Cloud GDC air-gapped 1.15 신규 네트워킹 기능**: 적용 예정 환경의 IPAM 충돌 여부 사전 점검 및 air-gapped 경계 재검토
 
 ### P2 (30일 내)
 

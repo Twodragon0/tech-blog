@@ -249,10 +249,10 @@ Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters**
 
 | 자료명 | 발행기관 | URL |
 |--------|----------|-----|
-| **Sigma Rule Repository** | SigmaHQ | [https://github.com/SigmaHQ/sigma) |
+| **Sigma Rule Repository** | SigmaHQ | [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) |
 | **Splunk Security Content** | Splunk | [https://research.splunk.com/](https://research.splunk.com/) |
-| **Azure Sentinel Detection Rules** | Microsoft | [https://github.com/Azure/Azure-Sentinel) |
-| **Elastic Detection Rules** | Elastic | [https://github.com/elastic/detection-rules) |
+| **Azure Sentinel Detection Rules** | Microsoft | [Azure/Azure-Sentinel](https://github.com/Azure/Azure-Sentinel) |
+| **Elastic Detection Rules** | Elastic | [elastic/detection-rules](https://github.com/elastic/detection-rules) |
 
 ### 8.7 클라우드 및 SaaS 보안
 
@@ -285,9 +285,9 @@ Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters**
 
 | 자료명 | 유형 | URL |
 |--------|------|-----|
-| **EvilGinx2 Documentation** | Phishing Framework | [https://github.com/kgretzky/evilginx2) |
-| **Modlishka Reverse Proxy** | Security Tool | [https://github.com/drk1wi/Modlishka) |
-| **Chrome Extension Source Viewer** | Analysis Tool | [https://github.com/Rob--W/crxviewer) |
+| **EvilGinx2 Documentation** | Phishing Framework | [kgretzky/evilginx2](https://github.com/kgretzky/evilginx2) |
+| **Modlishka Reverse Proxy** | Security Tool | [drk1wi/Modlishka](https://github.com/drk1wi/Modlishka) |
+| **Chrome Extension Source Viewer** | Analysis Tool | [Rob--W/crxviewer](https://github.com/Rob--W/crxviewer) |
 | **ICS Security Training** | SANS ICS410 | [https://www.sans.org/cyber-security-courses/ics-scada-security-essentials/](https://www.sans.org/cyber-security-courses/ics-scada-security-essentials/) |
 
 ---
