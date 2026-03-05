@@ -1,138 +1,7 @@
 {
-  "collected_at": "2026-03-05T03:31:02.578615+00:00",
-  "total_items": 159,
+  "collected_at": "2026-03-05T01:24:03.136298+00:00",
+  "total_items": 201,
   "items": [
-    {
-      "id": "3b3bf522e450",
-      "title": "Big Tech signs Trump pledge to cover their own AI energy costs",
-      "url": "https://cointelegraph.com/news/big-tech-signs-trump-pledge-to-cover-their-own-ai-energy-costs?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-05T03:20:24+00:00",
-      "summary": "US President Donald Trump says AI data centers “need some PR help,” promising that tech giants will pay for their own power to run the energy-intensive projects.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Jesse Coghlan",
-      "priority": 2
-    },
-    {
-      "id": "7d7b1ef64ae1",
-      "title": "Zerohash joins surging list of crypto firms vying for a bank charter",
-      "url": "https://cointelegraph.com/news/zerohash-applies-us-national-bank-charter?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-05T03:15:56+00:00",
-      "summary": "Several crypto companies have secured OCC conditional approval for a banking charter since the GENIUS Act was passed in July, including Circle, Ripple, Bridge and Stripe.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Brayden Lindrea",
-      "priority": 2
-    },
-    {
-      "id": "8c79a748fde8",
-      "title": "US tech firms pledge at White House to bear costs of energy for datacenters",
-      "url": "https://www.theguardian.com/us-news/2026/mar/04/us-tech-companies-energy-cost-pledge-white-house",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-05T02:00:07+00:00",
-      "summary": "Article URL: https://www.theguardian.com/us-news/2026/mar/04/us-tech-companies-energy-cost-pledge-white-house Comments URL: https://news.ycombinator.com/item?id=47256545 Points: 26 # Comments: 19",
-      "content": "",
-      "tags": [],
-      "author": "geox",
-      "priority": 2
-    },
-    {
-      "id": "6788cb066c29",
-      "title": "Star Trek’s Captain Kirk shows off X Money as limited beta goes live",
-      "url": "https://cointelegraph.com/news/elon-musk-taps-captain-kirk-for-x-money?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "source": "cointelegraph",
-      "source_name": "Cointelegraph",
-      "category": "blockchain",
-      "language": "en",
-      "published": "2026-03-05T01:51:45+00:00",
-      "summary": "Screenshots shared by movie star William Shatner offered some hints into how Elon Musk's X Money would work.",
-      "content": "",
-      "tags": [
-        "Latest News"
-      ],
-      "author": "Cointelegraph by Brayden Lindrea",
-      "priority": 2
-    },
-    {
-      "id": "4277bfd6958d",
-      "title": "Chaos and Dystopian news for the dead internet survivors",
-      "url": "https://www.fubardaily.com",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-05T01:50:51+00:00",
-      "summary": "Article URL: https://www.fubardaily.com Comments URL: https://news.ycombinator.com/item?id=47256478 Points: 34 # Comments: 14",
-      "content": "",
-      "tags": [],
-      "author": "anonnona8878",
-      "priority": 2
-    },
-    {
-      "id": "2a8b7f9600a9",
-      "title": "Interview: it’s all solar, all the time with Emily from EnergySage",
-      "url": "https://electrek.co/2026/03/04/interview-its-all-solar-all-the-time-with-emily-from-energysage/",
-      "source": "electrek",
-      "source_name": "Electrek",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-05T01:29:51+00:00",
-      "summary": "On today’s solar-powered episode of Quick Charge , we’ve got EnergySage director of insights Emily Walker with a look inside the company’s 22nd industry report, this time featuring home solar, EV charging, and whole home electrification. more…",
-      "content": "",
-      "tags": [
-        "News",
-        "home battery",
-        "home solar",
-        "Tesla"
-      ],
-      "author": "Jo Borrás",
-      "priority": 2
-    },
-    {
-      "id": "dbd1981d3900",
-      "title": "What's Driving Rising Business Costs?",
-      "url": "https://libertystreeteconomics.newyorkfed.org/2026/03/whats-driving-rising-business-costs/",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-05T00:54:31+00:00",
-      "summary": "Article URL: https://libertystreeteconomics.newyorkfed.org/2026/03/whats-driving-rising-business-costs/ Comments URL: https://news.ycombinator.com/item?id=47256105 Points: 19 # Comments: 24",
-      "content": "",
-      "tags": [],
-      "author": "jnord",
-      "priority": 2
-    },
-    {
-      "id": "376c7f20c8d0",
-      "title": "Google Workspace CLI",
-      "url": "https://github.com/googleworkspace/cli",
-      "source": "hackernews",
-      "source_name": "Hacker News",
-      "category": "tech",
-      "language": "en",
-      "published": "2026-03-05T00:22:09+00:00",
-      "summary": "Article URL: https://github.com/googleworkspace/cli Comments URL: https://news.ycombinator.com/item?id=47255881 Points: 177 # Comments: 66",
-      "content": "",
-      "tags": [],
-      "author": "gonzalovargas",
-      "priority": 2
-    },
     {
       "id": "a7f017f6edca",
       "title": "Dario Amodei calls OpenAI’s messaging around military deal ‘straight up lies’",
@@ -142,10 +11,25 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T23:51:10+00:00",
-      "summary": "Article URL: https://techcrunch.com/2026/03/04/anthropic-ceo-dario-amodei-calls-openais-messaging-around-military-deal-straight-up-lies-report-says/ Comments URL: https://news.ycombinator.com/item?id=47255662 Points: 281 # Comments: 122",
+      "summary": "Article URL: https://techcrunch.com/2026/03/04/anthropic-ceo-dario-amodei-calls-openais-messaging-around-military-deal-straight-up-lies-report-says/ Comments URL: https://news.ycombinator.com/item?id=47255662 Points: 108 # Comments: 26",
       "content": "",
       "tags": [],
       "author": "SilverElfin",
+      "priority": 2
+    },
+    {
+      "id": "129bfd37787c",
+      "title": "Extending single-minus amplitudes to gravitons",
+      "url": "https://openai.com/index/extending-single-minus-amplitudes-to-gravitons/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-04T23:41:25+00:00",
+      "summary": "Article URL: https://openai.com/index/extending-single-minus-amplitudes-to-gravitons/ Comments URL: https://news.ycombinator.com/item?id=47255564 Points: 8 # Comments: 2",
+      "content": "",
+      "tags": [],
+      "author": "telotortium",
       "priority": 2
     },
     {
@@ -163,6 +47,21 @@
         "News"
       ],
       "author": "Michelle Lewis",
+      "priority": 2
+    },
+    {
+      "id": "5a44315ffab0",
+      "title": "Depleted weapons stockpiles could affect the Iran conflict",
+      "url": "https://www.bbc.com/news/articles/cdxzzqe82d2o",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-04T23:11:32+00:00",
+      "summary": "Article URL: https://www.bbc.com/news/articles/cdxzzqe82d2o Comments URL: https://news.ycombinator.com/item?id=47255310 Points: 6 # Comments: 1",
+      "content": "",
+      "tags": [],
+      "author": "tartoran",
       "priority": 2
     },
     {
@@ -193,7 +92,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T21:56:20+00:00",
-      "summary": "Article URL: https://www.nrc.gov/sites/default/files/cdn/doc-collection-news/2026/26-028.pdf Comments URL: https://news.ycombinator.com/item?id=47254516 Points: 59 # Comments: 28",
+      "summary": "Article URL: https://www.nrc.gov/sites/default/files/cdn/doc-collection-news/2026/26-028.pdf Comments URL: https://news.ycombinator.com/item?id=47254516 Points: 35 # Comments: 11",
       "content": "",
       "tags": [],
       "author": "Anon84",
@@ -276,7 +175,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T21:11:15+00:00",
-      "summary": "Article URL: https://www.press.bmwgroup.com/global/article/detail/T0455864EN/bmw-group-to-deploy-humanoid-robots-in-production-in-germany-for-the-first-time?language=en Comments URL: https://news.ycombinator.com/item?id=47253892 Points: 91 # Comments: 74",
+      "summary": "Article URL: https://www.press.bmwgroup.com/global/article/detail/T0455864EN/bmw-group-to-deploy-humanoid-robots-in-production-in-germany-for-the-first-time?language=en Comments URL: https://news.ycombinator.com/item?id=47253892 Points: 68 # Comments: 58",
       "content": "",
       "tags": [],
       "author": "JeanKage",
@@ -353,6 +252,21 @@
       "priority": 2
     },
     {
+      "id": "46d2496c9bf7",
+      "title": "Does that use a lot of energy?",
+      "url": "https://hannahritchie.github.io/energy-use-comparisons/",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-04T20:30:16+00:00",
+      "summary": "Article URL: https://hannahritchie.github.io/energy-use-comparisons/ Comments URL: https://news.ycombinator.com/item?id=47253364 Points: 181 # Comments: 154",
+      "content": "",
+      "tags": [],
+      "author": "speckx",
+      "priority": 2
+    },
+    {
       "id": "004fd870b7a3",
       "title": "The View from RSS",
       "url": "https://www.carolinecrampton.com/the-view-from-rss/",
@@ -361,7 +275,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T20:19:43+00:00",
-      "summary": "Article URL: https://www.carolinecrampton.com/the-view-from-rss/ Comments URL: https://news.ycombinator.com/item?id=47253221 Points: 81 # Comments: 22",
+      "summary": "Article URL: https://www.carolinecrampton.com/the-view-from-rss/ Comments URL: https://news.ycombinator.com/item?id=47253221 Points: 69 # Comments: 18",
       "content": "",
       "tags": [],
       "author": "Curiositry",
@@ -393,7 +307,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T20:16:03+00:00",
-      "summary": "Article URL: https://bill.newgrounds.com/news/post/1607118 Comments URL: https://news.ycombinator.com/item?id=47253177 Points: 367 # Comments: 98",
+      "summary": "Article URL: https://bill.newgrounds.com/news/post/1607118 Comments URL: https://news.ycombinator.com/item?id=47253177 Points: 282 # Comments: 71",
       "content": "",
       "tags": [],
       "author": "TechPlasma",
@@ -408,7 +322,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T20:15:06+00:00",
-      "summary": "Article URL: https://retrocomputing.stackexchange.com/questions/32511/was-windows-1-0s-lack-of-overlapping-windows-a-legal-or-a-technical-matter Comments URL: https://news.ycombinator.com/item?id=47253160 Points: 60 # Comments: 38",
+      "summary": "Article URL: https://retrocomputing.stackexchange.com/questions/32511/was-windows-1-0s-lack-of-overlapping-windows-a-legal-or-a-technical-matter Comments URL: https://news.ycombinator.com/item?id=47253160 Points: 45 # Comments: 29",
       "content": "",
       "tags": [],
       "author": "SeenNotHeard",
@@ -529,7 +443,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T18:50:45+00:00",
-      "summary": "Article URL: https://deflock.org/map#map=5/37.125286/-96.284180 Comments URL: https://news.ycombinator.com/item?id=47252049 Points: 523 # Comments: 196",
+      "summary": "Article URL: https://deflock.org/map#map=5/37.125286/-96.284180 Comments URL: https://news.ycombinator.com/item?id=47252049 Points: 498 # Comments: 188",
       "content": "",
       "tags": [],
       "author": "anjel",
@@ -544,10 +458,25 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T18:46:21+00:00",
-      "summary": "Article URL: https://cubiclenate.com/2026/03/04/data-has-weight-but-only-on-ssds-blathering/ Comments URL: https://news.ycombinator.com/item?id=47251987 Points: 73 # Comments: 58",
+      "summary": "Article URL: https://cubiclenate.com/2026/03/04/data-has-weight-but-only-on-ssds-blathering/ Comments URL: https://news.ycombinator.com/item?id=47251987 Points: 63 # Comments: 40",
       "content": "",
       "tags": [],
       "author": "LorenDB",
+      "priority": 2
+    },
+    {
+      "id": "6e39e02a16f8",
+      "title": "Faster C software with Dynamic Feature Detection",
+      "url": "https://gist.github.com/jjl/d998164191af59a594500687a679b98d",
+      "source": "hackernews",
+      "source_name": "Hacker News",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-04T18:33:38+00:00",
+      "summary": "Article URL: https://gist.github.com/jjl/d998164191af59a594500687a679b98d Comments URL: https://news.ycombinator.com/item?id=47251787 Points: 55 # Comments: 2",
+      "content": "",
+      "tags": [],
+      "author": "todsacerdoti",
       "priority": 2
     },
     {
@@ -576,7 +505,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T18:12:39+00:00",
-      "summary": "Article URL: https://joshua.hu/firefox-making-right-click-not-suck Comments URL: https://news.ycombinator.com/item?id=47251480 Points: 275 # Comments: 189",
+      "summary": "Article URL: https://joshua.hu/firefox-making-right-click-not-suck Comments URL: https://news.ycombinator.com/item?id=47251480 Points: 256 # Comments: 174",
       "content": "",
       "tags": [],
       "author": "mmsc",
@@ -591,7 +520,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T17:56:04+00:00",
-      "summary": "Article URL: https://qlabs.sh/slowrun Comments URL: https://news.ycombinator.com/item?id=47251259 Points: 130 # Comments: 26",
+      "summary": "Article URL: https://qlabs.sh/slowrun Comments URL: https://news.ycombinator.com/item?id=47251259 Points: 119 # Comments: 23",
       "content": "",
       "tags": [],
       "author": "sdpmas",
@@ -672,7 +601,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T17:08:46+00:00",
-      "summary": "Article URL: https://en.wikipedia.org/wiki/Daemon_(novel) Comments URL: https://news.ycombinator.com/item?id=47250573 Points: 26 # Comments: 5",
+      "summary": "Article URL: https://en.wikipedia.org/wiki/Daemon_(novel) Comments URL: https://news.ycombinator.com/item?id=47250573 Points: 10 # Comments: 3",
       "content": "",
       "tags": [],
       "author": "solomonb",
@@ -759,7 +688,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T16:20:36+00:00",
-      "summary": "Article URL: https://www.pnas.org/doi/10.1073/pnas.2520385123 Comments URL: https://news.ycombinator.com/item?id=47249744 Points: 70 # Comments: 33",
+      "summary": "Article URL: https://www.pnas.org/doi/10.1073/pnas.2520385123 Comments URL: https://news.ycombinator.com/item?id=47249744 Points: 58 # Comments: 21",
       "content": "",
       "tags": [],
       "author": "bikenaga",
@@ -774,7 +703,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T15:55:34+00:00",
-      "summary": "Article URL: https://simonwillison.net/2026/Mar/4/qwen/ Comments URL: https://news.ycombinator.com/item?id=47249343 Points: 552 # Comments: 256",
+      "summary": "Article URL: https://simonwillison.net/2026/Mar/4/qwen/ Comments URL: https://news.ycombinator.com/item?id=47249343 Points: 505 # Comments: 238",
       "content": "",
       "tags": [],
       "author": "simonw",
@@ -861,7 +790,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T14:52:46+00:00",
-      "summary": "Article URL: https://jsomers.net/blog/it-turns-out Comments URL: https://news.ycombinator.com/item?id=47248319 Points: 253 # Comments: 78",
+      "summary": "Article URL: https://jsomers.net/blog/it-turns-out Comments URL: https://news.ycombinator.com/item?id=47248319 Points: 236 # Comments: 75",
       "content": "",
       "tags": [],
       "author": "Munksgaard",
@@ -893,7 +822,7 @@
       "category": "tech",
       "language": "en",
       "published": "2026-03-04T14:16:41+00:00",
-      "summary": "https://www.apple.com/macbook-neo/ Comments URL: https://news.ycombinator.com/item?id=47247645 Points: 1607 # Comments: 1928",
+      "summary": "https://www.apple.com/macbook-neo/ Comments URL: https://news.ycombinator.com/item?id=47247645 Points: 1510 # Comments: 1841",
       "content": "",
       "tags": [],
       "author": "dm",
@@ -918,6 +847,57 @@
         "SOL"
       ],
       "author": "Cointelegraph by Cointelegraph",
+      "priority": 2
+    },
+    {
+      "id": "47c0b41740d7",
+      "title": "UK House of Lords presses Coinbase exec on stablecoins, KYC and bank run fears",
+      "url": "https://cointelegraph.com/news/uk-lords-grill-coinbase-over-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-04T14:04:44+00:00",
+      "summary": "Lawmakers asked if stablecoins could drain bank deposits and threaten financial stability, while Coinbase and Innovate Finance warned that strict regulation risks driving innovation offshore.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Christina Comben",
+      "priority": 2
+    },
+    {
+      "id": "d5091390fda1",
+      "title": "South Korea moves to cap crypto exchange shareholder stakes at 20%: Report",
+      "url": "https://cointelegraph.com/news/south-korea-crypto-exchange-shareholder-cap-20-percent?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-04T13:01:24+00:00",
+      "summary": "South Korea’s government and ruling party reportedly agreed on a proposal to cap major shareholder stakes in crypto exchanges at 20%, with limited exemptions for new operators.",
+      "content": "",
+      "tags": [
+        "Latest News"
+      ],
+      "author": "Cointelegraph by Amin Haqshanas",
+      "priority": 2
+    },
+    {
+      "id": "9054924fad88",
+      "title": "XRP price breakout targets $1.95 amid five-day ETF inflow streak",
+      "url": "https://cointelegraph.com/news/xrp-price-breakout-targets-1-95-five-day-etf-inflow-streak?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "source": "cointelegraph",
+      "source_name": "Cointelegraph",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-04T12:55:49+00:00",
+      "summary": "XRP analysts highlighted the potential for a rebound to $1.95 as the price broke above a symmetrical triangle amid persistent institutional demand.",
+      "content": "",
+      "tags": [
+        "Market Analysis"
+      ],
+      "author": "Cointelegraph by Nancy Lubale",
       "priority": 2
     },
     {
@@ -1046,34 +1026,281 @@
       "priority": 2
     },
     {
-      "id": "a14643fa1ef7",
-      "title": "새로운 Flash를 구축하기",
-      "url": "https://news.hada.io/topic?id=27210",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
+      "id": "be83c6d9a8f9",
+      "title": "Elon’s dirty deals, Tesla’s credit losses, and electric semi trucks save BIG money",
+      "url": "https://electrek.co/2026/03/03/elons-dirty-deals-teslas-credit-losses-and-electric-semi-trucks-save-big-money/",
+      "source": "electrek",
+      "source_name": "Electrek",
       "category": "tech",
-      "language": "ko",
-      "published": "2026-03-05T11:21:51+09:00",
-      "summary": "C# , Avalonia , SkiaSharp 로 개발된 차세대 2D 애니메이션 저작 도구 로, Flash의 기능을 현대적으로 재구현 Linux, Mac, PC 에서 모두 동작하며, 타임라인·벡터 드로잉·심볼·트위닝·스크립팅",
-      "content": "C# , Avalonia , SkiaSharp 로 개발된 차세대 2D 애니메이션 저작 도구 로, Flash의 기능을 현대적으로 재구현 Linux, Mac, PC 에서 모두 동작하며, 타임라인·벡터 드로잉·심볼·트위닝·스크립팅",
-      "tags": [],
-      "author": "xguru",
-      "priority": 1
+      "language": "en",
+      "published": "2026-03-04T00:47:49+00:00",
+      "summary": "On today’s disturbingly dirty episode of Quick Charge , Elon Musk is undoing nearly two decades of decarbonization by pumping out massive amounts of pollution to keep his xAI and Grok slop-machines rolling – and hurting some of America’s most vulnerable communities at the same time. more…",
+      "content": "",
+      "tags": [
+        "News",
+        "electric trucks",
+        "emissions",
+        "heavy equipment",
+        "Tesla"
+      ],
+      "author": "Jo Borrás",
+      "priority": 2
     },
     {
-      "id": "1df127ff446e",
-      "title": "Google Workspace CLI — Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin 등을 위한 통합 명령줄 도구",
-      "url": "https://news.hada.io/topic?id=27209",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
+      "id": "ce0eb3cff4bd",
+      "title": "Lithium shortages could hit by 2028 as EV demand surges",
+      "url": "https://electrek.co/2026/03/03/lithium-shortages-could-hit-by-2028-as-ev-demand-surges/",
+      "source": "electrek",
+      "source_name": "Electrek",
       "category": "tech",
-      "language": "ko",
-      "published": "2026-03-05T11:20:33+09:00",
-      "summary": "Google Workspace API 전체를 단일 CLI로 제어 할 수 있는 도구로, Drive·Gmail·Calendar·Sheets·Docs·Chat·Admin 등을 지원 Google Discovery Service 를 기반으로 런타임 시 명령 구성을 동적으로 생성해, 새로운 API가 추가되면 자동 반영 AI...",
-      "content": "Google Workspace API 전체를 단일 CLI로 제어 할 수 있는 도구로, Drive·Gmail·Calendar·Sheets·Docs·Chat·Admin 등을 지원 Google Discovery Service 를 기반으로 런타임 시 명령 구성을 동적으로 생성해, 새로운 API가 추가되면 자동 반영 AI...",
+      "language": "en",
+      "published": "2026-03-04T00:32:29+00:00",
+      "summary": "Global lithium demand could top 13 million tonnes by 2050 if the world moves fast on clean energy, according to Wood Mackenzie’s latest Energy Transition Outlook for Lithium. The warning is blunt: Without major new investment, lithium shortages could start as early as 2028. more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Michelle Lewis",
+      "priority": 2
+    },
+    {
+      "id": "2530090207d0",
+      "title": "Tracing Discord's Elixir Systems (Without Melting Everything)",
+      "url": "https://discord.com/blog/tracing-discords-elixir-systems-without-melting-everything",
+      "source": "discord",
+      "source_name": "Discord Blog",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-04T00:00:00+00:00",
+      "summary": "Join Senior Software Engineer Nick Krichevsky as he explains how Discord added distributed tracing to Elixir's message passing and optimized it to handle millions of concurrent users.",
+      "content": "",
       "tags": [],
-      "author": "xguru",
-      "priority": 1
+      "author": "",
+      "priority": 2
+    },
+    {
+      "id": "e5496a847813",
+      "title": "Report shows progress towards even cleaner EV supply chains, Tesla leads",
+      "url": "https://electrek.co/2026/03/03/report-shows-progress-towards-even-cleaner-ev-supply-chains-tesla-leads/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-03T23:00:00+00:00",
+      "summary": "A new report produced by a coalition of environmental and social advocacy groups details forward progress being made across the industry towards more sustainable supply chains, with Tesla leading the pack and Chinese brands standing out as making the quickest progress in the last year. more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Jameson Dow",
+      "priority": 2
+    },
+    {
+      "id": "29559b33f7c4",
+      "title": "Costco rolls out a stackable discount on Polestar, Chevy EV models",
+      "url": "https://electrek.co/2026/03/03/costco-discount-on-polestar-chevy-ev-models/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-03T22:42:58+00:00",
+      "summary": "If you’ve been thinking about driving electric, Costco is back with another limited-time deal, and this time it’s on Polestar and Chevy EV models. more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Michelle Lewis",
+      "priority": 2
+    },
+    {
+      "id": "57121c690200",
+      "title": "Aptera (SEV) completes first Solar EV build off its validation assembly line",
+      "url": "https://electrek.co/2026/03/03/aptera-sev-completes-first-solar-ev-build-validation-assembly-line/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-03T22:16:31+00:00",
+      "summary": "Aptera Motors, “the little startup that could,” announced another important milestone today, completing the first example of its flagship solar EV on its validation assembly line in Southern California. You go, Aptera . more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Scooter Doll",
+      "priority": 2
+    },
+    {
+      "id": "8b72b7e34082",
+      "title": "The Defender Sport EV is almost here as an ‘affordable’ electric off-road SUV",
+      "url": "https://electrek.co/2026/03/03/defender-sport-ev-affordable-electric-off-road-suv/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-03T21:31:05+00:00",
+      "summary": "The Defender Sport EV is expected to debut by the end of 2026 as a smaller, more affordable sibling to the iconic off-road SUV. more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Peter Johnson",
+      "priority": 2
+    },
+    {
+      "id": "53249e28fde6",
+      "title": "Toyota’s luxury brand kills off its first electric SUV with a new EV launching in 2026",
+      "url": "https://electrek.co/2026/03/03/toyotas-luxury-brand-kills-off-first-electric-suv/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-03T20:07:29+00:00",
+      "summary": "Lexus has officially axed the UX 300e from its lineup, its first 100% electric vehicle. The RZ is now the only EV that Toyota’s luxury brand offers, but that will change soon. more…",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Peter Johnson",
+      "priority": 2
+    },
+    {
+      "id": "fbbbb2c781e1",
+      "title": "Data Strategy = AI Strategy Series: Transforming Developers into AI Architects with Google Cloud",
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/data-strategy-ai-strategy-series-transforming-developers-into-ai-architects-with-google-cloud/",
+      "source": "gcp",
+      "source_name": "Google Cloud Blog",
+      "category": "cloud",
+      "language": "en",
+      "published": "2026-03-03T19:00:00+00:00",
+      "summary": "Your agent is only as good as your data grounding. If your data is messy, your agent will be highly confident but possibly still hallucinating. In 2026, your Data Strategy and your AI Strategy are now the same thing. You cannot have one without the other. This series, \"Data Strategy = AI Strategy,\" focuses on the various aspects of this strategy and it can help you architect workflows that are more deterministic while still building autonomous agents.",
+      "content": "",
+      "tags": [
+        "Developers & Practitioners"
+      ],
+      "author": "Abirami Sukumaran",
+      "priority": 2
+    },
+    {
+      "id": "792e4e92c6cb",
+      "title": "First savings on Navee G5/G5 Max scooters from $500, Jackery Explorer 5000 Plus and HomePower 3600 Plus flash sale, Aventon, more",
+      "url": "https://electrek.co/2026/03/03/navee-g5-electric-scooter-from-500-jackery-power-station-flash-sale-aventon-more/",
+      "source": "electrek",
+      "source_name": "Electrek",
+      "category": "tech",
+      "language": "en",
+      "published": "2026-03-03T19:00:00+00:00",
+      "summary": "We’ve got a jam-packed Tuesday Green Deals for you this week, led by the first-ever discounts on the Navee G5 Electric Scooter and its longer-range G5 Max variant starting from $500 .",
+      "content": "",
+      "tags": [
+        "News"
+      ],
+      "author": "Reinette LeJeune",
+      "priority": 2
+    },
+    {
+      "id": "1d3a64f7b8a6",
+      "title": "PRX Part 3 — Training a Text-to-Image Model in 24h!",
+      "url": "https://huggingface.co/blog/Photoroom/prx-part3",
+      "source": "huggingface",
+      "source_name": "Hugging Face Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-03T16:50:49+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [],
+      "author": "",
+      "priority": 2
+    },
+    {
+      "id": "4a6e0ce4424f",
+      "title": "Coruna: The Mysterious Journey of a Powerful iOS Exploit Kit",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/coruna-powerful-ios-exploit-kit/",
+      "source": "gcp",
+      "source_name": "Google Cloud Blog",
+      "category": "cloud",
+      "language": "en",
+      "published": "2026-03-03T14:00:00+00:00",
+      "summary": "Introduction Google Threat Intelligence Group (GTIG) has identified a new and powerful exploit kit targeting Apple iPhone models running iOS version 13.0 (released in September 2019) up to version 17.2.1 (released in December 2023) . The exploit kit, named “Coruna” by its developers, contained five full iOS exploit chains and a total of 23 exploits.",
+      "content": "",
+      "tags": [
+        "Threat Intelligence"
+      ],
+      "author": "Google Threat Intelligence Group",
+      "priority": 2
+    },
+    {
+      "id": "394b0983fe18",
+      "title": "How to Get the Most Out of KubeCon + CloudNativeCon Europe 2026",
+      "url": "https://www.cncf.io/blog/2026/03/03/how-to-get-the-most-out-of-kubecon-cloudnativecon-europe-2026/",
+      "source": "cncf",
+      "source_name": "CNCF Blog",
+      "category": "devops",
+      "language": "en",
+      "published": "2026-03-03T12:00:00+00:00",
+      "summary": "KubeCon + CloudNativeCon Europe is almost here again, and if you’re heading to Amsterdam in March 2026, you’re probably feeling a mix of excitement and mild panic. Thousands of people. Hundreds of sessions. Endless hallway conversations,...",
+      "content": "KubeCon + CloudNativeCon Europe is almost here again, and if you’re heading to Amsterdam in March 2026, you’re probably feeling a mix of excitement and mild panic. Thousands of people. Hundreds of sessions. Endless hallway conversations, and never quite enough energy. I’ve attended KubeCon + CloudNativeCon a few times, and one thing hasn’t changed: the conference gives you exactly what you prepare for .",
+      "tags": [
+        "Blog"
+      ],
+      "author": "Maryam Tavakkoli, CNCF Ambassador",
+      "priority": 2
+    },
+    {
+      "id": "77126eea29dd",
+      "title": "Announcing the MCP Toolbox Java SDK",
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/announcing-the-mcp-toolbox-java-sdk/",
+      "source": "gcp",
+      "source_name": "Google Cloud Blog",
+      "category": "cloud",
+      "language": "en",
+      "published": "2026-03-03T09:29:00+00:00",
+      "summary": "Engineering teams are moving beyond simple chatbots to build agentic systems that interact directly with mission critical databases. However, building these enterprise agents often means hitting an integration wall of custom glue code, brittle APIs, and complex database logic. To replace these hardcoded bottlenecks with a secure, unified control plane, we are thrilled to announce the Java SDK for the Model Context Protocol (MCP) Toolbox for Databases .",
+      "content": "",
+      "tags": [
+        "Developers & Practitioners"
+      ],
+      "author": "Anubhav Dhawan",
+      "priority": 2
+    },
+    {
+      "id": "332145ad4fd5",
+      "title": "From network APIs to network AI agents — building the agentic future of connectivity with Nokia",
+      "url": "https://cloud.google.com/blog/topics/telecommunications/integrating-nokia-network-as-code-nac-platform/",
+      "source": "gcp",
+      "source_name": "Google Cloud Blog",
+      "category": "cloud",
+      "language": "en",
+      "published": "2026-03-03T08:00:00+00:00",
+      "summary": "The telecommunications industry is entering its most significant shift yet: the agentic era. We’re moving beyond siloed automation tools toward a fully agentic ecosystem that can automate entire workflows. At Mobile World Congress (MWC) Barcelona this week, we’re announcing the integration of Nokia’s Network as Code (NaC) platform with Google Cloud’s optimized agentic AI stack , to transform from network APIs into a fully agentic ecosystem.",
+      "content": "",
+      "tags": [
+        "Partners",
+        "Telecommunications"
+      ],
+      "author": "Mikko Jarva",
+      "priority": 2
+    },
+    {
+      "id": "de758a0df58e",
+      "title": "Optimizing Recommendation Systems with JDK’s Vector API",
+      "url": "https://netflixtechblog.com/optimizing-recommendation-systems-with-jdks-vector-api-30d2830401ec?source=rss----2615bd06b42e---4",
+      "source": "netflix_tech",
+      "source_name": "Netflix Tech Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-03T01:36:46+00:00",
+      "summary": "By Harshad Sane Ranker is one of the largest and most complex services at Netflix. Among many things, it powers the personalized rows you see on the Netflix homepage, and runs at an enormous scale.",
+      "content": "By Harshad Sane Ranker is one of the largest and most complex services at Netflix. Among many things, it powers the personalized rows you see on the Netflix homepage, and runs at an enormous scale.",
+      "tags": [
+        "netflix",
+        "machine-learning",
+        "performance",
+        "java",
+        "simd"
+      ],
+      "author": "Netflix Technology Blog",
+      "priority": 2
     },
     {
       "id": "3dda0893f19a",
@@ -1084,8 +1311,8 @@
       "category": "tech",
       "language": "ko",
       "published": "2026-03-05T09:54:35+09:00",
-      "summary": "Alibaba의 Qwen 팀 핵심 연구진이 대거 사임 하면서, 최근 공개된 Qwen 3.5 모델 시리즈 의 향후가 불투명해짐 팀 리더 Lin Junyang 이 사임을 발표했고, 이어 여러 핵심 인력들이 동반 퇴사 최근 출시된 Qwen 3.5 모델 패밀리",
-      "content": "Alibaba의 Qwen 팀 핵심 연구진이 대거 사임 하면서, 최근 공개된 Qwen 3.5 모델 시리즈 의 향후가 불투명해짐 팀 리더 Lin Junyang 이 사임을 발표했고, 이어 여러 핵심 인력들이 동반 퇴사 최근 출시된 Qwen 3.5 모델 패밀리",
+      "summary": "Alibaba의 Qwen 팀 핵심 연구진이 대거 사임 하면서, 최근 공개된 Qwen 3.5 모델 시리즈 의 향후가 불투명해짐 팀 리더 Lin Junyang 이 사임을 발표했고, 이어 여러 핵심 인력들이 동반 퇴사한 것으로 보도됨 Alibaba는 긴급 전사 ...",
+      "content": "Alibaba의 Qwen 팀 핵심 연구진이 대거 사임 하면서, 최근 공개된 Qwen 3.5 모델 시리즈 의 향후가 불투명해짐 팀 리더 Lin Junyang 이 사임을 발표했고, 이어 여러 핵심 인력들이 동반 퇴사한 것으로 보도됨 Alibaba는 긴급 전사 ...",
       "tags": [],
       "author": "neo",
       "priority": 1
@@ -1099,8 +1326,8 @@
       "category": "tech",
       "language": "ko",
       "published": "2026-03-05T09:51:35+09:00",
-      "summary": "Claude Code·Codex 같은 코딩 에이전트 시대의 개발 방식 을 정리한 가이드로, 에이전트와 협업하는 새로운 엔지니어링 패턴 제시 코드 작성 비용이 급격히 낮아진 환경에서 개발 습관과 워크플로를 어떻게 바꿔야 하는지 다양한 패턴으로 설명...",
-      "content": "Claude Code·Codex 같은 코딩 에이전트 시대의 개발 방식 을 정리한 가이드로, 에이전트와 협업하는 새로운 엔지니어링 패턴 제시 코드 작성 비용이 급격히 낮아진 환경에서 개발 습관과 워크플로를 어떻게 바꿔야 하는지 다양한 패턴으로 설명...",
+      "summary": "Claude Code , OpenAI Codex 와 같은 코딩 에이전트를 활용해 최적의 결과를 얻기 위한 패턴 모음집 코드 작성의 효율성을 높이는 원칙(Principles) , 테스트 및 품질 보증(Testing and QA) , 코드 이해...",
+      "content": "Claude Code , OpenAI Codex 와 같은 코딩 에이전트를 활용해 최적의 결과를 얻기 위한 패턴 모음집 코드 작성의 효율성을 높이는 원칙(Principles) , 테스트 및 품질 보증(Testing and QA) , 코드 이해...",
       "tags": [],
       "author": "neo",
       "priority": 1
@@ -1211,6 +1438,21 @@
       "priority": 1
     },
     {
+      "id": "997f0ae853a2",
+      "title": "Show GN: HN 토론을 아티클 옆에 붙여봤습니다",
+      "url": "https://news.hada.io/topic?id=27197",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-03-05T01:28:17+09:00",
+      "summary": "긱뉴스나 해커뉴스 보면 토론 내용이랑 본문이 다른 페이지로 분리된게 불편하더라고요. 사람들이 어떤 문단을 얘기하는 건지 기사랑 댓글창을 왔다갔다하는 게 항상 불편했습니다. 그래서 아무 웹페이지에나 Google Docs / Notion 스타일 코멘트를 달 수 있는 도구를 만들었습니다. 단톡방에서 링크 공",
+      "content": "긱뉴스나 해커뉴스 보면 토론 내용이랑 본문이 다른 페이지로 분리된게 불편하더라고요. 사람들이 어떤 문단을 얘기하는 건지 기사랑 댓글창을 왔다갔다하는 게 항상 불편했습니다. 그래서 아무 웹페이지에나 Google Docs / Notion 스타일 코멘트를 달 수 있는 도구를 만들었습니다. 단톡방에서 링크 공",
+      "tags": [],
+      "author": "rrockp",
+      "priority": 1
+    },
+    {
       "id": "986e55bc2a7e",
       "title": "HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "url": "https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_12%EC%9B%94%ED%98%B8_%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%A0%9C%EC%A1%B0%EC%82%AC%20OT%20%EB%B3%B4%EC%95%88%20%EB%8F%99%ED%96%A5.pdf&r_fname=20251222173946275.pdf",
@@ -1218,7 +1460,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-05T03:31:02.576079+00:00",
+      "published": "2026-03-05T01:24:03.121458+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 12월호 비즈니스를 위한 제조사 OT 보안 동향",
       "content": "",
       "tags": [
@@ -1236,14 +1478,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-05T03:31:02.575957+00:00",
+      "published": "2026-03-05T01:24:03.121382+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협",
       "content": "",
       "tags": [
         "보안리포트",
-        "SK쉴더스",
+        "랜섬웨어",
         "KARA",
-        "랜섬웨어"
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1256,7 +1498,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-05T03:31:02.575838+00:00",
+      "published": "2026-03-05T01:24:03.121282+00:00",
       "summary": "SK쉴더스 보안 리포트: Special Report 12월호 제로트러스트 보안전략 가시성 및 분석 (Visibility Analytics)",
       "content": "",
       "tags": [
@@ -1274,7 +1516,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-05T03:31:02.575709+00:00",
+      "published": "2026-03-05T01:24:03.121189+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 12월호",
       "content": "",
       "tags": [
@@ -1292,7 +1534,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-05T03:31:02.575578+00:00",
+      "published": "2026-03-05T01:24:03.121069+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 1월호 선제적 보안과 레드팀 기반 사이버 면역 체계 구축 전략 F",
       "content": "",
       "tags": [
@@ -1310,14 +1552,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-05T03:31:02.575447+00:00",
+      "published": "2026-03-05T01:24:03.120912+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석",
       "content": "",
       "tags": [
         "보안리포트",
-        "SK쉴더스",
+        "랜섬웨어",
         "KARA",
-        "랜섬웨어"
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1330,7 +1572,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-05T03:31:02.575323+00:00",
+      "published": "2026-03-05T01:24:03.120615+00:00",
       "summary": "SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략",
       "content": "",
       "tags": [
@@ -1348,7 +1590,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-05T03:31:02.575194+00:00",
+      "published": "2026-03-05T01:24:03.120351+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F",
       "content": "",
       "tags": [
@@ -1366,13 +1608,13 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-05T03:31:02.575076+00:00",
+      "published": "2026-03-05T01:24:03.119504+00:00",
       "summary": "SK쉴더스 보안 리포트: HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석",
       "content": "",
       "tags": [
         "보안리포트",
-        "SK쉴더스",
-        "AI보안"
+        "AI보안",
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1385,14 +1627,14 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-05T03:31:02.574947+00:00",
+      "published": "2026-03-05T01:24:03.119427+00:00",
       "summary": "SK쉴더스 보안 리포트: Keep up with Ransomware 2월호 지속적으로 리브랜딩되는 Global 랜섬웨어",
       "content": "",
       "tags": [
         "보안리포트",
-        "SK쉴더스",
+        "랜섬웨어",
         "KARA",
-        "랜섬웨어"
+        "SK쉴더스"
       ],
       "author": "SK쉴더스",
       "priority": 1
@@ -1405,7 +1647,7 @@
       "source_name": "SK쉴더스 보안 리포트",
       "category": "security",
       "language": "ko",
-      "published": "2026-03-05T03:31:02.574563+00:00",
+      "published": "2026-03-05T01:24:03.119139+00:00",
       "summary": "SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 2월호",
       "content": "",
       "tags": [
@@ -1423,7 +1665,7 @@
       "source_name": "Tech World Monitor",
       "category": "tech",
       "language": "en",
-      "published": "2026-03-05T03:29:44.239985+00:00",
+      "published": "2026-03-05T01:22:36.704811+00:00",
       "summary": "Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. Real-time global intelligence dashboard with live news, markets, military tracking, infrastructure monitoring, and geopolitical data. OSINT in one view. 이번 수집은 해저 케이블, 기상, 경제 지표, 서비스 장애, 데이터센터, 자연재해 레이어를 중심으로 참고했습니다. 분석 기준 구간은 최근 7d입니다.",
       "content": "Real-time global intelligence dashboard with live news, markets, military tracking, infrastructure monitoring, and geopolitical data. OSINT in one view.",
       "tags": [
@@ -1434,41 +1676,6 @@
         "기상"
       ],
       "author": "World Monitor",
-      "priority": 1
-    },
-    {
-      "id": "2050135ebaef",
-      "title": "Claude Code 비용/사용량을 한눈에: AWS에 Observability 플랫폼 구축하기",
-      "url": "https://aws.amazon.com/ko/blogs/tech/claude-code-cost-observability-on-aws/",
-      "source": "aws_korea",
-      "source_name": "AWS Korea Blog",
-      "category": "cloud",
-      "language": "ko",
-      "published": "2026-03-05T02:20:45+00:00",
-      "summary": "AI 코딩 어시스턴트의 도입이 가속화되면서, 조직은 새로운 질문에 직면하고 있습니다. “우리 팀이 AI 도구를 얼마나 효과적으로 사용하고 있는가?” 세션당 비용은 합리적인지, 어떤 모델이 비용 대비 높은 생산성을 제공하는지, 도구 실행의 성공률은 어떤지 — 이러한 질문에 답하려면 체계적인 관측성(Observability) 플랫폼이 필요합니다. Claude Code는 Anthropic이 제공하는 터미널 기반 AI 코딩 에이전트입니다. Amazon Bedrock을 통해 Claude Code를 사용하는 […]",
-      "content": "AI 코딩 어시스턴트의 도입이 가속화되면서, 조직은 새로운 질문에 직면하고 있습니다. “우리 팀이 AI 도구를 얼마나 효과적으로 사용하고 있는가?” 세션당 비용은 합리적인지, 어떤 모델이 비용 대비 높은 생산성을 제공하는지, 도구 실행의 성공률은 어떤지 — 이러한 질문에 답하려면 체계적인 관측성(Observability) 플랫폼이 필요합니다. Claude Code 는 Anthropic이 제공하는 터미널 기반 AI 코딩 에이전트입니다. Amazon Bedrock을 통해 Claude Code를 사용하는 경우, Amazon CloudWatch에서 모델 호출 로깅으로 API 호출 횟수나 토큰 사용량 등의 기본 모니터링 이 가능합니다. 그러나 Claude Code는 OpenTelemetry(OTel) 프로토콜을 통해 세션, 비용, 도구 실행 결과, 코드 변경량 등 에이전트 수준의 풍부한 텔레메트리 를 내보냅니다.",
-      "tags": [
-        "Amazon Bedrock",
-        "Analytics",
-        "Monitoring and observability",
-        "Technical How-to"
-      ],
-      "author": "Hyobin An",
-      "priority": 1
-    },
-    {
-      "id": "997f0ae853a2",
-      "title": "Show GN: HN 토론을 아티클 옆에 붙여봤습니다",
-      "url": "https://news.hada.io/topic?id=27197",
-      "source": "geeknews",
-      "source_name": "GeekNews (긱뉴스)",
-      "category": "tech",
-      "language": "ko",
-      "published": "2026-03-05T01:28:17+09:00",
-      "summary": "긱뉴스나 해커뉴스 보면 토론 내용이랑 본문이 다른 페이지로 분리된게 불편하더라고요. 사람들이 어떤 문단을 얘기하는 건지 기사랑 댓글창을 왔다갔다하는 게 항상 불편했습니다. 그래서 아무 웹페이지에나 Google Docs / Notion 스타일 코멘트를 달 수 있는 도구를 만들었습니다. 단톡방에서 링크 공",
-      "content": "긱뉴스나 해커뉴스 보면 토론 내용이랑 본문이 다른 페이지로 분리된게 불편하더라고요. 사람들이 어떤 문단을 얘기하는 건지 기사랑 댓글창을 왔다갔다하는 게 항상 불편했습니다. 그래서 아무 웹페이지에나 Google Docs / Notion 스타일 코멘트를 달 수 있는 도구를 만들었습니다. 단톡방에서 링크 공",
-      "tags": [],
-      "author": "rrockp",
       "priority": 1
     },
     {
@@ -1520,23 +1727,6 @@
         "AWS CSA STAR Certificates"
       ],
       "author": "Chinmaee Parulekar",
-      "priority": 1
-    },
-    {
-      "id": "4aa5e7d53d6d",
-      "title": "Hooked on Linux: Rootkit Taxonomy, Hooking Techniques and Tradecraft",
-      "url": "https://www.elastic.co/security-labs/linux-rootkits-1-hooked-on-linux",
-      "source": "elastic_security",
-      "source_name": "Elastic Security Labs",
-      "category": "security",
-      "language": "en",
-      "published": "2026-03-05T00:00:00+00:00",
-      "summary": "In this first part of a two-part series, we explore Linux rootkit taxonomy, trace their evolution from userland shared object hijacking and kernel-space loadable kernel module hooking to modern eBPF- and io_uring-powered techniques.",
-      "content": "Introduction This is part one of a two-part series on Linux rootkits. In this first installment, we focus on the theory behind how rootkits work: their taxonomy, evolution, and the hooking techniques they use to subvert the kernel. In part two, we shift to the defensive side and dive into detection engineering, covering practical approaches to identifying and responding to these threats in production environments. What Are Rootkits?",
-      "tags": [
-        "security-labs"
-      ],
-      "author": "",
       "priority": 1
     },
     {
@@ -1753,7 +1943,7 @@
     },
     {
       "id": "46dc1b190d16",
-      "title": "엔지니어링 매니저가 되지 마세요",
+      "title": "엔지니어링 매니저가 되지 말아야 하는 이유",
       "url": "https://news.hada.io/topic?id=27192",
       "source": "geeknews",
       "source_name": "GeekNews (긱뉴스)",
@@ -2338,6 +2528,21 @@
       "priority": 1
     },
     {
+      "id": "1579c22b870a",
+      "title": "Bun v1.3.10",
+      "url": "https://news.hada.io/topic?id=27188",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-03-04T14:11:12+09:00",
+      "summary": "REPL이 Zig로 완전히 재작성되어 즉시 실행과 풍부한 터미널 UI를 제공하며, 클립보드 복사·탭 완성·히스토리 저장 등 다양한 기능을 지원 브라우저 타겟 컴파일 명령으로 모든게 인라인된 단일 HTML 파일 을 생성할 수 있어 서버 없이도 실행 가...",
+      "content": "REPL이 Zig로 완전히 재작성되어 즉시 실행과 풍부한 터미널 UI를 제공하며, 클립보드 복사·탭 완성·히스토리 저장 등 다양한 기능을 지원 브라우저 타겟 컴파일 명령으로 모든게 인라인된 단일 HTML 파일 을 생성할 수 있어 서버 없이도 실행 가...",
+      "tags": [],
+      "author": "xguru",
+      "priority": 1
+    },
+    {
       "id": "fa9cef7615cd",
       "title": "Kraken Secures Federal Reserve Master Account, Marking First Ever for Crypto Firms",
       "url": "https://bitcoinmagazine.com/news/kraken-secures-federal-reserve-master",
@@ -2479,6 +2684,21 @@
       "priority": 1
     },
     {
+      "id": "17adfccfc4df",
+      "title": "Go는 AI 에이전트를 위한 최고의 언어",
+      "url": "https://news.hada.io/topic?id=27187",
+      "source": "geeknews",
+      "source_name": "GeekNews (긱뉴스)",
+      "category": "tech",
+      "language": "ko",
+      "published": "2026-03-04T13:15:29+09:00",
+      "summary": "Go 언어의 단순성과 컴파일 특성 이 AI 에이전트가 생성하는 코드의 안정성과 실행 효율을 높임 정적 타이핑과 빠른 컴파일 속도 덕분에 에이전트가 코드 오류를 빠르게 검증하고 반복 작업을 효율적으로 수행할 수 있음 언어 차원의 표준화된 도...",
+      "content": "Go 언어의 단순성과 컴파일 특성 이 AI 에이전트가 생성하는 코드의 안정성과 실행 효율을 높임 정적 타이핑과 빠른 컴파일 속도 덕분에 에이전트가 코드 오류를 빠르게 검증하고 반복 작업을 효율적으로 수행할 수 있음 언어 차원의 표준화된 도...",
+      "tags": [],
+      "author": "xguru",
+      "priority": 1
+    },
+    {
       "id": "6631dedf4168",
       "title": "CISA Adds Actively Exploited VMware Aria Operations Flaw CVE-2026-22719 to KEV Catalog",
       "url": "https://thehackernews.com/2026/03/cisa-adds-actively-exploited-vmware.html",
@@ -2585,6 +2805,532 @@
       "content": "",
       "tags": [],
       "author": "",
+      "priority": 1
+    },
+    {
+      "id": "4aef0d09f2df",
+      "title": "Understanding AI and learning outcomes",
+      "url": "https://openai.com/index/understanding-ai-and-learning-outcomes",
+      "source": "openai",
+      "source_name": "OpenAI Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-04T00:00:00+00:00",
+      "summary": "OpenAI introduces the Learning Outcomes Measurement Suite to assess AI’s impact on student learning across diverse educational environments over time.",
+      "content": "",
+      "tags": [
+        "Global Affairs"
+      ],
+      "author": "",
+      "priority": 1
+    },
+    {
+      "id": "d7a6c0fcbe08",
+      "title": "How Axios uses AI to help deliver high-impact local journalism",
+      "url": "https://openai.com/index/axios-allison-murphy",
+      "source": "openai",
+      "source_name": "OpenAI Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-04T00:00:00+00:00",
+      "summary": "Axios COO Allison Murphy explains how the company uses AI to support local reporters, streamline newsroom workflows, and deliver high-impact local journalism at scale.",
+      "content": "",
+      "tags": [
+        "ChatGPT"
+      ],
+      "author": "",
+      "priority": 1
+    },
+    {
+      "id": "a94677004e8f",
+      "title": "Fake Tech Support Spam Deploys Customized Havoc C2 Across Organizations",
+      "url": "https://thehackernews.com/2026/03/fake-tech-support-spam-deploys.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T22:45:00+05:30",
+      "summary": "Threat hunters have called attention to a new campaign as part of which bad actors masqueraded as fake IT support to deliver the Havoc command-and-control (C2) framework as a precursor to data exfiltration or ransomware attack. The intrusions, identified by Huntress last month across five partner organizations, involved the threat actors using email spam as lures, followed by a phone call from",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "f526ef3b5d35",
+      "title": "Indiana Governor Signs Bill Allowing Bitcoin in State Retirement Plans",
+      "url": "https://bitcoinmagazine.com/news/indiana-governor-signs-bill-bitcoin",
+      "source": "bitcoin_magazine",
+      "source_name": "Bitcoin Magazine",
+      "category": "blockchain",
+      "language": "en",
+      "published": "2026-03-03T21:53:12+00:00",
+      "summary": "Bitcoin Magazine Indiana Governor Signs Bill Allowing Bitcoin in State Retirement Plans Indiana now allows state retirement plans to invest in bitcoin. This post Indiana Governor Signs Bill Allowing Bitcoin in State Retirement Plans first appeared on Bitcoin Magazine and is written by Micah Zimmerman .",
+      "content": "Bitcoin Magazine Indiana Governor Signs Bill Allowing Bitcoin in State Retirement Plans Indiana Gov. Mike Braun has signed legislation allowing bitcoin and cryptocurrency investments in the state’s public retirement and savings plans , opening the door for state employees to gain exposure to digital assets through self-directed accounts.",
+      "tags": [
+        "NEWS",
+        "Bitcoin",
+        "Bitcoin Retirement",
+        "indiana",
+        "Retirement"
+      ],
+      "author": "Micah Zimmerman",
+      "priority": 1
+    },
+    {
+      "id": "414de428bfcb",
+      "title": "Signed malware impersonating workplace apps deploys RMM backdoors",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/03/signed-malware-impersonating-workplace-apps-deploys-rmm-backdoors/",
+      "source": "microsoft_security",
+      "source_name": "Microsoft Security Blog",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T21:11:03+00:00",
+      "summary": "Signed malware backed by a stolen EV certificate deployed legitimate RMM tools to gain persistent access inside enterprise environments. Organizations must harden certificate controls and monitor RMM activity to reduce exposure. The post Signed malware impersonating workplace apps deploys RMM backdoors appeared first on Microsoft Security Blog .",
+      "content": "In February 2026, Microsoft Defender Experts identified multiple phishing campaigns attributed to an unknown threat actor. The campaigns used workplace meeting lures, PDF attachments, and abuse of legitimate binaries to deliver signed malware. Phishing emails directed users to download malicious executables masquerading as legitimate software. The files were digitally signed using an Extended Validation (EV) certificate issued to TrustConnect Software PTY LTD.",
+      "tags": [],
+      "author": "Microsoft Defender Security Research Team",
+      "priority": 1
+    },
+    {
+      "id": "99ec78d0ff5c",
+      "title": "Announcing Docker Hardened System Packages",
+      "url": "https://www.docker.com/blog/announcing-docker-hardened-system-packages/",
+      "source": "docker",
+      "source_name": "Docker Blog",
+      "category": "devops",
+      "language": "en",
+      "published": "2026-03-03T20:30:00+00:00",
+      "summary": "Your Package Manager, Now with a Security Upgrade Last December, we made Docker Hardened Images (DHI) free because we believe secure, minimal, production-ready images should be the default. Every developer deserves strong security at no cost. It should not be complicated or locked behind a paywall. From the start, flexibility mattered just as much as...",
+      "content": "Your Package Manager, Now with a Security Upgrade Last December, we made Docker Hardened Images (DHI) free because we believe secure, minimal, production-ready images should be the default. Every developer deserves strong security at no cost. It should not be complicated or locked behind a paywall. From the start, flexibility mattered just as much as security. Unlike opaque, proprietary hardened alternatives, DHI is built on trusted open source foundations like Alpine and Debian.",
+      "tags": [
+        "Products",
+        "Security",
+        "Docker",
+        "Docker Hardened Images",
+        "security"
+      ],
+      "author": "Vishrut Iyengar",
+      "priority": 1
+    },
+    {
+      "id": "d46adf206f69",
+      "title": "Building a High-Impact Tier 1: The 3 Steps CISOs Must Follow",
+      "url": "https://thehackernews.com/2026/03/building-high-impact-tier-1-3-steps.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T20:00:00+05:30",
+      "summary": "Every CISO knows the uncomfortable truth about their Security Operations Center: the people most responsible for catching threats in real time are the people with the least experience. Tier 1 analysts sit at the front line of detection, and yet they are also the most vulnerable to the cognitive and organizational pressures that quietly erode SOC performance over time. The Paradox at the Gate:",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "d6bd22f9a775",
+      "title": "Open-Source CyberStrikeAI Deployed in AI-Driven FortiGate Attacks Across 55 Countries",
+      "url": "https://thehackernews.com/2026/03/open-source-cyberstrikeai-deployed-in.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T19:59:00+05:30",
+      "summary": "The threat actor behind the recently disclosed artificial intelligence (AI)-assisted campaign targeting Fortinet FortiGate appliances leveraged an open-source, AI-native security testing platform called CyberStrikeAI to execute the attacks. The new findings come from Team Cymru, which detected its use following an analysis of the IP address (\"212.11.64[.]250\") that was used by the suspected",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "e2301c6dd119",
+      "title": "2025 FINMA ISAE 3000 Type II attestation report available with 183 services in scope",
+      "url": "https://aws.amazon.com/blogs/security/2025-finma-isae-3000-type-ii-attestation-report-available-with-183-services-in-scope/",
+      "source": "aws_security",
+      "source_name": "AWS Security Blog",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T19:30:28+00:00",
+      "summary": "Amazon Web Services (AWS) is pleased to announce the issuance of the Swiss Financial Market Supervisory Authority (FINMA) Type II attestation report with 183 services in scope. The Swiss Financial Market Supervisory Authority (FINMA) has published several requirements and guidelines about engaging with outsourced services for the regulated financial services customers in Switzerland. An independent […]",
+      "content": "Amazon Web Services (AWS) is pleased to announce the issuance of the Swiss Financial Market Supervisory Authority (FINMA) Type II attestation report with 183 services in scope. The Swiss Financial Market Supervisory Authority (FINMA) has published several requirements and guidelines about engaging with outsourced services for the regulated financial services customers in Switzerland.",
+      "tags": [
+        "Announcements",
+        "Foundational (100)",
+        "Security, Identity, & Compliance",
+        "Auditing",
+        "AWS Compliance"
+      ],
+      "author": "Tariro Dongo",
+      "priority": 1
+    },
+    {
+      "id": "bc43516e8097",
+      "title": "How we rebuilt the search architecture for high availability in GitHub Enterprise Server",
+      "url": "https://github.blog/engineering/architecture-optimization/how-we-rebuilt-the-search-architecture-for-high-availability-in-github-enterprise-server/",
+      "source": "github_blog",
+      "source_name": "GitHub Engineering Blog",
+      "category": "devops",
+      "language": "en",
+      "published": "2026-03-03T18:45:09+00:00",
+      "summary": "Here's how we the search experience better, faster, and more resilient for GHES customers. The post How we rebuilt the search architecture for high availability in GitHub Enterprise Server appeared first on The GitHub Blog .",
+      "content": "So much of what you interact with on GitHub depends on search—obviously the search bars and filtering experiences like the GitHub Issues page, but it is also the core of the releases page, projects page, the counts for issues and pull requests, and more. Given that search is such a core part of the GitHub platform, we’ve spent the last year making it even more durable. That means, less time spent managing GitHub Enterprise Server, and more time working on what your customers care most about.",
+      "tags": [
+        "Architecture & optimization",
+        "Engineering",
+        "GitHub Enterprise Server",
+        "search engineering"
+      ],
+      "author": "David Tippett",
+      "priority": 1
+    },
+    {
+      "id": "82116c224cad",
+      "title": "2025 PiTuKri ISAE 3000 Type II attestation report available with 183 services in scope",
+      "url": "https://aws.amazon.com/blogs/security/2025-pitukri-isae-3000-type-ii-attestation-report-available-with-183-services-in-scope/",
+      "source": "aws_security",
+      "source_name": "AWS Security Blog",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T17:17:11+00:00",
+      "summary": "Amazon Web Services (AWS) is pleased to announce the issuance of the Criteria to Assess the Information Security of Cloud Services (PiTuKri) Type II attestation report with 183 services in scope. The Finnish Transport and Communications Agency (Traficom) Cyber Security Centre published PiTuKri, which consists of 52 criteria that provide guidance across 11 domains for […]",
+      "content": "Amazon Web Services (AWS) is pleased to announce the issuance of the Criteria to Assess the Information Security of Cloud Services (PiTuKri) Type II attestation report with 183 services in scope. The Finnish Transport and Communications Agency (Traficom) Cyber Security Centre published PiTuKri, which consists of 52 criteria that provide guidance across 11 domains for assessing the security of cloud service providers.",
+      "tags": [
+        "Announcements",
+        "Foundational (100)",
+        "Security, Identity, & Compliance",
+        "AWS Compliance",
+        "AWS PiTuKri"
+      ],
+      "author": "Tariro Dongo",
+      "priority": 1
+    },
+    {
+      "id": "15470991837d",
+      "title": "AI Agents: The Next Wave Identity Dark Matter - Powerful, Invisible, and Unmanaged",
+      "url": "https://thehackernews.com/2026/03/ai-agents-next-wave-identity-dark.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T17:00:00+05:30",
+      "summary": "The Rise of MCPs in the Enterprise The Model Context Protocol (MCP) is quickly becoming a practical way to push LLMs from “chat” into real work. By providing structured access to applications, APIs, and data, MCP enables prompt-driven AI agents that can retrieve information, take action, and automate end-to-end business workflows across the enterprise. This is already showing up in production",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "ed07b32904b5",
+      "title": "Create new worlds in Project Genie with these 4 tips",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/tips-prompt-writing-project-genie/",
+      "source": "google_ai",
+      "source_name": "Google AI Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-03T17:00:00+00:00",
+      "summary": "A screen capture of Project Genie, an experimental interface showing a grid of circular images, many of which appear to be 360-degree views, with a large, central black globe labeled Create your own",
+      "content": "Learn more about Google DeepMind’s Project Genie and how to write prompts to create your own worlds.",
+      "tags": [
+        "Google DeepMind",
+        "AI"
+      ],
+      "author": "Molly McHugh-Johnson",
+      "priority": 1
+    },
+    {
+      "id": "b922d794dee9",
+      "title": "Starkiller Phishing Suite Uses AitM Reverse Proxy to Bypass Multi-Factor Authentication",
+      "url": "https://thehackernews.com/2026/03/starkiller-phishing-suite-uses-aitm.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T16:40:00+05:30",
+      "summary": "Cybersecurity researchers have disclosed details of a new phishing suite called Starkiller that proxies legitimate login pages to bypass multi-factor authentication (MFA) protections. It's advertised as a cybercrime platform by a threat group calling itself Jinkusu, granting customers access to a dashboard that lets them select a brand to impersonate or enter a brand's real URL. It also lets",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "596e99210009",
+      "title": "Gemini 3.1 Flash-Lite: Built for intelligence at scale",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/",
+      "source": "google_ai",
+      "source_name": "Google AI Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-03T16:34:00+00:00",
+      "summary": "Gemini 3.1 Flash Lite logo",
+      "content": "Gemini 3.1 Flash-Lite is our fastest and most cost-efficient Gemini 3 series model yet.",
+      "tags": [
+        "Gemini models",
+        "AI"
+      ],
+      "author": "The Gemini Team",
+      "priority": 1
+    },
+    {
+      "id": "3a9f818f770b",
+      "title": "Building a scalable virtual try-on solution using Amazon Nova on AWS: part 1",
+      "url": "https://aws.amazon.com/blogs/machine-learning/building-a-scalable-virtual-try-on-solution-using-amazon-nova-on-aws-part-1/",
+      "source": "aws_ml",
+      "source_name": "AWS Machine Learning Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-03T16:23:30+00:00",
+      "summary": "In this post, we explore the virtual try-on capability now available in Amazon Nova Canvas, including sample code to get started quickly and tips to help get the best outputs.",
+      "content": "In this first post in a two-part series, we examine how retailers can implement a virtual try-on to improve customer experience. In part 2, we will further explore real-world applications and benefits of this innovative technology. Every fourth piece of clothing bought online is returned to the retailer, feeding into America’s $890 billion returns problem in 2024. Behind these numbers lies a simple truth: shoppers can’t judge fit and style through their screens.",
+      "tags": [
+        "Amazon API Gateway",
+        "Amazon Bedrock",
+        "Amazon Bedrock AgentCore",
+        "Amazon Machine Learning",
+        "Amazon Nova"
+      ],
+      "author": "Amandine Annoye",
+      "priority": 1
+    },
+    {
+      "id": "6f3efc555cbb",
+      "title": "How Lendi revamped the refinance journey for its customers using agentic AI in 16 weeks using Amazon Bedrock",
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-lendi-revamped-the-refinance-journey-for-its-customers-using-agentic-ai-in-12-weeks-using-amazon-bedrock/",
+      "source": "aws_ml",
+      "source_name": "AWS Machine Learning Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-03T16:18:30+00:00",
+      "summary": "This post details how Lendi Group built their AI-powered Home Loan Guardian using Amazon Bedrock, the challenges they faced, the architecture they implemented, and the significant business outcomes they’ve achieved. Their journey offers valuable insights for organizations that want to use generative AI to transform customer experiences while maintaining the human touch that builds trust and loyalty.",
+      "content": "This post was co-written with Davesh Maheshwari from Lendi Group and Samuel Irvine Casey from Mantel Group. Most Australians don’t know whether their home loan is still competitive. Rates shift, property values move, personal circumstances change—yet for the average homeowner, staying informed of these changes is difficult. It’s often their largest financial commitment, but it’s also the one they’re least equipped to monitor.",
+      "tags": [
+        "Amazon Bedrock",
+        "Amazon Bedrock AgentCore",
+        "Amazon Bedrock Agents",
+        "Customer Solutions",
+        "Financial Services"
+      ],
+      "author": "Deepak Dalakoti",
+      "priority": 1
+    },
+    {
+      "id": "242b8f5278e4",
+      "title": "How Tines enhances security analysis with Amazon Quick Suite",
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-tines-enhances-security-analysis-with-amazon-quick-suite/",
+      "source": "aws_ml",
+      "source_name": "AWS Machine Learning Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-03T16:15:06+00:00",
+      "summary": "In this post, we show you how to connect Quick Suite with Tines to securely retrieve, analyze, and visualize enterprise data from any security or IT system. We walk through an example that uses a MCP server in Tines to retrieve data from various tools, such as AWS CloudTrail, Okta, and VirusTotal, to remediate security events using Quick Suite.",
+      "content": "Organizations face challenges in quickly detecting and responding to user account security events, such as repeated login attempts from unusual locations. Although security data exists across multiple applications, manually correlating information and making corrective actions often delays effective response.",
+      "tags": [
+        "Amazon Quick Suite",
+        "AWS for Startups",
+        "Customer Solutions",
+        "Just Walk Out technology",
+        "Software"
+      ],
+      "author": "Jonah Craig",
+      "priority": 1
+    },
+    {
+      "id": "19746374d592",
+      "title": "Microsoft Warns OAuth Redirect Abuse Delivers Malware to Government Targets",
+      "url": "https://thehackernews.com/2026/03/microsoft-warns-oauth-redirect-abuse.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T14:50:00+05:30",
+      "summary": "Microsoft on Monday warned of phishing campaigns that employ phishing emails and OAuth URL redirection mechanisms to bypass conventional phishing defenses implemented in email and browsers. The activity, the company said, targets government and public-sector organizations with the end goal of redirecting victims to attacker-controlled infrastructure without stealing their tokens. It described",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "8d5cef324c9f",
+      "title": "Introducing the 2026 Cloudflare Threat Report",
+      "url": "https://blog.cloudflare.com/2026-threat-report/",
+      "source": "cloudflare",
+      "source_name": "Cloudflare Blog",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T14:00:00+00:00",
+      "summary": "There has been a fundamental shift toward industrialized cyber threats, highlighted by a record 31.4 Tbps DDoS attack and sophisticated session token theft. Our new report examines how nation-states and criminal actors have moved beyond traditional exploits to \"living off the XaaS\" within legitimate enterprise logic.",
+      "content": "Today’s threat landscape is more varied and chilling than ever: Sophisticated nation-state actors. Hyper-volumetric DDoS attacks. Deepfakes and fraudsters interviewing at your company. Even stealth attacks via trusted internal tools like Google Calendar, Dropbox, and GitHub. After spending the last year translating trillions of network signals into actionable intelligence, Cloudforce One has identified a fundamental evolution in the threat landscape: the era of brute force entry is fading.",
+      "tags": [
+        "Threat Intelligence",
+        "Cloudforce One",
+        "Threats"
+      ],
+      "author": "Cloudforce One",
+      "priority": 1
+    },
+    {
+      "id": "7bf6186a6e95",
+      "title": "Evolving Cloudflare’s Threat Intelligence Platform: actionable, scalable, and ETL-less",
+      "url": "https://blog.cloudflare.com/cloudflare-threat-intelligence-platform/",
+      "source": "cloudflare",
+      "source_name": "Cloudflare Blog",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T14:00:00+00:00",
+      "summary": "Stop managing ETL pipelines and start threat hunting. Introducing new visualization, automation, and enrichment tools in the Cloudflare Threat Intelligence Platform to turn massive telemetry into instant security posture.",
+      "content": "For years, the cybersecurity industry has suffered from a \"data gravity\" problem. Security teams are buried under billions of rows of telemetry, yet they remain starved for actionable insights. A Threat Intelligence Platform (TIP) is a centralized security system that collects, aggregates, and organizes data about known and emerging cyber threats. It serves as the vital connective tissue between raw telemetry and active defense.",
+      "tags": [
+        "Threat Intelligence",
+        "Threats",
+        "Threat Data",
+        "Digital Forensics"
+      ],
+      "author": "Jacob Crisp",
+      "priority": 1
+    },
+    {
+      "id": "b146af057497",
+      "title": "Google Confirms CVE-2026-21385 in Qualcomm Android Component Exploited",
+      "url": "https://thehackernews.com/2026/03/google-confirms-cve-2026-21385-in.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T12:38:00+05:30",
+      "summary": "Google on Monday disclosed that a high-severity security flaw impacting an open-source Qualcomm component used in Android devices has been exploited in the wild. The vulnerability in question is CVE-2026-21385 (CVSS score: 7.8), a buffer over-read in the Graphics component. \"Memory corruption when adding user-supplied data without checking available buffer space,\" Qualcomm said in an advisory,",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "56b93b2cd711",
+      "title": "SloppyLemming Targets Pakistan and Bangladesh Governments Using Dual Malware Chains",
+      "url": "https://thehackernews.com/2026/03/sloppylemming-targets-pakistan-and.html",
+      "source": "thehackernews",
+      "source_name": "The Hacker News",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T12:23:00+05:30",
+      "summary": "The threat activity cluster known as SloppyLemming has been attributed to a fresh set of attacks targeting government entities and critical infrastructure operators in Pakistan and Bangladesh. The activity, per Arctic Wolf, took place between January 2025 and January 2026. It involves the use of two distinct attack chains to deliver malware families tracked as BurrowShell and a Rust-based",
+      "content": "",
+      "tags": [],
+      "author": "info@thehackernews.com (The Hacker News)",
+      "priority": 1
+    },
+    {
+      "id": "863e8c390950",
+      "title": "GPT-5.3 Instant System Card",
+      "url": "https://openai.com/index/gpt-5-3-instant-system-card",
+      "source": "openai",
+      "source_name": "OpenAI Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-03T10:00:00+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Publication"
+      ],
+      "author": "",
+      "priority": 1
+    },
+    {
+      "id": "ce65eb1e36fd",
+      "title": "GPT-5.3 Instant: Smoother, more useful everyday conversations",
+      "url": "https://openai.com/index/gpt-5-3-instant",
+      "source": "openai",
+      "source_name": "OpenAI Blog",
+      "category": "ai",
+      "language": "en",
+      "published": "2026-03-03T10:00:00+00:00",
+      "summary": "",
+      "content": "",
+      "tags": [
+        "Product"
+      ],
+      "author": "",
+      "priority": 1
+    },
+    {
+      "id": "2d0995f4ef27",
+      "title": "How Cloudy translates complex security into human action",
+      "url": "https://blog.cloudflare.com/cloudy-upgrades-for-cloudflare-one/",
+      "source": "cloudflare",
+      "source_name": "Cloudflare Blog",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T06:00:00+00:00",
+      "summary": "Cloudy is our LLM-powered explanation layer built directly into Cloudflare One. Its explanations, now part of Phishnet and API CASB, can improve user decisions and SOC efficiency.",
+      "content": "Today’s security ecosystem generates a staggering amount of complex telemetry. For instance, processing a single email requires analyzing sender reputation, authentication results, link behavior, infrastructure metadata, and countless other attributes. Simultaneously, Cloud access security broker (CASB) engines continuously scan SaaS environments for signals that detect misconfigurations, risky access, and exposed data.",
+      "tags": [
+        "Email Security",
+        "Security",
+        "Cloudflare One",
+        "CASB"
+      ],
+      "author": "Alex Dunbrack",
+      "priority": 1
+    },
+    {
+      "id": "70d3a88b726c",
+      "title": "From reactive to proactive: closing the phishing gap with LLMs",
+      "url": "https://blog.cloudflare.com/email-security-phishing-gap-llm/",
+      "source": "cloudflare",
+      "source_name": "Cloudflare Blog",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T06:00:00+00:00",
+      "summary": "Email security is a constant arms race. Like WWII engineers reinforcing only the planes that returned, survivorship bias hides real gaps. But LLMs can help us find the invisible weaknesses.",
+      "content": "Email security has always been defined by impermanence. It is a perpetual call-and-response arms race, where defenses are only as strong as the last bypass discovered and attackers iterate relentlessly for even marginal gains. Every control we deploy eventually becomes yesterday’s solution. What makes this challenge especially difficult is that our biggest weaknesses are, by definition, invisible. This problem is best illustrated by a classic example from World War II.",
+      "tags": [
+        "Email Security",
+        "Security",
+        "Cloudflare One",
+        "Zero Trust"
+      ],
+      "author": "Ayush Kumar",
+      "priority": 1
+    },
+    {
+      "id": "06f1644e3145",
+      "title": "See risk, fix risk: introducing Remediation in Cloudflare CASB",
+      "url": "https://blog.cloudflare.com/remediation-in-cloudflare-casb/",
+      "source": "cloudflare",
+      "source_name": "Cloudflare Blog",
+      "category": "security",
+      "language": "en",
+      "published": "2026-03-03T06:00:00+00:00",
+      "summary": "Cloudflare CASB Remediation lets security teams go beyond visibility to fix risky file sharing in Microsoft 365 and Google Workspace directly from Cloudflare One, all in just a few clicks.",
+      "content": "Starting today, Cloudflare CASB customers can do more than see risky file-sharing across their SaaS apps: they can fix it, directly from the Cloudflare One dashboard. This launch marks a huge advancement for Cloudflare’s Cloud Access Security Broker (CASB). Since its release, Cloudflare’s API-based CASB has focused on providing robust, comprehensive visibility and detection.",
+      "tags": [
+        "CASB",
+        "Microsoft 365",
+        "Google Workspace",
+        "Cloudflare One",
+        "SASE"
+      ],
+      "author": "Michael Leslie",
+      "priority": 1
+    },
+    {
+      "id": "1ad50ad4f608",
+      "title": "AWS Advanced JDBC Wrapper의 blue/green 플러그인을 통하여 전환 시 최소의 다운타임 달성하기",
+      "url": "https://aws.amazon.com/ko/blogs/tech/aws-advanced-jdbc-wrappers-blue-green-plugin/",
+      "source": "aws_korea",
+      "source_name": "AWS Korea Blog",
+      "category": "cloud",
+      "language": "ko",
+      "published": "2026-03-03T04:11:20+00:00",
+      "summary": "최신 애플리케이션은 무중단에 가까운 가용성을 요구합니다. Amazon RDS와 Aurora의 Blue/Green 배포는 데이터베이스 업그레이드 시 다운타임을 크게 줄여주지만, 전환 과정에서 여전히 연결 종료, DNS 전파 지연, 수동 개입이 필요한 연결 실패 등의 문제가 발생할 수 있습니다. AWS Advanced JDBC Wrapper(2023년 출시)는 표준 JDBC 드라이버 위에 AWS 특화 기능을 추가하는 래퍼입니다. 이 게시물에서는 AWS Advanced JDBC Wrapper의 […]",
+      "content": "최신 애플리케이션은 무중단에 가까운 가용성을 요구합니다. Amazon RDS와 Aurora의 Blue/Green 배포 는 데이터베이스 업그레이드 시 다운타임을 크게 줄여주지만, 전환 과정에서 여전히 연결 종료, DNS 전파 지연, 수동 개입이 필요한 연결 실패 등의 문제가 발생할 수 있습니다. AWS Advanced JDBC Wrapper (2023년 출시)는 표준 JDBC 드라이버 위에 AWS 특화 기능을 추가하는 래퍼입니다. 이 게시물에서는 AWS Advanced JDBC Wrapper의 Blue/Green 배포 플러그인 을 소개합니다. 이 플러그인은 전환 중 연결 라우팅, 상태 감지, 트래픽 관리를 자동으로 처리하여 다운타임을 최소화합니다. 최근 Amazon RDS는 Blue/Green 배포의 가동 중지 시간을 5초 미만으로 최적화하는 기능 을 출시했으며, 이 플러그인과 함께 사용하면 애플리케이션 수준에서도 전환 영향을 최소화할 수 있습니다.",
+      "tags": [
+        "Amazon Aurora",
+        "Database",
+        "Open Source",
+        "Technical How-to"
+      ],
+      "author": "Lee Youngdong",
       "priority": 1
     },
     {
