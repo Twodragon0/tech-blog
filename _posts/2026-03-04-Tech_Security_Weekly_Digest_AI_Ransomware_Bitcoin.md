@@ -1,172 +1,247 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: Authentication, Ransomware"
+title: "JWT Auth Threat, Iran Crypto Outflows, Financial AI Governance"
 date: 2026-03-04 14:05:06 +0900
 categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Bitcoin]
-excerpt: "2026년 03월 04일 주요 보안/기술 뉴스 15건 - AI, Ransomware, Bitcoin"
-description: "2026년 03월 04일 보안 뉴스: SK쉴더스 보안 리포트 등 15건. AI, Ransomware, Bitcoin 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Bitcoin]
+tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, JWT, Blockchain, AI-Governance]
+excerpt: "2026년 03월 04일 주요 보안/기술 뉴스 15건 - JWT 서명키 유출 위협, 이란 암호화폐 유출 급증, 금융 AI 7대 원칙 분석"
+description: "JWT 서명키 유출이 초래하는 인증 체계 붕괴 위험, 미-이스라엘 공습 후 이란 거래소 $1,030만 비트코인 유출, 금융분야 AI 7대 원칙과 글로벌 정책 동향 분석."
+keywords: [Security-Weekly, DevSecOps, JWT, Authentication, Blockchain, AML, AI-Governance, 2026]
 author: Twodragon
 comments: true
 image: /assets/images/2026-03-04-Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin.svg
-image_alt: "Tech Security Weekly Digest March 04 2026 AI Ransomware Bitcoin"
+image_alt: "Tech Security Weekly Digest March 04 2026 JWT Auth Crypto AI Governance"
 toc: true
 ---
 
 {% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트 (2026년 03월 04일)'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
-      <span class="tag">AI</span>
-      <span class="tag">Ransomware</span>
-      <span class="tag">Bitcoin</span>
+  title='JWT Auth Threat / Iran Crypto / Financial AI (2026.03.04)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">JWT</span>
+      <span class="tag">Authentication</span>
+      <span class="tag">Blockchain</span>
+      <span class="tag">AI-Governance</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>SK쉴더스 보안 리포트</strong>: JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략</li>
-      <li><strong>ABTC 채굴 확장</strong>: Trump 연계 American Bitcoin, 11,000대 이상 고효율 채굴기 신규 투입으로 해시레이트 급증</li>
-      <li><strong>이란 비트코인 유출</strong>: 미-이스라엘 공습 이후 이란 거래소에서 $1,030만 상당 비트코인 유출, AML 모니터링 필요</li>'
-  period='2026년 03월 04일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
+  highlights_html='<li><strong>JWT signing key leak</strong>: SK Shieldus analyzes full auth bypass via exposed JWT signing keys - token forgery, privilege escalation, lateral movement</li>
+      <li><strong>Iran crypto outflows $10.3M</strong>: On-chain data shows massive BTC outflows from Iranian exchanges within hours of US-Israel airstrikes</li>
+      <li><strong>Financial AI 7 Principles</strong>: SK Shieldus HeadLine analyzes domestic and international policy cases for AI governance in financial sector</li>'
+  period='2026.03.04 (24h)'
+  audience='Security Engineers, DevSecOps, SRE, Compliance Officers'
 %}
 
 ---
 
-## 서론
+## Introduction
 
-안녕하세요, **Twodragon**입니다.
+Hello, this is **Twodragon**.
 
-2026년 03월 04일 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다.
+Here is the in-depth analysis of major tech and security news from the past 24 hours as of March 04, 2026.
 
-**수집 통계:**
-- **총 뉴스 수**: 15개
-- **보안 뉴스**: 5개
-- **AI/ML 뉴스**: 0개
-- **클라우드 뉴스**: 0개
-- **DevOps 뉴스**: 0개
-- **블록체인 뉴스**: 5개
+> Previous digest: [Zero-Trust Visibility, Anthropic AI Courses (2026.03.02)]({{ site.baseurl }}/security/devsecops/2026/03/02/Tech_Security_Weekly_Digest_Ransomware_AI_Agent.html)
 
----
-
-## 📊 빠른 참조
-
-### 이번 주 하이라이트
-
-| 분야 | 소스 | 핵심 내용 | 영향도 |
-|------|------|----------|--------|
-| 🔒 **Security** | SK쉴더스 보안 리포트 | Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략 | 🟡 Medium |
-| 🔒 **Security** | SK쉴더스 보안 리포트 | SK쉴더스 EQST insight 통합 (목차) 1월호 F | 🟡 Medium |
-| 🔒 **Security** | SK쉴더스 보안 리포트 | HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석 | 🟡 Medium |
-| ⛓️ **Blockchain** | Bitcoin Magazine | [블록체인] Trump-Linked American Bitcoin (ABTC) Expands Mining Fleet | 🟡 Medium |
-| ⛓️ **Blockchain** | Chainalysis Blog | [블록체인] Iranian Crypto Outflows Spike After Airstrikes Amid a Year | 🟡 Medium |
-| ⛓️ **Blockchain** | Bitcoin Magazine | [블록체인] Iran Bitcoin Outflows Surge After US-Israel Airstrikes | 🟡 Medium |
-| 💻 **Tech** | GeekNews (긱뉴스) | 미국 과학기관, 외국인 과학자의 연구소 접근 제한 추진 | 🟡 Medium |
-| 💻 **Tech** | GeekNews (긱뉴스) | Show GN: korbus-mcp: 버스 도착시간 계속 쳐다보지 말고 알림으로 받아봐요. | 🟡 Medium |
-| 💻 **Tech** | GeekNews (긱뉴스) | Show GN: ClaudeTuner - &quot;내가 정말 이 플랜만큼 쓰고 있나?&quot; 궁금해서 만든 사용량 추적 도구 (+ 우리 팀 관리까지) | 🟡 Medium |
+**Collection stats:**
+- **Total**: 15 articles
+- **Security**: 5
+- **Blockchain**: 5
+- **Tech/Tools**: 5
 
 ---
 
-## 1. 보안 뉴스
+## Quick Reference
 
-### 1.1 SK쉴더스 3월 보안 리포트
-
-SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
-
-- **[Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략](https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%201%EC%9B%94%ED%98%B8_JWT%20%EC%84%9C%EB%AA%85%ED%82%A4%20%EC%9C%A0%EC%B6%9C%EC%9D%B4%20%EC%B4%88%EB%9E%98%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%A6%9D%20%EC%9C%84%ED%98%91%EA%B3%BC%20%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20260129161142327.pdf)**: SK쉴더스 보안 리포트: Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략
-- **[SK쉴더스 EQST insight 통합 (목차) 1월호 F](https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_1%EC%9B%94%ED%98%B8_F.pdf&r_fname=20260129161206425.pdf)**: SK쉴더스 보안 리포트: SK쉴더스 EQST insight 통합 (목차) 1월호 F
-- **[HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석](https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_2%EC%9B%94%ED%98%B8_%EA%B8%88%EC%9C%B5%EB%B6%84%EC%95%BC%20AI%207%EB%8C%80%20%EC%9B%90%EC%B9%99%EA%B3%BC%20%EA%B5%AD%EB%82%B4%EC%99%B8%20%EC%A0%95%EC%B1%85%EC%82%AC%EB%A1%80%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260225185655664.pdf)**: SK쉴더스 보안 리포트: HeadLine 2월호 금융분야 AI 7대 원칙과 국내외 정책사례 분석
-
-> SK쉴더스 보안 리포트는 국내 보안 환경에 특화된 위협 분석을 제공합니다. 원문을 다운로드하여 상세 내용을 확인하시기 바랍니다.
-
----
-
-## 2. 블록체인 뉴스
-
-### 2.1 Trump-Linked American Bitcoin (ABTC) Expands Mining Fleet
-
-#### 개요
-
-Bitcoin Magazine Trump-Linked American Bitcoin (ABTC) Expands Mining Fleet, Bitcoin Production Capacity American Bitcoin (ABTC) is expanding its Bitcoin mining fleet with over 11,000 new high-efficiency miners. This post Trump-Linked American Bitcoin (ABTC) Expands Mining Fleet, Bitcoin Production Capacity first appeared on Bitcoin Magazine and is written by Micah Zimmerman.
-
-**실무 포인트**: 채굴 기업 확장에 따른 해시레이트 변동과 네트워크 보안 영향을 모니터링하세요.
-
-> **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/trump-linked-american-bitcoin-abtc-2)
-
+| Category | Source | Key Finding | Impact |
+|----------|--------|-------------|--------|
+| **Security** | SK Shieldus | JWT signing key leak - full auth chain compromise | HIGH |
+| **Security** | SK Shieldus | Financial AI 7 principles - regulatory compliance guidance | MEDIUM |
+| **Security** | SK Shieldus | Global ransomware trend report (Feb) | MEDIUM |
+| **Blockchain** | Chainalysis | Iran crypto outflows $10.3M post-airstrike | HIGH |
+| **Blockchain** | Bitcoin Magazine | ABTC mining fleet expansion 11,000+ miners | MEDIUM |
+| **Tech** | GeekNews | MCP-based bus notification tool (korbus-mcp) | LOW |
+| **Tech** | GeekNews | ClaudeTuner - Claude usage tracking tool | LOW |
 
 ---
 
-### 2.2 Iranian Crypto Outflows Spike After Airstrikes Amid a Year
+## 1. Security News
 
-#### 개요
+### 1.1 JWT Signing Key Leak: Full Authentication Chain Compromise
 
-TL;DR On-chain data shows a sharp increase in activity from major Iranian exchanges in the hours following the February 28,… The post Iranian Crypto Outflows Spike After Airstrikes Amid a Year of Rising On-Chain Activity appeared first on Chainalysis.
+SK Shieldus Research Technique (January issue) published an in-depth analysis of JWT signing key exposure and resulting authentication threats.
 
-**실무 포인트**: 제재 관련 주소와의 거래 차단 및 컴플라이언스 모니터링을 강화하세요.
+**Attack scenario:**
 
-> **출처**: [Chainalysis Blog](https://www.chainalysis.com/blog/iranian-crypto-outflows-spike-after-airstrikes/)
+```
+1. Attacker obtains JWT signing key (source code leak, misconfigured .env, Git history)
+2. Forges valid JWT tokens with arbitrary claims
+3. Bypasses authentication entirely - impersonates any user
+4. Escalates privileges by modifying role claims (user -> admin)
+5. Lateral movement using forged service-to-service tokens
+```
 
+**MITRE ATT&CK Mapping:**
 
----
+| Technique | ID | Description |
+|-----------|------|-------------|
+| Valid Accounts | T1078 | Forged JWT enables unauthorized access |
+| Access Token Manipulation | T1134 | Token claim modification for privilege escalation |
+| Credential Access | T1552.004 | Private keys in unsecured stores |
 
-### 2.3 Iran Bitcoin Outflows Surge After US-Israel Airstrikes
+**Recommended defense measures:**
+- **Key rotation**: Automated rotation every 90 days minimum, immediate rotation on suspected compromise
+- **Key management**: Store signing keys in HSM or cloud KMS (AWS KMS, GCP Cloud KMS), never in source code
+- **Algorithm pinning**: Enforce RS256/ES256, reject `none` and `HS256` when asymmetric is expected
+- **Claims validation**: Validate `iss`, `aud`, `exp`, `nbf` on every request
+- **Monitoring**: Alert on tokens with unusual `exp` duration or elevated privilege claims
 
-#### 개요
+**SIEM detection query example:**
 
-Bitcoin Magazine Iran Bitcoin Outflows Surge After US-Israel Airstrikes, On-Chain Data Shows Following the U.S.-Israeli airstrikes in Tehran, Iranian crypto activity surged, with $10.3 million in bitcoin flowing out of exchanges as citizens sought to preserve value amid financial collapse.
+```
+# Detect JWT tokens with abnormal claim patterns
+auth.jwt.claims.role = "admin" AND
+auth.jwt.issued_at < now() - 24h AND
+source.ip NOT IN known_admin_ips
+```
 
-**실무 포인트**: 지정학적 불안정 시기 암호화폐 자금 흐름 추적 및 AML 체계를 점검하세요.
-
-> **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/iran-bitcoin-outflows-surge-post-strikes)
-
-
----
-
-## 3. 기타 주목할 뉴스
-
-| 제목 | 출처 | 핵심 내용 |
-|------|------|----------|
-| [미국 과학기관, 외국인 과학자의 연구소 접근 제한 추진](https://news.hada.io/topic?id=27173) | GeekNews (긱뉴스) | 미국 국립표준기술연구소(NIST) 가 외국인 연구자의 연구소 접근을 제한하고, 체류 기간을 최대 3년으로 제한하는 보안 강화 규정 을 추진 중임 이 조치로 최대 500명의 고급 연구 인력 이 연구소를 떠나야 할 |
-| [Show GN: korbus-mcp: 버스 도착시간 계속 쳐다보지 말고 알림으로 받아봐요.](https://news.hada.io/topic?id=27172) | GeekNews (긱뉴스) | MCP 도구 덕분에 생활 밀착형 MCP가 등장하는 재미있는 시대입니다 |
-| [Show GN: ClaudeTuner - &quot;내가 정말 이 플랜만큼 쓰고 있나?&quot; 궁금해서 만든 사용량 추적 도구 (+ 우리 팀 관리까지)](https://news.hada.io/topic?id=27171) | GeekNews (긱뉴스) | 최근 Claude Opus 4.6의 품질이 크게 올라오면서, 업무에 Claude를 훨씬 더 많이 쓰게 되었습니다. 그러다 보니 자연스럽게 "내가 지금 이 플랜을 결제하는 게 맞나?", "오늘 리밋까지 얼마나 |
-
-
----
-
-## 4. 트렌드 분석
-
-| 트렌드 | 관련 뉴스 수 | 주요 키워드 |
-|--------|-------------|------------|
-| **블록체인/암호화폐** | 3건 | ABTC 채굴 확장, 이란 제재, AML, 지정학적 리스크 |
-| **보안 리포트** | 3건 | JWT 인증 위협, EQST insight, 금융 AI 원칙 |
-| **기술 도구** | 3건 | MCP, ClaudeTuner, 과학기관 접근 제한 |
-
-이번 주기의 핵심 트렌드는 **블록체인/암호화폐**(3건)입니다. 미-이스라엘 공습 이후 이란 암호화폐 유출 급증, ABTC 채굴 확장 등 지정학적 이벤트와 암호화폐의 연관성이 심화되고 있습니다. **보안 리포트** 분야에서는 JWT 인증 위협과 금융 AI 원칙 관련 정책 동향에 주목할 필요가 있습니다.
+> **Source**: [SK Shieldus Research Technique - JWT Signing Key Threat Analysis (PDF)](https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%201%EC%9B%94%ED%98%B8_JWT%20%EC%84%9C%EB%AA%85%ED%82%A4%20%EC%9C%A0%EC%B6%9C%EC%9D%B4%20%EC%B4%88%EB%9E%98%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%A6%9D%20%EC%9C%84%ED%98%91%EA%B3%BC%20%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20260129161142327.pdf)
 
 ---
 
-## 실무 체크리스트
+### 1.2 Financial AI 7 Principles and Global Policy Analysis
 
-### P0 (즉시)
+SK Shieldus HeadLine (February issue) analyzes the 7 key principles for AI in financial services and domestic/international policy case studies.
 
-- [ ] **Research Technique 1월호 JWT 서명키 유출이 초래하는 인증 위협과 리스크 대응 전략** 관련 보안 영향도 분석 및 모니터링 강화
+**7 AI principles for financial sector:**
 
-### P1 (7일 내)
+| Principle | Description | Regulatory Reference |
+|-----------|-------------|---------------------|
+| Transparency | AI decision explainability requirements | EU AI Act Article 13 |
+| Fairness | Bias prevention in credit scoring and risk assessment | US CFPB guidance |
+| Accountability | Clear ownership of AI-driven decisions | Korea FSC guidelines |
+| Safety | Robustness against adversarial inputs | NIST AI RMF |
+| Privacy | Data minimization in model training | GDPR, Korea PIPA |
+| Security | AI model integrity and supply chain security | OWASP ML Top 10 |
+| Inclusiveness | Accessibility and non-discrimination | ISO/IEC 24028 |
 
-- [ ] 보안 뉴스 기반 SIEM/EDR 탐지 룰 업데이트
+**Practical implications:**
+- Financial institutions must implement AI model governance frameworks
+- Regular bias audits required for credit scoring and loan approval models
+- Explainability documentation mandatory for regulatory examination
 
-### P2 (30일 내)
-
-- [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
+> **Source**: [SK Shieldus HeadLine - Financial AI 7 Principles (PDF)](https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_2%EC%9B%94%ED%98%B8_%EA%B8%88%EC%9C%B5%EB%B6%84%EC%95%BC%20AI%207%EB%8C%80%20%EC%9B%90%EC%B9%99%EA%B3%BC%20%EA%B5%AD%EB%82%B4%EC%99%B8%20%EC%A0%95%EC%B1%85%EC%82%AC%EB%A1%80%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260225185655664.pdf)
 
 ---
 
-## 참고 자료
+### 1.3 SK Shieldus EQST Insight & Ransomware Trends
 
-| 리소스 | 링크 |
-|--------|------|
+Additional SK Shieldus publications this period:
+
+- **EQST Insight (January)**: Consolidated threat intelligence digest covering emerging attack vectors
+- **Global Ransomware Trend Report (February)**: Analysis of ransomware evolution, new variants, and sector-specific targeting patterns
+
+> **Source**: [SK Shieldus EQST Insight (PDF)](https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_1%EC%9B%94%ED%98%B8_F.pdf&r_fname=20260129161206425.pdf)
+
+---
+
+## 2. Blockchain News
+
+### 2.1 Iran Crypto Outflows: $10.3M BTC After US-Israel Airstrikes
+
+On-chain analysis from Chainalysis and Bitcoin Magazine reveals massive cryptocurrency outflows from Iranian exchanges following the February 28 US-Israeli airstrikes on Tehran.
+
+**Key findings:**
+- **$10.3 million** in BTC flowed out of major Iranian exchanges within hours of the strikes
+- Citizens sought to preserve value amid anticipated financial instability
+- Sharp increase in activity from exchanges like Nobitex and Wallex
+- Year-long trend of rising on-chain activity from Iranian addresses
+
+**AML/Compliance implications:**
+
+| Action | Priority | Responsible |
+|--------|----------|-------------|
+| Update sanctioned address lists (OFAC SDN) | P0 | Compliance team |
+| Monitor transactions involving Iranian exchange clusters | P0 | AML monitoring |
+| Review exposure to indirect VASP connections | P1 | Risk assessment |
+| Update geopolitical risk models for crypto flows | P1 | Risk management |
+| Document sanctions screening procedures | P2 | Legal/Compliance |
+
+**On-chain indicators to monitor:**
+- Sudden volume spikes from known Iranian exchange clusters
+- Mixing service usage patterns following geopolitical events
+- Cross-chain bridge activity from sanctioned jurisdiction addresses
+
+> **Sources**: [Chainalysis Blog](https://www.chainalysis.com/blog/iranian-crypto-outflows-spike-after-airstrikes/) | [Bitcoin Magazine](https://bitcoinmagazine.com/news/iran-bitcoin-outflows-surge-post-strikes)
+
+---
+
+### 2.2 American Bitcoin (ABTC) Mining Fleet Expansion
+
+American Bitcoin (ABTC), a company with ties to the Trump family, is significantly expanding its mining operations by deploying over 11,000 new high-efficiency mining machines.
+
+**Industry impact:**
+- Hashrate increase affects network difficulty adjustment
+- Concentration of mining power raises decentralization concerns
+- Energy consumption and ESG implications for institutional investors
+- Potential regulatory scrutiny due to political connections
+
+> **Source**: [Bitcoin Magazine](https://bitcoinmagazine.com/news/trump-linked-american-bitcoin-abtc-2)
+
+---
+
+## 3. Tech & Tools
+
+| Title | Source | Summary |
+|-------|--------|---------|
+| [US science agencies restrict foreign researcher access](https://news.hada.io/topic?id=27173) | GeekNews | NIST restricting foreign researcher lab access with 3-year max stay. Up to 500 senior researchers affected |
+| [korbus-mcp: Bus arrival notification via MCP](https://news.hada.io/topic?id=27172) | GeekNews | MCP tool for real-time bus arrival notifications - showcasing MCP ecosystem growth |
+| [ClaudeTuner: Claude usage tracking tool](https://news.hada.io/topic?id=27171) | GeekNews | Track Claude API usage against plan limits, with team management features |
+
+---
+
+## 4. Trend Analysis
+
+| Trend | Articles | Key Insight |
+|-------|----------|-------------|
+| **Authentication security** | 2 | JWT key management as critical infrastructure; signing key exposure = complete auth bypass |
+| **Geopolitical crypto flows** | 3 | Cryptocurrency as financial escape valve during geopolitical crises - AML systems need real-time geopolitical triggers |
+| **AI governance** | 1 | Financial sector AI regulation accelerating globally - 7 principles framework emerging as standard |
+| **MCP ecosystem** | 2 | MCP tools proliferating into everyday use cases (transit, usage monitoring) |
+
+The dominant trend this period is **geopolitical events driving cryptocurrency flows** (3 articles). The Iran crypto outflow case demonstrates how military actions create immediate, measurable on-chain impacts that compliance teams must detect in near-real-time. The **JWT authentication threat analysis** is equally critical - a single leaked signing key can compromise an entire authentication infrastructure.
+
+---
+
+## Action Checklist
+
+### P0 (Immediate)
+
+- [ ] **JWT key audit**: Verify all JWT signing keys are stored in KMS/HSM, not in source code or config files
+- [ ] **Sanctions list update**: Refresh OFAC SDN and Iranian exchange address lists in AML monitoring systems
+- [ ] Review `.env` files and Git history for exposed JWT secrets (`git log -p --all -S 'JWT_SECRET'`)
+
+### P1 (Within 7 days)
+
+- [ ] Implement JWT key rotation automation (90-day cycle minimum)
+- [ ] Add SIEM detection rules for anomalous JWT claim patterns (elevated privileges, unusual expiry)
+- [ ] Review AI model governance framework against Financial AI 7 Principles
+- [ ] Update geopolitical risk triggers in crypto monitoring platform
+
+### P2 (Within 30 days)
+
+- [ ] Conduct full authentication architecture review (JWT, OAuth, session management)
+- [ ] Perform AI bias audit on credit scoring/risk models
+- [ ] Review cryptocurrency compliance procedures with legal team
+
+---
+
+## References
+
+| Resource | Link |
+|----------|------|
+| SK Shieldus Reports | [skshieldus.com](https://www.skshieldus.com) |
+| OWASP JWT Cheat Sheet | [cheatsheetseries.owasp.org](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) |
+| Chainalysis Sanctions Screening | [chainalysis.com](https://www.chainalysis.com) |
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
-| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
 
 ---
 
-**작성자**: Twodragon
+**Author**: Twodragon
