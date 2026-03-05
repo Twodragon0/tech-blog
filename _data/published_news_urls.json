@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-04T05:05:54.685350+00:00",
+  "updated_at": "2026-03-05T03:31:15.348205+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -510,6 +510,96 @@
       "title": "Anthropic Cowork 기능이 macOS에서 경고 없이 10GB VM 번들을 생성함",
       "published_date": "2026-03-04",
       "expires_at": "2026-03-11T05:05:54.684890+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/2025-iso-and-csa-star-certificates-are-now-available-with-one-additional-service-and-one-new-region/",
+      "title": "2025 ISO and CSA STAR certificates are now available with one additional service",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/149-hacktivist-ddos-attacks-hit-110.html",
+      "title": "149 Hacktivist DDoS Attacks Hit 110 Organizations in 16 Countries After Middle E",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/coruna-ios-exploit-kit-uses-23-exploits.html",
+      "title": "Coruna iOS Exploit Kit Uses 23 Exploits Across Five Chains Targeting iOS 13–17.2",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/enhanced-access-denied-error-messages-with-policy-arns/",
+      "title": "Enhanced access denied error messages with policy ARNs",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/new-rfp-template-for-ai-usage-control.html",
+      "title": "New RFP Template for AI Usage Control and AI Governance",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/ai-mode-canvas-writing-coding/",
+      "title": "Use Canvas in AI Mode to get things done and bring your ideas to life, right in ",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://openai.com/index/extending-single-minus-amplitudes-to-gravitons",
+      "title": "Extending single-minus amplitudes to gravitons",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/embed-amazon-quick-suite-chat-agents-in-enterprise-applications/",
+      "title": "Embed Amazon Quick Suite chat agents in enterprise applications",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/unlock-powerful-call-center-analytics-with-amazon-nova-foundation-models/",
+      "title": "Unlock powerful call center analytics with Amazon Nova foundation models",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-ricoh-built-a-scalable-intelligent-document-processing-solution-on-aws/",
+      "title": "How Ricoh built a scalable intelligent document processing solution on AWS",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/manufacturing/how-bmw-is-testing-slms-not-llms-for-in-vehicle-voice-commands/",
+      "title": "Small models, high quality: Inside BMW Group’s experiments evaluating domain-spe",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/h4d-vms-now-ga/",
+      "title": "H4D VMs, now GA, deliver exceptional performance and scaling for HPC workloads",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/networking/gke-for-telco-building-a-highly-resilient-ai-native-core/",
+      "title": "The AI-native core: Highly resilient telco architecture using Google Kubernetes ",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/telecommunications/graphml-and-digital-twins-enable-autonomous-networks/",
+      "title": "The rise of the autonomous network: How GraphML is redefining telecom operations",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/telecommunications/new-agents-for-the-autonomous-network-operations-framework/",
+      "title": "Scaling the autonomous network: Introducing the Data Steward and Core Network Ag",
+      "published_date": "2026-03-05",
+      "expires_at": "2026-03-12T03:31:15.348115+00:00"
     }
   ]
 }
