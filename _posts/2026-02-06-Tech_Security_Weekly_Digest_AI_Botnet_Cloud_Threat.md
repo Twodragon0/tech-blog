@@ -35,28 +35,17 @@ tags:
 - Botnet
 - Cloud
 - Threat
-title: 'Tech & Security Weekly Digest: CrashFix Python RAT, AISURU 31.4 Tbps DDoS,
-  Codespaces RCE'
+title: '2026-02-06 기술·보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD'
 toc: true
 ---
 
-{% capture ai_categories_html %}
-<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>
-{% endcapture %}
-{% capture ai_tags_html %}
-<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">AI-Security</span> <span class="tag">Zero-Trust</span> <span class="tag">2026</span>
-{% endcapture %}
-{% capture ai_highlights_html %}
-<li><strong>The Hacker News</strong>: AI 사용 통제 Buyer's Guide - Shadow AI 데이터 유출 위험 관리 프레임워크</li> <li><strong>Microsoft Security</strong>: 보안 구현 갭(Implementation Gap) 분석 - 도구 도입과 실제 운영 수준의 격차</li> <li><strong>Google Cloud</strong>: Claude Opus 4.6 Vertex AI 출시 - AI 에이전트 보안 고려사항</li> <li><strong>Docker + Wiz</strong>: VEX 표준 기반 컨테이너 취약점 노이즈 감소 방안</li>
-{% endcapture %}
-
 {% include ai-summary-card.html
-  title="Tech & Security Weekly Digest (2026년 02월 06일)"
-  categories_html=ai_categories_html
-  tags_html=ai_tags_html
-  highlights_html=ai_highlights_html
-  period="2026년 02월 06일 (24시간)"
-  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  title='2026-02-06 기술·보안 주간 다이제스트'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span> <span class="tag">DevSecOps</span> <span class="tag">Cloud-Security</span> <span class="tag">Botnet</span> <span class="tag">DDoS</span> <span class="tag">BYOVD</span> <span class="tag">2026</span>'
+  highlights_html='<li><strong>CrashFix Python RAT</strong>: ClickFix 변종 소셜 엔지니어링으로 Portable Python + finger.exe 활용 AsyncRAT 배포 - EDR 우회 기법 분석</li> <li><strong>AISURU/Kimwolf DDoS</strong>: 31.4 Tbps 기록 경신 봇넷 공격 - Cloudflare + AWS Shield Advanced 이중 방어 아키텍처 설계 가이드</li> <li><strong>Codespaces RCE + BYOVD</strong>: GitHub Codespaces devcontainer.json 악용 RCE 및 취약 드라이버 서명 악용 커널 권한 상승 복합 위협</li> <li><strong>VEX + Docker 하드닝 이미지</strong>: Wiz 협력 VEX 표준으로 수백 개 CVE 노이즈에서 실제 악용 가능 취약점만 필터링하는 CI/CD 연동 방법</li>'
+  period='2026년 02월 06일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
 <figure>

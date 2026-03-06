@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tech Blog Weekly Digest: Google, Kubernetes, AWS"
+title: "2026-02-20 기술·보안 주간 다이제스트: AI 정렬 연구·EKS Flyte·Docker 보안·Cloud Native"
 date: 2026-02-20 08:15:29 +0900
 categories: [tech, devops]
 tags: [Tech-Blog, Weekly-Digest, Developer, 2026, AI, Data, Cloud, Go]
@@ -15,7 +15,7 @@ toc: true
 ---
 
 {% include ai-summary-card.html
-  title='Tech Blog Weekly Digest (2026년 02월 20일)'
+  title='2026-02-20 기술·보안 주간 다이제스트: AI 정렬 연구·EKS Flyte·Docker 보안·Cloud Native'
   categories_html='<span class="category-tag tech">기술</span> <span class="category-tag devops">DevOps</span>'
   tags_html='<span class="tag">Tech-Blog</span>
       <span class="tag">Weekly-Digest</span>
@@ -145,8 +145,6 @@ Amazon QuickSight가 Snowflake 데이터 소스 연결 시 키 페어(Key Pair) 
 - Snowflake 연결에 사용 중인 서비스 계정의 인증 방식을 확인합니다.
 - 키 페어 순환 정책(90일 이내)을 수립하고 자동화합니다.
 - 분석 계정의 비정상 접근 모니터링을 강화합니다.
-
-![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
 
 ![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
 
