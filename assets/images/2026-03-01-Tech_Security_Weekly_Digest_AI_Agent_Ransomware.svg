@@ -1,22 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#1a1030"/>
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="accentRed" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#ef4444"/>
-      <stop offset="100%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
     </linearGradient>
-    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#6366f1"/>
-      <stop offset="100%" stop-color="#4f46e5"/>
+    <linearGradient id="accentPurple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
     </linearGradient>
+    <linearGradient id="lockBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+    <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowPurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
   </defs>
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle glow effects -->
+  <ellipse cx="150" cy="300" rx="180" ry="180" fill="url(#glowRed)"/>
+  <ellipse cx="1050" cy="250" rx="220" ry="200" fill="url(#glowPurple)"/>
 
   <!-- Grid pattern -->
   <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
@@ -32,93 +48,123 @@
     <line x1="1000" y1="0" x2="1000" y2="630"/>
   </g>
 
-  <!-- Primary icon -->
-  <g transform="translate(80, 180)">
-    <rect x="25" y="60" width="70" height="80" rx="8" fill="url(#accent)" opacity="0.9"/>
-    <path d="M35 60 V40 C35 18 85 18 85 40 V60" fill="none" stroke="#fca5a5" stroke-width="3"/>
-    <circle cx="60" cy="100" r="10" fill="white"/>
-    <rect x="57" y="100" width="6" height="18" rx="2" fill="white"/>
+  <!-- Primary icon: Ransomware Lock -->
+  <g transform="translate(55, 155)">
+    <!-- Lock body -->
+    <rect x="22" y="62" width="76" height="68" rx="10" fill="url(#lockBody)" opacity="0.95"/>
+    <!-- Lock shackle -->
+    <path d="M34 62 V38 C34 14 86 14 86 38 V62" fill="none" stroke="#fca5a5" stroke-width="4" stroke-linecap="round"/>
+    <!-- Keyhole circle -->
+    <circle cx="60" cy="96" r="11" fill="#fff" opacity="0.9"/>
+    <!-- Keyhole slot -->
+    <rect x="56" y="96" width="8" height="16" rx="3" fill="#b91c1c"/>
+    <!-- Warning marks -->
+    <text x="60" y="145" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="2">RANSOMWARE</text>
   </g>
 
-  <!-- Secondary icon -->
-  <g transform="translate(80, 380)">
-    <circle cx="60" cy="70" r="45" fill="url(#accent)" opacity="0.15"/>
-    <circle cx="60" cy="70" r="45" fill="none" stroke="#6366f1" stroke-width="2.5"/>
-    <path d="M40 55 Q50 35 60 50 Q70 35 80 55" fill="none" stroke="#94a3b8" stroke-width="2"/>
-    <path d="M35 75 Q45 60 55 75 Q65 60 75 75 Q85 60 90 75" fill="none" stroke="#94a3b8" stroke-width="2"/>
-    <text x="60" y="105" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="14" font-weight="bold">AI</text>
+  <!-- Secondary icon: AI/MCP Agent -->
+  <g transform="translate(55, 360)">
+    <!-- Hexagon agent shape -->
+    <polygon points="60,10 100,32 100,76 60,98 20,76 20,32" fill="#3b0764" stroke="#a855f7" stroke-width="2.5" opacity="0.9"/>
+    <!-- AI neural lines -->
+    <line x1="40" y1="44" x2="80" y2="44" stroke="#c084fc" stroke-width="1.5" opacity="0.8"/>
+    <line x1="40" y1="54" x2="80" y2="54" stroke="#c084fc" stroke-width="1.5" opacity="0.6"/>
+    <line x1="40" y1="64" x2="80" y2="64" stroke="#c084fc" stroke-width="1.5" opacity="0.4"/>
+    <circle cx="40" cy="44" r="3" fill="#a855f7"/>
+    <circle cx="80" cy="44" r="3" fill="#a855f7"/>
+    <circle cx="40" cy="54" r="3" fill="#c084fc"/>
+    <circle cx="80" cy="54" r="3" fill="#c084fc"/>
+    <circle cx="40" cy="64" r="3" fill="#7c3aed"/>
+    <circle cx="80" cy="64" r="3" fill="#7c3aed"/>
+    <text x="60" y="120" text-anchor="middle" fill="#a855f7" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="2">MCP AGENT</text>
   </g>
 
   <!-- Main title area -->
-  <g transform="translate(260, 100)">
-    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Tech Security Weekly</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">Digest AI Agent Ransomware</text>
+  <g transform="translate(210, 95)">
+    <text x="0" y="0" fill="#94a3b8" font-family="Arial, sans-serif" font-size="13" font-weight="bold" letter-spacing="5">TECH SECURITY WEEKLY DIGEST</text>
+    <text x="0" y="55" fill="#f8fafc" font-family="Arial, sans-serif" font-size="44" font-weight="bold">Tech Security Weekly</text>
+    <text x="0" y="103" fill="#c084fc" font-family="Arial, sans-serif" font-size="30" font-weight="300">AI Agent Security OT Ransomware</text>
   </g>
 
   <!-- Date badge -->
-  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
-  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">March 01, 2026</text>
+  <rect x="210" y="230" width="188" height="36" rx="18" fill="url(#accentRed)" opacity="0.9"/>
+  <text x="304" y="254" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="15" font-weight="bold">March 01, 2026</text>
 
   <!-- Stats cards -->
-  <g transform="translate(260, 310)">
-    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="20" y="30" fill="#ef4444" font-family="Arial, sans-serif" font-size="12" font-weight="bold">RANSOMWARE</text>
-    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Ransomware</text>
-    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
-    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="240" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI/ML</text>
-    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AI/ML</text>
-    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
-    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="460" y="30" fill="#a78bfa" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI AGENT</text>
-    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AI Agent</text>
-    <text x="460" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+  <g transform="translate(210, 298)">
+    <!-- Card 1: Security -->
+    <rect x="0" y="0" width="195" height="95" rx="10" fill="#1e1030" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="16" y="28" fill="#ef4444" font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1">SECURITY</text>
+    <text x="16" y="68" fill="#f8fafc" font-family="Arial, sans-serif" font-size="40" font-weight="bold">4</text>
+    <text x="60" y="68" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">articles</text>
+    <text x="16" y="85" fill="#64748b" font-family="Arial, sans-serif" font-size="12">Ransomware, OT, MCP</text>
+    <!-- Card 2: AI/ML -->
+    <rect x="215" y="0" width="195" height="95" rx="10" fill="#1e1030" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="231" y="28" fill="#a855f7" font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1">AI / ML</text>
+    <text x="231" y="68" fill="#f8fafc" font-family="Arial, sans-serif" font-size="40" font-weight="bold">2</text>
+    <text x="275" y="68" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">articles</text>
+    <text x="231" y="85" fill="#64748b" font-family="Arial, sans-serif" font-size="12">Agentic AI, Agent Attack</text>
+    <!-- Card 3: Blockchain -->
+    <rect x="430" y="0" width="195" height="95" rx="10" fill="#1e1030" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="446" y="28" fill="#818cf8" font-family="Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1">BLOCKCHAIN</text>
+    <text x="446" y="68" fill="#f8fafc" font-family="Arial, sans-serif" font-size="40" font-weight="bold">5</text>
+    <text x="490" y="68" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">articles</text>
+    <text x="446" y="85" fill="#64748b" font-family="Arial, sans-serif" font-size="12">Crypto, DeFi, Chain</text>
   </g>
 
-  <!-- Key topics -->
-  <g transform="translate(260, 440)">
-    <rect x="0" y="0" width="120" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
-    <text x="60" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">Ransomware</text>
-    <rect x="135" y="0" width="75" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
-    <text x="172" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">AI/ML</text>
-    <rect x="225" y="0" width="102" height="32" rx="16" fill="#312e81" opacity="0.7"/>
-    <text x="276" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">AI Agent</text>
-    <rect x="342" y="0" width="75" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
-    <text x="379" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">Cloud</text>
+  <!-- Key topic tags -->
+  <g transform="translate(210, 430)">
+    <rect x="0" y="0" width="112" height="32" rx="16" fill="#7f1d1d" opacity="0.85"/>
+    <text x="56" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13" font-weight="bold">Ransomware</text>
+    <rect x="124" y="0" width="102" height="32" rx="16" fill="#4c1d95" opacity="0.85"/>
+    <text x="175" y="21" text-anchor="middle" fill="#c4b5fd" font-family="Arial, sans-serif" font-size="13" font-weight="bold">Agentic AI</text>
+    <rect x="238" y="0" width="60" height="32" rx="16" fill="#3b0764" opacity="0.85"/>
+    <text x="268" y="21" text-anchor="middle" fill="#d8b4fe" font-family="Arial, sans-serif" font-size="13" font-weight="bold">MCP</text>
+    <rect x="310" y="0" width="100" height="32" rx="16" fill="#1e3a5f" opacity="0.85"/>
+    <text x="360" y="21" text-anchor="middle" fill="#93c5fd" font-family="Arial, sans-serif" font-size="13" font-weight="bold">OT Security</text>
   </g>
 
-  <!-- Network visualization -->
-  <g transform="translate(900, 180)" opacity="0.4">
-    <circle cx="138" cy="184" r="3" fill="#f87171"/>
-    <circle cx="68" cy="68" r="4" fill="#fb923c"/>
-    <circle cx="209" cy="189" r="5" fill="#818cf8"/>
-    <circle cx="177" cy="219" r="6" fill="#34d399"/>
-    <circle cx="123" cy="177" r="3" fill="#fbbf24"/>
-    <circle cx="216" cy="216" r="4" fill="#f87171"/>
-    <circle cx="153" cy="176" r="5" fill="#fb923c"/>
-    <circle cx="95" cy="216" r="6" fill="#818cf8"/>
-    <circle cx="213" cy="76" r="3" fill="#34d399"/>
-    <circle cx="52" cy="91" r="4" fill="#fbbf24"/>
-    <line x1="138" y1="184" x2="68" y2="68" stroke="#475569" stroke-width="1"/>
-    <line x1="68" y1="68" x2="209" y2="189" stroke="#475569" stroke-width="1"/>
-    <line x1="209" y1="189" x2="177" y2="219" stroke="#475569" stroke-width="1"/>
-    <line x1="177" y1="219" x2="123" y2="177" stroke="#475569" stroke-width="1"/>
-    <line x1="123" y1="177" x2="216" y2="216" stroke="#475569" stroke-width="1"/>
-    <line x1="216" y1="216" x2="153" y2="176" stroke="#475569" stroke-width="1"/>
-    <line x1="153" y1="176" x2="95" y2="216" stroke="#475569" stroke-width="1"/>
-    <line x1="95" y1="216" x2="213" y2="76" stroke="#475569" stroke-width="1"/>
+  <!-- Right-side visualization: OT/ransomware circuit -->
+  <g transform="translate(870, 150)" opacity="0.55">
+    <!-- Central alert node -->
+    <circle cx="155" cy="155" r="28" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+    <text x="155" y="148" text-anchor="middle" fill="#fca5a5" font-family="monospace" font-size="10" font-weight="bold">RANSOM</text>
+    <text x="155" y="162" text-anchor="middle" fill="#fca5a5" font-family="monospace" font-size="10" font-weight="bold">WARE</text>
+    <!-- OT device nodes -->
+    <rect x="55" y="60" width="36" height="26" rx="4" fill="#1e293b" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="73" y="77" text-anchor="middle" fill="#c084fc" font-family="monospace" font-size="9">PLC</text>
+    <rect x="230" y="55" width="36" height="26" rx="4" fill="#1e293b" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="248" y="72" text-anchor="middle" fill="#c084fc" font-family="monospace" font-size="9">SCADA</text>
+    <rect x="55" y="235" width="40" height="26" rx="4" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="75" y="252" text-anchor="middle" fill="#818cf8" font-family="monospace" font-size="9">HMI</text>
+    <rect x="228" y="230" width="40" height="26" rx="4" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="248" y="247" text-anchor="middle" fill="#818cf8" font-family="monospace" font-size="9">RTU</text>
+    <!-- AI agent node top -->
+    <circle cx="155" cy="28" r="18" fill="#3b0764" stroke="#c084fc" stroke-width="1.5"/>
+    <text x="155" y="33" text-anchor="middle" fill="#e9d5ff" font-family="monospace" font-size="9" font-weight="bold">AI</text>
+    <!-- Connection lines -->
+    <line x1="91" y1="73" x2="128" y2="132" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <line x1="230" y1="68" x2="182" y2="132" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <line x1="91" y1="248" x2="128" y2="178" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <line x1="228" y1="243" x2="183" y2="178" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <line x1="155" y1="46" x2="155" y2="127" stroke="#c084fc" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <!-- Floating crypto demand -->
+    <rect x="100" y="295" width="110" height="22" rx="4" fill="#7f1d1d" opacity="0.7"/>
+    <text x="155" y="310" text-anchor="middle" fill="#fca5a5" font-family="monospace" font-size="10">BTC DEMAND</text>
   </g>
 
   <!-- Bottom bar -->
-  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
-  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
+  <rect x="0" y="510" width="1200" height="120" fill="#080e1a" opacity="0.9"/>
+  <rect x="0" y="510" width="1200" height="2" fill="url(#accentRed)" opacity="0.6"/>
+  <!-- purple accent line -->
+  <rect x="0" y="512" width="1200" height="1" fill="url(#accentPurple)" opacity="0.3"/>
 
   <!-- Bottom text -->
-  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
-  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
+  <text x="80" y="558" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16" font-weight="bold">tech.2twodragon.com</text>
+  <text x="80" y="584" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
 
   <!-- Bottom right -->
-  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">10 curated articles</text>
-  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Ransomware | AI/ML | AI Agent | Cloud</text>
+  <text x="1130" y="552" text-anchor="end" fill="#ef4444" font-family="Arial, sans-serif" font-size="22" font-weight="bold">17</text>
+  <text x="1130" y="570" text-anchor="end" fill="#94a3b8" font-family="Arial, sans-serif" font-size="13">curated articles</text>
+  <text x="1130" y="588" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="12">Ransomware | Agentic AI | MCP | OT Security</text>
 </svg>
