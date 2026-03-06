@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#0f172a"/><stop offset="50%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#336791"/><stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/><line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/><line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/><line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+  <!-- PostgreSQL elephant icon simplified -->
+  <g transform="translate(80, 180)">
+    <rect x="0" y="0" width="120" height="120" rx="20" fill="url(#accent)" opacity="0.9"/>
+    <ellipse cx="60" cy="45" rx="30" ry="14" fill="none" stroke="white" stroke-width="2.5"/>
+    <path d="M30 45 L30 85 Q30 100 60 100 Q90 100 90 85 L90 45" fill="none" stroke="white" stroke-width="2.5"/>
+    <ellipse cx="60" cy="65" rx="30" ry="10" fill="none" stroke="white" stroke-width="1.5" opacity="0.5"/>
+    <ellipse cx="60" cy="85" rx="30" ry="10" fill="none" stroke="white" stroke-width="1.5" opacity="0.3"/>
+    <text x="60" y="55" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">PG</text>
+  </g>
+  <!-- Scaling tiers -->
+  <g transform="translate(80, 370)">
+    <rect x="0" y="0" width="120" height="26" rx="4" fill="#1e3a5f" stroke="#336791" stroke-width="1"/>
+    <text x="60" y="17" text-anchor="middle" fill="#93c5fd" font-family="monospace" font-size="9">Primary</text>
+    <rect x="0" y="32" width="120" height="26" rx="4" fill="#1e3a5f" stroke="#336791" stroke-width="1"/>
+    <text x="60" y="49" text-anchor="middle" fill="#93c5fd" font-family="monospace" font-size="9">Replica 1</text>
+    <rect x="0" y="64" width="120" height="26" rx="4" fill="#1e3a5f" stroke="#336791" stroke-width="1"/>
+    <text x="60" y="81" text-anchor="middle" fill="#93c5fd" font-family="monospace" font-size="9">Replica 2</text>
+    <rect x="0" y="96" width="120" height="26" rx="4" fill="#14532d" stroke="#22c55e" stroke-width="1"/>
+    <text x="60" y="113" text-anchor="middle" fill="#86efac" font-family="monospace" font-size="9">PgBouncer</text>
+    <rect x="0" y="128" width="120" height="26" rx="4" fill="#581c87" stroke="#a855f7" stroke-width="1"/>
+    <text x="60" y="145" text-anchor="middle" fill="#c4b5fd" font-family="monospace" font-size="9">Partitioning</text>
+  </g>
+  <g transform="translate(260, 100)">
+    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">DATABASE ENGINEERING</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">PostgreSQL Scaling</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">Architecture Guide</text>
+  </g>
+  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
+  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">January 23, 2026</text>
+  <g transform="translate(260, 310)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="30" fill="#60a5fa" font-family="Arial, sans-serif" font-size="12" font-weight="bold">THROUGHPUT</text>
+    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">100K</text>
+    <text x="115" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">TPS</text>
+    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="240" y="30" fill="#34d399" font-family="Arial, sans-serif" font-size="12" font-weight="bold">REPLICAS</text>
+    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">N+1</text>
+    <text x="320" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">scalable</text>
+    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="460" y="30" fill="#a855f7" font-family="Arial, sans-serif" font-size="12" font-weight="bold">LATENCY</text>
+    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="32" font-weight="bold">&lt;5ms</text>
+    <text x="545" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">p99</text>
+  </g>
+  <g transform="translate(260, 440)">
+    <rect x="0" y="0" width="130" height="32" rx="16" fill="#1e3a5f" opacity="0.7"/>
+    <text x="65" y="21" text-anchor="middle" fill="#93c5fd" font-family="Arial, sans-serif" font-size="13">PostgreSQL</text>
+    <rect x="145" y="0" width="130" height="32" rx="16" fill="#14532d" opacity="0.7"/>
+    <text x="210" y="21" text-anchor="middle" fill="#86efac" font-family="Arial, sans-serif" font-size="13">Replication</text>
+    <rect x="290" y="0" width="130" height="32" rx="16" fill="#581c87" opacity="0.7"/>
+    <text x="355" y="21" text-anchor="middle" fill="#c4b5fd" font-family="Arial, sans-serif" font-size="13">Sharding</text>
+    <rect x="435" y="0" width="160" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
+    <text x="515" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">Performance</text>
+  </g>
+  <g transform="translate(900, 180)" opacity="0.4">
+    <circle cx="50" cy="50" r="6" fill="#60a5fa"/><circle cx="120" cy="30" r="4" fill="#34d399"/>
+    <circle cx="150" cy="90" r="5" fill="#a855f7"/><circle cx="80" cy="120" r="4" fill="#fb923c"/>
+    <circle cx="200" cy="60" r="3" fill="#60a5fa"/><circle cx="30" cy="150" r="5" fill="#34d399"/>
+    <circle cx="180" cy="140" r="4" fill="#a855f7"/>
+    <line x1="50" y1="50" x2="120" y2="30" stroke="#475569" stroke-width="1"/>
+    <line x1="50" y1="50" x2="80" y2="120" stroke="#475569" stroke-width="1"/>
+    <line x1="120" y1="30" x2="150" y2="90" stroke="#475569" stroke-width="1"/>
+    <line x1="150" y1="90" x2="200" y2="60" stroke="#475569" stroke-width="1"/>
+    <line x1="80" y1="120" x2="30" y2="150" stroke="#475569" stroke-width="1"/>
+    <line x1="150" y1="90" x2="180" y2="140" stroke="#475569" stroke-width="1"/>
+  </g>
+  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
+  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
+  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
+  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">PostgreSQL Scaling Architecture Guide</text>
+  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">High Performance Database</text>
+  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">PostgreSQL | Scaling | Performance</text>
+</svg>

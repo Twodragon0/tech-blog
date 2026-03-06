@@ -4,6 +4,10 @@
 const STATIC_CACHE = 'tech-blog-static-v18';
 const DYNAMIC_CACHE = 'tech-blog-dynamic-v18';
 
+// Dynamic cache settings
+const DYNAMIC_CACHE_MAX_ENTRIES = 50;
+const DYNAMIC_CACHE_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
+
 // 캐시할 정적 리소스 (CSS는 version param 무시하고 매칭)
 const STATIC_ASSETS = [
   '/',
@@ -65,6 +69,9 @@ self.addEventListener('activate', (event) => {
         })
       );
     }).then(() => {
+      // Remove expired/excess dynamic cache entries
+      return cleanupDynamicCache();
+    }).then(() => {
       // 모든 클라이언트에 즉시 적용
       return self.clients.claim();
     }).catch((error) => {
@@ -72,6 +79,44 @@ self.addEventListener('activate', (event) => {
     })
   );
 });
+
+// Remove expired and excess entries from dynamic cache
+async function cleanupDynamicCache() {
+  let cache;
+  try {
+    cache = await caches.open(DYNAMIC_CACHE);
+  } catch (e) {
+    return;
+  }
+
+  const requests = await cache.keys().catch(() => []);
+  const now = Date.now();
+  const entries = [];
+
+  for (const request of requests) {
+    const response = await cache.match(request).catch(() => null);
+    if (!response) continue;
+
+    const dateHeader = response.headers.get('date');
+    const cachedAt = dateHeader ? new Date(dateHeader).getTime() : 0;
+
+    if (cachedAt && now - cachedAt > DYNAMIC_CACHE_MAX_AGE_MS) {
+      // Expired: remove immediately
+      await cache.delete(request).catch(() => {});
+    } else {
+      entries.push({ request, cachedAt });
+    }
+  }
+
+  // Enforce max entries limit (remove oldest first)
+  if (entries.length > DYNAMIC_CACHE_MAX_ENTRIES) {
+    entries.sort((a, b) => a.cachedAt - b.cachedAt);
+    const toRemove = entries.slice(0, entries.length - DYNAMIC_CACHE_MAX_ENTRIES);
+    for (const { request } of toRemove) {
+      await cache.delete(request).catch(() => {});
+    }
+  }
+}
 
 // 메시지 리스너: 즉시 활성화 요청 (클라이언트 출처 검증)
 self.addEventListener('message', (event) => {
