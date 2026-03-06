@@ -55,6 +55,8 @@ toc: true
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. 보안/위협 인텔리전스
 
 ### 1.1 Patch Tuesday 대응 강화
@@ -91,6 +93,10 @@ toc: true
 
 ---
 
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
 ## 3. 클라우드/FinOps
 
 ### 3.1 비용 최적화(CUD)와 가시성
@@ -108,6 +114,10 @@ toc: true
 참고: [AWS Blog - EC2 Hpc8a](https://aws.amazon.com/blogs/aws/amazon-ec2-hpc8a-instances-powered-by-5th-gen-amd-epyc-processors-are-now-available/), [AWS Weekly Roundup](https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-ec2-m8azn-instances-new-open-weights-models-in-amazon-bedrock-and-more-february-16-2026/)
 
 ---
+
+![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
+
+![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
 
 ## 4. DevOps/플랫폼
 

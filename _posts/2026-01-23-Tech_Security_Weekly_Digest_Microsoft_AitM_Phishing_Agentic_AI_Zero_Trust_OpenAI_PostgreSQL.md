@@ -166,6 +166,8 @@ DevOps             : █████ 15%
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. 보안 뉴스 심층 분석
 
 ### 1.1 Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및 BEC 공격 경고
@@ -209,6 +211,8 @@ HashiCorp에서 **자율 AI 시스템(Agentic AI)**의 보안을 위한 포괄�
 > **출처**: [HashiCorp - Zero Trust for Agentic Systems](https://www.hashicorp.com/blog/zero-trust-for-agentic-systems-managing-non-human-identities-at-scale)
 
 ---
+
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 
 ## 2. 클라우드 & 인프라 뉴스
 

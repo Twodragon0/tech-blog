@@ -436,6 +436,8 @@ Kubernetes 기본 Secret은 **etcd에 base64 인코딩(암호화 아님!)으로 
 
 ---
 
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
+
 ## 4. AI 에이전트 보안
 
 ### 4.1 Amazon Bedrock AgentCore 접근 제어

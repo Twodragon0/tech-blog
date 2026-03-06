@@ -56,6 +56,8 @@ toc: true
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. 보안 뉴스
 
 ### 1.1 Anthropic, AI 기반 취약점 스캔을 위한 Claude Code Security 출시
@@ -121,6 +123,8 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
 - AI 도입 시 거버넌스 프레임워크 수립 로드맵 논의
 
 ---
+
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
 
 ## 2. 블록체인 뉴스
 

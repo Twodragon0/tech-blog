@@ -101,6 +101,8 @@ toc: true
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. CVE-2025-11953 Metro4Shell: React Native CLI RCE 심층 분석
 
 ### 1.1 개요
@@ -207,6 +209,8 @@ index=network dest_port=8081
 
 ---
 
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
 ## 2. AWS IAM Identity Center 멀티리전 보안 영향 분석
 
 ### 2.1 개요
@@ -250,6 +254,8 @@ AWS IAM Identity Center의 **멀티리전 복제** 기능은 중앙 집중식 ID
 
 
 ---
+
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
 
 ## 3. AI 에이전트 보안: 3Cs 프레임워크 심층 분석
 

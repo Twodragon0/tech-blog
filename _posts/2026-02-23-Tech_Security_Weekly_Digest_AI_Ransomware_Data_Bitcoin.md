@@ -62,6 +62,8 @@ toc: true
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. 보안 뉴스
 
 ### 1.1 SK쉴더스 2월 보안 리포트
@@ -75,6 +77,8 @@ SK쉴더스에서 발행한 최신 보안 리포트 모음입니다.
 > SK쉴더스 보안 리포트는 국내 보안 환경에 특화된 위협 분석을 제공합니다. 원문을 다운로드하여 상세 내용을 확인하시기 바랍니다.
 
 ---
+
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
 
 ## 2. 블록체인 뉴스
 

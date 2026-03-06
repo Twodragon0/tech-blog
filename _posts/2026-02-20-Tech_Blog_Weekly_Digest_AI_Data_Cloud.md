@@ -146,6 +146,10 @@ Amazon QuickSight가 Snowflake 데이터 소스 연결 시 키 페어(Key Pair) 
 - 키 페어 순환 정책(90일 이내)을 수립하고 자동화합니다.
 - 분석 계정의 비정상 접근 모니터링을 강화합니다.
 
+![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
+
+![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
+
 ## 2. DevOps & Cloud
 
 ### 2.1 Medplum, Docker Hardened Images로 헬스케어 플랫폼 보안 강화

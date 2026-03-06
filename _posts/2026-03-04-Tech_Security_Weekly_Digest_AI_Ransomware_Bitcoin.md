@@ -61,6 +61,8 @@ toc: true
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. 보안 뉴스
 
 ### 1.1 JWT 서명키 유출: 전체 인증 체계 침해
@@ -140,6 +142,8 @@ SK쉴더스 HeadLine (2월호)에서 금융 서비스 분야 AI를 위한 7대 �
 > **출처**: [SK쉴더스 EQST Insight (PDF)](https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8)_1%EC%9B%94%ED%98%B8_F.pdf&r_fname=20260129161206425.pdf)
 
 ---
+
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
 
 ## 2. 블록체인 뉴스
 

@@ -71,6 +71,8 @@ toc: true
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. 보안 뉴스
 
 ### 1.1 Gemini AI를 악용한 국가 배후 정찰·공격 지원
@@ -158,6 +160,8 @@ Copilot Studio 에이전트는 권한과 자동화 범위가 넓어지는 만큼
 
 
 ---
+
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
 
 ## 2. AI/ML 뉴스
 
@@ -249,6 +253,8 @@ Amazon Bedrock과 Knowledge Bases, AWS Lambda 등을 활용해 채용 공고 작
 
 ---
 
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
 ## 3. 클라우드·인프라 뉴스
 
 ### 3.1 FinOps CUD 업데이트: 비용·절감 구조 단순화
@@ -320,6 +326,8 @@ AWS Spatial Compute Blog의 내용을 바탕으로, VAMS가 NVIDIA Isaac Lab과 
 
 ---
 
+![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
+
 ## 4. DevOps·개발 뉴스
 
 ### 4.1 Interop 2026 발표
@@ -363,6 +371,8 @@ Safari Technology Preview 237이 macOS Tahoe와 macOS Sequoia용으로 공개되
 
 
 ---
+
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
 
 ## 5. 블록체인 뉴스
 

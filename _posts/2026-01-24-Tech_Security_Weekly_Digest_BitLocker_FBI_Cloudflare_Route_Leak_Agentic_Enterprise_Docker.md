@@ -149,6 +149,8 @@ Tech               : ██ 6%
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. 보안 뉴스 심층 분석
 
 ### 1.1 Microsoft, FBI에 BitLocker 복구 키 제공 - 암호화 신뢰성 논란

@@ -68,6 +68,8 @@ toc: true
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. 보안 뉴스
 
 ### 1.1 [보안] Preparing for the Quantum Era: Post-Quantum Cryptography Webinar for
@@ -162,6 +164,8 @@ Some weeks in cybersecurity feel routine. This one doesn’t. Several new develo
 
 ---
 
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
+
 ## 2. AI/ML 뉴스
 
 ### 2.1 [AI] Maven Smart System: Innovating for the Alliance
@@ -223,6 +227,8 @@ an MP4 of a carousel with images reading "Gemini 3.
 
 
 ---
+
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 
 ## 3. 클라우드 & 인프라 뉴스
 
@@ -286,6 +292,8 @@ A secure foundation is essential for tech innovation. As organizations embrace a
 
 ---
 
+![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
+
 ## 4. DevOps & 개발 뉴스
 
 ### 4.1 [DevOps] Release v1.0 of the official MCP C# SDK
@@ -327,6 +335,8 @@ When Kubernetes launched a decade ago, its promise was clear: make deploying mic
 
 
 ---
+
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
 
 ## 5. 블록체인 뉴스
 

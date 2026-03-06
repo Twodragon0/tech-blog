@@ -65,6 +65,8 @@ toc: true
 
 ---
 
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
+
 ## AI/ML 업데이트
 
 ### Meta Prometheus - 기가와트급 AI 클러스터 백엔드 집계
@@ -126,6 +128,8 @@ Google이 Safer Internet Day를 맞아 아동/청소년 대상 온라인 안전 
 - AI 서비스 운영 시 윤리/안전성 거버넌스 참조
 
 ---
+
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 
 ## 클라우드 & 인프라 업데이트
 

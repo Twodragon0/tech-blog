@@ -145,6 +145,10 @@ SK쉴더스 EQST 리포트는 실무 중심의 상세한 분석과 기술적 가
 
 ---
 
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
+
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
+
 ## 2. 블록체인 뉴스
 
 ### 2.1 FOMC 금리 인하 기대감 증가
@@ -226,6 +230,8 @@ Tether가 터키 당국과 협력하여 불법 온라인 베팅 사이트와 연
 - 연 1회 이상 랜섬웨어 대응 모의훈련 실시
 
 ---
+
+![Security News Section Banner](/assets/images/section-security.svg)
 
 ## 5. 보안 메트릭 및 KPI
 

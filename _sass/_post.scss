@@ -31,6 +31,16 @@
   margin-top: 0.95rem;
 }
 
+/* Section banner images */
+.post-article .post-content img[src*="section-"] {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-lg);
+  margin: 1.5rem 0 0.5rem;
+  box-shadow: var(--shadow-md);
+}
+
 @media (max-width: 768px) {
   .post-article {
     max-width: 100%;

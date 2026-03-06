@@ -188,6 +188,8 @@ AI 에이전트의 보안은 2026년 핵심 화두입니다. NanoClaw의 접근 
 
 ---
 
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
+
 ## 3. DeFi 보안 위협 분석
 
 ### 3.1 CrossCurve 프로토콜 $3M 익스플로잇

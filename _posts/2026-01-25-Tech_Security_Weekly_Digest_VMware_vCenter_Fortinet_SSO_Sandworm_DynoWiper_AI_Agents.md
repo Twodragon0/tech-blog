@@ -349,6 +349,10 @@ diagnose sys ha history read | grep policy
 
 ---
 
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
 ## 5. 클라우드 오케스트레이션: Apache Airflow 3.1 & Google ADK
 
 ### Apache Airflow 3.1 in Cloud Composer

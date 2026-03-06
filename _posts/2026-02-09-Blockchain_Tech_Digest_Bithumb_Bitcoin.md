@@ -62,6 +62,10 @@ toc: true
 
 ---
 
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
+
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
+
 ## 1. 블록체인 뉴스
 
 ### 1.1 Bithumb $44B 비트코인 오송금 - 운영 보안 실패

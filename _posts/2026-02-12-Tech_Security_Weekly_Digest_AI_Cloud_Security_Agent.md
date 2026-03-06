@@ -44,6 +44,8 @@ toc: true
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. 보안 뉴스
 
 ### 1.1 악성 Outlook 애드인 기반 자격증명 탈취
@@ -88,6 +90,8 @@ toc: true
 
 ---
 
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
+
 ## 2. AI/ML 뉴스
 
 ### 2.1 에이전트 개발 시대의 테스트 전략 전환
@@ -123,6 +127,8 @@ toc: true
 
 ---
 
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
 ## 3. 클라우드/인프라 뉴스
 
 ### 3.1 AI 기반 테이블탑 훈련으로 금융 복원력 강화
@@ -157,6 +163,8 @@ toc: true
 
 ---
 
+![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
+
 ## 4. DevOps/개발 뉴스
 
 ### 4.1 Security Slam 2026 오픈소스 보안 점검 확대
@@ -178,6 +186,8 @@ toc: true
 > 출처: [WebKit Blog](https://webkit.org/blog/17798/webkit-features-for-safari-26-3/)
 
 ---
+
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
 
 ## 5. 블록체인 뉴스
 

@@ -66,6 +66,8 @@ toc: true
 
 ---
 
+![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
+
 ## DevOps 뉴스
 
 ### CNCF Project Velocity 2025 - 클라우드 네이티브 미래 전망
@@ -141,6 +143,8 @@ spec:
 - Kubernetes AI 워크로드(GPU 노드) 확장 시 In-Place 업데이트로 운영 효율성 향상
 
 ---
+
+![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
 
 ## 블록체인 뉴스
 
