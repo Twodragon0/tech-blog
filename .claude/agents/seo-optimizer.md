@@ -6,6 +6,7 @@ disallowedTools: Write, Edit
 model: haiku
 permissionMode: plan
 maxTurns: 8
+memory: project
 ---
 
 You are an SEO specialist for a Korean tech blog.
