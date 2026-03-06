@@ -253,8 +253,25 @@
 
 .post-card-tags {
   display: flex;
-  gap: var(--spacing-xs);
+  gap: 6px;
   flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: var(--spacing-sm);
+}
+
+.post-card-tags .tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  min-height: auto;
+  background-color: var(--color-bg-secondary);
+  border-color: transparent;
+  color: var(--color-text-tertiary);
+}
+
+.post-card-tags .tag--more {
+  background-color: transparent;
+  border: 1px dashed var(--color-border);
+  color: var(--color-text-tertiary);
 }
 
 /* Category Badges */
