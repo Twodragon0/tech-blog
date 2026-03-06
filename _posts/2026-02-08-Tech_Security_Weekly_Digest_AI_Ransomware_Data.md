@@ -34,36 +34,25 @@ tags:
 - BlackField-Ransomware
 - Zero-Trust
 - Data-Security
-title: 'Tech & Security Weekly Digest: Signal Phishing, BlackField Ransomware, Zero
-  Trust Data'
+title: '2026-02-08 기술·보안 주간 다이제스트: Signal 피싱 국가지원 공격, BlackField 랜섬웨어,
+  제로트러스트 데이터 보안'
 toc: true
 ---
 
-{% capture ai_categories_html %}
-<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>
-{% endcapture %}
-{% capture ai_tags_html %}
-<span class="tag">Security-Weekly</span>
-<span class="tag">DevSecOps</span>
-<span class="tag">Cloud-Security</span>
-<span class="tag">Signal-Phishing</span>
-<span class="tag">Zero-Trust</span>
-<span class="tag">2026</span>
-{% endcapture %}
-{% capture ai_highlights_html %}
-<li><strong>The Hacker News</strong>: 독일 BfV/BSI - Signal 피싱 국가지원 공격 경고 (정치인/군인/언론인 타겟)</li>
-<li><strong>SK쉴더스</strong>: BlackField 랜섬웨어 - 기존 코드 재활용 기반 신종 위협 분석</li>
-<li><strong>SK쉴더스</strong>: 제로트러스트 데이터 중심 보안전략 구축 방안</li>
-<li><strong>SK쉴더스</strong>: 사이버보안 특화 Vertical AI 구축 방안</li>
-{% endcapture %}
-
 {% include ai-summary-card.html
-  title="Tech & Security Weekly Digest (2026년 02월 08일)"
-  categories_html=ai_categories_html
-  tags_html=ai_tags_html
-  highlights_html=ai_highlights_html
-  period="2026년 02월 08일 (24시간)"
-  audience="보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  title='기술·보안 주간 다이제스트 (2026년 02월 08일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>
+      <span class="tag">DevSecOps</span>
+      <span class="tag">Cloud-Security</span>
+      <span class="tag">Signal-Phishing</span>
+      <span class="tag">Zero-Trust</span>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>Signal 피싱 국가지원 공격</strong>: 독일 BfV/BSI 경고 — 러시아 연계 공격자가 정치인/군인/언론인 대상 Signal 메신저 피싱 캠페인 수행</li>
+      <li><strong>BlackField 랜섬웨어</strong>: LockBit/Conti 소스 코드 재활용 기반 신종 랜섬웨어 — RaaS 진입 장벽 하락</li>
+      <li><strong>제로트러스트 데이터 보안</strong>: 데이터 중심 보안전략으로 기존 경계 기반 모델 한계 극복</li>'
+  period='2026년 02월 08일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
 
 ---

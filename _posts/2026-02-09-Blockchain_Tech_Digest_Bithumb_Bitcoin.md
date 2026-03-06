@@ -29,30 +29,22 @@ title: '2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고,
 toc: true
 ---
 
-{% capture ai_categories_html %}
-<span class="category-tag devsecops">DevSecOps</span>
-{% endcapture %}
-{% capture ai_tags_html %}
-<span class="tag">Blockchain-Digest</span>
-<span class="tag">Tech-Digest</span>
-<span class="tag">Bithumb</span>
-<span class="tag">Bitcoin</span>
-<span class="tag">GameBoy</span>
-<span class="tag">AI-UX</span>
-{% endcapture %}
-{% capture ai_highlights_html %}
-<li><strong>핵심 요약</strong>: Bithumb $44B 비트코인 오송금 운영 보안 실패, Bitcoin $71K 기관 매수 회복, 게임보이 3D 셰이더 구현, 2026</li>
-{% endcapture %}
-
 {% include ai-summary-card.html
-  title="2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K"
-  categories_html=ai_categories_html
-  tags_html=ai_tags_html
-  highlights_html=ai_highlights_html
-  period="2026-02-09"
-  audience="DevOps/DevSecOps/Cloud 보안 담당자"
+  title='블록체인 & 테크 다이제스트 (2026년 02월 09일)'
+  categories_html='<span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Blockchain-Digest</span>
+      <span class="tag">Tech-Digest</span>
+      <span class="tag">Bithumb</span>
+      <span class="tag">Bitcoin</span>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>Bithumb $44B 오송금</strong>: 내부 운영 프로세스 실패로 $44B 상당 비트코인 오송금 — 다중 승인 체계와 자동 한도 검증의 부재가 원인</li>
+      <li><strong>Bitcoin $71K 회복</strong>: 기관 투자자 저점 매수와 소매 투자자 관심 급증으로 $71,000 회복</li>
+      <li><strong>게임보이 3D 셰이더</strong>: 4MHz CPU, 8KB RAM 극한 환경에서 실시간 3D 렌더링 — 임베디드 최적화 사례</li>'
+  period='2026년 02월 09일'
+  audience='DevOps/DevSecOps/Cloud 보안 담당자'
 %}
 
+---
 
 ## 서론
 
@@ -61,8 +53,6 @@ toc: true
 2026년 02월 09일 블록체인 및 기술 트렌드 소식입니다. Bithumb의 $44B 비트코인 오송금 사고는 기술적 해킹이 아닌 운영 프로세스 실패가 초래할 수 있는 치명적 결과를 보여주며, Bitcoin $71K 회복은 기관-소매 동반 매수세를 나타냅니다. 기술 트렌드로는 게임보이 컬러의 실시간 3D 셰이더 구현과 2026년 AI/UX 전망을 다룹니다.
 
 ---
-
-![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
 
 ![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
 
