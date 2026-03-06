@@ -6,7 +6,7 @@ comments: true
 date: 2025-09-17 16:20:06 +0900
 description: NPM 생태계 최초 자가 복제 웜 형태 공급망 공격인 Shai-Hulud 분석과 대응 방안을 다룹니다. SBOM 생성 및 2FA
   필수 설정 권장.
-excerpt: NPM Shai-Hulud 자가 복제 웜 공격 완전 분석. 180개 이상 패키지 감염 및 대응 방안.
+excerpt: "NPM 생태계 최초 자가 복제 웜 형태 공급망 공격인 Shai-Hulud 분석과 대응 방안을 다룹니다. SBOM 생성 및 2FA"
 image: /assets/images/2025-09-17-NPM_ampquotShai-Huludampquot_180_Large-scale_Analysis.svg
 image_alt: 'NPM Shai-Hulud Self-Replicating Worm Attack: Complete Analysis of Large-Scale
   Supply Chain Attack with 180+ Compromised Packages'

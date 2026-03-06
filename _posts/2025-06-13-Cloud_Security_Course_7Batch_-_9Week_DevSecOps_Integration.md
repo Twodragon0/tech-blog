@@ -6,7 +6,7 @@ comments: true
 date: 2025-06-13 23:48:33 +0900
 description: DevSecOps 파이프라인 전체 아키텍처, 보안 도구 매핑, AWS 보안 서비스 통합, DevSecOps 성숙도 모델, 완전한
   CI/CD 보안 파이프라인, 실무 적용 체크리스트까지 정리.
-excerpt: 'DevSecOps 통합 정리: 파이프라인 아키텍처부터 실무 적용까지'
+excerpt: "DevSecOps 파이프라인 전체 아키텍처, 보안 도구 매핑, AWS 보안 서비스 통합, DevSecOps 성숙도 모델, 완전한"
 image: /assets/images/2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration.svg
 image_alt: 'Cloud Security Course 7Batch 9Week: DevSecOps Integration Summary'
 keywords:

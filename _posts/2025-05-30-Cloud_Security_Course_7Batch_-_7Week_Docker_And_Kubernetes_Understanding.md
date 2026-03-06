@@ -9,7 +9,7 @@ comments: true
 date: 2025-05-30 00:04:58 +0900
 description: Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node,
   Pod), 컨테이너 보안 Best Practices, 런타임 보안(Trivy, Falco), 2025년 업데이트까지 실무 중심 정리.
-excerpt: Docker 및 Kubernetes 기초와 보안 Best Practices 정리
+excerpt: "Docker 기초(이미지, 컨테이너, Dockerfile), Kubernetes 아키텍처(Control Plane, Node,"
 image: /assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes.svg
 image_alt: 'Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understanding'
 keywords:

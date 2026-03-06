@@ -4,7 +4,7 @@ title: "기술·보안 주간 다이제스트: CVE-2025-49113, Ransomware"
 date: 2026-02-21 00:12:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Vulnerability, AI, Security, AWS]
-excerpt: "2026년 02월 21일 주요 보안/기술 뉴스 15건 - Vulnerability, AI, Security"
+excerpt: "2026년 02월 21일 보안 뉴스: The Hacker News, SK쉴더스 보안 리포트 등 15건. Vulnerability, AI, Security, AWS 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 description: "2026년 02월 21일 보안 뉴스: The Hacker News, SK쉴더스 보안 리포트 등 15건. Vulnerability, AI, Security, AWS 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Vulnerability, AI, Security]
 author: Twodragon

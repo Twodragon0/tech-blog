@@ -9,7 +9,7 @@ comments: true
 date: 2025-12-12 14:45:05 +0900
 description: 2025년 FinOps 트렌드와 AWS 비용 관리 도구 활용법, ISMS-P 인증 대응 전략을 실무 중심으로 학습하여 비용
   최적화와 보안을 동시에 달성하세요.
-excerpt: 2025년 FinOps와 AWS 비용 관리, ISMS-P 인증 대응으로 비용 최적화와 보안을 동시에 달성
+excerpt: "2025년 FinOps 트렌드와 AWS 비용 관리 도구 활용법, ISMS-P 인증 대응 전략을 실무 중심으로 학습하여 비용"
 image: /assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.svg
 image_alt: 'Cloud Security 8Batch 3Week: Complete Strategy from AWS FinOps Architecture
   to ISMS-P Security Audit'

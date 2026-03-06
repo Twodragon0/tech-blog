@@ -8,8 +8,7 @@ comments: true
 date: 2025-05-02 00:41:54 +0900
 description: 클라우드 시큐리티 7기 3주차. AWS 보안 서비스 전체 구조(IAM, Organizations, CloudTrail, GuardDuty,
   Security Hub), FinOps 프레임워크, 비용 최적화 전략, AWS Well-Architected Framework 실무 적용.
-excerpt: AWS 보안 및 FinOps 완벽 가이드. GuardDuty, Security Hub, IAM 보안 설정 및 비용 최적화 전략 실무
-  정리.
+excerpt: "클라우드 시큐리티 7기 3주차. AWS 보안 서비스 전체 구조(IAM, Organizations, CloudTrail, GuardDuty,"
 image: /assets/images/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_and_Finops.svg
 image_alt: 'Cloud Security Course 7Batch 3Week: AWS Security and FinOps'
 keywords:

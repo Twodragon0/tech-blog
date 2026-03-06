@@ -7,8 +7,7 @@ comments: true
 date: 2026-02-28 09:00:00 +0900
 description: AI Agent 보안 아키텍처 설계 가이드 - OpenAI Stateful Runtime, Amazon Bedrock AgentCore,
   Google Continuous Evaluation 기반 실무 보안 패턴과 OWASP Agentic Top 10 대응 전략을 다룹니다.
-excerpt: 2026년 AI Agent 보안 아키텍처의 핵심인 Stateful Runtime과 Continuous Evaluation을 실무 관점에서
-  분석하고, OWASP Agentic Top 10 대응을 위한 방어 패턴 구현 코드를 제공합니다.
+excerpt: "AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Continuous Evaluation 실무 적용 - AI Agent 보안 아키텍처 설계 가이드 - OpenAI Stateful Runtime, Amazon Bedrock AgentCore,"
 image: /assets/images/2026-02-28-AI_Agent_Security_Architecture_Design_Guide.svg
 image_alt: AI Agent Security Architecture Design Guide - Stateful Runtime and Continuous
   Evaluation

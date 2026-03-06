@@ -9,7 +9,7 @@ comments: true
 date: 2025-05-30 01:11:00 +0900
 description: Minikube 1.37.0+ 설치 및 설정, K9s 터미널 UI 활용, Kubernetes 2024-2025 보안 강화(User
   Namespaces, Bound Service Account Tokens), 실전 테스트 시나리오까지 실무 중심 정리.
-excerpt: 'Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지'
+excerpt: "Minikube 1.37.0+ 설치 및 설정, K9s 터미널 UI 활용, Kubernetes 2024-2025 보안 강화(User"
 image: /assets/images/2025-05-30-Kubernetes_Minikube_ampamp_K9s_Guide_From_Practical_To.svg
 image_alt: 'Kubernetes Minikube and K9s Practical Guide: From Problem Solving to Practical
   Testing'

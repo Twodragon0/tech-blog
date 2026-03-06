@@ -7,8 +7,7 @@ comments: true
 date: 2026-02-02 20:00:00 +0900
 description: '2026년 2월 2일 종합 기술/블록체인 분석: Apple A18 Pro Neural Engine MLX 버그, Bitcoin
   주말 대폭락과 $19B 청산, 몬트리올대 AI 창의성 역설, DeFi 보안 사고, Claude Code 실전 팁, FOSDEM 2026'
-excerpt: Apple iPhone 16 MLX LLM 버그, Bitcoin $74K 급락과 $19B 청산, AI 창의성 역설 연구, CrossCurve
-  DeFi 익스플로잇, FOSDEM 2026 하이라이트
+excerpt: "주간 기술·AI·블록체인 다이제스트: Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 - 2026년 2월 2일 종합 기술/블록체인 분석: Apple A18 Pro Neural Engine MLX 버그, Bitcoin"
 image: /assets/images/2026-02-02-Weekly_Tech_AI_Blockchain_Digest.svg
 image_alt: Weekly Tech AI Blockchain Digest Feb 2 2026
 keywords:

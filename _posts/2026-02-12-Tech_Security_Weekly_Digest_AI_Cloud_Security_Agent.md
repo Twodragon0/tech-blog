@@ -4,7 +4,7 @@ title: "기술·보안 주간 다이제스트: 공급망, Windows, APT36"
 date: 2026-02-12 12:41:50 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security, Agent]
-excerpt: "2026년 02월 12일 주요 보안/기술 뉴스 27건 - AI, 클라우드, 보안"
+excerpt: "2026년 02월 12일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 27건. AI, 클라우드, 보안, 에이전트 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 description: "2026년 02월 12일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 27건. AI, 클라우드, 보안, 에이전트 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Security]
 author: Twodragon

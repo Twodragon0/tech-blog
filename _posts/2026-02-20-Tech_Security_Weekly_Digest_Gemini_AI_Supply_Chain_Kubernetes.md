@@ -4,7 +4,7 @@ title: "기술 & 보안 주간 다이제스트: Gemini 3.1 Pro, AI 공급망 공
 date: 2026-02-20 09:00:00 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Gemini, AI, Supply-Chain, Kubernetes]
-excerpt: "2026년 02월 20일 주요 보안/기술 뉴스 29건 - Gemini 3.1 Pro, AI Supply Chain, Kubernetes"
+excerpt: "2026년 02월 20일 보안 뉴스: The Hacker News, Google Cloud, Snyk 등 29건. Gemini 3.1 Pro, AI 공급망 공격, Kubernetes Ingress NGINX 은퇴 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 description: "2026년 02월 20일 보안 뉴스: The Hacker News, Google Cloud, Snyk 등 29건. Gemini 3.1 Pro, AI 공급망 공격, Kubernetes Ingress NGINX 은퇴 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Gemini, AI, Supply-Chain, Kubernetes]
 author: Twodragon

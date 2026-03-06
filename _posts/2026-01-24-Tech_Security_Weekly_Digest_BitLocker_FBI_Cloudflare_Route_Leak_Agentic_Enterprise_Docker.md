@@ -9,8 +9,7 @@ description: '2026년 1월 24일 주요 기술/보안 뉴스: Microsoft FBI BitL
   신뢰성 재검토, Cloudflare 1월 22일 BGP Route Leak 사건 상세 분석과 RPKI 대응, CNCF 자율 기업 4가지 플랫폼
   제어 기둥 2026 전망, Docker 컨테이너 생태계 현재와 미래, OpenAI Codex Agent Loop 병렬 아키텍처까지 DevSecOps
   실무 분석'
-excerpt: BitLocker FBI 키 제공 논란, Cloudflare BGP Route Leak, CNCF 자율 기업 4대 제어, Docker
-  2026
+excerpt: "기술·보안 주간 다이제스트: Microsoft BitLocker FBI 키 제공, Cloudflare Route - 2026년 1월 24일 주요 기술/보안 뉴스: Microsoft FBI BitLocker 암호화 복구 키 제공 논란과 암호화"
 image: /assets/images/2026-01-24-Tech_Security_Weekly_Digest.svg
 image_alt: Tech and Security Weekly Digest January 2026 - BitLocker, Route Leak, Agentic
   Enterprise

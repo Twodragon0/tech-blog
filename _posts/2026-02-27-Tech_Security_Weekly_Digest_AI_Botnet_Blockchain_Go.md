@@ -4,7 +4,7 @@ title: "기술·보안 주간 다이제스트: Botnet, AWS, Cisco"
 date: 2026-02-27 12:28:30 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Blockchain, Go]
-excerpt: "2026년 02월 27일 주요 보안/기술 뉴스 30건 - AI, Botnet, Blockchain"
+excerpt: "2026년 02월 27일 보안 뉴스: The Hacker News, AWS Security Blog 등 30건. AI, Botnet, Blockchain, Go 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 description: "2026년 02월 27일 보안 뉴스: The Hacker News, AWS Security Blog 등 30건. AI, Botnet, Blockchain, Go 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Blockchain]
 author: Twodragon

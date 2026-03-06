@@ -4,7 +4,7 @@ title: "기술·보안 주간 다이제스트: RCE, Phishing, Malware"
 date: 2026-02-26 11:05:21 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, AWS, API]
-excerpt: "2026년 02월 26일 주요 보안/기술 뉴스 23건 - AI, Go, AWS"
+excerpt: "2026년 02월 26일 보안 뉴스: The Hacker News 등 23건. AI, Go, AWS, API 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 description: "2026년 02월 26일 보안 뉴스: The Hacker News 등 23건. AI, Go, AWS, API 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, AWS]
 author: Twodragon

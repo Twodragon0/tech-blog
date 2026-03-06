@@ -6,7 +6,7 @@ comments: true
 date: 2025-11-21 18:28:12 +0900
 description: 클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량을 강화하고, 2025년 AI 보안 트렌드에
   대응하는 실무형 전문가로 성장하세요.
-excerpt: 클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량 강화, 2025년 보안 트렌드 완벽 대응
+excerpt: "클라우드 시큐리티 8기 9주 커리큘럼으로 DevSecOps와 FinOps 실무 역량을 강화하고, 2025년 AI 보안 트렌드에"
 image: /assets/images/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.svg
 image_alt: 'Cloud Security 8Batch OT Guide: Leap to Practical Talent from DevSecOps
   to FinOps'

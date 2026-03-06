@@ -8,8 +8,7 @@ date: 2026-02-06 12:30:12 +0900
 description: '2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python RAT 배포, AISURU/Kimwolf
   31.4 Tbps DDoS 기록 경신, Codespaces RCE/AsyncRAT C2/BYOVD 복합 위협. DevSecOps 실무 위협 분석,
   MITRE ATT&CK 매핑, 탐지 쿼리, IR 플레이북 제공.'
-excerpt: 2026년 02월 06일 주요 보안/기술 뉴스 27건 - CrashFix Python RAT, AISURU 31.4 Tbps DDoS,
-  Codespaces RCE, BYOVD, Claude Opus 4.6
+excerpt: "2026-02-06 기술·보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD - 2026년 02월 06일 보안 뉴스: CrashFix ClickFix 변종 Python RAT 배포, AISURU/Kimwolf"
 image: /assets/images/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat.svg
 image_alt: Tech Security Weekly Digest February 06 2026 AI Botnet Cloud
 keywords:

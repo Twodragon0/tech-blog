@@ -7,7 +7,7 @@ comments: true
 date: 2025-11-04 17:45:38 +0900
 description: Zscaler 완벽 가이드. SSL 검사, 샌드박스(ATP), AI/광고/유해 사이트 차단 정책 및 Zero Trust 아키텍처
   구현 방법을 다룹니다.
-excerpt: Zscaler 완벽 가이드. SSL 검사, 샌드박스(ATP), AI 차단 정책.
+excerpt: "Zscaler 완벽 가이드. SSL 검사, 샌드박스(ATP), AI/광고/유해 사이트 차단 정책 및 Zero Trust 아키텍처"
 image: /assets/images/2025-11-04-Zscaler_Complete_Guide_SSL_AI_Complete.svg
 image_alt: 'Zscaler Complete Guide: SSL Inspection Sandbox AI Advertising Malicious
   Site Complete Blocking'

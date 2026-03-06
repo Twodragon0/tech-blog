@@ -9,9 +9,7 @@ description: '2026년 2월 3일 보안/DevOps 다이제스트: AI(Clawdbot/Moltb
   원클릭 RCE, ClawHavoc 캠페인 335개 Atomic Stealer 배포, Moltbook AI 소셜네트워크 자격증명 유출(Wiz),
   가짜 VS Code 확장 ScreenConnect RAT, Shodan 대규모 노출, Cisco 31K 스킬 26% 취약점, NanoClaw Apple
   컨테이너 격리 비교, Jamf Pro/Intune MDM 앱 제어, Microsoft NTLM 폐지, OWASP Agentic AI Top 10'
-excerpt: AI(Moltbot) CVE-2026-25253 RCE, ClawHavoc 335개 Atomic Stealer 캠페인,
-  Moltbook 자격증명 대량 유출, 가짜 VS Code 확장 RAT 배포 등 AI 에이전트 생태계 보안 위기 총정리와 Jamf/Intune MDM
-  실무 대응 가이드
+excerpt: "주간 보안·DevOps 다이제스트: AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스 - 2026년 2월 3일 보안/DevOps 다이제스트: AI(Clawdbot/Moltbot) CVE-2026-25253"
 image: /assets/images/2026-02-03-Weekly_Security_DevOps_Digest.svg
 image_alt: Weekly Security and DevOps Digest Feb 3 2026
 keywords:

@@ -7,7 +7,7 @@ date: 2026-01-16 12:00:00 +0900
 description: 'Post-Mortem: Next.js SSR 환경 location 객체 접근 ReferenceError, Cloudflare
   WAF IP 차단, ALB Target Group Health Check 실패 인시던트 상세 분석. 근본 원인, 배포 연쇄 반응, 재발 방지 대책까지
   실무 중심 정리'
-excerpt: Next.js SSR location 에러, Cloudflare WAF 차단, ALB 헬스체크 실패 분석
+excerpt: "Post-Mortem: Next.js SSR 환경 location 객체 접근 ReferenceError, Cloudflare"
 image: /assets/images/2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.svg
 image_alt: Post-Mortem Next.js SSR Error Cloudflare Blocking ALB 5XX Incident Analysis
 keywords:

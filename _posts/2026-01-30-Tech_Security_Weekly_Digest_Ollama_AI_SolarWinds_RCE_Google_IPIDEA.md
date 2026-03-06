@@ -8,8 +8,7 @@ date: 2026-01-30 10:00:00 +0900
 description: '2026년 1월 30일 보안 뉴스: Ollama AI 서버 175,000대 인터넷 노출(LLMjacking), SolarWinds
   Web Help Desk Critical RCE 6건(CVSS 9.8 x4), Google GTIG IPIDEA 6.1M IP 레지덴셜 프록시
   차단, Microsoft AI 위협 탐지 워크플로우, OT/에너지 시스템 사이버보안 실태'
-excerpt: Ollama AI 서버 175K 공개 노출, SolarWinds WHD 6건 CVE(CVSS 9.8 x4), Google IPIDEA
-  6.1M IP 프록시 네트워크 차단, Microsoft AI 위협 탐지, OT/에너지 보안 취약점
+excerpt: "기술·보안 주간 다이제스트: Ollama AI 서버 175K 노출, SolarWinds WHD Critical - 2026년 1월 30일 보안 뉴스: Ollama AI 서버 175,000대 인터넷 노출(LLMjacking), SolarWinds"
 image: /assets/images/2026-01-30-Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA.svg
 image_alt: Tech Security Weekly Digest January 30 2026 Ollama AI Exposure SolarWinds
   RCE Google IPIDEA Disruption

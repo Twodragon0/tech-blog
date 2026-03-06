@@ -6,7 +6,7 @@ comments: true
 date: 2025-12-17 12:26:37 +0900
 description: AWSKRUG, OWASP, Datadog 컨퍼런스를 통해 2025년 AI와 보안의 공존, AWS re:Invent 보안 발표,
   Zero Trust 표준화 등 최신 트렌드를 확인하세요.
-excerpt: AWSKRUG, OWASP, Datadog 컨퍼런스로 보는 2025년 AI 보안 트렌드와 실무 적용 방안
+excerpt: "AWSKRUG, OWASP, Datadog 컨퍼런스를 통해 2025년 AI와 보안의 공존, AWS re:Invent 보안 발표,"
 image: /assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence.svg
 image_alt: 'December Conference Review: Previewing 2025 AI and Security Coexistence
   with AWSKRUG OWASP Datadog'

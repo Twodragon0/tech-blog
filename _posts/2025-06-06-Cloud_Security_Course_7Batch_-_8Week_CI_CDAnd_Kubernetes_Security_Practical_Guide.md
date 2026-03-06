@@ -9,7 +9,7 @@ comments: true
 date: 2025-06-06 19:45:40 +0900
 description: CI/CD 파이프라인 보안(GitHub Actions, SAST/DAST, Secret 스캐닝), Kubernetes 클러스터
   보안(RBAC, Pod Security Standards, Network Policy), 이미지 서명, 런타임 보안까지 정리.
-excerpt: CI/CD 파이프라인 보안 및 Kubernetes 클러스터 보안 실전 가이드
+excerpt: "CI/CD 파이프라인 보안(GitHub Actions, SAST/DAST, Secret 스캐닝), Kubernetes 클러스터"
 image: /assets/images/2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CICDand_Kubernetes_Security_Practical_Guide.svg
 image_alt: 'Cloud Security Course 7Batch 8Week: CI/CD and Kubernetes Security Practical
   Guide'

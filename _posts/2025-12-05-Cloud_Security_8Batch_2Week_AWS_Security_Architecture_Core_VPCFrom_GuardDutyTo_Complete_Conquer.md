@@ -8,7 +8,7 @@ comments: true
 date: 2025-12-05 17:07:53 +0900
 description: VPC, IAM, S3, GuardDuty 등 AWS 보안 아키텍처 핵심 구성요소와 2025년 re:Invent 신규 보안
   서비스를 실무 중심으로 완벽 정복하세요.
-excerpt: VPC, IAM, S3, GuardDuty 등 AWS 보안 아키텍처와 2025년 신규 서비스 실무 완벽 정복
+excerpt: "VPC, IAM, S3, GuardDuty 등 AWS 보안 아키텍처 핵심 구성요소와 2025년 re:Invent 신규 보안"
 image: /assets/images/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer.svg
 image_alt: 'Cloud Security 8Batch 2Week: Complete Mastery of AWS Security Architecture
   Core from VPC to GuardDuty'

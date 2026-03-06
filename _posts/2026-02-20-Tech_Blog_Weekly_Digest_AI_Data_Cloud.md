@@ -4,7 +4,7 @@ title: "2026-02-20 기술·보안 주간 다이제스트: AI 정렬 연구·EKS 
 date: 2026-02-20 08:15:29 +0900
 categories: [tech, devops]
 tags: [Tech-Blog, Weekly-Digest, Developer, 2026, AI, Data, Cloud, Go]
-excerpt: "2026년 02월 20일 주요 기술 블로그 뉴스 15건 - AI, Data, Cloud"
+excerpt: "2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog, Google AI Blog, AWS Machine Learning Blog 등 15건. AI, Data, Cloud, Go 관련 개발자 뉴스 및 트렌드 분석."
 description: "2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog, Google AI Blog, AWS Machine Learning Blog 등 15건. AI, Data, Cloud, Go 관련 개발자 뉴스 및 트렌드 분석."
 keywords: [Tech-Blog, Weekly-Digest, Developer, 2026, AI, Data, Cloud, Go]
 author: Twodragon

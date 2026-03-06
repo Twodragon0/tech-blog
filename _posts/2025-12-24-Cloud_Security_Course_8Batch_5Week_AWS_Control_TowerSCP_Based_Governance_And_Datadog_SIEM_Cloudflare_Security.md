@@ -8,7 +8,7 @@ comments: true
 date: 2025-12-24 19:13:05 +0900
 description: AWS Control Tower/SCP로 멀티 계정 거버넌스를 구축하고, Datadog SIEM과 Cloudflare로 통합
   보안 모니터링 및 웹 보안을 강화하세요.
-excerpt: Control Tower/SCP 멀티 계정 거버넌스와 Datadog SIEM, Cloudflare 통합 보안 실무
+excerpt: "AWS Control Tower/SCP로 멀티 계정 거버넌스를 구축하고, Datadog SIEM과 Cloudflare로 통합"
 image: /assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security.svg
 image_alt: 'Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance
   and Datadog SIEM Cloudflare Security'

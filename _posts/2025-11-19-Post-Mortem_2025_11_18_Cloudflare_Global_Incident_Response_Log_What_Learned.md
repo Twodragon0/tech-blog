@@ -6,7 +6,7 @@ comments: true
 date: 2025-11-19 12:25:20 +0900
 description: 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지. Multi-CDN 전략 및 자동 Failover 구현
   방안을 다룹니다.
-excerpt: Cloudflare 글로벌 장애 대응 일지. Multi-CDN 전략 및 자동 Failover 구현.
+excerpt: "2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지. Multi-CDN 전략 및 자동 Failover 구현"
 image: /assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned.svg
 image_alt: 'Post-Mortem November 18 2025 Cloudflare Global Incident Response Log:
   What We Learned'

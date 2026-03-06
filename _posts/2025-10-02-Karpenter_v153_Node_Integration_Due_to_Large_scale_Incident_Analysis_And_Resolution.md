@@ -6,7 +6,7 @@ comments: true
 date: 2025-10-02 17:25:43 +0900
 description: Karpenter v1.5.3 공격적 노드 통합 정책으로 인한 장애 분석과 PodDisruptionBudget 적용을 통한
   재발 방지 방안을 다룹니다.
-excerpt: Karpenter v1.5.3 노드 통합 장애 분석. PDB 적용을 통한 재발 방지.
+excerpt: Karpenter v1.5.3 공격적 노드 통합 정책으로 인한 장애 분석과 PodDisruptionBudget 적용을 통한
 image: /assets/images/2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large-scale_Incident_Analysis_and_Resolution.svg
 image_alt: Karpenter v1.5.3 Large-Scale Incident Analysis and Resolution Due to Node
   Integration
