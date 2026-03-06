@@ -69,6 +69,10 @@
   <!-- SEO -->
   <title>{% if page.title %}{{ page.title | escape }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ share_description }}">
+  {% assign meta_keywords = page.keywords | default: page.tags %}
+  {% if meta_keywords %}
+  <meta name="keywords" content="{{ meta_keywords | join: ', ' }}">
+  {% endif %}
   <meta name="author" content="{{ site.author.name }}">
   <meta name="naver-site-verification" content="b4d9dc74a4120dd65ce564a3fd97adb2f48ae7f2" />
   <meta name="google-site-verification" content="4f3Fngt0n2PDMUdFumJYQEwXKluVehXzwPV_TqxTauU" />

@@ -44,15 +44,13 @@ sitemap:
     {% endunless %}
   {% endfor %}
 
-  <!-- Category Pages -->
-  {% for category in site.category_list %}
+  <!-- Category Pages - single page, no fragment URLs for crawlability -->
   <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/categories/#{{ category.name }}</loc>
+    <loc>{{ site.url }}{{ site.baseurl }}/categories/</loc>
     <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  {% endfor %}
 
   <!-- Archive Page -->
   <url>

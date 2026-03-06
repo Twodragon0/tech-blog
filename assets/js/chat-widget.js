@@ -205,7 +205,16 @@
     
     // Format message content (basic markdown support)
     const formattedContent = formatMessage(content);
-    contentEl.innerHTML = formattedContent;
+    // XSS prevention: sanitize HTML before innerHTML assignment
+    if (typeof DOMPurify !== 'undefined') {
+      contentEl.innerHTML = DOMPurify.sanitize(formattedContent, {
+        ALLOWED_TAGS: ['h1','h2','h3','h4','h5','h6','p','br','hr','strong','em','del',
+          'code','pre','blockquote','ul','ol','li','table','thead','tbody','tr','th','td','div','a','span'],
+        ALLOWED_ATTR: ['class','href','target','rel'],
+      });
+    } else {
+      contentEl.innerHTML = formattedContent;
+    }
     
     const timeEl = document.createElement('div');
     timeEl.className = 'chat-message-time';
