@@ -40,50 +40,23 @@ title: 'AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Conti
 toc: true
 ---
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Continuous Evaluation</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AI-Agent</span>
+{%- include ai-summary-card.html
+  title='AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Continuous Evaluation'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">AI-Agent</span>
       <span class="tag">AI-Security</span>
       <span class="tag">Stateful-Runtime</span>
       <span class="tag">Continuous-Evaluation</span>
       <span class="tag">OWASP</span>
       <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>OWASP Agentic Top 10</strong>: AI 에이전트 고유 위협 10가지와 실제 공격 사례 분석</li>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>OWASP Agentic Top 10</strong>: AI 에이전트 고유 위협 10가지와 실제 공격 사례 분석</li>
       <li><strong>OpenAI Stateful Runtime</strong>: 상태 유지형 런타임 환경의 보안 아키텍처와 세션 격리</li>
       <li><strong>Bedrock AgentCore</strong>: Firecracker microVM 기반 9개 컴포넌트 보안 분석</li>
       <li><strong>Continuous Evaluation</strong>: Google Cloud의 지속적 평가 프레임워크와 CI/CD 통합</li>
-      <li><strong>방어 패턴 코드</strong>: 프롬프트 인젝션 방어, 도구 검증, Circuit Breaker, 감사 로깅 구현</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 엔지니어, DevSecOps 엔지니어, AI/ML 엔지니어, 클라우드 아키텍트, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
+      <li><strong>방어 패턴 코드</strong>: 프롬프트 인젝션 방어, 도구 검증, Circuit Breaker, 감사 로깅 구현</li>'
+  audience='보안 엔지니어, DevSecOps 엔지니어, AI/ML 엔지니어, 클라우드 아키텍트, CISO'
+-%}
 
 ## 서론
 

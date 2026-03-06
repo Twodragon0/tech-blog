@@ -52,60 +52,30 @@ tags:
 - Airflow
 - Platform-Engineering
 - '2026'
-title: 'Tech & Security Weekly Digest: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회,
+title: '기술·보안 주간 다이제스트: VMware vCenter KEV 긴급 패치, Fortinet SSO 우회,
   Sandworm DynoWiper 폴란드 공격'
 toc: true
 ---
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 25일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Security-Weekly</span>
+{%- include ai-summary-card.html
+  title='Tech & Security Weekly Digest (2026년 01월 25일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">VMware</span>
       <span class="tag">CISA-KEV</span>
       <span class="tag">Fortinet</span>
       <span class="tag">Sandworm</span>
       <span class="tag">AI-Agents</span>
       <span class="tag">Zero-Trust</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>CISA KEV 긴급</strong>: VMware vCenter CVE-2024-37079 활성 익스플로잇 확인 - 즉시 패치 필요</li>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>CISA KEV 긴급</strong>: VMware vCenter CVE-2024-37079 활성 익스플로잇 확인 - 즉시 패치 필요</li>
       <li><strong>Fortinet 제로데이</strong>: FortiGate 완전 패치 환경에서도 FortiCloud SSO 우회 공격 발생</li>
       <li><strong>Sandworm APT</strong>: 폴란드 전력망 대상 DynoWiper 와이퍼 악성코드 공격</li>
       <li><strong>AI 에이전트 보안</strong>: 비인간 신원(NHI) 관리와 제로트러스트 적용 방안</li>
-      <li><strong>클라우드 오케스트레이션</strong>: Apache Airflow 3.1과 Google ADK + Datadog 통합</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 1월 23일 ~ 25일 (48시간)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, SOC 분석가, 클라우드 아키텍트, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
+      <li><strong>클라우드 오케스트레이션</strong>: Apache Airflow 3.1과 Google ADK + Datadog 통합</li>'
+  period='2026년 1월 23일 ~ 25일 (48시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SOC 분석가, 클라우드 아키텍트, CISO'
+-%}
 
 ## 경영진 요약 (Executive Summary)
 

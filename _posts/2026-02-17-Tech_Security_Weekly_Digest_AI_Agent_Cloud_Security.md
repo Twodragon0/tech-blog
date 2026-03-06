@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AI Agent Token Theft, Password Manager Vulnerability, Serverless Defense"
+title: '기술·보안 주간 다이제스트: AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어'
 date: 2026-02-17 12:35:29 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI-Agent, Password-Manager, Serverless]

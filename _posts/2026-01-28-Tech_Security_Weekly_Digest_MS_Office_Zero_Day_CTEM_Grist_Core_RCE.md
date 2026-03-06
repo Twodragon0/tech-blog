@@ -31,58 +31,28 @@ tags:
 - RCE
 - Cloud-Security
 - '2026'
-title: 'Tech & Security Weekly Digest: Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용,
+title: '기술·보안 주간 다이제스트: Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용,
   Grist-Core RCE 취약점'
 toc: true
 ---
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 28일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">CVE-2026-21509</span>
+{%- include ai-summary-card.html
+  title='Tech & Security Weekly Digest (2026년 01월 28일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">CVE-2026-21509</span>
       <span class="tag">Zero-Day</span>
       <span class="tag">Microsoft-Office</span>
       <span class="tag">CTEM</span>
       <span class="tag">Grist-Core</span>
       <span class="tag">RCE</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>CVE-2026-21509</strong>: MS Office Protected View 우회 Zero-Day - CVSS 7.8, 실제 악용 중, KB5034173 긴급 패치</li>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>CVE-2026-21509</strong>: MS Office Protected View 우회 Zero-Day - CVSS 7.8, 실제 악용 중, KB5034173 긴급 패치</li>
       <li><strong>CTEM 프레임워크</strong>: Gartner 제안 5단계 위협 노출 관리 - Scoping, Discovery, Prioritization, Validation, Mobilization</li>
       <li><strong>Grist-Core RCE</strong>: 오픈소스 스프레드시트 원격 코드 실행 - v1.1.15 이상 업그레이드 필수</li>
-      <li><strong>탐지 룰</strong>: Splunk SIEM, Sigma Rule, CrowdStrike EDR 쿼리 제공</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 1월 27일 ~ 28일</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
+      <li><strong>탐지 룰</strong>: Splunk SIEM, Sigma Rule, CrowdStrike EDR 쿼리 제공</li>'
+  period='2026년 1월 27일 ~ 28일'
+  audience='보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO'
+-%}
 
 ---
 

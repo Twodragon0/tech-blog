@@ -35,52 +35,21 @@ series_order: 5
 series_total: 7
 ---
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag devops">Kubernetes</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Docker</span>
+{%- include ai-summary-card.html
+  title='클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해'
+  categories_html='<span class="category-tag devops">Kubernetes</span>'
+  tags_html='<span class="tag">Docker</span>
       <span class="tag">Kubernetes</span>
       <span class="tag">Container</span>
       <span class="tag">K8s</span>
       <span class="tag">Cloud-Security</span>
-      <span class="tag">DevSecOps</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Docker 기초</strong>: 이미지/컨테이너/Dockerfile 개념, 기본 Docker 명령어(pull, run, ps, logs, stop, rm), Registry(Docker Hub), 컨테이너 격리 및 실행 환경</li>
+      <span class="tag">DevSecOps</span>'
+  highlights_html='<li><strong>Docker 기초</strong>: 이미지/컨테이너/Dockerfile 개념, 기본 Docker 명령어(pull, run, ps, logs, stop, rm), Registry(Docker Hub), 컨테이너 격리 및 실행 환경</li>
       <li><strong>Kubernetes 아키텍처</strong>: Control Plane(API Server, etcd, Scheduler, Controller Manager), Node(kubelet, Pods), 주요 리소스(Pod, Deployment, Service, ConfigMap, Secret, Namespace)</li>
       <li><strong>컨테이너 보안 Best Practices</strong>: 최소 권한 원칙, 이미지 스캔(Trivy, Snyk), Secret 관리(Kubernetes Secrets, External Secrets Operator), 비루트 사용자 실행, 읽기 전용 파일시스템</li>
-      <li><strong>런타임 보안</strong>: Trivy 취약점 스캔, Falco 이상 행위 탐지, Pod Security Standards 적용, Network Policy 구현, Minikube/K9s 실습 가이드</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">Docker, Kubernetes, Minikube, K9s, Trivy</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
+      <li><strong>런타임 보안</strong>: Trivy 취약점 스캔, Falco 이상 행위 탐지, Pod Security Standards 적용, Network Policy 구현, Minikube/K9s 실습 가이드</li>'
+  audience='클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자'
+-%}
 
 <img src="{{ '/assets/images/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes_image.png' | relative_url }}" alt="Cloud Security Course 7Batch 7Week: Docker and Kubernetes Understanding" loading="lazy" class="post-image">
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "KrebsOnSecurity Digest: Kimwolf Botnet · Patch Tuesday (Feb 2026)"
+title: 'KrebsOnSecurity 다이제스트: Kimwolf 봇넷 · 2026년 2월 패치 화요일'
 date: 2026-02-18 23:30:00 +0900
 categories: [security, devsecops]
 tags: [KrebsOnSecurity, Threat-Intel, Botnet, Patch-Tuesday, I2P, RSS, 2026]

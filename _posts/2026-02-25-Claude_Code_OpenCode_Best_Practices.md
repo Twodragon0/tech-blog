@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Claude Code & OpenCode Best Practices: 38가지 실전 가이드'
+title: 'Claude Code & OpenCode 실전 가이드: 38가지 베스트 프랙티스'
 date: 2026-02-25 10:00:00 +0900
 categories:
 - devops

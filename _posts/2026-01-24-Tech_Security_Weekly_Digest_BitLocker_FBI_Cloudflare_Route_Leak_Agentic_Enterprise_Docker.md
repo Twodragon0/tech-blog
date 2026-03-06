@@ -49,28 +49,15 @@ tags:
 - CNCF
 - DevSecOps
 - '2026'
-title: 'Tech & Security Weekly Digest: Microsoft BitLocker FBI 키 제공, Cloudflare Route
+title: '기술·보안 주간 다이제스트: Microsoft BitLocker FBI 키 제공, Cloudflare Route
   Leak, 자율 기업 2026 전망'
 toc: true
 ---
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Tech & Security Weekly Digest (2026년 01월 24일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">Security-Weekly</span>
+{%- include ai-summary-card.html
+  title='Tech & Security Weekly Digest (2026년 01월 24일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">Security-Weekly</span>
       <span class="tag">BitLocker</span>
       <span class="tag">Encryption</span>
       <span class="tag">BGP</span>
@@ -79,32 +66,15 @@ toc: true
       <span class="tag">Docker</span>
       <span class="tag">Codex</span>
       <span class="tag">CNCF</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>Microsoft/FBI</strong>: BitLocker 암호화 복구 키 법 집행 기관 제공 사례 공개 - 암호화 신뢰성 논란</li>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>Microsoft/FBI</strong>: BitLocker 암호화 복구 키 법 집행 기관 제공 사례 공개 - 암호화 신뢰성 논란</li>
       <li><strong>Cloudflare</strong>: 1월 22일 Route Leak 사건 상세 분석 - BGP 보안 중요성 재확인</li>
       <li><strong>CNCF 2026</strong>: 자율 기업(Autonomous Enterprise)과 4가지 플랫폼 제어 기둥 전망</li>
       <li><strong>Docker</strong>: 컨테이너 선구자의 정체성 위기와 2026년 현황 분석</li>
-      <li><strong>OpenAI Codex</strong>: Agent Loop 아키텍처 공개 - 병렬 에이전트 실행 구조</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">수집 기간</span>
-    <span class="summary-value">2026년 1월 23일 ~ 24일 (24시간)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
+      <li><strong>OpenAI Codex</strong>: Agent Loop 아키텍처 공개 - 병렬 에이전트 실행 구조</li>'
+  period='2026년 1월 23일 ~ 24일 (24시간)'
+  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO'
+-%}
 
 ---
 

@@ -37,51 +37,20 @@ series_order: 4
 series_total: 9
 ---
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag cloud">FinOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AWS</span>
+{%- include ai-summary-card.html
+  title='클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!'
+  categories_html='<span class="category-tag cloud">FinOps</span>'
+  tags_html='<span class="tag">AWS</span>
       <span class="tag">FinOps</span>
       <span class="tag">ISMS-P</span>
       <span class="tag">Audit</span>
-      <span class="tag">Cost-Optimization</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li>2025년 FinOps 트렌드: AI/ML 비용 최적화, GreenOps 통합, Commitment Management 강화</li>
+      <span class="tag">Cost-Optimization</span>'
+  highlights_html='<li>2025년 FinOps 트렌드: AI/ML 비용 최적화, GreenOps 통합, Commitment Management 강화</li>
       <li>AWS 비용 관리 도구: Cost Optimization Hub, Compute Optimizer, Application Cost Profiler</li>
       <li>ISMS-P 보안 감사 대응: AWS 기반 컴플라이언스 전략 및 주요 점검 항목</li>
-      <li>FinOps 모범 사례: 태깅 전략, 예산 알림, 정기 리뷰</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">기술/도구</span>
-    <span class="summary-value">AWS FinOps, ISMS-P, Cost Optimization Hub, Compute Optimizer, Application Cost Profiler, Cost Anomaly Detection, AWS Security Hub, AWS Artifact, AWS Config Rules, AWS CloudTrail, AWS Budgets, Savings Plans, Reserved Instances, Customer Carbon Footprint Tool</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">FinOps 전문가, 클라우드 관리자, 재무 담당자</span>
-  </div>
-</div>
-<div class="ai-summary-footer">
-  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
-</div>
-</div>
+      <li>FinOps 모범 사례: 태깅 전략, 예산 알림, 정기 리뷰</li>'
+  audience='FinOps 전문가, 클라우드 관리자, 재무 담당자'
+-%}
 
 ## 서론
 

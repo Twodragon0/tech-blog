@@ -57,27 +57,14 @@ tags:
 - Zero-Trust
 - Atomic-Stealer
 - '2026'
-title: 'Weekly Security & DevOps Digest: AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스'
+title: '주간 보안·DevOps 다이제스트: AI Agent 보안 취약점, MDM 앱 제어, 금주 뉴스'
 toc: true
 ---
 
-<div class="ai-summary-card">
-<div class="ai-summary-header">
-  <span class="ai-badge">AI 요약</span>
-</div>
-<div class="ai-summary-content">
-  <div class="summary-row">
-    <span class="summary-label">제목</span>
-    <span class="summary-value">Weekly Security & DevOps Digest (2026년 02월 03일)</span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">카테고리</span>
-    <span class="summary-value"><span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span></span>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">태그</span>
-    <span class="summary-value tags">
-      <span class="tag">AI</span>
+{%- include ai-summary-card.html
+  title='Weekly Security & DevOps Digest (2026년 02월 03일)'
+  categories_html='<span class="category-tag security">Security</span> <span class="category-tag devsecops">DevSecOps</span>'
+  tags_html='<span class="tag">AI</span>
       <span class="tag">Moltbot</span>
       <span class="tag">Moltbook</span>
       <span class="tag">NanoClaw</span>
@@ -91,23 +78,12 @@ toc: true
       <span class="tag">DevSecOps</span>
       <span class="tag">NTLM</span>
       <span class="tag">Supply-Chain</span>
-      <span class="tag">2026</span>
-    </span>
-  </div>
-  <div class="summary-row highlights">
-    <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list">
-      <li><strong>AI(Moltbot) 연쇄 보안 사건</strong>: CVE-2026-25253 원클릭 RCE(CVSS 8.8), ClawHavoc 캠페인 335개 Atomic Stealer 배포, Moltbook 자격증명 대량 유출(Wiz), 가짜 VS Code 확장 ScreenConnect RAT, Shodan 대규모 인스턴스 노출</li>
+      <span class="tag">2026</span>'
+  highlights_html='<li><strong>AI(Moltbot) 연쇄 보안 사건</strong>: CVE-2026-25253 원클릭 RCE(CVSS 8.8), ClawHavoc 캠페인 335개 Atomic Stealer 배포, Moltbook 자격증명 대량 유출(Wiz), 가짜 VS Code 확장 ScreenConnect RAT, Shodan 대규모 인스턴스 노출</li>
       <li><strong>MDM 앱 비활성화 실무 가이드</strong>: Jamf Pro Configuration Profile 기반 앱 제한, Microsoft Intune App Protection Policy, MDM 선택 의사결정 플로차트 제공</li>
-      <li><strong>금주 뉴스 하이라이트</strong>: Microsoft NTLM 3단계 폐지, Snowflake-OpenAI 2억달러 파트너십, Kubernetes 1.33 보안 강화, SBOM 컴플라이언스 동향</li>
-    </ul>
-  </div>
-  <div class="summary-row">
-    <span class="summary-label">대상 독자</span>
-    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, IT 관리자, MDM 운영자</span>
-  </div>
-</div>
-</div>
+      <li><strong>금주 뉴스 하이라이트</strong>: Microsoft NTLM 3단계 폐지, Snowflake-OpenAI 2억달러 파트너십, Kubernetes 1.33 보안 강화, SBOM 컴플라이언스 동향</li>'
+  audience='보안 담당자, DevSecOps 엔지니어, IT 관리자, MDM 운영자'
+-%}
 
 > **함께 읽기**: 지난주 보안 위협 인텔리전스 다이제스트 [Weekly Security Threat Intelligence Digest](/2026-02-02-Weekly_Security_Threat_Intelligence_Digest)에서 Notepad++ 국가 지원 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화를 심층 분석합니다. 기술/AI/블록체인 소식은 [Weekly Tech & AI & Blockchain Digest](/2026-02-02-Weekly_Tech_AI_Blockchain_Digest)를 참고하세요.
 
