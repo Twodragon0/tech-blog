@@ -1,19 +1,122 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0b1424" />
-      <stop offset="100%" stop-color="#1a3552" />
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#67e8f9" />
-      <stop offset="100%" stop-color="#60a5fa" />
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)" />
-  <rect x="60" y="70" width="1080" height="490" rx="28" fill="#0f2133" stroke="#2a4b68" stroke-width="2" />
-  <rect x="120" y="150" width="240" height="8" fill="url(#accent)" />
-  <text x="120" y="235" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="50" font-weight="700">AI Cloud Digest Meta</text>
-  <text x="120" y="295" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">Prometheus Google OTLP AWS</text>
-  <text x="120" y="360" fill="#a7c3d9" font-family="Space Grotesk, Arial, sans-serif" font-size="24">Feb 10, 2026</text>
-  <text x="120" y="470" fill="#7fb0d4" font-family="Space Grotesk, Arial, sans-serif" font-size="20">Twodragon Tech Blog</text>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Primary icon -->
+  <g transform="translate(80, 180)">
+    <circle cx="60" cy="70" r="45" fill="url(#accent)" opacity="0.15"/>
+    <circle cx="60" cy="70" r="45" fill="none" stroke="#6366f1" stroke-width="2.5"/>
+    <path d="M40 55 Q50 35 60 50 Q70 35 80 55" fill="none" stroke="#c7d2fe" stroke-width="2"/>
+    <path d="M35 75 Q45 60 55 75 Q65 60 75 75 Q85 60 90 75" fill="none" stroke="#c7d2fe" stroke-width="2"/>
+    <text x="60" y="105" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="14" font-weight="bold">AI</text>
+  </g>
+
+  <!-- Secondary icon -->
+  <g transform="translate(80, 380)">
+    <path d="M90 120 L30 120 C13 120 0 107 0 90 C0 75 10 63 24 60 C24 35 45 15 70 15 C92 15 110 30 115 50 C128 52 138 63 138 78 C138 95 125 108 108 108" fill="none" stroke="#10b981" stroke-width="2.5"/>
+    <path d="M50 75 L65 90 L90 60" fill="none" stroke="#94a3b8" stroke-width="3"/>
+  </g>
+
+  <!-- Main title area -->
+  <g transform="translate(260, 100)">
+    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">2026-02-10 AI &amp; 클라우드 다이제스트:</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="32" font-weight="300">Meta Prometheus, Google OTLP, AWS 업데이트</text>
+  </g>
+
+  <!-- Date badge -->
+  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
+  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">February 10, 2026</text>
+
+  <!-- Stats cards -->
+  <g transform="translate(260, 310)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI/ML</text>
+    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AI/ML</text>
+    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="240" y="30" fill="#06b6d4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CLOUD</text>
+    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Cloud</text>
+    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="460" y="30" fill="#ff9900" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AWS</text>
+    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AWS</text>
+    <text x="460" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+  </g>
+
+  <!-- Key topics -->
+  <g transform="translate(260, 440)">
+    <rect x="0" y="0" width="75" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
+    <text x="37" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">AI/ML</text>
+    <rect x="90" y="0" width="75" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
+    <text x="127" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">Cloud</text>
+    <rect x="180" y="0" width="57" height="32" rx="16" fill="#312e81" opacity="0.7"/>
+    <text x="208" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">AWS</text>
+    <rect x="252" y="0" width="48" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
+    <text x="276" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">Go</text>
+  </g>
+
+  <!-- Network visualization -->
+  <g transform="translate(900, 180)" opacity="0.4">
+    <circle cx="92" cy="61" r="3" fill="#f87171"/>
+    <circle cx="137" cy="137" r="4" fill="#fb923c"/>
+    <circle cx="68" cy="106" r="5" fill="#818cf8"/>
+    <circle cx="59" cy="149" r="6" fill="#34d399"/>
+    <circle cx="208" cy="59" r="3" fill="#fbbf24"/>
+    <circle cx="102" cy="187" r="4" fill="#f87171"/>
+    <circle cx="189" cy="119" r="5" fill="#fb923c"/>
+    <circle cx="199" cy="102" r="6" fill="#818cf8"/>
+    <circle cx="51" cy="148" r="3" fill="#34d399"/>
+    <circle cx="32" cy="109" r="4" fill="#fbbf24"/>
+    <line x1="92" y1="61" x2="137" y2="137" stroke="#475569" stroke-width="1"/>
+    <line x1="137" y1="137" x2="68" y2="106" stroke="#475569" stroke-width="1"/>
+    <line x1="68" y1="106" x2="59" y2="149" stroke="#475569" stroke-width="1"/>
+    <line x1="59" y1="149" x2="208" y2="59" stroke="#475569" stroke-width="1"/>
+    <line x1="208" y1="59" x2="102" y2="187" stroke="#475569" stroke-width="1"/>
+    <line x1="102" y1="187" x2="189" y2="119" stroke="#475569" stroke-width="1"/>
+    <line x1="189" y1="119" x2="199" y2="102" stroke="#475569" stroke-width="1"/>
+    <line x1="199" y1="102" x2="51" y2="148" stroke="#475569" stroke-width="1"/>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
+  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
+
+  <!-- Bottom text -->
+  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
+  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
+
+  <!-- Bottom right -->
+  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">10 curated articles</text>
+  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">AI/ML | Cloud | AWS | Go</text>
 </svg>

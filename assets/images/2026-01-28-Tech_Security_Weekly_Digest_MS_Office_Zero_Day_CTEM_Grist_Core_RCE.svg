@@ -1,124 +1,123 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <!-- Background gradient -->
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0f1e"/>
-      <stop offset="50%" stop-color="#0d1b2a"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <!-- Accent gradient top bar -->
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#6366f1"/>
-      <stop offset="100%" stop-color="#818cf8"/>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
     </linearGradient>
-    <!-- Radial glow -->
-    <radialGradient id="glow" cx="75%" cy="45%" r="45%">
-      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
-    </radialGradient>
-    <!-- Grid pattern -->
-    <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
-    </pattern>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
   </defs>
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
 
-  <!-- Top accent bar -->
-  <rect x="0" y="0" width="1200" height="4" fill="url(#accentGrad)"/>
-
-  <!-- Bottom accent bar -->
-  <rect x="0" y="626" width="1200" height="4" fill="url(#accentGrad)"/>
-
-  <!-- Left vertical accent line -->
-  <rect x="0" y="4" width="3" height="622" fill="#6366f1" opacity="0.4"/>
-
-  <!-- Right-side visual element -->
-  <g opacity="0.85">
-    <rect x="915.0" y="215.0" width="130" height="100" rx="6" fill="#6366f1" opacity="0.1" stroke="#6366f1" stroke-width="2" stroke-opacity="0.3"/>
-    <rect x="930.0" y="235.0" width="100" height="8" rx="3" fill="#6366f1" opacity="0.3"/>
-    <rect x="930.0" y="252.0" width="90" height="8" rx="3" fill="#6366f1" opacity="0.3"/>
-    <rect x="930.0" y="269.0" width="80" height="8" rx="3" fill="#6366f1" opacity="0.3"/>
-    <rect x="930.0" y="286.0" width="90" height="8" rx="3" fill="#6366f1" opacity="0.3"/>
-    <rect x="930.0" y="303.0" width="80" height="8" rx="3" fill="#6366f1" opacity="0.3"/>
-    <rect x="925.0" y="330.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.15"/>
-    <rect x="955.0" y="330.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.15"/>
-    <rect x="985.0" y="330.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.15"/>
-    <rect x="1015.0" y="330.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.15"/>
-    <rect x="925.0" y="354.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.22999999999999998"/>
-    <rect x="955.0" y="354.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.22999999999999998"/>
-    <rect x="985.0" y="354.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.22999999999999998"/>
-    <rect x="1015.0" y="354.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.22999999999999998"/>
-    <rect x="925.0" y="378.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.31"/>
-    <rect x="955.0" y="378.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.31"/>
-    <rect x="985.0" y="378.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.31"/>
-    <rect x="1015.0" y="378.0" width="20" height="16" rx="3" fill="#6366f1" opacity="0.31"/>
+  <!-- Grid pattern -->
+  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
   </g>
 
-  <!-- Category label -->
-  <text x="60" y="100"
-        font-family="Space Grotesk, Inter, system-ui, sans-serif"
-        font-size="13" font-weight="600" fill="#6366f1"
-        letter-spacing="3" opacity="0.9">WEEKLY DIGEST</text>
+  <!-- Primary icon -->
+  <g transform="translate(80, 180)">
+    <path d="M60 5 L115 120 L5 120 Z" fill="url(#accent)" opacity="0.9"/>
+    <path d="M60 20 L105 115 L15 115 Z" fill="none" stroke="#fca5a5" stroke-width="2"/>
+    <text x="60" y="85" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="40" font-weight="bold">!</text>
+    <circle cx="60" cy="100" r="4" fill="white"/>
+  </g>
 
-  <!-- Accent underline under category -->
-  <rect x="60" y="108" width="50" height="2" rx="1" fill="#6366f1" opacity="0.5"/>
+  <!-- Secondary icon -->
+  <g transform="translate(80, 380)">
+    <path d="M60 5 L115 120 L5 120 Z" fill="url(#accent)" opacity="0.9"/>
+    <path d="M60 20 L105 115 L15 115 Z" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <text x="60" y="85" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="40" font-weight="bold">!</text>
+    <circle cx="60" cy="100" r="4" fill="white"/>
+  </g>
 
-  <!-- Title lines -->
-  <text x="60" y="230" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-size="47" font-weight="700" fill="#ffffff" opacity="0.95">MS Office Zero-Day, CTEM,</text><text x="60" y="288" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-size="47" font-weight="700" fill="#ffffff" opacity="0.95">Grist Core RCE</text>
+  <!-- Main title area -->
+  <g transform="translate(260, 100)">
+    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Tech &amp; Security Weekly Digest:</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="32" font-weight="300">Microsoft Office Zero-Day 긴급 패치, CTEM 실무 적용, Grist-Core RCE 취약점</text>
+  </g>
 
-  <!-- Accent underline bar -->
-  <rect x="60" y="354" width="300" height="4" rx="2" fill="#6366f1" opacity="0.7"/>
+  <!-- Date badge -->
+  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
+  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">January 28, 2026</text>
 
-  <!-- Subtitle -->
-  <text x="60" y="386"
-        font-family="Space Grotesk, Inter, system-ui, sans-serif"
-        font-size="21" fill="#94a3b8" opacity="0.85">Weekly Tech and Security Insights</text>
+  <!-- Stats cards -->
+  <g transform="translate(260, 310)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="30" fill="#dc2626" font-family="Arial, sans-serif" font-size="12" font-weight="bold">ZERO-DAY</text>
+    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Zero-Day</text>
+    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="240" y="30" fill="#ef4444" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CVE ALERT</text>
+    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">CVE Alert</text>
+    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="460" y="30" fill="#06b6d4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CLOUD</text>
+    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Cloud</text>
+    <text x="460" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+  </g>
 
-  <!-- Date -->
-  <text x="60" y="420"
-        font-family="Space Grotesk, Inter, system-ui, sans-serif"
-        font-size="16" fill="#64748b">January 28, 2026</text>
+  <!-- Key topics -->
+  <g transform="translate(260, 440)">
+    <rect x="0" y="0" width="102" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
+    <text x="51" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">Zero-Day</text>
+    <rect x="117" y="0" width="111" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
+    <text x="172" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">CVE Alert</text>
+    <rect x="243" y="0" width="75" height="32" rx="16" fill="#312e81" opacity="0.7"/>
+    <text x="280" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">Cloud</text>
+    <rect x="333" y="0" width="111" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
+    <text x="388" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">DevSecOps</text>
+  </g>
 
-  <!-- Stat cards -->
-  
-    <rect x="60" y="520" width="130" height="66" rx="8"
-          fill="rgba(255,255,255,0.04)" stroke="#6366f1" stroke-width="1.5"/>
-    <text x="125" y="548" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="19" font-weight="700" fill="#6366f1">Week</text>
-    <text x="125" y="568" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="10" fill="#94a3b8" letter-spacing="1">Digest</text>
+  <!-- Network visualization -->
+  <g transform="translate(900, 180)" opacity="0.4">
+    <circle cx="153" cy="91" r="3" fill="#f87171"/>
+    <circle cx="45" cy="45" r="4" fill="#fb923c"/>
+    <circle cx="56" cy="83" r="5" fill="#818cf8"/>
+    <circle cx="183" cy="43" r="6" fill="#34d399"/>
+    <circle cx="49" cy="183" r="3" fill="#fbbf24"/>
+    <circle cx="57" cy="68" r="4" fill="#f87171"/>
+    <circle cx="133" cy="139" r="5" fill="#fb923c"/>
+    <circle cx="217" cy="57" r="6" fill="#818cf8"/>
+    <circle cx="103" cy="36" r="3" fill="#34d399"/>
+    <circle cx="39" cy="181" r="4" fill="#fbbf24"/>
+    <line x1="153" y1="91" x2="45" y2="45" stroke="#475569" stroke-width="1"/>
+    <line x1="45" y1="45" x2="56" y2="83" stroke="#475569" stroke-width="1"/>
+    <line x1="56" y1="83" x2="183" y2="43" stroke="#475569" stroke-width="1"/>
+    <line x1="183" y1="43" x2="49" y2="183" stroke="#475569" stroke-width="1"/>
+    <line x1="49" y1="183" x2="57" y2="68" stroke="#475569" stroke-width="1"/>
+    <line x1="57" y1="68" x2="133" y2="139" stroke="#475569" stroke-width="1"/>
+    <line x1="133" y1="139" x2="217" y2="57" stroke="#475569" stroke-width="1"/>
+    <line x1="217" y1="57" x2="103" y2="36" stroke="#475569" stroke-width="1"/>
+  </g>
 
-    <rect x="208" y="520" width="130" height="66" rx="8"
-          fill="rgba(255,255,255,0.04)" stroke="#f59e0b" stroke-width="1.5"/>
-    <text x="273" y="548" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="19" font-weight="700" fill="#f59e0b">CVE</text>
-    <text x="273" y="568" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="10" fill="#94a3b8" letter-spacing="1">Alerts</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
+  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
 
-    <rect x="356" y="520" width="130" height="66" rx="8"
-          fill="rgba(255,255,255,0.04)" stroke="#10b981" stroke-width="1.5"/>
-    <text x="421" y="548" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="19" font-weight="700" fill="#10b981">Threat</text>
-    <text x="421" y="568" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="10" fill="#94a3b8" letter-spacing="1">Intel</text>
+  <!-- Bottom text -->
+  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
+  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
 
-  <!-- Branding -->
-  <text x="1140" y="600"
-        font-family="Space Grotesk, Inter, system-ui, sans-serif"
-        font-size="15" fill="#475569" text-anchor="end" opacity="0.7">Twodragon Tech Blog</text>
-
-  <!-- Corner decoration dots -->
-  <circle cx="1170" cy="30" r="4" fill="#6366f1" opacity="0.4"/>
-  <circle cx="1185" cy="30" r="2.5" fill="#6366f1" opacity="0.25"/>
-  <circle cx="1155" cy="30" r="2.5" fill="#6366f1" opacity="0.25"/>
+  <!-- Bottom right -->
+  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">10 curated articles</text>
+  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Zero-Day | CVE Alert | Cloud | DevSecOps</text>
 </svg>

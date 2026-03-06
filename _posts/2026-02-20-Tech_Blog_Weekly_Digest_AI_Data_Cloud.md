@@ -9,7 +9,7 @@ description: "2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog,
 keywords: [Tech-Blog, Weekly-Digest, Developer, 2026, AI, Data, Cloud, Go]
 author: Twodragon
 comments: true
-image: /assets/images/Tech_Blog_Weekly_Digest_AI_Data_Cloud_og.png
+image: /assets/images/2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud.svg
 image_alt: "기술 블로그 주간 다이제스트 2026년 2월 20일"
 toc: true
 ---

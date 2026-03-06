@@ -1,219 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f0f23"/>
-      <stop offset="50%" style="stop-color:#1a1a3e"/>
-      <stop offset="100%" style="stop-color:#0d1117"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-
-    <!-- Card Gradient -->
-    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e293b"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
     </linearGradient>
-
-    <!-- Category Gradients -->
-    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dc2626"/>
-      <stop offset="100%" style="stop-color:#991b1b"/>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
     </linearGradient>
-    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
-    </linearGradient>
-    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#6d28d9"/>
-    </linearGradient>
-    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#10b981"/>
-      <stop offset="100%" style="stop-color:#059669"/>
-    </linearGradient>
-    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f59e0b"/>
-      <stop offset="100%" style="stop-color:#d97706"/>
-    </linearGradient>
-    <linearGradient id="indigoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366f1"/>
-      <stop offset="100%" style="stop-color:#4f46e5"/>
-    </linearGradient>
-
-    <!-- Glow Filter -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- Shadow Filter -->
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.3" opacity="0.4"/>
-    </pattern>
-    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="0.8" fill="#475569" opacity="0.3"/>
-    </pattern>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <!-- Grid Pattern -->
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
-  </pattern>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-
-  <!-- Decorative Circles -->
-  <circle cx="100" cy="100" r="200" fill="#3b82f6" fill-opacity="0.05"/>
-  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
-  <circle cx="600" cy="315" r="300" fill="#dc2626" fill-opacity="0.03"/>
-
-  <!-- Header Section -->
-  <rect x="40" y="30" width="200" height="36" rx="18" fill="url(#redGradient)" filter="url(#shadow)"/>
-  <text x="140" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">WEEKLY DIGEST</text>
-
-  <!-- Date Badge -->
-  <rect x="960" y="30" width="200" height="36" rx="18" fill="url(#blueGradient)" filter="url(#shadow)"/>
-  <text x="1060" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">March 01, 2026</text>
-
-  <!-- Main Title -->
-  <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">AI | Agent | Ransomware</text>
-
-  <!-- Card 1: SECURITY -->
-  <g transform="translate(50, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">HeadLine 12 - OT Security Trends</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK Shieldus report on manufacturing</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">OT security for business operations</text>
-
-    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK Shieldus</text>
+  <!-- Grid pattern -->
+  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
   </g>
 
-  <!-- Card 2: SECURITY -->
-  <g transform="translate(430, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Gentlemen Ransomware Threat Report</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">SK Shieldus ransomware analysis:</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Gentlemen ransomware spreading fast</text>
-
-    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">SK Shieldus</text>
+  <!-- Primary icon -->
+  <g transform="translate(80, 180)">
+    <rect x="25" y="60" width="70" height="80" rx="8" fill="url(#accent)" opacity="0.9"/>
+    <path d="M35 60 V40 C35 18 85 18 85 40 V60" fill="none" stroke="#fca5a5" stroke-width="3"/>
+    <circle cx="60" cy="100" r="10" fill="white"/>
+    <rect x="57" y="100" width="6" height="18" rx="2" fill="white"/>
   </g>
 
-  <!-- Card 3: AI/ML -->
-  <g transform="translate(810, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#indigoGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#6366f1" text-anchor="middle">AI</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6366f1">AI/ML</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">NVIDIA Advances Autonomous Networks</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Autonomous networks intelligent,</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">self-managing telecommunications</text>
-
-    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#indigoGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#6366f1" text-anchor="middle">NVIDIA AI Blog</text>
+  <!-- Secondary icon -->
+  <g transform="translate(80, 380)">
+    <circle cx="60" cy="70" r="45" fill="url(#accent)" opacity="0.15"/>
+    <circle cx="60" cy="70" r="45" fill="none" stroke="#6366f1" stroke-width="2.5"/>
+    <path d="M40 55 Q50 35 60 50 Q70 35 80 55" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M35 75 Q45 60 55 75 Q65 60 75 75 Q85 60 90 75" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <text x="60" y="105" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="14" font-weight="bold">AI</text>
   </g>
 
-  <!-- Card 4: CLOUD -->
-  <g transform="translate(50, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#greenGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#greenGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#10b981" text-anchor="middle">AWS</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981">CLOUD</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Agentic AI Part2 : AgentCore Gatewa</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">(Part 1) 2 Solutions</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Architect 7 Agentic AI</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#greenGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">AWS Korea Blog</text>
+  <!-- Main title area -->
+  <g transform="translate(260, 100)">
+    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">기술·보안 주간 다이제스트:</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">AI 에이전트 보안과 Gentlemen 랜섬웨어 위협</text>
   </g>
 
-  <!-- Card 5: BLOCKCHAIN -->
-  <g transform="translate(430, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
+  <!-- Date badge -->
+  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
+  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">March 01, 2026</text>
 
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Tokenized gold leads 100% of weeken</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Tokenized gold markets like PAXG and</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">XAUt now handle nearly all gold price</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Cointelegraph</text>
+  <!-- Stats cards -->
+  <g transform="translate(260, 310)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="30" fill="#ef4444" font-family="Arial, sans-serif" font-size="12" font-weight="bold">RANSOMWARE</text>
+    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Ransomware</text>
+    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="240" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI/ML</text>
+    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AI/ML</text>
+    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="460" y="30" fill="#a78bfa" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI AGENT</text>
+    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AI Agent</text>
+    <text x="460" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
   </g>
 
-  <!-- Card 6: TECH -->
-  <g transform="translate(810, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#purpleGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#purpleGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#8b5cf6" text-anchor="middle">PY</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8b5cf6">TECH</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Python Oral History by Guido</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Guido van Rossum shares Python's</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">history in interview with T. Wouters</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#purpleGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6" text-anchor="middle">GeekNews</text>
+  <!-- Key topics -->
+  <g transform="translate(260, 440)">
+    <rect x="0" y="0" width="120" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
+    <text x="60" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">Ransomware</text>
+    <rect x="135" y="0" width="75" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
+    <text x="172" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">AI/ML</text>
+    <rect x="225" y="0" width="102" height="32" rx="16" fill="#312e81" opacity="0.7"/>
+    <text x="276" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">AI Agent</text>
+    <rect x="342" y="0" width="75" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
+    <text x="379" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">Cloud</text>
   </g>
 
-  <!-- Footer -->
-  <line x1="50" y1="585" x2="1150" y2="585" stroke="#334155" stroke-width="1"/>
+  <!-- Network visualization -->
+  <g transform="translate(900, 180)" opacity="0.4">
+    <circle cx="138" cy="184" r="3" fill="#f87171"/>
+    <circle cx="68" cy="68" r="4" fill="#fb923c"/>
+    <circle cx="209" cy="189" r="5" fill="#818cf8"/>
+    <circle cx="177" cy="219" r="6" fill="#34d399"/>
+    <circle cx="123" cy="177" r="3" fill="#fbbf24"/>
+    <circle cx="216" cy="216" r="4" fill="#f87171"/>
+    <circle cx="153" cy="176" r="5" fill="#fb923c"/>
+    <circle cx="95" cy="216" r="6" fill="#818cf8"/>
+    <circle cx="213" cy="76" r="3" fill="#34d399"/>
+    <circle cx="52" cy="91" r="4" fill="#fbbf24"/>
+    <line x1="138" y1="184" x2="68" y2="68" stroke="#475569" stroke-width="1"/>
+    <line x1="68" y1="68" x2="209" y2="189" stroke="#475569" stroke-width="1"/>
+    <line x1="209" y1="189" x2="177" y2="219" stroke="#475569" stroke-width="1"/>
+    <line x1="177" y1="219" x2="123" y2="177" stroke="#475569" stroke-width="1"/>
+    <line x1="123" y1="177" x2="216" y2="216" stroke="#475569" stroke-width="1"/>
+    <line x1="216" y1="216" x2="153" y2="176" stroke="#475569" stroke-width="1"/>
+    <line x1="153" y1="176" x2="95" y2="216" stroke="#475569" stroke-width="1"/>
+    <line x1="95" y1="216" x2="213" y2="76" stroke="#475569" stroke-width="1"/>
+  </g>
 
-  <!-- Stats -->
-  <g transform="translate(50, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">17 News Collected</text>
-  </g>
-  <g transform="translate(250, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">4 Security</text>
-  </g>
-  <g transform="translate(400, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">1 Cloud</text>
-  </g>
-  <g transform="translate(520, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 DevOps</text>
-  </g>
-  <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">2 AI/ML</text>
-  </g>
+  <!-- Bottom bar -->
+  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
+  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
 
-  <!-- Blog Info -->
-  <text x="1150" y="612" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Bottom text -->
+  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
+  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
+
+  <!-- Bottom right -->
+  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">10 curated articles</text>
+  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Ransomware | AI/ML | AI Agent | Cloud</text>
 </svg>

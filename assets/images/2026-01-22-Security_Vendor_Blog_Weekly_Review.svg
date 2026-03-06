@@ -1,121 +1,122 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <!-- Background gradient -->
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0f1e"/>
-      <stop offset="50%" stop-color="#0d1b2a"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <!-- Accent gradient top bar -->
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ef4444"/>
-      <stop offset="100%" stop-color="#f87171"/>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
     </linearGradient>
-    <!-- Radial glow -->
-    <radialGradient id="glow" cx="75%" cy="45%" r="45%">
-      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
-    </radialGradient>
-    <!-- Grid pattern -->
-    <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
-    </pattern>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
   </defs>
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
 
-  <!-- Top accent bar -->
-  <rect x="0" y="0" width="1200" height="4" fill="url(#accentGrad)"/>
-
-  <!-- Bottom accent bar -->
-  <rect x="0" y="626" width="1200" height="4" fill="url(#accentGrad)"/>
-
-  <!-- Left vertical accent line -->
-  <rect x="0" y="4" width="3" height="622" fill="#ef4444" opacity="0.4"/>
-
-  <!-- Right-side visual element -->
-  <g opacity="0.85">
-    
-    <!-- Shield -->
-    <path d="M980.0,210.0 L1045.0,240.0 L1045.0,320.0 Q1045.0,370.0 980.0,390.0 Q915.0,370.0 915.0,320.0 L915.0,240.0 Z"
-          fill="none" stroke="#ef4444" stroke-width="4" opacity="0.25"/>
-    <path d="M980.0,230.0 L1028.0,254.0 L1028.0,310.0 Q1028.0,350.0 980.0,366.0 Q932.0,350.0 932.0,310.0 L932.0,254.0 Z"
-          fill="#ef4444" opacity="0.12"/>
-    <!-- Lock body -->
-    <rect x="962.0" y="285.0" width="36" height="28" rx="5" fill="#ef4444" opacity="0.7"/>
-    <!-- Shackle -->
-    <path d="M968.0,285.0 L968.0,270.0 Q968.0,255.0 980.0,255.0 Q992.0,255.0 992.0,270.0 L992.0,285.0"
-          fill="none" stroke="#ef4444" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
-    <!-- Keyhole -->
-    <circle cx="980.0" cy="297.0" r="5" fill="#0f172a"/>
-    <rect x="977.5" y="297.0" width="5" height="8" fill="#0f172a"/>
-    
+  <!-- Grid pattern -->
+  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
   </g>
 
-  <!-- Category label -->
-  <text x="60" y="100"
-        font-family="Space Grotesk, Inter, system-ui, sans-serif"
-        font-size="13" font-weight="600" fill="#ef4444"
-        letter-spacing="3" opacity="0.9">SECURITY</text>
+  <!-- Primary icon -->
+  <g transform="translate(80, 180)">
+    <circle cx="60" cy="70" r="45" fill="url(#accent)" opacity="0.15"/>
+    <circle cx="60" cy="70" r="45" fill="none" stroke="#6366f1" stroke-width="2.5"/>
+    <path d="M40 55 Q50 35 60 50 Q70 35 80 55" fill="none" stroke="#c7d2fe" stroke-width="2"/>
+    <path d="M35 75 Q45 60 55 75 Q65 60 75 75 Q85 60 90 75" fill="none" stroke="#c7d2fe" stroke-width="2"/>
+    <text x="60" y="105" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="14" font-weight="bold">AI</text>
+  </g>
 
-  <!-- Accent underline under category -->
-  <rect x="60" y="108" width="50" height="2" rx="1" fill="#ef4444" opacity="0.5"/>
+  <!-- Secondary icon -->
+  <g transform="translate(80, 380)">
+    <path d="M90 120 L30 120 C13 120 0 107 0 90 C0 75 10 63 24 60 C24 35 45 15 70 15 C92 15 110 30 115 50 C128 52 138 63 138 78 C138 95 125 108 108 108" fill="none" stroke="#10b981" stroke-width="2.5"/>
+    <path d="M50 75 L65 90 L90 60" fill="none" stroke="#94a3b8" stroke-width="3"/>
+  </g>
 
-  <!-- Title lines -->
-  <text x="60" y="230" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-size="47" font-weight="700" fill="#ffffff" opacity="0.95">January 22, 2026</text>
+  <!-- Main title area -->
+  <g transform="translate(260, 100)">
+    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300"></text>
+  </g>
 
-  <!-- Accent underline bar -->
-  <rect x="60" y="296" width="300" height="4" rx="2" fill="#ef4444" opacity="0.7"/>
+  <!-- Date badge -->
+  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
+  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">January 22, 2026</text>
 
-  <!-- Subtitle -->
-  <text x="60" y="328"
-        font-family="Space Grotesk, Inter, system-ui, sans-serif"
-        font-size="21" fill="#94a3b8" opacity="0.85">Security Hardening and Compliance Guide</text>
+  <!-- Stats cards -->
+  <g transform="translate(260, 310)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI/ML</text>
+    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AI/ML</text>
+    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="240" y="30" fill="#06b6d4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CLOUD</text>
+    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Cloud</text>
+    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="460" y="30" fill="#ff9900" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AWS</text>
+    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AWS</text>
+    <text x="460" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+  </g>
 
-  <!-- Date -->
-  <text x="60" y="362"
-        font-family="Space Grotesk, Inter, system-ui, sans-serif"
-        font-size="16" fill="#64748b">January 22, 2026</text>
+  <!-- Key topics -->
+  <g transform="translate(260, 440)">
+    <rect x="0" y="0" width="75" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
+    <text x="37" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">AI/ML</text>
+    <rect x="90" y="0" width="75" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
+    <text x="127" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">Cloud</text>
+    <rect x="180" y="0" width="57" height="32" rx="16" fill="#312e81" opacity="0.7"/>
+    <text x="208" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">AWS</text>
+    <rect x="252" y="0" width="111" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
+    <text x="307" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">DevSecOps</text>
+  </g>
 
-  <!-- Stat cards -->
-  
-    <rect x="60" y="520" width="130" height="66" rx="8"
-          fill="rgba(255,255,255,0.04)" stroke="#ef4444" stroke-width="1.5"/>
-    <text x="125" y="548" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="19" font-weight="700" fill="#ef4444">Top 10</text>
-    <text x="125" y="568" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="10" fill="#94a3b8" letter-spacing="1">Risks</text>
+  <!-- Network visualization -->
+  <g transform="translate(900, 180)" opacity="0.4">
+    <circle cx="124" cy="77" r="3" fill="#f87171"/>
+    <circle cx="141" cy="141" r="4" fill="#fb923c"/>
+    <circle cx="93" cy="157" r="5" fill="#818cf8"/>
+    <circle cx="62" cy="161" r="6" fill="#34d399"/>
+    <circle cx="59" cy="62" r="3" fill="#fbbf24"/>
+    <circle cx="208" cy="88" r="4" fill="#f87171"/>
+    <circle cx="177" cy="144" r="5" fill="#fb923c"/>
+    <circle cx="98" cy="208" r="6" fill="#818cf8"/>
+    <circle cx="138" cy="124" r="3" fill="#34d399"/>
+    <circle cx="43" cy="103" r="4" fill="#fbbf24"/>
+    <line x1="124" y1="77" x2="141" y2="141" stroke="#475569" stroke-width="1"/>
+    <line x1="141" y1="141" x2="93" y2="157" stroke="#475569" stroke-width="1"/>
+    <line x1="93" y1="157" x2="62" y2="161" stroke="#475569" stroke-width="1"/>
+    <line x1="62" y1="161" x2="59" y2="62" stroke="#475569" stroke-width="1"/>
+    <line x1="59" y1="62" x2="208" y2="88" stroke="#475569" stroke-width="1"/>
+    <line x1="208" y1="88" x2="177" y2="144" stroke="#475569" stroke-width="1"/>
+    <line x1="177" y1="144" x2="98" y2="208" stroke="#475569" stroke-width="1"/>
+    <line x1="98" y1="208" x2="138" y2="124" stroke="#475569" stroke-width="1"/>
+  </g>
 
-    <rect x="208" y="520" width="130" height="66" rx="8"
-          fill="rgba(255,255,255,0.04)" stroke="#f59e0b" stroke-width="1.5"/>
-    <text x="273" y="548" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="19" font-weight="700" fill="#f59e0b">MITRE</text>
-    <text x="273" y="568" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="10" fill="#94a3b8" letter-spacing="1">ATT&CK</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
+  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
 
-    <rect x="356" y="520" width="130" height="66" rx="8"
-          fill="rgba(255,255,255,0.04)" stroke="#10b981" stroke-width="1.5"/>
-    <text x="421" y="548" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="19" font-weight="700" fill="#10b981">Zero Trust</text>
-    <text x="421" y="568" text-anchor="middle"
-          font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="10" fill="#94a3b8" letter-spacing="1">Framework</text>
+  <!-- Bottom text -->
+  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
+  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
 
-  <!-- Branding -->
-  <text x="1140" y="600"
-        font-family="Space Grotesk, Inter, system-ui, sans-serif"
-        font-size="15" fill="#475569" text-anchor="end" opacity="0.7">Twodragon Tech Blog</text>
-
-  <!-- Corner decoration dots -->
-  <circle cx="1170" cy="30" r="4" fill="#ef4444" opacity="0.4"/>
-  <circle cx="1185" cy="30" r="2.5" fill="#ef4444" opacity="0.25"/>
-  <circle cx="1155" cy="30" r="2.5" fill="#ef4444" opacity="0.25"/>
+  <!-- Bottom right -->
+  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">10 curated articles</text>
+  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">AI/ML | Cloud | AWS | DevSecOps</text>
 </svg>

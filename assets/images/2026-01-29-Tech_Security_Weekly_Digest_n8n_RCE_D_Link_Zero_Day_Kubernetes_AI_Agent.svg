@@ -1,19 +1,123 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0b1424" />
-      <stop offset="100%" stop-color="#1a3552" />
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#67e8f9" />
-      <stop offset="100%" stop-color="#60a5fa" />
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)" />
-  <rect x="60" y="70" width="1080" height="490" rx="28" fill="#0f2133" stroke="#2a4b68" stroke-width="2" />
-  <rect x="120" y="150" width="240" height="8" fill="url(#accent)" />
-  <text x="120" y="235" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="50" font-weight="700">Tech Security Weekly Digest</text>
-  <text x="120" y="295" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">n8n RCE D Link Zero Day K...</text>
-  <text x="120" y="360" fill="#a7c3d9" font-family="Space Grotesk, Arial, sans-serif" font-size="24">Jan 29, 2026</text>
-  <text x="120" y="470" fill="#7fb0d4" font-family="Space Grotesk, Arial, sans-serif" font-size="20">Twodragon Tech Blog</text>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.05" stroke="#94a3b8" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Primary icon -->
+  <g transform="translate(80, 180)">
+    <path d="M60 5 L115 120 L5 120 Z" fill="url(#accent)" opacity="0.9"/>
+    <path d="M60 20 L105 115 L15 115 Z" fill="none" stroke="#fca5a5" stroke-width="2"/>
+    <text x="60" y="85" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="40" font-weight="bold">!</text>
+    <circle cx="60" cy="100" r="4" fill="white"/>
+  </g>
+
+  <!-- Secondary icon -->
+  <g transform="translate(80, 380)">
+    <path d="M60 5 L115 120 L5 120 Z" fill="url(#accent)" opacity="0.9"/>
+    <path d="M60 20 L105 115 L15 115 Z" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <text x="60" y="85" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="40" font-weight="bold">!</text>
+    <circle cx="60" cy="100" r="4" fill="white"/>
+  </g>
+
+  <!-- Main title area -->
+  <g transform="translate(260, 100)">
+    <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Tech &amp; Security Weekly Digest:</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="32" font-weight="300">n8n Critical RCE, D-Link 단종 장비 Zero-Day, Kubernetes AI 에이전트 보안</text>
+  </g>
+
+  <!-- Date badge -->
+  <rect x="260" y="240" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.9"/>
+  <text x="360" y="264" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">January 29, 2026</text>
+
+  <!-- Stats cards -->
+  <g transform="translate(260, 310)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="30" fill="#dc2626" font-family="Arial, sans-serif" font-size="12" font-weight="bold">ZERO-DAY</text>
+    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Zero-Day</text>
+    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="240" y="30" fill="#ef4444" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CVE ALERT</text>
+    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">CVE Alert</text>
+    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+    <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="460" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI/ML</text>
+    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AI/ML</text>
+    <text x="460" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
+  </g>
+
+  <!-- Key topics -->
+  <g transform="translate(260, 440)">
+    <rect x="0" y="0" width="102" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
+    <text x="51" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">Zero-Day</text>
+    <rect x="117" y="0" width="111" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
+    <text x="172" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">CVE Alert</text>
+    <rect x="243" y="0" width="75" height="32" rx="16" fill="#312e81" opacity="0.7"/>
+    <text x="280" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">AI/ML</text>
+    <rect x="333" y="0" width="120" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
+    <text x="393" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">Kubernetes</text>
+  </g>
+
+  <!-- Network visualization -->
+  <g transform="translate(900, 180)" opacity="0.4">
+    <circle cx="97" cy="163" r="3" fill="#f87171"/>
+    <circle cx="213" cy="213" r="4" fill="#fb923c"/>
+    <circle cx="127" cy="225" r="5" fill="#818cf8"/>
+    <circle cx="142" cy="78" r="6" fill="#34d399"/>
+    <circle cx="169" cy="142" r="3" fill="#fbbf24"/>
+    <circle cx="122" cy="108" r="4" fill="#f87171"/>
+    <circle cx="216" cy="199" r="5" fill="#fb923c"/>
+    <circle cx="228" cy="122" r="6" fill="#818cf8"/>
+    <circle cx="154" cy="203" r="3" fill="#34d399"/>
+    <circle cx="45" cy="223" r="4" fill="#fbbf24"/>
+    <line x1="97" y1="163" x2="213" y2="213" stroke="#475569" stroke-width="1"/>
+    <line x1="213" y1="213" x2="127" y2="225" stroke="#475569" stroke-width="1"/>
+    <line x1="127" y1="225" x2="142" y2="78" stroke="#475569" stroke-width="1"/>
+    <line x1="142" y1="78" x2="169" y2="142" stroke="#475569" stroke-width="1"/>
+    <line x1="169" y1="142" x2="122" y2="108" stroke="#475569" stroke-width="1"/>
+    <line x1="122" y1="108" x2="216" y2="199" stroke="#475569" stroke-width="1"/>
+    <line x1="216" y1="199" x2="228" y2="122" stroke="#475569" stroke-width="1"/>
+    <line x1="228" y1="122" x2="154" y2="203" stroke="#475569" stroke-width="1"/>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="510" width="1200" height="120" fill="#0f172a" opacity="0.8"/>
+  <rect x="0" y="510" width="1200" height="2" fill="url(#accent)" opacity="0.5"/>
+
+  <!-- Bottom text -->
+  <text x="80" y="560" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">tech.2twodragon.com</text>
+  <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
+
+  <!-- Bottom right -->
+  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">14 curated articles</text>
+  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Zero-Day | CVE Alert | AI/ML | Kubernetes</text>
 </svg>
