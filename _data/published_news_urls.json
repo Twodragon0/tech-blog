@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-05T04:33:06.156116+00:00",
+  "updated_at": "2026-03-06T03:29:08.081533+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -612,6 +612,96 @@
       "title": "Claude Code Guide eBook",
       "published_date": "2026-03-05",
       "expires_at": "2026-03-12T04:33:06.155868+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/preparing-for-quantum-era-post-quantum.html",
+      "title": "Preparing for the Quantum Era: Post-Quantum Cryptography Webinar for Security Le",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/cisco-confirms-active-exploitation-of.html",
+      "title": "Cisco Confirms Active Exploitation of Two Catalyst SD-WAN Manager Vulnerabilitie",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/threatsday-bulletin-redis-rce-ddr5-bot.html",
+      "title": "ThreatsDay Bulletin: DDR5 Bot Scalping, Samsung TV Tracking, Reddit Privacy Fine",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/aws-completes-the-2026-annual-dubai-electronic-security-centre-desc-certification-audit/",
+      "title": "AWS completes the 2026 annual Dubai Electronic Security Centre (DESC) certificat",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/dust-specter-targets-iraqi-officials.html",
+      "title": "Dust Specter Targets Iraqi Officials with New SPLITDROP and GHOSTFORM Malware",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/maven-smart-system-innovating-for-the-alliance-5ebc31709eea?source=rss----3c87dc14372f---4",
+      "title": "Maven Smart System: Innovating for the Alliance",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://blog.google/company-news/inside-google/googlers/how-google-ai-visual-search-works/",
+      "title": "Ask a Techspert: How does AI understand my visual searches?",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/products/google-ai-updates-february-2026/",
+      "title": "The latest AI news we announced in February",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-march-2026-games-list/",
+      "title": "March Into the Cloud With 15 New Games Coming to GeForce NOW",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-5-4",
+      "title": "Introducing GPT-5.4",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-now-supports-custom-metrics-natively/",
+      "title": "Grow your own way: Introducing native support for custom metrics in GKE",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana/",
+      "title": "The ultimate Nano Banana prompting guide",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/introducing-the-google-cloud-recommended-security-checklist/",
+      "title": "Make security simpler: Introducing the Google Cloud recommended security checkli",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/2025-zero-day-review/",
+      "title": "Look What You Made Us Patch: 2025 Zero-Days in Review",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/meritz-securities-wts-with-gen-ai/",
+      "title": "메리츠증권의 AWS 클라우드 여정: 클라우드 기반 차세대 증권 플랫폼 설계",
+      "published_date": "2026-03-06",
+      "expires_at": "2026-03-13T03:29:08.081439+00:00"
     }
   ]
 }
