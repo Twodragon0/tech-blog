@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "JWT Auth Threat, Iran Crypto Outflows, Financial AI Governance"
+title: "기술·보안 주간 다이제스트: JWT 인증 위협, 이란 암호화폐 유출, 금융 AI 거버넌스"
 date: 2026-03-04 14:05:06 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, JWT, Blockchain, AI-Governance]
