@@ -1,6 +1,6 @@
 {% assign post = include.post %}
 <article class="post-card card">
-  <a href="{{ post.url | relative_url }}" class="post-card-inner">
+  <a href="{{ post.url | relative_url }}" class="post-card-inner" aria-label="{{ post.title | escape }}">
     {% if post.image and post.image != "" %}
     <div class="post-card-image">
       {% comment %}CLS 최적화: aspect-ratio를 CSS에서 이미 처리하므로 width/height는 생략{% endcomment %}

@@ -379,24 +379,6 @@ Extension Attribute 스크립트는 `/usr/local/bin/ai`, `~/.moltbot/`, `~/.claw
 
 Jamf Pro API를 통해 Extension Attribute 결과를 주기적으로 수집하고 Splunk 또는 Elastic으로 전달하면, AI 에이전트 설치 탐지 알림을 자동화할 수 있습니다. Jamf Pro Webhooks와 SIEM HTTP Event Collector를 연동하는 방법은 [Jamf Pro API 문서](https://developer.jamf.com/jamf-pro/docs)를 참조하세요.
 
-### 1.9 AI 에이전트 보안 FAQ
-
-**Q1: AI를 사용 중인데 당장 무엇을 해야 하나요?**
-
-즉시 버전 2026.1.29 이상으로 업데이트하여 CVE-2026-25253을 패치하세요. 설치된 ClawHub 스킬 목록을 점검하고, 출처가 불분명한 스킬은 제거하세요. `~/.ssh/`, `~/.aws/` 등 민감 디렉토리의 접근 로그를 확인하여 이상 징후가 없는지 점검하는 것이 권장됩니다.
-
-**Q2: ClawHub 스킬의 악성 여부를 어떻게 판별하나요?**
-
-Koi Security 연구팀의 보고서에 따르면, 악성 스킬은 주로 자격 증명 수집과 데이터 탈취를 시도합니다. 스킬의 소스 코드에서 `~/.ssh`, `~/.aws`, `~/.env`, `process.env` 등의 문자열 접근 패턴을 확인하세요. 스킬 설치 전 코드 리뷰를 의무화하고, 검증된 퍼블리셔의 스킬만 사용하는 정책을 수립하는 것이 좋습니다.
-
-**Q3: NanoClaw로 전환하면 기존 워크플로에 영향이 있나요?**
-
-NanoClaw는 핵심 코딩 지원에 집중하므로 AI의 52개 이상 모듈 중 상당수는 지원하지 않습니다. IDE 수준의 광범위한 기능이 필요하면 AI를 보안 설정과 함께 사용하되, 보안 민감 환경(금융, 의료, 정부)에서는 NanoClaw의 샌드박스 모델이 더 적합합니다.
-
-**Q4: OWASP Agentic AI Top 10을 조직에 어떻게 적용하나요?**
-
-먼저 현재 사용 중인 AI 에이전트의 권한과 접근 범위를 매핑하세요. Top 10 항목별로 해당 여부를 평가하고, 우선순위가 높은 항목(Excessive Agency, Supply Chain Vulnerabilities)부터 대응하세요. 분기별 AI 에이전트 보안 감사를 도입하고, 결과를 경영진에게 보고하는 체계를 수립하는 것을 권장합니다.
-
 ---
 
 ## 2. MDM 앱 비활성화: 어떤 MDM을 선택해야 하는가?

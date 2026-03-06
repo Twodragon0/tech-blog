@@ -201,6 +201,13 @@
   border-color: var(--color-primary);
 }
 
+.post-card:focus-visible .post-card-inner {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-6px);
+}
+
 .post-card-meta {
   display: flex;
   align-items: center;
