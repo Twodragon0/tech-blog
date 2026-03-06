@@ -90,7 +90,8 @@ referenced_images.txt
 .ruff_cache/
 
 # Claude/Cursor session
-.claude/
+.claude/settings.local.json
+.claude/settings.json
 .cursor/
 .sisyphus/
 .env.backup
