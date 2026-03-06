@@ -245,6 +245,32 @@
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--spacing-sm);
   flex-grow: 1;
+  overflow: hidden;
+}
+
+p.post-card-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+div.post-card-excerpt {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.excerpt-summary {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-medium);
+}
+
+.excerpt-highlights {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

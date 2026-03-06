@@ -33,7 +33,18 @@
     <h2 class="post-card-title">{{ post.title | escape }}</h2>
 
     {% if post.excerpt and post.excerpt != "" %}
-    <p class="post-card-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 120 }}</p>
+    {% assign excerpt_text = post.excerpt | strip_html | strip_newlines %}
+    {% if excerpt_text contains ' - ' %}
+      {% assign excerpt_parts = excerpt_text | split: ' - ' %}
+      {% assign excerpt_summary = excerpt_parts.first | truncate: 40 %}
+      {% assign excerpt_highlights = excerpt_parts.last %}
+      <div class="post-card-excerpt">
+        <span class="excerpt-summary">{{ excerpt_summary }}</span>
+        <span class="excerpt-highlights">{{ excerpt_highlights | truncate: 80 }}</span>
+      </div>
+    {% else %}
+      <p class="post-card-excerpt">{{ excerpt_text | truncate: 120 }}</p>
+    {% endif %}
     {% endif %}
 
       {% if post.tags and post.tags.size > 0 %}
