@@ -41,7 +41,8 @@
         { "key": "X-DNS-Prefetch-Control", "value": "on" },
         { "key": "X-Download-Options", "value": "noopen" },
         { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
-        { "key": "Reporting-Endpoints", "value": "csp-endpoint=\"https://o4510686170710016.ingest.us.sentry.io/api/4510686177984512/security/?sentry_key=61fd23528aff138753e071de26c5b306\"" }
+        { "key": "Reporting-Endpoints", "value": "csp-endpoint=\"https://o4510686170710016.ingest.us.sentry.io/api/4510686177984512/security/?sentry_key=61fd23528aff138753e071de26c5b306\"" },
+        { "key": "Content-Security-Policy-Report-Only", "value": "default-src 'self'; script-src 'self' https://giscus.app https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.adtrafficquality.google https://js.sentry-cdn.com https://browser.sentry-cdn.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://cdnjs.cloudflare.com; style-src 'self' https://twodragon0.github.io https://giscus.app https://fonts.googleapis.com https://www.gstatic.com https://translate.googleapis.com; report-to csp-endpoint;" }
       ]
     },
     {

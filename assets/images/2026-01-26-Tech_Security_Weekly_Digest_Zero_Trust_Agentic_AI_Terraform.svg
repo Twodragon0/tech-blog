@@ -53,8 +53,8 @@
   <!-- Main title area -->
   <g transform="translate(260, 100)">
     <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Tech &amp; Security Weekly Digest:</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="32" font-weight="300">Zero Trust for AI Agents, Chrome 기술지원 사기 방지, Terraform Stacks 혁신</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="36" font-weight="bold">Tech Security Weekly Digest Zero Trust Agentic</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="32" font-weight="300">AI Chrome Tech Support Scam Terraform Stacks</text>
   </g>
 
   <!-- Date badge -->

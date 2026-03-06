@@ -52,8 +52,8 @@
   <!-- Main title area -->
   <g transform="translate(260, 100)">
     <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">기술·보안 주간 다이제스트:</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">CVE-2026-20122, Cisco, AWS</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Tech Security Weekly Digest</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">Security Threat AI AWS</text>
   </g>
 
   <!-- Date badge -->

@@ -50,8 +50,8 @@
   <!-- Main title area -->
   <g transform="translate(260, 100)">
     <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">2026-02-10 AI &amp; 클라우드 다이제스트:</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="32" font-weight="300">Meta Prometheus, Google OTLP, AWS 업데이트</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">AI Cloud Digest Meta</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">Prometheus Google OTLP AWS</text>
   </g>
 
   <!-- Date badge -->

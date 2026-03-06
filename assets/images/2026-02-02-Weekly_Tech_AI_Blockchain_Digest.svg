@@ -52,8 +52,8 @@
   <!-- Main title area -->
   <g transform="translate(260, 100)">
     <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="36" font-weight="bold">Weekly Tech &amp; AI &amp; Blockchain Digest:</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="32" font-weight="300">Apple MLX 버그, Bitcoin $74K 급락, AI 창의성의 역설, DeFi 보안, FOSDEM 2026</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Weekly Tech AI Blockchain Digest</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300"></text>
   </g>
 
   <!-- Date badge -->

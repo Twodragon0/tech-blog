@@ -12,10 +12,7 @@ IMAGES_DIR = Path("/Users/yong/Desktop/tech-blog/assets/images")
 
 # Reference SVG style from 2026-03-05 - the "good" style
 # Posts that already have the good style - skip these
-SKIP_FILES = {
-    "2026-03-04-Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin",
-    "2026-03-05-Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS",
-}
+SKIP_FILES = set()  # Regenerate all
 
 # Topic keyword -> (icon_color, topic_label, icon_svg_snippet)
 TOPIC_ICONS = {
@@ -300,14 +297,25 @@ def make_network_dots(seed_str):
     return "\n".join(dots + lines)
 
 
+def english_title_from_filename(filename_stem):
+    """Extract English title from filename (SVG must be English only)."""
+    # Remove date prefix: 2026-03-06-Rest_Of_Name
+    name = re.sub(r'^\d{4}-\d{2}-\d{2}-', '', filename_stem)
+    # Replace underscores with spaces
+    name = name.replace('_', ' ')
+    return name
+
+
 def generate_svg(post_data, filename_stem):
     """Generate a rich SVG in the reference style."""
-    title = post_data.get("title", "Weekly Digest")
+    # Use English title from filename (Korean not allowed in SVG text)
+    title = english_title_from_filename(filename_stem)
     date = post_data.get("date", "2026-01-01")
     tags = post_data.get("tags", [])
     excerpt = post_data.get("excerpt", "")
+    original_title = post_data.get("title", "")
 
-    topics = detect_topics(title, tags, excerpt, filename_stem)
+    topics = detect_topics(original_title, tags, excerpt, filename_stem)
     palette = get_palette(topics)
 
     # Choose primary and secondary icons

@@ -53,8 +53,8 @@
   <!-- Main title area -->
   <g transform="translate(260, 100)">
     <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">2026년 2월 3주차 기술·보안 주간 다이제스트:</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">AI 에이전트 보안, Patch Tuesday, 클라우드 비용</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Weekly Tech Security</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">Digest AI Cloud Risk</text>
   </g>
 
   <!-- Date badge -->

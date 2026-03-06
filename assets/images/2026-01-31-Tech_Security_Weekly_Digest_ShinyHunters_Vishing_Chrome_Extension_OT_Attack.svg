@@ -49,8 +49,8 @@
   <!-- Main title area -->
   <g transform="translate(260, 100)">
     <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Tech &amp; Security Weekly Digest:</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="32" font-weight="300">ShinyHunters Vishing MFA 우회, Chrome 확장 ChatGPT 탈취, 폴란드 에너지 OT 공격</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="36" font-weight="bold">Tech Security Weekly Digest ShinyHunters</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">Vishing Chrome Extension OT Attack</text>
   </g>
 
   <!-- Date badge -->

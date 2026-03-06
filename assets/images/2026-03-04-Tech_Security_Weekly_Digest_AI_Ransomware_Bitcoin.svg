@@ -6,12 +6,12 @@
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f59e0b"/>
-      <stop offset="100%" stop-color="#d97706"/>
-    </linearGradient>
-    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#ef4444"/>
       <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
     </linearGradient>
   </defs>
 
@@ -32,31 +32,28 @@
     <line x1="1000" y1="0" x2="1000" y2="630"/>
   </g>
 
-  <!-- JWT Key icon -->
+  <!-- Primary icon -->
   <g transform="translate(80, 180)">
-    <rect x="10" y="0" width="100" height="60" rx="8" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
-    <circle cx="40" cy="30" r="12" fill="none" stroke="#fbbf24" stroke-width="2"/>
-    <line x1="52" y1="30" x2="90" y2="30" stroke="#fbbf24" stroke-width="2"/>
-    <line x1="75" y1="22" x2="75" y2="38" stroke="#fbbf24" stroke-width="2"/>
-    <line x1="85" y1="22" x2="85" y2="38" stroke="#fbbf24" stroke-width="2"/>
-    <text x="60" y="90" text-anchor="middle" fill="#f59e0b" font-family="monospace" font-size="14" font-weight="bold">JWT KEY</text>
-    <text x="60" y="108" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">EXPOSED</text>
+    <rect x="25" y="60" width="70" height="80" rx="8" fill="url(#accent)" opacity="0.9"/>
+    <path d="M35 60 V40 C35 18 85 18 85 40 V60" fill="none" stroke="#fca5a5" stroke-width="3"/>
+    <circle cx="60" cy="100" r="10" fill="white"/>
+    <rect x="57" y="100" width="6" height="18" rx="2" fill="white"/>
   </g>
 
-  <!-- BTC flow icon -->
-  <g transform="translate(80, 360)">
-    <circle cx="60" cy="40" r="30" fill="none" stroke="#f87171" stroke-width="2.5"/>
-    <text x="60" y="48" text-anchor="middle" fill="#f87171" font-family="Arial, sans-serif" font-size="24" font-weight="bold">B</text>
-    <path d="M100 40 L130 25 M100 40 L130 55" stroke="#f87171" stroke-width="2" fill="none"/>
-    <text x="60" y="95" text-anchor="middle" fill="#f87171" font-family="monospace" font-size="14" font-weight="bold">$10.3M</text>
-    <text x="60" y="113" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">BTC outflow</text>
+  <!-- Secondary icon -->
+  <g transform="translate(80, 380)">
+    <circle cx="60" cy="70" r="45" fill="url(#accent)" opacity="0.15"/>
+    <circle cx="60" cy="70" r="45" fill="none" stroke="#6366f1" stroke-width="2.5"/>
+    <path d="M40 55 Q50 35 60 50 Q70 35 80 55" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M35 75 Q45 60 55 75 Q65 60 75 75 Q85 60 90 75" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <text x="60" y="105" text-anchor="middle" fill="#6366f1" font-family="monospace" font-size="14" font-weight="bold">AI</text>
   </g>
 
   <!-- Main title area -->
   <g transform="translate(260, 100)">
     <text x="0" y="0" fill="#f8fafc" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="4">TECH SECURITY WEEKLY DIGEST</text>
-    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">JWT Auth Threat Analysis</text>
-    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">Iran Crypto / Financial AI</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="42" font-weight="bold">Tech Security Weekly</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="Arial, sans-serif" font-size="36" font-weight="300">Digest AI Ransomware Bitcoin</text>
   </g>
 
   <!-- Date badge -->
@@ -65,61 +62,52 @@
 
   <!-- Stats cards -->
   <g transform="translate(260, 310)">
-    <!-- Card 1: JWT -->
     <rect x="0" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="20" y="30" fill="#fbbf24" font-family="Arial, sans-serif" font-size="12" font-weight="bold">JWT THREAT</text>
-    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Full Auth</text>
-    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">bypass via key leak</text>
-
-    <!-- Card 2: Iran BTC -->
+    <text x="20" y="30" fill="#ef4444" font-family="Arial, sans-serif" font-size="12" font-weight="bold">RANSOMWARE</text>
+    <text x="20" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Ransomware</text>
+    <text x="20" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
     <rect x="220" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="240" y="30" fill="#f87171" font-family="Arial, sans-serif" font-size="12" font-weight="bold">IRAN CRYPTO</text>
-    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">$10.3M</text>
-    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">BTC outflows post-strike</text>
-
-    <!-- Card 3: AI Gov -->
+    <text x="240" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI/ML</text>
+    <text x="240" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">AI/ML</text>
+    <text x="240" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
     <rect x="440" y="0" width="200" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="460" y="30" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI GOVERNANCE</text>
-    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">7</text>
-    <text x="495" y="65" fill="#64748b" font-family="Arial, sans-serif" font-size="14">principles for finance</text>
+    <text x="460" y="30" fill="#06b6d4" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CLOUD</text>
+    <text x="460" y="65" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Cloud</text>
+    <text x="460" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="13">analysis</text>
   </g>
 
   <!-- Key topics -->
   <g transform="translate(260, 440)">
-    <rect x="0" y="0" width="150" height="32" rx="16" fill="#78350f" opacity="0.7"/>
-    <text x="75" y="21" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="13">Authentication</text>
-
-    <rect x="165" y="0" width="120" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
-    <text x="225" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">Blockchain</text>
-
-    <rect x="300" y="0" width="150" height="32" rx="16" fill="#312e81" opacity="0.7"/>
-    <text x="375" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">AI Governance</text>
-
-    <rect x="465" y="0" width="130" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
-    <text x="530" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">Compliance</text>
+    <rect x="0" y="0" width="120" height="32" rx="16" fill="#991b1b" opacity="0.7"/>
+    <text x="60" y="21" text-anchor="middle" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">Ransomware</text>
+    <rect x="135" y="0" width="75" height="32" rx="16" fill="#7c2d12" opacity="0.7"/>
+    <text x="172" y="21" text-anchor="middle" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">AI/ML</text>
+    <rect x="225" y="0" width="75" height="32" rx="16" fill="#312e81" opacity="0.7"/>
+    <text x="262" y="21" text-anchor="middle" fill="#a5b4fc" font-family="Arial, sans-serif" font-size="13">Cloud</text>
+    <rect x="315" y="0" width="120" height="32" rx="16" fill="#064e3b" opacity="0.7"/>
+    <text x="375" y="21" text-anchor="middle" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13">Blockchain</text>
   </g>
 
   <!-- Network visualization -->
   <g transform="translate(900, 180)" opacity="0.4">
-    <circle cx="50" cy="50" r="6" fill="#fbbf24"/>
-    <circle cx="120" cy="30" r="4" fill="#f87171"/>
-    <circle cx="150" cy="90" r="5" fill="#818cf8"/>
-    <circle cx="80" cy="120" r="4" fill="#34d399"/>
-    <circle cx="200" cy="60" r="3" fill="#fbbf24"/>
-    <circle cx="30" cy="150" r="5" fill="#f87171"/>
-    <circle cx="180" cy="140" r="4" fill="#818cf8"/>
-    <circle cx="100" cy="180" r="3" fill="#34d399"/>
-    <circle cx="220" cy="130" r="5" fill="#fbbf24"/>
-    <circle cx="60" cy="200" r="4" fill="#f87171"/>
-    <line x1="50" y1="50" x2="120" y2="30" stroke="#475569" stroke-width="1"/>
-    <line x1="50" y1="50" x2="80" y2="120" stroke="#475569" stroke-width="1"/>
-    <line x1="120" y1="30" x2="150" y2="90" stroke="#475569" stroke-width="1"/>
-    <line x1="150" y1="90" x2="200" y2="60" stroke="#475569" stroke-width="1"/>
-    <line x1="80" y1="120" x2="30" y2="150" stroke="#475569" stroke-width="1"/>
-    <line x1="150" y1="90" x2="180" y2="140" stroke="#475569" stroke-width="1"/>
-    <line x1="80" y1="120" x2="100" y2="180" stroke="#475569" stroke-width="1"/>
-    <line x1="200" y1="60" x2="220" y2="130" stroke="#475569" stroke-width="1"/>
-    <line x1="30" y1="150" x2="60" y2="200" stroke="#475569" stroke-width="1"/>
+    <circle cx="150" cy="190" r="3" fill="#f87171"/>
+    <circle cx="120" cy="120" r="4" fill="#fb923c"/>
+    <circle cx="216" cy="202" r="5" fill="#818cf8"/>
+    <circle cx="178" cy="223" r="6" fill="#34d399"/>
+    <circle cx="98" cy="178" r="3" fill="#fbbf24"/>
+    <circle cx="213" cy="167" r="4" fill="#f87171"/>
+    <circle cx="227" cy="164" r="5" fill="#fb923c"/>
+    <circle cx="79" cy="213" r="6" fill="#818cf8"/>
+    <circle cx="161" cy="225" r="3" fill="#34d399"/>
+    <circle cx="46" cy="228" r="4" fill="#fbbf24"/>
+    <line x1="150" y1="190" x2="120" y2="120" stroke="#475569" stroke-width="1"/>
+    <line x1="120" y1="120" x2="216" y2="202" stroke="#475569" stroke-width="1"/>
+    <line x1="216" y1="202" x2="178" y2="223" stroke="#475569" stroke-width="1"/>
+    <line x1="178" y1="223" x2="98" y2="178" stroke="#475569" stroke-width="1"/>
+    <line x1="98" y1="178" x2="213" y2="167" stroke="#475569" stroke-width="1"/>
+    <line x1="213" y1="167" x2="227" y2="164" stroke="#475569" stroke-width="1"/>
+    <line x1="227" y1="164" x2="79" y2="213" stroke="#475569" stroke-width="1"/>
+    <line x1="79" y1="213" x2="161" y2="225" stroke="#475569" stroke-width="1"/>
   </g>
 
   <!-- Bottom bar -->
@@ -131,6 +119,6 @@
   <text x="80" y="590" fill="#64748b" font-family="Arial, sans-serif" font-size="13">DevSecOps Weekly Security Intelligence</text>
 
   <!-- Bottom right -->
-  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">15 curated articles</text>
-  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Security | Blockchain | AI Governance</text>
+  <text x="1120" y="560" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="14">10 curated articles</text>
+  <text x="1120" y="590" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Ransomware | AI/ML | Cloud | Blockchain</text>
 </svg>
