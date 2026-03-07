@@ -82,6 +82,8 @@ toc: true
 
 이 가이드에서는 **GitHub의 오픈소스 보안 도구들(Slither, Mythril, Securify 등)**을 활용한 블록체인 보안 강화 방법을 실무 중심으로 종합적으로 다룹니다. 특히 스마트 컨트랙트 보안 감사, CI/CD 파이프라인 통합, 그리고 기업 환경에서의 암호화폐 보안 전략에 중점을 둡니다.
 
+![Blockchain Attack Chain](/assets/images/mermaid/blockchain_attack_chain.svg)
+
 ## 📊 빠른 참조
 
 ### 2024-2025년 보안 사고 통계

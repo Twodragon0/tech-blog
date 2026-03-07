@@ -123,6 +123,8 @@ toc: true
 
 본 과정은 게더 타운(Gather Town)에서 진행되며, **'20분 강의 + 5분 휴식'** 사이클로 멘티분들의 집중력을 최대로 유지하며 진행됩니다.
 
+![AWS WAF CloudFront Flow](/assets/images/mermaid/aws_waf_cloudfront.svg)
+
 ## 📅 6주차 타임테이블 (Agenda)
 
 ### 세션 구성
