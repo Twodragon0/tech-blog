@@ -23,9 +23,13 @@ def convert_svg_image_to_png(page)
   image = page.data["image"]
   return unless image.is_a?(String) && image.end_with?(".svg")
 
-  png_path = image.sub(/\.svg\z/, ".png")
   source_dir = page.site.source
-  full_png_path = File.join(source_dir, png_path)
+  png_path = image.sub(/\.svg\z/, ".png")
+  og_png_path = image.sub(/\.svg\z/, "_og.png")
 
-  page.data["image"] = png_path if File.exist?(full_png_path)
+  if File.exist?(File.join(source_dir, png_path))
+    page.data["image"] = png_path
+  elsif File.exist?(File.join(source_dir, og_png_path))
+    page.data["image"] = og_png_path
+  end
 end
