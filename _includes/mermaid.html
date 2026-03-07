@@ -9,14 +9,15 @@ img[src*="/mermaid/"] {
   min-height: 120px;
   padding: 1.5rem;
   border-radius: 12px;
-  background: #f8f9fa;
+  background: transparent;
   border: 1px solid #e2e8f0;
   object-fit: contain;
 }
 
 [data-theme="dark"] img[src*="/mermaid/"] {
-  background: #ffffff;
-  border-color: #d0d7de;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.15);
+  filter: invert(1) hue-rotate(180deg);
 }
 
 @media (max-width: 768px) {
