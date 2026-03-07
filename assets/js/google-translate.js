@@ -63,7 +63,6 @@ function googleTranslateElementInit() {
     'es': { flag: '\uD83C\uDDEA\uD83C\uDDF8', name: 'Espa\u00f1ol' }
   };
 
-  var SUPPORTED_LANGS = ['ko', 'en', 'ja', 'zh-CN', 'es'];
   var translateScriptLoaded = false;
   var scriptLoadRetries = 0;
   var maxRetries = 3;
@@ -576,7 +575,7 @@ function googleTranslateElementInit() {
 
     // 다른 언어로 변경: 쿠키 설정
     var cookieVal = '/ko/' + lang;
-    var cookieSet = setCookie('googtrans', cookieVal, 365);
+    setCookie('googtrans', cookieVal, 365);
 
     // 버튼 텍스트 즉시 업데이트 (reload 전에도 반영)
     var currentLangSpan = document.getElementById('current-lang');

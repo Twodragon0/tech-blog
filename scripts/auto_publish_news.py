@@ -578,7 +578,7 @@ def _gemini_api_call(prompt: str, timeout: int = 20) -> str:
             logging.warning(f"Gemini API status {response.status_code}: {response.text[:100]}")
     except ImportError:
         logging.debug("requests library not available for Gemini API")
-    except Exception as e:
+    except requests.RequestException as e:
         logging.warning(f"Gemini API error: {e}")
 
     return ""
@@ -607,7 +607,7 @@ def _gemini_call(prompt: str, timeout: int = 35) -> str:
         except subprocess.TimeoutExpired:
             _GEMINI_CONSECUTIVE_FAILURES += 1
             logging.warning(f"Gemini CLI timeout ({timeout}s)")
-        except Exception as e:
+        except (subprocess.SubprocessError, OSError) as e:
             _GEMINI_CONSECUTIVE_FAILURES += 1
             logging.warning(f"Gemini CLI error: {e}")
 
@@ -742,7 +742,7 @@ def enhance_with_deepseek(item: Dict) -> str:
 
     except ImportError:
         logging.warning("requests library not available for DeepSeek API")
-    except Exception as e:
+    except requests.RequestException as e:
         logging.warning(f"DeepSeek API error: {e}")
 
     return ""
@@ -1843,7 +1843,7 @@ def _translate_to_korean_deepseek(text: str, context: str = "기술 뉴스", mod
             logging.warning(f"DeepSeek translate API status {response.status_code}")
     except ImportError:
         logging.debug("requests library not available for DeepSeek translation")
-    except Exception as e:
+    except requests.RequestException as e:
         logging.warning(f"DeepSeek translate error: {e}")
 
     return ""
@@ -2031,8 +2031,27 @@ def generate_news_section(
 
     severity = _determine_severity(item)
     cve_ids = _extract_cve_ids(item)
+    image = item.get("image", "")
 
     section = f"### {section_num} {title}\n\n"
+
+    # 뉴스 카드 (이미지 + 요약)
+    if image or summary:
+        card_parts = [
+            '{%% include news-card.html',
+            '  title="%s"' % title.replace('"', '\\"'),
+            '  url="%s"' % url,
+        ]
+        if image:
+            card_parts.append('  image="%s"' % image)
+        if summary:
+            card_summary = summary[:200].replace('"', '\\"')
+            card_parts.append('  summary="%s"' % card_summary)
+        card_parts.append('  source="%s"' % source.replace('"', '\\"'))
+        if severity in ("Critical", "High"):
+            card_parts.append('  severity="%s"' % severity)
+        card_parts.append('%%}')
+        section += '\n'.join(card_parts) + '\n\n'
 
     # 심각도 및 CVE 뱃지
     if cve_ids or severity == "Critical":

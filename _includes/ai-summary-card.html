@@ -5,7 +5,7 @@
 <div class="ai-summary-content">
   <div class="summary-row">
     <span class="summary-label">제목</span>
-    <span class="summary-value">{{ include.title }}</span>
+    <span class="summary-value">{{ include.title | escape }}</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">카테고리</span>
@@ -21,11 +21,11 @@
   </div>
   <div class="summary-row">
     <span class="summary-label">수집 기간</span>
-    <span class="summary-value">{{ include.period }}</span>
+    <span class="summary-value">{{ include.period | escape }}</span>
   </div>
   <div class="summary-row">
     <span class="summary-label">대상 독자</span>
-    <span class="summary-value">{{ include.audience }}</span>
+    <span class="summary-value">{{ include.audience | escape }}</span>
   </div>
 </div>
 <div class="ai-summary-footer">

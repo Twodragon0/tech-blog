@@ -7,7 +7,6 @@
 
   // Wait for utilities from main-core.js
   const scheduleIdleWork = window.TechBlog?.scheduleIdleWork || ((cb) => setTimeout(cb, 1));
-  const yieldToMain = window.TechBlog?.yieldToMain || (() => new Promise(r => setTimeout(r, 0)));
 
   // ============================================
   // Shared Constants
@@ -293,8 +292,6 @@
 
     // Table wrapper for mobile responsiveness with enhanced scroll UX
     (function initTableWrapper() {
-      'use strict';
-      
       // 스크롤 타이머 ID 저장용
       const scrollTimers = new WeakMap();
 

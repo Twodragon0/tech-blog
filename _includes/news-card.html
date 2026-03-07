@@ -1,0 +1,36 @@
+{% comment %}
+뉴스 카드 컴포넌트 - 이미지 + 요약을 함께 표시
+사용법:
+{% include news-card.html
+  title="기사 제목"
+  url="https://example.com/article"
+  image="https://example.com/image.jpg"
+  summary="기사 요약 내용"
+  source="The Hacker News"
+  date="2026-03-07"
+  severity="Critical"
+%}
+{% endcomment %}
+
+<div class="news-card">
+  {% if include.image and include.image != "" %}
+  <div class="news-card__image">
+    <a href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ include.title | escape }}">
+      <img src="{{ include.image | escape }}" alt="{{ include.title | escape }}" loading="lazy" width="400" height="225">
+    </a>
+  </div>
+  {% endif %}
+  <div class="news-card__body">
+    <h4 class="news-card__title">
+      <a href="{{ include.url }}" target="_blank" rel="noopener noreferrer">{{ include.title }}</a>
+    </h4>
+    <div class="news-card__meta">
+      {% if include.source %}<span class="news-card__source">{{ include.source | escape }}</span>{% endif %}
+      {% if include.date %}<time class="news-card__date" datetime="{{ include.date }}">{{ include.date }}</time>{% endif %}
+      {% if include.severity %}<span class="news-card__severity news-card__severity--{{ include.severity | downcase }}">{{ include.severity }}</span>{% endif %}
+    </div>
+    {% if include.summary and include.summary != "" %}
+    <p class="news-card__summary">{{ include.summary }}</p>
+    {% endif %}
+  </div>
+</div>

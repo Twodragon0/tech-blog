@@ -81,7 +81,7 @@ layout: default
       {% else %}
         {% assign image_alt_text = page.title | escape %}
       {% endif %}
-      <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" sizes="(max-width: 768px) 100vw, 1200px">
+      <img src="{{ image_path }}" alt="{{ image_alt_text }}" class="clickable-image" data-full-src="{{ image_path }}" data-original-src="{{ page.image }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="675" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 800px, 1200px">
     </div>
     {% endif %}
   </header>
@@ -174,7 +174,7 @@ layout: default
             </time>
             <span class="related-post-cta">
               <span>Read more</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
                 <line x1="5" y1="12" x2="19" y2="12"/>
                 <polyline points="12 5 19 12 12 19"/>
               </svg>

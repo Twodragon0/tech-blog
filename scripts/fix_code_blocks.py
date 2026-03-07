@@ -5,8 +5,8 @@
 - 열리지 않은(unclosed) 코드 블록 수정
 """
 
-import re
 import os
+import re
 from pathlib import Path
 
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
@@ -261,7 +261,7 @@ def main():
             print()
 
     print("=" * 60)
-    print(f"Summary:")
+    print("Summary:")
     print(f"  Files modified: {total_files}")
     print(f"  Language tags added: {total_lang}")
     print(f"  Unclosed blocks fixed: {total_unclosed}")

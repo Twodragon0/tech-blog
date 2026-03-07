@@ -16,10 +16,11 @@
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: white;
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
+  cursor: default;
 }
 
 .hero-badge::before {
@@ -60,7 +61,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-lg);
-  transition: all var(--transition-base);
+  transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
@@ -192,7 +193,8 @@
   border-radius: var(--border-radius-lg);
   background-color: var(--color-bg-primary);
   border: 1px solid var(--color-border);
-  transition: all var(--transition-base);
+  transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
+  cursor: pointer;
 }
 
 .post-card:hover .post-card-inner {
@@ -310,8 +312,10 @@ div.post-card-excerpt {
   border-radius: var(--border-radius-md);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: all var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .category-badge:hover {
@@ -466,7 +470,8 @@ div.post-card-excerpt {
   text-decoration: none;
   color: inherit;
   border-top: 4px solid var(--color-border);
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  cursor: pointer;
 }
 
 .discussion-category-card:hover {
@@ -2281,4 +2286,179 @@ div.post-card-excerpt {
 
 [data-theme="dark"] .ad-container {
   background: var(--color-bg-tertiary);
+}
+
+/* ============================================
+   News Card - 이미지 + 요약 카드
+   ============================================ */
+
+.news-card {
+  display: flex;
+  gap: var(--spacing-md, 1rem);
+  padding: var(--spacing-md, 1rem);
+  margin-bottom: var(--spacing-md, 1rem);
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: var(--border-radius-lg, 12px);
+  background: var(--color-bg-secondary, #f8fafc);
+  transition: box-shadow var(--transition-base, 0.2s), border-color var(--transition-base, 0.2s);
+}
+
+.news-card:hover {
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0,0,0,0.1));
+  border-color: var(--color-primary, #2563eb);
+}
+
+.news-card__image {
+  flex-shrink: 0;
+  width: 160px;
+  height: 110px;
+  border-radius: var(--border-radius-md, 8px);
+  overflow: hidden;
+  background: var(--color-bg-tertiary, #e5e7eb);
+}
+
+.news-card__image a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.news-card__image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  transition: transform 0.3s ease;
+}
+
+.news-card__image:hover img {
+  transform: scale(1.05);
+}
+
+/* CSS-only fallback: hide image container when img src is empty.
+   The onerror inline handler was removed to comply with CSP; this rule
+   handles the case where the image src evaluates to an empty string. */
+.news-card__image:has(img[src=""]) {
+  display: none;
+}
+
+.news-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.news-card__title {
+  margin: 0 0 0.4rem;
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: 1.4;
+}
+
+.news-card__title a {
+  color: var(--color-text-primary, #1a1a1a);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.news-card__title a:hover {
+  color: var(--color-primary, #2563eb);
+  text-decoration: underline;
+}
+
+.news-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--color-text-secondary, #64748b);
+}
+
+.news-card__source {
+  font-weight: var(--font-weight-medium, 500);
+}
+
+.news-card__severity {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.news-card__severity--critical {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.news-card__severity--high {
+  background: #fff7ed;
+  color: #ea580c;
+  border: 1px solid #fed7aa;
+}
+
+.news-card__severity--medium {
+  background: #fefce8;
+  color: #ca8a04;
+  border: 1px solid #fef08a;
+}
+
+.news-card__severity--low {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.news-card__summary {
+  margin: 0;
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-text-secondary, #475569);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Dark mode */
+[data-theme="dark"] .news-card {
+  background: var(--color-bg-secondary, #1e293b);
+  border-color: var(--color-border, #334155);
+}
+
+[data-theme="dark"] .news-card__severity--critical {
+  background: rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+[data-theme="dark"] .news-card__severity--high {
+  background: rgba(234, 88, 12, 0.15);
+  border-color: rgba(234, 88, 12, 0.3);
+}
+
+[data-theme="dark"] .news-card__severity--medium {
+  background: rgba(202, 138, 4, 0.15);
+  border-color: rgba(202, 138, 4, 0.3);
+}
+
+[data-theme="dark"] .news-card__severity--low {
+  background: rgba(22, 163, 74, 0.15);
+  border-color: rgba(22, 163, 74, 0.3);
+}
+
+/* Mobile: 세로 레이아웃 */
+@media (max-width: 640px) {
+  .news-card {
+    flex-direction: column;
+  }
+
+  .news-card__image {
+    width: 100%;
+    height: 180px;
+  }
 }

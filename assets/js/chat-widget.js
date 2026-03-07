@@ -209,11 +209,12 @@
     if (typeof DOMPurify !== 'undefined') {
       contentEl.innerHTML = DOMPurify.sanitize(formattedContent, {
         ALLOWED_TAGS: ['h1','h2','h3','h4','h5','h6','p','br','hr','strong','em','del',
-          'code','pre','blockquote','ul','ol','li','table','thead','tbody','tr','th','td','div','a','span'],
-        ALLOWED_ATTR: ['class','href','target','rel'],
+          'code','pre','blockquote','ul','ol','li','table','thead','tbody','tr','th','td','div','a','span','mark','svg','polyline','line','path','rect'],
+        ALLOWED_ATTR: ['class','href','target','rel','width','height','viewBox','fill','stroke','stroke-width','stroke-linecap','stroke-linejoin','style','d','x1','y1','x2','y2','points','aria-hidden'],
       });
     } else {
-      contentEl.innerHTML = formattedContent;
+      // Fallback: strip all HTML tags when DOMPurify is unavailable (security-first)
+      contentEl.textContent = formattedContent.replace(/<[^>]*>/g, '');
     }
     
     const timeEl = document.createElement('div');

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Insert section banner images into digest posts for better UI/UX."""
 
+import glob
 import os
 import re
-import glob
 
 POSTS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '_posts')
 

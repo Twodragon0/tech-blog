@@ -14,6 +14,12 @@ end
 # Performance
 gem "webrick", "~> 1.8"
 
+# Ruby 3.4+ removed these from default gems (required by Jekyll)
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+gem "logger"
+
 # Security: CVE fix for protobuf DoS (Dependabot alert #8)
 gem "google-protobuf", ">= 3.25.5"
 
