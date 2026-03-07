@@ -58,6 +58,8 @@ toc: true
   audience='ISMS-P 인증 준비자, 보안 엔지니어, 클라우드 보안 전문가, CISO, 컴플라이언스 담당자'
 -%}
 
+![ISMS-P Certification Complete Guide](/assets/images/2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_Environment_Management_System_Establishment_and_Protection_Measures_Implementation.svg)
+
 ## 경영진 요약: ISMS-P 인증 준비도 평가
 
 ### 인증 준비도 자가 진단
