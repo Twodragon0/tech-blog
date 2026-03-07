@@ -48,6 +48,8 @@ toc: true
   audience='기업 보안 담당자, 보안 엔지니어, CISO'
 -%}
 
+![Kandji macOS Complete Master Setup Guide](/assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.svg)
+
 ## 경영진 요약 (Executive Summary)
 
 ### 보안 스코어카드

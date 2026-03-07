@@ -66,6 +66,8 @@ toc: true
   audience='보안 엔지니어, 클라우드 보안 전문가, 컴플라이언스 담당자, DevOps 엔지니어'
 -%}
 
+![CSPM DataDog AWS Security Guide](/assets/images/2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Configuration_Verification_and_Compliance_Monitoring.svg)
+
 ## 경영진 요약 (Executive Summary)
 
 ### CSPM 보안 성숙도 평가
@@ -105,6 +107,8 @@ toc: true
 클라우드 환경에서 보안 설정을 지속적으로 모니터링하고 검증하는 것은 매우 중요합니다. CSPM(Cloud Security Posture Management)은 클라우드 보안 설정을 자동으로 검증하고 컴플라이언스를 모니터링하는 솔루션입니다.
 
 이 포스팅은 **SK Shieldus의 2025년 CSPM(DataDog) AWS 보안 가이드**를 기반으로, DataDog CSPM을 활용한 AWS 환경 보안 설정 자동 검증 및 컴플라이언스 모니터링 가이드를 제공합니다.
+
+![CSPM DataDog Architecture](/assets/images/mermaid/cspm_datadog_architecture.svg)
 
 ## 📊 빠른 참조
 

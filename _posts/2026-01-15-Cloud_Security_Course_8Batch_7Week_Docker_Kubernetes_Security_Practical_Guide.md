@@ -80,6 +80,8 @@ toc: true
 
 ---
 
+![Docker Kubernetes Security Practical Guide](/assets/images/2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide.svg)
+
 ### **📅 7주차 타임테이블 (Agenda)**
 
 | 시간 | 주제 | 내용 |

@@ -79,6 +79,8 @@ toc: true
 - DevSecOps 관점의 보안 및 비용 최적화
 - 2026 트렌드 및 미래 전망
 
+![Content Creator Workflow](/assets/images/mermaid/content_creator_workflow.svg)
+
 ---
 
 ## 2. 2025-2026 AI 콘텐츠 생성 트렌드

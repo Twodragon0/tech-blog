@@ -61,6 +61,8 @@ toc: true
 
 ---
 
+![Cloud Security Trends January 2026](/assets/images/2026-01-22-Cloud_Security_Trends_January_2026.svg)
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

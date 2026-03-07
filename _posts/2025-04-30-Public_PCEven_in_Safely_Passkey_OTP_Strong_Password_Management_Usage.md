@@ -88,6 +88,8 @@ toc: true
 
 이 글에서는 공용 PC에서도 안전하게! 패스키, OTP, 강력한 암호 관리 활용법에 대해 실무 중심으로 상세히 다룹니다.
 
+![Passkey Authentication Flow](/assets/images/mermaid/passkey_auth_flow.svg)
+
 ### 왜 이 주제가 중요한가?
 
 **2025년 보안 환경 변화:**
