@@ -182,14 +182,7 @@ aws logs start-query \
 
 **즉시 대응 Lambda 함수:**
 
-```mermaid
-flowchart LR
-    GD["GuardDuty Alert<br/>IAM Credential<br/>Exfiltration"] --> EB["EventBridge"]
-    EB --> LM["Lambda 자동 대응"]
-    LM --> S1["1. Access Key<br/>즉시 비활성화"]
-    S1 --> S2["2. DenyAll 정책<br/>인라인 적용"]
-    S2 --> S3["3. SNS 알림<br/>보안팀 통보"]
-```
+![Mermaid Diagram](/assets/images/mermaid/AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture-mermaid-1.svg)
 
 | 단계 | 대응 조치 | AWS API |
 |------|----------|---------|

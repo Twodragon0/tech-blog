@@ -137,15 +137,7 @@ toc: true
 
 SIM 스와핑(SIM Swapping)은 공격자가 피해자의 전화번호를 자신이 제어하는 SIM 카드로 이전시키는 공격입니다. 이를 통해 SMS 기반 2단계 인증(2FA)을 우회하고 피해자의 계정을 탈취할 수 있습니다.
 
-```mermaid
-flowchart TD
-    A["공격자"] |사회공학 기법| B["통신사 직원/시스템"]
-    B  C["번호 이전 승인"]
-    C  D["피해자 SIM 비활성화"]
-    D  E["공격자 SIM 활성화"]
-    E  F["SMS OTP 수신"]
-    F  G["계정 탈취"]
-```
+![Mermaid Diagram](/assets/images/mermaid/SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance-mermaid-1.svg)
 
 ### 2.2 공격 벡터 상세 분석
 

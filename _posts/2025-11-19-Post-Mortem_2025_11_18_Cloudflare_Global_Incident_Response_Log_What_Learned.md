@@ -177,20 +177,7 @@ toc: true
 
 > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
 
-```mermaid
-flowchart TD
-    START["CDN 장애 감지"] --> HC{"Primary CDN<br/>헬스체크"}
-    HC -->|Healthy| OK["정상 운영 유지"]
-    HC -->|Unhealthy| BHC{"Backup CDN<br/>헬스체크"}
-    BHC -->|Healthy| FO["Failover 실행"]
-    BHC -->|Unhealthy| ERR["ERROR: 모든 CDN 장애<br/>수동 대응 필요"]
-    FO --> DNS["Route 53<br/>DNS 레코드 변경<br/>TTL: 60s"]
-    DNS --> SLACK["Slack 알림<br/>#incidents 채널"]
-    SLACK --> MON["5분간 트래픽 모니터링"]
-    MON --> RB{"복구 확인?"}
-    RB -->|Primary 복구| ROLL["Rollback<br/>Primary CDN 복원"]
-    RB -->|미복구| MON
-```
+![Mermaid Diagram](/assets/images/mermaid/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned-mermaid-1.svg)
 
 | 명령어 | 동작 | 설명 |
 |--------|------|------|
@@ -204,14 +191,7 @@ flowchart TD
 
 단일 CDN 의존도를 낮추기 위한 **Multi-CDN 아키텍처** 도입:
 
-```mermaid
-flowchart TD
-    TM["Traffic Manager<br/>(DNS-based Load Balancing)"]
-
-    TM  CF["Cloudflare<br/>(Primary)"]
-    TM  FY["Fastly<br/>(Backup)"]
-    TM  CFR["CloudFront<br/>(Backup)"]
-```
+![Mermaid Diagram](/assets/images/mermaid/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned-mermaid-1.svg)
 
 ### 4.2 모니터링 강화
 

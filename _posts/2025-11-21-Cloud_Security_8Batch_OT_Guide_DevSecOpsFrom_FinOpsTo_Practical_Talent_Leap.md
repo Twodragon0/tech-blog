@@ -194,23 +194,7 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
 **Kubernetes Pod Security Standards**: Pod Security Admission으로 컨테이너 보안 정책을 적용합니다.
 
-```mermaid
-flowchart TD
-    DEP["DevSecOps Pipeline<br/>Automated Dependency Updates"] --> S1
-
-    subgraph CICD["CI/CD Pipeline (GitHub Actions / GitLab CI)"]
-        S1["Stage 1: Source Code Security<br/>Secret Scanning, SAST, License"] -->|PASS| S2
-        S2["Stage 2: Dependency Security<br/>SCA, SBOM, CVE Check"] -->|PASS| S3
-        S3["Stage 3: Build & Test<br/>Unit/Integration, Coverage >80%"] -->|PASS| S4
-        S4["Stage 4: Container Security<br/>Image Scan, Sign, Policy"] -->|PASS| S5
-        S5["Stage 5: Infrastructure Security<br/>IaC Scan, Terraform, Cost"] -->|PASS| S6
-        S6["Stage 6: Deploy to Staging<br/>Blue-Green, DAST, Smoke"] -->|PASS| S7
-        S7["Stage 7: Security Approval Gate<br/>Manual Review, Compliance"] -->|APPROVED| S8
-        S8["Stage 8: Deploy to Production<br/>Canary 5%→25%→50%→100%"]
-    end
-
-    S8 --> MON["Production Monitoring<br/>Runtime Security, SIEM, APM"]
-```
+![Mermaid Diagram](/assets/images/mermaid/Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap-mermaid-1.svg)
 
 | Stage | 보안 활동 | 도구 |
 |-------|----------|------|
