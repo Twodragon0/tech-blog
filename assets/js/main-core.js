@@ -306,31 +306,37 @@
   // ============================================
 
   // KakaoTalk Share Function
-  // 카카오톡 공유 함수 (모바일에서는 자동 감지, 데스크톱에서는 링크 복사)
+  // Kakao SDK 사용 시 이미지+제목+설명 리치 링크 공유, 미사용 시 Web Share API/클립보드 폴백
   window.shareKakao = function(url, title, description) {
-    // 모바일 환경 감지
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      // 모바일에서는 카카오톡 링크 공유 (카카오톡 앱이 자동으로 감지)
-      // 카카오톡은 Open Graph 메타 태그를 읽어서 미리보기를 표시합니다
-      if (navigator.share) {
-        navigator.share({
+    // Kakao SDK가 초기화되어 있으면 리치 링크 공유
+    if (window.Kakao && window.Kakao.isInitialized()) {
+      var ogImage = document.querySelector('meta[property="og:image"]');
+      var imageUrl = ogImage ? ogImage.getAttribute('content') : '';
+      window.Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
           title: title,
-          text: description || '',
-          url: url
-        }).catch(err => {
-          // Share cancelled by user
-        });
-      } else {
-        // Web Share API를 지원하지 않는 경우 링크 복사
-        copyToClipboard(url);
-        alert('링크가 클립보드에 복사되었습니다. 카카오톡에서 붙여넣기 하세요.');
-      }
+          description: description || '',
+          imageUrl: imageUrl,
+          link: { mobileWebUrl: url, webUrl: url }
+        },
+        buttons: [
+          { title: 'Read more', link: { mobileWebUrl: url, webUrl: url } }
+        ]
+      });
+      return;
+    }
+
+    // Kakao SDK 없을 때 폴백
+    if (navigator.share) {
+      navigator.share({
+        title: title,
+        text: description || '',
+        url: url
+      }).catch(function() {});
     } else {
-      // 데스크톱에서는 링크 복사 후 안내
       copyToClipboard(url);
-      alert('링크가 클립보드에 복사되었습니다.\n카카오톡에서 붙여넣기 하거나, 카카오톡 웹에서 공유하세요.');
+      alert('링크가 클립보드에 복사되었습니다.\n카카오톡에서 붙여넣기 하세요.');
     }
   };
 

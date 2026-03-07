@@ -118,6 +118,8 @@
   {% assign og_image = og_image_png %}
   {% elsif og_og_png_file %}
   {% assign og_image = og_image_og_png %}
+  {% else %}
+  {% assign og_image = '/assets/images/og-default.png' %}
   {% endif %}
   {% endif %}
   <meta property="og:image" content="{{ og_image | absolute_url }}">
@@ -130,6 +132,10 @@
 
   <!-- KakaoTalk -->
   <meta property="thumbnail:url" content="{{ og_image | absolute_url }}">
+  {% if og_image contains '.png' or og_image contains '.jpg' or og_image contains '.jpeg' %}
+  <meta property="thumbnail:width" content="1200">
+  <meta property="thumbnail:height" content="630">
+  {% endif %}
 
   <meta name="format-detection" content="telephone=no">
 
@@ -185,6 +191,9 @@
   <link rel="dns-prefetch" href="https://giscus.app">
   <link rel="dns-prefetch" href="https://api.deepseek.com">
   <link rel="dns-prefetch" href="https://api.mymemory.translated.net">
+  {% if site.kakao_app_key and site.kakao_app_key != "" %}
+  <link rel="dns-prefetch" href="https://t1.kakaocdn.net">
+  {% endif %}
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://va.vercel-scripts.com">
@@ -521,6 +530,31 @@
   <!-- Sentry Error Tracking (최상단에 위치 - 에러 추적 우선, 하지만 스크립트는 defer로 로딩) -->
   {% include sentry.html %}
   
+  {% if site.kakao_app_key and site.kakao_app_key != "" %}
+  <!-- Kakao JavaScript SDK (deferred to idle for rich link sharing) -->
+  <script>
+    (function() {
+      var loadKakaoSDK = function() {
+        var script = document.createElement('script');
+        script.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js';
+        script.integrity = 'sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4kykhOQv0b17OH4S';
+        script.crossOrigin = 'anonymous';
+        script.onload = function() {
+          if (window.Kakao && !window.Kakao.isInitialized()) {
+            window.Kakao.init('{{ site.kakao_app_key }}');
+          }
+        };
+        document.head.appendChild(script);
+      };
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadKakaoSDK, { timeout: 3000 });
+      } else {
+        window.addEventListener('load', loadKakaoSDK);
+      }
+    })();
+  </script>
+  {% endif %}
+
   <!-- Vercel Analytics & Speed Insights (TTFB 최적화: defer 사용, 최하단으로 이동) -->
   <!-- Note: Analytics는 페이지 로드 후 실행되도록 defer 사용 -->
   
