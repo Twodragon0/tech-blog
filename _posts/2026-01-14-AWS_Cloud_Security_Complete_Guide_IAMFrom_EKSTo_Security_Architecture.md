@@ -145,19 +145,12 @@ metadata:
 
 ### EKS Network Policy 예시
 
-```yaml
-# 기본 Deny-All + 필요한 트래픽만 허용
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: default-deny-all
-  namespace: production
-spec:
-  podSelector: {}
-  policyTypes:
-    - Ingress
-    - Egress
-```
+| 항목 | 설정 | 설명 |
+|------|------|------|
+| 정책 이름 | `default-deny-all` | 기본 전체 차단 정책 |
+| 네임스페이스 | `production` | 프로덕션 환경 적용 |
+| podSelector | `{}` (전체) | 모든 Pod에 적용 |
+| 차단 대상 | Ingress + Egress | 인바운드/아웃바운드 모두 기본 차단 후 필요한 트래픽만 허용 |
 
 ### 증거 수집 (Evidence Collection)
 

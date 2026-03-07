@@ -168,7 +168,9 @@ flowchart TD
     C --> C2["역할 전환 시도 탐지\n(you are, act as, pretend)"]
     C --> C3["인코딩 시도 탐지\n(base64, rot13, hex)"]
 
-    C1 & C2 & C3 --> D{"위협 평가"}
+    C1 --> D{"위협 평가"}
+    C2 --> D
+    C3 --> D
 
     D -- "HIGH\n차단율 >= 30%\n역할전환 >= 3회\n평균위험 >= 0.7" --> E["세션 종료"]
     D -- "MEDIUM\n차단율 >= 15%\n인코딩 >= 2회" --> F["추가 인증\n(CAPTCHA 등)"]
