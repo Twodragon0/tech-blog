@@ -1,5 +1,36 @@
-<!-- Mermaid.js for diagrams - Enhanced rendering with theme support -->
+<!-- Mermaid diagram styles - static SVG images + legacy JS rendering -->
 <style>
+/* Static SVG mermaid images */
+img[src*="/mermaid/"] {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+  min-width: 280px;
+  max-height: 800px;
+  width: auto;
+  height: auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  object-fit: contain;
+}
+
+[data-theme="dark"] img[src*="/mermaid/"] {
+  background: #ffffff;
+  border-color: #d0d7de;
+}
+
+@media (max-width: 768px) {
+  img[src*="/mermaid/"] {
+    padding: 0.75rem;
+    min-width: 200px;
+    max-height: 600px;
+    overflow-x: auto;
+  }
+}
+
+/* Legacy mermaid JS container (fallback) */
 .mermaid-container {
   position: relative;
   width: 100%;
@@ -27,70 +58,6 @@
 .mermaid-container .mermaid svg {
   max-width: 100%;
   height: auto;
-}
-
-.mermaid-container .mermaid-toolbar {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  display: flex;
-  gap: 0.25rem;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 10;
-}
-
-.mermaid-container:hover .mermaid-toolbar {
-  opacity: 1;
-}
-
-.mermaid-toolbar button {
-  width: 32px;
-  height: 32px;
-  border: none;
-  background: rgba(0, 0, 0, 0.06);
-  color: var(--color-text-primary, #333);
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s ease;
-  padding: 0;
-}
-
-[data-theme="dark"] .mermaid-toolbar button {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ccc;
-}
-
-.mermaid-toolbar button:hover {
-  background: rgba(0, 0, 0, 0.12);
-}
-
-[data-theme="dark"] .mermaid-toolbar button:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.mermaid-toolbar button svg {
-  width: 16px;
-  height: 16px;
-}
-
-.mermaid-error {
-  padding: 1rem;
-  text-align: center;
-  color: #888;
-  font-size: 0.875rem;
-}
-
-@media (max-width: 768px) {
-  .mermaid-container .mermaid {
-    padding: 1rem 0.5rem;
-  }
-  .mermaid-container .mermaid-toolbar {
-    opacity: 1;
-  }
 }
 </style>
 
