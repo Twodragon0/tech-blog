@@ -224,24 +224,14 @@ toc: true
 
 > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
 
-```kusto
-Logs
-| where Action == "BLOCK"
-| summarize
-    AttackTypes = make_set(RuleId),
-    AttackCount = count(),
-    FirstSeen = min(TimeGenerated),
-    LastSeen = max(TimeGenerated)
-  by SourceIP
-| extend AttackVectors = array_length(AttackTypes)
-| where AttackVectors >= 3
-| extend ThreatLevel = case(
-    AttackVectors >= 5, "Critical - APT Suspected",
-    AttackVectors >= 3, "High - Multi-vector Attack",
-    "Medium"
-  )
-| project SourceIP, AttackVectors, AttackCount, ThreatLevel, FirstSeen, LastSeen, AttackTypes
-| order by AttackVectors desc
+| 분석 단계 | Kusto 로직 | 설명 |
+|----------|-----------|------|
+| 필터링 | `Action == "BLOCK"` | WAF 차단 로그만 추출 |
+| 집계 | `summarize by SourceIP` | IP별 공격 유형, 횟수, 기간 집계 |
+| 필터 | `AttackVectors >= 3` | 3종 이상 공격 벡터 사용 IP만 추출 |
+| 위협 분류 | `case(>=5: Critical, >=3: High)` | 공격 벡터 수 기반 위협 등급 분류 |
+
+> 다양한 공격 벡터(SQLi, XSS, RCE 등)를 동시에 사용하는 IP는 APT(지능형 지속 위협)일 가능성이 높다. AttackVectors >= 5이면 Critical로 분류한다.
 ```
 
 ```sql

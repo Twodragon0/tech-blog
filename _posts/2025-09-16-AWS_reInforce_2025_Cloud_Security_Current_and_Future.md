@@ -206,31 +206,15 @@ index=aws sourcetype=aws:cloudtrail
 
 #### Hunting 쿼리 (Splunk SPL)
 
-```text
-# 1단계: 백업 삭제 시도
-index=aws sourcetype=aws:cloudtrail
-| search eventName IN ("DeleteBackupVault", "DeleteRecoveryPoint", "DeleteSnapshot")
-| table _time, eventName, requestParameters.*, userIdentity.principalId, sourceIPAddress
+| 단계 | 탐지 대상 | CloudTrail eventName / 데이터 소스 | 조건 |
+|------|----------|-----------------------------------|------|
+| 1 | 백업 삭제 시도 | DeleteBackupVault, DeleteRecoveryPoint, DeleteSnapshot | 시간/IP/주체 추적 |
+| 2 | 버저닝 비활성화 | PutBucketVersioning (Status=Suspended) | 버킷별 비활성화 이력 |
+| 3 | 대량 파일 암호화 | PutObject (S3) | 동일 주체가 1000회 이상 업로드 |
+| 4 | GuardDuty 탐지 | guardduty finding_type | Ransomware, DataEncryptedForImpact |
+| 5 | Vault Lock 우회 | DeleteBackupVaultLockConfiguration | errorCode 포함 감사 |
 
-# 2단계: 버저닝 비활성화
-index=aws sourcetype=aws:cloudtrail eventName="PutBucketVersioning"
-| search requestParameters.VersioningConfiguration.Status="Suspended"
-| table _time, requestParameters.bucketName, userIdentity.principalId, sourceIPAddress
-
-# 3단계: 대량 파일 암호화 (S3)
-index=aws sourcetype=aws:cloudtrail eventName="PutObject"
-| stats count by requestParameters.bucketName, userIdentity.principalId
-| where count>1000
-
-# 4단계: GuardDuty 랜섬웨어 탐지
-index=aws sourcetype=aws:cloudwatch:guardduty
-| search finding_type="*Ransomware*" OR finding_type="*DataEncryptedForImpact*"
-| table _time, finding_type, resource_id, severity, description
-
-# 5단계: Backup Vault Lock 우회 시도
-index=aws sourcetype=aws:cloudtrail eventName="DeleteBackupVaultLockConfiguration"
-| table _time, requestParameters.backupVaultName, userIdentity.principalId, errorCode
-```
+> Splunk SPL 기반 Hunting 쿼리로, CloudTrail + GuardDuty 데이터를 5단계로 분석하여 랜섬웨어 공격 징후를 탐지한다.
 
 ## 결론
 

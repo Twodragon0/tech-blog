@@ -189,42 +189,20 @@ aws logs start-query \
 
 **즉시 대응 Lambda 함수:**
 
-```python
-import boto3
-
-iam = boto3.client("iam")
-sts = boto3.client("sts")
-
-def handler(event, context):
-    # GuardDuty finding에서 사용자 정보 추출
-    detail = event["detail"]
-    user_name = detail["resource"]["accessKeyDetails"]["userName"]
-    access_key_id = detail["resource"]["accessKeyDetails"]["accessKeyId"]
-
-    # 1. 해당 Access Key 즉시 비활성화
-    iam.update_access_key(
-        UserName=user_name,
-        AccessKeyId=access_key_id,
-        Status="Inactive"
-    )
-
-    # 2. 해당 사용자의 모든 세션 토큰 무효화
-    iam.put_user_policy(
-        UserName=user_name,
-        PolicyName="DenyAllAfterCompromise",
-        PolicyDocument='{"Version":"2012-10-17","Statement":[{"Effect":"Deny","Action":"*","Resource":"*"}]}'
-    )
-
-    # 3. SNS로 보안팀 알림
-    sns = boto3.client("sns")
-    sns.publish(
-        TopicArn="arn:aws:sns:ap-northeast-2:ACCOUNT:security-alerts",
-        Subject=f"[CRITICAL] IAM Credential Compromised: {user_name}",
-        Message=f"Access Key {access_key_id} disabled. User {user_name} locked."
-    )
-
-    return {"statusCode": 200, "body": f"Remediated: {user_name}"}
+```mermaid
+flowchart LR
+    GD["GuardDuty Alert<br/>IAM Credential<br/>Exfiltration"] --> EB["EventBridge"]
+    EB --> LM["Lambda 자동 대응"]
+    LM --> S1["1. Access Key<br/>즉시 비활성화"]
+    S1 --> S2["2. DenyAll 정책<br/>인라인 적용"]
+    S2 --> S3["3. SNS 알림<br/>보안팀 통보"]
 ```
+
+| 단계 | 대응 조치 | AWS API |
+|------|----------|---------|
+| 1 | Access Key 비활성화 | `iam.update_access_key(Status="Inactive")` |
+| 2 | 전체 권한 차단 (DenyAll) | `iam.put_user_policy(DenyAllAfterCompromise)` |
+| 3 | 보안팀 알림 | `sns.publish(Subject="[CRITICAL] IAM Compromised")` |
 
 > **참고**: Lambda 함수를 EventBridge 룰과 연동하면 GuardDuty → EventBridge → Lambda 자동 대응 파이프라인을 구축할 수 있습니다. 자세한 내용은 [AWS 보안 사고 대응 가이드](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)를 참조하세요.
 
