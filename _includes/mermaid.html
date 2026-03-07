@@ -20,11 +20,19 @@ img[src*="/mermaid/"] {
   filter: invert(1) hue-rotate(180deg);
 }
 
+/* Dark mode for diagram SVGs (light background, non-mermaid) */
+[data-theme="dark"] .post-content img[src*="/diagrams/"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 /* prefers-color-scheme fallback for Safari/system dark mode */
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) img[src*="/mermaid/"] {
     background: transparent;
     border-color: rgba(255, 255, 255, 0.15);
+    filter: invert(1) hue-rotate(180deg);
+  }
+  html:not([data-theme="light"]) .post-content img[src*="/diagrams/"] {
     filter: invert(1) hue-rotate(180deg);
   }
 }
