@@ -195,9 +195,9 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 | **MFA 비활성화** | DeactivateMFADevice | 높음 | 즉시 재활성화 요구 |
 | **Security Group 변경** | AuthorizeSecurityGroupIngress | 중간 | 변경 사유 확인 |
 
-## 7. 참고 자료 (Comprehensive References)
+## 2. 참고 자료 (Comprehensive References)
 
-### 7.1 공식 문서
+### 2.1 공식 문서
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
@@ -209,7 +209,7 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 | **AWS CloudTrail** | https://docs.aws.amazon.com/cloudtrail/ | CloudTrail 공식 문서 |
 | **ISMS-P 인증 기준** | https://www.kisa.or.kr/isms-p | 한국인터넷진흥원 ISMS-P 가이드 |
 
-### 7.2 FinOps Foundation 리소스
+### 2.2 FinOps Foundation 리소스
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
@@ -218,7 +218,7 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 | **FinOps Best Practices** | https://www.finops.org/framework/capabilities/ | FinOps 모범 사례 |
 | **Cloud Cost Optimization** | https://www.finops.org/resources/ | 클라우드 비용 최적화 리소스 |
 
-### 7.3 보안 및 컴플라이언스 리소스
+### 2.3 보안 및 컴플라이언스 리소스
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
@@ -227,7 +227,7 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 | **AWS Well-Architected Framework** | https://aws.amazon.com/architecture/well-architected/ | AWS 아키텍처 모범 사례 |
 | **AWS Security Best Practices** | https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html | AWS 보안 모범 사례 |
 
-### 7.4 커뮤니티 및 블로그
+### 2.4 커뮤니티 및 블로그
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
@@ -236,7 +236,7 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 | **Reddit r/aws** | https://www.reddit.com/r/aws/ | AWS 커뮤니티 |
 | **AWS re:Post** | https://repost.aws/ | AWS Q&A 플랫폼 |
 
-### 7.5 도구 및 오픈소스
+### 2.5 도구 및 오픈소스
 
 | 도구 | URL | 설명 |
 |------|-----|------|

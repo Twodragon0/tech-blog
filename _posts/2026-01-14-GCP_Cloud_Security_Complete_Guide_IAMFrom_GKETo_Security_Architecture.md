@@ -320,9 +320,9 @@ resources:
 
 ---
 
-## 5. Cloud SQL 보안
+## 4. Cloud SQL 보안
 
-### 5.1 데이터베이스 암호화
+### 4.1 데이터베이스 암호화
 
 ### 6.2 Network Policy
 
@@ -339,9 +339,9 @@ resources:
 
 ---
 
-## 8. Threat Hunting (위협 헌팅)
+## 5. Threat Hunting (위협 헌팅)
 
-### 8.1 GCP 환경 위협 헌팅 쿼리
+### 5.1 GCP 환경 위협 헌팅 쿼리
 
 #### IAM 권한 상승 탐지
 
@@ -414,7 +414,7 @@ rule gke_privileged_pod_detection {
     $e
 }
 
-### 8.2 Cloud SQL 의심스러운 접근 패턴
+### 5.2 Cloud SQL 의심스러운 접근 패턴
 
 #### 비정상 시간대 데이터베이스 접근
 
@@ -439,7 +439,7 @@ GCPCloudSQLLogs
 | project TimeGenerated, User, SourceIP, Database, QueryText
 | order by TimeGenerated desc
 
-### 8.3 네트워크 이상 행위 탐지
+### 5.3 네트워크 이상 행위 탐지
 
 #### VPC Flow Logs를 통한 데이터 유출 탐지
 
@@ -477,7 +477,7 @@ rule gcp_high_volume_data_transfer {
     #e > 5
 }
 
-### 8.4 Kubernetes API 무단 접근 시도
+### 5.4 Kubernetes API 무단 접근 시도
 
  -->
 <!--
@@ -488,7 +488,7 @@ responseStatus.code=403
 | where count > 10
 | table _time, user.username, verb, objectRef.resource, count
 
-### 8.5 암호화 키 무단 사용 시도
+### 5.5 암호화 키 무단 사용 시도
 
  -->
 <!--
@@ -503,9 +503,9 @@ GCPAuditLogs
 
 ---
 
-## 9. 2025년 이후 최신 업데이트
+## 6. 2025년 이후 최신 업데이트
 
-### 9.1 IAM 보안 강화
+### 6.1 IAM 보안 강화
 
 #### IAM Recommender 개선
 
@@ -517,7 +517,7 @@ GCPAuditLogs
 - 과도한 권한 부여 감지
 - 최소 권한 원칙 기반 권장사항 제공
 
-### 9.2 Cloud SQL 보안 강화
+### 6.2 Cloud SQL 보안 강화
 
 #### 자동 백업 및 복구 개선
 
@@ -528,7 +528,7 @@ GCPAuditLogs
 - 자동 백업 스케줄링 최적화
 - 암호화된 백업 지원 강화
 
-### 9.3 Cloud Storage 보안 강화
+### 6.3 Cloud Storage 보안 강화
 
 #### 객체 라이프사이클 정책 개선
 
@@ -539,7 +539,7 @@ GCPAuditLogs
 - 보안 정책 기반 자동 삭제
 - 접근 빈도 기반 스토리지 클래스 자동 전환
 
-### 9.4 GKE 보안 강화
+### 6.4 GKE 보안 강화
 
 #### Pod Security Standards 강화
 
@@ -561,7 +561,7 @@ Pod Security Standards는 세 가지 보안 레벨을 제공합니다:
 - 구성 관리 및 정책 통합
 - 중앙화된 보안 관리
 
-### 9.5 Security Command Center 개선
+### 6.5 Security Command Center 개선
 
 #### 자동 위협 탐지 강화
 

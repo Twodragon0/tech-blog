@@ -214,9 +214,9 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
 
 ---
 
-## 9. 참고 자료 (Comprehensive References)
+## 4. 참고 자료 (Comprehensive References)
 
-### 9.1 공식 문서 및 발표 자료
+### 4.1 공식 문서 및 발표 자료
 
 #### AWS 공식 문서
 1. **AWS re:Invent 2025 Security Sessions**
@@ -266,7 +266,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
     - URL: https://docs.datadoghq.com/security/application_security/
     - 활용: 런타임 애플리케이션 보호
 
-### 9.2 컨퍼런스 세션 및 발표 자료
+### 4.2 컨퍼런스 세션 및 발표 자료
 
 #### AWSKRUG AI IDE Kiro Launch Party
 12. **AWS Kiro IDE 소개 및 데모**
@@ -296,7 +296,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
     - 발표자: Datadog Customer Success Team
     - 핵심 내용: 자동 대응 플레이북, Lambda 통합
 
-### 9.3 산업 리포트 및 통계
+### 4.3 산업 리포트 및 통계
 
 18. **Gartner Magic Quadrant for SIEM (2025)**
     - URL: https://www.gartner.com/en/documents/magic-quadrant-siem
@@ -318,7 +318,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
     - URL: https://blog.cloudflare.com/post-quantum-cryptography-report/
     - 핵심 통계: 전체 트래픽의 52% Post-quantum 암호화 적용
 
-### 9.4 기술 표준 및 프레임워크
+### 4.4 기술 표준 및 프레임워크
 
 23. **NIST Cybersecurity Framework 2.0**
     - URL: https://www.nist.gov/cyberframework
@@ -340,7 +340,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
     - URL: https://www.iso.org/standard/27001
     - 활용: 정보보안 관리 체계 구축
 
-### 9.5 오픈소스 도구 및 프로젝트
+### 4.5 오픈소스 도구 및 프로젝트
 
 28. **Trivy - Container Vulnerability Scanner**
     - GitHub: https://github.com/aquasecurity/trivy
@@ -366,7 +366,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
     - URL: https://falco.org/
     - 활용: Kubernetes 런타임 위협 탐지
 
-### 9.6 한국 보안 커뮤니티 및 자료
+### 4.6 한국 보안 커뮤니티 및 자료
 
 34. **KISA (한국인터넷진흥원) 보안공지**
     - URL: https://www.kisa.or.kr/
@@ -388,7 +388,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
     - URL: https://www.pipc.go.kr/
     - 활용: 개인정보보호 규정 및 가이드라인
 
-### 9.7 교육 및 자격증
+### 4.7 교육 및 자격증
 
 39. **AWS Certified Security - Specialty**
     - URL: https://aws.amazon.com/certification/certified-security-specialty/
@@ -406,7 +406,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
     - URL: https://owasp.org/www-project-top-ten/
     - 활용: 웹 애플리케이션 보안 교육
 
-### 9.8 블로그 및 뉴스 사이트
+### 4.8 블로그 및 뉴스 사이트
 
 43. **AWS Security Blog**
     - URL: https://aws.amazon.com/blogs/security/
@@ -428,7 +428,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
     - URL: https://isc.sans.edu/
     - 활용: 위협 인텔리전스, 실시간 보안 동향
 
-### 9.9 실습 환경 및 랩
+### 4.9 실습 환경 및 랩
 
 48. **AWS Workshop Studio**
     - URL: https://workshops.aws/
@@ -446,7 +446,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
     - URL: https://owasp.org/www-project-webgoat/
     - 활용: 웹 애플리케이션 보안 실습 환경
 
-### 9.10 관련 GitHub 저장소
+### 4.10 관련 GitHub 저장소
 
 52. **AWS Security Reference Architecture**
     - GitHub: https://docs.aws.amazon.com//aws-security-reference-architecture-examples
@@ -464,7 +464,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
     - GitHub: https://github.com/danielmiessler/SecLists
     - 활용: 보안 테스트 페이로드 모음
 
-### 9.11 팟캐스트 및 비디오
+### 4.11 팟캐스트 및 비디오
 
 56. **AWS re:Invent YouTube Channel**
     - URL: https://www.youtube.com/@AWSEventsChannel
@@ -478,7 +478,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
     - URL: https://kubernetessecuritypodcast.com/
     - 활용: 컨테이너 보안 최신 동향
 
-### 9.12 추가 참고 도구
+### 4.12 추가 참고 도구
 
 | 도구 | 용도 | URL |
 |------|------|-----|
@@ -488,7 +488,7 @@ AWS re:Invent 2025에서 발표된 **Security Agent**, **Security Hub GA**, **Gu
 | **Snyk** | 의존성 취약점 스캔 (상용) | https://snyk.io/ |
 | **GitGuardian** | 시크릿 탐지 (상용) | https://www.gitguardian.com/ |
 
-### 9.13 컨퍼런스 및 이벤트 일정
+### 4.13 컨퍼런스 및 이벤트 일정
 
 | 행사명 | 일정 | 장소 | 주요 내용 |
 |-------|------|------|---------|
