@@ -250,14 +250,7 @@ Claude Code는 CI/CD 파이프라인에 네이티브로 통합됩니다. [Anthro
 
 > **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions)를 참조하세요.
 
-```mermaid
-flowchart TD
-    PR["PR 생성/업데이트"] --> CO["Checkout<br/>fetch-depth: 0"]
-    CO --> INST["Claude Code 설치<br/>npm install -g"]
-    INST --> SA["Security Analysis<br/>PR diff 보안 취약점 분석<br/>OWASP Top 10 기반"]
-    SA --> DA["Dependency Audit<br/>npm audit + Claude 분석<br/>우선순위 및 수정 권장"]
-    DA --> CM["PR Comment<br/>보안 리뷰 결과 게시"]
-```
+![Mermaid Diagram](/assets/images/mermaid/AI_vs_Claude_Code_AI_Coding_Assistant_Comparison-mermaid-1.svg)
 
 | 단계 | 동작 | 분석 대상 |
 |------|------|----------|

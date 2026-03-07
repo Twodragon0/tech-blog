@@ -131,15 +131,7 @@ toc: true
 
 ### 2.1 Security Group 계층 구조
 
-```mermaid
-flowchart TD
-    ASG["Application Security Group"]
-    NSG["NLB Security Group"]
-    DSG["Database Security Group"]
-
-    ASG |Allowed| NSG
-    NSG |Allowed| DSG
-```
+![Mermaid Diagram](/assets/images/mermaid/AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide-mermaid-1.svg)
 
 ### 2.2 NLB Security Group
 
