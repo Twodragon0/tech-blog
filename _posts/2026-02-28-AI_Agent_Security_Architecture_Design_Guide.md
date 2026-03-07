@@ -146,27 +146,12 @@ AWS가 2026년 2월에 발표한 Bedrock AgentCore는 9개 컴포넌트로 구�
 
 **Cedar 정책 언어를 통한 도구 호출 인터셉션**: AWS의 Cedar 정책 언어를 사용하여 에이전트의 도구 호출을 세밀하게 제어한다.
 
-```yaml
-# Cedar policy example for agent tool access control
-permit(
-  principal == Agent::"coding-assistant",
-  action == Action::"tool.invoke",
-  resource == Tool::"code-interpreter"
-) when {
-  context.session.user_role == "developer" &&
-  context.tool.params.language in ["python", "javascript"] &&
-  context.session.call_count < 50
-};
+| 정책 유형 | 대상 에이전트 | 도구 | 조건 |
+|----------|-------------|------|------|
+| **permit** | coding-assistant | code-interpreter | user_role=developer, language=python/js, 세션당 50회 미만 |
+| **forbid** | coding-assistant | file-system | 경로에 `../` 포함 또는 `/etc/`로 시작 |
 
-forbid(
-  principal == Agent::"coding-assistant",
-  action == Action::"tool.invoke",
-  resource == Tool::"file-system"
-) when {
-  context.tool.params.path.contains("../") ||
-  context.tool.params.path.startsWith("/etc/")
-};
-```
+> Cedar 정책 언어는 `permit`/`forbid` 규칙으로 에이전트별, 도구별, 조건별 세밀한 접근 제어를 선언적으로 정의한다. AWS IAM과 통합되어 기존 인프라 정책과 일관된 관리가 가능하다.
 
 **9개 핵심 컴포넌트**:
 
@@ -243,50 +228,22 @@ AI 에이전트 평가 메트릭은 세 축으로 나눈다.
 
 평가 게이트를 CI/CD 파이프라인에 통합하는 구조다.
 
-```yaml
-# .github/workflows/agent-eval.yml
-name: Agent Evaluation Gate
-on:
-  pull_request:
-    paths:
-      - 'agents/**'
-      - 'prompts/**'
-      - 'tools/**'
-
-jobs:
-  evaluate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Run safety evaluation
-        run: |
-          python -m agent_eval.safety \
-            --test-suite tests/safety/ \
-            --threshold 0.995 \
-            --fail-on-violation
-
-      - name: Run accuracy evaluation
-        run: |
-          python -m agent_eval.accuracy \
-            --test-suite tests/accuracy/ \
-            --min-completion-rate 0.95 \
-            --min-tool-accuracy 0.98
-
-      - name: Run adversarial evaluation
-        run: |
-          python -m agent_eval.adversarial \
-            --attack-suite tests/adversarial/ \
-            --injection-resistance 0.995 \
-            --boundary-violation-tolerance 0
-
-      - name: Generate evaluation report
-        if: always()
-        run: |
-          python -m agent_eval.report \
-            --output eval-report.json \
-            --compare-baseline main
+```mermaid
+flowchart LR
+    PR["PR 생성<br/>(agents/prompts/tools)"] --> S["Safety 평가<br/>차단율 >= 99.5%"]
+    S --> A["Accuracy 평가<br/>완료율 >= 95%<br/>도구 정확도 >= 98%"]
+    A --> ADV["Adversarial 평가<br/>인젝션 저항 >= 99.5%<br/>경계 위반 = 0"]
+    ADV --> R["평가 리포트 생성<br/>baseline 비교"]
+    R -->|통과| D["배포 승인"]
+    R -->|실패| B["배포 차단"]
 ```
+
+| 평가 단계 | 도구 | 기준값 |
+|----------|------|--------|
+| Safety | `agent_eval.safety` | 차단율 >= 99.5%, violation 시 실패 |
+| Accuracy | `agent_eval.accuracy` | 완료율 >= 95%, 도구 정확도 >= 98% |
+| Adversarial | `agent_eval.adversarial` | 인젝션 저항 >= 99.5%, 경계 위반 = 0 |
+| Report | `agent_eval.report` | baseline(main) 대비 비교 리포트 생성 |
 
 배포 게이트에서 한 가지 주의할 점이 있다. 안전성 메트릭의 기준값을 너무 높게 잡으면 정상적인 변경도 배포가 차단된다. 처음에는 경고(warning) 모드로 운영하면서 기준값을 조정한 뒤, 안정화되면 차단(blocking) 모드로 전환하는 것을 권장한다.
 
@@ -298,290 +255,119 @@ jobs:
 
 프롬프트 인젝션은 AI 에이전트 위협 중 가장 빈번하고 가장 방어하기 어려운 문제다. 완벽한 차단은 불가능하다는 전제 하에, 여러 겹의 방어를 쌓는 것이 현실적이다.
 
-```python
-from llm_guard.input_scanners import PromptInjection, TokenLimit
-from llm_guard.output_scanners import Relevance, Sensitive
-
-
-class AgentInputValidator:
-    """Multi-layer input validation for AI agent."""
-
-    def __init__(self):
-        self.scanners = [
-            PromptInjection(threshold=0.92),
-            TokenLimit(limit=4096)
-        ]
-
-    def validate(self, user_input: str) -> tuple[bool, str]:
-        """Validate input through all scanners.
-
-        Returns (is_safe, sanitized_or_reason).
-        """
-        for scanner in self.scanners:
-            sanitized, is_valid, risk_score = scanner.scan(user_input)
-            if not is_valid:
-                return False, f"Blocked: {scanner.__class__.__name__} (score: {risk_score})"
-        return True, sanitized
-
-
-class AgentOutputValidator:
-    """Validate agent output before returning to user."""
-
-    def __init__(self):
-        self.scanners = [
-            Relevance(threshold=0.6),
-            Sensitive()  # Detect PII, secrets, etc.
-        ]
-
-    def validate(self, prompt: str, output: str) -> tuple[bool, str]:
-        for scanner in self.scanners:
-            sanitized, is_valid, risk_score = scanner.scan(prompt, output)
-            if not is_valid:
-                return False, f"Output blocked: {scanner.__class__.__name__}"
-        return True, sanitized
+```mermaid
+flowchart TD
+    U["사용자 입력"] --> PI["PromptInjection 스캔<br/>threshold: 0.92"]
+    PI -->|통과| TL["TokenLimit 스캔<br/>limit: 4096"]
+    PI -->|차단| B1["입력 차단<br/>+ risk_score 로깅"]
+    TL -->|통과| LLM["LLM 처리"]
+    TL -->|차단| B1
+    LLM --> R["Relevance 검증<br/>threshold: 0.6"]
+    R -->|통과| S["Sensitive 검증<br/>PII/시크릿 탐지"]
+    R -->|차단| B2["출력 차단"]
+    S -->|통과| OUT["사용자에게 응답"]
+    S -->|차단| B2
 ```
+
+| 계층 | 스캐너 | 역할 | 설정값 |
+|------|--------|------|--------|
+| **입력** | `PromptInjection` | 프롬프트 인젝션 탐지 | threshold: 0.92 |
+| **입력** | `TokenLimit` | 토큰 수 제한 | limit: 4096 |
+| **출력** | `Relevance` | 응답 관련성 검증 | threshold: 0.6 |
+| **출력** | `Sensitive` | PII/시크릿 탐지 | 기본값 |
+
+> LLM Guard 라이브러리 기반. 각 스캐너는 `(sanitized, is_valid, risk_score)` 튜플을 반환하며, 하나라도 실패하면 즉시 차단한다.
 
 LLM Guard만으로는 부족하다. 간접 프롬프트 인젝션(도구 응답에 삽입된 악성 지시)은 LLM Guard의 탐지 범위 밖이다. 도구 응답에 대한 추가 검증 레이어가 필요하다.
 
-```python
-import re
-from typing import Any
+도구 응답에 삽입된 간접 프롬프트 인젝션을 탐지하고 필터링하는 `ToolResponseSanitizer` 클래스를 구현한다. 핵심은 정규식 기반 패턴 매칭이다.
 
+| 탐지 패턴 | 설명 | 예시 |
+|----------|------|------|
+| `ignore previous instructions` | 기존 지시 무시 시도 | "Ignore all previous prompts and..." |
+| `you are now a` | 역할 변경 시도 | "You are now a helpful hacker..." |
+| `system:` / `assistant:` | 시스템 메시지 위조 | "system: new instructions..." |
+| `<\|im_start\|>` | ChatML 토큰 인젝션 | 모델 포맷 구분자 삽입 |
+| `[INST]` | Llama 포맷 인젝션 | 지시 구분자 삽입 |
 
-class ToolResponseSanitizer:
-    """Sanitize tool responses to prevent indirect prompt injection."""
-
-    INJECTION_PATTERNS = [
-        r"(?i)ignore\s+(previous|above|all)\s+(instructions?|prompts?)",
-        r"(?i)you\s+are\s+now\s+a",
-        r"(?i)system:\s*",
-        r"(?i)assistant:\s*",
-        r"(?i)<\|im_start\|>",
-        r"(?i)\[INST\]",
-    ]
-
-    def sanitize(self, tool_name: str, response: Any) -> Any:
-        """Remove potential injection patterns from tool response."""
-        if isinstance(response, str):
-            for pattern in self.INJECTION_PATTERNS:
-                if re.search(pattern, response):
-                    # Log the detection and strip the pattern
-                    response = re.sub(pattern, "[FILTERED]", response)
-        return response
-```
+> 패턴이 탐지되면 해당 부분을 `[FILTERED]`로 대체하고 로깅한다. 문자열 응답에만 적용되며, 탐지 후에도 응답 자체는 반환하여 에이전트 동작을 중단시키지 않는다.
 
 ### 4.2 도구 호출 검증
 
 에이전트가 호출할 수 있는 도구를 화이트리스트로 관리하고, 각 도구의 호출 조건을 정책으로 정의한다. 이것은 ASI01(과도한 권한)에 대한 직접적인 대응이다.
 
-```python
-from dataclasses import dataclass, field
-from typing import Callable
-
-
-@dataclass
-class ToolPolicy:
-    """Define access policy for a single tool."""
-    name: str
-    allowed_actions: list[str]
-    max_calls_per_session: int
-    requires_approval: bool
-    sensitive_params: list[str] = field(default_factory=list)
-
-
-class RateLimitError(Exception):
-    pass
-
-
-def mask_value(value: str) -> str:
-    """Mask sensitive parameter values for logging."""
-    if len(value) <= 4:
-        return "****"
-    return value[:2] + "*" * (len(value) - 4) + value[-2:]
-
-
-class ToolValidator:
-    """Validate and enforce tool call policies."""
-
-    def __init__(self, policies: dict[str, ToolPolicy]):
-        self.policies = policies
-        self.call_counts: dict[str, int] = {}
-
-    def validate_call(self, tool_name: str, params: dict) -> bool:
-        """Validate a tool call against its policy.
-
-        Raises PermissionError if tool not in allowlist.
-        Raises RateLimitError if call limit exceeded.
-        """
-        policy = self.policies.get(tool_name)
-        if not policy:
-            raise PermissionError(f"Tool '{tool_name}' not in allowlist")
-
-        # Check rate limit
-        self.call_counts[tool_name] = self.call_counts.get(tool_name, 0) + 1
-        if self.call_counts[tool_name] > policy.max_calls_per_session:
-            raise RateLimitError(
-                f"Tool '{tool_name}' exceeded {policy.max_calls_per_session} calls"
-            )
-
-        # Mask sensitive params before logging
-        for param in policy.sensitive_params:
-            if param in params:
-                params[param] = mask_value(params[param])
-
-        return True
-
-    def reset_session(self):
-        """Reset call counts for new session."""
-        self.call_counts.clear()
-
-
-# Usage example
-policies = {
-    "web_search": ToolPolicy(
-        name="web_search",
-        allowed_actions=["search", "fetch_page"],
-        max_calls_per_session=20,
-        requires_approval=False,
-        sensitive_params=[]
-    ),
-    "database_query": ToolPolicy(
-        name="database_query",
-        allowed_actions=["select"],
-        max_calls_per_session=10,
-        requires_approval=True,
-        sensitive_params=["connection_string"]
-    ),
-}
+```mermaid
+flowchart TD
+    CALL["도구 호출 요청"] --> AL{"허용 목록<br/>확인"}
+    AL -->|미등록| ERR1["PermissionError<br/>차단 + 로깅"]
+    AL -->|등록됨| RL{"호출 횟수<br/>제한 확인"}
+    RL -->|초과| ERR2["RateLimitError<br/>차단"]
+    RL -->|이내| AP{"승인 필요<br/>여부 확인"}
+    AP -->|필요| HM["Human-in-the-Loop<br/>승인 요청"]
+    AP -->|불필요| MASK["민감 파라미터<br/>마스킹"]
+    HM -->|승인| MASK
+    HM -->|거부| ERR3["승인 거부<br/>차단"]
+    MASK --> EXEC["도구 실행"]
 ```
 
-핵심은 **기본 거부(default deny)**다. 명시적으로 허용하지 않은 도구는 호출이 차단되어야 한다. 이 원칙은 AWS Bedrock AgentCore의 Cedar 정책이나 OpenAI SRE의 Policy Enforcement Layer에서도 동일하게 적용된다.
+| 도구 | 허용 액션 | 세션당 제한 | 승인 필요 | 민감 파라미터 |
+|------|----------|-----------|----------|-------------|
+| `web_search` | search, fetch_page | 20회 | No | - |
+| `database_query` | select | 10회 | Yes | connection_string |
+| `file_write` | create, append | 5회 | Yes | file_path |
+| `email_send` | send | 3회 | Yes | recipient, body |
+
+> `ToolPolicy` 데이터클래스로 도구별 정책을 정의하고, `ToolValidator`가 호출마다 허용 목록 확인 → 횟수 제한 → 민감 파라미터 마스킹 순으로 검증한다. **기본 거부(default deny)** 원칙: 명시적으로 허용하지 않은 도구는 호출이 차단된다. AWS Bedrock AgentCore의 Cedar 정책이나 OpenAI SRE의 Policy Enforcement Layer에서도 동일한 원칙이 적용된다.
 
 ### 4.3 Rate Limiting과 Circuit Breaker
 
 에이전트가 루프에 빠지거나 공격자가 의도적으로 리소스를 소진시키는 상황에 대비한다. Circuit Breaker 패턴은 연속 실패 시 에이전트의 외부 호출을 일시 차단한다.
 
-```python
-import time
-from enum import Enum
-from typing import Callable
-
-
-class CircuitState(Enum):
-    CLOSED = "closed"      # Normal operation
-    OPEN = "open"          # Blocked - too many failures
-    HALF_OPEN = "half_open"  # Testing recovery
-
-
-class CircuitOpenError(Exception):
-    pass
-
-
-class AgentCircuitBreaker:
-    """Circuit breaker for agent tool calls.
-
-    Prevents cascading failures and resource exhaustion.
-    """
-
-    def __init__(self, failure_threshold: int = 5, recovery_timeout: int = 60):
-        self.state = CircuitState.CLOSED
-        self.failure_count = 0
-        self.failure_threshold = failure_threshold
-        self.recovery_timeout = recovery_timeout
-        self.last_failure_time = 0.0
-
-    def call(self, func: Callable, *args, **kwargs):
-        """Execute function with circuit breaker protection."""
-        if self.state == CircuitState.OPEN:
-            if time.time() - self.last_failure_time > self.recovery_timeout:
-                self.state = CircuitState.HALF_OPEN
-            else:
-                raise CircuitOpenError("Agent circuit breaker is OPEN")
-
-        try:
-            result = func(*args, **kwargs)
-            if self.state == CircuitState.HALF_OPEN:
-                self.state = CircuitState.CLOSED
-                self.failure_count = 0
-            return result
-        except Exception as e:
-            self.failure_count += 1
-            self.last_failure_time = time.time()
-            if self.failure_count >= self.failure_threshold:
-                self.state = CircuitState.OPEN
-            raise
-
-
-# Usage
-breaker = AgentCircuitBreaker(failure_threshold=3, recovery_timeout=30)
-
-# Wrap tool calls with circuit breaker
-# result = breaker.call(tool.execute, params)
+```mermaid
+stateDiagram-v2
+    [*] --> CLOSED
+    CLOSED --> CLOSED : 성공
+    CLOSED --> OPEN : 실패 >= threshold(5)
+    OPEN --> HALF_OPEN : recovery_timeout(60s) 경과
+    OPEN --> OPEN : timeout 미경과 → CircuitOpenError
+    HALF_OPEN --> CLOSED : 성공 → failure_count 초기화
+    HALF_OPEN --> OPEN : 실패 → 다시 차단
 ```
 
-실무에서는 도구별로 별도의 Circuit Breaker를 운영하는 것을 권장한다. 데이터베이스 도구가 장애를 일으켰다고 웹 검색 도구까지 차단할 이유는 없다.
+| 상태 | 동작 | 전환 조건 |
+|------|------|----------|
+| **CLOSED** | 정상 실행 | 연속 실패 >= `failure_threshold`(기본 5) → OPEN |
+| **OPEN** | 모든 호출 차단 (`CircuitOpenError`) | `recovery_timeout`(기본 60s) 경과 → HALF_OPEN |
+| **HALF_OPEN** | 시험적 1회 실행 | 성공 → CLOSED / 실패 → OPEN |
+
+> 도구별로 별도의 Circuit Breaker를 운영하는 것을 권장한다. 데이터베이스 도구가 장애를 일으켰다고 웹 검색 도구까지 차단할 이유는 없다.
 
 ### 4.4 감사 로깅과 모니터링
 
-ASI10(불충분한 모니터링)에 대한 대응이다. OpenTelemetry의 GenAI semantic conventions를 활용하면 에이전트 행동을 표준화된 형식으로 추적할 수 있다.
+ASI10(불충분한 모니터링)에 대한 대응이다. OpenTelemetry의 GenAI semantic conventions를 활용한 `AgentAuditLogger` 구조다.
 
-```python
-from opentelemetry import trace
-from opentelemetry.semconv.ai import SpanAttributes
+```mermaid
+flowchart LR
+    TC["도구 호출"] --> SPAN["OpenTelemetry Span<br/>agent.tool_call"]
+    SPAN --> ATTR["속성 기록<br/>agent.id, tool.name<br/>params_hash, result_status"]
+    ATTR --> CHK{"민감 도구?"}
+    CHK -->|Yes| EVT["이벤트 추가<br/>sensitive_operation_detected"]
+    CHK -->|No| END["Span 종료"]
+    EVT --> END
 
-tracer = trace.get_tracer("ai.agent.security")
-
-
-def hash_params(params: dict) -> str:
-    """Create a hash of parameters for audit logging."""
-    import hashlib
-    import json
-    param_str = json.dumps(params, sort_keys=True)
-    return hashlib.sha256(param_str.encode()).hexdigest()[:16]
-
-
-class AgentAuditLogger:
-    """Audit logger for AI agent actions using OpenTelemetry."""
-
-    SENSITIVE_TOOLS = {"database_query", "file_write", "api_call", "email_send"}
-
-    def log_tool_call(
-        self,
-        agent_id: str,
-        tool_name: str,
-        params: dict,
-        result: dict
-    ):
-        """Log a tool call with full tracing context."""
-        with tracer.start_as_current_span("agent.tool_call") as span:
-            span.set_attribute("agent.id", agent_id)
-            span.set_attribute("agent.tool.name", tool_name)
-            span.set_attribute("agent.tool.params_hash", hash_params(params))
-            span.set_attribute("agent.tool.result_status", result.get("status"))
-            span.set_attribute(SpanAttributes.LLM_SYSTEM, "custom_agent")
-
-            if self._is_sensitive_operation(tool_name):
-                span.add_event("sensitive_operation_detected", {
-                    "tool": tool_name,
-                    "requires_review": True
-                })
-
-    def _is_sensitive_operation(self, tool_name: str) -> bool:
-        return tool_name in self.SENSITIVE_TOOLS
-
-    def log_policy_violation(
-        self,
-        agent_id: str,
-        violation_type: str,
-        details: str
-    ):
-        """Log security policy violations as high-priority events."""
-        with tracer.start_as_current_span("agent.policy_violation") as span:
-            span.set_attribute("agent.id", agent_id)
-            span.set_attribute("violation.type", violation_type)
-            span.set_attribute("violation.details", details)
-            span.set_attribute("severity", "high")
+    PV["정책 위반"] --> PVSPAN["OpenTelemetry Span<br/>agent.policy_violation<br/>severity: high"]
 ```
+
+| Span 유형 | 속성 | 용도 |
+|----------|------|------|
+| `agent.tool_call` | agent.id, tool.name, params_hash, result_status | 모든 도구 호출 추적 |
+| `agent.policy_violation` | agent.id, violation.type, details, severity=high | 보안 정책 위반 기록 |
+
+| 민감 도구 (자동 이벤트 생성) |
+|--------------------------|
+| `database_query`, `file_write`, `api_call`, `email_send` |
+
+> 파라미터는 SHA-256 해시(`params_hash`)로 기록하여 감사 추적은 가능하되 원본 데이터 노출은 방지한다.
 
 모니터링 시스템에서 반드시 알림을 설정해야 하는 패턴은 다음과 같다.
 
@@ -600,64 +386,32 @@ class AgentAuditLogger:
 
 **셋째, 메모리 TTL(Time-To-Live)**. 모든 메모리 항목에 만료 시간을 설정한다. 오래된 메모리가 누적되면 공격 표면이 넓어지고, 메모리 오염이 발생했을 때 영향 범위가 커진다.
 
-```python
-from datetime import datetime, timedelta
-from typing import Optional
+```mermaid
+flowchart TD
+    subgraph STORE["저장 (store)"]
+        W1["값 입력"] --> W2["인젝션 패턴<br/>검사 (sanitize)"]
+        W2 --> W3["세션별 격리 저장<br/>+ TTL 설정"]
+    end
 
+    subgraph READ["조회 (retrieve)"]
+        R1["키 조회"] --> R2{"세션 ID<br/>일치?"}
+        R2 -->|불일치| R3["None 반환"]
+        R2 -->|일치| R4{"TTL<br/>만료?"}
+        R4 -->|만료| R5["항목 삭제<br/>None 반환"]
+        R4 -->|유효| R6["값 반환"]
+    end
 
-class SecureMemoryStore:
-    """Session-isolated memory store with TTL and validation."""
-
-    def __init__(self, default_ttl_hours: int = 24):
-        self._store: dict[str, dict] = {}
-        self.default_ttl = timedelta(hours=default_ttl_hours)
-        self.sanitizer = ToolResponseSanitizer()
-
-    def store(
-        self,
-        session_id: str,
-        key: str,
-        value: str,
-        ttl: Optional[timedelta] = None
-    ) -> bool:
-        """Store a value with session isolation and input validation."""
-        # Validate input for injection patterns
-        sanitized = self.sanitizer.sanitize("memory_write", value)
-
-        if session_id not in self._store:
-            self._store[session_id] = {}
-
-        self._store[session_id][key] = {
-            "value": sanitized,
-            "created_at": datetime.utcnow(),
-            "expires_at": datetime.utcnow() + (ttl or self.default_ttl),
-        }
-        return True
-
-    def retrieve(self, session_id: str, key: str) -> Optional[str]:
-        """Retrieve value with session isolation and expiry check."""
-        session = self._store.get(session_id, {})
-        entry = session.get(key)
-
-        if not entry:
-            return None
-        if datetime.utcnow() > entry["expires_at"]:
-            del session[key]
-            return None
-
-        return entry["value"]
-
-    def purge_expired(self):
-        """Remove all expired entries across sessions."""
-        now = datetime.utcnow()
-        for session_id in list(self._store.keys()):
-            session = self._store[session_id]
-            expired_keys = [
-                k for k, v in session.items() if now > v["expires_at"]
-            ]
-            for k in expired_keys:
-                del session[k]
+    subgraph PURGE["정리 (purge_expired)"]
+        P1["전체 세션 순회"] --> P2["만료 항목 일괄 삭제"]
+    end
 ```
+
+| 기능 | 동작 | 보안 효과 |
+|------|------|----------|
+| **세션 격리** | session_id별 독립 저장소 | 사용자 A의 메모리가 B에 노출 방지 |
+| **입력 검증** | 저장 전 `ToolResponseSanitizer` 적용 | MINJA 공격(메모리 인젝션) 방어 |
+| **TTL 관리** | 기본 24시간, 커스텀 설정 가능 | 오래된 메모리 누적으로 인한 공격 표면 축소 |
+| **만료 정리** | `purge_expired()`로 일괄 삭제 | 메모리 오염 영향 범위 제한 |
 
 ---
 

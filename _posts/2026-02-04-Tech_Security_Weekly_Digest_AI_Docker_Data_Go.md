@@ -125,19 +125,12 @@ Metro Development Server는 React Native 개발 시 JavaScript 번들링과 핫 
 
 ### 1.4 패치 검증 방법
 
-```bash
-# 1. 취약 패키지 존재 여부 확인
-npm ls @react-native-community/cli
-
-# 2. 취약 버전 범위: < 15.1.3
-npm audit --audit-level=critical
-
-# 3. 패치 적용
-npm update @react-native-community/cli
-
-# 4. Metro 서버 localhost 바인딩 (임시 완화)
-npx react-native start --host localhost
-```
+| 단계 | 명령어 | 목적 |
+|------|--------|------|
+| 1. 확인 | `npm ls @react-native-community/cli` | 취약 패키지 존재 여부 |
+| 2. 감사 | `npm audit --audit-level=critical` | 취약 버전 범위 확인 (< 15.1.3) |
+| 3. 패치 | `npm update @react-native-community/cli` | 최신 패치 적용 |
+| 4. 임시 완화 | `npx react-native start --host localhost` | Metro 서버 localhost 바인딩 |
 
 ### 1.5 탐지 쿼리
 
@@ -252,18 +245,14 @@ AWS IAM Identity Center의 **멀티리전 복제** 기능은 중앙 집중식 ID
 
 AI 에이전트는 반드시 격리된 환경에서 실행되어야 합니다. 호스트 시스템에 대한 직접 접근을 차단하고, 에이전트가 수행할 수 있는 작업 범위를 물리적으로 제한합니다.
 
-```bash
-# AI 에이전트를 위한 보안 강화 Docker 실행 예시
-docker run --rm \
-  --read-only \
-  --cap-drop ALL \
-  --no-new-privileges \
-  --network=agent-isolated \
-  --memory=512m \
-  --cpus=0.5 \
-  --pids-limit=100 \
-  ai-agent:latest
-```
+| Docker 보안 옵션 | 설정값 | 목적 |
+|-----------------|--------|------|
+| `--read-only` | 읽기 전용 파일시스템 | 파일 변조 방지 |
+| `--cap-drop ALL` | 모든 Linux Capabilities 제거 | 권한 상승 방지 |
+| `--no-new-privileges` | 새 권한 획득 차단 | setuid/setgid 악용 방지 |
+| `--network` | agent-isolated | 격리된 네트워크 |
+| `--memory` / `--cpus` | 512m / 0.5 | 리소스 제한 |
+| `--pids-limit` | 100 | 프로세스 수 제한 (Fork bomb 방지) |
 
 **핵심 제어:**
 - `--read-only`: 파일 시스템 쓰기 방지

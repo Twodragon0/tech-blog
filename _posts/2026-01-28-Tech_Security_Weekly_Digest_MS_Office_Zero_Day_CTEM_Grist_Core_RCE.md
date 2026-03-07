@@ -142,51 +142,22 @@ graph LR
 
 > **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions)를 참조하세요.
 
-```yaml
-# .github/workflows/security-pipeline.yml
-name: Security Pipeline
-
-on:
-  pull_request:
-    branches: [main]
-
-jobs:
-  security-scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      # 시크릿 스캔
-      - name: Detect Secrets
-        uses: trufflesecurity/trufflehog@main
-        with:
-          path: ./
-
-      # SAST
-      - name: Semgrep Scan
-        uses: returntocorp/semgrep-action@v1
-        with:
-          config: p/security-audit
-
-      # 의존성 취약점
-      - name: Dependency Check
-        run: |
-          npm audit --audit-level=high
-
-      # 컨테이너 이미지 스캔
-      - name: Trivy Scan
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: ${{ github.repository }}:${{ github.sha }}
-          severity: CRITICAL,HIGH
-          exit-code: 1
-
-      # IaC 보안 스캔
-      - name: Checkov
-        uses: bridgecrewio/checkov-action@master
-        with:
-          directory: ./terraform
+```mermaid
+flowchart LR
+    PR["PR to main"] --> S1["Secret Scan<br/>TruffleHog"]
+    S1 --> S2["SAST<br/>Semgrep"]
+    S2 --> S3["Dependency Check<br/>npm audit (HIGH+)"]
+    S3 --> S4["Container Scan<br/>Trivy (CRITICAL/HIGH)"]
+    S4 --> S5["IaC Scan<br/>Checkov (Terraform)"]
 ```
+
+| 단계 | 도구 | 설정 |
+|------|------|------|
+| Secret Scan | TruffleHog | 전체 경로 스캔 |
+| SAST | Semgrep | `p/security-audit` 규칙셋 |
+| Dependency | npm audit | `--audit-level=high` |
+| Container | Trivy | CRITICAL/HIGH, exit-code: 1 (실패 시 차단) |
+| IaC | Checkov | `./terraform` 디렉토리 |
 
 ---
 

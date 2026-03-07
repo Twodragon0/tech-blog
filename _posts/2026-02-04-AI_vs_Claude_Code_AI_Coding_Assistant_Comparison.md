@@ -250,52 +250,22 @@ Claude Code는 CI/CD 파이프라인에 네이티브로 통합됩니다. [Anthro
 
 > **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions)를 참조하세요.
 
-```yaml
-# Claude Code를 활용한 자동 코드 리뷰 파이프라인
-name: Claude Code Security Review
-on:
-  pull_request:
-    types: [opened, synchronize]
-
-permissions:
-  contents: read
-  pull-requests: write
-
-jobs:
-  security-review:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Install Claude Code
-        run: npm install -g @anthropic-ai/claude-code
-
-      - name: Security Analysis
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          # PR diff에서 보안 취약점 자동 분석
-          claude -p "Analyze this PR diff for security vulnerabilities.
-          Focus on: SQL injection, XSS, SSRF, insecure deserialization,
-          hardcoded credentials, and OWASP Top 10.
-          Output as structured JSON with severity levels." \
-          --output-format json > security-report.json
-
-      - name: Dependency Audit
-        run: |
-          npm audit --json > npm-audit.json || true
-          claude -p "Analyze npm-audit.json and prioritize
-          critical vulnerabilities with fix recommendations."
-
-      - name: Comment PR
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const report = require('./security-report.json');
-            // PR에 보안 리뷰 결과 코멘트
+```mermaid
+flowchart TD
+    PR["PR 생성/업데이트"] --> CO["Checkout<br/>fetch-depth: 0"]
+    CO --> INST["Claude Code 설치<br/>npm install -g"]
+    INST --> SA["Security Analysis<br/>PR diff 보안 취약점 분석<br/>OWASP Top 10 기반"]
+    SA --> DA["Dependency Audit<br/>npm audit + Claude 분석<br/>우선순위 및 수정 권장"]
+    DA --> CM["PR Comment<br/>보안 리뷰 결과 게시"]
 ```
+
+| 단계 | 동작 | 분석 대상 |
+|------|------|----------|
+| Security Analysis | PR diff에서 보안 취약점 자동 분석 | SQL Injection, XSS, SSRF, 하드코딩 자격 증명 |
+| Dependency Audit | npm audit 결과를 Claude가 분석 | CRITICAL 취약점 우선순위 및 수정 권장 |
+| PR Comment | 구조화된 JSON 리포트를 PR에 게시 | severity별 분류된 취약점 목록 |
+
+> Claude Code는 [GitHub Actions](https://docs.anthropic.com/en/docs/claude-code/github-actions){:target="_blank"}에 네이티브 통합을 공식 지원한다.
 
 ### 3.2 Shift-Left Security 구현
 

@@ -194,104 +194,37 @@ IT-OT 융합 환경에서 Purdue 모델 기반 네트워크 분리 구조:
 
 **Kubernetes Pod Security Standards**: Pod Security Admission으로 컨테이너 보안 정책을 적용합니다.
 
-```text
-┌────────────────────────────────────────────────────────────────┐
-│ DevSecOps Pipeline (Automated Dependency Updates)              │
-└────────────────────────┬───────────────────────────────────────┘
-                         │
-                         ▼
-┌────────────────────────────────────────────────────────────────┐
-│ CI/CD Pipeline (GitHub Actions / GitLab CI)                    │
-│                                                                │
-│  ┌──────────────────────────────────────────────────────────┐ │
-│  │ Stage 1: Source Code Security                            │ │
-│  │                                                          │ │
-│  │  • Secret Scanning (Gitleaks, TruffleHog)               │ │
-│  │  • SAST (Semgrep, SonarQube)                            │ │
-│  │  • License Compliance (FOSSA)                           │ │
-│  └───────────────────────┬──────────────────────────────────┘ │
-│                          │ PASS                                │
-│                          ▼                                     │
-│  ┌──────────────────────────────────────────────────────────┐ │
-│  │ Stage 2: Dependency Security                             │ │
-│  │                                                          │ │
-│  │  • SCA (Trivy, Snyk, OWASP Dependency-Check)            │ │
-│  │  • SBOM Generation (Syft, CycloneDX)                    │ │
-│  │  • CVE Database Check (NVD, OSV)                        │ │
-│  └───────────────────────┬──────────────────────────────────┘ │
-│                          │ PASS                                │
-│                          ▼                                     │
-│  ┌──────────────────────────────────────────────────────────┐ │
-│  │ Stage 3: Build & Test                                    │ │
-│  │                                                          │ │
-│  │  • Unit Tests (Jest, pytest)                            │ │
-│  │  • Integration Tests                                    │ │
-│  │  • Code Coverage (>80%)                                 │ │
-│  └───────────────────────┬──────────────────────────────────┘ │
-│                          │ PASS                                │
-│                          ▼                                     │
-│  ┌──────────────────────────────────────────────────────────┐ │
-│  │ Stage 4: Container Security                              │ │
-│  │                                                          │ │
-│  │  • Docker Image Build (Multi-stage, Distroless)         │ │
-│  │  • Image Scanning (Trivy, Clair, Anchore)               │ │
-│  │  • Image Signing (Cosign, Notary)                       │ │
-│  │  • Policy Check (OPA, Kyverno)                          │ │
-│  └───────────────────────┬──────────────────────────────────┘ │
-│                          │ PASS                                │
-│                          ▼                                     │
-│  ┌──────────────────────────────────────────────────────────┐ │
-│  │ Stage 5: Infrastructure Security                         │ │
-│  │                                                          │ │
-│  │  • IaC Scanning (Checkov, tfsec, Terrascan)            │ │
-│  │  • Terraform Plan Review                                │ │
-│  │  • Cost Estimation (Infracost)                          │ │
-│  └───────────────────────┬──────────────────────────────────┘ │
-│                          │ PASS                                │
-│                          ▼                                     │
-│  ┌──────────────────────────────────────────────────────────┐ │
-│  │ Stage 6: Deploy to Staging                               │ │
-│  │                                                          │ │
-│  │  • Blue-Green Deployment (ECS/EKS)                      │ │
-│  │  • DAST (OWASP ZAP, Burp Suite)                         │ │
-│  │  • Smoke Tests                                          │ │
-│  └───────────────────────┬──────────────────────────────────┘ │
-│                          │ PASS                                │
-│                          ▼                                     │
-│  ┌──────────────────────────────────────────────────────────┐ │
-│  │ Stage 7: Security Approval Gate                          │ │
-│  │                                                          │ │
-│  │  • Manual Security Review (if HIGH/CRITICAL)            │ │
-│  │  • Compliance Check (ISMS-P, PCI-DSS)                   │ │
-│  │  • Change Management Ticket                             │ │
-│  └───────────────────────┬──────────────────────────────────┘ │
-│                          │ APPROVED                            │
-│                          ▼                                     │
-│  ┌──────────────────────────────────────────────────────────┐ │
-│  │ Stage 8: Deploy to Production                            │ │
-│  │                                                          │ │
-│  │  • Canary Deployment (5% → 25% → 50% → 100%)           │ │
-│  │  • Health Checks                                        │ │
-│  │  • Rollback on Failure                                  │ │
-│  └───────────────────────┬──────────────────────────────────┘ │
-└──────────────────────────┼──────────────────────────────────────┘
-                           │
-                           ▼
-┌────────────────────────────────────────────────────────────────┐
-│ Production Monitoring                                          │
-│                                                                │
-│  • Runtime Security (Falco, Aqua)                             │
-│  • SIEM (Datadog, Splunk)                                     │
-│  • APM (Application Performance Monitoring)                   │
-│  • Incident Response (PagerDuty, Opsgenie)                    │
-└────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    DEP["DevSecOps Pipeline<br/>Automated Dependency Updates"] --> S1
 
-[보안 게이트 정책]
-• CRITICAL 취약점 발견 시: 파이프라인 중단
-• HIGH 취약점 3개 이상: 수동 승인 필요
-• Code Coverage <80%: 파이프라인 중단
-• License 위반: 파이프라인 중단
+    subgraph CICD["CI/CD Pipeline (GitHub Actions / GitLab CI)"]
+        S1["Stage 1: Source Code Security<br/>Secret Scanning, SAST, License"] -->|PASS| S2
+        S2["Stage 2: Dependency Security<br/>SCA, SBOM, CVE Check"] -->|PASS| S3
+        S3["Stage 3: Build & Test<br/>Unit/Integration, Coverage >80%"] -->|PASS| S4
+        S4["Stage 4: Container Security<br/>Image Scan, Sign, Policy"] -->|PASS| S5
+        S5["Stage 5: Infrastructure Security<br/>IaC Scan, Terraform, Cost"] -->|PASS| S6
+        S6["Stage 6: Deploy to Staging<br/>Blue-Green, DAST, Smoke"] -->|PASS| S7
+        S7["Stage 7: Security Approval Gate<br/>Manual Review, Compliance"] -->|APPROVED| S8
+        S8["Stage 8: Deploy to Production<br/>Canary 5%→25%→50%→100%"]
+    end
+
+    S8 --> MON["Production Monitoring<br/>Runtime Security, SIEM, APM"]
 ```
+
+| Stage | 보안 활동 | 도구 |
+|-------|----------|------|
+| 1. Source Code | Secret Scanning, SAST, License | Gitleaks, Semgrep, FOSSA |
+| 2. Dependency | SCA, SBOM, CVE Check | Trivy, Snyk, Syft |
+| 3. Build & Test | Unit/Integration Test, Coverage | Jest, pytest (>80%) |
+| 4. Container | Image Scan/Sign, Policy Check | Trivy, Cosign, OPA |
+| 5. Infrastructure | IaC Scan, Plan Review, Cost | Checkov, tfsec, Infracost |
+| 6. Staging | Blue-Green, DAST, Smoke Test | OWASP ZAP, Burp Suite |
+| 7. Approval Gate | Manual Review, Compliance | ISMS-P, PCI-DSS |
+| 8. Production | Canary Deploy, Health Check | ECS/EKS Rollback |
+| Monitoring | Runtime Security, SIEM, APM | Falco, Datadog, PagerDuty |
+
+> **보안 게이트 정책**: CRITICAL 취약점 → 파이프라인 중단, HIGH 3개 이상 → 수동 승인, Coverage <80% → 중단, License 위반 → 중단
 
 ## 3. 종합 참고 자료 (Comprehensive References)
 

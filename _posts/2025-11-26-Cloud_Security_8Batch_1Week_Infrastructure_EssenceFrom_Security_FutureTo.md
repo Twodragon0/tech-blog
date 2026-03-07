@@ -359,23 +359,14 @@ AWSCloudTrail
 
 **대응 절차**:
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. 배포 확인 및 설정
-aws cloudfront get-distribution --id DISTRIBUTION_ID
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
 
-# 3. WAF 웹 ACL에 Rate Limiting 규칙 추가
-aws wafv2 create-web-acl --name ddos-protection \
-  --scope CLOUDFRONT \
-  --default-action Block={} \
-  --rules file://rate-limit-rules.json
-
-# 4. Route53 Health Check 및 Failover 설정
-aws route53 create-health-check --health-check-config \
-  IPAddress=YOUR_IP,Port=443,Type=HTTPS,ResourcePath=/health
-
-# 5. Shield Response Team (SRT) 연락 (Enterprise Support 계획)
-# AWS Support Console에서 케이스 오픈
-
-```text
+| 단계 | 대응 조치 | AWS 명령/도구 |
+|------|----------|--------------|
+| 1 | CloudFront 배포 확인 | `aws cloudfront get-distribution` |
+| 2 | WAF Rate Limiting 규칙 추가 | `aws wafv2 create-web-acl --scope CLOUDFRONT` |
+| 3 | Route53 Health Check 설정 | `aws route53 create-health-check` (HTTPS, /health) |
+| 4 | Shield Response Team 연락 | AWS Support Console 케이스 오픈 |
 
 **예방 조치**:
 - CloudFront + Shield Standard (기본 활성화)
@@ -383,7 +374,7 @@ aws route53 create-health-check --health-check-config \
 - Auto Scaling 그룹 최대 용량 증가
 - Route53 Health Check 및 Failover 라우팅
 
-**참고**: [AWS Shield](https://aws.amazon.com/shield/)
+**참고**: [AWS Shield](https://aws.amazon.com/shield/){:target="_blank"}
 
 ### 시나리오 2: S3 버킷 데이터 유출 사고
 
@@ -396,7 +387,14 @@ aws route53 create-health-check --health-check-config \
 
 **대응 절차**:
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.** | [https://docs.aws.amazon.com/waf/](https://docs.aws.amazon.com/waf/) | 웹 애플리케이션 방화벽 |
+> **참고**: S3 버킷 보안 설정은 [AWS S3 보안 모범 사례](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html){:target="_blank"}를 참조하세요.
+
+| 단계 | 대응 조치 | 설명 |
+|------|----------|------|
+| 1 | 버킷 접근 차단 | Public Access Block 즉시 활성화 |
+| 2 | 접근 로그 분석 | CloudTrail에서 GetObject 호출 IP/시간 확인 |
+| 3 | 데이터 영향 범위 파악 | 유출된 객체 목록 및 민감도 분류 |
+| 4 | 사고 보고 | 개인정보 포함 시 KISA 신고 (72시간 이내) |
 
 ### 블로그 및 커뮤니티
 
@@ -455,5 +453,3 @@ aws route53 create-health-check --health-check-config \
 ---
 
 **원본 포스트**: [클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지](https://twodragon.tistory.com/701)
-
-```

@@ -142,18 +142,14 @@ SigninLogs
 
 **IBM QRadar (AQL) — East-West 트래픽 이상 탐지:**
 
-```sql
-SELECT sourceip, destinationip, destinationport,
-       COUNT(*) AS connection_count
-FROM events
-WHERE category = 'Authentication' AND
-      INCIDR('10.0.0.0/8', sourceip) AND
-      INCIDR('10.0.0.0/8', destinationip) AND
-      LAST 1 HOURS
-GROUP BY sourceip, destinationip, destinationport
-HAVING COUNT(*) > 100
-ORDER BY connection_count DESC
-```
+| QRadar AQL 요소 | 설정 | 목적 |
+|----------------|------|------|
+| **필터** | category=Authentication, 내부 IP 대역(10.0.0.0/8) | East-West 트래픽만 추출 |
+| **시간 범위** | LAST 1 HOURS | 최근 1시간 분석 |
+| **집계** | sourceip, destinationip, destinationport별 COUNT | 연결 빈도 계산 |
+| **임계값** | COUNT > 100 | 비정상적 대량 연결 탐지 |
+
+> 내부 네트워크 간 인증 시도가 1시간 내 100회를 초과하면 측면 이동(lateral movement) 의심 알림을 생성한다.
 
 #### UEBA 플랫폼 추천 (MITRE ATT&CK 커버리지 기준)
 

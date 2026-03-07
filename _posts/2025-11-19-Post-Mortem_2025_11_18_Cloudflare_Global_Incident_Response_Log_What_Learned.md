@@ -177,83 +177,26 @@ toc: true
 
 > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
 
-```bash
-DOMAIN="our-service.com"
-DNS_ZONE_ID="YOUR_ZONE_ID"
-
-# 함수: CDN 헬스체크
-check_cdn_health() {
-    local cdn=$1
-    local endpoint="${cdn}-endpoint.${DOMAIN}"
-
-    response=$(curl -o /dev/null -s -w "{% raw %}%{http_code}{% endraw %}" \
-                    --max-time 5 "https://${endpoint}/health")
-
-    if [[ "$response" == "200" ]]; then
-        echo "✓ ${cdn} is healthy"
-        return 0
-    else
-        echo "✗ ${cdn} is unhealthy (HTTP ${response})"
-        return 1
-    fi
-}
-
-# 함수: DNS 레코드 변경
-update_dns_record() {
-    local target_cdn=$1
-
-    echo "Updating DNS to ${target_cdn}..."
-
-    # Route 53 예시
-    aws route53 change-resource-record-sets \
-        --hosted-zone-id "${DNS_ZONE_ID}" \
-        --change-batch file:///tmp/dns-change-${target_cdn}.json
-
-    echo "DNS update initiated. TTL: 60s"
-}
-
-# 함수: Failover 실행
-failover() {
-    echo "=== CDN Failover ==="
-
-    if check_cdn_health "${BACKUP_CDN}"; then
-        update_dns_record "${BACKUP_CDN}"
-
-        # Slack 알림
-        curl -X POST "${SLACK_WEBHOOK}" \
-            -H 'Content-Type: application/json' \
-            -d '{
-                "text": "🚨 CDN Failover: '"${PRIMARY_CDN}"' → '"${BACKUP_CDN}"'",
-                "channel": "#incidents"
-            }'
-
-        echo "Failover complete. Monitor traffic for 5 minutes."
-    else
-        echo "ERROR: Backup CDN is also unhealthy!"
-        exit 1
-    fi
-}
-
-# 메인 로직
-case "${1:-check}" in
-    check)
-        check_cdn_health "${PRIMARY_CDN}"
-        check_cdn_health "${BACKUP_CDN}"
-        ;;
-    failover)
-        failover
-        ;;
-    rollback)
-        update_dns_record "${PRIMARY_CDN}"
-        echo "Rolled back to primary CDN"
-        ;;
-    *)
-        echo "Usage: $0 {check|failover|rollback}"
-        exit 1
-        ;;
-esac
-
+```mermaid
+flowchart TD
+    START["CDN 장애 감지"] --> HC{"Primary CDN<br/>헬스체크"}
+    HC -->|Healthy| OK["정상 운영 유지"]
+    HC -->|Unhealthy| BHC{"Backup CDN<br/>헬스체크"}
+    BHC -->|Healthy| FO["Failover 실행"]
+    BHC -->|Unhealthy| ERR["ERROR: 모든 CDN 장애<br/>수동 대응 필요"]
+    FO --> DNS["Route 53<br/>DNS 레코드 변경<br/>TTL: 60s"]
+    DNS --> SLACK["Slack 알림<br/>#incidents 채널"]
+    SLACK --> MON["5분간 트래픽 모니터링"]
+    MON --> RB{"복구 확인?"}
+    RB -->|Primary 복구| ROLL["Rollback<br/>Primary CDN 복원"]
+    RB -->|미복구| MON
 ```
+
+| 명령어 | 동작 | 설명 |
+|--------|------|------|
+| `./runbook.sh check` | 헬스체크 | Primary/Backup CDN 상태 확인 (HTTP 200 체크, timeout 5s) |
+| `./runbook.sh failover` | 전환 | Backup CDN으로 DNS 전환 + Slack 알림 |
+| `./runbook.sh rollback` | 복원 | Primary CDN으로 DNS 복원 |
 
 ## 4. 교훈 및 개선 사항
 
