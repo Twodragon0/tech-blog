@@ -173,9 +173,9 @@ AWSCloudTrail
 | order by TotalRequests desc
 ```
 
-## 6. Threat Hunting 쿼리
+## 2. Threat Hunting 쿼리
 
-### 6.1 공격 시나리오별 헌팅 쿼리
+### 2.1 공격 시나리오별 헌팅 쿼리
 
 #### 시나리오 1: 크리덴셜 침해 후 권한 에스컬레이션
 
@@ -219,9 +219,9 @@ aws s3api list-objects-v2 \
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
-## 8. 참고 자료 (Comprehensive References)
+## 3. 참고 자료 (Comprehensive References)
 
-### 8.1 AWS 공식 문서
+### 3.1 AWS 공식 문서
 
 | 서비스 | 문서 URL | 설명 |
 |--------|---------|------|
@@ -232,7 +232,7 @@ aws s3api list-objects-v2 \
 | **Security Hub** | [AWS Security Hub 공식 문서](https://docs.aws.amazon.com/securityhub/) | Security Hub 통합 관리 |
 | **CloudTrail** | [AWS CloudTrail 공식 문서](https://docs.aws.amazon.com/cloudtrail/) | CloudTrail 로그 관리 |
 
-### 8.2 보안 프레임워크
+### 3.2 보안 프레임워크
 
 | 프레임워크 | URL | 설명 |
 |----------|-----|------|
@@ -241,7 +241,7 @@ aws s3api list-objects-v2 \
 | **NIST Cybersecurity Framework** | [nist.gov/cyberframework](https://www.nist.gov/cyberframework) | 사이버보안 프레임워크 |
 | **AWS Well-Architected Framework** | [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected/) | AWS 아키텍처 모범 사례 |
 
-### 8.3 한국어 보안 자료
+### 3.3 한국어 보안 자료
 
 | 자료 | URL | 설명 |
 |------|-----|------|
@@ -250,7 +250,7 @@ aws s3api list-objects-v2 \
 | **AWS 한국 블로그** | [aws.amazon.com/ko/blogs/](https://aws.amazon.com/ko/blogs/) | AWS 한국 공식 블로그 |
 | **AWS 한국 보안 웨비나** | [aws.amazon.com/ko/events/](https://aws.amazon.com/ko/events/) | AWS 보안 웨비나 자료 |
 
-### 8.4 보안 도구 및 스크립트
+### 3.4 보안 도구 및 스크립트
 
 | 도구 | GitHub URL | 설명 |
 |------|-----------|------|
@@ -259,7 +259,7 @@ aws s3api list-objects-v2 \
 | **CloudSploit** | [aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit) | 클라우드 보안 스캐너 |
 | **CloudMapper** | [duo-labs/cloudmapper](https://github.com/duo-labs/cloudmapper) | AWS 네트워크 시각화 |
 
-### 8.5 학습 리소스
+### 3.5 학습 리소스
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
@@ -268,7 +268,7 @@ aws s3api list-objects-v2 \
 | **AWS re:Invent Security Sessions** | [youtube.com/@AWSEventsChannel](https://www.youtube.com/@AWSEventsChannel) | re:Invent 보안 세션 영상 |
 | **AWS Security Workshops** | [workshops.aws/categories/Security](https://workshops.aws/categories/Security) | AWS 보안 실습 워크샵 |
 
-### 8.6 인증 및 자격증
+### 3.6 인증 및 자격증
 
 | 인증 | URL | 설명 |
 |------|-----|------|

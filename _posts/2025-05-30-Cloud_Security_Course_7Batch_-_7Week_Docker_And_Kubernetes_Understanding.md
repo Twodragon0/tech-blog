@@ -440,9 +440,9 @@ cat /var/log/falco/events.txt | \
 > ```
 
 
-## 5. 종합 레퍼런스
+## 4. 종합 레퍼런스
 
-### 5.1 공식 문서
+### 4.1 공식 문서
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
@@ -453,7 +453,7 @@ cat /var/log/falco/events.txt | \
 | Falco 문서 | https://falco.org/docs/ | 런타임 보안 |
 | Trivy 문서 | https://aquasecurity.github.io/trivy/ | 이미지 스캔 |
 
-### 5.2 보안 도구
+### 4.2 보안 도구
 
 | 도구 | 용도 | 라이센스 | 추천도 |
 |------|------|----------|--------|
@@ -466,7 +466,7 @@ cat /var/log/falco/events.txt | \
 | **kube-hunter** | 클러스터 침투 테스트 | Apache 2.0 | ⭐⭐⭐ |
 | **Cosign** | 이미지 서명/검증 | Apache 2.0 | ⭐⭐⭐⭐ |
 
-### 5.3 학습 리소스
+### 4.3 학습 리소스
 
 #### 온라인 강의 (edu.2twodragon.com)
 
@@ -488,7 +488,7 @@ cat /var/log/falco/events.txt | \
 - **CNCF Slack - #falco**: https://cloud-native.slack.com/
 - **Reddit - r/kubernetes**: https://www.reddit.com/r/kubernetes/
 
-### 5.4 인증 자격증 가이드
+### 4.4 인증 자격증 가이드
 
 | 자격증 | 난이도 | 준비 기간 | 비용 | 추천 대상 |
 |--------|--------|-----------|------|-----------|

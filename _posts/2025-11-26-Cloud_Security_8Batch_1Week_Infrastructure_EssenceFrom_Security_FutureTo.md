@@ -195,7 +195,7 @@ series_total: 9
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
-## 4. SIEM 탐지 쿼리
+## 3. SIEM 탐지 쿼리
 
 <!-- Splunk SPL Query: 무단 IAM 사용자 생성 탐지
 index=cloudtrail eventName="CreateUser"
@@ -299,7 +299,7 @@ AWSCloudTrail
 | project TimeGenerated, UserIdentityPrincipalId, SourceIpAddress, Count, Severity
  -->
 
-## 5. 위협 헌팅 (Threat Hunting) 쿼리
+## 4. 위협 헌팅 (Threat Hunting) 쿼리
 
 ### 위협 헌팅 시나리오 1: Shadow Admin 탐지
 
@@ -346,7 +346,7 @@ AWSCloudTrail
 - [ ] Security Hub가 활성화되어 있는가?
 - [ ] 보안 이벤트에 대한 알림이 구성되어 있는가?
 
-## 8. 실무 시나리오 및 트러블슈팅
+## 5. 실무 시나리오 및 트러블슈팅
 
 ### 시나리오 1: 대규모 DDoS 공격 대응
 

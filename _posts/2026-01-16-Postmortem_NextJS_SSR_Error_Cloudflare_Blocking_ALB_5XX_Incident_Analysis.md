@@ -246,9 +246,9 @@ at ExampleComponent.handleAction
    - SSR과 CSR 환경을 구분하지 않고 동일한 코드 사용
    - 타입 체크나 린터 규칙으로 사전에 방지할 수 있는 문제
 
-## 5. 권장 조치 사항
+## 2. 권장 조치 사항
 
-### 5.1 즉시 조치 (Immediate)
+### 2.1 즉시 조치 (Immediate)
 
 #### 1. Cloudflare IP 차단 해제 검토
 
@@ -307,7 +307,7 @@ at ExampleComponent.handleAction
 kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 ```
 
-### 5.2 단기 조치 (1주일 내)
+### 2.2 단기 조치 (1주일 내)
 
 #### 4. ALB Target Group Health Check 최적화
 
@@ -338,7 +338,7 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 | **Datadog/Sentry** | 애플리케이션 에러 실시간 알림 | 에러 추적 |
 | **Cloudflare Security Events** | 차단 이벤트 모니터링 | 보안 이벤트 추적 |
 
-### 5.3 중기 조치 (1개월 내)
+### 2.3 중기 조치 (1개월 내)
 
 #### 7. 애플리케이션 에러 핸들링 개선
 
@@ -360,25 +360,25 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 - Pod 에러율 메트릭
 - Cloudflare 차단 이벤트 알림
 
-## 6. 모니터링 체크리스트
+## 3. 모니터링 체크리스트
 
-### 6.1 즉시 확인 필요
+### 3.1 즉시 확인 필요
 
 - [ ] Cloudflare Security Events에서 차단된 IP 패턴 분석
 - [ ] ALB Target Group Health 상태 확인
 - [ ] Pod 에러 로그 상세 분석
 - [ ] CloudWatch 5XX 에러 메트릭 확인
 
-### 6.2 정기 모니터링
+### 3.2 정기 모니터링
 
 - [ ] 일일 Pod 에러율 확인
 - [ ] 주간 Cloudflare 차단 이벤트 리뷰
 - [ ] ALB Target Group Health 상태 주간 리포트
 - [ ] 애플리케이션 성능 메트릭 추적
 
-## 7. 보안 권장사항
+## 4. 보안 권장사항
 
-### 7.1 Cloudflare 설정
+### 4.1 Cloudflare 설정
 
 | 설정 항목 | 권장 값 | 설명 |
 |----------|---------|------|
@@ -387,7 +387,7 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 | **Rate Limiting (API)** | 50 req/min | API 남용 방지 |
 | **WAF 규칙** | UUID 패턴 경로 의심 요청 차단 | 자동화 공격 방지 |
 
-### 7.2 애플리케이션 레벨
+### 4.2 애플리케이션 레벨
 
 | 보안 항목 | 설명 | 목적 |
 |----------|------|------|
@@ -395,15 +395,15 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 | **Request Validation** | UUID 형식 검증 | 비정상 요청 차단 |
 | **Error Handling** | 민감한 정보 노출 방지 | 정보 유출 방지 |
 
-### 7.3 인프라 레벨
+### 4.3 인프라 레벨
 
 - **Security Group**: Cloudflare IP 범위만 허용 (이미 설정됨)
 - **ALB WAF**: AWS WAF 연동 고려
 - **Logging**: 모든 요청 로깅 및 분석
 
-## 8. 결론
+## 5. 결론
 
-### 8.1 주요 원인
+### 5.1 주요 원인
 
 #### 1. **GitHub 배포로 인한 영향** ⚠️ **핵심 원인**
 
@@ -447,7 +447,7 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
   - 모니터링 및 알림 지연으로 인해 빠른 대응이 어려움
   - 방어적 프로그래밍 부족으로 SSR 환경에서의 에러가 치명적으로 작용
 
-### 8.2 해결 방향
+### 5.2 해결 방향
 
 #### 즉시 조치 (우선순위: Critical)
 
@@ -471,14 +471,14 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 - 보안 강화 및 에러 핸들링 개선
 - 배포 자동화 파이프라인에 사전 검증 단계 추가
 
-### 8.3 예상 효과
+### 5.3 예상 효과
 
 - 5XX 에러율 감소: 90% 이상
 - 배포 안정성 향상: 사전 검증으로 배포 후 에러 방지
 - Cloudflare 차단 이벤트 감소
 - 서비스 안정성 향상
 
-### 8.4 배포 관련 권장사항
+### 5.4 배포 관련 권장사항
 
 #### 1. 배포 전 검증 강화
 
@@ -508,15 +508,15 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 - CloudWatch 알람: 배포 후 5XX 에러 급증 감지
 - 자동 롤백: 임계값 초과 시 자동으로 이전 버전으로 복구
 
-## 9. 참고 자료
+## 6. 참고 자료
 
-### 9.1 관련 포스팅
+### 6.1 관련 포스팅
 
 - [Post-Mortem: 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지](/posts/2025/11/19/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/)
 - [Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기](/posts/2025/10/02/Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution/)
 - [Cloud Security Course 7Batch - 7Week Docker And Kubernetes Understanding](/posts/2025/05/30/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/)
 
-### 9.2 공식 문서
+### 6.2 공식 문서
 
 - [Next.js SSR 문서](https://nextjs.org/docs/pages/building-your-application/rendering/server-side-rendering)
 - [Kubernetes Health Checks 문서](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
@@ -524,7 +524,7 @@ kubectl logs -n production -l app=web-app -f --tail=100 | grep -i error
 - [Cloudflare WAF 문서](https://developers.cloudflare.com/waf/)
 - [Cloudflare Rate Limiting 문서](https://developers.cloudflare.com/waf/rate-limiting-rules/)
 
-### 9.3 보안 모범 사례
+### 6.3 보안 모범 사례
 
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [Kubernetes 보안 모범 사례](https://kubernetes.io/docs/concepts/security/security-checklist/)
