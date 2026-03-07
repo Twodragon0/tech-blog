@@ -30,13 +30,3 @@ updates:
     labels:
       - "dependencies"
       - "npm"
-
-  - package-ecosystem: "npm"
-    directory: "/video-generator"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 3
-    labels:
-      - "dependencies"
-      - "npm"
