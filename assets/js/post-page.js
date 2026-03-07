@@ -488,8 +488,6 @@
     var images = document.querySelectorAll('.clickable-image, .post-content img, .post-image img');
     images.forEach(function(img) {
       if (img.dataset.lightboxAttached === 'true') return;
-      // Skip mermaid diagram SVGs (already full-width, no zoom needed)
-      if (img.src && img.src.indexOf('/mermaid/') !== -1) return;
 
       img.style.cursor = 'zoom-in';
       img.dataset.lightboxAttached = 'true';
