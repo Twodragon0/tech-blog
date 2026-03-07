@@ -2321,17 +2321,26 @@ div.post-card-excerpt {
   display: block;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .news-card__image img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
+  aspect-ratio: 16 / 9;
   transition: transform 0.3s ease;
 }
 
 .news-card__image:hover img {
   transform: scale(1.05);
+}
+
+/* CSS-only fallback: hide image container when img src is empty.
+   The onerror inline handler was removed to comply with CSP; this rule
+   handles the case where the image src evaluates to an empty string. */
+.news-card__image:has(img[src=""]) {
+  display: none;
 }
 
 .news-card__body {
@@ -2349,6 +2358,7 @@ div.post-card-excerpt {
 .news-card__title a {
   color: var(--color-text-primary, #1a1a1a);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .news-card__title a:hover {

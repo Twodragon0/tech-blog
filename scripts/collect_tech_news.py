@@ -974,7 +974,7 @@ def fetch_skshieldus_insight(
 
         print(f"    Found {len(items)} items")
 
-    except Exception as e:
+    except requests.RequestException as e:
         print(f"    Error fetching SK쉴더스: {e}")
 
     return items
@@ -1044,7 +1044,7 @@ def fetch_worldmonitor_tech(
         meta_desc = soup.select_one('meta[name="description"]')
         if meta_desc and meta_desc.get("content"):
             description = str(meta_desc.get("content", "")).strip()
-    except Exception as e:
+    except requests.RequestException as e:
         print(f"    Error fetching world monitor: {e}")
 
     korean_summary = "Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. "
@@ -1177,7 +1177,7 @@ def _parse_skshieldus_eqst(
             )
             items.append(item)
 
-        except Exception:
+        except (KeyError, AttributeError, TypeError, ValueError):
             continue
 
     return items
@@ -1258,7 +1258,7 @@ def _parse_skshieldus_report(
             )
             items.append(item)
 
-        except Exception:
+        except (KeyError, AttributeError, TypeError, ValueError):
             continue
 
     return items
@@ -1335,7 +1335,7 @@ def fetch_og_image(url: str, timeout: int = 10) -> str:
         if tw and tw.get("content"):
             return tw["content"]
 
-    except Exception:
+    except requests.RequestException:
         pass
     return ""
 
@@ -1457,7 +1457,7 @@ def fetch_rss_feed(
 
     except socket.timeout:
         print(f"    Timeout: {source_config['name']} ({timeout}s)")
-    except Exception as e:
+    except (KeyError, AttributeError, TypeError) as e:
         print(f"    Error: {e}")
     finally:
         socket.setdefaulttimeout(old_timeout)

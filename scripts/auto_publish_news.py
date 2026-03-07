@@ -578,7 +578,7 @@ def _gemini_api_call(prompt: str, timeout: int = 20) -> str:
             logging.warning(f"Gemini API status {response.status_code}: {response.text[:100]}")
     except ImportError:
         logging.debug("requests library not available for Gemini API")
-    except Exception as e:
+    except requests.RequestException as e:
         logging.warning(f"Gemini API error: {e}")
 
     return ""
@@ -607,7 +607,7 @@ def _gemini_call(prompt: str, timeout: int = 35) -> str:
         except subprocess.TimeoutExpired:
             _GEMINI_CONSECUTIVE_FAILURES += 1
             logging.warning(f"Gemini CLI timeout ({timeout}s)")
-        except Exception as e:
+        except (subprocess.SubprocessError, OSError) as e:
             _GEMINI_CONSECUTIVE_FAILURES += 1
             logging.warning(f"Gemini CLI error: {e}")
 
@@ -742,7 +742,7 @@ def enhance_with_deepseek(item: Dict) -> str:
 
     except ImportError:
         logging.warning("requests library not available for DeepSeek API")
-    except Exception as e:
+    except requests.RequestException as e:
         logging.warning(f"DeepSeek API error: {e}")
 
     return ""
@@ -1843,7 +1843,7 @@ def _translate_to_korean_deepseek(text: str, context: str = "기술 뉴스", mod
             logging.warning(f"DeepSeek translate API status {response.status_code}")
     except ImportError:
         logging.debug("requests library not available for DeepSeek translation")
-    except Exception as e:
+    except requests.RequestException as e:
         logging.warning(f"DeepSeek translate error: {e}")
 
     return ""

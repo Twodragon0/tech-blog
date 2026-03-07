@@ -16,7 +16,7 @@
   {% if include.image and include.image != "" %}
   <div class="news-card__image">
     <a href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ include.title | escape }}">
-      <img src="{{ include.image | escape }}" alt="{{ include.title | escape }}" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">
+      <img src="{{ include.image | escape }}" alt="{{ include.title | escape }}" loading="lazy" width="400" height="225">
     </a>
   </div>
   {% endif %}
@@ -26,7 +26,7 @@
     </h4>
     <div class="news-card__meta">
       {% if include.source %}<span class="news-card__source">{{ include.source | escape }}</span>{% endif %}
-      {% if include.date %}<time class="news-card__date">{{ include.date }}</time>{% endif %}
+      {% if include.date %}<time class="news-card__date" datetime="{{ include.date }}">{{ include.date }}</time>{% endif %}
       {% if include.severity %}<span class="news-card__severity news-card__severity--{{ include.severity | downcase }}">{{ include.severity }}</span>{% endif %}
     </div>
     {% if include.summary and include.summary != "" %}
