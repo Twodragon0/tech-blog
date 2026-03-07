@@ -2031,8 +2031,27 @@ def generate_news_section(
 
     severity = _determine_severity(item)
     cve_ids = _extract_cve_ids(item)
+    image = item.get("image", "")
 
     section = f"### {section_num} {title}\n\n"
+
+    # 뉴스 카드 (이미지 + 요약)
+    if image or summary:
+        card_parts = [
+            '{%% include news-card.html',
+            '  title="%s"' % title.replace('"', '\\"'),
+            '  url="%s"' % url,
+        ]
+        if image:
+            card_parts.append('  image="%s"' % image)
+        if summary:
+            card_summary = summary[:200].replace('"', '\\"')
+            card_parts.append('  summary="%s"' % card_summary)
+        card_parts.append('  source="%s"' % source.replace('"', '\\"'))
+        if severity in ("Critical", "High"):
+            card_parts.append('  severity="%s"' % severity)
+        card_parts.append('%%}')
+        section += '\n'.join(card_parts) + '\n\n'
 
     # 심각도 및 CVE 뱃지
     if cve_ids or severity == "Critical":

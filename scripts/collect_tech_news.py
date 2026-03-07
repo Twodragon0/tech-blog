@@ -877,6 +877,7 @@ class NewsItem:
     tags: List[str] = field(default_factory=list)
     author: str = ""
     priority: int = 2
+    image: str = ""
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -1067,6 +1068,7 @@ def fetch_worldmonitor_tech(
         tags=["WorldMonitor", "Global-Tech", "Dashboard"] + layer_labels[:2],
         author="World Monitor",
         priority=source_config.get("priority", 1),
+        image=fetch_og_image(target_url, timeout=8),
     )
     items.append(item)
     print(f"    Found {len(items)} items")
@@ -1171,6 +1173,7 @@ def _parse_skshieldus_eqst(
                 tags=tags[:5],
                 author="SK쉴더스 EQST",
                 priority=source_config.get("priority", 1),
+                image=fetch_og_image(url, timeout=8),
             )
             items.append(item)
 
@@ -1251,6 +1254,7 @@ def _parse_skshieldus_report(
                 tags=list(set(tags))[:5],
                 author="SK쉴더스",
                 priority=source_config.get("priority", 1),
+                image=fetch_og_image(url, timeout=8),
             )
             items.append(item)
 
@@ -1258,6 +1262,82 @@ def _parse_skshieldus_report(
             continue
 
     return items
+
+
+def extract_image_from_entry(entry) -> str:
+    """RSS 엔트리에서 대표 이미지 URL 추출"""
+    # 1. media:thumbnail (RSS 미디어 확장)
+    media_thumb = getattr(entry, "media_thumbnail", None)
+    if media_thumb and isinstance(media_thumb, list) and len(media_thumb) > 0:
+        url = media_thumb[0].get("url", "")
+        if url:
+            return url
+
+    # 2. media:content (이미지 타입)
+    media_content = getattr(entry, "media_content", None)
+    if media_content and isinstance(media_content, list):
+        for mc in media_content:
+            if isinstance(mc, dict):
+                medium = mc.get("medium", "")
+                mtype = mc.get("type", "")
+                if medium == "image" or mtype.startswith("image/"):
+                    url = mc.get("url", "")
+                    if url:
+                        return url
+
+    # 3. enclosure (이미지 타입)
+    enclosures = getattr(entry, "enclosures", None)
+    if enclosures and isinstance(enclosures, list):
+        for enc in enclosures:
+            if isinstance(enc, dict):
+                etype = enc.get("type", "")
+                if etype.startswith("image/"):
+                    url = enc.get("href", "") or enc.get("url", "")
+                    if url:
+                        return url
+
+    # 4. summary/content에서 첫 번째 <img> 태그 추출
+    for field_name in ["summary", "description"]:
+        raw = getattr(entry, field_name, None)
+        if raw and isinstance(raw, str) and "<img" in raw:
+            soup = BeautifulSoup(raw, "html.parser")
+            img = soup.find("img", src=True)
+            if img:
+                src = img.get("src", "")
+                if src and src.startswith("http"):
+                    return src
+
+    return ""
+
+
+def fetch_og_image(url: str, timeout: int = 10) -> str:
+    """URL에서 Open Graph 이미지 추출"""
+    try:
+        resp = requests.get(
+            url,
+            timeout=timeout,
+            headers={"User-Agent": "TechBlog-NewsCollector/1.0"},
+            allow_redirects=True,
+        )
+        if resp.status_code != 200:
+            return ""
+        # 첫 10KB만 파싱 (성능 최적화)
+        html_head = resp.text[:10000]
+        soup = BeautifulSoup(html_head, "html.parser")
+
+        # og:image
+        og = soup.find("meta", property="og:image")
+        if og and og.get("content"):
+            return og["content"]
+
+        # twitter:image
+        tw = soup.find("meta", attrs={"name": "twitter:image"})
+        if tw and tw.get("content"):
+            return tw["content"]
+
+    except Exception:
+        pass
+    return ""
 
 
 def fetch_rss_feed(
@@ -1350,6 +1430,11 @@ def fetch_rss_feed(
             if raw_author and isinstance(raw_author, str):
                 author = raw_author
 
+            # 이미지 추출: RSS 엔트리 → og:image fallback
+            image = extract_image_from_entry(entry)
+            if not image and url:
+                image = fetch_og_image(url, timeout=8)
+
             item = NewsItem(
                 id=generate_id(url),
                 title=title,
@@ -1364,6 +1449,7 @@ def fetch_rss_feed(
                 tags=tags[:5],  # 최대 5개 태그
                 author=author,
                 priority=source_config.get("priority", 2),
+                image=image,
             )
             items.append(item)
 
