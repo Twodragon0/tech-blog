@@ -296,48 +296,42 @@
   lightbox.setAttribute('role', 'dialog');
   lightbox.setAttribute('aria-modal', 'true');
   lightbox.setAttribute('aria-label', 'Image viewer');
-  lightbox.innerHTML = '\
-    <div class="lightbox-backdrop"></div>\
-    <div class="lightbox-content">\
-      <div class="lightbox-controls">\
-        <button class="lightbox-btn lightbox-zoom-out" aria-label="축소" title="축소 (-)">\
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\
-            <circle cx="11" cy="11" r="8"/>\
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>\
-            <line x1="8" y1="11" x2="14" y2="11"/>\
-          </svg>\
-        </button>\
-        <button class="lightbox-btn lightbox-zoom-in" aria-label="확대" title="확대 (+)">\
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\
-            <circle cx="11" cy="11" r="8"/>\
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>\
-            <line x1="11" y1="8" x2="11" y2="14"/>\
-            <line x1="8" y1="11" x2="14" y2="11"/>\
-          </svg>\
-        </button>\
-        <button class="lightbox-btn lightbox-reset" aria-label="원래 크기" title="원래 크기 (0)">\
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\
-            <polyline points="15 3 21 3 21 9"/>\
-            <polyline points="9 21 3 21 3 15"/>\
-            <line x1="21" y1="3" x2="14" y2="10"/>\
-            <line x1="3" y1="21" x2="10" y2="14"/>\
-          </svg>\
-        </button>\
-        <button class="lightbox-btn lightbox-close" aria-label="닫기" title="닫기 (ESC)">\
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\
-            <line x1="18" y1="6" x2="6" y2="18"/>\
-            <line x1="6" y1="6" x2="18" y2="18"/>\
-          </svg>\
-        </button>\
-      </div>\
-      <div class="lightbox-image-wrapper">\
-        <img class="lightbox-image" src="" alt="">\
-      </div>\
-      <div class="lightbox-caption"></div>\
-      <div class="lightbox-zoom-info"></div>\
-      <div class="lightbox-hint">더블클릭 또는 휠로 확대/축소</div>\
-    </div>\
-  ';
+  lightbox.innerHTML = [
+    '<div class="lightbox-backdrop"></div>',
+    '<div class="lightbox-content">',
+    '  <div class="lightbox-controls">',
+    '    <button class="lightbox-btn lightbox-zoom-out" aria-label="축소" title="축소 (-)">',
+    '      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
+    '        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+    '        <line x1="8" y1="11" x2="14" y2="11"/>',
+    '      </svg>',
+    '    </button>',
+    '    <button class="lightbox-btn lightbox-zoom-in" aria-label="확대" title="확대 (+)">',
+    '      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
+    '        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+    '        <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>',
+    '      </svg>',
+    '    </button>',
+    '    <button class="lightbox-btn lightbox-reset" aria-label="원래 크기" title="원래 크기 (0)">',
+    '      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
+    '        <polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/>',
+    '        <line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>',
+    '      </svg>',
+    '    </button>',
+    '    <button class="lightbox-btn lightbox-close" aria-label="닫기" title="닫기 (ESC)">',
+    '      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
+    '        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>',
+    '      </svg>',
+    '    </button>',
+    '  </div>',
+    '  <div class="lightbox-image-wrapper">',
+    '    <img class="lightbox-image" src="" alt="">',
+    '  </div>',
+    '  <div class="lightbox-caption"></div>',
+    '  <div class="lightbox-zoom-info"></div>',
+    '  <div class="lightbox-hint">더블클릭 또는 휠로 확대/축소</div>',
+    '</div>'
+  ].join('');
   document.body.appendChild(lightbox);
 
   var lightboxImage = lightbox.querySelector('.lightbox-image');

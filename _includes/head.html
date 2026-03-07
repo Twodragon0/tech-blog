@@ -233,16 +233,21 @@
     }
 
     /* TOC container - prevent layout shift */
-    .toc-container { margin-bottom: 2rem; background-color: #f8f9fa; border-radius: 12px; border: 1px solid #dee2e6; }
+    .toc-container { margin-bottom: 2rem; background-color: var(--color-bg-secondary, #f8f9fa); border-radius: 12px; border: 1px solid var(--color-border, #dee2e6); }
     .toc-card { display: flex; flex-direction: column; overflow: hidden; border-radius: inherit; }
-    .toc-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid #dee2e6; }
+    .toc-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--color-border, #dee2e6); }
     .toc-nav { padding: 0.75rem 1rem 1rem; }
 
-    /* Dark mode basic support */
+    /* Dark mode basic support — data-theme set by inline script before render */
     @media (prefers-color-scheme: dark) {
-      body { background-color: #0d1117; color: #c9d1d9; }
-      .toc-container { background-color: #161b22; border-color: #30363d; }
+      body { background-color: #0f172a; color: #f1f5f9; }
+      .toc-container { background-color: #1e293b; border-color: #334155; }
+      .toc-header { border-bottom-color: #334155; }
     }
+    [data-theme="dark"] body { background-color: #0f172a; color: #f1f5f9; }
+    [data-theme="dark"] .toc-container { background-color: #1e293b; border-color: #334155; }
+    [data-theme="dark"] .toc-header { border-bottom-color: #334155; }
+    [data-theme="light"] body { background-color: #ffffff; color: #1a1a1a; }
   </style>
 
   <!-- Main CSS with JS-based fallback (CSP-safe, no inline onerror) -->

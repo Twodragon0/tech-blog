@@ -5,9 +5,6 @@
 (function() {
   'use strict';
 
-  // Wait for utilities from main-core.js
-  const scheduleIdleWork = window.TechBlog?.scheduleIdleWork || ((cb) => setTimeout(cb, 1));
-
   // ============================================
   // Hybrid Search System
   // ============================================
@@ -273,7 +270,6 @@
     const langToggle = document.getElementById('lang-toggle');
     const langDropdown = document.getElementById('lang-dropdown');
     const langDropdownOverlay = document.getElementById('lang-dropdown-overlay');
-    const langMenu = document.getElementById('lang-menu');
     const langOptions = document.querySelectorAll('.lang-option[data-lang]');
     const googleTranslateLink = document.getElementById('header-google-translate');
 

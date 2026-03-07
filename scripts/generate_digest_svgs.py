@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Generate rich SVG images for digest posts matching the reference style."""
 
+import hashlib
 import os
 import re
-import yaml
-import hashlib
 from pathlib import Path
+
+import yaml
 
 POSTS_DIR = Path("/Users/yong/Desktop/tech-blog/_posts")
 IMAGES_DIR = Path("/Users/yong/Desktop/tech-blog/assets/images")

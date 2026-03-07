@@ -16,10 +16,11 @@
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: white;
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
+  cursor: default;
 }
 
 .hero-badge::before {
@@ -60,7 +61,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-lg);
-  transition: all var(--transition-base);
+  transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
@@ -192,7 +193,8 @@
   border-radius: var(--border-radius-lg);
   background-color: var(--color-bg-primary);
   border: 1px solid var(--color-border);
-  transition: all var(--transition-base);
+  transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
+  cursor: pointer;
 }
 
 .post-card:hover .post-card-inner {
@@ -310,8 +312,10 @@ div.post-card-excerpt {
   border-radius: var(--border-radius-md);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: all var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .category-badge:hover {
@@ -466,7 +470,8 @@ div.post-card-excerpt {
   text-decoration: none;
   color: inherit;
   border-top: 4px solid var(--color-border);
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  cursor: pointer;
 }
 
 .discussion-category-card:hover {

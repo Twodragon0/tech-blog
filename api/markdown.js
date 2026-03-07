@@ -10,12 +10,14 @@
 // Response: text/markdown
 
 import { PrismaClient } from '@prisma/client';
+import { checkRateLimit, setRateLimitHeaders } from './lib/ratelimit.js';
 
 const CONFIG = {
   MAX_RESULTS: 50,
   RECENT_DEFAULT: 10,
   MAX_CONTENT_LENGTH: 10000,
   CACHE_TTL: 3600,
+  MAX_QUERY_LENGTH: 200,
 };
 
 let prismaInstance = null;
@@ -81,6 +83,9 @@ export default async function handler(req, res) {
   }
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.setHeader('X-Robots-Tag', 'noindex');
 
   if (req.method === 'OPTIONS') {
@@ -92,7 +97,35 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Rate Limiting (prevent abuse of database-backed endpoint)
+    const clientIp = req.headers['x-forwarded-for']?.split(',')[0]?.trim()
+      || req.headers['x-real-ip']
+      || 'unknown';
+
+    const rateLimitResult = await checkRateLimit(clientIp, 'anonymous');
+    setRateLimitHeaders(res, rateLimitResult.headers);
+
+    if (!rateLimitResult.success) {
+      res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+      return res.status(429).send('# Rate Limited\n\nToo many requests. Please try again later.');
+    }
+
     const { path, recent, category, q } = req.query;
+
+    // Input validation: limit query parameter lengths
+    if (q && q.length > CONFIG.MAX_QUERY_LENGTH) {
+      res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+      return res.status(400).send('# Bad Request\n\nQuery parameter too long.');
+    }
+    if (path && path.length > 500) {
+      res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+      return res.status(400).send('# Bad Request\n\nPath parameter too long.');
+    }
+    if (category && category.length > 100) {
+      res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+      return res.status(400).send('# Bad Request\n\nCategory parameter too long.');
+    }
+
     const prisma = getPrisma();
     let posts = [];
     let title = "Twodragon's Tech Blog";

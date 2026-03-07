@@ -30,6 +30,77 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_ROOT / "_site" / "browser-reports"
 
+# Security: Allowed URL schemes and domain patterns for browser operations
+ALLOWED_URL_SCHEMES = ("https://", "http://")
+ALLOWED_DOMAINS = [
+    "tech.2twodragon.com",
+    "twodragon0.github.io",
+    "localhost",
+    "127.0.0.1",
+]
+
+
+def validate_url(url: str) -> str:
+    """Validate and sanitize URL to prevent injection attacks."""
+    if not url or not isinstance(url, str):
+        raise ValueError("URL must be a non-empty string")
+
+    url = url.strip()
+
+    # Check scheme
+    if not any(url.startswith(scheme) for scheme in ALLOWED_URL_SCHEMES):
+        raise ValueError(f"URL must start with http:// or https://, got: {url[:20]}")
+
+    # Block dangerous characters that could break out of JS string context
+    dangerous_chars = ["'", '"', "`", "\\", "\n", "\r", "\t", ";", "${"]
+    for char in dangerous_chars:
+        if char in url:
+            raise ValueError(f"URL contains disallowed character: {repr(char)}")
+
+    # Validate URL length
+    if len(url) > 2048:
+        raise ValueError("URL exceeds maximum length of 2048 characters")
+
+    return url
+
+
+def validate_selector(selector: str) -> str:
+    """Validate CSS selector to prevent injection attacks."""
+    if not selector or not isinstance(selector, str):
+        raise ValueError("Selector must be a non-empty string")
+
+    selector = selector.strip()
+
+    # Block dangerous characters that could break out of JS string context
+    dangerous_chars = ["'", '"', "`", "\\", "\n", "\r", "${"]
+    for char in dangerous_chars:
+        if char in selector:
+            raise ValueError(f"Selector contains disallowed character: {repr(char)}")
+
+    # Validate selector length
+    if len(selector) > 500:
+        raise ValueError("Selector exceeds maximum length of 500 characters")
+
+    return selector
+
+
+def validate_cdp_endpoint(endpoint: str) -> str:
+    """Validate CDP endpoint to prevent injection attacks."""
+    if not endpoint or not isinstance(endpoint, str):
+        raise ValueError("CDP endpoint must be a non-empty string")
+
+    endpoint = endpoint.strip()
+
+    if not endpoint.startswith("ws://") and not endpoint.startswith("wss://"):
+        raise ValueError("CDP endpoint must start with ws:// or wss://")
+
+    dangerous_chars = ['"', "'", "`", "\\", "\n", "\r", "${"]
+    for char in dangerous_chars:
+        if char in endpoint:
+            raise ValueError(f"CDP endpoint contains disallowed character: {repr(char)}")
+
+    return endpoint
+
 
 def ensure_output_dir():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -60,6 +131,11 @@ def run_playwright_script(script_content: str, extra_args: list[str] | None = No
 
 def screenshot(url: str, output: str | None = None, cdp_endpoint: str | None = None):
     """Take a screenshot of the given URL."""
+    # Security: Validate inputs before interpolating into JavaScript
+    url = validate_url(url)
+    if cdp_endpoint:
+        cdp_endpoint = validate_cdp_endpoint(cdp_endpoint)
+
     ensure_output_dir()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     if output is None:
@@ -163,6 +239,12 @@ def scrape(
     url: str, selector: str, output: str | None = None, cdp_endpoint: str | None = None
 ):
     """Scrape content from a URL using CSS selector."""
+    # Security: Validate inputs before interpolating into JavaScript
+    url = validate_url(url)
+    selector = validate_selector(selector)
+    if cdp_endpoint:
+        cdp_endpoint = validate_cdp_endpoint(cdp_endpoint)
+
     ensure_output_dir()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     if output is None:
@@ -214,6 +296,11 @@ import {{ writeFileSync }} from 'fs';
 
 def check_links(url: str, cdp_endpoint: str | None = None):
     """Check all links on the blog for broken links."""
+    # Security: Validate inputs before interpolating into JavaScript
+    url = validate_url(url)
+    if cdp_endpoint:
+        cdp_endpoint = validate_cdp_endpoint(cdp_endpoint)
+
     ensure_output_dir()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output = str(OUTPUT_DIR / f"link_check_{timestamp}.json")

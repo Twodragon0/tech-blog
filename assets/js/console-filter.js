@@ -576,7 +576,7 @@
 
           // Google AdSense 400/403 - quietly handle
           if (/(googleads|googlesyndication|doubleclick|pagead)/i.test(url)) {
-            var originalOnError = xhr.onerror;
+            var originalOnErrorAds = xhr.onerror;
             xhr.onerror = function() {
               if (xhr.status === 400 || xhr.status === 403) {
                 xhr.readyState = 4;
@@ -585,7 +585,7 @@
                 xhr.responseText = '';
                 return;
               }
-              if (originalOnError) originalOnError.call(this);
+              if (originalOnErrorAds) originalOnErrorAds.call(this);
             };
           }
 

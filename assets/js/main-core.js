@@ -116,8 +116,6 @@
 
   // Firebase Dynamic Links URL 파라미터 처리 (Buttondown 확인 이메일에서 Gmail 링크 클릭 시)
   (function() {
-    'use strict';
-
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const linkParam = urlParams.get('link');
@@ -148,15 +146,8 @@
             const allowedDomains = ['tech.2twodragon.com', 'buttondown.com', 'buttondown.email'];
             const linkUrl = new URL(decodedLink);
 
-            // Security: Validate protocol
+            // Security: Validate protocol - only allow http/https
             if (!['http:', 'https:'].includes(linkUrl.protocol)) {
-              return;
-            }
-
-            // Security: Additional validation - check protocol and ensure it's http/https
-            const allowedProtocols = ['http:', 'https:'];
-            if (!allowedProtocols.includes(linkUrl.protocol)) {
-              // Only allow http/https protocols
               return;
             }
 
@@ -323,7 +314,6 @@
     if (isMobile) {
       // 모바일에서는 카카오톡 링크 공유 (카카오톡 앱이 자동으로 감지)
       // 카카오톡은 Open Graph 메타 태그를 읽어서 미리보기를 표시합니다
-      const shareText = `${title}\n\n${description || ''}\n\n${url}`;
       if (navigator.share) {
         navigator.share({
           title: title,
