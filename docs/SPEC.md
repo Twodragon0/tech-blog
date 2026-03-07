@@ -168,11 +168,7 @@ Git Push → GitHub Actions → Jekyll Build → Vercel Deploy
 
 ### 5. 비디오 생성 스크립트
 
-| 스크립트 | 용도 |
-|----------|------|
-| `generate_post_to_video.py` | 포스트 → 비디오 변환 |
-| `generate_video_with_remotion.py` | Remotion 기반 비디오 생성 |
-| `generate_complete_lecture.py` | 완전한 강의 비디오 생성 |
+> 영상/오디오 관련 스크립트는 `~/Desktop/online-course/` 프로젝트로 이전되었습니다.
 
 ---
 

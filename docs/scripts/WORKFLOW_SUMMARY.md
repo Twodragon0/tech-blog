@@ -60,20 +60,8 @@ python3 scripts/generate_post_to_video.py --generate-image
 2. **Remotion** (동적 영상 생성)
 3. **FFmpeg** (기본, 빠른 정적 영상)
 
-### 사용 방법
-```bash
-# Gemini Veo
-python3 scripts/generate_post_to_video.py --method gemini-veo
-
-# Remotion
-python3 scripts/generate_post_to_video.py --method remotion
-
-# FFmpeg (기본)
-python3 scripts/generate_post_to_video.py --method ffmpeg
-```
-
-### 출력 파일
-- `output/{포스트명}_video.mp4` - 영상 파일
+> 영상/오디오 생성 스크립트는 `~/Desktop/online-course/` 프로젝트로 이전되었습니다.
+> 상세 사용법: `~/Desktop/online-course/scripts/audio_video/`
 
 ## 🚀 통합 실행
 
