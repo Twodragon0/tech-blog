@@ -20,6 +20,15 @@ img[src*="/mermaid/"] {
   filter: invert(1) hue-rotate(180deg);
 }
 
+/* prefers-color-scheme fallback for Safari/system dark mode */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) img[src*="/mermaid/"] {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.15);
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
 @media (max-width: 768px) {
   img[src*="/mermaid/"] {
     padding: 0.75rem;
