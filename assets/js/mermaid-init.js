@@ -7,6 +7,9 @@
   var hasMermaid = document.querySelector('.language-mermaid, pre code.mermaid');
   if (!hasMermaid) return;
 
+  // Detect Safari (foreignObject rendering issues)
+  var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
   // Load mermaid.js on demand
   var script = document.createElement('script');
   script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js';
@@ -17,10 +20,10 @@
       mermaid.initialize({
         startOnLoad: false,
         theme: isDark ? 'dark' : 'default',
-        securityLevel: 'loose',
+        securityLevel: 'strict',
         flowchart: {
           useMaxWidth: true,
-          htmlLabels: true,
+          htmlLabels: !isSafari,
           curve: 'basis',
           padding: 15
         },
@@ -104,8 +107,8 @@
         var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         mermaid.initialize({
           theme: isDark ? 'dark' : 'default',
-          securityLevel: 'loose',
-          flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' },
+          securityLevel: 'strict',
+          flowchart: { useMaxWidth: true, htmlLabels: !isSafari, curve: 'basis' },
           sequence: { useMaxWidth: true, wrap: true },
           logLevel: 'error'
         });
