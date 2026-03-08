@@ -109,7 +109,7 @@ toc: true
 
 본 포스팅에서는 이 세 컨퍼런스에서 공유된 인사이트를 바탕으로 **2025년 보안 트렌드**와 **실무 적용 방안**을 종합적으로 정리합니다. 특히 AWS re:Invent 2025에서 발표된 보안 서비스들과 각 컨퍼런스별 핵심 내용을 실무 중심으로 상세히 다룹니다.
 
-<img src="{{ '/assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence_image.png' | relative_url }}" alt="December Conference Review: Previewing 2025 AI and Security Coexistence with AWSKRUG OWASP Datadog" loading="lazy" class="post-image">
+<!-- image not found: 2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence_image.png -->
 
 > **📌 핵심 요약**
 > - **93%의 보안 리더가 일일 AI 기반 공격을 예상**하고 있으며, AI 보안의 양면성이 주요 화두
@@ -125,9 +125,9 @@ toc: true
 
 2025년 클라우드 보안은 **반응적(Reactive) 대응에서 예측적(Predictive) 방어**로 진화하고 있습니다. 이는 AI, Machine Learning, 실시간 위협 인텔리전스의 융합으로 가능해졌습니다.
 
-> ```yaml
-> # GitHub Actions 예시 (간단한 구조)...
-> ```
+```yaml
+# GitHub Actions 예시 (간단한 구조)...
+```
 
 > **참고**: 전체 CI/CD 보안 파이프라인 설정은 [GitHub Actions 보안 가이드](https://docs.github.com/en/actions) 및 [CodeQL 문서](https://docs.github.com/en/code-security)를 참조하세요.
 

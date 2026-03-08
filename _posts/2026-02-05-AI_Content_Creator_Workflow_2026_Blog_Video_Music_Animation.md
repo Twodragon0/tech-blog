@@ -333,10 +333,18 @@ ContentPipeline
 
 **사용법:**
 
-> ```bash
-> # 의존성 설치...
-> ```
+```bash
+# 의존성 설치
+pip install anthropic python-dotenv aiohttp
 
+# 환경 변수 설정 (.env 파일)
+ANTHROPIC_API_KEY=sk-ant-...
+SUNO_API_KEY=...
+DID_API_KEY=...
+
+# 파이프라인 실행
+python content_pipeline.py --topic "Kubernetes 보안 모범사례" --phases blog,music
+```
 
 ---
 

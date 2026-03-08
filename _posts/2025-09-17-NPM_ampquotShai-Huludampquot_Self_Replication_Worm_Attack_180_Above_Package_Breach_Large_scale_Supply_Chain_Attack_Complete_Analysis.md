@@ -199,6 +199,12 @@ Shai-Hulud 웜은 다음과 같은 모듈형 아키텍처로 구성되어 있습
 
 2025년 11월, 더욱 진화된 **Shai-Hulud 2.0** 변종이 발견되었습니다. 가장 위험한 새 기능은 **Dead Man's Switch**입니다.
 
+Dead Man's Switch는 패키지가 NPM 레지스트리에서 제거되거나 특정 조건이 감지될 때 자동으로 더 악의적인 페이로드를 실행하는 메커니즘입니다:
+
+- **제거 감지**: 패키지 설치 후 주기적으로 NPM 레지스트리에 자신의 존재를 확인
+- **트리거 조건**: 패키지가 unpublish되거나 인터넷 접근이 차단되면 로컬에 캐시된 페이로드 실행
+- **페이로드**: 환경 변수 전체 덤프, SSH 키 탈취, `.npmrc` 파일 외부 전송
+- **지속성**: `~/.bashrc`, `~/.zshrc`에 훅을 삽입하여 셸 재시작 시에도 유지
 
 ### 2.3 연관 사건: 9월 대규모 npm 침해
 
@@ -217,50 +223,97 @@ Shai-Hulud와 시기적으로 연관된 2025년 9월 대규모 npm 침해 사건
 
 Shai-Hulud와 별개로 발생한 또 다른 심각한 공급망 공격:
 
-> **참고**: s1ngularity 공격 상세 분석은 [Nx 공식 포스트모템](https://nx.dev/blog/s1ngularity-postmortem) 및 [Nx GitHub 저장소](https://github.com/nrwl/nx)를 참조하세요.
-> ```yaml
-> # s1ngularity 공격 개요...
-> ```
+**참고**: s1ngularity 공격 상세 분석은 [Nx 공식 포스트모템](https://nx.dev/blog/s1ngularity-postmortem) 및 [Nx GitHub 저장소](https://github.com/nrwl/nx)를 참조하세요.
 
+s1ngularity 공격은 Nx 모노레포 툴체인을 대상으로 한 공급망 침해로, 악성 패키지가 Nx 생태계의 의존성을 통해 배포되었습니다:
+
+```yaml
+# s1ngularity 공격 개요
+attack:
+  target: "Nx monorepo toolchain"
+  vector: "compromised npm package maintainer account"
+  payload: "credential harvester + persistence script"
+  affected_packages:
+    - "@nrwl/workspace"
+    - "@nx/workspace"
+  mitigation: "Nx 팀이 즉각 패키지 제거 및 계정 보안 강화"
+```
+
+### 2.5 침해 대응 절차
+
+감염이 확인된 경우 다음 절차를 즉시 수행합니다.
 
 #### 2.5.1 Docker 런타임 보안 설정
 
-> ```dockerfile
-> # Dockerfile - 최소 권한 및 보안 강화...
-> ```
+컨테이너 환경에서 최소 권한 원칙을 적용하여 공격 영향 범위를 제한합니다:
+
+```dockerfile
+# Dockerfile - 최소 권한 및 보안 강화
+FROM node:20-alpine AS base
+
+# 비루트 사용자 생성
+RUN addgroup -g 1001 -S appgroup && \
+    adduser -u 1001 -S appuser -G appgroup
+
+WORKDIR /app
+
+# 의존성 설치 (루트로 수행 후 권한 변경)
+COPY package*.json ./
+RUN npm ci --only=production && \
+    npm cache clean --force
+
+# 애플리케이션 파일 복사
+COPY --chown=appuser:appgroup . .
+
+# 비루트 사용자로 전환
+USER appuser
+
+# 읽기 전용 파일시스템 권장 (docker run --read-only)
+EXPOSE 3000
+CMD ["node", "index.js"]
+```
+
+1. **감염된 워크스테이션 격리**:
 
 ```bash
-   # 감염된 개발자 워크스테이션 네트워크 차단
-   sudo iptables -A OUTPUT -j DROP
-   # 또는 VPN 연결 강제 종료
-   ```
+# 감염된 개발자 워크스테이션 네트워크 차단
+sudo iptables -A OUTPUT -j DROP
+# 또는 VPN 연결 강제 종료
+sudo systemctl stop openvpn
+```
 
 2. **CI/CD 파이프라인 중단**:
-```bash
-   # GitHub Actions 비활성화
-   gh api -X PATCH /repos/OWNER/REPO/actions/permissions \
-     -f enabled=false
 
-   # Jenkins job 비활성화
-   java -jar jenkins-cli.jar -s http://jenkins:8080/ \
-     disable-job "affected-pipeline"
-   ```
+```bash
+# GitHub Actions 비활성화
+gh api -X PATCH /repos/OWNER/REPO/actions/permissions \
+  -f enabled=false
+
+# Jenkins job 비활성화
+java -jar jenkins-cli.jar -s http://jenkins:8080/ \
+  disable-job "affected-pipeline"
+```
 
 3. **Private NPM Registry 읽기 전용으로 전환**:
+
 ```yaml
-   # verdaccio.yaml
-   packages:
-     '**':
-       access: $authenticated
-       publish: $admin  # 일반 사용자 publish 차단
+# verdaccio.yaml
+packages:
+  '**':
+    access: $authenticated
+    publish: $admin  # 일반 사용자 publish 차단
+    proxy: npmjs
 ```
-> ```text
-> ...
-> ```
+
+4. **NPM 토큰 즉시 재생성**:
 
 ```bash
-# NPM 토큰 재생성...
-npm token regenerate
+# 기존 토큰 전체 목록 확인 및 폐기
+npm token list
+npm token revoke <token-id>
+
+# 새 토큰 생성 (읽기 전용 CI 토큰)
+npm token create --read-only --cidr=10.0.0.0/8
 ```
 
 ## 3. 참고 자료 (References)

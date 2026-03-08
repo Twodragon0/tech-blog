@@ -242,6 +242,22 @@ qvm-run --dispvm firefox https://banking.example.com
 
 #### 1.5.2 Remote Browser Isolation (RBI)
 
+RBI는 웹 브라우저 실행을 원격 서버(클라우드 또는 온프레미스)에서 처리하고, 사용자 단말에는 화면만 전달하는 기술입니다. 공용 PC에서 악성코드가 실행 중이더라도 브라우저 세션 자체가 격리된 원격 환경에서 동작하므로 키로거나 세션 탈취의 위험을 크게 줄일 수 있습니다.
+
+**주요 RBI 솔루션:**
+
+| 솔루션 | 유형 | 특징 |
+|--------|------|------|
+| **Cloudflare Browser Isolation** | 클라우드 SaaS | Zero Trust 통합, Network Vector Rendering |
+| **Zscaler Cloud Browser** | 클라우드 SaaS | 기업 SASE 환경에 최적화 |
+| **Menlo Security** | 클라우드 SaaS | 악성 콘텐츠 자동 격리 |
+| **Bromium (HP Sure Click)** | 엔드포인트 | 하이퍼바이저 기반 탭별 격리 |
+
+**활용 방법:**
+- **기업 환경**: Zero Trust 정책과 연동하여 비신뢰 기기(공용 PC, BYOD)에서의 사내 시스템 접근 시 RBI 적용
+- **개인 사용자**: Cloudflare WARP + Browser Isolation(Teams 무료 플랜)으로 고위험 사이트 격리
+- **한계**: 완전한 보호는 아님 - 화면 녹화, 숄더 서핑, 클립보드 탈취는 여전히 가능하므로 다층 방어와 함께 사용 권장
+
 ## 2. 패스키(Passkey) 심층 분석
 
 ### 2.1 패스키 vs 비밀번호 보안 비교
@@ -363,15 +379,12 @@ qvm-run --dispvm firefox https://banking.example.com
 
 #### 2.4.2 GitHub에 보안 키 등록
 
-> ```bash
-> # 1. GitHub 설정 페이지...
-> ```
-
-
-**TOTP 특징:**
-- **시간 동기화**: 클라이언트와 서버의 시계가 일치해야 함
-- **시간 허용 오차**: 보통 ±1 time step (앞뒤 30초) 허용
-- **재사용 불가**: 30초마다 코드 갱신
+```text
+1. https://github.com/settings/security 접속
+2. "Two-factor authentication" 섹션에서 "Security keys" 클릭
+3. "Register new security key" 선택
+4. YubiKey 또는 디바이스 생체 인증으로 등록 완료
+```
 
 ## 3. OTP 및 비밀번호 관리
 

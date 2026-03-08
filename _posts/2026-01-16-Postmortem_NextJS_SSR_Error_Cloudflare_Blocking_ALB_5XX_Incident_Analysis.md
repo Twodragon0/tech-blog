@@ -114,15 +114,19 @@ toc: true
 <details>
 <summary>draw.io XML 코드 (클릭하여 확장)</summary>
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요." value="WAF Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
-          <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="ratelimit" value="Rate Limiting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
-          <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
-        </mxCell>
+**참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
 
-        ...
+```xml
+<mxCell id="wafrules" value="WAF Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
+  <mxGeometry x="390" y="40" width="300" height="60" as="geometry" />
+</mxCell>
+<mxCell id="ratelimit" value="Rate Limiting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=12;" vertex="1" parent="cdn-cluster">
+  <mxGeometry x="740" y="40" width="300" height="60" as="geometry" />
+</mxCell>
+```
+
 **시나리오 2: X 앱 인앱 브라우저에서 접속**
+
 ```text
 1. 사용자가 x.com에서 링크 클릭
 2. X 앱이 열리고 인앱 브라우저(WebView) 사용
@@ -135,6 +139,7 @@ toc: true
 #### 해결 방안
 
 **1. 브라우저 환경 체크**
+
 ```typescript
 // ✅ 올바른 방법
 if (typeof window !== 'undefined') {
@@ -267,11 +272,40 @@ at ExampleComponent.handleAction
 
 1. **`src/components/example/ExampleComponent.tsx`** (Line 50)
 
-   <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
+   ```typescript
+   // ❌ 문제 코드 (SSR에서 ReferenceError 발생)
+   const handleNavigate = (url: string) => {
+     location.href = url; // location is not defined in Node.js
+   };
+
+   // ✅ 수정 코드
+   const handleNavigate = (url: string) => {
+     if (typeof window !== 'undefined') {
+       window.location.href = url;
+     }
+   };
+   ```
 
 2. **`src/components/example/DetailButton.tsx`** (Line 30)
 
-   <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
+   ```typescript
+   // ❌ 문제 코드
+   const DetailButton = ({ targetUrl }: { targetUrl: string }) => {
+     return (
+       <button onClick={() => location.href = targetUrl}>상세 보기</button>
+     );
+   };
+
+   // ✅ 수정 코드
+   const DetailButton = ({ targetUrl }: { targetUrl: string }) => {
+     const handleClick = () => {
+       if (typeof window !== 'undefined') {
+         window.location.href = targetUrl;
+       }
+     };
+     return <button onClick={handleClick}>상세 보기</button>;
+   };
+   ```
 
 3. **`src/hooks/useNavigation.ts`** (Line 25)
 
@@ -287,11 +321,47 @@ at ExampleComponent.handleAction
 
 4. **`src/components/example/ResultComponent.tsx`** (Line 80)
 
-   <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
+   ```typescript
+   // ❌ 문제 코드
+   const ResultComponent = ({ resultId }: { resultId: string }) => {
+     const goToDetail = () => {
+       location.href = `/results/${resultId}`;
+     };
+     return <div onClick={goToDetail}>결과 보기</div>;
+   };
+
+   // ✅ 수정 코드
+   const ResultComponent = ({ resultId }: { resultId: string }) => {
+     const goToDetail = () => {
+       if (typeof window !== 'undefined') {
+         window.location.href = `/results/${resultId}`;
+       }
+     };
+     return <div onClick={goToDetail}>결과 보기</div>;
+   };
+   ```
 
 5. **`src/components/example/TabsComponent.tsx`** (Line 45)
 
-   <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
+   ```typescript
+   // ❌ 문제 코드
+   const TabsComponent = ({ tabs }: { tabs: Tab[] }) => {
+     const handleTabChange = (tab: Tab) => {
+       location.hash = tab.id; // location 직접 접근
+     };
+     return <TabBar tabs={tabs} onChange={handleTabChange} />;
+   };
+
+   // ✅ 수정 코드
+   const TabsComponent = ({ tabs }: { tabs: Tab[] }) => {
+     const handleTabChange = (tab: Tab) => {
+       if (typeof window !== 'undefined') {
+         window.location.hash = tab.id;
+       }
+     };
+     return <TabBar tabs={tabs} onChange={handleTabChange} />;
+   };
+   ```
 
 **수정 우선순위**: High
 - 서버 사이드에서 `location` 접근 방지
