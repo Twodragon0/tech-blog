@@ -212,18 +212,45 @@ toc: true
 
 **설치 및 사용:**
 
-> ```bash
-> # Slither 설치...
-> ```
+```bash
+# Slither 설치 (pip 사용)
+pip install slither-analyzer
 
+# 기본 분석 실행
+slither contracts/MyContract.sol
+
+# JSON 리포트 출력
+slither contracts/MyContract.sol --json slither-report.json
+
+# 특정 탐지기만 실행 (reentrancy만 검사)
+slither contracts/MyContract.sol --detect reentrancy-eth
+```
 
 **GitHub Actions 통합:**
 
-> **참고**: GitHub Actions 워크플로우 관련 내용은 [GitHub Actions 문서](https://docs.github.com/en/actions) 및 [보안 가이드](https://docs.github.com/en/actions)를 참조하세요./security-audit.yml...
-> <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
+```yaml
+# .github/workflows/security-audit.yml
+name: Smart Contract Security Audit
+on: [push, pull_request]
 
+jobs:
+  slither:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Slither
+        uses: crytic/slither-action@v0.3.0
+        with:
+          target: contracts/
+          slither-args: '--json slither-report.json'
+      - name: Upload Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: slither-report
+          path: slither-report.json
+```
 
-> OpenZeppelin의 `ReentrancyGuard`를 사용하면 더 안전합니다.
+OpenZeppelin의 `ReentrancyGuard`를 사용하면 더 안전합니다.
 
 #### Integer Overflow 방어
 
@@ -278,6 +305,40 @@ contract SecureContract is AccessControl {
 - 시간 잠금(Time Lock) 메커니즘
 
 **예시:**
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/security/Pausable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract FailSafeVault is Pausable, Ownable {
+    mapping(address => uint256) public balances;
+
+    // 긴급 중지 시 출금 불가
+    function deposit() external payable whenNotPaused {
+        balances[msg.sender] += msg.value;
+    }
+
+    function withdraw(uint256 amount) external whenNotPaused {
+        require(balances[msg.sender] >= amount, "Insufficient balance");
+        balances[msg.sender] -= amount;
+        (bool success, ) = msg.sender.call{value: amount}("");
+        require(success, "Transfer failed");
+    }
+
+    // 관리자만 긴급 중지 가능
+    function emergencyPause() external onlyOwner {
+        _pause();
+    }
+
+    function resume() external onlyOwner {
+        _unpause();
+    }
+}
+```
+
 ### 4.3 보안 체크리스트
 
 스마트 컨트랙트 배포 전 확인해야 할 보안 체크리스트:
@@ -664,8 +725,25 @@ contract SecureContract is AccessControl {
 - **책임감**: 사고에 대한 책임 인정 및 사과
 
 **커뮤니케이션 템플릿 예시:**
-<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
-<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
+
+초기 공지 (사고 발생 후 1시간 이내):
+
+```
+[보안 공지] 비정상적인 활동이 감지되어 현재 조사 중입니다.
+예방 조치로 출금이 일시 중단되었습니다.
+사용자 자산 보호를 최우선으로 대응하고 있으며, 추가 정보를 신속히 공유하겠습니다.
+```
+
+사후 리포트 (1주일 이내):
+
+```
+[보안 사고 사후 분석 보고서]
+발생일시: YYYY-MM-DD HH:MM (KST)
+영향 범위: ...
+공격 벡터: ...
+대응 조치: ...
+재발 방지 대책: ...
+```
 
 ## 결론
 

@@ -198,26 +198,86 @@ OWASP Top 10 2025의 각 취약점은 실제 공격자가 사용하는 전술과
 
 실제 공격자는 여러 OWASP 취약점을 연계하여 공격합니다.
 
-2. **암호화 강화**
-   > **참고**: Post-quantum 암호화 관련 내용은 [NIST Post-Quantum Cryptography](https://csrc.nist.gov/projects/post-quantum-cryptography) 및 [OWASP Cryptographic Storage](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)를 참조하세요.
+1. **악성 패키지 삽입 (A03)**: 공격자가 npm 레지스트리에 타이포스쿼팅 패키지를 업로드
+2. **암호화 우회 (A04)**: 패키지 내 코드가 TLS 1.2 다운그레이드 공격으로 내부 통신을 도청
+3. **접근 제어 우회 (A01)**: 탈취한 서비스 토큰으로 내부 API에 무단 접근
+4. **권한 상승**: 최소 권한 미적용 계정을 통해 관리자 권한 획득
+5. **측면 이동**: 내부 네트워크로 이동하며 추가 시스템 침해
+6. **DB 최소 권한 미적용 악용**: 네트워크 세그멘테이션 부재로 데이터베이스 직접 접근
 
-```yaml
-# TLS 1.3 이상 사용
-# Post-quantum 암호화 준비
-# 키 로테이션 자동화
+### 1.3 주요 취약점 대응 코드 예시
+
+**암호화 강화 (A04: Cryptographic Failures)**
+
+TLS 1.3 전용 설정 및 키 로테이션 자동화 예시입니다. 참고: [NIST Post-Quantum Cryptography](https://csrc.nist.gov/projects/post-quantum-cryptography), [OWASP Cryptographic Storage](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
+
+```nginx
+# Nginx TLS 1.3 전용 설정
+ssl_protocols TLSv1.3;
+ssl_ciphers TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256;
+ssl_prefer_server_ciphers on;
+ssl_session_timeout 1d;
+ssl_session_cache shared:MozSSL:10m;
+
+# HSTS (6개월 이상 권장)
+add_header Strict-Transport-Security "max-age=15768000; includeSubDomains" always;
 ```
 
-3. **접근 제어 검증**
-   > **참고**: 접근 제어 검증 관련 내용은 [OWASP Access Control Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html) 및 [Kubernetes RBAC 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)를 참조하세요.
+```python
+# 키 로테이션 자동화 예시 (Python + AWS KMS)
+import boto3
+from datetime import datetime, timedelta
 
-```yaml
-# 모든 API 엔드포인트 인가 검증
-# 최소 권한 원칙 적용
-# 정기적인 권한 감사
+def rotate_key_if_expired(key_alias: str, max_age_days: int = 90) -> None:
+    kms = boto3.client("kms")
+    meta = kms.describe_key(KeyId=key_alias)["KeyMetadata"]
+    created = meta["CreationDate"].replace(tzinfo=None)
+    if datetime.utcnow() - created > timedelta(days=max_age_days):
+        kms.enable_key_rotation(KeyId=meta["KeyId"])
+        print(f"[INFO] Key rotation enabled for {key_alias}")
 ```
 
-   > **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. (Web Application Firewall)
-- 6단계: DB 최소 권한, 네트워크 세그멘테이션
+**접근 제어 검증 (A01: Broken Access Control)**
+
+모든 API 엔드포인트에 인가 검증을 적용하는 예시입니다. 참고: [OWASP Access Control Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Access_Control_Cheat_Sheet.html), [Kubernetes RBAC 문서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+
+```python
+# FastAPI RBAC 미들웨어 예시 (최소 권한 원칙 적용)
+from functools import wraps
+from fastapi import HTTPException, status
+
+def require_role(*roles):
+    def decorator(func):
+        @wraps(func)
+        async def wrapper(*args, current_user=None, **kwargs):
+            if current_user is None or current_user.role not in roles:
+                raise HTTPException(
+                    status_code=status.HTTP_403_FORBIDDEN,
+                    detail="권한이 없습니다."
+                )
+            return await func(*args, current_user=current_user, **kwargs)
+        return wrapper
+    return decorator
+
+# 사용 예: 관리자 전용 엔드포인트
+@app.delete("/api/users/{user_id}")
+@require_role("admin")
+async def delete_user(user_id: int, current_user=Depends(get_current_user)):
+    ...
+```
+
+```yaml
+# Kubernetes RBAC - 최소 권한 예시
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: production
+  name: pod-reader
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list"]   # watch, delete 등은 명시적으로 부여하지 않음
+```
 
 ## 2. 개선사항 및 향후 방향
 
