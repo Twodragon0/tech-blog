@@ -215,9 +215,8 @@ toc: true
 
 ### 웹 애플리케이션 공격 흐름도
 
-> ```json
-> {...
-> ```
+공격자는 인터넷을 통해 CloudFront 엣지 레이어에 도달하고, WAF 규칙에 의해 SQL Injection, XSS, Rate Limiting 등의 공격이 차단됩니다. 통과한 요청만 ALB → EC2/Lambda → S3(OAC) 순으로 전달되며, 모든 단계에서 CloudWatch와 WAF 로그가 기록됩니다.
+
 #### CodeQL 쿼리 커스터마이징
 
 > **참고**: CodeQL 쿼리 커스터마이징 관련 내용은 [CodeQL 쿼리 작성 가이드](https://docs.github.com/en/code-security) 및 [CodeQL 예제](https://github.com/github/codeql)를 참조하세요.
@@ -234,7 +233,8 @@ toc: true
 | 위협 분류 | `case(>=5: Critical, >=3: High)` | 공격 벡터 수 기반 위협 등급 분류 |
 
 > 다양한 공격 벡터(SQLi, XSS, RCE 등)를 동시에 사용하는 IP는 APT(지능형 지속 위협)일 가능성이 높다. AttackVectors >= 5이면 Critical로 분류한다.
-```
+
+#### 3. 악성 파일 업로드 시도 탐지
 
 ```sql
 -- AWS CloudWatch Insights
@@ -249,9 +249,7 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 
 #### 4. 캐시 우회 공격 (Cache Busting)
 
-> ```text
-> ...
-> ```
+캐시 우회 공격은 공격자가 쿼리 파라미터(`?v=random`, `?cb=12345`)나 특수 헤더를 추가해 WAF/CDN 캐시를 무력화하고 오리진 서버에 직접 요청을 보내는 기법입니다. 아래는 Splunk SPL을 사용한 탐지 쿼리입니다.
 
 ```sql
 -- Splunk SPL
@@ -279,11 +277,15 @@ fields @timestamp, httpRequest.clientIp, httpRequest.uri, httpRequest.headers
 
 ### 5.3 GitHub DevSecOps 파이프라인
 
-<!-- 긴 코드 블록 제거됨 (가독성 향상) -->
+GitHub Actions 워크플로우에 CodeQL 정적 분석, Dependabot 의존성 검사, Secret Scanning을 통합하면 코드가 병합되기 전에 보안 취약점을 자동으로 탐지할 수 있습니다. 핵심은 `.github/workflows/codeql.yml`에 `code-scanning` 잡을 추가하고, `dependabot.yml`로 패키지 업데이트 주기를 설정하는 것입니다. 상세 워크플로우 예시는 [GitHub Advanced Security 공식 문서](https://docs.github.com/en/code-security)를 참조하세요.
 
 ### 5.4 SSRF 공격 및 방어 흐름
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. & CloudFront의 정교한 보안 구성**뿐만 아니라, **실제 코드를 다루고 개선하는 보안 엔지니어의 실무 감각**을 익혀보시길 바랍니다.
+SSRF 공격은 서버가 공격자가 지정한 내부 URL에 요청을 보내도록 유도합니다. 방어의 핵심은 Allow-list 기반 URL 검증입니다. 허용된 도메인과 스킴만 통과시키고, `169.254.169.254`(EC2 메타데이터) 등 내부 IP 대역은 명시적으로 차단해야 합니다.
+
+> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
+
+AWS WAF와 CloudFront의 정교한 보안 구성뿐만 아니라, 실제 코드를 다루고 개선하는 보안 엔지니어의 실무 감각을 함께 익혀보시길 바랍니다.
 
 ### 핵심 요약
 
