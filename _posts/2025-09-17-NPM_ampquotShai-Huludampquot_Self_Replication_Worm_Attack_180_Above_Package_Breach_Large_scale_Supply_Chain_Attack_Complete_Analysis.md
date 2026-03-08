@@ -111,6 +111,8 @@ Shai-Hulud는 단순한 보안 사고가 아니라, **소프트웨어 공급망 
 
 이 글에서는 Shai-Hulud 공격의 기술적 메커니즘, MITRE ATT&CK 매핑, 탐지 방법, 대응 전략을 실무 중심으로 상세히 다룹니다.
 
+![NPM Supply Chain Worm Attack](/assets/images/mermaid/npm_supply_chain_worm.svg)
+
 ## 1. 공격 기술 분석
 
 ### 1.1 Shai-Hulud 웜 아키텍처

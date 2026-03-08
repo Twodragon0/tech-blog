@@ -54,6 +54,8 @@ toc: true
 - SecureCode v2.0 데이터셋과 AI 기반 보안 코드 생성
 - 실무 적용 방안 및 모범 사례
 
+![OWASP Top 10 2025 Risk Map](/assets/images/mermaid/owasp_top10_risk.svg)
+
 ## 경영진 요약: 웹 애플리케이션 보안 위험 평가
 
 ### 종합 위험 점수카드
