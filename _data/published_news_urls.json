@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-06T03:29:08.081533+00:00",
+  "updated_at": "2026-03-08T03:33:43.729759+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -702,6 +702,78 @@
       "title": "메리츠증권의 AWS 클라우드 여정: 클라우드 기반 차세대 증권 플랫폼 설계",
       "published_date": "2026-03-06",
       "expires_at": "2026-03-13T03:29:08.081439+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/openai-codex-security-scanned-12.html",
+      "title": "OpenAI Codex Security Scanned 1.2 Million Commits and Found 10,561 High-Severity",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/anthropic-finds-22-firefox.html",
+      "title": "Anthropic Finds 22 Firefox Vulnerabilities Using Claude Opus 4.6 AI Model",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/kalshi-sued-khamenei-trade-carveout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Prediction market Kalshi sued over Khamenei trade carveout",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/kalshi-polymarket-20b-valuation-fundraising-wsj?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Kalshi, Polymarket eye $20B valuations in potential fundraising: WSJ",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/usdc-beats-tether-stablecoin-transfer-volume-1-8-trillion-all-time-high?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "USDC beats Tether as stablecoin transfer volume hits $1.8T all-time high",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/grok-viral-roasts-musk-netanyahu-starmer?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Grok delivers viral vulgar roasts of Musk, Netanyahu and Starmer",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/florida-senate-passes-stablecoin-bill-desantis-signature?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Florida Senate passes state-level stablecoin bill, awaits DeSantis’ signature",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27301",
+      "title": "AI에이전트 도입의 가장 큰 병목은 성능 보다 신뢰(feat. 시간)이다.",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27300",
+      "title": "Autoresearch - Karpathy의 자동 연구 프레임워크",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27299",
+      "title": "Go 표준 라이브러리에 UUID 패키지 추가 제안",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27298",
+      "title": "Ki Editor - AST 기반으로 동작하는 에디터",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27297",
+      "title": "메타, 비트토렌트를 통한 불법 도서 업로드가 공정 이용에 해당한다고 주장",
+      "published_date": "2026-03-08",
+      "expires_at": "2026-03-15T03:33:43.729665+00:00"
     }
   ]
 }
