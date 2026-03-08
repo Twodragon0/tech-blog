@@ -134,9 +134,18 @@ csrutil status
 
 **Kandji 컴플라이언스 스크립트**:
 
-> ```bash
-> #!/bin/bash...
-> ```
+```bash
+#!/bin/bash
+# SIP 상태 검증 및 컴플라이언스 보고
+SIP_STATUS=$(csrutil status)
+if echo "$SIP_STATUS" | grep -q "enabled"; then
+  echo "PASS: SIP 활성화 확인"
+  exit 0
+else
+  echo "FAIL: SIP 비활성화 감지 - 조치 필요"
+  exit 1
+fi
+```
 
 
 ### 2.4 TCC (Transparency, Consent, and Control)
@@ -188,9 +197,27 @@ Kandji에서 권장하는 핵심 보안 설정:
 
 #### ISMS-P 컴플라이언스 스크립트
 
-> ```bash
-> #!/bin/bash...
-> ```
+```bash
+#!/bin/bash
+# ISMS-P 핵심 통제 항목 자동 점검
+echo "=== ISMS-P 컴플라이언스 점검 ==="
+
+# 2.5.1 암호화: FileVault 상태
+fv_status=$(fdesetup status)
+echo "[2.5.1] FileVault: $fv_status"
+
+# 2.4.1 패스워드 정책 확인
+pw_min=$(pwpolicy -getaccountpolicies 2>/dev/null | grep -c "minLength")
+echo "[2.4.1] 패스워드 정책 적용: $pw_min 항목"
+
+# 2.6.1 Gatekeeper 상태
+gk_status=$(spctl --status)
+echo "[2.6.1] Gatekeeper: $gk_status"
+
+# 2.7.1 마지막 업데이트 확인
+last_update=$(softwareupdate --history | tail -1)
+echo "[2.7.1] 최근 업데이트: $last_update"
+```
 
 
 ### 4.2 CIS macOS Benchmark
@@ -213,9 +240,26 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### Kandji 차단 스크립트
 
-> ```bash
-> #!/bin/bash...
-> ```
+```bash
+#!/bin/bash
+# CIS Benchmark 핵심 항목 자동 감사
+echo "=== CIS macOS Benchmark 감사 ==="
+
+# CIS 1.1: 자동 업데이트
+auto_update=$(defaults read /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled 2>/dev/null)
+[ "$auto_update" = "1" ] && echo "PASS [1.1] 자동 업데이트 활성화" || echo "FAIL [1.1] 자동 업데이트 비활성화"
+
+# CIS 2.3.1: 방화벽
+fw_state=$(defaults read /Library/Preferences/com.apple.alf globalstate 2>/dev/null)
+[ "$fw_state" != "0" ] && echo "PASS [2.3.1] 방화벽 활성화" || echo "FAIL [2.3.1] 방화벽 비활성화"
+
+# CIS 2.5.1: FileVault
+fv=$(fdesetup status)
+echo "$fv" | grep -q "On" && echo "PASS [2.5.1] FileVault 활성화" || echo "FAIL [2.5.1] FileVault 비활성화"
+
+# CIS 2.10.1: SIP
+csrutil status | grep -q "enabled" && echo "PASS [2.10.1] SIP 활성화" || echo "FAIL [2.10.1] SIP 비활성화"
+```
 
 
 ## 5. 패치 관리
@@ -224,16 +268,29 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### 자동 업데이트 정책
 
-> ```bash
-> # softwareupdate 설정...
-> ```
+```bash
+# macOS 자동 업데이트 설정 (Kandji 스크립트로 배포)
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownload -bool true
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdateInstall -bool true
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate ConfigDataInstall -bool true
+
+# 설정 확인
+defaults read /Library/Preferences/com.apple.SoftwareUpdate
+```
 
 
 #### 패치 지연 배포 (Deferral)
 
-> ```json
-> {...
-> ```
+```json
+{
+  "PayloadType": "com.apple.SoftwareUpdate",
+  "enforcedSoftwareUpdateDelay": 14,
+  "enforcedSoftwareUpdateMajorOSDeferredInstallDelay": 30,
+  "enforcedSoftwareUpdateMinorOSDeferredInstallDelay": 14,
+  "enforcedSoftwareUpdateNonOSDeferredInstallDelay": 7
+}
+```
 
 
 ## 6. 2025년 엔드포인트 보안 및 MDM 트렌드
@@ -287,16 +344,40 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### Okta 연동
 
-> ```bash
-> # Okta Device Trust 연동...
-> ```
+```bash
+# Okta Device Trust 연동 확인 스크립트
+# Kandji 관리 디바이스에서 Okta Device Trust 인증서 상태 점검
+
+# 1. Okta Device Trust 인증서 확인
+security find-certificate -a -Z /Library/Keychains/System.keychain \
+  | grep -A 5 "Okta Device Trust"
+
+# 2. MDM 등록 상태 확인
+profiles status -type enrollment
+
+# 3. Okta Verify 앱 설치 확인
+ls /Applications/ | grep -i "Okta Verify"
+```
 
 
 #### Azure AD Conditional Access
 
-> ```json
-> {...
-> ```
+```json
+{
+  "conditionalAccessPolicy": {
+    "displayName": "Kandji Managed Mac - Require Compliant Device",
+    "state": "enabled",
+    "conditions": {
+      "platforms": { "includePlatforms": ["macOS"] },
+      "clientAppTypes": ["all"]
+    },
+    "grantControls": {
+      "operator": "AND",
+      "builtInControls": ["compliantDevice", "domainJoinedDevice"]
+    }
+  }
+}
+```
 
 
 ### 8.2 SASE 통합
@@ -307,9 +388,32 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 ### 9.1 공공기관 보안 설정
 
-> ```json
-> {...
-> ```
+```json
+{
+  "PayloadDisplayName": "공공기관 보안 정책",
+  "PayloadType": "Configuration",
+  "PayloadContent": [
+    {
+      "PayloadType": "com.apple.security.firewall",
+      "EnableFirewall": true,
+      "EnableStealthMode": true,
+      "BlockAllIncoming": false
+    },
+    {
+      "PayloadType": "com.apple.screensaver",
+      "loginWindowIdleTime": 300,
+      "askForPassword": true,
+      "askForPasswordDelay": 0
+    },
+    {
+      "PayloadType": "com.apple.password-policy",
+      "minLength": 12,
+      "requireAlphanumeric": true,
+      "maxPINAgeInDays": 90
+    }
+  ]
+}
+```
 
 
 ## 10. 경영진 보고 형식
@@ -332,9 +436,20 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 **원인 및 해결**:
 
-> ```bash
-> # 1. APNs 연결 확인...
-> ```
+```bash
+# 1. APNs 연결 확인
+nc -zv gateway.push.apple.com 2195
+nc -zv feedback.push.apple.com 2196
+
+# 2. MDM 등록 상태 확인
+sudo /usr/libexec/mdmclient dep nag
+
+# 3. ABM 서버 접근 확인
+curl -sv https://deviceenrollment.apple.com/ping
+
+# 4. Kandji 에이전트 재시작
+sudo launchctl kickstart -k system/com.kandji.agent
+```
 
 
 **방화벽 예외 규칙**:
@@ -354,9 +469,19 @@ deviceenrollment.apple.com
 
 **해결 절차**:
 
-> ```bash
-> # 1. Kandji에서 복구키 조회...
-> ```
+```bash
+# 1. Kandji API로 복구키 조회
+curl -X GET "https://api.kandji.io/api/v1/devices/{device_id}/filevault" \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  | jq -r '.recovery_key'
+
+# 2. 복구키로 macOS 복구 모드 진입 후 잠금 해제
+# - 재시작 후 Command+R 또는 전원 버튼 길게 눌러 복구 모드 진입
+# - Disk Utility → 디스크 잠금 해제 시 복구키 입력
+
+# 3. 복구키 회전 (해제 후 즉시 실행)
+sudo fdesetup changerecovery -personal
+```
 
 
 ### 11.3 MDM 프로파일 제거 불가
@@ -367,9 +492,20 @@ deviceenrollment.apple.com
 
 **해결**:
 
-> ```bash
-> # 1. Recovery Mode 부팅...
-> ```
+```bash
+# 1. MDM 등록 상태 확인
+profiles status -type enrollment
+
+# 2. UAMDM(사용자 승인 MDM) 활성화 여부 확인
+sudo /usr/libexec/mdmclient QuerySecurityInfo | grep -i "user approved"
+
+# 3. 사용자 승인 유도 (시스템 설정 → 개인 정보 보호 및 보안 → 프로파일)
+open "x-apple.systempreferences:com.apple.preferences.security"
+
+# 4. DEP 재등록 (Recovery Mode에서 실행)
+# csrutil disable  ← Apple Silicon: Startup Security Utility에서 변경
+sudo /usr/libexec/mdmclient dep nag
+```
 
 
 ### 11.4 앱 배포 실패
@@ -378,9 +514,23 @@ deviceenrollment.apple.com
 
 **체크리스트**:
 
-> ```bash
-> # 1. VPP 토큰 유효성 확인...
-> ```
+```bash
+# 1. VPP 토큰 유효성 확인 (Kandji Console → Integrations → Apple Business Manager)
+curl -X GET "https://api.kandji.io/api/v1/integrations/vpp" \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  | jq '.token_expiry'
+
+# 2. 앱 라이선스 잔여 확인
+curl -X GET "https://api.kandji.io/api/v1/apps" \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  | jq '.[] | {name: .name, available_licenses: .available_licenses}'
+
+# 3. 디바이스 ABM 연결 확인
+sudo /usr/libexec/mdmclient QueryDeviceInformation | grep -i "EnrolledViaDEP"
+
+# 4. Kandji 에이전트 로그 확인
+log show --predicate 'subsystem == "com.kandji.agent"' --last 1h | grep -i "app install"
+```
 
 
 ### 11.5 성능 저하 (디바이스 느림)
@@ -389,9 +539,19 @@ deviceenrollment.apple.com
 
 **진단**:
 
-> ```bash
-> # 1. mdmclient 프로세스 확인...
-> ```
+```bash
+# 1. mdmclient 프로세스 CPU/메모리 사용량 확인
+top -l 1 -s 0 | grep -i mdmclient
+
+# 2. Kandji 에이전트 리소스 사용량 확인
+ps aux | grep -E "kandji|mdmclient" | awk '{print $1, $2, $3, $4, $11}'
+
+# 3. 최근 1시간 에이전트 로그 오류 확인
+log show --predicate 'subsystem == "com.kandji.agent"' --last 1h --level error
+
+# 4. 과도한 스크립트 실행 여부 확인
+log show --predicate 'process == "bash" OR process == "python3"' --last 30m | wc -l
+```
 
 
 **최적화**:
@@ -413,9 +573,20 @@ sudo log config --mode "level:default" --subsystem com.kandji
 
 **해결**:
 
-> ```bash
-> # 1. 인증서 확인...
-> ```
+```bash
+# 1. 802.1X 인증서 키체인 확인
+security find-certificate -a -Z /Library/Keychains/System.keychain \
+  | grep -B 5 "802.1X\|RADIUS\|WPA"
+
+# 2. Wi-Fi 프로파일 설치 상태 확인
+profiles list -verbose | grep -i "Wi-Fi\|802.1X"
+
+# 3. 인증서 유효기간 확인
+security find-certificate -c "Your-Corp-CA" -p | openssl x509 -noout -dates
+
+# 4. 네트워크 연결 진단 로그
+log show --predicate 'subsystem == "com.apple.eap"' --last 30m | tail -50
+```
 
 
 ## 12. 참고 자료

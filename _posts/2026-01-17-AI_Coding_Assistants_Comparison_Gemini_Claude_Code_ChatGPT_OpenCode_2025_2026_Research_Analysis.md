@@ -332,10 +332,23 @@ gemini-code analyze --context ./entire-codebase --query "security vulnerabilitie
 
 #### 실무 활용 가이드
 
-> ```bash
-> # DeepSeek Coder 활용 예시: 알고리즘 문제 해결...
-> ```
+```python
+# DeepSeek Coder 활용 예시: 알고리즘 문제 해결
+# HumanEval 스타일 함수 생성 요청
 
+def two_sum(nums: list[int], target: int) -> list[int]:
+    """
+    주어진 배열에서 합이 target인 두 수의 인덱스를 반환합니다.
+    DeepSeek-Coder-V2-Instruct는 이 유형 문제를 90.2% 정확도로 해결합니다.
+    """
+    seen = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return [seen[complement], i]
+        seen[num] = i
+    return []
+```
 
 #### DeepSeek 모델별 성능 비교
 
@@ -381,10 +394,22 @@ gemini-code analyze --context ./entire-codebase --query "security vulnerabilitie
 
 #### 실무 활용 가이드
 
-> ```bash
-> # OpenCode 활용 예시: 프라이버시 중심 개발...
-> ```
+```bash
+# OpenCode 활용 예시: 프라이버시 중심 개발
+# 로컬 환경에서 DeepSeek 모델을 사용해 민감한 코드 작업
 
+# 1. OpenCode 설치 및 모델 선택
+npm install -g opencode-ai
+opencode config set model deepseek-v3
+
+# 2. 프라이버시 중심 프로젝트에서 코드 생성 (로컬 처리)
+opencode generate --prompt "JWT 토큰 검증 미들웨어 작성" \
+  --no-upload \
+  --local-only
+
+# 3. 결과 검토 후 적용
+opencode review --file middleware/auth.ts
+```
 
 #### OpenCode vs 다른 어시스턴트 비교
 

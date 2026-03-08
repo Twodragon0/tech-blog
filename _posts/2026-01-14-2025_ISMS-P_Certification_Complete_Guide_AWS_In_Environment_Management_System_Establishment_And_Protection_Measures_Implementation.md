@@ -74,7 +74,20 @@ toc: true
 
 ### 인증 로드맵 (총 8-12개월)
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. |
+| 단계 | 기간 | 주요 활동 | 산출물 |
+|------|------|----------|--------|
+| **1단계: 현황 분석** | 1-2개월 | 자산 현황 파악, 위험 평가, 갭 분석 | 현황 분석 보고서 |
+| **2단계: 관리체계 수립** | 2-3개월 | 정책 수립, 조직 구성, 위험 관리 체계 | 정책서, 절차서 |
+| **3단계: 보호대책 구현** | 3-4개월 | 접근 통제, 암호화, 모니터링 구축 | 기술 구현 결과서 |
+| **4단계: 심사 준비** | 1-2개월 | 내부 감사, 취약점 보완, 증적 수집 | 심사 준비 자료 |
+| **5단계: 인증 심사** | 1개월 | 현장 심사, 결함 조치 | 인증서 |
+
+### MITRE ATT&CK 매핑 및 ISMS-P 통제 연계
+
+| ISMS-P 통제 | 관련 ATT&CK 전술 | 보안 전략 | AWS 서비스 |
+|------------|----------------|----------|-----------|
+| **접근 통제 (3.1)** | Initial Access (TA0001) | Identity Enforcement | IAM, MFA |
+| **암호화 (3.2)** | Exfiltration (TA0010) | Data Encryption | KMS, TLS |
 | **로그 관리 (3.3)** | Defense Evasion (TA0005) | Centralized Logging | CloudTrail, CloudWatch |
 | **네트워크 보안** | Lateral Movement (TA0008) | Network Segmentation | VPC, Security Groups |
 | **침해사고 대응** | Impact (TA0040) | Incident Response | Security Hub, GuardDuty |
@@ -83,14 +96,25 @@ toc: true
 
 #### 시나리오 1: 자격 증명 탈취 공격
 
-> **참고**: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요. (CDN)                             │
-│                    TLS 1.3, WAF, Shield Standard                     │
-└────────────────────────────────┬────────────────────────────────────┘
+| 공격 단계 | ATT&CK 기법 | ISMS-P 통제 | AWS 대응 |
+|----------|------------|------------|---------|
+| 피싱/크리덴셜 수집 | T1566 Phishing | 접근 통제 (3.1.1) | IAM MFA 강제, GuardDuty |
+| 권한 상승 | T1548 Abuse Elevation | 최소 권한 원칙 | IAM Access Analyzer |
+| 데이터 유출 | T1041 Exfiltration | 암호화 (3.2) | KMS, VPC Endpoint |
+| 흔적 삭제 | T1070 Indicator Removal | 로그 관리 (3.3) | CloudTrail 무결성 검증 |
+
+### AWS 기반 ISMS-P 네트워크 아키텍처
+
+```text
+┌────────────────────────────────────────────────────────────────────┐
+│                     CloudFront (CDN)                               │
+│                  TLS 1.3, WAF, Shield Standard                     │
+└────────────────────────────────┬───────────────────────────────────┘
                                  │
-┌────────────────────────────────┴────────────────────────────────────┐
-│                      Application Load Balancer                       │
-│              TLS 1.2+, ACM 인증서, Security Policy                   │
-└────────────────────────────────┬────────────────────────────────────┘
+┌────────────────────────────────┴───────────────────────────────────┐
+│                    Application Load Balancer                        │
+│             TLS 1.2+, ACM 인증서, Security Policy                   │
+└────────────────────────────────┬───────────────────────────────────┘
                                  │
          ┌───────────────────────┴───────────────────────┐
          │             VPC (10.0.0.0/16)                 │
@@ -116,12 +140,12 @@ toc: true
          └──────────────────────────────────────────────┘
                          │
          ┌───────────────┴────────────────┐
-         │                                 │
-┌────────┴─────────┐           ┌──────────┴──────────┐
-│   S3 (암호화)     │           │   KMS (CMK)         │
-│   ├─ 개인정보     │           │   ├─ 키 로테이션    │
-│   ├─ 로그         │           │   └─ 접근 정책      │
-│   └─ 백업         │           └─────────────────────┘
+         │                                │
+┌────────┴─────────┐          ┌──────────┴──────────┐
+│   S3 (암호화)    │          │   KMS (CMK)         │
+│   ├─ 개인정보    │          │   ├─ 키 로테이션    │
+│   ├─ 로그        │          │   └─ 접근 정책      │
+│   └─ 백업        │          └─────────────────────┘
 └──────────────────┘
          │
 ┌────────┴─────────────────────────────────────────────┐
@@ -136,8 +160,62 @@ toc: true
 │  │ (위협탐지)  │ (규정준수)   │ (취약점)    │        │
 │  └─────────────┴──────────────┴─────────────┘        │
 └──────────────────────────────────────────────────────┘
+```
 
 #### CloudTrail 로그 설정
+
+CloudTrail은 ISMS-P 로그 관리(3.3) 항목의 핵심 구현 요소입니다. 모든 AWS API 호출을 기록하고, S3에 암호화 저장하며, 무결성 검증을 활성화해야 합니다.
+
+```bash
+# CloudTrail Trail 생성 (다중 리전, 로그 무결성 검증 활성화)
+aws cloudtrail create-trail \
+  --name isms-p-audit-trail \
+  --s3-bucket-name my-cloudtrail-logs-bucket \
+  --include-global-service-events \
+  --is-multi-region-trail \
+  --enable-log-file-validation \
+  --kms-key-id arn:aws:kms:ap-northeast-2:123456789012:key/your-kms-key-id
+
+# Trail 로깅 시작
+aws cloudtrail start-logging --name isms-p-audit-trail
+
+# 로그 무결성 검증 (감사 시 활용)
+aws cloudtrail validate-logs \
+  --trail-arn arn:aws:cloudtrail:ap-northeast-2:123456789012:trail/isms-p-audit-trail \
+  --start-time 2026-01-01T00:00:00Z \
+  --end-time 2026-01-14T23:59:59Z
+```
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AWSCloudTrailAclCheck",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cloudtrail.amazonaws.com"
+      },
+      "Action": "s3:GetBucketAcl",
+      "Resource": "arn:aws:s3:::my-cloudtrail-logs-bucket"
+    },
+    {
+      "Sid": "AWSCloudTrailWrite",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cloudtrail.amazonaws.com"
+      },
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::my-cloudtrail-logs-bucket/AWSLogs/123456789012/*",
+      "Condition": {
+        "StringEquals": {
+          "s3:x-amz-acl": "bucket-owner-full-control"
+        }
+      }
+    }
+  ]
+}
+```
 
 ### 3.3 로그 관리 및 모니터링
 

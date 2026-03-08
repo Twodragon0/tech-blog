@@ -117,10 +117,19 @@ toc: true
 
 > **참고**: Docker 기본 명령어는 [Docker 공식 문서](https://docs.docker.com/) 및 [Docker 공식 예제](https://docs.docker.com/compose/)를 참조하세요.
 
-> ```bash
-> # 이미지 다운로드...
-> ```
+```bash
+# 이미지 다운로드
+docker pull nginx:alpine
 
+# 컨테이너 실행 (비루트 사용자, 읽기 전용 파일시스템)
+docker run -d --read-only --user 1000:1000 -p 8080:80 nginx:alpine
+
+# 실행 중인 컨테이너 목록 확인
+docker ps
+
+# 컨테이너 보안 설정 검사
+docker inspect <container_id> | grep -E "User|ReadonlyRootfs|Privileged"
+```
 
 ---
 
@@ -152,9 +161,23 @@ toc: true
 
 > **참고**: Docker 보안 모범 사례는 [Docker 보안 문서](https://docs.docker.com/engine/security/) 및 [OWASP Docker 보안 체크리스트](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html)를 참조하세요.
 
-> ```dockerfile
-> # 보안 강화 Dockerfile 예시...
-> ```
+```dockerfile
+# 보안 강화 Dockerfile 예시
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+FROM node:20-alpine
+# 비루트 사용자 생성 및 전환
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+WORKDIR /app
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+USER appuser
+EXPOSE 3000
+CMD ["node", "server.js"]
+```
 
 
 #### **2.2 Secret 관리**
