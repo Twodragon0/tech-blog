@@ -66,13 +66,7 @@ toc: true
 
 ### 1.1 [보안] OpenAI Codex Security Scanned 1.2 Million Commits and Found 10,561
 
-{%% include news-card.html
-  title="[보안] OpenAI Codex Security Scanned 1.2 Million Commits and Found 10,561"
-  url="https://thehackernews.com/2026/03/openai-codex-security-scanned-12.html"
-  image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzxRjA2uB_r2z4AtvhADiDGrxTc62766WI5jApivjtuLfb2aS2kz9RWk7f9P3Lm7Nj5HH3u-7Etx4-8xr_Y4PflexsuMsAzXjvPoPLSQaSt1O-t4U3yBAnKm4HLm-64dbHDsWF-EXYVMvaMrMnhfbhV_qn2cvwmJE6x-U42aTjGbIOTNOXxpiH3x15C6Ag/s1600/codex.jpg"
-  summary="OpenAI on Friday began rolling out Codex Security, an artificial intelligence (AI)-powered security agent that's designed to find, validate, and propose fixes for vulnerabilities. The feature is avail"
-  source="The Hacker News"
-%%}
+{% include news-card.html title="[보안] OpenAI Codex Security Scanned 1.2 Million Commits and Found 10,561" url="https://thehackernews.com/2026/03/openai-codex-security-scanned-12.html" summary="OpenAI Codex Security - AI 기반 보안 에이전트로 취약점 탐지, 검증, 수정 제안" source="The Hacker News" %}
 
 #### 개요
 
@@ -104,13 +98,7 @@ OpenAI on Friday began rolling out Codex Security, an artificial intelligence (A
 
 ### 1.2 [보안] Anthropic Finds 22 Firefox Vulnerabilities Using Claude Opus 4.6 AI
 
-{%% include news-card.html
-  title="[보안] Anthropic Finds 22 Firefox Vulnerabilities Using Claude Opus 4.6 AI"
-  url="https://thehackernews.com/2026/03/anthropic-finds-22-firefox.html"
-  image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2DaQuy20IkM7M8iL7NBmzJhI9m5KDEpf6CBgxcI9rAhiVLO1VyfdAeQKaInOY3dlIiwy1FWtusinpu8Yyj1fChemLiVCTLnMLRtKaKNvDbOOa0ZjVFt5zoT7yON1ljb2DAlgki_aVmVuWSmAPn2jFszCpJdjzN7DGGRzeEzD5OYcSn2oeLzcaBARYzmOS/s1600/firefox-claude.jpg"
-  summary="Anthropic on Friday said it discovered 22 new security vulnerabilities in the Firefox web browser as part of a security partnership with Mozilla. Of these, 14 have been classified as high, seven have "
-  source="The Hacker News"
-%%}
+{% include news-card.html title="[보안] Anthropic Finds 22 Firefox Vulnerabilities Using Claude Opus 4.6 AI" url="https://thehackernews.com/2026/03/anthropic-finds-22-firefox.html" summary="Anthropic이 Mozilla와 보안 파트너십으로 Firefox에서 22개 보안 취약점 발견 (14개 High)" source="The Hacker News" %}
 
 #### 개요
 
@@ -144,13 +132,7 @@ Anthropic on Friday said it discovered 22 new security vulnerabilities in the Fi
 
 ### 2.1 [블록체인] Prediction market Kalshi sued over Khamenei trade carveout
 
-{%% include news-card.html
-  title="[블록체인] Prediction market Kalshi sued over Khamenei trade carveout"
-  url="https://cointelegraph.com/news/kalshi-sued-khamenei-trade-carveout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-  image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzZlOTYtODVjOC03ODg0LTk2NTQtZGMwMTcxNDY4NTM0LmpwZw==.jpg"
-  summary="The plaintiffs characterized the death carveout in a prediction market for the former Iranian Supreme Leader's ouster as \"deceptive.\""
-  source="Cointelegraph"
-%%}
+{% include news-card.html title="[블록체인] Prediction market Kalshi sued over Khamenei trade carveout" url="https://cointelegraph.com/news/kalshi-sued-khamenei-trade-carveout" summary="예측 시장 Kalshi의 Khamenei 거래 면제 조항에 대한 소송" source="Cointelegraph" %}
 
 #### 개요
 
@@ -165,13 +147,7 @@ The plaintiffs characterized the death carveout in a prediction market for the f
 
 ### 2.2 [블록체인] Kalshi, Polymarket eye $20B valuations in potential
 
-{%% include news-card.html
-  title="[블록체인] Kalshi, Polymarket eye $20B valuations in potential"
-  url="https://cointelegraph.com/news/kalshi-polymarket-20b-valuation-fundraising-wsj?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-  image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2M4MWItOTdmYy03Mzk1LTk1ZWItOTgxMmRlZjg4ODlmLmpwZw==.jpg"
-  summary="Lawmakers are pushing new regulation for prediction markets after suspiciously timed Polymarket bets on US and Israeli strikes on Iran raised insider-trading concerns."
-  source="Cointelegraph"
-%%}
+{% include news-card.html title="[블록체인] Kalshi, Polymarket eye $20B valuations in potential" url="https://cointelegraph.com/news/kalshi-polymarket-20b-valuation-fundraising-wsj" summary="예측 시장 Kalshi, Polymarket이 200억달러 밸류에이션 목표 자금 조달 추진" source="Cointelegraph" %}
 
 #### 개요
 
@@ -186,13 +162,7 @@ Lawmakers are pushing new regulation for prediction markets after suspiciously t
 
 ### 2.3 [블록체인] USDC beats Tether as stablecoin transfer volume hits $1.8T
 
-{%% include news-card.html
-  title="[블록체인] USDC beats Tether as stablecoin transfer volume hits $1.8T"
-  url="https://cointelegraph.com/news/usdc-beats-tether-stablecoin-transfer-volume-1-8-trillion-all-time-high?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
-  image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDEvMDE5YzBkNGUtYjUwOC03NWE2LTllNTMtM2I1MzY2ZmJjYzZjLmpwZw==.jpg"
-  summary="Stablecoin monthly transaction volume reached a record $1.8 trillion in February, as USDC surprised analysts with 70% of the total volume."
-  source="Cointelegraph"
-%%}
+{% include news-card.html title="[블록체인] USDC beats Tether as stablecoin transfer volume hits $1.8T" url="https://cointelegraph.com/news/usdc-beats-tether-stablecoin-transfer-volume-1-8-trillion-all-time-high" summary="스테이블코인 월간 거래량 1.8조 달러 사상 최고치, USDC가 70% 차지" source="Cointelegraph" %}
 
 #### 개요
 
