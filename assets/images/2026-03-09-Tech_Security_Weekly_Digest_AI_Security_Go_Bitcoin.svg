@@ -126,7 +126,7 @@
     <text x="20" y="96" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Needle on Threats</text>
     <!-- Story body -->
     <text x="20" y="122" font-family="Arial, sans-serif" font-size="13" fill="#a8a090">AI-based assistants are now being used by security teams to detect,</text>
-    <text x="20" y="140" font-family="Arial, sans-serif" font-size="13" fill="#a8a090">analyze, and respond to threats autonomously. — Krebs on Security</text>
+    <text x="20" y="140" font-family="Arial, sans-serif" font-size="13" fill="#a8a090">analyze, and respond to threats autonomously. - Krebs on Security</text>
   </g>
 
   <!-- ===== METRIC BOXES (3 boxes on right of hero) ===== -->

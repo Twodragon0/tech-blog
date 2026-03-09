@@ -51,9 +51,9 @@
     <rect x="0" y="0" width="180" height="30" rx="12" fill="url(#dangerGrad)"/>
     <text x="90" y="20" font-family="system-ui" font-size="11" font-weight="600" fill="#fff" text-anchor="middle">⚠️ Microsoft Account</text>
     <text x="90" y="50" font-family="system-ui" font-size="10" fill="#f87171" text-anchor="middle">Cloud Backup (Default)</text>
-    <text x="15" y="75" font-family="system-ui" font-size="9" fill="#94a3b8">• Stored on MS servers</text>
-    <text x="15" y="90" font-family="system-ui" font-size="9" fill="#94a3b8">• Accessible via legal request</text>
-    <text x="15" y="105" font-family="system-ui" font-size="9" fill="#fca5a5">• FBI can obtain keys</text>
+    <text x="15" y="75" font-family="system-ui" font-size="9" fill="#94a3b8">- Stored on MS servers</text>
+    <text x="15" y="90" font-family="system-ui" font-size="9" fill="#94a3b8">- Accessible via legal request</text>
+    <text x="15" y="105" font-family="system-ui" font-size="9" fill="#fca5a5">- FBI can obtain keys</text>
   </g>
   
   <!-- Path 2: Active Directory (WARNING) -->
@@ -63,8 +63,8 @@
     <rect x="0" y="0" width="160" height="28" rx="12" fill="url(#warnGrad)"/>
     <text x="80" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">Active Directory</text>
     <text x="80" y="48" font-family="system-ui" font-size="9" fill="#fcd34d" text-anchor="middle">Enterprise Managed</text>
-    <text x="12" y="68" font-family="system-ui" font-size="9" fill="#94a3b8">• Org controlled</text>
-    <text x="12" y="83" font-family="system-ui" font-size="9" fill="#94a3b8">• Admin access possible</text>
+    <text x="12" y="68" font-family="system-ui" font-size="9" fill="#94a3b8">- Org controlled</text>
+    <text x="12" y="83" font-family="system-ui" font-size="9" fill="#94a3b8">- Admin access possible</text>
   </g>
   
   <!-- Path 3: Azure AD (WARNING) -->
@@ -74,8 +74,8 @@
     <rect x="0" y="0" width="160" height="28" rx="12" fill="url(#warnGrad)"/>
     <text x="80" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">Azure AD / Entra ID</text>
     <text x="80" y="48" font-family="system-ui" font-size="9" fill="#fcd34d" text-anchor="middle">Cloud + Org Managed</text>
-    <text x="12" y="68" font-family="system-ui" font-size="9" fill="#94a3b8">• Hybrid control</text>
-    <text x="12" y="83" font-family="system-ui" font-size="9" fill="#94a3b8">• MS + Org access</text>
+    <text x="12" y="68" font-family="system-ui" font-size="9" fill="#94a3b8">- Hybrid control</text>
+    <text x="12" y="83" font-family="system-ui" font-size="9" fill="#94a3b8">- MS + Org access</text>
   </g>
   
   <!-- Path 4: Local Only (SAFE) -->
@@ -85,9 +85,9 @@
     <rect x="0" y="0" width="180" height="30" rx="12" fill="url(#safeGrad)"/>
     <text x="90" y="20" font-family="system-ui" font-size="11" font-weight="600" fill="#fff" text-anchor="middle">✅ Local Storage Only</text>
     <text x="90" y="50" font-family="system-ui" font-size="10" fill="#4ade80" text-anchor="middle">Manual Configuration</text>
-    <text x="15" y="75" font-family="system-ui" font-size="9" fill="#94a3b8">• User-only access</text>
-    <text x="15" y="90" font-family="system-ui" font-size="9" fill="#94a3b8">• No cloud backup</text>
-    <text x="15" y="105" font-family="system-ui" font-size="9" fill="#6ee7b7">• Maximum privacy</text>
+    <text x="15" y="75" font-family="system-ui" font-size="9" fill="#94a3b8">- User-only access</text>
+    <text x="15" y="90" font-family="system-ui" font-size="9" fill="#94a3b8">- No cloud backup</text>
+    <text x="15" y="105" font-family="system-ui" font-size="9" fill="#6ee7b7">- Maximum privacy</text>
   </g>
   
   <!-- Legend -->
@@ -108,4 +108,5 @@
     <text x="140" y="18" font-family="system-ui" font-size="10" font-weight="600" fill="#60a5fa" text-anchor="middle">💡 Recommendation</text>
     <text x="140" y="32" font-family="system-ui" font-size="9" fill="#94a3b8" text-anchor="middle">Use local storage + secure backup for sensitive data</text>
   </g>
+  <text x="750" y="490" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

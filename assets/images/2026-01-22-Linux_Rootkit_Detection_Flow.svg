@@ -214,10 +214,10 @@
     <g transform="translate(20, 50)">
       <rect x="0" y="0" width="290" height="130" rx="8" fill="rgba(243,156,18,0.1)" stroke="#F39C12" stroke-width="1"/>
       <text x="145" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#F39C12">User-space Rootkits</text>
-      <text x="15" y="45" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">• Binary replacement (/bin, /sbin)</text>
-      <text x="15" y="62" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">• LD_PRELOAD library injection</text>
-      <text x="15" y="79" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">• Shared library hooking</text>
-      <text x="15" y="96" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">• Shell modification</text>
+      <text x="15" y="45" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- Binary replacement (/bin, /sbin)</text>
+      <text x="15" y="62" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- LD_PRELOAD library injection</text>
+      <text x="15" y="79" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- Shared library hooking</text>
+      <text x="15" y="96" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- Shell modification</text>
       <text x="15" y="113" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">Detection: File hash comparison</text>
     </g>
     
@@ -225,10 +225,10 @@
     <g transform="translate(330, 50)">
       <rect x="0" y="0" width="290" height="130" rx="8" fill="rgba(231,76,60,0.1)" stroke="#E74C3C" stroke-width="1"/>
       <text x="145" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E74C3C">Kernel-space Rootkits</text>
-      <text x="15" y="45" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">• LKM (Loadable Kernel Module)</text>
-      <text x="15" y="62" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">• Syscall table hooking</text>
-      <text x="15" y="79" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">• VFS layer manipulation</text>
-      <text x="15" y="96" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">• DKOM (Direct Kernel Object)</text>
+      <text x="15" y="45" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- LKM (Loadable Kernel Module)</text>
+      <text x="15" y="62" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- Syscall table hooking</text>
+      <text x="15" y="79" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- VFS layer manipulation</text>
+      <text x="15" y="96" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">- DKOM (Direct Kernel Object)</text>
       <text x="15" y="113" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">Detection: Kernel memory analysis</text>
     </g>
   </g>

@@ -100,5 +100,5 @@
 
   <!-- Attack Flow Arrow -->
   <path d="M 690 370 L 430 330" class="arrow-attack" />
-
+  <text x="850" y="490" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>

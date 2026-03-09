@@ -119,4 +119,5 @@
     <circle cx="270" cy="-4" r="8" class="threat-bubble threat-low"/>
     <text x="283" y="0" class="label" style="font-size: 11px;">Low</text>
   </g>
+  <text x="650" y="590" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
 </svg>
