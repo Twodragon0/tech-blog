@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-08T03:33:43.729759+00:00",
+  "updated_at": "2026-03-09T03:37:57.344382+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -774,6 +774,72 @@
       "title": "메타, 비트토렌트를 통한 불법 도서 업로드가 공정 이용에 해당한다고 주장",
       "published_date": "2026-03-08",
       "expires_at": "2026-03-15T03:33:43.729665+00:00"
+    },
+    {
+      "url": "https://krebsonsecurity.com/2026/03/how-ai-assistants-are-moving-the-security-goalposts/",
+      "title": "How AI Assistants are Moving the Security Goalposts",
+      "published_date": "2026-03-09",
+      "expires_at": "2026-03-16T03:37:57.344287+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/us-banks-need-crypto-regulatory-clarity-giancarlo-cftc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Crypto regulatory clarity matters more for banks, ex-CFTC chief says",
+      "published_date": "2026-03-09",
+      "expires_at": "2026-03-16T03:37:57.344287+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/saylor-signals-bitcoin-buy-btc-near-66k?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Saylor signals another Bitcoin buy as BTC hovers near $66K",
+      "published_date": "2026-03-09",
+      "expires_at": "2026-03-16T03:37:57.344287+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/brazil-pix-payments-expand-argentina?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Brazil's Pix instant payments system expands to Argentina",
+      "published_date": "2026-03-09",
+      "expires_at": "2026-03-16T03:37:57.344287+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/michael-jordan-oscars-best-actor-polymarket?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Michael B. Jordan takes the lead on Polymarket for Oscars Best Actor",
+      "published_date": "2026-03-09",
+      "expires_at": "2026-03-16T03:37:57.344287+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ai-agent-attempts-crypto-mining-during-training-researchers-say?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "AI agent attempts unauthorized crypto mining during training, reseachers say",
+      "published_date": "2026-03-09",
+      "expires_at": "2026-03-16T03:37:57.344287+00:00"
+    },
+    {
+      "url": "https://techblog.lycorp.co.jp/ko/building-an-llm-service-for-enterprise-2-agent-engineering",
+      "title": "엔터프라이즈 LLM 서비스 구축기 2: 에이전트 엔지니어링",
+      "published_date": "2026-03-09",
+      "expires_at": "2026-03-16T03:37:57.344287+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27330",
+      "title": "전쟁은 AI 기업의 윤리 원칙을 어디까지 밀어붙였나?",
+      "published_date": "2026-03-09",
+      "expires_at": "2026-03-16T03:37:57.344287+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27329",
+      "title": "Agent Safehouse – macOS용 로컬 에이전트 샌드박싱 도구",
+      "published_date": "2026-03-09",
+      "expires_at": "2026-03-16T03:37:57.344287+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27327",
+      "title": "PM Skills - AI 에이전트를 PM으로 활용하기",
+      "published_date": "2026-03-09",
+      "expires_at": "2026-03-16T03:37:57.344287+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=27326",
+      "title": "Superset - AI 에이전트 시대를 위한 IDE",
+      "published_date": "2026-03-09",
+      "expires_at": "2026-03-16T03:37:57.344287+00:00"
     }
   ]
 }
