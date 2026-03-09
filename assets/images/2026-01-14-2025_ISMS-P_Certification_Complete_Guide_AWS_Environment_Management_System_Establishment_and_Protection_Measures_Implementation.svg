@@ -1,19 +1,185 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0b1424" />
-      <stop offset="100%" stop-color="#1a3552" />
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071a0e"/>
+      <stop offset="50%" stop-color="#0a2318"/>
+      <stop offset="100%" stop-color="#0d2f24"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#67e8f9" />
-      <stop offset="100%" stop-color="#60a5fa" />
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
+    <linearGradient id="card1Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#064e3b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#022c22" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="card2Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0e4a52" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#052e36" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="card3Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a3a5c" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0c2240" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#0891b2"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="titleGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)" />
-  <rect x="60" y="70" width="1080" height="490" rx="28" fill="#0f2133" stroke="#2a4b68" stroke-width="2" />
-  <rect x="120" y="150" width="240" height="8" fill="url(#accent)" />
-  <text x="120" y="235" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="50" font-weight="700">2025 ISMS P Certification</text>
-  <text x="120" y="295" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">Complete Guide AWS Enviro...</text>
-  <text x="120" y="360" fill="#a7c3d9" font-family="Space Grotesk, Arial, sans-serif" font-size="24">Jan 14, 2026</text>
-  <text x="120" y="470" fill="#7fb0d4" font-family="Space Grotesk, Arial, sans-serif" font-size="20">Twodragon Tech Blog</text>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Background grid pattern -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="#1a4a2e" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#1a4a2e" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="#1a4a2e" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#1a4a2e" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="0" y1="525" x2="1200" y2="525" stroke="#1a4a2e" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="200" y1="0" x2="200" y2="630" stroke="#1a4a2e" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="#1a4a2e" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#1a4a2e" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#1a4a2e" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="1000" y1="0" x2="1000" y2="630" stroke="#1a4a2e" stroke-width="0.5" stroke-opacity="0.4"/>
+
+  <!-- Glow orbs -->
+  <circle cx="150" cy="150" r="180" fill="#059669" fill-opacity="0.06"/>
+  <circle cx="1050" cy="480" r="160" fill="#06b6d4" fill-opacity="0.06"/>
+  <circle cx="600" cy="320" r="200" fill="#10b981" fill-opacity="0.04"/>
+
+  <!-- Top badge -->
+  <rect x="40" y="28" width="220" height="34" rx="17" fill="url(#badgeGrad)"/>
+  <text x="150" y="50" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="2">ISMS-P CERTIFICATION</text>
+
+  <!-- Date badge -->
+  <rect x="980" y="28" width="180" height="34" rx="17" fill="#0f2d1e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="1070" y="50" fill="#34d399" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Jan 14, 2026</text>
+
+  <!-- Shield icon -->
+  <g transform="translate(40, 78)">
+    <path d="M30 0 L60 12 L60 36 Q60 54 30 66 Q0 54 0 36 L0 12 Z" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M18 33 L26 41 L42 25" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Main title -->
+  <text x="120" y="112" fill="url(#titleGrad)" font-family="Arial, sans-serif" font-size="42" font-weight="800" filter="url(#titleGlow)">ISMS-P Certification Complete Guide</text>
+
+  <!-- Subtitle -->
+  <text x="120" y="148" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="20" font-weight="500" letter-spacing="3">AWS  |  Management System  |  Protection Measures</text>
+
+  <!-- Divider line -->
+  <rect x="120" y="162" width="960" height="2" rx="1" fill="url(#titleGrad)" opacity="0.5"/>
+
+  <!-- CARD 1: Governance -->
+  <rect x="60" y="185" width="340" height="310" rx="16" fill="url(#card1Grad)" stroke="#34d399" stroke-width="1.5" filter="url(#cardShadow)"/>
+
+  <!-- Card 1 top accent -->
+  <rect x="60" y="185" width="340" height="4" rx="2" fill="#34d399"/>
+
+  <!-- Card 1 icon: document/policy -->
+  <g transform="translate(88, 210)">
+    <rect x="0" y="0" width="44" height="54" rx="5" fill="none" stroke="#34d399" stroke-width="2"/>
+    <line x1="8" y1="15" x2="36" y2="15" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+    <line x1="8" y1="25" x2="36" y2="25" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+    <line x1="8" y1="35" x2="24" y2="35" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="34" cy="42" r="8" fill="#071a0e" stroke="#34d399" stroke-width="1.5"/>
+    <text x="34" y="46" fill="#34d399" font-family="Arial" font-size="9" font-weight="700" text-anchor="middle">OK</text>
+  </g>
+
+  <text x="148" y="228" fill="#34d399" font-family="Arial, sans-serif" font-size="18" font-weight="700">Governance</text>
+  <text x="88" y="286" fill="#a7f3d0" font-family="Arial, sans-serif" font-size="14" font-weight="600">Policy Establishment</text>
+  <text x="88" y="308" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="12">- Information security policy</text>
+  <text x="88" y="326" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="12">- Risk assessment framework</text>
+  <text x="88" y="344" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="12">- PDCA cycle management</text>
+  <text x="88" y="374" fill="#a7f3d0" font-family="Arial, sans-serif" font-size="14" font-weight="600">Key Areas</text>
+  <text x="88" y="396" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="12">- Leadership commitment</text>
+  <text x="88" y="414" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="12">- Scope definition</text>
+  <text x="88" y="432" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="12">- Stakeholder management</text>
+  <text x="88" y="466" fill="#34d399" font-family="Arial, sans-serif" font-size="13" font-weight="700">ISMS Management</text>
+  <rect x="88" y="474" width="100" height="4" rx="2" fill="#34d399" opacity="0.5"/>
+
+  <!-- CARD 2: Technical Controls -->
+  <rect x="430" y="185" width="340" height="310" rx="16" fill="url(#card2Grad)" stroke="#06b6d4" stroke-width="1.5" filter="url(#cardShadow)"/>
+  <rect x="430" y="185" width="340" height="4" rx="2" fill="#06b6d4"/>
+
+  <!-- Card 2 icon: shield/lock -->
+  <g transform="translate(458, 210)">
+    <rect x="0" y="6" width="44" height="38" rx="4" fill="none" stroke="#06b6d4" stroke-width="2"/>
+    <path d="M8 6 L8 0 Q8 -6 22 -6 Q36 -6 36 0 L36 6" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="22" cy="26" r="6" fill="none" stroke="#06b6d4" stroke-width="2"/>
+    <line x1="22" y1="32" x2="22" y2="38" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <text x="518" y="228" fill="#06b6d4" font-family="Arial, sans-serif" font-size="18" font-weight="700">Technical Controls</text>
+  <text x="458" y="286" fill="#bae6fd" font-family="Arial, sans-serif" font-size="14" font-weight="600">AWS Security Services</text>
+  <text x="458" y="308" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="12">- CloudTrail audit logging</text>
+  <text x="458" y="326" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="12">- AWS Config compliance</text>
+  <text x="458" y="344" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="12">- GuardDuty threat detection</text>
+  <text x="458" y="374" fill="#bae6fd" font-family="Arial, sans-serif" font-size="14" font-weight="600">Protection Measures</text>
+  <text x="458" y="396" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="12">- Encryption at rest/transit</text>
+  <text x="458" y="414" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="12">- IAM least privilege</text>
+  <text x="458" y="432" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="12">- Network segmentation</text>
+  <text x="458" y="466" fill="#06b6d4" font-family="Arial, sans-serif" font-size="13" font-weight="700">AWS Security</text>
+  <rect x="458" y="474" width="100" height="4" rx="2" fill="#06b6d4" opacity="0.5"/>
+
+  <!-- CARD 3: Compliance -->
+  <rect x="800" y="185" width="340" height="310" rx="16" fill="url(#card3Grad)" stroke="#60a5fa" stroke-width="1.5" filter="url(#cardShadow)"/>
+  <rect x="800" y="185" width="340" height="4" rx="2" fill="#60a5fa"/>
+
+  <!-- Card 3 icon: checkmark/audit -->
+  <g transform="translate(828, 210)">
+    <circle cx="22" cy="22" r="22" fill="none" stroke="#60a5fa" stroke-width="2"/>
+    <path d="M10 22 L18 30 L34 14" fill="none" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="888" y="228" fill="#60a5fa" font-family="Arial, sans-serif" font-size="18" font-weight="700">Compliance Audit</text>
+  <text x="828" y="286" fill="#bfdbfe" font-family="Arial, sans-serif" font-size="14" font-weight="600">Certification Review</text>
+  <text x="828" y="308" fill="#93c5fd" font-family="Arial, sans-serif" font-size="12">- Document preparation</text>
+  <text x="828" y="326" fill="#93c5fd" font-family="Arial, sans-serif" font-size="12">- On-site audit process</text>
+  <text x="828" y="344" fill="#93c5fd" font-family="Arial, sans-serif" font-size="12">- Evidence collection</text>
+  <text x="828" y="374" fill="#bfdbfe" font-family="Arial, sans-serif" font-size="14" font-weight="600">Audit Domains</text>
+  <text x="828" y="396" fill="#93c5fd" font-family="Arial, sans-serif" font-size="12">- 102 control items (ISMS)</text>
+  <text x="828" y="414" fill="#93c5fd" font-family="Arial, sans-serif" font-size="12">- 22 personal info controls</text>
+  <text x="828" y="432" fill="#93c5fd" font-family="Arial, sans-serif" font-size="12">- Annual review cycle</text>
+  <text x="828" y="466" fill="#60a5fa" font-family="Arial, sans-serif" font-size="13" font-weight="700">Certification</text>
+  <rect x="828" y="474" width="100" height="4" rx="2" fill="#60a5fa" opacity="0.5"/>
+
+  <!-- Footer bar -->
+  <rect x="0" y="516" width="1200" height="114" fill="#040f08" fill-opacity="0.9"/>
+  <rect x="0" y="516" width="1200" height="2" fill="url(#titleGrad)" opacity="0.6"/>
+
+  <!-- Footer keywords -->
+  <g transform="translate(60, 545)">
+    <rect x="0" y="0" width="88" height="26" rx="13" fill="#064e3b" stroke="#34d399" stroke-width="1"/>
+    <text x="44" y="17" fill="#34d399" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">ISMS-P</text>
+  </g>
+  <g transform="translate(162, 545)">
+    <rect x="0" y="0" width="108" height="26" rx="13" fill="#0e4a52" stroke="#06b6d4" stroke-width="1"/>
+    <text x="54" y="17" fill="#06b6d4" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">AWS Security</text>
+  </g>
+  <g transform="translate(284, 545)">
+    <rect x="0" y="0" width="108" height="26" rx="13" fill="#1a3a5c" stroke="#60a5fa" stroke-width="1"/>
+    <text x="54" y="17" fill="#60a5fa" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Compliance</text>
+  </g>
+  <g transform="translate(406, 545)">
+    <rect x="0" y="0" width="108" height="26" rx="13" fill="#064e3b" stroke="#34d399" stroke-width="1"/>
+    <text x="54" y="17" fill="#34d399" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Protection</text>
+  </g>
+
+  <!-- Footer site -->
+  <text x="1140" y="558" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- Footer description -->
+  <text x="60" y="598" fill="#4b7a5e" font-family="Arial, sans-serif" font-size="13">Complete guide to achieving ISMS-P certification in AWS cloud environments with management system establishment and protection measures</text>
 </svg>
