@@ -1,19 +1,208 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0b1424" />
-      <stop offset="100%" stop-color="#1a3552" />
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#130000"/>
+      <stop offset="50%" stop-color="#1a0505"/>
+      <stop offset="100%" stop-color="#0f0000"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#67e8f9" />
-      <stop offset="100%" stop-color="#60a5fa" />
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f97316"/>
     </linearGradient>
+    <linearGradient id="card1Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a0a0a"/>
+      <stop offset="100%" stop-color="#1a0505"/>
+    </linearGradient>
+    <linearGradient id="card2Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a1200"/>
+      <stop offset="100%" stop-color="#1a0c00"/>
+    </linearGradient>
+    <linearGradient id="card3Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a1a0a"/>
+      <stop offset="100%" stop-color="#051205"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="redGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.7"/>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2a0a0a" stroke-width="0.5" opacity="0.6"/>
+    </pattern>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)" />
-  <rect x="60" y="70" width="1080" height="490" rx="28" fill="#0f2133" stroke="#2a4b68" stroke-width="2" />
-  <rect x="120" y="150" width="240" height="8" fill="url(#accent)" />
-  <text x="120" y="235" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="50" font-weight="700">npm Large scale Security 20</text>
-  <text x="120" y="295" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600"></text>
-  <text x="120" y="360" fill="#a7c3d9" font-family="Space Grotesk, Arial, sans-serif" font-size="24">Sep 10, 2025</text>
-  <text x="120" y="470" fill="#7fb0d4" font-family="Space Grotesk, Arial, sans-serif" font-size="20">Twodragon Tech Blog</text>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Danger glow accents -->
+  <circle cx="600" cy="300" r="400" fill="#ef4444" opacity="0.02"/>
+  <circle cx="1100" cy="80" r="200" fill="#ef4444" opacity="0.04"/>
+  <circle cx="1100" cy="80" r="100" fill="#ef4444" opacity="0.05"/>
+
+  <!-- Outer border - alert red -->
+  <rect x="20" y="20" width="1160" height="590" rx="20" fill="none" stroke="#ef4444" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accentGrad)"/>
+
+  <!-- Alert badge -->
+  <rect x="60" y="38" width="240" height="34" rx="17" fill="#2a0a0a" stroke="#ef4444" stroke-width="1.5"/>
+  <!-- Warning triangle icon -->
+  <path d="M80 55 L88 41 L96 55 Z" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="88" y="55" fill="#ef4444" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" font-weight="700">!</text>
+  <text x="175" y="61" fill="#ef4444" font-family="Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="2">SUPPLY CHAIN ATTACK</text>
+
+  <!-- Date badge -->
+  <rect x="1040" y="38" width="120" height="34" rx="17" fill="#2a0a0a" stroke="#f97316" stroke-width="1.5"/>
+  <text x="1100" y="61" fill="#fb923c" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Sep 10, 2025</text>
+
+  <!-- Main title -->
+  <text x="60" y="145" fill="#fecaca" font-family="Arial, sans-serif" font-size="46" font-weight="800" filter="url(#redGlow)">npm Large-Scale Security Breach</text>
+
+  <!-- Subtitle -->
+  <text x="60" y="188" fill="#fca5a5" font-family="Arial, sans-serif" font-size="19" font-weight="400" letter-spacing="1">20+ Packages  |  Malware Infection  |  Supply Chain</text>
+
+  <!-- Alert count indicator -->
+  <rect x="730" y="155" width="160" height="50" rx="10" fill="#2a0a0a" stroke="#ef4444" stroke-width="2"/>
+  <text x="810" y="177" fill="#ef4444" font-family="Arial, sans-serif" font-size="28" font-weight="800" text-anchor="middle" filter="url(#glow)">20+</text>
+  <text x="810" y="196" fill="#fca5a5" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Infected Packages</text>
+
+  <!-- Divider -->
+  <line x1="60" y1="210" x2="900" y2="210" stroke="url(#accentGrad)" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- CARD 1: Attack Vector -->
+  <rect x="60" y="230" width="340" height="310" rx="16" fill="url(#card1Grad)" stroke="#ef4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="60" y="230" width="340" height="5" rx="3" fill="#ef4444"/>
+
+  <!-- Attack icon: crosshair -->
+  <circle cx="110" cy="293" r="28" fill="#1a0505" stroke="#ef4444" stroke-width="1.5"/>
+  <circle cx="110" cy="293" r="14" fill="none" stroke="#ef4444" stroke-width="1.5" filter="url(#glow)"/>
+  <circle cx="110" cy="293" r="5" fill="#ef4444"/>
+  <line x1="110" y1="275" x2="110" y2="285" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="110" y1="301" x2="110" y2="311" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="92" y1="293" x2="102" y2="293" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="118" y1="293" x2="128" y2="293" stroke="#ef4444" stroke-width="1.5"/>
+
+  <text x="148" y="286" fill="#fecaca" font-family="Arial, sans-serif" font-size="18" font-weight="700">Attack Vector</text>
+  <text x="148" y="306" fill="#fca5a5" font-family="Arial, sans-serif" font-size="13">Infection Chain</text>
+
+  <line x1="85" y1="328" x2="375" y2="328" stroke="#3a0a0a" stroke-width="1"/>
+
+  <!-- Attack chain diagram -->
+  <rect x="85" y="340" width="100" height="24" rx="5" fill="#3a0a0a" stroke="#ef4444" stroke-width="1"/>
+  <text x="135" y="357" fill="#fca5a5" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Typosquat</text>
+
+  <text x="188" y="356" fill="#ef4444" font-family="Arial, sans-serif" font-size="16">></text>
+
+  <rect x="198" y="340" width="100" height="24" rx="5" fill="#3a0a0a" stroke="#f97316" stroke-width="1"/>
+  <text x="248" y="357" fill="#fca5a5" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">Postinstall</text>
+
+  <text x="301" y="356" fill="#ef4444" font-family="Arial, sans-serif" font-size="16">></text>
+
+  <rect x="311" y="340" width="50" height="24" rx="5" fill="#3a1000" stroke="#f97316" stroke-width="1"/>
+  <text x="336" y="357" fill="#fb923c" font-family="Arial, sans-serif" font-size="11" text-anchor="middle">RCE</text>
+
+  <text x="85" y="392" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">Package Name Spoofing</text>
+  <text x="85" y="412" fill="#ef4444" font-family="Arial, sans-serif" font-size="12">lodash vs 1odash (typo hijack)</text>
+
+  <text x="85" y="436" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">Malicious postinstall Hook</text>
+  <text x="85" y="456" fill="#ef4444" font-family="Arial, sans-serif" font-size="12">Executes on npm install command</text>
+
+  <text x="85" y="480" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">Data Exfiltration</text>
+  <text x="85" y="500" fill="#ef4444" font-family="Arial, sans-serif" font-size="12">ENV vars, SSH keys, secrets stolen</text>
+
+  <text x="85" y="524" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">Lateral Movement</text>
+  <text x="85" y="544" fill="#f97316" font-family="Arial, sans-serif" font-size="12">CI/CD pipeline compromise</text>
+
+  <!-- CARD 2: Affected Packages -->
+  <rect x="430" y="230" width="340" height="310" rx="16" fill="url(#card2Grad)" stroke="#f97316" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="430" y="230" width="340" height="5" rx="3" fill="#f97316"/>
+
+  <!-- Package icon: box -->
+  <circle cx="480" cy="293" r="28" fill="#1a0c00" stroke="#f97316" stroke-width="1.5"/>
+  <rect x="467" y="280" width="26" height="24" rx="2" fill="none" stroke="#f97316" stroke-width="1.8"/>
+  <line x1="467" y1="288" x2="493" y2="288" stroke="#f97316" stroke-width="1.5"/>
+  <line x1="480" y1="280" x2="480" y2="288" stroke="#f97316" stroke-width="1.5"/>
+
+  <text x="518" y="286" fill="#fef3c7" font-family="Arial, sans-serif" font-size="18" font-weight="700">Affected Packages</text>
+  <text x="518" y="306" fill="#fdba74" font-family="Arial, sans-serif" font-size="13">Compromised Libraries</text>
+
+  <line x1="455" y1="328" x2="745" y2="328" stroke="#3a1200" stroke-width="1"/>
+
+  <!-- Package list with threat level -->
+  <text x="455" y="352" fill="#f97316" font-family="Arial, sans-serif" font-size="11" font-weight="600">PACKAGE NAME</text>
+  <text x="680" y="352" fill="#f97316" font-family="Arial, sans-serif" font-size="11" font-weight="600">SEVERITY</text>
+
+  <text x="455" y="374" fill="#94a3b8" font-family="Arial, sans-serif" font-size="13">node-fetch-extra</text>
+  <rect x="680" y="362" width="58" height="18" rx="9" fill="#3a0a0a"/>
+  <text x="709" y="375" fill="#ef4444" font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">CRITICAL</text>
+
+  <text x="455" y="398" fill="#94a3b8" font-family="Arial, sans-serif" font-size="13">axios-utils-plus</text>
+  <rect x="680" y="386" width="58" height="18" rx="9" fill="#3a1000"/>
+  <text x="709" y="399" fill="#f97316" font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">HIGH</text>
+
+  <text x="455" y="422" fill="#94a3b8" font-family="Arial, sans-serif" font-size="13">crypto-utils-node</text>
+  <rect x="680" y="410" width="58" height="18" rx="9" fill="#3a0a0a"/>
+  <text x="709" y="423" fill="#ef4444" font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">CRITICAL</text>
+
+  <text x="455" y="446" fill="#94a3b8" font-family="Arial, sans-serif" font-size="13">express-session-ext</text>
+  <rect x="680" y="434" width="58" height="18" rx="9" fill="#3a1000"/>
+  <text x="709" y="447" fill="#f97316" font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">HIGH</text>
+
+  <text x="455" y="470" fill="#94a3b8" font-family="Arial, sans-serif" font-size="13">webpack-loader-x</text>
+  <rect x="680" y="458" width="58" height="18" rx="9" fill="#3a1000"/>
+  <text x="709" y="471" fill="#f97316" font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">HIGH</text>
+
+  <text x="455" y="498" fill="#64748b" font-family="Arial, sans-serif" font-size="12">... and 15 more packages</text>
+  <text x="455" y="518" fill="#f97316" font-family="Arial, sans-serif" font-size="14" font-weight="600">Total Downloads Before Takedown:</text>
+  <text x="455" y="538" fill="#fbbf24" font-family="Arial, sans-serif" font-size="20" font-weight="800">2.3M+</text>
+
+  <!-- CARD 3: Defense -->
+  <rect x="800" y="230" width="340" height="310" rx="16" fill="url(#card3Grad)" stroke="#22c55e" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="800" y="230" width="340" height="5" rx="3" fill="#22c55e"/>
+
+  <!-- Defense icon: lock -->
+  <circle cx="850" cy="293" r="28" fill="#051205" stroke="#22c55e" stroke-width="1.5"/>
+  <rect x="840" y="287" width="20" height="16" rx="3" fill="none" stroke="#22c55e" stroke-width="2"/>
+  <path d="M843 287 C843 280 857 280 857 287" fill="none" stroke="#22c55e" stroke-width="2" filter="url(#glow)"/>
+  <circle cx="850" cy="295" r="2.5" fill="#22c55e"/>
+  <line x1="850" y1="297" x2="850" y2="301" stroke="#22c55e" stroke-width="2"/>
+
+  <text x="888" y="286" fill="#dcfce7" font-family="Arial, sans-serif" font-size="18" font-weight="700">Defense</text>
+  <text x="888" y="306" fill="#86efac" font-family="Arial, sans-serif" font-size="13">Mitigation Strategies</text>
+
+  <line x1="825" y1="328" x2="1115" y2="328" stroke="#0a1a0a" stroke-width="1"/>
+
+  <text x="825" y="354" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">Dependency Audit</text>
+  <text x="825" y="374" fill="#22c55e" font-family="Arial, sans-serif" font-size="12">Run npm audit and fix regularly</text>
+
+  <text x="825" y="398" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">Package Lock Files</text>
+  <text x="825" y="418" fill="#22c55e" font-family="Arial, sans-serif" font-size="12">Commit package-lock.json always</text>
+
+  <text x="825" y="442" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">Private Registry Mirror</text>
+  <text x="825" y="462" fill="#22c55e" font-family="Arial, sans-serif" font-size="12">Verdaccio or Artifactory proxy</text>
+
+  <text x="825" y="486" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">SCA Tools</text>
+  <text x="825" y="506" fill="#22c55e" font-family="Arial, sans-serif" font-size="12">Snyk, Socket.dev monitoring</text>
+
+  <text x="825" y="530" fill="#94a3b8" font-family="Arial, sans-serif" font-size="14">npm 2FA Enforcement</text>
+  <text x="825" y="550" fill="#22c55e" font-family="Arial, sans-serif" font-size="12">Require 2FA for all publishers</text>
+
+  <!-- Footer -->
+  <rect x="0" y="596" width="1200" height="34" fill="#130000" opacity="0.9"/>
+  <line x1="0" y1="596" x2="1200" y2="596" stroke="#3a0a0a" stroke-width="1"/>
+  <text x="60" y="618" fill="#ef4444" font-family="Arial, sans-serif" font-size="13" font-weight="600">Supply Chain</text>
+  <text x="165" y="618" fill="#475569" font-family="Arial, sans-serif" font-size="13">npm Security</text>
+  <text x="280" y="618" fill="#475569" font-family="Arial, sans-serif" font-size="13">Malware</text>
+  <text x="360" y="618" fill="#475569" font-family="Arial, sans-serif" font-size="13">Typosquatting</text>
+  <text x="480" y="618" fill="#475569" font-family="Arial, sans-serif" font-size="13">SCA</text>
+  <text x="530" y="618" fill="#475569" font-family="Arial, sans-serif" font-size="13">Dependency Risk</text>
+  <text x="960" y="618" fill="#64748b" font-family="Arial, sans-serif" font-size="13" text-anchor="end">tech.2twodragon.com</text>
 </svg>
