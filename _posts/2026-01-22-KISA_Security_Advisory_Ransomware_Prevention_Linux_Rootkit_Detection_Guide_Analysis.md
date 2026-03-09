@@ -274,8 +274,8 @@ KISA의 최신 보안 공지는 **랜섬웨어, 루트킷, 피싱**이라는 세
 
 ### 루트킷 탐지 도구
 
-6. **chkrootkit** 공식 사이트. [http://www.chkrootkit.org/](http://www.chkrootkit.org/)
-7. **rkhunter** (Rootkit Hunter) 공식 사이트. [http://rkhunter.sourceforge.net/](http://rkhunter.sourceforge.net/)
+6. **chkrootkit** 공식 사이트. [https://www.chkrootkit.org/](https://www.chkrootkit.org/)
+7. **rkhunter** (Rootkit Hunter) 공식 사이트. [https://rkhunter.sourceforge.net/](https://rkhunter.sourceforge.net/)
 8. **AIDE** (Advanced Intrusion Detection Environment). [https://aide.github.io/](https://aide.github.io/)
 9. **Lynis** - Unix/Linux 보안 감사 도구. [https://cisofy.com/lynis/](https://cisofy.com/lynis/)
 10. **Tripwire** - 파일 무결성 모니터링. [https://www.tripwire.com/](https://www.tripwire.com/)
