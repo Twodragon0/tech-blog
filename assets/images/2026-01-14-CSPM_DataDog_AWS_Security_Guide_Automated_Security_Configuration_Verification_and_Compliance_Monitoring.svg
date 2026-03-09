@@ -1,19 +1,197 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0b1424" />
-      <stop offset="100%" stop-color="#1a3552" />
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0718"/>
+      <stop offset="50%" stop-color="#160b2e"/>
+      <stop offset="100%" stop-color="#1a0f3a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#67e8f9" />
-      <stop offset="100%" stop-color="#60a5fa" />
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#e879f9"/>
     </linearGradient>
+    <linearGradient id="card1Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b0764" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#1e0440" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="card2Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a1942" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#2d0e28" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="card3Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a5f" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0f1f3a" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#db2777"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#7c3aed" flood-opacity="0.2"/>
+    </filter>
+    <filter id="titleGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)" />
-  <rect x="60" y="70" width="1080" height="490" rx="28" fill="#0f2133" stroke="#2a4b68" stroke-width="2" />
-  <rect x="120" y="150" width="240" height="8" fill="url(#accent)" />
-  <text x="120" y="235" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="50" font-weight="700">CSPM DataDog AWS Security</text>
-  <text x="120" y="295" fill="#e6f1ff" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="600">Guide Automated Security ...</text>
-  <text x="120" y="360" fill="#a7c3d9" font-family="Space Grotesk, Arial, sans-serif" font-size="24">Jan 14, 2026</text>
-  <text x="120" y="470" fill="#7fb0d4" font-family="Space Grotesk, Arial, sans-serif" font-size="20">Twodragon Tech Blog</text>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Background grid -->
+  <line x1="0" y1="105" x2="1200" y2="105" stroke="#3b0764" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#3b0764" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="#3b0764" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#3b0764" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="0" y1="525" x2="1200" y2="525" stroke="#3b0764" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="200" y1="0" x2="200" y2="630" stroke="#3b0764" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="#3b0764" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#3b0764" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#3b0764" stroke-width="0.5" stroke-opacity="0.4"/>
+  <line x1="1000" y1="0" x2="1000" y2="630" stroke="#3b0764" stroke-width="0.5" stroke-opacity="0.4"/>
+
+  <!-- Glow orbs -->
+  <circle cx="100" cy="200" r="200" fill="#7c3aed" fill-opacity="0.07"/>
+  <circle cx="1100" cy="400" r="180" fill="#db2777" fill-opacity="0.07"/>
+  <circle cx="600" cy="300" r="220" fill="#9333ea" fill-opacity="0.04"/>
+
+  <!-- Top badge -->
+  <rect x="40" y="28" width="230" height="34" rx="17" fill="url(#badgeGrad)"/>
+  <text x="155" y="50" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="2">CSPM SECURITY GUIDE</text>
+
+  <!-- Date badge -->
+  <rect x="980" y="28" width="180" height="34" rx="17" fill="#1e0440" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="1070" y="50" fill="#c084fc" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Jan 14, 2026</text>
+
+  <!-- Radar/eye icon -->
+  <g transform="translate(40, 78)">
+    <circle cx="30" cy="30" r="28" fill="none" stroke="#c084fc" stroke-width="2"/>
+    <circle cx="30" cy="30" r="18" fill="none" stroke="#c084fc" stroke-width="1.5" stroke-opacity="0.6"/>
+    <circle cx="30" cy="30" r="8" fill="none" stroke="#c084fc" stroke-width="1.5"/>
+    <circle cx="30" cy="30" r="3" fill="#c084fc"/>
+    <line x1="30" y1="2" x2="30" y2="58" stroke="#c084fc" stroke-width="1" stroke-opacity="0.3"/>
+    <line x1="2" y1="30" x2="58" y2="30" stroke="#c084fc" stroke-width="1" stroke-opacity="0.3"/>
+  </g>
+
+  <!-- Main title -->
+  <text x="120" y="112" fill="url(#titleGrad)" font-family="Arial, sans-serif" font-size="42" font-weight="800" filter="url(#titleGlow)">CSPM DataDog AWS Security Guide</text>
+
+  <!-- Subtitle -->
+  <text x="120" y="148" fill="#d8b4fe" font-family="Arial, sans-serif" font-size="20" font-weight="500" letter-spacing="3">Configuration  |  Verification  |  Compliance</text>
+
+  <!-- Divider line -->
+  <rect x="120" y="162" width="960" height="2" rx="1" fill="url(#titleGrad)" opacity="0.5"/>
+
+  <!-- CARD 1: DataDog CSPM -->
+  <rect x="60" y="185" width="340" height="310" rx="16" fill="url(#card1Grad)" stroke="#c084fc" stroke-width="1.5" filter="url(#cardShadow)"/>
+  <rect x="60" y="185" width="340" height="4" rx="2" fill="#c084fc"/>
+
+  <!-- Card 1 icon: monitoring bars -->
+  <g transform="translate(88, 210)">
+    <rect x="0" y="20" width="10" height="34" rx="2" fill="#c084fc" opacity="0.8"/>
+    <rect x="14" y="10" width="10" height="44" rx="2" fill="#c084fc"/>
+    <rect x="28" y="28" width="10" height="26" rx="2" fill="#c084fc" opacity="0.8"/>
+    <rect x="42" y="4" width="10" height="50" rx="2" fill="#c084fc"/>
+    <line x1="0" y1="58" x2="56" y2="58" stroke="#c084fc" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <text x="158" y="228" fill="#c084fc" font-family="Arial, sans-serif" font-size="18" font-weight="700">DataDog CSPM</text>
+  <text x="88" y="286" fill="#e9d5ff" font-family="Arial, sans-serif" font-size="14" font-weight="600">Monitoring Features</text>
+  <text x="88" y="308" fill="#d8b4fe" font-family="Arial, sans-serif" font-size="12">- Misconfig detection</text>
+  <text x="88" y="326" fill="#d8b4fe" font-family="Arial, sans-serif" font-size="12">- Real-time posture scoring</text>
+  <text x="88" y="344" fill="#d8b4fe" font-family="Arial, sans-serif" font-size="12">- Drift detection alerts</text>
+  <text x="88" y="374" fill="#e9d5ff" font-family="Arial, sans-serif" font-size="14" font-weight="600">Dashboard</text>
+  <text x="88" y="396" fill="#d8b4fe" font-family="Arial, sans-serif" font-size="12">- Security findings view</text>
+  <text x="88" y="414" fill="#d8b4fe" font-family="Arial, sans-serif" font-size="12">- Resource inventory</text>
+  <text x="88" y="432" fill="#d8b4fe" font-family="Arial, sans-serif" font-size="12">- Compliance reports</text>
+  <text x="88" y="466" fill="#c084fc" font-family="Arial, sans-serif" font-size="13" font-weight="700">Cloud Monitoring</text>
+  <rect x="88" y="474" width="110" height="4" rx="2" fill="#c084fc" opacity="0.5"/>
+
+  <!-- CARD 2: AWS Config -->
+  <rect x="430" y="185" width="340" height="310" rx="16" fill="url(#card2Grad)" stroke="#f472b6" stroke-width="1.5" filter="url(#cardShadow)"/>
+  <rect x="430" y="185" width="340" height="4" rx="2" fill="#f472b6"/>
+
+  <!-- Card 2 icon: gear/config -->
+  <g transform="translate(458, 208)">
+    <circle cx="22" cy="22" r="18" fill="none" stroke="#f472b6" stroke-width="2"/>
+    <circle cx="22" cy="22" r="8" fill="none" stroke="#f472b6" stroke-width="2"/>
+    <line x1="22" y1="2" x2="22" y2="8" stroke="#f472b6" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="22" y1="36" x2="22" y2="42" stroke="#f472b6" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="2" y1="22" x2="8" y2="22" stroke="#f472b6" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="36" y1="22" x2="42" y2="22" stroke="#f472b6" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="6" y1="6" x2="10" y2="10" stroke="#f472b6" stroke-width="2" stroke-linecap="round"/>
+    <line x1="34" y1="34" x2="38" y2="38" stroke="#f472b6" stroke-width="2" stroke-linecap="round"/>
+    <line x1="38" y1="6" x2="34" y2="10" stroke="#f472b6" stroke-width="2" stroke-linecap="round"/>
+    <line x1="10" y1="34" x2="6" y2="38" stroke="#f472b6" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <text x="518" y="228" fill="#f472b6" font-family="Arial, sans-serif" font-size="18" font-weight="700">AWS Config</text>
+  <text x="458" y="286" fill="#fce7f3" font-family="Arial, sans-serif" font-size="14" font-weight="600">Configuration Verification</text>
+  <text x="458" y="308" fill="#fbcfe8" font-family="Arial, sans-serif" font-size="12">- Config rules evaluation</text>
+  <text x="458" y="326" fill="#fbcfe8" font-family="Arial, sans-serif" font-size="12">- Resource change timeline</text>
+  <text x="458" y="344" fill="#fbcfe8" font-family="Arial, sans-serif" font-size="12">- Conformance packs</text>
+  <text x="458" y="374" fill="#fce7f3" font-family="Arial, sans-serif" font-size="14" font-weight="600">Auto Remediation</text>
+  <text x="458" y="396" fill="#fbcfe8" font-family="Arial, sans-serif" font-size="12">- SSM Automation docs</text>
+  <text x="458" y="414" fill="#fbcfe8" font-family="Arial, sans-serif" font-size="12">- Lambda remediation</text>
+  <text x="458" y="432" fill="#fbcfe8" font-family="Arial, sans-serif" font-size="12">- EventBridge triggers</text>
+  <text x="458" y="466" fill="#f472b6" font-family="Arial, sans-serif" font-size="13" font-weight="700">AWS Config Rules</text>
+  <rect x="458" y="474" width="110" height="4" rx="2" fill="#f472b6" opacity="0.5"/>
+
+  <!-- CARD 3: Compliance -->
+  <rect x="800" y="185" width="340" height="310" rx="16" fill="url(#card3Grad)" stroke="#818cf8" stroke-width="1.5" filter="url(#cardShadow)"/>
+  <rect x="800" y="185" width="340" height="4" rx="2" fill="#818cf8"/>
+
+  <!-- Card 3 icon: checklist -->
+  <g transform="translate(828, 208)">
+    <rect x="0" y="0" width="44" height="52" rx="5" fill="none" stroke="#818cf8" stroke-width="2"/>
+    <line x1="10" y1="14" x2="34" y2="14" stroke="#818cf8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="10" y1="24" x2="34" y2="24" stroke="#818cf8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="10" y1="34" x2="24" y2="34" stroke="#818cf8" stroke-width="2" stroke-linecap="round"/>
+    <rect x="5" y="10" width="4" height="4" rx="1" fill="#818cf8"/>
+    <rect x="5" y="20" width="4" height="4" rx="1" fill="#818cf8"/>
+    <rect x="5" y="30" width="4" height="4" rx="1" fill="#818cf8" opacity="0.5"/>
+  </g>
+
+  <text x="888" y="228" fill="#818cf8" font-family="Arial, sans-serif" font-size="18" font-weight="700">Compliance Monitoring</text>
+  <text x="828" y="286" fill="#e0e7ff" font-family="Arial, sans-serif" font-size="14" font-weight="600">Standards Coverage</text>
+  <text x="828" y="308" fill="#c7d2fe" font-family="Arial, sans-serif" font-size="12">- CIS AWS Benchmark</text>
+  <text x="828" y="326" fill="#c7d2fe" font-family="Arial, sans-serif" font-size="12">- PCI DSS controls</text>
+  <text x="828" y="344" fill="#c7d2fe" font-family="Arial, sans-serif" font-size="12">- SOC 2 requirements</text>
+  <text x="828" y="374" fill="#e0e7ff" font-family="Arial, sans-serif" font-size="14" font-weight="600">Reporting</text>
+  <text x="828" y="396" fill="#c7d2fe" font-family="Arial, sans-serif" font-size="12">- Compliance score trends</text>
+  <text x="828" y="414" fill="#c7d2fe" font-family="Arial, sans-serif" font-size="12">- Failed rule details</text>
+  <text x="828" y="432" fill="#c7d2fe" font-family="Arial, sans-serif" font-size="12">- Audit evidence export</text>
+  <text x="828" y="466" fill="#818cf8" font-family="Arial, sans-serif" font-size="13" font-weight="700">Compliance Reporting</text>
+  <rect x="828" y="474" width="130" height="4" rx="2" fill="#818cf8" opacity="0.5"/>
+
+  <!-- Footer bar -->
+  <rect x="0" y="516" width="1200" height="114" fill="#060210" fill-opacity="0.95"/>
+  <rect x="0" y="516" width="1200" height="2" fill="url(#titleGrad)" opacity="0.6"/>
+
+  <!-- Footer keywords -->
+  <g transform="translate(60, 545)">
+    <rect x="0" y="0" width="72" height="26" rx="13" fill="#3b0764" stroke="#c084fc" stroke-width="1"/>
+    <text x="36" y="17" fill="#c084fc" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">CSPM</text>
+  </g>
+  <g transform="translate(146, 545)">
+    <rect x="0" y="0" width="90" height="26" rx="13" fill="#4a1942" stroke="#f472b6" stroke-width="1"/>
+    <text x="45" y="17" fill="#f472b6" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">DataDog</text>
+  </g>
+  <g transform="translate(250, 545)">
+    <rect x="0" y="0" width="100" height="26" rx="13" fill="#1e3a5f" stroke="#818cf8" stroke-width="1"/>
+    <text x="50" y="17" fill="#818cf8" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">AWS Config</text>
+  </g>
+  <g transform="translate(364, 545)">
+    <rect x="0" y="0" width="108" height="26" rx="13" fill="#3b0764" stroke="#c084fc" stroke-width="1"/>
+    <text x="54" y="17" fill="#c084fc" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Compliance</text>
+  </g>
+
+  <!-- Footer site -->
+  <text x="1140" y="558" fill="#d8b4fe" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- Footer description -->
+  <text x="60" y="598" fill="#5b3a7a" font-family="Arial, sans-serif" font-size="13">Automated security configuration verification and compliance monitoring using DataDog CSPM and AWS Config in cloud environments</text>
 </svg>
