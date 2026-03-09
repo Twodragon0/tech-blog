@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: macOS"
+title: "기술·보안 주간 다이제스트: AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehouse"
 date: 2026-03-09 12:37:51 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Go, Bitcoin]
-excerpt: "2026년 03월 09일 주요 보안/기술 뉴스 11건 - AI, Security, Go"
+excerpt: "AI 에이전트의 보안 위협 분석(Krebs on Security), Saylor의 비트코인 추가 매수 신호, 브라질 Pix 결제 아르헨티나 확장, Agent Safehouse macOS 에이전트 샌드박싱, LINE 엔터프라이즈 LLM 에이전트 엔지니어링."
 description: "2026년 03월 09일 보안 뉴스: Krebs on Security, Cointelegraph 등 11건. AI, Security, Go, Bitcoin 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Go]
 author: Twodragon
@@ -181,9 +181,11 @@ The Pix payment system is credited with driving crypto adoption in Argentina, ac
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **AI/ML** | 8건 | How AI Assistants are Moving, Crypto regulatory clarity matters more, AI agent attempts unauthorized crypto |
+| **AI 보안** | 1건 | AI 에이전트 보안 위협 재정의(Krebs on Security) |
+| **블록체인** | 3건 | Saylor 비트코인 매수, 암호화폐 규제, 브라질 Pix 아르헨티나 확장 |
+| **AI/Tech** | 3건 | 엔터프라이즈 LLM 에이전트 엔지니어링, AI 윤리 원칙, Agent Safehouse 샌드박싱 |
 
-이번 주기의 핵심 트렌드는 **AI/ML**(8건)입니다. How AI Assistants are Moving, Crypto regulatory clarity matters more 등이 주요 이슈입니다. 
+이번 주기의 핵심 트렌드는 **AI 보안**과 **블록체인**입니다. Krebs on Security의 AI 에이전트 보안 위협 분석과 Saylor의 비트코인 추가 매수 신호가 주요 이슈입니다.
 
 ---
 

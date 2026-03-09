@@ -2,218 +2,246 @@
   <defs>
     <!-- Background Gradient -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f0f23"/>
-      <stop offset="50%" style="stop-color:#1a1a3e"/>
-      <stop offset="100%" style="stop-color:#0d1117"/>
+      <stop offset="0%" style="stop-color:#1a1200"/>
+      <stop offset="50%" style="stop-color:#1c1a0a"/>
+      <stop offset="100%" style="stop-color:#0d0d17"/>
     </linearGradient>
 
     <!-- Card Gradient -->
     <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e293b"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
+      <stop offset="0%" style="stop-color:#1e1a0f"/>
+      <stop offset="100%" style="stop-color:#0f0e08"/>
     </linearGradient>
 
-    <!-- Category Gradients -->
-    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dc2626"/>
-      <stop offset="100%" style="stop-color:#991b1b"/>
+    <!-- Hero Card Gradient -->
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#292010"/>
+      <stop offset="100%" style="stop-color:#111008"/>
     </linearGradient>
-    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
-    </linearGradient>
-    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#6d28d9"/>
-    </linearGradient>
-    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#10b981"/>
-      <stop offset="100%" style="stop-color:#059669"/>
-    </linearGradient>
-    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+
+    <!-- Amber Gradient (primary accent) -->
+    <linearGradient id="amberGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#f59e0b"/>
       <stop offset="100%" style="stop-color:#d97706"/>
     </linearGradient>
-    <linearGradient id="indigoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366f1"/>
-      <stop offset="100%" style="stop-color:#4f46e5"/>
+
+    <!-- Red Gradient (security) -->
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#b91c1c"/>
+    </linearGradient>
+
+    <!-- Bitcoin Orange Gradient -->
+    <linearGradient id="btcGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fb923c"/>
+      <stop offset="100%" style="stop-color:#c2410c"/>
+    </linearGradient>
+
+    <!-- Teal Gradient (tech insights) -->
+    <linearGradient id="tealGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#14b8a6"/>
+      <stop offset="100%" style="stop-color:#0f766e"/>
     </linearGradient>
 
     <!-- Glow Filter -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
+    <!-- Amber Glow Filter -->
+    <filter id="amberGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="1 0.6 0 0 0  0.6 0.4 0 0 0  0 0 0 0 0  0 0 0 0.8 0" result="amberBlur"/>
+      <feMerge>
+        <feMergeNode in="amberBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
     <!-- Shadow Filter -->
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.4"/>
     </filter>
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.3" opacity="0.4"/>
+
+    <!-- Grid Pattern (single, no duplicate) -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f59e0b" stroke-opacity="0.04" stroke-width="1"/>
     </pattern>
-    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="0.8" fill="#475569" opacity="0.3"/>
+
+    <!-- Dot Pattern -->
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.8" fill="#f59e0b" opacity="0.08"/>
     </pattern>
   </defs>
 
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
-
-  <!-- Grid Pattern -->
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
-  </pattern>
   <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
 
-  <!-- Decorative Circles -->
-  <circle cx="100" cy="100" r="200" fill="#3b82f6" fill-opacity="0.05"/>
-  <circle cx="1100" cy="530" r="250" fill="#8b5cf6" fill-opacity="0.05"/>
-  <circle cx="600" cy="315" r="300" fill="#dc2626" fill-opacity="0.03"/>
+  <!-- Ambient Glow Orbs -->
+  <circle cx="120" cy="120" r="220" fill="#f59e0b" fill-opacity="0.04"/>
+  <circle cx="1080" cy="520" r="260" fill="#d97706" fill-opacity="0.05"/>
+  <circle cx="600" cy="320" r="350" fill="#92400e" fill-opacity="0.03"/>
 
-  <!-- Header Section -->
-  <rect x="40" y="30" width="200" height="36" rx="18" fill="url(#redGradient)" filter="url(#shadow)"/>
-  <text x="140" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">WEEKLY DIGEST</text>
+  <!-- Amber accent line top -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#amberGradient)"/>
 
-  <!-- Date Badge -->
-  <rect x="960" y="30" width="200" height="36" rx="18" fill="url(#blueGradient)" filter="url(#shadow)"/>
-  <text x="1060" y="54" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">March 09, 2026</text>
+  <!-- ===== HEADER ===== -->
+  <!-- WEEKLY DIGEST badge (amber) -->
+  <rect x="40" y="22" width="190" height="36" rx="18" fill="url(#amberGradient)" filter="url(#shadow)"/>
+  <text x="135" y="46" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1a1200" text-anchor="middle" letter-spacing="1">WEEKLY DIGEST</text>
+
+  <!-- Date badge -->
+  <rect x="970" y="22" width="190" height="36" rx="18" fill="#1e1a0f" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="1065" y="46" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#f59e0b" text-anchor="middle">March 09, 2026</text>
 
   <!-- Main Title -->
-  <text x="600" y="110" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" filter="url(#glow)">Tech &amp; Security Weekly Digest</text>
-  <text x="600" y="155" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8" text-anchor="middle">AI | Security | Go | Bitcoin</text>
+  <text x="600" y="98" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle" filter="url(#amberGlow)">Tech &amp; Security Weekly Digest</text>
 
-  <!-- Card 1: SECURITY -->
-  <g transform="translate(50, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#redGradient)"/>
+  <!-- Subtitle / Topics -->
+  <text x="600" y="135" font-family="Arial, sans-serif" font-size="17" fill="#f59e0b" text-anchor="middle" letter-spacing="3">AI  |  Security  |  Go  |  Bitcoin</text>
 
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#dc2626" text-anchor="middle">!</text>
+  <!-- Separator line under header -->
+  <line x1="40" y1="152" x2="1160" y2="152" stroke="#f59e0b" stroke-width="0.5" stroke-opacity="0.4"/>
 
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#dc2626">SECURITY</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">How AI Assistants are Moving the Se</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">AI-based assistants or &quot;agents&quot; --</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">autonomous programs that have access to</text>
-
-    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#redGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">Krebs on Security</text>
+  <!-- ===== HERO SECTION ===== -->
+  <g transform="translate(40, 162)">
+    <rect width="720" height="160" rx="14" fill="url(#heroGradient)" filter="url(#shadow)"/>
+    <!-- Amber left accent bar -->
+    <rect x="0" y="0" width="6" height="160" rx="3" fill="url(#amberGradient)"/>
+    <!-- SECURITY label -->
+    <rect x="20" y="18" width="90" height="22" rx="11" fill="url(#redGradient)" fill-opacity="0.9"/>
+    <text x="65" y="34" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">SECURITY</text>
+    <!-- FEATURED label -->
+    <rect x="120" y="18" width="80" height="22" rx="11" fill="url(#amberGradient)" fill-opacity="0.9"/>
+    <text x="160" y="34" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a1200" text-anchor="middle">FEATURED</text>
+    <!-- Story headline -->
+    <text x="20" y="72" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">How AI Agents Are Moving the Security</text>
+    <text x="20" y="96" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">Needle on Threats</text>
+    <!-- Story body -->
+    <text x="20" y="122" font-family="Arial, sans-serif" font-size="13" fill="#a8a090">AI-based assistants are now being used by security teams to detect,</text>
+    <text x="20" y="140" font-family="Arial, sans-serif" font-size="13" fill="#a8a090">analyze, and respond to threats autonomously. — Krebs on Security</text>
   </g>
 
-  <!-- Card 2: BLOCKCHAIN -->
-  <g transform="translate(430, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Crypto regulatory clarity matters m</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">If the CLARITY Act fails to pass,</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Giancarlo said he expects Paul Atkins at</text>
-
-    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Cointelegraph</text>
+  <!-- ===== METRIC BOXES (3 boxes on right of hero) ===== -->
+  <!-- Metric 1: Security Alert -->
+  <g transform="translate(780, 162)">
+    <rect width="180" height="72" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="180" height="4" rx="2" fill="url(#redGradient)"/>
+    <text x="90" y="32" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ef4444" text-anchor="middle" filter="url(#glow)">1</text>
+    <text x="90" y="58" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Security Alert</text>
   </g>
 
-  <!-- Card 3: BLOCKCHAIN -->
-  <g transform="translate(810, 190)">
-    <rect width="340" height="180" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Saylor signals another Bitcoin buy</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Strategy&#39;s Bitcoin treasury is valued at</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">over $48.4 billion at the time of this</text>
-
-    <rect x="20" y="155" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="80" y="168" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Cointelegraph</text>
+  <!-- Metric 2: Blockchain Updates -->
+  <g transform="translate(980, 162)">
+    <rect width="180" height="72" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="180" height="4" rx="2" fill="url(#btcGradient)"/>
+    <text x="90" y="32" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#fb923c" text-anchor="middle" filter="url(#glow)">5</text>
+    <text x="90" y="58" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Blockchain Updates</text>
   </g>
 
-  <!-- Card 4: BLOCKCHAIN -->
-  <g transform="translate(50, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Brazil&#39;s Pix instant payments syste</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">The Pix payment system is credited with</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">driving crypto adoption in Argentina,</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Cointelegraph</text>
+  <!-- Metric 3: Tech Insights -->
+  <g transform="translate(780, 250)">
+    <rect width="380" height="72" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="4" rx="2" fill="url(#tealGradient)"/>
+    <!-- Total -->
+    <text x="95" y="32" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#f59e0b" text-anchor="middle" filter="url(#amberGlow)">11</text>
+    <text x="95" y="58" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Total Stories</text>
+    <!-- Divider -->
+    <line x1="190" y1="14" x2="190" y2="58" stroke="#334155" stroke-width="1"/>
+    <!-- Tech insights count -->
+    <text x="285" y="32" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#14b8a6" text-anchor="middle" filter="url(#glow)">5</text>
+    <text x="285" y="58" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Tech Insights</text>
   </g>
 
-  <!-- Card 5: BLOCKCHAIN -->
-  <g transform="translate(430, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Michael B. Jordan takes the lead on</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">&quot;Sinners&quot; star Jordan&#39;s odds of winning</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">the Best Actor honors at next week&#39;s</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Cointelegraph</text>
+  <!-- ===== CONTENT PREVIEW CARDS (bottom row) ===== -->
+  <!-- Card A: Bitcoin -->
+  <g transform="translate(40, 345)">
+    <rect width="365" height="170" rx="14" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="365" height="5" rx="2.5" fill="url(#btcGradient)"/>
+    <!-- Bitcoin icon circle -->
+    <circle cx="38" cy="48" r="22" fill="#fb923c" fill-opacity="0.15"/>
+    <text x="38" y="55" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#fb923c" text-anchor="middle">&#x20BF;</text>
+    <!-- Category tag -->
+    <rect x="70" y="30" width="85" height="18" rx="9" fill="#fb923c" fill-opacity="0.15"/>
+    <text x="112" y="43" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#fb923c" text-anchor="middle">BLOCKCHAIN</text>
+    <!-- Title -->
+    <text x="20" y="88" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Saylor Signals Another Bitcoin Buy</text>
+    <!-- Body -->
+    <text x="20" y="112" font-family="Arial, sans-serif" font-size="12" fill="#a8a090">Strategy's Bitcoin treasury valued at over</text>
+    <text x="20" y="130" font-family="Arial, sans-serif" font-size="12" fill="#a8a090">$48.4B. MicroStrategy continues stacking.</text>
+    <!-- Source -->
+    <rect x="20" y="148" width="110" height="16" rx="8" fill="#fb923c" fill-opacity="0.12"/>
+    <text x="75" y="160" font-family="Arial, sans-serif" font-size="10" fill="#fb923c" text-anchor="middle">Cointelegraph</text>
   </g>
 
-  <!-- Card 6: BLOCKCHAIN -->
-  <g transform="translate(810, 400)">
-    <rect width="340" height="160" rx="16" fill="url(#cardGradient)" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="340" height="6" rx="3" fill="url(#orangeGradient)"/>
-
-    <!-- Icon -->
-    <circle cx="40" cy="50" r="24" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="40" y="58" font-family="Arial, sans-serif" font-size="16" fill="#f97316" text-anchor="middle">BC</text>
-
-    <text x="80" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f97316">BLOCKCHAIN</text>
-    <text x="80" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">AI agent attempts unauthorized cryp</text>
-    <text x="20" y="95" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Researchers say the experimental AI</text>
-    <text x="20" y="113" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">agent ROME attempted unauthorized</text>
-
-    <rect x="20" y="140" width="120" height="18" rx="9" fill="url(#orangeGradient)" fill-opacity="0.2"/>
-    <text x="80" y="153" font-family="Arial, sans-serif" font-size="10" fill="#f97316" text-anchor="middle">Cointelegraph</text>
+  <!-- Card B: Pix Payments / Brazil -->
+  <g transform="translate(420, 345)">
+    <rect width="365" height="170" rx="14" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="365" height="5" rx="2.5" fill="url(#amberGradient)"/>
+    <!-- Icon circle -->
+    <circle cx="38" cy="48" r="22" fill="#f59e0b" fill-opacity="0.15"/>
+    <text x="38" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b" text-anchor="middle">Pix</text>
+    <!-- Category tag -->
+    <rect x="70" y="30" width="85" height="18" rx="9" fill="#f59e0b" fill-opacity="0.15"/>
+    <text x="112" y="43" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f59e0b" text-anchor="middle">PAYMENTS</text>
+    <!-- Title -->
+    <text x="20" y="88" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Brazil's Pix Drives Crypto Adoption</text>
+    <!-- Body -->
+    <text x="20" y="112" font-family="Arial, sans-serif" font-size="12" fill="#a8a090">Pix payment system credited with driving</text>
+    <text x="20" y="130" font-family="Arial, sans-serif" font-size="12" fill="#a8a090">crypto adoption across Latin America.</text>
+    <!-- Source -->
+    <rect x="20" y="148" width="110" height="16" rx="8" fill="#f59e0b" fill-opacity="0.12"/>
+    <text x="75" y="160" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Cointelegraph</text>
   </g>
 
-  <!-- Footer -->
-  <line x1="50" y1="585" x2="1150" y2="585" stroke="#334155" stroke-width="1"/>
+  <!-- Card C: Agent Safehouse / AI -->
+  <g transform="translate(800, 345)">
+    <rect width="360" height="170" rx="14" fill="url(#cardGradient)" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="5" rx="2.5" fill="url(#tealGradient)"/>
+    <!-- Icon circle -->
+    <circle cx="38" cy="48" r="22" fill="#14b8a6" fill-opacity="0.15"/>
+    <text x="38" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#14b8a6" text-anchor="middle">AI</text>
+    <!-- Category tag -->
+    <rect x="70" y="30" width="85" height="18" rx="9" fill="#14b8a6" fill-opacity="0.15"/>
+    <text x="112" y="43" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#14b8a6" text-anchor="middle">AI AGENTS</text>
+    <!-- Title -->
+    <text x="20" y="88" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Agent Safehouse: Unauthorized Crypto</text>
+    <!-- Body -->
+    <text x="20" y="112" font-family="Arial, sans-serif" font-size="12" fill="#a8a090">Experimental AI agent ROME attempted</text>
+    <text x="20" y="130" font-family="Arial, sans-serif" font-size="12" fill="#a8a090">unauthorized crypto transfers in testing.</text>
+    <!-- Source -->
+    <rect x="20" y="148" width="110" height="16" rx="8" fill="#14b8a6" fill-opacity="0.12"/>
+    <text x="75" y="160" font-family="Arial, sans-serif" font-size="10" fill="#14b8a6" text-anchor="middle">Cointelegraph</text>
+  </g>
 
-  <!-- Stats -->
-  <g transform="translate(50, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">11 News Collected</text>
-  </g>
-  <g transform="translate(250, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">1 Security</text>
-  </g>
-  <g transform="translate(400, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 Cloud</text>
-  </g>
-  <g transform="translate(520, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 DevOps</text>
-  </g>
-  <g transform="translate(650, 600)">
-    <text font-family="Arial, sans-serif" font-size="13" fill="#64748b">0 AI/ML</text>
-  </g>
+  <!-- ===== FOOTER ===== -->
+  <line x1="40" y1="534" x2="1160" y2="534" stroke="#f59e0b" stroke-width="0.5" stroke-opacity="0.3"/>
 
-  <!-- Blog Info -->
-  <text x="1150" y="612" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>
+  <!-- Footer stats row -->
+  <text x="50" y="556" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b" font-weight="bold">11 News Collected</text>
+  <text x="50" y="556" font-family="Arial, sans-serif" font-size="12" fill="#334155">|</text>
+
+  <text x="220" y="556" font-family="Arial, sans-serif" font-size="12" fill="#ef4444">1 Security</text>
+  <text x="315" y="556" font-family="Arial, sans-serif" font-size="12" fill="#475569">|</text>
+
+  <text x="330" y="556" font-family="Arial, sans-serif" font-size="12" fill="#fb923c">5 Blockchain</text>
+  <text x="445" y="556" font-family="Arial, sans-serif" font-size="12" fill="#475569">|</text>
+
+  <text x="460" y="556" font-family="Arial, sans-serif" font-size="12" fill="#64748b">0 Cloud</text>
+  <text x="535" y="556" font-family="Arial, sans-serif" font-size="12" fill="#475569">|</text>
+
+  <text x="550" y="556" font-family="Arial, sans-serif" font-size="12" fill="#64748b">0 AI/ML</text>
+
+  <!-- Blog URL -->
+  <text x="1160" y="556" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#f59e0b" text-anchor="end">tech.2twodragon.com</text>
+
+  <!-- Bottom amber accent line -->
+  <rect x="0" y="626" width="1200" height="4" fill="url(#amberGradient)" opacity="0.6"/>
 </svg>

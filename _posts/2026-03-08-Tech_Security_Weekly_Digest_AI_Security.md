@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "기술·보안 주간 다이제스트: Firefox"
+title: "기술·보안 주간 다이제스트: OpenAI Codex 보안 스캔, Claude Firefox 취약점 22건 발견"
 date: 2026-03-08 12:33:37 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security]
-excerpt: "2026년 03월 08일 주요 보안/기술 뉴스 12건 - AI, Security"
+excerpt: "OpenAI Codex Security가 120만 커밋에서 10,561건 취약점 탐지, Anthropic Claude가 Firefox 22개 취약점 발견. USDC 스테이블코인 전송량 $1.8T 돌파, Go 표준 라이브러리 UUID 패키지 추가 논의."
 description: "2026년 03월 08일 보안 뉴스: The Hacker News, Cointelegraph 등 12건. AI, Security 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security]
 author: Twodragon
@@ -190,9 +190,11 @@ Stablecoin monthly transaction volume reached a record $1.8 trillion in February
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
-| **AI/ML** | 9건 | OpenAI Codex Security Scanned 1.2, Anthropic Finds 22 Firefox, Prediction market Kalshi sued over |
+| **AI 보안** | 2건 | OpenAI Codex Security 120만 커밋 스캔, Claude Firefox 취약점 22건 발견 |
+| **블록체인** | 4건 | USDC $1.8T 전송량, Kalshi $20B 밸류에이션, 예측 시장 규제 |
+| **AI/Tech** | 3건 | AI 에이전트 신뢰 병목, Autoresearch 자율 연구, Go UUID 표준화 |
 
-이번 주기의 핵심 트렌드는 **AI/ML**(9건)입니다. OpenAI Codex Security Scanned 1.2, Anthropic Finds 22 Firefox 등이 주요 이슈입니다. 
+이번 주기의 핵심 트렌드는 **AI 보안**(2건)과 **블록체인**(4건)입니다. OpenAI Codex Security의 대규모 취약점 스캔과 Anthropic Claude의 Firefox 취약점 발견이 AI 기반 보안 도구의 실용성을 입증했습니다.
 
 ---
 
