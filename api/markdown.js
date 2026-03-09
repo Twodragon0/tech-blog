@@ -9,7 +9,6 @@
 //
 // Response: text/markdown
 
-import { PrismaClient } from '@prisma/client';
 import { checkRateLimit, setRateLimitHeaders } from './lib/ratelimit.js';
 
 const CONFIG = {
@@ -20,10 +19,16 @@ const CONFIG = {
   MAX_QUERY_LENGTH: 200,
 };
 
+// Dynamic import to prevent crash when @prisma/client is not installed
 let prismaInstance = null;
-function getPrisma() {
+async function getPrisma() {
   if (!prismaInstance) {
-    prismaInstance = new PrismaClient({ log: ['error'] });
+    try {
+      const { PrismaClient } = await import('@prisma/client');
+      prismaInstance = new PrismaClient({ log: ['error'] });
+    } catch {
+      return null;
+    }
   }
   return prismaInstance;
 }
@@ -126,7 +131,11 @@ export default async function handler(req, res) {
       return res.status(400).send('# Bad Request\n\nCategory parameter too long.');
     }
 
-    const prisma = getPrisma();
+    const prisma = await getPrisma();
+    if (!prisma) {
+      res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+      return res.status(503).send('# Database Not Configured\n\nPostgreSQL/Prisma is not set up. Try [/llms.txt](/llms.txt) for static content index.');
+    }
     let posts = [];
     let title = "Twodragon's Tech Blog";
 

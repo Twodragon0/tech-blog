@@ -15,10 +15,14 @@ if [ -z "$CLAUDE_API_KEY" ] && [ -z "$GEMINI_API_KEY" ]; then
     echo "API 키를 설정하려면:"
     echo "  ./scripts/setup_ai_keys.sh"
     echo ""
-    read -p "계속하시겠습니까? (y/n): " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        exit 1
+    if [ "$TECH_BLOG_AUTO_YES" = "1" ] || [ "$CI" = "1" ]; then
+        echo "Auto-yes 모드: 계속 진행합니다."
+    else
+        read -p "계속하시겠습니까? (y/n): " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            exit 1
+        fi
     fi
 fi
 

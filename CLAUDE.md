@@ -2,7 +2,7 @@
 
 Instructions for Claude Code when working on this project.
 
-**Last updated**: 2026-02-19
+**Last updated**: 2026-03-09
 
 ## Quick Reference
 
@@ -552,8 +552,8 @@ opencode sisyphus
 ```
 
 #### Model Selection Strategy
-- **High-Quality Tasks** (Opus 4.5): Content generation, code writing, image generation, refactor, fix-bugs
-- **Cost-Efficient Tasks** (Sonnet 4): Validation, analysis, read-only operations, security-audit
+- **High-Quality Tasks** (Opus 4.6): Content generation, code writing, image generation, refactor, fix-bugs
+- **Cost-Efficient Tasks** (Sonnet 4.6): Validation, analysis, read-only operations, security-audit
 
 #### Cost Optimization
 1. **Cache First**: Check `_data/collected_news.json` (7-day TTL) before API calls
@@ -613,7 +613,7 @@ See `.opencode/README.md` for detailed documentation.
 - [ ] Caching implemented where possible (7-day TTL)
 - [ ] Rate limiting configured
 - [ ] Free tier limits respected (Sentry, Vercel)
-- [ ] OpenCode model selection optimized (Opus 4.5 for generation, Sonnet 4 for validation)
+- [ ] OpenCode model selection optimized (Opus 4.6 for generation, Sonnet 4.6 for validation)
 - [ ] Local scripts used before API calls
 
 ### UI/UX Checklist

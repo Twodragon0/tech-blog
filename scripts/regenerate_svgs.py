@@ -7,7 +7,7 @@ Each SVG is 1200x630px with dark gradient background, topic-specific colors, and
 import os
 import re
 
-BASE_DIR = "/Users/twodragon/Desktop/tech-blog"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS_DIR = os.path.join(BASE_DIR, "assets", "images")
 
 

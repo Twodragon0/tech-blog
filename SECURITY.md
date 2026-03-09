@@ -10,8 +10,8 @@
 보안 취약점을 발견했을 경우, 공개된 Issue 트래커에 올리는 것을 **금지**합니다. 대신 아래 절차를 따라주세요.
 
 ### 신고 채널
-* **담당자 이메일**: `security@example.com` (실제 담당자 이메일로 교체 필요)
-* **GitHub**: `Security` 탭 > `Report a vulnerability` (Private Reporting)
+* **GitHub**: `Security` 탭 > `Report a vulnerability` (Private Reporting) — **권장**
+* **이메일**: 리포지토리 관리자에게 직접 연락 (GitHub 프로필 참조)
 
 ### 대응 타임라인 (SLA)
 심각도에 따라 다음 기한 내에 패치를 완료해야 합니다.
@@ -160,5 +160,5 @@ PR 생성 및 배포 전 다음 항목을 확인해 주세요.
 * [GitHub Security Best Practices](https://docs.github.com/en/code-security)
 
 ---
-**Last Updated**: 2026-01-08
+**Last Updated**: 2026-03-09
 **Maintainer**: DevSecOps

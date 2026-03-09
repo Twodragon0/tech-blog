@@ -16,7 +16,6 @@
 //   "took": 45
 // }
 
-import { PrismaClient } from '@prisma/client';
 import { checkRateLimit, setRateLimitHeaders } from './lib/ratelimit.js';
 
 // 최적화 설정
@@ -30,10 +29,16 @@ const CONFIG = {
 };
 
 // Prisma Client singleton (reused across warm invocations)
+// Dynamic import to prevent crash when @prisma/client is not installed
 let prismaInstance = null;
-function getPrisma() {
+async function getPrisma() {
   if (!prismaInstance) {
-    prismaInstance = new PrismaClient({ log: ['error'] });
+    try {
+      const { PrismaClient } = await import('@prisma/client');
+      prismaInstance = new PrismaClient({ log: ['error'] });
+    } catch {
+      return null;
+    }
   }
   return prismaInstance;
 }
@@ -245,7 +250,17 @@ export default async function handler(req, res) {
     }
 
     // Prisma 풀텍스트 검색
-    const prisma = getPrisma();
+    const prisma = await getPrisma();
+    if (!prisma) {
+      return res.status(503).json({
+        results: [],
+        total: 0,
+        error: 'database_not_configured',
+        fallback: true,
+        query,
+        took: Date.now() - startTime,
+      });
+    }
     let results = [];
 
     const tsquery = toTsQuery(query);
@@ -352,7 +367,8 @@ export default async function handler(req, res) {
 // 검색 로그 비동기 기록 (응답 지연 없음)
 async function logSearchQuery(query, resultCount, cached) {
   try {
-    const prisma = getPrisma();
+    const prisma = await getPrisma();
+    if (!prisma) return;
     await prisma.searchQuery.create({
       data: {
         query: query.substring(0, 200),
