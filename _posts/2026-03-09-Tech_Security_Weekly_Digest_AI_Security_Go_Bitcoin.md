@@ -66,12 +66,12 @@ toc: true
 
 ### 1.1 [보안] How AI Assistants are Moving the Security Goalposts
 
-{%% include news-card.html
+{% include news-card.html
   title="[보안] How AI Assistants are Moving the Security Goalposts"
   url="https://krebsonsecurity.com/2026/03/how-ai-assistants-are-moving-the-security-goalposts/"
-  summary="AI-based assistants or \"agents\" -- autonomous programs that have access to the user's computer, files, online services and can automate virtually any task -- are growing in popularity with developers "
+  summary="AI-based assistants or &quot;agents&quot; -- autonomous programs that have access to the user's computer, files, online services and can automate virtually any task -- are growing in popularity with developers"
   source="Krebs on Security"
-%%}
+%}
 
 #### 개요
 
@@ -105,13 +105,13 @@ AI-based assistants or "agents" -- autonomous programs that have access to the u
 
 ### 2.1 [블록체인] Crypto regulatory clarity matters more for banks, ex-CFTC
 
-{%% include news-card.html
+{% include news-card.html
   title="[블록체인] Crypto regulatory clarity matters more for banks, ex-CFTC"
   url="https://cointelegraph.com/news/us-banks-need-crypto-regulatory-clarity-giancarlo-cftc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YjA0NTctN2FkYy03MTdlLWIyOWUtNjk5MjkwYzQ3NTc3.jpg"
   summary="If the CLARITY Act fails to pass, Giancarlo said he expects Paul Atkins at the SEC and Mike Selig at the CFTC will likely write rules to create clarity for the industry."
   source="Cointelegraph"
-%%}
+%}
 
 #### 개요
 
@@ -126,13 +126,13 @@ If the CLARITY Act fails to pass, Giancarlo said he expects Paul Atkins at the S
 
 ### 2.2 [블록체인] Saylor signals another Bitcoin buy as BTC hovers near $66K
 
-{%% include news-card.html
+{% include news-card.html
   title="[블록체인] Saylor signals another Bitcoin buy as BTC hovers near $66K"
   url="https://cointelegraph.com/news/saylor-signals-bitcoin-buy-btc-near-66k?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YWZmOTctOTNhYS03YTA1LTg1NGQtZjVmNmVmNTQ5OGNm.jpg"
   summary="Strategy's Bitcoin treasury is valued at over $48.4 billion at the time of this writing, but with a net asset value of less than 1, it's trading at a discount."
   source="Cointelegraph"
-%%}
+%}
 
 #### 개요
 
@@ -147,13 +147,13 @@ Strategy's Bitcoin treasury is valued at over $48.4 billion at the time of this 
 
 ### 2.3 [블록체인] Brazil's Pix instant payments system expands to Argentina
 
-{%% include news-card.html
+{% include news-card.html
   title="[블록체인] Brazil's Pix instant payments system expands to Argentina"
   url="https://cointelegraph.com/news/brazil-pix-payments-expand-argentina?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2NlYjEtZTMwZC03M2ZkLWI1NTItNjkzYzczNjY4MzEzLmpwZw==.jpg"
   summary="The Pix payment system is credited with driving crypto adoption in Argentina, according to a report from the Lemon crypto application."
   source="Cointelegraph"
-%%}
+%}
 
 #### 개요
 
