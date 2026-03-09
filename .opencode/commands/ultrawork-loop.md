@@ -1,34 +1,17 @@
-# Ultrawork Loop
+---
+description: Continuous ops checks and prioritization loop with AI Gateway and Slack
+agent: lead
+---
 
-Continuous ops loop that uses OpenCode + AI Gateway + Slack for prioritization and fast fixes.
+Run an ultrawork reliability loop focused on prioritized remediation.
 
-## Goals
-- Maintain a tight priority queue (P0/P1/P2)
-- Keep checks running on a cadence
-- Post actionable summaries to Slack
-- Iterate until no P0/P1 issues remain
+Run:
+`python3 scripts/ops_health_orchestrator.py --auto-recover-gha`
 
-## Loop Steps
-1. Run the ultrawork checks:
-   ```bash
-   python3 scripts/ops_health_orchestrator.py --auto-recover-gha
-   ```
-2. Parse failures and group by priority.
-3. For P0/P1 items, either:
-   - Fix immediately in the repo, or
-   - Open a targeted task/issue with clear owners.
-4. Re-run checks until the priority drops to P2.
-5. Post the summary to Slack (via AI gateway) when available.
+Then:
+1. Generate a priority summary.
+2. Validate logs and prioritize actionable fixes.
+3. Post summary to Slack via AI Gateway if configured.
+4. Keep iterating until no P0/P1 items remain.
 
-## Slack Posting (AI Gateway)
-Required secrets:
-- AI_GATEWAY_URL
-- AI_GATEWAY_TOKEN
-- SLACK_CHANNEL_ID_OPS
-
-The GitHub workflow `ultrawork-loop.yml` posts the summary automatically when secrets are set.
-
-## Notes
-- Keep iterations small and targeted.
-- Prefer local scripts (no paid API cost) when possible.
-- Mask any sensitive data in logs.
+Output `<promise>ULTRAWORK_LOOP_COMPLETE</promise>` when complete.

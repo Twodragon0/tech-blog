@@ -1,40 +1,15 @@
-# /generate-images - Image Generation Command
+---
+description: Generate missing post images with English-only naming
+agent: lead
+---
 
-## Description
-Generate missing post images with English-only filenames.
+Generate post images using `python3 scripts/generate_post_images.py --all`.
 
-## Usage
-```
-/generate-images [--all] [--post=filename]
-```
+CRITICAL:
+1. All filenames must be English only (no Korean).
+2. Use `YYYY-MM-DD-English_Title.svg` format.
+3. SVG text content must be English only.
+4. Validate before saving.
+5. Use local scripts and avoid API calls.
 
-## Arguments
-- `--all`: Generate images for all posts (default: false)
-- `--post`: Generate image for specific post file
-
-## Requirements
-- **Filenames**: English only (no Korean characters
-- **Format**: SVG preferred, PNG fallback
-- **Naming**: `YYYY-MM-DD-English_Title.svg`
-- **Content**: SVG text must be English only
-
-## Workflow
-1. Identify posts missing images
-2. Generate SVG image for each post
-3. Validate filename is English only
-4. Validate SVG content has no Korean
-5. Save to `assets/images/`
-6. Update post front matter with image path
-
-## Completion Promise
 Output `<promise>IMAGES_GENERATED</promise>` when complete.
-
-## Error Handling
-- If generation fails, use placeholder
-- Flag for manual review
-- Log errors for debugging
-
-## Security
-- Validate generated content
-- No sensitive data in images
-- Sanitize file paths

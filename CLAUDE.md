@@ -2,6 +2,11 @@
 
 Instructions for Claude Code when working on this project.
 
+## Global OpenCode Precedence
+
+- Use the global OpenCode baseline as runtime default (`~/.config/opencode/opencode.json`, `~/.config/opencode/instructions.md`).
+- Local workflow notes here are project guidance and should not override global model/reasoning/default-agent defaults.
+
 **Last updated**: 2026-03-09
 
 ## Quick Reference
@@ -530,6 +535,13 @@ python3 scripts/verify_images_unified.py --all
 | **Operational Efficiency** | 8/10 | Automation scripts, CI/CD, monitoring | Enhanced error recovery |
 
 ## OpenCode Integration
+
+### Repository OpenCode Runtime Layout
+
+- Lead agent architecture is defined in `.opencode/agents/` (`lead`, `primary`, `explore`, `validate`, `code`).
+- Runtime config and permissions live in `.opencode/opencode.json` (default agent: `lead`).
+- Execution-time safety hooks are implemented as plugins in `.opencode/plugins/`.
+- Reusable project skills are in `.opencode/skills/` (security, validation, cost, governance).
 
 ### OpenCode Sisyphus Mode with Ralph Loop
 

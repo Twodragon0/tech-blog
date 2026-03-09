@@ -5,7 +5,59 @@ This directory contains OpenCode configuration for automated blog post improveme
 ## Configuration Files
 
 - `opencode.json` - Main OpenCode configuration
-- `commands/improve-posts.md` - Ralph Loop command documentation
+- `agents/*.md` - Project-defined lead/specialist agents
+- `commands/*.md` - OpenCode-native command templates (frontmatter + prompt)
+- `skills/*/SKILL.md` - Reusable OpenCode skills
+- `plugins/*.js` - Hook-based safety and environment controls
+
+## Lead Agent Architecture
+
+This repo now uses a lead-orchestrator pattern:
+
+- `lead` (primary): default orchestration agent for end-to-end tasks
+- `primary` (primary): compatibility agent for existing command frontmatter
+- `explore` (subagent): read-only discovery and pattern mapping
+- `validate` (subagent): read-only quality/security/release checks
+- `code` (subagent): implementation and refactoring
+
+Commands in `.opencode/commands/` keep using stable names (`primary`, `explore`, `validate`, `code`) while day-to-day interactive work defaults to `lead`.
+
+## Hooks (Plugins)
+
+OpenCode hook behavior is implemented through local plugins under `.opencode/plugins/`.
+
+- `safety-hooks.js` blocks destructive shell patterns (`git reset --hard`, force-push variants, broad clean/rm/sudo)
+- `safety-hooks.js` blocks sensitive file reads (`.env*`, OAuth key files)
+- `safety-hooks.js` injects safe shell defaults (`CI=1`, `TECH_BLOG_AUTO_YES=1`, `GIT_TERMINAL_PROMPT=0`)
+
+This gives you policy enforcement at execution time, not just prompt-level guidance.
+
+## Command Template Style
+
+Project commands follow OpenCode native markdown format:
+
+```md
+---
+description: Short command purpose
+agent: primary
+model: anthropic/claude-opus-4-5
+---
+
+Prompt template body...
+```
+
+This keeps `opencode.json` focused on global config, agents, permissions, and MCP.
+
+## Starter Skills
+
+The project includes scoped starter skills:
+
+- `security-review`
+- `cost-audit`
+- `post-validation`
+- `opencode-governance`
+
+Skill permissions are scoped in `opencode.json` with wildcard `allow` mode enabled.
 
 ## Quick Start
 
@@ -25,6 +77,18 @@ opencode sisyphus
 /ops-roundtable
 ```
 
+## OpenCode Best-Practice Baseline
+
+This project aligns OpenCode workflow guardrails with Claude-style best practices:
+
+- Keep instructions concise and deterministic; avoid repeated reminders.
+- Use `steps` limits per agent to control runaway loops and cost.
+- Use a low-cost `small_model` for lightweight operations.
+- Enable compaction with pruning and token reserve to protect long sessions.
+- Use wildcard `allow` permissions for faster automation, while keeping explicit deny rules for dangerous shell patterns.
+- Deny destructive shell patterns (`rm *`, `sudo *`) by default.
+- Enable only MCP servers you actively use to reduce context bloat.
+
 ## Agents
 
 ### Model Selection Strategy
@@ -43,7 +107,7 @@ opencode sisyphus
 - **Mode**: Primary (Sisyphus orchestrator)
 - **Model**: Claude Opus 4.5/4.6 ⭐ (high-quality for content/code generation)
 - **Permissions**: Full (write, edit, bash)
-- **Max Steps**: 50
+- **Steps**: 50
 - **Temperature**: 0.3 (balanced creativity)
 - **Use Cases**: Content generation, complex coding, image generation
 - **Opus 4.6 활용**: 맥락 파악 우선, 끈기 있는 작업, 적극적 의견 제시
@@ -53,7 +117,7 @@ opencode sisyphus
 - **Mode**: Subagent (read-only)
 - **Model**: Claude Sonnet 4 💰 (cost-efficient for analysis)
 - **Permissions**: None (read-only)
-- **Max Steps**: 20
+- **Steps**: 20
 - **Temperature**: 0.2 (focused analysis)
 - **Use Cases**: Codebase exploration, cost analysis, read-only tasks
 
@@ -62,7 +126,7 @@ opencode sisyphus
 - **Mode**: Subagent (read-only)
 - **Model**: Claude Sonnet 4 💰 (cost-efficient for validation)
 - **Permissions**: None (read-only)
-- **Max Steps**: 10
+- **Steps**: 10
 - **Temperature**: 0.1 (strict validation)
 - **Use Cases**: Quality validation, security audits, compliance checks
 
@@ -70,8 +134,8 @@ opencode sisyphus
 - **Purpose**: Complex coding tasks (high-quality for code work)
 - **Mode**: Subagent
 - **Model**: Claude Opus 4.5/4.6 ⭐ (high-quality for coding)
-- **Permissions**: Write, edit, bash (with ask for bash)
-- **Max Steps**: 30
+- **Permissions**: Write, edit, bash (all allowed)
+- **Steps**: 30
 - **Temperature**: 0.2 (focused coding)
 - **Use Cases**: Code writing, refactoring, bug fixing
 - **Opus 4.6 활용**: 행동하기 전에 전체 그림 파악, 어려운 작업에서 끈기 있게 작업
