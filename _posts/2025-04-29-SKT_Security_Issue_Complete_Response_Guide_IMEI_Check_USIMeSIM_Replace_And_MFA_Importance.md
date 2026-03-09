@@ -377,7 +377,7 @@ T월드 앱 → 보안 설정 → IMEI 변경 알림 활성화
 
 #### Splunk 위협 헌팅 쿼리
 
-```
+```spl
 index=telecom sourcetype=sim_events
 | stats count by customer_id event_type
 | where event_type="SIM_SWAP" AND count > 1
