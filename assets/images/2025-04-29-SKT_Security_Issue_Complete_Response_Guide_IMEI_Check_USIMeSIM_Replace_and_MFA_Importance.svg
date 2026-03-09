@@ -98,7 +98,7 @@
           font-size="19" font-weight="700" fill="#f59e0b">MITRE</text>
     <text x="273" y="568" text-anchor="middle"
           font-family="Space Grotesk, Inter, system-ui, sans-serif"
-          font-size="10" fill="#94a3b8" letter-spacing="1">ATT&CK</text>
+          font-size="10" fill="#94a3b8" letter-spacing="1">ATT&amp;CK</text>
 
     <rect x="356" y="520" width="130" height="66" rx="8"
           fill="rgba(255,255,255,0.04)" stroke="#10b981" stroke-width="1.5"/>

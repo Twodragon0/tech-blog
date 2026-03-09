@@ -65,7 +65,7 @@
   <text x="60" y="100"
         font-family="Space Grotesk, Inter, system-ui, sans-serif"
         font-size="13" font-weight="600" fill="#06b6d4"
-        letter-spacing="3" opacity="0.9">AI & ML</text>
+        letter-spacing="3" opacity="0.9">AI &amp; ML</text>
 
   <!-- Accent underline under category -->
   <rect x="60" y="108" width="50" height="2" rx="1" fill="#06b6d4" opacity="0.5"/>
