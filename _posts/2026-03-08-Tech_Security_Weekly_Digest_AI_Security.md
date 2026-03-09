@@ -194,7 +194,7 @@ Stablecoin monthly transaction volume reached a record $1.8 trillion in February
 | **블록체인** | 4건 | USDC $1.8T 전송량, Kalshi $20B 밸류에이션, 예측 시장 규제 |
 | **AI/Tech** | 3건 | AI 에이전트 신뢰 병목, Autoresearch 자율 연구, Go UUID 표준화 |
 
-이번 주기의 핵심 트렌드는 **AI 보안**(2건)과 **블록체인**(4건)입니다. OpenAI Codex Security의 대규모 취약점 스캔과 Anthropic Claude의 Firefox 취약점 발견이 AI 기반 보안 도구의 실용성을 입증했습니다.
+이번 주의 핵심은 **AI 보안**(2건)과 **블록체인**(4건)이다. OpenAI Codex Security의 대규모 취약점 스캔과 Anthropic Claude의 Firefox 취약점 발견은 AI 기반 보안 도구가 실전에서 쓸 만한 수준에 도달했음을 보여준다.
 
 ---
 
