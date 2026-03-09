@@ -728,7 +728,7 @@ contract FailSafeVault is Pausable, Ownable {
 
 초기 공지 (사고 발생 후 1시간 이내):
 
-```
+```text
 [보안 공지] 비정상적인 활동이 감지되어 현재 조사 중입니다.
 예방 조치로 출금이 일시 중단되었습니다.
 사용자 자산 보호를 최우선으로 대응하고 있으며, 추가 정보를 신속히 공유하겠습니다.
@@ -736,7 +736,7 @@ contract FailSafeVault is Pausable, Ownable {
 
 사후 리포트 (1주일 이내):
 
-```
+```text
 [보안 사고 사후 분석 보고서]
 발생일시: YYYY-MM-DD HH:MM (KST)
 영향 범위: ...
