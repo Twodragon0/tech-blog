@@ -220,7 +220,50 @@ orchestral with electronic elements, 15 seconds"
 
 **핵심 구현:**
 
-**SRT 자막 자동 생성 로직은 위 코드 참조**
+```python
+# Blog post generation with Claude (simplified)
+import anthropic
+
+async def generate_blog_post(topic: str) -> str:
+    client = anthropic.AsyncAnthropic()
+    response = await client.messages.create(
+        model="claude-opus-4-5-20250214",
+        max_tokens=4096,
+        messages=[{"role": "user", "content": f"Write a technical blog post about: {topic}"}]
+    )
+    return response.content[0].text
+```
+
+### 3.2 2단계 (Phase 2): 블로그 → 영상 스크립트
+
+```text
+블로그 포스트 → 핵심 포인트 추출 → 영상 스크립트 → 타임라인 → SRT 자막
+```
+
+**핵심 구현:**
+
+```python
+# Video script generation from blog post
+async def generate_video_script(blog_content: str) -> dict:
+    client = anthropic.AsyncAnthropic()
+    response = await client.messages.create(
+        model="claude-sonnet-4-20250514",
+        max_tokens=2048,
+        messages=[{"role": "user", "content": f"Convert this blog post to a video script with timestamps:\n\n{blog_content}"}]
+    )
+    return {"script": response.content[0].text, "format": "timeline"}
+
+# SRT subtitle auto-generation (simplified)
+def generate_srt(script_sections, start_time=0):
+    srt_content = ""
+    for i, section in enumerate(script_sections, 1):
+        end_time = start_time + len(section.split()) * 0.4
+        srt_content += f"{i}\n"
+        srt_content += f"{format_time(start_time)} --> {format_time(end_time)}\n"
+        srt_content += f"{section}\n\n"
+        start_time = end_time
+    return srt_content
+```
 
 ### 3.3 3단계 (Phase 3): 스크립트 → 영상 제작
 
@@ -325,11 +368,27 @@ ContentPipeline
 
 **핵심 클래스 구조:**
 
+```python
+# ContentPipeline core structure (simplified)
+class ContentPipeline:
+    def __init__(self, config: dict):
+        self.anthropic = anthropic.AsyncAnthropic()
+        self.phases = config.get("phases", ["blog"])
+
+    async def run(self, topic: str) -> dict:
+        results = {}
+        if "blog" in self.phases:
+            results["blog"] = await generate_blog_post(topic)
+        if "script" in self.phases:
+            results["script"] = await generate_video_script(results["blog"])
+        if "music" in self.phases:
+            results["music"] = await self.generate_bgm(topic)
+        return results
+```
+
 **예상 실행 시간:**
 - 블로그만: 30-60초
 - 전체 파이프라인 (수동 단계 포함): 5-10분
-
-**핵심 로직은 위 코드 예시 참조** (전체 구현 시 약 400줄)
 
 **사용법:**
 
@@ -397,8 +456,6 @@ python content_pipeline.py --topic "Kubernetes 보안 모범사례" --phases blo
 - Claude Sonnet 4로 상위 5개 보안 이슈 요약
 - Jekyll 포맷 자동 생성 (Front matter 포함)
 - Git 자동 배포
-
-**핵심 구현 로직은 위 코드 참조**
 
 **결과:**
 - **100% 자동화** (수동 개입 없음)
