@@ -36,11 +36,14 @@ jobs:
       
       - name: Get Commit SHA
         id: get_sha
+        env:
+          INPUT_COMMIT_SHA: ${{ github.event.inputs.commit_sha }}
+          GITHUB_SHA_VAL: ${{ github.sha }}
         run: |
-          if [ -n "${{ github.event.inputs.commit_sha }}" ]; then
-            echo "sha=${{ github.event.inputs.commit_sha }}" >> $GITHUB_OUTPUT
+          if [ -n "$INPUT_COMMIT_SHA" ]; then
+            echo "sha=$INPUT_COMMIT_SHA" >> $GITHUB_OUTPUT
           else
-            echo "sha=${{ github.sha }}" >> $GITHUB_OUTPUT
+            echo "sha=$GITHUB_SHA_VAL" >> $GITHUB_OUTPUT
           fi
 
       - name: Check Sentry token availability

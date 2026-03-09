@@ -122,25 +122,28 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ steps.api_check.outputs.api_available == 'true' && secrets.GEMINI_API_KEY || '' }}
           USE_GEMINI_PRO_IMAGE: ${{ secrets.USE_GEMINI_PRO_IMAGE || 'false' }}
+          INPUT_POST_FILE: ${{ github.event.inputs.post_file }}
+          INPUT_FORCE: ${{ github.event.inputs.force }}
+          API_AVAILABLE: ${{ steps.api_check.outputs.api_available }}
         run: |
           echo "🎨 Generating post images..."
-          
-          if [ "${{ steps.api_check.outputs.api_available }}" = "true" ]; then
+
+          if [ "$API_AVAILABLE" = "true" ]; then
             echo "📡 Mode: Gemini API (with SVG fallback)"
           else
             echo "📝 Mode: SVG fallback only (no API cost)"
           fi
           echo ""
-          
-          if [ -n "${{ github.event.inputs.post_file }}" ]; then
-            POST_FILE="_posts/${{ github.event.inputs.post_file }}"
+
+          if [ -n "$INPUT_POST_FILE" ]; then
+            POST_FILE="_posts/${INPUT_POST_FILE}"
             if [ ! -f "$POST_FILE" ]; then
               echo "❌ Post file not found: $POST_FILE"
               exit 1
             fi
             echo "📄 Processing: $POST_FILE"
-            
-            if [ "${{ github.event.inputs.force }}" = "true" ]; then
+
+            if [ "$INPUT_FORCE" = "true" ]; then
               python3 scripts/generate_post_images.py "$POST_FILE" --force
             else
               python3 scripts/generate_post_images.py "$POST_FILE"
@@ -150,7 +153,7 @@ jobs:
             python3 scripts/generate_post_images.py --missing --recent 5
           else
             echo "📄 Processing recent posts..."
-            if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            if [ "$INPUT_FORCE" = "true" ]; then
               python3 scripts/generate_post_images.py --recent 1 --force
             else
               python3 scripts/generate_post_images.py --recent 1 --missing
@@ -166,6 +169,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ steps.api_check.outputs.api_available == 'true' && secrets.GEMINI_API_KEY || '' }}
           USE_GEMINI_PRO_IMAGE: ${{ secrets.USE_GEMINI_PRO_IMAGE || 'false' }}
+          INPUT_POST_FILE: ${{ github.event.inputs.post_file }}
         run: |
           echo "🎨 Generating segment images..."
 
@@ -175,8 +179,8 @@ jobs:
             exit 0
           fi
 
-          if [ -n "${{ github.event.inputs.post_file }}" ]; then
-            POST_BASENAME=$(basename "${{ github.event.inputs.post_file }}" .md)
+          if [ -n "$INPUT_POST_FILE" ]; then
+            POST_BASENAME=$(basename "$INPUT_POST_FILE" .md)
             SEGMENTS_JSON="output/${POST_BASENAME}_script_segments.json"
 
             if [ ! -f "$SEGMENTS_JSON" ]; then

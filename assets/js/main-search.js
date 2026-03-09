@@ -157,7 +157,7 @@
     }
 
     function getExcerpt(item, query) {
-      const content = item.excerpt || item.content || '';
+      const content = (item.excerpt || item.content || '').replace(/<[^>]*>/g, '');
       const idx = content.toLowerCase().indexOf(query.toLowerCase());
       if (idx > -1) {
         const start = Math.max(0, idx - 40);
