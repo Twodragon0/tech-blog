@@ -140,9 +140,9 @@ env:
 | **타임아웃** | 15분 |
 
 ### 실행 내용
-- `scripts/priority_ops_check.py` 실행
-- 기본 체크: `check_posts.py`, `verify_images_unified.py --missing`
-- Vercel 체크는 기본 비활성 (`RUN_VERCEL_CHECKS=false`)
+- `scripts/ops_health_orchestrator.py --skip-sentry --skip-pagespeed` 실행
+- 기본 체크: lint/types, Vercel, GitHub Actions, UI/UX
+- ~~이전: `scripts/priority_ops_check.py` (→ `_archive/`로 이동됨)~~
 
 ### Slack 연동
 - AI Gateway 사용
@@ -161,9 +161,9 @@ env:
 | **타임아웃** | 20분 |
 
 ### 실행 내용
-- `scripts/ultrawork_loop.py` 실행
-- 기본 체크: `check_posts.py`, `fix_links_unified.py --check`, `verify_images_unified.py --missing`
-- Vercel 체크는 기본 비활성 (`RUN_VERCEL_CHECKS=false`)
+- ~~`scripts/ultrawork_loop.py`~~ → `scripts/ops_health_orchestrator.py`로 통합됨
+- 기본 체크: lint/types, Vercel, GitHub Actions, Sentry, UI/UX
+- 이전 스크립트는 `_archive/`로 이동됨
 
 ### Slack 연동
 - AI Gateway 사용

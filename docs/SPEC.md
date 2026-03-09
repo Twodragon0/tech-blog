@@ -20,7 +20,7 @@
 
 | 계층 | 기술 | 용도 |
 |------|------|------|
-| **Frontend** | Jekyll 4.3, Kramdown, Rouge | 정적 사이트 생성, 마크다운 렌더링, 코드 하이라이팅 |
+| **Frontend** | Jekyll 4.4.1, Kramdown, Rouge | 정적 사이트 생성, 마크다운 렌더링, 코드 하이라이팅 |
 | **Styling** | CSS Variables, Flexbox/Grid | 다크/라이트 테마, 반응형 디자인 |
 | **JavaScript** | Vanilla JS, Service Worker | 검색, 테마 전환, 오프라인 지원, 코드 복사 |
 | **Hosting** | Vercel (Primary), GitHub Pages (Backup) | CDN, SSL, 자동 배포 |
@@ -573,6 +573,7 @@ export DEEPSEEK_API_KEY="your-key"
 
 | 버전 | 날짜 | 주요 변경 사항 |
 |------|------|---------------|
+| v8 | 2026-03-09 | Jekyll 4.4.1 업데이트, API Prisma 동적 import, 스크립트 정리, 모델명 Opus 4.6/Sonnet 4.6 통일 |
 | v7 | 2026-01-22 | 보안 헤더 강화, CSP 상세화, 비용 최적화 전략 추가, UI/UX 개선 가이드 추가 |
 | v6 | 2026-01-12 | Giscus 댓글 UI/UX 개선, 빠른 반응 추가 |
 | v5 | 2026-01-12 | Related Posts 3열 그리드, 카테고리 배지 |

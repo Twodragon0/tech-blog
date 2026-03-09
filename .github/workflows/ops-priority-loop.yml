@@ -45,7 +45,7 @@ jobs:
         id: checks
         run: |
           set -euo pipefail
-          message=$(python3 scripts/priority_ops_check.py || true)
+          message=$(python3 scripts/ops_health_orchestrator.py --skip-sentry --skip-pagespeed || true)
           {
             echo "message<<EOF"
             echo "$message"
