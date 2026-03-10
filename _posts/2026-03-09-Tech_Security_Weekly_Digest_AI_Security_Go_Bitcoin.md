@@ -2,6 +2,7 @@
 layout: post
 title: "기술·보안 주간 다이제스트: AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehouse"
 date: 2026-03-09 12:37:51 +0900
+category: security
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Go, Bitcoin]
 excerpt: "AI 에이전트의 보안 위협 분석(Krebs on Security), Saylor의 비트코인 추가 매수 신호, 브라질 Pix 결제 아르헨티나 확장, Agent Safehouse macOS 에이전트 샌드박싱, LINE 엔터프라이즈 LLM 에이전트 엔지니어링."
@@ -14,19 +15,45 @@ image_alt: "Tech Security Weekly Digest March 09 2026 AI Security Go"
 toc: true
 ---
 
-{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트 (2026년 03월 09일)'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">기술·보안 주간 다이제스트 (2026년 03월 09일)</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags"><span class="tag">Security-Weekly</span>
       <span class="tag">AI</span>
       <span class="tag">Security</span>
       <span class="tag">Go</span>
       <span class="tag">Bitcoin</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Krebs on Security</strong>: [보안] How AI Assistants are Moving the Security Goalposts</li>'
-  period='2026년 03월 09일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+      <span class="tag">2026</span></span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list"><li><strong>Krebs on Security</strong>: [보안] How AI Assistants are Moving the Security Goalposts</li></ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">수집 기간</span>
+    <span class="summary-value">2026년 03월 09일 (24시간)</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 ---
 

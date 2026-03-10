@@ -2,6 +2,7 @@
 layout: post
 title: "LLM 보안 실무 가이드 2026: 프롬프트 인젝션, RAG 보안, MCP 위협 대응"
 date: 2026-03-07 18:00:00 +0900
+category: security
 categories: [security, devsecops]
 tags: [LLM-Security, Prompt-Injection, RAG-Security, MCP-Security, AI-Security, OWASP, '2026']
 excerpt: "LLM 기반 서비스의 핵심 보안 위협과 실무 방어 전략 - 프롬프트 인젝션 방어, RAG 파이프라인 보안, MCP 프로토콜 위협 대응, 모델 공급망 보안까지 실전 코드와 탐지 쿼리로 정리합니다."
@@ -14,21 +15,47 @@ image_alt: "LLM Security Practical Guide 2026 Prompt Injection RAG MCP"
 toc: true
 ---
 
-{% include ai-summary-card.html
-  title='LLM 보안 실무 가이드 2026'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">LLM-Security</span>
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">LLM 보안 실무 가이드 2026</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags"><span class="tag">LLM-Security</span>
       <span class="tag">Prompt-Injection</span>
       <span class="tag">RAG-Security</span>
       <span class="tag">MCP-Security</span>
-      <span class="tag">AI-Security</span>'
-  highlights_html='<li><strong>프롬프트 인젝션 방어</strong>: Direct/Indirect 인젝션 탐지와 다계층 방어 패턴</li>
+      <span class="tag">AI-Security</span></span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list"><li><strong>프롬프트 인젝션 방어</strong>: Direct/Indirect 인젝션 탐지와 다계층 방어 패턴</li>
       <li><strong>RAG 파이프라인 보안</strong>: 문서 오염 방지, 검색 결과 검증, 컨텍스트 격리</li>
       <li><strong>MCP 프로토콜 위협</strong>: Tool Use 권한 제어, 서버 인증, 데이터 유출 방지</li>
-      <li><strong>모델 공급망 보안</strong>: 모델 서명 검증, 가중치 무결성, 레지스트리 보안</li>'
-  period='2026년 3월'
-  audience='보안 담당자, AI/ML 엔지니어, DevSecOps 엔지니어, 플랫폼 아키텍트'
-%}
+      <li><strong>모델 공급망 보안</strong>: 모델 서명 검증, 가중치 무결성, 레지스트리 보안</li></ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">수집 기간</span>
+    <span class="summary-value">2026년 3월</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">보안 담당자, AI/ML 엔지니어, DevSecOps 엔지니어, 플랫폼 아키텍트</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title: "기술·보안 주간 다이제스트: Android 129개 취약점, DevSecOps 보안 부채, K8s 공격 급증"
 date: 2026-03-07 12:00:00 +0900
+category: security
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Android, Zero-Day, Kubernetes, Supply-Chain]
 excerpt: "Google Android 129개 취약점 패치(Qualcomm 제로데이 CVE-2026-21385 활성 공격), VMware Aria Operations CVE-2026-22719 KEV 등재, Datadog DevSecOps 보고서(87% 조직 취약), VoidLink AI 기반 K8s 악성코드 등 20건의 DevSecOps 실무 위협 분석."
@@ -14,22 +15,48 @@ image_alt: "Tech Security Weekly Digest March 07 2026 Android Zero Day DevSecOps
 toc: true
 ---
 
-{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트 (2026년 03월 07일)'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">기술·보안 주간 다이제스트 (2026년 03월 07일)</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags"><span class="tag">Security-Weekly</span>
       <span class="tag">Android-Zero-Day</span>
       <span class="tag">DevSecOps-Report</span>
       <span class="tag">Kubernetes</span>
       <span class="tag">Supply-Chain</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Android 129개 취약점 패치</strong>: Qualcomm 제로데이 CVE-2026-21385 활성 공격 확인, 234개 칩셋 영향</li>
+      <span class="tag">2026</span></span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list"><li><strong>Android 129개 취약점 패치</strong>: Qualcomm 제로데이 CVE-2026-21385 활성 공격 확인, 234개 칩셋 영향</li>
       <li><strong>VMware Aria Operations 활성 공격</strong>: CVE-2026-22719 CISA KEV 등재, 인증 없이 임의 명령 실행</li>
       <li><strong>Datadog DevSecOps 보고서</strong>: 87% 조직이 운영 환경에 공격 가능한 취약점 보유, 의존성 평균 278일 지연</li>
-      <li><strong>VoidLink K8s 악성코드</strong>: AI로 제작된 클라우드 네이티브 컨테이너 인식형 악성코드 프레임워크 확산</li>'
-  period='2026년 03월 07일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+      <li><strong>VoidLink K8s 악성코드</strong>: AI로 제작된 클라우드 네이티브 컨테이너 인식형 악성코드 프레임워크 확산</li></ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">수집 기간</span>
+    <span class="summary-value">2026년 03월 07일 (24시간)</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 ---
 

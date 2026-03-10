@@ -2,6 +2,7 @@
 layout: post
 title: "기술·보안 주간 다이제스트: CVE-2026-20122, Cisco, AWS"
 date: 2026-03-06 12:29:02 +0900
+category: security
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Threat, AI, AWS]
 excerpt: "Cisco Catalyst SD-WAN Manager CVE-2026-20122 활성 공격 확인, Europol의 Tycoon 2FA PhaaS 해체(64,000건 공격), APT28 우크라이나 표적 신규 악성코드 배포, GPT-5.4 출시 및 Google Cloud 보안 체크리스트 등 22건의 DevSecOps 실무 위협 분석."
@@ -14,22 +15,48 @@ image_alt: "Tech Security Weekly Digest March 06 2026 Security Threat AI"
 toc: true
 ---
 
-{% include ai-summary-card.html
-  title='기술·보안 주간 다이제스트 (2026년 03월 06일)'
-  categories_html='<span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span>'
-  tags_html='<span class="tag">Security-Weekly</span>
+<div class="ai-summary-card">
+<div class="ai-summary-header">
+  <span class="ai-badge">AI 요약</span>
+</div>
+<div class="ai-summary-content">
+  <div class="summary-row">
+    <span class="summary-label">제목</span>
+    <span class="summary-value">기술·보안 주간 다이제스트 (2026년 03월 06일)</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">카테고리</span>
+    <span class="summary-value"><span class="category-tag security">보안</span> <span class="category-tag devsecops">DevSecOps</span></span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">태그</span>
+    <span class="summary-value tags"><span class="tag">Security-Weekly</span>
       <span class="tag">Cisco-SD-WAN</span>
       <span class="tag">Tycoon-2FA</span>
       <span class="tag">GPT-5.4</span>
       <span class="tag">GKE</span>
-      <span class="tag">2026</span>'
-  highlights_html='<li><strong>Cisco SD-WAN 제로데이 공격</strong>: CVE-2026-20122 활성 공격 확인, Catalyst SD-WAN Manager 임의 파일 덮어쓰기 취약점</li>
+      <span class="tag">2026</span></span>
+  </div>
+  <div class="summary-row highlights">
+    <span class="summary-label">핵심 내용</span>
+    <ul class="summary-list"><li><strong>Cisco SD-WAN 제로데이 공격</strong>: CVE-2026-20122 활성 공격 확인, Catalyst SD-WAN Manager 임의 파일 덮어쓰기 취약점</li>
       <li><strong>Tycoon 2FA 피싱 플랫폼 해체</strong>: Europol 주도 국제공조로 64,000건 AitM 피싱 공격에 사용된 PhaaS 플랫폼 셧다운</li>
       <li><strong>GPT-5.4 출시</strong>: OpenAI 최신 프런티어 모델, 네이티브 컴퓨터 사용 기능과 100만 토큰 컨텍스트 지원</li>
-      <li><strong>Google Cloud 보안 체크리스트</strong>: MVSP 기반 보안 설정 권장 체크리스트 공개, 에이전틱 AI 시대 대응</li>'
-  period='2026년 03월 06일 (24시간)'
-  audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
-%}
+      <li><strong>Google Cloud 보안 체크리스트</strong>: MVSP 기반 보안 설정 권장 체크리스트 공개, 에이전틱 AI 시대 대응</li></ul>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">수집 기간</span>
+    <span class="summary-value">2026년 03월 06일 (24시간)</span>
+  </div>
+  <div class="summary-row">
+    <span class="summary-label">대상 독자</span>
+    <span class="summary-value">보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트</span>
+  </div>
+</div>
+<div class="ai-summary-footer">
+  이 포스팅은 AI가 쉽게 이해하고 활용할 수 있도록 구조화된 요약을 포함합니다.
+</div>
+</div>
 
 ---
 

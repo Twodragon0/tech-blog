@@ -245,21 +245,21 @@
     <text x="196" y="126" font-family="Arial, sans-serif" font-size="9" fill="#f59e0b" text-anchor="end" opacity="0.7">Cointelegraph</text>
   </g>
 
-  <!-- Blockchain Card 4: Grok roasts -->
+  <!-- Blockchain Card 4: AI Security Framework -->
   <g transform="translate(734, 368)">
     <rect width="210" height="130" rx="12" fill="url(#cardGradient)" filter="url(#shadow)"/>
     <rect x="0" y="0" width="210" height="4" rx="2" fill="url(#blockchainGradient)"/>
     <rect x="0" y="0" width="4" height="130" rx="2" fill="url(#blockchainGradient)" opacity="0.6"/>
 
-    <text x="115" y="24" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#f59e0b" text-anchor="middle">BLOCKCHAIN</text>
+    <text x="115" y="24" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#f59e0b" text-anchor="middle">AI SECURITY</text>
 
-    <text x="14" y="46" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Grok Delivers</text>
-    <text x="14" y="62" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Viral Vulgar Roasts</text>
-    <text x="14" y="83" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">xAI Grok drew massive</text>
-    <text x="14" y="98" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">attention on X with</text>
-    <text x="14" y="113" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">profanity-filled roasts.</text>
+    <text x="14" y="46" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">AI Security Framework</text>
+    <text x="14" y="62" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Standards Update</text>
+    <text x="14" y="83" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">NIST releases updated</text>
+    <text x="14" y="98" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">AI security guidelines</text>
+    <text x="14" y="113" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">for enterprise adoption.</text>
 
-    <text x="196" y="126" font-family="Arial, sans-serif" font-size="9" fill="#f59e0b" text-anchor="end" opacity="0.7">Cointelegraph</text>
+    <text x="196" y="126" font-family="Arial, sans-serif" font-size="9" fill="#f59e0b" text-anchor="end" opacity="0.7">NIST</text>
   </g>
 
   <!-- Blockchain Card 5: (extra slot, e.g. "5 Blockchain Total") -->
