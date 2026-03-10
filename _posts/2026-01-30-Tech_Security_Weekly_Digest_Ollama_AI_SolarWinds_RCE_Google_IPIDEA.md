@@ -116,6 +116,9 @@ toc: true
 
 ---
 
+
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
+
 ## 1. Ollama AI 서버 175,000대 인터넷 노출
 
 ### 위협 개요
@@ -157,6 +160,9 @@ SentinelOne SentinelLABS와 Censys의 공동 연구에서 **175,000대의 Ollama
 - [Ollama GitHub Repository](https://github.com/ollama/ollama#security)
 
 ---
+
+
+![Security News Section Banner](/assets/images/section-security.svg)
 
 ## 2. SolarWinds Web Help Desk Critical RCE (6 CVEs)
 
@@ -283,6 +289,9 @@ SDK-Based Proxy Infection Process:
 - [MITRE ATT&CK Framework](https://attack.mitre.org/)
 
 ---
+
+
+![Security News Section Banner](/assets/images/section-security.svg)
 
 ## 5. OT/에너지 시스템 사이버보안 실태 (OMICRON 조사)
 

@@ -108,6 +108,9 @@ toc: true
 
 ---
 
+
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
+
 ## 1. Zero Trust for Agentic Systems: 비인간 ID 대규모 관리
 
 ### MITRE ATT&CK 매핑
@@ -149,6 +152,9 @@ index=llm_api sourcetype=api:request
 ### 4.6 실무 방어 코드 예시
 
 ---
+
+
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 
 ## 5. 2026년 클라우드 전략: 5가지 핵심 변화
 

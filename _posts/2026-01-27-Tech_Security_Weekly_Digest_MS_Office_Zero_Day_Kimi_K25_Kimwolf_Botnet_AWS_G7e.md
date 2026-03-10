@@ -160,6 +160,9 @@ toc: true
 
 ---
 
+
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. Microsoft Office Zero-Day 긴급 패치 (CVE-2026-21509)
 
 ### 취약점 개요

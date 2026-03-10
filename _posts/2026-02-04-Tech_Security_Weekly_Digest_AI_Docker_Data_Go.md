@@ -76,6 +76,14 @@ toc: true
 
 ### 1.1 개요
 
+{%- include news-card.html
+  title="개요"
+  url="https://thehackernews.com/2026/02/hackers-exploit-metro4shell-rce-flaw-in.html"
+  summary="위협 행위자들이 널리 사용되는 `@react-native-community/cli` npm 패키지의 **Metro Development Server**에 존재하는 치명적 보안 결함을 적극적으로 악용하고 있습니다. 사이버 보안 기업 **VulnCheck**은 2025년 12월 21일에 **CVE-2025-11953**(Metro4Shell)의 최초 악용을..."
+  source="The Hacker News"
+-%}
+
+
 위협 행위자들이 널리 사용되는 `@react-native-community/cli` npm 패키지의 **Metro Development Server**에 존재하는 치명적 보안 결함을 적극적으로 악용하고 있습니다. 사이버 보안 기업 **VulnCheck**은 2025년 12월 21일에 **CVE-2025-11953**(Metro4Shell)의 최초 악용을 관측했다고 보고했습니다. **CVSS 9.8**의 이 취약점은 원격 비인증 공격자가 임의 코드를 실행할 수 있게 합니다.
 
 | 항목 | 상세 내용 |
@@ -222,6 +230,14 @@ AWS IAM Identity Center의 **멀티리전 복제** 기능은 중앙 집중식 ID
 ## 3. AI 에이전트 보안: 3Cs 프레임워크 심층 분석
 
 ### 3.1 개요
+
+{%- include news-card.html
+  title="[보안] 개요"
+  url="https://www.docker.com/blog/the-3cs-a-framework-for-ai-agent-security/"
+  summary="**Docker**가 AI 에이전트 보안을 위한 **3Cs 프레임워크**를 발표했습니다. 실행 모델이 변할 때마다 보안 프레임워크도 함께 변해야 한다는 원칙 아래, AI 에이전트가 가져오는 새로운 보안 패러다임을 정의합니다. Docker는 이를 &quot;무인 노트북 문제(Unattended Laptop Problem)&quot;에 비유합니다."
+  source="Docker Blog"
+-%}
+
 
 **Docker**가 AI 에이전트 보안을 위한 **3Cs 프레임워크**를 발표했습니다. 실행 모델이 변할 때마다 보안 프레임워크도 함께 변해야 한다는 원칙 아래, AI 에이전트가 가져오는 새로운 보안 패러다임을 정의합니다. Docker는 이를 "무인 노트북 문제(Unattended Laptop Problem)"에 비유합니다. 개발자가 잠금 해제된 노트북을 방치하지 않듯, AI 에이전트에게도 동일한 수준의 보안 통제가 필요합니다.
 

@@ -71,6 +71,9 @@ toc: true
 
 ---
 
+
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. Microsoft Office Zero-Day (CVE-2026-21509) 심층 분석
 
 ### 1.1 취약점 개요

@@ -239,6 +239,9 @@ DevOps/Cloud       : █████ 13%
 
 ---
 
+
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 위협 헌팅 통합 가이드 (Consolidated Threat Hunting Guide)
 
 ### 헌팅 시나리오 1: VMware vCenter 침해 흔적 탐지
@@ -326,6 +329,14 @@ diagnose sys ha history read | grep policy
 
 ### Apache Airflow 3.1 in Cloud Composer
 
+{%- include news-card.html
+  title="[클라우드] Apache Airflow 3.1 in Cloud Composer"
+  url="https://cloud.google.com/blog/products/data-analytics/cloud-composer-supports-apache-airflow-31/"
+  summary="Google Cloud Composer가 Apache Airflow 3.1을 지원하기 시작했습니다. 이는 하이퍼스케일러 최초입니다."
+  source="Improving workflow orchestration with Apache Airflow 3.1 in Cloud Composer"
+-%}
+
+
 Google Cloud Composer가 Apache Airflow 3.1을 지원하기 시작했습니다. 이는 하이퍼스케일러 최초입니다.
 
 > **출처**: [Improving workflow orchestration with Apache Airflow 3.1 in Cloud Composer](https://cloud.google.com/blog/products/data-analytics/cloud-composer-supports-apache-airflow-31/)
@@ -340,6 +351,14 @@ Google Cloud Composer가 Apache Airflow 3.1을 지원하기 시작했습니다. 
 | **Performance** | 스케줄러 성능 최적화 | 대규모 DAG 환경 |
 
 ### Google ADK + Datadog LLM Observability
+
+{%- include news-card.html
+  title="[클라우드] Google ADK + Datadog LLM Observability"
+  url="https://cloud.google.com/blog/products/management-tools/datadog-integrates-agent-development-kit-or-adk/"
+  summary="Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 에이전틱 시스템 모니터링이 가능해졌습니다."
+  source="Monitoring Google ADK agentic applications with Datadog LLM Observability"
+-%}
+
 
 Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 에이전틱 시스템 모니터링이 가능해졌습니다.
 

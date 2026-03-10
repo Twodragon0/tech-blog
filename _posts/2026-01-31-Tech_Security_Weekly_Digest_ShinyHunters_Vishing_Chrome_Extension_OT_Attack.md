@@ -103,6 +103,14 @@ toc: true
 
 ### 1.1 개요
 
+{%- include news-card.html
+  title="개요"
+  url="https://thehackernews.com/2026/01/mandiant-finds-shinyhunters-using.html"
+  summary="Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters** (UNC3944, Scattered Spider와 기법 유사)의 확장된 위협 활동을 식별했습니다. 이 그룹은 고급 **비싱(Voice Phishing)** 기법과 위조된 자격증명 수집 사이트를 활용하여 SaaS 플랫폼에 대한 무단 접근을 확보합니다."
+  source="The Hacker News"
+-%}
+
+
 Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters** (UNC3944, Scattered Spider와 기법 유사)의 확장된 위협 활동을 식별했습니다. 이 그룹은 고급 **비싱(Voice Phishing)** 기법과 위조된 자격증명 수집 사이트를 활용하여 SaaS 플랫폼에 대한 무단 접근을 확보합니다.
 
 | 항목 | 상세 내용 |
