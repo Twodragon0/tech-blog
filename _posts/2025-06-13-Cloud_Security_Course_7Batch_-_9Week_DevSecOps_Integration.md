@@ -47,7 +47,7 @@ series_total: 7
 
 <img src="{{ '/assets/images/2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration_image.png' | relative_url }}" alt="Cloud Security Course 7Batch 9Week: DevSecOps Integration Summary" loading="lazy" class="post-image">
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 안녕하세요, **Twodragon**입니다. 이번 포스팅에서는 클라우드 시큐리티 과정 7기 9주차에서 다룬 **DevSecOps 통합**을 실무 중심으로 정리합니다.
 

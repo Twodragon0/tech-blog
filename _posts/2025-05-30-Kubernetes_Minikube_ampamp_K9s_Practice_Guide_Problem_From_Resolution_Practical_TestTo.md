@@ -46,7 +46,7 @@ toc: true
   audience='클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자'
 -%}
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### 비즈니스 가치
 
@@ -1029,7 +1029,7 @@ Kubernetes audit log를 통한 위협 헌팅:
 > ```
 
 
-### 10.2 Container Runtime Detection
+### 10.2 컨테이너 런타임 탐지
 
 containerd/Docker runtime 로그를 통한 의심스러운 활동 탐지:
 

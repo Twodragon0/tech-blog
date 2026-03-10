@@ -53,7 +53,7 @@ toc: true
   audience='AWS 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 보안 전문가, AWS-SAA 준비자'
 -%}
 
-## 🎯 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### AWS/EKS 보안 태세 평가
 

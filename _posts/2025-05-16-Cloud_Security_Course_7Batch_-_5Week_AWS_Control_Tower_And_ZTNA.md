@@ -50,7 +50,7 @@ series_total: 7
   audience='클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
 -%}
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 본 포스트는 클라우드 시큐리티 과정 7기 5주차의 핵심 내용인 **AWS Control Tower와 ZTNA(Zero Trust Network Access)**를 다룹니다. 멀티 계정 거버넌스부터 Zero Trust 보안 모델 구현까지 실무에서 즉시 활용할 수 있는 고품질 콘텐츠를 제공합니다.
 

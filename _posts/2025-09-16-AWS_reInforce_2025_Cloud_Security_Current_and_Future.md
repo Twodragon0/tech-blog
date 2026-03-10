@@ -42,7 +42,7 @@ toc: true
 
 <img src="{% raw %}{{ '/assets/images/2025-09-16-AWS_reInforce_2025_Cloud_Security_and_Future_image.png' | relative_url }}{% endraw %}" alt="AWS re:Inforce 2025: Cloud Security Present and Future" loading="lazy" class="post-image">
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### 핵심 메시지
 

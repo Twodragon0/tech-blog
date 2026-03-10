@@ -47,7 +47,7 @@ toc: true
 
 <img src="{% raw %}{{ '/assets/images/2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large-scale_Incident_Analysis_and_Resolution_image.png' | relative_url }}{% endraw %}" alt="Karpenter v1.5.3 Large-Scale Incident Analysis and Resolution Due to Node Integration" loading="lazy" class="post-image">
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 **장애 개요:** 2025년 10월 2일 15:43, Karpenter v1.5.3의 공격적인 노드 통합 정책과 PodDisruptionBudget 미설정으로 인해 프로덕션 환경에서 10분간 전체 서비스 중단이 발생했습니다.
 

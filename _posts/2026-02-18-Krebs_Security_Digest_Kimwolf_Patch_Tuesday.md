@@ -40,7 +40,7 @@ toc: true
   audience="보안 담당자, DevSecOps 엔지니어, SRE"
 %}
 
-## Executive Summary
+## 경영진 요약
 
 - P1 **Kimwolf 봇넷**: I2P 익명망을 오염시켜 C2/DDoS 트래픽을 위장, 내부 단말·게이트웨이 악용 위험.
 - P1 **2월 Patch Tuesday**: 다수 RCE/권한상승 패치. 미적용 시 윈도 자산 즉시 노출.

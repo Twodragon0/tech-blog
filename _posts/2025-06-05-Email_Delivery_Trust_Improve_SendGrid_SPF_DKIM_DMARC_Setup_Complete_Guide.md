@@ -127,7 +127,7 @@ toc: true
 | **Defense Evasion** | T1656 (Impersonation) | 경영진 사칭 BEC 공격 | ✅ 효과적 (DKIM 서명 검증으로 위조 탐지) |
 | **Command and Control** | T1071.003 (Mail Protocols) | 이메일을 통한 C2 통신 | ⚠️ 부분 방어 (외부 서버 발송 차단) |
 
-### 공격 흐름도 (Attack Flow)
+### 공격 흐름도
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 

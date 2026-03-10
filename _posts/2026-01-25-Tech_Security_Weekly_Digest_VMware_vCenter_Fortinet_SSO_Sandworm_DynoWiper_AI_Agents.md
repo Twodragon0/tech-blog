@@ -76,7 +76,7 @@ toc: true
   audience='보안 담당자, DevSecOps 엔지니어, SOC 분석가, 클라우드 아키텍트, CISO'
 -%}
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### 위험도 평가 스코어카드 (Risk Assessment Scorecard)
 

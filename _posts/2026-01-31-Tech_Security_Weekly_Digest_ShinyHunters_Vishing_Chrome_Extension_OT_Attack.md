@@ -57,7 +57,7 @@ toc: true
   audience='보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO'
 -%}
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### 위협 스코어카드 (Risk Scorecard)
 
@@ -67,7 +67,7 @@ toc: true
 | **악성 Chrome 확장** | 🟠 High | 🟠 High | 70% | Enterprise | AI 서비스 토큰 탈취 |
 | **폴란드 OT 공격** | 🔴 Critical | 🟡 Medium | 60% | Energy Sector | 에너지 공급 중단 |
 
-### 한국 영향 분석 (Korean Impact Analysis)
+### 한국 영향 분석
 
 **🇰🇷 한국 기업/기관 위험도:**
 

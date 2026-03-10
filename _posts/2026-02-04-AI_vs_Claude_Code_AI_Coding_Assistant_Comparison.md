@@ -59,7 +59,7 @@ toc: true
 -%}
 
 <figure>
-  <img src="{{ '/assets/images/2026-02-04-AI_vs_Claude_Code_AI_Coding_Assistant_Comparison.png' | relative_url }}" alt="AI vs Claude Code AI Coding Assistant Comparison 2026" loading="lazy" class="post-image">
+  <img src="{{ '/assets/images/2026-02-04-AI_vs_Claude_Code_AI_Coding_Assistant_Comparison.svg' | relative_url }}" alt="AI vs Claude Code AI Coding Assistant Comparison 2026" loading="lazy" class="post-image">
   <figcaption>그림 1: AI vs Claude Code 비교 프레임워크 - 보안/운영/비용 관점</figcaption>
 </figure>
 

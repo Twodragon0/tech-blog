@@ -68,7 +68,7 @@ toc: true
 
 ![CSPM DataDog AWS Security Guide](/assets/images/2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Configuration_Verification_and_Compliance_Monitoring.svg)
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### CSPM 보안 성숙도 평가
 

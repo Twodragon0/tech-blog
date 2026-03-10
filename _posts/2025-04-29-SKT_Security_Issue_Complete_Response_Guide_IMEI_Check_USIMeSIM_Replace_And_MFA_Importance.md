@@ -47,7 +47,7 @@ toc: true
   audience='기업 보안 담당자, 보안 엔지니어, CISO'
 -%}
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### 위험도 평가표 (Risk Scorecard)
 

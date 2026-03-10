@@ -169,7 +169,7 @@ BitLocker Recovery Key Storage:
 | **T1078.004** | Cloud Accounts | Microsoft 계정 침해 시 키 접근 |
 | **T1213** | Data from Information Repositories | OneDrive/AD에서 복구 키 수집 |
 
-#### 한국 영향 분석 (Korea Impact Analysis)
+#### 한국 영향 분석
 
 **국내 조직 영향도: 높음** 🔴
 

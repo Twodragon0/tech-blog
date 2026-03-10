@@ -48,7 +48,7 @@ toc: true
 
 <img src="{{ '/assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned_image.png' | relative_url }}" alt="Post-Mortem November 18 2025 Cloudflare Global Incident Response Log: What We Learned" loading="lazy" class="post-image">
 
-## 🎯 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### 인시던트 심각도 평가
 

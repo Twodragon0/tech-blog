@@ -49,7 +49,7 @@ series_total: 9
   audience='DevSecOps 엔지니어, 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자'
 -%}
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### OT Security Scorecard
 

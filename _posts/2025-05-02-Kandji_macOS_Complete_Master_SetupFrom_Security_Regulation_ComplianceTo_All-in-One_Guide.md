@@ -50,7 +50,7 @@ toc: true
 
 ![Kandji macOS Complete Master Setup Guide](/assets/images/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.svg)
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### 보안 스코어카드
 

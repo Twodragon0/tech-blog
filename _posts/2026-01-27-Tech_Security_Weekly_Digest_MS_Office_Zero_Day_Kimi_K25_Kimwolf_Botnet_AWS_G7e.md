@@ -69,7 +69,7 @@ toc: true
   audience='DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, AI/ML 엔지니어, CISO'
 -%}
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### 위협 분석 스코어카드
 
@@ -90,7 +90,7 @@ toc: true
 | **Kimwolf 봇넷** | [T1584](https://attack.mitre.org/techniques/T1584/) (Compromise Infrastructure), [T1498](https://attack.mitre.org/techniques/T1498/) (Network DoS), [T1090](https://attack.mitre.org/techniques/T1090/) (Proxy), [T1046](https://attack.mitre.org/techniques/T1046/) (Network Service Discovery) |
 | **Grist-Core RCE** | [T1203](https://attack.mitre.org/techniques/T1203/) (Exploitation for Client Execution), [T1059](https://attack.mitre.org/techniques/T1059/) (Command and Scripting Interpreter) |
 
-### 경영진 요약 (Executive Brief)
+### 경영진 요약
 
 **2026년 1월 27일 주간 보안 상황 - 3대 긴급 위협**
 
@@ -206,7 +206,7 @@ hcl
 
 ### 감사 대응 보고서 템플릿
 
-#### 경영진 요약 for Audit
+#### 경영진 요약 (감사용)
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->

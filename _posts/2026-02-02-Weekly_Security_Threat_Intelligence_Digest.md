@@ -61,7 +61,7 @@ toc: true
 > **함께 읽기**: 같은 날짜의 기술/AI/블록체인 다이제스트 [Weekly Tech & AI & Blockchain Digest](/2026-02-02-Weekly_Tech_AI_Blockchain_Digest)에서 Apple MLX 버그, Bitcoin $74K 대폭락, AI 창의성 역설, DeFi 보안, FOSDEM 2026을 심층 분석합니다.
 
 <figure>
-  <img src="{{ '/assets/images/2026-02-02-Weekly_Security_Threat_Intelligence_Digest.png' | relative_url }}" alt="Weekly Security Threat Intelligence Digest Feb 2 2026" loading="lazy" class="post-image">
+  <img src="{{ '/assets/images/2026-02-02-Weekly_Security_Threat_Intelligence_Digest.svg' | relative_url }}" alt="Weekly Security Threat Intelligence Digest Feb 2 2026" loading="lazy" class="post-image">
   <figcaption>그림 1: 2월 2일 위협 인텔리전스 핵심 - 공급망 공격, 랜섬웨어, 제로트러스트</figcaption>
 </figure>
 
@@ -234,7 +234,7 @@ SK쉴더스 12월호에서는 확산 중인 **Gentlemen 랜섬웨어** 위협을
 | **T1567** | Exfiltration Over Web Service | 이중 갈취 - 데이터 유출 |
 | **T1486** | Data Encrypted for Impact | 파일 암호화 (핵심 목적) |
 
-#### 공격 흐름도 (Attack Flow)
+#### 공격 흐름도
 
 
 ---
@@ -433,7 +433,7 @@ Kubernetes 기본 Secret은 **etcd에 base64 인코딩(암호화 아님!)으로 
 
 ---
 
-## 5. 한국 영향 분석 (Impact Analysis for Korea)
+## 5. 한국 영향 분석
 
 ### 5.1 Notepad++ 공급망 공격 국내 영향
 

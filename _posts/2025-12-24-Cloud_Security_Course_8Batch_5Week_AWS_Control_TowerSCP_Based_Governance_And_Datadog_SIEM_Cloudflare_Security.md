@@ -66,7 +66,7 @@ series_total: 9
 
 <img src="{% raw %}{{ '/assets/images/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security_image.jpg' | relative_url }}{% endraw %}" alt="Cloud Security Course 8Batch 5Week: AWS Control Tower SCP Based Governance and Datadog SIEM Cloudflare Security" loading="lazy" class="post-image">
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 본 문서는 엔터프라이즈 클라우드 보안 거버넌스 체계를 제시합니다:
 
@@ -363,7 +363,7 @@ security_hub_integration:
   sync_interval: 5m
 ```
 
-#### GuardDuty Extended Threat Detection
+#### GuardDuty 확장 위협 탐지
 
 GuardDuty가 **Extended Threat Detection** 기능을 추가하여 EC2 및 ECS 환경에서의 위협 시퀀스를 탐지합니다.
 

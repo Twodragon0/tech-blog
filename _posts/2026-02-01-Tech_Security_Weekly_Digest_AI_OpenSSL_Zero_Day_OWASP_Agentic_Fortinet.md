@@ -59,7 +59,7 @@ toc: true
       <li><strong>CVE-2026-24304 Azure RM CVSS 9.9</strong>: Azure Resource Manager 권한 상승, 전체 리소스 제어권 탈취 가능</li>'
 -%}
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### 위험도 스코어카드
 

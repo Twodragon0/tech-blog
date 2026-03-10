@@ -65,7 +65,7 @@ toc: true
 
 <img src="{{ '/assets/images/2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.svg' | relative_url }}" alt="AI Music Video Generation Complete Guide: DevSecOps Perspective" loading="lazy" class="post-image">
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 **AI 콘텐츠 생성 보안 평가 - 2026년 1월**
 

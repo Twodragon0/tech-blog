@@ -60,7 +60,7 @@ toc: true
   audience='보안 담당자, 시스템 관리자, DevSecOps 엔지니어, 서버 운영자'
 -%}
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 ### 위협 스코어카드 (Risk Scorecard)
 

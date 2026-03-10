@@ -152,7 +152,7 @@ index=llm_api sourcetype=api:request
 
 ## 5. 2026년 클라우드 전략: 5가지 핵심 변화
 
-### 한국 영향 분석 (Korea Impact Assessment)
+### 한국 영향 분석
 
 **국내 클라우드 전환 현황 (2025년 기준):**
 - 클라우드 도입률: 대기업 78%, 중견기업 54%, 중소기업 32%

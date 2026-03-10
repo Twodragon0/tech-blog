@@ -42,7 +42,7 @@ toc: true
   audience='DevSecOps 엔지니어, 보안 엔지니어, 개발자'
 -%}
 
-## 경영진 요약 (Executive Summary)
+## 경영진 요약
 
 2025년 현재, AI 기반 보안 도구는 DevSecOps 환경의 필수 요소가 되었습니다. 본 문서는 Amazon Q Developer와 GitHub Advanced Security를 활용한 엔터프라이즈급 보안 자동화 전략을 다룹니다.
 
@@ -78,7 +78,7 @@ toc: true
 | DevSecOps 성숙도 (DSOMM) | Level 2.1 | Level 3.8 | **1.7 Level** |
 | 연간 보안 사고 | 12.3건 | 2.1건 | **82.9%** |
 
-### 경영진 요약 (C-Level Summary)
+### 경영진 요약
 
 **투자 대비 효과 (ROI)**: 200인 규모 기업 기준 연간 약 **8.7억 원** 절감 (보안 사고 비용 감소 4.2억, 개발 생산성 향상 4.5억)
 
