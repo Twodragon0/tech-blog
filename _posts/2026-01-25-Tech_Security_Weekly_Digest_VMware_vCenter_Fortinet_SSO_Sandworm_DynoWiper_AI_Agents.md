@@ -332,6 +332,7 @@ diagnose sys ha history read | grep policy
 {%- include news-card.html
   title="[클라우드] Apache Airflow 3.1 in Cloud Composer"
   url="https://cloud.google.com/blog/products/data-analytics/cloud-composer-supports-apache-airflow-31/"
+  image="https://storage.googleapis.com/gweb-cloudblog-publish/images/09_-_Data_Analytics_tFH57V6.max-2600x2600.jpg"
   summary="Google Cloud Composer가 Apache Airflow 3.1을 지원하기 시작했습니다. 이는 하이퍼스케일러 최초입니다."
   source="Improving workflow orchestration with Apache Airflow 3.1 in Cloud Composer"
 -%}
@@ -355,6 +356,7 @@ Google Cloud Composer가 Apache Airflow 3.1을 지원하기 시작했습니다. 
 {%- include news-card.html
   title="[클라우드] Google ADK + Datadog LLM Observability"
   url="https://cloud.google.com/blog/products/management-tools/datadog-integrates-agent-development-kit-or-adk/"
+  image="https://storage.googleapis.com/gweb-cloudblog-publish/images/21_-_Management_Tools_EI9iqlb.max-2600x2600.jpg"
   summary="Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 에이전틱 시스템 모니터링이 가능해졌습니다."
   source="Monitoring Google ADK agentic applications with Datadog LLM Observability"
 -%}

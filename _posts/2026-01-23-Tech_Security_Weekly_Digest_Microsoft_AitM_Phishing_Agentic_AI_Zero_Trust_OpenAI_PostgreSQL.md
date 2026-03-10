@@ -144,6 +144,7 @@ DevOps             : █████ 15%
 {%- include news-card.html
   title="[보안] Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및 BEC 공격 경고"
   url="https://thehackernews.com/2026/01/microsoft-flags-multi-stage-aitm.html"
+  image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBbSlIXcDChwJf0Cmq4j01QoZOUqnaRGaciqD9J0XKMk-2_Fnzge5_qv44fs_4xzO3OORbk0kiYFOHlocsuJBdVDxC86k-GMG-21LAJ-62F15I6XyUVobMKwVVh6h8PxP6rsJSPaSFUh50yCflaAxLI-UpGwbCLAaCtKqoti67rT6jChpeTei6TUjjYCE4/s1700-e365/1000049930.png"
   summary="Microsoft Defender Security Research Team이 **에너지 섹터를 타겟으로 한 정교한 다단계 공격 캠페인**을 경고했습니다. 이 공격은 기존 피싱과 달리 **Adversary-in-the-Middle (AitM)** 기법과 **Business Email Compromise (BEC)**를 결합한 고도화된 형태입니다."
   source="The Hacker News - Microsoft AitM Phishing Warning"
 -%}
@@ -167,6 +168,7 @@ Microsoft Defender Security Research Team이 **에너지 섹터를 타겟으로 
 {%- include news-card.html
   title="[보안] Agentic AI 시스템을 위한 Zero Trust 보안 전략"
   url="https://www.hashicorp.com/blog/zero-trust-for-agentic-systems-managing-non-human-identities-at-scale"
+  image="https://www.datocms-assets.com/2885/1764106190-theattackphase0and1.jpg?w=1200&h=630&fit=crop&auto=format"
   summary="HashiCorp에서 **자율 AI 시스템(Agentic AI)**의 보안을 위한 포괄적인 Zero Trust 가이드를 발표했습니다. 이는 단순히 AI 모델 보안이 아닌, **AI가 사용하는 모든 비인간 ID(NHI: Non-Human Identities)**의 관리에 초점을 맞추고 있습니다."
   source="HashiCorp - Zero Trust for Agentic Systems"
 -%}
@@ -206,6 +208,7 @@ HashiCorp에서 **자율 AI 시스템(Agentic AI)**의 보안을 위한 포괄�
 {%- include news-card.html
   title="[클라우드] OpenAI, PostgreSQL로 8억 ChatGPT 사용자 지원"
   url="https://eieio.games/blog/ssh-sends-100-packets-per-keystroke/"
+  image="https://eieio.games/images/ssh-sends-100-packets-per-keystroke/og_image.png"
   summary="OpenAI가 **PostgreSQL을 활용한 대규모 스케일링 전략**을 공개했습니다. 이는 NoSQL이나 NewSQL 솔루션 대신 검증된 RDBMS로도 초대규모 서비스가 가능함을 증명합니다."
   source="eieio.games - SSH Packets Analysis"
 -%}

@@ -176,6 +176,7 @@ SK쉴더스 HeadLine (2월호)에서 금융 서비스 분야 AI를 위한 7대 �
 {%- include news-card.html
   title="[블록체인] 이란 암호화폐 유출: 미-이스라엘 공습 후 BTC $1,030만 유출"
   url="https://www.chainalysis.com/blog/iranian-crypto-outflows-spike-after-airstrikes/"
+  image="https://www.chainalysis.com/wp-content/uploads/2026/03/2026-03-iran.jpg"
   summary="Chainalysis 및 Bitcoin Magazine의 온체인 분석에 따르면, 2월 28일 미-이스라엘의 테헤란 공습 이후 이란 거래소에서 대규모 암호화폐 유출이 발생했습니다."
   source="Chainalysis Blog"
 -%}
@@ -213,6 +214,7 @@ Chainalysis 및 Bitcoin Magazine의 온체인 분석에 따르면, 2월 28일 �
 {%- include news-card.html
   title="[블록체인] American Bitcoin (ABTC) 채굴 장비 대규모 확장"
   url="https://bitcoinmagazine.com/news/trump-linked-american-bitcoin-abtc-2"
+  image="https://bitcoinmagazine.com/wp-content/uploads/2026/03/Trump-Linked-American-Bitcoin-ABTC-Expands-Mining-Fleet-Bitcoin-Production-Capacity.jpg"
   summary="트럼프 가문과 연관된 기업 American Bitcoin(ABTC)이 11,000대 이상의 신규 고효율 채굴 장비를 투입하며 채굴 사업을 대폭 확장하고 있습니다."
   source="Bitcoin Magazine"
 -%}

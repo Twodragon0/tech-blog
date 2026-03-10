@@ -235,6 +235,7 @@ SK쉴더스 EQST(Experts, Qualified Security Team)가 11월 한 달간 수집한
 {%- include news-card.html
   title="[블록체인] 비트코인 가격 $65,000 이하로 급락"
   url="https://bitcoinmagazine.com/markets/bitcoin-price-crashes-below-65000"
+  image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Bitcoin-Price-Crashes-Below-65000-Drops-5-in-2-Hours-Amid-Six-Week-Slump.jpg"
   summary="비트코인이 일요일 저녁 2시간 만에 5% 이상 하락하며 $65,000 선 아래로 급락했습니다. 매우 짧은 시간 내에 급격한 매도 압력이 발생하여 시장 전반에 변동성이 확대되었습니다."
   source="Bitcoin Magazine"
 -%}
@@ -266,6 +267,7 @@ SK쉴더스 EQST(Experts, Qualified Security Team)가 11월 한 달간 수집한
 {%- include news-card.html
   title="[블록체인] 러시아 제재 우회를 돕는 암호화폐 거래소 네트워크 적발"
   url="https://cointelegraph.com/news/crypto-exchange-network-helping-russia-skirt-sanctions-elliptic?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
+  image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2025-12/019b6f72-662b-7191-9316-5b0e1e6bbce3.jpg"
   summary="블록체인 분석 기업 Elliptic에 따르면, 5개 암호화폐 거래소(Bitpapa, ABCeX, Exmo, Rapira, Aifory Pro)가 러시아의 국제 제재 우회를 지원하고 있는 것으로 밝혀졌습니다. 이 플랫폼들은 제재 대상이었던 Garantex 폐쇄 이후 루블-암호화폐 환전 경로를 제공하며 제재 대상 자산의 국경 이동을 가능하게 하고 있습니다."
   source="Cointelegraph"
 -%}

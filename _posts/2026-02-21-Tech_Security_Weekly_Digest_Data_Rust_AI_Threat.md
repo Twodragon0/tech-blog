@@ -65,6 +65,7 @@ toc: true
 {%- include news-card.html
   title="[보안] Anthropic, AI 기반 취약점 스캔을 위한 Claude Code Security 출시"
   url="https://thehackernews.com/2026/02/anthropic-launches-claude-code-security.html"
+  image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnUd8T_I-xQKNmoLh2WLznpTvsH2JGWkhRJOOcjgUxat1PSS3OKl-z5P-OYhbJssm5DqAP8B3Dye8Z298RAqvSKibFo-ISDmF0qPlOpUdUVKJRO9Gy5MxDZP4A2uUxmoqBpfK95Z4u-hvqmNqsRE42ivsIc2H-NQYubExbmPug9WbHkVpuqry9hO9nNG4y/s1700-e365/ai-code-scan.jpg"
   summary="Anthropic의 **Claude Code Security** 출시는 AI가 단순한 코드 생성을 넘어 보안 감사 및 자동 패치 영역으로 진화했음을 의미합니다. DevSecOps 실무자 관점에서 분석한 결과는 다음과 같습니다."
   source="The Hacker News"
 -%}
@@ -96,6 +97,7 @@ Anthropic이 공개한 'Claude Code Security'는 LLM의 문맥 이해 능력을 
 {%- include news-card.html
   title="[보안] CISA, 실제 악용 중인 Roundcube 취약점 2건 KEV 목록에 추가"
   url="https://thehackernews.com/2026/02/cisa-adds-two-actively-exploited.html"
+  image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtZg49iJDSf0QXV_lj9uqgkcevxHhncfWJrejyCIdGb2hlzcVefAWXETqflE7uEUTuAGKkqfSpa9_w1FoNTZ-67YU4H-iUio2DfhF7o2qIMIbx8BewvMG8rHsq8eh7gBwjVckasb5Qj8jsGY_3wRjBaYTh-nL10wAWFI5PbCu62cfJFk9Y8ucUBDyQNkEh/s1700-e365/roundcube.jpg"
   summary="CISA가 Roundcube 웹메일 취약점 2건을 KEV(Known Exploited Vulnerabilities) 목록에 추가했습니다. 실제 공격에 활용되고 있으며, 원격 코드 실행이 가능한 치명적 결함이 포함되어 즉각 대응이 필요합니다."
   source="The Hacker News"
 -%}
@@ -124,6 +126,7 @@ CISA가 Roundcube 웹메일 취약점 2건을 KEV(Known Exploited Vulnerabilitie
 {%- include news-card.html
   title="[보안] EC-Council AI 인증 포트폴리오 확대: 미국 AI 인력 보안 대비 강화"
   url="https://thehackernews.com/2026/02/ec-council-expands-ai-certification.html"
+  image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTNtB3q8UY8WtPavGisP57bq3aRlFLsQJSfTpwuLP0E1eqcPNAtjaI2_YeTjOxEi4GGQbFUOu-sYuTLRB_WnoQNAKfiwUIJqmU5G8GrhPjsmKCx_03Ecyid-28wg-nWj4RjV8YWVXM4unbx9uhtxBz-b7crRhe03y4fH8up6O3q2k5Gdjx-r4-9Yk4QCM/s1700-e365/ec.jpg"
   summary="EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certified CISO v4 프로그램을 출시했습니다. AI 채택 속도가 훈련된 인력 공급을 앞서는 구조적 격차를 해결하기 위한 조치로, 미국에서 약 70만 명의 AI 및 사이버보안 전문가 재교육이 필요한 상황입니다."
   source="The Hacker News"
 -%}
@@ -157,6 +160,7 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
 {%- include news-card.html
   title="[블록체인] Supreme Court가 Trump의 관세를 무효화하자 Bitcoin 급등"
   url="https://bitcoinmagazine.com/news/bitcoin-pops-after-supreme-court"
+  image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Pics-4-1.jpg"
   summary="미국 대법원이 Trump 전 대통령의 글로벌 관세 부과를 6대 3으로 무효화한 직후, 규제 불확실성 해소에 따라 비트코인 가격이 급등했습니다."
   source="Bitcoin Magazine"
 -%}
@@ -178,6 +182,7 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
 {%- include news-card.html
   title="[블록체인] Bitcoin 50% 급락: Quantum Scare인가 Capital Rotation인가?"
   url="https://bitcoinmagazine.com/markets/bitcoins-50-slide-quantum-scare"
+  image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Bitcoins-50-Slide-Quantum-Scare-or-Capital-Rotation.jpg"
   summary="비트코인이 고점 대비 50% 급락하며 $67,000대로 하락했습니다. 양자 컴퓨팅의 암호화 위협에 대한 공포와 기관 자금의 자본 이동이 동시에 원인으로 거론되고 있습니다."
   source="Bitcoin Magazine"
 -%}
