@@ -294,15 +294,15 @@ Splunk SPL (통합 분석):
 
 | 벤더 | 블로그 URL |
 |------|------------|
-| Jamf | [https://www.jamf.com/blog/](https://www.jamf.com/blog/) |
-| Zscaler | [https://www.zscaler.com/blogs](https://www.zscaler.com/blogs) |
-| Cloudflare | [https://blog.cloudflare.com/](https://blog.cloudflare.com/) |
-| Okta | [https://www.okta.com/blog/](https://www.okta.com/blog/) |
-| Datadog | [https://www.datadoghq.com/blog/](https://www.datadoghq.com/blog/) |
-| CrowdStrike | [https://www.crowdstrike.com/blog/](https://www.crowdstrike.com/blog/) |
-| Palo Alto Networks | [https://www.paloaltonetworks.com/blog/](https://www.paloaltonetworks.com/blog/) |
-| Snyk | [https://snyk.io/blog/](https://snyk.io/blog/) |
-| HashiCorp | [https://www.hashicorp.com/blog/](https://www.hashicorp.com/blog/) |
+| Jamf | [블로그](https://www.jamf.com/blog/) |
+| Zscaler | [블로그](https://www.zscaler.com/blogs) |
+| Cloudflare | [링크](https://blog.cloudflare.com/) |
+| Okta | [블로그](https://www.okta.com/blog/) |
+| Datadog | [블로그](https://www.datadoghq.com/blog/) |
+| CrowdStrike | [블로그](https://www.crowdstrike.com/blog/) |
+| Palo Alto Networks | [블로그](https://www.paloaltonetworks.com/blog/) |
+| Snyk | [블로그](https://snyk.io/blog/) |
+| HashiCorp | [블로그](https://www.hashicorp.com/blog/) |
 
 ### 이번 주 참조 링크
 

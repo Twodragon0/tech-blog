@@ -438,45 +438,45 @@ SKT 사태 대응 예산 (100명 규모 기업 예시):
 
 | 출처 | 제목 | URL |
 |------|------|-----|
-| SK텔레콤 | USIM 정보 유출 관련 공지 및 대응 | https://www.sktelecom.com/notice/usim-security |
-| 과기정통부 | 통신사 보안 강화 지침 | https://www.msit.go.kr/telecom/security |
-| 금융감독원 | SMS OTP 단계적 폐지 계획 | https://www.fss.or.kr/mfa-transition |
-| 개인정보보호위원회 | SKT 사태 조사 결과 | https://www.pipc.go.kr/skt-investigation |
+| SK텔레콤 | USIM 정보 유출 관련 공지 및 대응 | [링크](https://www.sktelecom.com/notice/usim-security) |
+| 과기정통부 | 통신사 보안 강화 지침 | [링크](https://www.msit.go.kr/telecom/security) |
+| 금융감독원 | SMS OTP 단계적 폐지 계획 | [링크](https://www.fss.or.kr/mfa-transition) |
+| 개인정보보호위원회 | SKT 사태 조사 결과 | [링크](https://www.pipc.go.kr/skt-investigation) |
 
 ### 8.2 보안 기술 문서
 
 | 주제 | 문서 | URL |
 |------|------|-----|
-| FIDO2/WebAuthn | FIDO Alliance 공식 규격 가이드 | https://fidoalliance.org/specifications/ |
-| TOTP RFC | RFC 6238 - TOTP 규격 | https://datatracker.ietf.org/doc/html/rfc6238 |
-| NIST MFA 가이드 | 디지털 신원 가이드라인 | https://pages.nist.gov/800-63-3/ |
-| MITRE ATT&CK | 자격증명 접근 전술 | https://attack.mitre.org/tactics/TA0006/ |
-| OWASP | 인증 치트시트 | https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html |
+| FIDO2/WebAuthn | FIDO Alliance 공식 규격 가이드 | [링크](https://fidoalliance.org/specifications/) |
+| TOTP RFC | RFC 6238 - TOTP 규격 | [링크](https://datatracker.ietf.org/doc/html/rfc6238) |
+| NIST MFA 가이드 | 디지털 신원 가이드라인 | [NIST](https://pages.nist.gov/800-63-3/) |
+| MITRE ATT&CK | 자격증명 접근 전술 | [MITRE ATT&CK](https://attack.mitre.org/tactics/TA0006/) |
+| OWASP | 인증 치트시트 | [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html) |
 
 ### 8.3 보안 도구 및 서비스
 
 | 카테고리 | 도구/서비스 | 용도 | URL |
 |----------|-------------|------|-----|
-| TOTP 앱 | Google Authenticator | TOTP 코드 생성 | https://google.com/authenticator |
-| TOTP 앱 | Microsoft Authenticator | TOTP + 푸시 인증 | https://microsoft.com/authenticator |
-| TOTP 앱 | Authy | 멀티디바이스 TOTP | https://authy.com |
-| 하드웨어 키 | YubiKey | FIDO2 보안 키 | https://www.yubico.com |
-| 하드웨어 키 | Titan Security Key | Google 보안 키 | https://store.google.com/titan |
-| 비밀번호 관리 | 1Password | 비밀번호 + TOTP 통합 | https://1password.com |
-| 비밀번호 관리 | Bitwarden | 오픈소스 관리자 | https://bitwarden.com |
-| 유출 확인 | Have I Been Pwned | 이메일 유출 확인 | https://haveibeenpwned.com |
-| SIEM | Splunk | 로그 분석 및 탐지 | https://www.splunk.com |
-| SIEM | Azure Sentinel | 클라우드 SIEM | https://azure.microsoft.com/sentinel |
+| TOTP 앱 | Google Authenticator | TOTP 코드 생성 | [링크](https://google.com/authenticator) |
+| TOTP 앱 | Microsoft Authenticator | TOTP + 푸시 인증 | [링크](https://microsoft.com/authenticator) |
+| TOTP 앱 | Authy | 멀티디바이스 TOTP | [링크](https://authy.com) |
+| 하드웨어 키 | YubiKey | FIDO2 보안 키 | [링크](https://www.yubico.com) |
+| 하드웨어 키 | Titan Security Key | Google 보안 키 | [링크](https://store.google.com/titan) |
+| 비밀번호 관리 | 1Password | 비밀번호 + TOTP 통합 | [링크](https://1password.com) |
+| 비밀번호 관리 | Bitwarden | 오픈소스 관리자 | [링크](https://bitwarden.com) |
+| 유출 확인 | Have I Been Pwned | 이메일 유출 확인 | [링크](https://haveibeenpwned.com) |
+| SIEM | Splunk | 로그 분석 및 탐지 | [Splunk](https://www.splunk.com) |
+| SIEM | Azure Sentinel | 클라우드 SIEM | [Azure 문서](https://azure.microsoft.com/sentinel) |
 
 ### 8.4 관련 법규 및 표준
 
 | 법규/표준 | 내용 | 참고 URL |
 |----------|------|----------|
-| 개인정보보호법 | 개인정보 유출 시 신고 의무 | https://www.law.go.kr/개인정보보호법 |
-| 전기통신사업법 | 통신사 보안 의무 | https://www.law.go.kr/전기통신사업법 |
-| 정보통신망법 | 개인정보 보호 조치 | https://www.law.go.kr/정보통신망법 |
-| ISO/IEC 27001 | 정보보안 관리 체계 | https://www.iso.org/isoiec-27001 |
-| PCI DSS | 결제 카드 보안 표준 | https://www.pcisecuritystandards.org |
+| 개인정보보호법 | 개인정보 유출 시 신고 의무 | [법령정보](https://www.law.go.kr/개인정보보호법) |
+| 전기통신사업법 | 통신사 보안 의무 | [법령정보](https://www.law.go.kr/전기통신사업법) |
+| 정보통신망법 | 개인정보 보호 조치 | [법령정보](https://www.law.go.kr/정보통신망법) |
+| ISO/IEC 27001 | 정보보안 관리 체계 | [ISO](https://www.iso.org/isoiec-27001) |
+| PCI DSS | 결제 카드 보안 표준 | [PCI SSC](https://www.pcisecuritystandards.org) |
 
 ### 8.5 추가 학습 자료
 

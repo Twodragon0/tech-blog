@@ -393,64 +393,64 @@ AWS 환경에서 ISMS-P 인증을 받기 위해서는:
 
 | 구분 | 자료명 | URL | 설명 |
 |-----|-------|-----|------|
-| KISA | ISMS-P 인증 공식 사이트 | [https://isms.kisa.or.kr/](https://isms.kisa.or.kr/) | 인증 기준, 신청 절차, Q&A |
-| KISA | 2025년 ISMS-P 인증 기준 해설서 | [https://isms.kisa.or.kr/main/ispims/notice/?boardId=bbs_0000000000000045&mode=view&cntId=97](https://isms.kisa.or.kr/main/ispims/notice/?boardId=bbs_0000000000000045&mode=view&cntId=97) | 101개 기준 상세 해설 |
-| 개인정보보호위원회 | 개인정보보호법 | [https://www.pipc.go.kr/](https://www.pipc.go.kr/) | 법령, 가이드라인, 판례 |
-| 방송통신위원회 | 정보통신망법 | [https://www.kcc.go.kr/](https://www.kcc.go.kr/) | 정보통신서비스 제공자 의무사항 |
-| 국가법령정보센터 | 개인정보보호법 전문 | [https://www.law.go.kr/법령/개인정보보호법](https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95) | 법령 조문 및 개정 이력 |
+| KISA | ISMS-P 인증 공식 사이트 | [KISA](https://isms.kisa.or.kr/) | 인증 기준, 신청 절차, Q&A |
+| KISA | 2025년 ISMS-P 인증 기준 해설서 | [KISA](https://isms.kisa.or.kr/main/ispims/notice/?boardId=bbs_0000000000000045&mode=view&cntId=97) | 101개 기준 상세 해설 |
+| 개인정보보호위원회 | 개인정보보호법 | [링크](https://www.pipc.go.kr/) | 법령, 가이드라인, 판례 |
+| 방송통신위원회 | 정보통신망법 | [링크](https://www.kcc.go.kr/) | 정보통신서비스 제공자 의무사항 |
+| 국가법령정보센터 | 개인정보보호법 전문 | [법령정보](https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95) | 법령 조문 및 개정 이력 |
 
 #### 업계 가이드 및 백서
 
 | 구분 | 자료명 | URL | 설명 |
 |-----|-------|-----|------|
 | SK Shieldus | 2025년 ISMS-P 운영 가이드 (개정판) | [PDF 다운로드](https://www.skshieldus.com/download/files/download.do?o_fname=%2725%EB%85%84%20%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%20%EB%B0%8F%20%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%ED%98%B8%20%EA%B4%80%EB%A6%AC%EC%B2%B4%EA%B3%84(ISMS-P)%20%EC%9A%B4%EC%98%81%20%EA%B0%80%EC%9D%B4%EB%93%9C_%EA%B0%9C%EC%A0%95%ED%8C%90.pdf&r_fname=20251230170658586.pdf) | NIST CSF 2.0 연계, AI 보안 포함 |
-| AWS | AWS 보안 모범 사례 | [https://docs.aws.amazon.com/security/](https://docs.aws.amazon.com/security/) | IAM, VPC, KMS, CloudTrail 등 |
-| AWS | AWS Well-Architected Framework (보안 Pillar) | [https://aws.amazon.com/architecture/well-architected/](https://aws.amazon.com/architecture/well-architected/) | 클라우드 보안 아키텍처 설계 |
-| AWS | AWS Compliance Programs | [https://aws.amazon.com/compliance/programs/](https://aws.amazon.com/compliance/programs/) | SOC, ISO 27001, PCI-DSS 등 |
-| AWS | AWS Security Blog | [https://aws.amazon.com/blogs/security/](https://aws.amazon.com/blogs/security/) | 최신 보안 기술 및 사례 |
+| AWS | AWS 보안 모범 사례 | [AWS 문서](https://docs.aws.amazon.com/security/) | IAM, VPC, KMS, CloudTrail 등 |
+| AWS | AWS Well-Architected Framework (보안 Pillar) | [AWS 문서](https://aws.amazon.com/architecture/well-architected/) | 클라우드 보안 아키텍처 설계 |
+| AWS | AWS Compliance Programs | [AWS 문서](https://aws.amazon.com/compliance/programs/) | SOC, ISO 27001, PCI-DSS 등 |
+| AWS | AWS Security Blog | [AWS 문서](https://aws.amazon.com/blogs/security/) | 최신 보안 기술 및 사례 |
 
 #### 국제 표준 및 프레임워크
 
 | 구분 | 자료명 | URL | 설명 |
 |-----|-------|-----|------|
-| NIST | Cybersecurity Framework 2.0 | [https://www.nist.gov/cyberframework](https://www.nist.gov/cyberframework) | ISMS-P 연계 가능 |
-| NIST | AI Risk Management Framework | [https://www.nist.gov/itl/ai-risk-management-framework](https://www.nist.gov/itl/ai-risk-management-framework) | AI 보안 요구사항 |
-| ISO | ISO/IEC 27001:2022 | [https://www.iso.org/standard/27001](https://www.iso.org/standard/27001) | 정보보안 관리체계 국제 표준 |
-| ISO | ISO/IEC 27701:2019 | [https://www.iso.org/standard/71670.html](https://www.iso.org/standard/71670.html) | 개인정보 관리체계 확장 |
-| MITRE | ATT&CK Framework | [https://attack.mitre.org/](https://attack.mitre.org/) | 공격 전술 및 기법 데이터베이스 |
-| CIS | CIS AWS Foundations Benchmark | [https://www.cisecurity.org/benchmark/amazon_web_services](https://www.cisecurity.org/benchmark/amazon_web_services) | AWS 보안 설정 가이드 |
+| NIST | Cybersecurity Framework 2.0 | [NIST](https://www.nist.gov/cyberframework) | ISMS-P 연계 가능 |
+| NIST | AI Risk Management Framework | [NIST](https://www.nist.gov/itl/ai-risk-management-framework) | AI 보안 요구사항 |
+| ISO | ISO/IEC 27001:2022 | [ISO](https://www.iso.org/standard/27001) | 정보보안 관리체계 국제 표준 |
+| ISO | ISO/IEC 27701:2019 | [ISO](https://www.iso.org/standard/71670.html) | 개인정보 관리체계 확장 |
+| MITRE | ATT&CK Framework | [MITRE ATT&CK](https://attack.mitre.org/) | 공격 전술 및 기법 데이터베이스 |
+| CIS | CIS AWS Foundations Benchmark | [CIS](https://www.cisecurity.org/benchmark/amazon_web_services) | AWS 보안 설정 가이드 |
 
 #### AWS 서비스별 문서
 
 | 서비스 | 문서 | URL | ISMS-P 연계 |
 |--------|------|-----|------------|
-| IAM | Identity and Access Management | [https://docs.aws.amazon.com/iam/](https://docs.aws.amazon.com/iam/) | 접근 통제 (3.1) |
-| KMS | Key Management Service | [https://docs.aws.amazon.com/kms/](https://docs.aws.amazon.com/kms/) | 암호화 (3.2) |
-| CloudTrail | AWS CloudTrail | [https://docs.aws.amazon.com/cloudtrail/](https://docs.aws.amazon.com/cloudtrail/) | 로그 관리 (3.3) |
-| Security Hub | AWS Security Hub | [https://docs.aws.amazon.com/securityhub/](https://docs.aws.amazon.com/securityhub/) | 컴플라이언스 자동 검증 |
-| GuardDuty | Amazon GuardDuty | [https://docs.aws.amazon.com/guardduty/](https://docs.aws.amazon.com/guardduty/) | 위협 탐지 |
-| Config | AWS Config | [https://docs.aws.amazon.com/config/](https://docs.aws.amazon.com/config/) | 규정 준수 모니터링 |
-| VPC | Virtual Private Cloud | [https://docs.aws.amazon.com/vpc/](https://docs.aws.amazon.com/vpc/) | 네트워크 보안 |
-| Macie | Amazon Macie | [https://docs.aws.amazon.com/macie/](https://docs.aws.amazon.com/macie/) | 개인정보 자동 탐지 |
+| IAM | Identity and Access Management | [AWS 문서](https://docs.aws.amazon.com/iam/) | 접근 통제 (3.1) |
+| KMS | Key Management Service | [AWS 문서](https://docs.aws.amazon.com/kms/) | 암호화 (3.2) |
+| CloudTrail | AWS CloudTrail | [AWS 문서](https://docs.aws.amazon.com/cloudtrail/) | 로그 관리 (3.3) |
+| Security Hub | AWS Security Hub | [AWS 문서](https://docs.aws.amazon.com/securityhub/) | 컴플라이언스 자동 검증 |
+| GuardDuty | Amazon GuardDuty | [AWS 문서](https://docs.aws.amazon.com/guardduty/) | 위협 탐지 |
+| Config | AWS Config | [AWS 문서](https://docs.aws.amazon.com/config/) | 규정 준수 모니터링 |
+| VPC | Virtual Private Cloud | [AWS 문서](https://docs.aws.amazon.com/vpc/) | 네트워크 보안 |
+| Macie | Amazon Macie | [AWS 문서](https://docs.aws.amazon.com/macie/) | 개인정보 자동 탐지 |
 
 #### 교육 및 인증 과정
 
 | 구분 | 과정명 | URL | 대상 |
 |-----|-------|-----|------|
-| KISA | ISMS-P 인증심사원 양성 과정 | [https://edu.kisa.or.kr/](https://edu.kisa.or.kr/) | 심사원, 컨설턴트 |
-| AWS | AWS Certified Security - Specialty | [https://aws.amazon.com/certification/certified-security-specialty/](https://aws.amazon.com/certification/certified-security-specialty/) | 보안 엔지니어 |
-| AWS | AWS Security Fundamentals | [https://aws.amazon.com/training/](https://aws.amazon.com/training/) | 초급자 |
+| KISA | ISMS-P 인증심사원 양성 과정 | [KISA](https://edu.kisa.or.kr/) | 심사원, 컨설턴트 |
+| AWS | AWS Certified Security - Specialty | [AWS 문서](https://aws.amazon.com/certification/certified-security-specialty/) | 보안 엔지니어 |
+| AWS | AWS Security Fundamentals | [AWS 문서](https://aws.amazon.com/training/) | 초급자 |
 | Tech Blog | ISMS-P 인증 페이지 | [/certifications/isms-p/](/certifications/isms-p/) | 인증 준비자 |
-| Tech Blog | 온라인 강의 | [https://edu.2twodragon.com/courses/isms-p](https://edu.2twodragon.com/courses/isms-p) | 실무자 |
+| Tech Blog | 온라인 강의 | [링크](https://edu.2twodragon.com/courses/isms-p) | 실무자 |
 
 #### 커뮤니티 및 Q&A
 
 | 구분 | 플랫폼 | URL | 설명 |
 |-----|-------|-----|------|
-| AWS re:Post | AWS 공식 Q&A | [https://repost.aws/](https://repost.aws/) | AWS 전문가 답변 |
-| GitHub | aws-samples/security | [https://docs.aws.amazon.com/) | AWS 보안 샘플 코드 |
-| Reddit | r/aws | [https://www.reddit.com/r/aws/](https://www.reddit.com/r/aws/) | AWS 커뮤니티 |
-| Stack Overflow | aws tag | [https://stackoverflow.com/questions/tagged/aws](https://stackoverflow.com/questions/tagged/aws) | 기술 Q&A |
+| AWS re:Post | AWS 공식 Q&A | [링크](https://repost.aws/) | AWS 전문가 답변 |
+| GitHub | aws-samples/security | [[AWS 문서](https://docs.aws.amazon.com/)) | AWS 보안 샘플 코드 |
+| Reddit | r/aws | [링크](https://www.reddit.com/r/aws/) | AWS 커뮤니티 |
+| Stack Overflow | aws tag | [링크](https://stackoverflow.com/questions/tagged/aws) | 기술 Q&A |
 
 #### 관련 블로그 포스트 (Tech Blog)
 
@@ -466,21 +466,21 @@ AWS 환경에서 ISMS-P 인증을 받기 위해서는:
 
 | 도구 | 용도 | URL | ISMS-P 활용 |
 |-----|------|-----|------------|
-| Prowler | AWS 보안 감사 | [https://github.com/prowler-cloud/prowler) | 컴플라이언스 자동 점검 |
-| ScoutSuite | 멀티 클라우드 보안 감사 | [https://github.com/nccgroup/ScoutSuite) | 취약점 스캐닝 |
-| CloudMapper | AWS 네트워크 시각화 | [https://github.com/duo-labs/cloudmapper) | 네트워크 구조 분석 |
-| CloudSploit | AWS 보안 스캐너 | [https://github.com/aquasecurity/cloudsploit) | 보안 설정 검증 |
-| Pacu | AWS 모의 해킹 도구 | [https://github.com/RhinoSecurityLabs/pacu) | 보안 테스트 |
+| Prowler | AWS 보안 감사 | [[GitHub](https://github.com/prowler-cloud/prowler)) | 컴플라이언스 자동 점검 |
+| ScoutSuite | 멀티 클라우드 보안 감사 | [[GitHub](https://github.com/nccgroup/ScoutSuite)) | 취약점 스캐닝 |
+| CloudMapper | AWS 네트워크 시각화 | [[GitHub](https://github.com/duo-labs/cloudmapper)) | 네트워크 구조 분석 |
+| CloudSploit | AWS 보안 스캐너 | [[GitHub](https://github.com/aquasecurity/cloudsploit)) | 보안 설정 검증 |
+| Pacu | AWS 모의 해킹 도구 | [[GitHub](https://github.com/RhinoSecurityLabs/pacu)) | 보안 테스트 |
 
 #### 법률 및 컨설팅
 
 | 구분 | 기관 | URL | 서비스 |
 |-----|------|-----|--------|
-| 법률 | 법무법인 광장 | [https://www.leeko.com/](https://www.leeko.com/) | 개인정보보호법 자문 |
-| 법률 | 법무법인 율촌 | [https://www.yulchon.com/](https://www.yulchon.com/) | 정보보호 법률 자문 |
-| 컨설팅 | SK Shieldus | [https://www.skshieldus.com/](https://www.skshieldus.com/) | ISMS-P 인증 컨설팅 |
-| 컨설팅 | 이글루시큐리티 | [https://www.igloosec.co.kr/](https://www.igloosec.co.kr/) | 보안 컨설팅 |
-| 컨설팅 | 안랩 | [https://www.ahnlab.com/](https://www.ahnlab.com/) | 종합 보안 솔루션 |
+| 법률 | 법무법인 광장 | [링크](https://www.leeko.com/) | 개인정보보호법 자문 |
+| 법률 | 법무법인 율촌 | [링크](https://www.yulchon.com/) | 정보보호 법률 자문 |
+| 컨설팅 | SK Shieldus | [SK Shieldus](https://www.skshieldus.com/) | ISMS-P 인증 컨설팅 |
+| 컨설팅 | 이글루시큐리티 | [링크](https://www.igloosec.co.kr/) | 보안 컨설팅 |
+| 컨설팅 | 안랩 | [링크](https://www.ahnlab.com/) | 종합 보안 솔루션 |
 
 ---
 

@@ -179,10 +179,10 @@ Plan 단계:
 
 | 리소스 | 설명 | URL |
 |--------|------|-----|
-| DevSecOps Community | 글로벌 커뮤니티 | [https://www.devsecops.org/](https://www.devsecops.org/) |
-| OWASP Korea | OWASP 한국 챕터 | [https://owasp.org/www-chapter-korea/](https://owasp.org/www-chapter-korea/) |
-| Cloud Native Security Day | CNCF 보안 컨퍼런스 | [https://events.linuxfoundation.org/](https://events.linuxfoundation.org/) |
-| Black Hat / DEF CON | 보안 컨퍼런스 | [https://www.blackhat.com/](https://www.blackhat.com/) |
+| DevSecOps Community | 글로벌 커뮤니티 | [링크](https://www.devsecops.org/) |
+| OWASP Korea | OWASP 한국 챕터 | [OWASP](https://owasp.org/www-chapter-korea/) |
+| Cloud Native Security Day | CNCF 보안 컨퍼런스 | [링크](https://events.linuxfoundation.org/) |
+| Black Hat / DEF CON | 보안 컨퍼런스 | [링크](https://www.blackhat.com/) |
 
 ### GitHub 레포지토리 (예제 코드)
 

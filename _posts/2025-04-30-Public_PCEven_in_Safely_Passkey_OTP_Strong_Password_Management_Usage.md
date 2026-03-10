@@ -532,33 +532,33 @@ AI 피싱 공격 특징:
 
 | 문서 | URL | 설명 |
 |------|-----|------|
-| FIDO Alliance | https://fidoalliance.org/ | FIDO2/WebAuthn 표준 제정 기구 |
-| W3C WebAuthn Spec | https://www.w3.org/TR/webauthn-3/ | WebAuthn Level 3 표준 |
-| RFC 6238 (TOTP) | https://datatracker.ietf.org/doc/html/rfc6238 | TOTP 알고리즘 명세 |
-| RFC 4226 (HOTP) | https://datatracker.ietf.org/doc/html/rfc4226 | HOTP 알고리즘 명세 |
-| NIST SP 800-63B | https://pages.nist.gov/800-63-3/sp800-63b.html | 디지털 인증 가이드라인 |
-| MITRE ATT&CK | https://attack.mitre.org/techniques/T1556/ | Credential Access 기법 |
+| FIDO Alliance | [링크](https://fidoalliance.org/) | FIDO2/WebAuthn 표준 제정 기구 |
+| W3C WebAuthn Spec | [링크](https://www.w3.org/TR/webauthn-3/) | WebAuthn Level 3 표준 |
+| RFC 6238 (TOTP) | [링크](https://datatracker.ietf.org/doc/html/rfc6238) | TOTP 알고리즘 명세 |
+| RFC 4226 (HOTP) | [링크](https://datatracker.ietf.org/doc/html/rfc4226) | HOTP 알고리즘 명세 |
+| NIST SP 800-63B | [NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) | 디지털 인증 가이드라인 |
+| MITRE ATT&CK | [MITRE ATT&CK](https://attack.mitre.org/techniques/T1556/) | Credential Access 기법 |
 
 ### 6.2 보안 도구
 
 | 도구 | 유형 | URL |
 |------|------|-----|
-| Bitwarden | 비밀번호 매니저 (오픈소스) | https://bitwarden.com/ |
-| 1Password | 비밀번호 매니저 (기업용) | https://1password.com/ |
-| YubiKey | FIDO2 하드웨어 키 | https://www.yubico.com/ |
-| Google Authenticator | TOTP 앱 | https://googleauthenticator.com/ |
-| Microsoft Authenticator | TOTP + Passwordless | https://www.microsoft.com/en-us/security/mobile-authenticator-app |
-| 2FAS Auth | TOTP 앱 (오픈소스) | https://2fas.com/ |
-| KeePassXC | 로컬 비밀번호 매니저 | https://keepassxc.org/ |
+| Bitwarden | 비밀번호 매니저 (오픈소스) | [링크](https://bitwarden.com/) |
+| 1Password | 비밀번호 매니저 (기업용) | [링크](https://1password.com/) |
+| YubiKey | FIDO2 하드웨어 키 | [링크](https://www.yubico.com/) |
+| Google Authenticator | TOTP 앱 | [링크](https://googleauthenticator.com/) |
+| Microsoft Authenticator | TOTP + Passwordless | [링크](https://www.microsoft.com/en-us/security/mobile-authenticator-app) |
+| 2FAS Auth | TOTP 앱 (오픈소스) | [링크](https://2fas.com/) |
+| KeePassXC | 로컬 비밀번호 매니저 | [링크](https://keepassxc.org/) |
 
 ### 6.3 교육 자료
 
 | 자료 | 형식 | URL |
 |------|------|-----|
-| Passkey.org | 공식 가이드 | https://passkeys.dev/ |
-| FIDO2 Demo | 인터랙티브 데모 | https://webauthn.io/ |
-| OWASP Cheat Sheet | 보안 체크리스트 | https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html |
-| 한국인터넷진흥원 | 인증 보안 가이드 | https://www.kisa.or.kr/ |
+| Passkey.org | 공식 가이드 | [링크](https://passkeys.dev/) |
+| FIDO2 Demo | 인터랙티브 데모 | [링크](https://webauthn.io/) |
+| OWASP Cheat Sheet | 보안 체크리스트 | [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html) |
+| 한국인터넷진흥원 | 인증 보안 가이드 | [KISA](https://www.kisa.or.kr/) |
 
 ### 6.4 추가 읽을거리
 

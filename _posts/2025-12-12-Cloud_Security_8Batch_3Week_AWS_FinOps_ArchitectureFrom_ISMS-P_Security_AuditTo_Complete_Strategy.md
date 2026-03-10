@@ -203,50 +203,50 @@ AWS Budgets를 통한 예산 초과 사전 알림을 설정합니다.
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| AWS FinOps 가이드 | https://aws.amazon.com/aws-cost-management/ | AWS 공식 비용 관리 가이드 |
-| AWS Cost Optimization Hub | https://docs.aws.amazon.com/cost-optimization-hub/ | Cost Optimization Hub 공식 문서 |
-| AWS Compute Optimizer | https://docs.aws.amazon.com/compute-optimizer/ | Compute Optimizer 공식 문서 |
-| AWS Security Hub | https://docs.aws.amazon.com/securityhub/ | Security Hub 공식 문서 |
-| AWS Config | https://docs.aws.amazon.com/config/ | AWS Config 공식 문서 |
-| AWS CloudTrail | https://docs.aws.amazon.com/cloudtrail/ | CloudTrail 공식 문서 |
-| ISMS-P 인증 기준 | https://www.kisa.or.kr/isms-p | 한국인터넷진흥원 ISMS-P 가이드 |
+| AWS FinOps 가이드 | [AWS 문서](https://aws.amazon.com/aws-cost-management/) | AWS 공식 비용 관리 가이드 |
+| AWS Cost Optimization Hub | [AWS 문서](https://docs.aws.amazon.com/cost-optimization-hub/) | Cost Optimization Hub 공식 문서 |
+| AWS Compute Optimizer | [AWS 문서](https://docs.aws.amazon.com/compute-optimizer/) | Compute Optimizer 공식 문서 |
+| AWS Security Hub | [AWS 문서](https://docs.aws.amazon.com/securityhub/) | Security Hub 공식 문서 |
+| AWS Config | [AWS 문서](https://docs.aws.amazon.com/config/) | AWS Config 공식 문서 |
+| AWS CloudTrail | [AWS 문서](https://docs.aws.amazon.com/cloudtrail/) | CloudTrail 공식 문서 |
+| ISMS-P 인증 기준 | [KISA](https://www.kisa.or.kr/isms-p) | 한국인터넷진흥원 ISMS-P 가이드 |
 
 ### 2.2 FinOps Foundation 리소스
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| FinOps Framework | https://www.finops.org/framework/ | FinOps Foundation 프레임워크 |
-| FinOps Certified Practitioner | https://www.finops.org/certification/ | FinOps 자격증 정보 |
-| FinOps Best Practices | https://www.finops.org/framework/capabilities/ | FinOps 모범 사례 |
-| Cloud Cost Optimization | https://www.finops.org/resources/ | 클라우드 비용 최적화 리소스 |
+| FinOps Framework | [링크](https://www.finops.org/framework/) | FinOps Foundation 프레임워크 |
+| FinOps Certified Practitioner | [링크](https://www.finops.org/certification/) | FinOps 자격증 정보 |
+| FinOps Best Practices | [링크](https://www.finops.org/framework/capabilities/) | FinOps 모범 사례 |
+| Cloud Cost Optimization | [링크](https://www.finops.org/resources/) | 클라우드 비용 최적화 리소스 |
 
 ### 2.3 보안 및 컴플라이언스 리소스
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| MITRE ATT&CK for Cloud | https://attack.mitre.org/matrices/enterprise/cloud/ | 클라우드 공격 프레임워크 |
-| CIS AWS Foundations Benchmark | https://www.cisecurity.org/benchmark/amazon_web_services | CIS AWS 보안 벤치마크 |
-| AWS Well-Architected Framework | https://aws.amazon.com/architecture/well-architected/ | AWS 아키텍처 모범 사례 |
-| AWS Security Best Practices | https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html | AWS 보안 모범 사례 |
+| MITRE ATT&CK for Cloud | [MITRE ATT&CK](https://attack.mitre.org/matrices/enterprise/cloud/) | 클라우드 공격 프레임워크 |
+| CIS AWS Foundations Benchmark | [CIS](https://www.cisecurity.org/benchmark/amazon_web_services) | CIS AWS 보안 벤치마크 |
+| AWS Well-Architected Framework | [AWS 문서](https://aws.amazon.com/architecture/well-architected/) | AWS 아키텍처 모범 사례 |
+| AWS Security Best Practices | [AWS 문서](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) | AWS 보안 모범 사례 |
 
 ### 2.4 커뮤니티 및 블로그
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| AWS Blog - Cost Optimization | https://aws.amazon.com/blogs/aws-cost-management/ | AWS 공식 비용 관리 블로그 |
-| FinOps Slack Community | https://finopsfoundation.slack.com/ | FinOps 커뮤니티 (가입 필요) |
-| Reddit r/aws | https://www.reddit.com/r/aws/ | AWS 커뮤니티 |
-| AWS re:Post | https://repost.aws/ | AWS Q&A 플랫폼 |
+| AWS Blog - Cost Optimization | [AWS 문서](https://aws.amazon.com/blogs/aws-cost-management/) | AWS 공식 비용 관리 블로그 |
+| FinOps Slack Community | [링크](https://finopsfoundation.slack.com/) | FinOps 커뮤니티 (가입 필요) |
+| Reddit r/aws | [링크](https://www.reddit.com/r/aws/) | AWS 커뮤니티 |
+| AWS re:Post | [링크](https://repost.aws/) | AWS Q&A 플랫폼 |
 
 ### 2.5 도구 및 오픈소스
 
 | 도구 | URL | 설명 |
 |------|-----|------|
-| CloudCustodian | https://cloudcustodian.io/ | 클라우드 정책 관리 및 자동화 도구 |
-| Steampipe | https://steampipe.io/ | 클라우드 자산 쿼리 도구 |
-| Prowler | https://github.com/prowler-cloud/prowler | AWS 보안 평가 도구 |
-| ScoutSuite | https://github.com/nccgroup/ScoutSuite | 멀티 클라우드 보안 감사 도구 |
-| CloudMapper | https://github.com/duo-labs/cloudmapper | AWS 네트워크 시각화 도구 |
+| CloudCustodian | [링크](https://cloudcustodian.io/) | 클라우드 정책 관리 및 자동화 도구 |
+| Steampipe | [링크](https://steampipe.io/) | 클라우드 자산 쿼리 도구 |
+| Prowler | [GitHub](https://github.com/prowler-cloud/prowler) | AWS 보안 평가 도구 |
+| ScoutSuite | [GitHub](https://github.com/nccgroup/ScoutSuite) | 멀티 클라우드 보안 감사 도구 |
+| CloudMapper | [GitHub](https://github.com/duo-labs/cloudmapper) | AWS 네트워크 시각화 도구 |
 
 ## 결론
 
