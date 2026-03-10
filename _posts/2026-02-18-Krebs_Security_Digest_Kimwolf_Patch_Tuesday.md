@@ -9,7 +9,7 @@ description: "KrebsOnSecurity RSS 10건 기반 위협 요약: Kimwolf 봇넷의 
 keywords: [KrebsOnSecurity, Kimwolf, Patch-Tuesday, Badbox, Threat-Intel, I2P, DevSecOps, RSS]
 author: Twodragon
 comments: true
-image: /assets/images/2026-02-18-Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update.svg
+image: /assets/images/2026-02-18-Krebs_Security_Digest_Kimwolf_Patch_Tuesday.svg
 image_alt: "KrebsOnSecurity Security Digest"
 toc: true
 ---

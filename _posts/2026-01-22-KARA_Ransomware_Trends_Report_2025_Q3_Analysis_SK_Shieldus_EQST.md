@@ -67,7 +67,7 @@ toc: true
 
 > **참고**: 본 포스팅은 SK쉴더스 EQST insight의 KARA 보고서와 GuidePoint GRIT, Checkpoint, CISA, Mandiant 등의 글로벌 위협 인텔리전스를 종합하여 작성되었습니다.
 
-## 📊 빠른 참조
+## 빠른 참조
 
 ### 2025년 3분기 랜섬웨어 핵심 지표
 

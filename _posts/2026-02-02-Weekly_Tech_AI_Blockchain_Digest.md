@@ -58,7 +58,7 @@ toc: true
 
 > **함께 읽기**: 같은 날짜의 보안 위협 인텔리전스 다이제스트 [Weekly Security Threat Intelligence Digest](/2026-02-02-Weekly_Security_Threat_Intelligence_Digest)에서 Notepad++ 국가 지원 공급망 공격, SK쉴더스 보안 리포트 (Vertical AI, BlackField/Sinobi/Gentlemen 랜섬웨어, 제로트러스트, JWT 보안, 레드팀), HashiCorp 보안 자동화를 심층 분석합니다.
 
-## 개요
+## 요약
 
 2026년 2월 2일, Apple 하드웨어에서 예상치 못한 AI 추론 결함이 발견되었고, 암호화폐 시장에서는 큰 변동이 있었습니다. **iPhone 16 Pro Max의 A18 Pro Neural Engine이 MLX LLM 실행 시 텐서 값을 왜곡**하는 버그가 Hacker News에서 높은 점수를 기록했습니다. 동일 코드가 iPhone 15 Pro(A17 Pro)와 MacBook Pro(M-series)에서는 정상 동작하여, A18 Pro 칩의 하드웨어 또는 펌웨어 수준 결함의 가능성이 제기되고 있습니다.
 

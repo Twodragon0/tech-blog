@@ -91,7 +91,7 @@ toc: true
 
 ![DevSecOps Pipeline](/assets/images/mermaid/devsecops_roadmap_2026.svg)
 
-## 📊 빠른 참조
+## 빠른 참조
 
 ### 로드맵 개요
 

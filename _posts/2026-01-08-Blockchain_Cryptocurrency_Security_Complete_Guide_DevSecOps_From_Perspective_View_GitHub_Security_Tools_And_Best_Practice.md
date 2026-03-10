@@ -84,7 +84,7 @@ toc: true
 
 ![Blockchain Attack Chain](/assets/images/mermaid/blockchain_attack_chain.svg)
 
-## 📊 빠른 참조
+## 빠른 참조
 
 ### 2024-2025년 보안 사고 통계
 

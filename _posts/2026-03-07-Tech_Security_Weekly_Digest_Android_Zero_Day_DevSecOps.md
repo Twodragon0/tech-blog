@@ -2,7 +2,7 @@
 layout: post
 title: "기술·보안 주간 다이제스트: Android 129개 취약점, DevSecOps 보안 부채, K8s 공격 급증"
 date: 2026-03-07 12:00:00 +0900
-category: security
+categories: [security]
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Android, Zero-Day, Kubernetes, Supply-Chain]
 excerpt: "Google Android 129개 취약점 패치(Qualcomm 제로데이 CVE-2026-21385 활성 공격), VMware Aria Operations CVE-2026-22719 KEV 등재, Datadog DevSecOps 보고서(87% 조직 취약), VoidLink AI 기반 K8s 악성코드 등 20건의 DevSecOps 실무 위협 분석."

@@ -110,7 +110,7 @@ toc: true
 
 ![CSPM DataDog Architecture](/assets/images/mermaid/cspm_datadog_architecture.svg)
 
-## 📊 빠른 참조
+## 빠른 참조
 
 ### CSPM 주요 기능
 

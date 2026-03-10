@@ -2,7 +2,7 @@
 layout: post
 title: "LLM 보안 실무 가이드 2026: 프롬프트 인젝션, RAG 보안, MCP 위협 대응"
 date: 2026-03-07 18:00:00 +0900
-category: security
+categories: [security]
 categories: [security, devsecops]
 tags: [LLM-Security, Prompt-Injection, RAG-Security, MCP-Security, AI-Security, OWASP, '2026']
 excerpt: "LLM 기반 서비스의 핵심 보안 위협과 실무 방어 전략 - 프롬프트 인젝션 방어, RAG 파이프라인 보안, MCP 프로토콜 위협 대응, 모델 공급망 보안까지 실전 코드와 탐지 쿼리로 정리합니다."

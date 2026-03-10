@@ -2,7 +2,7 @@
 layout: post
 title: "기술·보안 주간 다이제스트: AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehouse"
 date: 2026-03-09 12:37:51 +0900
-category: security
+categories: [security]
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Go, Bitcoin]
 excerpt: "AI 에이전트의 보안 위협 분석(Krebs on Security), Saylor의 비트코인 추가 매수 신호, 브라질 Pix 결제 아르헨티나 확장, Agent Safehouse macOS 에이전트 샌드박싱, LINE 엔터프라이즈 LLM 에이전트 엔지니어링."

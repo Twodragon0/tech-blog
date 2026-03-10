@@ -85,7 +85,7 @@ toc: true
 
 > **함께 읽기**: 지난주 보안 위협 인텔리전스 다이제스트 [Weekly Security Threat Intelligence Digest](/2026-02-02-Weekly_Security_Threat_Intelligence_Digest)에서 Notepad++ 국가 지원 공급망 공격, SK쉴더스 보안 리포트 종합, HashiCorp 보안 자동화를 심층 분석합니다. 기술/AI/블록체인 소식은 [Weekly Tech & AI & Blockchain Digest](/2026-02-02-Weekly_Tech_AI_Blockchain_Digest)를 참고하세요.
 
-## 개요
+## 요약
 
 2026년 2월 첫째 주, AI 에이전트 생태계에 **연쇄 보안 위협**이 현실화되었습니다. AI(구 Clawdbot/Moltbot)를 둘러싼 보안 사건이 **여러 건 동시다발적으로 발생**하며, AI 코딩 에이전트의 보안이 중요해지고 있습니다:
 
