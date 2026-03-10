@@ -554,7 +554,7 @@ SK쉴더스 데이터 중심 제로트러스트 전략의 국내 적용:
 | Keep up with Ransomware 11월호 | 2025.11 | [SK Shieldus](https://www.skshieldus.com/download/files/download.do?o_fname=Keep%20up%20with%20Ransomware%2011%EC%9B%94%ED%98%B8%20%EA%B8%B0%EC%A1%B4%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4%20%EC%BD%94%EB%93%9C%EB%A5%BC%20%EC%9E%AC%ED%99%9C%EC%9A%A9%ED%95%9C%20BlackField%20%EB%9E%9C%EC%84%AC%EC%9B%A8%EC%96%B4.pdf&r_fname=20251127174343776.pdf) | BlackField 랜섬웨어 코드 재활용 |
 | Keep up with Ransomware 12월호 | 2025.12 | [SK Shieldus](https://www.skshieldus.com) | Gentlemen 랜섬웨어 |
 | Keep up with Ransomware 1월호 | 2026.01 | [SK Shieldus](https://www.skshieldus.com) | Sinobi + Lynx 연계 분석 |
-| Special Report 11월호 | 2025.11 | [SK Shieldus](https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_11%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EB%8D%B0%EC%9D%B4%ED%84%B0(Data)).pdf&r_fname=20251127174412898.pdf | 제로트러스트 보안전략 - 데이터 |
+| Special Report 11월호 | 2025.11 | [SK Shieldus](https://www.skshieldus.com/download/files/download.do?o_fname=Special%20Report_11%EC%9B%94%ED%98%B8_%EC%A0%9C%EB%A1%9C%ED%8A%B8%EB%9F%AC%EC%8A%A4%ED%8A%B8%20%EB%B3%B4%EC%95%88%EC%A0%84%EB%9E%B5%20%EB%8D%B0%EC%9D%B4%ED%84%B0%28Data%29.pdf&r_fname=20251127174412898.pdf) | 제로트러스트 보안전략 - 데이터 |
 | Special Report 12월호 | 2025.12 | [SK Shieldus](https://www.skshieldus.com) | 제로트러스트 - 가시성 및 분석 |
 | Research Technique 1월호 | 2026.01 | [SK Shieldus](https://www.skshieldus.com) | JWT 인증 위협 |
 | EQST Insight 11월호 | 2025.11 | [SK Shieldus](https://www.skshieldus.com) | 분기별 위협 동향 종합 |

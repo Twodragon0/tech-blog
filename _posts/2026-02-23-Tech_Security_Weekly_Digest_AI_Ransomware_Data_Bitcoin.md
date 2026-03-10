@@ -285,8 +285,8 @@ IT/OT 융합 환경의 주요 리스크:
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Tech World Monitor 글로벌 기술 동향 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | 실시간 AI 및 기술 산업 대시보드로 글로벌 기술 기업, 스타트업 생태계, 클라우드 인프라, 서비스 장애, 이벤트 흐름을 통합 추적하는 모니터링 도구 |
-| [미 공군, 세계 최초 이동식 원자력 발전소 배치](https://electrek.co/2026/02/22/worlds-first-us-air-force-deploys-portable-nuclear-power-station/) | Electrek | 미 공군이 'Project Janus' 시연에서 Valar Atomics의 5MW급 Ward250 이동식 원자로를 C-17 수송기로 캘리포니아에서 유타까지 공수 후 가동에 성공. 일일 약 120MWh 전력 생산 가능하며, 재난 대응 및 원격지 에너지 공급에 활용 전망 |
+| [Tech World Monitor 글로벌 기술 동향 대시보드](https://tech.worldmonitor.app/) | Tech World Monitor | 글로벌 기술 기업, 스타트업, 클라우드 인프라, 서비스 장애를 통합 추적하는 실시간 모니터링 대시보드 |
+| [미 공군, 세계 최초 이동식 원자력 발전소 배치](https://electrek.co/2026/02/22/worlds-first-us-air-force-deploys-portable-nuclear-power-station/) | Electrek | Valar Atomics 5MW급 이동식 원자로를 C-17으로 공수 후 가동 성공. 일일 120MWh 생산 가능하며 재난 대응 및 원격지 전력 공급에 활용 예정. |
 
 ---
 

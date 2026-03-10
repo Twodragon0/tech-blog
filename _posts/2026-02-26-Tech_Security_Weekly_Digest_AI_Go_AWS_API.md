@@ -439,7 +439,7 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Tech Monitor - 실시간 AI & 기술 산업](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | 글로벌 기술 기업·스타트업·클라우드 인프라·장애 현황을 통합 추적하는 실시간 대시보드 |
+| [Tech Monitor - 실시간 AI & 기술 산업](https://tech.worldmonitor.app/) | Tech World Monitor | 글로벌 기술 기업·스타트업·클라우드 인프라·장애 현황을 통합 추적하는 실시간 대시보드 |
 | [현대차 첫 중형 픽업 IONIQ T7 개발](https://electrek.co/2026/02/25/hyundai-new-pickup-potential-4wd-suv-in-the-works/) | Electrek | 현대차가 첫 중형 픽업트럭 시장 진출 추진, IONIQ T7으로 4WD SUV 가능성도 검토 중 |
 
 
