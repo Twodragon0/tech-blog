@@ -6,9 +6,10 @@ sitemap:
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
+
   <!-- Homepage -->
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}/</loc>
@@ -17,19 +18,35 @@ sitemap:
     <priority>1.0</priority>
   </url>
 
-  <!-- Static Pages -->
+  <!-- Static Pages (HTML only, exclude CSS/JS/XML/feeds) -->
   {% for page in site.pages %}
-    {% unless page.sitemap.exclude == 'yes' or page.url == '/feed.xml' or page.url == '/sitemap.xml' %}
+    {% assign ext = page.url | split: '.' | last %}
+    {% unless page.sitemap.exclude == 'yes'
+      or page.url == '/feed.xml'
+      or page.url == '/sitemap.xml'
+      or page.url == '/robots.txt'
+      or page.url == '/llms.txt'
+      or page.url == '/llms-full.txt'
+      or page.url == '/'
+      or ext == 'css'
+      or ext == 'js'
+      or ext == 'json'
+      or ext == 'xml'
+      or ext == 'txt'
+      or ext == 'ico'
+      or ext == 'png'
+      or ext == 'svg'
+    %}
     <url>
       <loc>{{ site.url }}{{ site.baseurl }}{{ page.url }}</loc>
       <lastmod>{{ page.last_modified_at | default: page.date | default: site.time | date_to_xmlschema }}</lastmod>
-      <changefreq>{% if page.url == '/' %}daily{% elsif page.url contains '/about' or page.url contains '/archive' %}monthly{% else %}weekly{% endif %}</changefreq>
-      <priority>{% if page.url == '/' %}1.0{% elsif page.url contains '/about' %}0.8{% else %}0.7{% endif %}</priority>
+      <changefreq>{% if page.url contains '/about' or page.url contains '/support' %}monthly{% else %}weekly{% endif %}</changefreq>
+      <priority>{% if page.url contains '/about' %}0.8{% elsif page.url contains '/categories' or page.url contains '/tags' or page.url contains '/archive' %}0.7{% elsif page.url contains '/certifications' %}0.7{% else %}0.6{% endif %}</priority>
     </url>
     {% endunless %}
   {% endfor %}
 
-  <!-- Blog Posts -->
+  <!-- Blog Posts with Image Sitemap -->
   {% for post in site.posts %}
     {% unless post.sitemap.exclude == 'yes' %}
     {% assign post_date = post.date | date: '%s' | plus: 0 %}
@@ -38,42 +55,19 @@ sitemap:
     <url>
       <loc>{{ site.url }}{{ site.baseurl }}{{ post.url }}</loc>
       <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
-      <changefreq>{% if days_since < 30 %}weekly{% elsif days_since < 180 %}monthly{% else %}yearly{% endif %}</changefreq>
-      <priority>{% if days_since < 30 %}0.9{% elsif days_since < 180 %}0.8{% else %}0.6{% endif %}</priority>
+      <changefreq>{% if days_since < 7 %}daily{% elsif days_since < 30 %}weekly{% elsif days_since < 180 %}monthly{% else %}yearly{% endif %}</changefreq>
+      <priority>{% if days_since < 7 %}0.9{% elsif days_since < 30 %}0.8{% elsif days_since < 180 %}0.7{% else %}0.5{% endif %}</priority>
+      {% if post.image %}
+      <image:image>
+        <image:loc>{{ site.url }}{{ site.baseurl }}{{ post.image }}</image:loc>
+        <image:title>{{ post.title | xml_escape }}</image:title>
+        {% if post.image_alt %}
+        <image:caption>{{ post.image_alt | xml_escape }}</image:caption>
+        {% endif %}
+      </image:image>
+      {% endif %}
     </url>
     {% endunless %}
   {% endfor %}
-
-  <!-- Category Pages - single page, no fragment URLs for crawlability -->
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/categories/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Archive Page -->
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/archive/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Tags Page -->
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/tags/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Categories Index -->
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/categories/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
 </urlset>
