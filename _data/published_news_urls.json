@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-09T03:37:57.344382+00:00",
+  "updated_at": "2026-03-10T00:42:39.123427+00:00",
   "entries": [
     {
       "url": "https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/",
@@ -840,6 +840,96 @@
       "title": "Superset - AI 에이전트 시대를 위한 IDE",
       "published_date": "2026-03-09",
       "expires_at": "2026-03-16T03:37:57.344287+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/unc4899-used-airdrop-file-transfer-and.html",
+      "title": "UNC4899 Breached Crypto Firm After Developer AirDropped Trojanized File to Work ",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/weekly-recap-qualcomm-0-day-ios-exploit.html",
+      "title": "⚡ Weekly Recap: Qualcomm 0-Day, iOS Exploit Chains, AirSnitch Attack & Vibe-Code",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/can-security-platform-finally-deliver.html",
+      "title": "Can the Security Platform Finally Deliver for the Mid-Market?",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/03/chrome-extension-turns-malicious-after.html",
+      "title": "Chrome Extension Turns Malicious After Ownership Transfer, Enabling Code Injecti",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/09/secure-agentic-ai-for-your-frontier-transformation/",
+      "title": "Secure agentic AI for your Frontier Transformation",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/03/09/security/how-advanced-browsing-protection-works-in-messenger/",
+      "title": "How Advanced Browsing Protection Works in Messenger",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/abb-robotics-omniverse/",
+      "title": "ABB Robotics Taps NVIDIA Omniverse to Deliver Industrial‑Grade Physical AI at Sc",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/state-of-ai-report-2026/",
+      "title": "How AI Is Driving Revenue, Cutting Costs and Boosting Productivity for Every Ind",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://openai.com/index/openai-to-acquire-promptfoo",
+      "title": "OpenAI to acquire Promptfoo",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-3-nano-as-a-fully-managed-serverless-model-on-amazon-bedrock/",
+      "title": "Run NVIDIA Nemotron 3 Nano as a fully managed serverless model on Amazon Bedrock",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/google-named-a-leader-in-idc-marketscape-us-state-and-local-government-professional-security-services-20252026-vendor-assessment/",
+      "title": "Google named a Leader in IDC MarketScape: U.S. State and Local Government Profes",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/gaming/sony-interactive-playstation-games-library-spanner-heroes/",
+      "title": "Game on with Spanner: How Playstation achieves global scale with 91% less storag",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-connect-health-bedrock-agentcore-policy-gameday-europe-and-more-march-9-2026/",
+      "title": "AWS Weekly Roundup: Amazon Connect Health, Bedrock AgentCore Policy, GameDay Eur",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/extend-your-coding-agent-with-dotnet-skills/",
+      "title": "Extend your coding agent with .NET Skills",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/03/09/kubecon-cloudnativecon-europe-2026-co-located-event-deep-dive-opentofu-day/",
+      "title": "KubeCon + CloudNativeCon Europe 2026 Co-located Event Deep Dive: OpenTofu Day",
+      "published_date": "2026-03-10",
+      "expires_at": "2026-03-17T00:42:39.123322+00:00"
     }
   ]
 }
