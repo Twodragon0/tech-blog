@@ -21,8 +21,8 @@ toc: true
       <span class="tag">AI</span>
       <span class="tag">Security</span>
       <span class="tag">2026</span>'
-  highlights_html='<li><strong>The Hacker News</strong>: [보안] OpenAI Codex Security Scanned 1.2 Million Commits and</li>
-      <li><strong>The Hacker News</strong>: [보안] Anthropic Finds 22 Firefox Vulnerabilities Using</li>'
+  highlights_html='<li><strong>The Hacker News</strong>: [보안] OpenAI Codex Security, 120만 커밋 스캔해 10,561건 취약점 발견</li>
+      <li><strong>The Hacker News</strong>: [보안] Anthropic, Claude Opus 4.6로 Firefox 취약점 22건 발견</li>'
   period='2026년 03월 08일 (24시간)'
   audience='보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트'
 %}
@@ -51,11 +51,11 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | [보안] OpenAI Codex Security Scanned 1.2 Million Commits and Found 10,561 | 🟡 Medium |
-| 🔒 **Security** | The Hacker News | [보안] Anthropic Finds 22 Firefox Vulnerabilities Using Claude Opus 4.6 AI | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Prediction market Kalshi sued over Khamenei trade carveout | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Kalshi, Polymarket eye $20B valuations in potential | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | [블록체인] USDC beats Tether as stablecoin transfer volume hits $1.8T | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | [보안] OpenAI Codex Security, 120만 커밋 스캔해 10,561건 취약점 발견 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | [보안] Anthropic, Claude Opus 4.6로 Firefox 취약점 22건 발견 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | [블록체인] 예측 시장 Kalshi, 하메네이 거래 면제 조항으로 소송 피소 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Kalshi·Polymarket, 200억 달러 밸류에이션 목표 자금 조달 추진 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | [블록체인] USDC, Tether 제치고 스테이블코인 전송량 1.8조 달러 돌파 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | AI에이전트 도입의 가장 큰 병목은 성능 보다 신뢰(feat. 시간)이다. | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | Autoresearch - Karpathy의 자동 연구 프레임워크 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | Go 표준 라이브러리에 UUID 패키지 추가 제안 | 🟡 Medium |
@@ -64,13 +64,13 @@ toc: true
 
 ## 1. 보안 뉴스
 
-### 1.1 [보안] OpenAI Codex Security Scanned 1.2 Million Commits and Found 10,561
+### 1.1 [보안] OpenAI Codex Security, 120만 커밋 스캔해 10,561건 취약점 발견
 
-{% include news-card.html title="[보안] OpenAI Codex Security Scanned 1.2 Million Commits and Found 10,561" url="https://thehackernews.com/2026/03/openai-codex-security-scanned-12.html" summary="OpenAI Codex Security - AI 기반 보안 에이전트로 취약점 탐지, 검증, 수정 제안" source="The Hacker News" %}
+{% include news-card.html title="[보안] OpenAI Codex Security, 120만 커밋 스캔해 10,561건 취약점 발견" url="https://thehackernews.com/2026/03/openai-codex-security-scanned-12.html" summary="OpenAI Codex Security - AI 기반 보안 에이전트로 취약점 탐지, 검증, 수정 제안" source="The Hacker News" %}
 
 #### 개요
 
-OpenAI on Friday began rolling out Codex Security, an artificial intelligence (AI)-powered security agent that's designed to find, validate, and propose fixes for vulnerabilities. The feature is available in a research preview to ChatGPT Pro, Enterprise, Business, and Edu customers via the Codex web with free usage for the next month.
+OpenAI는 금요일 Codex Security를 공개했다. 이는 취약점을 탐지·검증하고 수정안을 제안하는 AI 기반 보안 에이전트다. 해당 기능은 ChatGPT Pro, Enterprise, Business, Edu 고객을 대상으로 Codex 웹을 통해 리서치 프리뷰로 제공되며, 향후 한 달간 무료로 사용할 수 있다.
 
 **실무 포인트**: 보안 영향도를 평가하고 필요 시 대응 조치를 수행하세요.
 
@@ -96,13 +96,13 @@ OpenAI on Friday began rolling out Codex Security, an artificial intelligence (A
 
 ---
 
-### 1.2 [보안] Anthropic Finds 22 Firefox Vulnerabilities Using Claude Opus 4.6 AI
+### 1.2 [보안] Anthropic, Claude Opus 4.6로 Firefox 취약점 22건 발견
 
-{% include news-card.html title="[보안] Anthropic Finds 22 Firefox Vulnerabilities Using Claude Opus 4.6 AI" url="https://thehackernews.com/2026/03/anthropic-finds-22-firefox.html" summary="Anthropic이 Mozilla와 보안 파트너십으로 Firefox에서 22개 보안 취약점 발견 (14개 High)" source="The Hacker News" %}
+{% include news-card.html title="[보안] Anthropic, Claude Opus 4.6로 Firefox 취약점 22건 발견" url="https://thehackernews.com/2026/03/anthropic-finds-22-firefox.html" summary="Anthropic이 Mozilla와 보안 파트너십으로 Firefox에서 22개 보안 취약점 발견 (14개 High)" source="The Hacker News" %}
 
 #### 개요
 
-Anthropic on Friday said it discovered 22 new security vulnerabilities in the Firefox web browser as part of a security partnership with Mozilla. Of these, 14 have been classified as high, seven have been classified as moderate, and one has been rated low in severity. The issues were addressed in Firefox 148, released late last month.
+Anthropic은 금요일 Mozilla와의 보안 파트너십 일환으로 Firefox 웹 브라우저에서 22개의 신규 보안 취약점을 발견했다고 밝혔다. 이 중 14건은 High(높음), 7건은 Moderate(보통), 1건은 Low(낮음) 등급으로 분류됐다. 해당 취약점들은 지난달 말 출시된 Firefox 148에서 모두 수정됐다.
 
 **실무 포인트**: 보안 영향도를 평가하고 필요 시 대응 조치를 수행하세요.
 
@@ -130,13 +130,13 @@ Anthropic on Friday said it discovered 22 new security vulnerabilities in the Fi
 
 ## 2. 블록체인 뉴스
 
-### 2.1 [블록체인] Prediction market Kalshi sued over Khamenei trade carveout
+### 2.1 [블록체인] 예측 시장 Kalshi, 하메네이 거래 면제 조항으로 소송 피소
 
-{% include news-card.html title="[블록체인] Prediction market Kalshi sued over Khamenei trade carveout" url="https://cointelegraph.com/news/kalshi-sued-khamenei-trade-carveout" summary="예측 시장 Kalshi의 Khamenei 거래 면제 조항에 대한 소송" source="Cointelegraph" %}
+{% include news-card.html title="[블록체인] 예측 시장 Kalshi, 하메네이 거래 면제 조항으로 소송 피소" url="https://cointelegraph.com/news/kalshi-sued-khamenei-trade-carveout" summary="예측 시장 Kalshi의 Khamenei 거래 면제 조항에 대한 소송" source="Cointelegraph" %}
 
 #### 개요
 
-The plaintiffs characterized the death carveout in a prediction market for the former Iranian Supreme Leader's ouster as "deceptive.
+원고 측은 전 이란 최고지도자의 축출을 다루는 예측 시장에서 사망 관련 면제 조항을 "기만적"이라고 규정했다.
 
 **실무 포인트**: 관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요.
 
@@ -145,13 +145,13 @@ The plaintiffs characterized the death carveout in a prediction market for the f
 
 ---
 
-### 2.2 [블록체인] Kalshi, Polymarket eye $20B valuations in potential
+### 2.2 [블록체인] Kalshi·Polymarket, 200억 달러 밸류에이션 목표 자금 조달 추진
 
-{% include news-card.html title="[블록체인] Kalshi, Polymarket eye $20B valuations in potential" url="https://cointelegraph.com/news/kalshi-polymarket-20b-valuation-fundraising-wsj" summary="예측 시장 Kalshi, Polymarket이 200억달러 밸류에이션 목표 자금 조달 추진" source="Cointelegraph" %}
+{% include news-card.html title="[블록체인] Kalshi·Polymarket, 200억 달러 밸류에이션 목표 자금 조달 추진" url="https://cointelegraph.com/news/kalshi-polymarket-20b-valuation-fundraising-wsj" summary="예측 시장 Kalshi, Polymarket이 200억달러 밸류에이션 목표 자금 조달 추진" source="Cointelegraph" %}
 
 #### 개요
 
-Lawmakers are pushing new regulation for prediction markets after suspiciously timed Polymarket bets on US and Israeli strikes on Iran raised insider-trading concerns.
+미국과 이스라엘의 이란 공격을 둘러싼 Polymarket 베팅의 수상한 타이밍이 내부자 거래 우려를 낳으면서, 의원들이 예측 시장에 대한 새로운 규제를 추진하고 있다.
 
 **실무 포인트**: 관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요.
 
@@ -160,13 +160,13 @@ Lawmakers are pushing new regulation for prediction markets after suspiciously t
 
 ---
 
-### 2.3 [블록체인] USDC beats Tether as stablecoin transfer volume hits $1.8T
+### 2.3 [블록체인] USDC, Tether 제치고 스테이블코인 전송량 1.8조 달러 돌파
 
-{% include news-card.html title="[블록체인] USDC beats Tether as stablecoin transfer volume hits $1.8T" url="https://cointelegraph.com/news/usdc-beats-tether-stablecoin-transfer-volume-1-8-trillion-all-time-high" summary="스테이블코인 월간 거래량 1.8조 달러 사상 최고치, USDC가 70% 차지" source="Cointelegraph" %}
+{% include news-card.html title="[블록체인] USDC, Tether 제치고 스테이블코인 전송량 1.8조 달러 돌파" url="https://cointelegraph.com/news/usdc-beats-tether-stablecoin-transfer-volume-1-8-trillion-all-time-high" summary="스테이블코인 월간 거래량 1.8조 달러 사상 최고치, USDC가 70% 차지" source="Cointelegraph" %}
 
 #### 개요
 
-Stablecoin monthly transaction volume reached a record $1.8 trillion in February, as USDC surprised analysts with 70% of the total volume.
+2월 스테이블코인 월간 거래량이 1.8조 달러로 사상 최고치를 기록했다. USDC가 전체 거래량의 70%를 차지하며 분석가들의 예상을 뒤엎었다.
 
 **실무 포인트**: 관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요.
 
@@ -202,7 +202,7 @@ Stablecoin monthly transaction volume reached a record $1.8 trillion in February
 
 ### P0 (즉시)
 
-- [ ] **[보안] OpenAI Codex Security Scanned 1.2 Million Commits and Found 10,561** 관련 보안 영향도 분석 및 모니터링 강화
+- [ ] **[보안] OpenAI Codex Security, 120만 커밋 스캔해 10,561건 취약점 발견** 관련 보안 영향도 분석 및 모니터링 강화
 
 ### P1 (7일 내)
 

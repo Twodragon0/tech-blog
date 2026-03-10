@@ -39,7 +39,7 @@ toc: true
   </div>
   <div class="summary-row highlights">
     <span class="summary-label">핵심 내용</span>
-    <ul class="summary-list"><li><strong>Krebs on Security</strong>: [보안] How AI Assistants are Moving the Security Goalposts</li></ul>
+    <ul class="summary-list"><li><strong>Krebs on Security</strong>: [보안] AI 어시스턴트가 보안 기준을 바꾸고 있다</li></ul>
   </div>
   <div class="summary-row">
     <span class="summary-label">수집 기간</span>
@@ -79,10 +79,10 @@ toc: true
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | Krebs on Security | [보안] How AI Assistants are Moving the Security Goalposts | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Crypto regulatory clarity matters more for banks, ex-CFTC | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Saylor signals another Bitcoin buy as BTC hovers near $66K | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Brazil's Pix instant payments system expands to Argentina | 🟡 Medium |
+| 🔒 **Security** | Krebs on Security | [보안] AI 어시스턴트가 보안 기준을 바꾸고 있다 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | [블록체인] 은행에게 암호화폐 규제 명확성이 더 중요 — 전 CFTC 위원장 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | [블록체인] Saylor, BTC $66K 근처에서 추가 매수 신호 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | [블록체인] 브라질 Pix 즉시결제 시스템, 아르헨티나로 확장 | 🟡 Medium |
 | 💻 **Tech** | LINE Engineering | 엔터프라이즈 LLM 서비스 구축기 2: 에이전트 엔지니어링 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | 전쟁은 AI 기업의 윤리 원칙을 어디까지 밀어붙였나? | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | Agent Safehouse – macOS용 로컬 에이전트 샌드박싱 도구 | 🟡 Medium |
@@ -91,18 +91,18 @@ toc: true
 
 ## 1. 보안 뉴스
 
-### 1.1 [보안] How AI Assistants are Moving the Security Goalposts
+### 1.1 [보안] AI 어시스턴트가 보안 기준을 바꾸고 있다
 
 {% include news-card.html
-  title="[보안] How AI Assistants are Moving the Security Goalposts"
+  title="[보안] AI 어시스턴트가 보안 기준을 바꾸고 있다"
   url="https://krebsonsecurity.com/2026/03/how-ai-assistants-are-moving-the-security-goalposts/"
-  summary="AI-based assistants or &quot;agents&quot; -- autonomous programs that have access to the user's computer, files, online services and can automate virtually any task -- are growing in popularity with developers"
+  summary="사용자의 컴퓨터·파일·온라인 서비스에 접근하고 거의 모든 작업을 자동화할 수 있는 자율 프로그램인 AI 어시스턴트(에이전트)가 개발자와 IT 종사자들 사이에서 빠르게 확산되고 있습니다."
   source="Krebs on Security"
 %}
 
 #### 개요
 
-AI-based assistants or "agents" -- autonomous programs that have access to the user's computer, files, online services and can automate virtually any task -- are growing in popularity with developers and IT workers.
+사용자의 컴퓨터·파일·온라인 서비스에 접근하고 거의 모든 작업을 자동화할 수 있는 자율 프로그램인 AI 어시스턴트(에이전트)가 개발자와 IT 종사자들 사이에서 빠르게 확산되고 있습니다.
 
 **실무 포인트**: 보안 영향도를 평가하고 필요 시 대응 조치를 수행하세요.
 
@@ -130,19 +130,19 @@ AI-based assistants or "agents" -- autonomous programs that have access to the u
 
 ## 2. 블록체인 뉴스
 
-### 2.1 [블록체인] Crypto regulatory clarity matters more for banks, ex-CFTC
+### 2.1 [블록체인] 은행에게 암호화폐 규제 명확성이 더 중요 — 전 CFTC 위원장
 
 {% include news-card.html
-  title="[블록체인] Crypto regulatory clarity matters more for banks, ex-CFTC"
+  title="[블록체인] 은행에게 암호화폐 규제 명확성이 더 중요 — 전 CFTC 위원장"
   url="https://cointelegraph.com/news/us-banks-need-crypto-regulatory-clarity-giancarlo-cftc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YjA0NTctN2FkYy03MTdlLWIyOWUtNjk5MjkwYzQ3NTc3.jpg"
-  summary="If the CLARITY Act fails to pass, Giancarlo said he expects Paul Atkins at the SEC and Mike Selig at the CFTC will likely write rules to create clarity for the industry."
+  summary="CLARITY Act이 통과되지 않을 경우, Giancarlo 전 위원장은 SEC의 Paul Atkins와 CFTC의 Mike Selig가 업계에 명확한 규제 기준을 만들기 위한 규정을 마련할 것으로 예상한다고 밝혔습니다."
   source="Cointelegraph"
 %}
 
 #### 개요
 
-If the CLARITY Act fails to pass, Giancarlo said he expects Paul Atkins at the SEC and Mike Selig at the CFTC will likely write rules to create clarity for the industry.
+CLARITY Act이 통과되지 않을 경우, Giancarlo 전 위원장은 SEC의 Paul Atkins와 CFTC의 Mike Selig가 업계에 명확한 규제 기준을 만들기 위한 규정을 마련할 것으로 예상한다고 밝혔습니다.
 
 **실무 포인트**: 관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요.
 
@@ -151,19 +151,19 @@ If the CLARITY Act fails to pass, Giancarlo said he expects Paul Atkins at the S
 
 ---
 
-### 2.2 [블록체인] Saylor signals another Bitcoin buy as BTC hovers near $66K
+### 2.2 [블록체인] Saylor, BTC $66K 근처에서 추가 매수 신호
 
 {% include news-card.html
-  title="[블록체인] Saylor signals another Bitcoin buy as BTC hovers near $66K"
+  title="[블록체인] Saylor, BTC $66K 근처에서 추가 매수 신호"
   url="https://cointelegraph.com/news/saylor-signals-bitcoin-buy-btc-near-66k?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YWZmOTctOTNhYS03YTA1LTg1NGQtZjVmNmVmNTQ5OGNm.jpg"
-  summary="Strategy's Bitcoin treasury is valued at over $48.4 billion at the time of this writing, but with a net asset value of less than 1, it's trading at a discount."
+  summary="Strategy의 비트코인 보유량은 작성 시점 기준 484억 달러 이상으로 평가되지만, 순자산가치(NAV) 배수가 1 미만으로 할인 거래 중입니다."
   source="Cointelegraph"
 %}
 
 #### 개요
 
-Strategy's Bitcoin treasury is valued at over $48.4 billion at the time of this writing, but with a net asset value of less than 1, it's trading at a discount.
+Strategy의 비트코인 보유량은 작성 시점 기준 484억 달러 이상으로 평가되지만, 순자산가치(NAV) 배수가 1 미만으로 할인 거래 중입니다.
 
 **실무 포인트**: 가격 변동에 따른 보안 위협(피싱/스캠) 증가에 대비하세요.
 
@@ -172,19 +172,19 @@ Strategy's Bitcoin treasury is valued at over $48.4 billion at the time of this 
 
 ---
 
-### 2.3 [블록체인] Brazil's Pix instant payments system expands to Argentina
+### 2.3 [블록체인] 브라질 Pix 즉시결제 시스템, 아르헨티나로 확장
 
 {% include news-card.html
-  title="[블록체인] Brazil's Pix instant payments system expands to Argentina"
+  title="[블록체인] 브라질 Pix 즉시결제 시스템, 아르헨티나로 확장"
   url="https://cointelegraph.com/news/brazil-pix-payments-expand-argentina?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2NlYjEtZTMwZC03M2ZkLWI1NTItNjkzYzczNjY4MzEzLmpwZw==.jpg"
-  summary="The Pix payment system is credited with driving crypto adoption in Argentina, according to a report from the Lemon crypto application."
+  summary="Lemon 암호화폐 애플리케이션의 보고서에 따르면, Pix 결제 시스템이 아르헨티나의 암호화폐 도입을 촉진한 주요 요인으로 평가받고 있습니다."
   source="Cointelegraph"
 %}
 
 #### 개요
 
-The Pix payment system is credited with driving crypto adoption in Argentina, according to a report from the Lemon crypto application.
+Lemon 암호화폐 애플리케이션의 보고서에 따르면, Pix 결제 시스템이 아르헨티나의 암호화폐 도입을 촉진한 주요 요인으로 평가받고 있습니다.
 
 **실무 포인트**: 관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요.
 
@@ -220,7 +220,7 @@ The Pix payment system is credited with driving crypto adoption in Argentina, ac
 
 ### P0 (즉시)
 
-- [ ] **[보안] How AI Assistants are Moving the Security Goalposts** 관련 보안 영향도 분석 및 모니터링 강화
+- [ ] **[보안] AI 어시스턴트가 보안 기준을 바꾸고 있다** 관련 보안 영향도 분석 및 모니터링 강화
 
 ### P1 (7일 내)
 
