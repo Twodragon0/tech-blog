@@ -60,6 +60,8 @@ toc: true
 
 <img src="{{ '/assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg' | relative_url }}" alt="DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era Security Strategy" loading="lazy" class="post-image">
 
+![DevSecOps Section Banner](/assets/images/section-devsecops.svg)
+
 ## 서론
 
 자동차 산업은 급속한 디지털 전환을 겪고 있습니다. **커넥티드 카(Connected Car)**, **자율주행(Autonomous Driving)**, **전기차(EV)** 기술의 발전으로 현대 자동차는 수억 줄의 코드와 수백 개의 ECU(Electronic Control Unit)로 구성된 복잡한 소프트웨어 시스템이 되었습니다.

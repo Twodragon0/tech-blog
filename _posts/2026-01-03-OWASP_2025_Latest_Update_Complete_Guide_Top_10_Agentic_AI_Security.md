@@ -44,6 +44,8 @@ toc: true
 
 <img src="{{ '/assets/images/2026-01-03-OWASP_2025_Complete_Guide_Top_10_AI_Security.svg' | relative_url }}" alt="OWASP 2025 Latest Update Complete Guide: Top 10 and Agentic AI Security" loading="lazy" class="post-image">
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 서론
 
 2025년은 OWASP(Open Web Application Security Project) 커뮤니티에 있어 중요한 전환점이었습니다. 4년 만에 발표된 **OWASP Top 10 2025**는 애플리케이션 보안 분야의 새로운 위협을 반영하며, 특히 **소프트웨어 공급망 공격**과 **AI 보안**에 대한 관심이 크게 증가했습니다.

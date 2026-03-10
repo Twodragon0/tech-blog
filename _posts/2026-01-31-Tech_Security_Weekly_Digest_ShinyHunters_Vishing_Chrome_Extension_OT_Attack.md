@@ -99,6 +99,8 @@ toc: true
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. ShinyHunters Vishing 공격: SaaS MFA 우회 심층 분석
 
 ### 1.1 개요
@@ -144,6 +146,8 @@ Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters**
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 7. 실무 체크리스트
 
 ### P0 - 즉시 조치 (24시간 이내)
@@ -168,6 +172,8 @@ Google 산하 **Mandiant**가 금전적 동기의 해킹 그룹 **ShinyHunters**
 - [ ] **비싱 시뮬레이션**: 보안 인식 교육에 비싱 시나리오 추가
 
 ---
+
+![Security News Section Banner](/assets/images/section-security.svg)
 
 ## 8. 참고 자료 (References)
 

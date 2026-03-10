@@ -70,6 +70,8 @@ toc: true
   audience='보안 엔지니어, DevOps 엔지니어, 클라우드 보안 전문가, DevSecOps 실무자'
 -%}
 
+![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

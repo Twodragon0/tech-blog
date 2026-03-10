@@ -57,6 +57,8 @@ toc: true
   audience='보안 엔지니어, DevSecOps 엔지니어, AI/ML 엔지니어, 클라우드 아키텍트, CISO'
 -%}
 
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
+
 ## 서론
 
 AI 에이전트가 사람 대신 도구를 호출하고, 코드를 실행하고, 외부 API를 연동하는 일이 일상이 됐다. 단순한 질의응답을 넘어 자율적으로 판단하고 행동하는 에이전트가 프로덕션 환경에 투입되면서, 보안 위협의 성격 자체가 바뀌고 있다.

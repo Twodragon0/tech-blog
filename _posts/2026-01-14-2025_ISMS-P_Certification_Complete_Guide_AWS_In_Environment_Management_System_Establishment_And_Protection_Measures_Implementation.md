@@ -60,6 +60,8 @@ toc: true
 
 ![ISMS-P Certification Complete Guide](/assets/images/2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_Environment_Management_System_Establishment_and_Protection_Measures_Implementation.svg)
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 경영진 요약: ISMS-P 인증 준비도 평가
 
 ### 인증 준비도 자가 진단

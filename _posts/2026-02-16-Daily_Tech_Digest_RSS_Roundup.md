@@ -43,6 +43,8 @@ toc: true
   audience="DevOps/DevSecOps 엔지니어, 제품/플랫폼 리더, 데이터·AI 팀, 보안 담당자"
 %}
 
+![DevSecOps Section Banner](/assets/images/section-devsecops.svg)
+
 ## 오늘의 빠른 보기
 
 | 분야 | 핵심 이슈 | 영향 |

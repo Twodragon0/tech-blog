@@ -40,6 +40,8 @@ toc: true
   audience="보안 담당자, DevSecOps 엔지니어, SRE"
 %}
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 경영진 요약
 
 - P1 **Kimwolf 봇넷**: I2P 익명망을 오염시켜 C2/DDoS 트래픽을 위장, 내부 단말·게이트웨이 악용 위험.

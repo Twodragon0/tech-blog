@@ -103,6 +103,8 @@ toc: true
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 1. AI AI 에이전트 보안: 어떤 위협이 있는가?
 
 ### 1.1 배경: AI 코딩 에이전트의 보안 위협은 왜 심각한가?
@@ -354,6 +356,8 @@ Extension Attribute 스크립트는 `/usr/local/bin/ai`, `~/.moltbot/`, `~/.claw
 Jamf Pro API를 통해 Extension Attribute 결과를 주기적으로 수집하고 Splunk 또는 Elastic으로 전달하면, AI 에이전트 설치 탐지 알림을 자동화할 수 있습니다. Jamf Pro Webhooks와 SIEM HTTP Event Collector를 연동하는 방법은 [Jamf Pro API 문서](https://developer.jamf.com/jamf-pro/docs)를 참조하세요.
 
 ---
+
+![Security News Section Banner](/assets/images/section-security.svg)
 
 ## 2. MDM 앱 비활성화: 어떤 MDM을 선택해야 하는가?
 

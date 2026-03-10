@@ -48,6 +48,8 @@ toc: true
   <figcaption>Claude Code & OpenCode 38가지 Best Practice 가이드 개요</figcaption>
 </figure>
 
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

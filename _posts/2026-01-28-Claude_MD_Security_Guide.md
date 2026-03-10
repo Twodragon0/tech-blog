@@ -53,6 +53,8 @@ toc: true
   audience='AI 에이전트 활용 개발자, DevSecOps 엔지니어, 보안 담당자, 플랫폼 엔지니어'
 -%}
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

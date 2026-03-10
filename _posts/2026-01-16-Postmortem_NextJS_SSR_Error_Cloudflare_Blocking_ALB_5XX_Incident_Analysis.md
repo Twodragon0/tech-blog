@@ -57,6 +57,8 @@ toc: true
   audience='SRE, 인시던트 대응 담당자, 프론트엔드 개발자, 운영 엔지니어'
 -%}
 
+![DevOps Platform News Section Banner](/assets/images/section-devops.svg)
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다. 이번 포스팅에서는 Next.js SSR 환경에서 발생한 인시던트 대응에 대해 실무 중심으로 정리합니다.

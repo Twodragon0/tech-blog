@@ -51,6 +51,8 @@ toc: true
   audience='보안 담당자, CISO, DevSecOps 엔지니어, SOC 분석가, 침해사고대응팀(CERT)'
 -%}
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.

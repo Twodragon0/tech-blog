@@ -70,6 +70,8 @@ toc: true
 
 <img src="{{ '/assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg' | relative_url }}" alt="2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis" loading="lazy" class="post-image">
 
+![DevSecOps Section Banner](/assets/images/section-devsecops.svg)
+
 ## 서론
 
 안녕하세요, Twodragon입니다.

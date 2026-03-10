@@ -74,6 +74,8 @@ toc: true
 
 <img src="{{ '/assets/images/2026-01-01-Tesla_FSD_2026_Complete_Guide_Model_Y_Juniper_Security_DevSecOps.svg' | relative_url }}" alt="Tesla FSD 2026 Complete Guide: Model Y Juniper Cost Hardware Security from DevSecOps Perspective" loading="lazy" class="post-image">
 
+![DevSecOps Section Banner](/assets/images/section-devsecops.svg)
+
 ## 서론
 
 2026년을 맞이하여 테슬라의 Full Self-Driving (FSD) 시스템은 새로운 전환점을 맞이했습니다. **FSD v14.2.1**의 출시와 함께 **Model Y Juniper**의 등장은 자율주행 기술의 새로운 시대를 열었습니다. 하지만 기술의 발전과 함께 **자동차 보안**에 대한 관심도 급증하고 있으며, DevSecOps 엔지니어로서 이러한 시스템의 보안 아키텍처와 취약점을 이해하는 것이 중요합니다.

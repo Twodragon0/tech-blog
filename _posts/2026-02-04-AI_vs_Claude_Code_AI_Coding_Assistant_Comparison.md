@@ -63,6 +63,8 @@ toc: true
   <figcaption>그림 1: AI vs Claude Code 비교 프레임워크 - 보안/운영/비용 관점</figcaption>
 </figure>
 
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
+
 ## 1. 정정된 개요: AI와 Claude Code의 실체
 
 안녕하세요, **Twodragon**입니다.

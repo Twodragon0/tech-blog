@@ -156,6 +156,8 @@ Zero Trust for AI Agents - NHI Management Strategy:
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 5. 이번 주 핵심 테마 분석
 
 ### 5.1 VS Code = 새로운 공격 벡터
@@ -188,6 +190,8 @@ ACME 프로토콜 기반 인증서 자동화의 보안 점검 필요:
 
 ---
 
+![Security News Section Banner](/assets/images/section-security.svg)
+
 ## 6. 실무 체크리스트
 
 ### 즉시 조치 항목
@@ -205,6 +209,8 @@ ACME 프로토콜 기반 인증서 자동화의 보안 점검 필요:
 - [ ] 클라우드 인프라 변경 이력
 
 ---
+
+![Security News Section Banner](/assets/images/section-security.svg)
 
 ## 7. 위협 헌팅 쿼리 모음
 

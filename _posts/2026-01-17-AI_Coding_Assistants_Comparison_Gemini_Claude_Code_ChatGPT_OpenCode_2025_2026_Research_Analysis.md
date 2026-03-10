@@ -61,6 +61,8 @@ toc: true
   audience='소프트웨어 엔지니어, DevSecOps 엔지니어, AI 연구자, 개발자'
 -%}
 
+![AI ML News Section Banner](/assets/images/section-ai-ml.svg)
+
 ## 서론
 
 안녕하세요, **Twodragon**입니다.
