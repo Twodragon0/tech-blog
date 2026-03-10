@@ -80,7 +80,7 @@ toc: true
   title="개요"
   url="https://thehackernews.com/2026/02/hackers-exploit-metro4shell-rce-flaw-in.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoY39EkJj9fch5nmhH8FbZrt87Lvt1bszbWtMThQ0yaemkia0K_avsYUK1pNT5jcN7vYoL0rK_y-17LQ3silMU-Jg0UixiFlceBjUcwng2z17B-W4HZnUEzoMHuecgNwRezisydmEGOG26RxF9u9UEof0KPmQIp4Y2QlDLaxPb6TFq7C8rkAn1CzW9y18Z/s1700-e365/react.jpg"
-  summary="위협 행위자들이 널리 사용되는 `@react-native-community/cli` npm 패키지의 **Metro Development Server**에 존재하는 치명적 보안 결함을 적극적으로 악용하고 있습니다. 사이버 보안 기업 **VulnCheck**은 2025년 12월 21일에 **CVE-2025-11953**(Metro4Shell)의 최초 악용을..."
+  summary="위협 행위자들이 널리 사용되는 `@react-native-community/cli` npm 패키지의 Metro Development Server에 존재하는 치명적 보안 결함을 적극적으로 악용하고 있습니다. 사이버 보안 기업 VulnCheck은 2025년 12월 21일에 CVE-2025-11953(Metro4Shell)의 최초 악용을..."
   source="The Hacker News"
 -%}
 
@@ -101,7 +101,6 @@ toc: true
 
 **EPSS (Exploit Prediction Scoring System)**: FIRST에서 개발한 취약점 악용 가능성 예측 지표. 0.42는 향후 30일 내 실제 공격으로 악용될 확률이 42%임을 의미하며, 이는 매우 높은 수치입니다.
 
-> **출처**: [The Hacker News](https://thehackernews.com/2026/02/hackers-exploit-metro4shell-rce-flaw-in.html)
 
 ### 1.2 CVSS 9.8 점수 근거
 
@@ -236,7 +235,7 @@ AWS IAM Identity Center의 **멀티리전 복제** 기능은 중앙 집중식 ID
   title="[보안] 개요"
   url="https://www.docker.com/blog/the-3cs-a-framework-for-ai-agent-security/"
   image="https://www.docker.com/app/uploads/2025/03/image.png"
-  summary="**Docker**가 AI 에이전트 보안을 위한 **3Cs 프레임워크**를 발표했습니다. 실행 모델이 변할 때마다 보안 프레임워크도 함께 변해야 한다는 원칙 아래, AI 에이전트가 가져오는 새로운 보안 패러다임을 정의합니다. Docker는 이를 &quot;무인 노트북 문제(Unattended Laptop Problem)&quot;에 비유합니다."
+  summary="Docker가 AI 에이전트 보안을 위한 3Cs 프레임워크를 발표했습니다. 실행 모델이 변할 때마다 보안 프레임워크도 함께 변해야 한다는 원칙 아래, AI 에이전트가 가져오는 새로운 보안 패러다임을 정의합니다. Docker는 이를 &quot;무인 노트북 문제(Unattended Laptop Problem)&quot;에 비유합니다."
   source="Docker Blog"
 -%}
 
@@ -252,7 +251,6 @@ AWS IAM Identity Center의 **멀티리전 복제** 기능은 중앙 집중식 ID
 | **대상** | AI 에이전트를 배포하는 모든 조직 |
 | **핵심 원리** | 최소 권한, 격리, 자격증명 관리 |
 
-> **출처**: [Docker Blog](https://www.docker.com/blog/the-3cs-a-framework-for-ai-agent-security/)
 
 ### 3.2 3Cs 모델 상세
 

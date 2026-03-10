@@ -340,7 +340,6 @@ diagnose sys ha history read | grep policy
 
 Google Cloud Composer가 Apache Airflow 3.1을 지원하기 시작했습니다. 이는 하이퍼스케일러 최초입니다.
 
-> **출처**: [Improving workflow orchestration with Apache Airflow 3.1 in Cloud Composer](https://cloud.google.com/blog/products/data-analytics/cloud-composer-supports-apache-airflow-31/)
 
 #### 주요 개선 사항
 
@@ -364,7 +363,6 @@ Google Cloud Composer가 Apache Airflow 3.1을 지원하기 시작했습니다. 
 
 Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 에이전틱 시스템 모니터링이 가능해졌습니다.
 
-> **출처**: [Monitoring Google ADK agentic applications with Datadog LLM Observability](https://cloud.google.com/blog/products/management-tools/datadog-integrates-agent-development-kit-or-adk/)
 
 #### 모니터링 아키텍처
 

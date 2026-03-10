@@ -258,7 +258,6 @@ SK쉴더스 EQST(Experts, Qualified Security Team)가 11월 한 달간 수집한
 - 거래소/커스터디 서비스 운영 시 유동성 취약 시간대의 자동 청산 임계값 검토
 - 온체인 모니터링 도구(Glassnode, CryptoQuant 등)를 활용한 대형 이동 알림 설정
 
-> **출처**: [Bitcoin Magazine](https://bitcoinmagazine.com/markets/bitcoin-price-crashes-below-65000)
 
 ---
 
@@ -293,7 +292,6 @@ SK쉴더스 EQST(Experts, Qualified Security Team)가 11월 한 달간 수집한
 - Chainalysis/Elliptic 등 온체인 분석 도구의 제재 대상 주소 DB 최신 업데이트 확인
 - OFAC SDN(Specially Designated Nationals) 리스트 정기 업데이트 프로세스 구축
 
-> **출처**: [Cointelegraph](https://cointelegraph.com/news/crypto-exchange-network-helping-russia-skirt-sanctions-elliptic?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
 ---
 

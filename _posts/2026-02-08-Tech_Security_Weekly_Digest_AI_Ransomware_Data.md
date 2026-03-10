@@ -157,7 +157,6 @@ SK쉴더스 EQST 리포트는 실무 중심의 상세한 분석과 기술적 가
 - 비트코인 및 주요 알트코인의 가격 상승 가능성
 - 스테이블코인 유동성 확대 및 DeFi 생태계 활성화 기대
 
-> **출처**: [Cointelegraph](https://cointelegraph.com/news/23expect-interest-rate-cut-fomc-march?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
 ---
 
@@ -179,7 +178,6 @@ SK쉴더스 EQST 리포트는 실무 중심의 상세한 분석과 기술적 가
 - 은행 수준의 자본 요건 및 규제 준수 의무 부과
 - 기존 암호화폐 네이티브 발행사와 전통 금융기관 간 경쟁 심화 예상
 
-> **출처**: [Cointelegraph](https://cointelegraph.com/news/cftc-stablecoins-national-trust-banks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound)
 
 ---
 
@@ -192,7 +190,6 @@ Tether가 터키 당국과 협력하여 불법 온라인 베팅 사이트와 연
 - 암호화폐의 불법 사용 차단을 위한 기술적 조치 확대
 - 중앙화된 스테이블코인의 장단점 재조명
 
-> **출처**: Cointelegraph
 
 ---
 
